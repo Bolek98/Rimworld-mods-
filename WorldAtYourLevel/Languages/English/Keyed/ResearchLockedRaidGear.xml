@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RLRG_Enable>Enable filter</RLRG_Enable>
+  <RLRG_Enable_Desc>Outsiders only arrive with gear your colony has researched.</RLRG_Enable_Desc>
+  <RLRG_UseRecipes>Recipes count as research</RLRG_UseRecipes>
+  <RLRG_UseRecipes_Desc>An item is unlocked when the research for at least one recipe that makes it is done.</RLRG_UseRecipes_Desc>
+  <RLRG_BlockHigherTech>Block items above colony tech level</RLRG_BlockHigherTech>
+  <RLRG_BlockHigherTech_Desc>Items without research are only allowed up to your colony's researched tech level.</RLRG_BlockHigherTech_Desc>
+  <RLRG_BlockUntagged>Block mod items without research</RLRG_BlockUntagged>
+  <RLRG_BlockUntagged_Desc>Weapons and apparel from other mods with no research are treated as locked.</RLRG_BlockUntagged_Desc>
+  <RLRG_FilterAll>Filter all arrivals</RLRG_FilterAll>
+  <RLRG_FilterAll_Desc>Raids, visitors, caravans and quests. When off, only hostiles and attackers.</RLRG_FilterAll_Desc>
+  <RLRG_SkipTraders>Skip traders</RLRG_SkipTraders>
+  <RLRG_SkipTraders_Desc>Traders keep their gear.</RLRG_SkipTraders_Desc>
+  <RLRG_FilterApparel>Filter apparel and armor</RLRG_FilterApparel>
+  <RLRG_FilterInventory>Filter inventory</RLRG_FilterInventory>
+  <RLRG_FilterInventory_Desc>Weapons and apparel in the inventory (for example sidearms).</RLRG_FilterInventory_Desc>
+  <RLRG_Replace>Replace with closest researched item</RLRG_Replace>
+  <RLRG_Replace_Desc>A locked item is replaced with a similar allowed one, with the same quality and wear.</RLRG_Replace_Desc>
+  <RLRG_Drop>Leave locked items on the ground</RLRG_Drop>
+  <RLRG_Drop_Desc>Raiders carry locked items in their inventory – you get them as loot when you beat them. Visitors and traders leave nothing behind. Otherwise the locked item disappears.</RLRG_Drop_Desc>
+  <RLRG_ExemptAncients>Skip ancient dangers and cryptosleepers</RLRG_ExemptAncients>
+  <RLRG_ExemptAncients_Desc>Their gear is part of the reward for opening them.</RLRG_ExemptAncients_Desc>
+  <RLRG_KeepTitleApparel>Nobles keep required apparel</RLRG_KeepTitleApparel>
+  <RLRG_KeepTitleApparel_Desc>Apparel required by a royal title or an ideoligion role is not removed.</RLRG_KeepTitleApparel_Desc>
+  <RLRG_DamageDropped>Damage dropped items</RLRG_DamageDropped>
+  <RLRG_DamageDropped_Desc>Locked items left on the ground have only 20–50% durability and apparel is marked as worn by a corpse. Prevents easy profit from selling them.</RLRG_DamageDropped_Desc>
+  <RLRG_Compensate>Compensate raid strength</RLRG_Compensate>
+  <RLRG_Compensate_Desc>When raiders lose part of their gear, the raid gets extra raiders so the difficulty stays balanced.</RLRG_Compensate_Desc>
+  <RLRG_CompensationPct>Compensation strength: {0}%</RLRG_CompensationPct>
+  <RLRG_CompensationPct_Desc>How much of the lost gear is made up for with extra raiders. A raid can get at most 50% more points.</RLRG_CompensationPct_Desc>
+  <RLRG_TechAhead>Tech level tolerance: +{0}</RLRG_TechAhead>
+  <RLRG_TechAhead_Desc>Outsiders may have items up to this many tech levels above your colony, even without research. 0 = researched items only.</RLRG_TechAhead_Desc>
+  <RLRG_KeepChance>Chance to keep a locked item: {0}%</RLRG_KeepChance>
+  <RLRG_KeepChance_Desc>With this chance a pawn keeps a locked item. The result is remembered, so it isn't rolled again next time.</RLRG_KeepChance_Desc>
+  <RLRG_ExemptFactions>Exempt factions (checked keep their gear):</RLRG_ExemptFactions>
+  <RLRG_NotifyRaid>Notify when a raid arrives</RLRG_NotifyRaid>
+  <RLRG_NotifyRaid_Desc>A message in the top left showing how much gear raiders lost and how many were added.</RLRG_NotifyRaid_Desc>
+  <RLRG_OpenList>Gear overview and manual bans...</RLRG_OpenList>
+  <RLRG_Biocode>Biocode replacements</RLRG_Biocode>
+  <RLRG_Biocode_Desc>Replacement items are biocoded to their wearer, so you can't use them after the fight and they sell for less. Only works for items that support biocoding (mostly advanced weapons).</RLRG_Biocode_Desc>
+  <RLRG_Years>Unlock over time: +1 level per {0} years</RLRG_Years>
+  <RLRG_Years_Desc>Raiders gradually get better gear even without your research. Adds to the tech level tolerance.</RLRG_Years_Desc>
+  <RLRG_YearsOff>Unlock over time: off</RLRG_YearsOff>
+  <RLRG_MsgRaid>Raiders lost {0}% of their gear.</RLRG_MsgRaid>
+  <RLRG_MsgRaidCompensated>Raiders lost {0}% of their gear. Raid reinforced with {1} extra raiders.</RLRG_MsgRaidCompensated>
+  <RLRG_TabWeapons>Weapons</RLRG_TabWeapons>
+  <RLRG_TabApparel>Apparel and armor</RLRG_TabApparel>
+  <RLRG_Search>Search:</RLRG_Search>
+  <RLRG_ListHint>Checked items are never given to outsiders. Status shows what they may have right now.</RLRG_ListHint>
+  <RLRG_ListNoGame>Checked items are never given to outsiders. Load a game to see the current status.</RLRG_ListNoGame>
+  <RLRG_StatusBanned>Banned</RLRG_StatusBanned>
+  <RLRG_StatusAllowed>Allowed</RLRG_StatusAllowed>
+  <RLRG_StatusLocked>Locked</RLRG_StatusLocked>
+  <RLRG_Ex_Allowed>Allowed</RLRG_Ex_Allowed>
+  <RLRG_Ex_Locked>Locked</RLRG_Ex_Locked>
+  <RLRG_Ex_Always>Always requires: {0}</RLRG_Ex_Always>
+  <RLRG_Ex_Option>Crafting: {0}</RLRG_Ex_Option>
+  <RLRG_Ex_Free>Can be crafted without research</RLRG_Ex_Free>
+  <RLRG_Ex_NoResearch>No research (tech level and the mod item rule decide)</RLRG_Ex_NoResearch>
+  <RLRG_Ex_Tech>Tech level: {0} (limit: {1})</RLRG_Ex_Tech>
+  <RLRG_Ex_Mod>Mod: {0}</RLRG_Ex_Mod>
+  <RLRG_Ex_Done>done</RLRG_Ex_Done>
+  <RLRG_Ex_Missing>missing</RLRG_Ex_Missing>
+  <RLRG_TechMismatch>Check items more advanced than their research</RLRG_TechMismatch>
+  <RLRG_TechMismatch_Desc>When a mod puts an advanced item under lower research (a spacer rifle under industrial research), the colony must also reach that item's tech level.</RLRG_TechMismatch_Desc>
+  <RLRG_PowerEstimate>Estimate mod item tech level from power</RLRG_PowerEstimate>
+  <RLRG_PowerEstimate_Desc>A mod weapon or armor clearly stronger than the best vanilla industrial one counts as spacer, even if the mod author set a lower level. This is an estimate.</RLRG_PowerEstimate_Desc>
+  <RLRG_Ex_Power>Power matches tech level: {0}</RLRG_Ex_Power>
+  <RLRG_Ex_NeedColony>Colony must reach tech level: {0}</RLRG_Ex_NeedColony>
+  <RLRG_LevelByProgress>Colony level by research progress</RLRG_LevelByProgress>
+  <RLRG_LevelByProgress_Desc>The colony reaches a tech level once it has finished the set share of that level's research. Off = the highest finished research decides (a single one is enough). The scenario level always counts as a minimum.</RLRG_LevelByProgress_Desc>
+  <RLRG_LevelProgress>Required share of a level's research: {0}%</RLRG_LevelProgress>
+  <RLRG_LevelProgress_Desc>How much of a level's research must be finished for the colony to count as that level.</RLRG_LevelProgress_Desc>
+  <RLRG_CurrentLevel>Colony level now: {0} (scenario: {1}, research: {2})</RLRG_CurrentLevel>
+  <RLRG_WorldHeader>World at colony level</RLRG_WorldHeader>
+  <RLRG_WorldRaids>Raids only from factions up to world level</RLRG_WorldRaids>
+  <RLRG_WorldRaids_Desc>Factions more advanced than the world level (your level + tolerance) can't send raids. Exempt factions from the list below are not limited.</RLRG_WorldRaids_Desc>
+  <RLRG_WorldMechs>Also limit mechanoids and insects</RLRG_WorldMechs>
+  <RLRG_WorldMechs_Desc>By default mechanoids and insects are not limited. When on, mechanoid raids and mech clusters won't come until the world reaches their level.</RLRG_WorldMechs_Desc>
+  <RLRG_WorldItems>Traders, rewards and loot up to world level</RLRG_WorldItems>
+  <RLRG_WorldItems_Desc>Items above world level are removed from trader stock, quest rewards and loot. Weapons and apparel follow the same rules as outsiders' gear.</RLRG_WorldItems_Desc>
+  <RLRG_WorldIncidents>Incidents up to world level</RLRG_WorldIncidents>
+  <RLRG_WorldIncidents_Desc>Ship part crashes, ship chunks, orbital traders and (with mechanoids) mech clusters won't happen until the world reaches their level.</RLRG_WorldIncidents_Desc>
+  <RLRG_WorldMessages>Message when world level changes</RLRG_WorldMessages>
+  <RLRG_WorldUp>The world advanced to tech level: {0}.</RLRG_WorldUp>
+  <RLRG_WorldDown>World tech level is now: {0}.</RLRG_WorldDown>
+  <RLRG_WorldQuests>Quests up to world level</RLRG_WorldQuests>
+  <RLRG_WorldQuests_Desc>Random storyteller quests involving a faction more advanced than the world (attacker, ally, quest giver) are silently dropped. Quests tied to advanced tech (archotech, gravships, with mechanoids also mech quests) are not offered. Rewards follow research like traders. Story quests and ceremonies are never blocked.</RLRG_WorldQuests_Desc>
+  <RLRG_TabWorld>World level</RLRG_TabWorld>
+  <RLRG_TabArrivals>Raiders and arrivals</RLRG_TabArrivals>
+  <RLRG_TabRules>Research rules</RLRG_TabRules>
+  <RLRG_TabFilters>World filters</RLRG_TabFilters>
+  <RLRG_TabFactions>Factions</RLRG_TabFactions>
+  <RLRG_WorldLevelNow>World level now (with tolerance): {0}</RLRG_WorldLevelNow>
+  <RLRG_ManualLevel>Set world level manually</RLRG_ManualLevel>
+  <RLRG_ManualLevel_Desc>The world level isn't calculated from research; the one you pick applies exactly, without tolerance or unlock over time.</RLRG_ManualLevel_Desc>
+  <RLRG_ManualLevelPick>World level: {0}</RLRG_ManualLevelPick>
+  <RLRG_PerTier>Separate share for each level</RLRG_PerTier>
+  <RLRG_PerTier_Desc>Set separately for each level how much of its research must be finished.</RLRG_PerTier_Desc>
+  <RLRG_PctTier>{0}: {1}%</RLRG_PctTier>
+  <RLRG_LockResearch>Lock higher research</RLRG_LockResearch>
+  <RLRG_LockResearch_Desc>Research more than one level above the world can't be started. You have to advance level by level.</RLRG_LockResearch_Desc>
+  <RLRG_FilterPossessions>Other inventory items above world level</RLRG_FilterPossessions>
+  <RLRG_FilterPossessions_Desc>Arrivals also lose medicine, drugs, components and other items above world level (for traders this includes their goods).</RLRG_FilterPossessions_Desc>
+  <RLRG_FactionOk>may attack</RLRG_FactionOk>
+  <RLRG_FactionAbove>above world level</RLRG_FactionAbove>
+  <RLRG_ReplaceQuests>Replace dropped quest with another</RLRG_ReplaceQuests>
+  <RLRG_ReplaceQuests_Desc>Instead of a quest dropped because of the world level, the storyteller immediately tries another suitable one (up to 5 attempts). Quests come as often as usual.</RLRG_ReplaceQuests_Desc>
+  <RLRG_WorldVisitors>Caravans and visitors only up to world level (strict)</RLRG_WorldVisitors>
+  <RLRG_WorldVisitors_Desc>Trader caravans, visitors and travelers only come from factions up to the world level. WARNING: with modded spacer factions almost no traders may come. When off (recommended), they come from all factions, but their goods and gear are filtered by world level.</RLRG_WorldVisitors_Desc>
+  <RLRG_ReplaceEvents>Replace a blocked event with a random one</RLRG_ReplaceEvents>
+  <RLRG_ReplaceEvents_Desc>When the storyteller picks an event the world isn't ready for (orbital trader, ship part crash, ship chunks…), or a raid or caravan finds no suitable faction, a random other event of the same category fires instead. Events come as often as without the mod. Quest events are not changed.</RLRG_ReplaceEvents_Desc>
+  <RLRG_OvTitle>World and events</RLRG_OvTitle>
+  <RLRG_OvStoryteller>Storyteller: {0}, difficulty: {1}</RLRG_OvStoryteller>
+  <RLRG_OvQuests>Quests</RLRG_OvQuests>
+  <RLRG_OvQuestCounts>Ongoing: {0}, waiting for acceptance: {1}</RLRG_OvQuestCounts>
+  <RLRG_OvExpires>expires in {0}</RLRG_OvExpires>
+  <RLRG_OvEvents>Events</RLRG_OvEvents>
+  <RLRG_OvEventsHint>The storyteller picks events randomly, so the exact time of the next one can't be known. The estimate is based on the average gap between events in this game and gets better the longer you play.</RLRG_OvEventsHint>
+  <RLRG_OvNoEvents>Nothing recorded yet. Recording starts with this version.</RLRG_OvNoEvents>
+  <RLRG_OvColKind>Kind</RLRG_OvColKind>
+  <RLRG_OvColLast>Last</RLRG_OvColLast>
+  <RLRG_OvCol30>Last 30 days</RLRG_OvCol30>
+  <RLRG_OvColAvg>Avg. gap</RLRG_OvColAvg>
+  <RLRG_OvColNext>Next (estimate)</RLRG_OvColNext>
+  <RLRG_OvDays>{0} d</RLRG_OvDays>
+  <RLRG_OvAgo>{0} d ago</RLRG_OvAgo>
+  <RLRG_OvInDays>≈ in {0} d</RLRG_OvInDays>
+  <RLRG_OvAnyTime>any time</RLRG_OvAnyTime>
+  <RLRG_OvRecent>Last 10 events:</RLRG_OvRecent>
+  <RLRG_WorldCausers>Threats above world level don't stay</RLRG_WorldCausers>
+  <RLRG_WorldCausers_Desc>New things that put a condition on the map (toxic spewer, smoke, weather controller, sun blocker, psychic droner…) above the world level are removed right away – on the map and the world map, even if they belong to mechanoids. Quests that would send such a thing are dropped (storyteller quests are replaced). What already stands stays.</RLRG_WorldCausers_Desc>
+  <RLRG_CauserBlocked>A threat above the world level did not stay: {0}.</RLRG_CauserBlocked>
+  <RLRG_TraderGuarantee>Trader guarantee</RLRG_TraderGuarantee>
+  <RLRG_TraderGuarantee_Desc>If no trader caravan reaches the home colony for a long time, the mod tries to call one. The game then also accepts factions that would otherwise not travel in this temperature. If a caravan cannot come (everyone hostile, blocking group on the map…), the reason is written to the log and a message is shown.</RLRG_TraderGuarantee_Desc>
+  <RLRG_TraderGuaranteeDays>Caravan at the latest after: {0} days</RLRG_TraderGuaranteeDays>
+  <RLRG_TraderGuaranteeDays_Desc>After how many days without a caravan the mod calls one.</RLRG_TraderGuaranteeDays_Desc>
+  <RLRG_Diag_Open>Why don't traders, visitors or threats come?</RLRG_Diag_Open>
+  <RLRG_Diag_Title>Traders and visitors – diagnostics</RLRG_Diag_Title>
+  <RLRG_Diag_NoMap>No home map.</RLRG_Diag_NoMap>
+  <RLRG_Diag_Map>Map: {0}, outdoor temperature {1}, seasonal {2}</RLRG_Diag_Map>
+  <RLRG_Diag_LastTrader>Last trader caravan: {0} days ago</RLRG_Diag_LastTrader>
+  <RLRG_Diag_LastTraderNone>Last trader caravan: none recorded yet</RLRG_Diag_LastTraderNone>
+  <RLRG_Diag_LastVisitor>Last visitors/travelers: {0} days ago</RLRG_Diag_LastVisitor>
+  <RLRG_Diag_GuaranteeOn>Trader guarantee: on (at the latest after {0} days)</RLRG_Diag_GuaranteeOn>
+  <RLRG_Diag_GuaranteeOff>Trader guarantee: off</RLRG_Diag_GuaranteeOff>
+  <RLRG_Diag_Allies>Not hostile: {0} of {1} factions</RLRG_Diag_Allies>
+  <RLRG_Diag_NoAllies>All factions are hostile – the storyteller sends no traders or visitors. Improve relations (gifts, quests, comms console).</RLRG_Diag_NoAllies>
+  <RLRG_Diag_Events>Events:</RLRG_Diag_Events>
+  <RLRG_Diag_Can>can come now</RLRG_Diag_Can>
+  <RLRG_Diag_Cannot>can NOT come now – {0}</RLRG_Diag_Cannot>
+  <RLRG_Diag_R_Missing>event does not exist</RLRG_Diag_R_Missing>
+  <RLRG_Diag_R_Scenario>disabled by scenario</RLRG_Diag_R_Scenario>
+  <RLRG_Diag_R_Difficulty>disabled by difficulty settings</RLRG_Diag_R_Difficulty>
+  <RLRG_Diag_R_Early>too early after settling (from day {0})</RLRG_Diag_R_Early>
+  <RLRG_Diag_R_Target>not allowed for this map</RLRG_Diag_R_Target>
+  <RLRG_Diag_R_Biome>biome not allowed</RLRG_Diag_R_Biome>
+  <RLRG_Diag_R_Recent>happened recently (cooldown)</RLRG_Diag_R_Recent>
+  <RLRG_Diag_R_Condition>prevented by: {0}</RLRG_Diag_R_Condition>
+  <RLRG_Diag_R_NoFaction>no faction can come now (see faction list)</RLRG_Diag_R_NoFaction>
+  <RLRG_Diag_R_OnlyDesperate>storyteller won't send it – factions won't travel in this temperature</RLRG_Diag_R_OnlyDesperate>
+  <RLRG_Diag_R_Other>other reason (probably another mod)</RLRG_Diag_R_Other>
+  <RLRG_Diag_Factions>Factions (trader caravans):</RLRG_Diag_Factions>
+  <RLRG_Diag_F_Ok>can send a caravan</RLRG_Diag_F_Ok>
+  <RLRG_Diag_F_Desperate>only when desperate – outdoor temperature outside {0}</RLRG_Diag_F_Desperate>
+  <RLRG_Diag_F_No>won't come: {0}</RLRG_Diag_F_No>
+  <RLRG_Diag_F_Defeated>defeated</RLRG_Diag_F_Defeated>
+  <RLRG_Diag_F_Hostile>hostile (goodwill {0})</RLRG_Diag_F_Hostile>
+  <RLRG_Diag_F_NoTraders>has no trader caravans</RLRG_Diag_F_NoTraders>
+  <RLRG_Diag_F_Lord>its enemy is on the map: {0}</RLRG_Diag_F_Lord>
+  <RLRG_Diag_F_World>above world level (option "Caravans and visitors only up to world level")</RLRG_Diag_F_World>
+  <RLRG_Diag_F_Temp>temperature outside {0}</RLRG_Diag_F_Temp>
+  <RLRG_Diag_F_Other>other reason (trader kind, planet layer or another mod)</RLRG_Diag_F_Other>
+  <RLRG_Diag_Summon>Call a caravan now (test)</RLRG_Diag_Summon>
+  <RLRG_Diag_SummonOk>A trader caravan is coming.</RLRG_Diag_SummonOk>
+  <RLRG_Diag_SummonFail>Cannot call a caravan: {0}</RLRG_Diag_SummonFail>
+  <RLRG_Diag_ToLog>Write to log</RLRG_Diag_ToLog>
+  <RLRG_Diag_Logged>Diagnostics written to the log.</RLRG_Diag_Logged>
+  <RLRG_Diag_Refresh>Refresh</RLRG_Diag_Refresh>
+  <RLRG_Diag_GuaranteeFailed>Trader guarantee: a caravan could not come ({0}). Details: World tab → Why don't traders come?</RLRG_Diag_GuaranteeFailed>
+  <RLRG_Diag_Title2>Traders, visitors and threats – diagnostics</RLRG_Diag_Title2>
+  <RLRG_Diag_Threats>Threats and raids:</RLRG_Diag_Threats>
+  <RLRG_Diag_ThreatScale>Difficulty: threat scale {0}, big threats allowed: {1}</RLRG_Diag_ThreatScale>
+  <RLRG_Diag_ThreatsOff>WARNING: threats are disabled in the storyteller difficulty – that is why no raids come.</RLRG_Diag_ThreatsOff>
+  <RLRG_Diag_ThreatPoints>Threat points now: {0}</RLRG_Diag_ThreatPoints>
+  <RLRG_Diag_LastThreat>Last storyteller threat: {0} days ago</RLRG_Diag_LastThreat>
+  <RLRG_Diag_LastThreatNone>Last storyteller threat: none recorded yet</RLRG_Diag_LastThreatNone>
+  <RLRG_Diag_Yes>yes</RLRG_Diag_Yes>
+  <RLRG_Diag_No>no</RLRG_Diag_No>
+  <RLRG_Diag_AboveWorld>above world level – replaced by another event</RLRG_Diag_AboveWorld>
+  <RLRG_Diag_Raiders>Hostile factions (raids):</RLRG_Diag_Raiders>
+  <RLRG_Diag_RaidOk>can raid</RLRG_Diag_RaidOk>
+  <RLRG_Diag_RaidWorld>above world level – raids only when nobody else can (gear is filtered)</RLRG_Diag_RaidWorld>
+  <RLRG_Diag_RaidDesperate>only when desperate (temperature / early after settling)</RLRG_Diag_RaidDesperate>
+  <RLRG_Diag_RaidEarly>not yet – raids from day {0}</RLRG_Diag_RaidEarly>
+  <RLRG_Diag_RaidNo>cannot raid (planet layer, strategy or another mod)</RLRG_Diag_RaidNo>
+  <RLRG_Diag_NoRaiders>No hostile faction can send a raid now – there are no hostile factions, or something else blocks all of them.</RLRG_Diag_NoRaiders>
+  <RLRG_FactionsAtWorld>All factions at your colony's level</RLRG_FactionsAtWorld>
+  <RLRG_FactionsAtWorld_Desc>All factions (including spacer and modded ones) act as if they had the same research as you: they can raid, trade, visit and give quests, but every one of their people only has gear you have researched (always filtered, for all arrivals), and traders only sell items up to the world level. Turn off to block factions above the world level completely.</RLRG_FactionsAtWorld_Desc>
+  <RLRG_OnlyCrafted>Others only use what you have crafted</RLRG_OnlyCrafted>
+  <RLRG_OnlyCrafted_Desc>Raiders, visitors, traders and quest pawns may only have weapons and apparel your colony has already crafted at least once (and researched). Anything not crafted yet is removed or replaced with the closest crafted item. With no crafted weapon they get at least a short bow or a club. Goods for sale follow research only. In an ongoing game, colonists' gear and stored items you can craft are taken over once.</RLRG_OnlyCrafted_Desc>
+  <RLRG_CraftedCount>Crafted kinds of weapons and apparel: {0}</RLRG_CraftedCount>
+  <RLRG_MsgCraftedNew>Crafted for the first time: {0} – others can use it now too.</RLRG_MsgCraftedNew>
+  <RLRG_Ex_NotCrafted>Researched, but your colony has not crafted it yet.</RLRG_Ex_NotCrafted>
+  <RLRG_CraftedReset>Clear crafted list</RLRG_CraftedReset>
+  <RLRG_CraftedReset_Desc>Clears the list of crafted weapons and apparel (shared with Smart Colonist Gear). From now on only what the colony crafts counts.</RLRG_CraftedReset_Desc>
+  <RLRG_CraftedResetConfirm>Really clear the crafted gear list? It is cleared in both mods and raiders and colonists may only use gear crafted from now on.</RLRG_CraftedResetConfirm>
+  <RLRG_MsgRaidItems>{0} pieces of gear taken, {1} replaced with a weaker version ({2} raiders).</RLRG_MsgRaidItems>
+  <RLRG_TraderTechBonus>Traders may sell levels higher: {0}</RLRG_TraderTechBonus>
+  <RLRG_TraderTechBonus_Desc>How many tech levels above the world level traders may offer goods. 0 = only up to world level (weapons and apparel by research), 1 = one level higher (e.g. industrial guns in a medieval game) …</RLRG_TraderTechBonus_Desc>
+  <RLRG_TabTraders>Traders</RLRG_TabTraders>
+  <RLRG_TabTraders_Desc>Goods that traders may not sell right now because they are above the world level. Uses the same rule as trader stock.</RLRG_TabTraders_Desc>
+  <RLRG_TraderNoGame>Load a game to see what traders may not sell right now.</RLRG_TraderNoGame>
+  <RLRG_TraderOff>The world items filter is off – traders sell everything.</RLRG_TraderOff>
+  <RLRG_TraderMax>Traders may sell goods up to: {0} (world level {1} + {2})</RLRG_TraderMax>
+  <RLRG_TraderMax_Desc>Traders may sell goods up to the tech level {0} (world level + "Traders may sell levels higher"). Weapons and apparel may also be sold when they are allowed by research. Animals, slaves and goods without a tech level are never removed.</RLRG_TraderMax_Desc>
+  <RLRG_TraderCount>Goods traders may not sell now: {0}</RLRG_TraderCount>
+  <RLRG_TraderBlocked>Not for sale</RLRG_TraderBlocked>
+  <RLRG_TraderBlocked_Desc>Tech level {0} is above what traders may sell now ({1}).</RLRG_TraderBlocked_Desc>
+  <RLRG_TraderBlockedGear>Not for sale (research)</RLRG_TraderBlockedGear>
+  <RLRG_TraderBlockedGear_Desc>Not allowed by research, and tech level {0} is above what traders may sell now ({1}).</RLRG_TraderBlockedGear_Desc>
+  <!-- 2.10.0: Raids tab -->
+  <RLRG_TabRaids>Raids and threats</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Unchecked raids and threats (also from mods: monsters, manhunters, insects, diseases, fallout …) will not happen. Checked = allowed. Changes apply to new raids right away.</RLRG_RaidsIntro>
+  <RLRG_RaidsSummary>{0} of {1} raid types blocked</RLRG_RaidsSummary>
+  <RLRG_RaidsResetAll>Reset all</RLRG_RaidsResetAll>
+  <RLRG_RaidsResetAll_Desc>Allow every raid type again (the default).</RLRG_RaidsResetAll_Desc>
+  <RLRG_RaidsAllowAll>Allow all</RLRG_RaidsAllowAll>
+  <RLRG_RaidsAllowAll_Desc>Allow everything in this group again.</RLRG_RaidsAllowAll_Desc>
+  <RLRG_RaidsGroupCount>blocked {0} / {1}</RLRG_RaidsGroupCount>
+  <RLRG_RaidsGroupIncidents>Threat events</RLRG_RaidsGroupIncidents>
+  <RLRG_RaidsGroupStrategies>Raid strategies</RLRG_RaidsGroupStrategies>
+  <RLRG_RaidsGroupArrivals>Arrival modes</RLRG_RaidsGroupArrivals>
+  <RLRG_RaidsGroupQuests>Random quests – [!] = threat</RLRG_RaidsGroupQuests>
+  <RLRG_RaidsSource>Source: {0}</RLRG_RaidsSource>
+  <RLRG_RaidsAllowedTip>Allowed. Uncheck to stop this from happening.</RLRG_RaidsAllowedTip>
+  <RLRG_RaidsBlockedTip>Blocked: the storyteller will not use this. If every option a raid could use is blocked, the raid falls back to an immediate attack / walking in from the map edge instead of failing.</RLRG_RaidsBlockedTip>
+  <RLRG_MechEscorts>Raiders bring only mechanoids you have researched</RLRG_MechEscorts>
+  <RLRG_MechEscorts_Desc>Human factions (mechanitors in raids) may only bring mechanoids whose gestation you have researched. Unresearched mechs are removed from the group. Pure mechanoid raids are not affected.</RLRG_MechEscorts_Desc>
+  <RLRG_MatchColony>Arrivals carry nothing better than your colony's gear</RLRG_MatchColony>
+  <RLRG_MatchColony_Desc>Everyone who arrives (raiders, visitors, refugees, quest pawns; traders only when not skipped) may only carry gear equal to or weaker than the best your colony has crafted: guns up to your best crafted gun, melee weapons up to your best crafted one (material counts), armor up to your best crafted armor. Ordinary clothes are always fine. Gear must also be truly researched (you must be able to craft it). Fire, explosive and EMP weapons (flamethrowers, explosive arrows…) only once you have crafted that weapon yourself. Better gear is replaced by the closest weaker one, too-good material by ordinary material. Together with "only crafted", weaker gear you never crafted is allowed too – more variety.</RLRG_MatchColony_Desc>
+  <RLRG_MatchQuality>Quality at most your best product</RLRG_MatchQuality>
+  <RLRG_MatchQuality_Desc>Weapons and apparel of arrivals are at most the quality your colony has crafted (separately for weapons and apparel, at least normal).</RLRG_MatchQuality_Desc>
+  <RLRG_MatchMargin>Tolerance: {0} % better</RLRG_MatchMargin>
+  <RLRG_MatchMargin_Desc>How many percent better than yours the gear of others may be. 0 = equal at most.</RLRG_MatchMargin_Desc>
+  <RLRG_MatchNow>Cap now – guns: {0}, melee: {1}, armor: {2}, weapon quality: {3}, apparel quality: {4}</RLRG_MatchNow>
+  <RLRG_ShowHud>Show research level on screen</RLRG_ShowHud>
+  <RLRG_ShowHud_Desc>Bottom right above the date: the colony level and how far the next level is. Hover for details per level, click to open the World tab.</RLRG_ShowHud_Desc>
+  <RLRG_HudLine>Level: {0}</RLRG_HudLine>
+  <RLRG_HudLineNext>{0} → {1} {2} %</RLRG_HudLineNext>
+  <RLRG_HudTipTitle>Research level (World at Your Level)</RLRG_HudTipTitle>
+  <RLRG_HudTipColony>Colony: {0} (scenario: {1}, research: {2})</RLRG_HudTipColony>
+  <RLRG_HudTipWorld>World (with lead/time bonus): {0}</RLRG_HudTipWorld>
+  <RLRG_HudTipTier>{0} {1}: {2}/{3} ({4} %), needed {5}</RLRG_HudTipTier>
+  <RLRG_HudTipClick>Click for the World tab.</RLRG_HudTipClick>
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <RLRG_Rec1>Raiders only carry gear of your tech level</RLRG_Rec1>
+  <RLRG_Rec2>Traders sell items of your level</RLRG_Rec2>
+  <RLRG_Rec3>Quests and rewards match your level</RLRG_Rec3>
+  <RLRG_Rec4>Factions advance together with you</RLRG_Rec4>
+  <RLRG_Rec5>Weaker raider gear is balanced by more raiders</RLRG_Rec5>
+  <RLRG_Rec6>The world level is shown on screen</RLRG_Rec6>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+  <RLRG_RareAdvanced>Rare advanced-tech raid: {0}%</RLRG_RareAdvanced>
+  <RLRG_RareAdvanced_Desc>With this chance a raid brings gear one tech level above your colony. There are fewer raiders (25% fewer points) and their gear stays as loot, so you can discover new tech early. Only when the raiding faction has such gear.</RLRG_RareAdvanced_Desc>
+  <RLRG_RareLowTech>Rare low-tech raid: {0}%</RLRG_RareLowTech>
+  <RLRG_RareLowTech_Desc>With this chance a raid brings gear one tech level below your colony, but with more raiders (35% more points).</RLRG_RareLowTech_Desc>
+  <RLRG_MsgRareAdvanced>The raiders carry unknown technology ({0})! There are fewer of them, but they are better armed.</RLRG_MsgRareAdvanced>
+  <RLRG_MsgRareLowTech>A large raid with outdated gear ({0}).</RLRG_MsgRareLowTech>
+</LanguageData>

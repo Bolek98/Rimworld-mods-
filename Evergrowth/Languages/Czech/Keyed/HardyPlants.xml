@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HardyPlants_Title>Evergrowth – ovládání růstu rostlin</HardyPlants_Title>
+  <HardyPlants_Temperatures>Teploty pro odolné rostliny</HardyPlants_Temperatures>
+  <HardyPlants_TemperaturesDesc>Pod nejnižší teplotou rostlina přestane růst. Odolná rostlina dostane tyto hodnoty jen tam, kde jsou lepší než její vlastní.</HardyPlants_TemperaturesDesc>
+  <HardyPlants_MinGrowth>Nejnižší teplota růstu: {0} (ve hře {1})</HardyPlants_MinGrowth>
+  <HardyPlants_MinOptimal>Plný růst od: {0} (ve hře {1})</HardyPlants_MinOptimal>
+  <HardyPlants_MaxOptimal>Plný růst do: {0} (ve hře {1})</HardyPlants_MaxOptimal>
+  <HardyPlants_MaxGrowth>Nejvyšší teplota růstu: {0} (ve hře {1})</HardyPlants_MaxGrowth>
+  <HardyPlants_Frost>Odolnost vůči mrazu: o {0} chladněji</HardyPlants_Frost>
+  <HardyPlants_FrostDesc>Běžné rostliny shodí listí 10–18 °C pod svou nejnižší teplotou růstu. Odolné vydrží o tolik víc.</HardyPlants_FrostDesc>
+  <HardyPlants_ResetValues>Obnovit teploty</HardyPlants_ResetValues>
+  <HardyPlants_Group>Které rostliny:</HardyPlants_Group>
+  <HardyPlants_GroupCold>Divoké rostliny chladných biomů</HardyPlants_GroupCold>
+  <HardyPlants_GroupWild>Všechny divoké rostliny a stromy (výchozí)</HardyPlants_GroupWild>
+  <HardyPlants_GroupAll>Všechny rostliny včetně plodin</HardyPlants_GroupAll>
+  <HardyPlants_GroupCustom>Vlastní výběr (seznam vpravo)</HardyPlants_GroupCustom>
+  <HardyPlants_Plants>Rostliny odolné chladu</HardyPlants_Plants>
+  <HardyPlants_Chosen>Vybráno rostlin: {0}. Hledat:</HardyPlants_Chosen>
+  <HardyPlants_Growth>Růst</HardyPlants_Growth>
+  <HardyPlants_FasterGrowth>Rostliny rostou rychleji</HardyPlants_FasterGrowth>
+  <HardyPlants_FasterGrowthDesc>Plodiny, stromy a divoké rostliny – každé s vlastní rychlostí. Platí hned pro všechny rostliny na mapě, i pro ty, které se objeví později. Bez restartu. Ve výchozím stavu vypnuto.</HardyPlants_FasterGrowthDesc>
+  <HardyPlants_GrowthSpeed>Rychlost růstu: ×{0}</HardyPlants_GrowthSpeed>
+  <HardyPlants_GrowAllDay>Rostliny rostou ve dne i v noci (24/7)</HardyPlants_GrowAllDay>
+  <HardyPlants_GrowAllDayDesc>Rostliny v noci neodpočívají a rostliny pod širým nebem rostou i ve tmě. Rostliny pod střechou dál potřebují lampy. Ve výchozím stavu vypnuto.</HardyPlants_GrowAllDayDesc>
+  <HardyPlants_CropDays>Nastavit, za jak dlouho vyrostou plodiny</HardyPlants_CropDays>
+  <HardyPlants_TreeDays>Nastavit, za jak dlouho vyrostou stromy</HardyPlants_TreeDays>
+  <HardyPlants_DaysValue>Vyroste za: {0} dní</HardyPlants_DaysValue>
+  <HardyPlants_DaysDesc>Dny při rychlosti růstu 100 %. Rostliny v noci odpočívají (pokud není zapnuto 24/7) a při horším světle, půdě nebo teplotě rostou pomaleji, takže ve hře to trvá déle. Projeví se po zavření tohoto okna – bez restartu. Ve výchozím stavu vypnuto.</HardyPlants_DaysDesc>
+  <HardyPlants_Presets>Rychlé nastavení (sekce Růst):</HardyPlants_Presets>
+  <HardyPlants_PresetVanilla>Jako ve hře</HardyPlants_PresetVanilla>
+  <HardyPlants_PresetEasy>Snadné farmaření</HardyPlants_PresetEasy>
+  <HardyPlants_PresetLush>Bujný svět</HardyPlants_PresetLush>
+  <HardyPlants_SpeedCrops>Plodiny: ×{0}</HardyPlants_SpeedCrops>
+  <HardyPlants_SpeedTrees>Stromy: ×{0}</HardyPlants_SpeedTrees>
+  <HardyPlants_SpeedWild>Divoké rostliny: ×{0}</HardyPlants_SpeedWild>
+  <HardyPlants_Yield>Vyšší výnos sklizně</HardyPlants_Yield>
+  <HardyPlants_YieldDesc>Kolik dá sklizeň plodin a divokých rostlin a kolik dřeva dá pokácený strom. Platí hned. Ve výchozím stavu vypnuto.</HardyPlants_YieldDesc>
+  <HardyPlants_YieldCrops>Plodiny a divoké rostliny: ×{0}</HardyPlants_YieldCrops>
+  <HardyPlants_YieldWood>Dřevo ze stromů: ×{0}</HardyPlants_YieldWood>
+  <HardyPlants_Regrow>Divoké rostliny dorůstají rychleji</HardyPlants_Regrow>
+  <HardyPlants_RegrowDesc>Jak rychle se na mapě znovu objevují divoké rostliny a stromy po kácení, spasení zvířaty nebo požáru. Hustota porostu zůstává podle biomu. Ve výchozím stavu vypnuto.</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowValue>Dorůstání: ×{0}</HardyPlants_RegrowValue>
+  <HardyPlants_IgnoreSoil>Chudá půda nezpomaluje růst</HardyPlants_IgnoreSoil>
+  <HardyPlants_IgnoreSoilDesc>Na písku, štěrku a chudé půdě rostou rostliny plnou rychlostí. Bohatá půda dál pomáhá. Kde nic neroste, tam to nezmění. Ve výchozím stavu vypnuto.</HardyPlants_IgnoreSoilDesc>
+  <HardyPlants_NoBlight>Žádná plíseň na plodinách</HardyPlants_NoBlight>
+  <HardyPlants_NoBlightDesc>Událost plíseň už nepřijde a plíseň se nešíří. Ve výchozím stavu vypnuto.</HardyPlants_NoBlightDesc>
+  <HardyPlants_GrowthNote>Rychlost, výnos, dorůstání, půda, plíseň a 24/7 platí okamžitě, doba růstu po zavření tohoto okna.</HardyPlants_GrowthNote>
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+  <HardyPlants_Profile>PROFIL</HardyPlants_Profile>
+  <HardyPlants_ProfRec>Doporučené</HardyPlants_ProfRec>
+  <HardyPlants_ProfCustom>Vlastní</HardyPlants_ProfCustom>
+  <HardyPlants_PresetVanilla_Card>Růst a úroda jako v základní hře.</HardyPlants_PresetVanilla_Card>
+  <HardyPlants_ProfRec_Card>Rychlejší růst, víc úrody a bez plísně. Pořád férové.</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>Rostliny všude a hodně rychle, i ve dne v noci.</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfCustom_Card>Tvoje vlastní hodnoty.</HardyPlants_ProfCustom_Card>
+  <HardyPlants_ProfileHint>Jakmile cokoli v sekcích Růst nebo Úroda změníš, profil se přepne na Vlastní. Oranžové ZMĚNĚNO = liší se od doporučeného, kliknutím ho vrátíš.</HardyPlants_ProfileHint>
+  <HardyPlants_SecYield>Úroda a nemoci</HardyPlants_SecYield>
+  <HardyPlants_SecGroup>Které rostliny jsou otužilé</HardyPlants_SecGroup>
+</LanguageData>

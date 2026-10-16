@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RLRG_Enable>Zapnout filtr</RLRG_Enable>
+  <RLRG_Enable_Desc>Cizí pawni přicházejí jen s vybavou, kterou má tvoje kolonie vyzkoumanou.</RLRG_Enable_Desc>
+  <RLRG_UseRecipes>Recepty jako výzkum</RLRG_UseRecipes>
+  <RLRG_UseRecipes_Desc>Věc je odemčená, když je hotový výzkum aspoň jednoho receptu, kterým jde vyrobit.</RLRG_UseRecipes_Desc>
+  <RLRG_BlockHigherTech>Blokovat věci nad tech level kolonie</RLRG_BlockHigherTech>
+  <RLRG_BlockHigherTech_Desc>Věci bez výzkumu jsou povolené jen do technologické úrovně, kterou má kolonie vyzkoumanou.</RLRG_BlockHigherTech_Desc>
+  <RLRG_BlockUntagged>Blokovat modové věci bez výzkumu</RLRG_BlockUntagged>
+  <RLRG_BlockUntagged_Desc>Zbraně a oblečení z jiných modů, které nemají žádný výzkum, se považují za zamčené.</RLRG_BlockUntagged_Desc>
+  <RLRG_FilterAll>Filtrovat všechny příchozí</RLRG_FilterAll>
+  <RLRG_FilterAll_Desc>Raidy, návštěvy, karavany i questy. Po vypnutí jen nepřátelé a útočníci.</RLRG_FilterAll_Desc>
+  <RLRG_SkipTraders>Vynechat obchodníky</RLRG_SkipTraders>
+  <RLRG_SkipTraders_Desc>Obchodníci si nechají svou vybavu.</RLRG_SkipTraders_Desc>
+  <RLRG_FilterApparel>Filtrovat oblečení a brnění</RLRG_FilterApparel>
+  <RLRG_FilterInventory>Filtrovat inventář</RLRG_FilterInventory>
+  <RLRG_FilterInventory_Desc>Zbraně a oblečení v inventáři (například záložní zbraně).</RLRG_FilterInventory_Desc>
+  <RLRG_Replace>Nahradit nejbližší vyzkoumanou věcí</RLRG_Replace>
+  <RLRG_Replace_Desc>Zakázaná věc se nahradí podobnou povolenou, se stejnou kvalitou a opotřebením.</RLRG_Replace_Desc>
+  <RLRG_Drop>Zakázané věci nechat na zemi</RLRG_Drop>
+  <RLRG_Drop_Desc>Nájezdníci si zakázané věci ponesou v inventáři – dostaneš je jako kořist, když je porazíš. Návštěvníci a obchodníci nic nenechávají. Jinak zakázaná věc zmizí.</RLRG_Drop_Desc>
+  <RLRG_ExemptAncients>Vynechat starověká nebezpečí a kryospáče</RLRG_ExemptAncients>
+  <RLRG_ExemptAncients_Desc>Jejich vybava je součást odměny za otevření.</RLRG_ExemptAncients_Desc>
+  <RLRG_KeepTitleApparel>Šlechtici si nechají povinné oblečení</RLRG_KeepTitleApparel>
+  <RLRG_KeepTitleApparel_Desc>Oblečení, které vyžaduje šlechtický titul nebo role v ideologii, se neodebírá.</RLRG_KeepTitleApparel_Desc>
+  <RLRG_DamageDropped>Položené věci poškodit</RLRG_DamageDropped>
+  <RLRG_DamageDropped_Desc>Zakázané věci ponechané na zemi mají jen 20–50 % trvanlivosti a oblečení je označené jako po mrtvém. Brání to výdělku na prodeji.</RLRG_DamageDropped_Desc>
+  <RLRG_Compensate>Kompenzovat sílu raidu</RLRG_Compensate>
+  <RLRG_Compensate_Desc>Když útočníci přijdou o část vybavy, raid dostane víc útočníků, aby obtížnost zůstala vyvážená.</RLRG_Compensate_Desc>
+  <RLRG_CompensationPct>Síla kompenzace: {0} %</RLRG_CompensationPct>
+  <RLRG_CompensationPct_Desc>Kolik ztracené vybavy se nahradí dalšími útočníky. Raid může dostat nejvýš o 50 % bodů víc.</RLRG_CompensationPct_Desc>
+  <RLRG_TechAhead>Tolerance tech levelu: +{0}</RLRG_TechAhead>
+  <RLRG_TechAhead_Desc>Cizí pawni smějí mít věci až o tolik technologických úrovní nad tvou kolonií, i bez výzkumu. 0 = jen vyzkoumané věci.</RLRG_TechAhead_Desc>
+  <RLRG_KeepChance>Šance ponechat zakázanou věc: {0} %</RLRG_KeepChance>
+  <RLRG_KeepChance_Desc>S touto šancí si pawn zakázanou věc nechá. Výsledek se pamatuje, takže se při dalším příchodu nelosuje znovu.</RLRG_KeepChance_Desc>
+  <RLRG_ExemptFactions>Frakce bez filtru (zaškrtnuté si nechají vybavu):</RLRG_ExemptFactions>
+  <RLRG_NotifyRaid>Oznámení při příchodu raidu</RLRG_NotifyRaid>
+  <RLRG_NotifyRaid_Desc>Zpráva vlevo nahoře, o kolik výbavy útočníci přišli a kolik útočníků přibylo.</RLRG_NotifyRaid_Desc>
+  <RLRG_OpenList>Přehled výbavy a ruční zákazy...</RLRG_OpenList>
+  <RLRG_Biocode>Biokódovat náhrady</RLRG_Biocode>
+  <RLRG_Biocode_Desc>Náhradní věci budou biokódované pro nositele, takže je po boji nepoužiješ a prodáš je levněji. Funguje jen u věcí, které biokódování podporují (hlavně vyspělé zbraně).</RLRG_Biocode_Desc>
+  <RLRG_Years>Uvolňování s časem: +1 úroveň za {0} let</RLRG_Years>
+  <RLRG_Years_Desc>Útočníci postupně získávají lepší výbavu i bez tvého výzkumu. Sčítá se s tolerancí tech levelu.</RLRG_Years_Desc>
+  <RLRG_YearsOff>Uvolňování s časem: vypnuto</RLRG_YearsOff>
+  <RLRG_MsgRaid>Útočníci přišli o {0} % výbavy.</RLRG_MsgRaid>
+  <RLRG_MsgRaidCompensated>Útočníci přišli o {0} % výbavy. Raid posílen o {1} útočníků.</RLRG_MsgRaidCompensated>
+  <RLRG_TabWeapons>Zbraně</RLRG_TabWeapons>
+  <RLRG_TabApparel>Oblečení a brnění</RLRG_TabApparel>
+  <RLRG_Search>Hledat:</RLRG_Search>
+  <RLRG_ListHint>Zaškrtnuté věci cizí pawni nikdy nedostanou. Stav ukazuje, co smějí mít teď.</RLRG_ListHint>
+  <RLRG_ListNoGame>Zaškrtnuté věci cizí pawni nikdy nedostanou. Aktuální stav uvidíš po načtení hry.</RLRG_ListNoGame>
+  <RLRG_StatusBanned>Zakázáno ručně</RLRG_StatusBanned>
+  <RLRG_StatusAllowed>Povoleno</RLRG_StatusAllowed>
+  <RLRG_StatusLocked>Zamčeno</RLRG_StatusLocked>
+  <RLRG_Ex_Allowed>Povoleno</RLRG_Ex_Allowed>
+  <RLRG_Ex_Locked>Zamčeno</RLRG_Ex_Locked>
+  <RLRG_Ex_Always>Vždy vyžaduje: {0}</RLRG_Ex_Always>
+  <RLRG_Ex_Option>Výroba: {0}</RLRG_Ex_Option>
+  <RLRG_Ex_Free>Jde vyrobit bez výzkumu</RLRG_Ex_Free>
+  <RLRG_Ex_NoResearch>Žádný výzkum (rozhoduje tech level a pravidlo pro modové věci)</RLRG_Ex_NoResearch>
+  <RLRG_Ex_Tech>Tech level: {0} (limit: {1})</RLRG_Ex_Tech>
+  <RLRG_Ex_Mod>Mod: {0}</RLRG_Ex_Mod>
+  <RLRG_Ex_Done>hotovo</RLRG_Ex_Done>
+  <RLRG_Ex_Missing>chybí</RLRG_Ex_Missing>
+  <RLRG_TechMismatch>Hlídat věci vyspělejší než jejich výzkum</RLRG_TechMismatch>
+  <RLRG_TechMismatch_Desc>Když mod dá vyspělou věc pod nižší výzkum (vesmírnou pušku pod průmyslový), musí být na úrovni té věci i celá kolonie.</RLRG_TechMismatch_Desc>
+  <RLRG_PowerEstimate>Odhadnout úroveň modových věcí podle síly</RLRG_PowerEstimate>
+  <RLRG_PowerEstimate_Desc>Modová zbraň nebo brnění výrazně silnější než nejlepší vanilla průmyslové se bere jako vesmírné, i když autor modu napsal nižší úroveň. Je to odhad.</RLRG_PowerEstimate_Desc>
+  <RLRG_Ex_Power>Podle síly odpovídá úrovni: {0}</RLRG_Ex_Power>
+  <RLRG_Ex_NeedColony>Kolonie musí dosáhnout úrovně: {0}</RLRG_Ex_NeedColony>
+  <RLRG_LevelByProgress>Úroveň kolonie podle postupu výzkumu</RLRG_LevelByProgress>
+  <RLRG_LevelByProgress_Desc>Kolonie je na určité úrovni, až když má hotový nastavený podíl jejích výzkumů. Vypnuto = rozhoduje nejvyšší dokončený výzkum (stačí jediný). Úroveň ze scénáře platí vždy jako minimum.</RLRG_LevelByProgress_Desc>
+  <RLRG_LevelProgress>Potřebný podíl výzkumů úrovně: {0} %</RLRG_LevelProgress>
+  <RLRG_LevelProgress_Desc>Kolik výzkumů dané úrovně musí být hotových, aby se kolonie na ní počítala.</RLRG_LevelProgress_Desc>
+  <RLRG_CurrentLevel>Úroveň kolonie teď: {0} (scénář: {1}, výzkum: {2})</RLRG_CurrentLevel>
+  <RLRG_WorldHeader>Svět na úrovni kolonie</RLRG_WorldHeader>
+  <RLRG_WorldRaids>Raidy jen od frakcí do úrovně světa</RLRG_WorldRaids>
+  <RLRG_WorldRaids_Desc>Frakce vyspělejší než úroveň světa (tvoje úroveň + tolerance) nemůžou poslat raid. Vyjmuté frakce ze seznamu dole se neomezují.</RLRG_WorldRaids_Desc>
+  <RLRG_WorldMechs>Omezit i mechanoidy a hmyz</RLRG_WorldMechs>
+  <RLRG_WorldMechs_Desc>Ve výchozím stavu se mechanoidi a hmyz neomezují. Po zapnutí nepřijdou raidy mechanoidů ani shluky mechanoidů, dokud svět nedosáhne jejich úrovně.</RLRG_WorldMechs_Desc>
+  <RLRG_WorldItems>Obchodníci, odměny a nálezy do úrovně světa</RLRG_WorldItems>
+  <RLRG_WorldItems_Desc>Z nabídky obchodníků, odměn za questy a nalezených věcí se vyřadí věci nad úrovní světa. Zbraně a oblečení se řídí stejnými pravidly jako výbava cizích pawnů.</RLRG_WorldItems_Desc>
+  <RLRG_WorldIncidents>Incidenty do úrovně světa</RLRG_WorldIncidents>
+  <RLRG_WorldIncidents_Desc>Havárie lodních částí, pády trosek, orbitální obchodníci a (s mechanoidy) shluky mechanoidů se nespustí, dokud na ně svět nemá úroveň.</RLRG_WorldIncidents_Desc>
+  <RLRG_WorldMessages>Zpráva při změně úrovně světa</RLRG_WorldMessages>
+  <RLRG_WorldUp>Svět postoupil na úroveň: {0}.</RLRG_WorldUp>
+  <RLRG_WorldDown>Úroveň světa je teď: {0}.</RLRG_WorldDown>
+  <RLRG_WorldQuests>Úkoly do úrovně světa</RLRG_WorldQuests>
+  <RLRG_WorldQuests_Desc>Náhodné úkoly od vypravěče, ve kterých vystupuje frakce vyspělejší než svět (útočník, spojenec, zadavatel), se tiše zahodí. Úkoly spojené s vyspělou technologií (archotech, gravitační lodě, s mechanoidy i mechanoidní) se nenabídnou. Odměny se řídí výzkumem jako obchodníci. Dějové úkoly a obřady se nikdy neblokují.</RLRG_WorldQuests_Desc>
+  <RLRG_TabWorld>Úroveň světa</RLRG_TabWorld>
+  <RLRG_TabArrivals>Útočníci a příchozí</RLRG_TabArrivals>
+  <RLRG_TabRules>Pravidla výzkumu</RLRG_TabRules>
+  <RLRG_TabFilters>Filtry světa</RLRG_TabFilters>
+  <RLRG_TabFactions>Frakce</RLRG_TabFactions>
+  <RLRG_WorldLevelNow>Úroveň světa teď (s tolerancí): {0}</RLRG_WorldLevelNow>
+  <RLRG_ManualLevel>Nastavit úroveň světa ručně</RLRG_ManualLevel>
+  <RLRG_ManualLevel_Desc>Úroveň světa se nepočítá z výzkumu, ale platí ta, kterou vybereš. Platí přesně, bez tolerance a uvolňování s časem.</RLRG_ManualLevel_Desc>
+  <RLRG_ManualLevelPick>Úroveň světa: {0}</RLRG_ManualLevelPick>
+  <RLRG_PerTier>Vlastní podíl pro každou úroveň</RLRG_PerTier>
+  <RLRG_PerTier_Desc>Pro každou úroveň zvlášť nastavíš, kolik jejích výzkumů musí být hotových.</RLRG_PerTier_Desc>
+  <RLRG_PctTier>{0}: {1} %</RLRG_PctTier>
+  <RLRG_LockResearch>Zamknout vyšší výzkumy</RLRG_LockResearch>
+  <RLRG_LockResearch_Desc>Výzkum o víc než jednu úroveň nad světem nejde začít. Musíš postupovat úroveň po úrovni.</RLRG_LockResearch_Desc>
+  <RLRG_FilterPossessions>Ostatní věci v inventáři nad úrovní světa</RLRG_FilterPossessions>
+  <RLRG_FilterPossessions_Desc>Příchozí přijdou i o léky, drogy, komponenty a jiné věci nad úrovní světa (u obchodníků to platí i pro zboží).</RLRG_FilterPossessions_Desc>
+  <RLRG_FactionOk>může útočit</RLRG_FactionOk>
+  <RLRG_FactionAbove>nad úrovní světa</RLRG_FactionAbove>
+  <RLRG_ReplaceQuests>Nahradit zahozený úkol jiným</RLRG_ReplaceQuests>
+  <RLRG_ReplaceQuests_Desc>Místo úkolu zahozeného kvůli úrovni světa vypravěč hned zkusí jiný, vhodný (nejvýš 5 pokusů). Úkoly tak chodí stejně často jako normálně.</RLRG_ReplaceQuests_Desc>
+  <RLRG_WorldVisitors>Karavany a návštěvy jen do úrovně světa (přísné)</RLRG_WorldVisitors>
+  <RLRG_WorldVisitors_Desc>Karavany obchodníků, návštěvy a poutníci přicházejí jen od frakcí do úrovně světa. POZOR: s modovými vesmírnými frakcemi pak nemusí chodit skoro žádní obchodníci. Když je vypnuto (doporučeno), chodí od všech frakcí, ale jejich zboží a výbava se filtrují podle úrovně světa.</RLRG_WorldVisitors_Desc>
+  <RLRG_ReplaceEvents>Nahradit zablokovanou událost náhodnou jinou</RLRG_ReplaceEvents>
+  <RLRG_ReplaceEvents_Desc>Když vypravěč vybere událost, na kterou svět ještě nemá úroveň (orbitální obchodník, havárie lodní části, trosky…), nebo raid či karavana nenajde vhodnou frakci, spustí se místo ní náhodná jiná událost ze stejné kategorie. Události tak chodí stejně často jako bez modu. Události z úkolů se nemění.</RLRG_ReplaceEvents_Desc>
+  <RLRG_OvTitle>Svět a události</RLRG_OvTitle>
+  <RLRG_OvStoryteller>Vypravěč: {0}, obtížnost: {1}</RLRG_OvStoryteller>
+  <RLRG_OvQuests>Úkoly</RLRG_OvQuests>
+  <RLRG_OvQuestCounts>Běží: {0}, čeká na přijetí: {1}</RLRG_OvQuestCounts>
+  <RLRG_OvExpires>vyprší za {0}</RLRG_OvExpires>
+  <RLRG_OvEvents>Události</RLRG_OvEvents>
+  <RLRG_OvEventsHint>Vypravěč události losuje náhodně, přesný čas další nejde zjistit. Odhad vychází z průměrného odstupu událostí v této hře a zpřesňuje se, čím déle hraješ.</RLRG_OvEventsHint>
+  <RLRG_OvNoEvents>Zatím se nic nezaznamenalo. Záznam začíná od instalace této verze.</RLRG_OvNoEvents>
+  <RLRG_OvColKind>Druh</RLRG_OvColKind>
+  <RLRG_OvColLast>Poslední</RLRG_OvColLast>
+  <RLRG_OvCol30>Za 30 dní</RLRG_OvCol30>
+  <RLRG_OvColAvg>Prům. odstup</RLRG_OvColAvg>
+  <RLRG_OvColNext>Další odhadem</RLRG_OvColNext>
+  <RLRG_OvDays>{0} d</RLRG_OvDays>
+  <RLRG_OvAgo>před {0} d</RLRG_OvAgo>
+  <RLRG_OvInDays>≈ za {0} d</RLRG_OvInDays>
+  <RLRG_OvAnyTime>kdykoli</RLRG_OvAnyTime>
+  <RLRG_OvRecent>Posledních 10 událostí:</RLRG_OvRecent>
+  <RLRG_WorldCausers>Hrozby nad úrovní světa se neudrží</RLRG_WorldCausers>
+  <RLRG_WorldCausers_Desc>Nové věci, které pouštějí podmínku na mapu (toxický chrlič, kouř, ovladač počasí, zatemňovač slunce, psychický vysílač…) a jsou nad úrovní světa, se hned odstraní – na mapě i na mapě světa, i když patří mechanoidům. Úkoly, které by takovou věc poslaly, se zahodí (od vypravěče se nahradí jiným úkolem). Co už stojí, zůstává.</RLRG_WorldCausers_Desc>
+  <RLRG_CauserBlocked>Hrozba nad úrovní světa se neudržela: {0}.</RLRG_CauserBlocked>
+  <RLRG_TraderGuarantee>Záruka obchodníků</RLRG_TraderGuarantee>
+  <RLRG_TraderGuarantee_Desc>Když k domovské kolonii dlouho nepřijde žádná karavana obchodníků, mod ji zkusí přivolat sám. Hra pak vezme i frakce, které by jinak nepřišly kvůli teplotě. Pokud karavana přijít nemůže (všichni nepřátelští, blokující skupina na mapě…), zapíše se důvod do logu a ukáže se zpráva.</RLRG_TraderGuarantee_Desc>
+  <RLRG_TraderGuaranteeDays>Karavana nejpozději po: {0} dnech</RLRG_TraderGuaranteeDays>
+  <RLRG_TraderGuaranteeDays_Desc>Po kolika dnech bez karavany ji mod přivolá.</RLRG_TraderGuaranteeDays_Desc>
+  <RLRG_Diag_Open>Proč nechodí obchodníci, návštěvy nebo nebezpečí?</RLRG_Diag_Open>
+  <RLRG_Diag_Title>Obchodníci a návštěvy – diagnostika</RLRG_Diag_Title>
+  <RLRG_Diag_NoMap>Žádná domovská mapa.</RLRG_Diag_NoMap>
+  <RLRG_Diag_Map>Mapa: {0}, teplota venku {1}, sezónní {2}</RLRG_Diag_Map>
+  <RLRG_Diag_LastTrader>Poslední karavana obchodníků: před {0} dny</RLRG_Diag_LastTrader>
+  <RLRG_Diag_LastTraderNone>Poslední karavana obchodníků: zatím nezaznamenána</RLRG_Diag_LastTraderNone>
+  <RLRG_Diag_LastVisitor>Poslední návštěva/poutníci: před {0} dny</RLRG_Diag_LastVisitor>
+  <RLRG_Diag_GuaranteeOn>Záruka obchodníků: zapnuta (nejpozději po {0} dnech)</RLRG_Diag_GuaranteeOn>
+  <RLRG_Diag_GuaranteeOff>Záruka obchodníků: vypnuta</RLRG_Diag_GuaranteeOff>
+  <RLRG_Diag_Allies>Nepřátelské nejsou: {0} z {1} frakcí</RLRG_Diag_Allies>
+  <RLRG_Diag_NoAllies>Všechny frakce jsou nepřátelské – vypravěč neposílá žádné obchodníky ani návštěvy. Zlepši vztahy (dary, úkoly, komunikační konzole).</RLRG_Diag_NoAllies>
+  <RLRG_Diag_Events>Události:</RLRG_Diag_Events>
+  <RLRG_Diag_Can>teď může přijít</RLRG_Diag_Can>
+  <RLRG_Diag_Cannot>teď NEMŮŽE přijít – {0}</RLRG_Diag_Cannot>
+  <RLRG_Diag_R_Missing>událost ve hře neexistuje</RLRG_Diag_R_Missing>
+  <RLRG_Diag_R_Scenario>vypnuto scénářem</RLRG_Diag_R_Scenario>
+  <RLRG_Diag_R_Difficulty>vypnuto nastavením obtížnosti</RLRG_Diag_R_Difficulty>
+  <RLRG_Diag_R_Early>příliš brzy od založení kolonie (od dne {0})</RLRG_Diag_R_Early>
+  <RLRG_Diag_R_Target>nehodí se pro tuto mapu</RLRG_Diag_R_Target>
+  <RLRG_Diag_R_Biome>nepovolený biom</RLRG_Diag_R_Biome>
+  <RLRG_Diag_R_Recent>nedávno už proběhla (čeká se)</RLRG_Diag_R_Recent>
+  <RLRG_Diag_R_Condition>brání tomu: {0}</RLRG_Diag_R_Condition>
+  <RLRG_Diag_R_NoFaction>žádná frakce teď nemůže přijít (viz seznam frakcí)</RLRG_Diag_R_NoFaction>
+  <RLRG_Diag_R_OnlyDesperate>vypravěč ji neposílá – frakce nechtějí cestovat v této teplotě</RLRG_Diag_R_OnlyDesperate>
+  <RLRG_Diag_R_Other>jiný důvod (nejspíš jiný mod)</RLRG_Diag_R_Other>
+  <RLRG_Diag_Factions>Frakce (karavany obchodníků):</RLRG_Diag_Factions>
+  <RLRG_Diag_F_Ok>může poslat karavanu</RLRG_Diag_F_Ok>
+  <RLRG_Diag_F_Desperate>jen v nouzi – venkovní teplota mimo rozsah {0}</RLRG_Diag_F_Desperate>
+  <RLRG_Diag_F_No>nepřijde: {0}</RLRG_Diag_F_No>
+  <RLRG_Diag_F_Defeated>poražená</RLRG_Diag_F_Defeated>
+  <RLRG_Diag_F_Hostile>nepřátelská (vztah {0})</RLRG_Diag_F_Hostile>
+  <RLRG_Diag_F_NoTraders>nemá obchodní karavany</RLRG_Diag_F_NoTraders>
+  <RLRG_Diag_F_Lord>na mapě je její nepřítel: {0}</RLRG_Diag_F_Lord>
+  <RLRG_Diag_F_World>nad úrovní světa (volba „Karavany a návštěvy jen do úrovně světa“)</RLRG_Diag_F_World>
+  <RLRG_Diag_F_Temp>teplota mimo rozsah {0}</RLRG_Diag_F_Temp>
+  <RLRG_Diag_F_Other>jiný důvod (typ obchodníka, vrstva planety nebo jiný mod)</RLRG_Diag_F_Other>
+  <RLRG_Diag_Summon>Přivolat karavanu teď (test)</RLRG_Diag_Summon>
+  <RLRG_Diag_SummonOk>Karavana obchodníků přichází.</RLRG_Diag_SummonOk>
+  <RLRG_Diag_SummonFail>Karavanu nejde přivolat: {0}</RLRG_Diag_SummonFail>
+  <RLRG_Diag_ToLog>Zapsat do logu</RLRG_Diag_ToLog>
+  <RLRG_Diag_Logged>Diagnostika zapsána do logu.</RLRG_Diag_Logged>
+  <RLRG_Diag_Refresh>Obnovit</RLRG_Diag_Refresh>
+  <RLRG_Diag_GuaranteeFailed>Záruka obchodníků: karavana nemohla přijít ({0}). Podrobnosti: záložka Svět → Proč nechodí obchodníci?</RLRG_Diag_GuaranteeFailed>
+  <RLRG_Diag_Title2>Obchodníci, návštěvy a nebezpečí – diagnostika</RLRG_Diag_Title2>
+  <RLRG_Diag_Threats>Nebezpečí a raidy:</RLRG_Diag_Threats>
+  <RLRG_Diag_ThreatScale>Obtížnost: síla hrozeb {0}, velké hrozby povoleny: {1}</RLRG_Diag_ThreatScale>
+  <RLRG_Diag_ThreatsOff>POZOR: hrozby jsou vypnuté v nastavení obtížnosti vypravěče – raidy nepřijdou kvůli tomu.</RLRG_Diag_ThreatsOff>
+  <RLRG_Diag_ThreatPoints>Body hrozby teď: {0}</RLRG_Diag_ThreatPoints>
+  <RLRG_Diag_LastThreat>Poslední hrozba od vypravěče: před {0} dny</RLRG_Diag_LastThreat>
+  <RLRG_Diag_LastThreatNone>Poslední hrozba od vypravěče: zatím nezaznamenána</RLRG_Diag_LastThreatNone>
+  <RLRG_Diag_Yes>ano</RLRG_Diag_Yes>
+  <RLRG_Diag_No>ne</RLRG_Diag_No>
+  <RLRG_Diag_AboveWorld>nad úrovní světa – nahradí se jinou událostí</RLRG_Diag_AboveWorld>
+  <RLRG_Diag_Raiders>Nepřátelské frakce (raidy):</RLRG_Diag_Raiders>
+  <RLRG_Diag_RaidOk>může zaútočit</RLRG_Diag_RaidOk>
+  <RLRG_Diag_RaidWorld>nad úrovní světa – zaútočí, jen když nemůže nikdo jiný (vybava se filtruje)</RLRG_Diag_RaidWorld>
+  <RLRG_Diag_RaidDesperate>jen v nouzi (teplota / brzy po založení)</RLRG_Diag_RaidDesperate>
+  <RLRG_Diag_RaidEarly>ještě ne – útočí až od dne {0}</RLRG_Diag_RaidEarly>
+  <RLRG_Diag_RaidNo>nemůže zaútočit (vrstva planety, strategie nebo jiný mod)</RLRG_Diag_RaidNo>
+  <RLRG_Diag_NoRaiders>Žádná nepřátelská frakce teď nemůže poslat raid – žádné nepřátelské frakce, nebo všechny brání jiný důvod.</RLRG_Diag_NoRaiders>
+  <RLRG_FactionsAtWorld>Všechny frakce na úrovni tvé kolonie</RLRG_FactionsAtWorld>
+  <RLRG_FactionsAtWorld_Desc>Všechny frakce (i vesmírné a modové) se chovají, jako by měly stejný výzkum jako ty: můžou útočit, obchodovat, chodit na návštěvu a dávat úkoly, ale každý jejich člověk má jen výbavu, kterou máš vyzkoumanou (filtruje se vždy, u všech příchozích), a obchodníci prodávají jen věci do úrovně světa. Vypni, pokud chceš frakce nad úrovní světa úplně zablokovat.</RLRG_FactionsAtWorld_Desc>
+  <RLRG_OnlyCrafted>Cizí používají jen to, co už jsi vyrobil</RLRG_OnlyCrafted>
+  <RLRG_OnlyCrafted_Desc>Útočníci, návštěvy, obchodníci i lidé z úkolů smějí mít jen zbraně a oblečení, které tvoje kolonie už aspoň jednou vyrobila (a zároveň je máš vyzkoumané). Co ještě nikdo nevyrobil, se jim sebere nebo nahradí nejbližší vyrobenou věcí. Když nemáš vyrobenou žádnou zbraň, dostanou aspoň krátký luk nebo kyj. Zboží na prodej se řídí jen výzkumem. U rozehrané hry se jednou převezme výbava kolonistů a věci ve skladech, které umíš vyrobit.</RLRG_OnlyCrafted_Desc>
+  <RLRG_CraftedCount>Vyrobených druhů zbraní a oblečení: {0}</RLRG_CraftedCount>
+  <RLRG_MsgCraftedNew>Poprvé vyrobeno: {0} – teď to můžou používat i ostatní.</RLRG_MsgCraftedNew>
+  <RLRG_Ex_NotCrafted>Vyzkoumáno, ale tvoje kolonie to ještě nevyrobila.</RLRG_Ex_NotCrafted>
+  <RLRG_CraftedReset>Vymazat seznam vyrobeného</RLRG_CraftedReset>
+  <RLRG_CraftedReset_Desc>Vymaže seznam vyrobených zbraní a oblečení (společný se Smart Colonist Gear). Od teď se počítá jen to, co kolonie vyrobí.</RLRG_CraftedReset_Desc>
+  <RLRG_CraftedResetConfirm>Opravdu vymazat seznam vyrobené výbavy? Vymaže se v obou modech a útočníci i kolonisté budou smět jen výbavu vyrobenou od teď.</RLRG_CraftedResetConfirm>
+  <RLRG_MsgRaidItems>Sebráno {0} kusů výbavy, z toho {1} nahrazeno slabší verzí ({2} útočníků).</RLRG_MsgRaidItems>
+  <RLRG_TraderTechBonus>Obchodníci smí prodávat o úrovně výš: {0}</RLRG_TraderTechBonus>
+  <RLRG_TraderTechBonus_Desc>O kolik technologických úrovní nad úrovní světa smí obchodníci nabízet zboží. 0 = jen do úrovně světa (zbraně a oblečení podle výzkumu), 1 = o jednu úroveň výš (třeba průmyslové zbraně ve středověké hře) …</RLRG_TraderTechBonus_Desc>
+  <RLRG_TabTraders>Obchodníci</RLRG_TabTraders>
+  <RLRG_TabTraders_Desc>Zboží, které obchodníci teď nesmí prodávat, protože je nad úrovní světa. Platí stejné pravidlo jako pro nabídku obchodníků.</RLRG_TabTraders_Desc>
+  <RLRG_TraderNoGame>Co obchodníci teď nesmí prodávat, uvidíš po načtení hry.</RLRG_TraderNoGame>
+  <RLRG_TraderOff>Filtr věcí podle úrovně světa je vypnutý – obchodníci prodávají všechno.</RLRG_TraderOff>
+  <RLRG_TraderMax>Obchodníci smí prodávat zboží do úrovně: {0} (úroveň světa {1} + {2})</RLRG_TraderMax>
+  <RLRG_TraderMax_Desc>Obchodníci smí prodávat zboží do technologické úrovně {0} (úroveň světa + „Obchodníci smí prodávat o úrovně výš“). Zbraně a oblečení smí prodávat i tehdy, když je povoluje výzkum. Zvířata, otroci a zboží bez technologické úrovně se nikdy neodebírají.</RLRG_TraderMax_Desc>
+  <RLRG_TraderCount>Zboží, které obchodníci teď nesmí prodávat: {0}</RLRG_TraderCount>
+  <RLRG_TraderBlocked>Neprodává se</RLRG_TraderBlocked>
+  <RLRG_TraderBlocked_Desc>Technologická úroveň {0} je vyšší, než obchodníci teď smí prodávat ({1}).</RLRG_TraderBlocked_Desc>
+  <RLRG_TraderBlockedGear>Neprodává se (výzkum)</RLRG_TraderBlockedGear>
+  <RLRG_TraderBlockedGear_Desc>Výzkum to nepovoluje a technologická úroveň {0} je vyšší, než obchodníci teď smí prodávat ({1}).</RLRG_TraderBlockedGear_Desc>
+  <!-- 2.10.0: Raids tab -->
+  <RLRG_TabRaids>Nájezdy a hrozby</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Nezaškrtnuté nájezdy a hrozby (i z modů: monstra, šílená zvířata, hmyz, nemoci, spad …) se nebudou spouštět. Zaškrtnuté = povolené. Změny platí hned pro další nájezdy.</RLRG_RaidsIntro>
+  <RLRG_RaidsSummary>Zakázáno {0} z {1} druhů nájezdů</RLRG_RaidsSummary>
+  <RLRG_RaidsResetAll>Povolit vše</RLRG_RaidsResetAll>
+  <RLRG_RaidsResetAll_Desc>Znovu povolí všechny druhy nájezdů (výchozí stav).</RLRG_RaidsResetAll_Desc>
+  <RLRG_RaidsAllowAll>Povolit skupinu</RLRG_RaidsAllowAll>
+  <RLRG_RaidsAllowAll_Desc>Znovu povolí vše v této skupině.</RLRG_RaidsAllowAll_Desc>
+  <RLRG_RaidsGroupCount>zakázáno {0} / {1}</RLRG_RaidsGroupCount>
+  <RLRG_RaidsGroupIncidents>Hrozby a události</RLRG_RaidsGroupIncidents>
+  <RLRG_RaidsGroupStrategies>Taktiky nájezdů</RLRG_RaidsGroupStrategies>
+  <RLRG_RaidsGroupArrivals>Způsoby příchodu</RLRG_RaidsGroupArrivals>
+  <RLRG_RaidsGroupQuests>Náhodné úkoly (questy) – [!] = hrozba</RLRG_RaidsGroupQuests>
+  <RLRG_RaidsSource>Původ: {0}</RLRG_RaidsSource>
+  <RLRG_RaidsAllowedTip>Povoleno. Odškrtnutím zabráníte, aby k tomu docházelo.</RLRG_RaidsAllowedTip>
+  <RLRG_RaidsBlockedTip>Zakázáno: vypravěč to nepoužije. Pokud jsou pro nájezd zakázané všechny možnosti, nájezd místo selhání použije okamžitý útok / příchod od okraje mapy.</RLRG_RaidsBlockedTip>
+  <RLRG_MechEscorts>Útočníci mají jen vyzkoumané mechanoidy</RLRG_MechEscorts>
+  <RLRG_MechEscorts_Desc>Lidské frakce (mechanitoři v nájezdech) smějí přivést jen mechanoidy, jejichž výrobu máš vyzkoumanou. Nevyzkoumaní mechové se ze skupiny odstraní. Čistě mechanoidí nájezdy se to netýká.</RLRG_MechEscorts_Desc>
+  <RLRG_MatchColony>Cizí nemají lepší výbavu než tvoje kolonie</RLRG_MatchColony>
+  <RLRG_MatchColony_Desc>Každý, kdo přijde (útočníci, návštěvy, uprchlíci, lidé z úkolů; obchodníci jen když je nevynecháváš), smí mít jen věci stejné nebo horší než to nejlepší, co tvoje kolonie vyrobila: střelné zbraně do síly nejlepší vyrobené pušky, chladné zbraně do síly nejlepší vyrobené (počítá se i materiál), zbroj do ochrany nejlepší vyrobené zbroje. Obyčejné oblečení je povolené vždy. Věci musí být i opravdu vyzkoumané (musíš je umět vyrobit). Ohnivé, výbušné a EMP zbraně (plamenomety, výbušné šípy…) mají jen tehdy, když jsi takovou sám vyrobil. Silnější věc se nahradí nejbližší slabší, příliš dobrý materiál obyčejným. S volbou „jen vyrobené“ smějí mít navíc i slabší věci, které jsi sám nevyrobil – víc pestrosti.</RLRG_MatchColony_Desc>
+  <RLRG_MatchQuality>Kvalita nejvýš jako tvoje nejlepší výrobek</RLRG_MatchQuality>
+  <RLRG_MatchQuality_Desc>Zbraně a oblečení příchozích mají nejvýš takovou kvalitu, jakou tvoje kolonie už vyrobila (zvlášť pro zbraně a pro oblečení, nejméně normální).</RLRG_MatchQuality_Desc>
+  <RLRG_MatchMargin>Tolerance: o {0} % lepší</RLRG_MatchMargin>
+  <RLRG_MatchMargin_Desc>Kolik procent smí být výbava cizích lepší než ta tvoje. 0 = nejvýš stejná.</RLRG_MatchMargin_Desc>
+  <RLRG_MatchNow>Strop teď – střelné: {0}, chladné: {1}, zbroj: {2}, kvalita zbraní: {3}, kvalita oblečení: {4}</RLRG_MatchNow>
+  <RLRG_ShowHud>Ukazovat úroveň výzkumu na obrazovce</RLRG_ShowHud>
+  <RLRG_ShowHud_Desc>Vpravo dole nad datem je vidět úroveň kolonie a kolik procent chybí do další. Najetí myší ukáže podrobnosti po úrovních, kliknutí otevře záložku Svět.</RLRG_ShowHud_Desc>
+  <RLRG_HudLine>Úroveň: {0}</RLRG_HudLine>
+  <RLRG_HudLineNext>{0} → {1} {2} %</RLRG_HudLineNext>
+  <RLRG_HudTipTitle>Úroveň výzkumu (World at Your Level)</RLRG_HudTipTitle>
+  <RLRG_HudTipColony>Kolonie: {0} (scénář: {1}, výzkum: {2})</RLRG_HudTipColony>
+  <RLRG_HudTipWorld>Svět (s náskokem/časovým bonusem): {0}</RLRG_HudTipWorld>
+  <RLRG_HudTipTier>{0} {1}: {2}/{3} ({4} %), potřeba {5}</RLRG_HudTipTier>
+  <RLRG_HudTipClick>Klikni pro záložku Svět.</RLRG_HudTipClick>
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <RLRG_Rec1>Nájezdníci mají jen výbavu tvé technologické úrovně</RLRG_Rec1>
+  <RLRG_Rec2>Obchodníci prodávají věci tvé úrovně</RLRG_Rec2>
+  <RLRG_Rec3>Úkoly a odměny odpovídají tvé úrovni</RLRG_Rec3>
+  <RLRG_Rec4>Frakce postupují spolu s tebou</RLRG_Rec4>
+  <RLRG_Rec5>Slabší výbavu nájezdníků vyváží víc lidí</RLRG_Rec5>
+  <RLRG_Rec6>Úroveň světa vidíš přímo na obrazovce</RLRG_Rec6>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+  <RLRG_RareAdvanced>Vzácný nájezd s pokročilou technologií: {0} %</RLRG_RareAdvanced>
+  <RLRG_RareAdvanced_Desc>S touto šancí přijde nájezd s výbavou o jednu technologickou úroveň nad tvou kolonií. Nájezdníků je méně (o 25 %) a jejich výbava ti zůstane jako kořist, takže můžeš novou technologii objevit dřív. Jen když frakce nájezdníků takovou výbavu má.</RLRG_RareAdvanced_Desc>
+  <RLRG_RareLowTech>Vzácný zastaralý nájezd: {0} %</RLRG_RareLowTech>
+  <RLRG_RareLowTech_Desc>S touto šancí přijde nájezd s výbavou o jednu úroveň pod tvou kolonií, zato s více nájezdníky (o 35 %).</RLRG_RareLowTech_Desc>
+  <RLRG_MsgRareAdvanced>Nájezdníci nesou neznámou technologii ({0})! Je jich méně, ale jsou lépe vyzbrojení.</RLRG_MsgRareAdvanced>
+  <RLRG_MsgRareLowTech>Početný nájezd se zastaralou výbavou ({0}).</RLRG_MsgRareLowTech>
+</LanguageData>

@@ -1,0 +1,17 @@
+Smart Colonist Gear 2.13.0
+==========================
+- New: "Recommended settings" switch at the top of the settings, on by default for new players. The mod sets itself up and just works.
+- While it is on, the detailed settings are locked (you can still browse them). Bans stay editable.
+- Turn it off to customize – values that differ from recommended get an orange CHANGED mark, click it to restore one value, or use "Reset all to recommended".
+- Recommended values update themselves when a new version improves them.
+- Bigger settings window.
+- Existing settings are kept – an update never overwrites your values.
+
+Smart Colonist Gear 2.12.0
+==========================
+- Fixed: colonists endlessly putting armor on and taking it off (threat and pollution state no longer flickers).
+  - A threat now counts only after it lasts a few seconds and ends a while after the last hostile is gone.
+  - Pollution under the colonist's feet no longer toggles hazard gear on its own.
+  - Emergency gear needs more confirmation checks before it is removed.
+- New: colonists complete the whole armor set instead of wearing only some pieces, and never swap a set piece for a worse one (gas mask is an exception).
+- New: extra warm clothing is added only when it is not hot.

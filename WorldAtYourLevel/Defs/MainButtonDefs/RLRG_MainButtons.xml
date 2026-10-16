@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MainButtonDef>
+    <defName>RLRG_WorldOverview</defName>
+    <label>world</label>
+    <description>World and colony tech level, quests waiting for you, and the events that came recently with an estimate of when the next one may come.</description>
+    <tabWindowClass>ResearchLockedRaidGear.MainTabWindow_WorldOverview</tabWindowClass>
+    <order>95</order>
+    <validWithoutMap>true</validWithoutMap>
+  </MainButtonDef>
+</Defs>

@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RL_Enable>Enable mod</RL_Enable>
+  <RL_UseRecipes>Recipes count as research</RL_UseRecipes>
+  <RL_UseRecipes_Desc>An item is unlocked when the research for at least one recipe that makes it is done. Turn off if raw materials (wood, steel) get locked.</RL_UseRecipes_Desc>
+  <RL_BlockHigherTech>Block items above colony tech level</RL_BlockHigherTech>
+  <RL_BlockHigherTech_Desc>Items without research that are more advanced than your colony's researched tech level are not used.</RL_BlockHigherTech_Desc>
+  <RL_BlockUntagged>Block mod items without research</RL_BlockUntagged>
+  <RL_BlockUntagged_Desc>Items from other mods that have no research are treated as locked.</RL_BlockUntagged_Desc>
+  <RL_BlockLockedEquip>Block unresearched weapons</RL_BlockLockedEquip>
+  <RL_BlockLockedEquip_Desc>Colonists won't pick up an unresearched weapon, even when ordered.</RL_BlockLockedEquip_Desc>
+  <RL_BlockLockedApparel>Block unresearched apparel</RL_BlockLockedApparel>
+  <RL_BlockLockedApparel_Desc>Vanilla dressing won't choose unresearched apparel.</RL_BlockLockedApparel_Desc>
+  <RL_StripLocked>Remove unresearched gear</RL_StripLocked>
+  <RL_StripLocked_Desc>Colonists drop weapons and apparel your colony hasn't researched yet.</RL_StripLocked_Desc>
+  <RL_AutoPrimary>Auto upgrade primary weapon</RL_AutoPrimary>
+  <RL_AutoPrimary_Desc>Colonists pick up a stronger weapon on their own and drop the weaker one.</RL_AutoPrimary_Desc>
+  <RL_UseSkills>Choose weapon by skills</RL_UseSkills>
+  <RL_UseSkills_Desc>Shooters get ranged weapons, brawlers get melee weapons.</RL_UseSkills_Desc>
+  <RL_AutoSidearm>Auto sidearm</RL_AutoSidearm>
+  <RL_AutoSidearm_Desc>Colonists also carry a backup weapon of the other type. With Simple Sidearms, its limits and rules apply.</RL_AutoSidearm_Desc>
+  <RL_PrioritizeFighters>Best weapons to best fighters</RL_PrioritizeFighters>
+  <RL_PrioritizeFighters_Desc>The colonist with the highest Shooting or Melee skill gets first pick. Others won't take a weapon while it would be an upgrade for a better fighter.</RL_PrioritizeFighters_Desc>
+  <RL_ArmSlaves>Arm slaves</RL_ArmSlaves>
+  <RL_ArmSlaves_Desc>Armed slaves greatly increase the chance of a rebellion. Off by default.</RL_ArmSlaves_Desc>
+  <RL_ConsiderDistance>Consider distance</RL_ConsiderDistance>
+  <RL_ConsiderDistance_Desc>The farther an item is, the bigger improvement it must bring (up to +25%) for a colonist to walk to it.</RL_ConsiderDistance_Desc>
+  <RL_PauseThreat>Pause during attacks</RL_PauseThreat>
+  <RL_PauseThreat_Desc>While an active enemy is in the home area or within 40 cells of a colonist, nobody goes to fetch gear. Enemies far away at the map edge, downed or fleeing don't count.</RL_PauseThreat_Desc>
+  <RL_OwnDresser>Own dressing instead of vanilla</RL_OwnDresser>
+  <RL_OwnDresser_Desc>This mod handles dressing instead of the game. Recommended only if vanilla dressing throws errors.</RL_OwnDresser_Desc>
+  <RL_AutoApparel>Auto dressing (own)</RL_AutoApparel>
+  <RL_AutoApparel_Desc>Only applies together with own dressing.</RL_AutoApparel_Desc>
+  <RL_OnlyStockpile>Only from stockpiles and shelves</RL_OnlyStockpile>
+  <RL_OnlyStockpile_Desc>Colonists only take items from stockpile zones and shelves, not items lying anywhere on the map.</RL_OnlyStockpile_Desc>
+  <RL_ReplaceBroken>Remove tattered and policy-forbidden</RL_ReplaceBroken>
+  <RL_ReplaceBroken_Desc>Apparel below the durability threshold or forbidden by the apparel policy is taken off.</RL_ReplaceBroken_Desc>
+  <RL_StoreDropped>Carry dropped gear to storage</RL_StoreDropped>
+  <RL_StoreDropped_Desc>Colonists carry gear they take off to the best free storage spot. If there's no space, it stays on the ground.</RL_StoreDropped_Desc>
+  <RL_Notify>In-game notifications</RL_Notify>
+  <RL_Notify_Desc>A message in the top left when a colonist takes a different weapon or apparel.</RL_Notify_Desc>
+  <RL_DebugLog>Debug logging</RL_DebugLog>
+  <RL_DebugLog_Desc>Writes every swap to the log. Only for troubleshooting.</RL_DebugLog_Desc>
+  <RL_MinHp>Min. durability: {0}%</RL_MinHp>
+  <RL_MinHp_Desc>Gear below this threshold counts as broken. Vanilla gives a mood penalty for tattered apparel below 50%.</RL_MinHp_Desc>
+  <RL_Search>Search:</RL_Search>
+  <RL_BanModWeapons>Ban mod weapons</RL_BanModWeapons>
+  <RL_AllowWeapons>Allow weapons</RL_AllowWeapons>
+  <RL_BanModApparel>Ban mod apparel</RL_BanModApparel>
+  <RL_AllowApparel>Allow apparel</RL_AllowApparel>
+  <RL_BanWeaponsTitle>Weapons (checked = BANNED)</RL_BanWeaponsTitle>
+  <RL_BanApparelTitle>Apparel and armor (checked = BANNED)</RL_BanApparelTitle>
+  <RL_GizmoLabel>Auto gear</RL_GizmoLabel>
+  <RL_GizmoDesc>When on, the mod picks weapons and apparel for this colonist. Turn off for a colonist whose gear you want to manage by hand.</RL_GizmoDesc>
+  <RL_MsgWeapon>{0} takes {1} instead of {2}.</RL_MsgWeapon>
+  <RL_MsgWeaponNew>{0} takes {1}.</RL_MsgWeaponNew>
+  <RL_MsgSidearm>{0} takes {1} as a sidearm.</RL_MsgSidearm>
+  <RL_MsgApparel>{0} puts on {1}.</RL_MsgApparel>
+  <RL_WeaponCalm>Calm after weapon change: {0} h</RL_WeaponCalm>
+  <RL_WeaponCalm_Desc>After changing weapons, a colonist keeps them this long unless they break. 24 h = one in-game day, 0 = no limit.</RL_WeaponCalm_Desc>
+  <RL_Ex_Allowed>Allowed</RL_Ex_Allowed>
+  <RL_Ex_Locked>Locked</RL_Ex_Locked>
+  <RL_Ex_Banned>Banned manually</RL_Ex_Banned>
+  <RL_Ex_Always>Always requires: {0}</RL_Ex_Always>
+  <RL_Ex_Option>Crafting: {0}</RL_Ex_Option>
+  <RL_Ex_Free>Can be crafted without research</RL_Ex_Free>
+  <RL_Ex_NoResearch>No research (tech level and the mod item rule decide)</RL_Ex_NoResearch>
+  <RL_Ex_Tech>Tech level: {0} (limit: {1})</RL_Ex_Tech>
+  <RL_Ex_Mod>Mod: {0}</RL_Ex_Mod>
+  <RL_Ex_Done>done</RL_Ex_Done>
+  <RL_Ex_Missing>missing</RL_Ex_Missing>
+  <RL_TechMismatch>Check items more advanced than their research</RL_TechMismatch>
+  <RL_TechMismatch_Desc>When a mod puts an advanced item under lower research (a spacer rifle under industrial research), the colony must also reach that item's tech level.</RL_TechMismatch_Desc>
+  <RL_PowerEstimate>Estimate mod item tech level from power</RL_PowerEstimate>
+  <RL_PowerEstimate_Desc>A mod weapon or armor clearly stronger than the best vanilla industrial one counts as spacer, even if the mod author set a lower level. This is an estimate.</RL_PowerEstimate_Desc>
+  <RL_Ex_Power>Power matches tech level: {0}</RL_Ex_Power>
+  <RL_Ex_NeedColony>Colony must reach tech level: {0}</RL_Ex_NeedColony>
+  <RL_LevelByProgress>Colony level by research progress</RL_LevelByProgress>
+  <RL_LevelByProgress_Desc>The colony reaches a tech level once it has finished the set share of that level's research. Off = the highest finished research decides (a single one is enough). The scenario level always counts as a minimum.</RL_LevelByProgress_Desc>
+  <RL_LevelProgress>Required share of a level's research: {0}%</RL_LevelProgress>
+  <RL_LevelProgress_Desc>How much of a level's research must be finished for the colony to count as that level.</RL_LevelProgress_Desc>
+  <RL_CurrentLevel>Colony level now: {0} (scenario: {1}, research: {2})</RL_CurrentLevel>
+  <RL_SyncWorld>Colony level from World at Your Level</RL_SyncWorld>
+  <RL_SyncWorld_Desc>Colonists and the whole world share the same level, including the manual level and per-level shares set in the raid mod.</RL_SyncWorld_Desc>
+  <RL_SurvivalApparel>Survival exception (critical only)</RL_SurvivalApparel>
+  <RL_SurvivalApparel_Desc>Temperature only matters in an emergency: when it's outside the limits below, or a colonist has hypothermia or heatstroke (always applies). Then they may wear unresearched warm clothing, or take off pieces that make heat worse (never armor). Otherwise clothes aren't changed because of temperature.</RL_SurvivalApparel_Desc>
+  <RL_ApparelCalm>Calm after changing clothes: {0} h</RL_ApparelCalm>
+  <RL_ApparelCalm_Desc>After changing clothes, a colonist won't change again for this long unless they have hypothermia or heatstroke. Items they took off or that a new piece replaced aren't taken back for a day. 0 = no calm period.</RL_ApparelCalm_Desc>
+  <RL_KeepArmor>Always keep armor</RL_KeepArmor>
+  <RL_KeepArmor_Desc>An armor piece is never swapped for one with weaker protection and is never taken off because of temperature. Doesn't apply to broken or locked armor.</RL_KeepArmor_Desc>
+  <RL_TempByThresholds>Custom temperature limits</RL_TempByThresholds>
+  <RL_TempByThresholds_Desc>On: the sliders decide. Off: automatic, based on each colonist's safe range (considering what they wear).</RL_TempByThresholds_Desc>
+  <RL_ColdThreshold>Put on warm clothing below: {0}</RL_ColdThreshold>
+  <RL_ColdThreshold_Desc>When it's colder outside, colonists put on warm clothing (even unresearched). They keep it until it's at least 3 degrees warmer than this limit.</RL_ColdThreshold_Desc>
+  <RL_HeatThreshold>Take off clothing for heat above: {0}</RL_HeatThreshold>
+  <RL_HeatThreshold_Desc>When it's hotter outside, colonists take off pieces that make heat worse (never armor) and wear heat-protective items.</RL_HeatThreshold_Desc>
+  <RL_GenderClothing>Clothing by gender</RL_GenderClothing>
+  <RL_GenderClothing_Desc>Men only take men's and unisex clothing, women only women's and unisex. A piece of the other gender they already wear is replaced once a suitable replacement is found.</RL_GenderClothing_Desc>
+  <RL_GenderGuess>Guess gender from name and description</RL_GenderGuess>
+  <RL_GenderGuess_Desc>If the clothing definition has no gender, it's guessed from its name, tags, texture and description (dress, skirt, maid… = women's; tuxedo, gentleman… = men's). When unsure, the piece is unisex. You can see the guess in the clothing list tooltip.</RL_GenderGuess_Desc>
+  <RL_GenderFemale>women's</RL_GenderFemale>
+  <RL_GenderMale>men's</RL_GenderMale>
+  <RL_GenderUnisex>unisex</RL_GenderUnisex>
+  <RL_Ex_Gender>Gender: {0}</RL_Ex_Gender>
+  <RL_TabGeneral>Research and level</RL_TabGeneral>
+  <RL_TabWeapons>Weapons</RL_TabWeapons>
+  <RL_TabApparel>Apparel</RL_TabApparel>
+  <RL_TabTemperature>Temperature and threats</RL_TabTemperature>
+  <RL_TabBans>Bans</RL_TabBans>
+  <RL_TabOther>Other</RL_TabOther>
+  <RL_TempInfo>Temperature only changes clothing in an emergency: when it's outside the set limits, or a colonist has hypothermia or heatstroke (always applies).\n\nIn the cold they put on warm clothing, even unresearched. In the heat they take off pieces that make it worse.\n\nArmor is never taken off or swapped for weaker armor because of temperature.</RL_TempInfo>
+  <RL_ConfirmBanWeapons>Really ban ALL weapons from mods? Colonists won't take any mod weapon. You can uncheck individual weapons in the list later.</RL_ConfirmBanWeapons>
+  <RL_ConfirmBanApparel>Really ban ALL apparel from mods? Colonists won't take any mod apparel. You can uncheck individual pieces in the list later.</RL_ConfirmBanApparel>
+  <RL_RoleGear>Gear by specialization</RL_RoleGear>
+  <RL_RoleGear_Desc>Based on skills, each colonist has a role: shooter, melee fighter, balanced or worker. Melee fighters prefer heavier armor, workers lighter gear without slowdowns. Good shooters value long-range weapons, weak ones faster short-range ones. The role is shown in the "Auto gear" button description.</RL_RoleGear_Desc>
+  <RL_SpecialEffects>Consider special weapon effects</RL_SpecialEffects>
+  <RL_SpecialEffects_Desc>Explosive, incendiary, EMP, stun, toxic and smoke weapons score lower as a colonist's main weapon (risk of hitting allies, only effective against some targets).</RL_SpecialEffects_Desc>
+  <RL_StatOffsets>Gear stat bonuses and penalties</RL_StatOffsets>
+  <RL_StatOffsets_Desc>Considers what gear changes: move and work speed, aiming, hit and dodge, and based on the colonist's best skill also work stats (doctor tending, grower plant work, cook cooking…).</RL_StatOffsets_Desc>
+  <RL_Role_Shooter>shooter</RL_Role_Shooter>
+  <RL_Role_Melee>melee fighter</RL_Role_Melee>
+  <RL_Role_Balanced>balanced</RL_Role_Balanced>
+  <RL_Role_Worker>worker</RL_Role_Worker>
+  <RL_GizmoRole>Role: {0}, specialization: {1}</RL_GizmoRole>
+  <RL_CoverageFirst>Cover the body first (torso, legs)</RL_CoverageFirst>
+  <RL_CoverageFirst_Desc>A piece covering a bare spot gets priority (torso most, then legs, head, the rest). A piece that would uncover something is penalized. While torso or legs are bare, the colonist dresses right away, without the calm period.</RL_CoverageFirst_Desc>
+  <RL_ThreatApparel>Protection against threats</RL_ThreatApparel>
+  <RL_ThreatApparel_Desc>During critical cold or heat (limits above), toxins, fallout, pollution, vacuum or combat on the map, clothing with the needed protection gets a big bonus so colonists put it on. Armor is never swapped for weaker armor because of it.</RL_ThreatApparel_Desc>
+  <RL_ThreatBills>Create bills for protection</RL_ThreatBills>
+  <RL_ThreatBills_Desc>When there isn't enough protective clothing and the recipe is researched, a "until you have X" bill is added to a bench and products go to the stockpile. Your bills aren't removed. If research is missing, one message is shown.</RL_ThreatBills_Desc>
+  <RL_ThreatBill>Colonists started making protection: {0}.</RL_ThreatBill>
+  <RL_ThreatNoRecipe>Protection for this threat can't be made yet. The research is missing.</RL_ThreatNoRecipe>
+  <RL_OnlyCrafted>Only take what the colony has crafted</RL_OnlyCrafted>
+  <RL_OnlyCrafted_Desc>Colonists only pick up new weapons and apparel the colony has already crafted at least once at a workbench (and researched). Loot and bought items of other kinds are ignored until you craft that kind yourselves. What they already wear is not removed because of this. In an ongoing game, colonists' gear and stored items you can craft are taken over once.</RL_OnlyCrafted_Desc>
+  <RL_CraftedCount>Crafted kinds of weapons and apparel: {0}</RL_CraftedCount>
+  <RL_CraftedReset>Clear crafted list</RL_CraftedReset>
+  <RL_CraftedReset_Desc>Forgets every weapon and apparel kind taken over or crafted so far. From now on only what the colony really crafts counts. What colonists wear stays on.</RL_CraftedReset_Desc>
+  <RL_CraftedResetConfirm>Really clear the crafted list? Colonists will only take new weapons and apparel after you have crafted that kind.</RL_CraftedResetConfirm>
+  <RL_Ex_NotCrafted>Researched, but the colony has not crafted it yet.</RL_Ex_NotCrafted>
+  <RL_SidearmLocked>Smart Colonist Gear: the colony has not researched or crafted this weapon yet</RL_SidearmLocked>
+  <RL_WorkClothing>Work clothing only for specialists</RL_WorkClothing>
+  <RL_WorkClothing_Desc>Apparel that speeds up a specific job (apron for cooking, lab coat for research, gloves for doctors, mining helmet…) is only taken by a specialist in that job – when available, it gets a strong preference. Others don't take it. Specialist = it is their best work skill, or they have that job at priority 1, and the skill is at least at the set level.</RL_WorkClothing_Desc>
+  <RL_WorkClothingSkill>Specialist from skill: {0}</RL_WorkClothingSkill>
+  <RL_WorkClothingSkill_Desc>Minimum skill level for a colonist to count as a specialist for work clothing.</RL_WorkClothingSkill_Desc>
+  <RL_DressByTraits>Dress by traits and skills</RL_DressByTraits>
+  <RL_DressByTraits_Desc>Among the allowed apparel, each colonist prefers what suits them: gear that boosts work they actually do and are good at (doctor – tending, miner – mining, researcher – research…), shooting or melee gear by fighting skill, psychic gear for psycasters and psychically sensitive colonists. Traits matter too: wimps value armor more, joggers and nimble colonists mind slowdowns, greedy and jealous ones want better quality, ascetics don't care for luxury, brawlers skip aiming gear. Only a small preference (about -25 % to +35 %) – it never allows gear that is locked or not researched.</RL_DressByTraits_Desc>
+  <RL_GearStability>Gear stability: swap only if {0} % better</RL_GearStability>
+  <RL_GearStability_Desc>How much better a new weapon, apparel, armor or accessory must be than what the colonist has before swapping. Higher = less re-dressing and re-arming. The same item for the same item (e.g. chestplate for chestplate) is only swapped for better quality. Broken items are always replaced.</RL_GearStability_Desc>
+  <RL_TabSidearms>Sidearms</RL_TabSidearms>
+  <RL_SS_Missing>Simple Sidearms is not installed – this mod's built-in system is used: colonists carry a weapon of the other type and draw it in a fight on their own.</RL_SS_Missing>
+  <RL_SS_Preset>Simple Sidearms preset: {0}</RL_SS_Preset>
+  <RL_SS_P_Custom>Custom</RL_SS_P_Custom>
+  <RL_SS_P_NoneApplied>None</RL_SS_P_NoneApplied>
+  <RL_SS_P_Disabled>Disabled</RL_SS_P_Disabled>
+  <RL_SS_P_LoadoutOnly>Loadout only (this mod picks sidearms)</RL_SS_P_LoadoutOnly>
+  <RL_SS_P_Lite>Lite</RL_SS_P_Lite>
+  <RL_SS_P_Basic>Basic</RL_SS_P_Basic>
+  <RL_SS_P_Advanced>Advanced</RL_SS_P_Advanced>
+  <RL_SS_P_Excessive>Excessive</RL_SS_P_Excessive>
+  <RL_SS_P_Brawler>Brawler</RL_SS_P_Brawler>
+  <RL_SS_Slots>Max sidearms: {0}</RL_SS_Slots>
+  <RL_SS_Slots_Desc>How many weapons a colonist may carry in addition to the one in hand.</RL_SS_Slots_Desc>
+  <RL_SS_Mass>Max mass of one sidearm: {0} kg</RL_SS_Mass>
+  <RL_SS_MassNone>Max mass of one sidearm: no limit</RL_SS_MassNone>
+  <RL_SS_Mass_Desc>Heavier weapons are not carried as sidearms. 0 = no limit.</RL_SS_Mass_Desc>
+  <RL_SS_ToolSwitch>Use tools for work (axe, pickaxe…)</RL_SS_ToolSwitch>
+  <RL_SS_ToolSwitch_Desc>A colonist switches to a carried weapon that speeds up the current work.</RL_SS_ToolSwitch_Desc>
+  <RL_SS_OptimalMelee>Best melee weapon for the target</RL_SS_OptimalMelee>
+  <RL_SS_CQC>Switch to melee in close combat</RL_SS_CQC>
+  <RL_SS_RangedSwitch>Switch to ranged at a distance</RL_SS_RangedSwitch>
+  <RL_SS_ReEquip>Re-equip main weapon after combat</RL_SS_ReEquip>
+  <RL_SS_ReEquipBest>Re-equip the best weapon after combat</RL_SS_ReEquipBest>
+  <RL_SS_ReEquipCombat>Re-equip during combat too</RL_SS_ReEquipCombat>
+  <RL_SS_SkipDangerous>Don't use dangerous weapons (grenades, explosives) automatically</RL_SS_SkipDangerous>
+  <RL_SS_SkipEMP>Don't use EMP weapons automatically</RL_SS_SkipEMP>
+  <RL_SS_Caravans>Keep sidearms in caravans</RL_SS_Caravans>
+  <RL_SS_Alerts>Alert for missing sidearm</RL_SS_Alerts>
+  <RL_SS_Sounds>Weapon switching sounds</RL_SS_Sounds>
+  <RL_SS_Spawn>Others arrive with a sidearm: {0} %</RL_SS_Spawn>
+  <RL_SS_Spawn_Desc>Chance that a raider or visitor gets a sidearm (gear is still filtered by World at Your Level).</RL_SS_Spawn_Desc>
+  <RL_SS_HidePage>Hide the original Simple Sidearms settings</RL_SS_HidePage>
+  <RL_SS_HidePage_Desc>The original Simple Sidearms page is hidden from the mod settings list – everything is set here. Takes effect after reopening the settings.</RL_SS_HidePage_Desc>
+  <RL_EmergencyGear>Emergency gear in dangerous situations</RL_EmergencyGear>
+  <RL_EmergencyGear_Desc>When something dangerous happens and your colony hasn't researched the proper gear yet, colonists may use substitute gear that is already on the map (stockpiles, ground, inventory) – even if it isn't researched or crafted. Toxic air: gas masks and protective suits; extreme cold or heat: insulating clothing; an attack: armor and the colony's own weapons. Nothing is created. When the danger is over, the normal rules apply again; pieces already worn are kept for about two hours so nobody undresses in the middle of it. Manually banned items are never allowed.</RL_EmergencyGear_Desc>
+  <RL_EmergencyToxic>Toxic air (gas, fallout, pollution)</RL_EmergencyToxic>
+  <RL_EmergencyToxic_Desc>Toxic gas near colonists or in the home area (e.g. a gas generator from a quest), toxic fallout, noxious haze, polluted ground or rising toxic buildup. Allows apparel with toxic environment or toxic resistance (gas masks, hazmat suits…) from any mod.</RL_EmergencyToxic_Desc>
+  <RL_EmergencyTemperature>Extreme cold or heat</RL_EmergencyTemperature>
+  <RL_EmergencyTemperature_Desc>Outside temperature far beyond what colonists can take without clothing (or a cold snap / heat wave), or hypothermia / heatstroke. Allows well-insulating apparel.</RL_EmergencyTemperature_Desc>
+  <RL_EmergencyRaid>Attack</RL_EmergencyRaid>
+  <RL_EmergencyRaid_Desc>While enemies are active on the map. Allows armor, and weapons that already belong to the colony (in storage, in inventory, or lying in the home area).</RL_EmergencyRaid_Desc>
+  <RL_EmKind_Toxic>Toxic air</RL_EmKind_Toxic>
+  <RL_EmKind_Cold>Extreme cold</RL_EmKind_Cold>
+  <RL_EmKind_Heat>Extreme heat</RL_EmKind_Heat>
+  <RL_EmKind_Raid>Attack</RL_EmKind_Raid>
+  <RL_EmGear_Toxic>gas masks and protective gear</RL_EmGear_Toxic>
+  <RL_EmGear_Cold>warm clothing</RL_EmGear_Cold>
+  <RL_EmGear_Heat>cooling clothing</RL_EmGear_Heat>
+  <RL_EmGear_Raid>armor and the colony's weapons</RL_EmGear_Raid>
+  <RL_EmergencyOn>{0}: colonists may use {1} even without research.</RL_EmergencyOn>
+  <RL_EmergencyOff>Danger over ({0}): emergency gear is no longer allowed. Pieces already worn are kept for a while.</RL_EmergencyOff>
+  <RL_Ex_Emergency>Allowed now as emergency gear ({0})</RL_Ex_Emergency>
+  <RL_Ex_EmergencyFor>Emergency gear for: {0}</RL_Ex_EmergencyFor>
+  <RL_EmergencyProvide>Find and craft emergency gear</RL_EmergencyProvide>
+  <RL_EmergencyProvide_Desc>When colonists lack protection during the danger: forbidden protective items anywhere on the map are unforbidden (only as many as needed, not in fire, not near enemies), and if there still isn't enough, a bill is added for the best protection your colony can make. If the proper protection can't be made yet (missing research), the closest substitute is found or made instead – weaker toxic protection or a face covering, the warmest/coolest clothing, the best armor. Bills added this way are removed when the danger is over, unless work on them has already started.</RL_EmergencyProvide_Desc>
+  <RL_EmProv_Msg>{0}: not enough {1} – {2}.</RL_EmProv_Msg>
+  <RL_EmProv_Unforbade>unforbade {0} ({1})</RL_EmProv_Unforbade>
+  <RL_EmProv_Bill>added a bill for {0}× {1} at {2}</RL_EmProv_Bill>
+  <RL_EmProv_Substitute>no recipe for proper protection, making a substitute: {0}× {1} at {2}</RL_EmProv_Substitute>
+  <RL_EmProv_BillExists>a bill for {0} already exists</RL_EmProv_BillExists>
+  <RL_EmProv_Nothing>nothing found and no recipe is available</RL_EmProv_Nothing>
+  <RL_CraftedRestore>Restore list from the colony</RL_CraftedRestore>
+  <RL_CraftedRestore_Desc>Adds every weapon and apparel kind the colony has now to the crafted list: worn, carried in inventory and stored. Useful when the list was cleared by mistake or too early.</RL_CraftedRestore_Desc>
+  <RL_CraftedRestored>Crafted list restored from the colony, kinds added: {0}.</RL_CraftedRestored>
+  <RL_SS_OwnHeader>Smart Colonist Gear – sidearms</RL_SS_OwnHeader>
+  <RL_SS_Filter>Sidearms only researched and allowed</RL_SS_Filter>
+  <RL_SS_Filter_Desc>Simple Sidearms may only give colonists weapons this mod allows (research, tech level, bans, only crafted).</RL_SS_Filter_Desc>
+  <RL_SS_Upgrade>Swap sidearms for better ones</RL_SS_Upgrade>
+  <RL_SS_Upgrade_Desc>When the colony has a better weapon of the same type, the colonist swaps the carried sidearm and hauls the old one to storage.</RL_SS_Upgrade_Desc>
+  <RL_SS_Notify>Message when a sidearm is taken</RL_SS_Notify>
+  <RL_SS_Notify_Desc>Shows a message when a colonist picks up a new sidearm (only when this mod's messages are on).</RL_SS_Notify_Desc>
+  <RL_SS_OriginalUi>Full Simple Sidearms settings</RL_SS_OriginalUi>
+  <RL_SS_OriginalUi_Desc>Below these options the complete original Simple Sidearms settings are shown with all their tabs (presets, automation, allowances, spawning, misc). Off = short version.</RL_SS_OriginalUi_Desc>
+  <RL_CraftedPick>Pick from what I have…</RL_CraftedPick>
+  <RL_CraftedPick_Desc>Opens a list of every weapon and apparel kind the colony has. Ticked ones may be worn right away, the rest unlock by themselves once the colony crafts them.</RL_CraftedPick_Desc>
+  <RL_PickTitle>What colonists may wear</RL_PickTitle>
+  <RL_PickHelp>Ticked = allowed now. Unticked is not banned for good – it unlocks once the colony crafts it. Research and bans still apply.</RL_PickHelp>
+  <RL_PickAll>All</RL_PickAll>
+  <RL_PickWeapons>Weapons</RL_PickWeapons>
+  <RL_PickApparel>Apparel</RL_PickApparel>
+  <RL_PickOnAll>Tick shown</RL_PickOnAll>
+  <RL_PickOffAll>Untick shown</RL_PickOffAll>
+  <RL_PickCount>Allowed {0} of {1}</RL_PickCount>
+  <RL_PickNoResearch>not researched</RL_PickNoResearch>
+  <RL_PickWeapon>weapon</RL_PickWeapon>
+  <RL_PickApparel1>apparel</RL_PickApparel1>
+  <RL_SS_Tab_Presets>Presets</RL_SS_Tab_Presets>
+  <RL_SS_Tab_Automation>Triggers</RL_SS_Tab_Automation>
+  <RL_SS_Tab_Allowances>Limits</RL_SS_Tab_Allowances>
+  <RL_SS_Tab_Spawning>Spawns</RL_SS_Tab_Spawning>
+  <RL_SS_Tab_Misc>Misc.</RL_SS_Tab_Misc>
+  <RL_FullBody>Dress the whole body</RL_FullBody>
+  <RL_FullBody_Desc>The colonist puts on every available piece that only adds something (removes nothing) – hat, gloves, boots, vest, coat… – even with a low score. It must be allowed, fit the apparel policy, not be tainted and not go against the temperature (no warm coats in the heat). Belts and utility items still need the normal score. A colonist in body armor completes the set (helmet, gloves, boots) and never swaps a piece of it for a weaker one. Extra warm pieces only when it is not hot.</RL_FullBody_Desc>
+  <RL_SP_Tab_Overview>Overview</RL_SP_Tab_Overview>
+  <RL_SP_Tab_Presets>Presets</RL_SP_Tab_Presets>
+  <RL_SP_Tab_Automation>Automation</RL_SP_Tab_Automation>
+  <RL_SP_Tab_Limits>Limits</RL_SP_Tab_Limits>
+  <RL_SP_Tab_Spawning>Others' gear</RL_SP_Tab_Spawning>
+  <RL_SP_Tab_Misc>Misc</RL_SP_Tab_Misc>
+  <RL_SP_Tab_Own>Mod rules</RL_SP_Tab_Own>
+  <RL_SP_On>on</RL_SP_On>
+  <RL_SP_Off>off</RL_SP_Off>
+  <RL_SP_NowPreset>Preset: {0}</RL_SP_NowPreset>
+  <RL_SP_NowAuto>Automatic switching: {0} of {1} functions on</RL_SP_NowAuto>
+  <RL_SP_NowOwn>This mod: auto sidearm {0}, only researched {1}, swap for better {2}</RL_SP_NowOwn>
+  <RL_SP_Use>Use: {0}</RL_SP_Use>
+  <RL_SP_NoGame>Colonists and their sidearms are listed in a running game.</RL_SP_NoGame>
+  <RL_SP_Colonists>Colonists and their weapons</RL_SP_Colonists>
+  <RL_SP_ColName>Colonist</RL_SP_ColName>
+  <RL_SP_ColPrimary>In hand</RL_SP_ColPrimary>
+  <RL_SP_ColSide>Sidearms</RL_SP_ColSide>
+  <RL_SP_ColMass>Mass</RL_SP_ColMass>
+  <RL_SP_NonViolent>non-violent – carries no weapons</RL_SP_NonViolent>
+  <RL_SP_SumSingleKg>one weapon up to {0} kg</RL_SP_SumSingleKg>
+  <RL_SP_SumSingleSel>only selected weapons</RL_SP_SumSingleSel>
+  <RL_SP_SumSingleAny>one weapon without limit</RL_SP_SumSingleAny>
+  <RL_SP_SumAmountKg>all together up to {0} kg</RL_SP_SumAmountKg>
+  <RL_SP_SumAmountN>at most {0}</RL_SP_SumAmountN>
+  <RL_SP_SumAmountAny>any number</RL_SP_SumAmountAny>
+  <RL_SP_SumCommon>Limits: {0}.</RL_SP_SumCommon>
+  <RL_SP_SumSeparate>Melee: {0}. Ranged: {1}.</RL_SP_SumSeparate>
+  <RL_SP_PresetsHint>Click a card. Any change in the other tabs switches the preset to "Custom".</RL_SP_PresetsHint>
+  <RL_SP_CustomNow>You have custom settings now (no card selected).</RL_SP_CustomNow>
+  <RL_SS_PD_Basic>Recommended. Melee up to 1.9 kg, ranged up to 2.7 kg, at most 2 of each, 3 in total. Automatic switching on.</RL_SS_PD_Basic>
+  <RL_SS_PD_Lite>Only small light weapons: melee up to 0.6 kg (knives), ranged up to 1.6 kg (pistols), at most 2.</RL_SS_PD_Lite>
+  <RL_SS_PD_Advanced>Heavier weapons: melee up to 2.25 kg, ranged up to 5 kg (rifles too), up to 10 kg in total.</RL_SS_PD_Advanced>
+  <RL_SS_PD_Excessive>No limits – colonists carry what they can. Others arrive with sidearms more often.</RL_SS_PD_Excessive>
+  <RL_SS_PD_Brawler>Melee only: each up to 4 kg, up to 10 kg together, no ranged.</RL_SS_PD_Brawler>
+  <RL_SS_PD_LoadoutOnly>Simple Sidearms only keeps limits (3 weapons, each up to 4.75 kg), this mod chooses what to carry. No automatic switching in combat.</RL_SS_PD_LoadoutOnly>
+  <RL_SS_PD_Disabled>Sidearms off: nothing switches, at most 1 extra weapon, others carry none.</RL_SS_PD_Disabled>
+  <RL_SP_ToolAutoSwitch>Use tools for work</RL_SP_ToolAutoSwitch>
+  <RL_SP_ToolAutoSwitch_Desc>The colonist takes a carried weapon that speeds up the work (axe for cutting, pick for mining…) and switches back afterwards.</RL_SP_ToolAutoSwitch_Desc>
+  <RL_SP_OptimalMelee>Best melee weapon for the target</RL_SP_OptimalMelee>
+  <RL_SP_OptimalMelee_Desc>In melee picks the carried weapon that works best against that enemy.</RL_SP_OptimalMelee_Desc>
+  <RL_SP_CQCAutoSwitch>Draw a melee weapon when attacked up close</RL_SP_CQCAutoSwitch>
+  <RL_SP_CQCAutoSwitch_Desc>When an enemy gets into reach, the colonist switches from a gun to a melee weapon.</RL_SP_CQCAutoSwitch_Desc>
+  <RL_SP_CQCTargetOnly>…only when attacked directly</RL_SP_CQCTargetOnly>
+  <RL_SP_CQCTargetOnly_Desc>Switches only when the enemy in melee attacks this very colonist.</RL_SP_CQCTargetOnly_Desc>
+  <RL_SP_RangedCombatAutoSwitch>Pick the best gun for the distance</RL_SP_RangedCombatAutoSwitch>
+  <RL_SP_RangedCombatAutoSwitch_Desc>Chooses among carried guns by distance to the target (shotgun up close, rifle far away).</RL_SP_RangedCombatAutoSwitch_Desc>
+  <RL_SP_MaxWarmup>Switch only to a gun with warmup up to {0} %</RL_SP_MaxWarmup>
+  <RL_SP_MaxWarmup_Desc>How long the new weapon's warmup may be compared to the current one. More = more switching.</RL_SP_MaxWarmup_Desc>
+  <RL_SP_BiasHint>Speed versus power: above 100 % colonists prefer fast weapons, below 100 % strong slow ones.</RL_SP_BiasHint>
+  <RL_SP_BiasMelee>Melee – weight on speed: {0} %</RL_SP_BiasMelee>
+  <RL_SP_BiasRanged>Ranged – weight on speed: {0} %</RL_SP_BiasRanged>
+  <RL_SP_ReEquipOutOfCombat>Take the main weapon back after combat</RL_SP_ReEquipOutOfCombat>
+  <RL_SP_ReEquipOutOfCombat_Desc>When combat ends the colonist takes back the weapon held before.</RL_SP_ReEquipOutOfCombat_Desc>
+  <RL_SP_ReEquipBest>…or straight the best one</RL_SP_ReEquipBest>
+  <RL_SP_ReEquipBest_Desc>Takes the best carried weapon instead of the original one.</RL_SP_ReEquipBest_Desc>
+  <RL_SP_ReEquipInCombat>Switch back during combat too</RL_SP_ReEquipInCombat>
+  <RL_SP_ReEquipInCombat_Desc>Once no enemy is close, goes back to the gun even in the middle of combat.</RL_SP_ReEquipInCombat_Desc>
+  <RL_SP_SkipDangerousWeapons>Grenades and launchers only on order</RL_SP_SkipDangerousWeapons>
+  <RL_SP_SkipDangerousWeapons_Desc>Colonists do not use explosive weapons on their own (friendly fire risk).</RL_SP_SkipDangerousWeapons_Desc>
+  <RL_SP_SkipEMPWeapons>EMP weapons only on order</RL_SP_SkipEMPWeapons>
+  <RL_SP_SkipEMPWeapons_Desc>Colonists do not use EMP weapons on their own.</RL_SP_SkipEMPWeapons_Desc>
+  <RL_SP_AllowBlockedWeaponUse>Allow weapons the colonist would otherwise not be allowed</RL_SP_AllowBlockedWeaponUse>
+  <RL_SP_AllowBlockedWeaponUse_Desc>The colonist may carry weapons blocked by policies or other mods.</RL_SP_AllowBlockedWeaponUse_Desc>
+  <RL_SP_SeparateModes>Separate limits for melee and ranged</RL_SP_SeparateModes>
+  <RL_SP_SeparateModes_Desc>On: melee and ranged each have their own limits plus a total limit. Off: one common limit.</RL_SP_SeparateModes_Desc>
+  <RL_SP_Melee>Melee weapons</RL_SP_Melee>
+  <RL_SP_Ranged>Ranged weapons</RL_SP_Ranged>
+  <RL_SP_SingleLimit>Limit per weapon</RL_SP_SingleLimit>
+  <RL_SP_SingleLimit_Desc>How heavy one sidearm may be.</RL_SP_SingleLimit_Desc>
+  <RL_SP_AmountLimit>Limit for all sidearms</RL_SP_AmountLimit>
+  <RL_SP_AmountLimit_Desc>How many sidearms a colonist may carry.</RL_SP_AmountLimit_Desc>
+  <RL_SP_TotalLimit>Total limit (melee + ranged)</RL_SP_TotalLimit>
+  <RL_SP_ES_None>No limit</RL_SP_ES_None>
+  <RL_SP_ES_RelativeWeight>By capacity</RL_SP_ES_RelativeWeight>
+  <RL_SP_ES_RelativeWeight_Desc>The limit grows with the colonist's carrying capacity. Numbers are for 35 kg capacity.</RL_SP_ES_RelativeWeight_Desc>
+  <RL_SP_ES_AbsoluteWeight>Fixed mass</RL_SP_ES_AbsoluteWeight>
+  <RL_SP_ES_Selection>Selected only</RL_SP_ES_Selection>
+  <RL_SP_ES_Selection_Desc>Only weapons ticked in the list may be carried as sidearms.</RL_SP_ES_Selection_Desc>
+  <RL_SP_EA_None>No limit</RL_SP_EA_None>
+  <RL_SP_EA_RelativeWeight>By capacity</RL_SP_EA_RelativeWeight>
+  <RL_SP_EA_RelativeWeight_Desc>The limit grows with the colonist's carrying capacity. Numbers are for 35 kg capacity.</RL_SP_EA_RelativeWeight_Desc>
+  <RL_SP_EA_AbsoluteWeight>Fixed mass</RL_SP_EA_AbsoluteWeight>
+  <RL_SP_EA_Slots>Count</RL_SP_EA_Slots>
+  <RL_SP_SingleKgRel>One weapon up to {0} kg (at 35 kg capacity)</RL_SP_SingleKgRel>
+  <RL_SP_SingleKg>One weapon up to {0} kg</RL_SP_SingleKg>
+  <RL_SP_AmountKgRel>Together up to {0} kg (at 35 kg capacity)</RL_SP_AmountKgRel>
+  <RL_SP_AmountKg>Together up to {0} kg</RL_SP_AmountKg>
+  <RL_SP_SlotsN>At most {0}</RL_SP_SlotsN>
+  <RL_SP_LimitsHint>Limits apply to weapons carried in addition, not the one in hand. For reference: knife 0.5 kg, pistol 1.2 kg, sword 2 kg, rifle 3.5 kg, machine gun 9 kg.</RL_SP_LimitsHint>
+  <RL_SP_PickLight>All up to {0} kg</RL_SP_PickLight>
+  <RL_SP_PickNone>None</RL_SP_PickNone>
+  <RL_SP_PickMore>… find more weapons with the search.</RL_SP_PickMore>
+  <RL_SP_PickCount>Weapons selected: {0}</RL_SP_PickCount>
+  <RL_SP_RangedShort>ranged</RL_SP_RangedShort>
+  <RL_SP_MeleeShort>melee</RL_SP_MeleeShort>
+  <RL_SP_SpawnHint>How often others (raiders, visitors, traders) arrive with sidearms.</RL_SP_SpawnHint>
+  <RL_SP_SpawnChance>Chance of a first sidearm: {0} %</RL_SP_SpawnChance>
+  <RL_SP_SpawnChance_Desc>Probability that another pawn gets at least one sidearm.</RL_SP_SpawnChance_Desc>
+  <RL_SP_SpawnDropoff>Chance of each further one: × {0} %</RL_SP_SpawnDropoff>
+  <RL_SP_SpawnDropoff_Desc>Each further sidearm is this much less likely.</RL_SP_SpawnDropoff_Desc>
+  <RL_SP_Budget>Budget: {0} % of the gear money</RL_SP_Budget>
+  <RL_SP_Budget_Desc>How much of the pawn's gear money may go to a sidearm (expensive weapon = less often).</RL_SP_Budget_Desc>
+  <RL_SP_BudgetDropoff>Budget of each further one: × {0} %</RL_SP_BudgetDropoff>
+  <RL_SP_SpawnExample>Example: about {0} % of others carry 1 sidearm, {1} % carry 2, {2} % carry 3.</RL_SP_SpawnExample>
+  <RL_SP_SpawnWorld>World at Your Level then filters the gear of others further (research, "not better than the colony").</RL_SP_SpawnWorld>
+  <RL_SP_ColonistMode>Colonists' main weapon</RL_SP_ColonistMode>
+  <RL_SP_ColonistMode_Desc>Which carried weapon the colonist holds when not fighting.</RL_SP_ColonistMode_Desc>
+  <RL_SP_NpcMode>Others' main weapon</RL_SP_NpcMode>
+  <RL_SP_EW_BySkill>By skills</RL_SP_EW_BySkill>
+  <RL_SP_EW_BySkill_Desc>Better shooters hold a gun, better fighters a melee weapon.</RL_SP_EW_BySkill_Desc>
+  <RL_SP_EW_Ranged>Ranged</RL_SP_EW_Ranged>
+  <RL_SP_EW_Melee>Melee</RL_SP_EW_Melee>
+  <RL_SP_EW_ByGenerated>As arrived</RL_SP_EW_ByGenerated>
+  <RL_SP_EW_ByGenerated_Desc>The weapon the pawn was created or arrived with.</RL_SP_EW_ByGenerated_Desc>
+  <RL_SP_Fumble>Drop weapons when downed</RL_SP_Fumble>
+  <RL_SP_Fumble_Desc>When a downed pawn drops its carried sidearms.</RL_SP_Fumble_Desc>
+  <RL_SP_EF_Never>Never</RL_SP_EF_Never>
+  <RL_SP_EF_InDistress>In distress</RL_SP_EF_InDistress>
+  <RL_SP_EF_InCombat>In combat</RL_SP_EF_InCombat>
+  <RL_SP_EF_Always>Always</RL_SP_EF_Always>
+  <RL_SP_PreserveInventoryInCaravans>Sidearms stay with the colonist in caravans</RL_SP_PreserveInventoryInCaravans>
+  <RL_SP_PreserveInventoryInCaravans_Desc>When forming a caravan, sidearms are not moved to the shared cargo.</RL_SP_PreserveInventoryInCaravans_Desc>
+  <RL_SP_HideSidearmsInCaravanDialogs>Hide sidearms in the caravan window</RL_SP_HideSidearmsInCaravanDialogs>
+  <RL_SP_ShowAlertsMissingSidearm>Alert about a missing sidearm</RL_SP_ShowAlertsMissingSidearm>
+  <RL_SP_ShowAlertsMissingSidearm_Desc>Alert when a colonist loses a weapon it should remember.</RL_SP_ShowAlertsMissingSidearm_Desc>
+  <RL_SP_PlaySounds>Sounds when switching weapons</RL_SP_PlaySounds>
+  <RL_SP_ShowBrainscope>Debug: show weapon decisions</RL_SP_ShowBrainscope>
+  <RL_SP_BrawlerNoRanged>Brawlers carry no ranged sidearm</RL_SP_BrawlerNoRanged>
+  <RL_SP_BrawlerNoRanged_Desc>A colonist with the brawler trait takes no gun even as a sidearm (bad mood from it).</RL_SP_BrawlerNoRanged_Desc>
+  <RL_SP_MaxTotal>Max weapons per colonist: {0}</RL_SP_MaxTotal>
+  <RL_SP_MaxTotalOff>Max weapons per colonist: no own limit</RL_SP_MaxTotalOff>
+  <RL_SP_MaxTotal_Desc>How many weapons a colonist may carry in total, the one in hand included (grenades count). Applies to this mod and to Simple Sidearms. Extra ones, the worst first, are dropped and hauled to storage. 0 = only Simple Sidearms' limits.</RL_SP_MaxTotal_Desc>
+  <RL_SP_StripUncrafted>Put away weapons the colony never made</RL_SP_StripUncrafted>
+  <RL_SP_StripUncrafted_Desc>With "only crafted", colonists also put away weapons that are researched but not yet made by your colony (e.g. picked up after a raid). During a raid they may use them, afterwards they return them. A weapon you gave the colonist yourself stays.</RL_SP_StripUncrafted_Desc>
+  <RL_SP_ArmorHunt>Put on armor for hunting</RL_SP_ArmorHunt>
+  <RL_SP_ArmorHunt_Desc>Before a hunt the colonist puts on the best allowed armor from storage (within 70 cells) if it is better than what they wear, then hunts.</RL_SP_ArmorHunt_Desc>
+  <RL_SP_ArmorThreat>Put on armor when attacked</RL_SP_ArmorThreat>
+  <RL_SP_ArmorThreat_Desc>While enemies are on the map (raid, manhunters, mechanoids…) colonists stop normal work and put on the best allowed armor from storage. Firefighting, tending, fleeing and fighting are not interrupted. Their apparel policy must allow it too.</RL_SP_ArmorThreat_Desc>
+  <RL_SP_ArmorDrafted>Armor for drafted colonists too</RL_SP_ArmorDrafted>
+  <RL_SP_ArmorDrafted_Desc>A drafted colonist who is just standing with no enemy within 22 cells fetches armor within 28 cells. They then stay by the storage – move them back.</RL_SP_ArmorDrafted_Desc>
+  <RL_SidearmTooMany>already carries {0} weapons (limit)</RL_SidearmTooMany>
+  <RL_SP_MinShoot>Ranged sidearm from shooting {0}</RL_SP_MinShoot>
+  <RL_SP_MinShoot_Desc>The colonist takes an extra gun only from this shooting level. 0 = always.</RL_SP_MinShoot_Desc>
+  <RL_SP_MinMelee>Melee sidearm from melee {0}</RL_SP_MinMelee>
+  <RL_SP_MinMelee_Desc>The colonist takes an extra melee weapon only from this melee level. 0 = always.</RL_SP_MinMelee_Desc>
+  <RL_SP_OpenOriginal>Open the original Simple Sidearms window</RL_SP_OpenOriginal>
+  <RL_OS_Header>Built-in sidearms</RL_OS_Header>
+  <RL_OS_SwitchMelee>Switch to melee in a fight</RL_OS_SwitchMelee>
+  <RL_OS_SwitchMelee_Desc>When an enemy comes close, a colonist with a gun in hand takes the melee weapon from the backpack (if carrying one).</RL_OS_SwitchMelee_Desc>
+  <RL_OS_MeleeRange>Switch when an enemy is closer than {0} cells</RL_OS_MeleeRange>
+  <RL_OS_MeleeRange_Desc>Distance of the nearest enemy at which the colonist draws the melee weapon.</RL_OS_MeleeRange_Desc>
+  <RL_OS_SwitchBack>Return to the previous weapon after the fight</RL_OS_SwitchBack>
+  <RL_OS_SwitchBack_Desc>When the enemy leaves or falls, the colonist takes the weapon they had before.</RL_OS_SwitchBack_Desc>
+  <RL_OS_Gizmo>Weapon swap buttons</RL_OS_Gizmo>
+  <RL_OS_Gizmo_Desc>A drafted colonist gets a "Take in hand" button for every carried weapon. A weapon chosen by hand is kept until undrafted.</RL_OS_Gizmo_Desc>
+  <RL_OS_MaxMass>Max weight of carried weapons: {0} kg</RL_OS_MaxMass>
+  <RL_OS_MaxMassOff>Max weight of carried weapons: no limit</RL_OS_MaxMassOff>
+  <RL_OS_MaxMass_Desc>How many kg of weapons a colonist may carry in the backpack besides the one in hand. 0 = no limit.</RL_OS_MaxMass_Desc>
+  <RL_OS_Take>Take in hand: {0}</RL_OS_Take>
+  <RL_OS_Take_Desc>The colonist takes {0} from the backpack and puts the weapon in hand into the backpack. Kept until undrafted.</RL_OS_Take_Desc>
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <RL_Rec1>Colonists take the best researched weapons and clothes</RL_Rec1>
+  <RL_Rec2>Full armor set when there is a threat</RL_Rec2>
+  <RL_Rec3>Light clothes in heat, warm clothes in cold</RL_Rec3>
+  <RL_Rec4>Emergency gear against toxins and extreme temperatures</RL_Rec4>
+  <RL_Rec5>Sidearms based on skills</RL_Rec5>
+  <RL_Rec6>Worn-out gear is replaced and stored</RL_Rec6>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+</LanguageData>

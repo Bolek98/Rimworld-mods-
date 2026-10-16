@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Build: dotnet build -c Release   (or open in Visual Studio / Rider)
+       Set RimWorldDir to your RimWorld folder if it differs. -->
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>HardyPlants</AssemblyName>
+    <RootNamespace>HardyPlants</RootNamespace>
+    <OutputPath>..\Assemblies\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <RimWorldDir Condition="'$(RimWorldDir)' == ''">C:\Programy\Steam\steamapps\common\RimWorld</RimWorldDir>
+    <Managed>$(RimWorldDir)\RimWorldWin64_Data\Managed</Managed>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Harmony comes from the Harmony mod at runtime; only referenced here. -->
+    <PackageReference Include="Lib.Harmony" Version="2.3.3" ExcludeAssets="runtime" />
+    <Reference Include="Assembly-CSharp"><HintPath>$(Managed)\Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(Managed)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(Managed)\UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(Managed)\UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Tech Progression: Smart Colonist Gear</name>
+  <author>Bolek98</author>
+  <packageId>misak.researchedloadout</packageId>
+  <modVersion>2.13.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>Your colonists gear up on their own - but only with what your colony has actually researched.
+
+Features:
+- Colonists automatically pick the best researched weapons and apparel, without interrupting their work. The best weapons go to the best fighters.
+- Weapon choice by skills and specialization (shooters, brawlers), smart sidearms.
+- Smart dressing: armor is always kept, temperature only matters when it gets critical, gender-appropriate clothing, torso and legs covered first - nobody walks around naked.
+- Work clothing (aprons, lab coats...) only for specialists in that job.
+- Dress by traits and skills: each colonist prefers gear that suits their work, skills and traits (doctors medical gear, wimps more armor, greedy colonists better quality...).
+- Gear stability: colonists only swap for clearly better gear - no constant re-dressing.
+- Optional "Only crafted": colonists only take gear kinds your colony has already crafted.
+- Emergency gear: in toxic gas, extreme cold or heat, or during an attack, colonists may use protective gear already in the colony (gas masks, warm clothes, armor) even without research.
+- When protection is missing, colonists unforbid what is on the map, or the colony crafts it - and if it isn't researched yet, the closest substitute.
+- Respects locked/forced apparel and weapons you equip by hand. Dropped gear is hauled to storage, worn-out gear is replaced.
+- Ban list, per-colonist toggle, tooltips explaining why an item is locked.
+- Modded items with a wrong tech level are detected by their power.
+- Armor from storage before hunting and when the base is attacked.
+- Weapon limit per colonist; unresearched or never-made weapons are put away.
+- Simple Sidearms: two-way integration (optional), its main settings available in a "Sidearms" tab of this mod. Without it, built-in sidearms (melee when an enemy comes close, weapon swap buttons when drafted). Nice Inventory Tab compatible (optional).
+- Settings in tabs. English and Czech.
+
+Works great with World at Your Level (same author): Smart Colonist Gear reads the world tech level from it, so your colonists and the rest of the world share one tech level. With "Only crafted" enabled in both mods, your colonists and everyone else use only what you have crafted. Both mods also work standalone.
+
+Something broken, or want something added or connected with another mod? Please write it in the comments.</description>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Ludeon.RimWorld</li>
+  </loadAfter>
+</ModMetaData>

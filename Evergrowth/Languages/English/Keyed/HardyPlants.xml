@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HardyPlants_Title>Evergrowth – Plant Growth Control</HardyPlants_Title>
+  <HardyPlants_Temperatures>Temperatures for hardy plants</HardyPlants_Temperatures>
+  <HardyPlants_TemperaturesDesc>Below the minimum a plant stops growing. A hardy plant gets these values only where they are better than its own.</HardyPlants_TemperaturesDesc>
+  <HardyPlants_MinGrowth>Minimum growth temperature: {0} (vanilla {1})</HardyPlants_MinGrowth>
+  <HardyPlants_MinOptimal>Full-speed growth from: {0} (vanilla {1})</HardyPlants_MinOptimal>
+  <HardyPlants_MaxOptimal>Full-speed growth up to: {0} (vanilla {1})</HardyPlants_MaxOptimal>
+  <HardyPlants_MaxGrowth>Maximum growth temperature: {0} (vanilla {1})</HardyPlants_MaxGrowth>
+  <HardyPlants_Frost>Frost tolerance: {0} colder</HardyPlants_Frost>
+  <HardyPlants_FrostDesc>Vanilla plants go leafless 10–18 °C below their minimum growth temperature. Hardy plants survive this much more.</HardyPlants_FrostDesc>
+  <HardyPlants_ResetValues>Reset temperatures</HardyPlants_ResetValues>
+  <HardyPlants_Group>Which plants:</HardyPlants_Group>
+  <HardyPlants_GroupCold>Wild plants of cold biomes</HardyPlants_GroupCold>
+  <HardyPlants_GroupWild>All wild plants and trees (default)</HardyPlants_GroupWild>
+  <HardyPlants_GroupAll>All plants including crops</HardyPlants_GroupAll>
+  <HardyPlants_GroupCustom>My own selection (list on the right)</HardyPlants_GroupCustom>
+  <HardyPlants_Plants>Cold-hardy plants</HardyPlants_Plants>
+  <HardyPlants_Chosen>{0} plants selected. Search:</HardyPlants_Chosen>
+  <HardyPlants_Growth>Growth</HardyPlants_Growth>
+  <HardyPlants_FasterGrowth>Plants grow faster</HardyPlants_FasterGrowth>
+  <HardyPlants_FasterGrowthDesc>Crops, trees and wild plants – each with its own speed. Works at once for every plant on the map, also for plants that appear later. No restart. Off by default.</HardyPlants_FasterGrowthDesc>
+  <HardyPlants_GrowthSpeed>Growth speed: ×{0}</HardyPlants_GrowthSpeed>
+  <HardyPlants_GrowAllDay>Plants grow day and night (24/7)</HardyPlants_GrowAllDay>
+  <HardyPlants_GrowAllDayDesc>Plants do not rest at night, and plants under the open sky also grow in the dark. Plants under a roof still need lamps. Off by default.</HardyPlants_GrowAllDayDesc>
+  <HardyPlants_CropDays>Set how long crops take to grow</HardyPlants_CropDays>
+  <HardyPlants_TreeDays>Set how long trees take to grow</HardyPlants_TreeDays>
+  <HardyPlants_DaysValue>Grows in: {0} days</HardyPlants_DaysValue>
+  <HardyPlants_DaysDesc>Days at 100 % growth rate. Plants rest at night (unless 24/7 is on) and grow slower in poor light, soil or temperature, so in a real game it takes longer. Applied when this window is closed – no restart. Off by default.</HardyPlants_DaysDesc>
+  <HardyPlants_Presets>Quick setup (Growth section):</HardyPlants_Presets>
+  <HardyPlants_PresetVanilla>Vanilla</HardyPlants_PresetVanilla>
+  <HardyPlants_PresetEasy>Easy farming</HardyPlants_PresetEasy>
+  <HardyPlants_PresetLush>Lush world</HardyPlants_PresetLush>
+  <HardyPlants_SpeedCrops>Crops: ×{0}</HardyPlants_SpeedCrops>
+  <HardyPlants_SpeedTrees>Trees: ×{0}</HardyPlants_SpeedTrees>
+  <HardyPlants_SpeedWild>Wild plants: ×{0}</HardyPlants_SpeedWild>
+  <HardyPlants_Yield>Bigger harvests</HardyPlants_Yield>
+  <HardyPlants_YieldDesc>How much crops and wild plants give when harvested and how much wood a tree gives. Works at once. Off by default.</HardyPlants_YieldDesc>
+  <HardyPlants_YieldCrops>Crops and wild plants: ×{0}</HardyPlants_YieldCrops>
+  <HardyPlants_YieldWood>Wood from trees: ×{0}</HardyPlants_YieldWood>
+  <HardyPlants_Regrow>Wild plants grow back faster</HardyPlants_Regrow>
+  <HardyPlants_RegrowDesc>How fast wild plants and trees come back on the map after cutting, grazing or fire. Plant density still follows the biome. Off by default.</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowValue>Regrowth: ×{0}</HardyPlants_RegrowValue>
+  <HardyPlants_IgnoreSoil>Poor soil does not slow growth</HardyPlants_IgnoreSoil>
+  <HardyPlants_IgnoreSoilDesc>On sand, gravel and poor soil plants grow at full speed. Rich soil still helps. Where nothing grows, nothing changes. Off by default.</HardyPlants_IgnoreSoilDesc>
+  <HardyPlants_NoBlight>No crop blight</HardyPlants_NoBlight>
+  <HardyPlants_NoBlightDesc>The blight event no longer happens and blight does not spread. Off by default.</HardyPlants_NoBlightDesc>
+  <HardyPlants_GrowthNote>Speed, yield, regrowth, soil, blight and 24/7 work at once, grow times after closing this window.</HardyPlants_GrowthNote>
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+  <HardyPlants_Profile>PROFILE</HardyPlants_Profile>
+  <HardyPlants_ProfRec>Recommended</HardyPlants_ProfRec>
+  <HardyPlants_ProfCustom>Custom</HardyPlants_ProfCustom>
+  <HardyPlants_PresetVanilla_Card>Growth and yield like the base game.</HardyPlants_PresetVanilla_Card>
+  <HardyPlants_ProfRec_Card>Faster growth, bigger harvests and no blight. Still fair.</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>Plants everywhere, growing fast day and night.</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfCustom_Card>Your own values.</HardyPlants_ProfCustom_Card>
+  <HardyPlants_ProfileHint>Change anything under Growth or Yield and the profile switches to Custom. Orange CHANGED = differs from recommended, click it to restore.</HardyPlants_ProfileHint>
+  <HardyPlants_SecYield>Yield and diseases</HardyPlants_SecYield>
+  <HardyPlants_SecGroup>Which plants are hardy</HardyPlants_SecGroup>
+</LanguageData>

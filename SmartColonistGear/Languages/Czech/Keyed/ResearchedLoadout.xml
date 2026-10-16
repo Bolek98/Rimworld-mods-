@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RL_Enable>Zapnout mod</RL_Enable>
+  <RL_UseRecipes>Recepty jako výzkum</RL_UseRecipes>
+  <RL_UseRecipes_Desc>Věc je odemčená, když je hotový výzkum aspoň jednoho receptu, kterým jde vyrobit. Vypni, pokud se zamykají suroviny (dřevo, ocel).</RL_UseRecipes_Desc>
+  <RL_BlockHigherTech>Blokovat věci nad tech level kolonie</RL_BlockHigherTech>
+  <RL_BlockHigherTech_Desc>Věci bez výzkumu, které jsou technologicky vyspělejší než to, co má kolonie vyzkoumané, se nepoužijí.</RL_BlockHigherTech_Desc>
+  <RL_BlockUntagged>Blokovat modové věci bez výzkumu</RL_BlockUntagged>
+  <RL_BlockUntagged_Desc>Věci z jiných modů, které nemají žádný výzkum, se považují za zamčené.</RL_BlockUntagged_Desc>
+  <RL_BlockLockedEquip>Blokovat nevyzkoumané zbraně</RL_BlockLockedEquip>
+  <RL_BlockLockedEquip_Desc>Kolonisti si nevezmou nevyzkoumanou zbraň ani na tvůj příkaz.</RL_BlockLockedEquip_Desc>
+  <RL_BlockLockedApparel>Blokovat nevyzkoumané oblečení</RL_BlockLockedApparel>
+  <RL_BlockLockedApparel_Desc>Vanilla oblékání nebude volit nevyzkoumané oblečení.</RL_BlockLockedApparel_Desc>
+  <RL_StripLocked>Sundat nevyzkoumanou výbavu</RL_StripLocked>
+  <RL_StripLocked_Desc>Kolonisti odloží zbraně a oblečení, které kolonie ještě nemá vyzkoumané.</RL_StripLocked_Desc>
+  <RL_AutoPrimary>Automaticky lepší hlavní zbraň</RL_AutoPrimary>
+  <RL_AutoPrimary_Desc>Kolonisti si sami vezmou silnější zbraň a slabší odloží.</RL_AutoPrimary_Desc>
+  <RL_UseSkills>Výběr zbraně podle dovedností</RL_UseSkills>
+  <RL_UseSkills_Desc>Střelci dostanou střelné zbraně, rváči zbraně na blízko.</RL_UseSkills_Desc>
+  <RL_AutoSidearm>Automaticky sidearm</RL_AutoSidearm>
+  <RL_AutoSidearm_Desc>Kolonista nosí i záložní zbraň opačného typu. Se Simple Sidearms platí jeho limity a pravidla.</RL_AutoSidearm_Desc>
+  <RL_PrioritizeFighters>Nejlepší zbraně nejlepším bojovníkům</RL_PrioritizeFighters>
+  <RL_PrioritizeFighters_Desc>Nejlepší zbraň si vybírá kolonista s nejvyšší dovedností střelby nebo boje zblízka. Ostatní si ji nevezmou, dokud by byla pro něj vylepšením.</RL_PrioritizeFighters_Desc>
+  <RL_ArmSlaves>Zbraně otrokům</RL_ArmSlaves>
+  <RL_ArmSlaves_Desc>Ozbrojení otroci výrazně zvyšují šanci na vzpouru. Ve výchozím stavu vypnuto.</RL_ArmSlaves_Desc>
+  <RL_ConsiderDistance>Ohled na vzdálenost</RL_ConsiderDistance>
+  <RL_ConsiderDistance_Desc>Čím dál věc leží, tím větší zlepšení musí přinést (až +25 %), aby pro ni kolonista šel.</RL_ConsiderDistance_Desc>
+  <RL_PauseThreat>Pauza během útoku</RL_PauseThreat>
+  <RL_PauseThreat_Desc>Když je aktivní nepřítel v domovské zóně nebo do 40 políček od kolonisty, nikdo nechodí pro výbavu. Nepřátelé daleko na kraji mapy, ležící nebo utíkající se nepočítají.</RL_PauseThreat_Desc>
+  <RL_OwnDresser>Vlastní oblékání místo vanilla</RL_OwnDresser>
+  <RL_OwnDresser_Desc>Oblékání řídí tenhle mod místo hry. Doporučeno jen když vanilla oblékání hází chyby.</RL_OwnDresser_Desc>
+  <RL_AutoApparel>Automatické oblékání (vlastní)</RL_AutoApparel>
+  <RL_AutoApparel_Desc>Platí jen spolu s vlastním oblékáním.</RL_AutoApparel_Desc>
+  <RL_OnlyStockpile>Jen ze skladu a polic</RL_OnlyStockpile>
+  <RL_OnlyStockpile_Desc>Kolonisti berou jen věci ve skladových zónách a policích, ne věci ležící kdekoli na mapě.</RL_OnlyStockpile_Desc>
+  <RL_ReplaceBroken>Sundat roztrhané a co politika zakazuje</RL_ReplaceBroken>
+  <RL_ReplaceBroken_Desc>Oblečení pod hranicí trvanlivosti nebo zakázané politikou oblékání se sundá.</RL_ReplaceBroken_Desc>
+  <RL_StoreDropped>Odložené věci odnést do skladu</RL_StoreDropped>
+  <RL_StoreDropped_Desc>Kolonista odloženou výbavu sám odnese na nejlepší volné místo ve skladu. Když místo není, nechá ji na zemi.</RL_StoreDropped_Desc>
+  <RL_Notify>Oznámení ve hře</RL_Notify>
+  <RL_Notify_Desc>Zpráva vlevo nahoře, když si kolonista vezme jinou zbraň nebo oblečení.</RL_Notify_Desc>
+  <RL_DebugLog>Ladicí výpis do logu</RL_DebugLog>
+  <RL_DebugLog_Desc>Zapisuje každou výměnu do logu. Jen pro hledání chyb.</RL_DebugLog_Desc>
+  <RL_MinHp>Min. trvanlivost: {0} %</RL_MinHp>
+  <RL_MinHp_Desc>Výbava pod touto hranicí se považuje za rozbitou. Vanilla dává špatnou náladu za roztrhané oblečení pod 50 %.</RL_MinHp_Desc>
+  <RL_Search>Hledat:</RL_Search>
+  <RL_BanModWeapons>Zakázat modové zbraně</RL_BanModWeapons>
+  <RL_AllowWeapons>Povolit zbraně</RL_AllowWeapons>
+  <RL_BanModApparel>Zakázat modové oblečení</RL_BanModApparel>
+  <RL_AllowApparel>Povolit oblečení</RL_AllowApparel>
+  <RL_BanWeaponsTitle>Zbraně (zaškrtnuto = ZAKÁZÁNO)</RL_BanWeaponsTitle>
+  <RL_BanApparelTitle>Oblečení a brnění (zaškrtnuto = ZAKÁZÁNO)</RL_BanApparelTitle>
+  <RL_GizmoLabel>Auto výbava</RL_GizmoLabel>
+  <RL_GizmoDesc>Když je zapnuto, mod tomuto kolonistovi sám vybírá zbraně a oblečení. Vypni pro kolonistu, jehož výbavu chceš řídit ručně.</RL_GizmoDesc>
+  <RL_MsgWeapon>{0} si bere {1} místo {2}.</RL_MsgWeapon>
+  <RL_MsgWeaponNew>{0} si bere {1}.</RL_MsgWeaponNew>
+  <RL_MsgSidearm>{0} si bere záložní zbraň {1}.</RL_MsgSidearm>
+  <RL_MsgApparel>{0} si obléká {1}.</RL_MsgApparel>
+  <RL_WeaponCalm>Klid po výměně zbraně: {0} h</RL_WeaponCalm>
+  <RL_WeaponCalm_Desc>Po výměně zbraně ji kolonista tak dlouho nemění, pokud se mu nerozbije. 24 h = jeden herní den, 0 = bez omezení.</RL_WeaponCalm_Desc>
+  <RL_Ex_Allowed>Povoleno</RL_Ex_Allowed>
+  <RL_Ex_Locked>Zamčeno</RL_Ex_Locked>
+  <RL_Ex_Banned>Zakázáno ručně</RL_Ex_Banned>
+  <RL_Ex_Always>Vždy vyžaduje: {0}</RL_Ex_Always>
+  <RL_Ex_Option>Výroba: {0}</RL_Ex_Option>
+  <RL_Ex_Free>Jde vyrobit bez výzkumu</RL_Ex_Free>
+  <RL_Ex_NoResearch>Žádný výzkum (rozhoduje tech level a pravidlo pro modové věci)</RL_Ex_NoResearch>
+  <RL_Ex_Tech>Tech level: {0} (limit: {1})</RL_Ex_Tech>
+  <RL_Ex_Mod>Mod: {0}</RL_Ex_Mod>
+  <RL_Ex_Done>hotovo</RL_Ex_Done>
+  <RL_Ex_Missing>chybí</RL_Ex_Missing>
+  <RL_TechMismatch>Hlídat věci vyspělejší než jejich výzkum</RL_TechMismatch>
+  <RL_TechMismatch_Desc>Když mod dá vyspělou věc pod nižší výzkum (vesmírnou pušku pod průmyslový), musí být na úrovni té věci i celá kolonie.</RL_TechMismatch_Desc>
+  <RL_PowerEstimate>Odhadnout úroveň modových věcí podle síly</RL_PowerEstimate>
+  <RL_PowerEstimate_Desc>Modová zbraň nebo brnění výrazně silnější než nejlepší vanilla průmyslové se bere jako vesmírné, i když autor modu napsal nižší úroveň. Je to odhad.</RL_PowerEstimate_Desc>
+  <RL_Ex_Power>Podle síly odpovídá úrovni: {0}</RL_Ex_Power>
+  <RL_Ex_NeedColony>Kolonie musí dosáhnout úrovně: {0}</RL_Ex_NeedColony>
+  <RL_LevelByProgress>Úroveň kolonie podle postupu výzkumu</RL_LevelByProgress>
+  <RL_LevelByProgress_Desc>Kolonie je na určité úrovni, až když má hotový nastavený podíl jejích výzkumů. Vypnuto = rozhoduje nejvyšší dokončený výzkum (stačí jediný). Úroveň ze scénáře platí vždy jako minimum.</RL_LevelByProgress_Desc>
+  <RL_LevelProgress>Potřebný podíl výzkumů úrovně: {0} %</RL_LevelProgress>
+  <RL_LevelProgress_Desc>Kolik výzkumů dané úrovně musí být hotových, aby se kolonie na ní počítala.</RL_LevelProgress_Desc>
+  <RL_CurrentLevel>Úroveň kolonie teď: {0} (scénář: {1}, výzkum: {2})</RL_CurrentLevel>
+  <RL_SyncWorld>Úroveň kolonie z modu World at Your Level</RL_SyncWorld>
+  <RL_SyncWorld_Desc>Kolonisti i celý svět mají stejnou úroveň, včetně ruční úrovně a podílů pro jednotlivé úrovně nastavených v raid modu.</RL_SyncWorld_Desc>
+  <RL_SurvivalApparel>Výjimka pro přežití (jen v kritické situaci)</RL_SurvivalApparel>
+  <RL_SurvivalApparel_Desc>Teplota rozhoduje jen v nouzi: když je venku za hranicemi níže, nebo má kolonista podchlazení či úpal (to platí vždy). Pak si oblékne i nevyzkoumané teplé oblečení, nebo při vedru sundá kusy, které horko zhoršují (brnění nikdy). Jinak se oblečení kvůli teplotě nemění.</RL_SurvivalApparel_Desc>
+  <RL_ApparelCalm>Klid po převlečení: {0} h</RL_ApparelCalm>
+  <RL_ApparelCalm_Desc>Po převlečení se kolonista tak dlouho znovu nepřevléká, pokud nemá podchlazení nebo úpal. Co sundal nebo co nový kus nahradil, si den zpátky nevezme. 0 = bez klidové doby.</RL_ApparelCalm_Desc>
+  <RL_KeepArmor>Brnění si nechat vždycky</RL_KeepArmor>
+  <RL_KeepArmor_Desc>Kus s brněním se nikdy nevymění za kus se slabší ochranou a kvůli teplotě se nesundá. Neplatí pro rozbité nebo zakázané brnění.</RL_KeepArmor_Desc>
+  <RL_TempByThresholds>Vlastní teplotní hranice</RL_TempByThresholds>
+  <RL_TempByThresholds_Desc>Zapnuto: rozhodují hranice z posuvníků. Vypnuto: automaticky podle bezpečného rozsahu každého kolonisty (s ohledem na to, co má na sobě).</RL_TempByThresholds_Desc>
+  <RL_ColdThreshold>Oblékat teplé oblečení pod: {0}</RL_ColdThreshold>
+  <RL_ColdThreshold_Desc>Když je venku chladněji, kolonisti si oblékají teplé věci (i nevyzkoumané). Teplé oblečení si nechají, dokud se neoteplí aspoň o 3 stupně nad tuto hranici.</RL_ColdThreshold_Desc>
+  <RL_HeatThreshold>Svlékat kvůli horku nad: {0}</RL_HeatThreshold>
+  <RL_HeatThreshold_Desc>Když je venku tepleji, kolonisti sundávají kusy, které horko zhoršují (brnění nikdy) a oblékají věci proti horku.</RL_HeatThreshold_Desc>
+  <RL_GenderClothing>Oblečení podle pohlaví</RL_GenderClothing>
+  <RL_GenderClothing_Desc>Muži si berou jen pánské a unisex oblečení, ženy jen dámské a unisex. Kus opačného pohlaví, který už nosí, vymění, jakmile najdou vhodnou náhradu.</RL_GenderClothing_Desc>
+  <RL_GenderGuess>Odhadnout pohlaví podle názvu a popisu</RL_GenderGuess>
+  <RL_GenderGuess_Desc>Když pohlaví není v definici oblečení, odhadne se podle názvu, štítků, textury a popisu (šaty, sukně, služka… = dámské; oblek, frak… = pánské). Při nejistotě je kus unisex. Odhad uvidíš v bublině v seznamu oblečení.</RL_GenderGuess_Desc>
+  <RL_GenderFemale>dámské</RL_GenderFemale>
+  <RL_GenderMale>pánské</RL_GenderMale>
+  <RL_GenderUnisex>unisex</RL_GenderUnisex>
+  <RL_Ex_Gender>Pohlaví: {0}</RL_Ex_Gender>
+  <RL_TabGeneral>Výzkum a úroveň</RL_TabGeneral>
+  <RL_TabWeapons>Zbraně</RL_TabWeapons>
+  <RL_TabApparel>Oblečení</RL_TabApparel>
+  <RL_TabTemperature>Teplota a hrozby</RL_TabTemperature>
+  <RL_TabBans>Zákazy</RL_TabBans>
+  <RL_TabOther>Ostatní</RL_TabOther>
+  <RL_TempInfo>Teplota mění oblečení jen v nouzi: když je venku za nastavenými hranicemi, nebo když má kolonista podchlazení či úpal (to platí vždy).\n\nPři mrazu si oblékne teplé oblečení, i nevyzkoumané. Při vedru sundá kusy, které horko zhoršují.\n\nBrnění se kvůli teplotě nikdy nesundá ani nevymění za slabší.</RL_TempInfo>
+  <RL_ConfirmBanWeapons>Opravdu zakázat VŠECHNY zbraně z modů? Kolonisti si pak žádnou modovou zbraň nevezmou. Jednotlivé zbraně můžeš později odškrtnout v seznamu.</RL_ConfirmBanWeapons>
+  <RL_ConfirmBanApparel>Opravdu zakázat VŠECHNO oblečení z modů? Kolonisti si pak žádné modové oblečení nevezmou. Jednotlivé kusy můžeš později odškrtnout v seznamu.</RL_ConfirmBanApparel>
+  <RL_RoleGear>Výbava podle specializace</RL_RoleGear>
+  <RL_RoleGear_Desc>Podle dovedností má každý kolonista roli: střelec, bojovník zblízka, vyvážený nebo pracovník. Bojovník zblízka dá přednost těžšímu brnění, pracovník lehčí výbavě bez zpomalení. Dobrý střelec ocení dalekonosné zbraně, slabý rychlejší na kratší vzdálenost. Roli uvidíš v popisu tlačítka „Auto výbava“ u kolonisty.</RL_RoleGear_Desc>
+  <RL_SpecialEffects>Zohlednit zvláštní efekty zbraní</RL_SpecialEffects>
+  <RL_SpecialEffects_Desc>Výbušné, zápalné, EMP, omračující, jedovaté a kouřové zbraně mají jako hlavní zbraň kolonisty nižší hodnocení (riziko zásahu vlastních, účinné jen proti některým cílům).</RL_SpecialEffects_Desc>
+  <RL_StatOffsets>Bonusy a postihy výbavy</RL_StatOffsets>
+  <RL_StatOffsets_Desc>Zohlední, co výbava mění: rychlost chůze a práce, míření, zásah a úhyb, a podle nejlepší dovednosti kolonisty i pracovní statistiky (doktor ošetřování, farmář pěstování, kuchař vaření…).</RL_StatOffsets_Desc>
+  <RL_Role_Shooter>střelec</RL_Role_Shooter>
+  <RL_Role_Melee>bojovník zblízka</RL_Role_Melee>
+  <RL_Role_Balanced>vyvážený</RL_Role_Balanced>
+  <RL_Role_Worker>pracovník</RL_Role_Worker>
+  <RL_GizmoRole>Role: {0}, specializace: {1}</RL_GizmoRole>
+  <RL_CoverageFirst>Nejdřív zakrýt tělo (trup, nohy)</RL_CoverageFirst>
+  <RL_CoverageFirst_Desc>Kus, který zakryje holé místo, má přednost (trup nejvíc, pak nohy, hlava, ostatní). Kus, který by něco odkryl, má postih. Dokud má kolonista holý trup nebo nohy, převléká se hned, bez klidové doby.</RL_CoverageFirst_Desc>
+  <RL_ThreatApparel>Ochrana proti hrozbám</RL_ThreatApparel>
+  <RL_ThreatApparel_Desc>Při kritickém mrazu nebo horku (podle hranic výše), jedu, spadu, znečištění, vakuu nebo boji na mapě dostane oblečení s potřebnou ochranou velký bonus, takže si ho kolonisti vezmou sami. Brnění se kvůli tomu nikdy nevymění za slabší.</RL_ThreatApparel_Desc>
+  <RL_ThreatBills>Zakládat účty na výrobu ochrany</RL_ThreatBills>
+  <RL_ThreatBills_Desc>Když ochranného oblečení není dost a recept je vyzkoumaný, přidá se na stůl účet „dokud jich není dost“ a hotové jde do skladu. Tvoje účty se nemažou. Když výzkum chybí, přijde jedna zpráva.</RL_ThreatBills_Desc>
+  <RL_ThreatBill>Kolonisté začali vyrábět ochranu: {0}.</RL_ThreatBill>
+  <RL_ThreatNoRecipe>Na tuhle hrozbu ještě nejde vyrobit ochranu. Chybí výzkum.</RL_ThreatNoRecipe>
+  <RL_OnlyCrafted>Brát si jen to, co už kolonie vyrobila</RL_OnlyCrafted>
+  <RL_OnlyCrafted_Desc>Kolonisti si sami nové zbraně a oblečení vezmou jen tehdy, když je kolonie už aspoň jednou vyrobila na pracovním stole (a jsou vyzkoumané). Kořist a koupené věci jiného druhu si nevezmou, dokud stejný druh sami nevyrobíte. Co už mají na sobě, se kvůli tomu nesundává. U rozehrané hry se jednou převezme výbava kolonistů a věci ve skladech, které umíte vyrobit.</RL_OnlyCrafted_Desc>
+  <RL_CraftedCount>Vyrobených druhů zbraní a oblečení: {0}</RL_CraftedCount>
+  <RL_CraftedReset>Vymazat seznam vyrobených</RL_CraftedReset>
+  <RL_CraftedReset_Desc>Zapomene všechny druhy zbraní a oblečení převzaté nebo vyrobené dosud. Dál se budou počítat jen věci, které kolonie opravdu vyrobí od teď. Co mají kolonisté na sobě, zůstane.</RL_CraftedReset_Desc>
+  <RL_CraftedResetConfirm>Opravdu vymazat seznam vyrobených? Kolonisté si pak nové zbraně a oblečení vezmou až poté, co daný druh vyrobíte.</RL_CraftedResetConfirm>
+  <RL_Ex_NotCrafted>Vyzkoumáno, ale kolonie to ještě nevyrobila.</RL_Ex_NotCrafted>
+  <RL_SidearmLocked>Smart Colonist Gear: tuhle zbraň kolonie ještě nemá vyzkoumanou nebo vyrobenou</RL_SidearmLocked>
+  <RL_WorkClothing>Pracovní oblečení jen pro specialisty</RL_WorkClothing>
+  <RL_WorkClothing_Desc>Oblečení, které zrychluje určitou práci (zástěra pro vaření, plášť pro výzkum, rukavice pro lékaře, přilba pro těžbu…), si vezme jen specialista na tu práci – když je dostupné, má u něj velkou přednost. Ostatní si ho neberou. Specialista = je to jeho nejlepší pracovní dovednost, nebo má tu práci na prioritě 1, a zároveň má dovednost aspoň na nastavené úrovni.</RL_WorkClothing_Desc>
+  <RL_WorkClothingSkill>Specialista od dovednosti: {0}</RL_WorkClothingSkill>
+  <RL_WorkClothingSkill_Desc>Minimální úroveň dovednosti, od které se kolonista počítá jako specialista na pracovní oblečení.</RL_WorkClothingSkill_Desc>
+  <RL_DressByTraits>Oblékání podle vlastností a dovedností</RL_DressByTraits>
+  <RL_DressByTraits_Desc>Z povoleného oblečení si každý kolonista vybírá to, co mu sedí: výbavu, která zlepšuje práci, kterou opravdu dělá a umí (doktor ošetřování, horník těžbu, výzkumník výzkum…), střeleckou nebo bojovou výbavu podle dovedností, psychickou výbavu psykasteři a psychicky citliví. Roli hrají i vlastnosti: zbabělec víc ocení brnění, běžec a mrštný nechtějí zpomalení, chamtivý a závistivý chtějí lepší kvalitu, asketa luxus neřeší, rváč nechce výbavu na míření. Jde jen o mírnou přednost (asi -25 % až +35 %) – nikdy nepovolí zamčenou nebo nevyzkoumanou výbavu.</RL_DressByTraits_Desc>
+  <RL_GearStability>Stabilita výbavy: měnit jen o {0} % lepší</RL_GearStability>
+  <RL_GearStability_Desc>O kolik musí být nová zbraň, oblečení, brnění nebo doplněk lepší než to, co kolonista má, aby ho vyměnil. Vyšší hodnota = méně převlékání a přezbrojování. Stejný kus za stejný (např. náprsní plát za náprsní plát) se mění jen za lepší kvalitu. Rozbité věci se mění vždy.</RL_GearStability_Desc>
+  <RL_TabSidearms>Vedlejší zbraně</RL_TabSidearms>
+  <RL_SS_Missing>Simple Sidearms není nainstalovaný – používá se vestavěný systém tohoto modu: kolonisté nesou zbraň opačného typu a v boji ji sami vytáhnou.</RL_SS_Missing>
+  <RL_SS_Preset>Předvolba Simple Sidearms: {0}</RL_SS_Preset>
+  <RL_SS_P_Custom>Vlastní</RL_SS_P_Custom>
+  <RL_SS_P_NoneApplied>Žádná</RL_SS_P_NoneApplied>
+  <RL_SS_P_Disabled>Vypnuto</RL_SS_P_Disabled>
+  <RL_SS_P_LoadoutOnly>Jen výbava (sidearmy vybírá tento mod)</RL_SS_P_LoadoutOnly>
+  <RL_SS_P_Lite>Lehké</RL_SS_P_Lite>
+  <RL_SS_P_Basic>Základní</RL_SS_P_Basic>
+  <RL_SS_P_Advanced>Pokročilé</RL_SS_P_Advanced>
+  <RL_SS_P_Excessive>Nadměrné</RL_SS_P_Excessive>
+  <RL_SS_P_Brawler>Rváč</RL_SS_P_Brawler>
+  <RL_SS_Slots>Max. počet vedlejších zbraní: {0}</RL_SS_Slots>
+  <RL_SS_Slots_Desc>Kolik zbraní může kolonista nosit navíc k té v ruce.</RL_SS_Slots_Desc>
+  <RL_SS_Mass>Max. váha jedné vedlejší zbraně: {0} kg</RL_SS_Mass>
+  <RL_SS_MassNone>Max. váha jedné vedlejší zbraně: bez limitu</RL_SS_MassNone>
+  <RL_SS_Mass_Desc>Těžší zbraně se jako vedlejší nenosí. 0 = bez limitu.</RL_SS_Mass_Desc>
+  <RL_SS_ToolSwitch>Brát nástroje k práci (sekera, krumpáč…)</RL_SS_ToolSwitch>
+  <RL_SS_ToolSwitch_Desc>Kolonista si při práci vezme do ruky nesenou zbraň, která ji zrychluje.</RL_SS_ToolSwitch_Desc>
+  <RL_SS_OptimalMelee>Nejlepší zbraň nablízko podle cíle</RL_SS_OptimalMelee>
+  <RL_SS_CQC>V boji zblízka přepnout na zbraň nablízko</RL_SS_CQC>
+  <RL_SS_RangedSwitch>Na dálku přepnout na střelnou zbraň</RL_SS_RangedSwitch>
+  <RL_SS_ReEquip>Po boji vrátit hlavní zbraň do ruky</RL_SS_ReEquip>
+  <RL_SS_ReEquipBest>Po boji vzít nejlepší zbraň</RL_SS_ReEquipBest>
+  <RL_SS_ReEquipCombat>Vracet zbraně i během boje</RL_SS_ReEquipCombat>
+  <RL_SS_SkipDangerous>Nepoužívat nebezpečné zbraně (granáty, výbušniny) automaticky</RL_SS_SkipDangerous>
+  <RL_SS_SkipEMP>Nepoužívat EMP zbraně automaticky</RL_SS_SkipEMP>
+  <RL_SS_Caravans>Zachovat vedlejší zbraně v karavaně</RL_SS_Caravans>
+  <RL_SS_Alerts>Upozornění na chybějící vedlejší zbraň</RL_SS_Alerts>
+  <RL_SS_Sounds>Zvuky při přepínání zbraní</RL_SS_Sounds>
+  <RL_SS_Spawn>Cizí přicházejí s vedlejší zbraní: {0} %</RL_SS_Spawn>
+  <RL_SS_Spawn_Desc>Šance, že útočník nebo návštěvník dostane vedlejší zbraň (výbavu pak stejně filtruje World at Your Level).</RL_SS_Spawn_Desc>
+  <RL_SS_HidePage>Skrýt původní nastavení Simple Sidearms</RL_SS_HidePage>
+  <RL_SS_HidePage_Desc>Původní stránka Simple Sidearms se v seznamu nastavení modů nezobrazí – vše se nastavuje tady. Projeví se po znovuotevření nastavení.</RL_SS_HidePage_Desc>
+  <RL_EmergencyGear>Náhradní výbava v nebezpečí</RL_EmergencyGear>
+  <RL_EmergencyGear_Desc>Když nastane nebezpečná situace a kolonie ještě nemá vyzkoumanou správnou výbavu, kolonisté smějí použít náhradní výbavu, která už na mapě je (ve skladu, na zemi, v inventáři) – i nevyzkoumanou nebo nevyrobenou. Jedovatý vzduch: plynové masky a ochranné obleky; krutý mráz nebo vedro: izolační oblečení; útok: brnění a vlastní zbraně kolonie. Nic se nevytváří. Když nebezpečí skončí, platí zase běžná pravidla; co už mají na sobě, si asi dvě hodiny nechají, aby se nikdo nesvlékal uprostřed plynu. Ručně zakázané věci se nepovolí nikdy.</RL_EmergencyGear_Desc>
+  <RL_EmergencyToxic>Jedovatý vzduch (plyn, spad, znečištění)</RL_EmergencyToxic>
+  <RL_EmergencyToxic_Desc>Jedovatý plyn u kolonistů nebo v domovské oblasti (třeba generátor plynu z questu), toxický spad, jedovatý opar, znečištěná půda nebo rostoucí otrava. Povolí oblečení s odolností proti toxickému prostředí nebo jedům (plynové masky, ochranné obleky…) z jakéhokoli modu.</RL_EmergencyToxic_Desc>
+  <RL_EmergencyTemperature>Krutý mráz nebo vedro</RL_EmergencyTemperature>
+  <RL_EmergencyTemperature_Desc>Venkovní teplota hluboko za tím, co kolonisté vydrží bez oblečení (nebo vlna mrazu či veder), případně podchlazení nebo úpal. Povolí dobře izolující oblečení.</RL_EmergencyTemperature_Desc>
+  <RL_EmergencyRaid>Útok</RL_EmergencyRaid>
+  <RL_EmergencyRaid_Desc>Dokud jsou na mapě aktivní nepřátelé. Povolí brnění a zbraně, které už kolonii patří (ve skladu, v inventáři nebo ležící v domovské oblasti).</RL_EmergencyRaid_Desc>
+  <RL_EmKind_Toxic>Jedovatý vzduch</RL_EmKind_Toxic>
+  <RL_EmKind_Cold>Krutý mráz</RL_EmKind_Cold>
+  <RL_EmKind_Heat>Krutá vedra</RL_EmKind_Heat>
+  <RL_EmKind_Raid>Útok</RL_EmKind_Raid>
+  <RL_EmGear_Toxic>plynové masky a ochrannou výbavu</RL_EmGear_Toxic>
+  <RL_EmGear_Cold>teplé oblečení</RL_EmGear_Cold>
+  <RL_EmGear_Heat>chladivé oblečení</RL_EmGear_Heat>
+  <RL_EmGear_Raid>brnění a zbraně kolonie</RL_EmGear_Raid>
+  <RL_EmergencyOn>{0}: kolonisté smějí použít {1} i bez výzkumu.</RL_EmergencyOn>
+  <RL_EmergencyOff>Konec nebezpečí ({0}): náhradní výbava už není povolená. Co mají na sobě, si zatím nechají.</RL_EmergencyOff>
+  <RL_Ex_Emergency>Teď povoleno jako náhradní výbava ({0})</RL_Ex_Emergency>
+  <RL_Ex_EmergencyFor>Náhradní výbava pro: {0}</RL_Ex_EmergencyFor>
+  <RL_EmergencyProvide>Hledat a vyrábět náhradní výbavu</RL_EmergencyProvide>
+  <RL_EmergencyProvide_Desc>Když kolonistům v nebezpečí chybí ochrana: zakázané ochranné věci kdekoli na mapě se povolí (jen kolik je potřeba, ne v ohni a ne u nepřátel), a když to pořád nestačí, přidá se účet na nejlepší ochranu, kterou kolonie umí vyrobit. Když správnou ochranu vyrobit ještě nejde (chybí výzkum), najde nebo vyrobí se nejbližší náhrada – slabší ochrana proti jedu nebo něco přes obličej, nejteplejší/nejchladivější oblečení, nejlepší brnění. Takto přidané účty se po skončení nebezpečí smažou, pokud se na nich ještě nezačalo pracovat.</RL_EmergencyProvide_Desc>
+  <RL_EmProv_Msg>{0}: kolonistům chybí ochrana – {2}.</RL_EmProv_Msg>
+  <RL_EmProv_Unforbade>povoleno {0} ({1})</RL_EmProv_Unforbade>
+  <RL_EmProv_Bill>přidán účet na {0}× {1} ({2})</RL_EmProv_Bill>
+  <RL_EmProv_Substitute>na správnou ochranu chybí recept, vyrábí se náhrada: {0}× {1} ({2})</RL_EmProv_Substitute>
+  <RL_EmProv_BillExists>účet na {0} už existuje</RL_EmProv_BillExists>
+  <RL_EmProv_Nothing>nic se nenašlo a žádný recept není k dispozici</RL_EmProv_Nothing>
+  <RL_CraftedRestore>Obnovit seznam z kolonie</RL_CraftedRestore>
+  <RL_CraftedRestore_Desc>Přidá do seznamu vyrobených všechny druhy zbraní a oblečení, které kolonie teď má: co nosí kolonisté, co mají v batohu a co leží ve skladech. Hodí se, když jsi seznam vymazal omylem nebo příliš brzy.</RL_CraftedRestore_Desc>
+  <RL_CraftedRestored>Seznam vyrobených obnoven z kolonie, přidáno druhů: {0}.</RL_CraftedRestored>
+  <RL_SS_OwnHeader>Smart Colonist Gear – vedlejší zbraně</RL_SS_OwnHeader>
+  <RL_SS_Filter>Vedlejší zbraně jen vyzkoumané a povolené</RL_SS_Filter>
+  <RL_SS_Filter_Desc>Simple Sidearms smí kolonistům dát jen zbraně, které tento mod povoluje (výzkum, technologická úroveň, zákazy, jen vyrobené).</RL_SS_Filter_Desc>
+  <RL_SS_Upgrade>Vyměňovat vedlejší zbraně za lepší</RL_SS_Upgrade>
+  <RL_SS_Upgrade_Desc>Když je v kolonii lepší zbraň stejného typu, kolonista si nesenou vedlejší zbraň vymění a starou odnese do skladu.</RL_SS_Upgrade_Desc>
+  <RL_SS_Notify>Zpráva při vzetí vedlejší zbraně</RL_SS_Notify>
+  <RL_SS_Notify_Desc>Ukáže zprávu, když si kolonista vezme novou vedlejší zbraň (platí jen se zapnutými zprávami tohoto modu).</RL_SS_Notify_Desc>
+  <RL_SS_OriginalUi>Plné nastavení Simple Sidearms</RL_SS_OriginalUi>
+  <RL_SS_OriginalUi_Desc>Pod těmito volbami se zobrazí celé původní nastavení Simple Sidearms se všemi záložkami (předvolby, automatika, limity, výbava cizích, ostatní). Vypnuto = krátká verze.</RL_SS_OriginalUi_Desc>
+  <RL_CraftedPick>Vybrat z toho, co mám…</RL_CraftedPick>
+  <RL_CraftedPick_Desc>Otevře seznam všech druhů zbraní a oblečení, které kolonie má. Zaškrtnuté smí kolonisté nosit hned, ostatní se povolí samy, až je kolonie vyrobí.</RL_CraftedPick_Desc>
+  <RL_PickTitle>Co smějí kolonisté nosit</RL_PickTitle>
+  <RL_PickHelp>Zaškrtnuté = povoleno hned. Nezaškrtnuté není zakázané natrvalo – povolí se samo, jakmile ho kolonie vyrobí. Výzkum a zákazy platí dál.</RL_PickHelp>
+  <RL_PickAll>Vše</RL_PickAll>
+  <RL_PickWeapons>Zbraně</RL_PickWeapons>
+  <RL_PickApparel>Oblečení</RL_PickApparel>
+  <RL_PickOnAll>Zaškrtnout zobrazené</RL_PickOnAll>
+  <RL_PickOffAll>Odškrtnout zobrazené</RL_PickOffAll>
+  <RL_PickCount>Povoleno {0} z {1}</RL_PickCount>
+  <RL_PickNoResearch>nevyzkoumáno</RL_PickNoResearch>
+  <RL_PickWeapon>zbraň</RL_PickWeapon>
+  <RL_PickApparel1>oblečení</RL_PickApparel1>
+  <RL_SS_Tab_Presets>Předvolby</RL_SS_Tab_Presets>
+  <RL_SS_Tab_Automation>Automatika</RL_SS_Tab_Automation>
+  <RL_SS_Tab_Allowances>Limity</RL_SS_Tab_Allowances>
+  <RL_SS_Tab_Spawning>Výbava cizích</RL_SS_Tab_Spawning>
+  <RL_SS_Tab_Misc>Ostatní</RL_SS_Tab_Misc>
+  <RL_FullBody>Obléct celé tělo</RL_FullBody>
+  <RL_FullBody_Desc>Kolonista si vezme každý dostupný kus, který jen něco přidá (nic nesundá) – čepici, rukavice, boty, vestu, kabát… – i když má malé skóre. Musí být povolený, odpovídat zásadám oblékání, ne z mrtvoly a nesmí jít proti teplotě (v horku žádné teplé kabáty). Opasky a doplňky se počítají jen podle normálního skóre. Kdo má na sobě brnění na trup, doplní si celou sadu (helmu, rukavice, boty) a kus sady nevymění za slabší. Teplé kusy navíc si bere jen, když mu není horko.</RL_FullBody_Desc>
+  <RL_SP_Tab_Overview>Přehled</RL_SP_Tab_Overview>
+  <RL_SP_Tab_Presets>Předvolby</RL_SP_Tab_Presets>
+  <RL_SP_Tab_Automation>Automatika</RL_SP_Tab_Automation>
+  <RL_SP_Tab_Limits>Limity</RL_SP_Tab_Limits>
+  <RL_SP_Tab_Spawning>Výbava cizích</RL_SP_Tab_Spawning>
+  <RL_SP_Tab_Misc>Ostatní</RL_SP_Tab_Misc>
+  <RL_SP_Tab_Own>Pravidla modu</RL_SP_Tab_Own>
+  <RL_SP_On>zapnuto</RL_SP_On>
+  <RL_SP_Off>vypnuto</RL_SP_Off>
+  <RL_SP_NowPreset>Předvolba: {0}</RL_SP_NowPreset>
+  <RL_SP_NowAuto>Automatické přepínání: zapnuto {0} z {1} funkcí</RL_SP_NowAuto>
+  <RL_SP_NowOwn>Tento mod: automatický sidearm {0}, jen vyzkoumané {1}, výměna za lepší {2}</RL_SP_NowOwn>
+  <RL_SP_Use>Použít: {0}</RL_SP_Use>
+  <RL_SP_NoGame>Seznam kolonistů a jejich vedlejších zbraní se ukáže v rozehrané hře.</RL_SP_NoGame>
+  <RL_SP_Colonists>Kolonisté a jejich zbraně</RL_SP_Colonists>
+  <RL_SP_ColName>Kolonista</RL_SP_ColName>
+  <RL_SP_ColPrimary>V ruce</RL_SP_ColPrimary>
+  <RL_SP_ColSide>Vedlejší zbraně</RL_SP_ColSide>
+  <RL_SP_ColMass>Váha</RL_SP_ColMass>
+  <RL_SP_NonViolent>neodmítá násilí – nenosí zbraně</RL_SP_NonViolent>
+  <RL_SP_SumSingleKg>jedna zbraň do {0} kg</RL_SP_SumSingleKg>
+  <RL_SP_SumSingleSel>jen vybrané zbraně</RL_SP_SumSingleSel>
+  <RL_SP_SumSingleAny>jedna zbraň bez limitu</RL_SP_SumSingleAny>
+  <RL_SP_SumAmountKg>všechny dohromady do {0} kg</RL_SP_SumAmountKg>
+  <RL_SP_SumAmountN>nejvýš {0} ks</RL_SP_SumAmountN>
+  <RL_SP_SumAmountAny>počet bez limitu</RL_SP_SumAmountAny>
+  <RL_SP_SumCommon>Limity: {0}.</RL_SP_SumCommon>
+  <RL_SP_SumSeparate>Chladné: {0}. Střelné: {1}.</RL_SP_SumSeparate>
+  <RL_SP_PresetsHint>Klikni na kartu. Každá změna v ostatních záložkách přepne předvolbu na „Vlastní“.</RL_SP_PresetsHint>
+  <RL_SP_CustomNow>Teď máš vlastní nastavení (žádná karta není vybraná).</RL_SP_CustomNow>
+  <RL_SS_PD_Basic>Doporučené. Chladná zbraň do 1,9 kg, střelná do 2,7 kg, od každého typu nejvýš 2, celkem 3. Automatické přepínání zapnuté.</RL_SS_PD_Basic>
+  <RL_SS_PD_Lite>Jen malé a lehké zbraně: chladná do 0,6 kg (nože), střelná do 1,6 kg (pistole), celkem nejvýš 2.</RL_SS_PD_Lite>
+  <RL_SS_PD_Advanced>Těžší zbraně: chladná do 2,25 kg, střelná do 5 kg (i puška), celkem do 10 kg.</RL_SS_PD_Advanced>
+  <RL_SS_PD_Excessive>Bez limitů – kolonisté nosí, co unesou. Cizí přicházejí s vedlejšími zbraněmi častěji.</RL_SS_PD_Excessive>
+  <RL_SS_PD_Brawler>Jen chladné zbraně: každá do 4 kg, dohromady do 10 kg, žádné střelné.</RL_SS_PD_Brawler>
+  <RL_SS_PD_LoadoutOnly>Simple Sidearms jen hlídá limity (3 kusy, každý do 4,75 kg), co nosit vybírá tento mod. Žádné automatické přepínání v boji.</RL_SS_PD_LoadoutOnly>
+  <RL_SS_PD_Disabled>Vedlejší zbraně vypnuté: nic se nepřepíná, nanejvýš 1 zbraň navíc, cizí žádné nemají.</RL_SS_PD_Disabled>
+  <RL_SP_ToolAutoSwitch>Brát nástroje k práci</RL_SP_ToolAutoSwitch>
+  <RL_SP_ToolAutoSwitch_Desc>Kolonista si k práci vezme do ruky nesenou zbraň, která práci zrychlí (sekeru na kácení, krumpáč na těžbu…), a pak ji vrátí.</RL_SP_ToolAutoSwitch_Desc>
+  <RL_SP_OptimalMelee>Nejlepší chladná zbraň podle cíle</RL_SP_OptimalMelee>
+  <RL_SP_OptimalMelee_Desc>V boji zblízka vybere z nesených zbraní tu, která je proti danému nepříteli nejúčinnější.</RL_SP_OptimalMelee_Desc>
+  <RL_SP_CQCAutoSwitch>Při útoku zblízka vytáhnout chladnou zbraň</RL_SP_CQCAutoSwitch>
+  <RL_SP_CQCAutoSwitch_Desc>Když se nepřítel dostane na dosah, kolonista přepne ze střelné zbraně na chladnou.</RL_SP_CQCAutoSwitch_Desc>
+  <RL_SP_CQCTargetOnly>…jen když útočí přímo na něj</RL_SP_CQCTargetOnly>
+  <RL_SP_CQCTargetOnly_Desc>Přepne jen tehdy, když nepřítel na blízko útočí právě na tohoto kolonistu.</RL_SP_CQCTargetOnly_Desc>
+  <RL_SP_RangedCombatAutoSwitch>Na dálku vybrat nejvhodnější střelnou zbraň</RL_SP_RangedCombatAutoSwitch>
+  <RL_SP_RangedCombatAutoSwitch_Desc>Podle vzdálenosti cíle vybere z nesených střelných zbraní tu nejlepší (brokovnici zblízka, pušku na dálku).</RL_SP_RangedCombatAutoSwitch_Desc>
+  <RL_SP_MaxWarmup>Přepnout jen na zbraň s přípravou do {0} %</RL_SP_MaxWarmup>
+  <RL_SP_MaxWarmup_Desc>Jak dlouhá smí být příprava výstřelu nové zbraně oproti současné. Víc = častější přepínání.</RL_SP_MaxWarmup_Desc>
+  <RL_SP_BiasHint>Rychlost proti síle: nad 100 % kolonisté dávají přednost rychlým zbraním, pod 100 % silným a pomalým.</RL_SP_BiasHint>
+  <RL_SP_BiasMelee>Chladné zbraně – důraz na rychlost: {0} %</RL_SP_BiasMelee>
+  <RL_SP_BiasRanged>Střelné zbraně – důraz na rychlost: {0} %</RL_SP_BiasRanged>
+  <RL_SP_ReEquipOutOfCombat>Po boji vzít zpět hlavní zbraň</RL_SP_ReEquipOutOfCombat>
+  <RL_SP_ReEquipOutOfCombat_Desc>Když boj skončí, kolonista si vezme zpátky zbraň, kterou měl v ruce předtím.</RL_SP_ReEquipOutOfCombat_Desc>
+  <RL_SP_ReEquipBest>…nebo rovnou tu nejlepší</RL_SP_ReEquipBest>
+  <RL_SP_ReEquipBest_Desc>Místo původní zbraně si vezme nejlepší, kterou nese.</RL_SP_ReEquipBest_Desc>
+  <RL_SP_ReEquipInCombat>Vracet hlavní zbraň i během boje</RL_SP_ReEquipInCombat>
+  <RL_SP_ReEquipInCombat_Desc>Když už nepřítel není na blízko, vrátí se ke střelné zbrani i uprostřed boje.</RL_SP_ReEquipInCombat_Desc>
+  <RL_SP_SkipDangerousWeapons>Granáty a raketomety jen na rozkaz</RL_SP_SkipDangerousWeapons>
+  <RL_SP_SkipDangerousWeapons_Desc>Výbušné zbraně kolonisté sami nepoužijí (riziko zásahu vlastních).</RL_SP_SkipDangerousWeapons_Desc>
+  <RL_SP_SkipEMPWeapons>EMP zbraně jen na rozkaz</RL_SP_SkipEMPWeapons>
+  <RL_SP_SkipEMPWeapons_Desc>EMP granáty a zbraně kolonisté sami nepoužijí.</RL_SP_SkipEMPWeapons_Desc>
+  <RL_SP_AllowBlockedWeaponUse>Povolit i zbraně, které by kolonista jinak nesměl</RL_SP_AllowBlockedWeaponUse>
+  <RL_SP_AllowBlockedWeaponUse_Desc>Kolonista smí nést i zbraně, které mu blokují zásady nebo jiné mody.</RL_SP_AllowBlockedWeaponUse_Desc>
+  <RL_SP_SeparateModes>Oddělené limity pro chladné a střelné zbraně</RL_SP_SeparateModes>
+  <RL_SP_SeparateModes_Desc>Zapnuto: chladné a střelné zbraně mají každá své limity a k tomu celkový limit. Vypnuto: jeden společný limit.</RL_SP_SeparateModes_Desc>
+  <RL_SP_Melee>Chladné zbraně</RL_SP_Melee>
+  <RL_SP_Ranged>Střelné zbraně</RL_SP_Ranged>
+  <RL_SP_SingleLimit>Limit jedné zbraně</RL_SP_SingleLimit>
+  <RL_SP_SingleLimit_Desc>Jak těžká smí být jedna vedlejší zbraň.</RL_SP_SingleLimit_Desc>
+  <RL_SP_AmountLimit>Limit všech vedlejších zbraní</RL_SP_AmountLimit>
+  <RL_SP_AmountLimit_Desc>Kolik vedlejších zbraní smí kolonista nést.</RL_SP_AmountLimit_Desc>
+  <RL_SP_TotalLimit>Celkový limit (chladné + střelné)</RL_SP_TotalLimit>
+  <RL_SP_ES_None>Bez limitu</RL_SP_ES_None>
+  <RL_SP_ES_RelativeWeight>Podle nosnosti</RL_SP_ES_RelativeWeight>
+  <RL_SP_ES_RelativeWeight_Desc>Limit roste s nosností kolonisty (silnější unesou víc). Čísla jsou pro nosnost 35 kg.</RL_SP_ES_RelativeWeight_Desc>
+  <RL_SP_ES_AbsoluteWeight>Pevná váha</RL_SP_ES_AbsoluteWeight>
+  <RL_SP_ES_Selection>Jen vybrané</RL_SP_ES_Selection>
+  <RL_SP_ES_Selection_Desc>Jako vedlejší se smějí nosit jen zbraně zaškrtnuté v seznamu.</RL_SP_ES_Selection_Desc>
+  <RL_SP_EA_None>Bez limitu</RL_SP_EA_None>
+  <RL_SP_EA_RelativeWeight>Podle nosnosti</RL_SP_EA_RelativeWeight>
+  <RL_SP_EA_RelativeWeight_Desc>Limit roste s nosností kolonisty (silnější unesou víc). Čísla jsou pro nosnost 35 kg.</RL_SP_EA_RelativeWeight_Desc>
+  <RL_SP_EA_AbsoluteWeight>Pevná váha</RL_SP_EA_AbsoluteWeight>
+  <RL_SP_EA_Slots>Počet kusů</RL_SP_EA_Slots>
+  <RL_SP_SingleKgRel>Jedna zbraň do {0} kg (při nosnosti 35 kg)</RL_SP_SingleKgRel>
+  <RL_SP_SingleKg>Jedna zbraň do {0} kg</RL_SP_SingleKg>
+  <RL_SP_AmountKgRel>Dohromady do {0} kg (při nosnosti 35 kg)</RL_SP_AmountKgRel>
+  <RL_SP_AmountKg>Dohromady do {0} kg</RL_SP_AmountKg>
+  <RL_SP_SlotsN>Nejvýš {0} ks</RL_SP_SlotsN>
+  <RL_SP_LimitsHint>Limity platí pro zbraně nesené navíc, ne pro tu v ruce. Pro představu: nůž 0,5 kg, pistole 1,2 kg, meč 2 kg, puška 3,5 kg, kulomet 9 kg.</RL_SP_LimitsHint>
+  <RL_SP_PickLight>Vše do {0} kg</RL_SP_PickLight>
+  <RL_SP_PickNone>Nic</RL_SP_PickNone>
+  <RL_SP_PickMore>… další zbraně najdeš hledáním.</RL_SP_PickMore>
+  <RL_SP_PickCount>Vybráno zbraní: {0}</RL_SP_PickCount>
+  <RL_SP_RangedShort>střelná</RL_SP_RangedShort>
+  <RL_SP_MeleeShort>chladná</RL_SP_MeleeShort>
+  <RL_SP_SpawnHint>Jak často cizí (útočníci, návštěvy, obchodníci) přicházejí s vedlejšími zbraněmi.</RL_SP_SpawnHint>
+  <RL_SP_SpawnChance>Šance na první vedlejší zbraň: {0} %</RL_SP_SpawnChance>
+  <RL_SP_SpawnChance_Desc>Pravděpodobnost, že cizí pawn dostane aspoň jednu vedlejší zbraň.</RL_SP_SpawnChance_Desc>
+  <RL_SP_SpawnDropoff>Šance na každou další: × {0} %</RL_SP_SpawnDropoff>
+  <RL_SP_SpawnDropoff_Desc>Každá další vedlejší zbraň je o tolik méně pravděpodobná.</RL_SP_SpawnDropoff_Desc>
+  <RL_SP_Budget>Rozpočet: {0} % ceny výbavy</RL_SP_Budget>
+  <RL_SP_Budget_Desc>Kolik z peněz na výbavu pawna smí padnout na vedlejší zbraň (dražší zbraň = méně často).</RL_SP_Budget_Desc>
+  <RL_SP_BudgetDropoff>Rozpočet každé další: × {0} %</RL_SP_BudgetDropoff>
+  <RL_SP_SpawnExample>Příklad: 1 vedlejší zbraň má asi {0} % cizích, 2 asi {1} %, 3 asi {2} %.</RL_SP_SpawnExample>
+  <RL_SP_SpawnWorld>Výbavu cizích pak ještě filtruje World at Your Level (výzkum, „ne lepší než kolonie“).</RL_SP_SpawnWorld>
+  <RL_SP_ColonistMode>Hlavní zbraň kolonistů</RL_SP_ColonistMode>
+  <RL_SP_ColonistMode_Desc>Kterou z nesených zbraní má kolonista držet v ruce, když není v boji.</RL_SP_ColonistMode_Desc>
+  <RL_SP_NpcMode>Hlavní zbraň cizích</RL_SP_NpcMode>
+  <RL_SP_EW_BySkill>Podle dovedností</RL_SP_EW_BySkill>
+  <RL_SP_EW_BySkill_Desc>Kdo líp střílí, drží střelnou; kdo líp bojuje zblízka, chladnou.</RL_SP_EW_BySkill_Desc>
+  <RL_SP_EW_Ranged>Střelná</RL_SP_EW_Ranged>
+  <RL_SP_EW_Melee>Chladná</RL_SP_EW_Melee>
+  <RL_SP_EW_ByGenerated>Jak přišel</RL_SP_EW_ByGenerated>
+  <RL_SP_EW_ByGenerated_Desc>Zbraň, se kterou pawn vznikl nebo přišel.</RL_SP_EW_ByGenerated_Desc>
+  <RL_SP_Fumble>Upuštění zbraní při sražení</RL_SP_Fumble>
+  <RL_SP_Fumble_Desc>Kdy sražený pawn upustí nesené vedlejší zbraně.</RL_SP_Fumble_Desc>
+  <RL_SP_EF_Never>Nikdy</RL_SP_EF_Never>
+  <RL_SP_EF_InDistress>V nouzi</RL_SP_EF_InDistress>
+  <RL_SP_EF_InCombat>V boji</RL_SP_EF_InCombat>
+  <RL_SP_EF_Always>Vždy</RL_SP_EF_Always>
+  <RL_SP_PreserveInventoryInCaravans>Vedlejší zbraně zůstanou kolonistovi v karavaně</RL_SP_PreserveInventoryInCaravans>
+  <RL_SP_PreserveInventoryInCaravans_Desc>Při sestavování karavany se vedlejší zbraně nepřesouvají do společného nákladu.</RL_SP_PreserveInventoryInCaravans_Desc>
+  <RL_SP_HideSidearmsInCaravanDialogs>Skrýt vedlejší zbraně v okně karavany</RL_SP_HideSidearmsInCaravanDialogs>
+  <RL_SP_ShowAlertsMissingSidearm>Upozornit na chybějící vedlejší zbraň</RL_SP_ShowAlertsMissingSidearm>
+  <RL_SP_ShowAlertsMissingSidearm_Desc>Upozornění, když kolonista ztratí zbraň, kterou si má pamatovat.</RL_SP_ShowAlertsMissingSidearm_Desc>
+  <RL_SP_PlaySounds>Zvuky při přepínání zbraní</RL_SP_PlaySounds>
+  <RL_SP_ShowBrainscope>Ladění: ukazovat rozhodování o zbraních</RL_SP_ShowBrainscope>
+  <RL_SP_BrawlerNoRanged>Rváči nenosí střelnou vedlejší zbraň</RL_SP_BrawlerNoRanged>
+  <RL_SP_BrawlerNoRanged_Desc>Kolonista s vlastností rváč si nevezme střelnou zbraň ani jako vedlejší (dostal by z ní špatnou náladu).</RL_SP_BrawlerNoRanged_Desc>
+  <RL_SP_MaxTotal>Nejvýš zbraní na kolonistu: {0}</RL_SP_MaxTotal>
+  <RL_SP_MaxTotalOff>Nejvýš zbraní na kolonistu: bez vlastního limitu</RL_SP_MaxTotalOff>
+  <RL_SP_MaxTotal_Desc>Kolik zbraní smí kolonista nést celkem, včetně té v ruce (granáty a hody se počítají jako zbraně). Platí pro tento mod i pro Simple Sidearms. Kdo jich má víc, ty nejhorší odloží a odnesou se do skladu. 0 = jen limity Simple Sidearms.</RL_SP_MaxTotal_Desc>
+  <RL_SP_StripUncrafted>Odložit zbraně, které kolonie nevyrobila</RL_SP_StripUncrafted>
+  <RL_SP_StripUncrafted_Desc>S volbou „jen vyrobené“ kolonisté odloží i zbraně, které jsou vyzkoumané, ale tvoje kolonie je ještě nevyrobila (např. sebrané po nájezdu). Během nájezdu je smějí použít, po něm je vrátí. Zbraň, kterou jsi kolonistovi dal sám, zůstane.</RL_SP_StripUncrafted_Desc>
+  <RL_SP_ArmorHunt>Na lov si obléct zbroj</RL_SP_ArmorHunt>
+  <RL_SP_ArmorHunt_Desc>Než kolonista vyrazí na lov, oblékne si nejlepší povolenou zbroj ze skladu (do 70 polí), pokud je lepší než to, co má na sobě. Pak lov dokončí.</RL_SP_ArmorHunt_Desc>
+  <RL_SP_ArmorThreat>Při útoku si obléct zbroj</RL_SP_ArmorThreat>
+  <RL_SP_ArmorThreat_Desc>Když je na mapě nepřítel (nájezd, šílená zvířata, mechanoidi…), kolonisté přeruší běžnou práci a obléknou si nejlepší povolenou zbroj ze skladu. Hašení, ošetřování, útěk a útok se nepřerušují. Musí to povolovat i jejich oblečení (politika oblékání).</RL_SP_ArmorThreat_Desc>
+  <RL_SP_ArmorDrafted>Zbroj i pro povolané kolonisty</RL_SP_ArmorDrafted>
+  <RL_SP_ArmorDrafted_Desc>Povolaný kolonista, který jen stojí a nemá nepřítele do 22 polí, si dojde pro zbroj do 28 polí. Pak zůstane stát u skladu – vrať ho na pozici.</RL_SP_ArmorDrafted_Desc>
+  <RL_SidearmTooMany>už nese {0} zbraní (limit)</RL_SidearmTooMany>
+  <RL_SP_MinShoot>Střelná vedlejší zbraň od střelby {0}</RL_SP_MinShoot>
+  <RL_SP_MinShoot_Desc>Kolonista si vezme střelnou zbraň navíc jen od této úrovně střelby. 0 = vždy.</RL_SP_MinShoot_Desc>
+  <RL_SP_MinMelee>Chladná vedlejší zbraň od boje zblízka {0}</RL_SP_MinMelee>
+  <RL_SP_MinMelee_Desc>Kolonista si vezme chladnou zbraň navíc jen od této úrovně boje zblízka. 0 = vždy.</RL_SP_MinMelee_Desc>
+  <RL_SP_OpenOriginal>Otevřít původní okno Simple Sidearms</RL_SP_OpenOriginal>
+  <RL_OS_Header>Vestavěné sidearmy</RL_OS_Header>
+  <RL_OS_SwitchMelee>V boji přepnout na chladnou zbraň</RL_OS_SwitchMelee>
+  <RL_OS_SwitchMelee_Desc>Když se nepřítel přiblíží, kolonista s puškou v ruce vezme chladnou zbraň z batohu (pokud ji nese).</RL_OS_SwitchMelee_Desc>
+  <RL_OS_MeleeRange>Přepnout, když je nepřítel blíž než {0} polí</RL_OS_MeleeRange>
+  <RL_OS_MeleeRange_Desc>Vzdálenost nejbližšího nepřítele, při které kolonista vytáhne chladnou zbraň.</RL_OS_MeleeRange_Desc>
+  <RL_OS_SwitchBack>Po boji vrátit původní zbraň</RL_OS_SwitchBack>
+  <RL_OS_SwitchBack_Desc>Když nepřítel odejde nebo padne, kolonista zase vezme zbraň, kterou měl předtím.</RL_OS_SwitchBack_Desc>
+  <RL_OS_Gizmo>Tlačítka pro výměnu zbraně</RL_OS_Gizmo>
+  <RL_OS_Gizmo_Desc>Povolaný kolonista má u každé nesené zbraně tlačítko „Vzít do ruky“. Ručně zvolenou zbraň drží, dokud ho neodvoláš.</RL_OS_Gizmo_Desc>
+  <RL_OS_MaxMass>Nejvyšší váha nesených zbraní: {0} kg</RL_OS_MaxMass>
+  <RL_OS_MaxMassOff>Nejvyšší váha nesených zbraní: bez limitu</RL_OS_MaxMassOff>
+  <RL_OS_MaxMass_Desc>Kolik kg zbraní smí kolonista nést v batohu navíc ke zbrani v ruce. 0 = bez limitu.</RL_OS_MaxMass_Desc>
+  <RL_OS_Take>Vzít do ruky: {0}</RL_OS_Take>
+  <RL_OS_Take_Desc>Kolonista vezme {0} z batohu do ruky a zbraň z ruky dá do batohu. Tuto volbu drží, dokud ho neodvoláš.</RL_OS_Take_Desc>
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <RL_Rec1>Berou si nejlepší vyzkoumané zbraně a oblečení</RL_Rec1>
+  <RL_Rec2>Při ohrožení si nasadí celé brnění</RL_Rec2>
+  <RL_Rec3>Ve vedru lehké oblečení, v mrazu teplé</RL_Rec3>
+  <RL_Rec4>Nouzová výbava proti toxinům a extrémním teplotám</RL_Rec4>
+  <RL_Rec5>Záložní zbraně podle dovedností</RL_Rec5>
+  <RL_Rec6>Poškozené věci vymění a odnesou do skladu</RL_Rec6>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+</LanguageData>
