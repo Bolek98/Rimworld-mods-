@@ -428,7 +428,7 @@ namespace GraphicsTuner
         private static bool inBackground;
         private static int savedTarget = -1;
         private static bool lastSway;
-        private static bool swayInit;
+        private static bool swayInit, lastPrefsSway;
 
         public static void Update()
         {
@@ -492,12 +492,19 @@ namespace GraphicsTuner
             if (s.vsync >= 0) Engine.SetVSync(s.vsync);
             if (s.displayMode >= 0) Engine.SetDisplay(s.displayMode);
             Engine.SetFastLog(s.fastLog);
-            if (!swayInit || lastSway != s.plantSway)
+            // 1.3.2: the game's own option and this one are the same switch. At start and whenever you
+            // change it in the game options, the game's value wins (before, Smooth FPS turned the
+            // swaying back on at every start); a change here goes to the game.
+            if (!swayInit || Prefs.PlantWindSway != lastPrefsSway)
             {
                 swayInit = true;
-                lastSway = s.plantSway;
-                if (Prefs.PlantWindSway != s.plantSway)
-                    Prefs.PlantWindSway = s.plantSway;
+                s.plantSway = Prefs.PlantWindSway;
+                lastSway = lastPrefsSway = s.plantSway;
+            }
+            else if (lastSway != s.plantSway)
+            {
+                lastSway = lastPrefsSway = s.plantSway;
+                Prefs.PlantWindSway = s.plantSway;
             }
         }
 
