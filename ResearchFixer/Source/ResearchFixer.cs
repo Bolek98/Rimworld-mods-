@@ -36,7 +36,7 @@ namespace ResearchFixer
 
     public class RFMod : Mod
     {
-        public const string Version = "0.2.0";
+        public const string Version = "0.3.0";
         public static RFSettings Settings;
         public static RFMod Instance;
 
@@ -578,7 +578,9 @@ namespace ResearchFixer
 
         private void AskRestart()
         {
-            Find.WindowStack.Add(new Dialog_MessageBox("RF_RestartText".Translate(), "RF_RestartNow".Translate(), () => GenCommandLine.Restart(), "RF_Later".Translate(), null, null, false));
+            // 0.3.0: during a game the game is saved first and loaded again right after the restart
+            bool playing = Current.ProgramState == ProgramState.Playing && Current.Game != null;
+            Find.WindowStack.Add(new Dialog_MessageBox((playing ? "RF_RestartTextResume" : "RF_RestartText").Translate(), "RF_RestartNow".Translate(), () => RestartResume.Go(), "RF_Later".Translate(), null, null, false));
         }
 
         private float H(object key, string text, float w)
@@ -689,6 +691,78 @@ namespace ResearchFixer
             y += SideCard(new Rect(r.x, y, r.width, 0f), "RF_How2".Translate(), "RF_How2Text".Translate()) + 10f;
             y += SideCard(new Rect(r.x, y, r.width, 0f), "RF_How3".Translate(), "RF_How3Text".Translate()) + 10f;
             SideCard(new Rect(r.x, y, r.width, 0f), "RF_How4".Translate(), "RF_How4Text".Translate());
+        }
+    }
+}
+
+
+namespace ResearchFixer
+{
+    // 0.3.0: "Restart now" during a game: the game is saved at once (own save file, your saves are not
+    // touched), the game restarts, and the save is loaded again automatically – back where you were,
+    // with the research fixes active.
+    [StaticConstructorOnStartup]
+    public static class RestartResume
+    {
+        private static string Marker => System.IO.Path.Combine(GenFilePaths.SaveDataFolderPath, "ResearchFixer_resume.txt");
+
+        static RestartResume()
+        {
+            try
+            {
+                new Harmony("misak.researchfixer.resume").Patch(AccessTools.Method(typeof(UIRoot_Entry), nameof(UIRoot_Entry.Init)),
+                    postfix: new HarmonyMethod(typeof(RestartResume), nameof(AfterMenu)));
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Research Fixer] resume after restart not available: " + e.Message);
+            }
+        }
+
+        public static void Go()
+        {
+            if (Current.ProgramState != ProgramState.Playing || Current.Game == null)
+            {
+                GenCommandLine.Restart();
+                return;
+            }
+            LongEventHandler.QueueLongEvent(() =>
+            {
+                try
+                {
+                    string name = GenText.SanitizeFilename((Faction.OfPlayer?.Name ?? "Colony") + " - Research Fixer");
+                    GameDataSaveLoader.SaveGame(name);
+                    System.IO.File.WriteAllText(Marker, name + "\n" + DateTime.Now.ToString("o"));
+                    Log.Message("[Research Fixer] game saved as \"" + name + "\" – it loads again after the restart.");
+                }
+                catch (Exception e)
+                {
+                    Log.Error("[Research Fixer] save before restart failed: " + e);
+                }
+            }, "SavingLongEvent", false, null);
+            LongEventHandler.ExecuteWhenFinished(() => GenCommandLine.Restart());
+        }
+
+        public static void AfterMenu()
+        {
+            try
+            {
+                if (!System.IO.File.Exists(Marker))
+                    return;
+                string[] lines = System.IO.File.ReadAllLines(Marker);
+                System.IO.File.Delete(Marker);   // once only – a crash while loading does not loop
+                if (lines.Length < 2 || !DateTime.TryParse(lines[1], null, System.Globalization.DateTimeStyles.RoundtripKind, out DateTime when) || (DateTime.Now - when).TotalMinutes > 20)
+                    return;
+                string name = lines[0].Trim();
+                if (name.Length == 0 || !System.IO.File.Exists(GenFilePaths.FilePathForSavedGame(name)))
+                    return;
+                Log.Message("[Research Fixer] loading \"" + name + "\" again after the restart.");
+                GameDataSaveLoader.LoadGame(name);
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Research Fixer] resume after restart: " + e.Message);
+            }
         }
     }
 }

@@ -652,7 +652,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.3.0";
+        public const string Version = "1.3.1";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;

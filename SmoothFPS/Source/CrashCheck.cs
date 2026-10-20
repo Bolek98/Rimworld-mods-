@@ -59,12 +59,35 @@ namespace GraphicsTuner
                 }
                 catch { }
                 MLog.Warn("[Smooth FPS] the last game crashed: " + text.Replace("\n", " | "));
-                Find.WindowStack?.Add(new Dialog_MessageBox(text, title: "GT_Crash_Title".Translate()));
+                // 1.3.1: shown when the main menu is up (a window added during loading was lost)
+                pendingText = text;
+                try
+                {
+                    new HarmonyLib.Harmony("misak.smoothfps.crashdialog").Patch(HarmonyLib.AccessTools.Method(typeof(UIRoot), nameof(UIRoot.UIRootOnGUI)),
+                        postfix: new HarmonyLib.HarmonyMethod(typeof(CrashCheck), nameof(ShowPending)));
+                }
+                catch
+                {
+                    Find.WindowStack?.Add(new Dialog_MessageBox(text, title: "GT_Crash_Title".Translate()));
+                    pendingText = null;
+                }
             }
             catch (Exception ex)
             {
                 MLog.Warn("[Smooth FPS] crash check: " + ex.Message);
             }
+        }
+
+        private static string pendingText;
+
+        public static void ShowPending()
+        {
+            if (pendingText == null || Find.WindowStack == null || LongEventHandler.AnyEventNowOrWaiting)
+                return;
+            string t = pendingText;
+            pendingText = null;
+            try { Find.WindowStack.Add(new Dialog_MessageBox(t, title: "GT_Crash_Title".Translate())); }
+            catch { }
         }
 
         private static string Trim(string s, int n) => s.Length <= n ? s : s.Substring(0, n) + "…";
