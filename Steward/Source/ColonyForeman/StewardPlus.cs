@@ -288,6 +288,7 @@ public static class StewardPlus
 			return;
 		TraitDef owl = DefDatabase<TraitDef>.GetNamedSilentFail("NightOwl");
 		var pawns = map.mapPawns.FreeColonistsSpawned.Where(p => p.timetable != null).OrderBy(p => p.thingIDNumber).ToList();
+		bool resetDone = comp.manualReset2491;
 		int k = 0;
 		int now = Find.TickManager.TicksGame;
 		foreach (Pawn p in pawns)
@@ -297,6 +298,10 @@ public static class StewardPlus
 				night = true;
 			int id = p.thingIDNumber;
 			comp.scheduled.TryGetValue(id, out string had);
+			// 2.49.1: older versions marked a colonist "manual" whenever ANY mod changed the schedule.
+			// Once per save every colonist goes back to Steward; from now on only your own changes count.
+			if (had == "manual" && !comp.manualReset2491)
+				had = null;
 			if (had == "manual")
 				continue;
 			// state: "<D|N>|<joy hours>|<pattern>|<next check tick>"; old saves have only "D" / "N"
@@ -307,8 +312,15 @@ public static class StewardPlus
 			// you changed the schedule yourself (hours held by the care rules do not count)
 			if (lastPattern != null && lastPattern.Length == 24 && !comp.schedHold.ContainsKey(id) && Read(p) != lastPattern)
 			{
-				comp.scheduled[id] = "manual";
-				continue;
+				// 2.49.1: only when YOU had the schedule tab open – a change made by another mod is undone
+				if (ScheduleTabWatch.OpenRecently)
+				{
+					comp.scheduled[id] = "manual";
+					MLog.Info("[Steward] " + p.LabelShort + ": schedule changed by hand – Steward leaves it alone.");
+					continue;
+				}
+				MLog.WarnOnce("[Steward] the schedule of " + p.LabelShort + " was changed by another mod – Steward's schedule restored.", id ^ 0x5c4ed);
+				lastPattern = null;
 			}
 			// every 6 in-game hours: more or fewer recreation hours
 			if (now >= nextCheck)
@@ -330,6 +342,11 @@ public static class StewardPlus
 					want = lastPattern ?? want;   // wait until the care rules give their hours back
 			}
 			comp.scheduled[id] = (night ? "N" : "D") + "|" + joy + "|" + want + "|" + nextCheck;
+		}
+		if (!resetDone)
+		{
+			comp.manualReset2491 = true;
+			MLog.Info("[Steward] schedules: every colonist is looked after by Steward again (" + pawns.Count + ").");
 		}
 	}
 
@@ -618,4 +635,15 @@ public class Alert_StewardSkillGap : Alert
 		}
 		lines.Add(line);
 	}
+}
+
+// 2.49.1: was the schedule tab open lately? A schedule change counts as "yours" only then.
+[HarmonyLib.HarmonyPatch(typeof(MainTabWindow_Schedule), nameof(MainTabWindow_Schedule.DoWindowContents))]
+public static class ScheduleTabWatch
+{
+	private static float lastOpen = -9999f;
+
+	public static bool OpenRecently => UnityEngine.Time.realtimeSinceStartup - lastOpen < 30f;
+
+	public static void Postfix() => lastOpen = UnityEngine.Time.realtimeSinceStartup;
 }

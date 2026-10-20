@@ -47,6 +47,7 @@ public sealed class ForemanMapComponent : MapComponent
 	public HashSet<string> masterBills = new HashSet<string>();
 	public Dictionary<int, string> scheduled = new Dictionary<int, string>();
 	public Dictionary<int, string> schedHold = new Dictionary<int, string>();   // 2.39
+	public bool manualReset2491;   // 2.49.1
 	public List<string> history = new List<string>();
 	private int nextExtras;
 	private int crisisSeenTick;
@@ -251,6 +252,7 @@ public sealed class ForemanMapComponent : MapComponent
 		Scribe_Collections.Look(ref masterBillList, "cfMasterBills", LookMode.Value);
 		Scribe_Collections.Look(ref scheduled, "cfScheduled", LookMode.Value, LookMode.Value);
 		Scribe_Collections.Look(ref schedHold, "cfSchedHold", LookMode.Value, LookMode.Value);
+		Scribe_Values.Look(ref manualReset2491, "cfManualReset2491", false);
 		Scribe_Collections.Look(ref history, "cfHistory", LookMode.Value);
 		if (Scribe.mode == LoadSaveMode.PostLoadInit)
 		{

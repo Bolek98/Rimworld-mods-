@@ -289,9 +289,9 @@ public static class MoodCare
 				if (needs.Count > 0)
 					sb.AppendLine("     prázdné potřeby: " + string.Join(", ", needs.ToArray()));
 				if (d.bad.Count > 0)
-					sb.AppendLine("     dolů: " + string.Join("; ", d.bad.Take(6).Select(b => b.label + " " + (b.offset * 100f).ToString("0") + " [" + CauseLabel(b.cause) + "]").ToArray()));
+					sb.AppendLine("     dolů: " + string.Join("; ", d.bad.Take(6).Select(b => b.label + " " + b.offset.ToString("0") + " [" + CauseLabel(b.cause) + "]").ToArray()));
 				if (d.good.Count > 0)
-					sb.AppendLine("     nahoru: " + string.Join("; ", d.good.Take(4).Select(b => b.label + " +" + (b.offset * 100f).ToString("0")).ToArray()));
+					sb.AppendLine("     nahoru: " + string.Join("; ", d.good.Take(4).Select(b => b.label + " +" + b.offset.ToString("0")).ToArray()));
 				sb.AppendLine("     teď: " + (p.CurJob?.def?.label ?? "-") + ", hodina: " + (p.timetable?.CurrentAssignment?.label ?? "-"));
 			}
 			Directory.CreateDirectory(Path.GetDirectoryName(ReportPath));
