@@ -104,7 +104,7 @@ namespace ResearchedLoadout
 			}
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
-			MLog.Game("[Smart Colonist Gear] v2.16.2 loaded (messages: Logs\\SmartColonistGear.log).");
+			MLog.Game("[Smart Colonist Gear] v2.16.3 loaded (messages: Logs\\SmartColonistGear.log).");
 		}
 
 		public override string SettingsCategory()
@@ -1271,9 +1271,8 @@ namespace ResearchedLoadout
 				{
 					ThingDef stuff = def.MadeFromStuff ? GenStuff.DefaultStuffFor(def) : null;
 					float armor = Mathf.Max(def.GetStatValueAbstract(StatDefOf.ArmorRating_Sharp, stuff), def.GetStatValueAbstract(StatDefOf.ArmorRating_Blunt, stuff));
-					// 2.16.2: back to 0.1 – with 0.3 the Tailin gas mask was taken off and put back on in an
-					// endless loop together with another outfit mod (the game slowed down a lot)
-					v = armor < 0.1f && def.GetStatValueAbstract(StatDefOf.Insulation_Cold, stuff) < 6f;
+					// 2.16.3: face masks of mods often have a little armour (Tailin gas mask) – up to 0.3 still a mask
+					v = armor < 0.3f && def.GetStatValueAbstract(StatDefOf.Insulation_Cold, stuff) < 6f;
 				}
 			}
 			catch
@@ -6793,8 +6792,12 @@ namespace ResearchedLoadout
 				{
 					why = "maska uz neni potreba";
 				}
+				// 2.16.3: another mod puts it straight back on – then leave it, no tug of war
+				if (why != null && MaskTugOfWar.GaveUp(pawn, a.def))
+					continue;
 				if (why != null && RemoveApparelAndStore(pawn, a))
 				{
+					MaskTugOfWar.Removed(pawn, a.def);
 					RL.Debug(pawn.LabelShort + " sundava " + a.def.defName + " (" + why + ")");
 					return true;
 				}
@@ -11039,7 +11042,7 @@ namespace ResearchedLoadout
 				WearerFit.Apply(pawn, apparel, ref __result);
 				if (__result > 0f && GearSense.UnneededMask(pawn, apparel))
 				{
-					__result *= 0.2f;
+					__result *= 0.05f;
 				}
 				if (__result > 0f && !LoadoutFilter.IsBelowMinHp(apparel))
 				{
@@ -11053,6 +11056,11 @@ namespace ResearchedLoadout
 				{
 					__result *= 0.3f;
 				}
+			}
+			else if (GearSense.UnneededMask(pawn, apparel) && !GearSense.Required(pawn, apparel.def))
+			{
+				// 2.16.3: no gas mask put on when there is no gas
+				__result = -1000f;
 			}
 			else if ((ApparelGender.Mismatch(pawn, apparel.def) || Specialization.WorkClothingBlocked(pawn, apparel.def)) && !Coverage.FillsBasicGap(pawn, apparel.def))
 			{
@@ -11135,5 +11143,37 @@ namespace ResearchedLoadout
 			int age = Verse.Find.TickManager.TicksGame - e.tick;
 			return e.def == def && age >= 0 && age < 120000;
 		}
+	}
+}
+
+
+namespace ResearchedLoadout
+{
+	// 2.16.3: a mask taken off three times within a day is back on again each time – someone else wants
+	// it on; Smart Colonist Gear stops taking it off for two days (and says so once in its log)
+	public static class MaskTugOfWar
+	{
+		private static readonly System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<int>> removed = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<int>>();
+		private static readonly System.Collections.Generic.Dictionary<string, int> stopUntil = new System.Collections.Generic.Dictionary<string, int>();
+
+		private static string Key(Verse.Pawn p, Verse.ThingDef d) => p.thingIDNumber + "|" + d.defName;
+		private static int Now => Verse.Find.TickManager?.TicksGame ?? 0;
+
+		public static void Removed(Verse.Pawn p, Verse.ThingDef d)
+		{
+			string k = Key(p, d);
+			if (!removed.TryGetValue(k, out var l))
+				removed[k] = l = new System.Collections.Generic.List<int>();
+			l.Add(Now);
+			l.RemoveAll(t => Now - t > 60000 || t > Now);
+			if (l.Count >= 3)
+			{
+				stopUntil[k] = Now + 120000;
+				l.Clear();
+				MLog.Info("[Smart Colonist Gear] " + p.LabelShort + " keeps getting " + d.defName + " put back on by another mod – left on for two days.");
+			}
+		}
+
+		public static bool GaveUp(Verse.Pawn p, Verse.ThingDef d) => stopUntil.TryGetValue(Key(p, d), out int t) && Now < t && Now >= t - 120000;
 	}
 }
