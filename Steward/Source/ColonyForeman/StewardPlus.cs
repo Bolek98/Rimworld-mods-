@@ -288,7 +288,7 @@ public static class StewardPlus
 			return;
 		TraitDef owl = DefDatabase<TraitDef>.GetNamedSilentFail("NightOwl");
 		var pawns = map.mapPawns.FreeColonistsSpawned.Where(p => p.timetable != null).OrderBy(p => p.thingIDNumber).ToList();
-		bool resetDone = comp.manualReset2491;
+		bool resetDone = comp.manualReset2492;
 		int k = 0;
 		int now = Find.TickManager.TicksGame;
 		foreach (Pawn p in pawns)
@@ -300,7 +300,7 @@ public static class StewardPlus
 			comp.scheduled.TryGetValue(id, out string had);
 			// 2.49.1: older versions marked a colonist "manual" whenever ANY mod changed the schedule.
 			// Once per save every colonist goes back to Steward; from now on only your own changes count.
-			if (had == "manual" && !comp.manualReset2491)
+			if (had == "manual" && !comp.manualReset2492)
 				had = null;
 			if (had == "manual")
 				continue;
@@ -313,7 +313,7 @@ public static class StewardPlus
 			if (lastPattern != null && lastPattern.Length == 24 && !comp.schedHold.ContainsKey(id) && Read(p) != lastPattern)
 			{
 				// 2.49.1: only when YOU had the schedule tab open – a change made by another mod is undone
-				if (ScheduleTabWatch.OpenRecently)
+				if (ScheduleTabWatch.EditedByYou.Remove(id))
 				{
 					comp.scheduled[id] = "manual";
 					MLog.Info("[Steward] " + p.LabelShort + ": schedule changed by hand – Steward leaves it alone.");
@@ -345,7 +345,7 @@ public static class StewardPlus
 		}
 		if (!resetDone)
 		{
-			comp.manualReset2491 = true;
+			comp.manualReset2492 = true;
 			MLog.Info("[Steward] schedules: every colonist is looked after by Steward again (" + pawns.Count + ").");
 		}
 	}
@@ -638,12 +638,25 @@ public class Alert_StewardSkillGap : Alert
 }
 
 // 2.49.1: was the schedule tab open lately? A schedule change counts as "yours" only then.
+// 2.49.2: only an hour YOU paint in the schedule tab counts as yours (an open tab is not enough –
+// another mod could change schedules at the same moment)
 [HarmonyLib.HarmonyPatch(typeof(MainTabWindow_Schedule), nameof(MainTabWindow_Schedule.DoWindowContents))]
 public static class ScheduleTabWatch
 {
-	private static float lastOpen = -9999f;
+	public static bool Inside;
+	public static readonly HashSet<int> EditedByYou = new HashSet<int>();
 
-	public static bool OpenRecently => UnityEngine.Time.realtimeSinceStartup - lastOpen < 30f;
+	public static void Prefix() => Inside = true;
 
-	public static void Postfix() => lastOpen = UnityEngine.Time.realtimeSinceStartup;
+	public static void Postfix() => Inside = false;
+}
+
+[HarmonyLib.HarmonyPatch(typeof(Pawn_TimetableTracker), nameof(Pawn_TimetableTracker.SetAssignment))]
+public static class ScheduleEditWatch
+{
+	public static void Prefix(Pawn ___pawn)
+	{
+		if (ScheduleTabWatch.Inside && ___pawn != null)
+			ScheduleTabWatch.EditedByYou.Add(___pawn.thingIDNumber);
+	}
 }

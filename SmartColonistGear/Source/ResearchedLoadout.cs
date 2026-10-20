@@ -104,7 +104,7 @@ namespace ResearchedLoadout
 			}
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
-			MLog.Game("[Smart Colonist Gear] v2.16.0 loaded (messages: Logs\\SmartColonistGear.log).");
+			MLog.Game("[Smart Colonist Gear] v2.16.1 loaded (messages: Logs\\SmartColonistGear.log).");
 		}
 
 		public override string SettingsCategory()
@@ -1271,7 +1271,8 @@ namespace ResearchedLoadout
 				{
 					ThingDef stuff = def.MadeFromStuff ? GenStuff.DefaultStuffFor(def) : null;
 					float armor = Mathf.Max(def.GetStatValueAbstract(StatDefOf.ArmorRating_Sharp, stuff), def.GetStatValueAbstract(StatDefOf.ArmorRating_Blunt, stuff));
-					v = armor < 0.1f && def.GetStatValueAbstract(StatDefOf.Insulation_Cold, stuff) < 6f;
+					// 2.16.1: face masks of mods often have a little armour (Tailin gas mask) – up to 0.3 still a mask
+					v = armor < 0.3f && def.GetStatValueAbstract(StatDefOf.Insulation_Cold, stuff) < 6f;
 				}
 			}
 			catch
@@ -4587,6 +4588,7 @@ namespace ResearchedLoadout
 
 		public static void NotifyWeapon(Pawn pawn, Thing weapon, Thing old)
 		{
+			WeaponSwapMemory.Note(pawn, old);
 			if (CanNotify(pawn) && weapon != null)
 			{
 				string text = ((old != null) ? "RL_MsgWeapon".Translate(pawn.LabelShort, weapon.LabelNoCount, old.LabelNoCount).ToString() : "RL_MsgWeaponNew".Translate(pawn.LabelShort, weapon.LabelNoCount).ToString());
@@ -7069,6 +7071,12 @@ namespace ResearchedLoadout
 				if (IsBroken(current) && !IsBroken(candidate))
 				{
 					return num3 >= num4 * 0.9f;
+				}
+				// 2.16.1: no going back and forth – the kind just put away is not taken again for two days
+				// unless the one in hand is falling apart
+				if (WeaponSwapMemory.JustDropped(pawn, candidate.def) && !IsBroken(current))
+				{
+					return false;
 				}
 				if (current.def == candidate.def && current.Stuff == candidate.Stuff)
 				{
@@ -11030,7 +11038,7 @@ namespace ResearchedLoadout
 				WearerFit.Apply(pawn, apparel, ref __result);
 				if (__result > 0f && GearSense.UnneededMask(pawn, apparel))
 				{
-					__result *= 0.2f;
+					__result *= 0.05f;
 				}
 				if (__result > 0f && !LoadoutFilter.IsBelowMinHp(apparel))
 				{
@@ -11044,6 +11052,11 @@ namespace ResearchedLoadout
 				{
 					__result *= 0.3f;
 				}
+			}
+			else if (GearSense.UnneededMask(pawn, apparel) && !GearSense.Required(pawn, apparel.def))
+			{
+				// 2.16.1: no gas mask put on when there is no gas (the game's own dresser picked them up again)
+				__result = -1000f;
 			}
 			else if ((ApparelGender.Mismatch(pawn, apparel.def) || Specialization.WorkClothingBlocked(pawn, apparel.def)) && !Coverage.FillsBasicGap(pawn, apparel.def))
 			{
@@ -11100,6 +11113,31 @@ namespace ResearchedLoadout
 				return true;
 			}
 			return Active(pawn);
+		}
+	}
+}
+
+
+namespace ResearchedLoadout
+{
+	// 2.16.1: remembers the weapon kind a colonist just put away
+	public static class WeaponSwapMemory
+	{
+		private static readonly System.Collections.Generic.Dictionary<int, (Verse.ThingDef def, int tick)> dropped = new System.Collections.Generic.Dictionary<int, (Verse.ThingDef, int)>();
+
+		public static void Note(Verse.Pawn pawn, Verse.Thing old)
+		{
+			if (pawn == null || old?.def == null || Verse.Find.TickManager == null)
+				return;
+			dropped[pawn.thingIDNumber] = (old.def, Verse.Find.TickManager.TicksGame);
+		}
+
+		public static bool JustDropped(Verse.Pawn pawn, Verse.ThingDef def)
+		{
+			if (pawn == null || def == null || Verse.Find.TickManager == null || !dropped.TryGetValue(pawn.thingIDNumber, out var e))
+				return false;
+			int age = Verse.Find.TickManager.TicksGame - e.tick;
+			return e.def == def && age >= 0 && age < 120000;
 		}
 	}
 }

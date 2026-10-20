@@ -189,6 +189,13 @@ public static class MoodCare
 		Job job = p.CurJob;
 		if (job == null || job.playerForced || job.workGiverDef == null)
 			return;   // already resting, eating, relaxing, or you told them
+		// 2.49.2: hunger is answered with food, not with games
+		if (d.Top == Cause.Food || (p.needs.food != null && p.needs.food.CurLevelPercentage < 0.25f))
+		{
+			interruptedAt[p.thingIDNumber] = now;
+			Feed(p);
+			return;
+		}
 		TimeAssignmentDef cur = p.timetable.CurrentAssignment;
 		if (cur != TimeAssignmentDefOf.Joy && cur != TimeAssignmentDefOf.Sleep)
 		{
@@ -214,6 +221,34 @@ public static class MoodCare
 		catch (Exception ex)
 		{
 			MLog.WarnOnce("[Steward] mood rescue: " + ex.Message, 0x57e3b01);
+		}
+	}
+
+	private static readonly Dictionary<int, int> toldNoFood = new Dictionary<int, int>();
+
+	private static void Feed(Pawn p)
+	{
+		try
+		{
+			if (FoodUtility.TryFindBestFoodSourceFor(p, p, true, out Thing food, out ThingDef foodDef) && food != null)
+			{
+				Job eat = JobMaker.MakeJob(JobDefOf.Ingest, food);
+				eat.count = FoodUtility.WillIngestStackCountOf(p, foodDef, FoodUtility.NutritionForEater(p, food));
+				p.jobs.StartJob(eat, JobCondition.InterruptForced, null, false, true);
+				MLog.Info("[Steward] " + p.LabelShort + " is hungry and close to a break – goes to eat " + food.LabelShort + ".");
+				return;
+			}
+			int now = Find.TickManager.TicksGame;
+			if (toldNoFood.TryGetValue(p.thingIDNumber, out int t) && now - t < 30000)
+				return;
+			toldNoFood[p.thingIDNumber] = now;
+			MLog.Warn("[Steward] " + p.LabelShort + " is hungry but no food can be reached.");
+			if (ForemanMod.Settings.crisisMessages)
+				Messages.Message("CF_MoodNoFood".Translate(p.LabelShort), p, MessageTypeDefOf.NegativeEvent, historical: false);
+		}
+		catch (Exception ex)
+		{
+			MLog.WarnOnce("[Steward] feed: " + ex.Message, 0x57e3b03);
 		}
 	}
 
