@@ -747,7 +747,8 @@
   <CF_MyRulesOn>Tvoje počty jsou ZAPNUTÉ – plán úrovní a min/max níže se používají.</CF_MyRulesOn>
   <CF_MyRulesOff>Tvoje počty jsou VYPNUTÉ – Správce určuje počty sám podle práce. Nastavení níže se uloží, ale nepoužívá se, dokud ho nahoře nezapneš.</CF_MyRulesOff>
   <CF_Why_Load>Práce teď potřebuje {1} lidí → vybráno {0}.</CF_Why_Load>
-  <CF_PA_OnlyBalanced>Funguje jen ve stylu kolonie Vyvážený. V jiném stylu se prioritní oblasti skryjí a čekají, dokud nepřepneš zpět na Vyvážený.</CF_PA_OnlyBalanced>
+  <CF_PA_OnlyBalanced>Každá oblast pracuje ve stylu kolonie, který k její práci patří: „vše“ ve Vyváženém (a ve vlastním stylu), stavba ve Stavění, těžba v Těžbě, rostliny v Poli a lese nebo Zemědělství, odnášení a úklid v Úklidu. Záchrana funguje vždy. V jiném stylu oblast čeká (oranžově). Když kolonista ve své oblasti nemůže nic udělat, pomůže v jiné oblasti, která zrovna pracuje.</CF_PA_OnlyBalanced>
+  <CF_PA_PauseStyle>Čeká na styl: {0}</CF_PA_PauseStyle>
   <CF_PA_PauseHostile>Čeká: na mapě je nepřítel</CF_PA_PauseHostile>
   <CF_PA_PauseCrisis>Čeká: {0}</CF_PA_PauseCrisis>
   <CF_BP_Label>Prioritní stůl</CF_BP_Label>

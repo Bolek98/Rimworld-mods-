@@ -109,6 +109,8 @@ public sealed class PriorityAreaComp : MapComponent
 	// null = working; otherwise why the area waits (shown on the map)
 	public string PauseReason(PriorityArea a)
 	{
+		if (a != null && !ActiveStyle(a))
+			return "CF_PA_PauseStyle".Translate(StyleNeeded(a.mode));
 		if (GenHostility.AnyHostileActiveThreatToPlayer(map, countDormantPawnsAsHostile: false))
 			return "CF_PA_PauseHostile".Translate();
 		ForemanMapComponent fc = ForemanMapComponent.For(map);
@@ -125,7 +127,39 @@ public sealed class PriorityAreaComp : MapComponent
 	// then stopped silently – they work in every style now
 	public static bool StyleAllows(Map m) => true;
 
-	public bool Hidden => !StyleAllows(map);
+	public bool Hidden => false;
+
+	// 2.49.3: each kind of area works in the colony style made for that work – "everything" in
+	// Balanced (and your own style), building in Building, mining in Mining, plants in Fields and
+	// forest / Farming, hauling and cleaning in Tidy; rescue works always (it is about lives)
+	public static ForemanStyle[] StylesFor(PriorityAreaMode m)
+	{
+		switch (m)
+		{
+		case PriorityAreaMode.Build: return new[] { ForemanStyle.Building };
+		case PriorityAreaMode.Mine: return new[] { ForemanStyle.Mining };
+		case PriorityAreaMode.Plants: return new[] { ForemanStyle.FieldsForest, ForemanStyle.Farming };
+		case PriorityAreaMode.Haul:
+		case PriorityAreaMode.Clean: return new[] { ForemanStyle.Tidy };
+		case PriorityAreaMode.Emergency: return null;
+		default: return new[] { ForemanStyle.Balanced, ForemanStyle.Custom };
+		}
+	}
+
+	public bool ActiveStyle(PriorityArea a)
+	{
+		ForemanStyle[] ok = StylesFor(a.mode);
+		if (ok == null)
+			return true;
+		ForemanMapComponent fc = ForemanMapComponent.For(map);
+		return fc == null || Array.IndexOf(ok, fc.style) >= 0;
+	}
+
+	public static string StyleNeeded(PriorityAreaMode m)
+	{
+		ForemanStyle[] ok = StylesFor(m);
+		return ok == null ? "" : string.Join(" / ", ok.Select(Styles.Label).ToArray());
+	}
 
 	public PriorityArea AreaOf(Pawn p)
 	{
@@ -209,7 +243,11 @@ public sealed class PriorityAreaComp : MapComponent
 			PriorityArea a = areas[i];
 			a.assigned.RemoveAll(p => p == null || p.Dead || !p.Spawned || p.Map != map || !p.IsColonistPlayerControlled);
 			if (PausedFor(a))
+			{
+				// waiting (wrong style, enemies …) does not count as "nobody worked here"
+				a.lastWorkTick = now;
 				continue;
+			}
 			bool busyInside = false;
 			foreach (Pawn p in a.assigned)
 				if (p.CurJob != null && PriorityAreaWork.JobInArea(p.CurJob, a))
@@ -260,7 +298,7 @@ public sealed class PriorityAreaComp : MapComponent
 		if (cur == a || cur.manual)
 			return false;
 		// only from an older area, or from one that has nothing left for now
-		return cur.createdTick < a.createdTick || cur.lastCount == 0;
+		return cur.createdTick < a.createdTick || cur.lastCount == 0 || PausedFor(cur);
 	}
 
 	private void Assign(PriorityArea a)
@@ -584,12 +622,14 @@ public static class PriorityAreaWorkPatch
 			if (comp == null || comp.areas.Count == 0)
 				return true;
 			PriorityArea a = comp.AreaOf(pawn);
-			if (a == null || a.lastCount == 0 || comp.Hidden || comp.PausedFor(a))
+			if (a == null)
 				return true;
+			// own area can be worked now (has work, right style, no danger)
+			bool ownOk = a.lastCount != 0 && !comp.PausedFor(a);
 			// 2.35.1: the emergency pass (fire, tending, rescue) also looks in the area first
 			if (__instance.emergency)
 			{
-				if (!PriorityAreaWork.HasEmergency(a.mode))
+				if (!ownOk || !PriorityAreaWork.HasEmergency(a.mode))
 					return true;
 				Job ej = PriorityAreaWork.TryFind(pawn, a, emergencyOnly: true);
 				if (ej == null)
@@ -601,7 +641,19 @@ public static class PriorityAreaWorkPatch
 			int now = Find.TickManager.TicksGame;
 			if (a.idleUntil.TryGetValue(pawn.thingIDNumber, out int until) && now < until)
 				return true;
-			Job j = PriorityAreaWork.TryFind(pawn, a);
+			Job j = ownOk ? PriorityAreaWork.TryFind(pawn, a) : null;
+			PriorityArea used = a;
+			// 2.49.3: nothing this colonist can do in its own area (done, waiting for its style,
+			// out of reach, no material) – it helps in another working area instead
+			for (int i = comp.areas.Count - 1; i >= 0 && j == null; i--)
+			{
+				PriorityArea o = comp.areas[i];
+				if (o == a || o.lastCount == 0 || comp.PausedFor(o))
+					continue;
+				j = PriorityAreaWork.TryFind(pawn, o);
+				if (j != null)
+					used = o;
+			}
 			if (j == null)
 			{
 				// nothing for this colonist right now – ordinary work, look again in a while
@@ -609,7 +661,7 @@ public static class PriorityAreaWorkPatch
 				return true;
 			}
 			a.idleUntil.Remove(pawn.thingIDNumber);
-			a.lastWorkTick = Find.TickManager.TicksGame;
+			used.lastWorkTick = now;
 			__result = new ThinkResult(j, __instance);
 			return false;
 		}
@@ -635,7 +687,7 @@ public class Designator_PriorityArea : Designator
 	public Designator_PriorityArea()
 	{
 		defaultLabel = "CF_PA_Label".Translate();
-		defaultDesc = "CF_PA_Desc".Translate();
+		defaultDesc = "CF_PA_Desc".Translate() + "\n\n" + "CF_PA_OnlyBalanced".Translate();
 		icon = PriorityAreaTex.Add;
 		defaultIconColor = new Color(0.55f, 0.9f, 1f);
 		soundDragSustain = SoundDefOf.Designate_DragStandard;
@@ -832,7 +884,7 @@ public class Designator_PriorityAreaClear : Designator
 	public Designator_PriorityAreaClear()
 	{
 		defaultLabel = "CF_PA_ClearLabel".Translate();
-		defaultDesc = "CF_PA_ClearDesc".Translate();
+		defaultDesc = "CF_PA_ClearDesc".Translate() + "\n\n" + "CF_PA_OnlyBalanced".Translate();
 		icon = PriorityAreaTex.Remove;
 		defaultIconColor = new Color(0.55f, 0.9f, 1f);
 		soundDragSustain = SoundDefOf.Designate_DragStandard;
