@@ -652,7 +652,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.3.1";
+        public const string Version = "1.3.2";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -674,6 +674,7 @@ namespace GraphicsTuner
             }
             Smooth.Patch(harmony);
             Freezer.Patch(harmony);
+            LocationGeneratorFast.Patch(harmony);   // 1.3.2
             MLog.Game("[Smooth FPS] v" + Version + " loaded (messages: Logs\\SmoothFPS.log).");
             // 1.3.0: what happened if the last game crashed
             LongEventHandler.ExecuteWhenFinished(CrashCheck.Run);
