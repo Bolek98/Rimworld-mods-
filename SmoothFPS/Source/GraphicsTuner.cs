@@ -675,6 +675,7 @@ namespace GraphicsTuner
             Smooth.Patch(harmony);
             Freezer.Patch(harmony);
             LocationGeneratorFast.Patch(harmony);   // 1.3.2
+            ModEffects.Patch(harmony);              // 1.3.2: effects from mods too
             MLog.Game("[Smooth FPS] v" + Version + " loaded (messages: Logs\\SmoothFPS.log).");
             // 1.3.0: what happened if the last game crashed
             LongEventHandler.ExecuteWhenFinished(CrashCheck.Run);
