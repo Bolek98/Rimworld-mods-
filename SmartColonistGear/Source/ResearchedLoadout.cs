@@ -77,7 +77,7 @@ namespace ResearchedLoadout
 				MUI.ApplyAll(Settings);
 			}
 			MUI.PatchWindow(harmony, typeof(ResearchedLoadoutMod));
-			Type[] array = new Type[11]
+			Type[] array = new Type[12]
 			{
 				typeof(JobDriverTakeInventoryPatch),
 				typeof(JobDriverEquipPatch),
@@ -89,7 +89,8 @@ namespace ResearchedLoadout
 				typeof(FinishProjectPatch),
 				typeof(ApparelScoreGainArmorPatch),
 				typeof(PlayerChosenWeaponPatch),
-				typeof(CraftedRecordPatch)
+				typeof(CraftedRecordPatch),
+				typeof(ApparelFlipPatch)
 			};
 			for (int i = 0; i < array.Length; i++)
 			{
@@ -104,7 +105,7 @@ namespace ResearchedLoadout
 			}
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
-			MLog.Game("[Smart Colonist Gear] v2.16.3 loaded (messages: Logs\\SmartColonistGear.log).");
+			MLog.Game("[Smart Colonist Gear] v2.16.4 loaded (messages: Logs\\SmartColonistGear.log).");
 		}
 
 		public override string SettingsCategory()
@@ -11040,7 +11041,9 @@ namespace ResearchedLoadout
 			{
 				__result += Specialization.ApparelBonus(pawn, apparel);
 				WearerFit.Apply(pawn, apparel, ref __result);
-				if (__result > 0f && GearSense.UnneededMask(pawn, apparel))
+				// 2.16.4: a mask the colonist must wear (role / ideology) is not pushed off – put on
+				// and taken off again in a loop before
+				if (__result > 0f && GearSense.UnneededMask(pawn, apparel) && !GearSense.Required(pawn, apparel.def))
 				{
 					__result *= 0.05f;
 				}
@@ -11060,6 +11063,11 @@ namespace ResearchedLoadout
 			else if (GearSense.UnneededMask(pawn, apparel) && !GearSense.Required(pawn, apparel.def))
 			{
 				// 2.16.3: no gas mask put on when there is no gas
+				__result = -1000f;
+			}
+			else if (ApparelFlip.Blocked(pawn, apparel.def) && !LoadoutFilter.FreezingOrOverheating(pawn) && !TempRush.Active(pawn) && !GearSense.Required(pawn, apparel.def))
+			{
+				// 2.16.4: taken off again and again (helmet <-> gas mask …) – stays off for a while
 				__result = -1000f;
 			}
 			else if ((ApparelGender.Mismatch(pawn, apparel.def) || Specialization.WorkClothingBlocked(pawn, apparel.def)) && !Coverage.FillsBasicGap(pawn, apparel.def))
@@ -11175,5 +11183,66 @@ namespace ResearchedLoadout
 		}
 
 		public static bool GaveUp(Verse.Pawn p, Verse.ThingDef d) => stopUntil.TryGetValue(Key(p, d), out int t) && Now < t && Now >= t - 120000;
+	}
+}
+
+
+namespace ResearchedLoadout
+{
+	// 2.16.4: two pieces that can't be worn together (a helmet and a gas mask) could each look better
+	// while the other one is worn – the colonist swapped them every few seconds. A piece taken off three
+	// times within a day is not put on again for two days.
+	public static class ApparelFlip
+	{
+		private static readonly System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<int>> removed = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<int>>();
+		private static readonly System.Collections.Generic.Dictionary<string, int> blockUntil = new System.Collections.Generic.Dictionary<string, int>();
+		private static int Now => Verse.Find.TickManager?.TicksGame ?? 0;
+		private static string Key(Verse.Pawn p, Verse.ThingDef d) => p.thingIDNumber + "|" + d.defName;
+
+		public static void Removed(Verse.Pawn p, Verse.ThingDef d)
+		{
+			if (p == null || d == null || !p.Spawned || !LoadoutFilter.IsPlayerColonist(p) || p.Dead)
+				return;
+			string k = Key(p, d);
+			if (!removed.TryGetValue(k, out var l))
+				removed[k] = l = new System.Collections.Generic.List<int>();
+			int now = Now;
+			l.Add(now);
+			l.RemoveAll(t => now - t > 60000 || t > now);
+			if (l.Count >= 3)
+			{
+				l.Clear();
+				blockUntil[k] = now + 120000;
+				MLog.Info("[Smart Colonist Gear] " + p.LabelShort + " kept putting on and taking off " + d.defName + " – left off for two days.");
+			}
+		}
+
+		public static bool Blocked(Verse.Pawn p, Verse.ThingDef d)
+		{
+			if (p == null || d == null || blockUntil.Count == 0)
+				return false;
+			int now = Now;
+			return blockUntil.TryGetValue(Key(p, d), out int t) && now < t && now >= t - 120000;
+		}
+	}
+
+	[HarmonyLib.HarmonyPatch(typeof(RimWorld.Pawn_ApparelTracker), "Notify_ApparelRemoved")]
+	public static class ApparelFlipPatch
+	{
+		private static readonly System.Reflection.FieldInfo pawnField = HarmonyLib.AccessTools.Field(typeof(RimWorld.Pawn_ApparelTracker), "pawn");
+
+		[HarmonyLib.HarmonyPostfix]
+		public static void Postfix(RimWorld.Pawn_ApparelTracker __instance, RimWorld.Apparel apparel)
+		{
+			try
+			{
+				if (Verse.Current.ProgramState != Verse.ProgramState.Playing)
+					return;
+				ApparelFlip.Removed(pawnField?.GetValue(__instance) as Verse.Pawn, apparel?.def);
+			}
+			catch
+			{
+			}
+		}
 	}
 }
