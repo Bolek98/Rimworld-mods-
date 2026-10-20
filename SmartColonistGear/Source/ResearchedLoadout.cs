@@ -104,7 +104,7 @@ namespace ResearchedLoadout
 			}
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
-			MLog.Game("[Smart Colonist Gear] v2.16.1 loaded (messages: Logs\\SmartColonistGear.log).");
+			MLog.Game("[Smart Colonist Gear] v2.16.2 loaded (messages: Logs\\SmartColonistGear.log).");
 		}
 
 		public override string SettingsCategory()
@@ -1271,8 +1271,9 @@ namespace ResearchedLoadout
 				{
 					ThingDef stuff = def.MadeFromStuff ? GenStuff.DefaultStuffFor(def) : null;
 					float armor = Mathf.Max(def.GetStatValueAbstract(StatDefOf.ArmorRating_Sharp, stuff), def.GetStatValueAbstract(StatDefOf.ArmorRating_Blunt, stuff));
-					// 2.16.1: face masks of mods often have a little armour (Tailin gas mask) – up to 0.3 still a mask
-					v = armor < 0.3f && def.GetStatValueAbstract(StatDefOf.Insulation_Cold, stuff) < 6f;
+					// 2.16.2: back to 0.1 – with 0.3 the Tailin gas mask was taken off and put back on in an
+					// endless loop together with another outfit mod (the game slowed down a lot)
+					v = armor < 0.1f && def.GetStatValueAbstract(StatDefOf.Insulation_Cold, stuff) < 6f;
 				}
 			}
 			catch
@@ -11038,7 +11039,7 @@ namespace ResearchedLoadout
 				WearerFit.Apply(pawn, apparel, ref __result);
 				if (__result > 0f && GearSense.UnneededMask(pawn, apparel))
 				{
-					__result *= 0.05f;
+					__result *= 0.2f;
 				}
 				if (__result > 0f && !LoadoutFilter.IsBelowMinHp(apparel))
 				{
@@ -11052,11 +11053,6 @@ namespace ResearchedLoadout
 				{
 					__result *= 0.3f;
 				}
-			}
-			else if (GearSense.UnneededMask(pawn, apparel) && !GearSense.Required(pawn, apparel.def))
-			{
-				// 2.16.1: no gas mask put on when there is no gas (the game's own dresser picked them up again)
-				__result = -1000f;
 			}
 			else if ((ApparelGender.Mismatch(pawn, apparel.def) || Specialization.WorkClothingBlocked(pawn, apparel.def)) && !Coverage.FillsBasicGap(pawn, apparel.def))
 			{
