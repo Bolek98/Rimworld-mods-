@@ -13,6 +13,9 @@ namespace ResearchFixer
     {
         public HashSet<string> recipes = new HashSet<string>();
         public HashSet<string> builds = new HashSet<string>();
+        // 0.3.0: recipes made at least once in this game (things never made get the dot too)
+        public HashSet<string> made = new HashSet<string>();
+        public bool seeded;
 
         public RF_NewThings(Game game) { }
 
@@ -24,8 +27,51 @@ namespace ResearchFixer
         {
             Scribe_Collections.Look(ref recipes, "recipes", LookMode.Value);
             Scribe_Collections.Look(ref builds, "builds", LookMode.Value);
+            Scribe_Collections.Look(ref made, "made", LookMode.Value);
+            Scribe_Values.Look(ref seeded, "madeSeeded", false);
             if (recipes == null) recipes = new HashSet<string>();
             if (builds == null) builds = new HashSet<string>();
+            if (made == null) made = new HashSet<string>();
+        }
+
+        // first time in a game: what the colony already has counts as made (no dots on old things)
+        public override void FinalizeInit()
+        {
+            if (seeded || !On)
+                return;
+            seeded = true;
+            try
+            {
+                var have = new HashSet<ThingDef>();
+                foreach (Map m in Find.Maps)
+                {
+                    foreach (Thing t in m.listerThings.AllThings)
+                        if (t?.def != null && t.Faction == Faction.OfPlayer || t?.def?.category == ThingCategory.Item)
+                            have.Add(t.def);
+                    foreach (Pawn p in m.mapPawns.FreeColonistsSpawned)
+                    {
+                        if (p.apparel != null) foreach (Apparel a in p.apparel.WornApparel) have.Add(a.def);
+                        if (p.equipment?.Primary != null) have.Add(p.equipment.Primary.def);
+                        if (p.inventory != null) foreach (Thing t in p.inventory.innerContainer) have.Add(t.def);
+                    }
+                }
+                foreach (RecipeDef r in DefDatabase<RecipeDef>.AllDefsListForReading)
+                    if (r.products != null && r.products.Any(pc => pc.thingDef != null && have.Contains(pc.thingDef)))
+                        made.Add(r.defName);
+                Log.Message("[Research Fixer] new things: " + made.Count + " recipes count as already made in this colony.");
+            }
+            catch (Exception e) { Log.Warning("[Research Fixer] new things seed: " + e.Message); }
+        }
+
+        // a dot: unlocked by a research lately, or never made in this game
+        public static bool IsNew(RecipeDef r)
+        {
+            if (!On || r == null) return false;
+            RF_NewThings c = Get;
+            if (c == null) return false;
+            if (c.recipes.Contains(r.defName)) return true;
+            if (!c.seeded || r.products == null || r.products.Count == 0 || c.made.Contains(r.defName)) return false;
+            return r.AvailableNow;
         }
 
         public void Notify_Finished(ResearchProjectDef proj)
@@ -76,15 +122,13 @@ namespace ResearchFixer
             {
                 if (!RF_NewThings.On || options == null) return;
                 RF_NewThings c = RF_NewThings.Get;
-                if (c == null || c.recipes.Count == 0) return;
-                var table = Find.Selector?.SingleSelectedThing as IBillGiver;
-                if (table == null) return;
+                if (c == null) return;
+                var table = Find.Selector?.SingleSelectedThing as Thing;
+                if (!(table is IBillGiver) || table.def.AllRecipes == null) return;
                 var labels = new Dictionary<string, bool>();
-                foreach (string dn in c.recipes)
-                {
-                    RecipeDef r = DefDatabase<RecipeDef>.GetNamedSilentFail(dn);
-                    if (r != null) labels[r.LabelCap.Resolve()] = true;
-                }
+                foreach (RecipeDef r in table.def.AllRecipes)
+                    if (RF_NewThings.IsNew(r)) labels[r.LabelCap.Resolve()] = true;
+                if (labels.Count == 0) return;
                 string tag = "  <color=" + RF_NewThings.Green + ">" + "RF_New".Translate() + "</color>";
                 foreach (FloatMenuOption o in options)
                     if (o != null && o.Label != null && labels.ContainsKey(o.Label))
@@ -99,7 +143,14 @@ namespace ResearchFixer
     {
         public static void Postfix(Bill_Production __instance)
         {
-            try { if (__instance?.recipe != null) RF_NewThings.Get?.recipes.Remove(__instance.recipe.defName); }
+            try
+            {
+                if (__instance?.recipe == null) return;
+                RF_NewThings c = RF_NewThings.Get;
+                if (c == null) return;
+                c.recipes.Remove(__instance.recipe.defName);
+                c.made.Add(__instance.recipe.defName);
+            }
             catch { }
         }
     }
@@ -217,6 +268,57 @@ namespace ResearchFixer
                 Text.Font = f;
             }
             catch (Exception e) { Log.WarningOnce("[Research Fixer] YART button: " + e.Message, 0x7f31003); }
+        }
+    }
+}
+
+
+namespace ResearchFixer
+{
+    // 0.3.0: Nice Bill Tab draws its own recipe list – the green dot goes there too
+    [StaticConstructorOnStartup]
+    public static class NiceBillTabDot
+    {
+        private static System.Reflection.FieldInfo recipeField;
+
+        static NiceBillTabDot()
+        {
+            try
+            {
+                Type drawer = AccessTools.TypeByName("NiceBillTab.TabBillsDrawer");
+                Type holder = AccessTools.TypeByName("NiceBillTab.RecipeHolder");
+                if (drawer == null || holder == null) return;
+                recipeField = AccessTools.Field(holder, "recipe");
+                var h = new Harmony("misak.researchfixer.nicebilltab");
+                int n = 0;
+                foreach (string m in new[] { "DrawRecipePreview", "DrawRecipePreviewCompact" })
+                {
+                    System.Reflection.MethodInfo mi = AccessTools.Method(drawer, m);
+                    if (mi == null) continue;
+                    h.Patch(mi, postfix: new HarmonyMethod(typeof(NiceBillTabDot), nameof(Postfix)));
+                    n++;
+                }
+                if (n > 0) Log.Message("[Research Fixer] new-thing dots added to Nice Bill Tab.");
+            }
+            catch (Exception e) { Log.Warning("[Research Fixer] Nice Bill Tab dots: " + e.Message); }
+        }
+
+        public static void Postfix(Rect recipePreviewRect, object data)
+        {
+            try
+            {
+                if (!RF_NewThings.On || Event.current.type != EventType.Repaint || data == null || recipeField == null) return;
+                if (!RF_NewThings.IsNew(recipeField.GetValue(data) as RecipeDef)) return;
+                Rect dot = new Rect(recipePreviewRect.xMax - 24f, recipePreviewRect.y + 2f, 22f, 22f);
+                GameFont f = Text.Font;
+                TextAnchor an = Text.Anchor;
+                Text.Font = GameFont.Medium;
+                Text.Anchor = TextAnchor.MiddleCenter;
+                Widgets.Label(dot, "<color=" + RF_NewThings.Green + ">●</color>");
+                Text.Anchor = an;
+                Text.Font = f;
+            }
+            catch { }
         }
     }
 }
