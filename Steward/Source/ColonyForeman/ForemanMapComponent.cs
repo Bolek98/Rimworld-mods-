@@ -311,6 +311,7 @@ public sealed class ForemanMapComponent : MapComponent
 		{
 			StewardPlus.Schedules(this, map);
 			ScheduleCare.Tick(this, map);
+			MoodCare.Tick(this, map);
 		}
 		catch (Exception ex) { Log.ErrorOnce("[Steward] schedules failed: " + ex, 0x57e3a53); }
 		// 2.32: extras

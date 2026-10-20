@@ -615,6 +615,14 @@ public static partial class SituationRules
 			reason = (c, a) => "CF_SitR_MoodSlipping".Translate(a),
 			staff = (c, a, s) =>
 			{
+				// 2.49: the work that answers the colony's real causes (hunger, dirty rooms, pain …)
+				var focus = MoodCare.FocusWorks(c.map, c.n);
+				if (focus.Count > 0)
+				{
+					foreach (var f in focus)
+						c.Need(s, f.work, 2, f.workers);
+					return;
+				}
 				c.Need(s, "Cooking", 2, 1);
 				c.Need(s, "Art", 2, 1);
 				c.Need(s, "Cleaning", 2, 1);

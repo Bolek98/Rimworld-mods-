@@ -342,6 +342,9 @@ public static class StewardPlus
 		try { minor = p.mindState?.mentalBreaker?.BreakThresholdMinor ?? 0f; } catch { }
 		if (joy < 0.35f || mood < minor + 0.10f)
 			return 1;
+		// 2.49: when many colonists are slipping, everybody who is not clearly fine gets more recreation
+		if (MoodCare.StressedShare(p.MapHeld) >= 0.3f && mood < minor + 0.20f)
+			return 1;
 		if (joy > 0.75f && mood > minor + 0.25f)
 			return -1;
 		return 0;

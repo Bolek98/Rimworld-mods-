@@ -123,7 +123,7 @@ public static class FireResponse
 public static class ScheduleCare
 {
 	private const float TiredBelow = 0.15f, RestedAbove = 0.9f;
-	private const float BreakMargin = 0.08f, CalmMargin = 0.15f;   // 2.47: earlier help
+	private const float BreakMargin = 0.10f, CalmMargin = 0.18f;   // 2.47/2.49: earlier help, longer
 
 	public static bool Enabled => ForemanMod.Settings != null && ForemanMod.Settings.scheduleCare;
 
@@ -165,7 +165,8 @@ public static class ScheduleCare
 				holds.RemoveAt(i);
 			}
 			// 2. help now
-			TimeAssignmentDef want = tired ? TimeAssignmentDefOf.Sleep : breaking ? TimeAssignmentDefOf.Joy : null;
+			// 2.49: someone breaking who is also quite tired sleeps first (rest lifts the mood faster than games)
+			TimeAssignmentDef want = tired || (breaking && rest < 0.35f) ? TimeAssignmentDefOf.Sleep : breaking ? TimeAssignmentDefOf.Joy : null;
 			if (want != null)
 			{
 				bool started = false;
@@ -174,8 +175,8 @@ public static class ScheduleCare
 					TimeAssignmentDef cur = p.timetable.GetAssignment(h);
 					if (cur == null || cur == want || cur == TimeAssignmentDefOf.Sleep)
 						continue;
-					// sleep replaces work and recreation; recreation replaces only work
-					if (cur != TimeAssignmentDefOf.Work && !(want == TimeAssignmentDefOf.Sleep && cur == TimeAssignmentDefOf.Joy))
+					// sleep replaces work, "anything" and recreation; recreation replaces work and "anything" (2.49)
+					if (cur != TimeAssignmentDefOf.Work && cur != TimeAssignmentDefOf.Anything && !(want == TimeAssignmentDefOf.Sleep && cur == TimeAssignmentDefOf.Joy))
 						continue;
 					int k = holds.FindIndex(x => x.h == h);
 					string orig = k >= 0 ? holds[k].orig : cur.defName;

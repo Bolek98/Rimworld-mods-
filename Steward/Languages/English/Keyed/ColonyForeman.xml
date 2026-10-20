@@ -866,4 +866,26 @@
   <CF_ParentCare_Desc>A mother gets childcare on the top priority until her baby is a child; her other top-priority work moves one step down, so the baby comes first. Babies without a mother who can care for them (and the third baby of one mother) get a nanny – the colonist best at it (social skill, passion, few top jobs). Needs Biotech.</CF_ParentCare_Desc>
   <CF_TipMother>Mother of a baby – childcare comes first.</CF_TipMother>
   <CF_TipNanny>Nanny – looks after a baby without a mother who can.</CF_TipNanny>
+  <!-- 2.49 mood care -->
+  <CF_MoodRescue>{0} stops work to calm down (mostly: {1}).</CF_MoodRescue>
+  <CF_MoodHint_Table>{0} colonists are upset about eating without a table. A table with chairs closer to where they work or sleep would help.</CF_MoodHint_Table>
+  <CF_MoodHint_Comfort>{0} colonists lack comfort. More chairs, armchairs or better beds would help.</CF_MoodHint_Comfort>
+  <CF_MoodHint_Dark>{0} colonists are upset about darkness. More lights where they work and walk would help.</CF_MoodHint_Dark>
+  <CF_MoodHint_Cramped>{0} colonists feel cramped. Bigger bedrooms or rooms would help.</CF_MoodHint_Cramped>
+  <CF_MoodHint_Outdoors>{0} colonists are missing the outdoors (cabin fever). Outdoor recreation or work outside would help.</CF_MoodHint_Outdoors>
+  <CF_MoodHint_Temperature>{0} colonists suffer from heat or cold. Heaters, coolers or better clothes would help.</CF_MoodHint_Temperature>
+  <CF_MoodCause_Rest>tiredness</CF_MoodCause_Rest>
+  <CF_MoodCause_Joy>lack of recreation</CF_MoodCause_Joy>
+  <CF_MoodCause_Food>food</CF_MoodCause_Food>
+  <CF_MoodCause_Table>eating without a table</CF_MoodCause_Table>
+  <CF_MoodCause_Pain>pain</CF_MoodCause_Pain>
+  <CF_MoodCause_Room>ugly or dirty surroundings</CF_MoodCause_Room>
+  <CF_MoodCause_Comfort>lack of comfort</CF_MoodCause_Comfort>
+  <CF_MoodCause_Dark>darkness</CF_MoodCause_Dark>
+  <CF_MoodCause_Cramped>cramped rooms</CF_MoodCause_Cramped>
+  <CF_MoodCause_Outdoors>cabin fever</CF_MoodCause_Outdoors>
+  <CF_MoodCause_Apparel>clothes</CF_MoodCause_Apparel>
+  <CF_MoodCause_Temperature>heat or cold</CF_MoodCause_Temperature>
+  <CF_MoodCause_Social>people</CF_MoodCause_Social>
+  <CF_MoodCause_Other>events and memories</CF_MoodCause_Other>
 </LanguageData>
