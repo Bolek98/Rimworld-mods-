@@ -264,4 +264,7 @@
   <GT_VramAtlas>atlasy textur</GT_VramAtlas>
   <GT_VramOther>modely a ostatní</GT_VramOther>
   <GT_VramAdvice>Povolené množství určuje ovladač grafiky – snižují ho jiné programy, které grafiku používají. Nejvíc zabírají mody s mnoha velkými texturami (rasy, balíčky ve vysokém rozlišení); vypnutí nepotřebných paměť uvolní.</GT_VramAdvice>
+  <GT_TexCap>Největší obrázek z modů</GT_TexCap>
+  <GT_TexCapOff>bez omezení</GT_TexCapOff>
+  <GT_TexCap_Desc>Obrázky z modů (DDS) větší než tohle se načtou z jejich vlastní menší kopie – méně paměti grafiky, méně pozdě načtených nebo prázdných obrázků. Obrázky samotné hry se nemění, žádné soubory se nemění. Projeví se po restartu. Teď: {0} obrázků, ušetřeno asi {1} MB.</GT_TexCap_Desc>
 </LanguageData>

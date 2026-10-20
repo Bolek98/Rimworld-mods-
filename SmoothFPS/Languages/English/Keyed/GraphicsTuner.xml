@@ -264,4 +264,7 @@
   <GT_VramAtlas>texture atlases</GT_VramAtlas>
   <GT_VramOther>meshes and other</GT_VramOther>
   <GT_VramAdvice>The amount allowed is what the driver gives the game – other programs using the graphics card lower it. Mods with many big textures (race mods, high-resolution packs) take the most; switching off ones you do not need frees it.</GT_VramAdvice>
+  <GT_TexCap>Largest mod picture</GT_TexCap>
+  <GT_TexCapOff>no limit</GT_TexCapOff>
+  <GT_TexCap_Desc>Mod pictures (DDS) bigger than this start at their smaller built-in copy – less video memory, fewer late or blank pictures. The game's own pictures are never changed, no files are changed. Takes effect after a restart. Now: {0} pictures, about {1} MB saved.</GT_TexCap_Desc>
 </LanguageData>

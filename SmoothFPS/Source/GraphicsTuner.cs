@@ -106,6 +106,7 @@ namespace GraphicsTuner
         public bool vramWarn = true;   // 1.3.0
         public bool memLowLatency = true;       // 1.7: no blocking full clean-ups during play
         public bool memCompact;                 // 1.7: compact memory during long pauses
+        public int texCap = 2048;               // 1.3.3: oversized mod pictures start smaller (0 = off)
         public bool memHud;
 
 
@@ -218,6 +219,7 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref vramWarn, "vramWarn", true);
             Scribe_Values.Look(ref memLowLatency, "memLowLatency", true);
             Scribe_Values.Look(ref memCompact, "memCompact", false);
+            Scribe_Values.Look(ref texCap, "texCap", 2048);
             Scribe_Values.Look(ref memHud, "memHud", false);
 
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
@@ -659,7 +661,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.3.2";
+        public const string Version = "1.3.3";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -683,6 +685,8 @@ namespace GraphicsTuner
             Freezer.Patch(harmony);
             LocationGeneratorFast.Patch(harmony);   // 1.3.2
             ModEffects.Patch(harmony);              // 1.3.2: effects from mods too
+            TextureCap.Patch(harmony);              // 1.3.3: oversized mod textures
+            try { TextureCap.SweepLoaded(); } catch (Exception ex) { MLog.Warn("[Smooth FPS] texture limit: " + ex.Message); }
             MLog.Game("[Smooth FPS] v" + Version + " loaded (messages: Logs\\SmoothFPS.log).");
             // 1.3.0: what happened if the last game crashed
             LongEventHandler.ExecuteWhenFinished(CrashCheck.Run);
@@ -1092,6 +1096,15 @@ namespace GraphicsTuner
             if (!Freezer.Net) Plain(l, "GT_MemUnload", ref s.memUnload);
             Plain(l, "GT_MemRamWarn", ref s.memRamWarn);
             if (Vram.Available) Plain(l, "GT_VramWarnSet", ref s.vramWarn);
+            // 1.3.3: oversized mod textures
+            string capText = s.texCap <= 0 ? "GT_TexCapOff".Translate().ToString() : s.texCap + " px";
+            if (l.ButtonTextLabeled("GT_TexCap".Translate(), capText))
+            {
+                int[] steps = { 0, 4096, 2048, 1024 };
+                int i = Array.IndexOf(steps, s.texCap);
+                s.texCap = steps[(i + 1) % steps.Length];
+            }
+            Note(l, "GT_TexCap_Desc".Translate(TextureCap.Count, TextureCap.SavedMb));
             l.End();
 
             var o = new Listing_Standard();
