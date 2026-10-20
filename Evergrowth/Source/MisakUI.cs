@@ -224,30 +224,44 @@ namespace HardyPlants
         }
 
         private static bool lockOn;
-        private static Color lockColor;
+        private static Vector2 lockMouse;
+        private static bool lockMoved;
 
+        // Locked details: everything is drawn, but no control reacts. GUI.enabled
+        // alone is not enough – RimWorld checkboxes and sliders read the mouse
+        // themselves, so the mouse is moved far away while the locked part is drawn
+        // (scrolling still works). EndLock dims the area.
         public static void BeginLock(bool locked)
         {
             lockOn = locked;
+            lockMoved = false;
             if (!locked) return;
             GUI.enabled = false;
-            lockColor = GUI.color;
-            GUI.color = new Color(1f, 1f, 1f, 0.55f);
+            if (Event.current.type != EventType.ScrollWheel)
+            {
+                lockMouse = Event.current.mousePosition;
+                Event.current.mousePosition = new Vector2(-99999f, -99999f);
+                lockMoved = true;
+            }
         }
 
-        public static void EndLock()
+        public static void EndLock(Rect dim = default(Rect))
         {
             if (!lockOn) return;
+            if (lockMoved)
+                Event.current.mousePosition = lockMouse;
             GUI.enabled = true;
-            GUI.color = lockColor;
             lockOn = false;
+            lockMoved = false;
+            if (dim.width > 0f)
+                Fill(dim, new Color(0.09f, 0.1f, 0.12f, 0.45f));
         }
 
         // CHANGED mark at the right edge of r. Click = back to the recommended value.
         // Returns the width it took.
         private static float Mark(Rect r, object target, string field)
         {
-            if (!Changed(target, field))
+            if (lockOn || !Changed(target, field))
                 return 0f;
             string t = "MUI_Changed".Translate();
             GameFont f = Text.Font;
@@ -383,7 +397,11 @@ namespace HardyPlants
             }
             catch (Exception e)
             {
+#if MISAK_MLOG
+                MLog.Warn("[" + modType.Name + "] bigger settings window: " + e.Message);
+#else
                 Log.Warning("[" + modType.Name + "] bigger settings window: " + e.Message);
+#endif
             }
         }
 

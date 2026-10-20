@@ -397,7 +397,11 @@ namespace GenderBalance
             }
             catch (Exception e)
             {
+#if MISAK_MLOG
+                MLog.Warn("[" + modType.Name + "] bigger settings window: " + e.Message);
+#else
                 Log.Warning("[" + modType.Name + "] bigger settings window: " + e.Message);
+#endif
             }
         }
 
