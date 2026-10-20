@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Fewer Freezes – Smart Memory Cleanup</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.memorytuner</packageId>
+  <modVersion>1.1.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>Fewer hitches and freezes in big modded colonies.
+
+RimWorld cleans its memory from time to time and the game stops while it does. The more memory a heavily modded game holds, the longer it stops – up to several seconds. This mod controls when and how that clean-up happens.
+
+- Smart ongoing clean-up: the game may tidy memory a little every frame, more when it holds a lot (3–12 ms instead of a fixed 3 ms), so big stops come less often.
+- Big clean-up while paused and right after saving – when the game stops anyway, not in the middle of play.
+- Freeze meter: see how many freezes you had in the last hour and how many came from memory clean-up.
+- Warning when the computer is running out of memory, with tips what to do.
+- Optional: free unused textures and sounds during a longer pause.
+- Optional small display with memory, the last stop and a memory graph.
+- "Clean up memory now" button.
+- Recommended settings switch – works right away.
+
+It cannot give the game "more memory" – RimWorld already takes what it needs. Safe to add to or remove from a save. Czech and English.
+
+(Formerly "Memory Tuner".)</description>
+</ModMetaData>

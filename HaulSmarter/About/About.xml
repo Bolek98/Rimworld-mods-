@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Haul Smarter</name>
+  <author>Bolek98</author>
+  <packageId>misak.haulsmarter</packageId>
+  <modVersion>3.0.1</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <incompatibleWith>
+    <li>mehni.pickupandhaul</li>
+    <li>laredson.harvestandhaul</li>
+  </incompatibleWith>
+  <description>Colonists haul several things in one trip – a fixed replacement for Pick Up And Haul and Harvest And Haul.
+
+- Colonists collect several things nearby into their pockets and carry them to storage in one trip. They walk to every item – nothing jumps into the pockets.
+- Storage is chosen for every item when it is unloaded, by the game's own search: shelves, deep storage and storage mods that hold many things in one cell work.
+- Respects carrying capacity (also from mods) and forbidden things.
+- Harvest, wood and mined resources go straight into the pockets; the colonist keeps working and unloads when the pockets are full.
+- Nothing is ever destroyed: what fits nowhere is put down next to the colonist at home; away from home it stays in the pockets.
+
+New in 3.0:
+- Profiles: Like the game, Smart (recommended), Maximum, Custom.
+- What to haul first: rotting food, things outside in the rain or near fire, valuables.
+- Smart route: the shortest way from the colonist through all items to storage.
+- Things on the way (gentle): while walking or after a job, a colonist takes a thing lying right next to him – one stack, then a pause, never while hurrying, never above half of his capacity.
+- Building from the pockets: material a colonist carries goes straight to the construction site.
+- Weight: bar above the colonist, "carries 42 / 75 kg" and "stored in ~1.5 h" in the inspect pane, optional slowdown for heavy loads.
+- Hauling overview button: what waits, how heavy, what rots, how many haulers, time until done, who hauled how much (saved with the game), unhauled things outlined on the map.
+
+Turn off Pick Up And Haul and Harvest And Haul – while they are active, the same part of Haul Smarter switches itself off. Czech and English. Safe to add to an existing save.</description>
+</ModMetaData>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Wild Spawn Zone</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.wildspawnzone</packageId>
+  <modVersion>1.1.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>Choose where wild animals appear.
+
+Paint a "Wild animal spawn zone" in the Zone menu. While it has any cells, every wild animal the game spawns on its own (also birds flying in) appears only inside that zone – no more deer in your courtyard. Clear the zone and spawning is vanilla again.
+
+Settings: avoid the home area, let birds fly in anywhere, and more or fewer wild animals (0–300 %). Recommended settings switch for new players.
+
+Not changed: events (herd migrations, manhunter packs, thrumbos …) and animals already on the map.
+
+Safe to add to an existing save. Czech and English.</description>
+</ModMetaData>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MSM_Activate>启用 {0}</MSM_Activate>
+  <MSM_ActivateShort>启用</MSM_ActivateShort>
+  <MSM_Active>已启用 · {0}(加载顺序)</MSM_Active>
+  <MSM_Backups>模组列表备份</MSM_Backups>
+  <MSM_BackupsHint>每次保存前都会备份列表(保留最近 20 份)。载入只是准备好列表,需点击下方按钮才会保存。</MSM_BackupsHint>
+  <MSM_Bottom>移到末尾</MSM_Bottom>
+  <MSM_BulletAside>遇到其他模组管理器时自动让位</MSM_BulletAside>
+  <MSM_BulletBackup>每次改动前自动备份列表</MSM_BulletBackup>
+  <MSM_BulletButton>「模组」按钮直接打开 Mod Sort Manager</MSM_BulletButton>
+  <MSM_BulletEscOff>Esc 菜单入口已关闭</MSM_BulletEscOff>
+  <MSM_CloseAsk>模组列表有未保存的改动。要保存吗?</MSM_CloseAsk>
+  <MSM_DiscardShort>放弃改动</MSM_DiscardShort>
+  <MSM_ModSettings>模组设置</MSM_ModSettings>
+  <MSM_Upload>上传到创意工坊</MSM_Upload>
+  <MSM_TabUpdates>更新</MSM_TabUpdates>
+  <MSM_UpdNoSteam>Steam 未运行——现在无法检查创意工坊更新。</MSM_UpdNoSteam>
+  <MSM_UpdTitle>等待更新:{0} · 下载中:{1}</MSM_UpdTitle>
+  <MSM_UpdAll>全部更新({0})</MSM_UpdAll>
+  <MSM_UpdCheck>重新检查</MSM_UpdCheck>
+  <MSM_UpdHint>创意工坊模组。下载更新后需要重启游戏——按钮在下方。最近 7 天内更新过的模组也会列出(若某次更新后出问题,你知道该从哪查)。</MSM_UpdHint>
+  <MSM_UpdNeeds>有新版本可用</MSM_UpdNeeds>
+  <MSM_UpdBusy>下载中…… {0} %</MSM_UpdBusy>
+  <MSM_UpdDone>已下载——重启后生效</MSM_UpdDone>
+  <MSM_UpdRecent>{0} 前更新</MSM_UpdRecent>
+  <MSM_UpdOne>更新</MSM_UpdOne>
+  <MSM_UpdNone>✓ 全部为最新版本</MSM_UpdNone>
+  <MSM_Close>关闭</MSM_Close>
+  <MSM_CoreStays>游戏本体(Core)必须保持启用。</MSM_CoreStays>
+  <MSM_CountActive>{0} 个已启用</MSM_CountActive>
+  <MSM_CountErr>{0} 个错误</MSM_CountErr>
+  <MSM_CountInfo>{0} 个重叠</MSM_CountInfo>
+  <MSM_CountWarn>{0} 个警告</MSM_CountWarn>
+  <MSM_Deactivate>停用</MSM_Deactivate>
+  <MSM_DeactivateX>停用 {0}</MSM_DeactivateX>
+  <MSM_Delete>删除</MSM_Delete>
+  <MSM_DeleteConfirm>删除已保存的列表「{0}」?</MSM_DeleteConfirm>
+  <MSM_DepInstalled>所需模组已安装,但未启用。</MSM_DepInstalled>
+  <MSM_DepMissing>所需模组未安装。缺少它此模组将无法工作。</MSM_DepMissing>
+  <MSM_DepTitle>{0} 需要 {1}</MSM_DepTitle>
+  <MSM_Discard>放弃对模组列表的未保存改动?</MSM_Discard>
+  <MSM_Done>完成</MSM_Done>
+  <MSM_Download>下载</MSM_Download>
+  <MSM_DupActive>已启用</MSM_DupActive>
+  <MSM_DupIgnored>被游戏忽略</MSM_DupIgnored>
+  <MSM_DupInstalled>已安装</MSM_DupInstalled>
+  <MSM_DupLocalText>同一个模组在 Mods 文件夹里出现了不止一次。游戏只加载按字母序排第一的文件夹,其余静默跳过——你根本不知道跑的是哪个版本。</MSM_DupLocalText>
+  <MSM_DupNewest>较新</MSM_DupNewest>
+  <MSM_DupSteamText>该模组同时存在于 Mods 文件夹与创意工坊。两份副本都会出现在列表里,很容易误启用旧的那份。</MSM_DupSteamText>
+  <MSM_DupTitle>{0} 安装了 {1} 次</MSM_DupTitle>
+  <MSM_Folder>文件夹</MSM_Folder>
+  <MSM_GrpBreak>可能导致崩溃</MSM_GrpBreak>
+  <MSM_GrpDup>重复安装</MSM_GrpDup>
+  <MSM_GrpSame>功能重复</MSM_GrpSame>
+  <MSM_Inactive>未启用 · {0}</MSM_Inactive>
+  <MSM_IncText>{0} 的作者声明二者不兼容。请只启用其中一个。</MSM_IncText>
+  <MSM_IncTitle>{0} × {1} —— 不兼容</MSM_IncTitle>
+  <MSM_Info>版本 {0} · 游戏 {1} · {2}</MSM_Info>
+  <MSM_KeepConfirm>保留:
+{0}
+
+其余副本将被移到备份文件夹(不会删除),创意工坊副本会被取消订阅:
+{1}
+
+重启后生效。</MSM_KeepConfirm>
+  <MSM_KeepDone>完成。其余副本在 {0}。</MSM_KeepDone>
+  <MSM_KeepFailed>以下副本无法移动:
+{0}
+
+请关闭游戏后手动移动。备份文件夹:{1}</MSM_KeepFailed>
+  <MSM_KeepNewest>保留较新的</MSM_KeepNewest>
+  <MSM_Load>载入</MSM_Load>
+  <MSM_LoadLastSave>重启后载入最近的存档</MSM_LoadLastSave>
+  <MSM_Loaded>已载入 {0} 个模组。点击下方按钮保存。</MSM_Loaded>
+  <MSM_Missing>列表已载入,但有 {0} 个模组缺失(未安装):
+
+{1}</MSM_Missing>
+  <MSM_NoSaveConfirm>当前无法保存游戏(或已关闭「重启后返回游戏」)。重启后你会回到主菜单,未保存的进度将丢失。继续吗?</MSM_NoSaveConfirm>
+  <MSM_NoBackups>还没有备份。</MSM_NoBackups>
+  <MSM_NoProfiles>还没有保存的列表。</MSM_NoProfiles>
+  <MSM_NoReturnTip>当前无法保存游戏(永久死亡模式或事件进行中);重启后你会回到主菜单。</MSM_NoReturnTip>
+  <MSM_None>✓ 未发现问题</MSM_None>
+  <MSM_NoteDep>缺少 {0}</MSM_NoteDep>
+  <MSM_NoteDup>安装了不止一次</MSM_NoteDup>
+  <MSM_NoteInc>与 {0} 不兼容</MSM_NoteInc>
+  <MSM_NoteOld>仅支持 {0}</MSM_NoteOld>
+  <MSM_NoteOrder>加载顺序错误</MSM_NoteOrder>
+  <MSM_NoteSame>与 {0} 功能重复</MSM_NoteSame>
+  <MSM_OldShort>仅 {0}</MSM_OldShort>
+  <MSM_OldText>游戏会加载它们,大多也能正常工作,但可能报错。若出现问题,请先停用这些模组。</MSM_OldText>
+  <MSM_OldTitle>{0} 个模组不支持 {1}</MSM_OldTitle>
+  <MSM_OpenFolders>打开文件夹</MSM_OpenFolders>
+  <MSM_OpenNow>打开 Mod Sort Manager</MSM_OpenNow>
+  <MSM_OrderAfter>{0} 应排在 {1} 之后</MSM_OrderAfter>
+  <MSM_OrderBefore>{0} 应排在 {1} 之前</MSM_OrderBefore>
+  <MSM_OrderTitle>加载顺序错误({0})</MSM_OrderTitle>
+  <MSM_ProfileBad>无法载入该列表。</MSM_ProfileBad>
+  <MSM_ProfileNameHint>列表名称……</MSM_ProfileNameHint>
+  <MSM_ProfileSaved>列表「{0}」已保存。</MSM_ProfileSaved>
+  <MSM_Profiles>已保存的模组列表</MSM_Profiles>
+  <MSM_ProfilesHint>与游戏自带模组窗口使用同样的文件(保存/载入列表)——不用本模组也能用。</MSM_ProfilesHint>
+  <MSM_ReturnToGame>重启后返回游戏</MSM_ReturnToGame>
+  <MSM_Revert>全部撤销</MSM_Revert>
+  <MSM_SameHint>根据已加载模组的 Harmony 补丁估算</MSM_SameHint>
+  <MSM_SameHot>两者都替换了游戏同一处重要部分——留一个就够</MSM_SameHot>
+  <MSM_SameText>两者修改了同一段游戏代码</MSM_SameText>
+  <MSM_SaveFailed>无法保存模组列表:{0}</MSM_SaveFailed>
+  <MSM_SaveProfile>保存当前</MSM_SaveProfile>
+  <MSM_SaveRestart>保存并重启</MSM_SaveRestart>
+  <MSM_SaveReturn>保存、重启并返回游戏</MSM_SaveReturn>
+  <MSM_SearchActiveHint>搜索已启用……</MSM_SearchActiveHint>
+  <MSM_SearchHint>搜索模组、作者、ID……</MSM_SearchHint>
+  <MSM_SecWhere>安装位置</MSM_SecWhere>
+  <MSM_SelectHint>请在左侧选择一个模组。</MSM_SelectHint>
+  <MSM_SetEsc>在游戏内 Esc 菜单添加入口</MSM_SetEsc>
+  <MSM_SetEscTip>游戏中也可以打开 Mod Sort Manager。保存时会先存档、重启游戏,然后返回该存档。</MSM_SetEscTip>
+  <MSM_SetReplace>「模组」按钮打开 Mod Sort Manager</MSM_SetReplace>
+  <MSM_SetReplaceTip>原版窗口可通过「原版窗口」按钮访问。当其他模组管理器运行时(如 Fluffy's Mod Manager),本模组会自动让位。</MSM_SetReplaceTip>
+  <MSM_Show>显示 {0}</MSM_Show>
+  <MSM_SmartSort>智能排序</MSM_SmartSort>
+  <MSM_SortCycle>模组之间的规则互相矛盾(出现循环:A 在 B 前、B 又在 A 前)。无法排序——请手动调整。</MSM_SortCycle>
+  <MSM_Sorted>已排序。</MSM_Sorted>
+  <MSM_SrcLocal>Mods 文件夹</MSM_SrcLocal>
+  <MSM_SrcOfficial>游戏本体 / DLC</MSM_SrcOfficial>
+  <MSM_SrcSteam>创意工坊</MSM_SrcSteam>
+  <MSM_Subtitle>加载顺序、冲突与配置 · v{0} · Bolek98</MSM_Subtitle>
+  <MSM_SumActive>{0} 个已启用 · 游戏 {1}</MSM_SumActive>
+  <MSM_SumBackup>每次保存前都会备份旧列表——见「配置」标签页。</MSM_SumBackup>
+  <MSM_SumBackupTitle>备份</MSM_SumBackupTitle>
+  <MSM_SumCompat>{0} 个支持 {1}</MSM_SumCompat>
+  <MSM_SumOld>{0} 个仅支持旧版本——游戏会加载,大多能用</MSM_SumOld>
+  <MSM_SumRestartGame>保存 → 游戏存档并重启,然后返回此存档。</MSM_SumRestartGame>
+  <MSM_SumRestartMenu>保存 → 游戏自动重启。可选择载入最近的存档。</MSM_SumRestartMenu>
+  <MSM_SumRestartTitle>无需退出即可改动</MSM_SumRestartTitle>
+  <MSM_Summary>概要</MSM_Summary>
+  <MSM_TabOrder>加载顺序</MSM_TabOrder>
+  <MSM_TabProblems>问题</MSM_TabProblems>
+  <MSM_TabProfiles>配置</MSM_TabProfiles>
+  <MSM_Top>移到开头</MSM_Top>
+  <MSM_Unsub>取消订阅</MSM_Unsub>
+  <MSM_Vanilla>原版窗口</MSM_Vanilla>
+  <MSM_Web>模组页面</MSM_Web>
+  <MSM_Workshop>创意工坊页面</MSM_Workshop>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <MUI_RecTag>推荐</MUI_RecTag>
+  <MSM_New>新</MSM_New>
+  <MSM_OnlyProblems>仅显示有问题的({0})</MSM_OnlyProblems>
+  <MSM_SetGuard>监视加载顺序</MSM_SetGuard>
+  <MSM_SetGuardTip>游戏启动后,Mod Sort Manager 会检查模组列表是否与你上次保存时相同。若被其他程序、更新或游戏本身改动,你会看到具体变化,并可一键恢复你的加载顺序。</MSM_SetGuardTip>
+  <MSM_GuardText>模组列表与你上次保存时不同——它在游戏外或启动时被改动了。
+
+{0}
+
+恢复你的加载顺序?</MSM_GuardText>
+  <MSM_GuardMoved>已移动:{0}</MSM_GuardMoved>
+  <MSM_GuardAdded>已添加:{0}</MSM_GuardAdded>
+  <MSM_GuardRemoved>已移除或缺失:{0}</MSM_GuardRemoved>
+  <MSM_GuardRestore>恢复我的顺序</MSM_GuardRestore>
+  <MSM_GuardKeep>保持现状</MSM_GuardKeep>
+  <MSM_BisectCardTitle>游戏崩溃或报错?</MSM_BisectCardTitle>
+  <MSM_BisectCardText>Mod Sort Manager 用二分法找出有问题的模组:停用一半模组并重启,由你判断问题是否仍在。200 个模组大约需要 8 次重启。</MSM_BisectCardText>
+  <MSM_BisectStart>查找问题模组</MSM_BisectStart>
+  <MSM_BisectMenuOnly>仅可在主菜单中使用。</MSM_BisectMenuOnly>
+  <MSM_BisectFew>可测试的模组不足。其他模组所需的前置库、DLC 和游戏本体始终保持启用。</MSM_BisectFew>
+  <MSM_BisectConfirm>查找问题模组
+
+Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每次启动后,请检查问题是否仍在,并在主菜单的小窗口中作答。大约需要 {1} 次重启。
+
+其他模组所需的前置库、DLC 和游戏本体保持启用。结束后,模组列表会完全恢复为现在的样子。
+
+重要:测试期间请勿保存你的殖民地——缺少一半模组时存档可能损坏。请在新殖民地中测试,或只观察启动时的错误。
+
+开始吗?</MSM_BisectConfirm>
+  <MSM_BisectTitle>正在查找问题模组</MSM_BisectTitle>
+  <MSM_BisectStep>第 {0} 步 · 剩余可疑:{1} · 还需约 {2} 次重启</MSM_BisectStep>
+  <MSM_BisectEnabled>当前启用:{1} 个可疑模组中的 {0} 个。问题还在吗?</MSM_BisectEnabled>
+  <MSM_BisectNoSave>测试期间请勿保存你的殖民地。</MSM_BisectNoSave>
+  <MSM_BisectErrors>模组加载后日志中的错误:{0}</MSM_BisectErrors>
+  <MSM_BisectLog>打开日志</MSM_BisectLog>
+  <MSM_BisectStill>仍然存在</MSM_BisectStill>
+  <MSM_BisectGone>已消失</MSM_BisectGone>
+  <MSM_BisectCancel>取消并恢复模组</MSM_BisectCancel>
+  <MSM_BisectFound>找到了:{0}</MSM_BisectFound>
+  <MSM_BisectFoundText>问题指向这个模组。为确认:停用它——若问题消失,就是它。若没有消失,问题可能需要两个模组同时启用才会出现,或来自某个前置库。</MSM_BisectFoundText>
+  <MSM_BisectDisable>停用它,恢复其余</MSM_BisectDisable>
+  <MSM_BisectRestore>恢复所有模组</MSM_BisectRestore>
+  <MSM_BisectRunning>正在查找问题模组——列表现在只包含正在测试的那一半。取消查找并恢复所有模组(游戏将重启)吗?</MSM_BisectRunning>
+  <MSM_BisectMismatch>游戏没有以这一步的模组启动——可能有模组加载失败导致游戏回退,或者列表在别处被修改了。这样得出的答案会是错的。请重新应用这一步,或取消查找。</MSM_BisectMismatch>
+  <MSM_BisectReapply>重新应用此步</MSM_BisectReapply>
+  <MSM_BisectNotFound>查找未能完成。请恢复所有模组后重试。</MSM_BisectNotFound>
+  <MSM_Added>添加时间:{0}</MSM_Added>
+  <MSM_ListRefreshed>Steam 下载后模组列表已刷新（{0} 个模组）。</MSM_ListRefreshed>
+  <MSM_PS_Title>保存前检查</MSM_PS_Title>
+  <MSM_PS_Checking>正在检查模组需求… {0} / {1} 个模组</MSM_PS_Checking>
+  <MSM_PS_Deps>缺少前置</MSM_PS_Deps>
+  <MSM_PS_DepLine>{0} 需要 {1} – {2}</MSM_PS_DepLine>
+  <MSM_PS_DepOff>已安装但未启用</MSM_PS_DepOff>
+  <MSM_PS_DepNone>未安装</MSM_PS_DepNone>
+  <MSM_PS_Old>为旧版游戏制作</MSM_PS_Old>
+  <MSM_PS_OldLine>{0} – 最高支持 {1}</MSM_PS_OldLine>
+  <MSM_PS_Refs>需要不存在的物品</MSM_PS_Refs>
+  <MSM_PS_RefLine>{0}：{1} 需要“{2}”</MSM_PS_RefLine>
+  <MSM_PS_RefCrash>，可能导致游戏无法加载</MSM_PS_RefCrash>
+  <MSM_PS_MoreLines>… 另有 {0} 项</MSM_PS_MoreLines>
+  <MSM_PS_Many>一次添加 {0} 个新模组</MSM_PS_Many>
+  <MSM_PS_ManyText>出问题时很难判断是哪个模组造成的。请分 {0} 组添加——下次打开 Mod Sort Manager 时会提示下一组。</MSM_PS_ManyText>
+  <MSM_PS_FixDeps>启用缺少的前置（{0}）</MSM_PS_FixDeps>
+  <MSM_PS_OffBad>停用有问题的模组（{0}）</MSM_PS_OffBad>
+  <MSM_PS_FirstGroup>现在只加第 1 组（{0} 个）</MSM_PS_FirstGroup>
+  <MSM_PS_SaveAnyway>仍然保存</MSM_PS_SaveAnyway>
+  <MSM_PS_Back>返回列表</MSM_PS_Back>
+  <MSM_PS_NextGroup>下一组新模组正在等待（{0}）：\n{1}\n\n现在添加？</MSM_PS_NextGroup>
+  <MSM_PS_AddGroup>添加这一组并重启</MSM_PS_AddGroup>
+  <MSM_PS_Later>稍后</MSM_PS_Later>
+  <MSM_PS_DropQueue>取消其余</MSM_PS_DropQueue>
+  <MSM_SetPreSave>保存前检查</MSM_SetPreSave>
+  <MSM_SetPreSaveTip>保存修改后的列表前检查：缺少的前置、旧版本模组、一次添加大量新模组，以及新模组需要但不存在的物品。</MSM_SetPreSaveTip>
+</LanguageData>

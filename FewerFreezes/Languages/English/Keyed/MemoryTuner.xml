@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+  <MT_Now>The game now uses {0} MB of memory ({1} MB reserved); ongoing clean-up may run {2} ms per frame.</MT_Now>
+  <MT_Auto>Automatic</MT_Auto>
+  <MT_Auto_Desc>By how much memory the game holds, the mod sets how long the clean-up may run each frame (3–12 ms) and does a big clean-up when memory has grown a lot since the last one.</MT_Auto_Desc>
+  <MT_Slice>Ongoing clean-up per frame: {0} ms</MT_Slice>
+  <MT_Slice_Desc>More = memory is cleaned along the way and big freezes come less often, but FPS may drop a little. The game itself uses 3 ms.</MT_Slice_Desc>
+  <MT_Threshold>Big clean-up when memory grows by: {0} MB</MT_Threshold>
+  <MT_Threshold_Desc>Lower = cleans more often, higher = less often.</MT_Threshold_Desc>
+  <MT_OnPause>Clean up while paused</MT_OnPause>
+  <MT_OnPause_Desc>When you pause (or open a menu that pauses the game) for at least 1.5 s, the mod does a big clean-up, so it comes less often in the middle of play. At most once every 90 s.</MT_OnPause_Desc>
+  <MT_OnSave>Clean up after saving</MT_OnSave>
+  <MT_OnSave_Desc>Right after a save (also an autosave) it does a big clean-up. The game stops for saving anyway, so you will not notice – and saving leaves a lot of unused memory behind.</MT_OnSave_Desc>
+  <MT_Unload>Free unused textures while paused</MT_Unload>
+  <MT_Unload_Desc>During a longer pause (3 s) it frees textures and sounds the game no longer uses. Helps with many mods when memory runs low. At most once every 10 minutes. Off, because it can take a moment.</MT_Unload_Desc>
+  <MT_RamWarn>Warn when the computer runs out of memory</MT_RamWarn>
+  <MT_RamWarn_Desc>When the game takes over 80 % of the computer's memory, you get one letter with advice.</MT_RamWarn_Desc>
+  <MT_Hud>Show memory in the bottom left</MT_Hud>
+  <MT_Hud_Desc>A small box with memory, the last clean-up stop and a memory graph of the last minute and a half.</MT_Hud_Desc>
+  <MT_Hud_Text>Memory: {0} MB · clean-up {1} ms · last stop {2} s</MT_Hud_Text>
+  <MT_CollectNow>Clean up memory now</MT_CollectNow>
+  <MT_Done>Memory cleaned: {0} → {1} MB ({2} ms)</MT_Done>
+  <MT_DoneSave>Clean-up after saving: {0} → {1} MB</MT_DoneSave>
+  <MT_Note>You cannot give the game a memory size – RimWorld takes what it needs. This mod controls when and how memory is cleaned, so the game freezes less.</MT_Note>
+  <MT_SecClean>Memory clean-up</MT_SecClean>
+  <MT_SecStats>What is happening</MT_SecStats>
+  <MT_Rec1>Ongoing memory clean-up sets itself by the size of your game.</MT_Rec1>
+  <MT_Rec2>Big clean-up while paused and after saving – not in the middle of play.</MT_Rec2>
+  <MT_Rec3>A warning when the computer runs out of memory.</MT_Rec3>
+  <MT_Rec4>A freeze meter shows how often the game froze and why.</MT_Rec4>
+  <MT_Hitches>Last hour: {0} freezes longer than 0.25 s, {1} of them from memory clean-up. Longest: {2} s.</MT_Hitches>
+  <MT_HitchNone>Last hour: no freeze longer than 0.25 s.</MT_HitchNone>
+  <MT_Cleans>Big clean-ups done: {0}× while paused, {1}× after saving, {2}× by hand.</MT_Cleans>
+  <MT_Ram>Computer: the game takes {0} MB of {1} MB memory ({2} %).</MT_Ram>
+  <MT_RamWarn_Title>Computer memory running low</MT_RamWarn_Title>
+  <MT_RamWarn_Text>The game now takes {0} MB of the computer's {1} MB memory. When memory runs out, the game freezes a lot or crashes.\n\nWhat helps:\n- close other programs (browser…),\n- turn off mods you do not need,\n- a texture compression mod (e.g. Graphics Settings+),\n- a smaller map or fewer maps at once.</MT_RamWarn_Text>
+</LanguageData>

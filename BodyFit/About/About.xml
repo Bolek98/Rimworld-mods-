@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.bodyfit</packageId>
+  <modVersion>2.4.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePageDetails/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Ludeon.RimWorld</li>
+    <li>erdelf.HumanoidAlienRaces</li>
+  </loadAfter>
+  <description>Fixes heads, bodies, clothes, hair and weapons for every race and every body type in your game – vanilla, body mods and Humanoid Alien Races. Nothing is hard-coded for particular mods; everything is checked against what really exists.
+
+- Heads in the middle of the body: body types without a head position get the position of the most similar body. Set your own head position per body type and per race.
+- Bodies that cannot be drawn (missing body picture, or a body type the race does not have) get the most similar working body. You can pick the body per race.
+- Clothes with no picture for a body use the picture of the most similar body – no pink squares, no invisible clothes, no errors. Set your own replacement body per body type (e.g. FemaleBB → Female).
+- Borrowed clothes pictures are moved and scaled to the outline of the real body.
+- Hair: missing hair pictures are drawn as short hair instead of pink squares; hair height and size per race.
+- Hats and helmets sit on the real head, weapons are held at the real body.
+- Clothes tab: hide any piece of clothing, or move and resize it yourself.
+- Preview tab: see a colonist before and after the fixes from all four sides.
+- Report button: writes every body, race and missing clothes picture to Player.log.
+
+- Refitting for body mods (FemaleBB, Beautiful Bodies …): clothes drawn for the normal body are redrawn to the real outline of the modded body – shoulders, hips and waist are covered, capes and loose cloth keep their shape. On by default.
+- Alien races (Humanoid Alien Races): clothes are fitted only when the race's body really is a human-like body. Races whose body picture is something else (tentacles, a tail, wings, a big aura) keep their clothes exactly as the race mod draws them; small "chibi" races get clothes scaled to their size. Refitting for alien races is an experimental option, off by default – check the result in the Preview tab.
+
+Since 2.3.0 only the human race is changed by default. Alien races are drawn exactly as their own mod draws them, so nothing of theirs gets broken – switch on any race you want fixed in the Races tab (a race whose body cannot be drawn at all is still repaired).
+
+Works with or without Humanoid Alien Races. Safe to add or remove at any time.</description>
+</ModMetaData>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>AP_GiveDrug</defName>
+    <driverClass>AutoPharmacy.JobDriver_GiveDrug</driverClass>
+    <reportString>giving medicine to TargetA.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
+  <WorkGiverDef>
+    <defName>AP_GiveDrug</defName>
+    <label>give drugs to patients</label>
+    <giverClass>AutoPharmacy.WorkGiver_GiveDrug</giverClass>
+    <workType>Doctor</workType>
+    <priorityInType>95</priorityInType>
+    <verb>give medicine</verb>
+    <gerund>giving medicine to</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+</Defs>

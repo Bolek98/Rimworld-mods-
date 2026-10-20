@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_AutoByDefault>Auto režim v nové kolonii</CF_AutoByDefault>
+  <CF_AutoByDefault_Desc>Nová kolonie začne se zapnutým správcem. Každou mapu jde přepnout zvlášť v záložce Práce.</CF_AutoByDefault_Desc>
+  <CF_UseDemand>Podle skutečné potřeby</CF_UseDemand>
+  <CF_UseDemand_Desc>Správce měří, kolik práce opravdu čeká (stavby, sklizeň, odnášení, zakázky, pacienti…), a podle toho přidává nebo ubírá lidi.</CF_UseDemand_Desc>
+  <CF_UseCrisis>Krizové režimy</CF_UseCrisis>
+  <CF_UseCrisis_Desc>Zdravotní nouze, nedostatek jídla a příprava na zimu automaticky posunou priority. Po krizi se vše vrátí.</CF_UseCrisis_Desc>
+  <CF_CrisisMessages>Oznámení o krizi</CF_CrisisMessages>
+  <CF_CrisisMessages_Desc>Zpráva při začátku a konci krize.</CF_CrisisMessages_Desc>
+  <CF_Apprentices>Učni</CF_Apprentices>
+  <CF_Apprentices_Desc>K nejlepším pracovníkům přidá kolonistu s vášní a nižší dovedností, aby se učil. Kolonie pak nezávisí na jednom člověku.</CF_Apprentices_Desc>
+  <CF_Stability>Stabilita</CF_Stability>
+  <CF_Stability_Desc>Kdo práci už dělá, má malou přednost. Priority se nemění kvůli drobným rozdílům.</CF_Stability_Desc>
+  <CF_CountMechs>Počítat s mechanoidy</CF_CountMechs>
+  <CF_CountMechs_Desc>Kde práci zastanou pracovní mechanoidi, správce uvolní nejméně vhodné kolonisty. Nouzová práce (doktor, hašení) se nikdy neodebírá.</CF_CountMechs_Desc>
+  <CF_AssignOpposed>Práci proti ideologii jen v nouzi</CF_AssignOpposed>
+  <CF_AssignOpposed_Desc>Kolonista dostane práci, kterou jeho ideologie odmítá, jen když ji nikdo jiný nemůže dělat. Po vypnutí nikdy.</CF_AssignOpposed_Desc>
+  <CF_Coverage>Zaručit minimum lidí</CF_Coverage>
+  <CF_Coverage_Desc>Každá důležitá práce má vždy aspoň minimální počet lidí, i když se na ni nikdo dobře nehodí.</CF_Coverage_Desc>
+  <CF_Interval>Přepočet každé {0} h</CF_Interval>
+  <CF_Interval_Desc>Jak často správce přepočítá priority. Krize a noví kolonisté spustí přepočet dřív.</CF_Interval_Desc>
+  <CF_PreferenceBonus>Váha preferencí: {0}</CF_PreferenceBonus>
+  <CF_PreferenceBonus_Desc>Jak moc se zohlední, že kolonista nějakou práci „rád dělá“ (nastavíš prostředním tlačítkem na jménu).</CF_PreferenceBonus_Desc>
+  <CF_SpecialistShare>Specialisté: {0} % kolonie</CF_SpecialistShare>
+  <CF_SpecialistShare_Desc>Kolik schopných kolonistů dostane běžnou odbornou práci. Méně = víc specializace.</CF_SpecialistShare_Desc>
+  <CF_ImportanceHeader>Důležitost prací (1 = nejvyšší priorita)</CF_ImportanceHeader>
+  <CF_ResetImportance>Výchozí hodnoty</CF_ResetImportance>
+  <CF_ImportanceTip>Výchozí: {0}. Upravené hodnoty jsou žlutě.</CF_ImportanceTip>
+  <CF_Auto>Správce</CF_Auto>
+  <CF_AutoTip>Když je zapnuto, správce sám nastavuje priority práce na této mapě.\n\nProstřední tlačítko myši:\n- na políčku: zamknout jednu práci kolonisty\n- na záhlaví sloupce: zamknout celou práci\n- na jménu: zamknout kolonistu a nastavit, co rád dělá\n\nNajeď myší na políčko a uvidíš, proč má danou prioritu.</CF_AutoTip>
+  <CF_Optimize>Přepočítat</CF_Optimize>
+  <CF_OptimizeTip>Přepočítá priority hned teď.</CF_OptimizeTip>
+  <CF_Optimized>Správce: změněno {0} priorit.</CF_Optimized>
+  <CF_StyleButton>Styl: {0}</CF_StyleButton>
+  <CF_StyleTip>Zaměření kolonie. Posune důležitost vybraných prací nahoru nebo dolů.</CF_StyleTip>
+  <CF_Style_Balanced>Vyvážený</CF_Style_Balanced>
+  <CF_Style_Survival>Přežití</CF_Style_Survival>
+  <CF_Style_Production>Výroba</CF_Style_Production>
+  <CF_Style_Research>Výzkum</CF_Style_Research>
+  <CF_HeaderHint>Správce: prostřední tlačítko myši zamkne nebo odemkne celou práci.</CF_HeaderHint>
+  <CF_LockPawn>Zamknout kolonistu (správce ho nemění)</CF_LockPawn>
+  <CF_UnlockPawn>Odemknout kolonistu</CF_UnlockPawn>
+  <CF_PrefersOn>Rád dělá: {0} (zrušit)</CF_PrefersOn>
+  <CF_PrefersOff>Rád dělá: {0}</CF_PrefersOff>
+  <CF_CrisisStart>Správce: {0}. Priority upraveny.</CF_CrisisStart>
+  <CF_CrisisEnd>Správce: krize skončila ({0}).</CF_CrisisEnd>
+  <CF_Crisis_Medical>zdravotní nouze</CF_Crisis_Medical>
+  <CF_Crisis_Food>nedostatek jídla</CF_Crisis_Food>
+  <CF_Crisis_Winter>příprava na zimu</CF_Crisis_Winter>
+  <CF_D_Construction>{0} staveb, oprav a rozebírání</CF_D_Construction>
+  <CF_D_Growing>{0} rostlin ke sklizni a políček k osetí</CF_D_Growing>
+  <CF_D_Cut>{0} rostlin k pokácení nebo sklizni</CF_D_Cut>
+  <CF_D_Mine>{0} míst k těžbě</CF_D_Mine>
+  <CF_D_Haul>{0} věcí k odnesení</CF_D_Haul>
+  <CF_D_Clean>{0} nečistot v domovské zóně</CF_D_Clean>
+  <CF_D_Doctor>{0} pacientů</CF_D_Doctor>
+  <CF_D_Food>jídlo na {0} dne</CF_D_Food>
+  <CF_D_Hunt>{0} zvířat k lovu</CF_D_Hunt>
+  <CF_D_Warden>{0} vězňů</CF_D_Warden>
+  <CF_D_Handling>{0} zvířat k ochočení nebo porážce</CF_D_Handling>
+  <CF_D_ResearchOn>probíhá výzkum</CF_D_ResearchOn>
+  <CF_D_ResearchOff>není vybraný výzkum</CF_D_ResearchOff>
+  <CF_D_Bills>{0} aktivních zakázek</CF_D_Bills>
+  <CF_TipHeader>Správce kolonie</CF_TipHeader>
+  <CF_TipAssigned>Priorita {0}</CF_TipAssigned>
+  <CF_TipNotAssigned>Nepřiřazeno</CF_TipNotAssigned>
+  <CF_TipSkill>Dovednost {0}</CF_TipSkill>
+  <CF_TipNoSkill>Práce bez dovednosti</CF_TipNoSkill>
+  <CF_TipPassionMinor>malá vášeň</CF_TipPassionMinor>
+  <CF_TipPassionMajor>velká vášeň</CF_TipPassionMajor>
+  <CF_TipSpeed>Rychlost a výkon vůči průměru ×{0}</CF_TipSpeed>
+  <CF_TipRank>{0}. nejlepší z {1}</CF_TipRank>
+  <CF_TipEveryone>Tuto práci dělá každý</CF_TipEveryone>
+  <CF_TipDemand>Potřeba: {0}</CF_TipDemand>
+  <CF_TipCrisis>Krize: {0}</CF_TipCrisis>
+  <CF_TipStyle>Styl kolonie: {0}</CF_TipStyle>
+  <CF_TipMechs>Mechanoidi převzali část práce (za {0} kolonistů)</CF_TipMechs>
+  <CF_TipPreferred>Rád tuto práci dělá</CF_TipPreferred>
+  <CF_TipInspired>Inspirace – dostává přednost</CF_TipInspired>
+  <CF_TipApprentice>Učeň – učí se od nejlepších</CF_TipApprentice>
+  <CF_TipOpposed>Odporuje jeho ideologii</CF_TipOpposed>
+  <CF_TipLocked>Zamčeno – správce nemění</CF_TipLocked>
+  <CF_TipHint>Prostřední tlačítko myši: zamknout / odemknout</CF_TipHint>
+  <CF_S_Messages>Upozornění na zásoby</CF_S_Messages>
+  <CF_S_Messages_Desc>Zpráva pokaždé, když správce označí stromy, zvířata, rostliny nebo ložiska k doplnění zásob.</CF_S_Messages_Desc>
+  <CF_S_Button>Zásoby</CF_S_Button>
+  <CF_S_ButtonTip>Cílové zásoby: dřevo, maso, rostlinná potrava, ocel… Když něčeho dochází, správce označí, co je potřeba.</CF_S_ButtonTip>
+  <CF_S_On>Hlídat zásoby</CF_S_On>
+  <CF_S_RunNow>Zkontrolovat</CF_S_RunNow>
+  <CF_S_AreaAny>Celá mapa</CF_S_AreaAny>
+  <CF_S_AreaTip>Označovat jen uvnitř této oblasti.</CF_S_AreaTip>
+  <CF_S_HuntPregnant>Lovit březí zvířata</CF_S_HuntPregnant>
+  <CF_S_Marked>Správce – zásoby: označeno {0}.</CF_S_Marked>
+  <CF_S_NothingToMark>Správce – zásoby: není co označit.</CF_S_NothingToMark>
+  <CF_S_Desc>Nastav, kolik čeho chceš mít ve skladu. Když je toho míň (včetně toho, co už je označené nebo leží na zemi), správce označí nejbližší stromy, rostliny, ložiska nebo zvířata – jen tolik, kolik chybí. Zbytek udělají kolonisté v rámci své běžné práce.</CF_S_Desc>
+  <CF_S_OnTip>Když je zapnuto, správce na této mapě každých pár hodin (nastavení v Přehledu) zkontroluje zásoby a označí, co je potřeba.</CF_S_OnTip>
+  <CF_S_Status>ve skladu {0}  +{1} na cestě  /  {2}</CF_S_Status>
+  <CF_J_Overview>Přehled</CF_J_Overview>
+  <CF_J_Hunting>Lov</CF_J_Hunting>
+  <CF_J_Forestry>Dřevo</CF_J_Forestry>
+  <CF_J_Foraging>Sběr</CF_J_Foraging>
+  <CF_J_Mining>Těžba</CF_J_Mining>
+  <CF_J_Emergency>Nouze o jídlo</CF_J_Emergency>
+  <CF_J_Short>{0} / {1}</CF_J_Short>
+  <CF_J_Off>vypnuto</CF_J_Off>
+  <CF_J_Active>aktivních: {0}</CF_J_Active>
+  <CF_J_EmergencyNow>AKTIVNÍ</CF_J_EmergencyNow>
+  <CF_J_EmergencyIdle>v pohotovosti</CF_J_EmergencyIdle>
+  <CF_J_NextCheck>Další kontrola za {0} h</CF_J_NextCheck>
+  <CF_J_Interval>Kontrolovat každé {0} h</CF_J_Interval>
+  <CF_J_Enabled>Zapnuto</CF_J_Enabled>
+  <CF_J_Target>Cíl:</CF_J_Target>
+  <CF_J_ProgressTip>Zelená = ve skladu. Žlutá = na cestě (leží na mapě, nebo je v označených stromech, rostlinách, ložiskách a zvířatech, nebo v ulovených, ještě nerozporcovaných zvířatech).</CF_J_ProgressTip>
+  <CF_J_All>Vybrat vše</CF_J_All>
+  <CF_J_None>Zrušit vše</CF_J_None>
+  <CF_J_Default>Výchozí výběr</CF_J_Default>
+  <CF_J_UnitMeat>masa</CF_J_UnitMeat>
+  <CF_J_HuntingDesc>Udržuje syrové maso ve skladu. Loví se jen zvířata zaškrtnutá níže, nejbližší první. Predátoři a zvířata, která se často rozzuří, jsou ve výchozím stavu vypnutá.</CF_J_HuntingDesc>
+  <CF_J_ForestryDesc>Udržuje dřevo ve skladu. Kácí se jen stromy zaškrtnuté níže, nejbližší první a jen vzrostlé. Stromů v pěstebních zónách se nedotkne. Zvláštní stromy (anima, gauranlen…) jsou ve výchozím stavu vypnuté.</CF_J_ForestryDesc>
+  <CF_J_ForagingDesc>Udržuje ve skladu divokou rostlinnou potravu (bobule, agáve…) a další divokou úrodu. Sklízí se jen rostliny zaškrtnuté níže. Plodin v pěstebních zónách se nedotkne.</CF_J_ForagingDesc>
+  <CF_J_MiningDesc>Cíl pro každou surovinu, která je na mapě v ložiscích. Zaškrtni surovinu, nastav, kolik jí chceš, a nejbližší ložiska se označí k těžbě.</CF_J_MiningDesc>
+  <CF_J_NoVeins>Na této mapě zatím nejsou žádná ložiska (oblasti v mlze se nepočítají).</CF_J_NoVeins>
+  <CF_J_AnimalInfo>na mapě: {0}  {1}</CF_J_AnimalInfo>
+  <CF_J_Dangerous>· nebezpečné</CF_J_Dangerous>
+  <CF_J_PlantInfo>na mapě: {0}  · dává {1}</CF_J_PlantInfo>
+  <CF_J_EmergencyDesc>Když má kolonie jídlo na méně dní, než je nastaveno níže, správce hned označí jedlé divoké rostliny ke sklizni a potom zvířata k lovu – bez ohledu na cíle. Skončí, až je jídla zase dost.</CF_J_EmergencyDesc>
+  <CF_J_EmergencyDays>Nouze pod {0} dní jídla</CF_J_EmergencyDays>
+  <CF_J_FoodDays>Jídlo teď: na {0} dní (kolonisté a vězni)</CF_J_FoodDays>
+  <CF_J_EmergencyHow>Používá výběr zvířat a rostlin z Lovu a Sběru i jejich oblasti. Nejdřív jedlé divoké rostliny (bezpečné), pak lov. Zralé plodiny v pěstebních zónách sklidí tvoji pěstitelé tak jako tak.</CF_J_EmergencyHow>
+  <CF_J_EmergencyStart>Nouze o jídlo: jídlo jen na {0} dní. Správce označuje jedlé rostliny a zvířata k lovu.</CF_J_EmergencyStart>
+  <CF_J_EmergencyEnd>Nouze o jídlo skončila.</CF_J_EmergencyEnd>
+  <CF_J_Livestock>Chov</CF_J_Livestock>
+  <CF_J_LivestockDesc>U každého ochočeného druhu nastav, kolik chceš dospělých samic, samců a mláďat. Přebytek se označí k porážce, nejstarší první. Zvířata s poutem se neoznačí nikdy, březí jen pokud to povolíš. Volitelně se celé stádo drží v jedné oblasti.</CF_J_LivestockDesc>
+  <CF_J_NoAnimals>Na této mapě zatím nejsou žádná ochočená zvířata.</CF_J_NoAnimals>
+  <CF_J_HerdNow>teď: {0} ♀  {1} ♂  {2} mláďat</CF_J_HerdNow>
+  <CF_J_KeepFemales>Nechat samic</CF_J_KeepFemales>
+  <CF_J_KeepMales>Nechat samců</CF_J_KeepMales>
+  <CF_J_KeepYoung>Nechat mláďat</CF_J_KeepYoung>
+  <CF_J_KeepPregnant>Nikdy neporážet březí</CF_J_KeepPregnant>
+  <CF_J_AnimalAreaNone>Oblast: beze změny</CF_J_AnimalAreaNone>
+  <CF_J_AnimalAreaTip>Všechna zvířata tohoto druhu držet v této oblasti.</CF_J_AnimalAreaTip>
+  <CF_J_StepTip>Shift: ±10, Ctrl: ±100</CF_J_StepTip>
+  <CF_J_KeepSpecies>Nechat naživu od druhu</CF_J_KeepSpecies>
+  <CF_J_OutsideHome>Jen mimo domovskou zónu</CF_J_OutsideHome>
+  <CF_J_OutsideHomeTip>Stromy v domovské zóně se nikdy nekácí, takže základna si své stromy nechá.</CF_J_OutsideHomeTip>
+  <CF_J_KeepTrees>Vždy nechat stát</CF_J_KeepTrees>
+  <CF_J_ClearOff>Vyčistit oblast: vypnuto</CF_J_ClearOff>
+  <CF_J_ClearOn>Vyčistit oblast: {0}</CF_J_ClearOn>
+  <CF_J_ClearTip>Všechny rostliny v této oblasti se vykácí (stromy, keře, tráva) – na staveniště nebo jako protipožární pás. Plodin v pěstebních zónách se nedotkne. Nezávisí na cíli dřeva.</CF_J_ClearTip>
+  <CF_J_Clear>čištění</CF_J_Clear>
+  <CF_J_GraphWait>graf po 2 dnech</CF_J_GraphWait>
+  <CF_J_GraphTip>Zásoby za poslední dny (zelená) a cíl (žlutá čára).</CF_J_GraphTip>
+  <CF_T_Tidy>Vynášet věci, pro které není místo</CF_T_Tidy>
+  <CF_T_TidyTip>Věci ležící v domovské zóně se jako obvykle odnesou do skladu. Když pro ně nikde není místo, kolonisté je vynesou na odkladiště. Bez odkladiště zůstanou, kde jsou. Patří to k práci Odnášení. Mrtví lidé zůstanou pro hroby.</CF_T_TidyTip>
+  <CF_T_DumpAuto>Odkladiště: jen sklad</CF_T_DumpAuto>
+  <CF_T_Dump>Odkladiště: {0}</CF_T_Dump>
+  <CF_T_DumpTip>Věci bez skladu se položí jen do vybrané oblasti. Bez ní je kolonisté nenechávají jen tak na zemi.</CF_T_DumpTip>
+  <CF_A_Label>Správce: zásoby</CF_A_Label>
+  <CF_A_Explanation>Správce nedokáže udržet některé zásoby:</CF_A_Explanation>
+  <CF_A_NoSources>{0}: pod cílem a není co označit (zkontroluj výběr, oblast a mlhu).</CF_A_NoSources>
+  <CF_A_NoHunter>Je potřeba lovit, ale žádný kolonista, který smí lovit, nemá zbraň na dálku.</CF_A_NoHunter>
+  <CF_A_NoSourcesHere>Pod cílem a není co označit – zkontroluj výběr, oblast nebo limity.</CF_A_NoSourcesHere>
+  <CF_P_LevelsAuto>Úrovně priorit: automaticky (teď 1–{0})</CF_P_LevelsAuto>
+  <CF_P_LevelsManual>Úrovně priorit: 1–{0}</CF_P_LevelsManual>
+  <CF_P_LevelsNoMod>Úrovně priorit: 1–4 (pro víc nainstaluj PriorityMaster nebo Work Tab)</CF_P_LevelsNoMod>
+  <CF_P_LevelsTip>Kolik úrovní priorit správce používá. Hra sama zná jen 1–4; PriorityMaster nebo Work Tab umožní víc (nastav tam stejné číslo). Tlačítko − pod 4 = převzít z toho módu automaticky.</CF_P_LevelsTip>
+  <CF_Style_Farming>Zemědělství</CF_Style_Farming>
+  <CF_Style_Building>Stavění</CF_Style_Building>
+  <CF_Style_Industry>Těžba a průmysl</CF_Style_Industry>
+  <CF_Style_Defense>Obrana</CF_Style_Defense>
+  <CF_Style_Care>Péče</CF_Style_Care>
+  <CF_Style_Comfort>Pohodlí</CF_Style_Comfort>
+  <CF_Style_Trade>Obchod</CF_Style_Trade>
+  <CF_Style_Ranching>Chov</CF_Style_Ranching>
+  <CF_StyleDesc_Balanced>Styl na všechno. Práce se rozdělí rovnoměrně mezi kolonisty a řídí se tím, co na mapě čeká: každá práce, kde je co dělat (zakázky, stavby, sklizeň, odnášení, pacienti, výzkum, zvířata …), má aspoň jednoho kolonistu, při velkém množství víc. Reaguje na nedostatek a krize. Na jiný styl přepni jen tehdy, když něco potřebuješ přednostně.</CF_StyleDesc_Balanced>
+  <CF_StyleDesc_Survival>Jídlo a střecha na prvním místě: vaření, pole, lov, rybaření a trochu stavění. Pro těžký začátek.</CF_StyleDesc_Survival>
+  <CF_StyleDesc_Production>Dílna, kovárna a krejčovství stejně důležité.</CF_StyleDesc_Production>
+  <CF_StyleDesc_Research>Co nejvíc výzkumu (a studium entit s Anomaly).</CF_StyleDesc_Research>
+  <CF_StyleDesc_Farming>Pole na prvním místě: setí a sklizeň, k tomu sekání a vaření.</CF_StyleDesc_Farming>
+  <CF_StyleDesc_Building>Stavění na prvním místě, těžba kamene a odnášení pomáhají.</CF_StyleDesc_Building>
+  <CF_StyleDesc_Industry>Těžba rudy a její zpracování v kovárně a dílně.</CF_StyleDesc_Industry>
+  <CF_StyleDesc_Defense>Zdi a věže, zbraně z kovárny a doktoři připravení na nájezd.</CF_StyleDesc_Defense>
+  <CF_StyleDesc_Care>Doktoři, děti, vězni a čisté místnosti.</CF_StyleDesc_Care>
+  <CF_StyleDesc_Comfort>Čistá a krásná základna: úklid, umění a nábytek.</CF_StyleDesc_Comfort>
+  <CF_StyleDesc_Trade>Zboží na prodej: umění, oblečení a výrobky.</CF_StyleDesc_Trade>
+  <CF_StyleDesc_Ranching>Zvířata na prvním místě: ochočování, výcvik, dojení, stříhání – a krmivo pro ně.</CF_StyleDesc_Ranching>
+  <CF_J_Production>Výroba</CF_J_Production>
+  <CF_J_Power>Energie</CF_J_Power>
+  <CF_J_Household>Domácnost</CF_J_Household>
+  <CF_J_On>zapnuto</CF_J_On>
+  <CF_J_ProductionDesc>Udržuje hotové zboží ve skladu: jídla, léky, oblečení, komponenty… Každý cíl se stane jednou zakázkou „vyrábět, dokud není X“ na nejlepším pracovním stole, který to umí. Správce tu zakázku hlídá (obnoví, přesune, upraví, pozastaví); tvých vlastních zakázek se nedotkne.</CF_J_ProductionDesc>
+  <CF_X_AddProduct>Přidat výrobek</CF_X_AddProduct>
+  <CF_X_NoBenches>Zatím žádný pracovní stůl se zakázkami</CF_X_NoBenches>
+  <CF_X_NoBillYet>zakázka zatím není (další kontrola)</CF_X_NoBillYet>
+  <CF_X_BillAt>zakázka na: {0}</CF_X_BillAt>
+  <CF_X_RemoveProduct>Odebrat cíl i jeho zakázku</CF_X_RemoveProduct>
+  <CF_J_PowerDesc>Když v elektrické síti docházejí baterie, vybraná zařízení se vypnou; až se baterie nabijí, Správce zapne zpátky, co sám vypnul. Zařízení, která jsi vypnul ty, zůstanou vypnutá.</CF_J_PowerDesc>
+  <CF_X_PowerNow>Teď: přebytek {0} W · v bateriích {1} / {2} Wd ({3})</CF_X_PowerNow>
+  <CF_X_PowerLow>Vypnout pod {0} nabití</CF_X_PowerLow>
+  <CF_X_PowerHigh>Znovu zapnout nad {0} nabití</CF_X_PowerHigh>
+  <CF_X_PowerDevices>Zařízení, která se smí vypnout:</CF_X_PowerDevices>
+  <CF_X_DeviceInfo>{0}× · {1} W každé</CF_X_DeviceInfo>
+  <CF_J_HouseholdDesc>Pořádek v základně: věci, pro které není ve skladu místo, se vynesou ven, a špína v důležitých místnostech se uklízí jako první.</CF_J_HouseholdDesc>
+  <CF_C_Clean>Uklízet nejdřív důležité místnosti</CF_C_Clean>
+  <CF_C_CleanTip>Špína v místnostech zaškrtnutých níže se uklidí dřív než kdekoli jinde. Špína v kuchyni šíří otravy jídlem, v nemocnici zvyšuje riziko infekce. Patří to k práci Úklid.</CF_C_CleanTip>
+  <CF_C_FilthNow>Špíny v těchto místnostech teď: {0}</CF_C_FilthNow>
+  <CF_C_Rooms>Místnosti uklízené jako první:</CF_C_Rooms>
+  <CF_X_Cancel>Zrušit označení Správce</CF_X_Cancel>
+  <CF_X_CancelTip>Odstraní všechna označení ke kácení, lovu, sklizni, těžbě a porážce, která udělal Správce. Tvoje vlastní označení zůstanou.</CF_X_CancelTip>
+  <CF_X_CancelConfirm>Odstranit na této mapě všechna označení, která udělal Správce? Tvoje vlastní označení zůstanou.</CF_X_CancelConfirm>
+  <CF_X_Cancelled>Správce: odstraněno označení: {0}.</CF_X_Cancelled>
+  <CF_X_OtherMap>{0}: {1}</CF_X_OtherMap>
+  <CF_TipBalanced>Vyvážený (automaticky): {0}</CF_TipBalanced>
+  <CF_B_FoodLow>jídlo na {0} dní</CF_B_FoodLow>
+  <CF_B_Patients>pacientů: {0}</CF_B_Patients>
+  <CF_B_Prisoners>vězňů: {0}</CF_B_Prisoners>
+  <CF_B_Building>ke stavbě: {0}</CF_B_Building>
+  <CF_B_Hauling>k odnesení: {0}</CF_B_Hauling>
+  <CF_B_Dirty>špíny: {0}</CF_B_Dirty>
+  <CF_B_Autumn>podzim – zásoby na zimu</CF_B_Autumn>
+  <CF_B_Wood>dochází dřevo</CF_B_Wood>
+  <CF_B_Steel>dochází ocel</CF_B_Steel>
+  <CF_B_Calm>klid – čas na výzkum</CF_B_Calm>
+  <CF_H_Chunks>Uklízet kamenné sutiny a strusku</CF_H_Chunks>
+  <CF_H_ChunksTip>Kamenné sutiny a struska ležící v domovské zóně Správce sám označí k odnesení – stejně, jako bys je označil ručně – po několika kusech, když není moc jiného odnášení. Odnese je kdokoli, kdo má zapnuté Odnášení, do skladiště, které sutiny přijímá; když takové není, na odkladiště, pokud je nastavené. Zakázaných sutin se nedotkne.</CF_H_ChunksTip>
+  <CF_H_Items>Označit k odnesení věci mimo police a sklady</CF_H_Items>
+  <CF_H_ItemsTip>Všechno, co leží v domovské oblasti mimo polici nebo sklad (a má kam jít), správce označí k odnesení – i věci zakázané po nájezdu. Pár kusů najednou, nejbližší ke kolonii první.</CF_H_ItemsTip>
+  <CF_H_Pockets>Kolonisté vyloží zapomenuté věci z kapes</CF_H_Pockets>
+  <CF_H_PocketsTip>Věci, které kolonista zbytečně nosí v inventáři (zbytky po nošení do kapes, sebrané a zapomenuté), položí a odnese do skladu. Zbraně, léky a drogy podle jeho politiky, zásoby podle inventáře a jídlo na cesty si nechá. Věc musí v kapse ležet aspoň půl hodiny. S Harvest And Haul se o vyložení postará jeho vlastní úloha – vše jde do skladu na jednu cestu.</CF_H_PocketsTip>
+  <CF_H_Workers>Kolik kolonistů to dělá:</CF_H_Workers>
+  <CF_H_WorkersTip>Kolik kolonistů vynáší věci, pro které není místo (a v řádku níže kolik uklízí). 0 = všichni, kdo mají tento druh práce zapnutý. Správce každou herní hodinu vybere ty s nejmenším počtem prací na prioritě 1, rychlejší chodce první. Shift: ±10. Sutiny označené k odnesení odnese kdokoli, kdo odnáší.</CF_H_WorkersTip>
+  <CF_H_Everyone>všichni</CF_H_Everyone>
+  <CF_H_Nobody>nikdo není k dispozici</CF_H_Nobody>
+  <CF_X_PickTitle>Přidat výrobek</CF_X_PickTitle>
+  <CF_X_InStock>ve skladu: {0}</CF_X_InStock>
+  <CF_X_OpenMint>Otevřít zakázky Mint</CF_X_OpenMint>
+  <CF_X_OpenMintTip>Otevře menu zakázek Dubs Mint Menus se všemi pracovními stoly. Vytvoř tam zakázku „vyrábět, dokud není X“ a tady ji převezmi – Správce ji pak bude hlídat.</CF_X_OpenMintTip>
+  <CF_X_Adopt>Převzít zakázky ({0})</CF_X_Adopt>
+  <CF_X_AdoptTip>Zakázky „vyrábět, dokud není X“ vytvořené ručně nebo v Dubs Mint Menus. Správce je převezme: obnoví je po smazání, přesune je, když stůl zmizí, a pozastaví je, když cíl vypneš.</CF_X_AdoptTip>
+  <CF_H_Products>Hotové výrobky hned odnést</CF_H_Products>
+  <CF_H_ProductsTip>Jídla, léky, oblečení a další věci ležící u pracovního stolu, sporáku nebo pracovního místa se odnesou do skladu dřív než cokoli jiného. Zakázky Správce nastavené na „položit na zem“ se přepnou na „do nejlepšího skladiště“. Patří to k práci Odnášení.</CF_H_ProductsTip>
+  <CF_Backup>Ostatním nechat práci jako zálohu</CF_Backup>
+  <CF_Backup_Desc>Kolonisté, kteří na práci nejsou vybraní, ji mají na nejnižší prioritě místo vypnutí. Dělají ji, když nic důležitějšího nezbývá, takže nikdo nepostává. Neplatí pro práce, u kterých níže nastavíš maximální počet kolonistů.</CF_Backup_Desc>
+  <CF_OneTop>Jen jedna práce na prioritě 1 na kolonistu</CF_OneTop>
+  <CF_OneTop_Desc>Kolonista má na prioritě 1 nejvýš jednu práci, ostatní se posunou na prioritu 2. Zůstane ta nejnaléhavější: práce, kterou potřebuje krize, pak práce, kterou na prioritu 1 dala situace, pak nejdůležitější práce, na kterou se kolonista nejvíc hodí. Hašení, pacient, klid na lůžku a základní práce se nepočítají a nikdy se neposouvají. Zamčená políčka a vynucená práce z Achtung! se nemění – zamčená priorita 1 se počítá jako ta jediná. Platí ve všech stylech.</CF_OneTop_Desc>
+  <CF_ColImportance>Důležitost</CF_ColImportance>
+  <CF_ColMin>Kolonistů min</CF_ColMin>
+  <CF_ColMax>Kolonistů max</CF_ColMax>
+  <CF_CountTip>Kolik kolonistů tuto práci dělá. Min: aspoň tolik ji dostane, i když je práce málo. Max: nejvýš tolik – všichni ostatní ji mají vypnutou. auto = rozhodne Správce. Shift: ±5.</CF_CountTip>
+  <CF_CountAuto>auto</CF_CountAuto>
+  <CF_TabGeneral>Obecné</CF_TabGeneral>
+  <CF_TabWork>Druhy práce</CF_TabWork>
+  <CF_TabLevels>Úrovně priorit</CF_TabLevels>
+  <CF_LevelsDesc>U každého druhu práce můžeš určit, kolik kolonistů ji dělá na které prioritě – třeba vaření: 1 na prioritě 1, 2 na prioritě 2, 3 na prioritě 3. Nejvhodnější kolonisté jdou první. Všichni ostatní mají práci jako zálohu na nejnižší prioritě (nebo vypnutou, pokud je záloha v Obecném vypnutá). Prázdné řádky plánuje Správce jako dosud.</CF_LevelsDesc>
+  <CF_LevelsAllStyles>Tento plán platí v každém stylu, ale není to zámek: Správce ho při každém přepočtu použije znovu a vybere na to právě teď nejvhodnější kolonisty. Výrobní práce (stoly se zakázkami) se podle plánu rozdělí jen tehdy, když na ně čekají zakázky – bez zakázek kolonisté dělají jiné věci a jedničku dostanou zpátky, jakmile zakázky přibudou. Pořadí rozhodování: 1) tvé zámky, 2) krize, 3) tvůj plán úrovní a min/max, 4) situace, 5) styl a pravidlo jedné práce na 1.</CF_LevelsAllStyles>
+  <CF_LevelsReset>Vymazat vše</CF_LevelsReset>
+  <CF_LevelCol>Priorita {0}</CF_LevelCol>
+  <CF_LevelRest>Ostatní</CF_LevelRest>
+  <CF_LevelAuto>Správce</CF_LevelAuto>
+  <CF_LevelBackup>záloha ({0})</CF_LevelBackup>
+  <CF_LevelOff>vypnuto</CF_LevelOff>
+  <CF_TipPersonal>Posunuto z {0} na {1}: tento kolonista má na vyšších úrovních práce, které mu sedí víc (nejvýš dvě práce na úroveň).</CF_TipPersonal>
+  <CF_StyleStrength>Síla stylu: {0}×</CF_StyleStrength>
+  <CF_StyleStrength_Desc>Jak moc styl kolonie mění plán: prioritu prací, které upřednostňuje, kolik kolonistů je dostane a jejich místo v osobním pořadí každého kolonisty. 1 = mírně (jako před 2.10), 2 = zřetelně (výchozí), 3 = velmi silně. Vyvážený se tím neřídí – přizpůsobuje se sám.</CF_StyleStrength_Desc>
+  <CF_BalancedOnly>Nejméně a nejvíc kolonistů platí ve všech stylech – správce na práci dá vždy aspoň tolik lidí, kolik nastavíš, a nikdy víc než maximum. Důležitost platí jen pro „Můj styl“.</CF_BalancedOnly>
+  <CF_PUAH>Používat Pick Up And Haul</CF_PUAH>
+  <CF_PUAH_Desc>Vlastní odnášení Správce (hotové výrobky od stolů, kamenné sutiny a struska) jde přes Pick Up And Haul: kolonisté naberou do inventáře i věci okolo a odnesou je najednou.</CF_PUAH_Desc>
+  <CF_Style_Custom>Můj styl</CF_Style_Custom>
+  <CF_StyleDesc_Custom>Tvůj vlastní styl – nic se nemění samo. Důležitost, počet kolonistů a kolonisté na úrovních priorit se berou jen z nastavení módu (Nastavení → Nastavení módů → Steward, záložky Druhy práce a Úrovně priorit). Krize a situace platí i tady (vypnout je jde v nastavení). Žádné úpravy podle práce na mapě, žádné změny kvůli inspiraci nebo učňům, žádné přeskupování; přeplánuje se jen při příchodu či odchodu kolonistů, při pravidelné kontrole nebo tlačítkem.</CF_StyleDesc_Custom>
+  <CF_TipCustom>Můj styl: podle tvého nastavení</CF_TipCustom>
+  <CF_M_Target>Držet hotová jídla na</CF_M_Target>
+  <CF_M_TargetTip>Kolik uvařených jídel chceš mít, ve dnech jídla pro všechny, kdo jedí. Když jich kolonie má tolik nebo víc, všechny zakázky na jídla se pozastaví; když zásoba klesne pod cíl, zakázky pozastavené Správcem se znovu spustí. Zakázky, které jsi pozastavil sám, zůstanou pozastavené. Shift = krok 2 dny.</CF_M_TargetTip>
+  <CF_M_Days>{0} dní</CF_M_Days>
+  <CF_M_Now>teď {0} dní</CF_M_Now>
+  <CF_M_Paused>pozastaveno {0} zakázek na jídla</CF_M_Paused>
+  <CF_M_Cooking>vaří se</CF_M_Cooking>
+  <CF_TabCrisis>Krize</CF_TabCrisis>
+  <CF_CrisisHead>Když Správce pozná krizi, hned upraví záložku Práce: práce, které pomohou, dostanou víc kolonistů a vyšší prioritu, práce, které počkají, jdou dolů. Víc krizí najednou se sčítá. Po konci krize se vše vrátí. Požár a nájezd se kontrolují každých pár sekund, ostatní každou hodinu. Odškrtni krizi, kterou nechceš.</CF_CrisisHead>
+  <CF_CrisisAllOff>Krizové režimy jsou vypnuté v záložce Obecné.</CF_CrisisAllOff>
+  <CF_CrisisDoes>Kolonisté: {0}</CF_CrisisDoes>
+  <CF_Crisis_Fire>požár v základně</CF_Crisis_Fire>
+  <CF_Crisis_Raid>nájezd</CF_Crisis_Raid>
+  <CF_Crisis_Weather>extrémní počasí</CF_Crisis_Weather>
+  <CF_Crisis_Toxic>jedovatý vzduch</CF_Crisis_Toxic>
+  <CF_Crisis_Blight>plíseň</CF_Crisis_Blight>
+  <CF_Crisis_Mood>špatná nálada</CF_Crisis_Mood>
+  <CF_Crisis_Power>výpadek proudu</CF_Crisis_Power>
+  <CF_Crisis_Medicine>nedostatek léků</CF_Crisis_Medicine>
+  <CF_Crisis_Breakdown>porouchané stroje</CF_Crisis_Breakdown>
+  <CF_CrisisWhen_Medical>Kdy: 2 a víc pacientů (v kolonii do 3 lidí stačí 1).</CF_CrisisWhen_Medical>
+  <CF_CrisisWhen_Food>Kdy: jídlo na méně než 2 dny.</CF_CrisisWhen_Food>
+  <CF_CrisisWhen_Winter>Kdy: příští měsíc je pod 0 °C a je co připravit – zralá úroda, jídlo na méně než 15 dní nebo málo dřeva.</CF_CrisisWhen_Winter>
+  <CF_CrisisWhen_Fire>Kdy: hoří něco v domovské zóně nebo v zóně kolonie (pole, sklady). Hašení je stejně vždy první; práce, které počkají, jdou dolů.</CF_CrisisWhen_Fire>
+  <CF_CrisisWhen_Raid>Kdy: jakýkoli útočník – člověk nebo mechanoid, nebo aspoň dvě nepřátelská zvířata. Nikdo se neposílá ven lovit ani kácet.</CF_CrisisWhen_Raid>
+  <CF_CrisisWhen_Weather>Kdy: vlna mrazu, vlna veder, nebo venku pod -25 °C / nad 45 °C.</CF_CrisisWhen_Weather>
+  <CF_CrisisWhen_Toxic>Kdy: jedovaté počasí (spad, opar, kyselý či jedovatý smog), znečištěná desetina domovské zóny nebo 5+ balíků odpadu v domovské zóně. Práce uvnitř místo venku, úroda se sklidí, než uhyne.</CF_CrisisWhen_Toxic>
+  <CF_CrisisWhen_Blight>Kdy: 3 a víc rostlin napadených plísní – nemocné rostliny se rychle posekají, aby se plíseň nešířila.</CF_CrisisWhen_Blight>
+  <CF_CrisisWhen_Mood>Kdy: třetina kolonistů (aspoň 2) je blízko psychického zhroucení. Čisté místnosti, dobré jídlo a umění.</CF_CrisisWhen_Mood>
+  <CF_CrisisWhen_Power>Kdy: elektrická síť přišla o všechen proud, baterie jsou prázdné a dál se vybíjejí, nebo sluneční erupce.</CF_CrisisWhen_Power>
+  <CF_CrisisWhen_Medicine>Kdy: méně léků než polovina počtu kolonistů (aspoň 2).</CF_CrisisWhen_Medicine>
+  <CF_CrisisWhen_Breakdown>Kdy: některý stroj kolonie je porouchaný a čeká na opravu.</CF_CrisisWhen_Breakdown>
+  <CF_M_Page>Hotová jídla</CF_M_Page>
+  <CF_M_Short>{0} / {1} dní</CF_M_Short>
+  <CF_M_Bills>Zakázky na jídla: {0}</CF_M_Bills>
+  <CF_M_NoBills>Žádná zakázka na jídla neexistuje. Přidej ji u sporáku (nebo ve Výrobě) – Správce zakázky jen pozastavuje a spouští, nezakládá je.</CF_M_NoBills>
+  <CF_M_BillOn>vaří se</CF_M_BillOn>
+  <CF_M_BillSteward>pozastavil Správce</CF_M_BillSteward>
+  <CF_M_BillYou>pozastavil jsi ty</CF_M_BillYou>
+  <CF_H_Blight>Sekat rostliny s plísní</CF_H_Blight>
+  <CF_H_BlightTip>Rostliny s plísní v pěstebních zónách, květináčích, hydroponii a domovské zóně se každou hodinu označí k posekání, aby se plíseň nešířila. Krize Plíseň pak dá sekání víc kolonistů.</CF_H_BlightTip>
+  <CF_BlightMarked>Správce: {0} rostlin s plísní označeno k posekání.</CF_BlightMarked>
+  <CF_TipMath>Důležitost {0} = základ {1}, styl {2}, čekající práce {3}, krize {4}</CF_TipMath>
+  <CF_TipMoved>Výsledná priorita {0}: posunuto ve vlastním pořadí prací kolonisty (nejvýš dvě práce na úroveň, nejnaléhavější první).</CF_TipMoved>
+  <CF_TipIdle>Výsledná priorita {0}: přidáno, aby kolonista nezůstal bez práce.</CF_TipIdle>
+  <CF_P_MaySwitch>Správce smí vypnout</CF_P_MaySwitch>
+  <CF_P_MaySwitchDesc>Když docházejí baterie, Správce vypíná vybraná zařízení jedno po druhém, největší spotřebiče první. Vypni, aby toto jedno zařízení zůstalo vždy zapnuté.</CF_P_MaySwitchDesc>
+  <CF_A_Page>Samozásobení</CF_A_Page>
+  <CF_A_Short>{0} zakázek</CF_A_Short>
+  <CF_A_Desc>Když kolonii dochází něco, co umí vyrobit, Správce založí zakázku přesně na chybějící počet, na nejlepším stole, který to umí (pracovní stůl před ohništěm nebo místem), a po splnění ji smaže – nikdy „pořád dokola“. Nejdřív se počítá, co je ve skladu, a tvoje vlastní zakázky.</CF_A_Desc>
+  <CF_A_On>Samozásobení zapnuto</CF_A_On>
+  <CF_A_Meals>Jídla</CF_A_Meals>
+  <CF_A_MealsTip>Pod cílem hotových jídel (nebo pod 2 dny, když je cíl vypnutý) a žádná zakázka na jídla neběží: nejlepší jídlo, které tvoji kuchaři umí, až do cíle.</CF_A_MealsTip>
+  <CF_A_Medicine>Léky</CF_A_Medicine>
+  <CF_A_MedicineTip>Méně léků než kolonistů (aspoň 3): nejlepší lék, který umíš vyrobit, jen chybějící množství.</CF_A_MedicineTip>
+  <CF_A_Clothes>Oblečení a doplňky</CF_A_Clothes>
+  <CF_A_ClothesTip>Opotřebované oblečení a doplňky se nahradí stejným kusem. Kolonista, který nemá nic na těle nebo na nohou, dostane nejjednodušší kus, který smí nosit.</CF_A_ClothesTip>
+  <CF_A_Armor>Brnění</CF_A_Armor>
+  <CF_A_ArmorTip>Opotřebované brnění se nahradí stejným kusem.</CF_A_ArmorTip>
+  <CF_A_Weapons>Zbraně</CF_A_Weapons>
+  <CF_A_WeaponsTip>Neozbrojený kolonista, který umí bojovat, dostane zbraň – tu, kterou kolonie používá nejčastěji, na dálku nebo na blízko podle jeho dovedností – pokud žádná neleží ve skladu.</CF_A_WeaponsTip>
+  <CF_A_Materials>Materiály</CF_A_Materials>
+  <CF_A_MaterialsTip>Komponenty do počtu kolonistů (aspoň 5); ocel ze strusky, když ocel klesne pod 100.</CF_A_MaterialsTip>
+  <CF_A_Worn>Nahradit pod {0} % stavu</CF_A_Worn>
+  <CF_A_Bills>Zakázky ze samozásobení: {0}</CF_A_Bills>
+  <CF_A_RemoveAll>Smazat tyto zakázky</CF_A_RemoveAll>
+  <CF_A_Last>Naposledy přidáno: {0}</CF_A_Last>
+  <CF_A_Kind_meals>jídla</CF_A_Kind_meals>
+  <CF_A_Kind_medicine>léky</CF_A_Kind_medicine>
+  <CF_A_Kind_clothes>oblečení</CF_A_Kind_clothes>
+  <CF_A_Kind_armor>brnění</CF_A_Kind_armor>
+  <CF_A_Kind_weapon>zbraň</CF_A_Kind_weapon>
+  <CF_A_Kind_material>materiál</CF_A_Kind_material>
+  <CF_A_Left>zbývá {0}×</CF_A_Left>
+  <CF_A_Until>dokud není {0}</CF_A_Until>
+  <CF_A_Race>Respektovat omezení ras</CF_A_Race>
+  <CF_A_RaceTip>Zapnuto: rasy z módů (Humanoid Alien Races) dostanou jen oblečení a zbraně, které jejich rasa smí používat. Vypni, když omezení ruší jiný mód – pak může dostat každý všechno.</CF_A_RaceTip>
+  <!-- 2.18 -->
+  <CF_W_Reassign>Přerozdělit práci hned</CF_W_Reassign>
+  <CF_W_Reassign_Desc>Hned teď znovu naplánuje priority práce na každé mapě, kde je správce zapnutý – s nastavením, jaké je teď. Zamčená políčka, práce a kolonisté zůstanou.</CF_W_Reassign_Desc>
+  <CF_W_ReassignHere_Desc>Hned teď znovu naplánuje priority práce na této mapě (totéž co „Přepočítat“ v záložce Práce). Zamčená políčka, práce a kolonisté zůstanou.</CF_W_ReassignHere_Desc>
+  <CF_W_ReassignNoGame>Jen v běžící hře.</CF_W_ReassignNoGame>
+  <CF_W_ReassignDone>Správce: práce přerozdělena na {0} map(ách), změněno {1} priorit.</CF_W_ReassignDone>
+  <CF_W_ReassignNone>Správce: žádná mapa se zapnutým správcem a kolonisty k naplánování.</CF_W_ReassignNone>
+  <CF_W_LastPlan>Priority práce: naplánováno před {0}, změněno {1} – styl {2}.</CF_W_LastPlan>
+  <CF_W_LastPlanNever>Priority práce: od načtení hry na této mapě ještě neplánováno.</CF_W_LastPlanNever>
+  <CF_W_LastPlan_Desc>Najeď myší na políčko v záložce Práce a uvidíš, proč kolonista dostal danou prioritu: dovednost, záliba, rychlost, pořadí, počet kolonistů pro tuto práci a pravidlo, které o úrovni rozhodlo.</CF_W_LastPlan_Desc>
+  <CF_W_StewardOff>(správce je na této mapě vypnutý)</CF_W_StewardOff>
+  <CF_TipDecision>Rozhodnutí: {0}</CF_TipDecision>
+  <CF_Why_Plan>tvůj plán úrovní dává na prioritu {0} počet {1} – tento kolonista patří mezi nejvhodnější.</CF_Why_Plan>
+  <CF_Why_PlanBackup>není v tvém plánu úrovní – zůstává jako záloha na nejnižší prioritě.</CF_Why_PlanBackup>
+  <CF_Why_PlanOff>není v tvém plánu úrovní a záložní pracovníci jsou vypnutí – vypnuto.</CF_Why_PlanOff>
+  <CF_Why_Everyone>tuto práci dělá každý, kdo může, na úrovni podle její důležitosti ({0}).</CF_Why_Everyone>
+  <CF_Why_Quota>tuto práci dostane {0} z {1} schopných kolonistů;</CF_Why_Quota>
+  <CF_Why_Picked>vybrán jako {0}., úroveň podle důležitosti {1}.</CF_Why_Picked>
+  <CF_Why_PickedLower>vybrán jako {0}., o {1} úroveň/úrovně níž – hodí se na {2} % toho nejlepšího.</CF_Why_PickedLower>
+  <CF_Why_Pinned>vybrán jako {0}.; všichni vybraní mají stejnou úroveň.</CF_Why_Pinned>
+  <CF_Why_Coverage>vybrán, i když se moc nehodí, aby práce měla svých nejméně {0} kolonistů.</CF_Why_Coverage>
+  <CF_Why_QuotaFull>nevybrán – {0} míst dostali vhodnější kolonisté.</CF_Why_QuotaFull>
+  <CF_Why_LowFit>nevybrán – hodí se příliš málo (skóre {0}, potřeba aspoň 0,20).</CF_Why_LowFit>
+  <CF_Why_OpposedSkip>nevybrán – jeho ideologie tuto práci odmítá.</CF_Why_OpposedSkip>
+  <CF_Why_Opposed>jeho ideologie tuto práci odmítá – jen nejnižší priorita.</CF_Why_Opposed>
+  <CF_Why_Backup>Zůstává jako záloha na nejnižší prioritě.</CF_Why_Backup>
+  <CF_Why_Max>Vypnuto – tvé maximum {0} kolonistů je naplněno.</CF_Why_Max>
+  <CF_Why_Off>Vypnuto – záložní pracovníci jsou v nastavení vypnutí.</CF_Why_Off>
+  <CF_Why_Inspired>Inspirace – zvýšeno na prioritu 1.</CF_Why_Inspired>
+  <CF_Why_Apprentice>Učeň – na nejnižší prioritě vedle nejlepších, aby se učil.</CF_Why_Apprentice>
+  <CF_Why_AboveBackups>Drženo o úroveň nad záložními pracemi, aby nezůstalo na konec.</CF_Why_AboveBackups>
+  <CF_LevelEmergency>vždy plánuje správce</CF_LevelEmergency>
+  <CF_LevelEmergency_Desc>Nouzovou práci (hašení, pacienti, lékaři, péče o děti …) plánuje správce vždy sám, aby jí nikdy nechyběly ruce. Plán úrovní se na ni nepoužije.</CF_LevelEmergency_Desc>
+  <!-- 2.19: Vyvážený si sám volí zaměření -->
+  <CF_BalancedAutoFocus>Vyvážený si sám volí zaměření</CF_BalancedAutoFocus>
+  <CF_BalancedAutoFocus_Desc>Ve stylu Vyvážený se správce při každém plánu podívá na kolonii a zvolí nejvýš jedno zaměření (Přežití, Zemědělství, Stavění, Těžba a průmysl, Výroba, Péče, Obrana, Chov, Pohodlí nebo Výzkum) – nebo žádné. Ten styl se přidá zeslabený navíc k Vyváženému; práce se dál rozděluje rovnoměrně. Zaměření drží aspoň jeden den, pokud nepřijde něco naléhavějšího (jídlo, dny po přepadení).</CF_BalancedAutoFocus_Desc>
+  <CF_AutoFocusNow>{0} → teď: {1} ({2})</CF_AutoFocusNow>
+  <CF_AutoFocusNowNoReason>{0} → teď: {1}</CF_AutoFocusNowNoReason>
+  <CF_AutoFocusShort>{0} → {1}</CF_AutoFocusShort>
+  <CF_TipAutoFocus>Zaměření: {0}</CF_TipAutoFocus>
+  <CF_AutoFocusMsg>Správce: Vyvážený se teď zaměřuje na {0} ({1}).</CF_AutoFocusMsg>
+  <CF_AutoFocusEnd>Správce: zaměření {0} skončilo – Vyvážený zase rozděluje práci rovnoměrně.</CF_AutoFocusEnd>
+  <CF_AF_Food>jídlo na {0} dní</CF_AF_Food>
+  <CF_AF_Harvest>{0} rostlin ke sklizni</CF_AF_Harvest>
+  <CF_AF_Build>{0} plánů staveb</CF_AF_Build>
+  <CF_AF_Industry>ocel {0}, součástky {1}</CF_AF_Industry>
+  <CF_AF_Mine>{0} políček k těžbě</CF_AF_Mine>
+  <CF_AF_Bills>čeká hodně výrobních zakázek</CF_AF_Bills>
+  <CF_AF_Care>pacienti {0}, vězni {1}, děti {2}</CF_AF_Care>
+  <CF_AF_Defense>po přepadení, {0} budov k opravě</CF_AF_Defense>
+  <CF_AF_Animals>{0} zvířat k ochočení nebo porážce, {1} k dojení, stříhání nebo výcviku</CF_AF_Animals>
+  <CF_AF_Dirt>{0} špíny v domovské oblasti</CF_AF_Dirt>
+  <CF_AF_Calm>klid – čas na výzkum</CF_AF_Calm>
+  <!-- 2.20: situations -->
+  <CF_SitSettingsTitle>Situace</CF_SitSettingsTitle>
+  <CF_SitSettingsHead>Situace jsou menší a konkrétnější než krize: hodně rozestavěných staveb, tři pacienti, obchodní karavana, hladoví vězni … V každém stylu situace přepíše záložku Práce: práce, kterou potřebuje, dostane pevnou prioritu (1 nebo 2) a počet kolonistů podle velikosti úkolu – třeba 40 plánů staveb → 3 stavitelé, 3 pacienti → 2 doktoři – aby na velkou práci nezůstal nikdo sám. Vyberou se nejvhodnější kolonisté (dovednost, záliba, rychlost); kdo práci dělat nemůže, zamčená políčka, vynucená práce (Achtung!) a velmi unavení kolonisté se vynechají. Situace se kontrolují každou herní hodinu a při každém plánování; když skončí, vrátí se běžný plán. Odškrtni situaci, kterou chceš ignorovat.</CF_SitSettingsHead>
+  <CF_UseSituations>Používat situace</CF_UseSituations>
+  <CF_UseSituations_Desc>V každém stylu situace nastaví priority a počet kolonistů pro práci, kterou potřebují. Vypnuto: plánuje se jako dřív.</CF_UseSituations_Desc>
+  <CF_SitStaff>{0} ×{1} (priorita {2})</CF_SitStaff>
+  <CF_SitHeader>Situace:</CF_SitHeader>
+  <CF_SitShort>Situace: {0}.</CF_SitShort>
+  <CF_SitStart>Správce – nová situace: {0}.</CF_SitStart>
+  <CF_SitEnd>Správce – situace skončila: {0}. Zpátky k běžnému plánu.</CF_SitEnd>
+  <CF_Why_Situation>situace ({0}) potřebuje {1} kolonistů na prioritě {2} – vybrán jako {3}. nejvhodnější.</CF_Why_Situation>
+  <CF_TipExhausted>Sníženo z 1 na 2: kolonista je vyčerpaný. Práce s prioritou 1 počká, až se vyspí.</CF_TipExhausted>
+  <CF_TipOneTop>Jen jedna práce na prioritě 1 na kolonistu – zůstala: {0}. Tahle se posunula na {1}.</CF_TipOneTop>
+  <CF_TipOneTopFill>Zvýšeno na 1: situaci ({0}) ubyli pracovníci kvůli pravidlu jedné práce na prioritě 1 a tento kolonista ještě žádnou práci na prioritě 1 neměl.</CF_TipOneTopFill>
+  <CF_SitDoesWork>{0} priorita {1}</CF_SitDoesWork>
+  <CF_SitDoesNothing>v této hře nic (chybí typ práce)</CF_SitDoesNothing>
+  <CF_SitDoesExhausted>jejich práce s prioritou 1 klesne na 2 (nouzové práce zůstanou)</CF_SitDoesExhausted>
+  <CF_Sit_BuildBacklog>hodně staveb</CF_Sit_BuildBacklog>
+  <CF_SitWhen_BuildBacklog>Kdy: 20 a víc plánů staveb a rozestavěných konstrukcí (trvá, dokud jich není míň než 8). Stavění na prioritě 2, jeden stavitel na 15 plánů, aspoň 2.</CF_SitWhen_BuildBacklog>
+  <CF_SitR_BuildBacklog>plánů staveb: {0}</CF_SitR_BuildBacklog>
+  <CF_Sit_Deconstruct>hodně rozebírání</CF_Sit_Deconstruct>
+  <CF_SitWhen_Deconstruct>Kdy: 15 a víc značek k rozebrání, odinstalování, uhlazení nebo odstranění podlahy. Stavění na prioritě 2, jeden kolonista na 20 značek.</CF_SitWhen_Deconstruct>
+  <CF_SitR_Deconstruct>značek: {0}</CF_SitR_Deconstruct>
+  <CF_Sit_Repairs>potřeba oprav</CF_Sit_Repairs>
+  <CF_SitWhen_Repairs>Kdy: 6 a víc poškozených budov (ne během nájezdu). Stavění na prioritě 2, jeden kolonista na 10 budov.</CF_SitWhen_Repairs>
+  <CF_SitR_Repairs>poškozených budov: {0}</CF_SitR_Repairs>
+  <CF_Sit_HaulBacklog>hodně k odnesení</CF_Sit_HaulBacklog>
+  <CF_SitWhen_HaulBacklog>Kdy: 80 a víc věcí k odnesení (sutiny se nepočítají; ne při nájezdu, jedovatém vzduchu ani extrémním počasí). Odnášení na prioritě 2, jeden nosič na 50 věcí, aspoň 2.</CF_SitWhen_HaulBacklog>
+  <CF_SitR_HaulBacklog>věcí k odnesení: {0}</CF_SitR_HaulBacklog>
+  <CF_Sit_RottingOutside>věci hnijí venku</CF_Sit_RottingOutside>
+  <CF_SitWhen_RottingOutside>Kdy: 8 a víc hromádek zkazitelných věcí mimo sklad, které do 5 dnů shnijí. Odnášení na prioritě 1, jeden nosič na 10 hromádek.</CF_SitWhen_RottingOutside>
+  <CF_SitR_RottingOutside>hromádek, které shnijí: {0}</CF_SitR_RottingOutside>
+  <CF_Sit_FoodSpoiling>jídlo se brzy zkazí</CF_Sit_FoodSpoiling>
+  <CF_SitWhen_FoodSpoiling>Kdy: syrové jídlo za 10+ výživy se do 1,5 dne zkazí. Vaření na prioritě 1 (jeden kuchař na 30 výživy) a jeden nosič na prioritě 2, aby ho dal do chladu.</CF_SitWhen_FoodSpoiling>
+  <CF_SitR_FoodSpoiling>výživa, která se do 1,5 dne zkazí: {0}</CF_SitR_FoodSpoiling>
+  <CF_Sit_BigHarvest>velká sklizeň</CF_Sit_BigHarvest>
+  <CF_SitWhen_BigHarvest>Kdy: 40 a víc zralých rostlin v polích. Pěstování na prioritě 2, jeden pěstitel na 40 rostlin, aspoň 2.</CF_SitWhen_BigHarvest>
+  <CF_SitR_BigHarvest>zralých rostlin: {0}</CF_SitR_BigHarvest>
+  <CF_Sit_FrostHarvest>mráz – sklízet hned</CF_Sit_FrostHarvest>
+  <CF_SitWhen_FrostHarvest>Kdy: venku pod 2 °C a 5 a víc zralých rostlin – úroda v zimě uhyne. Pěstování na prioritě 1, jeden pěstitel na 25 rostlin, aspoň 2.</CF_SitWhen_FrostHarvest>
+  <CF_SitR_FrostHarvest>zralých rostlin: {0} při {1}</CF_SitR_FrostHarvest>
+  <CF_Sit_CutBacklog>hodně ke kácení</CF_Sit_CutBacklog>
+  <CF_SitWhen_CutBacklog>Kdy: 30 a víc rostlin označených ke kácení nebo sklizni. Kácení na prioritě 2, jeden kolonista na 30 rostlin.</CF_SitWhen_CutBacklog>
+  <CF_SitR_CutBacklog>označených rostlin: {0}</CF_SitR_CutBacklog>
+  <CF_Sit_MineBacklog>hodně k těžbě</CF_Sit_MineBacklog>
+  <CF_SitWhen_MineBacklog>Kdy: 30 a víc políček označených k těžbě. Těžba na prioritě 2, jeden horník na 30 políček.</CF_SitWhen_MineBacklog>
+  <CF_SitR_MineBacklog>políček k těžbě: {0}</CF_SitR_MineBacklog>
+  <CF_Sit_LowWood>dochází dřevo</CF_Sit_LowWood>
+  <CF_SitWhen_LowWood>Kdy: méně dřeva než 75 + 25 na kolonistu a stromy jsou označené ke kácení. Kácení na prioritě 2, 1 kolonista (2 v kolonii od 5 lidí).</CF_SitWhen_LowWood>
+  <CF_SitR_LowWood>dřevo: {0}</CF_SitR_LowWood>
+  <CF_Sit_LowSteel>dochází ocel</CF_Sit_LowSteel>
+  <CF_SitWhen_LowSteel>Kdy: méně oceli než 50 + 20 na kolonistu a skála je označená k těžbě. Těžba na prioritě 2, 1 horník (2 v kolonii od 5 lidí).</CF_SitWhen_LowSteel>
+  <CF_SitR_LowSteel>ocel: {0}</CF_SitR_LowSteel>
+  <CF_Sit_LowComponents>docházejí součástky</CF_Sit_LowComponents>
+  <CF_SitWhen_LowComponents>Kdy: méně součástek než 3 + 1 na 2 kolonisty a čeká zakázka na součástky. Práce u toho stolu na prioritě 2, 1 kolonista.</CF_SitWhen_LowComponents>
+  <CF_SitR_LowComponents>součástky: {0}</CF_SitR_LowComponents>
+  <CF_Sit_LowMedicine>docházejí léky</CF_Sit_LowMedicine>
+  <CF_SitWhen_LowMedicine>Kdy: méně léků než 2 na kolonistu (ale ještě ne krize „nedostatek léků“) a čeká zakázka na léky nebo se pěstuje léčivý kořen. Práce u stolu a pěstování na prioritě 2, po 1 kolonistovi.</CF_SitWhen_LowMedicine>
+  <CF_SitR_LowMedicine>léky: {0}</CF_SitR_LowMedicine>
+  <CF_Sit_ColdClothing>chybí teplé oblečení</CF_Sit_ColdClothing>
+  <CF_SitWhen_ColdClothing>Kdy: venku 10 °C nebo méně, kolonisté s nedostatečně teplým oblečením a čeká zakázka na oblečení. Krejčovství na prioritě 2, jeden krejčí na 4 zmrzlé kolonisty.</CF_SitWhen_ColdClothing>
+  <CF_SitR_ColdClothing>kolonistů, kterým je zima při {1}: {0}</CF_SitR_ColdClothing>
+  <CF_Sit_WornClothing>roztrhané oblečení</CF_Sit_WornClothing>
+  <CF_SitWhen_WornClothing>Kdy: třetina kolonistů (aspoň 2) nosí oblečení pod 50 % výdrže a čeká zakázka na oblečení. Krejčovství na prioritě 2, 1 krejčí.</CF_SitWhen_WornClothing>
+  <CF_SitR_WornClothing>kolonistů v roztrhaném oblečení: {0}</CF_SitR_WornClothing>
+  <CF_Sit_LowWeapons>kolonisté beze zbraní</CF_Sit_LowWeapons>
+  <CF_SitWhen_LowWeapons>Kdy: polovina kolonistů (kolonie od 3 lidí), kteří umí bojovat, nemá zbraň a čeká zakázka na zbraně. Kovářství na prioritě 2, 1 kovář (2 při 5+ neozbrojených).</CF_SitWhen_LowWeapons>
+  <CF_SitR_LowWeapons>neozbrojených: {0}</CF_SitR_LowWeapons>
+  <CF_Sit_Recruit>vězni k naverbování</CF_Sit_Recruit>
+  <CF_SitWhen_Recruit>Kdy: vězni nastavení na verbování, snižování odporu, zotročení nebo konverzi. Dozorce na prioritě 2, jeden dozorce na 3 vězně – ti nejlepší vyjednavači.</CF_SitWhen_Recruit>
+  <CF_SitR_Recruit>vězňů k přemlouvání: {0}</CF_SitR_Recruit>
+  <CF_Sit_HungryPrisoners>hladoví vězni</CF_Sit_HungryPrisoners>
+  <CF_SitWhen_HungryPrisoners>Kdy: vězeň má jídlo pod 25 %. Dozorce na prioritě 1, jeden dozorce na 3 hladové vězně.</CF_SitWhen_HungryPrisoners>
+  <CF_SitR_HungryPrisoners>hladových vězňů: {0}</CF_SitR_HungryPrisoners>
+  <CF_Sit_MassCasualties>hodně pacientů</CF_Sit_MassCasualties>
+  <CF_SitWhen_MassCasualties>Kdy: 3 a víc pacientů potřebuje ošetření. Doktor na prioritě 1, dva doktoři na každé 3 pacienty, aspoň 2.</CF_SitWhen_MassCasualties>
+  <CF_SitR_MassCasualties>pacientů: {0}</CF_SitR_MassCasualties>
+  <CF_Sit_Infection>život ohrožující nemoc</CF_Sit_Infection>
+  <CF_SitWhen_Infection>Kdy: někdo má nemoc nebo zranění, které může zabít (zatím bez imunity a už vážné), nebo silně krvácí. Doktor na prioritě 1, jeden doktor na každého takového pacienta.</CF_SitWhen_Infection>
+  <CF_SitR_Infection>v ohrožení: {0}</CF_SitR_Infection>
+  <CF_Sit_TameTrain>zvířata ke krocení a výcviku</CF_Sit_TameTrain>
+  <CF_SitWhen_TameTrain>Kdy: 4 a víc zvířat ke krocení nebo výcviku. Zacházení se zvířaty na prioritě 2, jeden chovatel na 6 zvířat.</CF_SitWhen_TameTrain>
+  <CF_SitR_TameTrain>zvířat: {0}</CF_SitR_TameTrain>
+  <CF_Sit_AnimalProducts>zvířata k porážce, dojení, stříhání</CF_Sit_AnimalProducts>
+  <CF_SitWhen_AnimalProducts>Kdy: 5 a víc zvířat označených k porážce nebo připravených k dojení či stříhání. Zacházení se zvířaty na prioritě 2, jeden chovatel na 8.</CF_SitWhen_AnimalProducts>
+  <CF_SitR_AnimalProducts>připravených zvířat: {0}</CF_SitR_AnimalProducts>
+  <CF_Sit_AnimalsHungry>hladová zvířata</CF_Sit_AnimalsHungry>
+  <CF_SitWhen_AnimalsHungry>Kdy: 2 a víc zvířat kolonie hladoví (jídlo pod 15 %). Odnášení a zacházení se zvířaty na prioritě 2, po 1 kolonistovi.</CF_SitWhen_AnimalsHungry>
+  <CF_SitR_AnimalsHungry>hladovějících zvířat: {0}</CF_SitR_AnimalsHungry>
+  <CF_Sit_DirtyRooms>špinavá nemocnice nebo kuchyně</CF_Sit_DirtyRooms>
+  <CF_SitWhen_DirtyRooms>Kdy: 8 a víc špíny v nemocnici nebo kuchyni (infekce, otravy jídlem). Úklid na prioritě 1, jeden uklízeč na 20 špíny.</CF_SitWhen_DirtyRooms>
+  <CF_SitR_DirtyRooms>špína: {0}</CF_SitR_DirtyRooms>
+  <CF_Sit_ResearchIdle>čas na výzkum</CF_Sit_ResearchIdle>
+  <CF_SitWhen_ResearchIdle>Kdy: je vybraný projekt, stojí výzkumný stůl, jídlo na 6+ dní a není žádná krize ani jiná situace. Výzkum na prioritě 2, jeden výzkumník na 4 kolonisty.</CF_SitWhen_ResearchIdle>
+  <CF_SitR_ResearchIdle>projekt {0}</CF_SitR_ResearchIdle>
+  <CF_Sit_TradeVisit>obchodníci tady</CF_Sit_TradeVisit>
+  <CF_SitWhen_TradeVisit>Kdy: na mapě je obchodní karavana, nebo je na oběžné dráze obchodní loď a stojí obchodní maják. Odnášení na prioritě 2, 2 nosiči, aby snesli zboží.</CF_SitWhen_TradeVisit>
+  <CF_SitR_TradeVisit>obchodníci čekají</CF_SitR_TradeVisit>
+  <CF_Sit_LowFuel>dochází palivo</CF_Sit_LowFuel>
+  <CF_SitWhen_LowFuel>Kdy: 2 a víc budov s automatickým doplňováním má pod 25 % paliva (generátory, pochodně, kamna …). Doplňování paliva (odnášení) na prioritě 1, jeden kolonista na 6 budov.</CF_SitWhen_LowFuel>
+  <CF_SitR_LowFuel>budov s málem paliva: {0}</CF_SitR_LowFuel>
+  <CF_Sit_MechThreat>mechanoidi nebo úl poblíž</CF_Sit_MechThreat>
+  <CF_SitWhen_MechThreat>Kdy: na mapě jsou budovy mechanoidů nebo hmyzí úly (ne během nájezdu). Stavění (obrana) na prioritě 2 se 2 kolonisty, kovářství na prioritě 2 s 1.</CF_SitWhen_MechThreat>
+  <CF_SitR_MechThreat>hrozeb: {0}</CF_SitR_MechThreat>
+  <CF_Sit_MoodSlipping>nálada klesá</CF_Sit_MoodSlipping>
+  <CF_SitWhen_MoodSlipping>Kdy: čtvrtina kolonistů (aspoň 2) je blízko hranice zhroucení, ještě před krizí „špatná nálada“. Vaření (lepší jídla), umění a úklid na prioritě 2, po 1 kolonistovi.</CF_SitWhen_MoodSlipping>
+  <CF_SitR_MoodSlipping>nešťastných kolonistů: {0}</CF_SitR_MoodSlipping>
+  <CF_Sit_Childcare>miminka potřebují péči</CF_Sit_Childcare>
+  <CF_SitWhen_Childcare>Kdy (Biotech): v kolonii jsou miminka. Péče o děti na prioritě 2 (1, když má miminko hlad), jeden pečovatel na 2 miminka.</CF_SitWhen_Childcare>
+  <CF_SitR_Childcare>miminek: {0}</CF_SitR_Childcare>
+  <CF_Sit_Pollution>znečištění k vyčištění</CF_Sit_Pollution>
+  <CF_SitWhen_Pollution>Kdy (Biotech): 20 a víc znečištěných políček v oblasti k čištění znečištění. Čištění znečištění na prioritě 2, jeden kolonista na 150 políček.</CF_SitWhen_Pollution>
+  <CF_SitR_Pollution>znečištěných políček: {0}</CF_SitR_Pollution>
+  <CF_Sit_Exhausted>vyčerpaní kolonisté</CF_Sit_Exhausted>
+  <CF_SitWhen_Exhausted>Kdy: kolonista je vzhůru a má odpočinek pod 15 %. Jeho práce s prioritou 1 klesne na 2 a situace ho nevybírají. Pozor: priority nikoho do postele nepošlou – kolonisté v hodinách „Práce“ v rozvrhu sami spát nejdou a zhroutí se na zemi; dej jim hodiny „Spánek“ nebo „Cokoliv“.</CF_SitWhen_Exhausted>
+  <CF_SitR_Exhausted>vyčerpaných: {0} – zkontroluj rozvrh (v hodinách „Práce“ spát nejdou)</CF_SitR_Exhausted>
+  <CF_Sit_Corpses>mrtvoly v základně</CF_Sit_Corpses>
+  <CF_SitWhen_Corpses>Kdy: 3 a víc mrtvol leží v domovské oblasti (ne během nájezdu). Odnášení mrtvol na prioritě 2, jeden kolonista na 6 mrtvol.</CF_SitWhen_Corpses>
+  <CF_SitR_Corpses>mrtvol: {0}</CF_SitR_Corpses>
+  <CF_PA_Enable>Prioritní oblasti (nabídka Příkazy)</CF_PA_Enable>
+  <CF_PA_Enable_Desc>V nabídce Příkazy přibude „Prioritní oblast“: označíš obdélník, vybereš, co se v něm má dělat, a nejbližší volní kolonisté přeruší běžnou práci a nejdřív udělají všechno uvnitř. Když je hotovo, oblast sama zmizí. Během nájezdu se pozastaví.</CF_PA_Enable_Desc>
+  <CF_PA_Workers>Kolonistů na jednu oblast: {0}</CF_PA_Workers>
+  <CF_PA_WorkersAll>Kolonistů na jednu oblast: všichni volní</CF_PA_WorkersAll>
+  <CF_PA_Workers_Desc>Kolik nejbližších volných kolonistů se do nové prioritní oblasti pošle. 0 = všichni volní.</CF_PA_Workers_Desc>
+  <CF_PA_Label>Prioritní oblast</CF_PA_Label>
+  <CF_PA_LabelMode>Prioritní oblast: {0}</CF_PA_LabelMode>
+  <CF_PA_Desc>Táhni obdélník přes místo, kde se má pracovat. Pak vybereš, co se má dělat (výchozí je vše: stavba, bourání, opravy, těžba, kácení, sklizeň, odnášení, úklid), jestli hned nebo až dodělají současnou práci, a kdo to udělá (automaticky nejbližší, nebo ručně vybraní). Jídlo, spánek a lékař mají dál přednost. Oblast zůstane, dokud v ní není všechno hotové; zrušit ji jde nástrojem „Zrušit prioritní oblast“.</CF_PA_Desc>
+  <CF_PA_ClearLabel>Zrušit prioritní oblast</CF_PA_ClearLabel>
+  <CF_PA_ClearDesc>Táhni přes prioritní oblast a zrušíš ji. Kolonisté se vrátí k běžné práci.</CF_PA_ClearDesc>
+  <CF_PA_Mode_All>vše</CF_PA_Mode_All>
+  <CF_PA_Mode_Build>stavba</CF_PA_Mode_Build>
+  <CF_PA_Mode_Mine>těžba</CF_PA_Mode_Mine>
+  <CF_PA_Mode_Plants>rostliny</CF_PA_Mode_Plants>
+  <CF_PA_Mode_Haul>odnášení</CF_PA_Mode_Haul>
+  <CF_PA_Mode_Clean>úklid</CF_PA_Mode_Clean>
+  <CF_PA_Mode_Emergency>záchrana</CF_PA_Mode_Emergency>
+  <CF_PA_Added>Prioritní oblast ({0}): {1} kolonistů, čeká {2} prací. Oblast zůstane, dokud není vše hotové.</CF_PA_Added>
+  <CF_PA_Done>Prioritní oblast ({0}) je hotová, kolonisté se vrací k běžné práci.</CF_PA_Done>
+  <CF_PA_Removed>Zrušeno prioritních oblastí: {0}.</CF_PA_Removed>
+  <CF_PA_Tag>Priorita: {0} ({1})</CF_PA_Tag>
+  <CF_PA_Paused>– pozastaveno (nepřítel)</CF_PA_Paused>
+  <CF_PA_AddedEmpty>Prioritní oblast ({0}) vytvořena, zatím v ní nic nečeká. Označ práci (stavbu, těžbu, kácení…) – {1} kolonistů ji udělá hned, jak se objeví.</CF_PA_AddedEmpty>
+  <CF_PA_DlgTitle>Prioritní oblast {0}×{1}</CF_PA_DlgTitle>
+  <CF_PA_DlgWork>Teď v oblasti čeká – stavba: {0}, těžba: {1}, rostliny: {2}, odnášení: {3}, úklid: {4}</CF_PA_DlgWork>
+  <CF_PA_DlgWhat>Co se má udělat:</CF_PA_DlgWhat>
+  <CF_PA_DlgWhen>Kdy:</CF_PA_DlgWhen>
+  <CF_PA_DlgNow>Hned – přeruší, co právě dělají</CF_PA_DlgNow>
+  <CF_PA_DlgLater>Později – až dodělají, co právě dělají</CF_PA_DlgLater>
+  <CF_PA_DlgWho>Kdo:</CF_PA_DlgWho>
+  <CF_PA_DlgAuto>Automaticky – {0} nejbližších volných</CF_PA_DlgAuto>
+  <CF_PA_DlgAutoAll>Automaticky – všichni volní</CF_PA_DlgAutoAll>
+  <CF_PA_DlgHand>Vybrat ručně (vybráno: {0})</CF_PA_DlgHand>
+  <CF_PA_DlgSkills>Stavba {0} · Těžba {1} · Rostliny {2}</CF_PA_DlgSkills>
+  <CF_PA_DlgCreate>Vytvořit oblast</CF_PA_DlgCreate>
+  <CF_Lodgers>Plánovat i hosty z úkolů</CF_Lodgers>
+  <CF_Lodgers_Desc>Hosté z úkolů (ubytovaní), kteří smějí pracovat, dostanou priority jako tvoji kolonisté. Nováčci (přijatí, přidaní, vyléčení, vrácení z karavany) dostanou priority do pár vteřin.</CF_Lodgers_Desc>
+  <CF_MedicalResponse>Lékařská pohotovost: doktoři hned k pacientům</CF_MedicalResponse>
+  <CF_MedicalResponse_Desc>Každý pacient, který potřebuje pomoc hned (krvácí, potřebuje ošetřit, leží zraněný mimo postel) a nikdo k němu nejde, dostane nejbližšího volného doktora – ten nechá běžnou práci a jde okamžitě. Vynucené příkazy, povolaní, spící a jedící kolonisté se nepřerušují. Krize „lékařská pohotovost“ se navíc pozná do pár vteřin, ne až při hodinové kontrole.</CF_MedicalResponse_Desc>
+  <CF_Crisis_Manhunters>šílená zvířata</CF_Crisis_Manhunters>
+  <CF_CrisisWhen_Manhunters>Kdy: na mapě jsou aspoň 2 šílená zvířata. Venkovní práce se omezí, kolonisté zůstávají uvnitř.</CF_CrisisWhen_Manhunters>
+  <CF_Crisis_Epidemic>epidemie</CF_Crisis_Epidemic>
+  <CF_CrisisWhen_Epidemic>Kdy: aspoň 2 lidé mají nakažlivou nemoc (chřipka, mor, malárie, spavá nemoc …).</CF_CrisisWhen_Epidemic>
+  <CF_Crisis_PrisonBreak>útěk vězňů / vzpoura otroků</CF_Crisis_PrisonBreak>
+  <CF_CrisisWhen_PrisonBreak>Kdy: vězni utíkají nebo se otroci bouří.</CF_CrisisWhen_PrisonBreak>
+  <CF_Crisis_DangerousBreak>nebezpečné zhroucení</CF_Crisis_DangerousBreak>
+  <CF_CrisisWhen_DangerousBreak>Kdy: kolonista je v berserku, žhářském šílenství nebo jiném nebezpečném zhroucení.</CF_CrisisWhen_DangerousBreak>
+  <CF_Crisis_IndoorTemp>zima nebo horko uvnitř</CF_Crisis_IndoorTemp>
+  <CF_CrisisWhen_IndoorTemp>Kdy: místnost s postelemi má pod -5 °C nebo nad 42 °C (rozbité topení, chladič …).</CF_CrisisWhen_IndoorTemp>
+  <CF_Crisis_NoBeds>pacienti bez postelí</CF_Crisis_NoBeds>
+  <CF_CrisisWhen_NoBeds>Kdy: zranění leží mimo postel a nemocničních (ani volných) postelí není dost.</CF_CrisisWhen_NoBeds>
+  <CF_Crisis_FreezerThaw>taje mrazák</CF_Crisis_FreezerThaw>
+  <CF_CrisisWhen_FreezerThaw>Kdy: mrazák (chladič nastavený pod nulu) má víc než 2 °C.</CF_CrisisWhen_FreezerThaw>
+  <CF_Crisis_Siege>obléhání</CF_Crisis_Siege>
+  <CF_CrisisWhen_Siege>Kdy: nepřítel staví u mapy obléhací tábor.</CF_CrisisWhen_Siege>
+  <CF_Crisis_Infestation>zamoření</CF_Crisis_Infestation>
+  <CF_CrisisWhen_Infestation>Kdy: v domovské oblasti nebo pod střechou jsou hmyzí úly.</CF_CrisisWhen_Infestation>
+  <CF_Crisis_RoofCollapse>hrozí zřícení stropu</CF_Crisis_RoofCollapse>
+  <CF_CrisisWhen_RoofCollapse>Kdy: vytěžením označené skály by střecha v domovské oblasti ztratila poslední podpěru. Těžba jde dolů.</CF_CrisisWhen_RoofCollapse>
+  <CF_Crisis_Death>smrt v kolonii</CF_Crisis_Death>
+  <CF_CrisisWhen_Death>Kdy: tělo kolonisty leží v domovské oblasti.</CF_CrisisWhen_Death>
+  <CF_Crisis_QuestDeadline>termín úkolu</CF_Crisis_QuestDeadline>
+  <CF_CrisisWhen_QuestDeadline>Kdy: běžícímu úkolu vyprší čas do jednoho dne.</CF_CrisisWhen_QuestDeadline>
+  <CF_Crisis_AnimalSick>nemoc zvířat</CF_Crisis_AnimalSick>
+  <CF_CrisisWhen_AnimalSick>Kdy: aspoň 2 tvá zvířata potřebují ošetřit.</CF_CrisisWhen_AnimalSick>
+  <CF_Crisis_Labor>porod</CF_Crisis_Labor>
+  <CF_CrisisWhen_Labor>Kdy: kolonistka rodí (Biotech).</CF_CrisisWhen_Labor>
+  <CF_Crisis_EntityEscape>útěk entity</CF_Crisis_EntityEscape>
+  <CF_CrisisWhen_EntityEscape>Kdy: bytost uteče z cely a je v domovské oblasti (Anomaly).</CF_CrisisWhen_EntityEscape>
+  <CF_Crisis_Darkness>nepřirozená tma</CF_Crisis_Darkness>
+  <CF_CrisisWhen_Darkness>Kdy: na mapě je nepřirozená tma (Anomaly).</CF_CrisisWhen_Darkness>
+  <CF_Crisis_VacuumBreach>únik vzduchu</CF_Crisis_VacuumBreach>
+  <CF_CrisisWhen_VacuumBreach>Kdy: kolonista je v místnosti bez vzduchu (Odyssey).</CF_CrisisWhen_VacuumBreach>
+  <CF_Crisis_ToxGas>toxický plyn</CF_Crisis_ToxGas>
+  <CF_CrisisWhen_ToxGas>Kdy: kolonista stojí v toxickém plynu.</CF_CrisisWhen_ToxGas>
+  <CF_Crisis_LowAmmo>dochází munice</CF_Crisis_LowAmmo>
+  <CF_CrisisWhen_LowAmmo>Kdy: se zapnutou municí Yayo's Combat je ve skladu méně než 30 nábojů na kolonistu.</CF_CrisisWhen_LowAmmo>
+  <CF_Crisis_WaterShortage>nedostatek vody</CF_Crisis_WaterShortage>
+  <CF_CrisisWhen_WaterShortage>Kdy: aspoň 2 kolonisté mají velkou žízeň (Dubs Bad Hygiene).</CF_CrisisWhen_WaterShortage>
+  <CF_Crisis_Hygiene>hygiena</CF_Crisis_Hygiene>
+  <CF_CrisisWhen_Hygiene>Kdy: aspoň 3 kolonisté jsou velmi špinaví (Dubs Bad Hygiene).</CF_CrisisWhen_Hygiene>
+  <CF_Crisis_NoFirefighters>žádní hasiči</CF_Crisis_NoFirefighters>
+  <CF_CrisisWhen_NoFirefighters>Kdy: v základně hoří a hašení má zapnuté méně než 2 lidé. Hašení dostanou všichni, kdo můžou.</CF_CrisisWhen_NoFirefighters>
+  <CF_Sit_StorageFull>plné sklady</CF_Sit_StorageFull>
+  <CF_SitWhen_StorageFull>Kdy: 15 a víc věcí v domovské oblasti nemá kam jít. Stavění na prioritě 2 (police, sklady).</CF_SitWhen_StorageFull>
+  <CF_SitR_StorageFull>věcí bez místa ve skladu: {0}</CF_SitR_StorageFull>
+  <CF_Sit_SowingBacklog>pole čekají na setí</CF_Sit_SowingBacklog>
+  <CF_SitWhen_SowingBacklog>Kdy: 40 a víc prázdných políček na polích v době růstu. Pěstování na prioritě 2.</CF_SitWhen_SowingBacklog>
+  <CF_SitR_SowingBacklog>prázdných políček k setí: {0}</CF_SitR_SowingBacklog>
+  <CF_Sit_NoBedroom>kolonisté bez postele</CF_Sit_NoBedroom>
+  <CF_SitWhen_NoBedroom>Kdy: kolonista nemá vlastní postel. Stavění na prioritě 2.</CF_SitWhen_NoBedroom>
+  <CF_SitR_NoBedroom>kolonistů bez postele: {0}</CF_SitR_NoBedroom>
+  <CF_Sit_UglyRooms>ošklivé pokoje</CF_Sit_UglyRooms>
+  <CF_SitWhen_UglyRooms>Kdy: aspoň 2 ložnice jsou ošklivé nebo špinavé (jen když je klid). Úklid a umění na prioritě 2, stavění na 3.</CF_SitWhen_UglyRooms>
+  <CF_SitR_UglyRooms>ošklivých pokojů: {0}</CF_SitR_UglyRooms>
+  <CF_Sit_LowJoy>málo zábavy</CF_Sit_LowJoy>
+  <CF_SitWhen_LowJoy>Kdy: aspoň 2 kolonisté mají rekreaci pod 30 %. Stavění a umění na prioritě 2.</CF_SitWhen_LowJoy>
+  <CF_SitR_LowJoy>kolonistů bez zábavy: {0}</CF_SitR_LowJoy>
+  <CF_Sit_Slaughter>zvířata k porážce</CF_Sit_Slaughter>
+  <CF_SitWhen_Slaughter>Kdy: aspoň 3 zvířata jsou označená k porážce. Ošetřování zvířat na prioritě 2.</CF_SitWhen_Slaughter>
+  <CF_SitR_Slaughter>zvířat k porážce: {0}</CF_SitR_Slaughter>
+  <CF_Sit_BarrelsReady>hotové sudy</CF_Sit_BarrelsReady>
+  <CF_SitWhen_BarrelsReady>Kdy: aspoň 2 kvasné sudy jsou hotové. Vybírání na prioritě 2.</CF_SitWhen_BarrelsReady>
+  <CF_SitR_BarrelsReady>hotových sudů: {0}</CF_SitR_BarrelsReady>
+  <CF_Sit_TextilePile>hromada látek a kůží</CF_Sit_TextilePile>
+  <CF_SitWhen_TextilePile>Kdy: 400 a víc látek a kůží ve skladu a čekající krejčovské zakázky (jen když je klid). Krejčovství na prioritě 2.</CF_SitWhen_TextilePile>
+  <CF_SitR_TextilePile>látek a kůží: {0}</CF_SitR_TextilePile>
+  <CF_Sit_WornGear>poškozené vybavení</CF_Sit_WornGear>
+  <CF_SitWhen_WornGear>Kdy: 10 a víc zbraní a oblečení ve skladu pod 60 % (jen s modem na opravy, jen když je klid). Výroba na prioritě 2.</CF_SitWhen_WornGear>
+  <CF_SitR_WornGear>poškozených kusů: {0}</CF_SitR_WornGear>
+  <CF_Sit_CaravanPrep>chystá se karavana</CF_Sit_CaravanPrep>
+  <CF_SitWhen_CaravanPrep>Kdy: formuje se karavana. Odnášení na prioritě 1, vaření na 2.</CF_SitWhen_CaravanPrep>
+  <CF_SitR_CaravanPrep>formuje se karavana</CF_SitR_CaravanPrep>
+  <CF_Sit_Gathering>oslava nebo rituál</CF_Sit_Gathering>
+  <CF_SitWhen_Gathering>Kdy: probíhá oslava nebo rituál. Vaření a úklid na prioritě 2.</CF_SitWhen_Gathering>
+  <CF_SitR_Gathering>oslava / rituál</CF_SitR_Gathering>
+  <CF_Sit_Guests>hosté v kolonii</CF_Sit_Guests>
+  <CF_SitWhen_Guests>Kdy: aspoň 2 návštěvníci nebo hosté z úkolů. Vaření a úklid na prioritě 2.</CF_SitWhen_Guests>
+  <CF_SitR_Guests>hostů: {0}</CF_SitR_Guests>
+  <CF_Sit_Snow>sníh k odklizení</CF_Sit_Snow>
+  <CF_SitWhen_Snow>Kdy: 60 a víc políček sněhu v oblasti k odklízení. Úklid na prioritě 2.</CF_SitWhen_Snow>
+  <CF_SitR_Snow>zasněžených políček: {0}</CF_SitR_Snow>
+  <CF_Sit_OrbitalTrade>obchodní loď na orbitě</CF_Sit_OrbitalTrade>
+  <CF_SitWhen_OrbitalTrade>Kdy: na orbitě je obchodní loď a máš obchodní maják. Odnášení na prioritě 2.</CF_SitWhen_OrbitalTrade>
+  <CF_SitR_OrbitalTrade>obchodní loď na orbitě</CF_SitR_OrbitalTrade>
+  <CF_Sit_ChunksOnFields>kameny na polích</CF_Sit_ChunksOnFields>
+  <CF_SitWhen_ChunksOnFields>Kdy: aspoň 5 kamenů nebo strusky leží na polích. Odnášení na prioritě 2.</CF_SitWhen_ChunksOnFields>
+  <CF_SitR_ChunksOnFields>kamenů na polích: {0}</CF_SitR_ChunksOnFields>
+  <CF_Sit_IdleBench>stoly bez pracovníka</CF_Sit_IdleBench>
+  <CF_SitWhen_IdleBench>Kdy: aspoň 3 stoly mají zakázky a nikdo u nich nepracuje. Ta výroba, která čeká nejvíc, dostane prioritu 2.</CF_SitWhen_IdleBench>
+  <CF_SitR_IdleBench>stolů bez pracovníka: {0}</CF_SitR_IdleBench>
+  <CF_FloorSleep>{0} spí na zemi: {1}</CF_FloorSleep>
+  <CF_FloorNoBeds>v kolonii není žádná postel pro kolonisty.</CF_FloorNoBeds>
+  <CF_FloorAllOwned>všechny postele už mají majitele – přiřaď mu postel nebo postav novou.</CF_FloorAllOwned>
+  <CF_FloorOwnBed>jeho postel ({0})</CF_FloorOwnBed>
+  <CF_FloorFreeBed>volná postel ({0})</CF_FloorFreeBed>
+  <CF_FloorForbidden>je zakázaná.</CF_FloorForbidden>
+  <CF_FloorArea>je mimo jeho povolenou oblast ({0}).</CF_FloorArea>
+  <CF_FloorUnreachable>je nedosažitelná (zamčené nebo zakázané dveře, zeď?).</CF_FloorUnreachable>
+  <CF_FloorReserved>má zabranou někdo jiný.</CF_FloorReserved>
+  <CF_FloorCantUse>nesmí ji použít (postel pro otroky/vězně, pohlaví, ideologie nebo mod na postele).</CF_FloorCantUse>
+  <CF_FloorDanger>je v nebezpečném místě (teplota, nepřátelé).</CF_FloorDanger>
+  <CF_FloorUnknown>nejde použít z neznámého důvodu (nejspíš jiný mod na postele).</CF_FloorUnknown>
+  <CF_TabExtras>Doplňky</CF_TabExtras>
+  <CF_RaidSafeArea>Bezpečná oblast při útoku</CF_RaidSafeArea>
+  <CF_RaidSafeArea_Desc>Při nájezdu, šílených zvířatech, obléhání, zamoření nebo útěku entity dostanou všichni nepovolaní kolonisté oblast „Steward: bezpečí“ (zastřešené uzavřené místnosti domova). Po konci útoku se jim vrátí jejich původní oblast.</CF_RaidSafeArea_Desc>
+  <CF_LightWork>Lehká práce pro zraněné</CF_LightWork>
+  <CF_LightWork_Desc>Kolonista s bolestí nebo zraněním dostane těžkou práci (těžba, stavba, nošení, kácení, lov, pěstování, kovářství) jen na nejnižší prioritu, dokud se nezlepší.</CF_LightWork_Desc>
+  <CF_MoodPassion>Práce pro radost při špatné náladě</CF_MoodPassion>
+  <CF_MoodPassion_Desc>Když je kolonista blízko zhroucení, práce s velkou vášní dostane o stupeň vyšší prioritu – hra za vášeň dává náladu.</CF_MoodPassion_Desc>
+  <CF_Learning>Učni na každou práci: {0}</CF_Learning>
+  <CF_Learning_Desc>Kolik kolonistů s vášní, ale malou dovedností dostane každou práci navíc, aby se učili. 0 = vypnuto.</CF_Learning_Desc>
+  <CF_LearningMax>Učit se do dovednosti: {0}</CF_LearningMax>
+  <CF_LearningMax_Desc>Nad touto úrovní už kolonista není učeň.</CF_LearningMax_Desc>
+  <CF_MasterBills>Mistr na kvalitní zakázky</CF_MasterBills>
+  <CF_MasterBills_Desc>Zakázky na zbraně a oblečení s kvalitou dělá jen nejlepší řemeslník dané práce (u zakázky uvidíš „Pracovník: jméno“). Neplatí pro práce, kde máš nastavené minimum 2 a víc kolonistů. Zakázky, kde jsi pracovníka vybral sám, se nemění. Po vypnutí se zakázky zase uvolní pro všechny.</CF_MasterBills_Desc>
+  <CF_AutoSchedule>Automatický rozvrh</CF_AutoSchedule>
+  <CF_AutoSchedule_Desc>Každý kolonista dostane rozvrh, který se přizpůsobuje: spánek 22–6, před spaním 1–5 hodin zábavy (víc, když mu chybí zábava nebo má špatnou náladu, méně, když je v pohodě), hodina po probuzení a hodina před zábavou „Cokoliv“, jinak práce. Noční sovy (a noční směna) spí 10–18. Když kolonistovi rozvrh změníš sám, Steward ho už nechá být.</CF_AutoSchedule_Desc>
+  <CF_NightShift>Noční směna</CF_NightShift>
+  <CF_NightShift_Desc>Při 6 a víc kolonistech dostane každý čtvrtý noční rozvrh, aby stoly a výzkum běžely nepřetržitě.</CF_NightShift_Desc>
+  <CF_SkillAlert>Upozornění na chybějící dovednosti</CF_SkillAlert>
+  <CF_SkillAlert_Desc>Upozorní, když na některé mapě kolonie nikdo (nebo jen jeden) nemůže doktorovat, vařit, stavět, pěstovat, hasit, dozorovat vězně nebo starat se o zvířata, a poradí vězně, které by stálo za to přijmout.</CF_SkillAlert_Desc>
+  <CF_ExtrasNote>Profily priorit a historii plánů najdeš jako tlačítka nahoře v záložce Práce.</CF_ExtrasNote>
+  <CF_SafeAreaName>Steward: bezpečí</CF_SafeAreaName>
+  <CF_SafeOn>Útok! {0} kolonistů má teď oblast „Steward: bezpečí“.</CF_SafeOn>
+  <CF_SafeOff>Útok skončil – {0} kolonistům se vrátila jejich oblast.</CF_SafeOff>
+  <CF_TipHurt>Zraněný – těžká práce jen na nejnižší prioritě.</CF_TipHurt>
+  <CF_TipMoodPassion>Špatná nálada – práce s vášní o stupeň výš.</CF_TipMoodPassion>
+  <CF_TipLearning>Učeň – má vášeň, učí se.</CF_TipLearning>
+  <CF_ProfilesButton>Profily</CF_ProfilesButton>
+  <CF_ProfilesTip>Uložit priority všech kolonistů jako profil nebo načíst uložený profil. Načtení vypne automatické plánování na této mapě, aby ho nepřepsalo.</CF_ProfilesTip>
+  <CF_ProfileSave>Uložit současné priority jako nový profil</CF_ProfileSave>
+  <CF_ProfileLoad>Načíst: {0}</CF_ProfileLoad>
+  <CF_ProfileDelete>Smazat: {0}</CF_ProfileDelete>
+  <CF_ProfileName>Profil {0} ({1})</CF_ProfileName>
+  <CF_ProfileSaved>Profil uložen: {0}</CF_ProfileSaved>
+  <CF_ProfileLoaded>Profil {0} načten ({1} priorit). Automatické plánování je na této mapě vypnuté.</CF_ProfileLoaded>
+  <CF_HistButton>Historie</CF_HistButton>
+  <CF_HistTip>Co správce kdy změnil a proč.</CF_HistTip>
+  <CF_HistTitle>Historie plánů</CF_HistTitle>
+  <CF_HistEmpty>Zatím žádný plán.</CF_HistEmpty>
+  <CF_HistManual>ručně</CF_HistManual>
+  <CF_HistChanged>změněno {0} priorit</CF_HistChanged>
+  <CF_HistCrisis>krize: {0}</CF_HistCrisis>
+  <CF_HistSit>situace: {0}</CF_HistSit>
+  <CF_GapLabel>Chybí dovednosti</CF_GapLabel>
+  <CF_GapNobody>{0}: nikdo to nedělá.</CF_GapNobody>
+  <CF_GapOnly>{0}: dělá to jen {1}.</CF_GapOnly>
+  <CF_GapRecruit>Vhodní vězni k přijetí: {0}.</CF_GapRecruit>
+  <CF_TipMinimum>Tvé minimum: aspoň {0} kolonisté na prioritě {1} (nebo lepší) u této práce. Když styl práci nechce, platí jeho úroveň místo 1.</CF_TipMinimum>
+  <CF_RecommendedAll>Vše na doporučené pro styl {0}</CF_RecommendedAll>
+  <CF_Recommended>Doporučeno: {0}</CF_Recommended>
+  <CF_Recommended_Desc>Nevíš, co nastavit? Tohle je hodnota, která nejlíp sedí aktuálnímu stylu kolonie.</CF_Recommended_Desc>
+  <CF_RecAuto>Měnit podle stylu</CF_RecAuto>
+  <CF_RecAuto_Desc>Když přepneš styl, interval, preference, síla stylu a specialisté se samy nastaví na doporučené hodnoty toho stylu.</CF_RecAuto_Desc>
+  <CF_AutoOptimized>Správce přepočítal práce ({1}): změněno {0} priorit.</CF_AutoOptimized>
+  <CF_AutoMessages>Oznámení o automatickém přepočtu</CF_AutoMessages>
+  <CF_AutoMessages_Desc>Krátká zpráva vlevo nahoře, když Správce sám přepočítá práce a něco změní.</CF_AutoMessages_Desc>
+  <CF_LastRun>Naposledy přepočítáno před: {0}</CF_LastRun>
+  <CF_NextRun>Další automatický přepočet za: {0} (dřív, když se změní práce, kolonisté nebo přijde krize)</CF_NextRun>
+  <CF_AutoOff>Automatický přepočet je vypnutý – zapni „Správce“.</CF_AutoOff>
+  <CF_Sit_SlaveSuppression>otroci potřebují potlačit</CF_Sit_SlaveSuppression>
+  <CF_SitWhen_SlaveSuppression>Kdy: otrok má potlačení pod 35 %. Dozorce na prioritě 2, při potlačení pod 15 % na prioritě 1.</CF_SitWhen_SlaveSuppression>
+  <CF_SitR_SlaveSuppression>otroků s nízkým potlačením: {0}</CF_SitR_SlaveSuppression>
+  <CF_Sit_SlaveRebellionRisk>hrozí vzpoura otroků</CF_Sit_SlaveRebellionRisk>
+  <CF_SitWhen_SlaveRebellionRisk>Kdy: některý otrok by mohl do měsíce začít vzpouru. Dozorce na prioritě 1, aspoň 2 kolonisté.</CF_SitWhen_SlaveRebellionRisk>
+  <CF_SitR_SlaveRebellionRisk>otroků se sklonem ke vzpouře: {0}</CF_SitR_SlaveRebellionRisk>
+  <CF_Sit_PrisonersHurt>zranění vězni</CF_Sit_PrisonersHurt>
+  <CF_SitWhen_PrisonersHurt>Kdy: vězeň potřebuje ošetřit. Doktor na prioritě 2.</CF_SitWhen_PrisonersHurt>
+  <CF_SitR_PrisonersHurt>vězňů k ošetření: {0}</CF_SitR_PrisonersHurt>
+  <CF_Sit_PrisonRelease>vězni k propuštění</CF_Sit_PrisonRelease>
+  <CF_SitWhen_PrisonRelease>Kdy: vězeň má nastavené propuštění. Dozorce na prioritě 2.</CF_SitWhen_PrisonRelease>
+  <CF_SitR_PrisonRelease>vězňů k propuštění: {0}</CF_SitR_PrisonRelease>
+  <CF_Sit_DirtyPrison>špinavá cela</CF_Sit_DirtyPrison>
+  <CF_SitWhen_DirtyPrison>Kdy: cela s vězněm je hodně špinavá. Úklid na prioritě 2.</CF_SitWhen_DirtyPrison>
+  <CF_SitR_DirtyPrison>špinavých cel: {0}</CF_SitR_DirtyPrison>
+  <CF_Sit_PrisonBeds>chybí postele pro vězně</CF_Sit_PrisonBeds>
+  <CF_SitWhen_PrisonBeds>Kdy: vězňů je víc než vězeňských postelí. Stavba na prioritě 2 (postav postele, správce je jen urychlí).</CF_SitWhen_PrisonBeds>
+  <CF_SitR_PrisonBeds>chybí vězeňských postelí: {0}</CF_SitR_PrisonBeds>
+  <CF_UrgentHaulFew>Urgentní odnášení jen pro pár kolonistů</CF_UrgentHaulFew>
+  <CF_UrgentHaulFew_Desc>Allow Tool: na „odnést urgentně“ dá správce prioritu 1 jen několika kolonistům (1 na každých 5 označených věcí, nejvýš třetina kolonie) – hlavně těm, kteří nemají jinou důležitou práci. Ostatní ho mají na úrovni běžného odnášení a nepřeruší kvůli tomu umění, výrobu ani výzkum.</CF_UrgentHaulFew_Desc>
+  <CF_TipPlanKept>Tvůj plán úrovní: {1} kolonistů na prioritě {0} (platí, dokud jsou zakázky; při krizi má přednost krize).</CF_TipPlanKept>
+  <CF_UseMyRules>Použít moje počty (plán úrovní a min/max kolonistů)</CF_UseMyRules>
+  <CF_UseMyRules_Desc>Vypnuto (výchozí): Správce si sám určí, kolik kolonistů a na jaké prioritě dělá kterou práci – podle počtu kolonistů, stolů se zakázkami, věcí k odnesení, špíny, plánů staveb, rostlin, vězňů … Zapnuto: platí navíc tvůj plán úrovní a min/max z těchto záložek.</CF_UseMyRules_Desc>
+  <CF_AutoStaff>Počet pracovníků podle množství práce</CF_AutoStaff>
+  <CF_AutoStaff_Desc>Správce spočítá, kolik lidí práce právě potřebuje: u výroby 1 na každý stůl se zakázkami (+1 při hodně zakázkách), odnášení podle věcí ležících venku, úklid podle špíny v domově, stavba podle plánů, těžba a kácení podle označení, pěstování podle polí, dozorci podle vězňů a otroků, výzkum podle stolů. Styl a krize ten počet ještě zvětší nebo zmenší.</CF_AutoStaff_Desc>
+  <CF_MyRulesOn>Tvoje počty jsou ZAPNUTÉ – plán úrovní a min/max níže se používají.</CF_MyRulesOn>
+  <CF_MyRulesOff>Tvoje počty jsou VYPNUTÉ – Správce určuje počty sám podle práce. Nastavení níže se uloží, ale nepoužívá se, dokud ho nahoře nezapneš.</CF_MyRulesOff>
+  <CF_Why_Load>Práce teď potřebuje {1} lidí → vybráno {0}.</CF_Why_Load>
+  <CF_PA_OnlyBalanced>Funguje jen ve stylu kolonie Vyvážený. V jiném stylu se prioritní oblasti skryjí a čekají, dokud nepřepneš zpět na Vyvážený.</CF_PA_OnlyBalanced>
+  <CF_PA_PauseHostile>Čeká: na mapě je nepřítel</CF_PA_PauseHostile>
+  <CF_PA_PauseCrisis>Čeká: {0}</CF_PA_PauseCrisis>
+  <CF_BP_Label>Prioritní stůl</CF_BP_Label>
+  <CF_BP_Desc>Kolonisti dělají zakázky na tomto stole dřív než na ostatních stolech stejné práce (řemeslo, kovářství, krejčovství, vaření…). Funguje mezi stoly stejného druhu práce; pořadí prací samo určuje karta Práce.</CF_BP_Desc>
+  <CF_BP_Giver>{0} u prioritního stolu</CF_BP_Giver>
+  <CF_BP_NotUsed>Od spuštění hry ho zatím nikdo jako prioritní nepoužil.</CF_BP_NotUsed>
+  <CF_BP_LastUse>Naposledy jako prioritní: {0}, před {1} h.</CF_BP_LastUse>
+  <CF_ChildLearning>Děti se učí</CF_ChildLearning>
+  <CF_ChildLearning_Desc>Biotech: děti mají práci jen na nejnižší úrovni, aby měly čas se učit. Když jim potřeba učení klesne pod 35 %, nedělají nic, dokud ji nedoplní (nad 85 %). Když se dítě potřebuje učit, dostane jeden dospělý péči o děti (výuku) – při velmi nízkém učení na prioritu 1.</CF_ChildLearning_Desc>
+  <CF_NoStorageAlert>Upozornit na věci, které nemá kam odnést</CF_NoStorageAlert>
+  <CF_NoStorageAlert_Desc>Když na zemi v domovské oblasti leží věc, kterou nepřijímá žádný sklad (filtr, priorita nebo je plno), správce na to jednou za den upozorní. Takovou věc nikdo neodnese, ani když ji označíš k odnesení.</CF_NoStorageAlert_Desc>
+  <CF_NoStorage>{0} ({1}×) leží na zemi a nikdo ho neodnese: žádný sklad ho nepřijímá nebo jsou plné. Povol ho ve filtru nějakého skladu.</CF_NoStorage>
+  <CF_TipChildLearn>Dítě se učí ({0} %) – zatím bez práce.</CF_TipChildLearn>
+  <CF_TipChildLight>Dítě – práce jen na nejnižší úrovni, ať má čas se učit (učení {0} %).</CF_TipChildLight>
+  <CF_Sit_ProductsWaiting>věci leží a čekají na odnesení</CF_Sit_ProductsWaiting>
+  <CF_SitWhen_ProductsWaiting>Kdy: v domovské oblasti leží 5 a víc věcí mimo sklad, které by nějaký sklad přijal (výrobky u stolů, kořist…). Odnášení na prioritě 2, jeden nosič na 15 věcí, aspoň 1.</CF_SitWhen_ProductsWaiting>
+  <CF_SitR_ProductsWaiting>věcí čeká na odnesení: {0}</CF_SitR_ProductsWaiting>
+  <CF_Style_Tidy>Úklid</CF_Style_Tidy>
+  <CF_StyleDesc_Tidy>Jen odnášení a uklízení.</CF_StyleDesc_Tidy>
+  <CF_AF_Tidy>věcí k odnesení: {0}, špíny: {1}</CF_AF_Tidy>
+  <!-- 2.39 -->
+  <CF_FireResponse>Požár: kolonisté jdou hasit hned</CF_FireResponse>
+  <CF_FireResponse_Desc>Každou sekundu pošle volné kolonisty se zapnutým hašením k nejbližšímu ohni, který nikdo nehasí – i v polích, skladech a u tvých budov (běžné hašení bere jen domovskou oblast). Rozkazy, odvedení, spící, jedoucí a ošetřující se nepřerušují.</CF_FireResponse_Desc>
+  <CF_ScheduleCare>Rozvrh hlídá vyčerpané a zhroucení</CF_ScheduleCare>
+  <CF_ScheduleCare_Desc>Kolonista s odpočinkem pod 15 % dostane aktuální a další hodinu jako „Spánek“; kolonista blízko zhroucení nebo s téměř prázdnou zábavou jako „Zábava“. Až je v pořádku (nebo hodiny uplynou), vrátí se rozvrh, jak byl – pokud jsi ho mezitím sám nezměnil. Funguje i bez automatického rozvrhu.</CF_ScheduleCare_Desc>
+  <CF_SchedTired>{0} je vyčerpaný – rozvrh: teď spánek.</CF_SchedTired>
+  <CF_SchedBreak>{0} je na pokraji zhroucení – rozvrh: teď zábava.</CF_SchedBreak>
+  <CF_Sit_AnimalTraining>výcvik zvířat</CF_Sit_AnimalTraining>
+  <CF_SitWhen_AnimalTraining>Kdy: aspoň jedno ochočené zvíře se dá právě teď cvičit (má co se učit, nebylo cvičeno nedávno) a někdo z kolonistů na něj má dost dovednosti. Ošetřování zvířat na prioritě 1 pro nejlepší chovatele, jeden na 5 zvířat.</CF_SitWhen_AnimalTraining>
+  <CF_SitR_AnimalTraining>zvířat čeká na výcvik: {0}</CF_SitR_AnimalTraining>
+  <!-- 2.39.2 -->
+  <CF_J_ClearTooBig>{0} – moc velká na vyčištění</CF_J_ClearTooBig>
+  <CF_J_ClearTooBigOff>Vyčistit oblast „{0}“ je moc velká (byla by to půlka mapy) – vypnuto a její značky ke kácení zrušeny. Na vyčištění si udělej malou oblast jen pro staveniště nebo protipožární pás.</CF_J_ClearTooBigOff>
+  <CF_J_ClearCancelled>Zrušeno značek ke kácení z čištění oblasti: {0}</CF_J_ClearCancelled>
+  <CF_StyleStrict>Styl řídí jen svoje práce</CF_StyleStrict>
+  <CF_StyleStrict_Desc>U zvoleného stylu (ne Vyvážený a Můj styl) se plánují jen práce, které styl upřednostňuje (šipky nahoru v popisu stylu). Všechny ostatní práce dostanou nejnižší prioritu (nebo se vypnou). Hašení, pacient, doktor, péče o děti, krize, situace, zamčené buňky a tvoje vlastní pravidla (plán úrovní, minimum, maximum) platí dál.</CF_StyleStrict_Desc>
+  <CF_StyleOthersOff>  Ostatní práce vypnout (ne jen nejnižší priorita)</CF_StyleOthersOff>
+  <CF_StyleOthersOff_Desc>Práce, které styl nemá, se úplně vypnou místo nejnižší priority. Nošení a úklid se nikdy nevypnou – zůstanou na nejnižší prioritě.</CF_StyleOthersOff_Desc>
+  <CF_TipStyleOther>Styl {0} tuhle práci nemá – priorita {1}.</CF_TipStyleOther>
+  <CF_TipStyleOff>Styl {0} tuhle práci nemá – vypnuto.</CF_TipStyleOff>
+  <CF_StyleStrictNote>Ostatní práce: nejnižší priorita.</CF_StyleStrictNote>
+  <CF_StyleStrictNoteOff>Ostatní práce: vypnuté (nošení a úklid na nejnižší prioritě).</CF_StyleStrictNoteOff>
+  <CF_Style_FieldsForest>Pole a les</CF_Style_FieldsForest>
+  <CF_StyleDesc_FieldsForest>Jen pole a les: pěstování a kácení stromů, obojí stejně důležité.</CF_StyleDesc_FieldsForest>
+  <CF_Style_Mining>Těžba</CF_Style_Mining>
+  <CF_StyleDesc_Mining>Jen těžba rudy a kamene, odnášení pomáhá.</CF_StyleDesc_Mining>
+  <CF_Style_Kitchen>Kuchyně</CF_Style_Kitchen>
+  <CF_StyleDesc_Kitchen>Vaření na prvním místě, lov a rybaření jen dodávají suroviny.</CF_StyleDesc_Kitchen>
+  <CF_Style_HuntFish>Lov a rybaření</CF_Style_HuntFish>
+  <CF_StyleDesc_HuntFish>Jídlo z divočiny: lov, rybaření a zpracování v kuchyni.</CF_StyleDesc_HuntFish>
+  <CF_Style_Tailoring>Krejčovství</CF_Style_Tailoring>
+  <CF_StyleDesc_Tailoring>Jen šití oblečení.</CF_StyleDesc_Tailoring>
+  <CF_Style_Smithing>Kovárna</CF_Style_Smithing>
+  <CF_StyleDesc_Smithing>Zbraně a nářadí z kovárny, trochu výroby.</CF_StyleDesc_Smithing>
+  <CF_Style_Art>Umění</CF_Style_Art>
+  <CF_StyleDesc_Art>Jen sochy a umělecká díla.</CF_StyleDesc_Art>
+  <CF_Style_Prison>Vězení</CF_Style_Prison>
+  <CF_StyleDesc_Prison>Vězni: verbování a zotročování, k tomu doktor.</CF_StyleDesc_Prison>
+  <CF_TipCrisisTop>Krize ({0}) má přednost před stylem – priorita 1.</CF_TipCrisisTop>
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Přepni nahoře na Pokročilý režim – vrátí se tvoje dřívější hodnoty.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+  <CF_ModeHeader>REŽIM STEWARDA</CF_ModeHeader>
+  <CF_Mode_Simple>Jednoduchý</CF_Mode_Simple>
+  <CF_Mode_Recommended>Doporučený</CF_Mode_Recommended>
+  <CF_Mode_Advanced>Pokročilý</CF_Mode_Advanced>
+  <CF_Mode_Simple_Card>Priority podle dovedností a vášní, jednou denně. Mění je jen nebezpečí.</CF_Mode_Simple_Card>
+  <CF_Mode_Recommended_Card>Klidně reaguje na potřeby kolonie. Žádné přeskakování priorit.</CF_Mode_Recommended_Card>
+  <CF_Mode_Advanced_Card>Všechno, co Steward umí – styly, situace a všechna nastavení.</CF_Mode_Advanced_Card>
+  <CF_Mode_Simple_Desc>Jednoduchý: Steward nastaví priority jednou denně podle dovedností a vášní. Zasáhne jen při skutečném nebezpečí (požár, nájezd, zranění) a pak vrátí vše zpátky. Bez stylů, situací a poptávky.</CF_Mode_Simple_Desc>
+  <CF_Mode_Recommended_Desc>Doporučený: jako Jednoduchý, ale klidně reaguje i na to, co kolonie potřebuje. Plánuje nejvýš každých 6 hodin, drobné změny ignoruje, nikoho nepřehodí dvakrát za půl dne a nebere nikoho od rozdělané práce. Krize si vezme lidi a pak je vrátí.</CF_Mode_Recommended_Desc>
+  <CF_Mode_Advanced_Desc>Pokročilý: všechno, co Steward umí – 22 stylů, situace, poptávka a všechna nastavení. Pro hráče, kteří chtějí ladit.</CF_Mode_Advanced_Desc>
+  <CF_ModeConfirm>Přepnout na režim {0}? Tvoje vlastní nastavení ({1} změn) se nahradí hodnotami režimu. Tvoje pravidla, profily a vypnuté krize zůstanou.</CF_ModeConfirm>
+  <CF_ModeGizmo>Steward: {0}</CF_ModeGizmo>
+  <CF_ModeGizmo_Desc>{0}\n\nKlikni a vyber jiný režim.</CF_ModeGizmo_Desc>
+  <CF_StyleSimple>Styly: vypnuté</CF_StyleSimple>
+  <CF_StyleSimple_Desc>V Jednoduchém režimu Steward styly nepoužívá. Přepni na Doporučený nebo Pokročilý režim.</CF_StyleSimple_Desc>
+  <CF_TipCalmSmall>Klidný režim: drobná změna, zůstává priorita {0}.</CF_TipCalmSmall>
+  <CF_TipCalmRecent>Klidný režim: měněno nedávno, zatím zůstává priorita {0}.</CF_TipCalmRecent>
+  <CF_TipLinked>Řídí se prací {0} (mod tuto práci oddělil).</CF_TipLinked>
+  <CF_SitToEat>Jíst u stolu a chodit na záchod</CF_SitToEat>
+  <CF_SitToEat_Desc>Hra hledá židli u stolu jen kousek od místa, kde kolonista vzal jídlo – jinak jí ve stoje. Kolonista doma teď hledá stůl dál (70 polí). Když ani tak žádný nenajde, nebo by se musel vyprázdnit na zem (Dubs Bad Hygiene), napíše se do zprávy a do logu proč – zakázané, mimo povolenou oblast, obsazené, vězeňská cela, nefunkční záchod…</CF_SitToEat_Desc>
+  <CF_ComfortEat>{0} jí ve stoje: {1}</CF_ComfortEat>
+  <CF_ComfortToilet>{0} nemůže na záchod: {1}</CF_ComfortToilet>
+  <CF_WhyNoTable>doma není žádná židle u stolu</CF_WhyNoTable>
+  <CF_WhyArea>je mimo jeho povolenou oblast „{0}“</CF_WhyArea>
+  <CF_WhyForbidden>je zakázané</CF_WhyForbidden>
+  <CF_WhyPrison>je ve vězeňské cele (nebo místnosti pro jiné)</CF_WhyPrison>
+  <CF_WhyReach>nedá se tam dojít</CF_WhyReach>
+  <CF_WhyReserved>má to zabrané {0}</CF_WhyReserved>
+  <CF_WhyFull>všechna místa jsou obsazená</CF_WhyFull>
+  <CF_WhyDanger>je tam nebezpečno (teplota, nepřítel)</CF_WhyDanger>
+  <CF_WhyFar>nejbližší je moc daleko ({0} polí)</CF_WhyFar>
+  <CF_WhyNoToilet>doma není žádný záchod</CF_WhyNoToilet>
+  <CF_WhyBroken>záchod nefunguje: {0}</CF_WhyBroken>
+  <CF_WhyNotAllowed>záchod není pro něj: {0}</CF_WhyNotAllowed>
+  <CF_WhyBusy>záchod je obsazený nebo moc daleko</CF_WhyBusy>
+  <CF_QuietMessages>Zprávy vlevo nahoře: jen to důležité</CF_QuietMessages>
+  <CF_QuietMessages_Desc>Vlevo nahoře se ukazují jen důležité zprávy: hrozby, smrt, zdraví, špatné události, varování a „tohle nejde“. Běžná oznámení (hotová práce, dobré a neutrální události, tiché zprávy modů) se neukazují, ale najdeš je v historii (Historie → Zprávy). Platí pro celou hru. Výchozí vypnuto.</CF_QuietMessages_Desc>
+  <CF_TabMessages>Zprávy a jídlo</CF_TabMessages>
+  <CF_MessagesNote>Tyhle volby jsou jen tvoje – žádný režim (Jednoduchý, Doporučený, Pokročilý) je nemění a nejsou zamčené.</CF_MessagesNote>
+  <CF_SchedMoreJoy>{0} nemá dost zábavy – rozvrh: {1} h zábavy denně.</CF_SchedMoreJoy>
+  <CF_SchedBored>{0} se nudí u většiny druhů zábavy – víc času na zábavu moc nepomůže; postav jiné druhy (hry, umění, televize, dalekohled, hezká místnost …).</CF_SchedBored>
+  <CF_ParentCare>Matky se starají o miminka, chůvy pomáhají</CF_ParentCare>
+  <CF_ParentCare_Desc>Matka dostane péči o děti na nejvyšší prioritu, dokud z miminka nebude dítě; její ostatní práce na nejvyšší prioritě se posune o stupeň níž, takže miminko má přednost. Miminka bez matky, která by se mohla starat (a třetí miminko jedné matky), dostanou chůvu – kolonistu, který je na to nejlepší (sociální dovednost, vášeň, málo hlavních prací). Potřebuje Biotech.</CF_ParentCare_Desc>
+  <CF_TipMother>Matka miminka – péče o dítě má přednost.</CF_TipMother>
+  <CF_TipNanny>Chůva – stará se o miminko, které nemá matku, jež by mohla.</CF_TipNanny>
+</LanguageData>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HS_SecHaul>Nošení</HS_SecHaul>
+  <HS_OtherHauler>Je zapnutý {0} – nošení více věcí najednou je v Haul Smarter vypnuté. Vypni {0}, ať to funguje.</HS_OtherHauler>
+  <HS_HaulMany>Nosit víc věcí najednou</HS_HaulMany>
+  <HS_MaxItems>Nejvíc věcí na jednu cestu: {0}</HS_MaxItems>
+  <HS_Radius>Hledat věci do vzdálenosti: {0} polí</HS_Radius>
+  <HS_BonusKg>Bonus nosnosti: +{0} kg</HS_BonusKg>
+  <HS_PocketHarvest>Sklizeň a dřevo rovnou do kapes</HS_PocketHarvest>
+  <HS_PocketMine>Vytěženou surovinu rovnou do kapes</HS_PocketMine>
+  <HS_UnloadAt>Vyložit, když jsou kapsy plné na: {0}</HS_UnloadAt>
+  <HS_ReportUnload>vykládá {0}.</HS_ReportUnload>
+  <HS_Profile>PROFIL NOŠENÍ</HS_Profile>
+  <HS_ProfileHint>Klikni na profil – nastaví všechno najednou. Když cokoli změníš, přepne se na Vlastní.</HS_ProfileHint>
+  <HS_ProfGame>Jako ve hře</HS_ProfGame>
+  <HS_ProfGame_Card>Jen víc věcí najednou, nic dalšího.</HS_ProfGame_Card>
+  <HS_ProfSmart>Chytrý</HS_ProfSmart>
+  <HS_ProfSmart_Card>Nejdřív to, co se kazí. Krátká trasa, věci cestou, stavění z kapes.</HS_ProfSmart_Card>
+  <HS_ProfMax>Maximum</HS_ProfMax>
+  <HS_ProfMax_Card>Plné kapsy, dlouhé trasy, cenné věci nejdřív.</HS_ProfMax_Card>
+  <HS_ProfCustom>Vlastní</HS_ProfCustom>
+  <HS_ProfCustom_Card>Nastav si každou položku.</HS_ProfCustom_Card>
+  <HS_HaulMany_Desc>Kolonista dojde ke každé věci v okolí, dá ji do kapes a pak všechno odnese do skladu. Sklad se vybírá pro každou věc zvlášť – funguje s regály i hlubokými sklady. Co se nikam nevejde, položí vedle sebe.</HS_HaulMany_Desc>
+  <HS_MaxItems_Desc>Kolik různých hromádek nejvíc sebere na jednu cestu.</HS_MaxItems_Desc>
+  <HS_Radius_Desc>Jak daleko od první věci se dívá po dalších.</HS_Radius_Desc>
+  <HS_SmartRoute>Chytrá trasa (sebrat po cestě, ne cik-cak)</HS_SmartRoute>
+  <HS_SmartRoute_Desc>Pořadí věcí se spočítá tak, aby cesta od kolonisty přes všechny věci až do skladu byla co nejkratší.</HS_SmartRoute_Desc>
+  <HS_Opportunistic>Brát věci cestou (opatrně)</HS_Opportunistic>
+  <HS_Opportunistic_Desc>Když kolonista někam jde nebo dodělá práci, vezme do kapes věc, která leží hned vedle něj a patří do skladu. Opatrně: jen sousední políčka, jedna hromádka a pak pauza, nikdy když spěchá (hašení, ošetřování, útěk, rozkaz) a nikdy přes polovinu nosnosti. Odnese to, až nemá co dělat nebo má plné kapsy.</HS_Opportunistic_Desc>
+  <HS_UnloadAt_Desc>U sklizně, těžby a věcí po jiné práci: při jakém zaplnění kapes jde kolonista vykládat.</HS_UnloadAt_Desc>
+  <HS_SecPrio>Co nosit dřív</HS_SecPrio>
+  <HS_PrioPerish>Jídlo, které se kazí</HS_PrioPerish>
+  <HS_PrioPerish_Desc>Věci, které hnijí a leží v teple (maso, úroda, hotová jídla).</HS_PrioPerish_Desc>
+  <HS_PrioWeather>Věci venku v dešti / u ohně</HS_PrioWeather>
+  <HS_PrioWeather_Desc>Věci, které venku pod širým nebem chátrají (léky, textil, zbraně…), a věci do 5 polí od ohně.</HS_PrioWeather_Desc>
+  <HS_PrioValuable>Cenné věci (zlato, uranium, artefakty)</HS_PrioValuable>
+  <HS_PrioValuable_Desc>Hromádky v ceně aspoň 300 stříbra.</HS_PrioValuable_Desc>
+  <HS_Prio0>Normálně</HS_Prio0>
+  <HS_Prio1>Dřív</HS_Prio1>
+  <HS_Prio2>Nejdřív</HS_Prio2>
+  <HS_SecPockets>Sklizeň a těžba</HS_SecPockets>
+  <HS_PocketHarvest_Desc>Kolonista sebere úrodu nebo dřevo, co leží hned u něj, pracuje dál a odnese to, až má plné kapsy nebo dodělá práci.</HS_PocketHarvest_Desc>
+  <HS_PocketMine_Desc>Kolonista sebere vytěžené kamení a rudu, co leží hned u něj, těží dál a odnese to, až má plné kapsy.</HS_PocketMine_Desc>
+  <HS_SecWeight>Váha</HS_SecWeight>
+  <HS_BonusKg_Desc>Kolik kilo unese navíc oproti hře (0 = jako ve hře).</HS_BonusKg_Desc>
+  <HS_Slowdown>Těžký náklad zpomaluje chůzi (realistické)</HS_Slowdown>
+  <HS_Slowdown_Desc>Nad polovinu nosnosti jde kolonista pomaleji – při plných kapsách o 15 %. Výchozí vypnuto.</HS_Slowdown_Desc>
+  <HS_ShowWeight>Ukazovat váhu u kolonisty (pruh nad hlavou)</HS_ShowWeight>
+  <HS_ShowWeight_Desc>Nad kolonistou, který nese věci do skladu, je malý pruh: zelený, oranžový, červený podle zaplnění. Při největším přiblížení i kila.</HS_ShowWeight_Desc>
+  <HS_SecInfo>Čas a přehled</HS_SecInfo>
+  <HS_ShowEta>Ukazovat váhu a odhad „za jak dlouho to odnese“</HS_ShowEta>
+  <HS_ShowEta_Desc>Po kliknutí na kolonistu je dole vidět, kolik nese, kolik věcí ještě sebere a za jak dlouho bude ve skladu.</HS_ShowEta_Desc>
+  <HS_Overview>Tlačítko „Nošení“ dole na liště</HS_Overview>
+  <HS_Overview_Desc>Okno s přehledem: co čeká na odnesení, kolik váží, co se kazí, kolik nosičů, za jak dlouho je hotovo a kdo kolik odnesl.</HS_Overview_Desc>
+  <HS_Highlight>Zvýraznit nevyklizené věci na mapě</HS_Highlight>
+  <HS_Highlight_Desc>Když je otevřené okno Nošení, věci čekající na odnesení jsou na mapě orámované – žlutě, a oranžově ty, co se kazí nebo leží v dešti.</HS_Highlight_Desc>
+  <HS_InfoNote>Statistiky (kdo kolik odnesl) se ukládají do hry. Počítá se nošení přes Haul Smarter.</HS_InfoNote>
+  <HS_StatLoad>Těžký náklad (Haul Smarter)</HS_StatLoad>
+  <HS_Carries>Nese: {0} / {1} kg ({2} ks)</HS_Carries>
+  <HS_Eta>do skladu za {0}</HS_Eta>
+  <HS_StillTake>ještě sebere {0}</HS_StillTake>
+  <HS_EtaNow>chvilku</HS_EtaNow>
+  <HS_EtaHours>~{0} h</HS_EtaHours>
+  <HS_OverviewTitle>Přehled nošení</HS_OverviewTitle>
+  <HS_OvWaiting>Čeká na odnesení: {0} hromádek · {1} kg</HS_OvWaiting>
+  <HS_OvHot>Z toho kazí se: {0} · venku v dešti / u ohně: {1} · cenné: {2}</HS_OvHot>
+  <HS_OvHaulers>Nosiči: {0} (právě nosí: {1})</HS_OvHaulers>
+  <HS_OvEta>Hotovo zhruba za {0} (kdyby jen nosili)</HS_OvEta>
+  <HS_OvEtaNone>Není co nosit nebo nikdo nemá zapnuté nošení.</HS_OvEtaNone>
+  <HS_OvToday>Dnes odneseno: {0} kg / {1} cest</HS_OvToday>
+  <HS_ColName>Kolonista</HS_ColName>
+  <HS_ColCarry>Nese teď</HS_ColCarry>
+  <HS_ColToday>Dnes</HS_ColToday>
+  <HS_ColTotal>Celkem</HS_ColTotal>
+  <HS_KgTrips>{0} kg / {1}×</HS_KgTrips>
+  <HS_BuildPockets>Stavět z věcí v kapsách</HS_BuildPockets>
+  <HS_BuildPockets_Desc>Když má kolonista v kapsách materiál, který stavba potřebuje (dřevo, ocel, kámen…), vytáhne ho a donese rovnou na stavbu – nemusí chodit do skladu.</HS_BuildPockets_Desc>
+</LanguageData>

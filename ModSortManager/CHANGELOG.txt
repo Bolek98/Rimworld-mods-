@@ -1,0 +1,37 @@
+Mod Sort Manager 0.1.3
+======================
+- New: Check before saving. When you save a changed mod list, Mod Sort Manager first looks for missing dependencies, new mods made only for older game versions, many new mods at once and things new mods need (build costs, recipes) that will not exist after the restart – the kind of error that makes the game reset your whole mod list. Fix it with one click, add only the first group of new mods (after the restart Mod Sort Manager offers the next group – one click adds it and restarts again), or save anyway. Can be turned off in the settings.
+- Mods you subscribe to, download or unsubscribe from while the game runs show up in the list within a second or two – no restart needed. Your unsaved order is kept, and active mods that are still updating are no longer dropped.
+
+Mod Sort Manager 0.1.2
+======================
+- New: Find the faulty mod (Problems tab). The game crashes or throws errors and you don't know why? Mod Sort Manager disables half of the suspect mods and restarts; you answer "still there / gone" in a small window in the main menu and it halves again – about 8 restarts for 200 mods. Libraries, DLCs and the game stay on, the error count since loading is shown, and your list is restored exactly at the end. It also checks that each step really loaded (a load error makes the game fall back) so a wrong answer can't spoil the result.
+- New: Order guard. After a start, Mod Sort Manager checks the mod list is the same as you last saved it. If another program, an update or the game changed it (e.g. the game resetting the list after a load error), you see what moved, was added or is missing, and restore your order with one click. Uninstalled mods and newly added DLCs don't raise a false alarm. Can be turned off in the settings.
+- New: Mods added in the last 7 days get a NEW tag and sit at the top of the inactive list (newest first). The date each mod was added is shown in its details and tooltip.
+- New: "Problems only" filter in the active list.
+- If one patch fails (another mod or a game update), the rest of Mod Sort Manager keeps working.
+
+Mod Sort Manager 0.1.1
+======================
+- Closing with unsaved changes now asks: save and restart, discard, or go back (before it only offered to discard).
+- The saved mod list is read back and checked; the result is written to the log.
+- New "Updates" tab: shows Workshop mods with a new version, update one or all with one click, and mods updated in the last 7 days.
+- Uploading through Mod Sort Manager also updates the Workshop description from About.xml (the game only sends it the first time).
+- New: "Upload to Workshop" button for your own local mods (main menu), and a "Mod settings" button.
+- The Mod Sort Manager button in the game's original window moved to the top right corner, and closing the original window returns to Mod Sort Manager.
+- New languages: Simplified Chinese, Russian, Ukrainian, German, French, Spanish, Brazilian Portuguese, Polish, Japanese, Korean. Simplified Chinese translation by 洛阳花落 (luoyang), the others are AI-assisted – corrections are welcome in the comments.
+
+Mod Sort Manager 0.1.0
+======================
+- First release.
+- The game's Mods button opens Mod Sort Manager (the original window is one click away).
+- Load order: inactive and active lists, search, drag and drop, move to top / bottom.
+- Smart sort: mods' own load rules and dependencies, Harmony first, Core and DLCs before other mods, your order kept where possible.
+- Problems: duplicate mod folders, missing dependencies, incompatible mods, wrong load order, mods for older game versions, mods doing the same thing (Harmony patch estimate).
+- Keep the newer copy of a duplicate with one click (the other copy is moved to a backup folder, Workshop copies are unsubscribed).
+- Profiles: save and load mod lists (the game's own mod list files).
+- Backup of ModsConfig.xml before every save (last 20), restore with one click.
+- Save and restart without quitting; optionally load the last save after the restart.
+- Optional Esc menu entry in a game (off by default): saves, restarts and returns you to your colony.
+- Steps aside when Fluffy's Mod Manager is active.
+- RimWorld 1.7 supported (works on 1.6 too).

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>HaulSmarterMany</defName>
+    <driverClass>HaulSmarter.JobDriver_HaulMany</driverClass>
+    <reportString>hauling several things.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
+  <JobDef>
+    <defName>HaulSmarterUnload</defName>
+    <driverClass>HaulSmarter.JobDriver_HaulMany</driverClass>
+    <reportString>unloading hauled things.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
+
+
+  <WorkGiverDef>
+    <defName>HaulSmarterUnloadPockets</defName>
+    <label>unload hauled things</label>
+    <giverClass>HaulSmarter.WorkGiver_UnloadPockets</giverClass>
+    <workType>Hauling</workType>
+    <priorityInType>200</priorityInType>
+    <verb>unload</verb>
+    <gerund>unloading</gerund>
+    <requiredCapacities><li>Manipulation</li></requiredCapacities>
+  </WorkGiverDef>
+  <WorkGiverDef>
+    <defName>HaulSmarterHaulMany</defName>
+    <label>haul several things at once</label>
+    <giverClass>HaulSmarter.WorkGiver_HaulMany</giverClass>
+    <workType>Hauling</workType>
+    <priorityInType>16</priorityInType>
+    <verb>haul</verb>
+    <gerund>hauling</gerund>
+    <requiredCapacities><li>Manipulation</li></requiredCapacities>
+  </WorkGiverDef>
+
+  <MainButtonDef>
+    <defName>HaulSmarterOverview</defName>
+    <label>hauling</label>
+    <description>Haul Smarter: what waits to be hauled, how long it will take and who hauled how much.</description>
+    <tabWindowClass>HaulSmarter.MainTabWindow_Haul</tabWindowClass>
+    <order>85</order>
+    <canBeTutorDenied>false</canBeTutorDenied>
+  </MainButtonDef>
+
+</Defs>

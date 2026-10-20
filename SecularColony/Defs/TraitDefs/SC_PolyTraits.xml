@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- defNames on purpose: RimJobWorld detects these as "Some Polyamory Mod" / "Some Polygamy Mod" -->
+  <TraitDef>
+    <defName>Polyamorous</defName>
+    <commonality>0.5</commonality>
+    <degreeDatas>
+      <li>
+        <label>polyamorous</label>
+        <description>[PAWN_nameDef] can love more than one person at a time, may have several partners and does not mind when a partner has others too.</description>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+  <TraitDef>
+    <defName>Polygamous</defName>
+    <commonality>0.35</commonality>
+    <degreeDatas>
+      <li>
+        <label>polygamous</label>
+        <description>[PAWN_nameDef] wants a big family, may marry more than one person and is happier with several spouses.</description>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+</Defs>

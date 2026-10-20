@@ -1,0 +1,8 @@
+Haul Smarter 3.0.1
+==================
+- RimWorld 1.7 supported (tested on 1.7; still works on 1.6).
+- Fix: things stayed in the pockets for too long, so cooks had no ingredients and nobody brought meals to patients or prisoners.
+  Food, medicine and drugs now go to storage within about 15 in-game minutes, everything else within an hour (after the current job;
+  harvesting and mining still fill the pockets first).
+- "Things on the way" never takes food, medicine or drugs any more.
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Auto Turrets</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.autoturrets</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>Every turret, mortar and gun emplacement – vanilla and from any mod – works without a colonist.
+
+- Turrets that need a colonist to man them shoot on their own (you can still aim them by hand).
+- Mortars fire automatically while loaded; haulers bring shells to them (Hauling work, respects the mortar's shell filter). They don't fire where shells could land on your people.
+- Turrets that rearm with steel (or another single metal) accept any metal: plasteel, gold, uranium, metals from mods (silver optional).
+
+Only your own turrets change – enemy siege mortars still need their crew. Everything can be switched in the mod settings. Safe to add to an existing save. Czech and English.</description>
+</ModMetaData>

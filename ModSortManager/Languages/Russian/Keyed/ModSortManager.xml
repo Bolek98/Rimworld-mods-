@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MSM_Activate>Включить {0}</MSM_Activate>
+  <MSM_ActivateShort>Включить</MSM_ActivateShort>
+  <MSM_Active>АКТИВНЫЕ · {0} (ПОРЯДОК ЗАГРУЗКИ)</MSM_Active>
+  <MSM_Backups>РЕЗЕРВНЫЕ КОПИИ СПИСКА МОДОВ</MSM_Backups>
+  <MSM_BackupsHint>Перед каждым сохранением создаётся резервная копия списка (последние 20). Загрузка только подготавливает список – сохраните его кнопкой ниже.</MSM_BackupsHint>
+  <MSM_Bottom>В конец</MSM_Bottom>
+  <MSM_BulletAside>Уступает место другому менеджеру модов</MSM_BulletAside>
+  <MSM_BulletBackup>Резервная копия списка перед каждым изменением</MSM_BulletBackup>
+  <MSM_BulletButton>Кнопка «Моды» открывает Mod Sort Manager</MSM_BulletButton>
+  <MSM_BulletEscOff>Пункт в меню Esc выключен</MSM_BulletEscOff>
+  <MSM_CloseAsk>В списке модов есть несохранённые изменения. Сохранить их?</MSM_CloseAsk>
+  <MSM_DiscardShort>Отменить изменения</MSM_DiscardShort>
+  <MSM_ModSettings>Настройки мода</MSM_ModSettings>
+  <MSM_Upload>Загрузить в Мастерскую</MSM_Upload>
+  <MSM_TabUpdates>Обновления</MSM_TabUpdates>
+  <MSM_UpdNoSteam>Steam не запущен – сейчас нельзя проверить обновления из Мастерской.</MSM_UpdNoSteam>
+  <MSM_UpdTitle>Ожидают обновления: {0} · загружается: {1}</MSM_UpdTitle>
+  <MSM_UpdAll>Обновить все ({0})</MSM_UpdAll>
+  <MSM_UpdCheck>Проверить снова</MSM_UpdCheck>
+  <MSM_UpdHint>Моды из Мастерской. После загрузки обновлений нужен перезапуск – кнопка ниже. Также показаны моды, обновлённые за последние 7 дней (если после обновления что-то сломалось, вы знаете, где искать).</MSM_UpdHint>
+  <MSM_UpdNeeds>доступна новая версия</MSM_UpdNeeds>
+  <MSM_UpdBusy>загрузка… {0} %</MSM_UpdBusy>
+  <MSM_UpdDone>загружено – после перезапуска</MSM_UpdDone>
+  <MSM_UpdRecent>обновлён {0}</MSM_UpdRecent>
+  <MSM_UpdOne>Обновить</MSM_UpdOne>
+  <MSM_UpdNone>✓ Всё актуально</MSM_UpdNone>
+  <MSM_Close>Закрыть</MSM_Close>
+  <MSM_CoreStays>Игра (Core) должна оставаться включённой.</MSM_CoreStays>
+  <MSM_CountActive>Активно: {0}</MSM_CountActive>
+  <MSM_CountErr>Ошибки: {0}</MSM_CountErr>
+  <MSM_CountInfo>Пересечения: {0}</MSM_CountInfo>
+  <MSM_CountWarn>Предупреждения: {0}</MSM_CountWarn>
+  <MSM_Deactivate>Выключить</MSM_Deactivate>
+  <MSM_DeactivateX>Выключить {0}</MSM_DeactivateX>
+  <MSM_Delete>Удалить</MSM_Delete>
+  <MSM_DeleteConfirm>Удалить сохранённый список «{0}»?</MSM_DeleteConfirm>
+  <MSM_DepInstalled>Необходимый мод установлен, но не включён.</MSM_DepInstalled>
+  <MSM_DepMissing>Необходимый мод не установлен. Без него мод работать не будет.</MSM_DepMissing>
+  <MSM_DepTitle>{0} требует {1}</MSM_DepTitle>
+  <MSM_Discard>Отменить несохранённые изменения в списке модов?</MSM_Discard>
+  <MSM_Done>Готово</MSM_Done>
+  <MSM_Download>Скачать</MSM_Download>
+  <MSM_DupActive>включён</MSM_DupActive>
+  <MSM_DupIgnored>игнорируется игрой</MSM_DupIgnored>
+  <MSM_DupInstalled>установлен</MSM_DupInstalled>
+  <MSM_DupLocalText>Один и тот же мод лежит в папке Mods несколько раз. Игра загружает только первую папку по алфавиту и молча пропускает остальные – никогда не знаешь, какая версия работает.</MSM_DupLocalText>
+  <MSM_DupNewest>НОВЕЕ</MSM_DupNewest>
+  <MSM_DupSteamText>Мод есть и в папке Mods, и в Мастерской. Обе копии видны в списке, и легко включить старую.</MSM_DupSteamText>
+  <MSM_DupTitle>{0} установлен {1}×</MSM_DupTitle>
+  <MSM_Folder>Папка</MSM_Folder>
+  <MSM_GrpBreak>Могут сломаться</MSM_GrpBreak>
+  <MSM_GrpDup>Дубликаты</MSM_GrpDup>
+  <MSM_GrpSame>Делают одно и то же</MSM_GrpSame>
+  <MSM_Inactive>НЕАКТИВНЫЕ · {0}</MSM_Inactive>
+  <MSM_IncText>Автор {0} сообщает, что они несовместимы. Оставьте включённым только один.</MSM_IncText>
+  <MSM_IncTitle>{0} × {1} – несовместимы</MSM_IncTitle>
+  <MSM_Info>Версия {0} · игра {1} · {2}</MSM_Info>
+  <MSM_KeepConfirm>Оставить:
+{0}
+
+Остальные копии будут перемещены в папку резервных копий (ничего не удаляется), от копий из Мастерской вы отпишетесь:
+{1}
+
+Вступит в силу после перезапуска.</MSM_KeepConfirm>
+  <MSM_KeepDone>Готово. Остальные копии находятся в {0}.</MSM_KeepDone>
+  <MSM_KeepFailed>Не удалось переместить эти копии:
+{0}
+
+Закройте игру и переместите их вручную. Папка резервных копий: {1}</MSM_KeepFailed>
+  <MSM_KeepNewest>Оставить новую</MSM_KeepNewest>
+  <MSM_Load>Загрузить</MSM_Load>
+  <MSM_LoadLastSave>Загрузить последнее сохранение после перезапуска</MSM_LoadLastSave>
+  <MSM_Loaded>Загружено модов: {0}. Сохраните кнопкой ниже.</MSM_Loaded>
+  <MSM_Missing>Список загружен, но отсутствуют моды (не установлены): {0}
+
+{1}</MSM_Missing>
+  <MSM_NoSaveConfirm>Сейчас нельзя сохранить игру (или возврат в игру выключен). После перезапуска вы окажетесь в главном меню, а несохранённый прогресс будет потерян. Продолжить?</MSM_NoSaveConfirm>
+  <MSM_NoBackups>Резервных копий пока нет.</MSM_NoBackups>
+  <MSM_NoProfiles>Сохранённых списков пока нет.</MSM_NoProfiles>
+  <MSM_NoReturnTip>Сейчас нельзя сохранить игру (режим одной жизни или идёт событие); после перезапуска вы окажетесь в главном меню.</MSM_NoReturnTip>
+  <MSM_None>✓ Ничего не найдено</MSM_None>
+  <MSM_NoteDep>Не хватает {0}</MSM_NoteDep>
+  <MSM_NoteDup>Установлен несколько раз</MSM_NoteDup>
+  <MSM_NoteInc>Несовместим с {0}</MSM_NoteInc>
+  <MSM_NoteOld>Только для {0}</MSM_NoteOld>
+  <MSM_NoteOrder>Неверный порядок</MSM_NoteOrder>
+  <MSM_NoteSame>Делает то же, что {0}</MSM_NoteSame>
+  <MSM_OldShort>только {0}</MSM_OldShort>
+  <MSM_OldText>Игра их загружает, и большинство работает, но они могут вызывать ошибки. Если что-то пойдёт не так, сначала выключите их.</MSM_OldText>
+  <MSM_OldTitle>Моды без поддержки {1}: {0}</MSM_OldTitle>
+  <MSM_OpenFolders>Открыть папки</MSM_OpenFolders>
+  <MSM_OpenNow>Открыть Mod Sort Manager</MSM_OpenNow>
+  <MSM_OrderAfter>{0} должен загружаться после {1}</MSM_OrderAfter>
+  <MSM_OrderBefore>{0} должен загружаться перед {1}</MSM_OrderBefore>
+  <MSM_OrderTitle>Неверный порядок загрузки ({0})</MSM_OrderTitle>
+  <MSM_ProfileBad>Не удалось загрузить список.</MSM_ProfileBad>
+  <MSM_ProfileNameHint>Название списка…</MSM_ProfileNameHint>
+  <MSM_ProfileSaved>Список «{0}» сохранён.</MSM_ProfileSaved>
+  <MSM_Profiles>СОХРАНЁННЫЕ СПИСКИ МОДОВ</MSM_Profiles>
+  <MSM_ProfilesHint>Те же файлы, что и в окне модов игры (сохранить/загрузить список) – они работают и без этого мода.</MSM_ProfilesHint>
+  <MSM_ReturnToGame>Вернуться в игру после перезапуска</MSM_ReturnToGame>
+  <MSM_Revert>Отменить всё</MSM_Revert>
+  <MSM_SameHint>оценка по патчам Harmony загруженных модов</MSM_SameHint>
+  <MSM_SameHot>Оба заменяют одну и ту же важную часть игры – достаточно одного</MSM_SameHot>
+  <MSM_SameText>Оба изменяют один и тот же код игры</MSM_SameText>
+  <MSM_SaveFailed>Не удалось сохранить список модов: {0}</MSM_SaveFailed>
+  <MSM_SaveProfile>Сохранить текущий</MSM_SaveProfile>
+  <MSM_SaveRestart>Сохранить и перезапустить</MSM_SaveRestart>
+  <MSM_SaveReturn>Сохранить, перезапустить и вернуться в игру</MSM_SaveReturn>
+  <MSM_SearchActiveHint>Поиск среди активных…</MSM_SearchActiveHint>
+  <MSM_SearchHint>Поиск: мод, автор, ID…</MSM_SearchHint>
+  <MSM_SecWhere>Где найти</MSM_SecWhere>
+  <MSM_SelectHint>Выберите мод слева.</MSM_SelectHint>
+  <MSM_SetEsc>Пункт в игровом меню Esc</MSM_SetEsc>
+  <MSM_SetEscTip>Mod Sort Manager можно открыть и во время игры. При сохранении игра сохраняется, перезапускается, и вы возвращаетесь в неё.</MSM_SetEscTip>
+  <MSM_SetReplace>Кнопка «Моды» открывает Mod Sort Manager</MSM_SetReplace>
+  <MSM_SetReplaceTip>Оригинальное окно остаётся доступным по кнопке «Оригинальное окно». Если запущен другой менеджер модов (Fluffy's Mod Manager), этот мод уступает ему место.</MSM_SetReplaceTip>
+  <MSM_Show>Показать {0}</MSM_Show>
+  <MSM_SmartSort>Умная сортировка</MSM_SmartSort>
+  <MSM_SortCycle>Правила модов противоречат друг другу (цикл: A перед B и B перед A). Сортировка невозможна – исправьте порядок вручную.</MSM_SortCycle>
+  <MSM_Sorted>Отсортировано.</MSM_Sorted>
+  <MSM_SrcLocal>Папка Mods</MSM_SrcLocal>
+  <MSM_SrcOfficial>игра / DLC</MSM_SrcOfficial>
+  <MSM_SrcSteam>Мастерская</MSM_SrcSteam>
+  <MSM_Subtitle>Порядок загрузки, конфликты и профили · v{0} · Bolek98</MSM_Subtitle>
+  <MSM_SumActive>Активно: {0} · игра {1}</MSM_SumActive>
+  <MSM_SumBackup>Перед каждым сохранением старый список сохраняется в резервную копию – см. вкладку «Профили».</MSM_SumBackup>
+  <MSM_SumBackupTitle>Резервная копия</MSM_SumBackupTitle>
+  <MSM_SumCompat>Поддерживают {1}: {0}</MSM_SumCompat>
+  <MSM_SumOld>Только старые версии: {0} – игра их загружает, большинство работает</MSM_SumOld>
+  <MSM_SumRestartGame>Сохранить → игра сохраняется, перезапускается, и вы возвращаетесь в эту игру.</MSM_SumRestartGame>
+  <MSM_SumRestartMenu>Сохранить → игра перезапускается сама. По желанию загружает последнее сохранение.</MSM_SumRestartMenu>
+  <MSM_SumRestartTitle>Изменения без выхода из игры</MSM_SumRestartTitle>
+  <MSM_Summary>СВОДКА</MSM_Summary>
+  <MSM_TabOrder>Порядок загрузки</MSM_TabOrder>
+  <MSM_TabProblems>Проблемы</MSM_TabProblems>
+  <MSM_TabProfiles>Профили</MSM_TabProfiles>
+  <MSM_Top>В начало</MSM_Top>
+  <MSM_Unsub>отписаться</MSM_Unsub>
+  <MSM_Vanilla>Оригинальное окно</MSM_Vanilla>
+  <MSM_Web>Страница мода</MSM_Web>
+  <MSM_Workshop>Страница в Мастерской</MSM_Workshop>
+  <MUI_Title>Рекомендуемые настройки</MUI_Title>
+  <MUI_TitleOff>Рекомендуемые настройки · выкл.</MUI_TitleOff>
+  <MUI_DescOn>Мод настраивается сам и сразу работает. Идеально для новичков и всех, кто не хочет ничего настраивать.</MUI_DescOn>
+  <MUI_DescOff>Свои настройки. Изменено по сравнению с рекомендуемыми: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Свои настройки. Пока совпадают с рекомендуемыми.</MUI_DescOffSame>
+  <MUI_On>ВКЛ.</MUI_On>
+  <MUI_Off>ВЫКЛ.</MUI_Off>
+  <MUI_ResetAll>Сбросить всё на рекомендуемые</MUI_ResetAll>
+  <MUI_ConfirmOn>Включить рекомендуемые настройки? Ваши изменения ({0}) будут заменены рекомендуемыми значениями.</MUI_ConfirmOn>
+  <MUI_Locked>Подробные настройки заблокированы. Хотите их изменить? Выключите переключатель выше – ваши значения начнутся с рекомендуемых.</MUI_Locked>
+  <MUI_Changed>ИЗМЕНЕНО</MUI_Changed>
+  <MUI_ChangedTip>Отличается от рекомендуемого значения ({0}). Нажмите, чтобы восстановить рекомендуемое значение.</MUI_ChangedTip>
+  <MUI_Yes>вкл.</MUI_Yes>
+  <MUI_No>выкл.</MUI_No>
+  <MUI_RecTag>РЕКОМЕНДУЕТСЯ</MUI_RecTag>
+  <MSM_New>НОВЫЙ</MSM_New>
+  <MSM_OnlyProblems>Только проблемные ({0})</MSM_OnlyProblems>
+  <MSM_SetGuard>Следить за порядком модов</MSM_SetGuard>
+  <MSM_SetGuardTip>После запуска игры Mod Sort Manager проверяет, совпадает ли список модов с тем, который вы сохранили в последний раз. Если его изменила другая программа, обновление или сама игра, вы увидите, что изменилось, и одним нажатием вернёте свой порядок.</MSM_SetGuardTip>
+  <MSM_GuardText>Список модов отличается от того, который вы сохранили в последний раз – он был изменён вне игры или при запуске.
+
+{0}
+
+Вернуть ваш порядок?</MSM_GuardText>
+  <MSM_GuardMoved>Перемещено: {0}</MSM_GuardMoved>
+  <MSM_GuardAdded>Добавлено: {0}</MSM_GuardAdded>
+  <MSM_GuardRemoved>Удалено или отсутствует: {0}</MSM_GuardRemoved>
+  <MSM_GuardRestore>Вернуть мой порядок</MSM_GuardRestore>
+  <MSM_GuardKeep>Оставить так</MSM_GuardKeep>
+  <MSM_BisectCardTitle>Игра вылетает или выдаёт ошибки?</MSM_BisectCardTitle>
+  <MSM_BisectCardText>Mod Sort Manager находит сломанный мод делением пополам: выключает половину модов, перезапускает игру, а вы говорите, осталась ли проблема. Для 200 модов – около 8 перезапусков.</MSM_BisectCardText>
+  <MSM_BisectStart>Найти сломанный мод</MSM_BisectStart>
+  <MSM_BisectMenuOnly>Доступно только из главного меню.</MSM_BisectMenuOnly>
+  <MSM_BisectFew>Недостаточно модов для проверки. Библиотеки, нужные другим модам, DLC и игра всегда остаются включёнными.</MSM_BisectFew>
+  <MSM_BisectConfirm>Найти сломанный мод
+
+Mod Sort Manager выключит половину подозреваемых модов (всего: {0}) и перезапустит игру. После каждого запуска проверьте, осталась ли проблема, и ответьте в маленьком окне в главном меню. Перезапусков: около {1}.
+
+Библиотеки, нужные другим модам, DLC и игра остаются включёнными. В конце список модов будет восстановлен точно таким, как сейчас.
+
+Важно: не сохраняйте колонию во время проверки – без половины модов она может повредиться. Проверяйте в новой колонии или просто следите за ошибками при запуске.
+
+Начать?</MSM_BisectConfirm>
+  <MSM_BisectTitle>Поиск сломанного мода</MSM_BisectTitle>
+  <MSM_BisectStep>Шаг {0} · осталось подозреваемых: {1} · ещё перезапусков: около {2}</MSM_BisectStep>
+  <MSM_BisectEnabled>Сейчас включено подозреваемых модов: {0} из {1}. Проблема осталась?</MSM_BisectEnabled>
+  <MSM_BisectNoSave>Не сохраняйте колонию во время проверки.</MSM_BisectNoSave>
+  <MSM_BisectErrors>Ошибок в логе с момента загрузки модов: {0}</MSM_BisectErrors>
+  <MSM_BisectLog>Открыть лог</MSM_BisectLog>
+  <MSM_BisectStill>Осталась</MSM_BisectStill>
+  <MSM_BisectGone>Исчезла</MSM_BisectGone>
+  <MSM_BisectCancel>Отменить и вернуть моды</MSM_BisectCancel>
+  <MSM_BisectFound>Виновник: {0}</MSM_BisectFound>
+  <MSM_BisectFoundText>Проблема указывает на этот мод. Для уверенности выключите его – если проблема исчезнет, дело в нём. Если нет, проблему могут вызывать два мода вместе или библиотека.</MSM_BisectFoundText>
+  <MSM_BisectDisable>Выключить его, вернуть остальные</MSM_BisectDisable>
+  <MSM_BisectRestore>Вернуть все моды</MSM_BisectRestore>
+  <MSM_BisectRunning>Идёт поиск сломанного мода – в списке сейчас только проверяемая половина. Отменить поиск и вернуть все ваши моды (игра перезапустится)?</MSM_BisectRunning>
+  <MSM_BisectMismatch>Игра запустилась не с модами этого шага – вероятно, какой-то мод не загрузился и игра откатилась, или список изменили в другом месте. Ответ был бы неверным. Примените этот шаг ещё раз или отмените поиск.</MSM_BisectMismatch>
+  <MSM_BisectReapply>Применить снова</MSM_BisectReapply>
+  <MSM_BisectNotFound>Не удалось завершить поиск. Верните все моды и попробуйте снова.</MSM_BisectNotFound>
+  <MSM_Added>Добавлен: {0}</MSM_Added>
+  <MSM_ListRefreshed>Список модов обновлён после загрузки из Steam ({0} модов).</MSM_ListRefreshed>
+  <MSM_PS_Title>Проверка перед сохранением</MSM_PS_Title>
+  <MSM_PS_Checking>Проверяю, что нужно модам… {0} / {1} модов</MSM_PS_Checking>
+  <MSM_PS_Deps>Отсутствующие зависимости</MSM_PS_Deps>
+  <MSM_PS_DepLine>{0} требует {1} – {2}</MSM_PS_DepLine>
+  <MSM_PS_DepOff>установлен, но выключен</MSM_PS_DepOff>
+  <MSM_PS_DepNone>не установлен</MSM_PS_DepNone>
+  <MSM_PS_Old>Для старой версии игры</MSM_PS_Old>
+  <MSM_PS_OldLine>{0} – только до {1}</MSM_PS_OldLine>
+  <MSM_PS_Refs>Требуют вещи, которых не будет</MSM_PS_Refs>
+  <MSM_PS_RefLine>{0}: {1} требует «{2}»</MSM_PS_RefLine>
+  <MSM_PS_RefCrash>, может остановить загрузку игры</MSM_PS_RefCrash>
+  <MSM_PS_MoreLines>… и ещё {0}</MSM_PS_MoreLines>
+  <MSM_PS_Many>{0} новых модов сразу</MSM_PS_Many>
+  <MSM_PS_ManyText>Если что-то сломается, трудно понять, какой мод виноват. Добавляйте их {0} группами – следующая группа будет предложена при следующем открытии Mod Sort Manager.</MSM_PS_ManyText>
+  <MSM_PS_FixDeps>Включить недостающие ({0})</MSM_PS_FixDeps>
+  <MSM_PS_OffBad>Выключить проблемные моды ({0})</MSM_PS_OffBad>
+  <MSM_PS_FirstGroup>Сейчас только группу 1 ({0} модов)</MSM_PS_FirstGroup>
+  <MSM_PS_SaveAnyway>Всё равно сохранить</MSM_PS_SaveAnyway>
+  <MSM_PS_Back>Назад к списку</MSM_PS_Back>
+  <MSM_PS_NextGroup>Ждёт следующая группа новых модов ({0}):\n{1}\n\nДобавить сейчас?</MSM_PS_NextGroup>
+  <MSM_PS_AddGroup>Добавить группу и перезапустить</MSM_PS_AddGroup>
+  <MSM_PS_Later>Позже</MSM_PS_Later>
+  <MSM_PS_DropQueue>Отменить остальное</MSM_PS_DropQueue>
+  <MSM_SetPreSave>Проверка перед сохранением</MSM_SetPreSave>
+  <MSM_SetPreSaveTip>Перед сохранением изменённого списка: отсутствующие зависимости, моды для старых версий, много новых модов сразу и вещи, нужные новым модам, которых не будет.</MSM_SetPreSaveTip>
+</LanguageData>

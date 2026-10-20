@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AP_Enabled>Doctors give drugs on their own</AP_Enabled>
+  <AP_Enabled_Desc>Doctors (Doctor work) give colonists the drug that helps them, by how serious the problem is.</AP_Enabled_Desc>
+  <AP_Notify>Message when a drug is given</AP_Notify>
+  <AP_Notify_Desc>A short message: who gave what to whom and why.</AP_Notify_Desc>
+  <AP_Prisoners>Prisoners too</AP_Prisoners>
+  <AP_Prisoners_Desc>Give drugs to prisoners too.</AP_Prisoners_Desc>
+  <AP_UseMood>Mood drugs before a breakdown</AP_UseMood>
+  <AP_UseMood_Desc>A colonist whose mood is below the break threshold gets a mood drug.</AP_UseMood_Desc>
+  <AP_UseRest>Stimulants when exhausted</AP_UseRest>
+  <AP_UseRest_Desc>A colonist on the edge of exhaustion who is not sleeping gets a stimulant.</AP_UseRest_Desc>
+  <AP_PainFrom>Painkillers from pain: {0} %</AP_PainFrom>
+  <AP_PainFrom_Desc>From how much pain a painkiller is given. More pain = stronger drug.</AP_PainFrom_Desc>
+  <AP_MinHours>Same drug again after: {0} h</AP_MinHours>
+  <AP_MinHours_Desc>For drugs without a lasting effect: how long to wait before giving the same drug again. Drugs with a lasting effect are not given while it lasts.</AP_MinHours_Desc>
+  <AP_Addictive_Label>Addictive drugs</AP_Addictive_Label>
+  <AP_AddictiveMode0>never</AP_AddictiveMode0>
+  <AP_AddictiveMode1>only when life is in danger</AP_AddictiveMode1>
+  <AP_AddictiveMode2>by how serious it is</AP_AddictiveMode2>
+  <AP_AddictiveHelp>The drug is chosen by how serious it is: a mild, cheap drug for small troubles, the strongest for serious ones. A drug whose effect still lasts is not given again.</AP_AddictiveHelp>
+  <AP_ListHead>Drugs in the game and what they do ({0}). Untick those doctors should not use:</AP_ListHead>
+  <AP_Cures>cures: {0}</AP_Cures>
+  <AP_Addictive>addictive {0} %</AP_Addictive>
+  <AP_Given>{0} gave {1} → {2} ({3})</AP_Given>
+  <AP_Need_Pain>pain</AP_Need_Pain>
+  <AP_Need_Immunity>immunity</AP_Need_Immunity>
+  <AP_Need_Cure>cure</AP_Need_Cure>
+  <AP_Need_Bleeding>bleeding</AP_Need_Bleeding>
+  <AP_Need_BloodLoss>blood loss</AP_Need_BloodLoss>
+  <AP_Need_Consciousness>consciousness</AP_Need_Consciousness>
+  <AP_Need_Breathing>breathing</AP_Need_Breathing>
+  <AP_Need_BloodPumping>blood pumping</AP_Need_BloodPumping>
+  <AP_Need_BloodFiltration>blood filtration</AP_Need_BloodFiltration>
+  <AP_Need_Moving>moving</AP_Need_Moving>
+  <AP_Need_Rest>tiredness</AP_Need_Rest>
+  <AP_Need_Mood>mood</AP_Need_Mood>
+  <AP_Need_Critical>life in danger</AP_Need_Critical>
+  <AP_AutoCare>Medical care level by how serious it is</AP_AutoCare>
+  <AP_AutoCare_Desc>Bandages and medicine for tending: herbal for small injuries, industrial for illness and bigger injuries, the best when life is in danger. Colonists set to "no care" are left alone.</AP_AutoCare_Desc>
+  <AP_CarePharmacist>Medical care level (bandages, tending medicine) is handled by Pharmacist.</AP_CarePharmacist>
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+  <AP_CombatDrugs>Combat drugs for fighters</AP_CombatDrugs>
+  <AP_CombatDrugs_Desc>A drafted colonist with enemies close takes one combat drug (Go-juice, Wake-up…) – from his inventory, or from a stack a few steps away when no enemy is near. Never with a chance of addiction, never twice within the set time, not for teetotalers, children or against their ideology. Can be switched off per colonist with a button.</AP_CombatDrugs_Desc>
+  <AP_CombatHours>At most one dose per {0} h</AP_CombatHours>
+  <AP_CombatHours_Desc>How long a colonist waits before taking another combat drug.</AP_CombatHours_Desc>
+  <AP_CombatTaken>{0} took {1} before the fight.</AP_CombatTaken>
+  <AP_CombatGizmo>Combat drugs</AP_CombatGizmo>
+  <AP_CombatGizmo_Desc>On: this colonist takes a combat drug in a fight when it is safe (no chance of addiction).\nOff: this colonist never does.</AP_CombatGizmo_Desc>
+  <AP_Rec1>Doctors give the right drug by how serious it is</AP_Rec1>
+  <AP_Rec2>Addictive drugs only when life is in danger</AP_Rec2>
+  <AP_Rec3>Fighters use combat drugs sensibly in a fight</AP_Rec3>
+  <AP_Rec4>Medical care level by the injuries</AP_Rec4>
+  <AP_Need_Manipulation>hands</AP_Need_Manipulation>
+  <AP_Need_Sight>sight</AP_Need_Sight>
+  <AP_Need_Prevention>prevention</AP_Need_Prevention>
+  <AP_Need_Contraception>contraception</AP_Need_Contraception>
+  <AP_Need_Fertility>fertility</AP_Need_Fertility>
+  <AP_UsePrevention>Prevention for everyone</AP_UsePrevention>
+  <AP_UsePrevention_Desc>Drugs that protect against illness (penoxycyline and the like) are given regularly, a little before the last dose runs out.</AP_UsePrevention_Desc>
+  <AP_UseChronic>Help with long-term troubles</AP_UseChronic>
+  <AP_UseChronic_Desc>For a bad back, cataract, frailty or old wounds: a drug that helps moving, hands or sight.</AP_UseChronic_Desc>
+  <AP_Plan0>Children: no plan</AP_Plan0>
+  <AP_Plan1>Children: no (contraception)</AP_Plan1>
+  <AP_Plan2>Children: wanted (fertility)</AP_Plan2>
+  <AP_Plan_Desc>Click to change. No: a doctor gives contraception regularly. Wanted: a fertility drug when there is one. Adults (18+) only, never during pregnancy.</AP_Plan_Desc>
+</LanguageData>

@@ -1,0 +1,20 @@
+Research Fixer 0.2.0
+====================
+- New (optional, off by default): Mark newly researched things. With hundreds of mods it is hard to tell what a research just unlocked – now everything it unlocked gets a green NEW mark in the workbench "Add bill" menu and a green dot in the Architect menu. The mark disappears when you make or build the thing for the first time. Settings → Research Fixer → Extras.
+- Yet Another Research Tree (YART) support: the Research Fixer button is now in YART's bottom bar (next to zoom and settings) – before it was only in the vanilla research window.
+- If one patch fails (another mod or a game update), the rest of the mod keeps working.
+
+Research Fixer 0.1.1
+====================
+- The Research Fixer button is now always visible in the research window (top right of the left panel), also with research UI mods.
+
+Research Fixer 0.1.0
+====================
+- First release.
+- Finds industrial and higher weapons, armor and buildings from mods that can be made without any research.
+- Creates new research projects per mod and era in a new "Mod research" tab, connected to the right vanilla research.
+- Finds things whose research is two or more eras below them and adds the right vanilla research.
+- Nothing changes until you check the list and press Apply; every group and fix can be skipped; mod files are never changed.
+- Button in the research window and in the mod settings.
+- Works with World at Your Level and Smart Colonist Gear.
+- RimWorld 1.7 supported (works on 1.6 too).

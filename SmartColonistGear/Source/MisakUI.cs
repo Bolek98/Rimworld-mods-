@@ -397,7 +397,7 @@ namespace ResearchedLoadout
             }
             catch (Exception e)
             {
-                Log.Warning("[" + modType.Name + "] bigger settings window: " + e.Message);
+                MLog.Warn("[" + modType.Name + "] bigger settings window: " + e.Message);
             }
         }
 

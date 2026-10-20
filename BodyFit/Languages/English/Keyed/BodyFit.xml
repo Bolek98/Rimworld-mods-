@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BF_TabGeneral>General</BF_TabGeneral>
+  <BF_TabBodies>Body types</BF_TabBodies>
+  <BF_TabRaces>Races</BF_TabRaces>
+  <BF_Intro>Fixes heads, bodies and clothes for every race and body type in the game, vanilla and modded. Changes are visible at once.</BF_Intro>
+  <BF_FixHeads>Fix heads in the middle of the body</BF_FixHeads>
+  <BF_FixHeads_Desc>Body types without a head position (often from mods) get the head position of the most similar vanilla body. Your own positions (tab Body types) always win.</BF_FixHeads_Desc>
+  <BF_FixBodies>Repair bodies that cannot be drawn</BF_FixBodies>
+  <BF_FixBodies_Desc>A pawn whose body type has no body picture, or whose alien race does not have that body type, gets the most similar body type that works. Checked when a pawn appears and every 3 in-game hours.</BF_FixBodies_Desc>
+  <BF_FixApparel>Clothes without a picture for the body</BF_FixApparel>
+  <BF_FixApparel_Desc>If a piece of clothing has no picture for the wearer's body, the picture of the most similar body is used (Hulk → Male → Fat …). No pink squares, no invisible clothes.</BF_FixApparel_Desc>
+  <BF_FitApparel>Fit borrowed clothes to the body</BF_FitApparel>
+  <BF_FitApparel_Desc>The outline of both bodies is traced from their pictures; borrowed clothes are stretched and moved to cover the wearer's body exactly.</BF_FitApparel_Desc>
+  <BF_RepairNow>Check all pawns now</BF_RepairNow>
+  <BF_RepairDone>Body Fit: {0} pawns repaired.</BF_RepairDone>
+  <BF_Report>Report (Player.log)</BF_Report>
+  <BF_ReportTip>Writes every body type, race and missing clothes picture to Player.log – send it if something still looks wrong.</BF_ReportTip>
+  <BF_ReportDone>Body types: {0} (no body picture: {1}, no head position: {2})
+Humanlike races: {3}
+Clothes drawn on the body: {4}
+Pawns repaired: {5}
+
+The full list is in Player.log.</BF_ReportDone>
+  <BF_BodiesHead>Every body type in the game. Height = how high the head sits, Side = sideways (east/west view). − / + by 0.01, with Shift by 0.05. Your value is used for every race with this body.</BF_BodiesHead>
+  <BF_RacesHead>Every humanlike race. Height = extra head height. Hair height/size for hair, beards and hats. Weapon height. Fit clothes automatically = trace and fit clothes to this race's body (turn off if clothes of a race look wrong). Clothes width/height = your own size of body clothes for this race. − / + by 0.01, with Shift by 0.05.</BF_RacesHead>
+  <BF_NoBodyTex>no body picture</BF_NoBodyTex>
+  <BF_NoHead>no head position</BF_NoHead>
+  <BF_Ok>ok</BF_Ok>
+  <BF_HeadUp>Height</BF_HeadUp>
+  <BF_HeadSide>Side</BF_HeadSide>
+  <BF_Reset>Reset</BF_Reset>
+  <BF_Repaired>Body Fit: {0} – body {1} replaced by {2} (it could not be drawn).</BF_Repaired>
+  <BF_FixHair>Hair with no picture</BF_FixHair>
+  <BF_FixHair_Desc>A hair style whose picture is missing (removed mod, broken path) is drawn as a short vanilla hair instead of a pink square. The pawn's hair style is not changed.</BF_FixHair_Desc>
+  <BF_FitHair>Fit hair to the head (alien races)</BF_FitHair>
+  <BF_FitHair_Desc>Hair pictures are made for human heads. The outline of the head really drawn is traced and compared with a human head; hair is stretched and moved to cover it. Turn off if hair of some race looks too big or small (that race fits hair itself).</BF_FitHair_Desc>
+  <BF_HairUp>Hair height</BF_HairUp>
+  <BF_HairSize>Hair size</BF_HairSize>
+  <BF_Fallback>Replacement: {0}</BF_Fallback>
+  <BF_Auto>automatic</BF_Auto>
+  <BF_FallbackTip>Which body's clothes pictures are used when a piece of clothing has none for this body (e.g. FemaleBB → Female). Automatic = the most similar body. Borrowed clothes are always fitted to the outline of this body.</BF_FallbackTip>
+  <BF_FitAll>Fit all clothes and armor to the real body</BF_FitAll>
+  <BF_FitAll_Desc>Every piece of body clothing and armor is stretched and moved onto the outline of the body the pawn really has – alien races, modded bodies, FemaleBB … Pictures made especially for a race are left as they are. Vanilla humans: no change. Alien races only when their body is a human-like body (same shape in every view); bodies with tentacles, tails, wings or auras keep their clothes exactly as the race mod draws them, small (chibi) bodies get clothes scaled to their size.</BF_FitAll_Desc>
+  <BF_FitHeadgear>Fit hats and helmets to the real head</BF_FitHeadgear>
+  <BF_FitHeadgear_Desc>Hats, helmets and masks are made for human heads; they are fitted to the outline of the head the pawn really has (alien races).</BF_FitHeadgear_Desc>
+  <BF_FitWeapons>Hold weapons at the real body</BF_FitWeapons>
+  <BF_FitWeapons_Desc>Weapons, shields and packs are placed for a human body. For bodies whose picture sits higher or lower, they follow the centre of the real body. Mods that draw weapons themselves (e.g. Yayo's Combat) may skip this.</BF_FitWeapons_Desc>
+  <BF_WeaponUp>Weapon height</BF_WeaponUp>
+  <BF_RaceFit>Fit clothes automatically</BF_RaceFit>
+  <BF_ClothesW>Clothes width</BF_ClothesW>
+  <BF_ClothesH>Clothes height</BF_ClothesH>
+  <BF_Refit>Refit clothes and armor to the body – humans and body mods (FemaleBB, Beautiful Bodies …)</BF_Refit>
+  <BF_Refit_Desc>Clothes and armor are redrawn row by row to follow the real outline of the body (Beautiful Bodies, FemaleBB, race bodies …). The body stays as it is. Long coats and capes stay long. Clothes a body or race mod already drew for that body, and Sized Apparel, are left alone.</BF_Refit_Desc>
+  <BF_RefitAliens>Refit clothes on alien races too (experimental)</BF_RefitAliens>
+  <BF_RefitAliens_Desc>The same refitting for Humanoid Alien Races. Alien bodies are often very different from the body the clothes were drawn for, so the result can look wrong – check it in the Preview tab. Only races whose body is practically a human body are refitted; all others are left as the race mod draws them.</BF_RefitAliens_Desc>
+  <BF_RefitSides>Refit side views too</BF_RefitSides>
+  <BF_RefitSides_Desc>Also refit the side pictures. Turn off if side views look odd.</BF_RefitSides_Desc>
+  <BF_RefitHeight>Match body height too</BF_RefitHeight>
+  <BF_RefitHeight_Desc>If a body is taller or shorter (longer legs, other shoulders), clothes are stretched in height too.</BF_RefitHeight_Desc>
+  <BF_RefitCore>Armor and vests follow the trunk</BF_RefitCore>
+  <BF_RefitCore_Desc>Clothes without sleeves (plates, vests, trousers) are measured by the trunk only, not the arms. Long coats and clothes with sleeves follow the whole body.</BF_RefitCore_Desc>
+  <BF_RefitHeads>Refit hair, beards and helmets to the head (experimental)</BF_RefitHeads>
+  <BF_RefitHeads_Desc>Hair, beards, hats and helmets are redrawn to the shape of the race's head (wider, narrower, shifted). Human heads stay as the game draws them.</BF_RefitHeads_Desc>
+  <BF_TabClothes>Clothes</BF_TabClothes>
+  <BF_TabPreview>Preview</BF_TabPreview>
+  <BF_RaceBody>Body for clothes: {0}</BF_RaceBody>
+  <BF_RaceBody_Desc>Which body this race's clothes are refitted to. Automatic = the body the pawn really has.</BF_RaceBody_Desc>
+  <BF_ClothesHead>Your own setting for each piece of clothing – for every pawn and every save. Offset and size: Shift = bigger steps.</BF_ClothesHead>
+  <BF_ClothesWornOnly>Only what someone wears now</BF_ClothesWornOnly>
+  <BF_ClothesNone>Nothing found.</BF_ClothesNone>
+  <BF_ItemHide>Hide</BF_ItemHide>
+  <BF_ItemHide_Desc>This piece of clothing is not drawn (the pawn still wears it).</BF_ItemHide_Desc>
+  <BF_ItemRefit>Refit</BF_ItemRefit>
+  <BF_ItemRefit_Desc>Turn off if this piece looks worse refitted.</BF_ItemRefit_Desc>
+  <BF_ItemSide>Sideways</BF_ItemSide>
+  <BF_ItemUp>Up</BF_ItemUp>
+  <BF_PreviewNoGame>The preview works only in a running game with pawns on the map.</BF_PreviewNoGame>
+  <BF_PreviewRefresh>Refresh</BF_PreviewRefresh>
+  <BF_PreviewInfo>Body: {0} · refitted pictures: {1}. If some are not ready yet, click Refresh.</BF_PreviewInfo>
+  <BF_North>Back</BF_North>
+  <BF_East>Side</BF_East>
+  <BF_South>Front</BF_South>
+  <BF_West>Other side</BF_West>
+  <BF_Before>before</BF_Before>
+  <BF_After>after</BF_After>
+  <BF_RaceOn_Desc>Body Fit changes this race (heads, bodies, clothes, hair, weapons). Off = the race is drawn exactly as its own mod draws it.</BF_RaceOn_Desc>
+  <BF_RaceOff>Not changed – drawn exactly as its race mod draws it. Tick the box to let Body Fit fix this race.</BF_RaceOff>
+  <BF_TabWardrobe>Wardrobe</BF_TabWardrobe>
+  <BF_WardrobeHead>A copy of any pawn tries on any clothing, armour or headgear – drawn exactly as in play. Tick to wear, click a row to select it and fix it below (for every pawn in every save).</BF_WardrobeHead>
+  <BF_WardrobeModel>Model: {0} ({1}, {2})</BF_WardrobeModel>
+  <BF_WardrobeNaked>Take off all</BF_WardrobeNaked>
+  <BF_WardrobeReset>Model's own clothes</BF_WardrobeReset>
+</LanguageData>

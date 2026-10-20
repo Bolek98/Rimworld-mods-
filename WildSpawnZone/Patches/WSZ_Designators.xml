@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/DesignationCategoryDef[defName="Zone"]/specialDesignatorClasses</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/DesignationCategoryDef[defName="Zone"]/specialDesignatorClasses</xpath>
+      <value>
+        <li>WildSpawnZone.Designator_WildSpawnExpand</li>
+        <li>WildSpawnZone.Designator_WildSpawnClear</li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/DesignationCategoryDef[defName="Zone"]</xpath>
+      <value>
+        <specialDesignatorClasses>
+          <li>WildSpawnZone.Designator_WildSpawnExpand</li>
+          <li>WildSpawnZone.Designator_WildSpawnClear</li>
+        </specialDesignatorClasses>
+      </value>
+    </nomatch>
+  </Operation>
+</Patch>

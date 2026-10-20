@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Smooth FPS – Performance &amp; Graphics</name>
+  <author>Bolek98</author>
+  <packageId>misak.graphicstuner</packageId>
+  <modVersion>1.3.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <incompatibleWith>
+    <li>bolek98.smoothframes</li>
+  </incompatibleWith>
+  <description>Smooth FPS keeps RimWorld smooth – at every game speed, in big colonies and on weaker PCs. Built for RimWorld 1.7, works on 1.6 too.
+
+It really works: the picture stays smooth at full speed instead of stuttering, and hitches get shorter. On weaker PCs the difference is especially big.
+
+SMOOTHNESS
+- Simulation budget at every speed (1× to 4×): the game no longer spends the whole frame on ticks – you choose the target FPS and the mod holds it. Each speed can have its own target FPS and simulation limit, e.g. a smooth 90 FPS at 1× and more game speed at 4×.
+- Higher FPS while you move the camera or build, more game speed while you only watch, all power to the game when it runs in the background.
+- Smooth camera, fewer map rebuilds per frame, alerts checked less often at high speed.
+- Smart FPS target: lowers itself when the PC can't keep up (90 → 75 → 60) and climbs back when there is room – a steady rhythm instead of jumping.
+- High-speed mode for 4× and faster (Smart Speed and similar): even fewer effects, alerts and weather overlays.
+
+MEMORY &amp; FREEZES
+- Replaces Fewer Freezes. On 1.7 memory is cleaned in the background and big clean-ups that stop the game are avoided while you play; on 1.6 a per-frame clean-up. Clean-ups while paused and after saving, freeze meter, memory display, low-memory warning.
+
+GRAPHICS
+- Profiles: Performance, Balanced, Quality, Custom – one click.
+- Fewer effects (smoke, sparks, dust), automatically fewer at speed 3 and whenever FPS drops.
+- No weapons and effects when zoomed far out, optional rain/snow overlay off, plant sway.
+- V-Sync, FPS limit (also unlimited), lower FPS in background, display mode (1.7).
+
+TOOLS
+- What slows the game: 30 seconds at the speed you play (also 4×) – shows the 10 slowest mods and the 10 slowest things or functions.
+- Performance report in one click: PC, map, FPS/TPS, settings and results in one text – paste it into a comment when asking for help.
+- 60-second benchmark at the speed you play – shows average FPS, worst frames, game speed and recommends a profile.
+- Hitch finder: writes to the log which mod caused a freeze.
+- FPS / TPS display with a simulation vs. drawing bar.
+- Faster log on 1.7, optional garbage collector mode, no big memory clean-up during event generation.
+
+COMPATIBILITY
+- Do not combine with other mods that take over the game's tick loop or game speed (Smooth Frames, Multiplayer, RocketMan, Performance Fish, TPS/speed mods). If you use one, turn off "Keep the picture smooth (simulation budget)" in the Smoothness tab. Smooth FPS steps aside by itself if game time stops moving, and tries again 20 s later.
+- Other graphics mods that also reduce effects or set the FPS limit / V-Sync work, but use only one of them for each setting so they do not fight.
+- Safe with performance mods that only speed up code (Performance Optimizer, Dubs Performance Analyzer).
+
+Replaces Smooth Frames and Fewer Freezes – disable them. Safe to add to an existing save. Czech and English.
+
+—————————————————————
+ČESKY
+—————————————————————
+
+Smooth FPS drží RimWorld plynulý – na každé rychlosti hry, ve velkých koloniích a na slabších počítačích. Pro RimWorld 1.7, funguje i na 1.6.
+
+Opravdu to funguje: obraz zůstává plynulý i na plnou rychlost místo sekání a záseky jsou kratší. Na slabších počítačích je rozdíl obzvlášť velký.
+
+PLYNULOST
+- Rozpočet simulace na každé rychlosti (1× až 4×): hra už nespotřebuje celý snímek na tiky – vybereš cílové FPS a mod ho drží. Každá rychlost může mít vlastní cíl FPS a limit simulace, třeba plynulých 90 FPS na 1× a víc rychlosti hry na 4×.
+- Vyšší FPS, když hýbeš kamerou nebo stavíš, víc rychlosti hry, když se jen díváš, plný výkon hře, když běží na pozadí.
+- Plynulá kamera, méně přestavování mapy za snímek, upozornění kontrolovaná při vysoké rychlosti méně často.
+- Chytrý cíl FPS: když počítač nestíhá, sám se sníží (90 → 75 → 60) a až je rezerva, vrátí se – stálý rytmus místo skákání.
+- Režim vysoké rychlosti pro 4× a rychleji (Smart Speed a podobné): ještě méně efektů, upozornění a počasí.
+
+PAMĚŤ A ZÁSEKY
+- Nahrazuje Fewer Freezes. Na 1.7 se paměť uklízí na pozadí a během hraní se vyhýbá velkým úklidům, které zastaví hru; na 1.6 průběžný úklid každý snímek. Úklid při pauze a po uložení, měřič záseků, okénko s pamětí, varování při nedostatku paměti.
+
+GRAFIKA
+- Profily: Výkon, Vyvážený, Kvalita, Vlastní – jedním klikem.
+- Méně efektů (kouř, jiskry, prach), automaticky méně na rychlosti 3 a když FPS klesne.
+- Žádné zbraně a efekty při velkém oddálení, volitelně bez deště a sněhu, kývání rostlin.
+- V-Sync, limit FPS (i neomezeně), nižší FPS na pozadí, režim zobrazení (1.7).
+
+NÁSTROJE
+- Co brzdí hru: 30 sekund na rychlosti, na které hraješ (i 4×) – ukáže 10 nejpomalejších modů a 10 nejpomalejších věcí nebo funkcí.
+- Zpráva o výkonu jedním klikem: počítač, mapa, FPS/TPS, nastavení a výsledky v jednom textu – vlož ji do komentáře, když chceš poradit.
+- 60sekundový test výkonu na tvé rychlosti – průměrné FPS, nejhorší snímky, rychlost hry a doporučený profil.
+- Hledač záseků: zapíše do logu, který mod hru zasekl.
+- Ukazatel FPS / TPS s lištou simulace vs. kreslení.
+- Rychlejší log na 1.7, volitelný režim garbage collectoru, žádný velký úklid paměti při generování událostí.
+
+KOMPATIBILITA
+- Nekombinuj s jinými mody, které přebírají tikání hry nebo rychlost (Smooth Frames, Multiplayer, RocketMan, Performance Fish, mody na TPS a rychlost). Pokud nějaký používáš, vypni v záložce Plynulost „Hlídat plynulost obrazu (rozpočet na simulaci)“. Když se herní čas zastaví, Smooth FPS se sám na chvíli stáhne a za 20 s to zkusí znovu.
+- Jiné grafické mody, které také ubírají efekty nebo nastavují limit FPS / V-Sync, fungují – jen pro každé nastavení používej jeden, ať se nepřetahují.
+- Bezpečné s mody, které jen zrychlují kód (Performance Optimizer, Dubs Performance Analyzer).
+
+Nahrazuje Smooth Frames a Fewer Freezes – ty vypni. Lze přidat do rozehrané hry. Česky a anglicky.</description>
+</ModMetaData>

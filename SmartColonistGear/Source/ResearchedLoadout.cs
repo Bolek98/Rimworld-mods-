@@ -104,7 +104,7 @@ namespace ResearchedLoadout
 			}
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
-			Log.Message("[Smart Colonist Gear] v2.13.0 loaded.");
+			MLog.Game("[Smart Colonist Gear] v2.15.1 loaded (messages: Logs\\SmartColonistGear.log).");
 		}
 
 		public override string SettingsCategory()
@@ -118,7 +118,7 @@ namespace ResearchedLoadout
 		{
 			bool useRecipes = Settings.useRecipes;
 			// 2.13.0: recommended settings card on top
-			MUI.Version(inRect, "v2.13.0 · Bolek98");
+			MUI.Version(inRect, "v2.15.0 · Bolek98");
 			if (recBullets == null)
 			{
 				recBullets = new List<string>();
@@ -304,6 +304,8 @@ namespace ResearchedLoadout
 			Listing_Standard listing_Standard = Begin(r);
 			Check(listing_Standard, "RL_AutoPrimary", ref Settings.autoEquipPrimary, "autoEquipPrimary");
 			Check(listing_Standard, "RL_UseSkills", ref Settings.useSkills, "useSkills");
+			Check(listing_Standard, "RL_PreferNewer", ref Settings.preferNewerTech, "preferNewerTech");
+			Check(listing_Standard, "RL_ToolsNotWeapons", ref Settings.toolsNotWeapons, "toolsNotWeapons");
 			Check(listing_Standard, "RL_AutoSidearm", ref Settings.autoEquipSidearm, "autoEquipSidearm");
 			Check(listing_Standard, "RL_PrioritizeFighters", ref Settings.prioritizeFighters, "prioritizeFighters");
 			Check(listing_Standard, "RL_ArmSlaves", ref Settings.armSlaves, "armSlaves");
@@ -360,6 +362,9 @@ namespace ResearchedLoadout
 				}
 			}
 			listing_Standard.GapLine();
+			Check(listing_Standard, "RL_GuestLodgers", ref Settings.guestLodgers, "guestLodgers");
+			Check(listing_Standard, "RL_GuestVisitors", ref Settings.guestVisitors, "guestVisitors");
+			listing_Standard.GapLine();
 			Check(listing_Standard, "RL_ThreatApparel", ref Settings.threatApparel, "threatApparel");
 			if (Settings.threatApparel)
 			{
@@ -384,6 +389,16 @@ namespace ResearchedLoadout
 			Listing_Standard listing_Standard = Begin(r);
 			Check(listing_Standard, "RL_Notify", ref Settings.notifyPlayer, "notifyPlayer");
 			Check(listing_Standard, "RL_DebugLog", ref Settings.debugLog, "debugLog");
+			// 2.15.0: who else changes colonist gear
+			listing_Standard.Gap(12f);
+			listing_Standard.Label("RL_OthersTitle".Translate());
+			List<string> census = GearWhy.Census();
+			listing_Standard.Label("  " + (census.Count == 0 ? "RL_OthersNone".Translate().ToString() : "RL_OthersPatch".Translate(string.Join(", ", census.ToArray())).ToString()));
+			string seen = GearWhy.SeenText();
+			listing_Standard.Label("  " + seen);
+			Text.Font = GameFont.Tiny;
+			listing_Standard.Label("RL_OthersHint".Translate());
+			Text.Font = GameFont.Small;
 			listing_Standard.End();
 		}
 
@@ -844,6 +859,7 @@ namespace ResearchedLoadout
 				ThreatResponse.Boost(pawn, ap, ref __result);
 				EmergencyGear.Boost(pawn, ap, ref __result);
 				ArmorSet.Adjust(pawn, ap, ref __result);
+				GearSense.Adjust(pawn, ap, ref __result);
 				if (__result > 0f && settings.keepArmor && LoadoutFilter.WouldDowngradeArmor(pawn, ap))
 				{
 					__result = -1f;
@@ -1198,7 +1214,7 @@ namespace ResearchedLoadout
 				Apparel w = worn[i];
 				if (w != ap && LoadoutFilter.IsArmor(w) && !LoadoutFilter.IsBelowMinHp(w)
 				    && !ApparelUtility.CanWearTogether(ap.def, w.def, pawn.RaceProps.body) && armor < LoadoutFilter.ArmorValue(w) * 0.9f
-				    && !((EmergencyGear.CounterMask(ap.def) & EmergencyGear.Toxic) != 0 && EmergencyGear.Active(pawn.MapHeld, EmergencyGear.Toxic) && !EmergencyGear.Active(pawn.MapHeld, EmergencyGear.Raid)))
+				    && !((EmergencyGear.CounterMask(ap.def) & EmergencyGear.Toxic) != 0 && EmergencyGear.ToxicFor(pawn) && !EmergencyGear.Active(pawn.MapHeld, EmergencyGear.Raid)))
 				{
 					score = -1f;
 					return;
@@ -1227,6 +1243,200 @@ namespace ResearchedLoadout
 				return;
 			}
 			score += 0.6f + armor;
+		}
+	}
+
+	// 2.14.0: more sensible choices – a gas mask only for who is in toxic air, never two masks,
+	// an armored helmet before a plain hat, and the helmet comes back after the danger
+	public static class GearSense
+	{
+		private static readonly Dictionary<ThingDef, bool> maskCache = new Dictionary<ThingDef, bool>();
+
+		// protective gear against toxic air with (almost) no armor: gas masks, respirators …
+		public static bool IsMask(ThingDef def)
+		{
+			if (def == null || !def.IsApparel)
+			{
+				return false;
+			}
+			bool v;
+			if (maskCache.TryGetValue(def, out v))
+			{
+				return v;
+			}
+			v = false;
+			try
+			{
+				if ((EmergencyGear.CounterMask(def) & EmergencyGear.Toxic) != 0)
+				{
+					ThingDef stuff = def.MadeFromStuff ? GenStuff.DefaultStuffFor(def) : null;
+					float armor = Mathf.Max(def.GetStatValueAbstract(StatDefOf.ArmorRating_Sharp, stuff), def.GetStatValueAbstract(StatDefOf.ArmorRating_Blunt, stuff));
+					v = armor < 0.1f && def.GetStatValueAbstract(StatDefOf.Insulation_Cold, stuff) < 6f;
+				}
+			}
+			catch
+			{
+			}
+			maskCache[def] = v;
+			return v;
+		}
+
+		public static bool NeedsMask(Pawn pawn)
+		{
+			return EmergencyGear.ToxicFor(pawn, true) || ThreatResponse.ToxicCondition(pawn == null ? null : pawn.MapHeld);
+		}
+
+		// only judged when toxic detection is on – without it we can not know who needs one
+		public static bool UnneededMask(Pawn pawn, Apparel ap)
+		{
+			return ap != null && IsMask(ap.def) && EmergencyGear.ToxicDetectionOn && !NeedsMask(pawn);
+		}
+
+		public static bool Required(Pawn pawn, ThingDef def)
+		{
+			try
+			{
+				List<ApparelRequirementWithSource> req = pawn.apparel == null ? null : pawn.apparel.AllRequirements;
+				if (req == null)
+				{
+					return false;
+				}
+				for (int i = 0; i < req.Count; i++)
+				{
+					if (req[i].requirement != null && req[i].requirement.RequiredForPawn(pawn, def))
+					{
+						return true;
+					}
+				}
+			}
+			catch
+			{
+			}
+			return false;
+		}
+
+		private static float ToxicRes(Apparel a)
+		{
+			return Mathf.Max(a.GetStatValue(StatDefOf.ToxicEnvironmentResistance), 0f);
+		}
+
+		// the candidate would be worn next to toxic gear the colonist already has
+		public static bool AddsSecondMask(Pawn pawn, Apparel ap)
+		{
+			if (pawn.apparel == null || !IsMask(ap.def))
+			{
+				return false;
+			}
+			List<Apparel> worn = pawn.apparel.WornApparel;
+			for (int i = 0; i < worn.Count; i++)
+			{
+				Apparel w = worn[i];
+				if (w != ap && (EmergencyGear.CounterMask(w.def) & EmergencyGear.Toxic) != 0 && ApparelUtility.CanWearTogether(ap.def, w.def, pawn.RaceProps.body))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		// a worn mask next to other, at least as good toxic gear
+		public static bool WeakerDuplicate(Pawn pawn, Apparel mask)
+		{
+			List<Apparel> worn = pawn.apparel.WornApparel;
+			float mine = ToxicRes(mask);
+			for (int i = 0; i < worn.Count; i++)
+			{
+				Apparel w = worn[i];
+				if (w == mask || (EmergencyGear.CounterMask(w.def) & EmergencyGear.Toxic) == 0)
+				{
+					continue;
+				}
+				float other = ToxicRes(w);
+				// equal ones: keep the one worn first (lower index)
+				if (other > mine + 0.001f || (Mathf.Abs(other - mine) <= 0.001f && (!IsMask(w.def) || i < worn.IndexOf(mask))))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public static bool IsHelmet(Apparel ap)
+		{
+			ApparelProperties p = ap.def.apparel;
+			return p != null && p.layers != null && p.layers.Contains(ApparelLayerDefOf.Overhead) && LoadoutFilter.ArmorValue(ap) >= 0.15f;
+		}
+
+		// replaces only head things without armor (hat, cap, an unneeded mask)
+		private static bool ReplacesOnlySoftHeadgear(Pawn pawn, Apparel ap, out bool any)
+		{
+			any = false;
+			List<Apparel> worn = pawn.apparel.WornApparel;
+			for (int i = 0; i < worn.Count; i++)
+			{
+				Apparel w = worn[i];
+				if (ApparelUtility.CanWearTogether(ap.def, w.def, pawn.RaceProps.body))
+				{
+					continue;
+				}
+				any = true;
+				if (LoadoutFilter.ArmorValue(w) >= 0.1f || LoadoutFilter.IsProtectedApparel(pawn, w) || Required(pawn, w.def) || (IsMask(w.def) && NeedsMask(pawn)))
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+
+		// a helmet taken off for a mask (or a hat) may be put on again right away
+		public static bool MayWearAgain(Pawn pawn, Apparel ap)
+		{
+			try
+			{
+				if (IsMask(ap.def))
+				{
+					return NeedsMask(pawn);
+				}
+				bool any;
+				return IsHelmet(ap) && ReplacesOnlySoftHeadgear(pawn, ap, out any);
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		public static void Adjust(Pawn pawn, Apparel ap, ref float score)
+		{
+			if (pawn == null || ap == null || pawn.apparel == null || ap.def.apparel == null)
+			{
+				return;
+			}
+			try
+			{
+				if (IsMask(ap.def) && !pawn.apparel.WornApparel.Contains(ap))
+				{
+					if (AddsSecondMask(pawn, ap) || (EmergencyGear.ToxicDetectionOn && !NeedsMask(pawn)))
+					{
+						score = -1f;
+						return;
+					}
+				}
+				if (score > -0.5f && IsHelmet(ap) && !pawn.apparel.WornApparel.Contains(ap))
+				{
+					int cold;
+					int heat;
+					LoadoutFilter.TemperatureNeed(pawn, out cold, out heat);
+					bool any;
+					if (cold == 0 && heat == 0 && ReplacesOnlySoftHeadgear(pawn, ap, out any))
+					{
+						score += (any ? 0.6f : 0.2f) + 2f * LoadoutFilter.ArmorValue(ap);
+					}
+				}
+			}
+			catch
+			{
+			}
 		}
 	}
 
@@ -1368,12 +1578,17 @@ namespace ResearchedLoadout
 
 		private static bool HazardActive(Map map, Pawn pawn)
 		{
-			// 2.8.0: toxic gas on the map (gas grid, gas generators...) detected by EmergencyGear
-			if (EmergencyGear.Active(map, EmergencyGear.Toxic))
+			// 2.8.0: toxic gas on the map detected by EmergencyGear – 2.14.0: only for colonists who are in it
+			if (EmergencyGear.ToxicFor(pawn))
 			{
 				return true;
 			}
-			if (map.gameConditionManager != null)
+			return ToxicCondition(map);
+		}
+
+		public static bool ToxicCondition(Map map)
+		{
+			if (map != null && map.gameConditionManager != null)
 			{
 				foreach (GameCondition activeCondition in map.gameConditionManager.ActiveConditions)
 				{
@@ -1616,6 +1831,38 @@ namespace ResearchedLoadout
 
 		private static readonly List<int> scratchIds = new List<int>();
 
+		// 2.14.0: toxic air is per colonist – who was actually in it and when; map-wide only for
+		// weather-like conditions (fallout, haze) and gas spread over the home area
+		private static readonly Dictionary<int, int> exposedAt = new Dictionary<int, int>();
+
+		private static readonly Dictionary<int, int> wideAt = new Dictionary<int, int>();
+
+		private const int ExposureTicks = CheckInterval * (EndConfirmChecks + 1);
+
+		public static bool ToxicDetectionOn => (EnabledMask() & Toxic) != 0;
+
+		// this colonist needs toxic protection now (linger: or did so recently)
+		public static bool ToxicFor(Pawn pawn, bool linger = false)
+		{
+			if (pawn == null || !ToxicDetectionOn)
+			{
+				return false;
+			}
+			Map map = pawn.MapHeld;
+			if (map == null || Find.TickManager == null)
+			{
+				return false;
+			}
+			int now = Find.TickManager.TicksGame;
+			int window = linger ? LingerTicks : ExposureTicks;
+			int t;
+			if (wideAt.TryGetValue(map.uniqueID, out t) && now - t < window)
+			{
+				return true;
+			}
+			return exposedAt.TryGetValue(pawn.thingIDNumber, out t) && now - t < window;
+		}
+
 		private static readonly string[] ConditionKeywords = new string[9] { "Toxic", "Poison", "Fallout", "Pollut", "Gas", "Smog", "Smoke", "Miasma", "Acid" };
 
 		private static readonly string[] GasThingKeywords = new string[6] { "Tox", "Poison", "Gas", "Stink", "Chem", "Acid" };
@@ -1625,6 +1872,8 @@ namespace ResearchedLoadout
 			states.Clear();
 			counterCache.Clear();
 			lastToxic.Clear();
+			exposedAt.Clear();
+			wideAt.Clear();
 			substituteCache.Clear();
 			globalChecks = 0;
 		}
@@ -1825,7 +2074,12 @@ namespace ResearchedLoadout
 			{
 				return false;
 			}
-			return ExemptKinds(pawn.MapHeld, def) != 0;
+			int kinds = ExemptKinds(pawn.MapHeld, def);
+			if ((kinds & Toxic) != 0 && !ToxicFor(pawn, true))
+			{
+				kinds &= ~Toxic;
+			}
+			return kinds != 0;
 		}
 
 		// apparel or weapon (weapons only during an attack and only the colony's own: stored, carried, or inside the home area)
@@ -1888,6 +2142,10 @@ namespace ResearchedLoadout
 				return false;
 			}
 			int num = LingerMask(mapHeld);
+			if ((num & Toxic) != 0 && !ToxicFor(pawn, true))
+			{
+				num &= ~Toxic;
+			}
 			if (num == 0)
 			{
 				return false;
@@ -1905,7 +2163,8 @@ namespace ResearchedLoadout
 			}
 			Map map = pawn.Map;
 			// 2.8.1: weak toxic substitute (face covering without toxic resistance)
-			if (Active(map, Toxic) && (CounterMask(apparel.def) & Toxic) == 0 && SubstituteScore(apparel.def, Toxic) > 0f)
+			bool toxicHere = Active(map, Toxic) && ToxicFor(pawn);
+			if (toxicHere && (CounterMask(apparel.def) & Toxic) == 0 && SubstituteScore(apparel.def, Toxic) > 0f)
 			{
 				score += 5f;
 			}
@@ -1914,6 +2173,10 @@ namespace ResearchedLoadout
 				return;
 			}
 			int num = ActiveMask(map) & CounterMask(apparel.def);
+			if (!toxicHere)
+			{
+				num &= ~Toxic;
+			}
 			if (num == 0)
 			{
 				return;
@@ -2634,6 +2897,10 @@ namespace ResearchedLoadout
 			{
 				lastToxic.Clear();
 			}
+			if (exposedAt.Count > 2000)
+			{
+				exposedAt.Clear();
+			}
 			globalChecks++;
 			bool flag2 = globalChecks % ProvideEveryChecks == 0;
 			for (int k = 0; k < Find.Maps.Count; k++)
@@ -2844,29 +3111,31 @@ namespace ResearchedLoadout
 
 		private static bool ToxicNow(Map map, List<Pawn> colonists)
 		{
-			// 1) game conditions: toxic fallout, noxious haze, or anything toxic/gas/smoke-like from mods
+			int now = Find.TickManager.TicksGame;
+			bool wide = false;
+			// 1) game conditions: toxic fallout, noxious haze, or anything toxic/gas/smoke-like from mods (whole map)
 			if (map.gameConditionManager != null)
 			{
 				List<GameCondition> activeConditions = map.gameConditionManager.ActiveConditions;
-				for (int i = 0; i < activeConditions.Count; i++)
+				for (int i = 0; i < activeConditions.Count && !wide; i++)
 				{
 					GameCondition gameCondition = activeConditions[i];
 					if (gameCondition != null && gameCondition.def != null)
 					{
 						if (gameCondition.def == GameConditionDefOf.ToxicFallout || (GameConditionDefOf.NoxiousHaze != null && gameCondition.def == GameConditionDefOf.NoxiousHaze))
 						{
-							return true;
+							wide = true;
 						}
-						if (Has(gameCondition.def.defName + gameCondition.GetType().Name, ConditionKeywords))
+						else if (Has(gameCondition.def.defName + gameCondition.GetType().Name, ConditionKeywords))
 						{
-							return true;
+							wide = true;
 						}
 					}
 				}
 			}
 			bool flag = map.gasGrid != null && map.gasGrid.CalculateGasEffects;
 			bool flag2 = ModsConfig.BiotechActive && map.pollutionGrid != null;
-			int num = 0;
+			bool any = false;
 			for (int j = 0; j < colonists.Count; j++)
 			{
 				Pawn pawn = colonists[j];
@@ -2875,7 +3144,8 @@ namespace ResearchedLoadout
 					continue;
 				}
 				IntVec3 position = pawn.Position;
-				// 2) toxic buildup rising on a colonist = some toxic source, whatever mod it comes from
+				bool exposed = false;
+				// 2) toxic buildup rising on this colonist = some toxic source, whatever mod it comes from
 				if (pawn.health != null && HediffDefOf.ToxicBuildup != null)
 				{
 					Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.ToxicBuildup);
@@ -2885,40 +3155,74 @@ namespace ResearchedLoadout
 					lastToxic[pawn.thingIDNumber] = num2;
 					if (flag3 && num2 > value + 0.003f)
 					{
-						num++;
+						exposed = true;
 					}
 				}
-				// 3) toxic gas / rot stink at or near the colonist (gas grid)
-				if (flag && GasNear(map, position))
+				// 3) toxic gas at or near the colonist (2.14.0: rot stink no longer counts – it smells, it does not poison)
+				if (!exposed && flag && GasNear(map, position))
 				{
-					return true;
+					exposed = true;
 				}
 				// 4) mod gases spawned as things
-				if (GasThingAt(map, position))
+				if (!exposed && GasThingAt(map, position))
 				{
-					return true;
+					exposed = true;
 				}
-				// 5) standing on polluted ground (Biotech)
-				if (flag2)
+				// 5) out in a polluted area (Biotech) – 2.14.0: an area, not one polluted cell
+				if (!exposed && flag2 && PollutedAround(map, position))
 				{
-					try
+					exposed = true;
+				}
+				if (exposed)
+				{
+					exposedAt[pawn.thingIDNumber] = now;
+					any = true;
+				}
+			}
+			// 6) toxic gas spread over the home area (coarse sample, e.g. a gas generator next to the base)
+			if (!wide && flag && GasInHome(map))
+			{
+				wide = true;
+			}
+			if (wide)
+			{
+				wideAt[map.uniqueID] = now;
+			}
+			return wide || any;
+		}
+
+		private static bool PollutedAround(Map map, IntVec3 c)
+		{
+			try
+			{
+				if (!c.InBounds(map) || c.Roofed(map) || !map.pollutionGrid.IsPolluted(c))
+				{
+					return false;
+				}
+				int all = 0;
+				int bad = 0;
+				for (int i = -4; i <= 4; i += 2)
+				{
+					for (int j = -4; j <= 4; j += 2)
 					{
-						if (map.pollutionGrid.IsPolluted(position) && !position.Roofed(map))
+						IntVec3 v = new IntVec3(c.x + i, 0, c.z + j);
+						if (!v.InBounds(map))
 						{
-							return true;
+							continue;
+						}
+						all++;
+						if (map.pollutionGrid.IsPolluted(v) && !v.Roofed(map))
+						{
+							bad++;
 						}
 					}
-					catch
-					{
-					}
 				}
+				return all > 0 && bad * 10 >= all * 4;
 			}
-			if (num > 0)
+			catch
 			{
-				return true;
+				return false;
 			}
-			// 6) toxic gas inside the home area (coarse sample, e.g. a gas generator next to the base)
-			return flag && GasInHome(map);
 		}
 
 		private static bool GasNear(Map map, IntVec3 c)
@@ -2928,7 +3232,7 @@ namespace ResearchedLoadout
 				for (int j = -1; j <= 1; j++)
 				{
 					IntVec3 intVec = new IntVec3(c.x + i * 3, 0, c.z + j * 3);
-					if (intVec.InBounds(map) && (map.gasGrid.DensityAt(intVec, GasType.ToxGas) > 0 || map.gasGrid.DensityAt(intVec, GasType.RotStink) > 40))
+					if (intVec.InBounds(map) && map.gasGrid.DensityAt(intVec, GasType.ToxGas) > 0)
 					{
 						return true;
 					}
@@ -4271,7 +4575,7 @@ namespace ResearchedLoadout
 			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
 			if (settings != null && settings.debugLog)
 			{
-				Log.Message("[Smart Colonist Gear] " + msg);
+				MLog.Info("[Smart Colonist Gear] " + msg);
 			}
 		}
 
@@ -4352,6 +4656,11 @@ namespace ResearchedLoadout
 
 		public bool emergencyTemperature = true;
 
+		// 2.15.0: guests use colony gear and give it back when they leave
+		public bool guestLodgers = true;
+
+		public bool guestVisitors = true;
+
 		public bool emergencyRaid = true;
 
 		// 2.8.1: find (unforbid) and craft emergency gear or a substitute
@@ -4383,6 +4692,11 @@ namespace ResearchedLoadout
 		public bool autoEquipPrimary = true;
 
 		public bool useSkills = true;
+
+		// 2.15.0: newer tech preferred (guns over bows, newer armor over plate); work tools are never weapons
+		public bool preferNewerTech = true;
+
+		public bool toolsNotWeapons = true;
 
 		public bool autoEquipSidearm = true;
 
@@ -4497,6 +4811,8 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref emergencyGear, "emergencyGear", true);
 			Scribe_Values.Look(ref emergencyToxic, "emergencyToxic", true);
 			Scribe_Values.Look(ref emergencyTemperature, "emergencyTemperature", true);
+			Scribe_Values.Look(ref guestLodgers, "guestLodgers", true);
+			Scribe_Values.Look(ref guestVisitors, "guestVisitors", true);
 			Scribe_Values.Look(ref emergencyRaid, "emergencyRaid", true);
 			Scribe_Values.Look(ref emergencyProvide, "emergencyProvide", true);
 			Scribe_Values.Look(ref gearStability, "gearStability", 30);
@@ -4512,6 +4828,8 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref powerEstimate, "powerEstimate", true);
 			Scribe_Values.Look(ref autoEquipPrimary, "autoEquipPrimary", true);
 			Scribe_Values.Look(ref useSkills, "useSkills", true);
+			Scribe_Values.Look(ref preferNewerTech, "preferNewerTech", true);
+			Scribe_Values.Look(ref toolsNotWeapons, "toolsNotWeapons", true);
 			Scribe_Values.Look(ref autoEquipSidearm, "autoEquipSidearm", true);
 			Scribe_Values.Look(ref sidearmFilter, "sidearmFilter", true);
 			Scribe_Values.Look(ref sidearmUpgrade, "sidearmUpgrade", true);
@@ -4882,6 +5200,82 @@ namespace ResearchedLoadout
 			return verbProperties.verbClass != null && verbProperties.verbClass.Name.IndexOf("Throw", StringComparison.OrdinalIgnoreCase) >= 0;
 		}
 
+		// 2.15.0: newer tech gets a bonus (guns over bows, flak or powered armor over plate)
+		public static float TechMul(ThingDef def)
+		{
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			if (def == null || settings == null || !settings.preferNewerTech || def.techLevel == TechLevel.Undefined || def.techLevel == TechLevel.Animal)
+			{
+				return 1f;
+			}
+			return Mathf.Clamp(1f + 0.12f * ((int)def.techLevel - (int)TechLevel.Medieval), 0.85f, 1.4f);
+		}
+
+		private static readonly Dictionary<ThingDef, bool> toolCache = new Dictionary<ThingDef, bool>();
+
+		private static readonly string[] toolStats = { "MiningSpeed", "MiningYield", "PlantWorkSpeed", "PlantHarvestYield", "ConstructionSpeed", "SmoothingSpeed", "DeepDrillingSpeed", "ButcheryFleshSpeed", "ButcheryFleshEfficiency", "WorkSpeedGlobal", "TreeFelling", "Harvest", "Sowing" };
+
+		private static readonly string[] toolWords = { "Pickaxe", "Shovel", "Sickle", "Hoe", "Wrench", "Spade", "Scythe" };
+
+		// 2.15.0: pickaxes and other work tools: used for work, never picked as a weapon
+		public static bool ToolNotWeapon(ThingDef def)
+		{
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			if (def == null || settings == null || !settings.toolsNotWeapons || !def.IsWeapon)
+			{
+				return false;
+			}
+			bool value;
+			if (toolCache.TryGetValue(def, out value))
+			{
+				return value;
+			}
+			value = false;
+			if (def.equippedStatOffsets != null)
+			{
+				for (int i = 0; i < def.equippedStatOffsets.Count && !value; i++)
+				{
+					StatModifier m = def.equippedStatOffsets[i];
+					if (m == null || m.stat == null || m.value <= 0f)
+					{
+						continue;
+					}
+					for (int j = 0; j < toolStats.Length; j++)
+					{
+						if (m.stat.defName.IndexOf(toolStats[j], StringComparison.OrdinalIgnoreCase) >= 0)
+						{
+							value = true;
+							break;
+						}
+					}
+				}
+			}
+			if (!value && def.weaponTags != null)
+			{
+				for (int i = 0; i < def.weaponTags.Count; i++)
+				{
+					string t = def.weaponTags[i];
+					if (t != null && (t.Equals("Tool", StringComparison.OrdinalIgnoreCase) || t.IndexOf("WorkTool", StringComparison.OrdinalIgnoreCase) >= 0 || t.IndexOf("SurvivalTool", StringComparison.OrdinalIgnoreCase) >= 0))
+					{
+						value = true;
+					}
+				}
+			}
+			if (!value)
+			{
+				for (int i = 0; i < toolWords.Length; i++)
+				{
+					if (def.defName.IndexOf(toolWords[i], StringComparison.OrdinalIgnoreCase) >= 0)
+					{
+						value = true;
+						break;
+					}
+				}
+			}
+			toolCache[def] = value;
+			return value;
+		}
+
 		public static bool IsManagedWeapon(ThingDef def)
 		{
 			return IsRealWeapon(def) && !IsThrownWeapon(def);
@@ -5194,7 +5588,7 @@ namespace ResearchedLoadout
 			}
 			// 2.8.0: in toxic air a gas mask may replace an armored helmet, unless there is also an attack
 			Map mapHeld = pawn.MapHeld;
-			if ((EmergencyGear.CounterMask(candidate.def) & EmergencyGear.Toxic) != 0 && EmergencyGear.Active(mapHeld, EmergencyGear.Toxic) && !EmergencyGear.Active(mapHeld, EmergencyGear.Raid))
+			if ((EmergencyGear.CounterMask(candidate.def) & EmergencyGear.Toxic) != 0 && (EmergencyGear.ToxicFor(pawn) || ThreatResponse.ToxicCondition(mapHeld)) && !EmergencyGear.Active(mapHeld, EmergencyGear.Raid))
 			{
 				return false;
 			}
@@ -5594,6 +5988,12 @@ namespace ResearchedLoadout
 				_apparelCache = null;
 				_ticker = 1250;
 			}
+			// 2.15.0: temperature crossed the set range – dress or undress right away, not at the next round
+			if (settings.autoEquipApparel && Find.TickManager.TicksGame % 250 == 0)
+			{
+				TempFastLane(settings);
+			}
+			MaybeReport(Find.TickManager.TicksGame);
 			_ticker++;
 			if (_ticker < 1250)
 			{
@@ -5649,6 +6049,125 @@ namespace ResearchedLoadout
 			_order.Clear();
 		}
 
+		// 2.15.1 (debug log on): once per game start, a report for every colonist – what the mod would take
+		// now and why the rest of the gear on the map is skipped. Zalohy_modu\SCG_report.txt
+		private static bool _reported;
+		private int _reportAt = -1;
+
+		private void MaybeReport(int now)
+		{
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			if (_reported || settings == null || !settings.debugLog)
+				return;
+			if (_reportAt < 0) { _reportAt = now + 2500; return; }
+			if (now < _reportAt)
+				return;
+			_reported = true;
+			try
+			{
+				var sb = new StringBuilder();
+				sb.AppendLine("# SCG report " + DateTime.Now.ToString("s") + " tick " + now + " map " + map.uniqueID);
+				sb.AppendLine("weapons on map " + (_weaponCache?.Count ?? -1) + ", apparel on map " + (_apparelCache?.Count ?? -1) + ", onlyFromStockpile=" + settings.onlyFromStockpile + " onlyCrafted=" + settings.onlyCrafted + " ownDresser=" + settings.useOwnDresser + " pauseThreat=" + settings.pauseDuringThreat + " threat=" + (RealThreat() != null));
+				var apCache = _apparelCache == null ? null : new List<Thing>(_apparelCache);
+				var wpCache = _weaponCache == null ? null : new List<Thing>(_weaponCache);
+				foreach (Pawn p in new List<Pawn>(map.mapPawns.FreeColonistsSpawned))
+				{
+					try {
+					sb.AppendLine("== " + p.LabelShort + " (" + p.def.defName + ")");
+					_pawnCooldown.TryGetValue(p.thingIDNumber, out int cd);
+					sb.AppendLine("  colonist=" + LoadoutFilter.IsPlayerColonist(p) + " exempt=" + ExemptPawns.IsExempt(p) + " drafted=" + p.Drafted + " downed=" + p.Downed + " mental=" + p.InMentalState + " cooldownLeft=" + Math.Max(0, cd - now) + " job=" + (p.CurJob?.def?.defName ?? "-") + (p.CurJob != null && p.CurJob.playerForced ? "(forced)" : "") + " queue=" + (p.jobs?.jobQueue?.Count ?? 0) + " calmApparel=" + ApparelMemory.Calm(p, now) + " violent=" + !p.WorkTagIsDisabled(WorkTags.Violent));
+					Thing prim = p.equipment?.Primary;
+					sb.AppendLine("  weapon: " + (prim?.def?.defName ?? "none") + " | weaponCalm=" + WeaponCalm(p, prim, now));
+					try
+					{
+						Thing bw = FindBestWeapon(p, null, true);
+						sb.AppendLine("  best weapon: " + (bw?.def?.defName ?? "none") + (bw != null ? " upgrade=" + IsUpgrade(p, prim, bw, true) : ""));
+					}
+					catch (Exception ex) { sb.AppendLine("  best weapon: error " + ex.Message); }
+					sb.AppendLine("  wearing: " + string.Join(", ", p.apparel?.WornApparel?.ConvertAll(a => a.def.defName).ToArray() ?? new string[0]));
+					try
+					{
+						Thing ba = FindBestApparel(p, false);
+						Thing bb = FindBestApparel(p, true);
+						sb.AppendLine("  best apparel: " + (ba?.def?.defName ?? "none") + " | only additions: " + (bb?.def?.defName ?? "none"));
+					}
+					catch (Exception ex) { sb.AppendLine("  best apparel: error " + ex.Message); }
+					var why = new Dictionary<string, int>();
+					var ex1 = new Dictionary<string, string>();
+					if (apCache != null)
+						foreach (Thing t in apCache)
+						{
+							Apparel a = t as Apparel;
+							if (a == null || p.apparel == null) continue;
+							string r = ApparelSkip(p, a);
+							why.TryGetValue(r, out int n);
+							why[r] = n + 1;
+							if (!ex1.ContainsKey(r)) ex1[r] = a.def.defName;
+						}
+					foreach (var kv in why)
+						sb.AppendLine("    apparel " + kv.Key + ": " + kv.Value + " (e.g. " + ex1[kv.Key] + ")");
+					var wwhy = new Dictionary<string, int>();
+					var wex = new Dictionary<string, string>();
+					if (wpCache != null)
+						foreach (Thing t in wpCache)
+						{
+							string r = WeaponSkip(p, t);
+							wwhy.TryGetValue(r, out int n);
+							wwhy[r] = n + 1;
+							if (!wex.ContainsKey(r)) wex[r] = t.def.defName;
+						}
+					foreach (var kv in wwhy)
+						sb.AppendLine("    weapon " + kv.Key + ": " + kv.Value + " (e.g. " + wex[kv.Key] + ")");
+					sb.AppendLine("  recent: " + GearWhy.Describe(p).Replace("\n", " / "));
+					} catch (Exception pex) { sb.AppendLine("  ERROR " + pex); }
+				}
+				string dir = System.IO.Path.Combine(GenFilePaths.SaveDataFolderPath, "Zalohy_modu");
+				System.IO.Directory.CreateDirectory(dir);
+				System.IO.File.WriteAllText(System.IO.Path.Combine(dir, "SCG_report.txt"), sb.ToString());
+				MLog.Info("[Smart Colonist Gear] report written: Zalohy_modu\\SCG_report.txt");
+			}
+			catch (Exception ex) { MLog.Warn("[Smart Colonist Gear] report: " + ex); }
+		}
+
+		private string ApparelSkip(Pawn pawn, Apparel apparel)
+		{
+			if (apparel.Destroyed || !apparel.Spawned) return "gone";
+			if (pawn.apparel.WornApparel.Contains(apparel)) return "worn";
+			if (_reservedThings.Contains(apparel.thingIDNumber)) return "reserved by queue";
+			if (!LoadoutFilter.AllowedFor(pawn, apparel)) return "locked: " + (LoadoutFilter.LockReason(apparel.def) ?? "filter");
+			if (apparel.def.apparel == null || !apparel.def.apparel.PawnCanWear(pawn)) return "race/body can't wear";
+			if (!ApparelUtility.HasPartsToWear(pawn, apparel.def)) return "no body parts";
+			if (!EquipmentUtility.CanEquip(apparel, pawn)) return "CanEquip false";
+			bool gap = Coverage.FillsBasicGap(pawn, apparel.def);
+			if (!gap && ApparelGender.Mismatch(pawn, apparel.def)) return "gender";
+			if (!gap && Specialization.WorkClothingBlocked(pawn, apparel.def)) return "work clothing for another job";
+			if (!InAllowedStorage(apparel)) return "not in stockpile";
+			if (apparel.IsForbidden(pawn)) return "forbidden";
+			if (IsBroken(apparel)) return "too damaged";
+			if (PolicyForbidsThing(pawn, apparel)) return "outfit policy";
+			if (WouldReplaceProtected(pawn, apparel)) return "would replace protected";
+			if (SameKindNotBetter(pawn, apparel)) return "same kind not better";
+			if (LoadoutFilter.WouldDowngradeArmor(pawn, apparel)) return "armor downgrade";
+			if (!CanWearWithCurrent(pawn, apparel) && !WorthReplacing(pawn, apparel)) return "not worth replacing";
+			if (!pawn.CanReserveAndReach(apparel, PathEndMode.ClosestTouch, Danger.Some)) return "can't reach/reserve";
+			return "candidate";
+		}
+
+		private string WeaponSkip(Pawn pawn, Thing thing)
+		{
+			if (thing == null || thing.Destroyed || !thing.Spawned || thing.def == null) return "gone";
+			if (!LoadoutFilter.IsManagedWeapon(thing.def)) return "not managed";
+			if (LoadoutFilter.ToolNotWeapon(thing.def)) return "tool";
+			if (_reservedThings.Contains(thing.thingIDNumber)) return "reserved by queue";
+			if (!LoadoutFilter.IsAllowed(thing.def) && !EmergencyGear.AllowsThing(pawn, thing)) return "locked: " + (LoadoutFilter.LockReason(thing.def) ?? "filter");
+			if (!InAllowedStorage(thing)) return "not in stockpile";
+			if (IsBroken(thing)) return "too damaged";
+			if (thing.IsForbidden(pawn)) return "forbidden";
+			if (!EquipmentUtility.CanEquip(thing, pawn)) return "CanEquip false";
+			if (!pawn.CanReserveAndReach(thing, PathEndMode.ClosestTouch, Danger.Some)) return "can't reach/reserve";
+			return "candidate";
+		}
+
 		private static int FighterSkill(Pawn pawn)
 		{
 			return Mathf.Max(SkillLevel(pawn, SkillDefOf.Shooting), SkillLevel(pawn, SkillDefOf.Melee));
@@ -5660,10 +6179,30 @@ namespace ResearchedLoadout
 			return (num == 0) ? a.thingIDNumber.CompareTo(b.thingIDNumber) : num;
 		}
 
+		private void TempFastLane(ResearchedLoadoutSettings settings)
+		{
+			int now = Find.TickManager.TicksGame;
+			GuestWardrobe.VisitorTick(map, now);
+			List<Pawn> list = map.mapPawns.FreeColonistsSpawned;
+			for (int i = 0; i < list.Count; i++)
+			{
+				Pawn pawn = list[i];
+				if (!LoadoutFilter.IsPlayerColonist(pawn) || pawn.Drafted || pawn.Downed)
+				{
+					continue;
+				}
+				if (TempRush.Check(pawn, now))
+				{
+					_pawnCooldown.Remove(pawn.thingIDNumber);
+					ProcessPawn(pawn, now, settings);
+				}
+			}
+		}
+
 		private void ProcessPawn(Pawn pawn, int now, ResearchedLoadoutSettings settings)
 		{
 			int value;
-			if (LoadoutFilter.IsPlayerColonist(pawn) && !pawn.Downed && !pawn.InMentalState && pawn.jobs != null && !pawn.IsQuestLodger() && !ExemptPawns.IsExempt(pawn) && !pawn.Drafted && !IsBusyWithWeaponJob(pawn) && (!_pawnCooldown.TryGetValue(pawn.thingIDNumber, out value) || now >= value) && (pawn.CurJob == null || !pawn.CurJob.playerForced) && !TryAct(pawn, now, settings))
+			if (LoadoutFilter.IsPlayerColonist(pawn) && !pawn.Downed && !pawn.InMentalState && pawn.jobs != null && (!pawn.IsQuestLodger() || GuestWardrobe.LodgersOn) && !ExemptPawns.IsExempt(pawn) && !pawn.Drafted && !IsBusyWithWeaponJob(pawn) && (!_pawnCooldown.TryGetValue(pawn.thingIDNumber, out value) || now >= value) && (pawn.CurJob == null || !pawn.CurJob.playerForced) && !TryAct(pawn, now, settings))
 			{
 				_pawnCooldown[pawn.thingIDNumber] = now + 2500;
 			}
@@ -5671,28 +6210,45 @@ namespace ResearchedLoadout
 
 		private bool TryAct(Pawn pawn, int now, ResearchedLoadoutSettings settings)
 		{
+			GearWhy.Pending(pawn, GearWhy.Reason("RL_Why_Tattered"));
 			if (settings.replaceBrokenGear && StripOneTattered(pawn))
 			{
+				GearWhy.Done(pawn);
 				RememberOrder(pawn, null, now, 600);
 				return true;
 			}
+			GearWhy.Pending(pawn, GearWhy.Reason("RL_Why_Heat"));
 			if (StripForHeat(pawn))
 			{
-				RememberOrder(pawn, null, now, 600);
+				GearWhy.Done(pawn);
+				RememberOrder(pawn, null, now, TempRush.Active(pawn) ? 60 : 600);
 				return true;
 			}
+			GearWhy.Pending(pawn, GearWhy.Reason("RL_Why_Policy"));
 			if (settings.replaceBrokenGear && StripOnePolicy(pawn))
 			{
+				GearWhy.Done(pawn);
 				RememberOrder(pawn, null, now, 600);
 				return true;
 			}
-			if (TrimExtraWeapons(pawn))
+			GearWhy.Pending(pawn, GearWhy.Reason("RL_Why_TooMany"));
+			if (!GuestWardrobe.IsGuest(pawn) && TrimExtraWeapons(pawn))
 			{
+				GearWhy.Done(pawn);
 				RememberOrder(pawn, null, now);
 				return true;
 			}
-			if (settings.stripLockedGear && StripLockedGear(pawn))
+			GearWhy.Pending(pawn, GearWhy.Reason("RL_Why_Locked"));
+			if (settings.stripLockedGear && !GuestWardrobe.IsGuest(pawn) && StripLockedGear(pawn))
 			{
+				GearWhy.Done(pawn);
+				RememberOrder(pawn, null, now, 600);
+				return true;
+			}
+			GearWhy.Pending(pawn, GearWhy.Reason("RL_Why_Unneeded"));
+			if (settings.autoEquipApparel && TakeOffUnneeded(pawn))
+			{
+				GearWhy.Done(pawn);
 				RememberOrder(pawn, null, now, 600);
 				return true;
 			}
@@ -5704,8 +6260,10 @@ namespace ResearchedLoadout
 			}
 			if (SidearmsCompat.Active)
 			{
+				GearWhy.Pending(pawn, GearWhy.Reason("RL_Why_Weapon"));
 				if (flag && TrySidearmsWeapons(pawn, thing, now, settings))
 				{
+					GearWhy.Done(pawn);
 					return true;
 				}
 			}
@@ -5715,6 +6273,7 @@ namespace ResearchedLoadout
 				if (thing2 != null && IsUpgrade(pawn, thing, thing2, true))
 				{
 					Job job = JobMaker.MakeJob(JobDefOf.Equip, thing2);
+					GearWhy.Pending(pawn, (thing != null && LoadoutFilter.ToolNotWeapon(thing.def)) ? GearWhy.Reason("RL_Why_ToolNotWeapon", thing.LabelShort) : GearWhy.Reason("RL_Why_Weapon", thing != null ? "RL_Why_Instead".Translate(thing.LabelShort).ToString() : null));
 					if (GiveSoftJob(pawn, job))
 					{
 						RL.Debug(pawn.LabelShort + " bere " + thing2.def.defName + " misto " + ((thing != null) ? thing.def.defName : "nic"));
@@ -5735,6 +6294,7 @@ namespace ResearchedLoadout
 					{
 						Job job2 = JobMaker.MakeJob(JobDefOf.TakeInventory, thing3);
 						job2.count = 1;
+						GearWhy.Pending(pawn, GearWhy.Reason("RL_Why_Sidearm"));
 						if (GiveSoftJob(pawn, job2))
 						{
 							RL.NotifySidearm(pawn, thing3);
@@ -5746,21 +6306,24 @@ namespace ResearchedLoadout
 			}
 			if (settings.useOwnDresser && settings.autoEquipApparel)
 			{
-				bool onlyAdditions = ApparelMemory.Calm(pawn, now) && !LoadoutFilter.FreezingOrOverheating(pawn) && !Coverage.NeedsBasicsAny(pawn) && !EmergencyGear.AnyActive(map);
+				bool onlyAdditions = ApparelMemory.Calm(pawn, now) && !LoadoutFilter.FreezingOrOverheating(pawn) && !TempRush.Active(pawn) && !Coverage.NeedsBasicsAny(pawn) && !EmergencyGear.AnyActive(map);
 				Thing thing4 = FindBestApparel(pawn, onlyAdditions);
 				if (thing4 != null)
 				{
 					Job job3 = JobMaker.MakeJob(JobDefOf.Wear, thing4);
+					string whyKey = LoadoutFilter.FreezingOrOverheating(pawn) ? "RL_Why_Temperature" : Coverage.NeedsBasicsAny(pawn) ? "RL_Why_Basics" : EmergencyGear.AnyActive(map) ? "RL_Why_Emergency" : "RL_Why_Apparel";
+					GearWhy.Pending(pawn, GearWhy.Reason(whyKey));
 					if (GiveSoftJob(pawn, job3))
 					{
 						ApparelMemory.NoteWear(pawn, (Apparel)thing4, now);
 						RL.Debug(pawn.LabelShort + " oblika " + thing4.def.defName);
 						RL.NotifyApparel(pawn, thing4);
-						RememberOrder(pawn, thing4, now, (!Coverage.StillNaked(pawn, thing4.def)) ? 2500 : 180);
+						RememberOrder(pawn, thing4, now, TempRush.Active(pawn) ? 60 : ((!Coverage.StillNaked(pawn, thing4.def)) ? 2500 : 180));
 						return true;
 					}
 				}
 			}
+			GearWhy.Clear();
 			return false;
 		}
 
@@ -6184,6 +6747,11 @@ namespace ResearchedLoadout
 
 		private static bool RemoveApparelAndStore(Pawn pawn, Apparel apparel)
 		{
+			// 2.15.0: a guest's own clothes go into the backpack, not into the colony's storage
+			if (GuestWardrobe.IsGuest(pawn) && !GuestWardrobe.IsBorrowed(apparel))
+			{
+				return GuestWardrobe.Stash(pawn, apparel);
+			}
 			ApparelMemory.NoteRemoved(pawn, apparel.def);
 			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
 			if (settings != null && settings.storeDroppedGear && GearStorage.CanHaulFor(pawn))
@@ -6194,6 +6762,35 @@ namespace ResearchedLoadout
 			}
 			Apparel resultingAp;
 			return pawn.apparel.TryDrop(apparel, out resultingAp, pawn.Position, false);
+		}
+
+		// 2.14.0: a second gas mask, or a gas mask nobody needs any more, goes back to storage
+		private static bool TakeOffUnneeded(Pawn pawn)
+		{
+			if (pawn.apparel == null || !pawn.Spawned || pawn.Drafted)
+			{
+				return false;
+			}
+			List<Apparel> worn = pawn.apparel.WornApparel;
+			for (int i = worn.Count - 1; i >= 0; i--)
+			{
+				Apparel a = worn[i];
+				if (a == null || !GearSense.IsMask(a.def) || LoadoutFilter.IsProtectedApparel(pawn, a) || GearSense.Required(pawn, a.def))
+				{
+					continue;
+				}
+				string why = GearSense.WeakerDuplicate(pawn, a) ? "druha maska" : null;
+				if (why == null && GearSense.UnneededMask(pawn, a) && !EmergencyGear.KeepWorn(pawn, a.def) && !ApparelMemory.JustPutOn(pawn, a.def))
+				{
+					why = "maska uz neni potreba";
+				}
+				if (why != null && RemoveApparelAndStore(pawn, a))
+				{
+					RL.Debug(pawn.LabelShort + " sundava " + a.def.defName + " (" + why + ")");
+					return true;
+				}
+			}
+			return false;
 		}
 
 		private static bool StripOnePolicy(Pawn pawn)
@@ -6385,6 +6982,7 @@ namespace ResearchedLoadout
 			{
 				return false;
 			}
+			GearWhy.TagJob(pawn, job);
 			if (IsIdleEnough(pawn) || pawn.jobs.jobQueue == null)
 			{
 				pawn.jobs.StartJob(job, JobCondition.InterruptForced, null, false, true, null, JobTag.Misc);
@@ -6456,8 +7054,12 @@ namespace ResearchedLoadout
 					float num2 = ScoreWeapon(pawn, current);
 					return num > num2 * (1.25f + Stability * 0.5f + DistanceExtra(pawn, candidate));
 				}
-				float num3 = ScoreWeaponPower(candidate);
-				float num4 = ScoreWeaponPower(current);
+				if (LoadoutFilter.ToolNotWeapon(current.def) && !LoadoutFilter.ToolNotWeapon(candidate.def))
+				{
+					return true;
+				}
+				float num3 = ScoreWeaponPower(candidate) * LoadoutFilter.TechMul(candidate.def);
+				float num4 = ScoreWeaponPower(current) * LoadoutFilter.TechMul(current.def);
 				if (IsBroken(current) && !IsBroken(candidate))
 				{
 					return num3 >= num4 * 0.9f;
@@ -6715,7 +7317,7 @@ namespace ResearchedLoadout
 
 		private void ConsiderWeapon(Pawn pawn, Thing thing, bool? wantRanged, bool forPrimary, ref Thing best, ref float bestScore)
 		{
-			if (thing != null && !thing.Destroyed && thing.Spawned && thing.def != null && LoadoutFilter.IsManagedWeapon(thing.def) && !_reservedThings.Contains(thing.thingIDNumber) && (LoadoutFilter.IsAllowed(thing.def) || EmergencyGear.AllowsThing(pawn, thing)) && InAllowedStorage(thing) && (!wantRanged.HasValue || thing.def.IsRangedWeapon == wantRanged.Value) && (!forPrimary || !thing.def.IsRangedWeapon || !IsBrawler(pawn)) && !IsBroken(thing) && !thing.IsForbidden(pawn) && EquipmentUtility.CanEquip(thing, pawn) && (!thing.def.IsRangedWeapon || !WearsRangedBlockingShield(pawn)))
+			if (thing != null && !thing.Destroyed && thing.Spawned && thing.def != null && LoadoutFilter.IsManagedWeapon(thing.def) && !LoadoutFilter.ToolNotWeapon(thing.def) && !_reservedThings.Contains(thing.thingIDNumber) && (LoadoutFilter.IsAllowed(thing.def) || EmergencyGear.AllowsThing(pawn, thing)) && InAllowedStorage(thing) && (!wantRanged.HasValue || thing.def.IsRangedWeapon == wantRanged.Value) && (!forPrimary || !thing.def.IsRangedWeapon || !IsBrawler(pawn)) && !IsBroken(thing) && !thing.IsForbidden(pawn) && EquipmentUtility.CanEquip(thing, pawn) && (!thing.def.IsRangedWeapon || !WearsRangedBlockingShield(pawn)))
 			{
 				float num = ScoreWeapon(pawn, thing);
 				if (num > bestScore && (!forPrimary || !BetterFighterWants(pawn, thing)) && pawn.CanReserveAndReach(thing, PathEndMode.ClosestTouch, Danger.Some))
@@ -6995,6 +7597,12 @@ namespace ResearchedLoadout
 			{
 				num *= 0.1f;
 			}
+			// 2.15.0: a work tool in hand is replaced by any real weapon; newer tech is preferred
+			if (LoadoutFilter.ToolNotWeapon(thing.def))
+			{
+				num *= 0.05f;
+			}
+			num *= LoadoutFilter.TechMul(thing.def);
 			return num * Specialization.WeaponFactor(pawn, thing);
 		}
 
@@ -7025,7 +7633,7 @@ namespace ResearchedLoadout
 					continue;
 				}
 				bool flag = Coverage.FillsBasicGap(pawn, apparel.def);
-				if ((!flag && ApparelGender.Mismatch(pawn, apparel.def)) || (!flag && Specialization.WorkClothingBlocked(pawn, apparel.def)) || (!flag && ApparelMemory.RecentlyRemoved(pawn, apparel.def) && !LoadoutFilter.FreezingOrOverheating(pawn)) || !InAllowedStorage(apparel) || apparel.IsForbidden(pawn) || IsBroken(apparel) || PolicyForbidsThing(pawn, apparel) || apparel.def.apparel == null || !apparel.def.apparel.PawnCanWear(pawn) || (IsRangedBlockingShield(apparel) && PrefersRanged(pawn, (pawn.equipment == null) ? null : pawn.equipment.Primary)) || !ApparelUtility.HasPartsToWear(pawn, apparel.def) || !EquipmentUtility.CanEquip(apparel, pawn) || WouldReplaceProtected(pawn, apparel) || SameKindNotBetter(pawn, apparel) || LoadoutFilter.WouldDowngradeArmor(pawn, apparel))
+				if ((!flag && ApparelGender.Mismatch(pawn, apparel.def)) || (!flag && Specialization.WorkClothingBlocked(pawn, apparel.def)) || (!flag && ApparelMemory.RecentlyRemoved(pawn, apparel.def) && !LoadoutFilter.FreezingOrOverheating(pawn) && !TempRush.Active(pawn) && !GearSense.MayWearAgain(pawn, apparel)) || !InAllowedStorage(apparel) || apparel.IsForbidden(pawn) || IsBroken(apparel) || PolicyForbidsThing(pawn, apparel) || apparel.def.apparel == null || !apparel.def.apparel.PawnCanWear(pawn) || (IsRangedBlockingShield(apparel) && PrefersRanged(pawn, (pawn.equipment == null) ? null : pawn.equipment.Primary)) || !ApparelUtility.HasPartsToWear(pawn, apparel.def) || !EquipmentUtility.CanEquip(apparel, pawn) || WouldReplaceProtected(pawn, apparel) || SameKindNotBetter(pawn, apparel) || LoadoutFilter.WouldDowngradeArmor(pawn, apparel))
 				{
 					continue;
 				}
@@ -7116,7 +7724,7 @@ namespace ResearchedLoadout
 
 		private static float ScoreApparel(Pawn pawn, Thing apparel)
 		{
-			float num = (apparel.GetStatValue(StatDefOf.ArmorRating_Sharp) * 120f + apparel.GetStatValue(StatDefOf.ArmorRating_Blunt) * 70f + apparel.GetStatValue(StatDefOf.ArmorRating_Heat) * 25f) * HpMul(apparel);
+			float num = (apparel.GetStatValue(StatDefOf.ArmorRating_Sharp) * 120f + apparel.GetStatValue(StatDefOf.ArmorRating_Blunt) * 70f + apparel.GetStatValue(StatDefOf.ArmorRating_Heat) * 25f) * HpMul(apparel) * LoadoutFilter.TechMul(apparel.def);
 			float num2 = 2f + num + TemperatureScore(pawn, apparel) + apparel.MarketValue * 0.01f;
 			List<StatModifier> equippedStatOffsets = apparel.def.equippedStatOffsets;
 			if (equippedStatOffsets != null)
@@ -7494,7 +8102,7 @@ namespace ResearchedLoadout
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[Smart Colonist Gear] gear list failed: " + ex.Message);
+				MLog.Warn("[Smart Colonist Gear] gear list failed: " + ex.Message);
 			}
 			// kinds already on the list stay visible so they can be unticked
 			foreach (string name in gc.crafted)
@@ -7819,11 +8427,14 @@ namespace ResearchedLoadout
 
 		public bool craftedSeeded;
 
+		private List<string> guestData;
+
 		// 2.8.1: bills added by emergency gear: "<bill load id>|<hazard kind>|<map id>"
 		public HashSet<string> emergencyBills = new HashSet<string>();
 
 		public ResearchedLoadoutGameComponent(Game game)
 		{
+			GuestWardrobe.ResetGameState();
 		}
 
 		// 2.6.4: per-game static state must not leak from a previously loaded save
@@ -7849,7 +8460,7 @@ namespace ResearchedLoadout
 				ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
 				if (settings != null && settings.enabled && settings.onlyCrafted && settings.debugLog)
 				{
-					Log.Message("[Smart Colonist Gear] crafted for the first time: " + def.defName);
+					MLog.Info("[Smart Colonist Gear] crafted for the first time: " + def.defName);
 				}
 			}
 		}
@@ -7860,7 +8471,7 @@ namespace ResearchedLoadout
 			crafted.Clear();
 			craftedSeeded = true;
 			LoadoutFilter.InvalidateResearch();
-			Log.Message("[Smart Colonist Gear] Only crafted: list cleared, only gear crafted from now on counts.");
+			MLog.Info("[Smart Colonist Gear] Only crafted: list cleared, only gear crafted from now on counts.");
 		}
 
 		// 2.8.2: re-take all gear kinds the colony has now: worn, equipped, carried and stored on home maps
@@ -7922,11 +8533,11 @@ namespace ResearchedLoadout
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[Smart Colonist Gear] crafted restore failed: " + ex.Message);
+				MLog.Warn("[Smart Colonist Gear] crafted restore failed: " + ex.Message);
 			}
 			LoadoutFilter.InvalidateResearch();
 			int added = crafted.Count - before;
-			Log.Message("[Smart Colonist Gear] Only crafted: restored " + added + " gear kinds from the colony.");
+			MLog.Info("[Smart Colonist Gear] Only crafted: restored " + added + " gear kinds from the colony.");
 			return added;
 		}
 
@@ -8007,11 +8618,11 @@ namespace ResearchedLoadout
 						}
 					}
 				}
-				Log.Message("[Smart Colonist Gear] Only crafted: took over " + crafted.Count + " gear kinds from the existing game.");
+				MLog.Info("[Smart Colonist Gear] Only crafted: took over " + crafted.Count + " gear kinds from the existing game.");
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[Smart Colonist Gear] crafted seed failed: " + ex.Message);
+				MLog.Warn("[Smart Colonist Gear] crafted seed failed: " + ex.Message);
 			}
 		}
 
@@ -8031,7 +8642,7 @@ namespace ResearchedLoadout
 				}
 				catch (Exception ex0)
 				{
-					Log.Warning("[Smart Colonist Gear] emergency gear check failed: " + ex0.Message);
+					MLog.Warn("[Smart Colonist Gear] emergency gear check failed: " + ex0.Message);
 				}
 			}
 			if (Find.TickManager != null && Find.TickManager.TicksGame % 2500 == 1234)
@@ -8042,7 +8653,7 @@ namespace ResearchedLoadout
 				}
 				catch (Exception ex)
 				{
-					Log.Warning("[Smart Colonist Gear] threat response failed: " + ex.Message);
+					MLog.Warn("[Smart Colonist Gear] threat response failed: " + ex.Message);
 				}
 			}
 		}
@@ -8050,6 +8661,7 @@ namespace ResearchedLoadout
 		public override void ExposeData()
 		{
 			Scribe_Collections.Look(ref exempt, "researchedLoadoutExempt", LookMode.Value);
+			GuestWardrobe.Expose(ref guestData);
 			if (exempt == null)
 			{
 				exempt = new HashSet<string>();
@@ -8130,7 +8742,7 @@ namespace ResearchedLoadout
 			yield return new Command_Toggle
 			{
 				defaultLabel = "RL_GizmoLabel".Translate(),
-				defaultDesc = "RL_GizmoDesc".Translate() + "\n\n" + Specialization.Describe(pawn),
+				defaultDesc = "RL_GizmoDesc".Translate() + "\n\n" + Specialization.Describe(pawn) + "\n\n" + GearWhy.Describe(pawn),
 				icon = TexCommand.Attack,
 				isActive = () => !ExemptPawns.IsExempt(pawn),
 				toggleAction = delegate
@@ -8289,7 +8901,7 @@ namespace ResearchedLoadout
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[Smart Colonist Gear] could not open Simple Sidearms settings: " + ex.Message);
+				MLog.Warn("[Smart Colonist Gear] could not open Simple Sidearms settings: " + ex.Message);
 			}
 		}
 
@@ -8328,7 +8940,7 @@ namespace ResearchedLoadout
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[Smart Colonist Gear] Simple Sidearms preset failed: " + ex.Message);
+				MLog.Warn("[Smart Colonist Gear] Simple Sidearms preset failed: " + ex.Message);
 			}
 		}
 
@@ -8349,7 +8961,7 @@ namespace ResearchedLoadout
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[Smart Colonist Gear] Simple Sidearms settings save failed: " + ex.Message);
+				MLog.Warn("[Smart Colonist Gear] Simple Sidearms settings save failed: " + ex.Message);
 			}
 		}
 
@@ -8465,7 +9077,7 @@ namespace ResearchedLoadout
 				origDraw = AccessTools.Method(settingsType, "DoSettingsWindowContents", new Type[1] { typeof(Rect) });
 				if (origDraw == null)
 				{
-					Log.Warning("[Smart Colonist Gear] Simple Sidearms settings window not found, using the short version.");
+					MLog.Warn("[Smart Colonist Gear] Simple Sidearms settings window not found, using the short version.");
 				}
 			}
 			if (origDraw == null)
@@ -8510,7 +9122,7 @@ namespace ResearchedLoadout
 			{
 				origDraw = null;
 				Exception inner0 = ex0.InnerException ?? ex0;
-				Log.Warning("[Smart Colonist Gear] Simple Sidearms settings window failed, using the short version: " + inner0.Message);
+				MLog.Warn("[Smart Colonist Gear] Simple Sidearms settings window failed, using the short version: " + inner0.Message);
 			}
 			Widgets.EndGroup();
 			Text.Anchor = TextAnchor.UpperLeft;
@@ -8526,7 +9138,7 @@ namespace ResearchedLoadout
 			{
 				origDraw = null;
 				Exception inner = ex.InnerException ?? ex;
-				Log.Warning("[Smart Colonist Gear] Simple Sidearms settings window failed, using the short version: " + inner.Message);
+				MLog.Warn("[Smart Colonist Gear] Simple Sidearms settings window failed, using the short version: " + inner.Message);
 				return false;
 			}
 		}
@@ -8550,7 +9162,7 @@ namespace ResearchedLoadout
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[Smart Colonist Gear] could not hide Simple Sidearms settings page: " + ex.Message);
+				MLog.Warn("[Smart Colonist Gear] could not hide Simple Sidearms settings page: " + ex.Message);
 			}
 		}
 
@@ -9411,7 +10023,7 @@ namespace ResearchedLoadout
 			}
 			catch (Exception ex)
 			{
-				Log.WarningOnce("[Smart Colonist Gear] built-in sidearms: " + ex.Message, 7310033);
+				MLog.WarnOnce("[Smart Colonist Gear] built-in sidearms: " + ex.Message, 7310033);
 			}
 		}
 
@@ -9613,6 +10225,7 @@ namespace ResearchedLoadout
 						continue;
 					}
 					Job job = JobMaker.MakeJob(JobDefOf.Wear, best);
+					GearWhy.TagJob(job, GearWhy.Reason(hunting ? "RL_Why_ArmorHunt" : "RL_Why_Armor"));
 					if (drafted)
 					{
 						job.playerForced = true;
@@ -9627,7 +10240,7 @@ namespace ResearchedLoadout
 			}
 			catch (Exception ex)
 			{
-				Log.WarningOnce("[Smart Colonist Gear] combat armor: " + ex.Message, 7310021);
+				MLog.WarnOnce("[Smart Colonist Gear] combat armor: " + ex.Message, 7310021);
 			}
 		}
 
@@ -9837,18 +10450,18 @@ namespace ResearchedLoadout
 					_active = _canPickup != null && _equipSecondary != null;
 					if (_active)
 					{
-						Log.Message("[Smart Colonist Gear] Simple Sidearms found - weapons follow its limits and memory.");
+						MLog.Info("[Smart Colonist Gear] Simple Sidearms found - weapons follow its limits and memory.");
 					}
 					else
 					{
-						Log.Warning("[Smart Colonist Gear] Simple Sidearms found, but hooking failed (different version?). Sidearms are left to SS.");
+						MLog.Warn("[Smart Colonist Gear] Simple Sidearms found, but hooking failed (different version?). Sidearms are left to SS.");
 					}
 				}
 			}
 			catch (Exception ex)
 			{
 				_active = false;
-				Log.Warning("[Smart Colonist Gear] Simple Sidearms hook failed: " + ex.Message);
+				MLog.Warn("[Smart Colonist Gear] Simple Sidearms hook failed: " + ex.Message);
 			}
 		}
 
@@ -9871,18 +10484,18 @@ namespace ResearchedLoadout
 					});
 					if (methodInfo == null)
 					{
-						Log.Warning("[Smart Colonist Gear] Simple Sidearms: CanPickupSidearmInstance not found, sidearm filter not hooked.");
+						MLog.Warn("[Smart Colonist Gear] Simple Sidearms: CanPickupSidearmInstance not found, sidearm filter not hooked.");
 						return;
 					}
 					MethodInfo original = methodInfo;
 					HarmonyMethod postfix = new HarmonyMethod(typeof(SidearmsCompat), "CanPickupPostfix");
 					harmony.Patch(original, null, postfix);
-					Log.Message("[Smart Colonist Gear] Simple Sidearms: sidearms also follow this mod's filter.");
+					MLog.Info("[Smart Colonist Gear] Simple Sidearms: sidearms also follow this mod's filter.");
 				}
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[Smart Colonist Gear] Simple Sidearms filter hook failed: " + ex.Message);
+				MLog.Warn("[Smart Colonist Gear] Simple Sidearms filter hook failed: " + ex.Message);
 			}
 		}
 
@@ -10172,7 +10785,7 @@ namespace ResearchedLoadout
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[Smart Colonist Gear] Hauling " + dropped.ToStringSafe() + " failed: " + ex.Message);
+				MLog.Warn("[Smart Colonist Gear] Hauling " + dropped.ToStringSafe() + " failed: " + ex.Message);
 			}
 		}
 	}
@@ -10376,7 +10989,7 @@ namespace ResearchedLoadout
 					return true;
 				}
 			}
-			Log.Warning("[Smart Colonist Gear] JobGiver_OptimizeApparel.ApparelScoreRaw not found, vanilla apparel filter disabled.");
+			MLog.Warn("[Smart Colonist Gear] JobGiver_OptimizeApparel.ApparelScoreRaw not found, vanilla apparel filter disabled.");
 			return false;
 		}
 
@@ -10409,6 +11022,10 @@ namespace ResearchedLoadout
 			{
 				__result += Specialization.ApparelBonus(pawn, apparel);
 				WearerFit.Apply(pawn, apparel, ref __result);
+				if (__result > 0f && GearSense.UnneededMask(pawn, apparel))
+				{
+					__result *= 0.2f;
+				}
 				if (__result > 0f && !LoadoutFilter.IsBelowMinHp(apparel))
 				{
 					__result *= 1f + ResearchedLoadoutMapComponent.Stability;
@@ -10441,6 +11058,42 @@ namespace ResearchedLoadout
 				__result -= Coverage.LossPenalty(pawn, apparel.def);
 				WearerFit.Apply(pawn, apparel, ref __result);
 			}
+		}
+	}
+}
+
+
+namespace ResearchedLoadout
+{
+	// 2.15.0: when the temperature crosses the set range, colonists change clothes right away
+	// (no waiting for the next half-hour round, the calm time or the "recently taken off" memory)
+	public static class TempRush
+	{
+		private static readonly Dictionary<int, int> lastState = new Dictionary<int, int>();
+		private static readonly Dictionary<int, int> until = new Dictionary<int, int>();
+
+		public static bool Active(Pawn pawn)
+		{
+			int u;
+			return pawn != null && until.TryGetValue(pawn.thingIDNumber, out u) && Find.TickManager.TicksGame < u;
+		}
+
+		// true while the colonist should be handled now
+		public static bool Check(Pawn pawn, int now)
+		{
+			int cold, heat;
+			LoadoutFilter.TemperatureNeed(pawn, out cold, out heat);
+			int state = cold > 0 ? 1 : heat > 0 ? 2 : 0;
+			int last;
+			bool known = lastState.TryGetValue(pawn.thingIDNumber, out last);
+			lastState[pawn.thingIDNumber] = state;
+			if (known && last != state)
+			{
+				// one game hour to finish changing
+				until[pawn.thingIDNumber] = now + 2500;
+				return true;
+			}
+			return Active(pawn);
 		}
 	}
 }

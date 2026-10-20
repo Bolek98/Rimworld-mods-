@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SC_ModName>Secular Colony</SC_ModName>
+  <SC_NoIdeology>The Ideology DLC is not active – there is nothing to switch off.</SC_NoIdeology>
+  <SC_Enable>My colony ignores ideoligion</SC_Enable>
+  <SC_Enable_Desc>Main switch. Affects only your colonists (and slaves if chosen), not other factions. Switching off brings everything back.</SC_Enable_Desc>
+  <SC_Moods>No mood from beliefs</SC_Moods>
+  <SC_Moods_Desc>Thoughts from precepts, rituals, roles, ideoligion buildings, desired apparel and colors give neither bonus nor penalty. Existing belief thoughts are removed.</SC_Moods_Desc>
+  <SC_Certainty>No conversion</SC_Certainty>
+  <SC_Certainty_Desc>Certainty never drops, nobody converts your colonists and your colonists don't try to convert others. Prisoner conversion you order yourself still works.</SC_Certainty_Desc>
+  <SC_Willing>Ideoligion forbids nothing</SC_Willing>
+  <SC_Willing_Desc>"Ideoligion forbids" no longer stops colonists from any job or action.</SC_Willing_Desc>
+  <SC_MentalBreaks>No mental breaks from beliefs</SC_MentalBreaks>
+  <SC_MentalBreaks_Desc>Mental breaks caused by precepts (crisis of faith and similar) don't happen to your colonists. Normal mental breaks remain.</SC_MentalBreaks_Desc>
+  <SC_Alerts>Hide belief alerts</SC_Alerts>
+  <SC_Alerts_Desc>Hides the alerts about empty roles, missing or disrespected ideoligion buildings, upcoming date rituals and the age reversal demand. You don't need to fill roles.</SC_Alerts_Desc>
+  <SC_Slaves>Also applies to slaves</SC_Slaves>
+  <SC_Slaves_Desc>When on, your colony's slaves ignore ideoligion too.</SC_Slaves_Desc>
+  <SC_Note>Changes apply at once, also in an ongoing game. The Ideoligion tab stays visible but has no effect on your colony.</SC_Note>
+  <SC_LookChange>Colonists change their look by themselves</SC_LookChange>
+  <SC_LookChange_Desc>Now and then a colonist wants a new hairstyle, beard or tattoo and goes to a styling station on their own when they have time. Only free adult colonists (not slaves, prisoners or guests). Needs a styling station – without one nobody gets the wish (vanilla behaviour). A wish not fulfilled within 4 days is dropped.</SC_LookChange_Desc>
+  <SC_LookChangeDays>Average days between wishes per colonist: {0}</SC_LookChangeDays>
+  <SC_LookChangeDays_Desc>On average how many days pass before a colonist wants a new look again. Good mood and beauty make it a bit more often, bad mood less often.</SC_LookChangeDays_Desc>
+  <SC_LookChangeMessage>Show a message when someone wants a new look</SC_LookChangeMessage>
+  <SC_LookChangeMessage_Desc>A short message at the top of the screen. The game does not pause.</SC_LookChangeMessage_Desc>
+  <SC_StyleFree>Style without ideoligion</SC_StyleFree>
+  <SC_StyleFree_Desc>Hairstyles, beards and tattoos are chosen from everything that fits the colonist's gender, age and genes, not from what the ideoligion allows. A style the ideoligion dislikes no longer makes a colonist want a change.</SC_StyleFree_Desc>
+  <SC_LookWish>{PAWN_nameDef} wants a new look.</SC_LookWish>
+  <SC_H_Belief>Belief</SC_H_Belief>
+  <SC_H_Look>Look</SC_H_Look>
+  <SC_H_Love>Relationships without belief</SC_H_Love>
+  <SC_LoveHint>Without ideoligion, belief does not decide how many partners a colonist may have. Pick a rule:</SC_LoveHint>
+  <SC_Rule0>By traits (recommended)</SC_Rule0>
+  <SC_Rule0_Desc>Everyone has one partner. Colonists with the "polyamorous" or "polygamous" trait may have more partners and spouses (up to the limit below).</SC_Rule0_Desc>
+  <SC_Rule1>One partner for everyone</SC_Rule1>
+  <SC_Rule1_Desc>Nobody may have more partners or spouses at once. A new relationship ends the old one.</SC_Rule1_Desc>
+  <SC_Rule2>Free love for everyone</SC_Rule2>
+  <SC_Rule2_Desc>Anyone may have more partners and spouses (up to the limit below). This is how the mod behaved up to version 1.1.</SC_Rule2_Desc>
+  <SC_MaxPartners>At most partners at once: {0}</SC_MaxPartners>
+  <SC_MaxPartners_Desc>How many lovers, fiancés and spouses together a colonist may have when the rule allows it. 5 or more = no limit.</SC_MaxPartners_Desc>
+  <SC_PolyChance>Poly trait frequency: {0} %</SC_PolyChance>
+  <SC_PolyChance_Desc>How often "polyamorous" and "polygamous" appear on new pawns. 0 % = never (they can still be added in a character editor).</SC_PolyChance_Desc>
+  <SC_PolyNoJealousy>Polyamorous are not jealous</SC_PolyNoJealousy>
+  <SC_PolyNoJealousy_Desc>A polyamorous colonist gets no "cheated on me" mood when a partner has someone else too.</SC_PolyNoJealousy_Desc>
+  <SC_PolygamyMood>Polygamous enjoy a big family</SC_PolygamyMood>
+  <SC_PolygamyMood_Desc>A polygamous colonist with two spouses +3, three +5, four or more +7 mood.</SC_PolygamyMood_Desc>
+  <SC_H_NoBelief>No belief at all</SC_H_NoBelief>
+  <SC_NoBelief_NoGame>The ideoligion can be removed from the colony completely in a running game (here in the settings).</SC_NoBelief_NoGame>
+  <SC_NoBelief_Desc>Removes the ideoligion from the colony completely: the game switches to classic mode (like a game without Ideology), the Ideoligion tab, certainty, conversions, roles, relics and ideoligion buildings disappear. All colonists get one plain "classic" belief without rules, and anyone who joins takes it too.</SC_NoBelief_Desc>
+  <SC_NoBelief_Button>Remove the ideoligion from the colony</SC_NoBelief_Button>
+  <SC_NoBelief_Confirm>Really remove the ideoligion from the colony? This changes the saved game (roles and ideoligion buildings disappear). Save to a new slot first.</SC_NoBelief_Confirm>
+  <SC_NoBelief_Converted>Ideoligion removed – colonists converted: {0}. The colony lives without belief.</SC_NoBelief_Converted>
+  <SC_NoBelief_Done>The colony has no ideoligion (classic mode).</SC_NoBelief_Done>
+  <SC_NoBelief_Undo>Bring the ideoligion back (classic mode off)</SC_NoBelief_Undo>
+  <SC_NoBelief_Undone>Classic mode off – the Ideoligion tab is back. Colonists keep the plain belief, which you can edit.</SC_NoBelief_Undone>
+  <!-- 1.4.0 -->
+  <SC_BarberTable>Barber's table too</SC_BarberTable>
+  <SC_BarberTable_Desc>A colonist who wants a new look goes to the nearest styling station OR barber's table (Vanilla Hair Expanded and similar mods). The barber's table menu lists only hairstyles and beards that fit the colonist (gender, race, genes).</SC_BarberTable_Desc>
+  <SC_GenderStyles>Women women's hairstyles, men men's</SC_GenderStyles>
+  <SC_GenderStyles_Desc>Women choose only female and unisex hairstyles, men only male and unisex – from all your hair mods. Applies to your colonists.</SC_GenderStyles_Desc>
+  <SC_HairColours>Change hair colour too</SC_HairColours>
+  <SC_HairColours_Desc>On a restyle the colonist now and then changes hair colour too – from the colours of all mods (hair dyes of the game and mods, Vanilla Hair Expanded presets, natural colours from genes). Women dye more often, men mostly pick natural colours. The barber's table gets these colours in its menu as well.</SC_HairColours_Desc>
+  <SC_HairColourChance>Chance of a new colour on a restyle: {0} %</SC_HairColourChance>
+  <SC_HairColourChance_Desc>How often a colonist also changes hair colour when restyling.</SC_HairColourChance_Desc>
+</LanguageData>

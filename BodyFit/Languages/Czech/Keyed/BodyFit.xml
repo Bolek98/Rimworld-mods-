@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BF_TabGeneral>Obecné</BF_TabGeneral>
+  <BF_TabBodies>Typy těl</BF_TabBodies>
+  <BF_TabRaces>Rasy</BF_TabRaces>
+  <BF_Intro>Opravuje hlavy, těla a oblečení pro všechny rasy a typy těl ve hře, ze hry i z módů. Změny jsou vidět hned.</BF_Intro>
+  <BF_FixHeads>Opravit hlavy uprostřed těla</BF_FixHeads>
+  <BF_FixHeads_Desc>Typy těl bez pozice hlavy (často z módů) dostanou pozici hlavy nejpodobnějšího těla ze hry. Tvoje vlastní pozice (záložka Typy těl) mají vždy přednost.</BF_FixHeads_Desc>
+  <BF_FixBodies>Opravit těla, která nejde nakreslit</BF_FixBodies>
+  <BF_FixBodies_Desc>Postava, jejíž typ těla nemá obrázek, nebo jejíž rasa takový typ těla nemá, dostane nejpodobnější fungující typ těla. Kontroluje se při objevení postavy a každé 3 herní hodiny.</BF_FixBodies_Desc>
+  <BF_FixApparel>Oblečení bez obrázku pro dané tělo</BF_FixApparel>
+  <BF_FixApparel_Desc>Když kus oblečení nemá obrázek pro tělo nositele, použije se obrázek nejpodobnějšího těla (Hulk → Muž → Tlusté …). Žádné růžové čtverce, žádné neviditelné oblečení.</BF_FixApparel_Desc>
+  <BF_FitApparel>Přizpůsobit půjčené oblečení tělu</BF_FitApparel>
+  <BF_FitApparel_Desc>Obrys obou těl se obkreslí z jejich obrázků; půjčené oblečení se roztáhne a posune tak, aby přesně sedělo na tělo nositele.</BF_FitApparel_Desc>
+  <BF_RepairNow>Zkontrolovat všechny postavy teď</BF_RepairNow>
+  <BF_RepairDone>Body Fit: opraveno postav: {0}.</BF_RepairDone>
+  <BF_Report>Přehled (Player.log)</BF_Report>
+  <BF_ReportTip>Zapíše všechny typy těl, rasy a chybějící obrázky oblečení do Player.log – pošli ho, když něco pořád nesedí.</BF_ReportTip>
+  <BF_ReportDone>Typy těl: {0} (bez obrázku těla: {1}, bez pozice hlavy: {2})
+Rasy: {3}
+Oblečení kreslené na tělo: {4}
+Opravené postavy: {5}
+
+Celý seznam je v Player.log.</BF_ReportDone>
+  <BF_BodiesHead>Všechny typy těl ve hře. Výška = jak vysoko sedí hlava, Do strany = posun do strany (pohled z boku). − / + po 0,01, se Shiftem po 0,05. Tvoje hodnota platí pro všechny rasy s tímto tělem.</BF_BodiesHead>
+  <BF_RacesHead>Všechny rasy. Výška = výška hlavy navíc. Výška/velikost vlasů pro vlasy, vousy a klobouky. Výška zbraně. Přizpůsobovat oblečení = obkreslit tělo rasy a oblečení mu přizpůsobit (vypni, když oblečení rasy vypadá špatně). Šířka/výška oblečení = vlastní velikost oblečení na těle pro tuto rasu. − / + po 0,01, se Shiftem po 0,05.</BF_RacesHead>
+  <BF_NoBodyTex>chybí obrázek těla</BF_NoBodyTex>
+  <BF_NoHead>chybí pozice hlavy</BF_NoHead>
+  <BF_Ok>v pořádku</BF_Ok>
+  <BF_HeadUp>Výška</BF_HeadUp>
+  <BF_HeadSide>Do strany</BF_HeadSide>
+  <BF_Reset>Zpět</BF_Reset>
+  <BF_Repaired>Body Fit: {0} – tělo {1} nahrazeno tělem {2} (nešlo nakreslit).</BF_Repaired>
+  <BF_FixHair>Vlasy bez obrázku</BF_FixHair>
+  <BF_FixHair_Desc>Účes, jehož obrázek chybí (odebraný mód, špatná cesta), se nakreslí jako krátké vlasy ze hry místo růžového čtverce. Účes postavy se nemění.</BF_FixHair_Desc>
+  <BF_FitHair>Přizpůsobit vlasy hlavě (rasy z módů)</BF_FitHair>
+  <BF_FitHair_Desc>Obrázky vlasů jsou dělané pro lidské hlavy. Obrys skutečně kreslené hlavy se obkreslí a porovná s lidskou hlavou; vlasy se roztáhnou a posunou, aby ji zakryly. Vypni, když vlasy některé rasy vypadají moc velké nebo malé (ta rasa si vlasy upravuje sama).</BF_FitHair_Desc>
+  <BF_HairUp>Výška vlasů</BF_HairUp>
+  <BF_HairSize>Velikost vlasů</BF_HairSize>
+  <BF_Fallback>Náhradní: {0}</BF_Fallback>
+  <BF_Auto>automaticky</BF_Auto>
+  <BF_FallbackTip>Obrázky oblečení kterého těla se použijí, když kus oblečení pro toto tělo obrázek nemá (např. FemaleBB → Female). Automaticky = nejpodobnější tělo. Půjčené oblečení se vždy přizpůsobí obrysu tohoto těla.</BF_FallbackTip>
+  <BF_FitAll>Přizpůsobit všechno oblečení a brnění skutečnému tělu</BF_FitAll>
+  <BF_FitAll_Desc>Každý kus oblečení a brnění na těle se roztáhne a posune na obrys těla, které postava opravdu má – rasy z módů, těla z módů, FemaleBB … Obrázky dělané přímo pro rasu zůstanou, jak jsou. Lidé ze hry: beze změny. Rasy z módů jen tehdy, když mají tělo podobné lidskému (stejný tvar ze všech stran); těla s chapadly, ocasem, křídly nebo aurou mají oblečení přesně tak, jak ho kreslí mód rasy, malá (chibi) těla dostanou oblečení zmenšené na svou velikost.</BF_FitAll_Desc>
+  <BF_FitHeadgear>Přizpůsobit klobouky a helmy skutečné hlavě</BF_FitHeadgear>
+  <BF_FitHeadgear_Desc>Klobouky, helmy a masky jsou dělané pro lidské hlavy; přizpůsobí se obrysu hlavy, kterou postava opravdu má (rasy z módů).</BF_FitHeadgear_Desc>
+  <BF_FitWeapons>Držet zbraně u skutečného těla</BF_FitWeapons>
+  <BF_FitWeapons_Desc>Zbraně, štíty a batohy jsou umístěné pro lidské tělo. U těl, jejichž obrázek sedí výš nebo níž, se posunou za středem skutečného těla. Módy, které kreslí zbraně samy (např. Yayo's Combat), to mohou obejít.</BF_FitWeapons_Desc>
+  <BF_WeaponUp>Výška zbraně</BF_WeaponUp>
+  <BF_RaceFit>Přizpůsobovat oblečení</BF_RaceFit>
+  <BF_ClothesW>Šířka oblečení</BF_ClothesW>
+  <BF_ClothesH>Výška oblečení</BF_ClothesH>
+  <BF_Refit>Přešít oblečení a brnění na tělo – lidé a body mody (FemaleBB, Beautiful Bodies …)</BF_Refit>
+  <BF_Refit_Desc>Oblečení a brnění se překreslí řádek po řádku podle skutečného obrysu těla (Beautiful Bodies, FemaleBB, těla ras …). Tělo zůstane, jak je. Dlouhé kabáty a pláště zůstanou dlouhé. Oblečení, které už pro to tělo nakreslil body mod nebo mod rasy, a Sized Apparel se nemění.</BF_Refit_Desc>
+  <BF_RefitAliens>Přešít oblečení i na mimozemských rasách (pokusné)</BF_RefitAliens>
+  <BF_RefitAliens_Desc>Stejné přešívání pro rasy z Humanoid Alien Races. Těla ras se často hodně liší od těla, pro které bylo oblečení nakreslené, takže výsledek může vypadat špatně – zkontroluj ho v záložce Náhled. Přešívají se jen rasy, jejichž tělo je prakticky lidské; ostatní zůstanou tak, jak je kreslí mód rasy.</BF_RefitAliens_Desc>
+  <BF_RefitSides>Přešít i pohled z boku</BF_RefitSides>
+  <BF_RefitSides_Desc>Upravit i obrázky zboku. Když to z boku vypadá divně, vypni.</BF_RefitSides_Desc>
+  <BF_RefitHeight>Přizpůsobit i výšku těla</BF_RefitHeight>
+  <BF_RefitHeight_Desc>Když je tělo vyšší nebo nižší (delší nohy, jiná ramena), oblečení se natáhne i na výšku.</BF_RefitHeight_Desc>
+  <BF_RefitCore>Brnění a vesty podle trupu</BF_RefitCore>
+  <BF_RefitCore_Desc>Oblečení bez rukávů (pláty, vesty, kalhoty) se měří jen podle trupu, ne podle rukou. Dlouhé kabáty a oblečení s rukávy podle celého těla.</BF_RefitCore_Desc>
+  <BF_RefitHeads>Přešít vlasy, vousy a helmy na hlavu (pokusné)</BF_RefitHeads>
+  <BF_RefitHeads_Desc>Vlasy, vousy, klobouky a helmy se překreslí podle tvaru hlavy rasy (širší, užší, posunutá hlava). Lidské hlavy zůstanou, jak je hra kreslí.</BF_RefitHeads_Desc>
+  <BF_TabClothes>Oblečení</BF_TabClothes>
+  <BF_TabPreview>Náhled</BF_TabPreview>
+  <BF_RaceBody>Tělo pro oblečení: {0}</BF_RaceBody>
+  <BF_RaceBody_Desc>Podle kterého těla se oblečení této rasy přešívá. Automaticky = tělo, které postava opravdu má.</BF_RaceBody_Desc>
+  <BF_ClothesHead>Vlastní nastavení pro každý kus oblečení – platí pro všechny postavy a všechny hry. Posun a velikost: Shift = větší kroky.</BF_ClothesHead>
+  <BF_ClothesWornOnly>Jen co teď někdo nosí</BF_ClothesWornOnly>
+  <BF_ClothesNone>Nic nenalezeno.</BF_ClothesNone>
+  <BF_ItemHide>Schovat</BF_ItemHide>
+  <BF_ItemHide_Desc>Tento kus oblečení se nekreslí (postava ho dál nosí).</BF_ItemHide_Desc>
+  <BF_ItemRefit>Přešívat</BF_ItemRefit>
+  <BF_ItemRefit_Desc>Vypni, když tenhle kus po přešití vypadá hůř.</BF_ItemRefit_Desc>
+  <BF_ItemSide>Do boku</BF_ItemSide>
+  <BF_ItemUp>Nahoru</BF_ItemUp>
+  <BF_PreviewNoGame>Náhled funguje jen v rozehrané hře s postavami na mapě.</BF_PreviewNoGame>
+  <BF_PreviewRefresh>Obnovit</BF_PreviewRefresh>
+  <BF_PreviewInfo>Tělo: {0} · přešitých obrázků: {1}. Když nejsou všechny hotové, klikni na Obnovit.</BF_PreviewInfo>
+  <BF_North>Zezadu</BF_North>
+  <BF_East>Z boku</BF_East>
+  <BF_South>Zepředu</BF_South>
+  <BF_West>Z druhého boku</BF_West>
+  <BF_Before>před</BF_Before>
+  <BF_After>po</BF_After>
+  <BF_RaceOn_Desc>Body Fit upravuje tuto rasu (hlavy, těla, oblečení, vlasy, zbraně). Vypnuto = rasa se kreslí přesně tak, jak ji kreslí její vlastní mod.</BF_RaceOn_Desc>
+  <BF_RaceOff>Neupravuje se – kreslí se přesně tak, jak ji kreslí mod rasy. Zaškrtni, když ji má Body Fit opravovat.</BF_RaceOff>
+  <BF_TabWardrobe>Šatník</BF_TabWardrobe>
+  <BF_WardrobeHead>Kopie libovolné postavy si zkouší jakékoli oblečení, brnění nebo pokrývku hlavy – vykreslené přesně jako ve hře. Zaškrtnutím obléct, kliknutím na řádek vybrat a dole upravit (platí pro všechny postavy ve všech savech).</BF_WardrobeHead>
+  <BF_WardrobeModel>Model: {0} ({1}, {2})</BF_WardrobeModel>
+  <BF_WardrobeNaked>Svléknout vše</BF_WardrobeNaked>
+  <BF_WardrobeReset>Vlastní oblečení modelu</BF_WardrobeReset>
+</LanguageData>

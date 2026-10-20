@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+  <MT_Now>Hra teď používá {0} MB paměti (vyhrazeno {1} MB), průběžný úklid smí běžet {2} ms za snímek.</MT_Now>
+  <MT_Auto>Automaticky</MT_Auto>
+  <MT_Auto_Desc>Mod sám podle toho, kolik paměti hra drží, nastaví, kolik času smí úklid paměti běžet každý snímek (3–12 ms), a velký úklid udělá, když paměť od posledního úklidu výrazně narostla.</MT_Auto_Desc>
+  <MT_Slice>Průběžný úklid za snímek: {0} ms</MT_Slice>
+  <MT_Slice_Desc>Víc = paměť se uklízí průběžně a velké zaseknutí přijde méně často, ale FPS může nepatrně klesnout. Hra sama má 3 ms.</MT_Slice_Desc>
+  <MT_Threshold>Velký úklid, když paměť naroste o: {0} MB</MT_Threshold>
+  <MT_Threshold_Desc>Menší číslo = uklízí se častěji, větší = méně často.</MT_Threshold_Desc>
+  <MT_OnPause>Uklidit při pauze</MT_OnPause>
+  <MT_OnPause_Desc>Když dáš pauzu (nebo otevřeš menu, které hru pozastaví) aspoň na 1,5 s, mod udělá velký úklid paměti. Ten se pak méně často spustí uprostřed hraní. Nejvýš jednou za 90 s.</MT_OnPause_Desc>
+  <MT_OnSave>Uklidit po uložení hry</MT_OnSave>
+  <MT_OnSave_Desc>Hned po uložení (i automatickém) udělá velký úklid. Hra při ukládání stejně stojí, takže si toho nevšimneš – a ukládání po sobě nechá hodně nepotřebné paměti.</MT_OnSave_Desc>
+  <MT_Unload>Uvolnit nepoužívané textury při pauze</MT_Unload>
+  <MT_Unload_Desc>Při delší pauze (3 s) uvolní textury a zvuky, které hra už nepoužívá. Pomáhá při velkém množství modů, když dochází paměť. Nejvýš jednou za 10 minut. Vypnuto, protože může krátce trvat.</MT_Unload_Desc>
+  <MT_RamWarn>Varovat, když dochází paměť počítače</MT_RamWarn>
+  <MT_RamWarn_Desc>Když hra zabere přes 80 % paměti počítače, pošle jednou dopis s radou, co s tím.</MT_RamWarn_Desc>
+  <MT_Hud>Ukazovat paměť vlevo dole</MT_Hud>
+  <MT_Hud_Desc>Malé okénko s pamětí, délkou posledního úklidu a grafem paměti za poslední minutu a půl.</MT_Hud_Desc>
+  <MT_Hud_Text>Paměť: {0} MB · úklid {1} ms · poslední zastavení {2} s</MT_Hud_Text>
+  <MT_CollectNow>Uklidit paměť teď</MT_CollectNow>
+  <MT_Done>Paměť uklizena: {0} → {1} MB ({2} ms)</MT_Done>
+  <MT_DoneSave>Úklid po uložení: {0} → {1} MB</MT_DoneSave>
+  <MT_Note>Velikost paměti hře nastavit nejde – RimWorld si bere, kolik potřebuje. Tento mod řídí, kdy a jak se paměť uklízí, aby se hra méně sekala.</MT_Note>
+  <MT_SecClean>Úklid paměti</MT_SecClean>
+  <MT_SecStats>Co se děje</MT_SecStats>
+  <MT_Rec1>Průběžný úklid paměti se nastaví sám podle velikosti hry.</MT_Rec1>
+  <MT_Rec2>Velký úklid při pauze a po uložení – ne uprostřed hraní.</MT_Rec2>
+  <MT_Rec3>Varování, když dochází paměť počítače.</MT_Rec3>
+  <MT_Rec4>Měřič záseků ukáže, kolikrát se hra zasekla a proč.</MT_Rec4>
+  <MT_Hitches>Za poslední hodinu: {0} záseků delších než 0,25 s, z toho {1} kvůli úklidu paměti. Nejdelší: {2} s.</MT_Hitches>
+  <MT_HitchNone>Za poslední hodinu žádný zásek delší než 0,25 s.</MT_HitchNone>
+  <MT_Cleans>Velký úklid udělán: {0}× při pauze, {1}× po uložení, {2}× ručně.</MT_Cleans>
+  <MT_Ram>Počítač: hra zabírá {0} MB z {1} MB paměti ({2} %).</MT_Ram>
+  <MT_RamWarn_Title>Dochází paměť počítače</MT_RamWarn_Title>
+  <MT_RamWarn_Text>Hra teď zabírá {0} MB z {1} MB paměti počítače. Když paměť dojde, hra se začne hodně sekat nebo spadne.\n\nCo pomůže:\n- zavřít jiné programy (prohlížeč…),\n- vypnout mody, které nepotřebuješ,\n- mod na kompresi textur (třeba Graphics Settings+),\n- menší mapa nebo méně map najednou.</MT_RamWarn_Text>
+</LanguageData>

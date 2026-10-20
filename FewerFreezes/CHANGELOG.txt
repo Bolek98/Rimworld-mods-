@@ -1,0 +1,18 @@
+Fewer Freezes – Smart Memory Cleanup 1.1.0 (formerly Memory Tuner)
+===================================================================
+- RimWorld 1.7 supported (tested on 1.7; still works on 1.6).
+
+New name: the mod is now called "Fewer Freezes – Smart Memory Cleanup", so the name says what it does.
+Same package id – your settings and saves carry over.
+
+New
+- Freeze meter: how many freezes (over 0.25 s) you had in the last hour, how many came from memory clean-up, and the longest one.
+- Big clean-up right after saving (also autosave) – the game stops for saving anyway.
+- Warning letter when the game takes over 80 % of the computer's memory, with tips.
+- Optional: free unused textures and sounds during a longer pause (off by default).
+- Small display: now also shows the last clean-up stop and a memory graph.
+- Recommended settings switch (on by default) and the same settings look as my other mods.
+- Shows how much of the computer's memory the game takes.
+
+Changed
+- Now needs Harmony.

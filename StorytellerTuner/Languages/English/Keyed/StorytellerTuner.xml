@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <ST_TabDifficulty>Difficulty</ST_TabDifficulty>
+  <ST_TabStoryteller>Storyteller</ST_TabStoryteller>
+  <ST_Choose>Choose…</ST_Choose>
+  <ST_CurrentGame>Current game (this game only)</ST_CurrentGame>
+  <ST_CustomNote>custom – the game keeps its own values</ST_CustomNote>
+  <ST_Reset>Reset to original values</ST_Reset>
+  <ST_FromGame>Take values from the current game</ST_FromGame>
+  <ST_HelpDifficulty>Pick the difficulty you want to edit (modded ones too). Changes are saved and apply to new games and to a running game that uses this difficulty. "Current game" edits only the running game's values (saved with it).</ST_HelpDifficulty>
+  <ST_HelpStoryteller>Pick the storyteller you want to edit. Changes apply at once, also in a running game.</ST_HelpStoryteller>
+  <ST_NoteDifficulty>Yellow mark = changed. Hover to see the original value. Write ranges as 1~3.</ST_NoteDifficulty>
+  <ST_NoteStoryteller>Yellow mark = changed. Hover to see the original value. Write ranges as 1~3. Values belong to the storyteller's parts (#1, #2…).</ST_NoteStoryteller>
+  <ST_NoteCurrent>You are editing the running game's values – they are saved with the game, not in the mod settings.</ST_NoteCurrent>
+  <ST_Original>Originally: {0}</ST_Original>
+  <ST_F_threatScale>Threat scale</ST_F_threatScale>
+  <ST_F_allowBigThreats>Big threats</ST_F_allowBigThreats>
+  <ST_F_allowIntroThreats>Early-game threats</ST_F_allowIntroThreats>
+  <ST_F_allowCaveHives>Cave hives</ST_F_allowCaveHives>
+  <ST_F_peacefulTemples>Peaceful temples</ST_F_peacefulTemples>
+  <ST_F_allowViolentQuests>Violent quests</ST_F_allowViolentQuests>
+  <ST_F_predatorsHuntHumanlikes>Predators hunt people</ST_F_predatorsHuntHumanlikes>
+  <ST_F_colonistMoodOffset>Colonist mood (+/-)</ST_F_colonistMoodOffset>
+  <ST_F_cropYieldFactor>Crop yield</ST_F_cropYieldFactor>
+  <ST_F_mineYieldFactor>Mining yield</ST_F_mineYieldFactor>
+  <ST_F_researchSpeedFactor>Research speed</ST_F_researchSpeedFactor>
+  <ST_F_diseaseIntervalFactor>Disease interval (higher = rarer)</ST_F_diseaseIntervalFactor>
+  <ST_F_questRewardValueFactor>Quest reward value</ST_F_questRewardValueFactor>
+  <ST_F_raidLootPointsFactor>Raid loot</ST_F_raidLootPointsFactor>
+  <ST_F_pop>Population keeping (factor)</ST_F_pop>
+  <ST_T_pop>How much the storyteller sends people (refugees, joiners …) while the colony is small. 1 = original, 0.5 = half, 2 = double.</ST_T_pop>
+  <ST_F_onDays>Threat days</ST_F_onDays>
+  <ST_T_onDays>How long the dangerous part of the cycle lasts.</ST_T_onDays>
+  <ST_F_offDays>Calm days</ST_F_offDays>
+  <ST_T_offDays>How long the calm part of the cycle lasts.</ST_T_offDays>
+  <ST_F_minSpacingDays>Minimum spacing (days)</ST_F_minSpacingDays>
+  <ST_T_minSpacingDays>The fewest days between two events of this part.</ST_T_minSpacingDays>
+  <ST_F_numIncidentsRange>Events per phase (min~max)</ST_F_numIncidentsRange>
+  <ST_F_mtbDays>On average every (days)</ST_F_mtbDays>
+  <ST_T_mtbDays>Average time between events. Lower = more often.</ST_T_mtbDays>
+  <ST_F_maxThreatBigIntervalDays>Longest pause between big threats (days)</ST_F_maxThreatBigIntervalDays>
+  <ST_F_randomPointsFactorRange>Random event strength (min~max)</ST_F_randomPointsFactorRange>
+  <ST_F_baseIncidentsPerYear>Events per year</ST_F_baseIncidentsPerYear>
+  <ST_F_weight>Weight: {0}</ST_F_weight>
+  <ST_T_weight>How often the random pick chooses this event category. Higher = more often.</ST_T_weight>
+  <ST_C_OnOffCycle>Calm/threat cycle</ST_C_OnOffCycle>
+  <ST_C_RandomMain>Random events</ST_C_RandomMain>
+  <ST_C_CategoryMTB>Regular events</ST_C_CategoryMTB>
+  <ST_C_FactionInteraction>Faction visits</ST_C_FactionInteraction>
+  <ST_C_ThreatsGenerator>Threat generator</ST_C_ThreatsGenerator>
+  <ST_C_Triggered>Triggered events</ST_C_Triggered>
+  <ST_C_Disease>Diseases</ST_C_Disease>
+</LanguageData>

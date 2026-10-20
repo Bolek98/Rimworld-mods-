@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MSM_Activate>Activer {0}</MSM_Activate>
+  <MSM_ActivateShort>Activer</MSM_ActivateShort>
+  <MSM_Active>ACTIFS · {0} (ORDRE DE CHARGEMENT)</MSM_Active>
+  <MSM_Backups>SAUVEGARDES DE LA LISTE DE MODS</MSM_Backups>
+  <MSM_BackupsHint>La liste est sauvegardée avant chaque enregistrement (les 20 dernières). Charger ne fait que préparer la liste – elle est enregistrée avec le bouton ci-dessous.</MSM_BackupsHint>
+  <MSM_Bottom>En bas</MSM_Bottom>
+  <MSM_BulletAside>S'efface devant un autre gestionnaire de mods</MSM_BulletAside>
+  <MSM_BulletBackup>Sauvegarde de la liste avant chaque modification</MSM_BulletBackup>
+  <MSM_BulletButton>Le bouton Mods ouvre Mod Sort Manager</MSM_BulletButton>
+  <MSM_BulletEscOff>L'entrée du menu Échap est désactivée</MSM_BulletEscOff>
+  <MSM_CloseAsk>La liste de mods contient des modifications non enregistrées. Les enregistrer ?</MSM_CloseAsk>
+  <MSM_DiscardShort>Annuler les modifs</MSM_DiscardShort>
+  <MSM_ModSettings>Options du mod</MSM_ModSettings>
+  <MSM_Upload>Publier sur le Workshop</MSM_Upload>
+  <MSM_TabUpdates>Mises à jour</MSM_TabUpdates>
+  <MSM_UpdNoSteam>Steam n'est pas lancé – impossible de vérifier les mises à jour du Workshop pour l'instant.</MSM_UpdNoSteam>
+  <MSM_UpdTitle>En attente de mise à jour : {0} · téléchargement : {1}</MSM_UpdTitle>
+  <MSM_UpdAll>Tout mettre à jour ({0})</MSM_UpdAll>
+  <MSM_UpdCheck>Revérifier</MSM_UpdCheck>
+  <MSM_UpdHint>Mods du Workshop. Après le téléchargement des mises à jour, un redémarrage est nécessaire – bouton ci-dessous. Les mods mis à jour ces 7 derniers jours sont aussi listés (si quelque chose casse après une mise à jour, vous savez où chercher).</MSM_UpdHint>
+  <MSM_UpdNeeds>nouvelle version disponible</MSM_UpdNeeds>
+  <MSM_UpdBusy>téléchargement… {0} %</MSM_UpdBusy>
+  <MSM_UpdDone>téléchargé – après redémarrage</MSM_UpdDone>
+  <MSM_UpdRecent>mis à jour {0}</MSM_UpdRecent>
+  <MSM_UpdOne>Mettre à jour</MSM_UpdOne>
+  <MSM_UpdNone>✓ Tout est à jour</MSM_UpdNone>
+  <MSM_Close>Fermer</MSM_Close>
+  <MSM_CoreStays>Le jeu (Core) doit rester activé.</MSM_CoreStays>
+  <MSM_CountActive>Actifs : {0}</MSM_CountActive>
+  <MSM_CountErr>Erreurs : {0}</MSM_CountErr>
+  <MSM_CountInfo>Chevauchements : {0}</MSM_CountInfo>
+  <MSM_CountWarn>Avertissements : {0}</MSM_CountWarn>
+  <MSM_Deactivate>Désactiver</MSM_Deactivate>
+  <MSM_DeactivateX>Désactiver {0}</MSM_DeactivateX>
+  <MSM_Delete>Supprimer</MSM_Delete>
+  <MSM_DeleteConfirm>Supprimer la liste enregistrée « {0} » ?</MSM_DeleteConfirm>
+  <MSM_DepInstalled>Le mod requis est installé, mais pas activé.</MSM_DepInstalled>
+  <MSM_DepMissing>Le mod requis n'est pas installé. Le mod ne fonctionnera pas sans lui.</MSM_DepMissing>
+  <MSM_DepTitle>{0} requiert {1}</MSM_DepTitle>
+  <MSM_Discard>Abandonner les modifications non enregistrées de la liste de mods ?</MSM_Discard>
+  <MSM_Done>Terminé</MSM_Done>
+  <MSM_Download>Télécharger</MSM_Download>
+  <MSM_DupActive>activé</MSM_DupActive>
+  <MSM_DupIgnored>ignoré par le jeu</MSM_DupIgnored>
+  <MSM_DupInstalled>installé</MSM_DupInstalled>
+  <MSM_DupLocalText>Le même mod se trouve plusieurs fois dans le dossier Mods. Le jeu ne charge que le premier dossier par ordre alphabétique et ignore les autres sans prévenir – impossible de savoir quelle version tourne.</MSM_DupLocalText>
+  <MSM_DupNewest>PLUS RÉCENT</MSM_DupNewest>
+  <MSM_DupSteamText>Le mod est à la fois dans le dossier Mods et sur le Workshop. Les deux copies apparaissent dans la liste et il est facile d'activer l'ancienne.</MSM_DupSteamText>
+  <MSM_DupTitle>{0} est installé {1}×</MSM_DupTitle>
+  <MSM_Folder>Dossier</MSM_Folder>
+  <MSM_GrpBreak>Risque de casse</MSM_GrpBreak>
+  <MSM_GrpDup>Doublons</MSM_GrpDup>
+  <MSM_GrpSame>Font la même chose</MSM_GrpSame>
+  <MSM_Inactive>INACTIFS · {0}</MSM_Inactive>
+  <MSM_IncText>L'auteur de {0} indique qu'ils ne fonctionnent pas ensemble. N'en gardez qu'un activé.</MSM_IncText>
+  <MSM_IncTitle>{0} × {1} – incompatibles</MSM_IncTitle>
+  <MSM_Info>Version {0} · jeu {1} · {2}</MSM_Info>
+  <MSM_KeepConfirm>Conserver :
+{0}
+
+Les autres copies sont déplacées dans un dossier de sauvegarde (rien n'est supprimé), les copies du Workshop sont désabonnées :
+{1}
+
+Prend effet après un redémarrage.</MSM_KeepConfirm>
+  <MSM_KeepDone>Terminé. Les autres copies sont dans {0}.</MSM_KeepDone>
+  <MSM_KeepFailed>Ces copies n'ont pas pu être déplacées :
+{0}
+
+Fermez le jeu et déplacez-les à la main. Dossier de sauvegarde : {1}</MSM_KeepFailed>
+  <MSM_KeepNewest>Garder la plus récente</MSM_KeepNewest>
+  <MSM_Load>Charger</MSM_Load>
+  <MSM_LoadLastSave>Charger la dernière partie après redémarrage</MSM_LoadLastSave>
+  <MSM_Loaded>Mods chargés : {0}. Enregistrez avec le bouton ci-dessous.</MSM_Loaded>
+  <MSM_Missing>La liste est chargée, mais des mods manquent (non installés) : {0}
+
+{1}</MSM_Missing>
+  <MSM_NoSaveConfirm>Impossible de sauvegarder la partie maintenant (ou le retour au jeu est désactivé). Après le redémarrage, vous arriverez au menu principal et la progression non sauvegardée sera perdue. Continuer ?</MSM_NoSaveConfirm>
+  <MSM_NoBackups>Aucune sauvegarde pour l'instant.</MSM_NoBackups>
+  <MSM_NoProfiles>Aucune liste enregistrée pour l'instant.</MSM_NoProfiles>
+  <MSM_NoReturnTip>Impossible de sauvegarder la partie pour l'instant (mort permanente ou événement en cours) ; après le redémarrage, vous arriverez au menu principal.</MSM_NoReturnTip>
+  <MSM_None>✓ Rien trouvé</MSM_None>
+  <MSM_NoteDep>Manque {0}</MSM_NoteDep>
+  <MSM_NoteDup>Installé plusieurs fois</MSM_NoteDup>
+  <MSM_NoteInc>Incompatible avec {0}</MSM_NoteInc>
+  <MSM_NoteOld>Uniquement pour {0}</MSM_NoteOld>
+  <MSM_NoteOrder>Mauvais ordre</MSM_NoteOrder>
+  <MSM_NoteSame>Fait la même chose que {0}</MSM_NoteSame>
+  <MSM_OldShort>seulement {0}</MSM_OldShort>
+  <MSM_OldText>Le jeu les charge et la plupart fonctionnent, mais ils peuvent générer des erreurs. En cas de problème, désactivez-les en premier.</MSM_OldText>
+  <MSM_OldTitle>Mods non compatibles avec {1} : {0}</MSM_OldTitle>
+  <MSM_OpenFolders>Ouvrir les dossiers</MSM_OpenFolders>
+  <MSM_OpenNow>Ouvrir Mod Sort Manager</MSM_OpenNow>
+  <MSM_OrderAfter>{0} doit être chargé après {1}</MSM_OrderAfter>
+  <MSM_OrderBefore>{0} doit être chargé avant {1}</MSM_OrderBefore>
+  <MSM_OrderTitle>Mauvais ordre de chargement ({0})</MSM_OrderTitle>
+  <MSM_ProfileBad>La liste n'a pas pu être chargée.</MSM_ProfileBad>
+  <MSM_ProfileNameHint>Nom de la liste…</MSM_ProfileNameHint>
+  <MSM_ProfileSaved>Liste « {0} » enregistrée.</MSM_ProfileSaved>
+  <MSM_Profiles>LISTES DE MODS ENREGISTRÉES</MSM_Profiles>
+  <MSM_ProfilesHint>Les mêmes fichiers que dans la fenêtre des mods du jeu (enregistrer/charger la liste) – ils fonctionnent aussi sans ce mod.</MSM_ProfilesHint>
+  <MSM_ReturnToGame>Revenir à la partie après redémarrage</MSM_ReturnToGame>
+  <MSM_Revert>Tout annuler</MSM_Revert>
+  <MSM_SameHint>estimation d'après les patchs Harmony des mods chargés</MSM_SameHint>
+  <MSM_SameHot>Les deux remplacent la même partie importante du jeu – un seul suffit</MSM_SameHot>
+  <MSM_SameText>Les deux modifient le même code du jeu</MSM_SameText>
+  <MSM_SaveFailed>Impossible d'enregistrer la liste de mods : {0}</MSM_SaveFailed>
+  <MSM_SaveProfile>Enregistrer l'actuelle</MSM_SaveProfile>
+  <MSM_SaveRestart>Enregistrer et redémarrer</MSM_SaveRestart>
+  <MSM_SaveReturn>Enregistrer, redémarrer et revenir à la partie</MSM_SaveReturn>
+  <MSM_SearchActiveHint>Rechercher parmi les actifs…</MSM_SearchActiveHint>
+  <MSM_SearchHint>Rechercher mod, auteur, ID…</MSM_SearchHint>
+  <MSM_SecWhere>Où le trouver</MSM_SecWhere>
+  <MSM_SelectHint>Sélectionnez un mod à gauche.</MSM_SelectHint>
+  <MSM_SetEsc>Entrée dans le menu Échap en jeu</MSM_SetEsc>
+  <MSM_SetEscTip>Mod Sort Manager peut aussi être ouvert en cours de partie. À l'enregistrement, la partie est sauvegardée, le jeu redémarre et vous y revenez.</MSM_SetEscTip>
+  <MSM_SetReplace>Le bouton Mods ouvre Mod Sort Manager</MSM_SetReplace>
+  <MSM_SetReplaceTip>La fenêtre d'origine reste accessible via le bouton « Fenêtre d'origine ». Si un autre gestionnaire de mods est présent (Fluffy's Mod Manager), ce mod s'efface.</MSM_SetReplaceTip>
+  <MSM_Show>Afficher {0}</MSM_Show>
+  <MSM_SmartSort>Tri intelligent</MSM_SmartSort>
+  <MSM_SortCycle>Les règles des mods se contredisent (boucle : A avant B et B avant A). Le tri est impossible – corrigez l'ordre à la main.</MSM_SortCycle>
+  <MSM_Sorted>Trié.</MSM_Sorted>
+  <MSM_SrcLocal>Dossier Mods</MSM_SrcLocal>
+  <MSM_SrcOfficial>jeu / DLC</MSM_SrcOfficial>
+  <MSM_SrcSteam>Workshop</MSM_SrcSteam>
+  <MSM_Subtitle>Ordre de chargement, conflits &amp; profils · v{0} · Bolek98</MSM_Subtitle>
+  <MSM_SumActive>Actifs : {0} · jeu {1}</MSM_SumActive>
+  <MSM_SumBackup>L'ancienne liste est sauvegardée avant chaque enregistrement – voir l'onglet Profils.</MSM_SumBackup>
+  <MSM_SumBackupTitle>Sauvegarde</MSM_SumBackupTitle>
+  <MSM_SumCompat>Compatibles {1} : {0}</MSM_SumCompat>
+  <MSM_SumOld>Anciennes versions seulement : {0} – le jeu les charge, la plupart fonctionnent</MSM_SumOld>
+  <MSM_SumRestartGame>Enregistrer → la partie est sauvegardée, le jeu redémarre et vous revenez à cette partie.</MSM_SumRestartGame>
+  <MSM_SumRestartMenu>Enregistrer → le jeu redémarre tout seul. Charge éventuellement la dernière sauvegarde.</MSM_SumRestartMenu>
+  <MSM_SumRestartTitle>Changements sans quitter</MSM_SumRestartTitle>
+  <MSM_Summary>RÉSUMÉ</MSM_Summary>
+  <MSM_TabOrder>Ordre de chargement</MSM_TabOrder>
+  <MSM_TabProblems>Problèmes</MSM_TabProblems>
+  <MSM_TabProfiles>Profils</MSM_TabProfiles>
+  <MSM_Top>En haut</MSM_Top>
+  <MSM_Unsub>se désabonner</MSM_Unsub>
+  <MSM_Vanilla>Fenêtre d'origine</MSM_Vanilla>
+  <MSM_Web>Page du mod</MSM_Web>
+  <MSM_Workshop>Page Workshop</MSM_Workshop>
+  <MUI_Title>Réglages recommandés</MUI_Title>
+  <MUI_TitleOff>Réglages recommandés · désactivés</MUI_TitleOff>
+  <MUI_DescOn>Le mod se configure tout seul et fonctionne immédiatement. Idéal pour les nouveaux joueurs et tous ceux qui ne veulent rien ajuster.</MUI_DescOn>
+  <MUI_DescOff>Réglages personnalisés. Modifiés par rapport aux recommandations : {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Réglages personnalisés. Toujours identiques aux recommandations.</MUI_DescOffSame>
+  <MUI_On>ACTIVÉ</MUI_On>
+  <MUI_Off>DÉSACTIVÉ</MUI_Off>
+  <MUI_ResetAll>Tout réinitialiser aux valeurs recommandées</MUI_ResetAll>
+  <MUI_ConfirmOn>Activer les réglages recommandés ? Vos modifications ({0}) seront remplacées par les valeurs recommandées.</MUI_ConfirmOn>
+  <MUI_Locked>Les réglages détaillés sont verrouillés. Vous voulez les modifier ? Désactivez l'interrupteur ci-dessus – vos valeurs partiront des valeurs recommandées.</MUI_Locked>
+  <MUI_Changed>MODIFIÉ</MUI_Changed>
+  <MUI_ChangedTip>Diffère du réglage recommandé ({0}). Cliquez pour rétablir la valeur recommandée.</MUI_ChangedTip>
+  <MUI_Yes>activé</MUI_Yes>
+  <MUI_No>désactivé</MUI_No>
+  <MUI_RecTag>RECOMMANDÉ</MUI_RecTag>
+  <MSM_New>NOUVEAU</MSM_New>
+  <MSM_OnlyProblems>Problèmes seulement ({0})</MSM_OnlyProblems>
+  <MSM_SetGuard>Surveiller l'ordre des mods</MSM_SetGuard>
+  <MSM_SetGuardTip>Après le lancement du jeu, Mod Sort Manager vérifie que la liste de mods est identique à celle de votre dernier enregistrement. Si un autre programme, une mise à jour ou le jeu l'a modifiée, vous voyez ce qui a changé et pouvez rétablir votre ordre en un clic.</MSM_SetGuardTip>
+  <MSM_GuardText>La liste de mods n'est plus identique à celle de votre dernier enregistrement – elle a été modifiée hors du jeu ou au démarrage.
+
+{0}
+
+Rétablir votre ordre ?</MSM_GuardText>
+  <MSM_GuardMoved>Déplacés : {0}</MSM_GuardMoved>
+  <MSM_GuardAdded>Ajoutés : {0}</MSM_GuardAdded>
+  <MSM_GuardRemoved>Retirés ou manquants : {0}</MSM_GuardRemoved>
+  <MSM_GuardRestore>Rétablir mon ordre</MSM_GuardRestore>
+  <MSM_GuardKeep>Garder ainsi</MSM_GuardKeep>
+  <MSM_BisectCardTitle>Le jeu plante ou affiche des erreurs ?</MSM_BisectCardTitle>
+  <MSM_BisectCardText>Mod Sort Manager trouve le mod fautif par dichotomie : il désactive la moitié des mods, redémarre, et vous indiquez si le problème est toujours là. Environ 8 redémarrages pour 200 mods.</MSM_BisectCardText>
+  <MSM_BisectStart>Trouver le mod fautif</MSM_BisectStart>
+  <MSM_BisectMenuOnly>Disponible uniquement depuis le menu principal.</MSM_BisectMenuOnly>
+  <MSM_BisectFew>Pas assez de mods à tester. Les bibliothèques requises par d'autres mods, les DLC et le jeu restent toujours activés.</MSM_BisectFew>
+  <MSM_BisectConfirm>Trouver le mod fautif
+
+Mod Sort Manager désactive la moitié des {0} mods suspects et redémarre le jeu. Après chaque lancement, vérifiez si le problème est toujours là et répondez dans la petite fenêtre du menu principal. Environ {1} redémarrages.
+
+Les bibliothèques requises par d'autres mods, les DLC et le jeu restent activés. À la fin, votre liste de mods est rétablie exactement telle qu'elle est maintenant.
+
+Important : ne sauvegardez pas votre colonie pendant le test – avec la moitié des mods manquants, elle pourrait être endommagée. Testez dans une nouvelle colonie ou observez simplement les erreurs au démarrage.
+
+Commencer ?</MSM_BisectConfirm>
+  <MSM_BisectTitle>Recherche du mod fautif</MSM_BisectTitle>
+  <MSM_BisectStep>Étape {0} · suspects restants : {1} · encore environ {2} redémarrages</MSM_BisectStep>
+  <MSM_BisectEnabled>Activés maintenant : {0} sur {1} mods suspects. Le problème est-il toujours là ?</MSM_BisectEnabled>
+  <MSM_BisectNoSave>Ne sauvegardez pas votre colonie pendant le test.</MSM_BisectNoSave>
+  <MSM_BisectErrors>Erreurs dans le journal depuis le chargement des mods : {0}</MSM_BisectErrors>
+  <MSM_BisectLog>Ouvrir le journal</MSM_BisectLog>
+  <MSM_BisectStill>Toujours là</MSM_BisectStill>
+  <MSM_BisectGone>Disparu</MSM_BisectGone>
+  <MSM_BisectCancel>Annuler et rétablir mes mods</MSM_BisectCancel>
+  <MSM_BisectFound>Trouvé : {0}</MSM_BisectFound>
+  <MSM_BisectFoundText>Le problème désigne ce mod. Pour en être sûr : désactivez-le – si le problème disparaît, c'est bien lui. Sinon, le problème vient peut-être de deux mods combinés ou d'une bibliothèque.</MSM_BisectFoundText>
+  <MSM_BisectDisable>Le désactiver, rétablir le reste</MSM_BisectDisable>
+  <MSM_BisectRestore>Rétablir tous les mods</MSM_BisectRestore>
+  <MSM_BisectRunning>La recherche du mod fautif est en cours – la liste ne contient plus que la moitié testée. Annuler la recherche et rétablir tous vos mods (le jeu redémarre) ?</MSM_BisectRunning>
+  <MSM_BisectMismatch>Le jeu n'a pas démarré avec les mods de cette étape – un mod n'a probablement pas pu se charger et le jeu est revenu en arrière, ou la liste a été modifiée ailleurs. La réponse serait fausse. Réappliquez cette étape ou annulez.</MSM_BisectMismatch>
+  <MSM_BisectReapply>Réappliquer</MSM_BisectReapply>
+  <MSM_BisectNotFound>La recherche n'a pas pu aboutir. Rétablissez tous vos mods et réessayez.</MSM_BisectNotFound>
+  <MSM_Added>Ajouté : {0}</MSM_Added>
+  <MSM_ListRefreshed>Liste des mods actualisée après un téléchargement Steam ({0} mods).</MSM_ListRefreshed>
+  <MSM_PS_Title>Vérification avant l'enregistrement</MSM_PS_Title>
+  <MSM_PS_Checking>Vérification des besoins des mods… {0} / {1} mods</MSM_PS_Checking>
+  <MSM_PS_Deps>Dépendances manquantes</MSM_PS_Deps>
+  <MSM_PS_DepLine>{0} a besoin de {1} – {2}</MSM_PS_DepLine>
+  <MSM_PS_DepOff>installé mais désactivé</MSM_PS_DepOff>
+  <MSM_PS_DepNone>non installé</MSM_PS_DepNone>
+  <MSM_PS_Old>Conçu pour une ancienne version du jeu</MSM_PS_Old>
+  <MSM_PS_OldLine>{0} – seulement jusqu'à {1}</MSM_PS_OldLine>
+  <MSM_PS_Refs>Ont besoin de choses qui n'existeront pas</MSM_PS_Refs>
+  <MSM_PS_RefLine>{0} : {1} a besoin de « {2} »</MSM_PS_RefLine>
+  <MSM_PS_RefCrash>, peut empêcher le chargement du jeu</MSM_PS_RefCrash>
+  <MSM_PS_MoreLines>… et {0} de plus</MSM_PS_MoreLines>
+  <MSM_PS_Many>{0} nouveaux mods d'un coup</MSM_PS_Many>
+  <MSM_PS_ManyText>Si quelque chose casse, il est difficile de savoir quel mod est en cause. Ajoutez-les en {0} groupes – le groupe suivant sera proposé à la prochaine ouverture de Mod Sort Manager.</MSM_PS_ManyText>
+  <MSM_PS_FixDeps>Activer les manquants ({0})</MSM_PS_FixDeps>
+  <MSM_PS_OffBad>Désactiver les mods à problème ({0})</MSM_PS_OffBad>
+  <MSM_PS_FirstGroup>Seulement le groupe 1 ({0} mods)</MSM_PS_FirstGroup>
+  <MSM_PS_SaveAnyway>Enregistrer quand même</MSM_PS_SaveAnyway>
+  <MSM_PS_Back>Retour à la liste</MSM_PS_Back>
+  <MSM_PS_NextGroup>Le groupe suivant de nouveaux mods attend ({0}) :\n{1}\n\nL'ajouter maintenant ?</MSM_PS_NextGroup>
+  <MSM_PS_AddGroup>Ajouter le groupe et redémarrer</MSM_PS_AddGroup>
+  <MSM_PS_Later>Plus tard</MSM_PS_Later>
+  <MSM_PS_DropQueue>Annuler le reste</MSM_PS_DropQueue>
+  <MSM_SetPreSave>Vérification avant l'enregistrement</MSM_SetPreSave>
+  <MSM_SetPreSaveTip>Avant d'enregistrer une liste modifiée : dépendances manquantes, mods pour d'anciennes versions, beaucoup de nouveaux mods d'un coup et choses requises qui n'existeront pas.</MSM_SetPreSaveTip>
+</LanguageData>

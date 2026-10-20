@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Research Fixer – Tech Progression</name>
+  <author>Bolek98</author>
+  <packageId>misak.researchfixer</packageId>
+  <modVersion>0.2.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <loadBefore>
+    <li>misak.researchedloadout</li>
+    <li>misak.researchlockedraidgear</li>
+  </loadBefore>
+  <description>Research Fixer puts mod content where it belongs in the research tree. Built for RimWorld 1.7, works on 1.6 too.
+
+Many mods add guns, armor and buildings that need no research at all – a plasma rifle on day one – or hang spacer gear on a medieval research. Research Fixer finds them and fixes it.
+
+WHAT IT DOES
+- Finds industrial and higher weapons, apparel and buildings from mods that can be made without any research.
+- Groups them into new research projects per mod and era (e.g. "Some Mod: weapons (spacer)"), placed in their own "Mod research" tab and connected to the right vanilla research (Gunsmithing, Charged shot, Flak armor, Powered armor, Electricity, Advanced fabrication …).
+- Finds things whose research is two or more eras below them (spacer armor behind Smithing) and adds the right vanilla research as a requirement.
+- Optional (off by default): newly researched things get a green NEW mark in the workbench "Add bill" menu and a dot in the Architect menu until you make or build them the first time – no more guessing what a research just unlocked.
+
+YOU DECIDE
+- Nothing changes until you open the list and press Apply. Every group and every fix can be skipped.
+- No mod files are changed – turn the mod off and everything is as before.
+- Open it from the research window (button next to the search), from the bottom bar of Yet Another Research Tree, or from the mod settings.
+
+WORKS WITH
+- World at Your Level and Smart Colonist Gear follow research – fixed items are locked correctly for raiders and colonists too.
+- Vanilla content and DLCs are never touched.</description>
+</ModMetaData>

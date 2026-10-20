@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HS_SecHaul>Hauling</HS_SecHaul>
+  <HS_OtherHauler>{0} is active – multi-item hauling in Haul Smarter is off. Turn {0} off to use it.</HS_OtherHauler>
+  <HS_HaulMany>Haul several things at once</HS_HaulMany>
+  <HS_MaxItems>Most items per trip: {0}</HS_MaxItems>
+  <HS_Radius>Look for items within: {0} cells</HS_Radius>
+  <HS_BonusKg>Extra carrying capacity: +{0} kg</HS_BonusKg>
+  <HS_PocketHarvest>Harvest and wood straight into pockets</HS_PocketHarvest>
+  <HS_PocketMine>Mined resources straight into pockets</HS_PocketMine>
+  <HS_UnloadAt>Unload when pockets are full to: {0}</HS_UnloadAt>
+  <HS_ReportUnload>unloading {0}.</HS_ReportUnload>
+  <HS_Profile>HAULING PROFILE</HS_Profile>
+  <HS_ProfileHint>Click a profile – it sets everything at once. Change anything and it switches to Custom.</HS_ProfileHint>
+  <HS_ProfGame>Like the game</HS_ProfGame>
+  <HS_ProfGame_Card>Just several things at once, nothing else.</HS_ProfGame_Card>
+  <HS_ProfSmart>Smart</HS_ProfSmart>
+  <HS_ProfSmart_Card>Perishables first. Short route, things on the way, building from pockets.</HS_ProfSmart_Card>
+  <HS_ProfMax>Maximum</HS_ProfMax>
+  <HS_ProfMax_Card>Full pockets, long routes, valuables first.</HS_ProfMax_Card>
+  <HS_ProfCustom>Custom</HS_ProfCustom>
+  <HS_ProfCustom_Card>Set every option yourself.</HS_ProfCustom_Card>
+  <HS_HaulMany_Desc>The colonist walks to every item nearby, puts it in his pockets and carries everything to storage. Storage is chosen for every item – shelves and deep storage work. What fits nowhere is put down next to him.</HS_HaulMany_Desc>
+  <HS_MaxItems_Desc>How many different stacks at most in one trip.</HS_MaxItems_Desc>
+  <HS_Radius_Desc>How far from the first item he looks for more.</HS_Radius_Desc>
+  <HS_SmartRoute>Smart route (collect on the way, no zig-zag)</HS_SmartRoute>
+  <HS_SmartRoute_Desc>The order of items is chosen so the way from the colonist through all items to storage is as short as possible.</HS_SmartRoute_Desc>
+  <HS_Opportunistic>Take things on the way (gently)</HS_Opportunistic>
+  <HS_Opportunistic_Desc>When a colonist walks somewhere or finishes a job, he puts a thing lying right next to him that belongs in storage into his pockets. Gently: adjacent cells only, one stack and then a pause, never while hurrying (firefighting, tending, fleeing, orders) and never above half of his capacity. He hauls it when idle or when the pockets are full.</HS_Opportunistic_Desc>
+  <HS_UnloadAt_Desc>For harvest, mining and things taken after other work: how full the pockets get before he goes to unload.</HS_UnloadAt_Desc>
+  <HS_SecPrio>What to haul first</HS_SecPrio>
+  <HS_PrioPerish>Food that rots</HS_PrioPerish>
+  <HS_PrioPerish_Desc>Things that rot and lie somewhere warm (meat, crops, meals).</HS_PrioPerish_Desc>
+  <HS_PrioWeather>Things outside in the rain / near fire</HS_PrioWeather>
+  <HS_PrioWeather_Desc>Things that deteriorate outdoors without a roof (medicine, textiles, weapons…), and things within 5 cells of fire.</HS_PrioWeather_Desc>
+  <HS_PrioValuable>Valuables (gold, uranium, artifacts)</HS_PrioValuable>
+  <HS_PrioValuable_Desc>Stacks worth at least 300 silver.</HS_PrioValuable_Desc>
+  <HS_Prio0>Normal</HS_Prio0>
+  <HS_Prio1>Sooner</HS_Prio1>
+  <HS_Prio2>First</HS_Prio2>
+  <HS_SecPockets>Harvest and mining</HS_SecPockets>
+  <HS_PocketHarvest_Desc>The colonist takes the crop or wood lying right next to him, keeps working and hauls it when the pockets are full or the work is done.</HS_PocketHarvest_Desc>
+  <HS_PocketMine_Desc>The colonist takes mined stone and ore lying right next to him, keeps mining and hauls it when the pockets are full.</HS_PocketMine_Desc>
+  <HS_SecWeight>Weight</HS_SecWeight>
+  <HS_BonusKg_Desc>How many kilos more than the game allows (0 = like the game).</HS_BonusKg_Desc>
+  <HS_Slowdown>Heavy load slows walking (realistic)</HS_Slowdown>
+  <HS_Slowdown_Desc>Above half of the capacity the colonist walks slower – up to 15 % with full pockets. Off by default.</HS_Slowdown_Desc>
+  <HS_ShowWeight>Show weight on the colonist (bar above the head)</HS_ShowWeight>
+  <HS_ShowWeight_Desc>A small bar above a colonist carrying things to storage: green, orange, red by load. At the closest zoom also the kilos.</HS_ShowWeight_Desc>
+  <HS_SecInfo>Time and overview</HS_SecInfo>
+  <HS_ShowEta>Show weight and "how long until stored"</HS_ShowEta>
+  <HS_ShowEta_Desc>Select a colonist and the bottom panel shows how much he carries, how many items he will still pick up and when it will be in storage.</HS_ShowEta_Desc>
+  <HS_Overview>"Hauling" button on the bottom bar</HS_Overview>
+  <HS_Overview_Desc>An overview window: what waits to be hauled, its weight, what rots, how many haulers, how long until done and who hauled how much.</HS_Overview_Desc>
+  <HS_Highlight>Highlight unhauled things on the map</HS_Highlight>
+  <HS_Highlight_Desc>While the Hauling window is open, things waiting to be hauled are outlined on the map – yellow, and orange for those that rot or lie in the rain.</HS_Highlight_Desc>
+  <HS_InfoNote>Statistics (who hauled how much) are saved with the game. Hauling done by Haul Smarter is counted.</HS_InfoNote>
+  <HS_StatLoad>Heavy load (Haul Smarter)</HS_StatLoad>
+  <HS_Carries>Carries: {0} / {1} kg ({2} pcs)</HS_Carries>
+  <HS_Eta>stored in {0}</HS_Eta>
+  <HS_StillTake>{0} more to pick up</HS_StillTake>
+  <HS_EtaNow>a moment</HS_EtaNow>
+  <HS_EtaHours>~{0} h</HS_EtaHours>
+  <HS_OverviewTitle>Hauling overview</HS_OverviewTitle>
+  <HS_OvWaiting>Waiting to be hauled: {0} stacks · {1} kg</HS_OvWaiting>
+  <HS_OvHot>Of that rotting: {0} · outside in rain / near fire: {1} · valuable: {2}</HS_OvHot>
+  <HS_OvHaulers>Haulers: {0} (hauling now: {1})</HS_OvHaulers>
+  <HS_OvEta>Done in about {0} (if they only hauled)</HS_OvEta>
+  <HS_OvEtaNone>Nothing to haul or nobody has hauling enabled.</HS_OvEtaNone>
+  <HS_OvToday>Hauled today: {0} kg / {1} trips</HS_OvToday>
+  <HS_ColName>Colonist</HS_ColName>
+  <HS_ColCarry>Carries now</HS_ColCarry>
+  <HS_ColToday>Today</HS_ColToday>
+  <HS_ColTotal>Total</HS_ColTotal>
+  <HS_KgTrips>{0} kg / {1}x</HS_KgTrips>
+  <HS_BuildPockets>Build with material from the pockets</HS_BuildPockets>
+  <HS_BuildPockets_Desc>When a colonist carries material a construction needs (wood, steel, stone…), he takes it out of his pockets and brings it straight to the site – no walk to the stockpile.</HS_BuildPockets_Desc>
+</LanguageData>

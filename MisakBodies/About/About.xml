@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Mišák Bodies</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.misakbodies</packageId>
+  <modVersion>0.2.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>ssulunge.bbbodysupport</li>
+    <li>mireia.bodies</li>
+    <li>otyoty.sizedapparel</li>
+    <li>rim.job.world</li>
+  </loadAfter>
+  <description>Four new body types with visible arms: F1 BB (a fuller BB-style female), F2 soft BB, M1 muscular and M2 slim. They can be picked in the character editor, and new people get one with the chance set in the settings.
+
+Each new body wears the clothes of its base body (FemaleBB/Female, Female, Hulk, Male). Body Fit then fits them to the new shape.
+
+Overlays drawn by other mods (nipples, female genitals, penis) are hidden by default and can be shown in the settings.</description>
+</ModMetaData>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MSM_Activate>Włącz {0}</MSM_Activate>
+  <MSM_ActivateShort>Włącz</MSM_ActivateShort>
+  <MSM_Active>AKTYWNE · {0} (KOLEJNOŚĆ ŁADOWANIA)</MSM_Active>
+  <MSM_Backups>KOPIE ZAPASOWE LISTY MODÓW</MSM_Backups>
+  <MSM_BackupsHint>Lista jest kopiowana przed każdym zapisem (ostatnie 20). Wczytanie tylko przygotowuje listę – zapisuje się ją przyciskiem poniżej.</MSM_BackupsHint>
+  <MSM_Bottom>Na koniec</MSM_Bottom>
+  <MSM_BulletAside>Ustępuje innemu menedżerowi modów</MSM_BulletAside>
+  <MSM_BulletBackup>Kopia listy przed każdą zmianą</MSM_BulletBackup>
+  <MSM_BulletButton>Przycisk Mody otwiera Mod Sort Manager</MSM_BulletButton>
+  <MSM_BulletEscOff>Pozycja w menu Esc jest wyłączona</MSM_BulletEscOff>
+  <MSM_CloseAsk>Lista modów ma niezapisane zmiany. Zapisać je?</MSM_CloseAsk>
+  <MSM_DiscardShort>Odrzuć zmiany</MSM_DiscardShort>
+  <MSM_ModSettings>Ustawienia moda</MSM_ModSettings>
+  <MSM_Upload>Wyślij do Warsztatu</MSM_Upload>
+  <MSM_TabUpdates>Aktualizacje</MSM_TabUpdates>
+  <MSM_UpdNoSteam>Steam nie jest uruchomiony – nie można teraz sprawdzić aktualizacji z Warsztatu.</MSM_UpdNoSteam>
+  <MSM_UpdTitle>Czeka na aktualizację: {0} · pobieranie: {1}</MSM_UpdTitle>
+  <MSM_UpdAll>Aktualizuj wszystko ({0})</MSM_UpdAll>
+  <MSM_UpdCheck>Sprawdź ponownie</MSM_UpdCheck>
+  <MSM_UpdHint>Mody z Warsztatu. Po pobraniu aktualizacji potrzebny jest restart – przycisk poniżej. Widoczne są też mody zaktualizowane w ciągu ostatnich 7 dni (jeśli coś się zepsuje po aktualizacji, wiesz, gdzie szukać).</MSM_UpdHint>
+  <MSM_UpdNeeds>dostępna nowa wersja</MSM_UpdNeeds>
+  <MSM_UpdBusy>pobieranie… {0} %</MSM_UpdBusy>
+  <MSM_UpdDone>pobrano – po restarcie</MSM_UpdDone>
+  <MSM_UpdRecent>zaktualizowano {0}</MSM_UpdRecent>
+  <MSM_UpdOne>Aktualizuj</MSM_UpdOne>
+  <MSM_UpdNone>✓ Wszystko jest aktualne</MSM_UpdNone>
+  <MSM_Close>Zamknij</MSM_Close>
+  <MSM_CoreStays>Gra (Core) musi pozostać włączona.</MSM_CoreStays>
+  <MSM_CountActive>Aktywne: {0}</MSM_CountActive>
+  <MSM_CountErr>Błędy: {0}</MSM_CountErr>
+  <MSM_CountInfo>Pokrywające się: {0}</MSM_CountInfo>
+  <MSM_CountWarn>Ostrzeżenia: {0}</MSM_CountWarn>
+  <MSM_Deactivate>Wyłącz</MSM_Deactivate>
+  <MSM_DeactivateX>Wyłącz {0}</MSM_DeactivateX>
+  <MSM_Delete>Usuń</MSM_Delete>
+  <MSM_DeleteConfirm>Usunąć zapisaną listę „{0}”?</MSM_DeleteConfirm>
+  <MSM_DepInstalled>Wymagany mod jest zainstalowany, ale nie jest włączony.</MSM_DepInstalled>
+  <MSM_DepMissing>Wymagany mod nie jest zainstalowany. Bez niego mod nie będzie działał.</MSM_DepMissing>
+  <MSM_DepTitle>{0} wymaga {1}</MSM_DepTitle>
+  <MSM_Discard>Odrzucić niezapisane zmiany na liście modów?</MSM_Discard>
+  <MSM_Done>Gotowe</MSM_Done>
+  <MSM_Download>Pobierz</MSM_Download>
+  <MSM_DupActive>włączony</MSM_DupActive>
+  <MSM_DupIgnored>ignorowany przez grę</MSM_DupIgnored>
+  <MSM_DupInstalled>zainstalowany</MSM_DupInstalled>
+  <MSM_DupLocalText>Ten sam mod jest w folderze Mods więcej niż raz. Gra wczytuje tylko pierwszy folder alfabetycznie, a resztę po cichu pomija – nigdy nie wiadomo, która wersja działa.</MSM_DupLocalText>
+  <MSM_DupNewest>NOWSZY</MSM_DupNewest>
+  <MSM_DupSteamText>Mod jest w folderze Mods i w Warsztacie. Obie kopie widać na liście i łatwo włączyć tę starą.</MSM_DupSteamText>
+  <MSM_DupTitle>{0} – zainstalowany {1}×</MSM_DupTitle>
+  <MSM_Folder>Folder</MSM_Folder>
+  <MSM_GrpBreak>Mogą się psuć</MSM_GrpBreak>
+  <MSM_GrpDup>Duplikaty</MSM_GrpDup>
+  <MSM_GrpSame>Robią to samo</MSM_GrpSame>
+  <MSM_Inactive>NIEAKTYWNE · {0}</MSM_Inactive>
+  <MSM_IncText>Autor moda {0} podaje, że nie działają razem. Zostaw włączony tylko jeden.</MSM_IncText>
+  <MSM_IncTitle>{0} × {1} – niekompatybilne</MSM_IncTitle>
+  <MSM_Info>Wersja {0} · gra {1} · {2}</MSM_Info>
+  <MSM_KeepConfirm>Zachowaj:
+{0}
+
+Pozostałe kopie zostaną przeniesione do folderu kopii zapasowej (nic nie jest usuwane), subskrypcje z Warsztatu zostaną anulowane:
+{1}
+
+Zmiana zadziała po restarcie.</MSM_KeepConfirm>
+  <MSM_KeepDone>Gotowe. Pozostałe kopie są w {0}.</MSM_KeepDone>
+  <MSM_KeepFailed>Nie udało się przenieść tych kopii:
+{0}
+
+Zamknij grę i przenieś je ręcznie. Folder kopii zapasowej: {1}</MSM_KeepFailed>
+  <MSM_KeepNewest>Zachowaj nowszy</MSM_KeepNewest>
+  <MSM_Load>Wczytaj</MSM_Load>
+  <MSM_LoadLastSave>Po restarcie wczytaj ostatni zapis</MSM_LoadLastSave>
+  <MSM_Loaded>Wczytane mody: {0}. Zapisz przyciskiem poniżej.</MSM_Loaded>
+  <MSM_Missing>Lista została wczytana, ale brakuje modów (niezainstalowane): {0}
+
+{1}</MSM_Missing>
+  <MSM_NoSaveConfirm>Teraz nie można zapisać gry (albo powrót do gry jest wyłączony). Po restarcie trafisz do menu głównego, a niezapisany postęp przepadnie. Kontynuować?</MSM_NoSaveConfirm>
+  <MSM_NoBackups>Brak kopii zapasowych.</MSM_NoBackups>
+  <MSM_NoProfiles>Brak zapisanych list.</MSM_NoProfiles>
+  <MSM_NoReturnTip>Teraz nie można zapisać gry (permadeath lub trwa wydarzenie); po restarcie trafisz do menu głównego.</MSM_NoReturnTip>
+  <MSM_None>✓ Nic nie znaleziono</MSM_None>
+  <MSM_NoteDep>Brakuje: {0}</MSM_NoteDep>
+  <MSM_NoteDup>Zainstalowany więcej niż raz</MSM_NoteDup>
+  <MSM_NoteInc>Niekompatybilny z: {0}</MSM_NoteInc>
+  <MSM_NoteOld>Tylko dla {0}</MSM_NoteOld>
+  <MSM_NoteOrder>Zła kolejność</MSM_NoteOrder>
+  <MSM_NoteSame>Robi to samo co {0}</MSM_NoteSame>
+  <MSM_OldShort>tylko {0}</MSM_OldShort>
+  <MSM_OldText>Gra je wczytuje i większość działa, ale mogą powodować błędy. Jeśli coś pójdzie nie tak, wyłącz je w pierwszej kolejności.</MSM_OldText>
+  <MSM_OldTitle>Mody bez wsparcia dla {1}: {0}</MSM_OldTitle>
+  <MSM_OpenFolders>Otwórz foldery</MSM_OpenFolders>
+  <MSM_OpenNow>Otwórz Mod Sort Manager</MSM_OpenNow>
+  <MSM_OrderAfter>{0} powinien ładować się po {1}</MSM_OrderAfter>
+  <MSM_OrderBefore>{0} powinien ładować się przed {1}</MSM_OrderBefore>
+  <MSM_OrderTitle>Zła kolejność ładowania ({0})</MSM_OrderTitle>
+  <MSM_ProfileBad>Nie udało się wczytać listy.</MSM_ProfileBad>
+  <MSM_ProfileNameHint>Nazwa listy…</MSM_ProfileNameHint>
+  <MSM_ProfileSaved>Zapisano listę „{0}”.</MSM_ProfileSaved>
+  <MSM_Profiles>ZAPISANE LISTY MODÓW</MSM_Profiles>
+  <MSM_ProfilesHint>Te same pliki co w oknie modów w grze (zapisz/wczytaj listę) – działają także bez tego moda.</MSM_ProfilesHint>
+  <MSM_ReturnToGame>Po restarcie wróć do gry</MSM_ReturnToGame>
+  <MSM_Revert>Cofnij wszystko</MSM_Revert>
+  <MSM_SameHint>szacunek na podstawie łatek Harmony wczytanych modów</MSM_SameHint>
+  <MSM_SameHot>Oba zastępują tę samą ważną część gry – wystarczy jeden</MSM_SameHot>
+  <MSM_SameText>Oba zmieniają ten sam kod gry</MSM_SameText>
+  <MSM_SaveFailed>Nie udało się zapisać listy modów: {0}</MSM_SaveFailed>
+  <MSM_SaveProfile>Zapisz bieżącą</MSM_SaveProfile>
+  <MSM_SaveRestart>Zapisz i uruchom ponownie</MSM_SaveRestart>
+  <MSM_SaveReturn>Zapisz, uruchom ponownie i wróć do gry</MSM_SaveReturn>
+  <MSM_SearchActiveHint>Szukaj w aktywnych…</MSM_SearchActiveHint>
+  <MSM_SearchHint>Szukaj moda, autora, ID…</MSM_SearchHint>
+  <MSM_SecWhere>Gdzie go znaleźć</MSM_SecWhere>
+  <MSM_SelectHint>Wybierz mod po lewej.</MSM_SelectHint>
+  <MSM_SetEsc>Pozycja w menu Esc w grze</MSM_SetEsc>
+  <MSM_SetEscTip>Mod Sort Manager można otworzyć także podczas gry. Przy zapisie gra zostanie zapisana, uruchomiona ponownie i do niej wrócisz.</MSM_SetEscTip>
+  <MSM_SetReplace>Przycisk Mody otwiera Mod Sort Manager</MSM_SetReplace>
+  <MSM_SetReplaceTip>Oryginalne okno pozostaje dostępne pod przyciskiem „Oryginalne okno”. Gdy działa inny menedżer modów (Fluffy's Mod Manager), ten mod ustępuje.</MSM_SetReplaceTip>
+  <MSM_Show>Pokaż {0}</MSM_Show>
+  <MSM_SmartSort>Inteligentne sortowanie</MSM_SmartSort>
+  <MSM_SortCycle>Reguły modów są ze sobą sprzeczne (pętla: A przed B i B przed A). Sortowanie nie jest możliwe – popraw kolejność ręcznie.</MSM_SortCycle>
+  <MSM_Sorted>Posortowano.</MSM_Sorted>
+  <MSM_SrcLocal>Folder Mods</MSM_SrcLocal>
+  <MSM_SrcOfficial>gra / DLC</MSM_SrcOfficial>
+  <MSM_SrcSteam>Warsztat</MSM_SrcSteam>
+  <MSM_Subtitle>Kolejność ładowania, konflikty i profile · v{0} · Bolek98</MSM_Subtitle>
+  <MSM_SumActive>Aktywne: {0} · gra {1}</MSM_SumActive>
+  <MSM_SumBackup>Przed każdym zapisem stara lista jest kopiowana – zobacz kartę Profile.</MSM_SumBackup>
+  <MSM_SumBackupTitle>Kopia zapasowa</MSM_SumBackupTitle>
+  <MSM_SumCompat>Wspierające {1}: {0}</MSM_SumCompat>
+  <MSM_SumOld>Tylko starsze wersje: {0} – gra je wczytuje, większość działa</MSM_SumOld>
+  <MSM_SumRestartGame>Zapisz → gra zostanie zapisana, uruchomiona ponownie i wrócisz do tej rozgrywki.</MSM_SumRestartGame>
+  <MSM_SumRestartMenu>Zapisz → gra sama uruchomi się ponownie. Opcjonalnie wczyta ostatni zapis.</MSM_SumRestartMenu>
+  <MSM_SumRestartTitle>Zmiany bez wychodzenia z gry</MSM_SumRestartTitle>
+  <MSM_Summary>PODSUMOWANIE</MSM_Summary>
+  <MSM_TabOrder>Kolejność ładowania</MSM_TabOrder>
+  <MSM_TabProblems>Problemy</MSM_TabProblems>
+  <MSM_TabProfiles>Profile</MSM_TabProfiles>
+  <MSM_Top>Na początek</MSM_Top>
+  <MSM_Unsub>anuluj subskrypcję</MSM_Unsub>
+  <MSM_Vanilla>Oryginalne okno</MSM_Vanilla>
+  <MSM_Web>Strona moda</MSM_Web>
+  <MSM_Workshop>Strona w Warsztacie</MSM_Workshop>
+  <MUI_Title>Zalecane ustawienia</MUI_Title>
+  <MUI_TitleOff>Zalecane ustawienia · wył.</MUI_TitleOff>
+  <MUI_DescOn>Mod konfiguruje się sam i działa od razu. Idealny dla nowych graczy i każdego, kto nie chce niczego zmieniać.</MUI_DescOn>
+  <MUI_DescOff>Własne ustawienia. Zmienione względem zalecanych: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Własne ustawienia. Nadal takie same jak zalecane.</MUI_DescOffSame>
+  <MUI_On>WŁ.</MUI_On>
+  <MUI_Off>WYŁ.</MUI_Off>
+  <MUI_ResetAll>Przywróć wszystko do zalecanych</MUI_ResetAll>
+  <MUI_ConfirmOn>Włączyć zalecane ustawienia? Twoje zmiany ({0}) zostaną zastąpione zalecanymi wartościami.</MUI_ConfirmOn>
+  <MUI_Locked>Szczegółowe ustawienia są zablokowane. Chcesz je zmienić? Wyłącz przełącznik powyżej – Twoje wartości zaczną od zalecanych.</MUI_Locked>
+  <MUI_Changed>ZMIENIONO</MUI_Changed>
+  <MUI_ChangedTip>Różni się od zalecanego ustawienia ({0}). Kliknij, aby przywrócić zalecaną wartość.</MUI_ChangedTip>
+  <MUI_Yes>wł.</MUI_Yes>
+  <MUI_No>wył.</MUI_No>
+  <MUI_RecTag>ZALECANE</MUI_RecTag>
+  <MSM_New>NOWY</MSM_New>
+  <MSM_OnlyProblems>Tylko problemy ({0})</MSM_OnlyProblems>
+  <MSM_SetGuard>Pilnuj kolejności modów</MSM_SetGuard>
+  <MSM_SetGuardTip>Po uruchomieniu gry Mod Sort Manager sprawdza, czy lista modów jest taka sama jak przy ostatnim zapisie. Jeśli zmienił ją inny program, aktualizacja lub gra, zobaczysz, co się zmieniło, i jednym kliknięciem przywrócisz swoją kolejność.</MSM_SetGuardTip>
+  <MSM_GuardText>Lista modów nie jest taka sama jak przy ostatnim zapisie – została zmieniona poza grą lub przy uruchomieniu.
+
+{0}
+
+Przywrócić Twoją kolejność?</MSM_GuardText>
+  <MSM_GuardMoved>Przeniesione: {0}</MSM_GuardMoved>
+  <MSM_GuardAdded>Dodane: {0}</MSM_GuardAdded>
+  <MSM_GuardRemoved>Usunięte lub brakujące: {0}</MSM_GuardRemoved>
+  <MSM_GuardRestore>Przywróć moją kolejność</MSM_GuardRestore>
+  <MSM_GuardKeep>Zostaw tak</MSM_GuardKeep>
+  <MSM_BisectCardTitle>Gra się zawiesza lub wyrzuca błędy?</MSM_BisectCardTitle>
+  <MSM_BisectCardText>Mod Sort Manager znajdzie wadliwy mod metodą połowienia: wyłącza połowę modów, uruchamia grę ponownie, a Ty mówisz, czy problem nadal występuje. Przy 200 modach to około 8 restartów.</MSM_BisectCardText>
+  <MSM_BisectStart>Znajdź wadliwy mod</MSM_BisectStart>
+  <MSM_BisectMenuOnly>Dostępne tylko z menu głównego.</MSM_BisectMenuOnly>
+  <MSM_BisectFew>Za mało modów do testowania. Biblioteki potrzebne innym modom, DLC i gra zawsze pozostają włączone.</MSM_BisectFew>
+  <MSM_BisectConfirm>Znajdź wadliwy mod
+
+Mod Sort Manager wyłączy połowę podejrzanych modów (wszystkich: {0}) i uruchomi grę ponownie. Po każdym uruchomieniu sprawdź, czy problem nadal występuje, i odpowiedz w małym oknie w menu głównym. Przewidywana liczba restartów: około {1}.
+
+Biblioteki potrzebne innym modom, DLC i gra pozostają włączone. Na koniec lista modów zostanie przywrócona dokładnie do obecnego stanu.
+
+Ważne: podczas testu nie zapisuj swojej kolonii – przy brakującej połowie modów mogłaby zostać uszkodzona. Testuj w nowej kolonii albo po prostu obserwuj błędy przy uruchomieniu.
+
+Rozpocząć?</MSM_BisectConfirm>
+  <MSM_BisectTitle>Szukanie wadliwego moda</MSM_BisectTitle>
+  <MSM_BisectStep>Krok {0} · pozostało podejrzanych: {1} · pozostałe restarty: ok. {2}</MSM_BisectStep>
+  <MSM_BisectEnabled>Teraz włączone podejrzane mody: {0} z {1}. Czy problem nadal występuje?</MSM_BisectEnabled>
+  <MSM_BisectNoSave>Podczas testu nie zapisuj swojej kolonii.</MSM_BisectNoSave>
+  <MSM_BisectErrors>Błędy w logu od wczytania modów: {0}</MSM_BisectErrors>
+  <MSM_BisectLog>Otwórz log</MSM_BisectLog>
+  <MSM_BisectStill>Nadal jest</MSM_BisectStill>
+  <MSM_BisectGone>Zniknął</MSM_BisectGone>
+  <MSM_BisectCancel>Anuluj i przywróć mody</MSM_BisectCancel>
+  <MSM_BisectFound>Znaleziono: {0}</MSM_BisectFound>
+  <MSM_BisectFoundText>Problem wskazuje na ten mod. Dla pewności: wyłącz go – jeśli problem zniknie, to on. Jeśli nie, problem może wynikać z połączenia dwóch modów albo z biblioteki.</MSM_BisectFoundText>
+  <MSM_BisectDisable>Wyłącz go, przywróć resztę</MSM_BisectDisable>
+  <MSM_BisectRestore>Przywróć wszystkie mody</MSM_BisectRestore>
+  <MSM_BisectRunning>Trwa szukanie wadliwego moda – lista zawiera teraz tylko testowaną połowę. Anulować szukanie i przywrócić wszystkie Twoje mody (gra uruchomi się ponownie)?</MSM_BisectRunning>
+  <MSM_BisectMismatch>Gra nie uruchomiła się z modami tego kroku – prawdopodobnie któryś mod się nie wczytał i gra wróciła do poprzedniego stanu, albo lista została zmieniona gdzie indziej. Odpowiedź byłaby błędna. Zastosuj ten krok ponownie albo anuluj.</MSM_BisectMismatch>
+  <MSM_BisectReapply>Zastosuj ponownie</MSM_BisectReapply>
+  <MSM_BisectNotFound>Nie udało się dokończyć szukania. Przywróć wszystkie mody i spróbuj ponownie.</MSM_BisectNotFound>
+  <MSM_Added>Dodano: {0}</MSM_Added>
+  <MSM_ListRefreshed>Lista modów odświeżona po pobraniu ze Steam ({0} modów).</MSM_ListRefreshed>
+  <MSM_PS_Title>Sprawdzenie przed zapisem</MSM_PS_Title>
+  <MSM_PS_Checking>Sprawdzam, czego potrzebują mody… {0} / {1} modów</MSM_PS_Checking>
+  <MSM_PS_Deps>Brakujące zależności</MSM_PS_Deps>
+  <MSM_PS_DepLine>{0} potrzebuje {1} – {2}</MSM_PS_DepLine>
+  <MSM_PS_DepOff>zainstalowany, ale wyłączony</MSM_PS_DepOff>
+  <MSM_PS_DepNone>niezainstalowany</MSM_PS_DepNone>
+  <MSM_PS_Old>Dla starszej wersji gry</MSM_PS_Old>
+  <MSM_PS_OldLine>{0} – tylko do {1}</MSM_PS_OldLine>
+  <MSM_PS_Refs>Potrzebują rzeczy, których nie będzie</MSM_PS_Refs>
+  <MSM_PS_RefLine>{0}: {1} potrzebuje „{2}”</MSM_PS_RefLine>
+  <MSM_PS_RefCrash>, może zatrzymać wczytywanie gry</MSM_PS_RefCrash>
+  <MSM_PS_MoreLines>… i jeszcze {0}</MSM_PS_MoreLines>
+  <MSM_PS_Many>{0} nowych modów naraz</MSM_PS_Many>
+  <MSM_PS_ManyText>Gdy coś się zepsuje, trudno ustalić, który mod to zrobił. Dodaj je w {0} grupach – następna grupa zostanie zaproponowana przy kolejnym otwarciu Mod Sort Manager.</MSM_PS_ManyText>
+  <MSM_PS_FixDeps>Włącz brakujące ({0})</MSM_PS_FixDeps>
+  <MSM_PS_OffBad>Wyłącz problematyczne mody ({0})</MSM_PS_OffBad>
+  <MSM_PS_FirstGroup>Teraz tylko grupa 1 ({0} modów)</MSM_PS_FirstGroup>
+  <MSM_PS_SaveAnyway>Zapisz mimo to</MSM_PS_SaveAnyway>
+  <MSM_PS_Back>Wróć do listy</MSM_PS_Back>
+  <MSM_PS_NextGroup>Czeka następna grupa nowych modów ({0}):\n{1}\n\nDodać ją teraz?</MSM_PS_NextGroup>
+  <MSM_PS_AddGroup>Dodaj grupę i uruchom ponownie</MSM_PS_AddGroup>
+  <MSM_PS_Later>Później</MSM_PS_Later>
+  <MSM_PS_DropQueue>Anuluj resztę</MSM_PS_DropQueue>
+  <MSM_SetPreSave>Sprawdzenie przed zapisem</MSM_SetPreSave>
+  <MSM_SetPreSaveTip>Zanim zmieniona lista zostanie zapisana: brakujące zależności, mody dla starszych wersji, dużo nowych modów naraz i rzeczy potrzebne nowym modom, których nie będzie.</MSM_SetPreSaveTip>
+</LanguageData>

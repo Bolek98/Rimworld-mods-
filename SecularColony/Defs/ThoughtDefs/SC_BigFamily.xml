@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThoughtDef>
+    <defName>SC_BigFamily</defName>
+    <workerClass>SecularColony.ThoughtWorker_BigFamily</workerClass>
+    <requiredTraits>
+      <li>Polygamous</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>big family</label>
+        <description>Two spouses – a real family.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>big family</label>
+        <description>Three spouses. The house is full of love.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>big family</label>
+        <description>Four spouses or more. This is how life should be!</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

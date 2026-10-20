@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AP_Enabled>Doktoři sami podávají léky</AP_Enabled>
+  <AP_Enabled_Desc>Doktoři (práce Doktor) dávají kolonistům lék, který jim pomůže, podle toho, jak vážný je problém.</AP_Enabled_Desc>
+  <AP_Notify>Zpráva při podání léku</AP_Notify>
+  <AP_Notify_Desc>Krátká zpráva, kdo komu co podal a proč.</AP_Notify_Desc>
+  <AP_Prisoners>I vězňům</AP_Prisoners>
+  <AP_Prisoners_Desc>Podávat léky i vězňům.</AP_Prisoners_Desc>
+  <AP_UseMood>Léky na náladu před zhroucením</AP_UseMood>
+  <AP_UseMood_Desc>Když má kolonista náladu pod hranicí zhroucení, dostane lék na náladu.</AP_UseMood_Desc>
+  <AP_UseRest>Povzbuzující léky při úplném vyčerpání</AP_UseRest>
+  <AP_UseRest_Desc>Kolonista na pokraji vyčerpání, který zrovna nespí, dostane povzbuzující lék.</AP_UseRest_Desc>
+  <AP_PainFrom>Léky na bolest od bolesti: {0} %</AP_PainFrom>
+  <AP_PainFrom_Desc>Od jaké bolesti se podává lék na bolest. Silnější bolest = silnější lék.</AP_PainFrom_Desc>
+  <AP_MinHours>Stejný lék nejdřív po: {0} h</AP_MinHours>
+  <AP_MinHours_Desc>Pro léky bez trvalého účinku: jak dlouho čekat, než dostane stejný lék znovu. Léky s trvalým účinkem se nedávají, dokud účinek trvá.</AP_MinHours_Desc>
+  <AP_Addictive_Label>Návykové léky</AP_Addictive_Label>
+  <AP_AddictiveMode0>nikdy</AP_AddictiveMode0>
+  <AP_AddictiveMode1>jen když jde o život</AP_AddictiveMode1>
+  <AP_AddictiveMode2>podle závažnosti</AP_AddictiveMode2>
+  <AP_AddictiveHelp>Lék se vybírá podle závažnosti: na malé potíže mírný a levný lék, na vážné ten nejsilnější. Lék, jehož účinek ještě trvá, se znovu nedává.</AP_AddictiveHelp>
+  <AP_ListHead>Léky ve hře a co dělají ({0}). Odškrtni ty, které doktoři nemají používat:</AP_ListHead>
+  <AP_Cures>léčí: {0}</AP_Cures>
+  <AP_Addictive>návykové {0} %</AP_Addictive>
+  <AP_Given>{0} podal(a) {1} → {2} ({3})</AP_Given>
+  <AP_Need_Pain>bolest</AP_Need_Pain>
+  <AP_Need_Immunity>imunita</AP_Need_Immunity>
+  <AP_Need_Cure>léčba</AP_Need_Cure>
+  <AP_Need_Bleeding>krvácení</AP_Need_Bleeding>
+  <AP_Need_BloodLoss>ztráta krve</AP_Need_BloodLoss>
+  <AP_Need_Consciousness>vědomí</AP_Need_Consciousness>
+  <AP_Need_Breathing>dýchání</AP_Need_Breathing>
+  <AP_Need_BloodPumping>krevní oběh</AP_Need_BloodPumping>
+  <AP_Need_BloodFiltration>filtrace krve</AP_Need_BloodFiltration>
+  <AP_Need_Moving>pohyb</AP_Need_Moving>
+  <AP_Need_Rest>únava</AP_Need_Rest>
+  <AP_Need_Mood>nálada</AP_Need_Mood>
+  <AP_Need_Critical>ohrožení života</AP_Need_Critical>
+  <AP_AutoCare>Úroveň ošetření podle závažnosti</AP_AutoCare>
+  <AP_AutoCare_Desc>Obvazy a léky na ošetřování ran: na drobná zranění bylinné, na nemoci a větší zranění průmyslové, při ohrožení života to nejlepší. Kolonistům s nastaveným „bez ošetření“ se to nemění.</AP_AutoCare_Desc>
+  <AP_CarePharmacist>Úroveň ošetření (obvazy, léky na rány) řídí mod Pharmacist.</AP_CarePharmacist>
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+  <AP_CombatDrugs>Bojové léky pro bojovníky</AP_CombatDrugs>
+  <AP_CombatDrugs_Desc>Povolaný kolonista s nepřáteli blízko si vezme jednu bojovou drogu (Go-juice, Wake-up…) – z batohu, nebo z hromádky pár kroků od sebe, když nepřítel není blízko. Nikdy se šancí na závislost, nikdy dvakrát za nastavenou dobu, ne pro abstinenty, děti ani proti ideologii. U každého kolonisty jde vypnout tlačítkem.</AP_CombatDrugs_Desc>
+  <AP_CombatHours>Nejvýš jedna dávka za {0} h</AP_CombatHours>
+  <AP_CombatHours_Desc>Jak dlouho musí kolonista počkat, než si vezme další bojovou drogu.</AP_CombatHours_Desc>
+  <AP_CombatTaken>{0} si před bojem vzal(a) {1}.</AP_CombatTaken>
+  <AP_CombatGizmo>Bojové léky</AP_CombatGizmo>
+  <AP_CombatGizmo_Desc>Zapnuto: kolonista si v boji vezme bojovou drogu, když je bezpečná (bez šance na závislost).\nVypnuto: tento kolonista nikdy.</AP_CombatGizmo_Desc>
+  <AP_Rec1>Doktoři dají správný lék podle závažnosti</AP_Rec1>
+  <AP_Rec2>Návykové látky jen když jde o život</AP_Rec2>
+  <AP_Rec3>Bojovníci v boji rozumně použijí bojové drogy</AP_Rec3>
+  <AP_Rec4>Úroveň péče podle zranění</AP_Rec4>
+  <AP_Need_Manipulation>ruce</AP_Need_Manipulation>
+  <AP_Need_Sight>zrak</AP_Need_Sight>
+  <AP_Need_Prevention>prevence</AP_Need_Prevention>
+  <AP_Need_Contraception>antikoncepce</AP_Need_Contraception>
+  <AP_Need_Fertility>plodnost</AP_Need_Fertility>
+  <AP_UsePrevention>Prevence pro všechny</AP_UsePrevention>
+  <AP_UsePrevention_Desc>Léky, které chrání před nemocí (penoxycylin a podobné), dostávají kolonisti pravidelně – kousek předtím, než poslední dávka přestane působit.</AP_UsePrevention_Desc>
+  <AP_UseChronic>Pomoc při dlouhodobých potížích</AP_UseChronic>
+  <AP_UseChronic_Desc>Při bolavých zádech, šedém zákalu, křehkosti nebo starých zraněních lék, který pomáhá s chůzí, rukama nebo zrakem.</AP_UseChronic_Desc>
+  <AP_Plan0>Děti: neřešit</AP_Plan0>
+  <AP_Plan1>Děti: ne (antikoncepce)</AP_Plan1>
+  <AP_Plan2>Děti: chce (plodnost)</AP_Plan2>
+  <AP_Plan_Desc>Kliknutím změníš. Ne: doktor dává pravidelně antikoncepci. Chce: lék na plodnost, když nějaký je. Jen dospělí (18+), nikdy během těhotenství.</AP_Plan_Desc>
+</LanguageData>

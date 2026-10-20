@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Steward – Colony Work &amp; Supply Manager</name>
+  <author>Bolek98</author>
+  <packageId>misak.colonyforeman</packageId>
+  <modVersion>2.48.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Ludeon.RimWorld</li>
+    <li>mehni.pickupandhaul</li>
+    <li>brrainz.achtung</li>
+    <li>keyz182.keyzallowutilities</li>
+  </loadAfter>
+  <incompatibleWith>
+    <li>encoded.adaptivepriorities</li>
+  </incompatibleWith>
+  <description>A steward for your colony: work priorities set automatically, supplies kept at the level you want, livestock, power and household managed. Every part can be switched on or off.
+
+WORK
+- Priorities from skills, passions, work speed and what really waits on the map (bills, building and deconstructing, harvest, hauling, patients, research, animals).
+- 13 colony styles: Balanced (for everything – work spread evenly, every waiting job gets someone), focus styles (Survival, Farming, Ranching, Building, Mining &amp; industry, Production, Trade, Research, Defense, Care, Comfort) and My style (only your own settings, nothing changes by itself). Balanced picks a focus by itself when the colony needs it (food running out → Survival, many blueprints → Building, patients → Care …) and returns to plain Balanced afterwards.
+- 12 crises with instant re-plan: raid, fire, medical emergency, food shortage, no medicine, toxic air or polluted ground, extreme weather, winter, blight, power outage, broken machines, bad mood. Each can be switched off.
+- 34 situations in the Balanced style: big construction or deconstruction backlog, repairs, lots to haul, food rotting or spoiling, big harvest, frost (harvest now), cutting and mining backlogs, low wood, steel, components or medicine, cold or worn-out clothing, unarmed colonists, prisoners to recruit or hungry, many patients, life-threatening illness, animals to tame, train, milk, shear or feed, dirty hospital or kitchen, time for research, traders, low fuel, mechanoids or hives nearby, mood slipping, babies, pollution, corpses, exhausted colonists. A situation rewrites the Work tab: the jobs it needs get priority 1 or 2 and a number of colonists that grows with the job (40 blueprints → 3 builders, 3 patients → 2 doctors) – the best-suited colonists are picked, nobody is left alone with a big job. When it ends, the normal plan comes back. Each can be switched off.
+- Only one priority-1 job per colonist (optional, on by default): the most urgent one stays, the rest go to priority 2.
+- Priority areas (Orders menu): drag a rectangle, choose what to do there (everything, building, mining, plants, hauling, cleaning), now or after the current work, and who (nearest automatically or picked by hand). The area stays until everything inside is done and pauses during raids.
+- Nobody stands idle; hauling and cleaning are never buried under backup jobs. Hover a cell in the Work tab to see why it has its priority. Middle-click locks a cell, a job or a colonist.
+- Work mechs, Work Tab / PriorityMaster priority ranges, apprentices.
+
+SUPPLIES (Steward tab)
+- Hunting, wood, foraging, mining up to your stock targets – only as much as is missing. Food emergency: wild food and hunting at once.
+- Production: "do until X" bills on the best bench (Dubs Mint Menus supported), also recipes with several products.
+- Self-supply: when meals, medicine, clothes, armor, weapons or components run short, a bill for exactly the missing amount on the best bench – removed when done.
+- Ready meals for N days – cooking pauses when you have enough.
+- Livestock: herd size per species and gender, surplus slaughtered oldest first, pregnant and bonded animals kept.
+- Power: devices switched off one by one when batteries run low (also nets without batteries); single devices can be exempted.
+- Household: tidy home area, priority cleaning, finished goods hauled from benches at once, stone chunks marked for hauling, blighted plants marked for cutting.
+
+COMPATIBILITY
+- RimWorld 1.6, all DLCs optional. Safe to add to an existing save.
+- Works with Pick Up And Haul, Achtung! (forced work is kept), Keyz' Allow Utilities (urgent hauling, "do not haul"), Dubs Mint Menus.
+- Do not use together with Adaptive Priorities. Requires Harmony.
+
+—
+
+Správce tvé kolonie: sám nastavuje priority práce, drží zásoby na úrovni, kterou chceš, stará se o chov, energii a domácnost. Každou část lze zapnout nebo vypnout.
+
+PRÁCE
+- Priority podle dovedností, zálib, rychlosti práce a toho, co na mapě opravdu čeká (zakázky, stavby a rozebírání, sklizeň, odnášení, pacienti, výzkum, zvířata).
+- 13 stylů kolonie: Vyvážený (na všechno – práce rozdělená rovnoměrně, každá čekající práce má kolonistu), zaměřené styly (Přežití, Zemědělství, Chov, Stavění, Těžba a průmysl, Výroba, Obchod, Výzkum, Obrana, Péče, Pohodlí) a Můj styl (jen tvoje nastavení, nic se nemění samo). Vyvážený si sám zvolí zaměření, když to kolonie potřebuje (dochází jídlo → Přežití, hodně plánů staveb → Stavění, pacienti → Péče …), a pak se vrátí zpátky.
+- 12 krizí s okamžitým přeplánováním: nájezd, požár, zdravotní nouze, nedostatek jídla, nedostatek léků, jedovatý vzduch nebo znečištěná půda, extrémní počasí, zima, plíseň, výpadek proudu, porouchané stroje, špatná nálada. Každou lze vypnout.
+- 34 situací ve stylu Vyvážený: hodně staveb nebo rozebírání, opravy, hodně k odnesení, hnijící nebo kazící se jídlo, velká sklizeň, mráz (sklízet hned), hodně ke kácení a k těžbě, dochází dřevo, ocel, součástky nebo léky, chybí teplé nebo je roztrhané oblečení, kolonisté beze zbraní, vězni k naverbování nebo hladoví, hodně pacientů, život ohrožující nemoc, zvířata ke krocení, výcviku, dojení, stříhání nebo hladová, špinavá nemocnice nebo kuchyně, čas na výzkum, obchodníci, dochází palivo, mechanoidi nebo úl poblíž, klesající nálada, miminka, znečištění, mrtvoly, vyčerpaní kolonisté. Situace přepíše záložku Práce: potřebná práce dostane prioritu 1 nebo 2 a počet kolonistů podle velikosti úkolu (40 plánů staveb → 3 stavitelé, 3 pacienti → 2 doktoři) – vyberou se nejvhodnější kolonisté a nikdo nezůstane na velkou práci sám. Když skončí, vrátí se běžný plán. Každou lze vypnout.
+- Jen jedna práce na prioritě 1 na kolonistu (volitelné, výchozí zapnuto): zůstane ta nejnaléhavější, ostatní na prioritu 2.
+- Nikdo nestojí; odnášení a úklid nezapadnou pod záložní práce. Najeď myší na políčko v záložce Práce a uvidíš, proč má danou prioritu. Prostřední tlačítko zamkne políčko, práci nebo kolonistu.
+- Pracovní mechanoidi, rozsahy priorit z Work Tab / PriorityMaster, učni.
+
+ZÁSOBY (záložka Správce)
+- Lov, dřevo, sběr, těžba podle cílů zásob – jen tolik, kolik chybí. Nouze o jídlo: hned divoké jídlo a lov.
+- Výroba: zakázky „dokud není X“ na nejlepším stole (podpora Dubs Mint Menus), i recepty s více výrobky.
+- Samozásobení: když dochází jídlo, léky, oblečení, brnění, zbraně nebo komponenty, zakázka přesně na chybějící počet na nejlepším stole – po splnění zmizí.
+- Hotová jídla na N dní – když je dost, vaření se zastaví.
+- Chov: velikost stáda podle druhu a pohlaví, přebytek k porážce od nejstarších, březí a zvířata s poutem zůstanou.
+- Energie: při slabých bateriích vypíná zařízení jedno po druhém (i sítě bez baterií); jednotlivá zařízení lze vyjmout.
+- Domácnost: pořádek v domovské zóně, přednostní úklid, hotové výrobky hned od stolů, sutiny k odnesení, rostliny s plísní k posekání.
+
+KOMPATIBILITA
+- RimWorld 1.6, všechna DLC volitelná. Lze přidat do rozehrané hry.
+- Funguje s Pick Up And Haul, Achtung! (vynucená práce zůstane), Keyz' Allow Utilities (urgentní odnášení, „neodnášet“), Dubs Mint Menus.
+- Nepoužívej společně s Adaptive Priorities. Vyžaduje Harmony.</description>
+</ModMetaData>
