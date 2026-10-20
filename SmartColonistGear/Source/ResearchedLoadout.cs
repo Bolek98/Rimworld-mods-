@@ -104,7 +104,7 @@ namespace ResearchedLoadout
 			}
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
-			MLog.Game("[Smart Colonist Gear] v2.15.1 loaded (messages: Logs\\SmartColonistGear.log).");
+			MLog.Game("[Smart Colonist Gear] v2.16.0 loaded (messages: Logs\\SmartColonistGear.log).");
 		}
 
 		public override string SettingsCategory()
@@ -6412,6 +6412,12 @@ namespace ResearchedLoadout
 			}
 			bool flag = PrefersRanged(pawn, primary);
 			if (settings.autoEquipPrimary && !SidearmsCompat.IsCurrentWeaponForced(pawn) && TrySidearmsUpgradeType(pawn, flag, true, now))
+			{
+				return true;
+			}
+			// 2.16.0: an unarmed colonist whose preferred kind is not available takes the other kind
+			// (a melee fighter with no melee weapon around picks up a bow instead of staying unarmed)
+			if (settings.autoEquipPrimary && primary == null && !SidearmsCompat.IsCurrentWeaponForced(pawn) && TrySidearmsUpgradeType(pawn, !flag, true, now))
 			{
 				return true;
 			}

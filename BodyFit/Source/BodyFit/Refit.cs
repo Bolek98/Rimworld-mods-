@@ -702,7 +702,7 @@ public static class Patch_Refit
 			if (s.noFitRaces.Contains(p.def.defName))
 				{ Shots.Why(apparel, "649"); return; }
 			// test 2.3.5: clothes of another race keep that race's picture size (1.4, 1.25 …) – on this wearer back to 1
-			if (Shots.Loose && rec.graphic is Graphic_Multi g0 && g0.drawSize != Vector2.one && !Refit.IsRefit(g0))
+			if (Shots.Level >= 2 && rec.graphic is Graphic_Multi g0 && g0.drawSize != Vector2.one && !Refit.IsRefit(g0))
 			{
 				ThingDef h0 = Bodies.HomeRace(apparel.def);
 				if (h0 != null && h0 != p.def)
@@ -811,7 +811,7 @@ public static class Patch_Refit
 			}
 			string fake = Refit.Request(job, out bool ready);
 			if (!ready || fake == null)
-				{ Shots.Why(apparel, "750"); return; }
+				{ Shots.Why(apparel, ready ? "750 refit made nothing (outline did not match)" : "750 still waiting"); return; }
 			Graphic ng = GraphicDatabase.Get<Graphic_Multi>(fake, g.Shader, g.drawSize, g.color, g.colorTwo, g.data, null);
 			rec = new ApparelGraphicRecord(ng, apparel);
 			Shots.Why(apparel, "OK refitted");

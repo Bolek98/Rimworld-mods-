@@ -20,7 +20,7 @@ public static class LayerClip
 	private static int counter;
 	[ThreadStatic] private static int depth;
 
-	public static bool Active => Shots.Loose;   // testing only for now
+	public static bool Active => Shots.Level >= 2;   // testing only for now
 
 	public static int PendingCount { get { lock (BF.Gate) return pending.Count; } }
 

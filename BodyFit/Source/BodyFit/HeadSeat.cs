@@ -23,7 +23,7 @@ public static class HeadSeat
 	private static readonly Dictionary<int, float> humanRef = new Dictionary<int, float>();
 	public static readonly List<string> Notes = new List<string>();
 
-	public static bool Active => Shots.Loose;   // testing only for now
+	public static bool Active => Shots.Level >= 3;   // testing only for now
 
 	public static void Clear()
 	{

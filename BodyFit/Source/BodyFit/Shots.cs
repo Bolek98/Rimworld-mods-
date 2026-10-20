@@ -11,13 +11,19 @@ namespace BodyFit;
 // 2.3.2/2.3.3 (testing only): pictures of every humanlike pawn on the maps, drawn by the game itself,
 // so the fit of clothes, hair and hats on each race can be checked exactly as it looks in play.
 // One PNG per pawn, columns = N, E, S, W; rows:
-//   1 = as Body Fit draws it now, 2 = alien fitting on (safe), 3 = alien fitting on (everything), 4 = naked.
+//   1 = as Body Fit draws it now, 2 = + unmeasured alien bodies, 3 = + layer cutting and foreign size,
+//   4 = + head seating, 5 = naked. (2.4.1: each test feature gets its own row, the bed is ignored.)
 public static class Shots
 {
 	// while true: Body Fit treats every race as switched on (testing only, never saved)
 	public static bool Experiment;
-	// while true: alien bodies are fitted even when they do not look like a scaled human body
-	public static bool Loose;
+	// test level of the current pass: 1 = alien bodies fitted even when not measured as a scaled human body,
+	// 2 = + layer cutting and foreign picture size, 3 = + head seating
+	public static int Level;
+	public static bool Loose => Level >= 1;
+	// true while a picture is drawn: the bed and lying down are ignored
+	public static bool Drawing;
+	private static bool recording;
 
 	private static readonly Dictionary<string, int> why = new Dictionary<string, int>();
 
@@ -31,7 +37,7 @@ public static class Shots
 
 	public static void WhyKey(string k)
 	{
-		if (!Experiment || state != 2)
+		if (!Experiment || state != 2 || !recording)
 			return;
 		k = "pass" + pass + "\t" + k;
 		why.TryGetValue(k, out int n);
@@ -39,11 +45,11 @@ public static class Shots
 	}
 
 	private const int S = 256;
-	private const int Rows = 4;
+	private const int Rows = 5;
 
 	private static int state;          // 0 off, 1 waiting, 2 warming a pass, 3 done
 	private static int startFrame;
-	private static int pass;           // 1 = safe, 2 = everything
+	private static int pass;           // = test level 1..3
 	private static float passStart;
 	private static int quietChecks;
 	private static List<Pawn> pawns;
@@ -105,11 +111,11 @@ public static class Shots
 				sh.SetPixels32(clear);
 				sheets[p] = sh;
 			}
-			// row 1: as now, row 4: naked
+			// row 1: as now, row 5: naked
 			foreach (Pawn p in pawns)
 			{
 				Draw(p, 0, true);
-				Draw(p, 3, false);
+				Draw(p, 4, false);
 			}
 			why.Clear();
 			savedAliens = BodyFitMod.Settings.refitAliens;
@@ -126,12 +132,20 @@ public static class Shots
 				Draw(p, -1, true);
 			bool quiet = BF.PendingCount == 0 && Refit.PendingCount == 0 && LayerClip.PendingCount == 0;
 			quietChecks = quiet ? quietChecks + 1 : 0;
-			if (quietChecks < 3 && Time.realtimeSinceStartup - passStart < 45f)
+			if (quietChecks < 3 && Time.realtimeSinceStartup - passStart < 120f)
 				return;
-			foreach (Pawn p in pawns)
-				Draw(p, pass, true);
-			if (pass == 1)
-				StartPass(2);
+			recording = true;
+			try
+			{
+				foreach (Pawn p in pawns)
+					Draw(p, pass, true);
+			}
+			finally
+			{
+				recording = false;
+			}
+			if (pass < 3)
+				StartPass(pass + 1);
 			else
 				Finish(true);
 		}
@@ -141,11 +155,11 @@ public static class Shots
 	{
 		pass = n;
 		Experiment = true;
-		Loose = n == 2;
+		Level = n;
 		BodyFitMod.Settings.refitAliens = true;
 		BodyFitMod.Settings.refitHeads = true;
 		AlienFit.Clear();
-		if (n == 2)
+		if (n == 3)
 		{
 			HeadSeat.Clear();
 			foreach (Pawn p in pawns.Where(x => x.def == ThingDefOf.Human).Concat(pawns.Where(x => x.def != ThingDefOf.Human)))
@@ -159,7 +173,7 @@ public static class Shots
 	private static void Finish(bool write)
 	{
 		Experiment = false;
-		Loose = false;
+		Level = 0;
 		if (state == 2)
 		{
 			BodyFitMod.Settings.refitAliens = savedAliens;
@@ -223,7 +237,15 @@ public static class Shots
 			RenderTexture.active = rt;
 			GL.Clear(true, true, new Color(0f, 0f, 0f, 0f));
 			RenderTexture.active = prev;
-			Find.PawnCacheRenderer.RenderPawn(p, rt, new Vector3(0f, 0f, 0.1f), 1.05f, 0f, new Rot4(r), true, clothes, clothes, false);
+			Drawing = true;
+			try
+			{
+				Find.PawnCacheRenderer.RenderPawn(p, rt, new Vector3(0f, 0f, 0.1f), 1.05f, 0f, new Rot4(r), true, clothes, clothes, false);
+			}
+			finally
+			{
+				Drawing = false;
+			}
 			if (row < 0)
 				continue;
 			RenderTexture.active = rt;
@@ -233,5 +255,18 @@ public static class Shots
 			// Texture2D y goes up: row 0 sits at the top
 			sheets[p].SetPixels(r * S, (Rows - 1 - row) * S, S, S, read.GetPixels());
 		}
+	}
+}
+
+// 2.4.1 (pictures only): a pawn lying in bed is drawn standing, so the body and clothes show
+[HarmonyLib.HarmonyPatch(typeof(PawnRenderer), "GetDrawParms")]
+public static class Patch_ShotsStanding
+{
+	public static void Postfix(ref PawnDrawParms __result)
+	{
+		if (!Shots.Drawing)
+			return;
+		__result.bed = null;
+		__result.posture = PawnPosture.Standing;
 	}
 }
