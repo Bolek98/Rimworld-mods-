@@ -121,11 +121,9 @@ public sealed class PriorityAreaComp : MapComponent
 
 	// 2.23.0: priority areas belong to the Balanced style – in any other style
 	// they are hidden and wait (not removed) until Balanced is chosen again
-	public static bool StyleAllows(Map m)
-	{
-		ForemanMapComponent fc = ForemanMapComponent.For(m);
-		return fc == null || fc.style == ForemanStyle.Balanced;
-	}
+	// 2.49.3: auto focus switches the style on its own (Building, Defence …) and the areas
+	// then stopped silently – they work in every style now
+	public static bool StyleAllows(Map m) => true;
 
 	public bool Hidden => !StyleAllows(map);
 
@@ -219,6 +217,14 @@ public sealed class PriorityAreaComp : MapComponent
 					busyInside = true;
 					a.lastWorkTick = now;
 				}
+			// 2.49.3: nobody did anything inside for two days (work that keeps coming back, like
+			// filth or repairs, or unreachable work) – the area ends instead of holding colonists forever
+			if (!a.manual && now - a.lastWorkTick > 120000)
+			{
+				areas.RemoveAt(i);
+				Messages.Message("CF_PA_Stale".Translate(PriorityAreaWork.ModeLabel(a.mode)), new TargetInfo(a.Center, map), MessageTypeDefOf.NeutralEvent, historical: false);
+				continue;
+			}
 			// finished only when nothing of the chosen kind is left inside
 			int work = PriorityAreaWork.CountFor(a, map);
 			a.lastCount = work;
@@ -246,6 +252,17 @@ public sealed class PriorityAreaComp : MapComponent
 			p.jobs.EndCurrentJob(JobCondition.InterruptForced);
 	}
 
+	private bool Takeable(Pawn p, PriorityArea a)
+	{
+		PriorityArea cur = AreaOf(p);
+		if (cur == null)
+			return true;
+		if (cur == a || cur.manual)
+			return false;
+		// only from an older area, or from one that has nothing left for now
+		return cur.createdTick < a.createdTick || cur.lastCount == 0;
+	}
+
 	private void Assign(PriorityArea a)
 	{
 		if (a.manual)
@@ -254,8 +271,10 @@ public sealed class PriorityAreaComp : MapComponent
 		if (a.assigned.Count >= want)
 			return;
 		IntVec3 center = a.Center;
+		// 2.49.3: a newer area may take colonists from an older automatic one – before, everyone
+		// stayed stuck in old areas and a new area got nobody
 		var free = map.mapPawns.FreeColonistsSpawned
-			.Where(p => Usable(p, map) && AreaOf(p) == null && PriorityAreaWork.CanDoAny(p, a.mode))
+			.Where(p => Usable(p, map) && Takeable(p, a) && PriorityAreaWork.CanDoAny(p, a.mode))
 			.Where(p => p.Awake() && !HealthAIUtility.ShouldSeekMedicalRest(p))
 			.OrderBy(p => p.Position.DistanceToSquared(center))
 			.ToList();
@@ -263,6 +282,7 @@ public sealed class PriorityAreaComp : MapComponent
 		{
 			if (a.assigned.Count >= want)
 				break;
+			AreaOf(p)?.assigned.Remove(p);
 			a.assigned.Add(p);
 			if (a.interrupt)
 				Interrupt(p, a);
@@ -615,7 +635,7 @@ public class Designator_PriorityArea : Designator
 	public Designator_PriorityArea()
 	{
 		defaultLabel = "CF_PA_Label".Translate();
-		defaultDesc = "CF_PA_Desc".Translate() + "\n\n" + "CF_PA_OnlyBalanced".Translate();
+		defaultDesc = "CF_PA_Desc".Translate();
 		icon = PriorityAreaTex.Add;
 		defaultIconColor = new Color(0.55f, 0.9f, 1f);
 		soundDragSustain = SoundDefOf.Designate_DragStandard;
@@ -812,7 +832,7 @@ public class Designator_PriorityAreaClear : Designator
 	public Designator_PriorityAreaClear()
 	{
 		defaultLabel = "CF_PA_ClearLabel".Translate();
-		defaultDesc = "CF_PA_ClearDesc".Translate() + "\n\n" + "CF_PA_OnlyBalanced".Translate();
+		defaultDesc = "CF_PA_ClearDesc".Translate();
 		icon = PriorityAreaTex.Remove;
 		defaultIconColor = new Color(0.55f, 0.9f, 1f);
 		soundDragSustain = SoundDefOf.Designate_DragStandard;
