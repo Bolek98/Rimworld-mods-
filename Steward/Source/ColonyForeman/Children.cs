@@ -90,7 +90,10 @@ public static class ParentCare
 		var needNanny = new List<Pawn>();
 		foreach (Pawn b in babies)
 		{
+			// 2.49.3: the mother first; when she can't (away, no childcare, gone), the father
 			Pawn m = b.GetMother();
+			if (!(CanCare(m, cc, plan) && m.Map == b.Map))
+				m = b.GetFather();
 			if (CanCare(m, cc, plan) && m.Map == b.Map)
 			{
 				mothers.TryGetValue(m, out int n);

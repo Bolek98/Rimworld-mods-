@@ -791,7 +791,8 @@ public static class Planner
 				{
 					comp.calmCells.TryGetValue(ck, out CalmCell cc);
 					// a job switched on is never held back (a job must not end up with nobody)
-					bool free = !calm || crisisCell || (cc != null && cc.crisis) || WorkPolicies.Get(w).emergency || (cur == 0 && nv > 0);
+					// 2.49.3: childcare (parents, nannies) is never held back – in every style
+					bool free = !calm || crisisCell || (cc != null && cc.crisis) || WorkPolicies.Get(w).emergency || (cur == 0 && nv > 0) || w.defName == "Childcare";
 					if (!free)
 					{
 						bool recent = cc != null && nowTick - cc.tick < hold;
