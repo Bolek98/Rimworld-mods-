@@ -409,6 +409,26 @@ public static class Refit
 				continue;   // the game falls back (flips east, …) exactly as for the original
 			Texture2D mask = ContentFinder<Texture2D>.Get(j.apparelPath + "_" + dir + "m", false);
 			bool side = dir == "east" || dir == "west";
+			// 2.5: known from an earlier game – no reading back from the graphics card
+			string ck = j.key + "|" + dir;
+			if (RefitCache.TryLoad(ck, main, out Texture2D cached))
+			{
+				if (cached == null)
+				{
+					add.Add(new KeyValuePair<string, Texture2D>(fake + "_" + dir, main));
+					if (mask != null)
+						add.Add(new KeyValuePair<string, Texture2D>(fake + "_" + dir + "m", mask));
+					continue;
+				}
+				changed = true;
+				add.Add(new KeyValuePair<string, Texture2D>(fake + "_" + dir, cached));
+				if (mask != null)
+				{
+					Texture2D cmk = RefitCache.TryLoad(ck + "m", mask, out Texture2D cm2) ? cm2 : null;
+					add.Add(new KeyValuePair<string, Texture2D>(fake + "_" + dir + "m", cmk ?? mask));
+				}
+				continue;
+			}
 			Texture2D from = Body(j.refPath, dir, j.refVanilla, out bool flipFrom);
 			Texture2D to = Body(j.targetPath, dir, false, out bool flipTo);
 			RowMap map = null;
@@ -425,15 +445,19 @@ public static class Refit
 					add.Add(new KeyValuePair<string, Texture2D>(fake + "_" + dir + "m", mask));
 				continue;
 			}
-			Texture2D wm = Warp(main, map);
+			Texture2D wm = Warp(main, map, out Color32[] wpx);
 			if (wm == null)
 				return null;
 			changed = true;
 			add.Add(new KeyValuePair<string, Texture2D>(fake + "_" + dir, wm));
+			if (!Shots.Experiment)
+				RefitCache.Save(ck, main, wpx, wm.width, wm.height);
 			if (mask != null)
 			{
-				Texture2D wk = Warp(mask, map);
+				Texture2D wk = Warp(mask, map, out Color32[] kpx);
 				add.Add(new KeyValuePair<string, Texture2D>(fake + "_" + dir + "m", wk ?? mask));
+				if (wk != null && !Shots.Experiment)
+					RefitCache.Save(ck + "m", mask, kpx, wk.width, wk.height);
 			}
 		}
 		if (!changed)
@@ -473,8 +497,8 @@ public static class Refit
 			var m = new RowMap { n = n, srcV = new float[n], tl = new float[n], tr = new float[n], fl = new float[n], fr = new float[n] };
 			float vs = 1f, fb = from.bottom, tb = to.bottom;
 			// 2.3.5: heads are fitted in height too (a smaller or higher face moves the mask / helmet with it)
-			if (head)
-				height = true;
+			if (head && !BodyFitMod.Simple)
+				height = true;   // 2.5: the simple Body Fit fits hats and masks only sideways
 			if (height)
 			{
 				float fh = from.top - from.bottom, th = to.top - to.bottom;
@@ -580,8 +604,11 @@ public static class Refit
 		}
 	}
 
-	private static Texture2D Warp(Texture2D src, RowMap m)
+	private static Texture2D Warp(Texture2D src, RowMap m) => Warp(src, m, out _);
+
+	private static Texture2D Warp(Texture2D src, RowMap m, out Color32[] result)
 	{
+		result = null;
 		Color32[] px = Read(src, out int w, out int h);
 		if (px == null)
 			return null;
@@ -603,6 +630,7 @@ public static class Refit
 		tex.wrapMode = TextureWrapMode.Clamp;
 		tex.anisoLevel = src.anisoLevel;
 		tex.SetPixels32(outPx);
+		result = outPx;
 		tex.Apply(true, true);
 		return tex;
 	}

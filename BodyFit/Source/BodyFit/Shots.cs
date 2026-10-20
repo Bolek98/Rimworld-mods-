@@ -70,6 +70,8 @@ public static class Shots
 	{
 		state = 0;
 		Requested = false;
+		if (BodyFitMod.Simple)
+			return;   // 2.5: the simple Body Fit takes no test pictures
 		try { if (!File.Exists(Trigger)) return; File.Delete(Trigger); } catch { return; }
 		Requested = true;
 		state = 1;

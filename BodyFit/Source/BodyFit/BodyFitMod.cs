@@ -120,12 +120,45 @@ public class BodyFitSettings : ModSettings
 		if (hairSize == null) hairSize = new Dictionary<string, float>();
 		if (headOverride == null) headOverride = new Dictionary<string, Vector2>();
 		if (raceHeight == null) raceHeight = new Dictionary<string, float>();
+		if (BodyFitMod.Simple)
+			ApplySimple();
+	}
+
+	// 2.5: the simple Body Fit – no tweaks, everything automatic. Only "which races" stays yours.
+	// It never moves heads, hair, hats, weapons or body parts of alien races (their own mod knows
+	// best where they go); it only reshapes the pictures of clothes, hats and masks for the body
+	// and head they are worn on, and finds a picture for bodies the clothes were not painted for.
+	public void ApplySimple()
+	{
+		fixHeads = true;       // only bodies from mods that have no head position at all
+		fixBodies = true;      // only bodies that cannot be drawn
+		fixApparel = true;     // a picture for bodies the clothes were not painted for
+		fitApparel = false;    // no whole-picture scaling or moving
+		fixHair = true;        // missing hair picture -> a plain one instead of a pink square
+		fitHair = false;
+		fitHeadgear = false;
+		fitWeapons = false;
+		fitAll = true;
+		refit = refitAliens = refitSides = refitHeight = refitHeads = refitCore = true;
+		headOverride.Clear();
+		raceHeight.Clear();
+		bodyFallback.Clear();
+		items.Clear();
+		raceBody.Clear();
+		weaponHeight.Clear();
+		noFitRaces.Clear();
+		fitRaces.Clear();
+		clothesWidth.Clear();
+		clothesHeight.Clear();
+		hairHeight.Clear();
+		hairSize.Clear();
 	}
 }
 
 public partial class BodyFitMod : Mod
 {
 	public static BodyFitSettings Settings;
+	public const bool Simple = true;   // 2.5
 	public static ModContentPack Content;
 	private int tab;
 	private Vector2 scroll;
@@ -137,7 +170,7 @@ public partial class BodyFitMod : Mod
 		try
 		{
 			new Harmony("bolek98.bodyfit").PatchAll();
-			MLog.Game("[Body Fit] v2.4.1 loaded (messages: Logs\\BodyFit.log).");
+			MLog.Game("[Body Fit] v2.5.0 loaded (messages: Logs\\BodyFit.log).");
 		}
 		catch (Exception ex)
 		{
@@ -161,6 +194,11 @@ public partial class BodyFitMod : Mod
 
 	public override void DoSettingsWindowContents(Rect inRect)
 	{
+		if (Simple)
+		{
+			DrawSimple(inRect);
+			return;
+		}
 		var tabs = new List<TabRecord>
 		{
 			new TabRecord("BF_TabGeneral".Translate(), () => { tab = 0; scroll = Vector2.zero; }, tab == 0),
@@ -180,6 +218,43 @@ public partial class BodyFitMod : Mod
 		else if (tab == 3) DrawClothes(inner);
 		else if (tab == 4) DrawPreview(inner);
 		else DrawWardrobe(inner);
+	}
+
+	// 2.5: the whole settings window of the simple Body Fit
+	private Vector2 simpleScroll;
+
+	private void DrawSimple(Rect r)
+	{
+		var l = new Listing_Standard();
+		Rect top = new Rect(r.x, r.y, Mathf.Min(r.width, 760f), 150f);
+		l.Begin(top);
+		l.Label("BF_SimpleIntro".Translate());
+		l.Gap(6f);
+		GUI.color = new Color(0.75f, 0.75f, 0.75f);
+		l.Label("BF_SimpleStats".Translate(Refit.made, RefitCache.Hits, RefitCache.Saved));
+		GUI.color = Color.white;
+		l.End();
+		var races = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.race != null && d.race.Humanlike && d != ThingDefOf.Human).OrderBy(d => d.label ?? d.defName).ToList();
+		Rect head = new Rect(r.x, r.y + 156f, Mathf.Min(r.width, 760f), 28f);
+		Widgets.Label(head, "BF_SimpleRaces".Translate());
+		Rect outer = new Rect(r.x, head.yMax + 4f, Mathf.Min(r.width, 760f), r.yMax - head.yMax - 8f);
+		Rect view = new Rect(0f, 0f, outer.width - 20f, races.Count * 28f);
+		Widgets.BeginScrollView(outer, ref simpleScroll, view);
+		float y = 0f;
+		foreach (ThingDef d in races)
+		{
+			bool on = !Settings.offRaces.Contains(d.defName);
+			bool was = on;
+			Widgets.CheckboxLabeled(new Rect(0f, y, view.width, 26f), (d.LabelCap.ToString().NullOrEmpty() ? d.defName : d.LabelCap.ToString()) + "  (" + (d.modContentPack?.Name ?? "?") + ")", ref on);
+			if (on != was)
+			{
+				if (on) Settings.offRaces.Remove(d.defName); else Settings.offRaces.Add(d.defName);
+				Refit.Clear();
+				WriteSettings();
+			}
+			y += 28f;
+		}
+		Widgets.EndScrollView();
 	}
 
 	private void DrawGeneral(Rect r)
