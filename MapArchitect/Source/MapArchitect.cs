@@ -30,7 +30,8 @@ namespace MapArchitect
 		public readonly Dictionary<IntVec3, KeyValuePair<ThingDef, int>> deep = new Dictionary<IntVec3, KeyValuePair<ThingDef, int>>();
 		public readonly List<Thing> spawned = new List<Thing>();
 		public readonly List<RemovedThing> removed = new List<RemovedThing>();
-		public bool Empty => terrain.Count == 0 && roofs.Count == 0 && deep.Count == 0 && spawned.Count == 0 && removed.Count == 0;
+		public readonly Dictionary<IntVec3, bool> fog = new Dictionary<IntVec3, bool>();
+		public bool Empty => terrain.Count == 0 && roofs.Count == 0 && deep.Count == 0 && spawned.Count == 0 && removed.Count == 0 && fog.Count == 0;
 	}
 
 	public static class Undo
@@ -78,6 +79,12 @@ namespace MapArchitect
 				Current.deep[c] = new KeyValuePair<ThingDef, int>(map.deepResourceGrid.ThingDefAt(c), map.deepResourceGrid.CountAt(c));
 		}
 
+		public static void Fog(Map map, IntVec3 c)
+		{
+			if (Current != null && !Current.fog.ContainsKey(c))
+				Current.fog[c] = map.fogGrid.IsFogged(c);
+		}
+
 		public static void Spawned(Thing t)
 		{
 			if (Current != null && t != null)
@@ -116,6 +123,13 @@ namespace MapArchitect
 				Edit.SetTerrainRaw(map, kv.Key, kv.Value.Key, kv.Value.Value);
 			foreach (var kv in ch.roofs)
 				map.roofGrid.SetRoof(kv.Key, kv.Value);
+			foreach (var kv in ch.fog)
+			{
+				if (kv.Value)
+					map.fogGrid.Refog(CellRect.SingleCell(kv.Key));
+				else
+					map.fogGrid.Unfog(kv.Key);
+			}
 			foreach (var kv in ch.deep)
 				map.deepResourceGrid.SetAt(kv.Key, kv.Value.Key, kv.Value.Key == null ? 0 : kv.Value.Value);
 			foreach (RemovedThing r in ch.removed)
@@ -344,10 +358,43 @@ namespace MapArchitect
 
 		protected abstract string BaseLabel { get; }
 		protected virtual bool NeedsChoice => true;
+
+		// quick buttons: a fixed choice, their own label and an icon looked up when first drawn
+		protected virtual object Preset => null;
+		protected virtual string PresetLabel => null;
+		protected virtual Texture2D LazyIcon() => null;
+		private bool iconDone;
+
+		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
+		{
+			if (!iconDone)
+			{
+				iconDone = true;
+				try
+				{
+					Texture2D t = LazyIcon();
+					if (t != null && t != BaseContent.BadTex)
+					{
+						icon = t;
+						defaultIconColor = Color.white;
+					}
+				}
+				catch
+				{
+				}
+			}
+			if (Preset != null && choice == null)
+			{
+				choice = Preset;
+				if (PresetLabel != null)
+					defaultLabel = PresetLabel;
+			}
+			return base.GizmoOnGUI(topLeft, maxWidth, parms);
+		}
 		protected virtual List<PickOption> Options() => new List<PickOption>();
 		protected virtual string SliderLabel => null;
 
-		public override string Label => choiceLabel.NullOrEmpty() ? BaseLabel : BaseLabel + ": " + choiceLabel;
+		public override string Label => PresetLabel ?? (choiceLabel.NullOrEmpty() ? BaseLabel : BaseLabel + ": " + choiceLabel);
 
 		public override DrawStyleCategoryDef DrawStyleCategory => DrawStyleCategoryDefOf.Floors;
 
@@ -355,7 +402,7 @@ namespace MapArchitect
 
 		public override void ProcessInput(Event ev)
 		{
-			if (NeedsChoice && (choice == null || ev.button == 1))
+			if (Preset == null && NeedsChoice && (choice == null || ev.button == 1))
 			{
 				Find.WindowStack.Add(new Dialog_Pick(BaseLabel, Options(), o =>
 				{
@@ -374,6 +421,8 @@ namespace MapArchitect
 
 		public override void DesignateMultiCell(IEnumerable<IntVec3> cells)
 		{
+			if (choice == null && Preset != null)
+				choice = Preset;
 			Undo.Begin(Map);
 			try
 			{
@@ -747,5 +796,248 @@ namespace MapArchitect
 				e.Use();
 			}
 		}
+	}
+}
+
+
+namespace MapArchitect
+{
+	internal static class Pick
+	{
+		public static TerrainDef Terrain(params string[] names)
+		{
+			foreach (string n in names)
+			{
+				TerrainDef t = DefDatabase<TerrainDef>.GetNamedSilentFail(n);
+				if (t != null)
+					return t;
+			}
+			return null;
+		}
+
+		public static Texture2D TerrainIcon(TerrainDef t)
+		{
+			if (t == null)
+				return null;
+			return t.uiIcon != null && t.uiIcon != BaseContent.BadTex ? t.uiIcon : null;
+		}
+
+		public static Texture2D Tex(string path) => ContentFinder<Texture2D>.Get(path, false);
+	}
+
+	// ---------- quick terrain buttons
+	public abstract class Designator_MA_TerrainQuick : Designator_MA_Terrain
+	{
+		protected abstract string[] Names { get; }
+		protected abstract string Key { get; }
+		private TerrainDef def;
+		private TerrainDef Def => def ??= Pick.Terrain(Names);
+		protected override object Preset => Def;
+		protected override string PresetLabel => Def == null ? null : (string)Def.LabelCap;
+		protected override Texture2D LazyIcon() => Pick.TerrainIcon(Def);
+		public override bool Visible => Def != null && base.Visible;
+	}
+
+	public class Designator_MA_T_Soil : Designator_MA_TerrainQuick { protected override string[] Names => new[] { "Soil" }; protected override string Key => "Soil"; }
+	public class Designator_MA_T_RichSoil : Designator_MA_TerrainQuick { protected override string[] Names => new[] { "SoilRich" }; protected override string Key => "SoilRich"; }
+	public class Designator_MA_T_Sand : Designator_MA_TerrainQuick { protected override string[] Names => new[] { "Sand" }; protected override string Key => "Sand"; }
+	public class Designator_MA_T_Gravel : Designator_MA_TerrainQuick { protected override string[] Names => new[] { "Gravel" }; protected override string Key => "Gravel"; }
+	public class Designator_MA_T_Mud : Designator_MA_TerrainQuick { protected override string[] Names => new[] { "Mud" }; protected override string Key => "Mud"; }
+	public class Designator_MA_T_Marsh : Designator_MA_TerrainQuick { protected override string[] Names => new[] { "Marsh" }; protected override string Key => "Marsh"; }
+	public class Designator_MA_T_WaterShallow : Designator_MA_TerrainQuick { protected override string[] Names => new[] { "WaterShallow" }; protected override string Key => "WaterShallow"; }
+	public class Designator_MA_T_WaterDeep : Designator_MA_TerrainQuick { protected override string[] Names => new[] { "WaterDeep" }; protected override string Key => "WaterDeep"; }
+	public class Designator_MA_T_Ice : Designator_MA_TerrainQuick { protected override string[] Names => new[] { "Ice" }; protected override string Key => "Ice"; }
+
+	// ---------- smooth surface
+	public class Designator_MA_Smooth : Designator_MA
+	{
+		public Designator_MA_Smooth()
+		{
+			defaultLabel = "MA_Smooth".Translate();
+			defaultDesc = "MA_SmoothDesc".Translate();
+		}
+		protected override string BaseLabel => "MA_Smooth".Translate();
+		protected override bool NeedsChoice => false;
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/SmoothSurface");
+		protected override void Apply(List<IntVec3> cells)
+		{
+			foreach (IntVec3 c in cells)
+			{
+				TerrainDef t = Map.terrainGrid.TopTerrainAt(c);
+				if (t?.smoothedTerrain != null)
+					Edit.Terrain(Map, c, t.smoothedTerrain);
+			}
+		}
+	}
+
+	// ---------- fog
+	public class Designator_MA_FogAdd : Designator_MA
+	{
+		public Designator_MA_FogAdd()
+		{
+			defaultLabel = "MA_FogAdd".Translate();
+			defaultDesc = "MA_FogAddDesc".Translate();
+			icon = BaseContent.WhiteTex;
+			defaultIconColor = new Color(0.25f, 0.25f, 0.3f);
+		}
+		protected override string BaseLabel => "MA_FogAdd".Translate();
+		protected override bool NeedsChoice => false;
+		protected override void Apply(List<IntVec3> cells)
+		{
+			foreach (IntVec3 c in cells)
+			{
+				if (Map.fogGrid.IsFogged(c) || c.GetThingList(Map).Any(t => t is Pawn p && p.Faction == Faction.OfPlayer))
+					continue;
+				Undo.Fog(Map, c);
+				Map.fogGrid.Refog(CellRect.SingleCell(c));
+			}
+		}
+	}
+
+	public class Designator_MA_FogRemove : Designator_MA
+	{
+		public Designator_MA_FogRemove()
+		{
+			defaultLabel = "MA_FogRemove".Translate();
+			defaultDesc = "MA_FogRemoveDesc".Translate();
+			icon = BaseContent.WhiteTex;
+			defaultIconColor = new Color(0.85f, 0.85f, 0.9f);
+		}
+		protected override string BaseLabel => "MA_FogRemove".Translate();
+		protected override bool NeedsChoice => false;
+		protected override void Apply(List<IntVec3> cells)
+		{
+			foreach (IntVec3 c in cells)
+			{
+				if (!Map.fogGrid.IsFogged(c))
+					continue;
+				Undo.Fog(Map, c);
+				Map.fogGrid.Unfog(c);
+			}
+		}
+	}
+
+	// ---------- quick plants from the map's own biome
+	public abstract class Designator_MA_BiomePlants : Designator_MA
+	{
+		protected abstract bool Trees { get; }
+		protected override bool NeedsChoice => false;
+		protected override string SliderLabel => "MA_Density".Translate();
+
+		public override void ProcessInput(Event ev)
+		{
+			if (ev.button == 1)
+			{
+				Find.WindowStack.Add(new Dialog_Pick(Label, new List<PickOption> { new PickOption { label = "OK", value = 1 } }, o => Find.DesignatorManager.Select(this), SliderLabel));
+				return;
+			}
+			base.ProcessInput(ev);
+		}
+
+		protected override Texture2D LazyIcon()
+		{
+			ThingDef d = Trees ? DefDatabase<ThingDef>.GetNamedSilentFail("Plant_TreeOak") : DefDatabase<ThingDef>.GetNamedSilentFail("Plant_Bush");
+			return d?.uiIcon;
+		}
+
+		protected override void Apply(List<IntVec3> cells)
+		{
+			BiomeDef biome = Map.Biome;
+			var plants = biome.AllWildPlants.Where(p => p.plant != null && p.plant.IsTree == Trees).ToList();
+			if (plants.Count == 0)
+				return;
+			float density = cells.Count == 1 ? 1f : Dialog_Pick.sliderValue;
+			foreach (IntVec3 c in cells)
+			{
+				if (!Rand.Chance(density) || c.GetPlant(Map) != null || c.GetEdifice(Map) != null || c.Impassable(Map) || Map.fertilityGrid.FertilityAt(c) <= 0f)
+					continue;
+				var ok = plants.Where(p => p.CanEverPlantAt(c, Map)).ToList();
+				if (!ok.TryRandomElementByWeight(p => Math.Max(0.01f, biome.CommonalityOfPlant(p)), out ThingDef def))
+					continue;
+				Plant pl = (Plant)ThingMaker.MakeThing(def);
+				pl.Growth = Rand.Range(0.35f, 1f);
+				if (def.plant.LimitedLifespan)
+					pl.Age = Rand.Range(0, Math.Max(1, def.plant.LifespanTicks / 2));
+				Edit.Spawn(pl, c, Map, Rot4.North);
+			}
+		}
+	}
+
+	public class Designator_MA_BiomeTrees : Designator_MA_BiomePlants
+	{
+		public Designator_MA_BiomeTrees() { defaultLabel = "MA_BiomeTrees".Translate(); defaultDesc = "MA_BiomeTreesDesc".Translate(); }
+		protected override bool Trees => true;
+		protected override string BaseLabel => "MA_BiomeTrees".Translate();
+	}
+
+	public class Designator_MA_BiomeGrass : Designator_MA_BiomePlants
+	{
+		public Designator_MA_BiomeGrass() { defaultLabel = "MA_BiomeGrass".Translate(); defaultDesc = "MA_BiomeGrassDesc".Translate(); }
+		protected override bool Trees => false;
+		protected override string BaseLabel => "MA_BiomeGrass".Translate();
+	}
+
+	// ---------- quick mountain / roof
+	public class Designator_MA_MountainQuick : Designator_MA_Mountain
+	{
+		public Designator_MA_MountainQuick() { defaultLabel = "MA_MountainQuick".Translate(); defaultDesc = "MA_MountainQuickDesc".Translate(); }
+		protected override string PresetLabel => "MA_MountainQuick".Translate();
+		protected override object Preset => "maprock";
+		protected override Texture2D LazyIcon() => DefDatabase<ThingDef>.GetNamedSilentFail("Granite")?.uiIcon;
+
+		protected override void Apply(List<IntVec3> cells)
+		{
+			var rocks = Find.World.NaturalRockTypesIn(Map.Tile).ToList();
+			ThingDef rock = rocks.Count > 0 ? rocks.RandomElement() : DefDatabase<ThingDef>.GetNamedSilentFail("Granite");
+			choice = rock;
+			base.Apply(cells);
+			choice = "maprock";
+		}
+	}
+
+	public class Designator_MA_RoofThick : Designator_MA_Mountain
+	{
+		public Designator_MA_RoofThick() { defaultLabel = "MA_RoofThick".Translate(); }
+		protected override string PresetLabel => "MA_RoofThick".Translate();
+		protected override object Preset => RoofDefOf.RoofRockThick;
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/BuildRoofArea");
+	}
+
+	public class Designator_MA_RoofRemove : Designator_MA_Mountain
+	{
+		public Designator_MA_RoofRemove() { defaultLabel = "MA_RoofNone".Translate(); }
+		protected override string PresetLabel => "MA_RoofNone".Translate();
+		protected override object Preset => "noroof";
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/NoRoofArea");
+	}
+
+	// ---------- quick clear
+	public class Designator_MA_ClearPlants : Designator_MA_Clear
+	{
+		protected override string PresetLabel => "MA_ClearPlantsQuick".Translate();
+		protected override object Preset => ClearMode.Plants;
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/CutPlants");
+	}
+
+	public class Designator_MA_ClearRocks : Designator_MA_Clear
+	{
+		protected override string PresetLabel => "MA_ClearRocksQuick".Translate();
+		protected override object Preset => ClearMode.Rocks;
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/Mine");
+	}
+
+	public class Designator_MA_ClearFilth : Designator_MA_Clear
+	{
+		protected override string PresetLabel => "MA_ClearFilthQuick".Translate();
+		protected override object Preset => ClearMode.Filth;
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/SnowClearAreaOn");
+	}
+
+	// ---------- quick geyser
+	public class Designator_MA_Geyser : Designator_MA_Object
+	{
+		protected override string PresetLabel => DefDatabase<ThingDef>.GetNamedSilentFail("SteamGeyser")?.LabelCap ?? "Geyser";
+		protected override object Preset => DefDatabase<ThingDef>.GetNamedSilentFail("SteamGeyser");
+		protected override Texture2D LazyIcon() => DefDatabase<ThingDef>.GetNamedSilentFail("SteamGeyser")?.uiIcon;
 	}
 }

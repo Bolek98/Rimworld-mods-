@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <MA_Terrain>Terén</MA_Terrain>
+  <MA_Terrain>Terén…</MA_Terrain>
   <MA_TerrainDesc>Maluj jakýkoliv terén – půdu, písek, vodu, kámen, podlahy. Kliknutím vybereš terén (pravým tlačítkem ho změníš), pak táhni obdélník, ovál nebo čáru. Voda se nikdy nedá pod budovy ani pod lidi.</MA_TerrainDesc>
-  <MA_Plants>Rostliny</MA_Plants>
+  <MA_Plants>Rostliny…</MA_Plants>
   <MA_PlantsDesc>Vysaď stromy, keře, trávu nebo plodiny. Vyber rostlinu a hustotu a táhni přes plochu.</MA_PlantsDesc>
   <MA_Density>Hustota</MA_Density>
-  <MA_Clear>Vyčistit</MA_Clear>
+  <MA_Clear>Vyčistit…</MA_Clear>
   <MA_ClearDesc>Odstraní rostliny, skály, špínu, předměty nebo všechno v ploše. Lidi a tvoje budovy se nikdy neodstraní.</MA_ClearDesc>
   <MA_Clear_Plants>Rostliny</MA_Clear_Plants>
   <MA_Clear_Rocks>Skály, hory a kusy kamene</MA_Clear_Rocks>
   <MA_Clear_Filth>Špína</MA_Clear_Filth>
   <MA_Clear_Items>Předměty</MA_Clear_Items>
   <MA_Clear_Everything>Všechno (kromě lidí a tvých budov)</MA_Clear_Everything>
-  <MA_Mountain>Hora</MA_Mountain>
+  <MA_Mountain>Hora…</MA_Mountain>
   <MA_MountainDesc>Postav horu z jakékoliv horniny nebo rudy, nebo změň střechu (horský masiv, tenká skalní střecha, žádná).</MA_MountainDesc>
   <MA_RoofThick>Horský masiv (silná střecha)</MA_RoofThick>
   <MA_RoofThin>Tenká skalní střecha</MA_RoofThin>
@@ -20,10 +20,10 @@
   <MA_GroupRoof>Střecha</MA_GroupRoof>
   <MA_GroupOre>Ruda</MA_GroupOre>
   <MA_GroupRock>Hornina</MA_GroupRock>
-  <MA_Deep>Hlubinné suroviny</MA_Deep>
+  <MA_Deep>Hlubinné suroviny…</MA_Deep>
   <MA_DeepDesc>Namaluj suroviny pro hlubinný vrt (ocel, plastocel, uran, chemopalivo …) nebo je odstraň.</MA_DeepDesc>
   <MA_DeepRemove>Odstranit hlubinné suroviny</MA_DeepRemove>
-  <MA_Object>Objekty</MA_Object>
+  <MA_Object>Objekty…</MA_Object>
   <MA_ObjectDesc>Polož gejzíry, starověké věci, ruiny, nerosty, předměty, budovy nebo zvířata. Q / E otáčí.</MA_ObjectDesc>
   <MA_GroupSpecial>Gejzíry a zvláštní</MA_GroupSpecial>
   <MA_GroupAncient>Starověké a ruiny</MA_GroupAncient>
@@ -44,4 +44,19 @@
   <MA_UndoDesc>Vrátí poslední změnu Map Architect (také Ctrl+Z). Až 40 kroků.</MA_UndoDesc>
   <MA_NothingToUndo>Není co vracet.</MA_NothingToUndo>
   <MA_Undone>Vráceno. Zbývá kroků: {0}</MA_Undone>
+  <MA_Smooth>Hladký povrch</MA_Smooth>
+  <MA_SmoothDesc>Okamžitě vyhladí přírodní kamennou podlahu v ploše.</MA_SmoothDesc>
+  <MA_FogAdd>Přidat mlhu</MA_FogAdd>
+  <MA_FogAddDesc>Zakryje plochu mlhou války (nikdy ne přes tvoje kolonisty).</MA_FogAddDesc>
+  <MA_FogRemove>Odstranit mlhu</MA_FogRemove>
+  <MA_FogRemoveDesc>Odkryje plochu.</MA_FogRemoveDesc>
+  <MA_BiomeTrees>Stromy</MA_BiomeTrees>
+  <MA_BiomeTreesDesc>Vysadí stromy, které v tomhle biomu rostou divoce, v přirozeném poměru. Pravé tlačítko: hustota.</MA_BiomeTreesDesc>
+  <MA_BiomeGrass>Tráva a keře</MA_BiomeGrass>
+  <MA_BiomeGrassDesc>Vysadí trávu, keře a další divoké rostliny tohoto biomu. Pravé tlačítko: hustota.</MA_BiomeGrassDesc>
+  <MA_MountainQuick>Hora (místní hornina)</MA_MountainQuick>
+  <MA_MountainQuickDesc>Postaví horu z horniny této mapy s přírodní střechou.</MA_MountainQuickDesc>
+  <MA_ClearPlantsQuick>Odstranit rostliny</MA_ClearPlantsQuick>
+  <MA_ClearRocksQuick>Odstranit skály a hory</MA_ClearRocksQuick>
+  <MA_ClearFilthQuick>Odstranit špínu</MA_ClearFilthQuick>
 </LanguageData>

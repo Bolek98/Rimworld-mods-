@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <MA_Terrain>Terrain</MA_Terrain>
+  <MA_Terrain>Terrain…</MA_Terrain>
   <MA_TerrainDesc>Paint any terrain – soil, sand, water, stone, floors. Click to choose the terrain (right-click to change it), then drag a rectangle, oval or line. Water is never put under buildings or people.</MA_TerrainDesc>
-  <MA_Plants>Plants</MA_Plants>
+  <MA_Plants>Plants…</MA_Plants>
   <MA_PlantsDesc>Plant trees, bushes, grass or crops. Choose the plant and the density, then drag over the area.</MA_PlantsDesc>
   <MA_Density>Density</MA_Density>
-  <MA_Clear>Clear</MA_Clear>
+  <MA_Clear>Clear…</MA_Clear>
   <MA_ClearDesc>Remove plants, rocks, filth, items or everything in the area. People and your own buildings are never removed.</MA_ClearDesc>
   <MA_Clear_Plants>Plants</MA_Clear_Plants>
   <MA_Clear_Rocks>Rocks, mountains and rock chunks</MA_Clear_Rocks>
   <MA_Clear_Filth>Filth</MA_Clear_Filth>
   <MA_Clear_Items>Items</MA_Clear_Items>
   <MA_Clear_Everything>Everything (except people and your buildings)</MA_Clear_Everything>
-  <MA_Mountain>Mountain</MA_Mountain>
+  <MA_Mountain>Mountain…</MA_Mountain>
   <MA_MountainDesc>Raise a mountain of any rock or ore, or change the roof (overhead mountain, thin rock roof, none).</MA_MountainDesc>
   <MA_RoofThick>Overhead mountain (thick roof)</MA_RoofThick>
   <MA_RoofThin>Thin rock roof</MA_RoofThin>
@@ -20,10 +20,10 @@
   <MA_GroupRoof>Roof</MA_GroupRoof>
   <MA_GroupOre>Ore</MA_GroupOre>
   <MA_GroupRock>Rock</MA_GroupRock>
-  <MA_Deep>Deep resources</MA_Deep>
+  <MA_Deep>Deep resources…</MA_Deep>
   <MA_DeepDesc>Paint resources for the deep drill (steel, plasteel, uranium, chemfuel …) or remove them.</MA_DeepDesc>
   <MA_DeepRemove>Remove deep resources</MA_DeepRemove>
-  <MA_Object>Objects</MA_Object>
+  <MA_Object>Objects…</MA_Object>
   <MA_ObjectDesc>Place geysers, ancient things, ruins, minerals, items, buildings or animals. Q / E rotate.</MA_ObjectDesc>
   <MA_GroupSpecial>Geysers &amp; special</MA_GroupSpecial>
   <MA_GroupAncient>Ancient &amp; ruins</MA_GroupAncient>
@@ -44,4 +44,19 @@
   <MA_UndoDesc>Undo the last change of Map Architect (also Ctrl+Z). Up to 40 steps.</MA_UndoDesc>
   <MA_NothingToUndo>Nothing to undo.</MA_NothingToUndo>
   <MA_Undone>Undone. Steps left: {0}</MA_Undone>
+  <MA_Smooth>Smooth surface</MA_Smooth>
+  <MA_SmoothDesc>Instantly smooth natural stone floor in the area.</MA_SmoothDesc>
+  <MA_FogAdd>Add fog</MA_FogAdd>
+  <MA_FogAddDesc>Cover the area with fog of war (never over your colonists).</MA_FogAddDesc>
+  <MA_FogRemove>Remove fog</MA_FogRemove>
+  <MA_FogRemoveDesc>Reveal the area.</MA_FogRemoveDesc>
+  <MA_BiomeTrees>Trees</MA_BiomeTrees>
+  <MA_BiomeTreesDesc>Plant trees that grow wild in this biome, by their natural share. Right-click: density.</MA_BiomeTreesDesc>
+  <MA_BiomeGrass>Grass and bushes</MA_BiomeGrass>
+  <MA_BiomeGrassDesc>Plant grass, bushes and other wild plants of this biome. Right-click: density.</MA_BiomeGrassDesc>
+  <MA_MountainQuick>Mountain (local rock)</MA_MountainQuick>
+  <MA_MountainQuickDesc>Raise a mountain of this map's rock with a natural roof.</MA_MountainQuickDesc>
+  <MA_ClearPlantsQuick>Remove plants</MA_ClearPlantsQuick>
+  <MA_ClearRocksQuick>Remove rocks and mountains</MA_ClearRocksQuick>
+  <MA_ClearFilthQuick>Remove filth</MA_ClearFilthQuick>
 </LanguageData>
