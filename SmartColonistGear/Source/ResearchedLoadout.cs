@@ -105,7 +105,7 @@ namespace ResearchedLoadout
 			}
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
-			MLog.Game("[Smart Colonist Gear] v2.16.4 loaded (messages: Logs\\SmartColonistGear.log).");
+			MLog.Game("[Smart Colonist Gear] v2.16.5 loaded (messages: Logs\\SmartColonistGear.log).");
 		}
 
 		public override string SettingsCategory()
@@ -2101,6 +2101,13 @@ namespace ResearchedLoadout
 			}
 			Map mapHeld = pawn.MapHeld;
 			if ((ExemptKinds(mapHeld, thing.def) & Raid) == 0)
+			{
+				return false;
+			}
+			// 2.16.5: a not-yet-made weapon only for someone with no weapon at all – an armed colonist
+			// no longer swaps a good sword for a locked stun baton (or takes it as a sidearm) in a raid
+			Thing primary = pawn.equipment?.Primary;
+			if (primary != null && primary != thing)
 			{
 				return false;
 			}
