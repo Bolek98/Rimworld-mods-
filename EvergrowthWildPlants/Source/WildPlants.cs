@@ -55,7 +55,7 @@ namespace EvergrowthWild
     // ------------------------------------------------------------------
     public static class WP
     {
-        public const string Version = "1.1.0";
+        public const string Version = "1.1.1";
         public static WPSettings S => WildPlantsMod.Settings;
 
         private class Orig
@@ -667,6 +667,7 @@ namespace EvergrowthWild
         private int mapInfoTick = -99999;
         private int mapInfoId = -1;
         private float fillDays = 10f;
+        private bool showAll;
 
         public WildPlantsMod(ModContentPack content) : base(content)
         {
@@ -803,6 +804,23 @@ namespace EvergrowthWild
             return ri;
         }
 
+        // shown while Recommended settings lock the editing: one click unlocks
+        private float UnlockBanner(Rect r)
+        {
+            WPSettings s = Settings;
+            if (!s.recommended) return 0f;
+            Rect b = new Rect(r.x, r.y, r.width, 40f);
+            MUI.Fill(b, MUI.CardBg2);
+            MUI.Frame(b, MUI.Warn);
+            U.Label(new Rect(b.x + 10f, b.y, b.width - 200f, 40f), "EWP_LockedHere".Translate(), MUI.Text1, GameFont.Tiny);
+            if (Widgets.ButtonText(new Rect(b.xMax - 186f, b.y + 6f, 180f, 28f), "EWP_Unlock".Translate()))
+            {
+                s.recommended = false;
+                edit = null;
+            }
+            return 46f;
+        }
+
         private static bool Match(Def d, string q)
         {
             if (q.NullOrEmpty()) return true;
@@ -848,6 +866,7 @@ namespace EvergrowthWild
                 y += h + 2f;
             }
 
+            y += UnlockBanner(new Rect(r.x, y, r.width, 0f));
             MUI.BeginLock(s.recommended);
             // buttons
             float bw = (r.width - 16f) / 3f;
@@ -892,12 +911,22 @@ namespace EvergrowthWild
             y += 28f;
 
             // plant list
-            plantSearch = Widgets.TextField(new Rect(r.x, y, r.width, 26f), plantSearch);
+            float cbW = 230f;
+            plantSearch = Widgets.TextField(new Rect(r.x, y, r.width - cbW - 8f, 26f), plantSearch);
             if (plantSearch.NullOrEmpty())
-                U.Label(new Rect(r.x + 6f, y, r.width, 26f), "EWP_SearchPlant".Translate(), MUI.Muted, GameFont.Tiny);
+                U.Label(new Rect(r.x + 6f, y, r.width - cbW, 26f), "EWP_SearchPlant".Translate(), MUI.Muted, GameFont.Tiny);
+            MUI.EndLock();
+            Widgets.CheckboxLabeled(new Rect(r.xMax - cbW, y, cbW, 26f), "EWP_ShowAll".Translate(WP.Plants.Count), ref showAll);
+            TooltipHandler.TipRegion(new Rect(r.xMax - cbW, y, cbW, 26f), "EWP_ShowAllTip".Translate());
+            MUI.BeginLock(s.recommended);
             y += 30f;
             float sum = edit.Values.Sum();
-            var rows = edit.Keys.Where(t => Match(t, plantSearch)).OrderByDescending(t => edit[t]).ThenBy(t => WP.Label(t)).ToList();
+            List<ThingDef> rows;
+            if (showAll)
+                rows = WP.Plants.Where(t => (edit.ContainsKey(t) || (!t.IsDeadPlant && !t.plant.isStump)) && Match(t, plantSearch))
+                    .OrderByDescending(t => edit.TryGetValue(t, out float ev) ? ev : -1f).ThenBy(t => WP.Label(t)).ToList();
+            else
+                rows = edit.Keys.Where(t => Match(t, plantSearch)).OrderByDescending(t => edit[t]).ThenBy(t => WP.Label(t)).ToList();
             Rect outR = new Rect(r.x, y, r.width, r.yMax - y);
             Rect view = new Rect(0f, 0f, outR.width - 16f, Mathf.Max(rows.Count * 34f, 30f));
             Widgets.BeginScrollView(outR, ref rightScroll, view);
@@ -907,23 +936,28 @@ namespace EvergrowthWild
             ThingDef remove = null;
             foreach (ThingDef t in rows)
             {
+                if (yy + 34f < rightScroll.y || yy > rightScroll.y + outR.height)
+                {
+                    yy += 34f;
+                    continue;
+                }
                 Rect row = new Rect(0f, yy, view.width, 32f);
+                bool inList = edit.TryGetValue(t, out float v);
                 Widgets.DrawHighlightIfMouseover(row);
                 Widgets.DefIcon(new Rect(row.x + 2f, row.y + 4f, 24f, 24f), t);
                 WP.Kind k = WP.KindOf(t);
                 string tag = k == WP.Kind.Normal ? "" : " · " + ("EWP_Kind" + k).Translate();
-                Color c = k == WP.Kind.Dead || k == WP.Kind.Stump ? MUI.Warn : MUI.Text1;
+                Color c = k == WP.Kind.Dead || k == WP.Kind.Stump ? MUI.Warn : (inList && v > 0f ? MUI.Text1 : MUI.Muted);
                 float nameW = row.width * 0.42f;
                 U.Label(new Rect(row.x + 32f, row.y, nameW, 18f), WP.Label(t), c, GameFont.Small);
                 U.Label(new Rect(row.x + 32f, row.y + 16f, nameW, 16f), WP.ModName(t) + tag, MUI.Muted, GameFont.Tiny);
-                TooltipHandler.TipRegion(new Rect(row.x, row.y, nameW + 32f, 32f), t.defName + (k == WP.Kind.Normal ? "" : "\n" + ("EWP_Kind" + k + "Tip").Translate()));
-                float v = edit[t];
+                TooltipHandler.TipRegion(new Rect(row.x, row.y, nameW + 32f, 32f), () => WP.WhereGrows(t) + (k == WP.Kind.Normal ? "" : "\n" + ("EWP_Kind" + k + "Tip").Translate()), t.GetHashCode() ^ 77);
                 float pct = sum > 0f ? v / sum * 100f : 0f;
                 Rect sl = new Rect(row.x + 36f + nameW, row.y + 6f, row.width - nameW - 36f - 120f, 20f);
                 float nv = U.Slider(sl, v, 0f, Mathf.Max(5f, v), 0.01f);
                 if (!s.recommended && Mathf.Abs(nv - v) > 0.00001f) { edit[t] = nv; Changed(); }
                 U.Label(new Rect(sl.xMax + 6f, row.y, 80f, 32f), v.ToString("0.##") + "  (" + pct.ToString("0.#") + " %)", MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft);
-                if (Widgets.ButtonText(new Rect(row.xMax - 28f, row.y + 4f, 24f, 24f), "×"))
+                if (inList && Widgets.ButtonText(new Rect(row.xMax - 28f, row.y + 4f, 24f, 24f), "×"))
                     remove = t;
                 yy += 34f;
             }
@@ -942,6 +976,7 @@ namespace EvergrowthWild
             WPSettings s = Settings;
             U.Label(new Rect(r.x, r.y, r.width, 44f), "EWP_CaveIntro".Translate(), MUI.Muted, GameFont.Tiny, TextAnchor.UpperLeft);
             float y = r.y + 46f;
+            y += UnlockBanner(new Rect(r.x, y, r.width, 0f));
             caveSearch = Widgets.TextField(new Rect(r.x, y, 300f, 26f), caveSearch);
             if (caveSearch.NullOrEmpty())
                 U.Label(new Rect(r.x + 6f, y, 300f, 26f), "EWP_SearchPlant".Translate(), MUI.Muted, GameFont.Tiny);
