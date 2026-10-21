@@ -26,7 +26,7 @@ public static class WorkCellPatch
 			// 2.49.6: changed by hand -> locked, the steward keeps your value
 			if (__state >= 0 && pawn.workSettings != null && pawn.workSettings.GetPriority(workTypeDef) != __state
 				&& foremanGameComponent.LockCell(pawn, workTypeDef))
-				Messages.Message("CF_AutoLocked".Translate(pawn.LabelShort, workTypeDef.labelShort), MessageTypeDefOf.SilentInput, false);
+				Messages.Message("CF_AutoLocked".Translate(pawn.LabelShort, workTypeDef.labelShort, Styles.Label((ForemanStyle)ForemanGameComponent.StyleOf(pawn))), MessageTypeDefOf.SilentInput, false);
 			if (Event.current.type == EventType.MouseDown && Event.current.button == 2 && Mouse.IsOver(rect))
 			{
 				foremanGameComponent.ToggleCell(pawn, workTypeDef);

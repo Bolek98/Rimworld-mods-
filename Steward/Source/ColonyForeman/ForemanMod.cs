@@ -10,7 +10,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "2.49.8";
+	public const string Version = "2.49.9";
 
 	// 2.35.8: recommended values for each style (interval h, preferences,
 	// style strength, specialists share)

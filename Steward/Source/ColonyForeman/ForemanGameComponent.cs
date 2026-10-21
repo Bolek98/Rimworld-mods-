@@ -70,12 +70,23 @@ public sealed class ForemanGameComponent : GameComponent
 		return lockedWork.Contains(w.defName);
 	}
 
+	// 2.49.9: a cell lock belongs to the style it was made in ("pawn|work|style").
+	// Old locks without a style ("pawn|work") still count in every style.
+	public static int StyleOf(Pawn p)
+	{
+		ForemanMapComponent c = p?.MapHeld == null ? null : ForemanMapComponent.For(p.MapHeld);
+		return c == null ? 0 : (int)c.style;
+	}
+
+	private static string StyleKey(Pawn p, WorkTypeDef w, int style) => Key(p, w) + "|" + style;
+
 	public bool CellLocked(Pawn p, WorkTypeDef w)
 	{
-		// 2.17: cached by (thingIDNumber, work type)
-		long k = CellKey(p, w);
+		// 2.17: cached by (thingIDNumber, work type, style)
+		int st = StyleOf(p);
+		long k = (CellKey(p, w) << 6) | (long)(st & 63);
 		if (!cellLockCache.TryGetValue(k, out bool v))
-			cellLockCache[k] = v = lockedCells.Contains(Key(p, w));
+			cellLockCache[k] = v = lockedCells.Contains(Key(p, w)) || lockedCells.Contains(StyleKey(p, w, st));
 		return v;
 	}
 
@@ -105,14 +116,22 @@ public sealed class ForemanGameComponent : GameComponent
 
 	public void ToggleCell(Pawn p, WorkTypeDef w)
 	{
-		Toggle(lockedCells, Key(p, w));
+		// an old lock for all styles is removed; otherwise lock / unlock in the current style
+		if (lockedCells.Remove(Key(p, w)))
+		{
+			ClearCaches();
+			return;
+		}
+		Toggle(lockedCells, StyleKey(p, w, StyleOf(p)));
 	}
 
 	// 2.49.6: a priority you change by hand in the Work tab is locked at once,
 	// so the steward never overwrites it. Middle click unlocks it again.
 	public bool LockCell(Pawn p, WorkTypeDef w)
 	{
-		if (lockedCells.Add(Key(p, w)))
+		if (CellLocked(p, w))
+			return false;
+		if (lockedCells.Add(StyleKey(p, w, StyleOf(p))))
 		{
 			ClearCaches();
 			return true;
