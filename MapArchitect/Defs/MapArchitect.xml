@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <DesignationCategoryDef>
+    <defName>MA_MapArchitect</defName>
+    <label>map architect</label>
+    <description>Change the map instantly and for free: terrain, plants, mountains, ores, deep resources, geysers and other objects. Ctrl+Z undoes the last change.</description>
+    <order>5</order>
+    <specialDesignatorClasses>
+      <li>MapArchitect.Designator_MA_Terrain</li>
+      <li>MapArchitect.Designator_MA_Plants</li>
+      <li>MapArchitect.Designator_MA_Mountain</li>
+      <li>MapArchitect.Designator_MA_Deep</li>
+      <li>MapArchitect.Designator_MA_Object</li>
+      <li>MapArchitect.Designator_MA_Clear</li>
+      <li>MapArchitect.Designator_MA_Undo</li>
+    </specialDesignatorClasses>
+  </DesignationCategoryDef>
+</Defs>

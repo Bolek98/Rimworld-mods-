@@ -1,0 +1,751 @@
+// Map Architect – Bolek98
+// Instant, free map editing: terrain, plants, mountains, clearing, deep resources, objects (geysers,
+// ancient things, ores …) and animals, with brush shapes and undo (Ctrl+Z).
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using HarmonyLib;
+using RimWorld;
+using UnityEngine;
+using Verse;
+
+namespace MapArchitect
+{
+	// ------------------------------------------------------------------ undo
+	public class RemovedThing
+	{
+		public ThingDef def, stuff;
+		public IntVec3 pos;
+		public Rot4 rot;
+		public int stack = 1;
+		public float growth = -1f;
+		public int age = -1;
+	}
+
+	public class Change
+	{
+		public Map map;
+		public readonly Dictionary<IntVec3, KeyValuePair<TerrainDef, TerrainDef>> terrain = new Dictionary<IntVec3, KeyValuePair<TerrainDef, TerrainDef>>();
+		public readonly Dictionary<IntVec3, RoofDef> roofs = new Dictionary<IntVec3, RoofDef>();
+		public readonly Dictionary<IntVec3, KeyValuePair<ThingDef, int>> deep = new Dictionary<IntVec3, KeyValuePair<ThingDef, int>>();
+		public readonly List<Thing> spawned = new List<Thing>();
+		public readonly List<RemovedThing> removed = new List<RemovedThing>();
+		public bool Empty => terrain.Count == 0 && roofs.Count == 0 && deep.Count == 0 && spawned.Count == 0 && removed.Count == 0;
+	}
+
+	public static class Undo
+	{
+		private static readonly List<Change> stack = new List<Change>();
+		public static Change Current;
+		public const int Max = 40;
+
+		public static int Count => stack.Count;
+
+		public static Change Begin(Map map)
+		{
+			Current = new Change { map = map };
+			return Current;
+		}
+
+		public static void End()
+		{
+			if (Current != null && !Current.Empty)
+			{
+				stack.Add(Current);
+				if (stack.Count > Max)
+					stack.RemoveAt(0);
+			}
+			Current = null;
+		}
+
+		public static void Clear() => stack.Clear();
+
+		public static void Terrain(Map map, IntVec3 c)
+		{
+			if (Current != null && !Current.terrain.ContainsKey(c))
+				Current.terrain[c] = new KeyValuePair<TerrainDef, TerrainDef>(map.terrainGrid.TopTerrainAt(c), map.terrainGrid.UnderTerrainAt(c));
+		}
+
+		public static void Roof(Map map, IntVec3 c)
+		{
+			if (Current != null && !Current.roofs.ContainsKey(c))
+				Current.roofs[c] = map.roofGrid.RoofAt(c);
+		}
+
+		public static void Deep(Map map, IntVec3 c)
+		{
+			if (Current != null && !Current.deep.ContainsKey(c))
+				Current.deep[c] = new KeyValuePair<ThingDef, int>(map.deepResourceGrid.ThingDefAt(c), map.deepResourceGrid.CountAt(c));
+		}
+
+		public static void Spawned(Thing t)
+		{
+			if (Current != null && t != null)
+				Current.spawned.Add(t);
+		}
+
+		public static void Removing(Thing t)
+		{
+			if (Current == null || t == null || t is Pawn)
+				return;
+			var r = new RemovedThing { def = t.def, stuff = t.Stuff, pos = t.Position, rot = t.Rotation, stack = t.stackCount };
+			if (t is Plant p)
+			{
+				r.growth = p.Growth;
+				r.age = p.Age;
+			}
+			Current.removed.Add(r);
+		}
+
+		public static void UndoLast()
+		{
+			if (stack.Count == 0)
+			{
+				Messages.Message("MA_NothingToUndo".Translate(), MessageTypeDefOf.RejectInput, false);
+				return;
+			}
+			Change ch = stack[stack.Count - 1];
+			stack.RemoveAt(stack.Count - 1);
+			Map map = ch.map;
+			if (map == null || !Find.Maps.Contains(map))
+				return;
+			foreach (Thing t in ch.spawned)
+				if (t != null && !t.Destroyed)
+					t.Destroy(DestroyMode.Vanish);
+			foreach (var kv in ch.terrain)
+				Edit.SetTerrainRaw(map, kv.Key, kv.Value.Key, kv.Value.Value);
+			foreach (var kv in ch.roofs)
+				map.roofGrid.SetRoof(kv.Key, kv.Value);
+			foreach (var kv in ch.deep)
+				map.deepResourceGrid.SetAt(kv.Key, kv.Value.Key, kv.Value.Key == null ? 0 : kv.Value.Value);
+			foreach (RemovedThing r in ch.removed)
+			{
+				try
+				{
+					if (!r.pos.InBounds(map))
+						continue;
+					Thing t = ThingMaker.MakeThing(r.def, r.def.MadeFromStuff ? (r.stuff ?? GenStuff.DefaultStuffFor(r.def)) : null);
+					t.stackCount = Math.Max(1, Math.Min(r.stack, t.def.stackLimit));
+					if (t is Plant p && r.growth >= 0f)
+					{
+						p.Growth = r.growth;
+						p.Age = Math.Max(0, r.age);
+					}
+					GenSpawn.Spawn(t, r.pos, map, r.rot, WipeMode.VanishOrMoveAside);
+				}
+				catch
+				{
+				}
+			}
+			Messages.Message("MA_Undone".Translate(stack.Count), MessageTypeDefOf.SilentInput, false);
+		}
+	}
+
+	// ------------------------------------------------------------------ editing helpers
+	public static class Edit
+	{
+		public static bool Protected(Thing t)
+		{
+			if (t is Pawn)
+				return true;
+			if (t.Faction == Faction.OfPlayer && t.def.category == ThingCategory.Building)
+				return true;
+			return false;
+		}
+
+		public static void SetTerrainRaw(Map map, IntVec3 c, TerrainDef top, TerrainDef under)
+		{
+			try
+			{
+				if (under != null)
+				{
+					map.terrainGrid.SetTerrain(c, under);
+					if (top != null && top != under)
+						map.terrainGrid.SetTerrain(c, top);
+				}
+				else if (top != null)
+				{
+					map.terrainGrid.SetTerrain(c, top);
+					if (map.terrainGrid.UnderTerrainAt(c) != null && !top.layerable)
+						map.terrainGrid.SetUnderTerrain(c, null);
+				}
+			}
+			catch
+			{
+			}
+		}
+
+		public static void Terrain(Map map, IntVec3 c, TerrainDef def)
+		{
+			if (map.terrainGrid.TopTerrainAt(c) == def)
+				return;
+			// don't drown buildings or people: water / impassable terrain only where nothing stands
+			if (def.passability == Traversability.Impassable || def.IsWater)
+			{
+				foreach (Thing t in c.GetThingList(map))
+					if (Protected(t))
+						return;
+			}
+			Undo.Terrain(map, c);
+			if (def.layerable)
+				map.terrainGrid.SetTerrain(c, def);
+			else
+				SetTerrainRaw(map, c, def, null);
+		}
+
+		public static void Remove(Thing t)
+		{
+			if (t == null || t.Destroyed || Protected(t))
+				return;
+			Undo.Removing(t);
+			t.Destroy(DestroyMode.Vanish);
+		}
+
+		public static Thing Spawn(Thing t, IntVec3 c, Map map, Rot4 rot)
+		{
+			Thing s = GenSpawn.Spawn(t, c, map, rot, WipeMode.Vanish);
+			Undo.Spawned(s);
+			return s;
+		}
+
+		public static void Roof(Map map, IntVec3 c, RoofDef def)
+		{
+			if (map.roofGrid.RoofAt(c) == def)
+				return;
+			Undo.Roof(map, c);
+			map.roofGrid.SetRoof(c, def);
+		}
+	}
+
+	// ------------------------------------------------------------------ picker window
+	public class PickOption
+	{
+		public string label;
+		public string group;
+		public object value;
+		public Texture2D icon;
+		public Color iconColor = Color.white;
+	}
+
+	public class Dialog_Pick : Window
+	{
+		private readonly List<PickOption> all;
+		private readonly Action<PickOption> chosen;
+		private readonly string title;
+		private string search = "";
+		private string group;
+		private Vector2 scroll;
+		private readonly List<string> groups;
+		public static float sliderValue = 0.5f;
+		private readonly string sliderLabel;
+
+		public override Vector2 InitialSize => new Vector2(560f, 680f);
+
+		public Dialog_Pick(string title, List<PickOption> options, Action<PickOption> chosen, string sliderLabel = null)
+		{
+			this.title = title;
+			all = options.OrderBy(o => o.label).ToList();
+			this.chosen = chosen;
+			this.sliderLabel = sliderLabel;
+			groups = all.Select(o => o.group).Where(g => !g.NullOrEmpty()).Distinct().OrderBy(g => g).ToList();
+			doCloseX = true;
+			closeOnClickedOutside = true;
+			absorbInputAroundWindow = true;
+			forcePause = true;
+		}
+
+		public override void DoWindowContents(Rect inRect)
+		{
+			float y = inRect.y;
+			Text.Font = GameFont.Medium;
+			Widgets.Label(new Rect(inRect.x, y, inRect.width, 32f), title);
+			Text.Font = GameFont.Small;
+			y += 36f;
+			GUI.SetNextControlName("MA_Search");
+			search = Widgets.TextField(new Rect(inRect.x, y, inRect.width, 28f), search);
+			if (Event.current.type == EventType.Layout)
+				GUI.FocusControl("MA_Search");
+			y += 32f;
+			if (sliderLabel != null)
+			{
+				Widgets.Label(new Rect(inRect.x, y, 200f, 26f), sliderLabel + ": " + (sliderValue * 100f).ToString("0") + " %");
+				sliderValue = Widgets.HorizontalSlider(new Rect(inRect.x + 210f, y + 6f, inRect.width - 210f, 20f), sliderValue, 0.05f, 1f);
+				y += 30f;
+			}
+			if (groups.Count > 1)
+			{
+				float bx = inRect.x;
+				float by = y;
+				foreach (string g in new[] { (string)null }.Concat(groups))
+				{
+					string lab = g ?? (string)"MA_All".Translate();
+					float w = Text.CalcSize(lab).x + 16f;
+					if (bx + w > inRect.xMax)
+					{
+						bx = inRect.x;
+						by += 28f;
+					}
+					GUI.color = group == g ? new Color(0.55f, 1f, 0.55f) : Color.white;
+					if (Widgets.ButtonText(new Rect(bx, by, w, 26f), lab))
+						group = g;
+					GUI.color = Color.white;
+					bx += w + 4f;
+				}
+				y = by + 32f;
+			}
+			string s = search.Trim();
+			var list = all.Where(o => (group == null || o.group == group) && (s.Length == 0 || o.label.IndexOf(s, StringComparison.OrdinalIgnoreCase) >= 0)).ToList();
+			Rect outer = new Rect(inRect.x, y, inRect.width, inRect.yMax - y);
+			Rect view = new Rect(0f, 0f, outer.width - 18f, list.Count * 30f);
+			Widgets.BeginScrollView(outer, ref scroll, view);
+			for (int i = 0; i < list.Count; i++)
+			{
+				Rect row = new Rect(0f, i * 30f, view.width, 28f);
+				if (row.yMax < scroll.y || row.y > scroll.y + outer.height)
+					continue;
+				if (i % 2 == 1)
+					Widgets.DrawLightHighlight(row);
+				Widgets.DrawHighlightIfMouseover(row);
+				float lx = 4f;
+				if (list[i].icon != null)
+				{
+					GUI.color = list[i].iconColor;
+					GUI.DrawTexture(new Rect(row.x + 2f, row.y + 2f, 24f, 24f), list[i].icon);
+					GUI.color = Color.white;
+					lx = 32f;
+				}
+				Widgets.Label(new Rect(row.x + lx, row.y + 4f, row.width - lx, 24f), list[i].label);
+				if (Widgets.ButtonInvisible(row))
+				{
+					chosen(list[i]);
+					Close();
+				}
+			}
+			Widgets.EndScrollView();
+		}
+	}
+
+	// ------------------------------------------------------------------ designators
+	public abstract class Designator_MA : Designator
+	{
+		protected object choice;
+		protected string choiceLabel;
+
+		protected Designator_MA()
+		{
+			useMouseIcon = true;
+			soundDragSustain = SoundDefOf.Designate_DragStandard;
+			soundDragChanged = SoundDefOf.Designate_DragStandard_Changed;
+			soundSucceeded = SoundDefOf.Designate_PlaceBuilding;
+			defaultIconColor = new Color(0.6f, 0.9f, 1f);
+		}
+
+		protected static Texture2D Tex(string path) => ContentFinder<Texture2D>.Get(path, false) ?? BaseContent.WhiteTex;
+
+		protected abstract string BaseLabel { get; }
+		protected virtual bool NeedsChoice => true;
+		protected virtual List<PickOption> Options() => new List<PickOption>();
+		protected virtual string SliderLabel => null;
+
+		public override string Label => choiceLabel.NullOrEmpty() ? BaseLabel : BaseLabel + ": " + choiceLabel;
+
+		public override DrawStyleCategoryDef DrawStyleCategory => DrawStyleCategoryDefOf.Floors;
+
+		public override bool DragDrawMeasurements => true;
+
+		public override void ProcessInput(Event ev)
+		{
+			if (NeedsChoice && (choice == null || ev.button == 1))
+			{
+				Find.WindowStack.Add(new Dialog_Pick(BaseLabel, Options(), o =>
+				{
+					choice = o.value;
+					choiceLabel = o.label;
+					Find.DesignatorManager.Select(this);
+				}, SliderLabel));
+				return;
+			}
+			base.ProcessInput(ev);
+		}
+
+		public override AcceptanceReport CanDesignateCell(IntVec3 c) => c.InBounds(Map);
+
+		public override void DesignateSingleCell(IntVec3 c) => DesignateMultiCell(new[] { c });
+
+		public override void DesignateMultiCell(IEnumerable<IntVec3> cells)
+		{
+			Undo.Begin(Map);
+			try
+			{
+				Apply(cells.Where(c => c.InBounds(Map)).ToList());
+			}
+			catch (Exception ex)
+			{
+				Log.Warning("[Map Architect] " + GetType().Name + ": " + ex.Message);
+			}
+			Undo.End();
+		}
+
+		protected abstract void Apply(List<IntVec3> cells);
+
+		public override void SelectedUpdate()
+		{
+			GenUI.RenderMouseoverBracket();
+		}
+	}
+
+	public class Designator_MA_Terrain : Designator_MA
+	{
+		public Designator_MA_Terrain()
+		{
+			defaultLabel = "MA_Terrain".Translate();
+			defaultDesc = "MA_TerrainDesc".Translate();
+			icon = Tex("UI/Designators/SmoothSurface");
+		}
+
+		protected override string BaseLabel => "MA_Terrain".Translate();
+
+		protected override List<PickOption> Options()
+		{
+			return DefDatabase<TerrainDef>.AllDefsListForReading.Where(t => !t.label.NullOrEmpty())
+				.Select(t => new PickOption
+				{
+					label = t.LabelCap + (t.modContentPack != null && !t.modContentPack.IsOfficialMod ? " (" + t.modContentPack.Name + ")" : ""),
+					group = t.IsWater ? (string)"MA_GroupWater".Translate() : t.layerable ? (string)"MA_GroupFloors".Translate() : t.fertility > 0f ? (string)"MA_GroupSoil".Translate() : (string)"MA_GroupNatural".Translate(),
+					value = t,
+					icon = BaseContent.WhiteTex,
+					iconColor = t.uiIconColor
+				}).ToList();
+		}
+
+		protected override void Apply(List<IntVec3> cells)
+		{
+			var def = choice as TerrainDef;
+			if (def == null)
+				return;
+			foreach (IntVec3 c in cells)
+				Edit.Terrain(Map, c, def);
+		}
+	}
+
+	public class Designator_MA_Plants : Designator_MA
+	{
+		public Designator_MA_Plants()
+		{
+			defaultLabel = "MA_Plants".Translate();
+			defaultDesc = "MA_PlantsDesc".Translate();
+			icon = Tex("UI/Designators/ZoneCreate_Growing");
+		}
+
+		protected override string BaseLabel => "MA_Plants".Translate();
+		protected override string SliderLabel => "MA_Density".Translate();
+
+		protected override List<PickOption> Options()
+		{
+			return DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.plant != null && d.category == ThingCategory.Plant && !d.IsCorpse && !d.label.NullOrEmpty())
+				.Select(d => new PickOption
+				{
+					label = d.LabelCap,
+					group = d.plant.IsTree ? (string)"MA_GroupTrees".Translate() : d.plant.Sowable ? (string)"MA_GroupCrops".Translate() : (string)"MA_GroupWild".Translate(),
+					value = d,
+					icon = d.uiIcon,
+					iconColor = d.uiIconColor
+				}).ToList();
+		}
+
+		protected override void Apply(List<IntVec3> cells)
+		{
+			var def = choice as ThingDef;
+			if (def == null)
+				return;
+			float density = cells.Count == 1 ? 1f : Dialog_Pick.sliderValue;
+			foreach (IntVec3 c in cells)
+			{
+				if (!Rand.Chance(density) || c.GetPlant(Map) != null || c.GetEdifice(Map) != null || c.Impassable(Map))
+					continue;
+				Plant p = (Plant)ThingMaker.MakeThing(def);
+				p.Growth = Rand.Range(0.35f, 1f);
+				if (def.plant.LimitedLifespan)
+					p.Age = Rand.Range(0, Math.Max(1, def.plant.LifespanTicks / 2));
+				Edit.Spawn(p, c, Map, Rot4.North);
+			}
+		}
+	}
+
+	public enum ClearMode { Plants, Rocks, Filth, Items, Everything }
+
+	public class Designator_MA_Clear : Designator_MA
+	{
+		public Designator_MA_Clear()
+		{
+			defaultLabel = "MA_Clear".Translate();
+			defaultDesc = "MA_ClearDesc".Translate();
+			icon = Tex("UI/Designators/Deconstruct");
+			soundSucceeded = SoundDefOf.Designate_Deconstruct;
+		}
+
+		protected override string BaseLabel => "MA_Clear".Translate();
+
+		protected override List<PickOption> Options()
+		{
+			return Enum.GetValues(typeof(ClearMode)).Cast<ClearMode>().Select(m => new PickOption { label = ("MA_Clear_" + m).Translate(), value = m }).ToList();
+		}
+
+		protected override void Apply(List<IntVec3> cells)
+		{
+			if (!(choice is ClearMode mode))
+				return;
+			foreach (IntVec3 c in cells)
+			{
+				foreach (Thing t in c.GetThingList(Map).ToList())
+				{
+					bool ok;
+					switch (mode)
+					{
+					case ClearMode.Plants: ok = t is Plant; break;
+					case ClearMode.Rocks: ok = t.def.building != null && t.def.building.isNaturalRock || t.def.thingCategories != null && t.def.thingCategories.Any(tc => tc.defName == "StoneChunks"); break;
+					case ClearMode.Filth: ok = t is Filth; break;
+					case ClearMode.Items: ok = t.def.category == ThingCategory.Item; break;
+					default: ok = !(t is Pawn) && t.def.category != ThingCategory.Mote && t.def.category != ThingCategory.Ethereal; break;
+					}
+					if (ok)
+						Edit.Remove(t);
+				}
+				if ((mode == ClearMode.Rocks || mode == ClearMode.Everything) && Map.roofGrid.RoofAt(c) is RoofDef r && r.isNatural && c.GetEdifice(Map) == null)
+					Edit.Roof(Map, c, null);
+			}
+		}
+	}
+
+	public class Designator_MA_Mountain : Designator_MA
+	{
+		public Designator_MA_Mountain()
+		{
+			defaultLabel = "MA_Mountain".Translate();
+			defaultDesc = "MA_MountainDesc".Translate();
+			icon = Tex("UI/Designators/Mine");
+		}
+
+		protected override string BaseLabel => "MA_Mountain".Translate();
+
+		protected override List<PickOption> Options()
+		{
+			var list = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.building != null && d.building.isNaturalRock && !d.label.NullOrEmpty())
+				.Select(d => new PickOption
+				{
+					label = d.LabelCap,
+					group = d.building.isResourceRock ? (string)"MA_GroupOre".Translate() : (string)"MA_GroupRock".Translate(),
+					value = d,
+					icon = d.uiIcon,
+					iconColor = d.uiIconColor
+				}).ToList();
+			list.Add(new PickOption { label = "MA_RoofThick".Translate(), group = "MA_GroupRoof".Translate(), value = RoofDefOf.RoofRockThick });
+			list.Add(new PickOption { label = "MA_RoofThin".Translate(), group = "MA_GroupRoof".Translate(), value = RoofDefOf.RoofRockThin });
+			list.Add(new PickOption { label = "MA_RoofNone".Translate(), group = "MA_GroupRoof".Translate(), value = "noroof" });
+			return list;
+		}
+
+		protected override void Apply(List<IntVec3> cells)
+		{
+			if (choice is RoofDef roof)
+			{
+				foreach (IntVec3 c in cells)
+					Edit.Roof(Map, c, roof);
+				return;
+			}
+			if (choice as string == "noroof")
+			{
+				foreach (IntVec3 c in cells)
+					if (Map.roofGrid.RoofAt(c) is RoofDef r && r.isNatural)
+						Edit.Roof(Map, c, null);
+				return;
+			}
+			var def = choice as ThingDef;
+			if (def == null)
+				return;
+			var set = new HashSet<IntVec3>(cells);
+			foreach (IntVec3 c in cells)
+			{
+				if (c.GetThingList(Map).Any(Edit.Protected))
+					continue;
+				Thing old = c.GetEdifice(Map);
+				if (old != null)
+				{
+					if (old.def == def)
+						continue;
+					Edit.Remove(old);
+				}
+				foreach (Thing t in c.GetThingList(Map).ToList())
+					if (t is Plant || t.def.category == ThingCategory.Item || t is Filth)
+						Edit.Remove(t);
+				Edit.Spawn(ThingMaker.MakeThing(def), c, Map, Rot4.North);
+				// thick roof inside the mountain, thin on its edge – like a generated mountain
+				bool inner = GenAdj.CellsAdjacent8Way(new TargetInfo(c, Map)).All(n => set.Contains(n) || n.GetEdifice(Map)?.def.building?.isNaturalRock == true);
+				Edit.Roof(Map, c, inner ? RoofDefOf.RoofRockThick : RoofDefOf.RoofRockThin);
+			}
+		}
+	}
+
+	public class Designator_MA_Deep : Designator_MA
+	{
+		public Designator_MA_Deep()
+		{
+			defaultLabel = "MA_Deep".Translate();
+			defaultDesc = "MA_DeepDesc".Translate();
+			icon = Tex("UI/Designators/Mine");
+			defaultIconColor = new Color(1f, 0.85f, 0.4f);
+		}
+
+		protected override string BaseLabel => "MA_Deep".Translate();
+
+		protected override List<PickOption> Options()
+		{
+			var list = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.deepCommonality > 0f && !d.label.NullOrEmpty())
+				.Select(d => new PickOption { label = d.LabelCap, value = d, icon = d.uiIcon, iconColor = d.uiIconColor }).ToList();
+			list.Add(new PickOption { label = "MA_DeepRemove".Translate(), value = "none" });
+			return list;
+		}
+
+		protected override void Apply(List<IntVec3> cells)
+		{
+			foreach (IntVec3 c in cells)
+			{
+				Undo.Deep(Map, c);
+				if (choice is ThingDef d)
+					Map.deepResourceGrid.SetAt(c, d, Math.Max(1, d.deepCountPerCell));
+				else
+					Map.deepResourceGrid.SetAt(c, null, 0);
+			}
+			Map.deepResourceGrid.MarkForDraw();
+		}
+	}
+
+	public class Designator_MA_Object : Designator_MA
+	{
+		private Rot4 rot = Rot4.North;
+
+		public Designator_MA_Object()
+		{
+			defaultLabel = "MA_Object".Translate();
+			defaultDesc = "MA_ObjectDesc".Translate();
+			icon = Tex("UI/Designators/Claim");
+			defaultIconColor = new Color(1f, 0.75f, 0.95f);
+		}
+
+		protected override string BaseLabel => "MA_Object".Translate();
+
+		public override DrawStyleCategoryDef DrawStyleCategory => null;
+		public override bool DragDrawMeasurements => false;
+
+		private static string GroupOf(ThingDef d)
+		{
+			string n = d.defName;
+			if (n.IndexOf("Geyser", StringComparison.OrdinalIgnoreCase) >= 0 || n.IndexOf("Vent", StringComparison.OrdinalIgnoreCase) >= 0)
+				return "MA_GroupSpecial".Translate();
+			if (n.StartsWith("Ancient") || n.IndexOf("Ruin", StringComparison.OrdinalIgnoreCase) >= 0 || n.IndexOf("Archotech", StringComparison.OrdinalIgnoreCase) >= 0 || n.IndexOf("Archite", StringComparison.OrdinalIgnoreCase) >= 0)
+				return "MA_GroupAncient".Translate();
+			if (d.thingCategories != null && d.thingCategories.Any(tc => tc.defName == "StoneChunks" || tc.defName == "ResourcesRaw"))
+				return "MA_GroupMinerals".Translate();
+			if (d.category == ThingCategory.Item)
+				return "MA_GroupItems".Translate();
+			return "MA_GroupBuildings".Translate();
+		}
+
+		protected override List<PickOption> Options()
+		{
+			var list = DefDatabase<ThingDef>.AllDefsListForReading
+				.Where(d => !d.label.NullOrEmpty() && !d.IsBlueprint && !d.IsFrame && !d.isUnfinishedThing && !d.IsCorpse && d.plant == null && !(d.building?.isNaturalRock ?? false)
+					&& (d.category == ThingCategory.Building || d.category == ThingCategory.Item) && d.thingClass != null && !typeof(Pawn).IsAssignableFrom(d.thingClass) && !typeof(MinifiedThing).IsAssignableFrom(d.thingClass))
+				.Select(d => new PickOption { label = d.LabelCap, group = GroupOf(d), value = d, icon = d.uiIcon, iconColor = d.uiIconColor }).ToList();
+			foreach (PawnKindDef k in DefDatabase<PawnKindDef>.AllDefsListForReading.Where(k => k.RaceProps != null && k.RaceProps.Animal && !k.label.NullOrEmpty()))
+				list.Add(new PickOption { label = k.LabelCap, group = "MA_GroupAnimals".Translate(), value = k, icon = k.race?.uiIcon });
+			return list;
+		}
+
+		public override void SelectedUpdate()
+		{
+			base.SelectedUpdate();
+			if (choice is ThingDef d && d.category == ThingCategory.Building)
+			{
+				IntVec3 c = UI.MouseCell();
+				if (c.InBounds(Map))
+					GenDraw.DrawFieldEdges(GenAdj.OccupiedRect(c, rot, d.Size).Cells.Where(x => x.InBounds(Map)).ToList());
+				if (KeyBindingDefOf.Designator_RotateRight.JustPressed)
+					rot.Rotate(RotationDirection.Clockwise);
+				if (KeyBindingDefOf.Designator_RotateLeft.JustPressed)
+					rot.Rotate(RotationDirection.Counterclockwise);
+			}
+		}
+
+		protected override void Apply(List<IntVec3> cells)
+		{
+			if (cells.Count == 0)
+				return;
+			IntVec3 c = cells[0];
+			if (choice is PawnKindDef k)
+			{
+				Pawn p = PawnGenerator.GeneratePawn(new PawnGenerationRequest(k, null, PawnGenerationContext.NonPlayer));
+				Edit.Spawn(p, c, Map, Rot4.Random);
+				return;
+			}
+			if (!(choice is ThingDef d))
+				return;
+			Thing t = ThingMaker.MakeThing(d, d.MadeFromStuff ? GenStuff.DefaultStuffFor(d) : null);
+			if (d.category == ThingCategory.Building)
+			{
+				CellRect r = GenAdj.OccupiedRect(c, rot, d.Size);
+				if (!r.InBounds(Map) || r.Cells.Any(x => x.GetThingList(Map).Any(Edit.Protected)))
+				{
+					Messages.Message("MA_NoSpace".Translate(), MessageTypeDefOf.RejectInput, false);
+					return;
+				}
+				foreach (IntVec3 x in r.Cells)
+					foreach (Thing o in x.GetThingList(Map).ToList())
+						if (o.def.category == ThingCategory.Building || o is Plant)
+							Edit.Remove(o);
+			}
+			else
+				t.stackCount = Math.Max(1, Math.Min(d.stackLimit, d.stackLimit >= 75 ? 75 : d.stackLimit));
+			Edit.Spawn(t, c, Map, rot);
+		}
+	}
+
+	public class Designator_MA_Undo : Designator
+	{
+		public Designator_MA_Undo()
+		{
+			defaultLabel = "MA_Undo".Translate();
+			defaultDesc = "MA_UndoDesc".Translate();
+			icon = ContentFinder<Texture2D>.Get("UI/Designators/Cancel", false) ?? BaseContent.WhiteTex;
+			defaultIconColor = new Color(1f, 0.9f, 0.6f);
+		}
+
+		public override string Label => "MA_Undo".Translate() + " (" + Undo.Count + ")";
+
+		public override void ProcessInput(Event ev)
+		{
+			Undo.UndoLast();
+		}
+
+		public override AcceptanceReport CanDesignateCell(IntVec3 c) => false;
+	}
+
+	// Ctrl+Z anywhere on the map
+	public class MAGameComponent : GameComponent
+	{
+		public MAGameComponent(Game game)
+		{
+			Undo.Clear();
+		}
+
+		public override void GameComponentOnGUI()
+		{
+			Event e = Event.current;
+			if (e != null && e.type == EventType.KeyDown && e.keyCode == KeyCode.Z && (e.control || e.command) && Find.CurrentMap != null)
+			{
+				Undo.UndoLast();
+				e.Use();
+			}
+		}
+	}
+}
