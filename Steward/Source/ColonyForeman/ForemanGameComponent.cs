@@ -108,6 +108,18 @@ public sealed class ForemanGameComponent : GameComponent
 		Toggle(lockedCells, Key(p, w));
 	}
 
+	// 2.49.6: a priority you change by hand in the Work tab is locked at once,
+	// so the steward never overwrites it. Middle click unlocks it again.
+	public bool LockCell(Pawn p, WorkTypeDef w)
+	{
+		if (lockedCells.Add(Key(p, w)))
+		{
+			ClearCaches();
+			return true;
+		}
+		return false;
+	}
+
 	public void TogglePreference(Pawn p, WorkTypeDef w)
 	{
 		Toggle(preferences, Key(p, w));
