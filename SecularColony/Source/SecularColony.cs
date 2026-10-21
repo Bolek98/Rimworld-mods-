@@ -37,6 +37,12 @@ namespace SecularColony
 		public float polyChance = 1f;
 		public bool polyNoJealousy = true;
 		public bool polygamyMood = true;
+		// 1.5.0: partial mode – keep some belief moods
+		public bool keepRituals;
+		public bool keepRoles;
+		public bool keepBuildings;
+		public bool keepApparel;
+		public bool recommended = true;
 
 		public override void ExposeData()
 		{
@@ -61,6 +67,11 @@ namespace SecularColony
 			Scribe_Values.Look(ref polyChance, "polyChance", 1f);
 			Scribe_Values.Look(ref polyNoJealousy, "polyNoJealousy", true);
 			Scribe_Values.Look(ref polygamyMood, "polygamyMood", true);
+			Scribe_Values.Look(ref keepRituals, "keepRituals", false);
+			Scribe_Values.Look(ref keepRoles, "keepRoles", false);
+			Scribe_Values.Look(ref keepBuildings, "keepBuildings", false);
+			Scribe_Values.Look(ref keepApparel, "keepApparel", false);
+			Scribe_Values.Look(ref recommended, "recommended", false);
 			relationRule = Mathf.Clamp(relationRule, 0, 2);
 			maxPartners = Mathf.Clamp(maxPartners, 2, 8);
 			polyChance = Mathf.Clamp(polyChance, 0f, 3f);
@@ -70,14 +81,22 @@ namespace SecularColony
 
 	public class SecularMod : Mod
 	{
+		public const string Version = "1.5.0";
 		public static SecularSettings Settings;
+		private Vector2 scroll;
+		private float viewH = 1200f;
+		private static List<string> recBullets;
 
 		public SecularMod(ModContentPack content) : base(content)
 		{
 			Settings = GetSettings<SecularSettings>();
+			MUI.Init(new SecularSettings(), null, "recommended");
+			if (Settings.recommended)
+				MUI.ApplyAll(Settings);
 			try
 			{
 				Harmony h = new Harmony("misak.secularcolony");
+				MUI.PatchWindow(h, typeof(SecularMod));
 				Patches.Apply(h);
 				SalonPatches.Apply(h);
 			}
@@ -85,7 +104,7 @@ namespace SecularColony
 			{
 				Log.Error("[Secular Colony] Harmony failed: " + ex);
 			}
-			Log.Message("[Secular Colony] v1.4.1 loaded.");
+			Log.Message("[Secular Colony] v" + Version + " loaded.");
 		}
 
 		public override string SettingsCategory()
@@ -95,108 +114,139 @@ namespace SecularColony
 
 		public override void DoSettingsWindowContents(Rect inRect)
 		{
-			Listing_Standard list = new Listing_Standard();
-			list.Begin(inRect);
-			list.ColumnWidth = (inRect.width - 34f) / 2f;
+			SecularSettings S = Settings;
+			MUI.Version(inRect, "v" + Version + " · Bolek98");
+			if (recBullets == null)
+			{
+				recBullets = new List<string>();
+				for (int i = 1; i <= 4; i++)
+					recBullets.Add(("SC_Rec" + i).Translate());
+			}
+			float y0 = inRect.y;
 			if (!ModsConfig.IdeologyActive)
 			{
-				list.Label("SC_NoIdeology".Translate());
+				GUI.color = MUI.Warn;
+				Widgets.Label(new Rect(inRect.x, y0, inRect.width, 24f), "SC_NoIdeology".Translate());
+				GUI.color = Color.white;
+				y0 += 26f;
 			}
-			Check(list, "SC_Enable", ref Settings.enabled);
-			Header(list, "SC_H_Belief");
-			Check(list, "SC_Moods", ref Settings.moods);
-			Check(list, "SC_Certainty", ref Settings.certainty);
-			Check(list, "SC_Willing", ref Settings.willing);
-			Check(list, "SC_MentalBreaks", ref Settings.mentalBreaks);
-			Check(list, "SC_Alerts", ref Settings.hideAlerts);
-			Check(list, "SC_Slaves", ref Settings.affectSlaves);
-			Header(list, "SC_H_Look");
-			Check(list, "SC_LookChange", ref Settings.lookChange);
-			if (Settings.lookChange)
+			y0 += MUI.RecommendedCard(new Rect(inRect.x, y0, inRect.width, 0f), S, S.recommended, v =>
 			{
-				list.Label("SC_LookChangeDays".Translate(Mathf.RoundToInt(Settings.lookChangeDays)), -1f, "SC_LookChangeDays_Desc".Translate());
-				Settings.lookChangeDays = Mathf.Round(list.Slider(Settings.lookChangeDays, 3f, 60f));
-				Check(list, "SC_LookChangeMessage", ref Settings.lookChangeMessage);
-			}
-			Check(list, "SC_StyleFree", ref Settings.styleFree);
-			Check(list, "SC_BarberTable", ref Settings.barberTable);
-			Check(list, "SC_GenderStyles", ref Settings.genderStyles);
-			Check(list, "SC_HairColours", ref Settings.hairColours);
-			if (Settings.hairColours)
+				S.recommended = v;
+				if (v) MUI.ApplyAll(S);
+			}, recBullets) + 6f;
+			if (S.recommended)
+				y0 += MUI.LockNote(new Rect(inRect.x, y0, inRect.width, 0f)) + 4f;
+			Rect outR = new Rect(inRect.x, y0, inRect.width, inRect.yMax - y0);
+			Rect view = new Rect(0f, 0f, outR.width - 16f, viewH);
+			Widgets.BeginScrollView(outR, ref scroll, view);
+			MUI.BeginLock(S.recommended);
+			float colW = (view.width - 24f) / 2f;
+			float hL, hR;
+			try
 			{
-				int hc = Mathf.RoundToInt(Settings.hairColourChance * 100f);
-				hc = Mathf.RoundToInt(list.SliderLabeled("SC_HairColourChance".Translate(hc), hc, 0f, 100f, 0.6f, "SC_HairColourChance_Desc".Translate()) / 5f) * 5;
-				Settings.hairColourChance = hc / 100f;
-			}
-			list.NewColumn();
-			Header(list, "SC_H_Love");
-			GUI.color = new Color(0.75f, 0.75f, 0.75f);
-			list.Label("SC_LoveHint".Translate());
-			GUI.color = Color.white;
-			for (int r = 0; r < 3; r++)
-			{
-				if (list.RadioButton(("SC_Rule" + r).Translate(), Settings.relationRule == r, 0f, ("SC_Rule" + r + "_Desc").Translate()))
+				var list = new Listing_Standard();
+				list.Begin(new Rect(0f, 0f, colW, 100000f));
+				Check(list, "SC_Enable", ref S.enabled, "enabled");
+				MUI.Section(list, "SC_H_Belief".Translate());
+				Check(list, "SC_Moods", ref S.moods, "moods");
+				if (S.moods)
 				{
-					Settings.relationRule = r;
+					Note(list, "SC_KeepHint".Translate());
+					Check(list, "SC_KeepRituals", ref S.keepRituals, "keepRituals");
+					Check(list, "SC_KeepRoles", ref S.keepRoles, "keepRoles");
+					Check(list, "SC_KeepBuildings", ref S.keepBuildings, "keepBuildings");
+					Check(list, "SC_KeepApparel", ref S.keepApparel, "keepApparel");
 				}
+				Check(list, "SC_Certainty", ref S.certainty, "certainty");
+				Check(list, "SC_Willing", ref S.willing, "willing");
+				Check(list, "SC_MentalBreaks", ref S.mentalBreaks, "mentalBreaks");
+				Check(list, "SC_Alerts", ref S.hideAlerts, "hideAlerts");
+				Check(list, "SC_Slaves", ref S.affectSlaves, "affectSlaves");
+				MUI.Section(list, "SC_H_Look".Translate());
+				Check(list, "SC_LookChange", ref S.lookChange, "lookChange");
+				if (S.lookChange)
+				{
+					S.lookChangeDays = Mathf.Round(MUI.Slider(list, "SC_LookChangeDays".Translate(Mathf.RoundToInt(S.lookChangeDays)), S.lookChangeDays, 3f, 60f, "SC_LookChangeDays_Desc".Translate(), S, "lookChangeDays"));
+					Check(list, "SC_LookChangeMessage", ref S.lookChangeMessage, "lookChangeMessage");
+				}
+				Check(list, "SC_StyleFree", ref S.styleFree, "styleFree");
+				Check(list, "SC_BarberTable", ref S.barberTable, "barberTable");
+				Check(list, "SC_GenderStyles", ref S.genderStyles, "genderStyles");
+				Check(list, "SC_HairColours", ref S.hairColours, "hairColours");
+				if (S.hairColours)
+				{
+					int hc = Mathf.RoundToInt(S.hairColourChance * 100f);
+					S.hairColourChance = Mathf.Round(MUI.Slider(list, "SC_HairColourChance".Translate(hc), S.hairColourChance, 0f, 1f, "SC_HairColourChance_Desc".Translate(), S, "hairColourChance") * 20f) / 20f;
+				}
+				hL = list.CurHeight;
+				list.End();
+
+				var r = new Listing_Standard();
+				r.Begin(new Rect(colW + 24f, 0f, colW, 100000f));
+				MUI.Section(r, "SC_H_Love".Translate());
+				Note(r, "SC_LoveHint".Translate());
+				for (int i = 0; i < 3; i++)
+				{
+					if (r.RadioButton(("SC_Rule" + i).Translate(), S.relationRule == i, 0f, ("SC_Rule" + i + "_Desc").Translate()))
+						S.relationRule = i;
+				}
+				r.Gap(4f);
+				if (S.relationRule != 1)
+					S.maxPartners = Mathf.RoundToInt(MUI.Slider(r, "SC_MaxPartners".Translate(S.maxPartners), S.maxPartners, 2f, 8f, "SC_MaxPartners_Desc".Translate(), S, "maxPartners"));
+				int pct = Mathf.RoundToInt(S.polyChance * 100f);
+				S.polyChance = Mathf.Round(MUI.Slider(r, "SC_PolyChance".Translate(pct), S.polyChance, 0f, 3f, "SC_PolyChance_Desc".Translate(), S, "polyChance") * 10f) / 10f;
+				Check(r, "SC_PolyNoJealousy", ref S.polyNoJealousy, "polyNoJealousy");
+				Check(r, "SC_PolygamyMood", ref S.polygamyMood, "polygamyMood");
+				hR = r.CurHeight;
+				r.End();
 			}
-			list.Gap(4f);
-			if (Settings.relationRule != 1)
+			finally
 			{
-				Settings.maxPartners = Mathf.RoundToInt(list.SliderLabeled("SC_MaxPartners".Translate(Settings.maxPartners), Settings.maxPartners, 2f, 8f, 0.6f, "SC_MaxPartners_Desc".Translate()));
+				MUI.EndLock(new Rect(0f, 0f, view.width, viewH));
 			}
-			int pct = Mathf.RoundToInt(Settings.polyChance * 100f);
-			int npct = Mathf.RoundToInt(list.SliderLabeled("SC_PolyChance".Translate(pct), pct, 0f, 300f, 0.6f, "SC_PolyChance_Desc".Translate()) / 10f) * 10;
-			Settings.polyChance = npct / 100f;
-			Check(list, "SC_PolyNoJealousy", ref Settings.polyNoJealousy);
-			Check(list, "SC_PolygamyMood", ref Settings.polygamyMood);
-			// 1.3.0: remove the ideoligion from the colony completely (classic mode)
-			Header(list, "SC_H_NoBelief");
+			// 1.3.0: remove the ideoligion completely (classic mode) – an action, never locked
+			var n = new Listing_Standard();
+			float yN = Mathf.Max(hL, hR) + 10f;
+			n.Begin(new Rect(0f, yN, view.width, 400f));
+			MUI.Section(n, "SC_H_NoBelief".Translate());
 			bool inGame = Current.ProgramState == ProgramState.Playing && Find.IdeoManager != null && ModsConfig.IdeologyActive;
 			if (!inGame)
-			{
-				list.Label("SC_NoBelief_NoGame".Translate());
-			}
+				Note(n, "SC_NoBelief_NoGame".Translate());
 			else if (Find.IdeoManager.classicMode)
 			{
-				GUI.color = new Color(0.6f, 1f, 0.6f);
-				list.Label("SC_NoBelief_Done".Translate());
+				GUI.color = MUI.Accent;
+				n.Label("SC_NoBelief_Done".Translate());
 				GUI.color = Color.white;
-				if (list.ButtonText("SC_NoBelief_Undo".Translate()))
-				{
+				if (n.ButtonText("SC_NoBelief_Undo".Translate()))
 					NoBelief.Undo();
-				}
 			}
 			else
 			{
-				list.Label("SC_NoBelief_Desc".Translate());
-				if (list.ButtonText("SC_NoBelief_Button".Translate()))
-				{
-					Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("SC_NoBelief_Confirm".Translate(), delegate
-					{
-						NoBelief.Convert();
-					}, true));
-				}
+				n.Label("SC_NoBelief_Desc".Translate());
+				if (n.ButtonText("SC_NoBelief_Button".Translate()))
+					Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("SC_NoBelief_Confirm".Translate(), delegate { NoBelief.Convert(); }, true));
 			}
-			list.Gap();
-			GUI.color = new Color(0.75f, 0.75f, 0.75f);
-			list.Label("SC_Note".Translate());
-			GUI.color = Color.white;
-			list.End();
+			n.Gap(6f);
+			Note(n, "SC_Note".Translate());
+			viewH = yN + n.CurHeight + 20f;
+			n.End();
+			Widgets.EndScrollView();
 		}
 
-		private static void Header(Listing_Standard list, string key)
+		private static void Note(Listing_Standard l, string text)
 		{
-			list.Gap(8f);
-			GUI.color = new Color(1f, 0.85f, 0.5f);
-			list.Label(key.Translate());
+			GUI.color = MUI.Muted;
+			Text.Font = GameFont.Tiny;
+			l.Label(text);
+			Text.Font = GameFont.Small;
 			GUI.color = Color.white;
-			list.GapLine(4f);
+			l.Gap(2f);
 		}
 
-		private static void Check(Listing_Standard list, string key, ref bool value)
+		private static void Check(Listing_Standard l, string key, ref bool value, string field)
 		{
-			list.CheckboxLabeled(key.Translate(), ref value, (key + "_Desc").Translate());
+			MUI.Check(l, key.Translate(), (key + "_Desc").Translate(), ref value, Settings, field);
 		}
 
 		public override void WriteSettings()
@@ -210,6 +260,36 @@ namespace SecularColony
 	public static class Secular
 	{
 		private static HashSet<ThoughtDef> ideoThoughts;
+
+		// 1.5.0: 0 belief/precept, 1 ritual, 2 role, 3 building, 4 apparel and colours
+		private static Dictionary<ThoughtDef, int> category;
+
+		private static int CategoryOf(ThoughtDef def)
+		{
+			string n = (def.thoughtClass?.Name ?? "") + "|" + (def.workerClass?.Name ?? "") + "|" + def.defName;
+			if (n.IndexOf("Ritual", StringComparison.OrdinalIgnoreCase) >= 0 || n.IndexOf("Relic", StringComparison.OrdinalIgnoreCase) >= 0)
+				return 1;
+			if (n.IndexOf("IdeoRole", StringComparison.OrdinalIgnoreCase) >= 0 || n.IndexOf("Leader", StringComparison.OrdinalIgnoreCase) >= 0)
+				return 2;
+			if (n.IndexOf("Building", StringComparison.OrdinalIgnoreCase) >= 0 || n.IndexOf("Altar", StringComparison.OrdinalIgnoreCase) >= 0)
+				return 3;
+			if (n.IndexOf("Apparel", StringComparison.OrdinalIgnoreCase) >= 0 || n.IndexOf("Color", StringComparison.OrdinalIgnoreCase) >= 0)
+				return 4;
+			return 0;
+		}
+
+		private static bool Kept(int cat)
+		{
+			SecularSettings s = SecularMod.Settings;
+			switch (cat)
+			{
+				case 1: return s.keepRituals;
+				case 2: return s.keepRoles;
+				case 3: return s.keepBuildings;
+				case 4: return s.keepApparel;
+				default: return false;
+			}
+		}
 
 		private static HashSet<MentalBreakDef> ideoBreaks;
 
@@ -318,6 +398,7 @@ namespace SecularColony
 		{
 			ideoThoughts = null;
 			ideoBreaks = null;
+			category = null;
 		}
 
 		public static bool IsIdeoThought(ThoughtDef def)
@@ -330,12 +411,24 @@ namespace SecularColony
 			{
 				Build();
 			}
-			return ideoThoughts.Contains(def);
+			if (!ideoThoughts.Contains(def))
+				return false;
+			if (category == null)
+				category = new Dictionary<ThoughtDef, int>();
+			if (!category.TryGetValue(def, out int cat))
+				category[def] = cat = CategoryOf(def);
+			return !Kept(cat);
 		}
 
 		public static bool IsIdeoMemory(Thought_Memory t)
 		{
-			return t != null && (t.sourcePrecept != null || IsIdeoThought(t.def));
+			if (t == null) return false;
+			if (IsIdeoThought(t.def)) return true;
+			// a memory from a precept counts unless its kind is kept (1.5.0)
+			if (t.sourcePrecept == null) return false;
+			if (category == null) category = new Dictionary<ThoughtDef, int>();
+			if (!category.TryGetValue(t.def, out int cat)) category[t.def] = cat = CategoryOf(t.def);
+			return !Kept(cat);
 		}
 
 		public static bool IsIdeoBreak(MentalBreakDef def)
