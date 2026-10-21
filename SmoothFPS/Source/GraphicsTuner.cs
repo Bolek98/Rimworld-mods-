@@ -114,6 +114,8 @@ namespace GraphicsTuner
         public int vsync = -1;                  // -1 = like the game, else index into the engine's modes
         public int fpsLimit = -2;               // -2 = like the game, -1 = unlimited, else FPS
         public int bgFps;                       // 0 = no change
+        public int laptop;                      // 1.4.0: 0 off, 1 always, 2 only on battery
+        public int laptopFps = 45;
         public int displayMode = -1;            // -1 = like the game
         public bool overlay;
 
@@ -179,6 +181,8 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref vsync, "vsync", -1);
             Scribe_Values.Look(ref fpsLimit, "fpsLimit", -2);
             Scribe_Values.Look(ref bgFps, "bgFps", 0);
+            Scribe_Values.Look(ref laptop, "laptop", 0);
+            Scribe_Values.Look(ref laptopFps, "laptopFps", 45);
             Scribe_Values.Look(ref displayMode, "displayMode", -1);
             Scribe_Values.Look(ref overlay, "overlay", false);
             Scribe_Values.Look(ref gcMode, "gcMode", 0);
@@ -469,7 +473,8 @@ namespace GraphicsTuner
         {
             Engine.Init();
             // FPS limit (and a lower one in the background)
-            int bgFps = s.bgFps > 0 ? s.bgFps : (s.sfBackground && Smooth.Active ? 10 : 0);
+            bool lap = Laptop.Active(s);
+            int bgFps = s.bgFps > 0 ? s.bgFps : (lap ? 5 : (s.sfBackground && Smooth.Active ? 10 : 0));
             bool background = !Application.isFocused && bgFps > 0;
             if (background && !inBackground)
             {
@@ -489,6 +494,9 @@ namespace GraphicsTuner
                 want = -1;
             else if (s.fpsLimit > 0)
                 want = s.fpsLimit;
+            // 1.4.0: laptop mode caps the FPS (never raises a lower limit)
+            if (lap && !background && (want == int.MinValue || want <= 0 || want > s.laptopFps))
+                want = s.laptopFps;
             if (want != int.MinValue && Application.targetFrameRate != want)
                 Application.targetFrameRate = want;
             if (s.vsync >= 0) Engine.SetVSync(s.vsync);
@@ -558,7 +566,7 @@ namespace GraphicsTuner
                 effectsThisSecond = 0;
             }
             if (s.effectsPerSecond > 0 && effectsThisSecond >= s.effectsPerSecond) { EffectsSkipped++; return false; }
-            float share = s.effects * Adaptive * SpeedFactor;
+            float share = s.effects * Adaptive * SpeedFactor * Laptop.EffectFactor(s);
             if (share < 0.999f)
             {
                 acc += share;
@@ -661,7 +669,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.3.5";
+        public const string Version = "1.4.0";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -855,6 +863,18 @@ namespace GraphicsTuner
                 });
             }
             MUI.Check(r, "GT_OverlayOn".Translate(), "GT_OverlayOn_Desc".Translate(), ref s.overlay, s, "overlay");
+            // 1.4.0: laptop mode
+            string[] lapNames = { "GT_LaptopOff".Translate(), "GT_LaptopOn".Translate(), "GT_LaptopBattery".Translate() };
+            Dropdown(r, "GT_Laptop".Translate(), "GT_Laptop_Desc".Translate(), lapNames[Mathf.Clamp(s.laptop, 0, 2)], () =>
+                Enumerable.Range(0, 3).Select(i => new FloatMenuOption(lapNames[i], () => s.laptop = i)).ToList());
+            if (s.laptop > 0)
+            {
+                int[] lapFps = { 30, 40, 45, 50, 60 };
+                Dropdown(r, "GT_LaptopFps".Translate(), "GT_LaptopFps_Desc".Translate(), s.laptopFps.ToString(), () =>
+                    lapFps.Select(v => new FloatMenuOption(v.ToString(), () => s.laptopFps = v)).ToList());
+                if (s.laptop == 2)
+                    Note(r, (Laptop.OnBattery() ? "GT_LaptopNowBattery" : "GT_LaptopNowMains").Translate());
+            }
             if (!Engine.IsWaylith)
                 Note(r, "GT_Not17".Translate());
 
@@ -1016,6 +1036,13 @@ namespace GraphicsTuner
             else if (Widgets.ButtonText(pbtn, "GT_BenchStart".Translate()))
                 Profiler.Start();
             Note(r, "GT_Prof_Note".Translate());
+            // 1.4.0: what is expensive on the map
+            if (Current.ProgramState == ProgramState.Playing && Find.CurrentMap != null)
+            {
+                if (r.ButtonText("GT_MC_Open".Translate()))
+                    Find.WindowStack.Add(new Dialog_MapCost());
+                TooltipHandler.TipRegion(new Rect(0f, r.CurHeight - 30f, colW, 30f), "GT_MC_Open_Desc".Translate());
+            }
             if (Profiler.Last != null && r.ButtonText("GT_ProfShow".Translate()))
                 Find.WindowStack.Add(new Dialog_SlowReport());
             Rect rrow = r.GetRect(30f);

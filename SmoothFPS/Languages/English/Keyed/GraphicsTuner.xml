@@ -267,4 +267,46 @@
   <GT_TexCap>Largest mod picture</GT_TexCap>
   <GT_TexCapOff>no limit</GT_TexCapOff>
   <GT_TexCap_Desc>Mod pictures (DDS) bigger than this start at their smaller built-in copy – less video memory, fewer late or blank pictures. The game's own pictures are never changed, no files are changed. Takes effect after a restart. Now: {0} pictures, about {1} MB saved.</GT_TexCap_Desc>
+  <GT_Laptop>Laptop mode</GT_Laptop>
+  <GT_Laptop_Desc>Lower FPS limit and 40 % fewer effects – cooler, quieter and longer on battery. "On battery only" switches itself when the charger is unplugged (if the system reports it).</GT_Laptop_Desc>
+  <GT_LaptopOff>off</GT_LaptopOff>
+  <GT_LaptopOn>always</GT_LaptopOn>
+  <GT_LaptopBattery>on battery only</GT_LaptopBattery>
+  <GT_LaptopFps>FPS in laptop mode</GT_LaptopFps>
+  <GT_LaptopFps_Desc>The FPS limit while laptop mode is active. A lower limit you set yourself stays.</GT_LaptopFps_Desc>
+  <GT_LaptopNowBattery>Now: running on battery – laptop mode is active.</GT_LaptopNowBattery>
+  <GT_LaptopNowMains>Now: on the charger (or the system does not report the battery) – laptop mode waits.</GT_LaptopNowMains>
+  <GT_MC_Open>What is expensive on this map</GT_MC_Open>
+  <GT_MC_Open_Desc>Counts everything the game has to update on the current map, with tips what to tidy up. Changes nothing.</GT_MC_Open_Desc>
+  <GT_MC_Title>What is expensive on this map</GT_MC_Title>
+  <GT_MC_Sub>Map: {0} · orange = a lot, see the tips on the right</GT_MC_Sub>
+  <GT_MC_Colonists>Colonists</GT_MC_Colonists>
+  <GT_MC_AnimalsOwn>Your animals</GT_MC_AnimalsOwn>
+  <GT_MC_AnimalsWild>Wild animals</GT_MC_AnimalsWild>
+  <GT_MC_Mechs>Mechanoids</GT_MC_Mechs>
+  <GT_MC_Hostile>Hostile</GT_MC_Hostile>
+  <GT_MC_OtherPawns>Other people (guests, prisoners …)</GT_MC_OtherPawns>
+  <GT_MC_Ticking>Things updated every tick</GT_MC_Ticking>
+  <GT_MC_Rare>Things updated rarely</GT_MC_Rare>
+  <GT_MC_Long>Things updated very rarely</GT_MC_Long>
+  <GT_MC_Filth>Filth</GT_MC_Filth>
+  <GT_MC_Loose>Items lying outside storage</GT_MC_Loose>
+  <GT_MC_Corpses>Corpses</GT_MC_Corpses>
+  <GT_MC_Plants>Plants</GT_MC_Plants>
+  <GT_MC_Fires>Fires</GT_MC_Fires>
+  <GT_MC_Buildings>Your buildings</GT_MC_Buildings>
+  <GT_MC_WorldPawns>World pawns (saved in the background)</GT_MC_WorldPawns>
+  <GT_MC_Things>All things on the map</GT_MC_Things>
+  <GT_MC_Top>Most common things updated every tick</GT_MC_Top>
+  <GT_MC_Tips>Tips</GT_MC_Tips>
+  <GT_MC_AllGood>Nothing stands out – this map is fine. If the game is still slow, use "What slows the game".</GT_MC_AllGood>
+  <GT_MC_TipAnimals>You have {0} animals. Each one thinks and moves every tick – slaughter or sell the ones you do not need.</GT_MC_TipAnimals>
+  <GT_MC_TipWild>{0} wild animals on the map. Wild Spawn Zone or a lower animal density helps.</GT_MC_TipWild>
+  <GT_MC_TipTicking>{0} things are updated every tick. Look at the list on the right – a mod building or item you have many of can cost a lot.</GT_MC_TipTicking>
+  <GT_MC_TipFilth>{0} pieces of filth. Cleaning (or a cleaning bot) makes the map lighter.</GT_MC_TipFilth>
+  <GT_MC_TipLoose>{0} items lie outside storage. Hauling them into stockpiles helps a lot.</GT_MC_TipLoose>
+  <GT_MC_TipCorpses>{0} corpses. Burn or bury them – they rot and update all the time.</GT_MC_TipCorpses>
+  <GT_MC_TipFires>{0} fires are burning. Fire is expensive while it spreads.</GT_MC_TipFires>
+  <GT_MC_TipWorldPawns>{0} pawns live in the background of the world. Saves and loading get slower; a world pawn cleanup mod helps.</GT_MC_TipWorldPawns>
+  <GT_MC_Refresh>Count again</GT_MC_Refresh>
 </LanguageData>
