@@ -926,9 +926,6 @@ public static class Planner
 		Crisis crisis, Dictionary<Pawn, Dictionary<WorkTypeDef, float>> fitOf, MapDemand demand = null)
 	{
 		string styleLabel = Styles.Label(comp.style);
-		// 2.50.0: fresh carcasses wait for the butcher and meat is low – cooking is not pushed down by the style
-		bool food = FoodWorkWaiting(comp.map);
-		WorkTypeDef cookW = DefDatabase<WorkTypeDef>.GetNamedSilentFail("Cooking");
 		foreach (var kv in plan)
 		{
 			Pawn p = kv.Key;
@@ -950,15 +947,6 @@ public static class Planner
 					continue;
 				if (game != null && game.AnyLock(p, w))
 					continue;
-				if (food && w == cookW && jobs.TryGetValue(w, out int ck) && ck > 0 && ck <= 2)
-				{
-					if (comp.reasons.TryGetValue(p.thingIDNumber, out var ftexts))
-					{
-						string fl = "CF_TipButcherWaiting".Translate().Colorize(ColorLibrary.Gold);
-						ftexts[w] = ftexts.TryGetValue(w, out string ft) ? ft + "\n" + fl : fl;
-					}
-					continue;
-				}
 				int target = settings.styleOthersOff && !Essential(w) ? 0 : max;
 				if (jobs.TryGetValue(w, out int cur) && cur == target)
 					continue;
@@ -986,46 +974,6 @@ public static class Planner
 				}
 				if (best != null)
 					jobs[best] = 1;
-			}
-		}
-		// 2.50.0: at least one cook on priority 2 while carcasses wait
-		if (food && cookW != null && max >= 2 && !plan.Any(kv => kv.Value.TryGetValue(cookW, out int v) && v > 0 && v <= 2))
-		{
-			Pawn bestCook = plan.Keys.Where(p => !p.WorkTypeIsDisabled(cookW) && (game == null || !game.AnyLock(p, cookW)) && !ModCompat.AchtungForced(p))
-				.OrderByDescending(p => fitOf.TryGetValue(p, out var f) && f.TryGetValue(cookW, out float x) ? x : 0f).FirstOrDefault();
-			if (bestCook != null)
-			{
-				plan[bestCook][cookW] = 2;
-				if (comp.reasons.TryGetValue(bestCook.thingIDNumber, out var btexts))
-				{
-					string bl = "CF_TipButcherWaiting".Translate().Colorize(ColorLibrary.Gold);
-					btexts[cookW] = btexts.TryGetValue(cookW, out string bt) ? bt + "\n" + bl : bl;
-				}
-			}
-		}
-		// 2.50.1: no work starves under a style – work that really waits (bills with ingredients, patients,
-		// ripe plants, things to build …) keeps at least one colonist on priority 2
-		if (demand != null && max >= 2)
-		{
-			foreach (WorkTypeDef w in WorkPolicies.VisibleWorkTypes())
-			{
-				if (Styles.Delta(comp.style, w) > 0f || TopExempt(w) || WorkPolicies.Get(w).emergency || Essential(w) || OpenEnded(w))
-					continue;
-				DemandInfo di = demand.For(w);
-				if (di == null || di.factor < 0.9f)
-					continue;
-				if (plan.Any(kv => kv.Value.TryGetValue(w, out int v) && v > 0 && v <= 2))
-					continue;
-				Pawn best = plan.Keys.Where(p => !p.WorkTypeIsDisabled(w) && (game == null || !game.AnyLock(p, w)) && !ModCompat.AchtungForced(p))
-					.OrderByDescending(p => fitOf.TryGetValue(p, out var f) && f.TryGetValue(w, out float x) ? x : 0f).FirstOrDefault();
-				if (best == null)
-					continue;
-				plan[best][w] = 2;
-				if (comp.reasons.TryGetValue(best.thingIDNumber, out var ntexts))
-				{
-					string nl = "CF_TipNeedKept".Translate(styleLabel, di.note ?? "").Colorize(ColorLibrary.Gold);
-					ntexts[w] = ntexts.TryGetValue(w, out string nt) ? nt + "\n" + nl : nl;
-				}
 			}
 		}
 		// a crisis beats the style: its work gets enough colonists on priority 1
