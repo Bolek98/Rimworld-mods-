@@ -284,9 +284,10 @@ namespace MapArchitect
 		private readonly string sliderLabel;
 		private string mod;
 		private readonly List<string> mods;
+		private bool focused;
 		private readonly Func<Rect, float> extra;   // 0.4.0: extra controls under the search (returns used height)
 
-		public override Vector2 InitialSize => new Vector2(680f, 740f);
+		public override Vector2 InitialSize => new Vector2(Mathf.Min(820f, UI.screenWidth - 40f), Mathf.Min(860f, UI.screenHeight - 40f));
 
 		public Dialog_Pick(string title, List<PickOption> options, Action<PickOption> chosen, string sliderLabel = null, Func<Rect, float> extra = null)
 		{
@@ -315,8 +316,11 @@ namespace MapArchitect
 			y += 36f;
 			GUI.SetNextControlName("MA_Search");
 			search = Widgets.TextField(new Rect(inRect.x, y, inRect.width, 28f), search);
-			if (Event.current.type == EventType.Layout)
+			if (!focused && Event.current.type == EventType.Layout)
+			{
 				GUI.FocusControl("MA_Search");
+				focused = true;
+			}
 			y += 32f;
 			if (mods.Count > 1)
 			{
@@ -341,7 +345,7 @@ namespace MapArchitect
 				sliderValue = Widgets.HorizontalSlider(new Rect(inRect.x + 210f, y + 6f, inRect.width - 210f, 20f), sliderValue, 0.05f, 1f);
 				y += 30f;
 			}
-			if (groups.Count > 1)
+			if (groups.Count > 1 && groups.Count <= 8)
 			{
 				float bx = inRect.x;
 				float by = y;
@@ -362,10 +366,33 @@ namespace MapArchitect
 				}
 				y = by + 32f;
 			}
+			else if (groups.Count > 8)
+			{
+				// 0.4.1: many groups (factions, categories…) – a drop-down, so the list keeps its space
+				Widgets.Label(new Rect(inRect.x, y + 3f, 60f, 24f), "MA_Group".Translate());
+				if (Widgets.ButtonText(new Rect(inRect.x + 60f, y, inRect.width - 60f, 26f), group ?? (string)"MA_All".Translate()))
+				{
+					var opts = new List<FloatMenuOption> { new FloatMenuOption("MA_All".Translate() + " (" + all.Count + ")", () => group = null) };
+					foreach (string g in groups)
+					{
+						string gg = g;
+						opts.Add(new FloatMenuOption(g + " (" + all.Count(o => o.group == gg) + ")", () => group = gg));
+					}
+					Find.WindowStack.Add(new FloatMenu(opts));
+				}
+				y += 30f;
+			}
 			string s = search.Trim();
 			var list = all.Where(o => (group == null || o.group == group) && (mod == null || o.mod == mod)
 				&& (s.Length == 0 || o.label.IndexOf(s, StringComparison.OrdinalIgnoreCase) >= 0 || (o.mod != null && o.mod.IndexOf(s, StringComparison.OrdinalIgnoreCase) >= 0))).ToList();
-			Rect outer = new Rect(inRect.x, y, inRect.width, inRect.yMax - y);
+			// count of results, so it is clear the search works
+			GUI.color = new Color(0.6f, 0.65f, 0.7f);
+			Text.Font = GameFont.Tiny;
+			Widgets.Label(new Rect(inRect.x, y, inRect.width, 20f), "MA_Found".Translate(list.Count));
+			Text.Font = GameFont.Small;
+			GUI.color = Color.white;
+			y += 20f;
+			Rect outer = new Rect(inRect.x, y, inRect.width, Mathf.Max(60f, inRect.yMax - y));
 			Rect view = new Rect(0f, 0f, outer.width - 18f, list.Count * 30f);
 			Widgets.BeginScrollView(outer, ref scroll, view);
 			for (int i = 0; i < list.Count; i++)

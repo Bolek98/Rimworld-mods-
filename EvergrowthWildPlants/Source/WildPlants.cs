@@ -55,7 +55,7 @@ namespace EvergrowthWild
     // ------------------------------------------------------------------
     public static class WP
     {
-        public const string Version = "1.1.1";
+        public const string Version = "1.1.2";
         public static WPSettings S => WildPlantsMod.Settings;
 
         private class Orig
@@ -912,10 +912,10 @@ namespace EvergrowthWild
 
             // plant list
             float cbW = 230f;
+            MUI.EndLock();
             plantSearch = Widgets.TextField(new Rect(r.x, y, r.width - cbW - 8f, 26f), plantSearch);
             if (plantSearch.NullOrEmpty())
                 U.Label(new Rect(r.x + 6f, y, r.width - cbW, 26f), "EWP_SearchPlant".Translate(), MUI.Muted, GameFont.Tiny);
-            MUI.EndLock();
             Widgets.CheckboxLabeled(new Rect(r.xMax - cbW, y, cbW, 26f), "EWP_ShowAll".Translate(WP.Plants.Count), ref showAll);
             TooltipHandler.TipRegion(new Rect(r.xMax - cbW, y, cbW, 26f), "EWP_ShowAllTip".Translate());
             MUI.BeginLock(s.recommended);
