@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Evergrowth – Wild Plants</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.evergrowthwild</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modVersion>1.0.0</modVersion>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>bolek98.hardyplants</li>
+    <li>m00nl1ght.geologicallandforms</li>
+  </loadAfter>
+  <incompatibleWith>
+    <li>Mlie.ChooseWildPlantSpawns</li>
+  </incompatibleWith>
+  <description>Choose which wild plants grow in every biome – from the base game, all DLCs and every mod. Add-on for Evergrowth – Plant Growth Control (works on its own too).
+
+BIOMES
+- Every biome from every mod in one searchable list
+- Add or remove any plant, set how common each one is
+- Plant density and regrowth speed per biome
+- Copy a plant list from another biome, reset any biome to default
+
+CAVE PLANTS
+- How often each cave plant appears under rock roofs
+
+EXTRAS
+- Map biome fix: some map mods (e.g. Geological Landforms) report a different biome for the map than the world tile has, so almost nothing regrows on land. Fixed automatically.
+- Health check: warns about stumps, dead plants, crops and empty lists that would never grow
+- Import your settings from Choose Wild Plant Spawns with one click
+- Refill wild plants on the current map with one button
+- Recommended settings switch, Czech and English
+
+Safe to add to or remove from an existing save. Requires Harmony.
+
+---
+
+Vyber, jaké divoké rostliny rostou v každém biomu – z vanilly, všech DLC i všech modů. Doplněk k Evergrowth – Plant Growth Control (funguje i samostatně).
+
+BIOMY
+- Všechny biomy ze všech modů v jednom seznamu s hledáním
+- Přidej nebo odeber jakoukoli rostlinu a nastav, jak často roste
+- Hustota rostlin a rychlost dorůstání pro každý biom
+- Zkopírování seznamu z jiného biomu, návrat biomu na výchozí
+
+JESKYNNÍ ROSTLINY
+- Jak často se která jeskynní rostlina objeví pod skalním stropem
+
+NAVÍC
+- Oprava biomu mapy: některé mody map (např. Geological Landforms) hlásí pro mapu jiný biom, než má dlaždice, a na souši pak skoro nic nedorůstá. Opraveno automaticky.
+- Kontrola seznamů: upozorní na pařezy, mrtvé rostliny, plodiny a prázdné seznamy
+- Převzetí nastavení z Choose Wild Plant Spawns jedním kliknutím
+- Doplnění divokých rostlin na aktuální mapě jedním tlačítkem
+- Přepínač Doporučené nastavení, čeština a angličtina
+
+Lze bezpečně přidat i odebrat z rozehrané hry. Vyžaduje Harmony.</description>
+</ModMetaData>

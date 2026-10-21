@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <EWP_Title>Evergrowth – Wild Plants</EWP_Title>
+  <EWP_Bullet1>Every biome keeps its default plants</EWP_Bullet1>
+  <EWP_Bullet2>Map biome fix (Geological Landforms etc.)</EWP_Bullet2>
+  <EWP_Bullet3>Cave plants as in the game</EWP_Bullet3>
+  <EWP_Bullet4>Refill the map with one button</EWP_Bullet4>
+  <EWP_TabBiomes>Biomes</EWP_TabBiomes>
+  <EWP_TabCave>Cave plants</EWP_TabCave>
+  <EWP_TabMap>This map</EWP_TabMap>
+  <EWP_Import>Import from Choose Wild Plant Spawns</EWP_Import>
+  <EWP_ImportTip>Reads your settings from Choose Wild Plant Spawns (plant lists and density). Stumps, dead plants and plants from disabled mods are skipped. You can disable Choose Wild Plant Spawns afterwards.</EWP_ImportTip>
+  <EWP_ImportNone>No Choose Wild Plant Spawns settings found.</EWP_ImportNone>
+  <EWP_ImportDone>Imported: {0} biomes, {1} plants. Skipped {2} (stumps, dead plants, missing mods).</EWP_ImportDone>
+  <EWP_ResetAll>All biomes to default</EWP_ResetAll>
+  <EWP_ResetAllConfirm>Reset all biomes to their default plants, density and regrowth?</EWP_ResetAllConfirm>
+  <EWP_SearchBiome>Search biome or mod…</EWP_SearchBiome>
+  <EWP_SearchPlant>Search plant or mod…</EWP_SearchPlant>
+  <EWP_NPlants>{0} plants</EWP_NPlants>
+  <EWP_PickBiome>Pick a biome on the left to see which wild plants grow there and how often.</EWP_PickBiome>
+  <EWP_Customized>customized</EWP_Customized>
+  <EWP_Default>default</EWP_Default>
+  <EWP_AddPlant>Add plant</EWP_AddPlant>
+  <EWP_CopyFrom>Copy from biome…</EWP_CopyFrom>
+  <EWP_ResetBiome>Reset to default</EWP_ResetBiome>
+  <EWP_Density>Plant density: {0} (default {1})</EWP_Density>
+  <EWP_DensityTip>How many wild plants are on the map. 0 = none, higher = denser nature. Evergrowth can multiply this further.</EWP_DensityTip>
+  <EWP_Regrow>Regrowth: {0} days (default {1})</EWP_Regrow>
+  <EWP_RegrowTip>How long until something grows again on a free spot. Fewer days = faster regrowth.</EWP_RegrowTip>
+  <EWP_NoPlants>No plants.</EWP_NoPlants>
+  <EWP_KindDead>dead plant</EWP_KindDead>
+  <EWP_KindDeadTip>The game never spawns dead plants as wild plants.</EWP_KindDeadTip>
+  <EWP_KindStump>stump</EWP_KindStump>
+  <EWP_KindStumpTip>Stumps are not plants that grow – just what is left of a tree.</EWP_KindStumpTip>
+  <EWP_KindCrop>crop</EWP_KindCrop>
+  <EWP_KindCropTip>A crop that normally does not grow in the wild. It can grow, but the climate often does not suit it.</EWP_KindCropTip>
+  <EWP_KindCave>cave</EWP_KindCave>
+  <EWP_KindCaveTip>Cave plant – grows only under a rock roof.</EWP_KindCaveTip>
+  <EWP_KindWater>water</EWP_KindWater>
+  <EWP_KindWaterTip>Water plant – grows only in water or near the shore.</EWP_KindWaterTip>
+  <EWP_ProbMissing>{0} plants from the list are missing (mod disabled).</EWP_ProbMissing>
+  <EWP_ProbDead>{0}× stump or dead plant – they never grow, you can remove them.</EWP_ProbDead>
+  <EWP_ProbCrops>{0}× crop – they often do not survive in the wild.</EWP_ProbCrops>
+  <EWP_ProbNoLand>Nothing grows on land here (only water / caves).</EWP_ProbNoLand>
+  <EWP_ProbEmpty>The list is empty – nothing will grow in this biome.</EWP_ProbEmpty>
+  <EWP_ProbZeroDensity>Density is 0 – nothing will grow in this biome.</EWP_ProbZeroDensity>
+  <EWP_CaveIntro>Cave plants grow under rock roofs in every biome. Set how often each one appears (0 = never).</EWP_CaveIntro>
+  <EWP_ResetCave>All to default</EWP_ResetCave>
+  <EWP_CaveValue>{0} (default {1})</EWP_CaveValue>
+  <EWP_SecFix>Biome fix</EWP_SecFix>
+  <EWP_FixBiome>Wild plants follow the biome of the world tile</EWP_FixBiome>
+  <EWP_FixBiomeTip>Some map mods (e.g. Geological Landforms) report a different biome for the map than the tile has. The game then picks plants from one biome but weighs them by the other – and almost nothing grows on land. This fixes it.</EWP_FixBiomeTip>
+  <EWP_SecMap>This map</EWP_SecMap>
+  <EWP_NoGame>Load a game to see the state of the current map here.</EWP_NoGame>
+  <EWP_TileBiome>Tile biome: {0}</EWP_TileBiome>
+  <EWP_MapBiome>Map mods report: {0}</EWP_MapBiome>
+  <EWP_MismatchFixed>The biomes differ – the fix is on, plants follow the tile.</EWP_MismatchFixed>
+  <EWP_MismatchWarn>The biomes differ and the fix is off – few plants may grow on land!</EWP_MismatchWarn>
+  <EWP_PlantCount>Wild plants: {0} of {1} ({2} %)</EWP_PlantCount>
+  <EWP_UsedList>List in use: {0} plants</EWP_UsedList>
+  <EWP_Fill>Refill wild plants now</EWP_Fill>
+  <EWP_FillTip>One-time fill of the map up to full density. Skips the home area, zones and rooms.</EWP_FillTip>
+  <EWP_Filling>Planting wild plants…</EWP_Filling>
+  <EWP_Filled>Planted {0} wild plants.</EWP_Filled>
+  <EWP_HideDead>Hide stumps</EWP_HideDead>
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+</LanguageData>
