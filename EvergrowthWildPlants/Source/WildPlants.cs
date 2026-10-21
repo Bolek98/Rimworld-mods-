@@ -55,7 +55,7 @@ namespace EvergrowthWild
     // ------------------------------------------------------------------
     public static class WP
     {
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
         public static WPSettings S => WildPlantsMod.Settings;
 
         private class Orig
@@ -95,7 +95,7 @@ namespace EvergrowthWild
             }
             foreach (ThingDef t in DefDatabase<ThingDef>.AllDefsListForReading)
             {
-                if (t.category != ThingCategory.Plant || t.plant == null)
+                if (t.plant == null || t.IsBlueprint || t.IsFrame)
                     continue;
                 Plants.Add(t);
                 origWild[t] = t.plant.wildBiomes == null ? null
@@ -162,6 +162,16 @@ namespace EvergrowthWild
             }
             defaultLists[b] = d;
             return d;
+        }
+
+        // tooltip: where a plant grows by default
+        public static string WhereGrows(ThingDef t)
+        {
+            var names = Biomes.Where(b => DefaultList(b).ContainsKey(t)).Select(b => Label(b)).ToList();
+            string head = t.defName + "\n";
+            if (names.Count == 0)
+                return head + "EWP_GrowsNowhere".Translate();
+            return head + "EWP_GrowsIn".Translate(string.Join(", ", names.Take(12)) + (names.Count > 12 ? "…" : ""));
         }
 
         public static bool IsCustom(BiomeDef b)
@@ -737,10 +747,10 @@ namespace EvergrowthWild
             TooltipHandler.TipRegion(new Rect(r.x, y, half, 44f), "EWP_DensityTip".Translate());
             TooltipHandler.TipRegion(new Rect(r.x + half + 16f, y, half, 44f), "EWP_RegrowTip".Translate());
             y += 20f;
-            float nd = Widgets.HorizontalSlider(new Rect(r.x, y, half, 22f), dens, 0f, Mathf.Max(3f, od * 2f), true, null, null, null, 0.01f);
-            if (Mathf.Abs(nd - dens) > 0.0001f) s.density[sel.defName] = nd;
-            float nr = Widgets.HorizontalSlider(new Rect(r.x + half + 16f, y, half, 22f), rg, 1f, Mathf.Max(100f, or * 2f), true, null, null, null, 0.5f);
-            if (Mathf.Abs(nr - rg) > 0.0001f) s.regrow[sel.defName] = nr;
+            float nd = U.Slider(new Rect(r.x, y, half, 22f), dens, 0f, Mathf.Max(3f, od * 2f), 0.01f);
+            if (!s.recommended && Mathf.Abs(nd - dens) > 0.0001f) s.density[sel.defName] = nd;
+            float nr = U.Slider(new Rect(r.x + half + 16f, y, half, 22f), rg, 1f, Mathf.Max(100f, or * 2f), 0.5f);
+            if (!s.recommended && Mathf.Abs(nr - rg) > 0.0001f) s.regrow[sel.defName] = nr;
             y += 28f;
 
             // plant list
@@ -772,8 +782,8 @@ namespace EvergrowthWild
                 float v = edit[t];
                 float pct = sum > 0f ? v / sum * 100f : 0f;
                 Rect sl = new Rect(row.x + 36f + nameW, row.y + 6f, row.width - nameW - 36f - 120f, 20f);
-                float nv = Widgets.HorizontalSlider(sl, v, 0f, Mathf.Max(5f, v), true, null, null, null, 0.01f);
-                if (Mathf.Abs(nv - v) > 0.00001f) { edit[t] = nv; Changed(); }
+                float nv = U.Slider(sl, v, 0f, Mathf.Max(5f, v), 0.01f);
+                if (!s.recommended && Mathf.Abs(nv - v) > 0.00001f) { edit[t] = nv; Changed(); }
                 U.Label(new Rect(sl.xMax + 6f, row.y, 80f, 32f), v.ToString("0.##") + "  (" + pct.ToString("0.#") + " %)", MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft);
                 if (Widgets.ButtonText(new Rect(row.xMax - 28f, row.y + 4f, 24f, 24f), "×"))
                     remove = t;
@@ -819,8 +829,8 @@ namespace EvergrowthWild
                 float o = WP.OrigCave(t);
                 float v = s.Custom && s.cave.TryGetValue(t.defName, out float cv) ? cv : o;
                 Rect sl = new Rect(row.x + 36f + nameW, row.y + 6f, row.width - nameW - 36f - 130f, 20f);
-                float nv = Widgets.HorizontalSlider(sl, v, 0f, Mathf.Max(5f, o * 2f), true, null, null, null, 0.01f);
-                if (Mathf.Abs(nv - v) > 0.00001f) s.cave[t.defName] = nv;
+                float nv = U.Slider(sl, v, 0f, Mathf.Max(5f, o * 2f), 0.01f);
+                if (!s.recommended && Mathf.Abs(nv - v) > 0.00001f) s.cave[t.defName] = nv;
                 U.Label(new Rect(sl.xMax + 6f, row.y, 124f, 32f), "EWP_CaveValue".Translate(v.ToString("0.##"), o.ToString("0.##")), MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft);
                 yy += 34f;
             }
@@ -901,6 +911,17 @@ namespace EvergrowthWild
 
     public static class U
     {
+        // Slider that only reports a change when the player really drags it. With roundTo, the game's
+        // slider returns a rounded value every frame when the stored value is not on the step and plays
+        // the drag sound over and over (the ticking).
+        public static float Slider(Rect r, float value, float min, float max, float step)
+        {
+            float nv = Widgets.HorizontalSlider(r, value, min, max, true);
+            if (nv == value)
+                return value;
+            return step > 0f ? Mathf.Round(nv / step) * step : nv;
+        }
+
         public static void Label(Rect r, string text, Color c, GameFont font = GameFont.Small, TextAnchor anchor = TextAnchor.MiddleLeft)
         {
             GameFont f = Text.Font;
@@ -917,7 +938,9 @@ namespace EvergrowthWild
     }
 
     // ------------------------------------------------------------------
-    // Pick a plant to add (every plant from every mod, searchable)
+    // Add plants: every plant, tree, grass, bush, mushroom… from the game,
+    // all DLCs and all mods – also ones that never grow in this biome.
+    // The window stays open, so many plants can be added at once.
     // ------------------------------------------------------------------
     public class Dialog_PickPlant : Window
     {
@@ -926,52 +949,109 @@ namespace EvergrowthWild
         private string q = "";
         private Vector2 scroll;
         private bool hideDead = true;
+        private int group;
+        private string mod;
+        private int added;
+        private static readonly string[] Groups = { "All", "Trees", "Grass", "Bushes", "Crops", "Cave", "Water" };
 
-        public override Vector2 InitialSize => new Vector2(560f, 680f);
+        public override Vector2 InitialSize => new Vector2(720f, 760f);
 
         public Dialog_PickPlant(Dictionary<ThingDef, float> current, Action<ThingDef> pick)
         {
             this.current = current;
             this.pick = pick;
             doCloseX = true;
-            closeOnClickedOutside = true;
+            doCloseButton = true;
+            closeOnClickedOutside = false;
             absorbInputAroundWindow = true;
             forcePause = true;
+        }
+
+        public static int GroupOf(ThingDef t)
+        {
+            WP.Kind k = WP.KindOf(t);
+            if (k == WP.Kind.Cave) return 5;
+            if (k == WP.Kind.Water) return 6;
+            if (k == WP.Kind.Crop) return 4;
+            if (t.plant.IsTree) return 1;
+            if (t.plant.wildOrder <= 1.01f || t.defName.IndexOf("grass", StringComparison.OrdinalIgnoreCase) >= 0) return 2;
+            return 3;
         }
 
         public override void DoWindowContents(Rect r)
         {
             U.Label(new Rect(r.x, r.y, r.width, 30f), "EWP_AddPlant".Translate(), MUI.Text1, GameFont.Medium);
-            GUI.SetNextControlName("ewpq");
-            q = Widgets.TextField(new Rect(r.x, r.y + 34f, r.width - 190f, 28f), q);
-            Widgets.CheckboxLabeled(new Rect(r.xMax - 180f, r.y + 34f, 180f, 28f), "EWP_HideDead".Translate(), ref hideDead);
+            U.Label(new Rect(r.x, r.y + 30f, r.width, 20f), "EWP_AddIntro".Translate(), MUI.Muted, GameFont.Tiny);
+            float y = r.y + 54f;
+            q = Widgets.TextField(new Rect(r.x, y, r.width - 400f, 28f), q);
+            if (q.NullOrEmpty())
+                U.Label(new Rect(r.x + 6f, y, r.width - 400f, 28f), "EWP_SearchPlant".Translate(), MUI.Muted, GameFont.Tiny);
+            if (Widgets.ButtonText(new Rect(r.xMax - 392f, y, 200f, 28f), mod == null ? "EWP_AllMods".Translate().ToString() : mod))
+            {
+                var opts = new List<FloatMenuOption> { new FloatMenuOption("EWP_AllMods".Translate(), () => mod = null) };
+                foreach (string m in WP.Plants.Select(WP.ModName).Distinct().OrderBy(x => x))
+                {
+                    string mm = m;
+                    opts.Add(new FloatMenuOption(mm, () => mod = mm));
+                }
+                Find.WindowStack.Add(new FloatMenu(opts));
+            }
+            Widgets.CheckboxLabeled(new Rect(r.xMax - 182f, y, 182f, 28f), "EWP_HideDead".Translate(), ref hideDead);
+            y += 34f;
+            float gw = (r.width - 6f * 4f) / Groups.Length;
+            for (int g = 0; g < Groups.Length; g++)
+            {
+                Rect gr = new Rect(r.x + g * (gw + 4f), y, gw, 26f);
+                MUI.Fill(gr, group == g ? MUI.OnBg : MUI.CardBg);
+                MUI.Frame(gr, group == g ? MUI.Accent : MUI.Border);
+                U.Label(gr, ("EWP_Group" + Groups[g]).Translate(), group == g ? MUI.Accent : MUI.Text1, GameFont.Tiny, TextAnchor.MiddleCenter);
+                if (Widgets.ButtonInvisible(gr)) group = g;
+            }
+            y += 32f;
+
             var rows = WP.Plants.Where(t => !current.ContainsKey(t)
                 && (!hideDead || (!t.IsDeadPlant && !t.plant.isStump))
+                && (group == 0 || GroupOf(t) == group)
+                && (mod == null || WP.ModName(t) == mod)
                 && Matches(t)).ToList();
-            Rect outR = new Rect(r.x, r.y + 68f, r.width, r.height - 68f);
+
+            if (Widgets.ButtonText(new Rect(r.x, y, 260f, 28f), "EWP_AddAllShown".Translate(rows.Count)) && rows.Count > 0)
+            {
+                foreach (ThingDef t in rows) pick(t);
+                added += rows.Count;
+            }
+            if (added > 0)
+                U.Label(new Rect(r.x + 270f, y, r.width - 270f, 28f), "EWP_AddedN".Translate(added), MUI.Accent, GameFont.Small);
+            y += 34f;
+
+            Rect outR = new Rect(r.x, y, r.width, r.yMax - y - 50f);
             Rect view = new Rect(0f, 0f, outR.width - 16f, rows.Count * 32f);
             Widgets.BeginScrollView(outR, ref scroll, view);
-            float y = 0f;
+            float yy = 0f;
+            ThingDef chosen = null;
             foreach (ThingDef t in rows)
             {
-                Rect row = new Rect(0f, y, view.width, 30f);
-                if (y + 30f >= scroll.y && y <= scroll.y + outR.height)
+                Rect row = new Rect(0f, yy, view.width, 30f);
+                if (yy + 30f >= scroll.y && yy <= scroll.y + outR.height)
                 {
                     Widgets.DrawHighlightIfMouseover(row);
                     Widgets.DefIcon(new Rect(row.x + 2f, row.y + 3f, 24f, 24f), t);
                     WP.Kind k = WP.KindOf(t);
-                    U.Label(new Rect(row.x + 32f, row.y, row.width * 0.55f, 30f), WP.Label(t), MUI.Text1);
-                    U.Label(new Rect(row.x + 32f + row.width * 0.55f, row.y, row.width * 0.45f - 36f, 30f),
+                    U.Label(new Rect(row.x + 32f, row.y, row.width * 0.5f, 30f), WP.Label(t), MUI.Text1);
+                    U.Label(new Rect(row.x + 32f + row.width * 0.5f, row.y, row.width * 0.5f - 110f, 30f),
                         WP.ModName(t) + (k == WP.Kind.Normal ? "" : " · " + ("EWP_Kind" + k).Translate()), MUI.Muted, GameFont.Tiny);
-                    if (Widgets.ButtonInvisible(row))
-                    {
-                        pick(t);
-                        Close();
-                    }
+                    TooltipHandler.TipRegion(row, () => WP.WhereGrows(t), t.GetHashCode());
+                    if (Widgets.ButtonText(new Rect(row.xMax - 90f, row.y + 2f, 86f, 26f), "EWP_AddOne".Translate()))
+                        chosen = t;
                 }
-                y += 32f;
+                yy += 32f;
             }
             Widgets.EndScrollView();
+            if (chosen != null)
+            {
+                pick(chosen);
+                added++;
+            }
         }
 
         private bool Matches(ThingDef t)

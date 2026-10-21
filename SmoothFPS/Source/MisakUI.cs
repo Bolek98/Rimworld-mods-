@@ -389,6 +389,19 @@ namespace GraphicsTuner
             return nv;
         }
 
+        // Slider bar that only reports a change when the player really drags it.
+        // (Widgets.HorizontalSlider with roundTo returns a rounded value every frame when the
+        // stored value is not on the step – that plays the drag sound over and over.)
+        public static float SliderBar(Rect r, float value, float min, float max, float roundTo = -1f)
+        {
+            float nv = Widgets.HorizontalSlider(r, value, min, max, true);
+            if (nv == value)
+                return value;
+            if (roundTo > 0f)
+                nv = Mathf.Clamp(Mathf.Round(nv / roundTo) * roundTo, min, max);
+            return nv;
+        }
+
         // ---------------- bigger settings window ----------------
         private static readonly AccessTools.FieldRef<Dialog_ModSettings, Mod> modRef =
             AccessTools.FieldRefAccess<Dialog_ModSettings, Mod>("mod");

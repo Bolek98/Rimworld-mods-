@@ -10,7 +10,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "2.50.6";
+	public const string Version = "2.50.7";
 
 	// 2.35.8: recommended values for each style (interval h, preferences,
 	// style strength, specialists share)
@@ -363,7 +363,7 @@ public sealed class ForemanMod : Mod
 			float def = WorkPolicies.DefaultUrgency(wt);
 			float urgency = WorkPolicies.Get(wt).urgency;
 			Widgets.Label(new Rect(rect.x + 4f, rect.y + 4f, w * 0.26f, 24f), wt.labelShort.CapitalizeFirst());
-			float slid = Widgets.HorizontalSlider(new Rect(w * 0.27f, rect.y + 8f, w * 0.3f, 18f), urgency, 0f, 1f, middleAlignment: true, null, null, null, 0.05f);
+			float slid = MUI.SliderBar(new Rect(w * 0.27f, rect.y + 8f, w * 0.3f, 18f), urgency, 0f, 1f, 0.05f);
 			GUI.color = Mathf.Abs(urgency - def) > 0.001f ? new Color(1f, 0.85f, 0.4f) : Color.white;
 			Widgets.Label(new Rect(w * 0.58f, rect.y + 4f, w * 0.07f, 24f), urgency.ToString("0.00"));
 			GUI.color = Color.white;
