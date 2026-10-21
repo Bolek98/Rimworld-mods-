@@ -86,7 +86,7 @@ public sealed class ForemanGameComponent : GameComponent
 		int st = StyleOf(p);
 		long k = (CellKey(p, w) << 6) | (long)(st & 63);
 		if (!cellLockCache.TryGetValue(k, out bool v))
-			cellLockCache[k] = v = lockedCells.Contains(Key(p, w)) || lockedCells.Contains(StyleKey(p, w, st));
+			cellLockCache[k] = v = lockedCells.Contains(Key(p, w));
 		return v;
 	}
 
@@ -116,27 +116,8 @@ public sealed class ForemanGameComponent : GameComponent
 
 	public void ToggleCell(Pawn p, WorkTypeDef w)
 	{
-		// an old lock for all styles is removed; otherwise lock / unlock in the current style
-		if (lockedCells.Remove(Key(p, w)))
-		{
-			ClearCaches();
-			return;
-		}
-		Toggle(lockedCells, StyleKey(p, w, StyleOf(p)));
-	}
-
-	// 2.49.6: a priority you change by hand in the Work tab is locked at once,
-	// so the steward never overwrites it. Middle click unlocks it again.
-	public bool LockCell(Pawn p, WorkTypeDef w)
-	{
-		if (CellLocked(p, w))
-			return false;
-		if (lockedCells.Add(StyleKey(p, w, StyleOf(p))))
-		{
-			ClearCaches();
-			return true;
-		}
-		return false;
+		// 2.50.4: middle click locks / unlocks the cell in every style (the automatic and per-style locks are gone)
+		Toggle(lockedCells, Key(p, w));
 	}
 
 	public void TogglePreference(Pawn p, WorkTypeDef w)
@@ -172,6 +153,8 @@ public sealed class ForemanGameComponent : GameComponent
 		{
 			lockedCells = new HashSet<string>();
 		}
+		// 2.50.4: the automatic / per-style locks of 2.49.6–2.50.3 ("pawn|work|style") are removed
+		lockedCells.RemoveWhere(k => k != null && k.Split('|').Length > 2);
 		if (preferences == null)
 		{
 			preferences = new HashSet<string>();

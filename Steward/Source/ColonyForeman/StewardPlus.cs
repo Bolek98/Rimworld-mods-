@@ -252,6 +252,7 @@ public static class StewardPlus
 					if (ours)
 					{
 						bp.SetPawnRestriction(null);
+						bp.allowedSkillRange = new IntRange(0, bp.allowedSkillRange.max);
 						comp.masterBills.Remove(id);
 					}
 					continue;
@@ -261,15 +262,22 @@ public static class StewardPlus
 					continue;
 				if (bp.PawnRestriction != null && !ours)
 					continue;   // your own choice
-				Pawn best = map.mapPawns.FreeColonistsSpawned
+				// 2.50.4: not bound to ONE colonist any more (the bill waited whenever he was busy, away
+				// or in another style) – the best crafters share it: skill at most 3 below the best
+				if (ours && bp.PawnRestriction != null)
+					bp.SetPawnRestriction(null);
+				int bestLevel = map.mapPawns.FreeColonistsSpawned
 					.Where(p => !p.WorkTypeIsDisabled(work) && p.workSettings != null && p.workSettings.WorkIsActive(work) && !p.Downed)
-					.OrderByDescending(p => p.skills?.GetSkill(bp.recipe.workSkill)?.Level ?? 0).FirstOrDefault();
-				if (best != null && bp.PawnRestriction != best)
-				{
-					bp.SetPawnRestriction(best);
-					if (!ours)
-						comp.masterBills.Add(id);
-				}
+					.Select(p => p.skills?.GetSkill(bp.recipe.workSkill)?.Level ?? 0).DefaultIfEmpty(-1).Max();
+				if (bestLevel < 0)
+					continue;
+				int min = Math.Max(0, bestLevel - 3);
+				if (!ours && bp.allowedSkillRange.min != 0)
+					continue;   // your own skill range
+				if (bp.allowedSkillRange.min != min)
+					bp.allowedSkillRange = new IntRange(min, bp.allowedSkillRange.max);
+				if (!ours)
+					comp.masterBills.Add(id);
 			}
 		}
 	}
