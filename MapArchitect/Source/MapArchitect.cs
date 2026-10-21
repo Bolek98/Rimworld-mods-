@@ -1327,6 +1327,46 @@ namespace MapArchitect
 	}
 
 	// ---------- simple tools without a choice
+	// 0.4.2: brought back – lost in 0.4.0 (the Undo button and Ctrl+Z)
+	public class Designator_MA_Undo : Designator
+	{
+		public Designator_MA_Undo()
+		{
+			defaultLabel = "MA_Undo".Translate();
+			defaultDesc = "MA_UndoDesc".Translate();
+			icon = ContentFinder<Texture2D>.Get("UI/Designators/Cancel", false) ?? BaseContent.WhiteTex;
+			defaultIconColor = new Color(1f, 0.9f, 0.6f);
+		}
+
+		public override string Label => "MA_Undo".Translate() + " (" + Undo.Count + ")";
+
+		public override void ProcessInput(Event ev)
+		{
+			Undo.UndoLast();
+		}
+
+		public override AcceptanceReport CanDesignateCell(IntVec3 c) => false;
+	}
+
+	// Ctrl+Z anywhere on the map
+	public class MAGameComponent : GameComponent
+	{
+		public MAGameComponent(Game game)
+		{
+			Undo.Clear();
+		}
+
+		public override void GameComponentOnGUI()
+		{
+			Event e = Event.current;
+			if (e != null && e.type == EventType.KeyDown && e.keyCode == KeyCode.Z && (e.control || e.command) && Find.CurrentMap != null)
+			{
+				Undo.UndoLast();
+				e.Use();
+			}
+		}
+	}
+
 	public abstract class Designator_MA_Tool : Designator_MA
 	{
 		protected abstract string Key { get; }
