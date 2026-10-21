@@ -1050,7 +1050,7 @@ public class AutoPharmacyMod : Mod
 	public static AutoPharmacySettings Settings;
 	private Vector2 scroll;
 	public static bool PharmacistActive => ModsConfig.IsActive("fluffy.pharmacist");
-	public const string Version = "1.3.1";
+	public const string Version = "1.3.2";
 	private static List<string> recBullets;
 
 	private static void Check(Listing_Standard l, string key, ref bool value, string field)

@@ -118,7 +118,13 @@ namespace HardyPlants
         public static void Frame(Rect r, Color c, float width = 1f, float radius = 0f)
         {
             if (Event.current.type != EventType.Repaint) return;
-            GUI.DrawTexture(r, BaseContent.WhiteTex, ScaleMode.StretchToFill, true, 0f, c, width, radius);
+            // 1.7 (Waylith) ignores the border width of GUI.DrawTexture and fills the whole box –
+            // the CHANGED marks were plain orange boxes. Four thin edges instead.
+            if (width <= 0f) width = 1f;
+            Fill(new Rect(r.x, r.y, r.width, width), c);
+            Fill(new Rect(r.x, r.yMax - width, r.width, width), c);
+            Fill(new Rect(r.x, r.y, width, r.height), c);
+            Fill(new Rect(r.xMax - width, r.y, width, r.height), c);
         }
 
         public static void Card(Rect r, bool highlight = false)

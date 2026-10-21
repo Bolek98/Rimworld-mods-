@@ -36,7 +36,7 @@ namespace ResearchFixer
 
     public class RFMod : Mod
     {
-        public const string Version = "0.3.0";
+        public const string Version = "0.3.1";
         public static RFSettings Settings;
         public static RFMod Instance;
 

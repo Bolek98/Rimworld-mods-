@@ -105,7 +105,7 @@ namespace ResearchedLoadout
 			}
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
-			MLog.Game("[Smart Colonist Gear] v2.16.5 loaded (messages: Logs\\SmartColonistGear.log).");
+			MLog.Game("[Smart Colonist Gear] v2.16.6 loaded (messages: Logs\\SmartColonistGear.log).");
 		}
 
 		public override string SettingsCategory()

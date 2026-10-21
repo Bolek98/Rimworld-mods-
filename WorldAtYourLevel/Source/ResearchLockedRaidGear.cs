@@ -107,7 +107,7 @@ namespace ResearchLockedRaidGear
 			// 2.10.0: raid types the player switched off (incidents, raid strategies, arrival modes)
 			TryPatch(h, AccessTools.Method(typeof(IncidentWorker), "CanFireNow"), null, "Postfix", typeof(RaidTypeIncidentPatch));
 			RaidTypeFilter.PatchWorkers(h);
-			MLog.Game("[World at Your Level] v2.13.2 loaded (messages: Logs\\WorldAtYourLevel.log).");
+			MLog.Game("[World at Your Level] v2.13.3 loaded (messages: Logs\\WorldAtYourLevel.log).");
 		}
 
 		private static void TryPatch(Harmony h, MethodInfo method, string prefix = null, string postfix = null, Type owner = null)
@@ -162,7 +162,7 @@ namespace ResearchLockedRaidGear
 		public override void DoSettingsWindowContents(Rect inRect)
 		{
 			// 2.13.0: recommended settings card on top
-			MUI.Version(inRect, "v2.13.2 · Bolek98");
+			MUI.Version(inRect, "v2.13.3 · Bolek98");
 			if (recBullets == null)
 			{
 				recBullets = new List<string>();
