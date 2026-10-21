@@ -108,6 +108,9 @@ public static class ParentCare
 			Give(plan, game, comp, kv.Key, cc, true);
 		// one nanny per two babies that need one
 		int wanted = (needNanny.Count + 1) / 2;
+		// 2.50.3: with two or more babies there is always at least one nanny helping the parents
+		if (babies.Count >= 2 && wanted < 1)
+			wanted = 1;
 		var nannies = new List<Pawn>();
 		foreach (Pawn b in needNanny)
 			if (nannyFor.TryGetValue(b.thingIDNumber, out int nid))
@@ -138,8 +141,9 @@ public static class ParentCare
 			return;
 		var jobs = plan[p];
 		jobs[cc] = 1;
-		if (mother)
-			foreach (WorkTypeDef w in jobs.Keys.ToList())
+		// 2.50.3: a nanny puts the babies first too (before, only parents did – a nanny with
+		// other priority-1 jobs hardly ever got to the babies)
+		foreach (WorkTypeDef w in jobs.Keys.ToList())
 			{
 				if (w == cc || jobs[w] != 1 || Planner.TopExempt(w) || (game != null && game.AnyLock(p, w)))
 					continue;
