@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Better Architect Menu shows a category without buildings only when it is marked special
+       (like Orders and Zones) – mark ours, only when that mod is loaded -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Better Architect Menu</li>
+    </mods>
+    <match Class="PatchOperationAddModExtension">
+      <xpath>Defs/DesignationCategoryDef[defName="MA_MapArchitect"]</xpath>
+      <value>
+        <li Class="BetterArchitect.SpecialCategoryExtension" />
+      </value>
+    </match>
+  </Operation>
+</Patch>
