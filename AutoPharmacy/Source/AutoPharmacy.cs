@@ -129,6 +129,9 @@ public static class Pharmacy
 				if (!info.isDrug && !d.IsMedicine && d.ingestible.CachedNutrition > 0.05f && info.cures.Count == 0
 				    && info.effects.Keys.All(k => k == Need.Mood || k == Need.Rest))
 					continue;
+				// 1.3.3: a meal is never handed out as medicine (unless it cures something) – colonists eat it themselves
+				if (d.ingestible.IsMeal && info.cures.Count == 0)
+					continue;
 				if (info.Useful)
 					list.Add(info);
 			}
@@ -410,7 +413,7 @@ public static class Pharmacy
 			n[Need.Fertility] = 0.4f;
 		if (s.useRest && p.needs?.rest != null && p.needs.rest.CurLevel < 0.08f && !p.InBed())
 			n[Need.Rest] = 0.4f;
-		if (s.useMood && p.needs?.mood != null && p.mindState?.mentalBreaker != null && p.needs.mood.CurLevel < p.mindState.mentalBreaker.BreakThresholdMinor)
+		if (s.useMood && p.needs?.mood != null && p.mindState?.mentalBreaker != null && p.needs.mood.CurLevel < p.mindState.mentalBreaker.BreakThresholdMajor)
 			n[Need.Mood] = p.needs.mood.CurLevel < p.mindState.mentalBreaker.BreakThresholdExtreme ? 0.6f : 0.4f;
 		return n;
 	}
@@ -431,6 +434,7 @@ public static class Pharmacy
 		public Thing thing;
 		public string reason;
 		public float score;
+		public bool minor;   // 1.3.3: only for mood, rest or planning – not urgent
 	}
 
 	public static Choice Choose(Pawn doctor, Pawn patient)
@@ -520,7 +524,7 @@ public static class Pharmacy
 				if (cu == null || !cu.CanBeUsedBy(patient, false, true).Accepted)
 					continue;
 			}
-			best = new Choice { drug = d, thing = t, reason = why ?? "", score = benefit };
+			best = new Choice { drug = d, thing = t, reason = why ?? "", score = benefit, minor = local < 0.7f };
 		}
 		return best;
 	}
@@ -718,7 +722,22 @@ public class WorkGiver_GiveDrug : WorkGiver_Scanner
 			return false;
 		if (patient != pawn && !pawn.CanReserveAndReach(patient, PathEndMode.Touch, Danger.Some, 1, -1, null, forced))
 			return false;
-		return Pharmacy.Choose(pawn, patient) != null;
+		Pharmacy.Choice c = Pharmacy.Choose(pawn, patient);
+		if (c == null)
+			return false;
+		// 1.3.3: something that is not urgent (mood, rest, planning) – only one colonist on the map
+		// runs around with it at a time, the others keep working
+		if (c.minor && patient != pawn && !forced && OthersGiving(pawn))
+			return false;
+		return true;
+	}
+
+	private static bool OthersGiving(Pawn pawn)
+	{
+		foreach (Pawn o in pawn.Map.mapPawns.FreeColonistsSpawned)
+			if (o != pawn && o.CurJobDef == AP_DefOf.AP_GiveDrug)
+				return true;
+		return false;
 	}
 
 	public static bool Ok(Pawn patient)
@@ -1050,7 +1069,7 @@ public class AutoPharmacyMod : Mod
 	public static AutoPharmacySettings Settings;
 	private Vector2 scroll;
 	public static bool PharmacistActive => ModsConfig.IsActive("fluffy.pharmacist");
-	public const string Version = "1.3.2";
+	public const string Version = "1.3.3";
 	private static List<string> recBullets;
 
 	private static void Check(Listing_Standard l, string key, ref bool value, string field)
