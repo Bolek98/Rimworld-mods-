@@ -195,7 +195,7 @@ namespace HardyPlants
     // ------------------------------------------------------------------
     public class HardyPlantsMod : Mod
     {
-        public const string Version = "1.7.0";
+        public const string Version = "1.7.1";
         public static HardyPlantsSettings Settings;
         private Vector2 scroll;
         private Vector2 leftScroll;
@@ -846,6 +846,46 @@ namespace HardyPlants
                 acc.Clear();
             acc[__instance] = a;
             return false;
+        }
+    }
+
+    // 1.7.1: with regrowth on, wild plants also come back under snow wherever it is warm enough for
+    // them to grow (the minimum growth temperature of this mod) – before, nothing spawned all winter
+    [HarmonyPatch(typeof(WildPlantSpawner), nameof(WildPlantSpawner.CheckSpawnWildPlantAt))]
+    public static class Patch_WildSpawnUnderSnow
+    {
+        [ThreadStatic] public static Map spawning;
+
+        public static void Prefix(WildPlantSpawner __instance, ref Map __state)
+        {
+            __state = spawning;
+            spawning = Traverse.Create(__instance).Field("map").GetValue<Map>();
+        }
+
+        public static void Finalizer(Map __state)
+        {
+            spawning = __state;
+        }
+    }
+
+    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.SnowAllowsPlanting))]
+    public static class Patch_SnowAllowsPlanting
+    {
+        public static void Postfix(IntVec3 c, Map map, ref bool __result)
+        {
+            if (__result || Patch_WildSpawnUnderSnow.spawning == null || Patch_WildSpawnUnderSnow.spawning != map)
+                return;
+            HardyPlantsSettings s = HardyPlantsMod.Settings;
+            if (s == null || !s.regrowOn)
+                return;
+            try
+            {
+                if (c.GetTemperature(map) >= s.minGrowth)
+                    __result = true;
+            }
+            catch
+            {
+            }
         }
     }
 

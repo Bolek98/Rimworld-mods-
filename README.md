@@ -12,7 +12,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Auto Pharmacy – Doctors Give the Right Drug | 1.3.1 | [AutoPharmacy](AutoPharmacy) |
 | Auto Turrets | 1.0.0 | [AutoTurrets](AutoTurrets) |
 | Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.4.0 | [BodyFit](BodyFit) |
-| Evergrowth – Plant Growth Control | 1.7.0 | [Evergrowth](Evergrowth) |
+| Evergrowth – Plant Growth Control | 1.7.1 | [Evergrowth](Evergrowth) |
 | Fewer Freezes – Smart Memory Cleanup | 1.1.0 | [FewerFreezes](FewerFreezes) |
 | Gender Balance | 1.3.0 | [GenderBalance](GenderBalance) |
 | Haul Smarter | 3.0.1 | [HaulSmarter](HaulSmarter) |
