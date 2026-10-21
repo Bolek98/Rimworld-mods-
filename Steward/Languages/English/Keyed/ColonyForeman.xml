@@ -728,6 +728,15 @@
   <CF_Sit_PrisonersHurt>hurt prisoners</CF_Sit_PrisonersHurt>
   <CF_SitWhen_PrisonersHurt>When: a prisoner needs tending. Doctor on priority 2.</CF_SitWhen_PrisonersHurt>
   <CF_SitR_PrisonersHurt>prisoners to tend: {0}</CF_SitR_PrisonersHurt>
+  <CF_Sit_Wounded>wounded colonists</CF_Sit_Wounded>
+  <CF_SitWhen_Wounded>When: a colonist or slave needs tending (even just one). Doctor on priority 1.</CF_SitWhen_Wounded>
+  <CF_SitR_Wounded>to tend: {0}</CF_SitR_Wounded>
+  <CF_Sit_BedHungry>hungry in bed</CF_Sit_BedHungry>
+  <CF_SitWhen_BedHungry>When: a bedridden patient or a prisoner in bed is hungry. Doctor (feeds patients) and Warden (feeds prisoners) on priority 1.</CF_SitWhen_BedHungry>
+  <CF_SitR_BedHungry>hungry patients: {0}, hungry prisoners: {1}</CF_SitR_BedHungry>
+  <CF_Sit_HungryNoMeals>hungry, few meals</CF_Sit_HungryNoMeals>
+  <CF_SitWhen_HungryNoMeals>When: colonists, slaves or prisoners are hungry and there are not enough ready meals for them. Cooking on priority 1.</CF_SitWhen_HungryNoMeals>
+  <CF_SitR_HungryNoMeals>meals missing: {0}</CF_SitR_HungryNoMeals>
   <CF_Sit_PrisonRelease>prisoners to release</CF_Sit_PrisonRelease>
   <CF_SitWhen_PrisonRelease>When: a prisoner is set to be released. Warden on priority 2.</CF_SitWhen_PrisonRelease>
   <CF_SitR_PrisonRelease>prisoners to release: {0}</CF_SitR_PrisonRelease>

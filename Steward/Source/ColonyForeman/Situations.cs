@@ -82,7 +82,11 @@ public enum Situation
 	// Steward 2.37
 	ProductsWaiting,
 	// Steward 2.39
-	AnimalTraining
+	AnimalTraining,
+	// Steward 2.51: care for the hurt and the hungry – colonists, slaves and prisoners
+	Wounded,
+	BedHungry,
+	HungryNoMeals
 }
 
 // one "N colonists on priority L" demand of a situation
@@ -832,6 +836,37 @@ public static partial class SituationRules
 			measure = PrisonersHurt,
 			reason = (c, a) => "CF_SitR_PrisonersHurt".Translate(a),
 			staff = (c, a, s) => c.Need(s, "Doctor", 2, Math.Max(1, Ceil(a / 3f)))
+		},
+		// ---- 2.51: care ----
+		new Def
+		{
+			id = Situation.Wounded, on = 1, off = 1, preview = new[] { "Doctor:1" },
+			measure = Wounded,
+			reason = (c, a) => "CF_SitR_Wounded".Translate(a),
+			staff = (c, a, s) => c.Need(s, "Doctor", 1, a >= 2 ? 2 : 1)
+		},
+		new Def
+		{
+			id = Situation.BedHungry, on = 1, off = 1, preview = new[] { "Doctor:1", "Warden:1" },
+			measure = c => BedHungry(c, out _, out _),
+			reason = (c, a) =>
+			{
+				BedHungry(c, out int col, out int pri);
+				return "CF_SitR_BedHungry".Translate(col, pri);
+			},
+			staff = (c, a, s) =>
+			{
+				BedHungry(c, out int col, out int pri);
+				if (col > 0) c.Need(s, "Doctor", 1, Math.Max(1, Ceil(col / 3f)));
+				if (pri > 0) c.Need(s, "Warden", 1, Math.Max(1, Ceil(pri / 3f)));
+			}
+		},
+		new Def
+		{
+			id = Situation.HungryNoMeals, on = 1, off = 1, preview = new[] { "Cooking:1" },
+			measure = HungryNoMeals,
+			reason = (c, a) => "CF_SitR_HungryNoMeals".Translate(a),
+			staff = (c, a, s) => c.Need(s, "Cooking", 1, Math.Max(1, Ceil(a / 4f)))
 		},
 		new Def
 		{

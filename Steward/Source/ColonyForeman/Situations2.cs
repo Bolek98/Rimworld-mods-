@@ -275,4 +275,68 @@ public static partial class SituationRules
 			work = count.OrderByDescending(kv => kv.Value).First().Key;
 		return n;
 	}
+
+	// ---- Steward 2.51: care ----
+
+	// colonists and slaves that need a doctor now (1–2 – bigger numbers are Mass casualties / Medical crisis)
+	private static int Wounded(Ctx c)
+	{
+		int n = 0;
+		var seen = new HashSet<int>();
+		void Check(IEnumerable<Pawn> pawns)
+		{
+			if (pawns == null) return;
+			foreach (Pawn p in pawns)
+			{
+				if (p?.health == null || p.Dead || !seen.Add(p.thingIDNumber))
+					continue;
+				if (HealthAIUtility.ShouldBeTendedNowByPlayer(p) || (p.Downed && !p.InBed()))
+					n++;
+			}
+		}
+		Check(c.map.mapPawns.FreeColonistsSpawned);
+		Check(c.map.mapPawns.SlavesOfColonySpawned);
+		return n;
+	}
+
+	// hungry colonists/slaves in a sickbed (fed by doctors) and hungry prisoners in bed (fed by wardens)
+	private static int BedHungry(Ctx c, out int colonists, out int prisoners)
+	{
+		colonists = prisoners = 0;
+		var seen = new HashSet<int>();
+		foreach (Pawn p in c.map.mapPawns.FreeColonistsSpawned.Concat(c.map.mapPawns.SlavesOfColonySpawned))
+			if (p?.needs?.food != null && seen.Add(p.thingIDNumber) && FeedPatientUtility.ShouldBeFed(p) && FeedPatientUtility.IsHungry(p))
+				colonists++;
+		foreach (Pawn p in c.map.mapPawns.PrisonersOfColonySpawned)
+			if (p?.needs?.food != null && p.guest != null && WardenFeedUtility.ShouldBeFed(p) && FeedPatientUtility.IsHungry(p))
+				prisoners++;
+		return colonists + prisoners;
+	}
+
+	// hungry people (colonists, slaves, prisoners) and not enough ready meals for them
+	private static int HungryNoMeals(Ctx c)
+	{
+		int hungry = 0;
+		foreach (Pawn p in c.map.mapPawns.FreeColonistsSpawned.Concat(c.map.mapPawns.SlavesOfColonySpawned).Concat(c.map.mapPawns.PrisonersOfColonySpawned))
+			if (p?.needs?.food != null && !p.Dead && FeedPatientUtility.IsHungry(p))
+				hungry++;
+		if (hungry == 0)
+			return 0;
+		// a working nutrient paste dispenser feeds everybody
+		foreach (Building b in c.map.listerBuildings.allBuildingsColonist)
+			if (b is Building_NutrientPasteDispenser d && d.CanDispenseNow)
+				return 0;
+		int meals = 0;
+		foreach (Thing t in c.map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree))
+		{
+			if (t?.def?.ingestible == null || !t.Spawned || t.IsForbidden(Faction.OfPlayer))
+				continue;
+			if (t.def.ingestible.preferability < FoodPreferability.MealAwful || !t.def.ingestible.HumanEdible)
+				continue;
+			meals += t.stackCount;
+			if (meals >= hungry)
+				return 0;
+		}
+		return hungry - meals;
+	}
 }
