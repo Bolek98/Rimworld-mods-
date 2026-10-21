@@ -661,7 +661,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.3.3";
+        public const string Version = "1.3.4";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -686,7 +686,9 @@ namespace GraphicsTuner
             LocationGeneratorFast.Patch(harmony);   // 1.3.2
             ModEffects.Patch(harmony);              // 1.3.2: effects from mods too
             TextureCap.Patch(harmony);              // 1.3.3: oversized mod textures
-            try { TextureCap.SweepLoaded(); } catch (Exception ex) { MLog.Warn("[Smooth FPS] texture limit: " + ex.Message); }
+            // 1.3.4: no more swapping textures that were loaded before Smooth FPS started – icons and
+            // pictures already handed out kept pointing at the destroyed originals (pink X, blank icons).
+            // Only textures loaded from now on start smaller.
             MLog.Game("[Smooth FPS] v" + Version + " loaded (messages: Logs\\SmoothFPS.log).");
             // 1.3.0: what happened if the last game crashed
             LongEventHandler.ExecuteWhenFinished(CrashCheck.Run);

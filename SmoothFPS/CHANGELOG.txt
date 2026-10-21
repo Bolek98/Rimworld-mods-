@@ -1,3 +1,6 @@
+1.3.4
+- Texture limit no longer swaps textures that were already loaded – that left some icons and pictures blank or as a pink X.
+
 1.3.0
 - Crash check: if the last game crashed to desktop without an error, Smooth FPS tells you at the next start what kind of crash it was (endless loop, memory access, out of memory …), when, which mods were active right before it, the last error, and – for an endless loop – the map cell where it happened. Uses the previous log and the crash record Windows saves. Full report in SmoothFPS_crash.txt in the save folder.
 - Video memory (1.7): Memory tab shows how much of the graphics card the game uses and how much the driver allows; "What takes video memory" lists the mods whose textures take the most. A warning when it is almost full (95 %) – that is when textures show up late, blank or as red crosses.
