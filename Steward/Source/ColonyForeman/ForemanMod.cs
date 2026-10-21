@@ -10,7 +10,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "2.49.6";
+	public const string Version = "2.49.7";
 
 	// 2.35.8: recommended values for each style (interval h, preferences,
 	// style strength, specialists share)
@@ -159,6 +159,13 @@ public sealed class ForemanMod : Mod
 		{
 			DrawMessages(inner);
 			return;
+		}
+		// 2.49.7: a click on the locked details offers the switch to Advanced at once –
+		// before, the click did nothing and it looked like the setting jumped back.
+		if (locked && Event.current.type == EventType.MouseDown && Mouse.IsOver(inner))
+		{
+			Event.current.Use();
+			Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("CF_LockedClick".Translate(Modes.Label(Modes.Current)), () => Modes.Set(StewardMode.Advanced), false));
 		}
 		MUI.BeginLock(locked);
 		try
