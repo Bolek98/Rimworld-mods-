@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- Better Architect Menu: put "Map Architect" next to Orders, Zones, Locations and Map edit
-       (the Colony group) and show it although it has no buildings – only when that mod is loaded -->
+  <!-- Better Architect Menu: the four "map" categories go next to Orders, Zones and Locations
+       (the Colony group) and show although they have no buildings – only when that mod is loaded -->
   <Operation Class="PatchOperationFindMod">
     <mods>
       <li>Better Architect Menu</li>
     </mods>
     <match Class="PatchOperationAddModExtension">
-      <xpath>Defs/DesignationCategoryDef[defName="MA_MapArchitect"]</xpath>
+      <xpath>Defs/DesignationCategoryDef[defName="MA_MapArchitect" or defName="MA_Terrain" or defName="MA_Nature" or defName="MA_Objects"]</xpath>
       <value>
         <li Class="BetterArchitect.SpecialCategoryExtension" />
         <li Class="BetterArchitect.NestedCategoryExtension">

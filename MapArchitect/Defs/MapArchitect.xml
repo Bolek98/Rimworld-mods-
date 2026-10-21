@@ -2,8 +2,8 @@
 <Defs>
   <DesignationCategoryDef>
     <defName>MA_MapArchitect</defName>
-    <label>map architect</label>
-    <description>Change the map instantly and for free: terrain, plants, mountains, ores, deep resources, geysers, fog and other objects. Ctrl+Z undoes the last change.</description>
+    <label>map: tools</label>
+    <description>Instant, free map tools: undo (Ctrl+Z), finish, repair, roofs, fog, snow, pollution, fire, clearing.</description>
     <order>5</order>
     <specialDesignatorClasses>
       <li>MapArchitect.Designator_MA_Undo</li>
@@ -13,28 +13,6 @@
       <li>MapArchitect.Designator_MA_Repair</li>
       <li>MapArchitect.Designator_MA_RoofBuild</li>
       <li>MapArchitect.Designator_MA_RoofRemoveAll</li>
-      <li>MapArchitect.Designator_MA_T_Soil</li>
-      <li>MapArchitect.Designator_MA_T_RichSoil</li>
-      <li>MapArchitect.Designator_MA_T_Sand</li>
-      <li>MapArchitect.Designator_MA_T_Gravel</li>
-      <li>MapArchitect.Designator_MA_T_Mud</li>
-      <li>MapArchitect.Designator_MA_T_Marsh</li>
-      <li>MapArchitect.Designator_MA_T_WaterShallow</li>
-      <li>MapArchitect.Designator_MA_T_WaterDeep</li>
-      <li>MapArchitect.Designator_MA_T_Ice</li>
-      <li>MapArchitect.Designator_MA_Terrain</li>
-      <li>MapArchitect.Designator_MA_Smooth</li>
-      <li>MapArchitect.Designator_MA_BiomeTrees</li>
-      <li>MapArchitect.Designator_MA_BiomeGrass</li>
-      <li>MapArchitect.Designator_MA_Plants</li>
-      <li>MapArchitect.Designator_MA_GrowUp</li>
-      <li>MapArchitect.Designator_MA_MountainQuick</li>
-      <li>MapArchitect.Designator_MA_RoofThick</li>
-      <li>MapArchitect.Designator_MA_RoofRemove</li>
-      <li>MapArchitect.Designator_MA_Mountain</li>
-      <li>MapArchitect.Designator_MA_Geyser</li>
-      <li>MapArchitect.Designator_MA_Object</li>
-      <li>MapArchitect.Designator_MA_Deep</li>
       <li>MapArchitect.Designator_MA_FogAdd</li>
       <li>MapArchitect.Designator_MA_FogRemove</li>
       <li>MapArchitect.Designator_MA_SnowRemove</li>
@@ -46,6 +24,63 @@
       <li>MapArchitect.Designator_MA_ClearRocks</li>
       <li>MapArchitect.Designator_MA_ClearFilth</li>
       <li>MapArchitect.Designator_MA_Clear</li>
+    </specialDesignatorClasses>
+  </DesignationCategoryDef>
+  <DesignationCategoryDef>
+    <defName>MA_Terrain</defName>
+    <label>map: terrain</label>
+    <description>Paint any terrain, floor or water, smooth stone, build mountains and ores, deep resources.</description>
+    <order>6</order>
+    <specialDesignatorClasses>
+      <li>MapArchitect.Designator_MA_Undo</li>
+      <li>MapArchitect.Designator_MA_T_Soil</li>
+      <li>MapArchitect.Designator_MA_T_RichSoil</li>
+      <li>MapArchitect.Designator_MA_T_Sand</li>
+      <li>MapArchitect.Designator_MA_T_Gravel</li>
+      <li>MapArchitect.Designator_MA_T_Mud</li>
+      <li>MapArchitect.Designator_MA_T_Marsh</li>
+      <li>MapArchitect.Designator_MA_T_WaterShallow</li>
+      <li>MapArchitect.Designator_MA_T_WaterDeep</li>
+      <li>MapArchitect.Designator_MA_T_Ice</li>
+      <li>MapArchitect.Designator_MA_Terrain</li>
+      <li>MapArchitect.Designator_MA_Smooth</li>
+      <li>MapArchitect.Designator_MA_MountainQuick</li>
+      <li>MapArchitect.Designator_MA_RoofThick</li>
+      <li>MapArchitect.Designator_MA_RoofRemove</li>
+      <li>MapArchitect.Designator_MA_Mountain</li>
+      <li>MapArchitect.Designator_MA_Deep</li>
+    </specialDesignatorClasses>
+  </DesignationCategoryDef>
+  <DesignationCategoryDef>
+    <defName>MA_Nature</defName>
+    <label>map: nature</label>
+    <description>Trees, grass, bushes and crops of any biome or mod; plants grow up at once.</description>
+    <order>7</order>
+    <specialDesignatorClasses>
+      <li>MapArchitect.Designator_MA_Undo</li>
+      <li>MapArchitect.Designator_MA_BiomeTrees</li>
+      <li>MapArchitect.Designator_MA_BiomeGrass</li>
+      <li>MapArchitect.Designator_MA_Plants</li>
+      <li>MapArchitect.Designator_MA_GrowUp</li>
+      <li>MapArchitect.Designator_MA_ClearPlants</li>
+    </specialDesignatorClasses>
+  </DesignationCategoryDef>
+  <DesignationCategoryDef>
+    <defName>MA_Objects</defName>
+    <label>map: objects</label>
+    <description>Place anything that can be on a map – from the game, DLCs and all your mods: geysers, ruins, buildings, items, animals, people, mechanoids, filth.</description>
+    <order>8</order>
+    <specialDesignatorClasses>
+      <li>MapArchitect.Designator_MA_Undo</li>
+      <li>MapArchitect.Designator_MA_Geyser</li>
+      <li>MapArchitect.Designator_MA_ObjSpecial</li>
+      <li>MapArchitect.Designator_MA_ObjBuildings</li>
+      <li>MapArchitect.Designator_MA_ObjItems</li>
+      <li>MapArchitect.Designator_MA_ObjAnimals</li>
+      <li>MapArchitect.Designator_MA_ObjPeople</li>
+      <li>MapArchitect.Designator_MA_ObjFilth</li>
+      <li>MapArchitect.Designator_MA_Object</li>
+      <li>Designator_Deconstruct</li>
     </specialDesignatorClasses>
   </DesignationCategoryDef>
 </Defs>

@@ -268,6 +268,7 @@ namespace MapArchitect
 		public object value;
 		public Texture2D icon;
 		public Color iconColor = Color.white;
+		public string mod;   // 0.4.0: which mod it comes from (filter)
 	}
 
 	public class Dialog_Pick : Window
@@ -281,13 +282,21 @@ namespace MapArchitect
 		private readonly List<string> groups;
 		public static float sliderValue = 0.5f;
 		private readonly string sliderLabel;
+		private string mod;
+		private readonly List<string> mods;
+		private readonly Func<Rect, float> extra;   // 0.4.0: extra controls under the search (returns used height)
 
-		public override Vector2 InitialSize => new Vector2(560f, 680f);
+		public override Vector2 InitialSize => new Vector2(680f, 740f);
 
-		public Dialog_Pick(string title, List<PickOption> options, Action<PickOption> chosen, string sliderLabel = null)
+		public Dialog_Pick(string title, List<PickOption> options, Action<PickOption> chosen, string sliderLabel = null, Func<Rect, float> extra = null)
 		{
 			this.title = title;
+			this.extra = extra;
 			all = options.OrderBy(o => o.label).ToList();
+			foreach (PickOption o in all)
+				if (o.mod == null && o.value is Def d)
+					o.mod = d.modContentPack?.Name ?? "?";
+			mods = all.Select(o => o.mod).Where(m => !m.NullOrEmpty()).Distinct().OrderBy(m => m == "Core" ? "" : m).ToList();
 			this.chosen = chosen;
 			this.sliderLabel = sliderLabel;
 			groups = all.Select(o => o.group).Where(g => !g.NullOrEmpty()).Distinct().OrderBy(g => g).ToList();
@@ -309,6 +318,23 @@ namespace MapArchitect
 			if (Event.current.type == EventType.Layout)
 				GUI.FocusControl("MA_Search");
 			y += 32f;
+			if (mods.Count > 1)
+			{
+				Widgets.Label(new Rect(inRect.x, y + 3f, 60f, 24f), "MA_Mod".Translate());
+				if (Widgets.ButtonText(new Rect(inRect.x + 60f, y, inRect.width - 60f, 26f), mod ?? (string)"MA_AllMods".Translate()))
+				{
+					var opts = new List<FloatMenuOption> { new FloatMenuOption("MA_AllMods".Translate(), () => mod = null) };
+					foreach (string m in mods)
+					{
+						string mm = m;
+						opts.Add(new FloatMenuOption(m + " (" + all.Count(o => o.mod == mm) + ")", () => mod = mm));
+					}
+					Find.WindowStack.Add(new FloatMenu(opts));
+				}
+				y += 30f;
+			}
+			if (extra != null)
+				y += extra(new Rect(inRect.x, y, inRect.width, 30f));
 			if (sliderLabel != null)
 			{
 				Widgets.Label(new Rect(inRect.x, y, 200f, 26f), sliderLabel + ": " + (sliderValue * 100f).ToString("0") + " %");
@@ -337,7 +363,8 @@ namespace MapArchitect
 				y = by + 32f;
 			}
 			string s = search.Trim();
-			var list = all.Where(o => (group == null || o.group == group) && (s.Length == 0 || o.label.IndexOf(s, StringComparison.OrdinalIgnoreCase) >= 0)).ToList();
+			var list = all.Where(o => (group == null || o.group == group) && (mod == null || o.mod == mod)
+				&& (s.Length == 0 || o.label.IndexOf(s, StringComparison.OrdinalIgnoreCase) >= 0 || (o.mod != null && o.mod.IndexOf(s, StringComparison.OrdinalIgnoreCase) >= 0))).ToList();
 			Rect outer = new Rect(inRect.x, y, inRect.width, inRect.yMax - y);
 			Rect view = new Rect(0f, 0f, outer.width - 18f, list.Count * 30f);
 			Widgets.BeginScrollView(outer, ref scroll, view);
@@ -357,7 +384,17 @@ namespace MapArchitect
 					GUI.color = Color.white;
 					lx = 32f;
 				}
-				Widgets.Label(new Rect(row.x + lx, row.y + 4f, row.width - lx, 24f), list[i].label);
+				Widgets.Label(new Rect(row.x + lx, row.y + 4f, row.width - lx - 180f, 24f), list[i].label.Truncate(row.width - lx - 180f));
+				if (!list[i].mod.NullOrEmpty())
+				{
+					GUI.color = new Color(0.6f, 0.65f, 0.7f);
+					Text.Font = GameFont.Tiny;
+					Text.Anchor = TextAnchor.MiddleRight;
+					Widgets.Label(new Rect(row.xMax - 178f, row.y, 174f, 28f), list[i].mod.Truncate(174f));
+					Text.Anchor = TextAnchor.UpperLeft;
+					Text.Font = GameFont.Small;
+					GUI.color = Color.white;
+				}
 				if (Widgets.ButtonInvisible(row))
 				{
 					chosen(list[i]);
@@ -421,6 +458,9 @@ namespace MapArchitect
 			return base.GizmoOnGUI(topLeft, maxWidth, parms);
 		}
 		protected virtual List<PickOption> Options() => new List<PickOption>();
+		protected virtual Func<Rect, float> ExtraUI => null;
+		// return true when the designator selects itself later (e.g. after a second picker)
+		protected virtual bool AfterPick(PickOption o) => false;
 		protected virtual string SliderLabel => null;
 
 		public override string Label => PresetLabel ?? (choiceLabel.NullOrEmpty() ? BaseLabel : BaseLabel + ": " + choiceLabel);
@@ -437,8 +477,9 @@ namespace MapArchitect
 				{
 					choice = o.value;
 					choiceLabel = o.label;
-					Find.DesignatorManager.Select(this);
-				}, SliderLabel));
+					if (!AfterPick(o))
+						Find.DesignatorManager.Select(this);
+				}, SliderLabel, ExtraUI));
 				return;
 			}
 			base.ProcessInput(ev);
@@ -698,46 +739,171 @@ namespace MapArchitect
 		}
 	}
 
+	// 0.4.0: everything that can be on a map, split into families (each its own button)
+	public enum ObjFamily { All, Special, Buildings, Items, Animals, People, Filth }
+
 	public class Designator_MA_Object : Designator_MA
 	{
 		private Rot4 rot = Rot4.North;
+		private ThingDef stuff;
+		public static int pawnFaction;   // 0 no faction / wild, 1 your colony, 2 hostile
+		protected virtual ObjFamily Family => ObjFamily.All;
+		protected virtual string Key => "MA_Object";
 
 		public Designator_MA_Object()
 		{
-			defaultLabel = "MA_Object".Translate();
-			defaultDesc = "MA_ObjectDesc".Translate();
+			defaultLabel = Key.Translate();
+			defaultDesc = (Key + "Desc").Translate();
 			icon = Tex("UI/Designators/Claim");
 			defaultIconColor = new Color(1f, 0.75f, 0.95f);
 		}
 
-		protected override string BaseLabel => "MA_Object".Translate();
+		protected override string BaseLabel => Key.Translate();
 
 		public override DrawStyleCategoryDef DrawStyleCategory => null;
 		public override bool DragDrawMeasurements => false;
 
-		private static string GroupOf(ThingDef d)
+		private static bool IsSpecial(ThingDef d)
+		{
+			string n = d.defName;
+			return n.IndexOf("Geyser", StringComparison.OrdinalIgnoreCase) >= 0 || n.IndexOf("Vent", StringComparison.OrdinalIgnoreCase) >= 0
+				|| n.StartsWith("Ancient") || n.IndexOf("Ruin", StringComparison.OrdinalIgnoreCase) >= 0 || n.IndexOf("Archotech", StringComparison.OrdinalIgnoreCase) >= 0
+				|| n.IndexOf("Archite", StringComparison.OrdinalIgnoreCase) >= 0 || n.IndexOf("Monolith", StringComparison.OrdinalIgnoreCase) >= 0
+				|| (d.thingCategories != null && d.thingCategories.Any(tc => tc.defName == "StoneChunks"));
+		}
+
+		private static string SpecialGroup(ThingDef d)
 		{
 			string n = d.defName;
 			if (n.IndexOf("Geyser", StringComparison.OrdinalIgnoreCase) >= 0 || n.IndexOf("Vent", StringComparison.OrdinalIgnoreCase) >= 0)
 				return "MA_GroupSpecial".Translate();
-			if (n.StartsWith("Ancient") || n.IndexOf("Ruin", StringComparison.OrdinalIgnoreCase) >= 0 || n.IndexOf("Archotech", StringComparison.OrdinalIgnoreCase) >= 0 || n.IndexOf("Archite", StringComparison.OrdinalIgnoreCase) >= 0)
-				return "MA_GroupAncient".Translate();
-			if (d.thingCategories != null && d.thingCategories.Any(tc => tc.defName == "StoneChunks" || tc.defName == "ResourcesRaw"))
+			if (d.thingCategories != null && d.thingCategories.Any(tc => tc.defName == "StoneChunks"))
 				return "MA_GroupMinerals".Translate();
-			if (d.category == ThingCategory.Item)
-				return "MA_GroupItems".Translate();
-			return "MA_GroupBuildings".Translate();
+			return "MA_GroupAncient".Translate();
 		}
+
+		private static string ItemGroup(ThingDef d)
+		{
+			ThingCategoryDef c = d.FirstThingCategory;
+			if (c == null)
+				return "MA_GroupOther".Translate();
+			// the top category under the root (Foods, Manufactured, Weapons, Apparel …)
+			while (c.parent != null && c.parent != ThingCategoryDefOf.Root)
+				c = c.parent;
+			return c.LabelCap;
+		}
+
+		private static string BuildingGroup(ThingDef d)
+		{
+			if (d.designationCategory != null)
+				return d.designationCategory.LabelCap;
+			if (d.building != null && d.building.isNaturalRock)
+				return "MA_GroupRock".Translate();
+			return "MA_GroupOther".Translate();
+		}
+
+		private static bool Placeable(ThingDef d)
+		{
+			return !d.label.NullOrEmpty() && !d.IsBlueprint && !d.IsFrame && !d.isUnfinishedThing && !d.IsCorpse && d.plant == null
+				&& d.thingClass != null && !typeof(Pawn).IsAssignableFrom(d.thingClass) && !typeof(MinifiedThing).IsAssignableFrom(d.thingClass)
+				&& !(d.building?.isNaturalRock ?? false);
+		}
+
+		private static PickOption Opt(ThingDef d, string group) => new PickOption { label = d.LabelCap, group = group, value = d, icon = d.uiIcon, iconColor = d.uiIconColor };
 
 		protected override List<PickOption> Options()
 		{
-			var list = DefDatabase<ThingDef>.AllDefsListForReading
-				.Where(d => !d.label.NullOrEmpty() && !d.IsBlueprint && !d.IsFrame && !d.isUnfinishedThing && !d.IsCorpse && d.plant == null && !(d.building?.isNaturalRock ?? false)
-					&& (d.category == ThingCategory.Building || d.category == ThingCategory.Item) && d.thingClass != null && !typeof(Pawn).IsAssignableFrom(d.thingClass) && !typeof(MinifiedThing).IsAssignableFrom(d.thingClass))
-				.Select(d => new PickOption { label = d.LabelCap, group = GroupOf(d), value = d, icon = d.uiIcon, iconColor = d.uiIconColor }).ToList();
-			foreach (PawnKindDef k in DefDatabase<PawnKindDef>.AllDefsListForReading.Where(k => k.RaceProps != null && k.RaceProps.Animal && !k.label.NullOrEmpty()))
-				list.Add(new PickOption { label = k.LabelCap, group = "MA_GroupAnimals".Translate(), value = k, icon = k.race?.uiIcon });
+			var list = new List<PickOption>();
+			ObjFamily f = Family;
+			foreach (ThingDef d in DefDatabase<ThingDef>.AllDefsListForReading)
+			{
+				try
+				{
+					if (!Placeable(d))
+						continue;
+					bool special = (d.category == ThingCategory.Building || d.category == ThingCategory.Item) && IsSpecial(d);
+					if (d.category == ThingCategory.Filth)
+					{
+						if (f == ObjFamily.Filth || f == ObjFamily.All)
+							list.Add(Opt(d, "MA_GroupFilth".Translate()));
+					}
+					else if (special)
+					{
+						if (f == ObjFamily.Special || f == ObjFamily.All)
+							list.Add(Opt(d, SpecialGroup(d)));
+					}
+					else if (d.category == ThingCategory.Building)
+					{
+						if (f == ObjFamily.Buildings || f == ObjFamily.All)
+							list.Add(Opt(d, BuildingGroup(d)));
+					}
+					else if (d.category == ThingCategory.Item)
+					{
+						if (f == ObjFamily.Items || f == ObjFamily.All)
+							list.Add(Opt(d, ItemGroup(d)));
+					}
+				}
+				catch
+				{
+				}
+			}
+			foreach (PawnKindDef k in DefDatabase<PawnKindDef>.AllDefsListForReading)
+			{
+				if (k.RaceProps == null || k.label.NullOrEmpty() || k.race == null)
+					continue;
+				string g = null;
+				if (k.RaceProps.Animal && (f == ObjFamily.Animals || f == ObjFamily.All))
+					g = k.RaceProps.FleshType == FleshTypeDefOf.Insectoid ? (string)"MA_GroupInsects".Translate() : (string)"MA_GroupAnimals".Translate();
+				else if (!k.RaceProps.Animal && (f == ObjFamily.People || f == ObjFamily.All))
+				{
+					if (k.RaceProps.IsMechanoid) g = "MA_GroupMechs".Translate();
+					else if (k.RaceProps.Humanlike) g = k.defaultFactionDef != null ? k.defaultFactionDef.LabelCap.ToString() : (string)"MA_GroupPeople".Translate();
+					else g = "MA_GroupCreatures".Translate();
+				}
+				if (g != null)
+					list.Add(new PickOption { label = k.LabelCap, group = g, value = k, icon = k.race.uiIcon, mod = k.modContentPack?.Name });
+			}
 			return list;
+		}
+
+		// people: who they belong to
+		protected override Func<Rect, float> ExtraUI => Family == ObjFamily.People || Family == ObjFamily.All ? (Func<Rect, float>)(r =>
+		{
+			Widgets.Label(new Rect(r.x, r.y + 3f, 90f, 24f), "MA_Faction".Translate());
+			float x = r.x + 90f;
+			for (int i = 0; i < 3; i++)
+			{
+				string lab = ("MA_Faction" + i).Translate();
+				float w = Text.CalcSize(lab).x + 20f;
+				GUI.color = pawnFaction == i ? new Color(0.55f, 1f, 0.55f) : Color.white;
+				if (Widgets.ButtonText(new Rect(x, r.y, w, 26f), lab))
+					pawnFaction = i;
+				GUI.color = Color.white;
+				x += w + 4f;
+			}
+			return 30f;
+		}) : null;
+
+		// things made from a material: choose it right after the thing
+		protected override bool AfterPick(PickOption o)
+		{
+			stuff = null;
+			if (!(o.value is ThingDef d) || !d.MadeFromStuff)
+				return false;
+			var stuffs = GenStuff.AllowedStuffsFor(d).ToList();
+			if (stuffs.Count <= 1)
+			{
+				stuff = stuffs.FirstOrDefault();
+				return false;
+			}
+			var opts = stuffs.Select(st => new PickOption { label = st.LabelCap, group = st.stuffProps?.categories?.FirstOrDefault()?.LabelCap.ToString(), value = st, icon = st.uiIcon, iconColor = st.stuffProps?.color ?? Color.white }).ToList();
+			Find.WindowStack.Add(new Dialog_Pick("MA_Stuff".Translate(d.LabelCap), opts, so =>
+			{
+				stuff = so.value as ThingDef;
+				choiceLabel = o.label + " (" + so.label + ")";
+				Find.DesignatorManager.Select(this);
+			}));
+			return true;
 		}
 
 		public override void SelectedUpdate()
@@ -755,6 +921,21 @@ namespace MapArchitect
 			}
 		}
 
+		private static Faction HostileFor(PawnKindDef k)
+		{
+			if (k.RaceProps.IsMechanoid)
+				return Faction.OfMechanoids;
+			if (!k.RaceProps.Humanlike)
+				return ModsConfig.AnomalyActive ? Faction.OfEntities : null;
+			if (k.defaultFactionDef != null)
+			{
+				Faction own = Find.FactionManager.FirstFactionOfDef(k.defaultFactionDef);
+				if (own != null && own.HostileTo(Faction.OfPlayer))
+					return own;
+			}
+			return Find.FactionManager.RandomEnemyFaction(false, false, true);
+		}
+
 		protected override void Apply(List<IntVec3> cells)
 		{
 			if (cells.Count == 0)
@@ -762,13 +943,29 @@ namespace MapArchitect
 			IntVec3 c = cells[0];
 			if (choice is PawnKindDef k)
 			{
-				Pawn p = PawnGenerator.GeneratePawn(new PawnGenerationRequest(k, null, PawnGenerationContext.NonPlayer));
+				Faction fac = null;
+				if (!k.RaceProps.Animal || pawnFaction != 0)
+				{
+					if (pawnFaction == 1) fac = Faction.OfPlayer;
+					else if (pawnFaction == 2) fac = HostileFor(k);
+					else if (k.RaceProps.IsMechanoid) fac = null;
+				}
+				if (k.RaceProps.Animal && pawnFaction == 2) fac = null;   // hostile animal = manhunter below
+				Pawn p = PawnGenerator.GeneratePawn(new PawnGenerationRequest(k, fac, PawnGenerationContext.NonPlayer, forceGenerateNewPawn: true));
 				Edit.Spawn(p, c, Map, Rot4.Random);
+				if (pawnFaction == 2)
+				{
+					if (k.RaceProps.Animal)
+						p.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.ManhunterPermanent);
+					else if (p.Faction != null && p.Faction != Faction.OfPlayer)
+						Verse.AI.Group.LordMaker.MakeNewLord(p.Faction, new LordJob_AssaultColony(p.Faction), Map, new[] { p });
+				}
 				return;
 			}
 			if (!(choice is ThingDef d))
 				return;
-			Thing t = ThingMaker.MakeThing(d, d.MadeFromStuff ? GenStuff.DefaultStuffFor(d) : null);
+			ThingDef st = d.MadeFromStuff ? (stuff ?? GenStuff.DefaultStuffFor(d)) : null;
+			Thing t = ThingMaker.MakeThing(d, st);
 			if (d.category == ThingCategory.Building)
 			{
 				CellRect r = GenAdj.OccupiedRect(c, rot, d.Size);
@@ -782,55 +979,54 @@ namespace MapArchitect
 						if (o.def.category == ThingCategory.Building || o is Plant)
 							Edit.Remove(o);
 			}
-			else
+			else if (d.category == ThingCategory.Item)
 				t.stackCount = Math.Max(1, Math.Min(d.stackLimit, d.stackLimit >= 75 ? 75 : d.stackLimit));
 			Edit.Spawn(t, c, Map, rot);
 		}
 	}
 
-	public class Designator_MA_Undo : Designator
+	public class Designator_MA_ObjSpecial : Designator_MA_Object
 	{
-		public Designator_MA_Undo()
-		{
-			defaultLabel = "MA_Undo".Translate();
-			defaultDesc = "MA_UndoDesc".Translate();
-			icon = ContentFinder<Texture2D>.Get("UI/Designators/Cancel", false) ?? BaseContent.WhiteTex;
-			defaultIconColor = new Color(1f, 0.9f, 0.6f);
-		}
-
-		public override string Label => "MA_Undo".Translate() + " (" + Undo.Count + ")";
-
-		public override void ProcessInput(Event ev)
-		{
-			Undo.UndoLast();
-		}
-
-		public override AcceptanceReport CanDesignateCell(IntVec3 c) => false;
+		protected override ObjFamily Family => ObjFamily.Special;
+		protected override string Key => "MA_ObjSpecial";
+		protected override Texture2D LazyIcon() => DefDatabase<ThingDef>.GetNamedSilentFail("AncientCryptosleepCasket")?.uiIcon;
 	}
 
-	// Ctrl+Z anywhere on the map
-	public class MAGameComponent : GameComponent
+	public class Designator_MA_ObjBuildings : Designator_MA_Object
 	{
-		public MAGameComponent(Game game)
-		{
-			Undo.Clear();
-		}
-
-		public override void GameComponentOnGUI()
-		{
-			Event e = Event.current;
-			if (e != null && e.type == EventType.KeyDown && e.keyCode == KeyCode.Z && (e.control || e.command) && Find.CurrentMap != null)
-			{
-				Undo.UndoLast();
-				e.Use();
-			}
-		}
+		protected override ObjFamily Family => ObjFamily.Buildings;
+		protected override string Key => "MA_ObjBuildings";
+		protected override Texture2D LazyIcon() => DefDatabase<ThingDef>.GetNamedSilentFail("Bed")?.uiIcon;
 	}
-}
 
+	public class Designator_MA_ObjItems : Designator_MA_Object
+	{
+		protected override ObjFamily Family => ObjFamily.Items;
+		protected override string Key => "MA_ObjItems";
+		protected override Texture2D LazyIcon() => DefDatabase<ThingDef>.GetNamedSilentFail("MedicineIndustrial")?.uiIcon;
+	}
 
-namespace MapArchitect
-{
+	public class Designator_MA_ObjAnimals : Designator_MA_Object
+	{
+		protected override ObjFamily Family => ObjFamily.Animals;
+		protected override string Key => "MA_ObjAnimals";
+		protected override Texture2D LazyIcon() => DefDatabase<ThingDef>.GetNamedSilentFail("Muffalo")?.uiIcon;
+	}
+
+	public class Designator_MA_ObjPeople : Designator_MA_Object
+	{
+		protected override ObjFamily Family => ObjFamily.People;
+		protected override string Key => "MA_ObjPeople";
+		protected override Texture2D LazyIcon() => DefDatabase<ThingDef>.GetNamedSilentFail("Apparel_Parka")?.uiIcon;
+	}
+
+	public class Designator_MA_ObjFilth : Designator_MA_Object
+	{
+		protected override ObjFamily Family => ObjFamily.Filth;
+		protected override string Key => "MA_ObjFilth";
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/SnowClearAreaOn");
+	}
+
 	internal static class Pick
 	{
 		public static TerrainDef Terrain(params string[] names)
