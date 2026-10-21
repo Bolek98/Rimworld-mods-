@@ -95,7 +95,9 @@ public sealed class PriorityAreaComp : MapComponent
 	// 2.23.0: critical situations come first
 	// 2.35.4: only real danger pauses an area (fire, raid, manhunters, breaks,
 	// toxic air …) – food, cold, weather, a birth or one patient no longer do
-	public const Crisis CriticalMask = Crisis.Fire | Crisis.Raid | Crisis.Toxic | Crisis.Manhunters | Crisis.PrisonBreak
+	// 2.49.4: "toxic air" (pollution, wastepacks lying around) no longer pauses an area – only real
+	// gas at your people does (ToxGas)
+	public const Crisis CriticalMask = Crisis.Fire | Crisis.Raid | Crisis.Manhunters | Crisis.PrisonBreak
 		| Crisis.DangerousBreak | Crisis.EntityEscape | Crisis.VacuumBreach | Crisis.ToxGas | Crisis.Siege;
 
 	// 2.35.1: an area that does rescue / doctors / firefighting is exactly what a
@@ -134,6 +136,9 @@ public sealed class PriorityAreaComp : MapComponent
 	// forest / Farming, hauling and cleaning in Tidy; rescue works always (it is about lives)
 	public static ForemanStyle[] StylesFor(PriorityAreaMode m)
 	{
+		// 2.49.4: back to every style – switching styles all the time was annoying
+		if (true)
+			return null;
 		switch (m)
 		{
 		case PriorityAreaMode.Build: return new[] { ForemanStyle.Building };
