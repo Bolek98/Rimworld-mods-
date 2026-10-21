@@ -107,7 +107,7 @@ namespace ResearchLockedRaidGear
 			// 2.10.0: raid types the player switched off (incidents, raid strategies, arrival modes)
 			TryPatch(h, AccessTools.Method(typeof(IncidentWorker), "CanFireNow"), null, "Postfix", typeof(RaidTypeIncidentPatch));
 			RaidTypeFilter.PatchWorkers(h);
-			MLog.Game("[World at Your Level] v2.13.3 loaded (messages: Logs\\WorldAtYourLevel.log).");
+			MLog.Game("[World at Your Level] v2.14.0 loaded (messages: Logs\\WorldAtYourLevel.log).");
 		}
 
 		private static void TryPatch(Harmony h, MethodInfo method, string prefix = null, string postfix = null, Type owner = null)
@@ -162,7 +162,7 @@ namespace ResearchLockedRaidGear
 		public override void DoSettingsWindowContents(Rect inRect)
 		{
 			// 2.13.0: recommended settings card on top
-			MUI.Version(inRect, "v2.13.3 · Bolek98");
+			MUI.Version(inRect, "v2.14.0 · Bolek98");
 			if (recBullets == null)
 			{
 				recBullets = new List<string>();
@@ -356,6 +356,8 @@ namespace ResearchLockedRaidGear
 			listing_Standard.Begin(r);
 			listing_Standard.ColumnWidth = (r.width - 34f) / 2f;
 			Check(listing_Standard, "RLRG_OnlyCrafted", ref Settings.onlyCrafted, "onlyCrafted");
+			if (Settings.onlyCrafted && Settings.matchColony)
+				Check(listing_Standard, "RLRG_StrictCrafted", ref Settings.strictCrafted, "strictCrafted");
 			if (Settings.onlyCrafted && InGame)
 			{
 				RaidGearGameComponent raidGearGameComponent = RaidGearGameComponent.Get();
@@ -423,6 +425,7 @@ namespace ResearchLockedRaidGear
 				Find.WindowStack.Add(new Dialog_VisitorDiag());
 			}
 			Check(listing_Standard, "RLRG_WorldMechs", ref Settings.worldMechanoids, "worldMechanoids");
+			Check(listing_Standard, "RLRG_SiteTurrets", ref Settings.siteTurrets, "siteTurrets");
 			Check(listing_Standard, "RLRG_WorldItems", ref Settings.worldItems, "worldItems");
 			if (Settings.worldItems)
 			{
@@ -660,6 +663,10 @@ namespace ResearchLockedRaidGear
 		public bool worldRaidFactions = true;
 
 		public bool worldMechanoids;
+		// 2.14.0: with "match the colony" enemies still only get what you have crafted
+		public bool strictCrafted = true;
+		// 2.14.0: turrets on quest sites, bases and sieges only up to the turrets you have built yourself
+		public bool siteTurrets = true;
 
 		public bool worldItems = true;
 
@@ -820,6 +827,8 @@ namespace ResearchLockedRaidGear
 			Scribe_Values.Look(ref levelByProgress, "levelByProgress", true);
 			Scribe_Values.Look(ref worldRaidFactions, "worldRaidFactions", true);
 			Scribe_Values.Look(ref worldMechanoids, "worldMechanoids", false);
+			Scribe_Values.Look(ref strictCrafted, "strictCrafted", true);
+			Scribe_Values.Look(ref siteTurrets, "siteTurrets", true);
 			Scribe_Values.Look(ref worldItems, "worldItems", true);
 			Scribe_Values.Look(ref worldIncidents, "worldIncidents", true);
 			Scribe_Values.Look(ref worldMessages, "worldMessages", true);
@@ -2503,6 +2512,16 @@ namespace ResearchLockedRaidGear
 		}
 
 		// gear of an arriving pawn: researched and not better than the colony's
+		// 2.14.0: "match the colony" + "only crafted" + strict: both must hold
+		private static bool Strict
+		{
+			get
+			{
+				ResearchLockedRaidGearSettings st = ResearchLockedRaidGearMod.Settings;
+				return st != null && st.onlyCrafted && st.strictCrafted && MatchOn;
+			}
+		}
+
 		private static bool PawnThingOk(Thing t, bool beast)
 		{
 			if (t == null)
@@ -2517,7 +2536,7 @@ namespace ResearchLockedRaidGear
 			{
 				return false;
 			}
-			return MatchDefOk(t.def, t.Stuff);
+			return MatchDefOk(t.def, t.Stuff) && (!Strict || CraftedOk(t.def));
 		}
 
 		// the same kind is fine, only its material is too good: same kind from ordinary material
@@ -2527,7 +2546,7 @@ namespace ResearchLockedRaidGear
 			{
 				return false;
 			}
-			return IsResearchAllowed(t.def) && MatchDefOk(t.def, null);
+			return IsResearchAllowed(t.def) && MatchDefOk(t.def, null) && (!Strict || CraftedOk(t.def));
 		}
 
 		private static void CapQuality(Thing t)
@@ -2601,7 +2620,7 @@ namespace ResearchLockedRaidGear
 			for (int i = 0; i < all.Count; i++)
 			{
 				ThingDef d = all[i];
-				if (IsPawnWeapon(d) && IsResearchAllowed(d) && MatchDefOk(d, null))
+				if (IsPawnWeapon(d) && IsResearchAllowed(d) && MatchDefOk(d, null) && (!Strict || CraftedOk(d)))
 				{
 					list.Add(d);
 				}
@@ -2626,7 +2645,7 @@ namespace ResearchLockedRaidGear
 			for (int i = 0; i < all.Count; i++)
 			{
 				ThingDef d = all[i];
-				if (IsPawnApparel(d) && IsResearchAllowed(d) && MatchDefOk(d, null))
+				if (IsPawnApparel(d) && IsResearchAllowed(d) && MatchDefOk(d, null) && (!Strict || CraftedOk(d)))
 				{
 					list.Add(d);
 				}
@@ -3734,7 +3753,62 @@ namespace ResearchLockedRaidGear
 				{
 					pendingKill.Add(thing);
 				}
+				else if (EnemyTurretTooGood(thing))
+				{
+					pendingKill.Add(thing);
+				}
 			}
+		}
+
+		// 2.14.0: a turret of another faction (quest site, base, siege …) stays only when you have
+		// built a turret of the same tech level or higher yourself
+		private static int ownTurretTech = -1;
+		private static int ownTurretTick = -99999;
+
+		private static bool IsTurretDef(ThingDef d)
+		{
+			return d != null && d.category == ThingCategory.Building && d.thingClass != null && typeof(Building_Turret).IsAssignableFrom(d.thingClass);
+		}
+
+		private static int TurretTech(ThingDef d)
+		{
+			int t = (int)d.techLevel;
+			if (t <= (int)TechLevel.Animal)
+				t = (int)TechLevel.Industrial;
+			return t;
+		}
+
+		private static int OwnTurretTech()
+		{
+			int now = Find.TickManager?.TicksGame ?? 0;
+			if (ownTurretTech >= 0 && now - ownTurretTick < 2500)
+				return ownTurretTech;
+			int best = 0;
+			try
+			{
+				foreach (Map m in Find.Maps)
+					foreach (Building b in m.listerBuildings.allBuildingsColonist)
+						if (IsTurretDef(b.def))
+							best = Math.Max(best, TurretTech(b.def));
+			}
+			catch
+			{
+			}
+			ownTurretTech = best;
+			ownTurretTick = now;
+			return best;
+		}
+
+		private static bool EnemyTurretTooGood(Thing thing)
+		{
+			ResearchLockedRaidGearSettings st = ResearchLockedRaidGearMod.Settings;
+			if (st == null || !st.siteTurrets || !IsTurretDef(thing.def))
+				return false;
+			if (thing.Faction != null && thing.Faction.IsPlayer)
+				return false;
+			if (st.exemptAncients && (thing.Faction == Faction.OfAncients || thing.Faction == Faction.OfAncientsHostile))
+				return false;
+			return TurretTech(thing.def) > OwnTurretTech();
 		}
 
 		public static void Tick()
