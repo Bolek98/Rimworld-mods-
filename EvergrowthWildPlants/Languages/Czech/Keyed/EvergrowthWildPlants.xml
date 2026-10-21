@@ -4,7 +4,7 @@
   <EWP_Bullet1>Všechny biomy mají své výchozí rostliny</EWP_Bullet1>
   <EWP_Bullet2>Oprava biomu mapy (Geological Landforms apod.)</EWP_Bullet2>
   <EWP_Bullet3>Jeskynní rostliny podle hry</EWP_Bullet3>
-  <EWP_Bullet4>Doplnění rostlin na mapě jedním tlačítkem</EWP_Bullet4>
+  <EWP_Bullet4>Postupné zarůstání mapy podle tvého nastavení</EWP_Bullet4>
   <EWP_TabBiomes>Biomy</EWP_TabBiomes>
   <EWP_TabCave>Jeskynní rostliny</EWP_TabCave>
   <EWP_TabMap>Tato mapa</EWP_TabMap>
@@ -58,8 +58,8 @@
   <EWP_MismatchWarn>Biomy se liší a oprava je vypnutá – na souši může růst málo rostlin!</EWP_MismatchWarn>
   <EWP_PlantCount>Divoké rostliny: {0} z {1} ({2} %)</EWP_PlantCount>
   <EWP_UsedList>Používaný seznam: {0} rostlin</EWP_UsedList>
-  <EWP_Fill>Doplnit divoké rostliny teď</EWP_Fill>
-  <EWP_FillTip>Jednorázově dosází mapu do plné hustoty. Vynechá domovskou oblast, zóny a místnosti.</EWP_FillTip>
+  <EWP_Fill>Zarůst hned (vše najednou)</EWP_Fill>
+  <EWP_FillTip>Jednorázově dosází mapu do plné hustoty rostlinami různé velikosti. Vynechá domovskou oblast, zóny a místnosti.</EWP_FillTip>
   <EWP_Filling>Sázím divoké rostliny…</EWP_Filling>
   <EWP_Filled>Vysazeno {0} divokých rostlin.</EWP_Filled>
   <EWP_HideDead>Skrýt pařezy</EWP_HideDead>
@@ -92,4 +92,15 @@
   <EWP_AddOne>Přidat</EWP_AddOne>
   <EWP_GrowsIn>Normálně roste v: {0}</EWP_GrowsIn>
   <EWP_GrowsNowhere>Normálně neroste v žádném biomu.</EWP_GrowsNowhere>
+  <EWP_SecGrow>Zarůstání mapy</EWP_SecGrow>
+  <EWP_MapDensity>Zarostlost této mapy: {0} %</EWP_MapDensity>
+  <EWP_MapDensityTip>Jak hustě má být tahle mapa zarostlá divokými rostlinami (100 % = normálně podle biomu). Mění se postupně – nové rostliny dorůstají samy. Při snížení se nic nekácí, jen se přestane dosazovat.</EWP_MapDensityTip>
+  <EWP_FillDays>Zarůst za: {0} dní</EWP_FillDays>
+  <EWP_FillDaysTip>Za kolik herních dní má mapa dorůst do nastavené zarostlosti. Rostliny vyraší malé a rostou normálním tempem.</EWP_FillDaysTip>
+  <EWP_FillGradual>Nechat zarůst postupně ({0} dní)</EWP_FillGradual>
+  <EWP_FillGradualTip>Rostliny se budou objevovat postupně jako malé sazenice a samy dorostou. Vynechá domovskou oblast, zóny a místnosti.</EWP_FillGradualTip>
+  <EWP_FillStarted>Mapa začne postupně zarůstat (cíl za {0} dní).</EWP_FillStarted>
+  <EWP_FillRunning>Mapa postupně zarůstá – zbývá {0} dní, hotovo {1} %.</EWP_FillRunning>
+  <EWP_FillStop>Zastavit zarůstání</EWP_FillStop>
+  <EWP_FillDone>Mapa {0} je zarostlá podle nastavení.</EWP_FillDone>
 </LanguageData>

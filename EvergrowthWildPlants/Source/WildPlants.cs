@@ -55,7 +55,7 @@ namespace EvergrowthWild
     // ------------------------------------------------------------------
     public static class WP
     {
-        public const string Version = "1.0.1";
+        public const string Version = "1.1.0";
         public static WPSettings S => WildPlantsMod.Settings;
 
         private class Orig
@@ -418,14 +418,9 @@ namespace EvergrowthWild
             {
                 float f = sp.CurrentPlantDensityFactor;
                 float desired = sp.CurrentWholeMapNumDesiredPlants;
-                Area home = map.areaManager.Home;
                 foreach (IntVec3 c in map.cellsInRandomOrder.GetAll())
                 {
-                    if (home != null && home[c]) continue;
-                    if (c.GetZone(map) != null) continue;
-                    RoofDef roof = c.GetRoof(map);
-                    if (roof != null && !roof.isNatural) continue;
-                    if (c.Fogged(map)) continue;
+                    if (!CanGrowInHere(map, c)) continue;
                     if (sp.CheckSpawnWildPlantAt(c, f, desired, true))
                         n++;
                 }
@@ -435,6 +430,18 @@ namespace EvergrowthWild
                 Patch_BiomeAt.spawning = null;
             }
             return n;
+        }
+
+        // wild plants are put only outside the home area, zones and built rooms
+        public static bool CanGrowInHere(Map map, IntVec3 c)
+        {
+            Area home = map.areaManager.Home;
+            if (home != null && home[c]) return false;
+            if (c.GetZone(map) != null) return false;
+            RoofDef roof = c.GetRoof(map);
+            if (roof != null && !roof.isNatural) return false;
+            if (c.Fogged(map)) return false;
+            return true;
         }
 
         // biome reported for the map by map mods vs the world tile
@@ -503,13 +510,143 @@ namespace EvergrowthWild
         }
     }
 
+    // Per game: how overgrown each map should be, and maps that are growing in step by step
     public class WPGameComp : GameComponent
     {
+        public Dictionary<int, float> density = new Dictionary<int, float>();   // map id -> overgrowth factor (1 = normal)
+        public Dictionary<int, int> fillEnd = new Dictionary<int, int>();       // map id -> tick when it should be overgrown
+        private readonly Dictionary<int, float> acc = new Dictionary<int, float>();
+        private readonly Dictionary<int, int> have = new Dictionary<int, int>();
+        private readonly Dictionary<int, float> want = new Dictionary<int, float>();
+        private readonly Dictionary<int, int> countedAt = new Dictionary<int, int>();
+
         public WPGameComp(Game g) { }
+
+        public static WPGameComp I => Current.Game?.GetComponent<WPGameComp>();
+
+        public static float MapFactor(Map m)
+        {
+            WPGameComp c = I;
+            return c != null && m != null && c.density.TryGetValue(m.uniqueID, out float f) ? f : 1f;
+        }
+
+        public override void ExposeData()
+        {
+            Scribe_Collections.Look(ref density, "ewpDensity", LookMode.Value, LookMode.Value);
+            Scribe_Collections.Look(ref fillEnd, "ewpFillEnd", LookMode.Value, LookMode.Value);
+            if (density == null) density = new Dictionary<int, float>();
+            if (fillEnd == null) fillEnd = new Dictionary<int, int>();
+        }
 
         public override void FinalizeInit()
         {
             WP.ResetSpawners();
+        }
+
+        public void StartFill(Map m, float days)
+        {
+            fillEnd[m.uniqueID] = Find.TickManager.TicksGame + Mathf.Max(1, Mathf.RoundToInt(days * 60000f));
+            acc[m.uniqueID] = 0f;
+            countedAt.Remove(m.uniqueID);
+        }
+
+        public void StopFill(Map m)
+        {
+            fillEnd.Remove(m.uniqueID);
+        }
+
+        public bool Filling(Map m, out float daysLeft, out float pct)
+        {
+            daysLeft = 0f;
+            pct = 0f;
+            if (m == null || !fillEnd.TryGetValue(m.uniqueID, out int end))
+                return false;
+            daysLeft = Mathf.Max(0f, (end - Find.TickManager.TicksGame) / 60000f);
+            if (want.TryGetValue(m.uniqueID, out float w) && w > 0f && have.TryGetValue(m.uniqueID, out int h))
+                pct = Mathf.Clamp01(h / w);
+            return true;
+        }
+
+        public static int CountWild(Map m)
+        {
+            return m.listerThings.ThingsInGroup(ThingRequestGroup.NonStumpPlant).Count(t => t.Spawned && t.Position.GetZone(m) == null);
+        }
+
+        public override void GameComponentTick()
+        {
+            if (fillEnd.Count == 0)
+                return;
+            int now = Find.TickManager.TicksGame;
+            if (now % 60 != 0)
+                return;
+            foreach (int id in fillEnd.Keys.ToList())
+            {
+                Map m = Find.Maps.FirstOrDefault(x => x.uniqueID == id);
+                if (m == null) { fillEnd.Remove(id); continue; }
+                try { Step(m, id, now); }
+                catch (Exception e) { Log.Warning("[Evergrowth – Wild Plants] growing in: " + e.Message); fillEnd.Remove(id); }
+            }
+        }
+
+        private void Step(Map m, int id, int now)
+        {
+            int end = fillEnd[id];
+            WildPlantSpawner sp = m.wildPlantSpawner;
+            if (!countedAt.TryGetValue(id, out int at) || now - at >= 2500)
+            {
+                have[id] = CountWild(m);
+                want[id] = sp.CurrentWholeMapNumDesiredPlants;
+                countedAt[id] = now;
+            }
+            float w = want[id];
+            int h = have[id];
+            if (h >= w * 0.97f || now >= end)
+            {
+                fillEnd.Remove(id);
+                Messages.Message("EWP_FillDone".Translate(m.Parent?.LabelCap ?? m.ToString()), MessageTypeDefOf.PositiveEvent, false);
+                return;
+            }
+            float steps = Mathf.Max(1f, (end - now) / 60f);
+            acc.TryGetValue(id, out float a);
+            a += Mathf.Max(0f, w - h) / steps;
+            if (a < 1f) { acc[id] = a; return; }
+            float f = sp.CurrentPlantDensityFactor;
+            int area = m.Area;
+            int tries = Mathf.Min(400, Mathf.CeilToInt(a) * 8);
+            Patch_BiomeAt.spawning = m;
+            try
+            {
+                for (int i = 0; i < tries && a >= 1f; i++)
+                {
+                    IntVec3 c = m.cellsInRandomOrder.Get(Rand.Range(0, area));
+                    if (!WP.CanGrowInHere(m, c)) continue;
+                    if (sp.CheckSpawnWildPlantAt(c, f, w, false))
+                    {
+                        a -= 1f;
+                        h++;
+                    }
+                }
+            }
+            finally
+            {
+                Patch_BiomeAt.spawning = null;
+            }
+            // what could not be placed now is not carried on forever
+            acc[id] = Mathf.Min(a, 50f);
+            have[id] = h;
+        }
+    }
+
+    // map overgrowth factor for wild plants
+    [HarmonyPatch(typeof(WildPlantSpawner), nameof(WildPlantSpawner.CurrentPlantDensityFactor), MethodType.Getter)]
+    public static class Patch_MapDensity
+    {
+        private static readonly AccessTools.FieldRef<WildPlantSpawner, Map> mapRef = AccessTools.FieldRefAccess<WildPlantSpawner, Map>("map");
+
+        public static void Postfix(WildPlantSpawner __instance, ref float __result)
+        {
+            if (Current.Game == null) return;
+            __result *= WPGameComp.MapFactor(mapRef(__instance));
         }
     }
 
@@ -529,6 +666,7 @@ namespace EvergrowthWild
         private string mapInfo;
         private int mapInfoTick = -99999;
         private int mapInfoId = -1;
+        private float fillDays = 10f;
 
         public WildPlantsMod(ModContentPack content) : base(content)
         {
@@ -867,7 +1005,45 @@ namespace EvergrowthWild
             }
             Text.Font = GameFont.Small;
             l.Label(mapInfo);
-            l.Gap(8f);
+
+            // how overgrown this map should be
+            WPGameComp gc = WPGameComp.I;
+            MUI.Section(l, "EWP_SecGrow".Translate());
+            if (gc != null)
+            {
+                float f = WPGameComp.MapFactor(map);
+                MUI.RowLabel(l, "EWP_MapDensity".Translate(Mathf.RoundToInt(f * 100f)), "EWP_MapDensityTip".Translate(), null, null);
+                float nf = U.Slider(l.GetRect(22f), f, 0f, 3f, 0.05f);
+                if (Mathf.Abs(nf - f) > 0.0001f)
+                {
+                    if (Mathf.Abs(nf - 1f) < 0.001f) gc.density.Remove(map.uniqueID);
+                    else gc.density[map.uniqueID] = nf;
+                    mapInfo = null;
+                }
+                l.Gap(8f);
+
+                if (gc.Filling(map, out float left, out float pct))
+                {
+                    l.Label("EWP_FillRunning".Translate(left.ToString("0.#"), Mathf.RoundToInt(pct * 100f)));
+                    Rect sb = l.GetRect(32f);
+                    if (Widgets.ButtonText(new Rect(sb.x, sb.y, 300f, 32f), "EWP_FillStop".Translate()))
+                        gc.StopFill(map);
+                }
+                else
+                {
+                    MUI.RowLabel(l, "EWP_FillDays".Translate(fillDays.ToString("0")), "EWP_FillDaysTip".Translate(), null, null);
+                    fillDays = U.Slider(l.GetRect(22f), fillDays, 1f, 60f, 1f);
+                    l.Gap(6f);
+                    Rect gb = l.GetRect(32f);
+                    if (Widgets.ButtonText(new Rect(gb.x, gb.y, 300f, 32f), "EWP_FillGradual".Translate(fillDays.ToString("0"))))
+                    {
+                        gc.StartFill(map, fillDays);
+                        Messages.Message("EWP_FillStarted".Translate(fillDays.ToString("0")), MessageTypeDefOf.NeutralEvent, false);
+                    }
+                    U.Label(new Rect(gb.x + 310f, gb.y, gb.width - 310f, 32f), "EWP_FillGradualTip".Translate(), MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft);
+                }
+            }
+            l.Gap(10f);
             Rect b = l.GetRect(32f);
             if (Widgets.ButtonText(new Rect(b.x, b.y, 300f, 32f), "EWP_Fill".Translate()))
             {
@@ -896,7 +1072,7 @@ namespace EvergrowthWild
             }
             try
             {
-                int have = map.listerThings.ThingsInGroup(ThingRequestGroup.NonStumpPlant).Count(t => t.Spawned && t.Position.GetZone(map) == null);
+                int have = WPGameComp.CountWild(map);
                 float want = map.wildPlantSpawner.CurrentWholeMapNumDesiredPlants;
                 sb.AppendLine("EWP_PlantCount".Translate(have, Mathf.RoundToInt(want), want > 0f ? Mathf.RoundToInt(have / want * 100f) : 0));
             }

@@ -7,7 +7,7 @@
     <li>1.6</li>
     <li>1.7</li>
   </supportedVersions>
-  <modVersion>1.0.1</modVersion>
+  <modVersion>1.1.0</modVersion>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>
@@ -39,7 +39,7 @@ EXTRAS
 - Map biome fix: some map mods (e.g. Geological Landforms) report a different biome for the map than the world tile has, so almost nothing regrows on land. Fixed automatically.
 - Health check: warns about stumps, dead plants, crops and empty lists that would never grow
 - Import your settings from Choose Wild Plant Spawns with one click
-- Refill wild plants on the current map with one button
+- Map overgrowth per map: let the map grow in gradually over the days you choose, or all at once
 - Recommended settings switch, Czech and English
 
 Safe to add to or remove from an existing save. Requires Harmony.
@@ -61,7 +61,7 @@ NAVÍC
 - Oprava biomu mapy: některé mody map (např. Geological Landforms) hlásí pro mapu jiný biom, než má dlaždice, a na souši pak skoro nic nedorůstá. Opraveno automaticky.
 - Kontrola seznamů: upozorní na pařezy, mrtvé rostliny, plodiny a prázdné seznamy
 - Převzetí nastavení z Choose Wild Plant Spawns jedním kliknutím
-- Doplnění divokých rostlin na aktuální mapě jedním tlačítkem
+- Zarostlost pro každou mapu: mapa zaroste postupně za zvolený počet dní, nebo hned
 - Přepínač Doporučené nastavení, čeština a angličtina
 
 Lze bezpečně přidat i odebrat z rozehrané hry. Vyžaduje Harmony.</description>
