@@ -817,7 +817,7 @@
   <MUI_Off>OFF</MUI_Off>
   <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
   <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
-  <MUI_Locked>Detailed settings are locked. Want to change them? Switch to Advanced mode above – your earlier values come back.</MUI_Locked>
+  <MUI_Locked>The Simple mode sets everything by itself, so the details are locked. Want to change them? Switch to Recommended or Advanced at the top.</MUI_Locked>
   <MUI_Changed>CHANGED</MUI_Changed>
   <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
   <MUI_Yes>on</MUI_Yes>
@@ -892,5 +892,7 @@
   <CF_MoodCause_Other>events and memories</CF_MoodCause_Other>
   <CF_MoodNoFood>{0} is hungry and close to a break, but cannot reach any food. Check the food stock, the allowed area and forbidden food.</CF_MoodNoFood>
   <CF_AutoLocked>{0}: {1} changed by hand – locked, the steward will not change it (middle click unlocks).</CF_AutoLocked>
-  <CF_LockedClick>In the {0} mode the steward sets these values itself, so they are locked and come back on every start.\n\nSwitch to Advanced? Your earlier Advanced values come back and from then on everything you set stays.</CF_LockedClick>
+  <CF_LockedClick>In the {0} mode the steward sets these values itself, so they are locked.
+
+Switch to Recommended? There you can change everything and your changes stay.</CF_LockedClick>
 </LanguageData>

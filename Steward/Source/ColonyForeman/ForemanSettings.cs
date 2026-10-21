@@ -12,6 +12,8 @@ public sealed class ForemanSettings : ModSettings
 	public int mode = 1;
 	// your Advanced values while a calm mode runs ("name=value;…")
 	public string advancedValues = "";
+	// 2.49.8: your own values in the Recommended mode (it is no longer locked)
+	public string recommendedValues = "";
 
 	public bool useDemand = true;
 
@@ -146,6 +148,7 @@ public sealed class ForemanSettings : ModSettings
 		Scribe_Values.Look(ref autoByDefault, "autoByDefault", defaultValue: true);
 		Scribe_Values.Look(ref mode, "mode", 2);
 		Scribe_Values.Look(ref advancedValues, "advancedValues", "");
+		Scribe_Values.Look(ref recommendedValues, "recommendedValues", "");
 		Scribe_Values.Look(ref useDemand, "useDemand", defaultValue: true);
 		Scribe_Values.Look(ref useCrisis, "useCrisis", defaultValue: true);
 		Scribe_Values.Look(ref crisisMessages, "crisisMessages", defaultValue: true);

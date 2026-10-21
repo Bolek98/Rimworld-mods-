@@ -817,7 +817,7 @@
   <MUI_Off>VYPNUTO</MUI_Off>
   <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
   <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
-  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Přepni nahoře na Pokročilý režim – vrátí se tvoje dřívější hodnoty.</MUI_Locked>
+  <MUI_Locked>Režim Jednoduchý si nastavení dělá sám, proto jsou zamčená. Chceš si je upravit? Přepni nahoře na Doporučený nebo Pokročilý.</MUI_Locked>
   <MUI_Changed>ZMĚNĚNO</MUI_Changed>
   <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
   <MUI_Yes>zapnuto</MUI_Yes>
@@ -892,5 +892,7 @@
   <CF_MoodCause_Other>události a vzpomínky</CF_MoodCause_Other>
   <CF_MoodNoFood>{0} má hlad a je blízko zhroucení, ale nedosáhne na žádné jídlo. Zkontroluj zásoby jídla, povolenou oblast a zakázané jídlo.</CF_MoodNoFood>
   <CF_AutoLocked>{0}: {1} změněno ručně – zamčeno, správce to už nezmění (prostřední tlačítko odemkne).</CF_AutoLocked>
-  <CF_LockedClick>V režimu {0} si správce tyhle hodnoty nastavuje sám, proto jsou zamčené a při každém spuštění se vrátí.\n\nPřepnout na Pokročilý? Vrátí se tvoje dřívější hodnoty a od té doby zůstane všechno, co nastavíš.</CF_LockedClick>
+  <CF_LockedClick>V režimu {0} si správce tyhle hodnoty nastavuje sám, proto jsou zamčené.
+
+Přepnout na Doporučený? Tam můžeš všechno měnit a tvoje změny zůstanou.</CF_LockedClick>
 </LanguageData>

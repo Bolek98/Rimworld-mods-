@@ -10,7 +10,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "2.49.7";
+	public const string Version = "2.49.8";
 
 	// 2.35.8: recommended values for each style (interval h, preferences,
 	// style strength, specialists share)
@@ -89,7 +89,8 @@ public sealed class ForemanMod : Mod
 		Instance = this;
 		// 2.45: modes – Simple and Recommended keep their values up to date
 		Modes.InitMarks();
-		if (Modes.Current != StewardMode.Advanced)
+		// 2.49.8: only Simple is locked and refreshed; Recommended keeps your changes
+		if (Modes.Current == StewardMode.Simple)
 			Modes.ApplyPreset(Settings, Modes.Current);
 		LongEventHandler.ExecuteWhenFinished(delegate
 		{
@@ -137,7 +138,7 @@ public sealed class ForemanMod : Mod
 			}
 		}
 		float top = inRect.y + 22f + 84f + 8f;
-		bool locked = Modes.Current != StewardMode.Advanced;
+		bool locked = Modes.Current == StewardMode.Simple;
 		if (locked)
 			top += MUI.LockNote(new Rect(inRect.x, top, inRect.width, 0f)) + 4f;
 		inRect = new Rect(inRect.x, top - 2f, inRect.width, inRect.yMax - (top - 2f));
@@ -165,7 +166,7 @@ public sealed class ForemanMod : Mod
 		if (locked && Event.current.type == EventType.MouseDown && Mouse.IsOver(inner))
 		{
 			Event.current.Use();
-			Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("CF_LockedClick".Translate(Modes.Label(Modes.Current)), () => Modes.Set(StewardMode.Advanced), false));
+			Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("CF_LockedClick".Translate(Modes.Label(Modes.Current)), () => Modes.Set(StewardMode.Recommended), false));
 		}
 		MUI.BeginLock(locked);
 		try

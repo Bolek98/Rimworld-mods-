@@ -56,7 +56,7 @@ public static class Modes
 		switch (Current)
 		{
 			case StewardMode.Simple: return 24;
-			case StewardMode.Recommended: return Math.Max(6, s?.intervalHours ?? 6);
+			case StewardMode.Recommended: return s?.intervalHours ?? 6;   // 2.49.8: your value counts
 			default: return s?.intervalHours ?? 4;
 		}
 	}
@@ -165,13 +165,21 @@ public static class Modes
 		ForemanSettings s = ForemanMod.Settings;
 		if (s == null) return;
 		StewardMode was = Current;
-		if (was == StewardMode.Advanced && m != StewardMode.Advanced)
+		if (was == m) return;
+		if (was == StewardMode.Advanced)
 			s.advancedValues = Snapshot(s);
+		else if (was == StewardMode.Recommended)
+			s.recommendedValues = Snapshot(s);
 		s.mode = (int)m;
 		if (m == StewardMode.Advanced)
 			Restore(s, s.advancedValues);
 		else
+		{
 			ApplyPreset(s, m);
+			// 2.49.8: Recommended keeps the changes you made in it
+			if (m == StewardMode.Recommended)
+				Restore(s, s.recommendedValues);
+		}
 		ForemanMod.Instance?.WriteSettings();
 		if (Verse.Current.ProgramState != ProgramState.Playing || Find.Maps == null) return;
 		foreach (Map map in Find.Maps)
