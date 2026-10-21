@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ResearchProjectDef>
+    <defName>MC_MechUpgrades</defName>
+    <label>mech upgrade modules</label>
+    <description>Simple modules that make mechanoids reach further, last longer and move faster: relay, efficient battery and servo modules, made at the fabrication bench.</description>
+    <baseCost>800</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites><li>BasicMechtech</li></prerequisites>
+    <researchViewX>10.00</researchViewX>
+    <researchViewY>6.20</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>MC_AdvancedMechUpgrades</defName>
+    <label>advanced mech modules</label>
+    <description>Advanced mechanoid modules: work processor, armor plating, self-repair nanites and tactical processor.</description>
+    <baseCost>2000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites><li>StandardMechtech</li><li>MC_MechUpgrades</li></prerequisites>
+    <researchViewX>12.00</researchViewX>
+    <researchViewY>6.20</researchViewY>
+  </ResearchProjectDef>
+  <ThingDef Name="MC_ModuleBase" Abstract="True">
+    <thingClass>ThingWithComps</thingClass>
+    <category>Item</category>
+    <drawerType>MapMeshOnly</drawerType>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <altitudeLayer>Item</altitudeLayer>
+    <stackLimit>10</stackLimit>
+    <alwaysHaulable>true</alwaysHaulable>
+    <pathCost>14</pathCost>
+    <tickerType>Never</tickerType>
+    <thingCategories><li>Manufactured</li></thingCategories>
+    <graphicData>
+      <texPath>Things/Item/Resource/ComponentSpacer</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Mass>1</Mass>
+      <Flammability>0.4</Flammability>
+      <DeteriorationRate>1</DeteriorationRate>
+    </statBases>
+    <comps><li Class="CompProperties_Forbiddable"/></comps>
+  </ThingDef>
+  <HediffDef>
+    <defName>MC_Hediff_Relay</defName>
+    <label>mech relay</label>
+    <description>Lets the mech take orders anywhere on its overseer's map, not only in the command range.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.55,0.8,1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <stages><li></li></stages>
+    
+  </HediffDef>
+  <ThingDef ParentName="MC_ModuleBase">
+    <defName>MC_Module_Relay</defName>
+    <label>mech relay module</label>
+    <description>Lets the mech take orders anywhere on its overseer's map, not only in the command range. Install it with the "Modules" button on a selected mech. A mech holds up to 3 modules.</description>
+    <graphicData><color>(0.55,0.8,1)</color></graphicData>
+    <statBases><MarketValue>600</MarketValue></statBases>
+    <techLevel>Industrial</techLevel>
+    <modExtensions><li Class="MechCommander.ModuleExtension"><hediff>MC_Hediff_Relay</hediff></li></modExtensions>
+  </ThingDef>
+  <RecipeDef>
+    <defName>MC_Make_Relay</defName>
+    <label>make mech relay module</label>
+    <description>Make a mech relay module.</description>
+    <jobString>Making mech relay module.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Smith</soundWorking>
+    <workAmount>3000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients><li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>40</count></li><li><filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter><count>3</count></li></ingredients>
+    <fixedIngredientFilter><thingDefs><li>Steel</li><li>ComponentIndustrial</li></thingDefs></fixedIngredientFilter>
+    <products><MC_Module_Relay>1</MC_Module_Relay></products>
+    <skillRequirements><Crafting>6</Crafting></skillRequirements>
+    <researchPrerequisite>MC_MechUpgrades</researchPrerequisite>
+    <recipeUsers><li>FabricationBench</li></recipeUsers>
+  </RecipeDef>
+  <HediffDef>
+    <defName>MC_Hediff_Battery</defName>
+    <label>efficient battery</label>
+    <description>The mech uses 25 % less energy.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.6,1,0.6)</defaultLabelColor>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <stages><li><statFactors><MechEnergyUsageFactor>0.75</MechEnergyUsageFactor></statFactors></li></stages>
+    
+  </HediffDef>
+  <ThingDef ParentName="MC_ModuleBase">
+    <defName>MC_Module_Battery</defName>
+    <label>efficient battery module</label>
+    <description>The mech uses 25 % less energy. Install it with the "Modules" button on a selected mech. A mech holds up to 3 modules.</description>
+    <graphicData><color>(0.6,1,0.6)</color></graphicData>
+    <statBases><MarketValue>600</MarketValue></statBases>
+    <techLevel>Industrial</techLevel>
+    <modExtensions><li Class="MechCommander.ModuleExtension"><hediff>MC_Hediff_Battery</hediff></li></modExtensions>
+  </ThingDef>
+  <RecipeDef>
+    <defName>MC_Make_Battery</defName>
+    <label>make efficient battery module</label>
+    <description>Make a efficient battery module.</description>
+    <jobString>Making efficient battery module.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Smith</soundWorking>
+    <workAmount>3000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients><li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>40</count></li><li><filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter><count>3</count></li></ingredients>
+    <fixedIngredientFilter><thingDefs><li>Steel</li><li>ComponentIndustrial</li></thingDefs></fixedIngredientFilter>
+    <products><MC_Module_Battery>1</MC_Module_Battery></products>
+    <skillRequirements><Crafting>6</Crafting></skillRequirements>
+    <researchPrerequisite>MC_MechUpgrades</researchPrerequisite>
+    <recipeUsers><li>FabricationBench</li></recipeUsers>
+  </RecipeDef>
+  <HediffDef>
+    <defName>MC_Hediff_Servo</defName>
+    <label>servo</label>
+    <description>The mech moves 15 % faster.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(1,0.85,0.5)</defaultLabelColor>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <stages><li><statFactors><MoveSpeed>1.15</MoveSpeed></statFactors></li></stages>
+    
+  </HediffDef>
+  <ThingDef ParentName="MC_ModuleBase">
+    <defName>MC_Module_Servo</defName>
+    <label>servo module</label>
+    <description>The mech moves 15 % faster. Install it with the "Modules" button on a selected mech. A mech holds up to 3 modules.</description>
+    <graphicData><color>(1,0.85,0.5)</color></graphicData>
+    <statBases><MarketValue>600</MarketValue></statBases>
+    <techLevel>Industrial</techLevel>
+    <modExtensions><li Class="MechCommander.ModuleExtension"><hediff>MC_Hediff_Servo</hediff></li></modExtensions>
+  </ThingDef>
+  <RecipeDef>
+    <defName>MC_Make_Servo</defName>
+    <label>make servo module</label>
+    <description>Make a servo module.</description>
+    <jobString>Making servo module.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Smith</soundWorking>
+    <workAmount>3000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients><li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>40</count></li><li><filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter><count>3</count></li></ingredients>
+    <fixedIngredientFilter><thingDefs><li>Steel</li><li>ComponentIndustrial</li></thingDefs></fixedIngredientFilter>
+    <products><MC_Module_Servo>1</MC_Module_Servo></products>
+    <skillRequirements><Crafting>6</Crafting></skillRequirements>
+    <researchPrerequisite>MC_MechUpgrades</researchPrerequisite>
+    <recipeUsers><li>FabricationBench</li></recipeUsers>
+  </RecipeDef>
+  <HediffDef>
+    <defName>MC_Hediff_Processor</defName>
+    <label>work processor</label>
+    <description>The mech works 25 % faster.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.8,0.6,1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <stages><li><statFactors><WorkSpeedGlobal>1.25</WorkSpeedGlobal></statFactors></li></stages>
+    
+  </HediffDef>
+  <ThingDef ParentName="MC_ModuleBase">
+    <defName>MC_Module_Processor</defName>
+    <label>work processor module</label>
+    <description>The mech works 25 % faster. Install it with the "Modules" button on a selected mech. A mech holds up to 3 modules.</description>
+    <graphicData><color>(0.8,0.6,1)</color></graphicData>
+    <statBases><MarketValue>1500</MarketValue></statBases>
+    <techLevel>Spacer</techLevel>
+    <modExtensions><li Class="MechCommander.ModuleExtension"><hediff>MC_Hediff_Processor</hediff></li></modExtensions>
+  </ThingDef>
+  <RecipeDef>
+    <defName>MC_Make_Processor</defName>
+    <label>make work processor module</label>
+    <description>Make a work processor module.</description>
+    <jobString>Making work processor module.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Smith</soundWorking>
+    <workAmount>6000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients><li><filter><thingDefs><li>Plasteel</li></thingDefs></filter><count>25</count></li><li><filter><thingDefs><li>ComponentSpacer</li></thingDefs></filter><count>1</count></li><li><filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter><count>4</count></li></ingredients>
+    <fixedIngredientFilter><thingDefs><li>Plasteel</li><li>ComponentSpacer</li><li>ComponentIndustrial</li></thingDefs></fixedIngredientFilter>
+    <products><MC_Module_Processor>1</MC_Module_Processor></products>
+    <skillRequirements><Crafting>9</Crafting></skillRequirements>
+    <researchPrerequisite>MC_AdvancedMechUpgrades</researchPrerequisite>
+    <recipeUsers><li>FabricationBench</li></recipeUsers>
+  </RecipeDef>
+  <HediffDef>
+    <defName>MC_Hediff_Armor</defName>
+    <label>armor plating</label>
+    <description>Extra armor: +15 % sharp, +10 % blunt.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.75,0.75,0.75)</defaultLabelColor>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <stages><li><statOffsets><ArmorRating_Sharp>0.15</ArmorRating_Sharp><ArmorRating_Blunt>0.10</ArmorRating_Blunt></statOffsets></li></stages>
+    
+  </HediffDef>
+  <ThingDef ParentName="MC_ModuleBase">
+    <defName>MC_Module_Armor</defName>
+    <label>armor plating module</label>
+    <description>Extra armor: +15 % sharp, +10 % blunt. Install it with the "Modules" button on a selected mech. A mech holds up to 3 modules.</description>
+    <graphicData><color>(0.75,0.75,0.75)</color></graphicData>
+    <statBases><MarketValue>1500</MarketValue></statBases>
+    <techLevel>Spacer</techLevel>
+    <modExtensions><li Class="MechCommander.ModuleExtension"><hediff>MC_Hediff_Armor</hediff></li></modExtensions>
+  </ThingDef>
+  <RecipeDef>
+    <defName>MC_Make_Armor</defName>
+    <label>make armor plating module</label>
+    <description>Make a armor plating module.</description>
+    <jobString>Making armor plating module.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Smith</soundWorking>
+    <workAmount>6000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients><li><filter><thingDefs><li>Plasteel</li></thingDefs></filter><count>25</count></li><li><filter><thingDefs><li>ComponentSpacer</li></thingDefs></filter><count>1</count></li><li><filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter><count>4</count></li></ingredients>
+    <fixedIngredientFilter><thingDefs><li>Plasteel</li><li>ComponentSpacer</li><li>ComponentIndustrial</li></thingDefs></fixedIngredientFilter>
+    <products><MC_Module_Armor>1</MC_Module_Armor></products>
+    <skillRequirements><Crafting>9</Crafting></skillRequirements>
+    <researchPrerequisite>MC_AdvancedMechUpgrades</researchPrerequisite>
+    <recipeUsers><li>FabricationBench</li></recipeUsers>
+  </RecipeDef>
+  <HediffDef>
+    <defName>MC_Hediff_Nanites</defName>
+    <label>self-repair nanite</label>
+    <description>The mech slowly repairs its own damage, without anyone working on it.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.5,1,0.9)</defaultLabelColor>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <stages><li></li></stages>
+    <comps><li Class="MechCommander.HediffCompProperties_SelfRepair"><interval>600</interval><amount>2</amount></li></comps>
+  </HediffDef>
+  <ThingDef ParentName="MC_ModuleBase">
+    <defName>MC_Module_Nanites</defName>
+    <label>self-repair nanite module</label>
+    <description>The mech slowly repairs its own damage, without anyone working on it. Install it with the "Modules" button on a selected mech. A mech holds up to 3 modules.</description>
+    <graphicData><color>(0.5,1,0.9)</color></graphicData>
+    <statBases><MarketValue>1500</MarketValue></statBases>
+    <techLevel>Spacer</techLevel>
+    <modExtensions><li Class="MechCommander.ModuleExtension"><hediff>MC_Hediff_Nanites</hediff></li></modExtensions>
+  </ThingDef>
+  <RecipeDef>
+    <defName>MC_Make_Nanites</defName>
+    <label>make self-repair nanite module</label>
+    <description>Make a self-repair nanite module.</description>
+    <jobString>Making self-repair nanite module.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Smith</soundWorking>
+    <workAmount>6000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients><li><filter><thingDefs><li>Plasteel</li></thingDefs></filter><count>25</count></li><li><filter><thingDefs><li>ComponentSpacer</li></thingDefs></filter><count>1</count></li><li><filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter><count>4</count></li></ingredients>
+    <fixedIngredientFilter><thingDefs><li>Plasteel</li><li>ComponentSpacer</li><li>ComponentIndustrial</li></thingDefs></fixedIngredientFilter>
+    <products><MC_Module_Nanites>1</MC_Module_Nanites></products>
+    <skillRequirements><Crafting>9</Crafting></skillRequirements>
+    <researchPrerequisite>MC_AdvancedMechUpgrades</researchPrerequisite>
+    <recipeUsers><li>FabricationBench</li></recipeUsers>
+  </RecipeDef>
+  <HediffDef>
+    <defName>MC_Hediff_Tactics</defName>
+    <label>tactical processor</label>
+    <description>A badly damaged mech (under 40 %) that is not drafted leaves the fight and goes to its overseer.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(1,0.55,0.55)</defaultLabelColor>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <stages><li></li></stages>
+    <comps><li Class="MechCommander.HediffCompProperties_Tactics"><retreatBelow>0.4</retreatBelow></li></comps>
+  </HediffDef>
+  <ThingDef ParentName="MC_ModuleBase">
+    <defName>MC_Module_Tactics</defName>
+    <label>tactical processor module</label>
+    <description>A badly damaged mech (under 40 %) that is not drafted leaves the fight and goes to its overseer. Install it with the "Modules" button on a selected mech. A mech holds up to 3 modules.</description>
+    <graphicData><color>(1,0.55,0.55)</color></graphicData>
+    <statBases><MarketValue>1500</MarketValue></statBases>
+    <techLevel>Spacer</techLevel>
+    <modExtensions><li Class="MechCommander.ModuleExtension"><hediff>MC_Hediff_Tactics</hediff></li></modExtensions>
+  </ThingDef>
+  <RecipeDef>
+    <defName>MC_Make_Tactics</defName>
+    <label>make tactical processor module</label>
+    <description>Make a tactical processor module.</description>
+    <jobString>Making tactical processor module.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Smith</soundWorking>
+    <workAmount>6000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients><li><filter><thingDefs><li>Plasteel</li></thingDefs></filter><count>25</count></li><li><filter><thingDefs><li>ComponentSpacer</li></thingDefs></filter><count>1</count></li><li><filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter><count>4</count></li></ingredients>
+    <fixedIngredientFilter><thingDefs><li>Plasteel</li><li>ComponentSpacer</li><li>ComponentIndustrial</li></thingDefs></fixedIngredientFilter>
+    <products><MC_Module_Tactics>1</MC_Module_Tactics></products>
+    <skillRequirements><Crafting>9</Crafting></skillRequirements>
+    <researchPrerequisite>MC_AdvancedMechUpgrades</researchPrerequisite>
+    <recipeUsers><li>FabricationBench</li></recipeUsers>
+  </RecipeDef>
+  <MainButtonDef>
+    <defName>MC_Mechs</defName>
+    <label>mechs</label>
+    <description>All your mechanoids at a glance: overseer, energy, health, work mode and modules. Click a row to jump to the mech.</description>
+    <tabWindowClass>MechCommander.MainTabWindow_Mechs</tabWindowClass>
+    <order>45</order>
+    <buttonVisible>true</buttonVisible>
+  </MainButtonDef>
+</Defs>

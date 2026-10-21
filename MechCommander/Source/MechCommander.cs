@@ -1,0 +1,250 @@
+// Mech Commander – Bolek98
+// Upgrade modules for mechanoids (vanilla, DLC and modded mechs): crafted at the fabrication bench
+// after research, installed on a mech with a button. Plus a mech overview tab.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using HarmonyLib;
+using RimWorld;
+using UnityEngine;
+using Verse;
+using Verse.AI;
+
+namespace MechCommander
+{
+	// links a module item to the hediff it installs
+	public class ModuleExtension : DefModExtension
+	{
+		public HediffDef hediff;
+	}
+
+	[StaticConstructorOnStartup]
+	public static class Startup
+	{
+		public static readonly List<ThingDef> Modules = new List<ThingDef>();
+		public const int Slots = 3;
+
+		static Startup()
+		{
+			try
+			{
+				foreach (ThingDef d in DefDatabase<ThingDef>.AllDefsListForReading)
+					if (d.GetModExtension<ModuleExtension>()?.hediff != null)
+						Modules.Add(d);
+				var h = new Harmony("misak.mechcommander");
+				h.Patch(AccessTools.Method(typeof(MechanitorUtility), nameof(MechanitorUtility.InMechanitorCommandRange)),
+					postfix: new HarmonyMethod(typeof(Startup), nameof(CommandRangePostfix)));
+				h.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.GetGizmos)),
+					postfix: new HarmonyMethod(typeof(Startup), nameof(GizmosPostfix)));
+				int mechs = DefDatabase<ThingDef>.AllDefsListForReading.Count(d => d.race != null && d.race.IsMechanoid);
+				Log.Message("[Mech Commander] v0.1.0 loaded – " + Modules.Count + " modules, " + mechs + " mech kinds (vanilla and mods).");
+			}
+			catch (Exception ex)
+			{
+				Log.Warning("[Mech Commander] could not start: " + ex.Message);
+			}
+		}
+
+		public static bool Has(Pawn p, string hediffDefName)
+		{
+			var hs = p?.health?.hediffSet?.hediffs;
+			if (hs == null)
+				return false;
+			for (int i = 0; i < hs.Count; i++)
+				if (hs[i].def.defName == hediffDefName)
+					return true;
+			return false;
+		}
+
+		public static int Installed(Pawn p) => p?.health?.hediffSet?.hediffs.Count(h => h.def.GetModExtension<ModuleExtension>() != null || Modules.Any(m => m.GetModExtension<ModuleExtension>().hediff == h.def)) ?? 0;
+
+		// relay module: the mech obeys anywhere on its overseer's map
+		public static void CommandRangePostfix(Pawn mech, ref bool __result)
+		{
+			if (__result || mech == null)
+				return;
+			try
+			{
+				Pawn o = mech.GetOverseer();
+				if (o != null && o.MapHeld == mech.MapHeld && Has(mech, "MC_Hediff_Relay"))
+					__result = true;
+			}
+			catch
+			{
+			}
+		}
+
+		public static IEnumerable<Gizmo> GizmosPostfix(IEnumerable<Gizmo> __result, Pawn __instance)
+		{
+			foreach (Gizmo g in __result)
+				yield return g;
+			Pawn p = __instance;
+			if (p == null || !p.Spawned || p.Faction != Faction.OfPlayer || p.RaceProps == null || !p.RaceProps.IsMechanoid || Find.Selector.NumSelected != 1)
+				yield break;
+			int used = Installed(p);
+			yield return new Command_Action
+			{
+				defaultLabel = "MC_Install".Translate(used, Slots),
+				defaultDesc = "MC_InstallDesc".Translate(),
+				icon = ThingDefOf.ComponentIndustrial.uiIcon,
+				action = () => InstallMenu(p)
+			};
+		}
+
+		private static void InstallMenu(Pawn mech)
+		{
+			var opts = new List<FloatMenuOption>();
+			int used = Installed(mech);
+			foreach (ThingDef mod in Modules)
+			{
+				HediffDef hd = mod.GetModExtension<ModuleExtension>().hediff;
+				Hediff have = mech.health.hediffSet.GetFirstHediffOfDef(hd);
+				if (have != null)
+				{
+					opts.Add(new FloatMenuOption("MC_Remove".Translate(mod.LabelCap), () =>
+					{
+						mech.health.RemoveHediff(have);
+						GenPlace.TryPlaceThing(ThingMaker.MakeThing(mod), mech.Position, mech.Map, ThingPlaceMode.Near);
+					}, mod.uiIcon, mod.uiIconColor));
+					continue;
+				}
+				Thing item = mech.Map.listerThings.ThingsOfDef(mod).FirstOrDefault(t => t.Spawned && !t.IsForbidden(Faction.OfPlayer));
+				if (item == null)
+				{
+					opts.Add(new FloatMenuOption(mod.LabelCap + " – " + "MC_NoneOnMap".Translate(), null, mod.uiIcon, mod.uiIconColor));
+					continue;
+				}
+				if (used >= Slots)
+				{
+					opts.Add(new FloatMenuOption(mod.LabelCap + " – " + "MC_NoSlot".Translate(Slots), null, mod.uiIcon, mod.uiIconColor));
+					continue;
+				}
+				opts.Add(new FloatMenuOption("MC_InstallOne".Translate(mod.LabelCap), () =>
+				{
+					Thing one = item.SplitOff(1);
+					one.Destroy(DestroyMode.Vanish);
+					mech.health.AddHediff(hd);
+					Messages.Message("MC_Installed".Translate(mod.LabelCap, mech.LabelShortCap), mech, MessageTypeDefOf.PositiveEvent, false);
+				}, mod.uiIcon, mod.uiIconColor));
+			}
+			if (opts.Count == 0)
+				opts.Add(new FloatMenuOption("MC_NoModules".Translate(), null));
+			Find.WindowStack.Add(new FloatMenu(opts));
+		}
+	}
+
+	// self-repair nanites: injuries heal slowly on their own
+	public class HediffCompProperties_SelfRepair : HediffCompProperties
+	{
+		public int interval = 600;
+		public float amount = 2f;
+		public HediffCompProperties_SelfRepair() { compClass = typeof(HediffComp_SelfRepair); }
+	}
+
+	public class HediffComp_SelfRepair : HediffComp
+	{
+		public HediffCompProperties_SelfRepair Props => (HediffCompProperties_SelfRepair)props;
+
+		public override void CompPostTick(ref float severityAdjustment)
+		{
+			Pawn p = Pawn;
+			if (p == null || !p.IsHashIntervalTick(Props.interval) || p.Dead)
+				return;
+			Hediff_Injury worst = null;
+			foreach (Hediff h in p.health.hediffSet.hediffs)
+				if (h is Hediff_Injury inj && (worst == null || inj.Severity > worst.Severity))
+					worst = inj;
+			worst?.Heal(Props.amount);
+		}
+	}
+
+	// tactical processor: a badly hurt mech that is not drafted leaves the fight and goes to its overseer
+	public class HediffCompProperties_Tactics : HediffCompProperties
+	{
+		public float retreatBelow = 0.4f;
+		public HediffCompProperties_Tactics() { compClass = typeof(HediffComp_Tactics); }
+	}
+
+	public class HediffComp_Tactics : HediffComp
+	{
+		private int lastRetreat = -99999;
+		public HediffCompProperties_Tactics Props => (HediffCompProperties_Tactics)props;
+
+		public override void CompPostTick(ref float severityAdjustment)
+		{
+			Pawn p = Pawn;
+			if (p == null || !p.Spawned || p.Dead || p.Downed || !p.IsHashIntervalTick(250) || p.Drafted)
+				return;
+			int now = Find.TickManager.TicksGame;
+			if (now - lastRetreat < 2500 || p.health.summaryHealth.SummaryHealthPercent >= Props.retreatBelow)
+				return;
+			if (!GenAI.EnemyIsNear(p, 20f))
+				return;
+			IntVec3 to = IntVec3.Invalid;
+			Pawn o = p.GetOverseer();
+			if (o != null && o.Spawned && o.Map == p.Map && !GenAI.EnemyIsNear(o, 15f))
+				to = o.Position;
+			if (!to.IsValid && !RCellFinder.TryFindDirectFleeDestination(p.Position, 25f, p, out to))
+				return;
+			lastRetreat = now;
+			Job j = JobMaker.MakeJob(JobDefOf.Goto, to);
+			j.locomotionUrgency = LocomotionUrgency.Sprint;
+			j.expiryInterval = 1200;
+			p.jobs.StartJob(j, JobCondition.InterruptForced);
+			Messages.Message("MC_Retreat".Translate(p.LabelShortCap), p, MessageTypeDefOf.NeutralEvent, false);
+		}
+	}
+
+	// ---------- overview tab
+	public class MainTabWindow_Mechs : MainTabWindow
+	{
+		private Vector2 scroll;
+		public override Vector2 RequestedTabSize => new Vector2(980f, 520f);
+
+		public override void DoWindowContents(Rect inRect)
+		{
+			Map map = Find.CurrentMap;
+			var mechs = map?.mapPawns.SpawnedColonyMechs?.ToList() ?? new List<Pawn>();
+			Text.Font = GameFont.Medium;
+			Widgets.Label(new Rect(inRect.x, inRect.y, 400f, 32f), "MC_TabTitle".Translate(mechs.Count));
+			Text.Font = GameFont.Small;
+			float y = inRect.y + 38f;
+			float[] cols = { 0f, 200f, 330f, 430f, 530f, 680f };
+			string[] heads = { "MC_ColName", "MC_ColOverseer", "MC_ColEnergy", "MC_ColHealth", "MC_ColWork", "MC_ColModules" };
+			GUI.color = Color.gray;
+			for (int i = 0; i < cols.Length; i++)
+				Widgets.Label(new Rect(inRect.x + cols[i], y, 160f, 24f), heads[i].Translate());
+			GUI.color = Color.white;
+			y += 26f;
+			Rect outer = new Rect(inRect.x, y, inRect.width, inRect.yMax - y);
+			Rect view = new Rect(0f, 0f, outer.width - 18f, mechs.Count * 28f);
+			Widgets.BeginScrollView(outer, ref scroll, view);
+			for (int i = 0; i < mechs.Count; i++)
+			{
+				Pawn m = mechs[i];
+				Rect row = new Rect(0f, i * 28f, view.width, 26f);
+				if (i % 2 == 1)
+					Widgets.DrawLightHighlight(row);
+				Widgets.DrawHighlightIfMouseover(row);
+				Widgets.Label(new Rect(cols[0] + 4f, row.y + 3f, 190f, 24f), m.LabelShortCap);
+				Widgets.Label(new Rect(cols[1], row.y + 3f, 125f, 24f), m.GetOverseer()?.LabelShortCap ?? "-");
+				float e = m.needs?.energy?.CurLevelPercentage ?? 0f;
+				GUI.color = e < 0.2f ? new Color(1f, 0.5f, 0.4f) : Color.white;
+				Widgets.Label(new Rect(cols[2], row.y + 3f, 95f, 24f), (e * 100f).ToString("0") + " %");
+				float hp = m.health.summaryHealth.SummaryHealthPercent;
+				GUI.color = hp < 0.5f ? new Color(1f, 0.5f, 0.4f) : Color.white;
+				Widgets.Label(new Rect(cols[3], row.y + 3f, 95f, 24f), (hp * 100f).ToString("0") + " %");
+				GUI.color = Color.white;
+				Widgets.Label(new Rect(cols[4], row.y + 3f, 145f, 24f), m.GetMechWorkMode()?.LabelCap ?? "-");
+				string mods = string.Join(", ", m.health.hediffSet.hediffs.Where(h => Startup.Modules.Any(x => x.GetModExtension<ModuleExtension>().hediff == h.def)).Select(h => h.LabelCap).ToArray());
+				Widgets.Label(new Rect(cols[5], row.y + 3f, view.width - cols[5], 24f), mods.NullOrEmpty() ? "-" : mods);
+				if (Widgets.ButtonInvisible(row))
+				{
+					CameraJumper.TryJumpAndSelect(m);
+					Close();
+				}
+			}
+			Widgets.EndScrollView();
+		}
+	}
+}

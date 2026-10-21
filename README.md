@@ -19,6 +19,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Matchmaker | 0.1.0 | [Matchmaker](Matchmaker) |
 | Map Architect | 0.3.0 | [MapArchitect](MapArchitect) |
 | Masks & Headgear Together | 1.0.0 | [MasksAndHeadgear](MasksAndHeadgear) |
+| Mech Commander | 0.1.0 | [MechCommander](MechCommander) |
 | Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
 | Mod Sort Manager – Load Order, Conflicts & Profiles | 0.1.3 | [ModSortManager](ModSortManager) |
 | Research Fixer – Tech Progression | 0.2.0 | [ResearchFixer](ResearchFixer) |
