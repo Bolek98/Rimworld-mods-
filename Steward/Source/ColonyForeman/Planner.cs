@@ -792,7 +792,8 @@ public static class Planner
 					comp.calmCells.TryGetValue(ck, out CalmCell cc);
 					// a job switched on is never held back (a job must not end up with nobody)
 					// 2.49.3: childcare (parents, nannies) is never held back – in every style
-					bool free = !calm || crisisCell || (cc != null && cc.crisis) || WorkPolicies.Get(w).emergency || (cur == 0 && nv > 0) || w.defName == "Childcare";
+					bool free = !calm || crisisCell || (cc != null && cc.crisis) || WorkPolicies.Get(w).emergency || (cur == 0 && nv > 0) || w.defName == "Childcare"
+						|| sitCells.Contains((key, w));   // 2.50.2: a situation is never held back by the calm modes
 					if (!free)
 					{
 						bool recent = cc != null && nowTick - cc.tick < hold;
@@ -940,16 +941,13 @@ public static class Planner
 					continue;
 				if (TopExempt(w) || WorkPolicies.Get(w).emergency)
 					continue;
-				// only a real crisis push (a small nudge like +0.1 does not count)
-				if (crisisUrg.TryGetValue(w, out float cu) && cu >= 0.2f)
+				// 2.50.2: every crisis push counts in every style (before only a strong one)
+				if (crisisUrg.TryGetValue(w, out float cu) && cu > 0f)
 					continue;
-				// what is needed now stays, but below the style's own work
+				// 2.50.2: what a situation needs now keeps its level in every style – the "one job on 1"
+				// step afterwards puts crisis > situation > style, so the style's job moves to 2 instead
 				if (sitCells.Contains((p, w)))
-				{
-					if (max >= 3 && jobs.TryGetValue(w, out int sl) && sl == 1 && (game == null || !game.AnyLock(p, w)))
-						jobs[w] = 2;
 					continue;
-				}
 				if (game != null && game.AnyLock(p, w))
 					continue;
 				if (food && w == cookW && jobs.TryGetValue(w, out int ck) && ck > 0 && ck <= 2)
@@ -1036,7 +1034,7 @@ public static class Planner
 		foreach (var cw in crisisUrg)
 		{
 			WorkTypeDef w = cw.Key;
-			if (cw.Value < 0.2f || w == null)
+			if (cw.Value <= 0f || w == null)
 				continue;
 			Crisiseffect e = CrisisFor(crisis, w);
 			int able = plan.Count(kv => !kv.Key.WorkTypeIsDisabled(w));
