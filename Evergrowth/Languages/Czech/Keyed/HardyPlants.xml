@@ -39,7 +39,7 @@
   <HardyPlants_YieldCrops>Plodiny a divoké rostliny: ×{0}</HardyPlants_YieldCrops>
   <HardyPlants_YieldWood>Dřevo ze stromů: ×{0}</HardyPlants_YieldWood>
   <HardyPlants_Regrow>Divoké rostliny dorůstají rychleji</HardyPlants_Regrow>
-  <HardyPlants_RegrowDesc>Jak rychle se na mapě znovu objevují divoké rostliny a stromy po kácení, spasení zvířaty nebo požáru. Hustota porostu zůstává podle biomu. Rostliny se objevují i pod sněhem, když je dost teplo na jejich růst. Ve výchozím stavu vypnuto.</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowDesc>Jak rychle se na mapě znovu objevují divoké rostliny a stromy po kácení, spasení zvířaty nebo požáru. Hustota porostu zůstává podle biomu. Ve výchozím stavu vypnuto.</HardyPlants_RegrowDesc>
   <HardyPlants_RegrowValue>Dorůstání: ×{0}</HardyPlants_RegrowValue>
   <HardyPlants_IgnoreSoil>Chudá půda nezpomaluje růst</HardyPlants_IgnoreSoil>
   <HardyPlants_IgnoreSoilDesc>Na písku, štěrku a chudé půdě rostou rostliny plnou rychlostí. Bohatá půda dál pomáhá. Kde nic neroste, tam to nezmění. Ve výchozím stavu vypnuto.</HardyPlants_IgnoreSoilDesc>
@@ -65,10 +65,41 @@
   <HardyPlants_ProfRec>Doporučené</HardyPlants_ProfRec>
   <HardyPlants_ProfCustom>Vlastní</HardyPlants_ProfCustom>
   <HardyPlants_PresetVanilla_Card>Růst a úroda jako v základní hře.</HardyPlants_PresetVanilla_Card>
-  <HardyPlants_ProfRec_Card>Rychlejší růst, víc úrody a bez plísně. Pořád férové.</HardyPlants_ProfRec_Card>
-  <HardyPlants_PresetLush_Card>Rostliny všude a hodně rychle, i ve dne v noci.</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfRec_Card>Rychlejší růst, víc úrody, bez plísně, skleníky a příroda i pod sněhem. Pořád férové.</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>Rostliny všude a hodně rychle, i ve dne v noci, v každé sezóně a bez škod z událostí.</HardyPlants_PresetLush_Card>
   <HardyPlants_ProfCustom_Card>Tvoje vlastní hodnoty.</HardyPlants_ProfCustom_Card>
   <HardyPlants_ProfileHint>Jakmile cokoli v sekcích Růst nebo Úroda změníš, profil se přepne na Vlastní. Oranžové ZMĚNĚNO = liší se od doporučeného, kliknutím ho vrátíš.</HardyPlants_ProfileHint>
   <HardyPlants_SecYield>Úroda a nemoci</HardyPlants_SecYield>
   <HardyPlants_SecGroup>Které rostliny jsou otužilé</HardyPlants_SecGroup>
+  <HardyPlants_TabGrowth>Růst</HardyPlants_TabGrowth>
+  <HardyPlants_TabYield>Úroda</HardyPlants_TabYield>
+  <HardyPlants_TabWild>Divoká příroda</HardyPlants_TabWild>
+  <HardyPlants_TabWinter>Zima a počasí</HardyPlants_TabWinter>
+  <HardyPlants_TabPlants>Odolné rostliny</HardyPlants_TabPlants>
+  <HardyPlants_SecSeason>Roční období</HardyPlants_SecSeason>
+  <HardyPlants_AnySeason>Setí a růst v jakékoliv roční době</HardyPlants_AnySeason>
+  <HardyPlants_AnySeasonDesc>Plodiny jde zasít a rostou kdykoliv, kdy to teplota dovolí – žádné omezení „sezóny“. Pro rychlý růst pořád potřebují teplo.</HardyPlants_AnySeasonDesc>
+  <HardyPlants_Greenhouse>Skleníky</HardyPlants_Greenhouse>
+  <HardyPlants_GreenhouseDesc>Rostliny pod postavenou střechou v uzavřené místnosti rostou naplno bez ohledu na teplotu (od −10 °C), v každé roční době a nikdy nezmrznou. Na světlo použij lampy.</HardyPlants_GreenhouseDesc>
+  <HardyPlants_FruitRepeat>Ovocné stromy plodí opakovaně</HardyPlants_FruitRepeat>
+  <HardyPlants_FruitRepeatDesc>Sklizeň ovoce ze stromu (z modů) strom nepokácí – ovoce mu naroste znovu. Pokácet na dřevo ho jde pořád.</HardyPlants_FruitRepeatDesc>
+  <HardyPlants_WildDensity>Hustší divoká příroda</HardyPlants_WildDensity>
+  <HardyPlants_WildDensityDesc>Víc (nebo méně) divokých rostlin a stromů na mapě, než má biom normálně.</HardyPlants_WildDensityDesc>
+  <HardyPlants_WildDensityValue>Hustota divokých rostlin: ×{0}</HardyPlants_WildDensityValue>
+  <HardyPlants_SnowGrowth>Divoké rostliny dorůstají i pod sněhem</HardyPlants_SnowGrowth>
+  <HardyPlants_SnowGrowthDesc>Normálně na zasněžené zemi celou zimu nic nového nevyroste. Se zapnutým přepínačem se divoké rostliny a stromy objevují i pod sněhem, kde je dost teplo.</HardyPlants_SnowGrowthDesc>
+  <HardyPlants_SnowMinTemp>Pod sněhem od: {0} (ve hře: nikdy; doporučeno {1})</HardyPlants_SnowMinTemp>
+  <HardyPlants_FewerFires>Méně lesních požárů</HardyPlants_FewerFires>
+  <HardyPlants_FewerFiresDesc>Tráva, keře a stromy chytají zhruba třikrát hůř, takže požár nesežere celý les.</HardyPlants_FewerFiresDesc>
+  <HardyPlants_Overview>Divoká příroda na této mapě</HardyPlants_Overview>
+  <HardyPlants_OverviewNoGame>Načti hru a uvidíš, co na tvé mapě roste.</HardyPlants_OverviewNoGame>
+  <HardyPlants_OverviewDay>Poslední herní den ({0}):</HardyPlants_OverviewDay>
+  <HardyPlants_OverviewSoFar>Zatím dnes ({0}):</HardyPlants_OverviewSoFar>
+  <HardyPlants_OverviewNums>Hra zkusila vypěstovat {0} divokých rostlin, vyrostlo {1} (z toho stromů {2}).</HardyPlants_OverviewNums>
+  <HardyPlants_OverviewSnow>Sníh zastavil {0} z {1} pokusů.</HardyPlants_OverviewSnow>
+  <HardyPlants_OverviewNoneSnow>Nic neroste – nejspíš kvůli sněhu. Zapni „Divoké rostliny dorůstají i pod sněhem“.</HardyPlants_OverviewNoneSnow>
+  <HardyPlants_OverviewNoneCold>Nic neroste – je moc zima, nebo je zem plná. Zkus nižší teplotu „Pod sněhem od“.</HardyPlants_OverviewNoneCold>
+  <HardyPlants_SecEvents>Události</HardyPlants_SecEvents>
+  <HardyPlants_ImmuneEvents>Rostliny ignorují špatné události</HardyPlants_ImmuneEvents>
+  <HardyPlants_ImmuneEventsDesc>Sucho (i období sucha z modů), jedovatý opar, toxický spad a znečištění už rostliny nezpomalí ani neshodí listí. Zima a horko platí dál.</HardyPlants_ImmuneEventsDesc>
 </LanguageData>

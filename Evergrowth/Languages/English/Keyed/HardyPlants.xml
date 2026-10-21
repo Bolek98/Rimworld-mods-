@@ -39,7 +39,7 @@
   <HardyPlants_YieldCrops>Crops and wild plants: ×{0}</HardyPlants_YieldCrops>
   <HardyPlants_YieldWood>Wood from trees: ×{0}</HardyPlants_YieldWood>
   <HardyPlants_Regrow>Wild plants grow back faster</HardyPlants_Regrow>
-  <HardyPlants_RegrowDesc>How fast wild plants and trees come back on the map after cutting, grazing or fire. Plant density still follows the biome. Plants also come back under snow when it is warm enough for them to grow. Off by default.</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowDesc>How fast wild plants and trees come back on the map after cutting, grazing or fire. Plant density still follows the biome. Off by default.</HardyPlants_RegrowDesc>
   <HardyPlants_RegrowValue>Regrowth: ×{0}</HardyPlants_RegrowValue>
   <HardyPlants_IgnoreSoil>Poor soil does not slow growth</HardyPlants_IgnoreSoil>
   <HardyPlants_IgnoreSoilDesc>On sand, gravel and poor soil plants grow at full speed. Rich soil still helps. Where nothing grows, nothing changes. Off by default.</HardyPlants_IgnoreSoilDesc>
@@ -65,10 +65,41 @@
   <HardyPlants_ProfRec>Recommended</HardyPlants_ProfRec>
   <HardyPlants_ProfCustom>Custom</HardyPlants_ProfCustom>
   <HardyPlants_PresetVanilla_Card>Growth and yield like the base game.</HardyPlants_PresetVanilla_Card>
-  <HardyPlants_ProfRec_Card>Faster growth, bigger harvests and no blight. Still fair.</HardyPlants_ProfRec_Card>
-  <HardyPlants_PresetLush_Card>Plants everywhere, growing fast day and night.</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfRec_Card>Faster growth, bigger harvests, no blight, greenhouses and wild plants under snow. Still fair.</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>Plants everywhere, growing fast day and night, in any season and unharmed by events.</HardyPlants_PresetLush_Card>
   <HardyPlants_ProfCustom_Card>Your own values.</HardyPlants_ProfCustom_Card>
   <HardyPlants_ProfileHint>Change anything under Growth or Yield and the profile switches to Custom. Orange CHANGED = differs from recommended, click it to restore.</HardyPlants_ProfileHint>
   <HardyPlants_SecYield>Yield and diseases</HardyPlants_SecYield>
   <HardyPlants_SecGroup>Which plants are hardy</HardyPlants_SecGroup>
+  <HardyPlants_TabGrowth>Growth</HardyPlants_TabGrowth>
+  <HardyPlants_TabYield>Yield</HardyPlants_TabYield>
+  <HardyPlants_TabWild>Wild nature</HardyPlants_TabWild>
+  <HardyPlants_TabWinter>Winter &amp; weather</HardyPlants_TabWinter>
+  <HardyPlants_TabPlants>Hardy plants</HardyPlants_TabPlants>
+  <HardyPlants_SecSeason>Seasons</HardyPlants_SecSeason>
+  <HardyPlants_AnySeason>Sow and grow in any season</HardyPlants_AnySeason>
+  <HardyPlants_AnySeasonDesc>Crops can be sown and grow whenever the temperature lets them – no "growing season" limit. Plants still need warmth to grow fast.</HardyPlants_AnySeasonDesc>
+  <HardyPlants_Greenhouse>Greenhouses</HardyPlants_Greenhouse>
+  <HardyPlants_GreenhouseDesc>Plants under a built roof in a closed room grow at full speed whatever the temperature (from −10 °C up), in any season, and never freeze. Use lamps for light.</HardyPlants_GreenhouseDesc>
+  <HardyPlants_FruitRepeat>Fruit trees bear fruit again</HardyPlants_FruitRepeat>
+  <HardyPlants_FruitRepeatDesc>Harvesting fruit from a tree (from mods) does not cut it down – it grows the fruit again. Cutting it for wood still works.</HardyPlants_FruitRepeatDesc>
+  <HardyPlants_WildDensity>Denser wild nature</HardyPlants_WildDensity>
+  <HardyPlants_WildDensityDesc>More (or fewer) wild plants and trees on the map than the biome normally has.</HardyPlants_WildDensityDesc>
+  <HardyPlants_WildDensityValue>Wild plant density: ×{0}</HardyPlants_WildDensityValue>
+  <HardyPlants_SnowGrowth>Wild plants grow back under snow</HardyPlants_SnowGrowth>
+  <HardyPlants_SnowGrowthDesc>Normally nothing new sprouts on snow-covered ground all winter. With this on, wild plants and trees come back under snow where it is warm enough.</HardyPlants_SnowGrowthDesc>
+  <HardyPlants_SnowMinTemp>Under snow from: {0} (vanilla: never; suggested {1})</HardyPlants_SnowMinTemp>
+  <HardyPlants_FewerFires>Fewer wildfires</HardyPlants_FewerFires>
+  <HardyPlants_FewerFiresDesc>Grass, bushes and trees catch fire about three times less easily, so a fire does not eat the whole forest.</HardyPlants_FewerFiresDesc>
+  <HardyPlants_Overview>Wild nature on this map</HardyPlants_Overview>
+  <HardyPlants_OverviewNoGame>Load a game to see what grows on your map.</HardyPlants_OverviewNoGame>
+  <HardyPlants_OverviewDay>Last in-game day ({0}):</HardyPlants_OverviewDay>
+  <HardyPlants_OverviewSoFar>So far today ({0}):</HardyPlants_OverviewSoFar>
+  <HardyPlants_OverviewNums>Tried to grow {0} wild plants, {1} grew ({2} trees).</HardyPlants_OverviewNums>
+  <HardyPlants_OverviewSnow>Snow stopped {0} of {1} tries.</HardyPlants_OverviewSnow>
+  <HardyPlants_OverviewNoneSnow>Nothing grows – probably snow. Turn on "Wild plants grow back under snow".</HardyPlants_OverviewNoneSnow>
+  <HardyPlants_OverviewNoneCold>Nothing grows – it is too cold, or the ground is full. Try a lower "Under snow from" temperature.</HardyPlants_OverviewNoneCold>
+  <HardyPlants_SecEvents>Events</HardyPlants_SecEvents>
+  <HardyPlants_ImmuneEvents>Plants ignore bad events</HardyPlants_ImmuneEvents>
+  <HardyPlants_ImmuneEventsDesc>Drought (also dry spells from mods), noxious haze, toxic fallout and pollution no longer slow plants down or make them leafless. Cold and heat still count.</HardyPlants_ImmuneEventsDesc>
 </LanguageData>
