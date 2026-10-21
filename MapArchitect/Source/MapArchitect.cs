@@ -31,7 +31,11 @@ namespace MapArchitect
 		public readonly List<Thing> spawned = new List<Thing>();
 		public readonly List<RemovedThing> removed = new List<RemovedThing>();
 		public readonly Dictionary<IntVec3, bool> fog = new Dictionary<IntVec3, bool>();
-		public bool Empty => terrain.Count == 0 && roofs.Count == 0 && deep.Count == 0 && spawned.Count == 0 && removed.Count == 0 && fog.Count == 0;
+		public readonly Dictionary<IntVec3, float> snow = new Dictionary<IntVec3, float>();
+		public readonly Dictionary<IntVec3, bool> pollution = new Dictionary<IntVec3, bool>();
+		public readonly List<KeyValuePair<Thing, int>> hp = new List<KeyValuePair<Thing, int>>();
+		public bool Empty => terrain.Count == 0 && roofs.Count == 0 && deep.Count == 0 && spawned.Count == 0 && removed.Count == 0 && fog.Count == 0
+			&& snow.Count == 0 && pollution.Count == 0 && hp.Count == 0;
 	}
 
 	public static class Undo
@@ -85,6 +89,24 @@ namespace MapArchitect
 				Current.fog[c] = map.fogGrid.IsFogged(c);
 		}
 
+		public static void Snow(Map map, IntVec3 c)
+		{
+			if (Current != null && !Current.snow.ContainsKey(c))
+				Current.snow[c] = map.snowGrid.GetDepth(c);
+		}
+
+		public static void Pollution(Map map, IntVec3 c)
+		{
+			if (Current != null && !Current.pollution.ContainsKey(c))
+				Current.pollution[c] = map.pollutionGrid.IsPolluted(c);
+		}
+
+		public static void Hp(Thing t)
+		{
+			if (Current != null && t != null)
+				Current.hp.Add(new KeyValuePair<Thing, int>(t, t.HitPoints));
+		}
+
 		public static void Spawned(Thing t)
 		{
 			if (Current != null && t != null)
@@ -123,6 +145,13 @@ namespace MapArchitect
 				Edit.SetTerrainRaw(map, kv.Key, kv.Value.Key, kv.Value.Value);
 			foreach (var kv in ch.roofs)
 				map.roofGrid.SetRoof(kv.Key, kv.Value);
+			foreach (var kv in ch.snow)
+				map.snowGrid.SetDepth(kv.Key, kv.Value);
+			foreach (var kv in ch.pollution)
+				try { map.pollutionGrid.SetPolluted(kv.Key, kv.Value, true); } catch { }
+			foreach (var kv in ch.hp)
+				if (kv.Key != null && !kv.Key.Destroyed)
+					kv.Key.HitPoints = kv.Value;
 			foreach (var kv in ch.fog)
 			{
 				if (kv.Value)
@@ -1039,5 +1068,209 @@ namespace MapArchitect
 		protected override string PresetLabel => DefDatabase<ThingDef>.GetNamedSilentFail("SteamGeyser")?.LabelCap ?? "Geyser";
 		protected override object Preset => DefDatabase<ThingDef>.GetNamedSilentFail("SteamGeyser");
 		protected override Texture2D LazyIcon() => DefDatabase<ThingDef>.GetNamedSilentFail("SteamGeyser")?.uiIcon;
+	}
+}
+
+
+namespace MapArchitect
+{
+	// ---------- roofs you build (instant), any roof removed
+	public class Designator_MA_RoofBuild : Designator_MA_Mountain
+	{
+		public Designator_MA_RoofBuild() { defaultLabel = "MA_RoofBuild".Translate(); defaultDesc = "MA_RoofBuildDesc".Translate(); }
+		protected override string PresetLabel => "MA_RoofBuild".Translate();
+		protected override object Preset => RoofDefOf.RoofConstructed;
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/BuildRoofArea");
+		protected override void Apply(List<IntVec3> cells)
+		{
+			foreach (IntVec3 c in cells)
+				if (Map.roofGrid.RoofAt(c) == null)
+					Edit.Roof(Map, c, RoofDefOf.RoofConstructed);
+		}
+	}
+
+	public class Designator_MA_RoofRemoveAll : Designator_MA_Mountain
+	{
+		public Designator_MA_RoofRemoveAll() { defaultLabel = "MA_RoofRemoveAll".Translate(); defaultDesc = "MA_RoofRemoveAllDesc".Translate(); }
+		protected override string PresetLabel => "MA_RoofRemoveAll".Translate();
+		protected override object Preset => "any";
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/NoRoofArea");
+		protected override void Apply(List<IntVec3> cells)
+		{
+			foreach (IntVec3 c in cells)
+				if (Map.roofGrid.RoofAt(c) != null)
+					Edit.Roof(Map, c, null);
+		}
+	}
+
+	// ---------- simple tools without a choice
+	public abstract class Designator_MA_Tool : Designator_MA
+	{
+		protected abstract string Key { get; }
+		protected Designator_MA_Tool()
+		{
+			defaultLabel = ("MA_" + Key).Translate();
+			defaultDesc = ("MA_" + Key + "Desc").Translate();
+		}
+		protected override string BaseLabel => ("MA_" + Key).Translate();
+		protected override bool NeedsChoice => false;
+	}
+
+	// finish blueprints and frames in the area at once, for free
+	public class Designator_MA_Finish : Designator_MA_Tool
+	{
+		protected override string Key => "Finish";
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/Claim");
+		protected override void Apply(List<IntVec3> cells)
+		{
+			var seen = new HashSet<Thing>();
+			foreach (IntVec3 c in cells)
+			{
+				foreach (Thing t in c.GetThingList(Map).ToList())
+				{
+					if (!seen.Add(t) || t.Destroyed)
+						continue;
+					BuildableDef what = null;
+					ThingDef stuff = null;
+					if (t is Blueprint_Build b)
+					{
+						what = b.def.entityDefToBuild;
+						stuff = b.EntityToBuildStuff();
+					}
+					else if (t is Frame f)
+					{
+						what = f.def.entityDefToBuild;
+						stuff = f.EntityToBuildStuff();
+					}
+					if (what == null)
+						continue;
+					IntVec3 pos = t.Position;
+					Rot4 rot = t.Rotation;
+					Faction fac = t.Faction;
+					Edit.Remove(t);
+					if (what is TerrainDef td)
+					{
+						Edit.Terrain(Map, pos, td);
+						continue;
+					}
+					if (what is ThingDef thd)
+					{
+						Thing n = ThingMaker.MakeThing(thd, thd.MadeFromStuff ? (stuff ?? GenStuff.DefaultStuffFor(thd)) : null);
+						if (fac != null)
+							n.SetFactionDirect(fac);
+						Edit.Spawn(n, pos, Map, rot);
+					}
+				}
+			}
+		}
+	}
+
+	public class Designator_MA_Repair : Designator_MA_Tool
+	{
+		protected override string Key => "Repair";
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/Deconstruct");
+		protected override void Apply(List<IntVec3> cells)
+		{
+			var seen = new HashSet<Thing>();
+			foreach (IntVec3 c in cells)
+				foreach (Thing t in c.GetThingList(Map))
+					if (seen.Add(t) && !(t is Pawn) && t.def.useHitPoints && t.HitPoints < t.MaxHitPoints)
+					{
+						Undo.Hp(t);
+						t.HitPoints = t.MaxHitPoints;
+						Map.listerBuildingsRepairable.Notify_BuildingRepaired(t as Building);
+					}
+		}
+	}
+
+	public class Designator_MA_SnowRemove : Designator_MA_Tool
+	{
+		protected override string Key => "SnowRemove";
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/SnowClearAreaOn");
+		protected override void Apply(List<IntVec3> cells)
+		{
+			foreach (IntVec3 c in cells)
+				if (Map.snowGrid.GetDepth(c) > 0f)
+				{
+					Undo.Snow(Map, c);
+					Map.snowGrid.SetDepth(c, 0f);
+				}
+		}
+	}
+
+	public class Designator_MA_SnowAdd : Designator_MA_Tool
+	{
+		protected override string Key => "SnowAdd";
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/SnowClearAreaOff");
+		protected override void Apply(List<IntVec3> cells)
+		{
+			foreach (IntVec3 c in cells)
+				if (!c.Roofed(Map) && c.GetEdifice(Map) == null)
+				{
+					Undo.Snow(Map, c);
+					Map.snowGrid.SetDepth(c, 1f);
+				}
+		}
+	}
+
+	public class Designator_MA_PollutionRemove : Designator_MA_Tool
+	{
+		protected override string Key => "PollutionRemove";
+		public override bool Visible => ModsConfig.BiotechActive && base.Visible;
+		protected override Texture2D LazyIcon() => DefDatabase<ThingDef>.GetNamedSilentFail("Wastepack")?.uiIcon;
+		protected override void Apply(List<IntVec3> cells)
+		{
+			foreach (IntVec3 c in cells)
+				if (Map.pollutionGrid.IsPolluted(c))
+				{
+					Undo.Pollution(Map, c);
+					Map.pollutionGrid.SetPolluted(c, false, true);
+				}
+		}
+	}
+
+	public class Designator_MA_PollutionAdd : Designator_MA_Tool
+	{
+		protected override string Key => "PollutionAdd";
+		public override bool Visible => ModsConfig.BiotechActive && base.Visible;
+		protected override Texture2D LazyIcon() => DefDatabase<ThingDef>.GetNamedSilentFail("Wastepack")?.uiIcon;
+		protected override void Apply(List<IntVec3> cells)
+		{
+			foreach (IntVec3 c in cells)
+				if (!Map.pollutionGrid.IsPolluted(c) && Map.pollutionGrid.EverPollutable(c))
+				{
+					Undo.Pollution(Map, c);
+					Map.pollutionGrid.SetPolluted(c, true, true);
+				}
+		}
+	}
+
+	public class Designator_MA_Extinguish : Designator_MA_Tool
+	{
+		protected override string Key => "Extinguish";
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Icons/Fire") ?? ThingDefOf.Fire?.uiIcon;
+		protected override void Apply(List<IntVec3> cells)
+		{
+			foreach (IntVec3 c in cells)
+				foreach (Thing t in c.GetThingList(Map).ToList())
+					if (t is Fire)
+						t.Destroy(DestroyMode.Vanish);
+		}
+	}
+
+	// grow the plants in the area to full size at once
+	public class Designator_MA_GrowUp : Designator_MA_Tool
+	{
+		protected override string Key => "GrowUp";
+		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/Harvest");
+		protected override void Apply(List<IntVec3> cells)
+		{
+			foreach (IntVec3 c in cells)
+				if (c.GetPlant(Map) is Plant p && p.Growth < 1f)
+				{
+					p.Growth = 1f;
+					Map.mapDrawer.MapMeshDirty(c, MapMeshFlagDefOf.Things);
+				}
+		}
 	}
 }
