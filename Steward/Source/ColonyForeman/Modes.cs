@@ -19,7 +19,9 @@ public enum StewardMode
 {
 	Simple,
 	Recommended,
-	Advanced
+	Advanced,
+	// 2.52: Steward decides everything – all crises and situations, your switched-off lists and counts are not used
+	Autopilot
 }
 
 public sealed class CalmCell
@@ -36,12 +38,13 @@ public static class Modes
 		{
 			ForemanSettings s = ForemanMod.Settings;
 			if (s == null) return StewardMode.Recommended;
-			return (StewardMode)Mathf.Clamp(s.mode, 0, 2);
+			return (StewardMode)Mathf.Clamp(s.mode, 0, 3);
 		}
 	}
 
 	public static bool Calm => Current != StewardMode.Advanced;
 	public static bool Simple => Current == StewardMode.Simple;
+	public static bool Autopilot => Current == StewardMode.Autopilot;
 
 	// Simple: only crises that are real danger to life or the base
 	public const Crisis Danger = Crisis.Fire | Crisis.Raid | Crisis.Medical | Crisis.Toxic | Crisis.Manhunters
@@ -57,16 +60,17 @@ public static class Modes
 		{
 			case StewardMode.Simple: return 24;
 			case StewardMode.Recommended: return s?.intervalHours ?? 6;   // 2.49.8: your value counts
+			case StewardMode.Autopilot: return 3;
 			default: return s?.intervalHours ?? 4;
 		}
 	}
 
 	// the earliest re-plan because the work on the map changed (blueprints, bills …)
-	public static int ShiftGap => Current == StewardMode.Advanced ? 1250 : 5000;
-	public static int SituationGap => Current == StewardMode.Advanced ? 600 : 5000;
+	public static int ShiftGap => Current == StewardMode.Advanced ? 1250 : Autopilot ? 2500 : 5000;
+	public static int SituationGap => Current == StewardMode.Advanced ? 600 : Autopilot ? 1250 : 5000;
 
 	// a cell the steward changed stays as it is at least this long (calm modes)
-	public static int HoldTicks => Simple ? 60000 : 30000;
+	public static int HoldTicks => Simple ? 60000 : Autopilot ? 15000 : 30000;
 
 	public static ForemanStyle PlanStyle(ForemanMapComponent comp)
 	{
@@ -81,7 +85,7 @@ public static class Modes
 		"mode", "maxPriorityOverride", "usePickUpAndHaul", "recPerStyle", "autoByDefault", "nightShift", "masterBills",
 		"autoSchedule", "scheduleCare", "supplyMessages", "noStorageAlert", "skillAlert", "crisisMessages", "includeLodgers",
 		"childLearning", "parentCare", "countMechs", "learningSlots", "learningMaxSkill", "useMyRules", "priorityAreaWorkers",
-		"quietMessages", "sitToEat"
+		"quietMessages", "sitToEat", "butcherFirst"
 	};
 
 	public static ForemanSettings PresetValues(StewardMode m)
@@ -97,6 +101,15 @@ public static class Modes
 			s.intervalHours = 24;
 			s.moodPassion = false;
 			s.priorityAreas = false;
+		}
+		else if (m == StewardMode.Autopilot)
+		{
+			s.intervalHours = 3;
+			s.useDemand = true;
+			s.useSituations = true;
+			s.balancedAutoFocus = true;
+			s.autoStaff = true;
+			s.useCrisis = true;
 		}
 		else
 		{
@@ -146,7 +159,7 @@ public static class Modes
 			int i = part.IndexOf('=');
 			if (i <= 0) continue;
 			string name = part.Substring(0, i);
-			if (name == "quietMessages" || name == "sitToEat") continue;   // 2.46.2: outside the modes
+			if (name == "quietMessages" || name == "sitToEat" || name == "butcherFirst") continue;   // 2.46.2: outside the modes
 			var f = typeof(ForemanSettings).GetField(name);
 			if (f == null) continue;
 			string v = part.Substring(i + 1);
@@ -198,7 +211,7 @@ public static class Modes
 	public static List<FloatMenuOption> Menu()
 	{
 		var list = new List<FloatMenuOption>();
-		foreach (StewardMode m in new[] { StewardMode.Simple, StewardMode.Recommended, StewardMode.Advanced })
+		foreach (StewardMode m in new[] { StewardMode.Simple, StewardMode.Recommended, StewardMode.Autopilot, StewardMode.Advanced })
 		{
 			StewardMode local = m;
 			var opt = new FloatMenuOption((Current == m ? "● " : "") + Label(m), () => Set(local));

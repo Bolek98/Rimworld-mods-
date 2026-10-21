@@ -89,6 +89,9 @@ public sealed class ForemanSettings : ModSettings
 	public bool medicalResponse = true;
 	public bool fireResponse = true;   // 2.39
 	public bool sitToEat = true;       // 2.46
+	public bool butcherFirst = true;   // 2.52: cooks butcher first when meat is low
+	// 2.52: Autopilot decides everything – your counts are not used then
+	public bool MyRulesOn => useMyRules && Modes.Current != StewardMode.Autopilot;
 	public bool quietMessages = false; // 2.46.1 (opt-in since 2.46.2)
 	public bool scheduleCare = true;   // 2.39
 	// 2.32: extras
@@ -185,6 +188,7 @@ public sealed class ForemanSettings : ModSettings
 		Scribe_Values.Look(ref medicalResponse, "medicalResponse", true);
 		Scribe_Values.Look(ref fireResponse, "fireResponse", true);
 		Scribe_Values.Look(ref sitToEat, "sitToEat", true);
+		Scribe_Values.Look(ref butcherFirst, "butcherFirst", true);
 		Scribe_Values.Look(ref quietMessages, "quietMessages2", false);
 		Scribe_Values.Look(ref scheduleCare, "scheduleCare", true);
 		Scribe_Values.Look(ref raidSafeArea, "raidSafeArea", true);

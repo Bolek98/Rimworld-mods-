@@ -265,8 +265,8 @@ public static class Planner
 			// 2.7: per work type limits from the mod settings
 			// 2.31.0: your min / max colonists per work type apply in every style
 			// 2.35: your own counts only when you switched them on
-			int minO = settings.useMyRules ? settings.MinFor(item4) : 0;
-			int maxO = settings.useMyRules ? settings.MaxFor(item4) : 0;
+			int minO = settings.MyRulesOn ? settings.MinFor(item4) : 0;
+			int maxO = settings.MyRulesOn ? settings.MaxFor(item4) : 0;
 			// 2.35: how many colonists the work needs now (benches, dirt, hauling …)
 			int wantW = settings.autoStaff && !manual ? Workload.Wanted(map, item4, list3.Count) : -1;
 			// 2.32.1: remember the order of the best colonists for your minimum
@@ -281,7 +281,7 @@ public static class Planner
 				fixedTypes.Add(item4);
 			// Steward 2.8: a player's plan "N colonists on each level" wins
 			// 2.17: in every colony style, not only in "My style"
-			int[] plan = settings.useMyRules ? settings.PlanFor(item4, max) : null;
+			int[] plan = settings.MyRulesOn ? settings.PlanFor(item4, max) : null;
 			if (plan != null && BillWork(item4))
 			{
 				DemandInfo di = demand?.For(item4);
@@ -879,7 +879,7 @@ public static class Planner
 		bool want = false;
 		try
 		{
-			if (map.resourceCounter.GetCountIn(ThingCategoryDefOf.MeatRaw) < 75)
+			if (map.resourceCounter.GetCountIn(ThingCategoryDefOf.MeatRaw) < Math.Max(75, 12 * map.mapPawns.FreeColonistsSpawnedCount))
 			{
 				bool carcass = false;
 				foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.Corpse))
@@ -1139,7 +1139,7 @@ public static class Planner
 			{
 				ForemanSettings ps = ForemanMod.Settings;
 				bool crisisTop = tops.Any(w => crisisUrg.TryGetValue(w, out float cu) && cu > 0f);
-				WorkTypeDef planned = ps == null || crisisTop ? null : tops.FirstOrDefault(w => { if (!PlanActive(w)) return false; int[] lp = ps.useMyRules ? ps.PlanFor(w, max) : null; return lp != null && lp[0] > 0; });
+				WorkTypeDef planned = ps == null || crisisTop ? null : tops.FirstOrDefault(w => { if (!PlanActive(w)) return false; int[] lp = ps.MyRulesOn ? ps.PlanFor(w, max) : null; return lp != null && lp[0] > 0; });
 				if (planned != null)
 				{
 					lockedTop = planned;
@@ -1239,7 +1239,7 @@ public static class Planner
 			{
 				if (kv.Value[w] > 0 || fixedTypes.Contains(w))
 					continue;
-				if (manual && settings.useMyRules && settings.MaxFor(w) > 0)
+				if (manual && settings.MyRulesOn && settings.MaxFor(w) > 0)
 					continue;
 				// 2.18: never work his ideoligion opposes – "assign opposed" means
 				// only when nobody else can do it, not as filler for an idle colonist

@@ -206,6 +206,7 @@ public static partial class CrisisRules
 	public static bool Allowed(Crisis c)
 	{
 		ForemanSettings s = ForemanMod.Settings;
+		if (s != null && Modes.Autopilot) return true;   // 2.52: Autopilot uses every crisis
 		return s != null && s.useCrisis && (s.crisisOff & (long)c) == 0;
 	}
 

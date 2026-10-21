@@ -900,6 +900,7 @@ public static partial class SituationRules
 	public static bool Allowed(Situation s)
 	{
 		ForemanSettings st = ForemanMod.Settings;
+		if (st != null && Modes.Autopilot) return true;   // 2.52: Autopilot uses every situation
 		return st != null && st.useSituations && (st.situationOff == null || !st.situationOff.Contains(s.ToString()));
 	}
 
@@ -907,7 +908,7 @@ public static partial class SituationRules
 	public static bool Active(ForemanMapComponent comp)
 	{
 		ForemanSettings st = ForemanMod.Settings;
-		return comp != null && st != null && st.useSituations;   // 2.26.0: in every style
+		return comp != null && st != null && (st.useSituations || Modes.Autopilot);   // 2.26.0: in every style
 	}
 
 	// "Construction (priority 2), Hauling (priority 1)" for the settings tab

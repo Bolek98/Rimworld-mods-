@@ -247,7 +247,7 @@ public static class StewardPlus
 				bool ours = comp.masterBills.Contains(id);
 				// 2.32.5: your minimum of 2+ colonists for this work wins – nobody is
 				// bound to one colonist then
-				if (!on || (work != null && S.useMyRules && S.MinFor(work) >= 2))
+				if (!on || (work != null && S.MyRulesOn && S.MinFor(work) >= 2))
 				{
 					if (ours)
 					{

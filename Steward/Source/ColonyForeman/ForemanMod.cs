@@ -10,7 +10,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "2.51.0";
+	public const string Version = "2.52.0";
 
 	// 2.35.8: recommended values for each style (interval h, preferences,
 	// style strength, specialists share)
@@ -90,7 +90,7 @@ public sealed class ForemanMod : Mod
 		// 2.45: modes – Simple and Recommended keep their values up to date
 		Modes.InitMarks();
 		// 2.49.8: only Simple is locked and refreshed; Recommended keeps your changes
-		if (Modes.Current == StewardMode.Simple)
+		if (Modes.Current == StewardMode.Simple || Modes.Current == StewardMode.Autopilot)
 			Modes.ApplyPreset(Settings, Modes.Current);
 		LongEventHandler.ExecuteWhenFinished(delegate
 		{
@@ -111,7 +111,7 @@ public sealed class ForemanMod : Mod
 
 	// 2.8 (Steward): settings in tabs – General, Work types (importance,
 	// min/max colonists) and Priority levels (colonists on each level).
-	private static readonly StewardMode[] ModeOrder = { StewardMode.Simple, StewardMode.Recommended, StewardMode.Advanced };
+	private static readonly StewardMode[] ModeOrder = { StewardMode.Simple, StewardMode.Recommended, StewardMode.Autopilot, StewardMode.Advanced };
 
 	public override void DoSettingsWindowContents(Rect inRect)
 	{
@@ -122,8 +122,8 @@ public sealed class ForemanMod : Mod
 		Widgets.Label(new Rect(inRect.x, inRect.y, inRect.width, 20f), "CF_ModeHeader".Translate());
 		Text.Font = GameFont.Small;
 		GUI.color = Color.white;
-		float cw = (inRect.width - 24f) / 3f;
-		for (int i = 0; i < 3; i++)
+		float cw = (inRect.width - 36f) / 4f;
+		for (int i = 0; i < 4; i++)
 		{
 			StewardMode m = ModeOrder[i];
 			Rect c = new Rect(inRect.x + i * (cw + 12f), inRect.y + 22f, cw, 84f);
@@ -138,7 +138,7 @@ public sealed class ForemanMod : Mod
 			}
 		}
 		float top = inRect.y + 22f + 84f + 8f;
-		bool locked = Modes.Current == StewardMode.Simple;
+		bool locked = Modes.Current == StewardMode.Simple || Modes.Current == StewardMode.Autopilot;
 		if (locked)
 			top += MUI.LockNote(new Rect(inRect.x, top, inRect.width, 0f)) + 4f;
 		inRect = new Rect(inRect.x, top - 2f, inRect.width, inRect.yMax - (top - 2f));
@@ -195,6 +195,8 @@ public sealed class ForemanMod : Mod
 		l.CheckboxLabeled("CF_QuietMessages".Translate(), ref s.quietMessages, "CF_QuietMessages_Desc".Translate());
 		l.Gap(6f);
 		l.CheckboxLabeled("CF_SitToEat".Translate(), ref s.sitToEat, "CF_SitToEat_Desc".Translate());
+		l.Gap(6f);
+		l.CheckboxLabeled("CF_ButcherFirst".Translate(), ref s.butcherFirst, "CF_ButcherFirst_Desc".Translate());
 		l.Gap(10f);
 		GUI.color = MUI.Muted;
 		l.Label("CF_MessagesNote".Translate());
