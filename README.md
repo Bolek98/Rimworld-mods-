@@ -17,7 +17,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Gender Balance | 1.3.0 | [GenderBalance](GenderBalance) |
 | Haul Smarter | 3.0.1 | [HaulSmarter](HaulSmarter) |
 | Matchmaker | 0.1.0 | [Matchmaker](Matchmaker) |
-| Map Architect | 0.2.1 | [MapArchitect](MapArchitect) |
+| Map Architect | 0.2.2 | [MapArchitect](MapArchitect) |
 | Masks & Headgear Together | 1.0.0 | [MasksAndHeadgear](MasksAndHeadgear) |
 | Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
 | Mod Sort Manager – Load Order, Conflicts & Profiles | 0.1.3 | [ModSortManager](ModSortManager) |

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- Better Architect Menu shows a category without buildings only when it is marked special
-       (like Orders and Zones) – mark ours, only when that mod is loaded -->
+  <!-- Better Architect Menu: put "Map Architect" next to Orders, Zones, Locations and Map edit
+       (the Colony group) and show it although it has no buildings – only when that mod is loaded -->
   <Operation Class="PatchOperationFindMod">
     <mods>
       <li>Better Architect Menu</li>
@@ -10,6 +10,9 @@
       <xpath>Defs/DesignationCategoryDef[defName="MA_MapArchitect"]</xpath>
       <value>
         <li Class="BetterArchitect.SpecialCategoryExtension" />
+        <li Class="BetterArchitect.NestedCategoryExtension">
+          <parentCategory>Ferny_Colony</parentCategory>
+        </li>
       </value>
     </match>
   </Operation>
