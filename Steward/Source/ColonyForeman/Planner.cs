@@ -850,6 +850,55 @@ public static class Planner
 		}
 	}
 
+	// 2.50.0: fresh animal carcasses, an active butcher bill and little raw meat
+	private static int foodTick = -99999;
+	private static Map foodMap;
+	private static bool foodVal;
+
+	public static bool FoodWorkWaiting(Map map)
+	{
+		if (map == null)
+			return false;
+		int now = Find.TickManager.TicksGame;
+		if (map == foodMap && now - foodTick < 1250)
+			return foodVal;
+		bool want = false;
+		try
+		{
+			if (map.resourceCounter.GetCountIn(ThingCategoryDefOf.MeatRaw) < 75)
+			{
+				bool carcass = false;
+				foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.Corpse))
+					if (t is Corpse c && c.InnerPawn != null && c.InnerPawn.RaceProps.Animal && !c.IsForbidden(Faction.OfPlayer) && c.GetRotStage() == RotStage.Fresh)
+					{
+						carcass = true;
+						break;
+					}
+				if (carcass)
+					foreach (Building b in map.listerBuildings.allBuildingsColonist)
+					{
+						if (!(b is IBillGiver bg) || bg.BillStack == null || (b is Building_WorkTable wt && !wt.CurrentlyUsableForBills()))
+							continue;
+						foreach (Bill bill in bg.BillStack.Bills)
+							if (!bill.suspended && bill.recipe?.specialProducts != null && bill.recipe.specialProducts.Contains(SpecialProductType.Butchery) && bill.ShouldDoNow())
+							{
+								want = true;
+								break;
+							}
+						if (want)
+							break;
+					}
+			}
+		}
+		catch
+		{
+		}
+		foodMap = map;
+		foodTick = now;
+		foodVal = want;
+		return want;
+	}
+
 	// work that is never switched off by a strict style (it only goes to the lowest level)
 	private static bool Essential(WorkTypeDef w)
 	{
@@ -863,6 +912,9 @@ public static class Planner
 		Crisis crisis, Dictionary<Pawn, Dictionary<WorkTypeDef, float>> fitOf)
 	{
 		string styleLabel = Styles.Label(comp.style);
+		// 2.50.0: fresh carcasses wait for the butcher and meat is low – cooking is not pushed down by the style
+		bool food = FoodWorkWaiting(comp.map);
+		WorkTypeDef cookW = DefDatabase<WorkTypeDef>.GetNamedSilentFail("Cooking");
 		foreach (var kv in plan)
 		{
 			Pawn p = kv.Key;
@@ -887,6 +939,15 @@ public static class Planner
 				}
 				if (game != null && game.AnyLock(p, w))
 					continue;
+				if (food && w == cookW && jobs.TryGetValue(w, out int ck) && ck > 0 && ck <= 2)
+				{
+					if (comp.reasons.TryGetValue(p.thingIDNumber, out var ftexts))
+					{
+						string fl = "CF_TipButcherWaiting".Translate().Colorize(ColorLibrary.Gold);
+						ftexts[w] = ftexts.TryGetValue(w, out string ft) ? ft + "\n" + fl : fl;
+					}
+					continue;
+				}
 				int target = settings.styleOthersOff && !Essential(w) ? 0 : max;
 				if (jobs.TryGetValue(w, out int cur) && cur == target)
 					continue;
@@ -914,6 +975,21 @@ public static class Planner
 				}
 				if (best != null)
 					jobs[best] = 1;
+			}
+		}
+		// 2.50.0: at least one cook on priority 2 while carcasses wait
+		if (food && cookW != null && max >= 2 && !plan.Any(kv => kv.Value.TryGetValue(cookW, out int v) && v > 0 && v <= 2))
+		{
+			Pawn bestCook = plan.Keys.Where(p => !p.WorkTypeIsDisabled(cookW) && (game == null || !game.AnyLock(p, cookW)) && !ModCompat.AchtungForced(p))
+				.OrderByDescending(p => fitOf.TryGetValue(p, out var f) && f.TryGetValue(cookW, out float x) ? x : 0f).FirstOrDefault();
+			if (bestCook != null)
+			{
+				plan[bestCook][cookW] = 2;
+				if (comp.reasons.TryGetValue(bestCook.thingIDNumber, out var btexts))
+				{
+					string bl = "CF_TipButcherWaiting".Translate().Colorize(ColorLibrary.Gold);
+					btexts[cookW] = btexts.TryGetValue(cookW, out string bt) ? bt + "\n" + bl : bl;
+				}
 			}
 		}
 		// a crisis beats the style: its work gets enough colonists on priority 1
