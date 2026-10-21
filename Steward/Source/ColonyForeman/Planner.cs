@@ -621,7 +621,7 @@ public static class Planner
 		// crises, situations, your locks and your own rules (below) still win.
 		if (!manual && !even && settings.styleStrict)
 		{
-			try { StyleStrict(comp, dictionary, crisisUrg, sitCells, foremanGameComponent, max, settings, demand.crisis, fitOf); }
+			try { StyleStrict(comp, dictionary, crisisUrg, sitCells, foremanGameComponent, max, settings, demand.crisis, fitOf, settings.useDemand ? demand : null); }
 			catch (Exception ex) { Log.ErrorOnce("[Steward] strict style failed: " + ex, 0x57e3a43); }
 		}
 		// 2.21: one priority-1 job per colonist (after styles, situations, crises)
@@ -850,6 +850,19 @@ public static class Planner
 		}
 	}
 
+	// work that is never "finished" (always something to research or make art of) – not kept by 2.50.1
+	private static bool OpenEnded(WorkTypeDef w)
+	{
+		switch (w.defName)
+		{
+		case "Research":
+		case "Art":
+		case "DarkStudy":
+			return true;
+		}
+		return false;
+	}
+
 	// 2.50.0: fresh animal carcasses, an active butcher bill and little raw meat
 	private static int foodTick = -99999;
 	private static Map foodMap;
@@ -909,7 +922,7 @@ public static class Planner
 	// 2.44: order in a chosen style – CRISIS > STYLE > what is needed (situations) > the rest.
 	private static void StyleStrict(ForemanMapComponent comp, Dictionary<Pawn, Dictionary<WorkTypeDef, int>> plan,
 		Dictionary<WorkTypeDef, float> crisisUrg, HashSet<(Pawn, WorkTypeDef)> sitCells, ForemanGameComponent game, int max, ForemanSettings settings,
-		Crisis crisis, Dictionary<Pawn, Dictionary<WorkTypeDef, float>> fitOf)
+		Crisis crisis, Dictionary<Pawn, Dictionary<WorkTypeDef, float>> fitOf, MapDemand demand = null)
 	{
 		string styleLabel = Styles.Label(comp.style);
 		// 2.50.0: fresh carcasses wait for the butcher and meat is low – cooking is not pushed down by the style
@@ -989,6 +1002,31 @@ public static class Planner
 				{
 					string bl = "CF_TipButcherWaiting".Translate().Colorize(ColorLibrary.Gold);
 					btexts[cookW] = btexts.TryGetValue(cookW, out string bt) ? bt + "\n" + bl : bl;
+				}
+			}
+		}
+		// 2.50.1: no work starves under a style – work that really waits (bills with ingredients, patients,
+		// ripe plants, things to build …) keeps at least one colonist on priority 2
+		if (demand != null && max >= 2)
+		{
+			foreach (WorkTypeDef w in WorkPolicies.VisibleWorkTypes())
+			{
+				if (Styles.Delta(comp.style, w) > 0f || TopExempt(w) || WorkPolicies.Get(w).emergency || Essential(w) || OpenEnded(w))
+					continue;
+				DemandInfo di = demand.For(w);
+				if (di == null || di.factor < 0.9f)
+					continue;
+				if (plan.Any(kv => kv.Value.TryGetValue(w, out int v) && v > 0 && v <= 2))
+					continue;
+				Pawn best = plan.Keys.Where(p => !p.WorkTypeIsDisabled(w) && (game == null || !game.AnyLock(p, w)) && !ModCompat.AchtungForced(p))
+					.OrderByDescending(p => fitOf.TryGetValue(p, out var f) && f.TryGetValue(w, out float x) ? x : 0f).FirstOrDefault();
+				if (best == null)
+					continue;
+				plan[best][w] = 2;
+				if (comp.reasons.TryGetValue(best.thingIDNumber, out var ntexts))
+				{
+					string nl = "CF_TipNeedKept".Translate(styleLabel, di.note ?? "").Colorize(ColorLibrary.Gold);
+					ntexts[w] = ntexts.TryGetValue(w, out string nt) ? nt + "\n" + nl : nl;
 				}
 			}
 		}
