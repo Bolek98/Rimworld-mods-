@@ -1,3 +1,6 @@
+1.6.1
+- Hitch finder also measures drawing (map, pawns, colonist bar, alerts, windows, pawn graphics building) and every other mod's patch on pawn drawing – the "unknown" part of a hitch gets names.
+
 1.6.0
 - New tab Simulation with a game size profile: Automatic / Small / Normal / Huge (huge maps and big mod packs).
 - Smarter tick: far settlements, sites and world pawns, other maps without danger and (huge games) things off screen are updated in bigger steps – the game passes the whole time that went by, nothing is skipped. Never during fights, fires or for drafted colonists.

@@ -170,7 +170,7 @@ public partial class BodyFitMod : Mod
 		try
 		{
 			new Harmony("bolek98.bodyfit").PatchAll();
-			MLog.Game("[Body Fit] v2.5.0 loaded (messages: Logs\\BodyFit.log).");
+			MLog.Game("[Body Fit] v2.5.1 loaded (messages: Logs\\BodyFit.log).");
 		}
 		catch (Exception ex)
 		{

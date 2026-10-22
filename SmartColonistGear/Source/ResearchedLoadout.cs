@@ -105,7 +105,7 @@ namespace ResearchedLoadout
 			}
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
-			MLog.Game("[Smart Colonist Gear] v2.16.6 loaded (messages: Logs\\SmartColonistGear.log).");
+			MLog.Game("[Smart Colonist Gear] v2.16.7 loaded (messages: Logs\\SmartColonistGear.log).");
 		}
 
 		public override string SettingsCategory()
@@ -5981,6 +5981,8 @@ namespace ResearchedLoadout
 		{
 		}
 
+		private readonly List<Pawn> _queue = new List<Pawn>();
+
 		public override void MapComponentTick()
 		{
 			CombatArmor.Tick(map);
@@ -6005,6 +6007,19 @@ namespace ResearchedLoadout
 			}
 			MaybeReport(Find.TickManager.TicksGame);
 			_ticker++;
+			// 2.16.7: the colonists of a round are checked one by one (one every 5 ticks), not all in one tick –
+			// with many colonists and much gear on a big map that was a 200+ ms stop every 20 seconds
+			if (_queue.Count > 0)
+			{
+				if (_ticker % 5 == 0)
+				{
+					Pawn next = _queue[0];
+					_queue.RemoveAt(0);
+					if (next != null && next.Spawned && next.Map == map && !next.Dead)
+						ProcessPawn(next, Find.TickManager.TicksGame, settings);
+				}
+				return;
+			}
 			if (_ticker < 1250)
 			{
 				return;
@@ -6052,10 +6067,8 @@ namespace ResearchedLoadout
 			{
 				_order.Sort(CompareFighters);
 			}
-			for (int k = 0; k < _order.Count; k++)
-			{
-				ProcessPawn(_order[k], now, settings);
-			}
+			_queue.Clear();
+			_queue.AddRange(_order);
 			_order.Clear();
 		}
 

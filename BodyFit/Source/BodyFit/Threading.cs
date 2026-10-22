@@ -130,8 +130,8 @@ public static class BF
 						{
 							PortraitsCache.SetDirty(p);
 							// 2.2.1: clothes pictures are chosen again now that the body is measured
-							if (body != null && done.Contains(body) && !Refit.Busy(p))
-								p.Drawer?.renderer?.SetAllGraphicsDirty();
+							if (body != null && done.Contains(body))
+								Refit.QueueRedraw(p);   // 2.5.1: a few per frame
 						}
 					}
 		}

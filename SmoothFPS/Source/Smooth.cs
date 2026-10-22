@@ -693,6 +693,64 @@ namespace GraphicsTuner
             }
         }
 
+        // 1.6.1: drawing – the "unknown" part of a hitch is mostly drawing and windows; also every
+        // mod patch on pawn drawing and graphics building (Body Fit, HAR, animation mods …)
+        private static bool drawWatched;
+
+        public static void WatchDrawing()
+        {
+            if (drawWatched || !on)
+                return;
+            drawWatched = true;
+            try
+            {
+                var h = new Harmony("misak.graphicstuner.hitchdraw");
+                var pre = new HarmonyMethod(typeof(HitchFinder), nameof(Pre));
+                var post = new HarmonyMethod(typeof(HitchFinder), nameof(Post));
+                int before = patched;
+                var main = new List<MethodBase>
+                {
+                    AccessTools.Method(typeof(DynamicDrawManager), nameof(DynamicDrawManager.DrawDynamicThings)),
+                    AccessTools.Method(typeof(MapDrawer), nameof(MapDrawer.MapMeshDrawerUpdate_First)),
+                    AccessTools.Method(typeof(MapDrawer), nameof(MapDrawer.DrawMapMesh)),
+                    AccessTools.Method(typeof(RimWorld.ColonistBar), nameof(RimWorld.ColonistBar.ColonistBarOnGUI)),
+                    AccessTools.Method(typeof(RimWorld.AlertsReadout), nameof(RimWorld.AlertsReadout.AlertsReadoutOnGUI)),
+                    AccessTools.Method(typeof(WindowStack), nameof(WindowStack.WindowStackOnGUI)),
+                    AccessTools.Method(typeof(PawnRenderer), nameof(PawnRenderer.EnsureGraphicsInitialized)),
+                    AccessTools.Method(typeof(PawnRenderTree), nameof(PawnRenderTree.EnsureInitialized))
+                };
+                foreach (MethodBase m in main)
+                    Try(h, m, pre, post);
+                // other mods' patches on pawn drawing
+                var drawRoots = new List<MethodBase>(main)
+                {
+                    AccessTools.Method(typeof(PawnRenderer), nameof(PawnRenderer.RenderPawnAt)),
+                    AccessTools.Method(typeof(PawnRenderer), nameof(PawnRenderer.DynamicDrawPhaseAt)),
+                    AccessTools.Method(typeof(PawnRenderer), nameof(PawnRenderer.SetAllGraphicsDirty))
+                };
+                var seen = new HashSet<MethodInfo>();
+                foreach (MethodBase m in drawRoots)
+                {
+                    if (m == null)
+                        continue;
+                    HarmonyLib.Patches info = Harmony.GetPatchInfo(m);
+                    if (info == null)
+                        continue;
+                    foreach (HarmonyLib.Patch p in info.Prefixes.Concat(info.Postfixes).Concat(info.Finalizers))
+                    {
+                        if (p.owner.StartsWith("misak.graphicstuner") || p.PatchMethod == null || !seen.Add(p.PatchMethod))
+                            continue;
+                        Try(h, p.PatchMethod, pre, post);
+                    }
+                }
+                MLog.Info("[Smooth FPS] hitch finder: drawing watched (" + (patched - before) + " places).");
+            }
+            catch (Exception e)
+            {
+                MLog.Warn("[Smooth FPS] hitch finder (drawing) failed: " + e.Message);
+            }
+        }
+
         public static void PostIncident(IncidentWorker __instance, long __state)
         {
             double ms = (Stopwatch.GetTimestamp() - __state) * tickToMs;
@@ -724,8 +782,11 @@ namespace GraphicsTuner
             {
                 // 1.6.0: the window wants also the small, frequent costs
                 string k = __originalMethod.DeclaringType?.Name + "." + __originalMethod.Name + " [" + Mod(__originalMethod.DeclaringType?.Assembly) + "]";
-                roll.TryGetValue(k, out double r);
-                roll[k] = r + ms;
+                lock (gate)
+                {
+                    roll.TryGetValue(k, out double r);
+                    roll[k] = r + ms;
+                }
             }
             if (ms >= 1.0)
                 Add(__originalMethod.DeclaringType?.Name + "." + __originalMethod.Name + " [" + Mod(__originalMethod.DeclaringType?.Assembly) + "]", ms);
@@ -749,14 +810,20 @@ namespace GraphicsTuner
             return a.GetName().Name == "Assembly-CSharp" ? "RimWorld" : a.GetName().Name;
         }
 
+        private static readonly object gate = new object();
+
         public static void Add(string what, double ms)
         {
-            sum.TryGetValue(what, out double s);
-            sum[what] = s + ms;
-            if (Rolling)
+            // 1.6.1: pawns are drawn on several threads – the lists are shared, so one at a time
+            lock (gate)
             {
-                roll.TryGetValue(what, out double r);
-                roll[what] = r + ms;
+                sum.TryGetValue(what, out double s);
+                sum[what] = s + ms;
+                if (Rolling)
+                {
+                    roll.TryGetValue(what, out double r);
+                    roll[what] = r + ms;
+                }
             }
         }
 
@@ -767,6 +834,8 @@ namespace GraphicsTuner
             GfxSettings s = GraphicsTunerMod.Settings;
             int gc = GC.CollectionCount(GC.MaxGeneration);
             bool log = s != null && frameMs >= s.hitchMs && Time.realtimeSinceStartup - lastLog > 1f;
+            lock (gate)
+            {
             if (DeepHitch.On)
                 DeepHitch.Flush(Add, log);
             if (log)
@@ -783,6 +852,7 @@ namespace GraphicsTuner
                             + (frameMs - known > 100 ? " | unknown: " + (frameMs - known).ToString("0") + " ms" : ""));
             }
             sum.Clear();
+            }
             gcAtStart = gc;
         }
     }
@@ -790,7 +860,11 @@ namespace GraphicsTuner
     public class GTGameComp : GameComponent
     {
         public GTGameComp(Game game) { Sim.ResetGame(); }
-        public override void FinalizeInit() => HitchFinder.WatchGeneration();
+        public override void FinalizeInit()
+        {
+            HitchFinder.WatchGeneration();
+            HitchFinder.WatchDrawing();
+        }
     }
 
     // ---------------- benchmark: 60 s at 3x ----------------

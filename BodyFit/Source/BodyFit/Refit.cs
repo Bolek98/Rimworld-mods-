@@ -104,6 +104,8 @@ public static class Refit
 		// 2.2.3: pawns skipped while busy (RJW / animation) are redrawn once they are free
 		if (deferred.Count > 0 && UnityEngine.Time.frameCount % 30 == 0)
 			RedrawDeferred();
+		if (redrawQueue.Count > 0)
+			RedrawSome();
 		if (redrawWanted && (left == 0 || UnityEngine.Time.realtimeSinceStartup - lastRedraw > 3f))
 		{
 			redrawWanted = false;
@@ -195,12 +197,50 @@ public static class Refit
 							deferred.Add(p);
 							continue;
 						}
-						p.Drawer?.renderer?.SetAllGraphicsDirty();
-						PortraitsCache.SetDirty(p);
+						// 2.5.1: not all pawns in one frame – a few per frame (big colonies with alien races
+						// stopped for 100–500 ms each time all of them rebuilt their graphics at once)
+						if (redrawSet.Add(p))
+							redrawQueue.Enqueue(p);
 					}
 		}
 		catch
 		{
+		}
+	}
+
+	private static readonly Queue<Pawn> redrawQueue = new Queue<Pawn>();
+	private static readonly HashSet<Pawn> redrawSet = new HashSet<Pawn>();
+
+	public static void QueueRedraw(Pawn p)
+	{
+		if (p != null && redrawSet.Add(p))
+			redrawQueue.Enqueue(p);
+	}
+
+	// a few pawns per frame, in the order they were queued
+	private static void RedrawSome()
+	{
+		int n = 0;
+		while (redrawQueue.Count > 0 && n < 3)
+		{
+			Pawn p = redrawQueue.Dequeue();
+			redrawSet.Remove(p);
+			try
+			{
+				if (p == null || !p.Spawned || p.Destroyed)
+					continue;
+				if (Busy(p))
+				{
+					deferred.Add(p);
+					continue;
+				}
+				p.Drawer?.renderer?.SetAllGraphicsDirty();
+				PortraitsCache.SetDirty(p);
+				n++;
+			}
+			catch
+			{
+			}
 		}
 	}
 

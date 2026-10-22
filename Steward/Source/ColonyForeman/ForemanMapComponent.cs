@@ -310,6 +310,7 @@ public sealed class ForemanMapComponent : MapComponent
 		if (++ticker < 250)
 			return;
 		ticker = 0;
+		long t0 = System.Diagnostics.Stopwatch.GetTimestamp();
 		// 2.39: schedules for everyone at once, and help for exhausted / breaking colonists
 		try
 		{
@@ -318,6 +319,7 @@ public sealed class ForemanMapComponent : MapComponent
 			MoodCare.Tick(this, map);
 		}
 		catch (Exception ex) { Log.ErrorOnce("[Steward] schedules failed: " + ex, 0x57e3a53); }
+		long t1 = System.Diagnostics.Stopwatch.GetTimestamp();
 		// 2.32: extras
 		try
 		{
@@ -330,9 +332,12 @@ public sealed class ForemanMapComponent : MapComponent
 			}
 		}
 		catch (Exception ex) { Log.ErrorOnce("[Steward] extras failed: " + ex, 0x57e3a31); }
+		long t2 = System.Diagnostics.Stopwatch.GetTimestamp();
 		// 2.27.0: free doctors go to patients at once
 		try { MedicalResponse.Tick(map); }
 		catch (Exception ex) { Log.ErrorOnce("[Steward] medical response failed: " + ex, 0x57e3a21); }
+		long t3 = System.Diagnostics.Stopwatch.GetTimestamp();
+		long t4 = t3, t5 = t3;
 		// Steward 2.9.0: the regular plan also runs while there is a hostile
 		// on the map (a single angry animal used to stop planning for days);
 		// only the extra early re-plans wait for the danger to pass.
@@ -409,6 +414,7 @@ public sealed class ForemanMapComponent : MapComponent
 				MapDemand mapDemand = MapDemand.Quick(map, lastHarvestable);
 				flag = mapDemand.crisis != crisis;
 			}
+			t4 = System.Diagnostics.Stopwatch.GetTimestamp();
 			if (flag)
 			{
 				// 2.14.1: one bad pawn or modded work type must not break the
@@ -416,6 +422,7 @@ public sealed class ForemanMapComponent : MapComponent
 				try
 				{
 					Run(manual: false);
+					t5 = System.Diagnostics.Stopwatch.GetTimestamp();
 				}
 				catch (Exception ex)
 				{
@@ -425,6 +432,23 @@ public sealed class ForemanMapComponent : MapComponent
 				}
 			}
 		}
+		SlowTick(t0, t1, t2, t3, t4, t5);
+	}
+
+	// 2.52.1: a slow Steward tick says which part was slow (Logs\Steward.log), at most twice a minute
+	private static float slowLogAt = -999f;
+
+	private void SlowTick(long t0, long t1, long t2, long t3, long t4, long t5)
+	{
+		double f = 1000.0 / System.Diagnostics.Stopwatch.Frequency;
+		long end = System.Diagnostics.Stopwatch.GetTimestamp();
+		double total = (end - t0) * f;
+		if (total < 60.0 || UnityEngine.Time.realtimeSinceStartup - slowLogAt < 30f)
+			return;
+		slowLogAt = UnityEngine.Time.realtimeSinceStartup;
+		MLog.Info("[Steward] slow tick " + total.ToString("0") + " ms: schedules+mood " + ((t1 - t0) * f).ToString("0")
+			+ ", extras " + ((t2 - t1) * f).ToString("0") + ", medical " + ((t3 - t2) * f).ToString("0")
+			+ ", checks " + ((t4 - t3) * f).ToString("0") + ", plan " + (t5 > t4 ? ((t5 - t4) * f).ToString("0") : "0") + " ms");
 	}
 
 	public int Run(bool manual)
