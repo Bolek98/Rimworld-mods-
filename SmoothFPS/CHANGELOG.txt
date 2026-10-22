@@ -1,4 +1,5 @@
 1.7.3
+- Speed 3 and 4: the simulation gets at least as much time per frame as drawing. With an FPS target the PC cannot reach, it got only 3 ms and speed 4 was barely faster than speed 1 (setting, on by default).
 - Speed 1 and 2 always run at full speed: with a heavy colony and a high FPS target the game ran only as many ticks as frames (e.g. 40 instead of 60 a second). The FPS target now only decides how smooth they are (setting, on by default).
 
 1.7.2

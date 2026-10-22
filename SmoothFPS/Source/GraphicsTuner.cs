@@ -47,7 +47,8 @@ namespace GraphicsTuner
         public int sfMaxSim;                    // 0 = automatic
         public bool sfCamera = true;
         public bool sfIdle = true;
-        public bool sfRealNormal = true;        // 1.7.2: speed 1 and 2 never run slower than real
+        public bool sfRealNormal = true;
+        public bool sfFastShare = true;         // 1.7.3: speed 3/4 – simulation gets at least the drawing time        // 1.7.2: speed 1 and 2 never run slower than real
         public int sfIdleFps = 30;
         public bool sfBackground = true;
         public bool slowAlerts = true;
@@ -203,6 +204,7 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref sfCamera, "sfCamera", true);
             Scribe_Values.Look(ref sfIdle, "sfIdle", true);
             Scribe_Values.Look(ref sfRealNormal, "sfRealNormal", true);
+            Scribe_Values.Look(ref sfFastShare, "sfFastShare", true);
             Scribe_Values.Look(ref sfIdleFps, "sfIdleFps", 30);
             Scribe_Values.Look(ref sfBackground, "sfBackground", true);
             Scribe_Values.Look(ref slowAlerts, "slowAlerts", true);
@@ -987,6 +989,7 @@ namespace GraphicsTuner
                 new FloatMenuOption(slowNames[0], () => s.sfSlowdown = false)
             });
             Plain(l, "GT_RealNormal", ref s.sfRealNormal);
+            Plain(l, "GT_FastShare", ref s.sfFastShare);
             float ms = MUI.Slider(l, "GT_MaxSim".Translate(s.sfMaxSim == 0 ? "GT_Auto".Translate().ToString() : s.sfMaxSim + " ms"), s.sfMaxSim, 0f, 40f, "GT_MaxSim_Desc".Translate(), s, null);
             s.sfMaxSim = Mathf.RoundToInt(ms);
             s.sfMove = Mathf.RoundToInt(MUI.Slider(l, "GT_Move".Translate(s.sfMove), s.sfMove, 30f, 165f, "GT_Move_Desc".Translate(), s, null) / 5f) * 5;

@@ -208,6 +208,12 @@ namespace GraphicsTuner
                 // more than the frame budget of a high FPS target, and the game ran at the speed
                 // of the FPS (e.g. 40 instead of 60 ticks a second at speed 1).
                 bool realSpeed = s.sfRealNormal && mult <= 3.01f && !background;
+                // 1.7.3: at speed 3 and 4 the simulation gets at least as much time as drawing.
+                // When the FPS target cannot be reached (drawing alone takes longer than one frame
+                // of the target), the old formula left the simulation 3 ms – speed 4 ran barely
+                // faster than speed 1.
+                if (s.sfFastShare && mult > 3.01f && !background)
+                    budgetMs = Math.Max(budgetMs, Math.Min(renderMs, 45.45f));
                 if (realSpeed)
                 {
                     float due = rt / perTick;
