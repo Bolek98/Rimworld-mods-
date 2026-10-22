@@ -55,6 +55,10 @@ namespace GraphicsTuner
         public bool hitchFinder;
         public bool hitchThings;
         public bool hitchDeep;   // 1.5.0
+        // 1.6.0: simulation
+        public int gameSize = -1;      // -1 automatic, 0 small, 1 normal, 2 huge
+        public bool smartTick = true;
+        public bool worldClean = true;
         public int hitchMs = 250;
         public bool gcHold;
         public int tab;
@@ -204,6 +208,9 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref hitchFinder, "hitchFinder", false);
             Scribe_Values.Look(ref hitchThings, "hitchThings", false);
             Scribe_Values.Look(ref hitchDeep, "hitchDeep", false);
+            Scribe_Values.Look(ref gameSize, "gameSize", -1);
+            Scribe_Values.Look(ref smartTick, "smartTick", true);
+            Scribe_Values.Look(ref worldClean, "worldClean", true);
             Scribe_Values.Look(ref hitchMs, "hitchMs", 250);
             Scribe_Values.Look(ref gcHold, "gcHold", false);
             Scribe_Values.Look(ref tab, "tab", 0);
@@ -671,7 +678,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.5.0";
+        public const string Version = "1.6.0";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -694,6 +701,7 @@ namespace GraphicsTuner
             Smooth.Patch(harmony);
             Freezer.Patch(harmony);
             LocationGeneratorFast.Patch(harmony);   // 1.3.2
+            Sim.Patch(harmony);                     // 1.6.0
             ModEffects.Patch(harmony);              // 1.3.2: effects from mods too
             TextureCap.Patch(harmony);              // 1.3.3: oversized mod textures
             // 1.3.4: no more swapping textures that were loaded before Smooth FPS started – icons and
@@ -750,7 +758,7 @@ namespace GraphicsTuner
             return key.CanTranslate() ? key.Translate().ToString() : GenText.SplitCamelCase(engineName);
         }
 
-        private static readonly string[] TabKeys = { "GT_TabGraphics", "GT_TabSmooth", "GT_TabMemory" };
+        private static readonly string[] TabKeys = { "GT_TabGraphics", "GT_TabSmooth", "GT_TabMemory", "GT_TabSim" };
         private static readonly int[] TargetChoices = { 30, 45, 60, 75, 90, 120, 144, 165 };
         private Vector2 scroll2;
         private float viewHeight2 = 900f;
@@ -783,6 +791,7 @@ namespace GraphicsTuner
             Rect body = new Rect(inRect.x, inRect.y + 40f, inRect.width, inRect.height - 40f);
             if (s.tab == 1) SmoothTab(body, s);
             else if (s.tab == 2) MemoryTab(body, s);
+            else if (s.tab == 3) SimTab(body, s);
             else GraphicsTab(body, s);
         }
 
@@ -1097,6 +1106,51 @@ namespace GraphicsTuner
         }
 
         // 1.2: memory & freezes (the former Fewer Freezes)
+        // 1.6.0: game size and simulation
+        private static readonly string[] SizeKeys = { "GT_SizeAuto", "GT_SizeSmall", "GT_SizeNormal", "GT_SizeHuge" };
+
+        private void SimTab(Rect inRect, GfxSettings s)
+        {
+            Muted(new Rect(inRect.x, inRect.y, inRect.width, 20f), "GT_SizeHeader".Translate());
+            float cw = (inRect.width - 36f) / 4f;
+            for (int i = 0; i < 4; i++)
+            {
+                int val = i - 1;
+                Rect c = new Rect(inRect.x + i * (cw + 12f), inRect.y + 22f, cw, 84f);
+                string desc = (SizeKeys[i] + "_Card").Translate();
+                if (val == -1)
+                    desc = "GT_SizeAuto_Card".Translate(("GT_Size" + Sim.Detected).Translate());
+                if (MUI.ProfileCard(c, SizeKeys[i].Translate(), desc, s.gameSize == val, val == -1))
+                    s.gameSize = val;
+            }
+            var l = new Listing_Standard();
+            l.Begin(new Rect(inRect.x, inRect.y + 116f, inRect.width, inRect.height - 116f));
+            l.ColumnWidth = (inRect.width - 34f) / 2f;
+            MUI.Section(l, "GT_SimTickSec".Translate());
+            MUI.Check(l, "GT_SimSmartTick".Translate(), "GT_SimSmartTick_Desc".Translate(), ref s.smartTick, s, null);
+            Muted(l.GetRect(48f), "GT_SimRates".Translate(Sim.WorldRate, Sim.OtherMapRate, Sim.OffscreenRate));
+            l.Gap(6f);
+            if (l.ButtonText("GT_TC_Open".Translate()))
+                Find.WindowStack.Add(new Dialog_TickCost());
+            if (!HitchFinder.IsOn)
+                Muted(l.GetRect(40f), "GT_TC_NeedHitch".Translate());
+            l.NewColumn();
+            MUI.Section(l, "GT_SimCleanSec".Translate());
+            MUI.Check(l, "GT_SimClean".Translate(), "GT_SimClean_Desc".Translate(), ref s.worldClean, s, null);
+            Muted(l.GetRect(40f), Sim.KeepBattles > 0 ? "GT_SimKeep".Translate(Sim.KeepBattles) : "GT_SimKeepOff".Translate());
+            if (Verse.Current.ProgramState == ProgramState.Playing)
+            {
+                Muted(l.GetRect(44f), Sim.WorldLine());
+                if (l.ButtonText("GT_SimCleanNow".Translate()))
+                {
+                    string t = "";
+                    LongEventHandler.QueueLongEvent(() => { t = Sim.CleanWorld(true); }, "GT_SimCleaning", false, null);
+                    LongEventHandler.ExecuteWhenFinished(() => Messages.Message(t, MessageTypeDefOf.NeutralEvent, false));
+                }
+            }
+            l.End();
+        }
+
         private void MemoryTab(Rect inRect, GfxSettings s)
         {
             if (Freezer.OtherMod)

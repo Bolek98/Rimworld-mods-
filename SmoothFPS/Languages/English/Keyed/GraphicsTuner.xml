@@ -320,4 +320,33 @@
   <GT_DeepKindComp>component</GT_DeepKindComp>
   <GT_DeepKindHediff>health</GT_DeepKindHediff>
   <GT_DeepKindNeed>need</GT_DeepKindNeed>
+  <GT_TabSim>Simulation</GT_TabSim>
+  <GT_SizeHeader>Game size – sets how much the simulation saves (world, maps, clean-up)</GT_SizeHeader>
+  <GT_SizeAuto>Automatic</GT_SizeAuto>
+  <GT_SizeAuto_Card>Detects itself from the number of mods, map and world size. Now: {0}.</GT_SizeAuto_Card>
+  <GT_SizeSmall>Small game</GT_SizeSmall>
+  <GT_SizeSmall_Card>Few mods, smaller map. The game runs as without this mod, nothing changes.</GT_SizeSmall_Card>
+  <GT_SizeNormal>Normal game</GT_SizeNormal>
+  <GT_SizeNormal_Card>Mid-size mod pack. The far world and other maps update half as often.</GT_SizeNormal_Card>
+  <GT_SizeHuge>Huge game</GT_SizeHuge>
+  <GT_SizeHuge_Card>Huge map and hundreds of mods. World and other maps 4× less often, things off screen 2× less.</GT_SizeHuge_Card>
+  <GT_SimTickSec>Smarter tick</GT_SimTickSec>
+  <GT_SimSmartTick>Update far things less often</GT_SimSmartTick>
+  <GT_SimSmartTick_Desc>The game already updates needs, health, growth and timers of things you cannot see only every 15 ticks – always with the whole time that passed. Here this is stretched by game size: far settlements, sites and world pawns, other maps without danger, and in a huge game things off screen too. Nothing is skipped, it is only counted in bigger steps. During fights, fires and for drafted colonists everything stays as in the game.</GT_SimSmartTick_Desc>
+  <GT_SimRates>Now: world every {0} ticks, other maps {1}, off screen {2} (the game itself: 15).</GT_SimRates>
+  <GT_TC_Open>What slows the tick…</GT_TC_Open>
+  <GT_TC_NeedHitch>The window needs the Hitch finder on (Smoothness tab) – it uses its measuring points.</GT_TC_NeedHitch>
+  <GT_TC_Title>What slows the tick</GT_TC_Title>
+  <GT_TC_Sub>How many milliseconds per second of play each part of the world and map takes (last {0} s, profile: {1}). Refreshes every 3 s.</GT_TC_Sub>
+  <GT_TC_Ms>{0} ms/s</GT_TC_Ms>
+  <GT_TC_Wait>Measuring… let the game run for a moment.</GT_TC_Wait>
+  <GT_SimCleanSec>World clean-up</GT_SimCleanSec>
+  <GT_SimClean>Clean up old battles and unneeded world pawns</GT_SimClean>
+  <GT_SimClean_Desc>Old battles in the combat log keep every pawn that fought in them (dead raiders too) in memory and in the save. Only the newest battles are kept, then the game's own clean-up runs – it always keeps colonists, relatives, faction leaders, pawns of quests and tales. Smaller save, faster saving, less memory. Automatically in a pause, at most once per 2 in-game days.</GT_SimClean_Desc>
+  <GT_SimKeep>The {0} newest battles are kept.</GT_SimKeep>
+  <GT_SimKeepOff>No clean-up in a Small game.</GT_SimKeepOff>
+  <GT_SimWorldLine>World: {0} alive and {1} dead world pawns, {2} objects, {3} battles in the log.</GT_SimWorldLine>
+  <GT_SimCleanNow>Clean up the world now</GT_SimCleanNow>
+  <GT_SimCleaning>Cleaning up the world…</GT_SimCleaning>
+  <GT_SimCleaned>World clean-up: {0} pawns removed ({1} left), {2} old battles deleted ({3} ms).</GT_SimCleaned>
 </LanguageData>

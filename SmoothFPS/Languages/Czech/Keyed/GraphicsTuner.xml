@@ -320,4 +320,33 @@
   <GT_DeepKindComp>komponenta</GT_DeepKindComp>
   <GT_DeepKindHediff>zdraví</GT_DeepKindHediff>
   <GT_DeepKindNeed>potřeba</GT_DeepKindNeed>
+  <GT_TabSim>Simulace</GT_TabSim>
+  <GT_SizeHeader>Velikost hry – podle ní se šetří výkon simulace (svět, mapy, úklid)</GT_SizeHeader>
+  <GT_SizeAuto>Automaticky</GT_SizeAuto>
+  <GT_SizeAuto_Card>Pozná se sám podle počtu modů, velikosti mapy a světa. Teď: {0}.</GT_SizeAuto_Card>
+  <GT_SizeSmall>Malá hra</GT_SizeSmall>
+  <GT_SizeSmall_Card>Málo modů, menší mapa. Hra běží jako bez modu, nic se nemění.</GT_SizeSmall_Card>
+  <GT_SizeNormal>Běžná hra</GT_SizeNormal>
+  <GT_SizeNormal_Card>Středně velký modpack. Vzdálený svět a ostatní mapy se aktualizují 2× méně často.</GT_SizeNormal_Card>
+  <GT_SizeHuge>Obří hra</GT_SizeHuge>
+  <GT_SizeHuge_Card>Obří mapa a stovky modů. Svět a ostatní mapy 4× méně často, věci mimo obrazovku 2× méně.</GT_SizeHuge_Card>
+  <GT_SimTickSec>Chytřejší tick</GT_SimTickSec>
+  <GT_SimSmartTick>Aktualizovat vzdálené věci méně často</GT_SimSmartTick>
+  <GT_SimSmartTick_Desc>Hra už teď aktualizuje potřeby, zdraví, růst a časovače u věcí, které nevidíš, jen každých 15 tiků – vždy s celým uplynulým časem. Tady se to podle velikosti hry prodlouží: vzdálené osady, místa a světové postavy, ostatní mapy bez nebezpečí, v obří hře i věci mimo obrazovku. Nic se nepřeskakuje, jen se počítá ve větších krocích. Při boji, požáru a u povolaných kolonistů zůstává vše jako ve hře.</GT_SimSmartTick_Desc>
+  <GT_SimRates>Teď: svět každých {0} tiků, ostatní mapy {1}, mimo obrazovku {2} (hra sama: 15).</GT_SimRates>
+  <GT_TC_Open>Co zpomaluje tick…</GT_TC_Open>
+  <GT_TC_NeedHitch>Okno potřebuje zapnutý Hledač záseků (záložka Plynulost) – měří jeho měřicími body.</GT_TC_NeedHitch>
+  <GT_TC_Title>Co zpomaluje tick</GT_TC_Title>
+  <GT_TC_Sub>Kolik milisekund za vteřinu hraní bere každá část světa a mapy (posledních {0} s, profil: {1}). Obnovuje se každé 3 s.</GT_TC_Sub>
+  <GT_TC_Ms>{0} ms/s</GT_TC_Ms>
+  <GT_TC_Wait>Měřím… nech hru chvíli běžet.</GT_TC_Wait>
+  <GT_SimCleanSec>Úklid světa</GT_SimCleanSec>
+  <GT_SimClean>Uklízet staré bitvy a nepotřebné světové postavy</GT_SimClean>
+  <GT_SimClean_Desc>Staré bitvy v záznamu boje drží v paměti a v savu každou postavu, která v nich bojovala (i mrtvé nájezdníky). Nechají se jen nejnovější bitvy a pak proběhne vlastní úklid hry – ten vždy nechá kolonisty, příbuzné, vůdce frakcí, postavy z úkolů a příběhů. Menší save, rychlejší ukládání, méně paměti. Automaticky v pauze, nejvýš jednou za 2 herní dny.</GT_SimClean_Desc>
+  <GT_SimKeep>Nechává se {0} nejnovějších bitev.</GT_SimKeep>
+  <GT_SimKeepOff>V Malé hře se neuklízí.</GT_SimKeepOff>
+  <GT_SimWorldLine>Svět: {0} živých a {1} mrtvých světových postav, {2} objektů, {3} bitev v záznamu.</GT_SimWorldLine>
+  <GT_SimCleanNow>Uklidit svět teď</GT_SimCleanNow>
+  <GT_SimCleaning>Uklízím svět…</GT_SimCleaning>
+  <GT_SimCleaned>Úklid světa: odebráno {0} postav (zbývá {1}), smazáno {2} starých bitev ({3} ms).</GT_SimCleaned>
 </LanguageData>

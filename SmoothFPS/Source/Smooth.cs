@@ -536,6 +536,29 @@ namespace GraphicsTuner
         private static float lastLog;
         private static int patched;
         private static bool on;
+        public static bool IsOn => on;
+        // 1.6.0: rolling totals for the "What slows the tick" window
+        private static readonly Dictionary<string, double> roll = new Dictionary<string, double>();
+        private static float rollStart = -1f;
+        public static bool Rolling;
+
+        public static void RollReset()
+        {
+            roll.Clear();
+            rollStart = Time.realtimeSinceStartup;
+            Rolling = true;
+        }
+
+        // ms per second of real time, biggest first
+        public static List<KeyValuePair<string, double>> RollTake(out float seconds)
+        {
+            seconds = rollStart < 0f ? 0f : Time.realtimeSinceStartup - rollStart;
+            float sec = Math.Max(0.5f, seconds);
+            var list = roll.Select(kv => new KeyValuePair<string, double>(kv.Key, kv.Value / sec)).OrderByDescending(kv => kv.Value).Take(40).ToList();
+            roll.Clear();
+            rollStart = Time.realtimeSinceStartup;
+            return list;
+        }
 
         static HitchFinder()
         {
@@ -573,6 +596,13 @@ namespace GraphicsTuner
                             Try(h, m, pre, post);
                     }
                 }
+                // 1.6.0: the parts of the world tick
+                Try(h, AccessTools.Method(typeof(WorldPawns), nameof(WorldPawns.WorldPawnsTick)), pre, post);
+                Try(h, AccessTools.Method(typeof(FactionManager), nameof(FactionManager.FactionManagerTick)), pre, post);
+                Try(h, AccessTools.Method(typeof(WorldObjectsHolder), nameof(WorldObjectsHolder.WorldObjectsHolderTick)), pre, post);
+                Try(h, AccessTools.Method(typeof(IdeoManager), nameof(IdeoManager.IdeoManagerTick)), pre, post);
+                Try(h, AccessTools.Method(typeof(WorldPathGrid), nameof(WorldPathGrid.WorldPathGridTick)), pre, post);
+                Try(h, AccessTools.Method(typeof(World), nameof(World.WorldUpdate)), pre, post);
                 // 1.5.0: saving the game is named in the list (autosave stops the game for a moment)
                 Try(h, AccessTools.Method(typeof(GameDataSaveLoader), nameof(GameDataSaveLoader.SaveGame), new[] { typeof(string) }), pre, post);
                 foreach (ModContentPack mod in LoadedModManager.RunningModsListForReading)
@@ -690,6 +720,13 @@ namespace GraphicsTuner
         public static void Post(MethodBase __originalMethod, long __state)
         {
             double ms = (Stopwatch.GetTimestamp() - __state) * tickToMs;
+            if (Rolling && ms > 0.0 && ms < 1.0)
+            {
+                // 1.6.0: the window wants also the small, frequent costs
+                string k = __originalMethod.DeclaringType?.Name + "." + __originalMethod.Name + " [" + Mod(__originalMethod.DeclaringType?.Assembly) + "]";
+                roll.TryGetValue(k, out double r);
+                roll[k] = r + ms;
+            }
             if (ms >= 1.0)
                 Add(__originalMethod.DeclaringType?.Name + "." + __originalMethod.Name + " [" + Mod(__originalMethod.DeclaringType?.Assembly) + "]", ms);
         }
@@ -716,6 +753,11 @@ namespace GraphicsTuner
         {
             sum.TryGetValue(what, out double s);
             sum[what] = s + ms;
+            if (Rolling)
+            {
+                roll.TryGetValue(what, out double r);
+                roll[what] = r + ms;
+            }
         }
 
         public static void FrameDone(double frameMs, double tickMs)
@@ -747,7 +789,7 @@ namespace GraphicsTuner
 
     public class GTGameComp : GameComponent
     {
-        public GTGameComp(Game game) { }
+        public GTGameComp(Game game) { Sim.ResetGame(); }
         public override void FinalizeInit() => HitchFinder.WatchGeneration();
     }
 

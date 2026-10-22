@@ -116,6 +116,9 @@ namespace GraphicsTuner
             if (now < nextCheck)
                 return;
             nextCheck = now + 1f;
+            // 1.6.0: world clean-up in a pause
+            try { if (playing) Sim.AutoClean(paused, pausedSince >= 0f ? now - pausedSince : 0f); }
+            catch (Exception ex) { MLog.WarnOnce("[Smooth FPS] world clean-up: " + ex.Message, 0x6f7a40); }
             try
             {
                 graph[graphPos] = UsedMb;

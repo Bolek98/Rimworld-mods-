@@ -1,3 +1,9 @@
+1.6.0
+- New tab Simulation with a game size profile: Automatic / Small / Normal / Huge (huge maps and big mod packs).
+- Smarter tick: far settlements, sites and world pawns, other maps without danger and (huge games) things off screen are updated in bigger steps – the game passes the whole time that went by, nothing is skipped. Never during fights, fires or for drafted colonists.
+- World clean-up: old battles in the combat log are trimmed and the game's own world pawn clean-up runs – smaller saves, faster autosave, less memory. Automatic in a pause, or a button.
+- Window "What slows the tick": live ms per second for every part of the world and map tick and which mod it comes from.
+
 1.5.0
 - Deep hitch search (optional, off by default): every hitch also says what exactly inside a colonist took long – which work search and from which mod, AI decisions, path search, components of things and hediffs, needs.
 - Saving the game is named in the hitch list.
