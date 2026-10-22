@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_Auto>Steward</CF_Auto>
+  <CF_StyleButton>Style: {0}</CF_StyleButton>
+  <CF_StyleTip>Colony focus. Shifts the importance of selected jobs up or down.</CF_StyleTip>
+  <CF_Style_Balanced>Balanced</CF_Style_Balanced>
+  <CF_Style_Survival>Survival</CF_Style_Survival>
+  <CF_Style_Production>Production</CF_Style_Production>
+  <CF_Style_Research>Research</CF_Style_Research>
+  <CF_HeaderHint>Steward: middle-click locks or unlocks the whole job.</CF_HeaderHint>
+  <CF_LockPawn>Lock colonist (steward won't change them)</CF_LockPawn>
+  <CF_UnlockPawn>Unlock colonist</CF_UnlockPawn>
+  <CF_PrefersOn>Likes: {0} (remove)</CF_PrefersOn>
+  <CF_PrefersOff>Likes: {0}</CF_PrefersOff>
+  <CF_Crisis_Medical>medical emergency</CF_Crisis_Medical>
+  <CF_Crisis_Food>food shortage</CF_Crisis_Food>
+  <CF_Crisis_Winter>winter preparation</CF_Crisis_Winter>
+  <CF_TipCrisis>Crisis: {0}</CF_TipCrisis>
+  <CF_Style_Farming>Farming</CF_Style_Farming>
+  <CF_Style_Building>Building</CF_Style_Building>
+  <CF_Style_Industry>Mining &amp; industry</CF_Style_Industry>
+  <CF_Style_Defense>Defense</CF_Style_Defense>
+  <CF_Style_Care>Care</CF_Style_Care>
+  <CF_Style_Comfort>Comfort</CF_Style_Comfort>
+  <CF_Style_Trade>Trade</CF_Style_Trade>
+  <CF_Style_Ranching>Ranching</CF_Style_Ranching>
+  <CF_StyleDesc_Balanced>The style for everything. Work is spread evenly over the colonists and follows what is waiting on the map: every job with work to do (bills, building, harvest, hauling, patients, research, animals …) gets at least one colonist, more when there is a lot. Reacts to shortages and crises. Switch to another style only when you need something done first.</CF_StyleDesc_Balanced>
+  <CF_StyleDesc_Survival>Food and shelter first: cooking, fields, hunting, fishing and a little building. For a hard start.</CF_StyleDesc_Survival>
+  <CF_StyleDesc_Production>Workshop, smithy and tailoring, all equally important.</CF_StyleDesc_Production>
+  <CF_StyleDesc_Research>As much research as possible (and entity study with Anomaly).</CF_StyleDesc_Research>
+  <CF_StyleDesc_Farming>Fields first: sowing and harvesting, with plant cutting and cooking.</CF_StyleDesc_Farming>
+  <CF_StyleDesc_Building>Building first, mining stone and hauling help.</CF_StyleDesc_Building>
+  <CF_StyleDesc_Industry>Mining ore and turning it into goods at the smithy and workshop.</CF_StyleDesc_Industry>
+  <CF_StyleDesc_Defense>Walls and turrets, weapons from the smithy and doctors ready for raids.</CF_StyleDesc_Defense>
+  <CF_StyleDesc_Care>Doctors, children, prisoners and clean rooms.</CF_StyleDesc_Care>
+  <CF_StyleDesc_Comfort>A clean and beautiful base: cleaning, art and furniture.</CF_StyleDesc_Comfort>
+  <CF_StyleDesc_Trade>Goods to sell: art, clothes and crafted items.</CF_StyleDesc_Trade>
+  <CF_StyleDesc_Ranching>Animals first: taming, training, milking, shearing – and their feed.</CF_StyleDesc_Ranching>
+  <CF_Style_Custom>My style</CF_Style_Custom>
+  <CF_StyleDesc_Custom>Your own style – nothing changes by itself. Importance, number of colonists and colonists per priority level come only from the mod settings (Options → Mod settings → Steward, tabs Work types and Priority levels). Crises and situations still apply (they can be switched off in the settings). No demand, no inspiration or apprentice changes, no reshuffling; re-planned only when colonists come or go, on the regular check or when you press the button.</CF_StyleDesc_Custom>
+  <CF_Crisis_Fire>fire in the base</CF_Crisis_Fire>
+  <CF_Crisis_Raid>raid</CF_Crisis_Raid>
+  <CF_Crisis_Weather>extreme weather</CF_Crisis_Weather>
+  <CF_Crisis_Toxic>toxic air</CF_Crisis_Toxic>
+  <CF_Crisis_Blight>blight</CF_Crisis_Blight>
+  <CF_Crisis_Mood>bad mood</CF_Crisis_Mood>
+  <CF_Crisis_Power>power outage</CF_Crisis_Power>
+  <CF_Crisis_Medicine>no medicine</CF_Crisis_Medicine>
+  <CF_Crisis_Breakdown>broken machines</CF_Crisis_Breakdown>
+  <CF_PA_Label>Priority area</CF_PA_Label>
+  <CF_PA_Desc>Drag a rectangle over the place to work on. Then choose what to do (default everything: building, deconstruction, repairs, mining, cutting, harvesting, hauling, cleaning), now or after the current work, and who does it (nearest automatically or picked by hand). Eating, sleeping and doctoring still come first. The area stays until everything inside is done; remove it with "Remove priority area".</CF_PA_Desc>
+  <CF_PA_ClearLabel>Remove priority area</CF_PA_ClearLabel>
+  <CF_PA_ClearDesc>Drag over a priority area to remove it. Colonists go back to their usual work.</CF_PA_ClearDesc>
+  <CF_PA_Mode_All>everything</CF_PA_Mode_All>
+  <CF_PA_Mode_Build>building</CF_PA_Mode_Build>
+  <CF_PA_Mode_Mine>mining</CF_PA_Mode_Mine>
+  <CF_PA_Mode_Plants>plants</CF_PA_Mode_Plants>
+  <CF_PA_Mode_Haul>hauling</CF_PA_Mode_Haul>
+  <CF_PA_Mode_Clean>cleaning</CF_PA_Mode_Clean>
+  <CF_PA_Mode_Emergency>rescue</CF_PA_Mode_Emergency>
+  <CF_PA_Added>Priority area ({0}): {1} colonists, {2} jobs waiting. The area stays until everything is done.</CF_PA_Added>
+  <CF_PA_Stale>Priority area ({0}) ended – nobody did anything inside for two days (the work is out of reach or keeps coming back). Colonists go back to their usual work.</CF_PA_Stale>
+  <CF_PA_Done>Priority area ({0}) is done, colonists go back to their usual work.</CF_PA_Done>
+  <CF_PA_Removed>Priority areas removed: {0}.</CF_PA_Removed>
+  <CF_PA_AddedEmpty>Priority area ({0}) created, nothing waits there yet. Designate work (building, mining, cutting…) – {1} colonists do it as soon as it appears.</CF_PA_AddedEmpty>
+  <CF_PA_DlgTitle>Priority area {0}×{1}</CF_PA_DlgTitle>
+  <CF_PA_DlgWork>Waiting there now – building: {0}, mining: {1}, plants: {2}, hauling: {3}, cleaning: {4}</CF_PA_DlgWork>
+  <CF_PA_DlgWhat>What to do:</CF_PA_DlgWhat>
+  <CF_PA_DlgWhen>When:</CF_PA_DlgWhen>
+  <CF_PA_DlgNow>Now – interrupt what they are doing</CF_PA_DlgNow>
+  <CF_PA_DlgLater>Later – after they finish what they are doing</CF_PA_DlgLater>
+  <CF_PA_DlgWho>Who:</CF_PA_DlgWho>
+  <CF_PA_DlgAuto>Automatically – the {0} nearest free ones</CF_PA_DlgAuto>
+  <CF_PA_DlgAutoAll>Automatically – all free ones</CF_PA_DlgAutoAll>
+  <CF_PA_DlgHand>Pick by hand (picked: {0})</CF_PA_DlgHand>
+  <CF_PA_DlgSkills>Construction {0} · Mining {1} · Plants {2}</CF_PA_DlgSkills>
+  <CF_PA_DlgCreate>Create area</CF_PA_DlgCreate>
+  <CF_Crisis_Manhunters>manhunters</CF_Crisis_Manhunters>
+  <CF_Crisis_Epidemic>epidemic</CF_Crisis_Epidemic>
+  <CF_Crisis_PrisonBreak>prison break / slave rebellion</CF_Crisis_PrisonBreak>
+  <CF_Crisis_DangerousBreak>dangerous mental break</CF_Crisis_DangerousBreak>
+  <CF_Crisis_IndoorTemp>cold or heat indoors</CF_Crisis_IndoorTemp>
+  <CF_Crisis_NoBeds>patients without beds</CF_Crisis_NoBeds>
+  <CF_Crisis_FreezerThaw>freezer thawing</CF_Crisis_FreezerThaw>
+  <CF_Crisis_Siege>siege</CF_Crisis_Siege>
+  <CF_Crisis_Infestation>infestation</CF_Crisis_Infestation>
+  <CF_Crisis_RoofCollapse>roof collapse risk</CF_Crisis_RoofCollapse>
+  <CF_Crisis_Death>death in the colony</CF_Crisis_Death>
+  <CF_Crisis_QuestDeadline>quest deadline</CF_Crisis_QuestDeadline>
+  <CF_Crisis_AnimalSick>sick animals</CF_Crisis_AnimalSick>
+  <CF_Crisis_Labor>labor</CF_Crisis_Labor>
+  <CF_Crisis_EntityEscape>entity escape</CF_Crisis_EntityEscape>
+  <CF_Crisis_Darkness>unnatural darkness</CF_Crisis_Darkness>
+  <CF_Crisis_VacuumBreach>vacuum breach</CF_Crisis_VacuumBreach>
+  <CF_Crisis_ToxGas>toxic gas</CF_Crisis_ToxGas>
+  <CF_Crisis_LowAmmo>low ammo</CF_Crisis_LowAmmo>
+  <CF_Crisis_WaterShortage>water shortage</CF_Crisis_WaterShortage>
+  <CF_Crisis_Hygiene>hygiene</CF_Crisis_Hygiene>
+  <CF_Crisis_NoFirefighters>no firefighters</CF_Crisis_NoFirefighters>
+  <CF_HistButton>History</CF_HistButton>
+  <CF_HistTip>What the steward changed when and why.</CF_HistTip>
+  <CF_HistTitle>Plan history</CF_HistTitle>
+  <CF_HistEmpty>No plan yet.</CF_HistEmpty>
+  <CF_LastRun>Last planned: {0} ago</CF_LastRun>
+  <CF_NextRun>Next automatic plan in: {0} (sooner when the work, colonists or a crisis change)</CF_NextRun>
+  <CF_AutoOff>Automatic planning is off – turn on “Steward”.</CF_AutoOff>
+  <CF_PA_OnlyBalanced>Areas work in every colony style. They only wait during real danger (enemies, fire, toxic gas at your people …). When a colonist can do nothing in its own area, it helps in another area that is working.</CF_PA_OnlyBalanced>
+  <CF_PA_PauseStyle>Waiting for style: {0}</CF_PA_PauseStyle>
+  <CF_PA_PauseHostile>Waiting: enemies on the map</CF_PA_PauseHostile>
+  <CF_PA_PauseCrisis>Waiting: {0}</CF_PA_PauseCrisis>
+  <CF_BP_Label>Priority bench</CF_BP_Label>
+  <CF_BP_Desc>Colonists do bills at this bench before the other benches of the same work type (crafting, smithing, tailoring, cooking…). Works among benches of the same work type; the order of work types is still set in the Work tab.</CF_BP_Desc>
+  <CF_BP_Giver>{0} at a priority bench</CF_BP_Giver>
+  <CF_BP_NotUsed>Nobody has used it as a priority bench since the game started.</CF_BP_NotUsed>
+  <CF_BP_LastUse>Last used as priority bench: {0}, {1} h ago.</CF_BP_LastUse>
+  <CF_TipChildLearn>Child is learning ({0} %) – no work for now.</CF_TipChildLearn>
+  <CF_TipChildLight>Child – work only on the lowest level so it has time to learn (learning {0} %).</CF_TipChildLight>
+  <CF_Style_Tidy>Tidy-up</CF_Style_Tidy>
+  <CF_StyleDesc_Tidy>Only hauling and cleaning.</CF_StyleDesc_Tidy>
+  <CF_StyleStrictNote>Other work: lowest priority.</CF_StyleStrictNote>
+  <CF_StyleStrictNoteOff>Other work: off (hauling and cleaning on the lowest priority).</CF_StyleStrictNoteOff>
+  <CF_Style_FieldsForest>Fields and forest</CF_Style_FieldsForest>
+  <CF_StyleDesc_FieldsForest>Only fields and forest: growing and cutting trees, both equally important.</CF_StyleDesc_FieldsForest>
+  <CF_Style_Mining>Mining</CF_Style_Mining>
+  <CF_StyleDesc_Mining>Only mining ore and stone, hauling helps.</CF_StyleDesc_Mining>
+  <CF_Style_Kitchen>Kitchen</CF_Style_Kitchen>
+  <CF_StyleDesc_Kitchen>Cooking first, hunting and fishing only bring the ingredients.</CF_StyleDesc_Kitchen>
+  <CF_Style_HuntFish>Hunting and fishing</CF_Style_HuntFish>
+  <CF_StyleDesc_HuntFish>Food from the wild: hunting, fishing and the kitchen to process it.</CF_StyleDesc_HuntFish>
+  <CF_Style_Tailoring>Tailoring</CF_Style_Tailoring>
+  <CF_StyleDesc_Tailoring>Only sewing clothes.</CF_StyleDesc_Tailoring>
+  <CF_Style_Smithing>Smithy</CF_Style_Smithing>
+  <CF_StyleDesc_Smithing>Weapons and tools from the smithy, a little crafting.</CF_StyleDesc_Smithing>
+  <CF_Style_Art>Art</CF_Style_Art>
+  <CF_StyleDesc_Art>Only sculptures and works of art.</CF_StyleDesc_Art>
+  <CF_Style_Prison>Prison</CF_Style_Prison>
+  <CF_StyleDesc_Prison>Prisoners: recruiting and enslaving, with a doctor.</CF_StyleDesc_Prison>
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>The Simple mode sets everything by itself, so the details are locked. Want to change them? Switch to Recommended or Advanced at the top.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+  <CF_TipMother>Mother of a baby – childcare comes first.</CF_TipMother>
+  <CF_TipNanny>Nanny – looks after a baby without a mother who can.</CF_TipNanny>
+  <CF_GuardFixed>Mods with work types changed – Steward put the priorities back on the right work for {0} colonists.</CF_GuardFixed>
+  <CF2_AutoTip>The steward on this map: priorities from skills, passions and the work that really waits on the map. He plans calmly – nobody is moved back and forth.</CF2_AutoTip>
+  <CF2_PlanNow>Plan now</CF2_PlanNow>
+  <CF2_PlanNowTip>Plan the priorities right now (even with the steward off). Your plan is not held back by the calm time.</CF2_PlanNowTip>
+  <CF2_PlanDone>The steward planned the priorities: {0} changes.</CF2_PlanDone>
+  <CF2_ManualOn>The steward switched on numbered priorities (Work tab).</CF2_ManualOn>
+  <CF2_HistStyle>colony style: {0}</CF2_HistStyle>
+  <CF2_TabGeneral>Planning</CF2_TabGeneral>
+  <CF2_TabRules>My rules</CF2_TabRules>
+  <CF2_SecPlan>Planning</CF2_SecPlan>
+  <CF2_SecStyles>Colony styles</CF2_SecStyles>
+  <CF2_SecChildren>Children and babies</CF2_SecChildren>
+  <CF2_SecPriorities>Priorities</CF2_SecPriorities>
+  <CF2_AutoByDefault>Steward on for new maps</CF2_AutoByDefault>
+  <CF2_AutoByDefaultTip>When off, you switch the steward on for each map in the Work tab.</CF2_AutoByDefaultTip>
+  <CF2_Interval>Regular plan: every {0} h</CF2_Interval>
+  <CF2_IntervalTip>In between the steward plans only when something really changes (new colonists, much new work, a crisis from an add-on).</CF2_IntervalTip>
+  <CF2_Hold>A changed priority stays at least: {0} h</CF2_Hold>
+  <CF2_HoldTip>Calm: what the steward changed is not changed back at once. Crises and your Plan now button skip it.</CF2_HoldTip>
+  <CF2_OneTop>Only one work on priority 1</CF2_OneTop>
+  <CF2_OneTopTip>Each colonist has only his most important work on 1, his other main work on 2.</CF2_OneTopTip>
+  <CF2_Backup>Backup work on the lowest priority</CF2_Backup>
+  <CF2_BackupTip>Who does not have a work as main work keeps it on the lowest level, so nobody stands idle.</CF2_BackupTip>
+  <CF2_Opposed>Also give work the ideology rejects</CF2_Opposed>
+  <CF2_OpposedTip>Off: work the colonist's ideology finds dangerous is never given to him.</CF2_OpposedTip>
+  <CF2_Injured>Hurt and sick colonists get lighter work</CF2_Injured>
+  <CF2_InjuredTip>The worse the health, the less a colonist suits a main work.</CF2_InjuredTip>
+  <CF2_Passion>Passion counts more</CF2_Passion>
+  <CF2_PassionTip>Colonists with a passion get their work more often (they enjoy it and learn faster).</CF2_PassionTip>
+  <CF2_Prefer>Bonus for your favourite work: {0}</CF2_Prefer>
+  <CF2_PreferTip>Middle-click a colonist's name → mark the work he likes. That much is added.</CF2_PreferTip>
+  <CF2_Lodgers>Also plan quest guests</CF2_Lodgers>
+  <CF2_LodgersTip>Guests from quests who may work.</CF2_LodgersTip>
+  <CF2_Mechs>Count working mechanoids</CF2_Mechs>
+  <CF2_MechsTip>Work that mechanoids do needs fewer colonists.</CF2_MechsTip>
+  <CF2_StyleStrength>Style strength: {0}</CF2_StyleStrength>
+  <CF2_StyleStrengthTip>How many people a colony style adds to its work.</CF2_StyleStrengthTip>
+  <CF2_StyleStrict>A style plans mainly its own work</CF2_StyleStrict>
+  <CF2_StyleStrictTip>Other work gets only one person when it waits on the map.</CF2_StyleStrictTip>
+  <CF2_StyleOthersOff>Switch other work off completely</CF2_StyleOthersOff>
+  <CF2_StyleOthersOffTip>Who does not do the style's work does not keep the rest even as backup.</CF2_StyleOthersOffTip>
+  <CF2_ChildLearning>Children have time to learn</CF2_ChildLearning>
+  <CF2_ChildLearningTip>Children have work only on the lowest level, and none while they need learning.</CF2_ChildLearningTip>
+  <CF2_ParentCare>Parents and nannies for babies</CF2_ParentCare>
+  <CF2_ParentCareTip>The mother (or father) has childcare on 1; without a parent the steward picks a nanny.</CF2_ParentCareTip>
+  <CF2_Levels>Priority levels: {0}</CF2_Levels>
+  <CF2_LevelsAuto>automatic ({0})</CF2_LevelsAuto>
+  <CF2_LevelsTip>0 = read from Work Tab / PriorityMaster. Without such a mod the game has 4 levels.</CF2_LevelsTip>
+  <CF2_PlanMessages>Message after every plan</CF2_PlanMessages>
+  <CF2_PlanMessagesTip>A short message top left with the number of changed priorities.</CF2_PlanMessagesTip>
+  <CF2_UseMyRules>Use my rules</CF2_UseMyRules>
+  <CF2_UseMyRulesTip>Minimum and maximum colonists per work. Crises and situations from add-ons go before the maximum.</CF2_UseMyRulesTip>
+  <CF2_RulesHint>Minimum: at least that many colonists have the work on priority 1–2. Maximum: not more. Importance: how much the work suits as main work (priority 1).</CF2_RulesHint>
+  <CF2_Min>min</CF2_Min>
+  <CF2_Max>max</CF2_Max>
+  <CF2_Importance>importance</CF2_Importance>
+  <CF2_TipEmergency>Emergency work – everyone on top.</CF2_TipEmergency>
+  <CF2_TipMain>Main work: {0} jobs wait, among the best suited.</CF2_TipMain>
+  <CF2_TipStyleReady>Work of the {0} style – ready even when nothing waits now.</CF2_TipStyleReady>
+  <CF2_TipHelper>Helper: when the main people cannot keep up.</CF2_TipHelper>
+  <CF2_TipOnCall>On call: nothing waits now, but someone is ready.</CF2_TipOnCall>
+  <CF2_TipStyleOff>Style {0}: does not do this work.</CF2_TipStyleOff>
+  <CF2_TipBackup>Backup: lowest level, so nobody stands idle.</CF2_TipBackup>
+  <CF2_TipTop>Priority 1: the most important work for him now.</CF2_TipTop>
+  <CF2_TipYourMin>Your minimum: at least {0}.</CF2_TipYourMin>
+  <CF2_TipYourMax>Your maximum: at most {0}.</CF2_TipYourMax>
+  <CF2_TipNobodyIdle>Not to stand idle: his best suited work that waits.</CF2_TipNobodyIdle>
+</LanguageData>

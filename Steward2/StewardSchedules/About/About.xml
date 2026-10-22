@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Steward – Schedules</name>
+  <author>Bolek98</author>
+  <packageId>misak.steward.schedules</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>misak.colonyforeman</packageId>
+      <displayName>Steward – Work Priorities</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>misak.colonyforeman</li>
+  </loadAfter>
+  <description>Add-on for Steward – Work Priorities. Needs the Steward core.
+
+- Automatic schedules: sleep, work and recreation hours that grow when recreation is missing and shrink when there is enough. Change a colonist's schedule yourself and the steward leaves him alone (painting and pasting both count).
+- Night shift (off by default): about a quarter of a colony of 6 or more works at night – the same colonists stay on nights. Night owls always.
+- Rest and mood care: an exhausted colonist gets an hour of sleep, one on the edge of a mental break an hour of recreation (at most a quarter of the colony at once, never during attacks); the hours go back afterwards. A mood report shows what drags the colony down.
+- Comfort: colonists sit down at a table to eat; when they can't, you learn why. Optional: fewer routine messages.
+
+---
+
+Doplněk pro Steward – Work Priorities. Potřebuje jádro Stewarda.
+
+- Automatický rozvrh: spánek, práce a zábava, která přibývá, když chybí, a ubývá, když je jí dost. Když kolonistovi změníš rozvrh sama, Steward ho nechá být (počítá se kreslení i vložení).
+- Noční směna (výchozí vypnutá): asi čtvrtina kolonie od 6 lidí pracuje v noci – pořád stejní kolonisté. Noční sovy vždy.
+- Odpočinek a péče o náladu: vyčerpaný kolonista dostane hodinu spánku, ten na hraně zhroucení hodinu zábavy (nejvýš čtvrtina kolonie najednou, nikdy při útoku); potom se hodiny vrátí. Přehled nálady ukáže, co kolonii nejvíc trápí.
+- Pohodlí: kolonisté si k jídlu sednou ke stolu; když nemůžou, dozvíš se proč. Volitelně: méně běžných zpráv.</description>
+</ModMetaData>

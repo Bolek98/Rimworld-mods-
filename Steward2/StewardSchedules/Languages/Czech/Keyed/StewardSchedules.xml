@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_SchedTired>{0} je vyčerpaný – rozvrh: teď spánek.</CF_SchedTired>
+  <CF_SchedBreak>{0} je na pokraji zhroucení – rozvrh: teď zábava.</CF_SchedBreak>
+  <CF_ComfortEat>{0} jí ve stoje: {1}</CF_ComfortEat>
+  <CF_ComfortToilet>{0} nemůže na záchod: {1}</CF_ComfortToilet>
+  <CF_WhyNoTable>doma není žádná židle u stolu</CF_WhyNoTable>
+  <CF_WhyArea>je mimo jeho povolenou oblast „{0}“</CF_WhyArea>
+  <CF_WhyForbidden>je zakázané</CF_WhyForbidden>
+  <CF_WhyPrison>je ve vězeňské cele (nebo místnosti pro jiné)</CF_WhyPrison>
+  <CF_WhyReach>nedá se tam dojít</CF_WhyReach>
+  <CF_WhyReserved>má to zabrané {0}</CF_WhyReserved>
+  <CF_WhyFull>všechna místa jsou obsazená</CF_WhyFull>
+  <CF_WhyDanger>je tam nebezpečno (teplota, nepřítel)</CF_WhyDanger>
+  <CF_WhyFar>nejbližší je moc daleko ({0} polí)</CF_WhyFar>
+  <CF_WhyNoToilet>doma není žádný záchod</CF_WhyNoToilet>
+  <CF_WhyBroken>záchod nefunguje: {0}</CF_WhyBroken>
+  <CF_WhyNotAllowed>záchod není pro něj: {0}</CF_WhyNotAllowed>
+  <CF_WhyBusy>záchod je obsazený nebo moc daleko</CF_WhyBusy>
+  <CF_SchedMoreJoy>{0} nemá dost zábavy – rozvrh: {1} h zábavy denně.</CF_SchedMoreJoy>
+  <CF_SchedBored>{0} se nudí u většiny druhů zábavy – víc času na zábavu moc nepomůže; postav jiné druhy (hry, umění, televize, dalekohled, hezká místnost …).</CF_SchedBored>
+  <CF_MoodRescue>{0} přestává pracovat, aby se uklidnil(a) (hlavně: {1}).</CF_MoodRescue>
+  <CF_MoodHint_Table>{0} kolonistům vadí jídlo bez stolu. Pomůže stůl se židlemi blíž místu, kde pracují nebo spí.</CF_MoodHint_Table>
+  <CF_MoodHint_Comfort>{0} kolonistům chybí pohodlí. Pomůžou další židle, křesla nebo lepší postele.</CF_MoodHint_Comfort>
+  <CF_MoodHint_Dark>{0} kolonistům vadí tma. Pomůže víc světel tam, kde pracují a chodí.</CF_MoodHint_Dark>
+  <CF_MoodHint_Cramped>{0} kolonistům je těsno. Pomůžou větší ložnice nebo místnosti.</CF_MoodHint_Cramped>
+  <CF_MoodHint_Outdoors>{0} kolonistům chybí venku (ponorková nemoc). Pomůže zábava nebo práce venku.</CF_MoodHint_Outdoors>
+  <CF_MoodHint_Temperature>{0} kolonistům vadí horko nebo zima. Pomůžou topení, chlazení nebo lepší oblečení.</CF_MoodHint_Temperature>
+  <CF_MoodCause_Rest>únava</CF_MoodCause_Rest>
+  <CF_MoodCause_Joy>málo zábavy</CF_MoodCause_Joy>
+  <CF_MoodCause_Food>jídlo</CF_MoodCause_Food>
+  <CF_MoodCause_Table>jídlo bez stolu</CF_MoodCause_Table>
+  <CF_MoodCause_Pain>bolest</CF_MoodCause_Pain>
+  <CF_MoodCause_Room>ošklivé nebo špinavé okolí</CF_MoodCause_Room>
+  <CF_MoodCause_Comfort>málo pohodlí</CF_MoodCause_Comfort>
+  <CF_MoodCause_Dark>tma</CF_MoodCause_Dark>
+  <CF_MoodCause_Cramped>stísněné místnosti</CF_MoodCause_Cramped>
+  <CF_MoodCause_Outdoors>ponorková nemoc</CF_MoodCause_Outdoors>
+  <CF_MoodCause_Apparel>oblečení</CF_MoodCause_Apparel>
+  <CF_MoodCause_Temperature>horko nebo zima</CF_MoodCause_Temperature>
+  <CF_MoodCause_Social>vztahy s lidmi</CF_MoodCause_Social>
+  <CF_MoodCause_Other>události a vzpomínky</CF_MoodCause_Other>
+  <CF_MoodNoFood>{0} má hlad a je blízko zhroucení, ale nedosáhne na žádné jídlo. Zkontroluj zásoby jídla, povolenou oblast a zakázané jídlo.</CF_MoodNoFood>
+  <CF2S_Name>Rozvrh</CF2S_Name>
+  <CF2S_Auto>Automatický rozvrh</CF2S_Auto>
+  <CF2S_AutoTip>Každý kolonista dostane rozvrh: spánek, práce a zábava, která roste, když chybí, a ubývá, když je jí dost. Když rozvrh změníš ručně, Steward toho kolonistu nechá být.</CF2S_AutoTip>
+  <CF2S_Night>Noční směna</CF2S_Night>
+  <CF2S_NightTip>Asi čtvrtina kolonie (od 6 lidí) pracuje v noci a spí přes den. Noční sovy vždy v noci.</CF2S_NightTip>
+  <CF2S_Care>Odpočinek a péče o náladu</CF2S_Care>
+  <CF2S_CareTip>Vyčerpaný kolonista dostane hodinu spánku, kdo je těsně před zhroucením, dostane hodinu zábavy. Potom se hodiny vrátí.</CF2S_CareTip>
+  <CF2S_SitToEat>Jíst u stolu</CF2S_SitToEat>
+  <CF2S_SitToEatTip>Kolonisté si k jídlu sednou ke stolu i trochu dál; když stůl není, Steward napíše proč.</CF2S_SitToEatTip>
+  <CF2S_Messages>Zprávy o rozvrhu a náladě</CF2S_Messages>
+  <CF2S_Quiet>Méně zpráv vlevo nahoře</CF2S_Quiet>
+  <CF2S_QuietTip>Běžná oznámení (i jiných modů) se neukazují, jen se uloží do historie zpráv. Hrozby a důležité zprávy zůstávají.</CF2S_QuietTip>
+</LanguageData>

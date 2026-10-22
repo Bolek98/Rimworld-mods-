@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorkGiverDef>
+    <defName>CF_TidyHome</defName>
+    <label>carry out things with no storage</label>
+    <giverClass>ColonyForeman.WorkGiver_StewardTidyHome</giverClass>
+    <workType>Hauling</workType>
+    <verb>carry out</verb>
+    <gerund>carrying out</gerund>
+    <priorityInType>5</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+</Defs>

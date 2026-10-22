@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Steward – Crises &amp; Situations</name>
+  <author>Bolek98</author>
+  <packageId>misak.steward.crises</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>misak.colonyforeman</packageId>
+      <displayName>Steward – Work Priorities</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>misak.colonyforeman</li>
+  </loadAfter>
+  <description>Add-on for Steward – Work Priorities. Needs the Steward core.
+
+Crises (fire, raids, wounded, hunger, winter, blight, power outage, infestations and more – 34 in all): the best-suited colonists are raised for the work the crisis needs at once, and what can wait goes to the lowest level until it is over.
+Situations (a big harvest, a building backlog, carcasses to butcher, things rotting outside, patients, animals to tame … – over 40): the work gets more people while the situation lasts.
+Balanced can pick a focus by itself (Survival when food runs out, Building with many blueprints …).
+Also: a doctor goes to urgent cases at once, free colonists fight fires in the base, cooks butcher first when there is enough food, and an optional safe area during raids.
+Every crisis and situation can be switched off. Work types from mods that do the same thing (a separate butchering or fishing work type) are covered too.
+
+---
+
+Doplněk pro Steward – Work Priorities. Potřebuje jádro Stewarda.
+
+Krize (požár, přepadení, zranění, hlad, zima, plíseň, výpadek proudu, zamoření a další – celkem 34): nejvhodnější kolonisté se hned zvednou na práci, kterou krize potřebuje, a co počká, jde na nejnižší prioritu, dokud krize neskončí.
+Situace (velká sklizeň, hodně stavění, těla k porcování, věci hnijící venku, pacienti, zvířata k ochočení … – přes 40): práce dostane víc lidí, dokud situace trvá.
+Vyvážený styl si umí sám vybrat zaměření (Přežití, když dochází jídlo, Stavění při hodně plánech …).
+K tomu: lékař jde hned k naléhavým případům, volní kolonisté hasí oheň v základně, kuchaři porcují napřed, když je dost jídla, a volitelná bezpečná zóna při přepadení.
+Každou krizi i situaci jde vypnout. Práce z modů, které dělají totéž (samostatné porcování nebo rybaření), se počítají taky.</description>
+</ModMetaData>
