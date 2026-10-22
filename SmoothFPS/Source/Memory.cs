@@ -33,6 +33,7 @@ namespace GraphicsTuner
         private static float pausedSince = -1f;
         private static float lastCollect = -9999f, lastUnload = -9999f, lastCompact = -9999f;
         private static long usedAfterCompact;   // 1.3.2
+        private static long compactNeed = 1500L;   // 1.7.1: MB of growth before the next compaction
         private static long usedAfterLast;
         private static bool latencySet;
 
@@ -187,12 +188,19 @@ namespace GraphicsTuner
             // compaction (packs the large objects together) – it does stop the game, so only in a long pause
             // 1.3.2: only after a longer pause (20 s) and only when the memory grew a lot since the last
             // compaction – a 9 s stop for 200 MB was not worth it
+            // 1.7.1: the first one only after the memory really grew in this game (before: 4 s to free 44 MB
+            // right after loading); a compaction that freed little doubles the growth needed for the next
+            if (usedAfterCompact == 0)
+                usedAfterCompact = GC.GetTotalMemory(false);
             if (s.memCompact && paused && pausedSince >= 0f && now - pausedSince >= 20f && now - lastCompact >= 1800f
-                && GC.GetTotalMemory(false) - usedAfterCompact >= 1500L * MB)
+                && GC.GetTotalMemory(false) - usedAfterCompact >= compactNeed * MB)
             {
                 lastCompact = now;
+                long before = GC.GetTotalMemory(false);
                 Collect(false, true);
                 usedAfterCompact = GC.GetTotalMemory(false);
+                long freedMb = (before - usedAfterCompact) / MB;
+                compactNeed = freedMb < 300 ? Math.Min(compactNeed * 2, 12000L) : 1500L;
             }
         }
 

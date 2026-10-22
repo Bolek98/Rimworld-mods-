@@ -927,6 +927,59 @@ public static partial class SituationRules
 		return parts.Count == 0 ? (string)"CF_SitDoesNothing".Translate() : string.Join(", ", parts);
 	}
 
+	// 3.0.2: the same check spread over several ticks (a few situations at a time) – no hitch
+	public sealed class Round
+	{
+		internal Ctx c;
+		internal int idx;
+		internal ICollection<Situation> before;
+		internal readonly List<ActiveSituation> result = new List<ActiveSituation>();
+		internal readonly List<object> calm = new List<object>();
+		internal bool raid, bad;
+		public List<ActiveSituation> Result => result;
+	}
+
+	public static Round Start(Map map, Crisis crisis, ICollection<Situation> before)
+	{
+		return new Round
+		{
+			c = new Ctx { map = map, crisis = crisis, n = Math.Max(1, MapDemand.Workers(map)), home = map.areaManager.Home },
+			before = before,
+			raid = (crisis & (Crisis.Raid | Crisis.Fire)) != 0,
+			bad = (crisis & (Crisis.Toxic | Crisis.Weather)) != 0
+		};
+	}
+
+	// true = finished
+	public static bool Step(Round r, int count)
+	{
+		Crisis crisis = r.c.crisis;
+		for (int k = 0; k < count && r.idx < defs.Count; k++, r.idx++)
+		{
+			Def d = defs[r.idx];
+			if (!Allowed(d.id))
+				continue;
+			if ((d.noRaid || d.outdoor || d.calm) && r.raid)
+				continue;
+			if (d.outdoor && r.bad)
+				continue;
+			if (d.skipIf != Crisis.None && (crisis & d.skipIf) != 0)
+				continue;
+			if (d.calm)
+			{
+				r.calm.Add(d);
+				continue;
+			}
+			TryAdd(d, r.c, r.before, r.result);
+		}
+		if (r.idx < defs.Count)
+			return false;
+		if (r.calm.Count > 0 && crisis == Crisis.None && r.result.Count == 0)
+			foreach (object o in r.calm)
+				TryAdd((Def)o, r.c, r.before, r.result);
+		return true;
+	}
+
 	public static List<ActiveSituation> Detect(Map map, Crisis crisis, ICollection<Situation> before)
 	{
 		var result = new List<ActiveSituation>();

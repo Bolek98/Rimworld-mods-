@@ -42,6 +42,7 @@ public static class StewardApi
 {
 	private static readonly List<IPlanStep> steps = new List<IPlanStep>();
 	private static readonly List<SettingsPage> pages = new List<SettingsPage>();
+	private static float slowTold = -999f;
 
 	public static event Action<ForemanMapComponent> MapExpose;
 	public static event Action<ForemanMapComponent> MapTick;
@@ -80,8 +81,15 @@ public static class StewardApi
 			return;
 		foreach (Delegate d in ev.GetInvocationList())
 		{
+			long t0 = System.Diagnostics.Stopwatch.GetTimestamp();
 			try { call(d); }
 			catch (Exception ex) { MLog.WarnOnce("[Steward] add-on " + what + " (" + d.Method.DeclaringType?.Assembly.GetName().Name + ") failed: " + ex, (what + d.Method.Name).GetHashCode()); }
+			double ms = (System.Diagnostics.Stopwatch.GetTimestamp() - t0) * 1000.0 / System.Diagnostics.Stopwatch.Frequency;
+			if (ms > 40.0 && UnityEngine.Time.realtimeSinceStartup - slowTold > 20f)
+			{
+				slowTold = UnityEngine.Time.realtimeSinceStartup;
+				MLog.Info("[Steward] slow " + what + ": " + d.Method.DeclaringType?.Name + "." + d.Method.Name + " " + ms.ToString("0") + " ms");
+			}
 		}
 	}
 

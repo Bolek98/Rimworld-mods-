@@ -166,7 +166,11 @@ public sealed class ForemanMapComponent : MapComponent
 		if (why != null)
 		{
 			lastWhy = why;
+			long t0 = System.Diagnostics.Stopwatch.GetTimestamp();
 			PlanNow(manual: false);
+			double ms = (System.Diagnostics.Stopwatch.GetTimestamp() - t0) * 1000.0 / System.Diagnostics.Stopwatch.Frequency;
+			if (ms > 40.0)
+				MLog.Info("[Steward] the plan took " + ms.ToString("0") + " ms");
 		}
 	}
 

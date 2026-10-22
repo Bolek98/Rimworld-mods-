@@ -212,6 +212,8 @@ public sealed class CS
 	public int crisisSeenTick;
 	public int sitEval = -99999;
 	public string sitSignature = "";
+	public SituationRules.Round round;
+	public int slowTold = -999999;
 
 	public static CS Of(ForemanMapComponent c) => table.GetValue(c, _ => new CS());
 
@@ -271,7 +273,14 @@ public sealed class CS
 		// crises
 		try
 		{
+			long t0 = System.Diagnostics.Stopwatch.GetTimestamp();
 			Crisis found = CrisesMod.S.useCrisis ? MapDemand.Quick(map, 0).crisis : Crisis.None;
+			double ms = (System.Diagnostics.Stopwatch.GetTimestamp() - t0) * 1000.0 / System.Diagnostics.Stopwatch.Frequency;
+			if (ms > 40.0 && now - st.slowTold > 60000)
+			{
+				st.slowTold = now;
+				MLog.Info("[Steward] crisis check took " + ms.ToString("0") + " ms");
+			}
 			Crisis diff = found ^ comp.crisis;
 			if (diff == Crisis.None)
 				st.crisisSeen = null;
@@ -311,12 +320,25 @@ public sealed class CS
 			MLog.WarnOnce("[Steward] auto focus failed: " + ex.Message, 0x5c0002);
 		}
 		// situations
-		if (now - st.sitEval >= SituationRules.EvalInterval)
+		if (st.round == null && now - st.sitEval >= SituationRules.EvalInterval)
 		{
 			st.sitEval = now;
+			st.round = SituationRules.Active(comp) ? SituationRules.Start(map, comp.crisis, st.Before()) : null;
+			if (st.round == null)
+				st.situations = new List<ActiveSituation>();
+		}
+		bool roundDone = false;
+		if (st.round != null)
+		{
+			try { roundDone = SituationRules.Step(st.round, 8); }
+			catch (Exception ex) { MLog.WarnOnce("[Steward] situations failed: " + ex, 0x5c0007); st.round = null; }
+		}
+		if (roundDone)
+		{
 			try
 			{
-				List<ActiveSituation> found = SituationRules.Active(comp) ? SituationRules.Detect(map, comp.crisis, st.Before()) : new List<ActiveSituation>();
+				List<ActiveSituation> found = st.round.Result;
+				st.round = null;
 				// 3.0.2: a new plan only when situations start or end (not when their numbers change)
 				string sig = string.Join(",", found.Select(x => x.id.ToString()).OrderBy(x => x));
 				bool changed = sig != st.sitSignature;
