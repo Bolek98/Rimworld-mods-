@@ -203,6 +203,18 @@ namespace GraphicsTuner
                 bool catchingUp = !s.sfSlowdown && rt > perTick * 3f;
                 float needed = fps > 1f ? 60f * mult / Math.Min(fps, want) + 1f : mult * 2f;
                 float maxTicks = Mathf.Clamp(needed * (catchingUp ? 1.5f : 1f), mult * 2f, mult * 8f);
+                // 1.7.2: speed 1 and 2 always run at their real speed – the FPS target only
+                // decides how smooth they are, never how slow. With a heavy colony one tick costs
+                // more than the frame budget of a high FPS target, and the game ran at the speed
+                // of the FPS (e.g. 40 instead of 60 ticks a second at speed 1).
+                bool realSpeed = s.sfRealNormal && mult <= 3.01f && !background;
+                if (realSpeed)
+                {
+                    float due = rt / perTick;
+                    float avg = Math.Max(0.05f, rawAvg(tm).GetAverage());
+                    budgetMs = Math.Max(budgetMs, Math.Min(due * avg + 1f, 66f));
+                    maxTicks = Math.Max(maxTicks, Math.Min(Mathf.Ceil(due), mult * 8f));
+                }
 
                 Stopwatch c = clock(tm);
                 c.Reset();
@@ -255,7 +267,7 @@ namespace GraphicsTuner
                 // ticks that did not fit: vanilla throws them away (the game slows down);
                 // "keep speed" does up to 0.3 s of them in the next frames
                 if (rt > 0f)
-                    rt = s.sfSlowdown ? 0f : Mathf.Min(rt, 0.3f);
+                    rt = s.sfSlowdown && !realSpeed ? 0f : Mathf.Min(rt, 0.3f);
                 return false;
             }
             catch (Exception e)

@@ -112,6 +112,8 @@
   <GT_Auto>automatic</GT_Auto>
   <GT_Move>FPS while moving the camera and building: {0}</GT_Move>
   <GT_Move_Desc>When you move the camera, click or build, the picture gets more time – controls feel snappy.</GT_Move_Desc>
+  <GT_RealNormal>Speed 1 and 2 always at full speed</GT_RealNormal>
+  <GT_RealNormal_Desc>At speed 1 and 2 the game never runs slower than it should – the FPS target only decides how smooth the picture is. With a big colony one tick takes longer than a high FPS target leaves per frame, and the game ran at the pace of the FPS (e.g. 40 instead of 60 ticks a second). Speed 3 and 4 follow "When FPS drops".</GT_RealNormal_Desc>
   <GT_Idle>More TPS while only watching</GT_Idle>
   <GT_Idle_Desc>At speed 2 and more, when you touch nothing for 2 s, the game draws fewer frames and the saved time goes to the simulation – the game runs faster. Move the mouse or camera and full FPS is back.</GT_Idle_Desc>
   <GT_IdleFps>FPS while only watching: {0}</GT_IdleFps>

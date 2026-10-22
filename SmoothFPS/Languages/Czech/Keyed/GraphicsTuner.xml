@@ -112,6 +112,8 @@
   <GT_Auto>automaticky</GT_Auto>
   <GT_Move>FPS při pohybu kamerou a stavění: {0}</GT_Move>
   <GT_Move_Desc>Když hýbeš kamerou, klikáš nebo stavíš, dostane obraz víc času – ovládání je svižné.</GT_Move_Desc>
+  <GT_RealNormal>Rychlost 1 a 2 vždy naplno</GT_RealNormal>
+  <GT_RealNormal_Desc>Na rychlosti 1 a 2 hra nikdy neběží pomaleji, než má – cíl FPS jen určí, jak plynulý je obraz. U velké kolonie jeden tik trvá déle, než kolik času dává vysoký cíl FPS na snímek, a hra pak běžela tempem FPS (třeba 40 místo 60 tiků za sekundu). Rychlost 3 a 4 se řídí volbou „Když FPS klesne“.</GT_RealNormal_Desc>
   <GT_Idle>Víc TPS, když se jen díváš</GT_Idle>
   <GT_Idle_Desc>Na rychlosti 2 a víc, když 2 s na nic nesaháš, kreslí hra méně snímků a ušetřený čas dostane simulace – hra běží rychleji. Jakmile pohneš myší nebo kamerou, vrátí se plné FPS.</GT_Idle_Desc>
   <GT_IdleFps>FPS, když se jen díváš: {0}</GT_IdleFps>

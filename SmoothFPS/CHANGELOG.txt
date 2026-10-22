@@ -1,4 +1,5 @@
 1.7.2
+- Speed 1 and 2 always run at full speed: with a heavy colony and a high FPS target the game ran only as many ticks as frames (e.g. 40 instead of 60 a second). The FPS target now only decides how smooth they are (setting, on by default).
 - Freeze watch: when the game stops for 10 s or more, Logs\SmoothFPS.log says what the game was inside at that moment (which mod part) and when it runs again. Before, a total freeze left no trace in any log.
 
 1.7.1
