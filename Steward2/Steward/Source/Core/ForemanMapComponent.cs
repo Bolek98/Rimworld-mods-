@@ -33,6 +33,7 @@ public sealed class ForemanMapComponent : MapComponent
 	private string lastRoster;
 	private Dictionary<WorkTypeDef, int> lastNeed = new Dictionary<WorkTypeDef, int>();
 	private bool requested, requestedUrgent;
+	public string lastWhy = "";
 	private int ticker;
 	private bool initDone;
 
@@ -147,15 +148,26 @@ public sealed class ForemanMapComponent : MapComponent
 		List<Pawn> ws = WorkCatalog.Workers(map, ForemanMod.Settings);
 		if (ws.Count > 0 && ws.Count(p => p.Drafted) * 2 > ws.Count)
 			return;
-		bool plan = now >= nextRun || requestedUrgent;
-		if (!plan && requested && now - lastRun >= 1250)
-			plan = true;
-		if (!plan && now - lastRun >= 250 && Roster() != lastRoster)
-			plan = true;
-		if (!plan && now - lastRun >= 2500 && NeedShifted())
-			plan = true;
-		if (plan)
+		// 3.0.1: calm – only an urgent request (a crisis) plans at once; other reasons wait at least 2 in-game hours
+		string why = null;
+		if (requestedUrgent)
+			why = "urgent request";
+		else if (now >= nextRun)
+			why = "regular plan";
+		else if (now - lastRun >= 5000)
+		{
+			if (requested)
+				why = "add-on request";
+			else if (Roster() != lastRoster)
+				why = "colonists changed";
+			else
+				why = NeedShifted();
+		}
+		if (why != null)
+		{
+			lastWhy = why;
 			PlanNow(manual: false);
+		}
 	}
 
 	// who works here and what they can do
@@ -176,13 +188,25 @@ public sealed class ForemanMapComponent : MapComponent
 		return d;
 	}
 
-	// work appeared out of nothing, or grew / shrank a lot
-	private bool NeedShifted()
+	// 3.0.1: only work that appeared where nobody does it, or that grew a lot (not the small ups and downs of measuring)
+	private string NeedShifted()
 	{
-		foreach (var kv in Needs())
+		var now = Needs();
+		foreach (var kv in now)
 		{
 			lastNeed.TryGetValue(kv.Key, out int before);
-			if ((before == 0) != (kv.Value == 0) || Math.Abs(before - kv.Value) >= 2)
+			if (kv.Value >= before + 3 || (before == 0 && kv.Value > 0 && !Covered(kv.Key)))
+				return "more work: " + kv.Key.defName + " " + before + "→" + kv.Value;
+		}
+		return null;
+	}
+
+	private bool Covered(WorkTypeDef w)
+	{
+		foreach (Pawn p in WorkCatalog.Workers(map, ForemanMod.Settings))
+		{
+			int v = p.workSettings.GetPriority(w);
+			if (v > 0 && v <= 2)
 				return true;
 		}
 		return false;

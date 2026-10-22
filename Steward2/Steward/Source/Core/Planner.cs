@@ -155,6 +155,7 @@ public static class Planner
 		}
 		// write
 		int changed = 0;
+		var log = new List<string>();
 		comp.tips.Clear();
 		foreach (var kv in final)
 		{
@@ -169,6 +170,11 @@ public static class Planner
 					{
 						p.workSettings.SetPriority(w, j.Value);
 						changed++;
+						if (log.Count < 40)
+						{
+							string why = ctx.reasons.TryGetValue(PlanContext.Key(p, w), out var rr) && rr.Count > 0 ? rr[rr.Count - 1].key : "-";
+							log.Add(p.LabelShort + ": " + w.defName + " " + cur + "→" + j.Value + " (" + why + ")");
+						}
 						comp.calmCells[CalmKey(p, w)] = new CalmCell { tick = now, crisis = ctx.Pinned(p, w) };
 					}
 					catch (Exception ex)
@@ -184,7 +190,11 @@ public static class Planner
 		comp.PruneCalm(now);
 		comp.lastPlanTick = now;
 		comp.lastPlanChanged = changed;
-		MLog.Info("[Steward] plan for " + comp.map.Parent?.LabelCap + ": " + ctx.pawns.Count + " pawns, " + changed + " changes" + (ctx.manual ? " (by you)" : "") + ".");
+		MLog.Info("[Steward] plan for " + comp.map.Parent?.LabelCap + ": " + ctx.pawns.Count + " pawns, " + changed + " changes"
+			+ (ctx.manual ? " (by you)" : " – " + comp.lastWhy) + ", crisis: " + (comp.crisis == Crisis.None ? "none" : comp.crisis.ToString())
+			+ (log.Count > 0 ? "\n    " + string.Join("\n    ", log) : ""));
+		if (ctx.settings != null && ctx.settings.planMessages && changed > 0 && comp.map == Find.CurrentMap)
+			Messages.Message("CF2_PlanDone".Translate(changed), MessageTypeDefOf.SilentInput, historical: false);
 		return changed;
 	}
 
