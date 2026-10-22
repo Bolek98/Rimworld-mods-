@@ -289,7 +289,8 @@ public sealed class CS
 					st.crisisSeen = null;
 					Tell(map, found & ~before, before & ~found);
 					comp.AddHistory("CF2C_HistCrisis".Translate(found == Crisis.None ? (string)"CF2C_NoCrisis".Translate() : CrisisText.Label(found)));
-					comp.RequestPlan(urgent: true);
+					// only real danger re-plans at once; winter, low medicine, breakdowns … after the calm gap
+					comp.RequestPlan(urgent: (diff & Instant) != 0);
 				}
 			}
 			if ((comp.crisis & Crisis.Raid) != 0)
@@ -316,15 +317,17 @@ public sealed class CS
 			try
 			{
 				List<ActiveSituation> found = SituationRules.Active(comp) ? SituationRules.Detect(map, comp.crisis, st.Before()) : new List<ActiveSituation>();
-				string sig = SituationRules.Signature(found);
-				if (sig != st.sitSignature)
-				{
+				// 3.0.2: a new plan only when situations start or end (not when their numbers change)
+				string sig = string.Join(",", found.Select(x => x.id.ToString()).OrderBy(x => x));
+				bool changed = sig != st.sitSignature;
+				if (changed)
 					TellSituations(map, st, found);
-					st.situations = found;
-					st.situationNames = found.Select(x => x.id.ToString()).ToList();
-					st.sitSignature = sig;
+				// the numbers are kept fresh for the next plan either way
+				st.situations = found;
+				st.situationNames = found.Select(x => x.id.ToString()).ToList();
+				st.sitSignature = sig;
+				if (changed)
 					comp.RequestPlan(urgent: false);
-				}
 			}
 			catch (Exception ex)
 			{

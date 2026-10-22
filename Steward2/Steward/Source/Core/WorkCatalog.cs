@@ -26,7 +26,9 @@ public static class WorkCatalog
 	{
 		"Firefighter", "Patient", "PatientBedRest", "BasicWorker",
 		// Keyz' Allow Utilities: your direct orders
-		"HaulingUrgent", "FinishingOff"
+		"HaulingUrgent", "FinishingOff",
+		// rescue mods: carrying the hurt to bed is an emergency like firefighting
+		"Rescuing", "SAR_FieldRescue"
 	};
 
 	public static void Reset()

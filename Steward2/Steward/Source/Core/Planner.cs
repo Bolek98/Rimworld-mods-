@@ -31,6 +31,9 @@ public static class Planner
 
 	public static bool IsStyleWork(ForemanStyle style, WorkTypeDef w) => Styles.Delta(style, w) > 0f;
 
+	// work a colony always needs somebody for, whatever the style (patients, prisoners, babies …)
+	public static bool AlwaysSomeone(WorkTypeDef w) => w.defName == "Doctor" || w.defName == "Warden" || w.defName == "Childcare" || w.defName == "Cooking";
+
 	public static bool StrictStyle(ForemanStyle style, ForemanSettings s)
 		=> s != null && s.styleStrict && style != ForemanStyle.Balanced && style != ForemanStyle.Custom;
 
@@ -252,7 +255,7 @@ public static class Planner
 						ctx.Set(p, w, Math.Min(3, L), "CF2_TipHelper");
 					else if (need == 0 && i == 0)
 						ctx.Set(p, w, Math.Min(3, L), "CF2_TipOnCall");
-					else if (othersOff && d <= 0f)
+					else if (othersOff && d <= 0f && kind == WorkKind.Skilled && !Planner.AlwaysSomeone(w))
 						ctx.Set(p, w, 0, "CF2_TipStyleOff", Styles.Label(ctx.style));
 					else if (kind == WorkKind.General || s.backupWorkers)
 						ctx.Set(p, w, L, "CF2_TipBackup");

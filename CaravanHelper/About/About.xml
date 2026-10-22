@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Caravan Helper</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.caravanhelper</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Ludeon.RimWorld</li>
+  </loadAfter>
+  <description>Better caravan supplies and leaving sites without hunting for an invisible enemy.
+
+Supplies:
+- Food for the whole trip – also when you leave a site again (the game packs nothing there) and when no route is chosen (you set the days). Food for the way back when the destination is not your settlement, plus a reserve.
+- Non-rotting food first (survival meals, pemmican), cooked meals only while they keep, raw food last.
+- Ordinary and herbal medicine instead of the game's "glitterworld first" – rare medicine stays home.
+- Addicted colonists get their drug (luciferium, go-juice …) for the whole trip.
+
+Leaving a site:
+- "Who blocks leaving": a list of everything the game counts as an enemy, click to jump to it.
+- Optional: reform the caravan while only sleeping mechanoids, hives, enemies under fog or enemy buildings remain.
+
+---
+
+Lepší zásoby pro karavanu a odchod z výpravy bez hledání neviditelného nepřítele.
+
+Zásoby:
+- Jídlo na celou cestu – i při odchodu z výpravy (hra tam nebere nic) a bez zvolené cesty (počet dní nastavíš). Jídlo i na cestu zpět, když cíl není tvoje osada, a rezerva.
+- Nejdřív jídlo, co se nezkazí (cestovní jídla, pemikan), vařená jídla jen dokud vydrží, syrové nakonec.
+- Běžné a bylinné léky místo hry, která bere nejdřív třpytivé – vzácné léky zůstanou doma.
+- Závislí kolonisté dostanou svou drogu (luciferium, go-juice …) na celou cestu.
+
+Odchod z výpravy:
+- „Kdo brání odchodu“: seznam všeho, co hra počítá jako nepřítele, kliknutím na něj skočíš.
+- Volitelně: karavanu jde sestavit, i když zbývají jen spící mechanoidi, úly, nepřátelé pod mlhou nebo nepřátelské stavby.</description>
+</ModMetaData>
