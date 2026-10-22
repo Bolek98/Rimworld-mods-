@@ -1,3 +1,9 @@
+1.7.2
+- Freeze watch: when the game stops for 10 s or more, Logs\SmoothFPS.log says what the game was inside at that moment (which mod part) and when it runs again. Before, a total freeze left no trace in any log.
+
+1.7.1
+- Memory clean-up while paused runs only when much memory really piled up; if a clean-up freed little, the next waits longer (no more 4 s freeze for 44 MB).
+
 1.7.0
 - Faster choice of what to draw: things clearly off screen no longer get their exact drawn position and size worked out every frame (the game threw them away right after anyway).
 - World travel costs: the once-a-day recalculation over every world tile (200+ ms stop on big worlds) now runs in parts over several ticks.

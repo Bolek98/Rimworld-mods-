@@ -143,6 +143,7 @@ namespace GraphicsTuner
             double now = frameClock.Elapsed.TotalMilliseconds;
             double frameMs = now - lastFrameStart;
             lastFrameStart = now;
+            FreezeWatch.Beat();
             HitchFinder.FrameDone(frameMs, lastTickMs);
             GcHold.Watchdog();
             // 1.2.1: a stall only pauses the budget for 20 s – after 3 stalls it stays off
@@ -586,7 +587,7 @@ namespace GraphicsTuner
                 var pre = new HarmonyMethod(typeof(HitchFinder), nameof(Pre));
                 var post = new HarmonyMethod(typeof(HitchFinder), nameof(Post));
                 if (s.hitchThings)
-                    Try(h, AccessTools.Method(typeof(Thing), nameof(Thing.DoTick)), pre, new HarmonyMethod(typeof(HitchFinder), nameof(PostThing)));
+                    Try(h, AccessTools.Method(typeof(Thing), nameof(Thing.DoTick)), new HarmonyMethod(typeof(HitchFinder), nameof(PreThing)), new HarmonyMethod(typeof(HitchFinder), nameof(PostThing)));
                 Try(h, AccessTools.Method(typeof(Map), nameof(Map.MapPreTick)), pre, post);
                 Try(h, AccessTools.Method(typeof(Map), nameof(Map.MapPostTick)), pre, post);
                 Try(h, AccessTools.Method(typeof(World), nameof(World.WorldTick)), pre, post);
@@ -770,6 +771,7 @@ namespace GraphicsTuner
 
         public static void PostIncident(IncidentWorker __instance, long __state)
         {
+            FreezeWatch.Pop(null);
             double ms = (Stopwatch.GetTimestamp() - __state) * tickToMs;
             if (ms >= 1.0)
                 Add("GT_HitchIncident".Translate().ToString() + " " + (__instance?.def?.defName ?? "?") + " [" + (__instance?.def?.modContentPack?.Name ?? "?") + "]", ms);
@@ -777,16 +779,28 @@ namespace GraphicsTuner
 
         public static void PostQuest(object[] __args, long __state)
         {
+            FreezeWatch.Pop(null);
             double ms = (Stopwatch.GetTimestamp() - __state) * tickToMs;
             QuestScriptDef d = __args != null && __args.Length > 0 ? __args[0] as QuestScriptDef : null;
             if (ms >= 1.0)
                 Add("GT_HitchQuest".Translate().ToString() + " " + (d?.defName ?? "?") + " [" + (d?.modContentPack?.Name ?? "?") + "]", ms);
         }
 
-        public static void Pre(out long __state) => __state = Stopwatch.GetTimestamp();
+        public static void Pre(MethodBase __originalMethod, out long __state)
+        {
+            FreezeWatch.Push(__originalMethod);
+            __state = Stopwatch.GetTimestamp();
+        }
+
+        public static void PreThing(Thing __instance, out long __state)
+        {
+            FreezeWatch.Push(__instance);
+            __state = Stopwatch.GetTimestamp();
+        }
 
         public static void PostThing(Thing __instance, long __state)
         {
+            FreezeWatch.Pop(null);
             double ms = (Stopwatch.GetTimestamp() - __state) * tickToMs;
             if (ms >= 1.0)
                 Add((__instance?.def?.defName ?? "?") + " [" + ModOf(__instance) + "]", ms);
@@ -794,6 +808,7 @@ namespace GraphicsTuner
 
         public static void Post(MethodBase __originalMethod, long __state)
         {
+            FreezeWatch.Pop(__originalMethod);
             double ms = (Stopwatch.GetTimestamp() - __state) * tickToMs;
             if (Rolling && ms > 0.0 && ms < 1.0)
             {
@@ -817,6 +832,8 @@ namespace GraphicsTuner
             string code = Mod(t.GetType().Assembly);
             return code != own && code != "RimWorld" ? own + ", " + code : own;
         }
+
+        public static string ModName(Assembly a) => Mod(a);
 
         private static string Mod(Assembly a)
         {
