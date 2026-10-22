@@ -879,7 +879,18 @@ public static class Planner
 		bool want = false;
 		try
 		{
-			if (map.resourceCounter.GetCountIn(ThingCategoryDefOf.MeatRaw) < Math.Max(75, 12 * map.mapPawns.FreeColonistsSpawnedCount))
+			// 2.52.2: no raw-meat limit any more – fresh carcasses are butchered whenever the butcher bill
+			// still wants work (its own "do until X" decides). Only when there are fewer ready meals than
+			// colonists the cooks keep cooking first.
+			int meals = 0;
+			foreach (Thing m in map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree))
+				if (m.def.ingestible != null && m.def.ingestible.IsMeal && !m.IsForbidden(Faction.OfPlayer))
+				{
+					meals += m.stackCount;
+					if (meals >= map.mapPawns.FreeColonistsSpawnedCount)
+						break;
+				}
+			if (meals >= map.mapPawns.FreeColonistsSpawnedCount)
 			{
 				bool carcass = false;
 				foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.Corpse))
