@@ -67,6 +67,7 @@ public sealed class CrisesMod : Mod
 		StewardApi.Register(new SituationStep());
 		StewardApi.MapExpose += CS.Expose;
 		StewardApi.MapTick += CS.Tick;
+		StewardApi.MapRemoved += CrisisRules.Forget;
 		StewardApi.GameStarted += () =>
 		{
 			CrisisRules.Reset();
@@ -415,7 +416,7 @@ public sealed class CrisisStep : IPlanStep
 						{
 							int v = ctx.Get(p, w);
 							if (v > 0 && v <= 2)
-								ctx.Set(p, w, ctx.Levels, "CF2C_TipCrisisDown", CrisisRules.Label(c));
+								ctx.Set(p, w, ctx.Levels, "CF2C_TipCrisisDown", CrisisRules.Label(c), null, pin: true);
 						}
 					}
 					else if (kv.Value.urgency > 0f)

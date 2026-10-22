@@ -47,6 +47,7 @@ public static class StewardApi
 	public static event Action<ForemanMapComponent> MapTick;
 	public static event Action<ForemanMapComponent> MapLoaded;
 	public static event Action GameStarted;
+	public static event Action<Map> MapRemoved;
 	public static event Func<ForemanMapComponent, string> WorkTabLine;
 	// a pawn's cell tooltip: extra lines from add-ons
 	public static event Action<Pawn, WorkTypeDef, List<string>> CellTip;
@@ -68,10 +69,26 @@ public static class StewardApi
 			pages.Add(page);
 	}
 
-	internal static void RaiseExpose(ForemanMapComponent c) => Safe("map data", () => MapExpose?.Invoke(c));
-	internal static void RaiseTick(ForemanMapComponent c) => Safe("map tick", () => MapTick?.Invoke(c));
-	internal static void RaiseLoaded(ForemanMapComponent c) => Safe("map loaded", () => MapLoaded?.Invoke(c));
-	internal static void RaiseGameStarted() => Safe("game start", () => GameStarted?.Invoke());
+	// every add-on on its own: one failing does not stop the others (their save data above all)
+	internal static void RaiseExpose(ForemanMapComponent c) => Each("map data", MapExpose, d => ((Action<ForemanMapComponent>)d)(c));
+	internal static void RaiseTick(ForemanMapComponent c) => Each("map tick", MapTick, d => ((Action<ForemanMapComponent>)d)(c));
+	internal static void RaiseLoaded(ForemanMapComponent c) => Each("map loaded", MapLoaded, d => ((Action<ForemanMapComponent>)d)(c));
+
+	private static void Each(string what, Delegate ev, Action<Delegate> call)
+	{
+		if (ev == null)
+			return;
+		foreach (Delegate d in ev.GetInvocationList())
+		{
+			try { call(d); }
+			catch (Exception ex) { MLog.WarnOnce("[Steward] add-on " + what + " (" + d.Method.DeclaringType?.Assembly.GetName().Name + ") failed: " + ex, (what + d.Method.Name).GetHashCode()); }
+		}
+	}
+
+	// is an add-on with this plan step installed
+	public static bool HasStep(string idPrefix) => steps.Any(s => s.Id.StartsWith(idPrefix));
+	internal static void RaiseGameStarted() => Each("game start", GameStarted, d => ((Action)d)());
+	internal static void RaiseMapRemoved(Map m) => Each("map removed", MapRemoved, d => ((Action<Map>)d)(m));
 
 	public static IEnumerable<string> WorkTabLines(ForemanMapComponent c)
 	{
@@ -129,6 +146,8 @@ public sealed class PlanContext
 	public readonly Dictionary<Pawn, Dictionary<WorkTypeDef, float>> fit = new Dictionary<Pawn, Dictionary<WorkTypeDef, float>>();
 	// cells something urgent set (a crisis, a situation …): later steps and the calm hold leave them
 	public readonly HashSet<long> pinned = new HashSet<long>();
+	// pawns nobody may raise for urgent work (children who need time to learn …)
+	public readonly HashSet<Pawn> noRaise = new HashSet<Pawn>();
 	public readonly Dictionary<long, List<Reason>> reasons = new Dictionary<long, List<Reason>>();
 	// the work types a step asked to be planned again at once (urgent)
 	public bool urgent;
@@ -174,7 +193,7 @@ public sealed class PlanContext
 	// pawns who can do the work, best suited first
 	public List<Pawn> Best(WorkTypeDef w)
 	{
-		return pawns.Where(p => CanDo(p, w)).OrderByDescending(p => Fit(p, w)).ToList();
+		return pawns.Where(p => CanDo(p, w) && !noRaise.Contains(p)).OrderByDescending(p => Fit(p, w)).ToList();
 	}
 
 	// how many pawns have the work on level <= maxLevel

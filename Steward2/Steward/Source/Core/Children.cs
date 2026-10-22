@@ -37,12 +37,16 @@ public static class ChildLearning
 				learningNow.Remove(p.thingIDNumber);
 			bool learn = learningNow.Contains(p.thingIDNumber);
 			int pct = Mathf.RoundToInt(l * 100f);
+			ctx.noRaise.Add(p);
 			foreach (WorkTypeDef w in ctx.plan[p].Keys.ToList())
 			{
-				int v = ctx.Get(p, w);
-				if (v <= 0 || WorkCatalog.Kind(w) == WorkKind.Emergency)
+				if (WorkCatalog.Kind(w) == WorkKind.Emergency)
 					continue;
-				ctx.Set(p, w, learn ? 0 : ctx.Levels, learn ? "CF_TipChildLearn" : "CF_TipChildLight", pct, null, pin: true);
+				int v = ctx.Get(p, w);
+				if (v <= 0 || learn)
+					ctx.Set(p, w, 0, v > 0 ? "CF_TipChildLearn" : null, pct, null, pin: true);
+				else
+					ctx.Set(p, w, ctx.Levels, "CF_TipChildLight", pct, null, pin: true);
 			}
 		}
 	}

@@ -95,7 +95,7 @@ public sealed class ForemanMapComponent : MapComponent
 
 	public int PlanNow(bool manual)
 	{
-		if (!initDone)
+		if (!initDone || (manual && !auto))
 		{
 			demand.MeasureAll(map, ForemanMod.Settings);
 			initDone = true;
@@ -138,7 +138,14 @@ public sealed class ForemanMapComponent : MapComponent
 			return;
 		ticker = 0;
 		StewardApi.RaiseTick(this);
+		// a crisis saved by the Crises add-on that is not installed any more
+		if (crisis != Crisis.None && !StewardApi.HasStep("crises."))
+			crisis = Crisis.None;
 		if (!auto || !map.IsPlayerHome && map.mapPawns.FreeColonistsSpawnedCount == 0)
+			return;
+		// most people drafted (a fight): no plan now – it comes when they are free again
+		List<Pawn> ws = WorkCatalog.Workers(map, ForemanMod.Settings);
+		if (ws.Count > 0 && ws.Count(p => p.Drafted) * 2 > ws.Count)
 			return;
 		bool plan = now >= nextRun || requestedUrgent;
 		if (!plan && requested && now - lastRun >= 1250)
@@ -197,6 +204,12 @@ public sealed class ForemanMapComponent : MapComponent
 				lines.Add(r.Text());
 		StewardApi.Tip(p, w, lines);
 		return lines.Count == 0 ? null : string.Join("\n", lines);
+	}
+
+	public override void MapRemoved()
+	{
+		cache.Remove(map);
+		StewardApi.RaiseMapRemoved(map);
 	}
 
 	public override void FinalizeInit()

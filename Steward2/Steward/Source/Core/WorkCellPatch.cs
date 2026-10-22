@@ -34,7 +34,7 @@ public static class WorkCellPatch
 			{
 				GUI.DrawTexture(new Rect(rect.xMax - 12f, rect.y + 1f, 11f, 11f), ForemanTex.Lock);
 			}
-			string text = ForemanMapComponent.For(pawn.MapHeld)?.TipFor(pawn, workTypeDef);
+			string text = Mouse.IsOver(rect) ? ForemanMapComponent.For(pawn.MapHeld)?.TipFor(pawn, workTypeDef) : null;
 			if (text != null)
 			{
 				TooltipHandler.TipRegion(rect, new TipSignal(text, (pawn.thingIDNumber * 397) ^ workTypeDef.index));

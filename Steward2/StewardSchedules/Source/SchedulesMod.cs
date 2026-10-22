@@ -136,6 +136,16 @@ public sealed class SchedState
 		if (!map.IsPlayerHome)
 			return;
 		SchedState st = Of(comp);
+		// the steward is off on this map: nothing changes, held hours go back
+		if (!comp.auto)
+		{
+			if (st.schedHold.Count > 0)
+			{
+				try { ScheduleCare.ReleaseAll(comp, map); }
+				catch (Exception ex) { MLog.WarnOnce("[Steward] give back hours failed: " + ex.Message, 0x5d0002); }
+			}
+			return;
+		}
 		try
 		{
 			AutoSchedules.Schedules(comp, map);

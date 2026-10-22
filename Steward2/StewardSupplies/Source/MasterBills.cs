@@ -32,6 +32,8 @@ public static class MasterBillsRule
 	// 2.52.3: the minimum skill the steward last wrote – a different value means you changed it yourself
 	private static readonly Dictionary<string, int> wroteMin = new Dictionary<string, int>();
 
+	public static void ResetGame() => wroteMin.Clear();
+
 	public static void MasterBills(ForemanMapComponent comp, Map map)
 	{
 		bool on = S != null && S.masterBills;

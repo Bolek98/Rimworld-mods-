@@ -49,7 +49,7 @@ public sealed class SuppliesMod : Mod
 		StewardApi.MapExpose += SupState.Expose;
 		StewardApi.MapTick += c =>
 		{
-			if (Find.TickManager.TicksGame % 2500 >= 250)
+			if (!c.auto || Find.TickManager.TicksGame % 2500 >= 250)
 				return;
 			try { MasterBillsRule.MasterBills(c, c.map); }
 			catch (Exception ex) { MLog.WarnOnce("[Steward] master bills failed: " + ex.Message, 0x5e0001); }
@@ -60,7 +60,9 @@ public sealed class SuppliesMod : Mod
 			WorkGiver_StewardTidyHome.Reset();
 			PickUpAndHaulCompat.Reset();
 			MainTabWindow_Supplies.ResetOpenWindow();
+			MasterBillsRule.ResetGame();
 		};
+		StewardApi.MapRemoved += WorkGiver_StewardHaulProducts.Forget;
 		MLog.Info("[Steward] Supplies loaded.");
 	}
 

@@ -122,12 +122,25 @@ public static class Planner
 					continue;
 				}
 				bool held = comp.calmCells.TryGetValue(CalmKey(p, w), out CalmCell cc) && now >= cc.tick && now - cc.tick < hold && !cc.crisis;
-				// small steps between backup levels are not worth moving anyone (top job changes are)
-				bool small = cur > 0 && want > 0 && Math.Abs(want - cur) == 1 && cur != 1 && want != 1;
+				// small steps between backup levels (3 ↔ 4 …) are not worth moving anyone;
+				// main work (1–2) always follows the plan
+				bool small = cur >= 3 && want >= 3 && Math.Abs(want - cur) == 1;
 				f[w] = held || small ? cur : want;
 			}
 			final[p] = f;
 		}
+		// the hold must not leave a colonist with two top jobs: the plan's top job wins
+		if (ctx.settings == null || ctx.settings.oneTopPriority)
+			foreach (var kv in final)
+			{
+				Pawn p = kv.Key;
+				var tops = kv.Value.Where(j => j.Value == 1 && WorkCatalog.Kind(j.Key) != WorkKind.Emergency && !ctx.Locked(p, j.Key)).Select(j => j.Key).ToList();
+				if (tops.Count <= 1)
+					continue;
+				foreach (WorkTypeDef w in tops)
+					if (ctx.Get(p, w) != 1)
+						kv.Value[w] = 2;
+			}
 		// the hold must never leave waiting work without anybody on it
 		foreach (WorkTypeDef w in ctx.types)
 		{
@@ -277,7 +290,7 @@ public static class Planner
 						if (have >= min)
 							break;
 						int v = ctx.Get(p, w);
-						if (v > 0 && v <= 2)
+						if ((v > 0 && v <= 2) || ctx.noRaise.Contains(p))
 							continue;
 						if (ctx.Set(p, w, 2, "CF2_TipYourMin", min))
 							have++;
@@ -323,6 +336,9 @@ public static class Planner
 						continue;
 					float pressure = ctx.demand == null ? 0f : Mathf.Min(1f, ctx.demand.Need(ctx.map, w, n) / (float)n);
 					float score = ctx.Fit(p, w) + 0.4f * Styles.Delta(ctx.style, w) + 0.3f * ctx.settings.Importance(w) + 0.3f * pressure;
+					// the current top job stays unless another one is clearly better (no flip-flop)
+					if (p.workSettings.GetPriority(w) == 1)
+						score += 0.15f;
 					if (WorkCatalog.Kind(w) == WorkKind.General)
 						score -= 0.25f;   // hauling / cleaning are rarely anyone's main work
 					if (score > bestScore)
@@ -362,11 +378,13 @@ public static class Planner
 				var jobs = ctx.plan[p];
 				if (jobs.Any(j => j.Value > 0 && j.Value <= 2 && WorkCatalog.Kind(j.Key) != WorkKind.Emergency))
 					continue;
-				WorkTypeDef pick = jobs.Keys
+				if (ctx.noRaise.Contains(p))
+					continue;
+				foreach (WorkTypeDef pick in jobs.Keys
 					.Where(w => WorkCatalog.Kind(w) != WorkKind.Emergency && ctx.CanDo(p, w) && !ctx.Locked(p, w) && (ctx.demand?.Jobs(w) ?? 0) > 0)
-					.OrderByDescending(w => ctx.Fit(p, w)).FirstOrDefault();
-				if (pick != null)
-					ctx.Set(p, pick, 2, "CF2_TipNobodyIdle");
+					.OrderByDescending(w => ctx.Fit(p, w)).ToList())
+					if (ctx.Set(p, pick, 2, "CF2_TipNobodyIdle"))
+						break;
 			}
 		}
 	}
