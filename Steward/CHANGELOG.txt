@@ -1,3 +1,6 @@
+2.53.0
+- Priority guard: priorities are also saved by work name. When mods with work types are added, removed or moved, every colonist gets his priorities back on the right work after loading (before they landed on other work – cooks hauling, growers doing art …).
+
 2.52.3 (full code review)
 - Butchering: the "butcher first" order no longer freezes colonists' work order (they ignored priority changes); it checks the butcher bill's own filter; new situation "carcasses to butcher" (Cooking on 2).
 - Middle-click locks work on the whole work box, name and header (the game took the click first).
