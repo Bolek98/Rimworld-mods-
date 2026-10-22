@@ -133,9 +133,9 @@ public sealed partial class SupplyManager : MapComponent
 				continue;
 			if (map.fogGrid.IsFogged(t.Position) || !t.def.designateHaulable)
 				continue;
-			// 2.24.1: chunks forbidden after mining or a fight are allowed again
+			// 2.52.3: forbidden chunks are left as they are – it may be your choice
 			if (t.IsForbidden(Faction.OfPlayer))
-				t.SetForbidden(false, false);
+				continue;
 			if (dm.DesignationOn(t, DesignationDefOf.Haul) != null || ModCompat.NoHaul(t))
 				continue;
 			dm.AddDesignation(new Designation(t, DesignationDefOf.Haul));
@@ -173,7 +173,7 @@ public sealed partial class SupplyManager : MapComponent
 			if (!StoreUtility.TryFindBestBetterStorageFor(t, null, map, StoragePriority.Unstored, Faction.OfPlayer, out _, out _, false))
 				continue;
 			if (t.IsForbidden(Faction.OfPlayer))
-				t.SetForbidden(false, false);
+				continue;   // 2.52.3: never un-forbid what you forbade
 			dm.AddDesignation(new Designation(t, DesignationDefOf.Haul));
 			chunkMarks.Add(t.ThingID);
 			if (++n >= budget)
@@ -479,19 +479,19 @@ public sealed partial class SupplyManager : MapComponent
 		// hauler then takes them to storage; with no storage for chunks the
 		// "carry out" job takes them out of the home area.
 		TickBlight();
-		if (tidyChunks && now >= nextChunkMark)
+		if (enabled && tidyChunks && now >= nextChunkMark)
 		{
 			nextChunkMark = now + 1000;
 			try { MarkChunks(); }
 			catch (Exception ex) { MLog.Warn("[Steward] chunks: " + ex.Message); }
 		}
-		if (tidyItems && now >= nextItemMark)
+		if (enabled && tidyItems && now >= nextItemMark)
 		{
 			nextItemMark = now + 1250;
 			try { MarkLoose(); }
 			catch (Exception ex) { MLog.Warn("[Steward] loose items: " + ex.Message); }
 		}
-		if (unloadPockets && now >= nextPocketCheck)
+		if (enabled && unloadPockets && now >= nextPocketCheck)
 		{
 			nextPocketCheck = now + 750;
 			try { UnloadPockets(); }
@@ -667,12 +667,20 @@ public sealed partial class SupplyManager : MapComponent
 		job.lastPending = CountPending(job, products);
 		job.lastMarked = 0;
 		job.noSources = false;
+		bool foodJob = job.kind == JobKind.Hunting || job.kind == JobKind.Foraging;
 		if (!mark)
+		{
+			// 2.52.3: a job switched off takes back its own marks (before the trees were still cut)
+			if (!(emergencyActive && foodJob))
+				WithdrawOwnMarks(job);
 			return 0;
+		}
 		int missing = job.target - job.lastStock - job.lastPending;
 		if (job.lastStock >= job.target)
 		{
-			WithdrawOwnMarks(job);
+			// 2.52.3: the food emergency's hunt/forage marks stay (they were removed in the same check)
+			if (!(emergencyActive && foodJob))
+				WithdrawOwnMarks(job);
 			job.lastPending = CountPending(job, products);
 			return 0;
 		}
@@ -1281,14 +1289,23 @@ public sealed partial class SupplyManager : MapComponent
 			if (r.area != null)
 			{
 				bool changed = r.area != r.appliedArea;
+				// a save from before 2.52.3 has no list – the animals there are taken as already known
+				bool firstRun = r.given.Count == 0 && !r.GivenKnown && r.appliedArea != null;
+				var ids = new HashSet<string>(r.given);
 				foreach (Pawn p in herd)
 				{
 					if (p.playerSettings == null)
 						continue;
+					bool isNew = !ids.Contains(p.ThingID);
+					ids.Add(p.ThingID);
+					if (firstRun)
+						continue;
 					Area cur = p.playerSettings.AreaRestrictionInPawnCurrentMap;
-					if (cur != r.area && (changed || cur == null))
+					if (cur != r.area && (changed || (isNew && cur == null)))
 						p.playerSettings.AreaRestrictionInPawnCurrentMap = r.area;
 				}
+				ids.IntersectWith(herd.Select(p => p.ThingID));
+				r.given = ids.ToList();
 			}
 			r.appliedArea = r.area;
 			marked += Cull(herd.Where(p => p.ageTracker.Adult && p.gender == Gender.Female), r.females, r, dm);
@@ -1419,9 +1436,20 @@ public sealed class LivestockRule : IExposable
 	public bool keepPregnant = true;
 	public Area area;
 	public Area appliedArea;
+	// 2.52.3: animals that already got the herd area once – "Unrestricted" set by you later is kept
+	public List<string> given = new List<string>();
+	private bool givenLoaded;
+
+	public bool GivenKnown => givenLoaded;
 
 	public void ExposeData()
 	{
+		Scribe_Collections.Look(ref given, "given", LookMode.Value);
+		if (Scribe.mode == LoadSaveMode.PostLoadInit)
+		{
+			givenLoaded = given != null;
+			given ??= new List<string>();
+		}
 		Scribe_Defs.Look(ref race, "race");
 		Scribe_Values.Look(ref enabled, "enabled", false);
 		Scribe_Values.Look(ref females, "females", 4);

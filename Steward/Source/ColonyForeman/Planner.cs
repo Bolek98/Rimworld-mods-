@@ -724,6 +724,9 @@ public static class Planner
 				Pawn p = on[i];
 				if (foremanGameComponent != null && foremanGameComponent.AnyLock(p, w))
 					continue;
+				// 2.52.3: what a situation or a crisis needs now is not cut by your maximum
+				if (sitCells.Contains((p, w)) || (crisisUrg.TryGetValue(w, out float mcu) && mcu > 0f))
+					continue;
 				dictionary[p][w] = 0;
 				on.RemoveAt(i);
 			}
@@ -751,6 +754,9 @@ public static class Planner
 			foreach (var pj in dictionary)
 			{
 				if (!pj.Value.TryGetValue(parent, out int pv) || pj.Key.WorkTypeIsDisabled(child))
+					continue;
+				// 2.52.3: not work the colonist's ideology forbids (tree cutting)
+				if (pv > 0 && pj.Key.Ideo != null && pj.Key.Ideo.IsWorkTypeConsideredDangerous(child) && !settings.assignOpposed)
 					continue;
 				if (foremanGameComponent != null && foremanGameComponent.AnyLock(pj.Key, child))
 					continue;
@@ -864,63 +870,90 @@ public static class Planner
 		return false;
 	}
 
-	// 2.50.0: fresh animal carcasses, an active butcher bill and little raw meat
-	private static int foodTick = -99999;
-	private static Map foodMap;
-	private static bool foodVal;
+	// 2.50.0 / 2.52.3: fresh animal carcasses that an active butcher bill accepts, and enough ready meals.
+	// Cached per map (it is asked on every job search of every colonist).
+	private static readonly Dictionary<int, KeyValuePair<int, bool>> foodCache = new Dictionary<int, KeyValuePair<int, bool>>();
+
+	public static void ResetFood() => foodCache.Clear();
+
+	// fresh, allowed animal carcasses that an active butcher bill takes (counted up to 'max')
+	public static int ButcherableCarcasses(Map map, int max)
+	{
+		var bills = new List<Bill>();
+		foreach (Building b in map.listerBuildings.allBuildingsColonist)
+		{
+			if (!(b is IBillGiver bg) || bg.BillStack == null || (b is Building_WorkTable wt && !wt.CurrentlyUsableForBills()))
+				continue;
+			foreach (Bill bill in bg.BillStack.Bills)
+				if (!bill.suspended && bill.recipe?.specialProducts != null && bill.recipe.specialProducts.Contains(SpecialProductType.Butchery) && bill.ShouldDoNow())
+					bills.Add(bill);
+		}
+		if (bills.Count == 0)
+			return 0;
+		int n = 0;
+		foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.Corpse))
+		{
+			if (!(t is Corpse c) || c.InnerPawn == null || !c.InnerPawn.RaceProps.Animal || c.IsForbidden(Faction.OfPlayer) || c.GetRotStage() != RotStage.Fresh)
+				continue;
+			foreach (Bill bill in bills)
+				if (bill.IsFixedOrAllowedIngredient(c))
+				{
+					if (++n >= max)
+						return n;
+					break;
+				}
+		}
+		return n;
+	}
+
+	public static bool MealsShort(Map map)
+	{
+		if (map == null)
+			return false;
+		int colonists = map.mapPawns.FreeColonistsSpawnedCount;
+		if (colonists == 0)
+			return false;
+		int meals = 0;
+		foreach (Thing m in map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree))
+			if (m.def.ingestible != null && m.def.ingestible.IsMeal && !m.IsForbidden(Faction.OfPlayer))
+			{
+				meals += m.stackCount;
+				if (meals >= colonists)
+					return false;
+			}
+		return true;
+	}
 
 	public static bool FoodWorkWaiting(Map map)
 	{
 		if (map == null)
 			return false;
 		int now = Find.TickManager.TicksGame;
-		if (map == foodMap && now - foodTick < 1250)
-			return foodVal;
+		if (foodCache.TryGetValue(map.uniqueID, out var kv) && now - kv.Key < 1250 && now >= kv.Key)
+			return kv.Value;
 		bool want = false;
 		try
 		{
-			// 2.52.2: no raw-meat limit any more – fresh carcasses are butchered whenever the butcher bill
-			// still wants work (its own "do until X" decides). Only when there are fewer ready meals than
-			// colonists the cooks keep cooking first.
+			// no raw-meat limit – the butcher bill's own "do until X" decides; only with fewer ready meals
+			// than colonists the cooks keep cooking first
+			int colonists = map.mapPawns.FreeColonistsSpawnedCount;
 			int meals = 0;
 			foreach (Thing m in map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree))
 				if (m.def.ingestible != null && m.def.ingestible.IsMeal && !m.IsForbidden(Faction.OfPlayer))
 				{
 					meals += m.stackCount;
-					if (meals >= map.mapPawns.FreeColonistsSpawnedCount)
+					if (meals >= colonists)
 						break;
 				}
-			if (meals >= map.mapPawns.FreeColonistsSpawnedCount)
-			{
-				bool carcass = false;
-				foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.Corpse))
-					if (t is Corpse c && c.InnerPawn != null && c.InnerPawn.RaceProps.Animal && !c.IsForbidden(Faction.OfPlayer) && c.GetRotStage() == RotStage.Fresh)
-					{
-						carcass = true;
-						break;
-					}
-				if (carcass)
-					foreach (Building b in map.listerBuildings.allBuildingsColonist)
-					{
-						if (!(b is IBillGiver bg) || bg.BillStack == null || (b is Building_WorkTable wt && !wt.CurrentlyUsableForBills()))
-							continue;
-						foreach (Bill bill in bg.BillStack.Bills)
-							if (!bill.suspended && bill.recipe?.specialProducts != null && bill.recipe.specialProducts.Contains(SpecialProductType.Butchery) && bill.ShouldDoNow())
-							{
-								want = true;
-								break;
-							}
-						if (want)
-							break;
-					}
-			}
+			if (meals >= colonists)
+				want = ButcherableCarcasses(map, 1) > 0;
 		}
 		catch
 		{
 		}
-		foodMap = map;
-		foodTick = now;
-		foodVal = want;
+		if (foodCache.Count > 32)
+			foodCache.Clear();
+		foodCache[map.uniqueID] = new KeyValuePair<int, bool>(now, want);
 		return want;
 	}
 
@@ -939,6 +972,8 @@ public static class Planner
 		string styleLabel = Styles.Label(comp.style);
 		// 2.50.0: fresh carcasses wait for the butcher and meat is low – cooking is not pushed down by the style
 		bool food = FoodWorkWaiting(comp.map);
+		// 2.52.3: with fewer ready meals than colonists cooking is never pushed down by the style
+		bool mealsShort = MealsShort(comp.map);
 		WorkTypeDef cookW = DefDatabase<WorkTypeDef>.GetNamedSilentFail("Cooking");
 		foreach (var kv in plan)
 		{
@@ -949,6 +984,11 @@ public static class Planner
 			foreach (WorkTypeDef w in WorkPolicies.VisibleWorkTypes())
 			{
 				if (p.WorkTypeIsDisabled(w) || Styles.Delta(comp.style, w) > 0f)
+					continue;
+				// 2.52.3: only work that was in the plan – never opposed or impossible work as "the lowest level"
+				if (!jobs.ContainsKey(w))
+					continue;
+				if (mealsShort && w == cookW)
 					continue;
 				if (TopExempt(w) || WorkPolicies.Get(w).emergency)
 					continue;
@@ -973,6 +1013,8 @@ public static class Planner
 				int target = settings.styleOthersOff && !Essential(w) ? 0 : max;
 				if (jobs.TryGetValue(w, out int cur) && cur == target)
 					continue;
+				if (target > cur && !settings.assignOpposed && p.Ideo != null && p.Ideo.IsWorkTypeConsideredDangerous(w))
+					continue;   // 2.52.3: never raised into work the ideology forbids
 				jobs[w] = target;
 				if (comp.reasons.TryGetValue(p.thingIDNumber, out var texts))
 				{

@@ -38,9 +38,11 @@ public static class MedicalResponse
 	{
 		if (p == null || p.Dead || !p.Spawned || p.health == null)
 			return false;
-		if (HealthAIUtility.ShouldBeTendedNowByPlayer(p))
+		// 2.52.3: only urgent cases (bleeding, infection, lying hurt outside a bed) – a bruise is left to the
+		// doctors' normal work instead of pulling someone off their job
+		if (HealthAIUtility.ShouldBeTendedNowByPlayerUrgent(p))
 			return true;
-		return p.Downed && !p.InBed() && !p.IsPrisonerOfColony && (p.IsColonist || p.IsSlaveOfColony);
+		return p.Downed && !p.InBed() && !p.DevelopmentalStage.Baby() && !p.IsPrisonerOfColony && (p.IsColonist || p.IsSlaveOfColony);
 	}
 
 	private static bool SomeoneComing(Map map, Pawn patient)
@@ -114,6 +116,12 @@ public static class MedicalResponse
 	// Before, the emergency tending came first and patients were treated on the floor.
 	private static readonly Dictionary<int, int> floorNext = new Dictionary<int, int>();
 	private static readonly Dictionary<int, int> floorToldAt = new Dictionary<int, int>();
+
+	public static void ResetGame()
+	{
+		floorNext.Clear();
+		floorToldAt.Clear();
+	}
 
 	private static void FloorSleepers(Map map)
 	{

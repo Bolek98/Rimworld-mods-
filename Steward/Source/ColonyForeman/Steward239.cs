@@ -19,7 +19,7 @@ public static class FireResponse
 	private static readonly HashSet<string> keepJobs = new HashSet<string>
 	{
 		"BeatFire", "ExtinguishSelf", "TendPatient", "Rescue", "Capture", "Arrest", "Flee", "FleeAndCower",
-		"Ingest", "LayDown", "Vomit", "AttackMelee", "AttackStatic", "DeliverToBed", "Wait_Combat"
+		"Ingest", "LayDown", "Vomit", "AttackMelee", "AttackStatic", "DeliverToBed", "Wait_Combat", "DoBill"
 	};
 
 	public static bool Enabled => ForemanMod.Settings != null && ForemanMod.Settings.fireResponse;
@@ -61,6 +61,10 @@ public static class FireResponse
 	{
 		if (!Enabled || map == null || !map.IsPlayerHome)
 			return;
+		// 2.52.3: not during an attack – nobody is sent out to the raiders (the game's own firefighting still works)
+		ForemanMapComponent comp = ForemanMapComponent.For(map);
+		if (comp != null && ((comp.CurrentCrisis & StewardPlus.ThreatMask) != 0 || comp.safeActive))
+			return;
 		List<Thing> all = map.listerThings.ThingsOfDef(ThingDefOf.Fire);
 		if (all.Count == 0)
 			return;
@@ -95,7 +99,7 @@ public static class FireResponse
 				if (taken.Contains(f))
 					continue;
 				int d = f.Position.DistanceToSquared(p.Position);
-				if (d < best && p.CanReserve(f) && p.CanReach(f, PathEndMode.Touch, Danger.Deadly))
+				if (d < best && f.Position.InAllowedArea(p) && p.CanReserve(f) && p.CanReach(f, PathEndMode.Touch, Danger.Some))
 				{
 					best = d;
 					target = f;
@@ -123,14 +127,39 @@ public static class FireResponse
 public static class ScheduleCare
 {
 	private const float TiredBelow = 0.15f, RestedAbove = 0.9f;
-	private const float BreakMargin = 0.10f, CalmMargin = 0.18f;   // 2.47/2.49: earlier help, longer
+	private const float BreakMargin = 0.05f, CalmMargin = 0.12f;   // 2.52.3: only close to a break (0.10 kept people on recreation for days)
 
 	public static bool Enabled => ForemanMod.Settings != null && ForemanMod.Settings.scheduleCare;
 
+	// 2.52.3: hours held for rest/recreation are given back when the help is switched off
+	public static void ReleaseAll(ForemanMapComponent comp, Map map)
+	{
+		if (comp?.schedHold == null || comp.schedHold.Count == 0 || map == null)
+			return;
+		foreach (Pawn p in map.mapPawns.FreeColonistsSpawned)
+		{
+			if (p.timetable == null || !comp.schedHold.TryGetValue(p.thingIDNumber, out string held))
+				continue;
+			foreach (var e in Parse(held))
+			{
+				TimeAssignmentDef now = p.timetable.GetAssignment(e.Item1);
+				TimeAssignmentDef orig = DefDatabase<TimeAssignmentDef>.GetNamedSilentFail(e.Item2);
+				if (now != null && now.defName == e.Item3 && orig != null)
+					p.timetable.SetAssignment(e.Item1, orig);
+			}
+		}
+		comp.schedHold.Clear();
+	}
+
 	public static void Tick(ForemanMapComponent comp, Map map)
 	{
-		if (!Enabled || comp == null || map == null)
+		if (comp == null || map == null)
 			return;
+		if (!Enabled)
+		{
+			ReleaseAll(comp, map);
+			return;
+		}
 		int hour = GenLocalDate.HourOfDay(map);
 		int next = (hour + 1) % 24;
 		foreach (Pawn p in map.mapPawns.FreeColonistsSpawned)

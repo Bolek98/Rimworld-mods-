@@ -61,6 +61,8 @@ public static class ParentCare
 {
 	private static readonly Dictionary<int, int> nannyFor = new Dictionary<int, int>();   // baby id -> nanny id
 
+	public static void ResetGame() => nannyFor.Clear();
+
 	private static bool IsBaby(Pawn p) => p != null && p.DevelopmentalStage.Baby();
 
 	private static bool CanCare(Pawn p, WorkTypeDef cc, Dictionary<Pawn, Dictionary<WorkTypeDef, int>> plan)

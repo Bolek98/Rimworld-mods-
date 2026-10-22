@@ -34,13 +34,14 @@ public static class StewardPlus
 	private static ForemanSettings S => ForemanMod.Settings;
 
 	// ---- 1. safe area during attacks ---------------------------------------
-	public const Crisis ThreatMask = Crisis.Raid | Crisis.Manhunters | Crisis.Siege | Crisis.Infestation | Crisis.EntityEscape;
+	// 2.52.3: no infestation / escaped entity – they come out exactly in the roofed rooms of the safe area
+	public const Crisis ThreatMask = Crisis.Raid | Crisis.Manhunters | Crisis.Siege;
 
-	public static void SafeAreaTick(ForemanMapComponent comp, Map map)
+	public static void SafeAreaTick(ForemanMapComponent comp, Map map, bool stewardOff = false)
 	{
 		if (S == null)
 			return;
-		bool threat = S.raidSafeArea && (comp.CurrentCrisis & ThreatMask) != 0 && map.IsPlayerHome;
+		bool threat = !stewardOff && S.raidSafeArea && (comp.CurrentCrisis & ThreatMask) != 0 && map.IsPlayerHome;
 		if (threat && !comp.safeActive)
 		{
 			Area_Allowed area = SafeArea(map, true);
@@ -231,6 +232,9 @@ public static class StewardPlus
 		return w;
 	}
 
+	// 2.52.3: the minimum skill the steward last wrote – a different value means you changed it yourself
+	private static readonly Dictionary<string, int> wroteMin = new Dictionary<string, int>();
+
 	public static void MasterBills(ForemanMapComponent comp, Map map)
 	{
 		bool on = S != null && S.masterBills;
@@ -251,7 +255,6 @@ public static class StewardPlus
 				{
 					if (ours)
 					{
-						bp.SetPawnRestriction(null);
 						bp.allowedSkillRange = new IntRange(0, bp.allowedSkillRange.max);
 						comp.masterBills.Remove(id);
 					}
@@ -260,22 +263,38 @@ public static class StewardPlus
 				ThingDef prod = bp.recipe.ProducedThingDef;
 				if (prod == null || bp.recipe.workSkill == null || work == null || !(prod.IsWeapon || prod.IsApparel) || !prod.HasComp(typeof(CompQuality)))
 					continue;
-				if (bp.PawnRestriction != null && !ours)
-					continue;   // your own choice
-				// 2.50.4: not bound to ONE colonist any more (the bill waited whenever he was busy, away
-				// or in another style) – the best crafters share it: skill at most 3 below the best
-				if (ours && bp.PawnRestriction != null)
-					bp.SetPawnRestriction(null);
-				int bestLevel = map.mapPawns.FreeColonistsSpawned
-					.Where(p => !p.WorkTypeIsDisabled(work) && p.workSettings != null && p.workSettings.WorkIsActive(work) && !p.Downed)
-					.Select(p => p.skills?.GetSkill(bp.recipe.workSkill)?.Level ?? 0).DefaultIfEmpty(-1).Max();
-				if (bestLevel < 0)
+				// 2.52.3: a colonist, slaves-only or mechs-only choice is yours – the bill is left alone for good
+				if (bp.PawnRestriction != null || bp.SlavesOnly || bp.MechsOnly || bp.NonMechsOnly)
+				{
+					if (ours)
+						comp.masterBills.Remove(id);
 					continue;
-				int min = Math.Max(0, bestLevel - 3);
+				}
+				// 2.50.4: the best crafters share it: skill at most 3 below the best
+				List<int> levels = map.mapPawns.FreeColonistsSpawned
+					.Where(p => !p.WorkTypeIsDisabled(work) && p.workSettings != null && p.workSettings.WorkIsActive(work) && !p.Downed)
+					.Select(p => p.skills?.GetSkill(bp.recipe.workSkill)?.Level ?? 0).OrderByDescending(x => x).ToList();
+				if (levels.Count == 0)
+					continue;
+				// 2.52.3: always at least two who may do it (before one crafter far ahead locked it to him alone),
+				// and never above your maximum
+				int min = Math.Max(0, levels[0] - 3);
+				if (levels.Count >= 2)
+					min = Math.Min(min, levels[1]);
+				min = Math.Min(min, bp.allowedSkillRange.max);
 				if (!ours && bp.allowedSkillRange.min != 0)
 					continue;   // your own skill range
+				if (ours && wroteMin.TryGetValue(id, out int wrote) && bp.allowedSkillRange.min != wrote)
+				{
+					comp.masterBills.Remove(id);   // you changed the range – yours from now on
+					wroteMin.Remove(id);
+					continue;
+				}
 				if (bp.allowedSkillRange.min != min)
 					bp.allowedSkillRange = new IntRange(min, bp.allowedSkillRange.max);
+				if (wroteMin.Count > 2000)
+					wroteMin.Clear();
+				wroteMin[id] = min;
 				if (!ours)
 					comp.masterBills.Add(id);
 			}
@@ -666,5 +685,16 @@ public static class ScheduleEditWatch
 	{
 		if (ScheduleTabWatch.Inside && ___pawn != null)
 			ScheduleTabWatch.EditedByYou.Add(___pawn.thingIDNumber);
+	}
+}
+
+// 2.52.3: the schedule tab's Paste button writes the hours directly (no SetAssignment) – it is your change too
+[HarmonyLib.HarmonyPatch(typeof(PawnColumnWorker_CopyPasteTimetable), "PasteTo")]
+public static class SchedulePasteWatch
+{
+	public static void Prefix(Pawn p)
+	{
+		if (p != null)
+			ScheduleTabWatch.EditedByYou.Add(p.thingIDNumber);
 	}
 }

@@ -23,6 +23,8 @@ public static class Comfort
 
 	private static readonly Dictionary<string, int> lastTold = new Dictionary<string, int>();
 
+	public static void ResetGame() => lastTold.Clear();
+
 	public static void Tell(Pawn p, string key, string reason, bool logOnly = false)
 	{
 		int now = Find.TickManager?.TicksGame ?? 0;
@@ -126,6 +128,9 @@ public static class Comfort_SitToEat
 		try
 		{
 			if (!Comfort.Enabled || pawn?.Map == null || !pawn.IsColonist || !pawn.Map.IsPlayerHome || pawn.Drafted)
+				return;
+			// 2.52.3: only while really eating – the food search also asks here (only "is there a place?")
+			if (pawn.CurJobDef != JobDefOf.Ingest)
 				return;
 			if (__result && Comfort.AtTable(cell, pawn.Map))
 				return;

@@ -14,6 +14,9 @@ public sealed class MapDemand
 
 	public int patients;
 
+	// 2.52.3: only those who really need help now (bleeding, infection, lying hurt outside a bed) – a crisis
+	public int urgentPatients;
+
 	public int harvestable;
 
 	public Crisis crisis;
@@ -30,7 +33,7 @@ public sealed class MapDemand
 	{
 		MapDemand mapDemand = new MapDemand();
 		mapDemand.foodDays = FoodDays(map);
-		mapDemand.patients = CountPatients(map);
+		mapDemand.patients = CountPatients(map, out mapDemand.urgentPatients);
 		mapDemand.harvestable = lastHarvestable;
 		mapDemand.crisis = Modes.Mask(DetectCrisis(map, mapDemand));
 		return mapDemand;
@@ -40,7 +43,7 @@ public sealed class MapDemand
 	{
 		MapDemand mapDemand = new MapDemand();
 		mapDemand.foodDays = FoodDays(map);
-		mapDemand.patients = CountPatients(map);
+		mapDemand.patients = CountPatients(map, out mapDemand.urgentPatients);
 		Dictionary<WorkTypeDef, int> dictionary = CountBills(map);
 		foreach (WorkTypeDef item in WorkPolicies.VisibleWorkTypes())
 		{
@@ -265,12 +268,15 @@ public sealed class MapDemand
 		return FoodNutrition(map) / ((float)num * 1.6f);
 	}
 
-	public static int CountPatients(Map map)
+	public static int CountPatients(Map map) => CountPatients(map, out _);
+
+	public static int CountPatients(Map map, out int urgent)
 	{
-		int num = 0;
+		int num = 0, urg = 0;
 		var seen = new HashSet<int>();
 		Count(map.mapPawns.FreeColonistsAndPrisonersSpawned);
 		Count(map.mapPawns.SlavesOfColonySpawned);
+		urgent = urg;
 		return num;
 		void Count(IEnumerable<Pawn> pawns)
 		{
@@ -280,9 +286,13 @@ public sealed class MapDemand
 			{
 				if (item?.health == null || !seen.Add(item.thingIDNumber))
 					continue;
-				if (HealthAIUtility.ShouldBeTendedNowByPlayer(item) || item.health.surgeryBills.AnyShouldDoNow
-				    || (item.Downed && !item.InBed() && !item.IsPrisonerOfColony))   // 2.27.0: lying hurt outside a bed
+				// 2.52.3: babies are always "downed" – that is not an injury
+				bool baby = item.DevelopmentalStage.Baby();
+				bool lyingHurt = item.Downed && !baby && !item.InBed() && !item.IsPrisonerOfColony;
+				if (HealthAIUtility.ShouldBeTendedNowByPlayer(item) || item.health.surgeryBills.AnyShouldDoNow || lyingHurt)   // 2.27.0
 					num++;
+				if (lyingHurt || HealthAIUtility.ShouldBeTendedNowByPlayerUrgent(item))
+					urg++;
 			}
 		}
 	}
@@ -372,7 +382,7 @@ public sealed class MapDemand
 	private static Crisis DetectCrisis(Map map, MapDemand d)
 	{
 		ForemanSettings settings = ForemanMod.Settings;
-		if (settings == null || !settings.useCrisis)
+		if (settings == null || !(settings.useCrisis || Modes.Autopilot))
 			return Crisis.None;
 		return CrisisRules.Detect(map, d);
 	}

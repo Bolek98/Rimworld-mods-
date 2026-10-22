@@ -143,6 +143,10 @@ public static class MoodCare
 		var counts = new Dictionary<Cause, int>();
 		int slipping = 0;
 		var diags = new List<Diag>();
+		// 2.52.3: at most a quarter of the colony is sent to calm down at once, never in danger or with many patients
+		rescueLeft = Math.Max(1, pawns.Count / 4);
+		if ((comp.CurrentCrisis & (Crisis.Raid | Crisis.Fire | Crisis.Medical)) != 0)
+			rescueLeft = 0;
 		foreach (Pawn p in pawns)
 		{
 			// quick check first – the full look only for those in trouble (or once an hour)
@@ -179,23 +183,30 @@ public static class MoodCare
 	}
 
 	// right at the edge: stop ordinary work now, rest or relax (the schedule rule already gave this hour)
+	private static int rescueLeft;
+
 	private static void Rescue(ForemanMapComponent comp, Diag d, int now)
 	{
 		Pawn p = d.pawn;
-		if (p.Drafted || p.Downed || p.jobs == null || p.timetable == null)
+		if (rescueLeft <= 0 || p.Drafted || p.Downed || p.jobs == null || p.timetable == null)
 			return;
-		if (interruptedAt.TryGetValue(p.thingIDNumber, out int at) && now >= at && now - at < 2500)
+		// 2.52.3: once in 8 in-game hours per colonist (before: every hour – the same people were pulled off work all day)
+		if (interruptedAt.TryGetValue(p.thingIDNumber, out int at) && now >= at && now - at < 20000)
 			return;
 		Job job = p.CurJob;
 		if (job == null || job.playerForced || job.workGiverDef == null)
 			return;   // already resting, eating, relaxing, or you told them
 		// 2.49.2: hunger is answered with food, not with games
-		if (d.Top == Cause.Food || (p.needs.food != null && p.needs.food.CurLevelPercentage < 0.25f))
+		// 2.52.3: only when really hungry – a bad-meal thought is not hunger (before they ate raw/old food again)
+		if (p.needs.food != null && p.needs.food.CurLevelPercentage < 0.3f)
 		{
 			interruptedAt[p.thingIDNumber] = now;
+			rescueLeft--;
 			Feed(p);
 			return;
 		}
+		if (d.Top == Cause.Food)
+			return;
 		TimeAssignmentDef cur = p.timetable.CurrentAssignment;
 		if (cur != TimeAssignmentDefOf.Joy && cur != TimeAssignmentDefOf.Sleep)
 		{
@@ -211,6 +222,7 @@ public static class MoodCare
 			p.timetable.SetAssignment(hour, want);
 		}
 		interruptedAt[p.thingIDNumber] = now;
+		rescueLeft--;
 		try
 		{
 			p.jobs.EndCurrentJob(JobCondition.InterruptForced, true);
@@ -230,7 +242,7 @@ public static class MoodCare
 	{
 		try
 		{
-			if (FoodUtility.TryFindBestFoodSourceFor(p, p, true, out Thing food, out ThingDef foodDef) && food != null)
+			if (FoodUtility.TryFindBestFoodSourceFor(p, p, false, out Thing food, out ThingDef foodDef, allowCorpse: false) && food != null)
 			{
 				Job eat = JobMaker.MakeJob(JobDefOf.Ingest, food);
 				eat.count = FoodUtility.WillIngestStackCountOf(p, foodDef, FoodUtility.NutritionForEater(p, food));

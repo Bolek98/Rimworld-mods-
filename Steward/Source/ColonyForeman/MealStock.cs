@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -121,11 +122,22 @@ public sealed partial class SupplyManager
 		float days = MealDays();
 		lastMealDays = days;
 		float target = Mathf.Max(0.5f, mealTargetDays);
-		if (days >= target)
+		// 2.52.3: raw food about to spoil – the cooks may cook it even with enough meals
+		bool spoiling = false;
+		try { spoiling = SituationRules.SpoilingNutrition(map) >= 10; } catch { }
+		if (spoiling)
+		{
+			ReleaseMeals();
+		}
+		else if (days >= target)
 		{
 			foreach (Bill_Production bill in MealBills())
 			{
 				if (bill.suspended)
+					continue;
+				// meals that never rot (packaged survival meals for caravans) are left alone
+				ThingDef prod = bill.recipe.products.FirstOrDefault(x => IsMeal(x.thingDef))?.thingDef;
+				if (prod != null && prod.GetCompProperties<CompProperties_Rottable>() == null)
 					continue;
 				bill.suspended = true;
 				string id = bill.GetUniqueLoadID();

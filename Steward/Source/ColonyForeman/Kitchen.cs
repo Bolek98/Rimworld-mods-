@@ -18,7 +18,9 @@ namespace ColonyForeman;
 public static class ButcherFirstPatch
 {
 	private static readonly AccessTools.FieldRef<Pawn_WorkSettings, Pawn> pawnRef = AccessTools.FieldRefAccess<Pawn_WorkSettings, Pawn>("pawn");
-	private static readonly Dictionary<Pawn_WorkSettings, KeyValuePair<List<WorkGiver>, List<WorkGiver>>> cache = new Dictionary<Pawn_WorkSettings, KeyValuePair<List<WorkGiver>, List<WorkGiver>>>();
+	private static readonly Dictionary<Pawn_WorkSettings, List<WorkGiver>> cache = new Dictionary<Pawn_WorkSettings, List<WorkGiver>>();
+
+	public static void Reset() => cache.Clear();
 
 	public static bool IsButcher(WorkGiver g)
 	{
@@ -35,39 +37,41 @@ public static class ButcherFirstPatch
 			Pawn p = pawnRef(__instance);
 			if (p?.Map == null || !p.IsColonist || !Planner.FoodWorkWaiting(p.Map))
 				return;
-			if (cache.TryGetValue(__instance, out var kv) && ReferenceEquals(kv.Key, __result))
-			{
-				__result = kv.Value;
-				return;
-			}
+			// 2.52.3: the game refills the SAME list when priorities change – so nothing may be cached
+			// by the list itself (that froze every colonist's work order). The order is rebuilt on every
+			// call into one reused list per colonist (no garbage).
 			List<WorkGiver> src = __result;
-			var res = new List<WorkGiver>(src);
-			bool moved = false;
-			for (int i = 0; i < res.Count; i++)
+			int first = -1, bIdx = -1;
+			for (int i = 0; i < src.Count; i++)
 			{
-				WorkGiver b = res[i];
-				if (!IsButcher(b))
+				if (!IsButcher(src[i]))
 					continue;
-				// the first giver of the same work type that comes before it (cooking) – butchering goes in front of it
-				int first = i;
+				int f = i;
 				for (int j = i - 1; j >= 0; j--)
 				{
-					if (res[j].def.workType != b.def.workType)
+					if (src[j].def.workType != src[i].def.workType)
 						break;
-					first = j;
+					f = j;
 				}
-				if (first < i)
-				{
-					res.RemoveAt(i);
-					res.Insert(first, b);
-					moved = true;
-				}
+				if (f < i) { first = f; bIdx = i; }
+				break;
 			}
-			if (!moved)
+			if (bIdx < 0)
 				return;
-			if (cache.Count > 300)
-				cache.Clear();
-			cache[__instance] = new KeyValuePair<List<WorkGiver>, List<WorkGiver>>(src, res);
+			if (!cache.TryGetValue(__instance, out List<WorkGiver> res))
+			{
+				if (cache.Count > 300)
+					cache.Clear();
+				cache[__instance] = res = new List<WorkGiver>(src.Count);
+			}
+			res.Clear();
+			for (int i = 0; i < src.Count; i++)
+			{
+				if (i == first)
+					res.Add(src[bIdx]);
+				if (i != bIdx)
+					res.Add(src[i]);
+			}
 			__result = res;
 		}
 		catch

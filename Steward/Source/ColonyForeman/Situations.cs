@@ -86,7 +86,9 @@ public enum Situation
 	// Steward 2.51: care for the hurt and the hungry – colonists, slaves and prisoners
 	Wounded,
 	BedHungry,
-	HungryNoMeals
+	HungryNoMeals,
+	// 2.52.3: fresh carcasses wait for the butcher
+	ButcherBacklog
 }
 
 // one "N colonists on priority L" demand of a situation
@@ -162,7 +164,7 @@ public static partial class SituationRules
 						foreach (IntVec3 c in g.Cells)
 						{
 							Plant p = c.GetPlant(map);
-							if (p != null && p.HarvestableNow && p.def == want)
+							if (p != null && p.HarvestableNow && p.LifeStage == PlantLifeStage.Mature && p.def == want)   // 2.52.3: ripe only, like the growers
 								harvestable++;
 						}
 					}
@@ -507,11 +509,8 @@ public static partial class SituationRules
 			id = Situation.TameTrain, on = 4, off = 2, noRaid = true, preview = new[] { "Handling:2" },
 			measure = c =>
 			{
-				int n = c.Designations("Tame");
-				foreach (Pawn a in c.map.mapPawns.SpawnedColonyAnimals)
-					if (!a.Dead && !a.Downed && a.training != null && a.training.NextTrainableToTrain() != null)
-						n++;
-				return n;
+				// 2.52.3: taming only – training is the AnimalTraining situation (it checks "trained too recently")
+				return c.Designations("Tame");
 			},
 			reason = (c, a) => "CF_SitR_TameTrain".Translate(a),
 			staff = (c, a, s) => c.Need(s, "Handling", 2, Math.Max(1, Ceil(a / 6f)))
@@ -870,6 +869,13 @@ public static partial class SituationRules
 		},
 		new Def
 		{
+			id = Situation.ButcherBacklog, on = 2, off = 1, preview = new[] { "Cooking:2" },
+			measure = c => Planner.ButcherableCarcasses(c.map, 99),
+			reason = (c, a) => "CF_SitR_ButcherBacklog".Translate(a),
+			staff = (c, a, s) => c.Need(s, GiverWork("DoBillsButcherFlesh", "Cooking"), 2, Math.Max(1, Ceil(a / 8f)))
+		},
+		new Def
+		{
 			id = Situation.PrisonRelease, on = 1, off = 1, noRaid = true, preview = new[] { "Warden:2" },
 			measure = PrisonRelease,
 			reason = (c, a) => "CF_SitR_PrisonRelease".Translate(a),
@@ -933,7 +939,7 @@ public static partial class SituationRules
 	{
 		var result = new List<ActiveSituation>();
 		ForemanSettings st = ForemanMod.Settings;
-		if (map == null || st == null || !st.useSituations)
+		if (map == null || st == null || !(st.useSituations || Modes.Autopilot))
 			return result;
 		var c = new Ctx
 		{
@@ -944,7 +950,7 @@ public static partial class SituationRules
 		};
 		bool raid = (crisis & (Crisis.Raid | Crisis.Fire)) != 0;
 		bool bad = (crisis & (Crisis.Toxic | Crisis.Weather)) != 0;
-		Def calmDef = null;
+		var calmDefs = new List<Def>();
 		foreach (Def d in defs)
 		{
 			if (!Allowed(d.id))
@@ -957,14 +963,16 @@ public static partial class SituationRules
 				continue;
 			if (d.calm)
 			{
-				calmDef = d;
+				calmDefs.Add(d);
 				continue;
 			}
 			TryAdd(d, c, before, result);
 		}
 		// research only when the colony is calm: no crisis, no other situation
-		if (calmDef != null && crisis == Crisis.None && result.Count == 0)
-			TryAdd(calmDef, c, before, result);
+		// 2.52.3: every calm situation is tried (before only the last one ever was)
+		if (calmDefs.Count > 0 && crisis == Crisis.None && result.Count == 0)
+			foreach (Def d in calmDefs)
+				TryAdd(d, c, before, result);
 		return result;
 	}
 
@@ -1112,10 +1120,13 @@ public static partial class SituationRules
 	}
 
 	// raw food (that cooking turns into meals) that rots within 1.5 days
-	private static int FoodSpoiling(Ctx c)
+	private static int FoodSpoiling(Ctx c) => SpoilingNutrition(c.map);
+
+	public static int SpoilingNutrition(Map map)
 	{
 		float nutrition = 0f;
-		List<Thing> list = c.map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree);
+		Area_Home home = map.areaManager.Home;
+		List<Thing> list = map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree);
 		for (int i = 0; i < list.Count; i++)
 		{
 			Thing t = list[i];
@@ -1124,7 +1135,7 @@ public static partial class SituationRules
 			FoodPreferability pref = t.def.ingestible.preferability;
 			if (pref != FoodPreferability.RawBad && pref != FoodPreferability.RawTasty)
 				continue;
-			if (t.IsForbidden(Faction.OfPlayer) || (!t.IsInAnyStorage() && !c.home[t.Position]))
+			if (t.IsForbidden(Faction.OfPlayer) || (!t.IsInAnyStorage() && !home[t.Position]))
 				continue;
 			CompRottable rot = t.TryGetComp<CompRottable>();
 			if (rot == null || rot.Stage != RotStage.Fresh || rot.TicksUntilRotAtCurrentTemp > 90000)
@@ -1171,7 +1182,7 @@ public static partial class SituationRules
 				{
 					foreach (Hediff h in p.health.hediffSet.hediffs)
 					{
-						if (!h.Visible || h.def.lethalSeverity <= 0f || h.FullyImmune())
+						if (!h.Visible || h.def.lethalSeverity <= 0f || h.FullyImmune() || !(h.TendableNow() || h.TryGetComp<HediffComp_Immunizable>() != null))   // 2.52.3: only what a doctor can treat
 							continue;
 						if (h.Severity >= h.def.lethalSeverity * 0.3f)
 						{

@@ -219,7 +219,7 @@ public sealed class ForemanMapComponent : MapComponent
 				continue;
 			try
 			{
-				changed += c.Run(manual: false);
+				changed += c.Run(manual: true);   // 2.52.3: your button – like the Work tab button, not held back
 				maps++;
 			}
 			catch (Exception ex)
@@ -253,14 +253,40 @@ public sealed class ForemanMapComponent : MapComponent
 		Scribe_Collections.Look(ref masterBillList, "cfMasterBills", LookMode.Value);
 		Scribe_Collections.Look(ref scheduled, "cfScheduled", LookMode.Value, LookMode.Value);
 		Scribe_Collections.Look(ref schedHold, "cfSchedHold", LookMode.Value, LookMode.Value);
+		// 2.52.3: the calm-mode holds are saved – after a load the first plan moved everything
+		Dictionary<string, string> calmSave = null;
+		if (Scribe.mode == LoadSaveMode.Saving)
+		{
+			calmSave = new Dictionary<string, string>();
+			foreach (var kv in calmCells)
+				calmSave[kv.Key] = kv.Value.tick + "," + (kv.Value.crisis ? 1 : 0);
+		}
+		Scribe_Collections.Look(ref calmSave, "cfCalmCells", LookMode.Value, LookMode.Value);
+		if (Scribe.mode == LoadSaveMode.LoadingVars && calmSave != null)
+		{
+			calmCells = new Dictionary<string, CalmCell>();
+			foreach (var kv in calmSave)
+			{
+				string[] a = kv.Value.Split(',');
+				if (a.Length == 2 && int.TryParse(a[0], out int t))
+					calmCells[kv.Key] = new CalmCell { tick = t, crisis = a[1] == "1" };
+			}
+		}
 		Scribe_Values.Look(ref manualReset2491, "cfManualReset2491", false);
 		Scribe_Values.Look(ref manualReset2492, "cfManualReset2492", false);
 		Scribe_Collections.Look(ref history, "cfHistory", LookMode.Value);
 		if (Scribe.mode == LoadSaveMode.PostLoadInit)
 		{
 			safePawns ??= new List<Pawn>();
-			safePawns.RemoveAll(p => p == null);
 			safeOldArea ??= new List<int>();
+			// 2.52.3: both lists together – before only the pawns lost their gaps and the old areas shifted
+			for (int i = safePawns.Count - 1; i >= 0; i--)
+				if (safePawns[i] == null)
+				{
+					safePawns.RemoveAt(i);
+					if (i < safeOldArea.Count)
+						safeOldArea.RemoveAt(i);
+				}
 			masterBills = new HashSet<string>(masterBillList ?? new List<string>());
 			scheduled ??= new Dictionary<int, string>();
 			schedHold ??= new Dictionary<int, string>();
@@ -300,7 +326,19 @@ public sealed class ForemanMapComponent : MapComponent
 	public override void MapComponentTick()
 	{
 		if (!auto)
+		{
+			// 2.52.3: switched off – what the steward set for the moment (safe area, held hours) is given back
+			if (Find.TickManager.TicksGame % 250 == 0 && (safeActive || (schedHold != null && schedHold.Count > 0)))
+			{
+				try
+				{
+					StewardPlus.SafeAreaTick(this, map, stewardOff: true);
+					ScheduleCare.ReleaseAll(this, map);
+				}
+				catch (Exception ex) { Log.ErrorOnce("[Steward] give back failed: " + ex, 0x57e3a53); }
+			}
 			return;
+		}
 		// 2.39: colonists are sent to fires every second
 		if (Find.TickManager.TicksGame % 60 == 0)
 		{
@@ -409,11 +447,7 @@ public sealed class ForemanMapComponent : MapComponent
 					Log.ErrorOnce("[Steward] situations failed: " + ex, 0x57e3a11);
 				}
 			}
-			if (!flag && ticksGame - lastRun >= 2500)
-			{
-				MapDemand mapDemand = MapDemand.Quick(map, lastHarvestable);
-				flag = mapDemand.crisis != crisis;
-			}
+			// 2.52.3: the second crisis check (the same as above, without its 10 s wait) was dropped
 			t4 = System.Diagnostics.Stopwatch.GetTimestamp();
 			if (flag)
 			{

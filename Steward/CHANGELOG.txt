@@ -1,3 +1,20 @@
+2.52.3 (full code review)
+- Butchering: the "butcher first" order no longer freezes colonists' work order (they ignored priority changes); it checks the butcher bill's own filter; new situation "carcasses to butcher" (Cooking on 2).
+- Middle-click locks work on the whole work box, name and header (the game took the click first).
+- Medical crisis only for urgent cases; babies and patients in bed are no longer "patients"; doctors are pulled off work only for urgent cases.
+- Polluted ground is no longer a crisis (it blocked all outdoor work, pollution cleanup too).
+- Mood care: at most a quarter of the colony at once, once in 8 hours per colonist, not during raids/fires; no forced eating of bad food.
+- All calm situations work (only the last one ever did); ripe crops only; taming only; infections a doctor can treat only.
+- Solar/wind at night is not a power crisis; an outage must last an hour.
+- Autopilot always has situations and crises.
+- Style never raises opposed/unplanned work; cooking stays while meals are short; your maximum does not cut crisis/situation work.
+- Safe area and held schedule hours are given back when Steward is off; no safe area during infestations; firefighting respects areas and danger, never interrupts bills.
+- Supplies: food-emergency hunting marks stay; a switched-off job takes back its marks; off really means off; never un-forbids what you forbade.
+- Master bills: never locked to one crafter; your own changes are kept.
+- Schedule paste counts as your change; livestock "Unrestricted" is kept; calm holds are saved.
+- Priority areas follow the Work tab, keep colonists after a mental break, finish over nurseries/hospitals, faster.
+- Memory/old-state cleanup on load; less work per tick.
+
 2.49.5
 - Settings: the CHANGED marks and frames show properly on RimWorld 1.7 (they were solid boxes).
 

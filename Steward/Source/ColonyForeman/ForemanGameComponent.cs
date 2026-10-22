@@ -28,6 +28,14 @@ public sealed class ForemanGameComponent : GameComponent
 		WorkGiver_StewardTidyHome.Reset();
 		PickUpAndHaulCompat.Reset();            // 2.18
 		MainTabWindow_Supplies.ResetOpenWindow(); // 2.18
+		// 2.52.3: per-game timers and lists – before, an older save kept the times of the newer one
+		MoodCare.ResetGame();
+		MedicalResponse.ResetGame();
+		Comfort.ResetGame();
+		ButcherFirstPatch.Reset();
+		Planner.ResetFood();
+		ParentCare.ResetGame();
+		WorkGiver_CFPriorityBench.lastUse.Clear();
 	}
 
 	public static ForemanGameComponent Get()

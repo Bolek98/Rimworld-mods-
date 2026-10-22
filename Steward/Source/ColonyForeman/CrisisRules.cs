@@ -36,8 +36,22 @@ public static partial class CrisisRules
 
 	private static readonly Dictionary<Map, bool> raidOn = new Dictionary<Map, bool>();
 
-	public static void Reset() => raidOn.Clear();
-	public static void Forget(Map m) => raidOn.Remove(m);
+	// 2.52.3: the slow cache and power timer are cleared too (old maps stayed in memory)
+	public static void Reset()
+	{
+		raidOn.Clear();
+		slow.Clear();
+		powerOutSince.Clear();
+	}
+
+	public static void Forget(Map m)
+	{
+		raidOn.Remove(m);
+		slow.Remove(m);
+		powerOutSince.Remove(m);
+	}
+
+	private static readonly Dictionary<Map, int> powerOutSince = new Dictionary<Map, int>();
 
 	public const Crisis UrgentMask = Crisis.Fire | Crisis.Raid;
 
@@ -207,7 +221,7 @@ public static partial class CrisisRules
 	{
 		ForemanSettings s = ForemanMod.Settings;
 		if (s != null && Modes.Autopilot) return true;   // 2.52: Autopilot uses every crisis
-		return s != null && s.useCrisis && (s.crisisOff & (long)c) == 0;
+		return s != null && (s.useCrisis || Modes.Autopilot) && (s.crisisOff & (long)c) == 0;
 	}
 
 	public static string Label(Crisis c) => ("CF_Crisis_" + c).Translate();
@@ -259,7 +273,7 @@ public static partial class CrisisRules
 	{
 		Crisis c = Urgent(map);
 		int colonists = map.mapPawns.FreeColonistsSpawnedCount;
-		if (Allowed(Crisis.Medical) && (d.patients >= 2 || (d.patients >= 1 && colonists <= 3)))
+		if (Allowed(Crisis.Medical) && (d.urgentPatients >= 2 || (d.urgentPatients >= 1 && colonists <= 3)))
 			c |= Crisis.Medical;
 		if (Allowed(Crisis.Food) && colonists > 0 && d.foodDays < 2f)
 			c |= Crisis.Food;
@@ -367,29 +381,8 @@ public static partial class CrisisRules
 			if (n.Contains("toxic") || n.Contains("noxious") || n.Contains("acid") || n.Contains("poison") || n.Contains("pollut") || n.Contains("smog") || n.Contains("fallout"))
 				return true;
 		}
-		if (ModsConfig.BiotechActive)
-		{
-			Area_Home home = map.areaManager.Home;
-			int cells = 0, polluted = 0;
-			foreach (IntVec3 c in home.ActiveCells)
-			{
-				cells++;
-				if (map.pollutionGrid.IsPolluted(c))
-					polluted++;
-			}
-			if (cells > 0 && polluted * 10 >= cells)
-				return true;   // a tenth of the home area is polluted
-			ThingDef waste = DefDatabase<ThingDef>.GetNamedSilentFail("Wastepack");
-			if (waste != null)
-			{
-				int n = 0;
-				foreach (Thing t in map.listerThings.ThingsOfDef(waste))
-					if (t.Spawned && home[t.Position] && !t.IsInAnyStorage())
-						n += t.stackCount;
-				if (n >= 5)
-					return true;
-			}
-		}
+		// 2.52.3: polluted ground and wastepacks are no longer a crisis – it blocked all outdoor work
+		// (pollution cleanup itself too) for good and scanned the whole home area every few seconds
 		return false;
 	}
 
@@ -427,6 +420,20 @@ public static partial class CrisisRules
 	// batteries are empty and keep draining. Solar flare counts too.
 	private static bool PowerOut(Map map)
 	{
+		// 2.52.3: only an outage that lasts an in-game hour
+		int now = Find.TickManager.TicksGame;
+		if (!PowerOutNow(map))
+		{
+			powerOutSince.Remove(map);
+			return false;
+		}
+		if (!powerOutSince.TryGetValue(map, out int since) || since > now)
+			powerOutSince[map] = since = now;
+		return now - since >= 2500;
+	}
+
+	private static bool PowerOutNow(Map map)
+	{
 		GameConditionDef flare = DefDatabase<GameConditionDef>.GetNamedSilentFail("SolarFlare");
 		if (flare != null && map.gameConditionManager.ConditionIsActive(flare))
 			return true;
@@ -434,14 +441,22 @@ public static partial class CrisisRules
 		{
 			if (net.powerComps == null || net.powerComps.Count == 0)
 				continue;
-			bool generator = false, consumer = false;
+			bool generator = false, consumer = false, onlyWeather = true;
 			foreach (CompPowerTrader pc in net.powerComps)
 			{
-				if (pc.Props.PowerConsumption < 0f) generator = true;
+				if (pc.Props.PowerConsumption < 0f)
+				{
+					generator = true;
+					if (!(pc is CompPowerPlantSolar || pc is CompPowerPlantWind))
+						onlyWeather = false;
+				}
 				else if (pc.Props.PowerConsumption > 0f) consumer = true;
 			}
 			bool battery = net.batteryComps != null && net.batteryComps.Count > 0;
 			if (!consumer || (!generator && !battery))
+				continue;
+			// solar/wind without batteries: dark at night or no wind is normal, not a crisis (2.52.3)
+			if (generator && onlyWeather && !battery)
 				continue;
 			if (!net.HasActivePowerSource)
 				return true;

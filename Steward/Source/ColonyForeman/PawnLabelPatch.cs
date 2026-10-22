@@ -12,18 +12,16 @@ public static class PawnLabelPatch
 {
 	private static readonly FieldInfo TableDefField = AccessTools.Field(typeof(PawnTable), "def");
 
-	public static void Postfix(Rect rect, Pawn pawn, PawnTable table)
+	// 2.52.3: before the game – vanilla's name button reacts to every mouse button (jumped to the colonist)
+	public static void Prefix(Rect rect, Pawn pawn, PawnTable table)
 	{
-		if (table == null || pawn == null || TableDefField == null || TableDefField.GetValue(table) != PawnTableDefOf.Work)
-		{
+		if (Event.current.type != EventType.MouseDown || Event.current.button != 2 || !Mouse.IsOver(rect))
 			return;
-		}
+		if (table == null || pawn == null || TableDefField == null || TableDefField.GetValue(table) != PawnTableDefOf.Work)
+			return;
 		ForemanGameComponent game = ForemanGameComponent.Get();
 		if (game == null)
-		{
 			return;
-		}
-		if (Event.current.type == EventType.MouseDown && Event.current.button == 2 && Mouse.IsOver(rect))
 		{
 			Event.current.Use();
 			List<FloatMenuOption> list = new List<FloatMenuOption>();
@@ -46,6 +44,15 @@ public static class PawnLabelPatch
 			}
 			Find.WindowStack.Add(new FloatMenu(list));
 		}
+	}
+
+	public static void Postfix(Rect rect, Pawn pawn, PawnTable table)
+	{
+		if (table == null || pawn == null || TableDefField == null || TableDefField.GetValue(table) != PawnTableDefOf.Work)
+			return;
+		ForemanGameComponent game = ForemanGameComponent.Get();
+		if (game == null)
+			return;
 		if (game.PawnLocked(pawn))
 		{
 			GUI.DrawTexture(new Rect(rect.xMax - 14f, rect.y + (rect.height - 12f) / 2f, 12f, 12f), ForemanTex.Lock);

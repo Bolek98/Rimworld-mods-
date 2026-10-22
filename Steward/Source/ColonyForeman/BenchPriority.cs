@@ -183,9 +183,12 @@ public static class BenchPriorityGizmoPatch
 	{
 		if (!WorkGiver_CFPriorityBench.lastUse.TryGetValue(b, out string v))
 			return "CF_BP_NotUsed".Translate();
-		string[] parts = v.Split('|');
-		int ago = Find.TickManager.TicksGame - int.Parse(parts[1]);
-		return "CF_BP_LastUse".Translate(parts[0], (ago / 2500f).ToString("0.0"));
+		// 2.52.3: the tick is after the LAST '|' (a name may contain one); a bad value no longer breaks the buttons
+		int cut = v.LastIndexOf('|');
+		if (cut < 0 || !int.TryParse(v.Substring(cut + 1), out int at))
+			return "CF_BP_NotUsed".Translate();
+		int ago = Math.Max(0, Find.TickManager.TicksGame - at);
+		return "CF_BP_LastUse".Translate(v.Substring(0, cut), (ago / 2500f).ToString("0.0"));
 	}
 
 	public static IEnumerable<Gizmo> Postfix(IEnumerable<Gizmo> gizmos, Building __instance)

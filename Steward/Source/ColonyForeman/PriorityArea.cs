@@ -109,7 +109,28 @@ public sealed class PriorityAreaComp : MapComponent
 	public bool PausedFor(PriorityArea a) => PauseReason(a) != null;
 
 	// null = working; otherwise why the area waits (shown on the map)
+	// 2.52.3: worked out once a second per area – it was asked every frame and on every job search
+	private readonly Dictionary<PriorityArea, KeyValuePair<int, string>> pauseCache = new Dictionary<PriorityArea, KeyValuePair<int, string>>();
+	private int pauseFrame = -1;
+
 	public string PauseReason(PriorityArea a)
+	{
+		int now = Find.TickManager.TicksGame;
+		int frame = Time.frameCount;
+		if (a != null && pauseCache.TryGetValue(a, out var kv) && now >= kv.Key && now - kv.Key < 60 && (now != kv.Key || frame - pauseFrame < 30))
+			return kv.Value;
+		string r = PauseReasonNow(a);
+		if (a != null)
+		{
+			if (pauseCache.Count > 64)
+				pauseCache.Clear();
+			pauseCache[a] = new KeyValuePair<int, string>(now, r);
+			pauseFrame = frame;
+		}
+		return r;
+	}
+
+	private string PauseReasonNow(PriorityArea a)
 	{
 		if (a != null && !ActiveStyle(a))
 			return "CF_PA_PauseStyle".Translate(StyleNeeded(a.mode));
@@ -246,7 +267,8 @@ public sealed class PriorityAreaComp : MapComponent
 		for (int i = areas.Count - 1; i >= 0; i--)
 		{
 			PriorityArea a = areas[i];
-			a.assigned.RemoveAll(p => p == null || p.Dead || !p.Spawned || p.Map != map || !p.IsColonistPlayerControlled);
+			// 2.52.3: a mental break or being carried no longer removes someone for good – only death, leaving or no longer ours
+			a.assigned.RemoveAll(p => p == null || p.Dead || p.Destroyed || p.MapHeld != map || p.Faction != Faction.OfPlayer);
 			if (PausedFor(a))
 			{
 				// waiting (wrong style, enemies …) does not count as "nobody worked here"
@@ -423,7 +445,7 @@ public static class PriorityAreaWork
 			if (!a.Contains(p.Position) || p.Dead || p.health == null)
 				continue;
 			bool ours = p.Faction == Faction.OfPlayer || p.IsPrisonerOfColony || p.IsSlaveOfColony || (p.Faction != null && !p.Faction.HostileTo(Faction.OfPlayer));
-			if (ours && (p.Downed || p.health.HasHediffsNeedingTend()))
+			if (ours && ((p.Downed && !p.InBed() && !p.DevelopmentalStage.Baby()) || p.health.HasHediffsNeedingTend()))   // 2.52.3: babies/patients in bed are not work
 				n[6]++;
 		}
 		foreach (Designation d in map.designationManager.AllDesignations)
@@ -526,7 +548,10 @@ public static class PriorityAreaWork
 		Map map = pawn.Map;
 		foreach (WorkGiverDef g in Givers(a.mode, emergencyOnly))
 		{
-			if (pawn.WorkTypeIsDisabled(g.workType))
+			if (pawn.WorkTypeIsDisabled(g.workType) || pawn.WorkTagIsDisabled(g.workTags))
+				continue;
+			// 2.52.3: only work switched on in the Work tab (before: e.g. surgery by someone with Doctor off)
+			if (!emergencyOnly && !pawn.workSettings.WorkIsActive(g.workType))
 				continue;
 			var scanner = (WorkGiver_Scanner)g.Worker;
 			try
@@ -543,7 +568,7 @@ public static class PriorityAreaWork
 			catch (Exception ex)
 			{
 				if (Prefs.DevMode)
-					MLog.Warn("[Steward] priority area: " + g.defName + " failed: " + ex.Message);
+					MLog.WarnOnce("[Steward] priority area: " + g.defName + " failed: " + ex, 0x1a7e0000 ^ g.index);
 			}
 		}
 		return null;
@@ -564,12 +589,24 @@ public static class PriorityAreaWork
 			ThingRequest req = scanner.PotentialWorkThingRequest;
 			if (req.IsUndefined)
 				return null;
-			foreach (IntVec3 c in a.Cells)
+			// 2.52.3: the shorter way – the game's list of matching things, or the area's cells (no slow Contains)
+			List<Thing> all = map.listerThings.ThingsMatching(req);
+			if (all.Count <= a.Cells.Count)
 			{
-				List<Thing> at = map.thingGrid.ThingsListAtFast(c);
-				for (int i = 0; i < at.Count; i++)
-					if (req.Accepts(at[i]) && !found.Contains(at[i]))
-						found.Add(at[i]);
+				for (int i = 0; i < all.Count; i++)
+					if (all[i].Spawned && a.Contains(all[i].Position))
+						found.Add(all[i]);
+			}
+			else
+			{
+				var seen = new HashSet<Thing>();
+				foreach (IntVec3 c in a.Cells)
+				{
+					List<Thing> at = map.thingGrid.ThingsListAtFast(c);
+					for (int i = 0; i < at.Count; i++)
+						if (req.Accepts(at[i]) && seen.Add(at[i]))
+							found.Add(at[i]);
+				}
 			}
 		}
 		if (found.Count == 0)
@@ -640,7 +677,7 @@ public static class PriorityAreaWorkPatch
 				if (ej == null)
 					return true;
 				a.lastWorkTick = Find.TickManager.TicksGame;
-				__result = new ThinkResult(ej, __instance);
+				__result = new ThinkResult(ej, __instance, ej.workGiverDef?.tagToGive);
 				return false;
 			}
 			int now = Find.TickManager.TicksGame;
@@ -667,12 +704,12 @@ public static class PriorityAreaWorkPatch
 			}
 			a.idleUntil.Remove(pawn.thingIDNumber);
 			used.lastWorkTick = now;
-			__result = new ThinkResult(j, __instance);
+			__result = new ThinkResult(j, __instance, j.workGiverDef?.tagToGive);
 			return false;
 		}
 		catch (Exception ex)
 		{
-			MLog.Warn("[Steward] priority area job failed: " + ex.Message);
+			MLog.WarnOnce("[Steward] priority area job failed: " + ex, 0x1a7e1234);
 			return true;
 		}
 	}

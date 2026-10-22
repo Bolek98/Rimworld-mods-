@@ -82,7 +82,7 @@ public static class Workload
 		{
 			int n = map.listerThings.ThingsInGroup(ThingRequestGroup.Blueprint).Count
 			        + map.listerThings.ThingsInGroup(ThingRequestGroup.BuildingFrame).Count
-			        + dm.SpawnedDesignationsOfDef(DesignationDefOf.Deconstruct).Count()
+			        + MapDemand.ConstructionMarks(map)   // 2.52.3: smoothing, uninstall, floors too
 			        + map.listerBuildingsRepairable.RepairableBuildings(Faction.OfPlayer).Count / 2;
 			return n == 0 ? 0 : Math.Max(1, Ceil(n / 15f));
 		}
@@ -144,7 +144,7 @@ public static class Workload
 		{
 			int n = 0;
 			foreach (Pawn p in map.mapPawns.FreeColonistsAndPrisonersSpawned)
-				if (p.health != null && (p.health.HasHediffsNeedingTend() || p.Downed))
+				if (p.health != null && (p.health.HasHediffsNeedingTend() || (p.Downed && !p.InBed() && !p.DevelopmentalStage.Baby())))
 					n++;
 			// always one doctor on call
 			return Math.Max(1, n);
