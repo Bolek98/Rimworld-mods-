@@ -54,6 +54,7 @@ namespace GraphicsTuner
         public bool overlayBar = true;
         public bool hitchFinder;
         public bool hitchThings;
+        public bool hitchDeep;   // 1.5.0
         public int hitchMs = 250;
         public bool gcHold;
         public int tab;
@@ -202,6 +203,7 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref overlayBar, "overlayBar", true);
             Scribe_Values.Look(ref hitchFinder, "hitchFinder", false);
             Scribe_Values.Look(ref hitchThings, "hitchThings", false);
+            Scribe_Values.Look(ref hitchDeep, "hitchDeep", false);
             Scribe_Values.Look(ref hitchMs, "hitchMs", 250);
             Scribe_Values.Look(ref gcHold, "gcHold", false);
             Scribe_Values.Look(ref tab, "tab", 0);
@@ -669,7 +671,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.4.0";
+        public const string Version = "1.5.0";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -1076,6 +1078,7 @@ namespace GraphicsTuner
             if (s.hitchFinder)
             {
                 Plain(r, "GT_HitchThings", ref s.hitchThings);
+                Plain(r, "GT_HitchDeep", ref s.hitchDeep);
                 s.hitchMs = Mathf.RoundToInt(MUI.Slider(r, "GT_HitchMs".Translate(s.hitchMs), s.hitchMs, 100f, 2000f, "GT_Hitch_Desc".Translate(), s, null) / 50f) * 50;
             }
             Plain(r, "GT_GcHold", ref s.gcHold);

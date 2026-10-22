@@ -289,11 +289,23 @@ namespace GraphicsTuner
 
         // ---------------- clean-ups ----------------
         // 1.7: a full clean-up in the background – the game keeps running
+        // 1.5.0: on some .NET set-ups the "background" clean-up still stops the game (3–4 s after
+        // every autosave). Measured: once it stops the game, it is only done while paused.
+        private static bool bgBlocks;
+
         private static void Background()
         {
             try
             {
+                var sw = System.Diagnostics.Stopwatch.StartNew();
                 GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, false, false);
+                sw.Stop();
+                HitchFinder.Add("GT_HitchOwnGc".Translate(), sw.Elapsed.TotalMilliseconds);
+                if (sw.ElapsedMilliseconds > 300 && !bgBlocks)
+                {
+                    bgBlocks = true;
+                    MLog.Info("[Smooth FPS] the background clean-up stopped the game for " + sw.ElapsedMilliseconds + " ms – from now on only while the game is paused.");
+                }
                 usedAfterLast = GC.GetTotalMemory(false);
                 lastCollect = Time.realtimeSinceStartup;
             }
@@ -314,6 +326,7 @@ namespace GraphicsTuner
             else
                 GC.Collect();
             sw.Stop();
+            HitchFinder.Add("GT_HitchOwnGc".Translate(), sw.Elapsed.TotalMilliseconds);
             lastGcCount = GcCount();
             usedAfterLast = GC.GetTotalMemory(false);
             lastCollect = Time.realtimeSinceStartup;
@@ -338,7 +351,12 @@ namespace GraphicsTuner
                 long before = GC.GetTotalMemory(false) / MB;
                 ourCollect = true;
                 if (Net)
+                {
+                    // 1.5.0: an autosave while you play is not followed by a clean-up that stops the game
+                    if (bgBlocks && !(Find.TickManager?.Paused ?? false))
+                        return;
                     Background();
+                }
                 else
                 {
                     GC.Collect();

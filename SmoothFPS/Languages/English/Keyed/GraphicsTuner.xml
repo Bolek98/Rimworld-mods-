@@ -309,4 +309,15 @@
   <GT_MC_TipFires>{0} fires are burning. Fire is expensive while it spreads.</GT_MC_TipFires>
   <GT_MC_TipWorldPawns>{0} pawns live in the background of the world. Saves and loading get slower; a world pawn cleanup mod helps.</GT_MC_TipWorldPawns>
   <GT_MC_Refresh>Count again</GT_MC_Refresh>
+  <GT_HitchDeep>Deep search: what exactly inside a colonist takes long (slows the game)</GT_HitchDeep>
+  <GT_HitchDeep_Desc>Adds details to every hitch: work search (which work, from which mod), AI decisions, path search, thing and hediff components, needs. Turn it on only to find a cause, then off again. Takes effect after a restart.</GT_HitchDeep_Desc>
+  <GT_HitchOwnGc>memory clean-up [Smooth FPS]</GT_HitchOwnGc>
+  <GT_DeepWork>work search {0} ({1})</GT_DeepWork>
+  <GT_DeepJobSearch>job search total</GT_DeepJobSearch>
+  <GT_DeepPather>pawn walking</GT_DeepPather>
+  <GT_DeepPath>path search (immediate)</GT_DeepPath>
+  <GT_DeepKindJobGiver>decision</GT_DeepKindJobGiver>
+  <GT_DeepKindComp>component</GT_DeepKindComp>
+  <GT_DeepKindHediff>health</GT_DeepKindHediff>
+  <GT_DeepKindNeed>need</GT_DeepKindNeed>
 </LanguageData>

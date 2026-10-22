@@ -573,10 +573,24 @@ namespace GraphicsTuner
                             Try(h, m, pre, post);
                     }
                 }
+                // 1.5.0: saving the game is named in the list (autosave stops the game for a moment)
+                Try(h, AccessTools.Method(typeof(GameDataSaveLoader), nameof(GameDataSaveLoader.SaveGame), new[] { typeof(string) }), pre, post);
                 foreach (ModContentPack mod in LoadedModManager.RunningModsListForReading)
                     foreach (Assembly a in mod.assemblies.loadedAssemblies)
                         modOf[a] = mod.Name;
                 MLog.Info("[Smooth FPS] hitch finder on (" + patched + " places watched).");
+                if (s.hitchDeep)
+                {
+                    try
+                    {
+                        DeepHitch.Install(h, Mod);
+                        DeepHitch.On = true;
+                    }
+                    catch (Exception e)
+                    {
+                        MLog.Warn("[Smooth FPS] deep hitch finder could not start: " + e.Message);
+                    }
+                }
             }
             catch (Exception e)
             {
@@ -698,7 +712,7 @@ namespace GraphicsTuner
             return a.GetName().Name == "Assembly-CSharp" ? "RimWorld" : a.GetName().Name;
         }
 
-        private static void Add(string what, double ms)
+        public static void Add(string what, double ms)
         {
             sum.TryGetValue(what, out double s);
             sum[what] = s + ms;
@@ -710,11 +724,16 @@ namespace GraphicsTuner
                 return;
             GfxSettings s = GraphicsTunerMod.Settings;
             int gc = GC.CollectionCount(GC.MaxGeneration);
-            if (s != null && frameMs >= s.hitchMs && Time.realtimeSinceStartup - lastLog > 1f)
+            bool log = s != null && frameMs >= s.hitchMs && Time.realtimeSinceStartup - lastLog > 1f;
+            if (DeepHitch.On)
+                DeepHitch.Flush(Add, log);
+            if (log)
             {
                 lastLog = Time.realtimeSinceStartup;
-                var top = sum.OrderByDescending(kv => kv.Value).Take(10).ToList();
-                double known = sum.Values.Sum();
+                // 1.5.0: the main entries first, then up to 8 details from the deep mode
+                var top = sum.Where(kv => !kv.Key.StartsWith(DeepHitch.Mark)).OrderByDescending(kv => kv.Value).Take(10)
+                    .Concat(sum.Where(kv => kv.Key.StartsWith(DeepHitch.Mark)).OrderByDescending(kv => kv.Value).Take(8)).ToList();
+                double known = sum.Where(kv => !kv.Key.StartsWith(DeepHitch.Mark)).Sum(kv => kv.Value);
                 string gcText = gc != gcAtStart ? " | full GC " + (gc - gcAtStart) + "x" : "";
                 string list = top.Count == 0 ? "-" : string.Join("; ", top.Select(kv => kv.Key + " " + kv.Value.ToString("0") + " ms").ToArray());
                 LastHitch = frameMs.ToString("0") + " ms: " + (top.Count > 0 ? top[0].Key : "?");
