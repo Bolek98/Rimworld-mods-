@@ -64,7 +64,32 @@ public static class Refit
 	public static bool IsRefit(Graphic g) => g?.path != null && g.path.StartsWith(Prefix);
 
 	// fake path when ready, null otherwise (queued if new)
-	public static string Request(Job j, out bool ready)
+	// 2.5.2: who waits for which picture – when it is ready only those pawns are redrawn
+	private static readonly Dictionary<string, HashSet<Pawn>> waiters = new Dictionary<string, HashSet<Pawn>>();
+
+	public static void AddWaiter(Dictionary<string, HashSet<Pawn>> map, string key, Pawn who)
+	{
+		if (who == null)
+			return;
+		if (!map.TryGetValue(key, out var set))
+			map[key] = set = new HashSet<Pawn>();
+		set.Add(who);
+	}
+
+	public static void RedrawWaiters(Dictionary<string, HashSet<Pawn>> map, string key)
+	{
+		HashSet<Pawn> set;
+		lock (BF.Gate)
+		{
+			if (!map.TryGetValue(key, out set))
+				return;
+			map.Remove(key);
+		}
+		foreach (Pawn p in set)
+			QueueRedraw(p);
+	}
+
+	public static string Request(Job j, out bool ready, Pawn who = null)
 	{
 		BodyFitSettings s = BodyFitMod.Settings;
 		j.key += (s.refitSides ? "|s" : "") + (s.refitHeight && !j.head ? "|y" : "") + (Shots.Loose ? "|wide" : "");
@@ -77,6 +102,7 @@ public static class Refit
 			}
 			if (!pending.ContainsKey(j.key))
 				pending[j.key] = j;
+			AddWaiter(waiters, j.key, who);
 		}
 		ready = false;
 		return null;
@@ -138,11 +164,21 @@ public static class Refit
 			}
 			lock (BF.Gate)
 				done[next.key] = fakeOne;
+			bool known;
+			lock (BF.Gate)
+				known = waiters.ContainsKey(next.key);
 			if (fakeOne != null)
 			{
 				made++;
-				anyBuilt = true;
+				// 2.5.2: only the pawns that wear this piece are redrawn; everybody only when nobody is known
+				if (known)
+					RedrawWaiters(waiters, next.key);
+				else
+					anyBuilt = true;
 			}
+			else if (known)
+				lock (BF.Gate)
+					waiters.Remove(next.key);
 			else
 				skipped++;
 			if (sw.Elapsed.TotalMilliseconds > 6.0)
@@ -732,7 +768,7 @@ public static class Patch_Refit
 			string op = LayerClip.OuterPath(outer, bodyType);
 			if (op.NullOrEmpty())
 				return;
-			string fake = LayerClip.Request(g.path, op, out bool ready);
+			string fake = LayerClip.Request(g.path, op, out bool ready, apparel.Wearer);
 			Shots.Why(apparel, "layer under " + outer.def.defName + (ready ? (fake != null ? " cut" : " nothing to cut") : " waiting"));
 			if (!ready || fake == null)
 				return;
@@ -877,7 +913,7 @@ public static class Patch_Refit
 					core = core
 				};
 			}
-			string fake = Refit.Request(job, out bool ready);
+			string fake = Refit.Request(job, out bool ready, apparel.Wearer);
 			if (!ready || fake == null)
 				{ Shots.Why(apparel, ready ? "750 refit made nothing (outline did not match)" : "750 still waiting"); return; }
 			Graphic ng = GraphicDatabase.Get<Graphic_Multi>(fake, g.Shader, g.drawSize, g.color, g.colorTwo, g.data, null);
@@ -968,7 +1004,7 @@ public static class HeadRefit
 		Refit.Job job = MakeJob(pawn, g.path, true);
 		if (job == null)
 			return result;
-		string fake = Refit.Request(job, out bool ready);
+		string fake = Refit.Request(job, out bool ready, pawn);
 		if (!ready || fake == null)
 			return result;
 		return GraphicDatabase.Get<Graphic_Multi>(fake, g.Shader, g.drawSize, g.color, g.colorTwo, g.data, null);

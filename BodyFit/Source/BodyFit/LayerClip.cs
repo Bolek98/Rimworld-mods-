@@ -76,7 +76,9 @@ public static class LayerClip
 		}
 	}
 
-	public static string Request(string inner, string outer, out bool ready)
+	private static readonly Dictionary<string, HashSet<Pawn>> waiters = new Dictionary<string, HashSet<Pawn>>();
+
+	public static string Request(string inner, string outer, out bool ready, Pawn who = null)
 	{
 		string key = inner + "|" + outer;
 		lock (BF.Gate)
@@ -88,6 +90,7 @@ public static class LayerClip
 			}
 			if (!pending.ContainsKey(key))
 				pending[key] = (inner, outer);
+			Refit.AddWaiter(waiters, key, who);
 		}
 		ready = false;
 		return null;
@@ -122,8 +125,17 @@ public static class LayerClip
 			}
 			lock (BF.Gate)
 				done[key] = fake;
-			if (fake != null)
+			bool known;
+			lock (BF.Gate)
+				known = waiters.ContainsKey(key);
+			// 2.5.2: only the pawns that wear these clothes are redrawn
+			if (fake != null && known)
+				Refit.RedrawWaiters(waiters, key);
+			else if (fake != null)
 				Refit.WantRedraw();
+			else if (known)
+				lock (BF.Gate)
+					waiters.Remove(key);
 		}
 	}
 
