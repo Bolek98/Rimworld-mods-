@@ -34,15 +34,77 @@ namespace MechCommander
 				var h = new Harmony("misak.mechcommander");
 				h.Patch(AccessTools.Method(typeof(MechanitorUtility), nameof(MechanitorUtility.InMechanitorCommandRange)),
 					postfix: new HarmonyMethod(typeof(Startup), nameof(CommandRangePostfix)));
+				int sites = PatchCallSites(h);
 				h.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.GetGizmos)),
 					postfix: new HarmonyMethod(typeof(Startup), nameof(GizmosPostfix)));
 				int mechs = DefDatabase<ThingDef>.AllDefsListForReading.Count(d => d.race != null && d.race.IsMechanoid);
-				Log.Message("[Mech Commander] v0.1.0 loaded – " + Modules.Count + " modules, " + mechs + " mech kinds (vanilla and mods).");
+				Log.Message("[Mech Commander] v0.1.1 loaded – " + Modules.Count + " modules, " + mechs + " mech kinds (vanilla and mods), relay in " + sites + " order checks.");
 			}
 			catch (Exception ex)
 			{
 				Log.Warning("[Mech Commander] could not start: " + ex.Message);
 			}
+		}
+
+		// 0.1.1: the game may inline the small range check into the code that gives orders,
+		// so a patch on it alone is not always seen. Every place that asks it is pointed to
+		// our own check instead (relay module included).
+		private static int PatchCallSites(Harmony h)
+		{
+			System.Reflection.MethodInfo orig = AccessTools.Method(typeof(MechanitorUtility), nameof(MechanitorUtility.InMechanitorCommandRange));
+			if (orig == null)
+				return 0;
+			var types = new List<Type>();
+			foreach (string n in new[] { "RimWorld.FloatMenuUtility", "RimWorld.FloatMenuOptionProvider_DraftedMove", "RimWorld.FloatMenuOptionProvider_DraftedAttack", "RimWorld.MultiPawnGotoController" })
+			{
+				Type t = AccessTools.TypeByName(n);
+				if (t == null)
+					continue;
+				types.Add(t);
+				types.AddRange(t.GetNestedTypes(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic));
+			}
+			int n2 = 0;
+			var tr = new HarmonyMethod(typeof(Startup), nameof(RangeTranspiler));
+			foreach (Type t in types)
+				foreach (System.Reflection.MethodInfo m in t.GetMethods(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.DeclaredOnly))
+				{
+					if (m.IsAbstract || m.ContainsGenericParameters)
+						continue;
+					try
+					{
+						var body = PatchProcessor.GetOriginalInstructions(m);
+						if (body == null || !body.Any(ci => ci.operand is System.Reflection.MethodInfo mi && mi == orig))
+							continue;
+						h.Patch(m, transpiler: tr);
+						n2++;
+					}
+					catch (Exception ex)
+					{
+						Log.Warning("[Mech Commander] relay could not hook " + t.Name + "." + m.Name + ": " + ex.Message);
+					}
+				}
+			return n2;
+		}
+
+		public static IEnumerable<CodeInstruction> RangeTranspiler(IEnumerable<CodeInstruction> code)
+		{
+			System.Reflection.MethodInfo orig = AccessTools.Method(typeof(MechanitorUtility), nameof(MechanitorUtility.InMechanitorCommandRange));
+			System.Reflection.MethodInfo mine = AccessTools.Method(typeof(Startup), nameof(InRange));
+			foreach (CodeInstruction ci in code)
+			{
+				if (ci.operand is System.Reflection.MethodInfo mi && mi == orig)
+					ci.operand = mine;
+				yield return ci;
+			}
+		}
+
+		public static bool InRange(Pawn mech, LocalTargetInfo target)
+		{
+			if (MechanitorUtility.InMechanitorCommandRange(mech, target))
+				return true;
+			bool r = false;
+			CommandRangePostfix(mech, ref r);
+			return r;
 		}
 
 		public static bool Has(Pawn p, string hediffDefName)
