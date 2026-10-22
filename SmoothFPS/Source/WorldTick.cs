@@ -74,3 +74,81 @@ namespace GraphicsTuner
         }
     }
 }
+
+namespace GraphicsTuner
+{
+    // 1.7.0: once per in-game day the game recalculates how hard it is to travel over EVERY world
+    // tile (season, snow) – in one tick. On a big world that is a 200+ ms stop. Here the same
+    // recalculation runs in parts (a few thousand tiles per tick); until it is done the old values
+    // are used, exactly as during the rest of the day.
+    public static class WorldPathSpread
+    {
+        private static AccessTools.FieldRef<WorldPathGrid, Dictionary<PlanetLayer, int>> dayRef;
+        private static readonly Dictionary<PlanetLayer, int> progress = new Dictionary<PlanetLayer, int>();
+        private static readonly Dictionary<PlanetLayer, bool> recache = new Dictionary<PlanetLayer, bool>();
+        private static bool broken;
+        private const int PerTick = 2500;
+
+        public static void Patch(Harmony h)
+        {
+            try
+            {
+                dayRef = AccessTools.FieldRefAccess<WorldPathGrid, Dictionary<PlanetLayer, int>>("layerAllPathCostsRecalculatedDayOfYear");
+                h.Patch(AccessTools.Method(typeof(WorldPathGrid), nameof(WorldPathGrid.WorldPathGridTick)),
+                    prefix: new HarmonyMethod(typeof(WorldPathSpread), nameof(Prefix)));
+            }
+            catch (Exception ex)
+            {
+                MLog.Warn("[Smooth FPS] world path spread could not start: " + ex.Message);
+            }
+        }
+
+        public static bool Prefix(WorldPathGrid __instance)
+        {
+            GfxSettings s = GraphicsTunerMod.Settings;
+            if (broken || s == null || !s.smartTick || dayRef == null)
+                return true;
+            try
+            {
+                int today = GenDate.DayOfYear(GenTicks.TicksAbs, 0f);
+                Dictionary<PlanetLayer, int> days = dayRef(__instance);
+                foreach (KeyValuePair<int, PlanetLayer> kv in Find.WorldGrid.PlanetLayers)
+                {
+                    PlanetLayer layer = kv.Value;
+                    if (!days.TryGetValue(layer, out int d) || d == today)
+                        continue;
+                    progress.TryGetValue(layer, out int from);
+                    recache.TryGetValue(layer, out bool any);
+                    int to = Math.Min(layer.TilesCount, from + PerTick);
+                    for (int i = from; i < to; i++)
+                    {
+                        __instance.RecalculatePerceivedMovementDifficultyAt(new PlanetTile(i, layer), out bool need);
+                        any |= need;
+                    }
+                    if (to >= layer.TilesCount)
+                    {
+                        progress.Remove(layer);
+                        recache.Remove(layer);
+                        days[layer] = today;
+                        if (any)
+                            Find.WorldReachability.ClearCache();
+                    }
+                    else
+                    {
+                        progress[layer] = to;
+                        recache[layer] = any;
+                    }
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                broken = true;
+                progress.Clear();
+                recache.Clear();
+                MLog.Warn("[Smooth FPS] world path spread: " + ex.Message + " – the game's own recalculation is used again.");
+                return true;
+            }
+        }
+    }
+}

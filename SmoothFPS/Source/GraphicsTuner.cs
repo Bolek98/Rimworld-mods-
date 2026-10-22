@@ -59,6 +59,7 @@ namespace GraphicsTuner
         public int gameSize = -1;      // -1 automatic, 0 small, 1 normal, 2 huge
         public bool smartTick = true;
         public bool worldClean = true;
+        public bool fastCull = true;   // 1.7.0
         public int hitchMs = 250;
         public bool gcHold;
         public int tab;
@@ -211,6 +212,7 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref gameSize, "gameSize", -1);
             Scribe_Values.Look(ref smartTick, "smartTick", true);
             Scribe_Values.Look(ref worldClean, "worldClean", true);
+            Scribe_Values.Look(ref fastCull, "fastCull", true);
             Scribe_Values.Look(ref hitchMs, "hitchMs", 250);
             Scribe_Values.Look(ref gcHold, "gcHold", false);
             Scribe_Values.Look(ref tab, "tab", 0);
@@ -678,7 +680,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.6.1";
+        public const string Version = "1.7.0";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -702,6 +704,8 @@ namespace GraphicsTuner
             Freezer.Patch(harmony);
             LocationGeneratorFast.Patch(harmony);   // 1.3.2
             Sim.Patch(harmony);                     // 1.6.0
+            FastCull.Patch(harmony);                // 1.7.0
+            WorldPathSpread.Patch(harmony);         // 1.7.0
             ModEffects.Patch(harmony);              // 1.3.2: effects from mods too
             TextureCap.Patch(harmony);              // 1.3.3: oversized mod textures
             // 1.3.4: no more swapping textures that were loaded before Smooth FPS started – icons and
@@ -1129,6 +1133,7 @@ namespace GraphicsTuner
             MUI.Section(l, "GT_SimTickSec".Translate());
             MUI.Check(l, "GT_SimSmartTick".Translate(), "GT_SimSmartTick_Desc".Translate(), ref s.smartTick, s, null);
             Muted(l.GetRect(48f), "GT_SimRates".Translate(Sim.WorldRate, Sim.OtherMapRate, Sim.OffscreenRate));
+            MUI.Check(l, "GT_FastCull".Translate(), "GT_FastCull_Desc".Translate(), ref s.fastCull, s, null);
             l.Gap(6f);
             if (l.ButtonText("GT_TC_Open".Translate()))
                 Find.WindowStack.Add(new Dialog_TickCost());

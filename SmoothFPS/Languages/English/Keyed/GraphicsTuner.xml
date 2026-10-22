@@ -349,4 +349,7 @@
   <GT_SimCleanNow>Clean up the world now</GT_SimCleanNow>
   <GT_SimCleaning>Cleaning up the world…</GT_SimCleaning>
   <GT_SimCleaned>World clean-up: {0} pawns removed ({1} left), {2} old battles deleted ({3} ms).</GT_SimCleaned>
+  <GT_FastCull>Faster choice of what to draw</GT_FastCull>
+  <GT_FastCull_Desc>Every frame the game works out the exact position and size of every real-time drawn thing on the map (pawns, animals, animated buildings, mod things) – also of things far off screen that it throws away right after. For things clearly off screen only their cell is used here and the game throws them away as before, just without the expensive part. Things on and near the screen are measured exactly as in the game.</GT_FastCull_Desc>
+  <GT_TC_Things>Things drawn in real time on the map: {0}.</GT_TC_Things>
 </LanguageData>

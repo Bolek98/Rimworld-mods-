@@ -293,7 +293,8 @@ namespace GraphicsTuner
                 rows = HitchFinder.RollTake(out window);
             }
             GUI.color = MUI.Muted;
-            Widgets.Label(new Rect(inRect.x, inRect.y + 34f, inRect.width, 40f), "GT_TC_Sub".Translate(window.ToString("0"), ("GT_Size" + Sim.Current).Translate()));
+            Widgets.Label(new Rect(inRect.x, inRect.y + 34f, inRect.width, 40f), "GT_TC_Sub".Translate(window.ToString("0"), ("GT_Size" + Sim.Current).Translate())
+                + " " + "GT_TC_Things".Translate(FastCull.LastCount));
             GUI.color = Color.white;
             Rect outR = new Rect(inRect.x, inRect.y + 76f, inRect.width, inRect.height - 76f);
             Rect view = new Rect(0f, 0f, outR.width - 16f, Math.Max(30f, rows.Count * 26f));

@@ -532,6 +532,20 @@ namespace GraphicsTuner
         private static readonly Dictionary<Assembly, string> modOf = new Dictionary<Assembly, string>();
         private static readonly double tickToMs = 1000.0 / Stopwatch.Frequency;
         private static int gcAtStart;
+        private static int gen0AtStart, gen1AtStart;
+        private static TimeSpan pauseAtStart;
+        private static readonly Func<TimeSpan> totalPause = MakePause();
+
+        // .NET 7+: how long the garbage collector stopped the game in total
+        private static Func<TimeSpan> MakePause()
+        {
+            try
+            {
+                MethodInfo m = typeof(GC).GetMethod("GetTotalPauseDuration", BindingFlags.Public | BindingFlags.Static);
+                return m == null ? null : (Func<TimeSpan>)Delegate.CreateDelegate(typeof(Func<TimeSpan>), m);
+            }
+            catch { return null; }
+        }
         public static string LastHitch = "";
         private static float lastLog;
         private static int patched;
@@ -717,7 +731,10 @@ namespace GraphicsTuner
                     AccessTools.Method(typeof(RimWorld.AlertsReadout), nameof(RimWorld.AlertsReadout.AlertsReadoutOnGUI)),
                     AccessTools.Method(typeof(WindowStack), nameof(WindowStack.WindowStackOnGUI)),
                     AccessTools.Method(typeof(PawnRenderer), nameof(PawnRenderer.EnsureGraphicsInitialized)),
-                    AccessTools.Method(typeof(PawnRenderTree), nameof(PawnRenderTree.EnsureInitialized))
+                    AccessTools.Method(typeof(PawnRenderTree), nameof(PawnRenderTree.EnsureInitialized)),
+                    // 1.7.0: the parts of drawing things: choosing what to draw, preparing pawns
+                    AccessTools.Method(typeof(DynamicDrawManager), "ComputeCulledThings"),
+                    AccessTools.Method(typeof(DynamicDrawManager), "PreDrawVisibleThings")
                 };
                 foreach (MethodBase m in main)
                     Try(h, m, pre, post);
@@ -846,6 +863,16 @@ namespace GraphicsTuner
                     .Concat(sum.Where(kv => kv.Key.StartsWith(DeepHitch.Mark)).OrderByDescending(kv => kv.Value).Take(8)).ToList();
                 double known = sum.Where(kv => !kv.Key.StartsWith(DeepHitch.Mark)).Sum(kv => kv.Value);
                 string gcText = gc != gcAtStart ? " | full GC " + (gc - gcAtStart) + "x" : "";
+                // 1.7.0: also the small clean-ups and how long the collector stopped the game
+                int g0 = GC.CollectionCount(0) - gen0AtStart, g1 = GC.CollectionCount(1) - gen1AtStart;
+                if (g0 > 0 || g1 > 0)
+                    gcText += " | GC gen0 " + g0 + "x, gen1 " + g1 + "x";
+                if (totalPause != null)
+                {
+                    double pms = (totalPause() - pauseAtStart).TotalMilliseconds;
+                    if (pms >= 1.0)
+                        gcText += " | GC pause " + pms.ToString("0") + " ms";
+                }
                 string list = top.Count == 0 ? "-" : string.Join("; ", top.Select(kv => kv.Key + " " + kv.Value.ToString("0") + " ms").ToArray());
                 LastHitch = frameMs.ToString("0") + " ms: " + (top.Count > 0 ? top[0].Key : "?");
                 MLog.Warn("[Smooth FPS] hitch " + frameMs.ToString("0") + " ms (simulation " + tickMs.ToString("0") + " ms, drawing/windows " + (frameMs - tickMs).ToString("0") + " ms" + gcText + "). Top: " + list
@@ -854,6 +881,10 @@ namespace GraphicsTuner
             sum.Clear();
             }
             gcAtStart = gc;
+            gen0AtStart = GC.CollectionCount(0);
+            gen1AtStart = GC.CollectionCount(1);
+            if (totalPause != null)
+                pauseAtStart = totalPause();
         }
     }
 

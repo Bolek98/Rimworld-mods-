@@ -1,3 +1,9 @@
+1.7.0
+- Faster choice of what to draw: things clearly off screen no longer get their exact drawn position and size worked out every frame (the game threw them away right after anyway).
+- World travel costs: the once-a-day recalculation over every world tile (200+ ms stop on big worlds) now runs in parts over several ticks.
+- Hitch log: garbage collector details for every hitch (small clean-ups and how long the collector stopped the game), and the parts of drawing things.
+- "What slows the tick" shows how many things are drawn in real time on the map.
+
 1.6.1
 - Hitch finder also measures drawing (map, pawns, colonist bar, alerts, windows, pawn graphics building) and every other mod's patch on pawn drawing – the "unknown" part of a hitch gets names.
 
