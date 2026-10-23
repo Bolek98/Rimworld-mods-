@@ -116,6 +116,9 @@
   <GT_RealNormal_Desc>Na rychlosti 1 a 2 hra nikdy neběží pomaleji, než má – cíl FPS jen určí, jak plynulý je obraz. U velké kolonie jeden tik trvá déle, než kolik času dává vysoký cíl FPS na snímek, a hra pak běžela tempem FPS (třeba 40 místo 60 tiků za sekundu). Rychlost 3 a 4 se řídí volbou „Když FPS klesne“.</GT_RealNormal_Desc>
   <GT_FastShare>Rychlost 3 a 4: simulace aspoň půl času</GT_FastShare>
   <GT_FastShare_Desc>Na rychlosti 3 a 4 dostane simulace vždy aspoň tolik času jako kreslení snímku. Když hra nestíhá cílové FPS (např. cíl 165, ale reálně 45), dostávala simulace jen 3 ms na snímek a rychlost 4 běžela skoro jako rychlost 1. Obraz může být na 3–4 o něco méně plynulý, hra ale pojede opravdu rychle.</GT_FastShare_Desc>
+  <GT_SaveSmart>Automatické ukládání ve vhodnou chvíli</GT_SaveSmart>
+  <GT_SaveSmart_Desc>Uložení velké kolonie zastaví hru na pár sekund a na pozadí bezpečně udělat nejde. Autosave proto počká na chvíli, kdy to nevadí: hra je pozastavená, je otevřené okno nebo karta (Práce, Zdraví …), nebo 4 s na nic nesaháš. Nejpozději po nastavené době uloží tak jako tak. Platí pro ukládání hry i pro mody jako Real Time Autosave.</GT_SaveSmart_Desc>
+  <GT_SaveWait>Nejdéle čekat: {0} min</GT_SaveWait>
   <GT_Idle>Víc TPS, když se jen díváš</GT_Idle>
   <GT_Idle_Desc>Na rychlosti 2 a víc, když 2 s na nic nesaháš, kreslí hra méně snímků a ušetřený čas dostane simulace – hra běží rychleji. Jakmile pohneš myší nebo kamerou, vrátí se plné FPS.</GT_Idle_Desc>
   <GT_IdleFps>FPS, když se jen díváš: {0}</GT_IdleFps>

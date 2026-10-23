@@ -48,7 +48,9 @@ namespace GraphicsTuner
         public bool sfCamera = true;
         public bool sfIdle = true;
         public bool sfRealNormal = true;
-        public bool sfFastShare = true;         // 1.7.3: speed 3/4 – simulation gets at least the drawing time        // 1.7.2: speed 1 and 2 never run slower than real
+        public bool sfFastShare = true;
+        public bool saveSmart = true;           // 1.7.4: autosave waits for a quiet moment
+        public int saveMaxWaitMin = 3;         // 1.7.3: speed 3/4 – simulation gets at least the drawing time        // 1.7.2: speed 1 and 2 never run slower than real
         public int sfIdleFps = 30;
         public bool sfBackground = true;
         public bool slowAlerts = true;
@@ -205,6 +207,8 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref sfIdle, "sfIdle", true);
             Scribe_Values.Look(ref sfRealNormal, "sfRealNormal", true);
             Scribe_Values.Look(ref sfFastShare, "sfFastShare", true);
+            Scribe_Values.Look(ref saveSmart, "saveSmart", true);
+            Scribe_Values.Look(ref saveMaxWaitMin, "saveMaxWaitMin", 3);
             Scribe_Values.Look(ref sfIdleFps, "sfIdleFps", 30);
             Scribe_Values.Look(ref sfBackground, "sfBackground", true);
             Scribe_Values.Look(ref slowAlerts, "slowAlerts", true);
@@ -640,7 +644,11 @@ namespace GraphicsTuner
     [HarmonyPatch(typeof(Root), "Update")]
     public static class RootUpdatePatch
     {
-        public static void Postfix() => Runtime.Update();
+        public static void Postfix()
+        {
+            Runtime.Update();
+            SaveTiming.Update();
+        }
     }
 
     [HarmonyPatch(typeof(UIRoot), nameof(UIRoot.UIRootOnGUI))]
@@ -684,7 +692,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.7.3";
+        public const string Version = "1.7.4";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -710,6 +718,7 @@ namespace GraphicsTuner
             Sim.Patch(harmony);                     // 1.6.0
             FastCull.Patch(harmony);                // 1.7.0
             WorldPathSpread.Patch(harmony);         // 1.7.0
+            SaveTiming.Patch(harmony);              // 1.7.4
             ModEffects.Patch(harmony);              // 1.3.2: effects from mods too
             TextureCap.Patch(harmony);              // 1.3.3: oversized mod textures
             // 1.3.4: no more swapping textures that were loaded before Smooth FPS started – icons and
@@ -998,6 +1007,9 @@ namespace GraphicsTuner
                 s.sfIdleFps = Mathf.RoundToInt(MUI.Slider(l, "GT_IdleFps".Translate(s.sfIdleFps), s.sfIdleFps, 15f, 60f, "GT_Idle_Desc".Translate(), s, null) / 5f) * 5;
             Plain(l, "GT_Background", ref s.sfBackground);
             Plain(l, "GT_Camera", ref s.sfCamera);
+            Plain(l, "GT_SaveSmart", ref s.saveSmart);
+            if (s.saveSmart)
+                s.saveMaxWaitMin = Mathf.RoundToInt(MUI.Slider(l, "GT_SaveWait".Translate(s.saveMaxWaitMin), s.saveMaxWaitMin, 1f, 10f, "GT_SaveSmart_Desc".Translate(), s, null));
 
             // 1.2.1: every speed can have its own target and simulation limit
             MUI.Section(l, "GT_SecBySpeed".Translate());
