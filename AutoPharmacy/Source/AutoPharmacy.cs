@@ -646,7 +646,7 @@ public class Comp : GameComponent
 		if (!s.enabled || !s.autoCare || Find.TickManager.TicksGame % 600 != 0 || AutoPharmacyMod.PharmacistActive)
 			return;
 		foreach (Map m in Find.Maps)
-			foreach (Pawn p in m.mapPawns.FreeColonistsSpawned)
+			foreach (Pawn p in m.mapPawns.FreeColonistsSpawned.ToList())
 			{
 				if (p.playerSettings == null || p.health?.hediffSet == null)
 					continue;
@@ -706,11 +706,11 @@ public class WorkGiver_GiveDrug : WorkGiver_Scanner
 	public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
 	{
 		var s = AutoPharmacyMod.Settings;
-		foreach (Pawn p in pawn.Map.mapPawns.FreeColonistsSpawned)
-			yield return p;
+		// 1.3.4: a copy – the game's own list changes while the work search runs ("Collection was modified")
+		var list = new List<Thing>(pawn.Map.mapPawns.FreeColonistsSpawned);
 		if (s.prisoners)
-			foreach (Pawn p in pawn.Map.mapPawns.PrisonersOfColonySpawned)
-				yield return p;
+			list.AddRange(pawn.Map.mapPawns.PrisonersOfColonySpawned);
+		return list;
 	}
 
 	public override bool ShouldSkip(Pawn pawn, bool forced = false) => !AutoPharmacyMod.Settings.enabled;
@@ -734,7 +734,7 @@ public class WorkGiver_GiveDrug : WorkGiver_Scanner
 
 	private static bool OthersGiving(Pawn pawn)
 	{
-		foreach (Pawn o in pawn.Map.mapPawns.FreeColonistsSpawned)
+		foreach (Pawn o in pawn.Map.mapPawns.FreeColonistsSpawned.ToList())
 			if (o != pawn && o.CurJobDef == AP_DefOf.AP_GiveDrug)
 				return true;
 		return false;
@@ -863,7 +863,7 @@ public static class CombatDrugs
 		if (!s.combatDrugs || !GenHostility.AnyHostileActiveThreatToPlayer(map))
 			return;
 		List<Pawn> hostiles = null;
-		foreach (Pawn p in map.mapPawns.FreeColonistsSpawned)
+		foreach (Pawn p in map.mapPawns.FreeColonistsSpawned.ToList())
 		{
 			if (!p.Drafted || p.Downed || p.InMentalState || p.health?.hediffSet == null || p.inventory == null)
 				continue;
@@ -1069,7 +1069,7 @@ public class AutoPharmacyMod : Mod
 	public static AutoPharmacySettings Settings;
 	private Vector2 scroll;
 	public static bool PharmacistActive => ModsConfig.IsActive("fluffy.pharmacist");
-	public const string Version = "1.3.3";
+	public const string Version = "1.3.4";
 	private static List<string> recBullets;
 
 	private static void Check(Listing_Standard l, string key, ref bool value, string field)

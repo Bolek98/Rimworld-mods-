@@ -102,6 +102,20 @@ public static class Patch_DialogCtor
 	}
 }
 
+// 1.0.1: pawns without medical settings (mechanoids, vehicles, some mod pawns) made the game's
+// own medicine choice throw every frame – the caravan window broke. They get no medicine.
+[HarmonyPatch(typeof(Dialog_FormCaravan), "BestMedicineItemFor")]
+public static class Patch_BestMedicineGuard
+{
+	public static bool Prefix(Pawn pawn, ref Transferable __result)
+	{
+		if (pawn?.playerSettings != null)
+			return true;
+		__result = null;
+		return false;
+	}
+}
+
 [HarmonyPatch(typeof(Dialog_FormCaravan), "SelectApproximateBestTravelSupplies")]
 public static class Patch_Supplies
 {
