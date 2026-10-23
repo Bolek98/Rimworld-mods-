@@ -279,6 +279,9 @@ namespace GraphicsTuner
             Text.Font = GameFont.Medium;
             Widgets.Label(new Rect(inRect.x, inRect.y, inRect.width, 34f), "GT_TC_Title".Translate());
             Text.Font = GameFont.Small;
+            GfxSettings gs = GraphicsTunerMod.Settings;
+            if (!HitchFinder.IsOn && gs != null && gs.hitchFinder)
+                GraphicsTunerMod.StartHitchNow();
             if (!HitchFinder.IsOn)
             {
                 GUI.color = MUI.Warn;

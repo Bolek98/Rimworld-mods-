@@ -26,6 +26,7 @@ Other
 - Each game speed can have its own target FPS and simulation limit (Smoothness tab → By game speed).
 - Fix: on 1.7 "Unload unused textures" could turn Architect icons into empty squares – the option is now off and hidden on 1.7.
 - Fix: a short stall could switch the smoothness budget off until restart (at 4× the game then ate the whole frame) – now it steps aside for 20 s and tries again.
+- The hitch finder starts at once when you switch it on (no restart needed); the "What slows the tick" window works right away.
 - Laptop mode: lower FPS limit and fewer effects – always or only on battery.
 - Texture limit no longer swaps already loaded textures (no more blank icons or pink X).
 - Settings: the CHANGED marks and frames show properly on RimWorld 1.7.
