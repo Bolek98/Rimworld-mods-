@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MSM_Activate>{0} を有効化</MSM_Activate>
+  <MSM_ActivateShort>有効化</MSM_ActivateShort>
+  <MSM_Active>有効 · {0}（ロード順）</MSM_Active>
+  <MSM_Backups>Modリストのバックアップ</MSM_Backups>
+  <MSM_BackupsHint>保存のたびにリストをバックアップします（最新 20 件）。読み込みはリストを準備するだけです – 下のボタンで保存してください。</MSM_BackupsHint>
+  <MSM_Bottom>最下部へ</MSM_Bottom>
+  <MSM_BulletAside>他のModマネージャーがあれば譲ります</MSM_BulletAside>
+  <MSM_BulletBackup>変更のたびにリストをバックアップ</MSM_BulletBackup>
+  <MSM_BulletButton>「Mod」ボタンで Mod Sort Manager を開く</MSM_BulletButton>
+  <MSM_BulletEscOff>Esc メニューの項目はオフ</MSM_BulletEscOff>
+  <MSM_CloseAsk>Modリストに未保存の変更があります。保存しますか？</MSM_CloseAsk>
+  <MSM_DiscardShort>変更を破棄</MSM_DiscardShort>
+  <MSM_ModSettings>Mod設定</MSM_ModSettings>
+  <MSM_Upload>ワークショップにアップロード</MSM_Upload>
+  <MSM_TabUpdates>更新</MSM_TabUpdates>
+  <MSM_UpdNoSteam>Steam が起動していません – 現在ワークショップの更新を確認できません。</MSM_UpdNoSteam>
+  <MSM_UpdTitle>更新待ち：{0} · ダウンロード中：{1}</MSM_UpdTitle>
+  <MSM_UpdAll>すべて更新（{0}）</MSM_UpdAll>
+  <MSM_UpdCheck>再確認</MSM_UpdCheck>
+  <MSM_UpdHint>ワークショップのMod。更新をダウンロードしたら再起動が必要です – 下のボタンから。過去 7 日以内に更新されたModも表示されます（更新後に何か壊れたら、どこを見ればよいか分かります）。</MSM_UpdHint>
+  <MSM_UpdNeeds>新しいバージョンあり</MSM_UpdNeeds>
+  <MSM_UpdBusy>ダウンロード中… {0} %</MSM_UpdBusy>
+  <MSM_UpdDone>ダウンロード済み – 再起動後に反映</MSM_UpdDone>
+  <MSM_UpdRecent>{0} に更新</MSM_UpdRecent>
+  <MSM_UpdOne>更新</MSM_UpdOne>
+  <MSM_UpdNone>✓ すべて最新です</MSM_UpdNone>
+  <MSM_Close>閉じる</MSM_Close>
+  <MSM_CoreStays>ゲーム本体（Core）は有効のままにする必要があります。</MSM_CoreStays>
+  <MSM_CountActive>有効 {0}</MSM_CountActive>
+  <MSM_CountErr>エラー {0}</MSM_CountErr>
+  <MSM_CountInfo>重複機能 {0}</MSM_CountInfo>
+  <MSM_CountWarn>警告 {0}</MSM_CountWarn>
+  <MSM_Deactivate>無効化</MSM_Deactivate>
+  <MSM_DeactivateX>{0} を無効化</MSM_DeactivateX>
+  <MSM_Delete>削除</MSM_Delete>
+  <MSM_DeleteConfirm>保存済みリスト「{0}」を削除しますか？</MSM_DeleteConfirm>
+  <MSM_DepInstalled>必要なModはインストール済みですが、有効になっていません。</MSM_DepInstalled>
+  <MSM_DepMissing>必要なModがインストールされていません。これがないとModは動作しません。</MSM_DepMissing>
+  <MSM_DepTitle>{0} には {1} が必要</MSM_DepTitle>
+  <MSM_Discard>Modリストの未保存の変更を破棄しますか？</MSM_Discard>
+  <MSM_Done>完了</MSM_Done>
+  <MSM_Download>ダウンロード</MSM_Download>
+  <MSM_DupActive>有効</MSM_DupActive>
+  <MSM_DupIgnored>ゲームに無視される</MSM_DupIgnored>
+  <MSM_DupInstalled>インストール済み</MSM_DupInstalled>
+  <MSM_DupLocalText>同じModが Mods フォルダに複数あります。ゲームはアルファベット順で最初のフォルダだけを読み込み、残りは黙ってスキップします – どのバージョンが動いているか分かりません。</MSM_DupLocalText>
+  <MSM_DupNewest>新しい方</MSM_DupNewest>
+  <MSM_DupSteamText>このModは Mods フォルダとワークショップの両方にあります。両方のコピーがリストに表示され、古い方を有効にしてしまいがちです。</MSM_DupSteamText>
+  <MSM_DupTitle>{0} が {1}× インストールされています</MSM_DupTitle>
+  <MSM_Folder>フォルダ</MSM_Folder>
+  <MSM_GrpBreak>不具合の恐れ</MSM_GrpBreak>
+  <MSM_GrpDup>重複</MSM_GrpDup>
+  <MSM_GrpSame>同じ機能</MSM_GrpSame>
+  <MSM_Inactive>無効 · {0}</MSM_Inactive>
+  <MSM_IncText>{0} の作者によると、これらは併用できません。どちらか一方だけを有効にしてください。</MSM_IncText>
+  <MSM_IncTitle>{0} × {1} – 非互換</MSM_IncTitle>
+  <MSM_Info>バージョン {0} · ゲーム {1} · {2}</MSM_Info>
+  <MSM_KeepConfirm>残すもの：
+{0}
+
+他のコピーはバックアップフォルダに移動され（何も削除されません）、ワークショップのコピーはサブスクライブ解除されます：
+{1}
+
+再起動後に反映されます。</MSM_KeepConfirm>
+  <MSM_KeepDone>完了しました。他のコピーは {0} にあります。</MSM_KeepDone>
+  <MSM_KeepFailed>次のコピーを移動できませんでした：
+{0}
+
+ゲームを終了して手動で移動してください。バックアップフォルダ：{1}</MSM_KeepFailed>
+  <MSM_KeepNewest>新しい方を残す</MSM_KeepNewest>
+  <MSM_Load>読み込む</MSM_Load>
+  <MSM_LoadLastSave>再起動後に最新のセーブを読み込む</MSM_LoadLastSave>
+  <MSM_Loaded>{0} 個のModを読み込みました。下のボタンで保存してください。</MSM_Loaded>
+  <MSM_Missing>リストを読み込みましたが、{0} 個のModが見つかりません（未インストール）：
+
+{1}</MSM_Missing>
+  <MSM_NoSaveConfirm>現在ゲームをセーブできません（またはゲームへの復帰がオフです）。再起動後はメインメニューに戻り、セーブしていない進行状況は失われます。続行しますか？</MSM_NoSaveConfirm>
+  <MSM_NoBackups>バックアップはまだありません。</MSM_NoBackups>
+  <MSM_NoProfiles>保存済みのリストはまだありません。</MSM_NoProfiles>
+  <MSM_NoReturnTip>現在ゲームをセーブできません（コミットモード、またはイベント進行中）。再起動後はメインメニューに戻ります。</MSM_NoReturnTip>
+  <MSM_None>✓ 問題は見つかりません</MSM_None>
+  <MSM_NoteDep>{0} が不足</MSM_NoteDep>
+  <MSM_NoteDup>複数インストール</MSM_NoteDup>
+  <MSM_NoteInc>{0} と非互換</MSM_NoteInc>
+  <MSM_NoteOld>{0} 専用</MSM_NoteOld>
+  <MSM_NoteOrder>順序が不正</MSM_NoteOrder>
+  <MSM_NoteSame>{0} と同じ機能</MSM_NoteSame>
+  <MSM_OldShort>{0} のみ</MSM_OldShort>
+  <MSM_OldText>ゲームは読み込み、ほとんどは動作しますが、エラーが出ることがあります。問題が起きたら、まずこれらを無効にしてください。</MSM_OldText>
+  <MSM_OldTitle>{0} 個のModが {1} に未対応</MSM_OldTitle>
+  <MSM_OpenFolders>フォルダを開く</MSM_OpenFolders>
+  <MSM_OpenNow>Mod Sort Manager を開く</MSM_OpenNow>
+  <MSM_OrderAfter>{0} は {1} の後に読み込むべきです</MSM_OrderAfter>
+  <MSM_OrderBefore>{0} は {1} の前に読み込むべきです</MSM_OrderBefore>
+  <MSM_OrderTitle>ロード順の誤り（{0}）</MSM_OrderTitle>
+  <MSM_ProfileBad>リストを読み込めませんでした。</MSM_ProfileBad>
+  <MSM_ProfileNameHint>リスト名…</MSM_ProfileNameHint>
+  <MSM_ProfileSaved>リスト「{0}」を保存しました。</MSM_ProfileSaved>
+  <MSM_Profiles>保存済みModリスト</MSM_Profiles>
+  <MSM_ProfilesHint>ゲームのModウィンドウ（リストの保存/読み込み）と同じファイルです – このModがなくても使えます。</MSM_ProfilesHint>
+  <MSM_ReturnToGame>再起動後にゲームへ戻る</MSM_ReturnToGame>
+  <MSM_Revert>すべて元に戻す</MSM_Revert>
+  <MSM_SameHint>読み込まれたModの Harmony パッチからの推定</MSM_SameHint>
+  <MSM_SameHot>どちらもゲームの同じ重要部分を置き換えます – 一つで十分です</MSM_SameHot>
+  <MSM_SameText>どちらも同じゲームコードを変更します</MSM_SameText>
+  <MSM_SaveFailed>Modリストを保存できませんでした：{0}</MSM_SaveFailed>
+  <MSM_SaveProfile>現在のリストを保存</MSM_SaveProfile>
+  <MSM_SaveRestart>保存して再起動</MSM_SaveRestart>
+  <MSM_SaveReturn>保存・再起動してゲームに戻る</MSM_SaveReturn>
+  <MSM_SearchActiveHint>有効なModを検索…</MSM_SearchActiveHint>
+  <MSM_SearchHint>Mod名、作者、ID で検索…</MSM_SearchHint>
+  <MSM_SecWhere>場所</MSM_SecWhere>
+  <MSM_SelectHint>左側でModを選択してください。</MSM_SelectHint>
+  <MSM_SetEsc>ゲーム中の Esc メニューに項目を追加</MSM_SetEsc>
+  <MSM_SetEscTip>プレイ中でも Mod Sort Manager を開けます。保存するとゲームがセーブされ、再起動後にそのゲームへ戻ります。</MSM_SetEscTip>
+  <MSM_SetReplace>「Mod」ボタンで Mod Sort Manager を開く</MSM_SetReplace>
+  <MSM_SetReplaceTip>元のウィンドウは「元のウィンドウ」ボタンから引き続き使えます。他のModマネージャー（Fluffy's Mod Manager）が動作している場合、このModは譲ります。</MSM_SetReplaceTip>
+  <MSM_Show>{0} を表示</MSM_Show>
+  <MSM_SmartSort>スマートソート</MSM_SmartSort>
+  <MSM_SortCycle>Modのルールが互いに矛盾しています（循環：A が B の前、かつ B が A の前）。ソートできません – 手動で順序を修正してください。</MSM_SortCycle>
+  <MSM_Sorted>ソートしました。</MSM_Sorted>
+  <MSM_SrcLocal>Mods フォルダ</MSM_SrcLocal>
+  <MSM_SrcOfficial>ゲーム / DLC</MSM_SrcOfficial>
+  <MSM_SrcSteam>ワークショップ</MSM_SrcSteam>
+  <MSM_Subtitle>ロード順・競合 &amp; プロファイル · v{0} · Bolek98</MSM_Subtitle>
+  <MSM_SumActive>有効 {0} · ゲーム {1}</MSM_SumActive>
+  <MSM_SumBackup>保存のたびに旧リストをバックアップします – 「プロファイル」タブを参照。</MSM_SumBackup>
+  <MSM_SumBackupTitle>バックアップ</MSM_SumBackupTitle>
+  <MSM_SumCompat>{0} 個が {1} に対応</MSM_SumCompat>
+  <MSM_SumOld>{0} 個は旧バージョンのみ – ゲームは読み込み、ほとんどは動作します</MSM_SumOld>
+  <MSM_SumRestartGame>保存 → ゲームがセーブ・再起動され、このゲームに戻ります。</MSM_SumRestartGame>
+  <MSM_SumRestartMenu>保存 → ゲームが自動で再起動します。最新のセーブを読み込むこともできます。</MSM_SumRestartMenu>
+  <MSM_SumRestartTitle>終了せずに変更</MSM_SumRestartTitle>
+  <MSM_Summary>概要</MSM_Summary>
+  <MSM_TabOrder>ロード順</MSM_TabOrder>
+  <MSM_TabProblems>問題</MSM_TabProblems>
+  <MSM_TabProfiles>プロファイル</MSM_TabProfiles>
+  <MSM_Top>最上部へ</MSM_Top>
+  <MSM_Unsub>サブスクライブ解除</MSM_Unsub>
+  <MSM_Vanilla>元のウィンドウ</MSM_Vanilla>
+  <MSM_Web>Modのページ</MSM_Web>
+  <MSM_Workshop>ワークショップページ</MSM_Workshop>
+  <MUI_Title>推奨設定</MUI_Title>
+  <MUI_TitleOff>推奨設定 · オフ</MUI_TitleOff>
+  <MUI_DescOn>Modが自動で設定され、すぐに使えます。初心者や何も調整したくない方に最適です。</MUI_DescOn>
+  <MUI_DescOff>カスタム設定。推奨から変更した項目：{0}。</MUI_DescOff>
+  <MUI_DescOffSame>カスタム設定。まだ推奨と同じです。</MUI_DescOffSame>
+  <MUI_On>オン</MUI_On>
+  <MUI_Off>オフ</MUI_Off>
+  <MUI_ResetAll>すべて推奨にリセット</MUI_ResetAll>
+  <MUI_ConfirmOn>推奨設定をオンにしますか？あなたの変更（{0}）は推奨値に置き換えられます。</MUI_ConfirmOn>
+  <MUI_Locked>詳細設定はロックされています。変更したい場合は上のスイッチをオフにしてください – 値は推奨値から始まります。</MUI_Locked>
+  <MUI_Changed>変更済み</MUI_Changed>
+  <MUI_ChangedTip>推奨設定（{0}）と異なります。クリックで推奨値に戻します。</MUI_ChangedTip>
+  <MUI_Yes>オン</MUI_Yes>
+  <MUI_No>オフ</MUI_No>
+  <MUI_RecTag>推奨</MUI_RecTag>
+  <MSM_New>NEW</MSM_New>
+  <MSM_OnlyProblems>問題のみ（{0}）</MSM_OnlyProblems>
+  <MSM_SetGuard>ロード順を監視</MSM_SetGuard>
+  <MSM_SetGuardTip>ゲーム起動後、Mod Sort Manager はModリストが前回保存したときと同じかを確認します。他のプログラム、アップデート、またはゲーム自体によって変更された場合、何が変わったかを表示し、ワンクリックで元のロード順に戻せます。</MSM_SetGuardTip>
+  <MSM_GuardText>Modリストが前回保存したときと異なります – ゲーム外または起動時に変更されました。
+
+{0}
+
+元のロード順に戻しますか？</MSM_GuardText>
+  <MSM_GuardMoved>移動：{0}</MSM_GuardMoved>
+  <MSM_GuardAdded>追加：{0}</MSM_GuardAdded>
+  <MSM_GuardRemoved>削除または不足：{0}</MSM_GuardRemoved>
+  <MSM_GuardRestore>元の順序に戻す</MSM_GuardRestore>
+  <MSM_GuardKeep>このままにする</MSM_GuardKeep>
+  <MSM_BisectCardTitle>ゲームがクラッシュする、またはエラーが出る？</MSM_BisectCardTitle>
+  <MSM_BisectCardText>Mod Sort Manager は二分探索で原因のModを見つけます：Modの半分を無効化して再起動し、問題がまだ起きるかをあなたが答えます。Mod 200 個なら約 8 回の再起動です。</MSM_BisectCardText>
+  <MSM_BisectStart>原因のModを探す</MSM_BisectStart>
+  <MSM_BisectMenuOnly>メインメニューからのみ使用できます。</MSM_BisectMenuOnly>
+  <MSM_BisectFew>テストできるModが足りません。他のModが必要とするライブラリ、DLC、ゲーム本体は常に有効のままです。</MSM_BisectFew>
+  <MSM_BisectConfirm>原因のModを探す
+
+Mod Sort Manager は {0} 個の疑わしいModの半分を無効化し、ゲームを再起動します。起動するたびに問題がまだ起きるかを確認し、メインメニューの小さなウィンドウで答えてください。約 {1} 回の再起動が必要です。
+
+他のModが必要とするライブラリ、DLC、ゲーム本体は有効のままです。終了時にはModリストが現在とまったく同じ状態に戻ります。
+
+重要：テスト中はコロニーをセーブしないでください – Modの半分がない状態ではセーブデータが壊れる恐れがあります。新しいコロニーでテストするか、起動時のエラーだけを確認してください。
+
+開始しますか？</MSM_BisectConfirm>
+  <MSM_BisectTitle>原因のModを探しています</MSM_BisectTitle>
+  <MSM_BisectStep>ステップ {0} · 残りの候補：{1} · あと約 {2} 回の再起動</MSM_BisectStep>
+  <MSM_BisectEnabled>現在有効：疑わしいMod {1} 個中 {0} 個。問題はまだ起きますか？</MSM_BisectEnabled>
+  <MSM_BisectNoSave>テスト中はコロニーをセーブしないでください。</MSM_BisectNoSave>
+  <MSM_BisectErrors>Mod読み込み後のログのエラー：{0}</MSM_BisectErrors>
+  <MSM_BisectLog>ログを開く</MSM_BisectLog>
+  <MSM_BisectStill>まだ起きる</MSM_BisectStill>
+  <MSM_BisectGone>解消した</MSM_BisectGone>
+  <MSM_BisectCancel>中止してModを元に戻す</MSM_BisectCancel>
+  <MSM_BisectFound>原因：{0}</MSM_BisectFound>
+  <MSM_BisectFoundText>問題はこのModを示しています。念のため、これを無効にしてください – 問題が消えれば、これが原因です。消えない場合、2 つのModの組み合わせで起きる問題か、ライブラリが原因の可能性があります。</MSM_BisectFoundText>
+  <MSM_BisectDisable>無効化し、他を元に戻す</MSM_BisectDisable>
+  <MSM_BisectRestore>すべてのModを元に戻す</MSM_BisectRestore>
+  <MSM_BisectRunning>原因のModを探している途中です – 現在のリストにはテスト中の半分しかありません。探索を中止してすべてのModを元に戻しますか？（ゲームが再起動します）</MSM_BisectRunning>
+  <MSM_BisectMismatch>このステップのModでゲームが起動しませんでした – Modの読み込みに失敗してゲームが元に戻ったか、別の場所でリストが変更された可能性があります。このままでは答えが正しくなりません。このステップをもう一度適用するか、中止してください。</MSM_BisectMismatch>
+  <MSM_BisectReapply>もう一度適用</MSM_BisectReapply>
+  <MSM_BisectNotFound>探索を完了できませんでした。すべてのModを元に戻して、もう一度お試しください。</MSM_BisectNotFound>
+  <MSM_Added>追加日: {0}</MSM_Added>
+  <MSM_ListRefreshed>Steamのダウンロード後にMODリストを更新しました（{0} 個）。</MSM_ListRefreshed>
+  <MSM_PS_Title>保存前のチェック</MSM_PS_Title>
+  <MSM_PS_Checking>MODの必要物を確認中… {0} / {1} 個</MSM_PS_Checking>
+  <MSM_PS_Deps>足りない前提MOD</MSM_PS_Deps>
+  <MSM_PS_DepLine>{0} には {1} が必要 – {2}</MSM_PS_DepLine>
+  <MSM_PS_DepOff>インストール済みだが無効</MSM_PS_DepOff>
+  <MSM_PS_DepNone>未インストール</MSM_PS_DepNone>
+  <MSM_PS_Old>古いゲームバージョン向け</MSM_PS_Old>
+  <MSM_PS_OldLine>{0} – {1} まで</MSM_PS_OldLine>
+  <MSM_PS_Refs>存在しないものを必要としている</MSM_PS_Refs>
+  <MSM_PS_RefLine>{0}：{1} には「{2}」が必要</MSM_PS_RefLine>
+  <MSM_PS_RefCrash>、ゲームの読み込みが止まる可能性</MSM_PS_RefCrash>
+  <MSM_PS_MoreLines>… ほか {0} 件</MSM_PS_MoreLines>
+  <MSM_PS_Many>新しいMODを一度に {0} 個</MSM_PS_Many>
+  <MSM_PS_ManyText>何か壊れたとき、どのMODが原因か分かりにくくなります。{0} グループに分けて追加してください。次のグループはMod Sort Managerを次に開いたときに提案されます。</MSM_PS_ManyText>
+  <MSM_PS_FixDeps>足りないものを有効化（{0}）</MSM_PS_FixDeps>
+  <MSM_PS_OffBad>問題のあるMODを無効化（{0}）</MSM_PS_OffBad>
+  <MSM_PS_FirstGroup>今はグループ1だけ（{0} 個）</MSM_PS_FirstGroup>
+  <MSM_PS_SaveAnyway>それでも保存</MSM_PS_SaveAnyway>
+  <MSM_PS_Back>リストに戻る</MSM_PS_Back>
+  <MSM_PS_NextGroup>次の新しいMODのグループが待っています（{0}）：\n{1}\n\n今追加しますか？</MSM_PS_NextGroup>
+  <MSM_PS_AddGroup>グループを追加して再起動</MSM_PS_AddGroup>
+  <MSM_PS_Later>後で</MSM_PS_Later>
+  <MSM_PS_DropQueue>残りを取り消す</MSM_PS_DropQueue>
+  <MSM_SetPreSave>保存前のチェック</MSM_SetPreSave>
+  <MSM_SetPreSaveTip>変更したリストを保存する前に：足りない前提MOD、古いバージョン向けのMOD、一度に多数の新MOD、新MODが必要とする存在しないもの。</MSM_SetPreSaveTip>
+</LanguageData>

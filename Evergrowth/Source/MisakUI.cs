@@ -118,7 +118,13 @@ namespace HardyPlants
         public static void Frame(Rect r, Color c, float width = 1f, float radius = 0f)
         {
             if (Event.current.type != EventType.Repaint) return;
-            GUI.DrawTexture(r, BaseContent.WhiteTex, ScaleMode.StretchToFill, true, 0f, c, width, radius);
+            // 1.7 (Waylith) ignores the border width of GUI.DrawTexture and fills the whole box –
+            // the CHANGED marks were plain orange boxes. Four thin edges instead.
+            if (width <= 0f) width = 1f;
+            Fill(new Rect(r.x, r.y, r.width, width), c);
+            Fill(new Rect(r.x, r.yMax - width, r.width, width), c);
+            Fill(new Rect(r.x, r.y, width, r.height), c);
+            Fill(new Rect(r.xMax - width, r.y, width, r.height), c);
         }
 
         public static void Card(Rect r, bool highlight = false)
@@ -224,30 +230,44 @@ namespace HardyPlants
         }
 
         private static bool lockOn;
-        private static Color lockColor;
+        private static Vector2 lockMouse;
+        private static bool lockMoved;
 
+        // Locked details: everything is drawn, but no control reacts. GUI.enabled
+        // alone is not enough – RimWorld checkboxes and sliders read the mouse
+        // themselves, so the mouse is moved far away while the locked part is drawn
+        // (scrolling still works). EndLock dims the area.
         public static void BeginLock(bool locked)
         {
             lockOn = locked;
+            lockMoved = false;
             if (!locked) return;
             GUI.enabled = false;
-            lockColor = GUI.color;
-            GUI.color = new Color(1f, 1f, 1f, 0.55f);
+            if (Event.current.type != EventType.ScrollWheel)
+            {
+                lockMouse = Event.current.mousePosition;
+                Event.current.mousePosition = new Vector2(-99999f, -99999f);
+                lockMoved = true;
+            }
         }
 
-        public static void EndLock()
+        public static void EndLock(Rect dim = default(Rect))
         {
             if (!lockOn) return;
+            if (lockMoved)
+                Event.current.mousePosition = lockMouse;
             GUI.enabled = true;
-            GUI.color = lockColor;
             lockOn = false;
+            lockMoved = false;
+            if (dim.width > 0f)
+                Fill(dim, new Color(0.09f, 0.1f, 0.12f, 0.45f));
         }
 
         // CHANGED mark at the right edge of r. Click = back to the recommended value.
         // Returns the width it took.
         private static float Mark(Rect r, object target, string field)
         {
-            if (!Changed(target, field))
+            if (lockOn || !Changed(target, field))
                 return 0f;
             string t = "MUI_Changed".Translate();
             GameFont f = Text.Font;
@@ -368,6 +388,19 @@ namespace HardyPlants
             return nv;
         }
 
+        // Slider bar that only reports a change when the player really drags it.
+        // (Widgets.HorizontalSlider with roundTo returns a rounded value every frame when the
+        // stored value is not on the step – that plays the drag sound over and over.)
+        public static float SliderBar(Rect r, float value, float min, float max, float roundTo = -1f)
+        {
+            float nv = Widgets.HorizontalSlider(r, value, min, max, true);
+            if (nv == value)
+                return value;
+            if (roundTo > 0f)
+                nv = Mathf.Clamp(Mathf.Round(nv / roundTo) * roundTo, min, max);
+            return nv;
+        }
+
         // ---------------- bigger settings window ----------------
         private static readonly AccessTools.FieldRef<Dialog_ModSettings, Mod> modRef =
             AccessTools.FieldRefAccess<Dialog_ModSettings, Mod>("mod");
@@ -383,7 +416,11 @@ namespace HardyPlants
             }
             catch (Exception e)
             {
+#if MISAK_MLOG
+                MLog.Warn("[" + modType.Name + "] bigger settings window: " + e.Message);
+#else
                 Log.Warning("[" + modType.Name + "] bigger settings window: " + e.Message);
+#endif
             }
         }
 

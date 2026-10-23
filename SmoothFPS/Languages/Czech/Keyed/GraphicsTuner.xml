@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+  <GT_Profile>Profil grafiky. Nastavení se mění hned, bez restartu.</GT_Profile>
+  <GT_ProfPerf>Výkon</GT_ProfPerf>
+  <GT_ProfPerf_Card>Nejvíc FPS. Méně efektů, bez houpání rostlin, bez deště a sněhu.</GT_ProfPerf_Card>
+  <GT_ProfBal>Vyvážené</GT_ProfBal>
+  <GT_ProfBal_Card>Hra vypadá skoro stejně, ale zbytečné věci se nekreslí.</GT_ProfBal_Card>
+  <GT_ProfQual>Kvalita</GT_ProfQual>
+  <GT_ProfQual_Card>Všechny efekty jako ve hře. Plný výpis v logu.</GT_ProfQual_Card>
+  <GT_ProfCustom>Vlastní</GT_ProfCustom>
+  <GT_ProfCustom_Card>Nastav si každou položku sám.</GT_ProfCustom_Card>
+  <GT_ProfileHint>Profil mění jen levou stranu (efekty, plynulost). Obraz vpravo je vždy tvoje volba.</GT_ProfileHint>
+  <GT_SecEffects>Efekty a svět</GT_SecEffects>
+  <GT_SecSmooth>Plynulost</GT_SecSmooth>
+  <GT_SecDisplay>Obraz</GT_SecDisplay>
+  <GT_SecAdvanced>Pro pokročilé (po restartu)</GT_SecAdvanced>
+  <GT_SecNow>Teď</GT_SecNow>
+  <GT_Effects>Efekty (kouř, jiskry, prach – i z modů): {0} %</GT_Effects>
+  <GT_Effects_Desc>Kolik vizuálních efektů se vytvoří. Na hru samotnou nemají vliv, jen na vzhled. Méně = víc FPS hlavně při bojích a požárech.</GT_Effects_Desc>
+  <GT_Cap>Nejvíc efektů za sekundu: {0}</GT_Cap>
+  <GT_Cap_Desc>Tvrdý strop – při velkých bojích se nové efekty přestanou tvořit, než FPS spadne. 0 = bez stropu.</GT_Cap_Desc>
+  <GT_CullEffects>Při oddálení nekreslit efekty</GT_CullEffects>
+  <GT_CullEffects_Desc>Když je kamera daleko, kouř a jiskry by stejně nebyly vidět.</GT_CullEffects_Desc>
+  <GT_CullWeapons>Při oddálení nekreslit zbraně v rukou</GT_CullWeapons>
+  <GT_CullWeapons_Desc>Zbraně a doplňky postav se nekreslí, když je kamera daleko. Portréty se nemění.</GT_CullWeapons_Desc>
+  <GT_CullZoom>„Daleko“ znamená oddálení přes: {0}</GT_CullZoom>
+  <GT_CullZoom_Desc>Menší číslo = efekty a zbraně zmizí dřív při oddalování. Hra má rozsah asi 11 (nejblíž) až 60 (nejdál).</GT_CullZoom_Desc>
+  <GT_NoWeather>Nekreslit déšť a sníh</GT_NoWeather>
+  <GT_NoWeather_Desc>Počasí funguje dál (mokro, chlad, nálada), jen se nekreslí kapky a vločky přes obrazovku.</GT_NoWeather_Desc>
+  <GT_PlantSway>Houpání rostlin ve větru</GT_PlantSway>
+  <GT_PlantSway_Desc>Stejné jako volba ve hře. Vypnuto = rostliny stojí a hra kreslí méně.</GT_PlantSway_Desc>
+  <GT_FastLog>Rychlejší log</GT_FastLog>
+  <GT_FastLog_Desc>Hra 1.7 ke každé zprávě v logu ukládá celý výpis zásobníku. S mnoha mody, které hlásí varování, to dělá zaškuby. Zapnuto = výpisy se neukládají.</GT_FastLog_Desc>
+  <GT_FastLog_Note>Když mi posíláš log kvůli chybě, dočasně to vypni – výpisy pomáhají najít viníka.</GT_FastLog_Note>
+  <GT_VSync>V-Sync</GT_VSync>
+  <GT_VSync_Desc>Vypnuto = nejvíc FPS, obraz se může trhat. Zapnuto = FPS podle monitoru, bez trhání. Trojitý = plynulý obraz s malým zpožděním.</GT_VSync_Desc>
+  <GT_VSync_Off>Vypnuto</GT_VSync_Off>
+  <GT_VSync_On>Zapnuto</GT_VSync_On>
+  <GT_VSync_TripleBuffer>Trojitý (plynulý)</GT_VSync_TripleBuffer>
+  <GT_VSync_Adaptive>Adaptivní</GT_VSync_Adaptive>
+  <GT_VSync_Mailbox>Trojitý (rychlý)</GT_VSync_Mailbox>
+  <GT_VSync_Fifo>Zapnuto</GT_VSync_Fifo>
+  <GT_VSync_Immediate>Vypnuto</GT_VSync_Immediate>
+  <GT_Fps>Limit FPS</GT_Fps>
+  <GT_Fps_Desc>Jako ve hře = podle obnovovací frekvence monitoru. Neomezeno = co nejvíc (s V-Sync zapnutým stejně podle monitoru).</GT_Fps_Desc>
+  <GT_BgFps>Limit FPS na pozadí (Alt+Tab)</GT_BgFps>
+  <GT_BgFps_Desc>Když hra není v popředí, kreslí méně snímků – počítač se nepeče a hra pořád běží.</GT_BgFps_Desc>
+  <GT_Display>Režim zobrazení</GT_Display>
+  <GT_Display_Desc>Okno, okno bez okrajů nebo celá obrazovka. Exkluzivní celá obrazovka bývá nejrychlejší.</GT_Display_Desc>
+  <GT_Display_Windowed>Okno</GT_Display_Windowed>
+  <GT_Display_Borderless>Okno bez okrajů</GT_Display_Borderless>
+  <GT_Display_BorderlessWindowed>Okno bez okrajů</GT_Display_BorderlessWindowed>
+  <GT_Display_BorderlessFullscreen>Celá obrazovka (bez okrajů)</GT_Display_BorderlessFullscreen>
+  <GT_Display_Fullscreen>Celá obrazovka</GT_Display_Fullscreen>
+  <GT_Display_FullscreenExclusive>Celá obrazovka (exkluzivní)</GT_Display_FullscreenExclusive>
+  <GT_Display_ExclusiveFullscreen>Celá obrazovka (exkluzivní)</GT_Display_ExclusiveFullscreen>
+  <GT_Display_FullScreenWindow>Celá obrazovka (okno)</GT_Display_FullScreenWindow>
+  <GT_Game>Jako ve hře</GT_Game>
+  <GT_Unlimited>Neomezeno</GT_Unlimited>
+  <GT_NoChange>Beze změny</GT_NoChange>
+  <GT_OverlayOn>Ukazovat FPS vpravo nahoře</GT_OverlayOn>
+  <GT_OverlayOn_Desc>Malé okénko s FPS, délkou snímku a rychlostí hry (TPS = herních tiků za sekundu; normální rychlost 60, nejvyšší 360+).</GT_OverlayOn_Desc>
+  <GT_Overlay>FPS {0} · {1} ms · TPS {2}</GT_Overlay>
+  <GT_Not17>V-Sync a režim zobrazení umí jen RimWorld 1.7 (nový engine).</GT_Not17>
+  <GT_Gc>Úklid paměti (GC)</GT_Gc>
+  <GT_Gc_Desc>Jak .NET uklízí paměť. Zapisuje se do RimWorld.runtimeconfig.json ve složce hry, platí po restartu hry.</GT_Gc_Desc>
+  <GT_Gc0>Jako ve hře</GT_Gc0>
+  <GT_Gc1>Plynulý (méně záseků)</GT_Gc1>
+  <GT_Gc2>Server (víc jader, víc paměti)</GT_Gc2>
+  <GT_Gc_Note>Plynulý = paměť se uklízí na pozadí a nevrací se hned systému → méně zaseknutí. Server = úklid na všech jádrech, kratší pauzy, ale hra zabere víc RAM. Mod si udělá zálohu původního souboru. Aktualizace hry může nastavení vrátit – pak ho jen znovu vyber.</GT_Gc_Note>
+  <GT_GcRestore>Vrátit původní soubor hry</GT_GcRestore>
+  <GT_GcSaved>Uloženo. Restartuj hru, aby se to projevilo.</GT_GcSaved>
+  <GT_GcRestored>Původní soubor vrácen. Restartuj hru.</GT_GcRestored>
+  <GT_GcError>Nepovedlo se: {0}</GT_GcError>
+  <GT_GcNone>Dostupné jen na RimWorldu 1.7.</GT_GcNone>
+  <GT_Now>FPS {0} · snímek {1} ms · TPS {2}</GT_Now>
+  <GT_NowEffects>Efekty od spuštění: vytvořeno {0}, ušetřeno {1}</GT_NowEffects>
+  <GT_TabGraphics>Grafika</GT_TabGraphics>
+  <GT_TabSmooth>Plynulost</GT_TabSmooth>
+  <GT_AutoSpeed>Na rychlosti 3× automaticky méně efektů</GT_AutoSpeed>
+  <GT_AutoSpeed_Desc>Při nejvyšší rychlosti vznikne efektů (kouř, jiskry, prach) za sekundu třikrát víc, ale stejně je skoro nevidíš. Ubere je na polovinu.</GT_AutoSpeed_Desc>
+  <GT_Adaptive>Ubrat efekty, když FPS klesá pod cíl</GT_Adaptive>
+  <GT_Adaptive_Desc>Když FPS spadne pod cíl z karty Plynulost, mod postupně ubírá efekty (až na čtvrtinu). Jakmile se FPS vrátí, efekty se vrátí taky.</GT_Adaptive_Desc>
+  <GT_NowAuto>Teď se dělá {0} % efektů (automaticky ubráno)</GT_NowAuto>
+  <GT_SmoothOther>Je zapnutý mod Smooth Frames – karta Plynulost je proto vypnutá, aby se dva mody nepraly o stejnou věc. Smooth FPS už obsahuje všechno ze Smooth Frames: vypni Smooth Frames v seznamu modů a restartuj hru.</GT_SmoothOther>
+  <GT_SecHighSpeed>Plynulost na každé rychlosti</GT_SecHighSpeed>
+  <GT_Budget>Hlídat plynulost obrazu (rozpočet na simulaci)</GT_Budget>
+  <GT_Budget_Desc>Na každé rychlosti (1× až 4×) hra za snímek počítá několik tiků a bez modu jim dá až 45 ms – na vyšších rychlostech se pak obraz trhá. Mod změří, jak dlouho trvá kreslení, a simulaci dá jen zbytek času do cílových FPS. Co se nevejde, udělá v dalších snímcích. Níž můžeš každé rychlosti nastavit vlastní cíl FPS a limit simulace.</GT_Budget_Desc>
+  <GT_Target>Cíl FPS, který se má držet</GT_Target>
+  <GT_Target_Desc>Kolik snímků za sekundu má hra držet i při vysoké rychlosti.</GT_Target_Desc>
+  <GT_Slow>Když FPS klesne</GT_Slow>
+  <GT_Slow_Desc>Plynulý obraz: nestihnuté tiky se zahodí – obraz zůstane plynulý, hra poběží o kousek pomaleji (jako ve hře bez modu, jen bez trhání). Držet rychlost: nestihnuté tiky se dopočítají v dalších snímcích – hra drží rychlost, obraz může být o kousek méně plynulý.</GT_Slow_Desc>
+  <GT_SlowPicture>Ubrat rychlost hry, ne obraz</GT_SlowPicture>
+  <GT_SlowKeep>Držet rychlost hry</GT_SlowKeep>
+  <GT_MaxSim>Nejvíc času na simulaci za snímek: {0}</GT_MaxSim>
+  <GT_MaxSim_Desc>Automaticky = podle cílových FPS a toho, jak dlouho trvá kreslení. Nižší číslo = plynulejší obraz, pomalejší hra.</GT_MaxSim_Desc>
+  <GT_Auto>automaticky</GT_Auto>
+  <GT_Move>FPS při pohybu kamerou a stavění: {0}</GT_Move>
+  <GT_Move_Desc>Když hýbeš kamerou, klikáš nebo stavíš, dostane obraz víc času – ovládání je svižné.</GT_Move_Desc>
+  <GT_RealNormal>Rychlost 1 a 2 vždy naplno</GT_RealNormal>
+  <GT_RealNormal_Desc>Na rychlosti 1 a 2 hra nikdy neběží pomaleji, než má – cíl FPS jen určí, jak plynulý je obraz. U velké kolonie jeden tik trvá déle, než kolik času dává vysoký cíl FPS na snímek, a hra pak běžela tempem FPS (třeba 40 místo 60 tiků za sekundu). Rychlost 3 a 4 se řídí volbou „Když FPS klesne“.</GT_RealNormal_Desc>
+  <GT_FastShare>Rychlost 3 a 4: simulace aspoň půl času</GT_FastShare>
+  <GT_FastShare_Desc>Na rychlosti 3 a 4 dostane simulace vždy aspoň tolik času jako kreslení snímku. Když hra nestíhá cílové FPS (např. cíl 165, ale reálně 45), dostávala simulace jen 3 ms na snímek a rychlost 4 běžela skoro jako rychlost 1. Obraz může být na 3–4 o něco méně plynulý, hra ale pojede opravdu rychle.</GT_FastShare_Desc>
+  <GT_SaveSmart>Automatické ukládání ve vhodnou chvíli</GT_SaveSmart>
+  <GT_SaveSmart_Desc>Uložení velké kolonie zastaví hru na pár sekund a na pozadí bezpečně udělat nejde. Autosave proto počká na chvíli, kdy to nevadí: hra je pozastavená, je otevřené okno nebo karta (Práce, Zdraví …), nebo 4 s na nic nesaháš. Nejpozději po nastavené době uloží tak jako tak. Platí pro ukládání hry i pro mody jako Real Time Autosave.</GT_SaveSmart_Desc>
+  <GT_SaveWait>Nejdéle čekat: {0} min</GT_SaveWait>
+  <GT_Idle>Víc TPS, když se jen díváš</GT_Idle>
+  <GT_Idle_Desc>Na rychlosti 2 a víc, když 2 s na nic nesaháš, kreslí hra méně snímků a ušetřený čas dostane simulace – hra běží rychleji. Jakmile pohneš myší nebo kamerou, vrátí se plné FPS.</GT_Idle_Desc>
+  <GT_IdleFps>FPS, když se jen díváš: {0}</GT_IdleFps>
+  <GT_Background>Na pozadí dát všechen čas simulaci</GT_Background>
+  <GT_Background_Desc>Když přepneš do jiného okna (Alt+Tab), hra kreslí jen 10 snímků (nebo kolik je nastaveno v Grafika → FPS na pozadí) a zbytek dostane simulace.</GT_Background_Desc>
+  <GT_Camera>Plynulá kamera</GT_Camera>
+  <GT_Camera_Desc>Kamera se posouvá podle vyhlazeného času snímku – po zaseknutí neskočí a při kolísajících FPS se nehoupe.</GT_Camera_Desc>
+  <GT_SecHidden>Zátěž, kterou není vidět</GT_SecHidden>
+  <GT_Regen>Překreslení mapy za snímek: {0}</GT_Regen>
+  <GT_Regen_Desc>Když roste tráva, staví se nebo sněží, hra přestaví všechny změněné části mapy v jednom snímku – při 3× to dělá zaseknutí. Tohle omezí počet na snímek, zbytek se udělá v dalších snímcích (o pár setin sekundy později). Zkušební funkce – výchozí vypnuto. Doporučeno 4–8.</GT_Regen_Desc>
+  <GT_Off>vypnuto</GT_Off>
+  <GT_SlowAlerts>Upozornění vpravo kontrolovat méně často při 3×</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>Hra každý snímek přepočítává část upozornění (s mody jich je stovky). Při vysoké rychlosti to stačí každý druhý snímek.</GT_SlowAlerts_Desc>
+  <GT_SecDiag>Diagnostika</GT_SecDiag>
+  <GT_OverlayBar>Graf snímku: simulace vs. vykreslení</GT_OverlayBar>
+  <GT_OverlayBar_Desc>V ukazateli nahoře vpravo je pruh: zelená = simulace (tiky), modrá = kreslení, šedá = rezerva do cílových FPS. Hned vidíš, co brzdí.</GT_OverlayBar_Desc>
+  <GT_Bar>simulace {0} ms · kreslení {1} ms</GT_Bar>
+  <GT_Bench>Test výkonu (60 s na tvé rychlosti)</GT_Bench>
+  <GT_Bench_Desc>Zavře nastavení a 60 sekund měří FPS a TPS na rychlosti, na které hraješ – i 4× se Smart Speed (pozastaveno = 3×). Potom ukáže výsledek a doporučí profil.</GT_Bench_Desc>
+  <GT_BenchStart>Spustit</GT_BenchStart>
+  <GT_BenchNoGame>jen v rozehrané hře</GT_BenchNoGame>
+  <GT_BenchRunning>test: {0} s</GT_BenchRunning>
+  <GT_Bench_Note>Po testu ukáže průměr, nejhorší snímky a doporučí profil.</GT_Bench_Note>
+  <GT_BenchStarted>Test výkonu běží 60 sekund – nech hru běžet a nesahej na ni.</GT_BenchStarted>
+  <GT_BenchTitle>Test výkonu</GT_BenchTitle>
+  <GT_BenchResult>Průměr: {0} FPS\nNejhorší 1 % snímků: {1} FPS\nNejdelší snímek: {2} ms\nRychlost simulace: {3} TPS ({4}× normální rychlost)\nZaseknutí přes 100 ms: {5}\n\nDoporučený profil: {6}</GT_BenchResult>
+  <GT_Hitch>Hledat, co zasekává hru</GT_Hitch>
+  <GT_Hitch_Desc>Při každém zaseknutí zapíše do logu, co trvalo nejdéle (komponenta, mapa, událost) a ze kterého modu je. Stojí trochu výkonu – po nalezení viníka vypni. Projeví se po restartu hry.</GT_Hitch_Desc>
+  <GT_HitchThings>Sledovat i každou věc na mapě (zpomaluje hru)</GT_HitchThings>
+  <GT_HitchThings_Desc>Změří tick každé věci, zvířete a postavy. Najde víc, ale samo stojí výkon. Projeví se po restartu hry.</GT_HitchThings_Desc>
+  <GT_HitchMs>Za zaseknutí považovat snímek delší než {0} ms</GT_HitchMs>
+  <GT_HitchIncident>událost</GT_HitchIncident>
+  <GT_HitchQuest>úkol</GT_HitchQuest>
+  <GT_LastHitch>poslední zaseknutí {0}</GT_LastHitch>
+  <GT_GcHold>Neuklízet paměť uprostřed generování událostí</GT_GcHold>
+  <GT_GcHold_Desc>Když hra vytváří událost, úkol, nájezd nebo mapu, vzniká spousta objektů. Tohle během toho podrží velký úklid paměti a nechá ho proběhnout až potom. Na 1.7 se používá šetrný režim .NET (bez rizika), na 1.6 starý způsob. Výchozí vypnuto.</GT_GcHold_Desc>
+  <GT_NowSmooth>FPS {0} · TPS {1} · simulace {2} ms · kreslení {3} ms · rozpočet {4} ms</GT_NowSmooth>
+  <GT_NowSmoothOff>Rozpočet na simulaci teď neběží (vypnuto nebo není rozehraná hra).</GT_NowSmoothOff>
+  <GT_NowRegen>Odloženo překreslení částí mapy: {0}</GT_NowRegen>
+  <GT_Mode1>ovládání</GT_Mode1>
+  <GT_Mode2>víc TPS</GT_Mode2>
+  <GT_Mode3>na pozadí</GT_Mode3>
+  <GT_BudgetOther>Běh hry řídí i mod {0} – rozpočet na simulaci se proto sám vypnul, aby se mody nepraly. Ostatní funkce Smooth FPS fungují dál.</GT_BudgetOther>
+  <GT_BudgetStuck>Herní čas se zastavil, a tak se rozpočet na simulaci na chvíli stáhl (možná tikání řídí i jiný mod). Za 20 s to zkusí znovu; po 3 zastaveních zůstane vypnutý až do restartu hry.</GT_BudgetStuck>
+  <GT_BenchSpeed>Rychlost hry během testu: až {0}×</GT_BenchSpeed>
+  <GT_SmartTarget>Chytrý cíl FPS</GT_SmartTarget>
+  <GT_SmartTarget_Desc>Když tvůj počítač chvíli nestíhá držet cíl (velká kolonie, nájezd, 4×), cíl se sám postupně sníží (např. 90 → 75 → 60), takže hra drží stálý rytmus místo skákání. Až bude zase rezerva, vrátí se zpátky na tvou volbu.</GT_SmartTarget_Desc>
+  <GT_SmartLowered>Cíl je teď dočasně snížený: {0} FPS (tvoje volba {1}).</GT_SmartLowered>
+  <GT_SmartNow>cíl {0}</GT_SmartNow>
+  <GT_SecFast>4× A RYCHLEJI</GT_SecFast>
+  <GT_FastMode>Režim vysoké rychlosti</GT_FastMode>
+  <GT_FastMode_Desc>Na 4× a rychleji (Smart Speed a podobné mody) stejně nikdo nesleduje každou jiskru: ještě méně efektů a upozornění kontrolovaná jen každý 4. snímek. Na nižších rychlostech se vše vrátí.</GT_FastMode_Desc>
+  <GT_FastWeather>Nekreslit počasí na 4× a výš</GT_FastWeather>
+  <GT_FastWeather_Desc>Déšť, sníh a mlha se na 4× a rychleji nekreslí. Počasí samo funguje dál.</GT_FastWeather_Desc>
+  <GT_FastRegen>Rozložit překreslování mapy na 4× a výš (pokusné)</GT_FastRegen>
+  <GT_FastRegen_Desc>Na 4× a rychleji se za snímek přestaví nejvýš 8 viditelných částí mapy, zbytek o snímek později. Méně záseků, když se toho hodně změní naráz; změněná zeď nebo rostlina se může ukázat o chvilku později.</GT_FastRegen_Desc>
+  <GT_FastNowOn>Režim vysoké rychlosti je právě zapnutý.</GT_FastNowOn>
+  <GT_FastNowOff>Teď neběží – zapne se na 4× a rychleji.</GT_FastNowOff>
+  <GT_Prof>Co brzdí hru (30 s)</GT_Prof>
+  <GT_Prof_Desc>Zavře nastavení a 30 sekund měří na rychlosti, na které hraješ (i 4×), které mody, věci a části hry berou nejvíc času. Pak ukáže 10 nejpomalejších modů a 10 nejpomalejších věcí. Při přípravě a odstranění měření uvidíš krátkou načítací obrazovku. Měření se potom vypne; po dalším restartu hry je všechno přesně jako předtím.</GT_Prof_Desc>
+  <GT_Prof_Note>Ukáže 10 nejpomalejších modů a 10 nejpomalejších věcí nebo funkcí – na rychlosti, na které právě hraješ.</GT_Prof_Note>
+  <GT_ProfShow>Zobrazit poslední výsledek</GT_ProfShow>
+  <GT_ProfPreparing>Smooth FPS: připravuji měření…</GT_ProfPreparing>
+  <GT_ProfStarted>Měřím, co brzdí hru, {0} sekund – nech hru běžet.</GT_ProfStarted>
+  <GT_ProfRunning>měřím: {0} s</GT_ProfRunning>
+  <GT_ProfTitle>Co brzdí hru</GT_ProfTitle>
+  <GT_ProfSummary>Průměr {0} FPS · nejhorší 1 % {1} FPS · simulace {2} TPS ({3}× normální rychlost) · záseky nad 100 ms: {4} · měřeno {5} s</GT_ProfSummary>
+  <GT_ProfMods>Mody – čas za sekundu</GT_ProfMods>
+  <GT_ProfItems>Věci a funkce – čas za sekundu</GT_ProfItems>
+  <GT_ProfVanilla>Samotná hra (RimWorld + DLC)</GT_ProfVanilla>
+  <GT_ProfMsPerSec>{0} ms/s</GT_ProfMsPerSec>
+  <GT_ProfThing>{0} (tiky)</GT_ProfThing>
+  <GT_ProfPatch>úprava {0}</GT_ProfPatch>
+  <GT_ProfNote>Odhad: sledováno {0} míst (z toho {1} úprav modů). Každá milisekunda se počítá jen jednou – nejhlubšímu modu nebo věci, ve které běžela. Kreslení na obrazovku a transpilery (mody přepisující kód hry) takhle změřit nejde. 1000 ms/s = celá sekunda.</GT_ProfNote>
+  <GT_ReportCopy>Kopírovat zprávu o výkonu</GT_ReportCopy>
+  <GT_ReportSave>Uložit zprávu do souboru</GT_ReportSave>
+  <GT_Report_Desc>Všechno o výkonu v jednom textu: tvůj počítač, mapa, aktuální FPS/TPS, nastavení, poslední test výkonu a „co brzdí hru“. Vlož ho do komentáře na Workshopu, když chceš poradit.</GT_Report_Desc>
+  <GT_ReportCopied>Zpráva o výkonu zkopírována – vlož ji pomocí Ctrl+V.</GT_ReportCopied>
+  <GT_ReportSaved>Uloženo: {0}</GT_ReportSaved>
+  <GT_ProfBusy>zaneprázdněno – chvilku počkej</GT_ProfBusy>
+  <GT_ProfRemoving>Smooth FPS: odstraňuji měření…</GT_ProfRemoving>
+  <GT_TabMemory>Paměť a záseky</GT_TabMemory>
+  <GT_SecMem>ÚKLID PAMĚTI</GT_SecMem>
+  <GT_SecMemStats>CO SE DĚJE</GT_SecMemStats>
+  <GT_MemOther>Je zapnutý Fewer Freezes – tahle záložka je vypnutá, aby se nepraly. Fewer Freezes vypni: Smooth FPS už obsahuje všechno z něj, upravené i pro 1.7.</GT_MemOther>
+  <GT_MemMode17>Režim: RimWorld 1.7 a novější (.NET) – vybrán automaticky. Paměť se uklízí na pozadí; velkým úklidům, které zastaví hru, se vyhýbá.</GT_MemMode17>
+  <GT_MemMode16>Režim: RimWorld 1.6 a starší (Mono) – vybrán automaticky. Průběžný úklid každý snímek a velký úklid při pauze.</GT_MemMode16>
+  <GT_MemAuto>Automaticky</GT_MemAuto>
+  <GT_MemAuto_Desc>Podle toho, kolik paměti hra drží, mod sám rozhodne, kolik uklízet průběžně a kdy udělat velký úklid.</GT_MemAuto_Desc>
+  <GT_MemSlice>Průběžný úklid za snímek: {0} ms</GT_MemSlice>
+  <GT_MemSlice_Desc>Víc = paměť se uklízí průběžně a velké zaseknutí přijde méně často, ale FPS může nepatrně klesnout. Hra sama má 3 ms.</GT_MemSlice_Desc>
+  <GT_MemThreshold>Velký úklid, když paměť naroste o: {0} MB</GT_MemThreshold>
+  <GT_MemThreshold_Desc>Menší číslo = uklízí se častěji, větší = méně často.</GT_MemThreshold_Desc>
+  <GT_MemOnPause>Uklidit při pauze</GT_MemOnPause>
+  <GT_MemOnPause_Desc>Když dáš pauzu (nebo otevřeš menu, které hru pozastaví) aspoň na 1,5 s, paměť se uklidí, takže je pak potřeba méně uprostřed hraní. Nejvýš jednou za 90 s. Na 1.7 běží na pozadí.</GT_MemOnPause_Desc>
+  <GT_MemOnSave>Uklidit po uložení hry</GT_MemOnSave>
+  <GT_MemOnSave_Desc>Hned po uložení (i automatickém) – ukládání po sobě nechá hodně nepotřebné paměti.</GT_MemOnSave_Desc>
+  <GT_MemLowLatency>Plynulé hraní: žádné velké úklidy během hry (1.7)</GT_MemLowLatency>
+  <GT_MemLowLatency_Desc>Řekne .NET, ať se během hraní vyhne úklidům, které zastaví celou hru – uklízí pak na pozadí. Hra může držet o něco víc paměti. Když počítači dochází paměť, sám se vrátí k normálu.</GT_MemLowLatency_Desc>
+  <GT_MemCompact>Zhutnit paměť při dlouhé pauze (1.7)</GT_MemCompact>
+  <GT_MemCompact_Desc>Při pauze aspoň 5 s (nejvýš jednou za 30 minut) se paměť sesype k sobě – pomáhá, když hra drží hodiny hodně paměti. Hra se při tom na chvilku zastaví, ale máš stejně pauzu. Ve výchozím stavu vypnuto.</GT_MemCompact_Desc>
+  <GT_MemUnload>Uvolnit nepoužívané textury při pauze</GT_MemUnload>
+  <GT_MemUnload_Desc>Při delší pauze (3 s) uvolní textury a zvuky, které hra už nepoužívá. Pomáhá při velkém množství modů, když dochází paměť. Nejvýš jednou za 10 minut. Vypnuto, protože může krátce trvat.</GT_MemUnload_Desc>
+  <GT_MemRamWarn>Varovat, když dochází paměť počítače</GT_MemRamWarn>
+  <GT_MemRamWarn_Desc>Když hra zabere přes 80 % paměti počítače, pošle jednou dopis s radou, co s tím.</GT_MemRamWarn_Desc>
+  <GT_MemHud>Ukazovat paměť vlevo dole</GT_MemHud>
+  <GT_MemHud_Desc>Malé okénko s pamětí, délkou posledního zastavení a grafem paměti za poslední minutu a půl.</GT_MemHud_Desc>
+  <GT_MemHud_Text>Paměť: {0} MB · poslední zastavení {1} s</GT_MemHud_Text>
+  <GT_MemNow>Hra teď používá {0} MB paměti (vyhrazeno {1} MB), průběžný úklid smí běžet {2} ms za snímek.</GT_MemNow>
+  <GT_MemNow17>Hra teď používá {0} MB paměti.</GT_MemNow17>
+  <GT_MemCollectNow>Uklidit paměť teď</GT_MemCollectNow>
+  <GT_MemDone>Paměť uklizena: {0} → {1} MB ({2} ms)</GT_MemDone>
+  <GT_MemDoneSave>Úklid po uložení: {0} → {1} MB</GT_MemDoneSave>
+  <GT_MemNote>Velikost paměti hře nastavit nejde – RimWorld si bere, kolik potřebuje. Tahle záložka řídí, kdy a jak se paměť uklízí, aby se hra méně sekala. Nahrazuje mod Fewer Freezes.</GT_MemNote>
+  <GT_MemHitches>Za poslední hodinu: {0} záseků delších než 0,25 s, z toho {1} kvůli úklidu paměti. Nejdelší: {2} s.</GT_MemHitches>
+  <GT_MemHitchNone>Za poslední hodinu žádný zásek delší než 0,25 s.</GT_MemHitchNone>
+  <GT_MemCleans>Úklid udělán: {0}× při pauze, {1}× po uložení, {2}× ručně.</GT_MemCleans>
+  <GT_MemRam>Počítač: hra zabírá {0} MB z {1} MB paměti ({2} %).</GT_MemRam>
+  <GT_MemRamWarn_Title>Dochází paměť počítače</GT_MemRamWarn_Title>
+  <GT_MemRamWarn_Text>Hra teď zabírá {0} MB z {1} MB paměti počítače. Když paměť dojde, hra se začne hodně sekat nebo spadne.\n\nCo pomůže:\n- zavřít jiné programy (prohlížeč…),\n- vypnout mody, které nepotřebuješ,\n- mod na kompresi textur,\n- menší mapa nebo méně map najednou.</GT_MemRamWarn_Text>
+  <GT_SecBySpeed>Podle rychlosti hry</GT_SecBySpeed>
+  <GT_BySpeed_Desc>Každá rychlost může mít vlastní cíl FPS a vlastní limit simulace – třeba plynulých 90 FPS na 1× a víc rychlosti hry na 4×. „Jako nahoře“ použije společné nastavení.</GT_BySpeed_Desc>
+  <GT_SpeedTarget>Rychlost {0}: cíl FPS</GT_SpeedTarget>
+  <GT_SpeedTarget_Desc>Cíl FPS jen pro tuhle rychlost. Jako nahoře = společný cíl (nebo chytrý cíl).</GT_SpeedTarget_Desc>
+  <GT_SpeedMaxSim>Rychlost {0}: nejvíc simulace za snímek: {1}</GT_SpeedMaxSim>
+  <GT_SpeedMaxSim_Desc>Jako nahoře = společný limit. Automaticky = podle cílových FPS a doby kreslení. Nižší = plynulejší obraz, pomalejší hra; vyšší = rychlejší hra, méně FPS.</GT_SpeedMaxSim_Desc>
+  <GT_Same>jako nahoře</GT_Same>
+  <GT_Crash_Title>Minulá hra spadla</GT_Crash_Title>
+  <GT_Crash_When>Hra skončila bez řádného zavření {0}.</GT_Crash_When>
+  <GT_Crash_Kind_Loop>Druh: nekonečné zacyklení (stack overflow) – nějaký kód volal sám sebe, dokud hra nespadla. Obvykle chyba modu nebo dva mody, které se volají navzájem.</GT_Crash_Kind_Loop>
+  <GT_Crash_Kind_Memory>Druh: neplatný přístup do paměti – obvykle nativní kód (ovladač grafiky, mod s vlastní knihovnou, překryvy jako OBS/Medal/Discord).</GT_Crash_Kind_Memory>
+  <GT_Crash_Kind_OutOfMemory>Druh: došla paměť.</GT_Crash_Kind_OutOfMemory>
+  <GT_Crash_Kind_Managed>Druh: neošetřená chyba v kódu hry.</GT_Crash_Kind_Managed>
+  <GT_Crash_Kind_Fast>Druh: hra se sama ukončila po vážné vnitřní chybě.</GT_Crash_Kind_Fast>
+  <GT_Crash_KindUnknown>Druh: neznámý (Windows neuložil záznam o pádu – výpadek proudu, hra byla ukončena násilím nebo jsou záznamy vypnuté).</GT_Crash_KindUnknown>
+  <GT_Crash_Place>Kde: zacyklení se opakovalo na políčku mapy ({0}) – podívej se, co tam je postavené nebo co tam leží.</GT_Crash_Place>
+  <GT_Crash_Mods>Mody aktivní v posledních chvílích: {0}</GT_Crash_Mods>
+  <GT_Crash_LastError>Poslední chyba před tím: {0}</GT_Crash_LastError>
+  <GT_Crash_Advice>Celá zpráva: SmoothFPS_crash.txt ve složce s uloženými hrami RimWorldu. Pokud se to opakuje, pošli ji autorům modů uvedených výše.</GT_Crash_Advice>
+  <GT_VramWarnSet>Upozornit, když je paměť grafiky skoro plná</GT_VramWarnSet>
+  <GT_VramWarnSet_Desc>Zpráva, když hra využívá 95 % a víc z toho, co jí ovladač grafiky povolí (kontrola každých 5 s, nejvýš jednou za 10 minut), i s mody, které zabírají nejvíc. Textury, které se nevejdou, se pak ukazují pozdě, prázdné nebo jako červené křížky.</GT_VramWarnSet_Desc>
+  <GT_VramWarn>Paměť grafické karty je skoro plná: {0} z {1} GB. Textury se mohou ukazovat pozdě nebo prázdné. Nejvíc zabírá: {2}. Zavři jiné programy (prohlížeč, Discord, OBS, Medal) nebo se podívej do Smooth FPS → Paměť.</GT_VramWarn>
+  <GT_VramNow>Paměť grafiky: {0} / {1} GB povoleno ({3} %), karta má {2} GB</GT_VramNow>
+  <GT_VramWho>Co zabírá paměť grafiky</GT_VramWho>
+  <GT_VramTitle>Paměť grafické karty</GT_VramTitle>
+  <GT_VramNone>Údaje o paměti grafiky nejsou k dispozici (jen ve verzi 1.7).</GT_VramNone>
+  <GT_VramTop>Nejvíc zabírá (textury podle modů):</GT_VramTop>
+  <GT_VramGame>hra a neznámé</GT_VramGame>
+  <GT_VramTargets>vykreslovací plochy (obrazovka, portréty, efekty)</GT_VramTargets>
+  <GT_VramAtlas>atlasy textur</GT_VramAtlas>
+  <GT_VramOther>modely a ostatní</GT_VramOther>
+  <GT_VramAdvice>Povolené množství určuje ovladač grafiky – snižují ho jiné programy, které grafiku používají. Nejvíc zabírají mody s mnoha velkými texturami (rasy, balíčky ve vysokém rozlišení); vypnutí nepotřebných paměť uvolní.</GT_VramAdvice>
+  <GT_TexCap>Největší obrázek z modů</GT_TexCap>
+  <GT_TexCapOff>bez omezení</GT_TexCapOff>
+  <GT_TexCap_Desc>Obrázky z modů (DDS) větší než tohle se načtou z jejich vlastní menší kopie – méně paměti grafiky, méně pozdě načtených nebo prázdných obrázků. Obrázky samotné hry se nemění, žádné soubory se nemění. Projeví se po restartu. Teď: {0} obrázků, ušetřeno asi {1} MB.</GT_TexCap_Desc>
+  <GT_Laptop>Režim notebook</GT_Laptop>
+  <GT_Laptop_Desc>Nižší limit FPS a o 40 % méně efektů – chladnější, tišší a déle na baterii. „Jen na baterii“ se zapne samo, když odpojíš nabíječku (pokud to systém hlásí).</GT_Laptop_Desc>
+  <GT_LaptopOff>vypnuto</GT_LaptopOff>
+  <GT_LaptopOn>vždy</GT_LaptopOn>
+  <GT_LaptopBattery>jen na baterii</GT_LaptopBattery>
+  <GT_LaptopFps>FPS v režimu notebook</GT_LaptopFps>
+  <GT_LaptopFps_Desc>Limit FPS, když běží režim notebook. Nižší limit, který si nastavíš sám, zůstane.</GT_LaptopFps_Desc>
+  <GT_LaptopNowBattery>Teď: běžíš na baterii – režim notebook je zapnutý.</GT_LaptopNowBattery>
+  <GT_LaptopNowMains>Teď: na nabíječce (nebo systém baterii nehlásí) – režim notebook čeká.</GT_LaptopNowMains>
+  <GT_MC_Open>Co je na této mapě náročné</GT_MC_Open>
+  <GT_MC_Open_Desc>Spočítá všechno, co hra na aktuální mapě musí aktualizovat, a poradí, co uklidit. Nic nemění.</GT_MC_Open_Desc>
+  <GT_MC_Title>Co je na této mapě náročné</GT_MC_Title>
+  <GT_MC_Sub>Mapa: {0} · oranžově = hodně, rady vpravo</GT_MC_Sub>
+  <GT_MC_Colonists>Kolonisté</GT_MC_Colonists>
+  <GT_MC_AnimalsOwn>Tvá zvířata</GT_MC_AnimalsOwn>
+  <GT_MC_AnimalsWild>Divoká zvířata</GT_MC_AnimalsWild>
+  <GT_MC_Mechs>Mechanoidi</GT_MC_Mechs>
+  <GT_MC_Hostile>Nepřátelé</GT_MC_Hostile>
+  <GT_MC_OtherPawns>Ostatní lidé (hosté, vězni …)</GT_MC_OtherPawns>
+  <GT_MC_Ticking>Věci aktualizované každý tik</GT_MC_Ticking>
+  <GT_MC_Rare>Věci aktualizované občas</GT_MC_Rare>
+  <GT_MC_Long>Věci aktualizované zřídka</GT_MC_Long>
+  <GT_MC_Filth>Špína</GT_MC_Filth>
+  <GT_MC_Loose>Věci ležící mimo sklad</GT_MC_Loose>
+  <GT_MC_Corpses>Mrtvoly</GT_MC_Corpses>
+  <GT_MC_Plants>Rostliny</GT_MC_Plants>
+  <GT_MC_Fires>Ohně</GT_MC_Fires>
+  <GT_MC_Buildings>Tvé budovy</GT_MC_Buildings>
+  <GT_MC_WorldPawns>Postavy ve světě (uložené na pozadí)</GT_MC_WorldPawns>
+  <GT_MC_Things>Všechny věci na mapě</GT_MC_Things>
+  <GT_MC_Top>Nejčastější věci aktualizované každý tik</GT_MC_Top>
+  <GT_MC_Tips>Rady</GT_MC_Tips>
+  <GT_MC_AllGood>Nic nevyčnívá – mapa je v pořádku. Pokud je hra pořád pomalá, použij „Co zpomaluje hru“.</GT_MC_AllGood>
+  <GT_MC_TipAnimals>Máš {0} zvířat. Každé přemýšlí a hýbe se každý tik – poraž nebo prodej ta, která nepotřebuješ.</GT_MC_TipAnimals>
+  <GT_MC_TipWild>{0} divokých zvířat na mapě. Pomůže Wild Spawn Zone nebo nižší hustota zvířat.</GT_MC_TipWild>
+  <GT_MC_TipTicking>{0} věcí se aktualizuje každý tik. Podívej se na seznam vpravo – stavba nebo věc z modu, které máš hodně, umí stát hodně výkonu.</GT_MC_TipTicking>
+  <GT_MC_TipFilth>{0} kousků špíny. Úklid (nebo uklízecí robot) mapu odlehčí.</GT_MC_TipFilth>
+  <GT_MC_TipLoose>{0} věcí leží mimo sklad. Odnést je do skladu hodně pomůže.</GT_MC_TipLoose>
+  <GT_MC_TipCorpses>{0} mrtvol. Spal je nebo pohřbi – hnijí a pořád se aktualizují.</GT_MC_TipCorpses>
+  <GT_MC_TipFires>Hoří {0} ohňů. Oheň je náročný, dokud se šíří.</GT_MC_TipFires>
+  <GT_MC_TipWorldPawns>Na pozadí světa žije {0} postav. Ukládání a načítání se zpomaluje; pomůže mod na úklid postav ve světě.</GT_MC_TipWorldPawns>
+  <GT_MC_Refresh>Spočítat znovu</GT_MC_Refresh>
+  <GT_HitchDeep>Hloubkové hledání: co přesně uvnitř kolonisty trvá (zpomaluje hru)</GT_HitchDeep>
+  <GT_HitchDeep_Desc>Ke každému záseku napíše i podrobnosti: hledání práce (která práce a z kterého modu), rozhodování postavy, hledání cesty, komponenty věcí a nemocí, potřeby. Zapni ho jen na hledání příčiny, pak ho zase vypni. Projeví se po restartu hry.</GT_HitchDeep_Desc>
+  <GT_HitchOwnGc>úklid paměti [Smooth FPS]</GT_HitchOwnGc>
+  <GT_DeepWork>hledání práce {0} ({1})</GT_DeepWork>
+  <GT_DeepJobSearch>hledání práce celkem</GT_DeepJobSearch>
+  <GT_DeepPather>chůze postav</GT_DeepPather>
+  <GT_DeepPath>hledání cesty (okamžité)</GT_DeepPath>
+  <GT_DeepKindJobGiver>rozhodování</GT_DeepKindJobGiver>
+  <GT_DeepKindComp>komponenta</GT_DeepKindComp>
+  <GT_DeepKindHediff>zdraví</GT_DeepKindHediff>
+  <GT_DeepKindNeed>potřeba</GT_DeepKindNeed>
+  <GT_TabSim>Simulace</GT_TabSim>
+  <GT_SizeHeader>Velikost hry – podle ní se šetří výkon simulace (svět, mapy, úklid)</GT_SizeHeader>
+  <GT_SizeAuto>Automaticky</GT_SizeAuto>
+  <GT_SizeAuto_Card>Pozná se sám podle počtu modů, velikosti mapy a světa. Teď: {0}.</GT_SizeAuto_Card>
+  <GT_SizeSmall>Malá hra</GT_SizeSmall>
+  <GT_SizeSmall_Card>Málo modů, menší mapa. Hra běží jako bez modu, nic se nemění.</GT_SizeSmall_Card>
+  <GT_SizeNormal>Běžná hra</GT_SizeNormal>
+  <GT_SizeNormal_Card>Středně velký modpack. Vzdálený svět a ostatní mapy se aktualizují 2× méně často.</GT_SizeNormal_Card>
+  <GT_SizeHuge>Obří hra</GT_SizeHuge>
+  <GT_SizeHuge_Card>Obří mapa a stovky modů. Svět a ostatní mapy 4× méně často, věci mimo obrazovku 2× méně.</GT_SizeHuge_Card>
+  <GT_SimTickSec>Chytřejší tick</GT_SimTickSec>
+  <GT_SimSmartTick>Aktualizovat vzdálené věci méně často</GT_SimSmartTick>
+  <GT_SimSmartTick_Desc>Hra už teď aktualizuje potřeby, zdraví, růst a časovače u věcí, které nevidíš, jen každých 15 tiků – vždy s celým uplynulým časem. Tady se to podle velikosti hry prodlouží: vzdálené osady, místa a světové postavy, ostatní mapy bez nebezpečí, v obří hře i věci mimo obrazovku. Nic se nepřeskakuje, jen se počítá ve větších krocích. Při boji, požáru a u povolaných kolonistů zůstává vše jako ve hře.</GT_SimSmartTick_Desc>
+  <GT_SimRates>Teď: svět každých {0} tiků, ostatní mapy {1}, mimo obrazovku {2} (hra sama: 15).</GT_SimRates>
+  <GT_TC_Open>Co zpomaluje tick…</GT_TC_Open>
+  <GT_TC_NeedHitch>Okno potřebuje zapnutý Hledač záseků (záložka Plynulost) – měří jeho měřicími body.</GT_TC_NeedHitch>
+  <GT_TC_Title>Co zpomaluje tick</GT_TC_Title>
+  <GT_TC_Sub>Kolik milisekund za vteřinu hraní bere každá část světa a mapy (posledních {0} s, profil: {1}). Obnovuje se každé 3 s.</GT_TC_Sub>
+  <GT_TC_Ms>{0} ms/s</GT_TC_Ms>
+  <GT_TC_Wait>Měřím… nech hru chvíli běžet.</GT_TC_Wait>
+  <GT_SimCleanSec>Úklid světa</GT_SimCleanSec>
+  <GT_SimClean>Uklízet staré bitvy a nepotřebné světové postavy</GT_SimClean>
+  <GT_SimClean_Desc>Staré bitvy v záznamu boje drží v paměti a v savu každou postavu, která v nich bojovala (i mrtvé nájezdníky). Nechají se jen nejnovější bitvy a pak proběhne vlastní úklid hry – ten vždy nechá kolonisty, příbuzné, vůdce frakcí, postavy z úkolů a příběhů. Menší save, rychlejší ukládání, méně paměti. Automaticky v pauze, nejvýš jednou za 2 herní dny.</GT_SimClean_Desc>
+  <GT_SimKeep>Nechává se {0} nejnovějších bitev.</GT_SimKeep>
+  <GT_SimKeepOff>V Malé hře se neuklízí.</GT_SimKeepOff>
+  <GT_SimWorldLine>Svět: {0} živých a {1} mrtvých světových postav, {2} objektů, {3} bitev v záznamu.</GT_SimWorldLine>
+  <GT_SimCleanNow>Uklidit svět teď</GT_SimCleanNow>
+  <GT_SimCleaning>Uklízím svět…</GT_SimCleaning>
+  <GT_SimCleaned>Úklid světa: odebráno {0} postav (zbývá {1}), smazáno {2} starých bitev ({3} ms).</GT_SimCleaned>
+  <GT_FastCull>Rychlejší výběr věcí ke kreslení</GT_FastCull>
+  <GT_FastCull_Desc>Hra každý snímek u každé kreslené věci na mapě (postavy, zvířata, animované budovy, věci z modů) počítá přesnou polohu a velikost – i u věcí daleko mimo obrazovku, které hned zahodí. U věcí jasně mimo obrazovku se tady vezme jen jejich políčko a hra je zahodí stejně jako dřív, jen bez drahého výpočtu. Věci na obrazovce a kolem ní se počítají přesně jako ve hře.</GT_FastCull_Desc>
+  <GT_TC_Things>Věcí kreslených v reálném čase na mapě: {0}.</GT_TC_Things>
+</LanguageData>

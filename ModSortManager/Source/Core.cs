@@ -1,0 +1,1015 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Xml;
+using HarmonyLib;
+using RimWorld;
+using UnityEngine;
+using Verse;
+using Verse.Steam;
+
+namespace ModSortManager
+{
+    public class MSMSettings : ModSettings
+    {
+        public bool recommended = true;
+        // the game's "Mods" button opens Mod Sort Manager
+        public bool replaceModsWindow = true;
+        // entry in the Esc menu during a game (off by default)
+        public bool escMenuEntry = false;
+        // main menu: after the restart load the newest save
+        public bool loadLastSave = false;
+        // in a game: after the restart return to the game
+        public bool returnToGame = true;
+        // 0.1.2: after a start, compare the mod list with the last save
+        public bool orderGuard = true;
+        public bool preSaveCheck = true;
+        public int settingsVersion = 1;
+
+        public override void ExposeData()
+        {
+            Scribe_Values.Look(ref recommended, "recommended", true);
+            Scribe_Values.Look(ref replaceModsWindow, "replaceModsWindow", true);
+            Scribe_Values.Look(ref escMenuEntry, "escMenuEntry", false);
+            Scribe_Values.Look(ref loadLastSave, "loadLastSave", false);
+            Scribe_Values.Look(ref returnToGame, "returnToGame", true);
+            Scribe_Values.Look(ref orderGuard, "orderGuard", true);
+            Scribe_Values.Look(ref preSaveCheck, "preSaveCheck", true);
+            Scribe_Values.Look(ref settingsVersion, "settingsVersion", 1);
+        }
+    }
+
+    public class MSMMod : Mod
+    {
+        public const string Version = "0.1.3";
+        public static MSMSettings Settings;
+
+        public MSMMod(ModContentPack content) : base(content)
+        {
+            Settings = GetSettings<MSMSettings>();
+            MUI.Init(new MSMSettings(), null, "recommended", "settingsVersion", "loadLastSave", "returnToGame");
+            if (Settings.recommended)
+                MUI.ApplyAll(Settings);
+            var h = new Harmony("misak.modsortmanager");
+            // 0.1.2: one failing patch must not stop the others
+            foreach (Type t in AccessTools.GetTypesFromAssembly(Assembly.GetExecutingAssembly()))
+            {
+                if (t.GetCustomAttributes(typeof(HarmonyPatch), false).Length == 0) continue;
+                try { h.CreateClassProcessor(t).Patch(); }
+                catch (Exception e) { Log.Error("[Mod Sort Manager] patch " + t.Name + " failed: " + e.Message); }
+            }
+            MUI.PatchWindow(h, typeof(MSMMod));
+            Log.Message("[Mod Sort Manager] v" + Version + " loaded.");
+        }
+
+        public override string SettingsCategory() => "Mod Sort Manager";
+
+        public override void DoSettingsWindowContents(Rect inRect)
+        {
+            MUI.Version(inRect, "v" + Version + " · Bolek98");
+            var bullets = new List<string> { "MSM_BulletButton".Translate(), "MSM_BulletBackup".Translate(), "MSM_BulletAside".Translate(), "MSM_BulletEscOff".Translate() };
+            float y = inRect.y;
+            y += MUI.RecommendedCard(new Rect(inRect.x, y, inRect.width, 0f), Settings, Settings.recommended,
+                on => { Settings.recommended = on; if (on) MUI.ApplyAll(Settings); }, bullets) + 10f;
+            if (Settings.recommended)
+                y += MUI.LockNote(new Rect(inRect.x, y, inRect.width, 0f)) + 10f;
+            Rect body = new Rect(inRect.x, y, inRect.width, inRect.yMax - y - 50f);
+            MUI.BeginLock(Settings.recommended);
+            var l = new Listing_Standard();
+            l.Begin(body);
+            MUI.Section(l, "MSM_SecWhere".Translate());
+            MUI.Check(l, "MSM_SetReplace".Translate(), "MSM_SetReplaceTip".Translate(), ref Settings.replaceModsWindow, Settings, "replaceModsWindow");
+            MUI.Check(l, "MSM_SetEsc".Translate(), "MSM_SetEscTip".Translate(), ref Settings.escMenuEntry, Settings, "escMenuEntry");
+            MUI.Check(l, "MSM_SetGuard".Translate(), "MSM_SetGuardTip".Translate(), ref Settings.orderGuard, Settings, "orderGuard");
+            MUI.Check(l, "MSM_SetPreSave".Translate(), "MSM_SetPreSaveTip".Translate(), ref Settings.preSaveCheck, Settings, "preSaveCheck");
+            l.End();
+            MUI.EndLock(body);
+            if (Widgets.ButtonText(new Rect(inRect.x, inRect.yMax - 40f, 280f, 36f), "MSM_OpenNow".Translate()))
+                Find.WindowStack.Add(new Dialog_ModSortManager());
+        }
+    }
+
+    public static class MSM
+    {
+        public static bool openingVanilla;
+
+        // another manager replaces the game's mod window – we do not fight it
+        public static string OtherManager()
+        {
+            string[] ids = { "fluffy.modmanager", "fluffy.modmanager.continued" };
+            foreach (string id in ids)
+            {
+                ModMetaData m = ModLister.GetActiveModWithIdentifier(id, true);
+                if (m != null)
+                    return m.Name;
+            }
+            return null;
+        }
+
+        public static bool ShouldReplace()
+        {
+            return MSMMod.Settings != null && MSMMod.Settings.replaceModsWindow && !openingVanilla && OtherManager() == null;
+        }
+
+        // the original window was opened from Mod Sort Manager – closing it goes back
+        public static bool vanillaFromUs;
+
+        public static void OpenVanilla()
+        {
+            vanillaFromUs = true;
+            openingVanilla = true;
+            try { Find.WindowStack.Add(new Page_ModsConfig()); }
+            finally { openingVanilla = false; }
+        }
+
+        public static string DataDir
+        {
+            get
+            {
+                string d = Path.Combine(GenFilePaths.SaveDataFolderPath, "ModSortManager");
+                Directory.CreateDirectory(d);
+                return d;
+            }
+        }
+
+        public static string BackupDir
+        {
+            get { string d = Path.Combine(DataDir, "Backups"); Directory.CreateDirectory(d); return d; }
+        }
+
+        public static string ParkDir
+        {
+            // next to the Mods folder (same drive, so a folder move works), not inside it
+            get { string d = Path.Combine(Directory.GetParent(Path.GetFullPath(GenFilePaths.ModsFolderPath).TrimEnd('\\', '/')).FullName, "Mods_MSM_odlozene"); Directory.CreateDirectory(d); return d; }
+        }
+
+        // copy of the current ModsConfig.xml, the last 20 are kept
+        public static void BackupModsConfig()
+        {
+            try
+            {
+                string src = GenFilePaths.ModsConfigFilePath;
+                if (!File.Exists(src))
+                    return;
+                FileInfo newest = new DirectoryInfo(BackupDir).GetFiles("ModsConfig_*.xml").OrderByDescending(f => f.Name).FirstOrDefault();
+                if (newest != null && File.ReadAllText(newest.FullName) == File.ReadAllText(src))
+                    return;   // same as the last backup
+                string dst = Path.Combine(BackupDir, "ModsConfig_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".xml");
+                File.Copy(src, dst, true);
+                var old = new DirectoryInfo(BackupDir).GetFiles("ModsConfig_*.xml").OrderByDescending(f => f.Name).Skip(20).ToList();
+                foreach (FileInfo f in old)
+                    f.Delete();
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Mod Sort Manager] backup failed: " + e.Message);
+            }
+        }
+
+        public static List<string> ReadModsConfigIds(string path)
+        {
+            var list = new List<string>();
+            try
+            {
+                var doc = new XmlDocument();
+                doc.Load(path);
+                XmlNode n = doc.SelectSingleNode("//activeMods");
+                if (n != null)
+                    foreach (XmlNode li in n.ChildNodes)
+                        if (li.Name == "li" && !li.InnerText.NullOrEmpty())
+                            list.Add(li.InnerText.Trim());
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Mod Sort Manager] could not read " + path + ": " + e.Message);
+            }
+            return list;
+        }
+
+        public static ModMetaData FindMod(string id)
+        {
+            if (id.NullOrEmpty()) return null;
+            ModMetaData m = ModLister.GetModWithIdentifier(id) ?? ModLister.GetModWithIdentifier(id, true);
+            if (m == null && id.EndsWith(ModMetaData.SteamModPostfix, StringComparison.OrdinalIgnoreCase))
+            {
+                string bare = id.Substring(0, id.Length - ModMetaData.SteamModPostfix.Length);
+                m = ModLister.GetModWithIdentifier(bare) ?? ModLister.GetModWithIdentifier(bare, true);
+            }
+            return m;
+        }
+
+        public static string SourceLabel(ModMetaData m)
+        {
+            if (m.Official) return "MSM_SrcOfficial".Translate();
+            if (m.OnSteamWorkshop) return "MSM_SrcSteam".Translate();
+            return "MSM_SrcLocal".Translate();
+        }
+
+        public static string Versions(ModMetaData m)
+        {
+            try
+            {
+                var v = m.SupportedVersionsReadOnly;
+                if (v == null || v.Count == 0) return "?";
+                return string.Join(", ", v.Select(x => x.Major + "." + x.Minor).ToArray());
+            }
+            catch { return "?"; }
+        }
+
+        public static void OpenFolder(string path)
+        {
+            try { Application.OpenURL("file:///" + path.Replace('\\', '/')); }
+            catch (Exception e) { Messages.Message(e.Message, MessageTypeDefOf.RejectInput, false); }
+        }
+
+        public static void OpenPage(ModMetaData m)
+        {
+            if (m == null) return;
+            if (m.OnSteamWorkshop)
+                Application.OpenURL("https://steamcommunity.com/sharedfiles/filedetails/?id=" + m.RootDir.Name);
+            else if (!m.Url.NullOrEmpty())
+                Application.OpenURL(m.Url);
+        }
+
+        public static bool CanOpenPage(ModMetaData m)
+        {
+            return m != null && (m.OnSteamWorkshop || !m.Url.NullOrEmpty());
+        }
+
+        public static Mod SettingsHandle(ModMetaData m)
+        {
+            try
+            {
+                foreach (Mod h in LoadedModManager.ModHandles)
+                    if (h.Content != null && m.SamePackageId(h.Content.PackageId, true) && !h.SettingsCategory().NullOrEmpty())
+                        return h;
+            }
+            catch { }
+            return null;
+        }
+
+        public static bool CanUpload(ModMetaData m)
+        {
+            try { return m != null && !m.Official && !m.OnSteamWorkshop && SteamManager.Initialized && m.CanToUploadToWorkshop(); }
+            catch { return false; }
+        }
+
+        // the same steps as the game's own "Upload to Steam Workshop"
+        public static void Upload(ModMetaData mod)
+        {
+            try
+            {
+                List<string> issues = mod.loadFolders?.GetIssueList(mod);
+                if (mod.HadIncorrectlyFormattedVersionInMetadata)
+                {
+                    Messages.Message("MessageModNeedsWellFormattedTargetVersion".Translate(VersionControl.CurrentMajor + "." + VersionControl.CurrentMinor), MessageTypeDefOf.RejectInput, false);
+                    return;
+                }
+                if (mod.HadIncorrectlyFormattedPackageId)
+                {
+                    Verse.Find.WindowStack.Add(new Dialog_MessageBox("MessageModNeedsWellFormattedPackageId".Translate()));
+                    return;
+                }
+                if (issues != null && issues.Count > 0)
+                {
+                    Verse.Find.WindowStack.Add(new Dialog_MessageBox("ModHadLoadFolderIssues".Translate() + "\n" + issues.ToLineList("  - ")));
+                    return;
+                }
+                Action author = delegate
+                {
+                    Dialog_MessageBox d = Dialog_MessageBox.CreateConfirmation("ConfirmContentAuthor".Translate(), () => DoUpload(mod), true);
+                    d.buttonAText = "Yes".Translate();
+                    d.buttonBText = "No".Translate();
+                    d.interactionDelay = 6f;
+                    Verse.Find.WindowStack.Add(d);
+                };
+                Type dt = AccessTools.TypeByName("RimWorld.Dialog_ConfirmModUpload");
+                Window w = null;
+                try { w = dt == null ? null : Activator.CreateInstance(dt, mod, author) as Window; } catch { }
+                if (w != null) Verse.Find.WindowStack.Add(w); else author();
+            }
+            catch (Exception e)
+            {
+                Log.Error("[Mod Sort Manager] upload: " + e);
+            }
+        }
+
+        // 0.1.1: the game sends the description only when the item is created – an update through
+        // Mod Sort Manager also sends the current description from About.xml
+        public static float uploadWithDescriptionUntil = -1f;
+
+        private static void DoUpload(ModMetaData mod)
+        {
+            uploadWithDescriptionUntil = Time.realtimeSinceStartup + 120f;
+            Type w = AccessTools.TypeByName("Verse.Steam.Workshop");
+            MethodInfo m = w == null ? null : AccessTools.Method(w, "BakeAndUpload", new[] { typeof(ModMetaData) });   // 1.7
+            if (m != null) { m.Invoke(null, new object[] { mod }); return; }
+            m = w == null ? null : w.GetMethods(BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public)
+                .FirstOrDefault(x => x.Name == "Upload" && x.GetParameters().Length == 1 && x.GetParameters()[0].ParameterType.IsAssignableFrom(typeof(ModMetaData)));   // 1.6
+            if (m != null) m.Invoke(null, new object[] { mod });
+            else Messages.Message("Workshop upload not available.", MessageTypeDefOf.RejectInput, false);
+        }
+
+        private static MethodInfo unsubscribe;
+
+        public static bool Unsubscribe(ModMetaData m)
+        {
+            try
+            {
+                if (unsubscribe == null)
+                {
+                    Type t = AccessTools.TypeByName("Verse.Steam.Workshop");
+                    unsubscribe = t?.GetMethods(BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public)
+                        .FirstOrDefault(x => x.Name == "Unsubscribe" && x.GetParameters().Length == 1 && x.GetParameters()[0].ParameterType.IsAssignableFrom(typeof(ModMetaData)));
+                }
+                if (unsubscribe == null) return false;
+                unsubscribe.Invoke(null, new object[] { m });
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Mod Sort Manager] unsubscribe failed: " + e.Message);
+                return false;
+            }
+        }
+    }
+
+    // ---------------- return to the game after a restart ----------------
+    public static class ReturnToSave
+    {
+        private static string FlagPath => Path.Combine(MSM.DataDir, "return.txt");
+        private static bool checkedOnce;
+
+        public static bool Pending { get { try { return File.Exists(FlagPath); } catch { return false; } } }
+
+        // check = show the game's own version / mod mismatch warning before loading
+        public static void Write(string saveName, bool check = false)
+        {
+            try { File.WriteAllText(FlagPath, (check ? "check:" : "") + saveName); }
+            catch (Exception e) { Log.Warning("[Mod Sort Manager] " + e.Message); }
+        }
+
+        public static string NewestSave()
+        {
+            try
+            {
+                FileInfo f = GenFilePaths.AllSavedGameFiles.OrderByDescending(x => x.LastWriteTime).FirstOrDefault();
+                return f == null ? null : Path.GetFileNameWithoutExtension(f.Name);
+            }
+            catch { return null; }
+        }
+
+        // called from the main menu: once per start
+        public static void Check()
+        {
+            if (checkedOnce) return;
+            checkedOnce = true;
+            try
+            {
+                if (!File.Exists(FlagPath)) return;
+                string name = File.ReadAllText(FlagPath).Trim();
+                File.Delete(FlagPath);   // never loop
+                bool check = name.StartsWith("check:");
+                if (check) name = name.Substring(6);
+                if (name.NullOrEmpty() || !File.Exists(GenFilePaths.FilePathForSavedGame(name))) return;
+                Log.Message("[Mod Sort Manager] returning to save " + name);
+                if (check) GameDataSaveLoader.CheckVersionAndLoadGame(name);
+                else GameDataSaveLoader.LoadGame(name);
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Mod Sort Manager] return to save failed: " + e.Message);
+            }
+        }
+    }
+
+    // ---------------- patches ----------------
+    [HarmonyPatch(typeof(WindowStack), nameof(WindowStack.Add))]
+    public static class Patch_WindowStackAdd
+    {
+        public static bool Prefix(Window window)
+        {
+            try
+            {
+                if (window is Page_ModsConfig && MSM.ShouldReplace())
+                {
+                    Find.WindowStack.Add(new Dialog_ModSortManager());
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Log.WarningOnce("[Mod Sort Manager] " + e.Message, 0x35a1001);
+            }
+            return true;
+        }
+    }
+
+    // a small button in the game's own mod window (shown when it opens: setting off or "original window")
+    [HarmonyPatch(typeof(Page_ModsConfig), nameof(Page_ModsConfig.DoWindowContents))]
+    public static class Patch_VanillaButton
+    {
+        // top right corner – free in the game's window
+        private static Rect Btn(Rect rect) => new Rect(rect.xMax - 200f, rect.y, 200f, 30f);
+
+        public static void Prefix(Page_ModsConfig __instance, Rect rect)
+        {
+            try
+            {
+                Event ev = Event.current;
+                if (ev.type == EventType.MouseDown && ev.button == 0 && Mouse.IsOver(Btn(rect)))
+                {
+                    ev.Use();
+                    MSM.vanillaFromUs = false;
+                    Traverse.Create(__instance).Field("discardChanges").SetValue(true);
+                    __instance.Close();
+                    Find.WindowStack.Add(new Dialog_ModSortManager());
+                }
+            }
+            catch (Exception e)
+            {
+                Log.WarningOnce("[Mod Sort Manager] vanilla button: " + e.Message, 0x35a1003);
+            }
+        }
+
+        public static void Postfix(Rect rect)
+        {
+            try
+            {
+                Widgets.ButtonText(Btn(rect), "Mod Sort Manager");
+            }
+            catch (Exception e)
+            {
+                Log.WarningOnce("[Mod Sort Manager] vanilla button: " + e.Message, 0x35a1002);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(Page_ModsConfig), nameof(Page_ModsConfig.PostClose))]
+    public static class Patch_VanillaClosed
+    {
+        public static void Postfix(Page_ModsConfig __instance)
+        {
+            try
+            {
+                if (!MSM.vanillaFromUs) return;
+                MSM.vanillaFromUs = false;
+                // saved with changed mods → the game asks to restart; otherwise back to Mod Sort Manager
+                var t = Traverse.Create(__instance);
+                bool saved = t.Field("saveChanges").GetValue<bool>();
+                int hash = t.Field("activeModsWhenOpenedHash").GetValue<int>();
+                if (saved && hash != ModLister.InstalledModsListHash(true)) return;
+                Find.WindowStack.Add(new Dialog_ModSortManager());
+            }
+            catch (Exception e)
+            {
+                Log.WarningOnce("[Mod Sort Manager] back from the original window: " + e.Message, 0x35a1004);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(OptionListingUtility), nameof(OptionListingUtility.DrawOptionListing))]
+    public static class Patch_EscMenu
+    {
+        private static string ourLabel;
+
+        public static void Prefix(List<ListableOption> optList)
+        {
+            try
+            {
+                if (MSMMod.Settings == null || !MSMMod.Settings.escMenuEntry || Current.ProgramState != ProgramState.Playing || optList == null)
+                    return;
+                string options = "Options".Translate();
+                int idx = optList.FindIndex(o => o != null && o.label == options);
+                if (idx < 0) return;
+                if (ourLabel == null) ourLabel = "Mod Sort Manager";
+                if (optList.Any(o => o != null && o.label == ourLabel)) return;
+                optList.Insert(idx + 1, new ListableOption(ourLabel, () =>
+                {
+                    try { Find.MainTabsRoot.EscapeCurrentTab(false); } catch { }
+                    Find.WindowStack.Add(new Dialog_ModSortManager());
+                }) { minHeight = 34f });
+            }
+            catch
+            {
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(MainMenuDrawer), nameof(MainMenuDrawer.MainMenuOnGUI))]
+    public static class Patch_MainMenu
+    {
+        public static void Postfix()
+        {
+            if (Current.ProgramState != ProgramState.Entry) return;
+            try { Startup.OnMainMenu(); } catch (Exception e) { Log.WarningOnce("[Mod Sort Manager] " + e.Message, 0x35a1005); }
+            if (!Bisect.Active) ReturnToSave.Check();
+        }
+    }
+
+    // ---------------- duplicates on disk ----------------
+    public class DupCopy
+    {
+        public string id, name, version, path;
+        public bool steam;
+        public ModMetaData meta;   // as the game knows it (null = ignored by the game)
+        public DateTime time;
+    }
+
+    public static class Duplicates
+    {
+        // copies moved away / unsubscribed this session (Steam unsubscribing finishes later)
+        public static readonly HashSet<string> Handled = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        public static List<List<DupCopy>> Scan()
+        {
+            var all = new List<DupCopy>();
+            try
+            {
+                foreach (DirectoryInfo d in new DirectoryInfo(GenFilePaths.ModsFolderPath).GetDirectories())
+                    Read(d, false, all);
+            }
+            catch (Exception e) { Log.Warning("[Mod Sort Manager] mods folder scan: " + e.Message); }
+            var steamDirs = new HashSet<string>();
+            try
+            {
+                Type t = AccessTools.TypeByName("Verse.Steam.WorkshopItems");
+                var items = t?.GetProperty("AllSubscribedItems", BindingFlags.Static | BindingFlags.Public)?.GetValue(null, null) as System.Collections.IEnumerable;
+                if (items != null)
+                    foreach (object it in items)
+                    {
+                        var dir = it.GetType().GetProperty("Directory")?.GetValue(it, null) as DirectoryInfo;
+                        if (dir != null) steamDirs.Add(dir.FullName);
+                    }
+            }
+            catch { }
+            foreach (ModMetaData m in ModLister.AllInstalledMods)
+                if (m.OnSteamWorkshop) steamDirs.Add(m.RootDir.FullName);
+            foreach (string s in steamDirs)
+                try { Read(new DirectoryInfo(s), true, all); } catch { }
+
+            var byPath = new Dictionary<string, ModMetaData>(StringComparer.OrdinalIgnoreCase);
+            foreach (ModMetaData m in ModLister.AllInstalledMods)
+                byPath[m.RootDir.FullName] = m;
+            foreach (DupCopy c in all)
+            {
+                ModMetaData m;
+                if (byPath.TryGetValue(c.path, out m)) c.meta = m;
+            }
+            return all.Where(c => !c.id.StartsWith("ludeon.") && !Handled.Contains(c.path)).GroupBy(c => c.id).Where(g => g.Count() > 1).Select(g => g.ToList()).ToList();
+        }
+
+        private static void Read(DirectoryInfo d, bool steam, List<DupCopy> all)
+        {
+            if (!d.Exists) return;
+            string about = GenFile.ResolveCaseInsensitiveFilePath(Path.Combine(d.FullName, "About"), "About.xml");
+            if (about == null || !File.Exists(about)) return;
+            try
+            {
+                var doc = new XmlDocument();
+                doc.Load(about);
+                string id = doc.SelectSingleNode("/ModMetaData/packageId")?.InnerText?.Trim();
+                if (id.NullOrEmpty()) return;
+                all.Add(new DupCopy
+                {
+                    id = id.ToLowerInvariant(),
+                    name = doc.SelectSingleNode("/ModMetaData/name")?.InnerText?.Trim() ?? d.Name,
+                    version = doc.SelectSingleNode("/ModMetaData/modVersion")?.InnerText?.Trim() ?? "",
+                    path = d.FullName,
+                    steam = steam,
+                    time = File.GetLastWriteTime(about)
+                });
+            }
+            catch { }
+        }
+
+        // the newer copy: by modVersion, otherwise by date
+        public static DupCopy Newest(List<DupCopy> g)
+        {
+            DupCopy best = null;
+            foreach (DupCopy c in g)
+            {
+                if (best == null) { best = c; continue; }
+                Version a, b;
+                bool pa = Version.TryParse(c.version, out a), pb = Version.TryParse(best.version, out b);
+                if (pa && pb && a != b) { if (a > b) best = c; continue; }
+                if (c.time > best.time) best = c;
+            }
+            return best;
+        }
+    }
+
+    // ---------------- "do the same thing": Harmony patches that can replace the same code ----------------
+    public class SamePair
+    {
+        public ModMetaData a, b;
+        public List<string> methods = new List<string>();
+        public bool hot;
+    }
+
+    public static class SameThing
+    {
+        private static readonly HashSet<string> Hot = new HashSet<string>
+        {
+            "TickManager.TickManagerUpdate", "TickManager.DoSingleTick", "JobGiver_OptimizeApparel.TryGiveJob",
+            "JobGiver_OptimizeApparel.ApparelScoreGain", "JobGiver_OptimizeApparel.ApparelScoreRaw", "HaulAIUtility.HaulToStorageJob",
+            "StoreUtility.TryFindBestBetterStoreCellFor", "MapDrawer.MapMeshDrawerUpdate_First", "Pawn_ApparelTracker.Wear",
+            "ResearchManager.ResearchPerformed", "MainTabWindow_Research.DoWindowContents"
+        };
+
+        public static List<SamePair> Analyze()
+        {
+            var result = new List<SamePair>();
+            try
+            {
+                var asm = new Dictionary<Assembly, ModContentPack>();
+                foreach (ModContentPack p in LoadedModManager.RunningModsListForReading)
+                {
+                    if (p == null || p.IsOfficialMod || p.assemblies == null) continue;
+                    foreach (Assembly a in p.assemblies.loadedAssemblies)
+                        if (a != null) asm[a] = p;
+                }
+                var pairs = new Dictionary<string, SamePair>();
+                foreach (MethodBase m in Harmony.GetAllPatchedMethods().ToList())
+                {
+                    Patches info = Harmony.GetPatchInfo(m);
+                    if (info == null) continue;
+                    var mods = new HashSet<ModContentPack>();
+                    foreach (Patch p in info.Prefixes)
+                    {
+                        var mi = p.PatchMethod as MethodInfo;
+                        ModContentPack o;
+                        if (mi != null && mi.ReturnType == typeof(bool) && mi.DeclaringType != null && asm.TryGetValue(mi.DeclaringType.Assembly, out o)) mods.Add(o);
+                    }
+                    foreach (Patch p in info.Transpilers)
+                    {
+                        ModContentPack o;
+                        if (p.PatchMethod?.DeclaringType != null && asm.TryGetValue(p.PatchMethod.DeclaringType.Assembly, out o)) mods.Add(o);
+                    }
+                    if (mods.Count < 2) continue;
+                    string label = (m.DeclaringType != null ? m.DeclaringType.Name + "." : "") + m.Name;
+                    var list = mods.OrderBy(x => x.PackageId).ToList();
+                    for (int i = 0; i < list.Count; i++)
+                        for (int j = i + 1; j < list.Count; j++)
+                        {
+                            string key = list[i].PackageId + "|" + list[j].PackageId;
+                            SamePair sp;
+                            if (!pairs.TryGetValue(key, out sp))
+                            {
+                                ModMetaData ma = MSM.FindMod(list[i].PackageId), mb = MSM.FindMod(list[j].PackageId);
+                                if (ma == null || mb == null || Related(ma, mb)) { pairs[key] = null; continue; }
+                                sp = pairs[key] = new SamePair { a = ma, b = mb };
+                            }
+                            if (sp == null) continue;
+                            if (!sp.methods.Contains(label)) sp.methods.Add(label);
+                            if (Hot.Contains(label)) sp.hot = true;
+                        }
+                }
+                result = pairs.Values.Where(p => p != null && (p.hot || p.methods.Count >= 3))
+                    .OrderByDescending(p => p.hot).ThenByDescending(p => p.methods.Count).Take(15).ToList();
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Mod Sort Manager] patch analysis failed: " + e.Message);
+            }
+            return result;
+        }
+
+        // made to work together: one needs the other, or the same author
+        private static bool Related(ModMetaData a, ModMetaData b)
+        {
+            if (a.Dependencies.Any(d => b.SamePackageId(d.packageId, true)) || b.Dependencies.Any(d => a.SamePackageId(d.packageId, true)))
+                return true;
+            if (a.LoadAfter.Any(x => b.SamePackageId(x, true)) && b.LoadBefore.Any(x => a.SamePackageId(x, true)))
+                return true;
+            return !a.AuthorsString.NullOrEmpty() && a.AuthorsString == b.AuthorsString;
+        }
+    }
+
+    // ---------------- checks on the edited list ----------------
+    public enum Sev { Info = 0, Warn = 1, Error = 2 }
+
+    public class Issue
+    {
+        public int group;       // 0 duplicates, 1 may break, 2 same thing
+        public Sev sev;
+        public string title, text;
+        public List<KeyValuePair<string, Action>> actions = new List<KeyValuePair<string, Action>>();
+    }
+
+    public static class Sorter
+    {
+        public static bool Present(List<ModMetaData> list, string id, out int index)
+        {
+            for (int i = 0; i < list.Count; i++)
+                if (list[i].SamePackageId(id, true)) { index = i; return true; }
+            index = -1;
+            return false;
+        }
+
+        // smart sort: the mods' own rules (load before/after, dependencies), Harmony first,
+        // Core and DLCs before everything else; otherwise the current order is kept
+        public static bool Sort(List<ModMetaData> list, out string error)
+        {
+            error = null;
+            List<ModMetaData> r = TrySort(list, true);
+            if (r == null) r = TrySort(list, false);
+            if (r == null)
+            {
+                error = "MSM_SortCycle".Translate();
+                return false;
+            }
+            list.Clear();
+            list.AddRange(r);
+            return true;
+        }
+
+        private static readonly string[] Dlc = { "ludeon.rimworld", "ludeon.rimworld.royalty", "ludeon.rimworld.ideology", "ludeon.rimworld.biotech", "ludeon.rimworld.anomaly", "ludeon.rimworld.odyssey" };
+
+        private static List<ModMetaData> TrySort(List<ModMetaData> list, bool implicitRules)
+        {
+            int n = list.Count;
+            var after = new List<int>[n];   // edges i -> j : i before j
+            for (int i = 0; i < n; i++) after[i] = new List<int>();
+            var indeg = new int[n];
+            var seen = new HashSet<long>();
+            Action<int, int> edge = (a, b) =>
+            {
+                if (a == b || a < 0 || b < 0) return;
+                if (!seen.Add(((long)a << 32) | (uint)b)) return;
+                after[a].Add(b);
+                indeg[b]++;
+            };
+            int j;
+            for (int i = 0; i < n; i++)
+            {
+                ModMetaData m = list[i];
+                foreach (string id in m.LoadBefore.Concat(m.ForceLoadBefore))
+                    if (Present(list, id, out j)) edge(i, j);
+                foreach (string id in m.LoadAfter.Concat(m.ForceLoadAfter))
+                    if (Present(list, id, out j)) edge(j, i);
+            }
+            if (implicitRules)
+            {
+                int harmony;
+                Present(list, "brrainz.harmony", out harmony);
+                var official = new List<int>();
+                for (int i = 0; i < n; i++) if (list[i].Official) official.Add(i);
+                // core before DLCs, DLCs in release order
+                int prev = -1;
+                foreach (string id in Dlc)
+                    if (Present(list, id, out j)) { if (prev >= 0) edge(prev, j); prev = j; }
+                for (int i = 0; i < n; i++)
+                {
+                    ModMetaData m = list[i];
+                    if (harmony >= 0 && i != harmony) edge(harmony, i);
+                    if (m.Official || i == harmony) continue;
+                    // a mod that asks to load before an official one keeps that
+                    bool early = m.LoadBefore.Concat(m.ForceLoadBefore).Any(x => x.StartsWith("ludeon.", StringComparison.OrdinalIgnoreCase));
+                    if (!early)
+                        foreach (int o in official) edge(o, i);
+                    foreach (ModDependency d in m.Dependencies)
+                        if (d != null && !d.packageId.NullOrEmpty() && Present(list, d.packageId, out j)) edge(j, i);
+                }
+            }
+            var ready = new SortedSet<int>();
+            for (int i = 0; i < n; i++) if (indeg[i] == 0) ready.Add(i);
+            var res = new List<ModMetaData>(n);
+            while (ready.Count > 0)
+            {
+                int i = ready.Min;
+                ready.Remove(i);
+                res.Add(list[i]);
+                foreach (int k in after[i])
+                    if (--indeg[k] == 0) ready.Add(k);
+            }
+            return res.Count == n ? res : null;
+        }
+
+        // load order rules broken right now (mod -> text)
+        public static List<string> OrderProblems(List<ModMetaData> list, Dictionary<ModMetaData, Sev> marks)
+        {
+            var res = new List<string>();
+            int j;
+            for (int i = 0; i < list.Count; i++)
+            {
+                ModMetaData m = list[i];
+                foreach (string id in m.LoadBefore.Concat(m.ForceLoadBefore))
+                    if (Present(list, id, out j) && j < i)
+                    {
+                        res.Add("MSM_OrderBefore".Translate(m.Name, list[j].Name));
+                        Mark(marks, m, Sev.Warn);
+                    }
+                foreach (string id in m.LoadAfter.Concat(m.ForceLoadAfter))
+                    if (Present(list, id, out j) && j > i)
+                    {
+                        res.Add("MSM_OrderAfter".Translate(m.Name, list[j].Name));
+                        Mark(marks, m, Sev.Warn);
+                    }
+            }
+            return res;
+        }
+
+        public static void Mark(Dictionary<ModMetaData, Sev> marks, ModMetaData m, Sev s)
+        {
+            if (m == null) return;
+            Sev old;
+            if (!marks.TryGetValue(m, out old) || old < s) marks[m] = s;
+        }
+    }
+}
+
+
+namespace ModSortManager
+{
+    public enum UpdState { Recent, Needs, Busy, Done }
+
+    public class UpdRow
+    {
+        public ModMetaData mod;
+        public ulong id;
+        public UpdState state;
+        public float progress;
+        public DateTime updated;
+    }
+
+    // Steam Workshop update state of the subscribed mods. Steamworks is reached by reflection:
+    // on 1.6 it lives in Assembly-CSharp-firstpass, on 1.7 inside Assembly-CSharp.
+    public static class Updates
+    {
+        private const uint Installed = 4, NeedsUpdate = 8, Downloading = 16, DownloadPending = 32;
+        private static bool init, ok;
+        private static Type pfidType;
+        private static MethodInfo getState, download, getDownloadInfo, getInstallInfo;
+        private static readonly Dictionary<ulong, UpdRow> rows = new Dictionary<ulong, UpdRow>();
+        private static readonly HashSet<ulong> started = new HashSet<ulong>();
+        public static List<UpdRow> Rows = new List<UpdRow>();
+        public static int Pending, Busy, Finished;
+        private static float lastFull = -999f;
+
+        public static bool Available { get { Init(); return ok && SteamManager.Initialized; } }
+
+        private static void Init()
+        {
+            if (init) return;
+            init = true;
+            try
+            {
+                Type ugc = AccessTools.TypeByName("Steamworks.SteamUGC");
+                pfidType = AccessTools.TypeByName("Steamworks.PublishedFileId_t");
+                if (ugc == null || pfidType == null) return;
+                getState = ugc.GetMethod("GetItemState", new[] { pfidType });
+                download = ugc.GetMethod("DownloadItem", new[] { pfidType, typeof(bool) });
+                getDownloadInfo = ugc.GetMethod("GetItemDownloadInfo", new[] { pfidType, typeof(ulong).MakeByRefType(), typeof(ulong).MakeByRefType() });
+                getInstallInfo = ugc.GetMethod("GetItemInstallInfo", new[] { pfidType, typeof(ulong).MakeByRefType(), typeof(string).MakeByRefType(), typeof(uint), typeof(uint).MakeByRefType() });
+                ok = getState != null && download != null;
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Mod Sort Manager] Steam updates not available: " + e.Message);
+            }
+        }
+
+        private static object Pfid(ulong id)
+        {
+            object p = Activator.CreateInstance(pfidType);
+            FieldInfo f = pfidType.GetField("m_PublishedFileId");
+            if (f != null) { f.SetValue(p, id); return p; }
+            return Activator.CreateInstance(pfidType, id);
+        }
+
+        private static uint State(ulong id)
+        {
+            try { return Convert.ToUInt32(getState.Invoke(null, new[] { Pfid(id) })); } catch { return 0; }
+        }
+
+        private static DateTime InstalledAt(ulong id, ModMetaData m)
+        {
+            try
+            {
+                if (getInstallInfo != null)
+                {
+                    object[] a = { Pfid(id), 0UL, null, 1024u, 0u };
+                    if ((bool)getInstallInfo.Invoke(null, a))
+                    {
+                        uint ts = (uint)a[4];
+                        if (ts > 0) return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(ts).ToLocalTime();
+                    }
+                }
+            }
+            catch { }
+            try { return Directory.GetLastWriteTime(m.RootDir.FullName); } catch { return DateTime.MinValue; }
+        }
+
+        // every second while the tab is open; a full scan of all mods at most every 30 s (or on demand)
+        public static void Refresh(bool force = false)
+        {
+            if (!Available) return;
+            bool full = force || Time.realtimeSinceStartup - lastFull > 30f;
+            if (full)
+            {
+                lastFull = Time.realtimeSinceStartup;
+                foreach (ModMetaData m in ModLister.AllInstalledMods)
+                {
+                    ulong id;
+                    if (!m.OnSteamWorkshop || !ulong.TryParse(m.RootDir.Name, out id)) continue;
+                    UpdRow r;
+                    if (!rows.TryGetValue(id, out r)) rows[id] = r = new UpdRow { mod = m, id = id, updated = InstalledAt(id, m) };
+                    r.mod = m;
+                }
+            }
+            Pending = Busy = Finished = 0;
+            DateTime recent = DateTime.Now.AddDays(-7);
+            foreach (UpdRow r in rows.Values)
+            {
+                if (!full && r.state == UpdState.Recent && !started.Contains(r.id)) { continue; }
+                uint s = State(r.id);
+                if ((s & (Downloading | DownloadPending)) != 0)
+                {
+                    r.state = UpdState.Busy;
+                    try
+                    {
+                        object[] a = { Pfid(r.id), 0UL, 0UL };
+                        if (getDownloadInfo != null && (bool)getDownloadInfo.Invoke(null, a) && (ulong)a[2] > 0)
+                            r.progress = (float)((ulong)a[1] / (double)(ulong)a[2]);
+                    }
+                    catch { }
+                }
+                else if ((s & NeedsUpdate) != 0) r.state = UpdState.Needs;
+                else if (started.Contains(r.id)) { r.state = UpdState.Done; r.updated = DateTime.Now; }
+                else r.state = UpdState.Recent;
+            }
+            foreach (UpdRow r in rows.Values)
+            {
+                if (r.state == UpdState.Needs) Pending++;
+                else if (r.state == UpdState.Busy) Busy++;
+                else if (r.state == UpdState.Done) Finished++;
+            }
+            Rows = rows.Values.Where(r => r.state != UpdState.Recent || r.updated >= recent)
+                .OrderBy(r => r.state == UpdState.Needs ? 0 : r.state == UpdState.Busy ? 1 : r.state == UpdState.Done ? 2 : 3)
+                .ThenByDescending(r => r.updated).ToList();
+        }
+
+        public static void Download(UpdRow r)
+        {
+            try
+            {
+                if ((bool)download.Invoke(null, new[] { Pfid(r.id), (object)true }))
+                {
+                    started.Add(r.id);
+                    r.state = UpdState.Busy;
+                }
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Mod Sort Manager] update of " + r.mod.Name + " failed: " + e.Message);
+            }
+        }
+
+        public static void DownloadAll()
+        {
+            foreach (UpdRow r in rows.Values.Where(x => x.state == UpdState.Needs).ToList())
+                Download(r);
+            Log.Message("[Mod Sort Manager] updating " + started.Count + " Workshop mods.");
+        }
+    }
+}
+
+
+namespace ModSortManager
+{
+    [HarmonyPatch]
+    public static class Patch_UploadDescription
+    {
+        public static bool Prepare() => TargetMethod() != null;
+
+        public static MethodBase TargetMethod()
+        {
+            Type w = AccessTools.TypeByName("Verse.Steam.Workshop");
+            return w == null ? null : AccessTools.Method(w, "SetWorkshopItemDataFrom");
+        }
+
+        public static void Postfix(object[] __args)
+        {
+            try
+            {
+                if (Time.realtimeSinceStartup > MSM.uploadWithDescriptionUntil || __args == null || __args.Length < 3) return;
+                if (__args[2] is bool && (bool)__args[2]) return;   // creating: the game sends it itself
+                object hook = __args[1];
+                string desc = hook?.GetType().GetProperty("Description")?.GetValue(hook, null) as string;
+                if (desc.NullOrEmpty()) return;
+                Type ugc = AccessTools.TypeByName("Steamworks.SteamUGC");
+                MethodInfo set = ugc?.GetMethod("SetItemDescription");
+                if (set == null) return;
+                set.Invoke(null, new[] { __args[0], desc });
+                Log.Message("[Mod Sort Manager] Workshop description updated from About.xml.");
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Mod Sort Manager] description update: " + e.Message);
+            }
+        }
+    }
+}

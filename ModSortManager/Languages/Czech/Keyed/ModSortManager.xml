@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MSM_Activate>Zapnout {0}</MSM_Activate>
+  <MSM_ActivateShort>Zapnout</MSM_ActivateShort>
+  <MSM_Active>AKTIVNÍ · {0} (POŘADÍ NAČÍTÁNÍ)</MSM_Active>
+  <MSM_Backups>ZÁLOHY SEZNAMU MODŮ</MSM_Backups>
+  <MSM_BackupsHint>Před každým uložením se seznam zálohuje (posledních 20). Načtení jen připraví seznam – uloží se až tlačítkem dole.</MSM_BackupsHint>
+  <MSM_Bottom>Na konec</MSM_Bottom>
+  <MSM_BulletAside>Ustoupí jinému správci modů</MSM_BulletAside>
+  <MSM_BulletBackup>Záloha seznamu před každou změnou</MSM_BulletBackup>
+  <MSM_BulletButton>Tlačítko Modifikace otevře Mod Sort Manager</MSM_BulletButton>
+  <MSM_BulletEscOff>Položka v Esc menu je vypnutá</MSM_BulletEscOff>
+  <MSM_CloseAsk>Seznam modů má neuložené změny. Uložit je?</MSM_CloseAsk>
+  <MSM_DiscardShort>Zahodit změny</MSM_DiscardShort>
+  <MSM_ModSettings>Nastavení modu</MSM_ModSettings>
+  <MSM_Upload>Nahrát na Workshop</MSM_Upload>
+  <MSM_TabUpdates>Aktualizace</MSM_TabUpdates>
+  <MSM_UpdNoSteam>Steam není spuštěný – aktualizace z Workshopu teď nejdou zjistit.</MSM_UpdNoSteam>
+  <MSM_UpdTitle>Čeká na aktualizaci: {0} · stahuje se: {1}</MSM_UpdTitle>
+  <MSM_UpdAll>Aktualizovat vše ({0})</MSM_UpdAll>
+  <MSM_UpdCheck>Zkontrolovat znovu</MSM_UpdCheck>
+  <MSM_UpdHint>Mody z Workshopu. Po stažení aktualizací je potřeba restart – tlačítko dole. Zobrazují se i mody aktualizované za posledních 7 dní (když se po aktualizaci něco rozbije, víš kde hledat).</MSM_UpdHint>
+  <MSM_UpdNeeds>je nová verze</MSM_UpdNeeds>
+  <MSM_UpdBusy>stahuje se… {0} %</MSM_UpdBusy>
+  <MSM_UpdDone>staženo – po restartu</MSM_UpdDone>
+  <MSM_UpdRecent>aktualizováno {0}</MSM_UpdRecent>
+  <MSM_UpdOne>Aktualizovat</MSM_UpdOne>
+  <MSM_UpdNone>✓ Všechno je aktuální</MSM_UpdNone>
+  <MSM_Close>Zavřít</MSM_Close>
+  <MSM_CoreStays>Hra (Core) musí zůstat zapnutá.</MSM_CoreStays>
+  <MSM_CountActive>{0} aktivních</MSM_CountActive>
+  <MSM_CountErr>{0} chyb</MSM_CountErr>
+  <MSM_CountInfo>{0} dělá totéž</MSM_CountInfo>
+  <MSM_CountWarn>{0} upozornění</MSM_CountWarn>
+  <MSM_Deactivate>Vypnout</MSM_Deactivate>
+  <MSM_DeactivateX>Vypnout {0}</MSM_DeactivateX>
+  <MSM_Delete>Smazat</MSM_Delete>
+  <MSM_DeleteConfirm>Smazat uložený seznam „{0}“?</MSM_DeleteConfirm>
+  <MSM_DepInstalled>Potřebný mod je nainstalovaný, jen není zapnutý.</MSM_DepInstalled>
+  <MSM_DepMissing>Potřebný mod není nainstalovaný. Bez něj mod nebude fungovat.</MSM_DepMissing>
+  <MSM_DepTitle>{0} potřebuje {1}</MSM_DepTitle>
+  <MSM_Discard>Zahodit neuložené změny v seznamu modů?</MSM_Discard>
+  <MSM_Done>Hotovo</MSM_Done>
+  <MSM_Download>Stáhnout</MSM_Download>
+  <MSM_DupActive>zapnutý</MSM_DupActive>
+  <MSM_DupIgnored>hra ho ignoruje</MSM_DupIgnored>
+  <MSM_DupInstalled>nainstalovaný</MSM_DupInstalled>
+  <MSM_DupLocalText>Stejný mod je ve složce Mods vícekrát. Hra načte jen první složku podle abecedy, ostatní tiše přeskočí – nevíš, která verze běží.</MSM_DupLocalText>
+  <MSM_DupNewest>NOVĚJŠÍ</MSM_DupNewest>
+  <MSM_DupSteamText>Mod je jednou ve složce Mods a jednou z Workshopu. Obě kopie jsou vidět v seznamu a snadno se zapne ta stará.</MSM_DupSteamText>
+  <MSM_DupTitle>{0} je {1}×</MSM_DupTitle>
+  <MSM_Folder>Složka</MSM_Folder>
+  <MSM_GrpBreak>Může se rozbít</MSM_GrpBreak>
+  <MSM_GrpDup>Duplikáty</MSM_GrpDup>
+  <MSM_GrpSame>Dělají totéž</MSM_GrpSame>
+  <MSM_Inactive>NEAKTIVNÍ · {0}</MSM_Inactive>
+  <MSM_IncText>Autor modu {0} uvádí, že spolu nefungují. Nech zapnutý jen jeden.</MSM_IncText>
+  <MSM_IncTitle>{0} × {1} – neslučitelné</MSM_IncTitle>
+  <MSM_Info>Verze {0} · hra {1} · {2}</MSM_Info>
+  <MSM_KeepConfirm>Ponechat:
+{0}
+
+Ostatní kopie se přesunou do zálohy (nic se nemaže), kopie z Workshopu se odhlásí:
+{1}
+
+Změna se projeví po restartu.</MSM_KeepConfirm>
+  <MSM_KeepDone>Hotovo. Odložené kopie jsou v {0}.</MSM_KeepDone>
+  <MSM_KeepFailed>Tyto kopie se nepodařilo přesunout:
+{0}
+
+Zavři hru a přesuň je ručně. Záložní složka: {1}</MSM_KeepFailed>
+  <MSM_KeepNewest>Nechat novější</MSM_KeepNewest>
+  <MSM_Load>Načíst</MSM_Load>
+  <MSM_LoadLastSave>Po restartu nahrát poslední hru</MSM_LoadLastSave>
+  <MSM_Loaded>Načteno {0} modů. Ulož tlačítkem dole.</MSM_Loaded>
+  <MSM_Missing>Seznam je načtený, ale {0} modů chybí (nejsou nainstalované):
+
+{1}</MSM_Missing>
+  <MSM_NoSaveConfirm>Hru teď nejde uložit (nebo máš vypnutý návrat do hry). Po restartu skončíš v hlavním menu a neuložený postup se ztratí. Pokračovat?</MSM_NoSaveConfirm>
+  <MSM_NoBackups>Zatím žádné zálohy.</MSM_NoBackups>
+  <MSM_NoProfiles>Zatím žádné uložené seznamy.</MSM_NoProfiles>
+  <MSM_NoReturnTip>Hru teď nejde uložit (permadeath nebo probíhá událost), po restartu skončíš v hlavním menu.</MSM_NoReturnTip>
+  <MSM_None>✓ Nic nenalezeno</MSM_None>
+  <MSM_NoteDep>Chybí mu {0}</MSM_NoteDep>
+  <MSM_NoteDup>Nainstalovaný vícekrát</MSM_NoteDup>
+  <MSM_NoteInc>Neslučitelný s {0}</MSM_NoteInc>
+  <MSM_NoteOld>Jen pro {0}</MSM_NoteOld>
+  <MSM_NoteOrder>Špatné pořadí</MSM_NoteOrder>
+  <MSM_NoteSame>Dělá totéž co {0}</MSM_NoteSame>
+  <MSM_OldShort>jen {0}</MSM_OldShort>
+  <MSM_OldText>Hra je načte a většina funguje, ale můžou házet chyby. Při potížích je vypni jako první.</MSM_OldText>
+  <MSM_OldTitle>{0} modů nepodporuje {1}</MSM_OldTitle>
+  <MSM_OpenFolders>Otevřít složky</MSM_OpenFolders>
+  <MSM_OpenNow>Otevřít Mod Sort Manager</MSM_OpenNow>
+  <MSM_OrderAfter>{0} má být za {1}</MSM_OrderAfter>
+  <MSM_OrderBefore>{0} má být před {1}</MSM_OrderBefore>
+  <MSM_OrderTitle>Špatné pořadí načítání ({0})</MSM_OrderTitle>
+  <MSM_ProfileBad>Seznam se nepodařilo načíst.</MSM_ProfileBad>
+  <MSM_ProfileNameHint>Název seznamu…</MSM_ProfileNameHint>
+  <MSM_ProfileSaved>Seznam „{0}“ uložen.</MSM_ProfileSaved>
+  <MSM_Profiles>ULOŽENÉ SEZNAMY MODŮ</MSM_Profiles>
+  <MSM_ProfilesHint>Stejné soubory jako v herním okně modů (Uložit/Načíst seznam) – fungují i bez tohoto modu.</MSM_ProfilesHint>
+  <MSM_ReturnToGame>Po restartu se vrátit do hry</MSM_ReturnToGame>
+  <MSM_Revert>Vrátit zpět</MSM_Revert>
+  <MSM_SameHint>odhad podle Harmony patchů načtených modů</MSM_SameHint>
+  <MSM_SameHot>Oba nahrazují stejnou důležitou část hry – stačí jeden</MSM_SameHot>
+  <MSM_SameText>Oba mění stejný kód hry</MSM_SameText>
+  <MSM_SaveFailed>Seznam modů se nepodařilo uložit: {0}</MSM_SaveFailed>
+  <MSM_SaveProfile>Uložit aktuální</MSM_SaveProfile>
+  <MSM_SaveRestart>Uložit a restartovat</MSM_SaveRestart>
+  <MSM_SaveReturn>Uložit, restartovat a vrátit do hry</MSM_SaveReturn>
+  <MSM_SearchActiveHint>Hledat v aktivních…</MSM_SearchActiveHint>
+  <MSM_SearchHint>Hledat mod, autora, ID…</MSM_SearchHint>
+  <MSM_SecWhere>Kde ho najdeš</MSM_SecWhere>
+  <MSM_SelectHint>Vyber mod vlevo.</MSM_SelectHint>
+  <MSM_SetEsc>Položka v Esc menu ve hře</MSM_SetEsc>
+  <MSM_SetEscTip>Mod Sort Manager půjde otevřít i během hraní. Po uložení se hra uloží, restartuje a vrátí tě zpátky.</MSM_SetEscTip>
+  <MSM_SetReplace>Tlačítko Modifikace otevře Mod Sort Manager</MSM_SetReplace>
+  <MSM_SetReplaceTip>Původní okno zůstane dostupné tlačítkem „Původní okno“. Když běží jiný správce modů (Fluffyho Mod Manager), tento mod ustoupí.</MSM_SetReplaceTip>
+  <MSM_Show>Ukázat {0}</MSM_Show>
+  <MSM_SmartSort>Seřadit chytře</MSM_SmartSort>
+  <MSM_SortCycle>Pravidla modů se navzájem vylučují (kruh: A má být před B a B před A). Seřazení není možné – oprav pořadí ručně.</MSM_SortCycle>
+  <MSM_Sorted>Seřazeno.</MSM_Sorted>
+  <MSM_SrcLocal>složka Mods</MSM_SrcLocal>
+  <MSM_SrcOfficial>hra / DLC</MSM_SrcOfficial>
+  <MSM_SrcSteam>Workshop</MSM_SrcSteam>
+  <MSM_Subtitle>Load Order, Conflicts &amp; Profiles · v{0} · Bolek98</MSM_Subtitle>
+  <MSM_SumActive>{0} aktivních · hra {1}</MSM_SumActive>
+  <MSM_SumBackup>Před každým uložením se starý seznam zálohuje – najdeš ho v záložce Profily.</MSM_SumBackup>
+  <MSM_SumBackupTitle>Záloha</MSM_SumBackupTitle>
+  <MSM_SumCompat>{0} podporuje {1}</MSM_SumCompat>
+  <MSM_SumOld>{0} jen starší verze – hra je načte, většina funguje</MSM_SumOld>
+  <MSM_SumRestartGame>Uložit → hra se uloží, restartuje a vrátí tě do této hry.</MSM_SumRestartGame>
+  <MSM_SumRestartMenu>Uložit → hra se restartuje sama. Volitelně nahraje poslední hru.</MSM_SumRestartMenu>
+  <MSM_SumRestartTitle>Změny bez vypínání hry</MSM_SumRestartTitle>
+  <MSM_Summary>SOUHRN</MSM_Summary>
+  <MSM_TabOrder>Pořadí</MSM_TabOrder>
+  <MSM_TabProblems>Problémy</MSM_TabProblems>
+  <MSM_TabProfiles>Profily</MSM_TabProfiles>
+  <MSM_Top>Na začátek</MSM_Top>
+  <MSM_Unsub>odhlásit z Workshopu</MSM_Unsub>
+  <MSM_Vanilla>Původní okno</MSM_Vanilla>
+  <MSM_Web>Stránka modu</MSM_Web>
+  <MSM_Workshop>Stránka na Workshopu</MSM_Workshop>
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+  <MSM_New>NOVÝ</MSM_New>
+  <MSM_OnlyProblems>Jen problémové ({0})</MSM_OnlyProblems>
+  <MSM_SetGuard>Hlídat pořadí modů</MSM_SetGuard>
+  <MSM_SetGuardTip>Po spuštění hry Mod Sort Manager zkontroluje, že je seznam modů stejný, jako když jsi ho naposledy uložil. Když ho změnil jiný program, aktualizace nebo hra, uvidíš, co se změnilo, a jedním klikem vrátíš svoje pořadí.</MSM_SetGuardTip>
+  <MSM_GuardText>Seznam modů není stejný, jako když jsi ho naposledy uložil – změnil se mimo hru nebo při spuštění.
+
+{0}
+
+Vrátit tvoje pořadí?</MSM_GuardText>
+  <MSM_GuardMoved>Přesunuté: {0}</MSM_GuardMoved>
+  <MSM_GuardAdded>Přidané: {0}</MSM_GuardAdded>
+  <MSM_GuardRemoved>Odebrané nebo chybějící: {0}</MSM_GuardRemoved>
+  <MSM_GuardRestore>Vrátit moje pořadí</MSM_GuardRestore>
+  <MSM_GuardKeep>Nechat takhle</MSM_GuardKeep>
+  <MSM_BisectCardTitle>Hra padá nebo hází chyby?</MSM_BisectCardTitle>
+  <MSM_BisectCardText>Mod Sort Manager najde vadný mod půlením: vypne polovinu modů, restartuje a ty řekneš, jestli problém pořád je. Z 200 modů zhruba 8 restartů.</MSM_BisectCardText>
+  <MSM_BisectStart>Najít vadný mod</MSM_BisectStart>
+  <MSM_BisectMenuOnly>Jen z hlavního menu.</MSM_BisectMenuOnly>
+  <MSM_BisectFew>Není dost modů k testování. Knihovny, které potřebují jiné mody, DLC a hra zůstávají vždy zapnuté.</MSM_BisectFew>
+  <MSM_BisectConfirm>Najít vadný mod
+
+Mod Sort Manager vypne polovinu z {0} podezřelých modů a restartuje hru. Po každém spuštění vyzkoušej, jestli problém pořád je, a odpověz v malém okně v hlavním menu. Zhruba {1} restartů.
+
+Knihovny, které potřebují jiné mody, DLC a hra zůstávají zapnuté. Na konci se seznam modů vrátí přesně tak, jak je teď.
+
+Důležité: během testu neukládej svou kolonii – s polovinou chybějících modů by se mohla poškodit. Testuj v nové kolonii nebo jen sleduj chyby při spuštění.
+
+Začít?</MSM_BisectConfirm>
+  <MSM_BisectTitle>Hledání vadného modu</MSM_BisectTitle>
+  <MSM_BisectStep>Krok {0} · zbývá podezřelých: {1} · ještě asi {2} restartů</MSM_BisectStep>
+  <MSM_BisectEnabled>Teď zapnuto: {0} z {1} podezřelých modů. Je problém pořád tam?</MSM_BisectEnabled>
+  <MSM_BisectNoSave>Během testu neukládej svou kolonii.</MSM_BisectNoSave>
+  <MSM_BisectErrors>Chyby v logu od načtení modů: {0}</MSM_BisectErrors>
+  <MSM_BisectLog>Otevřít log</MSM_BisectLog>
+  <MSM_BisectStill>Pořád tam je</MSM_BisectStill>
+  <MSM_BisectGone>Zmizel</MSM_BisectGone>
+  <MSM_BisectCancel>Zrušit a vrátit moje mody</MSM_BisectCancel>
+  <MSM_BisectFound>Viník: {0}</MSM_BisectFound>
+  <MSM_BisectFoundText>Problém ukazuje na tento mod. Pro jistotu: vypni ho – když problém zmizí, je to on. Když ne, problém možná dělají dva mody dohromady nebo knihovna.</MSM_BisectFoundText>
+  <MSM_BisectDisable>Vypnout ho, zbytek vrátit</MSM_BisectDisable>
+  <MSM_BisectRestore>Vrátit všechny mody</MSM_BisectRestore>
+  <MSM_BisectRunning>Probíhá hledání vadného modu – seznam teď obsahuje jen testovanou polovinu. Zrušit hledání a vrátit všechny tvoje mody (hra se restartuje)?</MSM_BisectRunning>
+  <MSM_BisectMismatch>Hra se nespustila s mody tohoto kroku – nejspíš se nějaký mod nenačetl a hra se vrátila k základu, nebo se seznam změnil jinde. Odpověď by byla špatně. Použij tento krok znovu, nebo hledání zruš.</MSM_BisectMismatch>
+  <MSM_BisectReapply>Použít krok znovu</MSM_BisectReapply>
+  <MSM_BisectNotFound>Hledání se nepodařilo dokončit. Vrať všechny mody a zkus to znovu.</MSM_BisectNotFound>
+  <MSM_Added>Přidáno: {0}</MSM_Added>
+  <MSM_ListRefreshed>Seznam modů obnoven po stažení ze Steamu ({0} modů).</MSM_ListRefreshed>
+  <MSM_PS_Title>Kontrola před uložením</MSM_PS_Title>
+  <MSM_PS_Checking>Kontroluji, co mody potřebují… {0} / {1} modů</MSM_PS_Checking>
+  <MSM_PS_Deps>Chybějící závislosti</MSM_PS_Deps>
+  <MSM_PS_DepLine>{0} potřebuje {1} – {2}</MSM_PS_DepLine>
+  <MSM_PS_DepOff>nainstalovaný, ale vypnutý</MSM_PS_DepOff>
+  <MSM_PS_DepNone>není nainstalovaný</MSM_PS_DepNone>
+  <MSM_PS_Old>Pro starší verzi hry</MSM_PS_Old>
+  <MSM_PS_OldLine>{0} – jen do verze {1}</MSM_PS_OldLine>
+  <MSM_PS_Refs>Potřebují věci, které nebudou existovat</MSM_PS_Refs>
+  <MSM_PS_RefLine>{0}: {1} potřebuje „{2}“</MSM_PS_RefLine>
+  <MSM_PS_RefCrash>, může zastavit načítání hry</MSM_PS_RefCrash>
+  <MSM_PS_MoreLines>… a dalších {0}</MSM_PS_MoreLines>
+  <MSM_PS_Many>{0} nových modů najednou</MSM_PS_Many>
+  <MSM_PS_ManyText>Když se něco rozbije, těžko poznáš, který mod to byl. Přidej je ve {0} skupinách – další skupinu ti nabídnu, až Mod Sort Manager znovu otevřeš.</MSM_PS_ManyText>
+  <MSM_PS_FixDeps>Zapnout chybějící ({0})</MSM_PS_FixDeps>
+  <MSM_PS_OffBad>Vypnout problémové mody ({0})</MSM_PS_OffBad>
+  <MSM_PS_FirstGroup>Teď jen 1. skupinu ({0} modů)</MSM_PS_FirstGroup>
+  <MSM_PS_SaveAnyway>Přesto uložit</MSM_PS_SaveAnyway>
+  <MSM_PS_Back>Zpět k seznamu</MSM_PS_Back>
+  <MSM_PS_NextGroup>Čeká další skupina nových modů ({0}):\n{1}\n\nPřidat ji teď?</MSM_PS_NextGroup>
+  <MSM_PS_AddGroup>Přidat skupinu a restartovat</MSM_PS_AddGroup>
+  <MSM_PS_Later>Později</MSM_PS_Later>
+  <MSM_PS_DropQueue>Zrušit zbytek</MSM_PS_DropQueue>
+  <MSM_SetPreSave>Kontrola před uložením</MSM_SetPreSave>
+  <MSM_SetPreSaveTip>Než se uloží změněný seznam: chybějící závislosti, mody pro starší verze hry, hodně nových modů najednou a věci, které nové mody potřebují a nebudou existovat. Problémy, které by se jinak ukázaly až po restartu.</MSM_SetPreSaveTip>
+</LanguageData>

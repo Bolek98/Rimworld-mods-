@@ -60,6 +60,17 @@ namespace HardyPlants
         public bool ignoreSoil = false;
         public bool noBlight = false;
 
+        // 1.8.0: wild nature, winter and weather
+        public bool snowGrowth = true;        // wild plants come back under snow
+        public float snowMinTemp = -10f;      // ... from this temperature up
+        public bool wildDensityOn = false;
+        public float wildDensity = 1.5f;      // more (or fewer) wild plants on the map
+        public bool immuneEvents = false;     // drought, noxious haze, toxic fallout do not slow / kill plants
+        public bool anySeason = false;        // sow and grow in any season
+        public bool greenhouse = false;       // plants under a roof ignore the cold
+        public bool fewerFires = false;       // grass and trees catch fire less easily
+        public bool fruitRepeat = false;      // fruit trees bear fruit again after harvest
+
         // 1.7.0: chosen profile. 0 Vanilla, 1 Recommended, 2 Lush, 3 Custom.
         // A new install starts on Recommended; settings from an older version
         // stay Custom (missing key). Profiles 0-2 are applied again on every
@@ -69,7 +80,8 @@ namespace HardyPlants
         public static readonly string[] ProfileFields =
         {
             "fasterGrowth", "growAllDay", "yieldOn", "regrowOn", "ignoreSoil", "noBlight", "cropDaysOn", "treeDaysOn",
-            "cropSpeed", "treeSpeed", "wildSpeed", "cropYield", "woodYield", "regrowSpeed"
+            "cropSpeed", "treeSpeed", "wildSpeed", "cropYield", "woodYield", "regrowSpeed",
+            "snowGrowth", "wildDensityOn", "wildDensity", "immuneEvents", "anySeason", "greenhouse", "fewerFires", "fruitRepeat"
         };
 
         private static HardyPlantsSettings[] presetCache;
@@ -129,6 +141,15 @@ namespace HardyPlants
             Scribe_Values.Look(ref regrowSpeed, "regrowSpeed", 2f);
             Scribe_Values.Look(ref ignoreSoil, "ignoreSoil", false);
             Scribe_Values.Look(ref noBlight, "noBlight", false);
+            Scribe_Values.Look(ref snowGrowth, "snowGrowth", true);
+            Scribe_Values.Look(ref snowMinTemp, "snowMinTemp", -10f);
+            Scribe_Values.Look(ref wildDensityOn, "wildDensityOn", false);
+            Scribe_Values.Look(ref wildDensity, "wildDensity", 1.5f);
+            Scribe_Values.Look(ref immuneEvents, "immuneEvents", false);
+            Scribe_Values.Look(ref anySeason, "anySeason", false);
+            Scribe_Values.Look(ref greenhouse, "greenhouse", false);
+            Scribe_Values.Look(ref fewerFires, "fewerFires", false);
+            Scribe_Values.Look(ref fruitRepeat, "fruitRepeat", false);
             Scribe_Values.Look(ref profile, "profile", 3);
             if (Scribe.mode == LoadSaveMode.LoadingVars)
             {
@@ -154,6 +175,8 @@ namespace HardyPlants
         public void Preset(int which)
         {
             fasterGrowth = growAllDay = yieldOn = regrowOn = ignoreSoil = noBlight = cropDaysOn = treeDaysOn = false;
+            snowGrowth = wildDensityOn = immuneEvents = anySeason = greenhouse = fewerFires = fruitRepeat = false;
+            wildDensity = 1.5f;
             cropSpeed = treeSpeed = wildSpeed = 1f;
             cropYield = woodYield = 1f;
             regrowSpeed = 1f;
@@ -162,6 +185,7 @@ namespace HardyPlants
                 fasterGrowth = true; cropSpeed = 1.5f; treeSpeed = 2f; wildSpeed = 1.5f;
                 yieldOn = true; cropYield = 1.25f; woodYield = 1.5f;
                 noBlight = true;
+                snowGrowth = true; greenhouse = true;
             }
             else if (which == 2) // lush world
             {
@@ -170,6 +194,8 @@ namespace HardyPlants
                 yieldOn = true; cropYield = 1.5f; woodYield = 2f;
                 regrowOn = true; regrowSpeed = 3f;
                 ignoreSoil = true; noBlight = true;
+                snowGrowth = true; wildDensityOn = true; wildDensity = 1.5f; immuneEvents = true; anySeason = true;
+                greenhouse = true; fewerFires = true; fruitRepeat = true;
             }
         }
 
@@ -195,7 +221,7 @@ namespace HardyPlants
     // ------------------------------------------------------------------
     public class HardyPlantsMod : Mod
     {
-        public const string Version = "1.7.0";
+        public const string Version = "1.8.0";
         public static HardyPlantsSettings Settings;
         private Vector2 scroll;
         private Vector2 leftScroll;
@@ -254,19 +280,45 @@ namespace HardyPlants
             Text.Font = GameFont.Small;
             GUI.color = Color.white;
             inRect = new Rect(inRect.x, inRect.y + 130f, inRect.width, inRect.height - 130f);
-            Rect left = new Rect(inRect.x, inRect.y, inRect.width * 0.55f, inRect.height);
-            Rect right = new Rect(left.xMax + 20f, inRect.y, inRect.width - left.width - 20f, inRect.height);
 
-            // ---- temperatures -------------------------------------------------
-            // The left column scrolls when the window is small.
-            // 1.3.1: one column only. A Listing that runs out of height starts a
-            // new column to the right, outside the scroll view: everything after
-            // "Full-speed growth from" vanished, the measured height shrank, and
-            // the window could not get out of that state.
-            Rect leftView = new Rect(0f, 0f, left.width - 16f, Mathf.Max(leftHeight, left.height));
-            Widgets.BeginScrollView(left, ref leftScroll, leftView);
-            var l = new Listing_Standard { maxOneColumn = true };
-            l.Begin(new Rect(0f, 0f, leftView.width, 100000f));
+            // 1.8.0: tabs
+            var tabs = new List<TabRecord>();
+            for (int i = 0; i < TabKeys.Length; i++)
+            {
+                int k = i;
+                tabs.Add(new TabRecord(TabKeys[i].Translate(), () => tab = k, tab == k));
+            }
+            Rect body = new Rect(inRect.x, inRect.y + 32f, inRect.width, inRect.height - 32f);
+            Widgets.DrawMenuSection(body);
+            TabDrawer.DrawTabs(body, tabs);
+            body = body.ContractedBy(12f);
+            if (tab == 4)
+            {
+                DrawPlantsTab(body, s);
+            }
+            else
+            {
+                Rect view = new Rect(0f, 0f, body.width - 16f, Mathf.Max(leftHeight, body.height));
+                Widgets.BeginScrollView(body, ref leftScroll, view);
+                var l = new Listing_Standard { maxOneColumn = true };
+                l.Begin(new Rect(0f, 0f, view.width, 100000f));
+                if (tab == 0) DrawGrowthTab(l, s);
+                else if (tab == 1) DrawYieldTab(l, s);
+                else if (tab == 2) DrawWildTab(l, s);
+                else DrawWinterTab(l, s);
+                leftHeight = l.CurHeight + 20f;
+                l.End();
+                Widgets.EndScrollView();
+            }
+            if (s.profile >= 0 && s.profile <= 2 && !s.Matches(s.profile))
+                s.profile = 3;
+        }
+
+        private static int tab;
+        private static readonly string[] TabKeys = { "HardyPlants_TabGrowth", "HardyPlants_TabYield", "HardyPlants_TabWild", "HardyPlants_TabWinter", "HardyPlants_TabPlants" };
+
+        private void DrawGrowthTab(Listing_Standard l, HardyPlantsSettings s)
+        {
             MUI.Section(l, "HardyPlants_Growth".Translate());
             MUI.Check(l, "HardyPlants_FasterGrowth".Translate(), "HardyPlants_FasterGrowthDesc".Translate(), ref s.fasterGrowth, s, "fasterGrowth");
             if (s.fasterGrowth)
@@ -291,6 +343,14 @@ namespace HardyPlants
                 l.Label("HardyPlants_DaysValue".Translate(s.treeDays.ToString("0.#")));
                 s.treeDays = DaysSlider(l, s.treeDays, ref bufTreeDays);
             }
+            MUI.Section(l, "HardyPlants_SecSeason".Translate());
+            MUI.Check(l, "HardyPlants_AnySeason".Translate(), "HardyPlants_AnySeasonDesc".Translate(), ref s.anySeason, s, "anySeason");
+            MUI.Check(l, "HardyPlants_Greenhouse".Translate(), "HardyPlants_GreenhouseDesc".Translate(), ref s.greenhouse, s, "greenhouse");
+            Note(l);
+        }
+
+        private void DrawYieldTab(Listing_Standard l, HardyPlantsSettings s)
+        {
             MUI.Section(l, "HardyPlants_SecYield".Translate());
             MUI.Check(l, "HardyPlants_Yield".Translate(), "HardyPlants_YieldDesc".Translate(), ref s.yieldOn, s, "yieldOn");
             if (s.yieldOn)
@@ -300,23 +360,62 @@ namespace HardyPlants
                 MUI.RowLabel(l, "HardyPlants_YieldWood".Translate(s.woodYield.ToString("0.0#")), null, s, "woodYield");
                 s.woodYield = SpeedSlider(l, s.woodYield, ref bufYieldW, 0.1f, 10f);
             }
+            MUI.Check(l, "HardyPlants_FruitRepeat".Translate(), "HardyPlants_FruitRepeatDesc".Translate(), ref s.fruitRepeat, s, "fruitRepeat");
+            MUI.Check(l, "HardyPlants_IgnoreSoil".Translate(), "HardyPlants_IgnoreSoilDesc".Translate(), ref s.ignoreSoil, s, "ignoreSoil");
+            MUI.Check(l, "HardyPlants_NoBlight".Translate(), "HardyPlants_NoBlightDesc".Translate(), ref s.noBlight, s, "noBlight");
+            Note(l);
+        }
+
+        private void DrawWildTab(Listing_Standard l, HardyPlantsSettings s)
+        {
+            MUI.Section(l, "HardyPlants_TabWild".Translate());
             MUI.Check(l, "HardyPlants_Regrow".Translate(), "HardyPlants_RegrowDesc".Translate(), ref s.regrowOn, s, "regrowOn");
             if (s.regrowOn)
             {
                 MUI.RowLabel(l, "HardyPlants_RegrowValue".Translate(s.regrowSpeed.ToString("0.0")), null, s, "regrowSpeed");
                 s.regrowSpeed = SpeedSlider(l, s.regrowSpeed, ref bufRegrow, 0.1f, 10f);
             }
-            MUI.Check(l, "HardyPlants_IgnoreSoil".Translate(), "HardyPlants_IgnoreSoilDesc".Translate(), ref s.ignoreSoil, s, "ignoreSoil");
-            MUI.Check(l, "HardyPlants_NoBlight".Translate(), "HardyPlants_NoBlightDesc".Translate(), ref s.noBlight, s, "noBlight");
-            GUI.color = MUI.Muted;
-            l.Label("HardyPlants_GrowthNote".Translate());
-            GUI.color = Color.white;
+            MUI.Check(l, "HardyPlants_WildDensity".Translate(), "HardyPlants_WildDensityDesc".Translate(), ref s.wildDensityOn, s, "wildDensityOn");
+            if (s.wildDensityOn)
+            {
+                MUI.RowLabel(l, "HardyPlants_WildDensityValue".Translate(s.wildDensity.ToString("0.0#")), null, s, "wildDensity");
+                s.wildDensity = SpeedSlider(l, s.wildDensity, ref bufDensity, 0.1f, 5f);
+            }
+            MUI.Check(l, "HardyPlants_SnowGrowth".Translate(), "HardyPlants_SnowGrowthDesc".Translate(), ref s.snowGrowth, s, "snowGrowth");
+            if (s.snowGrowth)
+                s.snowMinTemp = TempSlider(l, "HardyPlants_SnowMinTemp", s.snowMinTemp, -100f, 20f, -10f, ref bufSnowTemp);
+            MUI.Check(l, "HardyPlants_FewerFires".Translate(), "HardyPlants_FewerFiresDesc".Translate(), ref s.fewerFires, s, "fewerFires");
+
+            MUI.Section(l, "HardyPlants_Overview".Translate());
+            Map map = Current.ProgramState == ProgramState.Playing ? Find.CurrentMap : null;
+            if (map == null)
+            {
+                l.Label("HardyPlants_OverviewNoGame".Translate());
+                return;
+            }
+            NatureStats.Day d;
+            bool full = NatureStats.last.TryGetValue(map.uniqueID, out d);
+            if (!full)
+                d = NatureStats.For(map);
+            l.Label((full ? "HardyPlants_OverviewDay" : "HardyPlants_OverviewSoFar").Translate(map.Biome?.LabelCap ?? "-"));
+            l.Label("HardyPlants_OverviewNums".Translate(d.tries, d.grew, d.trees));
+            if (d.snowChecks > 0)
+                l.Label("HardyPlants_OverviewSnow".Translate(d.snowBlocked, d.snowChecks));
+            if (d.tries > 50 && d.grew == 0)
+            {
+                GUI.color = MUI.Warn;
+                l.Label((s.snowGrowth ? "HardyPlants_OverviewNoneCold" : "HardyPlants_OverviewNoneSnow").Translate());
+                GUI.color = Color.white;
+            }
+        }
+
+        private void DrawWinterTab(Listing_Standard l, HardyPlantsSettings s)
+        {
             MUI.Section(l, "HardyPlants_Temperatures".Translate());
             GUI.color = MUI.Muted;
             l.Label("HardyPlants_TemperaturesDesc".Translate());
             GUI.color = Color.white;
             l.GapLine();
-            // 1.2.0: wider ranges and a number field next to every slider.
             s.minGrowth = TempSlider(l, "HardyPlants_MinGrowth", s.minGrowth, -100f, 30f, 0f, ref bufMinGrowth);
             s.minOptimal = TempSlider(l, "HardyPlants_MinOptimal", s.minOptimal, -90f, 40f, 6f, ref bufMinOptimal);
             s.maxOptimal = TempSlider(l, "HardyPlants_MaxOptimal", s.maxOptimal, 10f, 120f, 42f, ref bufMaxOptimal);
@@ -329,36 +428,43 @@ namespace HardyPlants
             l.Gap();
             if (l.ButtonText("HardyPlants_ResetValues".Translate()))
                 s.ResetValues();
-            MUI.Section(l, "HardyPlants_SecGroup".Translate());
-            l.Label("HardyPlants_Group".Translate());
-            if (l.RadioButton("HardyPlants_GroupCold".Translate(), s.chosen == null && s.group == PlantGroup.ColdBiomes))
+            MUI.Section(l, "HardyPlants_SecEvents".Translate());
+            MUI.Check(l, "HardyPlants_ImmuneEvents".Translate(), "HardyPlants_ImmuneEventsDesc".Translate(), ref s.immuneEvents, s, "immuneEvents");
+        }
+
+        private static void Note(Listing_Standard l)
+        {
+            GUI.color = MUI.Muted;
+            l.Label("HardyPlants_GrowthNote".Translate());
+            GUI.color = Color.white;
+        }
+
+        private void DrawPlantsTab(Rect right, HardyPlantsSettings s)
+        {
+            // which plants are hardy: group on the left, the list on the right
+            Rect left = new Rect(right.x, right.y, 260f, right.height);
+            right = new Rect(left.xMax + 16f, right.y, right.width - left.width - 16f, right.height);
+            var g = new Listing_Standard();
+            g.Begin(left);
+            g.Label("HardyPlants_Group".Translate());
+            if (g.RadioButton("HardyPlants_GroupCold".Translate(), s.chosen == null && s.group == PlantGroup.ColdBiomes))
                 { s.chosen = null; s.group = PlantGroup.ColdBiomes; }
-            if (l.RadioButton("HardyPlants_GroupWild".Translate(), s.chosen == null && s.group == PlantGroup.AllWild))
+            if (g.RadioButton("HardyPlants_GroupWild".Translate(), s.chosen == null && s.group == PlantGroup.AllWild))
                 { s.chosen = null; s.group = PlantGroup.AllWild; }
-            if (l.RadioButton("HardyPlants_GroupAll".Translate(), s.chosen == null && s.group == PlantGroup.AllPlants))
+            if (g.RadioButton("HardyPlants_GroupAll".Translate(), s.chosen == null && s.group == PlantGroup.AllPlants))
                 { s.chosen = null; s.group = PlantGroup.AllPlants; }
-            l.RadioButton("HardyPlants_GroupCustom".Translate(), s.chosen != null);
-            if (s.profile >= 0 && s.profile <= 2 && !s.Matches(s.profile))
-                s.profile = 3;
-            leftHeight = l.CurHeight + 20f;
-            l.End();
-            Widgets.EndScrollView();
+            g.RadioButton("HardyPlants_GroupCustom".Translate(), s.chosen != null);
+            g.End();
 
-            // ---- plant list ---------------------------------------------------
-            Text.Font = GameFont.Medium;
-            Widgets.Label(new Rect(right.x, right.y, right.width, 32f), "HardyPlants_Plants".Translate());
-            Text.Font = GameFont.Small;
             HashSet<string> chosen = HardyPlantsCore.ChosenSet();
-            Widgets.Label(new Rect(right.x, right.y + 34f, right.width, 24f),
-                "HardyPlants_Chosen".Translate(chosen.Count));
-            search = Widgets.TextField(new Rect(right.x, right.y + 60f, right.width, 28f), search);
-
+            Widgets.Label(new Rect(right.x, right.y, right.width, 24f), "HardyPlants_Chosen".Translate(chosen.Count));
+            search = Widgets.TextField(new Rect(right.x, right.y + 26f, right.width, 28f), search);
             List<ThingDef> plants = HardyPlantsCore.AllPlants()
                 .Where(p => search.NullOrEmpty()
                             || p.LabelCap.ToString().IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0
                             || p.defName.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0)
                 .ToList();
-            Rect outRect = new Rect(right.x, right.y + 94f, right.width, right.height - 94f);
+            Rect outRect = new Rect(right.x, right.y + 60f, right.width, right.height - 60f);
             Rect viewRect = new Rect(0f, 0f, outRect.width - 16f, plants.Count * 28f);
             Widgets.BeginScrollView(outRect, ref scroll, viewRect);
             float y = 0f;
@@ -381,6 +487,7 @@ namespace HardyPlants
             Widgets.EndScrollView();
         }
 
+        private string bufDensity, bufSnowTemp;
         private string bufMinGrowth, bufMinOptimal, bufMaxOptimal, bufMaxGrowth, bufFrost, bufSpeed, bufSpeedT, bufSpeedW, bufYieldC, bufYieldW, bufRegrow, bufCropDays, bufTreeDays;
 
         // Days 0.5 – 120 in steps of 0.5, with an exact-number field.
@@ -723,6 +830,22 @@ namespace HardyPlants
         public static void Postfix(Plant __instance, ref float __result)
         {
             HardyPlantsSettings s = HardyPlantsMod.Settings;
+            // 1.8.0: drought, noxious haze and other mods' growth penalties do not slow plants down
+            if (s != null && s.immuneEvents && __instance.Spawned && !__instance.Blighted)
+            {
+                try
+                {
+                    if (PlantUtility.GrowthSeasonNow(__instance.Position, __instance.Map, __instance.def))
+                    {
+                        float clean = __instance.GrowthRateFactor_Fertility * __instance.GrowthRateFactor_Temperature * __instance.GrowthRateFactor_Light;
+                        if (clean > __result)
+                            __result = clean;
+                    }
+                }
+                catch
+                {
+                }
+            }
             if (s != null && s.fasterGrowth && __result > 0f)
             {
                 switch (Kind.Of(__instance.def))
@@ -849,6 +972,49 @@ namespace HardyPlants
         }
     }
 
+    // 1.7.1: with regrowth on, wild plants also come back under snow wherever it is warm enough for
+    // them to grow (the minimum growth temperature of this mod) – before, nothing spawned all winter
+    [HarmonyPatch(typeof(WildPlantSpawner), nameof(WildPlantSpawner.CheckSpawnWildPlantAt))]
+    public static class Patch_WildSpawnUnderSnow
+    {
+        [ThreadStatic] public static Map spawning;
+
+        public static void Prefix(WildPlantSpawner __instance, ref Map __state)
+        {
+            __state = spawning;
+            spawning = Traverse.Create(__instance).Field("map").GetValue<Map>();
+        }
+
+        public static void Finalizer(Map __state)
+        {
+            spawning = __state;
+        }
+    }
+
+    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.SnowAllowsPlanting))]
+    public static class Patch_SnowAllowsPlanting
+    {
+        public static void Postfix(IntVec3 c, Map map, ref bool __result)
+        {
+            if (__result || Patch_WildSpawnUnderSnow.spawning == null || Patch_WildSpawnUnderSnow.spawning != map)
+                return;
+            HardyPlantsSettings s = HardyPlantsMod.Settings;
+            if (s == null || !s.snowGrowth)
+                return;
+            try
+            {
+                NatureStats.SnowChecked(map);
+                if (c.GetTemperature(map) >= s.snowMinTemp)
+                    __result = true;
+                else
+                    NatureStats.SnowBlocked(map);
+            }
+            catch
+            {
+            }
+        }
+    }
+
     // poor soil does not slow plants down (rich soil still helps)
     [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.GrowthRateFactorFor_Fertility))]
     public static class Patch_Fertility
@@ -879,6 +1045,193 @@ namespace HardyPlants
         {
             if (HardyPlantsMod.Settings != null && HardyPlantsMod.Settings.noBlight)
                 __result = false;
+        }
+    }
+}
+
+
+namespace HardyPlants
+{
+    using System.Reflection;
+
+    // 1.8.0 ---------------------------------------------------------------
+    // what wild nature did on each map during the last in-game day (shown in the settings)
+    public static class NatureStats
+    {
+        public class Day { public int tries, grew, trees, snowChecks, snowBlocked; public int start; }
+        public static readonly Dictionary<int, Day> current = new Dictionary<int, Day>();
+        public static readonly Dictionary<int, Day> last = new Dictionary<int, Day>();
+
+        public static Day For(Map m)
+        {
+            int now = Find.TickManager?.TicksGame ?? 0;
+            if (!current.TryGetValue(m.uniqueID, out Day d))
+                current[m.uniqueID] = d = new Day { start = now };
+            if (now - d.start >= 60000)
+            {
+                last[m.uniqueID] = d;
+                current[m.uniqueID] = d = new Day { start = now };
+            }
+            return d;
+        }
+
+        public static void SnowChecked(Map m) { if (m != null) For(m).snowChecks++; }
+        public static void SnowBlocked(Map m) { if (m != null) For(m).snowBlocked++; }
+    }
+
+    [HarmonyPatch(typeof(WildPlantSpawner), nameof(WildPlantSpawner.CheckSpawnWildPlantAt))]
+    public static class Patch_NatureStatsTry
+    {
+        public static void Postfix(bool __result)
+        {
+            Map m = Patch_WildSpawnUnderSnow.spawning;
+            if (m == null)
+                return;
+            var d = NatureStats.For(m);
+            d.tries++;
+        }
+    }
+
+    [HarmonyPatch(typeof(WildPlantSpawner), nameof(WildPlantSpawner.SpawnPlant))]
+    public static class Patch_NatureStatsSpawn
+    {
+        public static void Postfix(ThingDef plant, Map map)
+        {
+            if (map == null || plant?.plant == null || Current.ProgramState != ProgramState.Playing)
+                return;
+            var d = NatureStats.For(map);
+            d.grew++;
+            if (plant.plant.IsTree)
+                d.trees++;
+        }
+    }
+
+    // more (or fewer) wild plants on the map
+    [HarmonyPatch(typeof(WildPlantSpawner), nameof(WildPlantSpawner.CurrentPlantDensityFactor), MethodType.Getter)]
+    public static class Patch_WildDensity
+    {
+        public static void Postfix(ref float __result)
+        {
+            HardyPlantsSettings s = HardyPlantsMod.Settings;
+            if (s != null && s.wildDensityOn)
+                __result *= s.wildDensity;
+        }
+    }
+
+    // sow and grow in any season; greenhouses ignore the season outside
+    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.GrowthSeasonNow), new[] { typeof(IntVec3), typeof(Map), typeof(ThingDef) })]
+    public static class Patch_GrowthSeasonCell
+    {
+        public static void Postfix(IntVec3 c, Map map, ref bool __result)
+        {
+            if (__result)
+                return;
+            HardyPlantsSettings s = HardyPlantsMod.Settings;
+            if (s == null || map == null)
+                return;
+            if (s.anySeason || (s.greenhouse && Greenhouse.Inside(c, map)))
+                __result = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.GrowthSeasonNow), new[] { typeof(Map), typeof(ThingDef) })]
+    public static class Patch_GrowthSeasonMap
+    {
+        public static void Postfix(ref bool __result)
+        {
+            HardyPlantsSettings s = HardyPlantsMod.Settings;
+            if (!__result && s != null && s.anySeason)
+                __result = true;
+        }
+    }
+
+    public static class Greenhouse
+    {
+        // under a built roof, in a closed room, not freezing hard
+        public static bool Inside(IntVec3 c, Map map)
+        {
+            if (!c.InBounds(map))
+                return false;
+            RoofDef r = map.roofGrid.RoofAt(c);
+            if (r == null || r.isNatural)
+                return false;
+            Room room = c.GetRoom(map);
+            if (room == null || room.PsychologicallyOutdoors || room.UsesOutdoorTemperature)
+                return false;
+            return room.Temperature > -10f;
+        }
+    }
+
+    [HarmonyPatch(typeof(Plant), nameof(Plant.GrowthRateFactor_Temperature), MethodType.Getter)]
+    public static class Patch_GreenhouseTemperature
+    {
+        public static void Postfix(Plant __instance, ref float __result)
+        {
+            HardyPlantsSettings s = HardyPlantsMod.Settings;
+            if (__result >= 1f || s == null || !s.greenhouse || !__instance.Spawned)
+                return;
+            if (Greenhouse.Inside(__instance.Position, __instance.Map))
+                __result = 1f;
+        }
+    }
+
+    // no cold damage in a greenhouse; no poison / pollution damage with event immunity
+    [HarmonyPatch(typeof(Plant), nameof(Plant.MakeLeafless))]
+    public static class Patch_MakeLeafless
+    {
+        public static bool Prefix(Plant __instance, Plant.LeaflessCause cause)
+        {
+            HardyPlantsSettings s = HardyPlantsMod.Settings;
+            if (s == null || !__instance.Spawned)
+                return true;
+            if (cause == Plant.LeaflessCause.Cold && s.greenhouse && Greenhouse.Inside(__instance.Position, __instance.Map))
+                return false;
+            if ((cause == Plant.LeaflessCause.Poison || cause == Plant.LeaflessCause.Pollution) && s.immuneEvents)
+                return false;
+            return true;
+        }
+    }
+
+    // grass and trees catch fire less easily
+    [HarmonyPatch(typeof(FireUtility), nameof(FireUtility.ChanceToStartFireIn))]
+    public static class Patch_FewerFires
+    {
+        public static void Postfix(IntVec3 c, Map map, ref float __result)
+        {
+            HardyPlantsSettings s = HardyPlantsMod.Settings;
+            if (__result <= 0f || s == null || !s.fewerFires || map == null)
+                return;
+            if (c.GetPlant(map) != null && c.GetEdifice(map) == null)
+                __result *= 0.35f;
+        }
+    }
+
+    // fruit trees: harvesting fruit does not destroy the tree, it bears fruit again later
+    [HarmonyPatch(typeof(Plant), nameof(Plant.PlantCollected))]
+    public static class Patch_FruitRepeat
+    {
+        public static bool IsFruitTree(ThingDef d)
+        {
+            var pp = d?.plant;
+            if (pp == null || !pp.IsTree || pp.harvestedThingDef == null)
+                return false;
+            ThingDef h = pp.harvestedThingDef;
+            if (h == ThingDefOf.WoodLog || (h.stuffProps != null && h.stuffProps.categories != null && h.stuffProps.categories.Contains(StuffCategoryDefOf.Woody)))
+                return false;
+            return h.IsNutritionGivingIngestible || h.IsDrug;
+        }
+
+        public static bool Prefix(Plant __instance, Pawn by)
+        {
+            HardyPlantsSettings s = HardyPlantsMod.Settings;
+            if (s == null || !s.fruitRepeat || by == null || !IsFruitTree(__instance.def) || !__instance.def.plant.HarvestDestroys)
+                return true;
+            JobDef j = by.CurJobDef;
+            if (j != JobDefOf.Harvest && j != JobDefOf.HarvestDesignated)
+                return true;
+            __instance.Growth = 0.35f;
+            __instance.Map?.mapDrawer.MapMeshDirty(__instance.Position, MapMeshFlagDefOf.Things);
+            return false;
         }
     }
 }

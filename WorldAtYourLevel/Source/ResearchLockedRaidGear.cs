@@ -107,14 +107,14 @@ namespace ResearchLockedRaidGear
 			// 2.10.0: raid types the player switched off (incidents, raid strategies, arrival modes)
 			TryPatch(h, AccessTools.Method(typeof(IncidentWorker), "CanFireNow"), null, "Postfix", typeof(RaidTypeIncidentPatch));
 			RaidTypeFilter.PatchWorkers(h);
-			Log.Message("[World at Your Level] v2.13.0 loaded.");
+			MLog.Game("[World at Your Level] v2.14.0 loaded (messages: Logs\\WorldAtYourLevel.log).");
 		}
 
 		private static void TryPatch(Harmony h, MethodInfo method, string prefix = null, string postfix = null, Type owner = null)
 		{
 			if (method == null || owner == null)
 			{
-				Log.Warning("[World at Your Level] patch target not found for " + ((!(owner != null)) ? "?" : owner.Name));
+				MLog.Warn("[World at Your Level] patch target not found for " + ((!(owner != null)) ? "?" : owner.Name));
 				return;
 			}
 			try
@@ -125,7 +125,7 @@ namespace ResearchLockedRaidGear
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[World at Your Level] skip " + method.Name + ": " + ex.Message);
+				MLog.Warn("[World at Your Level] skip " + method.Name + ": " + ex.Message);
 			}
 		}
 
@@ -133,7 +133,7 @@ namespace ResearchLockedRaidGear
 		{
 			if (method == null || owner == null)
 			{
-				Log.Warning("[World at Your Level] patch target not found for " + ((owner == null) ? "?" : owner.Name));
+				MLog.Warn("[World at Your Level] patch target not found for " + ((owner == null) ? "?" : owner.Name));
 				return;
 			}
 			try
@@ -142,7 +142,7 @@ namespace ResearchLockedRaidGear
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[World at Your Level] skip " + method.Name + ": " + ex.Message);
+				MLog.Warn("[World at Your Level] skip " + method.Name + ": " + ex.Message);
 			}
 		}
 
@@ -162,7 +162,7 @@ namespace ResearchLockedRaidGear
 		public override void DoSettingsWindowContents(Rect inRect)
 		{
 			// 2.13.0: recommended settings card on top
-			MUI.Version(inRect, "v2.13.0 · Bolek98");
+			MUI.Version(inRect, "v2.14.0 · Bolek98");
 			if (recBullets == null)
 			{
 				recBullets = new List<string>();
@@ -356,6 +356,8 @@ namespace ResearchLockedRaidGear
 			listing_Standard.Begin(r);
 			listing_Standard.ColumnWidth = (r.width - 34f) / 2f;
 			Check(listing_Standard, "RLRG_OnlyCrafted", ref Settings.onlyCrafted, "onlyCrafted");
+			if (Settings.onlyCrafted && Settings.matchColony)
+				Check(listing_Standard, "RLRG_StrictCrafted", ref Settings.strictCrafted, "strictCrafted");
 			if (Settings.onlyCrafted && InGame)
 			{
 				RaidGearGameComponent raidGearGameComponent = RaidGearGameComponent.Get();
@@ -423,6 +425,7 @@ namespace ResearchLockedRaidGear
 				Find.WindowStack.Add(new Dialog_VisitorDiag());
 			}
 			Check(listing_Standard, "RLRG_WorldMechs", ref Settings.worldMechanoids, "worldMechanoids");
+			Check(listing_Standard, "RLRG_SiteTurrets", ref Settings.siteTurrets, "siteTurrets");
 			Check(listing_Standard, "RLRG_WorldItems", ref Settings.worldItems, "worldItems");
 			if (Settings.worldItems)
 			{
@@ -660,6 +663,10 @@ namespace ResearchLockedRaidGear
 		public bool worldRaidFactions = true;
 
 		public bool worldMechanoids;
+		// 2.14.0: with "match the colony" enemies still only get what you have crafted
+		public bool strictCrafted = true;
+		// 2.14.0: turrets on quest sites, bases and sieges only up to the turrets you have built yourself
+		public bool siteTurrets = true;
 
 		public bool worldItems = true;
 
@@ -820,6 +827,8 @@ namespace ResearchLockedRaidGear
 			Scribe_Values.Look(ref levelByProgress, "levelByProgress", true);
 			Scribe_Values.Look(ref worldRaidFactions, "worldRaidFactions", true);
 			Scribe_Values.Look(ref worldMechanoids, "worldMechanoids", false);
+			Scribe_Values.Look(ref strictCrafted, "strictCrafted", true);
+			Scribe_Values.Look(ref siteTurrets, "siteTurrets", true);
 			Scribe_Values.Look(ref worldItems, "worldItems", true);
 			Scribe_Values.Look(ref worldIncidents, "worldIncidents", true);
 			Scribe_Values.Look(ref worldMessages, "worldMessages", true);
@@ -1788,7 +1797,7 @@ namespace ResearchLockedRaidGear
 			}
 			catch (Exception ex)
 			{
-				Log.Warning(string.Concat("[World at Your Level] filter failed on ", pawn, ": ", ex));
+				MLog.Warn(string.Concat("[World at Your Level] filter failed on ", pawn, ": ", ex));
 			}
 			finally
 			{
@@ -2503,6 +2512,16 @@ namespace ResearchLockedRaidGear
 		}
 
 		// gear of an arriving pawn: researched and not better than the colony's
+		// 2.14.0: "match the colony" + "only crafted" + strict: both must hold
+		private static bool Strict
+		{
+			get
+			{
+				ResearchLockedRaidGearSettings st = ResearchLockedRaidGearMod.Settings;
+				return st != null && st.onlyCrafted && st.strictCrafted && MatchOn;
+			}
+		}
+
 		private static bool PawnThingOk(Thing t, bool beast)
 		{
 			if (t == null)
@@ -2517,7 +2536,7 @@ namespace ResearchLockedRaidGear
 			{
 				return false;
 			}
-			return MatchDefOk(t.def, t.Stuff);
+			return MatchDefOk(t.def, t.Stuff) && (!Strict || CraftedOk(t.def));
 		}
 
 		// the same kind is fine, only its material is too good: same kind from ordinary material
@@ -2527,7 +2546,7 @@ namespace ResearchLockedRaidGear
 			{
 				return false;
 			}
-			return IsResearchAllowed(t.def) && MatchDefOk(t.def, null);
+			return IsResearchAllowed(t.def) && MatchDefOk(t.def, null) && (!Strict || CraftedOk(t.def));
 		}
 
 		private static void CapQuality(Thing t)
@@ -2601,7 +2620,7 @@ namespace ResearchLockedRaidGear
 			for (int i = 0; i < all.Count; i++)
 			{
 				ThingDef d = all[i];
-				if (IsPawnWeapon(d) && IsResearchAllowed(d) && MatchDefOk(d, null))
+				if (IsPawnWeapon(d) && IsResearchAllowed(d) && MatchDefOk(d, null) && (!Strict || CraftedOk(d)))
 				{
 					list.Add(d);
 				}
@@ -2626,7 +2645,7 @@ namespace ResearchLockedRaidGear
 			for (int i = 0; i < all.Count; i++)
 			{
 				ThingDef d = all[i];
-				if (IsPawnApparel(d) && IsResearchAllowed(d) && MatchDefOk(d, null))
+				if (IsPawnApparel(d) && IsResearchAllowed(d) && MatchDefOk(d, null) && (!Strict || CraftedOk(d)))
 				{
 					list.Add(d);
 				}
@@ -3379,7 +3398,7 @@ namespace ResearchLockedRaidGear
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[World at Your Level] colony gear check failed: " + ex.Message);
+				MLog.Warn("[World at Your Level] colony gear check failed: " + ex.Message);
 			}
 		}
 
@@ -3411,7 +3430,7 @@ namespace ResearchLockedRaidGear
 			productSeeded = true;
 			recVersion++;
 			ResearchLockedGearFilter.InvalidateAll();
-			Log.Message("[World at Your Level] Only crafted: list cleared, only gear crafted from now on counts.");
+			MLog.Info("[World at Your Level] Only crafted: list cleared, only gear crafted from now on counts.");
 		}
 
 		public void NoteCrafted(ThingDef def)
@@ -3496,11 +3515,11 @@ namespace ResearchLockedRaidGear
 						}
 					}
 				}
-				Log.Message("[World at Your Level] Only crafted: took over " + crafted.Count + " gear kinds from the existing game.");
+				MLog.Info("[World at Your Level] Only crafted: took over " + crafted.Count + " gear kinds from the existing game.");
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[World at Your Level] crafted seed failed: " + ex.Message);
+				MLog.Warn("[World at Your Level] crafted seed failed: " + ex.Message);
 			}
 		}
 
@@ -3574,7 +3593,7 @@ namespace ResearchLockedRaidGear
 				}
 				catch (Exception ex)
 				{
-					Log.Warning("[World at Your Level] causer check failed: " + ex.Message);
+					MLog.Warn("[World at Your Level] causer check failed: " + ex.Message);
 				}
 			}
 			if (Find.TickManager.TicksGame % 2500 != 0)
@@ -3587,7 +3606,7 @@ namespace ResearchLockedRaidGear
 			}
 			catch (Exception ex2)
 			{
-				Log.Warning("[World at Your Level] trader guarantee failed: " + ex2.Message);
+				MLog.Warn("[World at Your Level] trader guarantee failed: " + ex2.Message);
 			}
 			ResearchLockedRaidGearSettings settings = ResearchLockedRaidGearMod.Settings;
 			if (settings == null || !settings.enabled)
@@ -3625,6 +3644,7 @@ namespace ResearchLockedRaidGear
 			knownReady = false;
 			knownCausers.Clear();
 			pendingKill.Clear();
+			scannedAfterLoad = false;
 		}
 
 		private static bool Enabled
@@ -3678,8 +3698,54 @@ namespace ResearchLockedRaidGear
 			return value;
 		}
 
+		public static bool UnwantedMech(Pawn pawn)
+		{
+			ResearchLockedRaidGearSettings st = ResearchLockedRaidGearMod.Settings;
+			return st != null && st.worldMechanoids && pawn != null && !pawn.Dead && pawn.RaceProps != null && pawn.RaceProps.IsMechanoid
+			       && pawn.Faction != null && !pawn.Faction.IsPlayer && pawn.Map != null && !pawn.IsColonyMech
+			       && pawn.HostileTo(Faction.OfPlayer)
+			       && (!WorldTech.FactionWithinWorld(pawn.Faction) || !MechEscorts.Researched(pawn.def));
+		}
+
+		// 2.13.2: once after loading a save – mechanoids and drones that were already on the maps
+		private static bool scannedAfterLoad;
+
+		public static void ResetScan() => scannedAfterLoad = false;
+
+		private static void ScanOnce()
+		{
+			if (scannedAfterLoad || Find.Maps == null)
+				return;
+			scannedAfterLoad = true;
+			try
+			{
+				foreach (Map m in Find.Maps)
+					foreach (Pawn p in new List<Pawn>(m.mapPawns.AllPawnsSpawned))
+						if (UnwantedMech(p))
+							pendingKill.Add(p);
+			}
+			catch
+			{
+			}
+		}
+
 		public static void OnSpawn(Thing thing, bool respawningAfterLoad)
 		{
+			// 2.13.2: every hostile mechanoid or drone – of any faction (mechanoids, human factions like the Wolfein
+			// MegaCorp, mod factions), from raids, quests, quest sites, events or map generation – that the colony
+			// could not build yet (no researched recipe for it), or whose faction is above the world level, is removed
+			if (!respawningAfterLoad && thing is Pawn pawn && Enabled)
+			{
+				try
+				{
+					if (UnwantedMech(pawn))
+						pendingKill.Add(pawn);
+				}
+				catch
+				{
+				}
+				return;
+			}
 			if (!respawningAfterLoad && thing != null && !(thing is Pawn) && thing.def != null && Enabled)
 			{
 				int num = TechOf(thing.def);
@@ -3687,7 +3753,62 @@ namespace ResearchLockedRaidGear
 				{
 					pendingKill.Add(thing);
 				}
+				else if (EnemyTurretTooGood(thing))
+				{
+					pendingKill.Add(thing);
+				}
 			}
+		}
+
+		// 2.14.0: a turret of another faction (quest site, base, siege …) stays only when you have
+		// built a turret of the same tech level or higher yourself
+		private static int ownTurretTech = -1;
+		private static int ownTurretTick = -99999;
+
+		private static bool IsTurretDef(ThingDef d)
+		{
+			return d != null && d.category == ThingCategory.Building && d.thingClass != null && typeof(Building_Turret).IsAssignableFrom(d.thingClass);
+		}
+
+		private static int TurretTech(ThingDef d)
+		{
+			int t = (int)d.techLevel;
+			if (t <= (int)TechLevel.Animal)
+				t = (int)TechLevel.Industrial;
+			return t;
+		}
+
+		private static int OwnTurretTech()
+		{
+			int now = Find.TickManager?.TicksGame ?? 0;
+			if (ownTurretTech >= 0 && now - ownTurretTick < 2500)
+				return ownTurretTech;
+			int best = 0;
+			try
+			{
+				foreach (Map m in Find.Maps)
+					foreach (Building b in m.listerBuildings.allBuildingsColonist)
+						if (IsTurretDef(b.def))
+							best = Math.Max(best, TurretTech(b.def));
+			}
+			catch
+			{
+			}
+			ownTurretTech = best;
+			ownTurretTick = now;
+			return best;
+		}
+
+		private static bool EnemyTurretTooGood(Thing thing)
+		{
+			ResearchLockedRaidGearSettings st = ResearchLockedRaidGearMod.Settings;
+			if (st == null || !st.siteTurrets || !IsTurretDef(thing.def))
+				return false;
+			if (thing.Faction != null && thing.Faction.IsPlayer)
+				return false;
+			if (st.exemptAncients && (thing.Faction == Faction.OfAncients || thing.Faction == Faction.OfAncientsHostile))
+				return false;
+			return TurretTech(thing.def) > OwnTurretTech();
 		}
 
 		public static void Tick()
@@ -3697,6 +3818,9 @@ namespace ResearchLockedRaidGear
 				pendingKill.Clear();
 				return;
 			}
+			ScanOnce();
+			// 2.13.2: one message per kind, not one per pawn
+			var told = new Dictionary<string, int>();
 			for (int i = 0; i < pendingKill.Count; i++)
 			{
 				Thing thing = pendingKill[i];
@@ -3711,9 +3835,12 @@ namespace ResearchLockedRaidGear
 					{
 						continue;
 					}
-					Messages.Message("RLRG_CauserBlocked".Translate(text), MessageTypeDefOf.NeutralEvent, false);
+					told.TryGetValue(text, out int n);
+					told[text] = n + 1;
 				}
 			}
+			foreach (var kv in told)
+				Messages.Message("RLRG_CauserBlocked".Translate(kv.Value > 1 ? kv.Key + " ×" + kv.Value : kv.Key), MessageTypeDefOf.NeutralEvent, false);
 			pendingKill.Clear();
 			if (Find.TickManager != null && Find.TickManager.TicksGame % 600 == 0)
 			{
@@ -3800,7 +3927,7 @@ namespace ResearchLockedRaidGear
 					}
 					catch (Exception ex)
 					{
-						Log.Warning("[World at Your Level] quest end failed: " + ex.Message);
+						MLog.Warn("[World at Your Level] quest end failed: " + ex.Message);
 					}
 				}
 			}
@@ -4377,12 +4504,12 @@ namespace ResearchLockedRaidGear
 				string text = Summon(map);
 				if (text.Length == 0)
 				{
-					Log.Message("[World at Your Level] Trader guarantee: called a caravan after " + Days(ticks) + " days without one.");
+					MLog.Info("[World at Your Level] Trader guarantee: called a caravan after " + Days(ticks) + " days without one.");
 				}
 				else if (comp.lastDiagLog < 0 || ticksGame - comp.lastDiagLog >= 300000)
 				{
 					comp.lastDiagLog = ticksGame;
-					Log.Message("[World at Your Level] Trader guarantee: a caravan could not come (" + text + ").\n" + Report(map));
+					MLog.Info("[World at Your Level] Trader guarantee: a caravan could not come (" + text + ").\n" + Report(map));
 					if (settings.worldMessages)
 					{
 						Messages.Message("RLRG_Diag_GuaranteeFailed".Translate(text), MessageTypeDefOf.CautionInput, false);
@@ -4454,7 +4581,7 @@ namespace ResearchLockedRaidGear
 			}
 			if (Widgets.ButtonText(new Rect(inRect.x + num + 10f, y, num, 36f), "RLRG_Diag_ToLog".Translate()))
 			{
-				Log.Message("[World at Your Level] Visitor diagnostics:\n" + this.text);
+				MLog.Info("[World at Your Level] Visitor diagnostics:\n" + this.text);
 				Messages.Message("RLRG_Diag_Logged".Translate(), MessageTypeDefOf.NeutralEvent, false);
 			}
 			if (Widgets.ButtonText(new Rect(inRect.x + 2f * (num + 10f), y, num, 36f), "RLRG_Diag_Refresh".Translate()))
@@ -4811,7 +4938,7 @@ namespace ResearchLockedRaidGear
 							LastReplacement = result;
 							if (Prefs.DevMode)
 							{
-								Log.Message("[World at Your Level] event " + blocked.defName + " replaced with " + result.defName + ".");
+								MLog.Info("[World at Your Level] event " + blocked.defName + " replaced with " + result.defName + ".");
 							}
 							return true;
 						}
@@ -4820,7 +4947,7 @@ namespace ResearchLockedRaidGear
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[World at Your Level] event replacement failed: " + ex.Message);
+				MLog.Warn("[World at Your Level] event replacement failed: " + ex.Message);
 			}
 			finally
 			{
@@ -5193,7 +5320,7 @@ namespace ResearchLockedRaidGear
 			{
 				Text.Anchor = TextAnchor.UpperLeft;
 				failed = true;
-				Log.Warning("[World at Your Level] level readout failed, switched off until restart: " + ex.Message);
+				MLog.Warn("[World at Your Level] level readout failed, switched off until restart: " + ex.Message);
 			}
 		}
 	}
@@ -5446,8 +5573,27 @@ namespace ResearchLockedRaidGear
 
 		public static void Postfix(Quest __result)
 		{
-			if (WorldGiveQuestPatch.FromStoryteller <= 0 || __result == null)
+			if (__result == null)
 			{
+				return;
+			}
+			// 2.13.1: a quest you blocked, or one above the world level (mech quests …), is dropped
+			// whoever made it – other mods (quest generators, race mods) bypass the storyteller
+			if (WorldGiveQuestPatch.FromStoryteller <= 0)
+			{
+				QuestScriptDef root = __result.root;
+				if (root != null && (RaidTypeFilter.QuestBlocked(root) || !WorldTech.QuestDefAllowed(root)))
+				{
+					__result.hidden = true;
+					try
+					{
+						__result.End(QuestEndOutcome.Unknown, false, false);
+					}
+					catch
+					{
+					}
+					MLog.Info("[World at Your Level] quest " + root.defName + " dropped (blocked or above the world level).");
+				}
 				return;
 			}
 			bool flag = false;
@@ -5474,11 +5620,11 @@ namespace ResearchLockedRaidGear
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[World at Your Level] quest cleanup failed: " + ex.Message);
+				MLog.Warn("[World at Your Level] quest cleanup failed: " + ex.Message);
 			}
 			if (Prefs.DevMode)
 			{
-				Log.Message("[World at Your Level] quest " + __result.root.defName + " skipped (faction above world level).");
+				MLog.Info("[World at Your Level] quest " + __result.root.defName + " skipped (faction above world level).");
 			}
 			TryReplace(__result);
 		}
@@ -5510,7 +5656,7 @@ namespace ResearchLockedRaidGear
 						}
 						if (Prefs.DevMode)
 						{
-							Log.Message("[World at Your Level] quest " + dropped.root.defName + " replaced with " + questScriptDef.defName + ".");
+							MLog.Info("[World at Your Level] quest " + dropped.root.defName + " replaced with " + questScriptDef.defName + ".");
 						}
 						break;
 					}
@@ -5518,7 +5664,7 @@ namespace ResearchLockedRaidGear
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[World at Your Level] quest replacement failed: " + ex.Message);
+				MLog.Warn("[World at Your Level] quest replacement failed: " + ex.Message);
 			}
 			finally
 			{
@@ -5662,7 +5808,7 @@ namespace ResearchLockedRaidGear
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[World at Your Level] raid compensation failed: " + ex.Message);
+				MLog.Warn("[World at Your Level] raid compensation failed: " + ex.Message);
 			}
 			return list;
 		}
@@ -5704,7 +5850,7 @@ namespace ResearchLockedRaidGear
 				}
 				if (Prefs.DevMode)
 				{
-					Log.Message("[World at Your Level] raid lost " + Mathf.RoundToInt(lostFrac * 100f) + "% gear value, +" + Mathf.RoundToInt(a) + " points, +" + num + " pawns.");
+					MLog.Info("[World at Your Level] raid lost " + Mathf.RoundToInt(lostFrac * 100f) + "% gear value, +" + Mathf.RoundToInt(a) + " points, +" + num + " pawns.");
 				}
 			}
 			finally
@@ -5786,7 +5932,7 @@ namespace ResearchLockedRaidGear
 			}
 			if (removed > 0 && settings.notifyRaid && Prefs.DevMode)
 			{
-				Log.Message("[World at Your Level] removed " + removed + " unresearched mechanoids from a " + parms.faction.Name + " group.");
+				MLog.Info("[World at Your Level] removed " + removed + " unresearched mechanoids from a " + parms.faction.Name + " group.");
 			}
 			return list;
 		}
@@ -5884,7 +6030,7 @@ namespace ResearchLockedRaidGear
 				Messages.Message((shift > 0 ? "RLRG_MsgRareAdvanced" : "RLRG_MsgRareLowTech").Translate(shown.ToStringHuman()), shift > 0 ? MessageTypeDefOf.ThreatBig : MessageTypeDefOf.NeutralEvent, false);
 				if (Prefs.DevMode)
 				{
-					Log.Message("[World at Your Level] rare raid " + (shift > 0 ? "+1" : "-1") + " tech level, " + Mathf.RoundToInt(parms.points) + " points, " + list.Count + " pawns.");
+					MLog.Info("[World at Your Level] rare raid " + (shift > 0 ? "+1" : "-1") + " tech level, " + Mathf.RoundToInt(parms.points) + " points, " + list.Count + " pawns.");
 				}
 			}
 			catch
@@ -6184,7 +6330,7 @@ namespace ResearchLockedRaidGear
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[World at Your Level] could not list " + baseType.Name + " subclasses: " + ex.Message);
+				MLog.Warn("[World at Your Level] could not list " + baseType.Name + " subclasses: " + ex.Message);
 			}
 			HashSet<MethodInfo> done = new HashSet<MethodInfo>();
 			HarmonyMethod hm = new HarmonyMethod(typeof(RaidTypeFilter), postfix);
@@ -6208,7 +6354,7 @@ namespace ResearchLockedRaidGear
 				}
 				catch (Exception ex2)
 				{
-					Log.Warning("[World at Your Level] skip " + types[i].Name + ".CanUseWith: " + ex2.Message);
+					MLog.Warn("[World at Your Level] skip " + types[i].Name + ".CanUseWith: " + ex2.Message);
 				}
 			}
 		}
@@ -6234,7 +6380,7 @@ namespace ResearchLockedRaidGear
 						if (!loggedStrategy)
 						{
 							loggedStrategy = true;
-							Log.Message("[World at Your Level] all raid strategies usable for a raid are blocked in settings; using " + __instance.def.defName + " as fallback.");
+							MLog.Info("[World at Your Level] all raid strategies usable for a raid are blocked in settings; using " + __instance.def.defName + " as fallback.");
 						}
 						return;
 					}
@@ -6270,7 +6416,7 @@ namespace ResearchLockedRaidGear
 							if (!loggedMode)
 							{
 								loggedMode = true;
-								Log.Message("[World at Your Level] all arrival modes usable for a raid are blocked in settings; using " + __instance.def.defName + " as fallback.");
+								MLog.Info("[World at Your Level] all arrival modes usable for a raid are blocked in settings; using " + __instance.def.defName + " as fallback.");
 							}
 							return;
 						}
@@ -6504,7 +6650,7 @@ namespace ResearchLockedRaidGear
 			}
 			catch (Exception ex)
 			{
-				Log.Warning("[World at Your Level] could not list raid types: " + ex.Message);
+				MLog.Warn("[World at Your Level] could not list raid types: " + ex.Message);
 			}
 			for (int i = 0; i < 4; i++)
 			{

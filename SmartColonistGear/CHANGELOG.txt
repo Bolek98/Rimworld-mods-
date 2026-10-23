@@ -1,5 +1,62 @@
+=== Workshop release 2.14.0 (23 Oct 2026) – everything since the previous Workshop version ===
+2.14.0
+Newer gear and smarter weapons
+- Newer technology is preferred: between similar weapons and armor, guns win over bows and flak or powered armor over plate (setting, on by default).
+- Work tools are not weapons: pickaxes, sickles, shovels and other work tools are never picked as a weapon, and a tool in hand is swapped for a real weapon (setting, on by default).
+- An unarmed colonist takes the other weapon kind (melee or ranged) when the preferred one is not available.
+- No more weapon flip-flop: the weapon kind a colonist just put away is not taken again for two days (unless the one in hand is falling apart).
+- In a raid, weapons the colony has not made yet go only to unarmed colonists.
+
+Gas masks and helmets
+- Gas masks only for colonists who are really in toxic air (toxic gas, fallout, heavy pollution) – not for the whole colony, not for rot stink, not for stepping on one polluted cell.
+- Never two gas masks at once; after the danger the mask comes off and the helmet goes back on.
+- No more put-on / take-off loops of helmets and masks (also with other outfit mods); masks you require are never pushed off.
+- An armored helmet is preferred over a plain hat when the weather does not need warm headwear.
+
+Guests and temperature
+- Quest guests you control get weapons and clothes like colonists.
+- Visitors borrow warm colony clothes when it is cold; their own things go into their backpack and they put them back on when they leave – the colony's gear stays here.
+- When the outdoor temperature crosses your threshold, colonists dress for it at once.
+
+Overview and performance
+- "Why" for every gear change: the colonist button lists the last changes with the reason and who made them (this mod, the game, you or another mod).
+- Settings, Other tab: mods that change colonist gear are listed, with how often they changed gear in your game.
+- Ideology-required apparel and gear you forced or locked are never touched.
+- Big colonies: colonists are checked one by one instead of all at once (no more 200+ ms stop every 20 seconds).
+- Settings: the CHANGED marks and frames show properly on RimWorld 1.7.
+
+=== Development history (test versions) ===
+2.16.6
+- Settings: the CHANGED marks and frames show properly on RimWorld 1.7 (they were solid boxes).
+
+Smart Colonist Gear 2.15.0
+==========================
+- New: newer technology is preferred – between similar weapons and armor, guns win over bows and flak or powered armor over plate (setting, on by default).
+- New: work tools are not weapons – pickaxes, sickles, shovels and other tools that speed up work are never picked as a weapon, and a tool in hand is swapped for a real weapon (setting, on by default).
+- New: guests use colony gear (both on by default, Temperature tab):
+  - Quest guests you control get weapons and clothes like colonists.
+  - Visitors and guests borrow warm colony clothes when it is cold, and put their own warm clothes away when it is hot.
+  - Their own things go into their backpack, not into your storage. When they leave (already when they start leaving, not at the map edge) they put their own things back on and the colony's gear stays here.
+- Temperature right away: when the outdoor temperature crosses your cold or heat threshold, colonists put on warm clothes or take off what is too warm at once – no waiting for the next round, the calm time or the "recently taken off" memory. For one hour after the change they finish dressing quickly, item after item.
+- New: "Why" for every gear change. The colonist button of this mod now lists the last gear changes and the reason for each – e.g. "put on Flak vest – attack, armor on", "took in hand Assault rifle – better weapon (instead of Revolver)", "took off Parka – too hot".
+- It also shows who made the change: this mod, the game (outfit policy), you (by hand) or another mod.
+- New: other mods that change colonist gear are listed in Settings, Other tab – both mods that change how gear is chosen and mods that actually changed gear in your game (with a count). If colonists swap gear back and forth, you can see which mod to switch off for that part.
+
+Smart Colonist Gear 2.14.0
+==========================
+- Smarter gear choices:
+  - Gas masks only for colonists who are actually in toxic air (toxic gas, fallout, heavy pollution), not for the whole colony.
+  - Rot stink no longer counts as toxic air.
+  - Pollution counts only when a colonist is out in a polluted area, not when stepping on one polluted cell.
+  - Never two gas masks at once – the weaker one goes back to storage.
+  - A helmet is no longer swapped for a gas mask unless the colonist really is in toxic air.
+  - After the danger the gas mask comes off and the helmet goes back on (it is no longer blocked for a day).
+  - An armored helmet is preferred over a plain hat or cap when the weather does not call for warm headwear.
+- Ideology-required apparel and gear you forced or locked are never touched.
+
 Smart Colonist Gear 2.13.0
 ==========================
+- RimWorld 1.7 supported (tested on 1.7; still works on 1.6).
 - New: "Recommended settings" switch at the top of the settings, on by default for new players. The mod sets itself up and just works.
 - While it is on, the detailed settings are locked (you can still browse them). Bans stay editable.
 - Turn it off to customize – values that differ from recommended get an orange CHANGED mark, click it to restore one value, or use "Reset all to recommended".
