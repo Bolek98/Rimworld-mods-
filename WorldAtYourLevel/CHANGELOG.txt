@@ -1,3 +1,13 @@
+=== Workshop release 2.14.0 (23 Oct 2026) – everything since the previous Workshop version ===
+2.14.0
+- New: "Strict: only what you crafted, also when matching the colony" – enemies may only carry weapons and apparel your colony has actually crafted (no makeshift rifles while you still use bows).
+- New: "Enemy turrets only up to your own" – turrets of other factions (quest sites, bases, sieges) are removed unless you have built a turret of the same tech level yourself.
+- Every hostile mechanoid or drone the colony could not build yet, or whose faction is above the world level, is removed – from any faction (also human and mod factions), arriving in any way (raids, quests, quest sites, events, map generation), on any map. Needs "Mechanoids follow the world level".
+- Mechanoids and drones already on your maps are checked once after loading a save.
+- One message per kind of stopped threat instead of one per pawn.
+- Settings: the CHANGED marks and frames show properly on RimWorld 1.7.
+
+=== Development history (test versions) ===
 2.13.3
 - Settings: the CHANGED marks and frames show properly on RimWorld 1.7 (they were solid boxes).
 

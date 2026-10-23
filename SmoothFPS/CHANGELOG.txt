@@ -1,3 +1,36 @@
+=== Workshop release 1.3.0 (23 Oct 2026) – everything since the previous Workshop version ===
+1.3.0
+Game speed
+- Speed 1 and 2 always run at full speed – the FPS target only decides how smooth they are, never how slow (before, a big colony with a high FPS target ran e.g. 40 instead of 60 ticks a second).
+- Speed 3 and 4: the simulation gets at least as much time per frame as drawing – with an FPS target the PC could not reach, speed 4 was barely faster than speed 1.
+- New Simulation tab with a game size profile (Automatic / Small / Normal / Huge). Far settlements, world pawns, other maps without danger and (huge games) things off screen are updated in bigger steps – nothing is skipped, never during fights, fires or for drafted colonists.
+- World travel costs: the once-a-day recalculation over every world tile (200+ ms stop on big worlds) now runs in parts.
+- Faster choice of what to draw on screen.
+
+Autosave and memory
+- Autosave at a good moment: it waits until the game is paused, a window or tab is open, or you touched nothing for 4 s – at the latest after 3 minutes (adjustable). Works with the game's autosave and with Real Time Autosave.
+- World clean-up: old battles in the combat log are trimmed and the game's own world pawn clean-up runs – smaller saves, faster autosave, less memory.
+- Memory clean-up while paused only when a lot of memory really piled up (no more 4 s freeze for little gain); no memory clean-up right after an autosave while you play.
+
+Finding what slows the game
+- Freeze watch: when the game stops for 10 s or more, Logs\SmoothFPS.log says which part of the game or which mod it was inside, and when it runs again.
+- Hitch finder also measures drawing and every mod's patch on pawn drawing; saving is named; garbage collector details for every hitch.
+- Deep hitch search (optional): what exactly inside a colonist took long – work search and which mod, AI, path search, comps, hediffs, needs.
+- New windows: "What slows the tick" (live ms per second for every part of the tick and which mod it comes from) and "What is expensive on this map" (pawns, things updated every tick, filth, items, corpses, world pawns, with tips).
+
+Crashes and video memory
+- Crash check: if the last game crashed to desktop without an error, Smooth FPS tells you at the next start what kind of crash it was (endless loop, memory access, out of memory …), when, which mods were active right before it, the last error and, for an endless loop, the map cell. Full report in SmoothFPS_crash.txt in the save folder.
+- Video memory (1.7): the Memory tab shows how much of the graphics card the game uses; "What takes video memory" lists the mods whose textures take the most, with a warning when it is almost full.
+
+Other
+- Each game speed can have its own target FPS and simulation limit (Smoothness tab → By game speed).
+- Fix: on 1.7 "Unload unused textures" could turn Architect icons into empty squares – the option is now off and hidden on 1.7.
+- Fix: a short stall could switch the smoothness budget off until restart (at 4× the game then ate the whole frame) – now it steps aside for 20 s and tries again.
+- Laptop mode: lower FPS limit and fewer effects – always or only on battery.
+- Texture limit no longer swaps already loaded textures (no more blank icons or pink X).
+- Settings: the CHANGED marks and frames show properly on RimWorld 1.7.
+
+=== Development history (test versions) ===
 1.7.4
 - Autosave at a good moment: saving a big colony stops the game for seconds and cannot safely run in the background. The autosave now waits until the game is paused, a window or tab is open, or you touched nothing for 4 s - at the latest after 3 minutes (adjustable). Works for the game's autosave and for Real Time Autosave.
 

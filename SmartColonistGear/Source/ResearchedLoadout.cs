@@ -105,7 +105,7 @@ namespace ResearchedLoadout
 			}
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
-			MLog.Game("[Smart Colonist Gear] v2.16.7 loaded (messages: Logs\\SmartColonistGear.log).");
+			MLog.Game("[Smart Colonist Gear] v2.14.0 loaded (messages: Logs\\SmartColonistGear.log).");
 		}
 
 		public override string SettingsCategory()
@@ -119,7 +119,7 @@ namespace ResearchedLoadout
 		{
 			bool useRecipes = Settings.useRecipes;
 			// 2.13.0: recommended settings card on top
-			MUI.Version(inRect, "v2.15.0 · Bolek98");
+			MUI.Version(inRect, "v2.14.0 · Bolek98");
 			if (recBullets == null)
 			{
 				recBullets = new List<string>();

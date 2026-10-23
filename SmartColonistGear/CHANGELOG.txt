@@ -1,3 +1,31 @@
+=== Workshop release 2.14.0 (23 Oct 2026) – everything since the previous Workshop version ===
+2.14.0
+Newer gear and smarter weapons
+- Newer technology is preferred: between similar weapons and armor, guns win over bows and flak or powered armor over plate (setting, on by default).
+- Work tools are not weapons: pickaxes, sickles, shovels and other work tools are never picked as a weapon, and a tool in hand is swapped for a real weapon (setting, on by default).
+- An unarmed colonist takes the other weapon kind (melee or ranged) when the preferred one is not available.
+- No more weapon flip-flop: the weapon kind a colonist just put away is not taken again for two days (unless the one in hand is falling apart).
+- In a raid, weapons the colony has not made yet go only to unarmed colonists.
+
+Gas masks and helmets
+- Gas masks only for colonists who are really in toxic air (toxic gas, fallout, heavy pollution) – not for the whole colony, not for rot stink, not for stepping on one polluted cell.
+- Never two gas masks at once; after the danger the mask comes off and the helmet goes back on.
+- No more put-on / take-off loops of helmets and masks (also with other outfit mods); masks you require are never pushed off.
+- An armored helmet is preferred over a plain hat when the weather does not need warm headwear.
+
+Guests and temperature
+- Quest guests you control get weapons and clothes like colonists.
+- Visitors borrow warm colony clothes when it is cold; their own things go into their backpack and they put them back on when they leave – the colony's gear stays here.
+- When the outdoor temperature crosses your threshold, colonists dress for it at once.
+
+Overview and performance
+- "Why" for every gear change: the colonist button lists the last changes with the reason and who made them (this mod, the game, you or another mod).
+- Settings, Other tab: mods that change colonist gear are listed, with how often they changed gear in your game.
+- Ideology-required apparel and gear you forced or locked are never touched.
+- Big colonies: colonists are checked one by one instead of all at once (no more 200+ ms stop every 20 seconds).
+- Settings: the CHANGED marks and frames show properly on RimWorld 1.7.
+
+=== Development history (test versions) ===
 2.16.6
 - Settings: the CHANGED marks and frames show properly on RimWorld 1.7 (they were solid boxes).
 

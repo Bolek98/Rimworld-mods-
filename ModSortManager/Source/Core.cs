@@ -43,7 +43,7 @@ namespace ModSortManager
 
     public class MSMMod : Mod
     {
-        public const string Version = "0.1.4";
+        public const string Version = "0.1.3";
         public static MSMSettings Settings;
 
         public MSMMod(ModContentPack content) : base(content)
