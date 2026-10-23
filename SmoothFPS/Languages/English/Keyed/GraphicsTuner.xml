@@ -146,7 +146,7 @@
   <GT_BenchTitle>Benchmark</GT_BenchTitle>
   <GT_BenchResult>Average: {0} FPS\nWorst 1 % of frames: {1} FPS\nLongest frame: {2} ms\nSimulation speed: {3} TPS ({4}x normal speed)\nHitches over 100 ms: {5}\n\nRecommended profile: {6}</GT_BenchResult>
   <GT_Hitch>Find what makes the game hitch</GT_Hitch>
-  <GT_Hitch_Desc>On every hitch it writes to the log what took longest (a component, the map, an event) and which mod it belongs to. Costs a little performance – turn off once you found the culprit. Takes effect after a restart.</GT_Hitch_Desc>
+  <GT_Hitch_Desc>On every hitch it writes to the log what took longest (a component, the map, an event) and which mod it belongs to. Costs a little performance – turn off once you found the culprit.</GT_Hitch_Desc>
   <GT_HitchThings>Also watch every thing on the map (slows the game)</GT_HitchThings>
   <GT_HitchThings_Desc>Times the tick of every thing, animal and pawn. Finds more but costs performance itself. Takes effect after a restart.</GT_HitchThings_Desc>
   <GT_HitchMs>Count a frame longer than {0} ms as a hitch</GT_HitchMs>

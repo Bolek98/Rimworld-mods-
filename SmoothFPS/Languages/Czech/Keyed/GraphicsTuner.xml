@@ -146,9 +146,9 @@
   <GT_BenchTitle>Test výkonu</GT_BenchTitle>
   <GT_BenchResult>Průměr: {0} FPS\nNejhorší 1 % snímků: {1} FPS\nNejdelší snímek: {2} ms\nRychlost simulace: {3} TPS ({4}× normální rychlost)\nZaseknutí přes 100 ms: {5}\n\nDoporučený profil: {6}</GT_BenchResult>
   <GT_Hitch>Hledat, co zasekává hru</GT_Hitch>
-  <GT_Hitch_Desc>Při každém zaseknutí zapíše do logu, co trvalo nejdéle (komponenta, mapa, událost) a ze kterého modu je. Stojí trochu výkonu – po nalezení viníka vypni. Projeví se po restartu hry.</GT_Hitch_Desc>
+  <GT_Hitch_Desc>Při každém zaseknutí zapíše do logu, co trvalo nejdéle (komponenta, mapa, událost) a ze kterého modu je. Stojí trochu výkonu – po nalezení viníka vypni.</GT_Hitch_Desc>
   <GT_HitchThings>Sledovat i každou věc na mapě (zpomaluje hru)</GT_HitchThings>
-  <GT_HitchThings_Desc>Změří tick každé věci, zvířete a postavy. Najde víc, ale samo stojí výkon. Projeví se po restartu hry.</GT_HitchThings_Desc>
+  <GT_HitchThings_Desc>Změří tick každé věci, zvířete a postavy. Najde víc, ale samo stojí výkon.</GT_HitchThings_Desc>
   <GT_HitchMs>Za zaseknutí považovat snímek delší než {0} ms</GT_HitchMs>
   <GT_HitchIncident>událost</GT_HitchIncident>
   <GT_HitchQuest>úkol</GT_HitchQuest>
@@ -317,7 +317,7 @@
   <GT_MC_TipWorldPawns>Na pozadí světa žije {0} postav. Ukládání a načítání se zpomaluje; pomůže mod na úklid postav ve světě.</GT_MC_TipWorldPawns>
   <GT_MC_Refresh>Spočítat znovu</GT_MC_Refresh>
   <GT_HitchDeep>Hloubkové hledání: co přesně uvnitř kolonisty trvá (zpomaluje hru)</GT_HitchDeep>
-  <GT_HitchDeep_Desc>Ke každému záseku napíše i podrobnosti: hledání práce (která práce a z kterého modu), rozhodování postavy, hledání cesty, komponenty věcí a nemocí, potřeby. Zapni ho jen na hledání příčiny, pak ho zase vypni. Projeví se po restartu hry.</GT_HitchDeep_Desc>
+  <GT_HitchDeep_Desc>Ke každému záseku napíše i podrobnosti: hledání práce (která práce a z kterého modu), rozhodování postavy, hledání cesty, komponenty věcí a nemocí, potřeby. Zapni ho jen na hledání příčiny, pak ho zase vypni.</GT_HitchDeep_Desc>
   <GT_HitchOwnGc>úklid paměti [Smooth FPS]</GT_HitchOwnGc>
   <GT_DeepWork>hledání práce {0} ({1})</GT_DeepWork>
   <GT_DeepJobSearch>hledání práce celkem</GT_DeepJobSearch>

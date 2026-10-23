@@ -595,9 +595,18 @@ namespace GraphicsTuner
 
         static HitchFinder()
         {
+            Start();
+        }
+
+        // 1.3.0: can also start while the game runs (switching it on in the settings)
+        private static bool started;
+
+        public static void Start()
+        {
             GfxSettings s = GraphicsTunerMod.Settings;
-            if (s == null || !s.hitchFinder || Smooth.OtherSmoothMod)
+            if (started || s == null || !s.hitchFinder || Smooth.OtherSmoothMod)
                 return;
+            started = true;
             on = true;
             try
             {

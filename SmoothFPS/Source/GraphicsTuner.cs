@@ -731,6 +731,24 @@ namespace GraphicsTuner
 
         public override string SettingsCategory() => "Smooth FPS";
 
+        // 1.3.0: the hitch finder starts at once when switched on (before it needed a restart)
+        public static void StartHitchNow()
+        {
+            try
+            {
+                HitchFinder.Start();
+                if (HitchFinder.IsOn && Current.ProgramState == ProgramState.Playing)
+                {
+                    HitchFinder.WatchGeneration();
+                    HitchFinder.WatchDrawing();
+                }
+            }
+            catch (Exception e)
+            {
+                MLog.Warn("[Smooth FPS] hitch finder start: " + e.Message);
+            }
+        }
+
         private static void Muted(Rect r, string text)
         {
             GUI.color = MUI.Muted;
@@ -1106,6 +1124,8 @@ namespace GraphicsTuner
                 Note(r, "GT_Bench_Note".Translate());
 
             Plain(r, "GT_Hitch", ref s.hitchFinder);
+            if (s.hitchFinder && !HitchFinder.IsOn)
+                StartHitchNow();
             if (s.hitchFinder)
             {
                 Plain(r, "GT_HitchThings", ref s.hitchThings);
