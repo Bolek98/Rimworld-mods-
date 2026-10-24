@@ -497,6 +497,11 @@ namespace UniversalRimTranslator
 			{
 				return false;
 			}
+			// 0.9.57: a grammar rule with a changed, lost or invented [token] makes the game write "ERR"
+			if (text.IndexOf(".rulesStrings.", StringComparison.OrdinalIgnoreCase) >= 0 && !UrtNameRepair.RuleTokensSame(entry.SourceText, text3))
+			{
+				return false;
+			}
 			string[] array = new string[4] { " (plán)", " (ve výstavbě)", " (blueprint)", " (in-progress)" };
 			string[] array2 = array;
 			foreach (string text4 in array2)
@@ -26994,7 +26999,7 @@ namespace UniversalRimTranslator
 	}
 	internal static class UrtVersion
 	{
-		public const string Number = "0.9.56";
+		public const string Number = "0.9.57";
 
 		public const string Build = "b115";
 

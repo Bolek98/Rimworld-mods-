@@ -47,7 +47,7 @@ def source_versions(d):
             s = line.strip()
             if s.startswith("//"):
                 continue
-            m = re.search(r'\bVersion\s*=\s*"(' + VER + r')"', line)
+            m = re.search(r'\b(?:Version|Number)\s*=\s*"(' + VER + r')"', line)
             if m:
                 out.append((f, i, m.group(1), "constant"))
                 continue
@@ -132,7 +132,7 @@ def bump(rel, new, lines):
     a.write_text(re.sub(r"<modVersion>\s*" + VER + r"\s*</modVersion>", "<modVersion>%s</modVersion>" % new, a.read_text(encoding="utf-8")), encoding="utf-8")
     for f in {x[0] for x in source_versions(d)}:
         t = f.read_text(encoding="utf-8")
-        t = re.sub(r'(\bVersion\s*=\s*")' + VER + '"', r"\g<1>%s" % new + "\"", t)
+        t = re.sub(r'(\b(?:Version|Number)\s*=\s*")' + VER + '"', r"\g<1>%s" % new + "\"", t)
         t = re.sub(r'(MUI\.Version\([^)]*"v)' + VER, r"\g<1>%s" % new, t)
         t = re.sub(r'("[^"]*\bv)' + VER + r'(\b[^"]*loaded)', r"\g<1>%s\g<2>" % new, t)
         f.write_text(t, encoding="utf-8")
