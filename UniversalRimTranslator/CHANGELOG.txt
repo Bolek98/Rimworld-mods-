@@ -1,4 +1,11 @@
 === Not on the Workshop yet (test versions) ===
+2.0.0
+- 2.0 test, stage 1: new clean translator. Free services without a key (Microsoft Edge, Yandex, Google, MyMemory) with automatic fallback; DeepL, Azure, Google Cloud, Gemini, OpenAI-compatible AI (also local Ollama/LM Studio) and LibreTranslate with your own key and a Test button.
+- Translates def texts and Keyed texts through the game's own language system; every translation is checked (placeholders, grammar [tokens], wrong language, untranslated) – a broken one is never used.
+- Grammar rules: only the text after -> is translated, tokens kept exactly; missing grammatical cases of languages like Czech (imageNom …) fall back to the plain keyword – no more ERR.
+- Translation memory in a new compact format with a journal (no data loss on a crash); the 0.9 cache, manual corrections and keep-original list are taken over once and checked – broken entries are translated again.
+- Not yet in this stage: live translation of texts that mods build in code, the untranslated-text collector, glossary and export (next stages).
+
 0.9.57
 - Fix: "ERR" on the world map and in quests. Grammar rule translations are only used when they keep exactly the original [tokens]; names already saved as ERR (settlements, factions, world features, landmarks, quest names) are generated again when a save loads.
 

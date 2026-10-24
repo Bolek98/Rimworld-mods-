@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <URT_Tab_Overview>Overview</URT_Tab_Overview>
+  <URT_Tab_Services>Translation services</URT_Tab_Services>
+  <URT_Rec1>Translates every mod text your language pack does not cover, in the background, without stutter.</URT_Rec1>
+  <URT_Rec2>Free services without any key; if one is busy the next one takes over.</URT_Rec2>
+  <URT_Rec3>Every translation is checked – broken ones are never used (no "ERR" in names and texts).</URT_Rec3>
+  <URT_Status_Inactive>Not translating: {0}</URT_Status_Inactive>
+  <URT_Status_Language>Language: {0} ({1})</URT_Status_Language>
+  <URT_Status_Phase>Now: {0}</URT_Status_Phase>
+  <URT_Status_Counts>Texts without translation found: {0} · remembered translations: {1} · put into the game: {2} · still to translate: {3}</URT_Status_Counts>
+  <URT_Status_Session>This session: translated {0}, rejected by the check {1}, failed {2} · grammar fallbacks used {3}</URT_Status_Session>
+  <URT_Status_Migrated>Taken over from 0.9: {0}</URT_Status_Migrated>
+  <URT_Pause>Pause translating</URT_Pause>
+  <URT_Resume>Continue translating</URT_Resume>
+  <URT_RetryFailed>Try failed texts again</URT_RetryFailed>
+  <URT_Sec_What>What to translate</URT_Sec_What>
+  <URT_Sec_Grammar>Grammar</URT_Sec_Grammar>
+  <URT_Enabled>Translate missing texts</URT_Enabled>
+  <URT_Enabled_Desc>Off: only translations already in memory are used, nothing new is sent to the services.</URT_Enabled_Desc>
+  <URT_Defs>Names and descriptions (defs)</URT_Defs>
+  <URT_Defs_Desc>Labels, descriptions and other texts of things, buildings, hediffs, research … of every mod.</URT_Defs_Desc>
+  <URT_Keyed>Interface texts (Keyed)</URT_Keyed>
+  <URT_Keyed_Desc>Buttons, messages and settings texts that mods ship in English.</URT_Keyed_Desc>
+  <URT_Rules>Grammar rules (stories, art, logs, quests)</URT_Rules>
+  <URT_Rules_Desc>Only the text after "-&gt;" is translated; every [token] is kept exactly. A rule that does not pass the check stays in English.</URT_Rules_Desc>
+  <URT_GrammarFallback>Fill missing grammar cases</URT_GrammarFallback>
+  <URT_GrammarFallback_Desc>Languages with cases (Czech: imageNom, imageGen …) ask for keywords that mods do not have – the game then writes "ERR". The plain keyword is used instead.</URT_GrammarFallback_Desc>
+  <URT_Services_Intro>Services are tried from the top. Switch off what you do not want; free ones work without anything. A service that is busy or blocked pauses itself and the next one takes over. Keys stay only in your settings file.</URT_Services_Intro>
+  <URT_Badge_Free>free, no key</URT_Badge_Free>
+  <URT_Badge_Key>needs your key</URT_Badge_Key>
+  <URT_Badge_AiKey>AI – needs your key or a local server</URT_Badge_AiKey>
+  <URT_NotSetUp>not set up (enter a key)</URT_NotSetUp>
+  <URT_Test>Test</URT_Test>
+  <URT_Testing>testing …</URT_Testing>
+  <URT_Key>Key</URT_Key>
+  <URT_Region>Region</URT_Region>
+  <URT_Model>Model</URT_Model>
+  <URT_Url>Address (URL)</URT_Url>
+  <URT_Email>E-mail (higher daily limit)</URT_Email>
+
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+</LanguageData>

@@ -9,17 +9,14 @@ using Verse;
 
 namespace UniversalRimTranslator
 {
-    // 0.9.57: "ERR" on the world map and in quests.
+    // "ERR" on the world map and in quests (since 0.9.57).
     // The game writes "ERR" when it cannot build a text from grammar rules. A machine translation
     // that changed a [token] inside a rule (or added one that does not exist) breaks the rule.
-    //  1) Rule translations are only used when their [tokens] are exactly the original ones.
-    //  2) Names that were already saved as "ERR" (settlements, factions, world features, landmarks,
+    // Names that were already saved as "ERR" (settlements, factions, world features, landmarks,
     //     sites) are generated again by the game's own name makers when a save loads.
     [StaticConstructorOnStartup]
     internal static class UrtNameRepair
     {
-        private static readonly Regex BracketToken = new Regex("\\[[^\\[\\]\\r\\n]*\\]", RegexOptions.Compiled);
-
         static UrtNameRepair()
         {
             try
@@ -32,38 +29,6 @@ namespace UniversalRimTranslator
             {
                 MLog.Warn("[Universal RimTranslator] name repair not active: " + e.Message);
             }
-        }
-
-        // A grammar rule translation is safe only when it keeps exactly the same [tokens]
-        // (same names, same count) as the original rule – no token changed, lost or invented.
-        internal static bool RuleTokensSame(string source, string translation)
-        {
-            if (string.IsNullOrEmpty(source) || string.IsNullOrEmpty(translation))
-                return false;
-            Dictionary<string, int> a = Count(RuleBody(source)), b = Count(RuleBody(translation));
-            if (a.Count != b.Count)
-                return false;
-            foreach (var kv in a)
-                if (!b.TryGetValue(kv.Key, out int n) || n != kv.Value)
-                    return false;
-            return true;
-        }
-
-        private static string RuleBody(string rule)
-        {
-            int i = rule.IndexOf("->", StringComparison.Ordinal);
-            return i >= 0 ? rule.Substring(i + 2) : rule;
-        }
-
-        private static Dictionary<string, int> Count(string text)
-        {
-            var d = new Dictionary<string, int>(StringComparer.Ordinal);
-            foreach (Match m in BracketToken.Matches(text))
-            {
-                d.TryGetValue(m.Value, out int n);
-                d[m.Value] = n + 1;
-            }
-            return d;
         }
 
         private static bool IsErr(string name)

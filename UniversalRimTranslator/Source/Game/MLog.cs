@@ -46,6 +46,11 @@ namespace UniversalRimTranslator
         }
 
         public static void Info(string text) => Write("INFO", text);
+        public static void Error(string text)
+        {
+            Write("ERROR", text);
+            Verse.Log.Error(text);
+        }
         public static void Warn(string text) => Write("WARN", text);
         public static void WarnOnce(string text, int key)
         {
