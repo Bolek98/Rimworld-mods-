@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.unofficialpatch</packageId>
+  <modVersion>0.1.0</modVersion>
+  <supportedVersions>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>[h1]Unofficial 1.7 Patch[/h1]
+Fixes for problems of the vanilla game in the RimWorld 1.7 (Waylith) beta – until Ludeon fixes them in an official update.
+
+[h2]Performance – same game, less wasted work[/h2]
+[list]
+[*][b]Plant wind sway[/b] – the sway value was written into every plant material on every tick; now once per drawn frame. Helps most at speed 3 and 4.
+[*][b]Raids[/b] – every raider priced every tree and rock near it every 2 seconds, and each price searched all recipes of the game (2 000+ with many mods). Remembered now – no more stutter while big raids walk in.
+[*][b]Freezing and melting (Odyssey)[/b] – cheap checks first, temperature and room only when needed.
+[*][b]Gas[/b] – one rotting corpse made the game check ~2 900 empty cells every tick. Empty cells are skipped.
+[*][b]Components[/b] – a global lock taken thousands of times a tick is gone.
+[*][b]World map[/b] – settlements without a map no longer collect their contents every tick for nothing.
+[*][b]Health tick[/b] – pawns without any injuries or conditions skip the empty work.
+[/list]
+
+[h2]Bug fixes[/h2]
+[list]
+[*][b]Form caravan window[/b] no longer breaks with vehicles or other modded pawns.
+[*][b]"Create new wanderers"[/b] is offered again when the last colonist lies in an ancient cryptosleep casket.
+[/list]
+
+[h2]Safe by design[/h2]
+[list]
+[*]Every fix gives exactly the same result as the game – it only skips work whose result was thrown away.
+[*]Every fix knows the exact game code it was written for. When an update changes that code (most likely Ludeon fixed it), the fix pauses itself and the settings tell you so.
+[*]Every fix has its own switch. Steps aside when another mod changes the same code.
+[*]Safe to add to or remove from a running save. RimWorld 1.7 only.
+[/list]
+
+[h2]Credits[/h2]
+The problems were found and analysed by players on the RimWorld official development Discord (#bug-reports): [b]Dreadarm[/b] (profiling of the per-tick costs), [b]mrbeverage[/b] (raid steal check), [b]ifforgotmysocks[/b] (new wanderers). Thank you!
+
+[h2]Report a bug[/h2]
+Mod settings → Unofficial 1.7 Patch → "Report a bug" (bottom left): a short report for a comment here, a full one for GitHub Issues.
+
+Needs Harmony. English and Czech.
+
+————————————————————
+
+[h1]Neoficiální patch 1.7[/h1]
+Opravy čisté hry v betě RimWorld 1.7 (Waylith) – dokud je Ludeon neopraví oficiální aktualizací.
+
+[h2]Výkon – stejná hra, méně zbytečné práce[/h2]
+[list]
+[*][b]Pohupování rostlin ve větru[/b] – hodnota se zapisovala do všech materiálů rostlin každý tick; teď jednou za vykreslený snímek. Nejvíc pomůže na rychlosti 3 a 4.
+[*][b]Nájezdy[/b] – každý nájezdník každé 2 sekundy ocenil všechny stromy a kameny kolem sebe a každé ocenění prošlo všechny recepty hry (s mnoha mody 2 000+). Teď si to pamatuje – žádné záseky, když přichází velký nájezd.
+[*][b]Zamrzání a tání (Odyssey)[/b] – levné kontroly napřed, teplota a místnost jen když je potřeba.
+[*][b]Plyny[/b] – jedna hnijící mrtvola nutila hru kontrolovat ~2 900 prázdných políček každý tick. Prázdná se přeskočí.
+[*][b]Komponenty[/b] – zmizel globální zámek, který se bral tisíckrát za tick.
+[*][b]Mapa světa[/b] – osady bez mapy už každý tick zbytečně neprochází svůj obsah.
+[*][b]Tick zdraví[/b] – pěšáci bez zranění a stavů přeskočí prázdnou práci.
+[/list]
+
+[h2]Opravy chyb[/h2]
+[list]
+[*][b]Okno sestavení karavany[/b] se už nerozbije s vozidly ani jinými pěšáky z modů.
+[*][b]„Vytvořit nové poutníky“[/b] se znovu nabídne, když poslední kolonista leží ve starověké kryospánkové kapsli.
+[/list]
+
+[h2]Bezpečné[/h2]
+[list]
+[*]Každá oprava dává přesně stejný výsledek jako hra – jen vynechá práci, jejíž výsledek se zahazoval.
+[*]Každá oprava zná přesný kód hry, pro který byla napsaná. Když ho aktualizace změní (nejspíš to opravil Ludeon), oprava se sama pozastaví a nastavení to ukáže.
+[*]Každá oprava má vlastní přepínač. Ustoupí, když stejný kód mění jiný mod.
+[*]Lze přidat i odebrat v rozehrané hře. Jen RimWorld 1.7.
+[/list]
+
+[h2]Poděkování[/h2]
+Problémy našli a rozebrali hráči na oficiálním vývojářském Discordu RimWorldu (#bug-reports): [b]Dreadarm[/b] (měření nákladů na tick), [b]mrbeverage[/b] (kontrola krádeží při nájezdu), [b]ifforgotmysocks[/b] (noví poutníci). Díky!
+
+[h2]Nahlásit chybu[/h2]
+Nastavení modů → Unofficial 1.7 Patch → „Nahlásit chybu“ (vlevo dole): krátké hlášení do komentáře, celé pro GitHub Issues.
+
+Vyžaduje Harmony. Anglicky a česky.</description>
+</ModMetaData>

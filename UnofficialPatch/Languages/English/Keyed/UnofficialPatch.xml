@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <UP_Intro>Fixes for the vanilla game in the RimWorld 1.7 beta until Ludeon fixes them. Written for game build {0} (you run {1}). When an update changes the game code a fix relies on, that fix pauses itself – most likely Ludeon fixed it. Changes need a restart to switch a fix ON; switching OFF works at once.</UP_Intro>
+  <UP_Group_perf>Performance (same results, less work)</UP_Group_perf>
+  <UP_Group_bug>Bug fixes</UP_Group_bug>
+  <UP_Credit>Found by: {0} (RimWorld official development Discord).</UP_Credit>
+  <UP_wind>Plant wind sway: once per frame instead of every tick</UP_wind>
+  <UP_wind_Desc>The game wrote the sway value into every plant material on every simulation tick, although you only see it once per drawn frame. At speed 3 and 4 that is many locked GPU writes per frame for nothing. Plants sway exactly the same.</UP_wind_Desc>
+  <UP_freeze>Freezing and melting (Odyssey): cheap checks first</UP_freeze>
+  <UP_freeze_Desc>38 random cells a tick looked up temperature and room before checking whether the cell is water at all – even on tropical maps. Same rules and the same random rolls, just in a cheaper order.</UP_freeze_Desc>
+  <UP_gas>Gas: skip empty cells</UP_gas>
+  <UP_gas_Desc>After the first gas on a map (one rotting corpse is enough) about 2 900 cells were checked every tick, almost all of them empty. Empty cells are skipped now – the game did nothing with them anyway.</UP_gas_Desc>
+  <UP_sealed>Components: no global lock</UP_sealed>
+  <UP_sealed_Desc>Every GetComp call asked "is this type sealed?" through a global lock – thousands of times a tick. Same answer, lock-free.</UP_sealed_Desc>
+  <UP_world>World map settlements: no empty work</UP_world>
+  <UP_world_Desc>Every tick each settlement without a map (often 240+) collected its contents just to find the trader stock, which never ticks. Plain settlements now stop after their own tick. Steps aside automatically if another mod changes what settlements hold.</UP_world_Desc>
+  <UP_health>Health tick: skip pawns without injuries or conditions</UP_health>
+  <UP_health_Desc>Pawns with no hediffs at all still copied an empty list every tick. Now they skip it.</UP_health_Desc>
+  <UP_steal>Raids: fast "what can I steal" check</UP_steal>
+  <UP_steal_Desc>Every 2 s each raider priced every tree and rock chunk near it, and each price searched through ALL recipes of the game (2 000+ with many mods). The answer never changes, so it is remembered. Fixes stutter while big raids walk in. Steps aside if another mod changes this calculation.</UP_steal_Desc>
+  <UP_caravan>Caravan window: no crash with vehicles</UP_caravan>
+  <UP_caravan_Desc>Picking medicine for a pawn without player settings (vehicles and other modded pawns) threw an error every frame and broke the Form caravan window. Such pawns now just get no medicine.</UP_caravan_Desc>
+  <UP_wanderers>"Create new wanderers" with a colonist in an ancient casket</UP_wanderers>
+  <UP_wanderers_Desc>When the last colonist lay in an ancient cryptosleep casket, the game declared game over but never offered new wanderers. A colonist in a casket that is not yours no longer blocks the offer.</UP_wanderers_Desc>
+  <UP_State_Active>Active</UP_State_Active>
+  <UP_State_OffUser>Off</UP_State_OffUser>
+  <UP_State_Restart>Turns on after a restart</UP_State_Restart>
+  <UP_State_Changed>Paused: this game update changed the code ({0}) – probably fixed by Ludeon</UP_State_Changed>
+  <UP_State_Missing>Paused: not found in this game version ({0})</UP_State_Missing>
+  <UP_State_Failed>Paused: could not be applied ({0})</UP_State_Failed>
+
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+</LanguageData>
