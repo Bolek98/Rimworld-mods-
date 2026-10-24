@@ -4,14 +4,17 @@ Each mod keeps its own namespace (no new Workshop dependency). Mods that have ML
 get '#define MISAK_MLOG' so shared code writes to the mod's own log file."""
 import pathlib, re, sys
 root = pathlib.Path(__file__).resolve().parent.parent
-shared = ["MisakUI.cs"]
+shared = ["MisakUI.cs", "MisakReport.cs"]
 check = "--check" in sys.argv
 bad = 0
 for name in shared:
     src = (root / "Common" / name).read_text(encoding="utf-8")
-    for target in sorted(root.glob("*/Source/**/" + name)):
-        old = target.read_text(encoding="utf-8")
-        ns = re.search(r"^namespace ([A-Za-z0-9_.]+)", old, re.M).group(1)
+    # MisakReport.cs goes everywhere MisakUI.cs is (MUI.Version draws its button)
+    targets = sorted(set(root.glob("**/Source/**/" + name)) | set(p.parent / name for p in root.glob("**/Source/**/MisakUI.cs")))
+    for target in targets:
+        ui = (target.parent / "MisakUI.cs").read_text(encoding="utf-8")
+        old = target.read_text(encoding="utf-8") if target.exists() else ""
+        ns = re.search(r"^namespace ([A-Za-z0-9_.]+)", ui, re.M).group(1)
         new = src.replace("__NS__", ns)
         if (target.parent / "MLog.cs").exists():
             new = "#define MISAK_MLOG\n" + new

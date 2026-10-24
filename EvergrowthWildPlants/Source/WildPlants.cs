@@ -55,7 +55,7 @@ namespace EvergrowthWild
     // ------------------------------------------------------------------
     public static class WP
     {
-        public const string Version = "1.1.2";
+        public const string Version = "1.1.3";
         public static WPSettings S => WildPlantsMod.Settings;
 
         private class Orig

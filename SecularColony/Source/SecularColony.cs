@@ -81,7 +81,7 @@ namespace SecularColony
 
 	public class SecularMod : Mod
 	{
-		public const string Version = "1.5.0";
+		public const string Version = "1.5.1";
 		public static SecularSettings Settings;
 		private Vector2 scroll;
 		private float viewH = 1200f;

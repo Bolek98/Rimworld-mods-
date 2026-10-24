@@ -40,7 +40,7 @@ namespace MemoryTuner
 
     public sealed class MemoryTunerMod : Mod
     {
-        public const string Version = "1.1.0";
+        public const string Version = "1.1.1";
         public static MemoryTunerSettings Settings;
         private static List<string> recBullets;
 
