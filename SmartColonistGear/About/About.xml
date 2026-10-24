@@ -8,29 +8,77 @@
     <li>1.6</li>
     <li>1.7</li>
   </supportedVersions>
-  <description>Your colonists gear up on their own - but only with what your colony has actually researched.
+  <description>Your colonists gear up on their own – with the best weapons and apparel your colony has researched.
 
-Features:
-- Colonists automatically pick the best researched weapons and apparel, without interrupting their work. The best weapons go to the best fighters.
-- Weapon choice by skills and specialization (shooters, brawlers), smart sidearms.
-- Smart dressing: armor is always kept, temperature only matters when it gets critical, gender-appropriate clothing, torso and legs covered first - nobody walks around naked.
-- Work clothing (aprons, lab coats...) only for specialists in that job.
-- Dress by traits and skills: each colonist prefers gear that suits their work, skills and traits (doctors medical gear, wimps more armor, greedy colonists better quality...).
-- Gear stability: colonists only swap for clearly better gear - no constant re-dressing.
-- Optional "Only crafted": colonists only take gear kinds your colony has already crafted.
-- Emergency gear: in toxic gas, extreme cold or heat, or during an attack, colonists may use protective gear already in the colony (gas masks, warm clothes, armor) even without research.
-- When protection is missing, colonists unforbid what is on the map, or the colony crafts it - and if it isn't researched yet, the closest substitute.
-- Respects locked/forced apparel and weapons you equip by hand. Dropped gear is hauled to storage, worn-out gear is replaced.
-- Ban list, per-colonist toggle, tooltips explaining why an item is locked.
-- Modded items with a wrong tech level are detected by their power.
+WEAPONS
+- Colonists pick the best researched weapons by themselves, without interrupting their work. The best weapons go to the best fighters.
+- Weapons by skills and specialization (shooters, brawlers); an unarmed colonist takes the other kind when the preferred one is missing.
+- Newer technology is preferred: guns over bows, flak or powered armor over plate.
+- Work tools (pickaxes, sickles, shovels…) are never used as weapons.
+- No back-and-forth: a weapon kind just put away is not taken again for two days.
+- Smart sidearms: built in, or two-way integration with Simple Sidearms (optional).
+
+APPAREL
+- Smart dressing: armor is always kept, torso and legs covered first – nobody walks around naked.
+- Gear by traits and skills: doctors get medical gear, wimps more armor, greedy colonists better quality; work clothing only for specialists.
+- Temperature right away: warm clothes on when it gets cold, too warm things off when it gets hot.
+- Gas masks only for colonists really in toxic air; after the danger the helmet goes back on. Full armor sets are completed.
+- Gear stability: colonists only swap for clearly better gear – no constant re-dressing.
+
+EMERGENCIES AND GUESTS
+- In toxic gas, extreme cold or heat or during an attack, colonists use protective gear already in the colony, even without research. Missing protection is unforbidden on the map or crafted.
 - Armor from storage before hunting and when the base is attacked.
-- Weapon limit per colonist; unresearched or never-made weapons are put away.
-- Simple Sidearms: two-way integration (optional), its main settings available in a "Sidearms" tab of this mod. Without it, built-in sidearms (melee when an enemy comes close, weapon swap buttons when drafted). Nice Inventory Tab compatible (optional).
-- Settings in tabs. English and Czech.
+- Quest guests you control are equipped like colonists; visitors borrow warm clothes and leave the colony's gear here.
 
-Works great with World at Your Level (same author): Smart Colonist Gear reads the world tech level from it, so your colonists and the rest of the world share one tech level. With "Only crafted" enabled in both mods, your colonists and everyone else use only what you have crafted. Both mods also work standalone.
+CONTROL
+- Recommended settings switch (on by default) – the mod sets itself up and just works.
+- "Why" for every gear change: the colonist button lists the last changes, the reason and who made them (this mod, the game, you or another mod).
+- Other mods that change colonist gear are listed in the settings.
+- Ban list, per-colonist toggle, tooltips explaining why an item is locked. Optional "Only crafted": only gear kinds your colony has already made.
+- Respects locked or forced apparel, ideology-required apparel and weapons you equip by hand.
+- Modded items with a wrong tech level are detected by their power. Big colonies are checked one colonist at a time – no stutter.
 
-Something broken, or want something added or connected with another mod? Please write it in the comments.</description>
+Works great with World at Your Level (same author): your colonists and the rest of the world share one tech level. Both mods also work on their own.
+
+Requires Harmony. RimWorld 1.6 and 1.7. Safe to add to an existing save. English and Czech.
+Something broken, or want something added? Please write it in the comments – I read them all.
+
+---
+
+Tvoji kolonisté se vyzbrojí sami – nejlepšími zbraněmi a oblečením, které má kolonie vyzkoumané.
+
+ZBRANĚ
+- Kolonisté si sami vyberou nejlepší vyzkoumané zbraně, aniž by přerušili práci. Nejlepší zbraně dostanou nejlepší bojovníci.
+- Zbraně podle dovedností a zaměření (střelci, rváči); neozbrojený kolonista si vezme i druhý druh, když ten oblíbený chybí.
+- Novější technologie má přednost: puška před lukem, neprůstřelná vesta nebo power armor před plátovou zbrojí.
+- Pracovní nástroje (krumpáče, srpy, lopaty…) se nikdy nepoužijí jako zbraň.
+- Žádné přehazování: druh zbraně, který kolonista právě odložil, si dva dny znovu nevezme.
+- Chytré vedlejší zbraně: vestavěné, nebo propojení se Simple Sidearms (volitelné).
+
+OBLEČENÍ
+- Chytré oblékání: brnění zůstává vždy, nejdřív se zakryje trup a nohy – nikdo nechodí nahý.
+- Výbava podle vlastností a dovedností: doktoři lékařské oblečení, zbabělci víc brnění, chamtiví lepší kvalitu; pracovní oblečení jen pro specialisty.
+- Teplota hned: v zimě se obléknou teple, v horku si sundají, co hřeje.
+- Plynové masky jen pro kolonisty opravdu v jedovatém vzduchu; po nebezpečí jde zpátky helma. Brnění se doplní na celou sadu.
+- Stabilita: kolonisté mění výbavu jen za jasně lepší – žádné neustálé převlékání.
+
+NOUZE A HOSTÉ
+- V jedovatém plynu, krutém mrazu nebo vedru a při útoku kolonisté použijí ochranné vybavení, které kolonie má, i bez výzkumu. Chybějící ochranu odemknou na mapě nebo ji kolonie vyrobí.
+- Brnění ze skladu před lovem a při útoku na základnu.
+- Hosté z úkolů, které ovládáš, se vybaví jako kolonisté; návštěvníci si půjčí teplé oblečení a výbavu kolonie tu nechají.
+
+OVLÁDÁNÍ
+- Přepínač Doporučené nastavení (zapnutý) – mod se nastaví sám a prostě funguje.
+- „Proč“ u každé změny výbavy: tlačítko u kolonisty ukáže poslední změny, důvod a kdo je udělal (tento mod, hra, ty, nebo jiný mod).
+- Mody, které mění výbavu kolonistů, jsou vypsané v nastavení.
+- Seznam zákazů, vypnutí pro jednotlivé kolonisty, tipy, proč je věc zamčená. Volitelně „Jen vyrobené“: jen druhy výbavy, které už kolonie vyrobila.
+- Respektuje zamčené nebo vynucené oblečení, oblečení vyžadované ideologií a zbraně, které dáš do ruky sám.
+- Předměty z modů se špatnou technologickou úrovní se poznají podle síly. Velké kolonie se kontrolují po jednom kolonistovi – bez zasekávání.
+
+Skvěle funguje s World at Your Level (stejný autor): tvoji kolonisté i zbytek světa sdílí jednu technologickou úroveň. Oba mody fungují i samostatně.
+
+Vyžaduje Harmony. RimWorld 1.6 a 1.7. Lze bezpečně přidat do rozehrané hry. Angličtina a čeština.
+Něco nefunguje, nebo chceš něco přidat? Napiš to do komentářů – čtu je všechny.</description>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>
