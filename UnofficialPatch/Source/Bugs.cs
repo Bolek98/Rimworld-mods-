@@ -29,7 +29,7 @@ namespace UnofficialPatch
         // ------------------------------------------------------------------
         // "Create new wanderers" never came when the last colonist lay in an ancient cryptosleep
         // casket: the game counted them as alive (no new wanderers) but not as a colonist it can
-        // reach (game over). A pawn in a casket that is not the player's no longer blocks the
+        // reach (game over). A pawn in a casket the player cannot eject (ancient casket) no longer blocks the
         // offer. Everything else that blocks it in vanilla still does.
         // ------------------------------------------------------------------
         public static void PatchWanderers(Harmony h)
@@ -64,13 +64,15 @@ namespace UnofficialPatch
             __result = true;
         }
 
+        // the same rule as the game-over check (MapPawns.PlayerEjectablePodHolder): a pawn in a
+        // cryptosleep casket the player cannot eject (ancient casket) does not count as reachable
         private static bool InForeignCasket(Pawn p)
         {
             if (p.Spawned)
                 return false;
             for (IThingHolder h = p.ParentHolder; h != null; h = h.ParentHolder)
-                if (h is Building_Casket c)
-                    return c.Faction != Faction.OfPlayer;
+                if (h is Building_CryptosleepCasket c)
+                    return c.def?.building != null && !c.def.building.isPlayerEjectable;
             return false;
         }
     }

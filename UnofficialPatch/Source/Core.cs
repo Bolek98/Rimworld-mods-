@@ -100,7 +100,9 @@ namespace UnofficialPatch
             foreach (var n in f.needs)
             {
                 Type t = AccessTools.TypeByName(n.type);
-                MethodInfo m = t == null ? null : AccessTools.Method(t, n.method);
+                MethodInfo m = null;
+                try { m = t == null ? null : AccessTools.DeclaredMethod(t, n.method); }
+                catch (Exception e) { f.state = FixState.Failed; f.detail = n.method + ": " + e.Message; return; }
                 if (m == null)
                 {
                     f.state = FixState.Missing;
