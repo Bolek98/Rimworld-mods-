@@ -32,9 +32,17 @@ SMOOTHNESS
 - Smooth camera, fewer map rebuilds per frame, alerts checked less often at high speed.
 - Smart FPS target: lowers itself when the PC can't keep up (90 → 75 → 60) and climbs back when there is room – a steady rhythm instead of jumping.
 - High-speed mode for 4× and faster (Smart Speed and similar): even fewer effects, alerts and weather overlays.
+- Speed 1 and 2 always run at full speed – the FPS target only decides how smooth they are. At speed 3 and 4 the simulation always gets at least as much time as drawing, so fast speed really is fast.
+
+SIMULATION
+- Game size profile (Automatic / Small / Normal / Huge): far settlements, world pawns, other maps without danger and (huge games) things off screen are updated in bigger steps – nothing is skipped, never during fights, fires or for drafted colonists.
+- The daily world travel recalculation (200+ ms stop on big worlds) runs in parts.
+- World clean-up: old battles and unneeded world pawns are removed – smaller saves, faster autosave, less memory.
 
 MEMORY &amp; FREEZES
 - Replaces Fewer Freezes. On 1.7 memory is cleaned in the background and big clean-ups that stop the game are avoided while you play; on 1.6 a per-frame clean-up. Clean-ups while paused and after saving, freeze meter, memory display, low-memory warning.
+- Autosave at a good moment: it waits until the game is paused, a window or tab is open or you touch nothing for a few seconds – at the latest after 3 minutes. Works with the game's autosave and Real Time Autosave.
+- Video memory (1.7): how much of the graphics card the game uses and which mods' textures take the most.
 
 GRAPHICS
 - Profiles: Performance, Balanced, Quality, Custom – one click.
@@ -46,7 +54,9 @@ TOOLS
 - What slows the game: 30 seconds at the speed you play (also 4×) – shows the 10 slowest mods and the 10 slowest things or functions.
 - Performance report in one click: PC, map, FPS/TPS, settings and results in one text – paste it into a comment when asking for help.
 - 60-second benchmark at the speed you play – shows average FPS, worst frames, game speed and recommends a profile.
-- Hitch finder: writes to the log which mod caused a freeze.
+- Hitch finder: writes to the log which mod caused a hitch – also inside drawing and inside a colonist (deep mode). Freeze watch: when the game stops for 10 s or more, the log says where it was stuck.
+- Crash check: after a crash to desktop, the next start tells you what kind of crash it was and which mods were active.
+- "What slows the tick" (live, per mod) and "What is expensive on this map" windows.
 - FPS / TPS display with a simulation vs. drawing bar.
 - Faster log on 1.7, optional garbage collector mode, no big memory clean-up during event generation.
 
@@ -71,9 +81,17 @@ PLYNULOST
 - Plynulá kamera, méně přestavování mapy za snímek, upozornění kontrolovaná při vysoké rychlosti méně často.
 - Chytrý cíl FPS: když počítač nestíhá, sám se sníží (90 → 75 → 60) a až je rezerva, vrátí se – stálý rytmus místo skákání.
 - Režim vysoké rychlosti pro 4× a rychleji (Smart Speed a podobné): ještě méně efektů, upozornění a počasí.
+- Rychlost 1 a 2 běží vždy naplno – cíl FPS určuje jen plynulost obrazu. Na rychlosti 3 a 4 dostane simulace vždy aspoň tolik času jako kreslení, takže rychlá hra je opravdu rychlá.
+
+SIMULACE
+- Profil velikosti hry (Automaticky / Malá / Normální / Obří): vzdálené osady, postavy světa, ostatní mapy bez nebezpečí a (u obřích her) věci mimo obrazovku se počítají ve větších krocích – nic se nevynechá, nikdy během boje, požáru ani u draftnutých kolonistů.
+- Denní přepočet cestování po světě (na velkých světech zásek přes 200 ms) se rozloží do částí.
+- Úklid světa: staré bitvy a nepotřebné postavy světa zmizí – menší savy, rychlejší ukládání, méně paměti.
 
 PAMĚŤ A ZÁSEKY
 - Nahrazuje Fewer Freezes. Na 1.7 se paměť uklízí na pozadí a během hraní se vyhýbá velkým úklidům, které zastaví hru; na 1.6 průběžný úklid každý snímek. Úklid při pauze a po uložení, měřič záseků, okénko s pamětí, varování při nedostatku paměti.
+- Ukládání ve vhodnou chvíli: autosave počká, až je hra pozastavená, je otevřené okno nebo karta, nebo pár sekund na nic nesaháš – nejpozději po 3 minutách. Funguje s herním ukládáním i s Real Time Autosave.
+- Grafická paměť (1.7): kolik paměti grafické karty hra používá a textury kterých modů zabírají nejvíc.
 
 GRAFIKA
 - Profily: Výkon, Vyvážený, Kvalita, Vlastní – jedním klikem.
@@ -85,7 +103,9 @@ NÁSTROJE
 - Co brzdí hru: 30 sekund na rychlosti, na které hraješ (i 4×) – ukáže 10 nejpomalejších modů a 10 nejpomalejších věcí nebo funkcí.
 - Zpráva o výkonu jedním klikem: počítač, mapa, FPS/TPS, nastavení a výsledky v jednom textu – vlož ji do komentáře, když chceš poradit.
 - 60sekundový test výkonu na tvé rychlosti – průměrné FPS, nejhorší snímky, rychlost hry a doporučený profil.
-- Hledač záseků: zapíše do logu, který mod hru zasekl.
+- Hledač záseků: zapíše do logu, který mod hru zasekl – i uvnitř kreslení a uvnitř kolonisty (hloubkový režim). Hlídač zamrznutí: když se hra zastaví na 10 s a víc, log napíše, kde uvízla.
+- Kontrola pádu: po pádu na plochu ti další spuštění řekne, jaký to byl pád a které mody byly aktivní.
+- Okna „Co zpomaluje tik“ (živě, podle modů) a „Co je na téhle mapě drahé“.
 - Ukazatel FPS / TPS s lištou simulace vs. kreslení.
 - Rychlejší log na 1.7, volitelný režim garbage collectoru, žádný velký úklid paměti při generování událostí.
 
