@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+2.0.1
+- Fix (important): 2.0.0 also translated identifiers that some mods keep in text fields (body part names, enum values, lists of work types, paths) – this broke Steward styles, RJW body parts and pawn graphics. Now only fields that hold text a player reads are translated (labels, descriptions, messages, grammar rules …).
+
 2.0.0
 - 2.0 test, stage 1: new clean translator. Free services without a key (Microsoft Edge, Yandex, Google, MyMemory) with automatic fallback; DeepL, Azure, Google Cloud, Gemini, OpenAI-compatible AI (also local Ollama/LM Studio) and LibreTranslate with your own key and a Test button.
 - Translates def texts and Keyed texts through the game's own language system; every translation is checked (placeholders, grammar [tokens], wrong language, untranslated) – a broken one is never used.

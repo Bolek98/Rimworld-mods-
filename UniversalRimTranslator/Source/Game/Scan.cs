@@ -61,7 +61,7 @@ namespace UniversalRimTranslator
                         (string suggestedPath, string normalizedPath, bool isCollection, string currentValue, IEnumerable<string> currentValueCollection,
                          bool translationAllowed, bool fullListTranslationAllowed, FieldInfo fieldInfo, Def def) =>
                         {
-                            if (!translationAllowed)
+                            if (!translationAllowed || !TextField(fieldInfo))
                                 return;
                             if (injected.Contains(defType.Name + "|" + normalizedPath) || injected.Contains(defType.Name + "|" + suggestedPath))
                             {
@@ -125,6 +125,40 @@ namespace UniversalRimTranslator
             }
             report = "def texts " + defsDone + ", Keyed texts " + keyedDone + ", already translated by language packs " + skippedInjected;
             return items;
+        }
+
+        // Only fields that hold text a player reads. The game allows translating any string field
+        // that is not marked [NoTranslate], but many mods keep identifiers in such fields (body part
+        // names, enum values, defNames in lists, texture paths) – translating those breaks the mod.
+        public static bool TextField(FieldInfo f)
+        {
+            if (f == null) return false;
+            if (f.IsDefined(typeof(MustTranslateAttribute), true)) return true;
+            string n = f.Name.ToLowerInvariant();
+            if (n == "rulesstrings") return true;
+            if (n.EndsWith("path") || n.EndsWith("defname") || n.EndsWith("class") || n.EndsWith("texture") || n.EndsWith("url") ||
+                n.EndsWith("texname") || n.EndsWith("key") || n.EndsWith("id") || n.EndsWith("ids") || n.EndsWith("tag") || n.EndsWith("tags") ||
+                n.EndsWith("name") && n != "labelnoun" || n.Contains("shader") || n.Contains("sound") || n.Contains("graphic") || n.Contains("icon"))
+                return false;
+            switch (n)
+            {
+                case "label": case "labelshort": case "labelplural": case "description": case "text": case "message": case "reportstring":
+                case "jobstring": case "gerund": case "verb": case "title": case "titleshort": case "titlefemale": case "titleshortfemale":
+                case "basedesc": case "inspectstring": case "customlabel": case "letterlabel": case "lettertext": case "pawnlabel": case "pawnslabel":
+                case "pawnsplural": case "pawnsingular": case "leadertitle": case "thinglabel": case "labelsocial": case "headertip": case "labelmale":
+                case "labelfemale": case "uselabel": case "gerundlabel": case "stufflabel": case "tooltiplabel": case "deathmessage":
+                case "ingestcommandstring": case "ingestreportstring": case "destroymessage": case "discoveredletterlabel": case "discoveredlettertext":
+                case "beginletter": case "beginletterlabel": case "recoverymessage": case "extratooltip": case "stuffadjective": case "labelnoun":
+                case "labelnounpretty": case "descriptionshort": case "helptext": case "baselinestring": case "inspectstringextra": case "customdescription":
+                case "effectdescription": case "oneliner": case "quote": case "flavortext": case "flavourtext": case "outcomelabel": case "outcometext":
+                case "rolelabel": case "spectatorlabel": case "jobreportstring": case "jobreport": case "gizmolabel": case "commandlabel": case "commanddesc":
+                case "desc": case "tooltip": case "tip": case "productdescription": case "researchdescription": case "discoveredmessage":
+                case "labelusedinevent": case "gerunds": case "adjective": case "fixedname": case "labelnounplural": case "verbing":
+                    return true;
+            }
+            return n.Contains("label") || n.Contains("desc") || n.Contains("message") || n.Contains("letter") || n.Contains("tooltip") ||
+                   n.Contains("title") || n.Contains("flavor") || n.Contains("quote") || n.Contains("gerund") || n.Contains("inspect") ||
+                   n.EndsWith("text") || n.EndsWith("string") || n.EndsWith("tip") || n.EndsWith("help") || n.EndsWith("verb");
         }
 
         private static bool Wanted(string v) => !string.IsNullOrWhiteSpace(v) && !Protect.LooksLikeNonText(v);

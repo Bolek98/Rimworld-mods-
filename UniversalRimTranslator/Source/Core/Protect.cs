@@ -178,6 +178,7 @@ namespace Urt2
                 for (int i = 1; i < t.Length; i++) if (char.IsUpper(t[i]) && char.IsLower(t[i - 1])) upperInside++;
                 if (upperInside >= 1 && t.Length > 6) return true;                          // CamelCaseName
                 if (t.EndsWith(".png") || t.EndsWith(".xml") || t.EndsWith(".dll")) return true;
+                if (t.IndexOf("://", StringComparison.Ordinal) >= 0) return true;
             }
             return false;
         }
