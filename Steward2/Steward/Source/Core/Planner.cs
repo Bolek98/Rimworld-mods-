@@ -60,8 +60,9 @@ public static class Planner
 			var fits = new Dictionary<WorkTypeDef, float>();
 			foreach (WorkTypeDef w in ctx.types)
 			{
-				// locked cells keep what they have
-				jobs[w] = ctx.Locked(p, w) ? p.workSettings.GetPriority(w) : 0;
+				// locked cells keep what they have; 3.0.5: so does work the pawn just cannot do for
+				// now (anaesthetized, no sight …) – it is not wiped and comes back when he recovers
+				jobs[w] = ctx.Locked(p, w) || WorkCatalog.UnableForNow(p, w) ? p.workSettings.GetPriority(w) : 0;
 				if (WorkCatalog.CanDo(p, w, s))
 					fits[w] = Fitness.Of(p, w, s, ctx.game);
 			}
@@ -85,6 +86,9 @@ public static class Planner
 			catch (Exception ex)
 			{
 				MLog.WarnOnce("[Steward] plan step '" + step.Id + "' failed: " + ex, step.Id.GetHashCode());
+				// 3.0.5: without the base plan the rest is half empty – better keep the priorities as they are
+				if (step.Id == "core.base")
+					return 0;
 			}
 		}
 		return Write(ctx);
@@ -173,7 +177,7 @@ public static class Planner
 					{
 						p.workSettings.SetPriority(w, j.Value);
 						changed++;
-						if (log.Count < 40)
+						if (log.Count < 60)
 						{
 							string why = ctx.reasons.TryGetValue(PlanContext.Key(p, w), out var rr) && rr.Count > 0 ? rr[rr.Count - 1].key : "-";
 							log.Add(p.LabelShort + ": " + w.defName + " " + cur + "→" + j.Value + " (" + why + ")");
@@ -195,7 +199,7 @@ public static class Planner
 		comp.lastPlanChanged = changed;
 		MLog.Info("[Steward] plan for " + comp.map.Parent?.LabelCap + ": " + ctx.pawns.Count + " pawns, " + changed + " changes"
 			+ (ctx.manual ? " (by you)" : " – " + comp.lastWhy) + ", crisis: " + (comp.crisis == Crisis.None ? "none" : comp.crisis.ToString())
-			+ (log.Count > 0 ? "\n    " + string.Join("\n    ", log) : ""));
+			+ (log.Count > 0 ? "\n    " + string.Join("\n    ", log) : "") + (changed > log.Count ? "\n    … and " + (changed - log.Count) + " more" : ""));
 		if (ctx.settings != null && ctx.settings.planMessages && changed > 0 && comp.map == Find.CurrentMap)
 			Messages.Message("CF2_PlanDone".Translate(changed), MessageTypeDefOf.SilentInput, historical: false);
 		return changed;
@@ -345,7 +349,9 @@ public static class Planner
 					WorkTypeDef w = j.Key;
 					if (WorkCatalog.Kind(w) == WorkKind.Emergency || j.Value <= 0 || j.Value > 2)
 						continue;
-					if (j.Value == 1 && (ctx.Pinned(p, w) || ctx.Locked(p, w)))
+					// 3.0.5: pinned or locked cells cannot be made the top job (a pinned 2 chosen here
+					// left the colonist without any top job at all)
+					if (ctx.Pinned(p, w) || ctx.Locked(p, w))
 						continue;
 					float pressure = ctx.demand == null ? 0f : Mathf.Min(1f, ctx.demand.Need(ctx.map, w, n) / (float)n);
 					float score = ctx.Fit(p, w) + 0.4f * Styles.Delta(ctx.style, w) + 0.3f * ctx.settings.Importance(w) + 0.3f * pressure;

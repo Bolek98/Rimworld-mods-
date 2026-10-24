@@ -26,7 +26,7 @@ public static class WorkCatalog
 	{
 		"Firefighter", "Patient", "PatientBedRest", "BasicWorker",
 		// Keyz' Allow Utilities: your direct orders
-		"HaulingUrgent", "FinishingOff",
+		"HaulingUrgent", "FinishingOff", "KAU_UrgentHaul", "KAU_FinishingOff",
 		// rescue mods: carrying the hurt to bed is an emergency like firefighting
 		"Rescuing", "SAR_FieldRescue"
 	};
@@ -82,6 +82,9 @@ public static class WorkCatalog
 		{
 			if (p?.workSettings == null || !p.workSettings.EverWork || p.Dead)
 				continue;
+			// 3.0.5: a downed colonist is planned when he is up again (planning him now wiped his work)
+			if (p.Downed)
+				continue;
 			if (p.DevelopmentalStage.Baby())
 				continue;
 			if (p.IsQuestLodger() && (s == null || !s.includeLodgers))
@@ -124,6 +127,12 @@ public static class WorkCatalog
 			canCache.Clear();
 		canCache[key] = (now, can);
 		return can && (s == null || s.assignOpposed || !Opposed(p, w));
+	}
+
+	// the pawn could do the work but his body cannot right now (not his traits or backstory)
+	public static bool UnableForNow(Pawn p, WorkTypeDef w)
+	{
+		return p?.workSettings != null && w != null && p.workSettings.EverWork && !p.WorkTypeIsDisabled(w) && !Capable(p, w);
 	}
 
 	public static bool Opposed(Pawn p, WorkTypeDef w)

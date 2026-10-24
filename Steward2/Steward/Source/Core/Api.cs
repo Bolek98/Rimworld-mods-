@@ -201,7 +201,18 @@ public sealed class PlanContext
 	// pawns who can do the work, best suited first
 	public List<Pawn> Best(WorkTypeDef w)
 	{
-		return pawns.Where(p => CanDo(p, w) && !noRaise.Contains(p)).OrderByDescending(p => Fit(p, w)).ToList();
+		// 3.0.5: whoever already does the work keeps it unless somebody is clearly better,
+		// and equal fits always end in the same order – no swapping work back and forth
+		return pawns.Where(p => CanDo(p, w) && !noRaise.Contains(p))
+			.OrderByDescending(p => Fit(p, w) + (Holds(p, w) ? 0.1f : 0f))
+			.ThenBy(p => p.thingIDNumber).ToList();
+	}
+
+	// the work is on the pawn's main levels (1–2) in the game right now
+	public static bool Holds(Pawn p, WorkTypeDef w)
+	{
+		int c = p.workSettings?.GetPriority(w) ?? 0;
+		return c > 0 && c <= 2;
 	}
 
 	// how many pawns have the work on level <= maxLevel

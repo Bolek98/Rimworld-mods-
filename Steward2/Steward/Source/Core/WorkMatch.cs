@@ -14,6 +14,8 @@ public static class WorkMatch
 {
 	private static readonly Dictionary<string, List<WorkTypeDef>> cache = new Dictionary<string, List<WorkTypeDef>>();
 
+	private const WorkTags Generic = WorkTags.ManualDumb | WorkTags.ManualSkilled | WorkTags.Commoner | WorkTags.AllWork;
+
 	public static void Reset() => cache.Clear();
 
 	public static List<WorkTypeDef> Resolve(string name)
@@ -31,7 +33,9 @@ public static class WorkMatch
 			{
 				if (w == main || w.modContentPack == null || w.modContentPack.IsOfficialMod)
 					continue;
-				if (SameSkills(w, main) && (w.workTags & main.workTags) != 0)
+				// 3.0.5: the shared kind of work must be a real one – "manual dumb" alone made every
+				// no-skill work type (cleaning, power, recycling …) count as hauling
+				if (SameSkills(w, main) && (w.workTags & main.workTags & ~Generic) != 0)
 					list.Add(w);
 			}
 		}
