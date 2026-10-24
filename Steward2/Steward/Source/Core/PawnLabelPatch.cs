@@ -42,6 +42,7 @@ public static class PawnLabelPatch
 					}));
 				}
 			}
+			StewardTools.CopyMenu(pawn, list);
 			Find.WindowStack.Add(new FloatMenu(list));
 		}
 	}

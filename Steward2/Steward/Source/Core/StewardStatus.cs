@@ -101,16 +101,23 @@ public static class StewardStatus
 // "Plan now": every change of the plan, written only after "Apply"
 public class Dialog_StewardPreview : Window
 {
-	private readonly ForemanMapComponent comp;
-	private readonly Planner.PlanResult plan;
+	private readonly string title;
 	private readonly List<Planner.Change> changes;
+	private readonly Func<List<Planner.Change>, int> apply;
 	private Vector2 scroll;
 
+	// the steward's plan
 	public Dialog_StewardPreview(ForemanMapComponent comp, Planner.PlanResult plan)
+		: this(null, plan?.Changes(), _ => comp.ApplyPlan(plan))
 	{
-		this.comp = comp;
-		this.plan = plan;
-		changes = plan?.Changes() ?? new List<Planner.Change>();
+	}
+
+	// 3.2.0: any list of changes (a saved set, a newcomer, copying) with its own way to apply it
+	public Dialog_StewardPreview(string title, List<Planner.Change> changes, Func<List<Planner.Change>, int> apply)
+	{
+		this.title = title;
+		this.apply = apply;
+		this.changes = changes = changes ?? new List<Planner.Change>();
 		changes.Sort((x, y) =>
 		{
 			int c = string.Compare(x.pawn.LabelShort, y.pawn.LabelShort, StringComparison.CurrentCulture);
@@ -127,7 +134,7 @@ public class Dialog_StewardPreview : Window
 	public override void DoWindowContents(Rect inRect)
 	{
 		Text.Font = GameFont.Medium;
-		Widgets.Label(new Rect(inRect.x, inRect.y, inRect.width, 34f), "CF31_PreviewTitle".Translate(changes.Count));
+		Widgets.Label(new Rect(inRect.x, inRect.y, inRect.width, 34f), title ?? (string)"CF31_PreviewTitle".Translate(changes.Count));
 		Text.Font = GameFont.Small;
 		GUI.color = MUI.Muted;
 		Widgets.Label(new Rect(inRect.x, inRect.y + 34f, inRect.width, 24f), "CF31_PreviewHint".Translate());
@@ -177,7 +184,7 @@ public class Dialog_StewardPreview : Window
 		Rect bCancel = new Rect(inRect.xMax - 145f, inRect.yMax - 34f, 145f, 34f);
 		if (changes.Count > 0 && Widgets.ButtonText(bApply, "CF31_Apply".Translate()))
 		{
-			int n = comp.ApplyPlan(plan);
+			int n = apply(changes);
 			Messages.Message("CF2_PlanDone".Translate(n), MessageTypeDefOf.SilentInput, historical: false);
 			Close();
 		}

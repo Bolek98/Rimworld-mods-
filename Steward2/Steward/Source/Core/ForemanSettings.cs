@@ -52,6 +52,10 @@ public sealed class ForemanSettings : ModSettings
 	public bool planMessages = false;
 	// 3.1.0: "Plan now" shows the changes first
 	public bool planPreview = true;
+	// 3.2.0
+	public bool offerNewcomers = true;
+	public bool weeklySummary = true;
+	public bool apprentices = false;
 
 	public int MinFor(WorkTypeDef w) => useMyRules && w != null && workerMin.TryGetValue(w.defName, out int v) ? v : 0;
 	public int MaxFor(WorkTypeDef w) => useMyRules && w != null && workerMax.TryGetValue(w.defName, out int v) ? v : 0;
@@ -92,6 +96,9 @@ public sealed class ForemanSettings : ModSettings
 		Scribe_Collections.Look(ref urgencyOverrides, "urgencyOverrides", LookMode.Value, LookMode.Value);
 		Scribe_Values.Look(ref planMessages, "planMessages", false);
 		Scribe_Values.Look(ref planPreview, "planPreview", true);
+		Scribe_Values.Look(ref offerNewcomers, "offerNewcomers", true);
+		Scribe_Values.Look(ref weeklySummary, "weeklySummary", true);
+		Scribe_Values.Look(ref apprentices, "apprentices", false);
 		workerMin ??= new Dictionary<string, int>();
 		workerMax ??= new Dictionary<string, int>();
 		urgencyOverrides ??= new Dictionary<string, float>();

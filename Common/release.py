@@ -41,7 +41,7 @@ def source_versions(d):
     """(file, line, version, kind) for version constants and hard-written version text."""
     out = []
     for f in sorted((d / "Source").rglob("*.cs")) if (d / "Source").exists() else []:
-        if f.name in ("MisakUI.cs", "MisakReport.cs"):
+        if f.name in ("MisakUI.cs", "MisakReport.cs", "MisakNews.cs"):
             continue
         for i, line in enumerate(f.read_text(encoding="utf-8", errors="replace").splitlines(), 1):
             s = line.strip()

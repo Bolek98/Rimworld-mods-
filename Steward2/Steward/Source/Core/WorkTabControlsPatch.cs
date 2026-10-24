@@ -20,11 +20,11 @@ public static class WorkTabControlsPatch
 		if (comp == null)
 			return;
 		const float h = 28f, gap = 8f;
-		float wAuto = 120f, wPlan = 120f, wStyle = 180f, wHist = 90f;
+		float wAuto = 120f, wPlan = 120f, wStyle = 180f, wHist = 90f, wSets = 100f;
 		// 3.1.0: the locks are shown as soon as there are any (easy to forget a middle click)
 		int locks = StewardStatus.LockCount(ForemanGameComponent.Get());
 		float wLocks = locks > 0 ? 110f : 0f;
-		float x = rect.xMax - (wAuto + wPlan + wStyle + wHist + 3 * gap + (locks > 0 ? wLocks + gap : 0f)) - 4f;
+		float x = rect.xMax - (wAuto + wPlan + wStyle + wHist + wSets + 4 * gap + (locks > 0 ? wLocks + gap : 0f)) - 4f;
 		float y = rect.y + 5f;
 		// a narrow window: under the vanilla text instead of over it
 		if (x < 420f)
@@ -96,6 +96,13 @@ public static class WorkTabControlsPatch
 		}
 		TooltipHandler.TipRegion(rStyle, "CF_StyleTip".Translate());
 		x += wStyle + gap;
+
+		// 3.2.0: saved priority sets
+		Rect rSets = new Rect(x, y, wSets, h);
+		if (Widgets.ButtonText(rSets, "CF32_SetsButton".Translate()))
+			Find.WindowStack.Add(new Dialog_StewardSets(Find.CurrentMap));
+		TooltipHandler.TipRegion(rSets, "CF32_SetsTip".Translate());
+		x += wSets + gap;
 
 		Rect rHist = new Rect(x, y, wHist, h);
 		if (Widgets.ButtonText(rHist, "CF_HistButton".Translate()))

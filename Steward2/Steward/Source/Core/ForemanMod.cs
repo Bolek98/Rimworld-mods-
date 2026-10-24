@@ -11,7 +11,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "3.1.0";
+	public const string Version = "3.2.0";
 	public static ForemanSettings Settings;
 
 	private int tab;
@@ -27,6 +27,7 @@ public sealed class ForemanMod : Mod
 		h.PatchAll(typeof(ForemanMod).Assembly);
 		MUI.PatchWindow(h, typeof(ForemanMod));
 		Planner.RegisterCoreSteps();
+		MNews.Register(content, Version);
 		MLog.Info("[Steward] " + Version + " core loaded.");
 	}
 
@@ -83,6 +84,7 @@ public sealed class ForemanMod : Mod
 		s.preferenceBonus = MUI.Slider(l, "CF2_Prefer".Translate(s.preferenceBonus.ToStringPercent()), s.preferenceBonus, 0f, 1f, "CF2_PreferTip".Translate(), s, "preferenceBonus");
 		MUI.Check(l, "CF2_Lodgers".Translate(), "CF2_LodgersTip".Translate(), ref s.includeLodgers, s, "includeLodgers");
 		MUI.Check(l, "CF2_Mechs".Translate(), "CF2_MechsTip".Translate(), ref s.countMechs, s, "countMechs");
+		MUI.Check(l, "CF32_Apprentices".Translate(), "CF32_ApprenticesTip".Translate(), ref s.apprentices, s, "apprentices");
 
 		MUI.Section(l, "CF2_SecStyles".Translate());
 		s.styleStrength = MUI.Slider(l, "CF2_StyleStrength".Translate(s.styleStrength.ToString("0.0")), s.styleStrength, 0f, 3f, "CF2_StyleStrengthTip".Translate(), s, "styleStrength");
@@ -106,6 +108,8 @@ public sealed class ForemanMod : Mod
 		l.Gap(6f);
 		MUI.Check(l, "CF2_PlanMessages".Translate(), "CF2_PlanMessagesTip".Translate(), ref s.planMessages, s, "planMessages");
 		MUI.Check(l, "CF31_PlanPreview".Translate(), "CF31_PlanPreviewTip".Translate(), ref s.planPreview, s, "planPreview");
+		MUI.Check(l, "CF32_OfferNew".Translate(), "CF32_OfferNewTip".Translate(), ref s.offerNewcomers, s, "offerNewcomers");
+		MUI.Check(l, "CF32_Weekly".Translate(), "CF32_WeeklyTip".Translate(), ref s.weeklySummary, s, "weeklySummary");
 	}
 
 	private static void Rules(Listing_Standard l, ForemanSettings s)

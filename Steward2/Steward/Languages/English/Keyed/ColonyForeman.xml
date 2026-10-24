@@ -250,4 +250,40 @@
   <CF31_StCells>{0} locked cells keep their priority.</CF31_StCells>
   <CF31_StColumns>Locked columns: {0}.</CF31_StColumns>
   <CF31_StUnable>Cannot do right now (health): {0}.</CF31_StUnable>
+  <CF32_Apprentices>Apprentices</CF32_Apprentices>
+  <CF32_ApprenticesTip>A colonist with a passion and little skill gets the work on a learning level (3) when somebody good at it does it as main work. One apprenticeship per colonist, one apprentice per work.</CF32_ApprenticesTip>
+  <CF32_TipApprentice>Apprentice: has a passion for it and learns next to a master.</CF32_TipApprentice>
+  <CF32_CopyTo>Copy {0}'s priorities to…</CF32_CopyTo>
+  <CF32_CopyToAll>Everybody else on this map</CF32_CopyToAll>
+  <CF32_CopyTitle>Copy {0}'s priorities</CF32_CopyTitle>
+  <CF32_WhyCopy>Copied from {0}.</CF32_WhyCopy>
+  <CF32_HistCopy>Priorities of {0} copied to {1}.</CF32_HistCopy>
+  <CF32_Others>{0} colonists</CF32_Others>
+  <CF32_SetsButton>Sets</CF32_SetsButton>
+  <CF32_SetsTip>Saved priority sets: save the current priorities under a name (“Winter”, “Defence”, “Harvest” …) and load them again later. Loading shows the changes first.</CF32_SetsTip>
+  <CF32_SetsTitle>Priority sets</CF32_SetsTitle>
+  <CF32_SetsHint>Saves the priorities of every colonist on this map. Loading shows all changes first; locked cells and colonists who are not here are skipped. With the steward on, his next plan changes things again – turn him off to keep a set.</CF32_SetsHint>
+  <CF32_SetsSave>Save current</CF32_SetsSave>
+  <CF32_SetsDefaultName>Set {0}</CF32_SetsDefaultName>
+  <CF32_SetsSaved>Priority set “{0}” saved.</CF32_SetsSaved>
+  <CF32_SetsNone>No saved sets yet.</CF32_SetsNone>
+  <CF32_SetsLoad>Load…</CF32_SetsLoad>
+  <CF32_SetsDelete>Delete</CF32_SetsDelete>
+  <CF32_SetsLoadTitle>Set “{0}” – {1} changes</CF32_SetsLoadTitle>
+  <CF32_SetsMissing>({0} colonists from the set are not here)</CF32_SetsMissing>
+  <CF32_HistSetSaved>Priority set “{0}” saved.</CF32_HistSetSaved>
+  <CF32_HistSetLoaded>Priority set “{0}” loaded.</CF32_HistSetLoaded>
+  <CF32_WhySet>From the set “{0}”.</CF32_WhySet>
+  <CF32_OfferNew>Offer work for a new colonist</CF32_OfferNew>
+  <CF32_OfferNewTip>When the steward is off and a new colonist joins, a window shows the work the steward would give him. Nothing changes unless you press Apply.</CF32_OfferNewTip>
+  <CF32_NewTitle>New: {0} – suggested work</CF32_NewTitle>
+  <CF32_HistNew>Work for the new colonist {0} applied.</CF32_HistNew>
+  <CF32_Weekly>Weekly summary</CF32_Weekly>
+  <CF32_WeeklyTip>Once a week a short message (also in the history): plans and changes, new colonists, work that waited without anybody, crises.</CF32_WeeklyTip>
+  <CF32_WeekTitle>Steward's week ({0}):</CF32_WeekTitle>
+  <CF32_WeekPlans>{0} plans, {1} changes</CF32_WeekPlans>
+  <CF32_WeekNew>{0} new colonists</CF32_WeekNew>
+  <CF32_WeekGaps>waited without anybody: {0}</CF32_WeekGaps>
+  <CF32_WeekNoGaps>no work waited without anybody</CF32_WeekNoGaps>
+  <CF32_WeekCrises>crises: {0}</CF32_WeekCrises>
 </LanguageData>

@@ -25,6 +25,7 @@ public static class Planner
 		StewardApi.Register(new BaseStep());
 		StewardApi.Register(new ChildrenStep());
 		StewardApi.Register(new MyRulesStep());
+		StewardApi.Register(new ApprenticeStep());
 		StewardApi.Register(new TopJobStep());
 		StewardApi.Register(new NobodyIdleStep());
 	}
@@ -213,6 +214,8 @@ public static class Planner
 		comp.PruneCalm(now);
 		comp.lastPlanTick = now;
 		comp.lastPlanChanged = changed;
+		comp.totalPlans++;
+		comp.totalChanges += changed;
 		MLog.Info("[Steward] plan for " + comp.map.Parent?.LabelCap + ": " + ctx.pawns.Count + " pawns, " + changed + " changes"
 			+ (ctx.manual ? " (by you)" : " – " + comp.lastWhy) + ", crisis: " + (comp.crisis == Crisis.None ? "none" : comp.crisis.ToString())
 			+ (log.Count > 0 ? "\n    " + string.Join("\n    ", log) : "") + (changed > log.Count ? "\n    … and " + (changed - log.Count) + " more" : ""));

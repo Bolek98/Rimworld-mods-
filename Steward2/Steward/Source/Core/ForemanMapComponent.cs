@@ -30,6 +30,8 @@ public sealed class ForemanMapComponent : MapComponent
 	public readonly Dictionary<long, List<Reason>> tips = new Dictionary<long, List<Reason>>();
 	public int lastPlanTick = -1;
 	public int lastPlanChanged;
+	// 3.2.0: all plans and changes on this map (the weekly summary counts from them)
+	public int totalPlans, totalChanges;
 	private string lastRoster;
 	private Dictionary<WorkTypeDef, int> lastNeed = new Dictionary<WorkTypeDef, int>();
 	private bool requested, requestedUrgent;
@@ -293,6 +295,8 @@ public sealed class ForemanMapComponent : MapComponent
 		Scribe_Values.Look(ref style, "style", ForemanStyle.Balanced);
 		Scribe_Values.Look(ref nextRun, "nextRun", 0);
 		Scribe_Values.Look(ref crisis, "crisis", Crisis.None);
+		Scribe_Values.Look(ref totalPlans, "cfTotalPlans", 0);
+		Scribe_Values.Look(ref totalChanges, "cfTotalChanges", 0);
 		Scribe_Collections.Look(ref history, "cfHistory", LookMode.Value);
 		Dictionary<string, string> calmSave = null;
 		if (Scribe.mode == LoadSaveMode.Saving)
