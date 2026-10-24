@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Auto Turrets</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.autoturrets</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>Every turret, mortar and gun emplacement – vanilla and from any mod – works without a colonist.
+
+- Manned turrets shoot on their own: turrets that normally need a colonist fire automatically, like a mini-turret. You can still pick a target by hand.
+- Mortars fire on their own while a shell is loaded.
+- Haulers bring shells to empty mortars (Hauling work); the mortar's own shell filter is respected.
+- Mortar safety: an automatic mortar skips targets where the shell could land on your colonists, animals or guests (extra safety distance adjustable).
+- Turrets that rearm with steel (or another single metal) accept any metal: plasteel, gold, uranium and metals from mods (silver optional).
+
+Only your own turrets change – enemy siege mortars still need their crew. Every part can be switched in the mod settings. Safe to add to an existing save. Requires Harmony. Czech and English.
+
+---
+
+Každá věž, minomet a dělo – z vanilly i z jakéhokoli modu – funguje bez kolonisty.
+
+- Obsluhované věže střílí samy: věže, které normálně potřebují kolonistu, střílí automaticky jako minivěž. Cíl můžeš dál vybrat ručně.
+- Minomety střílí samy, dokud mají nabitý granát.
+- Nosiči nosí granáty k prázdným minometům (práce Nošení); filtr granátů minometu se dodrží.
+- Bezpečnost minometů: automatický minomet vynechá cíle, kde by granát mohl dopadnout na tvé kolonisty, zvířata nebo hosty (bezpečnou vzdálenost lze nastavit).
+- Věže, které se dobíjí ocelí (nebo jiným jedním kovem), vezmou jakýkoli kov: plastocel, zlato, uran i kovy z modů (stříbro volitelně).
+
+Mění se jen tvoje věže – nepřátelské obléhací minomety dál potřebují obsluhu. Každou část lze přepnout v nastavení modu. Lze bezpečně přidat do rozehrané hry. Vyžaduje Harmony. Čeština a angličtina.</description>
+</ModMetaData>

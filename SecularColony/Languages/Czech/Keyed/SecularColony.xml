@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SC_ModName>Kolonie bez víry – vypnutá ideologie a úpravy</SC_ModName>
+  <SC_NoIdeology>DLC Ideology není aktivní – mod nemá co vypínat.</SC_NoIdeology>
+  <SC_Enable>Moje kolonie ignoruje ideologii</SC_Enable>
+  <SC_Enable_Desc>Hlavní přepínač. Týká se jen tvých kolonistů (a podle volby otroků), ostatních frakcí ne. Po vypnutí se vše vrátí.</SC_Enable_Desc>
+  <SC_Moods>Žádné nálady z víry</SC_Moods>
+  <SC_Moods_Desc>Myšlenky z přesvědčení, rituálů, rolí, ideologických staveb, žádaného oblečení a barev nedávají plus ani minus. Stávající myšlenky z víry se odstraní.</SC_Moods_Desc>
+  <SC_Certainty>Žádné převádění na jinou víru</SC_Certainty>
+  <SC_Certainty_Desc>Jistota víry neklesá, nikdo tvé kolonisty nepřevede a tvoji kolonisté nikoho sami nepřesvědčují. Převádění vězňů, které zadáš sám, funguje dál.</SC_Certainty_Desc>
+  <SC_Willing>Ideologie nic nezakazuje</SC_Willing>
+  <SC_Willing_Desc>Hláška „Ideologie zakazuje“ už kolonistům nebrání v žádné práci ani akci.</SC_Willing_Desc>
+  <SC_MentalBreaks>Žádná zhroucení kvůli víře</SC_MentalBreaks>
+  <SC_MentalBreaks_Desc>Psychická zhroucení, která přináší přesvědčení (krize víry a podobně), u tvých kolonistů nenastanou. Běžná zhroucení zůstávají.</SC_MentalBreaks_Desc>
+  <SC_Alerts>Skrýt upozornění víry</SC_Alerts>
+  <SC_Alerts_Desc>Skryje upozornění na neobsazené role, chybějící nebo znesvěcené ideologické stavby, blížící se rituály podle data a požadavek na omlazení. Role obsazovat nemusíš.</SC_Alerts_Desc>
+  <SC_Slaves>Platí i pro otroky</SC_Slaves>
+  <SC_Slaves_Desc>Když je zapnuto, ignorují ideologii i otroci tvé kolonie.</SC_Slaves_Desc>
+  <SC_Note>Změny platí okamžitě, i v rozehrané hře. Záložka Ideologie zůstává vidět, ale na tvou kolonii nemá vliv.</SC_Note>
+  <SC_LookChange>Kolonisté si sami mění vzhled</SC_LookChange>
+  <SC_LookChange_Desc>Občas dostane kolonista chuť na nový účes, vousy nebo tetování a sám si zajde ke kadeřnickému křeslu, až bude mít čas. Jen svobodní dospělí kolonisté (ne otroci, vězni ani hosté). Potřebuje kadeřnické křeslo – bez něj nikoho chuť nepřepadne (jako ve hře bez modu). Přání, které se do 4 dnů nesplní, zase odezní.</SC_LookChange_Desc>
+  <SC_LookChangeDays>Průměrně dní mezi přáními na kolonistu: {0}</SC_LookChangeDays>
+  <SC_LookChangeDays_Desc>Kolik dní v průměru uplyne, než kolonista zase zatouží po novém vzhledu. Dobrá nálada a krása to trochu urychlí, špatná nálada zpomalí.</SC_LookChangeDays_Desc>
+  <SC_LookChangeMessage>Oznámit, když někdo chce nový vzhled</SC_LookChangeMessage>
+  <SC_LookChangeMessage_Desc>Krátká zpráva nahoře na obrazovce. Hra se nepozastaví.</SC_LookChangeMessage_Desc>
+  <SC_StyleFree>Styl bez ideologie</SC_StyleFree>
+  <SC_StyleFree_Desc>Účesy, vousy a tetování se vybírají ze všeho, co sedí k pohlaví, věku a genům kolonisty, ne podle toho, co povoluje ideologie. Styl, který ideologie nemá ráda, už v kolonistovi nevyvolá touhu po změně.</SC_StyleFree_Desc>
+  <SC_LookWish>{PAWN_nameDef} chce nový vzhled.</SC_LookWish>
+  <SC_H_Belief>Víra</SC_H_Belief>
+  <SC_H_Look>Vzhled</SC_H_Look>
+  <SC_H_Love>Vztahy bez víry</SC_H_Love>
+  <SC_LoveHint>Bez ideologie neurčuje víra, kolik partnerů smí kolonista mít. Vyber pravidlo:</SC_LoveHint>
+  <SC_Rule0>Podle vlastností (doporučeno)</SC_Rule0>
+  <SC_Rule0_Desc>Každý má jednoho partnera. Kolonisté s vlastností „polyamorní“ nebo „polygamní“ smějí mít víc partnerů a manželů (do limitu níže).</SC_Rule0_Desc>
+  <SC_Rule1>Jeden partner pro všechny</SC_Rule1>
+  <SC_Rule1_Desc>Nikdo nesmí mít víc partnerů ani manželů najednou. Nový vztah ukončí ten starý.</SC_Rule1_Desc>
+  <SC_Rule2>Volná láska pro všechny</SC_Rule2>
+  <SC_Rule2_Desc>Kdokoliv smí mít víc partnerů i manželů (do limitu níže). Takhle se mod choval do verze 1.1.</SC_Rule2_Desc>
+  <SC_MaxPartners>Nejvýš partnerů najednou: {0}</SC_MaxPartners>
+  <SC_MaxPartners_Desc>Kolik milenců, snoubenců a manželů dohromady smí mít kolonista, kterému to pravidlo dovoluje. 5 a víc = bez omezení.</SC_MaxPartners_Desc>
+  <SC_PolyChance>Četnost poly vlastností: {0} %</SC_PolyChance>
+  <SC_PolyChance_Desc>Jak často se „polyamorní“ a „polygamní“ objevují u nových pawnů. 0 % = vůbec (dají se pořád přidat v editoru postav).</SC_PolyChance_Desc>
+  <SC_PolyNoJealousy>Polyamorní nežárlí</SC_PolyNoJealousy>
+  <SC_PolyNoJealousy_Desc>Polyamorní kolonista nedostane špatnou náladu „podvedl mě“, když má partner i někoho jiného.</SC_PolyNoJealousy_Desc>
+  <SC_PolygamyMood>Polygamní mají radost z velké rodiny</SC_PolygamyMood>
+  <SC_PolygamyMood_Desc>Polygamní kolonista se dvěma manželi +3, se třemi +5, se čtyřmi a víc +7 k náladě.</SC_PolygamyMood_Desc>
+  <SC_H_NoBelief>Úplně bez víry</SC_H_NoBelief>
+  <SC_NoBelief_NoGame>Ideologii jde z kolonie úplně odstranit v rozehrané hře (tady v nastavení).</SC_NoBelief_NoGame>
+  <SC_NoBelief_Desc>Odstraní ideologii z kolonie úplně: hra se přepne do klasického režimu (jako hra bez ideologie), zmizí záložka Ideologie, jistota víry, převracení na víru, role, relikvie i ideologické stavby. Všichni kolonisté dostanou jednu obyčejnou „klasickou“ víru bez pravidel a každý, kdo se přidá, ji převezme taky.</SC_NoBelief_Desc>
+  <SC_NoBelief_Button>Odstranit ideologii z kolonie</SC_NoBelief_Button>
+  <SC_NoBelief_Confirm>Opravdu odstranit ideologii z kolonie? Tohle změní uloženou hru (role a ideologické stavby zmizí). Doporučuji si předtím uložit hru do nového slotu.</SC_NoBelief_Confirm>
+  <SC_NoBelief_Converted>Ideologie odstraněna – kolonistů převedeno: {0}. Kolonie žije bez víry.</SC_NoBelief_Converted>
+  <SC_NoBelief_Done>Kolonie je bez ideologie (klasický režim).</SC_NoBelief_Done>
+  <SC_NoBelief_Undo>Vrátit ideologii (vypnout klasický režim)</SC_NoBelief_Undo>
+  <SC_NoBelief_Undone>Klasický režim vypnut – záložka Ideologie je zpět. Kolonisté zůstávají u obyčejné víry, kterou si můžeš upravit.</SC_NoBelief_Undone>
+  <!-- 1.4.0 -->
+  <SC_BarberTable>Holičský stůl taky</SC_BarberTable>
+  <SC_BarberTable_Desc>Kolonista, který chce nový vzhled, jde k nejbližšímu kadeřnickému křeslu NEBO holičskému stolu (Vanilla Hair Expanded a podobné mody). V nabídce holičského stolu uvidí jen účesy a vousy, které mu sedí (pohlaví, rasa, geny).</SC_BarberTable_Desc>
+  <SC_GenderStyles>Ženy ženské účesy, muži mužské</SC_GenderStyles>
+  <SC_GenderStyles_Desc>Ženy si vybírají jen ženské a unisex účesy, muži jen mužské a unisex – ze všech modů s účesy, které máš. Platí pro tvé kolonisty.</SC_GenderStyles_Desc>
+  <SC_HairColours>Měnit i barvu vlasů</SC_HairColours>
+  <SC_HairColours_Desc>Při nové úpravě si kolonista občas změní i barvu vlasů – z barev všech modů (barvy na vlasy ze hry a modů, předvolby Vanilla Hair Expanded, přirozené barvy z genů). Ženy volí barvy častěji, muži spíš přirozené. Holičský stůl dostane tyhle barvy taky do nabídky.</SC_HairColours_Desc>
+  <SC_HairColourChance>Šance na novou barvu při úpravě: {0} %</SC_HairColourChance>
+  <SC_HairColourChance_Desc>Jak často si kolonista při úpravě vlasů změní i barvu.</SC_HairColourChance_Desc>
+  <SC_Rec1>Žádné nálady ani zhroucení z víry</SC_Rec1>
+  <SC_Rec2>Jistota víry neklesá, nikdo nikoho neobrací</SC_Rec2>
+  <SC_Rec3>Volné styly, holičský stolek, barvy vlasů</SC_Rec3>
+  <SC_Rec4>Vztahy podle povahy, bez žárlivosti</SC_Rec4>
+  <SC_KeepHint>Některé druhy přesto nechat (částečný režim):</SC_KeepHint>
+  <SC_KeepRituals>Nechat nálady z rituálů</SC_KeepRituals>
+  <SC_KeepRituals_Desc>Rituály a relikvie dál dávají svůj bonus (i postih) k náladě.</SC_KeepRituals_Desc>
+  <SC_KeepRoles>Nechat nálady z rolí</SC_KeepRoles>
+  <SC_KeepRoles_Desc>Vůdce a specialisté dál ovlivňují náladu (neobsazená role, ztráta role, oblečení role).</SC_KeepRoles_Desc>
+  <SC_KeepBuildings>Nechat nálady z náboženských staveb</SC_KeepBuildings>
+  <SC_KeepBuildings_Desc>Chybějící nebo zneuctěné oltáře a jiné stavby víry se dál počítají.</SC_KeepBuildings_Desc>
+  <SC_KeepApparel>Nechat nálady z žádaného oblečení a barev</SC_KeepApparel>
+  <SC_KeepApparel_Desc>Oblečení a barvy, které víra chce, dál ovlivňují náladu.</SC_KeepApparel_Desc>
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+</LanguageData>
