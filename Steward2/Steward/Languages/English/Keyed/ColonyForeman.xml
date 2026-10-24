@@ -219,4 +219,35 @@
   <CF2_TipYourMin>Your minimum: at least {0}.</CF2_TipYourMin>
   <CF2_TipYourMax>Your maximum: at most {0}.</CF2_TipYourMax>
   <CF2_TipNobodyIdle>Not to stand idle: his best suited work that waits.</CF2_TipNobodyIdle>
+  <CF31_PlanPreview>Show the plan before applying it</CF31_PlanPreview>
+  <CF31_PlanPreviewTip>“Plan now” first shows every change it would make; nothing changes until you press Apply. Automatic plans are not affected.</CF31_PlanPreviewTip>
+  <CF31_PreviewTitle>Steward's plan – {0} changes</CF31_PreviewTitle>
+  <CF31_PreviewHint>Nothing is changed until you press Apply. The reason is on the right (hover for the full text).</CF31_PreviewHint>
+  <CF31_PreviewNone>Nothing to change – the priorities already match the plan.</CF31_PreviewNone>
+  <CF31_Apply>Apply</CF31_Apply>
+  <CF31_Cancel>Cancel</CF31_Cancel>
+  <CF31_Close>Close</CF31_Close>
+  <CF31_LocksButton>Locks ({0})</CF31_LocksButton>
+  <CF31_LocksTip>Colonists, work columns and cells the steward must not change. Click to see and unlock them.</CF31_LocksTip>
+  <CF31_LocksTitle>Locks</CF31_LocksTitle>
+  <CF31_LocksHowTo>Locked things keep their priorities – the steward does not touch them. In the Work tab, the middle mouse button (wheel) locks or unlocks: on a colonist's name the whole colonist, on a column header the work for everybody, on a cell just that cell.</CF31_LocksHowTo>
+  <CF31_LocksPawns>Locked colonists (all their work stays as it is)</CF31_LocksPawns>
+  <CF31_LocksWork>Locked work columns (for everybody)</CF31_LocksWork>
+  <CF31_LocksCells>Locked cells</CF31_LocksCells>
+  <CF31_Unlock>Unlock</CF31_Unlock>
+  <CF31_UnlockAll>Unlock all</CF31_UnlockAll>
+  <CF31_LocksNone>Nothing is locked.</CF31_LocksNone>
+  <CF31_StOk>Steward: plans this colonist.</CF31_StOk>
+  <CF31_StAutoOff>The steward is off on this map – priorities change only with “Plan now”.</CF31_StAutoOff>
+  <CF31_StLockedPawn>Steward: LOCKED – all his work stays as it is. Middle-click the name to unlock.</CF31_StLockedPawn>
+  <CF31_StAchtung>Steward: skipped – he has forced work from Achtung!. His priorities stay until the forced work is cleared.</CF31_StAchtung>
+  <CF31_StDowned>Steward: skipped while he is down – planned again when he is up.</CF31_StDowned>
+  <CF31_StSlave>Steward: skipped – slaves are not planned.</CF31_StSlave>
+  <CF31_StGuest>Steward: skipped – guest or quest lodger (see “Also plan quest guests” in the settings).</CF31_StGuest>
+  <CF31_StBaby>Steward: skipped – a baby.</CF31_StBaby>
+  <CF31_StNoWork>Steward: skipped – does no work at all.</CF31_StNoWork>
+  <CF31_StNotHere>Steward: not on this map now – planned on the map where he is.</CF31_StNotHere>
+  <CF31_StCells>{0} locked cells keep their priority.</CF31_StCells>
+  <CF31_StColumns>Locked columns: {0}.</CF31_StColumns>
+  <CF31_StUnable>Cannot do right now (health): {0}.</CF31_StUnable>
 </LanguageData>

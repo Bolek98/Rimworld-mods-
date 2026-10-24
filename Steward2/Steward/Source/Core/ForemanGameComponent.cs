@@ -33,7 +33,7 @@ public sealed class ForemanGameComponent : GameComponent
 
 	private static long CellKey(Pawn p, WorkTypeDef w) => ((long)p.thingIDNumber << 16) | (uint)w.index;
 
-	private void ClearCaches()
+	public void ClearCaches()
 	{
 		pawnLockCache.Clear();
 		cellLockCache.Clear();

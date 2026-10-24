@@ -74,9 +74,16 @@ public static class Planner
 
 	public static int Run(ForemanMapComponent comp, bool manual)
 	{
+		PlanResult r = Compute(comp, manual);
+		return r == null ? 0 : Write(r);
+	}
+
+	// 3.1.0: the plan without writing it (the preview window shows it first)
+	public static PlanResult Compute(ForemanMapComponent comp, bool manual)
+	{
 		PlanContext ctx = Build(comp, manual);
 		if (ctx.pawns.Count == 0)
-			return 0;
+			return null;
 		foreach (IPlanStep step in StewardApi.Steps)
 		{
 			try
@@ -88,25 +95,18 @@ public static class Planner
 				MLog.WarnOnce("[Steward] plan step '" + step.Id + "' failed: " + ex, step.Id.GetHashCode());
 				// 3.0.5: without the base plan the rest is half empty – better keep the priorities as they are
 				if (step.Id == "core.base")
-					return 0;
+					return null;
 			}
 		}
-		return Write(ctx);
+		return new PlanResult { ctx = ctx, final = Final(ctx) };
 	}
 
-	// ---- writing the plan calmly ---------------------------------------------
-	private static int Write(PlanContext ctx)
+	// ---- the plan calmly: what really changes ----------------------------------
+	private static Dictionary<Pawn, Dictionary<WorkTypeDef, int>> Final(PlanContext ctx)
 	{
 		ForemanMapComponent comp = ctx.comp;
 		int now = Find.TickManager.TicksGame;
 		int hold = Math.Max(0, ctx.settings?.holdHours ?? 12) * 2500;
-		if (!Find.PlaySettings.useWorkPriorities)
-		{
-			Find.PlaySettings.useWorkPriorities = true;
-			foreach (Pawn p in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_FreeColonists)
-				p.workSettings?.Notify_UseWorkPrioritiesChanged();
-			Messages.Message("CF2_ManualOn".Translate(), MessageTypeDefOf.NeutralEvent, historical: false);
-		}
 		// what the plan wants vs what stays because of the calm hold
 		var final = new Dictionary<Pawn, Dictionary<WorkTypeDef, int>>();
 		foreach (var kv in ctx.plan)
@@ -160,7 +160,23 @@ public static class Planner
 				if (kv.Value.TryGetValue(w, out int v) && v > 0 && v <= 2 && !ctx.Locked(kv.Key, w))
 					final[kv.Key][w] = v;
 		}
-		// write
+		return final;
+	}
+
+	// ---- writing the plan --------------------------------------------------------
+	public static int Write(PlanResult r)
+	{
+		PlanContext ctx = r.ctx;
+		ForemanMapComponent comp = ctx.comp;
+		var final = r.final;
+		int now = Find.TickManager.TicksGame;
+		if (!Find.PlaySettings.useWorkPriorities)
+		{
+			Find.PlaySettings.useWorkPriorities = true;
+			foreach (Pawn p in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_FreeColonists)
+				p.workSettings?.Notify_UseWorkPrioritiesChanged();
+			Messages.Message("CF2_ManualOn".Translate(), MessageTypeDefOf.NeutralEvent, historical: false);
+		}
 		int changed = 0;
 		var log = new List<string>();
 		comp.tips.Clear();
@@ -171,7 +187,7 @@ public static class Planner
 			{
 				WorkTypeDef w = j.Key;
 				int cur = p.workSettings.GetPriority(w);
-				if (j.Value != cur && !ctx.Locked(p, w))
+				if (j.Value != cur && !ctx.Locked(p, w) && !p.Dead && p.workSettings != null && !p.WorkTypeIsDisabled(w))
 				{
 					try
 					{
@@ -203,6 +219,41 @@ public static class Planner
 		if (ctx.settings != null && ctx.settings.planMessages && changed > 0 && comp.map == Find.CurrentMap)
 			Messages.Message("CF2_PlanDone".Translate(changed), MessageTypeDefOf.SilentInput, historical: false);
 		return changed;
+	}
+
+	// one change of the plan (for the preview window)
+	public struct Change
+	{
+		public Pawn pawn;
+		public WorkTypeDef work;
+		public int from, to;
+		public string why;
+	}
+
+	public sealed class PlanResult
+	{
+		public PlanContext ctx;
+		public Dictionary<Pawn, Dictionary<WorkTypeDef, int>> final;
+
+		public List<Change> Changes()
+		{
+			var list = new List<Change>();
+			foreach (var kv in final)
+			{
+				Pawn p = kv.Key;
+				if (p?.workSettings == null || p.Dead)
+					continue;
+				foreach (var j in kv.Value)
+				{
+					int cur = p.workSettings.GetPriority(j.Key);
+					if (j.Value == cur || ctx.Locked(p, j.Key) || p.WorkTypeIsDisabled(j.Key))
+						continue;
+					string why = ctx.reasons.TryGetValue(PlanContext.Key(p, j.Key), out var rs) && rs.Count > 0 ? rs[rs.Count - 1].Text() : null;
+					list.Add(new Change { pawn = p, work = j.Key, from = cur, to = j.Value, why = why });
+				}
+			}
+			return list;
+		}
 	}
 
 	public static string CalmKey(Pawn p, WorkTypeDef w) => p.thingIDNumber + "|" + w.defName;

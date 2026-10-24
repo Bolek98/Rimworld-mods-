@@ -55,7 +55,19 @@ public static class PawnLabelPatch
 			return;
 		if (game.PawnLocked(pawn))
 		{
-			GUI.DrawTexture(new Rect(rect.xMax - 14f, rect.y + (rect.height - 12f) / 2f, 12f, 12f), ForemanTex.Lock);
+			// 3.1.0: a locked colonist stands out (orange row, bigger lock)
+			Widgets.DrawBoxSolid(rect, new Color(1f, 0.6f, 0.2f, 0.12f));
+			GUI.color = new Color(1f, 0.75f, 0.35f);
+			GUI.DrawTexture(new Rect(rect.xMax - 17f, rect.y + (rect.height - 15f) / 2f, 15f, 15f), ForemanTex.Lock);
+			GUI.color = Color.white;
+		}
+		// 3.1.0: why the steward plans him or not
+		if (Mouse.IsOver(rect))
+		{
+			ForemanMapComponent comp = ForemanMapComponent.For(pawn.MapHeld ?? Find.CurrentMap);
+			string st = StewardStatus.For(pawn, comp);
+			if (!st.NullOrEmpty())
+				TooltipHandler.TipRegion(rect, new TipSignal(st, pawn.thingIDNumber ^ 0x5717));
 		}
 	}
 }

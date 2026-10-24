@@ -1,4 +1,9 @@
 === Not on the Workshop yet (test versions) ===
+3.1.0
+- "Plan now" first shows every change (colonist, work, old → new level, reason); nothing changes until you press Apply. Can be turned off in the settings ("Show the plan before applying it")
+- Locks are easy to see: a "Locks (N)" button in the Work tab when anything is locked, with a list of locked colonists, columns and cells and unlocking one by one or all at once; a locked colonist's name is highlighted
+- Hovering a colonist's name in the Work tab tells why the steward plans him or not (locked, forced work from Achtung!, down, slave, guest, baby, another map) and which locks and health limits apply to him
+
 3.0.5
 - Work no longer swaps back and forth between two colonists on every plan: whoever already does a work keeps it unless somebody is clearly better, equal colonists always end in the same order
 - A colonist could end up without any top job (priority 1) during a crisis or a focus – fixed

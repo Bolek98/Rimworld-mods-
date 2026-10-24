@@ -11,7 +11,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "3.0.5";
+	public const string Version = "3.1.0";
 	public static ForemanSettings Settings;
 
 	private int tab;
@@ -105,6 +105,7 @@ public sealed class ForemanMod : Mod
 			s.maxPriorityOverride = 4;
 		l.Gap(6f);
 		MUI.Check(l, "CF2_PlanMessages".Translate(), "CF2_PlanMessagesTip".Translate(), ref s.planMessages, s, "planMessages");
+		MUI.Check(l, "CF31_PlanPreview".Translate(), "CF31_PlanPreviewTip".Translate(), ref s.planPreview, s, "planPreview");
 	}
 
 	private static void Rules(Listing_Standard l, ForemanSettings s)

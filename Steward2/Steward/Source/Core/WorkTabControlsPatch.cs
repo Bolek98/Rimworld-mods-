@@ -21,13 +21,27 @@ public static class WorkTabControlsPatch
 			return;
 		const float h = 28f, gap = 8f;
 		float wAuto = 120f, wPlan = 120f, wStyle = 180f, wHist = 90f;
-		float x = rect.xMax - (wAuto + wPlan + wStyle + wHist + 3 * gap) - 4f;
+		// 3.1.0: the locks are shown as soon as there are any (easy to forget a middle click)
+		int locks = StewardStatus.LockCount(ForemanGameComponent.Get());
+		float wLocks = locks > 0 ? 110f : 0f;
+		float x = rect.xMax - (wAuto + wPlan + wStyle + wHist + 3 * gap + (locks > 0 ? wLocks + gap : 0f)) - 4f;
 		float y = rect.y + 5f;
 		// a narrow window: under the vanilla text instead of over it
 		if (x < 420f)
 			x = Math.Max(rect.x, x);
 		Text.Font = GameFont.Small;
 		int now = Find.TickManager.TicksGame;
+
+		if (locks > 0)
+		{
+			Rect rLocks = new Rect(x, y, wLocks, h);
+			GUI.color = new Color(1f, 0.75f, 0.35f);
+			if (Widgets.ButtonText(rLocks, "CF31_LocksButton".Translate(locks)))
+				Find.WindowStack.Add(new Dialog_StewardLocks());
+			GUI.color = Color.white;
+			TooltipHandler.TipRegion(rLocks, "CF31_LocksTip".Translate());
+			x += wLocks + gap;
+		}
 
 		Rect rAuto = new Rect(x, y, wAuto, h);
 		bool on = comp.auto;
@@ -52,8 +66,13 @@ public static class WorkTabControlsPatch
 		Rect rPlan = new Rect(x, y, wPlan, h);
 		if (Widgets.ButtonText(rPlan, "CF2_PlanNow".Translate()))
 		{
-			int n = comp.PlanNow(manual: true);
-			Messages.Message("CF2_PlanDone".Translate(n), MessageTypeDefOf.SilentInput, historical: false);
+			if (ForemanMod.Settings == null || ForemanMod.Settings.planPreview)
+				Find.WindowStack.Add(new Dialog_StewardPreview(comp, comp.PreviewPlan()));
+			else
+			{
+				int n = comp.PlanNow(manual: true);
+				Messages.Message("CF2_PlanDone".Translate(n), MessageTypeDefOf.SilentInput, historical: false);
+			}
 		}
 		string ptip = "CF2_PlanNowTip".Translate();
 		if (comp.lastPlanTick > 0)

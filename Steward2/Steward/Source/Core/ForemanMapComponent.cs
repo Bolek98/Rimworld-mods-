@@ -96,11 +96,7 @@ public sealed class ForemanMapComponent : MapComponent
 
 	public int PlanNow(bool manual)
 	{
-		if (!initDone || (manual && !auto))
-		{
-			demand.MeasureAll(map, ForemanMod.Settings);
-			initDone = true;
-		}
+		PrepareDemand(manual);
 		int changed = 0;
 		try
 		{
@@ -110,13 +106,58 @@ public sealed class ForemanMapComponent : MapComponent
 		{
 			Log.ErrorOnce("[Steward] plan failed: " + ex, 0x57e30001);
 		}
+		AfterPlan();
+		return changed;
+	}
+
+	private void PrepareDemand(bool manual)
+	{
+		if (!initDone || (manual && !auto))
+		{
+			demand.MeasureAll(map, ForemanMod.Settings);
+			initDone = true;
+		}
+	}
+
+	// 3.1.0: "Plan now" first shows what would change; nothing is written until you confirm
+	public Planner.PlanResult PreviewPlan()
+	{
+		PrepareDemand(true);
+		try
+		{
+			return Planner.Compute(this, manual: true);
+		}
+		catch (Exception ex)
+		{
+			Log.ErrorOnce("[Steward] plan failed: " + ex, 0x57e30001);
+			return null;
+		}
+	}
+
+	public int ApplyPlan(Planner.PlanResult r)
+	{
+		int changed = 0;
+		try
+		{
+			if (r != null)
+				changed = Planner.Write(r);
+		}
+		catch (Exception ex)
+		{
+			Log.ErrorOnce("[Steward] plan failed: " + ex, 0x57e30002);
+		}
+		AfterPlan();
+		return changed;
+	}
+
+	private void AfterPlan()
+	{
 		int now = Find.TickManager.TicksGame;
 		lastRun = now;
 		nextRun = now + Math.Max(1, ForemanMod.Settings?.intervalHours ?? 6) * 2500;
 		lastRoster = Roster();
 		lastNeed = Needs();
 		requested = requestedUrgent = false;
-		return changed;
 	}
 
 	public void AddHistory(string text)
