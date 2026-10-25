@@ -41,9 +41,10 @@ namespace ModSortManager
         private readonly Dictionary<ModMetaData, List<KeyValuePair<Sev, string>>> notes = new Dictionary<ModMetaData, List<KeyValuePair<Sev, string>>>();
         private List<List<DupCopy>> dups = new List<List<DupCopy>>();
         private List<SamePair> same = new List<SamePair>();
+        private List<LogBlame> blames = new List<LogBlame>();   // 0.1.8
         private bool needsRestart;
         private bool closeConfirmed;
-        private readonly bool[] collapsed = new bool[3];
+        private readonly bool[] collapsed = new bool[4];
 
         private int dragFrom = -1;
         private bool dragging;
@@ -93,6 +94,7 @@ namespace ModSortManager
             selected = active.FirstOrDefault();
             dups = Duplicates.Scan();
             same = SameThing.Analyze();
+            blames = LogErrors.Analyze();
             dirty = true;
             if (initialIds != null) ApplyIds(initialIds, null);
             else if (!Bisect.Active) OfferNextGroup();
@@ -276,6 +278,11 @@ namespace ModSortManager
                 iss.text += "\n" + (sp.blocking ? "MSM_SameBlocking" : "MSM_SameAdditive").Translate();
                 SamePair p = sp;
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_SameDetails".Translate(), () => Find.WindowStack.Add(new Dialog_SameDetail(p))));
+                if (sp.blocking)
+                {
+                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateNamed".Translate(sp.a.Name.Truncate(120f)), () => Deactivate(p.a)));
+                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateNamed".Translate(sp.b.Name.Truncate(120f)), () => Deactivate(p.b)));
+                }
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(sp.a.Name.Truncate(120f)), () => { selected = p.a; tab = 0; }));
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(sp.b.Name.Truncate(120f)), () => { selected = p.b; tab = 0; }));
                 issues.Add(iss);
@@ -283,6 +290,20 @@ namespace ModSortManager
                 Sorter.Mark(marks, sp.b, Sev.Info);
                 Note(sp.a, Sev.Info, "MSM_NoteSame".Translate(sp.b.Name));
                 Note(sp.b, Sev.Info, "MSM_NoteSame".Translate(sp.a.Name));
+            }
+
+            // 0.1.8: errors in this session's log, by the mod that caused them
+            foreach (LogBlame b in blames)
+            {
+                if (!active.Contains(b.mod)) continue;
+                var iss = new Issue { group = 3, sev = Sev.Warn, title = "MSM_LogTitle".Translate(b.mod.Name, b.count) };
+                iss.text = "MSM_LogText".Translate() + "\n“" + b.sample + "”";
+                LogBlame bb = b;
+                iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(b.mod.Name.Truncate(120f)), () => { selected = bb.mod; tab = 0; }));
+                iss.actions.Add(new KeyValuePair<string, Action>("MSM_Deactivate".Translate(), () => Deactivate(bb.mod)));
+                issues.Add(iss);
+                Sorter.Mark(marks, b.mod, Sev.Warn);
+                Note(b.mod, Sev.Warn, "MSM_NoteLog".Translate(b.count));
             }
 
             nProbCache = active.Count(x => marks.ContainsKey(x));
@@ -670,6 +691,7 @@ namespace ModSortManager
                 NewMods.Refresh();
                 dups = Duplicates.Scan();
                 same = SameThing.Analyze();
+            blames = LogErrors.Analyze();
                 try { Updates.Refresh(true); } catch { }
                 dirty = true;
                 int diff = ModLister.AllInstalledMods.Count() - before;
@@ -1107,12 +1129,12 @@ namespace ModSortManager
             Rect side = new Rect(body.xMax - sideW, body.y, sideW, body.height).ContractedBy(Pad, 10f);
             MUI.Fill(new Rect(body.xMax - sideW, body.y, 1f, body.height), Line);
 
-            string[] groupKeys = { "MSM_GrpDup", "MSM_GrpBreak", "MSM_GrpSame" };
-            Color[] groupCol = { Err, MUI.Warn, Info };
+            string[] groupKeys = { "MSM_GrpDup", "MSM_GrpBreak", "MSM_GrpSame", "MSM_GrpLog" };
+            Color[] groupCol = { Err, MUI.Warn, Info, MUI.Warn };
             float cardW = left.width - 16f;
             // measure
             float total = 0f;
-            for (int g = 0; g < 3; g++)
+            for (int g = 0; g < 4; g++)
             {
                 total += 32f;
                 List<Issue> gi = issues.Where(i => i.group == g).ToList();
@@ -1124,7 +1146,7 @@ namespace ModSortManager
             Widgets.BeginScrollView(left, ref sProblems, view);
             float y = 0f;
             Action pending = null;
-            for (int g = 0; g < 3; g++)
+            for (int g = 0; g < 4; g++)
             {
                 List<Issue> gi = issues.Where(i => i.group == g).ToList();
                 Rect hr = new Rect(0f, y + 6f, cardW, 24f);

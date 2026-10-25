@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+0.1.8
+- New group "Errors in the log": the errors of this game session are traced to the mod that caused them (its code in the stack trace, its files, or its name in the message), with the count, the first error and buttons to show or turn off the mod.
+- "Do the same thing": pairs where a mod can block the other get buttons to turn off one of them.
+
 0.1.7
 - "Do the same thing": each pair now says how both mods change the shared code – prefix (and whether it can skip the original), postfix, transpiler, finalizer – and which prefix runs first, with a note whether the pair can really block each other. "How they change it" lists every shared method (thanks ColossalFossil).
 - Mod details: what the mod requires (✓ active, ○ installed but not active, ✗ missing) and which active mods need it.
