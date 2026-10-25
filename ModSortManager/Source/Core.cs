@@ -43,12 +43,13 @@ namespace ModSortManager
 
     public class MSMMod : Mod
     {
-        public const string Version = "0.1.4";
+        public const string Version = "0.1.5";
         public static MSMSettings Settings;
 
         public MSMMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<MSMSettings>();
+            MNews.Register(content, Version);
             MUI.Init(new MSMSettings(), null, "recommended", "settingsVersion", "loadLastSave", "returnToGame");
             if (Settings.recommended)
                 MUI.ApplyAll(Settings);

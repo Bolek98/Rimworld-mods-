@@ -463,9 +463,38 @@ namespace ModSortManager
             DoSaveAndRestart();
         }
 
+        // 0.1.5: restart the game without changing the mod list (the return to the game works the same)
+        private void JustRestart()
+        {
+            if (Bisect.Active)
+            {
+                Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_BisectRunning".Translate(), delegate { closeConfirmed = true; Bisect.Finish(false); }, true));
+                return;
+            }
+            Action go = delegate
+            {
+                PrepareReturn();
+                Log.Message("[Mod Sort Manager] restart without changing the mod list");
+                closeConfirmed = true;
+                GenCommandLine.Restart();
+            };
+            if (InGame && !(MSMMod.Settings.returnToGame && CanSaveGame()))
+            {
+                Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_NoSaveConfirm".Translate(), go, true));
+                return;
+            }
+            go();
+        }
+
         private void DoSaveAndRestart()
         {
-            // 1) in a game: the return save first, while the loaded game still matches the mod list
+            PrepareReturn();
+            SaveListAndRestart();
+        }
+
+        // in a game: the return save first, while the loaded game still matches the mod list
+        private void PrepareReturn()
+        {
             try
             {
                 if (InGame)
@@ -492,7 +521,10 @@ namespace ModSortManager
             {
                 Log.Warning("[Mod Sort Manager] return to game not prepared: " + e.Message);
             }
-            // 2) the mod list
+        }
+
+        private void SaveListAndRestart()
+        {
             try
             {
                 MSM.BackupModsConfig();
@@ -738,6 +770,16 @@ namespace ModSortManager
             if (Button(save, saveLabel, true)) SaveAndRestart();
             Rect close = new Rect(save.x - 130f, r.y, 120f, r.height);
             if (Button(close, "MSM_Close".Translate())) Close();
+            // 0.1.5: a plain restart when nothing in the list changed
+            if (!restart)
+            {
+                string rl = "MSM_Restart".Translate();
+                float rw = Mathf.Max(120f, Text.CalcSize(rl).x + 30f);
+                Rect rr = new Rect(close.x - 10f - rw, r.y, rw, r.height);
+                if (Button(rr, rl)) JustRestart();
+                TooltipHandler.TipRegion(rr, "MSM_RestartTip".Translate());
+                close = rr;
+            }
 
             // after the restart
             bool val = InGame ? MSMMod.Settings.returnToGame : MSMMod.Settings.loadLastSave;

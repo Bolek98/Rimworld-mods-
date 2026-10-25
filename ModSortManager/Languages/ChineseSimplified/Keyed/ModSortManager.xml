@@ -229,4 +229,6 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_PS_DropQueue>取消其余</MSM_PS_DropQueue>
   <MSM_SetPreSave>保存前检查</MSM_SetPreSave>
   <MSM_SetPreSaveTip>保存修改后的列表前检查：缺少的前置、旧版本模组、一次添加大量新模组，以及新模组需要但不存在的物品。</MSM_SetPreSaveTip>
+  <MSM_Restart>重启</MSM_Restart>
+  <MSM_RestartTip>不改变模组列表直接重启游戏。在游戏中且开启「重启后返回游戏」时，会先保存游戏，重启后再读取。</MSM_RestartTip>
 </LanguageData>
