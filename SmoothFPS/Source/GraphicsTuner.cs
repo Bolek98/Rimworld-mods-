@@ -118,6 +118,11 @@ namespace GraphicsTuner
         public bool memCompact;                 // 1.7: compact memory during long pauses
         public int texCap = 2048;               // 1.3.3: oversized mod pictures start smaller (0 = off)
         public bool memHud;
+        // 1.4.0: speed and flow of time
+        public bool smartWork = true;
+        public bool spreadJobs = true;
+        public bool tempSpread = true;
+        public bool nightFast = true;
 
 
         // display – your own choice, never changed by a profile
@@ -244,6 +249,10 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref memCompact, "memCompact", false);
             Scribe_Values.Look(ref texCap, "texCap", 2048);
             Scribe_Values.Look(ref memHud, "memHud", false);
+            Scribe_Values.Look(ref smartWork, "smartWork", true);
+            Scribe_Values.Look(ref spreadJobs, "spreadJobs", true);
+            Scribe_Values.Look(ref tempSpread, "tempSpread", true);
+            Scribe_Values.Look(ref nightFast, "nightFast", true);
 
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
                 Preset(profile);
@@ -604,6 +613,12 @@ namespace GraphicsTuner
             bool bench = Benchmark.Running;
             if (!s.overlay && !bench && !Profiler.Running) return;
             string t = "GT_Overlay".Translate(Fps.ToString("0"), FrameMs.ToString("0.0"), Tps > 0f ? Tps.ToString("0") : "–");
+            // 1.4.0: ticks per second against what the speed asks for
+            float want = 0f;
+            if (Current.ProgramState == ProgramState.Playing && Find.TickManager != null && !Find.TickManager.Paused)
+                want = 60f * Find.TickManager.TickRateMultiplier;
+            bool behind = want > 0f && Tps > 0f && Tps < want * 0.85f;
+            if (want > 0f) t += " / " + want.ToString("0") + (FastNight.Active ? " · " + "GT_NightFastTag".Translate() : "");
             if (Smooth.Active && TickLoop.Running && TickLoop.mode != 0)
                 t += " · " + ("GT_Mode" + TickLoop.mode).Translate();
             if (bench)
@@ -620,8 +635,10 @@ namespace GraphicsTuner
             float w = Mathf.Max(size.x, bar ? 220f : 0f);
             float h = size.y + 4f + (bar ? 22f : 0f);
             Rect r = new Rect(UI.screenWidth - w - 20f, 6f, w + 12f, h);
-            Widgets.DrawBoxSolid(r, new Color(0f, 0f, 0f, 0.6f));
+            Widgets.DrawBoxSolid(r, behind ? new Color(0.35f, 0.12f, 0.08f, 0.7f) : new Color(0f, 0f, 0f, 0.6f));
             Widgets.Label(new Rect(r.x + 6f, r.y + 2f, w + 4f, size.y), t);
+            if (behind && Mouse.IsOver(r))
+                TooltipHandler.TipRegion(r, (TickLoop.simMs >= TickLoop.renderMs ? "GT_BehindSim" : "GT_BehindDraw").Translate(TickLoop.simMs.ToString("0.0"), TickLoop.renderMs.ToString("0.0")));
             if (bar)
             {
                 // simulation | drawing | reserve, against the frame time of the target FPS
@@ -692,7 +709,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.3.2";
+        public const string Version = "1.4.0";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -721,6 +738,10 @@ namespace GraphicsTuner
             SaveTiming.Patch(harmony);              // 1.7.4
             ModEffects.Patch(harmony);              // 1.3.2: effects from mods too
             TextureCap.Patch(harmony);              // 1.3.3: oversized mod textures
+            SmartWork.Patch(harmony);               // 1.4.0: smart work search
+            SmartWork.PatchSpread(harmony);         // 1.4.0: job searches spread over ticks
+            TempSpread.Patch(harmony);              // 1.4.0: room temperatures in parts
+            FastNight.Patch(harmony);               // 1.4.0: fast nights
             // 1.3.4: no more swapping textures that were loaded before Smooth FPS started – icons and
             // pictures already handed out kept pointing at the destroyed originals (pink X, blank icons).
             // Only textures loaded from now on start smaller.
@@ -1166,12 +1187,20 @@ namespace GraphicsTuner
                     s.gameSize = val;
             }
             var l = new Listing_Standard();
+            l.maxOneColumn = true;
             l.Begin(new Rect(inRect.x, inRect.y + 116f, inRect.width, inRect.height - 116f));
             l.ColumnWidth = (inRect.width - 34f) / 2f;
             MUI.Section(l, "GT_SimTickSec".Translate());
             MUI.Check(l, "GT_SimSmartTick".Translate(), "GT_SimSmartTick_Desc".Translate(), ref s.smartTick, s, null);
             Muted(l.GetRect(48f), "GT_SimRates".Translate(Sim.WorldRate, Sim.OtherMapRate, Sim.OffscreenRate));
             MUI.Check(l, "GT_FastCull".Translate(), "GT_FastCull_Desc".Translate(), ref s.fastCull, s, null);
+            MUI.Section(l, "GT_SpeedSec".Translate());
+            MUI.Check(l, "GT_SmartWork".Translate(), "GT_SmartWork_Desc".Translate(), ref s.smartWork, s, null);
+            MUI.Check(l, "GT_SpreadJobs".Translate(), "GT_SpreadJobs_Desc".Translate(), ref s.spreadJobs, s, null);
+            MUI.Check(l, "GT_TempSpread".Translate(), "GT_TempSpread_Desc".Translate(), ref s.tempSpread, s, null);
+            MUI.Check(l, "GT_NightFast".Translate(), "GT_NightFast_Desc".Translate(), ref s.nightFast, s, null);
+            if (Verse.Current.ProgramState == ProgramState.Playing)
+                Muted(l.GetRect(36f), "GT_SpeedStats".Translate(SmartWork.Skipped, (SmartWork.SavedMs / 1000.0).ToString("0.0"), SmartWork.Deferred, FastNight.Nights));
             l.Gap(6f);
             if (l.ButtonText("GT_TC_Open".Translate()))
                 Find.WindowStack.Add(new Dialog_TickCost());

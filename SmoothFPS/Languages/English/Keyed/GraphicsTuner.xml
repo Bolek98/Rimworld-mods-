@@ -359,4 +359,20 @@
   <GT_FastCull>Faster choice of what to draw</GT_FastCull>
   <GT_FastCull_Desc>Every frame the game works out the exact position and size of every real-time drawn thing on the map (pawns, animals, animated buildings, mod things) – also of things far off screen that it throws away right after. For things clearly off screen only their cell is used here and the game throws them away as before, just without the expensive part. Things on and near the screen are measured exactly as in the game.</GT_FastCull_Desc>
   <GT_TC_Things>Things drawn in real time on the map: {0}.</GT_TC_Things>
+  <GT_SpeedSec>Speed and flow of time</GT_SpeedSec>
+  <GT_SmartWork>Smart work search</GT_SmartWork>
+  <GT_SmartWork_Desc>A work that took long to check and found nothing for a colonist is not checked again by that colonist for 5 s of game time (e.g. emptying vending machines, fuel, digging resources from mods). Emergency work is always checked.</GT_SmartWork_Desc>
+  <GT_SpreadJobs>Spread job searches</GT_SpreadJobs>
+  <GT_SpreadJobs_Desc>When the job searches of one tick already took over 6 ms, other colonists look for work 1–3 ticks later instead of all at once. Never for drafted colonists, in danger, or during a raid.</GT_SpreadJobs_Desc>
+  <GT_TempSpread>Room temperatures in parts</GT_TempSpread>
+  <GT_TempSpread_Desc>Every room is still evened out every 2 s, like in the game, but not all rooms in one tick (big bases had a small stop every 2 s).</GT_TempSpread_Desc>
+  <GT_NightFast>Fast nights</GT_NightFast>
+  <GT_NightFast_Desc>While all colonists sleep and nothing happens (no enemies, no fire at home, nobody downed), the game runs at speed 3. Your speed comes back when someone wakes up, a letter arrives or danger shows. Changing the speed yourself stops it until the next night.</GT_NightFast_Desc>
+  <GT_SpeedStats>This session: {0} slow work checks skipped (about {1} s saved), {2} job searches moved, {3} fast nights.</GT_SpeedStats>
+  <GT_NightFastOn>Everyone is asleep – fast night (speed 3) until morning.</GT_NightFastOn>
+  <GT_NightFastTag>fast night</GT_NightFastTag>
+  <GT_BehindSim>The game does not keep up: the simulation takes {0} ms per frame (drawing {1} ms). "What slows the tick" shows which part and mod.</GT_BehindSim>
+  <GT_BehindDraw>The game does not keep up: drawing takes {1} ms per frame (simulation {0} ms). Fewer effects, zooming out less or a lower FPS target help.</GT_BehindDraw>
+  <GT_MC_CleanFilth>Remove filth outside home ({0})</GT_MC_CleanFilth>
+  <GT_MC_CleanFilthConfirm>Remove {0} pieces of filth outside the home area? Nobody cleans them there and the game keeps every one. This cannot be undone.</GT_MC_CleanFilthConfirm>
 </LanguageData>

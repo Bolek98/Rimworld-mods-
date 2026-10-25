@@ -1,4 +1,13 @@
 === Not on the Workshop yet (test versions) ===
+1.4.0
+Speed and flow of time (Simulation tab)
+- Smart work search: a work that took long to check and found nothing for a colonist (emptying vending machines, refuelling, digging mod resources …) is not checked again by that colonist for 5 s of game time. Emergency work is always checked.
+- Spread job searches: when the job searches of one tick already took over 6 ms, other colonists look for work 1–3 ticks later instead of all at once – smoother speed 3 and 4. Never for drafted colonists or in danger.
+- Room temperatures in parts: every room is still evened out every 2 s, but not all in the same tick.
+- Fast nights: while everybody sleeps and nothing happens, the game runs at speed 3; your speed comes back when someone wakes up, a letter arrives or danger shows.
+- The FPS overlay shows ticks per second against what the speed asks for, turns red when the game does not keep up and tells whether the simulation or the drawing is the reason.
+- "What is expensive on this map": a button removes filth outside the home area (with confirmation).
+
 1.3.2
 - Fix (1.7): with the texture limit on, some mod pictures that were made smaller stayed blank – e.g. doors and their icons. The game uploads pictures to the graphics card only at the end of loading, and the smaller copies had already dropped their pixels by then.
 
