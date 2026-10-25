@@ -7237,7 +7237,8 @@ namespace ResearchedLoadout
 					QualityCategory qc2;
 					if (current.TryGetQuality(out qc) && candidate.TryGetQuality(out qc2))
 					{
-						return (int)qc2 > (int)qc && !IsBroken(candidate);
+						// 2.15.1: quality matters less – the same weapon only for a clearly better one (2 levels)
+						return (int)qc2 >= (int)qc + 2 && !IsBroken(candidate);
 					}
 					return false;
 				}
@@ -7270,7 +7271,8 @@ namespace ResearchedLoadout
 				return 1f;
 			}
 			CompQuality compQuality = thing.TryGetComp<CompQuality>();
-			float num = ((compQuality != null) ? (0.65f + (float)(int)compQuality.Quality * 0.28f) : 1f);
+			// 2.15.1: quality matters less (awful ×0.9 … legendary ×1.2; was ×0.65 … ×2.33)
+			float num = ((compQuality != null) ? (0.9f + (float)(int)compQuality.Quality * 0.05f) : 1f);
 			return num * HpMul(thing);
 		}
 
@@ -7742,7 +7744,7 @@ namespace ResearchedLoadout
 
 		private static float ScoreWeapon(Pawn pawn, Thing thing)
 		{
-			float num = 10f + ScoreWeaponPower(thing) + thing.MarketValue * 0.02f;
+			float num = 10f + ScoreWeaponPower(thing) + thing.MarketValue * 0.005f;
 			bool isRangedWeapon = thing.def.IsRangedWeapon;
 			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
 			if (settings != null && settings.useSkills && pawn.skills != null)
@@ -7897,7 +7899,7 @@ namespace ResearchedLoadout
 		private static float ScoreApparel(Pawn pawn, Thing apparel)
 		{
 			float num = (apparel.GetStatValue(StatDefOf.ArmorRating_Sharp) * 120f + apparel.GetStatValue(StatDefOf.ArmorRating_Blunt) * 70f + apparel.GetStatValue(StatDefOf.ArmorRating_Heat) * 25f) * HpMul(apparel) * LoadoutFilter.TechMul(apparel.def);
-			float num2 = 2f + num + TemperatureScore(pawn, apparel) + apparel.MarketValue * 0.01f;
+			float num2 = 2f + num + TemperatureScore(pawn, apparel) + apparel.MarketValue * 0.003f;
 			List<StatModifier> equippedStatOffsets = apparel.def.equippedStatOffsets;
 			if (equippedStatOffsets != null)
 			{
@@ -8068,7 +8070,7 @@ namespace ResearchedLoadout
 					{
 						return true;
 					}
-					if ((int)qc2 <= (int)qc)
+					if ((int)qc2 < (int)qc + 2)
 					{
 						return true;
 					}
