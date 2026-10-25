@@ -4734,6 +4734,11 @@ namespace ResearchedLoadout
 		// 2.9.1: how many weapons a colonist may carry in total (weapon in hand included), 0 = no own limit
 		public int sidearmMaxTotal = 3;
 
+		// 2.15.1: how many weapons of each kind a colonist carries (the one in hand included)
+		public int sidearmMaxMelee = 1;
+
+		public int sidearmMaxRanged = 1;
+
 		// 2.9.1: weapons the colony has researched but never made are put away too (not only unresearched ones)
 		public bool stripUncraftedWeapons = true;
 
@@ -4855,6 +4860,8 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref sidearmMinShooting, "sidearmMinShooting", 0);
 			Scribe_Values.Look(ref sidearmMinMelee, "sidearmMinMelee", 0);
 			Scribe_Values.Look(ref sidearmMaxTotal, "sidearmMaxTotal", 3);
+			Scribe_Values.Look(ref sidearmMaxMelee, "sidearmMaxMelee", 1);
+			Scribe_Values.Look(ref sidearmMaxRanged, "sidearmMaxRanged", 1);
 			Scribe_Values.Look(ref stripUncraftedWeapons, "stripUncraftedWeapons", true);
 			Scribe_Values.Look(ref armorOnHunt, "armorOnHunt", true);
 			Scribe_Values.Look(ref armorOnThreat, "armorOnThreat", true);
@@ -6424,7 +6431,7 @@ namespace ResearchedLoadout
 			if (!SidearmsCompat.Present && settings.autoEquipSidearm && flag && thing != null && pawn.inventory != null && CountWeapons(pawn) < rule.maxWeapons)
 			{
 				bool? wantRanged = OppositeIsRanged(thing.def);
-				if (!HasInventoryWeapon(pawn, wantRanged) && (!wantRanged.HasValue || SidearmSkillOk(pawn, wantRanged.Value)) && (wantRanged != true || !IsBrawler(pawn) || !settings.sidearmBrawlerNoRanged))
+				if ((wantRanged.HasValue ? CountKind(pawn, wantRanged.Value) < MaxKind(wantRanged.Value) : !HasInventoryWeapon(pawn, wantRanged)) && (!wantRanged.HasValue || SidearmSkillOk(pawn, wantRanged.Value)) && (wantRanged != true || !IsBrawler(pawn) || !settings.sidearmBrawlerNoRanged))
 				{
 					Thing thing3 = FindBestWeapon(pawn, wantRanged, false);
 					if (thing3 != null && FitsCarryMass(pawn, thing3, rule))
@@ -6439,6 +6446,11 @@ namespace ResearchedLoadout
 							return true;
 						}
 					}
+				}
+				// 2.15.1: more of the main kind when the setting allows it
+				if (thing.def.IsWeapon && TryExtraOfKind(pawn, thing.def.IsRangedWeapon, now))
+				{
+					return true;
 				}
 			}
 			if (settings.useOwnDresser && settings.autoEquipApparel)
@@ -6562,7 +6574,90 @@ namespace ResearchedLoadout
 			{
 				return true;
 			}
+			// 2.15.1: a second (third) weapon of the main kind when the setting allows more than one
+			if (settings.autoEquipSidearm && pawn.equipment != null && pawn.equipment.Primary != null && TryExtraOfKind(pawn, flag, now))
+			{
+				return true;
+			}
 			return false;
+		}
+
+		private bool TryExtraOfKind(Pawn pawn, bool ranged, int now)
+		{
+			if (CountKind(pawn, ranged) >= MaxKind(ranged) || (ranged && IsBrawler(pawn)) || !SidearmSkillOk(pawn, ranged))
+			{
+				return false;
+			}
+			Thing thing = FindBestWeapon(pawn, ranged, false);
+			if (thing == null || CarriesDef(pawn, thing.def))
+			{
+				return false;
+			}
+			Job job;
+			if (SidearmsCompat.Present)
+			{
+				JobDef jd = SidearmsCompat.EquipSecondaryJob;
+				if (jd == null || !SidearmsCompat.CanPickup(pawn, thing))
+				{
+					return false;
+				}
+				job = JobMaker.MakeJob(jd, thing);
+			}
+			else
+			{
+				if (CountWeapons(pawn) >= CarryRuleFor(pawn).maxWeapons || !FitsCarryMass(pawn, thing, CarryRuleFor(pawn)))
+				{
+					return false;
+				}
+				job = JobMaker.MakeJob(JobDefOf.TakeInventory, thing);
+			}
+			job.count = 1;
+			GearWhy.Pending(pawn, GearWhy.Reason("RL_Why_Sidearm"));
+			if (!GiveSoftJob(pawn, job))
+			{
+				return false;
+			}
+			RL.Debug(pawn.LabelShort + " bere dalsi zbran stejneho druhu " + thing.def.defName);
+			RL.NotifySidearm(pawn, thing);
+			RememberOrder(pawn, thing, now);
+			return true;
+		}
+
+		// weapons of one kind the colonist has: the one in hand and the carried ones
+		public static int CountKind(Pawn pawn, bool ranged)
+		{
+			int n = 0;
+			Thing p = pawn.equipment?.Primary;
+			if (p != null && p.def.IsRangedWeapon == ranged && LoadoutFilter.IsRealWeapon(p.def))
+			{
+				n++;
+			}
+			if (pawn.inventory != null)
+			{
+				foreach (Thing t in pawn.inventory.innerContainer.InnerListForReading)
+				{
+					if (t != null && t.def != null && LoadoutFilter.IsRealWeapon(t.def) && t.def.IsRangedWeapon == ranged)
+					{
+						n += t.stackCount;
+					}
+				}
+			}
+			return n;
+		}
+
+		private static bool CarriesDef(Pawn pawn, ThingDef def)
+		{
+			if (pawn.equipment?.Primary?.def == def)
+			{
+				return true;
+			}
+			return pawn.inventory != null && pawn.inventory.innerContainer.InnerListForReading.Any(t => t != null && t.def == def);
+		}
+
+		public static int MaxKind(bool ranged)
+		{
+			ResearchedLoadoutSettings s = ResearchedLoadoutMod.Settings;
+			return s == null ? 1 : (ranged ? s.sidearmMaxRanged : s.sidearmMaxMelee);
 		}
 
 		private bool TrySidearmsUpgradeType(Pawn pawn, bool ranged, bool mainType, int now)
@@ -6684,6 +6779,11 @@ namespace ResearchedLoadout
 				return true;
 			}
 			if (!SidearmsCompat.CanPickup(pawn, thing))
+			{
+				return false;
+			}
+			// 2.15.1: no more of this kind than the setting allows (the one in hand included)
+			if (!mainType && CountKind(pawn, ranged) >= MaxKind(ranged))
 			{
 				return false;
 			}
@@ -10037,6 +10137,8 @@ namespace ResearchedLoadout
 			st.sidearmMinShooting = Mathf.RoundToInt(l.SliderLabeled("RL_SP_MinShoot".Translate(st.sidearmMinShooting), st.sidearmMinShooting, 0f, 20f, 0.6f, Tip("RL_SP_MinShoot")));
 			st.sidearmMinMelee = Mathf.RoundToInt(l.SliderLabeled("RL_SP_MinMelee".Translate(st.sidearmMinMelee), st.sidearmMinMelee, 0f, 20f, 0.6f, Tip("RL_SP_MinMelee")));
 			l.Gap(4f);
+			st.sidearmMaxRanged = Mathf.RoundToInt(l.SliderLabeled("RL_SP_MaxRanged".Translate(st.sidearmMaxRanged), st.sidearmMaxRanged, 0f, 3f, 0.6f, Tip("RL_SP_MaxRanged")));
+			st.sidearmMaxMelee = Mathf.RoundToInt(l.SliderLabeled("RL_SP_MaxMelee".Translate(st.sidearmMaxMelee), st.sidearmMaxMelee, 0f, 3f, 0.6f, Tip("RL_SP_MaxMelee")));
 			st.sidearmMaxTotal = Mathf.RoundToInt(l.SliderLabeled(st.sidearmMaxTotal > 0 ? "RL_SP_MaxTotal".Translate(st.sidearmMaxTotal).ToString() : T("RL_SP_MaxTotalOff"), st.sidearmMaxTotal, 0f, 8f, 0.6f, Tip("RL_SP_MaxTotal")));
 			Own(l, "RL_SP_StripUncrafted", ref st.stripUncraftedWeapons);
 			l.Gap(6f);
