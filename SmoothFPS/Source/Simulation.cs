@@ -284,6 +284,22 @@ namespace GraphicsTuner
 
         public override Vector2 InitialSize => new Vector2(820f, 640f);
 
+        // 1.4.4: the settings and the Esc menu pause the game – the measurement needs it running,
+        // so they close and the game goes on at the speed it had
+        public static void OpenRunning()
+        {
+            try
+            {
+                foreach (Window w in Find.WindowStack.Windows.ToList())
+                    if (w.forcePause || w is Dialog_ModSettings || w is Dialog_Options)
+                        Find.WindowStack.TryRemove(w, false);
+            }
+            catch { }
+            Find.WindowStack.Add(new Dialog_TickCost());
+            if (Verse.Current.ProgramState == ProgramState.Playing)
+                Messages.Message("GT_TC_Running".Translate(), MessageTypeDefOf.SilentInput, false);
+        }
+
         public Dialog_TickCost()
         {
             doCloseX = true;

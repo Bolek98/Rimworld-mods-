@@ -640,6 +640,16 @@ namespace GraphicsTuner
             float h = size.y + 4f + (bar ? 22f : 0f);
             Rect r = new Rect(UI.screenWidth - w - 20f, 6f, w + 12f, h);
             Widgets.DrawBoxSolid(r, behind ? new Color(0.35f, 0.12f, 0.08f, 0.7f) : new Color(0f, 0f, 0f, 0.6f));
+            // 1.4.4: a click on the overlay opens "What slows the tick" without pausing the game
+            if (Current.ProgramState == ProgramState.Playing && Mouse.IsOver(r))
+            {
+                TooltipHandler.TipRegion(r, "GT_OverlayClick".Translate());
+                if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
+                {
+                    Event.current.Use();
+                    if (Find.WindowStack.WindowOfType<Dialog_TickCost>() == null) Dialog_TickCost.OpenRunning();
+                }
+            }
             Widgets.Label(new Rect(r.x + 6f, r.y + 2f, w + 4f, size.y), t);
             if (behind && Mouse.IsOver(r))
                 TooltipHandler.TipRegion(r, (TickLoop.simMs >= TickLoop.renderMs ? "GT_BehindSim" : "GT_BehindDraw").Translate(TickLoop.simMs.ToString("0.0"), TickLoop.renderMs.ToString("0.0")));
@@ -713,7 +723,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.4.3";
+        public const string Version = "1.4.4";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -1215,7 +1225,7 @@ namespace GraphicsTuner
                 Muted(l.GetRect(36f), "GT_SpeedStats".Translate(SmartWork.Skipped, (SmartWork.SavedMs / 1000.0).ToString("0.0"), SmartWork.Deferred, FastNight.Nights));
             l.Gap(6f);
             if (l.ButtonText("GT_TC_Open".Translate()))
-                Find.WindowStack.Add(new Dialog_TickCost());
+                Dialog_TickCost.OpenRunning();
             if (!HitchFinder.IsOn)
                 Muted(l.GetRect(40f), "GT_TC_NeedHitch".Translate());
             l.NewColumn();
