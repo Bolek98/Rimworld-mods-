@@ -68,6 +68,7 @@ namespace UniversalRimTranslator
             Configure();
 
             Store = new Store(Folder, Target) { Log = m => MLog.Warn("[URT] " + m) };
+            Store.Glossary = new Glossary(Folder, Target);
             Stopwatch sw = Stopwatch.StartNew();
             bool haveNew = File.Exists(Path.Combine(Folder, "memory_" + Target + ".bin")) || File.Exists(Path.Combine(Folder, "memory_" + Target + ".journal"));
             if (haveNew) Store.Load();

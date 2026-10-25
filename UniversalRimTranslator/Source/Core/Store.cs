@@ -62,9 +62,13 @@ namespace Urt2
             lock (gate) return map.TryGetValue(Key(source), out r);
         }
 
+        public Glossary Glossary;     // the player's own words, used on every translation
+
         public string Use(string source)
         {
-            lock (gate) return map.TryGetValue(Key(source), out Rec r) && r.Usable ? r.Text : null;
+            string t;
+            lock (gate) t = map.TryGetValue(Key(source), out Rec r) && r.Usable ? r.Text : null;
+            return t == null || Glossary == null ? t : Glossary.Apply(t);
         }
 
         public List<KeyValuePair<string, Rec>> Snapshot()

@@ -57,4 +57,36 @@
   <URT_Live>Texts made in code (live)</URT_Live>
   <URT_Live_Desc>Messages, letters, buttons, tooltips and info lines that mods write directly in their code (not in language files). They are translated on the screen only – nothing in the game data changes. Known texts appear at once, new English texts are collected and translated in the background (numbers do not matter, "Harvested 25 rice" and "Harvested 3 rice" are one text). Names of colonists, factions and places are never translated.</URT_Live_Desc>
   <URT_Status_Live>Live: {0} texts shown translated, {1} collected this session, {2} waiting, {3} arrived</URT_Status_Live>
+  <URT_Tab_Editor>Editor</URT_Tab_Editor>
+  <URT_Ed_Intro>Find any text by its original or its translation and write your own version. Your text is never replaced by the machine.</URT_Ed_Intro>
+  <URT_Ed_F_All>All</URT_Ed_F_All>
+  <URT_Ed_F_Mine>Mine</URT_Ed_F_Mine>
+  <URT_Ed_F_Problems>Problems</URT_Ed_F_Problems>
+  <URT_Ed_F_Untranslated>Untranslated</URT_Ed_F_Untranslated>
+  <URT_Ed_Count>{0} texts</URT_Ed_Count>
+  <URT_Ed_CountMore>first {0} of {1} texts – search more exactly</URT_Ed_CountMore>
+  <URT_Ed_SearchHint>Type a word to search (English or translated). Your own translations are listed here.</URT_Ed_SearchHint>
+  <URT_Ed_NoTranslation>not translated yet</URT_Ed_NoTranslation>
+  <URT_Ed_Pick>Pick a text on the left.</URT_Ed_Pick>
+  <URT_Ed_Original>Original</URT_Ed_Original>
+  <URT_Ed_Yours>Translation</URT_Ed_Yours>
+  <URT_Ed_YoursNow>your own</URT_Ed_YoursNow>
+  <URT_Ed_MachineNow>machine ({0})</URT_Ed_MachineNow>
+  <URT_Ed_Machine>Machine version:</URT_Ed_Machine>
+  <URT_Ed_Save>Save mine</URT_Ed_Save>
+  <URT_Ed_Revert>Machine version</URT_Ed_Revert>
+  <URT_Ed_KeepOriginal>Keep original</URT_Ed_KeepOriginal>
+  <URT_Ed_Again>Translate again</URT_Ed_Again>
+  <URT_Ed_AgainTip>Throws the current translation away; the services translate it again in a moment.</URT_Ed_AgainTip>
+  <URT_Ed_Saved>Saved – in the game now.</URT_Ed_Saved>
+  <URT_Ed_Broken>Saved, but not used: placeholders in curly brackets or &lt;color&gt; tags are missing or changed ({0}). Keep them as in the original.</URT_Ed_Broken>
+  <URT_Ed_EmptyNote>Empty text – use "Machine version" or "Keep original".</URT_Ed_EmptyNote>
+  <URT_Ed_Reverted>Back to the machine version.</URT_Ed_Reverted>
+  <URT_Ed_Kept>The original (English) stays.</URT_Ed_Kept>
+  <URT_Ed_AgainNote>It will be translated again in a moment.</URT_Ed_AgainNote>
+  <URT_Gl_Title>My words</URT_Gl_Title>
+  <URT_Gl_Hint>A word on the left is replaced by yours in every translation (whole words, the first letter's case is kept). Empty right side removes the word.</URT_Gl_Hint>
+  <URT_Gl_Add>Add</URT_Gl_Add>
+  <URT_Gl_Delete>Delete</URT_Gl_Delete>
+  <URT_Gl_Remove>(removed)</URT_Gl_Remove>
 </LanguageData>
