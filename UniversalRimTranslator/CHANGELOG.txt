@@ -2,6 +2,7 @@
 2.2.0
 - Editor (new tab): find any text by its original or translation and write your own version; go back to the machine version, keep the English original or translate again. Filters: all, mine, problems, untranslated. Your own texts are never replaced by the machine.
 - My words: a word you set ("kolonista" → "osadník") is used in every translation – whole words, the first letter's case kept.
+- Live translation collects less junk: texts cut by the game ("Mod Sort Manage..."), version numbers, hashes and words of your own language ("Pacient", "Mramor") are not sent to translation any more, and a text the services could not translate is not asked again in the same session. A line in the log every 10 minutes tells how live translation goes.
 
 2.1.0
 - Stage 2 – texts made in code: messages, letters, buttons, tooltips and info lines that mods write directly in their code are now translated where they are drawn (on the screen only, the game data does not change). Known texts appear at once; new English texts are collected and translated in the background, the texts on your screen first. Numbers do not matter ("Harvested 25 rice" and "Harvested 3 rice" are one text). Names of colonists, factions, places and mods are never translated. Setting "Texts made in code (live)", on by default.

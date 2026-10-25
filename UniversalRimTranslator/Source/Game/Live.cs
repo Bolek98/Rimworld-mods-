@@ -87,6 +87,27 @@ namespace UniversalRimTranslator
             {
                 MLog.Warn("[URT] live words: " + e.Message);
             }
+            // words of the target language (from the translations): "pacient", "mramor" are not English
+            // even when an English text somewhere contains them – such words never count as English
+            var tv = new HashSet<string>();
+            try
+            {
+                foreach (var kv in Runtime.Store.Snapshot())
+                    if (kv.Value.Text != null && kv.Value.Text != kv.Key)
+                        foreach (Match m in Word.Matches(kv.Value.Text)) tv.Add(m.Value.ToLowerInvariant());
+                LoadedLanguage act = LanguageDatabase.activeLanguage;
+                if (act != null && act != LanguageDatabase.defaultLanguage)
+                {
+                    foreach (var kv in act.keyedReplacements)
+                        if (kv.Value?.value != null) foreach (Match m in Word.Matches(kv.Value.value)) tv.Add(m.Value.ToLowerInvariant());
+                    foreach (DefInjectionPackage p in act.defInjections)
+                        foreach (var kv in p.injections)
+                            if (kv.Value.injection != null) foreach (Match m in Word.Matches(kv.Value.injection)) tv.Add(m.Value.ToLowerInvariant());
+                }
+            }
+            catch { }
+            // a word both languages use (OK, TPS, names) proves nothing either
+            foreach (string w in tv) v.Remove(w);
             vocab = v;
             var mn = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             foreach (ModContentPack m in LoadedModManager.RunningModsListForReading)
@@ -102,11 +123,15 @@ namespace UniversalRimTranslator
                     {
                         if (Pending.Count >= MaxPending) break;
                         string t = line.Replace("\\n", "\n");
-                        if (t.Length > 0 && Runtime.Store.NeedsTranslation(t) && Pending.TryAdd(Store.Key(t), 0)) back++;
+                        // 2.2.0: texts the newer checks do not accept (cut, versions, the target language) are dropped
+                        if (t.Length > 0 && Candidate(t) && Runtime.Store.NeedsTranslation(t) && tried.Add(Store.Key(t)) && Pending.TryAdd(Store.Key(t), 0)) back++;
                     }
+                // the file keeps only what still waits
+                File.WriteAllLines(collectorPath, Pending.Keys.Select(k => k.Replace("\r", "").Replace("\n", "\\n")).ToArray());
             }
             catch { }
             MLog.Info("[URT] live translation: " + vocab.Count + " English words known, " + back + " texts from earlier sessions waiting");
+            liveLogAt = 0f;
         }
 
         public static void Patch(Harmony h)
@@ -214,6 +239,8 @@ namespace UniversalRimTranslator
             }
             if (!Protect.HasWords(s) || Protect.LooksLikeNonText(s) || Protect.IsRule(s)) return false;
             if (names.Contains(s) || modNames.Contains(s)) return false;     // a name, or a mod's name
+            // cut by the game to fit ("Mod Sort Manage..."), versions ("Harmony v2.3"), hashes
+            if (s.EndsWith("...") || s.EndsWith("\u2026") || Junk.IsMatch(s)) return false;
             int words = 0, known = 0;
             foreach (Match m in Word.Matches(StripTags(s)))
             {
@@ -225,6 +252,8 @@ namespace UniversalRimTranslator
             if (words == 0 || known == 0) return false;
             return known * 10 >= words * 7;
         }
+
+        private static readonly Regex Junk = new Regex(@"\bv\d+(\.\d+)+|[0-9A-Fa-f]{16,}|\bSHA-?\d", RegexOptions.Compiled);
 
         private static readonly Regex Tag = new Regex(@"</?[A-Za-z][^<>]*>|\{[^{}]*\}|\[[^\[\]]*\]", RegexOptions.Compiled);
         private static string StripTags(string s) => s.IndexOf('<') < 0 && s.IndexOf('{') < 0 && s.IndexOf('[') < 0 ? s : Tag.Replace(s, " ");
@@ -248,6 +277,7 @@ namespace UniversalRimTranslator
             return sb.ToString();
         }
 
+        private static readonly HashSet<string> tried = new HashSet<string>();
         private static readonly ConcurrentQueue<string> toFile = new ConcurrentQueue<string>();
 
         private static void Collect(string tpl)
@@ -260,6 +290,8 @@ namespace UniversalRimTranslator
             if (now - minuteStart > 60f) { minuteStart = now; queuedThisMinute = 0; }
             if (queuedThisMinute >= PerMinute) return;
             if (!Runtime.Store.NeedsTranslation(key)) return;
+            // each text once per session: one the services could not translate is not asked again
+            if (!tried.Add(key)) return;
             if (!Pending.TryAdd(key, 0)) return;
             queuedThisMinute++;
             Queued++;
@@ -304,8 +336,17 @@ namespace UniversalRimTranslator
         }
 
         // main thread, every frame: new translations become visible (at most once a second)
+        private static float liveLogAt;
+
         public static void Tick()
         {
+            // a line in the log every 10 minutes while live translation works
+            float rt = Time.realtimeSinceStartup;
+            if (On && rt - liveLogAt > 600f)
+            {
+                if (liveLogAt > 0f) MLog.Info("[URT] live: shown translated " + Shown + ", collected " + Queued + ", waiting " + Pending.Count + ", arrived " + Arrived);
+                liveLogAt = rt;
+            }
             if (On) RefreshNames();
             if (!arrivedFlag) return;
             float now = Time.realtimeSinceStartup;
