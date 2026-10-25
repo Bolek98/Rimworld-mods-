@@ -5251,6 +5251,25 @@ namespace ResearchedLoadout
 			return behind == 1 ? 1f : 0.7f;
 		}
 
+		// 2.15.1: the era decides first between weapons of the same kind (a worse rifle beats a better
+		// bow); items without any era count as medieval
+		public static bool NewEraFirst => ResearchedLoadoutMod.Settings != null && ResearchedLoadoutMod.Settings.preferNewEra;
+
+		public static int EraRank(ThingDef def)
+		{
+			TechLevel t = EffectiveTech(def);
+			if (t == TechLevel.Undefined)
+			{
+				t = TechLevel.Medieval;
+			}
+			return (int)Max(Min(t, ColonyTech()), TechLevel.Neolithic);
+		}
+
+		private static TechLevel Min(TechLevel a, TechLevel b)
+		{
+			return ((int)a <= (int)b) ? a : b;
+		}
+
 		private static readonly Dictionary<ThingDef, TechLevel> eraCache = new Dictionary<ThingDef, TechLevel>();
 
 		public static TechLevel EffectiveTech(ThingDef def)
@@ -6475,7 +6494,7 @@ namespace ResearchedLoadout
 			if (thing != null && thing.def.IsRangedWeapon == ranged && !LoadoutFilter.IsThrownWeapon(thing.def))
 			{
 				result = thing;
-				num = ScoreWeaponPower(thing);
+				num = ScoreWeaponPower(thing) + (LoadoutFilter.NewEraFirst ? LoadoutFilter.EraRank(thing.def) * 1000000f : 0f);
 			}
 			if (pawn.inventory != null)
 			{
@@ -6485,7 +6504,7 @@ namespace ResearchedLoadout
 					Thing thing2 = innerListForReading[i];
 					if (thing2 != null && thing2.def != null && LoadoutFilter.IsManagedWeapon(thing2.def) && thing2.def.IsRangedWeapon == ranged)
 					{
-						float num2 = ScoreWeaponPower(thing2);
+						float num2 = ScoreWeaponPower(thing2) + (LoadoutFilter.NewEraFirst ? LoadoutFilter.EraRank(thing2.def) * 1000000f : 0f);
 						if (num2 > num)
 						{
 							num = num2;
@@ -7186,6 +7205,20 @@ namespace ResearchedLoadout
 				{
 					return true;
 				}
+				// 2.15.1: the newer era wins even when the weapon is weaker; an older one never replaces a newer
+				// one (unless the one in hand is falling apart)
+				if (LoadoutFilter.NewEraFirst && current.def != null && candidate.def != null)
+				{
+					int ec = LoadoutFilter.EraRank(candidate.def), eh = LoadoutFilter.EraRank(current.def);
+					if (ec > eh)
+					{
+						return !IsBroken(candidate);
+					}
+					if (ec < eh)
+					{
+						return IsBroken(current) && !IsBroken(candidate);
+					}
+				}
 				float num3 = ScoreWeaponPower(candidate) * LoadoutFilter.TechMul(candidate.def);
 				float num4 = ScoreWeaponPower(current) * LoadoutFilter.TechMul(current.def);
 				if (IsBroken(current) && !IsBroken(candidate))
@@ -7454,6 +7487,11 @@ namespace ResearchedLoadout
 			if (thing != null && !thing.Destroyed && thing.Spawned && thing.def != null && LoadoutFilter.IsManagedWeapon(thing.def) && !LoadoutFilter.ToolNotWeapon(thing.def) && !_reservedThings.Contains(thing.thingIDNumber) && (LoadoutFilter.IsAllowed(thing.def) || EmergencyGear.AllowsThing(pawn, thing)) && InAllowedStorage(thing) && (!wantRanged.HasValue || thing.def.IsRangedWeapon == wantRanged.Value) && (!forPrimary || !thing.def.IsRangedWeapon || !IsBrawler(pawn)) && !IsBroken(thing) && !thing.IsForbidden(pawn) && EquipmentUtility.CanEquip(thing, pawn) && (!thing.def.IsRangedWeapon || !WearsRangedBlockingShield(pawn)))
 			{
 				float num = ScoreWeapon(pawn, thing);
+				// 2.15.1: among weapons of one kind the newest era wins first, then the score
+				if (wantRanged.HasValue && LoadoutFilter.NewEraFirst && num > 0f)
+				{
+					num += LoadoutFilter.EraRank(thing.def) * 1000000f;
+				}
 				if (num > bestScore && (!forPrimary || !BetterFighterWants(pawn, thing)) && pawn.CanReserveAndReach(thing, PathEndMode.ClosestTouch, Danger.Some))
 				{
 					bestScore = num;
