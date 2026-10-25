@@ -11,7 +11,7 @@ namespace UniversalRimTranslator
 {
     public static class UrtVersion
     {
-        public const string Number = "2.2.0";
+        public const string Number = "2.2.1";
         public static string Display => Number + " (test)";
     }
 
@@ -152,6 +152,15 @@ namespace UniversalRimTranslator
         }
 
         public override void DoSettingsWindowContents(Rect r)
+        {
+            // 2.2.1: URT's own window is never live-translated (the editor shows the originals,
+            // and translating every row while drawing made it stutter)
+            Live.Suspended++;
+            try { DrawWindow(r); }
+            finally { Live.Suspended--; }
+        }
+
+        private void DrawWindow(Rect r)
         {
             MUI.Version(r, "v" + UrtVersion.Display + " · Bolek98");
             string[] tabs = { "URT_Tab_Overview".Translate(), "URT_Tab_Services".Translate(), "URT_Tab_Editor".Translate() };

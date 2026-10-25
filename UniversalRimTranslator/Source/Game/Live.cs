@@ -22,6 +22,7 @@ namespace UniversalRimTranslator
     public static class Live
     {
         public static volatile bool On;
+        public static int Suspended;   // URT's own window
         public static int Version;                    // bumped when new live translations arrived
         public static int Shown, Queued, Arrived;
 
@@ -147,14 +148,14 @@ namespace UniversalRimTranslator
             if (tip != null) h.Patch(tip, postfix: new HarmonyMethod(typeof(Live), nameof(PostfixTip)));
         }
 
-        public static void PrefixLabel(ref string label) { if (On) label = Tr(label, true); }
-        public static void PostfixTip(ref string __result) { if (On) __result = Tr(__result, true); }
+        public static void PrefixLabel(ref string label) { if (On && Suspended == 0) label = Tr(label, true); }
+        public static void PostfixTip(ref string __result) { if (On && Suspended == 0) __result = Tr(__result, true); }
 
         // measuring only: the same lookup so the size fits the drawn text, but nothing is collected
         // (the game measures cut pieces "Harvested 25 ri..." and log lines that are never shown)
         public static void PrefixText(ref string text)
         {
-            if (!On || text == null || text.EndsWith("...") || text.EndsWith("\u2026")) return;
+            if (!On || Suspended > 0 || text == null || text.EndsWith("...") || text.EndsWith("\u2026")) return;
             text = Tr(text, false);
         }
 

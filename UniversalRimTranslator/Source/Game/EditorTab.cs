@@ -22,7 +22,16 @@ namespace UniversalRimTranslator
             public bool Manual;
             public Verdict Verdict;
             public bool Has;
+            // what the list shows, cut to the width once (cutting text every frame was slow)
+            public string ShowSrc, ShowTxt;
+            public float ShowW;
         }
+
+        // 2.2.1: the search runs in the background – hundreds of thousands of texts
+        private static volatile List<Row> found;
+        private static volatile int foundTotal;
+        private static volatile bool searching;
+        private static int searchId;
 
         private static string query = "", lastQuery = null;
         private static Filter filter = Filter.All, lastFilter = Filter.All;
@@ -67,15 +76,23 @@ namespace UniversalRimTranslator
             y += 36f;
 
             // the memory holds hundreds of thousands of texts: search after a short pause in typing,
-            // and new machine translations only refresh the list every few seconds
+            // in the background; new machine translations do not restart the search
             float now = Time.realtimeSinceStartup;
             if (query != lastQuery || filter != lastFilter)
             {
                 if (query != typed || filter != lastFilter) { typed = query; typedAt = now; }
-                if (now - typedAt > 0.35f || filter != lastFilter) Refresh(store);
+                if (now - typedAt > 0.4f || filter != lastFilter) Refresh(store);
             }
-            else if (store.Version != lastVersion && now - refreshedAt > 5f)
-                Refresh(store);
+            List<Row> done = found;
+            if (done != null)
+            {
+                found = null;
+                rows = done;
+                total = foundTotal;
+                listScroll = Vector2.zero;
+                if (sel != null)
+                    sel = rows.FirstOrDefault(x => x.Source == sel.Source) ?? sel;
+            }
 
             float glossH = 190f;
             Rect top = new Rect(r.x, y, r.width, r.yMax - y - glossH - 8f);
@@ -93,31 +110,55 @@ namespace UniversalRimTranslator
             lastVersion = store.Version;
             refreshedAt = Time.realtimeSinceStartup;
             string q = (query ?? "").Trim();
-            var all = new Dictionary<string, Row>();
-            foreach (var kv in store.Snapshot())
-                all[kv.Key] = new Row { Source = kv.Key, Text = kv.Value.Text, Manual = kv.Value.Manual, Verdict = kv.Value.Verdict, Has = true };
-            foreach (Item it in Runtime.Items)
+            Filter fl = filter;
+            int id = ++searchId;
+            Item[] items = Runtime.Items.ToArray();   // copy on the main thread
+            searching = true;
+            System.Threading.ThreadPool.QueueUserWorkItem(_ =>
             {
-                string k = Store.Key(it.Source);
-                if (k.Length > 0 && !all.ContainsKey(k)) all[k] = new Row { Source = k, Verdict = Verdict.Empty };
-            }
-            IEnumerable<Row> sel2 = all.Values;
-            switch (filter)
-            {
-                case Filter.Mine: sel2 = sel2.Where(x => x.Manual); break;
-                case Filter.Problems: sel2 = sel2.Where(x => x.Has && x.Verdict != Verdict.Ok); break;
-                case Filter.Untranslated: sel2 = sel2.Where(x => !x.Has); break;
-            }
-            if (q.Length > 0)
-                sel2 = sel2.Where(x => x.Source.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                                       (x.Text != null && x.Text.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0));
-            else if (filter == Filter.All)
-                sel2 = sel2.Where(x => x.Manual);      // nothing searched yet: show your own first
-            var list = sel2.ToList();
-            total = list.Count;
-            rows = list.OrderBy(x => x.Source.Length).ThenBy(x => x.Source, StringComparer.OrdinalIgnoreCase).Take(MaxRows).ToList();
-            if (sel != null)
-                sel = rows.FirstOrDefault(x => x.Source == sel.Source) ?? sel;
+                try
+                {
+                    var result = new List<Row>();
+                    int count = 0;
+                    var seen = new HashSet<string>();
+                    bool Match(string src, string txt) => q.Length == 0 ||
+                        src.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        (txt != null && txt.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0);
+                    foreach (var kv in store.Snapshot())
+                    {
+                        if (id != searchId) return;      // a newer search started
+                        seen.Add(kv.Key);
+                        Rec r = kv.Value;
+                        bool ok = fl == Filter.Mine ? r.Manual : fl == Filter.Problems ? r.Verdict != Verdict.Ok : fl == Filter.Untranslated ? false
+                                : (q.Length > 0 || r.Manual);
+                        if (!ok || !Match(kv.Key, r.Text)) continue;
+                        count++;
+                        if (result.Count < MaxRows * 4)
+                            result.Add(new Row { Source = kv.Key, Text = r.Text, Manual = r.Manual, Verdict = r.Verdict, Has = true });
+                    }
+                    if (fl == Filter.All && q.Length > 0 || fl == Filter.Untranslated)
+                        foreach (Item it in items)
+                        {
+                            if (id != searchId) return;
+                            string k = Store.Key(it.Source);
+                            if (k.Length == 0 || !seen.Add(k) || !Match(k, null)) continue;
+                            count++;
+                            if (result.Count < MaxRows * 4)
+                                result.Add(new Row { Source = k, Verdict = Verdict.Empty });
+                        }
+                    if (id != searchId) return;
+                    foundTotal = count;
+                    found = result.OrderBy(x => x.Source.Length).ThenBy(x => x.Source, StringComparer.OrdinalIgnoreCase).Take(MaxRows).ToList();
+                }
+                catch (Exception e)
+                {
+                    MLog.Warn("[URT] editor search: " + e.Message);
+                }
+                finally
+                {
+                    if (id == searchId) searching = false;
+                }
+            });
         }
 
         private static void DrawList(Rect r)
@@ -126,7 +167,7 @@ namespace UniversalRimTranslator
             Rect inner = r.ContractedBy(6f);
             Text.Font = GameFont.Tiny;
             GUI.color = MUI.Muted;
-            string head = total > rows.Count ? "URT_Ed_CountMore".Translate(rows.Count, total) : "URT_Ed_Count".Translate(total);
+            string head = searching ? (string)"URT_Ed_Searching".Translate() : total > rows.Count ? (string)"URT_Ed_CountMore".Translate(rows.Count, total) : (string)"URT_Ed_Count".Translate(total);
             if (rows.Count == 0 && (query ?? "").Trim().Length == 0 && filter == Filter.All) head = "URT_Ed_SearchHint".Translate();
             Widgets.Label(new Rect(inner.x, inner.y, inner.width, 20f), head);
             GUI.color = Color.white;
@@ -134,16 +175,23 @@ namespace UniversalRimTranslator
             const float rowH = 44f;
             Rect view = new Rect(0f, 0f, outer.width - 16f, rows.Count * rowH);
             Widgets.BeginScrollView(outer, ref listScroll, view);
-            for (int i = 0; i < rows.Count; i++)
+            int first = Mathf.Max(0, (int)(listScroll.y / rowH) - 1);
+            int last = Mathf.Min(rows.Count - 1, (int)((listScroll.y + outer.height) / rowH) + 1);
+            for (int i = first; i <= last; i++)
             {
                 Row x = rows[i];
                 Rect rr = new Rect(0f, i * rowH, view.width, rowH - 2f);
                 if (sel == x) MUI.Fill(rr, MUI.OnBg);
                 else if (Mouse.IsOver(rr)) Widgets.DrawHighlight(rr);
-                Widgets.Label(new Rect(rr.x + 4f, rr.y + 1f, rr.width - 8f, 20f), One(x.Source).Truncate(rr.width - 8f));
+                if (x.ShowSrc == null || x.ShowW != rr.width)
+                {
+                    x.ShowW = rr.width;
+                    x.ShowSrc = Cut(One(x.Source), rr.width - 8f);
+                    x.ShowTxt = Cut(x.Has ? (x.Manual ? "✎ " : "") + One(x.Text ?? "") : (string)"URT_Ed_NoTranslation".Translate(), rr.width - 8f);
+                }
+                Widgets.Label(new Rect(rr.x + 4f, rr.y + 1f, rr.width - 8f, 20f), x.ShowSrc);
                 GUI.color = x.Manual ? MUI.Accent : !x.Has ? MUI.Warn : x.Verdict != Verdict.Ok ? MUI.Warn : MUI.Muted;
-                string t = x.Has ? (x.Manual ? "✎ " : "") + One(x.Text ?? "") : (string)"URT_Ed_NoTranslation".Translate();
-                Widgets.Label(new Rect(rr.x + 4f, rr.y + 21f, rr.width - 8f, 20f), t.Truncate(rr.width - 8f));
+                Widgets.Label(new Rect(rr.x + 4f, rr.y + 21f, rr.width - 8f, 20f), x.ShowTxt);
                 GUI.color = Color.white;
                 if (Widgets.ButtonInvisible(rr))
                 {
@@ -154,6 +202,14 @@ namespace UniversalRimTranslator
             }
             Widgets.EndScrollView();
             Text.Font = GameFont.Small;
+        }
+
+        // a quick cut by length first – the game's Truncate measures the text again and again
+        private static string Cut(string s, float width)
+        {
+            int max = Mathf.Max(8, (int)(width / 5.5f));
+            if (s.Length > max) s = s.Substring(0, max) + "…";
+            return s.Truncate(width);
         }
 
         private static string One(string s) => (s ?? "").Replace("\r", "").Replace("\n", " ⏎ ");
@@ -248,6 +304,14 @@ namespace UniversalRimTranslator
 
         private static void Done()
         {
+            if (sel != null && Runtime.Store != null && Runtime.Store.TryGet(sel.Source, out Rec now))
+            {
+                sel.Text = now.Text;
+                sel.Manual = now.Manual;
+                sel.Verdict = now.Verdict;
+                sel.Has = true;
+                sel.ShowSrc = null;
+            }
             SoundDefOf.Tick_High.PlayOneShotOnCamera();
             Runtime.Reapply();
         }

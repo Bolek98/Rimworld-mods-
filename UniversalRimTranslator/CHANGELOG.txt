@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+2.2.1
+- Editor: searching no longer makes the game stutter – the search runs in the background, only the rows you see are drawn, and the list does not rebuild itself every few seconds while machine translation runs. URT's own window is not live-translated.
+
 2.2.0
 - Editor (new tab): find any text by its original or translation and write your own version; go back to the machine version, keep the English original or translate again. Filters: all, mine, problems, untranslated. Your own texts are never replaced by the machine.
 - My words: a word you set ("kolonista" → "osadník") is used in every translation – whole words, the first letter's case kept.
