@@ -123,6 +123,8 @@ namespace GraphicsTuner
         public bool spreadJobs = true;
         public bool tempSpread = true;
         public bool nightFast = true;
+        public bool turbo;                      // 1.4.3: speed 3/4 untouched – few frames, all time to the game
+        public int turboFps = 12;
 
 
         // display – your own choice, never changed by a profile
@@ -253,6 +255,8 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref spreadJobs, "spreadJobs", true);
             Scribe_Values.Look(ref tempSpread, "tempSpread", true);
             Scribe_Values.Look(ref nightFast, "nightFast", true);
+            Scribe_Values.Look(ref turbo, "turbo", false);
+            Scribe_Values.Look(ref turboFps, "turboFps", 12);
 
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
                 Preset(profile);
@@ -709,7 +713,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.4.2";
+        public const string Version = "1.4.3";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -1200,6 +1204,13 @@ namespace GraphicsTuner
             MUI.Check(l, "GT_SpreadJobs".Translate(), "GT_SpreadJobs_Desc".Translate(), ref s.spreadJobs, s, null);
             MUI.Check(l, "GT_TempSpread".Translate(), "GT_TempSpread_Desc".Translate(), ref s.tempSpread, s, null);
             MUI.Check(l, "GT_NightFast".Translate(), "GT_NightFast_Desc".Translate(), ref s.nightFast, s, null);
+            MUI.Check(l, "GT_Turbo".Translate(), "GT_Turbo_Desc".Translate(), ref s.turbo, s, null);
+            if (s.turbo)
+            {
+                Rect tr = l.GetRect(28f);
+                Widgets.Label(new Rect(tr.x + 24f, tr.y + 3f, tr.width * 0.5f, 24f), "GT_TurboFps".Translate(s.turboFps));
+                s.turboFps = Mathf.RoundToInt(Widgets.HorizontalSlider(new Rect(tr.x + tr.width * 0.5f + 30f, tr.y + 8f, tr.width * 0.5f - 34f, 16f), s.turboFps, 5f, 30f, true));
+            }
             if (Verse.Current.ProgramState == ProgramState.Playing)
                 Muted(l.GetRect(36f), "GT_SpeedStats".Translate(SmartWork.Skipped, (SmartWork.SavedMs / 1000.0).ToString("0.0"), SmartWork.Deferred, FastNight.Nights));
             l.Gap(6f);

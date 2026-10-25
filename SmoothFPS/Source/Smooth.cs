@@ -192,17 +192,21 @@ namespace GraphicsTuner
                 bool interacting = Interacting();
                 bool background = s.sfBackground && !Application.isFocused;
                 bool idle = s.sfIdle && !interacting && mult >= 2f && Time.realtimeSinceStartup - lastInteract > 2f;
+                // 1.4.3: turbo – at speed 3 and 4, while you don't touch anything, the picture drops to a few
+                // frames a second and all the rest of the time goes to the simulation (game time runs as fast
+                // as the PC can). The moment you move the mouse or press a key the picture is smooth again.
+                bool turbo = s.turbo && mult > 3.01f && !interacting && !background && Time.realtimeSinceStartup - lastInteract > 1f;
                 int target = TargetFps(s);
-                int want = interacting ? Math.Max(s.sfMove, target) : background ? 10 : idle ? Math.Min(s.sfIdleFps, target) : target;
-                mode = interacting ? 1 : background ? 3 : idle ? 2 : 0;
-                float maxBudget = idle || background ? 1000f / want - 2f : 45.45f;
+                int want = interacting ? Math.Max(s.sfMove, target) : background ? 10 : turbo ? Mathf.Clamp(s.turboFps, 5, 30) : idle ? Math.Min(s.sfIdleFps, target) : target;
+                mode = interacting ? 1 : background ? 3 : turbo ? 4 : idle ? 2 : 0;
+                float maxBudget = idle || background || turbo ? 1000f / want - 2f : 45.45f;
                 budgetMs = Mathf.Clamp(1000f / want - renderMs, 3f, Math.Max(45.45f, maxBudget));
                 int maxSim = s.MaxSimNow();
                 if (maxSim > 0 && !idle && !background)
                     budgetMs = Mathf.Min(budgetMs, maxSim);
-                bool catchingUp = !s.sfSlowdown && rt > perTick * 3f;
+                bool catchingUp = (!s.sfSlowdown || turbo) && rt > perTick * 3f;
                 float needed = fps > 1f ? 60f * mult / Math.Min(fps, want) + 1f : mult * 2f;
-                float maxTicks = Mathf.Clamp(needed * (catchingUp ? 1.5f : 1f), mult * 2f, mult * 8f);
+                float maxTicks = Mathf.Clamp(needed * (catchingUp ? 1.5f : 1f), mult * 2f, turbo ? mult * 20f : mult * 8f);
                 // 1.7.2: speed 1 and 2 always run at their real speed – the FPS target only
                 // decides how smooth they are, never how slow. With a heavy colony one tick costs
                 // more than the frame budget of a high FPS target, and the game ran at the speed
@@ -273,7 +277,7 @@ namespace GraphicsTuner
                 // ticks that did not fit: vanilla throws them away (the game slows down);
                 // "keep speed" does up to 0.3 s of them in the next frames
                 if (rt > 0f)
-                    rt = s.sfSlowdown && !realSpeed ? 0f : Mathf.Min(rt, 0.3f);
+                    rt = s.sfSlowdown && !realSpeed && !turbo ? 0f : Mathf.Min(rt, turbo ? 1f : 0.3f);
                 return false;
             }
             catch (Exception e)
