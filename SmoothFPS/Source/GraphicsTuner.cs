@@ -610,10 +610,22 @@ namespace GraphicsTuner
             return true;
         }
 
+        private static Rect overlayRect;
+
         public static void Overlay()
         {
             GfxSettings s = GraphicsTunerMod.Settings;
-            if (s == null || Event.current.type != EventType.Repaint) return;
+            if (s == null) return;
+            // 1.4.5: the click comes as its own event, not while drawing – the box from the last drawing is used
+            if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && overlayRect.width > 0f
+                && Current.ProgramState == ProgramState.Playing && overlayRect.Contains(Event.current.mousePosition))
+            {
+                Event.current.Use();
+                if (Find.WindowStack.WindowOfType<Dialog_TickCost>() == null) Dialog_TickCost.OpenRunning();
+                return;
+            }
+            if (Event.current.type != EventType.Repaint) return;
+            overlayRect = default(Rect);
             bool bench = Benchmark.Running;
             if (!s.overlay && !bench && !Profiler.Running) return;
             string t = "GT_Overlay".Translate(Fps.ToString("0"), FrameMs.ToString("0.0"), Tps > 0f ? Tps.ToString("0") : "–");
@@ -641,15 +653,9 @@ namespace GraphicsTuner
             Rect r = new Rect(UI.screenWidth - w - 20f, 6f, w + 12f, h);
             Widgets.DrawBoxSolid(r, behind ? new Color(0.35f, 0.12f, 0.08f, 0.7f) : new Color(0f, 0f, 0f, 0.6f));
             // 1.4.4: a click on the overlay opens "What slows the tick" without pausing the game
+            overlayRect = r;
             if (Current.ProgramState == ProgramState.Playing && Mouse.IsOver(r))
-            {
                 TooltipHandler.TipRegion(r, "GT_OverlayClick".Translate());
-                if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
-                {
-                    Event.current.Use();
-                    if (Find.WindowStack.WindowOfType<Dialog_TickCost>() == null) Dialog_TickCost.OpenRunning();
-                }
-            }
             Widgets.Label(new Rect(r.x + 6f, r.y + 2f, w + 4f, size.y), t);
             if (behind && Mouse.IsOver(r))
                 TooltipHandler.TipRegion(r, (TickLoop.simMs >= TickLoop.renderMs ? "GT_BehindSim" : "GT_BehindDraw").Translate(TickLoop.simMs.ToString("0.0"), TickLoop.renderMs.ToString("0.0")));
@@ -723,7 +729,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.4.4";
+        public const string Version = "1.4.5";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
