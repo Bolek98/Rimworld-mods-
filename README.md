@@ -26,7 +26,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Mod Sort Manager – Load Order, Conflicts & Profiles | 0.1.5 | [ModSortManager](ModSortManager) |
 | Research Fixer – Tech Progression | 0.3.2 | [ResearchFixer](ResearchFixer) |
 | Secular Colony – Ideology Off & Tweaks | 1.5.1 | [SecularColony](SecularColony) |
-| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.15.0 | [SmartColonistGear](SmartColonistGear) |
+| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.15.1 | [SmartColonistGear](SmartColonistGear) |
 | Smooth FPS – Performance & Graphics | 1.3.1 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 3.2.2 | [Steward2/Steward](Steward2/Steward) |

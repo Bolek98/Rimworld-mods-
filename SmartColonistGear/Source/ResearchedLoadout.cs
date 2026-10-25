@@ -5229,19 +5229,79 @@ namespace ResearchedLoadout
 
 		// 2.15.0: gear of the colony's newest era (the tech level it has reached) is clearly preferred
 		// when it is there; gear two or more eras behind loses. Weapons and apparel alike.
+		// 2.15.1: stronger (current era ×1.6, two eras behind ×0.7) and by the item's real era – its own
+		// tech level, the research it needs and its power (modded items often have no tech level)
 		public static float EraMul(ThingDef def)
 		{
 			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
-			if (def == null || settings == null || !settings.preferNewEra || def.techLevel == TechLevel.Undefined || def.techLevel == TechLevel.Animal)
+			if (def == null || settings == null || !settings.preferNewEra)
 			{
 				return 1f;
 			}
-			int behind = (int)ColonyTech() - (int)def.techLevel;
+			TechLevel era = EffectiveTech(def);
+			if (era == TechLevel.Undefined || era == TechLevel.Animal)
+			{
+				return 1f;
+			}
+			int behind = (int)ColonyTech() - (int)era;
 			if (behind <= 0)
 			{
-				return 1.35f;
+				return 1.6f;
 			}
-			return behind == 1 ? 1f : 0.8f;
+			return behind == 1 ? 1f : 0.7f;
+		}
+
+		private static readonly Dictionary<ThingDef, TechLevel> eraCache = new Dictionary<ThingDef, TechLevel>();
+
+		public static TechLevel EffectiveTech(ThingDef def)
+		{
+			if (def == null)
+			{
+				return TechLevel.Undefined;
+			}
+			if (eraCache.TryGetValue(def, out TechLevel known))
+			{
+				return known;
+			}
+			TechLevel t = def.techLevel == TechLevel.Animal ? TechLevel.Undefined : def.techLevel;
+			try
+			{
+				ResearchReq req = GetResearchRequirements(def);
+				foreach (ResearchProjectDef r in req.always)
+				{
+					t = Max(t, r.techLevel);
+				}
+				if (req.options.Count > 0)
+				{
+					// the easiest way to make it decides
+					TechLevel easiest = TechLevel.Archotech;
+					foreach (List<ResearchProjectDef> opt in req.options)
+					{
+						TechLevel o = TechLevel.Undefined;
+						foreach (ResearchProjectDef r in opt)
+						{
+							o = Max(o, r.techLevel);
+						}
+						if ((int)o < (int)easiest)
+						{
+							easiest = o;
+						}
+					}
+					if (easiest != TechLevel.Archotech)
+					{
+						t = Max(t, easiest);
+					}
+				}
+				if (ResearchedLoadoutMod.Settings != null && ResearchedLoadoutMod.Settings.powerEstimate)
+				{
+					t = Max(t, PowerTech.Estimate(def));
+				}
+			}
+			catch
+			{
+			}
+			eraCache[def] = t;
+			return t;
 		}
 
 		private static readonly Dictionary<ThingDef, bool> toolCache = new Dictionary<ThingDef, bool>();
@@ -5626,16 +5686,28 @@ namespace ResearchedLoadout
 				return false;
 			}
 			float num = ArmorValue(candidate);
+			TechLevel candEra = EffectiveTech(candidate.def);
 			List<Apparel> wornApparel = pawn.apparel.WornApparel;
 			for (int i = 0; i < wornApparel.Count; i++)
 			{
 				Apparel apparel = wornApparel[i];
-				if (apparel != candidate && !ApparelUtility.CanWearTogether(candidate.def, apparel.def, pawn.RaceProps.body) && IsArmor(apparel) && !IsBelowMinHp(apparel) && (IsResearchAllowed(apparel.def) || SurvivalKeepWorn(pawn, apparel) || EmergencyGear.KeepWorn(pawn, apparel.def)) && num < ArmorValue(apparel) * 0.9f)
+				if (apparel != candidate && !ApparelUtility.CanWearTogether(candidate.def, apparel.def, pawn.RaceProps.body) && IsArmor(apparel) && !IsBelowMinHp(apparel) && (IsResearchAllowed(apparel.def) || SurvivalKeepWorn(pawn, apparel) || EmergencyGear.KeepWorn(pawn, apparel.def)) && num < ArmorValue(apparel) * (NewerEra(candEra, apparel.def, settings) ? 0.7f : 0.9f))
 				{
+					// 2.15.1: armor of the colony's newer era may be a little weaker (flak vest for plate armor)
 					return true;
 				}
 			}
 			return false;
+		}
+
+		private static bool NewerEra(TechLevel cand, ThingDef worn, ResearchedLoadoutSettings settings)
+		{
+			if (!settings.preferNewEra || cand == TechLevel.Undefined)
+			{
+				return false;
+			}
+			TechLevel w = EffectiveTech(worn);
+			return w != TechLevel.Undefined && (int)cand > (int)w && (int)cand >= (int)ColonyTech() - 1;
 		}
 
 		public static bool FreezingOrOverheating(Pawn pawn)

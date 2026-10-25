@@ -1,4 +1,9 @@
 === Not on the Workshop yet (test versions) ===
+2.15.1
+- Newest era first works on modded gear too: the era of an item is now its own tech level, the research it needs or its power – many modded weapons and clothes have no tech level and got no bonus before
+- Stronger: gear of the colony's current era ×1.6, two or more eras behind ×0.7 (was ×1.35 / ×0.8)
+- Armor of the newer era is taken even when it protects a little less (down to 70 % of the old armor instead of 90 %) – a flak vest replaces plate armor
+
 2.15.0
 - Newest era first: when the colony reaches a new era (industrial, spacer …), colonists clearly prefer weapons, armor and clothes of that era as soon as they are in the colony; gear two or more eras behind is used only when nothing better is there (setting, on by default)
 
