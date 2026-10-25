@@ -1,4 +1,10 @@
 === Not on the Workshop yet (test versions) ===
+2.1.0
+- Stage 2 – texts made in code: messages, letters, buttons, tooltips and info lines that mods write directly in their code are now translated where they are drawn (on the screen only, the game data does not change). Known texts appear at once; new English texts are collected and translated in the background, the texts on your screen first. Numbers do not matter ("Harvested 25 rice" and "Harvested 3 rice" are one text). Names of colonists, factions, places and mods are never translated. Setting "Texts made in code (live)", on by default.
+- Faster start: the result of the scan is kept on disk and used again while your mods, their files and the language stay the same (the 20+ second scan is skipped).
+- Faster start: translations of plain def fields (labels, descriptions …) are put in directly instead of through the game's slower injection.
+- What's new: after an update a window shows once what changed (together with Bolek98's other mods; can be turned off).
+
 2.0.1
 - Fix (important): 2.0.0 also translated identifiers that some mods keep in text fields (body part names, enum values, lists of work types, paths) – this broke Steward styles, RJW body parts and pawn graphics. Now only fields that hold text a player reads are translated (labels, descriptions, messages, grammar rules …).
 

@@ -31,6 +31,7 @@ namespace UniversalRimTranslator
         private static readonly Dictionary<string, Entry> cache = new Dictionary<string, Entry>();
         private static HashSet<string> vocab = new HashSet<string>();
         private static HashSet<string> names = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        private static HashSet<string> modNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         private static int namesFrame = -100000;
         private static volatile bool arrivedFlag;
         private static float lastBump;
@@ -85,6 +86,12 @@ namespace UniversalRimTranslator
                 MLog.Warn("[URT] live words: " + e.Message);
             }
             vocab = v;
+            var mn = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (ModContentPack m in LoadedModManager.RunningModsListForReading)
+                if (!string.IsNullOrEmpty(m.Name)) mn.Add(m.Name.Trim());
+            foreach (ModMetaData m in ModLister.AllInstalledMods)
+                if (!string.IsNullOrEmpty(m.Name)) mn.Add(m.Name.Trim());
+            modNames = mn;
             collectorPath = Path.Combine(folder, "live_" + target + ".txt");
             // texts collected in earlier sessions that still wait for a translation
             int back = 0;
@@ -160,6 +167,8 @@ namespace UniversalRimTranslator
             }
             if (!Protect.HasWords(s) || Protect.LooksLikeNonText(s) || Protect.IsRule(s)) return false;
             RefreshNames();
+            string whole = s.Trim();
+            if (names.Contains(whole) || modNames.Contains(whole)) return false;     // a name, or a mod's name
             int words = 0, known = 0;
             bool first = true;
             foreach (Match m in Word.Matches(StripTags(s)))
@@ -171,7 +180,7 @@ namespace UniversalRimTranslator
                 if (vocab.Contains(w.ToLowerInvariant())) known++;
             }
             if (words == 0 || known == 0) return false;
-            if (words == 1 && names.Contains(s.Trim())) return false;
+
             return known * 10 >= words * 7;
         }
 

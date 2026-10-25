@@ -11,7 +11,7 @@ namespace UniversalRimTranslator
 {
     public static class UrtVersion
     {
-        public const string Number = "2.0.1";
+        public const string Number = "2.1.0";
         public static string Display => Number + " (test)";
     }
 
@@ -23,6 +23,7 @@ namespace UniversalRimTranslator
         public bool translateKeyed = true;
         public bool translateRules = true;
         public bool grammarFallback = true;
+        public bool translateLive = true;   // 2.1.0: texts made in code, translated where they are drawn
 
         public string order = "edge,yandex,google,mymemory,lingva,deepl,azure,googlecloud,gemini,openai,libre";
         public string disabled = "lingva";
@@ -42,6 +43,7 @@ namespace UniversalRimTranslator
             Scribe_Values.Look(ref translateKeyed, "urt2_translateKeyed", true);
             Scribe_Values.Look(ref translateRules, "urt2_translateRules", true);
             Scribe_Values.Look(ref grammarFallback, "urt2_grammarFallback", true);
+            Scribe_Values.Look(ref translateLive, "urt2_translateLive", true);
             Scribe_Values.Look(ref order, "urt2_order", "edge,yandex,google,mymemory,lingva,deepl,azure,googlecloud,gemini,openai,libre");
             Scribe_Values.Look(ref disabled, "urt2_disabled", "lingva");
             Scribe_Values.Look(ref deepLApiKey, "deepLApiKey", "");
@@ -119,7 +121,8 @@ namespace UniversalRimTranslator
             Settings = GetSettings<UrtSettings>();
             RemoveOldGeneratedFiles(content?.RootDir);
             Settings.Normalize();
-            MUI.Init(new UrtSettings(), new[] { "enabled", "translateDefs", "translateKeyed", "translateRules", "grammarFallback" });
+            MUI.Init(new UrtSettings(), new[] { "enabled", "translateDefs", "translateKeyed", "translateRules", "grammarFallback", "translateLive" });
+            MNews.Register(content, UrtVersion.Number);
             if (Settings.recommended) MUI.ApplyAll(Settings);
             try { MUI.PatchWindow(new Harmony("bolek98.urt2.ui"), typeof(UniversalRimTranslatorMod)); } catch { }
             MLog.Game("[Universal RimTranslator] v" + UrtVersion.Display + " loaded (messages: Logs\\URT.log).");
@@ -183,7 +186,7 @@ namespace UniversalRimTranslator
             }, recBullets) + 8f;
 
             // status card
-            Rect card = new Rect(r.x, y, r.width, 150f);
+            Rect card = new Rect(r.x, y, r.width, 172f);
             MUI.Card(card);
             Rect c = card.ContractedBy(12f);
             var lines = new List<string>();
@@ -195,6 +198,7 @@ namespace UniversalRimTranslator
                 lines.Add("URT_Status_Phase".Translate(PhaseText()));
                 lines.Add("URT_Status_Counts".Translate(Runtime.Items.Count, Runtime.Store?.Count ?? 0, Runtime.Applied, Runtime.PendingCached));
                 lines.Add("URT_Status_Session".Translate(Runtime.Translated, Runtime.Rejected, Runtime.Failed, GrammarFallback.Used));
+                if (Live.On) lines.Add("URT_Status_Live".Translate(Live.Shown, Live.Queued, Live.Pending.Count, Live.Arrived));
                 if (!string.IsNullOrEmpty(Runtime.MigrationReport)) lines.Add("URT_Status_Migrated".Translate(Runtime.MigrationReport));
             }
             Widgets.Label(c, string.Join("\n", lines.ToArray()));
@@ -224,6 +228,7 @@ namespace UniversalRimTranslator
                 Check(l, "URT_Enabled", ref s.enabled, "enabled");
                 Check(l, "URT_Defs", ref s.translateDefs, "translateDefs");
                 Check(l, "URT_Keyed", ref s.translateKeyed, "translateKeyed");
+                Check(l, "URT_Live", ref s.translateLive, "translateLive");
                 l.NewColumn();
                 MUI.Section(l, "URT_Sec_Grammar".Translate());
                 Check(l, "URT_Rules", ref s.translateRules, "translateRules");

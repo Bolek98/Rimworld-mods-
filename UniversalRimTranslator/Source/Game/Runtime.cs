@@ -46,6 +46,8 @@ namespace UniversalRimTranslator
             catch (Exception e) { MLog.Warn("[URT] main thread pump not active: " + e.Message); }
             try { GrammarFallback.Patch(h); }
             catch (Exception e) { MLog.Warn("[URT] grammar fallback not active: " + e.Message); }
+            try { Live.Patch(h); }
+            catch (Exception e) { MLog.Warn("[URT] live translation not active: " + e.Message); }
             try { Start(); }
             catch (Exception e) { MLog.Error("[URT] start failed: " + e); Phase = "error: " + e.Message; }
         }
@@ -72,7 +74,32 @@ namespace UniversalRimTranslator
             long loadMs = sw.ElapsedMilliseconds;
 
             sw.Restart();
-            Items = Scan.Run(out ScanReport);
+            // 2.1.0: the scan result is kept on disk while mods, files and language stay the same
+            string fp = null;
+            long fpMs = 0;
+            try
+            {
+                var fsw = Stopwatch.StartNew();
+                fp = ScanCache.Fingerprint();
+                fpMs = fsw.ElapsedMilliseconds;
+            }
+            catch (Exception e) { MLog.Warn("[URT] scan fingerprint: " + e.Message); }
+            string cachePath = ScanCache.FilePath(Folder, Target);
+            if (fp != null && ScanCache.TryLoad(cachePath, fp, out List<Item> cachedItems, out string cachedReport))
+            {
+                Items = cachedItems;
+                ScanReport = cachedReport + "; from the scan cache, checked in " + fpMs + " ms";
+            }
+            else
+            {
+                Items = Scan.Run(out ScanReport);
+                if (fp != null)
+                {
+                    List<Item> snapshot = Items;
+                    string rep = ScanReport;
+                    ThreadPool.QueueUserWorkItem(_ => ScanCache.Save(cachePath, fp, snapshot, rep));
+                }
+            }
             bySource = Items.GroupBy(i => Store.Key(i.Source)).ToDictionary(g => g.Key, g => g.ToList());
             long scanMs = sw.ElapsedMilliseconds;
 
@@ -81,8 +108,23 @@ namespace UniversalRimTranslator
             MLog.Game("[Universal RimTranslator] v" + UrtVersion.Display + " – " + TargetName + ": " + Items.Count + " untranslated texts found (" + ScanReport + "), " + known +
                       " translated from memory (" + Store.Count + " remembered). Load " + loadMs + " ms, scan " + scanMs + " ms, apply " + sw.ElapsedMilliseconds + " ms.");
 
+            try
+            {
+                Live.Init(Items, Folder, Target);
+                UpdateLive();
+            }
+            catch (Exception e) { MLog.Warn("[URT] live translation: " + e.Message); }
+
             worker = new Thread(() => Work(!haveNew)) { IsBackground = true, Name = "URT translator", Priority = ThreadPriority.BelowNormal };
             worker.Start();
+        }
+
+        public static void UpdateLive()
+        {
+            var s = UniversalRimTranslatorMod.Settings;
+            bool on = Active && Store != null && s.enabled && s.translateLive;
+            if (on != Live.On) Live.ClearCache();
+            Live.On = on;
         }
 
         public static void Configure()
@@ -136,18 +178,27 @@ namespace UniversalRimTranslator
                         continue;
                     }
                     Phase = "translating (" + PendingCount() + " left)";
-                    var jobs = todo.Select(src => new Job { Source = src, SourceLang = bySource[src][0].SourceLang }).ToList();
+                    var jobs = todo.Select(src => new Job { Source = src, SourceLang = bySource.TryGetValue(src, out var its) ? its[0].SourceLang : "en" }).ToList();
                     Chain.Run(jobs, Target, cts.Token);
                     int got = 0;
                     foreach (Job j in jobs)
                     {
                         string key = Store.Key(j.Source);
-                        if (j.Result == null) { Failed++; giveUp[key] = giveUp.TryGetValue(key, out int g) ? g + 1 : 1; continue; }
+                        bool live = Live.Pending.ContainsKey(key);
+                        if (j.Result == null)
+                        {
+                            Failed++;
+                            int g2 = giveUp[key] = giveUp.TryGetValue(key, out int g) ? g + 1 : 1;
+                            if (live && g2 >= 3) Live.Done(key, false);
+                            continue;
+                        }
                         Store.PutAuto(j.Source, j.Result, j.Provider, j.Verdict);
-                        if (j.Verdict != Verdict.Ok) { Rejected++; giveUp[key] = 99; continue; }
+                        if (j.Verdict != Verdict.Ok) { Rejected++; giveUp[key] = 99; if (live) Live.Done(key, false); continue; }
                         Translated++;
                         got++;
-                        foreach (Item it in bySource[key]) toApply.Enqueue((it, j.Result));
+                        if (live) Live.Done(key, true);
+                        if (bySource.TryGetValue(key, out var targets))
+                            foreach (Item it in targets) toApply.Enqueue((it, j.Result));
                     }
                     if (got == 0 && jobs.Count > 0)
                     {
@@ -169,7 +220,9 @@ namespace UniversalRimTranslator
 
         private static IEnumerable<string> PendingSources()
         {
-            return Items.Where(Allowed).OrderBy(i => i.Priority).Select(i => Store.Key(i.Source)).Distinct()
+            // texts on the screen right now first (live), then the game's texts
+            IEnumerable<string> live = Live.On ? Live.Pending.Keys.ToList() : Enumerable.Empty<string>();
+            return live.Concat(Items.Where(Allowed).OrderBy(i => i.Priority).Select(i => Store.Key(i.Source))).Distinct()
                         .Where(k => Store.NeedsTranslation(k) && !(giveUp.TryGetValue(k, out int g) && g >= 3));
         }
 
@@ -224,6 +277,7 @@ namespace UniversalRimTranslator
             if (!Active) return;
             try
             {
+                Live.Tick();
                 while (mainThread.TryDequeue(out Action a)) a();
                 if (toApply.IsEmpty) return;
                 var sw = Stopwatch.StartNew();
@@ -243,6 +297,7 @@ namespace UniversalRimTranslator
         // after a manual edit or setting change: put the current state of everything into the game
         public static void Reapply()
         {
+            UpdateLive();
             RunOnMain(() =>
             {
                 var work = new List<(Item, string)>();

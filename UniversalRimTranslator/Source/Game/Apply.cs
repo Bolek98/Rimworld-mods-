@@ -34,6 +34,7 @@ namespace UniversalRimTranslator
             int n = 0;
             var lists = new Dictionary<string, List<(Item, string)>>();
             var touchedTypes = new HashSet<Type>();
+            var directTypes = new HashSet<Type>();
             foreach (var (it, text) in work)
             {
                 try
@@ -41,6 +42,14 @@ namespace UniversalRimTranslator
                     if (it.Kind == ItemKind.Keyed)
                     {
                         if (Keyed(it, text)) n++;
+                    }
+                    else if (it.Kind == ItemKind.Def && Direct(it, text ?? it.Source))
+                    {
+                        // 2.1.0: a plain field of a def (defName.label …) is set directly – the same
+                        // result as the game's injection, many times faster
+                        Remember(it, text);
+                        directTypes.Add(it.DefType);
+                        n++;
                     }
                     else if (it.Kind == ItemKind.Def)
                     {
@@ -86,8 +95,48 @@ namespace UniversalRimTranslator
                 try { packages[t].InjectIntoDefs(false); }
                 catch (Exception e) { MLog.Warn("[URT] injecting " + t.Name + " failed: " + e.Message); }
             }
+            foreach (Type t in directTypes)
+            {
+                if (touchedTypes.Contains(t)) continue;      // InjectIntoDefs cleared it already
+                try { GenGeneric.InvokeStaticMethodOnGenericType(typeof(DefDatabase<>), t, "ClearCachedData"); }
+                catch (Exception e) { MLog.WarnOnce("[URT] cache of " + t.Name + ": " + e.Message, t.Name.GetHashCode()); }
+            }
             if (rulesTouched) FlushRules();
             return n;
+        }
+
+        private static readonly Dictionary<string, KeyValuePair<Def, FieldInfo>> direct = new Dictionary<string, KeyValuePair<Def, FieldInfo>>();
+        private static readonly Dictionary<string, FieldInfo> fieldsByName = new Dictionary<string, FieldInfo>();
+
+        // "Steel.label": the def and its string field, found once; anything nested goes the game's way
+        private static bool Direct(Item it, string value)
+        {
+            string key = it.DefType.Name + "|" + it.Path;
+            if (!direct.TryGetValue(key, out var target))
+            {
+                target = default(KeyValuePair<Def, FieldInfo>);
+                int dot = it.Path.IndexOf('.');
+                if (dot > 0 && dot == it.Path.LastIndexOf('.') && dot < it.Path.Length - 1)
+                {
+                    Def def = GenDefDatabase.GetDefSilentFail(it.DefType, it.Path.Substring(0, dot), false);
+                    if (def != null)
+                    {
+                        string fname = it.Path.Substring(dot + 1);
+                        string fk = def.GetType().FullName + "|" + fname;
+                        if (!fieldsByName.TryGetValue(fk, out FieldInfo fi))
+                        {
+                            fi = AccessTools.Field(def.GetType(), fname);
+                            if (fi != null && (fi.IsStatic || fi.FieldType != typeof(string) || fi.IsInitOnly)) fi = null;
+                            fieldsByName[fk] = fi;
+                        }
+                        if (fi != null) target = new KeyValuePair<Def, FieldInfo>(def, fi);
+                    }
+                }
+                direct[key] = target;
+            }
+            if (target.Key == null) return false;
+            target.Value.SetValue(target.Key, value);
+            return true;
         }
 
         private static void Remember(Item it, string text)
