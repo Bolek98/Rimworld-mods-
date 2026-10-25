@@ -42,6 +42,13 @@ namespace UniversalRimTranslator
                 catch { }
             }
             Add("defs " + defs);
+            // mod settings can change texts mods make in code (Config/Mod_*.xml)
+            try
+            {
+                foreach (string file in Directory.GetFiles(GenFilePaths.ConfigFolderPath, "Mod_*.xml"))
+                    Add(Path.GetFileName(file) + "|" + File.GetLastWriteTimeUtc(file).Ticks);
+            }
+            catch { }
             foreach (ModContentPack m in LoadedModManager.RunningModsListForReading)
             {
                 Add(m.PackageId);

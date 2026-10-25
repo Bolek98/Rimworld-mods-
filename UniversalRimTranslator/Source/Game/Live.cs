@@ -27,10 +27,12 @@ namespace UniversalRimTranslator
 
         public static readonly ConcurrentDictionary<string, byte> Pending = new ConcurrentDictionary<string, byte>();
 
-        private struct Entry { public string Out; public int Ver; }
+        private struct Entry { public string Out; public int Ver; public bool Collected; }
         private static readonly Dictionary<string, Entry> cache = new Dictionary<string, Entry>();
         private static HashSet<string> vocab = new HashSet<string>();
-        private static HashSet<string> names = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        private static HashSet<string> names = new HashSet<string>(StringComparer.OrdinalIgnoreCase);   // whole names
+        private static HashSet<string> nameWords = new HashSet<string>(StringComparer.Ordinal);            // single words of names
+        private static Game namesGame;
         private static HashSet<string> modNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         private static int namesFrame = -100000;
         private static volatile bool arrivedFlag;
@@ -89,8 +91,6 @@ namespace UniversalRimTranslator
             var mn = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             foreach (ModContentPack m in LoadedModManager.RunningModsListForReading)
                 if (!string.IsNullOrEmpty(m.Name)) mn.Add(m.Name.Trim());
-            foreach (ModMetaData m in ModLister.AllInstalledMods)
-                if (!string.IsNullOrEmpty(m.Name)) mn.Add(m.Name.Trim());
             modNames = mn;
             collectorPath = Path.Combine(folder, "live_" + target + ".txt");
             // texts collected in earlier sessions that still wait for a translation
@@ -122,23 +122,42 @@ namespace UniversalRimTranslator
             if (tip != null) h.Patch(tip, postfix: new HarmonyMethod(typeof(Live), nameof(PostfixTip)));
         }
 
-        public static void PrefixLabel(ref string label) { if (On) label = Tr(label); }
-        public static void PrefixText(ref string text) { if (On) text = Tr(text); }
-        public static void PostfixTip(ref string __result) { if (On) __result = Tr(__result); }
+        public static void PrefixLabel(ref string label) { if (On) label = Tr(label, true); }
+        public static void PostfixTip(ref string __result) { if (On) __result = Tr(__result, true); }
+
+        // measuring only: the same lookup so the size fits the drawn text, but nothing is collected
+        // (the game measures cut pieces "Harvested 25 ri..." and log lines that are never shown)
+        public static void PrefixText(ref string text)
+        {
+            if (!On || text == null || text.EndsWith("...") || text.EndsWith("\u2026")) return;
+            text = Tr(text, false);
+        }
 
         // ---------------- the lookup (main thread, every frame – must be cheap) ----------------
-        public static string Tr(string s)
+        private static Dictionary<string, Entry> old = new Dictionary<string, Entry>();
+
+        public static string Tr(string s, bool collect)
         {
             if (s == null || s.Length < 2 || s.Length > MaxLen) return s;
             try
             {
-                if (cache.TryGetValue(s, out Entry e) && (e.Out != null || e.Ver == Version))
-                    return e.Out ?? s;
-                string res = Compute(s);
-                if (cache.Count >= CacheMax) cache.Clear();
-                cache[s] = new Entry { Out = res, Ver = Version };
-                if (res != null) Shown++;
-                return res ?? s;
+                // the spaces and line breaks around the text stay as they are
+                int a = 0, b = s.Length;
+                while (a < b && char.IsWhiteSpace(s[a])) a++;
+                while (b > a && char.IsWhiteSpace(s[b - 1])) b--;
+                if (b - a < 2) return s;
+                string core = a == 0 && b == s.Length ? s : s.Substring(a, b - a);
+                // numbers do not matter: "Harvested 25 rice" and "Harvested 3 rice" share one entry
+                List<string> nums = null;
+                string key = HasDigit(core) ? Template(core, out nums) : core;
+                if (!Lookup(key, out Entry e) || (e.Out == null && e.Ver != Version) || (e.Out == null && collect && !e.Collected))
+                {
+                    e = Compute(core, key, collect);
+                    Remember(key, e);
+                }
+                if (e.Out == null) return s;
+                string res = nums == null ? e.Out : Fill(e.Out, nums);
+                return a == 0 && b == s.Length ? res : s.Substring(0, a) + res + s.Substring(b);
             }
             catch
             {
@@ -146,15 +165,43 @@ namespace UniversalRimTranslator
             }
         }
 
-        private static string Compute(string s)
+        private static bool Lookup(string key, out Entry e)
         {
-            if (!Candidate(s)) return null;
-            string tpl = Template(s, out List<string> nums);
-            string t = Runtime.Store?.Use(tpl);
+            if (cache.TryGetValue(key, out e)) return true;
+            if (old.TryGetValue(key, out e)) { cache[key] = e; return true; }
+            return false;
+        }
+
+        // two generations: a full cache becomes the old one instead of throwing all away
+        private static void Remember(string key, Entry e)
+        {
+            if (cache.Count >= CacheMax / 2)
+            {
+                old = new Dictionary<string, Entry>(cache);
+                cache.Clear();
+            }
+            cache[key] = e;
+        }
+
+        private static bool HasDigit(string s)
+        {
+            for (int i = 0; i < s.Length; i++) if (s[i] >= '0' && s[i] <= '9') return true;
+            return false;
+        }
+
+        private static Entry Compute(string core, string key, bool collect)
+        {
+            var e = new Entry { Ver = Version, Collected = collect };
+            if (!Candidate(core)) { e.Collected = true; return e; }      // never worth collecting
+            string t = Runtime.Store?.Use(key);
             if (t != null)
-                return nums == null ? t : Fill(t, nums);
-            Collect(tpl);
-            return null;
+            {
+                e.Out = t;
+                Shown++;
+                return e;
+            }
+            if (collect) Collect(key);
+            return e;
         }
 
         // English text worth translating: Latin letters only, mostly known English words, no names
@@ -166,32 +213,27 @@ namespace UniversalRimTranslator
                 if (c > 127 && char.IsLetter(c)) return false;     // already another language (or a name with accents)
             }
             if (!Protect.HasWords(s) || Protect.LooksLikeNonText(s) || Protect.IsRule(s)) return false;
-            RefreshNames();
-            string whole = s.Trim();
-            if (names.Contains(whole) || modNames.Contains(whole)) return false;     // a name, or a mod's name
+            if (names.Contains(s) || modNames.Contains(s)) return false;     // a name, or a mod's name
             int words = 0, known = 0;
-            bool first = true;
             foreach (Match m in Word.Matches(StripTags(s)))
             {
                 string w = m.Value;
                 words++;
-                if (!first && char.IsUpper(w[0]) && names.Contains(w)) return false;    // a colonist, faction or place
-                first = false;
+                if (char.IsUpper(w[0]) && nameWords.Contains(w)) return false;    // a colonist, faction or place (also first)
                 if (vocab.Contains(w.ToLowerInvariant())) known++;
             }
             if (words == 0 || known == 0) return false;
-
             return known * 10 >= words * 7;
         }
 
         private static readonly Regex Tag = new Regex(@"</?[A-Za-z][^<>]*>|\{[^{}]*\}|\[[^\[\]]*\]", RegexOptions.Compiled);
         private static string StripTags(string s) => s.IndexOf('<') < 0 && s.IndexOf('{') < 0 && s.IndexOf('[') < 0 ? s : Tag.Replace(s, " ");
 
-        // numbers become {0}, {1} … (only in plain text – tags and placeholders stay as they are)
+        // numbers become {0}, {1} … (not in texts with own placeholders – those keep their braces)
         private static string Template(string s, out List<string> nums)
         {
             nums = null;
-            if (s.IndexOf('{') >= 0 || s.IndexOf('<') >= 0 || s.IndexOf('[') >= 0) return s;
+            if (s.IndexOf('{') >= 0) return s;
             var found = new List<string>();
             string t = Number.Replace(s, m => { found.Add(m.Value); return "{" + (found.Count - 1) + "}"; });
             if (found.Count == 0 || found.Count > 8) return s;
@@ -206,8 +248,12 @@ namespace UniversalRimTranslator
             return sb.ToString();
         }
 
+        private static readonly ConcurrentQueue<string> toFile = new ConcurrentQueue<string>();
+
         private static void Collect(string tpl)
         {
+            // only in a running game: names of colonists and places are known only then
+            if (Current.ProgramState != ProgramState.Playing) return;
             string key = Store.Key(tpl);
             if (key.Length == 0 || Pending.ContainsKey(key) || Pending.Count >= MaxPending) return;
             float now = Time.realtimeSinceStartup;
@@ -217,26 +263,50 @@ namespace UniversalRimTranslator
             if (!Pending.TryAdd(key, 0)) return;
             queuedThisMinute++;
             Queued++;
+            toFile.Enqueue(key);
             Runtime.Kick();
+        }
+
+        // translator thread: the collected texts go to the file (no disk work while drawing)
+        public static void Flush()
+        {
+            if (toFile.IsEmpty || collectorPath == null) return;
+            var sb = new StringBuilder();
+            while (toFile.TryDequeue(out string k)) sb.Append(k.Replace("\r", "").Replace("\n", "\\n")).Append('\n');
             try
             {
                 lock (fileGate)
-                    if (collectorPath != null && (!File.Exists(collectorPath) || new FileInfo(collectorPath).Length < 4_000_000))
-                        File.AppendAllText(collectorPath, key.Replace("\r", "").Replace("\n", "\\n") + "\n");
+                {
+                    if (File.Exists(collectorPath) && new FileInfo(collectorPath).Length > 4_000_000)
+                    {
+                        // keep the newer half
+                        string[] lines = File.ReadAllLines(collectorPath);
+                        File.WriteAllLines(collectorPath, lines.Skip(lines.Length / 2).ToArray());
+                    }
+                    File.AppendAllText(collectorPath, sb.ToString());
+                }
             }
             catch { }
+        }
+
+        // translator thread: texts that do not need a translation any more leave the queue
+        public static void Prune(Func<string, bool> stillWanted)
+        {
+            foreach (string k in Pending.Keys.ToList())
+                if (!stillWanted(k)) Pending.TryRemove(k, out _);
         }
 
         // ---------------- from the translator thread ----------------
         public static void Done(string key, bool ok)
         {
             Pending.TryRemove(key, out _);
-            if (ok) { Arrived++; arrivedFlag = true; }
+            if (ok) { System.Threading.Interlocked.Increment(ref Arrived); arrivedFlag = true; }
         }
 
         // main thread, every frame: new translations become visible (at most once a second)
         public static void Tick()
         {
+            if (On) RefreshNames();
             if (!arrivedFlag) return;
             float now = Time.realtimeSinceStartup;
             if (now - lastBump < 1f) return;
@@ -245,14 +315,16 @@ namespace UniversalRimTranslator
             Version++;
         }
 
-        public static void ClearCache() { cache.Clear(); Version++; }
+        public static void ClearCache() { cache.Clear(); old.Clear(); Version++; }
 
         // names of colonists, factions and places: never translated ("Rose", "Hunter" …)
         private static void RefreshNames()
         {
             int f = Time.frameCount;
-            if (f - namesFrame < 2500 && f >= namesFrame) return;
+            bool newGame = Current.Game != namesGame;
+            if (!newGame && f - namesFrame < 2500 && f >= namesFrame) return;
             namesFrame = f;
+            namesGame = Current.Game;
             var n = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             try
             {
@@ -269,7 +341,13 @@ namespace UniversalRimTranslator
                 }
             }
             catch { }
+            var w = new HashSet<string>(StringComparer.Ordinal);
+            foreach (string s in n)
+                foreach (Match m in Word.Matches(s))
+                    if (char.IsUpper(m.Value[0])) w.Add(m.Value);
             names = n;
+            nameWords = w;
+            if (newGame) ClearCache();
         }
 
         private static void AddName(HashSet<string> n, Name name)

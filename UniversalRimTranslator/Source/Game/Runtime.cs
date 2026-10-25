@@ -93,7 +93,7 @@ namespace UniversalRimTranslator
             else
             {
                 Items = Scan.Run(out ScanReport);
-                if (fp != null)
+                if (fp != null && Scan.Failures == 0)
                 {
                     List<Item> snapshot = Items;
                     string rep = ScanReport;
@@ -168,6 +168,8 @@ namespace UniversalRimTranslator
                 while (!cts.IsCancellationRequested)
                 {
                     if (Paused || !UniversalRimTranslatorMod.Settings.enabled) { Phase = "paused"; wake.WaitOne(2000); continue; }
+                    Live.Flush();
+                    Live.Prune(k => Store.NeedsTranslation(k) && !(giveUp.TryGetValue(k, out int gg) && gg >= 3));
                     List<string> todo = Pending(200);
                     if (todo.Count == 0)
                     {
@@ -300,6 +302,7 @@ namespace UniversalRimTranslator
             UpdateLive();
             RunOnMain(() =>
             {
+                Live.ClearCache();     // edited or removed translations show at once
                 var work = new List<(Item, string)>();
                 foreach (Item it in Items)
                 {

@@ -34,8 +34,11 @@ namespace UniversalRimTranslator
 
         public static string ListKey(Type defType, string path) => defType.Name + "|" + path;
 
+        public static int Failures;
+
         public static List<Item> Run(out string report)
         {
+            Failures = 0;
             OriginalLists.Clear();
             var items = new List<Item>();
             LoadedLanguage active = LanguageDatabase.activeLanguage;
@@ -103,6 +106,7 @@ namespace UniversalRimTranslator
                 catch (Exception e)
                 {
                     MLog.Warn("[URT] scan of " + defType.Name + " failed: " + e.Message);
+                    Failures++;
                 }
             }
 

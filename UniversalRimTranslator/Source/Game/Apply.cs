@@ -43,10 +43,12 @@ namespace UniversalRimTranslator
                     {
                         if (Keyed(it, text)) n++;
                     }
-                    else if (it.Kind == ItemKind.Def && Direct(it, text ?? it.Source))
+                    else if (it.Kind == ItemKind.Def && Direct(it, text ?? it.Source, out bool stale))
                     {
                         // 2.1.0: a plain field of a def (defName.label …) is set directly – the same
-                        // result as the game's injection, many times faster
+                        // result as the game's injection, many times faster. A field that holds
+                        // something else now (another mod changed it) is left alone.
+                        if (stale) continue;
                         Remember(it, text);
                         directTypes.Add(it.DefType);
                         n++;
@@ -109,9 +111,10 @@ namespace UniversalRimTranslator
         private static readonly Dictionary<string, FieldInfo> fieldsByName = new Dictionary<string, FieldInfo>();
 
         // "Steel.label": the def and its string field, found once; anything nested goes the game's way
-        private static bool Direct(Item it, string value)
+        private static bool Direct(Item it, string value, out bool stale)
         {
-            string key = it.DefType.Name + "|" + it.Path;
+            stale = false;
+            string key = it.DefType.FullName + "|" + it.Path;
             if (!direct.TryGetValue(key, out var target))
             {
                 target = default(KeyValuePair<Def, FieldInfo>);
@@ -135,6 +138,13 @@ namespace UniversalRimTranslator
                 direct[key] = target;
             }
             if (target.Key == null) return false;
+            string cur = target.Value.GetValue(target.Key) as string;
+            appliedText.TryGetValue(ItemKey(it), out string mine);
+            if (cur != it.Source && cur != mine && cur != value)
+            {
+                stale = true;
+                return true;
+            }
             target.Value.SetValue(target.Key, value);
             return true;
         }
