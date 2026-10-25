@@ -18,6 +18,7 @@ namespace GraphicsTuner
     public static class TextureCap
     {
         public static int Count, SavedMb;
+        private static readonly bool Waylith = GenTypes.GetTypeInAnyAssembly("Waylith.Rendering.Texture2D") != null || Type.GetType("Waylith.Rendering.Texture2D, Waylith") != null;
         private static bool patched;
 
         public static int Cap => GraphicsTunerMod.Settings?.texCap ?? 0;
@@ -181,7 +182,12 @@ namespace GraphicsTuner
             t.LoadRawTextureData(data);
             t.filterMode = FilterMode.Trilinear;
             t.anisoLevel = 0;
-            t.Apply(false, true);
+            // 1.3.2: on 1.7 (Waylith) textures made while the game loads get their video memory only at the
+            // end of loading, from their pixels or from the game's texture cache. The game puts its own
+            // pictures into that cache first; ours are not in it, so dropping the pixels here left them
+            // blank (doors, their icons …). On 1.7 the pixels stay until the picture is on the card –
+            // the engine frees them itself after the upload.
+            t.Apply(false, !Waylith);
             Count++;
             SavedMb += skipBytes / (1024 * 1024);
             return t;
