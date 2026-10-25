@@ -11,7 +11,7 @@ namespace UniversalRimTranslator
 {
     public static class UrtVersion
     {
-        public const string Number = "2.2.2";
+        public const string Number = "2.3.0";
         public static string Display => Number + " (test)";
     }
 
@@ -34,6 +34,7 @@ namespace UniversalRimTranslator
         public string myMemoryEmail = "";
         public string customEndpointType = "LibreTranslate", customEndpointUrl = "", customEndpointModel = "", customEndpointKey = "";
         public string aiUrl = "", aiKey = "", aiModel = "";
+        public string skippedMods = "";     // 2.3.0: mods left in English (one name per line)
 
         public override void ExposeData()
         {
@@ -60,6 +61,7 @@ namespace UniversalRimTranslator
             Scribe_Values.Look(ref aiUrl, "urt2_aiUrl", "");
             Scribe_Values.Look(ref aiKey, "urt2_aiKey", "");
             Scribe_Values.Look(ref aiModel, "urt2_aiModel", "");
+            Scribe_Values.Look(ref skippedMods, "urt2_skippedMods", "");
             if (Scribe.mode == LoadSaveMode.PostLoadInit) Normalize();
         }
 
@@ -163,7 +165,7 @@ namespace UniversalRimTranslator
         private void DrawWindow(Rect r)
         {
             MUI.Version(r, "v" + UrtVersion.Display + " · Bolek98");
-            string[] tabs = { "URT_Tab_Overview".Translate(), "URT_Tab_Services".Translate(), "URT_Tab_Editor".Translate() };
+            string[] tabs = { "URT_Tab_Overview".Translate(), "URT_Tab_Services".Translate(), "URT_Tab_Mods".Translate(), "URT_Tab_Editor".Translate() };
             float tw = 180f;
             for (int i = 0; i < tabs.Length; i++)
             {
@@ -178,6 +180,7 @@ namespace UniversalRimTranslator
             Rect body = new Rect(r.x, r.y + 40f, r.width, r.height - 40f);
             if (tab == 0) Overview(body);
             else if (tab == 1) Services(body);
+            else if (tab == 2) ModsTab.Draw(body);
             else EditorTab.Draw(body);
         }
 

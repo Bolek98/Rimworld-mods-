@@ -154,6 +154,7 @@ namespace UniversalRimTranslator
         public static bool Allowed(Item it)
         {
             var s = UniversalRimTranslatorMod.Settings;
+            if (ModsTab.IsSkipped(it.Mod)) return false;     // 2.3.0: left in English by the player
             if (it.Kind == ItemKind.Keyed) return s.translateKeyed;
             if (it.IsRule) return s.translateRules;
             return s.translateDefs;
@@ -286,7 +287,7 @@ namespace UniversalRimTranslator
                 var sw = Stopwatch.StartNew();
                 var batch = new List<(Item, string)>();
                 while (batch.Count < 400 && sw.ElapsedMilliseconds < 4 && toApply.TryDequeue(out var x))
-                    batch.Add(x);
+                    if (Allowed(x.Item1)) batch.Add(x);     // not into a mod left in English
                 if (batch.Count > 0) Applied += Apply.Many(batch);
             }
             catch (Exception e)
