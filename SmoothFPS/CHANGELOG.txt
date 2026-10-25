@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+1.4.6
+- World pawns from mods may sleep (Simulation tab, on): conditions added by mods (RJW parts, race genes, quirks …) no longer keep far-away world pawns awake, so they are not updated every tick any more. Pregnancies and the game's own conditions still keep them awake; a pawn wakes up as soon as it comes back to a map. In a big modded game this was a quarter of all the time per tick.
+- The world line in the Simulation tab shows how many living world pawns are awake and asleep and what keeps them awake; "Clean up the world now" also puts them to sleep at once.
+
 1.4.5
 - Fix: the click on the FPS overlay did nothing (it now opens "What slows the tick").
 

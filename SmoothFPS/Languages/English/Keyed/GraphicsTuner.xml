@@ -381,4 +381,8 @@
   <GT_Mode4>turbo</GT_Mode4>
   <GT_OverlayClick>Click: what slows the tick (the game keeps running).</GT_OverlayClick>
   <GT_TC_Running>The settings closed so the game can run – set speed 3 or 4 and wait a few seconds.</GT_TC_Running>
+  <GT_WorldSleep>World pawns from mods may sleep</GT_WorldSleep>
+  <GT_WorldSleep_Desc>The game updates far-away world pawns only every few hours when they need nothing. Conditions added by mods (RJW parts, race genes, quirks …) kept almost every pawn awake, so hundreds of them were updated every tick. Now only pregnancies and the game's own conditions keep them awake. A pawn wakes up the moment it comes back to a map or a caravan.</GT_WorldSleep_Desc>
+  <GT_SimSleepLine>Living: {0} awake, {1} asleep. Kept awake by: {2}</GT_SimSleepLine>
+  <GT_SimSlept>{0} pawns put to sleep.</GT_SimSlept>
 </LanguageData>

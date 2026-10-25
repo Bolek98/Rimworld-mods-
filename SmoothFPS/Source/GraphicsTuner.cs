@@ -123,6 +123,7 @@ namespace GraphicsTuner
         public bool spreadJobs = true;
         public bool tempSpread = true;
         public bool nightFast = true;
+        public bool worldSleep = true;          // 1.4.6: mod conditions do not keep world pawns awake
         public bool turbo;                      // 1.4.3: speed 3/4 untouched – few frames, all time to the game
         public int turboFps = 12;
 
@@ -256,6 +257,7 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref tempSpread, "tempSpread", true);
             Scribe_Values.Look(ref nightFast, "nightFast", true);
             Scribe_Values.Look(ref turbo, "turbo", false);
+            Scribe_Values.Look(ref worldSleep, "worldSleep", true);
             Scribe_Values.Look(ref turboFps, "turboFps", 12);
 
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
@@ -729,7 +731,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.4.5";
+        public const string Version = "1.4.6";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -754,6 +756,7 @@ namespace GraphicsTuner
             Freezer.Patch(harmony);
             LocationGeneratorFast.Patch(harmony);   // 1.3.2
             Sim.Patch(harmony);                     // 1.6.0
+            WorldSleep.Patch(harmony);              // 1.4.6: sleeping world pawns
             FastCull.Patch(harmony);                // 1.7.0
             WorldPathSpread.Patch(harmony);         // 1.7.0
             SaveTiming.Patch(harmony);              // 1.7.4
@@ -1237,10 +1240,11 @@ namespace GraphicsTuner
             l.NewColumn();
             MUI.Section(l, "GT_SimCleanSec".Translate());
             MUI.Check(l, "GT_SimClean".Translate(), "GT_SimClean_Desc".Translate(), ref s.worldClean, s, null);
+            MUI.Check(l, "GT_WorldSleep".Translate(), "GT_WorldSleep_Desc".Translate(), ref s.worldSleep, s, null);
             Muted(l.GetRect(40f), Sim.KeepBattles > 0 ? "GT_SimKeep".Translate(Sim.KeepBattles) : "GT_SimKeepOff".Translate());
             if (Verse.Current.ProgramState == ProgramState.Playing)
             {
-                Muted(l.GetRect(44f), Sim.WorldLine());
+                Muted(l.GetRect(76f), Sim.WorldLine());
                 if (l.ButtonText("GT_SimCleanNow".Translate()))
                 {
                     string t = "";
