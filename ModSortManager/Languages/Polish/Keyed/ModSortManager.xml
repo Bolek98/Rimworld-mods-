@@ -231,4 +231,19 @@ Rozpocząć?</MSM_BisectConfirm>
   <MSM_SetPreSaveTip>Zanim zmieniona lista zostanie zapisana: brakujące zależności, mody dla starszych wersji, dużo nowych modów naraz i rzeczy potrzebne nowym modom, których nie będzie.</MSM_SetPreSaveTip>
   <MSM_Restart>Restart</MSM_Restart>
   <MSM_RestartTip>Uruchamia grę ponownie bez zmiany listy modów. W grze z włączonym „Powrotem do gry” najpierw zapisuje grę i wczytuje ją po restarcie.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>prefix (może pominąć oryginał)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>prefix</MSM_Kind_prefix>
+  <MSM_Kind_postfix>postfix</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>transpiler (przepisuje kod)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>finalizer</MSM_Kind_finalizer>
+  <MSM_SameBlocking>Przynajmniej jeden może pominąć oryginalny kod – to może też zatrzymać zmianę drugiego moda. Sprawdź, czy oba działają.</MSM_SameBlocking>
+  <MSM_SameAdditive>Oba tylko przepisują lub dodają kod – zwykle w porządku, prawdziwy konflikt tylko gdy przepisania się zderzą.</MSM_SameAdditive>
+  <MSM_SameDetails>Jak to zmieniają</MSM_SameDetails>
+  <MSM_SameLegend>Prefix działa przed kodem gry; prefix, który może pominąć, może zatrzymać kod gry i kolejne prefixy. Postfix działa po nim i tylko dodaje – nie koliduje. Transpiler przepisuje sam kod – dwa mogą się zderzyć. „Działa pierwszy” = prefix, który decyduje jako pierwszy.</MSM_SameLegend>
+  <MSM_RunsFirst>działa pierwszy: {0}</MSM_RunsFirst>
+  <MSM_Requires>Wymaga:</MSM_Requires>
+  <MSM_ReqNone>nic</MSM_ReqNone>
+  <MSM_ReqInactive>zainstalowany, nieaktywny</MSM_ReqInactive>
+  <MSM_ReqMissing>brak</MSM_ReqMissing>
+  <MSM_RequiredBy>Potrzebny dla {0} aktywnych modów:</MSM_RequiredBy>
 </LanguageData>

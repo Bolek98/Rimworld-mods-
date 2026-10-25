@@ -231,4 +231,19 @@ Starten?</MSM_BisectConfirm>
   <MSM_SetPreSaveTip>Bevor eine geänderte Liste gespeichert wird: fehlende Abhängigkeiten, Mods für ältere Spielversionen, viele neue Mods auf einmal und Dinge, die neue Mods brauchen, die es nicht geben wird.</MSM_SetPreSaveTip>
   <MSM_Restart>Neustart</MSM_Restart>
   <MSM_RestartTip>Startet das Spiel neu, ohne die Modliste zu ändern. Im Spiel mit eingeschalteter „Rückkehr ins Spiel“ wird zuerst gespeichert und nach dem Neustart wieder geladen.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>Prefix (kann das Original überspringen)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>Prefix</MSM_Kind_prefix>
+  <MSM_Kind_postfix>Postfix</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>Transpiler (schreibt den Code um)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>Finalizer</MSM_Kind_finalizer>
+  <MSM_SameBlocking>Mindestens einer kann den Originalcode überspringen – das kann auch die Änderung des anderen Mods stoppen. Prüfe, ob beide funktionieren.</MSM_SameBlocking>
+  <MSM_SameAdditive>Beide schreiben den Code nur um oder ergänzen ihn – meist in Ordnung, ein echter Konflikt nur, wenn die Umschreibungen kollidieren.</MSM_SameAdditive>
+  <MSM_SameDetails>Wie sie es ändern</MSM_SameDetails>
+  <MSM_SameLegend>Prefix läuft vor dem Spielcode; ein Prefix, der überspringen kann, kann den Spielcode und spätere Prefixe stoppen. Postfix läuft danach und ergänzt nur – kein Konflikt. Transpiler schreibt den Code selbst um – zwei können kollidieren. „Läuft zuerst“ = der Prefix, der zuerst entscheidet.</MSM_SameLegend>
+  <MSM_RunsFirst>läuft zuerst: {0}</MSM_RunsFirst>
+  <MSM_Requires>Benötigt:</MSM_Requires>
+  <MSM_ReqNone>nichts</MSM_ReqNone>
+  <MSM_ReqInactive>installiert, nicht aktiv</MSM_ReqInactive>
+  <MSM_ReqMissing>nicht installiert</MSM_ReqMissing>
+  <MSM_RequiredBy>Benötigt von {0} aktiven Mods:</MSM_RequiredBy>
 </LanguageData>

@@ -231,4 +231,19 @@ Start?</MSM_BisectConfirm>
   <MSM_SetPreSaveTip>Before a changed list is saved: missing dependencies, mods for older game versions, many new mods at once and things new mods need that won't exist. Problems that would otherwise only show after the restart.</MSM_SetPreSaveTip>
   <MSM_Restart>Restart</MSM_Restart>
   <MSM_RestartTip>Restarts the game without changing the mod list. In a game with “Return to the game after restart” on, the game is saved first and loaded again after the restart.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>prefix (can skip the original)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>prefix</MSM_Kind_prefix>
+  <MSM_Kind_postfix>postfix</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>transpiler (rewrites the code)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>finalizer</MSM_Kind_finalizer>
+  <MSM_SameBlocking>At least one can skip the original code – that can also stop the other mod's change. Check that both still work.</MSM_SameBlocking>
+  <MSM_SameAdditive>Both only rewrite or add to the code – usually fine, a real clash is possible only when the rewrites collide.</MSM_SameAdditive>
+  <MSM_SameDetails>How they change it</MSM_SameDetails>
+  <MSM_SameLegend>prefix runs before the game's code; a prefix that can skip may stop the game's code and the prefixes after it. postfix runs after it and only adds – it does not conflict. transpiler rewrites the code itself – two of them can collide. "Runs first" = the prefix that decides first.</MSM_SameLegend>
+  <MSM_RunsFirst>runs first: {0}</MSM_RunsFirst>
+  <MSM_Requires>Requires:</MSM_Requires>
+  <MSM_ReqNone>nothing</MSM_ReqNone>
+  <MSM_ReqInactive>installed, not active</MSM_ReqInactive>
+  <MSM_ReqMissing>not installed</MSM_ReqMissing>
+  <MSM_RequiredBy>Needed by {0} active mods:</MSM_RequiredBy>
 </LanguageData>

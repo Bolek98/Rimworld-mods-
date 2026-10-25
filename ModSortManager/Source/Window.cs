@@ -270,7 +270,12 @@ namespace ModSortManager
                 if (!active.Contains(sp.a) || !active.Contains(sp.b)) continue;
                 var iss = new Issue { group = 2, sev = Sev.Info, title = sp.a.Name + " × " + sp.b.Name };
                 iss.text = (sp.hot ? "MSM_SameHot".Translate() : "MSM_SameText".Translate()).ToString() + " (" + sp.methods.Count + "): " + string.Join(", ", sp.methods.Take(4).ToArray()) + (sp.methods.Count > 4 ? "…" : "");
+                // 0.1.7: how they change it – first two methods, the rest in the details window
+                foreach (SameMethod d in sp.detail.Take(2))
+                    iss.text += "\n• " + d.method + ": " + sp.a.Name.Truncate(160f) + " – " + d.kindsA + " · " + sp.b.Name.Truncate(160f) + " – " + d.kindsB;
+                iss.text += "\n" + (sp.blocking ? "MSM_SameBlocking" : "MSM_SameAdditive").Translate();
                 SamePair p = sp;
+                iss.actions.Add(new KeyValuePair<string, Action>("MSM_SameDetails".Translate(), () => Find.WindowStack.Add(new Dialog_SameDetail(p))));
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(sp.a.Name.Truncate(120f)), () => { selected = p.a; tab = 0; }));
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(sp.b.Name.Truncate(120f)), () => { selected = p.b; tab = 0; }));
                 issues.Add(iss);
@@ -1059,13 +1064,39 @@ namespace ModSortManager
             Texture2D pic = null;
             try { pic = m.PreviewImage; if (pic != null) previewLoaded.Add(m); } catch { }
             float picH = pic != null ? (r.width - 16f) * pic.height / Mathf.Max(1f, pic.width) : 0f;
-            string desc = m.Description ?? "";
+            string desc = Requirements(m) + (m.Description ?? "");
             float textH = Text.CalcHeight(desc, r.width - 16f);
             Rect view = new Rect(0f, 0f, r.width - 16f, picH + (picH > 0 ? 8f : 0f) + textH + 10f);
             Widgets.BeginScrollView(outR, ref sDetail, view);
             if (pic != null) GUI.DrawTexture(new Rect(0f, 0f, view.width, picH), pic, ScaleMode.ScaleToFit);
             Label(new Rect(0f, picH + (picH > 0 ? 8f : 0f), view.width, textH + 4f), desc, new Color32(200, 204, 208, 255), GameFont.Small, TextAnchor.UpperLeft);
             Widgets.EndScrollView();
+        }
+
+        // 0.1.7: what the mod needs and who needs it (shown above the description)
+        private string Requirements(ModMetaData m)
+        {
+            try
+            {
+                var sb = new System.Text.StringBuilder();
+                var deps = m.Dependencies.Where(d => d != null && !d.packageId.NullOrEmpty()).ToList();
+                sb.Append("<b>" + "MSM_Requires".Translate() + "</b> ");
+                if (deps.Count == 0) sb.Append("MSM_ReqNone".Translate());
+                sb.Append("\n");
+                foreach (ModDependency d in deps)
+                {
+                    ModMetaData dm = MSM.FindMod(d.packageId);
+                    string name = dm?.Name ?? d.displayName ?? d.packageId;
+                    if (dm != null && active.Contains(dm)) sb.Append("<color=#7CBF5E>✓</color> " + name + "\n");
+                    else if (dm != null) sb.Append("<color=#E0A24A>○</color> " + name + " – " + "MSM_ReqInactive".Translate() + "\n");
+                    else sb.Append("<color=#E06A5A>✗</color> " + name + " – " + "MSM_ReqMissing".Translate() + "\n");
+                }
+                var by = active.Where(x => x != m && x.Dependencies.Any(d => d != null && m.SamePackageId(d.packageId, true))).Select(x => x.Name).ToList();
+                if (by.Count > 0)
+                    sb.Append("<b>" + "MSM_RequiredBy".Translate(by.Count) + "</b> " + string.Join(", ", by.Take(12).ToArray()) + (by.Count > 12 ? " …" : "") + "\n");
+                return sb.Append("\n").ToString();
+            }
+            catch { return ""; }
         }
 
         // ================= tab: problems =================
@@ -1387,6 +1418,54 @@ namespace ModSortManager
                 Find.WindowStack.Add(new Dialog_MessageBox("MSM_Missing".Translate(missing.Count, string.Join("\n", missing.Take(40).ToArray()) + (missing.Count > 40 ? "\n…" : ""))));
             else
                 Messages.Message("MSM_Loaded".Translate(list.Count), MessageTypeDefOf.TaskCompletion, false);
+        }
+    }
+}
+
+
+namespace ModSortManager
+{
+    // 0.1.7: every method two mods both change, and how each of them does it
+    public class Dialog_SameDetail : Verse.Window
+    {
+        private readonly SamePair pair;
+        private UnityEngine.Vector2 scroll;
+
+        public override UnityEngine.Vector2 InitialSize => new UnityEngine.Vector2(860f, 620f);
+
+        public Dialog_SameDetail(SamePair p)
+        {
+            pair = p;
+            doCloseX = true;
+            closeOnClickedOutside = true;
+            absorbInputAroundWindow = true;
+        }
+
+        public override void DoWindowContents(UnityEngine.Rect r)
+        {
+            Verse.Text.Font = Verse.GameFont.Medium;
+            Verse.Widgets.Label(new UnityEngine.Rect(r.x, r.y, r.width, 32f), pair.a.Name + " × " + pair.b.Name);
+            Verse.Text.Font = Verse.GameFont.Small;
+            string legend = "MSM_SameLegend".Translate();
+            float lh = Verse.Text.CalcHeight(legend, r.width);
+            UnityEngine.GUI.color = MUI.Muted;
+            Verse.Widgets.Label(new UnityEngine.Rect(r.x, r.y + 36f, r.width, lh), legend);
+            UnityEngine.GUI.color = UnityEngine.Color.white;
+            float top = r.y + 40f + lh;
+            var outR = new UnityEngine.Rect(r.x, top, r.width, r.yMax - top);
+            float rowH = 66f;
+            var view = new UnityEngine.Rect(0f, 0f, outR.width - 16f, pair.detail.Count * rowH);
+            Verse.Widgets.BeginScrollView(outR, ref scroll, view);
+            for (int i = 0; i < pair.detail.Count; i++)
+            {
+                SameMethod d = pair.detail[i];
+                var row = new UnityEngine.Rect(0f, i * rowH, view.width, rowH - 4f);
+                if (i % 2 == 1) Verse.Widgets.DrawLightHighlight(row);
+                Verse.Widgets.Label(new UnityEngine.Rect(row.x + 6f, row.y + 2f, row.width - 12f, 22f), "<b>" + d.method + "</b>" + (d.runsFirst != null ? "   " + "MSM_RunsFirst".Translate(d.runsFirst) : ""));
+                Verse.Widgets.Label(new UnityEngine.Rect(row.x + 18f, row.y + 22f, row.width - 24f, 20f), pair.a.Name + ": " + d.kindsA);
+                Verse.Widgets.Label(new UnityEngine.Rect(row.x + 18f, row.y + 41f, row.width - 24f, 20f), pair.b.Name + ": " + d.kindsB);
+            }
+            Verse.Widgets.EndScrollView();
         }
     }
 }

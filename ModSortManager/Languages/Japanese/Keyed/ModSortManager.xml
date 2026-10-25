@@ -231,4 +231,19 @@ Mod Sort Manager は {0} 個の疑わしいModの半分を無効化し、ゲー�
   <MSM_SetPreSaveTip>変更したリストを保存する前に：足りない前提MOD、古いバージョン向けのMOD、一度に多数の新MOD、新MODが必要とする存在しないもの。</MSM_SetPreSaveTip>
   <MSM_Restart>再起動</MSM_Restart>
   <MSM_RestartTip>Modリストを変えずにゲームを再起動します。ゲーム中で「ゲームへ戻る」がオンなら、先にセーブして再起動後に読み込みます。</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>プレフィックス（元の処理をスキップ可能）</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>プレフィックス</MSM_Kind_prefix>
+  <MSM_Kind_postfix>ポストフィックス</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>トランスパイラ（コードを書き換え）</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>ファイナライザ</MSM_Kind_finalizer>
+  <MSM_SameBlocking>少なくとも一方が元のコードをスキップできます――もう一方のMODの変更も止まる可能性があります。両方が動くか確認してください。</MSM_SameBlocking>
+  <MSM_SameAdditive>どちらもコードを書き換えるか追加するだけです――通常は問題なく、書き換え同士がぶつかる場合のみ衝突します。</MSM_SameAdditive>
+  <MSM_SameDetails>変更内容</MSM_SameDetails>
+  <MSM_SameLegend>プレフィックスはゲームのコードの前に実行されます。スキップできるプレフィックスはゲームのコードと後続のプレフィックスを止めることがあります。ポストフィックスは後に実行され追加するだけなので衝突しません。トランスパイラはコード自体を書き換えるため、2つがぶつかることがあります。「先に実行」= 最初に判断するプレフィックス。</MSM_SameLegend>
+  <MSM_RunsFirst>先に実行：{0}</MSM_RunsFirst>
+  <MSM_Requires>必要：</MSM_Requires>
+  <MSM_ReqNone>なし</MSM_ReqNone>
+  <MSM_ReqInactive>インストール済み・無効</MSM_ReqInactive>
+  <MSM_ReqMissing>未インストール</MSM_ReqMissing>
+  <MSM_RequiredBy>有効なMOD {0} 個が必要としています：</MSM_RequiredBy>
 </LanguageData>

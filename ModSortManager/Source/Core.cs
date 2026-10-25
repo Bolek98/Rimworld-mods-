@@ -43,7 +43,7 @@ namespace ModSortManager
 
     public class MSMMod : Mod
     {
-        public const string Version = "0.1.6";
+        public const string Version = "0.1.7";
         public static MSMSettings Settings;
 
         public MSMMod(ModContentPack content) : base(content)
@@ -608,6 +608,16 @@ namespace ModSortManager
         public ModMetaData a, b;
         public List<string> methods = new List<string>();
         public bool hot;
+        // 0.1.7: how each of the two changes every shared method ("prefix (can skip)", "transpiler" …)
+        public List<SameMethod> detail = new List<SameMethod>();
+        public bool blocking;       // at least one of them can skip the original (and the other's prefix)
+    }
+
+    public class SameMethod
+    {
+        public string method;
+        public string kindsA, kindsB;
+        public string runsFirst;    // the mod whose prefix runs first (Harmony priority)
     }
 
     public static class SameThing
@@ -637,6 +647,31 @@ namespace ModSortManager
                 {
                     Patches info = Harmony.GetPatchInfo(m);
                     if (info == null) continue;
+                    // every kind of patch each mod has on this method
+                    var kinds = new Dictionary<ModContentPack, List<string>>();
+                    ModContentPack firstPrefix = null;
+                    int bestPri = int.MinValue, bestIdx = int.MaxValue;
+                    Action<IEnumerable<Patch>, string> collect = (ps, kind) =>
+                    {
+                        foreach (Patch p in ps)
+                        {
+                            ModContentPack o;
+                            if (p.PatchMethod?.DeclaringType == null || !asm.TryGetValue(p.PatchMethod.DeclaringType.Assembly, out o)) continue;
+                            string k = kind;
+                            if (kind == "prefix" && (p.PatchMethod as MethodInfo)?.ReturnType == typeof(bool))
+                            {
+                                k = "prefix!";
+                                if (p.priority > bestPri || (p.priority == bestPri && p.index < bestIdx)) { bestPri = p.priority; bestIdx = p.index; firstPrefix = o; }
+                            }
+                            List<string> l;
+                            if (!kinds.TryGetValue(o, out l)) kinds[o] = l = new List<string>();
+                            if (!l.Contains(k)) l.Add(k);
+                        }
+                    };
+                    collect(info.Prefixes, "prefix");
+                    collect(info.Postfixes, "postfix");
+                    collect(info.Transpilers, "transpiler");
+                    collect(info.Finalizers, "finalizer");
                     var mods = new HashSet<ModContentPack>();
                     foreach (Patch p in info.Prefixes)
                     {
@@ -664,7 +699,20 @@ namespace ModSortManager
                                 sp = pairs[key] = new SamePair { a = ma, b = mb };
                             }
                             if (sp == null) continue;
-                            if (!sp.methods.Contains(label)) sp.methods.Add(label);
+                            if (!sp.methods.Contains(label))
+                            {
+                                sp.methods.Add(label);
+                                List<string> ka, kb;
+                                kinds.TryGetValue(list[i], out ka);
+                                kinds.TryGetValue(list[j], out kb);
+                                sp.detail.Add(new SameMethod
+                                {
+                                    method = label,
+                                    kindsA = Kinds(ka), kindsB = Kinds(kb),
+                                    runsFirst = firstPrefix == list[i] ? sp.a.Name : firstPrefix == list[j] ? sp.b.Name : null
+                                });
+                                if ((ka != null && ka.Contains("prefix!")) || (kb != null && kb.Contains("prefix!"))) sp.blocking = true;
+                            }
                             if (Hot.Contains(label)) sp.hot = true;
                         }
                 }
@@ -676,6 +724,13 @@ namespace ModSortManager
                 Log.Warning("[Mod Sort Manager] patch analysis failed: " + e.Message);
             }
             return result;
+        }
+
+        // "prefix (can skip), postfix" in the player's language
+        private static string Kinds(List<string> l)
+        {
+            if (l == null || l.Count == 0) return "–";
+            return string.Join(", ", l.Select(k => ("MSM_Kind_" + (k == "prefix!" ? "prefixSkip" : k)).Translate().ToString()).ToArray());
         }
 
         // made to work together: one needs the other, or the same author

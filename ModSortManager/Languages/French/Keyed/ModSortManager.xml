@@ -231,4 +231,19 @@ Commencer ?</MSM_BisectConfirm>
   <MSM_SetPreSaveTip>Avant d'enregistrer une liste modifiée : dépendances manquantes, mods pour d'anciennes versions, beaucoup de nouveaux mods d'un coup et choses requises qui n'existeront pas.</MSM_SetPreSaveTip>
   <MSM_Restart>Redémarrer</MSM_Restart>
   <MSM_RestartTip>Redémarre le jeu sans modifier la liste des mods. En partie avec « Retour au jeu » activé, la partie est d’abord sauvegardée puis rechargée après le redémarrage.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>préfixe (peut sauter l'original)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>préfixe</MSM_Kind_prefix>
+  <MSM_Kind_postfix>postfixe</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>transpiler (réécrit le code)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>finaliseur</MSM_Kind_finalizer>
+  <MSM_SameBlocking>Au moins un peut sauter le code d'origine – cela peut aussi bloquer la modification de l'autre mod. Vérifie que les deux fonctionnent.</MSM_SameBlocking>
+  <MSM_SameAdditive>Les deux ne font que réécrire ou compléter le code – en général sans problème, un vrai conflit n'arrive que si les réécritures se heurtent.</MSM_SameAdditive>
+  <MSM_SameDetails>Comment ils le modifient</MSM_SameDetails>
+  <MSM_SameLegend>Le préfixe s'exécute avant le code du jeu ; un préfixe qui peut sauter peut arrêter le code du jeu et les préfixes suivants. Le postfixe s'exécute après et ne fait qu'ajouter – pas de conflit. Le transpiler réécrit le code lui-même – deux peuvent se heurter. « S'exécute en premier » = le préfixe qui décide en premier.</MSM_SameLegend>
+  <MSM_RunsFirst>s'exécute en premier : {0}</MSM_RunsFirst>
+  <MSM_Requires>Nécessite :</MSM_Requires>
+  <MSM_ReqNone>rien</MSM_ReqNone>
+  <MSM_ReqInactive>installé, non actif</MSM_ReqInactive>
+  <MSM_ReqMissing>non installé</MSM_ReqMissing>
+  <MSM_RequiredBy>Requis par {0} mods actifs :</MSM_RequiredBy>
 </LanguageData>

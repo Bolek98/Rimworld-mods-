@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+0.1.7
+- "Do the same thing": each pair now says how both mods change the shared code – prefix (and whether it can skip the original), postfix, transpiler, finalizer – and which prefix runs first, with a note whether the pair can really block each other. "How they change it" lists every shared method (thanks ColossalFossil).
+- Mod details: what the mod requires (✓ active, ○ installed but not active, ✗ missing) and which active mods need it.
+
 0.1.6
 - Settings: a new "Bolek98's mods" button (next to "Report a bug") – all of Bolek98's mods you run in one list with their versions and settings, and saving or loading all their settings at once (for another PC or a reinstall).
 

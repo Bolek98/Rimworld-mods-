@@ -231,4 +231,19 @@ Mod Sort Manager вимкне половину підозрілих модів (
   <MSM_SetPreSaveTip>Перед збереженням зміненого списку: відсутні залежності, моди для старих версій, багато нових модів одразу та речі, потрібні новим модам, яких не буде.</MSM_SetPreSaveTip>
   <MSM_Restart>Перезапуск</MSM_Restart>
   <MSM_RestartTip>Перезапускає гру без зміни списку модів. У грі з увімкненим «Поверненням до гри» спершу зберігає гру й завантажує її після перезапуску.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>префікс (може пропустити оригінал)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>префікс</MSM_Kind_prefix>
+  <MSM_Kind_postfix>постфікс</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>транспайлер (переписує код)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>фіналізатор</MSM_Kind_finalizer>
+  <MSM_SameBlocking>Принаймні один може пропустити вихідний код – це може зупинити і зміну іншого мода. Перевірте, що обидва працюють.</MSM_SameBlocking>
+  <MSM_SameAdditive>Обидва лише переписують або доповнюють код – зазвичай нормально, справжній конфлікт лише коли переписування зіткнуться.</MSM_SameAdditive>
+  <MSM_SameDetails>Як вони це змінюють</MSM_SameDetails>
+  <MSM_SameLegend>Префікс виконується до коду гри; префікс, що може пропускати, може зупинити код гри і наступні префікси. Постфікс виконується після і лише додає – не конфліктує. Транспайлер переписує сам код – два можуть зіткнутися. «Виконується першим» = префікс, що вирішує першим.</MSM_SameLegend>
+  <MSM_RunsFirst>виконується першим: {0}</MSM_RunsFirst>
+  <MSM_Requires>Потребує:</MSM_Requires>
+  <MSM_ReqNone>нічого</MSM_ReqNone>
+  <MSM_ReqInactive>встановлено, не ввімкнено</MSM_ReqInactive>
+  <MSM_ReqMissing>не встановлено</MSM_ReqMissing>
+  <MSM_RequiredBy>Потрібен {0} ввімкненим модам:</MSM_RequiredBy>
 </LanguageData>

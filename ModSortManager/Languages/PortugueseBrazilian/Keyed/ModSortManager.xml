@@ -231,4 +231,19 @@ Começar?</MSM_BisectConfirm>
   <MSM_SetPreSaveTip>Antes de salvar uma lista alterada: dependências faltando, mods para versões antigas, muitos mods novos de uma vez e coisas que os mods novos precisam e não vão existir.</MSM_SetPreSaveTip>
   <MSM_Restart>Reiniciar</MSM_Restart>
   <MSM_RestartTip>Reinicia o jogo sem mudar a lista de mods. Em uma partida com “Voltar ao jogo” ativado, o jogo é salvo primeiro e carregado de novo após reiniciar.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>prefixo (pode pular o original)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>prefixo</MSM_Kind_prefix>
+  <MSM_Kind_postfix>postfixo</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>transpiler (reescreve o código)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>finalizador</MSM_Kind_finalizer>
+  <MSM_SameBlocking>Pelo menos um pode pular o código original – isso também pode impedir a mudança do outro mod. Verifique se ambos funcionam.</MSM_SameBlocking>
+  <MSM_SameAdditive>Ambos só reescrevem ou acrescentam código – geralmente tudo bem, conflito real só se as reescritas colidirem.</MSM_SameAdditive>
+  <MSM_SameDetails>Como eles mudam</MSM_SameDetails>
+  <MSM_SameLegend>O prefixo roda antes do código do jogo; um prefixo que pode pular pode parar o código do jogo e os prefixos seguintes. O postfixo roda depois e só acrescenta – sem conflito. O transpiler reescreve o próprio código – dois podem colidir. "Roda primeiro" = o prefixo que decide primeiro.</MSM_SameLegend>
+  <MSM_RunsFirst>roda primeiro: {0}</MSM_RunsFirst>
+  <MSM_Requires>Requer:</MSM_Requires>
+  <MSM_ReqNone>nada</MSM_ReqNone>
+  <MSM_ReqInactive>instalado, não ativo</MSM_ReqInactive>
+  <MSM_ReqMissing>não instalado</MSM_ReqMissing>
+  <MSM_RequiredBy>Necessário para {0} mods ativos:</MSM_RequiredBy>
 </LanguageData>

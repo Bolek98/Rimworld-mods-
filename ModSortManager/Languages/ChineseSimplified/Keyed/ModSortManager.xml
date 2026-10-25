@@ -231,4 +231,19 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_SetPreSaveTip>保存修改后的列表前检查：缺少的前置、旧版本模组、一次添加大量新模组，以及新模组需要但不存在的物品。</MSM_SetPreSaveTip>
   <MSM_Restart>重启</MSM_Restart>
   <MSM_RestartTip>不改变模组列表直接重启游戏。在游戏中且开启「重启后返回游戏」时，会先保存游戏，重启后再读取。</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>前缀（可跳过原代码）</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>前缀</MSM_Kind_prefix>
+  <MSM_Kind_postfix>后缀</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>转译器（改写代码）</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>终结器</MSM_Kind_finalizer>
+  <MSM_SameBlocking>至少有一个可以跳过原代码——这也可能阻止另一个模组的修改。请确认两者都正常。</MSM_SameBlocking>
+  <MSM_SameAdditive>两者都只是改写或补充代码——通常没问题，只有改写相互冲突时才会出问题。</MSM_SameAdditive>
+  <MSM_SameDetails>它们如何修改</MSM_SameDetails>
+  <MSM_SameLegend>前缀在游戏代码之前运行；可跳过的前缀可能阻止游戏代码和之后的前缀。后缀在之后运行，只做补充——不会冲突。转译器直接改写代码——两个可能冲突。“先运行”= 最先做决定的前缀。</MSM_SameLegend>
+  <MSM_RunsFirst>先运行：{0}</MSM_RunsFirst>
+  <MSM_Requires>需要：</MSM_Requires>
+  <MSM_ReqNone>无</MSM_ReqNone>
+  <MSM_ReqInactive>已安装，未启用</MSM_ReqInactive>
+  <MSM_ReqMissing>未安装</MSM_ReqMissing>
+  <MSM_RequiredBy>被 {0} 个已启用模组需要：</MSM_RequiredBy>
 </LanguageData>

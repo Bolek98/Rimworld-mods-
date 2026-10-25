@@ -23,7 +23,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Matchmaker | 0.1.0 | [Matchmaker](Matchmaker) |
 | Mech Commander | 0.1.1 | [MechCommander](MechCommander) |
 | Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
-| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.1.6 | [ModSortManager](ModSortManager) |
+| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.1.7 | [ModSortManager](ModSortManager) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.1 | [PlaceForEverything](PlaceForEverything) |
 | Research Fixer – Tech Progression | 0.3.3 | [ResearchFixer](ResearchFixer) |
 | Secular Colony – Ideology Off & Tweaks | 1.5.2 | [SecularColony](SecularColony) |

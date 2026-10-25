@@ -231,4 +231,19 @@ Importante: no guardes tu colonia durante la prueba: con la mitad de los mods au
   <MSM_SetPreSaveTip>Antes de guardar una lista cambiada: dependencias que faltan, mods para versiones antiguas, muchos mods nuevos a la vez y cosas que necesitan los mods nuevos que no existirán.</MSM_SetPreSaveTip>
   <MSM_Restart>Reiniciar</MSM_Restart>
   <MSM_RestartTip>Reinicia el juego sin cambiar la lista de mods. En una partida con «Volver a la partida» activado, primero se guarda y se vuelve a cargar tras reiniciar.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>prefijo (puede saltar el original)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>prefijo</MSM_Kind_prefix>
+  <MSM_Kind_postfix>postfijo</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>transpiler (reescribe el código)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>finalizador</MSM_Kind_finalizer>
+  <MSM_SameBlocking>Al menos uno puede saltar el código original – eso también puede detener el cambio del otro mod. Comprueba que ambos funcionan.</MSM_SameBlocking>
+  <MSM_SameAdditive>Ambos solo reescriben o añaden código – normalmente bien, un conflicto real solo si las reescrituras chocan.</MSM_SameAdditive>
+  <MSM_SameDetails>Cómo lo cambian</MSM_SameDetails>
+  <MSM_SameLegend>El prefijo se ejecuta antes del código del juego; un prefijo que puede saltar puede detener el código del juego y los prefijos posteriores. El postfijo se ejecuta después y solo añade – no hay conflicto. El transpiler reescribe el propio código – dos pueden chocar. «Se ejecuta primero» = el prefijo que decide primero.</MSM_SameLegend>
+  <MSM_RunsFirst>se ejecuta primero: {0}</MSM_RunsFirst>
+  <MSM_Requires>Requiere:</MSM_Requires>
+  <MSM_ReqNone>nada</MSM_ReqNone>
+  <MSM_ReqInactive>instalado, no activo</MSM_ReqInactive>
+  <MSM_ReqMissing>no instalado</MSM_ReqMissing>
+  <MSM_RequiredBy>Lo necesitan {0} mods activos:</MSM_RequiredBy>
 </LanguageData>

@@ -231,4 +231,19 @@ Začít?</MSM_BisectConfirm>
   <MSM_SetPreSaveTip>Než se uloží změněný seznam: chybějící závislosti, mody pro starší verze hry, hodně nových modů najednou a věci, které nové mody potřebují a nebudou existovat. Problémy, které by se jinak ukázaly až po restartu.</MSM_SetPreSaveTip>
   <MSM_Restart>Restartovat</MSM_Restart>
   <MSM_RestartTip>Restartuje hru beze změny seznamu modů. Ve hře se zapnutým „Po restartu se vrátit do hry“ se hra nejdřív uloží a po restartu se zase načte.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>prefix (může přeskočit originál)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>prefix</MSM_Kind_prefix>
+  <MSM_Kind_postfix>postfix</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>transpiler (přepisuje kód)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>finalizer</MSM_Kind_finalizer>
+  <MSM_SameBlocking>Aspoň jeden může přeskočit původní kód – tím může zastavit i změnu druhého modu. Ověř, že fungují oba.</MSM_SameBlocking>
+  <MSM_SameAdditive>Oba kód jen přepisují nebo doplňují – obvykle v pořádku, skutečný střet hrozí jen když se přepisy srazí.</MSM_SameAdditive>
+  <MSM_SameDetails>Jak to mění</MSM_SameDetails>
+  <MSM_SameLegend>prefix běží před kódem hry; prefix, který může přeskočit, může zastavit kód hry i prefixy po něm. postfix běží po něm a jen přidává – nekoliduje. transpiler přepisuje samotný kód – dva se můžou srazit. „Běží první“ = prefix, který rozhoduje jako první.</MSM_SameLegend>
+  <MSM_RunsFirst>běží první: {0}</MSM_RunsFirst>
+  <MSM_Requires>Vyžaduje:</MSM_Requires>
+  <MSM_ReqNone>nic</MSM_ReqNone>
+  <MSM_ReqInactive>nainstalovaný, nezapnutý</MSM_ReqInactive>
+  <MSM_ReqMissing>chybí</MSM_ReqMissing>
+  <MSM_RequiredBy>Potřebuje ho {0} zapnutých modů:</MSM_RequiredBy>
 </LanguageData>
