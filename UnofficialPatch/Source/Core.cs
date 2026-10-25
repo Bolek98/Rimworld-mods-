@@ -61,7 +61,7 @@ namespace UnofficialPatch
 
     public class UnofficialPatchMod : Mod
     {
-        public const string Version = "0.1.0";
+        public const string Version = "0.1.1";
         public const string TestedBuild = "1.7.4985";
         public static PatchSettings Settings;
         public static readonly List<Fix> Fixes = new List<Fix>();
@@ -72,6 +72,7 @@ namespace UnofficialPatch
         public UnofficialPatchMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<PatchSettings>();
+            MNews.Register(content, UnofficialPatchMod.Version);   // what's new + Bolek98 overview
             MUI.Init(new PatchSettings(), null);
             var h = new Harmony("bolek98.unofficialpatch");
             try { MUI.PatchWindow(h, typeof(UnofficialPatchMod)); } catch { }

@@ -167,6 +167,7 @@ namespace UnofficialPatch
         {
             Label(new Rect(inRect.xMax - 360f, inRect.y - 36f, 190f, 30f), text, Muted, GameFont.Tiny, TextAnchor.MiddleRight);
             MReport.Button(text);
+            MNews.Button();
         }
 
         // The "Recommended settings" card. Returns its height.

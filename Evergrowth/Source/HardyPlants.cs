@@ -221,7 +221,7 @@ namespace HardyPlants
     // ------------------------------------------------------------------
     public class HardyPlantsMod : Mod
     {
-        public const string Version = "1.8.1";
+        public const string Version = "1.8.2";
         public static HardyPlantsSettings Settings;
         private Vector2 scroll;
         private Vector2 leftScroll;
@@ -231,6 +231,7 @@ namespace HardyPlants
         public HardyPlantsMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<HardyPlantsSettings>();
+            MNews.Register(content, HardyPlantsMod.Version);   // what's new + Bolek98 overview
             if (Settings.profile >= 0 && Settings.profile <= 2)
                 Settings.Preset(Settings.profile);
             MUI.Init(HardyPlantsSettings.PresetValues(1), HardyPlantsSettings.ProfileFields);

@@ -36,7 +36,7 @@ namespace ResearchFixer
 
     public class RFMod : Mod
     {
-        public const string Version = "0.3.2";
+        public const string Version = "0.3.3";
         public static RFSettings Settings;
         public static RFMod Instance;
 
@@ -44,6 +44,7 @@ namespace ResearchFixer
         {
             Instance = this;
             Settings = GetSettings<RFSettings>();
+            MNews.Register(content, RFMod.Version);   // what's new + Bolek98 overview
             MUI.Init(new RFSettings(), new[] { "fixMisplaced", "researchButton" });
             if (Settings.recommended) MUI.ApplyAll(Settings);
             var h = new Harmony("misak.researchfixer");

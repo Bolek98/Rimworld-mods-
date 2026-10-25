@@ -81,7 +81,7 @@ namespace SecularColony
 
 	public class SecularMod : Mod
 	{
-		public const string Version = "1.5.1";
+		public const string Version = "1.5.2";
 		public static SecularSettings Settings;
 		private Vector2 scroll;
 		private float viewH = 1200f;
@@ -90,6 +90,7 @@ namespace SecularColony
 		public SecularMod(ModContentPack content) : base(content)
 		{
 			Settings = GetSettings<SecularSettings>();
+			MNews.Register(content, SecularMod.Version);   // what's new + Bolek98 overview
 			MUI.Init(new SecularSettings(), null, "recommended");
 			if (Settings.recommended)
 				MUI.ApplyAll(Settings);

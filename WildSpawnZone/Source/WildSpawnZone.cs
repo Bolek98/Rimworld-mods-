@@ -34,13 +34,14 @@ public class WildSpawnSettings : ModSettings
 
 public class WildSpawnZoneMod : Mod
 {
-	public const string Version = "1.1.2";
+	public const string Version = "1.1.3";
 	public static WildSpawnSettings Settings;
 	private static List<string> recBullets;
 
 	public WildSpawnZoneMod(ModContentPack content) : base(content)
 	{
 		Settings = GetSettings<WildSpawnSettings>();
+		MNews.Register(content, WildSpawnZoneMod.Version);   // what's new + Bolek98 overview
 		MUI.Init(new WildSpawnSettings(), null, "recommended");
 		if (Settings.recommended)
 			MUI.ApplyAll(Settings);

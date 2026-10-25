@@ -709,7 +709,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.4.1";
+        public const string Version = "1.4.2";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -721,6 +721,7 @@ namespace GraphicsTuner
         public GraphicsTunerMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<GfxSettings>();
+            MNews.Register(content, GraphicsTunerMod.Version);   // what's new + Bolek98 overview
             var harmony = new Harmony("misak.graphicstuner");
             MUI.Init(GfxSettings.PresetValues(1), GfxSettings.ProfileFields);
             MUI.PatchWindow(harmony, typeof(GraphicsTunerMod));

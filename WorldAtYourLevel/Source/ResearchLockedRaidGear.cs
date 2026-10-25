@@ -30,7 +30,7 @@ namespace ResearchLockedRaidGear
 			Raids
 		}
 
-		public const string Version = "2.14.1";
+		public const string Version = "2.14.2";
 
 		public static ResearchLockedRaidGearSettings Settings;
 
@@ -52,6 +52,7 @@ namespace ResearchLockedRaidGear
 			: base(content)
 		{
 			Settings = GetSettings<ResearchLockedRaidGearSettings>();
+			MNews.Register(content, ResearchLockedRaidGearMod.Version);   // what's new + Bolek98 overview
 			Harmony h = new Harmony("misak.researchlockedraidgear");
 			MUI.Init(new ResearchLockedRaidGearSettings(), null, "settingsVersion", "recommended");
 			if (Settings.recommended)

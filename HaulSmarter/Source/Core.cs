@@ -115,7 +115,7 @@ namespace HaulSmarter
 
     public sealed class HSMod : Mod
     {
-        public const string Version = "3.0.3";
+        public const string Version = "3.0.4";
         public static HSSettings S;
         private Vector2 scroll;
         private float height = 900f;
@@ -124,6 +124,7 @@ namespace HaulSmarter
         public HSMod(ModContentPack content) : base(content)
         {
             S = GetSettings<HSSettings>();
+            MNews.Register(content, HSMod.Version);   // what's new + Bolek98 overview
             Compat.Detect();
             var h = new Harmony("misak.haulsmarter");
             MUI.Init(HSSettings.PresetValues(1), HSSettings.ProfileFields);

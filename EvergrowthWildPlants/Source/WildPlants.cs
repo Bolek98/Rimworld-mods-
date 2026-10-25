@@ -55,7 +55,7 @@ namespace EvergrowthWild
     // ------------------------------------------------------------------
     public static class WP
     {
-        public const string Version = "1.1.3";
+        public const string Version = "1.1.4";
         public static WPSettings S => WildPlantsMod.Settings;
 
         private class Orig
@@ -672,6 +672,7 @@ namespace EvergrowthWild
         public WildPlantsMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<WPSettings>();
+            MNews.Register(content, WP.Version);   // what's new + Bolek98 overview
             MUI.Init(WPSettings.Recommended(), new[] { "fixBiome" });
             var h = new Harmony("bolek98.evergrowthwild");
             h.PatchAll();
