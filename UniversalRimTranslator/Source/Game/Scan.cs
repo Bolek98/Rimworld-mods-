@@ -44,6 +44,10 @@ namespace UniversalRimTranslator
             LoadedLanguage active = LanguageDatabase.activeLanguage;
             LoadedLanguage english = LanguageDatabase.defaultLanguage;
             int defsDone = 0, keyedDone = 0, skippedInjected = 0;
+            // 2.2.2: mod names stay as they are ("Simple Sidearms" in the mod settings list became a Czech sentence)
+            modNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (ModContentPack m in LoadedModManager.RunningModsListForReading)
+                if (!string.IsNullOrEmpty(m.Name)) modNames.Add(m.Name.Trim());
 
             // def fields already translated by a language pack of the active language
             var injected = new HashSet<string>();
@@ -165,7 +169,9 @@ namespace UniversalRimTranslator
                    n.EndsWith("text") || n.EndsWith("string") || n.EndsWith("tip") || n.EndsWith("help") || n.EndsWith("verb");
         }
 
-        private static bool Wanted(string v) => !string.IsNullOrWhiteSpace(v) && !Protect.LooksLikeNonText(v);
+        private static HashSet<string> modNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        private static bool Wanted(string v) => !string.IsNullOrWhiteSpace(v) && !Protect.LooksLikeNonText(v) && !modNames.Contains(v.Trim());
 
         private static int PriorityOf(string field)
         {

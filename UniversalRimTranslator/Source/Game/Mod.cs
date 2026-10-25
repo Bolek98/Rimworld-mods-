@@ -11,7 +11,7 @@ namespace UniversalRimTranslator
 {
     public static class UrtVersion
     {
-        public const string Number = "2.2.1";
+        public const string Number = "2.2.2";
         public static string Display => Number + " (test)";
     }
 
