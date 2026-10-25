@@ -14,14 +14,23 @@ public static partial class SituationRules
 	private static int StorageFull(Ctx c)
 	{
 		int n = 0, checkedCount = 0;
+		// 1.0.5: a colonist as the carrier – storage mods (Deep Storage, PUAH …) patch this search and
+		// expect one; without it the whole situation failed with an error
+		Pawn carrier = c.Colonists.FirstOrDefault(p => p.Spawned && p.Map == c.map);
+		if (carrier == null)
+			return 0;
 		foreach (Thing t in c.Haulables)
 		{
 			if (++checkedCount > 250)
 				break;
-			if (!t.def.EverStorable(false) || !c.home[t.Position])
+			if (t == null || !t.Spawned || t.Map != c.map || !t.def.EverStorable(false) || !c.home[t.Position])
 				continue;
-			if (!StoreUtility.TryFindBestBetterStorageFor(t, null, c.map, StoragePriority.Unstored, Faction.OfPlayer, out _, out _, false))
-				n++;
+			try
+			{
+				if (!StoreUtility.TryFindBestBetterStorageFor(t, carrier, c.map, StoragePriority.Unstored, Faction.OfPlayer, out _, out _, false))
+					n++;
+			}
+			catch { }      // one odd item must not stop the count
 		}
 		return n;
 	}

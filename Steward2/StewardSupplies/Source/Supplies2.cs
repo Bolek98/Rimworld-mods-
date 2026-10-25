@@ -162,6 +162,7 @@ public sealed partial class SupplyManager : MapComponent
 		var items = map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver)
 			.Where(t => t.Spawned && t.def.category == ThingCategory.Item && home[t.Position] && !ColonyStats.IsChunk(t))
 			.OrderBy(t => t.Position.DistanceToSquared(center)).ToList();
+		Pawn carrier = map.mapPawns.FreeColonistsSpawned.FirstOrDefault();
 		foreach (Thing t in items)
 		{
 			if (t.IsInAnyStorage() || map.fogGrid.IsFogged(t.Position) || t.IsBurning())
@@ -170,7 +171,10 @@ public sealed partial class SupplyManager : MapComponent
 				continue;
 			if (map.reservationManager.IsReservedByAnyoneOf(t, Faction.OfPlayer))
 				continue;
-			if (!StoreUtility.TryFindBestBetterStorageFor(t, null, map, StoragePriority.Unstored, Faction.OfPlayer, out _, out _, false))
+			bool place;
+			try { place = carrier != null && StoreUtility.TryFindBestBetterStorageFor(t, carrier, map, StoragePriority.Unstored, Faction.OfPlayer, out _, out _, false); }
+			catch { place = false; }      // a storage mod expecting a carrier must not stop the rest
+			if (!place)
 				continue;
 			if (t.IsForbidden(Faction.OfPlayer))
 				continue;   // 2.52.3: never un-forbid what you forbade

@@ -28,14 +28,14 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Research Fixer – Tech Progression | 0.3.2 | [ResearchFixer](ResearchFixer) |
 | Secular Colony – Ideology Off & Tweaks | 1.5.1 | [SecularColony](SecularColony) |
 | Smart Colonist Gear – Auto Equip Weapons & Armor | 2.15.1 | [SmartColonistGear](SmartColonistGear) |
-| Smooth FPS – Performance & Graphics | 1.4.0 | [SmoothFPS](SmoothFPS) |
+| Smooth FPS – Performance & Graphics | 1.4.1 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
-| Steward – Work Priorities | 3.2.2 | [Steward2/Steward](Steward2/Steward) |
-| Steward – Crises & Situations | 1.0.4 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| Steward – Work Priorities | 3.2.3 | [Steward2/Steward](Steward2/Steward) |
+| Steward – Crises & Situations | 1.0.5 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
-| Steward – Supplies | 1.0.0 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
+| Steward – Supplies | 1.0.1 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
-| Universal RimTranslator | 2.3.0 | [UniversalRimTranslator](UniversalRimTranslator) |
+| Universal RimTranslator | 2.3.1 | [UniversalRimTranslator](UniversalRimTranslator) |
 | Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.0 | [UnofficialPatch](UnofficialPatch) |
 | Wild Spawn Zone | 1.1.2 | [WildSpawnZone](WildSpawnZone) |
 | Tech Progression: World at Your Level | 2.14.1 | [WorldAtYourLevel](WorldAtYourLevel) |

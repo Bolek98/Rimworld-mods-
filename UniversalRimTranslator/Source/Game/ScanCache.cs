@@ -42,13 +42,10 @@ namespace UniversalRimTranslator
                 catch { }
             }
             Add("defs " + defs);
-            // mod settings can change texts mods make in code (Config/Mod_*.xml)
-            try
-            {
-                foreach (string file in Directory.GetFiles(GenFilePaths.ConfigFolderPath, "Mod_*.xml"))
-                    Add(Path.GetFileName(file) + "|" + File.GetLastWriteTimeUtc(file).Ticks);
-            }
-            catch { }
+            // 2.3.1: mod settings (Config/Mod_*.xml) are no longer part of it – many mods write their
+            // settings file at every start or exit (Faster Game Loading, …), so the cache never matched
+            // and the 25 s scan ran every time. A setting that adds or removes defs still changes the
+            // def count above, and texts that changed otherwise are caught by the stale check when applied.
             foreach (ModContentPack m in LoadedModManager.RunningModsListForReading)
             {
                 Add(m.PackageId);

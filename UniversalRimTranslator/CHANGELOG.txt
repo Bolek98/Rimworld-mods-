@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+2.3.1
+- Faster start: the scan cache now really works – mod settings files (which many mods rewrite at every start) no longer count as a change, so the 25 s scan is skipped while mods and language stay the same.
+
 2.3.0
 - Mods (new tab): how much of each mod is translated, with a progress bar and a search. Untick a mod to keep it in English – its texts go back to the original and are not sent for translation.
 - Export: a mod's translation (or all of them) is saved as a normal Languages folder (Keyed + DefInjected) – copy it into the mod or send it to the mod's author.

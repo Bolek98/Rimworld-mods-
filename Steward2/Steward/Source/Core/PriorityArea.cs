@@ -484,6 +484,8 @@ public static class PriorityAreaWork
 			}
 		}
 		int checkedHaul = 0;
+		// a colonist as the carrier – storage mods patch this search and expect one
+		Pawn carrier = map.mapPawns.FreeColonistsSpawned.FirstOrDefault();
 		foreach (Thing t in map.listerHaulables.ThingsPotentiallyNeedingHauling())
 		{
 			if (t == null || !t.Spawned || !a.Contains(t.Position) || t.IsForbidden(Faction.OfPlayer))
@@ -494,8 +496,12 @@ public static class PriorityAreaWork
 				continue;
 			}
 			// only things that really have somewhere to go
-			if (StoreUtility.TryFindBestBetterStoreCellFor(t, null, map, StoreUtility.CurrentStoragePriorityOf(t), Faction.OfPlayer, out _, needAccurateResult: false))
-				n[3]++;
+			try
+			{
+				if (carrier != null && StoreUtility.TryFindBestBetterStoreCellFor(t, carrier, map, StoreUtility.CurrentStoragePriorityOf(t), Faction.OfPlayer, out _, needAccurateResult: false))
+					n[3]++;
+			}
+			catch { }
 		}
 		foreach (Thing f in map.listerFilthInHomeArea.FilthInHomeArea)
 			if (a.Contains(f.Position))

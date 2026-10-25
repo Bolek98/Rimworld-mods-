@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+1.0.5
+- Fix: the "Storage full" situation failed with an error with storage mods that expect a hauler (Deep Storage and others); one odd item no longer stops the count.
+
 1.0.4
 - Settings: the lists of crises and situations were empty – the list was taller than its scroll area and the rest went into an invisible second column; now it is one scrollable list
 

@@ -208,7 +208,9 @@ namespace GraphicsTuner
             }
             catch (Exception ex)
             {
-                MLog.Warn("[Smooth FPS] world clean-up: " + ex.Message);
+                // 1.4.1: the error comes from the mod that replaced the game's clean-up – name it, once
+                string who = ModOf(ex);
+                MLog.WarnOnce("[Smooth FPS] world clean-up: the game's world pawn clean-up failed" + (who != null ? " inside " + who : "") + " (" + ex.GetType().Name + ": " + ex.Message + "). Smooth FPS skips it; the mod's author should fix it.", 0x6f7a41);
             }
             sw.Stop();
             int after = wp.AllPawnsAliveOrDead.Count;
@@ -219,6 +221,23 @@ namespace GraphicsTuner
         }
 
         private static int lastClean = -999999;
+
+        private static string ModOf(Exception ex)
+        {
+            try
+            {
+                var st = new System.Diagnostics.StackTrace(ex, false);
+                foreach (var f in st.GetFrames() ?? new System.Diagnostics.StackFrame[0])
+                {
+                    System.Reflection.Assembly asm = f.GetMethod()?.DeclaringType?.Assembly;
+                    if (asm == null || asm == typeof(Pawn).Assembly || asm == typeof(Sim).Assembly) continue;
+                    foreach (ModContentPack m in LoadedModManager.RunningModsListForReading)
+                        if (m.assemblies.loadedAssemblies.Contains(asm)) return m.Name;
+                }
+            }
+            catch { }
+            return null;
+        }
 
         // automatically: in a pause of at least 3 s, at most once per 2 in-game days
         public static void AutoClean(bool paused, float pausedFor)
