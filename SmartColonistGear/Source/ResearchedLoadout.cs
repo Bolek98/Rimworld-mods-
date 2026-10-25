@@ -70,6 +70,7 @@ namespace ResearchedLoadout
 			: base(content)
 		{
 			Settings = GetSettings<ResearchedLoadoutSettings>();
+			MNews.Register(content, MUIVersion.Version);
 			Harmony harmony = new Harmony("misak.researchedloadout");
 			MUI.Init(new ResearchedLoadoutSettings(), null, "settingsVersion", "recommended", "debugLog");
 			if (Settings.recommended)
@@ -306,6 +307,7 @@ namespace ResearchedLoadout
 			Check(listing_Standard, "RL_AutoPrimary", ref Settings.autoEquipPrimary, "autoEquipPrimary");
 			Check(listing_Standard, "RL_UseSkills", ref Settings.useSkills, "useSkills");
 			Check(listing_Standard, "RL_PreferNewer", ref Settings.preferNewerTech, "preferNewerTech");
+			Check(listing_Standard, "RL_PreferNewEra", ref Settings.preferNewEra, "preferNewEra");
 			Check(listing_Standard, "RL_ToolsNotWeapons", ref Settings.toolsNotWeapons, "toolsNotWeapons");
 			Check(listing_Standard, "RL_AutoSidearm", ref Settings.autoEquipSidearm, "autoEquipSidearm");
 			Check(listing_Standard, "RL_PrioritizeFighters", ref Settings.prioritizeFighters, "prioritizeFighters");
@@ -4706,6 +4708,9 @@ namespace ResearchedLoadout
 		// 2.15.0: newer tech preferred (guns over bows, newer armor over plate); work tools are never weapons
 		public bool preferNewerTech = true;
 
+		// 2.15.0
+		public bool preferNewEra = true;
+
 		public bool toolsNotWeapons = true;
 
 		public bool autoEquipSidearm = true;
@@ -4839,6 +4844,7 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref autoEquipPrimary, "autoEquipPrimary", true);
 			Scribe_Values.Look(ref useSkills, "useSkills", true);
 			Scribe_Values.Look(ref preferNewerTech, "preferNewerTech", true);
+			Scribe_Values.Look(ref preferNewEra, "preferNewEra", true);
 			Scribe_Values.Look(ref toolsNotWeapons, "toolsNotWeapons", true);
 			Scribe_Values.Look(ref autoEquipSidearm, "autoEquipSidearm", true);
 			Scribe_Values.Look(ref sidearmFilter, "sidearmFilter", true);
@@ -5218,7 +5224,24 @@ namespace ResearchedLoadout
 			{
 				return 1f;
 			}
-			return Mathf.Clamp(1f + 0.12f * ((int)def.techLevel - (int)TechLevel.Medieval), 0.85f, 1.4f);
+			return Mathf.Clamp(1f + 0.12f * ((int)def.techLevel - (int)TechLevel.Medieval), 0.85f, 1.4f) * EraMul(def);
+		}
+
+		// 2.15.0: gear of the colony's newest era (the tech level it has reached) is clearly preferred
+		// when it is there; gear two or more eras behind loses. Weapons and apparel alike.
+		public static float EraMul(ThingDef def)
+		{
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			if (def == null || settings == null || !settings.preferNewEra || def.techLevel == TechLevel.Undefined || def.techLevel == TechLevel.Animal)
+			{
+				return 1f;
+			}
+			int behind = (int)ColonyTech() - (int)def.techLevel;
+			if (behind <= 0)
+			{
+				return 1.35f;
+			}
+			return behind == 1 ? 1f : 0.8f;
 		}
 
 		private static readonly Dictionary<ThingDef, bool> toolCache = new Dictionary<ThingDef, bool>();
@@ -11108,6 +11131,11 @@ namespace ResearchedLoadout
 				__result += Coverage.GapBonus(pawn, apparel.def);
 				__result -= Coverage.LossPenalty(pawn, apparel.def);
 				WearerFit.Apply(pawn, apparel, ref __result);
+			}
+			// 2.15.0: the newest era first (worn and candidate apparel alike, so it is a fair comparison)
+			if (__result > 0f)
+			{
+				__result *= LoadoutFilter.EraMul(apparel.def);
 			}
 		}
 	}

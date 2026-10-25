@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -35,12 +36,30 @@ public static class WorkMatch
 					continue;
 				// 3.0.5: the shared kind of work must be a real one – "manual dumb" alone made every
 				// no-skill work type (cleaning, power, recycling …) count as hauling
-				if (SameSkills(w, main) && (w.workTags & main.workTags & ~Generic) != 0)
+				// 3.2.1: and the same kind of jobs – at least one job type (work giver class) in common;
+				// "social" alone made diplomacy, waiting tables and shrine care count as warden work
+				if (SameSkills(w, main) && (w.workTags & main.workTags & ~Generic) != 0 && SameJobs(w, main))
 					list.Add(w);
 			}
 		}
 		cache[name] = list;
 		return list;
+	}
+
+	private static bool SameJobs(WorkTypeDef a, WorkTypeDef b)
+	{
+		var mine = new HashSet<Type>();
+		if (b.workGiversByPriority != null)
+			foreach (WorkGiverDef g in b.workGiversByPriority)
+				if (g.giverClass != null)
+					mine.Add(g.giverClass);
+		if (mine.Count == 0 || a.workGiversByPriority == null)
+			return false;
+		foreach (WorkGiverDef g in a.workGiversByPriority)
+			for (Type t = g.giverClass; t != null && t != typeof(object); t = t.BaseType)
+				if (mine.Contains(t))
+					return true;
+		return false;
 	}
 
 	private static bool SameSkills(WorkTypeDef a, WorkTypeDef b)

@@ -1,4 +1,9 @@
 === Not on the Workshop yet (test versions) ===
+3.2.1
+- Crises no longer lower or re-plan urgent work (firefighting, urgent hauling, rescue) – during a raid urgent hauling went to the lowest priority
+- Crisis rules for a work no longer pull in unrelated modded work types of the same skill (a raid raised diplomacy, waiting tables and shrine care together with warden work)
+- Loading a priority set no longer fails when a colonist is in two lists (slave and colonist)
+
 3.2.0
 - Copy priorities: middle-click a colonist's name in the Work tab → "Copy priorities to…" one colonist or everybody else (shown first, locks respected)
 - Priority sets: the new "Sets" button saves the current priorities under a name (Winter, Defence, Harvest …) and loads them again later – loading shows the changes first

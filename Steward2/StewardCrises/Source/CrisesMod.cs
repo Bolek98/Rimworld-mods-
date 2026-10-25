@@ -434,6 +434,11 @@ public sealed class CrisisStep : IPlanStep
 			foreach (var kv in effects)
 				foreach (WorkTypeDef w in WorkMatch.Resolve(kv.Key))
 				{
+					// 1.0.3: urgent work (firefighting, urgent hauling, rescue …) is never lowered or
+					// re-planned by a crisis – it stays on 1 for everybody
+					WorkKind kind = WorkCatalog.Kind(w);
+					if (kind == WorkKind.Emergency || kind == WorkKind.Hidden)
+						continue;
 					if (kv.Value.urgency < 0f)
 					{
 						// what can wait: main people go to the lowest level for now

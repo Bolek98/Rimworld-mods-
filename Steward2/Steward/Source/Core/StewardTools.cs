@@ -75,7 +75,7 @@ public static class StewardTools
 		Map map = from.MapHeld;
 		if (map == null || from.workSettings == null)
 			return;
-		List<Pawn> others = map.mapPawns.FreeColonistsSpawned.Concat(map.mapPawns.SlavesOfColonySpawned)
+		List<Pawn> others = map.mapPawns.FreeColonistsSpawned.Concat(map.mapPawns.SlavesOfColonySpawned).Distinct()
 			.Where(p => p != from && p.workSettings != null && p.workSettings.EverWork).OrderBy(p => p.LabelShort).ToList();
 		if (others.Count == 0)
 			return;
@@ -138,7 +138,9 @@ public sealed class StewardSets : GameComponent
 		var list = new List<Planner.Change>();
 		if (!sets.TryGetValue(name, out string data) || data == null)
 			return list;
-		Dictionary<string, Pawn> here = Pawns(map).ToDictionary(p => p.GetUniqueLoadID(), p => p);
+		var here = new Dictionary<string, Pawn>();
+		foreach (Pawn p in Pawns(map))
+			here[p.GetUniqueLoadID()] = p;
 		ForemanGameComponent game = ForemanGameComponent.Get();
 		foreach (string part in data.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
 		{
@@ -171,7 +173,8 @@ public sealed class StewardSets : GameComponent
 	{
 		if (map?.mapPawns == null)
 			yield break;
-		foreach (Pawn p in map.mapPawns.FreeColonistsSpawned.Concat(map.mapPawns.SlavesOfColonySpawned))
+		// 3.2.1: a pawn can be in both lists – each once
+		foreach (Pawn p in map.mapPawns.FreeColonistsSpawned.Concat(map.mapPawns.SlavesOfColonySpawned).Distinct())
 			if (p.workSettings != null && p.workSettings.EverWork)
 				yield return p;
 	}
