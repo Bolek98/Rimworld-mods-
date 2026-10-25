@@ -39,14 +39,16 @@ public sealed class BenchPriorityComp : MapComponent
 
 	public override void MapComponentOnGUI()
 	{
-		if (marked.Count == 0 || Find.CurrentMap != map || WorldRendererUtility.WorldSelected)
+		// 3.2.5: only when the picture is drawn, and only benches on the screen (it ran for every UI event)
+		if (marked.Count == 0 || Event.current.type != EventType.Repaint || Find.CurrentMap != map || WorldRendererUtility.WorldSelected)
 			return;
 		try
 		{
+			CellRect view = Find.CameraDriver.CurrentViewRect;
 			for (int i = 0; i < marked.Count; i++)
 			{
 				Thing t = marked[i];
-				if (t == null || !t.Spawned)
+				if (t == null || !t.Spawned || !view.Contains(t.Position))
 					continue;
 				Vector2 pos = (t.DrawPos + new Vector3(0f, 0f, 0.6f)).MapToUIPosition();
 				GenMapUI.DrawThingLabel(pos, "★ 1", new Color(1f, 0.85f, 0.3f));
