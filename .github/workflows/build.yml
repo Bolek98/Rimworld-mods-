@@ -1,0 +1,28 @@
+# Every push and pull request: all mods must compile against RimWorld 1.7 (RimRef reference
+# assemblies, no game files needed), versions must agree everywhere and the shared files
+# (MisakUI, MisakReport, MisakNews) must be the same in every mod.
+name: Build check
+
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Versions agree (About.xml, source, changelog, README)
+        run: python3 Common/release.py check
+      - name: Shared files up to date
+        run: python3 Common/sync.py --check
+      - name: All mods compile
+        run: python3 Common/ci_build.py
