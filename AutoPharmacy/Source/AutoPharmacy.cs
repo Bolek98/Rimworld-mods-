@@ -25,7 +25,7 @@ namespace AutoPharmacy;
 //     overdose risk, teetotalers and your blocked drugs are respected.
 // ---------------------------------------------------------------------------
 
-public enum Need { Critical, Pain, Immunity, Cure, Bleeding, BloodLoss, Consciousness, Breathing, BloodPumping, BloodFiltration, Moving, Rest, Mood, Manipulation, Sight, Prevention, Contraception, Fertility }
+public enum Need { Critical, Pain, Immunity, Cure, Bleeding, BloodLoss, Consciousness, Breathing, BloodPumping, BloodFiltration, Moving, Rest, Mood, Manipulation, Sight, Prevention, Contraception, Fertility, Addiction, Hemogen, Healing }
 
 public sealed class DrugInfo
 {
@@ -161,8 +161,14 @@ public static class Pharmacy
 			else if (on.need != null && on.need.defName == "Mood" && on.offset > 0f) info.Add(Need.Mood, Mathf.Clamp01(on.offset * 2f));
 			return;
 		}
-		// modded outcome doers: read every HediffDef they name
+		// 1.4.0: hemogen packs (Biotech) for sanguophages
 		string tn = doer.GetType().Name;
+		if (tn.IndexOf("Hemogen", StringComparison.OrdinalIgnoreCase) >= 0)
+		{
+			info.Add(Need.Hemogen, 1f);
+			return;
+		}
+		// modded outcome doers: read every HediffDef they name
 		bool removes = Has(tn, "Remove", "Cure", "Heal", "Reduce", "Clear", "Treat");
 		foreach (HediffDef h in HediffsIn(doer))
 		{
@@ -305,6 +311,10 @@ public static class Pharmacy
 				if (st.restFallFactor < 1f) info.Add(Need.Rest, (1f - st.restFallFactor) * 0.5f);
 			}
 		}
+		// 1.4.0: a mood thought that comes with the hediff (calming tea and the like)
+		foreach (ThoughtDef th in MoodThoughts)
+			if (th.hediff == h && th.stages != null && th.stages.Count > 0 && th.stages[0] != null && th.stages[0].baseMoodEffect > 0f)
+				info.Add(Need.Mood, Mathf.Clamp01(th.stages[0].baseMoodEffect / 20f));
 		if (h.comps != null)
 			foreach (HediffCompProperties cp in h.comps)
 			{
@@ -321,6 +331,9 @@ public static class Pharmacy
 			}
 	}
 
+	private static List<ThoughtDef> moodThoughts;
+	private static List<ThoughtDef> MoodThoughts => moodThoughts ??= DefDatabase<ThoughtDef>.AllDefsListForReading.Where(x => x.hediff != null).ToList();
+
 	private static void ReadStats(DrugInfo info, List<StatModifier> mods, bool factor)
 	{
 		if (mods == null)
@@ -332,6 +345,7 @@ public static class Pharmacy
 			if (v <= 0f) continue;
 			string n = m.stat.defName;
 			if (Has(n, "ImmunityGain")) info.Add(Need.Immunity, v);
+			else if (Has(n, "InjuryHealing")) info.Add(Need.Healing, v);
 			else if (Has(n, "Blood") && Has(n, "Regen", "Recover", "Gain")) info.Add(Need.BloodLoss, v);
 		}
 	}
@@ -411,11 +425,59 @@ public static class Pharmacy
 			n[Need.Contraception] = 0.6f;
 		if (adult && !pregnant && plan == 2)
 			n[Need.Fertility] = 0.4f;
+		// 1.4.0: fresh wounds (not scars) heal faster with a healing drug
+		float wounds = 0f;
+		foreach (Hediff h in all)
+			if (h is Hediff_Injury inj && !inj.IsPermanent()) wounds += inj.Severity;
+		if (wounds > 10f)
+			n[Need.Healing] = Mathf.Clamp01(wounds / 40f);
 		if (s.useRest && p.needs?.rest != null && p.needs.rest.CurLevel < 0.08f && !p.InBed())
 			n[Need.Rest] = 0.4f;
-		if (s.useMood && p.needs?.mood != null && p.mindState?.mentalBreaker != null && p.needs.mood.CurLevel < p.mindState.mentalBreaker.BreakThresholdMajor)
-			n[Need.Mood] = p.needs.mood.CurLevel < p.mindState.mentalBreaker.BreakThresholdExtreme ? 0.6f : 0.4f;
+		if (s.useMood && p.needs?.mood != null && p.mindState?.mentalBreaker != null)
+		{
+			float mood = p.needs.mood.CurLevel;
+			MentalBreaker mb = p.mindState.mentalBreaker;
+			if (mood < mb.BreakThresholdExtreme) n[Need.Mood] = 0.6f;
+			else if (mood < mb.BreakThresholdMajor) n[Need.Mood] = 0.4f;
+			// 1.4.0: before the breakdown – a mild drug already near the minor break line
+			else if (s.moodEarly && mood < mb.BreakThresholdMinor + 0.03f) n[Need.Mood] = 0.25f;
+		}
+		// 1.4.0: an addiction is kept fed before withdrawal (luciferium above all – a missed dose kills)
+		if (s.maintainAddictions)
+		{
+			float a = 0f;
+			foreach (float u in Addictions(p).Values) a = Mathf.Max(a, u);
+			if (a > 0f) n[Need.Addiction] = a;
+		}
+		// 1.4.0: sanguophages low on hemogen
+		if (ModsConfig.BiotechActive && p.genes != null)
+		{
+			Gene_Hemogen g = p.genes.GetFirstGeneOfType<Gene_Hemogen>();
+			if (g != null && g.Active && g.Value < g.Max * 0.25f)
+				n[Need.Hemogen] = g.Value < g.Max * 0.1f ? 0.8f : 0.5f;
+		}
 		return n;
+	}
+
+	// chemical → how urgent a dose is (need running low; luciferium earlier and most urgent)
+	public static Dictionary<ChemicalDef, float> Addictions(Pawn p)
+	{
+		var d = new Dictionary<ChemicalDef, float>();
+		if (p.health?.hediffSet == null)
+			return d;
+		foreach (Hediff h in p.health.hediffSet.hediffs)
+		{
+			if (!(h is Hediff_Addiction a) || a.Chemical == null)
+				continue;
+			Need_Chemical need = a.Need;
+			if (need == null)
+				continue;
+			bool luci = a.Chemical.defName == "Luciferium";
+			float lvl = need.CurLevel;
+			if (lvl < (luci ? 0.45f : 0.3f))
+				d[a.Chemical] = luci ? 1f : (lvl < 0.1f ? 0.6f : 0.45f);
+		}
+		return d;
 	}
 
 	private static void Cap(Pawn p, Dictionary<Need, float> n, PawnCapacityDef c, Need need)
@@ -454,12 +516,20 @@ public static class Pharmacy
 		bool minor = baby || patient.DevelopmentalStage == DevelopmentalStage.Child || age < 18;
 		// 1.3.1: another drug that can overdose is still working – never stack two of them
 		bool overdoserRunning = Drugs.Any(o => o.overdoses && Running(patient, o));
+		Dictionary<ChemicalDef, float> addicted = s.maintainAddictions ? Addictions(patient) : new Dictionary<ChemicalDef, float>();
 		Choice best = null;
+		DrugInfo missing = null;
+		float missingScore = 0f;
 		foreach (DrugInfo d in Drugs)
 		{
 			if (s.blocked.Contains(d.def.defName))
 				continue;
-			if (d.isDrug && teetotal && !d.Regimen)
+			// 1.4.0: the dose an addiction needs
+			bool forAddiction = d.chemical != null && addicted.ContainsKey(d.chemical);
+			if (d.isDrug && teetotal && !d.Regimen && !forAddiction)
+				continue;
+			// 1.4.0: the colonist's ideology forbids drugs (an addiction still gets its dose, like in vanilla)
+			if (d.isDrug && !d.Regimen && !forAddiction && !IdeoAllows(patient, d))
 				continue;
 			if (d.overdoses && (overdoseRisk || overdoserRunning || overdoseNow + d.overdoseMax >= 0.45f))
 				continue;
@@ -470,13 +540,19 @@ public static class Pharmacy
 			if (minor && (d.addictiveness > 0f || d.overdoses || d.Combat || d.def.IsNonMedicalDrug
 			              || d.effects.Keys.Any(k => k == Need.Mood || k == Need.Rest || k == Need.Contraception || k == Need.Fertility)))
 				continue;
-			if (Running(patient, d))
+			if (Running(patient, d) && !forAddiction)
 				continue;
 			if (!Comp.CanGive(patient, d.def))
 				continue;
 			float benefit = 0f;
 			string why = null;
 			float whyV = 0f;
+			if (forAddiction)
+			{
+				benefit += addicted[d.chemical] * 1.2f;
+				whyV = benefit;
+				why = "AP_Need_Addiction".Translate();
+			}
 			foreach (var kv in d.effects)
 			{
 				if (kv.Key == Need.Cure)
@@ -501,7 +577,7 @@ public static class Pharmacy
 			if (benefit < 0.15f)
 				continue;
 			// addictive drugs by how serious it is
-			if (d.addictiveness > 0f)
+			if (d.addictiveness > 0f && !forAddiction)
 			{
 				// 1.3.0: a mild one (beer, …) for mood or pain is fine while it cannot start an addiction
 				bool mildSafe = d.addictiveness <= 0.05f && CombatDrugs.Safe(patient, d);
@@ -517,16 +593,45 @@ public static class Pharmacy
 				continue;
 			Thing t = Find(doctor, patient, d.def);
 			if (t == null)
+			{
+				// 1.4.0: remembered for the "missing medicine" message
+				if (benefit > missingScore && (forAddiction || local >= 0.5f))
+				{
+					missingScore = benefit;
+					missing = d;
+				}
 				continue;
+			}
 			if (d.usable)
 			{
 				CompUsable cu = t.TryGetComp<CompUsable>();
 				if (cu == null || !cu.CanBeUsedBy(patient, false, true).Accepted)
 					continue;
 			}
-			best = new Choice { drug = d, thing = t, reason = why ?? "", score = benefit, minor = local < 0.7f };
+			best = new Choice { drug = d, thing = t, reason = why ?? "", score = benefit, minor = local < 0.7f && !forAddiction };
 		}
+		if (missing != null && (best == null || missingScore > best.score * 1.5f))
+			Comp.NoteMissing(missing.def, patient);
 		return best;
+	}
+
+	public static bool IdeoAllows(Pawn p, DrugInfo d)
+	{
+		if (!ModsConfig.IdeologyActive || p.Ideo == null)
+			return true;
+		try
+		{
+			if (!IdeoUtility.DoerWillingToDo(HistoryEventDefOf.IngestedDrug, p))
+				return false;
+			if (d.def.IsNonMedicalDrug && !IdeoUtility.DoerWillingToDo(HistoryEventDefOf.IngestedRecreationalDrug, p))
+				return false;
+			if (d.def.ingestible != null && d.def.ingestible.drugCategory == DrugCategory.Hard && !IdeoUtility.DoerWillingToDo(HistoryEventDefOf.IngestedHardDrug, p))
+				return false;
+		}
+		catch
+		{
+		}
+		return true;
 	}
 
 	// the drug's effect is still running
@@ -551,6 +656,11 @@ public static class Pharmacy
 
 	private static Thing Find(Pawn doctor, Pawn patient, ThingDef def)
 	{
+		// 1.4.0: what the doctor carries comes first – no walk to the stockpile
+		if (doctor.inventory != null)
+			foreach (Thing t in doctor.inventory.innerContainer)
+				if (t.def == def)
+					return t;
 		List<Thing> list = doctor.Map.listerThings.ThingsOfDef(def);
 		Thing best = null;
 		float bd = float.MaxValue;
@@ -605,6 +715,53 @@ public class Comp : GameComponent
 
 	public Comp(Game game) { }
 
+	// 1.4.0: what was given (for the doctor's own supply and the history)
+	public Dictionary<string, int> givenCount = new Dictionary<string, int>();
+	private List<string> gk; private List<int> gv;
+	public List<string> history = new List<string>();
+	private readonly Dictionary<ThingDef, int> missing = new Dictionary<ThingDef, int>();
+	private readonly Dictionary<ThingDef, string> missingFor = new Dictionary<ThingDef, string>();
+	private readonly Dictionary<ThingDef, int> warned = new Dictionary<ThingDef, int>();
+
+	public static void NoteMissing(ThingDef d, Pawn patient)
+	{
+		Comp c = Get();
+		if (c == null || d == null) return;
+		c.missing[d] = Find.TickManager.TicksGame;
+		c.missingFor[d] = patient?.LabelShort ?? "";
+	}
+
+	public static void Remember(Pawn doctor, Pawn patient, ThingDef d, string why)
+	{
+		Comp c = Get();
+		if (c == null) return;
+		c.givenCount[d.defName] = c.givenCount.TryGetValue(d.defName, out int n) ? n + 1 : 1;
+		string when = patient?.MapHeld != null ? GenDate.DateFullStringAt(Find.TickManager.TicksAbs, Find.WorldGrid.LongLatOf(patient.MapHeld.Tile)) : "";
+		c.history.Add(when + ": " + (doctor?.LabelShort ?? "?") + " → " + (patient?.LabelShort ?? "?") + ": " + d.LabelCap + (string.IsNullOrEmpty(why) ? "" : " (" + why + ")"));
+		while (c.history.Count > 60) c.history.RemoveAt(0);
+	}
+
+	// the drugs given most often (the doctor carries a few of them)
+	public static List<ThingDef> MostGiven(int n)
+	{
+		Comp c = Get();
+		if (c == null) return new List<ThingDef>();
+		return c.givenCount.OrderByDescending(kv => kv.Value).Select(kv => DefDatabase<ThingDef>.GetNamedSilentFail(kv.Key)).Where(x => x != null).Take(n).ToList();
+	}
+
+	private void WarnMissing()
+	{
+		int now = Find.TickManager.TicksGame;
+		foreach (var kv in missing.ToList())
+		{
+			if (now - kv.Value > 2500) { missing.Remove(kv.Key); continue; }
+			if (warned.TryGetValue(kv.Key, out int w) && now - w < 60000) continue;
+			warned[kv.Key] = now;
+			missingFor.TryGetValue(kv.Key, out string who);
+			Messages.Message("AP_Missing".Translate(kv.Key.LabelCap, who ?? ""), MessageTypeDefOf.CautionInput, false);
+		}
+	}
+
 	public static Comp Get() => Current.Game?.GetComponent<Comp>();
 
 	private static string Key(Pawn p, ThingDef d) => p.thingIDNumber + "|" + d.defName;
@@ -635,6 +792,11 @@ public class Comp : GameComponent
 	public override void GameComponentTick()
 	{
 		var s = AutoPharmacyMod.Settings;
+		if (s.enabled && s.warnMissing && Find.TickManager.TicksGame % 2500 == 1250)
+		{
+			try { WarnMissing(); }
+			catch (Exception ex) { Log.ErrorOnce("[Auto Pharmacy] missing medicine: " + ex, 0x41506e); }
+		}
 		if (s.enabled && s.combatDrugs && Find.TickManager.TicksGame % 120 == 37)
 		{
 			foreach (Map m in Find.Maps)
@@ -696,6 +858,12 @@ public class Comp : GameComponent
 		Scribe_Collections.Look(ref plans, "apPlans", LookMode.Value, LookMode.Value, ref pk, ref pv);
 		if (plans == null)
 			plans = new Dictionary<int, int>();
+		Scribe_Collections.Look(ref givenCount, "apGiven", LookMode.Value, LookMode.Value, ref gk, ref gv);
+		if (givenCount == null)
+			givenCount = new Dictionary<string, int>();
+		Scribe_Collections.Look(ref history, "apHistory", LookMode.Value);
+		if (history == null)
+			history = new List<string>();
 	}
 }
 
@@ -836,6 +1004,7 @@ public class JobDriver_GiveDrug : JobDriver
 				d.Ingested(p, 0f);
 			Comp.Given(p, d.def);
 			reasons.TryGetValue(pawn.thingIDNumber, out string why);
+			Comp.Remember(pawn, p, d.def, why);
 			if (AutoPharmacyMod.Settings.notify)
 				Messages.Message("AP_Given".Translate(pawn.LabelShort, label, p.LabelShort, why ?? ""), p, MessageTypeDefOf.SilentInput, false);
 		});
@@ -1038,6 +1207,11 @@ public class AutoPharmacySettings : ModSettings
 	public bool usePrevention = true;
 	public bool useChronic = true;
 	public int combatHours = 24;
+	// 1.4.0
+	public bool maintainAddictions = true;
+	public bool moodEarly = true;
+	public bool doctorCarry = true;
+	public bool warnMissing = true;
 	// 1.2.0: recommended settings switch (missing key = off, so old settings stay)
 	public bool recommended = true;
 	public HashSet<string> blocked = new HashSet<string>();
@@ -1057,6 +1231,10 @@ public class AutoPharmacySettings : ModSettings
 		Scribe_Values.Look(ref usePrevention, "usePrevention", true);
 		Scribe_Values.Look(ref useChronic, "useChronic", true);
 		Scribe_Values.Look(ref combatHours, "combatHours", 24);
+		Scribe_Values.Look(ref maintainAddictions, "maintainAddictions", true);
+		Scribe_Values.Look(ref moodEarly, "moodEarly", true);
+		Scribe_Values.Look(ref doctorCarry, "doctorCarry", true);
+		Scribe_Values.Look(ref warnMissing, "warnMissing", true);
 		Scribe_Values.Look(ref recommended, "recommended", false);
 		Scribe_Collections.Look(ref blocked, "blocked", LookMode.Value);
 		if (blocked == null)
@@ -1068,8 +1246,9 @@ public class AutoPharmacyMod : Mod
 {
 	public static AutoPharmacySettings Settings;
 	private Vector2 scroll;
+	private static string search = "";
 	public static bool PharmacistActive => ModsConfig.IsActive("fluffy.pharmacist");
-	public const string Version = "1.3.5";
+	public const string Version = "1.4.0";
 	private static List<string> recBullets;
 
 	private static void Check(Listing_Standard l, string key, ref bool value, string field)
@@ -1087,6 +1266,7 @@ public class AutoPharmacyMod : Mod
 		var harmony = new Harmony("misak.autopharmacy");
 		harmony.PatchAll();
 		MUI.PatchWindow(harmony, typeof(AutoPharmacyMod));
+		MNews.Register(content, Version);
 		Log.Message("[Auto Pharmacy] v" + Version + " loaded.");
 	}
 
@@ -1110,7 +1290,7 @@ public class AutoPharmacyMod : Mod
 		if (Settings.recommended)
 			y0 += MUI.LockNote(new Rect(r.x, y0, r.width, 0f)) + 4f;
 		var l = new Listing_Standard();
-		Rect top = new Rect(r.x, y0, r.width, 350f);
+		Rect top = new Rect(r.x, y0, r.width, 420f);
 		MUI.BeginLock(Settings.recommended);
 		try
 		{
@@ -1123,6 +1303,8 @@ public class AutoPharmacyMod : Mod
 		Check(l, "AP_UseRest", ref Settings.useRest, "useRest");
 		Check(l, "AP_UsePrevention", ref Settings.usePrevention, "usePrevention");
 		Check(l, "AP_UseChronic", ref Settings.useChronic, "useChronic");
+		Check(l, "AP_Addictions", ref Settings.maintainAddictions, "maintainAddictions");
+		Check(l, "AP_MoodEarly", ref Settings.moodEarly, "moodEarly");
 		if (PharmacistActive)
 			l.Label("AP_CarePharmacist".Translate());
 		else
@@ -1146,6 +1328,8 @@ public class AutoPharmacyMod : Mod
 		GUI.color = MUI.Muted;
 		l.Label("AP_AddictiveHelp".Translate());
 		GUI.color = Color.white;
+		Check(l, "AP_DoctorCarry", ref Settings.doctorCarry, "doctorCarry");
+		Check(l, "AP_WarnMissing", ref Settings.warnMissing, "warnMissing");
 		l.End();
 		}
 		finally
@@ -1155,10 +1339,25 @@ public class AutoPharmacyMod : Mod
 
 		// every drug in the game and what it does
 		float y = top.yMax + 6f;
-		Widgets.Label(new Rect(r.x, y, r.width, 24f), "AP_ListHead".Translate(Pharmacy.Drugs.Count));
-		y += 26f;
+		Widgets.Label(new Rect(r.x, y + 3f, 260f, 24f), "AP_ListHead".Translate(Pharmacy.Drugs.Count));
+		// 1.4.0: search in the list (name, what it does, mod)
+		search = Widgets.TextField(new Rect(r.x + 270f, y, r.width - 270f - 190f, 28f), search ?? "");
+		if (string.IsNullOrEmpty(search))
+		{
+			GUI.color = MUI.Muted;
+			Widgets.Label(new Rect(r.x + 276f, y + 4f, 300f, 24f), "AP_Search".Translate());
+			GUI.color = Color.white;
+		}
+		if (Widgets.ButtonText(new Rect(r.xMax - 180f, y, 180f, 28f), "AP_HistoryButton".Translate(Comp.Get()?.history.Count ?? 0)))
+			Find.WindowStack.Add(new Dialog_History());
+		y += 32f;
 		Rect outRect = new Rect(r.x, y, r.width, r.yMax - y);
-		List<DrugInfo> list = Pharmacy.Drugs;
+		string q = (search ?? "").Trim();
+		List<DrugInfo> list = q.Length == 0 ? Pharmacy.Drugs : Pharmacy.Drugs.Where(d =>
+			((string)d.def.LabelCap).IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0 ||
+			d.def.defName.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0 ||
+			d.Summary().IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0 ||
+			(d.def.modContentPack?.Name ?? "").IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
 		float rowH = 30f;
 		Rect view = new Rect(0f, 0f, outRect.width - 18f, list.Count * rowH);
 		Widgets.BeginScrollView(outRect, ref scroll, view);
@@ -1186,5 +1385,114 @@ public class AutoPharmacyMod : Mod
 			TooltipHandler.TipRegion(row, d.def.LabelCap + " (" + (d.def.modContentPack?.Name ?? "?") + ")\n" + sum);
 		}
 		Widgets.EndScrollView();
+	}
+}
+
+
+// 1.4.0: who got what and why (the last 60)
+public class Dialog_History : Window
+{
+	private Vector2 scroll;
+
+	public Dialog_History()
+	{
+		doCloseX = true;
+		closeOnClickedOutside = true;
+		absorbInputAroundWindow = true;
+	}
+
+	public override Vector2 InitialSize => new Vector2(640f, 520f);
+
+	public override void DoWindowContents(Rect inRect)
+	{
+		Text.Font = GameFont.Medium;
+		Widgets.Label(new Rect(inRect.x, inRect.y, inRect.width, 34f), "AP_HistoryTitle".Translate());
+		Text.Font = GameFont.Small;
+		List<string> lines = (Comp.Get()?.history ?? new List<string>()).AsEnumerable().Reverse().ToList();
+		Rect outer = new Rect(inRect.x, inRect.y + 40f, inRect.width, inRect.height - 40f);
+		float h = lines.Sum(l => Text.CalcHeight(l, outer.width - 20f) + 4f);
+		Rect view = new Rect(0f, 0f, outer.width - 16f, Math.Max(h, outer.height));
+		Widgets.BeginScrollView(outer, ref scroll, view);
+		float y = 0f;
+		foreach (string l in lines)
+		{
+			float lh = Text.CalcHeight(l, view.width);
+			Widgets.Label(new Rect(0f, y, view.width, lh), l);
+			y += lh + 4f;
+		}
+		if (lines.Count == 0)
+			Widgets.Label(new Rect(0f, 0f, view.width, 30f), "AP_HistoryEmpty".Translate());
+		Widgets.EndScrollView();
+	}
+}
+
+// 1.4.0: a doctor carries two doses of the drugs given most often – no walk to the stockpile
+// (only safe ones: not addictive, cannot overdose)
+public class WorkGiver_StockDrugs : WorkGiver_Scanner
+{
+	private const int Carry = 2, Kinds = 3;
+
+	public override PathEndMode PathEndMode => PathEndMode.ClosestTouch;
+
+	public override bool ShouldSkip(Pawn pawn, bool forced = false)
+	{
+		var s = AutoPharmacyMod.Settings;
+		return !s.enabled || !s.doctorCarry || pawn.inventory == null || !pawn.IsColonist || Wanted(pawn).Count == 0;
+	}
+
+	private static List<ThingDef> Wanted(Pawn pawn)
+	{
+		var list = new List<ThingDef>();
+		foreach (ThingDef d in Comp.MostGiven(Kinds * 2))
+		{
+			DrugInfo info = Pharmacy.Drugs.FirstOrDefault(x => x.def == d);
+			if (info == null || info.addictiveness > 0f || info.overdoses || info.Combat || AutoPharmacyMod.Settings.blocked.Contains(d.defName))
+				continue;
+			if (pawn.inventory.innerContainer.TotalStackCountOfDef(d) < Carry)
+				list.Add(d);
+			if (list.Count >= Kinds)
+				break;
+		}
+		return list;
+	}
+
+	public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
+	{
+		foreach (ThingDef d in Wanted(pawn))
+			foreach (Thing t in pawn.Map.listerThings.ThingsOfDef(d))
+				yield return t;
+	}
+
+	public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
+	{
+		if (t.IsForbidden(pawn) || !t.Spawned || !pawn.CanReserveAndReach(t, PathEndMode.ClosestTouch, Danger.Some))
+			return false;
+		// only from a stockpile or shelf – not a dose somebody dropped in a fight
+		return t.IsInAnyStorage() && pawn.inventory.innerContainer.TotalStackCountOfDef(t.def) < Carry;
+	}
+
+	public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
+	{
+		Job job = JobMaker.MakeJob(JobDefOf.TakeInventory, t);
+		job.count = Math.Min(t.stackCount, Carry - pawn.inventory.innerContainer.TotalStackCountOfDef(t.def));
+		return job.count > 0 ? job : null;
+	}
+}
+
+
+// 1.4.0: a drug that lowers a condition right away (the antitoxin lowers toxic buildup)
+public class IngestionOutcomeDoer_ReduceHediff : IngestionOutcomeDoer
+{
+	public HediffDef hediffDef;
+	public float amount = 0.3f;
+
+	protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount)
+	{
+		Hediff h = hediffDef == null ? null : pawn.health?.hediffSet?.GetFirstHediffOfDef(hediffDef);
+		if (h == null)
+			return;
+		h.Severity -= amount;
+		if (h.Severity <= 0.001f)
+			pawn.health.RemoveHediff(h);
 	}
 }

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Auto Pharmacy 1.4.0: six simple medicines for gaps in the game. Own art (Textures/Things/Item/AutoPharmacy). -->
+
+  <!-- ===== herbal pain salve (neolithic) ===== -->
+  <ThingDef ParentName="MakeableDrugPillBase">
+    <defName>AP_PainSalve</defName>
+    <label>herbal pain salve</label>
+    <description>A green salve of crushed healroot, rubbed into sore spots. Dulls pain a little for half a day. Not addictive.</description>
+    <graphicData>
+      <texPath>Things/Item/AutoPharmacy/AP_PainSalve</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <socialPropernessMatters>false</socialPropernessMatters>
+    <statBases>
+      <WorkToMake>400</WorkToMake>
+      <MarketValue>9</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+    <techLevel>Neolithic</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <ingestCommandString>Apply {0}</ingestCommandString>
+      <ingestReportString>Applying {0}.</ingestReportString>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>AP_PainSalveHigh</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <recipeUsers>
+        <li>CraftingSpot</li>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <displayPriority>2200</displayPriority>
+    </recipeMaker>
+    <costList>
+      <MedicineHerbal>1</MedicineHerbal>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>1010</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>AP_PainSalveHigh</defName>
+    <hediffClass>Hediff_High</hediffClass>
+    <label>herbal pain salve</label>
+    <description>Healroot salve dulls the pain a little.</description>
+    <defaultLabelColor>(0.6,0.8,0.5)</defaultLabelColor>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-2</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <painFactor>0.75</painFactor>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- ===== fever tea (neolithic) ===== -->
+  <ThingDef ParentName="MakeableDrugPillBase">
+    <defName>AP_FeverTea</defName>
+    <label>fever tea</label>
+    <description>A pouch of dried healroot leaves for a bitter tea. Helps the body fight an illness a little faster for a day.</description>
+    <graphicData>
+      <texPath>Things/Item/AutoPharmacy/AP_FeverTea</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <socialPropernessMatters>false</socialPropernessMatters>
+    <statBases>
+      <WorkToMake>450</WorkToMake>
+      <MarketValue>12</MarketValue>
+      <Mass>0.1</Mass>
+    </statBases>
+    <techLevel>Neolithic</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <ingestSound>Ingest_Beer</ingestSound>
+      <ingestCommandString>Drink {0}</ingestCommandString>
+      <ingestReportString>Drinking {0}.</ingestReportString>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>AP_FeverTeaHigh</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <recipeUsers>
+        <li>CraftingSpot</li>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <displayPriority>2210</displayPriority>
+    </recipeMaker>
+    <costList>
+      <MedicineHerbal>1</MedicineHerbal>
+      <RawBerries>3</RawBerries>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>1011</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>AP_FeverTeaHigh</defName>
+    <hediffClass>Hediff_High</hediffClass>
+    <label>fever tea</label>
+    <description>The tea helps the body fight illness.</description>
+    <defaultLabelColor>(0.6,0.8,0.5)</defaultLabelColor>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <ImmunityGainSpeed>0.15</ImmunityGainSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- ===== coagulant powder (industrial) ===== -->
+  <ThingDef ParentName="MakeableDrugPillBase">
+    <defName>AP_Coagulant</defName>
+    <label>coagulant powder</label>
+    <description>A dark red powder that makes blood clot fast. Cuts bleeding a lot for a few hours – time to get the wounded to a doctor.</description>
+    <graphicData>
+      <texPath>Things/Item/AutoPharmacy/AP_Coagulant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <socialPropernessMatters>false</socialPropernessMatters>
+    <statBases>
+      <WorkToMake>600</WorkToMake>
+      <MarketValue>22</MarketValue>
+      <Mass>0.02</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>AP_CoagulantHigh</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <researchPrerequisite>MedicineProduction</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <displayPriority>2220</displayPriority>
+    </recipeMaker>
+    <costList>
+      <Neutroamine>1</Neutroamine>
+      <MedicineHerbal>1</MedicineHerbal>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>1012</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>AP_CoagulantHigh</defName>
+    <hediffClass>Hediff_High</hediffClass>
+    <label>coagulant</label>
+    <description>Blood clots much faster.</description>
+    <defaultLabelColor>(0.6,0.8,0.5)</defaultLabelColor>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-4</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <totalBleedFactor>0.6</totalBleedFactor>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- ===== antitoxin injector (industrial) ===== -->
+  <ThingDef ParentName="MakeableDrugPillBase">
+    <defName>AP_Antitoxin</defName>
+    <label>antitoxin injector</label>
+    <description>A single-use injector that binds toxins in the blood. Lowers toxic buildup at once.</description>
+    <graphicData>
+      <texPath>Things/Item/AutoPharmacy/AP_Antitoxin</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <socialPropernessMatters>false</socialPropernessMatters>
+    <statBases>
+      <WorkToMake>700</WorkToMake>
+      <MarketValue>30</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <ingestCommandString>Inject {0}</ingestCommandString>
+      <ingestReportString>Injecting {0}.</ingestReportString>
+      <outcomeDoers>
+        <li Class="AutoPharmacy.IngestionOutcomeDoer_ReduceHediff">
+          <hediffDef>ToxicBuildup</hediffDef>
+          <amount>0.3</amount>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <researchPrerequisite>MedicineProduction</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <displayPriority>2230</displayPriority>
+    </recipeMaker>
+    <costList>
+      <Neutroamine>1</Neutroamine>
+      <Steel>2</Steel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>1013</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- ===== calming tea (neolithic) ===== -->
+  <ThingDef ParentName="MakeableDrugPillBase">
+    <defName>AP_CalmingTea</defName>
+    <label>calming tea</label>
+    <description>A tin of mild herbal tea. A warm cup lifts the mood for a day. Not addictive.</description>
+    <graphicData>
+      <texPath>Things/Item/AutoPharmacy/AP_CalmingTea</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <socialPropernessMatters>false</socialPropernessMatters>
+    <statBases>
+      <WorkToMake>350</WorkToMake>
+      <MarketValue>8</MarketValue>
+      <Mass>0.1</Mass>
+    </statBases>
+    <techLevel>Neolithic</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <ingestSound>Ingest_Beer</ingestSound>
+      <ingestCommandString>Drink {0}</ingestCommandString>
+      <ingestReportString>Drinking {0}.</ingestReportString>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>AP_CalmingTeaHigh</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <recipeUsers>
+        <li>CraftingSpot</li>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <displayPriority>2240</displayPriority>
+    </recipeMaker>
+    <costList>
+      <RawBerries>4</RawBerries>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>1014</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>AP_CalmingTeaHigh</defName>
+    <hediffClass>Hediff_High</hediffClass>
+    <label>calming tea</label>
+    <description>A calm, warm feeling.</description>
+    <defaultLabelColor>(0.6,0.8,0.5)</defaultLabelColor>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li />
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>AP_CalmingTea</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>AP_CalmingTeaHigh</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>calming tea</label>
+        <description>A cup of calming tea. Everything feels a little easier.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- ===== burn gel (industrial) ===== -->
+  <ThingDef ParentName="MakeableDrugPillBase">
+    <defName>AP_BurnGel</defName>
+    <label>burn gel</label>
+    <description>A cooling gel for burns and fresh wounds. Wounds heal faster for a day and hurt a little less.</description>
+    <graphicData>
+      <texPath>Things/Item/AutoPharmacy/AP_BurnGel</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <socialPropernessMatters>false</socialPropernessMatters>
+    <statBases>
+      <WorkToMake>600</WorkToMake>
+      <MarketValue>24</MarketValue>
+      <Mass>0.1</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <ingestCommandString>Apply {0}</ingestCommandString>
+      <ingestReportString>Applying {0}.</ingestReportString>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>AP_BurnGelHigh</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <researchPrerequisite>MedicineProduction</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <displayPriority>2250</displayPriority>
+    </recipeMaker>
+    <costList>
+      <Neutroamine>1</Neutroamine>
+      <Chemfuel>2</Chemfuel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>1015</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>AP_BurnGelHigh</defName>
+    <hediffClass>Hediff_High</hediffClass>
+    <label>burn gel</label>
+    <description>Wounds heal faster and hurt a little less.</description>
+    <defaultLabelColor>(0.6,0.8,0.5)</defaultLabelColor>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <painFactor>0.9</painFactor>
+        <statOffsets>
+          <InjuryHealingFactor>0.3</InjuryHealingFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

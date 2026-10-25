@@ -9,7 +9,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 ## Mods (dev)
 | Mod | Version | Folder |
 |---|---|---|
-| Auto Pharmacy – Doctors Give the Right Drug | 1.3.5 | [AutoPharmacy](AutoPharmacy) |
+| Auto Pharmacy – Doctors Give the Right Drug | 1.4.0 | [AutoPharmacy](AutoPharmacy) |
 | Auto Turrets | 1.0.0 | [AutoTurrets](AutoTurrets) |
 | Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.5.2 | [BodyFit](BodyFit) |
 | Caravan Helper | 1.0.1 | [CaravanHelper](CaravanHelper) |
