@@ -29,12 +29,12 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Smart Colonist Gear – Auto Equip Weapons & Armor | 2.15.0 | [SmartColonistGear](SmartColonistGear) |
 | Smooth FPS – Performance & Graphics | 1.3.1 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
-| Steward – Work Priorities | 3.2.1 | [Steward2/Steward](Steward2/Steward) |
-| Steward – Crises & Situations | 1.0.3 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| Steward – Work Priorities | 3.2.2 | [Steward2/Steward](Steward2/Steward) |
+| Steward – Crises & Situations | 1.0.4 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
 | Steward – Supplies | 1.0.0 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
-| Universal RimTranslator | 2.0.1 | [UniversalRimTranslator](UniversalRimTranslator) |
+| Universal RimTranslator | 2.1.0 | [UniversalRimTranslator](UniversalRimTranslator) |
 | Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.0 | [UnofficialPatch](UnofficialPatch) |
 | Wild Spawn Zone | 1.1.2 | [WildSpawnZone](WildSpawnZone) |
 | Tech Progression: World at Your Level | 2.14.1 | [WorldAtYourLevel](WorldAtYourLevel) |

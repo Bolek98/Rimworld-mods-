@@ -11,7 +11,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "3.2.1";
+	public const string Version = "3.2.2";
 	public static ForemanSettings Settings;
 
 	private int tab;
@@ -60,6 +60,7 @@ public sealed class ForemanMod : Mod
 		Widgets.BeginScrollView(inner, ref scroll, view);
 		var l = new Listing_Standard();
 		l.Begin(view);
+		l.maxOneColumn = true;   // no hidden second column when the list is taller than the view
 		if (tab == 0)
 			General(l, s);
 		else

@@ -110,6 +110,7 @@ public sealed class CrisesMod : Mod
 		Widgets.BeginScrollView(inRect, ref scroll, view);
 		var l = new Listing_Standard();
 		l.Begin(view);
+		l.maxOneColumn = true;   // no hidden second column when the list is taller than the view
 		l.CheckboxLabeled("CF2C_UseCrisis".Translate(), ref S.useCrisis, "CF2C_UseCrisisTip".Translate());
 		l.CheckboxLabeled("CF2C_UseSituations".Translate(), ref S.useSituations, "CF2C_UseSituationsTip".Translate());
 		l.CheckboxLabeled("CF2C_AutoFocus".Translate(), ref S.balancedAutoFocus, "CF2C_AutoFocusTip".Translate());
