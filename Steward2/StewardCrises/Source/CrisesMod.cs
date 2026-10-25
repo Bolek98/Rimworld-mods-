@@ -90,6 +90,20 @@ public sealed class CrisesMod : Mod
 
 	public override string SettingsCategory() => "Steward – " + "CF2C_Name".Translate();
 
+	// 1.0.3: one broken text (a modded work type without a label …) must not hide the whole list
+	private static string Safe(Func<string> f, string fallback)
+	{
+		try
+		{
+			return f() ?? fallback;
+		}
+		catch (Exception ex)
+		{
+			MLog.WarnOnce("[Steward] crises settings text failed for " + fallback + ": " + ex, ("cs" + fallback).GetHashCode());
+			return fallback;
+		}
+	}
+
 	public override void DoSettingsWindowContents(Rect inRect)
 	{
 		Rect view = new Rect(0f, 0f, inRect.width - 18f, viewH);
@@ -112,7 +126,7 @@ public sealed class CrisesMod : Mod
 			{
 				bool on = (S.crisisOff & (long)c) == 0;
 				bool was = on;
-				l.CheckboxLabeled("   " + CrisisRules.Label(c), ref on, CrisisRules.Describe(c));
+				l.CheckboxLabeled("   " + Safe(() => CrisisRules.Label(c), c.ToString()), ref on, Safe(() => CrisisRules.Describe(c), ""));
 				if (on != was)
 					S.crisisOff = on ? S.crisisOff & ~(long)c : S.crisisOff | (long)c;
 			}
@@ -125,7 +139,7 @@ public sealed class CrisesMod : Mod
 			{
 				bool on = !S.situationOff.Contains(s.ToString());
 				bool was = on;
-				l.CheckboxLabeled("   " + SituationRules.Label(s), ref on, ("CF_SitWhen_" + s).Translate() + "\n\n" + SituationRules.Describe(s));
+				l.CheckboxLabeled("   " + Safe(() => SituationRules.Label(s), s.ToString()), ref on, Safe(() => ("CF_SitWhen_" + s).Translate() + "\n\n" + SituationRules.Describe(s), ""));
 				if (on != was)
 				{
 					if (on) S.situationOff.Remove(s.ToString());
