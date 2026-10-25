@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PFE_Rec1>An alert when items have nowhere to go</PFE_Rec1>
+  <PFE_Rec2>Whole categories are allowed, so new items of the same kind fit too</PFE_Rec2>
+  <PFE_Rec3>Storages with default names get a label of what is inside</PFE_Rec3>
+  <PFE_Alert>Alert for homeless items</PFE_Alert>
+  <PFE_Alert_Desc>Shows how many kinds of items no stockpile or shelf accepts. Click it to open the preview.</PFE_Alert_Desc>
+  <PFE_WholeCategory>Allow the whole category</PFE_WholeCategory>
+  <PFE_WholeCategory_Desc>Adds the item's whole category (e.g. all raw stone blocks), not only the one item – new items of the same kind then have a place too.</PFE_WholeCategory_Desc>
+  <PFE_Rename>Name storages by contents</PFE_Rename>
+  <PFE_Rename_Desc>Stockpiles and shelf groups with a default name get a label of what they hold ("Freezer – Raw food, Meals"). Names you wrote yourself are never changed.</PFE_Rename_Desc>
+  <PFE_Forbidden>Include forbidden items</PFE_Forbidden>
+  <PFE_Forbidden_Desc>Also look for a place for items you have forbidden.</PFE_Forbidden_Desc>
+  <PFE_Title>Place for everything</PFE_Title>
+  <PFE_Intro>Items that no stockpile or shelf accepts. Each gets the best place in your storage – change it with the button, untick what you want to leave. Only allowances are added; nothing your storage takes now is removed.</PFE_Intro>
+  <PFE_Nothing>Every item has a place. 👍</PFE_Nothing>
+  <PFE_ColItem>Item</PFE_ColItem>
+  <PFE_ColWhere>Goes to</PFE_ColWhere>
+  <PFE_ColWhy>Why</PFE_ColWhy>
+  <PFE_Category>Category: {0}</PFE_Category>
+  <PFE_Apply>Apply ({0})</PFE_Apply>
+  <PFE_Undo>Undo the last change</PFE_Undo>
+  <PFE_All>All</PFE_All>
+  <PFE_None>None</PFE_None>
+  <PFE_Applied>{0} kinds of items got a place in {1} storages.</PFE_Applied>
+  <PFE_Undone>The last change of storage was undone.</PFE_Undone>
+  <PFE_Why_Space>free storage</PFE_Why_Space>
+  <PFE_Why_Similar>similar items are there</PFE_Why_Similar>
+  <PFE_Why_Bench>a workbench nearby uses it</PFE_Why_Bench>
+  <PFE_Why_Freezer>spoils – freezer</PFE_Why_Freezer>
+  <PFE_Why_Kitchen>by the kitchen</PFE_Why_Kitchen>
+  <PFE_Why_Hospital>by the hospital</PFE_Why_Hospital>
+  <PFE_Why_Outside>belongs outside</PFE_Why_Outside>
+  <PFE_Why_Yours>your choice</PFE_Why_Yours>
+  <PFE_Place_Freezer>Freezer</PFE_Place_Freezer>
+  <PFE_Place_Hospital>Hospital</PFE_Place_Hospital>
+  <PFE_Place_Kitchen>Kitchen</PFE_Place_Kitchen>
+  <PFE_Place_Outside>Outside</PFE_Place_Outside>
+  <PFE_Place_Storage>Storage</PFE_Place_Storage>
+  <PFE_Everything>everything</PFE_Everything>
+  <PFE_AlertLabel>Items without a place</PFE_AlertLabel>
+  <PFE_AlertLabelN>{0} items without a place</PFE_AlertLabelN>
+  <PFE_AlertDesc>Some kinds of items lying around are not accepted by any stockpile or shelf, so nobody hauls them.\n\nClick to see where each could go and confirm.</PFE_AlertDesc>
+  <PFE_Button>Place for everything</PFE_Button>
+  <PFE_ButtonDesc>Find items that no storage accepts and give them a logical place (preview first).</PFE_ButtonDesc>
+  <PFE_OnlyHome>Only in the home area</PFE_OnlyHome>
+  <PFE_OnlyHome_Desc>Only items lying inside the home area count – not loot far away on the map.</PFE_OnlyHome_Desc>
+  <PFE_Chunks>Include chunks</PFE_Chunks>
+  <PFE_Chunks_Desc>Rock and slag chunks usually stay where they lie. Turn on to find a place for them too.</PFE_Chunks_Desc>
+</LanguageData>

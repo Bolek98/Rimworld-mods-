@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Place for Everything – Smart Storage for Homeless Items</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.placeforeverything</packageId>
+  <modVersion>0.1.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>Finds items that no stockpile or shelf accepts and gives each of them a logical place in your existing storage – with a preview you confirm.
+
+- An alert shows how many kinds of items have nowhere to go.
+- For each one it picks the best storage: food that spoils goes to the freezer, medicine to the hospital, materials next to the workbench that uses them, chunks outside, weapons and clothes where similar ones already are.
+- It only adds: what your storage already accepts stays as it is.
+- Default storage names get a label of what is inside ("Storage – Food, Medicine"); names you gave yourself are kept.
+- Undo the last change with one click.
+
+Nothing changes without your confirmation. Safe to add to an existing save. Requires Harmony. Czech and English.
+
+---
+
+Najde věci, které nebere žádný sklad ani police, a každé dá logické místo v tvých stávajících skladech – s náhledem, který potvrdíš.
+
+- Upozornění ukáže, kolik druhů věcí nemá kde ležet.
+- Pro každou vybere nejlepší sklad: jídlo, které se kazí, do mrazáku, léky k nemocnici, materiál k ponku, který ho používá, kamení ven, zbraně a oblečení tam, kde už podobné leží.
+- Jen přidává: co tvé sklady berou teď, zůstane beze změny.
+- Sklady s výchozím názvem dostanou označení obsahu („Sklad – Jídlo, Léky“); názvy, které jsi dal sám, zůstanou.
+- Poslední změnu jde jedním kliknutím vrátit.
+
+Bez tvého potvrzení se nic nezmění. Lze bezpečně přidat do rozehrané hry. Vyžaduje Harmony. Čeština a angličtina.</description>
+</ModMetaData>
