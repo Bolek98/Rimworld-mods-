@@ -41,10 +41,15 @@ namespace HaulSmarter
         public bool highlight = true;           // 3.0: mark waiting items while the overview is open
         public bool cleanupNotice = true;       // 3.1: "the battle is over – N things to clean up"
         public bool cleanupAuto = false;        // 3.1: clean up by itself after every battle
+        public bool dropOnDraft = true;         // 3.2: drafted colonists put hauled things down first
+        public bool fuelRound = true;           // 3.2: one fuel trip for several torches, stoves, generators
+        public bool mergeStacks = true;         // 3.2: idle haulers join half stacks in storage
+        public int benchCells = 4;              // 3.2: size of a workbench supply stockpile
 
         public static readonly string[] ProfileFields =
         {
-            "haulMany", "maxItems", "scanRadius", "pocketHarvest", "pocketMine", "unloadAt", "smartRoute", "opportunistic", "prioPerish", "prioWeather", "prioValuable", "buildFromPockets"
+            "haulMany", "maxItems", "scanRadius", "pocketHarvest", "pocketMine", "unloadAt", "smartRoute", "opportunistic", "prioPerish", "prioWeather", "prioValuable", "buildFromPockets",
+            "dropOnDraft", "fuelRound", "mergeStacks"
         };
 
         public static HSSettings PresetValues(int which)
@@ -55,6 +60,7 @@ namespace HaulSmarter
                 case 0:
                     p.smartRoute = false; p.opportunistic = false; p.buildFromPockets = false; p.prioPerish = 0; p.prioWeather = 0; p.prioValuable = 0;
                     p.pocketHarvest = false; p.pocketMine = false;
+                    p.dropOnDraft = false; p.fuelRound = false; p.mergeStacks = false;
                     break;
                 case 2:
                     p.maxItems = 60; p.scanRadius = 24; p.unloadAt = 0.95f; p.prioValuable = 2;
@@ -112,6 +118,10 @@ namespace HaulSmarter
             Scribe_Values.Look(ref highlight, "highlight", true);
             Scribe_Values.Look(ref cleanupNotice, "cleanupNotice", true);
             Scribe_Values.Look(ref cleanupAuto, "cleanupAuto", false);
+            Scribe_Values.Look(ref dropOnDraft, "dropOnDraft", true);
+            Scribe_Values.Look(ref fuelRound, "fuelRound", true);
+            Scribe_Values.Look(ref mergeStacks, "mergeStacks", true);
+            Scribe_Values.Look(ref benchCells, "benchCells", 4);
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
                 Preset(profile);
         }
@@ -119,7 +129,7 @@ namespace HaulSmarter
 
     public sealed class HSMod : Mod
     {
-        public const string Version = "3.1.0";
+        public const string Version = "3.2.0";
         public static HSSettings S;
         private Vector2 scroll;
         private float height = 900f;
@@ -228,6 +238,9 @@ namespace HaulSmarter
             Check(l, "HS_SmartRoute", ref s.smartRoute, "smartRoute");
             Check(l, "HS_Opportunistic", ref s.opportunistic, "opportunistic");
             Check(l, "HS_BuildPockets", ref s.buildFromPockets, "buildFromPockets");
+            Check(l, "HS_FuelRound", ref s.fuelRound, "fuelRound");
+            Check(l, "HS_MergeStacks", ref s.mergeStacks, "mergeStacks");
+            Check(l, "HS_DropOnDraft", ref s.dropOnDraft, "dropOnDraft");
             s.unloadAt = Mathf.Round(MUI.Slider(l, "HS_UnloadAt".Translate(s.unloadAt.ToStringPercent()), s.unloadAt, 0.2f, 1f, "HS_UnloadAt_Desc".Translate(), s, "unloadAt") * 20f) / 20f;
             MUI.Section(l, "HS_SecPrio".Translate());
             Prio(l, "HS_PrioPerish", s.prioPerish, v => s.prioPerish = v, "prioPerish");
@@ -254,6 +267,16 @@ namespace HaulSmarter
             if (before != s.overviewButton)
                 Overview.SetButton();
             Check(r, "HS_Highlight", ref s.highlight, null);
+            MUI.Section(r, "HS_SecBench".Translate());
+            s.benchCells = Mathf.RoundToInt(MUI.Slider(r, "HS_BenchCells".Translate(s.benchCells), s.benchCells, 1f, 9f, "HS_BenchCells_Desc".Translate(), s, null));
+            if (Safe.AnyOff)
+            {
+                GUI.color = MUI.Warn;
+                r.Label("HS_SafeList".Translate(Safe.OffList()));
+                GUI.color = Color.white;
+                if (r.ButtonText("HS_SafeReset".Translate()))
+                    Safe.Reset();
+            }
             MUI.Section(r, "HS_SecCleanup".Translate());
             Check(r, "HS_CleanupNotice", ref s.cleanupNotice, null);
             Check(r, "HS_CleanupAuto", ref s.cleanupAuto, null);
@@ -302,6 +325,7 @@ namespace HaulSmarter
     [DefOf]
     public static class HSDefOf
     {
+        public static JobDef HaulSmarterRefuelRound;
         public static JobDef HaulSmarterMany;
         public static JobDef HaulSmarterUnload;
         public static MainButtonDef HaulSmarterOverview;

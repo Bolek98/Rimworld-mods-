@@ -250,7 +250,7 @@ namespace HaulSmarter
 
         public override bool ShouldSkip(Pawn pawn, bool forced = false)
         {
-            return !Compat.Hauling || !HaulUtil.CanUsePockets(pawn) || pawn.Map.listerHaulables.ThingsPotentiallyNeedingHauling().Count == 0;
+            return !Compat.Hauling || !Safe.On("haul") || !HaulUtil.CanUsePockets(pawn) || pawn.Map.listerHaulables.ThingsPotentiallyNeedingHauling().Count == 0;
         }
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
@@ -269,7 +269,15 @@ namespace HaulSmarter
         {
             if (t is Corpse)
                 return null;
-            return HaulUtil.MakeJob(pawn, t, forced);
+            try
+            {
+                return HaulUtil.MakeJob(pawn, t, forced);
+            }
+            catch (Exception e)
+            {
+                Safe.Fail("haul", e);
+                return null;
+            }
         }
     }
 
@@ -573,7 +581,19 @@ namespace HaulSmarter
             foreach (Toil t in toils)
             {
                 if (t.defaultCompleteMode == ToilCompleteMode.Never)
-                    t.AddFinishAction(() => Pockets.Scoop(d.pawn, mine));
+                    t.AddFinishAction(() =>
+                    {
+                        if (!Safe.On("pockets"))
+                            return;
+                        try
+                        {
+                            Pockets.Scoop(d.pawn, mine);
+                        }
+                        catch (Exception e)
+                        {
+                            Safe.Fail("pockets", e);
+                        }
+                    });
                 yield return t;
             }
         }
@@ -597,8 +617,15 @@ namespace HaulSmarter
         {
             if (__instance.emergency || __result.Job != null || pawn == null || pawn.Drafted || !pawn.Spawned || !pawn.IsColonistPlayerControlled)
                 return;
-            if (HaulUtil.CanUnloadHere(pawn))
-                __result = new ThinkResult(JobMaker.MakeJob(HSDefOf.HaulSmarterUnload), __instance);
+            try
+            {
+                if (HaulUtil.CanUnloadHere(pawn))
+                    __result = new ThinkResult(JobMaker.MakeJob(HSDefOf.HaulSmarterUnload), __instance);
+            }
+            catch (Exception e)
+            {
+                Safe.Fail("unload", e);
+            }
         }
     }
 

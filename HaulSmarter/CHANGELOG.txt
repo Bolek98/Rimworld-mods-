@@ -1,4 +1,11 @@
 === Not on the Workshop yet (test versions) ===
+3.2.0
+- Workbench supply: a "Supply" button on every workbench makes a small stockpile right next to it that takes exactly the ingredients of its active bills (updated by itself, preferred priority) – the crafter no longer walks across the map. It is an ordinary stockpile and stays one without this mod.
+- Fuel round: a colonist who goes to refuel takes fuel for the other torches, stoves and generators nearby that need it too and fills them one after another. What is left goes back to storage.
+- Join half stacks: when nothing else waits, haulers put half stacks of the same thing in the same stockpile together (not on shelves or deep storage).
+- Put things down when drafted: a drafted colonist drops the things he carries to storage at once – not slowed, nothing lost if he goes down.
+- Self-safety: a part of the mod that keeps failing (usually together with another mod) switches itself off after 5 errors and tells you once, instead of filling the log. The settings show what is off and can switch it on again.
+
 3.1.0
 - Clean-up after a battle: one button in the Hauling overview allows the weapons, apparel and bodies enemies left around the base (the game forbids them) and has them hauled before everything else. A message tells you when a battle is over; optionally it cleans up by itself.
 

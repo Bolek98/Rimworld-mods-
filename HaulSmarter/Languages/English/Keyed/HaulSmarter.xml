@@ -83,4 +83,30 @@
   <HS_CleanupButton>Clean up after battle ({0})</HS_CleanupButton>
   <HS_CleanupButton_Desc>Allows weapons, apparel and bodies lying around the base (the game forbids enemy gear) and has them hauled before everything else.</HS_CleanupButton_Desc>
   <HS_CleanupStarted>Clean-up started: {0} things will be hauled first.</HS_CleanupStarted>
+  <HS_FuelRound>Fuel round</HS_FuelRound>
+  <HS_FuelRound_Desc>A colonist who goes to refuel takes enough fuel for the other torches, stoves and generators nearby that need it too, and fills them one after another – one trip to the stockpile instead of one for each. What is left goes back to storage.</HS_FuelRound_Desc>
+  <HS_MergeStacks>Join half stacks</HS_MergeStacks>
+  <HS_MergeStacks_Desc>When nothing else waits, haulers put half stacks of the same thing in the same stockpile together – more free cells. Shelves and storage that holds many things in one cell are left alone.</HS_MergeStacks_Desc>
+  <HS_DropOnDraft>Put things down when drafted</HS_DropOnDraft>
+  <HS_DropOnDraft_Desc>A drafted colonist puts the things he carries to storage down at once – he is not slowed and nothing is lost if he goes down. They are hauled again later.</HS_DropOnDraft_Desc>
+  <HS_SecBench>Workbench supply</HS_SecBench>
+  <HS_BenchCells>Supply stockpile size: {0} cells</HS_BenchCells>
+  <HS_BenchCells_Desc>How many cells the "Supply" button on a workbench uses for the small stockpile next to the bench.</HS_BenchCells_Desc>
+  <HS_Bench>Supply</HS_Bench>
+  <HS_Bench_Desc>Makes a small stockpile right next to this bench that takes exactly the ingredients of its active bills (updated by itself, preferred priority). The crafter takes them from beside the bench instead of walking across the map. Click again to remove it. It is an ordinary stockpile – it stays even without Haul Smarter.</HS_Bench_Desc>
+  <HS_BenchZone>Supply: {0}</HS_BenchZone>
+  <HS_BenchStarted>{0}: supply stockpile with {1} cells made – the ingredients of its bills will be brought there.</HS_BenchStarted>
+  <HS_BenchNoRoom>No free cells next to this bench for a supply stockpile.</HS_BenchNoRoom>
+  <HS_SafeOff>Haul Smarter: "{0}" kept failing (probably together with another mod) and is switched off until the next start. Details are in the log.</HS_SafeOff>
+  <HS_SafeList>Switched off after errors: {0}</HS_SafeList>
+  <HS_SafeReset>Switch them on again</HS_SafeReset>
+  <HS_Feat_haul>hauling several things</HS_Feat_haul>
+  <HS_Feat_pockets>harvest and mining pockets</HS_Feat_pockets>
+  <HS_Feat_unload>unloading the pockets</HS_Feat_unload>
+  <HS_Feat_onTheWay>things on the way</HS_Feat_onTheWay>
+  <HS_Feat_buildPockets>building from the pockets</HS_Feat_buildPockets>
+  <HS_Feat_draft>putting things down when drafted</HS_Feat_draft>
+  <HS_Feat_bench>workbench supply</HS_Feat_bench>
+  <HS_Feat_fuel>fuel round</HS_Feat_fuel>
+  <HS_Feat_merge>joining half stacks</HS_Feat_merge>
 </LanguageData>

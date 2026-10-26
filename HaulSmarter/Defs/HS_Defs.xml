@@ -12,7 +12,23 @@
     <reportString>unloading hauled things.</reportString>
     <casualInterruptible>true</casualInterruptible>
   </JobDef>
+  <JobDef>
+    <defName>HaulSmarterRefuelRound</defName>
+    <driverClass>HaulSmarter.JobDriver_RefuelRound</driverClass>
+    <reportString>refueling several things.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
 
+  <WorkGiverDef>
+    <defName>HaulSmarterMergeStacks</defName>
+    <label>join half stacks in storage</label>
+    <giverClass>HaulSmarter.WorkGiver_MergeStacks</giverClass>
+    <workType>Hauling</workType>
+    <priorityInType>1</priorityInType>
+    <verb>join</verb>
+    <gerund>joining stacks of</gerund>
+    <requiredCapacities><li>Manipulation</li></requiredCapacities>
+  </WorkGiverDef>
 
   <WorkGiverDef>
     <defName>HaulSmarterUnloadPockets</defName>

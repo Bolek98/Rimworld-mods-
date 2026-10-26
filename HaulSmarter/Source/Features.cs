@@ -246,12 +246,12 @@ namespace HaulSmarter
                 Job job = __instance.job;
                 if (job == null || job.def == JobDefOf.HaulToCell || job.def == JobDefOf.HaulToContainer)
                     return;
-                if (OnTheWay.CanTake(__instance.pawn, job))
+                if (Safe.On("onTheWay") && OnTheWay.CanTake(__instance.pawn, job))
                     OnTheWay.TakeOne(__instance.pawn);
             }
             catch (Exception e)
             {
-                Log.WarningOnce("[Haul Smarter] after-work pickup: " + e.Message, 0x4a51e1);
+                Safe.Fail("onTheWay", e);
             }
         }
     }
@@ -312,7 +312,7 @@ namespace HaulSmarter
             try
             {
                 HSSettings s = HSMod.S;
-                if (s == null || !s.buildFromPockets || pawn == null || c == null || c is Blueprint_Install || !(c is Thing ct) || !ct.Spawned)
+                if (s == null || !s.buildFromPockets || !Safe.On("buildPockets") || pawn == null || c == null || c is Blueprint_Install || !(c is Thing ct) || !ct.Spawned)
                     return true;
                 if (FloatMenuMakerMap.makingFor == pawn || pawn.carryTracker == null || pawn.carryTracker.CarriedThing != null || !HaulUtil.HasTracked(pawn))
                     return true;
@@ -343,7 +343,7 @@ namespace HaulSmarter
             }
             catch (Exception e)
             {
-                Log.WarningOnce("[Haul Smarter] build from pockets: " + e.Message, 0x4a51e3);
+                Safe.Fail("buildPockets", e);
                 return true;
             }
         }

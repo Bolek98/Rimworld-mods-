@@ -3,7 +3,7 @@
   <name>Haul Smarter</name>
   <author>Bolek98</author>
   <packageId>misak.haulsmarter</packageId>
-  <modVersion>3.1.0</modVersion>
+  <modVersion>3.2.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -38,6 +38,13 @@ New in 3.0:
 - Building from the pockets: material a colonist carries goes straight to the construction site.
 - Weight: bar above the colonist, "carries 42 / 75 kg" and "stored in ~1.5 h" in the inspect pane, optional slowdown for heavy loads.
 - Hauling overview button: what waits, how heavy, what rots, how many haulers, time until done, who hauled how much (saved with the game), unhauled things outlined on the map.
+
+New in 3.2:
+- Workbench supply: one button makes a small stockpile next to a bench with exactly the ingredients of its bills – no more walking across the map for every bill.
+- Fuel round: one trip to the stockpile fills several torches, stoves and generators nearby.
+- Half stacks in storage are joined when nothing else waits.
+- Clean-up after a battle, and drafted colonists put down what they carry.
+- Self-safety: a part that keeps failing with another mod switches itself off and tells you.
 
 Turn off Pick Up And Haul and Harvest And Haul – while they are active, the same part of Haul Smarter switches itself off. Czech and English. Safe to add to an existing save.</description>
 </ModMetaData>

@@ -83,4 +83,30 @@
   <HS_CleanupButton>Úklid po bitvě ({0})</HS_CleanupButton>
   <HS_CleanupButton_Desc>Povolí zbraně, oblečení a těla ležící kolem základny (hra výbavu nepřátel zakazuje) a nechá je odnést přede vším ostatním.</HS_CleanupButton_Desc>
   <HS_CleanupStarted>Úklid začal: {0} věcí se odnese jako první.</HS_CleanupStarted>
+  <HS_FuelRound>Palivo na jednu cestu</HS_FuelRound>
+  <HS_FuelRound_Desc>Kolonista, který jde doplnit palivo, vezme rovnou i pro další pochodně, kamna a generátory poblíž, které ho potřebují, a doplní je jedno po druhém – jedna cesta do skladu místo cesty pro každé. Co zbyde, vrátí do skladu.</HS_FuelRound_Desc>
+  <HS_MergeStacks>Spojovat půlstohy</HS_MergeStacks>
+  <HS_MergeStacks_Desc>Když nic jiného nečeká, nosiči spojí neúplné stohy stejné věci ve stejném skladu – víc volných políček. Police a sklady s více věcmi na políčku nechá být.</HS_MergeStacks_Desc>
+  <HS_DropOnDraft>Při draftu věci odložit</HS_DropOnDraft>
+  <HS_DropOnDraft_Desc>Draftnutý kolonista hned odloží věci, které nese do skladu – není zpomalený a nic se neztratí, když padne. Později se odnesou znovu.</HS_DropOnDraft_Desc>
+  <HS_SecBench>Zásobování ponků</HS_SecBench>
+  <HS_BenchCells>Velikost skladu u ponku: {0} políček</HS_BenchCells>
+  <HS_BenchCells_Desc>Kolik políček použije tlačítko „Zásobovat“ u ponku pro malý sklad vedle něj.</HS_BenchCells_Desc>
+  <HS_Bench>Zásobovat</HS_Bench>
+  <HS_Bench_Desc>Udělá hned vedle ponku malý sklad, který bere přesně suroviny jeho aktivních zakázek (sám se aktualizuje, priorita Přednostní). Výrobce je vezme vedle ponku a neběhá přes celou mapu. Dalším kliknutím sklad zrušíš. Je to obyčejný sklad – zůstane i bez Haul Smarter.</HS_Bench_Desc>
+  <HS_BenchZone>Zásoby: {0}</HS_BenchZone>
+  <HS_BenchStarted>{0}: sklad zásob s {1} políčky je hotový – budou se tam nosit suroviny jeho zakázek.</HS_BenchStarted>
+  <HS_BenchNoRoom>Vedle tohoto ponku nejsou volná políčka pro sklad zásob.</HS_BenchNoRoom>
+  <HS_SafeOff>Haul Smarter: „{0}“ opakovaně selhávalo (nejspíš spolu s jiným modem) a do dalšího spuštění je vypnuté. Podrobnosti jsou v logu.</HS_SafeOff>
+  <HS_SafeList>Vypnuto po chybách: {0}</HS_SafeList>
+  <HS_SafeReset>Znovu zapnout</HS_SafeReset>
+  <HS_Feat_haul>odnášení více věcí</HS_Feat_haul>
+  <HS_Feat_pockets>kapsy při sklizni a těžbě</HS_Feat_pockets>
+  <HS_Feat_unload>vykládání kapes</HS_Feat_unload>
+  <HS_Feat_onTheWay>věci po cestě</HS_Feat_onTheWay>
+  <HS_Feat_buildPockets>stavění z kapes</HS_Feat_buildPockets>
+  <HS_Feat_draft>odložení věcí při draftu</HS_Feat_draft>
+  <HS_Feat_bench>zásobování ponků</HS_Feat_bench>
+  <HS_Feat_fuel>palivo na jednu cestu</HS_Feat_fuel>
+  <HS_Feat_merge>spojování půlstohů</HS_Feat_merge>
 </LanguageData>

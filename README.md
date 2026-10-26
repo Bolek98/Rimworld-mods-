@@ -18,7 +18,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Evergrowth – Wild Plants | 1.1.4 | [EvergrowthWildPlants](EvergrowthWildPlants) |
 | Fewer Freezes – Smart Memory Cleanup | 1.1.1 | [FewerFreezes](FewerFreezes) |
 | Gender Balance | 1.3.3 | [GenderBalance](GenderBalance) |
-| Haul Smarter | 3.1.0 | [HaulSmarter](HaulSmarter) |
+| Haul Smarter | 3.2.0 | [HaulSmarter](HaulSmarter) |
 | Legacy – Your Old Colonies Live On | 0.1.0 | [Legacy](Legacy) |
 | Map Architect | 0.4.2 | [MapArchitect](MapArchitect) |
 | Masks & Headgear Together | 1.0.0 | [MasksAndHeadgear](MasksAndHeadgear) |
@@ -34,9 +34,9 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Smooth FPS – Performance & Graphics | 1.4.0 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 3.4.1 | [Steward2/Steward](Steward2/Steward) |
-| Steward – Crises & Situations | 1.0.5 | [Steward2/StewardCrises](Steward2/StewardCrises) |
-| Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
-| Steward – Supplies | 1.0.1 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
+| Steward – Crises & Situations | 1.0.6 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| Steward – Schedules | 1.0.1 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
+| Steward – Supplies | 1.0.2 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
 | Universal RimTranslator | 2.4.0 | [UniversalRimTranslator](UniversalRimTranslator) |
 | Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.1 | [UnofficialPatch](UnofficialPatch) |
