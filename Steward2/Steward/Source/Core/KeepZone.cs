@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
 using RimWorld;
 using UnityEngine;
@@ -74,7 +75,40 @@ public class Zone_StewardKeep : Zone_Stockpile
 		if (!t.Spawned || t.def.category != ThingCategory.Item)
 			return false;
 		Map m = t.Map;
-		return m != null && m.zoneManager.ZoneAt(t.Position) is Zone_StewardKeep k && k.locked;
+		// 3.3.1: only what the zone is set to keep – anything else that lands there
+		// (goods dropped by a trade ship, a stray item) is hauled away as usual
+		return m != null && m.zoneManager.ZoneAt(t.Position) is Zone_StewardKeep k && k.locked
+			&& k.settings != null && k.settings.AllowedToAccept(t);
+	}
+}
+
+// 3.3.1: orbital trade beacon – one click makes a keep zone over its whole trade area.
+// Traders still see and buy everything in it (trade ignores "forbidden"), only colonists
+// leave it alone.
+[HarmonyPatch(typeof(Building_OrbitalTradeBeacon), nameof(Building_OrbitalTradeBeacon.GetGizmos))]
+public static class KeepZoneBeaconPatch
+{
+	public static IEnumerable<Gizmo> Postfix(IEnumerable<Gizmo> __result, Building_OrbitalTradeBeacon __instance)
+	{
+		foreach (Gizmo g in __result)
+			yield return g;
+		if (__instance.Faction != Faction.OfPlayerSilentFail)
+			yield break;
+		Designator_ZoneAddKeep des = DesignatorUtility.FindAllowedDesignator<Designator_ZoneAddKeep>();
+		if (des == null)
+			yield break;
+		yield return new Command_Action
+		{
+			defaultLabel = "CF_Keep_Beacon".Translate(),
+			defaultDesc = "CF_Keep_BeaconDesc".Translate(),
+			icon = des.icon,
+			defaultIconColor = des.defaultIconColor,
+			action = () =>
+			{
+				Find.Selector.ClearSelection();
+				des.DesignateMultiCell(__instance.TradeableCells.Where(c => des.CanDesignateCell(c).Accepted).ToList());
+			}
+		};
 	}
 }
 
