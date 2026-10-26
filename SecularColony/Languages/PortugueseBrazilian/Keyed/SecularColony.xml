@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SC_ModName>Secular Colony – Ideology desligado e ajustes</SC_ModName>
+  <SC_NoIdeology>A DLC Ideology não está ativa – não há nada para desligar.</SC_NoIdeology>
+  <SC_Enable>Minha colônia ignora a ideoligião</SC_Enable>
+  <SC_Enable_Desc>Chave principal. Afeta apenas seus colonos (e escravos, se escolhido), não outras facções. Desligar traz tudo de volta.</SC_Enable_Desc>
+  <SC_Moods>Sem humor por crenças</SC_Moods>
+  <SC_Moods_Desc>Pensamentos de preceitos, rituais, papéis, construções da ideoligião, roupas e cores desejadas não dão bônus nem penalidade. Pensamentos de crença existentes são removidos.</SC_Moods_Desc>
+  <SC_Certainty>Sem conversão</SC_Certainty>
+  <SC_Certainty_Desc>A certeza nunca cai, ninguém converte seus colonos e seus colonos não tentam converter outros. A conversão de prisioneiros que você mesmo ordena continua funcionando.</SC_Certainty_Desc>
+  <SC_Willing>A ideoligião não proíbe nada</SC_Willing>
+  <SC_Willing_Desc>"A ideoligião proíbe" não impede mais os colonos de nenhum trabalho ou ação.</SC_Willing_Desc>
+  <SC_MentalBreaks>Sem colapsos mentais por crenças</SC_MentalBreaks>
+  <SC_MentalBreaks_Desc>Colapsos mentais causados por preceitos (crise de fé e similares) não acontecem com seus colonos. Colapsos mentais normais continuam.</SC_MentalBreaks_Desc>
+  <SC_Alerts>Ocultar alertas de crença</SC_Alerts>
+  <SC_Alerts_Desc>Oculta os alertas sobre papéis vagos, construções da ideoligião ausentes ou desrespeitadas, rituais de data próximos e a exigência de reversão de idade. Você não precisa preencher os papéis.</SC_Alerts_Desc>
+  <SC_Slaves>Vale também para escravos</SC_Slaves>
+  <SC_Slaves_Desc>Quando ligado, os escravos da sua colônia também ignoram a ideoligião.</SC_Slaves_Desc>
+  <SC_Note>As mudanças valem na hora, também em um jogo em andamento. A aba Ideoligião continua visível, mas não tem efeito na sua colônia.</SC_Note>
+  <SC_LookChange>Colonos mudam o visual por conta própria</SC_LookChange>
+  <SC_LookChange_Desc>De vez em quando um colono quer um novo penteado, barba ou tatuagem e vai sozinho a uma estação de estilo quando tem tempo. Apenas colonos adultos livres (não escravos, prisioneiros ou convidados). Precisa de uma estação de estilo – sem ela ninguém tem o desejo (comportamento vanilla). Um desejo não realizado em 4 dias é descartado.</SC_LookChange_Desc>
+  <SC_LookChangeDays>Média de dias entre desejos por colono: {0}</SC_LookChangeDays>
+  <SC_LookChangeDays_Desc>Quantos dias em média passam até um colono querer um visual novo de novo. Bom humor e beleza deixam isso um pouco mais frequente, mau humor menos.</SC_LookChangeDays_Desc>
+  <SC_LookChangeMessage>Mostrar uma mensagem quando alguém quiser um visual novo</SC_LookChangeMessage>
+  <SC_LookChangeMessage_Desc>Uma mensagem curta no topo da tela. O jogo não pausa.</SC_LookChangeMessage_Desc>
+  <SC_StyleFree>Estilo sem ideoligião</SC_StyleFree>
+  <SC_StyleFree_Desc>Penteados, barbas e tatuagens são escolhidos entre tudo o que combina com o gênero, a idade e os genes do colono, e não pelo que a ideoligião permite. Um estilo de que a ideoligião não gosta não faz mais o colono querer mudar.</SC_StyleFree_Desc>
+  <SC_LookWish>{PAWN_nameDef} quer um visual novo.</SC_LookWish>
+  <SC_H_Belief>Crença</SC_H_Belief>
+  <SC_H_Look>Visual</SC_H_Look>
+  <SC_H_Love>Relacionamentos sem crença</SC_H_Love>
+  <SC_LoveHint>Sem ideoligião, a crença não decide quantos parceiros um colono pode ter. Escolha uma regra:</SC_LoveHint>
+  <SC_Rule0>Por traços (recomendado)</SC_Rule0>
+  <SC_Rule0_Desc>Todos têm um parceiro. Colonos com o traço "poliamoroso" ou "polígamo" podem ter mais parceiros e cônjuges (até o limite abaixo).</SC_Rule0_Desc>
+  <SC_Rule1>Um parceiro para todos</SC_Rule1>
+  <SC_Rule1_Desc>Ninguém pode ter mais de um parceiro ou cônjuge ao mesmo tempo. Um novo relacionamento encerra o antigo.</SC_Rule1_Desc>
+  <SC_Rule2>Amor livre para todos</SC_Rule2>
+  <SC_Rule2_Desc>Qualquer um pode ter mais parceiros e cônjuges (até o limite abaixo). Era assim que o mod funcionava até a versão 1.1.</SC_Rule2_Desc>
+  <SC_MaxPartners>Máximo de parceiros ao mesmo tempo: {0}</SC_MaxPartners>
+  <SC_MaxPartners_Desc>Quantos amantes, noivos e cônjuges juntos um colono pode ter quando a regra permite. 5 ou mais = sem limite.</SC_MaxPartners_Desc>
+  <SC_PolyChance>Frequência dos traços poli: {0} %</SC_PolyChance>
+  <SC_PolyChance_Desc>Com que frequência "poliamoroso" e "polígamo" aparecem em novos peões. 0 % = nunca (ainda podem ser adicionados em um editor de personagens).</SC_PolyChance_Desc>
+  <SC_PolyNoJealousy>Poliamorosos não têm ciúmes</SC_PolyNoJealousy>
+  <SC_PolyNoJealousy_Desc>Um colono poliamoroso não recebe o humor "me traiu" quando um parceiro também tem outra pessoa.</SC_PolyNoJealousy_Desc>
+  <SC_PolygamyMood>Polígamos gostam de uma família grande</SC_PolygamyMood>
+  <SC_PolygamyMood_Desc>Um colono polígamo com dois cônjuges +3, três +5, quatro ou mais +7 de humor.</SC_PolygamyMood_Desc>
+  <SC_H_NoBelief>Nenhuma crença</SC_H_NoBelief>
+  <SC_NoBelief_NoGame>A ideoligião pode ser removida completamente da colônia em um jogo em andamento (aqui nas configurações).</SC_NoBelief_NoGame>
+  <SC_NoBelief_Desc>Remove completamente a ideoligião da colônia: o jogo muda para o modo clássico (como um jogo sem Ideology), a aba Ideoligião, a certeza, as conversões, os papéis, as relíquias e as construções da ideoligião desaparecem. Todos os colonos recebem uma crença "clássica" simples sem regras, e quem se juntar também a adota.</SC_NoBelief_Desc>
+  <SC_NoBelief_Button>Remover a ideoligião da colônia</SC_NoBelief_Button>
+  <SC_NoBelief_Confirm>Remover mesmo a ideoligião da colônia? Isso altera o jogo salvo (papéis e construções da ideoligião desaparecem). Salve antes em um novo espaço.</SC_NoBelief_Confirm>
+  <SC_NoBelief_Converted>Ideoligião removida – colonos convertidos: {0}. A colônia vive sem crença.</SC_NoBelief_Converted>
+  <SC_NoBelief_Done>A colônia não tem ideoligião (modo clássico).</SC_NoBelief_Done>
+  <SC_NoBelief_Undo>Trazer a ideoligião de volta (modo clássico desligado)</SC_NoBelief_Undo>
+  <SC_NoBelief_Undone>Modo clássico desligado – a aba Ideoligião voltou. Os colonos mantêm a crença simples, que você pode editar.</SC_NoBelief_Undone>
+  <SC_BarberTable>Mesa de barbeiro também</SC_BarberTable>
+  <SC_BarberTable_Desc>Um colono que quer um visual novo vai até a estação de estilo OU a mesa de barbeiro mais próxima (Vanilla Hair Expanded e mods similares). O menu da mesa de barbeiro mostra só penteados e barbas que combinam com o colono (gênero, raça, genes).</SC_BarberTable_Desc>
+  <SC_GenderStyles>Mulheres com penteados femininos, homens com masculinos</SC_GenderStyles>
+  <SC_GenderStyles_Desc>Mulheres escolhem só penteados femininos e unissex, homens só masculinos e unissex – de todos os seus mods de cabelo. Vale para seus colonos.</SC_GenderStyles_Desc>
+  <SC_HairColours>Mudar também a cor do cabelo</SC_HairColours>
+  <SC_HairColours_Desc>Ao mudar o estilo, o colono às vezes também muda a cor do cabelo – entre as cores de todos os mods (tinturas do jogo e de mods, predefinições do Vanilla Hair Expanded, cores naturais dos genes). Mulheres tingem com mais frequência, homens escolhem mais cores naturais. A mesa de barbeiro também recebe essas cores no seu menu.</SC_HairColours_Desc>
+  <SC_HairColourChance>Chance de uma cor nova ao mudar o estilo: {0} %</SC_HairColourChance>
+  <SC_HairColourChance_Desc>Com que frequência um colono também muda a cor do cabelo ao mudar o estilo.</SC_HairColourChance_Desc>
+  <SC_Rec1>Sem humores ou colapsos mentais por crenças</SC_Rec1>
+  <SC_Rec2>A certeza se mantém, ninguém se converte</SC_Rec2>
+  <SC_Rec3>Estilos livres, mesa de barbeiro, cores de cabelo</SC_Rec3>
+  <SC_Rec4>Relacionamentos por traços, sem ciúmes</SC_Rec4>
+  <SC_KeepHint>Manter alguns tipos mesmo assim (modo parcial):</SC_KeepHint>
+  <SC_KeepRituals>Manter humor de rituais</SC_KeepRituals>
+  <SC_KeepRituals_Desc>Rituais e relíquias continuam dando seu bônus (e penalidade) de humor.</SC_KeepRituals_Desc>
+  <SC_KeepRoles>Manter humor de papéis</SC_KeepRoles>
+  <SC_KeepRoles_Desc>Papéis de líder e especialista continuam contando para o humor (papel vago, papel perdido, roupas do papel).</SC_KeepRoles_Desc>
+  <SC_KeepBuildings>Manter humor de construções de crença</SC_KeepBuildings>
+  <SC_KeepBuildings_Desc>Altares e outras construções de crença ausentes ou desrespeitadas continuam contando.</SC_KeepBuildings_Desc>
+  <SC_KeepApparel>Manter humor de roupas e cores desejadas</SC_KeepApparel>
+  <SC_KeepApparel_Desc>Roupas e cores que a crença deseja continuam dando humor.</SC_KeepApparel_Desc>
+  <MUI_Title>Configurações recomendadas</MUI_Title>
+  <MUI_TitleOff>Configurações recomendadas · desligadas</MUI_TitleOff>
+  <MUI_DescOn>O mod se configura sozinho e funciona na hora. Ideal para novos jogadores e para quem não quer ajustar nada.</MUI_DescOn>
+  <MUI_DescOff>Configurações personalizadas. Alteradas em relação às recomendadas: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Configurações personalizadas. Ainda iguais às recomendadas.</MUI_DescOffSame>
+  <MUI_On>LIGADO</MUI_On>
+  <MUI_Off>DESLIGADO</MUI_Off>
+  <MUI_ResetAll>Redefinir tudo para o recomendado</MUI_ResetAll>
+  <MUI_ConfirmOn>Ativar as configurações recomendadas? Suas alterações ({0}) serão substituídas pelos valores recomendados.</MUI_ConfirmOn>
+  <MUI_Locked>As configurações detalhadas estão bloqueadas. Quer alterá-las? Desligue a chave acima – seus valores partirão dos recomendados.</MUI_Locked>
+  <MUI_Changed>ALTERADO</MUI_Changed>
+  <MUI_ChangedTip>Difere da configuração recomendada ({0}). Clique para restaurar o valor recomendado.</MUI_ChangedTip>
+  <MUI_Yes>ligado</MUI_Yes>
+  <MUI_No>desligado</MUI_No>
+  <MUI_RecTag>RECOMENDADO</MUI_RecTag>
+</LanguageData>

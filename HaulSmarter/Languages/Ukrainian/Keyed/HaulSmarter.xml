@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HS_SecHaul>Перенесення</HS_SecHaul>
+  <HS_OtherHauler>Активний {0} – перенесення кількох речей у Haul Smarter вимкнено. Вимкніть {0}, щоб ним користуватися.</HS_OtherHauler>
+  <HS_HaulMany>Переносити кілька речей одразу</HS_HaulMany>
+  <HS_MaxItems>Найбільше предметів за рейс: {0}</HS_MaxItems>
+  <HS_Radius>Шукати предмети в радіусі: {0} клітинок</HS_Radius>
+  <HS_BonusKg>Додаткова вантажопідйомність: +{0} кг</HS_BonusKg>
+  <HS_PocketHarvest>Урожай і деревина одразу в кишені</HS_PocketHarvest>
+  <HS_PocketMine>Видобуті ресурси одразу в кишені</HS_PocketMine>
+  <HS_UnloadAt>Вивантажувати, коли кишені заповнені на: {0}</HS_UnloadAt>
+  <HS_ReportUnload>вивантажує {0}.</HS_ReportUnload>
+  <HS_Profile>ПРОФІЛЬ ПЕРЕНЕСЕННЯ</HS_Profile>
+  <HS_ProfileHint>Натисніть на профіль – він налаштовує все одразу. Якщо щось змінити, він перемкнеться на «Власний».</HS_ProfileHint>
+  <HS_ProfGame>Як у грі</HS_ProfGame>
+  <HS_ProfGame_Card>Лише кілька речей одразу, нічого більше.</HS_ProfGame_Card>
+  <HS_ProfSmart>Розумний</HS_ProfSmart>
+  <HS_ProfSmart_Card>Спершу те, що псується. Короткий маршрут, речі дорогою, будівництво з кишень.</HS_ProfSmart_Card>
+  <HS_ProfMax>Максимум</HS_ProfMax>
+  <HS_ProfMax_Card>Повні кишені, довгі маршрути, спершу цінності.</HS_ProfMax_Card>
+  <HS_ProfCustom>Власний</HS_ProfCustom>
+  <HS_ProfCustom_Card>Налаштуйте кожен параметр самі.</HS_ProfCustom_Card>
+  <HS_HaulMany_Desc>Колоніст обходить усі предмети поблизу, кладе їх у кишені й відносить усе на склад. Місце зберігання обирається для кожного предмета – стелажі та глибокі сховища працюють. Те, що нікуди не вміщається, він кладе поруч із собою.</HS_HaulMany_Desc>
+  <HS_MaxItems_Desc>Скільки різних стосів щонайбільше за один рейс.</HS_MaxItems_Desc>
+  <HS_Radius_Desc>Як далеко від першого предмета він шукає інші.</HS_Radius_Desc>
+  <HS_SmartRoute>Розумний маршрут (збирати дорогою, без зигзагів)</HS_SmartRoute>
+  <HS_SmartRoute_Desc>Порядок предметів обирається так, щоб шлях від колоніста через усі предмети до складу був якомога коротшим.</HS_SmartRoute_Desc>
+  <HS_Opportunistic>Брати речі дорогою (обережно)</HS_Opportunistic>
+  <HS_Opportunistic_Desc>Коли колоніст кудись іде або закінчує роботу, він кладе в кишені річ, що лежить просто поруч і має бути на складі. Обережно: лише сусідні клітинки, один стос і потім пауза, ніколи поспіхом (гасіння пожежі, лікування, втеча, накази) і ніколи понад половину вантажопідйомності. Він відносить її, коли вільний або коли кишені повні.</HS_Opportunistic_Desc>
+  <HS_UnloadAt_Desc>Для врожаю, видобутку та речей, узятих після іншої роботи: наскільки заповнюються кишені, перш ніж він іде вивантажувати.</HS_UnloadAt_Desc>
+  <HS_SecPrio>Що переносити першим</HS_SecPrio>
+  <HS_PrioPerish>Їжа, що гниє</HS_PrioPerish>
+  <HS_PrioPerish_Desc>Речі, що гниють і лежать у теплі (м'ясо, урожай, страви).</HS_PrioPerish_Desc>
+  <HS_PrioWeather>Речі під дощем / біля вогню</HS_PrioWeather>
+  <HS_PrioWeather_Desc>Речі, що псуються надворі без даху (медикаменти, тканини, зброя…), і речі в межах 5 клітинок від вогню.</HS_PrioWeather_Desc>
+  <HS_PrioValuable>Цінності (золото, уран, артефакти)</HS_PrioValuable>
+  <HS_PrioValuable_Desc>Стоси вартістю щонайменше 300 срібла.</HS_PrioValuable_Desc>
+  <HS_Prio0>Звичайно</HS_Prio0>
+  <HS_Prio1>Раніше</HS_Prio1>
+  <HS_Prio2>Першим</HS_Prio2>
+  <HS_SecPockets>Урожай і видобуток</HS_SecPockets>
+  <HS_PocketHarvest_Desc>Колоніст бере врожай або деревину, що лежать просто поруч, працює далі й відносить їх, коли кишені повні або роботу закінчено.</HS_PocketHarvest_Desc>
+  <HS_PocketMine_Desc>Колоніст бере видобутий камінь і руду, що лежать просто поруч, видобуває далі й відносить їх, коли кишені повні.</HS_PocketMine_Desc>
+  <HS_SecWeight>Вага</HS_SecWeight>
+  <HS_BonusKg_Desc>На скільки кілограмів більше, ніж дозволяє гра (0 = як у грі).</HS_BonusKg_Desc>
+  <HS_Slowdown>Важкий вантаж сповільнює ходу (реалістично)</HS_Slowdown>
+  <HS_Slowdown_Desc>Понад половину вантажопідйомності колоніст іде повільніше – до 15 % з повними кишенями. Типово вимкнено.</HS_Slowdown_Desc>
+  <HS_ShowWeight>Показувати вагу на колоністі (смужка над головою)</HS_ShowWeight>
+  <HS_ShowWeight_Desc>Маленька смужка над колоністом, що несе речі на склад: зелена, помаранчева, червона залежно від навантаження. За найбільшого наближення – ще й кілограми.</HS_ShowWeight_Desc>
+  <HS_SecInfo>Час і огляд</HS_SecInfo>
+  <HS_ShowEta>Показувати вагу і «за скільки буде на складі»</HS_ShowEta>
+  <HS_ShowEta_Desc>Виберіть колоніста, і нижня панель покаже, скільки він несе, скільки предметів ще підбере і коли все буде на складі.</HS_ShowEta_Desc>
+  <HS_Overview>Кнопка «Перенесення» на нижній панелі</HS_Overview>
+  <HS_Overview_Desc>Вікно огляду: що чекає на перенесення, його вага, що гниє, скільки носіїв, скільки часу до кінця і хто скільки переніс.</HS_Overview_Desc>
+  <HS_Highlight>Підсвічувати неперенесені речі на мапі</HS_Highlight>
+  <HS_Highlight_Desc>Поки відкрите вікно «Перенесення», речі, що чекають на перенесення, обведені на мапі – жовтим, а помаранчевим ті, що гниють або лежать під дощем.</HS_Highlight_Desc>
+  <HS_InfoNote>Статистика (хто скільки переніс) зберігається разом із грою. Враховується перенесення, виконане Haul Smarter.</HS_InfoNote>
+  <HS_StatLoad>Важкий вантаж (Haul Smarter)</HS_StatLoad>
+  <HS_Carries>Несе: {0} / {1} кг ({2} шт.)</HS_Carries>
+  <HS_Eta>на складі за {0}</HS_Eta>
+  <HS_StillTake>ще підібрати: {0}</HS_StillTake>
+  <HS_EtaNow>мить</HS_EtaNow>
+  <HS_EtaHours>~{0} год</HS_EtaHours>
+  <HS_OverviewTitle>Огляд перенесення</HS_OverviewTitle>
+  <HS_OvWaiting>Чекає на перенесення: {0} стосів · {1} кг</HS_OvWaiting>
+  <HS_OvHot>З них гниє: {0} · надворі під дощем / біля вогню: {1} · цінне: {2}</HS_OvHot>
+  <HS_OvHaulers>Носії: {0} (зараз переносять: {1})</HS_OvHaulers>
+  <HS_OvEta>Готово приблизно за {0} (якби лише переносили)</HS_OvEta>
+  <HS_OvEtaNone>Нічого переносити або ні в кого не ввімкнено перенесення.</HS_OvEtaNone>
+  <HS_OvToday>Перенесено сьогодні: {0} кг / {1} рейсів</HS_OvToday>
+  <HS_ColName>Колоніст</HS_ColName>
+  <HS_ColCarry>Несе зараз</HS_ColCarry>
+  <HS_ColToday>Сьогодні</HS_ColToday>
+  <HS_ColTotal>Усього</HS_ColTotal>
+  <HS_KgTrips>{0} кг / {1}x</HS_KgTrips>
+  <HS_BuildPockets>Будувати з матеріалів у кишенях</HS_BuildPockets>
+  <HS_BuildPockets_Desc>Коли колоніст несе матеріал, потрібний для будівництва (дерево, сталь, камінь…), він дістає його з кишень і несе просто на будову – без походу на склад.</HS_BuildPockets_Desc>
+  <HS_SecCleanup>Прибирання після бою</HS_SecCleanup>
+  <HS_CleanupNotice>Бій закінчено – навколо бази лежить {0} одиниць зброї, одягу й тіл. Огляд перенесення → «Прибрати після бою».</HS_CleanupNotice>
+  <HS_CleanupNotice_Desc>Повідомлення каже, скільки зброї, одягу й тіл лежить навколо бази. Почніть прибирання в огляді перенесення.</HS_CleanupNotice_Desc>
+  <HS_CleanupAuto>Прибирати самостійно</HS_CleanupAuto>
+  <HS_CleanupAuto_Desc>Після кожного бою вдома все, що вороги залишили навколо бази, дозволяється й переноситься насамперед – без жодного клацання.</HS_CleanupAuto_Desc>
+  <HS_CleanupButton>Прибрати після бою ({0})</HS_CleanupButton>
+  <HS_CleanupButton_Desc>Дозволяє зброю, одяг і тіла, що лежать навколо бази (гра забороняє вороже спорядження), і велить перенести їх раніше за все інше.</HS_CleanupButton_Desc>
+  <HS_CleanupStarted>Прибирання почато: {0} речей буде перенесено насамперед.</HS_CleanupStarted>
+  <HS_FuelRound>Обхід із паливом</HS_FuelRound>
+  <HS_FuelRound_Desc>Колоніст, що йде заправляти, бере досить палива й для інших смолоскипів, плит і генераторів поблизу, яким воно теж потрібне, і заправляє їх один за одним – один похід на склад замість походу для кожного. Залишок повертається на склад.</HS_FuelRound_Desc>
+  <HS_MergeStacks>Об'єднувати неповні стоси</HS_MergeStacks>
+  <HS_MergeStacks_Desc>Коли більше нічого не чекає, носії об'єднують неповні стоси однієї речі на одному складі – більше вільних клітинок. Стелажі та сховища, що тримають багато речей на одній клітинці, не чіпають.</HS_MergeStacks_Desc>
+  <HS_DropOnDraft>Класти речі при призові</HS_DropOnDraft>
+  <HS_DropOnDraft_Desc>Призваний колоніст одразу кладе речі, які несе на склад, – він не сповільнений, і нічого не втрачається, якщо він упаде. Їх перенесуть пізніше.</HS_DropOnDraft_Desc>
+  <HS_SecBench>Постачання верстатів</HS_SecBench>
+  <HS_BenchCells>Розмір складу постачання: {0} клітинок</HS_BenchCells>
+  <HS_BenchCells_Desc>Скільки клітинок використовує кнопка «Постачання» на верстаті для маленького складу поруч із ним.</HS_BenchCells_Desc>
+  <HS_Bench>Постачання</HS_Bench>
+  <HS_Bench_Desc>Створює маленький склад просто поруч із цим верстатом, що приймає саме інгредієнти його активних завдань (оновлюється сам, пріоритет «бажаний»). Майстер бере їх біля верстата, а не йде через усю мапу. Натисніть ще раз, щоб прибрати. Це звичайний склад – він залишиться й без Haul Smarter.</HS_Bench_Desc>
+  <HS_BenchZone>Постачання: {0}</HS_BenchZone>
+  <HS_BenchStarted>{0}: створено склад постачання на {1} клітинок – туди приноситимуть інгредієнти його завдань.</HS_BenchStarted>
+  <HS_BenchNoRoom>Поруч із цим верстатом немає вільних клітинок для складу постачання.</HS_BenchNoRoom>
+  <HS_SafeOff>Haul Smarter: «{0}» постійно давав збої (імовірно, разом з іншим модом) і вимкнений до наступного запуску. Подробиці в журналі.</HS_SafeOff>
+  <HS_SafeList>Вимкнено після помилок: {0}</HS_SafeList>
+  <HS_SafeReset>Знову ввімкнути</HS_SafeReset>
+  <HS_Feat_haul>перенесення кількох речей</HS_Feat_haul>
+  <HS_Feat_pockets>кишені для врожаю й видобутку</HS_Feat_pockets>
+  <HS_Feat_unload>вивантаження кишень</HS_Feat_unload>
+  <HS_Feat_onTheWay>речі дорогою</HS_Feat_onTheWay>
+  <HS_Feat_buildPockets>будівництво з кишень</HS_Feat_buildPockets>
+  <HS_Feat_draft>класти речі при призові</HS_Feat_draft>
+  <HS_Feat_bench>постачання верстатів</HS_Feat_bench>
+  <HS_Feat_fuel>обхід із паливом</HS_Feat_fuel>
+  <HS_Feat_merge>об'єднання неповних стосів</HS_Feat_merge>
+</LanguageData>

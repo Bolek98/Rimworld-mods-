@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SC_ModName>Secular Colony – Ideology wyłączone i poprawki</SC_ModName>
+  <SC_NoIdeology>DLC Ideology nie jest aktywne – nie ma czego wyłączać.</SC_NoIdeology>
+  <SC_Enable>Moja kolonia ignoruje ideoligię</SC_Enable>
+  <SC_Enable_Desc>Główny przełącznik. Dotyczy tylko Twoich kolonistów (i niewolników, jeśli wybrano), nie innych frakcji. Wyłączenie przywraca wszystko.</SC_Enable_Desc>
+  <SC_Moods>Brak nastroju z wierzeń</SC_Moods>
+  <SC_Moods_Desc>Myśli z nakazów, rytuałów, ról, budynków ideoligii, pożądanej odzieży i kolorów nie dają ani premii, ani kary. Istniejące myśli związane z wiarą są usuwane.</SC_Moods_Desc>
+  <SC_Certainty>Brak nawracania</SC_Certainty>
+  <SC_Certainty_Desc>Pewność nigdy nie spada, nikt nie nawraca Twoich kolonistów, a Twoi koloniści nie próbują nawracać innych. Nawracanie więźniów, które zlecisz sam, nadal działa.</SC_Certainty_Desc>
+  <SC_Willing>Ideoligia niczego nie zabrania</SC_Willing>
+  <SC_Willing_Desc>„Ideoligia zabrania” nie powstrzymuje już kolonistów przed żadną pracą ani czynnością.</SC_Willing_Desc>
+  <SC_MentalBreaks>Brak załamań psychicznych z wierzeń</SC_MentalBreaks>
+  <SC_MentalBreaks_Desc>Załamania psychiczne wywołane nakazami (kryzys wiary i podobne) nie zdarzają się Twoim kolonistom. Zwykłe załamania psychiczne pozostają.</SC_MentalBreaks_Desc>
+  <SC_Alerts>Ukryj alerty wiary</SC_Alerts>
+  <SC_Alerts_Desc>Ukrywa alerty o nieobsadzonych rolach, brakujących lub nieszanowanych budynkach ideoligii, nadchodzących rytuałach datowych i żądaniu odwrócenia wieku. Nie musisz obsadzać ról.</SC_Alerts_Desc>
+  <SC_Slaves>Dotyczy też niewolników</SC_Slaves>
+  <SC_Slaves_Desc>Gdy włączone, niewolnicy Twojej kolonii również ignorują ideoligię.</SC_Slaves_Desc>
+  <SC_Note>Zmiany działają od razu, także w trwającej grze. Zakładka Ideoligia pozostaje widoczna, ale nie ma wpływu na Twoją kolonię.</SC_Note>
+  <SC_LookChange>Koloniści sami zmieniają wygląd</SC_LookChange>
+  <SC_LookChange_Desc>Od czasu do czasu kolonista chce nową fryzurę, brodę lub tatuaż i sam idzie do stanowiska stylizacji, gdy ma czas. Tylko wolni dorośli koloniści (nie niewolnicy, więźniowie ani goście). Wymaga stanowiska stylizacji – bez niego nikt nie ma takiego życzenia (zachowanie vanilla). Życzenie niespełnione w ciągu 4 dni przepada.</SC_LookChange_Desc>
+  <SC_LookChangeDays>Średnio dni między życzeniami na kolonistę: {0}</SC_LookChangeDays>
+  <SC_LookChangeDays_Desc>Ile dni średnio mija, zanim kolonista znów zechce nowego wyglądu. Dobry nastrój i uroda sprawiają, że zdarza się to nieco częściej, zły nastrój – rzadziej.</SC_LookChangeDays_Desc>
+  <SC_LookChangeMessage>Pokaż wiadomość, gdy ktoś chce nowego wyglądu</SC_LookChangeMessage>
+  <SC_LookChangeMessage_Desc>Krótka wiadomość u góry ekranu. Gra nie jest pauzowana.</SC_LookChangeMessage_Desc>
+  <SC_StyleFree>Styl bez ideoligii</SC_StyleFree>
+  <SC_StyleFree_Desc>Fryzury, brody i tatuaże są wybierane spośród wszystkiego, co pasuje do płci, wieku i genów kolonisty, a nie spośród tego, na co pozwala ideoligia. Styl, którego ideoligia nie lubi, nie wywołuje już chęci zmiany.</SC_StyleFree_Desc>
+  <SC_LookWish>{PAWN_nameDef} chce nowego wyglądu.</SC_LookWish>
+  <SC_H_Belief>Wiara</SC_H_Belief>
+  <SC_H_Look>Wygląd</SC_H_Look>
+  <SC_H_Love>Związki bez wiary</SC_H_Love>
+  <SC_LoveHint>Bez ideoligii to nie wiara decyduje, ilu partnerów może mieć kolonista. Wybierz zasadę:</SC_LoveHint>
+  <SC_Rule0>Według cech (zalecane)</SC_Rule0>
+  <SC_Rule0_Desc>Każdy ma jednego partnera. Koloniści z cechą „poliamoryczny” lub „poligamiczny” mogą mieć więcej partnerów i małżonków (do limitu poniżej).</SC_Rule0_Desc>
+  <SC_Rule1>Jeden partner dla każdego</SC_Rule1>
+  <SC_Rule1_Desc>Nikt nie może mieć kilku partnerów ani małżonków naraz. Nowy związek kończy poprzedni.</SC_Rule1_Desc>
+  <SC_Rule2>Wolna miłość dla wszystkich</SC_Rule2>
+  <SC_Rule2_Desc>Każdy może mieć więcej partnerów i małżonków (do limitu poniżej). Tak działał mod do wersji 1.1.</SC_Rule2_Desc>
+  <SC_MaxPartners>Najwyżej partnerów naraz: {0}</SC_MaxPartners>
+  <SC_MaxPartners_Desc>Ilu kochanków, narzeczonych i małżonków łącznie może mieć kolonista, gdy zasada na to pozwala. 5 lub więcej = bez limitu.</SC_MaxPartners_Desc>
+  <SC_PolyChance>Częstość cech poli: {0} %</SC_PolyChance>
+  <SC_PolyChance_Desc>Jak często „poliamoryczny” i „poligamiczny” pojawiają się u nowych postaci. 0 % = nigdy (nadal można je dodać w edytorze postaci).</SC_PolyChance_Desc>
+  <SC_PolyNoJealousy>Poliamoryczni nie są zazdrośni</SC_PolyNoJealousy>
+  <SC_PolyNoJealousy_Desc>Poliamoryczny kolonista nie dostaje nastroju „zdradził mnie”, gdy partner ma też kogoś innego.</SC_PolyNoJealousy_Desc>
+  <SC_PolygamyMood>Poligamiczni cieszą się dużą rodziną</SC_PolygamyMood>
+  <SC_PolygamyMood_Desc>Poligamiczny kolonista z dwojgiem małżonków +3, trojgiem +5, czworgiem lub więcej +7 do nastroju.</SC_PolygamyMood_Desc>
+  <SC_H_NoBelief>Zupełnie bez wiary</SC_H_NoBelief>
+  <SC_NoBelief_NoGame>Ideoligię można całkowicie usunąć z kolonii w trwającej grze (tutaj w ustawieniach).</SC_NoBelief_NoGame>
+  <SC_NoBelief_Desc>Całkowicie usuwa ideoligię z kolonii: gra przechodzi w tryb klasyczny (jak gra bez Ideology), znikają zakładka Ideoligia, pewność, nawracanie, role, relikwie i budynki ideoligii. Wszyscy koloniści dostają prostą „klasyczną” wiarę bez zasad, a każdy, kto dołączy, również ją przyjmuje.</SC_NoBelief_Desc>
+  <SC_NoBelief_Button>Usuń ideoligię z kolonii</SC_NoBelief_Button>
+  <SC_NoBelief_Confirm>Na pewno usunąć ideoligię z kolonii? To zmienia zapis gry (role i budynki ideoligii znikną). Najpierw zapisz grę w nowym slocie.</SC_NoBelief_Confirm>
+  <SC_NoBelief_Converted>Ideoligia usunięta – nawróceni koloniści: {0}. Kolonia żyje bez wiary.</SC_NoBelief_Converted>
+  <SC_NoBelief_Done>Kolonia nie ma ideoligii (tryb klasyczny).</SC_NoBelief_Done>
+  <SC_NoBelief_Undo>Przywróć ideoligię (wyłącz tryb klasyczny)</SC_NoBelief_Undo>
+  <SC_NoBelief_Undone>Tryb klasyczny wyłączony – zakładka Ideoligia wróciła. Koloniści zachowują prostą wiarę, którą możesz edytować.</SC_NoBelief_Undone>
+  <SC_BarberTable>Także stół fryzjerski</SC_BarberTable>
+  <SC_BarberTable_Desc>Kolonista, który chce nowego wyglądu, idzie do najbliższego stanowiska stylizacji LUB stołu fryzjerskiego (Vanilla Hair Expanded i podobne mody). Menu stołu fryzjerskiego pokazuje tylko fryzury i brody pasujące do kolonisty (płeć, rasa, geny).</SC_BarberTable_Desc>
+  <SC_GenderStyles>Kobiety fryzury damskie, mężczyźni męskie</SC_GenderStyles>
+  <SC_GenderStyles_Desc>Kobiety wybierają tylko fryzury damskie i unisex, mężczyźni tylko męskie i unisex – ze wszystkich Twoich modów z fryzurami. Dotyczy Twoich kolonistów.</SC_GenderStyles_Desc>
+  <SC_HairColours>Zmieniaj też kolor włosów</SC_HairColours>
+  <SC_HairColours_Desc>Przy zmianie stylu kolonista od czasu do czasu zmienia też kolor włosów – spośród kolorów ze wszystkich modów (farby do włosów z gry i modów, presety Vanilla Hair Expanded, naturalne kolory z genów). Kobiety farbują się częściej, mężczyźni wybierają głównie naturalne kolory. Stół fryzjerski też dostaje te kolory w swoim menu.</SC_HairColours_Desc>
+  <SC_HairColourChance>Szansa na nowy kolor przy zmianie stylu: {0} %</SC_HairColourChance>
+  <SC_HairColourChance_Desc>Jak często kolonista przy zmianie stylu zmienia też kolor włosów.</SC_HairColourChance_Desc>
+  <SC_Rec1>Brak nastrojów i załamań psychicznych z wierzeń</SC_Rec1>
+  <SC_Rec2>Pewność zostaje, nikt nie jest nawracany</SC_Rec2>
+  <SC_Rec3>Wolne style, stół fryzjerski, kolory włosów</SC_Rec3>
+  <SC_Rec4>Związki według cech, bez zazdrości</SC_Rec4>
+  <SC_KeepHint>Mimo to zachowaj niektóre rodzaje (tryb częściowy):</SC_KeepHint>
+  <SC_KeepRituals>Zachowaj nastrój z rytuałów</SC_KeepRituals>
+  <SC_KeepRituals_Desc>Rytuały i relikwie nadal dają premię (i karę) do nastroju.</SC_KeepRituals_Desc>
+  <SC_KeepRoles>Zachowaj nastrój z ról</SC_KeepRoles>
+  <SC_KeepRoles_Desc>Role przywódcy i specjalistów nadal wpływają na nastrój (nieobsadzona rola, utracona rola, strój roli).</SC_KeepRoles_Desc>
+  <SC_KeepBuildings>Zachowaj nastrój z budynków wiary</SC_KeepBuildings>
+  <SC_KeepBuildings_Desc>Brakujące lub nieszanowane ołtarze i inne budynki wiary nadal się liczą.</SC_KeepBuildings_Desc>
+  <SC_KeepApparel>Zachowaj nastrój z pożądanych ubrań i kolorów</SC_KeepApparel>
+  <SC_KeepApparel_Desc>Ubrania i kolory, których chce wiara, nadal wpływają na nastrój.</SC_KeepApparel_Desc>
+  <MUI_Title>Zalecane ustawienia</MUI_Title>
+  <MUI_TitleOff>Zalecane ustawienia · wył.</MUI_TitleOff>
+  <MUI_DescOn>Mod konfiguruje się sam i działa od razu. Idealny dla nowych graczy i każdego, kto nie chce niczego zmieniać.</MUI_DescOn>
+  <MUI_DescOff>Własne ustawienia. Zmienione względem zalecanych: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Własne ustawienia. Nadal takie same jak zalecane.</MUI_DescOffSame>
+  <MUI_On>WŁ.</MUI_On>
+  <MUI_Off>WYŁ.</MUI_Off>
+  <MUI_ResetAll>Przywróć wszystko do zalecanych</MUI_ResetAll>
+  <MUI_ConfirmOn>Włączyć zalecane ustawienia? Twoje zmiany ({0}) zostaną zastąpione zalecanymi wartościami.</MUI_ConfirmOn>
+  <MUI_Locked>Szczegółowe ustawienia są zablokowane. Chcesz je zmienić? Wyłącz przełącznik powyżej – Twoje wartości zaczną od zalecanych.</MUI_Locked>
+  <MUI_Changed>ZMIENIONO</MUI_Changed>
+  <MUI_ChangedTip>Różni się od zalecanego ustawienia ({0}). Kliknij, aby przywrócić zalecaną wartość.</MUI_ChangedTip>
+  <MUI_Yes>wł.</MUI_Yes>
+  <MUI_No>wył.</MUI_No>
+  <MUI_RecTag>ZALECANE</MUI_RecTag>
+</LanguageData>

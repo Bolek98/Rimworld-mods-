@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HS_SecHaul>Tragen</HS_SecHaul>
+  <HS_OtherHauler>{0} ist aktiv – das Tragen mehrerer Gegenstände in Haul Smarter ist aus. Schalte {0} aus, um es zu nutzen.</HS_OtherHauler>
+  <HS_HaulMany>Mehrere Dinge auf einmal tragen</HS_HaulMany>
+  <HS_MaxItems>Höchstens Gegenstände pro Gang: {0}</HS_MaxItems>
+  <HS_Radius>Gegenstände suchen im Umkreis von: {0} Feldern</HS_Radius>
+  <HS_BonusKg>Zusätzliche Tragkraft: +{0} kg</HS_BonusKg>
+  <HS_PocketHarvest>Ernte und Holz direkt in die Taschen</HS_PocketHarvest>
+  <HS_PocketMine>Abgebaute Rohstoffe direkt in die Taschen</HS_PocketMine>
+  <HS_UnloadAt>Taschen ausladen, wenn gefüllt zu: {0}</HS_UnloadAt>
+  <HS_ReportUnload>lädt {0} aus.</HS_ReportUnload>
+  <HS_Profile>TRAGE-PROFIL</HS_Profile>
+  <HS_ProfileHint>Klicke ein Profil an – es stellt alles auf einmal ein. Änderst du etwas, wechselt es zu „Eigenes“.</HS_ProfileHint>
+  <HS_ProfGame>Wie im Spiel</HS_ProfGame>
+  <HS_ProfGame_Card>Nur mehrere Dinge auf einmal, sonst nichts.</HS_ProfGame_Card>
+  <HS_ProfSmart>Klug</HS_ProfSmart>
+  <HS_ProfSmart_Card>Verderbliches zuerst. Kurzer Weg, Dinge unterwegs, Bauen aus den Taschen.</HS_ProfSmart_Card>
+  <HS_ProfMax>Maximum</HS_ProfMax>
+  <HS_ProfMax_Card>Volle Taschen, lange Wege, Wertvolles zuerst.</HS_ProfMax_Card>
+  <HS_ProfCustom>Eigenes</HS_ProfCustom>
+  <HS_ProfCustom_Card>Stelle jede Option selbst ein.</HS_ProfCustom_Card>
+  <HS_HaulMany_Desc>Der Kolonist geht zu jedem Gegenstand in der Nähe, steckt ihn in die Taschen und trägt alles ins Lager. Das Lager wird für jeden Gegenstand einzeln gewählt – Regale und Tiefenlager funktionieren. Was nirgends hinpasst, wird neben ihm abgelegt.</HS_HaulMany_Desc>
+  <HS_MaxItems_Desc>Wie viele verschiedene Stapel höchstens pro Gang.</HS_MaxItems_Desc>
+  <HS_Radius_Desc>Wie weit vom ersten Gegenstand er nach weiteren sucht.</HS_Radius_Desc>
+  <HS_SmartRoute>Kluge Route (unterwegs einsammeln, kein Zickzack)</HS_SmartRoute>
+  <HS_SmartRoute_Desc>Die Reihenfolge der Gegenstände wird so gewählt, dass der Weg vom Kolonisten über alle Gegenstände zum Lager so kurz wie möglich ist.</HS_SmartRoute_Desc>
+  <HS_Opportunistic>Dinge unterwegs mitnehmen (behutsam)</HS_Opportunistic>
+  <HS_Opportunistic_Desc>Wenn ein Kolonist irgendwohin geht oder eine Arbeit beendet, steckt er einen Gegenstand direkt neben sich, der ins Lager gehört, in die Taschen. Behutsam: nur angrenzende Felder, ein Stapel und dann eine Pause, nie in Eile (Brandbekämpfung, Pflege, Flucht, Befehle) und nie über die Hälfte seiner Tragkraft. Er trägt es weg, wenn er untätig ist oder die Taschen voll sind.</HS_Opportunistic_Desc>
+  <HS_UnloadAt_Desc>Für Ernte, Bergbau und nach anderer Arbeit mitgenommene Dinge: wie voll die Taschen werden, bevor er sie ausladen geht.</HS_UnloadAt_Desc>
+  <HS_SecPrio>Was zuerst getragen wird</HS_SecPrio>
+  <HS_PrioPerish>Verderbliche Nahrung</HS_PrioPerish>
+  <HS_PrioPerish_Desc>Dinge, die verderben und irgendwo im Warmen liegen (Fleisch, Ernte, Mahlzeiten).</HS_PrioPerish_Desc>
+  <HS_PrioWeather>Dinge draußen im Regen / nahe Feuer</HS_PrioWeather>
+  <HS_PrioWeather_Desc>Dinge, die draußen ohne Dach verfallen (Medizin, Textilien, Waffen…), und Dinge bis 5 Felder von einem Feuer entfernt.</HS_PrioWeather_Desc>
+  <HS_PrioValuable>Wertvolles (Gold, Uran, Artefakte)</HS_PrioValuable>
+  <HS_PrioValuable_Desc>Stapel im Wert von mindestens 300 Silber.</HS_PrioValuable_Desc>
+  <HS_Prio0>Normal</HS_Prio0>
+  <HS_Prio1>Früher</HS_Prio1>
+  <HS_Prio2>Zuerst</HS_Prio2>
+  <HS_SecPockets>Ernte und Bergbau</HS_SecPockets>
+  <HS_PocketHarvest_Desc>Der Kolonist nimmt die Ernte oder das Holz direkt neben sich, arbeitet weiter und trägt es weg, wenn die Taschen voll sind oder die Arbeit erledigt ist.</HS_PocketHarvest_Desc>
+  <HS_PocketMine_Desc>Der Kolonist nimmt abgebauten Stein und Erz direkt neben sich, baut weiter ab und trägt es weg, wenn die Taschen voll sind.</HS_PocketMine_Desc>
+  <HS_SecWeight>Gewicht</HS_SecWeight>
+  <HS_BonusKg_Desc>Wie viele Kilo mehr, als das Spiel erlaubt (0 = wie im Spiel).</HS_BonusKg_Desc>
+  <HS_Slowdown>Schwere Last verlangsamt das Gehen (realistisch)</HS_Slowdown>
+  <HS_Slowdown_Desc>Über der Hälfte der Tragkraft geht der Kolonist langsamer – bis zu 15 % mit vollen Taschen. Standardmäßig aus.</HS_Slowdown_Desc>
+  <HS_ShowWeight>Gewicht am Kolonisten zeigen (Balken über dem Kopf)</HS_ShowWeight>
+  <HS_ShowWeight_Desc>Ein kleiner Balken über einem Kolonisten, der Dinge ins Lager trägt: grün, orange, rot je nach Last. Bei stärkstem Zoom auch die Kilo.</HS_ShowWeight_Desc>
+  <HS_SecInfo>Zeit und Übersicht</HS_SecInfo>
+  <HS_ShowEta>Gewicht und „wie lange bis eingelagert“ zeigen</HS_ShowEta>
+  <HS_ShowEta_Desc>Wähle einen Kolonisten aus, und das untere Feld zeigt, wie viel er trägt, wie viele Gegenstände er noch aufhebt und wann alles im Lager ist.</HS_ShowEta_Desc>
+  <HS_Overview>Schaltfläche „Tragen“ in der unteren Leiste</HS_Overview>
+  <HS_Overview_Desc>Ein Übersichtsfenster: was auf das Tragen wartet, sein Gewicht, was verdirbt, wie viele Träger, wie lange bis fertig und wer wie viel getragen hat.</HS_Overview_Desc>
+  <HS_Highlight>Nicht getragene Dinge auf der Karte hervorheben</HS_Highlight>
+  <HS_Highlight_Desc>Solange das Fenster „Tragen“ offen ist, werden Dinge, die auf das Tragen warten, auf der Karte umrandet – gelb, und orange für solche, die verderben oder im Regen liegen.</HS_Highlight_Desc>
+  <HS_InfoNote>Die Statistik (wer wie viel getragen hat) wird mit dem Spielstand gespeichert. Gezählt wird das Tragen durch Haul Smarter.</HS_InfoNote>
+  <HS_StatLoad>Schwere Last (Haul Smarter)</HS_StatLoad>
+  <HS_Carries>Trägt: {0} / {1} kg ({2} Stk.)</HS_Carries>
+  <HS_Eta>eingelagert in {0}</HS_Eta>
+  <HS_StillTake>noch {0} aufzuheben</HS_StillTake>
+  <HS_EtaNow>einem Moment</HS_EtaNow>
+  <HS_EtaHours>~{0} h</HS_EtaHours>
+  <HS_OverviewTitle>Übersicht Tragen</HS_OverviewTitle>
+  <HS_OvWaiting>Wartet auf das Tragen: {0} Stapel · {1} kg</HS_OvWaiting>
+  <HS_OvHot>Davon verderblich: {0} · draußen im Regen / nahe Feuer: {1} · wertvoll: {2}</HS_OvHot>
+  <HS_OvHaulers>Träger: {0} (tragen gerade: {1})</HS_OvHaulers>
+  <HS_OvEta>Fertig in etwa {0} (wenn sie nur tragen würden)</HS_OvEta>
+  <HS_OvEtaNone>Nichts zu tragen oder niemand hat Tragen aktiviert.</HS_OvEtaNone>
+  <HS_OvToday>Heute getragen: {0} kg / {1} Gänge</HS_OvToday>
+  <HS_ColName>Kolonist</HS_ColName>
+  <HS_ColCarry>Trägt gerade</HS_ColCarry>
+  <HS_ColToday>Heute</HS_ColToday>
+  <HS_ColTotal>Gesamt</HS_ColTotal>
+  <HS_KgTrips>{0} kg / {1}x</HS_KgTrips>
+  <HS_BuildPockets>Mit Material aus den Taschen bauen</HS_BuildPockets>
+  <HS_BuildPockets_Desc>Trägt ein Kolonist Material, das ein Bauvorhaben braucht (Holz, Stahl, Stein…), nimmt er es aus den Taschen und bringt es direkt zur Baustelle – ohne Weg zur Lagerzone.</HS_BuildPockets_Desc>
+  <HS_SecCleanup>Aufräumen nach einem Kampf</HS_SecCleanup>
+  <HS_CleanupNotice>Der Kampf ist vorbei – {0} Waffen, Kleidung und Leichen liegen um die Basis herum. Übersicht Tragen → „Nach dem Kampf aufräumen“.</HS_CleanupNotice>
+  <HS_CleanupNotice_Desc>Eine Nachricht sagt, wie viele Waffen, Kleidung und Leichen um die Basis liegen. Starte das Aufräumen in der Übersicht Tragen.</HS_CleanupNotice_Desc>
+  <HS_CleanupAuto>Von selbst aufräumen</HS_CleanupAuto>
+  <HS_CleanupAuto_Desc>Nach jedem Kampf zu Hause wird, was die Feinde um die Basis zurückgelassen haben, erlaubt und zuerst getragen – kein Klick nötig.</HS_CleanupAuto_Desc>
+  <HS_CleanupButton>Nach dem Kampf aufräumen ({0})</HS_CleanupButton>
+  <HS_CleanupButton_Desc>Erlaubt Waffen, Kleidung und Leichen um die Basis (das Spiel verbietet feindliche Ausrüstung) und lässt sie vor allem anderen tragen.</HS_CleanupButton_Desc>
+  <HS_CleanupStarted>Aufräumen begonnen: {0} Dinge werden zuerst getragen.</HS_CleanupStarted>
+  <HS_FuelRound>Tankrunde</HS_FuelRound>
+  <HS_FuelRound_Desc>Ein Kolonist, der nachtanken geht, nimmt genug Brennstoff für die anderen Fackeln, Öfen und Generatoren in der Nähe mit, die ihn auch brauchen, und füllt sie nacheinander – ein Gang zur Lagerzone statt einer für jeden. Was übrig bleibt, kommt zurück ins Lager.</HS_FuelRound_Desc>
+  <HS_MergeStacks>Halbe Stapel zusammenlegen</HS_MergeStacks>
+  <HS_MergeStacks_Desc>Wenn sonst nichts wartet, legen Träger halbe Stapel desselben Dings in derselben Lagerzone zusammen – mehr freie Felder. Regale und Lager, die viele Dinge auf einem Feld halten, bleiben unberührt.</HS_MergeStacks_Desc>
+  <HS_DropOnDraft>Dinge beim Einberufen ablegen</HS_DropOnDraft>
+  <HS_DropOnDraft_Desc>Ein einberufener Kolonist legt die Dinge, die er ins Lager trägt, sofort ab – er wird nicht verlangsamt und nichts geht verloren, wenn er zu Boden geht. Sie werden später wieder getragen.</HS_DropOnDraft_Desc>
+  <HS_SecBench>Werkbank-Versorgung</HS_SecBench>
+  <HS_BenchCells>Größe der Versorgungszone: {0} Felder</HS_BenchCells>
+  <HS_BenchCells_Desc>Wie viele Felder die Schaltfläche „Versorgung“ an einer Werkbank für die kleine Lagerzone neben der Werkbank nutzt.</HS_BenchCells_Desc>
+  <HS_Bench>Versorgung</HS_Bench>
+  <HS_Bench_Desc>Erstellt direkt neben dieser Werkbank eine kleine Lagerzone, die genau die Zutaten ihrer aktiven Aufträge annimmt (aktualisiert sich selbst, Priorität bevorzugt). Der Handwerker nimmt sie neben der Werkbank, statt quer über die Karte zu laufen. Erneut klicken, um sie zu entfernen. Es ist eine gewöhnliche Lagerzone – sie bleibt auch ohne Haul Smarter.</HS_Bench_Desc>
+  <HS_BenchZone>Versorgung: {0}</HS_BenchZone>
+  <HS_BenchStarted>{0}: Versorgungszone mit {1} Feldern erstellt – die Zutaten ihrer Aufträge werden dorthin gebracht.</HS_BenchStarted>
+  <HS_BenchNoRoom>Keine freien Felder neben dieser Werkbank für eine Versorgungszone.</HS_BenchNoRoom>
+  <HS_SafeOff>Haul Smarter: „{0}“ ist wiederholt fehlgeschlagen (wahrscheinlich zusammen mit einer anderen Mod) und ist bis zum nächsten Start ausgeschaltet. Details stehen im Log.</HS_SafeOff>
+  <HS_SafeList>Nach Fehlern ausgeschaltet: {0}</HS_SafeList>
+  <HS_SafeReset>Wieder einschalten</HS_SafeReset>
+  <HS_Feat_haul>Tragen mehrerer Dinge</HS_Feat_haul>
+  <HS_Feat_pockets>Taschen bei Ernte und Bergbau</HS_Feat_pockets>
+  <HS_Feat_unload>Ausladen der Taschen</HS_Feat_unload>
+  <HS_Feat_onTheWay>Dinge unterwegs</HS_Feat_onTheWay>
+  <HS_Feat_buildPockets>Bauen aus den Taschen</HS_Feat_buildPockets>
+  <HS_Feat_draft>Ablegen beim Einberufen</HS_Feat_draft>
+  <HS_Feat_bench>Werkbank-Versorgung</HS_Feat_bench>
+  <HS_Feat_fuel>Tankrunde</HS_Feat_fuel>
+  <HS_Feat_merge>Zusammenlegen halber Stapel</HS_Feat_merge>
+</LanguageData>

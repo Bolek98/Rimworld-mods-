@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HS_SecHaul>搬运</HS_SecHaul>
+  <HS_OtherHauler>{0} 已启用——Haul Smarter 的多件搬运已关闭。关闭 {0} 才能使用它。</HS_OtherHauler>
+  <HS_HaulMany>一次搬运多件物品</HS_HaulMany>
+  <HS_MaxItems>每趟最多物品数：{0}</HS_MaxItems>
+  <HS_Radius>在此范围内寻找物品：{0} 格</HS_Radius>
+  <HS_BonusKg>额外负重：+{0} kg</HS_BonusKg>
+  <HS_PocketHarvest>收获物和木材直接装进口袋</HS_PocketHarvest>
+  <HS_PocketMine>采掘资源直接装进口袋</HS_PocketMine>
+  <HS_UnloadAt>口袋装满到此程度时卸货：{0}</HS_UnloadAt>
+  <HS_ReportUnload>正在卸下{0}。</HS_ReportUnload>
+  <HS_Profile>搬运方案</HS_Profile>
+  <HS_ProfileHint>点击一个方案——它会一次设置好所有选项。改动任何一项后会切换为“自定义”。</HS_ProfileHint>
+  <HS_ProfGame>与原版相同</HS_ProfGame>
+  <HS_ProfGame_Card>只是一次搬多件，别无其他。</HS_ProfGame_Card>
+  <HS_ProfSmart>智能</HS_ProfSmart>
+  <HS_ProfSmart_Card>易腐品优先。短路线，顺路捡拾，用口袋里的材料建造。</HS_ProfSmart_Card>
+  <HS_ProfMax>最大化</HS_ProfMax>
+  <HS_ProfMax_Card>装满口袋，长路线，贵重品优先。</HS_ProfMax_Card>
+  <HS_ProfCustom>自定义</HS_ProfCustom>
+  <HS_ProfCustom_Card>自己设置每个选项。</HS_ProfCustom_Card>
+  <HS_HaulMany_Desc>殖民者走到附近每件物品处，装进口袋，然后把所有东西搬到储存区。每件物品都会单独选择存放位置——货架和深度储存都可用。放不下的东西会放在他身边。</HS_HaulMany_Desc>
+  <HS_MaxItems_Desc>一趟最多搬几堆不同的物品。</HS_MaxItems_Desc>
+  <HS_Radius_Desc>他在离第一件物品多远的范围内寻找更多物品。</HS_Radius_Desc>
+  <HS_SmartRoute>智能路线（顺路收集，不走回头路）</HS_SmartRoute>
+  <HS_SmartRoute_Desc>安排物品顺序，使殖民者经过所有物品再到储存区的路程尽可能短。</HS_SmartRoute_Desc>
+  <HS_Opportunistic>顺路捎带物品（温和）</HS_Opportunistic>
+  <HS_Opportunistic_Desc>殖民者去某处或完成工作时，会把紧挨着他、应放入储存区的物品装进口袋。温和：只限相邻格子，一堆之后暂停，赶时间时（灭火、治疗、逃跑、命令）绝不捡，且不超过负重的一半。空闲或口袋装满时他会把它搬走。</HS_Opportunistic_Desc>
+  <HS_UnloadAt_Desc>对于收获、采矿以及其他工作后捡起的物品：口袋装到多满时才去卸货。</HS_UnloadAt_Desc>
+  <HS_SecPrio>优先搬运什么</HS_SecPrio>
+  <HS_PrioPerish>会腐烂的食物</HS_PrioPerish>
+  <HS_PrioPerish_Desc>会腐烂并放在温暖处的物品（肉、作物、食物）。</HS_PrioPerish_Desc>
+  <HS_PrioWeather>室外淋雨 / 靠近火的物品</HS_PrioWeather>
+  <HS_PrioWeather_Desc>在无屋顶的室外会损坏的物品（药品、织物、武器……），以及距火 5 格以内的物品。</HS_PrioWeather_Desc>
+  <HS_PrioValuable>贵重品（金、铀、神器）</HS_PrioValuable>
+  <HS_PrioValuable_Desc>价值至少 300 白银的物品堆。</HS_PrioValuable_Desc>
+  <HS_Prio0>正常</HS_Prio0>
+  <HS_Prio1>较早</HS_Prio1>
+  <HS_Prio2>最先</HS_Prio2>
+  <HS_SecPockets>收获与采矿</HS_SecPockets>
+  <HS_PocketHarvest_Desc>殖民者拿起紧挨着他的作物或木材，继续工作，口袋装满或工作完成后再搬走。</HS_PocketHarvest_Desc>
+  <HS_PocketMine_Desc>殖民者拿起紧挨着他的已采石料和矿石，继续采矿，口袋装满后再搬走。</HS_PocketMine_Desc>
+  <HS_SecWeight>重量</HS_SecWeight>
+  <HS_BonusKg_Desc>比游戏允许的多出多少公斤（0 = 与原版相同）。</HS_BonusKg_Desc>
+  <HS_Slowdown>重载会减慢行走（写实）</HS_Slowdown>
+  <HS_Slowdown_Desc>超过负重一半时殖民者走得更慢——口袋全满时最多慢 15 %。默认关闭。</HS_Slowdown_Desc>
+  <HS_ShowWeight>在殖民者身上显示重量（头顶的条）</HS_ShowWeight>
+  <HS_ShowWeight_Desc>正在把物品搬往储存区的殖民者头顶有一个小条：按负重显示绿色、橙色、红色。最近缩放时还显示公斤数。</HS_ShowWeight_Desc>
+  <HS_SecInfo>时间与概览</HS_SecInfo>
+  <HS_ShowEta>显示重量和“多久后入库”</HS_ShowEta>
+  <HS_ShowEta_Desc>选中殖民者后，底部面板显示他携带了多少、还要捡几件物品以及何时入库。</HS_ShowEta_Desc>
+  <HS_Overview>底部栏的“搬运”按钮</HS_Overview>
+  <HS_Overview_Desc>概览窗口：等待搬运的物品、重量、什么在腐烂、有多少搬运工、多久完成以及谁搬了多少。</HS_Overview_Desc>
+  <HS_Highlight>在地图上高亮未搬运的物品</HS_Highlight>
+  <HS_Highlight_Desc>“搬运”窗口打开时，等待搬运的物品在地图上会被描边——黄色，正在腐烂或淋雨的为橙色。</HS_Highlight_Desc>
+  <HS_InfoNote>统计（谁搬了多少）随存档保存。由 Haul Smarter 完成的搬运会被计入。</HS_InfoNote>
+  <HS_StatLoad>重载（Haul Smarter）</HS_StatLoad>
+  <HS_Carries>携带：{0} / {1} kg（{2} 件）</HS_Carries>
+  <HS_Eta>{0}后入库</HS_Eta>
+  <HS_StillTake>还要捡 {0}</HS_StillTake>
+  <HS_EtaNow>片刻</HS_EtaNow>
+  <HS_EtaHours>约 {0} 小时</HS_EtaHours>
+  <HS_OverviewTitle>搬运概览</HS_OverviewTitle>
+  <HS_OvWaiting>等待搬运：{0} 堆 · {1} kg</HS_OvWaiting>
+  <HS_OvHot>其中腐烂中：{0} · 室外淋雨 / 靠近火：{1} · 贵重：{2}</HS_OvHot>
+  <HS_OvHaulers>搬运工：{0}（正在搬运：{1}）</HS_OvHaulers>
+  <HS_OvEta>约 {0}后完成（如果只搬运的话）</HS_OvEta>
+  <HS_OvEtaNone>没有需要搬运的东西，或没有人启用搬运。</HS_OvEtaNone>
+  <HS_OvToday>今日已搬运：{0} kg / {1} 趟</HS_OvToday>
+  <HS_ColName>殖民者</HS_ColName>
+  <HS_ColCarry>当前携带</HS_ColCarry>
+  <HS_ColToday>今日</HS_ColToday>
+  <HS_ColTotal>总计</HS_ColTotal>
+  <HS_KgTrips>{0} kg / {1}x</HS_KgTrips>
+  <HS_BuildPockets>用口袋里的材料建造</HS_BuildPockets>
+  <HS_BuildPockets_Desc>殖民者携带着建筑所需的材料（木材、钢铁、石料……）时，会直接从口袋取出送到工地——不必再走去储存区。</HS_BuildPockets_Desc>
+  <HS_SecCleanup>战后清理</HS_SecCleanup>
+  <HS_CleanupNotice>战斗结束——基地周围散落着 {0} 件武器、衣物和尸体。搬运概览 → “战后清理”。</HS_CleanupNotice>
+  <HS_CleanupNotice_Desc>一条消息告诉你基地周围有多少武器、衣物和尸体。在搬运概览中开始清理。</HS_CleanupNotice_Desc>
+  <HS_CleanupAuto>自动清理</HS_CleanupAuto>
+  <HS_CleanupAuto_Desc>每次在家园战斗后，敌人留在基地周围的东西都会被允许并优先搬运——无需点击。</HS_CleanupAuto_Desc>
+  <HS_CleanupButton>战后清理（{0}）</HS_CleanupButton>
+  <HS_CleanupButton_Desc>允许基地周围的武器、衣物和尸体（游戏会禁止敌人的装备），并让它们先于其他一切被搬运。</HS_CleanupButton_Desc>
+  <HS_CleanupStarted>清理已开始：{0} 件物品将被优先搬运。</HS_CleanupStarted>
+  <HS_FuelRound>燃料巡回</HS_FuelRound>
+  <HS_FuelRound_Desc>去加燃料的殖民者会带上足够的燃料，给附近同样需要燃料的火把、炉灶和发电机依次补满——只跑一趟储存区，而不是每个各跑一趟。剩下的送回储存区。</HS_FuelRound_Desc>
+  <HS_MergeStacks>合并半堆</HS_MergeStacks>
+  <HS_MergeStacks_Desc>没有其他事等待时，搬运工会把同一储存区中同种物品的半堆合并——空出更多格子。货架和一格存放多件物品的储存设施不受影响。</HS_MergeStacks_Desc>
+  <HS_DropOnDraft>征召时放下物品</HS_DropOnDraft>
+  <HS_DropOnDraft_Desc>被征召的殖民者会立刻放下正在搬往储存区的物品——不会被拖慢，倒下时也不会丢失东西。之后会再被搬运。</HS_DropOnDraft_Desc>
+  <HS_SecBench>工作台供料</HS_SecBench>
+  <HS_BenchCells>供料储存区大小：{0} 格</HS_BenchCells>
+  <HS_BenchCells_Desc>工作台上的“供料”按钮为旁边的小储存区使用多少格。</HS_BenchCells_Desc>
+  <HS_Bench>供料</HS_Bench>
+  <HS_Bench_Desc>在此工作台旁建立一个小储存区，只接收其有效清单所需的原料（自动更新，优先级“优先”）。工匠直接从工作台旁取用，而不必横穿地图。再次点击即可移除。这是普通的储存区——即使没有 Haul Smarter 也会保留。</HS_Bench_Desc>
+  <HS_BenchZone>供料：{0}</HS_BenchZone>
+  <HS_BenchStarted>{0}：已建立 {1} 格的供料储存区——其清单的原料将被送到这里。</HS_BenchStarted>
+  <HS_BenchNoRoom>此工作台旁没有空闲格子可建立供料储存区。</HS_BenchNoRoom>
+  <HS_SafeOff>Haul Smarter：“{0}”反复出错（可能与其他模组冲突），已关闭至下次启动。详情见日志。</HS_SafeOff>
+  <HS_SafeList>因错误而关闭：{0}</HS_SafeList>
+  <HS_SafeReset>重新启用</HS_SafeReset>
+  <HS_Feat_haul>多件搬运</HS_Feat_haul>
+  <HS_Feat_pockets>收获与采矿口袋</HS_Feat_pockets>
+  <HS_Feat_unload>卸空口袋</HS_Feat_unload>
+  <HS_Feat_onTheWay>顺路捎带</HS_Feat_onTheWay>
+  <HS_Feat_buildPockets>用口袋材料建造</HS_Feat_buildPockets>
+  <HS_Feat_draft>征召时放下物品</HS_Feat_draft>
+  <HS_Feat_bench>工作台供料</HS_Feat_bench>
+  <HS_Feat_fuel>燃料巡回</HS_Feat_fuel>
+  <HS_Feat_merge>合并半堆</HS_Feat_merge>
+</LanguageData>

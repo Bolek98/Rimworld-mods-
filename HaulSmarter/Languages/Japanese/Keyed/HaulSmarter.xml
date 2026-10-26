@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HS_SecHaul>運搬</HS_SecHaul>
+  <HS_OtherHauler>{0} が有効です – Haul Smarter の複数運搬はオフです。使うには {0} をオフにしてください。</HS_OtherHauler>
+  <HS_HaulMany>複数の物を一度に運ぶ</HS_HaulMany>
+  <HS_MaxItems>1回の運搬の最大アイテム数：{0}</HS_MaxItems>
+  <HS_Radius>アイテムを探す範囲：{0} マス</HS_Radius>
+  <HS_BonusKg>追加の運搬量：+{0} kg</HS_BonusKg>
+  <HS_PocketHarvest>収穫物と木材を直接ポケットへ</HS_PocketHarvest>
+  <HS_PocketMine>採掘した資源を直接ポケットへ</HS_PocketMine>
+  <HS_UnloadAt>ポケットがこの量で降ろす：{0}</HS_UnloadAt>
+  <HS_ReportUnload>{0}を降ろしています。</HS_ReportUnload>
+  <HS_Profile>運搬プロファイル</HS_Profile>
+  <HS_ProfileHint>プロファイルをクリックすると全設定が一度に変わります。何か変更すると「カスタム」に切り替わります。</HS_ProfileHint>
+  <HS_ProfGame>ゲーム標準</HS_ProfGame>
+  <HS_ProfGame_Card>複数の物を一度に運ぶだけ。他は何もしません。</HS_ProfGame_Card>
+  <HS_ProfSmart>スマート</HS_ProfSmart>
+  <HS_ProfSmart_Card>腐る物を優先。短いルート、道中の物、ポケットから建設。</HS_ProfSmart_Card>
+  <HS_ProfMax>最大</HS_ProfMax>
+  <HS_ProfMax_Card>ポケット満杯、長いルート、貴重品優先。</HS_ProfMax_Card>
+  <HS_ProfCustom>カスタム</HS_ProfCustom>
+  <HS_ProfCustom_Card>すべての設定を自分で決めます。</HS_ProfCustom_Card>
+  <HS_HaulMany_Desc>入植者は近くのアイテムを回ってポケットに入れ、すべてを備蓄区域へ運びます。保管場所はアイテムごとに選ばれます – 棚や大容量保管庫も使えます。どこにも入らない物は自分のそばに置きます。</HS_HaulMany_Desc>
+  <HS_MaxItems_Desc>1回の運搬で最大何種類のスタックを運ぶか。</HS_MaxItems_Desc>
+  <HS_Radius_Desc>最初のアイテムからどこまで離れた物を探すか。</HS_Radius_Desc>
+  <HS_SmartRoute>スマートルート（道中で回収、ジグザグなし）</HS_SmartRoute>
+  <HS_SmartRoute_Desc>入植者からすべてのアイテムを経て備蓄区域までの道のりが最短になるよう順番を決めます。</HS_SmartRoute_Desc>
+  <HS_Opportunistic>道中の物を拾う（控えめに）</HS_Opportunistic>
+  <HS_Opportunistic_Desc>入植者がどこかへ歩くときや作業を終えたとき、すぐ隣にある備蓄区域行きの物をポケットに入れます。控えめに：隣接マスのみ、1スタックごとに休止、急いでいるとき（消火、治療、逃走、命令）は拾わず、運搬量の半分を超えることもありません。手が空いたときかポケットが満杯のときに運びます。</HS_Opportunistic_Desc>
+  <HS_UnloadAt_Desc>収穫、採掘、他の作業後に拾った物について：ポケットがどれだけ埋まったら降ろしに行くか。</HS_UnloadAt_Desc>
+  <HS_SecPrio>何を先に運ぶか</HS_SecPrio>
+  <HS_PrioPerish>腐る食べ物</HS_PrioPerish>
+  <HS_PrioPerish_Desc>腐る物で暖かい場所にある物（肉、作物、食事）。</HS_PrioPerish_Desc>
+  <HS_PrioWeather>雨ざらし / 火の近くの物</HS_PrioWeather>
+  <HS_PrioWeather_Desc>屋根のない屋外で劣化する物（医薬品、布地、武器…）と、火から5マス以内の物。</HS_PrioWeather_Desc>
+  <HS_PrioValuable>貴重品（金、ウラン、アーティファクト）</HS_PrioValuable>
+  <HS_PrioValuable_Desc>価値が銀300以上のスタック。</HS_PrioValuable_Desc>
+  <HS_Prio0>通常</HS_Prio0>
+  <HS_Prio1>早め</HS_Prio1>
+  <HS_Prio2>最優先</HS_Prio2>
+  <HS_SecPockets>収穫と採掘</HS_SecPockets>
+  <HS_PocketHarvest_Desc>入植者はすぐ隣の作物や木材を拾って作業を続け、ポケットが満杯になるか作業が終わったら運びます。</HS_PocketHarvest_Desc>
+  <HS_PocketMine_Desc>入植者はすぐ隣の採掘した石材や鉱石を拾って採掘を続け、ポケットが満杯になったら運びます。</HS_PocketMine_Desc>
+  <HS_SecWeight>重量</HS_SecWeight>
+  <HS_BonusKg_Desc>ゲームの上限より何kg多く運べるか（0 = ゲーム標準）。</HS_BonusKg_Desc>
+  <HS_Slowdown>重い荷物で歩きが遅くなる（リアル）</HS_Slowdown>
+  <HS_Slowdown_Desc>運搬量の半分を超えると入植者の歩みが遅くなります – ポケット満杯で最大15 %。初期設定はオフ。</HS_Slowdown_Desc>
+  <HS_ShowWeight>入植者に重量を表示（頭上のバー）</HS_ShowWeight>
+  <HS_ShowWeight_Desc>物を備蓄区域へ運んでいる入植者の頭上に小さなバー：積載量に応じて緑、橙、赤。最大ズーム時はkgも表示。</HS_ShowWeight_Desc>
+  <HS_SecInfo>時間と概要</HS_SecInfo>
+  <HS_ShowEta>重量と「保管までの時間」を表示</HS_ShowEta>
+  <HS_ShowEta_Desc>入植者を選択すると、下部パネルに運んでいる量、あと何個拾うか、いつ保管されるかが表示されます。</HS_ShowEta_Desc>
+  <HS_Overview>下部バーの「運搬」ボタン</HS_Overview>
+  <HS_Overview_Desc>概要ウィンドウ：運搬待ちの物、その重量、腐っている物、運搬者の数、完了までの時間、誰がどれだけ運んだか。</HS_Overview_Desc>
+  <HS_Highlight>未運搬の物をマップ上で強調</HS_Highlight>
+  <HS_Highlight_Desc>「運搬」ウィンドウを開いている間、運搬待ちの物がマップ上で縁取られます – 黄色、腐っている物や雨ざらしの物は橙色。</HS_Highlight_Desc>
+  <HS_InfoNote>統計（誰がどれだけ運んだか）はセーブデータに保存されます。Haul Smarter による運搬も数えられます。</HS_InfoNote>
+  <HS_StatLoad>重い荷物（Haul Smarter）</HS_StatLoad>
+  <HS_Carries>運搬中：{0} / {1} kg（{2} 個）</HS_Carries>
+  <HS_Eta>{0}で保管</HS_Eta>
+  <HS_StillTake>あと {0} 拾う</HS_StillTake>
+  <HS_EtaNow>すぐ</HS_EtaNow>
+  <HS_EtaHours>約{0}時間</HS_EtaHours>
+  <HS_OverviewTitle>運搬の概要</HS_OverviewTitle>
+  <HS_OvWaiting>運搬待ち：{0} スタック · {1} kg</HS_OvWaiting>
+  <HS_OvHot>うち腐敗中：{0} · 雨ざらし / 火の近く：{1} · 貴重品：{2}</HS_OvHot>
+  <HS_OvHaulers>運搬者：{0}（運搬中：{1}）</HS_OvHaulers>
+  <HS_OvEta>完了まで約{0}（運搬だけをした場合）</HS_OvEta>
+  <HS_OvEtaNone>運ぶ物がないか、運搬が有効な人がいません。</HS_OvEtaNone>
+  <HS_OvToday>今日の運搬：{0} kg / {1} 回</HS_OvToday>
+  <HS_ColName>入植者</HS_ColName>
+  <HS_ColCarry>現在運搬中</HS_ColCarry>
+  <HS_ColToday>今日</HS_ColToday>
+  <HS_ColTotal>合計</HS_ColTotal>
+  <HS_KgTrips>{0} kg / {1}x</HS_KgTrips>
+  <HS_BuildPockets>ポケットの資材で建設</HS_BuildPockets>
+  <HS_BuildPockets_Desc>入植者が建設に必要な資材（木材、鋼鉄、石材…）を持っていれば、ポケットから取り出して直接現場へ運びます – 備蓄区域へ行く必要はありません。</HS_BuildPockets_Desc>
+  <HS_SecCleanup>戦闘後の片付け</HS_SecCleanup>
+  <HS_CleanupNotice>戦闘終了 – 拠点の周りに武器、衣服、死体が {0} 個あります。運搬の概要 →「戦闘後の片付け」。</HS_CleanupNotice>
+  <HS_CleanupNotice_Desc>拠点の周りに武器、衣服、死体がいくつあるかをメッセージで知らせます。片付けは運搬の概要から開始します。</HS_CleanupNotice_Desc>
+  <HS_CleanupAuto>自動で片付ける</HS_CleanupAuto>
+  <HS_CleanupAuto_Desc>拠点での戦闘のたびに、敵が拠点の周りに残した物を許可して最優先で運びます – クリック不要。</HS_CleanupAuto_Desc>
+  <HS_CleanupButton>戦闘後の片付け（{0}）</HS_CleanupButton>
+  <HS_CleanupButton_Desc>拠点の周りにある武器、衣服、死体を許可し（ゲームは敵の装備を禁止します）、他の何よりも先に運ばせます。</HS_CleanupButton_Desc>
+  <HS_CleanupStarted>片付け開始：{0} 個の物が最優先で運ばれます。</HS_CleanupStarted>
+  <HS_FuelRound>燃料巡回</HS_FuelRound>
+  <HS_FuelRound_Desc>燃料補給に行く入植者は、近くで同じく燃料が必要な松明、コンロ、発電機の分も持って行き、順番に補給します – それぞれに1往復ではなく、備蓄区域へは1回だけ。余りは備蓄区域へ戻します。</HS_FuelRound_Desc>
+  <HS_MergeStacks>半端なスタックをまとめる</HS_MergeStacks>
+  <HS_MergeStacks_Desc>他に待っている仕事がないとき、運搬者は同じ備蓄区域にある同じ物の半端なスタックをまとめます – 空きマスが増えます。棚や1マスに多くの物を置ける保管設備には手を付けません。</HS_MergeStacks_Desc>
+  <HS_DropOnDraft>招集時に物を置く</HS_DropOnDraft>
+  <HS_DropOnDraft_Desc>招集された入植者は運搬中の物をすぐに置きます – 足が遅くならず、倒れても何も失いません。後で再び運ばれます。</HS_DropOnDraft_Desc>
+  <HS_SecBench>作業台への供給</HS_SecBench>
+  <HS_BenchCells>供給用備蓄区域の大きさ：{0} マス</HS_BenchCells>
+  <HS_BenchCells_Desc>作業台の「供給」ボタンが作業台横の小さな備蓄区域に使うマス数。</HS_BenchCells_Desc>
+  <HS_Bench>供給</HS_Bench>
+  <HS_Bench_Desc>この作業台のすぐ横に、有効な作業指示の材料だけを受け入れる小さな備蓄区域を作ります（自動更新、優先度「優先」）。職人はマップを横切らずに作業台の横から材料を取ります。もう一度クリックで削除。普通の備蓄区域なので、Haul Smarter がなくても残ります。</HS_Bench_Desc>
+  <HS_BenchZone>供給：{0}</HS_BenchZone>
+  <HS_BenchStarted>{0}：{1} マスの供給用備蓄区域を作成 – 作業指示の材料がここに運ばれます。</HS_BenchStarted>
+  <HS_BenchNoRoom>この作業台の横に供給用備蓄区域を作る空きマスがありません。</HS_BenchNoRoom>
+  <HS_SafeOff>Haul Smarter：「{0}」でエラーが続いたため（おそらく他のMODとの組み合わせ）、次回起動までオフにしました。詳細はログを参照してください。</HS_SafeOff>
+  <HS_SafeList>エラーによりオフ：{0}</HS_SafeList>
+  <HS_SafeReset>再びオンにする</HS_SafeReset>
+  <HS_Feat_haul>複数運搬</HS_Feat_haul>
+  <HS_Feat_pockets>収穫・採掘のポケット</HS_Feat_pockets>
+  <HS_Feat_unload>ポケットを降ろす</HS_Feat_unload>
+  <HS_Feat_onTheWay>道中の物</HS_Feat_onTheWay>
+  <HS_Feat_buildPockets>ポケットから建設</HS_Feat_buildPockets>
+  <HS_Feat_draft>招集時に物を置く</HS_Feat_draft>
+  <HS_Feat_bench>作業台への供給</HS_Feat_bench>
+  <HS_Feat_fuel>燃料巡回</HS_Feat_fuel>
+  <HS_Feat_merge>半端なスタックをまとめる</HS_Feat_merge>
+</LanguageData>

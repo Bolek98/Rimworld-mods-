@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SC_ModName>Secular Colony – Ideology aus &amp; Anpassungen</SC_ModName>
+  <SC_NoIdeology>Das Ideology-DLC ist nicht aktiv – es gibt nichts auszuschalten.</SC_NoIdeology>
+  <SC_Enable>Meine Kolonie ignoriert die Ideoligion</SC_Enable>
+  <SC_Enable_Desc>Hauptschalter. Betrifft nur deine Kolonisten (und auf Wunsch Sklaven), keine anderen Fraktionen. Ausschalten stellt alles wieder her.</SC_Enable_Desc>
+  <SC_Moods>Keine Stimmung durch Glauben</SC_Moods>
+  <SC_Moods_Desc>Gedanken durch Gebote, Rituale, Rollen, Ideoligion-Gebäude, gewünschte Kleidung und Farben geben weder Bonus noch Malus. Bestehende Glaubensgedanken werden entfernt.</SC_Moods_Desc>
+  <SC_Certainty>Keine Bekehrung</SC_Certainty>
+  <SC_Certainty_Desc>Die Gewissheit sinkt nie, niemand bekehrt deine Kolonisten und deine Kolonisten versuchen nicht, andere zu bekehren. Eine selbst angeordnete Bekehrung von Gefangenen funktioniert weiterhin.</SC_Certainty_Desc>
+  <SC_Willing>Ideoligion verbietet nichts</SC_Willing>
+  <SC_Willing_Desc>„Ideoligion verbietet“ hält Kolonisten von keiner Arbeit und Handlung mehr ab.</SC_Willing_Desc>
+  <SC_MentalBreaks>Keine Nervenzusammenbrüche durch Glauben</SC_MentalBreaks>
+  <SC_MentalBreaks_Desc>Durch Gebote verursachte Nervenzusammenbrüche (Glaubenskrise und Ähnliches) treten bei deinen Kolonisten nicht auf. Normale Nervenzusammenbrüche bleiben.</SC_MentalBreaks_Desc>
+  <SC_Alerts>Glaubenswarnungen ausblenden</SC_Alerts>
+  <SC_Alerts_Desc>Blendet Warnungen über unbesetzte Rollen, fehlende oder missachtete Ideoligion-Gebäude, anstehende Datumsrituale und die Forderung nach Altersumkehr aus. Rollen müssen nicht besetzt werden.</SC_Alerts_Desc>
+  <SC_Slaves>Gilt auch für Sklaven</SC_Slaves>
+  <SC_Slaves_Desc>Wenn an, ignorieren auch die Sklaven deiner Kolonie die Ideoligion.</SC_Slaves_Desc>
+  <SC_Note>Änderungen gelten sofort, auch in einem laufenden Spiel. Der Ideoligion-Tab bleibt sichtbar, hat aber keine Wirkung auf deine Kolonie.</SC_Note>
+  <SC_LookChange>Kolonisten ändern ihr Aussehen von selbst</SC_LookChange>
+  <SC_LookChange_Desc>Ab und zu möchte ein Kolonist eine neue Frisur, einen neuen Bart oder ein Tattoo und geht von selbst zur Stylingstation, wenn er Zeit hat. Nur freie erwachsene Kolonisten (keine Sklaven, Gefangenen oder Gäste). Benötigt eine Stylingstation – ohne sie bekommt niemand den Wunsch (Vanilla-Verhalten). Ein Wunsch, der nicht innerhalb von 4 Tagen erfüllt wird, verfällt.</SC_LookChange_Desc>
+  <SC_LookChangeDays>Durchschnittliche Tage zwischen Wünschen pro Kolonist: {0}</SC_LookChangeDays>
+  <SC_LookChangeDays_Desc>Wie viele Tage im Durchschnitt vergehen, bis ein Kolonist wieder ein neues Aussehen möchte. Gute Stimmung und Schönheit machen es etwas häufiger, schlechte Stimmung seltener.</SC_LookChangeDays_Desc>
+  <SC_LookChangeMessage>Nachricht anzeigen, wenn jemand ein neues Aussehen möchte</SC_LookChangeMessage>
+  <SC_LookChangeMessage_Desc>Eine kurze Nachricht oben auf dem Bildschirm. Das Spiel wird nicht pausiert.</SC_LookChangeMessage_Desc>
+  <SC_StyleFree>Stil ohne Ideoligion</SC_StyleFree>
+  <SC_StyleFree_Desc>Frisuren, Bärte und Tattoos werden aus allem gewählt, was zu Geschlecht, Alter und Genen des Kolonisten passt, nicht aus dem, was die Ideoligion erlaubt. Ein Stil, den die Ideoligion nicht mag, löst keinen Änderungswunsch mehr aus.</SC_StyleFree_Desc>
+  <SC_LookWish>{PAWN_nameDef} möchte ein neues Aussehen.</SC_LookWish>
+  <SC_H_Belief>Glaube</SC_H_Belief>
+  <SC_H_Look>Aussehen</SC_H_Look>
+  <SC_H_Love>Beziehungen ohne Glauben</SC_H_Love>
+  <SC_LoveHint>Ohne Ideoligion entscheidet nicht der Glaube, wie viele Partner ein Kolonist haben darf. Wähle eine Regel:</SC_LoveHint>
+  <SC_Rule0>Nach Merkmalen (empfohlen)</SC_Rule0>
+  <SC_Rule0_Desc>Jeder hat einen Partner. Kolonisten mit dem Merkmal „polyamor“ oder „polygam“ dürfen mehr Partner und Ehepartner haben (bis zum Limit unten).</SC_Rule0_Desc>
+  <SC_Rule1>Ein Partner für alle</SC_Rule1>
+  <SC_Rule1_Desc>Niemand darf mehrere Partner oder Ehepartner gleichzeitig haben. Eine neue Beziehung beendet die alte.</SC_Rule1_Desc>
+  <SC_Rule2>Freie Liebe für alle</SC_Rule2>
+  <SC_Rule2_Desc>Jeder darf mehr Partner und Ehepartner haben (bis zum Limit unten). So verhielt sich die Mod bis Version 1.1.</SC_Rule2_Desc>
+  <SC_MaxPartners>Höchstens Partner gleichzeitig: {0}</SC_MaxPartners>
+  <SC_MaxPartners_Desc>Wie viele Liebhaber, Verlobte und Ehepartner zusammen ein Kolonist haben darf, wenn die Regel es erlaubt. 5 oder mehr = kein Limit.</SC_MaxPartners_Desc>
+  <SC_PolyChance>Häufigkeit der Poly-Merkmale: {0} %</SC_PolyChance>
+  <SC_PolyChance_Desc>Wie oft „polyamor“ und „polygam“ bei neuen Figuren vorkommen. 0 % = nie (sie können weiterhin in einem Charakter-Editor hinzugefügt werden).</SC_PolyChance_Desc>
+  <SC_PolyNoJealousy>Polyamore sind nicht eifersüchtig</SC_PolyNoJealousy>
+  <SC_PolyNoJealousy_Desc>Ein polyamorer Kolonist bekommt keine „Hat mich betrogen“-Stimmung, wenn ein Partner auch jemand anderen hat.</SC_PolyNoJealousy_Desc>
+  <SC_PolygamyMood>Polygame genießen eine große Familie</SC_PolygamyMood>
+  <SC_PolygamyMood_Desc>Ein polygamer Kolonist mit zwei Ehepartnern +3, drei +5, vier oder mehr +7 Stimmung.</SC_PolygamyMood_Desc>
+  <SC_H_NoBelief>Überhaupt kein Glaube</SC_H_NoBelief>
+  <SC_NoBelief_NoGame>Die Ideoligion kann in einem laufenden Spiel (hier in den Einstellungen) vollständig aus der Kolonie entfernt werden.</SC_NoBelief_NoGame>
+  <SC_NoBelief_Desc>Entfernt die Ideoligion vollständig aus der Kolonie: Das Spiel wechselt in den klassischen Modus (wie ein Spiel ohne Ideology), Ideoligion-Tab, Gewissheit, Bekehrungen, Rollen, Reliquien und Ideoligion-Gebäude verschwinden. Alle Kolonisten erhalten einen einfachen „klassischen“ Glauben ohne Regeln, und jeder, der sich anschließt, übernimmt ihn ebenfalls.</SC_NoBelief_Desc>
+  <SC_NoBelief_Button>Ideoligion aus der Kolonie entfernen</SC_NoBelief_Button>
+  <SC_NoBelief_Confirm>Die Ideoligion wirklich aus der Kolonie entfernen? Das verändert den Spielstand (Rollen und Ideoligion-Gebäude verschwinden). Speichere vorher in einem neuen Slot.</SC_NoBelief_Confirm>
+  <SC_NoBelief_Converted>Ideoligion entfernt – bekehrte Kolonisten: {0}. Die Kolonie lebt ohne Glauben.</SC_NoBelief_Converted>
+  <SC_NoBelief_Done>Die Kolonie hat keine Ideoligion (klassischer Modus).</SC_NoBelief_Done>
+  <SC_NoBelief_Undo>Ideoligion zurückholen (klassischer Modus aus)</SC_NoBelief_Undo>
+  <SC_NoBelief_Undone>Klassischer Modus aus – der Ideoligion-Tab ist zurück. Die Kolonisten behalten den einfachen Glauben, den du bearbeiten kannst.</SC_NoBelief_Undone>
+  <SC_BarberTable>Auch Friseurtisch</SC_BarberTable>
+  <SC_BarberTable_Desc>Ein Kolonist, der ein neues Aussehen möchte, geht zur nächsten Stylingstation ODER zum nächsten Friseurtisch (Vanilla Hair Expanded und ähnliche Mods). Das Menü des Friseurtischs zeigt nur Frisuren und Bärte, die zum Kolonisten passen (Geschlecht, Rasse, Gene).</SC_BarberTable_Desc>
+  <SC_GenderStyles>Frauen Damenfrisuren, Männer Herrenfrisuren</SC_GenderStyles>
+  <SC_GenderStyles_Desc>Frauen wählen nur weibliche und Unisex-Frisuren, Männer nur männliche und Unisex – aus all deinen Haar-Mods. Gilt für deine Kolonisten.</SC_GenderStyles_Desc>
+  <SC_HairColours>Auch die Haarfarbe ändern</SC_HairColours>
+  <SC_HairColours_Desc>Bei einem Umstyling ändert der Kolonist ab und zu auch die Haarfarbe – aus den Farben aller Mods (Haarfärbemittel aus Spiel und Mods, Vorgaben aus Vanilla Hair Expanded, natürliche Farben aus Genen). Frauen färben öfter, Männer wählen meist natürliche Farben. Auch der Friseurtisch bekommt diese Farben in sein Menü.</SC_HairColours_Desc>
+  <SC_HairColourChance>Chance auf eine neue Farbe beim Umstyling: {0} %</SC_HairColourChance>
+  <SC_HairColourChance_Desc>Wie oft ein Kolonist beim Umstyling auch die Haarfarbe ändert.</SC_HairColourChance_Desc>
+  <SC_Rec1>Keine Stimmungen oder Nervenzusammenbrüche durch Glauben</SC_Rec1>
+  <SC_Rec2>Gewissheit bleibt, niemand wird bekehrt</SC_Rec2>
+  <SC_Rec3>Freie Stile, Friseurtisch, Haarfarben</SC_Rec3>
+  <SC_Rec4>Beziehungen nach Merkmalen, keine Eifersucht</SC_Rec4>
+  <SC_KeepHint>Einige Arten trotzdem behalten (Teilmodus):</SC_KeepHint>
+  <SC_KeepRituals>Stimmungen durch Rituale behalten</SC_KeepRituals>
+  <SC_KeepRituals_Desc>Rituale und Reliquien geben weiterhin ihren Stimmungsbonus (und -malus).</SC_KeepRituals_Desc>
+  <SC_KeepRoles>Stimmungen durch Rollen behalten</SC_KeepRoles>
+  <SC_KeepRoles_Desc>Anführer- und Spezialistenrollen zählen weiter für die Stimmung (unbesetzte Rolle, verlorene Rolle, Rollenkleidung).</SC_KeepRoles_Desc>
+  <SC_KeepBuildings>Stimmungen durch Glaubensgebäude behalten</SC_KeepBuildings>
+  <SC_KeepBuildings_Desc>Fehlende oder missachtete Altäre und andere Glaubensgebäude zählen weiterhin.</SC_KeepBuildings_Desc>
+  <SC_KeepApparel>Stimmungen durch gewünschte Kleidung und Farben behalten</SC_KeepApparel>
+  <SC_KeepApparel_Desc>Kleidung und Farben, die der Glaube wünscht, geben weiterhin Stimmung.</SC_KeepApparel_Desc>
+  <MUI_Title>Empfohlene Einstellungen</MUI_Title>
+  <MUI_TitleOff>Empfohlene Einstellungen · aus</MUI_TitleOff>
+  <MUI_DescOn>Die Mod richtet sich selbst ein und funktioniert sofort. Ideal für neue Spieler und alle, die nichts anpassen wollen.</MUI_DescOn>
+  <MUI_DescOff>Eigene Einstellungen. Geändert gegenüber Empfehlung: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Eigene Einstellungen. Noch identisch mit der Empfehlung.</MUI_DescOffSame>
+  <MUI_On>AN</MUI_On>
+  <MUI_Off>AUS</MUI_Off>
+  <MUI_ResetAll>Alles auf Empfehlung zurücksetzen</MUI_ResetAll>
+  <MUI_ConfirmOn>Empfohlene Einstellungen einschalten? Deine Änderungen ({0}) werden durch die empfohlenen Werte ersetzt.</MUI_ConfirmOn>
+  <MUI_Locked>Detaillierte Einstellungen sind gesperrt. Willst du sie ändern? Schalte den Schalter oben aus – deine Werte starten bei den empfohlenen.</MUI_Locked>
+  <MUI_Changed>GEÄNDERT</MUI_Changed>
+  <MUI_ChangedTip>Weicht von der Empfehlung ab ({0}). Klicken, um den empfohlenen Wert wiederherzustellen.</MUI_ChangedTip>
+  <MUI_Yes>an</MUI_Yes>
+  <MUI_No>aus</MUI_No>
+  <MUI_RecTag>EMPFOHLEN</MUI_RecTag>
+</LanguageData>

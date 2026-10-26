@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HS_SecHaul>운반</HS_SecHaul>
+  <HS_OtherHauler>{0} 활성화됨 – Haul Smarter의 다중 운반이 꺼져 있습니다. 사용하려면 {0}을(를) 끄세요.</HS_OtherHauler>
+  <HS_HaulMany>여러 물건 한 번에 운반</HS_HaulMany>
+  <HS_MaxItems>한 번에 운반할 최대 물건 수: {0}</HS_MaxItems>
+  <HS_Radius>물건 탐색 범위: {0}칸</HS_Radius>
+  <HS_BonusKg>추가 운반량: +{0} kg</HS_BonusKg>
+  <HS_PocketHarvest>수확물과 목재를 바로 주머니에</HS_PocketHarvest>
+  <HS_PocketMine>채굴한 자원을 바로 주머니에</HS_PocketMine>
+  <HS_UnloadAt>주머니가 이만큼 차면 내려놓기: {0}</HS_UnloadAt>
+  <HS_ReportUnload>{0} 내려놓는 중.</HS_ReportUnload>
+  <HS_Profile>운반 프로필</HS_Profile>
+  <HS_ProfileHint>프로필을 클릭하면 모든 설정이 한 번에 바뀝니다. 무엇이든 바꾸면 "사용자 지정"으로 전환됩니다.</HS_ProfileHint>
+  <HS_ProfGame>게임 기본</HS_ProfGame>
+  <HS_ProfGame_Card>여러 물건을 한 번에 운반할 뿐, 그 외에는 없음.</HS_ProfGame_Card>
+  <HS_ProfSmart>스마트</HS_ProfSmart>
+  <HS_ProfSmart_Card>상하는 것 먼저. 짧은 경로, 가는 길의 물건, 주머니에서 건설.</HS_ProfSmart_Card>
+  <HS_ProfMax>최대</HS_ProfMax>
+  <HS_ProfMax_Card>가득 찬 주머니, 긴 경로, 귀중품 먼저.</HS_ProfMax_Card>
+  <HS_ProfCustom>사용자 지정</HS_ProfCustom>
+  <HS_ProfCustom_Card>모든 설정을 직접 정합니다.</HS_ProfCustom_Card>
+  <HS_HaulMany_Desc>정착민이 근처의 모든 물건으로 가서 주머니에 넣고 전부 비축 구역으로 옮깁니다. 보관 장소는 물건마다 선택됩니다 – 선반과 대용량 보관함도 작동합니다. 어디에도 들어가지 않는 것은 자기 옆에 내려놓습니다.</HS_HaulMany_Desc>
+  <HS_MaxItems_Desc>한 번에 최대 몇 종류의 묶음을 운반할지.</HS_MaxItems_Desc>
+  <HS_Radius_Desc>첫 물건에서 얼마나 멀리까지 더 찾을지.</HS_Radius_Desc>
+  <HS_SmartRoute>스마트 경로 (가는 길에 수집, 지그재그 없음)</HS_SmartRoute>
+  <HS_SmartRoute_Desc>정착민에서 모든 물건을 거쳐 비축 구역까지의 경로가 가장 짧아지도록 물건 순서를 정합니다.</HS_SmartRoute_Desc>
+  <HS_Opportunistic>가는 길에 물건 줍기 (조심스럽게)</HS_Opportunistic>
+  <HS_Opportunistic_Desc>정착민이 어딘가로 걷거나 작업을 마칠 때, 바로 옆에 있고 비축 구역에 있어야 할 물건을 주머니에 넣습니다. 조심스럽게: 인접 칸만, 한 묶음 후 잠시 쉬고, 급할 때(소화, 치료, 도주, 명령)는 절대 줍지 않으며 운반량의 절반을 넘지 않습니다. 한가할 때나 주머니가 가득 찼을 때 운반합니다.</HS_Opportunistic_Desc>
+  <HS_UnloadAt_Desc>수확, 채굴, 다른 작업 후 주운 물건의 경우: 주머니가 얼마나 차면 내려놓으러 갈지.</HS_UnloadAt_Desc>
+  <HS_SecPrio>무엇을 먼저 운반할지</HS_SecPrio>
+  <HS_PrioPerish>썩는 음식</HS_PrioPerish>
+  <HS_PrioPerish_Desc>썩는 물건 중 따뜻한 곳에 있는 것 (고기, 작물, 식사).</HS_PrioPerish_Desc>
+  <HS_PrioWeather>밖에서 비 맞는 / 불 근처의 물건</HS_PrioWeather>
+  <HS_PrioWeather_Desc>지붕 없는 야외에서 손상되는 물건 (의약품, 직물, 무기…)과 불에서 5칸 이내의 물건.</HS_PrioWeather_Desc>
+  <HS_PrioValuable>귀중품 (금, 우라늄, 유물)</HS_PrioValuable>
+  <HS_PrioValuable_Desc>가치가 은 300 이상인 묶음.</HS_PrioValuable_Desc>
+  <HS_Prio0>보통</HS_Prio0>
+  <HS_Prio1>조금 먼저</HS_Prio1>
+  <HS_Prio2>가장 먼저</HS_Prio2>
+  <HS_SecPockets>수확과 채굴</HS_SecPockets>
+  <HS_PocketHarvest_Desc>정착민이 바로 옆의 작물이나 목재를 집어 들고 계속 일하다가, 주머니가 가득 차거나 작업이 끝나면 운반합니다.</HS_PocketHarvest_Desc>
+  <HS_PocketMine_Desc>정착민이 바로 옆의 채굴한 돌과 광석을 집어 들고 계속 채굴하다가, 주머니가 가득 차면 운반합니다.</HS_PocketMine_Desc>
+  <HS_SecWeight>무게</HS_SecWeight>
+  <HS_BonusKg_Desc>게임이 허용하는 것보다 몇 kg 더 (0 = 게임 기본).</HS_BonusKg_Desc>
+  <HS_Slowdown>무거운 짐은 걸음을 느리게 함 (현실적)</HS_Slowdown>
+  <HS_Slowdown_Desc>운반량의 절반을 넘으면 정착민이 느리게 걷습니다 – 주머니가 가득 차면 최대 15 %. 기본값은 꺼짐.</HS_Slowdown_Desc>
+  <HS_ShowWeight>정착민에 무게 표시 (머리 위 막대)</HS_ShowWeight>
+  <HS_ShowWeight_Desc>물건을 비축 구역으로 옮기는 정착민 머리 위의 작은 막대: 적재량에 따라 초록, 주황, 빨강. 최대 확대 시 kg도 표시.</HS_ShowWeight_Desc>
+  <HS_SecInfo>시간과 개요</HS_SecInfo>
+  <HS_ShowEta>무게와 "보관까지 남은 시간" 표시</HS_ShowEta>
+  <HS_ShowEta_Desc>정착민을 선택하면 아래 패널에 운반량, 더 주울 물건 수, 보관 완료 시점이 표시됩니다.</HS_ShowEta_Desc>
+  <HS_Overview>하단 바의 "운반" 버튼</HS_Overview>
+  <HS_Overview_Desc>개요 창: 운반을 기다리는 것, 그 무게, 썩는 것, 운반자 수, 완료까지 시간, 누가 얼마나 운반했는지.</HS_Overview_Desc>
+  <HS_Highlight>운반되지 않은 물건을 지도에 강조</HS_Highlight>
+  <HS_Highlight_Desc>"운반" 창이 열려 있는 동안 운반을 기다리는 물건이 지도에 테두리로 표시됩니다 – 노란색, 썩거나 비를 맞는 것은 주황색.</HS_Highlight_Desc>
+  <HS_InfoNote>통계(누가 얼마나 운반했는지)는 게임과 함께 저장됩니다. Haul Smarter가 한 운반도 집계됩니다.</HS_InfoNote>
+  <HS_StatLoad>무거운 짐 (Haul Smarter)</HS_StatLoad>
+  <HS_Carries>운반 중: {0} / {1} kg ({2}개)</HS_Carries>
+  <HS_Eta>{0} 후 보관</HS_Eta>
+  <HS_StillTake>{0}개 더 주울 예정</HS_StillTake>
+  <HS_EtaNow>잠시</HS_EtaNow>
+  <HS_EtaHours>약 {0}시간</HS_EtaHours>
+  <HS_OverviewTitle>운반 개요</HS_OverviewTitle>
+  <HS_OvWaiting>운반 대기: {0} 묶음 · {1} kg</HS_OvWaiting>
+  <HS_OvHot>그중 썩는 중: {0} · 밖에서 비 / 불 근처: {1} · 귀중품: {2}</HS_OvHot>
+  <HS_OvHaulers>운반자: {0} (현재 운반 중: {1})</HS_OvHaulers>
+  <HS_OvEta>약 {0} 후 완료 (운반만 한다면)</HS_OvEta>
+  <HS_OvEtaNone>운반할 것이 없거나 운반이 켜진 사람이 없습니다.</HS_OvEtaNone>
+  <HS_OvToday>오늘 운반: {0} kg / {1}회</HS_OvToday>
+  <HS_ColName>정착민</HS_ColName>
+  <HS_ColCarry>현재 운반</HS_ColCarry>
+  <HS_ColToday>오늘</HS_ColToday>
+  <HS_ColTotal>합계</HS_ColTotal>
+  <HS_KgTrips>{0} kg / {1}x</HS_KgTrips>
+  <HS_BuildPockets>주머니의 자재로 건설</HS_BuildPockets>
+  <HS_BuildPockets_Desc>정착민이 건설에 필요한 자재(목재, 강철, 석재…)를 가지고 있으면 주머니에서 꺼내 바로 현장으로 가져갑니다 – 비축 구역까지 걸어갈 필요가 없습니다.</HS_BuildPockets_Desc>
+  <HS_SecCleanup>전투 후 정리</HS_SecCleanup>
+  <HS_CleanupNotice>전투가 끝났습니다 – 기지 주변에 무기, 의류, 시체 {0}개가 있습니다. 운반 개요 → "전투 후 정리".</HS_CleanupNotice>
+  <HS_CleanupNotice_Desc>기지 주변에 무기, 의류, 시체가 몇 개 있는지 메시지로 알려줍니다. 정리는 운반 개요에서 시작합니다.</HS_CleanupNotice_Desc>
+  <HS_CleanupAuto>자동으로 정리</HS_CleanupAuto>
+  <HS_CleanupAuto_Desc>기지에서 전투가 끝날 때마다 적이 기지 주변에 남긴 것을 허용하고 가장 먼저 운반합니다 – 클릭이 필요 없습니다.</HS_CleanupAuto_Desc>
+  <HS_CleanupButton>전투 후 정리 ({0})</HS_CleanupButton>
+  <HS_CleanupButton_Desc>기지 주변의 무기, 의류, 시체를 허용하고(게임은 적의 장비를 금지합니다) 다른 무엇보다 먼저 운반하게 합니다.</HS_CleanupButton_Desc>
+  <HS_CleanupStarted>정리 시작: {0}개의 물건이 가장 먼저 운반됩니다.</HS_CleanupStarted>
+  <HS_FuelRound>연료 순회</HS_FuelRound>
+  <HS_FuelRound_Desc>연료를 채우러 가는 정착민이 근처에서 역시 연료가 필요한 횃불, 화로, 발전기의 몫까지 챙겨 차례로 채웁니다 – 각각 한 번씩이 아니라 비축 구역에 한 번만 갑니다. 남은 것은 비축 구역으로 돌려놓습니다.</HS_FuelRound_Desc>
+  <HS_MergeStacks>덜 찬 묶음 합치기</HS_MergeStacks>
+  <HS_MergeStacks_Desc>다른 할 일이 없을 때 운반자가 같은 비축 구역에 있는 같은 물건의 덜 찬 묶음을 합칩니다 – 빈 칸이 늘어납니다. 선반과 한 칸에 여러 물건을 보관하는 보관함은 건드리지 않습니다.</HS_MergeStacks_Desc>
+  <HS_DropOnDraft>소집 시 물건 내려놓기</HS_DropOnDraft>
+  <HS_DropOnDraft_Desc>소집된 정착민은 비축 구역으로 옮기던 물건을 즉시 내려놓습니다 – 느려지지 않고, 쓰러져도 잃는 것이 없습니다. 나중에 다시 운반됩니다.</HS_DropOnDraft_Desc>
+  <HS_SecBench>작업대 공급</HS_SecBench>
+  <HS_BenchCells>공급 비축 구역 크기: {0}칸</HS_BenchCells>
+  <HS_BenchCells_Desc>작업대의 "공급" 버튼이 작업대 옆 작은 비축 구역에 사용하는 칸 수.</HS_BenchCells_Desc>
+  <HS_Bench>공급</HS_Bench>
+  <HS_Bench_Desc>이 작업대 바로 옆에 활성 작업 명령의 재료만 받는 작은 비축 구역을 만듭니다 (자동 갱신, 우선순위 "선호"). 제작자가 지도를 가로지르지 않고 작업대 옆에서 재료를 가져갑니다. 다시 클릭하면 제거됩니다. 일반 비축 구역이므로 Haul Smarter가 없어도 남습니다.</HS_Bench_Desc>
+  <HS_BenchZone>공급: {0}</HS_BenchZone>
+  <HS_BenchStarted>{0}: {1}칸짜리 공급 비축 구역 생성 – 작업 명령의 재료가 이곳으로 운반됩니다.</HS_BenchStarted>
+  <HS_BenchNoRoom>이 작업대 옆에 공급 비축 구역을 만들 빈 칸이 없습니다.</HS_BenchNoRoom>
+  <HS_SafeOff>Haul Smarter: "{0}"에서 계속 오류가 발생하여(아마 다른 모드와 함께) 다음 시작까지 꺼졌습니다. 자세한 내용은 로그에 있습니다.</HS_SafeOff>
+  <HS_SafeList>오류로 꺼짐: {0}</HS_SafeList>
+  <HS_SafeReset>다시 켜기</HS_SafeReset>
+  <HS_Feat_haul>다중 운반</HS_Feat_haul>
+  <HS_Feat_pockets>수확·채굴 주머니</HS_Feat_pockets>
+  <HS_Feat_unload>주머니 비우기</HS_Feat_unload>
+  <HS_Feat_onTheWay>가는 길의 물건</HS_Feat_onTheWay>
+  <HS_Feat_buildPockets>주머니에서 건설</HS_Feat_buildPockets>
+  <HS_Feat_draft>소집 시 물건 내려놓기</HS_Feat_draft>
+  <HS_Feat_bench>작업대 공급</HS_Feat_bench>
+  <HS_Feat_fuel>연료 순회</HS_Feat_fuel>
+  <HS_Feat_merge>덜 찬 묶음 합치기</HS_Feat_merge>
+</LanguageData>

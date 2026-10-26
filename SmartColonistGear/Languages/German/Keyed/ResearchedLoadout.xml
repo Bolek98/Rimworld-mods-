@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RL_Enable>Mod aktivieren</RL_Enable>
+  <RL_UseRecipes>Rezepte zählen als Forschung</RL_UseRecipes>
+  <RL_UseRecipes_Desc>Ein Gegenstand ist freigeschaltet, sobald die Forschung für mindestens ein Rezept, das ihn herstellt, abgeschlossen ist. Ausschalten, falls Rohstoffe (Holz, Stahl) gesperrt werden.</RL_UseRecipes_Desc>
+  <RL_BlockHigherTech>Gegenstände über der Technologiestufe der Kolonie sperren</RL_BlockHigherTech>
+  <RL_BlockHigherTech_Desc>Gegenstände ohne Forschung, die fortschrittlicher sind als die erforschte Technologiestufe deiner Kolonie, werden nicht benutzt.</RL_BlockHigherTech_Desc>
+  <RL_BlockUntagged>Mod-Gegenstände ohne Forschung sperren</RL_BlockUntagged>
+  <RL_BlockUntagged_Desc>Gegenstände aus anderen Mods, die keine Forschung haben, gelten als gesperrt.</RL_BlockUntagged_Desc>
+  <RL_BlockLockedEquip>Unerforschte Waffen sperren</RL_BlockLockedEquip>
+  <RL_BlockLockedEquip_Desc>Kolonisten heben keine unerforschte Waffe auf, auch nicht auf Befehl.</RL_BlockLockedEquip_Desc>
+  <RL_BlockLockedApparel>Unerforschte Kleidung sperren</RL_BlockLockedApparel>
+  <RL_BlockLockedApparel_Desc>Das Vanilla-Ankleiden wählt keine unerforschte Kleidung.</RL_BlockLockedApparel_Desc>
+  <RL_StripLocked>Unerforschte Ausrüstung ablegen</RL_StripLocked>
+  <RL_StripLocked_Desc>Kolonisten legen Waffen und Kleidung ab, die deine Kolonie noch nicht erforscht hat.</RL_StripLocked_Desc>
+  <RL_AutoPrimary>Hauptwaffe automatisch verbessern</RL_AutoPrimary>
+  <RL_AutoPrimary_Desc>Kolonisten nehmen selbstständig eine stärkere Waffe und legen die schwächere ab.</RL_AutoPrimary_Desc>
+  <RL_UseSkills>Waffe nach Fertigkeiten wählen</RL_UseSkills>
+  <RL_UseSkills_Desc>Schützen bekommen Fernkampfwaffen, Kämpfer Nahkampfwaffen.</RL_UseSkills_Desc>
+  <RL_AutoSidearm>Automatische Zweitwaffe</RL_AutoSidearm>
+  <RL_AutoSidearm_Desc>Kolonisten tragen zusätzlich eine Ersatzwaffe der anderen Art. Mit Simple Sidearms gelten dessen Limits und Regeln.</RL_AutoSidearm_Desc>
+  <RL_PrioritizeFighters>Beste Waffen für die besten Kämpfer</RL_PrioritizeFighters>
+  <RL_PrioritizeFighters_Desc>Der Kolonist mit der höchsten Fertigkeit in Schießen oder Nahkampf wählt zuerst. Andere nehmen keine Waffe, solange sie für einen besseren Kämpfer eine Verbesserung wäre.</RL_PrioritizeFighters_Desc>
+  <RL_ArmSlaves>Sklaven bewaffnen</RL_ArmSlaves>
+  <RL_ArmSlaves_Desc>Bewaffnete Sklaven erhöhen die Gefahr einer Rebellion stark. Standardmäßig aus.</RL_ArmSlaves_Desc>
+  <RL_ConsiderDistance>Entfernung berücksichtigen</RL_ConsiderDistance>
+  <RL_ConsiderDistance_Desc>Je weiter ein Gegenstand entfernt ist, desto größer muss die Verbesserung sein (bis zu +25 %), damit ein Kolonist dorthin geht.</RL_ConsiderDistance_Desc>
+  <RL_PauseThreat>Bei Angriffen pausieren</RL_PauseThreat>
+  <RL_PauseThreat_Desc>Solange ein aktiver Feind im Heimatbereich oder innerhalb von 40 Feldern um einen Kolonisten ist, holt niemand Ausrüstung. Weit entfernte Feinde am Kartenrand, niedergestreckte oder fliehende zählen nicht.</RL_PauseThreat_Desc>
+  <RL_OwnDresser>Eigenes Ankleiden statt Vanilla</RL_OwnDresser>
+  <RL_OwnDresser_Desc>Diese Mod übernimmt das Ankleiden statt des Spiels. Nur empfohlen, wenn das Vanilla-Ankleiden Fehler wirft.</RL_OwnDresser_Desc>
+  <RL_AutoApparel>Automatisches Ankleiden (eigenes)</RL_AutoApparel>
+  <RL_AutoApparel_Desc>Gilt nur zusammen mit eigenem Ankleiden.</RL_AutoApparel_Desc>
+  <RL_OnlyStockpile>Nur aus Lagerzonen und Regalen</RL_OnlyStockpile>
+  <RL_OnlyStockpile_Desc>Kolonisten nehmen Gegenstände nur aus Lagerzonen und Regalen, nicht von irgendwo auf der Karte.</RL_OnlyStockpile_Desc>
+  <RL_ReplaceBroken>Abgenutztes und Verbotenes ablegen</RL_ReplaceBroken>
+  <RL_ReplaceBroken_Desc>Kleidung unter der Haltbarkeitsschwelle oder von der Kleidungsrichtlinie verboten wird ausgezogen.</RL_ReplaceBroken_Desc>
+  <RL_StoreDropped>Abgelegte Ausrüstung einlagern</RL_StoreDropped>
+  <RL_StoreDropped_Desc>Kolonisten bringen abgelegte Ausrüstung zum besten freien Lagerplatz. Ist kein Platz frei, bleibt sie am Boden liegen.</RL_StoreDropped_Desc>
+  <RL_Notify>Benachrichtigungen im Spiel</RL_Notify>
+  <RL_Notify_Desc>Eine Nachricht oben links, wenn ein Kolonist eine andere Waffe oder Kleidung nimmt.</RL_Notify_Desc>
+  <RL_DebugLog>Debug-Protokoll</RL_DebugLog>
+  <RL_DebugLog_Desc>Schreibt jeden Wechsel ins Log. Nur zur Fehlersuche.</RL_DebugLog_Desc>
+  <RL_MinHp>Min. Haltbarkeit: {0}%</RL_MinHp>
+  <RL_MinHp_Desc>Ausrüstung unter dieser Schwelle gilt als kaputt. Vanilla gibt einen Stimmungsmalus für abgenutzte Kleidung unter 50 %.</RL_MinHp_Desc>
+  <RL_Search>Suche:</RL_Search>
+  <RL_BanModWeapons>Mod-Waffen verbieten</RL_BanModWeapons>
+  <RL_AllowWeapons>Waffen erlauben</RL_AllowWeapons>
+  <RL_BanModApparel>Mod-Kleidung verbieten</RL_BanModApparel>
+  <RL_AllowApparel>Kleidung erlauben</RL_AllowApparel>
+  <RL_BanWeaponsTitle>Waffen (angehakt = VERBOTEN)</RL_BanWeaponsTitle>
+  <RL_BanApparelTitle>Kleidung und Rüstung (angehakt = VERBOTEN)</RL_BanApparelTitle>
+  <RL_GizmoLabel>Auto-Ausrüstung</RL_GizmoLabel>
+  <RL_GizmoDesc>Wenn aktiv, wählt die Mod Waffen und Kleidung für diesen Kolonisten. Ausschalten für Kolonisten, deren Ausrüstung du selbst verwalten willst.</RL_GizmoDesc>
+  <RL_MsgWeapon>{0} nimmt {1} statt {2}.</RL_MsgWeapon>
+  <RL_MsgWeaponNew>{0} nimmt {1}.</RL_MsgWeaponNew>
+  <RL_MsgSidearm>{0} nimmt {1} als Zweitwaffe.</RL_MsgSidearm>
+  <RL_MsgApparel>{0} zieht {1} an.</RL_MsgApparel>
+  <RL_WeaponCalm>Ruhe nach Waffenwechsel: {0} h</RL_WeaponCalm>
+  <RL_WeaponCalm_Desc>Nach einem Waffenwechsel behält ein Kolonist die Waffe so lange, außer sie geht kaputt. 24 h = ein Spieltag, 0 = keine Grenze.</RL_WeaponCalm_Desc>
+  <RL_Ex_Allowed>Erlaubt</RL_Ex_Allowed>
+  <RL_Ex_Locked>Gesperrt</RL_Ex_Locked>
+  <RL_Ex_Banned>Manuell verboten</RL_Ex_Banned>
+  <RL_Ex_Always>Benötigt immer: {0}</RL_Ex_Always>
+  <RL_Ex_Option>Herstellung: {0}</RL_Ex_Option>
+  <RL_Ex_Free>Ohne Forschung herstellbar</RL_Ex_Free>
+  <RL_Ex_NoResearch>Keine Forschung (Technologiestufe und Mod-Gegenstand-Regel entscheiden)</RL_Ex_NoResearch>
+  <RL_Ex_Tech>Technologiestufe: {0} (Grenze: {1})</RL_Ex_Tech>
+  <RL_Ex_Mod>Mod: {0}</RL_Ex_Mod>
+  <RL_Ex_Done>erledigt</RL_Ex_Done>
+  <RL_Ex_Missing>fehlt</RL_Ex_Missing>
+  <RL_TechMismatch>Gegenstände prüfen, die fortschrittlicher als ihre Forschung sind</RL_TechMismatch>
+  <RL_TechMismatch_Desc>Wenn eine Mod einen fortschrittlichen Gegenstand unter eine niedrigere Forschung stellt (ein Raumfahrer-Gewehr unter industrielle Forschung), muss die Kolonie auch die Technologiestufe dieses Gegenstands erreichen.</RL_TechMismatch_Desc>
+  <RL_PowerEstimate>Technologiestufe von Mod-Gegenständen nach Stärke schätzen</RL_PowerEstimate>
+  <RL_PowerEstimate_Desc>Eine Mod-Waffe oder -Rüstung, die deutlich stärker als die beste industrielle aus Vanilla ist, gilt als Raumfahrer-Stufe, auch wenn der Mod-Autor eine niedrigere Stufe gesetzt hat. Dies ist eine Schätzung.</RL_PowerEstimate_Desc>
+  <RL_Ex_Power>Stärke entspricht Technologiestufe: {0}</RL_Ex_Power>
+  <RL_Ex_NeedColony>Kolonie muss Technologiestufe erreichen: {0}</RL_Ex_NeedColony>
+  <RL_LevelByProgress>Kolonie-Stufe nach Forschungsfortschritt</RL_LevelByProgress>
+  <RL_LevelByProgress_Desc>Die Kolonie erreicht eine Technologiestufe, sobald sie den eingestellten Anteil der Forschung dieser Stufe abgeschlossen hat. Aus = die höchste abgeschlossene Forschung entscheidet (eine einzige genügt). Die Stufe des Szenarios gilt immer als Minimum.</RL_LevelByProgress_Desc>
+  <RL_LevelProgress>Benötigter Anteil der Forschung einer Stufe: {0}%</RL_LevelProgress>
+  <RL_LevelProgress_Desc>Wie viel der Forschung einer Stufe abgeschlossen sein muss, damit die Kolonie als diese Stufe gilt.</RL_LevelProgress_Desc>
+  <RL_CurrentLevel>Aktuelle Kolonie-Stufe: {0} (Szenario: {1}, Forschung: {2})</RL_CurrentLevel>
+  <RL_SyncWorld>Kolonie-Stufe aus World at Your Level</RL_SyncWorld>
+  <RL_SyncWorld_Desc>Kolonisten und die ganze Welt teilen dieselbe Stufe, einschließlich der manuellen Stufe und der Anteile pro Stufe, die in der Überfall-Mod eingestellt sind.</RL_SyncWorld_Desc>
+  <RL_SurvivalApparel>Überlebens-Ausnahme (nur kritisch)</RL_SurvivalApparel>
+  <RL_SurvivalApparel_Desc>Temperatur zählt nur im Notfall: wenn sie außerhalb der Grenzen unten liegt oder ein Kolonist Unterkühlung oder Hitzschlag hat (gilt immer). Dann darf er unerforschte warme Kleidung tragen oder Teile ablegen, die die Hitze verschlimmern (nie Rüstung). Sonst wird Kleidung nicht wegen der Temperatur gewechselt.</RL_SurvivalApparel_Desc>
+  <RL_ApparelCalm>Ruhe nach Kleidungswechsel: {0} h</RL_ApparelCalm>
+  <RL_ApparelCalm_Desc>Nach einem Kleidungswechsel wechselt ein Kolonist so lange nicht erneut, außer bei Unterkühlung oder Hitzschlag. Ausgezogene oder durch ein neues Teil ersetzte Gegenstände werden einen Tag lang nicht wieder genommen. 0 = keine Ruhezeit.</RL_ApparelCalm_Desc>
+  <RL_KeepArmor>Rüstung immer behalten</RL_KeepArmor>
+  <RL_KeepArmor_Desc>Ein Rüstungsteil wird nie gegen eines mit schwächerem Schutz getauscht und nie wegen der Temperatur ausgezogen. Gilt nicht für kaputte oder gesperrte Rüstung.</RL_KeepArmor_Desc>
+  <RL_TempByThresholds>Eigene Temperaturgrenzen</RL_TempByThresholds>
+  <RL_TempByThresholds_Desc>An: die Schieberegler entscheiden. Aus: automatisch, nach dem sicheren Temperaturbereich jedes Kolonisten (unter Berücksichtigung seiner Kleidung).</RL_TempByThresholds_Desc>
+  <RL_ColdThreshold>Warme Kleidung anziehen unter: {0}</RL_ColdThreshold>
+  <RL_ColdThreshold_Desc>Ist es draußen kälter, ziehen Kolonisten warme Kleidung an (auch unerforschte). Sie behalten sie, bis es mindestens 3 Grad wärmer als diese Grenze ist.</RL_ColdThreshold_Desc>
+  <RL_HeatThreshold>Kleidung wegen Hitze ablegen über: {0}</RL_HeatThreshold>
+  <RL_HeatThreshold_Desc>Ist es draußen heißer, legen Kolonisten Teile ab, die die Hitze verschlimmern (nie Rüstung), und tragen hitzeschützende Kleidung.</RL_HeatThreshold_Desc>
+  <RL_GenderClothing>Kleidung nach Geschlecht</RL_GenderClothing>
+  <RL_GenderClothing_Desc>Männer nehmen nur Herren- und Unisex-Kleidung, Frauen nur Damen- und Unisex-Kleidung. Ein bereits getragenes Teil des anderen Geschlechts wird ersetzt, sobald passender Ersatz gefunden ist.</RL_GenderClothing_Desc>
+  <RL_GenderGuess>Geschlecht aus Name und Beschreibung erraten</RL_GenderGuess>
+  <RL_GenderGuess_Desc>Hat die Kleidungsdefinition kein Geschlecht, wird es aus Name, Tags, Textur und Beschreibung erraten (Kleid, Rock, Dienstmädchen… = Damen; Smoking, Gentleman… = Herren). Im Zweifel ist das Teil Unisex. Die Schätzung siehst du im Tooltip der Kleidungsliste.</RL_GenderGuess_Desc>
+  <RL_GenderFemale>Damen</RL_GenderFemale>
+  <RL_GenderMale>Herren</RL_GenderMale>
+  <RL_GenderUnisex>Unisex</RL_GenderUnisex>
+  <RL_Ex_Gender>Geschlecht: {0}</RL_Ex_Gender>
+  <RL_TabGeneral>Forschung und Stufe</RL_TabGeneral>
+  <RL_TabWeapons>Waffen</RL_TabWeapons>
+  <RL_TabApparel>Kleidung</RL_TabApparel>
+  <RL_TabTemperature>Temperatur und Gefahren</RL_TabTemperature>
+  <RL_TabBans>Verbote</RL_TabBans>
+  <RL_TabOther>Sonstiges</RL_TabOther>
+  <RL_TempInfo>Temperatur ändert die Kleidung nur im Notfall: wenn sie außerhalb der eingestellten Grenzen liegt oder ein Kolonist Unterkühlung oder Hitzschlag hat (gilt immer).\n\nBei Kälte ziehen sie warme Kleidung an, auch unerforschte. Bei Hitze legen sie Teile ab, die es verschlimmern.\n\nRüstung wird wegen der Temperatur nie ausgezogen oder gegen schwächere getauscht.</RL_TempInfo>
+  <RL_ConfirmBanWeapons>Wirklich ALLE Waffen aus Mods verbieten? Kolonisten nehmen keine Mod-Waffe mehr. Einzelne Waffen kannst du später in der Liste wieder abhaken.</RL_ConfirmBanWeapons>
+  <RL_ConfirmBanApparel>Wirklich ALLE Kleidung aus Mods verbieten? Kolonisten nehmen keine Mod-Kleidung mehr. Einzelne Teile kannst du später in der Liste wieder abhaken.</RL_ConfirmBanApparel>
+  <RL_RoleGear>Ausrüstung nach Spezialisierung</RL_RoleGear>
+  <RL_RoleGear_Desc>Nach Fertigkeiten hat jeder Kolonist eine Rolle: Schütze, Nahkämpfer, ausgewogen oder Arbeiter. Nahkämpfer bevorzugen schwerere Rüstung, Arbeiter leichtere Ausrüstung ohne Verlangsamung. Gute Schützen schätzen Waffen mit großer Reichweite, schwache schnellere mit kurzer Reichweite. Die Rolle steht in der Beschreibung der Schaltfläche „Auto-Ausrüstung“.</RL_RoleGear_Desc>
+  <RL_SpecialEffects>Besondere Waffeneffekte berücksichtigen</RL_SpecialEffects>
+  <RL_SpecialEffects_Desc>Explosiv-, Brand-, EMP-, Betäubungs-, Gift- und Rauchwaffen werden als Hauptwaffe eines Kolonisten niedriger bewertet (Gefahr, Verbündete zu treffen, nur gegen manche Ziele wirksam).</RL_SpecialEffects_Desc>
+  <RL_StatOffsets>Boni und Mali der Ausrüstung</RL_StatOffsets>
+  <RL_StatOffsets_Desc>Berücksichtigt, was Ausrüstung verändert: Bewegungs- und Arbeitsgeschwindigkeit, Zielen, Treffen und Ausweichen und je nach bester Fertigkeit des Kolonisten auch Arbeitswerte (Arzt Behandlung, Gärtner Pflanzenarbeit, Koch Kochen…).</RL_StatOffsets_Desc>
+  <RL_Role_Shooter>Schütze</RL_Role_Shooter>
+  <RL_Role_Melee>Nahkämpfer</RL_Role_Melee>
+  <RL_Role_Balanced>ausgewogen</RL_Role_Balanced>
+  <RL_Role_Worker>Arbeiter</RL_Role_Worker>
+  <RL_GizmoRole>Rolle: {0}, Spezialisierung: {1}</RL_GizmoRole>
+  <RL_CoverageFirst>Zuerst den Körper bedecken (Torso, Beine)</RL_CoverageFirst>
+  <RL_CoverageFirst_Desc>Ein Teil, das eine unbedeckte Stelle bedeckt, hat Vorrang (Torso am meisten, dann Beine, Kopf, der Rest). Ein Teil, das etwas freilegen würde, wird abgewertet. Solange Torso oder Beine nackt sind, zieht sich der Kolonist sofort an, ohne Ruhezeit.</RL_CoverageFirst_Desc>
+  <RL_ThreatApparel>Schutz vor Gefahren</RL_ThreatApparel>
+  <RL_ThreatApparel_Desc>Bei kritischer Kälte oder Hitze (Grenzen oben), Giften, Fallout, Verschmutzung, Vakuum oder Kampf auf der Karte bekommt Kleidung mit dem nötigen Schutz einen großen Bonus, damit Kolonisten sie anziehen. Rüstung wird dafür nie gegen schwächere getauscht.</RL_ThreatApparel_Desc>
+  <RL_ThreatBills>Aufträge für Schutzkleidung erstellen</RL_ThreatBills>
+  <RL_ThreatBills_Desc>Gibt es nicht genug Schutzkleidung und ist das Rezept erforscht, wird an einer Werkbank ein Auftrag „bis du X hast“ hinzugefügt und die Produkte gehen ins Lager. Deine Aufträge werden nicht entfernt. Fehlt Forschung, erscheint eine Nachricht.</RL_ThreatBills_Desc>
+  <RL_ThreatBill>Kolonisten haben mit der Herstellung von Schutz begonnen: {0}.</RL_ThreatBill>
+  <RL_ThreatNoRecipe>Schutz gegen diese Gefahr kann noch nicht hergestellt werden. Die Forschung fehlt.</RL_ThreatNoRecipe>
+  <RL_OnlyCrafted>Nur nehmen, was die Kolonie hergestellt hat</RL_OnlyCrafted>
+  <RL_OnlyCrafted_Desc>Kolonisten nehmen nur neue Waffen und Kleidung, die die Kolonie schon mindestens einmal an einer Werkbank hergestellt (und erforscht) hat. Beute und gekaufte Gegenstände anderer Arten werden ignoriert, bis ihr diese Art selbst herstellt. Was sie bereits tragen, wird deswegen nicht abgelegt. In einem laufenden Spiel werden die Ausrüstung der Kolonisten und eingelagerte herstellbare Gegenstände einmalig übernommen.</RL_OnlyCrafted_Desc>
+  <RL_CraftedCount>Hergestellte Arten von Waffen und Kleidung: {0}</RL_CraftedCount>
+  <RL_CraftedReset>Herstellungsliste leeren</RL_CraftedReset>
+  <RL_CraftedReset_Desc>Vergisst jede bisher übernommene oder hergestellte Waffen- und Kleidungsart. Ab jetzt zählt nur, was die Kolonie wirklich herstellt. Was Kolonisten tragen, bleibt an.</RL_CraftedReset_Desc>
+  <RL_CraftedResetConfirm>Herstellungsliste wirklich leeren? Kolonisten nehmen neue Waffen und Kleidung erst, nachdem ihr diese Art hergestellt habt.</RL_CraftedResetConfirm>
+  <RL_Ex_NotCrafted>Erforscht, aber die Kolonie hat es noch nicht hergestellt.</RL_Ex_NotCrafted>
+  <RL_SidearmLocked>Smart Colonist Gear: die Kolonie hat diese Waffe noch nicht erforscht oder hergestellt</RL_SidearmLocked>
+  <RL_WorkClothing>Arbeitskleidung nur für Spezialisten</RL_WorkClothing>
+  <RL_WorkClothing_Desc>Kleidung, die eine bestimmte Arbeit beschleunigt (Schürze fürs Kochen, Laborkittel für Forschung, Handschuhe für Ärzte, Bergbauhelm…), nimmt nur ein Spezialist dieser Arbeit – falls vorhanden, wird sie stark bevorzugt. Andere nehmen sie nicht. Spezialist = es ist seine beste Arbeitsfertigkeit oder er hat diese Arbeit auf Priorität 1, und die Fertigkeit hat mindestens die eingestellte Stufe.</RL_WorkClothing_Desc>
+  <RL_WorkClothingSkill>Spezialist ab Fertigkeit: {0}</RL_WorkClothingSkill>
+  <RL_WorkClothingSkill_Desc>Mindeststufe der Fertigkeit, damit ein Kolonist für Arbeitskleidung als Spezialist gilt.</RL_WorkClothingSkill_Desc>
+  <RL_DressByTraits>Kleidung nach Merkmalen und Fertigkeiten</RL_DressByTraits>
+  <RL_DressByTraits_Desc>Unter der erlaubten Kleidung bevorzugt jeder Kolonist, was zu ihm passt: Ausrüstung, die Arbeit verbessert, die er wirklich macht und gut kann (Arzt – Behandlung, Bergarbeiter – Bergbau, Forscher – Forschung…), Schieß- oder Nahkampfausrüstung je nach Kampffertigkeit, psychische Ausrüstung für Psycaster und psychisch empfindsame Kolonisten. Auch Merkmale zählen: Weichlinge schätzen Rüstung mehr, Jogger und Flinke achten auf Verlangsamung, Gierige und Eifersüchtige wollen bessere Qualität, Asketen ist Luxus egal, Raufbolde verzichten auf Zielausrüstung. Nur eine kleine Vorliebe (etwa -25 % bis +35 %) – sie erlaubt nie gesperrte oder unerforschte Ausrüstung.</RL_DressByTraits_Desc>
+  <RL_GearStability>Ausrüstungsstabilität: nur wechseln, wenn {0} % besser</RL_GearStability>
+  <RL_GearStability_Desc>Wie viel besser eine neue Waffe, Kleidung, Rüstung oder ein Accessoire sein muss als das, was der Kolonist hat, bevor er wechselt. Höher = weniger Um- und Neuausrüsten. Derselbe Gegenstand gegen denselben (z. B. Brustplatte gegen Brustplatte) wird nur bei besserer Qualität getauscht. Kaputte Gegenstände werden immer ersetzt.</RL_GearStability_Desc>
+  <RL_TabSidearms>Zweitwaffen</RL_TabSidearms>
+  <RL_SS_Missing>Simple Sidearms ist nicht installiert – das eingebaute System dieser Mod wird verwendet: Kolonisten tragen eine Waffe der anderen Art und ziehen sie im Kampf selbstständig.</RL_SS_Missing>
+  <RL_SS_Preset>Simple-Sidearms-Voreinstellung: {0}</RL_SS_Preset>
+  <RL_SS_P_Custom>Benutzerdefiniert</RL_SS_P_Custom>
+  <RL_SS_P_NoneApplied>Keine</RL_SS_P_NoneApplied>
+  <RL_SS_P_Disabled>Deaktiviert</RL_SS_P_Disabled>
+  <RL_SS_P_LoadoutOnly>Nur Ausrüstung (diese Mod wählt Zweitwaffen)</RL_SS_P_LoadoutOnly>
+  <RL_SS_P_Lite>Leicht</RL_SS_P_Lite>
+  <RL_SS_P_Basic>Basis</RL_SS_P_Basic>
+  <RL_SS_P_Advanced>Fortgeschritten</RL_SS_P_Advanced>
+  <RL_SS_P_Excessive>Übermäßig</RL_SS_P_Excessive>
+  <RL_SS_P_Brawler>Raufbold</RL_SS_P_Brawler>
+  <RL_SS_Slots>Max. Zweitwaffen: {0}</RL_SS_Slots>
+  <RL_SS_Slots_Desc>Wie viele Waffen ein Kolonist zusätzlich zu der in der Hand tragen darf.</RL_SS_Slots_Desc>
+  <RL_SS_Mass>Max. Masse einer Zweitwaffe: {0} kg</RL_SS_Mass>
+  <RL_SS_MassNone>Max. Masse einer Zweitwaffe: keine Grenze</RL_SS_MassNone>
+  <RL_SS_Mass_Desc>Schwerere Waffen werden nicht als Zweitwaffe getragen. 0 = keine Grenze.</RL_SS_Mass_Desc>
+  <RL_SS_ToolSwitch>Werkzeuge für die Arbeit nutzen (Axt, Spitzhacke…)</RL_SS_ToolSwitch>
+  <RL_SS_ToolSwitch_Desc>Ein Kolonist wechselt zu einer mitgeführten Waffe, die die aktuelle Arbeit beschleunigt.</RL_SS_ToolSwitch_Desc>
+  <RL_SS_OptimalMelee>Beste Nahkampfwaffe für das Ziel</RL_SS_OptimalMelee>
+  <RL_SS_CQC>Im Nahkampf zur Nahkampfwaffe wechseln</RL_SS_CQC>
+  <RL_SS_RangedSwitch>Auf Distanz zur Fernkampfwaffe wechseln</RL_SS_RangedSwitch>
+  <RL_SS_ReEquip>Hauptwaffe nach dem Kampf wieder nehmen</RL_SS_ReEquip>
+  <RL_SS_ReEquipBest>Beste Waffe nach dem Kampf nehmen</RL_SS_ReEquipBest>
+  <RL_SS_ReEquipCombat>Auch während des Kampfes zurückwechseln</RL_SS_ReEquipCombat>
+  <RL_SS_SkipDangerous>Gefährliche Waffen (Granaten, Sprengstoff) nicht automatisch nutzen</RL_SS_SkipDangerous>
+  <RL_SS_SkipEMP>EMP-Waffen nicht automatisch nutzen</RL_SS_SkipEMP>
+  <RL_SS_Caravans>Zweitwaffen in Karawanen behalten</RL_SS_Caravans>
+  <RL_SS_Alerts>Warnung bei fehlender Zweitwaffe</RL_SS_Alerts>
+  <RL_SS_Sounds>Geräusche beim Waffenwechsel</RL_SS_Sounds>
+  <RL_SS_Spawn>Andere kommen mit Zweitwaffe: {0} %</RL_SS_Spawn>
+  <RL_SS_Spawn_Desc>Wahrscheinlichkeit, dass ein Angreifer oder Besucher eine Zweitwaffe bekommt (Ausrüstung wird weiterhin von World at Your Level gefiltert).</RL_SS_Spawn_Desc>
+  <RL_SS_HidePage>Originale Simple-Sidearms-Einstellungen ausblenden</RL_SS_HidePage>
+  <RL_SS_HidePage_Desc>Die originale Simple-Sidearms-Seite wird in der Liste der Mod-Einstellungen ausgeblendet – alles wird hier eingestellt. Wirkt nach erneutem Öffnen der Einstellungen.</RL_SS_HidePage_Desc>
+  <RL_EmergencyGear>Notfallausrüstung in gefährlichen Situationen</RL_EmergencyGear>
+  <RL_EmergencyGear_Desc>Passiert etwas Gefährliches und deine Kolonie hat die passende Ausrüstung noch nicht erforscht, dürfen Kolonisten Ersatzausrüstung nutzen, die bereits auf der Karte ist (Lager, Boden, Inventar) – auch unerforscht oder nicht hergestellt. Giftige Luft: Gasmasken und Schutzanzüge; extreme Kälte oder Hitze: isolierende Kleidung; ein Angriff: Rüstung und die eigenen Waffen der Kolonie. Es wird nichts erschaffen. Ist die Gefahr vorbei, gelten wieder die normalen Regeln; bereits getragene Teile werden etwa zwei Stunden behalten, damit sich niemand mittendrin auszieht. Manuell verbotene Gegenstände sind nie erlaubt.</RL_EmergencyGear_Desc>
+  <RL_EmergencyToxic>Giftige Luft (Gas, Fallout, Verschmutzung)</RL_EmergencyToxic>
+  <RL_EmergencyToxic_Desc>Giftgas nahe Kolonisten oder im Heimatbereich (z. B. ein Gasgenerator aus einer Quest), giftiger Fallout, schädlicher Dunst, verschmutzter Boden oder steigende Giftansammlung. Erlaubt Kleidung mit Giftumgebungs- oder Giftresistenz (Gasmasken, Schutzanzüge…) aus jeder Mod.</RL_EmergencyToxic_Desc>
+  <RL_EmergencyTemperature>Extreme Kälte oder Hitze</RL_EmergencyTemperature>
+  <RL_EmergencyTemperature_Desc>Außentemperatur weit jenseits dessen, was Kolonisten ohne Kleidung aushalten (oder Kälteeinbruch / Hitzewelle), oder Unterkühlung / Hitzschlag. Erlaubt gut isolierende Kleidung.</RL_EmergencyTemperature_Desc>
+  <RL_EmergencyRaid>Angriff</RL_EmergencyRaid>
+  <RL_EmergencyRaid_Desc>Solange Feinde auf der Karte aktiv sind. Erlaubt Rüstung und Waffen, die bereits der Kolonie gehören (im Lager, im Inventar oder im Heimatbereich liegend).</RL_EmergencyRaid_Desc>
+  <RL_EmKind_Toxic>Giftige Luft</RL_EmKind_Toxic>
+  <RL_EmKind_Cold>Extreme Kälte</RL_EmKind_Cold>
+  <RL_EmKind_Heat>Extreme Hitze</RL_EmKind_Heat>
+  <RL_EmKind_Raid>Angriff</RL_EmKind_Raid>
+  <RL_EmGear_Toxic>Gasmasken und Schutzausrüstung</RL_EmGear_Toxic>
+  <RL_EmGear_Cold>warme Kleidung</RL_EmGear_Cold>
+  <RL_EmGear_Heat>kühlende Kleidung</RL_EmGear_Heat>
+  <RL_EmGear_Raid>Rüstung und Waffen der Kolonie</RL_EmGear_Raid>
+  <RL_EmergencyOn>{0}: Kolonisten dürfen {1} auch ohne Forschung nutzen.</RL_EmergencyOn>
+  <RL_EmergencyOff>Gefahr vorbei ({0}): Notfallausrüstung ist nicht mehr erlaubt. Bereits getragene Teile werden noch eine Weile behalten.</RL_EmergencyOff>
+  <RL_Ex_Emergency>Jetzt als Notfallausrüstung erlaubt ({0})</RL_Ex_Emergency>
+  <RL_Ex_EmergencyFor>Notfallausrüstung für: {0}</RL_Ex_EmergencyFor>
+  <RL_EmergencyProvide>Notfallausrüstung finden und herstellen</RL_EmergencyProvide>
+  <RL_EmergencyProvide_Desc>Fehlt Kolonisten während der Gefahr Schutz: verbotene Schutzgegenstände irgendwo auf der Karte werden freigegeben (nur so viele wie nötig, nicht im Feuer, nicht nahe Feinden), und reicht es dann noch nicht, wird ein Auftrag für den besten Schutz hinzugefügt, den deine Kolonie herstellen kann. Kann der passende Schutz noch nicht hergestellt werden (fehlende Forschung), wird stattdessen der nächstbeste Ersatz gefunden oder hergestellt – schwächerer Giftschutz oder eine Gesichtsbedeckung, die wärmste/kühlste Kleidung, die beste Rüstung. So hinzugefügte Aufträge werden nach der Gefahr entfernt, sofern die Arbeit daran noch nicht begonnen hat.</RL_EmergencyProvide_Desc>
+  <RL_EmProv_Msg>{0}: nicht genug {1} – {2}.</RL_EmProv_Msg>
+  <RL_EmProv_Unforbade>{0} freigegeben ({1})</RL_EmProv_Unforbade>
+  <RL_EmProv_Bill>Auftrag für {0}× {1} an {2} hinzugefügt</RL_EmProv_Bill>
+  <RL_EmProv_Substitute>kein Rezept für passenden Schutz, stelle Ersatz her: {0}× {1} an {2}</RL_EmProv_Substitute>
+  <RL_EmProv_BillExists>ein Auftrag für {0} existiert bereits</RL_EmProv_BillExists>
+  <RL_EmProv_Nothing>nichts gefunden und kein Rezept verfügbar</RL_EmProv_Nothing>
+  <RL_CraftedRestore>Liste aus der Kolonie wiederherstellen</RL_CraftedRestore>
+  <RL_CraftedRestore_Desc>Fügt jede Waffen- und Kleidungsart, die die Kolonie jetzt hat, zur Herstellungsliste hinzu: getragen, im Inventar und eingelagert. Nützlich, wenn die Liste versehentlich oder zu früh geleert wurde.</RL_CraftedRestore_Desc>
+  <RL_CraftedRestored>Herstellungsliste aus der Kolonie wiederhergestellt, hinzugefügte Arten: {0}.</RL_CraftedRestored>
+  <RL_SS_OwnHeader>Smart Colonist Gear – Zweitwaffen</RL_SS_OwnHeader>
+  <RL_SS_Filter>Nur erforschte und erlaubte Zweitwaffen</RL_SS_Filter>
+  <RL_SS_Filter_Desc>Simple Sidearms darf Kolonisten nur Waffen geben, die diese Mod erlaubt (Forschung, Technologiestufe, Verbote, nur hergestellte).</RL_SS_Filter_Desc>
+  <RL_SS_Upgrade>Zweitwaffen gegen bessere tauschen</RL_SS_Upgrade>
+  <RL_SS_Upgrade_Desc>Hat die Kolonie eine bessere Waffe derselben Art, tauscht der Kolonist die getragene Zweitwaffe und bringt die alte ins Lager.</RL_SS_Upgrade_Desc>
+  <RL_SS_Notify>Nachricht beim Nehmen einer Zweitwaffe</RL_SS_Notify>
+  <RL_SS_Notify_Desc>Zeigt eine Nachricht, wenn ein Kolonist eine neue Zweitwaffe nimmt (nur wenn die Nachrichten dieser Mod an sind).</RL_SS_Notify_Desc>
+  <RL_SS_OriginalUi>Vollständige Simple-Sidearms-Einstellungen</RL_SS_OriginalUi>
+  <RL_SS_OriginalUi_Desc>Unter diesen Optionen werden die kompletten originalen Simple-Sidearms-Einstellungen mit allen Tabs angezeigt (Voreinstellungen, Automatik, Limits, Erscheinen, Sonstiges). Aus = Kurzversion.</RL_SS_OriginalUi_Desc>
+  <RL_CraftedPick>Aus Vorhandenem wählen…</RL_CraftedPick>
+  <RL_CraftedPick_Desc>Öffnet eine Liste aller Waffen- und Kleidungsarten der Kolonie. Angehakte dürfen sofort getragen werden, der Rest wird von selbst freigeschaltet, sobald die Kolonie ihn herstellt.</RL_CraftedPick_Desc>
+  <RL_PickTitle>Was Kolonisten tragen dürfen</RL_PickTitle>
+  <RL_PickHelp>Angehakt = jetzt erlaubt. Nicht angehakt ist nicht dauerhaft verboten – es wird freigeschaltet, sobald die Kolonie es herstellt. Forschung und Verbote gelten weiterhin.</RL_PickHelp>
+  <RL_PickAll>Alle</RL_PickAll>
+  <RL_PickWeapons>Waffen</RL_PickWeapons>
+  <RL_PickApparel>Kleidung</RL_PickApparel>
+  <RL_PickOnAll>Angezeigte anhaken</RL_PickOnAll>
+  <RL_PickOffAll>Angezeigte abhaken</RL_PickOffAll>
+  <RL_PickCount>Erlaubt {0} von {1}</RL_PickCount>
+  <RL_PickNoResearch>nicht erforscht</RL_PickNoResearch>
+  <RL_PickWeapon>Waffe</RL_PickWeapon>
+  <RL_PickApparel1>Kleidung</RL_PickApparel1>
+  <RL_SS_Tab_Presets>Voreinstellungen</RL_SS_Tab_Presets>
+  <RL_SS_Tab_Automation>Auslöser</RL_SS_Tab_Automation>
+  <RL_SS_Tab_Allowances>Limits</RL_SS_Tab_Allowances>
+  <RL_SS_Tab_Spawning>Erscheinen</RL_SS_Tab_Spawning>
+  <RL_SS_Tab_Misc>Sonst.</RL_SS_Tab_Misc>
+  <RL_FullBody>Den ganzen Körper ankleiden</RL_FullBody>
+  <RL_FullBody_Desc>Der Kolonist zieht jedes verfügbare Teil an, das nur etwas hinzufügt (nichts entfernt) – Hut, Handschuhe, Stiefel, Weste, Mantel… – auch mit niedriger Bewertung. Es muss erlaubt sein, zur Kleidungsrichtlinie passen, nicht von Toten stammen und nicht gegen die Temperatur sein (keine warmen Mäntel bei Hitze). Gürtel und Hilfsgegenstände brauchen weiterhin die normale Bewertung. Ein Kolonist in Körperrüstung vervollständigt das Set (Helm, Handschuhe, Stiefel) und tauscht nie ein Teil davon gegen ein schwächeres. Zusätzliche warme Teile nur, wenn es nicht heiß ist.</RL_FullBody_Desc>
+  <RL_SP_Tab_Overview>Übersicht</RL_SP_Tab_Overview>
+  <RL_SP_Tab_Presets>Voreinstellungen</RL_SP_Tab_Presets>
+  <RL_SP_Tab_Automation>Automatik</RL_SP_Tab_Automation>
+  <RL_SP_Tab_Limits>Limits</RL_SP_Tab_Limits>
+  <RL_SP_Tab_Spawning>Ausrüstung anderer</RL_SP_Tab_Spawning>
+  <RL_SP_Tab_Misc>Sonstiges</RL_SP_Tab_Misc>
+  <RL_SP_Tab_Own>Mod-Regeln</RL_SP_Tab_Own>
+  <RL_SP_On>an</RL_SP_On>
+  <RL_SP_Off>aus</RL_SP_Off>
+  <RL_SP_NowPreset>Voreinstellung: {0}</RL_SP_NowPreset>
+  <RL_SP_NowAuto>Automatisches Wechseln: {0} von {1} Funktionen an</RL_SP_NowAuto>
+  <RL_SP_NowOwn>Diese Mod: Auto-Zweitwaffe {0}, nur erforschte {1}, gegen bessere tauschen {2}</RL_SP_NowOwn>
+  <RL_SP_Use>Nutzen: {0}</RL_SP_Use>
+  <RL_SP_NoGame>Kolonisten und ihre Zweitwaffen werden in einem laufenden Spiel aufgelistet.</RL_SP_NoGame>
+  <RL_SP_Colonists>Kolonisten und ihre Waffen</RL_SP_Colonists>
+  <RL_SP_ColName>Kolonist</RL_SP_ColName>
+  <RL_SP_ColPrimary>In der Hand</RL_SP_ColPrimary>
+  <RL_SP_ColSide>Zweitwaffen</RL_SP_ColSide>
+  <RL_SP_ColMass>Masse</RL_SP_ColMass>
+  <RL_SP_NonViolent>gewaltlos – trägt keine Waffen</RL_SP_NonViolent>
+  <RL_SP_SumSingleKg>eine Waffe bis {0} kg</RL_SP_SumSingleKg>
+  <RL_SP_SumSingleSel>nur ausgewählte Waffen</RL_SP_SumSingleSel>
+  <RL_SP_SumSingleAny>eine Waffe ohne Grenze</RL_SP_SumSingleAny>
+  <RL_SP_SumAmountKg>alle zusammen bis {0} kg</RL_SP_SumAmountKg>
+  <RL_SP_SumAmountN>höchstens {0}</RL_SP_SumAmountN>
+  <RL_SP_SumAmountAny>beliebig viele</RL_SP_SumAmountAny>
+  <RL_SP_SumCommon>Limits: {0}.</RL_SP_SumCommon>
+  <RL_SP_SumSeparate>Nahkampf: {0}. Fernkampf: {1}.</RL_SP_SumSeparate>
+  <RL_SP_PresetsHint>Klicke auf eine Karte. Jede Änderung in den anderen Tabs schaltet die Voreinstellung auf „Benutzerdefiniert“.</RL_SP_PresetsHint>
+  <RL_SP_CustomNow>Du hast jetzt eigene Einstellungen (keine Karte ausgewählt).</RL_SP_CustomNow>
+  <RL_SS_PD_Basic>Empfohlen. Nahkampf bis 1,9 kg, Fernkampf bis 2,7 kg, höchstens 2 von jeder Art, 3 insgesamt. Automatisches Wechseln an.</RL_SS_PD_Basic>
+  <RL_SS_PD_Lite>Nur kleine leichte Waffen: Nahkampf bis 0,6 kg (Messer), Fernkampf bis 1,6 kg (Pistolen), höchstens 2.</RL_SS_PD_Lite>
+  <RL_SS_PD_Advanced>Schwerere Waffen: Nahkampf bis 2,25 kg, Fernkampf bis 5 kg (auch Gewehre), insgesamt bis 10 kg.</RL_SS_PD_Advanced>
+  <RL_SS_PD_Excessive>Keine Grenzen – Kolonisten tragen, was sie können. Andere kommen öfter mit Zweitwaffen.</RL_SS_PD_Excessive>
+  <RL_SS_PD_Brawler>Nur Nahkampf: je bis 4 kg, zusammen bis 10 kg, kein Fernkampf.</RL_SS_PD_Brawler>
+  <RL_SS_PD_LoadoutOnly>Simple Sidearms behält nur die Limits (3 Waffen, je bis 4,75 kg), diese Mod wählt, was getragen wird. Kein automatisches Wechseln im Kampf.</RL_SS_PD_LoadoutOnly>
+  <RL_SS_PD_Disabled>Zweitwaffen aus: nichts wechselt, höchstens 1 zusätzliche Waffe, andere tragen keine.</RL_SS_PD_Disabled>
+  <RL_SP_ToolAutoSwitch>Werkzeuge für die Arbeit nutzen</RL_SP_ToolAutoSwitch>
+  <RL_SP_ToolAutoSwitch_Desc>Der Kolonist nimmt eine mitgeführte Waffe, die die Arbeit beschleunigt (Axt zum Fällen, Spitzhacke zum Abbauen…), und wechselt danach zurück.</RL_SP_ToolAutoSwitch_Desc>
+  <RL_SP_OptimalMelee>Beste Nahkampfwaffe für das Ziel</RL_SP_OptimalMelee>
+  <RL_SP_OptimalMelee_Desc>Wählt im Nahkampf die mitgeführte Waffe, die gegen diesen Feind am besten wirkt.</RL_SP_OptimalMelee_Desc>
+  <RL_SP_CQCAutoSwitch>Nahkampfwaffe ziehen, wenn aus der Nähe angegriffen</RL_SP_CQCAutoSwitch>
+  <RL_SP_CQCAutoSwitch_Desc>Kommt ein Feind in Reichweite, wechselt der Kolonist von der Schusswaffe zur Nahkampfwaffe.</RL_SP_CQCAutoSwitch_Desc>
+  <RL_SP_CQCTargetOnly>…nur bei direktem Angriff</RL_SP_CQCTargetOnly>
+  <RL_SP_CQCTargetOnly_Desc>Wechselt nur, wenn der Feind im Nahkampf genau diesen Kolonisten angreift.</RL_SP_CQCTargetOnly_Desc>
+  <RL_SP_RangedCombatAutoSwitch>Beste Schusswaffe für die Entfernung wählen</RL_SP_RangedCombatAutoSwitch>
+  <RL_SP_RangedCombatAutoSwitch_Desc>Wählt unter den mitgeführten Schusswaffen nach Entfernung zum Ziel (Schrotflinte aus der Nähe, Gewehr auf Distanz).</RL_SP_RangedCombatAutoSwitch_Desc>
+  <RL_SP_MaxWarmup>Nur zu einer Schusswaffe mit Aufwärmzeit bis {0} % wechseln</RL_SP_MaxWarmup>
+  <RL_SP_MaxWarmup_Desc>Wie lang die Aufwärmzeit der neuen Waffe im Vergleich zur aktuellen sein darf. Mehr = häufigeres Wechseln.</RL_SP_MaxWarmup_Desc>
+  <RL_SP_BiasHint>Geschwindigkeit gegen Stärke: über 100 % bevorzugen Kolonisten schnelle Waffen, unter 100 % starke langsame.</RL_SP_BiasHint>
+  <RL_SP_BiasMelee>Nahkampf – Gewicht auf Geschwindigkeit: {0} %</RL_SP_BiasMelee>
+  <RL_SP_BiasRanged>Fernkampf – Gewicht auf Geschwindigkeit: {0} %</RL_SP_BiasRanged>
+  <RL_SP_ReEquipOutOfCombat>Hauptwaffe nach dem Kampf zurücknehmen</RL_SP_ReEquipOutOfCombat>
+  <RL_SP_ReEquipOutOfCombat_Desc>Endet der Kampf, nimmt der Kolonist die zuvor gehaltene Waffe zurück.</RL_SP_ReEquipOutOfCombat_Desc>
+  <RL_SP_ReEquipBest>…oder gleich die beste</RL_SP_ReEquipBest>
+  <RL_SP_ReEquipBest_Desc>Nimmt die beste mitgeführte Waffe statt der ursprünglichen.</RL_SP_ReEquipBest_Desc>
+  <RL_SP_ReEquipInCombat>Auch während des Kampfes zurückwechseln</RL_SP_ReEquipInCombat>
+  <RL_SP_ReEquipInCombat_Desc>Ist kein Feind mehr in der Nähe, wechselt er auch mitten im Kampf zurück zur Schusswaffe.</RL_SP_ReEquipInCombat_Desc>
+  <RL_SP_SkipDangerousWeapons>Granaten und Werfer nur auf Befehl</RL_SP_SkipDangerousWeapons>
+  <RL_SP_SkipDangerousWeapons_Desc>Kolonisten nutzen Sprengwaffen nicht selbstständig (Gefahr von Eigenbeschuss).</RL_SP_SkipDangerousWeapons_Desc>
+  <RL_SP_SkipEMPWeapons>EMP-Waffen nur auf Befehl</RL_SP_SkipEMPWeapons>
+  <RL_SP_SkipEMPWeapons_Desc>Kolonisten nutzen EMP-Waffen nicht selbstständig.</RL_SP_SkipEMPWeapons_Desc>
+  <RL_SP_AllowBlockedWeaponUse>Waffen erlauben, die dem Kolonisten sonst nicht erlaubt wären</RL_SP_AllowBlockedWeaponUse>
+  <RL_SP_AllowBlockedWeaponUse_Desc>Der Kolonist darf Waffen tragen, die durch Richtlinien oder andere Mods gesperrt sind.</RL_SP_AllowBlockedWeaponUse_Desc>
+  <RL_SP_SeparateModes>Getrennte Limits für Nah- und Fernkampf</RL_SP_SeparateModes>
+  <RL_SP_SeparateModes_Desc>An: Nah- und Fernkampf haben je eigene Limits plus ein Gesamtlimit. Aus: ein gemeinsames Limit.</RL_SP_SeparateModes_Desc>
+  <RL_SP_Melee>Nahkampfwaffen</RL_SP_Melee>
+  <RL_SP_Ranged>Fernkampfwaffen</RL_SP_Ranged>
+  <RL_SP_SingleLimit>Limit pro Waffe</RL_SP_SingleLimit>
+  <RL_SP_SingleLimit_Desc>Wie schwer eine Zweitwaffe sein darf.</RL_SP_SingleLimit_Desc>
+  <RL_SP_AmountLimit>Limit für alle Zweitwaffen</RL_SP_AmountLimit>
+  <RL_SP_AmountLimit_Desc>Wie viele Zweitwaffen ein Kolonist tragen darf.</RL_SP_AmountLimit_Desc>
+  <RL_SP_TotalLimit>Gesamtlimit (Nah- + Fernkampf)</RL_SP_TotalLimit>
+  <RL_SP_ES_None>Keine Grenze</RL_SP_ES_None>
+  <RL_SP_ES_RelativeWeight>Nach Tragkraft</RL_SP_ES_RelativeWeight>
+  <RL_SP_ES_RelativeWeight_Desc>Das Limit wächst mit der Tragkraft des Kolonisten. Die Zahlen gelten für 35 kg Tragkraft.</RL_SP_ES_RelativeWeight_Desc>
+  <RL_SP_ES_AbsoluteWeight>Feste Masse</RL_SP_ES_AbsoluteWeight>
+  <RL_SP_ES_Selection>Nur ausgewählte</RL_SP_ES_Selection>
+  <RL_SP_ES_Selection_Desc>Nur in der Liste angehakte Waffen dürfen als Zweitwaffe getragen werden.</RL_SP_ES_Selection_Desc>
+  <RL_SP_EA_None>Keine Grenze</RL_SP_EA_None>
+  <RL_SP_EA_RelativeWeight>Nach Tragkraft</RL_SP_EA_RelativeWeight>
+  <RL_SP_EA_RelativeWeight_Desc>Das Limit wächst mit der Tragkraft des Kolonisten. Die Zahlen gelten für 35 kg Tragkraft.</RL_SP_EA_RelativeWeight_Desc>
+  <RL_SP_EA_AbsoluteWeight>Feste Masse</RL_SP_EA_AbsoluteWeight>
+  <RL_SP_EA_Slots>Anzahl</RL_SP_EA_Slots>
+  <RL_SP_SingleKgRel>Eine Waffe bis {0} kg (bei 35 kg Tragkraft)</RL_SP_SingleKgRel>
+  <RL_SP_SingleKg>Eine Waffe bis {0} kg</RL_SP_SingleKg>
+  <RL_SP_AmountKgRel>Zusammen bis {0} kg (bei 35 kg Tragkraft)</RL_SP_AmountKgRel>
+  <RL_SP_AmountKg>Zusammen bis {0} kg</RL_SP_AmountKg>
+  <RL_SP_SlotsN>Höchstens {0}</RL_SP_SlotsN>
+  <RL_SP_LimitsHint>Limits gelten für zusätzlich getragene Waffen, nicht für die in der Hand. Zum Vergleich: Messer 0,5 kg, Pistole 1,2 kg, Schwert 2 kg, Gewehr 3,5 kg, Maschinengewehr 9 kg.</RL_SP_LimitsHint>
+  <RL_SP_PickLight>Alle bis {0} kg</RL_SP_PickLight>
+  <RL_SP_PickNone>Keine</RL_SP_PickNone>
+  <RL_SP_PickMore>… weitere Waffen über die Suche finden.</RL_SP_PickMore>
+  <RL_SP_PickCount>Ausgewählte Waffen: {0}</RL_SP_PickCount>
+  <RL_SP_RangedShort>Fernkampf</RL_SP_RangedShort>
+  <RL_SP_MeleeShort>Nahkampf</RL_SP_MeleeShort>
+  <RL_SP_SpawnHint>Wie oft andere (Angreifer, Besucher, Händler) mit Zweitwaffen kommen.</RL_SP_SpawnHint>
+  <RL_SP_SpawnChance>Chance auf eine erste Zweitwaffe: {0} %</RL_SP_SpawnChance>
+  <RL_SP_SpawnChance_Desc>Wahrscheinlichkeit, dass eine andere Figur mindestens eine Zweitwaffe bekommt.</RL_SP_SpawnChance_Desc>
+  <RL_SP_SpawnDropoff>Chance auf jede weitere: × {0} %</RL_SP_SpawnDropoff>
+  <RL_SP_SpawnDropoff_Desc>Jede weitere Zweitwaffe ist um so viel unwahrscheinlicher.</RL_SP_SpawnDropoff_Desc>
+  <RL_SP_Budget>Budget: {0} % des Ausrüstungsgelds</RL_SP_Budget>
+  <RL_SP_Budget_Desc>Wie viel vom Ausrüstungsgeld der Figur in eine Zweitwaffe gehen darf (teure Waffe = seltener).</RL_SP_Budget_Desc>
+  <RL_SP_BudgetDropoff>Budget jeder weiteren: × {0} %</RL_SP_BudgetDropoff>
+  <RL_SP_SpawnExample>Beispiel: etwa {0} % der anderen tragen 1 Zweitwaffe, {1} % tragen 2, {2} % tragen 3.</RL_SP_SpawnExample>
+  <RL_SP_SpawnWorld>World at Your Level filtert die Ausrüstung anderer danach weiter (Forschung, „nicht besser als die Kolonie“).</RL_SP_SpawnWorld>
+  <RL_SP_ColonistMode>Hauptwaffe der Kolonisten</RL_SP_ColonistMode>
+  <RL_SP_ColonistMode_Desc>Welche mitgeführte Waffe der Kolonist hält, wenn er nicht kämpft.</RL_SP_ColonistMode_Desc>
+  <RL_SP_NpcMode>Hauptwaffe anderer</RL_SP_NpcMode>
+  <RL_SP_EW_BySkill>Nach Fertigkeiten</RL_SP_EW_BySkill>
+  <RL_SP_EW_BySkill_Desc>Bessere Schützen halten eine Schusswaffe, bessere Kämpfer eine Nahkampfwaffe.</RL_SP_EW_BySkill_Desc>
+  <RL_SP_EW_Ranged>Fernkampf</RL_SP_EW_Ranged>
+  <RL_SP_EW_Melee>Nahkampf</RL_SP_EW_Melee>
+  <RL_SP_EW_ByGenerated>Wie angekommen</RL_SP_EW_ByGenerated>
+  <RL_SP_EW_ByGenerated_Desc>Die Waffe, mit der die Figur erschaffen wurde oder ankam.</RL_SP_EW_ByGenerated_Desc>
+  <RL_SP_Fumble>Waffen fallen lassen, wenn niedergestreckt</RL_SP_Fumble>
+  <RL_SP_Fumble_Desc>Wann eine niedergestreckte Figur ihre mitgeführten Zweitwaffen fallen lässt.</RL_SP_Fumble_Desc>
+  <RL_SP_EF_Never>Nie</RL_SP_EF_Never>
+  <RL_SP_EF_InDistress>In Not</RL_SP_EF_InDistress>
+  <RL_SP_EF_InCombat>Im Kampf</RL_SP_EF_InCombat>
+  <RL_SP_EF_Always>Immer</RL_SP_EF_Always>
+  <RL_SP_PreserveInventoryInCaravans>Zweitwaffen bleiben in Karawanen beim Kolonisten</RL_SP_PreserveInventoryInCaravans>
+  <RL_SP_PreserveInventoryInCaravans_Desc>Beim Bilden einer Karawane werden Zweitwaffen nicht in die gemeinsame Fracht verschoben.</RL_SP_PreserveInventoryInCaravans_Desc>
+  <RL_SP_HideSidearmsInCaravanDialogs>Zweitwaffen im Karawanenfenster ausblenden</RL_SP_HideSidearmsInCaravanDialogs>
+  <RL_SP_ShowAlertsMissingSidearm>Warnung bei fehlender Zweitwaffe</RL_SP_ShowAlertsMissingSidearm>
+  <RL_SP_ShowAlertsMissingSidearm_Desc>Warnung, wenn ein Kolonist eine Waffe verliert, die er sich merken sollte.</RL_SP_ShowAlertsMissingSidearm_Desc>
+  <RL_SP_PlaySounds>Geräusche beim Waffenwechsel</RL_SP_PlaySounds>
+  <RL_SP_ShowBrainscope>Debug: Waffenentscheidungen anzeigen</RL_SP_ShowBrainscope>
+  <RL_SP_BrawlerNoRanged>Raufbolde tragen keine Fernkampf-Zweitwaffe</RL_SP_BrawlerNoRanged>
+  <RL_SP_BrawlerNoRanged_Desc>Ein Kolonist mit dem Merkmal Raufbold nimmt keine Schusswaffe, auch nicht als Zweitwaffe (schlechte Stimmung dadurch).</RL_SP_BrawlerNoRanged_Desc>
+  <RL_SP_MaxTotal>Max. Waffen pro Kolonist: {0}</RL_SP_MaxTotal>
+  <RL_SP_MaxTotalOff>Max. Waffen pro Kolonist: kein eigenes Limit</RL_SP_MaxTotalOff>
+  <RL_SP_MaxTotal_Desc>Wie viele Waffen ein Kolonist insgesamt tragen darf, die in der Hand eingeschlossen (Granaten zählen). Gilt für diese Mod und für Simple Sidearms. Überzählige werden, die schlechtesten zuerst, abgelegt und ins Lager gebracht. 0 = nur die Limits von Simple Sidearms.</RL_SP_MaxTotal_Desc>
+  <RL_SP_StripUncrafted>Waffen ablegen, die die Kolonie nie hergestellt hat</RL_SP_StripUncrafted>
+  <RL_SP_StripUncrafted_Desc>Mit „nur hergestellte“ legen Kolonisten auch Waffen ab, die erforscht, aber von deiner Kolonie noch nicht hergestellt sind (z. B. nach einem Überfall aufgehoben). Während eines Überfalls dürfen sie sie benutzen, danach geben sie sie zurück. Eine Waffe, die du dem Kolonisten selbst gegeben hast, bleibt.</RL_SP_StripUncrafted_Desc>
+  <RL_SP_ArmorHunt>Rüstung zur Jagd anziehen</RL_SP_ArmorHunt>
+  <RL_SP_ArmorHunt_Desc>Vor einer Jagd zieht der Kolonist die beste erlaubte Rüstung aus dem Lager an (innerhalb von 70 Feldern), wenn sie besser ist als seine, und jagt dann.</RL_SP_ArmorHunt_Desc>
+  <RL_SP_ArmorThreat>Bei Angriff Rüstung anziehen</RL_SP_ArmorThreat>
+  <RL_SP_ArmorThreat_Desc>Solange Feinde auf der Karte sind (Überfall, Menschenjäger, Mechanoiden…), unterbrechen Kolonisten die normale Arbeit und ziehen die beste erlaubte Rüstung aus dem Lager an. Brandbekämpfung, Behandlung, Flucht und Kampf werden nicht unterbrochen. Auch ihre Kleidungsrichtlinie muss es erlauben.</RL_SP_ArmorThreat_Desc>
+  <RL_SP_ArmorDrafted>Rüstung auch für eingezogene Kolonisten</RL_SP_ArmorDrafted>
+  <RL_SP_ArmorDrafted_Desc>Ein eingezogener Kolonist, der nur herumsteht und keinen Feind innerhalb von 22 Feldern hat, holt Rüstung innerhalb von 28 Feldern. Danach bleibt er beim Lager stehen – bewege ihn zurück.</RL_SP_ArmorDrafted_Desc>
+  <RL_SidearmTooMany>trägt bereits {0} Waffen (Limit)</RL_SidearmTooMany>
+  <RL_SP_MinShoot>Fernkampf-Zweitwaffe ab Schießen {0}</RL_SP_MinShoot>
+  <RL_SP_MinShoot_Desc>Der Kolonist nimmt eine zusätzliche Schusswaffe erst ab dieser Schießstufe. 0 = immer.</RL_SP_MinShoot_Desc>
+  <RL_SP_MinMelee>Nahkampf-Zweitwaffe ab Nahkampf {0}</RL_SP_MinMelee>
+  <RL_SP_MinMelee_Desc>Der Kolonist nimmt eine zusätzliche Nahkampfwaffe erst ab dieser Nahkampfstufe. 0 = immer.</RL_SP_MinMelee_Desc>
+  <RL_SP_OpenOriginal>Originales Simple-Sidearms-Fenster öffnen</RL_SP_OpenOriginal>
+  <RL_OS_Header>Eingebaute Zweitwaffen</RL_OS_Header>
+  <RL_OS_SwitchMelee>Im Kampf zur Nahkampfwaffe wechseln</RL_OS_SwitchMelee>
+  <RL_OS_SwitchMelee_Desc>Kommt ein Feind nah heran, nimmt ein Kolonist mit Schusswaffe in der Hand die Nahkampfwaffe aus dem Rucksack (falls er eine trägt).</RL_OS_SwitchMelee_Desc>
+  <RL_OS_MeleeRange>Wechseln, wenn ein Feind näher als {0} Felder ist</RL_OS_MeleeRange>
+  <RL_OS_MeleeRange_Desc>Entfernung des nächsten Feindes, bei der der Kolonist die Nahkampfwaffe zieht.</RL_OS_MeleeRange_Desc>
+  <RL_OS_SwitchBack>Nach dem Kampf zur vorherigen Waffe zurück</RL_OS_SwitchBack>
+  <RL_OS_SwitchBack_Desc>Geht der Feind weg oder fällt, nimmt der Kolonist die Waffe, die er vorher hatte.</RL_OS_SwitchBack_Desc>
+  <RL_OS_Gizmo>Schaltflächen zum Waffenwechsel</RL_OS_Gizmo>
+  <RL_OS_Gizmo_Desc>Ein eingezogener Kolonist bekommt für jede mitgeführte Waffe eine Schaltfläche „In die Hand nehmen“. Eine von Hand gewählte Waffe bleibt, bis er nicht mehr eingezogen ist.</RL_OS_Gizmo_Desc>
+  <RL_OS_MaxMass>Max. Gewicht mitgeführter Waffen: {0} kg</RL_OS_MaxMass>
+  <RL_OS_MaxMassOff>Max. Gewicht mitgeführter Waffen: keine Grenze</RL_OS_MaxMassOff>
+  <RL_OS_MaxMass_Desc>Wie viele kg Waffen ein Kolonist neben der in der Hand im Rucksack tragen darf. 0 = keine Grenze.</RL_OS_MaxMass_Desc>
+  <RL_OS_Take>In die Hand nehmen: {0}</RL_OS_Take>
+  <RL_OS_Take_Desc>Der Kolonist nimmt {0} aus dem Rucksack und steckt die Waffe aus der Hand in den Rucksack. Bleibt, bis er nicht mehr eingezogen ist.</RL_OS_Take_Desc>
+  <MUI_Title>Empfohlene Einstellungen</MUI_Title>
+  <MUI_TitleOff>Empfohlene Einstellungen · aus</MUI_TitleOff>
+  <MUI_DescOn>Die Mod richtet sich selbst ein und funktioniert sofort. Ideal für neue Spieler und alle, die nichts anpassen wollen.</MUI_DescOn>
+  <MUI_DescOff>Eigene Einstellungen. Geändert gegenüber Empfehlung: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Eigene Einstellungen. Noch identisch mit der Empfehlung.</MUI_DescOffSame>
+  <MUI_On>AN</MUI_On>
+  <MUI_Off>AUS</MUI_Off>
+  <MUI_ResetAll>Alles auf Empfehlung zurücksetzen</MUI_ResetAll>
+  <MUI_ConfirmOn>Empfohlene Einstellungen einschalten? Deine Änderungen ({0}) werden durch die empfohlenen Werte ersetzt.</MUI_ConfirmOn>
+  <MUI_Locked>Detaillierte Einstellungen sind gesperrt. Willst du sie ändern? Schalte den Schalter oben aus – deine Werte starten bei den empfohlenen.</MUI_Locked>
+  <MUI_Changed>GEÄNDERT</MUI_Changed>
+  <MUI_ChangedTip>Weicht von der Empfehlung ab ({0}). Klicken, um den empfohlenen Wert wiederherzustellen.</MUI_ChangedTip>
+  <MUI_Yes>an</MUI_Yes>
+  <MUI_No>aus</MUI_No>
+  <RL_Rec1>Kolonisten nehmen die besten erforschten Waffen und Kleidung</RL_Rec1>
+  <RL_Rec2>Volles Rüstungsset bei Gefahr</RL_Rec2>
+  <RL_Rec3>Leichte Kleidung bei Hitze, warme bei Kälte</RL_Rec3>
+  <RL_Rec4>Notfallausrüstung gegen Gifte und extreme Temperaturen</RL_Rec4>
+  <RL_Rec5>Zweitwaffen nach Fertigkeiten</RL_Rec5>
+  <RL_Rec6>Abgenutzte Ausrüstung wird ersetzt und eingelagert</RL_Rec6>
+  <MUI_RecTag>EMPFOHLEN</MUI_RecTag>
+  <RL_Why_Title>Letzte Ausrüstungswechsel:</RL_Why_Title>
+  <RL_Why_None>In dieser Sitzung noch keine Ausrüstungswechsel.</RL_Why_None>
+  <RL_Why_Now>gerade eben</RL_Why_Now>
+  <RL_Why_HoursAgo>vor {0} h</RL_Why_HoursAgo>
+  <RL_WhyAct_Wear>zog an</RL_WhyAct_Wear>
+  <RL_WhyAct_Remove>zog aus</RL_WhyAct_Remove>
+  <RL_WhyAct_Take>nahm mit</RL_WhyAct_Take>
+  <RL_WhyAct_Drop>ließ fallen</RL_WhyAct_Drop>
+  <RL_WhyAct_Equip>nahm in die Hand</RL_WhyAct_Equip>
+  <RL_WhyAct_Change>wechselte Ausrüstung</RL_WhyAct_Change>
+  <RL_Why_Tattered>abgenutzt, wird ersetzt</RL_Why_Tattered>
+  <RL_Why_Heat>zu heiß</RL_Why_Heat>
+  <RL_Why_Policy>von der Kleidungsrichtlinie nicht erlaubt</RL_Why_Policy>
+  <RL_Why_TooMany>zu viele Waffen getragen</RL_Why_TooMany>
+  <RL_Why_Locked>nicht erforscht oder verboten</RL_Why_Locked>
+  <RL_Why_Unneeded>nicht mehr nötig</RL_Why_Unneeded>
+  <RL_Why_Weapon>bessere Waffe</RL_Why_Weapon>
+  <RL_Why_Instead>statt {0}</RL_Why_Instead>
+  <RL_Why_Sidearm>Zweitwaffe</RL_Why_Sidearm>
+  <RL_Why_Temperature>Kälte oder Hitze</RL_Why_Temperature>
+  <RL_Why_Basics>fehlende Grundkleidung</RL_Why_Basics>
+  <RL_Why_Emergency>Notfallschutz</RL_Why_Emergency>
+  <RL_Why_Apparel>bessere Kleidung</RL_Why_Apparel>
+  <RL_Why_Armor>Angriff – Rüstung an</RL_Why_Armor>
+  <RL_Why_ArmorHunt>Jagd – Rüstung an</RL_Why_ArmorHunt>
+  <RL_Why_Player>von Hand (du)</RL_Why_Player>
+  <RL_Why_Outfit>das Spiel (Kleidungsrichtlinie, bewertet von dieser Mod)</RL_Why_Outfit>
+  <RL_Why_Game>das Spiel</RL_Why_Game>
+  <RL_Why_OtherMod>Mod {0}</RL_Why_OtherMod>
+  <RL_OthersTitle>Andere Mods, die die Ausrüstung von Kolonisten ändern</RL_OthersTitle>
+  <RL_OthersNone>Keine andere Mod ändert, wie Ausrüstung gewählt wird.</RL_OthersNone>
+  <RL_OthersPatch>Ändern ebenfalls, wie Ausrüstung gewählt wird: {0}</RL_OthersPatch>
+  <RL_OthersSeenNone>In diesem Spiel hat noch keine andere Mod die Ausrüstung von Kolonisten geändert.</RL_OthersSeenNone>
+  <RL_OthersSeen>Haben in diesem Spiel Ausrüstung von Kolonisten geändert: {0}</RL_OthersSeen>
+  <RL_OthersHint>Wenn Kolonisten Ausrüstung hin und her tauschen, lass nur eine Mod entscheiden – schalte den überlappenden Teil in einer davon aus. Die Kolonisten-Schaltfläche dieser Mod zeigt, wer was warum geändert hat.</RL_OthersHint>
+  <RL_GuestLodgers>Quest-Gäste nutzen Kolonie-Ausrüstung</RL_GuestLodgers>
+  <RL_GuestLodgers_Desc>Gäste aus Quests, die du steuerst, bekommen Waffen und Kleidung wie Kolonisten. Ihre eigenen Sachen kommen in ihren Rucksack, und beim Abschied ziehen sie sie wieder an – die Ausrüstung der Kolonie bleibt hier.</RL_GuestLodgers_Desc>
+  <RL_GuestVisitors>Besucher leihen Kleidung gegen Kälte und Hitze</RL_GuestVisitors>
+  <RL_GuestVisitors_Desc>Besucher und Gäste ziehen bei Kälte warme Kleidung der Kolonie an und packen bei Hitze ihre eigene warme Kleidung in den Rucksack. Ist das Wetter wieder gut oder gehen sie, geben sie die Kleidung der Kolonie zurück und ziehen ihre eigene an.</RL_GuestVisitors_Desc>
+  <RL_PreferNewer>Neuere Technologie bevorzugen</RL_PreferNewer>
+  <RL_PreferNewer_Desc>Zwischen ähnlichen Waffen und Rüstungen gewinnt neuere Technologie – Schusswaffen vor Bögen, Flak- oder Energierüstung vor Plattenrüstung.</RL_PreferNewer_Desc>
+  <RL_ToolsNotWeapons>Arbeitswerkzeuge sind keine Waffen</RL_ToolsNotWeapons>
+  <RL_ToolsNotWeapons_Desc>Spitzhacken, Sicheln, Schaufeln und andere Werkzeuge, die Arbeit beschleunigen, werden nie als Waffe gewählt, und ein Werkzeug in der Hand wird gegen eine echte Waffe getauscht.</RL_ToolsNotWeapons_Desc>
+  <RL_Why_ToolNotWeapon>ein Werkzeug ist keine Waffe</RL_Why_ToolNotWeapon>
+  <RL_PreferNewEra>Neueste Epoche zuerst</RL_PreferNewEra>
+  <RL_PreferNewEra_Desc>Ausrüstung der neuesten Epoche der Kolonie (industriell, Raumfahrer …) kommt zuerst. Waffen: Eine Waffe einer neueren Epoche ersetzt immer eine ältere derselben Art, auch wenn sie schwächer ist (ein Gewehr für einen Bogen); eine ältere ersetzt nie eine neuere. Rüstung und Kleidung der neuen Epoche bekommen einen starken Bonus und dürfen etwas weniger schützen. Mod-Gegenstände ohne Technologiestufe werden nach Forschung und Stärke beurteilt.</RL_PreferNewEra_Desc>
+  <RL_SP_MaxRanged>Fernkampfwaffen pro Kolonist: {0}</RL_SP_MaxRanged>
+  <RL_SP_MaxRanged_Desc>Wie viele Fernkampfwaffen ein Kolonist höchstens trägt – die in der Hand eingeschlossen. 2 = zum Beispiel ein Gewehr und eine Pistole. 0 = keine Fernkampf-Zweitwaffe (die Hauptwaffe eines Schützen bleibt).</RL_SP_MaxRanged_Desc>
+  <RL_SP_MaxMelee>Nahkampfwaffen pro Kolonist: {0}</RL_SP_MaxMelee>
+  <RL_SP_MaxMelee_Desc>Wie viele Nahkampfwaffen ein Kolonist höchstens trägt – die in der Hand eingeschlossen. 1 = ein Schütze trägt ein Messer oder Schwert für den Nahkampf. 0 = keine Nahkampf-Zweitwaffe.</RL_SP_MaxMelee_Desc>
+  <RL_GearButton>Schaltfläche „Ausrüstung“ unten</RL_GearButton>
+  <RL_GearButton_Desc>Eine Übersicht, wer was trägt, und eine Schaltfläche „Alle jetzt ausrüsten“.</RL_GearButton_Desc>
+  <RL_GO_Title>Ausrüstung der Kolonisten</RL_GO_Title>
+  <RL_GO_EquipAll>Alle jetzt ausrüsten</RL_GO_EquipAll>
+  <RL_GO_EquipAll_Desc>Jeder nicht eingezogene Kolonist prüft sofort seine Ausrüstung und nimmt die beste Waffe und Rüstung aus dem Lager – praktisch vor einem Überfall. Eingezogene Kolonisten werden übersprungen.</RL_GO_EquipAll_Desc>
+  <RL_GO_EquipAllDone>{0} Kolonisten wechseln ihre Ausrüstung.</RL_GO_EquipAllDone>
+  <RL_GO_Colonist>Kolonist</RL_GO_Colonist>
+  <RL_GO_Weapon>Waffe</RL_GO_Weapon>
+  <RL_GO_ArmorSharp>Rüstung Stich</RL_GO_ArmorSharp>
+  <RL_GO_ArmorBlunt>Rüstung Wucht</RL_GO_ArmorBlunt>
+  <RL_GO_Problems>Was fehlt</RL_GO_Problems>
+  <RL_GO_Ok>alles in Ordnung</RL_GO_Ok>
+  <RL_GO_NoWeapon>keine Waffe</RL_GO_NoWeapon>
+  <RL_GO_NoTorso>nichts am Torso</RL_GO_NoTorso>
+  <RL_GO_Tattered>abgenutzt: {0}</RL_GO_Tattered>
+  <RL_GO_WeaponWorn>Waffe abgenutzt</RL_GO_WeaponWorn>
+  <RL_GO_Cold>draußen zu kalt</RL_GO_Cold>
+  <RL_GO_Hot>draußen zu heiß</RL_GO_Hot>
+  <RL_GO_Footer>{0} Kolonisten · {1} mit Problem · Zeile anklicken, um den Kolonisten auszuwählen · Mauszeiger darüber für die komplette Kleidungsliste</RL_GO_Footer>
+</LanguageData>

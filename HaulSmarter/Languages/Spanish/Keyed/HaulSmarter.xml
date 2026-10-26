@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HS_SecHaul>Transporte</HS_SecHaul>
+  <HS_OtherHauler>{0} está activo – el transporte de varios objetos de Haul Smarter está desactivado. Desactiva {0} para usarlo.</HS_OtherHauler>
+  <HS_HaulMany>Transportar varias cosas a la vez</HS_HaulMany>
+  <HS_MaxItems>Máximo de objetos por viaje: {0}</HS_MaxItems>
+  <HS_Radius>Buscar objetos en un radio de: {0} casillas</HS_Radius>
+  <HS_BonusKg>Capacidad de carga adicional: +{0} kg</HS_BonusKg>
+  <HS_PocketHarvest>Cosecha y madera directamente a los bolsillos</HS_PocketHarvest>
+  <HS_PocketMine>Recursos minados directamente a los bolsillos</HS_PocketMine>
+  <HS_UnloadAt>Descargar cuando los bolsillos estén llenos al: {0}</HS_UnloadAt>
+  <HS_ReportUnload>descargando {0}.</HS_ReportUnload>
+  <HS_Profile>PERFIL DE TRANSPORTE</HS_Profile>
+  <HS_ProfileHint>Haz clic en un perfil – lo ajusta todo de una vez. Si cambias algo, pasa a Personalizado.</HS_ProfileHint>
+  <HS_ProfGame>Como el juego</HS_ProfGame>
+  <HS_ProfGame_Card>Solo varias cosas a la vez, nada más.</HS_ProfGame_Card>
+  <HS_ProfSmart>Inteligente</HS_ProfSmart>
+  <HS_ProfSmart_Card>Perecederos primero. Ruta corta, cosas por el camino, construir desde los bolsillos.</HS_ProfSmart_Card>
+  <HS_ProfMax>Máximo</HS_ProfMax>
+  <HS_ProfMax_Card>Bolsillos llenos, rutas largas, objetos valiosos primero.</HS_ProfMax_Card>
+  <HS_ProfCustom>Personalizado</HS_ProfCustom>
+  <HS_ProfCustom_Card>Ajusta cada opción tú mismo.</HS_ProfCustom_Card>
+  <HS_HaulMany_Desc>El colono va a cada objeto cercano, lo mete en sus bolsillos y lo lleva todo al almacén. El almacenamiento se elige para cada objeto – las estanterías y el almacenamiento profundo funcionan. Lo que no cabe en ningún sitio se deja a su lado.</HS_HaulMany_Desc>
+  <HS_MaxItems_Desc>Cuántas pilas distintas como máximo en un viaje.</HS_MaxItems_Desc>
+  <HS_Radius_Desc>A qué distancia del primer objeto busca más.</HS_Radius_Desc>
+  <HS_SmartRoute>Ruta inteligente (recoger por el camino, sin zigzag)</HS_SmartRoute>
+  <HS_SmartRoute_Desc>El orden de los objetos se elige para que el camino del colono por todos los objetos hasta el almacén sea lo más corto posible.</HS_SmartRoute_Desc>
+  <HS_Opportunistic>Coger cosas por el camino (con suavidad)</HS_Opportunistic>
+  <HS_Opportunistic_Desc>Cuando un colono va a algún sitio o termina un trabajo, mete en sus bolsillos un objeto que está justo a su lado y que debe ir al almacén. Con suavidad: solo casillas adyacentes, una pila y luego una pausa, nunca con prisa (incendios, cuidados, huida, órdenes) y nunca por encima de la mitad de su capacidad. Lo transporta cuando está ocioso o cuando los bolsillos están llenos.</HS_Opportunistic_Desc>
+  <HS_UnloadAt_Desc>Para la cosecha, la minería y las cosas recogidas tras otro trabajo: cuánto se llenan los bolsillos antes de ir a descargar.</HS_UnloadAt_Desc>
+  <HS_SecPrio>Qué transportar primero</HS_SecPrio>
+  <HS_PrioPerish>Comida que se pudre</HS_PrioPerish>
+  <HS_PrioPerish_Desc>Cosas que se pudren y están en un lugar cálido (carne, cosechas, comidas).</HS_PrioPerish_Desc>
+  <HS_PrioWeather>Cosas fuera bajo la lluvia / cerca del fuego</HS_PrioWeather>
+  <HS_PrioWeather_Desc>Cosas que se deterioran al aire libre sin techo (medicinas, textiles, armas…) y cosas a menos de 5 casillas del fuego.</HS_PrioWeather_Desc>
+  <HS_PrioValuable>Objetos valiosos (oro, uranio, artefactos)</HS_PrioValuable>
+  <HS_PrioValuable_Desc>Pilas que valen al menos 300 de plata.</HS_PrioValuable_Desc>
+  <HS_Prio0>Normal</HS_Prio0>
+  <HS_Prio1>Antes</HS_Prio1>
+  <HS_Prio2>Primero</HS_Prio2>
+  <HS_SecPockets>Cosecha y minería</HS_SecPockets>
+  <HS_PocketHarvest_Desc>El colono coge la cosecha o la madera que está justo a su lado, sigue trabajando y la transporta cuando los bolsillos están llenos o el trabajo ha terminado.</HS_PocketHarvest_Desc>
+  <HS_PocketMine_Desc>El colono coge la piedra y el mineral extraídos que están justo a su lado, sigue minando y los transporta cuando los bolsillos están llenos.</HS_PocketMine_Desc>
+  <HS_SecWeight>Peso</HS_SecWeight>
+  <HS_BonusKg_Desc>Cuántos kilos más de lo que permite el juego (0 = como el juego).</HS_BonusKg_Desc>
+  <HS_Slowdown>La carga pesada ralentiza al caminar (realista)</HS_Slowdown>
+  <HS_Slowdown_Desc>Por encima de la mitad de su capacidad el colono camina más despacio – hasta un 15 % con los bolsillos llenos. Desactivado por defecto.</HS_Slowdown_Desc>
+  <HS_ShowWeight>Mostrar el peso sobre el colono (barra sobre la cabeza)</HS_ShowWeight>
+  <HS_ShowWeight_Desc>Una pequeña barra sobre un colono que lleva cosas al almacén: verde, naranja o roja según la carga. Con el zoom máximo, también los kilos.</HS_ShowWeight_Desc>
+  <HS_SecInfo>Tiempo y resumen</HS_SecInfo>
+  <HS_ShowEta>Mostrar el peso y «cuánto falta para almacenar»</HS_ShowEta>
+  <HS_ShowEta_Desc>Selecciona un colono y el panel inferior muestra cuánto lleva, cuántos objetos le quedan por recoger y cuándo estará todo en el almacén.</HS_ShowEta_Desc>
+  <HS_Overview>Botón «Transporte» en la barra inferior</HS_Overview>
+  <HS_Overview_Desc>Una ventana de resumen: qué espera a ser transportado, su peso, qué se pudre, cuántos transportistas hay, cuánto falta y quién ha transportado cuánto.</HS_Overview_Desc>
+  <HS_Highlight>Resaltar en el mapa las cosas sin transportar</HS_Highlight>
+  <HS_Highlight_Desc>Mientras la ventana de Transporte está abierta, las cosas que esperan a ser transportadas se marcan en el mapa – en amarillo, y en naranja las que se pudren o están bajo la lluvia.</HS_Highlight_Desc>
+  <HS_InfoNote>Las estadísticas (quién ha transportado cuánto) se guardan con la partida. Se cuenta el transporte hecho por Haul Smarter.</HS_InfoNote>
+  <HS_StatLoad>Carga pesada (Haul Smarter)</HS_StatLoad>
+  <HS_Carries>Lleva: {0} / {1} kg ({2} uds.)</HS_Carries>
+  <HS_Eta>almacenado en {0}</HS_Eta>
+  <HS_StillTake>faltan {0} por recoger</HS_StillTake>
+  <HS_EtaNow>un momento</HS_EtaNow>
+  <HS_EtaHours>~{0} h</HS_EtaHours>
+  <HS_OverviewTitle>Resumen de transporte</HS_OverviewTitle>
+  <HS_OvWaiting>Esperando transporte: {0} pilas · {1} kg</HS_OvWaiting>
+  <HS_OvHot>De ello, perecedero: {0} · fuera bajo la lluvia / cerca del fuego: {1} · valioso: {2}</HS_OvHot>
+  <HS_OvHaulers>Transportistas: {0} (transportando ahora: {1})</HS_OvHaulers>
+  <HS_OvEta>Terminado en unas {0} (si solo transportaran)</HS_OvEta>
+  <HS_OvEtaNone>Nada que transportar o nadie tiene activado el transporte.</HS_OvEtaNone>
+  <HS_OvToday>Transportado hoy: {0} kg / {1} viajes</HS_OvToday>
+  <HS_ColName>Colono</HS_ColName>
+  <HS_ColCarry>Lleva ahora</HS_ColCarry>
+  <HS_ColToday>Hoy</HS_ColToday>
+  <HS_ColTotal>Total</HS_ColTotal>
+  <HS_KgTrips>{0} kg / {1}x</HS_KgTrips>
+  <HS_BuildPockets>Construir con material de los bolsillos</HS_BuildPockets>
+  <HS_BuildPockets_Desc>Cuando un colono lleva material que necesita una construcción (madera, acero, piedra…), lo saca de sus bolsillos y lo lleva directamente a la obra – sin ir a la zona de almacenamiento.</HS_BuildPockets_Desc>
+  <HS_SecCleanup>Limpieza tras una batalla</HS_SecCleanup>
+  <HS_CleanupNotice>La batalla ha terminado – {0} armas, ropa y cadáveres yacen alrededor de la base. Resumen de transporte → «Limpiar tras la batalla».</HS_CleanupNotice>
+  <HS_CleanupNotice_Desc>Un mensaje indica cuántas armas, ropa y cadáveres yacen alrededor de la base. Inicia la limpieza en el resumen de transporte.</HS_CleanupNotice_Desc>
+  <HS_CleanupAuto>Limpiar automáticamente</HS_CleanupAuto>
+  <HS_CleanupAuto_Desc>Tras cada batalla en casa, lo que los enemigos dejaron alrededor de la base se permite y se transporta primero – sin ningún clic.</HS_CleanupAuto_Desc>
+  <HS_CleanupButton>Limpiar tras la batalla ({0})</HS_CleanupButton>
+  <HS_CleanupButton_Desc>Permite las armas, la ropa y los cadáveres alrededor de la base (el juego prohíbe el equipo enemigo) y hace que se transporten antes que todo lo demás.</HS_CleanupButton_Desc>
+  <HS_CleanupStarted>Limpieza iniciada: {0} cosas se transportarán primero.</HS_CleanupStarted>
+  <HS_FuelRound>Ronda de combustible</HS_FuelRound>
+  <HS_FuelRound_Desc>Un colono que va a repostar coge combustible suficiente para las demás antorchas, estufas y generadores cercanos que también lo necesitan, y los llena uno tras otro – un viaje a la zona de almacenamiento en lugar de uno por cada uno. Lo que sobra vuelve al almacén.</HS_FuelRound_Desc>
+  <HS_MergeStacks>Juntar medias pilas</HS_MergeStacks>
+  <HS_MergeStacks_Desc>Cuando no hay nada más pendiente, los transportistas juntan medias pilas de lo mismo en la misma zona de almacenamiento – más casillas libres. Las estanterías y los almacenes que guardan muchas cosas en una casilla no se tocan.</HS_MergeStacks_Desc>
+  <HS_DropOnDraft>Soltar las cosas al reclutar</HS_DropOnDraft>
+  <HS_DropOnDraft_Desc>Un colono reclutado suelta de inmediato las cosas que lleva al almacén – no se ralentiza y no se pierde nada si cae. Se volverán a transportar más tarde.</HS_DropOnDraft_Desc>
+  <HS_SecBench>Suministro de mesas de trabajo</HS_SecBench>
+  <HS_BenchCells>Tamaño de la zona de suministro: {0} casillas</HS_BenchCells>
+  <HS_BenchCells_Desc>Cuántas casillas usa el botón «Suministro» de una mesa de trabajo para la pequeña zona de almacenamiento junto a la mesa.</HS_BenchCells_Desc>
+  <HS_Bench>Suministro</HS_Bench>
+  <HS_Bench_Desc>Crea justo al lado de esta mesa una pequeña zona de almacenamiento que acepta exactamente los ingredientes de sus órdenes activas (se actualiza sola, prioridad preferida). El artesano los coge junto a la mesa en lugar de cruzar el mapa. Haz clic de nuevo para quitarla. Es una zona de almacenamiento normal – se queda incluso sin Haul Smarter.</HS_Bench_Desc>
+  <HS_BenchZone>Suministro: {0}</HS_BenchZone>
+  <HS_BenchStarted>{0}: zona de suministro de {1} casillas creada – los ingredientes de sus órdenes se llevarán allí.</HS_BenchStarted>
+  <HS_BenchNoRoom>No hay casillas libres junto a esta mesa para una zona de suministro.</HS_BenchNoRoom>
+  <HS_SafeOff>Haul Smarter: «{0}» fallaba una y otra vez (probablemente junto con otro mod) y está desactivado hasta el próximo inicio. Los detalles están en el registro.</HS_SafeOff>
+  <HS_SafeList>Desactivado tras errores: {0}</HS_SafeList>
+  <HS_SafeReset>Volver a activarlos</HS_SafeReset>
+  <HS_Feat_haul>transporte de varias cosas</HS_Feat_haul>
+  <HS_Feat_pockets>bolsillos de cosecha y minería</HS_Feat_pockets>
+  <HS_Feat_unload>descarga de los bolsillos</HS_Feat_unload>
+  <HS_Feat_onTheWay>cosas por el camino</HS_Feat_onTheWay>
+  <HS_Feat_buildPockets>construir desde los bolsillos</HS_Feat_buildPockets>
+  <HS_Feat_draft>soltar las cosas al reclutar</HS_Feat_draft>
+  <HS_Feat_bench>suministro de mesas de trabajo</HS_Feat_bench>
+  <HS_Feat_fuel>ronda de combustible</HS_Feat_fuel>
+  <HS_Feat_merge>juntar medias pilas</HS_Feat_merge>
+</LanguageData>

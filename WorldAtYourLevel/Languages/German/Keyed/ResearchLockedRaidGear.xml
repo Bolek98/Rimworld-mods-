@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RLRG_Enable>Filter aktivieren</RLRG_Enable>
+  <RLRG_Enable_Desc>Fremde kommen nur mit Ausrüstung, die deine Kolonie erforscht hat.</RLRG_Enable_Desc>
+  <RLRG_UseRecipes>Rezepte zählen als Forschung</RLRG_UseRecipes>
+  <RLRG_UseRecipes_Desc>Ein Gegenstand ist freigeschaltet, wenn die Forschung für mindestens ein Rezept, das ihn herstellt, abgeschlossen ist.</RLRG_UseRecipes_Desc>
+  <RLRG_BlockHigherTech>Gegenstände über der Technologiestufe der Kolonie sperren</RLRG_BlockHigherTech>
+  <RLRG_BlockHigherTech_Desc>Gegenstände ohne Forschung sind nur bis zur erforschten Technologiestufe deiner Kolonie erlaubt.</RLRG_BlockHigherTech_Desc>
+  <RLRG_BlockUntagged>Mod-Gegenstände ohne Forschung sperren</RLRG_BlockUntagged>
+  <RLRG_BlockUntagged_Desc>Waffen und Kleidung aus anderen Mods ohne Forschung gelten als gesperrt.</RLRG_BlockUntagged_Desc>
+  <RLRG_FilterAll>Alle Ankömmlinge filtern</RLRG_FilterAll>
+  <RLRG_FilterAll_Desc>Überfälle, Besucher, Karawanen und Quests. Wenn aus, nur Feinde und Angreifer.</RLRG_FilterAll_Desc>
+  <RLRG_SkipTraders>Händler auslassen</RLRG_SkipTraders>
+  <RLRG_SkipTraders_Desc>Händler behalten ihre Ausrüstung.</RLRG_SkipTraders_Desc>
+  <RLRG_FilterApparel>Kleidung und Rüstung filtern</RLRG_FilterApparel>
+  <RLRG_FilterInventory>Inventar filtern</RLRG_FilterInventory>
+  <RLRG_FilterInventory_Desc>Waffen und Kleidung im Inventar (zum Beispiel Zweitwaffen).</RLRG_FilterInventory_Desc>
+  <RLRG_Replace>Durch nächsten erforschten Gegenstand ersetzen</RLRG_Replace>
+  <RLRG_Replace_Desc>Ein gesperrter Gegenstand wird durch einen ähnlichen erlaubten ersetzt, mit gleicher Qualität und Abnutzung.</RLRG_Replace_Desc>
+  <RLRG_Drop>Gesperrte Gegenstände am Boden lassen</RLRG_Drop>
+  <RLRG_Drop_Desc>Angreifer tragen gesperrte Gegenstände im Inventar – du bekommst sie als Beute, wenn du sie besiegst. Besucher und Händler lassen nichts zurück. Andernfalls verschwindet der gesperrte Gegenstand.</RLRG_Drop_Desc>
+  <RLRG_ExemptAncients>Uralte Gefahren und Kryptoschläfer auslassen</RLRG_ExemptAncients>
+  <RLRG_ExemptAncients_Desc>Ihre Ausrüstung ist Teil der Belohnung für das Öffnen.</RLRG_ExemptAncients_Desc>
+  <RLRG_KeepTitleApparel>Adlige behalten benötigte Kleidung</RLRG_KeepTitleApparel>
+  <RLRG_KeepTitleApparel_Desc>Kleidung, die ein königlicher Titel oder eine Ideoligion-Rolle verlangt, wird nicht entfernt.</RLRG_KeepTitleApparel_Desc>
+  <RLRG_DamageDropped>Fallengelassene Gegenstände beschädigen</RLRG_DamageDropped>
+  <RLRG_DamageDropped_Desc>Gesperrte Gegenstände am Boden haben nur 20–50 % Haltbarkeit und Kleidung gilt als von einer Leiche getragen. Verhindert leichten Gewinn durch Verkauf.</RLRG_DamageDropped_Desc>
+  <RLRG_Compensate>Überfallstärke ausgleichen</RLRG_Compensate>
+  <RLRG_Compensate_Desc>Wenn Angreifer einen Teil ihrer Ausrüstung verlieren, bekommt der Überfall zusätzliche Angreifer, damit die Schwierigkeit ausgeglichen bleibt.</RLRG_Compensate_Desc>
+  <RLRG_CompensationPct>Ausgleichsstärke: {0}%</RLRG_CompensationPct>
+  <RLRG_CompensationPct_Desc>Wie viel der verlorenen Ausrüstung durch zusätzliche Angreifer ausgeglichen wird. Ein Überfall kann höchstens 50 % mehr Punkte bekommen.</RLRG_CompensationPct_Desc>
+  <RLRG_TechAhead>Toleranz der Technologiestufe: +{0}</RLRG_TechAhead>
+  <RLRG_TechAhead_Desc>Fremde dürfen Gegenstände bis zu so vielen Technologiestufen über deiner Kolonie haben, auch ohne Forschung. 0 = nur erforschte Gegenstände.</RLRG_TechAhead_Desc>
+  <RLRG_KeepChance>Chance, einen gesperrten Gegenstand zu behalten: {0}%</RLRG_KeepChance>
+  <RLRG_KeepChance_Desc>Mit dieser Chance behält eine Figur einen gesperrten Gegenstand. Das Ergebnis wird gespeichert, also nicht beim nächsten Mal neu ausgewürfelt.</RLRG_KeepChance_Desc>
+  <RLRG_ExemptFactions>Ausgenommene Fraktionen (markierte behalten ihre Ausrüstung):</RLRG_ExemptFactions>
+  <RLRG_NotifyRaid>Benachrichtigen, wenn ein Überfall kommt</RLRG_NotifyRaid>
+  <RLRG_NotifyRaid_Desc>Eine Nachricht oben links, wie viel Ausrüstung die Angreifer verloren haben und wie viele hinzugefügt wurden.</RLRG_NotifyRaid_Desc>
+  <RLRG_OpenList>Ausrüstungsübersicht und manuelle Verbote...</RLRG_OpenList>
+  <RLRG_Biocode>Ersatz biokodieren</RLRG_Biocode>
+  <RLRG_Biocode_Desc>Ersatzgegenstände werden auf ihren Träger biokodiert, sodass du sie nach dem Kampf nicht nutzen kannst und sie weniger einbringen. Funktioniert nur bei Gegenständen, die Biokodierung unterstützen (meist fortschrittliche Waffen).</RLRG_Biocode_Desc>
+  <RLRG_Years>Freischaltung mit der Zeit: +1 Stufe pro {0} Jahre</RLRG_Years>
+  <RLRG_Years_Desc>Angreifer bekommen nach und nach bessere Ausrüstung, auch ohne deine Forschung. Wird zur Toleranz der Technologiestufe addiert.</RLRG_Years_Desc>
+  <RLRG_YearsOff>Freischaltung mit der Zeit: aus</RLRG_YearsOff>
+  <RLRG_MsgRaid>Die Angreifer haben {0}% ihrer Ausrüstung verloren.</RLRG_MsgRaid>
+  <RLRG_MsgRaidCompensated>Die Angreifer haben {0}% ihrer Ausrüstung verloren. Überfall mit {1} zusätzlichen Angreifern verstärkt.</RLRG_MsgRaidCompensated>
+  <RLRG_TabWeapons>Waffen</RLRG_TabWeapons>
+  <RLRG_TabApparel>Kleidung und Rüstung</RLRG_TabApparel>
+  <RLRG_Search>Suche:</RLRG_Search>
+  <RLRG_ListHint>Markierte Gegenstände werden Fremden nie gegeben. Der Status zeigt, was sie gerade haben dürfen.</RLRG_ListHint>
+  <RLRG_ListNoGame>Markierte Gegenstände werden Fremden nie gegeben. Lade ein Spiel, um den aktuellen Status zu sehen.</RLRG_ListNoGame>
+  <RLRG_StatusBanned>Verboten</RLRG_StatusBanned>
+  <RLRG_StatusAllowed>Erlaubt</RLRG_StatusAllowed>
+  <RLRG_StatusLocked>Gesperrt</RLRG_StatusLocked>
+  <RLRG_Ex_Allowed>Erlaubt</RLRG_Ex_Allowed>
+  <RLRG_Ex_Locked>Gesperrt</RLRG_Ex_Locked>
+  <RLRG_Ex_Always>Benötigt immer: {0}</RLRG_Ex_Always>
+  <RLRG_Ex_Option>Herstellung: {0}</RLRG_Ex_Option>
+  <RLRG_Ex_Free>Ohne Forschung herstellbar</RLRG_Ex_Free>
+  <RLRG_Ex_NoResearch>Keine Forschung (Technologiestufe und die Mod-Gegenstand-Regel entscheiden)</RLRG_Ex_NoResearch>
+  <RLRG_Ex_Tech>Technologiestufe: {0} (Grenze: {1})</RLRG_Ex_Tech>
+  <RLRG_Ex_Mod>Mod: {0}</RLRG_Ex_Mod>
+  <RLRG_Ex_Done>erledigt</RLRG_Ex_Done>
+  <RLRG_Ex_Missing>fehlt</RLRG_Ex_Missing>
+  <RLRG_TechMismatch>Gegenstände prüfen, die fortschrittlicher als ihre Forschung sind</RLRG_TechMismatch>
+  <RLRG_TechMismatch_Desc>Wenn eine Mod einen fortschrittlichen Gegenstand unter niedrigere Forschung stellt (ein Raumfahrt-Gewehr unter industrielle Forschung), muss die Kolonie auch die Technologiestufe dieses Gegenstands erreichen.</RLRG_TechMismatch_Desc>
+  <RLRG_PowerEstimate>Technologiestufe von Mod-Gegenständen anhand der Stärke schätzen</RLRG_PowerEstimate>
+  <RLRG_PowerEstimate_Desc>Eine Mod-Waffe oder -Rüstung, die deutlich stärker ist als die beste industrielle aus dem Grundspiel, zählt als Raumfahrt, auch wenn der Mod-Autor eine niedrigere Stufe gesetzt hat. Dies ist eine Schätzung.</RLRG_PowerEstimate_Desc>
+  <RLRG_Ex_Power>Stärke entspricht Technologiestufe: {0}</RLRG_Ex_Power>
+  <RLRG_Ex_NeedColony>Kolonie muss Technologiestufe erreichen: {0}</RLRG_Ex_NeedColony>
+  <RLRG_LevelByProgress>Koloniestufe nach Forschungsfortschritt</RLRG_LevelByProgress>
+  <RLRG_LevelByProgress_Desc>Die Kolonie erreicht eine Technologiestufe, sobald sie den eingestellten Anteil der Forschung dieser Stufe abgeschlossen hat. Aus = die höchste abgeschlossene Forschung entscheidet (eine einzige reicht). Die Stufe des Szenarios zählt immer als Minimum.</RLRG_LevelByProgress_Desc>
+  <RLRG_LevelProgress>Benötigter Anteil der Forschung einer Stufe: {0}%</RLRG_LevelProgress>
+  <RLRG_LevelProgress_Desc>Wie viel der Forschung einer Stufe abgeschlossen sein muss, damit die Kolonie als diese Stufe gilt.</RLRG_LevelProgress_Desc>
+  <RLRG_CurrentLevel>Koloniestufe jetzt: {0} (Szenario: {1}, Forschung: {2})</RLRG_CurrentLevel>
+  <RLRG_WorldHeader>Welt auf Koloniestufe</RLRG_WorldHeader>
+  <RLRG_WorldRaids>Überfälle nur von Fraktionen bis zur Weltstufe</RLRG_WorldRaids>
+  <RLRG_WorldRaids_Desc>Fraktionen, die fortschrittlicher als die Weltstufe sind (deine Stufe + Toleranz), können keine Überfälle schicken. Ausgenommene Fraktionen aus der Liste unten sind nicht begrenzt.</RLRG_WorldRaids_Desc>
+  <RLRG_WorldMechs>Auch Mechanoiden und Insektoiden begrenzen</RLRG_WorldMechs>
+  <RLRG_WorldMechs_Desc>Standardmäßig sind Mechanoiden und Insektoiden nicht begrenzt. Wenn an, kommen Mechanoiden-Überfälle und Mech-Cluster erst, wenn die Welt ihre Stufe erreicht.</RLRG_WorldMechs_Desc>
+  <RLRG_WorldItems>Händler, Belohnungen und Beute bis zur Weltstufe</RLRG_WorldItems>
+  <RLRG_WorldItems_Desc>Gegenstände über der Weltstufe werden aus dem Händlerangebot, aus Quest-Belohnungen und aus Beute entfernt. Waffen und Kleidung folgen denselben Regeln wie die Ausrüstung von Fremden.</RLRG_WorldItems_Desc>
+  <RLRG_WorldIncidents>Ereignisse bis zur Weltstufe</RLRG_WorldIncidents>
+  <RLRG_WorldIncidents_Desc>Schiffsteil-Abstürze, Schiffstrümmer, Orbitalhändler und (mit Mechanoiden) Mech-Cluster passieren erst, wenn die Welt ihre Stufe erreicht.</RLRG_WorldIncidents_Desc>
+  <RLRG_WorldMessages>Nachricht, wenn sich die Weltstufe ändert</RLRG_WorldMessages>
+  <RLRG_WorldUp>Die Welt ist auf Technologiestufe aufgestiegen: {0}.</RLRG_WorldUp>
+  <RLRG_WorldDown>Technologiestufe der Welt ist jetzt: {0}.</RLRG_WorldDown>
+  <RLRG_WorldQuests>Quests bis zur Weltstufe</RLRG_WorldQuests>
+  <RLRG_WorldQuests_Desc>Zufällige Quests des Erzählers mit einer Fraktion, die fortschrittlicher als die Welt ist (Angreifer, Verbündeter, Auftraggeber), werden stillschweigend verworfen. Quests mit fortschrittlicher Technologie (Archotech, Gravschiffe, mit Mechanoiden auch Mech-Quests) werden nicht angeboten. Belohnungen folgen der Forschung wie bei Händlern. Story-Quests und Zeremonien werden nie blockiert.</RLRG_WorldQuests_Desc>
+  <RLRG_TabWorld>Weltstufe</RLRG_TabWorld>
+  <RLRG_TabArrivals>Angreifer und Ankömmlinge</RLRG_TabArrivals>
+  <RLRG_TabRules>Forschungsregeln</RLRG_TabRules>
+  <RLRG_TabFilters>Weltfilter</RLRG_TabFilters>
+  <RLRG_TabFactions>Fraktionen</RLRG_TabFactions>
+  <RLRG_WorldLevelNow>Weltstufe jetzt (mit Toleranz): {0}</RLRG_WorldLevelNow>
+  <RLRG_ManualLevel>Weltstufe manuell festlegen</RLRG_ManualLevel>
+  <RLRG_ManualLevel_Desc>Die Weltstufe wird nicht aus der Forschung berechnet; die gewählte gilt genau, ohne Toleranz oder Freischaltung mit der Zeit.</RLRG_ManualLevel_Desc>
+  <RLRG_ManualLevelPick>Weltstufe: {0}</RLRG_ManualLevelPick>
+  <RLRG_PerTier>Eigener Anteil für jede Stufe</RLRG_PerTier>
+  <RLRG_PerTier_Desc>Für jede Stufe separat festlegen, wie viel ihrer Forschung abgeschlossen sein muss.</RLRG_PerTier_Desc>
+  <RLRG_PctTier>{0}: {1}%</RLRG_PctTier>
+  <RLRG_LockResearch>Höhere Forschung sperren</RLRG_LockResearch>
+  <RLRG_LockResearch_Desc>Forschung, die mehr als eine Stufe über der Welt liegt, kann nicht begonnen werden. Du musst Stufe für Stufe aufsteigen.</RLRG_LockResearch_Desc>
+  <RLRG_FilterPossessions>Andere Inventargegenstände über der Weltstufe</RLRG_FilterPossessions>
+  <RLRG_FilterPossessions_Desc>Ankömmlinge verlieren auch Medizin, Drogen, Komponenten und andere Gegenstände über der Weltstufe (bei Händlern einschließlich ihrer Waren).</RLRG_FilterPossessions_Desc>
+  <RLRG_FactionOk>darf angreifen</RLRG_FactionOk>
+  <RLRG_FactionAbove>über der Weltstufe</RLRG_FactionAbove>
+  <RLRG_ReplaceQuests>Verworfene Quest durch eine andere ersetzen</RLRG_ReplaceQuests>
+  <RLRG_ReplaceQuests_Desc>Statt einer wegen der Weltstufe verworfenen Quest versucht der Erzähler sofort eine andere passende (bis zu 5 Versuche). Quests kommen so oft wie gewohnt.</RLRG_ReplaceQuests_Desc>
+  <RLRG_WorldVisitors>Karawanen und Besucher nur bis zur Weltstufe (streng)</RLRG_WorldVisitors>
+  <RLRG_WorldVisitors_Desc>Händlerkarawanen, Besucher und Reisende kommen nur von Fraktionen bis zur Weltstufe. WARNUNG: Mit Raumfahrt-Fraktionen aus Mods kommen eventuell fast keine Händler. Wenn aus (empfohlen), kommen sie von allen Fraktionen, aber ihre Waren und Ausrüstung werden nach Weltstufe gefiltert.</RLRG_WorldVisitors_Desc>
+  <RLRG_ReplaceEvents>Blockiertes Ereignis durch ein zufälliges ersetzen</RLRG_ReplaceEvents>
+  <RLRG_ReplaceEvents_Desc>Wenn der Erzähler ein Ereignis wählt, für das die Welt nicht bereit ist (Orbitalhändler, Schiffsteil-Absturz, Schiffstrümmer…), oder ein Überfall bzw. eine Karawane keine passende Fraktion findet, tritt stattdessen ein zufälliges anderes Ereignis derselben Kategorie ein. Ereignisse kommen so oft wie ohne die Mod. Quest-Ereignisse werden nicht geändert.</RLRG_ReplaceEvents_Desc>
+  <RLRG_OvTitle>Welt und Ereignisse</RLRG_OvTitle>
+  <RLRG_OvStoryteller>Erzähler: {0}, Schwierigkeit: {1}</RLRG_OvStoryteller>
+  <RLRG_OvQuests>Quests</RLRG_OvQuests>
+  <RLRG_OvQuestCounts>Laufend: {0}, warten auf Annahme: {1}</RLRG_OvQuestCounts>
+  <RLRG_OvExpires>läuft ab in {0}</RLRG_OvExpires>
+  <RLRG_OvEvents>Ereignisse</RLRG_OvEvents>
+  <RLRG_OvEventsHint>Der Erzähler wählt Ereignisse zufällig, daher lässt sich der genaue Zeitpunkt des nächsten nicht wissen. Die Schätzung basiert auf dem durchschnittlichen Abstand zwischen Ereignissen in diesem Spiel und wird genauer, je länger du spielst.</RLRG_OvEventsHint>
+  <RLRG_OvNoEvents>Noch nichts aufgezeichnet. Die Aufzeichnung beginnt mit dieser Version.</RLRG_OvNoEvents>
+  <RLRG_OvColKind>Art</RLRG_OvColKind>
+  <RLRG_OvColLast>Zuletzt</RLRG_OvColLast>
+  <RLRG_OvCol30>Letzte 30 Tage</RLRG_OvCol30>
+  <RLRG_OvColAvg>Ø Abstand</RLRG_OvColAvg>
+  <RLRG_OvColNext>Nächstes (Schätzung)</RLRG_OvColNext>
+  <RLRG_OvDays>{0} T</RLRG_OvDays>
+  <RLRG_OvAgo>vor {0} T</RLRG_OvAgo>
+  <RLRG_OvInDays>≈ in {0} T</RLRG_OvInDays>
+  <RLRG_OvAnyTime>jederzeit</RLRG_OvAnyTime>
+  <RLRG_OvRecent>Letzte 10 Ereignisse:</RLRG_OvRecent>
+  <RLRG_WorldCausers>Bedrohungen über der Weltstufe bleiben nicht</RLRG_WorldCausers>
+  <RLRG_WorldCausers_Desc>Neue Dinge, die einen Zustand auf die Karte legen (Giftschleuder, Rauch, Wetterkontrolleur, Sonnenblocker, psychischer Dröhner…), über der Weltstufe werden sofort entfernt – auf der Karte und der Weltkarte, auch wenn sie Mechanoiden gehören. Quests, die so etwas schicken würden, werden verworfen (Erzähler-Quests werden ersetzt). Was schon steht, bleibt.</RLRG_WorldCausers_Desc>
+  <RLRG_CauserBlocked>Eine Bedrohung über der Weltstufe ist nicht geblieben: {0}.</RLRG_CauserBlocked>
+  <RLRG_TraderGuarantee>Händlergarantie</RLRG_TraderGuarantee>
+  <RLRG_TraderGuarantee_Desc>Wenn lange keine Händlerkarawane die Heimatkolonie erreicht, versucht die Mod, eine zu rufen. Das Spiel akzeptiert dann auch Fraktionen, die bei dieser Temperatur sonst nicht reisen würden. Kann keine Karawane kommen (alle feindlich, blockierende Gruppe auf der Karte…), wird der Grund ins Log geschrieben und eine Nachricht angezeigt.</RLRG_TraderGuarantee_Desc>
+  <RLRG_TraderGuaranteeDays>Karawane spätestens nach: {0} Tagen</RLRG_TraderGuaranteeDays>
+  <RLRG_TraderGuaranteeDays_Desc>Nach wie vielen Tagen ohne Karawane die Mod eine ruft.</RLRG_TraderGuaranteeDays_Desc>
+  <RLRG_Diag_Open>Warum kommen keine Händler, Besucher oder Bedrohungen?</RLRG_Diag_Open>
+  <RLRG_Diag_Title>Händler und Besucher – Diagnose</RLRG_Diag_Title>
+  <RLRG_Diag_NoMap>Keine Heimatkarte.</RLRG_Diag_NoMap>
+  <RLRG_Diag_Map>Karte: {0}, Außentemperatur {1}, saisonal {2}</RLRG_Diag_Map>
+  <RLRG_Diag_LastTrader>Letzte Händlerkarawane: vor {0} Tagen</RLRG_Diag_LastTrader>
+  <RLRG_Diag_LastTraderNone>Letzte Händlerkarawane: noch keine aufgezeichnet</RLRG_Diag_LastTraderNone>
+  <RLRG_Diag_LastVisitor>Letzte Besucher/Reisende: vor {0} Tagen</RLRG_Diag_LastVisitor>
+  <RLRG_Diag_GuaranteeOn>Händlergarantie: an (spätestens nach {0} Tagen)</RLRG_Diag_GuaranteeOn>
+  <RLRG_Diag_GuaranteeOff>Händlergarantie: aus</RLRG_Diag_GuaranteeOff>
+  <RLRG_Diag_Allies>Nicht feindlich: {0} von {1} Fraktionen</RLRG_Diag_Allies>
+  <RLRG_Diag_NoAllies>Alle Fraktionen sind feindlich – der Erzähler schickt keine Händler oder Besucher. Verbessere die Beziehungen (Geschenke, Quests, Kommunikationskonsole).</RLRG_Diag_NoAllies>
+  <RLRG_Diag_Events>Ereignisse:</RLRG_Diag_Events>
+  <RLRG_Diag_Can>kann jetzt kommen</RLRG_Diag_Can>
+  <RLRG_Diag_Cannot>kann jetzt NICHT kommen – {0}</RLRG_Diag_Cannot>
+  <RLRG_Diag_R_Missing>Ereignis existiert nicht</RLRG_Diag_R_Missing>
+  <RLRG_Diag_R_Scenario>durch Szenario deaktiviert</RLRG_Diag_R_Scenario>
+  <RLRG_Diag_R_Difficulty>durch Schwierigkeitseinstellungen deaktiviert</RLRG_Diag_R_Difficulty>
+  <RLRG_Diag_R_Early>zu früh nach der Ansiedlung (ab Tag {0})</RLRG_Diag_R_Early>
+  <RLRG_Diag_R_Target>für diese Karte nicht erlaubt</RLRG_Diag_R_Target>
+  <RLRG_Diag_R_Biome>Biom nicht erlaubt</RLRG_Diag_R_Biome>
+  <RLRG_Diag_R_Recent>kürzlich passiert (Abklingzeit)</RLRG_Diag_R_Recent>
+  <RLRG_Diag_R_Condition>verhindert durch: {0}</RLRG_Diag_R_Condition>
+  <RLRG_Diag_R_NoFaction>keine Fraktion kann jetzt kommen (siehe Fraktionsliste)</RLRG_Diag_R_NoFaction>
+  <RLRG_Diag_R_OnlyDesperate>der Erzähler schickt es nicht – Fraktionen reisen bei dieser Temperatur nicht</RLRG_Diag_R_OnlyDesperate>
+  <RLRG_Diag_R_Other>anderer Grund (wahrscheinlich eine andere Mod)</RLRG_Diag_R_Other>
+  <RLRG_Diag_Factions>Fraktionen (Händlerkarawanen):</RLRG_Diag_Factions>
+  <RLRG_Diag_F_Ok>kann eine Karawane schicken</RLRG_Diag_F_Ok>
+  <RLRG_Diag_F_Desperate>nur aus Verzweiflung – Außentemperatur außerhalb von {0}</RLRG_Diag_F_Desperate>
+  <RLRG_Diag_F_No>kommt nicht: {0}</RLRG_Diag_F_No>
+  <RLRG_Diag_F_Defeated>besiegt</RLRG_Diag_F_Defeated>
+  <RLRG_Diag_F_Hostile>feindlich (Wohlwollen {0})</RLRG_Diag_F_Hostile>
+  <RLRG_Diag_F_NoTraders>hat keine Händlerkarawanen</RLRG_Diag_F_NoTraders>
+  <RLRG_Diag_F_Lord>ihr Feind ist auf der Karte: {0}</RLRG_Diag_F_Lord>
+  <RLRG_Diag_F_World>über der Weltstufe (Option „Karawanen und Besucher nur bis zur Weltstufe“)</RLRG_Diag_F_World>
+  <RLRG_Diag_F_Temp>Temperatur außerhalb von {0}</RLRG_Diag_F_Temp>
+  <RLRG_Diag_F_Other>anderer Grund (Händlerart, Planetenebene oder eine andere Mod)</RLRG_Diag_F_Other>
+  <RLRG_Diag_Summon>Jetzt eine Karawane rufen (Test)</RLRG_Diag_Summon>
+  <RLRG_Diag_SummonOk>Eine Händlerkarawane ist unterwegs.</RLRG_Diag_SummonOk>
+  <RLRG_Diag_SummonFail>Karawane kann nicht gerufen werden: {0}</RLRG_Diag_SummonFail>
+  <RLRG_Diag_ToLog>Ins Log schreiben</RLRG_Diag_ToLog>
+  <RLRG_Diag_Logged>Diagnose ins Log geschrieben.</RLRG_Diag_Logged>
+  <RLRG_Diag_Refresh>Aktualisieren</RLRG_Diag_Refresh>
+  <RLRG_Diag_GuaranteeFailed>Händlergarantie: Eine Karawane konnte nicht kommen ({0}). Details: Tab Welt → Warum kommen keine Händler?</RLRG_Diag_GuaranteeFailed>
+  <RLRG_Diag_Title2>Händler, Besucher und Bedrohungen – Diagnose</RLRG_Diag_Title2>
+  <RLRG_Diag_Threats>Bedrohungen und Überfälle:</RLRG_Diag_Threats>
+  <RLRG_Diag_ThreatScale>Schwierigkeit: Bedrohungsskala {0}, große Bedrohungen erlaubt: {1}</RLRG_Diag_ThreatScale>
+  <RLRG_Diag_ThreatsOff>WARNUNG: Bedrohungen sind in der Schwierigkeit des Erzählers deaktiviert – deshalb kommen keine Überfälle.</RLRG_Diag_ThreatsOff>
+  <RLRG_Diag_ThreatPoints>Bedrohungspunkte jetzt: {0}</RLRG_Diag_ThreatPoints>
+  <RLRG_Diag_LastThreat>Letzte Bedrohung des Erzählers: vor {0} Tagen</RLRG_Diag_LastThreat>
+  <RLRG_Diag_LastThreatNone>Letzte Bedrohung des Erzählers: noch keine aufgezeichnet</RLRG_Diag_LastThreatNone>
+  <RLRG_Diag_Yes>ja</RLRG_Diag_Yes>
+  <RLRG_Diag_No>nein</RLRG_Diag_No>
+  <RLRG_Diag_AboveWorld>über der Weltstufe – durch ein anderes Ereignis ersetzt</RLRG_Diag_AboveWorld>
+  <RLRG_Diag_Raiders>Feindliche Fraktionen (Überfälle):</RLRG_Diag_Raiders>
+  <RLRG_Diag_RaidOk>kann überfallen</RLRG_Diag_RaidOk>
+  <RLRG_Diag_RaidWorld>über der Weltstufe – überfällt nur, wenn sonst niemand kann (Ausrüstung wird gefiltert)</RLRG_Diag_RaidWorld>
+  <RLRG_Diag_RaidDesperate>nur aus Verzweiflung (Temperatur / kurz nach der Ansiedlung)</RLRG_Diag_RaidDesperate>
+  <RLRG_Diag_RaidEarly>noch nicht – Überfälle ab Tag {0}</RLRG_Diag_RaidEarly>
+  <RLRG_Diag_RaidNo>kann nicht überfallen (Planetenebene, Strategie oder eine andere Mod)</RLRG_Diag_RaidNo>
+  <RLRG_Diag_NoRaiders>Keine feindliche Fraktion kann jetzt einen Überfall schicken – es gibt keine feindlichen Fraktionen, oder etwas anderes blockiert alle.</RLRG_Diag_NoRaiders>
+  <RLRG_FactionsAtWorld>Alle Fraktionen auf der Stufe deiner Kolonie</RLRG_FactionsAtWorld>
+  <RLRG_FactionsAtWorld_Desc>Alle Fraktionen (auch Raumfahrt- und Mod-Fraktionen) verhalten sich, als hätten sie dieselbe Forschung wie du: Sie können überfallen, handeln, besuchen und Quests vergeben, aber jede ihrer Personen hat nur Ausrüstung, die du erforscht hast (immer gefiltert, für alle Ankömmlinge), und Händler verkaufen nur Gegenstände bis zur Weltstufe. Ausschalten, um Fraktionen über der Weltstufe komplett zu blockieren.</RLRG_FactionsAtWorld_Desc>
+  <RLRG_OnlyCrafted>Andere nutzen nur, was du hergestellt hast</RLRG_OnlyCrafted>
+  <RLRG_OnlyCrafted_Desc>Angreifer, Besucher, Händler und Quest-Figuren dürfen nur Waffen und Kleidung haben, die deine Kolonie schon mindestens einmal hergestellt (und erforscht) hat. Alles noch nicht Hergestellte wird entfernt oder durch den nächsten hergestellten Gegenstand ersetzt. Ohne hergestellte Waffe bekommen sie mindestens einen Kurzbogen oder eine Keule. Waren zum Verkauf folgen nur der Forschung. In einem laufenden Spiel werden die Ausrüstung der Kolonisten und gelagerte Gegenstände, die du herstellen kannst, einmalig übernommen.</RLRG_OnlyCrafted_Desc>
+  <RLRG_CraftedCount>Hergestellte Arten von Waffen und Kleidung: {0}</RLRG_CraftedCount>
+  <RLRG_MsgCraftedNew>Zum ersten Mal hergestellt: {0} – andere können es jetzt auch nutzen.</RLRG_MsgCraftedNew>
+  <RLRG_Ex_NotCrafted>Erforscht, aber deine Kolonie hat es noch nicht hergestellt.</RLRG_Ex_NotCrafted>
+  <RLRG_CraftedReset>Liste der hergestellten Gegenstände leeren</RLRG_CraftedReset>
+  <RLRG_CraftedReset_Desc>Leert die Liste hergestellter Waffen und Kleidung (geteilt mit Smart Colonist Gear). Ab jetzt zählt nur, was die Kolonie herstellt.</RLRG_CraftedReset_Desc>
+  <RLRG_CraftedResetConfirm>Die Liste der hergestellten Ausrüstung wirklich leeren? Sie wird in beiden Mods geleert, und Angreifer sowie Kolonisten dürfen nur noch ab jetzt hergestellte Ausrüstung nutzen.</RLRG_CraftedResetConfirm>
+  <RLRG_MsgRaidItems>{0} Ausrüstungsteile abgenommen, {1} durch eine schwächere Version ersetzt ({2} Angreifer).</RLRG_MsgRaidItems>
+  <RLRG_TraderTechBonus>Händler dürfen höhere Stufen verkaufen: {0}</RLRG_TraderTechBonus>
+  <RLRG_TraderTechBonus_Desc>Wie viele Technologiestufen über der Weltstufe Händler Waren anbieten dürfen. 0 = nur bis zur Weltstufe (Waffen und Kleidung nach Forschung), 1 = eine Stufe höher (z. B. industrielle Schusswaffen in einem mittelalterlichen Spiel) …</RLRG_TraderTechBonus_Desc>
+  <RLRG_TabTraders>Händler</RLRG_TabTraders>
+  <RLRG_TabTraders_Desc>Waren, die Händler gerade nicht verkaufen dürfen, weil sie über der Weltstufe liegen. Verwendet dieselbe Regel wie das Händlerangebot.</RLRG_TabTraders_Desc>
+  <RLRG_TraderNoGame>Lade ein Spiel, um zu sehen, was Händler gerade nicht verkaufen dürfen.</RLRG_TraderNoGame>
+  <RLRG_TraderOff>Der Weltfilter für Gegenstände ist aus – Händler verkaufen alles.</RLRG_TraderOff>
+  <RLRG_TraderMax>Händler dürfen Waren verkaufen bis: {0} (Weltstufe {1} + {2})</RLRG_TraderMax>
+  <RLRG_TraderMax_Desc>Händler dürfen Waren bis zur Technologiestufe {0} verkaufen (Weltstufe + „Händler dürfen höhere Stufen verkaufen“). Waffen und Kleidung dürfen auch verkauft werden, wenn die Forschung sie erlaubt. Tiere, Sklaven und Waren ohne Technologiestufe werden nie entfernt.</RLRG_TraderMax_Desc>
+  <RLRG_TraderCount>Waren, die Händler jetzt nicht verkaufen dürfen: {0}</RLRG_TraderCount>
+  <RLRG_TraderBlocked>Nicht zum Verkauf</RLRG_TraderBlocked>
+  <RLRG_TraderBlocked_Desc>Technologiestufe {0} liegt über dem, was Händler jetzt verkaufen dürfen ({1}).</RLRG_TraderBlocked_Desc>
+  <RLRG_TraderBlockedGear>Nicht zum Verkauf (Forschung)</RLRG_TraderBlockedGear>
+  <RLRG_TraderBlockedGear_Desc>Nicht durch Forschung erlaubt, und Technologiestufe {0} liegt über dem, was Händler jetzt verkaufen dürfen ({1}).</RLRG_TraderBlockedGear_Desc>
+  <!-- 2.10.0: Raids tab -->
+  <RLRG_TabRaids>Überfälle und Bedrohungen</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Nicht markierte Überfälle und Bedrohungen (auch aus Mods: Monster, Menschenjäger, Insektoiden, Krankheiten, Fallout …) finden nicht statt. Markiert = erlaubt. Änderungen gelten sofort für neue Überfälle.</RLRG_RaidsIntro>
+  <RLRG_RaidsSummary>{0} von {1} Überfallarten blockiert</RLRG_RaidsSummary>
+  <RLRG_RaidsResetAll>Alles zurücksetzen</RLRG_RaidsResetAll>
+  <RLRG_RaidsResetAll_Desc>Alle Überfallarten wieder erlauben (Standard).</RLRG_RaidsResetAll_Desc>
+  <RLRG_RaidsAllowAll>Alle erlauben</RLRG_RaidsAllowAll>
+  <RLRG_RaidsAllowAll_Desc>Alles in dieser Gruppe wieder erlauben.</RLRG_RaidsAllowAll_Desc>
+  <RLRG_RaidsGroupCount>blockiert {0} / {1}</RLRG_RaidsGroupCount>
+  <RLRG_RaidsGroupIncidents>Bedrohungsereignisse</RLRG_RaidsGroupIncidents>
+  <RLRG_RaidsGroupStrategies>Überfallstrategien</RLRG_RaidsGroupStrategies>
+  <RLRG_RaidsGroupArrivals>Ankunftsarten</RLRG_RaidsGroupArrivals>
+  <RLRG_RaidsGroupQuests>Zufällige Quests – [!] = Bedrohung</RLRG_RaidsGroupQuests>
+  <RLRG_RaidsSource>Quelle: {0}</RLRG_RaidsSource>
+  <RLRG_RaidsAllowedTip>Erlaubt. Abwählen, damit dies nicht mehr passiert.</RLRG_RaidsAllowedTip>
+  <RLRG_RaidsBlockedTip>Blockiert: Der Erzähler nutzt dies nicht. Wenn jede Option, die ein Überfall nutzen könnte, blockiert ist, greift der Überfall auf sofortigen Angriff / Hereinlaufen vom Kartenrand zurück, statt zu scheitern.</RLRG_RaidsBlockedTip>
+  <RLRG_MechEscorts>Angreifer bringen nur Mechanoiden mit, die du erforscht hast</RLRG_MechEscorts>
+  <RLRG_MechEscorts_Desc>Menschliche Fraktionen (Mechanitoren in Überfällen) dürfen nur Mechanoiden mitbringen, deren Gestation du erforscht hast. Unerforschte Mechs werden aus der Gruppe entfernt. Reine Mechanoiden-Überfälle sind nicht betroffen.</RLRG_MechEscorts_Desc>
+  <RLRG_MatchColony>Ankömmlinge tragen nichts Besseres als die Ausrüstung deiner Kolonie</RLRG_MatchColony>
+  <RLRG_MatchColony_Desc>Jeder, der ankommt (Angreifer, Besucher, Flüchtlinge, Quest-Figuren; Händler nur, wenn sie nicht ausgelassen werden), darf nur Ausrüstung tragen, die gleich gut oder schwächer ist als die beste, die deine Kolonie hergestellt hat: Schusswaffen bis zu deiner besten hergestellten Schusswaffe, Nahkampfwaffen bis zu deiner besten hergestellten (Material zählt), Rüstung bis zu deiner besten hergestellten Rüstung. Normale Kleidung ist immer in Ordnung. Ausrüstung muss außerdem wirklich erforscht sein (du musst sie herstellen können). Feuer-, Spreng- und EMP-Waffen (Flammenwerfer, Sprengpfeile…) erst, wenn du diese Waffe selbst hergestellt hast. Bessere Ausrüstung wird durch die nächstschwächere ersetzt, zu gutes Material durch gewöhnliches. Zusammen mit „nur Hergestelltes“ ist auch schwächere Ausrüstung erlaubt, die du nie hergestellt hast – mehr Vielfalt.</RLRG_MatchColony_Desc>
+  <RLRG_MatchQuality>Qualität höchstens wie dein bestes Produkt</RLRG_MatchQuality>
+  <RLRG_MatchQuality_Desc>Waffen und Kleidung von Ankömmlingen haben höchstens die Qualität, die deine Kolonie hergestellt hat (getrennt für Waffen und Kleidung, mindestens normal).</RLRG_MatchQuality_Desc>
+  <RLRG_MatchMargin>Toleranz: {0} % besser</RLRG_MatchMargin>
+  <RLRG_MatchMargin_Desc>Um wie viel Prozent besser als deine die Ausrüstung anderer sein darf. 0 = höchstens gleich.</RLRG_MatchMargin_Desc>
+  <RLRG_MatchNow>Obergrenze jetzt – Schusswaffen: {0}, Nahkampf: {1}, Rüstung: {2}, Waffenqualität: {3}, Kleidungsqualität: {4}</RLRG_MatchNow>
+  <RLRG_ShowHud>Forschungsstufe auf dem Bildschirm anzeigen</RLRG_ShowHud>
+  <RLRG_ShowHud_Desc>Unten rechts über dem Datum: die Koloniestufe und wie weit die nächste Stufe entfernt ist. Darüberfahren für Details pro Stufe, klicken öffnet den Tab Welt.</RLRG_ShowHud_Desc>
+  <RLRG_HudLine>Stufe: {0}</RLRG_HudLine>
+  <RLRG_HudLineNext>{0} → {1} {2} %</RLRG_HudLineNext>
+  <RLRG_HudTipTitle>Forschungsstufe (World at Your Level)</RLRG_HudTipTitle>
+  <RLRG_HudTipColony>Kolonie: {0} (Szenario: {1}, Forschung: {2})</RLRG_HudTipColony>
+  <RLRG_HudTipWorld>Welt (mit Vorsprung/Zeitbonus): {0}</RLRG_HudTipWorld>
+  <RLRG_HudTipTier>{0} {1}: {2}/{3} ({4} %), benötigt {5}</RLRG_HudTipTier>
+  <RLRG_HudTipClick>Klicken für den Tab Welt.</RLRG_HudTipClick>
+  <MUI_Title>Empfohlene Einstellungen</MUI_Title>
+  <MUI_TitleOff>Empfohlene Einstellungen · aus</MUI_TitleOff>
+  <MUI_DescOn>Die Mod richtet sich selbst ein und funktioniert sofort. Ideal für neue Spieler und alle, die nichts anpassen wollen.</MUI_DescOn>
+  <MUI_DescOff>Eigene Einstellungen. Geändert gegenüber Empfehlung: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Eigene Einstellungen. Noch identisch mit der Empfehlung.</MUI_DescOffSame>
+  <MUI_On>AN</MUI_On>
+  <MUI_Off>AUS</MUI_Off>
+  <MUI_ResetAll>Alles auf Empfehlung zurücksetzen</MUI_ResetAll>
+  <MUI_ConfirmOn>Empfohlene Einstellungen einschalten? Deine Änderungen ({0}) werden durch die empfohlenen Werte ersetzt.</MUI_ConfirmOn>
+  <MUI_Locked>Detaillierte Einstellungen sind gesperrt. Willst du sie ändern? Schalte den Schalter oben aus – deine Werte starten bei den empfohlenen.</MUI_Locked>
+  <MUI_Changed>GEÄNDERT</MUI_Changed>
+  <MUI_ChangedTip>Weicht von der Empfehlung ab ({0}). Klicken, um den empfohlenen Wert wiederherzustellen.</MUI_ChangedTip>
+  <MUI_Yes>an</MUI_Yes>
+  <MUI_No>aus</MUI_No>
+  <RLRG_Rec1>Angreifer tragen nur Ausrüstung deiner Technologiestufe</RLRG_Rec1>
+  <RLRG_Rec2>Händler verkaufen Gegenstände deiner Stufe</RLRG_Rec2>
+  <RLRG_Rec3>Quests und Belohnungen passen zu deiner Stufe</RLRG_Rec3>
+  <RLRG_Rec4>Fraktionen entwickeln sich mit dir weiter</RLRG_Rec4>
+  <RLRG_Rec5>Schwächere Angreiferausrüstung wird durch mehr Angreifer ausgeglichen</RLRG_Rec5>
+  <RLRG_Rec6>Die Weltstufe wird auf dem Bildschirm angezeigt</RLRG_Rec6>
+  <MUI_RecTag>EMPFOHLEN</MUI_RecTag>
+  <RLRG_RareAdvanced>Seltener Hightech-Überfall: {0}%</RLRG_RareAdvanced>
+  <RLRG_RareAdvanced_Desc>Mit dieser Chance bringt ein Überfall Ausrüstung eine Technologiestufe über deiner Kolonie. Es gibt weniger Angreifer (25 % weniger Punkte) und ihre Ausrüstung bleibt als Beute, sodass du neue Technik früh entdecken kannst. Nur wenn die angreifende Fraktion solche Ausrüstung hat.</RLRG_RareAdvanced_Desc>
+  <RLRG_RareLowTech>Seltener Lowtech-Überfall: {0}%</RLRG_RareLowTech>
+  <RLRG_RareLowTech_Desc>Mit dieser Chance bringt ein Überfall Ausrüstung eine Technologiestufe unter deiner Kolonie, aber mit mehr Angreifern (35 % mehr Punkte).</RLRG_RareLowTech_Desc>
+  <RLRG_MsgRareAdvanced>Die Angreifer tragen unbekannte Technologie ({0})! Es sind weniger, aber sie sind besser bewaffnet.</RLRG_MsgRareAdvanced>
+  <RLRG_MsgRareLowTech>Ein großer Überfall mit veralteter Ausrüstung ({0}).</RLRG_MsgRareLowTech>
+  <RLRG_StrictCrafted>Streng: nur Hergestelltes, auch beim Abgleich mit der Kolonie</RLRG_StrictCrafted>
+  <RLRG_StrictCrafted_Desc>„An die Kolonie anpassen“ erlaubt normalerweise alles, was etwa so stark ist wie deine Ausrüstung. Wenn an, dürfen Feinde nur Waffen und Kleidung tragen, die deine Kolonie tatsächlich hergestellt hat – keine Behelfsgewehre oder MPs, solange du noch Bögen benutzt.</RLRG_StrictCrafted_Desc>
+  <RLRG_SiteTurrets>Feindliche Geschütztürme nur bis zu deinen eigenen</RLRG_SiteTurrets>
+  <RLRG_SiteTurrets_Desc>Geschütztürme anderer Fraktionen – an Quest-Orten, in Basen, bei Belagerungen – werden entfernt, außer du hast selbst einen Geschützturm derselben Technologiestufe gebaut. Noch keine Geschütztürme = keine feindlichen Geschütztürme.</RLRG_SiteTurrets_Desc>
+  <RLRG_GearLogLine>World at Your Level: {0}</RLRG_GearLogLine>
+  <RLRG_MsgRaidSwaps>Am häufigsten: {0}.</RLRG_MsgRaidSwaps>
+</LanguageData>

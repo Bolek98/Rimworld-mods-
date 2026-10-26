@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SC_ModName>Secular Colony – Ideology desactivado y ajustes</SC_ModName>
+  <SC_NoIdeology>El DLC Ideology no está activo: no hay nada que desactivar.</SC_NoIdeology>
+  <SC_Enable>Mi colonia ignora la ideoligión</SC_Enable>
+  <SC_Enable_Desc>Interruptor principal. Solo afecta a tus colonos (y a los esclavos si lo eliges), no a otras facciones. Al desactivarlo todo vuelve a ser como antes.</SC_Enable_Desc>
+  <SC_Moods>Sin estado de ánimo por creencias</SC_Moods>
+  <SC_Moods_Desc>Los pensamientos por preceptos, rituales, roles, edificios de ideoligión, ropa y colores deseados no dan ni bonificación ni penalización. Los pensamientos de creencia existentes se eliminan.</SC_Moods_Desc>
+  <SC_Certainty>Sin conversión</SC_Certainty>
+  <SC_Certainty_Desc>La certeza nunca baja, nadie convierte a tus colonos y tus colonos no intentan convertir a otros. La conversión de prisioneros que ordenes tú sigue funcionando.</SC_Certainty_Desc>
+  <SC_Willing>La ideoligión no prohíbe nada</SC_Willing>
+  <SC_Willing_Desc>«La ideoligión lo prohíbe» ya no impide a los colonos ningún trabajo ni acción.</SC_Willing_Desc>
+  <SC_MentalBreaks>Sin crisis mentales por creencias</SC_MentalBreaks>
+  <SC_MentalBreaks_Desc>Las crisis mentales causadas por preceptos (crisis de fe y similares) no les ocurren a tus colonos. Las crisis mentales normales se mantienen.</SC_MentalBreaks_Desc>
+  <SC_Alerts>Ocultar alertas de creencias</SC_Alerts>
+  <SC_Alerts_Desc>Oculta las alertas sobre roles vacíos, edificios de ideoligión que faltan o no se respetan, rituales de fecha próximos y la exigencia de reversión de edad. No necesitas cubrir los roles.</SC_Alerts_Desc>
+  <SC_Slaves>También se aplica a los esclavos</SC_Slaves>
+  <SC_Slaves_Desc>Si está activado, los esclavos de tu colonia también ignoran la ideoligión.</SC_Slaves_Desc>
+  <SC_Note>Los cambios se aplican al instante, también en una partida en curso. La pestaña Ideoligión sigue visible, pero no tiene efecto en tu colonia.</SC_Note>
+  <SC_LookChange>Los colonos cambian de aspecto por su cuenta</SC_LookChange>
+  <SC_LookChange_Desc>De vez en cuando un colono quiere un peinado, una barba o un tatuaje nuevos y va por su cuenta a una estación de estilismo cuando tiene tiempo. Solo colonos adultos libres (no esclavos, prisioneros ni invitados). Requiere una estación de estilismo: sin ella nadie tiene ese deseo (comportamiento vanilla). Un deseo no cumplido en 4 días se descarta.</SC_LookChange_Desc>
+  <SC_LookChangeDays>Días medios entre deseos por colono: {0}</SC_LookChangeDays>
+  <SC_LookChangeDays_Desc>Cuántos días pasan de media hasta que un colono vuelve a querer un aspecto nuevo. El buen ánimo y la belleza lo hacen algo más frecuente; el mal ánimo, menos.</SC_LookChangeDays_Desc>
+  <SC_LookChangeMessage>Mostrar un mensaje cuando alguien quiera un aspecto nuevo</SC_LookChangeMessage>
+  <SC_LookChangeMessage_Desc>Un mensaje breve en la parte superior de la pantalla. El juego no se pausa.</SC_LookChangeMessage_Desc>
+  <SC_StyleFree>Estilo sin ideoligión</SC_StyleFree>
+  <SC_StyleFree_Desc>Los peinados, barbas y tatuajes se eligen entre todo lo que encaja con el género, la edad y los genes del colono, no entre lo que permite la ideoligión. Un estilo que no le gusta a la ideoligión ya no hace que un colono quiera cambiar.</SC_StyleFree_Desc>
+  <SC_LookWish>{PAWN_nameDef} quiere un aspecto nuevo.</SC_LookWish>
+  <SC_H_Belief>Creencia</SC_H_Belief>
+  <SC_H_Look>Aspecto</SC_H_Look>
+  <SC_H_Love>Relaciones sin creencias</SC_H_Love>
+  <SC_LoveHint>Sin ideoligión, la creencia no decide cuántas parejas puede tener un colono. Elige una regla:</SC_LoveHint>
+  <SC_Rule0>Según rasgos (recomendado)</SC_Rule0>
+  <SC_Rule0_Desc>Todos tienen una sola pareja. Los colonos con el rasgo «poliamoroso» o «polígamo» pueden tener más parejas y cónyuges (hasta el límite de abajo).</SC_Rule0_Desc>
+  <SC_Rule1>Una pareja para todos</SC_Rule1>
+  <SC_Rule1_Desc>Nadie puede tener varias parejas o cónyuges a la vez. Una relación nueva termina la anterior.</SC_Rule1_Desc>
+  <SC_Rule2>Amor libre para todos</SC_Rule2>
+  <SC_Rule2_Desc>Cualquiera puede tener más parejas y cónyuges (hasta el límite de abajo). Así funcionaba el mod hasta la versión 1.1.</SC_Rule2_Desc>
+  <SC_MaxPartners>Máximo de parejas a la vez: {0}</SC_MaxPartners>
+  <SC_MaxPartners_Desc>Cuántos amantes, prometidos y cónyuges en total puede tener un colono cuando la regla lo permite. 5 o más = sin límite.</SC_MaxPartners_Desc>
+  <SC_PolyChance>Frecuencia de rasgos poli: {0} %</SC_PolyChance>
+  <SC_PolyChance_Desc>Con qué frecuencia aparecen «poliamoroso» y «polígamo» en personajes nuevos. 0 % = nunca (aún se pueden añadir con un editor de personajes).</SC_PolyChance_Desc>
+  <SC_PolyNoJealousy>Los poliamorosos no son celosos</SC_PolyNoJealousy>
+  <SC_PolyNoJealousy_Desc>Un colono poliamoroso no recibe el estado de ánimo «me ha engañado» cuando su pareja también tiene a otra persona.</SC_PolyNoJealousy_Desc>
+  <SC_PolygamyMood>Los polígamos disfrutan de una gran familia</SC_PolygamyMood>
+  <SC_PolygamyMood_Desc>Un colono polígamo con dos cónyuges +3, tres +5, cuatro o más +7 de estado de ánimo.</SC_PolygamyMood_Desc>
+  <SC_H_NoBelief>Ninguna creencia</SC_H_NoBelief>
+  <SC_NoBelief_NoGame>La ideoligión se puede eliminar por completo de la colonia en una partida en curso (aquí, en la configuración).</SC_NoBelief_NoGame>
+  <SC_NoBelief_Desc>Elimina por completo la ideoligión de la colonia: el juego pasa al modo clásico (como una partida sin Ideology); la pestaña Ideoligión, la certeza, las conversiones, los roles, las reliquias y los edificios de ideoligión desaparecen. Todos los colonos reciben una creencia «clásica» simple sin reglas, y quien se una la adopta también.</SC_NoBelief_Desc>
+  <SC_NoBelief_Button>Eliminar la ideoligión de la colonia</SC_NoBelief_Button>
+  <SC_NoBelief_Confirm>¿De verdad quieres eliminar la ideoligión de la colonia? Esto modifica la partida guardada (los roles y los edificios de ideoligión desaparecen). Guarda primero en una ranura nueva.</SC_NoBelief_Confirm>
+  <SC_NoBelief_Converted>Ideoligión eliminada – colonos convertidos: {0}. La colonia vive sin creencias.</SC_NoBelief_Converted>
+  <SC_NoBelief_Done>La colonia no tiene ideoligión (modo clásico).</SC_NoBelief_Done>
+  <SC_NoBelief_Undo>Recuperar la ideoligión (desactivar modo clásico)</SC_NoBelief_Undo>
+  <SC_NoBelief_Undone>Modo clásico desactivado: la pestaña Ideoligión ha vuelto. Los colonos conservan la creencia simple, que puedes editar.</SC_NoBelief_Undone>
+  <SC_BarberTable>También mesa de barbero</SC_BarberTable>
+  <SC_BarberTable_Desc>Un colono que quiere un aspecto nuevo va a la estación de estilismo O a la mesa de barbero más cercana (Vanilla Hair Expanded y mods similares). El menú de la mesa de barbero solo muestra peinados y barbas que encajan con el colono (género, raza, genes).</SC_BarberTable_Desc>
+  <SC_GenderStyles>Peinados de mujer para mujeres, de hombre para hombres</SC_GenderStyles>
+  <SC_GenderStyles_Desc>Las mujeres eligen solo peinados femeninos y unisex, los hombres solo masculinos y unisex, de todos tus mods de pelo. Se aplica a tus colonos.</SC_GenderStyles_Desc>
+  <SC_HairColours>Cambiar también el color de pelo</SC_HairColours>
+  <SC_HairColours_Desc>Al cambiar de estilo, el colono cambia a veces también el color de pelo, entre los colores de todos los mods (tintes del juego y de mods, preajustes de Vanilla Hair Expanded, colores naturales de los genes). Las mujeres se tiñen más a menudo; los hombres eligen sobre todo colores naturales. La mesa de barbero también recibe estos colores en su menú.</SC_HairColours_Desc>
+  <SC_HairColourChance>Probabilidad de un color nuevo al cambiar de estilo: {0} %</SC_HairColourChance>
+  <SC_HairColourChance_Desc>Con qué frecuencia un colono también cambia el color de pelo al cambiar de estilo.</SC_HairColourChance_Desc>
+  <SC_Rec1>Sin estados de ánimo ni crisis mentales por creencias</SC_Rec1>
+  <SC_Rec2>La certeza se mantiene, nadie se convierte</SC_Rec2>
+  <SC_Rec3>Estilos libres, mesa de barbero, colores de pelo</SC_Rec3>
+  <SC_Rec4>Relaciones según rasgos, sin celos</SC_Rec4>
+  <SC_KeepHint>Mantener algunos tipos de todos modos (modo parcial):</SC_KeepHint>
+  <SC_KeepRituals>Mantener el ánimo de los rituales</SC_KeepRituals>
+  <SC_KeepRituals_Desc>Los rituales y las reliquias siguen dando su bonificación (y penalización) de ánimo.</SC_KeepRituals_Desc>
+  <SC_KeepRoles>Mantener el ánimo de los roles</SC_KeepRoles>
+  <SC_KeepRoles_Desc>Los roles de líder y especialista siguen contando para el ánimo (rol vacío, rol perdido, ropa de rol).</SC_KeepRoles_Desc>
+  <SC_KeepBuildings>Mantener el ánimo de los edificios de creencia</SC_KeepBuildings>
+  <SC_KeepBuildings_Desc>Los altares y otros edificios de creencia que faltan o no se respetan siguen contando.</SC_KeepBuildings_Desc>
+  <SC_KeepApparel>Mantener el ánimo de la ropa y los colores deseados</SC_KeepApparel>
+  <SC_KeepApparel_Desc>La ropa y los colores que quiere la creencia siguen dando ánimo.</SC_KeepApparel_Desc>
+  <MUI_Title>Configuración recomendada</MUI_Title>
+  <MUI_TitleOff>Configuración recomendada · desactivada</MUI_TitleOff>
+  <MUI_DescOn>El mod se configura solo y funciona al instante. Ideal para jugadores nuevos y para quien no quiera ajustar nada.</MUI_DescOn>
+  <MUI_DescOff>Configuración personalizada. Cambios respecto a la recomendada: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Configuración personalizada. Sigue igual que la recomendada.</MUI_DescOffSame>
+  <MUI_On>SÍ</MUI_On>
+  <MUI_Off>NO</MUI_Off>
+  <MUI_ResetAll>Restablecer todo a lo recomendado</MUI_ResetAll>
+  <MUI_ConfirmOn>¿Activar la configuración recomendada? Tus cambios ({0}) se sustituirán por los valores recomendados.</MUI_ConfirmOn>
+  <MUI_Locked>La configuración detallada está bloqueada. ¿Quieres cambiarla? Desactiva el interruptor de arriba: tus valores partirán de los recomendados.</MUI_Locked>
+  <MUI_Changed>CAMBIADO</MUI_Changed>
+  <MUI_ChangedTip>Difiere del valor recomendado ({0}). Haz clic para restaurar el valor recomendado.</MUI_ChangedTip>
+  <MUI_Yes>sí</MUI_Yes>
+  <MUI_No>no</MUI_No>
+  <MUI_RecTag>RECOMENDADO</MUI_RecTag>
+</LanguageData>

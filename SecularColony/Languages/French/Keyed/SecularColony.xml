@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SC_ModName>Secular Colony – Ideology désactivé &amp; ajustements</SC_ModName>
+  <SC_NoIdeology>Le DLC Ideology n'est pas actif – il n'y a rien à désactiver.</SC_NoIdeology>
+  <SC_Enable>Ma colonie ignore l'idéoligion</SC_Enable>
+  <SC_Enable_Desc>Interrupteur principal. Ne concerne que vos colons (et les esclaves si choisi), pas les autres factions. Le désactiver rétablit tout.</SC_Enable_Desc>
+  <SC_Moods>Pas d'humeur liée aux croyances</SC_Moods>
+  <SC_Moods_Desc>Les pensées issues des préceptes, rituels, rôles, bâtiments d'idéoligion, vêtements et couleurs désirés ne donnent ni bonus ni malus. Les pensées de croyance existantes sont supprimées.</SC_Moods_Desc>
+  <SC_Certainty>Pas de conversion</SC_Certainty>
+  <SC_Certainty_Desc>La certitude ne baisse jamais, personne ne convertit vos colons et vos colons n'essaient pas de convertir les autres. La conversion de prisonniers que vous ordonnez vous-même fonctionne toujours.</SC_Certainty_Desc>
+  <SC_Willing>L'idéoligion n'interdit rien</SC_Willing>
+  <SC_Willing_Desc>« L'idéoligion l'interdit » n'empêche plus les colons d'effectuer un travail ou une action.</SC_Willing_Desc>
+  <SC_MentalBreaks>Pas de crises mentales liées aux croyances</SC_MentalBreaks>
+  <SC_MentalBreaks_Desc>Les crises mentales causées par les préceptes (crise de foi et similaires) n'arrivent pas à vos colons. Les crises mentales normales restent.</SC_MentalBreaks_Desc>
+  <SC_Alerts>Masquer les alertes de croyance</SC_Alerts>
+  <SC_Alerts_Desc>Masque les alertes concernant les rôles vacants, les bâtiments d'idéoligion manquants ou non respectés, les rituels de date à venir et l'exigence de rajeunissement. Vous n'avez pas besoin de pourvoir les rôles.</SC_Alerts_Desc>
+  <SC_Slaves>S'applique aussi aux esclaves</SC_Slaves>
+  <SC_Slaves_Desc>Si activé, les esclaves de votre colonie ignorent aussi l'idéoligion.</SC_Slaves_Desc>
+  <SC_Note>Les changements s'appliquent immédiatement, même dans une partie en cours. L'onglet Idéoligion reste visible mais n'a aucun effet sur votre colonie.</SC_Note>
+  <SC_LookChange>Les colons changent d'apparence d'eux-mêmes</SC_LookChange>
+  <SC_LookChange_Desc>De temps en temps, un colon veut une nouvelle coiffure, une barbe ou un tatouage et va de lui-même à une station de coiffure quand il a le temps. Uniquement les colons adultes libres (pas les esclaves, prisonniers ou invités). Nécessite une station de coiffure – sans elle, personne n'a ce souhait (comportement vanilla). Un souhait non exaucé en 4 jours est abandonné.</SC_LookChange_Desc>
+  <SC_LookChangeDays>Jours moyens entre deux souhaits par colon : {0}</SC_LookChangeDays>
+  <SC_LookChangeDays_Desc>Combien de jours passent en moyenne avant qu'un colon veuille à nouveau changer d'apparence. La bonne humeur et la beauté rendent cela un peu plus fréquent, la mauvaise humeur moins.</SC_LookChangeDays_Desc>
+  <SC_LookChangeMessage>Afficher un message quand quelqu'un veut changer d'apparence</SC_LookChangeMessage>
+  <SC_LookChangeMessage_Desc>Un court message en haut de l'écran. Le jeu ne se met pas en pause.</SC_LookChangeMessage_Desc>
+  <SC_StyleFree>Style sans idéoligion</SC_StyleFree>
+  <SC_StyleFree_Desc>Les coiffures, barbes et tatouages sont choisis parmi tout ce qui convient au genre, à l'âge et aux gènes du colon, et non parmi ce que l'idéoligion autorise. Un style que l'idéoligion n'aime pas ne donne plus envie de changer.</SC_StyleFree_Desc>
+  <SC_LookWish>{PAWN_nameDef} veut changer d'apparence.</SC_LookWish>
+  <SC_H_Belief>Croyance</SC_H_Belief>
+  <SC_H_Look>Apparence</SC_H_Look>
+  <SC_H_Love>Relations sans croyance</SC_H_Love>
+  <SC_LoveHint>Sans idéoligion, la croyance ne décide pas du nombre de partenaires qu'un colon peut avoir. Choisissez une règle :</SC_LoveHint>
+  <SC_Rule0>Selon les traits (recommandé)</SC_Rule0>
+  <SC_Rule0_Desc>Chacun a un seul partenaire. Les colons avec le trait « polyamoureux » ou « polygame » peuvent avoir plus de partenaires et de conjoints (jusqu'à la limite ci-dessous).</SC_Rule0_Desc>
+  <SC_Rule1>Un partenaire pour tous</SC_Rule1>
+  <SC_Rule1_Desc>Personne ne peut avoir plusieurs partenaires ou conjoints à la fois. Une nouvelle relation met fin à l'ancienne.</SC_Rule1_Desc>
+  <SC_Rule2>Amour libre pour tous</SC_Rule2>
+  <SC_Rule2_Desc>Tout le monde peut avoir plusieurs partenaires et conjoints (jusqu'à la limite ci-dessous). C'est ainsi que le mod fonctionnait jusqu'à la version 1.1.</SC_Rule2_Desc>
+  <SC_MaxPartners>Partenaires simultanés au maximum : {0}</SC_MaxPartners>
+  <SC_MaxPartners_Desc>Combien d'amants, de fiancés et de conjoints au total un colon peut avoir quand la règle le permet. 5 ou plus = pas de limite.</SC_MaxPartners_Desc>
+  <SC_PolyChance>Fréquence des traits poly : {0} %</SC_PolyChance>
+  <SC_PolyChance_Desc>À quelle fréquence « polyamoureux » et « polygame » apparaissent sur les nouveaux pions. 0 % = jamais (ils peuvent toujours être ajoutés avec un éditeur de personnage).</SC_PolyChance_Desc>
+  <SC_PolyNoJealousy>Les polyamoureux ne sont pas jaloux</SC_PolyNoJealousy>
+  <SC_PolyNoJealousy_Desc>Un colon polyamoureux n'a pas l'humeur « m'a trompé » quand un partenaire a aussi quelqu'un d'autre.</SC_PolyNoJealousy_Desc>
+  <SC_PolygamyMood>Les polygames apprécient une grande famille</SC_PolygamyMood>
+  <SC_PolygamyMood_Desc>Un colon polygame avec deux conjoints +3, trois +5, quatre ou plus +7 d'humeur.</SC_PolygamyMood_Desc>
+  <SC_H_NoBelief>Aucune croyance</SC_H_NoBelief>
+  <SC_NoBelief_NoGame>L'idéoligion peut être entièrement retirée de la colonie dans une partie en cours (ici, dans les réglages).</SC_NoBelief_NoGame>
+  <SC_NoBelief_Desc>Retire entièrement l'idéoligion de la colonie : le jeu passe en mode classique (comme une partie sans Ideology), l'onglet Idéoligion, la certitude, les conversions, les rôles, les reliques et les bâtiments d'idéoligion disparaissent. Tous les colons reçoivent une simple croyance « classique » sans règles, et quiconque rejoint la colonie l'adopte aussi.</SC_NoBelief_Desc>
+  <SC_NoBelief_Button>Retirer l'idéoligion de la colonie</SC_NoBelief_Button>
+  <SC_NoBelief_Confirm>Vraiment retirer l'idéoligion de la colonie ? Cela modifie la sauvegarde (les rôles et les bâtiments d'idéoligion disparaissent). Sauvegardez d'abord dans un nouvel emplacement.</SC_NoBelief_Confirm>
+  <SC_NoBelief_Converted>Idéoligion retirée – colons convertis : {0}. La colonie vit sans croyance.</SC_NoBelief_Converted>
+  <SC_NoBelief_Done>La colonie n'a pas d'idéoligion (mode classique).</SC_NoBelief_Done>
+  <SC_NoBelief_Undo>Rétablir l'idéoligion (mode classique désactivé)</SC_NoBelief_Undo>
+  <SC_NoBelief_Undone>Mode classique désactivé – l'onglet Idéoligion est de retour. Les colons gardent la croyance simple, que vous pouvez modifier.</SC_NoBelief_Undone>
+  <SC_BarberTable>Table de barbier aussi</SC_BarberTable>
+  <SC_BarberTable_Desc>Un colon qui veut changer d'apparence va à la station de coiffure OU à la table de barbier la plus proche (Vanilla Hair Expanded et mods similaires). Le menu de la table de barbier n'affiche que les coiffures et barbes qui conviennent au colon (genre, race, gènes).</SC_BarberTable_Desc>
+  <SC_GenderStyles>Coiffures féminines pour les femmes, masculines pour les hommes</SC_GenderStyles>
+  <SC_GenderStyles_Desc>Les femmes ne choisissent que des coiffures féminines et unisexes, les hommes que des masculines et unisexes – parmi tous vos mods de cheveux. S'applique à vos colons.</SC_GenderStyles_Desc>
+  <SC_HairColours>Changer aussi la couleur des cheveux</SC_HairColours>
+  <SC_HairColours_Desc>Lors d'un changement de style, le colon change de temps en temps aussi de couleur de cheveux – parmi les couleurs de tous les mods (teintures du jeu et des mods, préréglages de Vanilla Hair Expanded, couleurs naturelles des gènes). Les femmes se teignent plus souvent, les hommes choisissent surtout des couleurs naturelles. La table de barbier reçoit aussi ces couleurs dans son menu.</SC_HairColours_Desc>
+  <SC_HairColourChance>Chance d'une nouvelle couleur lors d'un changement de style : {0} %</SC_HairColourChance>
+  <SC_HairColourChance_Desc>À quelle fréquence un colon change aussi de couleur de cheveux en changeant de style.</SC_HairColourChance_Desc>
+  <SC_Rec1>Pas d'humeurs ni de crises mentales liées aux croyances</SC_Rec1>
+  <SC_Rec2>La certitude reste, personne n'est converti</SC_Rec2>
+  <SC_Rec3>Styles libres, table de barbier, couleurs de cheveux</SC_Rec3>
+  <SC_Rec4>Relations selon les traits, pas de jalousie</SC_Rec4>
+  <SC_KeepHint>Garder quand même certains types (mode partiel) :</SC_KeepHint>
+  <SC_KeepRituals>Garder l'humeur des rituels</SC_KeepRituals>
+  <SC_KeepRituals_Desc>Les rituels et les reliques donnent toujours leur bonus (et malus) d'humeur.</SC_KeepRituals_Desc>
+  <SC_KeepRoles>Garder l'humeur des rôles</SC_KeepRoles>
+  <SC_KeepRoles_Desc>Les rôles de chef et de spécialiste comptent toujours pour l'humeur (rôle vacant, rôle perdu, vêtements de rôle).</SC_KeepRoles_Desc>
+  <SC_KeepBuildings>Garder l'humeur des bâtiments de croyance</SC_KeepBuildings>
+  <SC_KeepBuildings_Desc>Les autels et autres bâtiments de croyance manquants ou non respectés comptent toujours.</SC_KeepBuildings_Desc>
+  <SC_KeepApparel>Garder l'humeur des vêtements et couleurs désirés</SC_KeepApparel>
+  <SC_KeepApparel_Desc>Les vêtements et couleurs voulus par la croyance donnent toujours de l'humeur.</SC_KeepApparel_Desc>
+  <MUI_Title>Réglages recommandés</MUI_Title>
+  <MUI_TitleOff>Réglages recommandés · désactivés</MUI_TitleOff>
+  <MUI_DescOn>Le mod se configure tout seul et fonctionne immédiatement. Idéal pour les nouveaux joueurs et tous ceux qui ne veulent rien ajuster.</MUI_DescOn>
+  <MUI_DescOff>Réglages personnalisés. Modifiés par rapport aux recommandations : {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Réglages personnalisés. Toujours identiques aux recommandations.</MUI_DescOffSame>
+  <MUI_On>ACTIVÉ</MUI_On>
+  <MUI_Off>DÉSACTIVÉ</MUI_Off>
+  <MUI_ResetAll>Tout réinitialiser aux valeurs recommandées</MUI_ResetAll>
+  <MUI_ConfirmOn>Activer les réglages recommandés ? Vos modifications ({0}) seront remplacées par les valeurs recommandées.</MUI_ConfirmOn>
+  <MUI_Locked>Les réglages détaillés sont verrouillés. Vous voulez les modifier ? Désactivez l'interrupteur ci-dessus – vos valeurs partiront des valeurs recommandées.</MUI_Locked>
+  <MUI_Changed>MODIFIÉ</MUI_Changed>
+  <MUI_ChangedTip>Diffère du réglage recommandé ({0}). Cliquez pour rétablir la valeur recommandée.</MUI_ChangedTip>
+  <MUI_Yes>activé</MUI_Yes>
+  <MUI_No>désactivé</MUI_No>
+  <MUI_RecTag>RECOMMANDÉ</MUI_RecTag>
+</LanguageData>
