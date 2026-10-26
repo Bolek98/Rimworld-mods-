@@ -109,4 +109,25 @@
   <HS_Feat_bench>工作台供料</HS_Feat_bench>
   <HS_Feat_fuel>燃料巡回</HS_Feat_fuel>
   <HS_Feat_merge>合并半堆</HS_Feat_merge>
+  <HS_Detour>上班路上顺手搬运</HS_Detour>
+  <HS_Detour_Desc>殖民者在去工作的路上顺手把一件东西搬去仓库时（游戏原有功能），也会一起拿上附近其他东西，只要它们的仓库也在目的地附近。</HS_Detour_Desc>
+  <HS_TraderCarry>商人把买的东西收好</HS_TraderCarry>
+  <HS_TraderCarry_Desc>从商队买来的东西由商人自己搬进你的仓库。如果他们做不到，过一会儿你的殖民者会优先收好。</HS_TraderCarry_Desc>
+  <HS_MechHaul>机械体一次搬多件</HS_MechHaul>
+  <HS_MechHaul_Desc>搬运机械体（如搬运机）像殖民者一样一次搬多件东西。</HS_MechHaul_Desc>
+  <HS_AnimalHaul>动物一次搬多件</HS_AnimalHaul>
+  <HS_AnimalHaul_Desc>训练过搬运的动物一次搬多件东西。从不搬食物——它们可能会吃掉。</HS_AnimalHaul_Desc>
+  <HS_SecRefill>补充仓库</HS_SecRefill>
+  <HS_RefillOff>补满堆叠：立即（与游戏相同）</HS_RefillOff>
+  <HS_RefillSlider>低于此值才补满堆叠：{0}</HS_RefillSlider>
+  <HS_RefillSlider_Desc>仓库里的堆叠只有在低于这个界限后才会从其他仓库补充——不会再一次只往餐厅货架送一份饭。散落的东西照常入库。每个储存区和货架都可以有自己的数值（按钮）。</HS_RefillSlider_Desc>
+  <HS_RefillGizmo>补充</HS_RefillGizmo>
+  <HS_RefillGizmo_Desc>这里的堆叠何时从其他仓库补充。散落的东西总是会入库。</HS_RefillGizmo_Desc>
+  <HS_RefillDefault>默认（{0}）</HS_RefillDefault>
+  <HS_RefillNow>立即</HS_RefillNow>
+  <HS_RefillBelow>低于 {0}</HS_RefillBelow>
+  <HS_Feat_detour>上班路上搬运</HS_Feat_detour>
+  <HS_Feat_refill>补充界限</HS_Feat_refill>
+  <HS_Feat_trader>商人收好购买的东西</HS_Feat_trader>
+  <HS_Feat_animals>动物搬运</HS_Feat_animals>
 </LanguageData>

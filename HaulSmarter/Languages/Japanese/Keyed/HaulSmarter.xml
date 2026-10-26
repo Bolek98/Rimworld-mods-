@@ -109,4 +109,25 @@
   <HS_Feat_bench>作業台への供給</HS_Feat_bench>
   <HS_Feat_fuel>燃料巡回</HS_Feat_fuel>
   <HS_Feat_merge>半端なスタックをまとめる</HS_Feat_merge>
+  <HS_Detour>仕事に向かう途中でまとめて運ぶ</HS_Detour>
+  <HS_Detour_Desc>入植者が仕事へ向かう途中で物をひとつ倉庫へ運ぶとき（ゲーム本来の動作）、近くにある他の物も、その倉庫が目的地の近くにあれば一緒に運びます。</HS_Detour_Desc>
+  <HS_TraderCarry>商人が買った物を片付ける</HS_TraderCarry>
+  <HS_TraderCarry_Desc>交易キャラバンから買った物は商人自身があなたの倉庫へ運びます。できない場合は、しばらくして入植者が優先して片付けます。</HS_TraderCarry_Desc>
+  <HS_MechHaul>メカノイドが複数運ぶ</HS_MechHaul>
+  <HS_MechHaul_Desc>運搬メカノイド（リフターなど）も入植者と同じく一度に複数の物を運びます。</HS_MechHaul_Desc>
+  <HS_AnimalHaul>動物が複数運ぶ</HS_AnimalHaul>
+  <HS_AnimalHaul_Desc>運搬の訓練を受けた動物は一度に複数の物を運びます。食べ物は運びません（食べてしまうため）。</HS_AnimalHaul_Desc>
+  <HS_SecRefill>倉庫の補充</HS_SecRefill>
+  <HS_RefillOff>スタックの補充：すぐ（ゲームと同じ）</HS_RefillOff>
+  <HS_RefillSlider>この値を下回ったら補充：{0}</HS_RefillSlider>
+  <HS_RefillSlider_Desc>倉庫のスタックは、この値を下回ったときだけ他の倉庫から補充されます。食堂の棚へ食事をひとつずつ運ぶことはもうありません。床に落ちている物はいつも通り片付けます。備蓄区域や棚ごとに個別の値を設定できます（ボタン）。</HS_RefillSlider_Desc>
+  <HS_RefillGizmo>補充</HS_RefillGizmo>
+  <HS_RefillGizmo_Desc>ここのスタックを他の倉庫からいつ補充するか。床に落ちている物は常に片付けます。</HS_RefillGizmo_Desc>
+  <HS_RefillDefault>既定（{0}）</HS_RefillDefault>
+  <HS_RefillNow>すぐ</HS_RefillNow>
+  <HS_RefillBelow>{0} 未満</HS_RefillBelow>
+  <HS_Feat_detour>仕事に向かう途中の運搬</HS_Feat_detour>
+  <HS_Feat_refill>補充のしきい値</HS_Feat_refill>
+  <HS_Feat_trader>商人による片付け</HS_Feat_trader>
+  <HS_Feat_animals>動物による運搬</HS_Feat_animals>
 </LanguageData>

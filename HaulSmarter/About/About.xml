@@ -3,7 +3,7 @@
   <name>Haul Smarter</name>
   <author>Bolek98</author>
   <packageId>misak.haulsmarter</packageId>
-  <modVersion>3.2.0</modVersion>
+  <modVersion>3.3.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -45,6 +45,12 @@ New in 3.2:
 - Half stacks in storage are joined when nothing else waits.
 - Clean-up after a battle, and drafted colonists put down what they carry.
 - Self-safety: a part that keeps failing with another mod switches itself off and tells you.
+
+New in 3.3:
+- On the way to work: a colonist going to a job takes things lying on the way whose storage is near where he is going.
+- Refill threshold: stacks in storage are topped up from other storage only when they get low – no more one-meal trips. Own value per stockpile and shelf.
+- Traders carry what you bought into your storage.
+- Hauling mechanoids and trained animals carry several things in one trip too.
 
 Turn off Pick Up And Haul and Harvest And Haul – while they are active, the same part of Haul Smarter switches itself off. Czech and English. Safe to add to an existing save.</description>
 </ModMetaData>

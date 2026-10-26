@@ -109,4 +109,25 @@
   <HS_Feat_bench>снабжение верстаков</HS_Feat_bench>
   <HS_Feat_fuel>обход с топливом</HS_Feat_fuel>
   <HS_Feat_merge>объединение неполных стопок</HS_Feat_merge>
+  <HS_Detour>Брать вещи по пути на работу</HS_Detour>
+  <HS_Detour_Desc>Когда колонист по пути на работу несёт одну вещь на склад (как в игре), он берёт и другие вещи рядом с ней, склад которых тоже рядом с его целью.</HS_Detour_Desc>
+  <HS_TraderCarry>Торговцы уносят купленное</HS_TraderCarry>
+  <HS_TraderCarry_Desc>Купленное у торгового каравана торговцы сами относят на твой склад. Если не могут — колонисты через некоторое время уберут это в первую очередь.</HS_TraderCarry_Desc>
+  <HS_MechHaul>Механоиды носят несколько вещей</HS_MechHaul>
+  <HS_MechHaul_Desc>Механоиды-носильщики (например, лифтер) берут несколько вещей за раз, как колонисты.</HS_MechHaul_Desc>
+  <HS_AnimalHaul>Животные носят несколько вещей</HS_AnimalHaul>
+  <HS_AnimalHaul_Desc>Животные, обученные переноске, берут несколько вещей за раз. Никогда еду — они могут её съесть.</HS_AnimalHaul_Desc>
+  <HS_SecRefill>Пополнение склада</HS_SecRefill>
+  <HS_RefillOff>Пополнять стопки: сразу (как в игре)</HS_RefillOff>
+  <HS_RefillSlider>Пополнять стопки ниже: {0}</HS_RefillSlider>
+  <HS_RefillSlider_Desc>Стопка на складе пополняется с другого склада только когда опускается ниже этой границы — больше никакой переноски по одной еде на полку в столовой. Лежащие вещи убираются как всегда. У каждой зоны и полки может быть своё значение (кнопка).</HS_RefillSlider_Desc>
+  <HS_RefillGizmo>Пополнение</HS_RefillGizmo>
+  <HS_RefillGizmo_Desc>Когда стопки здесь пополняются с другого склада. Лежащие вещи убираются всегда.</HS_RefillGizmo_Desc>
+  <HS_RefillDefault>по умолчанию ({0})</HS_RefillDefault>
+  <HS_RefillNow>сразу</HS_RefillNow>
+  <HS_RefillBelow>ниже {0}</HS_RefillBelow>
+  <HS_Feat_detour>переноска по пути на работу</HS_Feat_detour>
+  <HS_Feat_refill>порог пополнения</HS_Feat_refill>
+  <HS_Feat_trader>торговцы уносят купленное</HS_Feat_trader>
+  <HS_Feat_animals>переноска животными</HS_Feat_animals>
 </LanguageData>

@@ -45,11 +45,16 @@ namespace HaulSmarter
         public bool fuelRound = true;           // 3.2: one fuel trip for several torches, stoves, generators
         public bool mergeStacks = true;         // 3.2: idle haulers join half stacks in storage
         public int benchCells = 4;              // 3.2: size of a workbench supply stockpile
+        public bool detourHaul = true;          // 3.3: on the way to work take several things whose storage is on the way
+        public float refillBelow = 0.5f;        // 3.3: top up a stack from other storage only below this (0 = like the game)
+        public bool traderCarry = true;         // 3.3: traders carry what you bought into storage
+        public bool mechHaul = true;            // 3.3: hauling mechanoids carry several things in one trip
+        public bool animalHaul = true;          // 3.3: trained animals carry several things in one trip
 
         public static readonly string[] ProfileFields =
         {
             "haulMany", "maxItems", "scanRadius", "pocketHarvest", "pocketMine", "unloadAt", "smartRoute", "opportunistic", "prioPerish", "prioWeather", "prioValuable", "buildFromPockets",
-            "dropOnDraft", "fuelRound", "mergeStacks"
+            "dropOnDraft", "fuelRound", "mergeStacks", "detourHaul", "refillBelow", "traderCarry", "mechHaul", "animalHaul"
         };
 
         public static HSSettings PresetValues(int which)
@@ -61,6 +66,7 @@ namespace HaulSmarter
                     p.smartRoute = false; p.opportunistic = false; p.buildFromPockets = false; p.prioPerish = 0; p.prioWeather = 0; p.prioValuable = 0;
                     p.pocketHarvest = false; p.pocketMine = false;
                     p.dropOnDraft = false; p.fuelRound = false; p.mergeStacks = false;
+                    p.detourHaul = false; p.refillBelow = 0f; p.traderCarry = false; p.mechHaul = false; p.animalHaul = false;
                     break;
                 case 2:
                     p.maxItems = 60; p.scanRadius = 24; p.unloadAt = 0.95f; p.prioValuable = 2;
@@ -122,6 +128,11 @@ namespace HaulSmarter
             Scribe_Values.Look(ref fuelRound, "fuelRound", true);
             Scribe_Values.Look(ref mergeStacks, "mergeStacks", true);
             Scribe_Values.Look(ref benchCells, "benchCells", 4);
+            Scribe_Values.Look(ref detourHaul, "detourHaul", true);
+            Scribe_Values.Look(ref refillBelow, "refillBelow", 0.5f);
+            Scribe_Values.Look(ref traderCarry, "traderCarry", true);
+            Scribe_Values.Look(ref mechHaul, "mechHaul", true);
+            Scribe_Values.Look(ref animalHaul, "animalHaul", true);
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
                 Preset(profile);
         }
@@ -129,7 +140,7 @@ namespace HaulSmarter
 
     public sealed class HSMod : Mod
     {
-        public const string Version = "3.2.0";
+        public const string Version = "3.3.0";
         public static HSSettings S;
         private Vector2 scroll;
         private float height = 900f;
@@ -241,6 +252,10 @@ namespace HaulSmarter
             Check(l, "HS_FuelRound", ref s.fuelRound, "fuelRound");
             Check(l, "HS_MergeStacks", ref s.mergeStacks, "mergeStacks");
             Check(l, "HS_DropOnDraft", ref s.dropOnDraft, "dropOnDraft");
+            Check(l, "HS_Detour", ref s.detourHaul, "detourHaul");
+            Check(l, "HS_TraderCarry", ref s.traderCarry, "traderCarry");
+            Check(l, "HS_MechHaul", ref s.mechHaul, "mechHaul");
+            Check(l, "HS_AnimalHaul", ref s.animalHaul, "animalHaul");
             s.unloadAt = Mathf.Round(MUI.Slider(l, "HS_UnloadAt".Translate(s.unloadAt.ToStringPercent()), s.unloadAt, 0.2f, 1f, "HS_UnloadAt_Desc".Translate(), s, "unloadAt") * 20f) / 20f;
             MUI.Section(l, "HS_SecPrio".Translate());
             Prio(l, "HS_PrioPerish", s.prioPerish, v => s.prioPerish = v, "prioPerish");
@@ -267,6 +282,9 @@ namespace HaulSmarter
             if (before != s.overviewButton)
                 Overview.SetButton();
             Check(r, "HS_Highlight", ref s.highlight, null);
+            MUI.Section(r, "HS_SecRefill".Translate());
+            s.refillBelow = Mathf.Round(MUI.Slider(r, s.refillBelow <= 0f ? "HS_RefillOff".Translate().ToString() : "HS_RefillSlider".Translate(s.refillBelow.ToStringPercent()).ToString(),
+                s.refillBelow, 0f, 0.9f, "HS_RefillSlider_Desc".Translate(), s, "refillBelow") * 20f) / 20f;
             MUI.Section(r, "HS_SecBench".Translate());
             s.benchCells = Mathf.RoundToInt(MUI.Slider(r, "HS_BenchCells".Translate(s.benchCells), s.benchCells, 1f, 9f, "HS_BenchCells_Desc".Translate(), s, null));
             if (Safe.AnyOff)
@@ -373,6 +391,7 @@ namespace HaulSmarter
         public static HSData I;
         private HashSet<int> tracked = new HashSet<int>();
         private List<HaulStat> stats = new List<HaulStat>();
+        public Dictionary<string, float> refill = new Dictionary<string, float>();   // 3.3: own refill threshold per stockpile/shelf
 
         public HSData(Game game) { I = this; }
 
@@ -388,8 +407,10 @@ namespace HaulSmarter
                 Prune();
             Scribe_Collections.Look(ref tracked, "tracked", LookMode.Value);
             Scribe_Collections.Look(ref stats, "stats", LookMode.Deep);
+            Scribe_Collections.Look(ref refill, "refill", LookMode.Value, LookMode.Value);
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
+                if (refill == null) refill = new Dictionary<string, float>();
                 if (tracked == null) tracked = new HashSet<int>();
                 if (stats == null) stats = new List<HaulStat>();
                 I = this;

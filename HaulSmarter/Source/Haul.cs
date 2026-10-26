@@ -50,6 +50,24 @@ namespace HaulSmarter
                    && !pawn.IsQuestLodger() && MassUtility.CanEverCarryAnything(pawn);
         }
 
+        // 3.3: who may carry several things in one hauling trip – colonists, and (if on) hauling mechanoids and trained animals
+        public static bool CanHaulMany(Pawn pawn)
+        {
+            if (CanUsePockets(pawn))
+                return true;
+            HSSettings s = HSMod.S;
+            if (s == null || pawn == null || pawn.inventory == null || pawn.Faction != Faction.OfPlayer || !MassUtility.CanEverCarryAnything(pawn))
+                return false;
+            if (pawn.RaceProps.IsMechanoid)
+                return s.mechHaul;
+            if (pawn.RaceProps.Animal)
+                return s.animalHaul;
+            return false;
+        }
+
+        // animals might eat food from their pockets
+        private static bool NotFor(Pawn pawn, Thing t) => pawn.RaceProps.Animal && t.def.IsIngestible;
+
         // Puts a part of the stack into the pockets and remembers it. It only
         // merges with stacks we picked up ourselves – the colonist's own
         // medicine or food is never unloaded by mistake.
@@ -152,6 +170,8 @@ namespace HaulSmarter
         // ---- planning -----------------------------------------------------
         private static bool GoodExtra(Pawn pawn, Thing t, Thing first)
         {
+            if (NotFor(pawn, t))
+                return false;
             if (t == first || !t.Spawned || t.def.category != ThingCategory.Item || t is Corpse || t.IsForbidden(pawn))
                 return false;
             if (t.IsInValidBestStorage())
@@ -161,8 +181,10 @@ namespace HaulSmarter
             return StoreUtility.TryFindBestBetterStoreCellFor(t, pawn, pawn.Map, StoreUtility.CurrentStoragePriorityOf(t), pawn.Faction, out _, false);
         }
 
-        public static Job MakeJob(Pawn pawn, Thing first, bool forced)
+        public static Job MakeJob(Pawn pawn, Thing first, bool forced, float radiusOverride = -1f, int maxOverride = -1, Predicate<Thing> extraOk = null)
         {
+            if (NotFor(pawn, first))
+                return HaulAIUtility.HaulToStorageJob(pawn, first, forced);
             if (first is Corpse || !HaulAIUtility.PawnCanAutomaticallyHaulFast(pawn, first, forced))
                 return null;
             if (!StoreUtility.TryFindBestBetterStorageFor(first, pawn, pawn.Map, StoreUtility.CurrentStoragePriorityOf(first), pawn.Faction,
@@ -172,7 +194,7 @@ namespace HaulSmarter
                 return null;
             }
             // containers (and pawns that cannot use pockets) are hauled the normal way
-            if (!(dest is ISlotGroupParent) || !CanUsePockets(pawn) || !Compat.Hauling)
+            if (!(dest is ISlotGroupParent) || !CanHaulMany(pawn) || !Compat.Hauling)
                 return HaulAIUtility.HaulToStorageJob(pawn, first, forced);
 
             float free = FreeKg(pawn);
@@ -184,8 +206,8 @@ namespace HaulSmarter
             var counts = new List<int> { firstCount };
             free -= firstCount * UnitMass(first);
 
-            int maxItems = HSMod.S?.maxItems ?? 30;
-            float radius = HSMod.S?.scanRadius ?? 14;
+            int maxItems = maxOverride > 0 ? maxOverride : HSMod.S?.maxItems ?? 30;
+            float radius = radiusOverride > 0f ? radiusOverride : HSMod.S?.scanRadius ?? 14;
             if (free > 0.5f && maxItems > 1)
             {
                 IntVec3 from = first.Position;
@@ -211,7 +233,7 @@ namespace HaulSmarter
                     Thing t = near[bi];
                     near.RemoveAt(bi);
                     checks++;
-                    if (!GoodExtra(pawn, t, first))
+                    if (!GoodExtra(pawn, t, first) || (extraOk != null && !extraOk(t)))
                         continue;
                     int n = CountThatFits(t, free);
                     if (n <= 0)
@@ -244,13 +266,13 @@ namespace HaulSmarter
         public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn) => pawn.Map.listerHaulables.ThingsPotentiallyNeedingHauling();
 
         // 3.0: perishable, weather-threatened and valuable things first
-        public override bool Prioritized => HSMod.S != null && (HSMod.S.AnyPriority || Cleanup.Any);
+        public override bool Prioritized => HSMod.S != null && (HSMod.S.AnyPriority || Cleanup.Any || Bought.Any);
 
         public override float GetPriority(Pawn pawn, TargetInfo t) => Priority.Of(t.Thing);
 
         public override bool ShouldSkip(Pawn pawn, bool forced = false)
         {
-            return !Compat.Hauling || !Safe.On("haul") || !HaulUtil.CanUsePockets(pawn) || pawn.Map.listerHaulables.ThingsPotentiallyNeedingHauling().Count == 0;
+            return !Compat.Hauling || !Safe.On("haul") || !HaulUtil.CanHaulMany(pawn) || pawn.Map.listerHaulables.ThingsPotentiallyNeedingHauling().Count == 0;
         }
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)

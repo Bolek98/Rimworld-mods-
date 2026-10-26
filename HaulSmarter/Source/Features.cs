@@ -127,6 +127,7 @@ namespace HaulSmarter
             if (t == null || s == null || !t.Spawned) return 0f;
             int p = 0;
             if (Cleanup.Marked(t)) return 3f;       // 3.1: after a battle – before everything else
+            if (Bought.Urgent(t)) return 3f;        // 3.3: bought things the traders did not carry away
             if (s.prioPerish > p && Perishable(t)) p = s.prioPerish;
             if (s.prioWeather > p && Weather(t)) p = s.prioWeather;
             if (s.prioValuable > p && Valuable(t)) p = s.prioValuable;

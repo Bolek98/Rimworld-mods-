@@ -109,4 +109,25 @@
   <HS_Feat_bench>작업대 공급</HS_Feat_bench>
   <HS_Feat_fuel>연료 순회</HS_Feat_fuel>
   <HS_Feat_merge>덜 찬 묶음 합치기</HS_Feat_merge>
+  <HS_Detour>일하러 가는 길에 함께 운반</HS_Detour>
+  <HS_Detour_Desc>정착민이 일하러 가는 길에 물건 하나를 창고로 옮길 때(게임 기본 동작), 근처의 다른 물건도 그 창고가 목적지 근처에 있으면 함께 가져갑니다.</HS_Detour_Desc>
+  <HS_TraderCarry>상인이 구매품을 정리</HS_TraderCarry>
+  <HS_TraderCarry_Desc>교역 상단에게서 산 물건은 상인들이 직접 당신의 창고로 옮깁니다. 그러지 못하면 잠시 후 정착민이 우선적으로 정리합니다.</HS_TraderCarry_Desc>
+  <HS_MechHaul>메카노이드가 여러 개 운반</HS_MechHaul>
+  <HS_MechHaul_Desc>운반 메카노이드(리프터 등)도 정착민처럼 한 번에 여러 물건을 옮깁니다.</HS_MechHaul_Desc>
+  <HS_AnimalHaul>동물이 여러 개 운반</HS_AnimalHaul>
+  <HS_AnimalHaul_Desc>운반 훈련을 받은 동물은 한 번에 여러 물건을 옮깁니다. 음식은 절대 옮기지 않습니다 – 먹어버릴 수 있습니다.</HS_AnimalHaul_Desc>
+  <HS_SecRefill>창고 채우기</HS_SecRefill>
+  <HS_RefillOff>더미 채우기: 즉시 (게임과 동일)</HS_RefillOff>
+  <HS_RefillSlider>이 값 아래일 때만 더미 채우기: {0}</HS_RefillSlider>
+  <HS_RefillSlider_Desc>창고의 더미는 이 기준 아래로 떨어진 뒤에만 다른 창고에서 채워집니다 – 식당 선반에 식사를 하나씩 나르는 일은 이제 없습니다. 바닥에 놓인 물건은 평소처럼 보관됩니다. 비축 구역과 선반마다 각자 값을 정할 수 있습니다 (버튼).</HS_RefillSlider_Desc>
+  <HS_RefillGizmo>채우기</HS_RefillGizmo>
+  <HS_RefillGizmo_Desc>이곳의 더미를 다른 창고에서 언제 채울지. 바닥에 놓인 물건은 항상 보관됩니다.</HS_RefillGizmo_Desc>
+  <HS_RefillDefault>기본값 ({0})</HS_RefillDefault>
+  <HS_RefillNow>즉시</HS_RefillNow>
+  <HS_RefillBelow>{0} 미만</HS_RefillBelow>
+  <HS_Feat_detour>일하러 가는 길에 운반</HS_Feat_detour>
+  <HS_Feat_refill>채우기 기준</HS_Feat_refill>
+  <HS_Feat_trader>상인의 구매품 정리</HS_Feat_trader>
+  <HS_Feat_animals>동물 운반</HS_Feat_animals>
 </LanguageData>
