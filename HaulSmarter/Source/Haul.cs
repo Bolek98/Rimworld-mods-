@@ -133,13 +133,16 @@ namespace HaulSmarter
         // 3.0.1: things in the pockets must not be lost for the colony – food, medicine and
         // anything carried for longer than an hour go to storage after the current job
         public const int MaxPocketTicks = 2500;
+        // 3.3: both times can be set in the settings (sliders)
+        public static int PocketTicks => Mathf.Max(250, Mathf.RoundToInt((HSMod.S?.pocketHours ?? 1f) * 2500f));
+        public static int FoodTicks => Mathf.Max(125, Mathf.RoundToInt((HSMod.S?.foodMinutes ?? 15) * 2500f / 60f));
 
         public static bool NeededByOthers(Thing t) => t.def.IsIngestible || t.def.IsMedicine || t.def.IsDrug;
 
         public static bool MustUnloadSoon(Pawn pawn)
         {
             foreach (Thing t in TrackedItems(pawn))
-                if (HSData.AgeTicks(t) > (NeededByOthers(t) ? 600 : MaxPocketTicks))
+                if (HSData.AgeTicks(t) > (NeededByOthers(t) ? FoodTicks : PocketTicks))
                     return true;
             return false;
         }

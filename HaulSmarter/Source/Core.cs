@@ -50,11 +50,13 @@ namespace HaulSmarter
         public bool traderCarry = true;         // 3.3: traders carry what you bought into storage
         public bool mechHaul = true;            // 3.3: hauling mechanoids carry several things in one trip
         public bool animalHaul = true;          // 3.3: trained animals carry several things in one trip
+        public float pocketHours = 1f;          // 3.3: carried things go to storage at the latest after this (in-game hours)
+        public int foodMinutes = 15;            // 3.3: food, medicine and drugs at the latest after this (in-game minutes)
 
         public static readonly string[] ProfileFields =
         {
             "haulMany", "maxItems", "scanRadius", "pocketHarvest", "pocketMine", "unloadAt", "smartRoute", "opportunistic", "prioPerish", "prioWeather", "prioValuable", "buildFromPockets",
-            "dropOnDraft", "fuelRound", "mergeStacks", "detourHaul", "refillBelow", "traderCarry", "mechHaul", "animalHaul"
+            "dropOnDraft", "fuelRound", "mergeStacks", "detourHaul", "refillBelow", "traderCarry", "mechHaul", "animalHaul", "pocketHours", "foodMinutes"
         };
 
         public static HSSettings PresetValues(int which)
@@ -133,6 +135,8 @@ namespace HaulSmarter
             Scribe_Values.Look(ref traderCarry, "traderCarry", true);
             Scribe_Values.Look(ref mechHaul, "mechHaul", true);
             Scribe_Values.Look(ref animalHaul, "animalHaul", true);
+            Scribe_Values.Look(ref pocketHours, "pocketHours", 1f);
+            Scribe_Values.Look(ref foodMinutes, "foodMinutes", 15);
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
                 Preset(profile);
         }
@@ -257,6 +261,10 @@ namespace HaulSmarter
             Check(l, "HS_MechHaul", ref s.mechHaul, "mechHaul");
             Check(l, "HS_AnimalHaul", ref s.animalHaul, "animalHaul");
             s.unloadAt = Mathf.Round(MUI.Slider(l, "HS_UnloadAt".Translate(s.unloadAt.ToStringPercent()), s.unloadAt, 0.2f, 1f, "HS_UnloadAt_Desc".Translate(), s, "unloadAt") * 20f) / 20f;
+            s.pocketHours = Mathf.Round(MUI.Slider(l, "HS_PocketTime".Translate(s.pocketHours.ToString("0.##") + " h"), s.pocketHours, 0.25f, 8f,
+                "HS_PocketTime_Desc".Translate(), s, "pocketHours") * 4f) / 4f;
+            s.foodMinutes = Mathf.RoundToInt(MUI.Slider(l, "HS_PocketFood".Translate(s.foodMinutes + " min"), s.foodMinutes, 5f, 120f,
+                "HS_PocketFood_Desc".Translate(), s, "foodMinutes") / 5f) * 5;
             MUI.Section(l, "HS_SecPrio".Translate());
             Prio(l, "HS_PrioPerish", s.prioPerish, v => s.prioPerish = v, "prioPerish");
             Prio(l, "HS_PrioWeather", s.prioWeather, v => s.prioWeather = v, "prioWeather");
