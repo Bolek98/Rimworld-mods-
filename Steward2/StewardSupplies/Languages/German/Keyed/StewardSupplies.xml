@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_S_On>Vorräte halten</CF_S_On>
+  <CF_S_RunNow>Jetzt prüfen</CF_S_RunNow>
+  <CF_S_AreaAny>Ganze Karte</CF_S_AreaAny>
+  <CF_S_AreaTip>Nur Dinge innerhalb dieses Bereichs markieren.</CF_S_AreaTip>
+  <CF_S_HuntPregnant>Trächtige Tiere jagen</CF_S_HuntPregnant>
+  <CF_S_Marked>Steward – Vorräte: {0} markiert.</CF_S_Marked>
+  <CF_S_NothingToMark>Steward – Vorräte: nichts muss markiert werden.</CF_S_NothingToMark>
+  <CF_S_Desc>Lege fest, wie viel du im Lager haben willst. Ist es weniger (gezählt wird auch, was schon markiert ist oder herumliegt), markiert der Verwalter die nächsten Bäume, Pflanzen, Adern oder Tiere – nur so viele wie nötig. Den Rest erledigen die Kolonisten bei ihrer normalen Arbeit.</CF_S_Desc>
+  <CF_S_OnTip>Ist es an, prüft der Verwalter diese Karte alle paar Stunden (einstellbar in der Übersicht) und markiert, was nötig ist.</CF_S_OnTip>
+  <CF_S_Status>gelagert {0}  +{1} unterwegs  /  {2}</CF_S_Status>
+  <CF_J_Overview>Übersicht</CF_J_Overview>
+  <CF_J_Hunting>Jagen</CF_J_Hunting>
+  <CF_J_Forestry>Forstwirtschaft</CF_J_Forestry>
+  <CF_J_Foraging>Sammeln</CF_J_Foraging>
+  <CF_J_Mining>Bergbau</CF_J_Mining>
+  <CF_J_Emergency>Nahrungsnotstand</CF_J_Emergency>
+  <CF_J_Short>{0} / {1}</CF_J_Short>
+  <CF_J_Off>aus</CF_J_Off>
+  <CF_J_Active>{0} aktiv</CF_J_Active>
+  <CF_J_EmergencyNow>AKTIV</CF_J_EmergencyNow>
+  <CF_J_EmergencyIdle>in Bereitschaft</CF_J_EmergencyIdle>
+  <CF_J_NextCheck>Nächste Prüfung in {0} h</CF_J_NextCheck>
+  <CF_J_Interval>Alle {0} h prüfen</CF_J_Interval>
+  <CF_J_Enabled>An</CF_J_Enabled>
+  <CF_J_Target>Ziel:</CF_J_Target>
+  <CF_J_ProgressTip>Grün = im Lager. Gelb = unterwegs (liegt auf der Karte, oder in markierten Bäumen, Pflanzen, Adern und Tieren, oder in getöteten, noch nicht geschlachteten Tieren).</CF_J_ProgressTip>
+  <CF_J_All>Alle auswählen</CF_J_All>
+  <CF_J_None>Keine auswählen</CF_J_None>
+  <CF_J_Default>Standardauswahl</CF_J_Default>
+  <CF_J_UnitMeat>Fleisch</CF_J_UnitMeat>
+  <CF_J_HuntingDesc>Hält rohes Fleisch im Lager. Nur die unten angehakten Tiere werden gejagt, die nächsten zuerst. Raubtiere und Tiere, die oft in Raserei geraten, sind standardmäßig aus.</CF_J_HuntingDesc>
+  <CF_J_ForestryDesc>Hält Holz im Lager. Nur die unten angehakten Bäume werden gefällt, die nächsten zuerst und nur ausgewachsen. Bäume in Anbauzonen werden nie angerührt. Besondere Bäume (Anima, Gauranlen …) sind standardmäßig aus.</CF_J_ForestryDesc>
+  <CF_J_ForagingDesc>Hält wilde Pflanzennahrung (Beeren, Agave …) und andere wilde Ernten im Lager. Nur die unten angehakten Pflanzen werden geerntet. Feldfrüchte in Anbauzonen werden nie angerührt.</CF_J_ForagingDesc>
+  <CF_J_MiningDesc>Ein Ziel für jeden Rohstoff, der auf dieser Karte in Adern vorkommt. Hake einen Rohstoff an, lege fest, wie viel du willst, und die nächsten Adern werden zum Abbau markiert.</CF_J_MiningDesc>
+  <CF_J_NoVeins>Auf dieser Karte noch keine abbaubaren Adern gefunden (verdeckte Bereiche werden nicht gezählt).</CF_J_NoVeins>
+  <CF_J_AnimalInfo>auf der Karte: {0}  {1}</CF_J_AnimalInfo>
+  <CF_J_Dangerous>· gefährlich</CF_J_Dangerous>
+  <CF_J_PlantInfo>auf der Karte: {0}  · gibt {1}</CF_J_PlantInfo>
+  <CF_J_EmergencyDesc>Hat die Kolonie Nahrung für weniger Tage als unten eingestellt, markiert der Verwalter sofort essbare Wildpflanzen zur Ernte und dann Tiere zur Jagd – unabhängig von den Zielen. Er hört auf, wenn wieder genug Nahrung da ist.</CF_J_EmergencyDesc>
+  <CF_J_EmergencyDays>Notstand unter {0} Tagen Nahrung</CF_J_EmergencyDays>
+  <CF_J_FoodDays>Nahrung jetzt: {0} Tage (Kolonisten und Gefangene)</CF_J_FoodDays>
+  <CF_J_EmergencyHow>Nutzt die Tier- und Pflanzenauswahl aus Jagen und Sammeln sowie deren Bereiche. Erst essbare Wildpflanzen (sicher), dann die Jagd. Reife Feldfrüchte in Anbauzonen ernten deine Anbauer sowieso.</CF_J_EmergencyHow>
+  <CF_J_EmergencyStart>Nahrungsnotstand: Nahrung nur für {0} Tage. Der Verwalter markiert essbare Pflanzen und Tiere zur Jagd.</CF_J_EmergencyStart>
+  <CF_J_EmergencyEnd>Nahrungsnotstand vorbei.</CF_J_EmergencyEnd>
+  <CF_J_Livestock>Nutztiere</CF_J_Livestock>
+  <CF_J_LivestockDesc>Lege für jede gezähmte Art fest, wie viele erwachsene Weibchen, erwachsene Männchen und Jungtiere du willst. Der Überschuss wird zum Schlachten markiert, die ältesten zuerst. Gebundene Tiere werden nie markiert, trächtige nur, wenn du es erlaubst. Optional wird die ganze Herde in einem Bereich gehalten.</CF_J_LivestockDesc>
+  <CF_J_NoAnimals>Noch keine gezähmten Tiere auf dieser Karte.</CF_J_NoAnimals>
+  <CF_J_HerdNow>jetzt: {0} ♀  {1} ♂  {2} jung</CF_J_HerdNow>
+  <CF_J_KeepFemales>Weibchen behalten</CF_J_KeepFemales>
+  <CF_J_KeepMales>Männchen behalten</CF_J_KeepMales>
+  <CF_J_KeepYoung>Jungtiere behalten</CF_J_KeepYoung>
+  <CF_J_KeepPregnant>Trächtige nie schlachten</CF_J_KeepPregnant>
+  <CF_J_AnimalAreaNone>Bereich: unverändert</CF_J_AnimalAreaNone>
+  <CF_J_AnimalAreaTip>Alle Tiere dieser Art in diesem Bereich halten.</CF_J_AnimalAreaTip>
+  <CF_J_StepTip>Umschalt: ±10, Strg: ±100</CF_J_StepTip>
+  <CF_J_KeepSpecies>Von jeder Art am Leben lassen</CF_J_KeepSpecies>
+  <CF_J_OutsideHome>Nur außerhalb des Heimbereichs</CF_J_OutsideHome>
+  <CF_J_OutsideHomeTip>Bäume im Heimbereich werden nie gefällt, so behält die Basis ihre Bäume.</CF_J_OutsideHomeTip>
+  <CF_J_KeepTrees>Immer stehen lassen</CF_J_KeepTrees>
+  <CF_J_ClearOff>Bereich roden: aus</CF_J_ClearOff>
+  <CF_J_ClearOn>Bereich roden: {0}</CF_J_ClearOn>
+  <CF_J_ClearTip>Jede Pflanze in diesem Bereich wird geschnitten (Bäume, Sträucher, Gras) – für einen Bauplatz oder eine Brandschneise. Feldfrüchte in Anbauzonen bleiben unberührt. Unabhängig vom Holzziel.</CF_J_ClearTip>
+  <CF_J_Clear>Rodung</CF_J_Clear>
+  <CF_J_GraphWait>Diagramm nach 2 Tagen</CF_J_GraphWait>
+  <CF_J_GraphTip>Bestand der letzten Tage (grün) und das Ziel (gelbe Linie).</CF_J_GraphTip>
+  <CF_T_Tidy>Dinge ohne Lagerplatz hinaustragen</CF_T_Tidy>
+  <CF_T_TidyTip>Dinge im Heimbereich kommen wie üblich ins Lager. Ist nirgends Platz für sie, tragen die Kolonisten sie in den Abladebereich. Ohne Abladebereich bleiben sie, wo sie sind. Teil der Arbeit Tragen. Tote Menschen bleiben für Gräber liegen.</CF_T_TidyTip>
+  <CF_T_DumpAuto>Abladen: nur Lagerzonen</CF_T_DumpAuto>
+  <CF_T_Dump>Abladen: {0}</CF_T_Dump>
+  <CF_T_DumpTip>Dinge ohne Lagerzone werden nur in dem von dir gewählten Bereich abgelegt. Ohne Bereich lassen die Kolonisten sie liegen.</CF_T_DumpTip>
+  <CF_A_Label>Steward: Vorräte</CF_A_Label>
+  <CF_A_Explanation>Der Verwalter kann einige Vorräte nicht halten:</CF_A_Explanation>
+  <CF_A_NoSources>{0}: unter dem Ziel und nichts mehr zu markieren (prüfe Auswahl, Bereich und verdeckte Gebiete).</CF_A_NoSources>
+  <CF_A_NoHunter>Jagd wird gebraucht, aber kein Kolonist, der jagen kann, hat eine Fernkampfwaffe.</CF_A_NoHunter>
+  <CF_A_NoSourcesHere>Unter dem Ziel und nichts zu markieren – prüfe Auswahl, Bereich oder Behalte-Grenzen.</CF_A_NoSourcesHere>
+  <CF_J_Production>Produktion</CF_J_Production>
+  <CF_J_Power>Strom</CF_J_Power>
+  <CF_J_Household>Haushalt</CF_J_Household>
+  <CF_J_On>an</CF_J_On>
+  <CF_J_ProductionDesc>Fertigwaren vorrätig halten: Mahlzeiten, Medizin, Kleidung, Komponenten … Jedes Ziel wird zu einem Auftrag „Herstellen bis X“ an der besten Werkbank, die es herstellen kann. Der Verwalter pflegt diesen Auftrag (erstellt ihn neu, verschiebt, aktualisiert, pausiert ihn); deine eigenen Aufträge werden nie angerührt.</CF_J_ProductionDesc>
+  <CF_X_AddProduct>Produkt hinzufügen</CF_X_AddProduct>
+  <CF_X_NoBillYet>noch kein Auftrag (nächste Prüfung)</CF_X_NoBillYet>
+  <CF_X_BillAt>Auftrag an {0}</CF_X_BillAt>
+  <CF_X_RemoveProduct>Ziel und seinen Auftrag entfernen</CF_X_RemoveProduct>
+  <CF_J_PowerDesc>Wenn die Batterien eines Stromnetzes knapp werden, werden die gewählten Geräte ausgeschaltet; sind sie wieder geladen, schaltet der Verwalter wieder ein, was er ausgeschaltet hat. Geräte, die du selbst ausgeschaltet hast, bleiben aus.</CF_J_PowerDesc>
+  <CF_X_PowerNow>Jetzt: {0} W Überschuss · gespeichert {1} / {2} Wd ({3})</CF_X_PowerNow>
+  <CF_X_PowerLow>Ausschalten unter {0} Ladung</CF_X_PowerLow>
+  <CF_X_PowerHigh>Wieder einschalten über {0} Ladung</CF_X_PowerHigh>
+  <CF_X_PowerDevices>Geräte, die ausgeschaltet werden dürfen:</CF_X_PowerDevices>
+  <CF_X_DeviceInfo>{0}× · je {1} W</CF_X_DeviceInfo>
+  <CF_J_HouseholdDesc>Ordnung in der Basis: Dinge ohne Platz im Lager werden hinausgetragen, und Schmutz in wichtigen Räumen wird zuerst geputzt.</CF_J_HouseholdDesc>
+  <CF_C_Clean>Wichtige Räume zuerst putzen</CF_C_Clean>
+  <CF_C_CleanTip>Schmutz in den unten angehakten Räumen wird vor Schmutz anderswo geputzt. Schmutz in einer Küche verbreitet Lebensmittelvergiftung, in einem Krankenhaus erhöht er das Infektionsrisiko. Teil der Arbeit Putzen.</CF_C_CleanTip>
+  <CF_C_FilthNow>Schmutz in diesen Räumen jetzt: {0}</CF_C_FilthNow>
+  <CF_C_Rooms>Zuerst geputzte Räume:</CF_C_Rooms>
+  <CF_X_Cancel>Markierungen des Verwalters aufheben</CF_X_Cancel>
+  <CF_X_CancelTip>Entfernt jede Fäll-, Jagd-, Ernte-, Abbau- und Schlachtmarkierung, die der Verwalter gesetzt hat. Deine eigenen Markierungen bleiben.</CF_X_CancelTip>
+  <CF_X_CancelConfirm>Alle Markierungen des Verwalters auf dieser Karte entfernen? Markierungen, die du selbst gesetzt hast, bleiben.</CF_X_CancelConfirm>
+  <CF_X_Cancelled>Steward: {0} Markierungen entfernt.</CF_X_Cancelled>
+  <CF_X_OtherMap>{0}: {1}</CF_X_OtherMap>
+  <CF_H_Chunks>Steinbrocken und Schlacke wegräumen</CF_H_Chunks>
+  <CF_H_ChunksTip>Steinbrocken und Schlacke im Heimbereich werden vom Verwalter zum Tragen markiert – genau so, als hättest du sie selbst markiert – ein paar auf einmal, wenn wenig anderes zu tragen ist. Jeder Kolonist mit aktiviertem Tragen bringt sie in eine Lagerzone, die Brocken annimmt; ohne eine solche kommen sie in den Abladebereich, falls einer festgelegt ist. Verbotene Brocken bleiben unberührt.</CF_H_ChunksTip>
+  <CF_H_Items>Lose Dinge zum Tragen markieren</CF_H_Items>
+  <CF_H_ItemsTip>Alles, was im Heimbereich außerhalb eines Regals oder einer Lagerzone liegt (und ein Ziel hat), wird vom Verwalter zum Tragen markiert – auch Dinge, die nach einem Überfall verboten sind. Ein paar auf einmal, die der Kolonie nächsten zuerst.</CF_H_ItemsTip>
+  <CF_H_Pockets>Kolonisten leeren vergessene Dinge aus ihren Taschen</CF_H_Pockets>
+  <CF_H_PocketsTip>Dinge, die ein Kolonist grundlos im Inventar trägt (Reste vom Inventar-Tragen, aufgehoben und vergessen), werden abgelegt und ins Lager getragen. Waffen, Drogen und Bestände aus ihren Richtlinien sowie Reiseproviant werden behalten. Ein Ding muss erst etwa eine halbe Stunde in der Tasche sein. Mit Harvest And Haul übernimmt dessen eigener Ausladeauftrag – alles kommt in einem Gang ins Lager.</CF_H_PocketsTip>
+  <CF_H_Workers>Kolonisten, die das tun:</CF_H_Workers>
+  <CF_H_WorkersTip>Wie viele Kolonisten Dinge ohne Lagerplatz hinaustragen (und in der Zeile darunter putzen). 0 = jeder, der die Arbeitsart aktiviert hat. Der Verwalter wählt jede Spielstunde die mit den wenigsten Aufgaben höchster Priorität, schnellere Läufer zuerst. Umschalt: ±10. Zum Tragen markierte Brocken nimmt jeder Träger.</CF_H_WorkersTip>
+  <CF_H_Everyone>alle</CF_H_Everyone>
+  <CF_H_Nobody>niemand verfügbar</CF_H_Nobody>
+  <CF_X_PickTitle>Produkt hinzufügen</CF_X_PickTitle>
+  <CF_X_InStock>auf Lager: {0}</CF_X_InStock>
+  <CF_X_OpenMint>Mint-Aufträge öffnen</CF_X_OpenMint>
+  <CF_X_OpenMintTip>Öffnet das Auftragsmenü von Dubs Mint Menus mit allen Werkbänken. Erstelle dort einen Auftrag „Herstellen bis X“ und übernimm ihn hier – der Verwalter pflegt ihn dann.</CF_X_OpenMintTip>
+  <CF_X_Adopt>Aufträge übernehmen ({0})</CF_X_Adopt>
+  <CF_X_AdoptTip>Aufträge „Herstellen bis X“, die von Hand oder in Dubs Mint Menus erstellt wurden. Der Verwalter übernimmt sie: erstellt sie neu, wenn sie gelöscht werden, verschiebt sie, wenn die Werkbank weg ist, pausiert sie, wenn ausgeschaltet.</CF_X_AdoptTip>
+  <CF_H_Products>Fertigwaren sofort wegtragen</CF_H_Products>
+  <CF_H_ProductsTip>Mahlzeiten, Medizin, Kleidung und andere Dinge, die neben einer Werkbank, einem Herd oder einem Handwerksplatz liegen, kommen vor jedem anderen Tragen ins Lager. Aufträge des Verwalters mit „Auf den Boden legen“ werden auf „In die beste Lagerzone bringen“ umgestellt. Teil der Arbeit Tragen.</CF_H_ProductsTip>
+  <CF_M_Target>Fertige Mahlzeiten vorrätig für</CF_M_Target>
+  <CF_M_TargetTip>Zielbestand an gekochten Mahlzeiten, in Tagen Nahrung für alle, die essen. Hat die Kolonie so viel oder mehr, wird jeder Auftrag, der Mahlzeiten herstellt, pausiert; sinkt der Bestand darunter, laufen die vom Verwalter pausierten Aufträge wieder an. Von dir pausierte Aufträge bleiben pausiert. Umschalt = Schritt von 2 Tagen.</CF_M_TargetTip>
+  <CF_M_Days>{0} Tage</CF_M_Days>
+  <CF_M_Now>jetzt {0} Tage</CF_M_Now>
+  <CF_M_Paused>{0} Mahlzeit-Aufträge pausiert</CF_M_Paused>
+  <CF_M_Cooking>kocht</CF_M_Cooking>
+  <CF_M_Page>Fertige Mahlzeiten</CF_M_Page>
+  <CF_M_Short>{0} / {1} Tage</CF_M_Short>
+  <CF_M_Bills>Aufträge, die Mahlzeiten herstellen: {0}</CF_M_Bills>
+  <CF_M_NoBills>Es gibt keinen Auftrag, der Mahlzeiten herstellt. Füge einen an einem Herd hinzu (oder in Produktion) – der Verwalter pausiert und setzt Aufträge nur fort, er erstellt sie nicht.</CF_M_NoBills>
+  <CF_M_BillOn>kocht</CF_M_BillOn>
+  <CF_M_BillSteward>vom Verwalter pausiert</CF_M_BillSteward>
+  <CF_M_BillYou>von dir pausiert</CF_M_BillYou>
+  <CF_H_Blight>Befallene Pflanzen schneiden</CF_H_Blight>
+  <CF_H_BlightTip>Pflanzen mit Mehltau in Anbauzonen, Pflanztöpfen, Hydrokultur und im Heimbereich werden jede Stunde zum Schneiden markiert, damit sich der Befall nicht ausbreitet. Die Mehltau-Krise gibt dem Pflanzenschneiden dann mehr Kolonisten.</CF_H_BlightTip>
+  <CF_BlightMarked>Steward: {0} befallene Pflanzen zum Schneiden markiert.</CF_BlightMarked>
+  <CF_P_MaySwitch>Verwalter darf ausschalten</CF_P_MaySwitch>
+  <CF_P_MaySwitchDesc>Wenn die Batterien knapp werden, schaltet der Verwalter die gewählten Geräte nacheinander aus, die größten zuerst. Schalte dies aus, damit dieses eine Gerät immer an bleibt.</CF_P_MaySwitchDesc>
+  <CF_A_Page>Selbstversorgung</CF_A_Page>
+  <CF_A_Short>{0} Aufträge</CF_A_Short>
+  <CF_A_Desc>Wenn der Kolonie etwas ausgeht, das sie herstellen kann, fügt der Verwalter einen Auftrag für genau das Fehlende hinzu, an der besten Werkbank, die es herstellen kann (eine echte Werkbank vor einem Lagerfeuer oder einem Platz), und entfernt ihn, wenn er erledigt ist – nie „für immer“. Dinge im Lager und deine eigenen Aufträge zählen zuerst.</CF_A_Desc>
+  <CF_A_On>Selbstversorgung an</CF_A_On>
+  <CF_A_Meals>Mahlzeiten</CF_A_Meals>
+  <CF_A_Medicine>Medizin</CF_A_Medicine>
+  <CF_A_Clothes>Kleidung und Accessoires</CF_A_Clothes>
+  <CF_A_Armor>Rüstung</CF_A_Armor>
+  <CF_A_Weapons>Waffen</CF_A_Weapons>
+  <CF_A_Materials>Materialien</CF_A_Materials>
+  <CF_A_Worn>Ersetzen unter {0} % Zustand</CF_A_Worn>
+  <CF_A_Bills>Von der Selbstversorgung erstellte Aufträge: {0}</CF_A_Bills>
+  <CF_A_RemoveAll>Diese Aufträge entfernen</CF_A_RemoveAll>
+  <CF_A_Last>Zuletzt hinzugefügt: {0}</CF_A_Last>
+  <CF_A_Kind_meals>Mahlzeiten</CF_A_Kind_meals>
+  <CF_A_Kind_medicine>Medizin</CF_A_Kind_medicine>
+  <CF_A_Kind_clothes>Kleidung</CF_A_Kind_clothes>
+  <CF_A_Kind_armor>Rüstung</CF_A_Kind_armor>
+  <CF_A_Kind_weapon>Waffe</CF_A_Kind_weapon>
+  <CF_A_Kind_material>Material</CF_A_Kind_material>
+  <CF_A_Left>noch {0}×</CF_A_Left>
+  <CF_A_Until>bis {0}</CF_A_Until>
+  <CF_A_Race>Rassenbeschränkungen beachten</CF_A_Race>
+  <CF_A_RaceTip>An: Alien-Rassen (Humanoid Alien Races) bekommen nur Kleidung und Waffen, die ihre Rasse benutzen darf. Schalte es aus, wenn eine andere Mod diese Beschränkungen aufhebt – dann kann jeder alles bekommen.</CF_A_RaceTip>
+  <CF_W_Reassign>Arbeit jetzt neu zuweisen</CF_W_Reassign>
+  <CF_W_ReassignHere_Desc>Plant die Arbeitsprioritäten dieser Karte sofort neu (wie „Neu berechnen“ im Tab Arbeit). Gesperrte Zellen, Arbeiten und Kolonisten bleiben erhalten.</CF_W_ReassignHere_Desc>
+  <CF_W_LastPlan>Arbeitsprioritäten: vor {0} geplant, {1} geändert – Stil {2}.</CF_W_LastPlan>
+  <CF_W_LastPlanNever>Arbeitsprioritäten: seit dem Laden des Spiels auf dieser Karte nicht geplant.</CF_W_LastPlanNever>
+  <CF_W_LastPlan_Desc>Fahre im Tab Arbeit über eine Zelle, um zu sehen, warum ein Kolonist diese Priorität bekommen hat: Fertigkeit, Leidenschaft, Geschwindigkeit, Rang, die Anzahl Kolonisten für die Arbeit und die Regel, die die Stufe bestimmt hat.</CF_W_LastPlan_Desc>
+  <CF_W_StewardOff>(Verwalter ist auf dieser Karte aus)</CF_W_StewardOff>
+  <CF_NoStorage>{0} ({1}×) liegt auf dem Boden und niemand trägt es weg: keine Lagerzone nimmt es an oder sie sind voll. Erlaube es im Filter einer Lagerzone.</CF_NoStorage>
+  <CF_J_ClearTooBig>{0} – zu groß zum Roden</CF_J_ClearTooBig>
+  <CF_J_ClearTooBigOff>Rodungsbereich „{0}“ ist zu groß (er wäre die halbe Karte) – ausgeschaltet und seine Schnittmarkierungen aufgehoben. Lege einen kleinen Bereich nur für einen Bauplatz oder eine Brandschneise an.</CF_J_ClearTooBigOff>
+  <CF_J_ClearCancelled>Schnittmarkierungen des Rodungsbereichs aufgehoben: {0}</CF_J_ClearCancelled>
+  <CF2U_Name>Vorräte</CF2U_Name>
+  <CF2U_Hint>Bestandsziele, Aufträge, Tiere und Haushalt werden im Tab Vorräte (untere Leiste) eingestellt.</CF2U_Hint>
+  <CF2U_Messages>Nachrichten darüber, was der Verwalter markiert hat</CF2U_Messages>
+  <CF2U_MasterBills>Meister-Aufträge</CF2U_MasterBills>
+  <CF2U_MasterBillsTip>Qualitätswaffen und -kleidung werden nur von den besten Handwerkern hergestellt (immer mindestens zwei). Deine eigenen Auftragseinstellungen haben Vorrang.</CF2U_MasterBillsTip>
+  <CF2U_NoStorage>Warnen, wenn ein Ding nirgendwo hin kann</CF2U_NoStorage>
+  <CF2U_NoStorageTip>Kann ein Ding nirgends gelagert werden, sagt der Verwalter, warum.</CF2U_NoStorageTip>
+  <CF2U_PUAH>Mit Pick Up And Haul tragen</CF2U_PUAH>
+  <CF2U_PUAHTip>Der Verwalter trägt Dinge in den Taschen von Pick Up And Haul ins Lager.</CF2U_PUAHTip>
+</LanguageData>

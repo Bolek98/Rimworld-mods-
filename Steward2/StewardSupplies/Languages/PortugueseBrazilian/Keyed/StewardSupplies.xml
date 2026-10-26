@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_S_On>Manter suprimentos</CF_S_On>
+  <CF_S_RunNow>Verificar agora</CF_S_RunNow>
+  <CF_S_AreaAny>Mapa inteiro</CF_S_AreaAny>
+  <CF_S_AreaTip>Marcar só o que estiver dentro desta área.</CF_S_AreaTip>
+  <CF_S_HuntPregnant>Caçar animais prenhes</CF_S_HuntPregnant>
+  <CF_S_Marked>Steward – suprimentos: {0} marcado(s).</CF_S_Marked>
+  <CF_S_NothingToMark>Steward – suprimentos: nada precisa ser marcado.</CF_S_NothingToMark>
+  <CF_S_Desc>Defina quanto você quer no estoque. Quando houver menos (contando o que já está marcado ou largado por aí), o administrador marca as árvores, plantas, veios ou animais mais próximos – só quantos forem necessários. Os colonos fazem o resto no trabalho normal.</CF_S_Desc>
+  <CF_S_OnTip>Quando ligado, o administrador verifica este mapa a cada poucas horas (ajustável em Visão geral) e marca o que for necessário.</CF_S_OnTip>
+  <CF_S_Status>estocado {0}  +{1} a caminho  /  {2}</CF_S_Status>
+  <CF_J_Overview>Visão geral</CF_J_Overview>
+  <CF_J_Hunting>Caça</CF_J_Hunting>
+  <CF_J_Forestry>Silvicultura</CF_J_Forestry>
+  <CF_J_Foraging>Coleta</CF_J_Foraging>
+  <CF_J_Mining>Mineração</CF_J_Mining>
+  <CF_J_Emergency>Emergência alimentar</CF_J_Emergency>
+  <CF_J_Short>{0} / {1}</CF_J_Short>
+  <CF_J_Off>desligado</CF_J_Off>
+  <CF_J_Active>{0} ativos</CF_J_Active>
+  <CF_J_EmergencyNow>ATIVA</CF_J_EmergencyNow>
+  <CF_J_EmergencyIdle>em espera</CF_J_EmergencyIdle>
+  <CF_J_NextCheck>Próxima verificação em {0} h</CF_J_NextCheck>
+  <CF_J_Interval>Verificar a cada {0} h</CF_J_Interval>
+  <CF_J_Enabled>Ligado</CF_J_Enabled>
+  <CF_J_Target>Meta:</CF_J_Target>
+  <CF_J_ProgressTip>Verde = no estoque. Amarelo = a caminho (largado no mapa, ou em árvores, plantas, veios e animais marcados, ou em animais mortos ainda não abatidos).</CF_J_ProgressTip>
+  <CF_J_All>Selecionar tudo</CF_J_All>
+  <CF_J_None>Não selecionar nada</CF_J_None>
+  <CF_J_Default>Seleção padrão</CF_J_Default>
+  <CF_J_UnitMeat>carne</CF_J_UnitMeat>
+  <CF_J_HuntingDesc>Mantém carne crua no estoque. Só os animais marcados abaixo são caçados, os mais próximos primeiro. Predadores e animais que costumam enfurecer ficam desligados por padrão.</CF_J_HuntingDesc>
+  <CF_J_ForestryDesc>Mantém madeira no estoque. Só as árvores marcadas abaixo são cortadas, as mais próximas primeiro e só quando totalmente crescidas. Árvores em áreas de cultivo nunca são tocadas. Árvores especiais (anima, gauranlen …) ficam desligadas por padrão.</CF_J_ForestryDesc>
+  <CF_J_ForagingDesc>Mantém no estoque comida vegetal silvestre (frutas silvestres, agave …) e outras colheitas silvestres. Só as plantas marcadas abaixo são colhidas. Plantações em áreas de cultivo nunca são tocadas.</CF_J_ForagingDesc>
+  <CF_J_MiningDesc>Uma meta para cada recurso encontrado em veios neste mapa. Marque um recurso, defina quanto quer, e os veios mais próximos são marcados para mineração.</CF_J_MiningDesc>
+  <CF_J_NoVeins>Nenhum veio minerável encontrado neste mapa ainda (áreas sob névoa não são contadas).</CF_J_NoVeins>
+  <CF_J_AnimalInfo>no mapa: {0}  {1}</CF_J_AnimalInfo>
+  <CF_J_Dangerous>· perigoso</CF_J_Dangerous>
+  <CF_J_PlantInfo>no mapa: {0}  · dá {1}</CF_J_PlantInfo>
+  <CF_J_EmergencyDesc>Quando a colônia tem comida para menos dias do que o definido abaixo, o administrador marca imediatamente plantas silvestres comestíveis para colheita e depois animais para caça – sejam quais forem as metas. Ele para quando há comida suficiente de novo.</CF_J_EmergencyDesc>
+  <CF_J_EmergencyDays>Emergência abaixo de {0} dias de comida</CF_J_EmergencyDays>
+  <CF_J_FoodDays>Comida agora: {0} dias (colonos e prisioneiros)</CF_J_FoodDays>
+  <CF_J_EmergencyHow>Usa a seleção de animais e plantas de Caça e Coleta, e suas áreas. Primeiro plantas silvestres comestíveis (seguro), depois a caça. Plantações maduras em áreas de cultivo são colhidas pelos seus agricultores de qualquer forma.</CF_J_EmergencyHow>
+  <CF_J_EmergencyStart>Emergência alimentar: comida para só {0} dias. O administrador está marcando plantas comestíveis e animais para caçar.</CF_J_EmergencyStart>
+  <CF_J_EmergencyEnd>Emergência alimentar encerrada.</CF_J_EmergencyEnd>
+  <CF_J_Livestock>Rebanho</CF_J_Livestock>
+  <CF_J_LivestockDesc>Para cada espécie domesticada, defina quantas fêmeas adultas, machos adultos e filhotes você quer. O excedente é marcado para abate, os mais velhos primeiro. Animais vinculados nunca são marcados; os prenhes só se você permitir. Opcionalmente, todo o rebanho é mantido numa área.</CF_J_LivestockDesc>
+  <CF_J_NoAnimals>Ainda não há animais domesticados neste mapa.</CF_J_NoAnimals>
+  <CF_J_HerdNow>agora: {0} ♀  {1} ♂  {2} filhotes</CF_J_HerdNow>
+  <CF_J_KeepFemales>Manter fêmeas</CF_J_KeepFemales>
+  <CF_J_KeepMales>Manter machos</CF_J_KeepMales>
+  <CF_J_KeepYoung>Manter filhotes</CF_J_KeepYoung>
+  <CF_J_KeepPregnant>Nunca abater prenhes</CF_J_KeepPregnant>
+  <CF_J_AnimalAreaNone>Área: inalterada</CF_J_AnimalAreaNone>
+  <CF_J_AnimalAreaTip>Manter todos os animais desta espécie nesta área.</CF_J_AnimalAreaTip>
+  <CF_J_StepTip>Shift: ±10, Ctrl: ±100</CF_J_StepTip>
+  <CF_J_KeepSpecies>Manter vivos de cada espécie</CF_J_KeepSpecies>
+  <CF_J_OutsideHome>Só fora da área doméstica</CF_J_OutsideHome>
+  <CF_J_OutsideHomeTip>Árvores dentro da área doméstica nunca são cortadas, assim a base mantém suas árvores.</CF_J_OutsideHomeTip>
+  <CF_J_KeepTrees>Sempre deixar em pé</CF_J_KeepTrees>
+  <CF_J_ClearOff>Área para limpar: desligada</CF_J_ClearOff>
+  <CF_J_ClearOn>Área para limpar: {0}</CF_J_ClearOn>
+  <CF_J_ClearTip>Toda planta nesta área é cortada (árvores, arbustos, grama) – para um canteiro de obras ou um aceiro. Plantações em áreas de cultivo não são tocadas. Independente da meta de madeira.</CF_J_ClearTip>
+  <CF_J_Clear>limpando</CF_J_Clear>
+  <CF_J_GraphWait>gráfico após 2 dias</CF_J_GraphWait>
+  <CF_J_GraphTip>Estoque dos últimos dias (verde) e a meta (linha amarela).</CF_J_GraphTip>
+  <CF_T_Tidy>Levar para fora coisas sem armazenamento</CF_T_Tidy>
+  <CF_T_TidyTip>Coisas largadas na área doméstica vão para o estoque como sempre. Quando não há lugar para elas em nenhum lugar, os colonos as levam para a área de despejo. Sem área de despejo, elas ficam onde estão. Parte do trabalho de Transporte. Os mortos são deixados para as sepulturas.</CF_T_TidyTip>
+  <CF_T_DumpAuto>Despejo: só zonas de estoque</CF_T_DumpAuto>
+  <CF_T_Dump>Despejo: {0}</CF_T_Dump>
+  <CF_T_DumpTip>Coisas sem zona de estoque só são largadas na área que você escolher. Sem ela, os colonos as deixam onde estão.</CF_T_DumpTip>
+  <CF_A_Label>Steward: suprimentos</CF_A_Label>
+  <CF_A_Explanation>O administrador não consegue manter alguns suprimentos:</CF_A_Explanation>
+  <CF_A_NoSources>{0}: abaixo da meta e nada mais para marcar (verifique a seleção, a área e a névoa).</CF_A_NoSources>
+  <CF_A_NoHunter>É preciso caçar, mas nenhum colono que sabe caçar tem uma arma de longo alcance.</CF_A_NoHunter>
+  <CF_A_NoSourcesHere>Abaixo da meta e nada para marcar – verifique a seleção, a área ou os limites a manter.</CF_A_NoSourcesHere>
+  <CF_J_Production>Produção</CF_J_Production>
+  <CF_J_Power>Energia</CF_J_Power>
+  <CF_J_Household>Casa</CF_J_Household>
+  <CF_J_On>ligado</CF_J_On>
+  <CF_J_ProductionDesc>Manter produtos acabados em estoque: refeições, remédios, roupas, componentes … Cada meta vira uma ordem "fazer até ter X" na melhor bancada que possa produzi-la. O administrador cuida dessa ordem (recria, move, atualiza, suspende); suas próprias ordens nunca são tocadas.</CF_J_ProductionDesc>
+  <CF_X_AddProduct>Adicionar produto</CF_X_AddProduct>
+  <CF_X_NoBillYet>ainda sem ordem (próxima verificação)</CF_X_NoBillYet>
+  <CF_X_BillAt>ordem em {0}</CF_X_BillAt>
+  <CF_X_RemoveProduct>Remover meta e sua ordem</CF_X_RemoveProduct>
+  <CF_J_PowerDesc>Quando as baterias de uma rede elétrica ficam baixas, os dispositivos escolhidos são desligados; quando estão carregadas de novo, o administrador religa o que desligou. Dispositivos que você mesmo desligou continuam desligados.</CF_J_PowerDesc>
+  <CF_X_PowerNow>Agora: {0} W de excedente · armazenado {1} / {2} Wd ({3})</CF_X_PowerNow>
+  <CF_X_PowerLow>Desligar abaixo de {0} de carga</CF_X_PowerLow>
+  <CF_X_PowerHigh>Religar acima de {0} de carga</CF_X_PowerHigh>
+  <CF_X_PowerDevices>Dispositivos que podem ser desligados:</CF_X_PowerDevices>
+  <CF_X_DeviceInfo>{0}× · {1} W cada</CF_X_DeviceInfo>
+  <CF_J_HouseholdDesc>Ordem na base: coisas sem lugar no estoque são levadas para fora, e a sujeira em cômodos importantes é limpa primeiro.</CF_J_HouseholdDesc>
+  <CF_C_Clean>Limpar primeiro os cômodos importantes</CF_C_Clean>
+  <CF_C_CleanTip>A sujeira nos cômodos marcados abaixo é limpa antes da sujeira em qualquer outro lugar. Sujeira numa cozinha espalha intoxicação alimentar; num hospital, aumenta o risco de infecção. Parte do trabalho de Limpeza.</CF_C_CleanTip>
+  <CF_C_FilthNow>Sujeira nestes cômodos agora: {0}</CF_C_FilthNow>
+  <CF_C_Rooms>Cômodos limpos primeiro:</CF_C_Rooms>
+  <CF_X_Cancel>Cancelar marcações do administrador</CF_X_Cancel>
+  <CF_X_CancelTip>Remove todas as marcações de corte, caça, colheita, mineração e abate feitas pelo administrador. Suas próprias marcações ficam.</CF_X_CancelTip>
+  <CF_X_CancelConfirm>Remover todas as marcações feitas pelo administrador neste mapa? As marcações que você mesmo fez ficam.</CF_X_CancelConfirm>
+  <CF_X_Cancelled>Steward: {0} marcações removidas.</CF_X_Cancelled>
+  <CF_X_OtherMap>{0}: {1}</CF_X_OtherMap>
+  <CF_H_Chunks>Remover pedaços de rocha e escória</CF_H_Chunks>
+  <CF_H_ChunksTip>Pedaços de rocha e escória largados na área doméstica são marcados para transporte pelo administrador – como se você mesmo os tivesse marcado – alguns de cada vez, quando há pouco outro transporte. Qualquer colono com Transporte ligado os leva para uma zona de estoque que aceite pedaços; sem uma, eles vão para a área de despejo, se houver. Pedaços proibidos não são tocados.</CF_H_ChunksTip>
+  <CF_H_Items>Marcar coisas soltas para transporte</CF_H_Items>
+  <CF_H_ItemsTip>Tudo o que está largado na área doméstica fora de uma prateleira ou zona de estoque (e tem para onde ir) é marcado para transporte pelo administrador – também coisas proibidas após uma invasão. Algumas de cada vez, as mais próximas da colônia primeiro.</CF_H_ItemsTip>
+  <CF_H_Pockets>Colonos esvaziam coisas esquecidas dos bolsos</CF_H_Pockets>
+  <CF_H_PocketsTip>Coisas que um colono carrega no inventário sem motivo (restos de transporte por inventário, pegas e esquecidas) são largadas e levadas ao estoque. Armas, drogas e estoque das suas políticas e a comida de viagem são mantidos. A coisa precisa ficar uns trinta minutos no bolso primeiro. Com Harvest And Haul, a própria tarefa de descarregar dele cuida disso – tudo vai para o estoque numa só viagem.</CF_H_PocketsTip>
+  <CF_H_Workers>Colonos que fazem isso:</CF_H_Workers>
+  <CF_H_WorkersTip>Quantos colonos levam para fora coisas sem armazenamento (e limpam, na linha abaixo). 0 = todos que têm esse tipo de trabalho ligado. A cada hora do jogo o administrador escolhe os que têm menos tarefas de prioridade máxima, os mais rápidos primeiro. Shift: ±10. Pedaços marcados para transporte são levados por qualquer carregador.</CF_H_WorkersTip>
+  <CF_H_Everyone>todos</CF_H_Everyone>
+  <CF_H_Nobody>ninguém disponível</CF_H_Nobody>
+  <CF_X_PickTitle>Adicionar produto</CF_X_PickTitle>
+  <CF_X_InStock>em estoque: {0}</CF_X_InStock>
+  <CF_X_OpenMint>Abrir ordens do Mint</CF_X_OpenMint>
+  <CF_X_OpenMintTip>Abre o menu de ordens do Dubs Mint Menus com todas as bancadas. Crie lá uma ordem "fazer até ter X" e adote-a aqui – o administrador então cuida dela.</CF_X_OpenMintTip>
+  <CF_X_Adopt>Adotar ordens ({0})</CF_X_Adopt>
+  <CF_X_AdoptTip>Ordens "fazer até ter X" criadas à mão ou no Dubs Mint Menus. O administrador assume: recria se forem apagadas, move quando a bancada some, suspende quando desligadas.</CF_X_AdoptTip>
+  <CF_H_Products>Levar produtos acabados embora na hora</CF_H_Products>
+  <CF_H_ProductsTip>Refeições, remédios, roupas e outras coisas largadas ao lado de uma bancada, fogão ou local de fabricação são levadas ao estoque antes de qualquer outro transporte. Ordens do administrador definidas como "largar no chão" passam para "levar para a melhor zona de estoque". Parte do trabalho de Transporte.</CF_H_ProductsTip>
+  <CF_M_Target>Manter refeições prontas para</CF_M_Target>
+  <CF_M_TargetTip>Estoque desejado de refeições prontas, em dias de comida para todos que comem. Quando a colônia tem isso ou mais, toda ordem que faz refeições é pausada; quando o estoque cai abaixo disso, as ordens pausadas pelo administrador recomeçam. Ordens que você mesmo pausou continuam pausadas. Shift = passo de 2 dias.</CF_M_TargetTip>
+  <CF_M_Days>{0} dias</CF_M_Days>
+  <CF_M_Now>agora {0} dias</CF_M_Now>
+  <CF_M_Paused>{0} ordens de refeição pausadas</CF_M_Paused>
+  <CF_M_Cooking>cozinhando</CF_M_Cooking>
+  <CF_M_Page>Refeições prontas</CF_M_Page>
+  <CF_M_Short>{0} / {1} dias</CF_M_Short>
+  <CF_M_Bills>Ordens que fazem refeições: {0}</CF_M_Bills>
+  <CF_M_NoBills>Não há nenhuma ordem que faça refeições. Adicione uma num fogão (ou em Produção) – o administrador só pausa e retoma ordens, não as cria.</CF_M_NoBills>
+  <CF_M_BillOn>cozinhando</CF_M_BillOn>
+  <CF_M_BillSteward>pausada pelo administrador</CF_M_BillSteward>
+  <CF_M_BillYou>pausada por você</CF_M_BillYou>
+  <CF_H_Blight>Cortar plantas com praga</CF_H_Blight>
+  <CF_H_BlightTip>Plantas com praga em áreas de cultivo, vasos, hidroponia e na área doméstica são marcadas para corte a cada hora, para que a praga não se espalhe. A crise da praga então dá mais colonos ao corte de plantas.</CF_H_BlightTip>
+  <CF_BlightMarked>Steward: {0} plantas com praga marcadas para corte.</CF_BlightMarked>
+  <CF_P_MaySwitch>O administrador pode desligar</CF_P_MaySwitch>
+  <CF_P_MaySwitchDesc>Quando as baterias ficam baixas, o administrador desliga os dispositivos escolhidos um a um, os maiores primeiro. Desligue isto para manter este dispositivo sempre ligado.</CF_P_MaySwitchDesc>
+  <CF_A_Page>Autoabastecimento</CF_A_Page>
+  <CF_A_Short>{0} ordens</CF_A_Short>
+  <CF_A_Desc>Quando falta à colônia algo que ela pode fazer, o administrador adiciona uma ordem exatamente para o que falta, na melhor bancada que possa fazê-lo (uma bancada de verdade antes de uma fogueira ou um local), e a remove quando terminar – nunca "para sempre". Coisas no estoque e suas próprias ordens contam primeiro.</CF_A_Desc>
+  <CF_A_On>Autoabastecimento ligado</CF_A_On>
+  <CF_A_Meals>Refeições</CF_A_Meals>
+  <CF_A_Medicine>Remédios</CF_A_Medicine>
+  <CF_A_Clothes>Roupas e acessórios</CF_A_Clothes>
+  <CF_A_Armor>Armadura</CF_A_Armor>
+  <CF_A_Weapons>Armas</CF_A_Weapons>
+  <CF_A_Materials>Materiais</CF_A_Materials>
+  <CF_A_Worn>Substituir abaixo de {0} % de condição</CF_A_Worn>
+  <CF_A_Bills>Ordens criadas pelo autoabastecimento: {0}</CF_A_Bills>
+  <CF_A_RemoveAll>Remover estas ordens</CF_A_RemoveAll>
+  <CF_A_Last>Último adicionado: {0}</CF_A_Last>
+  <CF_A_Kind_meals>refeições</CF_A_Kind_meals>
+  <CF_A_Kind_medicine>remédios</CF_A_Kind_medicine>
+  <CF_A_Kind_clothes>roupas</CF_A_Kind_clothes>
+  <CF_A_Kind_armor>armadura</CF_A_Kind_armor>
+  <CF_A_Kind_weapon>arma</CF_A_Kind_weapon>
+  <CF_A_Kind_material>material</CF_A_Kind_material>
+  <CF_A_Left>faltam {0}×</CF_A_Left>
+  <CF_A_Until>até {0}</CF_A_Until>
+  <CF_A_Race>Respeitar restrições de raça</CF_A_Race>
+  <CF_A_RaceTip>Ligado: raças alienígenas (Humanoid Alien Races) só recebem roupas e armas que sua raça pode usar. Desligue se outro mod remover essas restrições – então todos podem receber tudo.</CF_A_RaceTip>
+  <CF_W_Reassign>Reatribuir trabalho agora</CF_W_Reassign>
+  <CF_W_ReassignHere_Desc>Planeja de novo, agora mesmo, as prioridades de trabalho deste mapa (o mesmo que "Recalcular" na aba Trabalho). Células, trabalhos e colonos travados são mantidos.</CF_W_ReassignHere_Desc>
+  <CF_W_LastPlan>Prioridades de trabalho: planejadas há {0}, {1} alteradas – estilo {2}.</CF_W_LastPlan>
+  <CF_W_LastPlanNever>Prioridades de trabalho: não planejadas neste mapa desde que o jogo foi carregado.</CF_W_LastPlanNever>
+  <CF_W_LastPlan_Desc>Passe o mouse sobre uma célula na aba Trabalho para ver por que um colono recebeu aquela prioridade: habilidade, paixão, velocidade, posição, a cota de colonos para o trabalho e a regra que decidiu o nível.</CF_W_LastPlan_Desc>
+  <CF_W_StewardOff>(o administrador está desligado neste mapa)</CF_W_StewardOff>
+  <CF_NoStorage>{0} ({1}×) está no chão e ninguém o transporta: nenhuma zona de estoque o aceita ou estão cheias. Permita-o no filtro de alguma zona de estoque.</CF_NoStorage>
+  <CF_J_ClearTooBig>{0} – grande demais para limpar</CF_J_ClearTooBig>
+  <CF_J_ClearTooBigOff>A área para limpar "{0}" é grande demais (seria metade do mapa) – foi desligada e suas marcações de corte canceladas. Crie uma área pequena só para um canteiro de obras ou um aceiro.</CF_J_ClearTooBigOff>
+  <CF_J_ClearCancelled>Marcações de corte da área limpa canceladas: {0}</CF_J_ClearCancelled>
+  <CF2U_Name>Suprimentos</CF2U_Name>
+  <CF2U_Hint>Metas de estoque, ordens, animais e a casa são definidos na aba Suprimentos (barra inferior).</CF2U_Hint>
+  <CF2U_Messages>Mensagens sobre o que o administrador marcou</CF2U_Messages>
+  <CF2U_MasterBills>Ordens de mestre</CF2U_MasterBills>
+  <CF2U_MasterBillsTip>Armas e roupas de qualidade são feitas só pelos melhores artesãos (sempre pelo menos dois). Suas próprias configurações de ordens vêm primeiro.</CF2U_MasterBillsTip>
+  <CF2U_NoStorage>Alertar quando uma coisa não tem para onde ir</CF2U_NoStorage>
+  <CF2U_NoStorageTip>Quando uma coisa não pode ser armazenada em lugar nenhum, o administrador diz por quê.</CF2U_NoStorageTip>
+  <CF2U_PUAH>Transportar com Pick Up And Haul</CF2U_PUAH>
+  <CF2U_PUAHTip>O administrador leva as coisas para o estoque nos bolsos do Pick Up And Haul.</CF2U_PUAHTip>
+</LanguageData>
