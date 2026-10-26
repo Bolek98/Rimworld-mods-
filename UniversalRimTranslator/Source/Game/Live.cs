@@ -131,6 +131,7 @@ namespace UniversalRimTranslator
                 File.WriteAllLines(collectorPath, Pending.Keys.Select(k => k.Replace("\r", "").Replace("\n", "\\n")).ToArray());
             }
             catch { }
+            BuildLabels();
             MLog.Info("[URT] live translation: " + vocab.Count + " English words known, " + back + " texts from earlier sessions waiting");
             liveLogAt = 0f;
         }
@@ -178,7 +179,7 @@ namespace UniversalRimTranslator
                 string key = HasDigit(core) ? Template(core, out nums) : core;
                 if (!Lookup(key, out Entry e) || (e.Out == null && e.Ver != Version) || (e.Out == null && collect && !e.Collected))
                 {
-                    e = Compute(core, key, collect);
+                    e = Compute(core, key, collect, nums == null ? (core.IndexOf('{') >= 0 ? -1 : 0) : nums.Count);
                     Remember(key, e);
                 }
                 if (e.Out == null) return s;
@@ -215,10 +216,30 @@ namespace UniversalRimTranslator
             return false;
         }
 
-        private static Entry Compute(string core, string key, bool collect)
+        private static Entry Compute(string core, string key, bool collect, int numCount)
         {
             var e = new Entry { Ver = Version, Collected = collect };
-            if (!Candidate(core)) { e.Collected = true; return e; }      // never worth collecting
+            if (!Candidate(core))
+            {
+                // 2.4.0: half-translated texts – "Mine kus břidlice": the translated names of things
+                // become placeholders, the English rest is translated ("Těžit {0}") and the names go back
+                if (numCount >= 0 && HasForeign(core) && Mixed(key, numCount, out string tpl, out List<string> parts))
+                {
+                    string mt = Runtime.Store?.Use(tpl);
+                    if (mt != null)
+                    {
+                        var sb = new StringBuilder(mt);
+                        for (int i = parts.Count - 1; i >= 0; i--) sb.Replace("{" + (numCount + i) + "}", parts[i]);
+                        e.Out = sb.ToString();
+                        Shown++;
+                        return e;
+                    }
+                    if (collect) Collect(tpl);
+                    return e;
+                }
+                e.Collected = true;
+                return e;      // never worth collecting
+            }
             string t = Runtime.Store?.Use(key);
             if (t != null)
             {
@@ -252,6 +273,103 @@ namespace UniversalRimTranslator
             }
             if (words == 0 || known == 0) return false;
             return known * 10 >= words * 7;
+        }
+
+        // ---------------- 2.4.0: half-translated texts ----------------
+        private static HashSet<string> labels = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        private static int labelsMaxWords = 1;
+        private static int labelsStoreCount = -1;
+        private static float labelsAt;
+        private static readonly Regex AnyWord = new Regex(@"[\p{L}][\p{L}'\-]*", RegexOptions.Compiled);
+
+        private static bool HasForeign(string s)
+        {
+            for (int i = 0; i < s.Length; i++) if (s[i] > 127 && char.IsLetter(s[i])) return true;
+            return false;
+        }
+
+        private static bool AllEnglish(string s)
+        {
+            int n = 0;
+            foreach (Match m in Word.Matches(s)) { n++; if (!vocab.Contains(m.Value.ToLowerInvariant())) return false; }
+            return n > 0;
+        }
+
+        private static void AddLabel(HashSet<string> set, string s)
+        {
+            if (string.IsNullOrEmpty(s)) return;
+            s = s.Trim();
+            if (s.Length < 3 || s.Length > 60 || s.IndexOf('{') >= 0 || s.IndexOf('<') >= 0) return;
+            // a label that is plain English proves nothing ("OK", "steel" in both)
+            if (!HasForeign(s) && AllEnglish(s)) return;
+            set.Add(s);
+        }
+
+        // labels of the game's things in the target language (defs after translation, the translation memory)
+        public static void BuildLabels()
+        {
+            var set = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            try
+            {
+                foreach (Type type in GenDefDatabase.AllDefTypesWithDatabases())
+                    foreach (Def d in GenDefDatabase.GetAllDefsInDatabaseForDef(type))
+                    {
+                        AddLabel(set, d.label);
+                        if (d is ThingDef td) AddLabel(set, td.stuffProps?.stuffAdjective);
+                        if (d is PawnKindDef pk) AddLabel(set, pk.labelPlural);
+                    }
+                foreach (var kv in Runtime.Store.Snapshot())
+                {
+                    string tr = kv.Value.Text;
+                    if (tr != null && tr != kv.Key && kv.Key.Length <= 40 && kv.Key.IndexOf(' ') == kv.Key.LastIndexOf(' ')) AddLabel(set, tr);
+                }
+                labelsStoreCount = Runtime.Store.Count;
+            }
+            catch (Exception e) { MLog.Warn("[URT] live labels: " + e.Message); }
+            int max = 1;
+            foreach (string s in set) { int w = AnyWord.Matches(s).Count; if (w > max) max = w; }
+            labelsMaxWords = Math.Min(max, 6);
+            labels = set;
+            labelsBusy = false;
+        }
+        private static volatile bool labelsBusy;
+
+        // replaces known translated labels by {start}, {start+1} …; true when an English text is left
+        private static bool Mixed(string s, int start, out string tpl, out List<string> parts)
+        {
+            tpl = null;
+            parts = null;
+            if (labels.Count == 0) return false;
+            MatchCollection ws = AnyWord.Matches(s);
+            if (ws.Count < 2 || ws.Count > 80) return false;
+            var sb = new StringBuilder();
+            var found = new List<string>();
+            int pos = 0, i = 0;
+            while (i < ws.Count)
+            {
+                int best = -1;
+                for (int n = Math.Min(labelsMaxWords, ws.Count - i); n >= 1; n--)
+                {
+                    Match a = ws[i], b = ws[i + n - 1];
+                    string piece = s.Substring(a.Index, b.Index + b.Length - a.Index);
+                    if (labels.Contains(piece)) { best = n; break; }
+                }
+                if (best < 0) { i++; continue; }
+                Match first = ws[i], last = ws[i + best - 1];
+                sb.Append(s, pos, first.Index - pos);
+                sb.Append('{').Append(start + found.Count).Append('}');
+                found.Add(s.Substring(first.Index, last.Index + last.Length - first.Index));
+                pos = last.Index + last.Length;
+                i += best;
+                if (found.Count > 6) return false;
+            }
+            if (found.Count == 0) return false;
+            sb.Append(s, pos, s.Length - pos);
+            string t = sb.ToString();
+            if (HasForeign(t) || !Candidate(t)) return false;
+            tpl = t;
+            parts = found;
+            return true;
         }
 
         private static readonly Regex Junk = new Regex(@"\bv\d+(\.\d+)+|[0-9A-Fa-f]{16,}|\bSHA-?\d", RegexOptions.Compiled);
@@ -349,6 +467,13 @@ namespace UniversalRimTranslator
                 liveLogAt = rt;
             }
             if (On) RefreshNames();
+            // new translations of names of things: the label list follows (at most once a minute)
+            if (On && !labelsBusy && rt - labelsAt > 60f && Runtime.Store != null && Runtime.Store.Count != labelsStoreCount)
+            {
+                labelsAt = rt;
+                labelsBusy = true;
+                System.Threading.ThreadPool.QueueUserWorkItem(_ => { try { BuildLabels(); } finally { labelsBusy = false; } });
+            }
             if (!arrivedFlag) return;
             float now = Time.realtimeSinceStartup;
             if (now - lastBump < 1f) return;
