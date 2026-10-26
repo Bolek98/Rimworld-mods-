@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorldObjectDef ParentName="StaticWorldObjectBase">
+    <defName>Legacy_Ruins</defName>
+    <label>ruins of an old colony</label>
+    <description>The ruins of one of your old colonies. Some walls still stand, the dead rest in their graves and a part of the old treasures may still lie there.</description>
+    <worldObjectClass>Legacy.LegacyRuins</worldObjectClass>
+    <texture>World/WorldObjects/TribalSettlement</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>World/WorldObjects/Expanding/DestroyedSettlement</expandingIconTexture>
+    <expandingIconPriority>40</expandingIconPriority>
+    <expandMore>true</expandMore>
+    <mapGenerator>Encounter</mapGenerator>
+    <comps>
+      <li Class="WorldObjectCompProperties_FormCaravan" />
+    </comps>
+  </WorldObjectDef>
+
+  <GenStepDef>
+    <defName>Legacy_RuinsGen</defName>
+    <order>450</order>
+    <genStep Class="Legacy.GenStep_LegacyRuins" />
+  </GenStepDef>
+
+  <MainButtonDef>
+    <defName>Legacy</defName>
+    <label>legacy</label>
+    <description>Your colony's story and your old colonies.</description>
+    <tabWindowClass>Legacy.MainTabWindow_Legacy</tabWindowClass>
+    <order>96</order>
+  </MainButtonDef>
+</Defs>

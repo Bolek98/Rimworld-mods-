@@ -18,6 +18,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Fewer Freezes – Smart Memory Cleanup | 1.1.1 | [FewerFreezes](FewerFreezes) |
 | Gender Balance | 1.3.3 | [GenderBalance](GenderBalance) |
 | Haul Smarter | 3.0.4 | [HaulSmarter](HaulSmarter) |
+| Legacy – Your Old Colonies Live On | 0.1.0 | [Legacy](Legacy) |
 | Map Architect | 0.4.2 | [MapArchitect](MapArchitect) |
 | Masks & Headgear Together | 1.0.0 | [MasksAndHeadgear](MasksAndHeadgear) |
 | Matchmaker | 0.1.0 | [Matchmaker](Matchmaker) |
