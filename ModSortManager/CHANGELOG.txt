@@ -1,4 +1,16 @@
 === Not on the Workshop yet (test versions) ===
+0.2.0
+New
+- Workshop button: the Steam Workshop opens inside the game; mod pages and requirement links too. Missing requirements: "Subscribe (Steam)" right from the game.
+- Share a mod list as a text code (Profiles → "Copy list as code" / "Paste list code"); missing mods from a code can be subscribed with one click.
+- What's new: mods updated since the last start are marked, with their change log.
+- Loading weight: how much textures, code, defs and sounds each mod loads, and what slows loading the most.
+- Remove mod: unsubscribe from the Workshop, put a local mod aside or delete it for good.
+- New group "Errors in the log": errors of this session traced to the mod that caused them.
+- "Do the same thing" explains how both mods change the shared code and whether they can block each other, with buttons to turn one off. Mod details show requirements and which mods need it.
+- Restart button when the mod list has not changed; "Report a bug" and "Bolek98's mods" buttons in the settings.
+
+=== Development history since the last Workshop release (test versions) ===
 0.2.1
 - "Remove mod…" in a mod's details: unsubscribe from the Workshop (Steam deletes the files), or move a local mod to the put-aside folder (can be put back) or delete it for good. A mod in use is removed at the next start.
 

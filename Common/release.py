@@ -15,6 +15,14 @@
                                       – after publishing: the waiting entries become a
                                         "=== Workshop release x.y.z (date) ===" block.
 
+  release.py fold <Mod> <x.y.z> <notes.txt>
+                                      – before a Workshop release: sets the Workshop version, puts the
+                                        player notes from notes.txt on top of the waiting block and
+                                        keeps the test versions below as development history.
+  release.py footer <Mod>             – writes the bottom of the Workshop description (About.xml):
+                                        ideas & suggestions + a short change log (EN, then CZ) from
+                                        Common/footer/<ModName>.txt. Run it for every release.
+
 <Mod> is the folder name (e.g. SmoothFPS, Steward2/Steward).
 """
 import pathlib, re, sys
@@ -178,6 +186,67 @@ def release(rel, date):
     print("%s: Workshop release %s written" % (rel, v))
 
 
+FOOT = "═══════════════════════"
+OLD_INVITES = [
+    "Something broken, or want something added? Please write it in the comments – I read them all.",
+    "Něco nefunguje, nebo chceš něco přidat? Napiš to do komentářů – čtu je všechny.",
+    "Something broken, or want something added? Please write it in the comments.",
+]
+
+
+def fold(rel, new, notes_file):
+    d = root / rel
+    c = d / "CHANGELOG.txt"
+    t = c.read_text(encoding="utf-8")
+    body = pathlib.Path(notes_file).read_text(encoding="utf-8").strip() + "\n\n"
+    hist = ""
+    if t.startswith(PENDING):
+        end = t.find("\n=== ", len(PENDING))
+        hist = t[len(PENDING):end + 1 if end > 0 else len(t)].strip()
+        t = t[end + 1:] if end > 0 else ""
+    if hist:
+        hist = "=== Development history since the last Workshop release (test versions) ===\n" + hist + "\n\n"
+    c.write_text(PENDING + new + "\n" + body + hist + t, encoding="utf-8")
+    bump(rel, new, [])
+
+
+def footer(rel):
+    d = root / rel
+    a = d / "About" / "About.xml"
+    x = a.read_text(encoding="utf-8")
+    m = re.search(r"(<description>)(.*?)(</description>)", x, re.S)
+    desc = m.group(2)
+    i = desc.find(FOOT)
+    if i >= 0:
+        desc = desc[:i]
+    lines = [l for l in desc.rstrip().split("\n") if l.strip() not in OLD_INVITES]
+    desc = "\n".join(lines).rstrip()
+    v = about_version(d)
+    en, cz, cur = [], [], None
+    f = root / "Common" / "footer" / (d.name + ".txt")
+    if f.exists():
+        for l in f.read_text(encoding="utf-8").splitlines():
+            if l.strip() in ("EN", "CZ"):
+                cur = en if l.strip() == "EN" else cz
+            elif l.strip() and cur is not None:
+                cur.append(l.rstrip())
+    esc = lambda s: s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    out = ["", "", FOOT, "IDEAS AND SUGGESTIONS",
+           "Want something changed or added? Write it in the comments – I read every idea and take it into account."]
+    if en:
+        out += ["", "WHAT'S NEW IN %s" % v] + en
+    out += ["", "NÁPADY A NÁVRHY",
+            "Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu."]
+    if cz:
+        out += ["", "CO JE NOVÉHO VE VERZI %s" % v] + cz
+    desc += esc("\n".join(out))
+    a.write_text(x[:m.start(2)] + desc + x[m.end(2):], encoding="utf-8")
+    import html
+    size = len(html.unescape(desc).encode("utf-8"))
+    print("%s: footer written (%d + %d change lines), description %d bytes%s" % (
+        rel, len(en), len(cz), size, "  !!! OVER STEAM LIMIT 8000 – shorten it" if size > 8000 else ""))
+
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     if not a or a[0] == "check":
@@ -188,6 +257,10 @@ if __name__ == "__main__":
         readme()
     elif a[0] == "notes" and len(a) == 2:
         notes(a[1])
+    elif a[0] == "fold" and len(a) == 4:
+        fold(a[1], a[2], a[3])
+    elif a[0] == "footer" and len(a) == 2:
+        footer(a[1])
     elif a[0] == "release" and len(a) == 3:
         release(a[1], a[2])
     else:

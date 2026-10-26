@@ -1,4 +1,22 @@
 === Not on the Workshop yet (test versions) ===
+1.4.0
+Simulation (Simulation tab)
+- Sleeping world pawns: conditions added by mods (race genes, quirks …) no longer keep far-away world pawns awake, so they are not updated every tick. Pregnancies and the game's own conditions still keep them awake; a pawn wakes up as soon as it comes back to a map. The world line shows how many are awake and asleep.
+- Smart work search: a work that took long to check and found nothing is not checked again by that colonist for 5 s of game time (emergency work always is).
+- Spread job searches and room temperatures in parts – smoother speed 3 and 4.
+- Fast nights: while everybody sleeps and nothing happens, the game runs at speed 3.
+- Turbo at speed 3 and 4 (off by default): while you don't touch the mouse or keyboard, the picture drops to a few frames per second and all the rest goes to the game.
+
+Tools
+- The FPS overlay shows ticks per second against what the speed asks for, turns red when the game does not keep up, and a click on it opens "What slows the tick" (which can now be measured while the game runs).
+- "What is expensive on this map": a button removes filth outside the home area.
+- "Report a bug" button and "Bolek98's mods" (versions and settings of all my mods, save/load all settings) in the settings.
+
+Fixes
+- RimWorld 1.7: blank icons and pictures of some mod furniture – the texture limit is not used on 1.7 any more.
+- The world clean-up names the mod whose replacement of the game's clean-up fails, once, instead of repeating a warning.
+
+=== Development history since the last Workshop release (test versions) ===
 1.4.7
 - Fix (RimWorld 1.7): blank icons and pictures of some mod furniture. The "largest mod picture" limit is no longer used on 1.7 – its texture system moves pictures out of video memory by itself and could not bring back the smaller copies, which then stayed blank.
 

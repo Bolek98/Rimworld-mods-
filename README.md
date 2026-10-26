@@ -26,12 +26,12 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Mech Commander | 0.1.1 | [MechCommander](MechCommander) |
 | Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
 | Mišák Tabs – Clear Bills, Health & Info | 0.1.3 | [MisakTabs](MisakTabs) |
-| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.2.1 | [ModSortManager](ModSortManager) |
+| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.2.0 | [ModSortManager](ModSortManager) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.1 | [PlaceForEverything](PlaceForEverything) |
 | Research Fixer – Tech Progression | 0.3.3 | [ResearchFixer](ResearchFixer) |
 | Secular Colony – Ideology Off & Tweaks | 1.5.2 | [SecularColony](SecularColony) |
-| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.16.0 | [SmartColonistGear](SmartColonistGear) |
-| Smooth FPS – Performance & Graphics | 1.4.7 | [SmoothFPS](SmoothFPS) |
+| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.15.0 | [SmartColonistGear](SmartColonistGear) |
+| Smooth FPS – Performance & Graphics | 1.4.0 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 3.4.0 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.0.5 | [Steward2/StewardCrises](Steward2/StewardCrises) |
