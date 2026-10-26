@@ -1,0 +1,22 @@
+Smooth Frames 0.1.0 – frame generation pro RimWorld (zkušební verze)
+
+Co to dělá
+  Bere obraz, který hra vykreslí, dopočítá, kam se věci pohnuly, a mezi dva
+  snímky hry vloží snímek navíc. Ukazuje ho v průhledném okně přesně nad hrou
+  (kliká se skrz něj do hry). Hra běží stejně, jen obraz je plynulejší.
+
+Jak spustit
+  1. Ve hře zapni okno bez okrajů (Borderless / Windowed fullscreen),
+     ne exkluzivní celou obrazovku.
+  2. Omez FPS hry na polovinu Hz monitoru (144 Hz -> 72 FPS, 120 Hz -> 60 FPS).
+  3. Spusť SmoothFrames.exe (Windows může varovat, že program nezná:
+     "Další informace" -> "Přesto spustit"). Okno s textem nech otevřené.
+  4. Přepni se do hry. Každých 5 s se v okně vypíše "game X fps -> shown Y fps".
+
+Klávesy
+  Ctrl+Alt+F  zapnout / vypnout
+  Ctrl+Alt+M  ukázat pohyb (barevně – pro ladění)
+  Ctrl+Alt+Q  ukončit
+
+Když něco nejde, pošli Claudovi text z černého okna.
+Potřebuje Windows 10 (2004+) nebo 11.
