@@ -29,7 +29,7 @@ namespace MisakTabs
 
     public class MTMod : Mod
     {
-        public const string Version = "0.1.1";
+        public const string Version = "0.1.3";
         public static MTSettings S;
         public static Harmony H;
         private static List<string> recBullets;
@@ -43,6 +43,7 @@ namespace MisakTabs
             H = new Harmony("bolek98.misaktabs");
             try { MUI.PatchWindow(H, typeof(MTMod)); } catch { }
             BillsTab.Patch(H);
+            BillPrio.Patch(H);
             LongEventHandler.ExecuteWhenFinished(BillsTab.TakeOver);
             Log.Message("[Mišák Tabs] v" + Version + " loaded.");
         }
@@ -334,10 +335,76 @@ namespace MisakTabs
                 Look.Text(new Rect(row.x + 46f, row.y + 3f, row.width - 110f, 20f), rec.LabelCap.ToString().Truncate(row.width - 110f), locked ? Muted : Color.white);
                 Look.Text(new Rect(row.x + 46f, row.y + 22f, row.width - 110f, 18f), (locked ? why : Ingredients(rec)).Truncate(row.width - 110f), locked ? Look.Orange : Muted, GameFont.Tiny);
                 Look.Text(new Rect(row.xMax - 66f, row.y, 60f, row.height), locked ? "MT_LockedShort".Translate() : "MT_Add".Translate(), locked ? Muted : Look.Green, GameFont.Tiny, TextAnchor.MiddleRight);
-                if (over) TooltipHandler.TipRegion(row, rec.description.NullOrEmpty() ? rec.LabelCap.ToString() : rec.description);
-                if (!locked && Widgets.ButtonInvisible(row)) Add(table, rec);
+                // 0.1.2: what the thing is – a rich tooltip and the game's info card
+                Rect info = new Rect(row.xMax - 92f, row.y + (row.height - 22f) / 2f, 22f, 22f);
+                if (InfoButton(info, rec)) { }
+                else
+                {
+                    if (over) TooltipHandler.TipRegion(row, new TipSignal(() => RecipeInfo(rec), rec.GetHashCode()));
+                    if (!locked && Widgets.ButtonInvisible(row)) Add(table, rec);
+                }
             }
             Widgets.EndScrollView();
+        }
+
+        private static void OpenInfo(RecipeDef rec)
+        {
+            ThingDef prod = rec.ProducedThingDef;
+            if (prod != null) Find.WindowStack.Add(new Dialog_InfoCard(prod, prod.MadeFromStuff ? GenStuff.DefaultStuffFor(prod) : null));
+            else Find.WindowStack.Add(new Dialog_InfoCard(rec));
+        }
+
+        private static bool InfoButton(Rect r, RecipeDef rec)
+        {
+            bool over = Mouse.IsOver(r);
+            Look.Box(r, over ? Look.Card2 : Look.Card, Look.Line);
+            Look.Text(r, "i", over ? Color.white : Muted, GameFont.Small, TextAnchor.MiddleCenter);
+            TooltipHandler.TipRegion(r, "MT_InfoTip".Translate());
+            if (Widgets.ButtonInvisible(r)) { OpenInfo(rec); return true; }
+            return over;
+        }
+
+        private static readonly Dictionary<RecipeDef, string> infoCache = new Dictionary<RecipeDef, string>();
+
+        // what the recipe makes and what it needs, in a few lines
+        public static string RecipeInfo(RecipeDef rec)
+        {
+            if (infoCache.TryGetValue(rec, out string s)) return s;
+            var sb = new System.Text.StringBuilder();
+            try
+            {
+                sb.AppendLine("<b>" + rec.LabelCap + "</b>");
+                ThingDef prod = rec.ProducedThingDef;
+                ThingDef stuff = prod != null && prod.MadeFromStuff ? GenStuff.DefaultStuffFor(prod) : null;
+                string desc = prod?.description ?? rec.description;
+                if (!desc.NullOrEmpty()) sb.AppendLine(desc.Length > 400 ? desc.Substring(0, 400) + "…" : desc);
+                sb.AppendLine();
+                if (prod != null)
+                {
+                    int count = rec.products != null && rec.products.Count > 0 ? rec.products[0].count : 1;
+                    sb.AppendLine("MT_Info_Makes".Translate(prod.LabelCap, count, prod.GetStatValueAbstract(StatDefOf.MarketValue, stuff).ToStringMoney(), prod.GetStatValueAbstract(StatDefOf.Mass, stuff).ToString("0.##")));
+                    if (prod.IsApparel)
+                        sb.AppendLine("MT_Info_Armor".Translate(prod.GetStatValueAbstract(StatDefOf.ArmorRating_Sharp, stuff).ToStringPercent(), prod.GetStatValueAbstract(StatDefOf.ArmorRating_Blunt, stuff).ToStringPercent(), prod.GetStatValueAbstract(StatDefOf.Insulation_Cold, stuff).ToString("0"), prod.GetStatValueAbstract(StatDefOf.Insulation_Heat, stuff).ToString("0")));
+                    if (prod.IsRangedWeapon && prod.Verbs != null && prod.Verbs.Count > 0)
+                    {
+                        VerbProperties v = prod.Verbs[0];
+                        int dmg = v.defaultProjectile?.projectile != null ? v.defaultProjectile.projectile.GetDamageAmount(null) : 0;
+                        sb.AppendLine("MT_Info_Gun".Translate(dmg, v.range.ToString("0"), v.burstShotCount));
+                    }
+                    else if (prod.IsMeleeWeapon)
+                        sb.AppendLine("MT_Info_Melee".Translate(prod.GetStatValueAbstract(StatDefOf.MeleeWeapon_AverageDPS, stuff).ToString("0.0")));
+                }
+                sb.AppendLine("MT_Info_Work".Translate(Mathf.RoundToInt(rec.workAmount > 0 ? rec.workAmount : (prod?.GetStatValueAbstract(StatDefOf.WorkToMake, stuff) ?? 0f))));
+                if (rec.ingredients != null && rec.ingredients.Count > 0)
+                    sb.AppendLine("MT_Info_Needs".Translate(string.Join(", ", rec.ingredients.Select(i => i.SummaryFor(rec)).ToArray())));
+                if (rec.skillRequirements != null && rec.skillRequirements.Count > 0)
+                    sb.AppendLine("MT_Info_Skill".Translate(string.Join(", ", rec.skillRequirements.Select(r => r.Summary).ToArray())));
+                if (rec.workSkill != null) sb.AppendLine("MT_Info_UsesSkill".Translate(rec.workSkill.LabelCap));
+            }
+            catch (Exception e) { sb.AppendLine(e.Message); }
+            s = sb.ToString().TrimEnd();
+            infoCache[rec] = s;
+            return s;
         }
 
         private static void Add(Building_WorkTable table, RecipeDef recipe)
@@ -382,7 +449,10 @@ namespace MisakTabs
                 bool waiting = !b.suspended && b.ShouldDoNow() && Find.TickManager.TicksGame <= b.nextTickToSearchForIngredients;
                 Color border = doer != null ? Look.Green : waiting ? Look.Orange : Look.Line;
                 Look.Box(c, doer != null ? Look.GreenBg : Look.Card, border);
-                Look.Icon(new Rect(c.x + 8f, c.y + 8f, 34f, 34f), b.recipe.UIIconThing, b.recipe.UIIcon);
+                Rect ic = new Rect(c.x + 8f, c.y + 8f, 34f, 34f);
+                Look.Icon(ic, b.recipe.UIIconThing, b.recipe.UIIcon);
+                if (Mouse.IsOver(ic)) TooltipHandler.TipRegion(ic, new TipSignal(() => RecipeInfo(b.recipe) + "\n\n" + "MT_ClickInfo".Translate(), b.recipe.GetHashCode() ^ 0x55));
+                if (Widgets.ButtonInvisible(ic)) OpenInfo(b.recipe);
                 float tx = c.x + 52f, tw = c.width - 52f - 150f;
                 Look.Text(new Rect(tx, c.y + 6f, tw, 22f), b.LabelCap.ToString().Truncate(tw), b.suspended ? Muted : Color.white);
                 string status;
@@ -411,6 +481,24 @@ namespace MisakTabs
                 if (progress >= 0f) Look.Bar(new Rect(tx, c.y + 63f, tw, 4f), progress, Look.Green);
                 // buttons
                 float bx = c.xMax - 146f, by = c.y + 8f;
+                // 0.1.3: priority 1 (first) … 10 (last)
+                int pr = BillPrio.Get(b);
+                Rect pc = new Rect(bx - 46f, by, 40f, 26f);
+                Color prc = pr <= 2 ? Look.Red : pr <= 4 ? Look.Orange : pr == 5 ? Muted : Look.Blue;
+                Look.Box(pc, Look.Card2, prc);
+                Look.Text(pc, "P" + pr, prc, GameFont.Small, TextAnchor.MiddleCenter);
+                TooltipHandler.TipRegion(pc, "MT_PrioTip".Translate(pr));
+                if (Widgets.ButtonInvisible(pc))
+                {
+                    Bill bb = b;
+                    var opts = new List<FloatMenuOption>();
+                    for (int p = 1; p <= 10; p++)
+                    {
+                        int pp = p;
+                        opts.Add(new FloatMenuOption("MT_PrioOption".Translate(p) + (p == 1 ? " – " + "MT_PrioFirst".Translate() : p == 5 ? " – " + "MT_PrioNormal".Translate() : p == 10 ? " – " + "MT_PrioLast".Translate() : ""), () => BillPrio.Set(bb, pp, table)));
+                    }
+                    Find.WindowStack.Add(new FloatMenu(opts));
+                }
                 if (Look.Button(new Rect(bx, by, 26f, 26f), "▲", false, i > 0)) toUp = b;
                 if (Look.Button(new Rect(bx + 30f, by, 26f, 26f), "▼", false, i < bills.Count - 1)) toDown = b;
                 if (Look.Button(new Rect(bx + 60f, by, 54f, 26f), b.suspended ? "MT_Resume".Translate() : "MT_Pause".Translate())) b.suspended = !b.suspended;
@@ -429,6 +517,98 @@ namespace MisakTabs
             if (toUp != null) { table.billStack.Reorder(toUp, -1); SoundDefOf.Tick_High.PlayOneShotOnCamera(); }
             if (toDown != null) { table.billStack.Reorder(toDown, 1); SoundDefOf.Tick_Low.PlayOneShotOnCamera(); }
             if (toDelete != null) { table.billStack.Delete(toDelete); SoundDefOf.Click.PlayOneShotOnCamera(); }
+        }
+    }
+
+    // ---------------------------------------------------------------------------
+    // 0.1.3: bill priority 1 (do first) … 10 (do last), 5 = normal. Within a workbench the bills are
+    // kept in that order; across workbenches colonists go first to the bench with the most urgent bill.
+    // ---------------------------------------------------------------------------
+    public class BillPrio : GameComponent
+    {
+        public const int Normal = 5;
+        private Dictionary<string, int> prio = new Dictionary<string, int>();
+        private static BillPrio I;
+
+        public BillPrio(Game g) { I = this; }
+
+        public override void FinalizeInit() { I = this; }
+
+        public override void ExposeData()
+        {
+            if (Scribe.mode == LoadSaveMode.Saving) Prune();
+            Scribe_Collections.Look(ref prio, "billPriorities", LookMode.Value, LookMode.Value);
+            if (prio == null) prio = new Dictionary<string, int>();
+            I = this;
+        }
+
+        // forget bills that no longer exist
+        private void Prune()
+        {
+            try
+            {
+                var alive = new HashSet<string>();
+                foreach (Map m in Find.Maps)
+                    foreach (Building_WorkTable t in m.listerBuildings.AllBuildingsColonistOfClass<Building_WorkTable>())
+                        foreach (Bill b in t.billStack.Bills) alive.Add(b.GetUniqueLoadID());
+                foreach (string k in prio.Keys.ToList()) if (!alive.Contains(k)) prio.Remove(k);
+            }
+            catch { }
+        }
+
+        public static bool Any => I != null && I.prio.Count > 0;
+
+        public static int Get(Bill b)
+        {
+            if (I == null || b == null) return Normal;
+            return I.prio.TryGetValue(b.GetUniqueLoadID(), out int p) ? p : Normal;
+        }
+
+        public static void Set(Bill b, int p, Building_WorkTable table)
+        {
+            if (I == null || b == null) return;
+            string k = b.GetUniqueLoadID();
+            if (p == Normal) I.prio.Remove(k); else I.prio[k] = p;
+            // keep the bench's list in priority order (stable)
+            List<Bill> bills = table.billStack.Bills;
+            List<Bill> sorted = bills.Select((x, i) => new { x, i }).OrderBy(z => Get(z.x)).ThenBy(z => z.i).Select(z => z.x).ToList();
+            bills.Clear();
+            bills.AddRange(sorted);
+            SoundDefOf.Tick_High.PlayOneShotOnCamera();
+        }
+
+        // most urgent bill a colonist could do at this bench (higher = sooner for the game)
+        private static float BenchScore(Thing t)
+        {
+            if (!(t is IBillGiver g) || g.BillStack == null) return 0f;
+            int best = 11;
+            foreach (Bill b in g.BillStack.Bills)
+                if (!b.suspended && b.ShouldDoNow())
+                {
+                    int p = Get(b);
+                    if (p < best) best = p;
+                }
+            return best > 10 ? 0f : 11 - best;
+        }
+
+        public static void Patch(Harmony h)
+        {
+            try
+            {
+                h.Patch(AccessTools.PropertyGetter(typeof(WorkGiver_Scanner), nameof(WorkGiver_Scanner.Prioritized)), postfix: new HarmonyMethod(typeof(BillPrio), nameof(PrioritizedPostfix)));
+                h.Patch(AccessTools.Method(typeof(WorkGiver_Scanner), nameof(WorkGiver_Scanner.GetPriority), new[] { typeof(Pawn), typeof(TargetInfo) }), postfix: new HarmonyMethod(typeof(BillPrio), nameof(GetPriorityPostfix)));
+            }
+            catch (Exception e) { Log.Warning("[Mišák Tabs] bill priorities: " + e.Message); }
+        }
+
+        public static void PrioritizedPostfix(WorkGiver_Scanner __instance, ref bool __result)
+        {
+            if (!__result && Any && __instance is WorkGiver_DoBill) __result = true;
+        }
+
+        public static void GetPriorityPostfix(WorkGiver_Scanner __instance, TargetInfo t, ref float __result)
+        {
+            if (Any && __instance is WorkGiver_DoBill && t.HasThing) __result = BenchScore(t.Thing);
         }
     }
 }
