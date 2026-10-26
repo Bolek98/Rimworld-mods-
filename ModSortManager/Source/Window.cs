@@ -208,7 +208,18 @@ namespace ModSortManager
                     else if (!d.Url.NullOrEmpty())
                     {
                         string url = d.Url;
-                        iss.actions.Add(new KeyValuePair<string, Action>("MSM_Download".Translate(), () => Application.OpenURL(url)));
+                        // 0.1.9: a Workshop mod is subscribed right here – Steam downloads it
+                        ulong wid = Updates.WorkshopId(d.steamWorkshopUrl ?? url);
+                        string dname = d.displayName ?? d.packageId;
+                        if (wid != 0 && Updates.CanSubscribe)
+                            iss.actions.Add(new KeyValuePair<string, Action>("MSM_Subscribe".Translate(), () =>
+                            {
+                                if (Updates.Subscribe(wid))
+                                    Messages.Message("MSM_Subscribed".Translate(dname), MessageTypeDefOf.TaskCompletion, false);
+                                else
+                                    SteamUtility.OpenUrl(url);
+                            }));
+                        iss.actions.Add(new KeyValuePair<string, Action>("MSM_Download".Translate(), () => SteamUtility.OpenUrl(url)));
                     }
                     iss.actions.Add(new KeyValuePair<string, Action>("MSM_Deactivate".Translate(), () => Deactivate(mm)));
                     issues.Add(iss);
@@ -761,6 +772,14 @@ namespace ModSortManager
                 if (Widgets.ButtonInvisible(t)) tab = i;
                 tx += w + 2f;
             }
+            // 0.1.9: the Workshop inside the game (Steam overlay) – no need to leave the game
+            Rect ws = new Rect(tabs.xMax - 200f, tabs.y + 4f, 200f, tabs.height - 8f);
+            if (Widgets.ButtonText(ws, "MSM_OpenWorkshop".Translate()))
+            {
+                try { SteamUtility.OpenSteamWorkshopPage(); }
+                catch { Application.OpenURL("https://steamcommunity.com/app/294100/workshop/"); }
+            }
+            TooltipHandler.TipRegion(ws, "MSM_OpenWorkshopTip".Translate());
             MUI.Fill(new Rect(inRect.x, tabs.yMax, inRect.width, 1f), Line);
 
             // footer

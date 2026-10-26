@@ -43,7 +43,7 @@ namespace ModSortManager
 
     public class MSMMod : Mod
     {
-        public const string Version = "0.1.8";
+        public const string Version = "0.1.9";
         public static MSMSettings Settings;
 
         public MSMMod(ModContentPack content) : base(content)
@@ -229,9 +229,9 @@ namespace ModSortManager
         {
             if (m == null) return;
             if (m.OnSteamWorkshop)
-                Application.OpenURL("https://steamcommunity.com/sharedfiles/filedetails/?id=" + m.RootDir.Name);
+                SteamUtility.OpenUrl("https://steamcommunity.com/sharedfiles/filedetails/?id=" + m.RootDir.Name);   // 0.1.9: in the Steam overlay
             else if (!m.Url.NullOrEmpty())
-                Application.OpenURL(m.Url);
+                SteamUtility.OpenUrl(m.Url);
         }
 
         public static bool CanOpenPage(ModMetaData m)
@@ -1025,6 +1025,47 @@ namespace ModSortManager
             catch (Exception e)
             {
                 Log.Warning("[Mod Sort Manager] Steam updates not available: " + e.Message);
+            }
+        }
+
+        // 0.1.9: subscribing to a missing requirement from the game
+        private static MethodInfo subscribe;
+        public static bool CanSubscribe
+        {
+            get
+            {
+                Init();
+                if (!ok || !SteamManager.Initialized) return false;
+                if (subscribe == null)
+                    subscribe = AccessTools.TypeByName("Steamworks.SteamUGC")?.GetMethod("SubscribeItem", new[] { pfidType });
+                return subscribe != null;
+            }
+        }
+
+        // the number in "steam://url/CommunityFilePage/123" or "...filedetails/?id=123"
+        public static ulong WorkshopId(string url)
+        {
+            if (url.NullOrEmpty()) return 0;
+            var m = System.Text.RegularExpressions.Regex.Match(url, @"(?:CommunityFilePage/|[?&]id=)(\d{6,})");
+            ulong id;
+            return m.Success && ulong.TryParse(m.Groups[1].Value, out id) ? id : 0;
+        }
+
+        public static bool Subscribe(ulong id)
+        {
+            try
+            {
+                if (!CanSubscribe) return false;
+                subscribe.Invoke(null, new[] { Pfid(id) });
+                download.Invoke(null, new object[] { Pfid(id), true });
+                started.Add(id);
+                Log.Message("[Mod Sort Manager] subscribed to Workshop item " + id + " – Steam downloads it.");
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Mod Sort Manager] subscribe " + id + ": " + e.Message);
+                return false;
             }
         }
 
