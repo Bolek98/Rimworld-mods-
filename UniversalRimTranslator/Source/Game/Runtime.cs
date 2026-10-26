@@ -182,7 +182,7 @@ namespace UniversalRimTranslator
                         continue;
                     }
                     Phase = "translating (" + PendingCount() + " left)";
-                    var jobs = todo.Select(src => new Job { Source = src, SourceLang = bySource.TryGetValue(src, out var its) ? its[0].SourceLang : "en" }).ToList();
+                    var jobs = todo.Select(src => new Job { Source = src, SourceLang = bySource.TryGetValue(src, out var its) ? its[0].SourceLang : "en", Avoid = AvoidOnce.TryRemove(src, out string av) ? av : null }).ToList();
                     Chain.Run(jobs, Target, cts.Token);
                     int got = 0;
                     foreach (Job j in jobs)
@@ -245,6 +245,21 @@ namespace UniversalRimTranslator
         public static void Kick() => wake.Set();
 
         public static void RetryFailed() { giveUp.Clear(); Chain.ClearPauses(); Kick(); }
+
+        // 2.4.1: "translate again" – the next try skips the service that made the old translation
+        public static readonly ConcurrentDictionary<string, string> AvoidOnce = new ConcurrentDictionary<string, string>();
+
+        public static void TranslateAgain(string source)
+        {
+            string key = Store.Key(source);
+            if (key.Length == 0) return;
+            if (Store.TryGet(source, out Rec old) && !string.IsNullOrEmpty(old.Provider) && !old.Manual)
+                AvoidOnce[key] = old.Provider;
+            Store.Forget(source);
+            giveUp.TryRemove(key, out _);
+            Live.Requeue(source);
+            RetryFailed();
+        }
 
         // once: the 0.9.x cache becomes the new memory (each translation checked)
         private static void Migrate()

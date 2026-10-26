@@ -42,6 +42,8 @@ namespace UniversalRimTranslator
         private static Row sel;
         private static string editText = "";
         private static string note;
+        private static string waitingFor;
+        private static float waitingSince;
         private static List<KeyValuePair<string, string>> gloss;
         private static string newFrom = "", newTo = "";
         private const int MaxRows = 300;
@@ -226,6 +228,24 @@ namespace UniversalRimTranslator
                 return;
             }
             store.TryGet(sel.Source, out Rec rec);
+            // 2.4.1: "translate again" – show the new translation as soon as it arrives
+            if (waitingFor != null)
+            {
+                if (waitingFor != sel.Source) waitingFor = null;
+                else if (rec != null)
+                {
+                    waitingFor = null;
+                    editText = rec.Text ?? "";
+                    note = rec.Usable ? (string)"URT_Ed_AgainDone".Translate(rec.Provider ?? "?") : (string)"URT_Ed_AgainBad".Translate(rec.Verdict.ToString());
+                    Done();
+                }
+                else if (Time.realtimeSinceStartup - waitingSince > 90f)
+                {
+                    waitingFor = null;
+                    note = "URT_Ed_AgainSlow".Translate();
+                }
+                else note = "URT_Ed_AgainWait".Translate(Mathf.RoundToInt(Time.realtimeSinceStartup - waitingSince));
+            }
             float y = c.y;
             Text.Font = GameFont.Tiny;
             GUI.color = MUI.Muted;
@@ -285,11 +305,11 @@ namespace UniversalRimTranslator
             }
             if (Widgets.ButtonText(new Rect(c.x + 3 * (bw + 6f), y, bw, 30f), "URT_Ed_Again".Translate()))
             {
-                store.Forget(sel.Source);
-                Live.Requeue(sel.Source);   // 2.4.0: texts from the screen go back into the queue too
+                Runtime.TranslateAgain(sel.Source);   // 2.4.1: another service than the last time
+                waitingFor = sel.Source;
+                waitingSince = Time.realtimeSinceStartup;
                 editText = "";
                 note = "URT_Ed_AgainNote".Translate();
-                Runtime.RetryFailed();
                 Done();
             }
             TooltipHandler.TipRegion(new Rect(c.x + 3 * (bw + 6f), y, bw, 30f), "URT_Ed_AgainTip".Translate());

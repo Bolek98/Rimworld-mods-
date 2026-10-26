@@ -15,6 +15,7 @@ namespace Urt2
         public string Provider;          // who translated it
         public Verdict Verdict = Verdict.Empty;
         public string Error;
+        public string Avoid;             // 2.4.1: a service not to use ("translate again" wants a different result)
     }
 
     // Translates jobs with the chain of services: the first service that is configured, not
@@ -106,6 +107,7 @@ namespace Urt2
                 foreach (string line in lines)
                 {
                     var u = new Unit { Job = j, Masked = Protect.Mask(line), Original = line };
+                    if (!string.IsNullOrEmpty(j.Avoid)) u.Tried.Add(j.Avoid);
                     if (u.Masked.Empty || Protect.LooksLikeNonText(line)) u.Done = line;   // nothing to translate in this line
                     parts.Add(u);
                     // gender/plural options are translated as their own little texts
@@ -113,6 +115,7 @@ namespace Urt2
                         for (int k = 0; k < kv.Value.Length; k++)
                         {
                             var o = new Unit { Job = j, Masked = Protect.Mask(kv.Value[k]), Original = kv.Value[k], Owner = u, ChoiceToken = kv.Key, ChoiceIndex = k };
+                            if (!string.IsNullOrEmpty(j.Avoid)) o.Tried.Add(j.Avoid);
                             if (o.Masked.Empty) o.Done = kv.Value[k];
                             u.Options.Add(o);
                             if (o.Done == null) units.Add(o);

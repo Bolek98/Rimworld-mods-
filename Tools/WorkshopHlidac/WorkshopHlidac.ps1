@@ -4,6 +4,13 @@
 # Steam neříká KDO to byl – jen čísla. Ve Steamu se čísla navíc obnovují se zpožděním.
 
 $ErrorActionPreference = 'Stop'
+
+# jen jedna kopie: starší běžící hlídač se ukončí (po aktualizaci skriptu)
+try {
+    Get-CimInstance Win32_Process -Filter "Name='powershell.exe' OR Name='pwsh.exe'" |
+        Where-Object { $_.ProcessId -ne $PID -and $_.CommandLine -like '*WorkshopHlidac.ps1*' } |
+        ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
+} catch { }
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 $cfgFile = Join-Path $here 'nastaveni.json'
 $stateFile = Join-Path $here 'stav.json'
@@ -25,10 +32,12 @@ if (-not (Test-Path $cfgFile)) {
         pcUpozorneni  = $true
         ntfyTema      = $topic
         ntfyServer    = 'https://ntfy.sh'
+        souhrnHodina  = 21
     }
     $default | ConvertTo-Json | Set-Content -Path $cfgFile -Encoding UTF8
 }
 $cfg = Get-Content $cfgFile -Raw -Encoding UTF8 | ConvertFrom-Json
+if ($null -eq $cfg.PSObject.Properties['souhrnHodina']) { $cfg | Add-Member souhrnHodina 21 }
 
 # ---------- které mody hlídat ----------
 function Get-ModIds {
@@ -73,44 +82,100 @@ $script:checkNow = $false
 [void]$menu.Items.Add('Ukončit', $null, { $script:quit = $true })
 $tray.ContextMenuStrip = $menu
 
-function Notify($title, $text) {
+function Notify($title, $text, $click) {
     Log ($title + ': ' + ($text -replace "`n", ' | '))
     if ($cfg.pcUpozorneni) {
         $tray.BalloonTipTitle = $title
         $tray.BalloonTipText = $text
         $tray.ShowBalloonTip(10000)
     }
-    if ($cfg.ntfyTema) {
-        try {
-            $bytes = [System.Text.Encoding]::UTF8.GetBytes($text)
-            Invoke-RestMethod -Method Post -Uri ($cfg.ntfyServer.TrimEnd('/') + '/' + $cfg.ntfyTema) -Body $bytes `
-                -ContentType 'text/plain; charset=utf-8' -Headers @{ Title = 'RimWorld Workshop'; Tags = 'video_game' } -TimeoutSec 20 | Out-Null
-        } catch { Log ('ntfy: ' + $_.Exception.Message) }
-    }
+    Send-Phone ($title + "`n" + $text) $click
 }
 
 function Sign($n) { if ($n -gt 0) { return '+' + $n } else { return "$n" } }
+
+# ---------- komentáře ----------
+function Get-NewComments($creator, $id, $lastId) {
+    $u = "https://steamcommunity.com/comment/PublishedFile_Public/render/$creator/$id/?start=0&count=10"
+    $r = Invoke-RestMethod -Uri $u -TimeoutSec 30
+    $list = @()
+    $rx = 'id="comment_(\d+)".*?commentthread_author_link"[^>]*>\s*<bdi>(.*?)</bdi>.*?commentthread_comment_text"[^>]*>(.*?)</div>'
+    foreach ($m in [regex]::Matches([string]$r.comments_html, $rx, 'Singleline')) {
+        $cid = [decimal]$m.Groups[1].Value
+        if ($cid -le $lastId) { continue }
+        $author = [System.Net.WebUtility]::HtmlDecode(($m.Groups[2].Value -replace '<[^>]+>', '')).Trim()
+        $text = [System.Net.WebUtility]::HtmlDecode(($m.Groups[3].Value -replace '<br\s*/?>', ' ' -replace '<[^>]+>', '')).Trim()
+        if ($text.Length -gt 160) { $text = $text.Substring(0, 157) + '…' }
+        $list += [pscustomobject]@{ id = $cid; author = $author; text = $text }
+    }
+    return [pscustomobject]@{ total = [int]$r.total_count; items = $list }
+}
+
+function Send-Phone($text, $click) {
+    if (-not $cfg.ntfyTema) { return }
+    try {
+        $h = @{ Title = 'RimWorld Workshop'; Tags = 'video_game' }
+        if ($click) { $h['Click'] = $click }
+        $bytes = [System.Text.Encoding]::UTF8.GetBytes($text)
+        Invoke-RestMethod -Method Post -Uri ($cfg.ntfyServer.TrimEnd('/') + '/' + $cfg.ntfyTema) -Body $bytes `
+            -ContentType 'text/plain; charset=utf-8' -Headers $h -TimeoutSec 20 | Out-Null
+    } catch { Log ('ntfy: ' + $_.Exception.Message) }
+}
+
+function Get-Prop($obj, $name) {
+    if ($null -eq $obj) { return $null }
+    $p = $obj.PSObject.Properties[$name]
+    if ($p) { return $p.Value } else { return $null }
+}
+
+function ToTable($obj) {
+    $t = @{}
+    if ($obj) { $obj.PSObject.Properties | ForEach-Object { $t[$_.Name] = $_.Value } }
+    return $t
+}
 
 # ---------- jedna kontrola ----------
 function Check {
     $ids = Get-ModIds
     if ($ids.Count -eq 0) { Log ('Žádné mody s PublishedFileId.txt a autorem ' + $cfg.autor); return }
     $items = Get-Details $ids
-    $old = @{}
-    if (Test-Path $stateFile) {
-        (Get-Content $stateFile -Raw -Encoding UTF8 | ConvertFrom-Json).PSObject.Properties | ForEach-Object { $old[$_.Name] = $_.Value }
-    }
+    $st = $null
+    if (Test-Path $stateFile) { $st = Get-Content $stateFile -Raw -Encoding UTF8 | ConvertFrom-Json }
+    # starší formát stav.json = jen mody
+    $oldItems = if (Get-Prop $st 'items') { ToTable $st.items } elseif ($st) { ToTable $st } else { @{} }
+    $lastComment = ToTable (Get-Prop $st 'comments')
+    $day = Get-Prop $st 'day'
+    $today = (Get-Date).ToString('yyyy-MM-dd')
+
     $new = [ordered]@{}
     $lines = @()
     foreach ($it in $items) {
         $id = "$($it.publishedfileid)"
         $cur = [ordered]@{
             title = $it.title; subs = [int]$it.subscriptions; life = [int]$it.lifetime_subscriptions
-            fav = [int]$it.favorited; lifeFav = [int]$it.lifetime_favorited
+            fav = [int]$it.favorited; lifeFav = [int]$it.lifetime_favorited; comments = 0
         }
+        $name = ($it.title -split ' – ')[0]
+        # komentáře
+        try {
+            $last = if ($lastComment.ContainsKey($id)) { [decimal]$lastComment[$id] } else { [decimal]-1 }
+            $c = Get-NewComments $it.creator $id $last
+            $cur.comments = $c.total
+            if ($c.items.Count -gt 0) {
+                $lastComment[$id] = ($c.items | Measure-Object -Property id -Maximum).Maximum
+                if ($last -ge 0) {
+                    foreach ($cm in ($c.items | Sort-Object id)) {
+                        if ($cm.author -eq $cfg.autor) { continue }
+                        $msg = $name + ' – ' + $cm.author + ': ' + $cm.text
+                        Notify 'Nový komentář' $msg ('https://steamcommunity.com/sharedfiles/filedetails/?id=' + $id)
+                    }
+                }
+            } elseif (-not $lastComment.ContainsKey($id)) { $lastComment[$id] = 0 }
+        } catch { Log ('komentáře ' + $name + ': ' + $_.Exception.Message) }
+
         $new[$id] = $cur
-        if (-not $old.ContainsKey($id)) { continue }
-        $o = $old[$id]
+        if (-not $oldItems.ContainsKey($id)) { continue }
+        $o = $oldItems[$id]
         $newSubs = $cur.life - [int]$o.life
         $lost = $newSubs - ($cur.subs - [int]$o.subs)
         $newFav = $cur.lifeFav - [int]$o.lifeFav
@@ -121,15 +186,41 @@ function Check {
         if ($newFav -gt 0) { $parts += "oblíbené +$newFav" }
         if ($lostFav -gt 0) { $parts += "odebráno z oblíbených -$lostFav" }
         if ($parts.Count -gt 0) {
-            $name = ($it.title -split ' – ')[0]
             $lines += ($name + ': ' + ($parts -join ', ') + "  (teď $($cur.subs) odběrů, $($cur.fav) ★)")
         }
     }
-    $new | ConvertTo-Json -Depth 4 | Set-Content -Path $stateFile -Encoding UTF8
-    if ($old.Count -eq 0) {
-        Notify 'Workshop hlídač běží' ("Hlídané mody: $($items.Count), kontrola každých $($cfg.intervalMinut) min.")
+
+    # denní souhrn: základ = první kontrola dne, souhrn po nastavené hodině
+    if (-not $day -or $day.date -ne $today) {
+        $day = [pscustomobject]@{ date = $today; sent = $false; base = $new }
+    }
+    $hour = [int]$cfg.souhrnHodina
+    if ($hour -ge 0 -and -not $day.sent -and (Get-Date).Hour -ge $hour) {
+        $base = ToTable $day.base
+        $sum = @(); $tn = 0; $tl = 0; $tf = 0; $tc = 0
+        foreach ($id in $new.Keys) {
+            if (-not $base.ContainsKey($id)) { continue }
+            $b = $base[$id]; $c = $new[$id]
+            $n = $c.life - [int]$b.life
+            $l = $n - ($c.subs - [int]$b.subs)
+            $f = $c.fav - [int]$b.fav
+            $k = $c.comments - [int]$b.comments
+            $tn += $n; $tl += [Math]::Max(0, $l); $tf += $f; $tc += [Math]::Max(0, $k)
+            if ($n -ne 0 -or $l -gt 0 -or $f -ne 0 -or $k -gt 0) {
+                $sum += (($c.title -split ' – ')[0] + ": +$n odběrů, -$([Math]::Max(0,$l)) zrušeno, ★ $(Sign $f), komentáře +$([Math]::Max(0,$k))")
+            }
+        }
+        $head = "Dnes celkem: +$tn odběrů, -$tl zrušeno, ★ $(Sign $tf), komentáře +$tc"
+        $body = if ($sum.Count -gt 0) { $head + "`n" + ($sum -join "`n") } else { 'Dnes beze změn.' }
+        Notify 'Denní souhrn' $body $null
+        $day.sent = $true
+    }
+
+    [ordered]@{ items = $new; comments = $lastComment; day = $day } | ConvertTo-Json -Depth 6 | Set-Content -Path $stateFile -Encoding UTF8
+    if ($oldItems.Count -eq 0) {
+        Notify 'Workshop hlídač běží' ("Hlídané mody: $($items.Count), kontrola každých $($cfg.intervalMinut) min.") $null
     } elseif ($lines.Count -gt 0) {
-        Notify 'Workshop – změny' ($lines -join "`n")
+        Notify 'Workshop – změny' ($lines -join "`n") $null
     } else {
         Log 'beze změny'
     }
