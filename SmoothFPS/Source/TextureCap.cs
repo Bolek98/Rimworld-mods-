@@ -18,10 +18,15 @@ namespace GraphicsTuner
     public static class TextureCap
     {
         public static int Count, SavedMb;
-        private static readonly bool Waylith = GenTypes.GetTypeInAnyAssembly("Waylith.Rendering.Texture2D") != null || Type.GetType("Waylith.Rendering.Texture2D, Waylith") != null;
+        public static readonly bool Waylith = GenTypes.GetTypeInAnyAssembly("Waylith.Rendering.Texture2D") != null || Type.GetType("Waylith.Rendering.Texture2D, Waylith") != null;
         private static bool patched;
 
-        public static int Cap => GraphicsTunerMod.Settings?.texCap ?? 0;
+        // 1.4.7: not on 1.7 (Waylith). Its texture system uploads pictures on demand and moves them out of
+        // video memory under pressure – it can bring back only pictures it loaded itself. A smaller
+        // picture made here was lost after such a move and stayed blank (furniture icons, doors …).
+        // Waylith manages video memory on its own, so the limit is not needed there.
+        public static bool Blocked => Waylith;
+        public static int Cap => Waylith ? 0 : GraphicsTunerMod.Settings?.texCap ?? 0;
 
         public static void Patch(Harmony h)
         {

@@ -731,7 +731,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.4.6";
+        public const string Version = "1.4.7";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -1287,8 +1287,8 @@ namespace GraphicsTuner
             Plain(l, "GT_MemRamWarn", ref s.memRamWarn);
             if (Vram.Available) Plain(l, "GT_VramWarnSet", ref s.vramWarn);
             // 1.3.3: oversized mod textures
-            string capText = s.texCap <= 0 ? "GT_TexCapOff".Translate().ToString() : s.texCap + " px";
-            if (l.ButtonTextLabeled("GT_TexCap".Translate(), capText))
+            string capText = TextureCap.Blocked ? "GT_TexCapWaylith".Translate().ToString() : s.texCap <= 0 ? "GT_TexCapOff".Translate().ToString() : s.texCap + " px";
+            if (l.ButtonTextLabeled("GT_TexCap".Translate(), capText) && !TextureCap.Blocked)
             {
                 int[] steps = { 0, 4096, 2048, 1024 };
                 int i = Array.IndexOf(steps, s.texCap);

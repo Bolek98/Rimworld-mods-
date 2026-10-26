@@ -29,7 +29,7 @@ namespace MisakTabs
 
     public class MTMod : Mod
     {
-        public const string Version = "0.1.0";
+        public const string Version = "0.1.1";
         public static MTSettings S;
         public static Harmony H;
         private static List<string> recBullets;
@@ -158,10 +158,15 @@ namespace MisakTabs
                 h.Patch(AccessTools.Method(typeof(ITab_Bills), "FillTab"),
                     prefix: new HarmonyMethod(typeof(BillsTab), nameof(Prefix)) { priority = Priority.First },
                     postfix: new HarmonyMethod(typeof(BillsTab), nameof(Postfix)));
-                h.Patch(AccessTools.Method(typeof(ITab_Bills), "UpdateSize") ?? AccessTools.Method(typeof(InspectTabBase), "UpdateSize"),
-                    postfix: new HarmonyMethod(typeof(BillsTab), nameof(SizePostfix)));
             }
             catch (Exception e) { Log.Warning("[Mišák Tabs] bills tab not available: " + e.Message); }
+            // 0.1.1: the size lives in the base class (ITab_Bills has no UpdateSize of its own)
+            try
+            {
+                h.Patch(AccessTools.DeclaredMethod(typeof(InspectTabBase), "UpdateSize"),
+                    postfix: new HarmonyMethod(typeof(BillsTab), nameof(SizePostfix)));
+            }
+            catch (Exception e) { Log.Warning("[Mišák Tabs] bills tab size: " + e.Message); }
         }
 
         // other bill tab mods (Nice Bill Tab …) draw their own tab in a prefix – theirs is removed
