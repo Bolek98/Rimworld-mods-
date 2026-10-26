@@ -1,0 +1,456 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using HarmonyLib;
+using RimWorld;
+using UnityEngine;
+using Verse;
+
+namespace RandysTable
+{
+    // ---------------------------------------------------------------------------
+    // Randy's Table – chaos storytellers that still let you see what is coming.
+    // 0.1: "The Dice" – every day a d6 sets the mood of the day (calm … mad); an alert
+    // shows the roll and today's odds. "Diary" – short comments from the storyteller
+    // on events (works with any storyteller).
+    // ---------------------------------------------------------------------------
+    public class RTSettings : ModSettings
+    {
+        public bool recommended = true;
+        public bool diary = true;            // comments on events
+        public bool diaryAll = true;         // also with other storytellers (Randy, Cassandra …)
+        public int diaryChance = 35;         // % of events that get a comment
+        public bool diceAlert = true;        // the "die: 5 – hard day" alert with today's odds
+        public bool diceLetter = false;      // the roll as a letter instead of a short message
+
+        public override void ExposeData()
+        {
+            Scribe_Values.Look(ref recommended, "recommended", true);
+            Scribe_Values.Look(ref diary, "diary", true);
+            Scribe_Values.Look(ref diaryAll, "diaryAll", true);
+            Scribe_Values.Look(ref diaryChance, "diaryChance", 35);
+            Scribe_Values.Look(ref diceAlert, "diceAlert", true);
+            Scribe_Values.Look(ref diceLetter, "diceLetter", false);
+        }
+    }
+
+    public class RTMod : Mod
+    {
+        public const string Version = "0.1.0";
+        public static RTSettings S;
+        private static List<string> recBullets;
+
+        public RTMod(ModContentPack content) : base(content)
+        {
+            S = GetSettings<RTSettings>();
+            MUI.Init(new RTSettings(), null, "recommended");
+            if (S.recommended) MUI.ApplyAll(S);
+            MNews.Register(content, Version);
+            var h = new Harmony("bolek98.randystable");
+            try { MUI.PatchWindow(h, typeof(RTMod)); } catch { }
+            try { h.PatchAll(); }
+            catch (Exception e) { Log.Error("[Randy's Table] patching failed: " + e); }
+            Log.Message("[Randy's Table] v" + Version + " loaded.");
+        }
+
+        public override string SettingsCategory() => "Randy's Table";
+
+        private static void Check(Listing_Standard l, string key, ref bool v, string field) =>
+            MUI.Check(l, key.Translate(), (key + "_Desc").Translate(), ref v, S, field);
+
+        public override void DoSettingsWindowContents(Rect r)
+        {
+            MUI.Version(r, "v" + Version + " · Bolek98");
+            if (recBullets == null)
+                recBullets = new List<string> { "RT_Rec1".Translate(), "RT_Rec2".Translate(), "RT_Rec3".Translate() };
+            float y = r.y;
+            y += MUI.RecommendedCard(new Rect(r.x, y, r.width, 0f), S, S.recommended, v => { S.recommended = v; if (v) MUI.ApplyAll(S); }, recBullets) + 6f;
+            if (S.recommended) y += MUI.LockNote(new Rect(r.x, y, r.width, 0f)) + 4f;
+            Rect rest = new Rect(r.x, y, r.width, r.yMax - y);
+            var l = new Listing_Standard { maxOneColumn = true };
+            MUI.BeginLock(S.recommended);
+            try
+            {
+                l.Begin(rest);
+                MUI.Section(l, "RT_SecDice".Translate());
+                Check(l, "RT_DiceAlert", ref S.diceAlert, "diceAlert");
+                Check(l, "RT_DiceLetter", ref S.diceLetter, "diceLetter");
+                MUI.Section(l, "RT_SecDiary".Translate());
+                Check(l, "RT_Diary", ref S.diary, "diary");
+                Check(l, "RT_DiaryAll", ref S.diaryAll, "diaryAll");
+                S.diaryChance = Mathf.RoundToInt(MUI.Slider(l, "RT_DiaryChance".Translate(S.diaryChance), S.diaryChance, 5f, 100f, "RT_DiaryChance_Desc".Translate(), S, "diaryChance"));
+                l.End();
+            }
+            finally { MUI.EndLock(rest); }
+        }
+    }
+
+    // Marks our storytellers; "kind" says which one.
+    public class RTStoryteller : DefModExtension
+    {
+        public string kind = "dice";
+    }
+
+    // ---------------------------------------------------------------------------
+    // The die: one roll per in-game day.
+    // ---------------------------------------------------------------------------
+    public sealed class Mood
+    {
+        public float mtb = 1f;          // multiplies the mean time between events (higher = fewer)
+        public float big = 1f, small = 1f, misc = 1f, trade = 1f, visitors = 1f, chunks = 1f;
+        public float pointsMin = 1f, pointsMax = 1f;
+        public bool forceOverdueThreat = true;
+
+        public float Weight(IncidentCategoryDef cat)
+        {
+            if (cat == IncidentCategoryDefOf.ThreatBig) return big;
+            if (cat == IncidentCategoryDefOf.ThreatSmall) return small;
+            if (cat == IncidentCategoryDefOf.Misc) return misc;
+            if (cat?.defName == "OrbitalVisitor") return trade;
+            if (cat?.defName == "FactionArrival") return visitors;
+            if (cat?.defName == "ShipChunkDrop") return chunks;
+            return 1f;
+        }
+
+        public static Mood For(int roll, int seed)
+        {
+            switch (roll)
+            {
+                case 1: return new Mood { mtb = 2.5f, big = 0f, small = 0.25f, visitors = 1.4f, pointsMin = 0.6f, pointsMax = 0.8f, forceOverdueThreat = false };
+                case 2: return new Mood { mtb = 1.5f, big = 0.35f, small = 0.6f, misc = 1.3f, visitors = 1.5f, trade = 1.3f, pointsMin = 0.7f, pointsMax = 1f, forceOverdueThreat = false };
+                case 4: return new Mood { mtb = 1f, big = 0.5f, small = 0.6f, trade = 2.5f, visitors = 2f, chunks = 3f, pointsMin = 0.6f, pointsMax = 1.1f };
+                case 5: return new Mood { mtb = 0.9f, big = 2f, small = 1.8f, misc = 0.8f, pointsMin = 1f, pointsMax = 1.5f };
+                case 6:
+                    // mad day: every category gets its own random weight (same for the whole day)
+                    var r = new System.Random(seed);
+                    float R() => 0.3f + (float)r.NextDouble() * 2.2f;
+                    return new Mood { mtb = 0.5f, big = R(), small = R(), misc = R(), trade = R(), visitors = R(), chunks = R(), pointsMin = 0.6f, pointsMax = 1.8f };
+                default: return new Mood { pointsMin = 0.5f, pointsMax = 1.5f };
+            }
+        }
+    }
+
+    public sealed class DiceState : GameComponent
+    {
+        public static DiceState I;
+        public int day = -1;
+        public int roll = 3;
+
+        public DiceState(Game game) { I = this; }
+
+        public override void FinalizeInit() { I = this; }
+
+        public override void ExposeData()
+        {
+            Scribe_Values.Look(ref day, "day", -1);
+            Scribe_Values.Look(ref roll, "roll", 3);
+            if (Scribe.mode == LoadSaveMode.PostLoadInit) I = this;
+        }
+
+        public static bool DiceActive => Find.Storyteller?.def?.GetModExtension<RTStoryteller>()?.kind == "dice";
+
+        public Mood Mood => Mood.For(roll, day * 7919 + roll);
+
+        public override void GameComponentTick()
+        {
+            if (Find.TickManager.TicksGame % 250 != 17 || !DiceActive)
+                return;
+            if (GenDate.DaysPassed != day)
+                Roll(true);
+        }
+
+        public void Ensure()
+        {
+            if (GenDate.DaysPassed != day)
+                Roll(true);
+        }
+
+        public void Roll(bool announce)
+        {
+            day = GenDate.DaysPassed;
+            roll = Rand.RangeInclusive(1, 6);
+            if (!announce || Find.TickManager.TicksGame < 2500)
+                return;
+            try
+            {
+                string title = "RT_RollTitle".Translate(roll, ("RT_Mood" + roll).Translate());
+                string line = Diary.Pick("RT_RollSay" + roll);
+                string text = title + (line != null ? "\n\n„" + line + "“" : "") + "\n\n" + Forecast.Text();
+                if (RTMod.S.diceLetter)
+                    Find.LetterStack.ReceiveLetter("RT_RollLetter".Translate(roll), text,
+                        roll >= 5 ? LetterDefOf.ThreatSmall : roll == 4 ? LetterDefOf.PositiveEvent : LetterDefOf.NeutralEvent);
+                else
+                    Messages.Message(title + (line != null ? " – „" + line + "“" : ""), roll >= 5 ? MessageTypeDefOf.ThreatSmall : MessageTypeDefOf.NeutralEvent, false);
+                if (roll == 4)
+                    Gift();
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Randy's Table] roll: " + e.Message);
+            }
+        }
+
+        // a generous day brings one good thing somewhere during the day
+        private static readonly string[] Gifts = { "ResourcePodCrash", "TraderCaravanArrival", "WandererJoin", "OrbitalTraderArrival", "FarmAnimalsWanderIn", "SelfTame" };
+
+        private void Gift()
+        {
+            Map map = Find.AnyPlayerHomeMap;
+            if (map == null)
+                return;
+            var defs = Gifts.Select(n => DefDatabase<IncidentDef>.GetNamedSilentFail(n)).Where(d => d != null).ToList();
+            foreach (IncidentDef def in defs.InRandomOrder())
+            {
+                IncidentParms parms = StorytellerUtility.DefaultParmsNow(def.category, map);
+                if (!def.Worker.CanFireNow(parms))
+                    continue;
+                Find.Storyteller.incidentQueue.Add(def, Find.TickManager.TicksGame + Rand.Range(2500, 40000), parms, 20000);
+                return;
+            }
+        }
+    }
+
+    // How likely things are today – the part Randy never tells you.
+    public static class Forecast
+    {
+        public static IncidentCategoryDef Cat(string name) => DefDatabase<IncidentCategoryDef>.GetNamedSilentFail(name);
+
+        public static StorytellerCompProperties_Dice Props =>
+            Find.Storyteller?.def?.comps?.OfType<StorytellerCompProperties_Dice>().FirstOrDefault();
+
+        public static float EventsPerDay(Mood m, StorytellerCompProperties_Dice p) => 1f / Mathf.Max(0.1f, p.mtbDays * m.mtb);
+
+        public static float Share(Mood m, StorytellerCompProperties_Dice p, IncidentCategoryDef cat)
+        {
+            float total = 0f, mine = 0f;
+            foreach (IncidentCategoryEntry e in p.categoryWeights)
+            {
+                float w = e.weight * m.Weight(e.category);
+                total += w;
+                if (e.category == cat)
+                    mine += w;
+            }
+            return total <= 0f ? 0f : mine / total;
+        }
+
+        // chance of at least one event of this kind today (Poisson)
+        public static float ChanceToday(Mood m, StorytellerCompProperties_Dice p, IncidentCategoryDef cat) =>
+            1f - Mathf.Exp(-EventsPerDay(m, p) * Share(m, p, cat));
+
+        private static string Level(float c) =>
+            (c < 0.08f ? "RT_LvlVeryLow" : c < 0.2f ? "RT_LvlLow" : c < 0.4f ? "RT_LvlMid" : c < 0.6f ? "RT_LvlHigh" : "RT_LvlVeryHigh").Translate()
+            + " (" + c.ToStringPercent("0") + ")";
+
+        public static string Text()
+        {
+            DiceState d = DiceState.I;
+            StorytellerCompProperties_Dice p = Props;
+            if (d == null || p == null)
+                return "";
+            Mood m = d.Mood;
+            var sb = new System.Text.StringBuilder();
+            sb.AppendLine("RT_FcEvents".Translate(EventsPerDay(m, p).ToString("0.0")));
+            sb.AppendLine("RT_FcBig".Translate(Level(m.big <= 0f ? 0f : ChanceToday(m, p, IncidentCategoryDefOf.ThreatBig))));
+            sb.AppendLine("RT_FcSmall".Translate(Level(ChanceToday(m, p, IncidentCategoryDefOf.ThreatSmall))));
+            sb.AppendLine("RT_FcGood".Translate(Level(1f - (1f - ChanceToday(m, p, Cat("OrbitalVisitor"))) * (1f - ChanceToday(m, p, Cat("FactionArrival"))))));
+            sb.AppendLine("RT_FcStrength".Translate(Mathf.RoundToInt(m.pointsMin * 100), Mathf.RoundToInt(m.pointsMax * 100)));
+            if (!m.forceOverdueThreat)
+                sb.AppendLine("RT_FcNoForced".Translate());
+            if (d.roll == 4)
+                sb.AppendLine("RT_FcGift".Translate());
+            int ticksLeft = 60000 - Find.TickManager.TicksGame % 60000;
+            sb.Append("RT_FcNext".Translate(ticksLeft.ToStringTicksToPeriod()));
+            return sb.ToString();
+        }
+    }
+
+    public class Alert_DiceDay : Alert
+    {
+        public Alert_DiceDay()
+        {
+            defaultPriority = AlertPriority.Medium;
+        }
+
+        public override string GetLabel()
+        {
+            DiceState d = DiceState.I;
+            return d == null ? "" : "RT_AlertLabel".Translate(d.roll, ("RT_Mood" + d.roll).Translate());
+        }
+
+        public override TaggedString GetExplanation()
+        {
+            DiceState d = DiceState.I;
+            if (d == null)
+                return "";
+            return ("RT_MoodDesc" + d.roll).Translate() + "\n\n" + Forecast.Text();
+        }
+
+        public override AlertReport GetReport()
+        {
+            if (RTMod.S == null || !RTMod.S.diceAlert || DiceState.I == null || !DiceState.DiceActive || DiceState.I.day < 0)
+                return false;
+            return true;
+        }
+    }
+
+    public class StorytellerCompProperties_Dice : StorytellerCompProperties_RandomMain
+    {
+        public StorytellerCompProperties_Dice()
+        {
+            compClass = typeof(StorytellerComp_Dice);
+        }
+    }
+
+    // Randy's main event maker, with today's mood applied to how often things happen,
+    // which kinds of events come and how strong threats are.
+    public class StorytellerComp_Dice : StorytellerComp
+    {
+        private StorytellerCompProperties_Dice Props => (StorytellerCompProperties_Dice)props;
+
+        private static Mood Today
+        {
+            get
+            {
+                DiceState d = DiceState.I;
+                if (d == null)
+                    return Mood.For(3, 0);
+                d.Ensure();
+                return d.Mood;
+            }
+        }
+
+        public override IEnumerable<FiringIncident> MakeIntervalIncidents(IIncidentTarget target)
+        {
+            Mood m = Today;
+            float mtb = Props.mtbDays * m.mtb;
+            bool space = target.Tile.Valid && target.Tile.LayerDef != null && target.Tile.LayerDef.isSpace;
+            if (space)
+                mtb *= Props.spaceMtbDayFactor;
+            if (!Rand.MTBEventOccurs(mtb, 60000f, 1000f))
+                yield break;
+            if (space && GenTicks.TicksGame - Find.Storyteller.LastIncidentTick < GenDate.DaysToTicks(Props.spaceMinSpacingDays))
+                yield break;
+            bool beacon = target.IncidentTargetTags().Contains(IncidentTargetTagDefOf.Map_RaidBeacon);
+            var skip = new List<IncidentCategoryDef>();
+            do
+            {
+                IncidentCategoryDef cat = Choose(target, skip, m);
+                if (cat == null)
+                    yield break;
+                IncidentParms parms = GenerateParms(cat, target);
+                if (TrySelectRandomIncident(UsableIncidentsInCategory(cat, parms), out IncidentDef found, target))
+                {
+                    if (!(Props.skipThreatBigIfRaidBeacon && beacon) || found.category != IncidentCategoryDefOf.ThreatBig)
+                        yield return new FiringIncident(found, this, parms);
+                    break;
+                }
+                skip.Add(cat);
+            }
+            while (skip.Count < Props.categoryWeights.Count);
+        }
+
+        private IncidentCategoryDef Choose(IIncidentTarget target, List<IncidentCategoryDef> skip, Mood m)
+        {
+            if (m.forceOverdueThreat && !skip.Contains(IncidentCategoryDefOf.ThreatBig)
+                && Find.TickManager.TicksGame - target.StoryState.LastThreatBigTick > 60000f * Props.maxThreatBigIntervalDays)
+                return IncidentCategoryDefOf.ThreatBig;
+            var options = Props.categoryWeights.Where(c => !skip.Contains(c.category) && c.weight * m.Weight(c.category) > 0f).ToList();
+            if (options.Count == 0)
+                return null;
+            return options.RandomElementByWeight(c => c.weight * m.Weight(c.category)).category;
+        }
+
+        public override IncidentParms GenerateParms(IncidentCategoryDef incCat, IIncidentTarget target)
+        {
+            IncidentParms parms = StorytellerUtility.DefaultParmsNow(incCat, target);
+            if (parms.points >= 0f)
+            {
+                Mood m = Today;
+                parms.points *= Rand.Range(m.pointsMin, m.pointsMax);
+            }
+            return parms;
+        }
+    }
+
+    // ---------------------------------------------------------------------------
+    // Diary: the storyteller comments on some events (any storyteller).
+    // ---------------------------------------------------------------------------
+    public static class Diary
+    {
+        private static int lastTick = -999999;
+
+        public static string Pick(string prefix)
+        {
+            var found = new List<string>();
+            for (int i = 1; i <= 12; i++)
+            {
+                string key = prefix + "_" + i;
+                if (key.CanTranslate())
+                    found.Add(key.Translate());
+            }
+            return found.Count == 0 ? null : found.RandomElement();
+        }
+
+        public static string Group(IncidentDef def)
+        {
+            IncidentCategoryDef c = def.category;
+            if (c == null) return null;
+            switch (def.defName)
+            {
+                case "RaidEnemy": return "Raid";
+                case "ManhunterPack": return "Manhunter";
+                case "Infestation": return "Infestation";
+                case "ResourcePodCrash": return "Pod";
+                case "WandererJoin": return "Wanderer";
+                case "Eclipse": case "SolarFlare": return "Dark";
+                case "ToxicFallout": case "VolcanicWinter": case "HeatWave": case "ColdSnap": return "Weather";
+            }
+            if (c == IncidentCategoryDefOf.ThreatBig) return "Big";
+            if (c == IncidentCategoryDefOf.ThreatSmall) return "Small";
+            if (c.defName == "OrbitalVisitor") return "Trade";
+            if (c.defName == "FactionArrival") return "Visitors";
+            if (c.defName == "ShipChunkDrop") return "Chunk";
+            if (c.defName == "DiseaseHuman" || c.defName == "DiseaseAnimal") return "Disease";
+            if (c == IncidentCategoryDefOf.Misc) return "Misc";
+            return null;
+        }
+
+        public static void After(IncidentWorker worker, IncidentParms parms)
+        {
+            RTSettings s = RTMod.S;
+            if (s == null || !s.diary || worker?.def == null || Find.Storyteller?.def == null)
+                return;
+            if (!s.diaryAll && Find.Storyteller.def.GetModExtension<RTStoryteller>() == null)
+                return;
+            if (parms?.target != null && !(parms.target is Map m && m.IsPlayerHome))
+                return;
+            int now = Find.TickManager.TicksGame;
+            if (now - lastTick < 15000 || !Rand.Chance(s.diaryChance / 100f))
+                return;
+            string group = Group(worker.def);
+            string line = group == null ? null : (Pick("RT_D_" + group) ?? Pick("RT_D_Misc"));
+            if (line == null)
+                return;
+            lastTick = now;
+            Messages.Message("„" + line + "“ – " + Find.Storyteller.def.LabelCap, MessageTypeDefOf.SilentInput, false);
+        }
+    }
+
+    [HarmonyPatch(typeof(IncidentWorker), nameof(IncidentWorker.TryExecute))]
+    public static class Patch_Diary
+    {
+        public static void Postfix(IncidentWorker __instance, IncidentParms parms, bool __result)
+        {
+            if (!__result)
+                return;
+            try
+            {
+                Diary.After(__instance, parms);
+            }
+            catch (Exception e)
+            {
+                Log.WarningOnce("[Randy's Table] diary: " + e.Message, 0x52d1a7);
+            }
+        }
+    }
+}
