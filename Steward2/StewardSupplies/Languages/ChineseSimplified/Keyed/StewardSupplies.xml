@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_S_On>维持库存</CF_S_On>
+  <CF_S_RunNow>立即检查</CF_S_RunNow>
+  <CF_S_AreaAny>整张地图</CF_S_AreaAny>
+  <CF_S_AreaTip>只标记此区域内的东西。</CF_S_AreaTip>
+  <CF_S_HuntPregnant>狩猎怀孕的动物</CF_S_HuntPregnant>
+  <CF_S_Marked>管家 – 库存：已标记 {0}。</CF_S_Marked>
+  <CF_S_NothingToMark>管家 – 库存：无需标记。</CF_S_NothingToMark>
+  <CF_S_Desc>设置你希望储存多少。当数量不足时（计入已标记或散落的部分），管家会标记最近的树木、植物、矿脉或动物——只标记所需数量。其余由殖民者通过日常工作完成。</CF_S_Desc>
+  <CF_S_OnTip>开启后，管家每隔几小时（在“概览”中设置）检查此地图并标记所需的东西。</CF_S_OnTip>
+  <CF_S_Status>已储存 {0}  +{1} 在途  /  {2}</CF_S_Status>
+  <CF_J_Overview>概览</CF_J_Overview>
+  <CF_J_Hunting>狩猎</CF_J_Hunting>
+  <CF_J_Forestry>伐木</CF_J_Forestry>
+  <CF_J_Foraging>采集</CF_J_Foraging>
+  <CF_J_Mining>采矿</CF_J_Mining>
+  <CF_J_Emergency>食物危机</CF_J_Emergency>
+  <CF_J_Short>{0} / {1}</CF_J_Short>
+  <CF_J_Off>关</CF_J_Off>
+  <CF_J_Active>{0} 项启用</CF_J_Active>
+  <CF_J_EmergencyNow>进行中</CF_J_EmergencyNow>
+  <CF_J_EmergencyIdle>待命</CF_J_EmergencyIdle>
+  <CF_J_NextCheck>下次检查：{0} 小时后</CF_J_NextCheck>
+  <CF_J_Interval>每 {0} 小时检查一次</CF_J_Interval>
+  <CF_J_Enabled>开</CF_J_Enabled>
+  <CF_J_Target>目标：</CF_J_Target>
+  <CF_J_ProgressTip>绿色 = 已储存。黄色 = 在途（散落在地图上，或在已标记的树木、植物、矿脉和动物中，或在已杀死但尚未屠宰的动物中）。</CF_J_ProgressTip>
+  <CF_J_All>全选</CF_J_All>
+  <CF_J_None>全不选</CF_J_None>
+  <CF_J_Default>默认选择</CF_J_Default>
+  <CF_J_UnitMeat>肉</CF_J_UnitMeat>
+  <CF_J_HuntingDesc>维持生肉库存。只狩猎下方勾选的动物，由近及远。捕食者和常会猎杀人类的动物默认关闭。</CF_J_HuntingDesc>
+  <CF_J_ForestryDesc>维持木材库存。只砍伐下方勾选的树木，由近及远，且只砍完全成熟的。种植区内的树木绝不触碰。特殊树木（灵树、母树 …）默认关闭。</CF_J_ForestryDesc>
+  <CF_J_ForagingDesc>维持野生植物食物（浆果、龙舌兰 …）和其他野生收获物的库存。只收获下方勾选的植物。种植区内的作物绝不触碰。</CF_J_ForagingDesc>
+  <CF_J_MiningDesc>为此地图矿脉中发现的每种资源设定目标。勾选一种资源，设定数量，最近的矿脉就会被标记开采。</CF_J_MiningDesc>
+  <CF_J_NoVeins>此地图上尚未发现可开采的矿脉（迷雾区域不计入）。</CF_J_NoVeins>
+  <CF_J_AnimalInfo>地图上：{0}  {1}</CF_J_AnimalInfo>
+  <CF_J_Dangerous>· 危险</CF_J_Dangerous>
+  <CF_J_PlantInfo>地图上：{0}  · 产出 {1}</CF_J_PlantInfo>
+  <CF_J_EmergencyDesc>当殖民地的食物少于下方设定的天数时，管家会立刻标记可食用的野生植物进行收获，然后标记动物进行狩猎——无论目标如何。食物再次充足时停止。</CF_J_EmergencyDesc>
+  <CF_J_EmergencyDays>食物少于 {0} 天时进入危机</CF_J_EmergencyDays>
+  <CF_J_FoodDays>当前食物：{0} 天（殖民者和囚犯）</CF_J_FoodDays>
+  <CF_J_EmergencyHow>使用“狩猎”和“采集”中的动植物选择及其区域。先收获可食用的野生植物（安全），再狩猎。种植区内成熟的作物反正会由你的种植者收获。</CF_J_EmergencyHow>
+  <CF_J_EmergencyStart>食物危机：食物只够 {0} 天。管家正在标记可食用植物和要狩猎的动物。</CF_J_EmergencyStart>
+  <CF_J_EmergencyEnd>食物危机已解除。</CF_J_EmergencyEnd>
+  <CF_J_Livestock>牲畜</CF_J_Livestock>
+  <CF_J_LivestockDesc>为每个驯服的物种设定想要的成年雌性、成年雄性和幼崽数量。多余的会被标记屠宰，从最老的开始。有羁绊的动物绝不标记；怀孕的只有在你允许时才会。可选择把整个畜群留在一个区域内。</CF_J_LivestockDesc>
+  <CF_J_NoAnimals>此地图上还没有驯服的动物。</CF_J_NoAnimals>
+  <CF_J_HerdNow>当前：{0} ♀  {1} ♂  {2} 幼崽</CF_J_HerdNow>
+  <CF_J_KeepFemales>保留雌性</CF_J_KeepFemales>
+  <CF_J_KeepMales>保留雄性</CF_J_KeepMales>
+  <CF_J_KeepYoung>保留幼崽</CF_J_KeepYoung>
+  <CF_J_KeepPregnant>绝不屠宰怀孕的</CF_J_KeepPregnant>
+  <CF_J_AnimalAreaNone>区域：不变</CF_J_AnimalAreaNone>
+  <CF_J_AnimalAreaTip>把此物种的所有动物留在此区域内。</CF_J_AnimalAreaTip>
+  <CF_J_StepTip>Shift：±10，Ctrl：±100</CF_J_StepTip>
+  <CF_J_KeepSpecies>每个物种保留存活</CF_J_KeepSpecies>
+  <CF_J_OutsideHome>仅限居住区以外</CF_J_OutsideHome>
+  <CF_J_OutsideHomeTip>居住区内的树木绝不砍伐，基地得以保留其树木。</CF_J_OutsideHomeTip>
+  <CF_J_KeepTrees>始终保留</CF_J_KeepTrees>
+  <CF_J_ClearOff>清理区域：关</CF_J_ClearOff>
+  <CF_J_ClearOn>清理区域：{0}</CF_J_ClearOn>
+  <CF_J_ClearTip>此区域内的所有植物都会被砍除（树木、灌木、草）——用于建筑工地或防火带。种植区内的作物不受影响。与木材目标无关。</CF_J_ClearTip>
+  <CF_J_Clear>清理中</CF_J_Clear>
+  <CF_J_GraphWait>2 天后显示图表</CF_J_GraphWait>
+  <CF_J_GraphTip>最近几天的库存（绿色）和目标（黄线）。</CF_J_GraphTip>
+  <CF_T_Tidy>搬出无处存放的物品</CF_T_Tidy>
+  <CF_T_TidyTip>居住区内的物品照常被送往储存区。当任何地方都没有空间时，殖民者会把它们搬到倾倒区。没有倾倒区则留在原地。属于搬运工作。死去的人会留给坟墓。</CF_T_TidyTip>
+  <CF_T_DumpAuto>倾倒：仅储存区</CF_T_DumpAuto>
+  <CF_T_Dump>倾倒：{0}</CF_T_Dump>
+  <CF_T_DumpTip>没有储存区的物品只会放在你选择的区域内。没有该区域时，殖民者会把它们留在原地。</CF_T_DumpTip>
+  <CF_A_Label>管家：库存</CF_A_Label>
+  <CF_A_Explanation>管家无法维持某些库存：</CF_A_Explanation>
+  <CF_A_NoSources>{0}：低于目标且没有可标记的了（检查选择、区域和迷雾）。</CF_A_NoSources>
+  <CF_A_NoHunter>需要狩猎，但会狩猎的殖民者都没有远程武器。</CF_A_NoHunter>
+  <CF_A_NoSourcesHere>低于目标且没有可标记的——检查选择、区域或保留限制。</CF_A_NoSourcesHere>
+  <CF_J_Production>生产</CF_J_Production>
+  <CF_J_Power>电力</CF_J_Power>
+  <CF_J_Household>家务</CF_J_Household>
+  <CF_J_On>开</CF_J_On>
+  <CF_J_ProductionDesc>保持成品库存：食物、药品、衣物、零部件 … 每个目标会成为能制作它的最佳工作台上的一条“做到 X 个”清单。管家负责维护该清单（重建、移动、更新、暂停）；你自己的清单绝不触碰。</CF_J_ProductionDesc>
+  <CF_X_AddProduct>添加产品</CF_X_AddProduct>
+  <CF_X_NoBillYet>暂无清单（下次检查）</CF_X_NoBillYet>
+  <CF_X_BillAt>清单位于 {0}</CF_X_BillAt>
+  <CF_X_RemoveProduct>移除目标及其清单</CF_X_RemoveProduct>
+  <CF_J_PowerDesc>当电网的电池电量不足时，选定的设备会被关闭；电池再次充满时，管家会重新打开它关闭的设备。你自己关闭的设备保持关闭。</CF_J_PowerDesc>
+  <CF_X_PowerNow>当前：盈余 {0} W · 储存 {1} / {2} Wd（{3}）</CF_X_PowerNow>
+  <CF_X_PowerLow>电量低于 {0} 时关闭</CF_X_PowerLow>
+  <CF_X_PowerHigh>电量高于 {0} 时重新打开</CF_X_PowerHigh>
+  <CF_X_PowerDevices>可以关闭的设备：</CF_X_PowerDevices>
+  <CF_X_DeviceInfo>{0}× · 每个 {1} W</CF_X_DeviceInfo>
+  <CF_J_HouseholdDesc>基地秩序：储存区放不下的物品会被搬出，重要房间的污物会被优先清洁。</CF_J_HouseholdDesc>
+  <CF_C_Clean>优先清洁重要房间</CF_C_Clean>
+  <CF_C_CleanTip>下方勾选房间的污物会比其他地方先被清洁。厨房的污物会传播食物中毒，医院的污物会增加感染风险。属于清洁工作。</CF_C_CleanTip>
+  <CF_C_FilthNow>这些房间当前污物：{0}</CF_C_FilthNow>
+  <CF_C_Rooms>优先清洁的房间：</CF_C_Rooms>
+  <CF_X_Cancel>取消管家的标记</CF_X_Cancel>
+  <CF_X_CancelTip>移除管家做出的所有砍伐、狩猎、收获、开采和屠宰标记。你自己的标记保留。</CF_X_CancelTip>
+  <CF_X_CancelConfirm>移除管家在此地图上做出的所有标记？你自己做的标记会保留。</CF_X_CancelConfirm>
+  <CF_X_Cancelled>管家：已移除 {0} 个标记。</CF_X_Cancelled>
+  <CF_X_OtherMap>{0}：{1}</CF_X_OtherMap>
+  <CF_H_Chunks>清理石块和炉渣</CF_H_Chunks>
+  <CF_H_ChunksTip>居住区内的石块和炉渣会由管家标记搬运——就像你自己标记的一样——在其他搬运较少时每次标记几个。任何开启搬运的殖民者都会把它们送到接收石块的储存区；没有这样的储存区时，若设置了倾倒区则送到倾倒区。被禁止的石块不受影响。</CF_H_ChunksTip>
+  <CF_H_Items>标记散落物品以搬运</CF_H_Items>
+  <CF_H_ItemsTip>居住区内货架或储存区以外（且有地方可去）的所有物品都会由管家标记搬运——包括袭击后被禁止的物品。每次几个，离殖民地最近的优先。</CF_H_ItemsTip>
+  <CF_H_Pockets>殖民者卸下口袋里被遗忘的物品</CF_H_Pockets>
+  <CF_H_PocketsTip>殖民者无故携带在物品栏中的东西（库存搬运遗留的、捡起后忘记的）会被放下并送往储存区。武器、药物、其方案规定的储备和旅途食物会保留。物品须先在口袋里放约半小时。配合 Harvest And Haul 时由其自身的卸货任务处理——所有东西一趟送入储存区。</CF_H_PocketsTip>
+  <CF_H_Workers>执行此工作的殖民者：</CF_H_Workers>
+  <CF_H_WorkersTip>有多少殖民者搬出无处存放的物品（以及下一行的清洁）。0 = 所有开启该工作类型的人。管家每个游戏小时挑选最高优先级工作最少的人，走得快的优先。Shift：±10。标记搬运的石块由任何搬运工处理。</CF_H_WorkersTip>
+  <CF_H_Everyone>所有人</CF_H_Everyone>
+  <CF_H_Nobody>无人可用</CF_H_Nobody>
+  <CF_X_PickTitle>添加产品</CF_X_PickTitle>
+  <CF_X_InStock>库存：{0}</CF_X_InStock>
+  <CF_X_OpenMint>打开 Mint 清单</CF_X_OpenMint>
+  <CF_X_OpenMintTip>打开 Dubs Mint Menus 的清单菜单，显示所有工作台。在那里创建一条“做到 X 个”清单并在这里接管——之后由管家维护。</CF_X_OpenMintTip>
+  <CF_X_Adopt>接管清单（{0}）</CF_X_Adopt>
+  <CF_X_AdoptTip>手动或在 Dubs Mint Menus 中创建的“做到 X 个”清单。管家会接管它们：被删除时重建，工作台不在时移动，关闭时暂停。</CF_X_AdoptTip>
+  <CF_H_Products>立即搬走成品</CF_H_Products>
+  <CF_H_ProductsTip>放在工作台、炉灶或制作点旁的食物、药品、衣物和其他物品会先于其他搬运被送往储存区。设为“放在地上”的管家清单会改为“送往最佳储存区”。属于搬运工作。</CF_H_ProductsTip>
+  <CF_M_Target>保持现成食物足够</CF_M_Target>
+  <CF_M_TargetTip>熟食的目标库存，以所有进食者的食物天数计。殖民地达到或超过此数量时，所有制作食物的清单都会暂停；低于此数量时，被管家暂停的清单重新开始。你自己暂停的清单保持暂停。Shift = 以 2 天为步长。</CF_M_TargetTip>
+  <CF_M_Days>{0} 天</CF_M_Days>
+  <CF_M_Now>当前 {0} 天</CF_M_Now>
+  <CF_M_Paused>已暂停 {0} 条食物清单</CF_M_Paused>
+  <CF_M_Cooking>烹饪中</CF_M_Cooking>
+  <CF_M_Page>现成食物</CF_M_Page>
+  <CF_M_Short>{0} / {1} 天</CF_M_Short>
+  <CF_M_Bills>制作食物的清单：{0}</CF_M_Bills>
+  <CF_M_NoBills>没有制作食物的清单。请在炉灶处（或在“生产”中）添加一条——管家只暂停和恢复清单，不会创建它们。</CF_M_NoBills>
+  <CF_M_BillOn>烹饪中</CF_M_BillOn>
+  <CF_M_BillSteward>被管家暂停</CF_M_BillSteward>
+  <CF_M_BillYou>被你暂停</CF_M_BillYou>
+  <CF_H_Blight>砍除枯萎病植物</CF_H_Blight>
+  <CF_H_BlightTip>种植区、花盆、水培槽和居住区中患枯萎病的植物每小时被标记砍除，以免枯萎病蔓延。之后枯萎病危机会为砍伐植物分配更多殖民者。</CF_H_BlightTip>
+  <CF_BlightMarked>管家：已标记 {0} 株枯萎病植物待砍除。</CF_BlightMarked>
+  <CF_P_MaySwitch>管家可关闭</CF_P_MaySwitch>
+  <CF_P_MaySwitchDesc>电池电量不足时，管家会逐个关闭选定的设备，从最大的开始。关闭此项可让这台设备始终保持开启。</CF_P_MaySwitchDesc>
+  <CF_A_Page>自给</CF_A_Page>
+  <CF_A_Short>{0} 条清单</CF_A_Short>
+  <CF_A_Desc>当殖民地缺少它能制作的东西时，管家会在能制作它的最佳工作台上（正规工作台优先于篝火或制作点）添加一条正好补足缺口的清单，完成后移除——绝不是“永远重复”。储存区中的物品和你自己的清单优先计入。</CF_A_Desc>
+  <CF_A_On>自给开启</CF_A_On>
+  <CF_A_Meals>食物</CF_A_Meals>
+  <CF_A_Medicine>药品</CF_A_Medicine>
+  <CF_A_Clothes>衣物和配饰</CF_A_Clothes>
+  <CF_A_Armor>护甲</CF_A_Armor>
+  <CF_A_Weapons>武器</CF_A_Weapons>
+  <CF_A_Materials>材料</CF_A_Materials>
+  <CF_A_Worn>耐久低于 {0} % 时更换</CF_A_Worn>
+  <CF_A_Bills>自给创建的清单：{0}</CF_A_Bills>
+  <CF_A_RemoveAll>移除这些清单</CF_A_RemoveAll>
+  <CF_A_Last>最近添加：{0}</CF_A_Last>
+  <CF_A_Kind_meals>食物</CF_A_Kind_meals>
+  <CF_A_Kind_medicine>药品</CF_A_Kind_medicine>
+  <CF_A_Kind_clothes>衣物</CF_A_Kind_clothes>
+  <CF_A_Kind_armor>护甲</CF_A_Kind_armor>
+  <CF_A_Kind_weapon>武器</CF_A_Kind_weapon>
+  <CF_A_Kind_material>材料</CF_A_Kind_material>
+  <CF_A_Left>剩余 {0}×</CF_A_Left>
+  <CF_A_Until>直到 {0}</CF_A_Until>
+  <CF_A_Race>遵守种族限制</CF_A_Race>
+  <CF_A_RaceTip>开启：外星种族（Humanoid Alien Races）只会获得其种族可用的衣物和武器。如果另一个模组解除了这些限制请关闭——届时每个人都能获得一切。</CF_A_RaceTip>
+  <CF_W_Reassign>立即重新分配工作</CF_W_Reassign>
+  <CF_W_ReassignHere_Desc>立即重新规划此地图的工作优先级（与“工作”标签中的“重新计算”相同）。锁定的格子、工作和殖民者保持不变。</CF_W_ReassignHere_Desc>
+  <CF_W_LastPlan>工作优先级：{0}前规划，{1} 项更改 – 风格 {2}。</CF_W_LastPlan>
+  <CF_W_LastPlanNever>工作优先级：自游戏载入以来此地图尚未规划。</CF_W_LastPlanNever>
+  <CF_W_LastPlan_Desc>将鼠标悬停在“工作”标签的格子上，可查看殖民者获得该优先级的原因：技能、热情、速度、排名、该工作的殖民者配额以及决定级别的规则。</CF_W_LastPlan_Desc>
+  <CF_W_StewardOff>（管家在此地图上已关闭）</CF_W_StewardOff>
+  <CF_NoStorage>{0}（{1}×）躺在地上无人搬运：没有储存区接收它，或者都已满。请在某个储存区的过滤器中允许它。</CF_NoStorage>
+  <CF_J_ClearTooBig>{0} – 太大，无法清理</CF_J_ClearTooBig>
+  <CF_J_ClearTooBigOff>清理区域“{0}”太大（将占半张地图）——已关闭并取消其砍伐标记。请只为建筑工地或防火带划一个小区域。</CF_J_ClearTooBigOff>
+  <CF_J_ClearCancelled>已取消清理区域的砍伐标记：{0}</CF_J_ClearCancelled>
+  <CF2U_Name>库存</CF2U_Name>
+  <CF2U_Hint>库存目标、清单、动物和家务在“库存”标签（底部栏）中设置。</CF2U_Hint>
+  <CF2U_Messages>关于管家标记内容的消息</CF2U_Messages>
+  <CF2U_MasterBills>大师清单</CF2U_MasterBills>
+  <CF2U_MasterBillsTip>优质武器和衣物只由最好的工匠制作（始终至少两人）。你自己的清单设置优先。</CF2U_MasterBillsTip>
+  <CF2U_NoStorage>物品无处可去时提醒</CF2U_NoStorage>
+  <CF2U_NoStorageTip>当物品无法存放到任何地方时，管家会说明原因。</CF2U_NoStorageTip>
+  <CF2U_PUAH>使用 Pick Up And Haul 搬运</CF2U_PUAH>
+  <CF2U_PUAHTip>管家用 Pick Up And Haul 的口袋把物品送往储存区。</CF2U_PUAHTip>
+</LanguageData>

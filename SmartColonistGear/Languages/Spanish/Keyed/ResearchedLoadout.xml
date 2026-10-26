@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RL_Enable>Activar mod</RL_Enable>
+  <RL_UseRecipes>Las recetas cuentan como investigación</RL_UseRecipes>
+  <RL_UseRecipes_Desc>Un objeto se desbloquea cuando se completa la investigación de al menos una receta que lo fabrica. Desactívalo si las materias primas (madera, acero) quedan bloqueadas.</RL_UseRecipes_Desc>
+  <RL_BlockHigherTech>Bloquear objetos por encima del nivel tecnológico de la colonia</RL_BlockHigherTech>
+  <RL_BlockHigherTech_Desc>No se usan los objetos sin investigación más avanzados que el nivel tecnológico investigado de tu colonia.</RL_BlockHigherTech_Desc>
+  <RL_BlockUntagged>Bloquear objetos de mods sin investigación</RL_BlockUntagged>
+  <RL_BlockUntagged_Desc>Los objetos de otros mods que no tienen investigación se consideran bloqueados.</RL_BlockUntagged_Desc>
+  <RL_BlockLockedEquip>Bloquear armas no investigadas</RL_BlockLockedEquip>
+  <RL_BlockLockedEquip_Desc>Los colonos no recogen un arma no investigada, ni siquiera por orden.</RL_BlockLockedEquip_Desc>
+  <RL_BlockLockedApparel>Bloquear ropa no investigada</RL_BlockLockedApparel>
+  <RL_BlockLockedApparel_Desc>El vestido vanilla no elige ropa no investigada.</RL_BlockLockedApparel_Desc>
+  <RL_StripLocked>Quitar el equipo no investigado</RL_StripLocked>
+  <RL_StripLocked_Desc>Los colonos sueltan las armas y la ropa que tu colonia aún no ha investigado.</RL_StripLocked_Desc>
+  <RL_AutoPrimary>Mejorar automáticamente el arma principal</RL_AutoPrimary>
+  <RL_AutoPrimary_Desc>Los colonos cogen por su cuenta un arma más fuerte y sueltan la más débil.</RL_AutoPrimary_Desc>
+  <RL_UseSkills>Elegir arma según habilidades</RL_UseSkills>
+  <RL_UseSkills_Desc>Los tiradores reciben armas a distancia, los luchadores armas cuerpo a cuerpo.</RL_UseSkills_Desc>
+  <RL_AutoSidearm>Arma secundaria automática</RL_AutoSidearm>
+  <RL_AutoSidearm_Desc>Los colonos también llevan un arma de reserva del otro tipo. Con Simple Sidearms se aplican sus límites y reglas.</RL_AutoSidearm_Desc>
+  <RL_PrioritizeFighters>Las mejores armas para los mejores luchadores</RL_PrioritizeFighters>
+  <RL_PrioritizeFighters_Desc>El colono con la mayor habilidad de Disparo o Cuerpo a cuerpo elige primero. Los demás no cogen un arma mientras sea una mejora para un luchador mejor.</RL_PrioritizeFighters_Desc>
+  <RL_ArmSlaves>Armar a los esclavos</RL_ArmSlaves>
+  <RL_ArmSlaves_Desc>Los esclavos armados aumentan mucho la probabilidad de una rebelión. Desactivado por defecto.</RL_ArmSlaves_Desc>
+  <RL_ConsiderDistance>Tener en cuenta la distancia</RL_ConsiderDistance>
+  <RL_ConsiderDistance_Desc>Cuanto más lejos está un objeto, mayor mejora debe aportar (hasta +25 %) para que un colono vaya a por él.</RL_ConsiderDistance_Desc>
+  <RL_PauseThreat>Pausar durante ataques</RL_PauseThreat>
+  <RL_PauseThreat_Desc>Mientras haya un enemigo activo en la zona base o a menos de 40 casillas de un colono, nadie va a buscar equipo. No cuentan los enemigos lejanos en el borde del mapa, derribados o huyendo.</RL_PauseThreat_Desc>
+  <RL_OwnDresser>Vestido propio en lugar del vanilla</RL_OwnDresser>
+  <RL_OwnDresser_Desc>Este mod se encarga de vestir en lugar del juego. Recomendado solo si el vestido vanilla da errores.</RL_OwnDresser_Desc>
+  <RL_AutoApparel>Vestido automático (propio)</RL_AutoApparel>
+  <RL_AutoApparel_Desc>Solo se aplica junto con el vestido propio.</RL_AutoApparel_Desc>
+  <RL_OnlyStockpile>Solo de zonas de almacenamiento y estanterías</RL_OnlyStockpile>
+  <RL_OnlyStockpile_Desc>Los colonos solo cogen objetos de zonas de almacenamiento y estanterías, no los que estén tirados por el mapa.</RL_OnlyStockpile_Desc>
+  <RL_ReplaceBroken>Quitar lo andrajoso y lo prohibido por la política</RL_ReplaceBroken>
+  <RL_ReplaceBroken_Desc>Se quita la ropa por debajo del umbral de durabilidad o prohibida por la política de vestimenta.</RL_ReplaceBroken_Desc>
+  <RL_StoreDropped>Llevar el equipo soltado al almacén</RL_StoreDropped>
+  <RL_StoreDropped_Desc>Los colonos llevan el equipo que se quitan al mejor lugar de almacenamiento libre. Si no hay sitio, se queda en el suelo.</RL_StoreDropped_Desc>
+  <RL_Notify>Notificaciones en el juego</RL_Notify>
+  <RL_Notify_Desc>Un mensaje arriba a la izquierda cuando un colono coge otra arma o prenda.</RL_Notify_Desc>
+  <RL_DebugLog>Registro de depuración</RL_DebugLog>
+  <RL_DebugLog_Desc>Escribe cada cambio en el registro. Solo para solucionar problemas.</RL_DebugLog_Desc>
+  <RL_MinHp>Durabilidad mín.: {0}%</RL_MinHp>
+  <RL_MinHp_Desc>El equipo por debajo de este umbral se considera roto. El juego base da una penalización de ánimo por ropa andrajosa por debajo del 50 %.</RL_MinHp_Desc>
+  <RL_Search>Buscar:</RL_Search>
+  <RL_BanModWeapons>Prohibir armas de mods</RL_BanModWeapons>
+  <RL_AllowWeapons>Permitir armas</RL_AllowWeapons>
+  <RL_BanModApparel>Prohibir ropa de mods</RL_BanModApparel>
+  <RL_AllowApparel>Permitir ropa</RL_AllowApparel>
+  <RL_BanWeaponsTitle>Armas (marcado = PROHIBIDO)</RL_BanWeaponsTitle>
+  <RL_BanApparelTitle>Ropa y armaduras (marcado = PROHIBIDO)</RL_BanApparelTitle>
+  <RL_GizmoLabel>Equipo automático</RL_GizmoLabel>
+  <RL_GizmoDesc>Si está activado, el mod elige las armas y la ropa de este colono. Desactívalo para un colono cuyo equipo quieras gestionar a mano.</RL_GizmoDesc>
+  <RL_MsgWeapon>{0} coge {1} en lugar de {2}.</RL_MsgWeapon>
+  <RL_MsgWeaponNew>{0} coge {1}.</RL_MsgWeaponNew>
+  <RL_MsgSidearm>{0} coge {1} como arma secundaria.</RL_MsgSidearm>
+  <RL_MsgApparel>{0} se pone {1}.</RL_MsgApparel>
+  <RL_WeaponCalm>Pausa tras cambiar de arma: {0} h</RL_WeaponCalm>
+  <RL_WeaponCalm_Desc>Tras cambiar de arma, un colono la conserva durante este tiempo salvo que se rompa. 24 h = un día de juego, 0 = sin límite.</RL_WeaponCalm_Desc>
+  <RL_Ex_Allowed>Permitido</RL_Ex_Allowed>
+  <RL_Ex_Locked>Bloqueado</RL_Ex_Locked>
+  <RL_Ex_Banned>Prohibido manualmente</RL_Ex_Banned>
+  <RL_Ex_Always>Siempre requiere: {0}</RL_Ex_Always>
+  <RL_Ex_Option>Fabricación: {0}</RL_Ex_Option>
+  <RL_Ex_Free>Se puede fabricar sin investigación</RL_Ex_Free>
+  <RL_Ex_NoResearch>Sin investigación (decide el nivel tecnológico y la regla de objetos de mods)</RL_Ex_NoResearch>
+  <RL_Ex_Tech>Nivel tecnológico: {0} (límite: {1})</RL_Ex_Tech>
+  <RL_Ex_Mod>Mod: {0}</RL_Ex_Mod>
+  <RL_Ex_Done>completada</RL_Ex_Done>
+  <RL_Ex_Missing>falta</RL_Ex_Missing>
+  <RL_TechMismatch>Comprobar objetos más avanzados que su investigación</RL_TechMismatch>
+  <RL_TechMismatch_Desc>Cuando un mod pone un objeto avanzado bajo una investigación inferior (un rifle espacial bajo investigación industrial), la colonia también debe alcanzar el nivel tecnológico de ese objeto.</RL_TechMismatch_Desc>
+  <RL_PowerEstimate>Estimar el nivel tecnológico de objetos de mods por su potencia</RL_PowerEstimate>
+  <RL_PowerEstimate_Desc>Un arma o armadura de mod claramente más fuerte que la mejor industrial del juego base cuenta como espacial, aunque el autor del mod haya puesto un nivel inferior. Es una estimación.</RL_PowerEstimate_Desc>
+  <RL_Ex_Power>La potencia corresponde al nivel tecnológico: {0}</RL_Ex_Power>
+  <RL_Ex_NeedColony>La colonia debe alcanzar el nivel tecnológico: {0}</RL_Ex_NeedColony>
+  <RL_LevelByProgress>Nivel de la colonia según el progreso de investigación</RL_LevelByProgress>
+  <RL_LevelByProgress_Desc>La colonia alcanza un nivel tecnológico cuando ha completado la proporción fijada de la investigación de ese nivel. Desactivado = decide la investigación completada más alta (basta con una). El nivel del escenario siempre cuenta como mínimo.</RL_LevelByProgress_Desc>
+  <RL_LevelProgress>Proporción requerida de la investigación de un nivel: {0}%</RL_LevelProgress>
+  <RL_LevelProgress_Desc>Qué parte de la investigación de un nivel debe estar completada para que la colonia cuente como ese nivel.</RL_LevelProgress_Desc>
+  <RL_CurrentLevel>Nivel actual de la colonia: {0} (escenario: {1}, investigación: {2})</RL_CurrentLevel>
+  <RL_SyncWorld>Nivel de la colonia desde World at Your Level</RL_SyncWorld>
+  <RL_SyncWorld_Desc>Los colonos y todo el mundo comparten el mismo nivel, incluido el nivel manual y las proporciones por nivel fijadas en el mod de incursiones.</RL_SyncWorld_Desc>
+  <RL_SurvivalApparel>Excepción de supervivencia (solo crítica)</RL_SurvivalApparel>
+  <RL_SurvivalApparel_Desc>La temperatura solo importa en una emergencia: cuando está fuera de los límites de abajo o un colono tiene hipotermia o golpe de calor (siempre se aplica). Entonces puede llevar ropa de abrigo no investigada o quitarse prendas que empeoran el calor (nunca la armadura). Si no, la ropa no se cambia por la temperatura.</RL_SurvivalApparel_Desc>
+  <RL_ApparelCalm>Pausa tras cambiarse de ropa: {0} h</RL_ApparelCalm>
+  <RL_ApparelCalm_Desc>Tras cambiarse de ropa, un colono no vuelve a cambiarse durante este tiempo salvo que tenga hipotermia o golpe de calor. Los objetos que se quitó o que una prenda nueva reemplazó no se vuelven a coger durante un día. 0 = sin pausa.</RL_ApparelCalm_Desc>
+  <RL_KeepArmor>Conservar siempre la armadura</RL_KeepArmor>
+  <RL_KeepArmor_Desc>Una pieza de armadura nunca se cambia por otra con menos protección y nunca se quita por la temperatura. No se aplica a armaduras rotas o bloqueadas.</RL_KeepArmor_Desc>
+  <RL_TempByThresholds>Límites de temperatura personalizados</RL_TempByThresholds>
+  <RL_TempByThresholds_Desc>Activado: deciden los deslizadores. Desactivado: automático, según el rango seguro de cada colono (teniendo en cuenta lo que lleva).</RL_TempByThresholds_Desc>
+  <RL_ColdThreshold>Ponerse ropa de abrigo por debajo de: {0}</RL_ColdThreshold>
+  <RL_ColdThreshold_Desc>Cuando hace más frío fuera, los colonos se ponen ropa de abrigo (incluso no investigada). La conservan hasta que haga al menos 3 grados más que este límite.</RL_ColdThreshold_Desc>
+  <RL_HeatThreshold>Quitarse ropa por calor por encima de: {0}</RL_HeatThreshold>
+  <RL_HeatThreshold_Desc>Cuando hace más calor fuera, los colonos se quitan las prendas que empeoran el calor (nunca la armadura) y llevan ropa que protege del calor.</RL_HeatThreshold_Desc>
+  <RL_GenderClothing>Ropa según el género</RL_GenderClothing>
+  <RL_GenderClothing_Desc>Los hombres solo cogen ropa de hombre y unisex, las mujeres solo de mujer y unisex. Una prenda del otro género que ya lleven se reemplaza en cuanto se encuentra un sustituto adecuado.</RL_GenderClothing_Desc>
+  <RL_GenderGuess>Adivinar el género por el nombre y la descripción</RL_GenderGuess>
+  <RL_GenderGuess_Desc>Si la definición de la ropa no tiene género, se adivina por su nombre, etiquetas, textura y descripción (vestido, falda, sirvienta… = de mujer; esmoquin, caballero… = de hombre). En caso de duda, la prenda es unisex. Puedes ver la estimación en la descripción emergente de la lista de ropa.</RL_GenderGuess_Desc>
+  <RL_GenderFemale>de mujer</RL_GenderFemale>
+  <RL_GenderMale>de hombre</RL_GenderMale>
+  <RL_GenderUnisex>unisex</RL_GenderUnisex>
+  <RL_Ex_Gender>Género: {0}</RL_Ex_Gender>
+  <RL_TabGeneral>Investigación y nivel</RL_TabGeneral>
+  <RL_TabWeapons>Armas</RL_TabWeapons>
+  <RL_TabApparel>Ropa</RL_TabApparel>
+  <RL_TabTemperature>Temperatura y amenazas</RL_TabTemperature>
+  <RL_TabBans>Prohibiciones</RL_TabBans>
+  <RL_TabOther>Otros</RL_TabOther>
+  <RL_TempInfo>La temperatura solo cambia la ropa en una emergencia: cuando está fuera de los límites fijados o un colono tiene hipotermia o golpe de calor (siempre se aplica).\n\nCon frío se ponen ropa de abrigo, incluso no investigada. Con calor se quitan las prendas que lo empeoran.\n\nLa armadura nunca se quita ni se cambia por otra más débil por la temperatura.</RL_TempInfo>
+  <RL_ConfirmBanWeapons>¿Prohibir de verdad TODAS las armas de mods? Los colonos no cogerán ninguna arma de mod. Más tarde puedes desmarcar armas concretas en la lista.</RL_ConfirmBanWeapons>
+  <RL_ConfirmBanApparel>¿Prohibir de verdad TODA la ropa de mods? Los colonos no cogerán ninguna prenda de mod. Más tarde puedes desmarcar prendas concretas en la lista.</RL_ConfirmBanApparel>
+  <RL_RoleGear>Equipo según especialización</RL_RoleGear>
+  <RL_RoleGear_Desc>Según sus habilidades, cada colono tiene un rol: tirador, luchador cuerpo a cuerpo, equilibrado o trabajador. Los luchadores cuerpo a cuerpo prefieren armadura más pesada, los trabajadores equipo más ligero sin ralentizaciones. Los buenos tiradores valoran las armas de largo alcance, los malos las más rápidas de corto alcance. El rol se muestra en la descripción del botón «Equipo automático».</RL_RoleGear_Desc>
+  <RL_SpecialEffects>Tener en cuenta efectos especiales de armas</RL_SpecialEffects>
+  <RL_SpecialEffects_Desc>Las armas explosivas, incendiarias, EMP, aturdidoras, tóxicas y de humo puntúan menos como arma principal de un colono (riesgo de herir a aliados, solo eficaces contra algunos objetivos).</RL_SpecialEffects_Desc>
+  <RL_StatOffsets>Bonificaciones y penalizaciones del equipo</RL_StatOffsets>
+  <RL_StatOffsets_Desc>Tiene en cuenta lo que cambia el equipo: velocidad de movimiento y de trabajo, puntería, acierto y esquiva y, según la mejor habilidad del colono, también estadísticas de trabajo (curación del médico, trabajo con plantas del cultivador, cocina del cocinero…).</RL_StatOffsets_Desc>
+  <RL_Role_Shooter>tirador</RL_Role_Shooter>
+  <RL_Role_Melee>luchador cuerpo a cuerpo</RL_Role_Melee>
+  <RL_Role_Balanced>equilibrado</RL_Role_Balanced>
+  <RL_Role_Worker>trabajador</RL_Role_Worker>
+  <RL_GizmoRole>Rol: {0}, especialización: {1}</RL_GizmoRole>
+  <RL_CoverageFirst>Cubrir primero el cuerpo (torso, piernas)</RL_CoverageFirst>
+  <RL_CoverageFirst_Desc>Una prenda que cubre una zona desnuda tiene prioridad (el torso sobre todo, luego piernas, cabeza y el resto). Una prenda que dejaría algo al descubierto se penaliza. Mientras el torso o las piernas estén desnudos, el colono se viste enseguida, sin pausa.</RL_CoverageFirst_Desc>
+  <RL_ThreatApparel>Protección contra amenazas</RL_ThreatApparel>
+  <RL_ThreatApparel_Desc>Durante frío o calor crítico (límites de arriba), toxinas, lluvia radiactiva, contaminación, vacío o combate en el mapa, la ropa con la protección necesaria recibe una gran bonificación para que los colonos se la pongan. La armadura nunca se cambia por otra más débil por ello.</RL_ThreatApparel_Desc>
+  <RL_ThreatBills>Crear encargos de protección</RL_ThreatBills>
+  <RL_ThreatBills_Desc>Cuando no hay suficiente ropa de protección y la receta está investigada, se añade a una mesa de trabajo un encargo «hasta tener X» y los productos van al almacén. Tus encargos no se eliminan. Si falta investigación, se muestra un mensaje.</RL_ThreatBills_Desc>
+  <RL_ThreatBill>Los colonos han empezado a fabricar protección: {0}.</RL_ThreatBill>
+  <RL_ThreatNoRecipe>Aún no se puede fabricar protección contra esta amenaza. Falta la investigación.</RL_ThreatNoRecipe>
+  <RL_OnlyCrafted>Coger solo lo que la colonia ha fabricado</RL_OnlyCrafted>
+  <RL_OnlyCrafted_Desc>Los colonos solo cogen armas y ropa nuevas que la colonia ya ha fabricado al menos una vez en una mesa de trabajo (y ha investigado). El botín y los objetos comprados de otros tipos se ignoran hasta que fabriquéis ese tipo vosotros mismos. Lo que ya llevan no se quita por esto. En una partida en curso, el equipo de los colonos y los objetos almacenados que podéis fabricar se registran una vez.</RL_OnlyCrafted_Desc>
+  <RL_CraftedCount>Tipos de armas y ropa fabricados: {0}</RL_CraftedCount>
+  <RL_CraftedReset>Vaciar la lista de fabricados</RL_CraftedReset>
+  <RL_CraftedReset_Desc>Olvida todos los tipos de armas y ropa registrados o fabricados hasta ahora. A partir de ahora solo cuenta lo que la colonia fabrique de verdad. Lo que llevan los colonos se queda puesto.</RL_CraftedReset_Desc>
+  <RL_CraftedResetConfirm>¿Vaciar de verdad la lista de fabricados? Los colonos solo cogerán armas y ropa nuevas después de que hayáis fabricado ese tipo.</RL_CraftedResetConfirm>
+  <RL_Ex_NotCrafted>Investigado, pero la colonia aún no lo ha fabricado.</RL_Ex_NotCrafted>
+  <RL_SidearmLocked>Smart Colonist Gear: la colonia aún no ha investigado ni fabricado esta arma</RL_SidearmLocked>
+  <RL_WorkClothing>Ropa de trabajo solo para especialistas</RL_WorkClothing>
+  <RL_WorkClothing_Desc>La ropa que acelera un trabajo concreto (delantal para cocinar, bata de laboratorio para investigar, guantes para médicos, casco de minero…) solo la coge un especialista en ese trabajo; si lo hay, tiene una fuerte preferencia. Los demás no la cogen. Especialista = es su mejor habilidad de trabajo, o tiene ese trabajo con prioridad 1, y la habilidad está al menos en el nivel fijado.</RL_WorkClothing_Desc>
+  <RL_WorkClothingSkill>Especialista desde habilidad: {0}</RL_WorkClothingSkill>
+  <RL_WorkClothingSkill_Desc>Nivel mínimo de habilidad para que un colono cuente como especialista para la ropa de trabajo.</RL_WorkClothingSkill_Desc>
+  <RL_DressByTraits>Vestir según rasgos y habilidades</RL_DressByTraits>
+  <RL_DressByTraits_Desc>Entre la ropa permitida, cada colono prefiere lo que le va: equipo que mejora el trabajo que realmente hace y en el que es bueno (médico – curación, minero – minería, investigador – investigación…), equipo de disparo o cuerpo a cuerpo según su habilidad de combate, equipo psíquico para psicolanzadores y colonos psíquicamente sensibles. Los rasgos también cuentan: los cobardes valoran más la armadura, los corredores y los ágiles evitan las ralentizaciones, los codiciosos y los celosos quieren mejor calidad, a los ascetas no les importa el lujo, los pendencieros pasan del equipo de puntería. Es solo una pequeña preferencia (aprox. -25 % a +35 %); nunca permite equipo bloqueado o no investigado.</RL_DressByTraits_Desc>
+  <RL_GearStability>Estabilidad del equipo: cambiar solo si es un {0} % mejor</RL_GearStability>
+  <RL_GearStability_Desc>Cuánto mejor debe ser una nueva arma, prenda, armadura o accesorio que lo que tiene el colono antes de cambiar. Más alto = menos cambios de ropa y de arma. El mismo objeto por el mismo (p. ej. peto por peto) solo se cambia por mejor calidad. Los objetos rotos siempre se reemplazan.</RL_GearStability_Desc>
+  <RL_TabSidearms>Armas secundarias</RL_TabSidearms>
+  <RL_SS_Missing>Simple Sidearms no está instalado: se usa el sistema integrado de este mod, los colonos llevan un arma del otro tipo y la sacan por su cuenta en combate.</RL_SS_Missing>
+  <RL_SS_Preset>Preajuste de Simple Sidearms: {0}</RL_SS_Preset>
+  <RL_SS_P_Custom>Personalizado</RL_SS_P_Custom>
+  <RL_SS_P_NoneApplied>Ninguno</RL_SS_P_NoneApplied>
+  <RL_SS_P_Disabled>Desactivado</RL_SS_P_Disabled>
+  <RL_SS_P_LoadoutOnly>Solo equipamiento (este mod elige las armas secundarias)</RL_SS_P_LoadoutOnly>
+  <RL_SS_P_Lite>Ligero</RL_SS_P_Lite>
+  <RL_SS_P_Basic>Básico</RL_SS_P_Basic>
+  <RL_SS_P_Advanced>Avanzado</RL_SS_P_Advanced>
+  <RL_SS_P_Excessive>Excesivo</RL_SS_P_Excessive>
+  <RL_SS_P_Brawler>Pendenciero</RL_SS_P_Brawler>
+  <RL_SS_Slots>Máx. armas secundarias: {0}</RL_SS_Slots>
+  <RL_SS_Slots_Desc>Cuántas armas puede llevar un colono además de la que tiene en la mano.</RL_SS_Slots_Desc>
+  <RL_SS_Mass>Masa máx. de un arma secundaria: {0} kg</RL_SS_Mass>
+  <RL_SS_MassNone>Masa máx. de un arma secundaria: sin límite</RL_SS_MassNone>
+  <RL_SS_Mass_Desc>Las armas más pesadas no se llevan como secundarias. 0 = sin límite.</RL_SS_Mass_Desc>
+  <RL_SS_ToolSwitch>Usar herramientas para trabajar (hacha, pico…)</RL_SS_ToolSwitch>
+  <RL_SS_ToolSwitch_Desc>Un colono cambia a un arma que lleva y que acelera el trabajo actual.</RL_SS_ToolSwitch_Desc>
+  <RL_SS_OptimalMelee>Mejor arma cuerpo a cuerpo para el objetivo</RL_SS_OptimalMelee>
+  <RL_SS_CQC>Cambiar a cuerpo a cuerpo en combate cercano</RL_SS_CQC>
+  <RL_SS_RangedSwitch>Cambiar a distancia cuando está lejos</RL_SS_RangedSwitch>
+  <RL_SS_ReEquip>Volver a equipar el arma principal tras el combate</RL_SS_ReEquip>
+  <RL_SS_ReEquipBest>Volver a equipar la mejor arma tras el combate</RL_SS_ReEquipBest>
+  <RL_SS_ReEquipCombat>Volver a equipar también durante el combate</RL_SS_ReEquipCombat>
+  <RL_SS_SkipDangerous>No usar automáticamente armas peligrosas (granadas, explosivos)</RL_SS_SkipDangerous>
+  <RL_SS_SkipEMP>No usar automáticamente armas EMP</RL_SS_SkipEMP>
+  <RL_SS_Caravans>Conservar armas secundarias en caravanas</RL_SS_Caravans>
+  <RL_SS_Alerts>Alerta por arma secundaria perdida</RL_SS_Alerts>
+  <RL_SS_Sounds>Sonidos al cambiar de arma</RL_SS_Sounds>
+  <RL_SS_Spawn>Otros llegan con arma secundaria: {0} %</RL_SS_Spawn>
+  <RL_SS_Spawn_Desc>Probabilidad de que un asaltante o visitante reciba un arma secundaria (el equipo sigue filtrado por World at Your Level).</RL_SS_Spawn_Desc>
+  <RL_SS_HidePage>Ocultar los ajustes originales de Simple Sidearms</RL_SS_HidePage>
+  <RL_SS_HidePage_Desc>La página original de Simple Sidearms se oculta en la lista de ajustes de mods; todo se configura aquí. Tiene efecto al volver a abrir los ajustes.</RL_SS_HidePage_Desc>
+  <RL_EmergencyGear>Equipo de emergencia en situaciones peligrosas</RL_EmergencyGear>
+  <RL_EmergencyGear_Desc>Cuando ocurre algo peligroso y tu colonia aún no ha investigado el equipo adecuado, los colonos pueden usar equipo sustituto que ya está en el mapa (almacenes, suelo, inventario), aunque no esté investigado ni fabricado. Aire tóxico: máscaras de gas y trajes de protección; frío o calor extremo: ropa aislante; un ataque: armaduras y armas propias de la colonia. No se crea nada. Cuando pasa el peligro, vuelven a aplicarse las reglas normales; las prendas ya puestas se conservan unas dos horas para que nadie se desvista a mitad. Los objetos prohibidos manualmente nunca se permiten.</RL_EmergencyGear_Desc>
+  <RL_EmergencyToxic>Aire tóxico (gas, lluvia radiactiva, contaminación)</RL_EmergencyToxic>
+  <RL_EmergencyToxic_Desc>Gas tóxico cerca de los colonos o en la zona base (p. ej. un generador de gas de una misión), lluvia tóxica, neblina nociva, suelo contaminado o acumulación tóxica en aumento. Permite ropa con entorno tóxico o resistencia tóxica (máscaras de gas, trajes de protección…) de cualquier mod.</RL_EmergencyToxic_Desc>
+  <RL_EmergencyTemperature>Frío o calor extremo</RL_EmergencyTemperature>
+  <RL_EmergencyTemperature_Desc>Temperatura exterior muy por encima de lo que los colonos aguantan sin ropa (u ola de frío / ola de calor), o hipotermia / golpe de calor. Permite ropa bien aislante.</RL_EmergencyTemperature_Desc>
+  <RL_EmergencyRaid>Ataque</RL_EmergencyRaid>
+  <RL_EmergencyRaid_Desc>Mientras haya enemigos activos en el mapa. Permite armaduras y armas que ya pertenecen a la colonia (en almacén, en el inventario o tiradas en la zona base).</RL_EmergencyRaid_Desc>
+  <RL_EmKind_Toxic>Aire tóxico</RL_EmKind_Toxic>
+  <RL_EmKind_Cold>Frío extremo</RL_EmKind_Cold>
+  <RL_EmKind_Heat>Calor extremo</RL_EmKind_Heat>
+  <RL_EmKind_Raid>Ataque</RL_EmKind_Raid>
+  <RL_EmGear_Toxic>máscaras de gas y equipo de protección</RL_EmGear_Toxic>
+  <RL_EmGear_Cold>ropa de abrigo</RL_EmGear_Cold>
+  <RL_EmGear_Heat>ropa refrescante</RL_EmGear_Heat>
+  <RL_EmGear_Raid>armaduras y armas de la colonia</RL_EmGear_Raid>
+  <RL_EmergencyOn>{0}: los colonos pueden usar {1} incluso sin investigación.</RL_EmergencyOn>
+  <RL_EmergencyOff>Peligro superado ({0}): el equipo de emergencia ya no está permitido. Las prendas ya puestas se conservan un rato.</RL_EmergencyOff>
+  <RL_Ex_Emergency>Permitido ahora como equipo de emergencia ({0})</RL_Ex_Emergency>
+  <RL_Ex_EmergencyFor>Equipo de emergencia para: {0}</RL_Ex_EmergencyFor>
+  <RL_EmergencyProvide>Buscar y fabricar equipo de emergencia</RL_EmergencyProvide>
+  <RL_EmergencyProvide_Desc>Cuando a los colonos les falta protección durante el peligro: se permiten los objetos de protección prohibidos en cualquier parte del mapa (solo los necesarios, no en el fuego, no cerca de enemigos) y, si aún no hay suficientes, se añade un encargo de la mejor protección que tu colonia puede fabricar. Si la protección adecuada aún no se puede fabricar (falta investigación), se busca o fabrica el sustituto más cercano: protección tóxica más débil o una cobertura facial, la ropa más cálida/fresca, la mejor armadura. Los encargos añadidos así se eliminan al acabar el peligro, salvo que ya se haya empezado a trabajar en ellos.</RL_EmergencyProvide_Desc>
+  <RL_EmProv_Msg>{0}: no hay suficiente {1} – {2}.</RL_EmProv_Msg>
+  <RL_EmProv_Unforbade>permitido {0} ({1})</RL_EmProv_Unforbade>
+  <RL_EmProv_Bill>añadido encargo de {0}× {1} en {2}</RL_EmProv_Bill>
+  <RL_EmProv_Substitute>no hay receta de protección adecuada, fabricando un sustituto: {0}× {1} en {2}</RL_EmProv_Substitute>
+  <RL_EmProv_BillExists>ya existe un encargo de {0}</RL_EmProv_BillExists>
+  <RL_EmProv_Nothing>no se encontró nada y no hay receta disponible</RL_EmProv_Nothing>
+  <RL_CraftedRestore>Restaurar la lista desde la colonia</RL_CraftedRestore>
+  <RL_CraftedRestore_Desc>Añade a la lista de fabricados todos los tipos de armas y ropa que la colonia tiene ahora: puestos, en el inventario y almacenados. Útil cuando la lista se vació por error o demasiado pronto.</RL_CraftedRestore_Desc>
+  <RL_CraftedRestored>Lista de fabricados restaurada desde la colonia, tipos añadidos: {0}.</RL_CraftedRestored>
+  <RL_SS_OwnHeader>Smart Colonist Gear – armas secundarias</RL_SS_OwnHeader>
+  <RL_SS_Filter>Armas secundarias solo investigadas y permitidas</RL_SS_Filter>
+  <RL_SS_Filter_Desc>Simple Sidearms solo puede dar a los colonos armas que este mod permite (investigación, nivel tecnológico, prohibiciones, solo fabricadas).</RL_SS_Filter_Desc>
+  <RL_SS_Upgrade>Cambiar armas secundarias por otras mejores</RL_SS_Upgrade>
+  <RL_SS_Upgrade_Desc>Cuando la colonia tiene un arma mejor del mismo tipo, el colono cambia el arma secundaria que lleva y lleva la vieja al almacén.</RL_SS_Upgrade_Desc>
+  <RL_SS_Notify>Mensaje al coger un arma secundaria</RL_SS_Notify>
+  <RL_SS_Notify_Desc>Muestra un mensaje cuando un colono recoge una nueva arma secundaria (solo si los mensajes de este mod están activados).</RL_SS_Notify_Desc>
+  <RL_SS_OriginalUi>Ajustes completos de Simple Sidearms</RL_SS_OriginalUi>
+  <RL_SS_OriginalUi_Desc>Debajo de estas opciones se muestran los ajustes originales completos de Simple Sidearms con todas sus pestañas (preajustes, automatización, límites, aparición, varios). Desactivado = versión corta.</RL_SS_OriginalUi_Desc>
+  <RL_CraftedPick>Elegir entre lo que tengo…</RL_CraftedPick>
+  <RL_CraftedPick_Desc>Abre una lista de todos los tipos de armas y ropa que tiene la colonia. Los marcados se pueden llevar ya, el resto se desbloquea solo cuando la colonia los fabrique.</RL_CraftedPick_Desc>
+  <RL_PickTitle>Qué pueden llevar los colonos</RL_PickTitle>
+  <RL_PickHelp>Marcado = permitido ya. Desmarcado no está prohibido para siempre: se desbloquea cuando la colonia lo fabrique. La investigación y las prohibiciones siguen aplicándose.</RL_PickHelp>
+  <RL_PickAll>Todo</RL_PickAll>
+  <RL_PickWeapons>Armas</RL_PickWeapons>
+  <RL_PickApparel>Ropa</RL_PickApparel>
+  <RL_PickOnAll>Marcar los mostrados</RL_PickOnAll>
+  <RL_PickOffAll>Desmarcar los mostrados</RL_PickOffAll>
+  <RL_PickCount>Permitidos {0} de {1}</RL_PickCount>
+  <RL_PickNoResearch>no investigado</RL_PickNoResearch>
+  <RL_PickWeapon>arma</RL_PickWeapon>
+  <RL_PickApparel1>ropa</RL_PickApparel1>
+  <RL_SS_Tab_Presets>Preajustes</RL_SS_Tab_Presets>
+  <RL_SS_Tab_Automation>Activadores</RL_SS_Tab_Automation>
+  <RL_SS_Tab_Allowances>Límites</RL_SS_Tab_Allowances>
+  <RL_SS_Tab_Spawning>Aparición</RL_SS_Tab_Spawning>
+  <RL_SS_Tab_Misc>Varios</RL_SS_Tab_Misc>
+  <RL_FullBody>Vestir todo el cuerpo</RL_FullBody>
+  <RL_FullBody_Desc>El colono se pone toda prenda disponible que solo añade algo (no quita nada): sombrero, guantes, botas, chaleco, abrigo…, incluso con puntuación baja. Debe estar permitida, encajar con la política de vestimenta, no estar contaminada y no ir en contra de la temperatura (nada de abrigos con calor). Los cinturones y objetos de utilidad siguen necesitando la puntuación normal. Un colono con armadura corporal completa el conjunto (casco, guantes, botas) y nunca cambia una pieza por otra más débil. Prendas de abrigo extra solo cuando no hace calor.</RL_FullBody_Desc>
+  <RL_SP_Tab_Overview>Resumen</RL_SP_Tab_Overview>
+  <RL_SP_Tab_Presets>Preajustes</RL_SP_Tab_Presets>
+  <RL_SP_Tab_Automation>Automatización</RL_SP_Tab_Automation>
+  <RL_SP_Tab_Limits>Límites</RL_SP_Tab_Limits>
+  <RL_SP_Tab_Spawning>Equipo de otros</RL_SP_Tab_Spawning>
+  <RL_SP_Tab_Misc>Varios</RL_SP_Tab_Misc>
+  <RL_SP_Tab_Own>Reglas del mod</RL_SP_Tab_Own>
+  <RL_SP_On>sí</RL_SP_On>
+  <RL_SP_Off>no</RL_SP_Off>
+  <RL_SP_NowPreset>Preajuste: {0}</RL_SP_NowPreset>
+  <RL_SP_NowAuto>Cambio automático: {0} de {1} funciones activadas</RL_SP_NowAuto>
+  <RL_SP_NowOwn>Este mod: arma secundaria auto {0}, solo investigadas {1}, cambiar por mejores {2}</RL_SP_NowOwn>
+  <RL_SP_Use>Usar: {0}</RL_SP_Use>
+  <RL_SP_NoGame>Los colonos y sus armas secundarias se muestran en una partida en curso.</RL_SP_NoGame>
+  <RL_SP_Colonists>Colonos y sus armas</RL_SP_Colonists>
+  <RL_SP_ColName>Colono</RL_SP_ColName>
+  <RL_SP_ColPrimary>En la mano</RL_SP_ColPrimary>
+  <RL_SP_ColSide>Armas secundarias</RL_SP_ColSide>
+  <RL_SP_ColMass>Masa</RL_SP_ColMass>
+  <RL_SP_NonViolent>no violento: no lleva armas</RL_SP_NonViolent>
+  <RL_SP_SumSingleKg>un arma hasta {0} kg</RL_SP_SumSingleKg>
+  <RL_SP_SumSingleSel>solo armas seleccionadas</RL_SP_SumSingleSel>
+  <RL_SP_SumSingleAny>un arma sin límite</RL_SP_SumSingleAny>
+  <RL_SP_SumAmountKg>todas juntas hasta {0} kg</RL_SP_SumAmountKg>
+  <RL_SP_SumAmountN>como máximo {0}</RL_SP_SumAmountN>
+  <RL_SP_SumAmountAny>cualquier cantidad</RL_SP_SumAmountAny>
+  <RL_SP_SumCommon>Límites: {0}.</RL_SP_SumCommon>
+  <RL_SP_SumSeparate>Cuerpo a cuerpo: {0}. A distancia: {1}.</RL_SP_SumSeparate>
+  <RL_SP_PresetsHint>Haz clic en una tarjeta. Cualquier cambio en las otras pestañas pasa el preajuste a «Personalizado».</RL_SP_PresetsHint>
+  <RL_SP_CustomNow>Ahora tienes ajustes personalizados (ninguna tarjeta seleccionada).</RL_SP_CustomNow>
+  <RL_SS_PD_Basic>Recomendado. Cuerpo a cuerpo hasta 1,9 kg, a distancia hasta 2,7 kg, como máximo 2 de cada, 3 en total. Cambio automático activado.</RL_SS_PD_Basic>
+  <RL_SS_PD_Lite>Solo armas pequeñas y ligeras: cuerpo a cuerpo hasta 0,6 kg (cuchillos), a distancia hasta 1,6 kg (pistolas), como máximo 2.</RL_SS_PD_Lite>
+  <RL_SS_PD_Advanced>Armas más pesadas: cuerpo a cuerpo hasta 2,25 kg, a distancia hasta 5 kg (también rifles), hasta 10 kg en total.</RL_SS_PD_Advanced>
+  <RL_SS_PD_Excessive>Sin límites: los colonos llevan lo que pueden. Los demás llegan con armas secundarias más a menudo.</RL_SS_PD_Excessive>
+  <RL_SS_PD_Brawler>Solo cuerpo a cuerpo: cada una hasta 4 kg, hasta 10 kg juntas, nada a distancia.</RL_SS_PD_Brawler>
+  <RL_SS_PD_LoadoutOnly>Simple Sidearms solo mantiene los límites (3 armas, cada una hasta 4,75 kg), este mod elige qué llevar. Sin cambio automático en combate.</RL_SS_PD_LoadoutOnly>
+  <RL_SS_PD_Disabled>Armas secundarias desactivadas: nada cambia, como máximo 1 arma extra, los demás no llevan ninguna.</RL_SS_PD_Disabled>
+  <RL_SP_ToolAutoSwitch>Usar herramientas para trabajar</RL_SP_ToolAutoSwitch>
+  <RL_SP_ToolAutoSwitch_Desc>El colono coge un arma que lleva y que acelera el trabajo (hacha para talar, pico para minar…) y luego vuelve a cambiar.</RL_SP_ToolAutoSwitch_Desc>
+  <RL_SP_OptimalMelee>Mejor arma cuerpo a cuerpo para el objetivo</RL_SP_OptimalMelee>
+  <RL_SP_OptimalMelee_Desc>En cuerpo a cuerpo elige el arma que lleva que mejor funciona contra ese enemigo.</RL_SP_OptimalMelee_Desc>
+  <RL_SP_CQCAutoSwitch>Sacar un arma cuerpo a cuerpo al ser atacado de cerca</RL_SP_CQCAutoSwitch>
+  <RL_SP_CQCAutoSwitch_Desc>Cuando un enemigo llega a su alcance, el colono cambia de un arma de fuego a un arma cuerpo a cuerpo.</RL_SP_CQCAutoSwitch_Desc>
+  <RL_SP_CQCTargetOnly>…solo si lo atacan directamente</RL_SP_CQCTargetOnly>
+  <RL_SP_CQCTargetOnly_Desc>Solo cambia cuando el enemigo en cuerpo a cuerpo ataca a este mismo colono.</RL_SP_CQCTargetOnly_Desc>
+  <RL_SP_RangedCombatAutoSwitch>Elegir el mejor arma de fuego según la distancia</RL_SP_RangedCombatAutoSwitch>
+  <RL_SP_RangedCombatAutoSwitch_Desc>Elige entre las armas de fuego que lleva según la distancia al objetivo (escopeta de cerca, rifle de lejos).</RL_SP_RangedCombatAutoSwitch_Desc>
+  <RL_SP_MaxWarmup>Cambiar solo a un arma con preparación de hasta {0} %</RL_SP_MaxWarmup>
+  <RL_SP_MaxWarmup_Desc>Cuánto puede durar la preparación del arma nueva en comparación con la actual. Más = más cambios.</RL_SP_MaxWarmup_Desc>
+  <RL_SP_BiasHint>Velocidad frente a potencia: por encima del 100 % los colonos prefieren armas rápidas, por debajo del 100 % armas potentes y lentas.</RL_SP_BiasHint>
+  <RL_SP_BiasMelee>Cuerpo a cuerpo – peso de la velocidad: {0} %</RL_SP_BiasMelee>
+  <RL_SP_BiasRanged>A distancia – peso de la velocidad: {0} %</RL_SP_BiasRanged>
+  <RL_SP_ReEquipOutOfCombat>Recuperar el arma principal tras el combate</RL_SP_ReEquipOutOfCombat>
+  <RL_SP_ReEquipOutOfCombat_Desc>Cuando termina el combate, el colono recupera el arma que tenía antes.</RL_SP_ReEquipOutOfCombat_Desc>
+  <RL_SP_ReEquipBest>…o directamente la mejor</RL_SP_ReEquipBest>
+  <RL_SP_ReEquipBest_Desc>Coge la mejor arma que lleva en lugar de la original.</RL_SP_ReEquipBest_Desc>
+  <RL_SP_ReEquipInCombat>Volver a cambiar también durante el combate</RL_SP_ReEquipInCombat>
+  <RL_SP_ReEquipInCombat_Desc>Cuando no hay ningún enemigo cerca, vuelve al arma de fuego incluso en pleno combate.</RL_SP_ReEquipInCombat_Desc>
+  <RL_SP_SkipDangerousWeapons>Granadas y lanzadores solo por orden</RL_SP_SkipDangerousWeapons>
+  <RL_SP_SkipDangerousWeapons_Desc>Los colonos no usan armas explosivas por su cuenta (riesgo de fuego amigo).</RL_SP_SkipDangerousWeapons_Desc>
+  <RL_SP_SkipEMPWeapons>Armas EMP solo por orden</RL_SP_SkipEMPWeapons>
+  <RL_SP_SkipEMPWeapons_Desc>Los colonos no usan armas EMP por su cuenta.</RL_SP_SkipEMPWeapons_Desc>
+  <RL_SP_AllowBlockedWeaponUse>Permitir armas que el colono no podría usar de otro modo</RL_SP_AllowBlockedWeaponUse>
+  <RL_SP_AllowBlockedWeaponUse_Desc>El colono puede llevar armas bloqueadas por políticas u otros mods.</RL_SP_AllowBlockedWeaponUse_Desc>
+  <RL_SP_SeparateModes>Límites separados para cuerpo a cuerpo y a distancia</RL_SP_SeparateModes>
+  <RL_SP_SeparateModes_Desc>Activado: cuerpo a cuerpo y a distancia tienen cada uno sus límites más un límite total. Desactivado: un límite común.</RL_SP_SeparateModes_Desc>
+  <RL_SP_Melee>Armas cuerpo a cuerpo</RL_SP_Melee>
+  <RL_SP_Ranged>Armas a distancia</RL_SP_Ranged>
+  <RL_SP_SingleLimit>Límite por arma</RL_SP_SingleLimit>
+  <RL_SP_SingleLimit_Desc>Cuánto puede pesar un arma secundaria.</RL_SP_SingleLimit_Desc>
+  <RL_SP_AmountLimit>Límite para todas las armas secundarias</RL_SP_AmountLimit>
+  <RL_SP_AmountLimit_Desc>Cuántas armas secundarias puede llevar un colono.</RL_SP_AmountLimit_Desc>
+  <RL_SP_TotalLimit>Límite total (cuerpo a cuerpo + a distancia)</RL_SP_TotalLimit>
+  <RL_SP_ES_None>Sin límite</RL_SP_ES_None>
+  <RL_SP_ES_RelativeWeight>Según capacidad</RL_SP_ES_RelativeWeight>
+  <RL_SP_ES_RelativeWeight_Desc>El límite crece con la capacidad de carga del colono. Los números son para 35 kg de capacidad.</RL_SP_ES_RelativeWeight_Desc>
+  <RL_SP_ES_AbsoluteWeight>Masa fija</RL_SP_ES_AbsoluteWeight>
+  <RL_SP_ES_Selection>Solo seleccionadas</RL_SP_ES_Selection>
+  <RL_SP_ES_Selection_Desc>Solo las armas marcadas en la lista se pueden llevar como secundarias.</RL_SP_ES_Selection_Desc>
+  <RL_SP_EA_None>Sin límite</RL_SP_EA_None>
+  <RL_SP_EA_RelativeWeight>Según capacidad</RL_SP_EA_RelativeWeight>
+  <RL_SP_EA_RelativeWeight_Desc>El límite crece con la capacidad de carga del colono. Los números son para 35 kg de capacidad.</RL_SP_EA_RelativeWeight_Desc>
+  <RL_SP_EA_AbsoluteWeight>Masa fija</RL_SP_EA_AbsoluteWeight>
+  <RL_SP_EA_Slots>Cantidad</RL_SP_EA_Slots>
+  <RL_SP_SingleKgRel>Un arma hasta {0} kg (con 35 kg de capacidad)</RL_SP_SingleKgRel>
+  <RL_SP_SingleKg>Un arma hasta {0} kg</RL_SP_SingleKg>
+  <RL_SP_AmountKgRel>Juntas hasta {0} kg (con 35 kg de capacidad)</RL_SP_AmountKgRel>
+  <RL_SP_AmountKg>Juntas hasta {0} kg</RL_SP_AmountKg>
+  <RL_SP_SlotsN>Como máximo {0}</RL_SP_SlotsN>
+  <RL_SP_LimitsHint>Los límites se aplican a las armas que se llevan además, no a la de la mano. Como referencia: cuchillo 0,5 kg, pistola 1,2 kg, espada 2 kg, rifle 3,5 kg, ametralladora 9 kg.</RL_SP_LimitsHint>
+  <RL_SP_PickLight>Todas hasta {0} kg</RL_SP_PickLight>
+  <RL_SP_PickNone>Ninguna</RL_SP_PickNone>
+  <RL_SP_PickMore>… encuentra más armas con la búsqueda.</RL_SP_PickMore>
+  <RL_SP_PickCount>Armas seleccionadas: {0}</RL_SP_PickCount>
+  <RL_SP_RangedShort>a distancia</RL_SP_RangedShort>
+  <RL_SP_MeleeShort>cuerpo a cuerpo</RL_SP_MeleeShort>
+  <RL_SP_SpawnHint>Con qué frecuencia otros (asaltantes, visitantes, comerciantes) llegan con armas secundarias.</RL_SP_SpawnHint>
+  <RL_SP_SpawnChance>Probabilidad de una primera arma secundaria: {0} %</RL_SP_SpawnChance>
+  <RL_SP_SpawnChance_Desc>Probabilidad de que otro personaje reciba al menos un arma secundaria.</RL_SP_SpawnChance_Desc>
+  <RL_SP_SpawnDropoff>Probabilidad de cada una adicional: × {0} %</RL_SP_SpawnDropoff>
+  <RL_SP_SpawnDropoff_Desc>Cada arma secundaria adicional es así de menos probable.</RL_SP_SpawnDropoff_Desc>
+  <RL_SP_Budget>Presupuesto: {0} % del dinero de equipo</RL_SP_Budget>
+  <RL_SP_Budget_Desc>Qué parte del dinero de equipo del personaje puede ir a un arma secundaria (arma cara = más rara).</RL_SP_Budget_Desc>
+  <RL_SP_BudgetDropoff>Presupuesto de cada una adicional: × {0} %</RL_SP_BudgetDropoff>
+  <RL_SP_SpawnExample>Ejemplo: aprox. el {0} % de los demás lleva 1 arma secundaria, el {1} % lleva 2, el {2} % lleva 3.</RL_SP_SpawnExample>
+  <RL_SP_SpawnWorld>Después, World at Your Level filtra más el equipo de los demás (investigación, «no mejor que la colonia»).</RL_SP_SpawnWorld>
+  <RL_SP_ColonistMode>Arma principal de los colonos</RL_SP_ColonistMode>
+  <RL_SP_ColonistMode_Desc>Qué arma de las que lleva tiene el colono en la mano cuando no combate.</RL_SP_ColonistMode_Desc>
+  <RL_SP_NpcMode>Arma principal de los demás</RL_SP_NpcMode>
+  <RL_SP_EW_BySkill>Según habilidades</RL_SP_EW_BySkill>
+  <RL_SP_EW_BySkill_Desc>Los mejores tiradores llevan un arma de fuego, los mejores luchadores un arma cuerpo a cuerpo.</RL_SP_EW_BySkill_Desc>
+  <RL_SP_EW_Ranged>A distancia</RL_SP_EW_Ranged>
+  <RL_SP_EW_Melee>Cuerpo a cuerpo</RL_SP_EW_Melee>
+  <RL_SP_EW_ByGenerated>Como llegó</RL_SP_EW_ByGenerated>
+  <RL_SP_EW_ByGenerated_Desc>El arma con la que el personaje fue creado o llegó.</RL_SP_EW_ByGenerated_Desc>
+  <RL_SP_Fumble>Soltar armas al ser derribado</RL_SP_Fumble>
+  <RL_SP_Fumble_Desc>Cuándo un personaje derribado suelta las armas secundarias que lleva.</RL_SP_Fumble_Desc>
+  <RL_SP_EF_Never>Nunca</RL_SP_EF_Never>
+  <RL_SP_EF_InDistress>En apuros</RL_SP_EF_InDistress>
+  <RL_SP_EF_InCombat>En combate</RL_SP_EF_InCombat>
+  <RL_SP_EF_Always>Siempre</RL_SP_EF_Always>
+  <RL_SP_PreserveInventoryInCaravans>Las armas secundarias se quedan con el colono en caravanas</RL_SP_PreserveInventoryInCaravans>
+  <RL_SP_PreserveInventoryInCaravans_Desc>Al formar una caravana, las armas secundarias no se mueven a la carga común.</RL_SP_PreserveInventoryInCaravans_Desc>
+  <RL_SP_HideSidearmsInCaravanDialogs>Ocultar armas secundarias en la ventana de caravana</RL_SP_HideSidearmsInCaravanDialogs>
+  <RL_SP_ShowAlertsMissingSidearm>Alerta por arma secundaria perdida</RL_SP_ShowAlertsMissingSidearm>
+  <RL_SP_ShowAlertsMissingSidearm_Desc>Alerta cuando un colono pierde un arma que debería recordar.</RL_SP_ShowAlertsMissingSidearm_Desc>
+  <RL_SP_PlaySounds>Sonidos al cambiar de arma</RL_SP_PlaySounds>
+  <RL_SP_ShowBrainscope>Depuración: mostrar decisiones de armas</RL_SP_ShowBrainscope>
+  <RL_SP_BrawlerNoRanged>Los pendencieros no llevan arma secundaria a distancia</RL_SP_BrawlerNoRanged>
+  <RL_SP_BrawlerNoRanged_Desc>Un colono con el rasgo pendenciero no coge ningún arma de fuego ni siquiera como secundaria (le da mal ánimo).</RL_SP_BrawlerNoRanged_Desc>
+  <RL_SP_MaxTotal>Máx. armas por colono: {0}</RL_SP_MaxTotal>
+  <RL_SP_MaxTotalOff>Máx. armas por colono: sin límite propio</RL_SP_MaxTotalOff>
+  <RL_SP_MaxTotal_Desc>Cuántas armas puede llevar un colono en total, incluida la de la mano (las granadas cuentan). Se aplica a este mod y a Simple Sidearms. Las sobrantes, las peores primero, se sueltan y se llevan al almacén. 0 = solo los límites de Simple Sidearms.</RL_SP_MaxTotal_Desc>
+  <RL_SP_StripUncrafted>Guardar armas que la colonia nunca ha fabricado</RL_SP_StripUncrafted>
+  <RL_SP_StripUncrafted_Desc>Con «solo fabricado», los colonos también guardan armas investigadas pero aún no fabricadas por tu colonia (p. ej. recogidas tras una incursión). Durante una incursión pueden usarlas y después las devuelven. Un arma que le diste tú mismo al colono se queda.</RL_SP_StripUncrafted_Desc>
+  <RL_SP_ArmorHunt>Ponerse armadura para cazar</RL_SP_ArmorHunt>
+  <RL_SP_ArmorHunt_Desc>Antes de una cacería, el colono se pone la mejor armadura permitida del almacén (a menos de 70 casillas) si es mejor que la que lleva, y luego caza.</RL_SP_ArmorHunt_Desc>
+  <RL_SP_ArmorThreat>Ponerse armadura al ser atacados</RL_SP_ArmorThreat>
+  <RL_SP_ArmorThreat_Desc>Mientras haya enemigos en el mapa (incursión, animales enloquecidos, mecanoides…), los colonos dejan el trabajo normal y se ponen la mejor armadura permitida del almacén. No se interrumpe la extinción de incendios, la curación, la huida ni el combate. Su política de vestimenta también debe permitirlo.</RL_SP_ArmorThreat_Desc>
+  <RL_SP_ArmorDrafted>Armadura también para colonos reclutados</RL_SP_ArmorDrafted>
+  <RL_SP_ArmorDrafted_Desc>Un colono reclutado que está quieto sin enemigos a menos de 22 casillas va a por armadura a menos de 28 casillas. Después se queda junto al almacén: muévelo de vuelta.</RL_SP_ArmorDrafted_Desc>
+  <RL_SidearmTooMany>ya lleva {0} armas (límite)</RL_SidearmTooMany>
+  <RL_SP_MinShoot>Arma secundaria a distancia desde Disparo {0}</RL_SP_MinShoot>
+  <RL_SP_MinShoot_Desc>El colono solo coge un arma de fuego adicional a partir de este nivel de Disparo. 0 = siempre.</RL_SP_MinShoot_Desc>
+  <RL_SP_MinMelee>Arma secundaria cuerpo a cuerpo desde Cuerpo a cuerpo {0}</RL_SP_MinMelee>
+  <RL_SP_MinMelee_Desc>El colono solo coge un arma cuerpo a cuerpo adicional a partir de este nivel de Cuerpo a cuerpo. 0 = siempre.</RL_SP_MinMelee_Desc>
+  <RL_SP_OpenOriginal>Abrir la ventana original de Simple Sidearms</RL_SP_OpenOriginal>
+  <RL_OS_Header>Armas secundarias integradas</RL_OS_Header>
+  <RL_OS_SwitchMelee>Cambiar a cuerpo a cuerpo en combate</RL_OS_SwitchMelee>
+  <RL_OS_SwitchMelee_Desc>Cuando un enemigo se acerca, un colono con un arma de fuego en la mano saca el arma cuerpo a cuerpo de la mochila (si lleva una).</RL_OS_SwitchMelee_Desc>
+  <RL_OS_MeleeRange>Cambiar cuando un enemigo esté a menos de {0} casillas</RL_OS_MeleeRange>
+  <RL_OS_MeleeRange_Desc>Distancia del enemigo más cercano a la que el colono saca el arma cuerpo a cuerpo.</RL_OS_MeleeRange_Desc>
+  <RL_OS_SwitchBack>Volver al arma anterior tras el combate</RL_OS_SwitchBack>
+  <RL_OS_SwitchBack_Desc>Cuando el enemigo se va o cae, el colono coge el arma que tenía antes.</RL_OS_SwitchBack_Desc>
+  <RL_OS_Gizmo>Botones de cambio de arma</RL_OS_Gizmo>
+  <RL_OS_Gizmo_Desc>Un colono reclutado recibe un botón «Tomar en la mano» por cada arma que lleva. Un arma elegida a mano se mantiene hasta dejar de estar reclutado.</RL_OS_Gizmo_Desc>
+  <RL_OS_MaxMass>Peso máx. de las armas llevadas: {0} kg</RL_OS_MaxMass>
+  <RL_OS_MaxMassOff>Peso máx. de las armas llevadas: sin límite</RL_OS_MaxMassOff>
+  <RL_OS_MaxMass_Desc>Cuántos kg de armas puede llevar un colono en la mochila además de la de la mano. 0 = sin límite.</RL_OS_MaxMass_Desc>
+  <RL_OS_Take>Tomar en la mano: {0}</RL_OS_Take>
+  <RL_OS_Take_Desc>El colono saca {0} de la mochila y guarda en ella el arma que tiene en la mano. Se mantiene hasta dejar de estar reclutado.</RL_OS_Take_Desc>
+  <MUI_Title>Configuración recomendada</MUI_Title>
+  <MUI_TitleOff>Configuración recomendada · desactivada</MUI_TitleOff>
+  <MUI_DescOn>El mod se configura solo y funciona al instante. Ideal para jugadores nuevos y para quien no quiera ajustar nada.</MUI_DescOn>
+  <MUI_DescOff>Configuración personalizada. Cambios respecto a la recomendada: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Configuración personalizada. Sigue igual que la recomendada.</MUI_DescOffSame>
+  <MUI_On>SÍ</MUI_On>
+  <MUI_Off>NO</MUI_Off>
+  <MUI_ResetAll>Restablecer todo a lo recomendado</MUI_ResetAll>
+  <MUI_ConfirmOn>¿Activar la configuración recomendada? Tus cambios ({0}) se sustituirán por los valores recomendados.</MUI_ConfirmOn>
+  <MUI_Locked>La configuración detallada está bloqueada. ¿Quieres cambiarla? Desactiva el interruptor de arriba: tus valores partirán de los recomendados.</MUI_Locked>
+  <MUI_Changed>CAMBIADO</MUI_Changed>
+  <MUI_ChangedTip>Difiere del valor recomendado ({0}). Haz clic para restaurar el valor recomendado.</MUI_ChangedTip>
+  <MUI_Yes>sí</MUI_Yes>
+  <MUI_No>no</MUI_No>
+  <RL_Rec1>Los colonos cogen las mejores armas y ropa investigadas</RL_Rec1>
+  <RL_Rec2>Armadura completa ante una amenaza</RL_Rec2>
+  <RL_Rec3>Ropa ligera con calor, de abrigo con frío</RL_Rec3>
+  <RL_Rec4>Equipo de emergencia contra toxinas y temperaturas extremas</RL_Rec4>
+  <RL_Rec5>Armas secundarias según habilidades</RL_Rec5>
+  <RL_Rec6>El equipo desgastado se reemplaza y se almacena</RL_Rec6>
+  <MUI_RecTag>RECOMENDADO</MUI_RecTag>
+  <RL_Why_Title>Cambios de equipo recientes:</RL_Why_Title>
+  <RL_Why_None>Aún no hay cambios de equipo en esta sesión.</RL_Why_None>
+  <RL_Why_Now>ahora mismo</RL_Why_Now>
+  <RL_Why_HoursAgo>hace {0} h</RL_Why_HoursAgo>
+  <RL_WhyAct_Wear>se puso</RL_WhyAct_Wear>
+  <RL_WhyAct_Remove>se quitó</RL_WhyAct_Remove>
+  <RL_WhyAct_Take>se llevó</RL_WhyAct_Take>
+  <RL_WhyAct_Drop>soltó</RL_WhyAct_Drop>
+  <RL_WhyAct_Equip>tomó en la mano</RL_WhyAct_Equip>
+  <RL_WhyAct_Change>cambió de equipo</RL_WhyAct_Change>
+  <RL_Why_Tattered>desgastado, hay que reemplazarlo</RL_Why_Tattered>
+  <RL_Why_Heat>demasiado calor</RL_Why_Heat>
+  <RL_Why_Policy>no permitido por la política de vestimenta</RL_Why_Policy>
+  <RL_Why_TooMany>demasiadas armas</RL_Why_TooMany>
+  <RL_Why_Locked>no investigado o prohibido</RL_Why_Locked>
+  <RL_Why_Unneeded>ya no es necesario</RL_Why_Unneeded>
+  <RL_Why_Weapon>mejor arma</RL_Why_Weapon>
+  <RL_Why_Instead>en lugar de {0}</RL_Why_Instead>
+  <RL_Why_Sidearm>arma secundaria</RL_Why_Sidearm>
+  <RL_Why_Temperature>frío o calor</RL_Why_Temperature>
+  <RL_Why_Basics>falta ropa básica</RL_Why_Basics>
+  <RL_Why_Emergency>protección de emergencia</RL_Why_Emergency>
+  <RL_Why_Apparel>mejor ropa</RL_Why_Apparel>
+  <RL_Why_Armor>ataque – armadura puesta</RL_Why_Armor>
+  <RL_Why_ArmorHunt>caza – armadura puesta</RL_Why_ArmorHunt>
+  <RL_Why_Player>a mano (tú)</RL_Why_Player>
+  <RL_Why_Outfit>el juego (política de vestimenta, puntuada por este mod)</RL_Why_Outfit>
+  <RL_Why_Game>el juego</RL_Why_Game>
+  <RL_Why_OtherMod>mod {0}</RL_Why_OtherMod>
+  <RL_OthersTitle>Otros mods que cambian el equipo de los colonos</RL_OthersTitle>
+  <RL_OthersNone>Ningún otro mod cambia cómo se elige el equipo.</RL_OthersNone>
+  <RL_OthersPatch>También cambian cómo se elige el equipo: {0}</RL_OthersPatch>
+  <RL_OthersSeenNone>En esta partida ningún otro mod ha cambiado aún el equipo de los colonos.</RL_OthersSeenNone>
+  <RL_OthersSeen>Han cambiado el equipo de los colonos en esta partida: {0}</RL_OthersSeen>
+  <RL_OthersHint>Si los colonos cambian de equipo una y otra vez, deja que decida un solo mod: desactiva la parte que se solapa en uno de ellos. El botón de colono de este mod muestra quién cambió qué y por qué.</RL_OthersHint>
+  <RL_GuestLodgers>Los invitados de misiones usan el equipo de la colonia</RL_GuestLodgers>
+  <RL_GuestLodgers_Desc>Los invitados de misiones que controlas reciben armas y ropa como los colonos. Sus propias cosas van a su mochila y, al irse, se las vuelven a poner; el equipo de la colonia se queda aquí.</RL_GuestLodgers_Desc>
+  <RL_GuestVisitors>Los visitantes toman prestada ropa contra el frío y el calor</RL_GuestVisitors>
+  <RL_GuestVisitors_Desc>Los visitantes e invitados se ponen ropa de abrigo de la colonia cuando hace frío y guardan su propia ropa de abrigo en la mochila cuando hace calor. Cuando el tiempo vuelve a ser bueno o al irse, devuelven la ropa de la colonia y se ponen la suya.</RL_GuestVisitors_Desc>
+  <RL_PreferNewer>Preferir tecnología más nueva</RL_PreferNewer>
+  <RL_PreferNewer_Desc>Entre armas y armaduras similares gana la tecnología más nueva: armas de fuego antes que arcos, armadura antifragmentación o servoarmadura antes que armadura de placas.</RL_PreferNewer_Desc>
+  <RL_ToolsNotWeapons>Las herramientas de trabajo no son armas</RL_ToolsNotWeapons>
+  <RL_ToolsNotWeapons_Desc>Picos, hoces, palas y otras herramientas que aceleran el trabajo nunca se eligen como arma, y una herramienta en la mano se cambia por un arma de verdad.</RL_ToolsNotWeapons_Desc>
+  <RL_Why_ToolNotWeapon>una herramienta no es un arma</RL_Why_ToolNotWeapon>
+  <RL_PreferNewEra>La era más nueva primero</RL_PreferNewEra>
+  <RL_PreferNewEra_Desc>El equipo de la era más nueva de la colonia (industrial, espacial …) va primero. Armas: un arma de una era más nueva siempre reemplaza a una más antigua del mismo tipo, aunque sea más débil (un rifle por un arco); una más antigua nunca reemplaza a una más nueva. Las armaduras y la ropa de la nueva era reciben una gran bonificación y pueden proteger algo menos. Los objetos de mods sin nivel tecnológico se juzgan por su investigación y potencia.</RL_PreferNewEra_Desc>
+  <RL_SP_MaxRanged>Armas a distancia por colono: {0}</RL_SP_MaxRanged>
+  <RL_SP_MaxRanged_Desc>Cuántas armas a distancia lleva un colono como máximo, incluida la de la mano. 2 = por ejemplo un rifle y una pistola. 0 = sin arma secundaria a distancia (el arma principal de un tirador se queda).</RL_SP_MaxRanged_Desc>
+  <RL_SP_MaxMelee>Armas cuerpo a cuerpo por colono: {0}</RL_SP_MaxMelee>
+  <RL_SP_MaxMelee_Desc>Cuántas armas cuerpo a cuerpo lleva un colono como máximo, incluida la de la mano. 1 = un tirador lleva un cuchillo o una espada para el combate cercano. 0 = sin arma secundaria cuerpo a cuerpo.</RL_SP_MaxMelee_Desc>
+  <RL_GearButton>Botón «Equipo» abajo</RL_GearButton>
+  <RL_GearButton_Desc>Un resumen de quién lleva qué y un botón «Equipar a todos ya».</RL_GearButton_Desc>
+  <RL_GO_Title>Equipo de los colonos</RL_GO_Title>
+  <RL_GO_EquipAll>Equipar a todos ya</RL_GO_EquipAll>
+  <RL_GO_EquipAll_Desc>Cada colono no reclutado revisa su equipo enseguida y coge la mejor arma y armadura del almacén; útil antes de una incursión. Los colonos reclutados se omiten.</RL_GO_EquipAll_Desc>
+  <RL_GO_EquipAllDone>{0} colonos están cambiando su equipo.</RL_GO_EquipAllDone>
+  <RL_GO_Colonist>Colono</RL_GO_Colonist>
+  <RL_GO_Weapon>Arma</RL_GO_Weapon>
+  <RL_GO_ArmorSharp>Armadura cortante</RL_GO_ArmorSharp>
+  <RL_GO_ArmorBlunt>Armadura contundente</RL_GO_ArmorBlunt>
+  <RL_GO_Problems>Qué falla</RL_GO_Problems>
+  <RL_GO_Ok>todo bien</RL_GO_Ok>
+  <RL_GO_NoWeapon>sin arma</RL_GO_NoWeapon>
+  <RL_GO_NoTorso>nada en el torso</RL_GO_NoTorso>
+  <RL_GO_Tattered>desgastado: {0}</RL_GO_Tattered>
+  <RL_GO_WeaponWorn>arma desgastada</RL_GO_WeaponWorn>
+  <RL_GO_Cold>demasiado frío fuera</RL_GO_Cold>
+  <RL_GO_Hot>demasiado calor fuera</RL_GO_Hot>
+  <RL_GO_Footer>{0} colonos · {1} con problemas · haz clic en una fila para seleccionar al colono · pasa el ratón para ver la lista completa de ropa</RL_GO_Footer>
+</LanguageData>

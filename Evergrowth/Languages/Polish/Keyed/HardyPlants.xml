@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HardyPlants_Title>Evergrowth – Kontrola wzrostu roślin</HardyPlants_Title>
+  <HardyPlants_Temperatures>Temperatury dla odpornych roślin</HardyPlants_Temperatures>
+  <HardyPlants_TemperaturesDesc>Poniżej minimum roślina przestaje rosnąć. Odporna roślina dostaje te wartości tylko tam, gdzie są lepsze od jej własnych.</HardyPlants_TemperaturesDesc>
+  <HardyPlants_MinGrowth>Minimalna temperatura wzrostu: {0} (vanilla {1})</HardyPlants_MinGrowth>
+  <HardyPlants_MinOptimal>Pełna prędkość wzrostu od: {0} (vanilla {1})</HardyPlants_MinOptimal>
+  <HardyPlants_MaxOptimal>Pełna prędkość wzrostu do: {0} (vanilla {1})</HardyPlants_MaxOptimal>
+  <HardyPlants_MaxGrowth>Maksymalna temperatura wzrostu: {0} (vanilla {1})</HardyPlants_MaxGrowth>
+  <HardyPlants_Frost>Odporność na mróz: o {0} zimniej</HardyPlants_Frost>
+  <HardyPlants_FrostDesc>Rośliny vanilla tracą liście 10–18 °C poniżej swojej minimalnej temperatury wzrostu. Odporne rośliny wytrzymują o tyle więcej.</HardyPlants_FrostDesc>
+  <HardyPlants_ResetValues>Przywróć temperatury</HardyPlants_ResetValues>
+  <HardyPlants_Group>Które rośliny:</HardyPlants_Group>
+  <HardyPlants_GroupCold>Dzikie rośliny zimnych biomów</HardyPlants_GroupCold>
+  <HardyPlants_GroupWild>Wszystkie dzikie rośliny i drzewa (domyślnie)</HardyPlants_GroupWild>
+  <HardyPlants_GroupAll>Wszystkie rośliny łącznie z uprawami</HardyPlants_GroupAll>
+  <HardyPlants_GroupCustom>Mój własny wybór (lista po prawej)</HardyPlants_GroupCustom>
+  <HardyPlants_Plants>Rośliny odporne na zimno</HardyPlants_Plants>
+  <HardyPlants_Chosen>Wybrano roślin: {0}. Szukaj:</HardyPlants_Chosen>
+  <HardyPlants_Growth>Wzrost</HardyPlants_Growth>
+  <HardyPlants_FasterGrowth>Rośliny rosną szybciej</HardyPlants_FasterGrowth>
+  <HardyPlants_FasterGrowthDesc>Uprawy, drzewa i dzikie rośliny – każde z własną prędkością. Działa od razu dla każdej rośliny na mapie, także tych, które pojawią się później. Bez restartu. Domyślnie wyłączone.</HardyPlants_FasterGrowthDesc>
+  <HardyPlants_GrowthSpeed>Prędkość wzrostu: ×{0}</HardyPlants_GrowthSpeed>
+  <HardyPlants_GrowAllDay>Rośliny rosną dzień i noc (24/7)</HardyPlants_GrowAllDay>
+  <HardyPlants_GrowAllDayDesc>Rośliny nie odpoczywają w nocy, a rośliny pod gołym niebem rosną też w ciemności. Rośliny pod dachem nadal potrzebują lamp. Domyślnie wyłączone.</HardyPlants_GrowAllDayDesc>
+  <HardyPlants_CropDays>Ustaw czas wzrostu upraw</HardyPlants_CropDays>
+  <HardyPlants_TreeDays>Ustaw czas wzrostu drzew</HardyPlants_TreeDays>
+  <HardyPlants_DaysValue>Rośnie w: {0} dni</HardyPlants_DaysValue>
+  <HardyPlants_DaysDesc>Dni przy 100 % tempa wzrostu. Rośliny odpoczywają w nocy (chyba że włączone jest 24/7) i rosną wolniej przy słabym świetle, glebie lub temperaturze, więc w prawdziwej grze trwa to dłużej. Stosowane po zamknięciu tego okna – bez restartu. Domyślnie wyłączone.</HardyPlants_DaysDesc>
+  <HardyPlants_Presets>Szybka konfiguracja (sekcja Wzrost):</HardyPlants_Presets>
+  <HardyPlants_PresetVanilla>Vanilla</HardyPlants_PresetVanilla>
+  <HardyPlants_PresetEasy>Łatwe rolnictwo</HardyPlants_PresetEasy>
+  <HardyPlants_PresetLush>Bujny świat</HardyPlants_PresetLush>
+  <HardyPlants_SpeedCrops>Uprawy: ×{0}</HardyPlants_SpeedCrops>
+  <HardyPlants_SpeedTrees>Drzewa: ×{0}</HardyPlants_SpeedTrees>
+  <HardyPlants_SpeedWild>Dzikie rośliny: ×{0}</HardyPlants_SpeedWild>
+  <HardyPlants_Yield>Większe plony</HardyPlants_Yield>
+  <HardyPlants_YieldDesc>Ile dają uprawy i dzikie rośliny przy zbiorze i ile drewna daje drzewo. Działa od razu. Domyślnie wyłączone.</HardyPlants_YieldDesc>
+  <HardyPlants_YieldCrops>Uprawy i dzikie rośliny: ×{0}</HardyPlants_YieldCrops>
+  <HardyPlants_YieldWood>Drewno z drzew: ×{0}</HardyPlants_YieldWood>
+  <HardyPlants_Regrow>Dzikie rośliny szybciej odrastają</HardyPlants_Regrow>
+  <HardyPlants_RegrowDesc>Jak szybko dzikie rośliny i drzewa wracają na mapę po wycince, wypasie lub pożarze. Gęstość roślin nadal zależy od biomu. Domyślnie wyłączone.</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowValue>Odrastanie: ×{0}</HardyPlants_RegrowValue>
+  <HardyPlants_IgnoreSoil>Słaba gleba nie spowalnia wzrostu</HardyPlants_IgnoreSoil>
+  <HardyPlants_IgnoreSoilDesc>Na piasku, żwirze i słabej glebie rośliny rosną z pełną prędkością. Żyzna gleba nadal pomaga. Tam, gdzie nic nie rośnie, nic się nie zmienia. Domyślnie wyłączone.</HardyPlants_IgnoreSoilDesc>
+  <HardyPlants_NoBlight>Brak zarazy upraw</HardyPlants_NoBlight>
+  <HardyPlants_NoBlightDesc>Zdarzenie zarazy już nie występuje, a zaraza się nie rozprzestrzenia. Domyślnie wyłączone.</HardyPlants_NoBlightDesc>
+  <HardyPlants_GrowthNote>Prędkość, plony, odrastanie, gleba, zaraza i 24/7 działają od razu, czasy wzrostu po zamknięciu tego okna.</HardyPlants_GrowthNote>
+  <MUI_Title>Zalecane ustawienia</MUI_Title>
+  <MUI_TitleOff>Zalecane ustawienia · wył.</MUI_TitleOff>
+  <MUI_DescOn>Mod konfiguruje się sam i działa od razu. Idealny dla nowych graczy i każdego, kto nie chce niczego zmieniać.</MUI_DescOn>
+  <MUI_DescOff>Własne ustawienia. Zmienione względem zalecanych: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Własne ustawienia. Nadal takie same jak zalecane.</MUI_DescOffSame>
+  <MUI_On>WŁ.</MUI_On>
+  <MUI_Off>WYŁ.</MUI_Off>
+  <MUI_ResetAll>Przywróć wszystko do zalecanych</MUI_ResetAll>
+  <MUI_ConfirmOn>Włączyć zalecane ustawienia? Twoje zmiany ({0}) zostaną zastąpione zalecanymi wartościami.</MUI_ConfirmOn>
+  <MUI_Locked>Szczegółowe ustawienia są zablokowane. Chcesz je zmienić? Wyłącz przełącznik powyżej – Twoje wartości zaczną od zalecanych.</MUI_Locked>
+  <MUI_Changed>ZMIENIONO</MUI_Changed>
+  <MUI_ChangedTip>Różni się od zalecanego ustawienia ({0}). Kliknij, aby przywrócić zalecaną wartość.</MUI_ChangedTip>
+  <MUI_Yes>wł.</MUI_Yes>
+  <MUI_No>wył.</MUI_No>
+  <MUI_RecTag>ZALECANE</MUI_RecTag>
+  <HardyPlants_Profile>PROFIL</HardyPlants_Profile>
+  <HardyPlants_ProfRec>Zalecany</HardyPlants_ProfRec>
+  <HardyPlants_ProfCustom>Własny</HardyPlants_ProfCustom>
+  <HardyPlants_PresetVanilla_Card>Wzrost i plony jak w podstawowej grze.</HardyPlants_PresetVanilla_Card>
+  <HardyPlants_ProfRec_Card>Szybszy wzrost, większe plony, brak zarazy, szklarnie i dzikie rośliny pod śniegiem. Nadal uczciwie.</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>Rośliny wszędzie, rosną szybko dzień i noc, w każdej porze roku i bez szkód od zdarzeń.</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfCustom_Card>Twoje własne wartości.</HardyPlants_ProfCustom_Card>
+  <HardyPlants_ProfileHint>Zmień cokolwiek w sekcji Wzrost lub Plony, a profil przełączy się na Własny. Pomarańczowe ZMIENIONO = różni się od zalecanego, kliknij, aby przywrócić.</HardyPlants_ProfileHint>
+  <HardyPlants_SecYield>Plony i choroby</HardyPlants_SecYield>
+  <HardyPlants_SecGroup>Które rośliny są odporne</HardyPlants_SecGroup>
+  <HardyPlants_TabGrowth>Wzrost</HardyPlants_TabGrowth>
+  <HardyPlants_TabYield>Plony</HardyPlants_TabYield>
+  <HardyPlants_TabWild>Dzika przyroda</HardyPlants_TabWild>
+  <HardyPlants_TabWinter>Zima i pogoda</HardyPlants_TabWinter>
+  <HardyPlants_TabPlants>Odporne rośliny</HardyPlants_TabPlants>
+  <HardyPlants_SecSeason>Pory roku</HardyPlants_SecSeason>
+  <HardyPlants_AnySeason>Siew i wzrost w każdej porze roku</HardyPlants_AnySeason>
+  <HardyPlants_AnySeasonDesc>Uprawy można siać i rosną zawsze, gdy pozwala na to temperatura – bez ograniczenia „sezonu wegetacyjnego”. Rośliny nadal potrzebują ciepła, by rosnąć szybko.</HardyPlants_AnySeasonDesc>
+  <HardyPlants_Greenhouse>Szklarnie</HardyPlants_Greenhouse>
+  <HardyPlants_GreenhouseDesc>Rośliny pod zbudowanym dachem w zamkniętym pomieszczeniu rosną z pełną prędkością niezależnie od temperatury (od −10 °C), w każdej porze roku, i nigdy nie zamarzają. Używaj lamp jako źródła światła.</HardyPlants_GreenhouseDesc>
+  <HardyPlants_FruitRepeat>Drzewa owocowe znów owocują</HardyPlants_FruitRepeat>
+  <HardyPlants_FruitRepeatDesc>Zbiór owoców z drzewa (z modów) go nie ścina – drzewo znów wydaje owoce. Ścinanie na drewno nadal działa.</HardyPlants_FruitRepeatDesc>
+  <HardyPlants_WildDensity>Gęstsza dzika przyroda</HardyPlants_WildDensity>
+  <HardyPlants_WildDensityDesc>Więcej (lub mniej) dzikich roślin i drzew na mapie, niż zwykle ma biom.</HardyPlants_WildDensityDesc>
+  <HardyPlants_WildDensityValue>Gęstość dzikich roślin: ×{0}</HardyPlants_WildDensityValue>
+  <HardyPlants_SnowGrowth>Dzikie rośliny odrastają pod śniegiem</HardyPlants_SnowGrowth>
+  <HardyPlants_SnowGrowthDesc>Zwykle przez całą zimę na zaśnieżonej ziemi nic nowego nie wyrasta. Po włączeniu dzikie rośliny i drzewa odrastają pod śniegiem tam, gdzie jest wystarczająco ciepło.</HardyPlants_SnowGrowthDesc>
+  <HardyPlants_SnowMinTemp>Pod śniegiem od: {0} (vanilla: nigdy; zalecane {1})</HardyPlants_SnowMinTemp>
+  <HardyPlants_FewerFires>Mniej pożarów</HardyPlants_FewerFires>
+  <HardyPlants_FewerFiresDesc>Trawa, krzewy i drzewa zapalają się około trzy razy trudniej, więc pożar nie pochłania całego lasu.</HardyPlants_FewerFiresDesc>
+  <HardyPlants_Overview>Dzika przyroda na tej mapie</HardyPlants_Overview>
+  <HardyPlants_OverviewNoGame>Wczytaj grę, aby zobaczyć, co rośnie na Twojej mapie.</HardyPlants_OverviewNoGame>
+  <HardyPlants_OverviewDay>Ostatni dzień gry ({0}):</HardyPlants_OverviewDay>
+  <HardyPlants_OverviewSoFar>Dziś do tej pory ({0}):</HardyPlants_OverviewSoFar>
+  <HardyPlants_OverviewNums>Próbowało wyrosnąć {0} dzikich roślin, wyrosło {1} ({2} drzew).</HardyPlants_OverviewNums>
+  <HardyPlants_OverviewSnow>Śnieg zatrzymał {0} z {1} prób.</HardyPlants_OverviewSnow>
+  <HardyPlants_OverviewNoneSnow>Nic nie rośnie – prawdopodobnie przez śnieg. Włącz „Dzikie rośliny odrastają pod śniegiem”.</HardyPlants_OverviewNoneSnow>
+  <HardyPlants_OverviewNoneCold>Nic nie rośnie – jest za zimno albo ziemia jest pełna. Spróbuj niższej temperatury „Pod śniegiem od”.</HardyPlants_OverviewNoneCold>
+  <HardyPlants_SecEvents>Zdarzenia</HardyPlants_SecEvents>
+  <HardyPlants_ImmuneEvents>Rośliny ignorują złe zdarzenia</HardyPlants_ImmuneEvents>
+  <HardyPlants_ImmuneEventsDesc>Susza (także suche okresy z modów), szkodliwa mgła, toksyczny opad i zanieczyszczenie nie spowalniają już roślin ani nie pozbawiają ich liści. Zimno i upał nadal się liczą.</HardyPlants_ImmuneEventsDesc>
+</LanguageData>

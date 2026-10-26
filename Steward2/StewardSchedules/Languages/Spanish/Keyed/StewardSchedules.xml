@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_SchedTired>{0} está agotado – horario: dormir ahora.</CF_SchedTired>
+  <CF_SchedBreak>{0} está al borde de una crisis mental – horario: ocio ahora.</CF_SchedBreak>
+  <CF_ComfortEat>{0} come de pie: {1}</CF_ComfortEat>
+  <CF_ComfortToilet>{0} no puede usar un retrete: {1}</CF_ComfortToilet>
+  <CF_WhyNoTable>no hay ninguna silla junto a una mesa en casa</CF_WhyNoTable>
+  <CF_WhyArea>está fuera de su zona permitida «{0}»</CF_WhyArea>
+  <CF_WhyForbidden>está prohibido</CF_WhyForbidden>
+  <CF_WhyPrison>está en una celda de prisión (o en una habitación para otros)</CF_WhyPrison>
+  <CF_WhyReach>no puede llegar allí</CF_WhyReach>
+  <CF_WhyReserved>{0} lo ha reservado</CF_WhyReserved>
+  <CF_WhyFull>todos los asientos están ocupados</CF_WhyFull>
+  <CF_WhyDanger>allí es peligroso (temperatura, enemigo)</CF_WhyDanger>
+  <CF_WhyFar>el más cercano está demasiado lejos ({0} casillas)</CF_WhyFar>
+  <CF_WhyNoToilet>no hay retrete en casa</CF_WhyNoToilet>
+  <CF_WhyBroken>el retrete no funciona: {0}</CF_WhyBroken>
+  <CF_WhyNotAllowed>el retrete no es para él: {0}</CF_WhyNotAllowed>
+  <CF_WhyBusy>el retrete está ocupado o demasiado lejos</CF_WhyBusy>
+  <CF_SchedMoreJoy>A {0} le falta ocio – horario: {1} h de ocio al día.</CF_SchedMoreJoy>
+  <CF_SchedBored>{0} está aburrido de la mayoría de tipos de ocio: más tiempo de ocio no servirá de mucho; construye otros tipos (juegos, arte, televisión, telescopio, una habitación bonita …).</CF_SchedBored>
+  <CF_MoodRescue>{0} deja de trabajar para calmarse (sobre todo: {1}).</CF_MoodRescue>
+  <CF_MoodHint_Table>{0} colonos están molestos por comer sin mesa. Una mesa con sillas más cerca de donde trabajan o duermen ayudaría.</CF_MoodHint_Table>
+  <CF_MoodHint_Comfort>A {0} colonos les falta comodidad. Más sillas, sillones o mejores camas ayudarían.</CF_MoodHint_Comfort>
+  <CF_MoodHint_Dark>{0} colonos están molestos por la oscuridad. Más luces donde trabajan y caminan ayudarían.</CF_MoodHint_Dark>
+  <CF_MoodHint_Cramped>{0} colonos se sienten apretados. Dormitorios o habitaciones más grandes ayudarían.</CF_MoodHint_Cramped>
+  <CF_MoodHint_Outdoors>{0} colonos echan de menos el aire libre (claustrofobia). Ocio al aire libre o trabajo fuera ayudarían.</CF_MoodHint_Outdoors>
+  <CF_MoodHint_Temperature>{0} colonos sufren calor o frío. Calefactores, refrigeradores o mejor ropa ayudarían.</CF_MoodHint_Temperature>
+  <CF_MoodCause_Rest>cansancio</CF_MoodCause_Rest>
+  <CF_MoodCause_Joy>falta de ocio</CF_MoodCause_Joy>
+  <CF_MoodCause_Food>comida</CF_MoodCause_Food>
+  <CF_MoodCause_Table>comer sin mesa</CF_MoodCause_Table>
+  <CF_MoodCause_Pain>dolor</CF_MoodCause_Pain>
+  <CF_MoodCause_Room>entorno feo o sucio</CF_MoodCause_Room>
+  <CF_MoodCause_Comfort>falta de comodidad</CF_MoodCause_Comfort>
+  <CF_MoodCause_Dark>oscuridad</CF_MoodCause_Dark>
+  <CF_MoodCause_Cramped>habitaciones estrechas</CF_MoodCause_Cramped>
+  <CF_MoodCause_Outdoors>claustrofobia</CF_MoodCause_Outdoors>
+  <CF_MoodCause_Apparel>ropa</CF_MoodCause_Apparel>
+  <CF_MoodCause_Temperature>calor o frío</CF_MoodCause_Temperature>
+  <CF_MoodCause_Social>gente</CF_MoodCause_Social>
+  <CF_MoodCause_Other>sucesos y recuerdos</CF_MoodCause_Other>
+  <CF_MoodNoFood>{0} tiene hambre y está al borde de una crisis, pero no puede alcanzar ninguna comida. Revisa las reservas de comida, la zona permitida y la comida prohibida.</CF_MoodNoFood>
+  <CF2S_Name>Horarios</CF2S_Name>
+  <CF2S_Auto>Horarios automáticos</CF2S_Auto>
+  <CF2S_AutoTip>Cada colono recibe un horario: sueño, trabajo y ocio, que crece cuando falta y se reduce cuando hay suficiente. Si cambias tú mismo un horario, el Steward deja en paz a ese colono.</CF2S_AutoTip>
+  <CF2S_Night>Turno de noche</CF2S_Night>
+  <CF2S_NightTip>Alrededor de una cuarta parte de la colonia (a partir de 6 personas) trabaja de noche y duerme de día. Los noctámbulos, siempre de noche.</CF2S_NightTip>
+  <CF2S_Care>Cuidado del descanso y el humor</CF2S_Care>
+  <CF2S_CareTip>Un colono agotado recibe una hora de sueño; uno al borde de una crisis mental, una hora de ocio. Después las horas vuelven a ser como antes.</CF2S_CareTip>
+  <CF2S_SitToEat>Comer en una mesa</CF2S_SitToEat>
+  <CF2S_SitToEatTip>Los colonos se sientan a una mesa aunque esté un poco más lejos; si no hay ninguna, el Steward dice por qué.</CF2S_SitToEatTip>
+  <CF2S_Messages>Mensajes sobre horarios y humor</CF2S_Messages>
+  <CF2S_Quiet>Menos mensajes arriba a la izquierda</CF2S_Quiet>
+  <CF2S_QuietTip>Los avisos rutinarios (también de otros mods) no se muestran, solo se guardan en el historial de mensajes. Las amenazas y los mensajes importantes se mantienen.</CF2S_QuietTip>
+</LanguageData>

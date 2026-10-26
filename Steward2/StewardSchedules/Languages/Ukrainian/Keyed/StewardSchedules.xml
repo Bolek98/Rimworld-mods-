@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_SchedTired>{0} виснажений(а) — розклад: сон просто зараз.</CF_SchedTired>
+  <CF_SchedBreak>{0} на межі нервового зриву — розклад: відпочинок просто зараз.</CF_SchedBreak>
+  <CF_ComfortEat>{0} їсть стоячи: {1}</CF_ComfortEat>
+  <CF_ComfortToilet>{0} не може скористатися туалетом: {1}</CF_ComfortToilet>
+  <CF_WhyNoTable>удома немає стільця біля столу</CF_WhyNoTable>
+  <CF_WhyArea>це поза дозволеною зоною «{0}»</CF_WhyArea>
+  <CF_WhyForbidden>це заборонено</CF_WhyForbidden>
+  <CF_WhyPrison>це в тюремній камері (або в кімнаті для інших)</CF_WhyPrison>
+  <CF_WhyReach>туди не дістатися</CF_WhyReach>
+  <CF_WhyReserved>{0} зарезервував(ла) це</CF_WhyReserved>
+  <CF_WhyFull>усі місця зайняті</CF_WhyFull>
+  <CF_WhyDanger>там небезпечно (температура, ворог)</CF_WhyDanger>
+  <CF_WhyFar>найближчий надто далеко ({0} клітинок)</CF_WhyFar>
+  <CF_WhyNoToilet>удома немає туалету</CF_WhyNoToilet>
+  <CF_WhyBroken>туалет не працює: {0}</CF_WhyBroken>
+  <CF_WhyNotAllowed>туалет не для нього: {0}</CF_WhyNotAllowed>
+  <CF_WhyBusy>туалет зайнятий або надто далеко</CF_WhyBusy>
+  <CF_SchedMoreJoy>{0} бракує відпочинку — розклад: {1} год відпочинку на день.</CF_SchedMoreJoy>
+  <CF_SchedBored>{0} набридла більшість видів відпочинку — більше часу на відпочинок мало допоможе; збудуйте інші види (ігри, мистецтво, телевізор, телескоп, гарна кімната …).</CF_SchedBored>
+  <CF_MoodRescue>{0} припиняє роботу, щоб заспокоїтися (переважно: {1}).</CF_MoodRescue>
+  <CF_MoodHint_Table>Колоністів засмучує їжа без столу: {0}. Допоміг би стіл зі стільцями ближче до місця їхньої роботи чи сну.</CF_MoodHint_Table>
+  <CF_MoodHint_Comfort>Колоністам бракує комфорту: {0}. Допомогли б ще стільці, крісла або кращі ліжка.</CF_MoodHint_Comfort>
+  <CF_MoodHint_Dark>Колоністів засмучує темрява: {0}. Допомогло б більше світла там, де вони працюють і ходять.</CF_MoodHint_Dark>
+  <CF_MoodHint_Cramped>Колоністам тісно: {0}. Допомогли б більші спальні чи кімнати.</CF_MoodHint_Cramped>
+  <CF_MoodHint_Outdoors>Колоністам бракує свіжого повітря (клаустрофобія): {0}. Допоміг би відпочинок або робота надворі.</CF_MoodHint_Outdoors>
+  <CF_MoodHint_Temperature>Колоністи страждають від спеки чи холоду: {0}. Допомогли б обігрівачі, охолоджувачі або кращий одяг.</CF_MoodHint_Temperature>
+  <CF_MoodCause_Rest>втома</CF_MoodCause_Rest>
+  <CF_MoodCause_Joy>брак відпочинку</CF_MoodCause_Joy>
+  <CF_MoodCause_Food>їжа</CF_MoodCause_Food>
+  <CF_MoodCause_Table>їжа без столу</CF_MoodCause_Table>
+  <CF_MoodCause_Pain>біль</CF_MoodCause_Pain>
+  <CF_MoodCause_Room>негарне чи брудне оточення</CF_MoodCause_Room>
+  <CF_MoodCause_Comfort>брак комфорту</CF_MoodCause_Comfort>
+  <CF_MoodCause_Dark>темрява</CF_MoodCause_Dark>
+  <CF_MoodCause_Cramped>тісні кімнати</CF_MoodCause_Cramped>
+  <CF_MoodCause_Outdoors>клаустрофобія</CF_MoodCause_Outdoors>
+  <CF_MoodCause_Apparel>одяг</CF_MoodCause_Apparel>
+  <CF_MoodCause_Temperature>спека чи холод</CF_MoodCause_Temperature>
+  <CF_MoodCause_Social>люди</CF_MoodCause_Social>
+  <CF_MoodCause_Other>події та спогади</CF_MoodCause_Other>
+  <CF_MoodNoFood>{0} голодний(а) й близько до зриву, але не може дістатися до їжі. Перевірте запаси їжі, дозволену зону та заборонену їжу.</CF_MoodNoFood>
+  <CF2S_Name>Розклади</CF2S_Name>
+  <CF2S_Auto>Автоматичні розклади</CF2S_Auto>
+  <CF2S_AutoTip>Кожен колоніст отримує розклад: сон, робота і відпочинок, якого стає більше, коли його бракує, і менше, коли його досить. Якщо ви самі змінюєте розклад, управитель залишає цього колоніста в спокої.</CF2S_AutoTip>
+  <CF2S_Night>Нічна зміна</CF2S_Night>
+  <CF2S_NightTip>Приблизно чверть колонії (від 6 осіб) працює вночі й спить удень. Сови — завжди вночі.</CF2S_NightTip>
+  <CF2S_Care>Турбота про відпочинок і настрій</CF2S_Care>
+  <CF2S_CareTip>Виснажений колоніст отримує годину сну, близький до нервового зриву — годину відпочинку. Потім години повертаються.</CF2S_CareTip>
+  <CF2S_SitToEat>Їсти за столом</CF2S_SitToEat>
+  <CF2S_SitToEatTip>Колоністи сідають за стіл, навіть якщо він трохи далі; якщо столу немає, управитель повідомляє чому.</CF2S_SitToEatTip>
+  <CF2S_Messages>Повідомлення про розклади й настрій</CF2S_Messages>
+  <CF2S_Quiet>Менше повідомлень угорі ліворуч</CF2S_Quiet>
+  <CF2S_QuietTip>Рутинні сповіщення (зокрема інших модів) не показуються, а лише зберігаються в історії повідомлень. Загрози та важливі повідомлення залишаються.</CF2S_QuietTip>
+</LanguageData>

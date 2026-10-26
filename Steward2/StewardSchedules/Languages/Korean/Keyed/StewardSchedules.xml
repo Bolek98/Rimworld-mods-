@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_SchedTired>{0}: 기진맥진 – 일정: 지금 수면.</CF_SchedTired>
+  <CF_SchedBreak>{0}: 정신 붕괴 직전 – 일정: 지금 오락.</CF_SchedBreak>
+  <CF_ComfortEat>{0}: 서서 먹음 – {1}</CF_ComfortEat>
+  <CF_ComfortToilet>{0}: 화장실을 쓸 수 없음 – {1}</CF_ComfortToilet>
+  <CF_WhyNoTable>집에 의자가 딸린 탁자가 없음</CF_WhyNoTable>
+  <CF_WhyArea>허용 구역 '{0}' 밖에 있음</CF_WhyArea>
+  <CF_WhyForbidden>금지되어 있음</CF_WhyForbidden>
+  <CF_WhyPrison>감옥 방(또는 다른 사람의 방)에 있음</CF_WhyPrison>
+  <CF_WhyReach>그곳에 갈 수 없음</CF_WhyReach>
+  <CF_WhyReserved>{0}이(가) 예약함</CF_WhyReserved>
+  <CF_WhyFull>모든 자리가 찼음</CF_WhyFull>
+  <CF_WhyDanger>그곳은 위험함 (온도, 적)</CF_WhyDanger>
+  <CF_WhyFar>가장 가까운 것이 너무 멂 ({0}칸)</CF_WhyFar>
+  <CF_WhyNoToilet>집에 화장실이 없음</CF_WhyNoToilet>
+  <CF_WhyBroken>화장실이 작동하지 않음: {0}</CF_WhyBroken>
+  <CF_WhyNotAllowed>이 정착민용 화장실이 아님: {0}</CF_WhyNotAllowed>
+  <CF_WhyBusy>화장실이 사용 중이거나 너무 멂</CF_WhyBusy>
+  <CF_SchedMoreJoy>{0}: 오락 부족 – 일정: 하루 {1}시간 오락.</CF_SchedMoreJoy>
+  <CF_SchedBored>{0}: 대부분의 오락에 질림 – 오락 시간을 늘려도 별 도움이 안 됩니다. 다른 종류(게임, 예술, TV, 망원경, 멋진 방 …)를 지으세요.</CF_SchedBored>
+  <CF_MoodRescue>{0}: 진정하려고 작업을 멈춥니다 (주원인: {1}).</CF_MoodRescue>
+  <CF_MoodHint_Table>정착민 {0}명이 탁자 없이 먹어서 기분이 상했습니다. 일하거나 자는 곳 가까이에 의자 딸린 탁자가 있으면 도움이 됩니다.</CF_MoodHint_Table>
+  <CF_MoodHint_Comfort>정착민 {0}명이 편안함이 부족합니다. 의자, 안락의자, 더 좋은 침대를 늘리면 도움이 됩니다.</CF_MoodHint_Comfort>
+  <CF_MoodHint_Dark>정착민 {0}명이 어둠 때문에 기분이 상했습니다. 일하고 다니는 곳에 조명을 늘리면 도움이 됩니다.</CF_MoodHint_Dark>
+  <CF_MoodHint_Cramped>정착민 {0}명이 비좁다고 느낍니다. 더 넓은 침실이나 방이 도움이 됩니다.</CF_MoodHint_Cramped>
+  <CF_MoodHint_Outdoors>정착민 {0}명이 바깥을 그리워합니다 (갑갑함). 야외 오락이나 바깥 작업이 도움이 됩니다.</CF_MoodHint_Outdoors>
+  <CF_MoodHint_Temperature>정착민 {0}명이 더위나 추위로 고생합니다. 난방기, 냉방기 또는 더 좋은 옷이 도움이 됩니다.</CF_MoodHint_Temperature>
+  <CF_MoodCause_Rest>피로</CF_MoodCause_Rest>
+  <CF_MoodCause_Joy>오락 부족</CF_MoodCause_Joy>
+  <CF_MoodCause_Food>음식</CF_MoodCause_Food>
+  <CF_MoodCause_Table>탁자 없이 식사</CF_MoodCause_Table>
+  <CF_MoodCause_Pain>통증</CF_MoodCause_Pain>
+  <CF_MoodCause_Room>흉하거나 더러운 환경</CF_MoodCause_Room>
+  <CF_MoodCause_Comfort>편안함 부족</CF_MoodCause_Comfort>
+  <CF_MoodCause_Dark>어둠</CF_MoodCause_Dark>
+  <CF_MoodCause_Cramped>비좁은 방</CF_MoodCause_Cramped>
+  <CF_MoodCause_Outdoors>갑갑함</CF_MoodCause_Outdoors>
+  <CF_MoodCause_Apparel>옷</CF_MoodCause_Apparel>
+  <CF_MoodCause_Temperature>더위나 추위</CF_MoodCause_Temperature>
+  <CF_MoodCause_Social>사람들</CF_MoodCause_Social>
+  <CF_MoodCause_Other>사건과 기억</CF_MoodCause_Other>
+  <CF_MoodNoFood>{0}: 배고프고 정신 붕괴 직전이지만 음식에 닿을 수 없습니다. 식량 비축, 허용 구역, 금지된 음식을 확인하세요.</CF_MoodNoFood>
+  <CF2S_Name>일정</CF2S_Name>
+  <CF2S_Auto>자동 일정</CF2S_Auto>
+  <CF2S_AutoTip>모든 정착민이 일정을 받습니다: 수면, 작업, 그리고 부족하면 늘고 충분하면 줄어드는 오락. 여러분이 직접 일정을 바꾸면 관리인은 그 정착민을 건드리지 않습니다.</CF2S_AutoTip>
+  <CF2S_Night>야간 근무</CF2S_Night>
+  <CF2S_NightTip>정착지의 약 4분의 1(6명부터)이 밤에 일하고 낮에 잡니다. 올빼미는 항상 밤에.</CF2S_NightTip>
+  <CF2S_Care>휴식과 기분 관리</CF2S_Care>
+  <CF2S_CareTip>기진맥진한 정착민은 한 시간의 수면, 정신 붕괴 직전인 정착민은 한 시간의 오락을 받습니다. 그 후 시간은 원래대로 돌아갑니다.</CF2S_CareTip>
+  <CF2S_SitToEat>탁자에서 먹기</CF2S_SitToEat>
+  <CF2S_SitToEatTip>정착민들이 조금 멀더라도 탁자에 앉아 먹습니다. 탁자가 없으면 관리인이 이유를 알려 줍니다.</CF2S_SitToEatTip>
+  <CF2S_Messages>일정과 기분에 관한 메시지</CF2S_Messages>
+  <CF2S_Quiet>왼쪽 위 메시지 줄이기</CF2S_Quiet>
+  <CF2S_QuietTip>일상적인 알림(다른 모드 포함)은 표시하지 않고 메시지 기록에만 남깁니다. 위협과 중요한 메시지는 그대로 표시됩니다.</CF2S_QuietTip>
+</LanguageData>

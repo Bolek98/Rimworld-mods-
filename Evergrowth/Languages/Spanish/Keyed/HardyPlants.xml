@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HardyPlants_Title>Evergrowth – Control del crecimiento de plantas</HardyPlants_Title>
+  <HardyPlants_Temperatures>Temperaturas para plantas resistentes</HardyPlants_Temperatures>
+  <HardyPlants_TemperaturesDesc>Por debajo del mínimo, una planta deja de crecer. Una planta resistente recibe estos valores solo donde son mejores que los suyos.</HardyPlants_TemperaturesDesc>
+  <HardyPlants_MinGrowth>Temperatura mínima de crecimiento: {0} (vanilla {1})</HardyPlants_MinGrowth>
+  <HardyPlants_MinOptimal>Crecimiento a plena velocidad desde: {0} (vanilla {1})</HardyPlants_MinOptimal>
+  <HardyPlants_MaxOptimal>Crecimiento a plena velocidad hasta: {0} (vanilla {1})</HardyPlants_MaxOptimal>
+  <HardyPlants_MaxGrowth>Temperatura máxima de crecimiento: {0} (vanilla {1})</HardyPlants_MaxGrowth>
+  <HardyPlants_Frost>Tolerancia a la helada: {0} más frío</HardyPlants_Frost>
+  <HardyPlants_FrostDesc>Las plantas vanilla pierden las hojas entre 10 y 18 °C por debajo de su temperatura mínima de crecimiento. Las plantas resistentes aguantan esto de más.</HardyPlants_FrostDesc>
+  <HardyPlants_ResetValues>Restablecer temperaturas</HardyPlants_ResetValues>
+  <HardyPlants_Group>Qué plantas:</HardyPlants_Group>
+  <HardyPlants_GroupCold>Plantas silvestres de biomas fríos</HardyPlants_GroupCold>
+  <HardyPlants_GroupWild>Todas las plantas silvestres y árboles (predeterminado)</HardyPlants_GroupWild>
+  <HardyPlants_GroupAll>Todas las plantas, cultivos incluidos</HardyPlants_GroupAll>
+  <HardyPlants_GroupCustom>Mi propia selección (lista a la derecha)</HardyPlants_GroupCustom>
+  <HardyPlants_Plants>Plantas resistentes al frío</HardyPlants_Plants>
+  <HardyPlants_Chosen>{0} plantas seleccionadas. Buscar:</HardyPlants_Chosen>
+  <HardyPlants_Growth>Crecimiento</HardyPlants_Growth>
+  <HardyPlants_FasterGrowth>Las plantas crecen más rápido</HardyPlants_FasterGrowth>
+  <HardyPlants_FasterGrowthDesc>Cultivos, árboles y plantas silvestres, cada uno con su propia velocidad. Funciona al instante para todas las plantas del mapa, también para las que aparezcan después. Sin reiniciar. Desactivado por defecto.</HardyPlants_FasterGrowthDesc>
+  <HardyPlants_GrowthSpeed>Velocidad de crecimiento: ×{0}</HardyPlants_GrowthSpeed>
+  <HardyPlants_GrowAllDay>Las plantas crecen día y noche (24/7)</HardyPlants_GrowAllDay>
+  <HardyPlants_GrowAllDayDesc>Las plantas no descansan de noche, y las plantas a cielo abierto también crecen en la oscuridad. Las plantas bajo techo siguen necesitando lámparas. Desactivado por defecto.</HardyPlants_GrowAllDayDesc>
+  <HardyPlants_CropDays>Ajustar cuánto tardan en crecer los cultivos</HardyPlants_CropDays>
+  <HardyPlants_TreeDays>Ajustar cuánto tardan en crecer los árboles</HardyPlants_TreeDays>
+  <HardyPlants_DaysValue>Crece en: {0} días</HardyPlants_DaysValue>
+  <HardyPlants_DaysDesc>Días al 100 % de velocidad de crecimiento. Las plantas descansan de noche (salvo que 24/7 esté activado) y crecen más despacio con mala luz, suelo o temperatura, así que en una partida real tarda más. Se aplica al cerrar esta ventana, sin reiniciar. Desactivado por defecto.</HardyPlants_DaysDesc>
+  <HardyPlants_Presets>Configuración rápida (sección Crecimiento):</HardyPlants_Presets>
+  <HardyPlants_PresetVanilla>Vanilla</HardyPlants_PresetVanilla>
+  <HardyPlants_PresetEasy>Agricultura fácil</HardyPlants_PresetEasy>
+  <HardyPlants_PresetLush>Mundo exuberante</HardyPlants_PresetLush>
+  <HardyPlants_SpeedCrops>Cultivos: ×{0}</HardyPlants_SpeedCrops>
+  <HardyPlants_SpeedTrees>Árboles: ×{0}</HardyPlants_SpeedTrees>
+  <HardyPlants_SpeedWild>Plantas silvestres: ×{0}</HardyPlants_SpeedWild>
+  <HardyPlants_Yield>Cosechas más grandes</HardyPlants_Yield>
+  <HardyPlants_YieldDesc>Cuánto dan los cultivos y las plantas silvestres al cosecharlos y cuánta madera da un árbol. Funciona al instante. Desactivado por defecto.</HardyPlants_YieldDesc>
+  <HardyPlants_YieldCrops>Cultivos y plantas silvestres: ×{0}</HardyPlants_YieldCrops>
+  <HardyPlants_YieldWood>Madera de árboles: ×{0}</HardyPlants_YieldWood>
+  <HardyPlants_Regrow>Las plantas silvestres rebrotan más rápido</HardyPlants_Regrow>
+  <HardyPlants_RegrowDesc>Qué tan rápido vuelven al mapa las plantas silvestres y los árboles tras la tala, el pastoreo o un incendio. La densidad de plantas sigue dependiendo del bioma. Desactivado por defecto.</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowValue>Rebrote: ×{0}</HardyPlants_RegrowValue>
+  <HardyPlants_IgnoreSoil>El suelo pobre no frena el crecimiento</HardyPlants_IgnoreSoil>
+  <HardyPlants_IgnoreSoilDesc>En arena, grava y suelo pobre las plantas crecen a plena velocidad. El suelo rico sigue ayudando. Donde no crece nada, nada cambia. Desactivado por defecto.</HardyPlants_IgnoreSoilDesc>
+  <HardyPlants_NoBlight>Sin plaga de cultivos</HardyPlants_NoBlight>
+  <HardyPlants_NoBlightDesc>El evento de plaga ya no ocurre y la plaga no se propaga. Desactivado por defecto.</HardyPlants_NoBlightDesc>
+  <HardyPlants_GrowthNote>Velocidad, rendimiento, rebrote, suelo, plaga y 24/7 funcionan al instante; los tiempos de crecimiento, al cerrar esta ventana.</HardyPlants_GrowthNote>
+  <MUI_Title>Configuración recomendada</MUI_Title>
+  <MUI_TitleOff>Configuración recomendada · desactivada</MUI_TitleOff>
+  <MUI_DescOn>El mod se configura solo y funciona al instante. Ideal para jugadores nuevos y para quien no quiera ajustar nada.</MUI_DescOn>
+  <MUI_DescOff>Configuración personalizada. Cambios respecto a la recomendada: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Configuración personalizada. Sigue igual que la recomendada.</MUI_DescOffSame>
+  <MUI_On>SÍ</MUI_On>
+  <MUI_Off>NO</MUI_Off>
+  <MUI_ResetAll>Restablecer todo a lo recomendado</MUI_ResetAll>
+  <MUI_ConfirmOn>¿Activar la configuración recomendada? Tus cambios ({0}) se sustituirán por los valores recomendados.</MUI_ConfirmOn>
+  <MUI_Locked>La configuración detallada está bloqueada. ¿Quieres cambiarla? Desactiva el interruptor de arriba: tus valores partirán de los recomendados.</MUI_Locked>
+  <MUI_Changed>CAMBIADO</MUI_Changed>
+  <MUI_ChangedTip>Difiere del valor recomendado ({0}). Haz clic para restaurar el valor recomendado.</MUI_ChangedTip>
+  <MUI_Yes>sí</MUI_Yes>
+  <MUI_No>no</MUI_No>
+  <MUI_RecTag>RECOMENDADO</MUI_RecTag>
+  <HardyPlants_Profile>PERFIL</HardyPlants_Profile>
+  <HardyPlants_ProfRec>Recomendado</HardyPlants_ProfRec>
+  <HardyPlants_ProfCustom>Personalizado</HardyPlants_ProfCustom>
+  <HardyPlants_PresetVanilla_Card>Crecimiento y rendimiento como en el juego base.</HardyPlants_PresetVanilla_Card>
+  <HardyPlants_ProfRec_Card>Crecimiento más rápido, cosechas más grandes, sin plaga, invernaderos y plantas silvestres bajo la nieve. Sigue siendo justo.</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>Plantas por todas partes, que crecen rápido día y noche, en cualquier estación y sin daños por eventos.</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfCustom_Card>Tus propios valores.</HardyPlants_ProfCustom_Card>
+  <HardyPlants_ProfileHint>Cambia cualquier cosa en Crecimiento o Rendimiento y el perfil pasa a Personalizado. CAMBIADO en naranja = difiere de lo recomendado; haz clic para restaurarlo.</HardyPlants_ProfileHint>
+  <HardyPlants_SecYield>Rendimiento y enfermedades</HardyPlants_SecYield>
+  <HardyPlants_SecGroup>Qué plantas son resistentes</HardyPlants_SecGroup>
+  <HardyPlants_TabGrowth>Crecimiento</HardyPlants_TabGrowth>
+  <HardyPlants_TabYield>Rendimiento</HardyPlants_TabYield>
+  <HardyPlants_TabWild>Naturaleza salvaje</HardyPlants_TabWild>
+  <HardyPlants_TabWinter>Invierno y clima</HardyPlants_TabWinter>
+  <HardyPlants_TabPlants>Plantas resistentes</HardyPlants_TabPlants>
+  <HardyPlants_SecSeason>Estaciones</HardyPlants_SecSeason>
+  <HardyPlants_AnySeason>Sembrar y crecer en cualquier estación</HardyPlants_AnySeason>
+  <HardyPlants_AnySeasonDesc>Los cultivos se pueden sembrar y crecen siempre que la temperatura lo permita, sin límite de «temporada de cultivo». Las plantas siguen necesitando calor para crecer rápido.</HardyPlants_AnySeasonDesc>
+  <HardyPlants_Greenhouse>Invernaderos</HardyPlants_Greenhouse>
+  <HardyPlants_GreenhouseDesc>Las plantas bajo un techo construido en una habitación cerrada crecen a plena velocidad sea cual sea la temperatura (desde −10 °C), en cualquier estación, y nunca se congelan. Usa lámparas para la luz.</HardyPlants_GreenhouseDesc>
+  <HardyPlants_FruitRepeat>Los árboles frutales vuelven a dar fruto</HardyPlants_FruitRepeat>
+  <HardyPlants_FruitRepeatDesc>Cosechar la fruta de un árbol (de mods) no lo tala: vuelve a dar fruta. Talarlo para obtener madera sigue funcionando.</HardyPlants_FruitRepeatDesc>
+  <HardyPlants_WildDensity>Naturaleza salvaje más densa</HardyPlants_WildDensity>
+  <HardyPlants_WildDensityDesc>Más (o menos) plantas silvestres y árboles en el mapa de los que suele tener el bioma.</HardyPlants_WildDensityDesc>
+  <HardyPlants_WildDensityValue>Densidad de plantas silvestres: ×{0}</HardyPlants_WildDensityValue>
+  <HardyPlants_SnowGrowth>Las plantas silvestres rebrotan bajo la nieve</HardyPlants_SnowGrowth>
+  <HardyPlants_SnowGrowthDesc>Normalmente no brota nada nuevo en suelo nevado durante todo el invierno. Con esto activado, las plantas silvestres y los árboles vuelven a crecer bajo la nieve donde hace suficiente calor.</HardyPlants_SnowGrowthDesc>
+  <HardyPlants_SnowMinTemp>Bajo la nieve desde: {0} (vanilla: nunca; sugerido {1})</HardyPlants_SnowMinTemp>
+  <HardyPlants_FewerFires>Menos incendios forestales</HardyPlants_FewerFires>
+  <HardyPlants_FewerFiresDesc>La hierba, los arbustos y los árboles se prenden unas tres veces menos fácilmente, así que un incendio no arrasa todo el bosque.</HardyPlants_FewerFiresDesc>
+  <HardyPlants_Overview>Naturaleza salvaje en este mapa</HardyPlants_Overview>
+  <HardyPlants_OverviewNoGame>Carga una partida para ver qué crece en tu mapa.</HardyPlants_OverviewNoGame>
+  <HardyPlants_OverviewDay>Último día de juego ({0}):</HardyPlants_OverviewDay>
+  <HardyPlants_OverviewSoFar>Hoy hasta ahora ({0}):</HardyPlants_OverviewSoFar>
+  <HardyPlants_OverviewNums>Se intentaron hacer crecer {0} plantas silvestres, crecieron {1} ({2} árboles).</HardyPlants_OverviewNums>
+  <HardyPlants_OverviewSnow>La nieve impidió {0} de {1} intentos.</HardyPlants_OverviewSnow>
+  <HardyPlants_OverviewNoneSnow>No crece nada, probablemente por la nieve. Activa «Las plantas silvestres rebrotan bajo la nieve».</HardyPlants_OverviewNoneSnow>
+  <HardyPlants_OverviewNoneCold>No crece nada: hace demasiado frío o el suelo está lleno. Prueba una temperatura más baja en «Bajo la nieve desde».</HardyPlants_OverviewNoneCold>
+  <HardyPlants_SecEvents>Eventos</HardyPlants_SecEvents>
+  <HardyPlants_ImmuneEvents>Las plantas ignoran los eventos malos</HardyPlants_ImmuneEvents>
+  <HardyPlants_ImmuneEventsDesc>La sequía (también las rachas secas de mods), la neblina nociva, la lluvia tóxica y la contaminación ya no frenan a las plantas ni las dejan sin hojas. El frío y el calor siguen contando.</HardyPlants_ImmuneEventsDesc>
+</LanguageData>

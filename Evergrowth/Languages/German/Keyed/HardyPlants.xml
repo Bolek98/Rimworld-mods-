@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HardyPlants_Title>Evergrowth – Pflanzenwachstum steuern</HardyPlants_Title>
+  <HardyPlants_Temperatures>Temperaturen für robuste Pflanzen</HardyPlants_Temperatures>
+  <HardyPlants_TemperaturesDesc>Unter dem Minimum hört eine Pflanze auf zu wachsen. Eine robuste Pflanze bekommt diese Werte nur dort, wo sie besser sind als ihre eigenen.</HardyPlants_TemperaturesDesc>
+  <HardyPlants_MinGrowth>Minimale Wachstumstemperatur: {0} (Vanilla {1})</HardyPlants_MinGrowth>
+  <HardyPlants_MinOptimal>Volles Wachstum ab: {0} (Vanilla {1})</HardyPlants_MinOptimal>
+  <HardyPlants_MaxOptimal>Volles Wachstum bis: {0} (Vanilla {1})</HardyPlants_MaxOptimal>
+  <HardyPlants_MaxGrowth>Maximale Wachstumstemperatur: {0} (Vanilla {1})</HardyPlants_MaxGrowth>
+  <HardyPlants_Frost>Frosttoleranz: {0} kälter</HardyPlants_Frost>
+  <HardyPlants_FrostDesc>Vanilla-Pflanzen verlieren 10–18 °C unter ihrer minimalen Wachstumstemperatur ihre Blätter. Robuste Pflanzen halten so viel mehr aus.</HardyPlants_FrostDesc>
+  <HardyPlants_ResetValues>Temperaturen zurücksetzen</HardyPlants_ResetValues>
+  <HardyPlants_Group>Welche Pflanzen:</HardyPlants_Group>
+  <HardyPlants_GroupCold>Wildpflanzen kalter Biome</HardyPlants_GroupCold>
+  <HardyPlants_GroupWild>Alle Wildpflanzen und Bäume (Standard)</HardyPlants_GroupWild>
+  <HardyPlants_GroupAll>Alle Pflanzen einschließlich Nutzpflanzen</HardyPlants_GroupAll>
+  <HardyPlants_GroupCustom>Eigene Auswahl (Liste rechts)</HardyPlants_GroupCustom>
+  <HardyPlants_Plants>Kälteresistente Pflanzen</HardyPlants_Plants>
+  <HardyPlants_Chosen>{0} Pflanzen ausgewählt. Suche:</HardyPlants_Chosen>
+  <HardyPlants_Growth>Wachstum</HardyPlants_Growth>
+  <HardyPlants_FasterGrowth>Pflanzen wachsen schneller</HardyPlants_FasterGrowth>
+  <HardyPlants_FasterGrowthDesc>Nutzpflanzen, Bäume und Wildpflanzen – jeweils mit eigener Geschwindigkeit. Wirkt sofort für jede Pflanze auf der Karte, auch für später erscheinende. Kein Neustart. Standardmäßig aus.</HardyPlants_FasterGrowthDesc>
+  <HardyPlants_GrowthSpeed>Wachstumsgeschwindigkeit: ×{0}</HardyPlants_GrowthSpeed>
+  <HardyPlants_GrowAllDay>Pflanzen wachsen Tag und Nacht (24/7)</HardyPlants_GrowAllDay>
+  <HardyPlants_GrowAllDayDesc>Pflanzen ruhen nachts nicht, und Pflanzen unter freiem Himmel wachsen auch im Dunkeln. Pflanzen unter einem Dach brauchen weiterhin Lampen. Standardmäßig aus.</HardyPlants_GrowAllDayDesc>
+  <HardyPlants_CropDays>Wachstumsdauer von Nutzpflanzen festlegen</HardyPlants_CropDays>
+  <HardyPlants_TreeDays>Wachstumsdauer von Bäumen festlegen</HardyPlants_TreeDays>
+  <HardyPlants_DaysValue>Wächst in: {0} Tagen</HardyPlants_DaysValue>
+  <HardyPlants_DaysDesc>Tage bei 100 % Wachstumsrate. Pflanzen ruhen nachts (außer 24/7 ist an) und wachsen bei schlechtem Licht, Boden oder Temperatur langsamer, im echten Spiel dauert es also länger. Wird beim Schließen dieses Fensters angewendet – kein Neustart. Standardmäßig aus.</HardyPlants_DaysDesc>
+  <HardyPlants_Presets>Schnelleinrichtung (Bereich Wachstum):</HardyPlants_Presets>
+  <HardyPlants_PresetVanilla>Vanilla</HardyPlants_PresetVanilla>
+  <HardyPlants_PresetEasy>Einfache Landwirtschaft</HardyPlants_PresetEasy>
+  <HardyPlants_PresetLush>Üppige Welt</HardyPlants_PresetLush>
+  <HardyPlants_SpeedCrops>Nutzpflanzen: ×{0}</HardyPlants_SpeedCrops>
+  <HardyPlants_SpeedTrees>Bäume: ×{0}</HardyPlants_SpeedTrees>
+  <HardyPlants_SpeedWild>Wildpflanzen: ×{0}</HardyPlants_SpeedWild>
+  <HardyPlants_Yield>Größere Ernten</HardyPlants_Yield>
+  <HardyPlants_YieldDesc>Wie viel Nutz- und Wildpflanzen bei der Ernte geben und wie viel Holz ein Baum gibt. Wirkt sofort. Standardmäßig aus.</HardyPlants_YieldDesc>
+  <HardyPlants_YieldCrops>Nutz- und Wildpflanzen: ×{0}</HardyPlants_YieldCrops>
+  <HardyPlants_YieldWood>Holz von Bäumen: ×{0}</HardyPlants_YieldWood>
+  <HardyPlants_Regrow>Wildpflanzen wachsen schneller nach</HardyPlants_Regrow>
+  <HardyPlants_RegrowDesc>Wie schnell Wildpflanzen und Bäume nach Fällen, Abgrasen oder Feuer auf die Karte zurückkehren. Die Pflanzendichte richtet sich weiterhin nach dem Biom. Standardmäßig aus.</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowValue>Nachwuchs: ×{0}</HardyPlants_RegrowValue>
+  <HardyPlants_IgnoreSoil>Schlechter Boden bremst das Wachstum nicht</HardyPlants_IgnoreSoil>
+  <HardyPlants_IgnoreSoilDesc>Auf Sand, Kies und kargem Boden wachsen Pflanzen mit voller Geschwindigkeit. Fruchtbarer Boden hilft weiterhin. Wo nichts wächst, ändert sich nichts. Standardmäßig aus.</HardyPlants_IgnoreSoilDesc>
+  <HardyPlants_NoBlight>Keine Pflanzenfäule</HardyPlants_NoBlight>
+  <HardyPlants_NoBlightDesc>Das Ereignis Pflanzenfäule tritt nicht mehr auf und Fäule breitet sich nicht aus. Standardmäßig aus.</HardyPlants_NoBlightDesc>
+  <HardyPlants_GrowthNote>Geschwindigkeit, Ertrag, Nachwuchs, Boden, Fäule und 24/7 wirken sofort, Wachstumsdauern nach dem Schließen dieses Fensters.</HardyPlants_GrowthNote>
+  <MUI_Title>Empfohlene Einstellungen</MUI_Title>
+  <MUI_TitleOff>Empfohlene Einstellungen · aus</MUI_TitleOff>
+  <MUI_DescOn>Die Mod richtet sich selbst ein und funktioniert sofort. Ideal für neue Spieler und alle, die nichts anpassen wollen.</MUI_DescOn>
+  <MUI_DescOff>Eigene Einstellungen. Geändert gegenüber Empfehlung: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Eigene Einstellungen. Noch identisch mit der Empfehlung.</MUI_DescOffSame>
+  <MUI_On>AN</MUI_On>
+  <MUI_Off>AUS</MUI_Off>
+  <MUI_ResetAll>Alles auf Empfehlung zurücksetzen</MUI_ResetAll>
+  <MUI_ConfirmOn>Empfohlene Einstellungen einschalten? Deine Änderungen ({0}) werden durch die empfohlenen Werte ersetzt.</MUI_ConfirmOn>
+  <MUI_Locked>Detaillierte Einstellungen sind gesperrt. Willst du sie ändern? Schalte den Schalter oben aus – deine Werte starten bei den empfohlenen.</MUI_Locked>
+  <MUI_Changed>GEÄNDERT</MUI_Changed>
+  <MUI_ChangedTip>Weicht von der Empfehlung ab ({0}). Klicken, um den empfohlenen Wert wiederherzustellen.</MUI_ChangedTip>
+  <MUI_Yes>an</MUI_Yes>
+  <MUI_No>aus</MUI_No>
+  <MUI_RecTag>EMPFOHLEN</MUI_RecTag>
+  <HardyPlants_Profile>PROFIL</HardyPlants_Profile>
+  <HardyPlants_ProfRec>Empfohlen</HardyPlants_ProfRec>
+  <HardyPlants_ProfCustom>Eigene</HardyPlants_ProfCustom>
+  <HardyPlants_PresetVanilla_Card>Wachstum und Ertrag wie im Grundspiel.</HardyPlants_PresetVanilla_Card>
+  <HardyPlants_ProfRec_Card>Schnelleres Wachstum, größere Ernten, keine Fäule, Gewächshäuser und Wildpflanzen unter Schnee. Trotzdem fair.</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>Überall Pflanzen, die Tag und Nacht schnell wachsen, in jeder Jahreszeit und unbeeindruckt von Ereignissen.</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfCustom_Card>Deine eigenen Werte.</HardyPlants_ProfCustom_Card>
+  <HardyPlants_ProfileHint>Ändere etwas unter Wachstum oder Ertrag, und das Profil wechselt zu Eigene. Oranges GEÄNDERT = weicht von der Empfehlung ab, klicke darauf, um sie wiederherzustellen.</HardyPlants_ProfileHint>
+  <HardyPlants_SecYield>Ertrag und Krankheiten</HardyPlants_SecYield>
+  <HardyPlants_SecGroup>Welche Pflanzen robust sind</HardyPlants_SecGroup>
+  <HardyPlants_TabGrowth>Wachstum</HardyPlants_TabGrowth>
+  <HardyPlants_TabYield>Ertrag</HardyPlants_TabYield>
+  <HardyPlants_TabWild>Wilde Natur</HardyPlants_TabWild>
+  <HardyPlants_TabWinter>Winter &amp; Wetter</HardyPlants_TabWinter>
+  <HardyPlants_TabPlants>Robuste Pflanzen</HardyPlants_TabPlants>
+  <HardyPlants_SecSeason>Jahreszeiten</HardyPlants_SecSeason>
+  <HardyPlants_AnySeason>Säen und wachsen in jeder Jahreszeit</HardyPlants_AnySeason>
+  <HardyPlants_AnySeasonDesc>Nutzpflanzen können gesät werden und wachsen, wann immer die Temperatur es zulässt – keine Begrenzung auf die „Wachstumssaison“. Für schnelles Wachstum brauchen Pflanzen weiterhin Wärme.</HardyPlants_AnySeasonDesc>
+  <HardyPlants_Greenhouse>Gewächshäuser</HardyPlants_Greenhouse>
+  <HardyPlants_GreenhouseDesc>Pflanzen unter einem gebauten Dach in einem geschlossenen Raum wachsen unabhängig von der Temperatur (ab −10 °C) mit voller Geschwindigkeit, in jeder Jahreszeit, und erfrieren nie. Nutze Lampen für Licht.</HardyPlants_GreenhouseDesc>
+  <HardyPlants_FruitRepeat>Obstbäume tragen erneut Früchte</HardyPlants_FruitRepeat>
+  <HardyPlants_FruitRepeatDesc>Das Ernten von Früchten eines Baums (aus Mods) fällt ihn nicht – er bildet die Früchte erneut. Fällen für Holz funktioniert weiterhin.</HardyPlants_FruitRepeatDesc>
+  <HardyPlants_WildDensity>Dichtere wilde Natur</HardyPlants_WildDensity>
+  <HardyPlants_WildDensityDesc>Mehr (oder weniger) Wildpflanzen und Bäume auf der Karte, als das Biom normalerweise hat.</HardyPlants_WildDensityDesc>
+  <HardyPlants_WildDensityValue>Dichte der Wildpflanzen: ×{0}</HardyPlants_WildDensityValue>
+  <HardyPlants_SnowGrowth>Wildpflanzen wachsen unter Schnee nach</HardyPlants_SnowGrowth>
+  <HardyPlants_SnowGrowthDesc>Normalerweise sprießt den ganzen Winter über auf schneebedecktem Boden nichts Neues. Damit wachsen Wildpflanzen und Bäume unter Schnee nach, wo es warm genug ist.</HardyPlants_SnowGrowthDesc>
+  <HardyPlants_SnowMinTemp>Unter Schnee ab: {0} (Vanilla: nie; empfohlen {1})</HardyPlants_SnowMinTemp>
+  <HardyPlants_FewerFires>Weniger Waldbrände</HardyPlants_FewerFires>
+  <HardyPlants_FewerFiresDesc>Gras, Büsche und Bäume fangen etwa dreimal schwerer Feuer, sodass ein Brand nicht den ganzen Wald frisst.</HardyPlants_FewerFiresDesc>
+  <HardyPlants_Overview>Wilde Natur auf dieser Karte</HardyPlants_Overview>
+  <HardyPlants_OverviewNoGame>Lade ein Spiel, um zu sehen, was auf deiner Karte wächst.</HardyPlants_OverviewNoGame>
+  <HardyPlants_OverviewDay>Letzter Spieltag ({0}):</HardyPlants_OverviewDay>
+  <HardyPlants_OverviewSoFar>Bisher heute ({0}):</HardyPlants_OverviewSoFar>
+  <HardyPlants_OverviewNums>{0} Wildpflanzen sollten wachsen, {1} sind gewachsen ({2} Bäume).</HardyPlants_OverviewNums>
+  <HardyPlants_OverviewSnow>Schnee hat {0} von {1} Versuchen verhindert.</HardyPlants_OverviewSnow>
+  <HardyPlants_OverviewNoneSnow>Nichts wächst – vermutlich Schnee. Schalte „Wildpflanzen wachsen unter Schnee nach“ ein.</HardyPlants_OverviewNoneSnow>
+  <HardyPlants_OverviewNoneCold>Nichts wächst – es ist zu kalt oder der Boden ist voll. Versuche eine niedrigere Temperatur bei „Unter Schnee ab“.</HardyPlants_OverviewNoneCold>
+  <HardyPlants_SecEvents>Ereignisse</HardyPlants_SecEvents>
+  <HardyPlants_ImmuneEvents>Pflanzen ignorieren schlechte Ereignisse</HardyPlants_ImmuneEvents>
+  <HardyPlants_ImmuneEventsDesc>Dürre (auch Trockenperioden aus Mods), giftiger Dunst, giftiger Niederschlag und Verschmutzung bremsen Pflanzen nicht mehr und lassen sie nicht mehr kahl werden. Kälte und Hitze zählen weiterhin.</HardyPlants_ImmuneEventsDesc>
+</LanguageData>

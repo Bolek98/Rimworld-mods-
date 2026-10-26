@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_Auto>Steward</CF_Auto>
+  <CF_StyleButton>Estilo: {0}</CF_StyleButton>
+  <CF_StyleTip>Enfoque de la colonia. Sube o baja la importancia de los trabajos seleccionados.</CF_StyleTip>
+  <CF_Style_Balanced>Equilibrado</CF_Style_Balanced>
+  <CF_Style_Survival>Supervivencia</CF_Style_Survival>
+  <CF_Style_Production>Producción</CF_Style_Production>
+  <CF_Style_Research>Investigación</CF_Style_Research>
+  <CF_HeaderHint>Steward: el clic central bloquea o desbloquea todo el trabajo.</CF_HeaderHint>
+  <CF_LockPawn>Bloquear colono (Steward no lo cambiará)</CF_LockPawn>
+  <CF_UnlockPawn>Desbloquear colono</CF_UnlockPawn>
+  <CF_PrefersOn>Le gusta: {0} (quitar)</CF_PrefersOn>
+  <CF_PrefersOff>Le gusta: {0}</CF_PrefersOff>
+  <CF_Crisis_Medical>emergencia médica</CF_Crisis_Medical>
+  <CF_Crisis_Food>escasez de comida</CF_Crisis_Food>
+  <CF_Crisis_Winter>preparación para el invierno</CF_Crisis_Winter>
+  <CF_TipCrisis>Crisis: {0}</CF_TipCrisis>
+  <CF_Style_Farming>Agricultura</CF_Style_Farming>
+  <CF_Style_Building>Construcción</CF_Style_Building>
+  <CF_Style_Industry>Minería e industria</CF_Style_Industry>
+  <CF_Style_Defense>Defensa</CF_Style_Defense>
+  <CF_Style_Care>Cuidados</CF_Style_Care>
+  <CF_Style_Comfort>Comodidad</CF_Style_Comfort>
+  <CF_Style_Trade>Comercio</CF_Style_Trade>
+  <CF_Style_Ranching>Ganadería</CF_Style_Ranching>
+  <CF_StyleDesc_Balanced>El estilo para todo. El trabajo se reparte por igual entre los colonos y sigue lo que espera en el mapa: cada trabajo pendiente (encargos, construcción, cosecha, transporte, pacientes, investigación, animales …) recibe al menos un colono, más cuando hay mucho. Reacciona a escaseces y crisis. Cambia a otro estilo solo cuando necesites que algo se haga primero.</CF_StyleDesc_Balanced>
+  <CF_StyleDesc_Survival>Primero comida y refugio: cocina, campos, caza, pesca y un poco de construcción. Para un comienzo difícil.</CF_StyleDesc_Survival>
+  <CF_StyleDesc_Production>Taller, herrería y sastrería, todos igual de importantes.</CF_StyleDesc_Production>
+  <CF_StyleDesc_Research>Toda la investigación posible (y estudio de entidades con Anomaly).</CF_StyleDesc_Research>
+  <CF_StyleDesc_Farming>Primero los campos: sembrar y cosechar, con corte de plantas y cocina.</CF_StyleDesc_Farming>
+  <CF_StyleDesc_Building>Primero la construcción; la extracción de piedra y el transporte ayudan.</CF_StyleDesc_Building>
+  <CF_StyleDesc_Industry>Extraer mineral y convertirlo en bienes en la herrería y el taller.</CF_StyleDesc_Industry>
+  <CF_StyleDesc_Defense>Muros y torretas, armas de la herrería y médicos listos para las incursiones.</CF_StyleDesc_Defense>
+  <CF_StyleDesc_Care>Médicos, niños, prisioneros y habitaciones limpias.</CF_StyleDesc_Care>
+  <CF_StyleDesc_Comfort>Una base limpia y bonita: limpieza, arte y muebles.</CF_StyleDesc_Comfort>
+  <CF_StyleDesc_Trade>Bienes para vender: arte, ropa y objetos fabricados.</CF_StyleDesc_Trade>
+  <CF_StyleDesc_Ranching>Primero los animales: domar, entrenar, ordeñar, esquilar – y su alimento.</CF_StyleDesc_Ranching>
+  <CF_Style_Custom>Mi estilo</CF_Style_Custom>
+  <CF_StyleDesc_Custom>Tu propio estilo: nada cambia por sí solo. La importancia, el número de colonos y los colonos por nivel de prioridad vienen solo de los ajustes del mod (Opciones → Ajustes de mods → Steward, pestañas Tipos de trabajo y Niveles de prioridad). Las crisis y situaciones siguen aplicándose (pueden desactivarse en los ajustes). Sin demanda, sin cambios por inspiración o aprendices, sin redistribuir; se replanifica solo cuando llegan o se van colonos, en la revisión periódica o cuando pulsas el botón.</CF_StyleDesc_Custom>
+  <CF_Crisis_Fire>incendio en la base</CF_Crisis_Fire>
+  <CF_Crisis_Raid>incursión</CF_Crisis_Raid>
+  <CF_Crisis_Weather>clima extremo</CF_Crisis_Weather>
+  <CF_Crisis_Toxic>aire tóxico</CF_Crisis_Toxic>
+  <CF_Crisis_Blight>plaga</CF_Crisis_Blight>
+  <CF_Crisis_Mood>mal humor</CF_Crisis_Mood>
+  <CF_Crisis_Power>apagón</CF_Crisis_Power>
+  <CF_Crisis_Medicine>sin medicinas</CF_Crisis_Medicine>
+  <CF_Crisis_Breakdown>máquinas averiadas</CF_Crisis_Breakdown>
+  <CF_PA_Label>Área prioritaria</CF_PA_Label>
+  <CF_PA_Desc>Arrastra un rectángulo sobre el lugar donde trabajar. Luego elige qué hacer (por defecto todo: construcción, demolición, reparaciones, minería, corte, cosecha, transporte, limpieza), ahora o tras el trabajo actual, y quién lo hace (los más cercanos automáticamente o elegidos a mano). Comer, dormir y atender pacientes siguen siendo lo primero. El área permanece hasta que todo lo de dentro esté hecho; quítala con «Quitar área prioritaria».</CF_PA_Desc>
+  <CF_PA_ClearLabel>Quitar área prioritaria</CF_PA_ClearLabel>
+  <CF_PA_ClearDesc>Arrastra sobre un área prioritaria para quitarla. Los colonos vuelven a su trabajo habitual.</CF_PA_ClearDesc>
+  <CF_PA_Mode_All>todo</CF_PA_Mode_All>
+  <CF_PA_Mode_Build>construcción</CF_PA_Mode_Build>
+  <CF_PA_Mode_Mine>minería</CF_PA_Mode_Mine>
+  <CF_PA_Mode_Plants>plantas</CF_PA_Mode_Plants>
+  <CF_PA_Mode_Haul>transporte</CF_PA_Mode_Haul>
+  <CF_PA_Mode_Clean>limpieza</CF_PA_Mode_Clean>
+  <CF_PA_Mode_Emergency>rescate</CF_PA_Mode_Emergency>
+  <CF_PA_Added>Área prioritaria ({0}): {1} colonos, {2} tareas pendientes. El área permanece hasta que todo esté hecho.</CF_PA_Added>
+  <CF_PA_Stale>Área prioritaria ({0}) finalizada: nadie hizo nada dentro durante dos días (el trabajo es inalcanzable o sigue volviendo). Los colonos vuelven a su trabajo habitual.</CF_PA_Stale>
+  <CF_PA_Done>Área prioritaria ({0}) terminada, los colonos vuelven a su trabajo habitual.</CF_PA_Done>
+  <CF_PA_Removed>Áreas prioritarias quitadas: {0}.</CF_PA_Removed>
+  <CF_PA_AddedEmpty>Área prioritaria ({0}) creada, todavía no hay nada pendiente. Designa trabajo (construcción, minería, corte…) y {1} colonos lo harán en cuanto aparezca.</CF_PA_AddedEmpty>
+  <CF_PA_DlgTitle>Área prioritaria {0}×{1}</CF_PA_DlgTitle>
+  <CF_PA_DlgWork>Pendiente ahora allí – construcción: {0}, minería: {1}, plantas: {2}, transporte: {3}, limpieza: {4}</CF_PA_DlgWork>
+  <CF_PA_DlgWhat>Qué hacer:</CF_PA_DlgWhat>
+  <CF_PA_DlgWhen>Cuándo:</CF_PA_DlgWhen>
+  <CF_PA_DlgNow>Ahora – interrumpir lo que están haciendo</CF_PA_DlgNow>
+  <CF_PA_DlgLater>Más tarde – cuando terminen lo que están haciendo</CF_PA_DlgLater>
+  <CF_PA_DlgWho>Quién:</CF_PA_DlgWho>
+  <CF_PA_DlgAuto>Automáticamente – los {0} libres más cercanos</CF_PA_DlgAuto>
+  <CF_PA_DlgAutoAll>Automáticamente – todos los libres</CF_PA_DlgAutoAll>
+  <CF_PA_DlgHand>Elegir a mano (elegidos: {0})</CF_PA_DlgHand>
+  <CF_PA_DlgSkills>Construcción {0} · Minería {1} · Plantas {2}</CF_PA_DlgSkills>
+  <CF_PA_DlgCreate>Crear área</CF_PA_DlgCreate>
+  <CF_Crisis_Manhunters>animales enloquecidos</CF_Crisis_Manhunters>
+  <CF_Crisis_Epidemic>epidemia</CF_Crisis_Epidemic>
+  <CF_Crisis_PrisonBreak>fuga de prisioneros / rebelión de esclavos</CF_Crisis_PrisonBreak>
+  <CF_Crisis_DangerousBreak>crisis mental peligrosa</CF_Crisis_DangerousBreak>
+  <CF_Crisis_IndoorTemp>frío o calor en interiores</CF_Crisis_IndoorTemp>
+  <CF_Crisis_NoBeds>pacientes sin cama</CF_Crisis_NoBeds>
+  <CF_Crisis_FreezerThaw>congelador descongelándose</CF_Crisis_FreezerThaw>
+  <CF_Crisis_Siege>asedio</CF_Crisis_Siege>
+  <CF_Crisis_Infestation>infestación</CF_Crisis_Infestation>
+  <CF_Crisis_RoofCollapse>riesgo de derrumbe del techo</CF_Crisis_RoofCollapse>
+  <CF_Crisis_Death>muerte en la colonia</CF_Crisis_Death>
+  <CF_Crisis_QuestDeadline>plazo de misión</CF_Crisis_QuestDeadline>
+  <CF_Crisis_AnimalSick>animales enfermos</CF_Crisis_AnimalSick>
+  <CF_Crisis_Labor>parto</CF_Crisis_Labor>
+  <CF_Crisis_EntityEscape>fuga de entidad</CF_Crisis_EntityEscape>
+  <CF_Crisis_Darkness>oscuridad antinatural</CF_Crisis_Darkness>
+  <CF_Crisis_VacuumBreach>brecha de vacío</CF_Crisis_VacuumBreach>
+  <CF_Crisis_ToxGas>gas tóxico</CF_Crisis_ToxGas>
+  <CF_Crisis_LowAmmo>poca munición</CF_Crisis_LowAmmo>
+  <CF_Crisis_WaterShortage>escasez de agua</CF_Crisis_WaterShortage>
+  <CF_Crisis_Hygiene>higiene</CF_Crisis_Hygiene>
+  <CF_Crisis_NoFirefighters>sin bomberos</CF_Crisis_NoFirefighters>
+  <CF_HistButton>Historial</CF_HistButton>
+  <CF_HistTip>Qué cambió el Steward, cuándo y por qué.</CF_HistTip>
+  <CF_HistTitle>Historial de planes</CF_HistTitle>
+  <CF_HistEmpty>Todavía no hay plan.</CF_HistEmpty>
+  <CF_LastRun>Último plan: hace {0}</CF_LastRun>
+  <CF_NextRun>Próximo plan automático en: {0} (antes si cambian el trabajo, los colonos o una crisis)</CF_NextRun>
+  <CF_AutoOff>La planificación automática está desactivada: activa «Steward».</CF_AutoOff>
+  <CF_PA_OnlyBalanced>Las áreas funcionan en todos los estilos de colonia. Solo esperan ante un peligro real (enemigos, fuego, gas tóxico junto a tu gente …). Cuando un colono no puede hacer nada en su propia área, ayuda en otra área activa.</CF_PA_OnlyBalanced>
+  <CF_PA_PauseStyle>Esperando al estilo: {0}</CF_PA_PauseStyle>
+  <CF_PA_PauseHostile>Esperando: enemigos en el mapa</CF_PA_PauseHostile>
+  <CF_PA_PauseCrisis>Esperando: {0}</CF_PA_PauseCrisis>
+  <CF_BP_Label>Mesa prioritaria</CF_BP_Label>
+  <CF_BP_Desc>Los colonos hacen los encargos de esta mesa antes que los de otras mesas del mismo tipo de trabajo (artesanía, herrería, sastrería, cocina…). Funciona entre mesas del mismo tipo de trabajo; el orden de los tipos de trabajo se sigue fijando en la pestaña Trabajo.</CF_BP_Desc>
+  <CF_BP_Giver>{0} en una mesa prioritaria</CF_BP_Giver>
+  <CF_BP_NotUsed>Nadie la ha usado como mesa prioritaria desde que empezó la partida.</CF_BP_NotUsed>
+  <CF_BP_LastUse>Último uso como mesa prioritaria: {0}, hace {1} h.</CF_BP_LastUse>
+  <CF_TipChildLearn>El niño está aprendiendo ({0} %): sin trabajo por ahora.</CF_TipChildLearn>
+  <CF_TipChildLight>Niño: trabajo solo en el nivel más bajo para que tenga tiempo de aprender (aprendizaje {0} %).</CF_TipChildLight>
+  <CF_Style_Tidy>Orden</CF_Style_Tidy>
+  <CF_StyleDesc_Tidy>Solo transporte y limpieza.</CF_StyleDesc_Tidy>
+  <CF_StyleStrictNote>Otros trabajos: prioridad más baja.</CF_StyleStrictNote>
+  <CF_StyleStrictNoteOff>Otros trabajos: desactivados (transporte y limpieza en la prioridad más baja).</CF_StyleStrictNoteOff>
+  <CF_Style_FieldsForest>Campos y bosque</CF_Style_FieldsForest>
+  <CF_StyleDesc_FieldsForest>Solo campos y bosque: cultivo y tala de árboles, ambos igual de importantes.</CF_StyleDesc_FieldsForest>
+  <CF_Style_Mining>Minería</CF_Style_Mining>
+  <CF_StyleDesc_Mining>Solo extraer mineral y piedra; el transporte ayuda.</CF_StyleDesc_Mining>
+  <CF_Style_Kitchen>Cocina</CF_Style_Kitchen>
+  <CF_StyleDesc_Kitchen>Primero cocinar; la caza y la pesca solo traen los ingredientes.</CF_StyleDesc_Kitchen>
+  <CF_Style_HuntFish>Caza y pesca</CF_Style_HuntFish>
+  <CF_StyleDesc_HuntFish>Comida de la naturaleza: caza, pesca y la cocina para procesarla.</CF_StyleDesc_HuntFish>
+  <CF_Style_Tailoring>Sastrería</CF_Style_Tailoring>
+  <CF_StyleDesc_Tailoring>Solo coser ropa.</CF_StyleDesc_Tailoring>
+  <CF_Style_Smithing>Herrería</CF_Style_Smithing>
+  <CF_StyleDesc_Smithing>Armas y herramientas de la herrería, un poco de artesanía.</CF_StyleDesc_Smithing>
+  <CF_Style_Art>Arte</CF_Style_Art>
+  <CF_StyleDesc_Art>Solo esculturas y obras de arte.</CF_StyleDesc_Art>
+  <CF_Style_Prison>Prisión</CF_Style_Prison>
+  <CF_StyleDesc_Prison>Prisioneros: reclutar y esclavizar, con un médico.</CF_StyleDesc_Prison>
+  <MUI_Title>Configuración recomendada</MUI_Title>
+  <MUI_TitleOff>Configuración recomendada · desactivada</MUI_TitleOff>
+  <MUI_DescOn>El mod se configura solo y funciona al instante. Ideal para jugadores nuevos y para quien no quiera ajustar nada.</MUI_DescOn>
+  <MUI_DescOff>Configuración personalizada. Cambios respecto a la recomendada: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Configuración personalizada. Sigue igual que la recomendada.</MUI_DescOffSame>
+  <MUI_On>SÍ</MUI_On>
+  <MUI_Off>NO</MUI_Off>
+  <MUI_ResetAll>Restablecer todo a lo recomendado</MUI_ResetAll>
+  <MUI_ConfirmOn>¿Activar la configuración recomendada? Tus cambios ({0}) se sustituirán por los valores recomendados.</MUI_ConfirmOn>
+  <MUI_Locked>El modo Simple lo ajusta todo por sí mismo, así que los detalles están bloqueados. ¿Quieres cambiarlos? Cambia arriba a Recomendado o Avanzado.</MUI_Locked>
+  <MUI_Changed>CAMBIADO</MUI_Changed>
+  <MUI_ChangedTip>Difiere del valor recomendado ({0}). Haz clic para restaurar el valor recomendado.</MUI_ChangedTip>
+  <MUI_Yes>sí</MUI_Yes>
+  <MUI_No>no</MUI_No>
+  <MUI_RecTag>RECOMENDADO</MUI_RecTag>
+  <CF_TipMother>Madre de un bebé: el cuidado infantil va primero.</CF_TipMother>
+  <CF_TipNanny>Niñera: cuida de un bebé sin una madre que pueda hacerlo.</CF_TipNanny>
+  <CF_GuardFixed>Mods con tipos de trabajo cambiados: Steward ha vuelto a poner las prioridades en el trabajo correcto para {0} colonos.</CF_GuardFixed>
+  <CF2_AutoTip>El Steward en este mapa: prioridades según habilidades, pasiones y el trabajo que realmente espera en el mapa. Planifica con calma: nadie es movido de un lado a otro.</CF2_AutoTip>
+  <CF2_PlanNow>Planificar ahora</CF2_PlanNow>
+  <CF2_PlanNowTip>Planifica las prioridades ahora mismo (incluso con el Steward desactivado). Tu plan no queda retenido por el tiempo de calma.</CF2_PlanNowTip>
+  <CF2_PlanDone>El Steward planificó las prioridades: {0} cambios.</CF2_PlanDone>
+  <CF2_ManualOn>El Steward activó las prioridades numeradas (pestaña Trabajo).</CF2_ManualOn>
+  <CF2_HistStyle>estilo de colonia: {0}</CF2_HistStyle>
+  <CF2_TabGeneral>Planificación</CF2_TabGeneral>
+  <CF2_TabRules>Mis reglas</CF2_TabRules>
+  <CF2_SecPlan>Planificación</CF2_SecPlan>
+  <CF2_SecStyles>Estilos de colonia</CF2_SecStyles>
+  <CF2_SecChildren>Niños y bebés</CF2_SecChildren>
+  <CF2_SecPriorities>Prioridades</CF2_SecPriorities>
+  <CF2_AutoByDefault>Steward activado en mapas nuevos</CF2_AutoByDefault>
+  <CF2_AutoByDefaultTip>Desactivado: activas el Steward en cada mapa desde la pestaña Trabajo.</CF2_AutoByDefaultTip>
+  <CF2_Interval>Plan periódico: cada {0} h</CF2_Interval>
+  <CF2_IntervalTip>Entre medias, el Steward solo planifica cuando algo cambia de verdad (nuevos colonos, mucho trabajo nuevo, una crisis de un complemento).</CF2_IntervalTip>
+  <CF2_Hold>Una prioridad cambiada se mantiene al menos: {0} h</CF2_Hold>
+  <CF2_HoldTip>Calma: lo que el Steward cambió no se revierte enseguida. Las crisis y tu botón Planificar ahora lo omiten.</CF2_HoldTip>
+  <CF2_OneTop>Solo un trabajo en prioridad 1</CF2_OneTop>
+  <CF2_OneTopTip>Cada colono tiene solo su trabajo más importante en 1 y sus otros trabajos principales en 2.</CF2_OneTopTip>
+  <CF2_Backup>Trabajo de reserva en la prioridad más baja</CF2_Backup>
+  <CF2_BackupTip>Quien no tiene un trabajo como principal lo mantiene en el nivel más bajo, para que nadie se quede de brazos cruzados.</CF2_BackupTip>
+  <CF2_Opposed>Dar también trabajos que la ideología rechaza</CF2_Opposed>
+  <CF2_OpposedTip>Desactivado: nunca se le da a un colono un trabajo que su ideología considera peligroso.</CF2_OpposedTip>
+  <CF2_Injured>Los colonos heridos y enfermos reciben trabajo más ligero</CF2_Injured>
+  <CF2_InjuredTip>Cuanto peor es la salud, menos apto es un colono para un trabajo principal.</CF2_InjuredTip>
+  <CF2_Passion>La pasión cuenta más</CF2_Passion>
+  <CF2_PassionTip>Los colonos con pasión reciben su trabajo más a menudo (lo disfrutan y aprenden más rápido).</CF2_PassionTip>
+  <CF2_Prefer>Bonificación por tu trabajo favorito: {0}</CF2_Prefer>
+  <CF2_PreferTip>Clic central en el nombre de un colono → marca el trabajo que le gusta. Se suma esta cantidad.</CF2_PreferTip>
+  <CF2_Lodgers>Planificar también a los huéspedes de misiones</CF2_Lodgers>
+  <CF2_LodgersTip>Huéspedes de misiones que pueden trabajar.</CF2_LodgersTip>
+  <CF2_Mechs>Contar los mecanoides que trabajan</CF2_Mechs>
+  <CF2_MechsTip>El trabajo que hacen los mecanoides necesita menos colonos.</CF2_MechsTip>
+  <CF2_StyleStrength>Fuerza del estilo: {0}</CF2_StyleStrength>
+  <CF2_StyleStrengthTip>Cuántas personas añade un estilo de colonia a su trabajo.</CF2_StyleStrengthTip>
+  <CF2_StyleStrict>Un estilo planifica sobre todo su propio trabajo</CF2_StyleStrict>
+  <CF2_StyleStrictTip>Los demás trabajos reciben solo una persona cuando esperan en el mapa.</CF2_StyleStrictTip>
+  <CF2_StyleOthersOff>Desactivar por completo los demás trabajos</CF2_StyleOthersOff>
+  <CF2_StyleOthersOffTip>Quien no hace el trabajo del estilo no conserva el resto ni siquiera como reserva.</CF2_StyleOthersOffTip>
+  <CF2_ChildLearning>Los niños tienen tiempo para aprender</CF2_ChildLearning>
+  <CF2_ChildLearningTip>Los niños tienen trabajo solo en el nivel más bajo, y ninguno mientras necesiten aprender.</CF2_ChildLearningTip>
+  <CF2_ParentCare>Padres y niñeras para los bebés</CF2_ParentCare>
+  <CF2_ParentCareTip>La madre (o el padre) tiene el cuidado infantil en 1; sin padres, el Steward elige una niñera.</CF2_ParentCareTip>
+  <CF2_Levels>Niveles de prioridad: {0}</CF2_Levels>
+  <CF2_LevelsAuto>automático ({0})</CF2_LevelsAuto>
+  <CF2_LevelsTip>0 = leer de Work Tab / PriorityMaster. Sin un mod así, el juego tiene 4 niveles.</CF2_LevelsTip>
+  <CF2_PlanMessages>Mensaje tras cada plan</CF2_PlanMessages>
+  <CF2_PlanMessagesTip>Un mensaje breve arriba a la izquierda con el número de prioridades cambiadas.</CF2_PlanMessagesTip>
+  <CF2_UseMyRules>Usar mis reglas</CF2_UseMyRules>
+  <CF2_UseMyRulesTip>Mínimo y máximo de colonos por trabajo. Las crisis y situaciones de complementos van antes que el máximo.</CF2_UseMyRulesTip>
+  <CF2_RulesHint>Mínimo: al menos esa cantidad de colonos tiene el trabajo en prioridad 1–2. Máximo: no más. Importancia: cuánto conviene el trabajo como trabajo principal (prioridad 1).</CF2_RulesHint>
+  <CF2_Min>mín</CF2_Min>
+  <CF2_Max>máx</CF2_Max>
+  <CF2_Importance>importancia</CF2_Importance>
+  <CF2_TipEmergency>Trabajo de emergencia: todos arriba del todo.</CF2_TipEmergency>
+  <CF2_TipMain>Trabajo principal: {0} tareas esperan, entre los más aptos.</CF2_TipMain>
+  <CF2_TipStyleReady>Trabajo del estilo {0}: listo incluso cuando ahora no hay nada pendiente.</CF2_TipStyleReady>
+  <CF2_TipHelper>Ayudante: cuando los principales no dan abasto.</CF2_TipHelper>
+  <CF2_TipOnCall>De guardia: ahora no hay nada pendiente, pero alguien está listo.</CF2_TipOnCall>
+  <CF2_TipStyleOff>Estilo {0}: no hace este trabajo.</CF2_TipStyleOff>
+  <CF2_TipBackup>Reserva: nivel más bajo, para que nadie se quede de brazos cruzados.</CF2_TipBackup>
+  <CF2_TipTop>Prioridad 1: el trabajo más importante para él ahora.</CF2_TipTop>
+  <CF2_TipYourMin>Tu mínimo: al menos {0}.</CF2_TipYourMin>
+  <CF2_TipYourMax>Tu máximo: como mucho {0}.</CF2_TipYourMax>
+  <CF2_TipNobodyIdle>Para no quedarse de brazos cruzados: su trabajo pendiente más adecuado.</CF2_TipNobodyIdle>
+  <CF31_PlanPreview>Mostrar el plan antes de aplicarlo</CF31_PlanPreview>
+  <CF31_PlanPreviewTip>«Planificar ahora» muestra primero cada cambio que haría; nada cambia hasta que pulses Aplicar. Los planes automáticos no se ven afectados.</CF31_PlanPreviewTip>
+  <CF31_PreviewTitle>Plan del Steward – {0} cambios</CF31_PreviewTitle>
+  <CF31_PreviewHint>Nada cambia hasta que pulses Aplicar. El motivo está a la derecha (pasa el ratón para ver el texto completo).</CF31_PreviewHint>
+  <CF31_PreviewNone>Nada que cambiar: las prioridades ya coinciden con el plan.</CF31_PreviewNone>
+  <CF31_Apply>Aplicar</CF31_Apply>
+  <CF31_Cancel>Cancelar</CF31_Cancel>
+  <CF31_Close>Cerrar</CF31_Close>
+  <CF31_LocksButton>Bloqueos ({0})</CF31_LocksButton>
+  <CF31_LocksTip>Colonos, columnas de trabajo y celdas que el Steward no debe cambiar. Haz clic para verlos y desbloquearlos.</CF31_LocksTip>
+  <CF31_LocksTitle>Bloqueos</CF31_LocksTitle>
+  <CF31_LocksHowTo>Lo bloqueado mantiene sus prioridades: el Steward no lo toca. En la pestaña Trabajo, el botón central del ratón (rueda) bloquea o desbloquea: sobre el nombre de un colono, todo el colono; sobre un encabezado de columna, el trabajo para todos; sobre una celda, solo esa celda.</CF31_LocksHowTo>
+  <CF31_LocksPawns>Colonos bloqueados (todo su trabajo se queda como está)</CF31_LocksPawns>
+  <CF31_LocksWork>Columnas de trabajo bloqueadas (para todos)</CF31_LocksWork>
+  <CF31_LocksCells>Celdas bloqueadas</CF31_LocksCells>
+  <CF31_Unlock>Desbloquear</CF31_Unlock>
+  <CF31_UnlockAll>Desbloquear todo</CF31_UnlockAll>
+  <CF31_LocksNone>No hay nada bloqueado.</CF31_LocksNone>
+  <CF31_StOk>Steward: planifica a este colono.</CF31_StOk>
+  <CF31_StAutoOff>El Steward está desactivado en este mapa: las prioridades solo cambian con «Planificar ahora».</CF31_StAutoOff>
+  <CF31_StLockedPawn>Steward: BLOQUEADO – todo su trabajo se queda como está. Clic central en el nombre para desbloquear.</CF31_StLockedPawn>
+  <CF31_StAchtung>Steward: omitido – tiene trabajo forzado de Achtung!. Sus prioridades se mantienen hasta que se quite el trabajo forzado.</CF31_StAchtung>
+  <CF31_StDowned>Steward: omitido mientras está incapacitado – se replanifica cuando se levante.</CF31_StDowned>
+  <CF31_StSlave>Steward: omitido – los esclavos no se planifican.</CF31_StSlave>
+  <CF31_StGuest>Steward: omitido – huésped o inquilino de misión (ver «Planificar también a los huéspedes de misiones» en los ajustes).</CF31_StGuest>
+  <CF31_StBaby>Steward: omitido – un bebé.</CF31_StBaby>
+  <CF31_StNoWork>Steward: omitido – no hace ningún trabajo.</CF31_StNoWork>
+  <CF31_StNotHere>Steward: ahora no está en este mapa – se planifica en el mapa donde esté.</CF31_StNotHere>
+  <CF31_StCells>{0} celdas bloqueadas mantienen su prioridad.</CF31_StCells>
+  <CF31_StColumns>Columnas bloqueadas: {0}.</CF31_StColumns>
+  <CF31_StUnable>No puede ahora mismo (salud): {0}.</CF31_StUnable>
+  <CF32_Apprentices>Aprendices</CF32_Apprentices>
+  <CF32_ApprenticesTip>Un colono con pasión y poca habilidad recibe el trabajo en un nivel de aprendizaje (3) cuando alguien bueno en él lo hace como trabajo principal. Un aprendizaje por colono, un aprendiz por trabajo.</CF32_ApprenticesTip>
+  <CF32_TipApprentice>Aprendiz: tiene pasión por ello y aprende junto a un maestro.</CF32_TipApprentice>
+  <CF32_CopyTo>Copiar las prioridades de {0} a…</CF32_CopyTo>
+  <CF32_CopyToAll>Todos los demás en este mapa</CF32_CopyToAll>
+  <CF32_CopyTitle>Copiar las prioridades de {0}</CF32_CopyTitle>
+  <CF32_WhyCopy>Copiado de {0}.</CF32_WhyCopy>
+  <CF32_HistCopy>Prioridades de {0} copiadas a {1}.</CF32_HistCopy>
+  <CF32_Others>{0} colonos</CF32_Others>
+  <CF32_SetsButton>Conjuntos</CF32_SetsButton>
+  <CF32_SetsTip>Conjuntos de prioridades guardados: guarda las prioridades actuales con un nombre («Invierno», «Defensa», «Cosecha» …) y cárgalas más tarde. Al cargar se muestran primero los cambios.</CF32_SetsTip>
+  <CF32_SetsTitle>Conjuntos de prioridades</CF32_SetsTitle>
+  <CF32_SetsHint>Guarda las prioridades de cada colono en este mapa. Al cargar se muestran primero todos los cambios; se omiten las celdas bloqueadas y los colonos que no están aquí. Con el Steward activado, su próximo plan vuelve a cambiar cosas: desactívalo para conservar un conjunto.</CF32_SetsHint>
+  <CF32_SetsSave>Guardar actual</CF32_SetsSave>
+  <CF32_SetsDefaultName>Conjunto {0}</CF32_SetsDefaultName>
+  <CF32_SetsSaved>Conjunto de prioridades «{0}» guardado.</CF32_SetsSaved>
+  <CF32_SetsNone>Todavía no hay conjuntos guardados.</CF32_SetsNone>
+  <CF32_SetsLoad>Cargar…</CF32_SetsLoad>
+  <CF32_SetsDelete>Eliminar</CF32_SetsDelete>
+  <CF32_SetsLoadTitle>Conjunto «{0}» – {1} cambios</CF32_SetsLoadTitle>
+  <CF32_SetsMissing>({0} colonos del conjunto no están aquí)</CF32_SetsMissing>
+  <CF32_HistSetSaved>Conjunto de prioridades «{0}» guardado.</CF32_HistSetSaved>
+  <CF32_HistSetLoaded>Conjunto de prioridades «{0}» cargado.</CF32_HistSetLoaded>
+  <CF32_WhySet>Del conjunto «{0}».</CF32_WhySet>
+  <CF32_OfferNew>Proponer trabajo para un colono nuevo</CF32_OfferNew>
+  <CF32_OfferNewTip>Cuando el Steward está desactivado y se une un colono nuevo, una ventana muestra el trabajo que el Steward le daría. Nada cambia a menos que pulses Aplicar.</CF32_OfferNewTip>
+  <CF32_NewTitle>Nuevo: {0} – trabajo sugerido</CF32_NewTitle>
+  <CF32_HistNew>Trabajo para el colono nuevo {0} aplicado.</CF32_HistNew>
+  <CF32_Weekly>Resumen semanal</CF32_Weekly>
+  <CF32_WeeklyTip>Una vez a la semana, un mensaje breve (también en el historial): planes y cambios, colonos nuevos, trabajo que esperó sin nadie, crisis.</CF32_WeeklyTip>
+  <CF32_WeekTitle>Semana del Steward ({0}):</CF32_WeekTitle>
+  <CF32_WeekPlans>{0} planes, {1} cambios</CF32_WeekPlans>
+  <CF32_WeekNew>{0} colonos nuevos</CF32_WeekNew>
+  <CF32_WeekGaps>esperó sin nadie: {0}</CF32_WeekGaps>
+  <CF32_WeekNoGaps>ningún trabajo esperó sin nadie</CF32_WeekNoGaps>
+  <CF32_WeekCrises>crisis: {0}</CF32_WeekCrises>
+  <CF_Keep_Name>Zona de reserva</CF_Keep_Name>
+  <CF_Keep_Label>Zona de reserva</CF_Keep_Label>
+  <CF_Keep_Desc>Una zona de almacenamiento de la que nadie coge nada. En su pestaña de almacenamiento elige qué deben traer aquí los colonos (empieza vacía). Mientras la zona esté bloqueada, los colonos no sacan nada de ella: ni para comer, fabricar, construir o equiparse, ni lo transportan a otro sitio. Desbloquéala con el botón de la zona cuando necesites algo.</CF_Keep_Desc>
+  <CF_Keep_Lock>Bloqueada</CF_Keep_Lock>
+  <CF_Keep_LockDesc>Activado: nadie coge ni transporta nada fuera de esta zona. Desactivado: funciona como una zona de almacenamiento normal.</CF_Keep_LockDesc>
+  <CF_Keep_InspectLocked>Bloqueada: los colonos solo traen cosas aquí, no se saca nada.</CF_Keep_InspectLocked>
+  <CF_Keep_InspectOpen>Desbloqueada: funciona como una zona de almacenamiento normal.</CF_Keep_InspectOpen>
+  <CF_Keep_Beacon>Zona de reserva aquí</CF_Keep_Beacon>
+  <CF_Keep_BeaconDesc>Crea una zona de reserva sobre toda el área de comercio de esta baliza. Elige en su pestaña de almacenamiento qué debe ir allí: los colonos lo traen y luego lo dejan en paz, pero los comerciantes lo siguen viendo y pueden comprarlo. Las cosas que la zona no debe guardar (por ejemplo, bienes comprados) se retiran como de costumbre.</CF_Keep_BeaconDesc>
+  <CF_Keep_What>Qué y cuánto</CF_Keep_What>
+  <CF_Keep_WhatDesc>Elige qué deben traer los colonos a esta zona y cuánto de cada cosa. Sin lista, la zona usa su pestaña de almacenamiento.</CF_Keep_WhatDesc>
+  <CF_Keep_WinTitle>{0}: qué y cuánto</CF_Keep_WinTitle>
+  <CF_Keep_WinHint>Haz clic en un objeto a la izquierda para añadirlo. Fija una cantidad: vacío significa todo lo que haya. Solo los objetos de la lista se traen y se guardan aquí.</CF_Keep_WinHint>
+  <CF_Keep_Search>Buscar…</CF_Keep_Search>
+  <CF_Keep_OnlyOnMap>Solo lo que tenemos</CF_Keep_OnlyOnMap>
+  <CF_Keep_Chosen>Traer aquí</CF_Keep_Chosen>
+  <CF_Keep_NoneYet>Nada todavía: elige objetos a la izquierda.</CF_Keep_NoneYet>
+  <CF_Keep_Have>aquí {0}</CF_Keep_Have>
+  <CF_Keep_All>todo</CF_Keep_All>
+  <CF_Keep_RowTip>Los colonos traen este objeto hasta que la zona contiene la cantidad (un porteador lleva solo lo que falta). Lo que está aquí se queda aquí.</CF_Keep_RowTip>
+  <CF_Keep_Now>Traer ahora</CF_Keep_Now>
+  <CF_Keep_NowDesc>Los colonos libres dejan lo que están haciendo y traen enseguida lo que falta: cada uno lleva una carga y el resto sigue con el transporte normal. Se deja en paz a los colonos reclutados, dormidos, apagando fuegos, tratando o rescatando.</CF_Keep_NowDesc>
+  <CF_Keep_NowStarted>{0} colonos están trayendo cosas a la zona de reserva.</CF_Keep_NowStarted>
+  <CF_Keep_NowNobody>Nadie puede traer nada ahora (no hay colonos libres o no queda nada alcanzable fuera de la zona).</CF_Keep_NowNobody>
+  <CF_Keep_NowFull>La zona ya tiene todo lo que debe tener.</CF_Keep_NowFull>
+</LanguageData>
