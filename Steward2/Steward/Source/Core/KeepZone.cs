@@ -4,6 +4,7 @@ using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace ColonyForeman;
 
@@ -149,6 +150,14 @@ public class Zone_StewardKeep : Zone_Stockpile
 			defaultIconColor = new Color(0.78f, 0.6f, 1f),
 			action = () => Find.WindowStack.Add(new Dialog_KeepZone(this))
 		};
+		if (Managed)
+			yield return new Command_Action
+			{
+				defaultLabel = "CF_Keep_Now".Translate(),
+				defaultDesc = "CF_Keep_NowDesc".Translate(),
+				icon = ContentFinder<Texture2D>.Get("UI/Commands/LoadTransporter", reportFailure: false) ?? BaseContent.BadTex,
+				action = () => KeepZoneBring.Now(this)
+			};
 		yield return new Command_Toggle
 		{
 			defaultLabel = "CF_Keep_Lock".Translate(),
@@ -351,8 +360,15 @@ public class Dialog_KeepZone : Window
 			BuildLists();
 		MUI.Fill(inRect, MUI.CardBg);
 		Text.Font = GameFont.Medium;
-		Widgets.Label(new Rect(inRect.x + 4f, inRect.y, inRect.width - 40f, 34f), "CF_Keep_WinTitle".Translate(zone.label));
+		Widgets.Label(new Rect(inRect.x + 4f, inRect.y, inRect.width - 230f, 34f), "CF_Keep_WinTitle".Translate(zone.label));
 		Text.Font = GameFont.Small;
+		Rect now = new Rect(inRect.xMax - 220f, inRect.y + 2f, 180f, 30f);
+		if (zone.Managed)
+		{
+			if (Widgets.ButtonText(now, "CF_Keep_Now".Translate()))
+				KeepZoneBring.Now(zone);
+			TooltipHandler.TipRegion(now, "CF_Keep_NowDesc".Translate());
+		}
 		GUI.color = MUI.Muted;
 		Widgets.Label(new Rect(inRect.x + 4f, inRect.y + 34f, inRect.width - 8f, 24f), "CF_Keep_WinHint".Translate());
 		GUI.color = Color.white;
@@ -492,5 +508,85 @@ public class Dialog_KeepZone : Window
 				zone.settings.filter.SetDisallowAll();
 			Changed();
 		}
+	}
+}
+
+// 3.4.1: "Bring now" – free colonists drop what they do and carry the missing things
+// to the zone right away (one load each; the rest follows with normal hauling).
+public static class KeepZoneBring
+{
+	private static bool Busy(Pawn p)
+	{
+		Verse.AI.Job j = p.CurJob;
+		if (j == null)
+			return false;
+		if (j.playerForced)
+			return true;
+		JobDef d = j.def;
+		return d == JobDefOf.BeatFire || d == JobDefOf.ExtinguishSelf || d == JobDefOf.TendPatient || d == JobDefOf.Rescue
+			|| d == JobDefOf.Capture || d == JobDefOf.FleeAndCower || d == JobDefOf.Flee || d == JobDefOf.LayDown;
+	}
+
+	public static void Now(Zone_StewardKeep zone)
+	{
+		Map map = zone?.Map;
+		if (map == null || !zone.Managed)
+			return;
+		zone.SyncFilter(true);
+		var left = new Dictionary<ThingDef, int>();
+		foreach (KeepEntry e in zone.entries)
+		{
+			int w = zone.StillWanted(e.def);
+			if (w > 0)
+				left[e.def] = w;
+		}
+		if (left.Count == 0)
+		{
+			Messages.Message("CF_Keep_NowFull".Translate(), MessageTypeDefOf.RejectInput, false);
+			return;
+		}
+		var things = new List<Thing>();
+		foreach (ThingDef d in left.Keys)
+			foreach (Thing t in map.listerThings.ThingsOfDef(d))
+				if (t.Spawned && !(map.zoneManager.ZoneAt(t.Position) is Zone_StewardKeep))
+					things.Add(t);
+		var pawns = map.mapPawns.FreeColonistsSpawned
+			.Where(p => !p.Downed && !p.Drafted && !p.InMentalState && p.Awake() && !Busy(p)
+				&& !p.WorkTypeIsDisabled(WorkTypeDefOf.Hauling))
+			.ToList();
+		int jobs = 0;
+		var taken = new HashSet<Thing>();
+		foreach (Pawn p in pawns)
+		{
+			Thing best = null;
+			float bestD = float.MaxValue;
+			foreach (Thing t in things)
+			{
+				if (taken.Contains(t) || !left.TryGetValue(t.def, out int w) || w <= 0)
+					continue;
+				float dist = (t.Position - p.Position).LengthHorizontalSquared;
+				if (dist >= bestD || t.IsForbidden(p) || !p.CanReserveAndReach(t, Verse.AI.PathEndMode.ClosestTouch, Danger.Some))
+					continue;
+				best = t;
+				bestD = dist;
+			}
+			if (best == null)
+				continue;
+			if (!StoreUtility.TryFindBestBetterStoreCellForIn(best, p, map, StoragePriority.Unstored, p.Faction, zone.slotGroup, out IntVec3 cell))
+				continue;
+			Verse.AI.Job job = Verse.AI.HaulAIUtility.HaulToCellStorageJob(p, best, cell, false);
+			if (job == null)
+				continue;
+			job.playerForced = true;
+			if (!p.jobs.TryTakeOrderedJob(job, Verse.AI.JobTag.Misc))
+				continue;
+			taken.Add(best);
+			left[best.def] -= Mathf.Max(1, job.count);
+			jobs++;
+		}
+		if (jobs > 0)
+			Messages.Message("CF_Keep_NowStarted".Translate(jobs), MessageTypeDefOf.TaskCompletion, false);
+		else
+			Messages.Message("CF_Keep_NowNobody".Translate(), MessageTypeDefOf.RejectInput, false);
 	}
 }
