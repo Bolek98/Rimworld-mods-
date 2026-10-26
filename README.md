@@ -12,6 +12,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Auto Pharmacy – Doctors Give the Right Drug | 1.4.1 | [AutoPharmacy](AutoPharmacy) |
 | Auto Turrets | 1.0.0 | [AutoTurrets](AutoTurrets) |
 | Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.5.2 | [BodyFit](BodyFit) |
+| Call for Backup – Summon Your Allies | 0.1.0 | [CallForBackup](CallForBackup) |
 | Caravan Helper | 1.0.1 | [CaravanHelper](CaravanHelper) |
 | Evergrowth – Plant Growth Control | 1.8.2 | [Evergrowth](Evergrowth) |
 | Evergrowth – Wild Plants | 1.1.4 | [EvergrowthWildPlants](EvergrowthWildPlants) |
