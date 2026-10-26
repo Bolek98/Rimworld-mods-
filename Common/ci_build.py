@@ -11,6 +11,11 @@ import pathlib, subprocess, sys, tempfile, shutil, os
 
 root = pathlib.Path(__file__).resolve().parent.parent
 RIMWORLD_REF = os.environ.get("RIMWORLD_REF", "1.7.4985-unstable")
+# --game 1.6: the same check against RimWorld 1.6 (net472 + its reference assemblies) – catches game
+# code that exists only in 1.7 (a class moved to another namespace, a new method …)
+GAME = "1.7"
+TFM = "net10.0"
+EXTRA = ""
 HARMONY = "2.3.6"
 
 # mods built from another mod's DLL (built first, in this order)
@@ -24,8 +29,8 @@ SKIP = {"Steward"}
 
 PROJ = """<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
+    <TargetFramework>{tfm}</TargetFramework>
+    <LangVersion>10</LangVersion>
     <AssemblyName>{name}</AssemblyName>
     <OutputType>Library</OutputType>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
@@ -43,7 +48,7 @@ PROJ = """<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref" Version="{rw}" />
     <PackageReference Include="Lib.Harmony" Version="{harmony}" ExcludeAssets="runtime" />
-  </ItemGroup>
+{extra}  </ItemGroup>
   <ItemGroup>
 {refs}  </ItemGroup>
 </Project>
@@ -76,7 +81,7 @@ def build(rel, outdir, built):
             pathlib.Path(built[dep]).stem, built[dep])
     work = pathlib.Path(tempfile.mkdtemp(prefix="ci_"))
     out = outdir / rel.replace("/", "_")
-    (work / (name + ".csproj")).write_text(PROJ.format(name=name, out=out.as_posix() + "/", src=src, rw=RIMWORLD_REF,
+    (work / (name + ".csproj")).write_text(PROJ.format(name=name, out=out.as_posix() + "/", src=src, rw=RIMWORLD_REF, tfm=TFM, extra=EXTRA,
                                                      harmony=HARMONY, refs=refs), encoding="utf-8")
     r = subprocess.run(["dotnet", "build", str(work), "-c", "Release", "-nologo", "-v", "q", "-clp:ErrorsOnly"],
                        capture_output=True, text=True)
@@ -89,7 +94,17 @@ def build(rel, outdir, built):
 
 
 def main():
-    want = sys.argv[1:]
+    global GAME, TFM, EXTRA, RIMWORLD_REF
+    args = sys.argv[1:]
+    if "--game" in args:
+        i = args.index("--game")
+        GAME = args[i + 1]
+        del args[i:i + 2]
+    if GAME == "1.6":
+        RIMWORLD_REF = os.environ.get("RIMWORLD_REF_16", "1.6.4871")
+        TFM = "net472"
+        EXTRA = '    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />\n'
+    want = args
     todo = [m for m in mods() if not want or m in want]
     # dependencies first
     todo.sort(key=lambda m: (0 if any(m in d for d in DEPENDS.values()) else 1, m))
@@ -101,7 +116,7 @@ def main():
         if not ok:
             failed.append(m)
             print("      " + msg.replace("\n", "\n      "))
-    print("\n%d of %d mods compile." % (len(todo) - len(failed), len(todo)))
+    print("\n%d of %d mods compile against RimWorld %s." % (len(todo) - len(failed), len(todo), GAME))
     sys.exit(1 if failed else 0)
 
 

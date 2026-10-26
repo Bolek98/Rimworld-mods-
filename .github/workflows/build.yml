@@ -1,4 +1,4 @@
-# Every push and pull request: all mods must compile against RimWorld 1.7 (RimRef reference
+# Every push and pull request: all mods must compile against RimWorld 1.7 and 1.6 (RimRef reference
 # assemblies, no game files needed), versions must agree everywhere and the shared files
 # (MisakUI, MisakReport, MisakNews) must be the same in every mod.
 name: Build check
@@ -26,3 +26,5 @@ jobs:
         run: python3 Common/sync.py --check
       - name: All mods compile
         run: python3 Common/ci_build.py
+      - name: All mods compile against 1.6 too
+        run: python3 Common/ci_build.py --game 1.6
