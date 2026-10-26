@@ -244,7 +244,7 @@ namespace HaulSmarter
         public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn) => pawn.Map.listerHaulables.ThingsPotentiallyNeedingHauling();
 
         // 3.0: perishable, weather-threatened and valuable things first
-        public override bool Prioritized => HSMod.S != null && HSMod.S.AnyPriority;
+        public override bool Prioritized => HSMod.S != null && (HSMod.S.AnyPriority || Cleanup.Any);
 
         public override float GetPriority(Pawn pawn, TargetInfo t) => Priority.Of(t.Thing);
 

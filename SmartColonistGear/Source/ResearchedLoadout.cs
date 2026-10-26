@@ -71,6 +71,7 @@ namespace ResearchedLoadout
 		{
 			Settings = GetSettings<ResearchedLoadoutSettings>();
 			MNews.Register(content, MUIVersion.Version);
+			LongEventHandler.ExecuteWhenFinished(GearOverview.SetButton);
 			Harmony harmony = new Harmony("misak.researchedloadout");
 			MUI.Init(new ResearchedLoadoutSettings(), null, "settingsVersion", "recommended", "debugLog");
 			if (Settings.recommended)
@@ -329,6 +330,9 @@ namespace ResearchedLoadout
 			Check(listing_Standard, "RL_OnlyStockpile", ref Settings.onlyFromStockpile, "onlyFromStockpile");
 			Check(listing_Standard, "RL_ReplaceBroken", ref Settings.replaceBrokenGear, "replaceBrokenGear");
 			Check(listing_Standard, "RL_StoreDropped", ref Settings.storeDroppedGear, "storeDroppedGear");
+			bool gb = Settings.gearButton;
+			Check(listing_Standard, "RL_GearButton", ref Settings.gearButton, "gearButton");
+			if (gb != Settings.gearButton) GearOverview.SetButton();
 			Check(listing_Standard, "RL_KeepArmor", ref Settings.keepArmor, "keepArmor");
 			Check(listing_Standard, "RL_StatOffsets", ref Settings.statOffsets, "statOffsets");
 			Check(listing_Standard, "RL_WorkClothing", ref Settings.workClothing, "workClothing");
@@ -4758,6 +4762,8 @@ namespace ResearchedLoadout
 
 		public bool ownSwitchGizmo = true;
 
+		public bool gearButton = true;   // 2.16.0: "Gear" overview button at the bottom
+
 		public float ownMaxMass = 0f;
 
 		public bool autoEquipApparel = true;
@@ -4870,6 +4876,7 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref ownMeleeRange, "ownMeleeRange", 2.9f);
 			Scribe_Values.Look(ref ownSwitchBack, "ownSwitchBack", true);
 			Scribe_Values.Look(ref ownSwitchGizmo, "ownSwitchGizmo", true);
+			Scribe_Values.Look(ref gearButton, "gearButton", true);
 			Scribe_Values.Look(ref ownMaxMass, "ownMaxMass", 0f);
 			Scribe_Values.Look(ref autoEquipApparel, "autoEquipApparel", true);
 			Scribe_Values.Look(ref useOwnDresser, "useOwnDresser", false);
@@ -6341,6 +6348,23 @@ namespace ResearchedLoadout
 					ProcessPawn(pawn, now, settings);
 				}
 			}
+		}
+
+		// 2.16.0: "Equip everyone now" – every free colonist checks the gear right away (no waiting for the next pass)
+		public int EquipAllNow()
+		{
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			if (settings == null || !settings.enabled) return 0;
+			int now = Find.TickManager.TicksGame, n = 0;
+			foreach (Pawn pawn in new List<Pawn>(map.mapPawns.FreeColonistsSpawned))
+			{
+				if (!LoadoutFilter.IsPlayerColonist(pawn) || pawn.Drafted || pawn.Downed) continue;
+				_pawnCooldown.Remove(pawn.thingIDNumber);
+				Job before = pawn.CurJob;
+				try { ProcessPawn(pawn, now, settings); } catch (Exception e) { MLog.Warn("[Smart Colonist Gear] equip now: " + e.Message); }
+				if (pawn.CurJob != before || pawn.jobs.jobQueue.Count > 0) n++;
+			}
+			return n;
 		}
 
 		private void ProcessPawn(Pawn pawn, int now, ResearchedLoadoutSettings settings)

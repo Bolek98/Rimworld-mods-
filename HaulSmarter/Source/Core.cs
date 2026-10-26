@@ -39,6 +39,8 @@ namespace HaulSmarter
         public bool showEta = true;             // 3.0: weight + time in the inspect pane
         public bool overviewButton = true;      // 3.0: "Hauling" button at the bottom
         public bool highlight = true;           // 3.0: mark waiting items while the overview is open
+        public bool cleanupNotice = true;       // 3.1: "the battle is over – N things to clean up"
+        public bool cleanupAuto = false;        // 3.1: clean up by itself after every battle
 
         public static readonly string[] ProfileFields =
         {
@@ -108,6 +110,8 @@ namespace HaulSmarter
             Scribe_Values.Look(ref showEta, "showEta", true);
             Scribe_Values.Look(ref overviewButton, "overviewButton", true);
             Scribe_Values.Look(ref highlight, "highlight", true);
+            Scribe_Values.Look(ref cleanupNotice, "cleanupNotice", true);
+            Scribe_Values.Look(ref cleanupAuto, "cleanupAuto", false);
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
                 Preset(profile);
         }
@@ -115,7 +119,7 @@ namespace HaulSmarter
 
     public sealed class HSMod : Mod
     {
-        public const string Version = "3.0.4";
+        public const string Version = "3.1.0";
         public static HSSettings S;
         private Vector2 scroll;
         private float height = 900f;
@@ -250,6 +254,9 @@ namespace HaulSmarter
             if (before != s.overviewButton)
                 Overview.SetButton();
             Check(r, "HS_Highlight", ref s.highlight, null);
+            MUI.Section(r, "HS_SecCleanup".Translate());
+            Check(r, "HS_CleanupNotice", ref s.cleanupNotice, null);
+            Check(r, "HS_CleanupAuto", ref s.cleanupAuto, null);
             GUI.color = MUI.Muted;
             Text.Font = GameFont.Tiny;
             r.Label("HS_InfoNote".Translate());

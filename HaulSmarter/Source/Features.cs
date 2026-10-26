@@ -126,6 +126,7 @@ namespace HaulSmarter
             HSSettings s = HSMod.S;
             if (t == null || s == null || !t.Spawned) return 0f;
             int p = 0;
+            if (Cleanup.Marked(t)) return 3f;       // 3.1: after a battle – before everything else
             if (s.prioPerish > p && Perishable(t)) p = s.prioPerish;
             if (s.prioWeather > p && Weather(t)) p = s.prioWeather;
             if (s.prioValuable > p && Valuable(t)) p = s.prioValuable;
@@ -515,6 +516,8 @@ namespace HaulSmarter
                 OnTheWay.WalkingTick(map);
             if (now % 250 == 43)
                 UnloadSoon(map);
+            if (now % 250 == 121)
+                Cleanup.Watch(map);
         }
 
         // 3.0.1: food, medicine or things carried for over an hour go to storage after the current job
@@ -701,6 +704,93 @@ namespace HaulSmarter
         }
     }
 
+    // ------------------------------------------------------------------
+    // 3.1 Clean-up after a battle: weapons, apparel and bodies the enemies left
+    // behind around the base are allowed and hauled before everything else.
+    // ------------------------------------------------------------------
+    public static class Cleanup
+    {
+        private static readonly Dictionary<int, int> marked = new Dictionary<int, int>();   // thing id → until tick
+        private static readonly Dictionary<int, bool> wasFight = new Dictionary<int, bool>(); // map id
+        private const int KeepTicks = 60000 * 2;
+
+        public static bool Marked(Thing t)
+        {
+            if (marked.Count == 0 || t == null) return false;
+            return marked.TryGetValue(t.thingIDNumber, out int until) && Find.TickManager.TicksGame < until;
+        }
+
+        public static bool Any => marked.Count > 0;
+        private static CellRect near;
+
+        private static bool Wanted(Thing t, Map map)
+        {
+            if (t == null || !t.Spawned || t.IsInValidStorage()) return false;
+            bool kind = t.def.IsWeapon || t.def.IsApparel || (t is Corpse c && !c.InnerPawn.IsColonist && c.InnerPawn.Faction != Faction.OfPlayer);
+            if (!kind) return false;
+            if (t is Corpse cc && cc.InnerPawn.RaceProps.Animal && cc.InnerPawn.Faction == null) return false;   // hunting, not a battle
+            // near the base: in the home area or around it (its bounds + 20 cells)
+            return map.areaManager.Home[t.Position] || near.Contains(t.Position);
+        }
+
+        public static List<Thing> Candidates(Map map)
+        {
+            var l = new List<Thing>();
+            if (map == null) return l;
+            near = CellRect.Empty;
+            List<IntVec3> cells = map.areaManager.Home.ActiveCells.ToList();
+            if (cells.Count > 0)
+                near = CellRect.FromLimits(cells.Min(c => c.x), cells.Min(c => c.z), cells.Max(c => c.x), cells.Max(c => c.z)).ExpandedBy(20).ClipInsideMap(map);
+            foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver))
+                if (Wanted(t, map)) l.Add(t);
+            foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.Corpse))
+                if (Wanted(t, map) && !l.Contains(t)) l.Add(t);
+            return l;
+        }
+
+        public static int Run(Map map)
+        {
+            int n = 0, until = Find.TickManager.TicksGame + KeepTicks;
+            foreach (Thing t in Candidates(map))
+            {
+                if (t.IsForbidden(Faction.OfPlayer)) t.SetForbidden(false, false);
+                marked[t.thingIDNumber] = until;
+                n++;
+            }
+            if (marked.Count > 5000)
+            {
+                int now = Find.TickManager.TicksGame;
+                foreach (int k in marked.Where(kv => kv.Value < now).Select(kv => kv.Key).ToList()) marked.Remove(k);
+            }
+            return n;
+        }
+
+        // a battle at home just ended → tell the player (or clean up by itself)
+        public static void Watch(Map map)
+        {
+            try
+            {
+                HSSettings s = HSMod.S;
+                if (s == null || !map.IsPlayerHome || (!s.cleanupNotice && !s.cleanupAuto)) return;
+                bool fight = GenHostility.AnyHostileActiveThreatToPlayer(map, true);
+                bool before = wasFight.TryGetValue(map.uniqueID, out bool b) && b;
+                wasFight[map.uniqueID] = fight;
+                if (fight || !before) return;
+                if (s.cleanupAuto)
+                {
+                    int n = Run(map);
+                    if (n > 0) Messages.Message("HS_CleanupStarted".Translate(n), MessageTypeDefOf.PositiveEvent, false);
+                }
+                else
+                {
+                    int n = Candidates(map).Count;
+                    if (n > 0) Messages.Message("HS_CleanupNotice".Translate(n), MessageTypeDefOf.NeutralEvent, false);
+                }
+            }
+            catch (Exception e) { Log.WarningOnce("[Haul Smarter] clean-up check: " + e.Message, 0x4a51e5); }
+        }
+    }
+
     public class MainTabWindow_Haul : MainTabWindow
     {
         private Vector2 scroll;
@@ -728,6 +818,15 @@ namespace HaulSmarter
             Line(l, "HS_OvHot".Translate(Overview.Perish, Overview.Outside, Overview.Valuable), Overview.Perish + Overview.Outside > 0 ? MUI.Warn : (Color?)null);
             Line(l, "HS_OvHaulers".Translate(Overview.Haulers, Overview.Busy));
             Line(l, Overview.EtaHours < 0f ? "HS_OvEtaNone".Translate().ToString() : "HS_OvEta".Translate(Eta.Text(Overview.EtaHours)).ToString());
+            // 3.1: clean-up after a battle
+            int left = Cleanup.Candidates(map).Count;
+            Rect cb = new Rect(inRect.xMax - 220f, inRect.y, 220f, 30f);
+            if (Widgets.ButtonText(cb, "HS_CleanupButton".Translate(left), active: left > 0))
+            {
+                int n = Cleanup.Run(map);
+                Messages.Message("HS_CleanupStarted".Translate(n), MessageTypeDefOf.PositiveEvent, false);
+            }
+            TooltipHandler.TipRegion(cb, "HS_CleanupButton_Desc".Translate());
             HSData.Totals(out float kgToday, out int tripsToday);
             Line(l, "HS_OvToday".Translate(kgToday.ToString("0"), tripsToday));
             if (HSMod.S != null)

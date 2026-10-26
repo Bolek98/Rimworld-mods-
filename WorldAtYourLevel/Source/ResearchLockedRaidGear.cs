@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -30,7 +31,7 @@ namespace ResearchLockedRaidGear
 			Raids
 		}
 
-		public const string Version = "2.14.2";
+		public const string Version = "2.15.0";
 
 		public static ResearchLockedRaidGearSettings Settings;
 
@@ -108,6 +109,7 @@ namespace ResearchLockedRaidGear
 			// 2.10.0: raid types the player switched off (incidents, raid strategies, arrival modes)
 			TryPatch(h, AccessTools.Method(typeof(IncidentWorker), "CanFireNow"), null, "Postfix", typeof(RaidTypeIncidentPatch));
 			RaidTypeFilter.PatchWorkers(h);
+			TryPatch(h, AccessTools.Method(typeof(Pawn), "GetInspectString"), null, "Postfix", typeof(GearLogInspectPatch));   // 2.15.0
 			MLog.Game("[World at Your Level] v" + Version + " loaded (messages: Logs\\WorldAtYourLevel.log).");
 		}
 
@@ -1946,6 +1948,7 @@ namespace ResearchLockedRaidGear
 						ThingDef thingDef = ((!settings.replaceWithClosest || beast) ? null : (RestuffOk(thingWithComps) ? thingWithComps.def : FindClosestWeapon(thingWithComps.def)));
 						pawn.equipment.Remove(thingWithComps);
 						RaidCompensation.CountItem(thingDef != null);
+						GearLog.Add(pawn, thingWithComps, thingDef);
 						if (thingDef != null)
 						{
 							GiveWeapon(pawn, thingDef, thingWithComps);
@@ -1965,6 +1968,7 @@ namespace ResearchLockedRaidGear
 						ThingDef thingDef2 = ((!settings.replaceWithClosest || beast) ? null : (RestuffOk(apparel) ? apparel.def : FindClosestApparel(pawn, apparel.def)));
 						pawn.apparel.Remove(apparel);
 						RaidCompensation.CountItem(thingDef2 != null);
+						GearLog.Add(pawn, apparel, thingDef2);
 						if (thingDef2 != null)
 						{
 							GiveApparel(pawn, thingDef2, apparel);
@@ -1983,6 +1987,7 @@ namespace ResearchLockedRaidGear
 					{
 						pawn.inventory.innerContainer.Remove(thing);
 						RaidCompensation.CountItem(false);
+						GearLog.Add(pawn, thing, null);
 						Discard(pawn, thing, settings);
 					}
 				}
@@ -5684,6 +5689,63 @@ namespace ResearchLockedRaidGear
 			}
 		}
 	}
+	// 2.15.0: why raiders have their gear – what this mod took from each arriving pawn and what it
+	// gave instead; shown in the pawn's inspect pane (and in the raid message)
+	public static class GearLog
+	{
+		private static readonly Dictionary<int, List<string>> byPawn = new Dictionary<int, List<string>>();
+		private static readonly Dictionary<string, int> raid = new Dictionary<string, int>();
+
+		public static void Add(Pawn pawn, Thing taken, ThingDef given)
+		{
+			try
+			{
+				if (pawn == null || taken == null) return;
+				if (!byPawn.TryGetValue(pawn.thingIDNumber, out List<string> l))
+				{
+					if (byPawn.Count > 4000) byPawn.Clear();
+					byPawn[pawn.thingIDNumber] = l = new List<string>();
+				}
+				string what = taken.def.LabelCap.ToString() + (given != null ? " → " + given.LabelCap : " → –");
+				if (!l.Contains(what)) l.Add(what);
+				if (RaidCompensation.Collecting)
+				{
+					raid.TryGetValue(what, out int n);
+					raid[what] = n + 1;
+				}
+			}
+			catch { }
+		}
+
+		public static List<string> For(Pawn p) => p != null && byPawn.TryGetValue(p.thingIDNumber, out List<string> l) ? l : null;
+
+		public static void StartRaid() => raid.Clear();
+
+		// "assault rifle → bolt-action rifle ×4, flak vest → – ×2"
+		public static string RaidSummary(int max)
+		{
+			if (raid.Count == 0) return null;
+			var parts = raid.OrderByDescending(kv => kv.Value).Take(max).Select(kv => kv.Key + (kv.Value > 1 ? " ×" + kv.Value : "")).ToList();
+			string s = string.Join(", ", parts.ToArray());
+			return raid.Count > max ? s + ", …" : s;
+		}
+	}
+
+	public static class GearLogInspectPatch
+	{
+		public static void Postfix(Pawn __instance, ref string __result)
+		{
+			try
+			{
+				List<string> l = GearLog.For(__instance);
+				if (l == null || l.Count == 0 || __instance.Faction == Faction.OfPlayer) return;
+				string line = "RLRG_GearLogLine".Translate(string.Join(", ", l.Take(4).ToArray()) + (l.Count > 4 ? ", …" : "")).ToString();
+				__result = __result.NullOrEmpty() ? line : __result + "\n" + line;
+			}
+			catch { }
+		}
+	}
+
 	public static class RaidCompensation
 	{
 		public static bool Collecting;
@@ -5766,6 +5828,7 @@ namespace ResearchLockedRaidGear
 			values.Clear();
 			itemsTaken = 0;
 			itemsReplaced = 0;
+			GearLog.StartRaid();
 			Collecting = true;
 			List<Pawn> list;
 			try
@@ -5803,6 +5866,8 @@ namespace ResearchLockedRaidGear
 					if (itemsTaken > 0)
 					{
 						text = text + " " + "RLRG_MsgRaidItems".Translate(itemsTaken, itemsReplaced, list.Count).ToString();
+						string swaps = GearLog.RaidSummary(4);
+						if (swaps != null) text += " " + "RLRG_MsgRaidSwaps".Translate(swaps).ToString();
 					}
 					Messages.Message(text, MessageTypeDefOf.NeutralEvent, false);
 				}
