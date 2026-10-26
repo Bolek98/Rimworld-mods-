@@ -30,7 +30,8 @@ namespace UniversalRimTranslator
     public static class Scan
     {
         // the original full lists (rulesStrings …) – a list is injected as a whole
-        public static readonly Dictionary<string, List<string>> OriginalLists = new Dictionary<string, List<string>>();
+        // 2.5.0: swapped as a whole (the scan can run in the background and replace it when done)
+        public static Dictionary<string, List<string>> OriginalLists = new Dictionary<string, List<string>>();
 
         public static string ListKey(Type defType, string path) => defType.Name + "|" + path;
 
@@ -38,8 +39,17 @@ namespace UniversalRimTranslator
 
         public static List<Item> Run(out string report)
         {
+            List<Item> items = Run(out report, out Dictionary<string, List<string>> lists);
+            OriginalLists = lists;
+            return items;
+        }
+
+        // 2.5.0: safe off the main thread – it only reads defs and fills its own lists
+        public static List<Item> Run(out string report, out Dictionary<string, List<string>> lists)
+        {
             Failures = 0;
-            OriginalLists.Clear();
+            var OriginalLists = new Dictionary<string, List<string>>();
+            lists = OriginalLists;
             var items = new List<Item>();
             LoadedLanguage active = LanguageDatabase.activeLanguage;
             LoadedLanguage english = LanguageDatabase.defaultLanguage;

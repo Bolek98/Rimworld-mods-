@@ -50,6 +50,28 @@ namespace UniversalRimTranslator
         private static string typed;
         private static float typedAt, refreshedAt;
 
+        // 2.5.0: opened from the game (Alt + right click on a text): show exactly this text
+        public static void Pick(string source, string shown)
+        {
+            Store store = Runtime.Store;
+            if (store == null) return;
+            filter = Filter.All;
+            if (source != null && store.TryGet(source, out Rec r))
+                sel = new Row { Source = Store.Key(source), Text = r.Text, Manual = r.Manual, Verdict = r.Verdict, Has = true };
+            else if (source != null)
+                sel = new Row { Source = Store.Key(source), Verdict = Verdict.Empty };
+            else
+                sel = null;
+            editText = sel?.Text ?? "";
+            note = sel == null ? (string)"URT_Pick_NotFound".Translate() : null;
+            string q = (source ?? shown ?? "").Replace("\r", "").Split('\n')[0].Trim();
+            if (q.Length > 60) q = q.Substring(0, 60);
+            query = q;
+            typed = q;
+            typedAt = -10f;
+            lastQuery = null;
+        }
+
         public static void Draw(Rect r)
         {
             Store store = Runtime.Store;

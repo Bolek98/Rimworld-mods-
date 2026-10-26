@@ -71,7 +71,7 @@ namespace UniversalRimTranslator
             return h.ToString("X16");
         }
 
-        public static void Save(string path, string fingerprint, List<Item> items, string report)
+        public static void Save(string path, string fingerprint, List<Item> items, string report, Dictionary<string, List<string>> lists)
         {
             try
             {
@@ -94,8 +94,8 @@ namespace UniversalRimTranslator
                         w.Write(it.IsRule);
                         w.Write(it.Priority);
                     }
-                    w.Write(Scan.OriginalLists.Count);
-                    foreach (var kv in Scan.OriginalLists)
+                    w.Write(lists.Count);
+                    foreach (var kv in lists)
                     {
                         w.Write(kv.Key);
                         w.Write(kv.Value.Count);
@@ -113,14 +113,25 @@ namespace UniversalRimTranslator
 
         public static bool TryLoad(string path, string fingerprint, out List<Item> items, out string report)
         {
+            if (!TryLoad(path, fingerprint, false, out items, out report, out var lists)) return false;
+            Scan.OriginalLists = lists;
+            return true;
+        }
+
+        // 2.5.0: anyFingerprint = the last scan even if mods changed since (used until the new scan is done)
+        public static bool TryLoad(string path, string fingerprint, bool anyFingerprint, out List<Item> items, out string report, out Dictionary<string, List<string>> lists)
+        {
             items = null;
             report = null;
+            lists = null;
             try
             {
                 if (!File.Exists(path)) return false;
                 using (var r = new BinaryReader(File.OpenRead(path), Encoding.UTF8))
                 {
-                    if (r.ReadInt32() != FormatVersion || r.ReadString() != fingerprint) return false;
+                    if (r.ReadInt32() != FormatVersion) return false;
+                    string had = r.ReadString();
+                    if (!anyFingerprint && had != fingerprint) return false;
                     report = r.ReadString();
                     int n = r.ReadInt32();
                     var list = new List<Item>(n);
@@ -144,7 +155,7 @@ namespace UniversalRimTranslator
                         it.Priority = r.ReadInt32();
                         list.Add(it);
                     }
-                    Scan.OriginalLists.Clear();
+                    var ol = new Dictionary<string, List<string>>();
                     int ln = r.ReadInt32();
                     for (int i = 0; i < ln; i++)
                     {
@@ -152,16 +163,16 @@ namespace UniversalRimTranslator
                         int c = r.ReadInt32();
                         var l = new List<string>(c);
                         for (int j = 0; j < c; j++) l.Add(G(r));
-                        Scan.OriginalLists[k] = l;
+                        ol[k] = l;
                     }
                     items = list;
+                    lists = ol;
                     return true;
                 }
             }
             catch (Exception e)
             {
                 MLog.Warn("[URT] scan cache not usable: " + e.Message);
-                Scan.OriginalLists.Clear();
                 return false;
             }
         }

@@ -1,4 +1,9 @@
 === Not on the Workshop yet (test versions) ===
+2.5.0
+- Faster start: when mods changed, the game no longer waits ~25 s for the scan of all texts – the last scan is used at once and the new one runs in the background (only what is new is put in when it is done).
+- Alt + right click on any text in the game opens the editor with exactly that text – the quick way to fix a wrong or half-translated text (setting, on).
+- First start: a short window explains what URT does (nothing to set up – free services by default); when the game is in English it says how to pick a language.
+
 2.4.1
 - Editor – Translate again: the new try uses a different service than the one that made the old translation (the same service gave the same half-translated text again), and the editor shows the new translation as soon as it arrives (before, the field stayed empty).
 

@@ -48,8 +48,11 @@ namespace UniversalRimTranslator
             catch (Exception e) { MLog.Warn("[URT] grammar fallback not active: " + e.Message); }
             try { Live.Patch(h); }
             catch (Exception e) { MLog.Warn("[URT] live translation not active: " + e.Message); }
+            try { Pick.Patch(h); }
+            catch (Exception e) { MLog.Warn("[URT] Alt + right click fix not active: " + e.Message); }
             try { Start(); }
             catch (Exception e) { MLog.Error("[URT] start failed: " + e); Phase = "error: " + e.Message; }
+            Dialog_UrtWelcome.ShowOnce();
         }
 
         private static void Start()
@@ -86,6 +89,7 @@ namespace UniversalRimTranslator
             }
             catch (Exception e) { MLog.Warn("[URT] scan fingerprint: " + e.Message); }
             string cachePath = ScanCache.FilePath(Folder, Target);
+            bool rescan = false;
             if (fp != null && ScanCache.TryLoad(cachePath, fp, out List<Item> cachedItems, out string cachedReport))
             {
                 Items = cachedItems;
@@ -93,12 +97,20 @@ namespace UniversalRimTranslator
             }
             else
             {
-                Items = Scan.Run(out ScanReport);
-                if (fp != null && Scan.Failures == 0)
+                // 2.5.0: mods changed (or first start) – the game does not wait 25 s for the scan any more.
+                // The last scan is used at once (texts that changed are skipped by the check when applied),
+                // the new scan runs in the background and replaces it when done.
+                rescan = true;
+                if (ScanCache.TryLoad(cachePath, null, true, out List<Item> lastItems, out string lastReport, out var lastLists))
                 {
-                    List<Item> snapshot = Items;
-                    string rep = ScanReport;
-                    ThreadPool.QueueUserWorkItem(_ => ScanCache.Save(cachePath, fp, snapshot, rep));
+                    Items = lastItems;
+                    Scan.OriginalLists = lastLists;
+                    ScanReport = lastReport + "; previous scan – mods changed, new scan in the background";
+                }
+                else
+                {
+                    Items = new List<Item>();
+                    ScanReport = "first scan in the background";
                 }
             }
             bySource = Items.GroupBy(i => Store.Key(i.Source)).ToDictionary(g => g.Key, g => g.ToList());
@@ -106,6 +118,7 @@ namespace UniversalRimTranslator
 
             sw.Restart();
             int known = ApplyKnown();
+            if (rescan) BackgroundScan(fp, cachePath);
             MLog.Game("[Universal RimTranslator] v" + UrtVersion.Display + " – " + TargetName + ": " + Items.Count + " untranslated texts found (" + ScanReport + "), " + known +
                       " translated from memory (" + Store.Count + " remembered). Load " + loadMs + " ms, scan " + scanMs + " ms, apply " + sw.ElapsedMilliseconds + " ms.");
 
@@ -149,6 +162,40 @@ namespace UniversalRimTranslator
             int n = Apply.Many(work);
             Applied += n;
             return n;
+        }
+
+        // 2.5.0: the def scan off the main thread; the result replaces the list on the main thread
+        private static void BackgroundScan(string fp, string cachePath)
+        {
+            Phase = "scanning the mods in the background";
+            ThreadPool.QueueUserWorkItem(_ =>
+            {
+                try
+                {
+                    var sw = Stopwatch.StartNew();
+                    List<Item> fresh = Scan.Run(out string rep, out var lists);
+                    long ms = sw.ElapsedMilliseconds;
+                    bool ok = Scan.Failures == 0;
+                    // the word lists of live translation follow the new scan (heavy – here, not on the main thread)
+                    try { Live.Init(fresh, Folder, Target); } catch (Exception e) { MLog.Warn("[URT] live after scan: " + e.Message); }
+                    RunOnMain(() =>
+                    {
+                        Items = fresh;
+                        Scan.OriginalLists = lists;
+                        bySource = fresh.GroupBy(i => Store.Key(i.Source)).ToDictionary(g => g.Key, g => g.ToList());
+                        ScanReport = rep + "; scanned in the background in " + ms + " ms";
+                        // only what the last scan did not have – usually a few hundred texts of the changed mods
+                        int n = ApplyKnown();
+                        MLog.Info("[URT] background scan done: " + fresh.Count + " texts (" + rep + ") in " + ms + " ms, " + n + " known translations queued");
+                        Kick();
+                    });
+                    if (fp != null && ok) ScanCache.Save(cachePath, fp, fresh, rep, lists);
+                }
+                catch (Exception e)
+                {
+                    MLog.Error("[URT] background scan: " + e);
+                }
+            });
         }
 
         public static bool Allowed(Item it)
@@ -301,7 +348,10 @@ namespace UniversalRimTranslator
                 if (toApply.IsEmpty) return;
                 var sw = Stopwatch.StartNew();
                 var batch = new List<(Item, string)>();
-                while (batch.Count < 400 && sw.ElapsedMilliseconds < 4 && toApply.TryDequeue(out var x))
+                // 2.5.0: more per frame while not in a running game (menu, loading)
+                bool menu = Current.ProgramState != ProgramState.Playing;
+                int maxN = menu ? 3000 : 400, maxMs = menu ? 12 : 4;
+                while (batch.Count < maxN && sw.ElapsedMilliseconds < maxMs && toApply.TryDequeue(out var x))
                     if (Allowed(x.Item1)) batch.Add(x);     // not into a mod left in English
                 if (batch.Count > 0) Applied += Apply.Many(batch);
             }

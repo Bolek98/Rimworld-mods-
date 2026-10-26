@@ -11,7 +11,7 @@ namespace UniversalRimTranslator
 {
     public static class UrtVersion
     {
-        public const string Number = "2.4.1";
+        public const string Number = "2.5.0";
         public static string Display => Number + " (test)";
     }
 
@@ -35,6 +35,8 @@ namespace UniversalRimTranslator
         public string customEndpointType = "LibreTranslate", customEndpointUrl = "", customEndpointModel = "", customEndpointKey = "";
         public string aiUrl = "", aiKey = "", aiModel = "";
         public string skippedMods = "";     // 2.3.0: mods left in English (one name per line)
+        public bool welcomeShown;           // 2.5.0: the first-start window was shown
+        public bool pickFix = true;         // 2.5.0: Alt + right click on a text opens it in the editor
 
         public override void ExposeData()
         {
@@ -62,6 +64,8 @@ namespace UniversalRimTranslator
             Scribe_Values.Look(ref aiKey, "urt2_aiKey", "");
             Scribe_Values.Look(ref aiModel, "urt2_aiModel", "");
             Scribe_Values.Look(ref skippedMods, "urt2_skippedMods", "");
+            Scribe_Values.Look(ref welcomeShown, "urt2_welcomeShown", false);
+            Scribe_Values.Look(ref pickFix, "urt2_pickFix", true);
             if (Scribe.mode == LoadSaveMode.PostLoadInit) Normalize();
         }
 
@@ -113,6 +117,21 @@ namespace UniversalRimTranslator
     public sealed class UniversalRimTranslatorMod : Mod
     {
         public static UrtSettings Settings;
+        public static UniversalRimTranslatorMod Instance;
+
+        // 2.5.0: open URT's window on a tab (3 = editor)
+        public static void OpenTab(int t)
+        {
+            if (Instance == null) return;
+            Instance.tab = t;
+            // the settings dialog moved between namespaces (Verse in 1.6, RimWorld in 1.7) – found by name
+            Type dt = AccessTools.TypeByName("RimWorld.Dialog_ModSettings") ?? AccessTools.TypeByName("Verse.Dialog_ModSettings");
+            if (dt == null) return;
+            foreach (Window w in Find.WindowStack.Windows)
+                if (dt.IsInstanceOfType(w)) return;
+            if (Activator.CreateInstance(dt, Instance) is Window win)
+                Find.WindowStack.Add(win);
+        }
         private static List<string> recBullets;
         private int tab;
         private Vector2 scroll;
@@ -121,6 +140,7 @@ namespace UniversalRimTranslator
         public UniversalRimTranslatorMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<UrtSettings>();
+            Instance = this;
             RemoveOldGeneratedFiles(content?.RootDir);
             Settings.Normalize();
             MUI.Init(new UrtSettings(), new[] { "enabled", "translateDefs", "translateKeyed", "translateRules", "grammarFallback", "translateLive" });
@@ -243,6 +263,7 @@ namespace UniversalRimTranslator
                 Check(l, "URT_Defs", ref s.translateDefs, "translateDefs");
                 Check(l, "URT_Keyed", ref s.translateKeyed, "translateKeyed");
                 Check(l, "URT_Live", ref s.translateLive, "translateLive");
+                Check(l, "URT_PickFix", ref s.pickFix, null);
                 l.NewColumn();
                 MUI.Section(l, "URT_Sec_Grammar".Translate());
                 Check(l, "URT_Rules", ref s.translateRules, "translateRules");
