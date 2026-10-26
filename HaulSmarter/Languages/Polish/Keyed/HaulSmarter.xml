@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <HS_SecHaul>Noszenie</HS_SecHaul>
-  <HS_OtherHauler>{0} jest aktywny – noszenie wielu przedmiotów w Haul Smarter jest wyłączone. Wyłącz {0}, aby z niego korzystać.</HS_OtherHauler>
+  <HS_OtherHauler>{0} jest aktywny – noszenie wielu przedmiotów w Haul Master jest wyłączone. Wyłącz {0}, aby z niego korzystać.</HS_OtherHauler>
   <HS_HaulMany>Noś kilka rzeczy naraz</HS_HaulMany>
   <HS_MaxItems>Najwięcej przedmiotów na kurs: {0}</HS_MaxItems>
   <HS_Radius>Szukaj przedmiotów w promieniu: {0} pól</HS_Radius>
@@ -54,8 +54,8 @@
   <HS_Overview_Desc>Okno przeglądu: co czeka na przeniesienie, ile waży, co się psuje, ilu jest tragarzy, ile zostało czasu i kto ile przeniósł.</HS_Overview_Desc>
   <HS_Highlight>Podświetlaj nieprzeniesione rzeczy na mapie</HS_Highlight>
   <HS_Highlight_Desc>Gdy okno Noszenie jest otwarte, rzeczy czekające na przeniesienie są obrysowane na mapie – na żółto, a na pomarańczowo te, które się psują lub leżą na deszczu.</HS_Highlight_Desc>
-  <HS_InfoNote>Statystyki (kto ile przeniósł) są zapisywane razem z grą. Liczone jest noszenie wykonane przez Haul Smarter.</HS_InfoNote>
-  <HS_StatLoad>Ciężki ładunek (Haul Smarter)</HS_StatLoad>
+  <HS_InfoNote>Statystyki (kto ile przeniósł) są zapisywane razem z grą. Liczone jest noszenie wykonane przez Haul Master.</HS_InfoNote>
+  <HS_StatLoad>Ciężki ładunek (Haul Master)</HS_StatLoad>
   <HS_Carries>Niesie: {0} / {1} kg ({2} szt.)</HS_Carries>
   <HS_Eta>w magazynie za {0}</HS_Eta>
   <HS_StillTake>jeszcze {0} do podniesienia</HS_StillTake>
@@ -93,11 +93,11 @@
   <HS_BenchCells>Rozmiar strefy zaopatrzenia: {0} pól</HS_BenchCells>
   <HS_BenchCells_Desc>Ile pól przycisk „Zaopatrzenie” przy stole warsztatowym wykorzystuje na małą strefę składowania obok stołu.</HS_BenchCells_Desc>
   <HS_Bench>Zaopatrzenie</HS_Bench>
-  <HS_Bench_Desc>Tworzy tuż obok tego stołu małą strefę składowania, która przyjmuje dokładnie składniki jego aktywnych zleceń (aktualizuje się sama, priorytet preferowany). Rzemieślnik bierze je obok stołu zamiast chodzić przez całą mapę. Kliknij ponownie, aby ją usunąć. To zwykła strefa składowania – zostaje także bez Haul Smarter.</HS_Bench_Desc>
+  <HS_Bench_Desc>Tworzy tuż obok tego stołu małą strefę składowania, która przyjmuje dokładnie składniki jego aktywnych zleceń (aktualizuje się sama, priorytet preferowany). Rzemieślnik bierze je obok stołu zamiast chodzić przez całą mapę. Kliknij ponownie, aby ją usunąć. To zwykła strefa składowania – zostaje także bez Haul Master.</HS_Bench_Desc>
   <HS_BenchZone>Zaopatrzenie: {0}</HS_BenchZone>
   <HS_BenchStarted>{0}: utworzono strefę zaopatrzenia z {1} pól – będą tam przynoszone składniki jego zleceń.</HS_BenchStarted>
   <HS_BenchNoRoom>Brak wolnych pól obok tego stołu na strefę zaopatrzenia.</HS_BenchNoRoom>
-  <HS_SafeOff>Haul Smarter: „{0}” wielokrotnie zawodziło (prawdopodobnie razem z innym modem) i jest wyłączone do następnego uruchomienia. Szczegóły są w logu.</HS_SafeOff>
+  <HS_SafeOff>Haul Master: „{0}” wielokrotnie zawodziło (prawdopodobnie razem z innym modem) i jest wyłączone do następnego uruchomienia. Szczegóły są w logu.</HS_SafeOff>
   <HS_SafeList>Wyłączone po błędach: {0}</HS_SafeList>
   <HS_SafeReset>Włącz je ponownie</HS_SafeReset>
   <HS_Feat_haul>noszenie kilku rzeczy</HS_Feat_haul>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <HS_SecHaul>Transporte</HS_SecHaul>
-  <HS_OtherHauler>{0} está ativo – o transporte de vários itens do Haul Smarter está desligado. Desligue {0} para usá-lo.</HS_OtherHauler>
+  <HS_OtherHauler>{0} está ativo – o transporte de vários itens do Haul Master está desligado. Desligue {0} para usá-lo.</HS_OtherHauler>
   <HS_HaulMany>Transportar várias coisas de uma vez</HS_HaulMany>
   <HS_MaxItems>Máximo de itens por viagem: {0}</HS_MaxItems>
   <HS_Radius>Procurar itens num raio de: {0} células</HS_Radius>
@@ -54,8 +54,8 @@
   <HS_Overview_Desc>Uma janela de visão geral: o que espera ser transportado, seu peso, o que apodrece, quantos carregadores, quanto falta e quem transportou quanto.</HS_Overview_Desc>
   <HS_Highlight>Destacar no mapa as coisas não transportadas</HS_Highlight>
   <HS_Highlight_Desc>Enquanto a janela Transporte está aberta, as coisas que esperam ser transportadas ficam contornadas no mapa – em amarelo, e em laranja as que apodrecem ou estão na chuva.</HS_Highlight_Desc>
-  <HS_InfoNote>As estatísticas (quem transportou quanto) são salvas com o jogo. O transporte feito pelo Haul Smarter é contado.</HS_InfoNote>
-  <HS_StatLoad>Carga pesada (Haul Smarter)</HS_StatLoad>
+  <HS_InfoNote>As estatísticas (quem transportou quanto) são salvas com o jogo. O transporte feito pelo Haul Master é contado.</HS_InfoNote>
+  <HS_StatLoad>Carga pesada (Haul Master)</HS_StatLoad>
   <HS_Carries>Carrega: {0} / {1} kg ({2} un.)</HS_Carries>
   <HS_Eta>armazenado em {0}</HS_Eta>
   <HS_StillTake>mais {0} para pegar</HS_StillTake>
@@ -93,11 +93,11 @@
   <HS_BenchCells>Tamanho da zona de abastecimento: {0} células</HS_BenchCells>
   <HS_BenchCells_Desc>Quantas células o botão "Abastecer" de uma bancada usa para a pequena zona de estoque ao lado da bancada.</HS_BenchCells_Desc>
   <HS_Bench>Abastecer</HS_Bench>
-  <HS_Bench_Desc>Cria logo ao lado desta bancada uma pequena zona de estoque que aceita exatamente os ingredientes das suas ordens ativas (atualizada sozinha, prioridade preferida). O artesão os pega ao lado da bancada em vez de atravessar o mapa. Clique de novo para removê-la. É uma zona de estoque comum – ela fica mesmo sem o Haul Smarter.</HS_Bench_Desc>
+  <HS_Bench_Desc>Cria logo ao lado desta bancada uma pequena zona de estoque que aceita exatamente os ingredientes das suas ordens ativas (atualizada sozinha, prioridade preferida). O artesão os pega ao lado da bancada em vez de atravessar o mapa. Clique de novo para removê-la. É uma zona de estoque comum – ela fica mesmo sem o Haul Master.</HS_Bench_Desc>
   <HS_BenchZone>Abastecimento: {0}</HS_BenchZone>
   <HS_BenchStarted>{0}: zona de abastecimento com {1} células criada – os ingredientes das suas ordens serão levados para lá.</HS_BenchStarted>
   <HS_BenchNoRoom>Não há células livres ao lado desta bancada para uma zona de abastecimento.</HS_BenchNoRoom>
-  <HS_SafeOff>Haul Smarter: "{0}" falhou repetidamente (provavelmente junto com outro mod) e está desligado até a próxima inicialização. Os detalhes estão no log.</HS_SafeOff>
+  <HS_SafeOff>Haul Master: "{0}" falhou repetidamente (provavelmente junto com outro mod) e está desligado até a próxima inicialização. Os detalhes estão no log.</HS_SafeOff>
   <HS_SafeList>Desligado após erros: {0}</HS_SafeList>
   <HS_SafeReset>Ligá-los novamente</HS_SafeReset>
   <HS_Feat_haul>transporte de várias coisas</HS_Feat_haul>

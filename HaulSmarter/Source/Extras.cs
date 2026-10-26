@@ -38,11 +38,11 @@ namespace HaulSmarter
             errors.TryGetValue(feature, out int n);
             errors[feature] = ++n;
             if (n == 1)
-                Log.Warning("[Haul Smarter] " + feature + ": " + e);
+                Log.Warning("[Haul Master] " + feature + ": " + e);
             if (n < Limit || off.Contains(feature))
                 return;
             off.Add(feature);
-            Log.Warning("[Haul Smarter] '" + feature + "' failed " + n + " times and is switched off until the next start. Last error: " + e.Message);
+            Log.Warning("[Haul Master] '" + feature + "' failed " + n + " times and is switched off until the next start. Last error: " + e.Message);
             try
             {
                 Messages.Message("HS_SafeOff".Translate(Label(feature)), MessageTypeDefOf.CautionInput, false);

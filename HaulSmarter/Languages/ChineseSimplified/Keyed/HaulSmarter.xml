@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <HS_SecHaul>搬运</HS_SecHaul>
-  <HS_OtherHauler>{0} 已启用——Haul Smarter 的多件搬运已关闭。关闭 {0} 才能使用它。</HS_OtherHauler>
+  <HS_OtherHauler>{0} 已启用——Haul Master 的多件搬运已关闭。关闭 {0} 才能使用它。</HS_OtherHauler>
   <HS_HaulMany>一次搬运多件物品</HS_HaulMany>
   <HS_MaxItems>每趟最多物品数：{0}</HS_MaxItems>
   <HS_Radius>在此范围内寻找物品：{0} 格</HS_Radius>
@@ -54,8 +54,8 @@
   <HS_Overview_Desc>概览窗口：等待搬运的物品、重量、什么在腐烂、有多少搬运工、多久完成以及谁搬了多少。</HS_Overview_Desc>
   <HS_Highlight>在地图上高亮未搬运的物品</HS_Highlight>
   <HS_Highlight_Desc>“搬运”窗口打开时，等待搬运的物品在地图上会被描边——黄色，正在腐烂或淋雨的为橙色。</HS_Highlight_Desc>
-  <HS_InfoNote>统计（谁搬了多少）随存档保存。由 Haul Smarter 完成的搬运会被计入。</HS_InfoNote>
-  <HS_StatLoad>重载（Haul Smarter）</HS_StatLoad>
+  <HS_InfoNote>统计（谁搬了多少）随存档保存。由 Haul Master 完成的搬运会被计入。</HS_InfoNote>
+  <HS_StatLoad>重载（Haul Master）</HS_StatLoad>
   <HS_Carries>携带：{0} / {1} kg（{2} 件）</HS_Carries>
   <HS_Eta>{0}后入库</HS_Eta>
   <HS_StillTake>还要捡 {0}</HS_StillTake>
@@ -93,11 +93,11 @@
   <HS_BenchCells>供料储存区大小：{0} 格</HS_BenchCells>
   <HS_BenchCells_Desc>工作台上的“供料”按钮为旁边的小储存区使用多少格。</HS_BenchCells_Desc>
   <HS_Bench>供料</HS_Bench>
-  <HS_Bench_Desc>在此工作台旁建立一个小储存区，只接收其有效清单所需的原料（自动更新，优先级“优先”）。工匠直接从工作台旁取用，而不必横穿地图。再次点击即可移除。这是普通的储存区——即使没有 Haul Smarter 也会保留。</HS_Bench_Desc>
+  <HS_Bench_Desc>在此工作台旁建立一个小储存区，只接收其有效清单所需的原料（自动更新，优先级“优先”）。工匠直接从工作台旁取用，而不必横穿地图。再次点击即可移除。这是普通的储存区——即使没有 Haul Master 也会保留。</HS_Bench_Desc>
   <HS_BenchZone>供料：{0}</HS_BenchZone>
   <HS_BenchStarted>{0}：已建立 {1} 格的供料储存区——其清单的原料将被送到这里。</HS_BenchStarted>
   <HS_BenchNoRoom>此工作台旁没有空闲格子可建立供料储存区。</HS_BenchNoRoom>
-  <HS_SafeOff>Haul Smarter：“{0}”反复出错（可能与其他模组冲突），已关闭至下次启动。详情见日志。</HS_SafeOff>
+  <HS_SafeOff>Haul Master：“{0}”反复出错（可能与其他模组冲突），已关闭至下次启动。详情见日志。</HS_SafeOff>
   <HS_SafeList>因错误而关闭：{0}</HS_SafeList>
   <HS_SafeReset>重新启用</HS_SafeReset>
   <HS_Feat_haul>多件搬运</HS_Feat_haul>

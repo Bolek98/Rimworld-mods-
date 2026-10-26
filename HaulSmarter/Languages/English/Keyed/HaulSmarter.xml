@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <HS_SecHaul>Hauling</HS_SecHaul>
-  <HS_OtherHauler>{0} is active – multi-item hauling in Haul Smarter is off. Turn {0} off to use it.</HS_OtherHauler>
+  <HS_OtherHauler>{0} is active – multi-item hauling in Haul Master is off. Turn {0} off to use it.</HS_OtherHauler>
   <HS_HaulMany>Haul several things at once</HS_HaulMany>
   <HS_MaxItems>Most items per trip: {0}</HS_MaxItems>
   <HS_Radius>Look for items within: {0} cells</HS_Radius>
@@ -54,8 +54,8 @@
   <HS_Overview_Desc>An overview window: what waits to be hauled, its weight, what rots, how many haulers, how long until done and who hauled how much.</HS_Overview_Desc>
   <HS_Highlight>Highlight unhauled things on the map</HS_Highlight>
   <HS_Highlight_Desc>While the Hauling window is open, things waiting to be hauled are outlined on the map – yellow, and orange for those that rot or lie in the rain.</HS_Highlight_Desc>
-  <HS_InfoNote>Statistics (who hauled how much) are saved with the game. Hauling done by Haul Smarter is counted.</HS_InfoNote>
-  <HS_StatLoad>Heavy load (Haul Smarter)</HS_StatLoad>
+  <HS_InfoNote>Statistics (who hauled how much) are saved with the game. Hauling done by Haul Master is counted.</HS_InfoNote>
+  <HS_StatLoad>Heavy load (Haul Master)</HS_StatLoad>
   <HS_Carries>Carries: {0} / {1} kg ({2} pcs)</HS_Carries>
   <HS_Eta>stored in {0}</HS_Eta>
   <HS_StillTake>{0} more to pick up</HS_StillTake>
@@ -93,11 +93,11 @@
   <HS_BenchCells>Supply stockpile size: {0} cells</HS_BenchCells>
   <HS_BenchCells_Desc>How many cells the "Supply" button on a workbench uses for the small stockpile next to the bench.</HS_BenchCells_Desc>
   <HS_Bench>Supply</HS_Bench>
-  <HS_Bench_Desc>Makes a small stockpile right next to this bench that takes exactly the ingredients of its active bills (updated by itself, preferred priority). The crafter takes them from beside the bench instead of walking across the map. Click again to remove it. It is an ordinary stockpile – it stays even without Haul Smarter.</HS_Bench_Desc>
+  <HS_Bench_Desc>Makes a small stockpile right next to this bench that takes exactly the ingredients of its active bills (updated by itself, preferred priority). The crafter takes them from beside the bench instead of walking across the map. Click again to remove it. It is an ordinary stockpile – it stays even without Haul Master.</HS_Bench_Desc>
   <HS_BenchZone>Supply: {0}</HS_BenchZone>
   <HS_BenchStarted>{0}: supply stockpile with {1} cells made – the ingredients of its bills will be brought there.</HS_BenchStarted>
   <HS_BenchNoRoom>No free cells next to this bench for a supply stockpile.</HS_BenchNoRoom>
-  <HS_SafeOff>Haul Smarter: "{0}" kept failing (probably together with another mod) and is switched off until the next start. Details are in the log.</HS_SafeOff>
+  <HS_SafeOff>Haul Master: "{0}" kept failing (probably together with another mod) and is switched off until the next start. Details are in the log.</HS_SafeOff>
   <HS_SafeList>Switched off after errors: {0}</HS_SafeList>
   <HS_SafeReset>Switch them on again</HS_SafeReset>
   <HS_Feat_haul>hauling several things</HS_Feat_haul>

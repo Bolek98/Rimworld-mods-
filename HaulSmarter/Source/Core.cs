@@ -166,12 +166,12 @@ namespace HaulSmarter
             }
             catch (Exception e)
             {
-                Log.Error("[Haul Smarter] patching failed: " + e);
+                Log.Error("[Haul Master] patching failed: " + e);
             }
-            Log.Message("[Haul Smarter] v" + Version + " loaded." + Compat.Summary());
+            Log.Message("[Haul Master] v" + Version + " loaded." + Compat.Summary());
         }
 
-        public override string SettingsCategory() => "Haul Smarter";
+        public override string SettingsCategory() => "Haul Master";
 
         private static void Muted(Rect r, string text)
         {

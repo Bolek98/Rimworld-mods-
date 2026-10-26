@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <HS_SecHaul>Nošení</HS_SecHaul>
-  <HS_OtherHauler>Je zapnutý {0} – nošení více věcí najednou je v Haul Smarter vypnuté. Vypni {0}, ať to funguje.</HS_OtherHauler>
+  <HS_OtherHauler>Je zapnutý {0} – nošení více věcí najednou je v Haul Master vypnuté. Vypni {0}, ať to funguje.</HS_OtherHauler>
   <HS_HaulMany>Nosit víc věcí najednou</HS_HaulMany>
   <HS_MaxItems>Nejvíc věcí na jednu cestu: {0}</HS_MaxItems>
   <HS_Radius>Hledat věci do vzdálenosti: {0} polí</HS_Radius>
@@ -54,8 +54,8 @@
   <HS_Overview_Desc>Okno s přehledem: co čeká na odnesení, kolik váží, co se kazí, kolik nosičů, za jak dlouho je hotovo a kdo kolik odnesl.</HS_Overview_Desc>
   <HS_Highlight>Zvýraznit nevyklizené věci na mapě</HS_Highlight>
   <HS_Highlight_Desc>Když je otevřené okno Nošení, věci čekající na odnesení jsou na mapě orámované – žlutě, a oranžově ty, co se kazí nebo leží v dešti.</HS_Highlight_Desc>
-  <HS_InfoNote>Statistiky (kdo kolik odnesl) se ukládají do hry. Počítá se nošení přes Haul Smarter.</HS_InfoNote>
-  <HS_StatLoad>Těžký náklad (Haul Smarter)</HS_StatLoad>
+  <HS_InfoNote>Statistiky (kdo kolik odnesl) se ukládají do hry. Počítá se nošení přes Haul Master.</HS_InfoNote>
+  <HS_StatLoad>Těžký náklad (Haul Master)</HS_StatLoad>
   <HS_Carries>Nese: {0} / {1} kg ({2} ks)</HS_Carries>
   <HS_Eta>do skladu za {0}</HS_Eta>
   <HS_StillTake>ještě sebere {0}</HS_StillTake>
@@ -93,11 +93,11 @@
   <HS_BenchCells>Velikost skladu u ponku: {0} políček</HS_BenchCells>
   <HS_BenchCells_Desc>Kolik políček použije tlačítko „Zásobovat“ u ponku pro malý sklad vedle něj.</HS_BenchCells_Desc>
   <HS_Bench>Zásobovat</HS_Bench>
-  <HS_Bench_Desc>Udělá hned vedle ponku malý sklad, který bere přesně suroviny jeho aktivních zakázek (sám se aktualizuje, priorita Přednostní). Výrobce je vezme vedle ponku a neběhá přes celou mapu. Dalším kliknutím sklad zrušíš. Je to obyčejný sklad – zůstane i bez Haul Smarter.</HS_Bench_Desc>
+  <HS_Bench_Desc>Udělá hned vedle ponku malý sklad, který bere přesně suroviny jeho aktivních zakázek (sám se aktualizuje, priorita Přednostní). Výrobce je vezme vedle ponku a neběhá přes celou mapu. Dalším kliknutím sklad zrušíš. Je to obyčejný sklad – zůstane i bez Haul Master.</HS_Bench_Desc>
   <HS_BenchZone>Zásoby: {0}</HS_BenchZone>
   <HS_BenchStarted>{0}: sklad zásob s {1} políčky je hotový – budou se tam nosit suroviny jeho zakázek.</HS_BenchStarted>
   <HS_BenchNoRoom>Vedle tohoto ponku nejsou volná políčka pro sklad zásob.</HS_BenchNoRoom>
-  <HS_SafeOff>Haul Smarter: „{0}“ opakovaně selhávalo (nejspíš spolu s jiným modem) a do dalšího spuštění je vypnuté. Podrobnosti jsou v logu.</HS_SafeOff>
+  <HS_SafeOff>Haul Master: „{0}“ opakovaně selhávalo (nejspíš spolu s jiným modem) a do dalšího spuštění je vypnuté. Podrobnosti jsou v logu.</HS_SafeOff>
   <HS_SafeList>Vypnuto po chybách: {0}</HS_SafeList>
   <HS_SafeReset>Znovu zapnout</HS_SafeReset>
   <HS_Feat_haul>odnášení více věcí</HS_Feat_haul>

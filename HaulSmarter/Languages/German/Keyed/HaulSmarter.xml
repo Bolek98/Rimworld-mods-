@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <HS_SecHaul>Tragen</HS_SecHaul>
-  <HS_OtherHauler>{0} ist aktiv – das Tragen mehrerer Gegenstände in Haul Smarter ist aus. Schalte {0} aus, um es zu nutzen.</HS_OtherHauler>
+  <HS_OtherHauler>{0} ist aktiv – das Tragen mehrerer Gegenstände in Haul Master ist aus. Schalte {0} aus, um es zu nutzen.</HS_OtherHauler>
   <HS_HaulMany>Mehrere Dinge auf einmal tragen</HS_HaulMany>
   <HS_MaxItems>Höchstens Gegenstände pro Gang: {0}</HS_MaxItems>
   <HS_Radius>Gegenstände suchen im Umkreis von: {0} Feldern</HS_Radius>
@@ -54,8 +54,8 @@
   <HS_Overview_Desc>Ein Übersichtsfenster: was auf das Tragen wartet, sein Gewicht, was verdirbt, wie viele Träger, wie lange bis fertig und wer wie viel getragen hat.</HS_Overview_Desc>
   <HS_Highlight>Nicht getragene Dinge auf der Karte hervorheben</HS_Highlight>
   <HS_Highlight_Desc>Solange das Fenster „Tragen“ offen ist, werden Dinge, die auf das Tragen warten, auf der Karte umrandet – gelb, und orange für solche, die verderben oder im Regen liegen.</HS_Highlight_Desc>
-  <HS_InfoNote>Die Statistik (wer wie viel getragen hat) wird mit dem Spielstand gespeichert. Gezählt wird das Tragen durch Haul Smarter.</HS_InfoNote>
-  <HS_StatLoad>Schwere Last (Haul Smarter)</HS_StatLoad>
+  <HS_InfoNote>Die Statistik (wer wie viel getragen hat) wird mit dem Spielstand gespeichert. Gezählt wird das Tragen durch Haul Master.</HS_InfoNote>
+  <HS_StatLoad>Schwere Last (Haul Master)</HS_StatLoad>
   <HS_Carries>Trägt: {0} / {1} kg ({2} Stk.)</HS_Carries>
   <HS_Eta>eingelagert in {0}</HS_Eta>
   <HS_StillTake>noch {0} aufzuheben</HS_StillTake>
@@ -93,11 +93,11 @@
   <HS_BenchCells>Größe der Versorgungszone: {0} Felder</HS_BenchCells>
   <HS_BenchCells_Desc>Wie viele Felder die Schaltfläche „Versorgung“ an einer Werkbank für die kleine Lagerzone neben der Werkbank nutzt.</HS_BenchCells_Desc>
   <HS_Bench>Versorgung</HS_Bench>
-  <HS_Bench_Desc>Erstellt direkt neben dieser Werkbank eine kleine Lagerzone, die genau die Zutaten ihrer aktiven Aufträge annimmt (aktualisiert sich selbst, Priorität bevorzugt). Der Handwerker nimmt sie neben der Werkbank, statt quer über die Karte zu laufen. Erneut klicken, um sie zu entfernen. Es ist eine gewöhnliche Lagerzone – sie bleibt auch ohne Haul Smarter.</HS_Bench_Desc>
+  <HS_Bench_Desc>Erstellt direkt neben dieser Werkbank eine kleine Lagerzone, die genau die Zutaten ihrer aktiven Aufträge annimmt (aktualisiert sich selbst, Priorität bevorzugt). Der Handwerker nimmt sie neben der Werkbank, statt quer über die Karte zu laufen. Erneut klicken, um sie zu entfernen. Es ist eine gewöhnliche Lagerzone – sie bleibt auch ohne Haul Master.</HS_Bench_Desc>
   <HS_BenchZone>Versorgung: {0}</HS_BenchZone>
   <HS_BenchStarted>{0}: Versorgungszone mit {1} Feldern erstellt – die Zutaten ihrer Aufträge werden dorthin gebracht.</HS_BenchStarted>
   <HS_BenchNoRoom>Keine freien Felder neben dieser Werkbank für eine Versorgungszone.</HS_BenchNoRoom>
-  <HS_SafeOff>Haul Smarter: „{0}“ ist wiederholt fehlgeschlagen (wahrscheinlich zusammen mit einer anderen Mod) und ist bis zum nächsten Start ausgeschaltet. Details stehen im Log.</HS_SafeOff>
+  <HS_SafeOff>Haul Master: „{0}“ ist wiederholt fehlgeschlagen (wahrscheinlich zusammen mit einer anderen Mod) und ist bis zum nächsten Start ausgeschaltet. Details stehen im Log.</HS_SafeOff>
   <HS_SafeList>Nach Fehlern ausgeschaltet: {0}</HS_SafeList>
   <HS_SafeReset>Wieder einschalten</HS_SafeReset>
   <HS_Feat_haul>Tragen mehrerer Dinge</HS_Feat_haul>

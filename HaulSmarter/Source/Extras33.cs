@@ -14,7 +14,7 @@ namespace HaulSmarter
     // ------------------------------------------------------------------
     // 3.3 Detour hauling (like While You're Up): the game already lets a
     // colonist on his way to work take ONE thing that lies on the way and has
-    // storage near where he is going. Haul Smarter turns that single thing
+    // storage near where he is going. Haul Master turns that single thing
     // into a small round: other things lying close to it, whose storage is
     // also near the destination, go into the pockets too – then he unloads
     // and goes on with his work.

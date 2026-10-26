@@ -146,7 +146,7 @@ $myNamespaces = [ordered]@{
     'AutoPharmacy' = 'Auto Pharmacy'; 'AutoTurrets' = 'Auto Turrets'; 'BodyFit' = 'Body Fit'
     'CallForBackup' = 'Call for Backup'; 'CaravanHelper' = 'Caravan Helper'; 'HardyPlants' = 'Evergrowth'
     'EvergrowthWild' = 'Evergrowth – Wild Plants'; 'MemoryTuner' = 'Fewer Freezes'; 'GenderBalance' = 'Gender Balance'
-    'HaulSmarter' = 'Haul Smarter'; 'Legacy' = 'Legacy'; 'MapArchitect' = 'Map Architect'
+    'HaulSmarter' = 'Haul Master'; 'Legacy' = 'Legacy'; 'MapArchitect' = 'Map Architect'
     'MasksAndHeadgear' = 'Masks and Headgear'; 'Matchmaker' = 'Matchmaker'; 'MechCommander' = 'Mech Commander'
     'MisakBodies' = 'Mišák Bodies'; 'MisakTabs' = 'Mišák Tabs'; 'ModSortManager' = 'Mod Sort Manager'
     'PlaceForEverything' = 'Place for Everything'; 'RandysTable' = "Randy's Table"; 'ResearchFixer' = 'Research Fixer'

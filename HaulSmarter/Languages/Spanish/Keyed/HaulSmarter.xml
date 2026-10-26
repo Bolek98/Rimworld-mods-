@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <HS_SecHaul>Transporte</HS_SecHaul>
-  <HS_OtherHauler>{0} está activo – el transporte de varios objetos de Haul Smarter está desactivado. Desactiva {0} para usarlo.</HS_OtherHauler>
+  <HS_OtherHauler>{0} está activo – el transporte de varios objetos de Haul Master está desactivado. Desactiva {0} para usarlo.</HS_OtherHauler>
   <HS_HaulMany>Transportar varias cosas a la vez</HS_HaulMany>
   <HS_MaxItems>Máximo de objetos por viaje: {0}</HS_MaxItems>
   <HS_Radius>Buscar objetos en un radio de: {0} casillas</HS_Radius>
@@ -54,8 +54,8 @@
   <HS_Overview_Desc>Una ventana de resumen: qué espera a ser transportado, su peso, qué se pudre, cuántos transportistas hay, cuánto falta y quién ha transportado cuánto.</HS_Overview_Desc>
   <HS_Highlight>Resaltar en el mapa las cosas sin transportar</HS_Highlight>
   <HS_Highlight_Desc>Mientras la ventana de Transporte está abierta, las cosas que esperan a ser transportadas se marcan en el mapa – en amarillo, y en naranja las que se pudren o están bajo la lluvia.</HS_Highlight_Desc>
-  <HS_InfoNote>Las estadísticas (quién ha transportado cuánto) se guardan con la partida. Se cuenta el transporte hecho por Haul Smarter.</HS_InfoNote>
-  <HS_StatLoad>Carga pesada (Haul Smarter)</HS_StatLoad>
+  <HS_InfoNote>Las estadísticas (quién ha transportado cuánto) se guardan con la partida. Se cuenta el transporte hecho por Haul Master.</HS_InfoNote>
+  <HS_StatLoad>Carga pesada (Haul Master)</HS_StatLoad>
   <HS_Carries>Lleva: {0} / {1} kg ({2} uds.)</HS_Carries>
   <HS_Eta>almacenado en {0}</HS_Eta>
   <HS_StillTake>faltan {0} por recoger</HS_StillTake>
@@ -93,11 +93,11 @@
   <HS_BenchCells>Tamaño de la zona de suministro: {0} casillas</HS_BenchCells>
   <HS_BenchCells_Desc>Cuántas casillas usa el botón «Suministro» de una mesa de trabajo para la pequeña zona de almacenamiento junto a la mesa.</HS_BenchCells_Desc>
   <HS_Bench>Suministro</HS_Bench>
-  <HS_Bench_Desc>Crea justo al lado de esta mesa una pequeña zona de almacenamiento que acepta exactamente los ingredientes de sus órdenes activas (se actualiza sola, prioridad preferida). El artesano los coge junto a la mesa en lugar de cruzar el mapa. Haz clic de nuevo para quitarla. Es una zona de almacenamiento normal – se queda incluso sin Haul Smarter.</HS_Bench_Desc>
+  <HS_Bench_Desc>Crea justo al lado de esta mesa una pequeña zona de almacenamiento que acepta exactamente los ingredientes de sus órdenes activas (se actualiza sola, prioridad preferida). El artesano los coge junto a la mesa en lugar de cruzar el mapa. Haz clic de nuevo para quitarla. Es una zona de almacenamiento normal – se queda incluso sin Haul Master.</HS_Bench_Desc>
   <HS_BenchZone>Suministro: {0}</HS_BenchZone>
   <HS_BenchStarted>{0}: zona de suministro de {1} casillas creada – los ingredientes de sus órdenes se llevarán allí.</HS_BenchStarted>
   <HS_BenchNoRoom>No hay casillas libres junto a esta mesa para una zona de suministro.</HS_BenchNoRoom>
-  <HS_SafeOff>Haul Smarter: «{0}» fallaba una y otra vez (probablemente junto con otro mod) y está desactivado hasta el próximo inicio. Los detalles están en el registro.</HS_SafeOff>
+  <HS_SafeOff>Haul Master: «{0}» fallaba una y otra vez (probablemente junto con otro mod) y está desactivado hasta el próximo inicio. Los detalles están en el registro.</HS_SafeOff>
   <HS_SafeList>Desactivado tras errores: {0}</HS_SafeList>
   <HS_SafeReset>Volver a activarlos</HS_SafeReset>
   <HS_Feat_haul>transporte de varias cosas</HS_Feat_haul>

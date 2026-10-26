@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <HS_SecHaul>Transport</HS_SecHaul>
-  <HS_OtherHauler>{0} est actif – le transport de plusieurs objets de Haul Smarter est désactivé. Désactivez {0} pour l'utiliser.</HS_OtherHauler>
+  <HS_OtherHauler>{0} est actif – le transport de plusieurs objets de Haul Master est désactivé. Désactivez {0} pour l'utiliser.</HS_OtherHauler>
   <HS_HaulMany>Transporter plusieurs choses à la fois</HS_HaulMany>
   <HS_MaxItems>Objets max. par trajet : {0}</HS_MaxItems>
   <HS_Radius>Chercher des objets dans un rayon de : {0} cases</HS_Radius>
@@ -54,8 +54,8 @@
   <HS_Overview_Desc>Une fenêtre d'aperçu : ce qui attend d'être transporté, son poids, ce qui pourrit, combien de porteurs, le temps restant et qui a transporté combien.</HS_Overview_Desc>
   <HS_Highlight>Surligner les objets non transportés sur la carte</HS_Highlight>
   <HS_Highlight_Desc>Tant que la fenêtre Transport est ouverte, les objets en attente de transport sont entourés sur la carte – en jaune, et en orange pour ceux qui pourrissent ou sont sous la pluie.</HS_Highlight_Desc>
-  <HS_InfoNote>Les statistiques (qui a transporté combien) sont enregistrées avec la partie. Le transport effectué par Haul Smarter est compté.</HS_InfoNote>
-  <HS_StatLoad>Charge lourde (Haul Smarter)</HS_StatLoad>
+  <HS_InfoNote>Les statistiques (qui a transporté combien) sont enregistrées avec la partie. Le transport effectué par Haul Master est compté.</HS_InfoNote>
+  <HS_StatLoad>Charge lourde (Haul Master)</HS_StatLoad>
   <HS_Carries>Porte : {0} / {1} kg ({2} pcs)</HS_Carries>
   <HS_Eta>au stockage dans {0}</HS_Eta>
   <HS_StillTake>encore {0} à ramasser</HS_StillTake>
@@ -93,11 +93,11 @@
   <HS_BenchCells>Taille de la zone d'approvisionnement : {0} cases</HS_BenchCells>
   <HS_BenchCells_Desc>Combien de cases le bouton « Approvisionner » d'un établi utilise pour la petite zone de stockage à côté de l'établi.</HS_BenchCells_Desc>
   <HS_Bench>Approvisionner</HS_Bench>
-  <HS_Bench_Desc>Crée juste à côté de cet établi une petite zone de stockage qui accepte exactement les ingrédients de ses ordres actifs (mise à jour automatique, priorité préférée). L'artisan les prend à côté de l'établi au lieu de traverser la carte. Cliquez à nouveau pour la supprimer. C'est une zone de stockage ordinaire – elle reste même sans Haul Smarter.</HS_Bench_Desc>
+  <HS_Bench_Desc>Crée juste à côté de cet établi une petite zone de stockage qui accepte exactement les ingrédients de ses ordres actifs (mise à jour automatique, priorité préférée). L'artisan les prend à côté de l'établi au lieu de traverser la carte. Cliquez à nouveau pour la supprimer. C'est une zone de stockage ordinaire – elle reste même sans Haul Master.</HS_Bench_Desc>
   <HS_BenchZone>Approvisionnement : {0}</HS_BenchZone>
   <HS_BenchStarted>{0} : zone d'approvisionnement de {1} cases créée – les ingrédients de ses ordres y seront apportés.</HS_BenchStarted>
   <HS_BenchNoRoom>Pas de cases libres à côté de cet établi pour une zone d'approvisionnement.</HS_BenchNoRoom>
-  <HS_SafeOff>Haul Smarter : « {0} » a échoué à plusieurs reprises (probablement avec un autre mod) et est désactivé jusqu'au prochain démarrage. Les détails sont dans le journal.</HS_SafeOff>
+  <HS_SafeOff>Haul Master : « {0} » a échoué à plusieurs reprises (probablement avec un autre mod) et est désactivé jusqu'au prochain démarrage. Les détails sont dans le journal.</HS_SafeOff>
   <HS_SafeList>Désactivé après des erreurs : {0}</HS_SafeList>
   <HS_SafeReset>Les réactiver</HS_SafeReset>
   <HS_Feat_haul>transport de plusieurs objets</HS_Feat_haul>

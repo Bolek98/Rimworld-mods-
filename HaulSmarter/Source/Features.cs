@@ -230,7 +230,7 @@ namespace HaulSmarter
             }
             catch (Exception e)
             {
-                Log.WarningOnce("[Haul Smarter] on-the-way pickup: " + e.Message, 0x4a51e2);
+                Log.WarningOnce("[Haul Master] on-the-way pickup: " + e.Message, 0x4a51e2);
             }
         }
     }
@@ -418,7 +418,7 @@ namespace HaulSmarter
             }
             catch (Exception e)
             {
-                Log.Warning("[Haul Smarter] load slowdown not available: " + e.Message);
+                Log.Warning("[Haul Master] load slowdown not available: " + e.Message);
             }
             Overview.SetButton();
         }
@@ -545,7 +545,7 @@ namespace HaulSmarter
             }
             catch (Exception e)
             {
-                Log.WarningOnce("[Haul Smarter] unload check: " + e.Message, 0x4a51e4);
+                Log.WarningOnce("[Haul Master] unload check: " + e.Message, 0x4a51e4);
             }
         }
 
@@ -788,7 +788,7 @@ namespace HaulSmarter
                     if (n > 0) Messages.Message("HS_CleanupNotice".Translate(n), MessageTypeDefOf.NeutralEvent, false);
                 }
             }
-            catch (Exception e) { Log.WarningOnce("[Haul Smarter] clean-up check: " + e.Message, 0x4a51e5); }
+            catch (Exception e) { Log.WarningOnce("[Haul Master] clean-up check: " + e.Message, 0x4a51e5); }
         }
     }
 

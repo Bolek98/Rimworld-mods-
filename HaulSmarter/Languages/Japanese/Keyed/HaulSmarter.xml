@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <HS_SecHaul>運搬</HS_SecHaul>
-  <HS_OtherHauler>{0} が有効です – Haul Smarter の複数運搬はオフです。使うには {0} をオフにしてください。</HS_OtherHauler>
+  <HS_OtherHauler>{0} が有効です – Haul Master の複数運搬はオフです。使うには {0} をオフにしてください。</HS_OtherHauler>
   <HS_HaulMany>複数の物を一度に運ぶ</HS_HaulMany>
   <HS_MaxItems>1回の運搬の最大アイテム数：{0}</HS_MaxItems>
   <HS_Radius>アイテムを探す範囲：{0} マス</HS_Radius>
@@ -54,8 +54,8 @@
   <HS_Overview_Desc>概要ウィンドウ：運搬待ちの物、その重量、腐っている物、運搬者の数、完了までの時間、誰がどれだけ運んだか。</HS_Overview_Desc>
   <HS_Highlight>未運搬の物をマップ上で強調</HS_Highlight>
   <HS_Highlight_Desc>「運搬」ウィンドウを開いている間、運搬待ちの物がマップ上で縁取られます – 黄色、腐っている物や雨ざらしの物は橙色。</HS_Highlight_Desc>
-  <HS_InfoNote>統計（誰がどれだけ運んだか）はセーブデータに保存されます。Haul Smarter による運搬も数えられます。</HS_InfoNote>
-  <HS_StatLoad>重い荷物（Haul Smarter）</HS_StatLoad>
+  <HS_InfoNote>統計（誰がどれだけ運んだか）はセーブデータに保存されます。Haul Master による運搬も数えられます。</HS_InfoNote>
+  <HS_StatLoad>重い荷物（Haul Master）</HS_StatLoad>
   <HS_Carries>運搬中：{0} / {1} kg（{2} 個）</HS_Carries>
   <HS_Eta>{0}で保管</HS_Eta>
   <HS_StillTake>あと {0} 拾う</HS_StillTake>
@@ -93,11 +93,11 @@
   <HS_BenchCells>供給用備蓄区域の大きさ：{0} マス</HS_BenchCells>
   <HS_BenchCells_Desc>作業台の「供給」ボタンが作業台横の小さな備蓄区域に使うマス数。</HS_BenchCells_Desc>
   <HS_Bench>供給</HS_Bench>
-  <HS_Bench_Desc>この作業台のすぐ横に、有効な作業指示の材料だけを受け入れる小さな備蓄区域を作ります（自動更新、優先度「優先」）。職人はマップを横切らずに作業台の横から材料を取ります。もう一度クリックで削除。普通の備蓄区域なので、Haul Smarter がなくても残ります。</HS_Bench_Desc>
+  <HS_Bench_Desc>この作業台のすぐ横に、有効な作業指示の材料だけを受け入れる小さな備蓄区域を作ります（自動更新、優先度「優先」）。職人はマップを横切らずに作業台の横から材料を取ります。もう一度クリックで削除。普通の備蓄区域なので、Haul Master がなくても残ります。</HS_Bench_Desc>
   <HS_BenchZone>供給：{0}</HS_BenchZone>
   <HS_BenchStarted>{0}：{1} マスの供給用備蓄区域を作成 – 作業指示の材料がここに運ばれます。</HS_BenchStarted>
   <HS_BenchNoRoom>この作業台の横に供給用備蓄区域を作る空きマスがありません。</HS_BenchNoRoom>
-  <HS_SafeOff>Haul Smarter：「{0}」でエラーが続いたため（おそらく他のMODとの組み合わせ）、次回起動までオフにしました。詳細はログを参照してください。</HS_SafeOff>
+  <HS_SafeOff>Haul Master：「{0}」でエラーが続いたため（おそらく他のMODとの組み合わせ）、次回起動までオフにしました。詳細はログを参照してください。</HS_SafeOff>
   <HS_SafeList>エラーによりオフ：{0}</HS_SafeList>
   <HS_SafeReset>再びオンにする</HS_SafeReset>
   <HS_Feat_haul>複数運搬</HS_Feat_haul>
