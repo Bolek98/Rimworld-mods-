@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HardyPlants_Title>Evergrowth – 植物生长控制</HardyPlants_Title>
+  <HardyPlants_Temperatures>耐寒植物的温度</HardyPlants_Temperatures>
+  <HardyPlants_TemperaturesDesc>低于最低温度时植物停止生长。耐寒植物只在这些数值优于其自身数值时才会采用。</HardyPlants_TemperaturesDesc>
+  <HardyPlants_MinGrowth>最低生长温度：{0}（原版 {1}）</HardyPlants_MinGrowth>
+  <HardyPlants_MinOptimal>全速生长起点：{0}（原版 {1}）</HardyPlants_MinOptimal>
+  <HardyPlants_MaxOptimal>全速生长上限：{0}（原版 {1}）</HardyPlants_MaxOptimal>
+  <HardyPlants_MaxGrowth>最高生长温度：{0}（原版 {1}）</HardyPlants_MaxGrowth>
+  <HardyPlants_Frost>耐寒度：再冷 {0}</HardyPlants_Frost>
+  <HardyPlants_FrostDesc>原版植物在低于其最低生长温度 10–18 °C 时会落叶。耐寒植物能多承受这么多。</HardyPlants_FrostDesc>
+  <HardyPlants_ResetValues>重置温度</HardyPlants_ResetValues>
+  <HardyPlants_Group>哪些植物：</HardyPlants_Group>
+  <HardyPlants_GroupCold>寒冷生物群系的野生植物</HardyPlants_GroupCold>
+  <HardyPlants_GroupWild>所有野生植物和树木（默认）</HardyPlants_GroupWild>
+  <HardyPlants_GroupAll>所有植物，包括作物</HardyPlants_GroupAll>
+  <HardyPlants_GroupCustom>我自己的选择（右侧列表）</HardyPlants_GroupCustom>
+  <HardyPlants_Plants>耐寒植物</HardyPlants_Plants>
+  <HardyPlants_Chosen>已选择 {0} 种植物。搜索：</HardyPlants_Chosen>
+  <HardyPlants_Growth>生长</HardyPlants_Growth>
+  <HardyPlants_FasterGrowth>植物生长更快</HardyPlants_FasterGrowth>
+  <HardyPlants_FasterGrowthDesc>作物、树木和野生植物——各有各的速度。立即作用于地图上的所有植物，包括之后出现的植物。无需重启。默认关闭。</HardyPlants_FasterGrowthDesc>
+  <HardyPlants_GrowthSpeed>生长速度：×{0}</HardyPlants_GrowthSpeed>
+  <HardyPlants_GrowAllDay>植物昼夜生长（24/7）</HardyPlants_GrowAllDay>
+  <HardyPlants_GrowAllDayDesc>植物夜间不休息，露天的植物在黑暗中也会生长。屋顶下的植物仍需要灯光。默认关闭。</HardyPlants_GrowAllDayDesc>
+  <HardyPlants_CropDays>设置作物生长所需时间</HardyPlants_CropDays>
+  <HardyPlants_TreeDays>设置树木生长所需时间</HardyPlants_TreeDays>
+  <HardyPlants_DaysValue>生长时间：{0} 天</HardyPlants_DaysValue>
+  <HardyPlants_DaysDesc>以 100 % 生长速度计算的天数。植物夜间休息（除非开启 24/7），在光照、土壤或温度不佳时生长较慢，所以实际游戏中需要更久。关闭此窗口时生效——无需重启。默认关闭。</HardyPlants_DaysDesc>
+  <HardyPlants_Presets>快速设置（生长部分）：</HardyPlants_Presets>
+  <HardyPlants_PresetVanilla>原版</HardyPlants_PresetVanilla>
+  <HardyPlants_PresetEasy>轻松种植</HardyPlants_PresetEasy>
+  <HardyPlants_PresetLush>繁茂世界</HardyPlants_PresetLush>
+  <HardyPlants_SpeedCrops>作物：×{0}</HardyPlants_SpeedCrops>
+  <HardyPlants_SpeedTrees>树木：×{0}</HardyPlants_SpeedTrees>
+  <HardyPlants_SpeedWild>野生植物：×{0}</HardyPlants_SpeedWild>
+  <HardyPlants_Yield>更多收成</HardyPlants_Yield>
+  <HardyPlants_YieldDesc>作物和野生植物收获时的产量，以及树木的木材产量。立即生效。默认关闭。</HardyPlants_YieldDesc>
+  <HardyPlants_YieldCrops>作物和野生植物：×{0}</HardyPlants_YieldCrops>
+  <HardyPlants_YieldWood>树木的木材：×{0}</HardyPlants_YieldWood>
+  <HardyPlants_Regrow>野生植物再生更快</HardyPlants_Regrow>
+  <HardyPlants_RegrowDesc>野生植物和树木在被砍伐、啃食或火灾后重新出现在地图上的速度。植物密度仍遵循生物群系。默认关闭。</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowValue>再生：×{0}</HardyPlants_RegrowValue>
+  <HardyPlants_IgnoreSoil>贫瘠土壤不减缓生长</HardyPlants_IgnoreSoil>
+  <HardyPlants_IgnoreSoilDesc>在沙地、砾石和贫瘠土壤上，植物也全速生长。肥沃土壤仍有帮助。原本什么都长不出的地方不会改变。默认关闭。</HardyPlants_IgnoreSoilDesc>
+  <HardyPlants_NoBlight>无枯萎病</HardyPlants_NoBlight>
+  <HardyPlants_NoBlightDesc>枯萎病事件不再发生，枯萎病也不会蔓延。默认关闭。</HardyPlants_NoBlightDesc>
+  <HardyPlants_GrowthNote>速度、产量、再生、土壤、枯萎病和 24/7 立即生效，生长时间在关闭此窗口后生效。</HardyPlants_GrowthNote>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <MUI_RecTag>推荐</MUI_RecTag>
+  <HardyPlants_Profile>配置</HardyPlants_Profile>
+  <HardyPlants_ProfRec>推荐</HardyPlants_ProfRec>
+  <HardyPlants_ProfCustom>自定义</HardyPlants_ProfCustom>
+  <HardyPlants_PresetVanilla_Card>生长和产量与原版游戏相同。</HardyPlants_PresetVanilla_Card>
+  <HardyPlants_ProfRec_Card>生长更快、收成更多、无枯萎病、温室，以及雪下的野生植物。依然公平。</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>到处都是植物，昼夜快速生长，任何季节都可以，且不受事件影响。</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfCustom_Card>你自己的数值。</HardyPlants_ProfCustom_Card>
+  <HardyPlants_ProfileHint>修改“生长”或“产量”中的任何内容，配置就会切换为“自定义”。橙色的“已改动”= 与推荐值不同，点击即可恢复。</HardyPlants_ProfileHint>
+  <HardyPlants_SecYield>产量与病害</HardyPlants_SecYield>
+  <HardyPlants_SecGroup>哪些植物耐寒</HardyPlants_SecGroup>
+  <HardyPlants_TabGrowth>生长</HardyPlants_TabGrowth>
+  <HardyPlants_TabYield>产量</HardyPlants_TabYield>
+  <HardyPlants_TabWild>野外自然</HardyPlants_TabWild>
+  <HardyPlants_TabWinter>冬季与天气</HardyPlants_TabWinter>
+  <HardyPlants_TabPlants>耐寒植物</HardyPlants_TabPlants>
+  <HardyPlants_SecSeason>季节</HardyPlants_SecSeason>
+  <HardyPlants_AnySeason>任何季节都可播种和生长</HardyPlants_AnySeason>
+  <HardyPlants_AnySeasonDesc>只要温度允许，作物随时可以播种和生长——不受“生长季节”限制。植物仍需要温暖才能快速生长。</HardyPlants_AnySeasonDesc>
+  <HardyPlants_Greenhouse>温室</HardyPlants_Greenhouse>
+  <HardyPlants_GreenhouseDesc>在封闭房间内建造的屋顶下，植物无论温度如何（从 −10 °C 起）、在任何季节都全速生长，且永不冻伤。请使用灯光照明。</HardyPlants_GreenhouseDesc>
+  <HardyPlants_FruitRepeat>果树再次结果</HardyPlants_FruitRepeat>
+  <HardyPlants_FruitRepeatDesc>从果树（来自模组）上收获果实不会将其砍倒——它会再次结果。仍可将其砍伐获取木材。</HardyPlants_FruitRepeatDesc>
+  <HardyPlants_WildDensity>更茂密的野外自然</HardyPlants_WildDensity>
+  <HardyPlants_WildDensityDesc>地图上的野生植物和树木比生物群系通常的更多（或更少）。</HardyPlants_WildDensityDesc>
+  <HardyPlants_WildDensityValue>野生植物密度：×{0}</HardyPlants_WildDensityValue>
+  <HardyPlants_SnowGrowth>野生植物在雪下再生</HardyPlants_SnowGrowth>
+  <HardyPlants_SnowGrowthDesc>通常整个冬天积雪覆盖的地面上不会长出任何新植物。开启后，在足够温暖的地方，野生植物和树木会在雪下重新长出。</HardyPlants_SnowGrowthDesc>
+  <HardyPlants_SnowMinTemp>雪下生长起点：{0}（原版：从不；建议 {1}）</HardyPlants_SnowMinTemp>
+  <HardyPlants_FewerFires>更少的野火</HardyPlants_FewerFires>
+  <HardyPlants_FewerFiresDesc>草、灌木和树木着火的几率降低约三倍，因此一场火不会吞噬整片森林。</HardyPlants_FewerFiresDesc>
+  <HardyPlants_Overview>此地图上的野外自然</HardyPlants_Overview>
+  <HardyPlants_OverviewNoGame>加载游戏以查看你的地图上生长着什么。</HardyPlants_OverviewNoGame>
+  <HardyPlants_OverviewDay>上一个游戏日（{0}）：</HardyPlants_OverviewDay>
+  <HardyPlants_OverviewSoFar>今天到目前为止（{0}）：</HardyPlants_OverviewSoFar>
+  <HardyPlants_OverviewNums>尝试生长 {0} 株野生植物，长出了 {1} 株（{2} 棵树）。</HardyPlants_OverviewNums>
+  <HardyPlants_OverviewSnow>积雪阻止了 {1} 次尝试中的 {0} 次。</HardyPlants_OverviewSnow>
+  <HardyPlants_OverviewNoneSnow>什么都不长——可能是因为积雪。请开启“野生植物在雪下再生”。</HardyPlants_OverviewNoneSnow>
+  <HardyPlants_OverviewNoneCold>什么都不长——太冷了，或者地面已满。试试降低“雪下生长起点”的温度。</HardyPlants_OverviewNoneCold>
+  <HardyPlants_SecEvents>事件</HardyPlants_SecEvents>
+  <HardyPlants_ImmuneEvents>植物无视不利事件</HardyPlants_ImmuneEvents>
+  <HardyPlants_ImmuneEventsDesc>干旱（包括模组中的干旱期）、有毒雾霾、毒性尘埃和污染不再减缓植物生长或使其落叶。寒冷和炎热仍然有效。</HardyPlants_ImmuneEventsDesc>
+</LanguageData>

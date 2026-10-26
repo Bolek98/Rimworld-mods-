@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <URT_Tab_Overview>概览</URT_Tab_Overview>
+  <URT_Tab_Services>翻译服务</URT_Tab_Services>
+  <URT_Rec1>在后台翻译语言包未覆盖的所有模组文本，不会卡顿。</URT_Rec1>
+  <URT_Rec2>免费服务无需任何密钥；一个繁忙时，下一个会接替。</URT_Rec2>
+  <URT_Rec3>每条翻译都会经过检查——损坏的翻译绝不会被使用（名称和文本中不会出现“ERR”）。</URT_Rec3>
+  <URT_Status_Inactive>未在翻译：{0}</URT_Status_Inactive>
+  <URT_Status_Language>语言：{0}（{1}）</URT_Status_Language>
+  <URT_Status_Phase>当前：{0}</URT_Status_Phase>
+  <URT_Status_Counts>发现未翻译文本：{0} · 已记住的翻译：{1} · 已载入游戏：{2} · 待翻译：{3}</URT_Status_Counts>
+  <URT_Status_Session>本次会话：已翻译 {0}，被检查拒绝 {1}，失败 {2} · 使用语法后备 {3}</URT_Status_Session>
+  <URT_Status_Migrated>从 0.9 迁移：{0}</URT_Status_Migrated>
+  <URT_Pause>暂停翻译</URT_Pause>
+  <URT_Resume>继续翻译</URT_Resume>
+  <URT_RetryFailed>重试失败的文本</URT_RetryFailed>
+  <URT_Sec_What>翻译内容</URT_Sec_What>
+  <URT_Sec_Grammar>语法</URT_Sec_Grammar>
+  <URT_Enabled>翻译缺失的文本</URT_Enabled>
+  <URT_Enabled_Desc>关闭：只使用记忆中已有的翻译，不会向服务发送任何新内容。</URT_Enabled_Desc>
+  <URT_Defs>名称和描述（defs）</URT_Defs>
+  <URT_Defs_Desc>所有模组中物品、建筑、健康状况、研究等的标签、描述和其他文本。</URT_Defs_Desc>
+  <URT_Keyed>界面文本（Keyed）</URT_Keyed>
+  <URT_Keyed_Desc>模组以英文提供的按钮、消息和设置文本。</URT_Keyed_Desc>
+  <URT_Rules>语法规则（故事、艺术、日志、任务）</URT_Rules>
+  <URT_Rules_Desc>只翻译“-&gt;”之后的文本；每个 [标记] 都会原样保留。未通过检查的规则保持英文。</URT_Rules_Desc>
+  <URT_GrammarFallback>补全缺失的语法格</URT_GrammarFallback>
+  <URT_GrammarFallback_Desc>有格变化的语言（捷克语：imageNom、imageGen ……）会请求模组没有的关键词——游戏随后会显示“ERR”。此时改用普通关键词。</URT_GrammarFallback_Desc>
+  <URT_Services_Intro>服务从上往下依次尝试。关闭你不需要的；免费服务无需任何设置即可使用。繁忙或被封锁的服务会自行暂停，由下一个接替。密钥只保存在你的设置文件中。</URT_Services_Intro>
+  <URT_Badge_Free>免费，无需密钥</URT_Badge_Free>
+  <URT_Badge_Key>需要你的密钥</URT_Badge_Key>
+  <URT_Badge_AiKey>AI——需要你的密钥或本地服务器</URT_Badge_AiKey>
+  <URT_NotSetUp>未设置（请输入密钥）</URT_NotSetUp>
+  <URT_Test>测试</URT_Test>
+  <URT_Testing>测试中 ……</URT_Testing>
+  <URT_Key>密钥</URT_Key>
+  <URT_Region>区域</URT_Region>
+  <URT_Model>模型</URT_Model>
+  <URT_Url>地址（URL）</URT_Url>
+  <URT_Email>电子邮箱（更高的每日限额）</URT_Email>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <MUI_RecTag>推荐</MUI_RecTag>
+  <URT_Live>代码生成的文本（实时）</URT_Live>
+  <URT_Live_Desc>模组直接写在代码中（而非语言文件中）的消息、信件、按钮、提示和信息行。它们只在屏幕上被翻译——游戏数据不会改变。已知文本会立即显示，新的英文文本会在后台收集并翻译（数字无关紧要，“Harvested 25 rice”和“Harvested 3 rice”是同一条文本）。殖民者、派系和地点的名称永远不会被翻译。</URT_Live_Desc>
+  <URT_Status_Live>实时：已显示翻译 {0} 条，本次会话收集 {1} 条，等待中 {2} 条，已到达 {3} 条</URT_Status_Live>
+  <URT_Tab_Editor>编辑器</URT_Tab_Editor>
+  <URT_Ed_Intro>按原文或译文查找任意文本，并写下你自己的版本。你的文本永远不会被机器翻译替换。</URT_Ed_Intro>
+  <URT_Ed_F_All>全部</URT_Ed_F_All>
+  <URT_Ed_F_Mine>我的</URT_Ed_F_Mine>
+  <URT_Ed_F_Problems>问题</URT_Ed_F_Problems>
+  <URT_Ed_F_Untranslated>未翻译</URT_Ed_F_Untranslated>
+  <URT_Ed_Searching>搜索中…</URT_Ed_Searching>
+  <URT_Ed_Count>{0} 条文本</URT_Ed_Count>
+  <URT_Ed_CountMore>前 {0} 条，共 {1} 条文本——请更精确地搜索</URT_Ed_CountMore>
+  <URT_Ed_SearchHint>输入要搜索的词（英文或译文）。这里列出你自己的翻译。</URT_Ed_SearchHint>
+  <URT_Ed_NoTranslation>尚未翻译</URT_Ed_NoTranslation>
+  <URT_Ed_Pick>请在左侧选择一条文本。</URT_Ed_Pick>
+  <URT_Ed_Original>原文</URT_Ed_Original>
+  <URT_Ed_Yours>译文</URT_Ed_Yours>
+  <URT_Ed_YoursNow>你自己的</URT_Ed_YoursNow>
+  <URT_Ed_MachineNow>机器翻译（{0}）</URT_Ed_MachineNow>
+  <URT_Ed_Machine>机器版本：</URT_Ed_Machine>
+  <URT_Ed_Save>保存我的</URT_Ed_Save>
+  <URT_Ed_Revert>机器版本</URT_Ed_Revert>
+  <URT_Ed_KeepOriginal>保留原文</URT_Ed_KeepOriginal>
+  <URT_Ed_Again>重新翻译</URT_Ed_Again>
+  <URT_Ed_AgainTip>丢弃当前翻译；服务稍后会重新翻译。</URT_Ed_AgainTip>
+  <URT_Ed_Saved>已保存——已在游戏中生效。</URT_Ed_Saved>
+  <URT_Ed_Broken>已保存，但未使用：花括号中的占位符或 &lt;color&gt; 标签缺失或被更改（{0}）。请保持与原文一致。</URT_Ed_Broken>
+  <URT_Ed_EmptyNote>文本为空——请使用“机器版本”或“保留原文”。</URT_Ed_EmptyNote>
+  <URT_Ed_Reverted>已恢复为机器版本。</URT_Ed_Reverted>
+  <URT_Ed_Kept>保留原文（英文）。</URT_Ed_Kept>
+  <URT_Ed_AgainNote>稍后将重新翻译。</URT_Ed_AgainNote>
+  <URT_Gl_Title>我的词汇</URT_Gl_Title>
+  <URT_Gl_Hint>左侧的词会在所有翻译中被替换为你的词（仅整词，保留首字母大小写）。右侧留空则删除该词。</URT_Gl_Hint>
+  <URT_Gl_Add>添加</URT_Gl_Add>
+  <URT_Gl_Delete>删除</URT_Gl_Delete>
+  <URT_Gl_Remove>（已删除）</URT_Gl_Remove>
+  <URT_Tab_Mods>模组</URT_Tab_Mods>
+  <URT_Mods_Intro>每个模组的翻译进度。取消勾选可让模组保持英文（其文本会从游戏中移除，也不会发送翻译）。导出会将模组的翻译保存为普通的 Languages 文件夹——可以分享，或发送给模组作者。代码生成的文本（实时）不计入此处。</URT_Mods_Intro>
+  <URT_Mods_SearchHint>查找模组…</URT_Mods_SearchHint>
+  <URT_Mods_ExportAll>全部导出</URT_Mods_ExportAll>
+  <URT_Mods_Exporting>导出中…</URT_Mods_Exporting>
+  <URT_Mods_ExportTip>将所有模组的翻译保存到：\n{0}\n每个模组都有自己的文件夹，内含 Languages——将其复制到模组文件夹中，或发送给作者。</URT_Mods_ExportTip>
+  <URT_Mods_OpenFolder>打开导出文件夹</URT_Mods_OpenFolder>
+  <URT_Mods_Counting>统计中…</URT_Mods_Counting>
+  <URT_Mods_Sum>{0} 个模组 · 已翻译 {1}/{2} 条文本（{3}）</URT_Mods_Sum>
+  <URT_Mods_SkipTip>翻译此模组。取消勾选则保持英文。</URT_Mods_SkipTip>
+  <URT_Mods_Export>导出</URT_Mods_Export>
+  <URT_Mods_ExportedOne>已导出 {0} 条文本到 {1}</URT_Mods_ExportedOne>
+  <URT_Mods_ExportedAll>已导出 {0} 条文本，共 {1} 个文件，到 {2}</URT_Mods_ExportedAll>
+  <URT_Mods_ExportFailed>导出失败：{0}</URT_Mods_ExportFailed>
+  <URT_Tab_Quality>检查</URT_Tab_Quality>
+  <URT_Q_Intro>通过了自动检查但看起来仍有问题的机器翻译。你自己的翻译永远不会列在这里。</URT_Q_Intro>
+  <URT_Q_All>全部</URT_Q_All>
+  <URT_Q_K_Number>数字</URT_Q_K_Number>
+  <URT_Q_K_Number_Tip>译文中缺少原文的某个数字——游戏会显示错误的数量或不显示。</URT_Q_K_Number_Tip>
+  <URT_Q_K_English>残留英文</URT_Q_K_English>
+  <URT_Q_K_English_Tip>英文单词被直接复制到译文中而没有翻译。</URT_Q_K_English_Tip>
+  <URT_Q_K_Name>名称</URT_Q_K_Name>
+  <URT_Q_K_Name_Tip>殖民者、派系、地点或模组的名称被翻译了——名称应保持原样。</URT_Q_K_Name_Tip>
+  <URT_Q_K_Cut>被截断</URT_Q_K_Cut>
+  <URT_Q_K_Cut_Tip>译文在句子中间结束，或比原文短得多。</URT_Q_K_Cut_Tip>
+  <URT_Q_K_Chars>异常字符</URT_Q_K_Chars>
+  <URT_Q_K_Chars_Tip>损坏的字符，如 &amp;amp;、以文本形式写出的 \n 或双空格。</URT_Q_K_Chars_Tip>
+  <URT_Q_K_Differs>不一致</URT_Q_K_Differs>
+  <URT_Q_K_Differs_Tip>同一段短文本（按钮、单词）在不同地方翻译不同。</URT_Q_K_Differs_Tip>
+  <URT_Q_WhyNumber>缺少数字 {0}。</URT_Q_WhyNumber>
+  <URT_Q_WhyEnglish>残留英文：{0}</URT_Q_WhyEnglish>
+  <URT_Q_WhyName>名称“{0}”被翻译了。</URT_Q_WhyName>
+  <URT_Q_WhyCut>看起来被截断了。</URT_Q_WhyCut>
+  <URT_Q_WhyChars>异常字符：{0}</URT_Q_WhyChars>
+  <URT_Q_WhySpaces>双空格。</URT_Q_WhySpaces>
+  <URT_Q_WhyDiffers>其他地方（{1}×）译为“{0}”。</URT_Q_WhyDiffers>
+  <URT_Q_Checking>检查中…</URT_Q_Checking>
+  <URT_Q_Recheck>重新检查</URT_Q_Recheck>
+  <URT_Q_AgainAll>重新翻译所显示的（{0}）</URT_Q_AgainAll>
+  <URT_Q_AgainAllTip>将列出的所有文本（“不一致”除外）重新发送给翻译服务。你自己的翻译不受影响。</URT_Q_AgainAllTip>
+  <URT_Q_AgainAllConfirm>重新翻译 {0} 条文本？当前的机器翻译将被丢弃。</URT_Q_AgainAllConfirm>
+  <URT_Q_UnifyAll>全部统一（{0}）</URT_Q_UnifyAll>
+  <URT_Q_None>未发现可疑内容。👍</URT_Q_None>
+  <URT_Q_Pick>请在左侧选择一条文本。</URT_Q_Pick>
+  <URT_Q_YourFix>你的翻译</URT_Q_YourFix>
+  <URT_Q_Save>保存我的修正</URT_Q_Save>
+  <URT_Q_SaveTip>从现在起使用你的文本，永远不会被机器翻译替换。</URT_Q_SaveTip>
+  <URT_Q_Unify>使用通用译法</URT_Q_Unify>
+  <URT_Q_Unified>已统一。</URT_Q_Unified>
+  <URT_Q_Fine>没问题</URT_Q_Fine>
+  <URT_Q_FineNote>好的——不会再显示。</URT_Q_FineNote>
+  <URT_Ed_AgainWait>正在用另一个服务重新翻译…（{0} 秒）</URT_Ed_AgainWait>
+  <URT_Ed_AgainDone>已重新翻译（{0}）。</URT_Ed_AgainDone>
+  <URT_Ed_AgainBad>新翻译未通过检查（{0}）——请自己写一个并点击保存。</URT_Ed_AgainBad>
+  <URT_Ed_AgainSlow>还没有服务响应——它仍在队列中。请稍后再看。</URT_Ed_AgainSlow>
+  <URT_PickFix>Alt + 右键修正文本</URT_PickFix>
+  <URT_PickFix_Desc>按住 Alt 并右键点击游戏中的任意文本：编辑器会直接打开该文本，你可以写出更好的翻译或重新翻译。</URT_PickFix_Desc>
+  <URT_Pick_NotFound>URT 的记忆中没有此文本（它可能来自游戏的语言包，或由多个片段拼接而成）。搜索会显示相似的文本。</URT_Pick_NotFound>
+  <URT_Welcome_Title>Universal RimTranslator</URT_Welcome_Title>
+  <URT_Welcome_Body>URT 会将你的所有模组翻译成{0}——免费，无需任何设置。
+
+• 已知的文本现在就已在游戏中；其余的会在你游戏时于后台翻译。你可以立即开始游戏。
+• 模组在游戏过程中生成的文本会在出现时于屏幕上翻译。
+• 某条文本看起来有误或只翻译了一半？按住 Alt 并右键点击它——编辑器会直接打开该文本。
+• 进度、服务、保持英文的模组和编辑器：选项 → 模组设置 → Universal RimTranslator。</URT_Welcome_Body>
+  <URT_Welcome_English>游戏是英文的，所以 URT 没有需要翻译的内容。
+
+在 选项 → 语言 中选择你的语言并重启游戏——URT 随后会将你的所有模组翻译成该语言，免费且无需任何设置。</URT_Welcome_English>
+  <URT_Welcome_Ok>知道了</URT_Welcome_Ok>
+  <URT_Welcome_Settings>打开设置</URT_Welcome_Settings>
+</LanguageData>

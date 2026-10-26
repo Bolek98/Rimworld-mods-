@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <EWP_Title>Evergrowth – 野生植物</EWP_Title>
+  <EWP_Bullet1>每个生物群系保留其默认植物</EWP_Bullet1>
+  <EWP_Bullet2>地图生物群系修复（Geological Landforms 等）</EWP_Bullet2>
+  <EWP_Bullet3>洞穴植物与游戏中一致</EWP_Bullet3>
+  <EWP_Bullet4>按你的设置逐渐让地图长满植物</EWP_Bullet4>
+  <EWP_TabBiomes>生物群系</EWP_TabBiomes>
+  <EWP_TabCave>洞穴植物</EWP_TabCave>
+  <EWP_TabMap>此地图</EWP_TabMap>
+  <EWP_Import>从 Choose Wild Plant Spawns 导入</EWP_Import>
+  <EWP_ImportTip>读取你在 Choose Wild Plant Spawns 中的设置（植物列表和密度）。树桩、枯死植物和来自已禁用模组的植物会被跳过。之后你可以禁用 Choose Wild Plant Spawns。</EWP_ImportTip>
+  <EWP_ImportNone>未找到 Choose Wild Plant Spawns 的设置。</EWP_ImportNone>
+  <EWP_ImportDone>已导入：{0} 个生物群系，{1} 种植物。跳过 {2} 个（树桩、枯死植物、缺失的模组）。</EWP_ImportDone>
+  <EWP_ResetAll>所有生物群系恢复默认</EWP_ResetAll>
+  <EWP_ResetAllConfirm>将所有生物群系重置为默认的植物、密度和再生？</EWP_ResetAllConfirm>
+  <EWP_SearchBiome>搜索生物群系或模组…</EWP_SearchBiome>
+  <EWP_SearchPlant>搜索植物或模组…</EWP_SearchPlant>
+  <EWP_NPlants>{0} 种植物</EWP_NPlants>
+  <EWP_PickBiome>在左侧选择一个生物群系，查看那里生长哪些野生植物以及频率。</EWP_PickBiome>
+  <EWP_Customized>已自定义</EWP_Customized>
+  <EWP_Default>默认</EWP_Default>
+  <EWP_AddPlant>添加植物</EWP_AddPlant>
+  <EWP_CopyFrom>从生物群系复制…</EWP_CopyFrom>
+  <EWP_ResetBiome>恢复默认</EWP_ResetBiome>
+  <EWP_Density>植物密度：{0}（默认 {1}）</EWP_Density>
+  <EWP_DensityTip>地图上野生植物的数量。0 = 没有，越高 = 自然越茂密。Evergrowth 可以进一步倍增此值。</EWP_DensityTip>
+  <EWP_Regrow>再生：{0} 天（默认 {1}）</EWP_Regrow>
+  <EWP_RegrowTip>空地上多久会重新长出东西。天数越少 = 再生越快。</EWP_RegrowTip>
+  <EWP_NoPlants>没有植物。</EWP_NoPlants>
+  <EWP_KindDead>枯死植物</EWP_KindDead>
+  <EWP_KindDeadTip>游戏从不会将枯死植物作为野生植物生成。</EWP_KindDeadTip>
+  <EWP_KindStump>树桩</EWP_KindStump>
+  <EWP_KindStumpTip>树桩不是会生长的植物——只是树木留下的残余。</EWP_KindStumpTip>
+  <EWP_KindCrop>作物</EWP_KindCrop>
+  <EWP_KindCropTip>通常不会在野外生长的作物。它可以生长，但气候往往不适合它。</EWP_KindCropTip>
+  <EWP_KindCave>洞穴</EWP_KindCave>
+  <EWP_KindCaveTip>洞穴植物——只在岩石屋顶下生长。</EWP_KindCaveTip>
+  <EWP_KindWater>水生</EWP_KindWater>
+  <EWP_KindWaterTip>水生植物——只在水中或岸边生长。</EWP_KindWaterTip>
+  <EWP_ProbMissing>列表中缺少 {0} 种植物（模组已禁用）。</EWP_ProbMissing>
+  <EWP_ProbDead>{0}× 树桩或枯死植物——它们永远不会生长，你可以移除它们。</EWP_ProbDead>
+  <EWP_ProbCrops>{0}× 作物——它们在野外往往无法存活。</EWP_ProbCrops>
+  <EWP_ProbNoLand>这里的陆地上什么都不长（只有水中 / 洞穴）。</EWP_ProbNoLand>
+  <EWP_ProbEmpty>列表为空——此生物群系中什么都不会生长。</EWP_ProbEmpty>
+  <EWP_ProbZeroDensity>密度为 0——此生物群系中什么都不会生长。</EWP_ProbZeroDensity>
+  <EWP_CaveIntro>洞穴植物在每个生物群系的岩石屋顶下生长。设置每种植物出现的频率（0 = 从不）。</EWP_CaveIntro>
+  <EWP_ResetCave>全部恢复默认</EWP_ResetCave>
+  <EWP_CaveValue>{0}（默认 {1}）</EWP_CaveValue>
+  <EWP_SecFix>生物群系修复</EWP_SecFix>
+  <EWP_FixBiome>野生植物遵循世界地块的生物群系</EWP_FixBiome>
+  <EWP_FixBiomeTip>某些地图模组（例如 Geological Landforms）为地图报告的生物群系与地块不同。游戏随后从一个生物群系选取植物，却按另一个来加权——导致陆地上几乎什么都不长。此选项可修复该问题。</EWP_FixBiomeTip>
+  <EWP_SecMap>此地图</EWP_SecMap>
+  <EWP_NoGame>加载游戏后可在此查看当前地图的状态。</EWP_NoGame>
+  <EWP_TileBiome>地块生物群系：{0}</EWP_TileBiome>
+  <EWP_MapBiome>地图模组报告：{0}</EWP_MapBiome>
+  <EWP_MismatchFixed>生物群系不同——修复已开启，植物遵循地块。</EWP_MismatchFixed>
+  <EWP_MismatchWarn>生物群系不同且修复已关闭——陆地上可能只长很少植物！</EWP_MismatchWarn>
+  <EWP_PlantCount>野生植物：{0}/{1}（{2} %）</EWP_PlantCount>
+  <EWP_UsedList>使用中的列表：{0} 种植物</EWP_UsedList>
+  <EWP_Fill>立即长满（一次性）</EWP_Fill>
+  <EWP_FillTip>一次性用不同大小的植物将地图填满至完全密度。跳过居住区、区域和房间。</EWP_FillTip>
+  <EWP_Filling>正在种植野生植物…</EWP_Filling>
+  <EWP_Filled>已种植 {0} 株野生植物。</EWP_Filled>
+  <EWP_HideDead>隐藏树桩</EWP_HideDead>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <MUI_RecTag>推荐</MUI_RecTag>
+  <EWP_AddIntro>游戏、DLC 和模组中的所有植物、树木、草、灌木和蘑菇——包括从不在此生物群系生长的。</EWP_AddIntro>
+  <EWP_AllMods>所有模组</EWP_AllMods>
+  <EWP_GroupAll>全部</EWP_GroupAll>
+  <EWP_GroupTrees>树木</EWP_GroupTrees>
+  <EWP_GroupGrass>草</EWP_GroupGrass>
+  <EWP_GroupBushes>灌木与花卉</EWP_GroupBushes>
+  <EWP_GroupCrops>作物</EWP_GroupCrops>
+  <EWP_GroupCave>蘑菇与洞穴</EWP_GroupCave>
+  <EWP_GroupWater>水生</EWP_GroupWater>
+  <EWP_AddAllShown>添加所有显示的（{0}）</EWP_AddAllShown>
+  <EWP_AddedN>已添加：{0}</EWP_AddedN>
+  <EWP_AddOne>添加</EWP_AddOne>
+  <EWP_GrowsIn>默认生长于：{0}</EWP_GrowsIn>
+  <EWP_GrowsNowhere>默认不在任何生物群系生长。</EWP_GrowsNowhere>
+  <EWP_SecGrow>地图植被</EWP_SecGrow>
+  <EWP_MapDensity>此地图的植被覆盖：{0} %</EWP_MapDensity>
+  <EWP_MapDensityTip>此地图应被野生植物覆盖的密度（100 % = 该生物群系的正常水平）。逐渐变化——新植物会自行长出。降低数值不会砍掉任何东西，只是停止添加植物。</EWP_MapDensityTip>
+  <EWP_FillDays>长满所需时间：{0} 天</EWP_FillDays>
+  <EWP_FillDaysTip>地图在多少个游戏日内达到设定的植被覆盖。植物以幼苗形式长出，并以正常速度生长。</EWP_FillDaysTip>
+  <EWP_FillGradual>逐渐长满（{0} 天）</EWP_FillGradual>
+  <EWP_FillGradualTip>植物以小幼苗的形式一点点出现并自行长大。跳过居住区、区域和房间。</EWP_FillGradualTip>
+  <EWP_FillStarted>地图将逐渐长满（{0} 天后达到目标）。</EWP_FillStarted>
+  <EWP_FillRunning>地图正在长满——剩余 {0} 天，已完成 {1} %。</EWP_FillRunning>
+  <EWP_FillStop>停止长满</EWP_FillStop>
+  <EWP_FillDone>地图 {0} 已按设定长满。</EWP_FillDone>
+  <EWP_LockedHere>由于顶部开启了推荐设置（默认植物），编辑已锁定。</EWP_LockedHere>
+  <EWP_Unlock>解锁编辑</EWP_Unlock>
+  <EWP_ShowAll>所有植物（{0}）</EWP_ShowAll>
+  <EWP_ShowAllTip>显示游戏、DLC 和模组中的所有植物，包括通常不在此生长的。将滑块移到 0 以上，该植物就会开始在此生长。</EWP_ShowAllTip>
+</LanguageData>

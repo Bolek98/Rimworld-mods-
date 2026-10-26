@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <EWP_Title>Evergrowth – 野生植物</EWP_Title>
+  <EWP_Bullet1>各バイオームはデフォルトの植物を維持</EWP_Bullet1>
+  <EWP_Bullet2>マップのバイオーム修正（Geological Landforms など）</EWP_Bullet2>
+  <EWP_Bullet3>洞窟植物はゲームどおり</EWP_Bullet3>
+  <EWP_Bullet4>設定に応じてマップが徐々に緑化</EWP_Bullet4>
+  <EWP_TabBiomes>バイオーム</EWP_TabBiomes>
+  <EWP_TabCave>洞窟植物</EWP_TabCave>
+  <EWP_TabMap>このマップ</EWP_TabMap>
+  <EWP_Import>Choose Wild Plant Spawns からインポート</EWP_Import>
+  <EWP_ImportTip>Choose Wild Plant Spawns の設定（植物リストと密度）を読み込みます。切り株、枯れた植物、無効化されたMODの植物はスキップされます。その後 Choose Wild Plant Spawns は無効にしてかまいません。</EWP_ImportTip>
+  <EWP_ImportNone>Choose Wild Plant Spawns の設定が見つかりません。</EWP_ImportNone>
+  <EWP_ImportDone>インポート完了：バイオーム {0}、植物 {1}。スキップ {2}（切り株、枯れた植物、見つからないMOD）。</EWP_ImportDone>
+  <EWP_ResetAll>全バイオームをデフォルトに</EWP_ResetAll>
+  <EWP_ResetAllConfirm>すべてのバイオームをデフォルトの植物、密度、再生にリセットしますか？</EWP_ResetAllConfirm>
+  <EWP_SearchBiome>バイオームまたはMODを検索…</EWP_SearchBiome>
+  <EWP_SearchPlant>植物またはMODを検索…</EWP_SearchPlant>
+  <EWP_NPlants>{0} 種類の植物</EWP_NPlants>
+  <EWP_PickBiome>左側でバイオームを選ぶと、そこに生える野生植物とその頻度が表示されます。</EWP_PickBiome>
+  <EWP_Customized>カスタマイズ済み</EWP_Customized>
+  <EWP_Default>デフォルト</EWP_Default>
+  <EWP_AddPlant>植物を追加</EWP_AddPlant>
+  <EWP_CopyFrom>バイオームからコピー…</EWP_CopyFrom>
+  <EWP_ResetBiome>デフォルトに戻す</EWP_ResetBiome>
+  <EWP_Density>植物の密度：{0}（デフォルト {1}）</EWP_Density>
+  <EWP_DensityTip>マップ上の野生植物の量。0 = なし、高いほど自然が濃くなります。Evergrowth でさらに倍増できます。</EWP_DensityTip>
+  <EWP_Regrow>再生：{0} 日（デフォルト {1}）</EWP_Regrow>
+  <EWP_RegrowTip>空いた場所に再び何かが生えるまでの時間。日数が少ないほど再生が速くなります。</EWP_RegrowTip>
+  <EWP_NoPlants>植物がありません。</EWP_NoPlants>
+  <EWP_KindDead>枯れた植物</EWP_KindDead>
+  <EWP_KindDeadTip>ゲームは枯れた植物を野生植物として生成しません。</EWP_KindDeadTip>
+  <EWP_KindStump>切り株</EWP_KindStump>
+  <EWP_KindStumpTip>切り株は成長する植物ではなく、木の残りにすぎません。</EWP_KindStumpTip>
+  <EWP_KindCrop>作物</EWP_KindCrop>
+  <EWP_KindCropTip>通常は野生で育たない作物。育つことはありますが、気候が合わないことが多いです。</EWP_KindCropTip>
+  <EWP_KindCave>洞窟</EWP_KindCave>
+  <EWP_KindCaveTip>洞窟植物 – 岩の屋根の下でのみ育ちます。</EWP_KindCaveTip>
+  <EWP_KindWater>水生</EWP_KindWater>
+  <EWP_KindWaterTip>水生植物 – 水中または岸辺でのみ育ちます。</EWP_KindWaterTip>
+  <EWP_ProbMissing>リストの植物 {0} 種類が見つかりません（MODが無効）。</EWP_ProbMissing>
+  <EWP_ProbDead>{0}× 切り株または枯れた植物 – 決して育たないので、削除してかまいません。</EWP_ProbDead>
+  <EWP_ProbCrops>{0}× 作物 – 野生では生き残れないことが多いです。</EWP_ProbCrops>
+  <EWP_ProbNoLand>ここでは陸上に何も育ちません（水中 / 洞窟のみ）。</EWP_ProbNoLand>
+  <EWP_ProbEmpty>リストが空です – このバイオームでは何も育ちません。</EWP_ProbEmpty>
+  <EWP_ProbZeroDensity>密度が 0 です – このバイオームでは何も育ちません。</EWP_ProbZeroDensity>
+  <EWP_CaveIntro>洞窟植物はすべてのバイオームで岩の屋根の下に育ちます。それぞれの出現頻度を設定してください（0 = なし）。</EWP_CaveIntro>
+  <EWP_ResetCave>すべてデフォルトに</EWP_ResetCave>
+  <EWP_CaveValue>{0}（デフォルト {1}）</EWP_CaveValue>
+  <EWP_SecFix>バイオーム修正</EWP_SecFix>
+  <EWP_FixBiome>野生植物をワールドタイルのバイオームに従わせる</EWP_FixBiome>
+  <EWP_FixBiomeTip>一部のマップMOD（例：Geological Landforms）は、タイルとは異なるバイオームをマップに報告します。するとゲームは一方のバイオームから植物を選び、もう一方で重み付けするため、陸上にはほとんど何も育ちません。これを修正します。</EWP_FixBiomeTip>
+  <EWP_SecMap>このマップ</EWP_SecMap>
+  <EWP_NoGame>ゲームをロードすると、ここで現在のマップの状態を確認できます。</EWP_NoGame>
+  <EWP_TileBiome>タイルのバイオーム：{0}</EWP_TileBiome>
+  <EWP_MapBiome>マップMODの報告：{0}</EWP_MapBiome>
+  <EWP_MismatchFixed>バイオームが異なります – 修正はオン、植物はタイルに従います。</EWP_MismatchFixed>
+  <EWP_MismatchWarn>バイオームが異なり、修正がオフです – 陸上にほとんど植物が育たない可能性があります！</EWP_MismatchWarn>
+  <EWP_PlantCount>野生植物：{0} / {1}（{2} %）</EWP_PlantCount>
+  <EWP_UsedList>使用中のリスト：植物 {0} 種類</EWP_UsedList>
+  <EWP_Fill>今すぐ緑化（一度に）</EWP_Fill>
+  <EWP_FillTip>大小さまざまな植物でマップを最大密度まで一度に埋めます。ホームエリア、ゾーン、部屋はスキップします。</EWP_FillTip>
+  <EWP_Filling>野生植物を植えています…</EWP_Filling>
+  <EWP_Filled>野生植物を {0} 本植えました。</EWP_Filled>
+  <EWP_HideDead>切り株を隠す</EWP_HideDead>
+  <MUI_Title>推奨設定</MUI_Title>
+  <MUI_TitleOff>推奨設定 · オフ</MUI_TitleOff>
+  <MUI_DescOn>Modが自動で設定され、すぐに使えます。初心者や何も調整したくない方に最適です。</MUI_DescOn>
+  <MUI_DescOff>カスタム設定。推奨から変更した項目：{0}。</MUI_DescOff>
+  <MUI_DescOffSame>カスタム設定。まだ推奨と同じです。</MUI_DescOffSame>
+  <MUI_On>オン</MUI_On>
+  <MUI_Off>オフ</MUI_Off>
+  <MUI_ResetAll>すべて推奨にリセット</MUI_ResetAll>
+  <MUI_ConfirmOn>推奨設定をオンにしますか？あなたの変更（{0}）は推奨値に置き換えられます。</MUI_ConfirmOn>
+  <MUI_Locked>詳細設定はロックされています。変更したい場合は上のスイッチをオフにしてください – 値は推奨値から始まります。</MUI_Locked>
+  <MUI_Changed>変更済み</MUI_Changed>
+  <MUI_ChangedTip>推奨設定（{0}）と異なります。クリックで推奨値に戻します。</MUI_ChangedTip>
+  <MUI_Yes>オン</MUI_Yes>
+  <MUI_No>オフ</MUI_No>
+  <MUI_RecTag>推奨</MUI_RecTag>
+  <EWP_AddIntro>ゲーム、DLC、MODのすべての植物、木、草、茂み、キノコ – このバイオームで決して育たないものも含みます。</EWP_AddIntro>
+  <EWP_AllMods>すべてのMOD</EWP_AllMods>
+  <EWP_GroupAll>すべて</EWP_GroupAll>
+  <EWP_GroupTrees>木</EWP_GroupTrees>
+  <EWP_GroupGrass>草</EWP_GroupGrass>
+  <EWP_GroupBushes>茂みと花</EWP_GroupBushes>
+  <EWP_GroupCrops>作物</EWP_GroupCrops>
+  <EWP_GroupCave>キノコと洞窟</EWP_GroupCave>
+  <EWP_GroupWater>水生</EWP_GroupWater>
+  <EWP_AddAllShown>表示中をすべて追加（{0}）</EWP_AddAllShown>
+  <EWP_AddedN>追加：{0}</EWP_AddedN>
+  <EWP_AddOne>追加</EWP_AddOne>
+  <EWP_GrowsIn>デフォルトで生える場所：{0}</EWP_GrowsIn>
+  <EWP_GrowsNowhere>デフォルトではどのバイオームにも生えません。</EWP_GrowsNowhere>
+  <EWP_SecGrow>マップの緑化</EWP_SecGrow>
+  <EWP_MapDensity>このマップの緑化度：{0} %</EWP_MapDensity>
+  <EWP_MapDensityTip>このマップを野生植物でどれだけ濃く覆うか（100 % = バイオームの通常）。徐々に変化し、新しい植物は自然に生えてきます。下げても何も伐採されず、植物の追加が止まるだけです。</EWP_MapDensityTip>
+  <EWP_FillDays>緑化にかける期間：{0} 日</EWP_FillDays>
+  <EWP_FillDaysTip>マップが設定した緑化度に達するまでのゲーム内日数。植物は小さく芽吹き、通常のペースで成長します。</EWP_FillDaysTip>
+  <EWP_FillGradual>徐々に緑化（{0} 日）</EWP_FillGradual>
+  <EWP_FillGradualTip>植物は小さな芽として少しずつ現れ、自然に成長します。ホームエリア、ゾーン、部屋はスキップします。</EWP_FillGradualTip>
+  <EWP_FillStarted>マップは徐々に緑化されます（{0} 日後に目標）。</EWP_FillStarted>
+  <EWP_FillRunning>マップを緑化中 – 残り {0} 日、{1} % 完了。</EWP_FillRunning>
+  <EWP_FillStop>緑化を停止</EWP_FillStop>
+  <EWP_FillDone>マップ {0} は設定どおりに緑化されました。</EWP_FillDone>
+  <EWP_LockedHere>上部で推奨設定（デフォルトの植物）がオンのため、編集はロックされています。</EWP_LockedHere>
+  <EWP_Unlock>編集のロックを解除</EWP_Unlock>
+  <EWP_ShowAll>すべての植物（{0}）</EWP_ShowAll>
+  <EWP_ShowAllTip>ゲーム、DLC、MODのすべての植物を表示します。通常ここでは育たないものも含みます。スライダーを 0 より上に動かすと、その植物がここで育ち始めます。</EWP_ShowAllTip>
+</LanguageData>

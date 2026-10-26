@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <EWP_Title>Evergrowth – 야생 식물</EWP_Title>
+  <EWP_Bullet1>모든 생물 군계가 기본 식물을 유지</EWP_Bullet1>
+  <EWP_Bullet2>지도 생물 군계 수정(Geological Landforms 등)</EWP_Bullet2>
+  <EWP_Bullet3>동굴 식물은 게임과 동일</EWP_Bullet3>
+  <EWP_Bullet4>설정에 따라 지도가 점차 우거짐</EWP_Bullet4>
+  <EWP_TabBiomes>생물 군계</EWP_TabBiomes>
+  <EWP_TabCave>동굴 식물</EWP_TabCave>
+  <EWP_TabMap>이 지도</EWP_TabMap>
+  <EWP_Import>Choose Wild Plant Spawns에서 가져오기</EWP_Import>
+  <EWP_ImportTip>Choose Wild Plant Spawns의 설정(식물 목록과 밀도)을 읽어 옵니다. 그루터기, 죽은 식물, 비활성화된 모드의 식물은 건너뜁니다. 이후 Choose Wild Plant Spawns를 비활성화해도 됩니다.</EWP_ImportTip>
+  <EWP_ImportNone>Choose Wild Plant Spawns 설정을 찾을 수 없습니다.</EWP_ImportNone>
+  <EWP_ImportDone>가져옴: 생물 군계 {0}개, 식물 {1}종. {2}개 건너뜀(그루터기, 죽은 식물, 없는 모드).</EWP_ImportDone>
+  <EWP_ResetAll>모든 생물 군계를 기본값으로</EWP_ResetAll>
+  <EWP_ResetAllConfirm>모든 생물 군계를 기본 식물, 밀도, 재성장으로 초기화할까요?</EWP_ResetAllConfirm>
+  <EWP_SearchBiome>생물 군계 또는 모드 검색…</EWP_SearchBiome>
+  <EWP_SearchPlant>식물 또는 모드 검색…</EWP_SearchPlant>
+  <EWP_NPlants>식물 {0}종</EWP_NPlants>
+  <EWP_PickBiome>왼쪽에서 생물 군계를 선택하면 그곳에 어떤 야생 식물이 얼마나 자주 자라는지 볼 수 있습니다.</EWP_PickBiome>
+  <EWP_Customized>사용자 지정됨</EWP_Customized>
+  <EWP_Default>기본값</EWP_Default>
+  <EWP_AddPlant>식물 추가</EWP_AddPlant>
+  <EWP_CopyFrom>생물 군계에서 복사…</EWP_CopyFrom>
+  <EWP_ResetBiome>기본값으로 초기화</EWP_ResetBiome>
+  <EWP_Density>식물 밀도: {0} (기본값 {1})</EWP_Density>
+  <EWP_DensityTip>지도에 있는 야생 식물의 양. 0 = 없음, 높을수록 = 더 울창한 자연. Evergrowth가 이 값을 추가로 배가할 수 있습니다.</EWP_DensityTip>
+  <EWP_Regrow>재성장: {0}일 (기본값 {1})</EWP_Regrow>
+  <EWP_RegrowTip>빈 자리에 다시 무언가 자라기까지 걸리는 시간. 일수가 적을수록 = 더 빠른 재성장.</EWP_RegrowTip>
+  <EWP_NoPlants>식물 없음.</EWP_NoPlants>
+  <EWP_KindDead>죽은 식물</EWP_KindDead>
+  <EWP_KindDeadTip>게임은 죽은 식물을 야생 식물로 생성하지 않습니다.</EWP_KindDeadTip>
+  <EWP_KindStump>그루터기</EWP_KindStump>
+  <EWP_KindStumpTip>그루터기는 자라는 식물이 아니라 나무가 남긴 것일 뿐입니다.</EWP_KindStumpTip>
+  <EWP_KindCrop>작물</EWP_KindCrop>
+  <EWP_KindCropTip>보통 야생에서 자라지 않는 작물. 자랄 수는 있지만 기후가 맞지 않는 경우가 많습니다.</EWP_KindCropTip>
+  <EWP_KindCave>동굴</EWP_KindCave>
+  <EWP_KindCaveTip>동굴 식물 – 암석 지붕 아래에서만 자랍니다.</EWP_KindCaveTip>
+  <EWP_KindWater>수생</EWP_KindWater>
+  <EWP_KindWaterTip>수생 식물 – 물속이나 물가에서만 자랍니다.</EWP_KindWaterTip>
+  <EWP_ProbMissing>목록의 식물 {0}종이 없습니다(모드 비활성화됨).</EWP_ProbMissing>
+  <EWP_ProbDead>{0}× 그루터기 또는 죽은 식물 – 절대 자라지 않으니 제거해도 됩니다.</EWP_ProbDead>
+  <EWP_ProbCrops>{0}× 작물 – 야생에서 살아남지 못하는 경우가 많습니다.</EWP_ProbCrops>
+  <EWP_ProbNoLand>이곳의 육지에는 아무것도 자라지 않습니다(물 / 동굴만).</EWP_ProbNoLand>
+  <EWP_ProbEmpty>목록이 비어 있습니다 – 이 생물 군계에서는 아무것도 자라지 않습니다.</EWP_ProbEmpty>
+  <EWP_ProbZeroDensity>밀도가 0입니다 – 이 생물 군계에서는 아무것도 자라지 않습니다.</EWP_ProbZeroDensity>
+  <EWP_CaveIntro>동굴 식물은 모든 생물 군계의 암석 지붕 아래에서 자랍니다. 각각이 나타나는 빈도를 설정하세요(0 = 없음).</EWP_CaveIntro>
+  <EWP_ResetCave>모두 기본값으로</EWP_ResetCave>
+  <EWP_CaveValue>{0} (기본값 {1})</EWP_CaveValue>
+  <EWP_SecFix>생물 군계 수정</EWP_SecFix>
+  <EWP_FixBiome>야생 식물이 월드 타일의 생물 군계를 따름</EWP_FixBiome>
+  <EWP_FixBiomeTip>일부 지도 모드(예: Geological Landforms)는 지도에 타일과 다른 생물 군계를 보고합니다. 그러면 게임이 한 생물 군계에서 식물을 고르고 다른 생물 군계로 가중치를 매겨 육지에 거의 아무것도 자라지 않습니다. 이 옵션이 그것을 고칩니다.</EWP_FixBiomeTip>
+  <EWP_SecMap>이 지도</EWP_SecMap>
+  <EWP_NoGame>게임을 불러오면 여기서 현재 지도의 상태를 볼 수 있습니다.</EWP_NoGame>
+  <EWP_TileBiome>타일 생물 군계: {0}</EWP_TileBiome>
+  <EWP_MapBiome>지도 모드 보고: {0}</EWP_MapBiome>
+  <EWP_MismatchFixed>생물 군계가 다릅니다 – 수정이 켜져 있어 식물이 타일을 따릅니다.</EWP_MismatchFixed>
+  <EWP_MismatchWarn>생물 군계가 다르고 수정이 꺼져 있습니다 – 육지에 식물이 거의 자라지 않을 수 있습니다!</EWP_MismatchWarn>
+  <EWP_PlantCount>야생 식물: {1}개 중 {0}개 ({2} %)</EWP_PlantCount>
+  <EWP_UsedList>사용 중인 목록: 식물 {0}종</EWP_UsedList>
+  <EWP_Fill>지금 채우기(한 번에)</EWP_Fill>
+  <EWP_FillTip>다양한 크기의 식물로 지도를 최대 밀도까지 한 번에 채웁니다. 거주 구역, 구역, 방은 건너뜁니다.</EWP_FillTip>
+  <EWP_Filling>야생 식물을 심는 중…</EWP_Filling>
+  <EWP_Filled>야생 식물 {0}그루를 심었습니다.</EWP_Filled>
+  <EWP_HideDead>그루터기 숨기기</EWP_HideDead>
+  <MUI_Title>권장 설정</MUI_Title>
+  <MUI_TitleOff>권장 설정 · 꺼짐</MUI_TitleOff>
+  <MUI_DescOn>모드가 스스로 설정되어 바로 작동합니다. 처음 하는 플레이어나 아무것도 조정하고 싶지 않은 분께 적합합니다.</MUI_DescOn>
+  <MUI_DescOff>사용자 설정. 권장 설정에서 변경됨: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>사용자 설정. 아직 권장 설정과 같습니다.</MUI_DescOffSame>
+  <MUI_On>켜짐</MUI_On>
+  <MUI_Off>꺼짐</MUI_Off>
+  <MUI_ResetAll>모두 권장값으로 초기화</MUI_ResetAll>
+  <MUI_ConfirmOn>권장 설정을 켜시겠습니까? 변경한 항목({0})이 권장값으로 바뀝니다.</MUI_ConfirmOn>
+  <MUI_Locked>세부 설정이 잠겨 있습니다. 변경하려면 위의 스위치를 끄세요 – 값은 권장값에서 시작합니다.</MUI_Locked>
+  <MUI_Changed>변경됨</MUI_Changed>
+  <MUI_ChangedTip>권장 설정({0})과 다릅니다. 클릭하면 권장값으로 되돌립니다.</MUI_ChangedTip>
+  <MUI_Yes>켜짐</MUI_Yes>
+  <MUI_No>꺼짐</MUI_No>
+  <MUI_RecTag>권장</MUI_RecTag>
+  <EWP_AddIntro>게임, DLC, 모드의 모든 식물, 나무, 풀, 덤불, 버섯 – 이 생물 군계에서 절대 자라지 않는 것도 포함.</EWP_AddIntro>
+  <EWP_AllMods>모든 모드</EWP_AllMods>
+  <EWP_GroupAll>전체</EWP_GroupAll>
+  <EWP_GroupTrees>나무</EWP_GroupTrees>
+  <EWP_GroupGrass>풀</EWP_GroupGrass>
+  <EWP_GroupBushes>덤불과 꽃</EWP_GroupBushes>
+  <EWP_GroupCrops>작물</EWP_GroupCrops>
+  <EWP_GroupCave>버섯과 동굴</EWP_GroupCave>
+  <EWP_GroupWater>수생</EWP_GroupWater>
+  <EWP_AddAllShown>표시된 항목 모두 추가({0})</EWP_AddAllShown>
+  <EWP_AddedN>추가됨: {0}</EWP_AddedN>
+  <EWP_AddOne>추가</EWP_AddOne>
+  <EWP_GrowsIn>기본적으로 자라는 곳: {0}</EWP_GrowsIn>
+  <EWP_GrowsNowhere>기본적으로 어떤 생물 군계에서도 자라지 않습니다.</EWP_GrowsNowhere>
+  <EWP_SecGrow>지도 식생</EWP_SecGrow>
+  <EWP_MapDensity>이 지도의 식생: {0} %</EWP_MapDensity>
+  <EWP_MapDensityTip>이 지도를 야생 식물로 얼마나 빽빽하게 덮을지(100 % = 생물 군계의 보통 수준). 점차 변하며 새 식물은 저절로 자라납니다. 낮춰도 아무것도 베지 않고 식물 추가만 멈춥니다.</EWP_MapDensityTip>
+  <EWP_FillDays>채우는 기간: {0}일</EWP_FillDays>
+  <EWP_FillDaysTip>지도가 설정된 식생에 도달할 때까지의 게임 내 일수. 식물은 작게 싹터 보통 속도로 자랍니다.</EWP_FillDaysTip>
+  <EWP_FillGradual>점차 채우기({0}일)</EWP_FillGradual>
+  <EWP_FillGradualTip>식물이 작은 싹으로 조금씩 나타나 저절로 자랍니다. 거주 구역, 구역, 방은 건너뜁니다.</EWP_FillGradualTip>
+  <EWP_FillStarted>지도가 점차 채워집니다({0}일 후 목표 도달).</EWP_FillStarted>
+  <EWP_FillRunning>지도를 채우는 중 – {0}일 남음, {1} % 완료.</EWP_FillRunning>
+  <EWP_FillStop>채우기 중지</EWP_FillStop>
+  <EWP_FillDone>지도 {0}이(가) 설정대로 우거졌습니다.</EWP_FillDone>
+  <EWP_LockedHere>위쪽에서 권장 설정(기본 식물)이 켜져 있어 편집이 잠겨 있습니다.</EWP_LockedHere>
+  <EWP_Unlock>편집 잠금 해제</EWP_Unlock>
+  <EWP_ShowAll>모든 식물({0})</EWP_ShowAll>
+  <EWP_ShowAllTip>게임, DLC, 모드의 모든 식물을 보여 줍니다. 보통 여기서 자라지 않는 것도 포함됩니다. 슬라이더를 0보다 높이면 그 식물이 여기서 자라기 시작합니다.</EWP_ShowAllTip>
+</LanguageData>

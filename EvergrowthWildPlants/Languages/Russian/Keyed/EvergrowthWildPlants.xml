@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <EWP_Title>Evergrowth – дикие растения</EWP_Title>
+  <EWP_Bullet1>Каждый биом сохраняет свои стандартные растения</EWP_Bullet1>
+  <EWP_Bullet2>Исправление биома карты (Geological Landforms и др.)</EWP_Bullet2>
+  <EWP_Bullet3>Пещерные растения как в игре</EWP_Bullet3>
+  <EWP_Bullet4>Постепенное зарастание карты по вашим настройкам</EWP_Bullet4>
+  <EWP_TabBiomes>Биомы</EWP_TabBiomes>
+  <EWP_TabCave>Пещерные растения</EWP_TabCave>
+  <EWP_TabMap>Эта карта</EWP_TabMap>
+  <EWP_Import>Импорт из Choose Wild Plant Spawns</EWP_Import>
+  <EWP_ImportTip>Считывает ваши настройки из Choose Wild Plant Spawns (списки растений и плотность). Пни, мёртвые растения и растения из отключённых модов пропускаются. После этого Choose Wild Plant Spawns можно отключить.</EWP_ImportTip>
+  <EWP_ImportNone>Настройки Choose Wild Plant Spawns не найдены.</EWP_ImportNone>
+  <EWP_ImportDone>Импортировано: биомов {0}, растений {1}. Пропущено {2} (пни, мёртвые растения, отсутствующие моды).</EWP_ImportDone>
+  <EWP_ResetAll>Все биомы по умолчанию</EWP_ResetAll>
+  <EWP_ResetAllConfirm>Сбросить все биомы к стандартным растениям, плотности и отрастанию?</EWP_ResetAllConfirm>
+  <EWP_SearchBiome>Поиск биома или мода…</EWP_SearchBiome>
+  <EWP_SearchPlant>Поиск растения или мода…</EWP_SearchPlant>
+  <EWP_NPlants>Растений: {0}</EWP_NPlants>
+  <EWP_PickBiome>Выберите биом слева, чтобы увидеть, какие дикие растения там растут и как часто.</EWP_PickBiome>
+  <EWP_Customized>изменён</EWP_Customized>
+  <EWP_Default>по умолчанию</EWP_Default>
+  <EWP_AddPlant>Добавить растения</EWP_AddPlant>
+  <EWP_CopyFrom>Копировать из биома…</EWP_CopyFrom>
+  <EWP_ResetBiome>Сбросить по умолчанию</EWP_ResetBiome>
+  <EWP_Density>Плотность растений: {0} (по умолчанию {1})</EWP_Density>
+  <EWP_DensityTip>Сколько диких растений на карте. 0 = нет, больше = гуще природа. Evergrowth может дополнительно умножить это значение.</EWP_DensityTip>
+  <EWP_Regrow>Отрастание: {0} дн. (по умолчанию {1})</EWP_Regrow>
+  <EWP_RegrowTip>Сколько времени пройдёт, прежде чем на свободном месте снова что-то вырастет. Меньше дней = быстрее отрастание.</EWP_RegrowTip>
+  <EWP_NoPlants>Нет растений.</EWP_NoPlants>
+  <EWP_KindDead>мёртвое растение</EWP_KindDead>
+  <EWP_KindDeadTip>Игра никогда не создаёт мёртвые растения как дикие.</EWP_KindDeadTip>
+  <EWP_KindStump>пень</EWP_KindStump>
+  <EWP_KindStumpTip>Пни – это не растущие растения, а лишь то, что осталось от дерева.</EWP_KindStumpTip>
+  <EWP_KindCrop>культура</EWP_KindCrop>
+  <EWP_KindCropTip>Культура, которая обычно не растёт в дикой природе. Она может расти, но климат ей часто не подходит.</EWP_KindCropTip>
+  <EWP_KindCave>пещера</EWP_KindCave>
+  <EWP_KindCaveTip>Пещерное растение – растёт только под каменной крышей.</EWP_KindCaveTip>
+  <EWP_KindWater>вода</EWP_KindWater>
+  <EWP_KindWaterTip>Водное растение – растёт только в воде или у берега.</EWP_KindWaterTip>
+  <EWP_ProbMissing>Отсутствует растений из списка: {0} (мод отключён).</EWP_ProbMissing>
+  <EWP_ProbDead>{0}× пень или мёртвое растение – они никогда не растут, их можно удалить.</EWP_ProbDead>
+  <EWP_ProbCrops>{0}× культура – они часто не выживают в дикой природе.</EWP_ProbCrops>
+  <EWP_ProbNoLand>Здесь ничего не растёт на суше (только вода / пещеры).</EWP_ProbNoLand>
+  <EWP_ProbEmpty>Список пуст – в этом биоме ничего не вырастет.</EWP_ProbEmpty>
+  <EWP_ProbZeroDensity>Плотность 0 – в этом биоме ничего не вырастет.</EWP_ProbZeroDensity>
+  <EWP_CaveIntro>Пещерные растения растут под каменными крышами в каждом биоме. Задайте, как часто появляется каждое (0 = никогда).</EWP_CaveIntro>
+  <EWP_ResetCave>Всё по умолчанию</EWP_ResetCave>
+  <EWP_CaveValue>{0} (по умолчанию {1})</EWP_CaveValue>
+  <EWP_SecFix>Исправление биома</EWP_SecFix>
+  <EWP_FixBiome>Дикие растения следуют биому клетки мира</EWP_FixBiome>
+  <EWP_FixBiomeTip>Некоторые моды карт (например, Geological Landforms) сообщают для карты другой биом, чем у клетки. Тогда игра выбирает растения из одного биома, а взвешивает их по другому – и на суше почти ничего не растёт. Это исправляет проблему.</EWP_FixBiomeTip>
+  <EWP_SecMap>Эта карта</EWP_SecMap>
+  <EWP_NoGame>Загрузите игру, чтобы увидеть здесь состояние текущей карты.</EWP_NoGame>
+  <EWP_TileBiome>Биом клетки: {0}</EWP_TileBiome>
+  <EWP_MapBiome>Моды карт сообщают: {0}</EWP_MapBiome>
+  <EWP_MismatchFixed>Биомы различаются – исправление включено, растения следуют клетке.</EWP_MismatchFixed>
+  <EWP_MismatchWarn>Биомы различаются, а исправление выключено – на суше может расти мало растений!</EWP_MismatchWarn>
+  <EWP_PlantCount>Диких растений: {0} из {1} ({2} %)</EWP_PlantCount>
+  <EWP_UsedList>Используемый список: растений {0}</EWP_UsedList>
+  <EWP_Fill>Засадить сейчас (всё сразу)</EWP_Fill>
+  <EWP_FillTip>Однократное заполнение карты до полной плотности растениями разного размера. Пропускает домашнюю зону, зоны и комнаты.</EWP_FillTip>
+  <EWP_Filling>Высаживаются дикие растения…</EWP_Filling>
+  <EWP_Filled>Высажено диких растений: {0}.</EWP_Filled>
+  <EWP_HideDead>Скрыть пни</EWP_HideDead>
+  <MUI_Title>Рекомендуемые настройки</MUI_Title>
+  <MUI_TitleOff>Рекомендуемые настройки · выкл.</MUI_TitleOff>
+  <MUI_DescOn>Мод настраивается сам и сразу работает. Идеально для новичков и всех, кто не хочет ничего настраивать.</MUI_DescOn>
+  <MUI_DescOff>Свои настройки. Изменено по сравнению с рекомендуемыми: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Свои настройки. Пока совпадают с рекомендуемыми.</MUI_DescOffSame>
+  <MUI_On>ВКЛ.</MUI_On>
+  <MUI_Off>ВЫКЛ.</MUI_Off>
+  <MUI_ResetAll>Сбросить всё на рекомендуемые</MUI_ResetAll>
+  <MUI_ConfirmOn>Включить рекомендуемые настройки? Ваши изменения ({0}) будут заменены рекомендуемыми значениями.</MUI_ConfirmOn>
+  <MUI_Locked>Подробные настройки заблокированы. Хотите их изменить? Выключите переключатель выше – ваши значения начнутся с рекомендуемых.</MUI_Locked>
+  <MUI_Changed>ИЗМЕНЕНО</MUI_Changed>
+  <MUI_ChangedTip>Отличается от рекомендуемого значения ({0}). Нажмите, чтобы восстановить рекомендуемое значение.</MUI_ChangedTip>
+  <MUI_Yes>вкл.</MUI_Yes>
+  <MUI_No>выкл.</MUI_No>
+  <MUI_RecTag>РЕКОМЕНДУЕТСЯ</MUI_RecTag>
+  <EWP_AddIntro>Все растения, деревья, трава, кусты и грибы из игры, DLC и модов – в том числе те, что никогда не растут в этом биоме.</EWP_AddIntro>
+  <EWP_AllMods>Все моды</EWP_AllMods>
+  <EWP_GroupAll>Все</EWP_GroupAll>
+  <EWP_GroupTrees>Деревья</EWP_GroupTrees>
+  <EWP_GroupGrass>Трава</EWP_GroupGrass>
+  <EWP_GroupBushes>Кусты и цветы</EWP_GroupBushes>
+  <EWP_GroupCrops>Культуры</EWP_GroupCrops>
+  <EWP_GroupCave>Грибы и пещера</EWP_GroupCave>
+  <EWP_GroupWater>Вода</EWP_GroupWater>
+  <EWP_AddAllShown>Добавить все показанные ({0})</EWP_AddAllShown>
+  <EWP_AddedN>Добавлено: {0}</EWP_AddedN>
+  <EWP_AddOne>Добавить</EWP_AddOne>
+  <EWP_GrowsIn>По умолчанию растёт в: {0}</EWP_GrowsIn>
+  <EWP_GrowsNowhere>По умолчанию не растёт ни в одном биоме.</EWP_GrowsNowhere>
+  <EWP_SecGrow>Зарастание карты</EWP_SecGrow>
+  <EWP_MapDensity>Зарастание этой карты: {0} %</EWP_MapDensity>
+  <EWP_MapDensityTip>Насколько густо эта карта должна быть покрыта дикими растениями (100 % = норма для биома). Меняется постепенно – новые растения прорастают сами. Понижение ничего не вырубает, просто перестаёт добавлять растения.</EWP_MapDensityTip>
+  <EWP_FillDays>Зарастать в течение: {0} дн.</EWP_FillDays>
+  <EWP_FillDaysTip>За сколько игровых дней карта должна достичь заданного зарастания. Растения прорастают маленькими и растут в обычном темпе.</EWP_FillDaysTip>
+  <EWP_FillGradual>Засаживать постепенно ({0} дн.)</EWP_FillGradual>
+  <EWP_FillGradualTip>Растения появляются понемногу в виде маленьких ростков и вырастают сами. Пропускает домашнюю зону, зоны и комнаты.</EWP_FillGradualTip>
+  <EWP_FillStarted>Карта будет зарастать постепенно (цель через {0} дн.).</EWP_FillStarted>
+  <EWP_FillRunning>Карта зарастает – осталось {0} дн., выполнено {1} %.</EWP_FillRunning>
+  <EWP_FillStop>Остановить зарастание</EWP_FillStop>
+  <EWP_FillDone>Карта {0} заросла согласно настройкам.</EWP_FillDone>
+  <EWP_LockedHere>Редактирование заблокировано, потому что вверху включены «Рекомендуемые настройки» (стандартные растения).</EWP_LockedHere>
+  <EWP_Unlock>Разблокировать редактирование</EWP_Unlock>
+  <EWP_ShowAll>Все растения ({0})</EWP_ShowAll>
+  <EWP_ShowAllTip>Показывает все растения из игры, DLC и модов, в том числе те, что обычно здесь не растут. Сдвиньте ползунок выше 0, и растение начнёт здесь расти.</EWP_ShowAllTip>
+</LanguageData>

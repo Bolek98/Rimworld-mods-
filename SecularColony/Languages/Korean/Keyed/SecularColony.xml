@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SC_ModName>Secular Colony – 이념 끄기 및 조정</SC_ModName>
+  <SC_NoIdeology>Ideology DLC가 활성화되어 있지 않습니다 – 끌 것이 없습니다.</SC_NoIdeology>
+  <SC_Enable>내 정착지는 이념을 무시함</SC_Enable>
+  <SC_Enable_Desc>메인 스위치. 내 정착민(선택하면 노예도)에게만 영향을 주며 다른 세력에는 영향이 없습니다. 끄면 모든 것이 돌아옵니다.</SC_Enable_Desc>
+  <SC_Moods>신앙으로 인한 기분 없음</SC_Moods>
+  <SC_Moods_Desc>계율, 의식, 역할, 이념 건물, 원하는 의복과 색상에서 오는 생각이 보너스도 페널티도 주지 않습니다. 기존의 신앙 관련 생각은 제거됩니다.</SC_Moods_Desc>
+  <SC_Certainty>개종 없음</SC_Certainty>
+  <SC_Certainty_Desc>확신이 절대 떨어지지 않고, 아무도 내 정착민을 개종시키지 않으며, 내 정착민도 다른 이를 개종시키려 하지 않습니다. 직접 지시한 죄수 개종은 여전히 작동합니다.</SC_Certainty_Desc>
+  <SC_Willing>이념이 아무것도 금지하지 않음</SC_Willing>
+  <SC_Willing_Desc>"이념이 금지함"이 더 이상 정착민의 어떤 작업이나 행동도 막지 않습니다.</SC_Willing_Desc>
+  <SC_MentalBreaks>신앙으로 인한 정신 붕괴 없음</SC_MentalBreaks>
+  <SC_MentalBreaks_Desc>계율로 인한 정신 붕괴(신앙의 위기 등)가 내 정착민에게 일어나지 않습니다. 일반적인 정신 붕괴는 남아 있습니다.</SC_MentalBreaks_Desc>
+  <SC_Alerts>신앙 관련 경고 숨기기</SC_Alerts>
+  <SC_Alerts_Desc>빈 역할, 없거나 무시당한 이념 건물, 다가오는 날짜 의식, 회춘 요구에 관한 경고를 숨깁니다. 역할을 채울 필요가 없습니다.</SC_Alerts_Desc>
+  <SC_Slaves>노예에게도 적용</SC_Slaves>
+  <SC_Slaves_Desc>켜면 정착지의 노예도 이념을 무시합니다.</SC_Slaves_Desc>
+  <SC_Note>변경 사항은 진행 중인 게임에서도 즉시 적용됩니다. 이념 탭은 계속 보이지만 정착지에는 영향이 없습니다.</SC_Note>
+  <SC_LookChange>정착민이 스스로 외모를 바꿈</SC_LookChange>
+  <SC_LookChange_Desc>정착민이 가끔 새 헤어스타일, 수염, 문신을 원하며 시간이 나면 스스로 스타일링 스테이션으로 갑니다. 자유로운 성인 정착민만(노예, 죄수, 손님 제외). 스타일링 스테이션이 필요합니다 – 없으면 아무도 그런 소원을 갖지 않습니다(바닐라 동작). 4일 안에 이뤄지지 않은 소원은 취소됩니다.</SC_LookChange_Desc>
+  <SC_LookChangeDays>정착민별 소원 간 평균 일수: {0}</SC_LookChangeDays>
+  <SC_LookChangeDays_Desc>정착민이 다시 새 외모를 원하기까지 평균 며칠이 걸리는지. 좋은 기분과 아름다움은 조금 더 자주, 나쁜 기분은 덜 자주 만듭니다.</SC_LookChangeDays_Desc>
+  <SC_LookChangeMessage>누군가 새 외모를 원하면 메시지 표시</SC_LookChangeMessage>
+  <SC_LookChangeMessage_Desc>화면 위쪽에 짧은 메시지. 게임은 일시 정지되지 않습니다.</SC_LookChangeMessage_Desc>
+  <SC_StyleFree>이념 없는 스타일</SC_StyleFree>
+  <SC_StyleFree_Desc>헤어스타일, 수염, 문신을 이념이 허용하는 것이 아니라 정착민의 성별, 나이, 유전자에 맞는 모든 것 중에서 고릅니다. 이념이 싫어하는 스타일 때문에 정착민이 변화를 원하는 일은 더 이상 없습니다.</SC_StyleFree_Desc>
+  <SC_LookWish>{PAWN_nameDef}이(가) 새 외모를 원합니다.</SC_LookWish>
+  <SC_H_Belief>신앙</SC_H_Belief>
+  <SC_H_Look>외모</SC_H_Look>
+  <SC_H_Love>신앙 없는 관계</SC_H_Love>
+  <SC_LoveHint>이념이 없으면 신앙이 정착민의 파트너 수를 정하지 않습니다. 규칙을 고르세요:</SC_LoveHint>
+  <SC_Rule0>특성에 따라(권장)</SC_Rule0>
+  <SC_Rule0_Desc>모두 파트너는 한 명. "다자연애" 또는 "다혼" 특성을 가진 정착민은 더 많은 파트너와 배우자를 가질 수 있습니다(아래 한도까지).</SC_Rule0_Desc>
+  <SC_Rule1>모두 파트너 한 명</SC_Rule1>
+  <SC_Rule1_Desc>누구도 동시에 여러 파트너나 배우자를 가질 수 없습니다. 새 관계는 옛 관계를 끝냅니다.</SC_Rule1_Desc>
+  <SC_Rule2>모두 자유연애</SC_Rule2>
+  <SC_Rule2_Desc>누구나 더 많은 파트너와 배우자를 가질 수 있습니다(아래 한도까지). 버전 1.1까지 이 모드가 작동하던 방식입니다.</SC_Rule2_Desc>
+  <SC_MaxPartners>동시 최대 파트너 수: {0}</SC_MaxPartners>
+  <SC_MaxPartners_Desc>규칙이 허용할 때 정착민이 가질 수 있는 연인, 약혼자, 배우자의 합계. 5 이상 = 제한 없음.</SC_MaxPartners_Desc>
+  <SC_PolyChance>다자 특성 빈도: {0} %</SC_PolyChance>
+  <SC_PolyChance_Desc>"다자연애"와 "다혼"이 새 폰에게 나타나는 빈도. 0 % = 없음(캐릭터 편집기에서는 여전히 추가 가능).</SC_PolyChance_Desc>
+  <SC_PolyNoJealousy>다자연애자는 질투하지 않음</SC_PolyNoJealousy>
+  <SC_PolyNoJealousy_Desc>다자연애 정착민은 파트너에게 다른 사람이 있어도 "바람피웠다" 기분을 받지 않습니다.</SC_PolyNoJealousy_Desc>
+  <SC_PolygamyMood>다혼자는 대가족을 즐김</SC_PolygamyMood>
+  <SC_PolygamyMood_Desc>다혼 정착민은 배우자가 둘이면 +3, 셋이면 +5, 넷 이상이면 +7 기분.</SC_PolygamyMood_Desc>
+  <SC_H_NoBelief>신앙 완전히 없음</SC_H_NoBelief>
+  <SC_NoBelief_NoGame>진행 중인 게임에서는(여기 설정에서) 정착지에서 이념을 완전히 제거할 수 있습니다.</SC_NoBelief_NoGame>
+  <SC_NoBelief_Desc>정착지에서 이념을 완전히 제거합니다: 게임이 클래식 모드(Ideology 없는 게임처럼)로 전환되고, 이념 탭, 확신, 개종, 역할, 유물, 이념 건물이 사라집니다. 모든 정착민은 규칙 없는 단순한 "클래식" 신앙 하나를 갖게 되며, 새로 합류하는 사람도 그것을 받아들입니다.</SC_NoBelief_Desc>
+  <SC_NoBelief_Button>정착지에서 이념 제거</SC_NoBelief_Button>
+  <SC_NoBelief_Confirm>정말 정착지에서 이념을 제거할까요? 저장된 게임이 변경됩니다(역할과 이념 건물이 사라짐). 먼저 새 슬롯에 저장하세요.</SC_NoBelief_Confirm>
+  <SC_NoBelief_Converted>이념 제거됨 – 전환된 정착민: {0}. 정착지는 신앙 없이 살아갑니다.</SC_NoBelief_Converted>
+  <SC_NoBelief_Done>정착지에 이념이 없습니다(클래식 모드).</SC_NoBelief_Done>
+  <SC_NoBelief_Undo>이념 되돌리기(클래식 모드 끄기)</SC_NoBelief_Undo>
+  <SC_NoBelief_Undone>클래식 모드 꺼짐 – 이념 탭이 돌아왔습니다. 정착민은 단순한 신앙을 유지하며, 이를 편집할 수 있습니다.</SC_NoBelief_Undone>
+  <SC_BarberTable>이발대도 포함</SC_BarberTable>
+  <SC_BarberTable_Desc>새 외모를 원하는 정착민은 가장 가까운 스타일링 스테이션 또는 이발대(Vanilla Hair Expanded 및 유사 모드)로 갑니다. 이발대 메뉴에는 정착민에게 맞는(성별, 종족, 유전자) 헤어스타일과 수염만 표시됩니다.</SC_BarberTable_Desc>
+  <SC_GenderStyles>여성은 여성 헤어스타일, 남성은 남성 헤어스타일</SC_GenderStyles>
+  <SC_GenderStyles_Desc>여성은 여성용과 공용 헤어스타일만, 남성은 남성용과 공용만 고릅니다 – 모든 헤어 모드에서. 내 정착민에게 적용됩니다.</SC_GenderStyles_Desc>
+  <SC_HairColours>머리 색도 바꾸기</SC_HairColours>
+  <SC_HairColours_Desc>스타일을 바꿀 때 정착민이 가끔 머리 색도 바꿉니다 – 모든 모드의 색상 중에서(게임과 모드의 염색약, Vanilla Hair Expanded 프리셋, 유전자의 자연색). 여성은 더 자주 염색하고, 남성은 대부분 자연색을 고릅니다. 이발대 메뉴에도 이 색상들이 추가됩니다.</SC_HairColours_Desc>
+  <SC_HairColourChance>스타일 변경 시 새 머리 색 확률: {0} %</SC_HairColourChance>
+  <SC_HairColourChance_Desc>정착민이 스타일을 바꿀 때 머리 색도 바꾸는 빈도.</SC_HairColourChance_Desc>
+  <SC_Rec1>신앙으로 인한 기분이나 정신 붕괴 없음</SC_Rec1>
+  <SC_Rec2>확신 유지, 아무도 개종하지 않음</SC_Rec2>
+  <SC_Rec3>자유로운 스타일, 이발대, 머리 색</SC_Rec3>
+  <SC_Rec4>특성에 따른 관계, 질투 없음</SC_Rec4>
+  <SC_KeepHint>일부 종류는 그래도 유지(부분 모드):</SC_KeepHint>
+  <SC_KeepRituals>의식으로 인한 기분 유지</SC_KeepRituals>
+  <SC_KeepRituals_Desc>의식과 유물이 여전히 기분 보너스(와 페널티)를 줍니다.</SC_KeepRituals_Desc>
+  <SC_KeepRoles>역할로 인한 기분 유지</SC_KeepRoles>
+  <SC_KeepRoles_Desc>지도자와 전문가 역할이 여전히 기분에 영향을 줍니다(빈 역할, 잃은 역할, 역할 의복).</SC_KeepRoles_Desc>
+  <SC_KeepBuildings>신앙 건물로 인한 기분 유지</SC_KeepBuildings>
+  <SC_KeepBuildings_Desc>없거나 무시당한 제단과 기타 신앙 건물이 여전히 영향을 줍니다.</SC_KeepBuildings_Desc>
+  <SC_KeepApparel>원하는 의복과 색상으로 인한 기분 유지</SC_KeepApparel>
+  <SC_KeepApparel_Desc>신앙이 원하는 의복과 색상이 여전히 기분에 영향을 줍니다.</SC_KeepApparel_Desc>
+  <MUI_Title>권장 설정</MUI_Title>
+  <MUI_TitleOff>권장 설정 · 꺼짐</MUI_TitleOff>
+  <MUI_DescOn>모드가 스스로 설정되어 바로 작동합니다. 처음 하는 플레이어나 아무것도 조정하고 싶지 않은 분께 적합합니다.</MUI_DescOn>
+  <MUI_DescOff>사용자 설정. 권장 설정에서 변경됨: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>사용자 설정. 아직 권장 설정과 같습니다.</MUI_DescOffSame>
+  <MUI_On>켜짐</MUI_On>
+  <MUI_Off>꺼짐</MUI_Off>
+  <MUI_ResetAll>모두 권장값으로 초기화</MUI_ResetAll>
+  <MUI_ConfirmOn>권장 설정을 켜시겠습니까? 변경한 항목({0})이 권장값으로 바뀝니다.</MUI_ConfirmOn>
+  <MUI_Locked>세부 설정이 잠겨 있습니다. 변경하려면 위의 스위치를 끄세요 – 값은 권장값에서 시작합니다.</MUI_Locked>
+  <MUI_Changed>변경됨</MUI_Changed>
+  <MUI_ChangedTip>권장 설정({0})과 다릅니다. 클릭하면 권장값으로 되돌립니다.</MUI_ChangedTip>
+  <MUI_Yes>켜짐</MUI_Yes>
+  <MUI_No>꺼짐</MUI_No>
+  <MUI_RecTag>권장</MUI_RecTag>
+</LanguageData>

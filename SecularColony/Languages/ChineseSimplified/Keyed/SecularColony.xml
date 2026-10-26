@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SC_ModName>Secular Colony – 关闭意识形态与调整</SC_ModName>
+  <SC_NoIdeology>Ideology DLC 未启用——没有可关闭的内容。</SC_NoIdeology>
+  <SC_Enable>我的殖民地无视意识形态</SC_Enable>
+  <SC_Enable_Desc>总开关。只影响你的殖民者（如果选择，也包括奴隶），不影响其他派系。关闭后一切恢复原状。</SC_Enable_Desc>
+  <SC_Moods>信仰不影响心情</SC_Moods>
+  <SC_Moods_Desc>来自戒律、仪式、职位、意识形态建筑、期望服装和颜色的想法既不给加成也不给惩罚。现有的信仰想法会被移除。</SC_Moods_Desc>
+  <SC_Certainty>不会被改宗</SC_Certainty>
+  <SC_Certainty_Desc>确信度永不下降，没人能让你的殖民者改宗，你的殖民者也不会尝试让别人改宗。你亲自下令的囚犯改宗仍然有效。</SC_Certainty_Desc>
+  <SC_Willing>意识形态不禁止任何事</SC_Willing>
+  <SC_Willing_Desc>“意识形态禁止”不再阻止殖民者进行任何工作或行动。</SC_Willing_Desc>
+  <SC_MentalBreaks>信仰不引发精神崩溃</SC_MentalBreaks>
+  <SC_MentalBreaks_Desc>由戒律引起的精神崩溃（信仰危机等）不会发生在你的殖民者身上。普通的精神崩溃仍然存在。</SC_MentalBreaks_Desc>
+  <SC_Alerts>隐藏信仰相关警报</SC_Alerts>
+  <SC_Alerts_Desc>隐藏关于空缺职位、缺失或不受尊重的意识形态建筑、即将到来的日期仪式以及返老还童要求的警报。你不需要填补职位。</SC_Alerts_Desc>
+  <SC_Slaves>同样适用于奴隶</SC_Slaves>
+  <SC_Slaves_Desc>开启后，你殖民地的奴隶也无视意识形态。</SC_Slaves_Desc>
+  <SC_Note>更改立即生效，进行中的游戏也一样。意识形态标签页仍然可见，但对你的殖民地没有影响。</SC_Note>
+  <SC_LookChange>殖民者自行改变外貌</SC_LookChange>
+  <SC_LookChange_Desc>殖民者不时会想要新的发型、胡须或纹身，并在有空时自行前往造型台。仅限自由的成年殖民者（不包括奴隶、囚犯或访客）。需要造型台——没有造型台就没人会有这个愿望（原版行为）。4 天内未实现的愿望会被放弃。</SC_LookChange_Desc>
+  <SC_LookChangeDays>每位殖民者两次愿望之间的平均天数：{0}</SC_LookChangeDays>
+  <SC_LookChangeDays_Desc>殖民者平均多少天后会再次想要新外貌。好心情和美貌会让频率略高，坏心情则更低。</SC_LookChangeDays_Desc>
+  <SC_LookChangeMessage>有人想要新外貌时显示消息</SC_LookChangeMessage>
+  <SC_LookChangeMessage_Desc>屏幕顶部的简短消息。游戏不会暂停。</SC_LookChangeMessage_Desc>
+  <SC_StyleFree>不受意识形态约束的造型</SC_StyleFree>
+  <SC_StyleFree_Desc>发型、胡须和纹身从所有符合殖民者性别、年龄和基因的选项中选择，而不是从意识形态允许的选项中选择。意识形态不喜欢的造型不再让殖民者想要改变。</SC_StyleFree_Desc>
+  <SC_LookWish>{PAWN_nameDef} 想要新外貌。</SC_LookWish>
+  <SC_H_Belief>信仰</SC_H_Belief>
+  <SC_H_Look>外貌</SC_H_Look>
+  <SC_H_Love>没有信仰的感情关系</SC_H_Love>
+  <SC_LoveHint>没有意识形态时，信仰不再决定殖民者可以有多少个伴侣。请选择一条规则：</SC_LoveHint>
+  <SC_Rule0>按特性（推荐）</SC_Rule0>
+  <SC_Rule0_Desc>每人一个伴侣。拥有“多元恋爱”或“多偶制”特性的殖民者可以有更多伴侣和配偶（不超过下方的上限）。</SC_Rule0_Desc>
+  <SC_Rule1>所有人一个伴侣</SC_Rule1>
+  <SC_Rule1_Desc>任何人都不能同时有多个伴侣或配偶。新关系会结束旧关系。</SC_Rule1_Desc>
+  <SC_Rule2>所有人自由恋爱</SC_Rule2>
+  <SC_Rule2_Desc>任何人都可以有更多伴侣和配偶（不超过下方的上限）。这是本模组 1.1 版本之前的行为。</SC_Rule2_Desc>
+  <SC_MaxPartners>同时最多伴侣数：{0}</SC_MaxPartners>
+  <SC_MaxPartners_Desc>规则允许时，殖民者可同时拥有的恋人、未婚夫妻和配偶的总数。5 或以上 = 无上限。</SC_MaxPartners_Desc>
+  <SC_PolyChance>多偶特性出现频率：{0} %</SC_PolyChance>
+  <SC_PolyChance_Desc>“多元恋爱”和“多偶制”在新角色身上出现的频率。0 % = 从不（仍可在角色编辑器中添加）。</SC_PolyChance_Desc>
+  <SC_PolyNoJealousy>多元恋爱者不会嫉妒</SC_PolyNoJealousy>
+  <SC_PolyNoJealousy_Desc>当伴侣也有其他人时，多元恋爱的殖民者不会获得“被出轨”的心情。</SC_PolyNoJealousy_Desc>
+  <SC_PolygamyMood>多偶制者喜欢大家庭</SC_PolygamyMood>
+  <SC_PolygamyMood_Desc>多偶制殖民者有两位配偶时心情 +3，三位 +5，四位或以上 +7。</SC_PolygamyMood_Desc>
+  <SC_H_NoBelief>完全没有信仰</SC_H_NoBelief>
+  <SC_NoBelief_NoGame>在运行中的游戏里（在此设置中）可以将意识形态从殖民地中完全移除。</SC_NoBelief_NoGame>
+  <SC_NoBelief_Desc>将意识形态从殖民地中完全移除：游戏切换到经典模式（就像没有 Ideology 的游戏），意识形态标签页、确信度、改宗、职位、圣物和意识形态建筑都会消失。所有殖民者获得一个没有规则的简单“经典”信仰，之后加入的人也会采用它。</SC_NoBelief_Desc>
+  <SC_NoBelief_Button>从殖民地移除意识形态</SC_NoBelief_Button>
+  <SC_NoBelief_Confirm>确定要从殖民地移除意识形态吗？这会改变存档（职位和意识形态建筑会消失）。请先保存到新的存档位。</SC_NoBelief_Confirm>
+  <SC_NoBelief_Converted>意识形态已移除——已转变的殖民者：{0}。殖民地已无信仰。</SC_NoBelief_Converted>
+  <SC_NoBelief_Done>殖民地没有意识形态（经典模式）。</SC_NoBelief_Done>
+  <SC_NoBelief_Undo>恢复意识形态（关闭经典模式）</SC_NoBelief_Undo>
+  <SC_NoBelief_Undone>经典模式已关闭——意识形态标签页已恢复。殖民者保留简单信仰，你可以编辑它。</SC_NoBelief_Undone>
+  <SC_BarberTable>也包括理发桌</SC_BarberTable>
+  <SC_BarberTable_Desc>想要新外貌的殖民者会前往最近的造型台或理发桌（Vanilla Hair Expanded 及类似模组）。理发桌菜单只列出适合该殖民者（性别、种族、基因）的发型和胡须。</SC_BarberTable_Desc>
+  <SC_GenderStyles>女性用女性发型，男性用男性发型</SC_GenderStyles>
+  <SC_GenderStyles_Desc>女性只选择女性和中性发型，男性只选择男性和中性发型——来自你所有的发型模组。适用于你的殖民者。</SC_GenderStyles_Desc>
+  <SC_HairColours>也改变发色</SC_HairColours>
+  <SC_HairColours_Desc>改变造型时，殖民者不时也会改变发色——从所有模组的颜色中选择（游戏和模组的染发剂、Vanilla Hair Expanded 预设、来自基因的自然发色）。女性染发更频繁，男性大多选择自然发色。理发桌菜单中也会出现这些颜色。</SC_HairColours_Desc>
+  <SC_HairColourChance>改变造型时换新发色的几率：{0} %</SC_HairColourChance>
+  <SC_HairColourChance_Desc>殖民者改变造型时同时改变发色的频率。</SC_HairColourChance_Desc>
+  <SC_Rec1>信仰不影响心情，也不引发精神崩溃</SC_Rec1>
+  <SC_Rec2>确信度保持不变，没人会改宗</SC_Rec2>
+  <SC_Rec3>自由造型、理发桌、发色</SC_Rec3>
+  <SC_Rec4>按特性决定感情关系，不会嫉妒</SC_Rec4>
+  <SC_KeepHint>仍保留某些类型（部分模式）：</SC_KeepHint>
+  <SC_KeepRituals>保留来自仪式的心情</SC_KeepRituals>
+  <SC_KeepRituals_Desc>仪式和圣物仍然提供心情加成（和惩罚）。</SC_KeepRituals_Desc>
+  <SC_KeepRoles>保留来自职位的心情</SC_KeepRoles>
+  <SC_KeepRoles_Desc>领袖和专家职位仍然影响心情（空缺职位、失去职位、职位服装）。</SC_KeepRoles_Desc>
+  <SC_KeepBuildings>保留来自信仰建筑的心情</SC_KeepBuildings>
+  <SC_KeepBuildings_Desc>缺失或不受尊重的祭坛及其他信仰建筑仍然计入。</SC_KeepBuildings_Desc>
+  <SC_KeepApparel>保留来自期望服装和颜色的心情</SC_KeepApparel>
+  <SC_KeepApparel_Desc>信仰所期望的服装和颜色仍然影响心情。</SC_KeepApparel_Desc>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <MUI_RecTag>推荐</MUI_RecTag>
+</LanguageData>

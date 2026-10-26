@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <URT_Tab_Overview>개요</URT_Tab_Overview>
+  <URT_Tab_Services>번역 서비스</URT_Tab_Services>
+  <URT_Rec1>언어 팩이 다루지 않는 모든 모드 텍스트를 백그라운드에서 끊김 없이 번역합니다.</URT_Rec1>
+  <URT_Rec2>키가 필요 없는 무료 서비스. 하나가 바쁘면 다음 서비스가 이어받습니다.</URT_Rec2>
+  <URT_Rec3>모든 번역은 검사를 거칩니다 – 깨진 번역은 절대 사용되지 않습니다(이름과 텍스트에 "ERR"이 나오지 않음).</URT_Rec3>
+  <URT_Status_Inactive>번역 중이 아님: {0}</URT_Status_Inactive>
+  <URT_Status_Language>언어: {0} ({1})</URT_Status_Language>
+  <URT_Status_Phase>현재: {0}</URT_Status_Phase>
+  <URT_Status_Counts>번역 없는 텍스트 발견: {0} · 기억된 번역: {1} · 게임에 적용: {2} · 번역 대기: {3}</URT_Status_Counts>
+  <URT_Status_Session>이번 세션: 번역 {0}, 검사에서 거부 {1}, 실패 {2} · 문법 대체 사용 {3}</URT_Status_Session>
+  <URT_Status_Migrated>0.9에서 가져옴: {0}</URT_Status_Migrated>
+  <URT_Pause>번역 일시 정지</URT_Pause>
+  <URT_Resume>번역 계속</URT_Resume>
+  <URT_RetryFailed>실패한 텍스트 다시 시도</URT_RetryFailed>
+  <URT_Sec_What>번역할 대상</URT_Sec_What>
+  <URT_Sec_Grammar>문법</URT_Sec_Grammar>
+  <URT_Enabled>누락된 텍스트 번역</URT_Enabled>
+  <URT_Enabled_Desc>끔: 이미 기억된 번역만 사용하고, 새로운 것은 서비스로 보내지 않습니다.</URT_Enabled_Desc>
+  <URT_Defs>이름과 설명(defs)</URT_Defs>
+  <URT_Defs_Desc>모든 모드의 물건, 건물, 건강 상태, 연구 … 의 이름, 설명 및 기타 텍스트.</URT_Defs_Desc>
+  <URT_Keyed>인터페이스 텍스트(Keyed)</URT_Keyed>
+  <URT_Keyed_Desc>모드가 영어로 제공하는 버튼, 메시지, 설정 텍스트.</URT_Keyed_Desc>
+  <URT_Rules>문법 규칙(이야기, 예술, 기록, 퀘스트)</URT_Rules>
+  <URT_Rules_Desc>"-&gt;" 뒤의 텍스트만 번역되며, 모든 [토큰]은 그대로 유지됩니다. 검사를 통과하지 못한 규칙은 영어로 남습니다.</URT_Rules_Desc>
+  <URT_GrammarFallback>누락된 문법 격 채우기</URT_GrammarFallback>
+  <URT_GrammarFallback_Desc>격이 있는 언어(체코어: imageNom, imageGen …)는 모드에 없는 키워드를 요구하며, 그러면 게임이 "ERR"을 표시합니다. 대신 기본 키워드를 사용합니다.</URT_GrammarFallback_Desc>
+  <URT_Services_Intro>서비스는 위에서부터 차례로 시도됩니다. 원하지 않는 것은 끄세요. 무료 서비스는 아무 설정 없이 작동합니다. 바쁘거나 차단된 서비스는 스스로 일시 정지하고 다음 서비스가 이어받습니다. 키는 설정 파일에만 저장됩니다.</URT_Services_Intro>
+  <URT_Badge_Free>무료, 키 불필요</URT_Badge_Free>
+  <URT_Badge_Key>키 필요</URT_Badge_Key>
+  <URT_Badge_AiKey>AI – 키 또는 로컬 서버 필요</URT_Badge_AiKey>
+  <URT_NotSetUp>설정되지 않음(키 입력)</URT_NotSetUp>
+  <URT_Test>테스트</URT_Test>
+  <URT_Testing>테스트 중 …</URT_Testing>
+  <URT_Key>키</URT_Key>
+  <URT_Region>지역</URT_Region>
+  <URT_Model>모델</URT_Model>
+  <URT_Url>주소(URL)</URT_Url>
+  <URT_Email>이메일(일일 한도 증가)</URT_Email>
+  <MUI_Title>권장 설정</MUI_Title>
+  <MUI_TitleOff>권장 설정 · 꺼짐</MUI_TitleOff>
+  <MUI_DescOn>모드가 스스로 설정되어 바로 작동합니다. 처음 하는 플레이어나 아무것도 조정하고 싶지 않은 분께 적합합니다.</MUI_DescOn>
+  <MUI_DescOff>사용자 설정. 권장 설정에서 변경됨: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>사용자 설정. 아직 권장 설정과 같습니다.</MUI_DescOffSame>
+  <MUI_On>켜짐</MUI_On>
+  <MUI_Off>꺼짐</MUI_Off>
+  <MUI_ResetAll>모두 권장값으로 초기화</MUI_ResetAll>
+  <MUI_ConfirmOn>권장 설정을 켜시겠습니까? 변경한 항목({0})이 권장값으로 바뀝니다.</MUI_ConfirmOn>
+  <MUI_Locked>세부 설정이 잠겨 있습니다. 변경하려면 위의 스위치를 끄세요 – 값은 권장값에서 시작합니다.</MUI_Locked>
+  <MUI_Changed>변경됨</MUI_Changed>
+  <MUI_ChangedTip>권장 설정({0})과 다릅니다. 클릭하면 권장값으로 되돌립니다.</MUI_ChangedTip>
+  <MUI_Yes>켜짐</MUI_Yes>
+  <MUI_No>꺼짐</MUI_No>
+  <MUI_RecTag>권장</MUI_RecTag>
+  <URT_Live>코드에서 만든 텍스트(실시간)</URT_Live>
+  <URT_Live_Desc>모드가 언어 파일이 아닌 코드에 직접 작성한 메시지, 편지, 버튼, 툴팁, 정보 줄. 화면에서만 번역되며 게임 데이터는 바뀌지 않습니다. 알려진 텍스트는 즉시 나타나고, 새 영어 텍스트는 백그라운드에서 수집되어 번역됩니다(숫자는 상관없음: "Harvested 25 rice"와 "Harvested 3 rice"는 같은 텍스트). 정착민, 세력, 장소의 이름은 절대 번역되지 않습니다.</URT_Live_Desc>
+  <URT_Status_Live>실시간: 번역 표시 {0}개, 이번 세션 수집 {1}개, 대기 {2}개, 도착 {3}개</URT_Status_Live>
+  <URT_Tab_Editor>편집기</URT_Tab_Editor>
+  <URT_Ed_Intro>원문이나 번역으로 아무 텍스트나 찾아 직접 번역을 작성하세요. 직접 쓴 텍스트는 기계 번역으로 절대 바뀌지 않습니다.</URT_Ed_Intro>
+  <URT_Ed_F_All>전체</URT_Ed_F_All>
+  <URT_Ed_F_Mine>내 번역</URT_Ed_F_Mine>
+  <URT_Ed_F_Problems>문제</URT_Ed_F_Problems>
+  <URT_Ed_F_Untranslated>미번역</URT_Ed_F_Untranslated>
+  <URT_Ed_Searching>검색 중…</URT_Ed_Searching>
+  <URT_Ed_Count>텍스트 {0}개</URT_Ed_Count>
+  <URT_Ed_CountMore>텍스트 {1}개 중 처음 {0}개 – 더 정확히 검색하세요</URT_Ed_CountMore>
+  <URT_Ed_SearchHint>검색할 단어를 입력하세요(영어 또는 번역). 직접 쓴 번역이 여기에 표시됩니다.</URT_Ed_SearchHint>
+  <URT_Ed_NoTranslation>아직 번역되지 않음</URT_Ed_NoTranslation>
+  <URT_Ed_Pick>왼쪽에서 텍스트를 선택하세요.</URT_Ed_Pick>
+  <URT_Ed_Original>원문</URT_Ed_Original>
+  <URT_Ed_Yours>번역</URT_Ed_Yours>
+  <URT_Ed_YoursNow>직접 작성</URT_Ed_YoursNow>
+  <URT_Ed_MachineNow>기계 번역({0})</URT_Ed_MachineNow>
+  <URT_Ed_Machine>기계 번역:</URT_Ed_Machine>
+  <URT_Ed_Save>내 번역 저장</URT_Ed_Save>
+  <URT_Ed_Revert>기계 번역</URT_Ed_Revert>
+  <URT_Ed_KeepOriginal>원문 유지</URT_Ed_KeepOriginal>
+  <URT_Ed_Again>다시 번역</URT_Ed_Again>
+  <URT_Ed_AgainTip>현재 번역을 버리고, 잠시 후 서비스가 다시 번역합니다.</URT_Ed_AgainTip>
+  <URT_Ed_Saved>저장됨 – 이제 게임에 적용되었습니다.</URT_Ed_Saved>
+  <URT_Ed_Broken>저장했지만 사용되지 않음: 중괄호 안의 자리 표시자나 &lt;color&gt; 태그가 없거나 바뀌었습니다({0}). 원문과 같게 유지하세요.</URT_Ed_Broken>
+  <URT_Ed_EmptyNote>텍스트가 비어 있습니다 – "기계 번역" 또는 "원문 유지"를 사용하세요.</URT_Ed_EmptyNote>
+  <URT_Ed_Reverted>기계 번역으로 되돌렸습니다.</URT_Ed_Reverted>
+  <URT_Ed_Kept>원문(영어)을 유지합니다.</URT_Ed_Kept>
+  <URT_Ed_AgainNote>잠시 후 다시 번역됩니다.</URT_Ed_AgainNote>
+  <URT_Gl_Title>내 단어</URT_Gl_Title>
+  <URT_Gl_Hint>왼쪽 단어는 모든 번역에서 내 단어로 바뀝니다(단어 단위, 첫 글자의 대소문자 유지). 오른쪽을 비우면 단어를 삭제합니다.</URT_Gl_Hint>
+  <URT_Gl_Add>추가</URT_Gl_Add>
+  <URT_Gl_Delete>삭제</URT_Gl_Delete>
+  <URT_Gl_Remove>(삭제됨)</URT_Gl_Remove>
+  <URT_Tab_Mods>모드</URT_Tab_Mods>
+  <URT_Mods_Intro>각 모드의 번역 정도. 체크를 해제하면 모드가 영어로 유지됩니다(텍스트가 게임에서 빠지고 번역으로 보내지지 않음). 내보내기는 모드의 번역을 일반 Languages 폴더로 저장합니다 – 공유하거나 모드 제작자에게 보내세요. 코드에서 만든 텍스트(실시간)는 여기서 세지 않습니다.</URT_Mods_Intro>
+  <URT_Mods_SearchHint>모드 찾기…</URT_Mods_SearchHint>
+  <URT_Mods_ExportAll>모두 내보내기</URT_Mods_ExportAll>
+  <URT_Mods_Exporting>내보내는 중…</URT_Mods_Exporting>
+  <URT_Mods_ExportTip>모든 모드의 번역을 다음 위치에 저장합니다:\n{0}\n각 모드는 Languages가 들어 있는 자체 폴더를 받습니다 – 모드 폴더에 복사하거나 제작자에게 보내세요.</URT_Mods_ExportTip>
+  <URT_Mods_OpenFolder>내보내기 폴더 열기</URT_Mods_OpenFolder>
+  <URT_Mods_Counting>세는 중…</URT_Mods_Counting>
+  <URT_Mods_Sum>모드 {0}개 · 텍스트 {2}개 중 {1}개 번역됨({3})</URT_Mods_Sum>
+  <URT_Mods_SkipTip>이 모드를 번역합니다. 체크를 해제하면 영어로 유지됩니다.</URT_Mods_SkipTip>
+  <URT_Mods_Export>내보내기</URT_Mods_Export>
+  <URT_Mods_ExportedOne>텍스트 {0}개를 {1}(으)로 내보냈습니다</URT_Mods_ExportedOne>
+  <URT_Mods_ExportedAll>텍스트 {0}개를 파일 {1}개로 {2}에 내보냈습니다</URT_Mods_ExportedAll>
+  <URT_Mods_ExportFailed>내보내기 실패: {0}</URT_Mods_ExportFailed>
+  <URT_Tab_Quality>검사</URT_Tab_Quality>
+  <URT_Q_Intro>자동 검사는 통과했지만 여전히 잘못되어 보이는 기계 번역. 직접 쓴 번역은 절대 표시되지 않습니다.</URT_Q_Intro>
+  <URT_Q_All>전체</URT_Q_All>
+  <URT_Q_K_Number>숫자</URT_Q_K_Number>
+  <URT_Q_K_Number_Tip>번역에 원문의 숫자가 빠졌습니다 – 게임이 잘못된 양을 보여 주거나 아무것도 보여 주지 않습니다.</URT_Q_K_Number_Tip>
+  <URT_Q_K_English>영어 남음</URT_Q_K_English>
+  <URT_Q_K_English_Tip>영어 단어가 번역되지 않고 그대로 번역문에 복사되었습니다.</URT_Q_K_English_Tip>
+  <URT_Q_K_Name>이름</URT_Q_K_Name>
+  <URT_Q_K_Name_Tip>정착민, 세력, 장소 또는 모드의 이름이 번역되었습니다 – 이름은 그대로 두어야 합니다.</URT_Q_K_Name_Tip>
+  <URT_Q_K_Cut>잘림</URT_Q_K_Cut>
+  <URT_Q_K_Cut_Tip>번역이 문장 중간에서 끝나거나 원문보다 훨씬 짧습니다.</URT_Q_K_Cut_Tip>
+  <URT_Q_K_Chars>이상한 문자</URT_Q_K_Chars>
+  <URT_Q_K_Chars_Tip>&amp;amp; 같은 깨진 문자, 텍스트로 쓰인 \n 또는 이중 공백.</URT_Q_K_Chars_Tip>
+  <URT_Q_K_Differs>불일치</URT_Q_K_Differs>
+  <URT_Q_K_Differs_Tip>같은 짧은 텍스트(버튼, 단어)가 곳에 따라 다르게 번역되었습니다.</URT_Q_K_Differs_Tip>
+  <URT_Q_WhyNumber>숫자 {0}이(가) 없습니다.</URT_Q_WhyNumber>
+  <URT_Q_WhyEnglish>영어로 남음: {0}</URT_Q_WhyEnglish>
+  <URT_Q_WhyName>이름 "{0}"이(가) 번역되었습니다.</URT_Q_WhyName>
+  <URT_Q_WhyCut>잘린 것 같습니다.</URT_Q_WhyCut>
+  <URT_Q_WhyChars>이상한 문자: {0}</URT_Q_WhyChars>
+  <URT_Q_WhySpaces>이중 공백.</URT_Q_WhySpaces>
+  <URT_Q_WhyDiffers>다른 곳({1}×)에서는 "{0}"입니다.</URT_Q_WhyDiffers>
+  <URT_Q_Checking>검사 중…</URT_Q_Checking>
+  <URT_Q_Recheck>다시 검사</URT_Q_Recheck>
+  <URT_Q_AgainAll>표시된 항목 다시 번역({0})</URT_Q_AgainAll>
+  <URT_Q_AgainAllTip>목록의 모든 텍스트("불일치" 제외)를 번역 서비스로 다시 보냅니다. 직접 쓴 번역은 건드리지 않습니다.</URT_Q_AgainAllTip>
+  <URT_Q_AgainAllConfirm>텍스트 {0}개를 다시 번역할까요? 현재 기계 번역은 버려집니다.</URT_Q_AgainAllConfirm>
+  <URT_Q_UnifyAll>모두 통일({0})</URT_Q_UnifyAll>
+  <URT_Q_None>의심스러운 것이 없습니다. 👍</URT_Q_None>
+  <URT_Q_Pick>왼쪽에서 텍스트를 선택하세요.</URT_Q_Pick>
+  <URT_Q_YourFix>내 번역</URT_Q_YourFix>
+  <URT_Q_Save>내 수정 저장</URT_Q_Save>
+  <URT_Q_SaveTip>지금부터 내 텍스트가 사용되며, 기계 번역으로 절대 바뀌지 않습니다.</URT_Q_SaveTip>
+  <URT_Q_Unify>공통 번역 사용</URT_Q_Unify>
+  <URT_Q_Unified>통일했습니다.</URT_Q_Unified>
+  <URT_Q_Fine>괜찮음</URT_Q_Fine>
+  <URT_Q_FineNote>확인 – 다시 표시되지 않습니다.</URT_Q_FineNote>
+  <URT_Ed_AgainWait>다른 서비스로 다시 번역 중… ({0}초)</URT_Ed_AgainWait>
+  <URT_Ed_AgainDone>다시 번역했습니다({0}).</URT_Ed_AgainDone>
+  <URT_Ed_AgainBad>새 번역이 검사를 통과하지 못했습니다({0}) – 직접 작성하고 저장을 누르세요.</URT_Ed_AgainBad>
+  <URT_Ed_AgainSlow>아직 응답한 서비스가 없습니다 – 대기열에 남아 있습니다. 나중에 다시 확인하세요.</URT_Ed_AgainSlow>
+  <URT_PickFix>Alt + 우클릭으로 텍스트 수정</URT_PickFix>
+  <URT_PickFix_Desc>Alt를 누른 채 게임 속 아무 텍스트나 우클릭하세요: 바로 그 텍스트로 편집기가 열려 더 나은 번역을 쓰거나 다시 번역할 수 있습니다.</URT_PickFix_Desc>
+  <URT_Pick_NotFound>이 텍스트는 URT의 기억에 없습니다(게임 언어 팩에서 왔거나 여러 조각을 조합한 것일 수 있음). 검색에 비슷한 텍스트가 표시됩니다.</URT_Pick_NotFound>
+  <URT_Welcome_Title>Universal RimTranslator</URT_Welcome_Title>
+  <URT_Welcome_Body>URT가 모든 모드를 {0}(으)로 번역합니다 – 무료이며 설정할 것이 없습니다.
+
+• 이미 알고 있는 텍스트는 지금 바로 게임에 있고, 나머지는 플레이하는 동안 백그라운드에서 번역됩니다. 바로 플레이할 수 있습니다.
+• 플레이 중 모드가 만드는 텍스트는 나타나는 대로 화면에서 번역됩니다.
+• 텍스트가 이상하거나 반만 번역되었나요? Alt를 누른 채 우클릭하세요 – 바로 그 텍스트로 편집기가 열립니다.
+• 진행 상황, 서비스, 영어로 둔 모드, 편집기: 옵션 → 모드 설정 → Universal RimTranslator.</URT_Welcome_Body>
+  <URT_Welcome_English>게임이 영어이므로 URT가 번역할 것이 없습니다.
+
+옵션 → 언어에서 언어를 선택하고 게임을 다시 시작하세요 – 그러면 URT가 모든 모드를 무료로, 아무 설정 없이 그 언어로 번역합니다.</URT_Welcome_English>
+  <URT_Welcome_Ok>알겠습니다</URT_Welcome_Ok>
+  <URT_Welcome_Settings>설정 열기</URT_Welcome_Settings>
+</LanguageData>

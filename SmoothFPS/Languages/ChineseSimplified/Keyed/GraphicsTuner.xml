@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <MUI_RecTag>推荐</MUI_RecTag>
+  <GT_Profile>图形配置。更改立即生效，无需重启。</GT_Profile>
+  <GT_ProfPerf>性能</GT_ProfPerf>
+  <GT_ProfPerf_Card>FPS 最高。特效更少，植物不摇摆，无雨雪。</GT_ProfPerf_Card>
+  <GT_ProfBal>均衡</GT_ProfBal>
+  <GT_ProfBal_Card>看起来几乎一样，但不绘制多余的内容。</GT_ProfBal_Card>
+  <GT_ProfQual>画质</GT_ProfQual>
+  <GT_ProfQual_Card>所有特效与原版一致。完整日志输出。</GT_ProfQual_Card>
+  <GT_ProfCustom>自定义</GT_ProfCustom>
+  <GT_ProfCustom_Card>每一项都由你自己设置。</GT_ProfCustom_Card>
+  <GT_ProfileHint>配置只更改左侧（特效、流畅度）。右侧的显示设置始终由你决定。</GT_ProfileHint>
+  <GT_SecEffects>特效与世界</GT_SecEffects>
+  <GT_SecSmooth>流畅度</GT_SecSmooth>
+  <GT_SecDisplay>显示</GT_SecDisplay>
+  <GT_SecAdvanced>高级（重启后生效）</GT_SecAdvanced>
+  <GT_SecNow>当前</GT_SecNow>
+  <GT_Effects>特效（烟雾、火花、尘土——包括模组）：{0} %</GT_Effects>
+  <GT_Effects_Desc>生成多少视觉特效。它们不影响游戏，只影响外观。越少 = FPS 越高，尤其是在战斗和火灾中。</GT_Effects_Desc>
+  <GT_Cap>每秒最多特效数：{0}</GT_Cap>
+  <GT_Cap_Desc>硬性上限——大规模战斗中，在 FPS 下降之前就停止生成新特效。0 = 无上限。</GT_Cap_Desc>
+  <GT_CullEffects>远距离缩放时不显示特效</GT_CullEffects>
+  <GT_CullEffects_Desc>镜头很远时，本来也看不到烟雾和火花。</GT_CullEffects_Desc>
+  <GT_CullWeapons>远距离缩放时不显示手持武器</GT_CullWeapons>
+  <GT_CullWeapons_Desc>镜头很远时，不绘制武器和角色附加物。头像不受影响。</GT_CullWeapons_Desc>
+  <GT_CullZoom>"远"指缩放超过：{0}</GT_CullZoom>
+  <GT_CullZoom_Desc>越低 = 缩小时特效和武器越早消失。游戏范围约为 11（最近）到 60（最远）。</GT_CullZoom_Desc>
+  <GT_NoWeather>不绘制雨雪</GT_NoWeather>
+  <GT_NoWeather_Desc>天气依然生效（潮湿、寒冷、心情），只是不在屏幕上绘制雨滴和雪花。</GT_NoWeather_Desc>
+  <GT_PlantSway>植物随风摇摆</GT_PlantSway>
+  <GT_PlantSway_Desc>与游戏选项相同。关闭 = 植物静止，游戏绘制更少。</GT_PlantSway_Desc>
+  <GT_FastLog>更快的日志</GT_FastLog>
+  <GT_FastLog_Desc>RimWorld 1.7 会为每条日志消息保存完整的堆栈跟踪。当许多模组输出警告时，会导致卡顿。开启 = 不保存堆栈跟踪。</GT_FastLog_Desc>
+  <GT_FastLog_Note>提交错误报告的日志时，请暂时关闭此项——堆栈跟踪有助于找到原因。</GT_FastLog_Note>
+  <GT_VSync>V-Sync</GT_VSync>
+  <GT_VSync_Desc>关闭 = FPS 最高，画面可能撕裂。开启 = FPS 跟随显示器，无撕裂。三重 = 画面流畅，略有延迟。</GT_VSync_Desc>
+  <GT_VSync_Off>关闭</GT_VSync_Off>
+  <GT_VSync_On>开启</GT_VSync_On>
+  <GT_VSync_TripleBuffer>三重（流畅）</GT_VSync_TripleBuffer>
+  <GT_VSync_Adaptive>自适应</GT_VSync_Adaptive>
+  <GT_VSync_Mailbox>三重（快速）</GT_VSync_Mailbox>
+  <GT_VSync_Fifo>开启</GT_VSync_Fifo>
+  <GT_VSync_Immediate>关闭</GT_VSync_Immediate>
+  <GT_Fps>FPS 上限</GT_Fps>
+  <GT_Fps_Desc>同游戏 = 显示器刷新率。无限制 = 尽可能多（开启 V-Sync 时仍跟随显示器）。</GT_Fps_Desc>
+  <GT_BgFps>后台 FPS 上限（Alt+Tab）</GT_BgFps>
+  <GT_BgFps_Desc>游戏不在前台时绘制更少的帧——电脑保持凉爽，游戏继续运行。</GT_BgFps_Desc>
+  <GT_Display>显示模式</GT_Display>
+  <GT_Display_Desc>窗口、无边框窗口或全屏。独占全屏通常最快。</GT_Display_Desc>
+  <GT_Display_Windowed>窗口</GT_Display_Windowed>
+  <GT_Display_Borderless>无边框窗口</GT_Display_Borderless>
+  <GT_Display_BorderlessWindowed>无边框窗口</GT_Display_BorderlessWindowed>
+  <GT_Display_BorderlessFullscreen>全屏（无边框）</GT_Display_BorderlessFullscreen>
+  <GT_Display_Fullscreen>全屏</GT_Display_Fullscreen>
+  <GT_Display_FullscreenExclusive>全屏（独占）</GT_Display_FullscreenExclusive>
+  <GT_Display_ExclusiveFullscreen>全屏（独占）</GT_Display_ExclusiveFullscreen>
+  <GT_Display_FullScreenWindow>全屏（窗口）</GT_Display_FullScreenWindow>
+  <GT_Game>同游戏</GT_Game>
+  <GT_Unlimited>无限制</GT_Unlimited>
+  <GT_NoChange>不更改</GT_NoChange>
+  <GT_OverlayOn>在右上角显示 FPS</GT_OverlayOn>
+  <GT_OverlayOn_Desc>一个显示 FPS、帧时间和游戏速度的小框（TPS = 每秒游戏 tick 数；正常速度 60，最高速度 360+）。</GT_OverlayOn_Desc>
+  <GT_Overlay>FPS {0} · {1} 毫秒 · TPS {2}</GT_Overlay>
+  <GT_Not17>V-Sync 和显示模式需要 RimWorld 1.7（新引擎）。</GT_Not17>
+  <GT_Gc>内存清理（GC）</GT_Gc>
+  <GT_Gc_Desc>.NET 如何清理内存。写入游戏文件夹中的 RimWorld.runtimeconfig.json，重启游戏后生效。</GT_Gc_Desc>
+  <GT_Gc0>同游戏</GT_Gc0>
+  <GT_Gc1>流畅（更少卡顿）</GT_Gc1>
+  <GT_Gc2>服务器（更多核心，更多内存）</GT_Gc2>
+  <GT_Gc_Note>流畅 = 内存在后台清理，且不会立即归还系统 → 更少卡顿。服务器 = 在所有核心上清理，暂停更短，但占用更多 RAM。模组会备份原始文件。游戏更新可能会重置它——重新选择即可。</GT_Gc_Note>
+  <GT_GcRestore>恢复游戏原始文件</GT_GcRestore>
+  <GT_GcSaved>已保存。重启游戏后生效。</GT_GcSaved>
+  <GT_GcRestored>已恢复原始文件。请重启游戏。</GT_GcRestored>
+  <GT_GcError>失败：{0}</GT_GcError>
+  <GT_GcNone>仅限 RimWorld 1.7。</GT_GcNone>
+  <GT_Now>FPS {0} · 帧 {1} 毫秒 · TPS {2}</GT_Now>
+  <GT_NowEffects>启动以来的特效：生成 {0}，节省 {1}</GT_NowEffects>
+  <GT_TabGraphics>图形</GT_TabGraphics>
+  <GT_TabSmooth>流畅度</GT_TabSmooth>
+  <GT_AutoSpeed>速度 3 时自动减少特效</GT_AutoSpeed>
+  <GT_AutoSpeed_Desc>在最高速度下，每秒出现的特效（烟雾、火花、尘土）是三倍，但你几乎看不到。将其减半。</GT_AutoSpeed_Desc>
+  <GT_Adaptive>FPS 低于目标时减少特效</GT_Adaptive>
+  <GT_Adaptive_Desc>当 FPS 低于"流畅度"标签页中的目标时，逐步减少特效（最低到四分之一）。FPS 恢复后，特效也会恢复。</GT_Adaptive_Desc>
+  <GT_NowAuto>当前生成 {0} % 的特效（已自动减少）</GT_NowAuto>
+  <GT_SmoothOther>Smooth Frames 已启用——"流畅度"标签页已关闭，以免两个模组争抢同一功能。Smooth FPS 现已包含 Smooth Frames 的全部功能：请在模组列表中禁用 Smooth Frames 并重启。</GT_SmoothOther>
+  <GT_SecHighSpeed>各种速度下的流畅度</GT_SecHighSpeed>
+  <GT_Budget>保持画面流畅（模拟预算）</GT_Budget>
+  <GT_Budget_Desc>在任何速度（1× 到 4×）下，游戏每帧都会运行若干 tick，没有本模组时最多可占用 45 毫秒——高速时画面就会卡顿。本模组测量绘制所需时间，只把目标 FPS 下剩余的帧时间分配给模拟。放不下的部分在后续帧中完成。下方可以为每种速度设置单独的目标 FPS 和模拟上限。</GT_Budget_Desc>
+  <GT_Target>要保持的目标 FPS</GT_Target>
+  <GT_Target_Desc>即使在高速下，游戏也应保持的每秒帧数。</GT_Target_Desc>
+  <GT_Slow>FPS 下降时</GT_Slow>
+  <GT_Slow_Desc>流畅画面：放不下的 tick 被丢弃——画面保持流畅，游戏运行稍慢（与原版相同，无卡顿）。保持速度：tick 在后续帧中完成——游戏保持速度，画面可能稍欠流畅。</GT_Slow_Desc>
+  <GT_SlowPicture>减慢游戏，而不是画面</GT_SlowPicture>
+  <GT_SlowKeep>保持游戏速度</GT_SlowKeep>
+  <GT_MaxSim>每帧最多模拟时间：{0}</GT_MaxSim>
+  <GT_MaxSim_Desc>自动 = 根据目标 FPS 和绘制时间。越低 = 画面越流畅，游戏越慢。</GT_MaxSim_Desc>
+  <GT_Auto>自动</GT_Auto>
+  <GT_Move>移动镜头和建造时的 FPS：{0}</GT_Move>
+  <GT_Move_Desc>移动镜头、点击或建造时，画面获得更多时间——操作更跟手。</GT_Move_Desc>
+  <GT_RealNormal>速度 1 和 2 始终全速</GT_RealNormal>
+  <GT_RealNormal_Desc>在速度 1 和 2 下，游戏永远不会比应有速度慢——目标 FPS 只决定画面有多流畅。在大型殖民地中，一个 tick 的耗时超过高目标 FPS 每帧留下的时间，游戏就会按 FPS 的节奏运行（例如每秒 40 而不是 60 个 tick）。速度 3 和 4 遵循"FPS 下降时"。</GT_RealNormal_Desc>
+  <GT_FastShare>速度 3 和 4：模拟至少占一半</GT_FastShare>
+  <GT_FastShare_Desc>在速度 3 和 4 下，模拟获得的时间始终至少与绘制一帧相同。当目标 FPS 无法达到时（例如目标 165，实际 45），模拟每帧只得到 3 毫秒，速度 4 几乎和速度 1 一样。速度 3–4 时画面可能稍欠流畅，但游戏真正跑得快。</GT_FastShare_Desc>
+  <GT_SaveSmart>在合适时机自动存档</GT_SaveSmart>
+  <GT_SaveSmart_Desc>保存大型殖民地会让游戏停顿几秒，且无法安全地在后台进行。因此自动存档会等待不影响游戏的时机：游戏暂停、打开了窗口或标签页（工作、健康……），或你 4 秒内没有任何操作。超过设定时间后仍会保存。适用于游戏自带的自动存档以及 Real Time Autosave 等模组。</GT_SaveSmart_Desc>
+  <GT_SaveWait>最多等待：{0} 分钟</GT_SaveWait>
+  <GT_Idle>仅观看时提高 TPS</GT_Idle>
+  <GT_Idle_Desc>在速度 2 及以上，当你 2 秒内没有任何操作时，游戏绘制更少的帧，节省的时间交给模拟——游戏运行更快。移动鼠标或镜头即可恢复完整 FPS。</GT_Idle_Desc>
+  <GT_IdleFps>仅观看时的 FPS：{0}</GT_IdleFps>
+  <GT_Background>后台时把全部时间交给模拟</GT_Background>
+  <GT_Background_Desc>切换到其他窗口（Alt+Tab）时，游戏只绘制 10 帧（或"图形 → 后台 FPS"的值），其余时间交给模拟。</GT_Background_Desc>
+  <GT_Camera>平滑镜头</GT_Camera>
+  <GT_Camera_Desc>镜头按平滑后的帧时间移动——卡顿后不会跳动，FPS 变化时也不会晃动。</GT_Camera_Desc>
+  <GT_SecHidden>你看不到的负载</GT_SecHidden>
+  <GT_Regen>每帧地图重建次数：{0}</GT_Regen>
+  <GT_Regen_Desc>当草生长、建造物品或下雪时，游戏会在一帧内重建地图的每个改动部分——在 3x 时会造成卡顿。此项限制每帧的数量，其余在后续帧中完成（晚几百分之一秒）。实验性——默认关闭。推荐 4–8。</GT_Regen_Desc>
+  <GT_Off>关闭</GT_Off>
+  <GT_SlowAlerts>3x 时降低右侧警报的检查频率</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>游戏每帧都会重新检查一部分警报（有模组时多达数百个）。高速下每隔一帧检查就足够了。</GT_SlowAlerts_Desc>
+  <GT_SecDiag>诊断</GT_SecDiag>
+  <GT_OverlayBar>帧图表：模拟与绘制</GT_OverlayBar>
+  <GT_OverlayBar_Desc>右上角显示中的一个条形：绿色 = 模拟（tick），蓝色 = 绘制，灰色 = 距目标 FPS 的余量。一眼就能看出是什么拖慢了游戏。</GT_OverlayBar_Desc>
+  <GT_Bar>模拟 {0} 毫秒 · 绘制 {1} 毫秒</GT_Bar>
+  <GT_Bench>基准测试（以你的速度运行 60 秒）</GT_Bench>
+  <GT_Bench_Desc>关闭设置，并以你游戏时的速度测量 60 秒的 FPS 和 TPS——包括 Smart Speed 的 4×（暂停时 = 3×）。然后显示结果并推荐配置。</GT_Bench_Desc>
+  <GT_BenchStart>开始</GT_BenchStart>
+  <GT_BenchNoGame>仅在游戏运行中可用</GT_BenchNoGame>
+  <GT_BenchRunning>测试：{0} 秒</GT_BenchRunning>
+  <GT_Bench_Note>测试后显示平均值、最差帧并推荐配置。</GT_Bench_Note>
+  <GT_BenchStarted>基准测试运行 60 秒——让游戏运行，不要操作。</GT_BenchStarted>
+  <GT_BenchTitle>基准测试</GT_BenchTitle>
+  <GT_BenchResult>平均：{0} FPS\n最差 1 % 帧：{1} FPS\n最长帧：{2} 毫秒\n模拟速度：{3} TPS（正常速度的 {4}x）\n超过 100 毫秒的卡顿：{5}\n\n推荐配置：{6}</GT_BenchResult>
+  <GT_Hitch>查找导致游戏卡顿的原因</GT_Hitch>
+  <GT_Hitch_Desc>每次卡顿时，在日志中记录耗时最长的内容（组件、地图、事件）及其所属模组。会消耗少量性能——找到罪魁祸首后请关闭。</GT_Hitch_Desc>
+  <GT_HitchThings>同时监视地图上的每个物体（会减慢游戏）</GT_HitchThings>
+  <GT_HitchThings_Desc>为每个物体、动物和角色的 tick 计时。能发现更多问题，但本身也消耗性能。重启后生效。</GT_HitchThings_Desc>
+  <GT_HitchMs>将超过 {0} 毫秒的帧视为卡顿</GT_HitchMs>
+  <GT_HitchIncident>事件</GT_HitchIncident>
+  <GT_HitchQuest>任务</GT_HitchQuest>
+  <GT_LastHitch>上次卡顿 {0}</GT_LastHitch>
+  <GT_GcHold>事件生成期间不清理内存</GT_GcHold>
+  <GT_GcHold_Desc>游戏生成事件、任务、袭击或地图时，会创建大量对象。此项会将大型内存清理推迟到生成结束。1.7 上使用温和的 .NET 模式（无风险），1.6 上使用旧方式。默认关闭。</GT_GcHold_Desc>
+  <GT_NowSmooth>FPS {0} · TPS {1} · 模拟 {2} 毫秒 · 绘制 {3} 毫秒 · 预算 {4} 毫秒</GT_NowSmooth>
+  <GT_NowSmoothOff>模拟预算当前未运行（已关闭，或没有运行中的游戏）。</GT_NowSmoothOff>
+  <GT_NowRegen>延迟的地图部分重建：{0}</GT_NowRegen>
+  <GT_Mode1>控制中</GT_Mode1>
+  <GT_Mode2>更多 TPS</GT_Mode2>
+  <GT_Mode3>后台</GT_Mode3>
+  <GT_BudgetOther>{0} 也在控制游戏的 tick 循环——模拟预算已自动关闭，以免两个模组冲突。Smooth FPS 的其他功能照常工作。</GT_BudgetOther>
+  <GT_BudgetStuck>游戏时间停止了，因此模拟预算已让步（可能有其他模组也在控制 tick）。20 秒后会重试；停止 3 次后将保持关闭，直到游戏重启。</GT_BudgetStuck>
+  <GT_BenchSpeed>测试期间的游戏速度：最高 {0}x</GT_BenchSpeed>
+  <GT_SmartTarget>智能目标 FPS</GT_SmartTarget>
+  <GT_SmartTarget_Desc>当你的电脑一段时间内无法保持目标（大型殖民地、袭击、4×）时，目标会逐步降低（例如 90 → 75 → 60），让游戏保持稳定的节奏而不是忽快忽慢。有余量时会再回升到你的设定值。</GT_SmartTarget_Desc>
+  <GT_SmartLowered>目标暂时降低为：{0} FPS（你的设定 {1}）。</GT_SmartLowered>
+  <GT_SmartNow>目标 {0}</GT_SmartNow>
+  <GT_SecFast>4× 及更快</GT_SecFast>
+  <GT_FastMode>高速模式</GT_FastMode>
+  <GT_FastMode_Desc>在 4× 及更快速度下（Smart Speed 及类似模组），没人能看清每一个火花：特效进一步减少，警报每 4 帧才检查一次。降低速度后一切恢复正常。</GT_FastMode_Desc>
+  <GT_FastWeather>4×+ 时不绘制天气</GT_FastWeather>
+  <GT_FastWeather_Desc>4× 及更快速度下不绘制雨、雪和雾的覆盖层。天气本身仍然生效。</GT_FastWeather_Desc>
+  <GT_FastRegen>4×+ 时分散地图重建（实验性）</GT_FastRegen>
+  <GT_FastRegen_Desc>在 4× 及更快速度下，每帧最多重建 8 个可见地图部分，其余在下一帧完成。大量内容同时变化时卡顿更少；改动的墙或植物可能稍晚一瞬出现。</GT_FastRegen_Desc>
+  <GT_FastNowOn>高速模式当前已激活。</GT_FastNowOn>
+  <GT_FastNowOff>当前未激活——在 4× 及更快速度下启动。</GT_FastNowOff>
+  <GT_Prof>什么拖慢了游戏（30 秒）</GT_Prof>
+  <GT_Prof_Desc>关闭设置，并以你游戏时的速度（包括 4×）测量 30 秒，找出哪些模组、物体和游戏部分耗时最多。然后显示前 10 个模组和前 10 个物体。准备和移除测量时会短暂显示加载画面。之后测量会关闭；下次重启游戏后一切与之前完全相同。</GT_Prof_Desc>
+  <GT_Prof_Note>显示最慢的 10 个模组和最慢的 10 个物体或函数——以你当前游戏的速度。</GT_Prof_Note>
+  <GT_ProfShow>显示上次结果</GT_ProfShow>
+  <GT_ProfPreparing>Smooth FPS：正在准备测量…</GT_ProfPreparing>
+  <GT_ProfStarted>正在测量拖慢游戏的因素，持续 {0} 秒——让游戏运行。</GT_ProfStarted>
+  <GT_ProfRunning>测量中：{0} 秒</GT_ProfRunning>
+  <GT_ProfTitle>什么拖慢了游戏</GT_ProfTitle>
+  <GT_ProfSummary>平均 {0} FPS · 最差 1 % {1} FPS · 模拟 {2} TPS（正常速度的 {3}x） · 超过 100 毫秒的卡顿：{4} · 已测量 {5} 秒</GT_ProfSummary>
+  <GT_ProfMods>模组——每秒耗时</GT_ProfMods>
+  <GT_ProfItems>物体和函数——每秒耗时</GT_ProfItems>
+  <GT_ProfVanilla>游戏本身（RimWorld + DLC）</GT_ProfVanilla>
+  <GT_ProfMsPerSec>{0} 毫秒/秒</GT_ProfMsPerSec>
+  <GT_ProfThing>{0}（tick）</GT_ProfThing>
+  <GT_ProfPatch>{0} 的修改</GT_ProfPatch>
+  <GT_ProfNote>估算值：监视了 {0} 处（其中 {1} 处为模组补丁）。每毫秒只计算一次——计入其运行所在的最深层模组或物体。屏幕绘制和 transpiler（改写游戏代码的模组）无法用这种方式测量。1000 毫秒/秒 = 整整一秒。</GT_ProfNote>
+  <GT_ReportCopy>复制性能报告</GT_ReportCopy>
+  <GT_ReportSave>将报告保存到文件</GT_ReportSave>
+  <GT_Report_Desc>一份文本包含所有性能信息：你的电脑、地图、当前 FPS/TPS、设置、上次基准测试以及"什么拖慢了游戏"。寻求帮助时，将其粘贴到 Workshop 评论中。</GT_Report_Desc>
+  <GT_ReportCopied>性能报告已复制——用 Ctrl+V 粘贴。</GT_ReportCopied>
+  <GT_ReportSaved>已保存：{0}</GT_ReportSaved>
+  <GT_ProfBusy>忙碌中——请稍候</GT_ProfBusy>
+  <GT_ProfRemoving>Smooth FPS：正在移除测量…</GT_ProfRemoving>
+  <GT_TabMemory>内存与卡死</GT_TabMemory>
+  <GT_SecMem>内存清理</GT_SecMem>
+  <GT_SecMemStats>当前状况</GT_SecMemStats>
+  <GT_MemOther>Fewer Freezes 已启用——此标签页已关闭，以免两者冲突。请关闭 Fewer Freezes：Smooth FPS 现已包含其全部功能，并且也适用于 1.7。</GT_MemOther>
+  <GT_MemMode17>模式：RimWorld 1.7 及更新版本（.NET）——自动选择。内存在后台清理；避免会让游戏停顿的大型清理。</GT_MemMode17>
+  <GT_MemMode16>模式：RimWorld 1.6 及更早版本（Mono）——自动选择。每帧持续清理，暂停时进行大型清理。</GT_MemMode16>
+  <GT_MemAuto>自动</GT_MemAuto>
+  <GT_MemAuto_Desc>根据游戏占用的内存量，模组决定持续清理多少以及何时进行大型清理。</GT_MemAuto_Desc>
+  <GT_MemSlice>每帧持续清理：{0} 毫秒</GT_MemSlice>
+  <GT_MemSlice_Desc>越多 = 内存随时清理，大型卡死更少出现，但 FPS 可能略有下降。游戏本身使用 3 毫秒。</GT_MemSlice_Desc>
+  <GT_MemThreshold>内存增长达到以下值时进行大型清理：{0} MB</GT_MemThreshold>
+  <GT_MemThreshold_Desc>越低 = 清理越频繁，越高 = 越少。</GT_MemThreshold_Desc>
+  <GT_MemOnPause>暂停时清理</GT_MemOnPause>
+  <GT_MemOnPause_Desc>当你暂停（或打开会暂停游戏的菜单）至少 1.5 秒时清理内存，这样游戏进行中就较少需要清理。最多每 90 秒一次。1.7 上在后台运行。</GT_MemOnPause_Desc>
+  <GT_MemOnSave>存档后清理</GT_MemOnSave>
+  <GT_MemOnSave_Desc>存档（包括自动存档）后立即清理——存档会留下大量未使用的内存。</GT_MemOnSave_Desc>
+  <GT_MemLowLatency>流畅游戏：游戏中不进行大型清理（1.7）</GT_MemLowLatency>
+  <GT_MemLowLatency_Desc>让 .NET 在你游戏时避免会使整个游戏停顿的清理——改为在后台清理。游戏可能会占用稍多的内存。当电脑内存不足时，会自动切回正常模式。</GT_MemLowLatency_Desc>
+  <GT_MemCompact>长时间暂停时压缩内存（1.7）</GT_MemCompact>
+  <GT_MemCompact_Desc>在至少 5 秒的暂停期间（最多每 30 分钟一次）整理压缩内存——当游戏连续数小时占用大量内存时有帮助。此时游戏会短暂停顿，但反正你已暂停。默认关闭。</GT_MemCompact_Desc>
+  <GT_MemUnload>暂停时释放未使用的纹理</GT_MemUnload>
+  <GT_MemUnload_Desc>在较长的暂停（3 秒）期间，释放游戏不再使用的纹理和声音。在模组很多、内存不足时有帮助。最多每 10 分钟一次。默认关闭，因为可能需要一点时间。</GT_MemUnload_Desc>
+  <GT_MemRamWarn>电脑内存不足时警告</GT_MemRamWarn>
+  <GT_MemRamWarn_Desc>当游戏占用超过电脑内存的 80 % 时，你会收到一封附带建议的信件。</GT_MemRamWarn_Desc>
+  <GT_MemHud>在左下角显示内存</GT_MemHud>
+  <GT_MemHud_Desc>一个显示内存、上次清理停顿以及最近一分半钟内存图表的小框。</GT_MemHud_Desc>
+  <GT_MemHud_Text>内存：{0} MB · 上次停顿 {1} 秒</GT_MemHud_Text>
+  <GT_MemNow>游戏当前使用 {0} MB 内存（已保留 {1} MB）；持续清理每帧最多可运行 {2} 毫秒。</GT_MemNow>
+  <GT_MemNow17>游戏当前使用 {0} MB 内存。</GT_MemNow17>
+  <GT_MemCollectNow>立即清理内存</GT_MemCollectNow>
+  <GT_MemDone>内存已清理：{0} → {1} MB（{2} 毫秒）</GT_MemDone>
+  <GT_MemDoneSave>存档后清理：{0} → {1} MB</GT_MemDoneSave>
+  <GT_MemNote>你无法给游戏指定内存大小——RimWorld 会按需占用。此标签页控制何时以及如何清理内存，从而减少游戏卡死。取代 Fewer Freezes 模组。</GT_MemNote>
+  <GT_MemHitches>过去一小时：{0} 次超过 0.25 秒的卡死，其中 {1} 次来自内存清理。最长：{2} 秒。</GT_MemHitches>
+  <GT_MemHitchNone>过去一小时：没有超过 0.25 秒的卡死。</GT_MemHitchNone>
+  <GT_MemCleans>已完成清理：暂停时 {0}×，存档后 {1}×，手动 {2}×。</GT_MemCleans>
+  <GT_MemRam>电脑：游戏占用 {0} MB / {1} MB 内存（{2} %）。</GT_MemRam>
+  <GT_MemRamWarn_Title>电脑内存不足</GT_MemRamWarn_Title>
+  <GT_MemRamWarn_Text>游戏当前占用电脑 {1} MB 内存中的 {0} MB。内存耗尽时，游戏会严重卡死或崩溃。\n\n有帮助的做法：\n- 关闭其他程序（浏览器…），\n- 关闭不需要的模组，\n- 使用纹理压缩模组，\n- 使用更小的地图或同时开更少的地图。</GT_MemRamWarn_Text>
+  <GT_SecBySpeed>按游戏速度</GT_SecBySpeed>
+  <GT_BySpeed_Desc>每种速度都可以有自己的目标 FPS 和模拟上限——例如 1× 时流畅的 90 FPS，4× 时更快的游戏速度。"同上"使用通用设置。</GT_BySpeed_Desc>
+  <GT_SpeedTarget>速度 {0}：目标 FPS</GT_SpeedTarget>
+  <GT_SpeedTarget_Desc>仅用于此速度的目标 FPS。同上 = 通用目标（或智能目标）。</GT_SpeedTarget_Desc>
+  <GT_SpeedMaxSim>速度 {0}：每帧最多模拟时间：{1}</GT_SpeedMaxSim>
+  <GT_SpeedMaxSim_Desc>同上 = 通用上限。自动 = 根据目标 FPS 和绘制时间。越低 = 画面越流畅，游戏越慢；越高 = 游戏越快，FPS 越低。</GT_SpeedMaxSim_Desc>
+  <GT_Same>同上</GT_Same>
+  <GT_Crash_Title>上次游戏崩溃了</GT_Crash_Title>
+  <GT_Crash_When>游戏于 {0} 未正常关闭便结束了。</GT_Crash_When>
+  <GT_Crash_Kind_Loop>类型：无限循环（堆栈溢出）——某段代码不断调用自身，直到游戏停止。通常是模组错误，或两个模组相互调用。</GT_Crash_Kind_Loop>
+  <GT_Crash_Kind_Memory>类型：无效的内存访问——通常是原生代码（显卡驱动、带有自己原生库的模组、OBS/Medal/Discord 等叠加层）。</GT_Crash_Kind_Memory>
+  <GT_Crash_Kind_OutOfMemory>类型：内存不足。</GT_Crash_Kind_OutOfMemory>
+  <GT_Crash_Kind_Managed>类型：游戏代码中未处理的错误。</GT_Crash_Kind_Managed>
+  <GT_Crash_Kind_Fast>类型：游戏在严重内部错误后自行停止。</GT_Crash_Kind_Fast>
+  <GT_Crash_KindUnknown>类型：未知（Windows 未保存崩溃记录——断电、游戏被强制结束，或崩溃记录已关闭）。</GT_Crash_KindUnknown>
+  <GT_Crash_Place>位置：循环在地图格子（{0}）处重复——检查那里建造或放置了什么。</GT_Crash_Place>
+  <GT_Crash_Mods>最后时刻活跃的模组：{0}</GT_Crash_Mods>
+  <GT_Crash_LastError>之前的最后一个错误：{0}</GT_Crash_LastError>
+  <GT_Crash_Advice>完整报告：RimWorld 存档文件夹中的 SmoothFPS_crash.txt。如果再次发生，请将报告发送给上面提到的模组作者。</GT_Crash_Advice>
+  <GT_VramWarnSet>显存快满时警告</GT_VramWarnSet>
+  <GT_VramWarnSet_Desc>当游戏使用了显卡驱动所允许量的 95 % 或更多时（每 5 秒检查一次，最多每 10 分钟提示一次）发出消息，并列出占用最多的模组。放不下的纹理会延迟显示、显示为空白或红叉。</GT_VramWarnSet_Desc>
+  <GT_VramWarn>显存快满了：{0} / {1} GB。纹理可能延迟显示或空白。占用最多：{2}。请关闭其他程序（浏览器、Discord、OBS、Medal）或查看 Smooth FPS → 内存。</GT_VramWarn>
+  <GT_VramNow>显存：{0} / {1} GB 可用（{3} %），显卡共 {2} GB</GT_VramNow>
+  <GT_VramWho>什么占用了显存</GT_VramWho>
+  <GT_VramTitle>显存</GT_VramTitle>
+  <GT_VramNone>无法获取显存数据（仅限 1.7）。</GT_VramNone>
+  <GT_VramTop>最大占用者（按模组统计纹理）：</GT_VramTop>
+  <GT_VramGame>游戏及未知</GT_VramGame>
+  <GT_VramTargets>渲染目标（屏幕、头像、特效）</GT_VramTargets>
+  <GT_VramAtlas>纹理图集</GT_VramAtlas>
+  <GT_VramOther>网格及其他</GT_VramOther>
+  <GT_VramAdvice>可用量是驱动分配给游戏的量——其他使用显卡的程序会降低它。拥有大量大纹理的模组（种族模组、高分辨率包）占用最多；关闭不需要的模组即可释放。</GT_VramAdvice>
+  <GT_TexCap>模组图片最大尺寸</GT_TexCap>
+  <GT_TexCapOff>无限制</GT_TexCapOff>
+  <GT_TexCap_Desc>大于此尺寸的模组图片（DDS）从其内置的较小副本开始加载——显存更少，延迟或空白的图片更少。游戏自身的图片永远不会改变，也不会修改任何文件。重启后生效。当前：{0} 张图片，约节省 {1} MB。</GT_TexCap_Desc>
+  <GT_Laptop>笔记本模式</GT_Laptop>
+  <GT_Laptop_Desc>更低的 FPS 上限和减少 40 % 的特效——更凉爽、更安静、续航更久。"仅电池供电时"会在拔掉充电器时自动切换（如果系统报告该状态）。</GT_Laptop_Desc>
+  <GT_LaptopOff>关闭</GT_LaptopOff>
+  <GT_LaptopOn>始终</GT_LaptopOn>
+  <GT_LaptopBattery>仅电池供电时</GT_LaptopBattery>
+  <GT_LaptopFps>笔记本模式下的 FPS</GT_LaptopFps>
+  <GT_LaptopFps_Desc>笔记本模式激活时的 FPS 上限。你自己设置的更低上限会保留。</GT_LaptopFps_Desc>
+  <GT_LaptopNowBattery>当前：使用电池供电——笔记本模式已激活。</GT_LaptopNowBattery>
+  <GT_LaptopNowMains>当前：连接充电器（或系统未报告电池状态）——笔记本模式等待中。</GT_LaptopNowMains>
+  <GT_MC_Open>这张地图上什么开销大</GT_MC_Open>
+  <GT_MC_Open_Desc>统计游戏在当前地图上需要更新的所有内容，并给出整理建议。不做任何更改。</GT_MC_Open_Desc>
+  <GT_MC_Title>这张地图上什么开销大</GT_MC_Title>
+  <GT_MC_Sub>地图：{0} · 橙色 = 数量多，参见右侧建议</GT_MC_Sub>
+  <GT_MC_Colonists>殖民者</GT_MC_Colonists>
+  <GT_MC_AnimalsOwn>你的动物</GT_MC_AnimalsOwn>
+  <GT_MC_AnimalsWild>野生动物</GT_MC_AnimalsWild>
+  <GT_MC_Mechs>机械体</GT_MC_Mechs>
+  <GT_MC_Hostile>敌对</GT_MC_Hostile>
+  <GT_MC_OtherPawns>其他人（访客、囚犯……）</GT_MC_OtherPawns>
+  <GT_MC_Ticking>每 tick 更新的物体</GT_MC_Ticking>
+  <GT_MC_Rare>较少更新的物体</GT_MC_Rare>
+  <GT_MC_Long>很少更新的物体</GT_MC_Long>
+  <GT_MC_Filth>污秽</GT_MC_Filth>
+  <GT_MC_Loose>储存区外的物品</GT_MC_Loose>
+  <GT_MC_Corpses>尸体</GT_MC_Corpses>
+  <GT_MC_Plants>植物</GT_MC_Plants>
+  <GT_MC_Fires>火焰</GT_MC_Fires>
+  <GT_MC_Buildings>你的建筑</GT_MC_Buildings>
+  <GT_MC_WorldPawns>世界角色（在后台保存）</GT_MC_WorldPawns>
+  <GT_MC_Things>地图上的所有物体</GT_MC_Things>
+  <GT_MC_Top>最常见的每 tick 更新物体</GT_MC_Top>
+  <GT_MC_Tips>建议</GT_MC_Tips>
+  <GT_MC_AllGood>没有突出的问题——这张地图没问题。如果游戏仍然很慢，请使用"什么拖慢了游戏"。</GT_MC_AllGood>
+  <GT_MC_TipAnimals>你有 {0} 只动物。每只动物每 tick 都在思考和移动——屠宰或出售不需要的动物。</GT_MC_TipAnimals>
+  <GT_MC_TipWild>地图上有 {0} 只野生动物。Wild Spawn Zone 或降低动物密度会有帮助。</GT_MC_TipWild>
+  <GT_MC_TipTicking>有 {0} 个物体每 tick 更新。查看右侧列表——你拥有大量的某种模组建筑或物品可能开销很大。</GT_MC_TipTicking>
+  <GT_MC_TipFilth>{0} 处污秽。清洁（或清洁机器人）可以减轻地图负担。</GT_MC_TipFilth>
+  <GT_MC_TipLoose>{0} 件物品放在储存区外。把它们搬进储存区会很有帮助。</GT_MC_TipLoose>
+  <GT_MC_TipCorpses>{0} 具尸体。焚烧或埋葬它们——它们会腐烂并一直更新。</GT_MC_TipCorpses>
+  <GT_MC_TipFires>{0} 处火焰正在燃烧。火势蔓延时开销很大。</GT_MC_TipFires>
+  <GT_MC_TipWorldPawns>有 {0} 个角色在世界后台存在。存档和读档会变慢；世界角色清理模组会有帮助。</GT_MC_TipWorldPawns>
+  <GT_MC_Refresh>重新统计</GT_MC_Refresh>
+  <GT_HitchDeep>深度搜索：殖民者内部到底什么耗时长（会减慢游戏）</GT_HitchDeep>
+  <GT_HitchDeep_Desc>为每次卡顿添加详细信息：工作搜索（哪项工作，来自哪个模组）、AI 决策、寻路、物体和健康状况组件、需求。仅在查找原因时开启，之后再关闭。重启后生效。</GT_HitchDeep_Desc>
+  <GT_HitchOwnGc>内存清理 [Smooth FPS]</GT_HitchOwnGc>
+  <GT_DeepWork>工作搜索 {0}（{1}）</GT_DeepWork>
+  <GT_DeepJobSearch>工作搜索总计</GT_DeepJobSearch>
+  <GT_DeepPather>角色行走</GT_DeepPather>
+  <GT_DeepPath>寻路（即时）</GT_DeepPath>
+  <GT_DeepKindJobGiver>决策</GT_DeepKindJobGiver>
+  <GT_DeepKindComp>组件</GT_DeepKindComp>
+  <GT_DeepKindHediff>健康</GT_DeepKindHediff>
+  <GT_DeepKindNeed>需求</GT_DeepKindNeed>
+  <GT_TabSim>模拟</GT_TabSim>
+  <GT_SizeHeader>游戏规模——决定模拟节省多少（世界、地图、清理）</GT_SizeHeader>
+  <GT_SizeAuto>自动</GT_SizeAuto>
+  <GT_SizeAuto_Card>根据模组数量、地图和世界大小自动检测。当前：{0}。</GT_SizeAuto_Card>
+  <GT_SizeSmall>小型游戏</GT_SizeSmall>
+  <GT_SizeSmall_Card>模组少，地图较小。游戏运行与没有本模组时相同，不做任何更改。</GT_SizeSmall_Card>
+  <GT_SizeNormal>普通游戏</GT_SizeNormal>
+  <GT_SizeNormal_Card>中等规模的模组包。远处的世界和其他地图更新频率减半。</GT_SizeNormal_Card>
+  <GT_SizeHuge>超大游戏</GT_SizeHuge>
+  <GT_SizeHuge_Card>超大地图和数百个模组。世界和其他地图更新频率降低 4×，屏幕外的物体降低 2×。</GT_SizeHuge_Card>
+  <GT_SimTickSec>更智能的 tick</GT_SimTickSec>
+  <GT_SimSmartTick>降低远处物体的更新频率</GT_SimSmartTick>
+  <GT_SimSmartTick_Desc>对于你看不到的物体，游戏本来就只每 15 个 tick 更新一次需求、健康、生长和计时器——始终计入经过的全部时间。这里会按游戏规模拉长这个间隔：远处的定居点、地点和世界角色、没有危险的其他地图，在超大游戏中还包括屏幕外的物体。不会跳过任何内容，只是以更大的步长计算。战斗、火灾期间以及被征召的殖民者，一切保持原版行为。</GT_SimSmartTick_Desc>
+  <GT_SimRates>当前：世界每 {0} tick，其他地图 {1}，屏幕外 {2}（游戏本身：15）。</GT_SimRates>
+  <GT_TC_Open>什么拖慢了 tick…</GT_TC_Open>
+  <GT_TC_NeedHitch>此窗口需要开启卡顿查找（"流畅度"标签页）——它使用其测量点。</GT_TC_NeedHitch>
+  <GT_TC_Title>什么拖慢了 tick</GT_TC_Title>
+  <GT_TC_Sub>世界和地图的每个部分在每秒游戏中占用多少毫秒（最近 {0} 秒，配置：{1}）。每 3 秒刷新。</GT_TC_Sub>
+  <GT_TC_Ms>{0} 毫秒/秒</GT_TC_Ms>
+  <GT_TC_Wait>测量中……让游戏运行一会儿。</GT_TC_Wait>
+  <GT_SimCleanSec>世界清理</GT_SimCleanSec>
+  <GT_SimClean>清理旧战斗和不需要的世界角色</GT_SimClean>
+  <GT_SimClean_Desc>战斗日志中的旧战斗会把参与过的每个角色（包括死去的袭击者）保留在内存和存档中。只保留最新的战斗，然后运行游戏自带的清理——它始终保留殖民者、亲属、派系领袖、任务和故事中的角色。存档更小，保存更快，内存更少。在暂停时自动进行，最多每 2 个游戏日一次。</GT_SimClean_Desc>
+  <GT_SimKeep>保留最新的 {0} 场战斗。</GT_SimKeep>
+  <GT_SimKeepOff>小型游戏中不清理。</GT_SimKeepOff>
+  <GT_SimWorldLine>世界：{0} 个存活和 {1} 个死亡的世界角色，{2} 个对象，日志中 {3} 场战斗。</GT_SimWorldLine>
+  <GT_SimCleanNow>立即清理世界</GT_SimCleanNow>
+  <GT_SimCleaning>正在清理世界…</GT_SimCleaning>
+  <GT_SimCleaned>世界清理：移除 {0} 个角色（剩余 {1}），删除 {2} 场旧战斗（{3} 毫秒）。</GT_SimCleaned>
+  <GT_FastCull>更快地选择绘制内容</GT_FastCull>
+  <GT_FastCull_Desc>每一帧，游戏都会计算地图上每个实时绘制物体（角色、动物、动画建筑、模组物体）的精确位置和大小——包括远在屏幕外、随后马上被丢弃的物体。对于明显在屏幕外的物体，这里只使用其所在格子，游戏照旧丢弃它们，只是省去了开销大的部分。屏幕上及附近的物体按原版方式精确计算。</GT_FastCull_Desc>
+  <GT_TC_Things>地图上实时绘制的物体：{0}。</GT_TC_Things>
+  <GT_SpeedSec>速度与时间流逝</GT_SpeedSec>
+  <GT_SmartWork>智能工作搜索</GT_SmartWork>
+  <GT_SmartWork_Desc>某项工作检查耗时较长且没有为殖民者找到任何内容时，该殖民者在 5 秒游戏时间内不会再次检查它（例如清空售货机、燃料、开采模组资源）。紧急工作始终会检查。</GT_SmartWork_Desc>
+  <GT_SpreadJobs>分散工作搜索</GT_SpreadJobs>
+  <GT_SpreadJobs_Desc>当一个 tick 内的工作搜索已超过 6 毫秒时，其他殖民者会晚 1–3 个 tick 再找工作，而不是全部同时进行。被征召的殖民者、处于危险中或袭击期间从不适用。</GT_SpreadJobs_Desc>
+  <GT_TempSpread>分批计算房间温度</GT_TempSpread>
+  <GT_TempSpread_Desc>每个房间仍像原版一样每 2 秒均衡一次，但不会在同一个 tick 内处理所有房间（大型基地以前每 2 秒会有短暂停顿）。</GT_TempSpread_Desc>
+  <GT_NightFast>快速夜晚</GT_NightFast>
+  <GT_NightFast_Desc>当所有殖民者都在睡觉且没有任何事发生时（没有敌人、家中没有火、没有人倒地），游戏以速度 3 运行。有人醒来、收到信件或出现危险时恢复你的速度。你自己更改速度会使其停止，直到下一个夜晚。</GT_NightFast_Desc>
+  <GT_SpeedStats>本次游戏：跳过 {0} 次慢速工作检查（约节省 {1} 秒），推迟 {2} 次工作搜索，{3} 个快速夜晚。</GT_SpeedStats>
+  <GT_NightFastOn>所有人都在睡觉——快速夜晚（速度 3）直到早晨。</GT_NightFastOn>
+  <GT_NightFastTag>快速夜晚</GT_NightFastTag>
+  <GT_BehindSim>游戏跟不上：模拟每帧耗时 {0} 毫秒（绘制 {1} 毫秒）。"什么拖慢了 tick"会显示是哪个部分和模组。</GT_BehindSim>
+  <GT_BehindDraw>游戏跟不上：绘制每帧耗时 {1} 毫秒（模拟 {0} 毫秒）。减少特效、少缩小镜头或降低目标 FPS 会有帮助。</GT_BehindDraw>
+  <GT_MC_CleanFilth>移除居住区外的污秽（{0}）</GT_MC_CleanFilth>
+  <GT_MC_CleanFilthConfirm>移除居住区外的 {0} 处污秽？那里没人清理，而游戏会保留每一处。此操作无法撤销。</GT_MC_CleanFilthConfirm>
+  <GT_Turbo>速度 3 和 4 时加速</GT_Turbo>
+  <GT_Turbo_Desc>在速度 3 或 4 下，当你不碰鼠标和键盘时，画面降到每秒几帧，其余所有时间都交给游戏——时间以你电脑所能达到的最快速度流逝。移动鼠标，画面立即恢复流畅。放不下的 tick 会被补上，而不是丢弃。</GT_Turbo_Desc>
+  <GT_TurboFps>加速时每秒帧数：{0}</GT_TurboFps>
+  <GT_Mode4>加速</GT_Mode4>
+  <GT_OverlayClick>点击：什么拖慢了 tick（游戏继续运行）。</GT_OverlayClick>
+  <GT_TC_Running>设置已关闭以便游戏运行——请切换到速度 3 或 4 并等待几秒。</GT_TC_Running>
+  <GT_WorldSleep>模组的世界角色可以休眠</GT_WorldSleep>
+  <GT_WorldSleep_Desc>当远处的世界角色没有需要时，游戏每隔几小时才更新它们一次。模组添加的状态（RJW 部位、种族基因、怪癖……）让几乎每个角色都保持清醒，导致数百个角色每 tick 都在更新。现在只有怀孕和游戏自身的状态会让它们保持清醒。角色一回到地图或商队就会立即醒来。</GT_WorldSleep_Desc>
+  <GT_SimSleepLine>存活：{0} 个清醒，{1} 个休眠。保持清醒的原因：{2}</GT_SimSleepLine>
+  <GT_SimSlept>已让 {0} 个角色休眠。</GT_SimSlept>
+  <GT_TexCapWaylith>1.7 上不需要</GT_TexCapWaylith>
+</LanguageData>

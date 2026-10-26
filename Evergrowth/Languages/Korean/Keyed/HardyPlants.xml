@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HardyPlants_Title>Evergrowth – 식물 성장 제어</HardyPlants_Title>
+  <HardyPlants_Temperatures>내한성 식물의 온도</HardyPlants_Temperatures>
+  <HardyPlants_TemperaturesDesc>최저 온도 아래에서는 식물이 성장을 멈춥니다. 내한성 식물은 이 값이 자신의 값보다 나을 때만 적용받습니다.</HardyPlants_TemperaturesDesc>
+  <HardyPlants_MinGrowth>최저 성장 온도: {0} (바닐라 {1})</HardyPlants_MinGrowth>
+  <HardyPlants_MinOptimal>최대 속도 성장 시작: {0} (바닐라 {1})</HardyPlants_MinOptimal>
+  <HardyPlants_MaxOptimal>최대 속도 성장 한계: {0} (바닐라 {1})</HardyPlants_MaxOptimal>
+  <HardyPlants_MaxGrowth>최고 성장 온도: {0} (바닐라 {1})</HardyPlants_MaxGrowth>
+  <HardyPlants_Frost>내한성: {0} 더 추워도 견딤</HardyPlants_Frost>
+  <HardyPlants_FrostDesc>바닐라 식물은 최저 성장 온도보다 10–18 °C 낮아지면 잎이 떨어집니다. 내한성 식물은 이만큼 더 견딥니다.</HardyPlants_FrostDesc>
+  <HardyPlants_ResetValues>온도 초기화</HardyPlants_ResetValues>
+  <HardyPlants_Group>대상 식물:</HardyPlants_Group>
+  <HardyPlants_GroupCold>추운 생물 군계의 야생 식물</HardyPlants_GroupCold>
+  <HardyPlants_GroupWild>모든 야생 식물과 나무(기본값)</HardyPlants_GroupWild>
+  <HardyPlants_GroupAll>작물을 포함한 모든 식물</HardyPlants_GroupAll>
+  <HardyPlants_GroupCustom>직접 선택(오른쪽 목록)</HardyPlants_GroupCustom>
+  <HardyPlants_Plants>내한성 식물</HardyPlants_Plants>
+  <HardyPlants_Chosen>식물 {0}종 선택됨. 검색:</HardyPlants_Chosen>
+  <HardyPlants_Growth>성장</HardyPlants_Growth>
+  <HardyPlants_FasterGrowth>식물이 더 빨리 자람</HardyPlants_FasterGrowth>
+  <HardyPlants_FasterGrowthDesc>작물, 나무, 야생 식물 – 각각 고유한 속도. 지도의 모든 식물에 즉시 적용되며, 나중에 나타나는 식물에도 적용됩니다. 재시작 불필요. 기본값은 꺼짐.</HardyPlants_FasterGrowthDesc>
+  <HardyPlants_GrowthSpeed>성장 속도: ×{0}</HardyPlants_GrowthSpeed>
+  <HardyPlants_GrowAllDay>식물이 밤낮으로 자람(24/7)</HardyPlants_GrowAllDay>
+  <HardyPlants_GrowAllDayDesc>식물이 밤에 쉬지 않으며, 야외의 식물은 어둠 속에서도 자랍니다. 지붕 아래의 식물은 여전히 조명이 필요합니다. 기본값은 꺼짐.</HardyPlants_GrowAllDayDesc>
+  <HardyPlants_CropDays>작물 성장 기간 설정</HardyPlants_CropDays>
+  <HardyPlants_TreeDays>나무 성장 기간 설정</HardyPlants_TreeDays>
+  <HardyPlants_DaysValue>성장 기간: {0}일</HardyPlants_DaysValue>
+  <HardyPlants_DaysDesc>성장률 100 % 기준 일수. 식물은 밤에 쉬고(24/7이 켜져 있지 않으면) 빛, 토양, 온도가 나쁘면 더 느리게 자라므로 실제 게임에서는 더 오래 걸립니다. 이 창을 닫을 때 적용 – 재시작 불필요. 기본값은 꺼짐.</HardyPlants_DaysDesc>
+  <HardyPlants_Presets>빠른 설정(성장 항목):</HardyPlants_Presets>
+  <HardyPlants_PresetVanilla>바닐라</HardyPlants_PresetVanilla>
+  <HardyPlants_PresetEasy>쉬운 농사</HardyPlants_PresetEasy>
+  <HardyPlants_PresetLush>무성한 세계</HardyPlants_PresetLush>
+  <HardyPlants_SpeedCrops>작물: ×{0}</HardyPlants_SpeedCrops>
+  <HardyPlants_SpeedTrees>나무: ×{0}</HardyPlants_SpeedTrees>
+  <HardyPlants_SpeedWild>야생 식물: ×{0}</HardyPlants_SpeedWild>
+  <HardyPlants_Yield>더 많은 수확</HardyPlants_Yield>
+  <HardyPlants_YieldDesc>작물과 야생 식물을 수확할 때 얻는 양과 나무에서 얻는 목재의 양. 즉시 적용. 기본값은 꺼짐.</HardyPlants_YieldDesc>
+  <HardyPlants_YieldCrops>작물과 야생 식물: ×{0}</HardyPlants_YieldCrops>
+  <HardyPlants_YieldWood>나무의 목재: ×{0}</HardyPlants_YieldWood>
+  <HardyPlants_Regrow>야생 식물이 더 빨리 다시 자람</HardyPlants_Regrow>
+  <HardyPlants_RegrowDesc>벌목, 방목, 화재 후 야생 식물과 나무가 지도에 다시 나타나는 속도. 식물 밀도는 여전히 생물 군계를 따릅니다. 기본값은 꺼짐.</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowValue>재성장: ×{0}</HardyPlants_RegrowValue>
+  <HardyPlants_IgnoreSoil>척박한 토양이 성장을 늦추지 않음</HardyPlants_IgnoreSoil>
+  <HardyPlants_IgnoreSoilDesc>모래, 자갈, 척박한 토양에서도 식물이 최대 속도로 자랍니다. 비옥한 토양은 여전히 도움이 됩니다. 아무것도 자라지 않는 곳은 변하지 않습니다. 기본값은 꺼짐.</HardyPlants_IgnoreSoilDesc>
+  <HardyPlants_NoBlight>마름병 없음</HardyPlants_NoBlight>
+  <HardyPlants_NoBlightDesc>마름병 이벤트가 더 이상 발생하지 않고 마름병이 퍼지지 않습니다. 기본값은 꺼짐.</HardyPlants_NoBlightDesc>
+  <HardyPlants_GrowthNote>속도, 수확량, 재성장, 토양, 마름병, 24/7은 즉시, 성장 기간은 이 창을 닫은 후 적용됩니다.</HardyPlants_GrowthNote>
+  <MUI_Title>권장 설정</MUI_Title>
+  <MUI_TitleOff>권장 설정 · 꺼짐</MUI_TitleOff>
+  <MUI_DescOn>모드가 스스로 설정되어 바로 작동합니다. 처음 하는 플레이어나 아무것도 조정하고 싶지 않은 분께 적합합니다.</MUI_DescOn>
+  <MUI_DescOff>사용자 설정. 권장 설정에서 변경됨: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>사용자 설정. 아직 권장 설정과 같습니다.</MUI_DescOffSame>
+  <MUI_On>켜짐</MUI_On>
+  <MUI_Off>꺼짐</MUI_Off>
+  <MUI_ResetAll>모두 권장값으로 초기화</MUI_ResetAll>
+  <MUI_ConfirmOn>권장 설정을 켜시겠습니까? 변경한 항목({0})이 권장값으로 바뀝니다.</MUI_ConfirmOn>
+  <MUI_Locked>세부 설정이 잠겨 있습니다. 변경하려면 위의 스위치를 끄세요 – 값은 권장값에서 시작합니다.</MUI_Locked>
+  <MUI_Changed>변경됨</MUI_Changed>
+  <MUI_ChangedTip>권장 설정({0})과 다릅니다. 클릭하면 권장값으로 되돌립니다.</MUI_ChangedTip>
+  <MUI_Yes>켜짐</MUI_Yes>
+  <MUI_No>꺼짐</MUI_No>
+  <MUI_RecTag>권장</MUI_RecTag>
+  <HardyPlants_Profile>프로필</HardyPlants_Profile>
+  <HardyPlants_ProfRec>권장</HardyPlants_ProfRec>
+  <HardyPlants_ProfCustom>사용자 지정</HardyPlants_ProfCustom>
+  <HardyPlants_PresetVanilla_Card>성장과 수확량이 기본 게임과 같습니다.</HardyPlants_PresetVanilla_Card>
+  <HardyPlants_ProfRec_Card>빠른 성장, 많은 수확, 마름병 없음, 온실, 눈 아래 야생 식물. 그래도 공정합니다.</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>어디에나 식물이 있고, 밤낮으로 어느 계절에나 빠르게 자라며 이벤트의 피해를 받지 않습니다.</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfCustom_Card>직접 정한 값.</HardyPlants_ProfCustom_Card>
+  <HardyPlants_ProfileHint>성장이나 수확량에서 무엇이든 바꾸면 프로필이 사용자 지정으로 바뀝니다. 주황색 "변경됨" = 권장 값과 다름, 클릭하면 복원됩니다.</HardyPlants_ProfileHint>
+  <HardyPlants_SecYield>수확량과 질병</HardyPlants_SecYield>
+  <HardyPlants_SecGroup>내한성을 가질 식물</HardyPlants_SecGroup>
+  <HardyPlants_TabGrowth>성장</HardyPlants_TabGrowth>
+  <HardyPlants_TabYield>수확량</HardyPlants_TabYield>
+  <HardyPlants_TabWild>야생 자연</HardyPlants_TabWild>
+  <HardyPlants_TabWinter>겨울과 날씨</HardyPlants_TabWinter>
+  <HardyPlants_TabPlants>내한성 식물</HardyPlants_TabPlants>
+  <HardyPlants_SecSeason>계절</HardyPlants_SecSeason>
+  <HardyPlants_AnySeason>어느 계절에나 파종하고 재배</HardyPlants_AnySeason>
+  <HardyPlants_AnySeasonDesc>온도가 허락하면 언제든 작물을 파종하고 키울 수 있습니다 – "재배 시기" 제한 없음. 빠르게 자라려면 여전히 따뜻해야 합니다.</HardyPlants_AnySeasonDesc>
+  <HardyPlants_Greenhouse>온실</HardyPlants_Greenhouse>
+  <HardyPlants_GreenhouseDesc>닫힌 방의 건설된 지붕 아래 식물은 온도와 관계없이(−10 °C 이상) 어느 계절에나 최대 속도로 자라며 절대 얼지 않습니다. 빛은 조명을 사용하세요.</HardyPlants_GreenhouseDesc>
+  <HardyPlants_FruitRepeat>과일나무가 다시 열매를 맺음</HardyPlants_FruitRepeat>
+  <HardyPlants_FruitRepeatDesc>(모드의) 나무에서 과일을 수확해도 나무가 베어지지 않고 다시 열매를 맺습니다. 목재를 위해 베는 것은 여전히 가능합니다.</HardyPlants_FruitRepeatDesc>
+  <HardyPlants_WildDensity>더 울창한 야생 자연</HardyPlants_WildDensity>
+  <HardyPlants_WildDensityDesc>지도에 생물 군계의 평소보다 더 많은(또는 더 적은) 야생 식물과 나무.</HardyPlants_WildDensityDesc>
+  <HardyPlants_WildDensityValue>야생 식물 밀도: ×{0}</HardyPlants_WildDensityValue>
+  <HardyPlants_SnowGrowth>눈 아래에서도 야생 식물이 다시 자람</HardyPlants_SnowGrowth>
+  <HardyPlants_SnowGrowthDesc>보통 눈 덮인 땅에서는 겨울 내내 새로 싹트는 것이 없습니다. 이 옵션을 켜면 충분히 따뜻한 곳에서는 눈 아래에서도 야생 식물과 나무가 돌아옵니다.</HardyPlants_SnowGrowthDesc>
+  <HardyPlants_SnowMinTemp>눈 아래 성장 시작: {0} (바닐라: 없음, 권장 {1})</HardyPlants_SnowMinTemp>
+  <HardyPlants_FewerFires>산불 감소</HardyPlants_FewerFires>
+  <HardyPlants_FewerFiresDesc>풀, 덤불, 나무가 약 세 배 덜 쉽게 불붙어, 화재가 숲 전체를 태우지 않습니다.</HardyPlants_FewerFiresDesc>
+  <HardyPlants_Overview>이 지도의 야생 자연</HardyPlants_Overview>
+  <HardyPlants_OverviewNoGame>게임을 불러오면 지도에서 무엇이 자라는지 볼 수 있습니다.</HardyPlants_OverviewNoGame>
+  <HardyPlants_OverviewDay>지난 게임 내 하루({0}):</HardyPlants_OverviewDay>
+  <HardyPlants_OverviewSoFar>오늘 지금까지({0}):</HardyPlants_OverviewSoFar>
+  <HardyPlants_OverviewNums>야생 식물 {0}그루 성장 시도, {1}그루 성장(나무 {2}그루).</HardyPlants_OverviewNums>
+  <HardyPlants_OverviewSnow>눈이 {1}번의 시도 중 {0}번을 막았습니다.</HardyPlants_OverviewSnow>
+  <HardyPlants_OverviewNoneSnow>아무것도 자라지 않습니다 – 아마 눈 때문입니다. "눈 아래에서도 야생 식물이 다시 자람"을 켜세요.</HardyPlants_OverviewNoneSnow>
+  <HardyPlants_OverviewNoneCold>아무것도 자라지 않습니다 – 너무 춥거나 땅이 가득 찼습니다. "눈 아래 성장 시작" 온도를 낮춰 보세요.</HardyPlants_OverviewNoneCold>
+  <HardyPlants_SecEvents>이벤트</HardyPlants_SecEvents>
+  <HardyPlants_ImmuneEvents>식물이 나쁜 이벤트를 무시함</HardyPlants_ImmuneEvents>
+  <HardyPlants_ImmuneEventsDesc>가뭄(모드의 건기 포함), 유독성 연무, 독성 낙진, 오염이 더 이상 식물을 느리게 하거나 잎을 떨어뜨리지 않습니다. 추위와 더위는 여전히 적용됩니다.</HardyPlants_ImmuneEventsDesc>
+</LanguageData>

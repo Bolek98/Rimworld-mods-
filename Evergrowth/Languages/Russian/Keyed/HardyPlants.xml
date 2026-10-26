@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HardyPlants_Title>Evergrowth – управление ростом растений</HardyPlants_Title>
+  <HardyPlants_Temperatures>Температуры для выносливых растений</HardyPlants_Temperatures>
+  <HardyPlants_TemperaturesDesc>Ниже минимума растение перестаёт расти. Выносливое растение получает эти значения только там, где они лучше его собственных.</HardyPlants_TemperaturesDesc>
+  <HardyPlants_MinGrowth>Минимальная температура роста: {0} (в оригинале {1})</HardyPlants_MinGrowth>
+  <HardyPlants_MinOptimal>Полная скорость роста от: {0} (в оригинале {1})</HardyPlants_MinOptimal>
+  <HardyPlants_MaxOptimal>Полная скорость роста до: {0} (в оригинале {1})</HardyPlants_MaxOptimal>
+  <HardyPlants_MaxGrowth>Максимальная температура роста: {0} (в оригинале {1})</HardyPlants_MaxGrowth>
+  <HardyPlants_Frost>Морозостойкость: на {0} холоднее</HardyPlants_Frost>
+  <HardyPlants_FrostDesc>Обычные растения теряют листву на 10–18 °C ниже своей минимальной температуры роста. Выносливые растения выдерживают настолько больше.</HardyPlants_FrostDesc>
+  <HardyPlants_ResetValues>Сбросить температуры</HardyPlants_ResetValues>
+  <HardyPlants_Group>Какие растения:</HardyPlants_Group>
+  <HardyPlants_GroupCold>Дикие растения холодных биомов</HardyPlants_GroupCold>
+  <HardyPlants_GroupWild>Все дикие растения и деревья (по умолчанию)</HardyPlants_GroupWild>
+  <HardyPlants_GroupAll>Все растения, включая культуры</HardyPlants_GroupAll>
+  <HardyPlants_GroupCustom>Мой собственный выбор (список справа)</HardyPlants_GroupCustom>
+  <HardyPlants_Plants>Холодостойкие растения</HardyPlants_Plants>
+  <HardyPlants_Chosen>Выбрано растений: {0}. Поиск:</HardyPlants_Chosen>
+  <HardyPlants_Growth>Рост</HardyPlants_Growth>
+  <HardyPlants_FasterGrowth>Растения растут быстрее</HardyPlants_FasterGrowth>
+  <HardyPlants_FasterGrowthDesc>Культуры, деревья и дикие растения – у каждых своя скорость. Действует сразу на все растения на карте, в том числе появившиеся позже. Без перезапуска. По умолчанию выкл.</HardyPlants_FasterGrowthDesc>
+  <HardyPlants_GrowthSpeed>Скорость роста: ×{0}</HardyPlants_GrowthSpeed>
+  <HardyPlants_GrowAllDay>Растения растут днём и ночью (24/7)</HardyPlants_GrowAllDay>
+  <HardyPlants_GrowAllDayDesc>Растения не отдыхают ночью, а растения под открытым небом растут и в темноте. Растениям под крышей по-прежнему нужны лампы. По умолчанию выкл.</HardyPlants_GrowAllDayDesc>
+  <HardyPlants_CropDays>Задать время роста культур</HardyPlants_CropDays>
+  <HardyPlants_TreeDays>Задать время роста деревьев</HardyPlants_TreeDays>
+  <HardyPlants_DaysValue>Вырастает за: {0} дн.</HardyPlants_DaysValue>
+  <HardyPlants_DaysDesc>Дни при скорости роста 100 %. Растения отдыхают ночью (если не включено 24/7) и растут медленнее при плохом освещении, почве или температуре, поэтому в реальной игре это дольше. Применяется при закрытии этого окна – без перезапуска. По умолчанию выкл.</HardyPlants_DaysDesc>
+  <HardyPlants_Presets>Быстрая настройка (раздел «Рост»):</HardyPlants_Presets>
+  <HardyPlants_PresetVanilla>Оригинал</HardyPlants_PresetVanilla>
+  <HardyPlants_PresetEasy>Лёгкое земледелие</HardyPlants_PresetEasy>
+  <HardyPlants_PresetLush>Пышный мир</HardyPlants_PresetLush>
+  <HardyPlants_SpeedCrops>Культуры: ×{0}</HardyPlants_SpeedCrops>
+  <HardyPlants_SpeedTrees>Деревья: ×{0}</HardyPlants_SpeedTrees>
+  <HardyPlants_SpeedWild>Дикие растения: ×{0}</HardyPlants_SpeedWild>
+  <HardyPlants_Yield>Больший урожай</HardyPlants_Yield>
+  <HardyPlants_YieldDesc>Сколько дают культуры и дикие растения при сборе и сколько древесины даёт дерево. Действует сразу. По умолчанию выкл.</HardyPlants_YieldDesc>
+  <HardyPlants_YieldCrops>Культуры и дикие растения: ×{0}</HardyPlants_YieldCrops>
+  <HardyPlants_YieldWood>Древесина с деревьев: ×{0}</HardyPlants_YieldWood>
+  <HardyPlants_Regrow>Дикие растения отрастают быстрее</HardyPlants_Regrow>
+  <HardyPlants_RegrowDesc>Как быстро дикие растения и деревья возвращаются на карту после вырубки, выпаса или пожара. Плотность растений по-прежнему зависит от биома. По умолчанию выкл.</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowValue>Отрастание: ×{0}</HardyPlants_RegrowValue>
+  <HardyPlants_IgnoreSoil>Бедная почва не замедляет рост</HardyPlants_IgnoreSoil>
+  <HardyPlants_IgnoreSoilDesc>На песке, гравии и бедной почве растения растут с полной скоростью. Плодородная почва всё равно помогает. Где ничего не растёт, ничего не меняется. По умолчанию выкл.</HardyPlants_IgnoreSoilDesc>
+  <HardyPlants_NoBlight>Без болезни растений</HardyPlants_NoBlight>
+  <HardyPlants_NoBlightDesc>Событие «болезнь растений» больше не происходит, и болезнь не распространяется. По умолчанию выкл.</HardyPlants_NoBlightDesc>
+  <HardyPlants_GrowthNote>Скорость, урожай, отрастание, почва, болезнь и 24/7 действуют сразу, время роста – после закрытия этого окна.</HardyPlants_GrowthNote>
+  <MUI_Title>Рекомендуемые настройки</MUI_Title>
+  <MUI_TitleOff>Рекомендуемые настройки · выкл.</MUI_TitleOff>
+  <MUI_DescOn>Мод настраивается сам и сразу работает. Идеально для новичков и всех, кто не хочет ничего настраивать.</MUI_DescOn>
+  <MUI_DescOff>Свои настройки. Изменено по сравнению с рекомендуемыми: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Свои настройки. Пока совпадают с рекомендуемыми.</MUI_DescOffSame>
+  <MUI_On>ВКЛ.</MUI_On>
+  <MUI_Off>ВЫКЛ.</MUI_Off>
+  <MUI_ResetAll>Сбросить всё на рекомендуемые</MUI_ResetAll>
+  <MUI_ConfirmOn>Включить рекомендуемые настройки? Ваши изменения ({0}) будут заменены рекомендуемыми значениями.</MUI_ConfirmOn>
+  <MUI_Locked>Подробные настройки заблокированы. Хотите их изменить? Выключите переключатель выше – ваши значения начнутся с рекомендуемых.</MUI_Locked>
+  <MUI_Changed>ИЗМЕНЕНО</MUI_Changed>
+  <MUI_ChangedTip>Отличается от рекомендуемого значения ({0}). Нажмите, чтобы восстановить рекомендуемое значение.</MUI_ChangedTip>
+  <MUI_Yes>вкл.</MUI_Yes>
+  <MUI_No>выкл.</MUI_No>
+  <MUI_RecTag>РЕКОМЕНДУЕТСЯ</MUI_RecTag>
+  <HardyPlants_Profile>ПРОФИЛЬ</HardyPlants_Profile>
+  <HardyPlants_ProfRec>Рекомендуемый</HardyPlants_ProfRec>
+  <HardyPlants_ProfCustom>Свой</HardyPlants_ProfCustom>
+  <HardyPlants_PresetVanilla_Card>Рост и урожай как в базовой игре.</HardyPlants_PresetVanilla_Card>
+  <HardyPlants_ProfRec_Card>Быстрый рост, больший урожай, без болезни растений, теплицы и дикие растения под снегом. Всё ещё честно.</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>Растения повсюду, растут быстро днём и ночью, в любое время года и не страдают от событий.</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfCustom_Card>Ваши собственные значения.</HardyPlants_ProfCustom_Card>
+  <HardyPlants_ProfileHint>Измените что-нибудь в «Росте» или «Урожае», и профиль переключится на «Свой». Оранжевое ИЗМЕНЕНО = отличается от рекомендуемого, нажмите, чтобы восстановить.</HardyPlants_ProfileHint>
+  <HardyPlants_SecYield>Урожай и болезни</HardyPlants_SecYield>
+  <HardyPlants_SecGroup>Какие растения выносливы</HardyPlants_SecGroup>
+  <HardyPlants_TabGrowth>Рост</HardyPlants_TabGrowth>
+  <HardyPlants_TabYield>Урожай</HardyPlants_TabYield>
+  <HardyPlants_TabWild>Дикая природа</HardyPlants_TabWild>
+  <HardyPlants_TabWinter>Зима и погода</HardyPlants_TabWinter>
+  <HardyPlants_TabPlants>Выносливые растения</HardyPlants_TabPlants>
+  <HardyPlants_SecSeason>Времена года</HardyPlants_SecSeason>
+  <HardyPlants_AnySeason>Сеять и выращивать в любое время года</HardyPlants_AnySeason>
+  <HardyPlants_AnySeasonDesc>Культуры можно сеять и выращивать, когда позволяет температура, – без ограничения «сезона роста». Для быстрого роста растениям всё равно нужно тепло.</HardyPlants_AnySeasonDesc>
+  <HardyPlants_Greenhouse>Теплицы</HardyPlants_Greenhouse>
+  <HardyPlants_GreenhouseDesc>Растения под построенной крышей в закрытой комнате растут с полной скоростью при любой температуре (от −10 °C), в любое время года и никогда не замерзают. Для света используйте лампы.</HardyPlants_GreenhouseDesc>
+  <HardyPlants_FruitRepeat>Фруктовые деревья плодоносят снова</HardyPlants_FruitRepeat>
+  <HardyPlants_FruitRepeatDesc>Сбор плодов с дерева (из модов) не срубает его – плоды вырастают снова. Рубить его на древесину по-прежнему можно.</HardyPlants_FruitRepeatDesc>
+  <HardyPlants_WildDensity>Более густая дикая природа</HardyPlants_WildDensity>
+  <HardyPlants_WildDensityDesc>Больше (или меньше) диких растений и деревьев на карте, чем обычно бывает в биоме.</HardyPlants_WildDensityDesc>
+  <HardyPlants_WildDensityValue>Плотность диких растений: ×{0}</HardyPlants_WildDensityValue>
+  <HardyPlants_SnowGrowth>Дикие растения отрастают под снегом</HardyPlants_SnowGrowth>
+  <HardyPlants_SnowGrowthDesc>Обычно на покрытой снегом земле всю зиму ничего нового не прорастает. С этой опцией дикие растения и деревья возвращаются под снегом там, где достаточно тепло.</HardyPlants_SnowGrowthDesc>
+  <HardyPlants_SnowMinTemp>Под снегом от: {0} (в оригинале: никогда; рекомендуется {1})</HardyPlants_SnowMinTemp>
+  <HardyPlants_FewerFires>Меньше лесных пожаров</HardyPlants_FewerFires>
+  <HardyPlants_FewerFiresDesc>Трава, кусты и деревья загораются примерно в три раза реже, так что пожар не съедает весь лес.</HardyPlants_FewerFiresDesc>
+  <HardyPlants_Overview>Дикая природа на этой карте</HardyPlants_Overview>
+  <HardyPlants_OverviewNoGame>Загрузите игру, чтобы увидеть, что растёт на вашей карте.</HardyPlants_OverviewNoGame>
+  <HardyPlants_OverviewDay>Последний игровой день ({0}):</HardyPlants_OverviewDay>
+  <HardyPlants_OverviewSoFar>Сегодня на данный момент ({0}):</HardyPlants_OverviewSoFar>
+  <HardyPlants_OverviewNums>Попыток вырастить дикие растения: {0}, выросло {1} (деревьев: {2}).</HardyPlants_OverviewNums>
+  <HardyPlants_OverviewSnow>Снег остановил {0} из {1} попыток.</HardyPlants_OverviewSnow>
+  <HardyPlants_OverviewNoneSnow>Ничего не растёт – вероятно, из-за снега. Включите «Дикие растения отрастают под снегом».</HardyPlants_OverviewNoneSnow>
+  <HardyPlants_OverviewNoneCold>Ничего не растёт – слишком холодно или земля заполнена. Попробуйте понизить температуру «Под снегом от».</HardyPlants_OverviewNoneCold>
+  <HardyPlants_SecEvents>События</HardyPlants_SecEvents>
+  <HardyPlants_ImmuneEvents>Растения игнорируют плохие события</HardyPlants_ImmuneEvents>
+  <HardyPlants_ImmuneEventsDesc>Засуха (а также засушливые периоды из модов), ядовитая дымка, токсичные осадки и загрязнение больше не замедляют растения и не лишают их листвы. Холод и жара по-прежнему учитываются.</HardyPlants_ImmuneEventsDesc>
+</LanguageData>

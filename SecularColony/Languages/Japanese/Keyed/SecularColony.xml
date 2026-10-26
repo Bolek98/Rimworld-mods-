@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SC_ModName>Secular Colony – 思想オフ＆調整</SC_ModName>
+  <SC_NoIdeology>Ideology DLCが有効になっていません – オフにするものはありません。</SC_NoIdeology>
+  <SC_Enable>自分のコロニーは思想を無視する</SC_Enable>
+  <SC_Enable_Desc>メインスイッチ。自分の入植者（選択すれば奴隷も）にのみ影響し、他の派閥には影響しません。オフにするとすべて元に戻ります。</SC_Enable_Desc>
+  <SC_Moods>信仰による気分変化なし</SC_Moods>
+  <SC_Moods_Desc>戒律、儀式、役職、思想の建物、望ましい衣服や色による思考は、ボーナスもペナルティも与えません。既存の信仰による思考は削除されます。</SC_Moods_Desc>
+  <SC_Certainty>改宗なし</SC_Certainty>
+  <SC_Certainty_Desc>確信度は決して下がらず、誰もあなたの入植者を改宗させず、あなたの入植者も他人を改宗させようとしません。自分で命じる囚人の改宗は引き続き機能します。</SC_Certainty_Desc>
+  <SC_Willing>思想は何も禁じない</SC_Willing>
+  <SC_Willing_Desc>「思想により禁止」によって入植者が作業や行動を妨げられることはなくなります。</SC_Willing_Desc>
+  <SC_MentalBreaks>信仰による精神崩壊なし</SC_MentalBreaks>
+  <SC_MentalBreaks_Desc>戒律による精神崩壊（信仰の危機など）はあなたの入植者に起こりません。通常の精神崩壊は残ります。</SC_MentalBreaks_Desc>
+  <SC_Alerts>信仰に関する警告を隠す</SC_Alerts>
+  <SC_Alerts_Desc>空いている役職、不足または冒涜された思想の建物、近づいている日付の儀式、若返りの要求に関する警告を隠します。役職を埋める必要はありません。</SC_Alerts_Desc>
+  <SC_Slaves>奴隷にも適用</SC_Slaves>
+  <SC_Slaves_Desc>オンにすると、コロニーの奴隷も思想を無視します。</SC_Slaves_Desc>
+  <SC_Note>変更は即座に、進行中のゲームにも適用されます。思想タブは表示されたままですが、コロニーには影響しません。</SC_Note>
+  <SC_LookChange>入植者が自分で見た目を変える</SC_LookChange>
+  <SC_LookChange_Desc>入植者は時々新しい髪型、ひげ、タトゥーを望み、時間があれば自分でスタイリングステーションに行きます。自由な成人の入植者のみ（奴隷、囚人、ゲストは除く）。スタイリングステーションが必要です – なければ誰もその願望を持ちません（バニラの挙動）。4日以内に叶わなかった願望は取り消されます。</SC_LookChange_Desc>
+  <SC_LookChangeDays>入植者ごとの願望の平均間隔（日）：{0}</SC_LookChangeDays>
+  <SC_LookChangeDays_Desc>入植者が再び新しい見た目を望むまでの平均日数。良い気分と美しさで少し頻繁に、悪い気分で少なくなります。</SC_LookChangeDays_Desc>
+  <SC_LookChangeMessage>誰かが新しい見た目を望んだらメッセージを表示</SC_LookChangeMessage>
+  <SC_LookChangeMessage_Desc>画面上部に短いメッセージ。ゲームは一時停止しません。</SC_LookChangeMessage_Desc>
+  <SC_StyleFree>思想に縛られないスタイル</SC_StyleFree>
+  <SC_StyleFree_Desc>髪型、ひげ、タトゥーは、思想が許すものではなく、入植者の性別、年齢、遺伝子に合うものすべてから選ばれます。思想が嫌うスタイルによって入植者が変化を望むことはなくなります。</SC_StyleFree_Desc>
+  <SC_LookWish>{PAWN_nameDef}が新しい見た目を望んでいます。</SC_LookWish>
+  <SC_H_Belief>信仰</SC_H_Belief>
+  <SC_H_Look>見た目</SC_H_Look>
+  <SC_H_Love>信仰に縛られない恋愛関係</SC_H_Love>
+  <SC_LoveHint>思想がなければ、入植者が持てるパートナーの数を信仰が決めることはありません。ルールを選んでください：</SC_LoveHint>
+  <SC_Rule0>特性による（推奨）</SC_Rule0>
+  <SC_Rule0_Desc>全員パートナーは1人。「ポリアモリー」または「複婚主義」の特性を持つ入植者は、より多くのパートナーや配偶者を持てます（下の上限まで）。</SC_Rule0_Desc>
+  <SC_Rule1>全員パートナーは1人</SC_Rule1>
+  <SC_Rule1_Desc>誰も同時に複数のパートナーや配偶者を持てません。新しい関係は古い関係を終わらせます。</SC_Rule1_Desc>
+  <SC_Rule2>全員自由恋愛</SC_Rule2>
+  <SC_Rule2_Desc>誰でもより多くのパートナーや配偶者を持てます（下の上限まで）。バージョン1.1までのこのMODの挙動です。</SC_Rule2_Desc>
+  <SC_MaxPartners>同時に持てるパートナーの最大数：{0}</SC_MaxPartners>
+  <SC_MaxPartners_Desc>ルールが許す場合に入植者が持てる恋人、婚約者、配偶者の合計数。5以上 = 無制限。</SC_MaxPartners_Desc>
+  <SC_PolyChance>ポリ系特性の出現頻度：{0} %</SC_PolyChance>
+  <SC_PolyChance_Desc>「ポリアモリー」と「複婚主義」が新しいポーンに現れる頻度。0 % = なし（キャラクターエディターでは追加可能）。</SC_PolyChance_Desc>
+  <SC_PolyNoJealousy>ポリアモリーは嫉妬しない</SC_PolyNoJealousy>
+  <SC_PolyNoJealousy_Desc>ポリアモリーの入植者は、パートナーに他の相手がいても「浮気された」気分になりません。</SC_PolyNoJealousy_Desc>
+  <SC_PolygamyMood>複婚主義者は大家族を喜ぶ</SC_PolygamyMood>
+  <SC_PolygamyMood_Desc>複婚主義の入植者は配偶者が2人で気分 +3、3人で +5、4人以上で +7。</SC_PolygamyMood_Desc>
+  <SC_H_NoBelief>信仰を完全になくす</SC_H_NoBelief>
+  <SC_NoBelief_NoGame>プレイ中のゲームでは（ここ設定画面で）コロニーから思想を完全に取り除けます。</SC_NoBelief_NoGame>
+  <SC_NoBelief_Desc>コロニーから思想を完全に取り除きます：ゲームはクラシックモード（Ideologyなしのゲームと同様）に切り替わり、思想タブ、確信度、改宗、役職、聖遺物、思想の建物が消えます。全入植者はルールのないシンプルな「クラシック」信仰を1つ持ち、後から加わる人もそれを受け入れます。</SC_NoBelief_Desc>
+  <SC_NoBelief_Button>コロニーから思想を取り除く</SC_NoBelief_Button>
+  <SC_NoBelief_Confirm>本当にコロニーから思想を取り除きますか？セーブデータが変更されます（役職と思想の建物が消えます）。先に新しいスロットにセーブしてください。</SC_NoBelief_Confirm>
+  <SC_NoBelief_Converted>思想を取り除きました – 改宗した入植者：{0}。コロニーは信仰なしで暮らします。</SC_NoBelief_Converted>
+  <SC_NoBelief_Done>コロニーに思想はありません（クラシックモード）。</SC_NoBelief_Done>
+  <SC_NoBelief_Undo>思想を戻す（クラシックモードをオフ）</SC_NoBelief_Undo>
+  <SC_NoBelief_Undone>クラシックモードをオフにしました – 思想タブが戻りました。入植者はシンプルな信仰を保持し、編集できます。</SC_NoBelief_Undone>
+  <SC_BarberTable>理髪台も対象</SC_BarberTable>
+  <SC_BarberTable_Desc>新しい見た目を望む入植者は、最寄りのスタイリングステーションまたは理髪台（Vanilla Hair Expandedや類似のMOD）に行きます。理髪台のメニューには、その入植者（性別、種族、遺伝子）に合う髪型とひげだけが表示されます。</SC_BarberTable_Desc>
+  <SC_GenderStyles>女性には女性の髪型、男性には男性の髪型</SC_GenderStyles>
+  <SC_GenderStyles_Desc>女性は女性用とユニセックスの髪型だけ、男性は男性用とユニセックスだけを、すべての髪型MODから選びます。あなたの入植者に適用されます。</SC_GenderStyles_Desc>
+  <SC_HairColours>髪の色も変える</SC_HairColours>
+  <SC_HairColours_Desc>スタイル変更時に、入植者は時々髪の色も変えます – すべてのMODの色から（ゲームとMODのヘアダイ、Vanilla Hair Expandedのプリセット、遺伝子による自然な色）。女性はより頻繁に染め、男性はたいてい自然な色を選びます。理髪台のメニューにもこれらの色が加わります。</SC_HairColours_Desc>
+  <SC_HairColourChance>スタイル変更時に新しい色になる確率：{0} %</SC_HairColourChance>
+  <SC_HairColourChance_Desc>入植者がスタイル変更時に髪の色も変える頻度。</SC_HairColourChance_Desc>
+  <SC_Rec1>信仰による気分変化や精神崩壊なし</SC_Rec1>
+  <SC_Rec2>確信度は維持され、誰も改宗しない</SC_Rec2>
+  <SC_Rec3>自由なスタイル、理髪台、髪の色</SC_Rec3>
+  <SC_Rec4>特性による恋愛関係、嫉妬なし</SC_Rec4>
+  <SC_KeepHint>一部の種類は残す（部分モード）：</SC_KeepHint>
+  <SC_KeepRituals>儀式による気分を残す</SC_KeepRituals>
+  <SC_KeepRituals_Desc>儀式と聖遺物は引き続き気分ボーナス（とペナルティ）を与えます。</SC_KeepRituals_Desc>
+  <SC_KeepRoles>役職による気分を残す</SC_KeepRoles>
+  <SC_KeepRoles_Desc>リーダーと専門家の役職は引き続き気分に影響します（空いた役職、失った役職、役職の衣服）。</SC_KeepRoles_Desc>
+  <SC_KeepBuildings>信仰の建物による気分を残す</SC_KeepBuildings>
+  <SC_KeepBuildings_Desc>不足または冒涜された祭壇やその他の信仰の建物は引き続き影響します。</SC_KeepBuildings_Desc>
+  <SC_KeepApparel>望ましい衣服と色による気分を残す</SC_KeepApparel>
+  <SC_KeepApparel_Desc>信仰が望む衣服と色は引き続き気分に影響します。</SC_KeepApparel_Desc>
+  <MUI_Title>推奨設定</MUI_Title>
+  <MUI_TitleOff>推奨設定 · オフ</MUI_TitleOff>
+  <MUI_DescOn>Modが自動で設定され、すぐに使えます。初心者や何も調整したくない方に最適です。</MUI_DescOn>
+  <MUI_DescOff>カスタム設定。推奨から変更した項目：{0}。</MUI_DescOff>
+  <MUI_DescOffSame>カスタム設定。まだ推奨と同じです。</MUI_DescOffSame>
+  <MUI_On>オン</MUI_On>
+  <MUI_Off>オフ</MUI_Off>
+  <MUI_ResetAll>すべて推奨にリセット</MUI_ResetAll>
+  <MUI_ConfirmOn>推奨設定をオンにしますか？あなたの変更（{0}）は推奨値に置き換えられます。</MUI_ConfirmOn>
+  <MUI_Locked>詳細設定はロックされています。変更したい場合は上のスイッチをオフにしてください – 値は推奨値から始まります。</MUI_Locked>
+  <MUI_Changed>変更済み</MUI_Changed>
+  <MUI_ChangedTip>推奨設定（{0}）と異なります。クリックで推奨値に戻します。</MUI_ChangedTip>
+  <MUI_Yes>オン</MUI_Yes>
+  <MUI_No>オフ</MUI_No>
+  <MUI_RecTag>推奨</MUI_RecTag>
+</LanguageData>
