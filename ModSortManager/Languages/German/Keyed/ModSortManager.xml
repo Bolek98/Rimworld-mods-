@@ -255,4 +255,22 @@ Starten?</MSM_BisectConfirm>
   <MSM_Subscribed>{0} abonniert – Steam lädt es herunter. Starte das Spiel neu und aktiviere es dann in der Liste.</MSM_Subscribed>
   <MSM_OpenWorkshop>Workshop</MSM_OpenWorkshop>
   <MSM_OpenWorkshopTip>Öffnet den Steam Workshop im Spiel (Steam-Overlay) – Mods abonnieren, ohne das Spiel zu verlassen. Benötigt das aktivierte Steam-Overlay; neue Mods werden nach einem Neustart geladen.</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>Liste als Code kopieren</MSM_ShareCopy>
+  <MSM_ShareCopyTip>Kopiert die aktive Modliste als kurzen Textcode – schick ihn einem Freund oder poste ihn auf Discord.</MSM_ShareCopyTip>
+  <MSM_ShareCopied>Modliste kopiert ({0} Mods) – überall einfügen.</MSM_ShareCopied>
+  <MSM_SharePaste>Listencode einfügen</MSM_SharePaste>
+  <MSM_SharePasteTip>Lädt eine Modliste aus einem Code in der Zwischenablage. Fehlende Workshop-Mods können sofort abonniert werden.</MSM_SharePasteTip>
+  <MSM_ShareBad>Die Zwischenablage enthält keinen Mod-Sort-Manager-Listencode.</MSM_ShareBad>
+  <MSM_SubscribeMissing>Fehlende abonnieren ({0})</MSM_SubscribeMissing>
+  <MSM_SubscribedN>{0} Mods abonniert – Steam lädt sie herunter. Starte das Spiel neu und lade den Code dann erneut.</MSM_SubscribedN>
+  <MSM_Changes>Neuigkeiten ({0})</MSM_Changes>
+  <MSM_ChangesTitle>Seit dem letzten Start aktualisiert ({0})</MSM_ChangesTitle>
+  <MSM_ChangedSince>Seit dem letzten Start aktualisiert{0} – klicken für das Änderungsprotokoll</MSM_ChangedSince>
+  <MSM_NoChangelog>Diese Mod hat keine Änderungsprotokoll-Datei. Ihre Workshop-Seite listet die Änderungen vielleicht auf.</MSM_NoChangelog>
+  <MSM_Weight>Laden: Texturen {0} · Code {1} · Defs {2} · Sounds {3}</MSM_Weight>
+  <MSM_WeightCalc>Laden: wird gezählt…</MSM_WeightCalc>
+  <MSM_WeightTip>Größe dessen, was das Spiel aus dieser Mod lädt. Klicken, um zu sehen, welche Mods das Laden am meisten bremsen.</MSM_WeightTip>
+  <MSM_WeightTitle>Was das Laden am meisten bremst</MSM_WeightTitle>
+  <MSM_WeightHint>Größe von Texturen, Code, Defs und Sounds der aktiven Mods. Größer heißt meist längeres Laden; Texturen wiegen am meisten.</MSM_WeightHint>
+  <MSM_WeightSum>Insgesamt {0} in {1} Mods</MSM_WeightSum>
 </LanguageData>

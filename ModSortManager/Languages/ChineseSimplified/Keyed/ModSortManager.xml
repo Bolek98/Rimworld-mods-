@@ -255,4 +255,22 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_Subscribed>已订阅 {0} – Steam 正在下载。重启游戏后在列表中启用它。</MSM_Subscribed>
   <MSM_OpenWorkshop>创意工坊</MSM_OpenWorkshop>
   <MSM_OpenWorkshopTip>在游戏内打开 Steam 创意工坊（Steam 界面覆盖）——无需离开游戏即可订阅模组。需要开启 Steam 界面覆盖；新模组在重启游戏后加载。</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>复制列表代码</MSM_ShareCopy>
+  <MSM_ShareCopyTip>将当前模组列表复制为一段短文本代码——发给朋友或发到 Discord。</MSM_ShareCopyTip>
+  <MSM_ShareCopied>已复制模组列表（{0} 个模组）——可粘贴到任何地方。</MSM_ShareCopied>
+  <MSM_SharePaste>粘贴列表代码</MSM_SharePaste>
+  <MSM_SharePasteTip>从剪贴板中的代码加载模组列表。缺少的创意工坊模组可立即订阅。</MSM_SharePasteTip>
+  <MSM_ShareBad>剪贴板中没有 Mod Sort Manager 列表代码。</MSM_ShareBad>
+  <MSM_SubscribeMissing>订阅缺少的模组（{0}）</MSM_SubscribeMissing>
+  <MSM_SubscribedN>已订阅 {0} 个模组——Steam 正在下载。请重启游戏后再次加载代码。</MSM_SubscribedN>
+  <MSM_Changes>更新内容（{0}）</MSM_Changes>
+  <MSM_ChangesTitle>自上次启动以来已更新（{0}）</MSM_ChangesTitle>
+  <MSM_ChangedSince>自上次启动以来已更新{0}——点击查看更新日志</MSM_ChangedSince>
+  <MSM_NoChangelog>此模组没有更新日志文件。其创意工坊页面可能列有更改。</MSM_NoChangelog>
+  <MSM_Weight>加载：贴图 {0} · 代码 {1} · 定义 {2} · 声音 {3}</MSM_Weight>
+  <MSM_WeightCalc>加载：计算中…</MSM_WeightCalc>
+  <MSM_WeightTip>游戏从此模组加载的内容在磁盘上的大小。点击查看哪些模组最拖慢加载。</MSM_WeightTip>
+  <MSM_WeightTitle>最拖慢加载的模组</MSM_WeightTitle>
+  <MSM_WeightHint>当前模组的贴图、代码、定义和声音大小。越大通常加载越久；贴图占比最大。</MSM_WeightHint>
+  <MSM_WeightSum>共 {0}，{1} 个模组</MSM_WeightSum>
 </LanguageData>

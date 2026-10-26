@@ -255,4 +255,22 @@ Start?</MSM_BisectConfirm>
   <MSM_Subscribed>Subscribed to {0} – Steam is downloading it. Restart the game, then turn it on in the list.</MSM_Subscribed>
   <MSM_OpenWorkshop>Workshop</MSM_OpenWorkshop>
   <MSM_OpenWorkshopTip>Opens the Steam Workshop inside the game (Steam overlay) – subscribe to mods without leaving the game. Needs the Steam overlay turned on; restart the game to load new mods.</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>Copy list as code</MSM_ShareCopy>
+  <MSM_ShareCopyTip>Copies the active mod list as a short text code – send it to a friend or post it on Discord.</MSM_ShareCopyTip>
+  <MSM_ShareCopied>Mod list copied ({0} mods) – paste it anywhere.</MSM_ShareCopied>
+  <MSM_SharePaste>Paste list code</MSM_SharePaste>
+  <MSM_SharePasteTip>Loads a mod list from a code in the clipboard. Missing Workshop mods can be subscribed right away.</MSM_SharePasteTip>
+  <MSM_ShareBad>The clipboard does not hold a Mod Sort Manager list code.</MSM_ShareBad>
+  <MSM_SubscribeMissing>Subscribe to missing ({0})</MSM_SubscribeMissing>
+  <MSM_SubscribedN>Subscribed to {0} mods – Steam is downloading them. Restart the game, then load the code again.</MSM_SubscribedN>
+  <MSM_Changes>What's new ({0})</MSM_Changes>
+  <MSM_ChangesTitle>Updated since the last start ({0})</MSM_ChangesTitle>
+  <MSM_ChangedSince>Updated since the last start{0} – click for the change log</MSM_ChangedSince>
+  <MSM_NoChangelog>This mod has no change log file. Its Workshop page may list the changes.</MSM_NoChangelog>
+  <MSM_Weight>Loading: textures {0} · code {1} · defs {2} · sounds {3}</MSM_Weight>
+  <MSM_WeightCalc>Loading: counting…</MSM_WeightCalc>
+  <MSM_WeightTip>Size on disk of what the game loads from this mod. Click to see which mods slow loading the most.</MSM_WeightTip>
+  <MSM_WeightTitle>What slows loading the most</MSM_WeightTitle>
+  <MSM_WeightHint>Sizes of textures, code, defs and sounds of the active mods. Bigger usually means longer loading; textures weigh the most.</MSM_WeightHint>
+  <MSM_WeightSum>Total {0} in {1} mods</MSM_WeightSum>
 </LanguageData>

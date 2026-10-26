@@ -255,4 +255,22 @@ Mod Sort Manager вимкне половину підозрілих модів (
   <MSM_Subscribed>Ви підписалися на {0} – Steam його завантажує. Перезапустіть гру й увімкніть мод у списку.</MSM_Subscribed>
   <MSM_OpenWorkshop>Майстерня</MSM_OpenWorkshop>
   <MSM_OpenWorkshopTip>Відкриває Майстерню Steam прямо в грі (оверлей Steam) – підписуйтеся на моди, не виходячи з гри. Потрібен увімкнений оверлей Steam; нові моди завантажаться після перезапуску.</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>Копіювати список як код</MSM_ShareCopy>
+  <MSM_ShareCopyTip>Копіює активний список модів як короткий текстовий код – надішліть його другові або опублікуйте в Discord.</MSM_ShareCopyTip>
+  <MSM_ShareCopied>Список модів скопійовано ({0} модів) – вставте будь-куди.</MSM_ShareCopied>
+  <MSM_SharePaste>Вставити код списку</MSM_SharePaste>
+  <MSM_SharePasteTip>Завантажує список модів із коду в буфері обміну. На відсутні моди з Майстерні можна одразу підписатися.</MSM_SharePasteTip>
+  <MSM_ShareBad>У буфері обміну немає коду списку Mod Sort Manager.</MSM_ShareBad>
+  <MSM_SubscribeMissing>Підписатися на відсутні ({0})</MSM_SubscribeMissing>
+  <MSM_SubscribedN>Підписка на {0} модів – Steam їх завантажує. Перезапустіть гру і знову завантажте код.</MSM_SubscribedN>
+  <MSM_Changes>Що нового ({0})</MSM_Changes>
+  <MSM_ChangesTitle>Оновлено з минулого запуску ({0})</MSM_ChangesTitle>
+  <MSM_ChangedSince>Оновлено з минулого запуску{0} – натисніть, щоб побачити зміни</MSM_ChangedSince>
+  <MSM_NoChangelog>Цей мод не має файлу змін. Можливо, їх вказано на його сторінці в Майстерні.</MSM_NoChangelog>
+  <MSM_Weight>Завантаження: текстури {0} · код {1} · дефи {2} · звуки {3}</MSM_Weight>
+  <MSM_WeightCalc>Завантаження: підрахунок…</MSM_WeightCalc>
+  <MSM_WeightTip>Розмір того, що гра завантажує з цього мода. Натисніть, щоб побачити, які моди найбільше сповільнюють завантаження.</MSM_WeightTip>
+  <MSM_WeightTitle>Що найбільше сповільнює завантаження</MSM_WeightTitle>
+  <MSM_WeightHint>Розмір текстур, коду, дефів і звуків активних модів. Більше зазвичай означає довше; текстури важать найбільше.</MSM_WeightHint>
+  <MSM_WeightSum>Усього {0} у {1} модах</MSM_WeightSum>
 </LanguageData>

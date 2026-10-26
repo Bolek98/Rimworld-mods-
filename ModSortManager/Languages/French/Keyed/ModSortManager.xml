@@ -255,4 +255,22 @@ Commencer ?</MSM_BisectConfirm>
   <MSM_Subscribed>Abonné à {0} – Steam le télécharge. Redémarre le jeu puis active-le dans la liste.</MSM_Subscribed>
   <MSM_OpenWorkshop>Workshop</MSM_OpenWorkshop>
   <MSM_OpenWorkshopTip>Ouvre le Steam Workshop dans le jeu (overlay Steam) – abonne-toi aux mods sans quitter le jeu. Nécessite l'overlay Steam activé ; les nouveaux mods se chargent après un redémarrage.</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>Copier la liste en code</MSM_ShareCopy>
+  <MSM_ShareCopyTip>Copie la liste de mods active sous forme de court code texte – envoie-le à un ami ou poste-le sur Discord.</MSM_ShareCopyTip>
+  <MSM_ShareCopied>Liste de mods copiée ({0} mods) – colle-la où tu veux.</MSM_ShareCopied>
+  <MSM_SharePaste>Coller un code de liste</MSM_SharePaste>
+  <MSM_SharePasteTip>Charge une liste de mods depuis un code dans le presse-papiers. Les mods du Workshop manquants peuvent être abonnés tout de suite.</MSM_SharePasteTip>
+  <MSM_ShareBad>Le presse-papiers ne contient pas de code de liste Mod Sort Manager.</MSM_ShareBad>
+  <MSM_SubscribeMissing>S'abonner aux manquants ({0})</MSM_SubscribeMissing>
+  <MSM_SubscribedN>Abonné à {0} mods – Steam les télécharge. Redémarre le jeu, puis charge le code à nouveau.</MSM_SubscribedN>
+  <MSM_Changes>Nouveautés ({0})</MSM_Changes>
+  <MSM_ChangesTitle>Mis à jour depuis le dernier lancement ({0})</MSM_ChangesTitle>
+  <MSM_ChangedSince>Mis à jour depuis le dernier lancement{0} – clique pour le journal des modifications</MSM_ChangedSince>
+  <MSM_NoChangelog>Ce mod n'a pas de fichier de journal des modifications. Sa page Workshop liste peut-être les changements.</MSM_NoChangelog>
+  <MSM_Weight>Chargement : textures {0} · code {1} · defs {2} · sons {3}</MSM_Weight>
+  <MSM_WeightCalc>Chargement : calcul…</MSM_WeightCalc>
+  <MSM_WeightTip>Taille de ce que le jeu charge depuis ce mod. Clique pour voir quels mods ralentissent le plus le chargement.</MSM_WeightTip>
+  <MSM_WeightTitle>Ce qui ralentit le plus le chargement</MSM_WeightTitle>
+  <MSM_WeightHint>Taille des textures, du code, des defs et des sons des mods actifs. Plus gros signifie souvent un chargement plus long ; les textures pèsent le plus.</MSM_WeightHint>
+  <MSM_WeightSum>Total {0} dans {1} mods</MSM_WeightSum>
 </LanguageData>

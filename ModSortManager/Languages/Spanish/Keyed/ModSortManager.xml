@@ -255,4 +255,22 @@ Importante: no guardes tu colonia durante la prueba: con la mitad de los mods au
   <MSM_Subscribed>Suscrito a {0} – Steam lo está descargando. Reinicia el juego y actívalo en la lista.</MSM_Subscribed>
   <MSM_OpenWorkshop>Workshop</MSM_OpenWorkshop>
   <MSM_OpenWorkshopTip>Abre el Steam Workshop dentro del juego (overlay de Steam) – suscríbete a mods sin salir del juego. Necesita el overlay de Steam activado; los mods nuevos se cargan tras reiniciar.</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>Copiar lista como código</MSM_ShareCopy>
+  <MSM_ShareCopyTip>Copia la lista de mods activa como un código de texto corto – envíalo a un amigo o publícalo en Discord.</MSM_ShareCopyTip>
+  <MSM_ShareCopied>Lista de mods copiada ({0} mods) – pégala donde quieras.</MSM_ShareCopied>
+  <MSM_SharePaste>Pegar código de lista</MSM_SharePaste>
+  <MSM_SharePasteTip>Carga una lista de mods desde un código en el portapapeles. Los mods del Workshop que falten se pueden suscribir al momento.</MSM_SharePasteTip>
+  <MSM_ShareBad>El portapapeles no contiene un código de lista de Mod Sort Manager.</MSM_ShareBad>
+  <MSM_SubscribeMissing>Suscribirse a los que faltan ({0})</MSM_SubscribeMissing>
+  <MSM_SubscribedN>Suscrito a {0} mods – Steam los está descargando. Reinicia el juego y vuelve a cargar el código.</MSM_SubscribedN>
+  <MSM_Changes>Novedades ({0})</MSM_Changes>
+  <MSM_ChangesTitle>Actualizados desde el último inicio ({0})</MSM_ChangesTitle>
+  <MSM_ChangedSince>Actualizado desde el último inicio{0} – haz clic para ver los cambios</MSM_ChangedSince>
+  <MSM_NoChangelog>Este mod no tiene archivo de cambios. Su página del Workshop quizá los indique.</MSM_NoChangelog>
+  <MSM_Weight>Carga: texturas {0} · código {1} · defs {2} · sonidos {3}</MSM_Weight>
+  <MSM_WeightCalc>Carga: calculando…</MSM_WeightCalc>
+  <MSM_WeightTip>Tamaño de lo que el juego carga de este mod. Haz clic para ver qué mods ralentizan más la carga.</MSM_WeightTip>
+  <MSM_WeightTitle>Lo que más ralentiza la carga</MSM_WeightTitle>
+  <MSM_WeightHint>Tamaño de texturas, código, defs y sonidos de los mods activos. Más grande suele significar más carga; las texturas pesan más.</MSM_WeightHint>
+  <MSM_WeightSum>Total {0} en {1} mods</MSM_WeightSum>
 </LanguageData>

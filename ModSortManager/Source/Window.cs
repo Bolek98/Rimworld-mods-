@@ -89,6 +89,7 @@ namespace ModSortManager
             }
             catch (Exception e) { Log.Warning("[Mod Sort Manager] " + e.Message); }
             NewMods.Refresh();
+            try { var _ = ModChanges.Changed; } catch { }
             active = ModsConfig.ActiveModsInLoadOrder.ToList();
             opened = active.ToList();
             selected = active.FirstOrDefault();
@@ -1046,6 +1047,26 @@ namespace ModSortManager
                 Label(new Rect(r.x, y, r.width, 20f), (isNew ? "● " : "") + "MSM_Added".Translate(addedAt.Value.ToString("d.M.yyyy HH:mm")), isNew ? MUI.Accent : MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false);
                 y += 20f;
             }
+            // 0.2.0: updated since the last start, and what the mod adds to loading
+            ModChange chg = ModChanges.Of(m);
+            if (chg != null)
+            {
+                Rect cr = new Rect(r.x, y, r.width, 20f);
+                string ver = chg.from == chg.to || chg.to.NullOrEmpty() ? "" : " " + (chg.from.NullOrEmpty() ? "?" : chg.from) + " → " + chg.to;
+                Label(cr, "● " + "MSM_ChangedSince".Translate(ver), Info, GameFont.Tiny, TextAnchor.MiddleLeft, false);
+                Widgets.DrawHighlightIfMouseover(cr);
+                if (Widgets.ButtonInvisible(cr)) Find.WindowStack.Add(new Dialog_Changes(m));
+                y += 20f;
+            }
+            if (!m.Official)
+            {
+                Rect wr = new Rect(r.x, y, r.width, 20f);
+                Label(wr, LoadWeight.Line(m), MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false);
+                Widgets.DrawHighlightIfMouseover(wr);
+                TooltipHandler.TipRegion(wr, "MSM_WeightTip".Translate());
+                if (Widgets.ButtonInvisible(wr)) Find.WindowStack.Add(new Dialog_LoadWeight(active));
+                y += 20f;
+            }
             y += 6f;
 
             // notes
@@ -1305,13 +1326,18 @@ namespace ModSortManager
                 if (Updates.Finished > 0) needsRestart = true;
             }
             Rect r = body.ContractedBy(Pad, 10f);
+            int nChanged = ModChanges.Changed.Count;
             if (!Updates.Available)
             {
                 Label(new Rect(r.x, r.y, r.width, 60f), "MSM_UpdNoSteam".Translate(), MUI.Muted);
+                if (nChanged > 0 && Button(new Rect(r.x, r.y + 64f, 220f, 32f), "MSM_Changes".Translate(nChanged)))
+                    Find.WindowStack.Add(new Dialog_Changes());
                 return;
             }
+            if (Button(new Rect(r.xMax - 620f, r.y - 4f, 200f, 32f), "MSM_Changes".Translate(nChanged), false, nChanged > 0))
+                Find.WindowStack.Add(new Dialog_Changes());
             float y = r.y;
-            Label(new Rect(r.x, y, r.width - 420f, 22f), "MSM_UpdTitle".Translate(Updates.Pending, Updates.Busy), MUI.Text1, GameFont.Small, TextAnchor.MiddleLeft, false);
+            Label(new Rect(r.x, y, r.width - 630f, 22f), "MSM_UpdTitle".Translate(Updates.Pending, Updates.Busy), MUI.Text1, GameFont.Small, TextAnchor.MiddleLeft, false);
             if (Button(new Rect(r.xMax - 200f, y - 4f, 200f, 32f), "MSM_UpdAll".Translate(Updates.Pending), true) && Updates.Pending > 0)
                 Updates.DownloadAll();
             if (Button(new Rect(r.xMax - 410f, y - 4f, 200f, 32f), "MSM_UpdCheck".Translate()))
@@ -1363,7 +1389,24 @@ namespace ModSortManager
             profileName = SearchField(new Rect(left.x, y, left.width - 190f, 32f), profileName, "MSM_ProfileNameHint".Translate());
             if (Button(new Rect(left.xMax - 180f, y, 180f, 32f), "MSM_SaveProfile".Translate(), true, !profileName.NullOrEmpty()))
                 SaveProfile();
-            y += 44f;
+            y += 40f;
+            // 0.2.0: the list as a text code to share (friends, Discord …)
+            float sw = (left.width - 8f) / 2f;
+            Rect copyR = new Rect(left.x, y, sw, 30f), pasteR = new Rect(left.x + sw + 8f, y, sw, 30f);
+            if (Button(copyR, "MSM_ShareCopy".Translate()))
+            {
+                GUIUtility.systemCopyBuffer = ShareCode.Make(active);
+                Messages.Message("MSM_ShareCopied".Translate(active.Count), MessageTypeDefOf.TaskCompletion, false);
+            }
+            TooltipHandler.TipRegion(copyR, "MSM_ShareCopyTip".Translate());
+            if (Button(pasteR, "MSM_SharePaste".Translate()))
+            {
+                List<ShareEntry> got = ShareCode.Parse(GUIUtility.systemCopyBuffer);
+                if (got == null) Messages.Message("MSM_ShareBad".Translate(), MessageTypeDefOf.RejectInput, false);
+                else ApplyIds(got.Select(e => e.id).ToList(), got.Select(e => e.name).ToList(), got.Select(e => e.wid).ToList());
+            }
+            TooltipHandler.TipRegion(pasteR, "MSM_SharePasteTip".Translate());
+            y += 40f;
             Rect outL = new Rect(left.x, y, left.width, left.yMax - y);
             Rect viewL = new Rect(0f, 0f, outL.width - 16f, Mathf.Max(profileFiles.Count * 40f, outL.height - 2f));
             Widgets.BeginScrollView(outL, ref sProfiles, viewL);
@@ -1440,14 +1483,20 @@ namespace ModSortManager
             ApplyIds(ml.ids, ml.names);
         }
 
-        private void ApplyIds(List<string> ids, List<string> names)
+        private void ApplyIds(List<string> ids, List<string> names, List<ulong> wids = null)
         {
             var list = new List<ModMetaData>();
             var missing = new List<string>();
+            var canGet = new List<ulong>();
             for (int i = 0; i < ids.Count; i++)
             {
                 ModMetaData m = MSM.FindMod(ids[i]);
-                if (m == null) { missing.Add(names != null && i < names.Count ? names[i] : ids[i]); continue; }
+                if (m == null)
+                {
+                    missing.Add(names != null && i < names.Count ? names[i] : ids[i]);
+                    if (wids != null && i < wids.Count && wids[i] != 0) canGet.Add(wids[i]);
+                    continue;
+                }
                 if (!list.Contains(m)) list.Add(m);
             }
             ModMetaData core = ModLister.AllInstalledMods.FirstOrDefault(x => x.IsCoreMod);
@@ -1455,7 +1504,18 @@ namespace ModSortManager
             active = list;
             dirty = true;
             tab = 0;
-            if (missing.Count > 0)
+            if (missing.Count > 0 && canGet.Count > 0 && Updates.CanSubscribe)
+            {
+                List<ulong> get = canGet.Distinct().ToList();
+                string text = "MSM_Missing".Translate(missing.Count, string.Join("\n", missing.Take(40).ToArray()) + (missing.Count > 40 ? "\n…" : ""));
+                Find.WindowStack.Add(new Dialog_MessageBox(text, "MSM_SubscribeMissing".Translate(get.Count), delegate
+                {
+                    int ok = get.Count(id => Updates.Subscribe(id));
+                    needsRestart |= ok > 0;
+                    Messages.Message("MSM_SubscribedN".Translate(ok), MessageTypeDefOf.TaskCompletion, false);
+                }, "CloseButton".Translate(), null));
+            }
+            else if (missing.Count > 0)
                 Find.WindowStack.Add(new Dialog_MessageBox("MSM_Missing".Translate(missing.Count, string.Join("\n", missing.Take(40).ToArray()) + (missing.Count > 40 ? "\n…" : ""))));
             else
                 Messages.Message("MSM_Loaded".Translate(list.Count), MessageTypeDefOf.TaskCompletion, false);

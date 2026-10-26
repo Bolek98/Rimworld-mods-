@@ -255,4 +255,22 @@ Mod Sort Manager выключит половину подозреваемых м
   <MSM_Subscribed>Вы подписались на {0} – Steam его скачивает. Перезапустите игру и включите мод в списке.</MSM_Subscribed>
   <MSM_OpenWorkshop>Мастерская</MSM_OpenWorkshop>
   <MSM_OpenWorkshopTip>Открывает Мастерскую Steam прямо в игре (оверлей Steam) – подписывайтесь на моды, не выходя из игры. Нужен включённый оверлей Steam; новые моды загрузятся после перезапуска.</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>Копировать список как код</MSM_ShareCopy>
+  <MSM_ShareCopyTip>Копирует активный список модов в виде короткого текстового кода – отправьте его другу или опубликуйте в Discord.</MSM_ShareCopyTip>
+  <MSM_ShareCopied>Список модов скопирован ({0} модов) – вставьте куда угодно.</MSM_ShareCopied>
+  <MSM_SharePaste>Вставить код списка</MSM_SharePaste>
+  <MSM_SharePasteTip>Загружает список модов из кода в буфере обмена. На недостающие моды из Мастерской можно сразу подписаться.</MSM_SharePasteTip>
+  <MSM_ShareBad>В буфере обмена нет кода списка Mod Sort Manager.</MSM_ShareBad>
+  <MSM_SubscribeMissing>Подписаться на недостающие ({0})</MSM_SubscribeMissing>
+  <MSM_SubscribedN>Подписка на {0} модов – Steam их загружает. Перезапустите игру и снова загрузите код.</MSM_SubscribedN>
+  <MSM_Changes>Что нового ({0})</MSM_Changes>
+  <MSM_ChangesTitle>Обновлено с прошлого запуска ({0})</MSM_ChangesTitle>
+  <MSM_ChangedSince>Обновлено с прошлого запуска{0} – нажмите, чтобы увидеть изменения</MSM_ChangedSince>
+  <MSM_NoChangelog>У этого мода нет файла изменений. Возможно, они указаны на его странице в Мастерской.</MSM_NoChangelog>
+  <MSM_Weight>Загрузка: текстуры {0} · код {1} · дефы {2} · звуки {3}</MSM_Weight>
+  <MSM_WeightCalc>Загрузка: подсчёт…</MSM_WeightCalc>
+  <MSM_WeightTip>Размер того, что игра загружает из этого мода. Нажмите, чтобы увидеть, какие моды сильнее всего замедляют загрузку.</MSM_WeightTip>
+  <MSM_WeightTitle>Что сильнее всего замедляет загрузку</MSM_WeightTitle>
+  <MSM_WeightHint>Размер текстур, кода, дефов и звуков активных модов. Больше обычно значит дольше; текстуры весят больше всего.</MSM_WeightHint>
+  <MSM_WeightSum>Всего {0} в {1} модах</MSM_WeightSum>
 </LanguageData>
