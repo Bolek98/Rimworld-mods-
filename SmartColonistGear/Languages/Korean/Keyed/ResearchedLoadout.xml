@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RL_Enable>모드 활성화</RL_Enable>
+  <RL_UseRecipes>제작법을 연구로 간주</RL_UseRecipes>
+  <RL_UseRecipes_Desc>아이템을 만드는 제작법 중 하나라도 연구가 완료되면 아이템이 해금됩니다. 원자재(나무, 강철)가 잠기면 끄세요.</RL_UseRecipes_Desc>
+  <RL_BlockHigherTech>정착지 기술 수준보다 높은 아이템 차단</RL_BlockHigherTech>
+  <RL_BlockHigherTech_Desc>연구가 없으면서 정착지의 연구된 기술 수준보다 발전된 아이템은 사용하지 않습니다.</RL_BlockHigherTech_Desc>
+  <RL_BlockUntagged>연구가 없는 모드 아이템 차단</RL_BlockUntagged>
+  <RL_BlockUntagged_Desc>연구가 없는 다른 모드의 아이템은 잠긴 것으로 취급합니다.</RL_BlockUntagged_Desc>
+  <RL_BlockLockedEquip>연구되지 않은 무기 차단</RL_BlockLockedEquip>
+  <RL_BlockLockedEquip_Desc>정착민은 명령을 받아도 연구되지 않은 무기를 집지 않습니다.</RL_BlockLockedEquip_Desc>
+  <RL_BlockLockedApparel>연구되지 않은 의류 차단</RL_BlockLockedApparel>
+  <RL_BlockLockedApparel_Desc>바닐라 옷 입기는 연구되지 않은 의류를 선택하지 않습니다.</RL_BlockLockedApparel_Desc>
+  <RL_StripLocked>연구되지 않은 장비 해제</RL_StripLocked>
+  <RL_StripLocked_Desc>정착민은 정착지가 아직 연구하지 않은 무기와 의류를 버립니다.</RL_StripLocked_Desc>
+  <RL_AutoPrimary>주무기 자동 업그레이드</RL_AutoPrimary>
+  <RL_AutoPrimary_Desc>정착민이 스스로 더 강한 무기를 집고 약한 무기를 버립니다.</RL_AutoPrimary_Desc>
+  <RL_UseSkills>기술에 따라 무기 선택</RL_UseSkills>
+  <RL_UseSkills_Desc>사수는 원거리 무기를, 싸움꾼은 근접 무기를 받습니다.</RL_UseSkills_Desc>
+  <RL_AutoSidearm>자동 보조 무기</RL_AutoSidearm>
+  <RL_AutoSidearm_Desc>정착민은 다른 종류의 예비 무기도 휴대합니다. Simple Sidearms가 있으면 그 제한과 규칙이 적용됩니다.</RL_AutoSidearm_Desc>
+  <RL_PrioritizeFighters>최고의 무기는 최고의 전사에게</RL_PrioritizeFighters>
+  <RL_PrioritizeFighters_Desc>사격 또는 격투 기술이 가장 높은 정착민이 먼저 고릅니다. 더 나은 전사에게 업그레이드가 되는 무기는 다른 사람이 가져가지 않습니다.</RL_PrioritizeFighters_Desc>
+  <RL_ArmSlaves>노예 무장</RL_ArmSlaves>
+  <RL_ArmSlaves_Desc>무장한 노예는 반란 확률을 크게 높입니다. 기본값은 꺼짐입니다.</RL_ArmSlaves_Desc>
+  <RL_ConsiderDistance>거리 고려</RL_ConsiderDistance>
+  <RL_ConsiderDistance_Desc>아이템이 멀수록 정착민이 가지러 가려면 더 큰 개선(최대 +25%)이 필요합니다.</RL_ConsiderDistance_Desc>
+  <RL_PauseThreat>공격 중 일시 중지</RL_PauseThreat>
+  <RL_PauseThreat_Desc>활동 중인 적이 거주 구역 안이나 정착민으로부터 40칸 이내에 있는 동안에는 아무도 장비를 가지러 가지 않습니다. 맵 가장자리의 먼 적, 쓰러진 적, 도망치는 적은 포함하지 않습니다.</RL_PauseThreat_Desc>
+  <RL_OwnDresser>바닐라 대신 자체 옷 입기</RL_OwnDresser>
+  <RL_OwnDresser_Desc>게임 대신 이 모드가 옷 입기를 처리합니다. 바닐라 옷 입기에서 오류가 날 때만 권장합니다.</RL_OwnDresser_Desc>
+  <RL_AutoApparel>자동 옷 입기 (자체)</RL_AutoApparel>
+  <RL_AutoApparel_Desc>자체 옷 입기와 함께 사용할 때만 적용됩니다.</RL_AutoApparel_Desc>
+  <RL_OnlyStockpile>비축 구역과 선반에서만</RL_OnlyStockpile>
+  <RL_OnlyStockpile_Desc>정착민은 비축 구역과 선반에서만 아이템을 가져가고, 맵 아무 곳에나 놓인 아이템은 가져가지 않습니다.</RL_OnlyStockpile_Desc>
+  <RL_ReplaceBroken>낡은 것과 정책상 금지된 것 벗기</RL_ReplaceBroken>
+  <RL_ReplaceBroken_Desc>내구도가 기준 미만이거나 의복 정책으로 금지된 의류는 벗습니다.</RL_ReplaceBroken_Desc>
+  <RL_StoreDropped>벗은 장비를 보관소로 운반</RL_StoreDropped>
+  <RL_StoreDropped_Desc>정착민은 벗은 장비를 가장 좋은 빈 보관 장소로 옮깁니다. 공간이 없으면 바닥에 남습니다.</RL_StoreDropped_Desc>
+  <RL_Notify>게임 내 알림</RL_Notify>
+  <RL_Notify_Desc>정착민이 다른 무기나 의류를 착용하면 왼쪽 위에 메시지를 표시합니다.</RL_Notify_Desc>
+  <RL_DebugLog>디버그 로그</RL_DebugLog>
+  <RL_DebugLog_Desc>모든 교체를 로그에 기록합니다. 문제 해결용입니다.</RL_DebugLog_Desc>
+  <RL_MinHp>최소 내구도: {0}%</RL_MinHp>
+  <RL_MinHp_Desc>이 기준 미만의 장비는 망가진 것으로 간주합니다. 바닐라에서는 내구도 50% 미만의 낡은 의류에 기분 페널티가 있습니다.</RL_MinHp_Desc>
+  <RL_Search>검색:</RL_Search>
+  <RL_BanModWeapons>모드 무기 금지</RL_BanModWeapons>
+  <RL_AllowWeapons>무기 허용</RL_AllowWeapons>
+  <RL_BanModApparel>모드 의류 금지</RL_BanModApparel>
+  <RL_AllowApparel>의류 허용</RL_AllowApparel>
+  <RL_BanWeaponsTitle>무기 (체크 = 금지)</RL_BanWeaponsTitle>
+  <RL_BanApparelTitle>의류와 방어구 (체크 = 금지)</RL_BanApparelTitle>
+  <RL_GizmoLabel>자동 장비</RL_GizmoLabel>
+  <RL_GizmoDesc>켜져 있으면 모드가 이 정착민의 무기와 의류를 고릅니다. 장비를 직접 관리하려는 정착민에게는 끄세요.</RL_GizmoDesc>
+  <RL_MsgWeapon>{0}이(가) {2} 대신 {1}을(를) 듭니다.</RL_MsgWeapon>
+  <RL_MsgWeaponNew>{0}이(가) {1}을(를) 듭니다.</RL_MsgWeaponNew>
+  <RL_MsgSidearm>{0}이(가) {1}을(를) 보조 무기로 챙깁니다.</RL_MsgSidearm>
+  <RL_MsgApparel>{0}이(가) {1}을(를) 입습니다.</RL_MsgApparel>
+  <RL_WeaponCalm>무기 교체 후 대기: {0}시간</RL_WeaponCalm>
+  <RL_WeaponCalm_Desc>무기를 바꾼 뒤 정착민은 무기가 망가지지 않는 한 이 시간 동안 그 무기를 유지합니다. 24시간 = 게임 내 하루, 0 = 제한 없음.</RL_WeaponCalm_Desc>
+  <RL_Ex_Allowed>허용됨</RL_Ex_Allowed>
+  <RL_Ex_Locked>잠김</RL_Ex_Locked>
+  <RL_Ex_Banned>수동으로 금지됨</RL_Ex_Banned>
+  <RL_Ex_Always>항상 필요: {0}</RL_Ex_Always>
+  <RL_Ex_Option>제작: {0}</RL_Ex_Option>
+  <RL_Ex_Free>연구 없이 제작 가능</RL_Ex_Free>
+  <RL_Ex_NoResearch>연구 없음 (기술 수준과 모드 아이템 규칙으로 결정)</RL_Ex_NoResearch>
+  <RL_Ex_Tech>기술 수준: {0} (한도: {1})</RL_Ex_Tech>
+  <RL_Ex_Mod>모드: {0}</RL_Ex_Mod>
+  <RL_Ex_Done>완료</RL_Ex_Done>
+  <RL_Ex_Missing>부족</RL_Ex_Missing>
+  <RL_TechMismatch>연구보다 발전된 아이템 확인</RL_TechMismatch>
+  <RL_TechMismatch_Desc>모드가 발전된 아이템을 낮은 연구 아래에 두면(산업 연구 아래의 우주 소총 등), 정착지가 그 아이템의 기술 수준에도 도달해야 합니다.</RL_TechMismatch_Desc>
+  <RL_PowerEstimate>성능으로 모드 아이템 기술 수준 추정</RL_PowerEstimate>
+  <RL_PowerEstimate_Desc>최고의 바닐라 산업 무기나 방어구보다 확실히 강한 모드 무기·방어구는 모드 제작자가 더 낮은 수준을 설정했더라도 우주 시대로 간주합니다. 이는 추정입니다.</RL_PowerEstimate_Desc>
+  <RL_Ex_Power>성능에 해당하는 기술 수준: {0}</RL_Ex_Power>
+  <RL_Ex_NeedColony>정착지가 도달해야 할 기술 수준: {0}</RL_Ex_NeedColony>
+  <RL_LevelByProgress>연구 진행도로 정착지 수준 결정</RL_LevelByProgress>
+  <RL_LevelByProgress_Desc>정착지는 해당 수준 연구의 설정된 비율을 완료하면 그 기술 수준에 도달합니다. 끔 = 완료된 가장 높은 연구가 결정(하나면 충분). 시나리오 수준은 항상 최소로 간주됩니다.</RL_LevelByProgress_Desc>
+  <RL_LevelProgress>필요한 수준별 연구 비율: {0}%</RL_LevelProgress>
+  <RL_LevelProgress_Desc>정착지가 해당 수준으로 간주되려면 그 수준의 연구를 얼마나 완료해야 하는지.</RL_LevelProgress_Desc>
+  <RL_CurrentLevel>현재 정착지 수준: {0} (시나리오: {1}, 연구: {2})</RL_CurrentLevel>
+  <RL_SyncWorld>World at Your Level에서 정착지 수준 가져오기</RL_SyncWorld>
+  <RL_SyncWorld_Desc>정착민과 세계 전체가 같은 수준을 공유합니다. 습격 모드에서 설정한 수동 수준과 수준별 비율도 포함됩니다.</RL_SyncWorld_Desc>
+  <RL_SurvivalApparel>생존 예외 (위급할 때만)</RL_SurvivalApparel>
+  <RL_SurvivalApparel_Desc>온도는 비상시에만 고려합니다: 아래 한계를 벗어났을 때, 또는 정착민이 저체온증이나 열사병일 때(항상 적용). 그러면 연구되지 않은 방한복을 입거나 더위를 악화시키는 옷을 벗을 수 있습니다(방어구는 제외). 그 외에는 온도 때문에 옷을 바꾸지 않습니다.</RL_SurvivalApparel_Desc>
+  <RL_ApparelCalm>옷 갈아입은 후 대기: {0}시간</RL_ApparelCalm>
+  <RL_ApparelCalm_Desc>옷을 갈아입은 뒤, 저체온증이나 열사병이 아닌 한 정착민은 이 시간 동안 다시 갈아입지 않습니다. 벗은 옷이나 새 옷으로 교체된 옷은 하루 동안 다시 가져가지 않습니다. 0 = 대기 없음.</RL_ApparelCalm_Desc>
+  <RL_KeepArmor>방어구 항상 유지</RL_KeepArmor>
+  <RL_KeepArmor_Desc>방어구는 방어력이 더 약한 것으로 교체되지 않으며, 온도 때문에 벗지도 않습니다. 망가지거나 잠긴 방어구에는 적용되지 않습니다.</RL_KeepArmor_Desc>
+  <RL_TempByThresholds>온도 한계 직접 설정</RL_TempByThresholds>
+  <RL_TempByThresholds_Desc>켬: 슬라이더가 결정. 끔: 자동, 각 정착민의 안전 온도 범위 기준(착용 중인 옷 고려).</RL_TempByThresholds_Desc>
+  <RL_ColdThreshold>이 온도 미만이면 방한복 착용: {0}</RL_ColdThreshold>
+  <RL_ColdThreshold_Desc>바깥이 더 추우면 정착민은 방한복을 입습니다(연구되지 않았어도). 이 한계보다 최소 3도 따뜻해질 때까지 입고 있습니다.</RL_ColdThreshold_Desc>
+  <RL_HeatThreshold>이 온도 초과면 더위 때문에 벗기: {0}</RL_HeatThreshold>
+  <RL_HeatThreshold_Desc>바깥이 더 더우면 정착민은 더위를 악화시키는 옷을 벗고(방어구는 제외) 더위를 막아 주는 옷을 입습니다.</RL_HeatThreshold_Desc>
+  <RL_GenderClothing>성별에 맞는 옷</RL_GenderClothing>
+  <RL_GenderClothing_Desc>남성은 남성용과 남녀 공용 옷만, 여성은 여성용과 남녀 공용 옷만 가져갑니다. 이미 입고 있는 다른 성별의 옷은 알맞은 대체품을 찾는 즉시 교체됩니다.</RL_GenderClothing_Desc>
+  <RL_GenderGuess>이름과 설명으로 성별 추측</RL_GenderGuess>
+  <RL_GenderGuess_Desc>의류 정의에 성별이 없으면 이름, 태그, 텍스처, 설명으로 추측합니다(드레스, 치마, 메이드… = 여성용, 턱시도, 신사… = 남성용). 확실하지 않으면 남녀 공용입니다. 추측 결과는 의류 목록 툴팁에서 볼 수 있습니다.</RL_GenderGuess_Desc>
+  <RL_GenderFemale>여성용</RL_GenderFemale>
+  <RL_GenderMale>남성용</RL_GenderMale>
+  <RL_GenderUnisex>남녀 공용</RL_GenderUnisex>
+  <RL_Ex_Gender>성별: {0}</RL_Ex_Gender>
+  <RL_TabGeneral>연구와 수준</RL_TabGeneral>
+  <RL_TabWeapons>무기</RL_TabWeapons>
+  <RL_TabApparel>의류</RL_TabApparel>
+  <RL_TabTemperature>온도와 위협</RL_TabTemperature>
+  <RL_TabBans>금지</RL_TabBans>
+  <RL_TabOther>기타</RL_TabOther>
+  <RL_TempInfo>온도는 비상시에만 옷을 바꿉니다: 설정한 한계를 벗어났을 때, 또는 정착민이 저체온증이나 열사병일 때(항상 적용).\n\n추우면 연구되지 않았어도 방한복을 입습니다. 더우면 더위를 악화시키는 옷을 벗습니다.\n\n방어구는 온도 때문에 벗거나 더 약한 방어구로 바꾸지 않습니다.</RL_TempInfo>
+  <RL_ConfirmBanWeapons>정말 모드의 무기를 모두 금지하시겠습니까? 정착민은 어떤 모드 무기도 가져가지 않습니다. 나중에 목록에서 개별 무기의 체크를 해제할 수 있습니다.</RL_ConfirmBanWeapons>
+  <RL_ConfirmBanApparel>정말 모드의 의류를 모두 금지하시겠습니까? 정착민은 어떤 모드 의류도 가져가지 않습니다. 나중에 목록에서 개별 의류의 체크를 해제할 수 있습니다.</RL_ConfirmBanApparel>
+  <RL_RoleGear>전문 분야에 따른 장비</RL_RoleGear>
+  <RL_RoleGear_Desc>기술에 따라 각 정착민에게 역할이 있습니다: 사수, 근접 전사, 균형형, 일꾼. 근접 전사는 무거운 방어구를, 일꾼은 속도를 늦추지 않는 가벼운 장비를 선호합니다. 사격을 잘하는 사람은 장거리 무기를, 못하는 사람은 빠른 단거리 무기를 중시합니다. 역할은 "자동 장비" 버튼 설명에 표시됩니다.</RL_RoleGear_Desc>
+  <RL_SpecialEffects>무기의 특수 효과 고려</RL_SpecialEffects>
+  <RL_SpecialEffects_Desc>폭발, 소이, EMP, 기절, 독성, 연막 무기는 정착민의 주무기로서 점수가 낮아집니다(아군 피격 위험, 일부 대상에게만 효과적).</RL_SpecialEffects_Desc>
+  <RL_StatOffsets>장비의 능력치 보너스와 페널티</RL_StatOffsets>
+  <RL_StatOffsets_Desc>장비가 바꾸는 것을 고려합니다: 이동 및 작업 속도, 조준, 명중과 회피, 그리고 정착민의 가장 높은 기술에 따른 작업 능력치(의사의 치료, 재배사의 재배, 요리사의 요리…).</RL_StatOffsets_Desc>
+  <RL_Role_Shooter>사수</RL_Role_Shooter>
+  <RL_Role_Melee>근접 전사</RL_Role_Melee>
+  <RL_Role_Balanced>균형형</RL_Role_Balanced>
+  <RL_Role_Worker>일꾼</RL_Role_Worker>
+  <RL_GizmoRole>역할: {0}, 전문 분야: {1}</RL_GizmoRole>
+  <RL_CoverageFirst>먼저 몸 가리기 (몸통, 다리)</RL_CoverageFirst>
+  <RL_CoverageFirst_Desc>드러난 부위를 가리는 옷이 우선입니다(몸통이 가장 우선, 그다음 다리, 머리, 나머지). 무언가를 드러나게 하는 옷은 페널티를 받습니다. 몸통이나 다리가 드러나 있으면 정착민은 대기 시간 없이 바로 옷을 입습니다.</RL_CoverageFirst_Desc>
+  <RL_ThreatApparel>위협에 대한 보호</RL_ThreatApparel>
+  <RL_ThreatApparel_Desc>위험한 추위나 더위(위의 한계), 독소, 독성 낙진, 오염, 진공 또는 맵에서 전투가 있을 때, 필요한 보호 기능이 있는 옷이 큰 보너스를 받아 정착민이 입게 됩니다. 이 때문에 방어구가 더 약한 것으로 바뀌지는 않습니다.</RL_ThreatApparel_Desc>
+  <RL_ThreatBills>보호 장비 작업 생성</RL_ThreatBills>
+  <RL_ThreatBills_Desc>보호 의류가 부족하고 제작법이 연구되어 있으면 작업대에 "X개가 될 때까지" 작업이 추가되고 제품은 비축 구역으로 갑니다. 당신의 작업은 삭제되지 않습니다. 연구가 부족하면 메시지를 한 번 표시합니다.</RL_ThreatBills_Desc>
+  <RL_ThreatBill>정착민이 보호 장비 제작을 시작했습니다: {0}.</RL_ThreatBill>
+  <RL_ThreatNoRecipe>이 위협에 대한 보호 장비는 아직 만들 수 없습니다. 연구가 부족합니다.</RL_ThreatNoRecipe>
+  <RL_OnlyCrafted>정착지가 제작한 것만 가져가기</RL_OnlyCrafted>
+  <RL_OnlyCrafted_Desc>정착민은 정착지가 작업대에서 적어도 한 번 제작한(그리고 연구한) 새 무기와 의류만 가져갑니다. 다른 종류의 전리품과 구매품은 직접 그 종류를 제작할 때까지 무시됩니다. 이미 착용한 것은 이 때문에 벗지 않습니다. 진행 중인 게임에서는 정착민의 장비와 제작 가능한 보관 아이템이 한 번 반영됩니다.</RL_OnlyCrafted_Desc>
+  <RL_CraftedCount>제작한 무기와 의류 종류: {0}</RL_CraftedCount>
+  <RL_CraftedReset>제작 목록 지우기</RL_CraftedReset>
+  <RL_CraftedReset_Desc>지금까지 반영되거나 제작된 모든 무기와 의류 종류를 잊습니다. 이제부터 정착지가 실제로 제작한 것만 인정됩니다. 정착민이 착용한 것은 그대로입니다.</RL_CraftedReset_Desc>
+  <RL_CraftedResetConfirm>정말 제작 목록을 지우시겠습니까? 정착민은 해당 종류를 제작한 뒤에만 새 무기와 의류를 가져갑니다.</RL_CraftedResetConfirm>
+  <RL_Ex_NotCrafted>연구했지만 정착지가 아직 제작하지 않았습니다.</RL_Ex_NotCrafted>
+  <RL_SidearmLocked>Smart Colonist Gear: 정착지가 아직 이 무기를 연구하거나 제작하지 않았습니다</RL_SidearmLocked>
+  <RL_WorkClothing>작업복은 전문가만</RL_WorkClothing>
+  <RL_WorkClothing_Desc>특정 작업을 빠르게 하는 의류(요리용 앞치마, 연구용 실험복, 의사용 장갑, 광부 헬멧…)는 그 작업의 전문가만 가져갑니다. 전문가가 있으면 강하게 우선됩니다. 다른 사람은 가져가지 않습니다. 전문가 = 가장 뛰어난 작업 기술이거나 그 작업의 우선순위가 1이고, 기술이 설정 수준 이상인 경우.</RL_WorkClothing_Desc>
+  <RL_WorkClothingSkill>전문가 기준 기술: {0}</RL_WorkClothingSkill>
+  <RL_WorkClothingSkill_Desc>정착민이 작업복 전문가로 간주되는 최소 기술 수준.</RL_WorkClothingSkill_Desc>
+  <RL_DressByTraits>특성과 기술에 따라 입기</RL_DressByTraits>
+  <RL_DressByTraits_Desc>허용된 의류 중에서 각 정착민은 자신에게 맞는 것을 선호합니다: 실제로 하고 잘하는 작업을 향상시키는 장비(의사 – 치료, 광부 – 채굴, 연구원 – 연구…), 전투 기술에 따른 사격·근접 장비, 사이캐스터와 초능력 민감 정착민에게는 초능력 장비. 특성도 중요합니다: 겁쟁이는 방어구를 더 중시하고, 조깅 애호가와 날렵한 사람은 감속을 싫어하며, 탐욕스럽거나 질투심 많은 사람은 더 좋은 품질을 원하고, 금욕주의자는 사치를 신경 쓰지 않으며, 싸움꾼은 조준 장비를 건너뜁니다. 작은 선호일 뿐이며(약 -25 % ~ +35 %), 잠기거나 연구되지 않은 장비를 허용하지는 않습니다.</RL_DressByTraits_Desc>
+  <RL_GearStability>장비 안정성: {0} % 더 좋을 때만 교체</RL_GearStability>
+  <RL_GearStability_Desc>새 무기, 의류, 방어구, 액세서리가 정착민의 현재 것보다 얼마나 좋아야 교체하는지. 높을수록 = 옷과 무기를 덜 바꿉니다. 같은 아이템끼리(예: 흉갑과 흉갑)는 더 좋은 품질일 때만 교체합니다. 망가진 아이템은 항상 교체합니다.</RL_GearStability_Desc>
+  <RL_TabSidearms>보조 무기</RL_TabSidearms>
+  <RL_SS_Missing>Simple Sidearms가 설치되어 있지 않습니다 – 이 모드의 내장 시스템을 사용합니다: 정착민이 다른 종류의 무기를 휴대하고 전투 중 스스로 꺼냅니다.</RL_SS_Missing>
+  <RL_SS_Preset>Simple Sidearms 프리셋: {0}</RL_SS_Preset>
+  <RL_SS_P_Custom>사용자 지정</RL_SS_P_Custom>
+  <RL_SS_P_NoneApplied>없음</RL_SS_P_NoneApplied>
+  <RL_SS_P_Disabled>비활성화</RL_SS_P_Disabled>
+  <RL_SS_P_LoadoutOnly>장비 구성만 (이 모드가 보조 무기 선택)</RL_SS_P_LoadoutOnly>
+  <RL_SS_P_Lite>라이트</RL_SS_P_Lite>
+  <RL_SS_P_Basic>기본</RL_SS_P_Basic>
+  <RL_SS_P_Advanced>고급</RL_SS_P_Advanced>
+  <RL_SS_P_Excessive>과다</RL_SS_P_Excessive>
+  <RL_SS_P_Brawler>싸움꾼</RL_SS_P_Brawler>
+  <RL_SS_Slots>최대 보조 무기: {0}</RL_SS_Slots>
+  <RL_SS_Slots_Desc>손에 든 무기 외에 정착민이 휴대할 수 있는 무기 수.</RL_SS_Slots_Desc>
+  <RL_SS_Mass>보조 무기 하나의 최대 질량: {0} kg</RL_SS_Mass>
+  <RL_SS_MassNone>보조 무기 하나의 최대 질량: 제한 없음</RL_SS_MassNone>
+  <RL_SS_Mass_Desc>더 무거운 무기는 보조 무기로 휴대하지 않습니다. 0 = 제한 없음.</RL_SS_Mass_Desc>
+  <RL_SS_ToolSwitch>작업에 도구 사용 (도끼, 곡괭이…)</RL_SS_ToolSwitch>
+  <RL_SS_ToolSwitch_Desc>정착민이 현재 작업을 빠르게 하는 휴대 무기로 바꿉니다.</RL_SS_ToolSwitch_Desc>
+  <RL_SS_OptimalMelee>대상에 맞는 최고의 근접 무기</RL_SS_OptimalMelee>
+  <RL_SS_CQC>근접전에서 근접 무기로 전환</RL_SS_CQC>
+  <RL_SS_RangedSwitch>거리가 있으면 원거리 무기로 전환</RL_SS_RangedSwitch>
+  <RL_SS_ReEquip>전투 후 주무기 다시 들기</RL_SS_ReEquip>
+  <RL_SS_ReEquipBest>전투 후 최고의 무기 들기</RL_SS_ReEquipBest>
+  <RL_SS_ReEquipCombat>전투 중에도 다시 들기</RL_SS_ReEquipCombat>
+  <RL_SS_SkipDangerous>위험한 무기(수류탄, 폭발물)를 자동으로 사용하지 않음</RL_SS_SkipDangerous>
+  <RL_SS_SkipEMP>EMP 무기를 자동으로 사용하지 않음</RL_SS_SkipEMP>
+  <RL_SS_Caravans>캐러밴에서 보조 무기 유지</RL_SS_Caravans>
+  <RL_SS_Alerts>보조 무기 분실 경고</RL_SS_Alerts>
+  <RL_SS_Sounds>무기 전환 소리</RL_SS_Sounds>
+  <RL_SS_Spawn>다른 이들이 보조 무기를 들고 옴: {0} %</RL_SS_Spawn>
+  <RL_SS_Spawn_Desc>습격자나 방문자가 보조 무기를 가질 확률(장비는 여전히 World at Your Level이 필터링).</RL_SS_Spawn_Desc>
+  <RL_SS_HidePage>원래 Simple Sidearms 설정 숨기기</RL_SS_HidePage>
+  <RL_SS_HidePage_Desc>원래 Simple Sidearms 페이지를 모드 설정 목록에서 숨깁니다 – 모든 설정은 여기서 합니다. 설정을 다시 열면 적용됩니다.</RL_SS_HidePage_Desc>
+  <RL_EmergencyGear>위험 상황의 비상 장비</RL_EmergencyGear>
+  <RL_EmergencyGear_Desc>위험한 일이 생겼는데 정착지가 아직 알맞은 장비를 연구하지 않았다면, 정착민은 맵에 이미 있는 대체 장비(비축 구역, 바닥, 소지품)를 사용할 수 있습니다 – 연구나 제작을 하지 않았어도. 독성 공기: 방독면과 보호복, 극심한 추위나 더위: 단열 의류, 공격: 방어구와 정착지 소유의 무기. 아무것도 생성되지 않습니다. 위험이 지나가면 일반 규칙이 다시 적용됩니다. 이미 입은 것은 약 두 시간 유지되어 도중에 아무도 벗지 않습니다. 수동으로 금지한 아이템은 절대 허용되지 않습니다.</RL_EmergencyGear_Desc>
+  <RL_EmergencyToxic>독성 공기 (가스, 낙진, 오염)</RL_EmergencyToxic>
+  <RL_EmergencyToxic_Desc>정착민 근처나 거주 구역의 독성 가스(예: 퀘스트의 가스 발생기), 독성 낙진, 유독성 연무, 오염된 땅 또는 증가하는 독소 축적. 모든 모드에서 독성 환경 저항이나 독성 저항이 있는 의류(방독면, 방호복…)를 허용합니다.</RL_EmergencyToxic_Desc>
+  <RL_EmergencyTemperature>극심한 추위 또는 더위</RL_EmergencyTemperature>
+  <RL_EmergencyTemperature_Desc>바깥 온도가 정착민이 옷 없이 견딜 수 있는 범위를 크게 벗어났거나(또는 한파 / 폭염), 저체온증 / 열사병. 단열이 잘 되는 의류를 허용합니다.</RL_EmergencyTemperature_Desc>
+  <RL_EmergencyRaid>공격</RL_EmergencyRaid>
+  <RL_EmergencyRaid_Desc>맵에 활동 중인 적이 있는 동안. 방어구와 이미 정착지 소유인 무기(보관 중, 소지품, 또는 거주 구역 바닥)를 허용합니다.</RL_EmergencyRaid_Desc>
+  <RL_EmKind_Toxic>독성 공기</RL_EmKind_Toxic>
+  <RL_EmKind_Cold>극심한 추위</RL_EmKind_Cold>
+  <RL_EmKind_Heat>극심한 더위</RL_EmKind_Heat>
+  <RL_EmKind_Raid>공격</RL_EmKind_Raid>
+  <RL_EmGear_Toxic>방독면과 보호 장비</RL_EmGear_Toxic>
+  <RL_EmGear_Cold>방한복</RL_EmGear_Cold>
+  <RL_EmGear_Heat>냉각 의류</RL_EmGear_Heat>
+  <RL_EmGear_Raid>방어구와 정착지의 무기</RL_EmGear_Raid>
+  <RL_EmergencyOn>{0}: 정착민이 연구 없이도 {1}을(를) 사용할 수 있습니다.</RL_EmergencyOn>
+  <RL_EmergencyOff>위험이 지나갔습니다({0}): 비상 장비는 더 이상 허용되지 않습니다. 이미 입은 것은 한동안 유지됩니다.</RL_EmergencyOff>
+  <RL_Ex_Emergency>현재 비상 장비로 허용됨 ({0})</RL_Ex_Emergency>
+  <RL_Ex_EmergencyFor>비상 장비 대상: {0}</RL_Ex_EmergencyFor>
+  <RL_EmergencyProvide>비상 장비 찾기 및 제작</RL_EmergencyProvide>
+  <RL_EmergencyProvide_Desc>위험 중 정착민에게 보호 장비가 부족하면: 맵 어디든 금지된 보호 아이템의 금지를 해제하고(필요한 만큼만, 불 속이나 적 근처는 제외), 그래도 부족하면 정착지가 만들 수 있는 최고의 보호 장비 작업을 추가합니다. 알맞은 보호 장비를 아직 만들 수 없으면(연구 부족) 대신 가장 가까운 대체품을 찾거나 만듭니다 – 더 약한 독성 보호나 얼굴 가리개, 가장 따뜻한/시원한 옷, 최고의 방어구. 이렇게 추가된 작업은 작업이 시작되지 않았다면 위험이 끝날 때 삭제됩니다.</RL_EmergencyProvide_Desc>
+  <RL_EmProv_Msg>{0}: {1} 부족 – {2}.</RL_EmProv_Msg>
+  <RL_EmProv_Unforbade>{0} 금지 해제 ({1})</RL_EmProv_Unforbade>
+  <RL_EmProv_Bill>{2}에 {0}× {1} 작업 추가</RL_EmProv_Bill>
+  <RL_EmProv_Substitute>알맞은 보호 장비의 제작법이 없어 대체품 제작: {2}에서 {0}× {1}</RL_EmProv_Substitute>
+  <RL_EmProv_BillExists>{0} 작업이 이미 있습니다</RL_EmProv_BillExists>
+  <RL_EmProv_Nothing>찾은 것이 없고 사용 가능한 제작법도 없습니다</RL_EmProv_Nothing>
+  <RL_CraftedRestore>정착지에서 목록 복원</RL_CraftedRestore>
+  <RL_CraftedRestore_Desc>정착지가 현재 가진 모든 무기와 의류 종류(착용 중, 소지품, 보관 중)를 제작 목록에 추가합니다. 실수로 또는 너무 일찍 목록을 지웠을 때 유용합니다.</RL_CraftedRestore_Desc>
+  <RL_CraftedRestored>정착지에서 제작 목록을 복원했습니다. 추가된 종류: {0}.</RL_CraftedRestored>
+  <RL_SS_OwnHeader>Smart Colonist Gear – 보조 무기</RL_SS_OwnHeader>
+  <RL_SS_Filter>보조 무기는 연구되고 허용된 것만</RL_SS_Filter>
+  <RL_SS_Filter_Desc>Simple Sidearms는 이 모드가 허용하는 무기(연구, 기술 수준, 금지, 제작한 것만)만 정착민에게 줄 수 있습니다.</RL_SS_Filter_Desc>
+  <RL_SS_Upgrade>보조 무기를 더 좋은 것으로 교체</RL_SS_Upgrade>
+  <RL_SS_Upgrade_Desc>정착지에 같은 종류의 더 좋은 무기가 있으면 정착민이 휴대한 보조 무기를 교체하고 오래된 것을 보관소로 옮깁니다.</RL_SS_Upgrade_Desc>
+  <RL_SS_Notify>보조 무기를 챙길 때 메시지</RL_SS_Notify>
+  <RL_SS_Notify_Desc>정착민이 새 보조 무기를 집으면 메시지를 표시합니다(이 모드의 메시지가 켜져 있을 때만).</RL_SS_Notify_Desc>
+  <RL_SS_OriginalUi>Simple Sidearms 전체 설정</RL_SS_OriginalUi>
+  <RL_SS_OriginalUi_Desc>이 옵션 아래에 원래 Simple Sidearms의 전체 설정을 모든 탭(프리셋, 자동화, 허용량, 생성, 기타)과 함께 표시합니다. 끔 = 간략 버전.</RL_SS_OriginalUi_Desc>
+  <RL_CraftedPick>보유한 것에서 고르기…</RL_CraftedPick>
+  <RL_CraftedPick_Desc>정착지가 가진 모든 무기와 의류 종류의 목록을 엽니다. 체크한 것은 바로 착용할 수 있고, 나머지는 정착지가 제작하면 저절로 해금됩니다.</RL_CraftedPick_Desc>
+  <RL_PickTitle>정착민이 착용할 수 있는 것</RL_PickTitle>
+  <RL_PickHelp>체크 = 지금 허용. 체크하지 않은 것도 영구 금지가 아닙니다 – 정착지가 제작하면 해금됩니다. 연구와 금지는 계속 적용됩니다.</RL_PickHelp>
+  <RL_PickAll>전체</RL_PickAll>
+  <RL_PickWeapons>무기</RL_PickWeapons>
+  <RL_PickApparel>의류</RL_PickApparel>
+  <RL_PickOnAll>표시된 항목 체크</RL_PickOnAll>
+  <RL_PickOffAll>표시된 항목 체크 해제</RL_PickOffAll>
+  <RL_PickCount>{1}개 중 {0}개 허용</RL_PickCount>
+  <RL_PickNoResearch>연구 안 됨</RL_PickNoResearch>
+  <RL_PickWeapon>무기</RL_PickWeapon>
+  <RL_PickApparel1>의류</RL_PickApparel1>
+  <RL_SS_Tab_Presets>프리셋</RL_SS_Tab_Presets>
+  <RL_SS_Tab_Automation>트리거</RL_SS_Tab_Automation>
+  <RL_SS_Tab_Allowances>제한</RL_SS_Tab_Allowances>
+  <RL_SS_Tab_Spawning>생성</RL_SS_Tab_Spawning>
+  <RL_SS_Tab_Misc>기타</RL_SS_Tab_Misc>
+  <RL_FullBody>온몸 입히기</RL_FullBody>
+  <RL_FullBody_Desc>정착민은 아무것도 벗지 않고 무언가를 더하기만 하는 모든 사용 가능한 옷을 입습니다 – 모자, 장갑, 부츠, 조끼, 코트… – 점수가 낮아도. 허용되어 있어야 하고, 의복 정책에 맞아야 하며, 시체에서 벗긴 것이 아니어야 하고, 온도에 어긋나지 않아야 합니다(더울 때 따뜻한 코트는 안 됨). 벨트와 유틸리티 아이템은 여전히 일반 점수가 필요합니다. 방탄복을 입은 정착민은 세트(헬멧, 장갑, 부츠)를 완성하며, 그 일부를 더 약한 것으로 바꾸지 않습니다. 추가 방한복은 덥지 않을 때만 입습니다.</RL_FullBody_Desc>
+  <RL_SP_Tab_Overview>개요</RL_SP_Tab_Overview>
+  <RL_SP_Tab_Presets>프리셋</RL_SP_Tab_Presets>
+  <RL_SP_Tab_Automation>자동화</RL_SP_Tab_Automation>
+  <RL_SP_Tab_Limits>제한</RL_SP_Tab_Limits>
+  <RL_SP_Tab_Spawning>다른 이들의 장비</RL_SP_Tab_Spawning>
+  <RL_SP_Tab_Misc>기타</RL_SP_Tab_Misc>
+  <RL_SP_Tab_Own>모드 규칙</RL_SP_Tab_Own>
+  <RL_SP_On>켬</RL_SP_On>
+  <RL_SP_Off>끔</RL_SP_Off>
+  <RL_SP_NowPreset>프리셋: {0}</RL_SP_NowPreset>
+  <RL_SP_NowAuto>자동 전환: {1}개 기능 중 {0}개 켜짐</RL_SP_NowAuto>
+  <RL_SP_NowOwn>이 모드: 자동 보조 무기 {0}, 연구된 것만 {1}, 더 좋은 것으로 교체 {2}</RL_SP_NowOwn>
+  <RL_SP_Use>사용: {0}</RL_SP_Use>
+  <RL_SP_NoGame>정착민과 그들의 보조 무기는 게임 진행 중에 표시됩니다.</RL_SP_NoGame>
+  <RL_SP_Colonists>정착민과 무기</RL_SP_Colonists>
+  <RL_SP_ColName>정착민</RL_SP_ColName>
+  <RL_SP_ColPrimary>손에 든 무기</RL_SP_ColPrimary>
+  <RL_SP_ColSide>보조 무기</RL_SP_ColSide>
+  <RL_SP_ColMass>질량</RL_SP_ColMass>
+  <RL_SP_NonViolent>폭력 불가 – 무기를 휴대하지 않음</RL_SP_NonViolent>
+  <RL_SP_SumSingleKg>무기 하나당 {0} kg까지</RL_SP_SumSingleKg>
+  <RL_SP_SumSingleSel>선택한 무기만</RL_SP_SumSingleSel>
+  <RL_SP_SumSingleAny>무기 하나당 제한 없음</RL_SP_SumSingleAny>
+  <RL_SP_SumAmountKg>모두 합쳐 {0} kg까지</RL_SP_SumAmountKg>
+  <RL_SP_SumAmountN>최대 {0}개</RL_SP_SumAmountN>
+  <RL_SP_SumAmountAny>개수 제한 없음</RL_SP_SumAmountAny>
+  <RL_SP_SumCommon>제한: {0}.</RL_SP_SumCommon>
+  <RL_SP_SumSeparate>근접: {0}. 원거리: {1}.</RL_SP_SumSeparate>
+  <RL_SP_PresetsHint>카드를 클릭하세요. 다른 탭에서 무엇이든 바꾸면 프리셋이 "사용자 지정"으로 바뀝니다.</RL_SP_PresetsHint>
+  <RL_SP_CustomNow>현재 사용자 지정 설정입니다(선택된 카드 없음).</RL_SP_CustomNow>
+  <RL_SS_PD_Basic>권장. 근접 1.9 kg까지, 원거리 2.7 kg까지, 각각 최대 2개, 총 3개. 자동 전환 켜짐.</RL_SS_PD_Basic>
+  <RL_SS_PD_Lite>작고 가벼운 무기만: 근접 0.6 kg까지(칼), 원거리 1.6 kg까지(권총), 최대 2개.</RL_SS_PD_Lite>
+  <RL_SS_PD_Advanced>더 무거운 무기: 근접 2.25 kg까지, 원거리 5 kg까지(소총 포함), 총 10 kg까지.</RL_SS_PD_Advanced>
+  <RL_SS_PD_Excessive>제한 없음 – 정착민이 들 수 있는 만큼 휴대합니다. 다른 이들도 보조 무기를 더 자주 들고 옵니다.</RL_SS_PD_Excessive>
+  <RL_SS_PD_Brawler>근접만: 각각 4 kg까지, 합쳐서 10 kg까지, 원거리 없음.</RL_SS_PD_Brawler>
+  <RL_SS_PD_LoadoutOnly>Simple Sidearms는 제한(무기 3개, 각각 4.75 kg까지)만 유지하고, 무엇을 휴대할지는 이 모드가 고릅니다. 전투 중 자동 전환 없음.</RL_SS_PD_LoadoutOnly>
+  <RL_SS_PD_Disabled>보조 무기 끔: 아무것도 전환하지 않고, 추가 무기는 최대 1개, 다른 이들은 휴대하지 않음.</RL_SS_PD_Disabled>
+  <RL_SP_ToolAutoSwitch>작업에 도구 사용</RL_SP_ToolAutoSwitch>
+  <RL_SP_ToolAutoSwitch_Desc>정착민이 작업을 빠르게 하는 휴대 무기(벌목에는 도끼, 채굴에는 곡괭이…)를 들고, 끝나면 다시 바꿉니다.</RL_SP_ToolAutoSwitch_Desc>
+  <RL_SP_OptimalMelee>대상에 맞는 최고의 근접 무기</RL_SP_OptimalMelee>
+  <RL_SP_OptimalMelee_Desc>근접전에서 그 적에게 가장 효과적인 휴대 무기를 고릅니다.</RL_SP_OptimalMelee_Desc>
+  <RL_SP_CQCAutoSwitch>가까이서 공격받으면 근접 무기 꺼내기</RL_SP_CQCAutoSwitch>
+  <RL_SP_CQCAutoSwitch_Desc>적이 사거리 안에 들어오면 정착민이 총에서 근접 무기로 전환합니다.</RL_SP_CQCAutoSwitch_Desc>
+  <RL_SP_CQCTargetOnly>…직접 공격받을 때만</RL_SP_CQCTargetOnly>
+  <RL_SP_CQCTargetOnly_Desc>근접전의 적이 바로 이 정착민을 공격할 때만 전환합니다.</RL_SP_CQCTargetOnly_Desc>
+  <RL_SP_RangedCombatAutoSwitch>거리에 따라 최고의 총 선택</RL_SP_RangedCombatAutoSwitch>
+  <RL_SP_RangedCombatAutoSwitch_Desc>대상과의 거리에 따라 휴대한 총 중에서 고릅니다(가까우면 샷건, 멀면 소총).</RL_SP_RangedCombatAutoSwitch_Desc>
+  <RL_SP_MaxWarmup>조준 시간이 {0} % 이하인 총으로만 전환</RL_SP_MaxWarmup>
+  <RL_SP_MaxWarmup_Desc>새 무기의 조준 시간이 현재 무기에 비해 얼마나 길어도 되는지. 높을수록 = 더 자주 전환.</RL_SP_MaxWarmup_Desc>
+  <RL_SP_BiasHint>속도 대 위력: 100 % 초과면 정착민이 빠른 무기를, 100 % 미만이면 강하고 느린 무기를 선호합니다.</RL_SP_BiasHint>
+  <RL_SP_BiasMelee>근접 – 속도 가중치: {0} %</RL_SP_BiasMelee>
+  <RL_SP_BiasRanged>원거리 – 속도 가중치: {0} %</RL_SP_BiasRanged>
+  <RL_SP_ReEquipOutOfCombat>전투 후 주무기 다시 들기</RL_SP_ReEquipOutOfCombat>
+  <RL_SP_ReEquipOutOfCombat_Desc>전투가 끝나면 정착민이 전에 들고 있던 무기를 다시 듭니다.</RL_SP_ReEquipOutOfCombat_Desc>
+  <RL_SP_ReEquipBest>…또는 바로 최고의 무기</RL_SP_ReEquipBest>
+  <RL_SP_ReEquipBest_Desc>원래 무기 대신 휴대 중인 최고의 무기를 듭니다.</RL_SP_ReEquipBest_Desc>
+  <RL_SP_ReEquipInCombat>전투 중에도 다시 전환</RL_SP_ReEquipInCombat>
+  <RL_SP_ReEquipInCombat_Desc>가까이에 적이 없으면 전투 도중에도 총으로 돌아갑니다.</RL_SP_ReEquipInCombat_Desc>
+  <RL_SP_SkipDangerousWeapons>수류탄과 발사기는 명령할 때만</RL_SP_SkipDangerousWeapons>
+  <RL_SP_SkipDangerousWeapons_Desc>정착민이 폭발성 무기를 스스로 사용하지 않습니다(아군 피격 위험).</RL_SP_SkipDangerousWeapons_Desc>
+  <RL_SP_SkipEMPWeapons>EMP 무기는 명령할 때만</RL_SP_SkipEMPWeapons>
+  <RL_SP_SkipEMPWeapons_Desc>정착민이 EMP 무기를 스스로 사용하지 않습니다.</RL_SP_SkipEMPWeapons_Desc>
+  <RL_SP_AllowBlockedWeaponUse>원래 허용되지 않는 무기도 허용</RL_SP_AllowBlockedWeaponUse>
+  <RL_SP_AllowBlockedWeaponUse_Desc>정착민이 정책이나 다른 모드로 차단된 무기도 휴대할 수 있습니다.</RL_SP_AllowBlockedWeaponUse_Desc>
+  <RL_SP_SeparateModes>근접과 원거리 제한 분리</RL_SP_SeparateModes>
+  <RL_SP_SeparateModes_Desc>켬: 근접과 원거리가 각자의 제한과 전체 한도를 가집니다. 끔: 하나의 공통 제한.</RL_SP_SeparateModes_Desc>
+  <RL_SP_Melee>근접 무기</RL_SP_Melee>
+  <RL_SP_Ranged>원거리 무기</RL_SP_Ranged>
+  <RL_SP_SingleLimit>무기 하나당 제한</RL_SP_SingleLimit>
+  <RL_SP_SingleLimit_Desc>보조 무기 하나가 얼마나 무거울 수 있는지.</RL_SP_SingleLimit_Desc>
+  <RL_SP_AmountLimit>전체 보조 무기 제한</RL_SP_AmountLimit>
+  <RL_SP_AmountLimit_Desc>정착민이 휴대할 수 있는 보조 무기의 양.</RL_SP_AmountLimit_Desc>
+  <RL_SP_TotalLimit>전체 제한 (근접 + 원거리)</RL_SP_TotalLimit>
+  <RL_SP_ES_None>제한 없음</RL_SP_ES_None>
+  <RL_SP_ES_RelativeWeight>운반 능력에 따라</RL_SP_ES_RelativeWeight>
+  <RL_SP_ES_RelativeWeight_Desc>제한이 정착민의 운반 능력에 따라 늘어납니다. 수치는 운반 능력 35 kg 기준입니다.</RL_SP_ES_RelativeWeight_Desc>
+  <RL_SP_ES_AbsoluteWeight>고정 질량</RL_SP_ES_AbsoluteWeight>
+  <RL_SP_ES_Selection>선택한 것만</RL_SP_ES_Selection>
+  <RL_SP_ES_Selection_Desc>목록에서 체크한 무기만 보조 무기로 휴대할 수 있습니다.</RL_SP_ES_Selection_Desc>
+  <RL_SP_EA_None>제한 없음</RL_SP_EA_None>
+  <RL_SP_EA_RelativeWeight>운반 능력에 따라</RL_SP_EA_RelativeWeight>
+  <RL_SP_EA_RelativeWeight_Desc>제한이 정착민의 운반 능력에 따라 늘어납니다. 수치는 운반 능력 35 kg 기준입니다.</RL_SP_EA_RelativeWeight_Desc>
+  <RL_SP_EA_AbsoluteWeight>고정 질량</RL_SP_EA_AbsoluteWeight>
+  <RL_SP_EA_Slots>개수</RL_SP_EA_Slots>
+  <RL_SP_SingleKgRel>무기 하나당 {0} kg까지 (운반 능력 35 kg 기준)</RL_SP_SingleKgRel>
+  <RL_SP_SingleKg>무기 하나당 {0} kg까지</RL_SP_SingleKg>
+  <RL_SP_AmountKgRel>합쳐서 {0} kg까지 (운반 능력 35 kg 기준)</RL_SP_AmountKgRel>
+  <RL_SP_AmountKg>합쳐서 {0} kg까지</RL_SP_AmountKg>
+  <RL_SP_SlotsN>최대 {0}개</RL_SP_SlotsN>
+  <RL_SP_LimitsHint>제한은 추가로 휴대하는 무기에 적용되며, 손에 든 무기는 포함하지 않습니다. 참고: 칼 0.5 kg, 권총 1.2 kg, 검 2 kg, 소총 3.5 kg, 기관총 9 kg.</RL_SP_LimitsHint>
+  <RL_SP_PickLight>{0} kg 이하 모두</RL_SP_PickLight>
+  <RL_SP_PickNone>없음</RL_SP_PickNone>
+  <RL_SP_PickMore>… 다른 무기는 검색으로 찾으세요.</RL_SP_PickMore>
+  <RL_SP_PickCount>선택한 무기: {0}</RL_SP_PickCount>
+  <RL_SP_RangedShort>원거리</RL_SP_RangedShort>
+  <RL_SP_MeleeShort>근접</RL_SP_MeleeShort>
+  <RL_SP_SpawnHint>다른 이들(습격자, 방문자, 상인)이 보조 무기를 들고 오는 빈도.</RL_SP_SpawnHint>
+  <RL_SP_SpawnChance>첫 보조 무기 확률: {0} %</RL_SP_SpawnChance>
+  <RL_SP_SpawnChance_Desc>다른 폰이 보조 무기를 적어도 하나 가질 확률.</RL_SP_SpawnChance_Desc>
+  <RL_SP_SpawnDropoff>추가 하나마다 확률: × {0} %</RL_SP_SpawnDropoff>
+  <RL_SP_SpawnDropoff_Desc>보조 무기가 하나 늘 때마다 확률이 이만큼 줄어듭니다.</RL_SP_SpawnDropoff_Desc>
+  <RL_SP_Budget>예산: 장비 자금의 {0} %</RL_SP_Budget>
+  <RL_SP_Budget_Desc>폰의 장비 자금 중 보조 무기에 쓸 수 있는 비율(비싼 무기 = 덜 자주).</RL_SP_Budget_Desc>
+  <RL_SP_BudgetDropoff>추가 하나마다 예산: × {0} %</RL_SP_BudgetDropoff>
+  <RL_SP_SpawnExample>예: 다른 이들 중 약 {0} %가 보조 무기 1개, {1} %가 2개, {2} %가 3개를 휴대합니다.</RL_SP_SpawnExample>
+  <RL_SP_SpawnWorld>그 후 World at Your Level이 다른 이들의 장비를 추가로 필터링합니다(연구, "정착지보다 좋지 않게").</RL_SP_SpawnWorld>
+  <RL_SP_ColonistMode>정착민의 주무기</RL_SP_ColonistMode>
+  <RL_SP_ColonistMode_Desc>전투 중이 아닐 때 정착민이 휴대 무기 중 어떤 것을 손에 드는지.</RL_SP_ColonistMode_Desc>
+  <RL_SP_NpcMode>다른 이들의 주무기</RL_SP_NpcMode>
+  <RL_SP_EW_BySkill>기술에 따라</RL_SP_EW_BySkill>
+  <RL_SP_EW_BySkill_Desc>사격을 더 잘하면 총을, 격투를 더 잘하면 근접 무기를 듭니다.</RL_SP_EW_BySkill_Desc>
+  <RL_SP_EW_Ranged>원거리</RL_SP_EW_Ranged>
+  <RL_SP_EW_Melee>근접</RL_SP_EW_Melee>
+  <RL_SP_EW_ByGenerated>도착했을 때 그대로</RL_SP_EW_ByGenerated>
+  <RL_SP_EW_ByGenerated_Desc>폰이 생성되거나 도착했을 때 가진 무기.</RL_SP_EW_ByGenerated_Desc>
+  <RL_SP_Fumble>쓰러지면 무기 떨어뜨리기</RL_SP_Fumble>
+  <RL_SP_Fumble_Desc>쓰러진 폰이 휴대한 보조 무기를 떨어뜨리는 경우.</RL_SP_Fumble_Desc>
+  <RL_SP_EF_Never>안 함</RL_SP_EF_Never>
+  <RL_SP_EF_InDistress>곤경에 처했을 때</RL_SP_EF_InDistress>
+  <RL_SP_EF_InCombat>전투 중</RL_SP_EF_InCombat>
+  <RL_SP_EF_Always>항상</RL_SP_EF_Always>
+  <RL_SP_PreserveInventoryInCaravans>캐러밴에서 보조 무기를 정착민이 계속 휴대</RL_SP_PreserveInventoryInCaravans>
+  <RL_SP_PreserveInventoryInCaravans_Desc>캐러밴을 구성할 때 보조 무기가 공용 화물로 옮겨지지 않습니다.</RL_SP_PreserveInventoryInCaravans_Desc>
+  <RL_SP_HideSidearmsInCaravanDialogs>캐러밴 창에서 보조 무기 숨기기</RL_SP_HideSidearmsInCaravanDialogs>
+  <RL_SP_ShowAlertsMissingSidearm>보조 무기 분실 경고</RL_SP_ShowAlertsMissingSidearm>
+  <RL_SP_ShowAlertsMissingSidearm_Desc>정착민이 기억해야 할 무기를 잃으면 경고합니다.</RL_SP_ShowAlertsMissingSidearm_Desc>
+  <RL_SP_PlaySounds>무기 전환 시 소리</RL_SP_PlaySounds>
+  <RL_SP_ShowBrainscope>디버그: 무기 결정 표시</RL_SP_ShowBrainscope>
+  <RL_SP_BrawlerNoRanged>싸움꾼은 원거리 보조 무기를 휴대하지 않음</RL_SP_BrawlerNoRanged>
+  <RL_SP_BrawlerNoRanged_Desc>싸움꾼 특성을 가진 정착민은 보조 무기로도 총을 들지 않습니다(기분이 나빠짐).</RL_SP_BrawlerNoRanged_Desc>
+  <RL_SP_MaxTotal>정착민당 최대 무기 수: {0}</RL_SP_MaxTotal>
+  <RL_SP_MaxTotalOff>정착민당 최대 무기 수: 자체 제한 없음</RL_SP_MaxTotalOff>
+  <RL_SP_MaxTotal_Desc>손에 든 무기를 포함해 정착민이 휴대할 수 있는 무기의 총 수(수류탄 포함). 이 모드와 Simple Sidearms에 적용됩니다. 초과분은 가장 나쁜 것부터 버려져 보관소로 옮겨집니다. 0 = Simple Sidearms의 제한만.</RL_SP_MaxTotal_Desc>
+  <RL_SP_StripUncrafted>정착지가 만든 적 없는 무기 치우기</RL_SP_StripUncrafted>
+  <RL_SP_StripUncrafted_Desc>"제작한 것만"이 켜져 있으면, 정착민은 연구했지만 아직 정착지가 만들지 않은 무기(예: 습격 후 주운 것)도 치웁니다. 습격 중에는 사용할 수 있고, 끝나면 반납합니다. 당신이 직접 정착민에게 준 무기는 그대로 둡니다.</RL_SP_StripUncrafted_Desc>
+  <RL_SP_ArmorHunt>사냥할 때 방어구 착용</RL_SP_ArmorHunt>
+  <RL_SP_ArmorHunt_Desc>사냥 전에 보관소(70칸 이내)의 허용된 최고의 방어구가 지금 입은 것보다 좋으면 정착민이 그것을 입고 사냥합니다.</RL_SP_ArmorHunt_Desc>
+  <RL_SP_ArmorThreat>공격받으면 방어구 착용</RL_SP_ArmorThreat>
+  <RL_SP_ArmorThreat_Desc>맵에 적이 있는 동안(습격, 광포한 동물, 기계체…) 정착민은 일반 작업을 멈추고 보관소에서 허용된 최고의 방어구를 입습니다. 소방, 치료, 도주, 전투는 중단되지 않습니다. 의복 정책에서도 허용되어야 합니다.</RL_SP_ArmorThreat_Desc>
+  <RL_SP_ArmorDrafted>징집된 정착민도 방어구 착용</RL_SP_ArmorDrafted>
+  <RL_SP_ArmorDrafted_Desc>징집된 정착민이 서 있기만 하고 22칸 안에 적이 없으면 28칸 안의 방어구를 가져옵니다. 그 후 보관소 옆에 머무르니 다시 이동시키세요.</RL_SP_ArmorDrafted_Desc>
+  <RL_SidearmTooMany>이미 무기를 {0}개 휴대 중 (제한)</RL_SidearmTooMany>
+  <RL_SP_MinShoot>사격 {0}부터 원거리 보조 무기</RL_SP_MinShoot>
+  <RL_SP_MinShoot_Desc>정착민은 이 사격 수준부터 추가 총을 챙깁니다. 0 = 항상.</RL_SP_MinShoot_Desc>
+  <RL_SP_MinMelee>격투 {0}부터 근접 보조 무기</RL_SP_MinMelee>
+  <RL_SP_MinMelee_Desc>정착민은 이 격투 수준부터 추가 근접 무기를 챙깁니다. 0 = 항상.</RL_SP_MinMelee_Desc>
+  <RL_SP_OpenOriginal>원래 Simple Sidearms 창 열기</RL_SP_OpenOriginal>
+  <RL_OS_Header>내장 보조 무기</RL_OS_Header>
+  <RL_OS_SwitchMelee>전투에서 근접 무기로 전환</RL_OS_SwitchMelee>
+  <RL_OS_SwitchMelee_Desc>적이 가까이 오면 총을 든 정착민이 배낭에서 근접 무기를 꺼냅니다(가지고 있다면).</RL_OS_SwitchMelee_Desc>
+  <RL_OS_MeleeRange>적이 {0}칸보다 가까우면 전환</RL_OS_MeleeRange>
+  <RL_OS_MeleeRange_Desc>정착민이 근접 무기를 꺼내는 가장 가까운 적과의 거리.</RL_OS_MeleeRange_Desc>
+  <RL_OS_SwitchBack>전투 후 이전 무기로 돌아가기</RL_OS_SwitchBack>
+  <RL_OS_SwitchBack_Desc>적이 떠나거나 쓰러지면 정착민이 이전에 들던 무기를 다시 듭니다.</RL_OS_SwitchBack_Desc>
+  <RL_OS_Gizmo>무기 교체 버튼</RL_OS_Gizmo>
+  <RL_OS_Gizmo_Desc>징집된 정착민은 휴대한 무기마다 "손에 들기" 버튼을 받습니다. 직접 고른 무기는 징집 해제까지 유지됩니다.</RL_OS_Gizmo_Desc>
+  <RL_OS_MaxMass>휴대 무기 최대 무게: {0} kg</RL_OS_MaxMass>
+  <RL_OS_MaxMassOff>휴대 무기 최대 무게: 제한 없음</RL_OS_MaxMassOff>
+  <RL_OS_MaxMass_Desc>손에 든 무기 외에 정착민이 배낭에 넣을 수 있는 무기의 무게(kg). 0 = 제한 없음.</RL_OS_MaxMass_Desc>
+  <RL_OS_Take>손에 들기: {0}</RL_OS_Take>
+  <RL_OS_Take_Desc>정착민이 배낭에서 {0}을(를) 꺼내고 손에 든 무기를 배낭에 넣습니다. 징집 해제까지 유지됩니다.</RL_OS_Take_Desc>
+  <MUI_Title>권장 설정</MUI_Title>
+  <MUI_TitleOff>권장 설정 · 꺼짐</MUI_TitleOff>
+  <MUI_DescOn>모드가 스스로 설정되어 바로 작동합니다. 처음 하는 플레이어나 아무것도 조정하고 싶지 않은 분께 적합합니다.</MUI_DescOn>
+  <MUI_DescOff>사용자 설정. 권장 설정에서 변경됨: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>사용자 설정. 아직 권장 설정과 같습니다.</MUI_DescOffSame>
+  <MUI_On>켜짐</MUI_On>
+  <MUI_Off>꺼짐</MUI_Off>
+  <MUI_ResetAll>모두 권장값으로 초기화</MUI_ResetAll>
+  <MUI_ConfirmOn>권장 설정을 켜시겠습니까? 변경한 항목({0})이 권장값으로 바뀝니다.</MUI_ConfirmOn>
+  <MUI_Locked>세부 설정이 잠겨 있습니다. 변경하려면 위의 스위치를 끄세요 – 값은 권장값에서 시작합니다.</MUI_Locked>
+  <MUI_Changed>변경됨</MUI_Changed>
+  <MUI_ChangedTip>권장 설정({0})과 다릅니다. 클릭하면 권장값으로 되돌립니다.</MUI_ChangedTip>
+  <MUI_Yes>켜짐</MUI_Yes>
+  <MUI_No>꺼짐</MUI_No>
+  <RL_Rec1>정착민이 연구된 최고의 무기와 옷을 사용</RL_Rec1>
+  <RL_Rec2>위협이 있으면 방어구 한 벌 착용</RL_Rec2>
+  <RL_Rec3>더우면 가벼운 옷, 추우면 따뜻한 옷</RL_Rec3>
+  <RL_Rec4>독소와 극한 온도에 대비한 비상 장비</RL_Rec4>
+  <RL_Rec5>기술에 따른 보조 무기</RL_Rec5>
+  <RL_Rec6>낡은 장비는 교체 후 보관</RL_Rec6>
+  <MUI_RecTag>권장</MUI_RecTag>
+  <RL_Why_Title>최근 장비 변경:</RL_Why_Title>
+  <RL_Why_None>이번 세션에는 아직 장비 변경이 없습니다.</RL_Why_None>
+  <RL_Why_Now>방금</RL_Why_Now>
+  <RL_Why_HoursAgo>{0}시간 전</RL_Why_HoursAgo>
+  <RL_WhyAct_Wear>입음</RL_WhyAct_Wear>
+  <RL_WhyAct_Remove>벗음</RL_WhyAct_Remove>
+  <RL_WhyAct_Take>챙김</RL_WhyAct_Take>
+  <RL_WhyAct_Drop>버림</RL_WhyAct_Drop>
+  <RL_WhyAct_Equip>손에 듦</RL_WhyAct_Equip>
+  <RL_WhyAct_Change>장비 변경</RL_WhyAct_Change>
+  <RL_Why_Tattered>낡아서 교체 예정</RL_Why_Tattered>
+  <RL_Why_Heat>너무 더움</RL_Why_Heat>
+  <RL_Why_Policy>의복 정책에서 허용되지 않음</RL_Why_Policy>
+  <RL_Why_TooMany>무기를 너무 많이 휴대</RL_Why_TooMany>
+  <RL_Why_Locked>연구되지 않았거나 금지됨</RL_Why_Locked>
+  <RL_Why_Unneeded>더 이상 필요 없음</RL_Why_Unneeded>
+  <RL_Why_Weapon>더 좋은 무기</RL_Why_Weapon>
+  <RL_Why_Instead>{0} 대신</RL_Why_Instead>
+  <RL_Why_Sidearm>보조 무기</RL_Why_Sidearm>
+  <RL_Why_Temperature>추위 또는 더위</RL_Why_Temperature>
+  <RL_Why_Basics>기본 옷 부족</RL_Why_Basics>
+  <RL_Why_Emergency>비상 보호</RL_Why_Emergency>
+  <RL_Why_Apparel>더 좋은 의류</RL_Why_Apparel>
+  <RL_Why_Armor>공격 – 방어구 착용</RL_Why_Armor>
+  <RL_Why_ArmorHunt>사냥 – 방어구 착용</RL_Why_ArmorHunt>
+  <RL_Why_Player>수동 (당신)</RL_Why_Player>
+  <RL_Why_Outfit>게임 (의복 정책, 이 모드가 평가)</RL_Why_Outfit>
+  <RL_Why_Game>게임</RL_Why_Game>
+  <RL_Why_OtherMod>모드 {0}</RL_Why_OtherMod>
+  <RL_OthersTitle>정착민 장비를 바꾸는 다른 모드</RL_OthersTitle>
+  <RL_OthersNone>장비 선택 방식을 바꾸는 다른 모드가 없습니다.</RL_OthersNone>
+  <RL_OthersPatch>장비 선택 방식도 바꾸는 모드: {0}</RL_OthersPatch>
+  <RL_OthersSeenNone>이 게임에서는 아직 다른 모드가 정착민 장비를 바꾸지 않았습니다.</RL_OthersSeenNone>
+  <RL_OthersSeen>이 게임에서 정착민 장비를 바꾼 모드: {0}</RL_OthersSeen>
+  <RL_OthersHint>정착민이 장비를 왔다 갔다 바꾼다면 한 모드만 결정하게 하세요 – 둘 중 하나에서 겹치는 부분을 끄세요. 이 모드의 정착민 버튼에서 누가 무엇을 왜 바꿨는지 볼 수 있습니다.</RL_OthersHint>
+  <RL_GuestLodgers>퀘스트 손님도 정착지 장비 사용</RL_GuestLodgers>
+  <RL_GuestLodgers_Desc>당신이 조종하는 퀘스트 손님은 정착민처럼 무기와 옷을 받습니다. 자기 물건은 배낭에 넣고, 떠날 때 다시 입습니다 – 정착지의 장비는 여기 남습니다.</RL_GuestLodgers_Desc>
+  <RL_GuestVisitors>방문자가 추위와 더위에 옷을 빌림</RL_GuestVisitors>
+  <RL_GuestVisitors_Desc>방문자와 손님은 추울 때 정착지의 따뜻한 옷을 입고, 더울 때 자기 따뜻한 옷을 벗어 배낭에 넣습니다. 날씨가 다시 좋아지거나 떠날 때 정착지의 옷을 돌려주고 자기 옷을 입습니다.</RL_GuestVisitors_Desc>
+  <RL_PreferNewer>더 새로운 기술 선호</RL_PreferNewer>
+  <RL_PreferNewer_Desc>비슷한 무기와 방어구 중에서는 더 새로운 기술이 이깁니다 – 활보다 총, 판금 갑옷보다 방탄 조끼나 동력 장갑.</RL_PreferNewer_Desc>
+  <RL_ToolsNotWeapons>작업 도구는 무기가 아님</RL_ToolsNotWeapons>
+  <RL_ToolsNotWeapons_Desc>곡괭이, 낫, 삽 등 작업을 빠르게 하는 도구는 무기로 선택되지 않으며, 손에 든 도구는 진짜 무기로 교체됩니다.</RL_ToolsNotWeapons_Desc>
+  <RL_Why_ToolNotWeapon>도구는 무기가 아님</RL_Why_ToolNotWeapon>
+  <RL_PreferNewEra>최신 시대 우선</RL_PreferNewEra>
+  <RL_PreferNewEra_Desc>정착지의 최신 시대(산업, 우주 …) 장비가 우선입니다. 무기: 더 새로운 시대의 무기는 더 약하더라도 같은 종류의 오래된 무기를 항상 대체합니다(활 대신 소총). 오래된 무기가 새 무기를 대체하는 일은 없습니다. 새 시대의 방어구와 옷은 큰 보너스를 받으며 방어력이 조금 낮아도 됩니다. 기술 수준이 없는 모드 아이템은 연구와 성능으로 판단합니다.</RL_PreferNewEra_Desc>
+  <RL_SP_MaxRanged>정착민당 원거리 무기: {0}</RL_SP_MaxRanged>
+  <RL_SP_MaxRanged_Desc>정착민이 휴대하는 원거리 무기의 최대 수 – 손에 든 것 포함. 2 = 예를 들어 소총과 권총. 0 = 원거리 보조 무기 없음(사수의 주무기는 유지).</RL_SP_MaxRanged_Desc>
+  <RL_SP_MaxMelee>정착민당 근접 무기: {0}</RL_SP_MaxMelee>
+  <RL_SP_MaxMelee_Desc>정착민이 휴대하는 근접 무기의 최대 수 – 손에 든 것 포함. 1 = 사수가 근접전용 칼이나 검 하나를 휴대. 0 = 근접 보조 무기 없음.</RL_SP_MaxMelee_Desc>
+  <RL_GearButton>하단의 "장비" 버튼</RL_GearButton>
+  <RL_GearButton_Desc>누가 무엇을 착용했는지 보는 개요와 "지금 모두 장비" 버튼.</RL_GearButton_Desc>
+  <RL_GO_Title>정착민 장비</RL_GO_Title>
+  <RL_GO_EquipAll>지금 모두 장비</RL_GO_EquipAll>
+  <RL_GO_EquipAll_Desc>징집되지 않은 모든 정착민이 즉시 장비를 확인하고 보관소의 최고 무기와 방어구를 챙깁니다 – 습격 전에 편리합니다. 징집된 정착민은 건너뜁니다.</RL_GO_EquipAll_Desc>
+  <RL_GO_EquipAllDone>정착민 {0}명이 장비를 바꾸는 중입니다.</RL_GO_EquipAllDone>
+  <RL_GO_Colonist>정착민</RL_GO_Colonist>
+  <RL_GO_Weapon>무기</RL_GO_Weapon>
+  <RL_GO_ArmorSharp>방어력 (날카로움)</RL_GO_ArmorSharp>
+  <RL_GO_ArmorBlunt>방어력 (둔기)</RL_GO_ArmorBlunt>
+  <RL_GO_Problems>문제점</RL_GO_Problems>
+  <RL_GO_Ok>모두 양호</RL_GO_Ok>
+  <RL_GO_NoWeapon>무기 없음</RL_GO_NoWeapon>
+  <RL_GO_NoTorso>몸통에 아무것도 없음</RL_GO_NoTorso>
+  <RL_GO_Tattered>낡음: {0}</RL_GO_Tattered>
+  <RL_GO_WeaponWorn>무기가 낡음</RL_GO_WeaponWorn>
+  <RL_GO_Cold>바깥이 너무 추움</RL_GO_Cold>
+  <RL_GO_Hot>바깥이 너무 더움</RL_GO_Hot>
+  <RL_GO_Footer>정착민 {0}명 · 문제 있음 {1}명 · 행을 클릭해 정착민 선택 · 마우스를 올리면 전체 의류 목록</RL_GO_Footer>
+</LanguageData>

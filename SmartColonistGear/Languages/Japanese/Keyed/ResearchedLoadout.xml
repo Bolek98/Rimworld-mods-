@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RL_Enable>Modを有効化</RL_Enable>
+  <RL_UseRecipes>レシピを研究として扱う</RL_UseRecipes>
+  <RL_UseRecipes_Desc>そのアイテムを作るレシピのうち、少なくとも1つの研究が完了するとアイテムが解禁されます。原材料（木材、鋼鉄）がロックされる場合はオフにしてください。</RL_UseRecipes_Desc>
+  <RL_BlockHigherTech>コロニーの技術レベルを超えるアイテムをブロック</RL_BlockHigherTech>
+  <RL_BlockHigherTech_Desc>研究が設定されておらず、コロニーの研究済み技術レベルより高度なアイテムは使用されません。</RL_BlockHigherTech_Desc>
+  <RL_BlockUntagged>研究のないModアイテムをブロック</RL_BlockUntagged>
+  <RL_BlockUntagged_Desc>研究が設定されていない他Modのアイテムはロック扱いになります。</RL_BlockUntagged_Desc>
+  <RL_BlockLockedEquip>未研究の武器をブロック</RL_BlockLockedEquip>
+  <RL_BlockLockedEquip_Desc>入植者は命令されても未研究の武器を拾いません。</RL_BlockLockedEquip_Desc>
+  <RL_BlockLockedApparel>未研究の衣服をブロック</RL_BlockLockedApparel>
+  <RL_BlockLockedApparel_Desc>バニラの着替えは未研究の衣服を選びません。</RL_BlockLockedApparel_Desc>
+  <RL_StripLocked>未研究の装備を外す</RL_StripLocked>
+  <RL_StripLocked_Desc>入植者はコロニーがまだ研究していない武器や衣服を捨てます。</RL_StripLocked_Desc>
+  <RL_AutoPrimary>主武器を自動で強化</RL_AutoPrimary>
+  <RL_AutoPrimary_Desc>入植者は自分でより強い武器を拾い、弱い方を捨てます。</RL_AutoPrimary_Desc>
+  <RL_UseSkills>技能で武器を選ぶ</RL_UseSkills>
+  <RL_UseSkills_Desc>射撃が得意な者は遠距離武器、格闘が得意な者は近接武器を持ちます。</RL_UseSkills_Desc>
+  <RL_AutoSidearm>自動サイドアーム</RL_AutoSidearm>
+  <RL_AutoSidearm_Desc>入植者は別タイプの予備武器も携帯します。Simple Sidearms がある場合はその制限とルールが適用されます。</RL_AutoSidearm_Desc>
+  <RL_PrioritizeFighters>最良の武器は最良の戦士へ</RL_PrioritizeFighters>
+  <RL_PrioritizeFighters_Desc>射撃または格闘の技能が最も高い入植者が最初に選びます。より優れた戦士にとって強化になる武器は、他の者は取りません。</RL_PrioritizeFighters_Desc>
+  <RL_ArmSlaves>奴隷を武装させる</RL_ArmSlaves>
+  <RL_ArmSlaves_Desc>武装した奴隷は反乱の確率を大きく高めます。デフォルトはオフです。</RL_ArmSlaves_Desc>
+  <RL_ConsiderDistance>距離を考慮</RL_ConsiderDistance>
+  <RL_ConsiderDistance_Desc>アイテムが遠いほど、入植者が取りに行くにはより大きな改善（最大 +25%）が必要です。</RL_ConsiderDistance_Desc>
+  <RL_PauseThreat>攻撃中は一時停止</RL_PauseThreat>
+  <RL_PauseThreat_Desc>活動中の敵が居住エリア内、または入植者から40マス以内にいる間は、誰も装備を取りに行きません。マップ端の遠い敵、ダウンした敵、逃走中の敵は数えません。</RL_PauseThreat_Desc>
+  <RL_OwnDresser>バニラの代わりに独自の着替え</RL_OwnDresser>
+  <RL_OwnDresser_Desc>ゲームの代わりにこのModが着替えを処理します。バニラの着替えでエラーが出る場合のみ推奨。</RL_OwnDresser_Desc>
+  <RL_AutoApparel>自動着替え（独自）</RL_AutoApparel>
+  <RL_AutoApparel_Desc>独自の着替えと併用した場合のみ有効です。</RL_AutoApparel_Desc>
+  <RL_OnlyStockpile>備蓄区域と棚からのみ</RL_OnlyStockpile>
+  <RL_OnlyStockpile_Desc>入植者は備蓄区域と棚からのみアイテムを取り、マップ上に落ちているアイテムは取りません。</RL_OnlyStockpile_Desc>
+  <RL_ReplaceBroken>ボロボロのものとポリシー禁止のものを脱ぐ</RL_ReplaceBroken>
+  <RL_ReplaceBroken_Desc>耐久度がしきい値未満の衣服、または衣服ポリシーで禁止された衣服は脱がれます。</RL_ReplaceBroken_Desc>
+  <RL_StoreDropped>外した装備を保管場所へ運ぶ</RL_StoreDropped>
+  <RL_StoreDropped_Desc>入植者は外した装備を最適な空き保管場所へ運びます。空きがなければ地面に残ります。</RL_StoreDropped_Desc>
+  <RL_Notify>ゲーム内通知</RL_Notify>
+  <RL_Notify_Desc>入植者が別の武器や衣服を取ったとき、左上にメッセージを表示します。</RL_Notify_Desc>
+  <RL_DebugLog>デバッグログ</RL_DebugLog>
+  <RL_DebugLog_Desc>すべての交換をログに書き込みます。トラブルシューティング専用です。</RL_DebugLog_Desc>
+  <RL_MinHp>最低耐久度：{0}%</RL_MinHp>
+  <RL_MinHp_Desc>このしきい値未満の装備は壊れているとみなされます。バニラでは耐久度50%未満のボロボロの衣服で気分ペナルティがあります。</RL_MinHp_Desc>
+  <RL_Search>検索：</RL_Search>
+  <RL_BanModWeapons>Mod武器を禁止</RL_BanModWeapons>
+  <RL_AllowWeapons>武器を許可</RL_AllowWeapons>
+  <RL_BanModApparel>Mod衣服を禁止</RL_BanModApparel>
+  <RL_AllowApparel>衣服を許可</RL_AllowApparel>
+  <RL_BanWeaponsTitle>武器（チェック = 禁止）</RL_BanWeaponsTitle>
+  <RL_BanApparelTitle>衣服と防具（チェック = 禁止）</RL_BanApparelTitle>
+  <RL_GizmoLabel>自動装備</RL_GizmoLabel>
+  <RL_GizmoDesc>オンのとき、Modがこの入植者の武器と衣服を選びます。装備を手動で管理したい入植者ではオフにしてください。</RL_GizmoDesc>
+  <RL_MsgWeapon>{0}が{2}の代わりに{1}を手に取りました。</RL_MsgWeapon>
+  <RL_MsgWeaponNew>{0}が{1}を手に取りました。</RL_MsgWeaponNew>
+  <RL_MsgSidearm>{0}が{1}をサイドアームとして取りました。</RL_MsgSidearm>
+  <RL_MsgApparel>{0}が{1}を着ました。</RL_MsgApparel>
+  <RL_WeaponCalm>武器変更後の待機：{0} 時間</RL_WeaponCalm>
+  <RL_WeaponCalm_Desc>武器を変更した後、壊れない限り入植者はこの時間その武器を使い続けます。24時間 = ゲーム内1日、0 = 制限なし。</RL_WeaponCalm_Desc>
+  <RL_Ex_Allowed>許可</RL_Ex_Allowed>
+  <RL_Ex_Locked>ロック中</RL_Ex_Locked>
+  <RL_Ex_Banned>手動で禁止</RL_Ex_Banned>
+  <RL_Ex_Always>常に必要：{0}</RL_Ex_Always>
+  <RL_Ex_Option>製作：{0}</RL_Ex_Option>
+  <RL_Ex_Free>研究なしで製作可能</RL_Ex_Free>
+  <RL_Ex_NoResearch>研究なし（技術レベルとModアイテムのルールで決定）</RL_Ex_NoResearch>
+  <RL_Ex_Tech>技術レベル：{0}（上限：{1}）</RL_Ex_Tech>
+  <RL_Ex_Mod>Mod：{0}</RL_Ex_Mod>
+  <RL_Ex_Done>完了</RL_Ex_Done>
+  <RL_Ex_Missing>不足</RL_Ex_Missing>
+  <RL_TechMismatch>研究より高度なアイテムをチェック</RL_TechMismatch>
+  <RL_TechMismatch_Desc>Modが高度なアイテムを低い研究に設定している場合（工業研究に宇宙ライフルなど）、コロニーはそのアイテムの技術レベルにも到達する必要があります。</RL_TechMismatch_Desc>
+  <RL_PowerEstimate>性能からModアイテムの技術レベルを推定</RL_PowerEstimate>
+  <RL_PowerEstimate_Desc>バニラ最強の工業武器や防具より明らかに強いModの武器・防具は、Mod作者が低いレベルを設定していても宇宙時代とみなされます。これは推定です。</RL_PowerEstimate_Desc>
+  <RL_Ex_Power>性能に相当する技術レベル：{0}</RL_Ex_Power>
+  <RL_Ex_NeedColony>コロニーが到達すべき技術レベル：{0}</RL_Ex_NeedColony>
+  <RL_LevelByProgress>研究の進捗でコロニーレベルを決定</RL_LevelByProgress>
+  <RL_LevelByProgress_Desc>そのレベルの研究のうち設定した割合を完了すると、コロニーはその技術レベルに到達します。オフ = 完了した最高の研究で決定（1つで十分）。シナリオのレベルは常に最低値として扱われます。</RL_LevelByProgress_Desc>
+  <RL_LevelProgress>必要なレベル研究の割合：{0}%</RL_LevelProgress>
+  <RL_LevelProgress_Desc>コロニーがそのレベルとみなされるには、そのレベルの研究をどれだけ完了する必要があるか。</RL_LevelProgress_Desc>
+  <RL_CurrentLevel>現在のコロニーレベル：{0}（シナリオ：{1}、研究：{2}）</RL_CurrentLevel>
+  <RL_SyncWorld>World at Your Level からコロニーレベルを取得</RL_SyncWorld>
+  <RL_SyncWorld_Desc>入植者と世界全体が同じレベルを共有します。襲撃Modで設定した手動レベルとレベルごとの割合も含まれます。</RL_SyncWorld_Desc>
+  <RL_SurvivalApparel>生存のための例外（危機時のみ）</RL_SurvivalApparel>
+  <RL_SurvivalApparel_Desc>温度は緊急時のみ考慮されます：下の限度を超えたとき、または入植者が低体温症か熱中症のとき（常に適用）。その場合、未研究の防寒着を着たり、暑さを悪化させる衣服を脱いだりできます（防具は除く）。それ以外では温度を理由に服は替えません。</RL_SurvivalApparel_Desc>
+  <RL_ApparelCalm>着替え後の待機：{0} 時間</RL_ApparelCalm>
+  <RL_ApparelCalm_Desc>着替えた後、低体温症や熱中症でない限り、入植者はこの時間再び着替えません。脱いだ衣服や新しい衣服に置き換えられた衣服は1日間取り戻しません。0 = 待機なし。</RL_ApparelCalm_Desc>
+  <RL_KeepArmor>防具を常に維持</RL_KeepArmor>
+  <RL_KeepArmor_Desc>防具は防御力の低いものと交換されず、温度を理由に脱がれることもありません。壊れた防具やロックされた防具には適用されません。</RL_KeepArmor_Desc>
+  <RL_TempByThresholds>温度の限度を自分で設定</RL_TempByThresholds>
+  <RL_TempByThresholds_Desc>オン：スライダーで決定。オフ：各入植者の快適温度範囲に基づいて自動（着ている物を考慮）。</RL_TempByThresholds_Desc>
+  <RL_ColdThreshold>この温度未満で防寒着を着る：{0}</RL_ColdThreshold>
+  <RL_ColdThreshold_Desc>外がこれより寒いと、入植者は防寒着を着ます（未研究でも）。この限度より3度以上暖かくなるまで着続けます。</RL_ColdThreshold_Desc>
+  <RL_HeatThreshold>この温度超で暑さのため脱ぐ：{0}</RL_HeatThreshold>
+  <RL_HeatThreshold_Desc>外がこれより暑いと、入植者は暑さを悪化させる衣服を脱ぎ（防具は除く）、暑さを防ぐ物を着ます。</RL_HeatThreshold_Desc>
+  <RL_GenderClothing>性別に応じた服</RL_GenderClothing>
+  <RL_GenderClothing_Desc>男性は男性用とユニセックスの服のみ、女性は女性用とユニセックスの服のみを取ります。既に着ている異性用の服は、適切な代わりが見つかり次第交換されます。</RL_GenderClothing_Desc>
+  <RL_GenderGuess>名前と説明から性別を推測</RL_GenderGuess>
+  <RL_GenderGuess_Desc>衣服の定義に性別がない場合、名前、タグ、テクスチャ、説明から推測します（ドレス、スカート、メイド… = 女性用、タキシード、紳士… = 男性用）。不確かな場合はユニセックスです。推測結果は衣服リストのツールチップで確認できます。</RL_GenderGuess_Desc>
+  <RL_GenderFemale>女性用</RL_GenderFemale>
+  <RL_GenderMale>男性用</RL_GenderMale>
+  <RL_GenderUnisex>ユニセックス</RL_GenderUnisex>
+  <RL_Ex_Gender>性別：{0}</RL_Ex_Gender>
+  <RL_TabGeneral>研究とレベル</RL_TabGeneral>
+  <RL_TabWeapons>武器</RL_TabWeapons>
+  <RL_TabApparel>衣服</RL_TabApparel>
+  <RL_TabTemperature>温度と脅威</RL_TabTemperature>
+  <RL_TabBans>禁止</RL_TabBans>
+  <RL_TabOther>その他</RL_TabOther>
+  <RL_TempInfo>温度で衣服が変わるのは緊急時のみです：設定した限度を超えたとき、または入植者が低体温症か熱中症のとき（常に適用）。\n\n寒いときは未研究でも防寒着を着ます。暑いときは暑さを悪化させる衣服を脱ぎます。\n\n防具は温度を理由に脱がれたり、弱い防具と交換されたりしません。</RL_TempInfo>
+  <RL_ConfirmBanWeapons>本当にModの武器をすべて禁止しますか？入植者はModの武器を一切取らなくなります。後でリストから個別にチェックを外せます。</RL_ConfirmBanWeapons>
+  <RL_ConfirmBanApparel>本当にModの衣服をすべて禁止しますか？入植者はModの衣服を一切取らなくなります。後でリストから個別にチェックを外せます。</RL_ConfirmBanApparel>
+  <RL_RoleGear>専門に応じた装備</RL_RoleGear>
+  <RL_RoleGear_Desc>技能に基づいて、各入植者には役割があります：射手、近接戦士、バランス型、作業者。近接戦士は重い防具を、作業者は移動を妨げない軽い装備を好みます。射撃の上手い者は長射程武器を、苦手な者は速い短射程武器を重視します。役割は「自動装備」ボタンの説明に表示されます。</RL_RoleGear_Desc>
+  <RL_SpecialEffects>武器の特殊効果を考慮</RL_SpecialEffects>
+  <RL_SpecialEffects_Desc>爆発、焼夷、EMP、スタン、毒、煙の武器は入植者の主武器として評価が下がります（味方に当たる危険、一部の標的にしか効かない）。</RL_SpecialEffects_Desc>
+  <RL_StatOffsets>装備による能力値のボーナスとペナルティ</RL_StatOffsets>
+  <RL_StatOffsets_Desc>装備が何を変えるかを考慮します：移動速度と作業速度、照準、命中と回避、さらに入植者の最も高い技能に応じた作業能力（医者の治療、栽培者の植物作業、料理人の料理…）。</RL_StatOffsets_Desc>
+  <RL_Role_Shooter>射手</RL_Role_Shooter>
+  <RL_Role_Melee>近接戦士</RL_Role_Melee>
+  <RL_Role_Balanced>バランス型</RL_Role_Balanced>
+  <RL_Role_Worker>作業者</RL_Role_Worker>
+  <RL_GizmoRole>役割：{0}、専門：{1}</RL_GizmoRole>
+  <RL_CoverageFirst>まず体を覆う（胴体、脚）</RL_CoverageFirst>
+  <RL_CoverageFirst_Desc>露出した部位を覆う衣服が優先されます（胴体が最優先、次に脚、頭、その他）。何かを露出させる衣服にはペナルティ。胴体か脚が露出している間は、待機時間なしですぐに服を着ます。</RL_CoverageFirst_Desc>
+  <RL_ThreatApparel>脅威からの保護</RL_ThreatApparel>
+  <RL_ThreatApparel_Desc>危険な寒さや暑さ（上の限度）、毒素、放射性降下物、汚染、真空、またはマップ上での戦闘中は、必要な防護を持つ衣服に大きなボーナスが付き、入植者がそれを着ます。それによって防具が弱い防具と交換されることはありません。</RL_ThreatApparel_Desc>
+  <RL_ThreatBills>防護用の作業指示を作成</RL_ThreatBills>
+  <RL_ThreatBills_Desc>防護服が足りず、レシピが研究済みの場合、作業台に「X個になるまで」の作業指示が追加され、製品は備蓄区域へ運ばれます。あなたの作業指示は削除されません。研究が足りない場合はメッセージを1回表示します。</RL_ThreatBills_Desc>
+  <RL_ThreatBill>入植者が防護の製作を始めました：{0}。</RL_ThreatBill>
+  <RL_ThreatNoRecipe>この脅威に対する防護はまだ作れません。研究が足りません。</RL_ThreatNoRecipe>
+  <RL_OnlyCrafted>コロニーが製作した物だけを取る</RL_OnlyCrafted>
+  <RL_OnlyCrafted_Desc>入植者は、コロニーが作業台で少なくとも一度製作した（かつ研究済みの）新しい武器と衣服だけを取ります。他の種類の戦利品や購入品は、自分たちでその種類を製作するまで無視されます。既に着ている物はこれを理由に脱がれません。進行中のゲームでは、入植者の装備と保管中の製作可能なアイテムが一度だけ引き継がれます。</RL_OnlyCrafted_Desc>
+  <RL_CraftedCount>製作済みの武器と衣服の種類：{0}</RL_CraftedCount>
+  <RL_CraftedReset>製作済みリストをクリア</RL_CraftedReset>
+  <RL_CraftedReset_Desc>これまでに引き継いだ、または製作したすべての武器と衣服の種類を忘れます。今後はコロニーが実際に製作した物だけが数えられます。入植者が着ている物はそのままです。</RL_CraftedReset_Desc>
+  <RL_CraftedResetConfirm>本当に製作済みリストをクリアしますか？入植者は、その種類を製作した後でしか新しい武器と衣服を取らなくなります。</RL_CraftedResetConfirm>
+  <RL_Ex_NotCrafted>研究済みですが、コロニーはまだ製作していません。</RL_Ex_NotCrafted>
+  <RL_SidearmLocked>Smart Colonist Gear：コロニーはこの武器をまだ研究または製作していません</RL_SidearmLocked>
+  <RL_WorkClothing>作業着は専門家のみ</RL_WorkClothing>
+  <RL_WorkClothing_Desc>特定の作業を速める衣服（料理用エプロン、研究用白衣、医者用手袋、採掘用ヘルメット…）は、その作業の専門家だけが取ります。専門家がいれば強く優先されます。他の者は取りません。専門家 = それが最も得意な作業技能であるか、その作業の優先度が1であり、かつ技能が設定レベル以上であること。</RL_WorkClothing_Desc>
+  <RL_WorkClothingSkill>専門家とみなす技能：{0}</RL_WorkClothingSkill>
+  <RL_WorkClothingSkill_Desc>入植者が作業着の専門家とみなされる最低技能レベル。</RL_WorkClothingSkill_Desc>
+  <RL_DressByTraits>特性と技能に応じて着る</RL_DressByTraits>
+  <RL_DressByTraits_Desc>許可された衣服の中で、各入植者は自分に合う物を好みます：実際に行い、得意な作業を強化する装備（医者 – 治療、採掘者 – 採掘、研究者 – 研究…）、戦闘技能に応じた射撃用・近接用の装備、サイキャスターやサイキック感受性の高い入植者にはサイキック装備。特性も影響します：臆病者は防具を重視し、ジョガーや軽快な者は移動低下を嫌い、強欲や嫉妬深い者は品質を求め、禁欲主義者は贅沢を気にせず、喧嘩屋は照準用の装備を避けます。わずかな好みにすぎず（約 -25 % ～ +35 %）、ロックされた装備や未研究の装備を許可することはありません。</RL_DressByTraits_Desc>
+  <RL_GearStability>装備の安定性：{0} % 以上良い場合のみ交換</RL_GearStability>
+  <RL_GearStability_Desc>新しい武器、衣服、防具、アクセサリーが、入植者の現在の物よりどれだけ良ければ交換するか。高い = 着替えや持ち替えが減ります。同じアイテム同士（例：胸当てと胸当て）はより良い品質の場合のみ交換されます。壊れたアイテムは常に交換されます。</RL_GearStability_Desc>
+  <RL_TabSidearms>サイドアーム</RL_TabSidearms>
+  <RL_SS_Missing>Simple Sidearms がインストールされていません – このMod内蔵のシステムを使用します：入植者は別タイプの武器を携帯し、戦闘中に自分で持ち替えます。</RL_SS_Missing>
+  <RL_SS_Preset>Simple Sidearms プリセット：{0}</RL_SS_Preset>
+  <RL_SS_P_Custom>カスタム</RL_SS_P_Custom>
+  <RL_SS_P_NoneApplied>なし</RL_SS_P_NoneApplied>
+  <RL_SS_P_Disabled>無効</RL_SS_P_Disabled>
+  <RL_SS_P_LoadoutOnly>装備のみ（このModがサイドアームを選ぶ）</RL_SS_P_LoadoutOnly>
+  <RL_SS_P_Lite>ライト</RL_SS_P_Lite>
+  <RL_SS_P_Basic>ベーシック</RL_SS_P_Basic>
+  <RL_SS_P_Advanced>アドバンス</RL_SS_P_Advanced>
+  <RL_SS_P_Excessive>過剰</RL_SS_P_Excessive>
+  <RL_SS_P_Brawler>喧嘩屋</RL_SS_P_Brawler>
+  <RL_SS_Slots>最大サイドアーム数：{0}</RL_SS_Slots>
+  <RL_SS_Slots_Desc>手に持つ武器に加えて、入植者が携帯できる武器の数。</RL_SS_Slots_Desc>
+  <RL_SS_Mass>サイドアーム1つの最大質量：{0} kg</RL_SS_Mass>
+  <RL_SS_MassNone>サイドアーム1つの最大質量：制限なし</RL_SS_MassNone>
+  <RL_SS_Mass_Desc>これより重い武器はサイドアームとして携帯しません。0 = 制限なし。</RL_SS_Mass_Desc>
+  <RL_SS_ToolSwitch>作業に道具を使う（斧、つるはし…）</RL_SS_ToolSwitch>
+  <RL_SS_ToolSwitch_Desc>入植者は現在の作業を速める携帯武器に持ち替えます。</RL_SS_ToolSwitch_Desc>
+  <RL_SS_OptimalMelee>標的に最適な近接武器</RL_SS_OptimalMelee>
+  <RL_SS_CQC>接近戦では近接武器に持ち替え</RL_SS_CQC>
+  <RL_SS_RangedSwitch>距離があれば遠距離武器に持ち替え</RL_SS_RangedSwitch>
+  <RL_SS_ReEquip>戦闘後に主武器に戻す</RL_SS_ReEquip>
+  <RL_SS_ReEquipBest>戦闘後に最良の武器を持つ</RL_SS_ReEquipBest>
+  <RL_SS_ReEquipCombat>戦闘中も持ち替えて戻す</RL_SS_ReEquipCombat>
+  <RL_SS_SkipDangerous>危険な武器（手榴弾、爆発物）を自動で使わない</RL_SS_SkipDangerous>
+  <RL_SS_SkipEMP>EMP武器を自動で使わない</RL_SS_SkipEMP>
+  <RL_SS_Caravans>キャラバンでサイドアームを保持</RL_SS_Caravans>
+  <RL_SS_Alerts>サイドアーム紛失の警告</RL_SS_Alerts>
+  <RL_SS_Sounds>武器持ち替えの効果音</RL_SS_Sounds>
+  <RL_SS_Spawn>他者がサイドアームを持って現れる：{0} %</RL_SS_Spawn>
+  <RL_SS_Spawn_Desc>襲撃者や訪問者がサイドアームを持つ確率（装備は引き続き World at Your Level でフィルタされます）。</RL_SS_Spawn_Desc>
+  <RL_SS_HidePage>元の Simple Sidearms 設定を隠す</RL_SS_HidePage>
+  <RL_SS_HidePage_Desc>元の Simple Sidearms のページをMod設定リストから隠します – すべてここで設定します。設定を開き直すと反映されます。</RL_SS_HidePage_Desc>
+  <RL_EmergencyGear>危険な状況での緊急装備</RL_EmergencyGear>
+  <RL_EmergencyGear_Desc>危険が発生し、コロニーがまだ適切な装備を研究していない場合、入植者はマップ上に既にある代用装備（備蓄区域、地面、所持品）を使えます – 未研究や未製作でも。有毒な空気：ガスマスクと防護服、極端な寒さや暑さ：断熱性の高い衣服、攻撃：防具とコロニー自身の武器。何も生成されません。危険が去ると通常のルールに戻ります。既に着ている物は約2時間保持され、途中で誰も脱ぎません。手動で禁止したアイテムは決して許可されません。</RL_EmergencyGear_Desc>
+  <RL_EmergencyToxic>有毒な空気（ガス、降下物、汚染）</RL_EmergencyToxic>
+  <RL_EmergencyToxic_Desc>入植者の近くや居住エリア内の有毒ガス（例：クエストのガス発生装置）、有毒降下物、有毒な霞、汚染された地面、または上昇する毒素蓄積。あらゆるModの有毒環境耐性や毒耐性を持つ衣服（ガスマスク、防護服…）を許可します。</RL_EmergencyToxic_Desc>
+  <RL_EmergencyTemperature>極端な寒さまたは暑さ</RL_EmergencyTemperature>
+  <RL_EmergencyTemperature_Desc>外気温が、入植者が衣服なしで耐えられる範囲を大きく超えている（または寒波／熱波）、あるいは低体温症／熱中症。断熱性の高い衣服を許可します。</RL_EmergencyTemperature_Desc>
+  <RL_EmergencyRaid>攻撃</RL_EmergencyRaid>
+  <RL_EmergencyRaid_Desc>マップ上に活動中の敵がいる間。防具と、既にコロニーに属する武器（保管中、所持品内、または居住エリアに落ちている物）を許可します。</RL_EmergencyRaid_Desc>
+  <RL_EmKind_Toxic>有毒な空気</RL_EmKind_Toxic>
+  <RL_EmKind_Cold>極寒</RL_EmKind_Cold>
+  <RL_EmKind_Heat>酷暑</RL_EmKind_Heat>
+  <RL_EmKind_Raid>攻撃</RL_EmKind_Raid>
+  <RL_EmGear_Toxic>ガスマスクと防護装備</RL_EmGear_Toxic>
+  <RL_EmGear_Cold>防寒着</RL_EmGear_Cold>
+  <RL_EmGear_Heat>冷却用の衣服</RL_EmGear_Heat>
+  <RL_EmGear_Raid>防具とコロニーの武器</RL_EmGear_Raid>
+  <RL_EmergencyOn>{0}：入植者は研究なしでも{1}を使用できます。</RL_EmergencyOn>
+  <RL_EmergencyOff>危険は去りました（{0}）：緊急装備はもう許可されません。既に着ている物はしばらく保持されます。</RL_EmergencyOff>
+  <RL_Ex_Emergency>現在、緊急装備として許可（{0}）</RL_Ex_Emergency>
+  <RL_Ex_EmergencyFor>緊急装備の対象：{0}</RL_Ex_EmergencyFor>
+  <RL_EmergencyProvide>緊急装備を探して製作する</RL_EmergencyProvide>
+  <RL_EmergencyProvide_Desc>危険の中で入植者の防護が足りない場合：マップ上の禁止された防護アイテムが解禁されます（必要な数だけ、火の中や敵の近くは除く）。それでも足りなければ、コロニーが作れる最良の防護の作業指示が追加されます。適切な防護がまだ作れない場合（研究不足）は、代わりに最も近い代用品を探すか作ります – 弱めの毒防護や顔の覆い、最も暖かい／涼しい衣服、最良の防具。こうして追加した作業指示は、作業が始まっていなければ危険が去ったときに削除されます。</RL_EmergencyProvide_Desc>
+  <RL_EmProv_Msg>{0}：{1}が足りません – {2}。</RL_EmProv_Msg>
+  <RL_EmProv_Unforbade>{0}を解禁（{1}）</RL_EmProv_Unforbade>
+  <RL_EmProv_Bill>{2}に{0}× {1}の作業指示を追加</RL_EmProv_Bill>
+  <RL_EmProv_Substitute>適切な防護のレシピがないため代用品を製作：{2}で{0}× {1}</RL_EmProv_Substitute>
+  <RL_EmProv_BillExists>{0}の作業指示は既にあります</RL_EmProv_BillExists>
+  <RL_EmProv_Nothing>何も見つからず、使えるレシピもありません</RL_EmProv_Nothing>
+  <RL_CraftedRestore>コロニーからリストを復元</RL_CraftedRestore>
+  <RL_CraftedRestore_Desc>コロニーが現在持っているすべての武器と衣服の種類（着用中、所持品、保管中）を製作済みリストに追加します。リストを誤って、または早すぎる時期にクリアした場合に便利です。</RL_CraftedRestore_Desc>
+  <RL_CraftedRestored>コロニーから製作済みリストを復元しました。追加された種類：{0}。</RL_CraftedRestored>
+  <RL_SS_OwnHeader>Smart Colonist Gear – サイドアーム</RL_SS_OwnHeader>
+  <RL_SS_Filter>サイドアームは研究済みかつ許可された物のみ</RL_SS_Filter>
+  <RL_SS_Filter_Desc>Simple Sidearms は、このModが許可する武器（研究、技術レベル、禁止、製作済みのみ）だけを入植者に与えられます。</RL_SS_Filter_Desc>
+  <RL_SS_Upgrade>サイドアームをより良い物に交換</RL_SS_Upgrade>
+  <RL_SS_Upgrade_Desc>コロニーに同じタイプのより良い武器があると、入植者は携帯中のサイドアームを交換し、古い物を保管場所へ運びます。</RL_SS_Upgrade_Desc>
+  <RL_SS_Notify>サイドアームを取ったときのメッセージ</RL_SS_Notify>
+  <RL_SS_Notify_Desc>入植者が新しいサイドアームを拾ったときにメッセージを表示します（このModのメッセージがオンの場合のみ）。</RL_SS_Notify_Desc>
+  <RL_SS_OriginalUi>Simple Sidearms の全設定</RL_SS_OriginalUi>
+  <RL_SS_OriginalUi_Desc>これらのオプションの下に、元の Simple Sidearms の全設定をすべてのタブ（プリセット、自動化、許容量、出現、その他）付きで表示します。オフ = 簡易版。</RL_SS_OriginalUi_Desc>
+  <RL_CraftedPick>手持ちから選ぶ…</RL_CraftedPick>
+  <RL_CraftedPick_Desc>コロニーが持つすべての武器と衣服の種類のリストを開きます。チェックした物はすぐに着用でき、残りはコロニーが製作すると自動で解禁されます。</RL_CraftedPick_Desc>
+  <RL_PickTitle>入植者が身につけてよい物</RL_PickTitle>
+  <RL_PickHelp>チェック = 今すぐ許可。チェックなしでも永久に禁止ではありません – コロニーが製作すると解禁されます。研究と禁止は引き続き適用されます。</RL_PickHelp>
+  <RL_PickAll>すべて</RL_PickAll>
+  <RL_PickWeapons>武器</RL_PickWeapons>
+  <RL_PickApparel>衣服</RL_PickApparel>
+  <RL_PickOnAll>表示中をチェック</RL_PickOnAll>
+  <RL_PickOffAll>表示中のチェックを外す</RL_PickOffAll>
+  <RL_PickCount>{1} 中 {0} を許可</RL_PickCount>
+  <RL_PickNoResearch>未研究</RL_PickNoResearch>
+  <RL_PickWeapon>武器</RL_PickWeapon>
+  <RL_PickApparel1>衣服</RL_PickApparel1>
+  <RL_SS_Tab_Presets>プリセット</RL_SS_Tab_Presets>
+  <RL_SS_Tab_Automation>トリガー</RL_SS_Tab_Automation>
+  <RL_SS_Tab_Allowances>制限</RL_SS_Tab_Allowances>
+  <RL_SS_Tab_Spawning>出現</RL_SS_Tab_Spawning>
+  <RL_SS_Tab_Misc>その他</RL_SS_Tab_Misc>
+  <RL_FullBody>全身を着る</RL_FullBody>
+  <RL_FullBody_Desc>入植者は、何も外さずに何かを追加するだけの利用可能な衣服をすべて着ます – 帽子、手袋、ブーツ、ベスト、コート… – 評価が低くても。許可されていて、衣服ポリシーに合い、死体から剥いだ物でなく、温度に反しない（暑いときに暖かいコートは着ない）必要があります。ベルトとユーティリティアイテムには通常の評価が必要です。ボディアーマーを着た入植者はセット（ヘルメット、手袋、ブーツ）を揃え、その一部を弱い物と交換することはありません。追加の防寒着は暑くないときのみ。</RL_FullBody_Desc>
+  <RL_SP_Tab_Overview>概要</RL_SP_Tab_Overview>
+  <RL_SP_Tab_Presets>プリセット</RL_SP_Tab_Presets>
+  <RL_SP_Tab_Automation>自動化</RL_SP_Tab_Automation>
+  <RL_SP_Tab_Limits>制限</RL_SP_Tab_Limits>
+  <RL_SP_Tab_Spawning>他者の装備</RL_SP_Tab_Spawning>
+  <RL_SP_Tab_Misc>その他</RL_SP_Tab_Misc>
+  <RL_SP_Tab_Own>Modのルール</RL_SP_Tab_Own>
+  <RL_SP_On>オン</RL_SP_On>
+  <RL_SP_Off>オフ</RL_SP_Off>
+  <RL_SP_NowPreset>プリセット：{0}</RL_SP_NowPreset>
+  <RL_SP_NowAuto>自動持ち替え：{1} 機能中 {0} がオン</RL_SP_NowAuto>
+  <RL_SP_NowOwn>このMod：自動サイドアーム {0}、研究済みのみ {1}、より良い物に交換 {2}</RL_SP_NowOwn>
+  <RL_SP_Use>使用：{0}</RL_SP_Use>
+  <RL_SP_NoGame>入植者とそのサイドアームはゲーム中に表示されます。</RL_SP_NoGame>
+  <RL_SP_Colonists>入植者とその武器</RL_SP_Colonists>
+  <RL_SP_ColName>入植者</RL_SP_ColName>
+  <RL_SP_ColPrimary>手持ち</RL_SP_ColPrimary>
+  <RL_SP_ColSide>サイドアーム</RL_SP_ColSide>
+  <RL_SP_ColMass>質量</RL_SP_ColMass>
+  <RL_SP_NonViolent>暴力不可 – 武器を持たない</RL_SP_NonViolent>
+  <RL_SP_SumSingleKg>武器1つあたり {0} kg まで</RL_SP_SumSingleKg>
+  <RL_SP_SumSingleSel>選択した武器のみ</RL_SP_SumSingleSel>
+  <RL_SP_SumSingleAny>武器1つあたり制限なし</RL_SP_SumSingleAny>
+  <RL_SP_SumAmountKg>合計 {0} kg まで</RL_SP_SumAmountKg>
+  <RL_SP_SumAmountN>最大 {0}</RL_SP_SumAmountN>
+  <RL_SP_SumAmountAny>数の制限なし</RL_SP_SumAmountAny>
+  <RL_SP_SumCommon>制限：{0}。</RL_SP_SumCommon>
+  <RL_SP_SumSeparate>近接：{0}。遠距離：{1}。</RL_SP_SumSeparate>
+  <RL_SP_PresetsHint>カードをクリックしてください。他のタブで何かを変更すると、プリセットは「カスタム」に切り替わります。</RL_SP_PresetsHint>
+  <RL_SP_CustomNow>現在はカスタム設定です（カード未選択）。</RL_SP_CustomNow>
+  <RL_SS_PD_Basic>推奨。近接 1.9 kg まで、遠距離 2.7 kg まで、それぞれ最大2つ、合計3つ。自動持ち替えオン。</RL_SS_PD_Basic>
+  <RL_SS_PD_Lite>小型の軽い武器のみ：近接 0.6 kg まで（ナイフ）、遠距離 1.6 kg まで（拳銃）、最大2つ。</RL_SS_PD_Lite>
+  <RL_SS_PD_Advanced>より重い武器：近接 2.25 kg まで、遠距離 5 kg まで（ライフルも）、合計 10 kg まで。</RL_SS_PD_Advanced>
+  <RL_SS_PD_Excessive>制限なし – 入植者は持てるだけ持ちます。他者もサイドアームを持って現れることが増えます。</RL_SS_PD_Excessive>
+  <RL_SS_PD_Brawler>近接のみ：各 4 kg まで、合計 10 kg まで、遠距離なし。</RL_SS_PD_Brawler>
+  <RL_SS_PD_LoadoutOnly>Simple Sidearms は制限（武器3つ、各 4.75 kg まで）のみを保持し、何を持つかはこのModが選びます。戦闘中の自動持ち替えなし。</RL_SS_PD_LoadoutOnly>
+  <RL_SS_PD_Disabled>サイドアームオフ：何も持ち替えず、追加の武器は最大1つ、他者は持ちません。</RL_SS_PD_Disabled>
+  <RL_SP_ToolAutoSwitch>作業に道具を使う</RL_SP_ToolAutoSwitch>
+  <RL_SP_ToolAutoSwitch_Desc>入植者は作業を速める携帯武器（伐採には斧、採掘にはつるはし…）を持ち、終わったら元に戻します。</RL_SP_ToolAutoSwitch_Desc>
+  <RL_SP_OptimalMelee>標的に最適な近接武器</RL_SP_OptimalMelee>
+  <RL_SP_OptimalMelee_Desc>近接戦では、その敵に最も効果的な携帯武器を選びます。</RL_SP_OptimalMelee_Desc>
+  <RL_SP_CQCAutoSwitch>接近されたら近接武器を抜く</RL_SP_CQCAutoSwitch>
+  <RL_SP_CQCAutoSwitch_Desc>敵が攻撃範囲に入ると、入植者は銃から近接武器に持ち替えます。</RL_SP_CQCAutoSwitch_Desc>
+  <RL_SP_CQCTargetOnly>…直接攻撃されたときのみ</RL_SP_CQCTargetOnly>
+  <RL_SP_CQCTargetOnly_Desc>近接戦の敵がまさにこの入植者を攻撃しているときだけ持ち替えます。</RL_SP_CQCTargetOnly_Desc>
+  <RL_SP_RangedCombatAutoSwitch>距離に応じて最適な銃を選ぶ</RL_SP_RangedCombatAutoSwitch>
+  <RL_SP_RangedCombatAutoSwitch_Desc>標的までの距離に応じて携帯中の銃から選びます（近距離はショットガン、遠距離はライフル）。</RL_SP_RangedCombatAutoSwitch_Desc>
+  <RL_SP_MaxWarmup>照準時間が {0} % 以下の銃にのみ持ち替え</RL_SP_MaxWarmup>
+  <RL_SP_MaxWarmup_Desc>新しい武器の照準時間が現在の武器と比べてどれだけ長くてよいか。多い = 持ち替えが増えます。</RL_SP_MaxWarmup_Desc>
+  <RL_SP_BiasHint>速さと威力：100 % を超えると入植者は速い武器を、100 % 未満だと強くて遅い武器を好みます。</RL_SP_BiasHint>
+  <RL_SP_BiasMelee>近接 – 速さの重み：{0} %</RL_SP_BiasMelee>
+  <RL_SP_BiasRanged>遠距離 – 速さの重み：{0} %</RL_SP_BiasRanged>
+  <RL_SP_ReEquipOutOfCombat>戦闘後に主武器を持ち直す</RL_SP_ReEquipOutOfCombat>
+  <RL_SP_ReEquipOutOfCombat_Desc>戦闘が終わると、入植者は以前持っていた武器を持ち直します。</RL_SP_ReEquipOutOfCombat_Desc>
+  <RL_SP_ReEquipBest>…または直接最良の物を</RL_SP_ReEquipBest>
+  <RL_SP_ReEquipBest_Desc>元の武器ではなく、携帯中の最良の武器を持ちます。</RL_SP_ReEquipBest_Desc>
+  <RL_SP_ReEquipInCombat>戦闘中も持ち替えて戻す</RL_SP_ReEquipInCombat>
+  <RL_SP_ReEquipInCombat_Desc>近くに敵がいなくなれば、戦闘の途中でも銃に戻します。</RL_SP_ReEquipInCombat_Desc>
+  <RL_SP_SkipDangerousWeapons>手榴弾とランチャーは命令時のみ</RL_SP_SkipDangerousWeapons>
+  <RL_SP_SkipDangerousWeapons_Desc>入植者は爆発性の武器を自分では使いません（味方に当たる危険）。</RL_SP_SkipDangerousWeapons_Desc>
+  <RL_SP_SkipEMPWeapons>EMP武器は命令時のみ</RL_SP_SkipEMPWeapons>
+  <RL_SP_SkipEMPWeapons_Desc>入植者はEMP武器を自分では使いません。</RL_SP_SkipEMPWeapons_Desc>
+  <RL_SP_AllowBlockedWeaponUse>本来許可されない武器も許可</RL_SP_AllowBlockedWeaponUse>
+  <RL_SP_AllowBlockedWeaponUse_Desc>入植者はポリシーや他Modでブロックされた武器も携帯できます。</RL_SP_AllowBlockedWeaponUse_Desc>
+  <RL_SP_SeparateModes>近接と遠距離で別々の制限</RL_SP_SeparateModes>
+  <RL_SP_SeparateModes_Desc>オン：近接と遠距離それぞれに制限があり、さらに合計の上限があります。オフ：共通の制限が1つ。</RL_SP_SeparateModes_Desc>
+  <RL_SP_Melee>近接武器</RL_SP_Melee>
+  <RL_SP_Ranged>遠距離武器</RL_SP_Ranged>
+  <RL_SP_SingleLimit>武器1つあたりの制限</RL_SP_SingleLimit>
+  <RL_SP_SingleLimit_Desc>サイドアーム1つの重さの上限。</RL_SP_SingleLimit_Desc>
+  <RL_SP_AmountLimit>サイドアーム全体の制限</RL_SP_AmountLimit>
+  <RL_SP_AmountLimit_Desc>入植者が携帯できるサイドアームの量。</RL_SP_AmountLimit_Desc>
+  <RL_SP_TotalLimit>合計の制限（近接 + 遠距離）</RL_SP_TotalLimit>
+  <RL_SP_ES_None>制限なし</RL_SP_ES_None>
+  <RL_SP_ES_RelativeWeight>運搬能力に応じて</RL_SP_ES_RelativeWeight>
+  <RL_SP_ES_RelativeWeight_Desc>制限は入植者の運搬能力に応じて増えます。数値は運搬能力 35 kg の場合です。</RL_SP_ES_RelativeWeight_Desc>
+  <RL_SP_ES_AbsoluteWeight>固定の質量</RL_SP_ES_AbsoluteWeight>
+  <RL_SP_ES_Selection>選択した物のみ</RL_SP_ES_Selection>
+  <RL_SP_ES_Selection_Desc>リストでチェックした武器だけをサイドアームとして携帯できます。</RL_SP_ES_Selection_Desc>
+  <RL_SP_EA_None>制限なし</RL_SP_EA_None>
+  <RL_SP_EA_RelativeWeight>運搬能力に応じて</RL_SP_EA_RelativeWeight>
+  <RL_SP_EA_RelativeWeight_Desc>制限は入植者の運搬能力に応じて増えます。数値は運搬能力 35 kg の場合です。</RL_SP_EA_RelativeWeight_Desc>
+  <RL_SP_EA_AbsoluteWeight>固定の質量</RL_SP_EA_AbsoluteWeight>
+  <RL_SP_EA_Slots>数</RL_SP_EA_Slots>
+  <RL_SP_SingleKgRel>武器1つあたり {0} kg まで（運搬能力 35 kg の場合）</RL_SP_SingleKgRel>
+  <RL_SP_SingleKg>武器1つあたり {0} kg まで</RL_SP_SingleKg>
+  <RL_SP_AmountKgRel>合計 {0} kg まで（運搬能力 35 kg の場合）</RL_SP_AmountKgRel>
+  <RL_SP_AmountKg>合計 {0} kg まで</RL_SP_AmountKg>
+  <RL_SP_SlotsN>最大 {0}</RL_SP_SlotsN>
+  <RL_SP_LimitsHint>制限は追加で携帯する武器に適用され、手に持つ武器は含みません。参考：ナイフ 0.5 kg、拳銃 1.2 kg、剣 2 kg、ライフル 3.5 kg、機関銃 9 kg。</RL_SP_LimitsHint>
+  <RL_SP_PickLight>{0} kg 以下をすべて</RL_SP_PickLight>
+  <RL_SP_PickNone>なし</RL_SP_PickNone>
+  <RL_SP_PickMore>… その他の武器は検索で探してください。</RL_SP_PickMore>
+  <RL_SP_PickCount>選択した武器：{0}</RL_SP_PickCount>
+  <RL_SP_RangedShort>遠距離</RL_SP_RangedShort>
+  <RL_SP_MeleeShort>近接</RL_SP_MeleeShort>
+  <RL_SP_SpawnHint>他者（襲撃者、訪問者、商人）がサイドアームを持って現れる頻度。</RL_SP_SpawnHint>
+  <RL_SP_SpawnChance>最初のサイドアームの確率：{0} %</RL_SP_SpawnChance>
+  <RL_SP_SpawnChance_Desc>他のポーンが少なくとも1つのサイドアームを持つ確率。</RL_SP_SpawnChance_Desc>
+  <RL_SP_SpawnDropoff>追加1つごとの確率：× {0} %</RL_SP_SpawnDropoff>
+  <RL_SP_SpawnDropoff_Desc>追加のサイドアームごとに、この分だけ確率が下がります。</RL_SP_SpawnDropoff_Desc>
+  <RL_SP_Budget>予算：装備資金の {0} %</RL_SP_Budget>
+  <RL_SP_Budget_Desc>ポーンの装備資金のうち、サイドアームに使える割合（高価な武器 = 少なくなる）。</RL_SP_Budget_Desc>
+  <RL_SP_BudgetDropoff>追加1つごとの予算：× {0} %</RL_SP_BudgetDropoff>
+  <RL_SP_SpawnExample>例：他者の約 {0} % がサイドアームを1つ、{1} % が2つ、{2} % が3つ持ちます。</RL_SP_SpawnExample>
+  <RL_SP_SpawnWorld>その後 World at Your Level が他者の装備をさらにフィルタします（研究、「コロニーより良くない」）。</RL_SP_SpawnWorld>
+  <RL_SP_ColonistMode>入植者の主武器</RL_SP_ColonistMode>
+  <RL_SP_ColonistMode_Desc>戦闘していないとき、入植者が携帯武器のどれを手に持つか。</RL_SP_ColonistMode_Desc>
+  <RL_SP_NpcMode>他者の主武器</RL_SP_NpcMode>
+  <RL_SP_EW_BySkill>技能に応じて</RL_SP_EW_BySkill>
+  <RL_SP_EW_BySkill_Desc>射撃が得意な者は銃を、格闘が得意な者は近接武器を持ちます。</RL_SP_EW_BySkill_Desc>
+  <RL_SP_EW_Ranged>遠距離</RL_SP_EW_Ranged>
+  <RL_SP_EW_Melee>近接</RL_SP_EW_Melee>
+  <RL_SP_EW_ByGenerated>到着時のまま</RL_SP_EW_ByGenerated>
+  <RL_SP_EW_ByGenerated_Desc>ポーンが生成された、または到着したときの武器。</RL_SP_EW_ByGenerated_Desc>
+  <RL_SP_Fumble>ダウン時に武器を落とす</RL_SP_Fumble>
+  <RL_SP_Fumble_Desc>ダウンしたポーンが携帯中のサイドアームを落とすタイミング。</RL_SP_Fumble_Desc>
+  <RL_SP_EF_Never>しない</RL_SP_EF_Never>
+  <RL_SP_EF_InDistress>窮地のとき</RL_SP_EF_InDistress>
+  <RL_SP_EF_InCombat>戦闘中</RL_SP_EF_InCombat>
+  <RL_SP_EF_Always>常に</RL_SP_EF_Always>
+  <RL_SP_PreserveInventoryInCaravans>キャラバンでサイドアームを入植者が持ち続ける</RL_SP_PreserveInventoryInCaravans>
+  <RL_SP_PreserveInventoryInCaravans_Desc>キャラバン編成時、サイドアームは共有の積み荷に移されません。</RL_SP_PreserveInventoryInCaravans_Desc>
+  <RL_SP_HideSidearmsInCaravanDialogs>キャラバン画面でサイドアームを隠す</RL_SP_HideSidearmsInCaravanDialogs>
+  <RL_SP_ShowAlertsMissingSidearm>サイドアーム紛失の警告</RL_SP_ShowAlertsMissingSidearm>
+  <RL_SP_ShowAlertsMissingSidearm_Desc>入植者が覚えておくべき武器を失ったときに警告します。</RL_SP_ShowAlertsMissingSidearm_Desc>
+  <RL_SP_PlaySounds>武器持ち替え時の効果音</RL_SP_PlaySounds>
+  <RL_SP_ShowBrainscope>デバッグ：武器の判断を表示</RL_SP_ShowBrainscope>
+  <RL_SP_BrawlerNoRanged>喧嘩屋は遠距離サイドアームを持たない</RL_SP_BrawlerNoRanged>
+  <RL_SP_BrawlerNoRanged_Desc>喧嘩屋の特性を持つ入植者は、サイドアームとしても銃を取りません（気分が悪化するため）。</RL_SP_BrawlerNoRanged_Desc>
+  <RL_SP_MaxTotal>入植者1人あたりの最大武器数：{0}</RL_SP_MaxTotal>
+  <RL_SP_MaxTotalOff>入植者1人あたりの最大武器数：独自の制限なし</RL_SP_MaxTotalOff>
+  <RL_SP_MaxTotal_Desc>手に持つ武器を含め、入植者が携帯できる武器の総数（手榴弾も数えます）。このModと Simple Sidearms に適用されます。超過分は最も悪い物から捨てられ、保管場所へ運ばれます。0 = Simple Sidearms の制限のみ。</RL_SP_MaxTotal_Desc>
+  <RL_SP_StripUncrafted>コロニーが作ったことのない武器をしまう</RL_SP_StripUncrafted>
+  <RL_SP_StripUncrafted_Desc>「製作済みのみ」がオンのとき、入植者は研究済みでもコロニーがまだ作っていない武器（例：襲撃後に拾った物）もしまいます。襲撃中は使えますが、その後は戻します。あなたが自分で入植者に与えた武器はそのままです。</RL_SP_StripUncrafted_Desc>
+  <RL_SP_ArmorHunt>狩猟時に防具を着る</RL_SP_ArmorHunt>
+  <RL_SP_ArmorHunt_Desc>狩猟の前に、保管中（70マス以内）の許可された最良の防具が今着ている物より良ければ、入植者はそれを着てから狩りをします。</RL_SP_ArmorHunt_Desc>
+  <RL_SP_ArmorThreat>攻撃されたら防具を着る</RL_SP_ArmorThreat>
+  <RL_SP_ArmorThreat_Desc>マップ上に敵がいる間（襲撃、人間狩りの動物、メカノイド…）、入植者は通常作業を止め、保管中の許可された最良の防具を着ます。消火、治療、逃走、戦闘は中断されません。衣服ポリシーでも許可されている必要があります。</RL_SP_ArmorThreat_Desc>
+  <RL_SP_ArmorDrafted>徴兵中の入植者にも防具を</RL_SP_ArmorDrafted>
+  <RL_SP_ArmorDrafted_Desc>徴兵中の入植者が立っているだけで、22マス以内に敵がいない場合、28マス以内の防具を取りに行きます。その後は保管場所のそばに留まるので、元の位置に戻してください。</RL_SP_ArmorDrafted_Desc>
+  <RL_SidearmTooMany>既に {0} 個の武器を携帯中（上限）</RL_SidearmTooMany>
+  <RL_SP_MinShoot>射撃 {0} から遠距離サイドアーム</RL_SP_MinShoot>
+  <RL_SP_MinShoot_Desc>入植者はこの射撃レベルから追加の銃を取ります。0 = 常に。</RL_SP_MinShoot_Desc>
+  <RL_SP_MinMelee>格闘 {0} から近接サイドアーム</RL_SP_MinMelee>
+  <RL_SP_MinMelee_Desc>入植者はこの格闘レベルから追加の近接武器を取ります。0 = 常に。</RL_SP_MinMelee_Desc>
+  <RL_SP_OpenOriginal>元の Simple Sidearms ウィンドウを開く</RL_SP_OpenOriginal>
+  <RL_OS_Header>内蔵サイドアーム</RL_OS_Header>
+  <RL_OS_SwitchMelee>戦闘で近接武器に持ち替え</RL_OS_SwitchMelee>
+  <RL_OS_SwitchMelee_Desc>敵が近づくと、銃を持った入植者はバックパックから近接武器を取り出します（持っていれば）。</RL_OS_SwitchMelee_Desc>
+  <RL_OS_MeleeRange>敵が {0} マスより近いときに持ち替え</RL_OS_MeleeRange>
+  <RL_OS_MeleeRange_Desc>入植者が近接武器を抜く、最も近い敵までの距離。</RL_OS_MeleeRange_Desc>
+  <RL_OS_SwitchBack>戦闘後に前の武器に戻す</RL_OS_SwitchBack>
+  <RL_OS_SwitchBack_Desc>敵が去るか倒れると、入植者は以前の武器を持ち直します。</RL_OS_SwitchBack_Desc>
+  <RL_OS_Gizmo>武器持ち替えボタン</RL_OS_Gizmo>
+  <RL_OS_Gizmo_Desc>徴兵中の入植者には、携帯中の武器ごとに「手に持つ」ボタンが表示されます。手動で選んだ武器は徴兵解除まで保持されます。</RL_OS_Gizmo_Desc>
+  <RL_OS_MaxMass>携帯武器の最大重量：{0} kg</RL_OS_MaxMass>
+  <RL_OS_MaxMassOff>携帯武器の最大重量：制限なし</RL_OS_MaxMassOff>
+  <RL_OS_MaxMass_Desc>手に持つ武器以外に、入植者がバックパックで運べる武器の重さ（kg）。0 = 制限なし。</RL_OS_MaxMass_Desc>
+  <RL_OS_Take>手に持つ：{0}</RL_OS_Take>
+  <RL_OS_Take_Desc>入植者はバックパックから{0}を取り出し、手に持っていた武器をバックパックにしまいます。徴兵解除まで保持されます。</RL_OS_Take_Desc>
+  <MUI_Title>推奨設定</MUI_Title>
+  <MUI_TitleOff>推奨設定 · オフ</MUI_TitleOff>
+  <MUI_DescOn>Modが自動で設定され、すぐに使えます。初心者や何も調整したくない方に最適です。</MUI_DescOn>
+  <MUI_DescOff>カスタム設定。推奨から変更した項目：{0}。</MUI_DescOff>
+  <MUI_DescOffSame>カスタム設定。まだ推奨と同じです。</MUI_DescOffSame>
+  <MUI_On>オン</MUI_On>
+  <MUI_Off>オフ</MUI_Off>
+  <MUI_ResetAll>すべて推奨にリセット</MUI_ResetAll>
+  <MUI_ConfirmOn>推奨設定をオンにしますか？あなたの変更（{0}）は推奨値に置き換えられます。</MUI_ConfirmOn>
+  <MUI_Locked>詳細設定はロックされています。変更したい場合は上のスイッチをオフにしてください – 値は推奨値から始まります。</MUI_Locked>
+  <MUI_Changed>変更済み</MUI_Changed>
+  <MUI_ChangedTip>推奨設定（{0}）と異なります。クリックで推奨値に戻します。</MUI_ChangedTip>
+  <MUI_Yes>オン</MUI_Yes>
+  <MUI_No>オフ</MUI_No>
+  <RL_Rec1>入植者は研究済みの最良の武器と衣服を使う</RL_Rec1>
+  <RL_Rec2>脅威があるときは防具一式を着る</RL_Rec2>
+  <RL_Rec3>暑いときは薄着、寒いときは防寒着</RL_Rec3>
+  <RL_Rec4>毒素や極端な温度に対する緊急装備</RL_Rec4>
+  <RL_Rec5>技能に応じたサイドアーム</RL_Rec5>
+  <RL_Rec6>傷んだ装備は交換して保管</RL_Rec6>
+  <MUI_RecTag>推奨</MUI_RecTag>
+  <RL_Why_Title>最近の装備変更：</RL_Why_Title>
+  <RL_Why_None>このセッションではまだ装備変更はありません。</RL_Why_None>
+  <RL_Why_Now>たった今</RL_Why_Now>
+  <RL_Why_HoursAgo>{0} 時間前</RL_Why_HoursAgo>
+  <RL_WhyAct_Wear>着た</RL_WhyAct_Wear>
+  <RL_WhyAct_Remove>脱いだ</RL_WhyAct_Remove>
+  <RL_WhyAct_Take>持っていった</RL_WhyAct_Take>
+  <RL_WhyAct_Drop>捨てた</RL_WhyAct_Drop>
+  <RL_WhyAct_Equip>手に持った</RL_WhyAct_Equip>
+  <RL_WhyAct_Change>装備を変えた</RL_WhyAct_Change>
+  <RL_Why_Tattered>傷んでいるため交換</RL_Why_Tattered>
+  <RL_Why_Heat>暑すぎる</RL_Why_Heat>
+  <RL_Why_Policy>衣服ポリシーで許可されていない</RL_Why_Policy>
+  <RL_Why_TooMany>武器の持ちすぎ</RL_Why_TooMany>
+  <RL_Why_Locked>未研究または禁止</RL_Why_Locked>
+  <RL_Why_Unneeded>もう不要</RL_Why_Unneeded>
+  <RL_Why_Weapon>より良い武器</RL_Why_Weapon>
+  <RL_Why_Instead>{0}の代わりに</RL_Why_Instead>
+  <RL_Why_Sidearm>サイドアーム</RL_Why_Sidearm>
+  <RL_Why_Temperature>寒さまたは暑さ</RL_Why_Temperature>
+  <RL_Why_Basics>基本の衣服が不足</RL_Why_Basics>
+  <RL_Why_Emergency>緊急防護</RL_Why_Emergency>
+  <RL_Why_Apparel>より良い衣服</RL_Why_Apparel>
+  <RL_Why_Armor>攻撃 – 防具を着用</RL_Why_Armor>
+  <RL_Why_ArmorHunt>狩猟 – 防具を着用</RL_Why_ArmorHunt>
+  <RL_Why_Player>手動（あなた）</RL_Why_Player>
+  <RL_Why_Outfit>ゲーム（衣服ポリシー、このModが評価）</RL_Why_Outfit>
+  <RL_Why_Game>ゲーム</RL_Why_Game>
+  <RL_Why_OtherMod>Mod {0}</RL_Why_OtherMod>
+  <RL_OthersTitle>入植者の装備を変更する他のMod</RL_OthersTitle>
+  <RL_OthersNone>装備の選び方を変更する他のModはありません。</RL_OthersNone>
+  <RL_OthersPatch>装備の選び方も変更するMod：{0}</RL_OthersPatch>
+  <RL_OthersSeenNone>このゲームでは、まだ他のModが入植者の装備を変更していません。</RL_OthersSeenNone>
+  <RL_OthersSeen>このゲームで入植者の装備を変更したMod：{0}</RL_OthersSeen>
+  <RL_OthersHint>入植者が装備を行ったり来たり交換する場合は、1つのModだけに決めさせてください – どちらかで重なる部分をオフにします。このModの入植者ボタンで、誰が何をなぜ変えたかを確認できます。</RL_OthersHint>
+  <RL_GuestLodgers>クエストのゲストもコロニーの装備を使う</RL_GuestLodgers>
+  <RL_GuestLodgers_Desc>あなたが操作できるクエストのゲストは、入植者と同じように武器と衣服を受け取ります。自分の持ち物はバックパックに入り、去るときに着直します – コロニーの装備はここに残ります。</RL_GuestLodgers_Desc>
+  <RL_GuestVisitors>訪問者が寒さ・暑さ対策に服を借りる</RL_GuestVisitors>
+  <RL_GuestVisitors_Desc>訪問者やゲストは、寒いときはコロニーの防寒着を着て、暑いときは自分の暖かい服を脱いでバックパックに入れます。天気が良くなったときや去るときには、コロニーの服を返して自分の服を着直します。</RL_GuestVisitors_Desc>
+  <RL_PreferNewer>新しい技術を優先</RL_PreferNewer>
+  <RL_PreferNewer_Desc>似た武器や防具の中では新しい技術が勝ちます – 弓より銃、プレートアーマーより防弾ベストやパワーアーマー。</RL_PreferNewer_Desc>
+  <RL_ToolsNotWeapons>作業道具は武器ではない</RL_ToolsNotWeapons>
+  <RL_ToolsNotWeapons_Desc>つるはし、鎌、シャベルなど作業を速める道具は武器として選ばれず、手に持った道具は本物の武器と交換されます。</RL_ToolsNotWeapons_Desc>
+  <RL_Why_ToolNotWeapon>道具は武器ではない</RL_Why_ToolNotWeapon>
+  <RL_PreferNewEra>最新の時代を優先</RL_PreferNewEra>
+  <RL_PreferNewEra_Desc>コロニーの最新の時代（工業、宇宙 …）の装備が優先されます。武器：新しい時代の武器は、弱くても同種の古い武器を常に置き換えます（弓をライフルに）。古い武器が新しい武器を置き換えることはありません。新しい時代の防具と衣服は強いボーナスを得て、防御力が少し低くても構いません。技術レベルのないModアイテムは研究と性能で判断されます。</RL_PreferNewEra_Desc>
+  <RL_SP_MaxRanged>入植者1人あたりの遠距離武器：{0}</RL_SP_MaxRanged>
+  <RL_SP_MaxRanged_Desc>入植者が携帯する遠距離武器の最大数 – 手に持つ物を含む。2 = 例えばライフルと拳銃。0 = 遠距離サイドアームなし（射手の主武器は残ります）。</RL_SP_MaxRanged_Desc>
+  <RL_SP_MaxMelee>入植者1人あたりの近接武器：{0}</RL_SP_MaxMelee>
+  <RL_SP_MaxMelee_Desc>入植者が携帯する近接武器の最大数 – 手に持つ物を含む。1 = 射手が接近戦用にナイフか剣を1つ持つ。0 = 近接サイドアームなし。</RL_SP_MaxMelee_Desc>
+  <RL_GearButton>下部の「装備」ボタン</RL_GearButton>
+  <RL_GearButton_Desc>誰が何を身につけているかの概要と「今すぐ全員を装備」ボタン。</RL_GearButton_Desc>
+  <RL_GO_Title>入植者の装備</RL_GO_Title>
+  <RL_GO_EquipAll>今すぐ全員を装備</RL_GO_EquipAll>
+  <RL_GO_EquipAll_Desc>徴兵されていない入植者全員がすぐに装備を確認し、保管中の最良の武器と防具を取ります – 襲撃前に便利です。徴兵中の入植者はスキップされます。</RL_GO_EquipAll_Desc>
+  <RL_GO_EquipAllDone>{0} 人の入植者が装備を変更中です。</RL_GO_EquipAllDone>
+  <RL_GO_Colonist>入植者</RL_GO_Colonist>
+  <RL_GO_Weapon>武器</RL_GO_Weapon>
+  <RL_GO_ArmorSharp>防御（鋭利）</RL_GO_ArmorSharp>
+  <RL_GO_ArmorBlunt>防御（鈍器）</RL_GO_ArmorBlunt>
+  <RL_GO_Problems>問題点</RL_GO_Problems>
+  <RL_GO_Ok>問題なし</RL_GO_Ok>
+  <RL_GO_NoWeapon>武器なし</RL_GO_NoWeapon>
+  <RL_GO_NoTorso>胴体に何も着ていない</RL_GO_NoTorso>
+  <RL_GO_Tattered>傷み：{0}</RL_GO_Tattered>
+  <RL_GO_WeaponWorn>武器が傷んでいる</RL_GO_WeaponWorn>
+  <RL_GO_Cold>外が寒すぎる</RL_GO_Cold>
+  <RL_GO_Hot>外が暑すぎる</RL_GO_Hot>
+  <RL_GO_Footer>入植者 {0} 人 · 問題あり {1} 人 · 行をクリックで入植者を選択 · ホバーで衣服の全リストを表示</RL_GO_Footer>
+</LanguageData>

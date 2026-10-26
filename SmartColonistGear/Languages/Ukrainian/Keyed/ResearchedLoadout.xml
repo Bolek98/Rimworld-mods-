@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RL_Enable>Увімкнути мод</RL_Enable>
+  <RL_UseRecipes>Рецепти вважаються дослідженням</RL_UseRecipes>
+  <RL_UseRecipes_Desc>Предмет розблоковано, коли завершено дослідження хоча б для одного рецепта, що його виготовляє. Вимкніть, якщо блокуються сировинні матеріали (дерево, сталь).</RL_UseRecipes_Desc>
+  <RL_BlockHigherTech>Блокувати предмети вище техрівня колонії</RL_BlockHigherTech>
+  <RL_BlockHigherTech_Desc>Предмети без дослідження, що є досконалішими за досліджений технологічний рівень колонії, не використовуються.</RL_BlockHigherTech_Desc>
+  <RL_BlockUntagged>Блокувати предмети модів без дослідження</RL_BlockUntagged>
+  <RL_BlockUntagged_Desc>Предмети з інших модів, що не мають дослідження, вважаються заблокованими.</RL_BlockUntagged_Desc>
+  <RL_BlockLockedEquip>Блокувати недосліджену зброю</RL_BlockLockedEquip>
+  <RL_BlockLockedEquip_Desc>Колоністи не беруть недосліджену зброю, навіть за наказом.</RL_BlockLockedEquip_Desc>
+  <RL_BlockLockedApparel>Блокувати недосліджений одяг</RL_BlockLockedApparel>
+  <RL_BlockLockedApparel_Desc>Стандартне перевдягання не обирає недосліджений одяг.</RL_BlockLockedApparel_Desc>
+  <RL_StripLocked>Знімати недосліджене спорядження</RL_StripLocked>
+  <RL_StripLocked_Desc>Колоністи кидають зброю та одяг, які колонія ще не дослідила.</RL_StripLocked_Desc>
+  <RL_AutoPrimary>Автопокращення основної зброї</RL_AutoPrimary>
+  <RL_AutoPrimary_Desc>Колоністи самі беруть сильнішу зброю і кидають слабшу.</RL_AutoPrimary_Desc>
+  <RL_UseSkills>Обирати зброю за навичками</RL_UseSkills>
+  <RL_UseSkills_Desc>Стрільці отримують далекобійну зброю, бійці — зброю ближнього бою.</RL_UseSkills_Desc>
+  <RL_AutoSidearm>Автоматична запасна зброя</RL_AutoSidearm>
+  <RL_AutoSidearm_Desc>Колоністи також носять запасну зброю іншого типу. З Simple Sidearms діють його обмеження та правила.</RL_AutoSidearm_Desc>
+  <RL_PrioritizeFighters>Найкраща зброя — найкращим бійцям</RL_PrioritizeFighters>
+  <RL_PrioritizeFighters_Desc>Колоніст із найвищою навичкою стрільби або ближнього бою обирає першим. Інші не беруть зброю, поки вона була б покращенням для кращого бійця.</RL_PrioritizeFighters_Desc>
+  <RL_ArmSlaves>Озброювати рабів</RL_ArmSlaves>
+  <RL_ArmSlaves_Desc>Озброєні раби значно підвищують шанс повстання. Типово вимкнено.</RL_ArmSlaves_Desc>
+  <RL_ConsiderDistance>Враховувати відстань</RL_ConsiderDistance>
+  <RL_ConsiderDistance_Desc>Що далі предмет, то більше покращення він має дати (до +25%), щоб колоніст по нього пішов.</RL_ConsiderDistance_Desc>
+  <RL_PauseThreat>Пауза під час атак</RL_PauseThreat>
+  <RL_PauseThreat_Desc>Поки активний ворог перебуває в домашній зоні або в межах 40 клітинок від колоніста, ніхто не ходить по спорядження. Далекі вороги біля краю мапи, недієздатні або втікачі не враховуються.</RL_PauseThreat_Desc>
+  <RL_OwnDresser>Власне перевдягання замість стандартного</RL_OwnDresser>
+  <RL_OwnDresser_Desc>Перевдяганням займається цей мод, а не гра. Рекомендовано, лише якщо стандартне перевдягання спричиняє помилки.</RL_OwnDresser_Desc>
+  <RL_AutoApparel>Автоперевдягання (власне)</RL_AutoApparel>
+  <RL_AutoApparel_Desc>Діє лише разом із власним перевдяганням.</RL_AutoApparel_Desc>
+  <RL_OnlyStockpile>Лише зі складів і стелажів</RL_OnlyStockpile>
+  <RL_OnlyStockpile_Desc>Колоністи беруть предмети лише зі складських зон і стелажів, а не ті, що лежать будь-де на мапі.</RL_OnlyStockpile_Desc>
+  <RL_ReplaceBroken>Знімати зношене й заборонене політикою</RL_ReplaceBroken>
+  <RL_ReplaceBroken_Desc>Одяг нижче порогу міцності або заборонений політикою одягу знімається.</RL_ReplaceBroken_Desc>
+  <RL_StoreDropped>Відносити зняте спорядження на склад</RL_StoreDropped>
+  <RL_StoreDropped_Desc>Колоністи відносять зняте спорядження до найкращого вільного місця зберігання. Якщо місця немає, воно лишається на землі.</RL_StoreDropped_Desc>
+  <RL_Notify>Сповіщення в грі</RL_Notify>
+  <RL_Notify_Desc>Повідомлення вгорі ліворуч, коли колоніст бере іншу зброю або одяг.</RL_Notify_Desc>
+  <RL_DebugLog>Журнал налагодження</RL_DebugLog>
+  <RL_DebugLog_Desc>Записує кожну заміну до журналу. Лише для пошуку проблем.</RL_DebugLog_Desc>
+  <RL_MinHp>Мін. міцність: {0}%</RL_MinHp>
+  <RL_MinHp_Desc>Спорядження нижче цього порогу вважається зламаним. У стандартній грі зношений одяг нижче 50% дає штраф до настрою.</RL_MinHp_Desc>
+  <RL_Search>Пошук:</RL_Search>
+  <RL_BanModWeapons>Заборонити зброю модів</RL_BanModWeapons>
+  <RL_AllowWeapons>Дозволити зброю</RL_AllowWeapons>
+  <RL_BanModApparel>Заборонити одяг модів</RL_BanModApparel>
+  <RL_AllowApparel>Дозволити одяг</RL_AllowApparel>
+  <RL_BanWeaponsTitle>Зброя (позначено = ЗАБОРОНЕНО)</RL_BanWeaponsTitle>
+  <RL_BanApparelTitle>Одяг і броня (позначено = ЗАБОРОНЕНО)</RL_BanApparelTitle>
+  <RL_GizmoLabel>Автоспорядження</RL_GizmoLabel>
+  <RL_GizmoDesc>Коли увімкнено, мод обирає зброю та одяг для цього колоніста. Вимкніть для колоніста, спорядженням якого хочете керувати вручну.</RL_GizmoDesc>
+  <RL_MsgWeapon>{0} бере {1} замість {2}.</RL_MsgWeapon>
+  <RL_MsgWeaponNew>{0} бере {1}.</RL_MsgWeaponNew>
+  <RL_MsgSidearm>{0} бере {1} як запасну зброю.</RL_MsgSidearm>
+  <RL_MsgApparel>{0} вдягає {1}.</RL_MsgApparel>
+  <RL_WeaponCalm>Пауза після зміни зброї: {0} год</RL_WeaponCalm>
+  <RL_WeaponCalm_Desc>Після зміни зброї колоніст залишає її на цей час, якщо вона не зламається. 24 год = один ігровий день, 0 = без обмеження.</RL_WeaponCalm_Desc>
+  <RL_Ex_Allowed>Дозволено</RL_Ex_Allowed>
+  <RL_Ex_Locked>Заблоковано</RL_Ex_Locked>
+  <RL_Ex_Banned>Заборонено вручну</RL_Ex_Banned>
+  <RL_Ex_Always>Завжди потребує: {0}</RL_Ex_Always>
+  <RL_Ex_Option>Виготовлення: {0}</RL_Ex_Option>
+  <RL_Ex_Free>Можна виготовити без дослідження</RL_Ex_Free>
+  <RL_Ex_NoResearch>Без дослідження (вирішують техрівень і правило для предметів модів)</RL_Ex_NoResearch>
+  <RL_Ex_Tech>Техрівень: {0} (межа: {1})</RL_Ex_Tech>
+  <RL_Ex_Mod>Мод: {0}</RL_Ex_Mod>
+  <RL_Ex_Done>завершено</RL_Ex_Done>
+  <RL_Ex_Missing>бракує</RL_Ex_Missing>
+  <RL_TechMismatch>Перевіряти предмети, досконаліші за їхнє дослідження</RL_TechMismatch>
+  <RL_TechMismatch_Desc>Коли мод розміщує досконалий предмет під нижчим дослідженням (космічну гвинтівку під індустріальним дослідженням), колонія також має досягти техрівня цього предмета.</RL_TechMismatch_Desc>
+  <RL_PowerEstimate>Оцінювати техрівень предметів модів за силою</RL_PowerEstimate>
+  <RL_PowerEstimate_Desc>Зброя або броня з мода, явно сильніша за найкращу стандартну індустріальну, вважається космічною, навіть якщо автор мода вказав нижчий рівень. Це оцінка.</RL_PowerEstimate_Desc>
+  <RL_Ex_Power>Сила відповідає техрівню: {0}</RL_Ex_Power>
+  <RL_Ex_NeedColony>Колонія має досягти техрівня: {0}</RL_Ex_NeedColony>
+  <RL_LevelByProgress>Рівень колонії за прогресом досліджень</RL_LevelByProgress>
+  <RL_LevelByProgress_Desc>Колонія досягає техрівня, коли завершить задану частку досліджень цього рівня. Вимк. = вирішує найвище завершене дослідження (достатньо одного). Рівень сценарію завжди вважається мінімумом.</RL_LevelByProgress_Desc>
+  <RL_LevelProgress>Потрібна частка досліджень рівня: {0}%</RL_LevelProgress>
+  <RL_LevelProgress_Desc>Яка частина досліджень рівня має бути завершена, щоб колонія вважалася цього рівня.</RL_LevelProgress_Desc>
+  <RL_CurrentLevel>Рівень колонії зараз: {0} (сценарій: {1}, дослідження: {2})</RL_CurrentLevel>
+  <RL_SyncWorld>Рівень колонії з World at Your Level</RL_SyncWorld>
+  <RL_SyncWorld_Desc>Колоністи і весь світ мають той самий рівень, включно з ручним рівнем і частками за рівнями, заданими в моді про нальоти.</RL_SyncWorld_Desc>
+  <RL_SurvivalApparel>Виняток для виживання (лише критичне)</RL_SurvivalApparel>
+  <RL_SurvivalApparel_Desc>Температура важлива лише в екстреній ситуації: коли вона поза межами, вказаними нижче, або колоніст має гіпотермію чи тепловий удар (діє завжди). Тоді він може вдягнути недосліджений теплий одяг або зняти речі, що посилюють спеку (ніколи не броню). В інший час одяг через температуру не змінюється.</RL_SurvivalApparel_Desc>
+  <RL_ApparelCalm>Пауза після перевдягання: {0} год</RL_ApparelCalm>
+  <RL_ApparelCalm_Desc>Після перевдягання колоніст не перевдягається знову протягом цього часу, якщо не має гіпотермії чи теплового удару. Зняті речі та речі, замінені новими, не беруться назад протягом дня. 0 = без паузи.</RL_ApparelCalm_Desc>
+  <RL_KeepArmor>Завжди зберігати броню</RL_KeepArmor>
+  <RL_KeepArmor_Desc>Елемент броні ніколи не змінюється на елемент зі слабшим захистом і ніколи не знімається через температуру. Не стосується зламаної або заблокованої броні.</RL_KeepArmor_Desc>
+  <RL_TempByThresholds>Власні температурні межі</RL_TempByThresholds>
+  <RL_TempByThresholds_Desc>Увімк.: вирішують повзунки. Вимк.: автоматично, за комфортним діапазоном кожного колоніста (з урахуванням одягненого).</RL_TempByThresholds_Desc>
+  <RL_ColdThreshold>Вдягати тепле нижче: {0}</RL_ColdThreshold>
+  <RL_ColdThreshold_Desc>Коли надворі холодніше, колоністи вдягають теплий одяг (навіть недосліджений). Носять його, доки не стане щонайменше на 3 градуси тепліше за цю межу.</RL_ColdThreshold_Desc>
+  <RL_HeatThreshold>Роздягатися від спеки вище: {0}</RL_HeatThreshold>
+  <RL_HeatThreshold_Desc>Коли надворі спекотніше, колоністи знімають речі, що посилюють спеку (ніколи не броню), і вдягають речі, що захищають від спеки.</RL_HeatThreshold_Desc>
+  <RL_GenderClothing>Одяг за статтю</RL_GenderClothing>
+  <RL_GenderClothing_Desc>Чоловіки беруть лише чоловічий та унісекс-одяг, жінки — лише жіночий та унісекс. Річ іншої статі, яку вже вдягнено, замінюється, щойно знайдеться відповідна заміна.</RL_GenderClothing_Desc>
+  <RL_GenderGuess>Вгадувати стать за назвою та описом</RL_GenderGuess>
+  <RL_GenderGuess_Desc>Якщо у визначенні одягу не вказано стать, її вгадують за назвою, тегами, текстурою та описом (сукня, спідниця, покоївка… = жіночий; смокінг, джентльмен… = чоловічий). Якщо є сумнів, річ вважається унісекс. Здогад видно в підказці списку одягу.</RL_GenderGuess_Desc>
+  <RL_GenderFemale>жіночий</RL_GenderFemale>
+  <RL_GenderMale>чоловічий</RL_GenderMale>
+  <RL_GenderUnisex>унісекс</RL_GenderUnisex>
+  <RL_Ex_Gender>Стать: {0}</RL_Ex_Gender>
+  <RL_TabGeneral>Дослідження та рівень</RL_TabGeneral>
+  <RL_TabWeapons>Зброя</RL_TabWeapons>
+  <RL_TabApparel>Одяг</RL_TabApparel>
+  <RL_TabTemperature>Температура та загрози</RL_TabTemperature>
+  <RL_TabBans>Заборони</RL_TabBans>
+  <RL_TabOther>Інше</RL_TabOther>
+  <RL_TempInfo>Температура змінює одяг лише в екстреній ситуації: коли вона поза заданими межами або колоніст має гіпотермію чи тепловий удар (діє завжди).\n\nУ холод колоністи вдягають теплий одяг, навіть недосліджений. У спеку знімають речі, що її посилюють.\n\nБроня ніколи не знімається і не змінюється на слабшу через температуру.</RL_TempInfo>
+  <RL_ConfirmBanWeapons>Справді заборонити ВСЮ зброю з модів? Колоністи не візьмуть жодної зброї з модів. Пізніше можна зняти позначку з окремої зброї у списку.</RL_ConfirmBanWeapons>
+  <RL_ConfirmBanApparel>Справді заборонити ВЕСЬ одяг з модів? Колоністи не візьмуть жодного одягу з модів. Пізніше можна зняти позначку з окремих речей у списку.</RL_ConfirmBanApparel>
+  <RL_RoleGear>Спорядження за спеціалізацією</RL_RoleGear>
+  <RL_RoleGear_Desc>За навичками кожен колоніст має роль: стрілець, боєць ближнього бою, універсал або працівник. Бійці ближнього бою віддають перевагу важчій броні, працівники — легкому спорядженню без сповільнення. Добрі стрільці цінують далекобійну зброю, слабкі — швидшу зброю ближньої дистанції. Роль видно в описі кнопки «Автоспорядження».</RL_RoleGear_Desc>
+  <RL_SpecialEffects>Враховувати особливі ефекти зброї</RL_SpecialEffects>
+  <RL_SpecialEffects_Desc>Вибухова, запальна, ЕМІ, оглушальна, токсична та димова зброя отримує нижчу оцінку як основна зброя колоніста (ризик влучити у своїх, ефективна лише проти деяких цілей).</RL_SpecialEffects_Desc>
+  <RL_StatOffsets>Бонуси та штрафи спорядження до характеристик</RL_StatOffsets>
+  <RL_StatOffsets_Desc>Враховує, що змінює спорядження: швидкість руху та роботи, прицілювання, влучання та ухиляння, а за найкращою навичкою колоніста також робочі характеристики (лікування у лікаря, робота з рослинами у рослинника, готування у кухаря…).</RL_StatOffsets_Desc>
+  <RL_Role_Shooter>стрілець</RL_Role_Shooter>
+  <RL_Role_Melee>боєць ближнього бою</RL_Role_Melee>
+  <RL_Role_Balanced>універсал</RL_Role_Balanced>
+  <RL_Role_Worker>працівник</RL_Role_Worker>
+  <RL_GizmoRole>Роль: {0}, спеціалізація: {1}</RL_GizmoRole>
+  <RL_CoverageFirst>Спершу прикрити тіло (торс, ноги)</RL_CoverageFirst>
+  <RL_CoverageFirst_Desc>Річ, що прикриває голе місце, має пріоритет (найбільше торс, потім ноги, голова, решта). Річ, яка щось відкриє, отримує штраф. Поки торс або ноги голі, колоніст одягається одразу, без паузи.</RL_CoverageFirst_Desc>
+  <RL_ThreatApparel>Захист від загроз</RL_ThreatApparel>
+  <RL_ThreatApparel_Desc>За критичного холоду чи спеки (межі вище), токсинів, радіоактивних опадів, забруднення, вакууму або бою на мапі одяг із потрібним захистом отримує великий бонус, щоб колоністи його вдягли. Броня через це ніколи не змінюється на слабшу.</RL_ThreatApparel_Desc>
+  <RL_ThreatBills>Створювати завдання на захист</RL_ThreatBills>
+  <RL_ThreatBills_Desc>Коли захисного одягу бракує і рецепт досліджено, до верстата додається завдання «поки не буде X», а вироби йдуть на склад. Ваші завдання не видаляються. Якщо бракує дослідження, показується одне повідомлення.</RL_ThreatBills_Desc>
+  <RL_ThreatBill>Колоністи почали виготовляти захист: {0}.</RL_ThreatBill>
+  <RL_ThreatNoRecipe>Захист від цієї загрози поки не можна виготовити. Бракує дослідження.</RL_ThreatNoRecipe>
+  <RL_OnlyCrafted>Брати лише те, що колонія виготовила</RL_OnlyCrafted>
+  <RL_OnlyCrafted_Desc>Колоністи беруть лише нову зброю та одяг, які колонія вже хоча б раз виготовила на верстаті (і дослідила). Трофеї та куплені предмети інших видів ігноруються, доки ви не виготовите цей вид самі. Те, що вже вдягнено, через це не знімається. У поточній грі спорядження колоністів і збережені предмети, які ви можете виготовити, зараховуються один раз.</RL_OnlyCrafted_Desc>
+  <RL_CraftedCount>Виготовлені види зброї та одягу: {0}</RL_CraftedCount>
+  <RL_CraftedReset>Очистити список виготовленого</RL_CraftedReset>
+  <RL_CraftedReset_Desc>Забуває всі види зброї та одягу, зараховані або виготовлені досі. Відтепер враховується лише те, що колонія справді виготовить. Вдягнене на колоністах лишається.</RL_CraftedReset_Desc>
+  <RL_CraftedResetConfirm>Справді очистити список виготовленого? Колоністи братимуть нову зброю та одяг лише після того, як ви виготовите цей вид.</RL_CraftedResetConfirm>
+  <RL_Ex_NotCrafted>Досліджено, але колонія ще не виготовляла цього.</RL_Ex_NotCrafted>
+  <RL_SidearmLocked>Smart Colonist Gear: колонія ще не дослідила або не виготовила цю зброю</RL_SidearmLocked>
+  <RL_WorkClothing>Робочий одяг лише для фахівців</RL_WorkClothing>
+  <RL_WorkClothing_Desc>Одяг, що прискорює певну роботу (фартух для готування, лабораторний халат для досліджень, рукавички для лікарів, шахтарська каска…), бере лише фахівець у цій роботі — якщо він є, такий одяг йому сильно бажаний. Інші його не беруть. Фахівець = це його найкраща робоча навичка або він має цю роботу з пріоритетом 1, і навичка не нижча за заданий рівень.</RL_WorkClothing_Desc>
+  <RL_WorkClothingSkill>Фахівець від навички: {0}</RL_WorkClothingSkill>
+  <RL_WorkClothingSkill_Desc>Мінімальний рівень навички, щоб колоніст вважався фахівцем для робочого одягу.</RL_WorkClothingSkill_Desc>
+  <RL_DressByTraits>Одягатися за рисами та навичками</RL_DressByTraits>
+  <RL_DressByTraits_Desc>Серед дозволеного одягу кожен колоніст віддає перевагу тому, що йому пасує: спорядженню, яке покращує роботу, що він справді виконує і вміє (лікар — лікування, шахтар — видобуток, дослідник — дослідження…), спорядженню для стрільби чи ближнього бою за бойовою навичкою, псі-спорядженню для псикастерів і псі-чутливих колоністів. Риси теж важать: боягузи більше цінують броню, бігуни та спритні не люблять сповільнення, жадібні та заздрісні хочуть кращої якості, аскети не цінують розкіш, забіяки пропускають спорядження для прицілювання. Це лише невелика перевага (приблизно від -25 % до +35 %) — вона ніколи не дозволяє заблоковане чи недосліджене спорядження.</RL_DressByTraits_Desc>
+  <RL_GearStability>Стабільність спорядження: міняти, лише якщо краще на {0} %</RL_GearStability>
+  <RL_GearStability_Desc>Наскільки нова зброя, одяг, броня чи аксесуар мають бути кращими за те, що є в колоніста, щоб він поміняв. Більше = рідше перевдягання й переозброєння. Той самий предмет на той самий (напр. нагрудник на нагрудник) міняється лише на кращу якість. Зламані предмети замінюються завжди.</RL_GearStability_Desc>
+  <RL_TabSidearms>Запасна зброя</RL_TabSidearms>
+  <RL_SS_Missing>Simple Sidearms не встановлено — використовується вбудована система цього мода: колоністи носять зброю іншого типу і самі дістають її в бою.</RL_SS_Missing>
+  <RL_SS_Preset>Пресет Simple Sidearms: {0}</RL_SS_Preset>
+  <RL_SS_P_Custom>Власний</RL_SS_P_Custom>
+  <RL_SS_P_NoneApplied>Немає</RL_SS_P_NoneApplied>
+  <RL_SS_P_Disabled>Вимкнено</RL_SS_P_Disabled>
+  <RL_SS_P_LoadoutOnly>Лише спорядження (запасну зброю обирає цей мод)</RL_SS_P_LoadoutOnly>
+  <RL_SS_P_Lite>Легкий</RL_SS_P_Lite>
+  <RL_SS_P_Basic>Базовий</RL_SS_P_Basic>
+  <RL_SS_P_Advanced>Просунутий</RL_SS_P_Advanced>
+  <RL_SS_P_Excessive>Надмірний</RL_SS_P_Excessive>
+  <RL_SS_P_Brawler>Забіяка</RL_SS_P_Brawler>
+  <RL_SS_Slots>Макс. запасної зброї: {0}</RL_SS_Slots>
+  <RL_SS_Slots_Desc>Скільки зброї колоніст може носити на додачу до зброї в руках.</RL_SS_Slots_Desc>
+  <RL_SS_Mass>Макс. маса однієї запасної зброї: {0} кг</RL_SS_Mass>
+  <RL_SS_MassNone>Макс. маса однієї запасної зброї: без обмеження</RL_SS_MassNone>
+  <RL_SS_Mass_Desc>Важча зброя не носиться як запасна. 0 = без обмеження.</RL_SS_Mass_Desc>
+  <RL_SS_ToolSwitch>Використовувати інструменти для роботи (сокира, кайло…)</RL_SS_ToolSwitch>
+  <RL_SS_ToolSwitch_Desc>Колоніст перемикається на носиму зброю, що прискорює поточну роботу.</RL_SS_ToolSwitch_Desc>
+  <RL_SS_OptimalMelee>Найкраща зброя ближнього бою проти цілі</RL_SS_OptimalMelee>
+  <RL_SS_CQC>Переходити на ближній бій впритул</RL_SS_CQC>
+  <RL_SS_RangedSwitch>Переходити на далекобійну на відстані</RL_SS_RangedSwitch>
+  <RL_SS_ReEquip>Повертати основну зброю після бою</RL_SS_ReEquip>
+  <RL_SS_ReEquipBest>Брати найкращу зброю після бою</RL_SS_ReEquipBest>
+  <RL_SS_ReEquipCombat>Повертати зброю й під час бою</RL_SS_ReEquipCombat>
+  <RL_SS_SkipDangerous>Не використовувати небезпечну зброю (гранати, вибухівку) автоматично</RL_SS_SkipDangerous>
+  <RL_SS_SkipEMP>Не використовувати ЕМІ-зброю автоматично</RL_SS_SkipEMP>
+  <RL_SS_Caravans>Зберігати запасну зброю в караванах</RL_SS_Caravans>
+  <RL_SS_Alerts>Попередження про зниклу запасну зброю</RL_SS_Alerts>
+  <RL_SS_Sounds>Звуки зміни зброї</RL_SS_Sounds>
+  <RL_SS_Spawn>Чужі приходять із запасною зброєю: {0} %</RL_SS_Spawn>
+  <RL_SS_Spawn_Desc>Шанс, що нападник або відвідувач отримає запасну зброю (спорядження все одно фільтрує World at Your Level).</RL_SS_Spawn_Desc>
+  <RL_SS_HidePage>Приховати оригінальні налаштування Simple Sidearms</RL_SS_HidePage>
+  <RL_SS_HidePage_Desc>Оригінальна сторінка Simple Sidearms ховається зі списку налаштувань модів — усе налаштовується тут. Діє після повторного відкриття налаштувань.</RL_SS_HidePage_Desc>
+  <RL_EmergencyGear>Аварійне спорядження в небезпечних ситуаціях</RL_EmergencyGear>
+  <RL_EmergencyGear_Desc>Коли стається щось небезпечне, а колонія ще не дослідила відповідне спорядження, колоністи можуть використати заміну, яка вже є на мапі (склади, земля, інвентар), — навіть недосліджену чи невиготовлену. Токсичне повітря: протигази та захисні костюми; сильний холод чи спека: утеплювальний одяг; напад: броня та власна зброя колонії. Нічого не створюється. Коли небезпека минає, знову діють звичайні правила; вже вдягнені речі лишаються приблизно дві години, щоб ніхто не роздягався посеред подій. Вручну заборонені предмети ніколи не дозволяються.</RL_EmergencyGear_Desc>
+  <RL_EmergencyToxic>Токсичне повітря (газ, опади, забруднення)</RL_EmergencyToxic>
+  <RL_EmergencyToxic_Desc>Токсичний газ біля колоністів або в домашній зоні (напр. газогенератор із завдання), токсичні опади, отруйний серпанок, забруднена земля або зростання накопичення токсинів. Дозволяє одяг із захистом від токсичного середовища або токсичною стійкістю (протигази, захисні костюми…) з будь-якого мода.</RL_EmergencyToxic_Desc>
+  <RL_EmergencyTemperature>Сильний холод або спека</RL_EmergencyTemperature>
+  <RL_EmergencyTemperature_Desc>Температура надворі далеко поза межами того, що колоністи витримують без одягу (або похолодання / спека), чи гіпотермія / тепловий удар. Дозволяє добре утеплювальний одяг.</RL_EmergencyTemperature_Desc>
+  <RL_EmergencyRaid>Напад</RL_EmergencyRaid>
+  <RL_EmergencyRaid_Desc>Поки на мапі є активні вороги. Дозволяє броню та зброю, що вже належить колонії (на складі, в інвентарі або лежить у домашній зоні).</RL_EmergencyRaid_Desc>
+  <RL_EmKind_Toxic>Токсичне повітря</RL_EmKind_Toxic>
+  <RL_EmKind_Cold>Сильний холод</RL_EmKind_Cold>
+  <RL_EmKind_Heat>Сильна спека</RL_EmKind_Heat>
+  <RL_EmKind_Raid>Напад</RL_EmKind_Raid>
+  <RL_EmGear_Toxic>протигази та захисне спорядження</RL_EmGear_Toxic>
+  <RL_EmGear_Cold>теплий одяг</RL_EmGear_Cold>
+  <RL_EmGear_Heat>охолоджувальний одяг</RL_EmGear_Heat>
+  <RL_EmGear_Raid>броню та зброю колонії</RL_EmGear_Raid>
+  <RL_EmergencyOn>{0}: колоністи можуть використовувати {1} навіть без дослідження.</RL_EmergencyOn>
+  <RL_EmergencyOff>Небезпека минула ({0}): аварійне спорядження більше не дозволено. Вже вдягнені речі лишаються ще деякий час.</RL_EmergencyOff>
+  <RL_Ex_Emergency>Зараз дозволено як аварійне спорядження ({0})</RL_Ex_Emergency>
+  <RL_Ex_EmergencyFor>Аварійне спорядження для: {0}</RL_Ex_EmergencyFor>
+  <RL_EmergencyProvide>Знайти й виготовити аварійне спорядження</RL_EmergencyProvide>
+  <RL_EmergencyProvide_Desc>Коли колоністам під час небезпеки бракує захисту: заборонені захисні предмети будь-де на мапі дозволяються (лише скільки треба, не у вогні, не біля ворогів), а якщо все ще бракує, додається завдання на найкращий захист, який колонія може виготовити. Якщо відповідний захист поки не можна виготовити (бракує дослідження), натомість знаходиться або виготовляється найближча заміна — слабший захист від токсинів або покриття обличчя, найтепліший/найпрохолодніший одяг, найкраща броня. Завдання, додані так, видаляються після завершення небезпеки, якщо робота над ними ще не почалася.</RL_EmergencyProvide_Desc>
+  <RL_EmProv_Msg>{0}: бракує {1} — {2}.</RL_EmProv_Msg>
+  <RL_EmProv_Unforbade>дозволено {0} ({1})</RL_EmProv_Unforbade>
+  <RL_EmProv_Bill>додано завдання на {0}× {1} на {2}</RL_EmProv_Bill>
+  <RL_EmProv_Substitute>немає рецепта для відповідного захисту, виготовляється заміна: {0}× {1} на {2}</RL_EmProv_Substitute>
+  <RL_EmProv_BillExists>завдання на {0} вже існує</RL_EmProv_BillExists>
+  <RL_EmProv_Nothing>нічого не знайдено і немає доступного рецепта</RL_EmProv_Nothing>
+  <RL_CraftedRestore>Відновити список із колонії</RL_CraftedRestore>
+  <RL_CraftedRestore_Desc>Додає до списку виготовленого всі види зброї та одягу, які зараз є в колонії: вдягнені, в інвентарі та на складі. Корисно, якщо список було очищено помилково або зарано.</RL_CraftedRestore_Desc>
+  <RL_CraftedRestored>Список виготовленого відновлено з колонії, додано видів: {0}.</RL_CraftedRestored>
+  <RL_SS_OwnHeader>Smart Colonist Gear — запасна зброя</RL_SS_OwnHeader>
+  <RL_SS_Filter>Запасна зброя лише досліджена й дозволена</RL_SS_Filter>
+  <RL_SS_Filter_Desc>Simple Sidearms може давати колоністам лише зброю, дозволену цим модом (дослідження, техрівень, заборони, лише виготовлене).</RL_SS_Filter_Desc>
+  <RL_SS_Upgrade>Міняти запасну зброю на кращу</RL_SS_Upgrade>
+  <RL_SS_Upgrade_Desc>Коли в колонії є краща зброя того ж типу, колоніст міняє носиму запасну зброю і відносить стару на склад.</RL_SS_Upgrade_Desc>
+  <RL_SS_Notify>Повідомлення про взяття запасної зброї</RL_SS_Notify>
+  <RL_SS_Notify_Desc>Показує повідомлення, коли колоніст бере нову запасну зброю (лише якщо повідомлення цього мода увімкнено).</RL_SS_Notify_Desc>
+  <RL_SS_OriginalUi>Повні налаштування Simple Sidearms</RL_SS_OriginalUi>
+  <RL_SS_OriginalUi_Desc>Під цими параметрами показуються повні оригінальні налаштування Simple Sidearms з усіма вкладками (пресети, автоматизація, обмеження, поява, інше). Вимк. = коротка версія.</RL_SS_OriginalUi_Desc>
+  <RL_CraftedPick>Обрати з наявного…</RL_CraftedPick>
+  <RL_CraftedPick_Desc>Відкриває список усіх видів зброї та одягу, які є в колонії. Позначені можна носити одразу, решта розблоковуються самі, коли колонія їх виготовить.</RL_CraftedPick_Desc>
+  <RL_PickTitle>Що можуть носити колоністи</RL_PickTitle>
+  <RL_PickHelp>Позначено = дозволено зараз. Непозначене не заборонено назавжди — воно розблоковується, коли колонія його виготовить. Дослідження та заборони й далі діють.</RL_PickHelp>
+  <RL_PickAll>Усе</RL_PickAll>
+  <RL_PickWeapons>Зброя</RL_PickWeapons>
+  <RL_PickApparel>Одяг</RL_PickApparel>
+  <RL_PickOnAll>Позначити показане</RL_PickOnAll>
+  <RL_PickOffAll>Зняти позначку з показаного</RL_PickOffAll>
+  <RL_PickCount>Дозволено {0} з {1}</RL_PickCount>
+  <RL_PickNoResearch>не досліджено</RL_PickNoResearch>
+  <RL_PickWeapon>зброя</RL_PickWeapon>
+  <RL_PickApparel1>одяг</RL_PickApparel1>
+  <RL_SS_Tab_Presets>Пресети</RL_SS_Tab_Presets>
+  <RL_SS_Tab_Automation>Тригери</RL_SS_Tab_Automation>
+  <RL_SS_Tab_Allowances>Обмеження</RL_SS_Tab_Allowances>
+  <RL_SS_Tab_Spawning>Поява</RL_SS_Tab_Spawning>
+  <RL_SS_Tab_Misc>Інше</RL_SS_Tab_Misc>
+  <RL_FullBody>Одягати все тіло</RL_FullBody>
+  <RL_FullBody_Desc>Колоніст вдягає кожну доступну річ, яка лише щось додає (нічого не знімає), — шапку, рукавички, черевики, жилет, пальто… — навіть із низькою оцінкою. Вона має бути дозволена, відповідати політиці одягу, не бути знятою з трупа і не суперечити температурі (жодних теплих пальт у спеку). Пояси та допоміжні предмети й далі потребують звичайної оцінки. Колоніст у бронежилеті доповнює комплект (шолом, рукавички, черевики) і ніколи не міняє його частину на слабшу. Додаткові теплі речі — лише коли не спекотно.</RL_FullBody_Desc>
+  <RL_SP_Tab_Overview>Огляд</RL_SP_Tab_Overview>
+  <RL_SP_Tab_Presets>Пресети</RL_SP_Tab_Presets>
+  <RL_SP_Tab_Automation>Автоматизація</RL_SP_Tab_Automation>
+  <RL_SP_Tab_Limits>Обмеження</RL_SP_Tab_Limits>
+  <RL_SP_Tab_Spawning>Спорядження чужих</RL_SP_Tab_Spawning>
+  <RL_SP_Tab_Misc>Інше</RL_SP_Tab_Misc>
+  <RL_SP_Tab_Own>Правила мода</RL_SP_Tab_Own>
+  <RL_SP_On>увімк.</RL_SP_On>
+  <RL_SP_Off>вимк.</RL_SP_Off>
+  <RL_SP_NowPreset>Пресет: {0}</RL_SP_NowPreset>
+  <RL_SP_NowAuto>Автоматичне перемикання: увімкнено функцій {0} з {1}</RL_SP_NowAuto>
+  <RL_SP_NowOwn>Цей мод: автоматична запасна зброя {0}, лише досліджена {1}, заміна на кращу {2}</RL_SP_NowOwn>
+  <RL_SP_Use>Використати: {0}</RL_SP_Use>
+  <RL_SP_NoGame>Колоністи та їхня запасна зброя показуються в запущеній грі.</RL_SP_NoGame>
+  <RL_SP_Colonists>Колоністи та їхня зброя</RL_SP_Colonists>
+  <RL_SP_ColName>Колоніст</RL_SP_ColName>
+  <RL_SP_ColPrimary>У руках</RL_SP_ColPrimary>
+  <RL_SP_ColSide>Запасна зброя</RL_SP_ColSide>
+  <RL_SP_ColMass>Маса</RL_SP_ColMass>
+  <RL_SP_NonViolent>не здатен до насильства — не носить зброї</RL_SP_NonViolent>
+  <RL_SP_SumSingleKg>одна зброя до {0} кг</RL_SP_SumSingleKg>
+  <RL_SP_SumSingleSel>лише обрана зброя</RL_SP_SumSingleSel>
+  <RL_SP_SumSingleAny>одна зброя без обмеження</RL_SP_SumSingleAny>
+  <RL_SP_SumAmountKg>усе разом до {0} кг</RL_SP_SumAmountKg>
+  <RL_SP_SumAmountN>не більше {0}</RL_SP_SumAmountN>
+  <RL_SP_SumAmountAny>будь-яка кількість</RL_SP_SumAmountAny>
+  <RL_SP_SumCommon>Обмеження: {0}.</RL_SP_SumCommon>
+  <RL_SP_SumSeparate>Ближній бій: {0}. Дальній бій: {1}.</RL_SP_SumSeparate>
+  <RL_SP_PresetsHint>Натисніть на картку. Будь-яка зміна на інших вкладках перемикає пресет на «Власний».</RL_SP_PresetsHint>
+  <RL_SP_CustomNow>Зараз у вас власні налаштування (картку не обрано).</RL_SP_CustomNow>
+  <RL_SS_PD_Basic>Рекомендовано. Ближній бій до 1,9 кг, дальній бій до 2,7 кг, не більше 2 кожного, загалом 3. Автоматичне перемикання увімкнено.</RL_SS_PD_Basic>
+  <RL_SS_PD_Lite>Лише мала легка зброя: ближній бій до 0,6 кг (ножі), дальній бій до 1,6 кг (пістолети), не більше 2.</RL_SS_PD_Lite>
+  <RL_SS_PD_Advanced>Важча зброя: ближній бій до 2,25 кг, дальній бій до 5 кг (і гвинтівки), загалом до 10 кг.</RL_SS_PD_Advanced>
+  <RL_SS_PD_Excessive>Без обмежень — колоністи носять, скільки зможуть. Чужі частіше приходять із запасною зброєю.</RL_SS_PD_Excessive>
+  <RL_SS_PD_Brawler>Лише ближній бій: кожна до 4 кг, разом до 10 кг, без далекобійної.</RL_SS_PD_Brawler>
+  <RL_SS_PD_LoadoutOnly>Simple Sidearms лише тримає обмеження (3 зброї, кожна до 4,75 кг), що носити, обирає цей мод. Без автоматичного перемикання в бою.</RL_SS_PD_LoadoutOnly>
+  <RL_SS_PD_Disabled>Запасну зброю вимкнено: нічого не перемикається, не більше 1 додаткової зброї, чужі не носять нічого.</RL_SS_PD_Disabled>
+  <RL_SP_ToolAutoSwitch>Використовувати інструменти для роботи</RL_SP_ToolAutoSwitch>
+  <RL_SP_ToolAutoSwitch_Desc>Колоніст бере носиму зброю, що прискорює роботу (сокиру для рубання, кайло для видобутку…), а потім перемикається назад.</RL_SP_ToolAutoSwitch_Desc>
+  <RL_SP_OptimalMelee>Найкраща зброя ближнього бою проти цілі</RL_SP_OptimalMelee>
+  <RL_SP_OptimalMelee_Desc>У ближньому бою обирає носиму зброю, яка найкраще діє проти цього ворога.</RL_SP_OptimalMelee_Desc>
+  <RL_SP_CQCAutoSwitch>Діставати зброю ближнього бою при нападі впритул</RL_SP_CQCAutoSwitch>
+  <RL_SP_CQCAutoSwitch_Desc>Коли ворог опиняється в досяжності, колоніст перемикається з вогнепальної зброї на зброю ближнього бою.</RL_SP_CQCAutoSwitch_Desc>
+  <RL_SP_CQCTargetOnly>…лише при прямому нападі</RL_SP_CQCTargetOnly>
+  <RL_SP_CQCTargetOnly_Desc>Перемикається, лише коли ворог у ближньому бою атакує саме цього колоніста.</RL_SP_CQCTargetOnly_Desc>
+  <RL_SP_RangedCombatAutoSwitch>Обирати найкращу вогнепальну зброю за дистанцією</RL_SP_RangedCombatAutoSwitch>
+  <RL_SP_RangedCombatAutoSwitch_Desc>Обирає серед носимої вогнепальної зброї за відстанню до цілі (дробовик зблизька, гвинтівка здалеку).</RL_SP_RangedCombatAutoSwitch_Desc>
+  <RL_SP_MaxWarmup>Перемикатися лише на зброю з прицілюванням до {0} %</RL_SP_MaxWarmup>
+  <RL_SP_MaxWarmup_Desc>Наскільки довгим може бути прицілювання нової зброї порівняно з поточною. Більше = більше перемикань.</RL_SP_MaxWarmup_Desc>
+  <RL_SP_BiasHint>Швидкість проти сили: понад 100 % колоністи віддають перевагу швидкій зброї, нижче 100 % — сильній повільній.</RL_SP_BiasHint>
+  <RL_SP_BiasMelee>Ближній бій — вага швидкості: {0} %</RL_SP_BiasMelee>
+  <RL_SP_BiasRanged>Дальній бій — вага швидкості: {0} %</RL_SP_BiasRanged>
+  <RL_SP_ReEquipOutOfCombat>Повертати основну зброю після бою</RL_SP_ReEquipOutOfCombat>
+  <RL_SP_ReEquipOutOfCombat_Desc>Коли бій закінчується, колоніст бере зброю, яку тримав до того.</RL_SP_ReEquipOutOfCombat_Desc>
+  <RL_SP_ReEquipBest>…або одразу найкращу</RL_SP_ReEquipBest>
+  <RL_SP_ReEquipBest_Desc>Бере найкращу носиму зброю замість початкової.</RL_SP_ReEquipBest_Desc>
+  <RL_SP_ReEquipInCombat>Перемикатися назад і під час бою</RL_SP_ReEquipInCombat>
+  <RL_SP_ReEquipInCombat_Desc>Щойно поруч немає ворогів, повертається до вогнепальної зброї навіть посеред бою.</RL_SP_ReEquipInCombat_Desc>
+  <RL_SP_SkipDangerousWeapons>Гранати та гранатомети лише за наказом</RL_SP_SkipDangerousWeapons>
+  <RL_SP_SkipDangerousWeapons_Desc>Колоністи не використовують вибухову зброю самостійно (ризик влучити у своїх).</RL_SP_SkipDangerousWeapons_Desc>
+  <RL_SP_SkipEMPWeapons>ЕМІ-зброя лише за наказом</RL_SP_SkipEMPWeapons>
+  <RL_SP_SkipEMPWeapons_Desc>Колоністи не використовують ЕМІ-зброю самостійно.</RL_SP_SkipEMPWeapons_Desc>
+  <RL_SP_AllowBlockedWeaponUse>Дозволяти зброю, яку колоністу інакше не дозволено</RL_SP_AllowBlockedWeaponUse>
+  <RL_SP_AllowBlockedWeaponUse_Desc>Колоніст може носити зброю, заблоковану політиками або іншими модами.</RL_SP_AllowBlockedWeaponUse_Desc>
+  <RL_SP_SeparateModes>Окремі обмеження для ближнього та дальнього бою</RL_SP_SeparateModes>
+  <RL_SP_SeparateModes_Desc>Увімк.: ближній і дальній бій мають власні обмеження плюс загальну межу. Вимк.: одне спільне обмеження.</RL_SP_SeparateModes_Desc>
+  <RL_SP_Melee>Зброя ближнього бою</RL_SP_Melee>
+  <RL_SP_Ranged>Далекобійна зброя</RL_SP_Ranged>
+  <RL_SP_SingleLimit>Обмеження на одну зброю</RL_SP_SingleLimit>
+  <RL_SP_SingleLimit_Desc>Наскільки важкою може бути одна запасна зброя.</RL_SP_SingleLimit_Desc>
+  <RL_SP_AmountLimit>Обмеження на всю запасну зброю</RL_SP_AmountLimit>
+  <RL_SP_AmountLimit_Desc>Скільки запасної зброї може носити колоніст.</RL_SP_AmountLimit_Desc>
+  <RL_SP_TotalLimit>Загальне обмеження (ближній + дальній бій)</RL_SP_TotalLimit>
+  <RL_SP_ES_None>Без обмеження</RL_SP_ES_None>
+  <RL_SP_ES_RelativeWeight>За вантажопідйомністю</RL_SP_ES_RelativeWeight>
+  <RL_SP_ES_RelativeWeight_Desc>Обмеження зростає з вантажопідйомністю колоніста. Числа вказано для вантажопідйомності 35 кг.</RL_SP_ES_RelativeWeight_Desc>
+  <RL_SP_ES_AbsoluteWeight>Фіксована маса</RL_SP_ES_AbsoluteWeight>
+  <RL_SP_ES_Selection>Лише обране</RL_SP_ES_Selection>
+  <RL_SP_ES_Selection_Desc>Як запасну можна носити лише зброю, позначену в списку.</RL_SP_ES_Selection_Desc>
+  <RL_SP_EA_None>Без обмеження</RL_SP_EA_None>
+  <RL_SP_EA_RelativeWeight>За вантажопідйомністю</RL_SP_EA_RelativeWeight>
+  <RL_SP_EA_RelativeWeight_Desc>Обмеження зростає з вантажопідйомністю колоніста. Числа вказано для вантажопідйомності 35 кг.</RL_SP_EA_RelativeWeight_Desc>
+  <RL_SP_EA_AbsoluteWeight>Фіксована маса</RL_SP_EA_AbsoluteWeight>
+  <RL_SP_EA_Slots>Кількість</RL_SP_EA_Slots>
+  <RL_SP_SingleKgRel>Одна зброя до {0} кг (за вантажопідйомності 35 кг)</RL_SP_SingleKgRel>
+  <RL_SP_SingleKg>Одна зброя до {0} кг</RL_SP_SingleKg>
+  <RL_SP_AmountKgRel>Разом до {0} кг (за вантажопідйомності 35 кг)</RL_SP_AmountKgRel>
+  <RL_SP_AmountKg>Разом до {0} кг</RL_SP_AmountKg>
+  <RL_SP_SlotsN>Не більше {0}</RL_SP_SlotsN>
+  <RL_SP_LimitsHint>Обмеження стосуються додатково носимої зброї, а не зброї в руках. Для порівняння: ніж 0,5 кг, пістолет 1,2 кг, меч 2 кг, гвинтівка 3,5 кг, кулемет 9 кг.</RL_SP_LimitsHint>
+  <RL_SP_PickLight>Усе до {0} кг</RL_SP_PickLight>
+  <RL_SP_PickNone>Нічого</RL_SP_PickNone>
+  <RL_SP_PickMore>… іншу зброю можна знайти пошуком.</RL_SP_PickMore>
+  <RL_SP_PickCount>Обрано зброї: {0}</RL_SP_PickCount>
+  <RL_SP_RangedShort>дальній бій</RL_SP_RangedShort>
+  <RL_SP_MeleeShort>ближній бій</RL_SP_MeleeShort>
+  <RL_SP_SpawnHint>Як часто чужі (нападники, відвідувачі, торговці) приходять із запасною зброєю.</RL_SP_SpawnHint>
+  <RL_SP_SpawnChance>Шанс першої запасної зброї: {0} %</RL_SP_SpawnChance>
+  <RL_SP_SpawnChance_Desc>Імовірність, що чужа пішака отримає хоча б одну запасну зброю.</RL_SP_SpawnChance_Desc>
+  <RL_SP_SpawnDropoff>Шанс кожної наступної: × {0} %</RL_SP_SpawnDropoff>
+  <RL_SP_SpawnDropoff_Desc>Кожна наступна запасна зброя настільки менш імовірна.</RL_SP_SpawnDropoff_Desc>
+  <RL_SP_Budget>Бюджет: {0} % грошей на спорядження</RL_SP_Budget>
+  <RL_SP_Budget_Desc>Яка частина грошей пішаки на спорядження може піти на запасну зброю (дорога зброя = рідше).</RL_SP_Budget_Desc>
+  <RL_SP_BudgetDropoff>Бюджет кожної наступної: × {0} %</RL_SP_BudgetDropoff>
+  <RL_SP_SpawnExample>Приклад: близько {0} % чужих носять 1 запасну зброю, {1} % — 2, {2} % — 3.</RL_SP_SpawnExample>
+  <RL_SP_SpawnWorld>Потім World at Your Level додатково фільтрує спорядження чужих (дослідження, «не краще, ніж у колонії»).</RL_SP_SpawnWorld>
+  <RL_SP_ColonistMode>Основна зброя колоністів</RL_SP_ColonistMode>
+  <RL_SP_ColonistMode_Desc>Яку з носимої зброї колоніст тримає в руках поза боєм.</RL_SP_ColonistMode_Desc>
+  <RL_SP_NpcMode>Основна зброя чужих</RL_SP_NpcMode>
+  <RL_SP_EW_BySkill>За навичками</RL_SP_EW_BySkill>
+  <RL_SP_EW_BySkill_Desc>Кращі стрільці тримають вогнепальну зброю, кращі бійці — зброю ближнього бою.</RL_SP_EW_BySkill_Desc>
+  <RL_SP_EW_Ranged>Дальній бій</RL_SP_EW_Ranged>
+  <RL_SP_EW_Melee>Ближній бій</RL_SP_EW_Melee>
+  <RL_SP_EW_ByGenerated>Як прийшли</RL_SP_EW_ByGenerated>
+  <RL_SP_EW_ByGenerated_Desc>Зброя, з якою пішака була створена або прийшла.</RL_SP_EW_ByGenerated_Desc>
+  <RL_SP_Fumble>Упускати зброю при недієздатності</RL_SP_Fumble>
+  <RL_SP_Fumble_Desc>Коли недієздатна пішака впускає носиму запасну зброю.</RL_SP_Fumble_Desc>
+  <RL_SP_EF_Never>Ніколи</RL_SP_EF_Never>
+  <RL_SP_EF_InDistress>У біді</RL_SP_EF_InDistress>
+  <RL_SP_EF_InCombat>У бою</RL_SP_EF_InCombat>
+  <RL_SP_EF_Always>Завжди</RL_SP_EF_Always>
+  <RL_SP_PreserveInventoryInCaravans>Запасна зброя лишається в колоніста в каравані</RL_SP_PreserveInventoryInCaravans>
+  <RL_SP_PreserveInventoryInCaravans_Desc>Під час формування каравану запасна зброя не переміщується до спільного вантажу.</RL_SP_PreserveInventoryInCaravans_Desc>
+  <RL_SP_HideSidearmsInCaravanDialogs>Приховувати запасну зброю у вікні каравану</RL_SP_HideSidearmsInCaravanDialogs>
+  <RL_SP_ShowAlertsMissingSidearm>Попередження про зниклу запасну зброю</RL_SP_ShowAlertsMissingSidearm>
+  <RL_SP_ShowAlertsMissingSidearm_Desc>Попередження, коли колоніст втрачає зброю, яку має пам'ятати.</RL_SP_ShowAlertsMissingSidearm_Desc>
+  <RL_SP_PlaySounds>Звуки під час зміни зброї</RL_SP_PlaySounds>
+  <RL_SP_ShowBrainscope>Налагодження: показувати рішення щодо зброї</RL_SP_ShowBrainscope>
+  <RL_SP_BrawlerNoRanged>Забіяки не носять далекобійної запасної зброї</RL_SP_BrawlerNoRanged>
+  <RL_SP_BrawlerNoRanged_Desc>Колоніст із рисою «забіяка» не бере вогнепальної зброї навіть як запасної (від цього поганий настрій).</RL_SP_BrawlerNoRanged_Desc>
+  <RL_SP_MaxTotal>Макс. зброї на колоніста: {0}</RL_SP_MaxTotal>
+  <RL_SP_MaxTotalOff>Макс. зброї на колоніста: без власного обмеження</RL_SP_MaxTotalOff>
+  <RL_SP_MaxTotal_Desc>Скільки зброї загалом може носити колоніст, включно зі зброєю в руках (гранати рахуються). Діє для цього мода і для Simple Sidearms. Зайве, починаючи з найгіршого, кидається й відноситься на склад. 0 = лише обмеження Simple Sidearms.</RL_SP_MaxTotal_Desc>
+  <RL_SP_StripUncrafted>Прибирати зброю, яку колонія ніколи не виготовляла</RL_SP_StripUncrafted>
+  <RL_SP_StripUncrafted_Desc>З параметром «лише виготовлене» колоністи також прибирають зброю, яку досліджено, але ще не виготовлено вашою колонією (напр. підібрану після нальоту). Під час нальоту вони можуть її використовувати, після — повертають. Зброя, яку ви дали колоністу самі, лишається.</RL_SP_StripUncrafted_Desc>
+  <RL_SP_ArmorHunt>Вдягати броню для полювання</RL_SP_ArmorHunt>
+  <RL_SP_ArmorHunt_Desc>Перед полюванням колоніст вдягає найкращу дозволену броню зі складу (у межах 70 клітинок), якщо вона краща за вдягнену, а потім полює.</RL_SP_ArmorHunt_Desc>
+  <RL_SP_ArmorThreat>Вдягати броню під час нападу</RL_SP_ArmorThreat>
+  <RL_SP_ArmorThreat_Desc>Поки на мапі є вороги (наліт, тварини-людожери, механоїди…), колоністи припиняють звичайну роботу і вдягають найкращу дозволену броню зі складу. Гасіння пожеж, лікування, втеча та бій не перериваються. Політика одягу теж має це дозволяти.</RL_SP_ArmorThreat_Desc>
+  <RL_SP_ArmorDrafted>Броня і для призваних колоністів</RL_SP_ArmorDrafted>
+  <RL_SP_ArmorDrafted_Desc>Призваний колоніст, який просто стоїть і поруч із яким немає ворогів у межах 22 клітинок, приносить броню в межах 28 клітинок. Потім він лишається біля складу — перемістіть його назад.</RL_SP_ArmorDrafted_Desc>
+  <RL_SidearmTooMany>вже носить {0} одиниць зброї (обмеження)</RL_SidearmTooMany>
+  <RL_SP_MinShoot>Далекобійна запасна зброя від стрільби {0}</RL_SP_MinShoot>
+  <RL_SP_MinShoot_Desc>Колоніст бере додаткову вогнепальну зброю лише від цього рівня стрільби. 0 = завжди.</RL_SP_MinShoot_Desc>
+  <RL_SP_MinMelee>Запасна зброя ближнього бою від ближнього бою {0}</RL_SP_MinMelee>
+  <RL_SP_MinMelee_Desc>Колоніст бере додаткову зброю ближнього бою лише від цього рівня ближнього бою. 0 = завжди.</RL_SP_MinMelee_Desc>
+  <RL_SP_OpenOriginal>Відкрити оригінальне вікно Simple Sidearms</RL_SP_OpenOriginal>
+  <RL_OS_Header>Вбудована запасна зброя</RL_OS_Header>
+  <RL_OS_SwitchMelee>Переходити на ближній бій у сутичці</RL_OS_SwitchMelee>
+  <RL_OS_SwitchMelee_Desc>Коли ворог підходить близько, колоніст із вогнепальною зброєю в руках дістає зброю ближнього бою з рюкзака (якщо вона є).</RL_OS_SwitchMelee_Desc>
+  <RL_OS_MeleeRange>Перемикатися, коли ворог ближче за {0} клітинок</RL_OS_MeleeRange>
+  <RL_OS_MeleeRange_Desc>Відстань до найближчого ворога, на якій колоніст дістає зброю ближнього бою.</RL_OS_MeleeRange_Desc>
+  <RL_OS_SwitchBack>Повертатися до попередньої зброї після сутички</RL_OS_SwitchBack>
+  <RL_OS_SwitchBack_Desc>Коли ворог іде або падає, колоніст бере зброю, яку мав раніше.</RL_OS_SwitchBack_Desc>
+  <RL_OS_Gizmo>Кнопки зміни зброї</RL_OS_Gizmo>
+  <RL_OS_Gizmo_Desc>Призваний колоніст отримує кнопку «Взяти в руки» для кожної носимої зброї. Зброя, обрана вручну, лишається до скасування призову.</RL_OS_Gizmo_Desc>
+  <RL_OS_MaxMass>Макс. вага носимої зброї: {0} кг</RL_OS_MaxMass>
+  <RL_OS_MaxMassOff>Макс. вага носимої зброї: без обмеження</RL_OS_MaxMassOff>
+  <RL_OS_MaxMass_Desc>Скільки кг зброї колоніст може носити в рюкзаку крім зброї в руках. 0 = без обмеження.</RL_OS_MaxMass_Desc>
+  <RL_OS_Take>Взяти в руки: {0}</RL_OS_Take>
+  <RL_OS_Take_Desc>Колоніст дістає {0} з рюкзака і кладе зброю з рук до рюкзака. Лишається до скасування призову.</RL_OS_Take_Desc>
+  <MUI_Title>Рекомендовані налаштування</MUI_Title>
+  <MUI_TitleOff>Рекомендовані налаштування · вимк.</MUI_TitleOff>
+  <MUI_DescOn>Мод налаштовується сам і одразу працює. Ідеально для новачків і всіх, хто не хоче нічого налаштовувати.</MUI_DescOn>
+  <MUI_DescOff>Власні налаштування. Змінено порівняно з рекомендованими: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Власні налаштування. Поки збігаються з рекомендованими.</MUI_DescOffSame>
+  <MUI_On>УВІМК.</MUI_On>
+  <MUI_Off>ВИМК.</MUI_Off>
+  <MUI_ResetAll>Скинути все до рекомендованих</MUI_ResetAll>
+  <MUI_ConfirmOn>Увімкнути рекомендовані налаштування? Ваші зміни ({0}) буде замінено рекомендованими значеннями.</MUI_ConfirmOn>
+  <MUI_Locked>Детальні налаштування заблоковано. Хочете їх змінити? Вимкніть перемикач вище – ваші значення почнуться з рекомендованих.</MUI_Locked>
+  <MUI_Changed>ЗМІНЕНО</MUI_Changed>
+  <MUI_ChangedTip>Відрізняється від рекомендованого значення ({0}). Натисніть, щоб відновити рекомендоване значення.</MUI_ChangedTip>
+  <MUI_Yes>увімк.</MUI_Yes>
+  <MUI_No>вимк.</MUI_No>
+  <RL_Rec1>Колоністи беруть найкращу досліджену зброю та одяг</RL_Rec1>
+  <RL_Rec2>Повний комплект броні за загрози</RL_Rec2>
+  <RL_Rec3>Легкий одяг у спеку, теплий у холод</RL_Rec3>
+  <RL_Rec4>Аварійне спорядження проти токсинів та екстремальних температур</RL_Rec4>
+  <RL_Rec5>Запасна зброя за навичками</RL_Rec5>
+  <RL_Rec6>Зношене спорядження замінюється й відноситься на склад</RL_Rec6>
+  <MUI_RecTag>РЕКОМЕНДОВАНО</MUI_RecTag>
+  <RL_Why_Title>Останні зміни спорядження:</RL_Why_Title>
+  <RL_Why_None>У цьому сеансі змін спорядження ще не було.</RL_Why_None>
+  <RL_Why_Now>щойно</RL_Why_Now>
+  <RL_Why_HoursAgo>{0} год тому</RL_Why_HoursAgo>
+  <RL_WhyAct_Wear>вдягнув(ла)</RL_WhyAct_Wear>
+  <RL_WhyAct_Remove>зняв(ла)</RL_WhyAct_Remove>
+  <RL_WhyAct_Take>взяв(ла) з собою</RL_WhyAct_Take>
+  <RL_WhyAct_Drop>кинув(ла)</RL_WhyAct_Drop>
+  <RL_WhyAct_Equip>взяв(ла) в руки</RL_WhyAct_Equip>
+  <RL_WhyAct_Change>змінив(ла) спорядження</RL_WhyAct_Change>
+  <RL_Why_Tattered>зношене, на заміну</RL_Why_Tattered>
+  <RL_Why_Heat>занадто спекотно</RL_Why_Heat>
+  <RL_Why_Policy>не дозволено політикою одягу</RL_Why_Policy>
+  <RL_Why_TooMany>забагато зброї</RL_Why_TooMany>
+  <RL_Why_Locked>не досліджено або заборонено</RL_Why_Locked>
+  <RL_Why_Unneeded>більше не потрібно</RL_Why_Unneeded>
+  <RL_Why_Weapon>краща зброя</RL_Why_Weapon>
+  <RL_Why_Instead>замість {0}</RL_Why_Instead>
+  <RL_Why_Sidearm>запасна зброя</RL_Why_Sidearm>
+  <RL_Why_Temperature>холод або спека</RL_Why_Temperature>
+  <RL_Why_Basics>бракує базового одягу</RL_Why_Basics>
+  <RL_Why_Emergency>аварійний захист</RL_Why_Emergency>
+  <RL_Why_Apparel>кращий одяг</RL_Why_Apparel>
+  <RL_Why_Armor>напад — броню вдягнено</RL_Why_Armor>
+  <RL_Why_ArmorHunt>полювання — броню вдягнено</RL_Why_ArmorHunt>
+  <RL_Why_Player>вручну (ви)</RL_Why_Player>
+  <RL_Why_Outfit>гра (політика одягу, оцінка цього мода)</RL_Why_Outfit>
+  <RL_Why_Game>гра</RL_Why_Game>
+  <RL_Why_OtherMod>мод {0}</RL_Why_OtherMod>
+  <RL_OthersTitle>Інші моди, що змінюють спорядження колоністів</RL_OthersTitle>
+  <RL_OthersNone>Жоден інший мод не змінює вибір спорядження.</RL_OthersNone>
+  <RL_OthersPatch>Також змінюють вибір спорядження: {0}</RL_OthersPatch>
+  <RL_OthersSeenNone>У цій грі жоден інший мод ще не змінював спорядження колоністів.</RL_OthersSeenNone>
+  <RL_OthersSeen>Змінювали спорядження колоністів у цій грі: {0}</RL_OthersSeen>
+  <RL_OthersHint>Якщо колоністи міняють спорядження туди-сюди, нехай вирішує лише один мод — вимкніть частину, що перетинається, в одному з них. Кнопка колоніста цього мода показує, хто що змінив і чому.</RL_OthersHint>
+  <RL_GuestLodgers>Гості із завдань використовують спорядження колонії</RL_GuestLodgers>
+  <RL_GuestLodgers_Desc>Гості із завдань, якими ви керуєте, отримують зброю та одяг як колоністи. Їхні власні речі кладуться до рюкзака, а під час відходу вони знову їх вдягають — спорядження колонії лишається тут.</RL_GuestLodgers_Desc>
+  <RL_GuestVisitors>Відвідувачі позичають одяг від холоду та спеки</RL_GuestVisitors>
+  <RL_GuestVisitors_Desc>Відвідувачі та гості вдягають теплий одяг колонії, коли холодно, і знімають власний теплий одяг до рюкзака, коли спекотно. Коли погода знову гарна або коли вони йдуть, вони повертають одяг колонії і вдягають свій.</RL_GuestVisitors_Desc>
+  <RL_PreferNewer>Віддавати перевагу новішим технологіям</RL_PreferNewer>
+  <RL_PreferNewer_Desc>Серед схожої зброї та броні перемагають новіші технології — вогнепальна зброя замість луків, бронежилет або силова броня замість латної.</RL_PreferNewer_Desc>
+  <RL_ToolsNotWeapons>Робочі інструменти — не зброя</RL_ToolsNotWeapons>
+  <RL_ToolsNotWeapons_Desc>Кайла, серпи, лопати та інші інструменти, що прискорюють роботу, ніколи не обираються як зброя, а інструмент у руках замінюється на справжню зброю.</RL_ToolsNotWeapons_Desc>
+  <RL_Why_ToolNotWeapon>інструмент — не зброя</RL_Why_ToolNotWeapon>
+  <RL_PreferNewEra>Спершу найновіша епоха</RL_PreferNewEra>
+  <RL_PreferNewEra_Desc>Спорядження найновішої епохи колонії (індустріальна, космічна …) йде першим. Зброя: зброя новішої епохи завжди замінює старішу того ж виду, навіть якщо вона слабша (гвинтівка замість лука); старіша ніколи не замінює новішу. Броня та одяг нової епохи отримують сильний бонус і можуть захищати трохи гірше. Предмети модів без техрівня оцінюються за дослідженням і силою.</RL_PreferNewEra_Desc>
+  <RL_SP_MaxRanged>Далекобійної зброї на колоніста: {0}</RL_SP_MaxRanged>
+  <RL_SP_MaxRanged_Desc>Скільки далекобійної зброї колоніст носить максимум — включно зі зброєю в руках. 2 = наприклад гвинтівка і пістолет. 0 = без далекобійної запасної зброї (основна зброя стрільця лишається).</RL_SP_MaxRanged_Desc>
+  <RL_SP_MaxMelee>Зброї ближнього бою на колоніста: {0}</RL_SP_MaxMelee>
+  <RL_SP_MaxMelee_Desc>Скільки зброї ближнього бою колоніст носить максимум — включно зі зброєю в руках. 1 = стрілець носить один ніж або меч для сутичок зблизька. 0 = без запасної зброї ближнього бою.</RL_SP_MaxMelee_Desc>
+  <RL_GearButton>Кнопка «Спорядження» внизу</RL_GearButton>
+  <RL_GearButton_Desc>Огляд того, хто що носить, і кнопка «Спорядити всіх зараз».</RL_GearButton_Desc>
+  <RL_GO_Title>Спорядження колоністів</RL_GO_Title>
+  <RL_GO_EquipAll>Спорядити всіх зараз</RL_GO_EquipAll>
+  <RL_GO_EquipAll_Desc>Кожен колоніст, який не призваний, одразу перевіряє спорядження і бере найкращу зброю та броню зі складу — зручно перед нальотом. Призвані колоністи пропускаються.</RL_GO_EquipAll_Desc>
+  <RL_GO_EquipAllDone>Колоністів, що змінюють спорядження: {0}.</RL_GO_EquipAllDone>
+  <RL_GO_Colonist>Колоніст</RL_GO_Colonist>
+  <RL_GO_Weapon>Зброя</RL_GO_Weapon>
+  <RL_GO_ArmorSharp>Захист від гострого</RL_GO_ArmorSharp>
+  <RL_GO_ArmorBlunt>Захист від тупого</RL_GO_ArmorBlunt>
+  <RL_GO_Problems>Що не так</RL_GO_Problems>
+  <RL_GO_Ok>усе гаразд</RL_GO_Ok>
+  <RL_GO_NoWeapon>немає зброї</RL_GO_NoWeapon>
+  <RL_GO_NoTorso>нічого на торсі</RL_GO_NoTorso>
+  <RL_GO_Tattered>зношене: {0}</RL_GO_Tattered>
+  <RL_GO_WeaponWorn>зброя зношена</RL_GO_WeaponWorn>
+  <RL_GO_Cold>надворі занадто холодно</RL_GO_Cold>
+  <RL_GO_Hot>надворі занадто спекотно</RL_GO_Hot>
+  <RL_GO_Footer>Колоністів: {0} · з проблемою: {1} · натисніть на рядок, щоб вибрати колоніста · наведіть курсор для повного списку одягу</RL_GO_Footer>
+</LanguageData>

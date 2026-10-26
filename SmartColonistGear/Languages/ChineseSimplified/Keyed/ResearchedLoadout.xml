@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RL_Enable>启用模组</RL_Enable>
+  <RL_UseRecipes>配方视为研究</RL_UseRecipes>
+  <RL_UseRecipes_Desc>只要至少有一个能制作该物品的配方所需研究已完成，该物品即解锁。如果原材料（木材、钢铁）被锁定，请关闭此项。</RL_UseRecipes_Desc>
+  <RL_BlockHigherTech>禁止高于殖民地科技等级的物品</RL_BlockHigherTech>
+  <RL_BlockHigherTech_Desc>没有研究要求、且比殖民地已研究科技等级更先进的物品不会被使用。</RL_BlockHigherTech_Desc>
+  <RL_BlockUntagged>禁止无研究要求的模组物品</RL_BlockUntagged>
+  <RL_BlockUntagged_Desc>其他模组中没有研究要求的物品视为已锁定。</RL_BlockUntagged_Desc>
+  <RL_BlockLockedEquip>禁止未研究的武器</RL_BlockLockedEquip>
+  <RL_BlockLockedEquip_Desc>殖民者不会拿起未研究的武器，即使下达命令也不会。</RL_BlockLockedEquip_Desc>
+  <RL_BlockLockedApparel>禁止未研究的服装</RL_BlockLockedApparel>
+  <RL_BlockLockedApparel_Desc>原版换装不会选择未研究的服装。</RL_BlockLockedApparel_Desc>
+  <RL_StripLocked>卸下未研究的装备</RL_StripLocked>
+  <RL_StripLocked_Desc>殖民者会丢下殖民地尚未研究的武器和服装。</RL_StripLocked_Desc>
+  <RL_AutoPrimary>自动升级主武器</RL_AutoPrimary>
+  <RL_AutoPrimary_Desc>殖民者会自行拿起更强的武器并丢下较弱的。</RL_AutoPrimary_Desc>
+  <RL_UseSkills>按技能选择武器</RL_UseSkills>
+  <RL_UseSkills_Desc>射手获得远程武器，格斗者获得近战武器。</RL_UseSkills_Desc>
+  <RL_AutoSidearm>自动副武器</RL_AutoSidearm>
+  <RL_AutoSidearm_Desc>殖民者还会携带另一类型的备用武器。安装 Simple Sidearms 时，适用其限制和规则。</RL_AutoSidearm_Desc>
+  <RL_PrioritizeFighters>最好的武器给最好的战士</RL_PrioritizeFighters>
+  <RL_PrioritizeFighters_Desc>射击或格斗技能最高的殖民者优先挑选。只要某武器对更优秀的战士来说是升级，其他人就不会拿走它。</RL_PrioritizeFighters_Desc>
+  <RL_ArmSlaves>武装奴隶</RL_ArmSlaves>
+  <RL_ArmSlaves_Desc>武装奴隶会大大增加叛乱几率。默认关闭。</RL_ArmSlaves_Desc>
+  <RL_ConsiderDistance>考虑距离</RL_ConsiderDistance>
+  <RL_ConsiderDistance_Desc>物品越远，就必须带来越大的提升（最多 +25%），殖民者才会走过去拿。</RL_ConsiderDistance_Desc>
+  <RL_PauseThreat>遭受攻击时暂停</RL_PauseThreat>
+  <RL_PauseThreat_Desc>当活跃的敌人位于居住区内或距任一殖民者 40 格以内时，没有人会去取装备。远在地图边缘、倒地或逃跑的敌人不计入。</RL_PauseThreat_Desc>
+  <RL_OwnDresser>使用本模组换装代替原版</RL_OwnDresser>
+  <RL_OwnDresser_Desc>由本模组而不是游戏来处理换装。仅建议在原版换装报错时使用。</RL_OwnDresser_Desc>
+  <RL_AutoApparel>自动换装（本模组）</RL_AutoApparel>
+  <RL_AutoApparel_Desc>仅在启用本模组换装时生效。</RL_AutoApparel_Desc>
+  <RL_OnlyStockpile>仅从储存区和货架拿取</RL_OnlyStockpile>
+  <RL_OnlyStockpile_Desc>殖民者只从储存区和货架拿取物品，不拿地图上随处散落的物品。</RL_OnlyStockpile_Desc>
+  <RL_ReplaceBroken>脱下破损和方案禁止的服装</RL_ReplaceBroken>
+  <RL_ReplaceBroken_Desc>耐久度低于阈值或被服装方案禁止的服装会被脱下。</RL_ReplaceBroken_Desc>
+  <RL_StoreDropped>将脱下的装备搬到仓储</RL_StoreDropped>
+  <RL_StoreDropped_Desc>殖民者会把脱下的装备搬到最合适的空闲储存位置。如果没有空间，就留在地上。</RL_StoreDropped_Desc>
+  <RL_Notify>游戏内通知</RL_Notify>
+  <RL_Notify_Desc>殖民者更换武器或服装时，在左上角显示一条消息。</RL_Notify_Desc>
+  <RL_DebugLog>调试日志</RL_DebugLog>
+  <RL_DebugLog_Desc>将每次更换写入日志。仅用于排查问题。</RL_DebugLog_Desc>
+  <RL_MinHp>最低耐久度：{0}%</RL_MinHp>
+  <RL_MinHp_Desc>低于此阈值的装备视为破损。原版中耐久度低于 50% 的破损服装会带来心情惩罚。</RL_MinHp_Desc>
+  <RL_Search>搜索：</RL_Search>
+  <RL_BanModWeapons>禁用模组武器</RL_BanModWeapons>
+  <RL_AllowWeapons>允许武器</RL_AllowWeapons>
+  <RL_BanModApparel>禁用模组服装</RL_BanModApparel>
+  <RL_AllowApparel>允许服装</RL_AllowApparel>
+  <RL_BanWeaponsTitle>武器（勾选 = 禁用）</RL_BanWeaponsTitle>
+  <RL_BanApparelTitle>服装和护甲（勾选 = 禁用）</RL_BanApparelTitle>
+  <RL_GizmoLabel>自动装备</RL_GizmoLabel>
+  <RL_GizmoDesc>开启时，模组会为该殖民者选择武器和服装。对于你想手动管理装备的殖民者，请关闭此项。</RL_GizmoDesc>
+  <RL_MsgWeapon>{0} 拿起了 {1}，替换 {2}。</RL_MsgWeapon>
+  <RL_MsgWeaponNew>{0} 拿起了 {1}。</RL_MsgWeaponNew>
+  <RL_MsgSidearm>{0} 拿起了 {1} 作为副武器。</RL_MsgSidearm>
+  <RL_MsgApparel>{0} 穿上了 {1}。</RL_MsgApparel>
+  <RL_WeaponCalm>更换武器后的冷却：{0} 小时</RL_WeaponCalm>
+  <RL_WeaponCalm_Desc>更换武器后，殖民者会在这段时间内保留它，除非武器损坏。24 小时 = 游戏内一天，0 = 无限制。</RL_WeaponCalm_Desc>
+  <RL_Ex_Allowed>允许</RL_Ex_Allowed>
+  <RL_Ex_Locked>已锁定</RL_Ex_Locked>
+  <RL_Ex_Banned>已手动禁用</RL_Ex_Banned>
+  <RL_Ex_Always>始终需要：{0}</RL_Ex_Always>
+  <RL_Ex_Option>制作：{0}</RL_Ex_Option>
+  <RL_Ex_Free>无需研究即可制作</RL_Ex_Free>
+  <RL_Ex_NoResearch>无研究要求（由科技等级和模组物品规则决定）</RL_Ex_NoResearch>
+  <RL_Ex_Tech>科技等级：{0}（上限：{1}）</RL_Ex_Tech>
+  <RL_Ex_Mod>模组：{0}</RL_Ex_Mod>
+  <RL_Ex_Done>已完成</RL_Ex_Done>
+  <RL_Ex_Missing>缺少</RL_Ex_Missing>
+  <RL_TechMismatch>检查比其研究更先进的物品</RL_TechMismatch>
+  <RL_TechMismatch_Desc>当模组把先进物品放在较低的研究下（例如把太空步枪放在工业研究下）时，殖民地还必须达到该物品的科技等级。</RL_TechMismatch_Desc>
+  <RL_PowerEstimate>根据强度估算模组物品科技等级</RL_PowerEstimate>
+  <RL_PowerEstimate_Desc>明显强于最佳原版工业级武器或护甲的模组物品会被视为太空级，即使模组作者设置了更低的等级。这只是估算。</RL_PowerEstimate_Desc>
+  <RL_Ex_Power>强度相当于科技等级：{0}</RL_Ex_Power>
+  <RL_Ex_NeedColony>殖民地必须达到科技等级：{0}</RL_Ex_NeedColony>
+  <RL_LevelByProgress>按研究进度确定殖民地等级</RL_LevelByProgress>
+  <RL_LevelByProgress_Desc>殖民地完成某等级设定比例的研究后即达到该科技等级。关闭 = 由已完成的最高研究决定（一项就够）。剧本等级始终作为最低等级。</RL_LevelByProgress_Desc>
+  <RL_LevelProgress>所需的等级研究比例：{0}%</RL_LevelProgress>
+  <RL_LevelProgress_Desc>某等级的研究需要完成多少，殖民地才算达到该等级。</RL_LevelProgress_Desc>
+  <RL_CurrentLevel>当前殖民地等级：{0}（剧本：{1}，研究：{2}）</RL_CurrentLevel>
+  <RL_SyncWorld>殖民地等级取自 World at Your Level</RL_SyncWorld>
+  <RL_SyncWorld_Desc>殖民者与整个世界共享同一等级，包括在袭击模组中设置的手动等级和各等级比例。</RL_SyncWorld_Desc>
+  <RL_SurvivalApparel>生存例外（仅限危急情况）</RL_SurvivalApparel>
+  <RL_SurvivalApparel_Desc>温度只在紧急情况下起作用：超出下方界限时，或殖民者患有低温症或中暑时（始终适用）。此时他们可以穿上未研究的保暖衣物，或脱下加重炎热的衣物（护甲除外）。其他情况下不会因温度更换衣物。</RL_SurvivalApparel_Desc>
+  <RL_ApparelCalm>换装后的冷却：{0} 小时</RL_ApparelCalm>
+  <RL_ApparelCalm_Desc>换装后，殖民者在这段时间内不会再次换装，除非患有低温症或中暑。脱下的衣物或被新衣物替换的衣物一天内不会再被穿回。0 = 无冷却。</RL_ApparelCalm_Desc>
+  <RL_KeepArmor>始终保留护甲</RL_KeepArmor>
+  <RL_KeepArmor_Desc>护甲永远不会被换成防护更弱的，也永远不会因温度而脱下。不适用于破损或锁定的护甲。</RL_KeepArmor_Desc>
+  <RL_TempByThresholds>自定义温度界限</RL_TempByThresholds>
+  <RL_TempByThresholds_Desc>开：由滑块决定。关：自动，根据每位殖民者的舒适温度范围（考虑所穿衣物）。</RL_TempByThresholds_Desc>
+  <RL_ColdThreshold>低于此温度穿保暖衣物：{0}</RL_ColdThreshold>
+  <RL_ColdThreshold_Desc>室外更冷时，殖民者会穿上保暖衣物（即使未研究）。直到温度比此界限高至少 3 度才会脱下。</RL_ColdThreshold_Desc>
+  <RL_HeatThreshold>高于此温度脱衣散热：{0}</RL_HeatThreshold>
+  <RL_HeatThreshold_Desc>室外更热时，殖民者会脱下加重炎热的衣物（护甲除外），并穿上防暑物品。</RL_HeatThreshold_Desc>
+  <RL_GenderClothing>按性别穿衣</RL_GenderClothing>
+  <RL_GenderClothing_Desc>男性只穿男装和中性服装，女性只穿女装和中性服装。已穿着的异性服装会在找到合适替代品后被替换。</RL_GenderClothing_Desc>
+  <RL_GenderGuess>根据名称和描述推测性别</RL_GenderGuess>
+  <RL_GenderGuess_Desc>如果服装定义没有指定性别，会根据其名称、标签、贴图和描述推测（连衣裙、裙子、女仆… = 女装；燕尾服、绅士… = 男装）。不确定时视为中性。推测结果可在服装列表的提示中查看。</RL_GenderGuess_Desc>
+  <RL_GenderFemale>女装</RL_GenderFemale>
+  <RL_GenderMale>男装</RL_GenderMale>
+  <RL_GenderUnisex>中性</RL_GenderUnisex>
+  <RL_Ex_Gender>性别：{0}</RL_Ex_Gender>
+  <RL_TabGeneral>研究与等级</RL_TabGeneral>
+  <RL_TabWeapons>武器</RL_TabWeapons>
+  <RL_TabApparel>服装</RL_TabApparel>
+  <RL_TabTemperature>温度与威胁</RL_TabTemperature>
+  <RL_TabBans>禁用</RL_TabBans>
+  <RL_TabOther>其他</RL_TabOther>
+  <RL_TempInfo>温度只在紧急情况下改变衣着：超出设定界限时，或殖民者患有低温症或中暑时（始终适用）。\n\n寒冷时他们会穿上保暖衣物，即使未研究。炎热时会脱下加重炎热的衣物。\n\n护甲永远不会因温度而被脱下或换成更弱的护甲。</RL_TempInfo>
+  <RL_ConfirmBanWeapons>确定要禁用所有模组武器吗？殖民者将不会拿取任何模组武器。之后可以在列表中取消勾选单个武器。</RL_ConfirmBanWeapons>
+  <RL_ConfirmBanApparel>确定要禁用所有模组服装吗？殖民者将不会拿取任何模组服装。之后可以在列表中取消勾选单件服装。</RL_ConfirmBanApparel>
+  <RL_RoleGear>按专长分配装备</RL_RoleGear>
+  <RL_RoleGear_Desc>根据技能，每位殖民者都有一个角色：射手、近战战士、均衡型或工人。近战战士偏好较重的护甲，工人偏好不减速的轻便装备。优秀射手看重远射程武器，较弱的射手看重更快的短程武器。角色显示在“自动装备”按钮的说明中。</RL_RoleGear_Desc>
+  <RL_SpecialEffects>考虑武器特殊效果</RL_SpecialEffects>
+  <RL_SpecialEffects_Desc>爆炸、燃烧、EMP、眩晕、毒性和烟雾武器作为殖民者主武器时评分较低（有误伤友军的风险，只对部分目标有效）。</RL_SpecialEffects_Desc>
+  <RL_StatOffsets>装备属性加成与惩罚</RL_StatOffsets>
+  <RL_StatOffsets_Desc>考虑装备带来的变化：移动和工作速度、瞄准、命中和闪避，并根据殖民者的最佳技能考虑工作属性（医生的治疗、种植者的种植、厨师的烹饪…）。</RL_StatOffsets_Desc>
+  <RL_Role_Shooter>射手</RL_Role_Shooter>
+  <RL_Role_Melee>近战战士</RL_Role_Melee>
+  <RL_Role_Balanced>均衡型</RL_Role_Balanced>
+  <RL_Role_Worker>工人</RL_Role_Worker>
+  <RL_GizmoRole>角色：{0}，专长：{1}</RL_GizmoRole>
+  <RL_CoverageFirst>优先遮盖身体（躯干、腿部）</RL_CoverageFirst>
+  <RL_CoverageFirst_Desc>能遮盖裸露部位的衣物优先（躯干最优先，其次是腿部、头部及其他）。会使某处裸露的衣物受到惩罚。躯干或腿部裸露时，殖民者会立即穿衣，不受冷却限制。</RL_CoverageFirst_Desc>
+  <RL_ThreatApparel>威胁防护</RL_ThreatApparel>
+  <RL_ThreatApparel_Desc>在严寒或酷热（上方界限）、毒素、毒性尘埃、污染、真空或地图上发生战斗时，具有所需防护的衣物会获得大幅加成，使殖民者穿上它。护甲绝不会因此被换成更弱的护甲。</RL_ThreatApparel_Desc>
+  <RL_ThreatBills>为防护创建清单</RL_ThreatBills>
+  <RL_ThreatBills_Desc>当防护服装不足且配方已研究时，会在工作台上添加“直到拥有 X 件”清单，产品送往储存区。你的清单不会被删除。如果缺少研究，会显示一条消息。</RL_ThreatBills_Desc>
+  <RL_ThreatBill>殖民者开始制作防护装备：{0}。</RL_ThreatBill>
+  <RL_ThreatNoRecipe>目前还无法制作针对该威胁的防护。缺少研究。</RL_ThreatNoRecipe>
+  <RL_OnlyCrafted>只拿殖民地制作过的</RL_OnlyCrafted>
+  <RL_OnlyCrafted_Desc>殖民者只会拿取殖民地已在工作台上至少制作过一次（并已研究）的新武器和服装。其他种类的战利品和购买的物品会被忽略，直到你们自己制作过该种类。已穿着的不会因此被脱下。在进行中的游戏里，殖民者的装备和储存中你能制作的物品会被一次性纳入。</RL_OnlyCrafted_Desc>
+  <RL_CraftedCount>已制作的武器和服装种类：{0}</RL_CraftedCount>
+  <RL_CraftedReset>清空已制作列表</RL_CraftedReset>
+  <RL_CraftedReset_Desc>忘记迄今为止纳入或制作的所有武器和服装种类。从现在起只计算殖民地真正制作的物品。殖民者身上穿着的保持不变。</RL_CraftedReset_Desc>
+  <RL_CraftedResetConfirm>确定要清空已制作列表吗？殖民者只会在你制作过某种类之后才拿取新的武器和服装。</RL_CraftedResetConfirm>
+  <RL_Ex_NotCrafted>已研究，但殖民地尚未制作过。</RL_Ex_NotCrafted>
+  <RL_SidearmLocked>Smart Colonist Gear：殖民地尚未研究或制作此武器</RL_SidearmLocked>
+  <RL_WorkClothing>工作服仅限专业人员</RL_WorkClothing>
+  <RL_WorkClothing_Desc>能加快特定工作的服装（烹饪用围裙、研究用实验服、医生用手套、矿工头盔…）只会由该工作的专业人员拿取——如果有，会被强烈优先选择。其他人不会拿取。专业人员 = 这是其最佳工作技能，或其该工作优先级为 1，且技能不低于设定等级。</RL_WorkClothing_Desc>
+  <RL_WorkClothingSkill>专业人员技能门槛：{0}</RL_WorkClothingSkill>
+  <RL_WorkClothingSkill_Desc>殖民者被视为工作服专业人员所需的最低技能等级。</RL_WorkClothingSkill_Desc>
+  <RL_DressByTraits>按特性和技能穿衣</RL_DressByTraits>
+  <RL_DressByTraits_Desc>在允许的服装中，每位殖民者都偏好适合自己的：提升其实际从事且擅长工作的装备（医生——治疗，矿工——采矿，研究员——研究…），根据战斗技能选择射击或近战装备，灵能施法者和灵能敏感的殖民者选择灵能装备。特性同样重要：懦夫更看重护甲，慢跑者和敏捷者在意减速，贪婪和嫉妒者想要更好的品质，苦行者不在意奢华，格斗者不要瞄准装备。这只是小幅偏好（约 -25 % 到 +35 %）——绝不会允许已锁定或未研究的装备。</RL_DressByTraits_Desc>
+  <RL_GearStability>装备稳定性：好 {0} % 以上才更换</RL_GearStability>
+  <RL_GearStability_Desc>新的武器、服装、护甲或饰品必须比殖民者现有的好多少才会更换。越高 = 越少换装和换武器。同种物品换同种物品（例如胸甲换胸甲）只会为了更好的品质而更换。破损物品总是会被替换。</RL_GearStability_Desc>
+  <RL_TabSidearms>副武器</RL_TabSidearms>
+  <RL_SS_Missing>未安装 Simple Sidearms——使用本模组内置系统：殖民者携带另一类型的武器，并在战斗中自行拔出。</RL_SS_Missing>
+  <RL_SS_Preset>Simple Sidearms 预设：{0}</RL_SS_Preset>
+  <RL_SS_P_Custom>自定义</RL_SS_P_Custom>
+  <RL_SS_P_NoneApplied>无</RL_SS_P_NoneApplied>
+  <RL_SS_P_Disabled>禁用</RL_SS_P_Disabled>
+  <RL_SS_P_LoadoutOnly>仅配装（由本模组选择副武器）</RL_SS_P_LoadoutOnly>
+  <RL_SS_P_Lite>轻量</RL_SS_P_Lite>
+  <RL_SS_P_Basic>基础</RL_SS_P_Basic>
+  <RL_SS_P_Advanced>进阶</RL_SS_P_Advanced>
+  <RL_SS_P_Excessive>过量</RL_SS_P_Excessive>
+  <RL_SS_P_Brawler>格斗者</RL_SS_P_Brawler>
+  <RL_SS_Slots>最多副武器：{0}</RL_SS_Slots>
+  <RL_SS_Slots_Desc>殖民者除手持武器外最多可携带多少把武器。</RL_SS_Slots_Desc>
+  <RL_SS_Mass>单把副武器最大质量：{0} 千克</RL_SS_Mass>
+  <RL_SS_MassNone>单把副武器最大质量：无限制</RL_SS_MassNone>
+  <RL_SS_Mass_Desc>更重的武器不会作为副武器携带。0 = 无限制。</RL_SS_Mass_Desc>
+  <RL_SS_ToolSwitch>工作时使用工具（斧头、镐…）</RL_SS_ToolSwitch>
+  <RL_SS_ToolSwitch_Desc>殖民者会切换到能加快当前工作的随身武器。</RL_SS_ToolSwitch_Desc>
+  <RL_SS_OptimalMelee>针对目标的最佳近战武器</RL_SS_OptimalMelee>
+  <RL_SS_CQC>近身战斗时切换到近战</RL_SS_CQC>
+  <RL_SS_RangedSwitch>远距离时切换到远程</RL_SS_RangedSwitch>
+  <RL_SS_ReEquip>战斗后换回主武器</RL_SS_ReEquip>
+  <RL_SS_ReEquipBest>战斗后换上最好的武器</RL_SS_ReEquipBest>
+  <RL_SS_ReEquipCombat>战斗中也换回</RL_SS_ReEquipCombat>
+  <RL_SS_SkipDangerous>不自动使用危险武器（手榴弹、爆炸物）</RL_SS_SkipDangerous>
+  <RL_SS_SkipEMP>不自动使用 EMP 武器</RL_SS_SkipEMP>
+  <RL_SS_Caravans>在远行队中保留副武器</RL_SS_Caravans>
+  <RL_SS_Alerts>副武器丢失警报</RL_SS_Alerts>
+  <RL_SS_Sounds>切换武器音效</RL_SS_Sounds>
+  <RL_SS_Spawn>其他人携带副武器到来：{0} %</RL_SS_Spawn>
+  <RL_SS_Spawn_Desc>袭击者或访客获得副武器的几率（装备仍会经过 World at Your Level 过滤）。</RL_SS_Spawn_Desc>
+  <RL_SS_HidePage>隐藏原版 Simple Sidearms 设置</RL_SS_HidePage>
+  <RL_SS_HidePage_Desc>原 Simple Sidearms 页面将从模组设置列表中隐藏——一切都在这里设置。重新打开设置后生效。</RL_SS_HidePage_Desc>
+  <RL_EmergencyGear>危险情况下的应急装备</RL_EmergencyGear>
+  <RL_EmergencyGear_Desc>当发生危险而殖民地尚未研究相应装备时，殖民者可以使用地图上已有的替代装备（储存区、地面、物品栏）——即使未研究或未制作。有毒空气：防毒面具和防护服；严寒或酷热：保温衣物；遭到攻击：护甲和殖民地自己的武器。不会凭空生成任何东西。危险过去后恢复正常规则；已穿着的物品会保留约两小时，以免有人在途中脱掉。手动禁用的物品永远不会被允许。</RL_EmergencyGear_Desc>
+  <RL_EmergencyToxic>有毒空气（毒气、尘埃、污染）</RL_EmergencyToxic>
+  <RL_EmergencyToxic_Desc>殖民者附近或居住区内的毒气（例如任务中的毒气发生器）、毒性尘埃、有毒雾霾、污染的地面或不断上升的毒素累积。允许任何模组中具有毒性环境抗性或毒性抗性的服装（防毒面具、防化服…）。</RL_EmergencyToxic_Desc>
+  <RL_EmergencyTemperature>严寒或酷热</RL_EmergencyTemperature>
+  <RL_EmergencyTemperature_Desc>室外温度远超殖民者在不穿衣物时所能承受的范围（或寒流 / 热浪），或患有低温症 / 中暑。允许保温性良好的服装。</RL_EmergencyTemperature_Desc>
+  <RL_EmergencyRaid>遭到攻击</RL_EmergencyRaid>
+  <RL_EmergencyRaid_Desc>地图上有活跃敌人时。允许护甲以及已属于殖民地的武器（在仓储中、物品栏中或居住区内地上的）。</RL_EmergencyRaid_Desc>
+  <RL_EmKind_Toxic>有毒空气</RL_EmKind_Toxic>
+  <RL_EmKind_Cold>严寒</RL_EmKind_Cold>
+  <RL_EmKind_Heat>酷热</RL_EmKind_Heat>
+  <RL_EmKind_Raid>遭到攻击</RL_EmKind_Raid>
+  <RL_EmGear_Toxic>防毒面具和防护装备</RL_EmGear_Toxic>
+  <RL_EmGear_Cold>保暖衣物</RL_EmGear_Cold>
+  <RL_EmGear_Heat>降温衣物</RL_EmGear_Heat>
+  <RL_EmGear_Raid>护甲和殖民地的武器</RL_EmGear_Raid>
+  <RL_EmergencyOn>{0}：殖民者即使没有研究也可以使用{1}。</RL_EmergencyOn>
+  <RL_EmergencyOff>危险已解除（{0}）：不再允许应急装备。已穿着的物品会保留一段时间。</RL_EmergencyOff>
+  <RL_Ex_Emergency>目前作为应急装备允许（{0}）</RL_Ex_Emergency>
+  <RL_Ex_EmergencyFor>应急装备用于：{0}</RL_Ex_EmergencyFor>
+  <RL_EmergencyProvide>寻找并制作应急装备</RL_EmergencyProvide>
+  <RL_EmergencyProvide_Desc>当殖民者在危险中缺少防护时：地图上任何地方被禁止的防护物品会被解禁（只解禁所需数量，不在火中，不靠近敌人）；如果仍不够，会为殖民地能制作的最佳防护添加清单。如果暂时无法制作合适的防护（缺少研究），则会寻找或制作最接近的替代品——较弱的毒性防护或面部遮盖物、最保暖/最凉爽的衣物、最好的护甲。以此方式添加的清单会在危险结束后删除，除非已经开始制作。</RL_EmergencyProvide_Desc>
+  <RL_EmProv_Msg>{0}：{1}不足——{2}。</RL_EmProv_Msg>
+  <RL_EmProv_Unforbade>已解禁 {0}（{1}）</RL_EmProv_Unforbade>
+  <RL_EmProv_Bill>已在{2}添加清单：{0}× {1}</RL_EmProv_Bill>
+  <RL_EmProv_Substitute>没有合适防护的配方，改为制作替代品：在{2}制作 {0}× {1}</RL_EmProv_Substitute>
+  <RL_EmProv_BillExists>{0} 的清单已存在</RL_EmProv_BillExists>
+  <RL_EmProv_Nothing>未找到任何物品，也没有可用的配方</RL_EmProv_Nothing>
+  <RL_CraftedRestore>从殖民地恢复列表</RL_CraftedRestore>
+  <RL_CraftedRestore_Desc>将殖民地当前拥有的所有武器和服装种类加入已制作列表：穿着的、物品栏中携带的和储存的。适用于列表被误清空或清空过早的情况。</RL_CraftedRestore_Desc>
+  <RL_CraftedRestored>已从殖民地恢复已制作列表，新增种类：{0}。</RL_CraftedRestored>
+  <RL_SS_OwnHeader>Smart Colonist Gear——副武器</RL_SS_OwnHeader>
+  <RL_SS_Filter>副武器仅限已研究且允许的</RL_SS_Filter>
+  <RL_SS_Filter_Desc>Simple Sidearms 只能给殖民者本模组允许的武器（研究、科技等级、禁用、仅已制作）。</RL_SS_Filter_Desc>
+  <RL_SS_Upgrade>将副武器换成更好的</RL_SS_Upgrade>
+  <RL_SS_Upgrade_Desc>当殖民地有同类型更好的武器时，殖民者会更换随身的副武器，并把旧的搬到仓储。</RL_SS_Upgrade_Desc>
+  <RL_SS_Notify>拿取副武器时提示</RL_SS_Notify>
+  <RL_SS_Notify_Desc>殖民者拿起新副武器时显示消息（仅在本模组消息开启时）。</RL_SS_Notify_Desc>
+  <RL_SS_OriginalUi>完整 Simple Sidearms 设置</RL_SS_OriginalUi>
+  <RL_SS_OriginalUi_Desc>在这些选项下方显示原 Simple Sidearms 的全部设置及所有标签页（预设、自动化、限额、生成、杂项）。关闭 = 精简版。</RL_SS_OriginalUi_Desc>
+  <RL_CraftedPick>从已有物品中选择…</RL_CraftedPick>
+  <RL_CraftedPick_Desc>打开殖民地拥有的所有武器和服装种类列表。勾选的可以立即穿戴，其余的会在殖民地制作后自动解锁。</RL_CraftedPick_Desc>
+  <RL_PickTitle>殖民者可以穿戴什么</RL_PickTitle>
+  <RL_PickHelp>勾选 = 现在允许。未勾选并非永久禁用——殖民地制作后即解锁。研究和禁用规则仍然适用。</RL_PickHelp>
+  <RL_PickAll>全部</RL_PickAll>
+  <RL_PickWeapons>武器</RL_PickWeapons>
+  <RL_PickApparel>服装</RL_PickApparel>
+  <RL_PickOnAll>勾选显示项</RL_PickOnAll>
+  <RL_PickOffAll>取消勾选显示项</RL_PickOffAll>
+  <RL_PickCount>已允许 {0} / {1}</RL_PickCount>
+  <RL_PickNoResearch>未研究</RL_PickNoResearch>
+  <RL_PickWeapon>武器</RL_PickWeapon>
+  <RL_PickApparel1>服装</RL_PickApparel1>
+  <RL_SS_Tab_Presets>预设</RL_SS_Tab_Presets>
+  <RL_SS_Tab_Automation>触发</RL_SS_Tab_Automation>
+  <RL_SS_Tab_Allowances>限额</RL_SS_Tab_Allowances>
+  <RL_SS_Tab_Spawning>生成</RL_SS_Tab_Spawning>
+  <RL_SS_Tab_Misc>杂项</RL_SS_Tab_Misc>
+  <RL_FullBody>全身穿戴</RL_FullBody>
+  <RL_FullBody_Desc>殖民者会穿上每件只增加而不替换任何东西的可用衣物——帽子、手套、靴子、背心、外套…——即使评分较低。它必须被允许、符合服装方案、不是从尸体上剥下的，且不违背温度（炎热时不穿厚外套）。腰带和功能物品仍需要正常评分。穿着防弹衣的殖民者会补全整套（头盔、手套、靴子），并且绝不会把其中一件换成更弱的。额外的保暖衣物只在不热时穿。</RL_FullBody_Desc>
+  <RL_SP_Tab_Overview>概览</RL_SP_Tab_Overview>
+  <RL_SP_Tab_Presets>预设</RL_SP_Tab_Presets>
+  <RL_SP_Tab_Automation>自动化</RL_SP_Tab_Automation>
+  <RL_SP_Tab_Limits>限额</RL_SP_Tab_Limits>
+  <RL_SP_Tab_Spawning>他人装备</RL_SP_Tab_Spawning>
+  <RL_SP_Tab_Misc>杂项</RL_SP_Tab_Misc>
+  <RL_SP_Tab_Own>模组规则</RL_SP_Tab_Own>
+  <RL_SP_On>开</RL_SP_On>
+  <RL_SP_Off>关</RL_SP_Off>
+  <RL_SP_NowPreset>预设：{0}</RL_SP_NowPreset>
+  <RL_SP_NowAuto>自动切换：已开启 {0} / {1} 项功能</RL_SP_NowAuto>
+  <RL_SP_NowOwn>本模组：自动副武器 {0}，仅已研究 {1}，换成更好的 {2}</RL_SP_NowOwn>
+  <RL_SP_Use>使用：{0}</RL_SP_Use>
+  <RL_SP_NoGame>殖民者及其副武器会在游戏运行时列出。</RL_SP_NoGame>
+  <RL_SP_Colonists>殖民者及其武器</RL_SP_Colonists>
+  <RL_SP_ColName>殖民者</RL_SP_ColName>
+  <RL_SP_ColPrimary>手持</RL_SP_ColPrimary>
+  <RL_SP_ColSide>副武器</RL_SP_ColSide>
+  <RL_SP_ColMass>质量</RL_SP_ColMass>
+  <RL_SP_NonViolent>无法使用暴力——不携带武器</RL_SP_NonViolent>
+  <RL_SP_SumSingleKg>单把武器不超过 {0} 千克</RL_SP_SumSingleKg>
+  <RL_SP_SumSingleSel>仅限选定的武器</RL_SP_SumSingleSel>
+  <RL_SP_SumSingleAny>单把武器无限制</RL_SP_SumSingleAny>
+  <RL_SP_SumAmountKg>合计不超过 {0} 千克</RL_SP_SumAmountKg>
+  <RL_SP_SumAmountN>最多 {0} 把</RL_SP_SumAmountN>
+  <RL_SP_SumAmountAny>数量不限</RL_SP_SumAmountAny>
+  <RL_SP_SumCommon>限额：{0}。</RL_SP_SumCommon>
+  <RL_SP_SumSeparate>近战：{0}。远程：{1}。</RL_SP_SumSeparate>
+  <RL_SP_PresetsHint>点击一张卡片。在其他标签页中的任何更改都会将预设切换为“自定义”。</RL_SP_PresetsHint>
+  <RL_SP_CustomNow>你当前使用的是自定义设置（未选择卡片）。</RL_SP_CustomNow>
+  <RL_SS_PD_Basic>推荐。近战不超过 1.9 千克，远程不超过 2.7 千克，每类最多 2 把，总计 3 把。自动切换开启。</RL_SS_PD_Basic>
+  <RL_SS_PD_Lite>只限小型轻武器：近战不超过 0.6 千克（刀），远程不超过 1.6 千克（手枪），最多 2 把。</RL_SS_PD_Lite>
+  <RL_SS_PD_Advanced>较重的武器：近战不超过 2.25 千克，远程不超过 5 千克（包括步枪），总计不超过 10 千克。</RL_SS_PD_Advanced>
+  <RL_SS_PD_Excessive>无限制——殖民者能带多少就带多少。其他人更常携带副武器到来。</RL_SS_PD_Excessive>
+  <RL_SS_PD_Brawler>仅近战：每把不超过 4 千克，合计不超过 10 千克，不带远程。</RL_SS_PD_Brawler>
+  <RL_SS_PD_LoadoutOnly>Simple Sidearms 只保留限额（3 把武器，每把不超过 4.75 千克），由本模组选择携带什么。战斗中不自动切换。</RL_SS_PD_LoadoutOnly>
+  <RL_SS_PD_Disabled>关闭副武器：不进行任何切换，最多 1 把额外武器，其他人不携带。</RL_SS_PD_Disabled>
+  <RL_SP_ToolAutoSwitch>工作时使用工具</RL_SP_ToolAutoSwitch>
+  <RL_SP_ToolAutoSwitch_Desc>殖民者会拿出能加快工作的随身武器（砍伐用斧头、采矿用镐…），完成后再换回来。</RL_SP_ToolAutoSwitch_Desc>
+  <RL_SP_OptimalMelee>针对目标的最佳近战武器</RL_SP_OptimalMelee>
+  <RL_SP_OptimalMelee_Desc>近战时选择对该敌人效果最好的随身武器。</RL_SP_OptimalMelee_Desc>
+  <RL_SP_CQCAutoSwitch>被近身攻击时拔出近战武器</RL_SP_CQCAutoSwitch>
+  <RL_SP_CQCAutoSwitch_Desc>当敌人进入攻击范围时，殖民者从枪械切换到近战武器。</RL_SP_CQCAutoSwitch_Desc>
+  <RL_SP_CQCTargetOnly>…仅在被直接攻击时</RL_SP_CQCTargetOnly>
+  <RL_SP_CQCTargetOnly_Desc>只有当近战中的敌人攻击这名殖民者本人时才切换。</RL_SP_CQCTargetOnly_Desc>
+  <RL_SP_RangedCombatAutoSwitch>根据距离选择最佳枪械</RL_SP_RangedCombatAutoSwitch>
+  <RL_SP_RangedCombatAutoSwitch_Desc>根据与目标的距离在随身枪械中选择（近距离用霰弹枪，远距离用步枪）。</RL_SP_RangedCombatAutoSwitch_Desc>
+  <RL_SP_MaxWarmup>只切换到瞄准时间不超过 {0} % 的枪械</RL_SP_MaxWarmup>
+  <RL_SP_MaxWarmup_Desc>新武器的瞄准时间相对当前武器可以有多长。越高 = 切换越多。</RL_SP_MaxWarmup_Desc>
+  <RL_SP_BiasHint>速度与威力：高于 100 % 时殖民者偏好快速武器，低于 100 % 时偏好威力大但慢的武器。</RL_SP_BiasHint>
+  <RL_SP_BiasMelee>近战——速度权重：{0} %</RL_SP_BiasMelee>
+  <RL_SP_BiasRanged>远程——速度权重：{0} %</RL_SP_BiasRanged>
+  <RL_SP_ReEquipOutOfCombat>战斗后拿回主武器</RL_SP_ReEquipOutOfCombat>
+  <RL_SP_ReEquipOutOfCombat_Desc>战斗结束后，殖民者拿回之前手持的武器。</RL_SP_ReEquipOutOfCombat_Desc>
+  <RL_SP_ReEquipBest>…或直接拿最好的</RL_SP_ReEquipBest>
+  <RL_SP_ReEquipBest_Desc>拿起最好的随身武器，而不是原来的武器。</RL_SP_ReEquipBest_Desc>
+  <RL_SP_ReEquipInCombat>战斗中也换回</RL_SP_ReEquipInCombat>
+  <RL_SP_ReEquipInCombat_Desc>一旦附近没有敌人，即使在战斗中也会换回枪械。</RL_SP_ReEquipInCombat_Desc>
+  <RL_SP_SkipDangerousWeapons>手榴弹和发射器仅在命令时使用</RL_SP_SkipDangerousWeapons>
+  <RL_SP_SkipDangerousWeapons_Desc>殖民者不会自行使用爆炸性武器（有误伤友军的风险）。</RL_SP_SkipDangerousWeapons_Desc>
+  <RL_SP_SkipEMPWeapons>EMP 武器仅在命令时使用</RL_SP_SkipEMPWeapons>
+  <RL_SP_SkipEMPWeapons_Desc>殖民者不会自行使用 EMP 武器。</RL_SP_SkipEMPWeapons_Desc>
+  <RL_SP_AllowBlockedWeaponUse>允许殖民者原本不被允许的武器</RL_SP_AllowBlockedWeaponUse>
+  <RL_SP_AllowBlockedWeaponUse_Desc>殖民者可以携带被方案或其他模组禁止的武器。</RL_SP_AllowBlockedWeaponUse_Desc>
+  <RL_SP_SeparateModes>近战和远程分开限额</RL_SP_SeparateModes>
+  <RL_SP_SeparateModes_Desc>开：近战和远程各有自己的限额，外加总限额。关：一个共同的限额。</RL_SP_SeparateModes_Desc>
+  <RL_SP_Melee>近战武器</RL_SP_Melee>
+  <RL_SP_Ranged>远程武器</RL_SP_Ranged>
+  <RL_SP_SingleLimit>单把武器限额</RL_SP_SingleLimit>
+  <RL_SP_SingleLimit_Desc>一把副武器最多能有多重。</RL_SP_SingleLimit_Desc>
+  <RL_SP_AmountLimit>全部副武器限额</RL_SP_AmountLimit>
+  <RL_SP_AmountLimit_Desc>殖民者最多能携带多少副武器。</RL_SP_AmountLimit_Desc>
+  <RL_SP_TotalLimit>总限额（近战 + 远程）</RL_SP_TotalLimit>
+  <RL_SP_ES_None>无限制</RL_SP_ES_None>
+  <RL_SP_ES_RelativeWeight>按负重能力</RL_SP_ES_RelativeWeight>
+  <RL_SP_ES_RelativeWeight_Desc>限额随殖民者的负重能力增长。数值以 35 千克负重能力为准。</RL_SP_ES_RelativeWeight_Desc>
+  <RL_SP_ES_AbsoluteWeight>固定质量</RL_SP_ES_AbsoluteWeight>
+  <RL_SP_ES_Selection>仅限选定</RL_SP_ES_Selection>
+  <RL_SP_ES_Selection_Desc>只有在列表中勾选的武器才能作为副武器携带。</RL_SP_ES_Selection_Desc>
+  <RL_SP_EA_None>无限制</RL_SP_EA_None>
+  <RL_SP_EA_RelativeWeight>按负重能力</RL_SP_EA_RelativeWeight>
+  <RL_SP_EA_RelativeWeight_Desc>限额随殖民者的负重能力增长。数值以 35 千克负重能力为准。</RL_SP_EA_RelativeWeight_Desc>
+  <RL_SP_EA_AbsoluteWeight>固定质量</RL_SP_EA_AbsoluteWeight>
+  <RL_SP_EA_Slots>数量</RL_SP_EA_Slots>
+  <RL_SP_SingleKgRel>单把武器不超过 {0} 千克（以 35 千克负重能力计）</RL_SP_SingleKgRel>
+  <RL_SP_SingleKg>单把武器不超过 {0} 千克</RL_SP_SingleKg>
+  <RL_SP_AmountKgRel>合计不超过 {0} 千克（以 35 千克负重能力计）</RL_SP_AmountKgRel>
+  <RL_SP_AmountKg>合计不超过 {0} 千克</RL_SP_AmountKg>
+  <RL_SP_SlotsN>最多 {0} 把</RL_SP_SlotsN>
+  <RL_SP_LimitsHint>限额适用于额外携带的武器，不包括手持武器。参考：刀 0.5 千克，手枪 1.2 千克，剑 2 千克，步枪 3.5 千克，机枪 9 千克。</RL_SP_LimitsHint>
+  <RL_SP_PickLight>全部不超过 {0} 千克</RL_SP_PickLight>
+  <RL_SP_PickNone>无</RL_SP_PickNone>
+  <RL_SP_PickMore>… 用搜索查找更多武器。</RL_SP_PickMore>
+  <RL_SP_PickCount>已选武器：{0}</RL_SP_PickCount>
+  <RL_SP_RangedShort>远程</RL_SP_RangedShort>
+  <RL_SP_MeleeShort>近战</RL_SP_MeleeShort>
+  <RL_SP_SpawnHint>其他人（袭击者、访客、商人）携带副武器到来的频率。</RL_SP_SpawnHint>
+  <RL_SP_SpawnChance>第一把副武器的几率：{0} %</RL_SP_SpawnChance>
+  <RL_SP_SpawnChance_Desc>其他角色获得至少一把副武器的概率。</RL_SP_SpawnChance_Desc>
+  <RL_SP_SpawnDropoff>每增加一把的几率：× {0} %</RL_SP_SpawnDropoff>
+  <RL_SP_SpawnDropoff_Desc>每增加一把副武器，概率就降低这么多。</RL_SP_SpawnDropoff_Desc>
+  <RL_SP_Budget>预算：装备资金的 {0} %</RL_SP_Budget>
+  <RL_SP_Budget_Desc>角色的装备资金中有多少可用于副武器（武器越贵 = 越少见）。</RL_SP_Budget_Desc>
+  <RL_SP_BudgetDropoff>每增加一把的预算：× {0} %</RL_SP_BudgetDropoff>
+  <RL_SP_SpawnExample>示例：约 {0} % 的其他人携带 1 把副武器，{1} % 携带 2 把，{2} % 携带 3 把。</RL_SP_SpawnExample>
+  <RL_SP_SpawnWorld>之后 World at Your Level 会进一步过滤他人的装备（研究、“不比殖民地更好”）。</RL_SP_SpawnWorld>
+  <RL_SP_ColonistMode>殖民者的主武器</RL_SP_ColonistMode>
+  <RL_SP_ColonistMode_Desc>殖民者在非战斗时手持哪把随身武器。</RL_SP_ColonistMode_Desc>
+  <RL_SP_NpcMode>其他人的主武器</RL_SP_NpcMode>
+  <RL_SP_EW_BySkill>按技能</RL_SP_EW_BySkill>
+  <RL_SP_EW_BySkill_Desc>射击更好的手持枪械，格斗更好的手持近战武器。</RL_SP_EW_BySkill_Desc>
+  <RL_SP_EW_Ranged>远程</RL_SP_EW_Ranged>
+  <RL_SP_EW_Melee>近战</RL_SP_EW_Melee>
+  <RL_SP_EW_ByGenerated>保持到来时的</RL_SP_EW_ByGenerated>
+  <RL_SP_EW_ByGenerated_Desc>角色生成或到来时所带的武器。</RL_SP_EW_ByGenerated_Desc>
+  <RL_SP_Fumble>倒地时掉落武器</RL_SP_Fumble>
+  <RL_SP_Fumble_Desc>倒地的角色何时掉落其携带的副武器。</RL_SP_Fumble_Desc>
+  <RL_SP_EF_Never>从不</RL_SP_EF_Never>
+  <RL_SP_EF_InDistress>陷入困境时</RL_SP_EF_InDistress>
+  <RL_SP_EF_InCombat>战斗中</RL_SP_EF_InCombat>
+  <RL_SP_EF_Always>总是</RL_SP_EF_Always>
+  <RL_SP_PreserveInventoryInCaravans>远行队中副武器留在殖民者身上</RL_SP_PreserveInventoryInCaravans>
+  <RL_SP_PreserveInventoryInCaravans_Desc>组建远行队时，副武器不会被移到共享货物中。</RL_SP_PreserveInventoryInCaravans_Desc>
+  <RL_SP_HideSidearmsInCaravanDialogs>在远行队窗口中隐藏副武器</RL_SP_HideSidearmsInCaravanDialogs>
+  <RL_SP_ShowAlertsMissingSidearm>副武器丢失警报</RL_SP_ShowAlertsMissingSidearm>
+  <RL_SP_ShowAlertsMissingSidearm_Desc>当殖民者丢失应当记住的武器时发出警报。</RL_SP_ShowAlertsMissingSidearm_Desc>
+  <RL_SP_PlaySounds>切换武器时播放音效</RL_SP_PlaySounds>
+  <RL_SP_ShowBrainscope>调试：显示武器决策</RL_SP_ShowBrainscope>
+  <RL_SP_BrawlerNoRanged>格斗者不携带远程副武器</RL_SP_BrawlerNoRanged>
+  <RL_SP_BrawlerNoRanged_Desc>具有格斗者特性的殖民者即使作为副武器也不拿枪械（会导致心情变差）。</RL_SP_BrawlerNoRanged_Desc>
+  <RL_SP_MaxTotal>每位殖民者最多武器数：{0}</RL_SP_MaxTotal>
+  <RL_SP_MaxTotalOff>每位殖民者最多武器数：无自身限制</RL_SP_MaxTotalOff>
+  <RL_SP_MaxTotal_Desc>殖民者总共最多可携带多少把武器，包括手持武器（手榴弹也计入）。适用于本模组和 Simple Sidearms。多余的会从最差的开始丢下并搬到仓储。0 = 只使用 Simple Sidearms 的限额。</RL_SP_MaxTotal_Desc>
+  <RL_SP_StripUncrafted>收起殖民地从未制作过的武器</RL_SP_StripUncrafted>
+  <RL_SP_StripUncrafted_Desc>启用“仅已制作”时，殖民者也会收起已研究但殖民地尚未制作过的武器（例如袭击后捡到的）。袭击期间可以使用，之后会归还。你亲自给殖民者的武器会保留。</RL_SP_StripUncrafted_Desc>
+  <RL_SP_ArmorHunt>狩猎时穿上护甲</RL_SP_ArmorHunt>
+  <RL_SP_ArmorHunt_Desc>狩猎前，如果仓储中（70 格以内）允许的最好护甲比身上穿的更好，殖民者会先穿上，然后再去狩猎。</RL_SP_ArmorHunt_Desc>
+  <RL_SP_ArmorThreat>遭到攻击时穿上护甲</RL_SP_ArmorThreat>
+  <RL_SP_ArmorThreat_Desc>地图上有敌人时（袭击、猎杀人类的动物、机械体…），殖民者会停止正常工作，从仓储中穿上允许的最好护甲。灭火、治疗、逃跑和战斗不会被打断。其服装方案也必须允许。</RL_SP_ArmorThreat_Desc>
+  <RL_SP_ArmorDrafted>被征召的殖民者也穿护甲</RL_SP_ArmorDrafted>
+  <RL_SP_ArmorDrafted_Desc>被征召的殖民者如果只是站着且 22 格内没有敌人，会去取 28 格内的护甲。之后会停留在仓储旁——请把他们移回去。</RL_SP_ArmorDrafted_Desc>
+  <RL_SidearmTooMany>已携带 {0} 把武器（达到上限）</RL_SidearmTooMany>
+  <RL_SP_MinShoot>射击达到 {0} 才带远程副武器</RL_SP_MinShoot>
+  <RL_SP_MinShoot_Desc>殖民者射击技能达到此等级才会携带额外的枪械。0 = 总是。</RL_SP_MinShoot_Desc>
+  <RL_SP_MinMelee>格斗达到 {0} 才带近战副武器</RL_SP_MinMelee>
+  <RL_SP_MinMelee_Desc>殖民者格斗技能达到此等级才会携带额外的近战武器。0 = 总是。</RL_SP_MinMelee_Desc>
+  <RL_SP_OpenOriginal>打开原 Simple Sidearms 窗口</RL_SP_OpenOriginal>
+  <RL_OS_Header>内置副武器</RL_OS_Header>
+  <RL_OS_SwitchMelee>战斗中切换到近战</RL_OS_SwitchMelee>
+  <RL_OS_SwitchMelee_Desc>敌人靠近时，手持枪械的殖民者会从背包中拿出近战武器（如果携带了）。</RL_OS_SwitchMelee_Desc>
+  <RL_OS_MeleeRange>敌人距离小于 {0} 格时切换</RL_OS_MeleeRange>
+  <RL_OS_MeleeRange_Desc>最近的敌人在多远距离内时，殖民者拔出近战武器。</RL_OS_MeleeRange_Desc>
+  <RL_OS_SwitchBack>战斗后换回之前的武器</RL_OS_SwitchBack>
+  <RL_OS_SwitchBack_Desc>敌人离开或倒下后，殖民者拿回之前的武器。</RL_OS_SwitchBack_Desc>
+  <RL_OS_Gizmo>武器切换按钮</RL_OS_Gizmo>
+  <RL_OS_Gizmo_Desc>被征召的殖民者会为每把随身武器获得一个“拿在手中”按钮。手动选择的武器会保持到解除征召。</RL_OS_Gizmo_Desc>
+  <RL_OS_MaxMass>随身武器最大重量：{0} 千克</RL_OS_MaxMass>
+  <RL_OS_MaxMassOff>随身武器最大重量：无限制</RL_OS_MaxMassOff>
+  <RL_OS_MaxMass_Desc>除手持武器外，殖民者背包中最多能携带多少千克武器。0 = 无限制。</RL_OS_MaxMass_Desc>
+  <RL_OS_Take>拿在手中：{0}</RL_OS_Take>
+  <RL_OS_Take_Desc>殖民者从背包中拿出 {0}，并把手中的武器放进背包。保持到解除征召。</RL_OS_Take_Desc>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <RL_Rec1>殖民者使用已研究的最佳武器和服装</RL_Rec1>
+  <RL_Rec2>有威胁时穿上整套护甲</RL_Rec2>
+  <RL_Rec3>炎热时穿轻薄衣物，寒冷时穿保暖衣物</RL_Rec3>
+  <RL_Rec4>针对毒素和极端温度的应急装备</RL_Rec4>
+  <RL_Rec5>根据技能携带副武器</RL_Rec5>
+  <RL_Rec6>破旧装备会被替换并收进仓储</RL_Rec6>
+  <MUI_RecTag>推荐</MUI_RecTag>
+  <RL_Why_Title>最近的装备变更：</RL_Why_Title>
+  <RL_Why_None>本次会话中尚无装备变更。</RL_Why_None>
+  <RL_Why_Now>刚刚</RL_Why_Now>
+  <RL_Why_HoursAgo>{0} 小时前</RL_Why_HoursAgo>
+  <RL_WhyAct_Wear>穿上</RL_WhyAct_Wear>
+  <RL_WhyAct_Remove>脱下</RL_WhyAct_Remove>
+  <RL_WhyAct_Take>带上</RL_WhyAct_Take>
+  <RL_WhyAct_Drop>丢下</RL_WhyAct_Drop>
+  <RL_WhyAct_Equip>拿在手中</RL_WhyAct_Equip>
+  <RL_WhyAct_Change>更换装备</RL_WhyAct_Change>
+  <RL_Why_Tattered>已破旧，待替换</RL_Why_Tattered>
+  <RL_Why_Heat>太热</RL_Why_Heat>
+  <RL_Why_Policy>服装方案不允许</RL_Why_Policy>
+  <RL_Why_TooMany>携带武器过多</RL_Why_TooMany>
+  <RL_Why_Locked>未研究或已禁用</RL_Why_Locked>
+  <RL_Why_Unneeded>不再需要</RL_Why_Unneeded>
+  <RL_Why_Weapon>更好的武器</RL_Why_Weapon>
+  <RL_Why_Instead>替换 {0}</RL_Why_Instead>
+  <RL_Why_Sidearm>副武器</RL_Why_Sidearm>
+  <RL_Why_Temperature>寒冷或炎热</RL_Why_Temperature>
+  <RL_Why_Basics>缺少基本衣物</RL_Why_Basics>
+  <RL_Why_Emergency>应急防护</RL_Why_Emergency>
+  <RL_Why_Apparel>更好的服装</RL_Why_Apparel>
+  <RL_Why_Armor>遭到攻击——穿上护甲</RL_Why_Armor>
+  <RL_Why_ArmorHunt>狩猎——穿上护甲</RL_Why_ArmorHunt>
+  <RL_Why_Player>手动（你）</RL_Why_Player>
+  <RL_Why_Outfit>游戏（服装方案，由本模组评分）</RL_Why_Outfit>
+  <RL_Why_Game>游戏</RL_Why_Game>
+  <RL_Why_OtherMod>模组 {0}</RL_Why_OtherMod>
+  <RL_OthersTitle>其他改变殖民者装备的模组</RL_OthersTitle>
+  <RL_OthersNone>没有其他模组改变装备选择方式。</RL_OthersNone>
+  <RL_OthersPatch>同样改变装备选择方式：{0}</RL_OthersPatch>
+  <RL_OthersSeenNone>本局游戏中尚无其他模组改变过殖民者装备。</RL_OthersSeenNone>
+  <RL_OthersSeen>本局游戏中改变过殖民者装备：{0}</RL_OthersSeen>
+  <RL_OthersHint>如果殖民者来回更换装备，请只让一个模组做决定——在其中一个模组中关闭重叠的部分。本模组的殖民者按钮会显示谁改变了什么以及原因。</RL_OthersHint>
+  <RL_GuestLodgers>任务客人使用殖民地装备</RL_GuestLodgers>
+  <RL_GuestLodgers_Desc>你可以控制的任务客人会像殖民者一样获得武器和衣物。他们自己的物品放进背包，离开时再穿回去——殖民地的装备留在这里。</RL_GuestLodgers_Desc>
+  <RL_GuestVisitors>访客借用衣物应对寒冷和炎热</RL_GuestVisitors>
+  <RL_GuestVisitors_Desc>访客和客人在寒冷时会穿上殖民地的保暖衣物，在炎热时会把自己的保暖衣物脱下放进背包。天气好转或离开时，他们会归还殖民地的衣物并穿回自己的。</RL_GuestVisitors_Desc>
+  <RL_PreferNewer>偏好更新的科技</RL_PreferNewer>
+  <RL_PreferNewer_Desc>在相近的武器和护甲中，更新的科技胜出——枪械胜过弓，防弹衣或动力装甲胜过板甲。</RL_PreferNewer_Desc>
+  <RL_ToolsNotWeapons>工作工具不是武器</RL_ToolsNotWeapons>
+  <RL_ToolsNotWeapons_Desc>镐、镰刀、铲子和其他加快工作的工具永远不会被选作武器，手中的工具会被换成真正的武器。</RL_ToolsNotWeapons_Desc>
+  <RL_Why_ToolNotWeapon>工具不是武器</RL_Why_ToolNotWeapon>
+  <RL_PreferNewEra>最新时代优先</RL_PreferNewEra>
+  <RL_PreferNewEra_Desc>殖民地最新时代（工业、太空…）的装备优先。武器：较新时代的武器总会替换同类较旧的武器，即使更弱（步枪替换弓）；较旧的永远不会替换较新的。新时代的护甲和衣物获得强力加成，防护可以略低。没有科技等级的模组物品按其研究和强度判断。</RL_PreferNewEra_Desc>
+  <RL_SP_MaxRanged>每位殖民者的远程武器：{0}</RL_SP_MaxRanged>
+  <RL_SP_MaxRanged_Desc>殖民者最多携带多少把远程武器——包括手持的。2 = 例如一把步枪和一把手枪。0 = 不带远程副武器（射手的主武器保留）。</RL_SP_MaxRanged_Desc>
+  <RL_SP_MaxMelee>每位殖民者的近战武器：{0}</RL_SP_MaxMelee>
+  <RL_SP_MaxMelee_Desc>殖民者最多携带多少把近战武器——包括手持的。1 = 射手携带一把刀或剑用于近身战斗。0 = 不带近战副武器。</RL_SP_MaxMelee_Desc>
+  <RL_GearButton>底部的“装备”按钮</RL_GearButton>
+  <RL_GearButton_Desc>查看谁穿着什么，以及“立即装备所有人”按钮。</RL_GearButton_Desc>
+  <RL_GO_Title>殖民者装备</RL_GO_Title>
+  <RL_GO_EquipAll>立即装备所有人</RL_GO_EquipAll>
+  <RL_GO_EquipAll_Desc>每位未被征召的殖民者会立即检查装备，并从仓储中拿取最好的武器和护甲——袭击前很方便。被征召的殖民者会被跳过。</RL_GO_EquipAll_Desc>
+  <RL_GO_EquipAllDone>{0} 名殖民者正在更换装备。</RL_GO_EquipAllDone>
+  <RL_GO_Colonist>殖民者</RL_GO_Colonist>
+  <RL_GO_Weapon>武器</RL_GO_Weapon>
+  <RL_GO_ArmorSharp>利器护甲</RL_GO_ArmorSharp>
+  <RL_GO_ArmorBlunt>钝器护甲</RL_GO_ArmorBlunt>
+  <RL_GO_Problems>问题</RL_GO_Problems>
+  <RL_GO_Ok>一切正常</RL_GO_Ok>
+  <RL_GO_NoWeapon>没有武器</RL_GO_NoWeapon>
+  <RL_GO_NoTorso>躯干无衣物</RL_GO_NoTorso>
+  <RL_GO_Tattered>破旧：{0}</RL_GO_Tattered>
+  <RL_GO_WeaponWorn>武器已破旧</RL_GO_WeaponWorn>
+  <RL_GO_Cold>室外太冷</RL_GO_Cold>
+  <RL_GO_Hot>室外太热</RL_GO_Hot>
+  <RL_GO_Footer>{0} 名殖民者 · {1} 名有问题 · 点击一行以选中殖民者 · 悬停查看完整服装列表</RL_GO_Footer>
+</LanguageData>
