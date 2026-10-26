@@ -208,17 +208,39 @@ namespace GraphicsTuner
             }
             catch (Exception ex)
             {
-                MLog.Warn("[Smooth FPS] world clean-up: " + ex.Message);
+                // 1.4.1: the error comes from the mod that replaced the game's clean-up – name it, once
+                string who = ModOf(ex);
+                MLog.WarnOnce("[Smooth FPS] world clean-up: the game's world pawn clean-up failed" + (who != null ? " inside " + who : "") + " (" + ex.GetType().Name + ": " + ex.Message + "). Smooth FPS skips it; the mod's author should fix it.", 0x6f7a41);
             }
+            int slept = 0;
+            try { if (GraphicsTunerMod.Settings?.worldSleep ?? false) slept = WorldSleep.SleepNow(); }
+            catch (Exception ex) { MLog.Warn("[Smooth FPS] sleeping world pawns: " + ex.Message); }
             sw.Stop();
             int after = wp.AllPawnsAliveOrDead.Count;
             lastClean = Find.TickManager.TicksGame;
-            string text = "GT_SimCleaned".Translate(before - after, after, removedBattles, sw.ElapsedMilliseconds);
+            string text = (string)"GT_SimCleaned".Translate(before - after, after, removedBattles, sw.ElapsedMilliseconds) + (slept > 0 ? " " + (string)"GT_SimSlept".Translate(slept) : "");
             MLog.Info("[Smooth FPS] " + text);
             return text;
         }
 
         private static int lastClean = -999999;
+
+        private static string ModOf(Exception ex)
+        {
+            try
+            {
+                var st = new System.Diagnostics.StackTrace(ex, false);
+                foreach (var f in st.GetFrames() ?? new System.Diagnostics.StackFrame[0])
+                {
+                    System.Reflection.Assembly asm = f.GetMethod()?.DeclaringType?.Assembly;
+                    if (asm == null || asm == typeof(Pawn).Assembly || asm == typeof(Sim).Assembly) continue;
+                    foreach (ModContentPack m in LoadedModManager.RunningModsListForReading)
+                        if (m.assemblies.loadedAssemblies.Contains(asm)) return m.Name;
+                }
+            }
+            catch { }
+            return null;
+        }
 
         // automatically: in a pause of at least 3 s, at most once per 2 in-game days
         public static void AutoClean(bool paused, float pausedFor)
@@ -243,12 +265,27 @@ namespace GraphicsTuner
             detected = null;
         }
 
+        private static float sleepAt = -10f;
+        private static string sleepLine = "";
+
         public static string WorldLine()
         {
             if (Verse.Current.ProgramState != ProgramState.Playing)
                 return "";
             WorldPawns wp = Find.WorldPawns;
-            return "GT_SimWorldLine".Translate(wp.AllPawnsAlive.Count(), wp.AllPawnsDead.Count(), Find.WorldObjects.AllWorldObjects.Count, Find.BattleLog.Battles.Count);
+            string line = (string)"GT_SimWorldLine".Translate(wp.AllPawnsAlive.Count(), wp.AllPawnsDead.Count(), Find.WorldObjects.AllWorldObjects.Count, Find.BattleLog.Battles.Count);
+            // 1.4.6: how many of the living ones sleep, and what keeps the others awake
+            if (Time.realtimeSinceStartup - sleepAt > 3f)
+            {
+                sleepAt = Time.realtimeSinceStartup;
+                try
+                {
+                    WorldSleep.Counts(out int awake, out int asleep, out string top);
+                    sleepLine = (string)"GT_SimSleepLine".Translate(awake, asleep, top.NullOrEmpty() ? "–" : top);
+                }
+                catch { sleepLine = ""; }
+            }
+            return line + (sleepLine.NullOrEmpty() ? "" : "\n" + sleepLine);
         }
     }
 
@@ -264,6 +301,22 @@ namespace GraphicsTuner
         private float window;
 
         public override Vector2 InitialSize => new Vector2(820f, 640f);
+
+        // 1.4.4: the settings and the Esc menu pause the game – the measurement needs it running,
+        // so they close and the game goes on at the speed it had
+        public static void OpenRunning()
+        {
+            try
+            {
+                foreach (Window w in Find.WindowStack.Windows.ToList())
+                    if (w.forcePause || w is Dialog_ModSettings || w is Dialog_Options)
+                        Find.WindowStack.TryRemove(w, false);
+            }
+            catch { }
+            Find.WindowStack.Add(new Dialog_TickCost());
+            if (Verse.Current.ProgramState == ProgramState.Playing)
+                Messages.Message("GT_TC_Running".Translate(), MessageTypeDefOf.SilentInput, false);
+        }
 
         public Dialog_TickCost()
         {
@@ -318,6 +371,110 @@ namespace GraphicsTuner
             if (rows.Count == 0)
                 Widgets.Label(new Rect(0f, 0f, view.width, 26f), "GT_TC_Wait".Translate());
             Widgets.EndScrollView();
+        }
+    }
+}
+
+namespace GraphicsTuner
+{
+    // ---------------------------------------------------------------------------
+    // 1.4.6: sleeping world pawns. The game puts world pawns that need nothing to "sleep"
+    // (mothball) and then updates them only every 15000 ticks. A pawn with a condition that
+    // has to be updated stays awake – and mods (RJW parts, race genes, quirks …) give such a
+    // condition to almost every pawn, so hundreds of pawns far away were updated every tick.
+    // A condition that comes from a mod no longer keeps a world pawn awake (pregnancies and
+    // the game's own conditions still do). A sleeping pawn wakes up the moment it comes back
+    // to a map or a caravan, exactly as in the game.
+    // ---------------------------------------------------------------------------
+    public static class WorldSleep
+    {
+        private static readonly System.Reflection.FieldInfo fAlive = AccessTools.Field(typeof(WorldPawns), "pawnsAlive");
+        private static readonly System.Reflection.FieldInfo fMoth = AccessTools.Field(typeof(WorldPawns), "pawnsMothballed");
+        private static readonly System.Reflection.MethodInfo mShould = AccessTools.Method(typeof(WorldPawns), "ShouldMothball");
+        private static readonly System.Reflection.MethodInfo mPrevent = AccessTools.Method(typeof(WorldPawns), "DefPreventingMothball");
+
+        public static void Patch(Harmony h)
+        {
+            try
+            {
+                if (mPrevent != null)
+                    h.Patch(mPrevent, postfix: new HarmonyMethod(typeof(WorldSleep), nameof(Postfix)));
+            }
+            catch (Exception ex) { MLog.Warn("[Smooth FPS] sleeping world pawns not available: " + ex.Message); }
+        }
+
+        private static bool On => GraphicsTunerMod.Settings?.worldSleep ?? false;
+
+        public static bool ModCondition(HediffDef d) =>
+            d != null && d.modContentPack != null && !d.modContentPack.IsOfficialMod
+            && (d.hediffClass == null || d.hediffClass.Name.IndexOf("Pregnan", StringComparison.OrdinalIgnoreCase) < 0)
+            && d.defName.IndexOf("Pregnan", StringComparison.OrdinalIgnoreCase) < 0;
+
+        public static void Postfix(Pawn p, ref HediffDef __result)
+        {
+            if (__result == null || !On || !ModCondition(__result)) return;
+            try
+            {
+                // only the game's own conditions may keep it awake
+                foreach (Hediff h in p.health.hediffSet.hediffs)
+                {
+                    HediffDef d = h.def;
+                    if (d.AlwaysAllowMothball || h.IsPermanent() || (h is Hediff_MissingPart mp && !mp.Bleeding)) continue;
+                    if (!ModCondition(d)) { __result = d; return; }
+                }
+                __result = null;
+            }
+            catch { }
+        }
+
+        // put to sleep now everyone who may sleep (the game does it only every 15000 ticks)
+        public static int SleepNow()
+        {
+            WorldPawns wp = Find.WorldPawns;
+            if (wp == null || fAlive == null || fMoth == null || mShould == null) return 0;
+            var alive = fAlive.GetValue(wp) as HashSet<Pawn>;
+            var moth = fMoth.GetValue(wp) as HashSet<Pawn>;
+            if (alive == null || moth == null) return 0;
+            int n = 0;
+            foreach (Pawn p in alive.ToList())
+            {
+                try
+                {
+                    if ((bool)mShould.Invoke(wp, new object[] { p }))
+                    {
+                        alive.Remove(p);
+                        moth.Add(p);
+                        n++;
+                    }
+                }
+                catch { }
+            }
+            return n;
+        }
+
+        public static void Counts(out int awake, out int asleep, out string top)
+        {
+            awake = asleep = 0;
+            top = "";
+            WorldPawns wp = Find.WorldPawns;
+            if (wp == null || fAlive == null || fMoth == null) return;
+            var alive = fAlive.GetValue(wp) as HashSet<Pawn>;
+            var moth = fMoth.GetValue(wp) as HashSet<Pawn>;
+            awake = alive?.Count ?? 0;
+            asleep = moth?.Count ?? 0;
+            if (alive == null || mPrevent == null) return;
+            var why = new Dictionary<string, int>();
+            foreach (Pawn p in alive)
+            {
+                try
+                {
+                    HediffDef d = mPrevent.Invoke(wp, new object[] { p }) as HediffDef;
+                    string k = d != null ? d.LabelCap.ToString() : p.IsCaravanMember() ? "caravan" : "–";
+                    why[k] = why.TryGetValue(k, out int c) ? c + 1 : 1;
+                }
+                catch { }
+            }
+            top = string.Join(", ", why.OrderByDescending(kv => kv.Value).Take(4).Select(kv => kv.Key + " " + kv.Value).ToArray());
         }
     }
 }

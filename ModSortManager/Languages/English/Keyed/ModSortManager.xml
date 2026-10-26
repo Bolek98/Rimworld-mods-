@@ -229,4 +229,59 @@ Start?</MSM_BisectConfirm>
   <MSM_PS_DropQueue>Cancel the rest</MSM_PS_DropQueue>
   <MSM_SetPreSave>Check before saving</MSM_SetPreSave>
   <MSM_SetPreSaveTip>Before a changed list is saved: missing dependencies, mods for older game versions, many new mods at once and things new mods need that won't exist. Problems that would otherwise only show after the restart.</MSM_SetPreSaveTip>
+  <MSM_Restart>Restart</MSM_Restart>
+  <MSM_RestartTip>Restarts the game without changing the mod list. In a game with “Return to the game after restart” on, the game is saved first and loaded again after the restart.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>prefix (can skip the original)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>prefix</MSM_Kind_prefix>
+  <MSM_Kind_postfix>postfix</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>transpiler (rewrites the code)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>finalizer</MSM_Kind_finalizer>
+  <MSM_SameBlocking>At least one can skip the original code – that can also stop the other mod's change. Check that both still work.</MSM_SameBlocking>
+  <MSM_SameAdditive>Both only rewrite or add to the code – usually fine, a real clash is possible only when the rewrites collide.</MSM_SameAdditive>
+  <MSM_SameDetails>How they change it</MSM_SameDetails>
+  <MSM_SameLegend>prefix runs before the game's code; a prefix that can skip may stop the game's code and the prefixes after it. postfix runs after it and only adds – it does not conflict. transpiler rewrites the code itself – two of them can collide. "Runs first" = the prefix that decides first.</MSM_SameLegend>
+  <MSM_RunsFirst>runs first: {0}</MSM_RunsFirst>
+  <MSM_Requires>Requires:</MSM_Requires>
+  <MSM_ReqNone>nothing</MSM_ReqNone>
+  <MSM_ReqInactive>installed, not active</MSM_ReqInactive>
+  <MSM_ReqMissing>not installed</MSM_ReqMissing>
+  <MSM_RequiredBy>Needed by {0} active mods:</MSM_RequiredBy>
+  <MSM_GrpLog>Errors in the log</MSM_GrpLog>
+  <MSM_LogTitle>{0}: {1} errors in this session</MSM_LogTitle>
+  <MSM_LogText>The errors come from this mod's code or files (found in the log of this game session). First one:</MSM_LogText>
+  <MSM_NoteLog>{0} errors in the log</MSM_NoteLog>
+  <MSM_DeactivateNamed>Turn off {0}</MSM_DeactivateNamed>
+  <MSM_Subscribe>Subscribe (Steam)</MSM_Subscribe>
+  <MSM_Subscribed>Subscribed to {0} – Steam is downloading it. Restart the game, then turn it on in the list.</MSM_Subscribed>
+  <MSM_OpenWorkshop>Workshop</MSM_OpenWorkshop>
+  <MSM_OpenWorkshopTip>Opens the Steam Workshop inside the game (Steam overlay) – subscribe to mods without leaving the game. Needs the Steam overlay turned on; restart the game to load new mods.</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>Copy list as code</MSM_ShareCopy>
+  <MSM_ShareCopyTip>Copies the active mod list as a short text code – send it to a friend or post it on Discord.</MSM_ShareCopyTip>
+  <MSM_ShareCopied>Mod list copied ({0} mods) – paste it anywhere.</MSM_ShareCopied>
+  <MSM_SharePaste>Paste list code</MSM_SharePaste>
+  <MSM_SharePasteTip>Loads a mod list from a code in the clipboard. Missing Workshop mods can be subscribed right away.</MSM_SharePasteTip>
+  <MSM_ShareBad>The clipboard does not hold a Mod Sort Manager list code.</MSM_ShareBad>
+  <MSM_SubscribeMissing>Subscribe to missing ({0})</MSM_SubscribeMissing>
+  <MSM_SubscribedN>Subscribed to {0} mods – Steam is downloading them. Restart the game, then load the code again.</MSM_SubscribedN>
+  <MSM_Changes>What's new ({0})</MSM_Changes>
+  <MSM_ChangesTitle>Updated since the last start ({0})</MSM_ChangesTitle>
+  <MSM_ChangedSince>Updated since the last start{0} – click for the change log</MSM_ChangedSince>
+  <MSM_NoChangelog>This mod has no change log file. Its Workshop page may list the changes.</MSM_NoChangelog>
+  <MSM_Weight>Loading: textures {0} · code {1} · defs {2} · sounds {3}</MSM_Weight>
+  <MSM_WeightCalc>Loading: counting…</MSM_WeightCalc>
+  <MSM_WeightTip>Size on disk of what the game loads from this mod. Click to see which mods slow loading the most.</MSM_WeightTip>
+  <MSM_WeightTitle>What slows loading the most</MSM_WeightTitle>
+  <MSM_WeightHint>Sizes of textures, code, defs and sounds of the active mods. Bigger usually means longer loading; textures weigh the most.</MSM_WeightHint>
+  <MSM_WeightSum>Total {0} in {1} mods</MSM_WeightSum>
+  <MSM_Remove>Remove mod…</MSM_Remove>
+  <MSM_RemoveTip>Unsubscribe from the Workshop, or move away / delete a local mod.</MSM_RemoveTip>
+  <MSM_RemoveUnsub>Unsubscribe (Steam deletes the files)</MSM_RemoveUnsub>
+  <MSM_RemoveUnsubConfirm>Unsubscribe from {0}? Steam deletes its files; the mod is turned off. Subscribe again any time on the Workshop.</MSM_RemoveUnsubConfirm>
+  <MSM_RemovePark>Move to the put-aside folder (can be put back)</MSM_RemovePark>
+  <MSM_RemoveParkConfirm>Move {0} out of the Mods folder to:\n{1}\n\nYou can put it back any time.</MSM_RemoveParkConfirm>
+  <MSM_RemoveDelete>Delete for good</MSM_RemoveDelete>
+  <MSM_RemoveDeleteConfirm>Delete {0} for good?\n{1}\n\nThis cannot be undone.</MSM_RemoveDeleteConfirm>
+  <MSM_RemovedNow>{0} was removed. Restart the game to finish.</MSM_RemovedNow>
+  <MSM_RemovedLater>{0} is in use right now – it is removed at the next start (it is turned off).</MSM_RemovedLater>
+  <MSM_RemoveFailed>Could not remove {0}.</MSM_RemoveFailed>
 </LanguageData>

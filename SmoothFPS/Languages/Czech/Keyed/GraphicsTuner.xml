@@ -359,4 +359,31 @@
   <GT_FastCull>Rychlejší výběr věcí ke kreslení</GT_FastCull>
   <GT_FastCull_Desc>Hra každý snímek u každé kreslené věci na mapě (postavy, zvířata, animované budovy, věci z modů) počítá přesnou polohu a velikost – i u věcí daleko mimo obrazovku, které hned zahodí. U věcí jasně mimo obrazovku se tady vezme jen jejich políčko a hra je zahodí stejně jako dřív, jen bez drahého výpočtu. Věci na obrazovce a kolem ní se počítají přesně jako ve hře.</GT_FastCull_Desc>
   <GT_TC_Things>Věcí kreslených v reálném čase na mapě: {0}.</GT_TC_Things>
+  <GT_SpeedSec>Rychlost a tok času</GT_SpeedSec>
+  <GT_SmartWork>Chytré hledání práce</GT_SmartWork>
+  <GT_SmartWork_Desc>Práci, jejíž kontrola trvala dlouho a kolonista u ní nic nenašel, ten kolonista 5 s herního času znovu nekontroluje (třeba vybírání automatů, palivo, těžba surovin z modů). Nouzová práce se kontroluje vždy.</GT_SmartWork_Desc>
+  <GT_SpreadJobs>Rozložit hledání práce</GT_SpreadJobs>
+  <GT_SpreadJobs_Desc>Když hledání práce v jednom ticku už zabralo přes 6 ms, další kolonisté hledají o 1–3 ticky později místo všech najednou. Nikdy u povolaných kolonistů, v nebezpečí ani při nájezdu.</GT_SpreadJobs_Desc>
+  <GT_TempSpread>Teploty místností po částech</GT_TempSpread>
+  <GT_TempSpread_Desc>Každá místnost se dál vyrovnává každé 2 s jako ve hře, ale ne všechny v jednom ticku (velké základny se každé 2 s na chvilku zastavily).</GT_TempSpread_Desc>
+  <GT_NightFast>Rychlé noci</GT_NightFast>
+  <GT_NightFast_Desc>Když všichni kolonisté spí a nic se neděje (žádní nepřátelé, žádný požár doma, nikdo neleží zraněný), hra jede rychlostí 3. Tvoje rychlost se vrátí, když se někdo probudí, přijde dopis nebo hrozí nebezpečí. Když rychlost změníš sám, do další noci se to nezapne.</GT_NightFast_Desc>
+  <GT_SpeedStats>Tato hra: {0} pomalých kontrol práce přeskočeno (ušetřeno asi {1} s), {2} hledání práce posunuto, {3} rychlých nocí.</GT_SpeedStats>
+  <GT_NightFastOn>Všichni spí – rychlá noc (rychlost 3) až do rána.</GT_NightFastOn>
+  <GT_NightFastTag>rychlá noc</GT_NightFastTag>
+  <GT_BehindSim>Hra nestíhá: simulace bere {0} ms na snímek (vykreslování {1} ms). Okno „Co zpomaluje tick“ ukáže, která část a který mod.</GT_BehindSim>
+  <GT_BehindDraw>Hra nestíhá: vykreslování bere {1} ms na snímek (simulace {0} ms). Pomůže méně efektů, menší oddálení nebo nižší cílové FPS.</GT_BehindDraw>
+  <GT_MC_CleanFilth>Odstranit špínu mimo domov ({0})</GT_MC_CleanFilth>
+  <GT_MC_CleanFilthConfirm>Odstranit {0} kusů špíny mimo domovskou oblast? Tam ji nikdo neuklidí a hra si pamatuje každý kus. Nejde to vrátit.</GT_MC_CleanFilthConfirm>
+  <GT_Turbo>Turbo při rychlosti 3 a 4</GT_Turbo>
+  <GT_Turbo_Desc>Když se při rychlosti 3 nebo 4 nedotýkáš myši ani klávesnice, obraz klesne na pár snímků za sekundu a všechen zbylý čas dostane hra – čas běží tak rychle, jak to tvůj počítač zvládne. Pohneš myší a obraz je hned zase plynulý. Ticky, které se nevešly, se doženou, nezahazují se.</GT_Turbo_Desc>
+  <GT_TurboFps>Snímků za sekundu v turbu: {0}</GT_TurboFps>
+  <GT_Mode4>turbo</GT_Mode4>
+  <GT_OverlayClick>Kliknutí: co zpomaluje tick (hra běží dál).</GT_OverlayClick>
+  <GT_TC_Running>Nastavení se zavřelo, aby hra mohla běžet – pusť rychlost 3 nebo 4 a pár sekund počkej.</GT_TC_Running>
+  <GT_WorldSleep>Světové postavy z modů mohou spát</GT_WorldSleep>
+  <GT_WorldSleep_Desc>Hra počítá vzdálené světové postavy jen jednou za pár hodin, když nic nepotřebují. Stavy přidané mody (části RJW, geny ras, zvláštnosti …) ale držely vzhůru skoro každou postavu, takže se stovky z nich počítaly každý tick. Teď je vzhůru drží jen těhotenství a stavy ze hry. Postava se probudí, jakmile se vrátí na mapu nebo do karavany.</GT_WorldSleep_Desc>
+  <GT_SimSleepLine>Živé: {0} vzhůru, {1} spí. Vzhůru je drží: {2}</GT_SimSleepLine>
+  <GT_SimSlept>Uspáno {0} postav.</GT_SimSlept>
+  <GT_TexCapWaylith>v 1.7 není potřeba</GT_TexCapWaylith>
 </LanguageData>

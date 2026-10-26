@@ -41,9 +41,10 @@ namespace ModSortManager
         private readonly Dictionary<ModMetaData, List<KeyValuePair<Sev, string>>> notes = new Dictionary<ModMetaData, List<KeyValuePair<Sev, string>>>();
         private List<List<DupCopy>> dups = new List<List<DupCopy>>();
         private List<SamePair> same = new List<SamePair>();
+        private List<LogBlame> blames = new List<LogBlame>();   // 0.1.8
         private bool needsRestart;
         private bool closeConfirmed;
-        private readonly bool[] collapsed = new bool[3];
+        private readonly bool[] collapsed = new bool[4];
 
         private int dragFrom = -1;
         private bool dragging;
@@ -88,11 +89,13 @@ namespace ModSortManager
             }
             catch (Exception e) { Log.Warning("[Mod Sort Manager] " + e.Message); }
             NewMods.Refresh();
+            try { var _ = ModChanges.Changed; } catch { }
             active = ModsConfig.ActiveModsInLoadOrder.ToList();
             opened = active.ToList();
             selected = active.FirstOrDefault();
             dups = Duplicates.Scan();
             same = SameThing.Analyze();
+            blames = LogErrors.Analyze();
             dirty = true;
             if (initialIds != null) ApplyIds(initialIds, null);
             else if (!Bisect.Active) OfferNextGroup();
@@ -156,7 +159,7 @@ namespace ModSortManager
             marks.Clear();
             notes.Clear();
             var set = new HashSet<ModMetaData>(active);
-            inactiveCache = ModLister.AllInstalledMods.Where(m => !set.Contains(m)).OrderByDescending(m => NewMods.IsNew(m) ? NewMods.AddedAt(m).Value.Ticks : 0L).ThenByDescending(m => m.Official).ThenBy(m => m.Name).ToList();
+            inactiveCache = ModLister.AllInstalledMods.Where(m => !set.Contains(m) && !Removal.IsGone(m)).OrderByDescending(m => NewMods.IsNew(m) ? NewMods.AddedAt(m).Value.Ticks : 0L).ThenByDescending(m => m.Official).ThenBy(m => m.Name).ToList();
 
             // duplicates
             foreach (List<DupCopy> g in dups)
@@ -206,7 +209,18 @@ namespace ModSortManager
                     else if (!d.Url.NullOrEmpty())
                     {
                         string url = d.Url;
-                        iss.actions.Add(new KeyValuePair<string, Action>("MSM_Download".Translate(), () => Application.OpenURL(url)));
+                        // 0.1.9: a Workshop mod is subscribed right here – Steam downloads it
+                        ulong wid = Updates.WorkshopId(d.steamWorkshopUrl ?? url);
+                        string dname = d.displayName ?? d.packageId;
+                        if (wid != 0 && Updates.CanSubscribe)
+                            iss.actions.Add(new KeyValuePair<string, Action>("MSM_Subscribe".Translate(), () =>
+                            {
+                                if (Updates.Subscribe(wid))
+                                    Messages.Message("MSM_Subscribed".Translate(dname), MessageTypeDefOf.TaskCompletion, false);
+                                else
+                                    SteamUtility.OpenUrl(url);
+                            }));
+                        iss.actions.Add(new KeyValuePair<string, Action>("MSM_Download".Translate(), () => SteamUtility.OpenUrl(url)));
                     }
                     iss.actions.Add(new KeyValuePair<string, Action>("MSM_Deactivate".Translate(), () => Deactivate(mm)));
                     issues.Add(iss);
@@ -270,7 +284,17 @@ namespace ModSortManager
                 if (!active.Contains(sp.a) || !active.Contains(sp.b)) continue;
                 var iss = new Issue { group = 2, sev = Sev.Info, title = sp.a.Name + " × " + sp.b.Name };
                 iss.text = (sp.hot ? "MSM_SameHot".Translate() : "MSM_SameText".Translate()).ToString() + " (" + sp.methods.Count + "): " + string.Join(", ", sp.methods.Take(4).ToArray()) + (sp.methods.Count > 4 ? "…" : "");
+                // 0.1.7: how they change it – first two methods, the rest in the details window
+                foreach (SameMethod d in sp.detail.Take(2))
+                    iss.text += "\n• " + d.method + ": " + sp.a.Name.Truncate(160f) + " – " + d.kindsA + " · " + sp.b.Name.Truncate(160f) + " – " + d.kindsB;
+                iss.text += "\n" + (sp.blocking ? "MSM_SameBlocking" : "MSM_SameAdditive").Translate();
                 SamePair p = sp;
+                iss.actions.Add(new KeyValuePair<string, Action>("MSM_SameDetails".Translate(), () => Find.WindowStack.Add(new Dialog_SameDetail(p))));
+                if (sp.blocking)
+                {
+                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateNamed".Translate(sp.a.Name.Truncate(120f)), () => Deactivate(p.a)));
+                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateNamed".Translate(sp.b.Name.Truncate(120f)), () => Deactivate(p.b)));
+                }
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(sp.a.Name.Truncate(120f)), () => { selected = p.a; tab = 0; }));
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(sp.b.Name.Truncate(120f)), () => { selected = p.b; tab = 0; }));
                 issues.Add(iss);
@@ -278,6 +302,20 @@ namespace ModSortManager
                 Sorter.Mark(marks, sp.b, Sev.Info);
                 Note(sp.a, Sev.Info, "MSM_NoteSame".Translate(sp.b.Name));
                 Note(sp.b, Sev.Info, "MSM_NoteSame".Translate(sp.a.Name));
+            }
+
+            // 0.1.8: errors in this session's log, by the mod that caused them
+            foreach (LogBlame b in blames)
+            {
+                if (!active.Contains(b.mod)) continue;
+                var iss = new Issue { group = 3, sev = Sev.Warn, title = "MSM_LogTitle".Translate(b.mod.Name, b.count) };
+                iss.text = "MSM_LogText".Translate() + "\n“" + b.sample + "”";
+                LogBlame bb = b;
+                iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(b.mod.Name.Truncate(120f)), () => { selected = bb.mod; tab = 0; }));
+                iss.actions.Add(new KeyValuePair<string, Action>("MSM_Deactivate".Translate(), () => Deactivate(bb.mod)));
+                issues.Add(iss);
+                Sorter.Mark(marks, b.mod, Sev.Warn);
+                Note(b.mod, Sev.Warn, "MSM_NoteLog".Translate(b.count));
             }
 
             nProbCache = active.Count(x => marks.ContainsKey(x));
@@ -338,6 +376,36 @@ namespace ModSortManager
             }
             else
                 Find.WindowStack.Add(new Dialog_MessageBox(err));
+        }
+
+        private void RemoveMenu(ModMetaData m)
+        {
+            var opts = new List<FloatMenuOption>();
+            void Done(bool now)
+            {
+                if (active.Contains(m)) { active.Remove(m); }
+                dirty = true;
+                needsRestart = true;
+                if (selected == m) selected = active.FirstOrDefault();
+                Messages.Message((now ? "MSM_RemovedNow" : "MSM_RemovedLater").Translate(m.Name), MessageTypeDefOf.TaskCompletion, false);
+            }
+            if (m.OnSteamWorkshop)
+                opts.Add(new FloatMenuOption("MSM_RemoveUnsub".Translate(), () =>
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_RemoveUnsubConfirm".Translate(m.Name), () =>
+                    {
+                        if (MSM.Unsubscribe(m)) { Removal.Gone.Add(m.RootDir.FullName); Done(true); }
+                        else Messages.Message("MSM_RemoveFailed".Translate(m.Name), MessageTypeDefOf.RejectInput, false);
+                    }, true))));
+            else
+            {
+                opts.Add(new FloatMenuOption("MSM_RemovePark".Translate(), () =>
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_RemoveParkConfirm".Translate(m.Name, MSM.ParkDir), () =>
+                        Done(Removal.RemoveFolder(m, false)), false))));
+                opts.Add(new FloatMenuOption("MSM_RemoveDelete".Translate(), () =>
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_RemoveDeleteConfirm".Translate(m.Name, m.RootDir.FullName), () =>
+                        Done(Removal.RemoveFolder(m, true)), true))));
+            }
+            Find.WindowStack.Add(new FloatMenu(opts));
         }
 
         private void KeepOnly(List<DupCopy> g, DupCopy keep)
@@ -463,9 +531,38 @@ namespace ModSortManager
             DoSaveAndRestart();
         }
 
+        // 0.1.5: restart the game without changing the mod list (the return to the game works the same)
+        private void JustRestart()
+        {
+            if (Bisect.Active)
+            {
+                Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_BisectRunning".Translate(), delegate { closeConfirmed = true; Bisect.Finish(false); }, true));
+                return;
+            }
+            Action go = delegate
+            {
+                PrepareReturn();
+                Log.Message("[Mod Sort Manager] restart without changing the mod list");
+                closeConfirmed = true;
+                GenCommandLine.Restart();
+            };
+            if (InGame && !(MSMMod.Settings.returnToGame && CanSaveGame()))
+            {
+                Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_NoSaveConfirm".Translate(), go, true));
+                return;
+            }
+            go();
+        }
+
         private void DoSaveAndRestart()
         {
-            // 1) in a game: the return save first, while the loaded game still matches the mod list
+            PrepareReturn();
+            SaveListAndRestart();
+        }
+
+        // in a game: the return save first, while the loaded game still matches the mod list
+        private void PrepareReturn()
+        {
             try
             {
                 if (InGame)
@@ -492,7 +589,10 @@ namespace ModSortManager
             {
                 Log.Warning("[Mod Sort Manager] return to game not prepared: " + e.Message);
             }
-            // 2) the mod list
+        }
+
+        private void SaveListAndRestart()
+        {
             try
             {
                 MSM.BackupModsConfig();
@@ -633,6 +733,7 @@ namespace ModSortManager
                 NewMods.Refresh();
                 dups = Duplicates.Scan();
                 same = SameThing.Analyze();
+            blames = LogErrors.Analyze();
                 try { Updates.Refresh(true); } catch { }
                 dirty = true;
                 int diff = ModLister.AllInstalledMods.Count() - before;
@@ -702,6 +803,14 @@ namespace ModSortManager
                 if (Widgets.ButtonInvisible(t)) tab = i;
                 tx += w + 2f;
             }
+            // 0.1.9: the Workshop inside the game (Steam overlay) – no need to leave the game
+            Rect ws = new Rect(tabs.xMax - 200f, tabs.y + 4f, 200f, tabs.height - 8f);
+            if (Widgets.ButtonText(ws, "MSM_OpenWorkshop".Translate()))
+            {
+                try { SteamUtility.OpenSteamWorkshopPage(); }
+                catch { Application.OpenURL("https://steamcommunity.com/app/294100/workshop/"); }
+            }
+            TooltipHandler.TipRegion(ws, "MSM_OpenWorkshopTip".Translate());
             MUI.Fill(new Rect(inRect.x, tabs.yMax, inRect.width, 1f), Line);
 
             // footer
@@ -738,6 +847,16 @@ namespace ModSortManager
             if (Button(save, saveLabel, true)) SaveAndRestart();
             Rect close = new Rect(save.x - 130f, r.y, 120f, r.height);
             if (Button(close, "MSM_Close".Translate())) Close();
+            // 0.1.5: a plain restart when nothing in the list changed
+            if (!restart)
+            {
+                string rl = "MSM_Restart".Translate();
+                float rw = Mathf.Max(120f, Text.CalcSize(rl).x + 30f);
+                Rect rr = new Rect(close.x - 10f - rw, r.y, rw, r.height);
+                if (Button(rr, rl)) JustRestart();
+                TooltipHandler.TipRegion(rr, "MSM_RestartTip".Translate());
+                close = rr;
+            }
 
             // after the restart
             bool val = InGame ? MSMMod.Settings.returnToGame : MSMMod.Settings.loadLastSave;
@@ -958,6 +1077,26 @@ namespace ModSortManager
                 Label(new Rect(r.x, y, r.width, 20f), (isNew ? "● " : "") + "MSM_Added".Translate(addedAt.Value.ToString("d.M.yyyy HH:mm")), isNew ? MUI.Accent : MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false);
                 y += 20f;
             }
+            // 0.2.0: updated since the last start, and what the mod adds to loading
+            ModChange chg = ModChanges.Of(m);
+            if (chg != null)
+            {
+                Rect cr = new Rect(r.x, y, r.width, 20f);
+                string ver = chg.from == chg.to || chg.to.NullOrEmpty() ? "" : " " + (chg.from.NullOrEmpty() ? "?" : chg.from) + " → " + chg.to;
+                Label(cr, "● " + "MSM_ChangedSince".Translate(ver), Info, GameFont.Tiny, TextAnchor.MiddleLeft, false);
+                Widgets.DrawHighlightIfMouseover(cr);
+                if (Widgets.ButtonInvisible(cr)) Find.WindowStack.Add(new Dialog_Changes(m));
+                y += 20f;
+            }
+            if (!m.Official)
+            {
+                Rect wr = new Rect(r.x, y, r.width, 20f);
+                Label(wr, LoadWeight.Line(m), MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false);
+                Widgets.DrawHighlightIfMouseover(wr);
+                TooltipHandler.TipRegion(wr, "MSM_WeightTip".Translate());
+                if (Widgets.ButtonInvisible(wr)) Find.WindowStack.Add(new Dialog_LoadWeight(active));
+                y += 20f;
+            }
             y += 6f;
 
             // notes
@@ -981,6 +1120,14 @@ namespace ModSortManager
             }
             if (Button(new Rect(r.x + bw + 8f, y, bw, 30f), "MSM_Folder".Translate())) MSM.OpenFolder(m.RootDir.FullName);
             y += 36f;
+            // 0.2.1: get rid of a mod – unsubscribe (Workshop) or move away / delete (local)
+            if (!m.Official && !m.IsCoreMod)
+            {
+                Rect rr = new Rect(r.x, y, r.width, 28f);
+                if (Button(rr, "MSM_Remove".Translate())) RemoveMenu(m);
+                TooltipHandler.TipRegion(rr, "MSM_RemoveTip".Translate());
+                y += 34f;
+            }
             if (isActive)
             {
                 int idx = active.IndexOf(m);
@@ -1017,13 +1164,39 @@ namespace ModSortManager
             Texture2D pic = null;
             try { pic = m.PreviewImage; if (pic != null) previewLoaded.Add(m); } catch { }
             float picH = pic != null ? (r.width - 16f) * pic.height / Mathf.Max(1f, pic.width) : 0f;
-            string desc = m.Description ?? "";
+            string desc = Requirements(m) + (m.Description ?? "");
             float textH = Text.CalcHeight(desc, r.width - 16f);
             Rect view = new Rect(0f, 0f, r.width - 16f, picH + (picH > 0 ? 8f : 0f) + textH + 10f);
             Widgets.BeginScrollView(outR, ref sDetail, view);
             if (pic != null) GUI.DrawTexture(new Rect(0f, 0f, view.width, picH), pic, ScaleMode.ScaleToFit);
             Label(new Rect(0f, picH + (picH > 0 ? 8f : 0f), view.width, textH + 4f), desc, new Color32(200, 204, 208, 255), GameFont.Small, TextAnchor.UpperLeft);
             Widgets.EndScrollView();
+        }
+
+        // 0.1.7: what the mod needs and who needs it (shown above the description)
+        private string Requirements(ModMetaData m)
+        {
+            try
+            {
+                var sb = new System.Text.StringBuilder();
+                var deps = m.Dependencies.Where(d => d != null && !d.packageId.NullOrEmpty()).ToList();
+                sb.Append("<b>" + "MSM_Requires".Translate() + "</b> ");
+                if (deps.Count == 0) sb.Append("MSM_ReqNone".Translate());
+                sb.Append("\n");
+                foreach (ModDependency d in deps)
+                {
+                    ModMetaData dm = MSM.FindMod(d.packageId);
+                    string name = dm?.Name ?? d.displayName ?? d.packageId;
+                    if (dm != null && active.Contains(dm)) sb.Append("<color=#7CBF5E>✓</color> " + name + "\n");
+                    else if (dm != null) sb.Append("<color=#E0A24A>○</color> " + name + " – " + "MSM_ReqInactive".Translate() + "\n");
+                    else sb.Append("<color=#E06A5A>✗</color> " + name + " – " + "MSM_ReqMissing".Translate() + "\n");
+                }
+                var by = active.Where(x => x != m && x.Dependencies.Any(d => d != null && m.SamePackageId(d.packageId, true))).Select(x => x.Name).ToList();
+                if (by.Count > 0)
+                    sb.Append("<b>" + "MSM_RequiredBy".Translate(by.Count) + "</b> " + string.Join(", ", by.Take(12).ToArray()) + (by.Count > 12 ? " …" : "") + "\n");
+                return sb.Append("\n").ToString();
+            }
+            catch { return ""; }
         }
 
         // ================= tab: problems =================
@@ -1034,12 +1207,12 @@ namespace ModSortManager
             Rect side = new Rect(body.xMax - sideW, body.y, sideW, body.height).ContractedBy(Pad, 10f);
             MUI.Fill(new Rect(body.xMax - sideW, body.y, 1f, body.height), Line);
 
-            string[] groupKeys = { "MSM_GrpDup", "MSM_GrpBreak", "MSM_GrpSame" };
-            Color[] groupCol = { Err, MUI.Warn, Info };
+            string[] groupKeys = { "MSM_GrpDup", "MSM_GrpBreak", "MSM_GrpSame", "MSM_GrpLog" };
+            Color[] groupCol = { Err, MUI.Warn, Info, MUI.Warn };
             float cardW = left.width - 16f;
             // measure
             float total = 0f;
-            for (int g = 0; g < 3; g++)
+            for (int g = 0; g < 4; g++)
             {
                 total += 32f;
                 List<Issue> gi = issues.Where(i => i.group == g).ToList();
@@ -1051,7 +1224,7 @@ namespace ModSortManager
             Widgets.BeginScrollView(left, ref sProblems, view);
             float y = 0f;
             Action pending = null;
-            for (int g = 0; g < 3; g++)
+            for (int g = 0; g < 4; g++)
             {
                 List<Issue> gi = issues.Where(i => i.group == g).ToList();
                 Rect hr = new Rect(0f, y + 6f, cardW, 24f);
@@ -1191,13 +1364,18 @@ namespace ModSortManager
                 if (Updates.Finished > 0) needsRestart = true;
             }
             Rect r = body.ContractedBy(Pad, 10f);
+            int nChanged = ModChanges.Changed.Count;
             if (!Updates.Available)
             {
                 Label(new Rect(r.x, r.y, r.width, 60f), "MSM_UpdNoSteam".Translate(), MUI.Muted);
+                if (nChanged > 0 && Button(new Rect(r.x, r.y + 64f, 220f, 32f), "MSM_Changes".Translate(nChanged)))
+                    Find.WindowStack.Add(new Dialog_Changes());
                 return;
             }
+            if (Button(new Rect(r.xMax - 620f, r.y - 4f, 200f, 32f), "MSM_Changes".Translate(nChanged), false, nChanged > 0))
+                Find.WindowStack.Add(new Dialog_Changes());
             float y = r.y;
-            Label(new Rect(r.x, y, r.width - 420f, 22f), "MSM_UpdTitle".Translate(Updates.Pending, Updates.Busy), MUI.Text1, GameFont.Small, TextAnchor.MiddleLeft, false);
+            Label(new Rect(r.x, y, r.width - 630f, 22f), "MSM_UpdTitle".Translate(Updates.Pending, Updates.Busy), MUI.Text1, GameFont.Small, TextAnchor.MiddleLeft, false);
             if (Button(new Rect(r.xMax - 200f, y - 4f, 200f, 32f), "MSM_UpdAll".Translate(Updates.Pending), true) && Updates.Pending > 0)
                 Updates.DownloadAll();
             if (Button(new Rect(r.xMax - 410f, y - 4f, 200f, 32f), "MSM_UpdCheck".Translate()))
@@ -1249,7 +1427,24 @@ namespace ModSortManager
             profileName = SearchField(new Rect(left.x, y, left.width - 190f, 32f), profileName, "MSM_ProfileNameHint".Translate());
             if (Button(new Rect(left.xMax - 180f, y, 180f, 32f), "MSM_SaveProfile".Translate(), true, !profileName.NullOrEmpty()))
                 SaveProfile();
-            y += 44f;
+            y += 40f;
+            // 0.2.0: the list as a text code to share (friends, Discord …)
+            float sw = (left.width - 8f) / 2f;
+            Rect copyR = new Rect(left.x, y, sw, 30f), pasteR = new Rect(left.x + sw + 8f, y, sw, 30f);
+            if (Button(copyR, "MSM_ShareCopy".Translate()))
+            {
+                GUIUtility.systemCopyBuffer = ShareCode.Make(active);
+                Messages.Message("MSM_ShareCopied".Translate(active.Count), MessageTypeDefOf.TaskCompletion, false);
+            }
+            TooltipHandler.TipRegion(copyR, "MSM_ShareCopyTip".Translate());
+            if (Button(pasteR, "MSM_SharePaste".Translate()))
+            {
+                List<ShareEntry> got = ShareCode.Parse(GUIUtility.systemCopyBuffer);
+                if (got == null) Messages.Message("MSM_ShareBad".Translate(), MessageTypeDefOf.RejectInput, false);
+                else ApplyIds(got.Select(e => e.id).ToList(), got.Select(e => e.name).ToList(), got.Select(e => e.wid).ToList());
+            }
+            TooltipHandler.TipRegion(pasteR, "MSM_SharePasteTip".Translate());
+            y += 40f;
             Rect outL = new Rect(left.x, y, left.width, left.yMax - y);
             Rect viewL = new Rect(0f, 0f, outL.width - 16f, Mathf.Max(profileFiles.Count * 40f, outL.height - 2f));
             Widgets.BeginScrollView(outL, ref sProfiles, viewL);
@@ -1326,14 +1521,20 @@ namespace ModSortManager
             ApplyIds(ml.ids, ml.names);
         }
 
-        private void ApplyIds(List<string> ids, List<string> names)
+        private void ApplyIds(List<string> ids, List<string> names, List<ulong> wids = null)
         {
             var list = new List<ModMetaData>();
             var missing = new List<string>();
+            var canGet = new List<ulong>();
             for (int i = 0; i < ids.Count; i++)
             {
                 ModMetaData m = MSM.FindMod(ids[i]);
-                if (m == null) { missing.Add(names != null && i < names.Count ? names[i] : ids[i]); continue; }
+                if (m == null)
+                {
+                    missing.Add(names != null && i < names.Count ? names[i] : ids[i]);
+                    if (wids != null && i < wids.Count && wids[i] != 0) canGet.Add(wids[i]);
+                    continue;
+                }
                 if (!list.Contains(m)) list.Add(m);
             }
             ModMetaData core = ModLister.AllInstalledMods.FirstOrDefault(x => x.IsCoreMod);
@@ -1341,10 +1542,69 @@ namespace ModSortManager
             active = list;
             dirty = true;
             tab = 0;
-            if (missing.Count > 0)
+            if (missing.Count > 0 && canGet.Count > 0 && Updates.CanSubscribe)
+            {
+                List<ulong> get = canGet.Distinct().ToList();
+                string text = "MSM_Missing".Translate(missing.Count, string.Join("\n", missing.Take(40).ToArray()) + (missing.Count > 40 ? "\n…" : ""));
+                Find.WindowStack.Add(new Dialog_MessageBox(text, "MSM_SubscribeMissing".Translate(get.Count), delegate
+                {
+                    int ok = get.Count(id => Updates.Subscribe(id));
+                    needsRestart |= ok > 0;
+                    Messages.Message("MSM_SubscribedN".Translate(ok), MessageTypeDefOf.TaskCompletion, false);
+                }, "CloseButton".Translate(), null));
+            }
+            else if (missing.Count > 0)
                 Find.WindowStack.Add(new Dialog_MessageBox("MSM_Missing".Translate(missing.Count, string.Join("\n", missing.Take(40).ToArray()) + (missing.Count > 40 ? "\n…" : ""))));
             else
                 Messages.Message("MSM_Loaded".Translate(list.Count), MessageTypeDefOf.TaskCompletion, false);
+        }
+    }
+}
+
+
+namespace ModSortManager
+{
+    // 0.1.7: every method two mods both change, and how each of them does it
+    public class Dialog_SameDetail : Verse.Window
+    {
+        private readonly SamePair pair;
+        private UnityEngine.Vector2 scroll;
+
+        public override UnityEngine.Vector2 InitialSize => new UnityEngine.Vector2(860f, 620f);
+
+        public Dialog_SameDetail(SamePair p)
+        {
+            pair = p;
+            doCloseX = true;
+            closeOnClickedOutside = true;
+            absorbInputAroundWindow = true;
+        }
+
+        public override void DoWindowContents(UnityEngine.Rect r)
+        {
+            Verse.Text.Font = Verse.GameFont.Medium;
+            Verse.Widgets.Label(new UnityEngine.Rect(r.x, r.y, r.width, 32f), pair.a.Name + " × " + pair.b.Name);
+            Verse.Text.Font = Verse.GameFont.Small;
+            string legend = "MSM_SameLegend".Translate();
+            float lh = Verse.Text.CalcHeight(legend, r.width);
+            UnityEngine.GUI.color = MUI.Muted;
+            Verse.Widgets.Label(new UnityEngine.Rect(r.x, r.y + 36f, r.width, lh), legend);
+            UnityEngine.GUI.color = UnityEngine.Color.white;
+            float top = r.y + 40f + lh;
+            var outR = new UnityEngine.Rect(r.x, top, r.width, r.yMax - top);
+            float rowH = 66f;
+            var view = new UnityEngine.Rect(0f, 0f, outR.width - 16f, pair.detail.Count * rowH);
+            Verse.Widgets.BeginScrollView(outR, ref scroll, view);
+            for (int i = 0; i < pair.detail.Count; i++)
+            {
+                SameMethod d = pair.detail[i];
+                var row = new UnityEngine.Rect(0f, i * rowH, view.width, rowH - 4f);
+                if (i % 2 == 1) Verse.Widgets.DrawLightHighlight(row);
+                Verse.Widgets.Label(new UnityEngine.Rect(row.x + 6f, row.y + 2f, row.width - 12f, 22f), "<b>" + d.method + "</b>" + (d.runsFirst != null ? "   " + "MSM_RunsFirst".Translate(d.runsFirst) : ""));
+                Verse.Widgets.Label(new UnityEngine.Rect(row.x + 18f, row.y + 22f, row.width - 24f, 20f), pair.a.Name + ": " + d.kindsA);
+                Verse.Widgets.Label(new UnityEngine.Rect(row.x + 18f, row.y + 41f, row.width - 24f, 20f), pair.b.Name + ": " + d.kindsB);
+            }
+            Verse.Widgets.EndScrollView();
         }
     }
 }

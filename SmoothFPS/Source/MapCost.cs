@@ -180,6 +180,20 @@ namespace GraphicsTuner
                 rows.Clear(); topTicking.Clear(); tips.Clear();
                 Build();
             }
+            // 1.4.0: filth outside the home area – nobody cleans it, the game still keeps it
+            Map map = Find.CurrentMap;
+            if (map != null)
+            {
+                int outside = map.listerThings.ThingsInGroup(ThingRequestGroup.Filth).Count(f => !map.areaManager.Home[f.Position]);
+                if (outside > 0 && Widgets.ButtonText(new Rect(inRect.x + 210f, inRect.yMax - 34f, 300f, 32f), "GT_MC_CleanFilth".Translate(outside)))
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("GT_MC_CleanFilthConfirm".Translate(outside), () =>
+                    {
+                        foreach (Thing f in map.listerThings.ThingsInGroup(ThingRequestGroup.Filth).Where(f => !map.areaManager.Home[f.Position]).ToList())
+                            if (!f.Destroyed) f.Destroy();
+                        rows.Clear(); topTicking.Clear(); tips.Clear();
+                        Build();
+                    }, destructive: true));
+            }
         }
     }
 

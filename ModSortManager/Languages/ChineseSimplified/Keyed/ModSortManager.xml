@@ -229,4 +229,59 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_PS_DropQueue>取消其余</MSM_PS_DropQueue>
   <MSM_SetPreSave>保存前检查</MSM_SetPreSave>
   <MSM_SetPreSaveTip>保存修改后的列表前检查：缺少的前置、旧版本模组、一次添加大量新模组，以及新模组需要但不存在的物品。</MSM_SetPreSaveTip>
+  <MSM_Restart>重启</MSM_Restart>
+  <MSM_RestartTip>不改变模组列表直接重启游戏。在游戏中且开启「重启后返回游戏」时，会先保存游戏，重启后再读取。</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>前缀（可跳过原代码）</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>前缀</MSM_Kind_prefix>
+  <MSM_Kind_postfix>后缀</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>转译器（改写代码）</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>终结器</MSM_Kind_finalizer>
+  <MSM_SameBlocking>至少有一个可以跳过原代码——这也可能阻止另一个模组的修改。请确认两者都正常。</MSM_SameBlocking>
+  <MSM_SameAdditive>两者都只是改写或补充代码——通常没问题，只有改写相互冲突时才会出问题。</MSM_SameAdditive>
+  <MSM_SameDetails>它们如何修改</MSM_SameDetails>
+  <MSM_SameLegend>前缀在游戏代码之前运行；可跳过的前缀可能阻止游戏代码和之后的前缀。后缀在之后运行，只做补充——不会冲突。转译器直接改写代码——两个可能冲突。“先运行”= 最先做决定的前缀。</MSM_SameLegend>
+  <MSM_RunsFirst>先运行：{0}</MSM_RunsFirst>
+  <MSM_Requires>需要：</MSM_Requires>
+  <MSM_ReqNone>无</MSM_ReqNone>
+  <MSM_ReqInactive>已安装，未启用</MSM_ReqInactive>
+  <MSM_ReqMissing>未安装</MSM_ReqMissing>
+  <MSM_RequiredBy>被 {0} 个已启用模组需要：</MSM_RequiredBy>
+  <MSM_GrpLog>日志中的错误</MSM_GrpLog>
+  <MSM_LogTitle>{0}：本次游戏 {1} 个错误</MSM_LogTitle>
+  <MSM_LogText>这些错误来自该模组的代码或文件（在本次游戏的日志中找到）。第一个：</MSM_LogText>
+  <MSM_NoteLog>日志中有 {0} 个错误</MSM_NoteLog>
+  <MSM_DeactivateNamed>停用 {0}</MSM_DeactivateNamed>
+  <MSM_Subscribe>订阅（Steam）</MSM_Subscribe>
+  <MSM_Subscribed>已订阅 {0} – Steam 正在下载。重启游戏后在列表中启用它。</MSM_Subscribed>
+  <MSM_OpenWorkshop>创意工坊</MSM_OpenWorkshop>
+  <MSM_OpenWorkshopTip>在游戏内打开 Steam 创意工坊（Steam 界面覆盖）——无需离开游戏即可订阅模组。需要开启 Steam 界面覆盖；新模组在重启游戏后加载。</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>复制列表代码</MSM_ShareCopy>
+  <MSM_ShareCopyTip>将当前模组列表复制为一段短文本代码——发给朋友或发到 Discord。</MSM_ShareCopyTip>
+  <MSM_ShareCopied>已复制模组列表（{0} 个模组）——可粘贴到任何地方。</MSM_ShareCopied>
+  <MSM_SharePaste>粘贴列表代码</MSM_SharePaste>
+  <MSM_SharePasteTip>从剪贴板中的代码加载模组列表。缺少的创意工坊模组可立即订阅。</MSM_SharePasteTip>
+  <MSM_ShareBad>剪贴板中没有 Mod Sort Manager 列表代码。</MSM_ShareBad>
+  <MSM_SubscribeMissing>订阅缺少的模组（{0}）</MSM_SubscribeMissing>
+  <MSM_SubscribedN>已订阅 {0} 个模组——Steam 正在下载。请重启游戏后再次加载代码。</MSM_SubscribedN>
+  <MSM_Changes>更新内容（{0}）</MSM_Changes>
+  <MSM_ChangesTitle>自上次启动以来已更新（{0}）</MSM_ChangesTitle>
+  <MSM_ChangedSince>自上次启动以来已更新{0}——点击查看更新日志</MSM_ChangedSince>
+  <MSM_NoChangelog>此模组没有更新日志文件。其创意工坊页面可能列有更改。</MSM_NoChangelog>
+  <MSM_Weight>加载：贴图 {0} · 代码 {1} · 定义 {2} · 声音 {3}</MSM_Weight>
+  <MSM_WeightCalc>加载：计算中…</MSM_WeightCalc>
+  <MSM_WeightTip>游戏从此模组加载的内容在磁盘上的大小。点击查看哪些模组最拖慢加载。</MSM_WeightTip>
+  <MSM_WeightTitle>最拖慢加载的模组</MSM_WeightTitle>
+  <MSM_WeightHint>当前模组的贴图、代码、定义和声音大小。越大通常加载越久；贴图占比最大。</MSM_WeightHint>
+  <MSM_WeightSum>共 {0}，{1} 个模组</MSM_WeightSum>
+  <MSM_Remove>移除模组…</MSM_Remove>
+  <MSM_RemoveTip>取消创意工坊订阅，或搁置 / 删除本地模组。</MSM_RemoveTip>
+  <MSM_RemoveUnsub>取消订阅（Steam 会删除文件）</MSM_RemoveUnsub>
+  <MSM_RemoveUnsubConfirm>取消订阅 {0}？Steam 会删除其文件，模组将被停用。你随时可以在创意工坊重新订阅。</MSM_RemoveUnsubConfirm>
+  <MSM_RemovePark>移到搁置文件夹（可恢复）</MSM_RemovePark>
+  <MSM_RemoveParkConfirm>将 {0} 移出 Mods 文件夹，移到：\n{1}\n\n你随时可以把它放回去。</MSM_RemoveParkConfirm>
+  <MSM_RemoveDelete>永久删除</MSM_RemoveDelete>
+  <MSM_RemoveDeleteConfirm>永久删除 {0}？\n{1}\n\n此操作无法撤销。</MSM_RemoveDeleteConfirm>
+  <MSM_RemovedNow>{0} 已移除。重启游戏以完成。</MSM_RemovedNow>
+  <MSM_RemovedLater>{0} 正在使用中——将在下次启动时移除（已停用）。</MSM_RemovedLater>
+  <MSM_RemoveFailed>无法移除 {0}。</MSM_RemoveFailed>
 </LanguageData>

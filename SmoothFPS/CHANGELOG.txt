@@ -1,3 +1,59 @@
+=== Workshop release 1.4.0 (26 Oct 2026) ===
+1.4.0
+Simulation (Simulation tab)
+- Sleeping world pawns: conditions added by mods (race genes, quirks …) no longer keep far-away world pawns awake, so they are not updated every tick. Pregnancies and the game's own conditions still keep them awake; a pawn wakes up as soon as it comes back to a map. The world line shows how many are awake and asleep.
+- Smart work search: a work that took long to check and found nothing is not checked again by that colonist for 5 s of game time (emergency work always is).
+- Spread job searches and room temperatures in parts – smoother speed 3 and 4.
+- Fast nights: while everybody sleeps and nothing happens, the game runs at speed 3.
+- Turbo at speed 3 and 4 (off by default): while you don't touch the mouse or keyboard, the picture drops to a few frames per second and all the rest goes to the game.
+
+Tools
+- The FPS overlay shows ticks per second against what the speed asks for, turns red when the game does not keep up, and a click on it opens "What slows the tick" (which can now be measured while the game runs).
+- "What is expensive on this map": a button removes filth outside the home area.
+- "Report a bug" button and "Bolek98's mods" (versions and settings of all my mods, save/load all settings) in the settings.
+
+Fixes
+- RimWorld 1.7: blank icons and pictures of some mod furniture – the texture limit is not used on 1.7 any more.
+- The world clean-up names the mod whose replacement of the game's clean-up fails, once, instead of repeating a warning.
+
+=== Development history since the last Workshop release (test versions) ===
+1.4.7
+- Fix (RimWorld 1.7): blank icons and pictures of some mod furniture. The "largest mod picture" limit is no longer used on 1.7 – its texture system moves pictures out of video memory by itself and could not bring back the smaller copies, which then stayed blank.
+
+1.4.6
+- World pawns from mods may sleep (Simulation tab, on): conditions added by mods (RJW parts, race genes, quirks …) no longer keep far-away world pawns awake, so they are not updated every tick any more. Pregnancies and the game's own conditions still keep them awake; a pawn wakes up as soon as it comes back to a map. In a big modded game this was a quarter of all the time per tick.
+- The world line in the Simulation tab shows how many living world pawns are awake and asleep and what keeps them awake; "Clean up the world now" also puts them to sleep at once.
+
+1.4.5
+- Fix: the click on the FPS overlay did nothing (it now opens "What slows the tick").
+
+1.4.4
+- "What slows the tick" can be measured while the game runs: opening it from the settings closes the settings and the Esc menu (they pause the game), and a click on the FPS overlay opens it straight from the game.
+
+1.4.3
+- Turbo at speed 3 and 4 (Simulation tab, off by default): while you don't touch the mouse or keyboard, the picture drops to a few frames per second (5–30, adjustable) and all the rest of the time goes to the game, so time runs as fast as the PC can. Moving the mouse makes the picture smooth again at once.
+
+1.4.2
+- Settings: a new "Bolek98's mods" button (next to "Report a bug") – all of Bolek98's mods you run in one list with their versions and settings, and saving or loading all their settings at once (for another PC or a reinstall).
+
+1.4.1
+- The automatic world clean-up names the mod when another mod's replacement of the game's world pawn clean-up fails (e.g. RIMMSqol), once, instead of the same short warning again and again.
+
+1.4.0
+Speed and flow of time (Simulation tab)
+- Smart work search: a work that took long to check and found nothing for a colonist (emptying vending machines, refuelling, digging mod resources …) is not checked again by that colonist for 5 s of game time. Emergency work is always checked.
+- Spread job searches: when the job searches of one tick already took over 6 ms, other colonists look for work 1–3 ticks later instead of all at once – smoother speed 3 and 4. Never for drafted colonists or in danger.
+- Room temperatures in parts: every room is still evened out every 2 s, but not all in the same tick.
+- Fast nights: while everybody sleeps and nothing happens, the game runs at speed 3; your speed comes back when someone wakes up, a letter arrives or danger shows.
+- The FPS overlay shows ticks per second against what the speed asks for, turns red when the game does not keep up and tells whether the simulation or the drawing is the reason.
+- "What is expensive on this map": a button removes filth outside the home area (with confirmation).
+
+1.3.2
+- Fix (1.7): with the texture limit on, some mod pictures that were made smaller stayed blank – e.g. doors and their icons. The game uploads pictures to the graphics card only at the end of loading, and the smaller copies had already dropped their pixels by then.
+
+1.3.1
+- Settings: new "Report a bug" button (bottom left) – a short report for a Workshop comment and a full one for GitHub Issues, with this mod's errors, the mod list and other mods that change the same game code. Nothing is sent anywhere by itself.
+
 === Workshop release 1.3.0 (23 Oct 2026) – everything since the previous Workshop version ===
 1.3.0
 Game speed

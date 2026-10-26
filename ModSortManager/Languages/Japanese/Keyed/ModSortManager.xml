@@ -229,4 +229,59 @@ Mod Sort Manager は {0} 個の疑わしいModの半分を無効化し、ゲー�
   <MSM_PS_DropQueue>残りを取り消す</MSM_PS_DropQueue>
   <MSM_SetPreSave>保存前のチェック</MSM_SetPreSave>
   <MSM_SetPreSaveTip>変更したリストを保存する前に：足りない前提MOD、古いバージョン向けのMOD、一度に多数の新MOD、新MODが必要とする存在しないもの。</MSM_SetPreSaveTip>
+  <MSM_Restart>再起動</MSM_Restart>
+  <MSM_RestartTip>Modリストを変えずにゲームを再起動します。ゲーム中で「ゲームへ戻る」がオンなら、先にセーブして再起動後に読み込みます。</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>プレフィックス（元の処理をスキップ可能）</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>プレフィックス</MSM_Kind_prefix>
+  <MSM_Kind_postfix>ポストフィックス</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>トランスパイラ（コードを書き換え）</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>ファイナライザ</MSM_Kind_finalizer>
+  <MSM_SameBlocking>少なくとも一方が元のコードをスキップできます――もう一方のMODの変更も止まる可能性があります。両方が動くか確認してください。</MSM_SameBlocking>
+  <MSM_SameAdditive>どちらもコードを書き換えるか追加するだけです――通常は問題なく、書き換え同士がぶつかる場合のみ衝突します。</MSM_SameAdditive>
+  <MSM_SameDetails>変更内容</MSM_SameDetails>
+  <MSM_SameLegend>プレフィックスはゲームのコードの前に実行されます。スキップできるプレフィックスはゲームのコードと後続のプレフィックスを止めることがあります。ポストフィックスは後に実行され追加するだけなので衝突しません。トランスパイラはコード自体を書き換えるため、2つがぶつかることがあります。「先に実行」= 最初に判断するプレフィックス。</MSM_SameLegend>
+  <MSM_RunsFirst>先に実行：{0}</MSM_RunsFirst>
+  <MSM_Requires>必要：</MSM_Requires>
+  <MSM_ReqNone>なし</MSM_ReqNone>
+  <MSM_ReqInactive>インストール済み・無効</MSM_ReqInactive>
+  <MSM_ReqMissing>未インストール</MSM_ReqMissing>
+  <MSM_RequiredBy>有効なMOD {0} 個が必要としています：</MSM_RequiredBy>
+  <MSM_GrpLog>ログのエラー</MSM_GrpLog>
+  <MSM_LogTitle>{0}：このセッションで {1} 件のエラー</MSM_LogTitle>
+  <MSM_LogText>このMODのコードまたはファイルから発生したエラーです（このセッションのログで検出）。最初のもの：</MSM_LogText>
+  <MSM_NoteLog>ログに {0} 件のエラー</MSM_NoteLog>
+  <MSM_DeactivateNamed>{0} を無効化</MSM_DeactivateNamed>
+  <MSM_Subscribe>サブスクライブ（Steam）</MSM_Subscribe>
+  <MSM_Subscribed>{0} をサブスクライブしました – Steam がダウンロード中です。ゲームを再起動してからリストで有効にしてください。</MSM_Subscribed>
+  <MSM_OpenWorkshop>ワークショップ</MSM_OpenWorkshop>
+  <MSM_OpenWorkshopTip>ゲーム内で Steam ワークショップを開きます（Steam オーバーレイ）――ゲームを離れずにMODをサブスクライブできます。Steam オーバーレイを有効にする必要があり、新しいMODは再起動後に読み込まれます。</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>リストをコードでコピー</MSM_ShareCopy>
+  <MSM_ShareCopyTip>有効なMODリストを短いテキストコードとしてコピーします――友人に送ったり Discord に投稿したりできます。</MSM_ShareCopyTip>
+  <MSM_ShareCopied>MODリストをコピーしました（{0} 個）――どこにでも貼り付けられます。</MSM_ShareCopied>
+  <MSM_SharePaste>リストコードを貼り付け</MSM_SharePaste>
+  <MSM_SharePasteTip>クリップボードのコードからMODリストを読み込みます。足りないワークショップMODはすぐにサブスクライブできます。</MSM_SharePasteTip>
+  <MSM_ShareBad>クリップボードに Mod Sort Manager のリストコードがありません。</MSM_ShareBad>
+  <MSM_SubscribeMissing>足りないMODをサブスクライブ（{0}）</MSM_SubscribeMissing>
+  <MSM_SubscribedN>{0} 個のMODをサブスクライブしました――Steam がダウンロード中です。ゲームを再起動してからコードを再度読み込んでください。</MSM_SubscribedN>
+  <MSM_Changes>更新内容（{0}）</MSM_Changes>
+  <MSM_ChangesTitle>前回の起動以降に更新（{0}）</MSM_ChangesTitle>
+  <MSM_ChangedSince>前回の起動以降に更新{0}――クリックで更新履歴</MSM_ChangedSince>
+  <MSM_NoChangelog>このMODには更新履歴ファイルがありません。ワークショップページに記載があるかもしれません。</MSM_NoChangelog>
+  <MSM_Weight>読み込み：テクスチャ {0} · コード {1} · Def {2} · サウンド {3}</MSM_Weight>
+  <MSM_WeightCalc>読み込み：計算中…</MSM_WeightCalc>
+  <MSM_WeightTip>ゲームがこのMODから読み込む内容のディスク上のサイズです。クリックで読み込みを最も遅くしているMODを表示。</MSM_WeightTip>
+  <MSM_WeightTitle>読み込みを最も遅くしているもの</MSM_WeightTitle>
+  <MSM_WeightHint>有効なMODのテクスチャ、コード、Def、サウンドのサイズ。大きいほど読み込みが長くなりがちで、テクスチャが最も重いです。</MSM_WeightHint>
+  <MSM_WeightSum>合計 {0}（{1} 個のMOD）</MSM_WeightSum>
+  <MSM_Remove>MODを削除…</MSM_Remove>
+  <MSM_RemoveTip>ワークショップの購読を解除、またはローカルMODを退避 / 削除します。</MSM_RemoveTip>
+  <MSM_RemoveUnsub>購読解除（Steam がファイルを削除）</MSM_RemoveUnsub>
+  <MSM_RemoveUnsubConfirm>{0} の購読を解除しますか？ Steam がファイルを削除し、MODは無効になります。いつでも再購読できます。</MSM_RemoveUnsubConfirm>
+  <MSM_RemovePark>退避フォルダへ移動（元に戻せます）</MSM_RemovePark>
+  <MSM_RemoveParkConfirm>{0} を Mods フォルダから次へ移動します：\n{1}\n\nいつでも戻せます。</MSM_RemoveParkConfirm>
+  <MSM_RemoveDelete>完全に削除</MSM_RemoveDelete>
+  <MSM_RemoveDeleteConfirm>{0} を完全に削除しますか？\n{1}\n\n元に戻せません。</MSM_RemoveDeleteConfirm>
+  <MSM_RemovedNow>{0} を削除しました。ゲームを再起動して完了してください。</MSM_RemovedNow>
+  <MSM_RemovedLater>{0} は使用中です――次回起動時に削除されます（無効化済み）。</MSM_RemovedLater>
+  <MSM_RemoveFailed>{0} を削除できませんでした。</MSM_RemoveFailed>
 </LanguageData>

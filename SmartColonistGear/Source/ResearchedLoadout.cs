@@ -70,6 +70,8 @@ namespace ResearchedLoadout
 			: base(content)
 		{
 			Settings = GetSettings<ResearchedLoadoutSettings>();
+			MNews.Register(content, MUIVersion.Version);
+			LongEventHandler.ExecuteWhenFinished(GearOverview.SetButton);
 			Harmony harmony = new Harmony("misak.researchedloadout");
 			MUI.Init(new ResearchedLoadoutSettings(), null, "settingsVersion", "recommended", "debugLog");
 			if (Settings.recommended)
@@ -105,7 +107,7 @@ namespace ResearchedLoadout
 			}
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
-			MLog.Game("[Smart Colonist Gear] v2.14.0 loaded (messages: Logs\\SmartColonistGear.log).");
+			MLog.Game("[Smart Colonist Gear] v" + MUIVersion.Version + " loaded (messages: Logs\\SmartColonistGear.log).");
 		}
 
 		public override string SettingsCategory()
@@ -119,7 +121,7 @@ namespace ResearchedLoadout
 		{
 			bool useRecipes = Settings.useRecipes;
 			// 2.13.0: recommended settings card on top
-			MUI.Version(inRect, "v2.14.0 · Bolek98");
+			MUI.Version(inRect, "v" + MUIVersion.Version + " · Bolek98");
 			if (recBullets == null)
 			{
 				recBullets = new List<string>();
@@ -306,6 +308,7 @@ namespace ResearchedLoadout
 			Check(listing_Standard, "RL_AutoPrimary", ref Settings.autoEquipPrimary, "autoEquipPrimary");
 			Check(listing_Standard, "RL_UseSkills", ref Settings.useSkills, "useSkills");
 			Check(listing_Standard, "RL_PreferNewer", ref Settings.preferNewerTech, "preferNewerTech");
+			Check(listing_Standard, "RL_PreferNewEra", ref Settings.preferNewEra, "preferNewEra");
 			Check(listing_Standard, "RL_ToolsNotWeapons", ref Settings.toolsNotWeapons, "toolsNotWeapons");
 			Check(listing_Standard, "RL_AutoSidearm", ref Settings.autoEquipSidearm, "autoEquipSidearm");
 			Check(listing_Standard, "RL_PrioritizeFighters", ref Settings.prioritizeFighters, "prioritizeFighters");
@@ -327,6 +330,9 @@ namespace ResearchedLoadout
 			Check(listing_Standard, "RL_OnlyStockpile", ref Settings.onlyFromStockpile, "onlyFromStockpile");
 			Check(listing_Standard, "RL_ReplaceBroken", ref Settings.replaceBrokenGear, "replaceBrokenGear");
 			Check(listing_Standard, "RL_StoreDropped", ref Settings.storeDroppedGear, "storeDroppedGear");
+			bool gb = Settings.gearButton;
+			Check(listing_Standard, "RL_GearButton", ref Settings.gearButton, "gearButton");
+			if (gb != Settings.gearButton) GearOverview.SetButton();
 			Check(listing_Standard, "RL_KeepArmor", ref Settings.keepArmor, "keepArmor");
 			Check(listing_Standard, "RL_StatOffsets", ref Settings.statOffsets, "statOffsets");
 			Check(listing_Standard, "RL_WorkClothing", ref Settings.workClothing, "workClothing");
@@ -4706,6 +4712,9 @@ namespace ResearchedLoadout
 		// 2.15.0: newer tech preferred (guns over bows, newer armor over plate); work tools are never weapons
 		public bool preferNewerTech = true;
 
+		// 2.15.0
+		public bool preferNewEra = true;
+
 		public bool toolsNotWeapons = true;
 
 		public bool autoEquipSidearm = true;
@@ -4729,6 +4738,11 @@ namespace ResearchedLoadout
 		// 2.9.1: how many weapons a colonist may carry in total (weapon in hand included), 0 = no own limit
 		public int sidearmMaxTotal = 3;
 
+		// 2.15.1: how many weapons of each kind a colonist carries (the one in hand included)
+		public int sidearmMaxMelee = 1;
+
+		public int sidearmMaxRanged = 1;
+
 		// 2.9.1: weapons the colony has researched but never made are put away too (not only unresearched ones)
 		public bool stripUncraftedWeapons = true;
 
@@ -4747,6 +4761,8 @@ namespace ResearchedLoadout
 		public bool ownSwitchBack = true;
 
 		public bool ownSwitchGizmo = true;
+
+		public bool gearButton = true;   // 2.16.0: "Gear" overview button at the bottom
 
 		public float ownMaxMass = 0f;
 
@@ -4839,6 +4855,7 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref autoEquipPrimary, "autoEquipPrimary", true);
 			Scribe_Values.Look(ref useSkills, "useSkills", true);
 			Scribe_Values.Look(ref preferNewerTech, "preferNewerTech", true);
+			Scribe_Values.Look(ref preferNewEra, "preferNewEra", true);
 			Scribe_Values.Look(ref toolsNotWeapons, "toolsNotWeapons", true);
 			Scribe_Values.Look(ref autoEquipSidearm, "autoEquipSidearm", true);
 			Scribe_Values.Look(ref sidearmFilter, "sidearmFilter", true);
@@ -4849,6 +4866,8 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref sidearmMinShooting, "sidearmMinShooting", 0);
 			Scribe_Values.Look(ref sidearmMinMelee, "sidearmMinMelee", 0);
 			Scribe_Values.Look(ref sidearmMaxTotal, "sidearmMaxTotal", 3);
+			Scribe_Values.Look(ref sidearmMaxMelee, "sidearmMaxMelee", 1);
+			Scribe_Values.Look(ref sidearmMaxRanged, "sidearmMaxRanged", 1);
 			Scribe_Values.Look(ref stripUncraftedWeapons, "stripUncraftedWeapons", true);
 			Scribe_Values.Look(ref armorOnHunt, "armorOnHunt", true);
 			Scribe_Values.Look(ref armorOnThreat, "armorOnThreat", true);
@@ -4857,6 +4876,7 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref ownMeleeRange, "ownMeleeRange", 2.9f);
 			Scribe_Values.Look(ref ownSwitchBack, "ownSwitchBack", true);
 			Scribe_Values.Look(ref ownSwitchGizmo, "ownSwitchGizmo", true);
+			Scribe_Values.Look(ref gearButton, "gearButton", true);
 			Scribe_Values.Look(ref ownMaxMass, "ownMaxMass", 0f);
 			Scribe_Values.Look(ref autoEquipApparel, "autoEquipApparel", true);
 			Scribe_Values.Look(ref useOwnDresser, "useOwnDresser", false);
@@ -5218,7 +5238,103 @@ namespace ResearchedLoadout
 			{
 				return 1f;
 			}
-			return Mathf.Clamp(1f + 0.12f * ((int)def.techLevel - (int)TechLevel.Medieval), 0.85f, 1.4f);
+			return Mathf.Clamp(1f + 0.12f * ((int)def.techLevel - (int)TechLevel.Medieval), 0.85f, 1.4f) * EraMul(def);
+		}
+
+		// 2.15.0: gear of the colony's newest era (the tech level it has reached) is clearly preferred
+		// when it is there; gear two or more eras behind loses. Weapons and apparel alike.
+		// 2.15.1: stronger (current era ×1.6, two eras behind ×0.7) and by the item's real era – its own
+		// tech level, the research it needs and its power (modded items often have no tech level)
+		public static float EraMul(ThingDef def)
+		{
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			if (def == null || settings == null || !settings.preferNewEra)
+			{
+				return 1f;
+			}
+			TechLevel era = EffectiveTech(def);
+			if (era == TechLevel.Undefined || era == TechLevel.Animal)
+			{
+				return 1f;
+			}
+			int behind = (int)ColonyTech() - (int)era;
+			if (behind <= 0)
+			{
+				return 1.6f;
+			}
+			return behind == 1 ? 1f : 0.7f;
+		}
+
+		// 2.15.1: the era decides first between weapons of the same kind (a worse rifle beats a better
+		// bow); items without any era count as medieval
+		public static bool NewEraFirst => ResearchedLoadoutMod.Settings != null && ResearchedLoadoutMod.Settings.preferNewEra;
+
+		public static int EraRank(ThingDef def)
+		{
+			TechLevel t = EffectiveTech(def);
+			if (t == TechLevel.Undefined)
+			{
+				t = TechLevel.Medieval;
+			}
+			return (int)Max(Min(t, ColonyTech()), TechLevel.Neolithic);
+		}
+
+		private static TechLevel Min(TechLevel a, TechLevel b)
+		{
+			return ((int)a <= (int)b) ? a : b;
+		}
+
+		private static readonly Dictionary<ThingDef, TechLevel> eraCache = new Dictionary<ThingDef, TechLevel>();
+
+		public static TechLevel EffectiveTech(ThingDef def)
+		{
+			if (def == null)
+			{
+				return TechLevel.Undefined;
+			}
+			if (eraCache.TryGetValue(def, out TechLevel known))
+			{
+				return known;
+			}
+			TechLevel t = def.techLevel == TechLevel.Animal ? TechLevel.Undefined : def.techLevel;
+			try
+			{
+				ResearchReq req = GetResearchRequirements(def);
+				foreach (ResearchProjectDef r in req.always)
+				{
+					t = Max(t, r.techLevel);
+				}
+				if (req.options.Count > 0)
+				{
+					// the easiest way to make it decides
+					TechLevel easiest = TechLevel.Archotech;
+					foreach (List<ResearchProjectDef> opt in req.options)
+					{
+						TechLevel o = TechLevel.Undefined;
+						foreach (ResearchProjectDef r in opt)
+						{
+							o = Max(o, r.techLevel);
+						}
+						if ((int)o < (int)easiest)
+						{
+							easiest = o;
+						}
+					}
+					if (easiest != TechLevel.Archotech)
+					{
+						t = Max(t, easiest);
+					}
+				}
+				if (ResearchedLoadoutMod.Settings != null && ResearchedLoadoutMod.Settings.powerEstimate)
+				{
+					t = Max(t, PowerTech.Estimate(def));
+				}
+			}
+			catch
+			{
+			}
+			eraCache[def] = t;
+			return t;
 		}
 
 		private static readonly Dictionary<ThingDef, bool> toolCache = new Dictionary<ThingDef, bool>();
@@ -5603,16 +5719,28 @@ namespace ResearchedLoadout
 				return false;
 			}
 			float num = ArmorValue(candidate);
+			TechLevel candEra = EffectiveTech(candidate.def);
 			List<Apparel> wornApparel = pawn.apparel.WornApparel;
 			for (int i = 0; i < wornApparel.Count; i++)
 			{
 				Apparel apparel = wornApparel[i];
-				if (apparel != candidate && !ApparelUtility.CanWearTogether(candidate.def, apparel.def, pawn.RaceProps.body) && IsArmor(apparel) && !IsBelowMinHp(apparel) && (IsResearchAllowed(apparel.def) || SurvivalKeepWorn(pawn, apparel) || EmergencyGear.KeepWorn(pawn, apparel.def)) && num < ArmorValue(apparel) * 0.9f)
+				if (apparel != candidate && !ApparelUtility.CanWearTogether(candidate.def, apparel.def, pawn.RaceProps.body) && IsArmor(apparel) && !IsBelowMinHp(apparel) && (IsResearchAllowed(apparel.def) || SurvivalKeepWorn(pawn, apparel) || EmergencyGear.KeepWorn(pawn, apparel.def)) && num < ArmorValue(apparel) * (NewerEra(candEra, apparel.def, settings) ? 0.7f : 0.9f))
 				{
+					// 2.15.1: armor of the colony's newer era may be a little weaker (flak vest for plate armor)
 					return true;
 				}
 			}
 			return false;
+		}
+
+		private static bool NewerEra(TechLevel cand, ThingDef worn, ResearchedLoadoutSettings settings)
+		{
+			if (!settings.preferNewEra || cand == TechLevel.Undefined)
+			{
+				return false;
+			}
+			TechLevel w = EffectiveTech(worn);
+			return w != TechLevel.Undefined && (int)cand > (int)w && (int)cand >= (int)ColonyTech() - 1;
 		}
 
 		public static bool FreezingOrOverheating(Pawn pawn)
@@ -6222,6 +6350,23 @@ namespace ResearchedLoadout
 			}
 		}
 
+		// 2.16.0: "Equip everyone now" – every free colonist checks the gear right away (no waiting for the next pass)
+		public int EquipAllNow()
+		{
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			if (settings == null || !settings.enabled) return 0;
+			int now = Find.TickManager.TicksGame, n = 0;
+			foreach (Pawn pawn in new List<Pawn>(map.mapPawns.FreeColonistsSpawned))
+			{
+				if (!LoadoutFilter.IsPlayerColonist(pawn) || pawn.Drafted || pawn.Downed) continue;
+				_pawnCooldown.Remove(pawn.thingIDNumber);
+				Job before = pawn.CurJob;
+				try { ProcessPawn(pawn, now, settings); } catch (Exception e) { MLog.Warn("[Smart Colonist Gear] equip now: " + e.Message); }
+				if (pawn.CurJob != before || pawn.jobs.jobQueue.Count > 0) n++;
+			}
+			return n;
+		}
+
 		private void ProcessPawn(Pawn pawn, int now, ResearchedLoadoutSettings settings)
 		{
 			int value;
@@ -6310,7 +6455,7 @@ namespace ResearchedLoadout
 			if (!SidearmsCompat.Present && settings.autoEquipSidearm && flag && thing != null && pawn.inventory != null && CountWeapons(pawn) < rule.maxWeapons)
 			{
 				bool? wantRanged = OppositeIsRanged(thing.def);
-				if (!HasInventoryWeapon(pawn, wantRanged) && (!wantRanged.HasValue || SidearmSkillOk(pawn, wantRanged.Value)) && (wantRanged != true || !IsBrawler(pawn) || !settings.sidearmBrawlerNoRanged))
+				if ((wantRanged.HasValue ? CountKind(pawn, wantRanged.Value) < MaxKind(wantRanged.Value) : !HasInventoryWeapon(pawn, wantRanged)) && (!wantRanged.HasValue || SidearmSkillOk(pawn, wantRanged.Value)) && (wantRanged != true || !IsBrawler(pawn) || !settings.sidearmBrawlerNoRanged))
 				{
 					Thing thing3 = FindBestWeapon(pawn, wantRanged, false);
 					if (thing3 != null && FitsCarryMass(pawn, thing3, rule))
@@ -6325,6 +6470,11 @@ namespace ResearchedLoadout
 							return true;
 						}
 					}
+				}
+				// 2.15.1: more of the main kind when the setting allows it
+				if (thing.def.IsWeapon && TryExtraOfKind(pawn, thing.def.IsRangedWeapon, now))
+				{
+					return true;
 				}
 			}
 			if (settings.useOwnDresser && settings.autoEquipApparel)
@@ -6380,7 +6530,7 @@ namespace ResearchedLoadout
 			if (thing != null && thing.def.IsRangedWeapon == ranged && !LoadoutFilter.IsThrownWeapon(thing.def))
 			{
 				result = thing;
-				num = ScoreWeaponPower(thing);
+				num = ScoreWeaponPower(thing) + (LoadoutFilter.NewEraFirst ? LoadoutFilter.EraRank(thing.def) * 1000000f : 0f);
 			}
 			if (pawn.inventory != null)
 			{
@@ -6390,7 +6540,7 @@ namespace ResearchedLoadout
 					Thing thing2 = innerListForReading[i];
 					if (thing2 != null && thing2.def != null && LoadoutFilter.IsManagedWeapon(thing2.def) && thing2.def.IsRangedWeapon == ranged)
 					{
-						float num2 = ScoreWeaponPower(thing2);
+						float num2 = ScoreWeaponPower(thing2) + (LoadoutFilter.NewEraFirst ? LoadoutFilter.EraRank(thing2.def) * 1000000f : 0f);
 						if (num2 > num)
 						{
 							num = num2;
@@ -6448,7 +6598,90 @@ namespace ResearchedLoadout
 			{
 				return true;
 			}
+			// 2.15.1: a second (third) weapon of the main kind when the setting allows more than one
+			if (settings.autoEquipSidearm && pawn.equipment != null && pawn.equipment.Primary != null && TryExtraOfKind(pawn, flag, now))
+			{
+				return true;
+			}
 			return false;
+		}
+
+		private bool TryExtraOfKind(Pawn pawn, bool ranged, int now)
+		{
+			if (CountKind(pawn, ranged) >= MaxKind(ranged) || (ranged && IsBrawler(pawn)) || !SidearmSkillOk(pawn, ranged))
+			{
+				return false;
+			}
+			Thing thing = FindBestWeapon(pawn, ranged, false);
+			if (thing == null || CarriesDef(pawn, thing.def))
+			{
+				return false;
+			}
+			Job job;
+			if (SidearmsCompat.Present)
+			{
+				JobDef jd = SidearmsCompat.EquipSecondaryJob;
+				if (jd == null || !SidearmsCompat.CanPickup(pawn, thing))
+				{
+					return false;
+				}
+				job = JobMaker.MakeJob(jd, thing);
+			}
+			else
+			{
+				if (CountWeapons(pawn) >= CarryRuleFor(pawn).maxWeapons || !FitsCarryMass(pawn, thing, CarryRuleFor(pawn)))
+				{
+					return false;
+				}
+				job = JobMaker.MakeJob(JobDefOf.TakeInventory, thing);
+			}
+			job.count = 1;
+			GearWhy.Pending(pawn, GearWhy.Reason("RL_Why_Sidearm"));
+			if (!GiveSoftJob(pawn, job))
+			{
+				return false;
+			}
+			RL.Debug(pawn.LabelShort + " bere dalsi zbran stejneho druhu " + thing.def.defName);
+			RL.NotifySidearm(pawn, thing);
+			RememberOrder(pawn, thing, now);
+			return true;
+		}
+
+		// weapons of one kind the colonist has: the one in hand and the carried ones
+		public static int CountKind(Pawn pawn, bool ranged)
+		{
+			int n = 0;
+			Thing p = pawn.equipment?.Primary;
+			if (p != null && p.def.IsRangedWeapon == ranged && LoadoutFilter.IsRealWeapon(p.def))
+			{
+				n++;
+			}
+			if (pawn.inventory != null)
+			{
+				foreach (Thing t in pawn.inventory.innerContainer.InnerListForReading)
+				{
+					if (t != null && t.def != null && LoadoutFilter.IsRealWeapon(t.def) && t.def.IsRangedWeapon == ranged)
+					{
+						n += t.stackCount;
+					}
+				}
+			}
+			return n;
+		}
+
+		private static bool CarriesDef(Pawn pawn, ThingDef def)
+		{
+			if (pawn.equipment?.Primary?.def == def)
+			{
+				return true;
+			}
+			return pawn.inventory != null && pawn.inventory.innerContainer.InnerListForReading.Any(t => t != null && t.def == def);
+		}
+
+		public static int MaxKind(bool ranged)
+		{
+			ResearchedLoadoutSettings s = ResearchedLoadoutMod.Settings;
+			return s == null ? 1 : (ranged ? s.sidearmMaxRanged : s.sidearmMaxMelee);
 		}
 
 		private bool TrySidearmsUpgradeType(Pawn pawn, bool ranged, bool mainType, int now)
@@ -6570,6 +6803,11 @@ namespace ResearchedLoadout
 				return true;
 			}
 			if (!SidearmsCompat.CanPickup(pawn, thing))
+			{
+				return false;
+			}
+			// 2.15.1: no more of this kind than the setting allows (the one in hand included)
+			if (!mainType && CountKind(pawn, ranged) >= MaxKind(ranged))
 			{
 				return false;
 			}
@@ -6877,6 +7115,11 @@ namespace ResearchedLoadout
 		// a weapon you gave the colonist yourself stays
 		private static bool WeaponLocked(Thing weapon)
 		{
+			// 2.15.3: a weapon you equipped yourself is never taken away – not even for missing research
+			if (IsPlayerChosen(weapon))
+			{
+				return false;
+			}
 			if (!LoadoutFilter.IsResearchAllowed(weapon.def))
 			{
 				return true;
@@ -7091,6 +7334,20 @@ namespace ResearchedLoadout
 				{
 					return true;
 				}
+				// 2.15.1: the newer era wins even when the weapon is weaker; an older one never replaces a newer
+				// one (unless the one in hand is falling apart)
+				if (LoadoutFilter.NewEraFirst && current.def != null && candidate.def != null)
+				{
+					int ec = LoadoutFilter.EraRank(candidate.def), eh = LoadoutFilter.EraRank(current.def);
+					if (ec > eh)
+					{
+						return !IsBroken(candidate);
+					}
+					if (ec < eh)
+					{
+						return IsBroken(current) && !IsBroken(candidate);
+					}
+				}
 				float num3 = ScoreWeaponPower(candidate) * LoadoutFilter.TechMul(candidate.def);
 				float num4 = ScoreWeaponPower(current) * LoadoutFilter.TechMul(current.def);
 				if (IsBroken(current) && !IsBroken(candidate))
@@ -7109,7 +7366,8 @@ namespace ResearchedLoadout
 					QualityCategory qc2;
 					if (current.TryGetQuality(out qc) && candidate.TryGetQuality(out qc2))
 					{
-						return (int)qc2 > (int)qc && !IsBroken(candidate);
+						// 2.15.1: quality matters less – the same weapon only for a clearly better one (2 levels)
+						return (int)qc2 >= (int)qc + 2 && !IsBroken(candidate);
 					}
 					return false;
 				}
@@ -7142,7 +7400,8 @@ namespace ResearchedLoadout
 				return 1f;
 			}
 			CompQuality compQuality = thing.TryGetComp<CompQuality>();
-			float num = ((compQuality != null) ? (0.65f + (float)(int)compQuality.Quality * 0.28f) : 1f);
+			// 2.15.1: quality matters less (awful ×0.9 … legendary ×1.2; was ×0.65 … ×2.33)
+			float num = ((compQuality != null) ? (0.9f + (float)(int)compQuality.Quality * 0.05f) : 1f);
 			return num * HpMul(thing);
 		}
 
@@ -7359,6 +7618,11 @@ namespace ResearchedLoadout
 			if (thing != null && !thing.Destroyed && thing.Spawned && thing.def != null && LoadoutFilter.IsManagedWeapon(thing.def) && !LoadoutFilter.ToolNotWeapon(thing.def) && !_reservedThings.Contains(thing.thingIDNumber) && (LoadoutFilter.IsAllowed(thing.def) || EmergencyGear.AllowsThing(pawn, thing)) && InAllowedStorage(thing) && (!wantRanged.HasValue || thing.def.IsRangedWeapon == wantRanged.Value) && (!forPrimary || !thing.def.IsRangedWeapon || !IsBrawler(pawn)) && !IsBroken(thing) && !thing.IsForbidden(pawn) && EquipmentUtility.CanEquip(thing, pawn) && (!thing.def.IsRangedWeapon || !WearsRangedBlockingShield(pawn)))
 			{
 				float num = ScoreWeapon(pawn, thing);
+				// 2.15.1: among weapons of one kind the newest era wins first, then the score
+				if (wantRanged.HasValue && LoadoutFilter.NewEraFirst && num > 0f)
+				{
+					num += LoadoutFilter.EraRank(thing.def) * 1000000f;
+				}
 				if (num > bestScore && (!forPrimary || !BetterFighterWants(pawn, thing)) && pawn.CanReserveAndReach(thing, PathEndMode.ClosestTouch, Danger.Some))
 				{
 					bestScore = num;
@@ -7609,7 +7873,7 @@ namespace ResearchedLoadout
 
 		private static float ScoreWeapon(Pawn pawn, Thing thing)
 		{
-			float num = 10f + ScoreWeaponPower(thing) + thing.MarketValue * 0.02f;
+			float num = 10f + ScoreWeaponPower(thing) + thing.MarketValue * 0.005f;
 			bool isRangedWeapon = thing.def.IsRangedWeapon;
 			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
 			if (settings != null && settings.useSkills && pawn.skills != null)
@@ -7764,7 +8028,7 @@ namespace ResearchedLoadout
 		private static float ScoreApparel(Pawn pawn, Thing apparel)
 		{
 			float num = (apparel.GetStatValue(StatDefOf.ArmorRating_Sharp) * 120f + apparel.GetStatValue(StatDefOf.ArmorRating_Blunt) * 70f + apparel.GetStatValue(StatDefOf.ArmorRating_Heat) * 25f) * HpMul(apparel) * LoadoutFilter.TechMul(apparel.def);
-			float num2 = 2f + num + TemperatureScore(pawn, apparel) + apparel.MarketValue * 0.01f;
+			float num2 = 2f + num + TemperatureScore(pawn, apparel) + apparel.MarketValue * 0.003f;
 			List<StatModifier> equippedStatOffsets = apparel.def.equippedStatOffsets;
 			if (equippedStatOffsets != null)
 			{
@@ -7935,7 +8199,7 @@ namespace ResearchedLoadout
 					{
 						return true;
 					}
-					if ((int)qc2 <= (int)qc)
+					if ((int)qc2 < (int)qc + 2)
 					{
 						return true;
 					}
@@ -9902,6 +10166,8 @@ namespace ResearchedLoadout
 			st.sidearmMinShooting = Mathf.RoundToInt(l.SliderLabeled("RL_SP_MinShoot".Translate(st.sidearmMinShooting), st.sidearmMinShooting, 0f, 20f, 0.6f, Tip("RL_SP_MinShoot")));
 			st.sidearmMinMelee = Mathf.RoundToInt(l.SliderLabeled("RL_SP_MinMelee".Translate(st.sidearmMinMelee), st.sidearmMinMelee, 0f, 20f, 0.6f, Tip("RL_SP_MinMelee")));
 			l.Gap(4f);
+			st.sidearmMaxRanged = Mathf.RoundToInt(l.SliderLabeled("RL_SP_MaxRanged".Translate(st.sidearmMaxRanged), st.sidearmMaxRanged, 0f, 3f, 0.6f, Tip("RL_SP_MaxRanged")));
+			st.sidearmMaxMelee = Mathf.RoundToInt(l.SliderLabeled("RL_SP_MaxMelee".Translate(st.sidearmMaxMelee), st.sidearmMaxMelee, 0f, 3f, 0.6f, Tip("RL_SP_MaxMelee")));
 			st.sidearmMaxTotal = Mathf.RoundToInt(l.SliderLabeled(st.sidearmMaxTotal > 0 ? "RL_SP_MaxTotal".Translate(st.sidearmMaxTotal).ToString() : T("RL_SP_MaxTotalOff"), st.sidearmMaxTotal, 0f, 8f, 0.6f, Tip("RL_SP_MaxTotal")));
 			Own(l, "RL_SP_StripUncrafted", ref st.stripUncraftedWeapons);
 			l.Gap(6f);
@@ -11108,6 +11374,11 @@ namespace ResearchedLoadout
 				__result += Coverage.GapBonus(pawn, apparel.def);
 				__result -= Coverage.LossPenalty(pawn, apparel.def);
 				WearerFit.Apply(pawn, apparel, ref __result);
+			}
+			// 2.15.0: the newest era first (worn and candidate apparel alike, so it is a fair comparison)
+			if (__result > 0f)
+			{
+				__result *= LoadoutFilter.EraMul(apparel.def);
 			}
 		}
 	}

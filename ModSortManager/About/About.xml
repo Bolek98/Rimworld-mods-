@@ -3,7 +3,7 @@
   <name>Mod Sort Manager – Load Order, Conflicts &amp; Profiles</name>
   <author>Bolek98</author>
   <packageId>misak.modsortmanager</packageId>
-  <modVersion>0.1.3</modVersion>
+  <modVersion>0.2.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -19,81 +19,78 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>Mod Sort Manager replaces the game's Mods window with a clear manager that finds problems for you – before they break your save. Built for RimWorld 1.7, works on 1.6 too.
-
-No new menu button: the game's own Mods button opens it. The original window is always one click away.
+  <description>Mod Sort Manager replaces the game's Mods window with a clear manager that finds problems for you – before they break your save. Built for RimWorld 1.7, works on 1.6 too. The game's own Mods button opens it; the original window is one click away.
 
 LOAD ORDER
-- Inactive and active mods side by side, search by name, author or package ID.
-- Drag and drop, double-click to enable / disable, move to top / bottom.
-- Smart sort: follows every mod's own rules (load before / after, dependencies), Harmony first, Core and DLCs before everything else. Your own order is kept wherever the rules allow.
-- Mods added in the last 7 days get a NEW tag and sit at the top of the inactive list; every mod shows the date it was added. A "Problems only" filter shows just the mods with a warning.
-- Mod details with preview picture, description, supported versions, folder and Workshop page.
+- Inactive and active mods side by side, search, drag and drop, double-click to switch on or off.
+- Smart sort by every mod's own rules (load before / after, dependencies) – your own order is kept wherever the rules allow.
+- NEW tag for recently added mods, "Problems only" filter, details with picture, requirements and Workshop page.
 
 PROBLEMS – found for you
-- Duplicates: the same mod installed twice (a local copy and a Workshop copy, or two folders). The game silently loads only one of them – often the old one. "Keep the newer one" fixes it with one click: the other copy is moved to a backup folder (never deleted) and Workshop copies are unsubscribed.
-- May break: missing dependencies (enable or download with one click), incompatible mods, wrong load order, mods made for an older game version.
-- Find the faulty mod: the game crashes or throws errors and you don't know why? Mod Sort Manager disables half of the suspect mods and restarts, you answer "still there / gone" in a small window in the main menu, and it halves again – about 8 restarts for 200 mods. Libraries, DLCs and the game stay on, and your list is restored exactly at the end.
-- Do the same thing: an estimate from the loaded mods' Harmony patches – e.g. two performance mods that both take over the game loop.
+- Duplicates (local + Workshop copy): keep the newer one with one click.
+- Missing dependencies, incompatible mods, wrong order, mods for an older game version.
+- Find the faulty mod: halves the suspects and restarts until the culprit is found (about 8 restarts for 200 mods); your list comes back at the end.
+- Mods that change the same game code, and log errors traced to the mod that caused them.
 
 PROFILES AND SAFETY
-- Save and load mod lists – the same files as the game's own save/load list, so they work without this mod too.
-- The old mod list is backed up before every save (last 20) and can be restored with one click.
-- Order guard: after a start, Mod Sort Manager checks the mod list is the same as you saved it. If another program, an update or the game itself changed it, you see what changed and restore your order with one click.
-- Check before saving: missing dependencies, new mods only for older game versions, too many new mods at once and things new mods need that won't exist after the restart – the errors that make the game reset your whole mod list. Fix with one click, or add new mods in groups.
-- Mods you subscribe to or unsubscribe from while the game runs show up in the list within seconds – no restart needed.
+- Save and load mod lists (the game's own format), automatic backup before every save, order guard after a start.
+- Check before saving for the errors that make the game reset your whole mod list.
+
+WORKSHOP AND SHARING
+- Steam Workshop inside the game, one-click subscribe for missing requirements.
+- Share a mod list as a text code. What's new after mod updates. Loading weight of every mod.
+- Remove a mod: unsubscribe, put aside or delete.
 
 CHANGES WITHOUT QUITTING
-- Save → the game restarts on its own. Optionally loads your last save after the restart.
-- Optional Esc menu entry in a game (off by default): saves your game, restarts and brings you back to your colony.
+- Save → the game restarts by itself and can load your last save. Optional Esc menu entry.
 
-COMPATIBILITY
-- Steps aside when another mod manager that replaces the Mods window is active (Fluffy's Mod Manager) – then a button opens it from the game's window.
-- Works with mods that do not support 1.7: they are listed and marked, nothing is blocked.
-- Changes only the mod list (ModsConfig.xml) – and only when you press Save or run the faulty-mod search.
-
-Requires Harmony.
-Languages: English, Czech, Simplified Chinese, Russian, Ukrainian, German, French, Spanish, Brazilian Portuguese, Polish, Japanese, Korean.
-Simplified Chinese translation by 洛阳花落 (luoyang) – thank you! The other translations are AI-assisted – if you spot a mistake, tell me in the comments and I will fix it.
+Steps aside when Fluffy's Mod Manager is active. Changes only the mod list (ModsConfig.xml). Requires Harmony.
+Languages: English, Czech, Simplified Chinese, Russian, Ukrainian, German, French, Spanish, Brazilian Portuguese, Polish, Japanese, Korean. Simplified Chinese by 洛阳花落 (luoyang) – thank you! Other translations are AI-assisted – tell me about mistakes in the comments.
 
 —————————————————————
 ČESKY
 —————————————————————
 
-Mod Sort Manager nahrazuje herní okno Mody přehledným správcem, který za tebe najde problémy – dřív, než ti rozbijí hru. Pro RimWorld 1.7, funguje i na 1.6.
-
-Žádné nové tlačítko v menu: otevře ho herní tlačítko Mody. Původní okno je vždy na jedno kliknutí.
+Mod Sort Manager nahrazuje herní okno Mody přehledným správcem, který za tebe najde problémy – dřív, než ti rozbijí hru. Pro RimWorld 1.7, funguje i na 1.6. Otevře ho herní tlačítko Mody; původní okno je na jedno kliknutí.
 
 POŘADÍ NAČÍTÁNÍ
-- Neaktivní a aktivní mody vedle sebe, hledání podle jména, autora nebo ID.
-- Přetahování myší, dvojklik pro zapnutí / vypnutí, posun nahoru / dolů.
-- Chytré řazení: řídí se pravidly každého modu (načíst před / po, závislosti), Harmony první, Core a DLC před vším ostatním. Tvoje pořadí zůstane všude, kde to pravidla dovolí.
-- Mody přidané za posledních 7 dní mají štítek NOVÝ a jsou nahoře v neaktivních; u každého modu je datum přidání. Filtr „Jen problémové“ ukáže jen mody s upozorněním.
-- Detail modu s obrázkem, popisem, podporovanými verzemi, složkou a stránkou na Workshopu.
+- Neaktivní a aktivní mody vedle sebe, hledání, přetahování, dvojklik pro zapnutí a vypnutí.
+- Chytré řazení podle pravidel každého modu (před / po, závislosti) – tvoje pořadí zůstane všude, kde to jde.
+- Štítek NOVÝ, filtr „Jen problémové“, detail s obrázkem, požadavky a stránkou na Workshopu.
 
 PROBLÉMY – najde je za tebe
-- Duplikáty: stejný mod nainstalovaný dvakrát (místní kopie a kopie z Workshopu, nebo dvě složky). Hra potichu načte jen jednu – často tu starou. „Ponechat novější“ to vyřeší jedním klikem: druhá kopie se přesune do zálohy (nic se nemaže) a kopie z Workshopu se odhlásí.
-- Může rozbít hru: chybějící závislosti (zapnout nebo stáhnout jedním klikem), nekompatibilní mody, špatné pořadí, mody pro starší verzi hry.
-- Najít vadný mod: hra padá nebo hází chyby a nevíš proč? Mod Sort Manager vypne polovinu podezřelých modů a restartuje, ty v malém okně v hlavním menu odpovíš „pořád tam je / zmizel“ a půlí dál – zhruba 8 restartů pro 200 modů. Knihovny, DLC a hra zůstávají zapnuté a na konci se tvůj seznam vrátí přesně tak, jak byl.
-- Dělají totéž: odhad z Harmony úprav načtených modů – třeba dva výkonnostní mody, které oba přebírají herní smyčku.
+- Duplikáty (místní + Workshop): ponechat novější jedním klikem.
+- Chybějící závislosti, nekompatibilní mody, špatné pořadí, mody pro starší verzi hry.
+- Najít vadný mod: půlí podezřelé a restartuje, dokud viníka nenajde (asi 8 restartů na 200 modů); seznam se na konci vrátí.
+- Mody, které mění stejný kód hry, a chyby v logu přiřazené modu, který je způsobil.
 
 PROFILY A BEZPEČNOST
-- Ukládání a načítání seznamů modů – stejné soubory jako herní „uložit / načíst seznam“, fungují i bez tohoto modu.
-- Starý seznam modů se před každým uložením zazálohuje (posledních 20) a jde vrátit jedním klikem.
-- Hlídání pořadí: po spuštění Mod Sort Manager zkontroluje, že je seznam modů stejný, jak jsi ho uložil. Když ho změnil jiný program, aktualizace nebo hra sama, uvidíš co se změnilo a jedním klikem vrátíš své pořadí.
-- Kontrola před uložením: chybějící závislosti, nové mody jen pro starší verze hry, příliš mnoho nových modů najednou a věci, které nové mody potřebují a po restartu nebudou existovat – přesně chyby, kvůli kterým hra vymaže celý seznam modů. Opravíš jedním klikem, nebo přidáš nové mody po skupinách.
-- Mody, ke kterým se za běhu hry přihlásíš nebo je odhlásíš, se v seznamu objeví během pár sekund – bez restartu.
+- Ukládání a načítání seznamů (herní formát), záloha před každým uložením, hlídání pořadí po spuštění.
+- Kontrola před uložením na chyby, kvůli kterým hra vymaže celý seznam modů.
 
-ZMĚNY BEZ VYPÍNÁNÍ HRY
-- Uložit → hra se sama restartuje. Volitelně po restartu načte poslední uloženou hru.
-- Volitelná položka v menu Esc během hry (ve výchozím stavu vypnutá): uloží hru, restartuje a vrátí tě do kolonie.
+WORKSHOP A SDÍLENÍ
+- Steam Workshop přímo ve hře, chybějící požadavky odebereš jedním klikem.
+- Sdílení seznamu jako textový kód. Co je nového po aktualizacích. Váha načítání každého modu.
+- Odebrání modu: zrušit odběr, odložit nebo smazat.
 
-KOMPATIBILITA
-- Ustoupí, když je zapnutý jiný správce modů, který nahrazuje okno Mody (Fluffy's Mod Manager) – tlačítko ho pak otevře z herního okna.
-- Funguje i s mody, které nepodporují 1.7: jsou v seznamu označené, nic se neblokuje.
-- Mění jen seznam modů (ModsConfig.xml) – a jen když dáš Uložit nebo spustíš hledání vadného modu.
+ZMĚNY BEZ VYPÍNÁNÍ
+- Uložit → hra se sama restartuje a může načíst poslední uloženou hru. Volitelně i v menu Esc.
 
-Vyžaduje Harmony.
-Jazyky: angličtina, čeština, zjednodušená čínština, ruština, ukrajinština, němčina, francouzština, španělština, brazilská portugalština, polština, japonština, korejština.
-Čínský překlad: 洛阳花落 (luoyang) – děkuji! Ostatní překlady vznikly s pomocí AI – když najdeš chybu, napiš mi do komentářů a opravím ji.</description>
+Ustoupí, když je zapnutý Fluffy's Mod Manager. Mění jen seznam modů (ModsConfig.xml). Vyžaduje Harmony.
+Jazyky: 12 jazyků včetně češtiny. Čínský překlad: 洛阳花落 (luoyang) – děkuji! Ostatní překlady s pomocí AI – chyby mi napiš do komentářů.
+
+═══════════════════════
+IDEAS AND SUGGESTIONS
+Want something changed or added? Write it in the comments – I read every idea and take it into account.
+
+WHAT'S NEW IN 0.2.0
+- Workshop in the game, share mod lists as a code
+- What's new, loading weight, remove mods
+
+NÁPADY A NÁVRHY
+Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
+
+CO JE NOVÉHO VE VERZI 0.2.0
+- Workshop ve hře, sdílení seznamu modů kódem
+- Co je nového, váha načítání, odebrání modů</description>
 </ModMetaData>

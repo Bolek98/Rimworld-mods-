@@ -229,4 +229,59 @@ Começar?</MSM_BisectConfirm>
   <MSM_PS_DropQueue>Cancelar o resto</MSM_PS_DropQueue>
   <MSM_SetPreSave>Verificação antes de salvar</MSM_SetPreSave>
   <MSM_SetPreSaveTip>Antes de salvar uma lista alterada: dependências faltando, mods para versões antigas, muitos mods novos de uma vez e coisas que os mods novos precisam e não vão existir.</MSM_SetPreSaveTip>
+  <MSM_Restart>Reiniciar</MSM_Restart>
+  <MSM_RestartTip>Reinicia o jogo sem mudar a lista de mods. Em uma partida com “Voltar ao jogo” ativado, o jogo é salvo primeiro e carregado de novo após reiniciar.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>prefixo (pode pular o original)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>prefixo</MSM_Kind_prefix>
+  <MSM_Kind_postfix>postfixo</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>transpiler (reescreve o código)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>finalizador</MSM_Kind_finalizer>
+  <MSM_SameBlocking>Pelo menos um pode pular o código original – isso também pode impedir a mudança do outro mod. Verifique se ambos funcionam.</MSM_SameBlocking>
+  <MSM_SameAdditive>Ambos só reescrevem ou acrescentam código – geralmente tudo bem, conflito real só se as reescritas colidirem.</MSM_SameAdditive>
+  <MSM_SameDetails>Como eles mudam</MSM_SameDetails>
+  <MSM_SameLegend>O prefixo roda antes do código do jogo; um prefixo que pode pular pode parar o código do jogo e os prefixos seguintes. O postfixo roda depois e só acrescenta – sem conflito. O transpiler reescreve o próprio código – dois podem colidir. "Roda primeiro" = o prefixo que decide primeiro.</MSM_SameLegend>
+  <MSM_RunsFirst>roda primeiro: {0}</MSM_RunsFirst>
+  <MSM_Requires>Requer:</MSM_Requires>
+  <MSM_ReqNone>nada</MSM_ReqNone>
+  <MSM_ReqInactive>instalado, não ativo</MSM_ReqInactive>
+  <MSM_ReqMissing>não instalado</MSM_ReqMissing>
+  <MSM_RequiredBy>Necessário para {0} mods ativos:</MSM_RequiredBy>
+  <MSM_GrpLog>Erros no log</MSM_GrpLog>
+  <MSM_LogTitle>{0}: {1} erros nesta sessão</MSM_LogTitle>
+  <MSM_LogText>Os erros vêm do código ou arquivos deste mod (encontrados no log desta sessão). O primeiro:</MSM_LogText>
+  <MSM_NoteLog>{0} erros no log</MSM_NoteLog>
+  <MSM_DeactivateNamed>Desativar {0}</MSM_DeactivateNamed>
+  <MSM_Subscribe>Inscrever-se (Steam)</MSM_Subscribe>
+  <MSM_Subscribed>Inscrito em {0} – o Steam está baixando. Reinicie o jogo e depois ative-o na lista.</MSM_Subscribed>
+  <MSM_OpenWorkshop>Workshop</MSM_OpenWorkshop>
+  <MSM_OpenWorkshopTip>Abre o Steam Workshop dentro do jogo (overlay da Steam) – inscreva-se em mods sem sair do jogo. Precisa do overlay da Steam ativado; mods novos carregam após reiniciar.</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>Copiar lista como código</MSM_ShareCopy>
+  <MSM_ShareCopyTip>Copia a lista de mods ativa como um código de texto curto – envie a um amigo ou poste no Discord.</MSM_ShareCopyTip>
+  <MSM_ShareCopied>Lista de mods copiada ({0} mods) – cole onde quiser.</MSM_ShareCopied>
+  <MSM_SharePaste>Colar código de lista</MSM_SharePaste>
+  <MSM_SharePasteTip>Carrega uma lista de mods a partir de um código na área de transferência. Mods do Workshop que faltam podem ser inscritos na hora.</MSM_SharePasteTip>
+  <MSM_ShareBad>A área de transferência não contém um código de lista do Mod Sort Manager.</MSM_ShareBad>
+  <MSM_SubscribeMissing>Inscrever-se nos que faltam ({0})</MSM_SubscribeMissing>
+  <MSM_SubscribedN>Inscrito em {0} mods – a Steam está baixando. Reinicie o jogo e carregue o código de novo.</MSM_SubscribedN>
+  <MSM_Changes>Novidades ({0})</MSM_Changes>
+  <MSM_ChangesTitle>Atualizados desde a última inicialização ({0})</MSM_ChangesTitle>
+  <MSM_ChangedSince>Atualizado desde a última inicialização{0} – clique para ver as mudanças</MSM_ChangedSince>
+  <MSM_NoChangelog>Este mod não tem arquivo de mudanças. A página do Workshop talvez as liste.</MSM_NoChangelog>
+  <MSM_Weight>Carregamento: texturas {0} · código {1} · defs {2} · sons {3}</MSM_Weight>
+  <MSM_WeightCalc>Carregamento: calculando…</MSM_WeightCalc>
+  <MSM_WeightTip>Tamanho do que o jogo carrega deste mod. Clique para ver quais mods mais atrasam o carregamento.</MSM_WeightTip>
+  <MSM_WeightTitle>O que mais atrasa o carregamento</MSM_WeightTitle>
+  <MSM_WeightHint>Tamanho de texturas, código, defs e sons dos mods ativos. Maior geralmente significa mais carregamento; texturas pesam mais.</MSM_WeightHint>
+  <MSM_WeightSum>Total {0} em {1} mods</MSM_WeightSum>
+  <MSM_Remove>Remover mod…</MSM_Remove>
+  <MSM_RemoveTip>Cancelar inscrição no Workshop, ou guardar / apagar um mod local.</MSM_RemoveTip>
+  <MSM_RemoveUnsub>Cancelar inscrição (a Steam apaga os arquivos)</MSM_RemoveUnsub>
+  <MSM_RemoveUnsubConfirm>Cancelar a inscrição em {0}? A Steam apaga os arquivos; o mod é desativado. Você pode se inscrever de novo quando quiser.</MSM_RemoveUnsubConfirm>
+  <MSM_RemovePark>Mover para a pasta de guardados (dá para voltar)</MSM_RemovePark>
+  <MSM_RemoveParkConfirm>Mover {0} para fora da pasta Mods, para:\n{1}\n\nVocê pode devolvê-lo quando quiser.</MSM_RemoveParkConfirm>
+  <MSM_RemoveDelete>Apagar de vez</MSM_RemoveDelete>
+  <MSM_RemoveDeleteConfirm>Apagar {0} de vez?\n{1}\n\nIsso não pode ser desfeito.</MSM_RemoveDeleteConfirm>
+  <MSM_RemovedNow>{0} foi removido. Reinicie o jogo para concluir.</MSM_RemovedNow>
+  <MSM_RemovedLater>{0} está em uso agora – será removido no próximo início (está desativado).</MSM_RemovedLater>
+  <MSM_RemoveFailed>Não foi possível remover {0}.</MSM_RemoveFailed>
 </LanguageData>

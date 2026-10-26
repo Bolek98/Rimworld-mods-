@@ -43,12 +43,14 @@ namespace ModSortManager
 
     public class MSMMod : Mod
     {
-        public const string Version = "0.1.3";
+        public const string Version = "0.2.0";
         public static MSMSettings Settings;
 
         public MSMMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<MSMSettings>();
+            Removal.ProcessPending();       // 0.2.1: mods that could not be removed while they were running
+            MNews.Register(content, Version);
             MUI.Init(new MSMSettings(), null, "recommended", "settingsVersion", "loadLastSave", "returnToGame");
             if (Settings.recommended)
                 MUI.ApplyAll(Settings);
@@ -228,9 +230,9 @@ namespace ModSortManager
         {
             if (m == null) return;
             if (m.OnSteamWorkshop)
-                Application.OpenURL("https://steamcommunity.com/sharedfiles/filedetails/?id=" + m.RootDir.Name);
+                SteamUtility.OpenUrl("https://steamcommunity.com/sharedfiles/filedetails/?id=" + m.RootDir.Name);   // 0.1.9: in the Steam overlay
             else if (!m.Url.NullOrEmpty())
-                Application.OpenURL(m.Url);
+                SteamUtility.OpenUrl(m.Url);
         }
 
         public static bool CanOpenPage(ModMetaData m)
@@ -333,6 +335,60 @@ namespace ModSortManager
                 Log.Warning("[Mod Sort Manager] unsubscribe failed: " + e.Message);
                 return false;
             }
+        }
+    }
+
+    // ---------------- 0.2.1: removing a mod for good ----------------
+    public static class Removal
+    {
+        public static readonly HashSet<string> Gone = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        private static string PendingPath => Path.Combine(MSM.DataDir, "remove_pending.txt");
+
+        public static bool IsGone(ModMetaData m) => m != null && Gone.Contains(m.RootDir.FullName);
+
+        // true = done now; false = done at the next start (the mod's files are in use)
+        public static bool RemoveFolder(ModMetaData m, bool permanent)
+        {
+            string dir = m.RootDir.FullName;
+            if (TryRemove(dir, permanent)) { Gone.Add(dir); return true; }
+            try { File.AppendAllText(PendingPath, (permanent ? "delete|" : "park|") + dir + "\n"); } catch { }
+            Gone.Add(dir);
+            return false;
+        }
+
+        private static bool TryRemove(string dir, bool permanent)
+        {
+            try
+            {
+                if (!Directory.Exists(dir)) return true;
+                if (permanent) Directory.Delete(dir, true);
+                else Directory.Move(dir, Path.Combine(MSM.ParkDir, Path.GetFileName(dir) + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss")));
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Mod Sort Manager] could not remove " + dir + " now (" + e.Message + ") – it is removed at the next start.");
+                return false;
+            }
+        }
+
+        public static void ProcessPending()
+        {
+            try
+            {
+                if (!File.Exists(PendingPath)) return;
+                var left = new List<string>();
+                foreach (string line in File.ReadAllLines(PendingPath))
+                {
+                    string[] p = line.Split(new[] { '|' }, 2);
+                    if (p.Length < 2 || p[1].Length == 0) continue;
+                    if (TryRemove(p[1], p[0] == "delete")) Log.Message("[Mod Sort Manager] removed " + p[1]);
+                    else left.Add(line);
+                }
+                if (left.Count == 0) File.Delete(PendingPath);
+                else File.WriteAllLines(PendingPath, left.ToArray());
+            }
+            catch (Exception e) { Log.Warning("[Mod Sort Manager] pending removals: " + e.Message); }
         }
     }
 
@@ -607,6 +663,16 @@ namespace ModSortManager
         public ModMetaData a, b;
         public List<string> methods = new List<string>();
         public bool hot;
+        // 0.1.7: how each of the two changes every shared method ("prefix (can skip)", "transpiler" …)
+        public List<SameMethod> detail = new List<SameMethod>();
+        public bool blocking;       // at least one of them can skip the original (and the other's prefix)
+    }
+
+    public class SameMethod
+    {
+        public string method;
+        public string kindsA, kindsB;
+        public string runsFirst;    // the mod whose prefix runs first (Harmony priority)
     }
 
     public static class SameThing
@@ -636,6 +702,31 @@ namespace ModSortManager
                 {
                     Patches info = Harmony.GetPatchInfo(m);
                     if (info == null) continue;
+                    // every kind of patch each mod has on this method
+                    var kinds = new Dictionary<ModContentPack, List<string>>();
+                    ModContentPack firstPrefix = null;
+                    int bestPri = int.MinValue, bestIdx = int.MaxValue;
+                    Action<IEnumerable<Patch>, string> collect = (ps, kind) =>
+                    {
+                        foreach (Patch p in ps)
+                        {
+                            ModContentPack o;
+                            if (p.PatchMethod?.DeclaringType == null || !asm.TryGetValue(p.PatchMethod.DeclaringType.Assembly, out o)) continue;
+                            string k = kind;
+                            if (kind == "prefix" && (p.PatchMethod as MethodInfo)?.ReturnType == typeof(bool))
+                            {
+                                k = "prefix!";
+                                if (p.priority > bestPri || (p.priority == bestPri && p.index < bestIdx)) { bestPri = p.priority; bestIdx = p.index; firstPrefix = o; }
+                            }
+                            List<string> l;
+                            if (!kinds.TryGetValue(o, out l)) kinds[o] = l = new List<string>();
+                            if (!l.Contains(k)) l.Add(k);
+                        }
+                    };
+                    collect(info.Prefixes, "prefix");
+                    collect(info.Postfixes, "postfix");
+                    collect(info.Transpilers, "transpiler");
+                    collect(info.Finalizers, "finalizer");
                     var mods = new HashSet<ModContentPack>();
                     foreach (Patch p in info.Prefixes)
                     {
@@ -663,7 +754,20 @@ namespace ModSortManager
                                 sp = pairs[key] = new SamePair { a = ma, b = mb };
                             }
                             if (sp == null) continue;
-                            if (!sp.methods.Contains(label)) sp.methods.Add(label);
+                            if (!sp.methods.Contains(label))
+                            {
+                                sp.methods.Add(label);
+                                List<string> ka, kb;
+                                kinds.TryGetValue(list[i], out ka);
+                                kinds.TryGetValue(list[j], out kb);
+                                sp.detail.Add(new SameMethod
+                                {
+                                    method = label,
+                                    kindsA = Kinds(ka), kindsB = Kinds(kb),
+                                    runsFirst = firstPrefix == list[i] ? sp.a.Name : firstPrefix == list[j] ? sp.b.Name : null
+                                });
+                                if ((ka != null && ka.Contains("prefix!")) || (kb != null && kb.Contains("prefix!"))) sp.blocking = true;
+                            }
                             if (Hot.Contains(label)) sp.hot = true;
                         }
                 }
@@ -677,6 +781,13 @@ namespace ModSortManager
             return result;
         }
 
+        // "prefix (can skip), postfix" in the player's language
+        private static string Kinds(List<string> l)
+        {
+            if (l == null || l.Count == 0) return "–";
+            return string.Join(", ", l.Select(k => ("MSM_Kind_" + (k == "prefix!" ? "prefixSkip" : k)).Translate().ToString()).ToArray());
+        }
+
         // made to work together: one needs the other, or the same author
         private static bool Related(ModMetaData a, ModMetaData b)
         {
@@ -685,6 +796,106 @@ namespace ModSortManager
             if (a.LoadAfter.Any(x => b.SamePackageId(x, true)) && b.LoadBefore.Any(x => a.SamePackageId(x, true)))
                 return true;
             return !a.AuthorsString.NullOrEmpty() && a.AuthorsString == b.AuthorsString;
+        }
+    }
+
+    // ---------------- 0.1.8: errors in the log, by the mod that caused them ----------------
+    public class LogBlame
+    {
+        public ModMetaData mod;
+        public int count;
+        public string sample;
+    }
+
+    public static class LogErrors
+    {
+        private static readonly HashSet<string> NotMods = new HashSet<string>
+        { "System", "Verse", "RimWorld", "UnityEngine", "HarmonyLib", "MonoMod", "Mono", "Microsoft", "Unity", "Waylith", "LudeonTK", "ModSortManager", "<>c", "Steamworks", "Ionic", "NAudio" };
+
+        public static List<LogBlame> Analyze()
+        {
+            var res = new Dictionary<ModContentPack, LogBlame>();
+            try
+            {
+                // the first part of the namespaces of each mod's code, and the mods' folders
+                var byNs = new Dictionary<string, ModContentPack>();
+                var byName = new Dictionary<string, ModContentPack>(StringComparer.OrdinalIgnoreCase);
+                var byDir = new List<KeyValuePair<string, ModContentPack>>();
+                foreach (ModContentPack p in LoadedModManager.RunningModsListForReading)
+                {
+                    if (p == null || p.IsOfficialMod) continue;
+                    if (!p.Name.NullOrEmpty()) byName[p.Name] = p;
+                    if (!p.RootDir.NullOrEmpty()) byDir.Add(new KeyValuePair<string, ModContentPack>(p.RootDir.Replace('\\', '/'), p));
+                    if (p.assemblies == null) continue;
+                    foreach (Assembly a in p.assemblies.loadedAssemblies)
+                    {
+                        Type[] types;
+                        try { types = a.GetTypes(); } catch { continue; }
+                        foreach (Type ty in types)
+                        {
+                            string ns = ty.Namespace ?? ty.Name;
+                            int dot = ns.IndexOf('.');
+                            string first = dot > 0 ? ns.Substring(0, dot) : ns;
+                            if (!NotMods.Contains(first) && !byNs.ContainsKey(first)) byNs[first] = p;
+                        }
+                    }
+                }
+                foreach (LogMessage m in Log.Messages.ToList())
+                {
+                    if (m == null || (m.type != LogMessageType.Error && m.type != LogMessageType.Warning)) continue;
+                    if (m.type == LogMessageType.Warning) continue;      // errors only
+                    string text = m.text ?? "";
+                    ModContentPack who = Blame(text, m.StackTrace, byNs, byName, byDir);
+                    if (who == null) continue;
+                    LogBlame b;
+                    if (!res.TryGetValue(who, out b))
+                    {
+                        ModMetaData meta = MSM.FindMod(who.PackageId);
+                        if (meta == null) continue;
+                        string first = text.Split('\n')[0];
+                        res[who] = b = new LogBlame { mod = meta, sample = first.Length > 220 ? first.Substring(0, 220) + "…" : first };
+                    }
+                    b.count += Math.Max(1, m.repeats);
+                }
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Mod Sort Manager] log check failed: " + e.Message);
+            }
+            return res.Values.OrderByDescending(b => b.count).Take(20).ToList();
+        }
+
+        private static ModContentPack Blame(string text, string stack, Dictionary<string, ModContentPack> byNs, Dictionary<string, ModContentPack> byName, List<KeyValuePair<string, ModContentPack>> byDir)
+        {
+            // "[Mod name] …" – many mods start their messages with their name
+            if (text.StartsWith("["))
+            {
+                int end = text.IndexOf(']');
+                ModContentPack p;
+                if (end > 1 && byName.TryGetValue(text.Substring(1, end - 1).Trim(), out p)) return p;
+            }
+            // a file of the mod (def loading, textures, patches)
+            string norm = text.Replace('\\', '/');
+            foreach (var kv in byDir)
+                if (norm.IndexOf(kv.Key, StringComparison.OrdinalIgnoreCase) >= 0) return kv.Value;
+            // the mod's code highest in the stack trace (the error message itself may hold the trace too)
+            // only the top frames: mods that run the game loop (performance mods, tick loops) are in almost
+            // every trace further down and are not the cause
+            int frames = 0;
+            foreach (string raw in ((text ?? "") + "\n" + (stack ?? "")).Split('\n'))
+            {
+                string line = raw.Trim();
+                if (!line.StartsWith("at ")) continue;
+                if (++frames > 8) break;
+                string call = line.Substring(3);
+                int dot = call.IndexOf('.');
+                if (dot <= 0) continue;
+                string first = call.Substring(0, dot);
+                if (first.StartsWith("(wrapper")) continue;
+                ModContentPack p;
+                if (byNs.TryGetValue(first, out p)) return p;
+            }
+            return null;
         }
     }
 
@@ -869,6 +1080,47 @@ namespace ModSortManager
             catch (Exception e)
             {
                 Log.Warning("[Mod Sort Manager] Steam updates not available: " + e.Message);
+            }
+        }
+
+        // 0.1.9: subscribing to a missing requirement from the game
+        private static MethodInfo subscribe;
+        public static bool CanSubscribe
+        {
+            get
+            {
+                Init();
+                if (!ok || !SteamManager.Initialized) return false;
+                if (subscribe == null)
+                    subscribe = AccessTools.TypeByName("Steamworks.SteamUGC")?.GetMethod("SubscribeItem", new[] { pfidType });
+                return subscribe != null;
+            }
+        }
+
+        // the number in "steam://url/CommunityFilePage/123" or "...filedetails/?id=123"
+        public static ulong WorkshopId(string url)
+        {
+            if (url.NullOrEmpty()) return 0;
+            var m = System.Text.RegularExpressions.Regex.Match(url, @"(?:CommunityFilePage/|[?&]id=)(\d{6,})");
+            ulong id;
+            return m.Success && ulong.TryParse(m.Groups[1].Value, out id) ? id : 0;
+        }
+
+        public static bool Subscribe(ulong id)
+        {
+            try
+            {
+                if (!CanSubscribe) return false;
+                subscribe.Invoke(null, new[] { Pfid(id) });
+                download.Invoke(null, new object[] { Pfid(id), true });
+                started.Add(id);
+                Log.Message("[Mod Sort Manager] subscribed to Workshop item " + id + " – Steam downloads it.");
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Mod Sort Manager] subscribe " + id + ": " + e.Message);
+                return false;
             }
         }
 

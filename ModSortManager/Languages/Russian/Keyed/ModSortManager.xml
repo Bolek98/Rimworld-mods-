@@ -229,4 +229,59 @@ Mod Sort Manager выключит половину подозреваемых м
   <MSM_PS_DropQueue>Отменить остальное</MSM_PS_DropQueue>
   <MSM_SetPreSave>Проверка перед сохранением</MSM_SetPreSave>
   <MSM_SetPreSaveTip>Перед сохранением изменённого списка: отсутствующие зависимости, моды для старых версий, много новых модов сразу и вещи, нужные новым модам, которых не будет.</MSM_SetPreSaveTip>
+  <MSM_Restart>Перезапуск</MSM_Restart>
+  <MSM_RestartTip>Перезапускает игру без изменения списка модов. В игре с включённым «Возвратом в игру» сначала сохраняет игру и загружает её после перезапуска.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>префикс (может пропустить оригинал)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>префикс</MSM_Kind_prefix>
+  <MSM_Kind_postfix>постфикс</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>транспайлер (переписывает код)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>финализатор</MSM_Kind_finalizer>
+  <MSM_SameBlocking>Хотя бы один может пропустить исходный код – это может остановить и изменение другого мода. Проверьте, что оба работают.</MSM_SameBlocking>
+  <MSM_SameAdditive>Оба только переписывают или дополняют код – обычно нормально, настоящий конфликт только если переписывания столкнутся.</MSM_SameAdditive>
+  <MSM_SameDetails>Как они это меняют</MSM_SameDetails>
+  <MSM_SameLegend>Префикс выполняется до кода игры; префикс, который может пропускать, может остановить код игры и следующие префиксы. Постфикс выполняется после и только добавляет – не конфликтует. Транспайлер переписывает сам код – два могут столкнуться. «Выполняется первым» = префикс, который решает первым.</MSM_SameLegend>
+  <MSM_RunsFirst>выполняется первым: {0}</MSM_RunsFirst>
+  <MSM_Requires>Требует:</MSM_Requires>
+  <MSM_ReqNone>ничего</MSM_ReqNone>
+  <MSM_ReqInactive>установлен, не включён</MSM_ReqInactive>
+  <MSM_ReqMissing>не установлен</MSM_ReqMissing>
+  <MSM_RequiredBy>Нужен {0} включённым модам:</MSM_RequiredBy>
+  <MSM_GrpLog>Ошибки в логе</MSM_GrpLog>
+  <MSM_LogTitle>{0}: {1} ошибок в этой сессии</MSM_LogTitle>
+  <MSM_LogText>Ошибки идут из кода или файлов этого мода (найдено в логе этой сессии). Первая:</MSM_LogText>
+  <MSM_NoteLog>{0} ошибок в логе</MSM_NoteLog>
+  <MSM_DeactivateNamed>Выключить {0}</MSM_DeactivateNamed>
+  <MSM_Subscribe>Подписаться (Steam)</MSM_Subscribe>
+  <MSM_Subscribed>Вы подписались на {0} – Steam его скачивает. Перезапустите игру и включите мод в списке.</MSM_Subscribed>
+  <MSM_OpenWorkshop>Мастерская</MSM_OpenWorkshop>
+  <MSM_OpenWorkshopTip>Открывает Мастерскую Steam прямо в игре (оверлей Steam) – подписывайтесь на моды, не выходя из игры. Нужен включённый оверлей Steam; новые моды загрузятся после перезапуска.</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>Копировать список как код</MSM_ShareCopy>
+  <MSM_ShareCopyTip>Копирует активный список модов в виде короткого текстового кода – отправьте его другу или опубликуйте в Discord.</MSM_ShareCopyTip>
+  <MSM_ShareCopied>Список модов скопирован ({0} модов) – вставьте куда угодно.</MSM_ShareCopied>
+  <MSM_SharePaste>Вставить код списка</MSM_SharePaste>
+  <MSM_SharePasteTip>Загружает список модов из кода в буфере обмена. На недостающие моды из Мастерской можно сразу подписаться.</MSM_SharePasteTip>
+  <MSM_ShareBad>В буфере обмена нет кода списка Mod Sort Manager.</MSM_ShareBad>
+  <MSM_SubscribeMissing>Подписаться на недостающие ({0})</MSM_SubscribeMissing>
+  <MSM_SubscribedN>Подписка на {0} модов – Steam их загружает. Перезапустите игру и снова загрузите код.</MSM_SubscribedN>
+  <MSM_Changes>Что нового ({0})</MSM_Changes>
+  <MSM_ChangesTitle>Обновлено с прошлого запуска ({0})</MSM_ChangesTitle>
+  <MSM_ChangedSince>Обновлено с прошлого запуска{0} – нажмите, чтобы увидеть изменения</MSM_ChangedSince>
+  <MSM_NoChangelog>У этого мода нет файла изменений. Возможно, они указаны на его странице в Мастерской.</MSM_NoChangelog>
+  <MSM_Weight>Загрузка: текстуры {0} · код {1} · дефы {2} · звуки {3}</MSM_Weight>
+  <MSM_WeightCalc>Загрузка: подсчёт…</MSM_WeightCalc>
+  <MSM_WeightTip>Размер того, что игра загружает из этого мода. Нажмите, чтобы увидеть, какие моды сильнее всего замедляют загрузку.</MSM_WeightTip>
+  <MSM_WeightTitle>Что сильнее всего замедляет загрузку</MSM_WeightTitle>
+  <MSM_WeightHint>Размер текстур, кода, дефов и звуков активных модов. Больше обычно значит дольше; текстуры весят больше всего.</MSM_WeightHint>
+  <MSM_WeightSum>Всего {0} в {1} модах</MSM_WeightSum>
+  <MSM_Remove>Удалить мод…</MSM_Remove>
+  <MSM_RemoveTip>Отписаться в Мастерской или убрать / удалить локальный мод.</MSM_RemoveTip>
+  <MSM_RemoveUnsub>Отписаться (Steam удалит файлы)</MSM_RemoveUnsub>
+  <MSM_RemoveUnsubConfirm>Отписаться от {0}? Steam удалит его файлы; мод будет выключен. Подписаться снова можно в любой момент.</MSM_RemoveUnsubConfirm>
+  <MSM_RemovePark>Переместить в папку отложенных (можно вернуть)</MSM_RemovePark>
+  <MSM_RemoveParkConfirm>Переместить {0} из папки Mods в:\n{1}\n\nВернуть его можно в любой момент.</MSM_RemoveParkConfirm>
+  <MSM_RemoveDelete>Удалить навсегда</MSM_RemoveDelete>
+  <MSM_RemoveDeleteConfirm>Удалить {0} навсегда?\n{1}\n\nЭто нельзя отменить.</MSM_RemoveDeleteConfirm>
+  <MSM_RemovedNow>{0} удалён. Перезапустите игру, чтобы завершить.</MSM_RemovedNow>
+  <MSM_RemovedLater>{0} сейчас используется – он будет удалён при следующем запуске (он выключен).</MSM_RemovedLater>
+  <MSM_RemoveFailed>Не удалось удалить {0}.</MSM_RemoveFailed>
 </LanguageData>

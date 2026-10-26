@@ -229,4 +229,59 @@ Starten?</MSM_BisectConfirm>
   <MSM_PS_DropQueue>Rest verwerfen</MSM_PS_DropQueue>
   <MSM_SetPreSave>Prüfung vor dem Speichern</MSM_SetPreSave>
   <MSM_SetPreSaveTip>Bevor eine geänderte Liste gespeichert wird: fehlende Abhängigkeiten, Mods für ältere Spielversionen, viele neue Mods auf einmal und Dinge, die neue Mods brauchen, die es nicht geben wird.</MSM_SetPreSaveTip>
+  <MSM_Restart>Neustart</MSM_Restart>
+  <MSM_RestartTip>Startet das Spiel neu, ohne die Modliste zu ändern. Im Spiel mit eingeschalteter „Rückkehr ins Spiel“ wird zuerst gespeichert und nach dem Neustart wieder geladen.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>Prefix (kann das Original überspringen)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>Prefix</MSM_Kind_prefix>
+  <MSM_Kind_postfix>Postfix</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>Transpiler (schreibt den Code um)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>Finalizer</MSM_Kind_finalizer>
+  <MSM_SameBlocking>Mindestens einer kann den Originalcode überspringen – das kann auch die Änderung des anderen Mods stoppen. Prüfe, ob beide funktionieren.</MSM_SameBlocking>
+  <MSM_SameAdditive>Beide schreiben den Code nur um oder ergänzen ihn – meist in Ordnung, ein echter Konflikt nur, wenn die Umschreibungen kollidieren.</MSM_SameAdditive>
+  <MSM_SameDetails>Wie sie es ändern</MSM_SameDetails>
+  <MSM_SameLegend>Prefix läuft vor dem Spielcode; ein Prefix, der überspringen kann, kann den Spielcode und spätere Prefixe stoppen. Postfix läuft danach und ergänzt nur – kein Konflikt. Transpiler schreibt den Code selbst um – zwei können kollidieren. „Läuft zuerst“ = der Prefix, der zuerst entscheidet.</MSM_SameLegend>
+  <MSM_RunsFirst>läuft zuerst: {0}</MSM_RunsFirst>
+  <MSM_Requires>Benötigt:</MSM_Requires>
+  <MSM_ReqNone>nichts</MSM_ReqNone>
+  <MSM_ReqInactive>installiert, nicht aktiv</MSM_ReqInactive>
+  <MSM_ReqMissing>nicht installiert</MSM_ReqMissing>
+  <MSM_RequiredBy>Benötigt von {0} aktiven Mods:</MSM_RequiredBy>
+  <MSM_GrpLog>Fehler im Log</MSM_GrpLog>
+  <MSM_LogTitle>{0}: {1} Fehler in dieser Sitzung</MSM_LogTitle>
+  <MSM_LogText>Die Fehler stammen aus Code oder Dateien dieses Mods (im Log dieser Sitzung gefunden). Der erste:</MSM_LogText>
+  <MSM_NoteLog>{0} Fehler im Log</MSM_NoteLog>
+  <MSM_DeactivateNamed>{0} deaktivieren</MSM_DeactivateNamed>
+  <MSM_Subscribe>Abonnieren (Steam)</MSM_Subscribe>
+  <MSM_Subscribed>{0} abonniert – Steam lädt es herunter. Starte das Spiel neu und aktiviere es dann in der Liste.</MSM_Subscribed>
+  <MSM_OpenWorkshop>Workshop</MSM_OpenWorkshop>
+  <MSM_OpenWorkshopTip>Öffnet den Steam Workshop im Spiel (Steam-Overlay) – Mods abonnieren, ohne das Spiel zu verlassen. Benötigt das aktivierte Steam-Overlay; neue Mods werden nach einem Neustart geladen.</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>Liste als Code kopieren</MSM_ShareCopy>
+  <MSM_ShareCopyTip>Kopiert die aktive Modliste als kurzen Textcode – schick ihn einem Freund oder poste ihn auf Discord.</MSM_ShareCopyTip>
+  <MSM_ShareCopied>Modliste kopiert ({0} Mods) – überall einfügen.</MSM_ShareCopied>
+  <MSM_SharePaste>Listencode einfügen</MSM_SharePaste>
+  <MSM_SharePasteTip>Lädt eine Modliste aus einem Code in der Zwischenablage. Fehlende Workshop-Mods können sofort abonniert werden.</MSM_SharePasteTip>
+  <MSM_ShareBad>Die Zwischenablage enthält keinen Mod-Sort-Manager-Listencode.</MSM_ShareBad>
+  <MSM_SubscribeMissing>Fehlende abonnieren ({0})</MSM_SubscribeMissing>
+  <MSM_SubscribedN>{0} Mods abonniert – Steam lädt sie herunter. Starte das Spiel neu und lade den Code dann erneut.</MSM_SubscribedN>
+  <MSM_Changes>Neuigkeiten ({0})</MSM_Changes>
+  <MSM_ChangesTitle>Seit dem letzten Start aktualisiert ({0})</MSM_ChangesTitle>
+  <MSM_ChangedSince>Seit dem letzten Start aktualisiert{0} – klicken für das Änderungsprotokoll</MSM_ChangedSince>
+  <MSM_NoChangelog>Diese Mod hat keine Änderungsprotokoll-Datei. Ihre Workshop-Seite listet die Änderungen vielleicht auf.</MSM_NoChangelog>
+  <MSM_Weight>Laden: Texturen {0} · Code {1} · Defs {2} · Sounds {3}</MSM_Weight>
+  <MSM_WeightCalc>Laden: wird gezählt…</MSM_WeightCalc>
+  <MSM_WeightTip>Größe dessen, was das Spiel aus dieser Mod lädt. Klicken, um zu sehen, welche Mods das Laden am meisten bremsen.</MSM_WeightTip>
+  <MSM_WeightTitle>Was das Laden am meisten bremst</MSM_WeightTitle>
+  <MSM_WeightHint>Größe von Texturen, Code, Defs und Sounds der aktiven Mods. Größer heißt meist längeres Laden; Texturen wiegen am meisten.</MSM_WeightHint>
+  <MSM_WeightSum>Insgesamt {0} in {1} Mods</MSM_WeightSum>
+  <MSM_Remove>Mod entfernen…</MSM_Remove>
+  <MSM_RemoveTip>Workshop-Abo kündigen oder eine lokale Mod beiseitelegen / löschen.</MSM_RemoveTip>
+  <MSM_RemoveUnsub>Abo kündigen (Steam löscht die Dateien)</MSM_RemoveUnsub>
+  <MSM_RemoveUnsubConfirm>Abo von {0} kündigen? Steam löscht die Dateien; die Mod wird ausgeschaltet. Du kannst sie jederzeit wieder abonnieren.</MSM_RemoveUnsubConfirm>
+  <MSM_RemovePark>In den Ablageordner verschieben (zurückholbar)</MSM_RemovePark>
+  <MSM_RemoveParkConfirm>{0} aus dem Mods-Ordner verschieben nach:\n{1}\n\nDu kannst sie jederzeit zurückholen.</MSM_RemoveParkConfirm>
+  <MSM_RemoveDelete>Endgültig löschen</MSM_RemoveDelete>
+  <MSM_RemoveDeleteConfirm>{0} endgültig löschen?\n{1}\n\nDas kann nicht rückgängig gemacht werden.</MSM_RemoveDeleteConfirm>
+  <MSM_RemovedNow>{0} wurde entfernt. Starte das Spiel neu, um es abzuschließen.</MSM_RemovedNow>
+  <MSM_RemovedLater>{0} wird gerade benutzt – sie wird beim nächsten Start entfernt (sie ist ausgeschaltet).</MSM_RemovedLater>
+  <MSM_RemoveFailed>{0} konnte nicht entfernt werden.</MSM_RemoveFailed>
 </LanguageData>

@@ -229,4 +229,59 @@ Začít?</MSM_BisectConfirm>
   <MSM_PS_DropQueue>Zrušit zbytek</MSM_PS_DropQueue>
   <MSM_SetPreSave>Kontrola před uložením</MSM_SetPreSave>
   <MSM_SetPreSaveTip>Než se uloží změněný seznam: chybějící závislosti, mody pro starší verze hry, hodně nových modů najednou a věci, které nové mody potřebují a nebudou existovat. Problémy, které by se jinak ukázaly až po restartu.</MSM_SetPreSaveTip>
+  <MSM_Restart>Restartovat</MSM_Restart>
+  <MSM_RestartTip>Restartuje hru beze změny seznamu modů. Ve hře se zapnutým „Po restartu se vrátit do hry“ se hra nejdřív uloží a po restartu se zase načte.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>prefix (může přeskočit originál)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>prefix</MSM_Kind_prefix>
+  <MSM_Kind_postfix>postfix</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>transpiler (přepisuje kód)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>finalizer</MSM_Kind_finalizer>
+  <MSM_SameBlocking>Aspoň jeden může přeskočit původní kód – tím může zastavit i změnu druhého modu. Ověř, že fungují oba.</MSM_SameBlocking>
+  <MSM_SameAdditive>Oba kód jen přepisují nebo doplňují – obvykle v pořádku, skutečný střet hrozí jen když se přepisy srazí.</MSM_SameAdditive>
+  <MSM_SameDetails>Jak to mění</MSM_SameDetails>
+  <MSM_SameLegend>prefix běží před kódem hry; prefix, který může přeskočit, může zastavit kód hry i prefixy po něm. postfix běží po něm a jen přidává – nekoliduje. transpiler přepisuje samotný kód – dva se můžou srazit. „Běží první“ = prefix, který rozhoduje jako první.</MSM_SameLegend>
+  <MSM_RunsFirst>běží první: {0}</MSM_RunsFirst>
+  <MSM_Requires>Vyžaduje:</MSM_Requires>
+  <MSM_ReqNone>nic</MSM_ReqNone>
+  <MSM_ReqInactive>nainstalovaný, nezapnutý</MSM_ReqInactive>
+  <MSM_ReqMissing>chybí</MSM_ReqMissing>
+  <MSM_RequiredBy>Potřebuje ho {0} zapnutých modů:</MSM_RequiredBy>
+  <MSM_GrpLog>Chyby v logu</MSM_GrpLog>
+  <MSM_LogTitle>{0}: {1} chyb v této hře</MSM_LogTitle>
+  <MSM_LogText>Chyby pochází z kódu nebo souborů tohoto modu (nalezeno v logu této hry). První z nich:</MSM_LogText>
+  <MSM_NoteLog>{0} chyb v logu</MSM_NoteLog>
+  <MSM_DeactivateNamed>Vypnout {0}</MSM_DeactivateNamed>
+  <MSM_Subscribe>Odebírat (Steam)</MSM_Subscribe>
+  <MSM_Subscribed>Odebíráš {0} – Steam ho stahuje. Restartuj hru a pak ho v seznamu zapni.</MSM_Subscribed>
+  <MSM_OpenWorkshop>Workshop</MSM_OpenWorkshop>
+  <MSM_OpenWorkshopTip>Otevře Steam Workshop přímo ve hře (překrytí Steamu) – mody odebíráš, aniž bys opouštěl hru. Potřebuje zapnuté překrytí Steamu; nové mody se načtou po restartu hry.</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>Kopírovat seznam jako kód</MSM_ShareCopy>
+  <MSM_ShareCopyTip>Zkopíruje aktivní seznam modů jako krátký textový kód – pošli ho kamarádovi nebo dej na Discord.</MSM_ShareCopyTip>
+  <MSM_ShareCopied>Seznam modů zkopírován ({0} modů) – vlož ho kamkoli.</MSM_ShareCopied>
+  <MSM_SharePaste>Vložit kód seznamu</MSM_SharePaste>
+  <MSM_SharePasteTip>Načte seznam modů z kódu ve schránce. Chybějící mody z Workshopu jde rovnou odebírat.</MSM_SharePasteTip>
+  <MSM_ShareBad>Ve schránce není kód seznamu z Mod Sort Manageru.</MSM_ShareBad>
+  <MSM_SubscribeMissing>Odebírat chybějící ({0})</MSM_SubscribeMissing>
+  <MSM_SubscribedN>Odebíráš {0} modů – Steam je stahuje. Restartuj hru a pak kód načti znovu.</MSM_SubscribedN>
+  <MSM_Changes>Co je nového ({0})</MSM_Changes>
+  <MSM_ChangesTitle>Aktualizováno od minulého spuštění ({0})</MSM_ChangesTitle>
+  <MSM_ChangedSince>Aktualizováno od minula{0} – klikni pro seznam změn</MSM_ChangedSince>
+  <MSM_NoChangelog>Tento mod nemá soubor se změnami. Změny možná najdeš na jeho stránce ve Workshopu.</MSM_NoChangelog>
+  <MSM_Weight>Načítání: textury {0} · kód {1} · defy {2} · zvuky {3}</MSM_Weight>
+  <MSM_WeightCalc>Načítání: počítám…</MSM_WeightCalc>
+  <MSM_WeightTip>Velikost toho, co hra z modu načítá. Klikni a uvidíš, které mody zdržují načítání nejvíc.</MSM_WeightTip>
+  <MSM_WeightTitle>Co nejvíc zdržuje načítání</MSM_WeightTitle>
+  <MSM_WeightHint>Velikost textur, kódu, defů a zvuků aktivních modů. Větší obvykle znamená delší načítání; nejvíc váží textury.</MSM_WeightHint>
+  <MSM_WeightSum>Celkem {0} v {1} modech</MSM_WeightSum>
+  <MSM_Remove>Odstranit mod…</MSM_Remove>
+  <MSM_RemoveTip>Zrušit odběr z Workshopu, nebo odložit / smazat místní mod.</MSM_RemoveTip>
+  <MSM_RemoveUnsub>Zrušit odběr (Steam smaže soubory)</MSM_RemoveUnsub>
+  <MSM_RemoveUnsubConfirm>Zrušit odběr modu {0}? Steam smaže jeho soubory a mod se vypne. Znovu ho můžeš kdykoli odebírat na Workshopu.</MSM_RemoveUnsubConfirm>
+  <MSM_RemovePark>Odložit do složky odložených (jde vrátit)</MSM_RemovePark>
+  <MSM_RemoveParkConfirm>Přesunout {0} ze složky Mods do:\n{1}\n\nKdykoli ho můžeš vrátit zpět.</MSM_RemoveParkConfirm>
+  <MSM_RemoveDelete>Smazat natrvalo</MSM_RemoveDelete>
+  <MSM_RemoveDeleteConfirm>Smazat {0} natrvalo?\n{1}\n\nTohle nejde vrátit.</MSM_RemoveDeleteConfirm>
+  <MSM_RemovedNow>{0} byl odstraněn. Dokonči to restartem hry.</MSM_RemovedNow>
+  <MSM_RemovedLater>{0} je teď používán – odstraní se při dalším spuštění (je vypnutý).</MSM_RemovedLater>
+  <MSM_RemoveFailed>{0} se nepodařilo odstranit.</MSM_RemoveFailed>
 </LanguageData>

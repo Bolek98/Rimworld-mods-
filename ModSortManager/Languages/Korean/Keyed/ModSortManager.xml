@@ -229,4 +229,59 @@ Mod Sort Manager가 의심 모드 {0}개 중 절반을 비활성화하고 게임
   <MSM_PS_DropQueue>나머지 취소</MSM_PS_DropQueue>
   <MSM_SetPreSave>저장 전 검사</MSM_SetPreSave>
   <MSM_SetPreSaveTip>변경된 목록을 저장하기 전에: 누락된 선행 모드, 이전 버전용 모드, 한 번에 많은 새 모드, 새 모드가 필요로 하지만 존재하지 않을 것.</MSM_SetPreSaveTip>
+  <MSM_Restart>재시작</MSM_Restart>
+  <MSM_RestartTip>모드 목록을 바꾸지 않고 게임을 재시작합니다. 게임 중이고 ‘게임으로 돌아가기’가 켜져 있으면 먼저 저장하고 재시작 후 다시 불러옵니다.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>프리픽스(원본을 건너뛸 수 있음)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>프리픽스</MSM_Kind_prefix>
+  <MSM_Kind_postfix>포스트픽스</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>트랜스파일러(코드 재작성)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>파이널라이저</MSM_Kind_finalizer>
+  <MSM_SameBlocking>적어도 하나가 원래 코드를 건너뛸 수 있습니다 – 다른 모드의 변경도 멈출 수 있습니다. 둘 다 작동하는지 확인하세요.</MSM_SameBlocking>
+  <MSM_SameAdditive>둘 다 코드를 재작성하거나 추가할 뿐입니다 – 보통 괜찮으며, 재작성끼리 충돌할 때만 문제가 됩니다.</MSM_SameAdditive>
+  <MSM_SameDetails>변경 방식</MSM_SameDetails>
+  <MSM_SameLegend>프리픽스는 게임 코드보다 먼저 실행됩니다. 건너뛸 수 있는 프리픽스는 게임 코드와 이후 프리픽스를 막을 수 있습니다. 포스트픽스는 나중에 실행되며 추가만 하므로 충돌하지 않습니다. 트랜스파일러는 코드 자체를 재작성하므로 두 개가 충돌할 수 있습니다. "먼저 실행" = 가장 먼저 결정하는 프리픽스.</MSM_SameLegend>
+  <MSM_RunsFirst>먼저 실행: {0}</MSM_RunsFirst>
+  <MSM_Requires>필요:</MSM_Requires>
+  <MSM_ReqNone>없음</MSM_ReqNone>
+  <MSM_ReqInactive>설치됨, 비활성</MSM_ReqInactive>
+  <MSM_ReqMissing>설치 안 됨</MSM_ReqMissing>
+  <MSM_RequiredBy>활성 모드 {0}개가 필요로 함:</MSM_RequiredBy>
+  <MSM_GrpLog>로그의 오류</MSM_GrpLog>
+  <MSM_LogTitle>{0}: 이번 세션 오류 {1}개</MSM_LogTitle>
+  <MSM_LogText>이 모드의 코드나 파일에서 발생한 오류입니다(이번 세션 로그에서 발견). 첫 번째:</MSM_LogText>
+  <MSM_NoteLog>로그에 오류 {0}개</MSM_NoteLog>
+  <MSM_DeactivateNamed>{0} 끄기</MSM_DeactivateNamed>
+  <MSM_Subscribe>구독 (Steam)</MSM_Subscribe>
+  <MSM_Subscribed>{0}을(를) 구독했습니다 – Steam이 다운로드 중입니다. 게임을 재시작한 후 목록에서 켜세요.</MSM_Subscribed>
+  <MSM_OpenWorkshop>창작마당</MSM_OpenWorkshop>
+  <MSM_OpenWorkshopTip>게임 안에서 Steam 창작마당을 엽니다(Steam 오버레이) – 게임을 나가지 않고 모드를 구독하세요. Steam 오버레이가 켜져 있어야 하며, 새 모드는 재시작 후 불러옵니다.</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>목록을 코드로 복사</MSM_ShareCopy>
+  <MSM_ShareCopyTip>활성 모드 목록을 짧은 텍스트 코드로 복사합니다 – 친구에게 보내거나 Discord에 올리세요.</MSM_ShareCopyTip>
+  <MSM_ShareCopied>모드 목록 복사됨({0}개) – 어디에나 붙여 넣으세요.</MSM_ShareCopied>
+  <MSM_SharePaste>목록 코드 붙여넣기</MSM_SharePaste>
+  <MSM_SharePasteTip>클립보드의 코드에서 모드 목록을 불러옵니다. 없는 창작마당 모드는 바로 구독할 수 있습니다.</MSM_SharePasteTip>
+  <MSM_ShareBad>클립보드에 Mod Sort Manager 목록 코드가 없습니다.</MSM_ShareBad>
+  <MSM_SubscribeMissing>없는 모드 구독({0})</MSM_SubscribeMissing>
+  <MSM_SubscribedN>{0}개 모드를 구독했습니다 – Steam이 다운로드 중입니다. 게임을 재시작한 뒤 코드를 다시 불러오세요.</MSM_SubscribedN>
+  <MSM_Changes>새 소식({0})</MSM_Changes>
+  <MSM_ChangesTitle>지난 실행 이후 업데이트됨({0})</MSM_ChangesTitle>
+  <MSM_ChangedSince>지난 실행 이후 업데이트됨{0} – 클릭하면 변경 내역</MSM_ChangedSince>
+  <MSM_NoChangelog>이 모드에는 변경 내역 파일이 없습니다. 창작마당 페이지에 있을 수 있습니다.</MSM_NoChangelog>
+  <MSM_Weight>로딩: 텍스처 {0} · 코드 {1} · 데프 {2} · 소리 {3}</MSM_Weight>
+  <MSM_WeightCalc>로딩: 계산 중…</MSM_WeightCalc>
+  <MSM_WeightTip>게임이 이 모드에서 불러오는 내용의 디스크 크기입니다. 클릭하면 로딩을 가장 느리게 하는 모드를 봅니다.</MSM_WeightTip>
+  <MSM_WeightTitle>로딩을 가장 느리게 하는 것</MSM_WeightTitle>
+  <MSM_WeightHint>활성 모드의 텍스처, 코드, 데프, 소리 크기입니다. 클수록 보통 로딩이 길고, 텍스처가 가장 무겁습니다.</MSM_WeightHint>
+  <MSM_WeightSum>총 {0} ({1}개 모드)</MSM_WeightSum>
+  <MSM_Remove>모드 제거…</MSM_Remove>
+  <MSM_RemoveTip>창작마당 구독을 취소하거나 로컬 모드를 보관 / 삭제합니다.</MSM_RemoveTip>
+  <MSM_RemoveUnsub>구독 취소 (Steam이 파일 삭제)</MSM_RemoveUnsub>
+  <MSM_RemoveUnsubConfirm>{0} 구독을 취소할까요? Steam이 파일을 삭제하고 모드는 꺼집니다. 언제든 다시 구독할 수 있습니다.</MSM_RemoveUnsubConfirm>
+  <MSM_RemovePark>보관 폴더로 이동 (되돌릴 수 있음)</MSM_RemovePark>
+  <MSM_RemoveParkConfirm>{0}을(를) Mods 폴더에서 다음으로 이동:\n{1}\n\n언제든 되돌릴 수 있습니다.</MSM_RemoveParkConfirm>
+  <MSM_RemoveDelete>영구 삭제</MSM_RemoveDelete>
+  <MSM_RemoveDeleteConfirm>{0}을(를) 영구 삭제할까요?\n{1}\n\n되돌릴 수 없습니다.</MSM_RemoveDeleteConfirm>
+  <MSM_RemovedNow>{0}을(를) 제거했습니다. 게임을 재시작해 마무리하세요.</MSM_RemovedNow>
+  <MSM_RemovedLater>{0}은(는) 사용 중입니다 – 다음 시작 때 제거됩니다 (꺼져 있음).</MSM_RemovedLater>
+  <MSM_RemoveFailed>{0}을(를) 제거하지 못했습니다.</MSM_RemoveFailed>
 </LanguageData>

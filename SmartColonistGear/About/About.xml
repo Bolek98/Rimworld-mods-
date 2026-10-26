@@ -3,7 +3,7 @@
   <name>Smart Colonist Gear – Auto Equip Weapons &amp; Armor</name>
   <author>Bolek98</author>
   <packageId>misak.researchedloadout</packageId>
-  <modVersion>2.14.0</modVersion>
+  <modVersion>2.15.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -13,10 +13,11 @@
 WEAPONS
 - Colonists pick the best researched weapons by themselves, without interrupting their work. The best weapons go to the best fighters.
 - Weapons by skills and specialization (shooters, brawlers); an unarmed colonist takes the other kind when the preferred one is missing.
-- Newer technology is preferred: guns over bows, flak or powered armor over plate.
+- Newest era first: when the colony reaches a new era, colonists clearly prefer weapons, armor and clothes of that era – a rifle replaces a bow, a flak vest replaces plate armor. Works on modded gear too (by tech level, research or power).
 - Work tools (pickaxes, sickles, shovels…) are never used as weapons.
 - No back-and-forth: a weapon kind just put away is not taken again for two days.
-- Smart sidearms: built in, or two-way integration with Simple Sidearms (optional).
+- Smart sidearms: built in, or two-way integration with Simple Sidearms (optional). How many ranged and melee weapons each colonist carries is adjustable (default 1 + 1).
+- Quality matters less than era and power: the same item is swapped only for one at least two quality levels better.
 
 APPAREL
 - Smart dressing: armor is always kept, torso and legs covered first – nobody walks around naked.
@@ -32,6 +33,7 @@ EMERGENCIES AND GUESTS
 
 CONTROL
 - Recommended settings switch (on by default) – the mod sets itself up and just works.
+- Gear button: who wears what – every colonist's weapon and armor and what is wrong with it (no weapon, bare torso, worn out, too cold or hot). "Equip everyone now" checks all colonists' gear at once – handy before a raid.
 - "Why" for every gear change: the colonist button lists the last changes, the reason and who made them (this mod, the game, you or another mod).
 - Other mods that change colonist gear are listed in the settings.
 - Ban list, per-colonist toggle, tooltips explaining why an item is locked. Optional "Only crafted": only gear kinds your colony has already made.
@@ -41,7 +43,6 @@ CONTROL
 Works great with World at Your Level (same author): your colonists and the rest of the world share one tech level. Both mods also work on their own.
 
 Requires Harmony. RimWorld 1.6 and 1.7. Safe to add to an existing save. English and Czech.
-Something broken, or want something added? Please write it in the comments – I read them all.
 
 ---
 
@@ -50,10 +51,11 @@ Tvoji kolonisté se vyzbrojí sami – nejlepšími zbraněmi a oblečením, kte
 ZBRANĚ
 - Kolonisté si sami vyberou nejlepší vyzkoumané zbraně, aniž by přerušili práci. Nejlepší zbraně dostanou nejlepší bojovníci.
 - Zbraně podle dovedností a zaměření (střelci, rváči); neozbrojený kolonista si vezme i druhý druh, když ten oblíbený chybí.
-- Novější technologie má přednost: puška před lukem, neprůstřelná vesta nebo power armor před plátovou zbrojí.
+- Nejnovější éra má přednost: když kolonie dosáhne nové éry, kolonisté jasně dávají přednost zbraním, brnění a oblečení té éry – puška nahradí luk, neprůstřelná vesta plátovou zbroj. Funguje i u výbavy z modů (podle technologické úrovně, výzkumu nebo síly).
 - Pracovní nástroje (krumpáče, srpy, lopaty…) se nikdy nepoužijí jako zbraň.
 - Žádné přehazování: druh zbraně, který kolonista právě odložil, si dva dny znovu nevezme.
-- Chytré vedlejší zbraně: vestavěné, nebo propojení se Simple Sidearms (volitelné).
+- Chytré vedlejší zbraně: vestavěné, nebo propojení se Simple Sidearms (volitelné). Kolik zbraní na dálku a na blízko kolonista nosí, se dá nastavit (výchozí 1 + 1).
+- Kvalita rozhoduje méně než éra a síla: stejná věc se vymění jen za aspoň o dva stupně kvalitnější.
 
 OBLEČENÍ
 - Chytré oblékání: brnění zůstává vždy, nejdřív se zakryje trup a nohy – nikdo nechodí nahý.
@@ -69,6 +71,7 @@ NOUZE A HOSTÉ
 
 OVLÁDÁNÍ
 - Přepínač Doporučené nastavení (zapnutý) – mod se nastaví sám a prostě funguje.
+- Tlačítko Výbava: kdo co nosí – zbraň a brnění každého kolonisty a co s nimi není v pořádku (bez zbraně, holý trup, opotřebované, zima nebo horko). „Vybavit všechny hned“ zkontroluje výbavu všech najednou – hodí se před nájezdem.
 - „Proč“ u každé změny výbavy: tlačítko u kolonisty ukáže poslední změny, důvod a kdo je udělal (tento mod, hra, ty, nebo jiný mod).
 - Mody, které mění výbavu kolonistů, jsou vypsané v nastavení.
 - Seznam zákazů, vypnutí pro jednotlivé kolonisty, tipy, proč je věc zamčená. Volitelně „Jen vyrobené“: jen druhy výbavy, které už kolonie vyrobila.
@@ -78,7 +81,23 @@ OVLÁDÁNÍ
 Skvěle funguje s World at Your Level (stejný autor): tvoji kolonisté i zbytek světa sdílí jednu technologickou úroveň. Oba mody fungují i samostatně.
 
 Vyžaduje Harmony. RimWorld 1.6 a 1.7. Lze bezpečně přidat do rozehrané hry. Angličtina a čeština.
-Něco nefunguje, nebo chceš něco přidat? Napiš to do komentářů – čtu je všechny.</description>
+
+═══════════════════════
+IDEAS AND SUGGESTIONS
+Want something changed or added? Write it in the comments – I read every idea and take it into account.
+
+WHAT'S NEW IN 2.15.0
+- Gear overview and "Equip everyone now"
+- Newest era first, adjustable sidearms
+- Fix: hand-equipped weapons stay
+
+NÁPADY A NÁVRHY
+Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
+
+CO JE NOVÉHO VE VERZI 2.15.0
+- Přehled výbavy a „Vybavit všechny hned“
+- Nejnovější éra má přednost, nastavitelné vedlejší zbraně
+- Oprava: zbraň daná ručně zůstane</description>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>

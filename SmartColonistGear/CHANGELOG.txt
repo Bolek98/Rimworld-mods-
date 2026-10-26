@@ -1,3 +1,40 @@
+=== Workshop release 2.15.0 (26 Oct 2026) ===
+2.15.0
+New
+- Gear button: who wears what – every colonist's weapon, armor and what is wrong with the gear. "Equip everyone now" checks everyone's gear at once.
+- Newest era first: colonists clearly prefer gear of the colony's current era (also modded gear without a tech level) – a rifle replaces a bow, a flak vest replaces plate armor.
+- Sidearms: how many ranged and melee weapons each colonist carries (default 1 + 1), with Simple Sidearms or built in.
+- Quality matters less: the same item is swapped only for one at least two quality levels better.
+- "Report a bug" and "Bolek98's mods" buttons in the settings.
+
+Fixes
+- A weapon you equip yourself is never dropped again, not even when its research is not done – colonists no longer end up unarmed before a raid.
+
+=== Development history since the last Workshop release (test versions) ===
+2.16.0
+- New "Gear" button: who wears what – every colonist's weapon (with condition), armor and what is wrong with the gear (no weapon, nothing on the torso, worn out, too cold or hot outside).
+- "Equip everyone now": every colonist who is not drafted checks the gear right away – handy before a raid.
+
+2.15.3
+- Fix: a weapon you equip yourself (right-click → Equip) is never dropped again, not even when its research is not done yet. Before, such weapons were taken off and hauled to storage, so colonists could end up unarmed when a raid came.
+
+2.15.2
+- Settings: a new "Bolek98's mods" button (next to "Report a bug") – all of Bolek98's mods you run in one list with their versions and settings, and saving or loading all their settings at once (for another PC or a reinstall).
+
+2.15.1
+- Newest era first works on modded gear too: the era of an item is now its own tech level, the research it needs or its power – many modded weapons and clothes have no tech level and got no bonus before
+- Stronger: gear of the colony's current era ×1.6, two or more eras behind ×0.7 (was ×1.35 / ×0.8)
+- Armor of the newer era is taken even when it protects a little less (down to 70 % of the old armor instead of 90 %) – a flak vest replaces plate armor
+- Weapons: the newer era always wins between weapons of the same kind, even when it is weaker – a rifle replaces a bow, an older weapon never replaces a newer one (unless the one in hand is falling apart)
+- Quality matters much less for weapons and apparel: legendary vs. normal is a small bonus now (×1.2 at most instead of ×2.3), price counts less, and the same item is swapped only for one at least two quality levels better
+- Sidearms: two new sliders – ranged weapons per colonist and melee weapons per colonist (0–3, the one in hand included; default 1 + 1). With 2, a shooter carries for example a rifle and a pistol. Works with Simple Sidearms and with the built-in sidearms.
+
+2.15.0
+- Newest era first: when the colony reaches a new era (industrial, spacer …), colonists clearly prefer weapons, armor and clothes of that era as soon as they are in the colony; gear two or more eras behind is used only when nothing better is there (setting, on by default)
+
+2.14.1
+- Settings: new "Report a bug" button (bottom left) – a short report for a Workshop comment and a full one for GitHub Issues, with this mod's errors, the mod list and other mods that change the same game code. Nothing is sent anywhere by itself.
+
 === Workshop release 2.14.0 (23 Oct 2026) – everything since the previous Workshop version ===
 2.14.0
 - New name: Smart Colonist Gear – Auto Equip Weapons & Armor (same mod, your settings and saves stay).

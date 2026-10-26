@@ -229,4 +229,59 @@ Commencer ?</MSM_BisectConfirm>
   <MSM_PS_DropQueue>Annuler le reste</MSM_PS_DropQueue>
   <MSM_SetPreSave>Vérification avant l'enregistrement</MSM_SetPreSave>
   <MSM_SetPreSaveTip>Avant d'enregistrer une liste modifiée : dépendances manquantes, mods pour d'anciennes versions, beaucoup de nouveaux mods d'un coup et choses requises qui n'existeront pas.</MSM_SetPreSaveTip>
+  <MSM_Restart>Redémarrer</MSM_Restart>
+  <MSM_RestartTip>Redémarre le jeu sans modifier la liste des mods. En partie avec « Retour au jeu » activé, la partie est d’abord sauvegardée puis rechargée après le redémarrage.</MSM_RestartTip>
+  <MSM_Kind_prefixSkip>préfixe (peut sauter l'original)</MSM_Kind_prefixSkip>
+  <MSM_Kind_prefix>préfixe</MSM_Kind_prefix>
+  <MSM_Kind_postfix>postfixe</MSM_Kind_postfix>
+  <MSM_Kind_transpiler>transpiler (réécrit le code)</MSM_Kind_transpiler>
+  <MSM_Kind_finalizer>finaliseur</MSM_Kind_finalizer>
+  <MSM_SameBlocking>Au moins un peut sauter le code d'origine – cela peut aussi bloquer la modification de l'autre mod. Vérifie que les deux fonctionnent.</MSM_SameBlocking>
+  <MSM_SameAdditive>Les deux ne font que réécrire ou compléter le code – en général sans problème, un vrai conflit n'arrive que si les réécritures se heurtent.</MSM_SameAdditive>
+  <MSM_SameDetails>Comment ils le modifient</MSM_SameDetails>
+  <MSM_SameLegend>Le préfixe s'exécute avant le code du jeu ; un préfixe qui peut sauter peut arrêter le code du jeu et les préfixes suivants. Le postfixe s'exécute après et ne fait qu'ajouter – pas de conflit. Le transpiler réécrit le code lui-même – deux peuvent se heurter. « S'exécute en premier » = le préfixe qui décide en premier.</MSM_SameLegend>
+  <MSM_RunsFirst>s'exécute en premier : {0}</MSM_RunsFirst>
+  <MSM_Requires>Nécessite :</MSM_Requires>
+  <MSM_ReqNone>rien</MSM_ReqNone>
+  <MSM_ReqInactive>installé, non actif</MSM_ReqInactive>
+  <MSM_ReqMissing>non installé</MSM_ReqMissing>
+  <MSM_RequiredBy>Requis par {0} mods actifs :</MSM_RequiredBy>
+  <MSM_GrpLog>Erreurs dans le journal</MSM_GrpLog>
+  <MSM_LogTitle>{0} : {1} erreurs dans cette session</MSM_LogTitle>
+  <MSM_LogText>Les erreurs viennent du code ou des fichiers de ce mod (trouvées dans le journal de cette session). La première :</MSM_LogText>
+  <MSM_NoteLog>{0} erreurs dans le journal</MSM_NoteLog>
+  <MSM_DeactivateNamed>Désactiver {0}</MSM_DeactivateNamed>
+  <MSM_Subscribe>S'abonner (Steam)</MSM_Subscribe>
+  <MSM_Subscribed>Abonné à {0} – Steam le télécharge. Redémarre le jeu puis active-le dans la liste.</MSM_Subscribed>
+  <MSM_OpenWorkshop>Workshop</MSM_OpenWorkshop>
+  <MSM_OpenWorkshopTip>Ouvre le Steam Workshop dans le jeu (overlay Steam) – abonne-toi aux mods sans quitter le jeu. Nécessite l'overlay Steam activé ; les nouveaux mods se chargent après un redémarrage.</MSM_OpenWorkshopTip>
+  <MSM_ShareCopy>Copier la liste en code</MSM_ShareCopy>
+  <MSM_ShareCopyTip>Copie la liste de mods active sous forme de court code texte – envoie-le à un ami ou poste-le sur Discord.</MSM_ShareCopyTip>
+  <MSM_ShareCopied>Liste de mods copiée ({0} mods) – colle-la où tu veux.</MSM_ShareCopied>
+  <MSM_SharePaste>Coller un code de liste</MSM_SharePaste>
+  <MSM_SharePasteTip>Charge une liste de mods depuis un code dans le presse-papiers. Les mods du Workshop manquants peuvent être abonnés tout de suite.</MSM_SharePasteTip>
+  <MSM_ShareBad>Le presse-papiers ne contient pas de code de liste Mod Sort Manager.</MSM_ShareBad>
+  <MSM_SubscribeMissing>S'abonner aux manquants ({0})</MSM_SubscribeMissing>
+  <MSM_SubscribedN>Abonné à {0} mods – Steam les télécharge. Redémarre le jeu, puis charge le code à nouveau.</MSM_SubscribedN>
+  <MSM_Changes>Nouveautés ({0})</MSM_Changes>
+  <MSM_ChangesTitle>Mis à jour depuis le dernier lancement ({0})</MSM_ChangesTitle>
+  <MSM_ChangedSince>Mis à jour depuis le dernier lancement{0} – clique pour le journal des modifications</MSM_ChangedSince>
+  <MSM_NoChangelog>Ce mod n'a pas de fichier de journal des modifications. Sa page Workshop liste peut-être les changements.</MSM_NoChangelog>
+  <MSM_Weight>Chargement : textures {0} · code {1} · defs {2} · sons {3}</MSM_Weight>
+  <MSM_WeightCalc>Chargement : calcul…</MSM_WeightCalc>
+  <MSM_WeightTip>Taille de ce que le jeu charge depuis ce mod. Clique pour voir quels mods ralentissent le plus le chargement.</MSM_WeightTip>
+  <MSM_WeightTitle>Ce qui ralentit le plus le chargement</MSM_WeightTitle>
+  <MSM_WeightHint>Taille des textures, du code, des defs et des sons des mods actifs. Plus gros signifie souvent un chargement plus long ; les textures pèsent le plus.</MSM_WeightHint>
+  <MSM_WeightSum>Total {0} dans {1} mods</MSM_WeightSum>
+  <MSM_Remove>Retirer le mod…</MSM_Remove>
+  <MSM_RemoveTip>Se désabonner du Workshop, ou mettre de côté / supprimer un mod local.</MSM_RemoveTip>
+  <MSM_RemoveUnsub>Se désabonner (Steam supprime les fichiers)</MSM_RemoveUnsub>
+  <MSM_RemoveUnsubConfirm>Se désabonner de {0} ? Steam supprime ses fichiers ; le mod est désactivé. Tu peux te réabonner à tout moment.</MSM_RemoveUnsubConfirm>
+  <MSM_RemovePark>Déplacer dans le dossier mis de côté (récupérable)</MSM_RemovePark>
+  <MSM_RemoveParkConfirm>Déplacer {0} hors du dossier Mods vers :\n{1}\n\nTu peux le remettre à tout moment.</MSM_RemoveParkConfirm>
+  <MSM_RemoveDelete>Supprimer définitivement</MSM_RemoveDelete>
+  <MSM_RemoveDeleteConfirm>Supprimer {0} définitivement ?\n{1}\n\nC'est irréversible.</MSM_RemoveDeleteConfirm>
+  <MSM_RemovedNow>{0} a été retiré. Redémarre le jeu pour terminer.</MSM_RemovedNow>
+  <MSM_RemovedLater>{0} est utilisé en ce moment – il sera retiré au prochain lancement (il est désactivé).</MSM_RemovedLater>
+  <MSM_RemoveFailed>Impossible de retirer {0}.</MSM_RemoveFailed>
 </LanguageData>
