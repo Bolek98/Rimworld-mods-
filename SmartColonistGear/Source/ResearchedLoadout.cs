@@ -7091,6 +7091,11 @@ namespace ResearchedLoadout
 		// a weapon you gave the colonist yourself stays
 		private static bool WeaponLocked(Thing weapon)
 		{
+			// 2.15.3: a weapon you equipped yourself is never taken away – not even for missing research
+			if (IsPlayerChosen(weapon))
+			{
+				return false;
+			}
 			if (!LoadoutFilter.IsResearchAllowed(weapon.def))
 			{
 				return true;

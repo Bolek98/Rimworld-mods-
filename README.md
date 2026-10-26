@@ -29,7 +29,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Place for Everything – Smart Storage for Homeless Items | 0.1.1 | [PlaceForEverything](PlaceForEverything) |
 | Research Fixer – Tech Progression | 0.3.3 | [ResearchFixer](ResearchFixer) |
 | Secular Colony – Ideology Off & Tweaks | 1.5.2 | [SecularColony](SecularColony) |
-| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.15.2 | [SmartColonistGear](SmartColonistGear) |
+| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.15.3 | [SmartColonistGear](SmartColonistGear) |
 | Smooth FPS – Performance & Graphics | 1.4.6 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 3.2.5 | [Steward2/Steward](Steward2/Steward) |
