@@ -2,6 +2,8 @@
 # Jednou za čas (výchozí 60 minut) se zeptá Steamu na tvoje mody na Workshopu a když
 # někdo přidá/zruší odběr nebo oblíbené, ukáže upozornění na PC a pošle ho na mobil (ntfy).
 # Steam neříká KDO to byl – jen čísla. Ve Steamu se čísla navíc obnovují se zpožděním.
+# Navíc: když zavřeš RimWorld, projde Player.log a když v něm jsou chyby z TVÝCH modů,
+# dá vědět (kolik a jaká poslední) a uloží je do složky 'chyby' vedle skriptu.
 
 $ErrorActionPreference = 'Stop'
 
@@ -38,6 +40,7 @@ if (-not (Test-Path $cfgFile)) {
 }
 $cfg = Get-Content $cfgFile -Raw -Encoding UTF8 | ConvertFrom-Json
 if ($null -eq $cfg.PSObject.Properties['souhrnHodina']) { $cfg | Add-Member souhrnHodina 21 }
+if ($null -eq $cfg.PSObject.Properties['hlidatChyby']) { $cfg | Add-Member hlidatChyby $true }
 
 # ---------- které mody hlídat ----------
 function Get-ModIds {
@@ -77,8 +80,10 @@ $tray.Visible = $true
 $menu = New-Object System.Windows.Forms.ContextMenuStrip
 $script:quit = $false
 $script:checkNow = $false
+$script:checkGame = $false
 [void]$menu.Items.Add('Zkontrolovat teď', $null, { $script:checkNow = $true })
 [void]$menu.Items.Add('Otevřít log', $null, { Start-Process notepad.exe $logFile })
+[void]$menu.Items.Add('Zkontrolovat chyby ze hry', $null, { $script:checkGame = $true })
 [void]$menu.Items.Add('Ukončit', $null, { $script:quit = $true })
 $tray.ContextMenuStrip = $menu
 
@@ -132,6 +137,107 @@ function ToTable($obj) {
     $t = @{}
     if ($obj) { $obj.PSObject.Properties | ForEach-Object { $t[$_.Name] = $_.Value } }
     return $t
+}
+
+# ---------- chyby z mých modů po zavření hry ----------
+# jmenný prostor v kódu -> název modu (chyba se počítá jen když je mod přímo v zásobníku volání,
+# ne když jen "visí" jako Harmony patch na stejné metodě – to by svádělo vinu na nevinné)
+$myNamespaces = [ordered]@{
+    'AutoPharmacy' = 'Auto Pharmacy'; 'AutoTurrets' = 'Auto Turrets'; 'BodyFit' = 'Body Fit'
+    'CallForBackup' = 'Call for Backup'; 'CaravanHelper' = 'Caravan Helper'; 'HardyPlants' = 'Evergrowth'
+    'EvergrowthWild' = 'Evergrowth – Wild Plants'; 'MemoryTuner' = 'Fewer Freezes'; 'GenderBalance' = 'Gender Balance'
+    'HaulSmarter' = 'Haul Smarter'; 'Legacy' = 'Legacy'; 'MapArchitect' = 'Map Architect'
+    'MasksAndHeadgear' = 'Masks and Headgear'; 'Matchmaker' = 'Matchmaker'; 'MechCommander' = 'Mech Commander'
+    'MisakBodies' = 'Mišák Bodies'; 'MisakTabs' = 'Mišák Tabs'; 'ModSortManager' = 'Mod Sort Manager'
+    'PlaceForEverything' = 'Place for Everything'; 'RandysTable' = "Randy's Table"; 'ResearchFixer' = 'Research Fixer'
+    'SecularColony' = 'Secular Colony'; 'ResearchedLoadout' = 'Smart Colonist Gear'; 'GraphicsTuner' = 'Smooth FPS'
+    'ColonyForeman' = 'Steward'; 'StorytellerTuner' = 'Storyteller Tuner'; 'UniversalRimTranslator' = 'URT'; 'Urt2' = 'URT'
+    'UnofficialPatch' = 'Unofficial Patch'; 'WildSpawnZone' = 'Wild Spawn Zone'; 'ResearchLockedRaidGear' = 'World at Your Level'
+    'ModFixes' = 'Mod Fixes'; 'IntimateLife' = 'Intimate Life'; 'RychlaBolest' = 'Rychlá bolest'; 'RychlaBolezst' = 'Rychlá bolest'
+}
+$nsAlt = ($myNamespaces.Keys | ForEach-Object { [regex]::Escape($_) }) -join '|'
+$rxFrame = New-Object regex -ArgumentList ('^\s*at\s+(' + $nsAlt + ')\.'), ([System.Text.RegularExpressions.RegexOptions]::Compiled)
+$rxHead = New-Object regex -ArgumentList '^\d{4}-\d\d-\d\d \d\d:\d\d:\d\d\.\d+\s+(\w+)\s+(?:\[[^\]]*\]\s*)?(.*)$', ([System.Text.RegularExpressions.RegexOptions]::Compiled)
+$tagNames = @($myNamespaces.Values | Select-Object -Unique)
+
+function Find-PlayerLog {
+    $base = Join-Path $env:USERPROFILE 'AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios'
+    $c = @((Join-Path $base 'Logs\Player.log'), (Join-Path $base 'Player.log')) | Where-Object { Test-Path $_ }
+    if ($c.Count -eq 0) { return $null }
+    return ($c | ForEach-Object { Get-Item $_ } | Sort-Object LastWriteTime -Descending | Select-Object -First 1)
+}
+
+function Read-Shared($path) {
+    $fs = [System.IO.File]::Open($path, 'Open', 'Read', 'ReadWrite')
+    try { $sr = New-Object System.IO.StreamReader($fs, [System.Text.Encoding]::UTF8); return $sr.ReadToEnd() }
+    finally { $fs.Dispose() }
+}
+
+function Clean($t) { return (($t -replace '<[^>]+>', '') -replace '\s+', ' ').Trim() }
+
+function Check-GameLog {
+    $f = Find-PlayerLog
+    if (-not $f) { Log 'Player.log nenalezen'; return }
+    $lines = (Read-Shared $f.FullName) -split "`r?`n"
+    # záznamy: hlavička s časem a úrovní + odsazené řádky pod ní (zásobník)
+    $entries = New-Object System.Collections.ArrayList
+    $cur = $null
+    foreach ($l in $lines) {
+        $m = $rxHead.Match($l)
+        if ($m.Success) {
+            $cur = @{ level = $m.Groups[1].Value; text = $m.Groups[2].Value; body = New-Object System.Collections.ArrayList }
+            [void]$entries.Add($cur)
+        } elseif ($cur) { [void]$cur.body.Add($l) }
+    }
+    $byMod = [ordered]@{}
+    $report = New-Object System.Collections.ArrayList
+    foreach ($e in $entries) {
+        if ($e.level -notmatch '^(ERROR|EXCEPTION|FATAL|CRITICAL)$') { continue }
+        $mod = $null
+        foreach ($b in $e.body) {
+            if ($b -match '^\s+- (PREFIX|POSTFIX|TRANSPILER|FINALIZER) ') { continue }
+            $fm = $rxFrame.Match($b)
+            if ($fm.Success) { $mod = $myNamespaces[$fm.Groups[1].Value]; break }
+        }
+        if (-not $mod) {
+            $clean = Clean $e.text
+            foreach ($n in $tagNames) { if ($clean.StartsWith('[' + $n + ']')) { $mod = $n; break } }
+        }
+        if (-not $mod) { continue }
+        if (-not $byMod.Contains($mod)) { $byMod[$mod] = @{ n = 0; unique = @{}; last = '' } }
+        $msg = Clean $e.text
+        $key = ($msg -replace '\d+', '#')
+        if ($key.Length -gt 140) { $key = $key.Substring(0, 140) }
+        $byMod[$mod].n++
+        $byMod[$mod].unique[$key] = $true
+        $byMod[$mod].last = $msg
+        [void]$report.Add('=== ' + $mod + ' ===')
+        [void]$report.Add($e.text)
+        foreach ($b in $e.body) { [void]$report.Add($b) }
+        [void]$report.Add('')
+    }
+    if ($byMod.Count -eq 0) {
+        Log ('hra zavřená – v Player.log žádné chyby z tvých modů (' + $entries.Count + ' záznamů)')
+        if ($cfg.pcUpozorneni) {
+            $tray.BalloonTipTitle = 'RimWorld zavřený'
+            $tray.BalloonTipText = 'Žádné chyby z tvých modů 👍'
+            $tray.ShowBalloonTip(5000)
+        }
+        return
+    }
+    $dir = Join-Path $here 'chyby'
+    if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir | Out-Null }
+    $out = Join-Path $dir ('chyby_' + (Get-Date -Format 'yyyy-MM-dd_HH-mm') + '.txt')
+    $report | Set-Content -Path $out -Encoding UTF8
+    $parts = @()
+    foreach ($k in $byMod.Keys) {
+        $v = $byMod[$k]
+        $last = $v.last
+        if ($last.Length -gt 140) { $last = $last.Substring(0, 137) + '…' }
+        $word = if ($v.n -eq 1) { 'chyba' } elseif ($v.n -lt 5) { 'chyby' } else { 'chyb' }
+        $parts += ($k + ': ' + $v.n + ' ' + $word + ', různých ' + $v.unique.Count + ', poslední: ' + $last)
+    }
+    Notify 'Chyby z tvých modů' (($parts -join "`n") + "`nCelé: chyby\" + (Split-Path -Leaf $out)) $null
 }
 
 # ---------- jedna kontrola ----------
@@ -216,7 +322,7 @@ function Check {
         $day.sent = $true
     }
 
-    [ordered]@{ items = $new; comments = $lastComment; day = $day } | ConvertTo-Json -Depth 6 | Set-Content -Path $stateFile -Encoding UTF8
+    [ordered]@{ items = $new; comments = $lastComment; day = $day; logSeen = (Get-Prop $st 'logSeen') } | ConvertTo-Json -Depth 6 | Set-Content -Path $stateFile -Encoding UTF8
     if ($oldItems.Count -eq 0) {
         Notify 'Workshop hlídač běží' ("Hlídané mody: $($items.Count), kontrola každých $($cfg.intervalMinut) min.") $null
     } elseif ($lines.Count -gt 0) {
@@ -229,12 +335,37 @@ function Check {
 # ---------- hlavní smyčka ----------
 Log 'start'
 $next = Get-Date
+$nextGame = Get-Date
+$gameWasRunning = $false
+# když se hlídač spustí až po zavření hry (třeba po restartu PC), zkontroluje log, který ještě neviděl
+$seenLog = $null
+if (Test-Path $stateFile) { try { $seenLog = (Get-Content $stateFile -Raw -Encoding UTF8 | ConvertFrom-Json).logSeen } catch { } }
 while (-not $script:quit) {
+    if ($cfg.hlidatChyby -and (Get-Date) -ge $nextGame) {
+        $nextGame = (Get-Date).AddSeconds(15)
+        try {
+            $running = [bool](Get-Process -Name 'RimWorldWin64', 'RimWorld' -ErrorAction SilentlyContinue)
+            $pl = if (-not $running) { Find-PlayerLog } else { $null }
+            $stamp = if ($pl) { $pl.LastWriteTimeUtc.Ticks.ToString() } else { $null }
+            if (-not $running -and $stamp -and ($gameWasRunning -or ($seenLog -and $stamp -ne "$seenLog"))) {
+                Start-Sleep -Seconds 3
+                Check-GameLog
+            }
+            if (-not $running -and $stamp -and "$seenLog" -ne $stamp) {
+                $seenLog = $stamp
+                $st = if (Test-Path $stateFile) { Get-Content $stateFile -Raw -Encoding UTF8 | ConvertFrom-Json } else { [pscustomobject]@{} }
+                if ($st.PSObject.Properties['logSeen']) { $st.logSeen = $stamp } else { $st | Add-Member logSeen $stamp }
+                $st | ConvertTo-Json -Depth 6 | Set-Content -Path $stateFile -Encoding UTF8
+            }
+            $gameWasRunning = $running
+        } catch { Log ('chyby ze hry: ' + $_.Exception.Message) }
+    }
     if ($script:checkNow -or (Get-Date) -ge $next) {
         $script:checkNow = $false
         try { Check } catch { Log ('chyba: ' + $_.Exception.Message) }
         $next = (Get-Date).AddMinutes([Math]::Max(5, [int]$cfg.intervalMinut))
     }
+    if ($script:checkGame) { $script:checkGame = $false; try { Check-GameLog } catch { Log ('chyby ze hry: ' + $_.Exception.Message) } }
     [System.Windows.Forms.Application]::DoEvents()
     Start-Sleep -Milliseconds 300
 }
