@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RLRG_Enable>フィルターを有効化</RLRG_Enable>
+  <RLRG_Enable_Desc>外部の者は、あなたのコロニーが研究済みの装備だけを持ってやって来ます。</RLRG_Enable_Desc>
+  <RLRG_UseRecipes>レシピを研究として扱う</RLRG_UseRecipes>
+  <RLRG_UseRecipes_Desc>アイテムを作るレシピのうち少なくとも1つの研究が完了していれば、そのアイテムは解禁されます。</RLRG_UseRecipes_Desc>
+  <RLRG_BlockHigherTech>コロニーの技術レベルを超えるアイテムをブロック</RLRG_BlockHigherTech>
+  <RLRG_BlockHigherTech_Desc>研究のないアイテムは、コロニーが研究済みの技術レベルまでしか許可されません。</RLRG_BlockHigherTech_Desc>
+  <RLRG_BlockUntagged>研究のないMod製アイテムをブロック</RLRG_BlockUntagged>
+  <RLRG_BlockUntagged_Desc>研究のない他Modの武器や衣服はロック扱いになります。</RLRG_BlockUntagged_Desc>
+  <RLRG_FilterAll>すべての来訪者をフィルター</RLRG_FilterAll>
+  <RLRG_FilterAll_Desc>襲撃、訪問者、キャラバン、クエスト。オフの場合は敵対者と攻撃者のみ。</RLRG_FilterAll_Desc>
+  <RLRG_SkipTraders>商人は対象外</RLRG_SkipTraders>
+  <RLRG_SkipTraders_Desc>商人は自分の装備を保持します。</RLRG_SkipTraders_Desc>
+  <RLRG_FilterApparel>衣服と防具をフィルター</RLRG_FilterApparel>
+  <RLRG_FilterInventory>所持品をフィルター</RLRG_FilterInventory>
+  <RLRG_FilterInventory_Desc>所持品の中の武器や衣服（サイドアームなど）。</RLRG_FilterInventory_Desc>
+  <RLRG_Replace>最も近い研究済みアイテムに置き換え</RLRG_Replace>
+  <RLRG_Replace_Desc>ロックされたアイテムは、品質と損耗が同じ、似た許可済みアイテムに置き換えられます。</RLRG_Replace_Desc>
+  <RLRG_Drop>ロックされたアイテムを地面に残す</RLRG_Drop>
+  <RLRG_Drop_Desc>襲撃者はロックされたアイテムを所持品に入れて運びます – 倒せば戦利品として手に入ります。訪問者や商人は何も残しません。それ以外の場合、ロックされたアイテムは消えます。</RLRG_Drop_Desc>
+  <RLRG_ExemptAncients>古代の危険とクリプトスリーパーは対象外</RLRG_ExemptAncients>
+  <RLRG_ExemptAncients_Desc>彼らの装備は開けた報酬の一部です。</RLRG_ExemptAncients_Desc>
+  <RLRG_KeepTitleApparel>貴族は必要な衣服を保持</RLRG_KeepTitleApparel>
+  <RLRG_KeepTitleApparel_Desc>王族の称号やイデオロギーの役割に必要な衣服は取り除かれません。</RLRG_KeepTitleApparel_Desc>
+  <RLRG_DamageDropped>残されたアイテムを損傷させる</RLRG_DamageDropped>
+  <RLRG_DamageDropped_Desc>地面に残されたロックアイテムの耐久度は20–50%のみで、衣服は死体が着用していたものとしてマークされます。売却による楽な稼ぎを防ぎます。</RLRG_DamageDropped_Desc>
+  <RLRG_Compensate>襲撃の強さを補正</RLRG_Compensate>
+  <RLRG_Compensate_Desc>襲撃者が装備の一部を失うと、難易度のバランスを保つため襲撃に追加の襲撃者が加わります。</RLRG_Compensate_Desc>
+  <RLRG_CompensationPct>補正の強さ：{0}%</RLRG_CompensationPct>
+  <RLRG_CompensationPct_Desc>失った装備のうちどれだけを追加の襲撃者で補うか。襲撃のポイントは最大50%まで増えます。</RLRG_CompensationPct_Desc>
+  <RLRG_TechAhead>技術レベルの許容差：+{0}</RLRG_TechAhead>
+  <RLRG_TechAhead_Desc>外部の者は研究がなくても、コロニーよりこの数だけ上の技術レベルのアイテムを持てます。0 = 研究済みアイテムのみ。</RLRG_TechAhead_Desc>
+  <RLRG_KeepChance>ロックアイテムを保持する確率：{0}%</RLRG_KeepChance>
+  <RLRG_KeepChance_Desc>この確率でポーンはロックされたアイテムを保持します。結果は記憶され、次回は再判定されません。</RLRG_KeepChance_Desc>
+  <RLRG_ExemptFactions>除外する派閥（チェックした派閥は装備を保持）：</RLRG_ExemptFactions>
+  <RLRG_NotifyRaid>襲撃到着時に通知</RLRG_NotifyRaid>
+  <RLRG_NotifyRaid_Desc>襲撃者がどれだけ装備を失い、何人追加されたかを左上にメッセージで表示します。</RLRG_NotifyRaid_Desc>
+  <RLRG_OpenList>装備の一覧と手動禁止...</RLRG_OpenList>
+  <RLRG_Biocode>置き換え品をバイオコード化</RLRG_Biocode>
+  <RLRG_Biocode_Desc>置き換えたアイテムは装備者にバイオコード化されるため、戦闘後に使えず、売値も下がります。バイオコードに対応したアイテム（主に高度な武器）にのみ有効です。</RLRG_Biocode_Desc>
+  <RLRG_Years>時間経過で解禁：{0}年ごとに+1レベル</RLRG_Years>
+  <RLRG_Years_Desc>あなたが研究しなくても、襲撃者は徐々により良い装備を手に入れます。技術レベルの許容差に加算されます。</RLRG_Years_Desc>
+  <RLRG_YearsOff>時間経過で解禁：オフ</RLRG_YearsOff>
+  <RLRG_MsgRaid>襲撃者は装備の{0}%を失いました。</RLRG_MsgRaid>
+  <RLRG_MsgRaidCompensated>襲撃者は装備の{0}%を失いました。襲撃に襲撃者が{1}人追加されました。</RLRG_MsgRaidCompensated>
+  <RLRG_TabWeapons>武器</RLRG_TabWeapons>
+  <RLRG_TabApparel>衣服と防具</RLRG_TabApparel>
+  <RLRG_Search>検索：</RLRG_Search>
+  <RLRG_ListHint>チェックしたアイテムは外部の者に決して与えられません。状態は現在持てるものを示します。</RLRG_ListHint>
+  <RLRG_ListNoGame>チェックしたアイテムは外部の者に決して与えられません。現在の状態を見るにはゲームをロードしてください。</RLRG_ListNoGame>
+  <RLRG_StatusBanned>禁止</RLRG_StatusBanned>
+  <RLRG_StatusAllowed>許可</RLRG_StatusAllowed>
+  <RLRG_StatusLocked>ロック</RLRG_StatusLocked>
+  <RLRG_Ex_Allowed>許可</RLRG_Ex_Allowed>
+  <RLRG_Ex_Locked>ロック</RLRG_Ex_Locked>
+  <RLRG_Ex_Always>常に必要：{0}</RLRG_Ex_Always>
+  <RLRG_Ex_Option>製作：{0}</RLRG_Ex_Option>
+  <RLRG_Ex_Free>研究なしで製作可能</RLRG_Ex_Free>
+  <RLRG_Ex_NoResearch>研究なし（技術レベルとMod製アイテムのルールで判定）</RLRG_Ex_NoResearch>
+  <RLRG_Ex_Tech>技術レベル：{0}（上限：{1}）</RLRG_Ex_Tech>
+  <RLRG_Ex_Mod>Mod：{0}</RLRG_Ex_Mod>
+  <RLRG_Ex_Done>完了</RLRG_Ex_Done>
+  <RLRG_Ex_Missing>未完了</RLRG_Ex_Missing>
+  <RLRG_TechMismatch>研究より高度なアイテムをチェック</RLRG_TechMismatch>
+  <RLRG_TechMismatch_Desc>Modが高度なアイテムを低い研究に配置している場合（産業研究の下の宇宙時代のライフルなど）、コロニーはそのアイテムの技術レベルにも到達する必要があります。</RLRG_TechMismatch_Desc>
+  <RLRG_PowerEstimate>性能からMod製アイテムの技術レベルを推定</RLRG_PowerEstimate>
+  <RLRG_PowerEstimate_Desc>バニラ最強の産業レベルのものより明らかに強いMod製の武器や防具は、Mod作者が低いレベルを設定していても宇宙時代として扱われます。これは推定です。</RLRG_PowerEstimate_Desc>
+  <RLRG_Ex_Power>性能に相当する技術レベル：{0}</RLRG_Ex_Power>
+  <RLRG_Ex_NeedColony>コロニーが到達すべき技術レベル：{0}</RLRG_Ex_NeedColony>
+  <RLRG_LevelByProgress>研究の進捗でコロニーのレベルを決定</RLRG_LevelByProgress>
+  <RLRG_LevelByProgress_Desc>コロニーは、あるレベルの研究のうち設定した割合を完了するとその技術レベルに到達します。オフ = 完了した最も高い研究で決定（1つで十分）。シナリオのレベルは常に最低値として扱われます。</RLRG_LevelByProgress_Desc>
+  <RLRG_LevelProgress>レベルの研究の必要割合：{0}%</RLRG_LevelProgress>
+  <RLRG_LevelProgress_Desc>コロニーがそのレベルと見なされるために、そのレベルの研究をどれだけ完了する必要があるか。</RLRG_LevelProgress_Desc>
+  <RLRG_CurrentLevel>現在のコロニーレベル：{0}（シナリオ：{1}、研究：{2}）</RLRG_CurrentLevel>
+  <RLRG_WorldHeader>コロニーのレベルに合わせた世界</RLRG_WorldHeader>
+  <RLRG_WorldRaids>世界レベル以下の派閥からのみ襲撃</RLRG_WorldRaids>
+  <RLRG_WorldRaids_Desc>世界レベル（あなたのレベル + 許容差）より高度な派閥は襲撃できません。下のリストで除外した派閥は制限されません。</RLRG_WorldRaids_Desc>
+  <RLRG_WorldMechs>メカノイドと虫も制限</RLRG_WorldMechs>
+  <RLRG_WorldMechs_Desc>デフォルトではメカノイドと虫は制限されません。オンにすると、世界がそのレベルに達するまでメカノイドの襲撃とメカクラスターは来ません。</RLRG_WorldMechs_Desc>
+  <RLRG_WorldItems>商人、報酬、戦利品を世界レベルまでに</RLRG_WorldItems>
+  <RLRG_WorldItems_Desc>世界レベルを超えるアイテムは、商人の在庫、クエスト報酬、戦利品から取り除かれます。武器と衣服は外部の者の装備と同じルールに従います。</RLRG_WorldItems_Desc>
+  <RLRG_WorldIncidents>イベントを世界レベルまでに</RLRG_WorldIncidents>
+  <RLRG_WorldIncidents_Desc>宇宙船の部品の墜落、宇宙船の残骸、軌道商船、（メカノイドを含む場合）メカクラスターは、世界がそのレベルに達するまで起きません。</RLRG_WorldIncidents_Desc>
+  <RLRG_WorldMessages>世界レベルが変わったらメッセージ</RLRG_WorldMessages>
+  <RLRG_WorldUp>世界は技術レベル{0}に進みました。</RLRG_WorldUp>
+  <RLRG_WorldDown>世界の技術レベルは現在：{0}。</RLRG_WorldDown>
+  <RLRG_WorldQuests>クエストを世界レベルまでに</RLRG_WorldQuests>
+  <RLRG_WorldQuests_Desc>世界より高度な派閥（攻撃者、同盟者、依頼人）が関わるストーリーテラーのランダムクエストは、黙って破棄されます。高度な技術に関わるクエスト（アーコテック、グラヴシップ、メカノイドを含む場合はメカのクエストも）は提示されません。報酬は商人と同様に研究に従います。ストーリークエストと儀式は決してブロックされません。</RLRG_WorldQuests_Desc>
+  <RLRG_TabWorld>世界レベル</RLRG_TabWorld>
+  <RLRG_TabArrivals>襲撃者と来訪者</RLRG_TabArrivals>
+  <RLRG_TabRules>研究のルール</RLRG_TabRules>
+  <RLRG_TabFilters>世界フィルター</RLRG_TabFilters>
+  <RLRG_TabFactions>派閥</RLRG_TabFactions>
+  <RLRG_WorldLevelNow>現在の世界レベル（許容差込み）：{0}</RLRG_WorldLevelNow>
+  <RLRG_ManualLevel>世界レベルを手動で設定</RLRG_ManualLevel>
+  <RLRG_ManualLevel_Desc>世界レベルは研究から計算されず、選んだレベルが許容差や時間経過の解禁なしにそのまま適用されます。</RLRG_ManualLevel_Desc>
+  <RLRG_ManualLevelPick>世界レベル：{0}</RLRG_ManualLevelPick>
+  <RLRG_PerTier>レベルごとに個別の割合</RLRG_PerTier>
+  <RLRG_PerTier_Desc>各レベルについて、その研究をどれだけ完了する必要があるかを個別に設定します。</RLRG_PerTier_Desc>
+  <RLRG_PctTier>{0}：{1}%</RLRG_PctTier>
+  <RLRG_LockResearch>上位の研究をロック</RLRG_LockResearch>
+  <RLRG_LockResearch_Desc>世界より1レベル以上高い研究は開始できません。1レベルずつ進める必要があります。</RLRG_LockResearch_Desc>
+  <RLRG_FilterPossessions>世界レベルを超えるその他の所持品</RLRG_FilterPossessions>
+  <RLRG_FilterPossessions_Desc>来訪者は、世界レベルを超える医薬品、ドラッグ、部品、その他のアイテムも失います（商人の場合は商品も含む）。</RLRG_FilterPossessions_Desc>
+  <RLRG_FactionOk>襲撃可能</RLRG_FactionOk>
+  <RLRG_FactionAbove>世界レベル超過</RLRG_FactionAbove>
+  <RLRG_ReplaceQuests>破棄されたクエストを別のものに置き換え</RLRG_ReplaceQuests>
+  <RLRG_ReplaceQuests_Desc>世界レベルのために破棄されたクエストの代わりに、ストーリーテラーはすぐに別の適切なクエストを試みます（最大5回）。クエストは通常どおりの頻度で来ます。</RLRG_ReplaceQuests_Desc>
+  <RLRG_WorldVisitors>キャラバンと訪問者を世界レベルまでに（厳格）</RLRG_WorldVisitors>
+  <RLRG_WorldVisitors_Desc>交易キャラバン、訪問者、旅行者は世界レベル以下の派閥からのみ来ます。警告：Mod製の宇宙時代の派閥があると、商人がほとんど来なくなることがあります。オフ（推奨）の場合はすべての派閥から来ますが、商品と装備は世界レベルでフィルターされます。</RLRG_WorldVisitors_Desc>
+  <RLRG_ReplaceEvents>ブロックされたイベントをランダムなものに置き換え</RLRG_ReplaceEvents>
+  <RLRG_ReplaceEvents_Desc>ストーリーテラーが世界にまだ早いイベント（軌道商船、宇宙船の部品の墜落、宇宙船の残骸…）を選んだ場合や、襲撃やキャラバンに適した派閥が見つからない場合、代わりに同じカテゴリの別のランダムなイベントが起きます。イベントはModなしと同じ頻度で来ます。クエストのイベントは変更されません。</RLRG_ReplaceEvents_Desc>
+  <RLRG_OvTitle>世界とイベント</RLRG_OvTitle>
+  <RLRG_OvStoryteller>ストーリーテラー：{0}、難易度：{1}</RLRG_OvStoryteller>
+  <RLRG_OvQuests>クエスト</RLRG_OvQuests>
+  <RLRG_OvQuestCounts>進行中：{0}、受諾待ち：{1}</RLRG_OvQuestCounts>
+  <RLRG_OvExpires>あと{0}で期限切れ</RLRG_OvExpires>
+  <RLRG_OvEvents>イベント</RLRG_OvEvents>
+  <RLRG_OvEventsHint>ストーリーテラーはイベントをランダムに選ぶため、次のイベントの正確な時期はわかりません。推定はこのゲームでのイベント間の平均間隔に基づき、長くプレイするほど正確になります。</RLRG_OvEventsHint>
+  <RLRG_OvNoEvents>まだ何も記録されていません。記録はこのバージョンから始まります。</RLRG_OvNoEvents>
+  <RLRG_OvColKind>種類</RLRG_OvColKind>
+  <RLRG_OvColLast>前回</RLRG_OvColLast>
+  <RLRG_OvCol30>過去30日</RLRG_OvCol30>
+  <RLRG_OvColAvg>平均間隔</RLRG_OvColAvg>
+  <RLRG_OvColNext>次回（推定）</RLRG_OvColNext>
+  <RLRG_OvDays>{0} 日</RLRG_OvDays>
+  <RLRG_OvAgo>{0} 日前</RLRG_OvAgo>
+  <RLRG_OvInDays>≈ {0} 日後</RLRG_OvInDays>
+  <RLRG_OvAnyTime>いつでも</RLRG_OvAnyTime>
+  <RLRG_OvRecent>直近10件のイベント：</RLRG_OvRecent>
+  <RLRG_WorldCausers>世界レベルを超える脅威は残らない</RLRG_WorldCausers>
+  <RLRG_WorldCausers_Desc>マップに状態異常をもたらす新しいもの（有毒ガス噴出機、煙、天候制御装置、日光遮断装置、サイキックドローナー…）が世界レベルを超える場合、即座に取り除かれます – マップ上でも世界マップ上でも、メカノイドのものであっても。そうしたものを送り込むクエストは破棄されます（ストーリーテラーのクエストは置き換えられます）。すでにあるものは残ります。</RLRG_WorldCausers_Desc>
+  <RLRG_CauserBlocked>世界レベルを超える脅威は残りませんでした：{0}。</RLRG_CauserBlocked>
+  <RLRG_TraderGuarantee>商人の保証</RLRG_TraderGuarantee>
+  <RLRG_TraderGuarantee_Desc>長い間交易キャラバンが本拠地のコロニーに来ない場合、Modはキャラバンを呼ぼうとします。その際ゲームは、この気温では本来移動しない派閥も受け入れます。キャラバンが来られない場合（全員が敵対、マップ上に妨げとなる集団…）、理由がログに書き込まれ、メッセージが表示されます。</RLRG_TraderGuarantee_Desc>
+  <RLRG_TraderGuaranteeDays>キャラバンは遅くとも：{0}日後</RLRG_TraderGuaranteeDays>
+  <RLRG_TraderGuaranteeDays_Desc>キャラバンが来ない日が何日続いたらModが呼ぶか。</RLRG_TraderGuaranteeDays_Desc>
+  <RLRG_Diag_Open>商人、訪問者、脅威が来ないのはなぜ？</RLRG_Diag_Open>
+  <RLRG_Diag_Title>商人と訪問者 – 診断</RLRG_Diag_Title>
+  <RLRG_Diag_NoMap>本拠地のマップがありません。</RLRG_Diag_NoMap>
+  <RLRG_Diag_Map>マップ：{0}、屋外気温{1}、季節気温{2}</RLRG_Diag_Map>
+  <RLRG_Diag_LastTrader>前回の交易キャラバン：{0}日前</RLRG_Diag_LastTrader>
+  <RLRG_Diag_LastTraderNone>前回の交易キャラバン：まだ記録なし</RLRG_Diag_LastTraderNone>
+  <RLRG_Diag_LastVisitor>前回の訪問者/旅行者：{0}日前</RLRG_Diag_LastVisitor>
+  <RLRG_Diag_GuaranteeOn>商人の保証：オン（遅くとも{0}日後）</RLRG_Diag_GuaranteeOn>
+  <RLRG_Diag_GuaranteeOff>商人の保証：オフ</RLRG_Diag_GuaranteeOff>
+  <RLRG_Diag_Allies>敵対していない：{1}派閥中{0}</RLRG_Diag_Allies>
+  <RLRG_Diag_NoAllies>すべての派閥が敵対しています – ストーリーテラーは商人も訪問者も送りません。関係を改善してください（贈り物、クエスト、通信機）。</RLRG_Diag_NoAllies>
+  <RLRG_Diag_Events>イベント：</RLRG_Diag_Events>
+  <RLRG_Diag_Can>今来られる</RLRG_Diag_Can>
+  <RLRG_Diag_Cannot>今は来られない – {0}</RLRG_Diag_Cannot>
+  <RLRG_Diag_R_Missing>イベントが存在しない</RLRG_Diag_R_Missing>
+  <RLRG_Diag_R_Scenario>シナリオで無効</RLRG_Diag_R_Scenario>
+  <RLRG_Diag_R_Difficulty>難易度設定で無効</RLRG_Diag_R_Difficulty>
+  <RLRG_Diag_R_Early>入植から早すぎる（{0}日目から）</RLRG_Diag_R_Early>
+  <RLRG_Diag_R_Target>このマップでは許可されていない</RLRG_Diag_R_Target>
+  <RLRG_Diag_R_Biome>バイオームが許可されていない</RLRG_Diag_R_Biome>
+  <RLRG_Diag_R_Recent>最近起きた（クールダウン）</RLRG_Diag_R_Recent>
+  <RLRG_Diag_R_Condition>妨げているもの：{0}</RLRG_Diag_R_Condition>
+  <RLRG_Diag_R_NoFaction>今来られる派閥がない（派閥リスト参照）</RLRG_Diag_R_NoFaction>
+  <RLRG_Diag_R_OnlyDesperate>ストーリーテラーは送らない – この気温では派閥が移動しない</RLRG_Diag_R_OnlyDesperate>
+  <RLRG_Diag_R_Other>その他の理由（おそらく別のMod）</RLRG_Diag_R_Other>
+  <RLRG_Diag_Factions>派閥（交易キャラバン）：</RLRG_Diag_Factions>
+  <RLRG_Diag_F_Ok>キャラバンを送れる</RLRG_Diag_F_Ok>
+  <RLRG_Diag_F_Desperate>やむを得ない場合のみ – 屋外気温が{0}の範囲外</RLRG_Diag_F_Desperate>
+  <RLRG_Diag_F_No>来ない：{0}</RLRG_Diag_F_No>
+  <RLRG_Diag_F_Defeated>壊滅</RLRG_Diag_F_Defeated>
+  <RLRG_Diag_F_Hostile>敵対（友好度{0}）</RLRG_Diag_F_Hostile>
+  <RLRG_Diag_F_NoTraders>交易キャラバンを持たない</RLRG_Diag_F_NoTraders>
+  <RLRG_Diag_F_Lord>その敵がマップ上にいる：{0}</RLRG_Diag_F_Lord>
+  <RLRG_Diag_F_World>世界レベル超過（オプション「キャラバンと訪問者を世界レベルまでに」）</RLRG_Diag_F_World>
+  <RLRG_Diag_F_Temp>気温が{0}の範囲外</RLRG_Diag_F_Temp>
+  <RLRG_Diag_F_Other>その他の理由（商人の種類、惑星の層、または別のMod）</RLRG_Diag_F_Other>
+  <RLRG_Diag_Summon>今すぐキャラバンを呼ぶ（テスト）</RLRG_Diag_Summon>
+  <RLRG_Diag_SummonOk>交易キャラバンがやって来ます。</RLRG_Diag_SummonOk>
+  <RLRG_Diag_SummonFail>キャラバンを呼べません：{0}</RLRG_Diag_SummonFail>
+  <RLRG_Diag_ToLog>ログに書き込む</RLRG_Diag_ToLog>
+  <RLRG_Diag_Logged>診断をログに書き込みました。</RLRG_Diag_Logged>
+  <RLRG_Diag_Refresh>更新</RLRG_Diag_Refresh>
+  <RLRG_Diag_GuaranteeFailed>商人の保証：キャラバンが来られませんでした（{0}）。詳細：世界タブ → 商人が来ないのはなぜ？</RLRG_Diag_GuaranteeFailed>
+  <RLRG_Diag_Title2>商人、訪問者、脅威 – 診断</RLRG_Diag_Title2>
+  <RLRG_Diag_Threats>脅威と襲撃：</RLRG_Diag_Threats>
+  <RLRG_Diag_ThreatScale>難易度：脅威の規模{0}、大きな脅威の許可：{1}</RLRG_Diag_ThreatScale>
+  <RLRG_Diag_ThreatsOff>警告：ストーリーテラーの難易度で脅威が無効になっています – そのため襲撃が来ません。</RLRG_Diag_ThreatsOff>
+  <RLRG_Diag_ThreatPoints>現在の脅威ポイント：{0}</RLRG_Diag_ThreatPoints>
+  <RLRG_Diag_LastThreat>ストーリーテラーの前回の脅威：{0}日前</RLRG_Diag_LastThreat>
+  <RLRG_Diag_LastThreatNone>ストーリーテラーの前回の脅威：まだ記録なし</RLRG_Diag_LastThreatNone>
+  <RLRG_Diag_Yes>はい</RLRG_Diag_Yes>
+  <RLRG_Diag_No>いいえ</RLRG_Diag_No>
+  <RLRG_Diag_AboveWorld>世界レベル超過 – 別のイベントに置き換え</RLRG_Diag_AboveWorld>
+  <RLRG_Diag_Raiders>敵対派閥（襲撃）：</RLRG_Diag_Raiders>
+  <RLRG_Diag_RaidOk>襲撃可能</RLRG_Diag_RaidOk>
+  <RLRG_Diag_RaidWorld>世界レベル超過 – 他に誰も襲撃できない場合のみ襲撃（装備はフィルター）</RLRG_Diag_RaidWorld>
+  <RLRG_Diag_RaidDesperate>やむを得ない場合のみ（気温/入植から早すぎる）</RLRG_Diag_RaidDesperate>
+  <RLRG_Diag_RaidEarly>まだ – 襲撃は{0}日目から</RLRG_Diag_RaidEarly>
+  <RLRG_Diag_RaidNo>襲撃不可（惑星の層、戦略、または別のMod）</RLRG_Diag_RaidNo>
+  <RLRG_Diag_NoRaiders>現在襲撃できる敵対派閥はありません – 敵対派閥が存在しないか、何かがすべてをブロックしています。</RLRG_Diag_NoRaiders>
+  <RLRG_FactionsAtWorld>すべての派閥をコロニーのレベルに</RLRG_FactionsAtWorld>
+  <RLRG_FactionsAtWorld_Desc>すべての派閥（宇宙時代やMod製のものを含む）は、あなたと同じ研究を持っているかのように振る舞います。襲撃、交易、訪問、クエストの提示はできますが、各メンバーはあなたが研究済みの装備だけを持ち（常にフィルターされ、すべての来訪者が対象）、商人は世界レベルまでのアイテムだけを売ります。オフにすると世界レベルを超える派閥を完全にブロックします。</RLRG_FactionsAtWorld_Desc>
+  <RLRG_OnlyCrafted>他者はあなたが製作したものだけを使う</RLRG_OnlyCrafted>
+  <RLRG_OnlyCrafted_Desc>襲撃者、訪問者、商人、クエストのポーンは、あなたのコロニーが少なくとも1回製作した（かつ研究済みの）武器と衣服しか持てません。まだ製作していないものは取り除かれるか、最も近い製作済みアイテムに置き換えられます。製作済みの武器がない場合、少なくともショートボウか棍棒を持ちます。販売品は研究のみに従います。進行中のゲームでは、入植者の装備と製作可能な保管中のアイテムが一度だけ引き継がれます。</RLRG_OnlyCrafted_Desc>
+  <RLRG_CraftedCount>製作済みの武器と衣服の種類：{0}</RLRG_CraftedCount>
+  <RLRG_MsgCraftedNew>初めて製作：{0} – 他者もこれを使えるようになりました。</RLRG_MsgCraftedNew>
+  <RLRG_Ex_NotCrafted>研究済みですが、コロニーはまだ製作していません。</RLRG_Ex_NotCrafted>
+  <RLRG_CraftedReset>製作済みリストを消去</RLRG_CraftedReset>
+  <RLRG_CraftedReset_Desc>製作済みの武器と衣服のリスト（Smart Colonist Gearと共有）を消去します。今後はコロニーが製作したものだけがカウントされます。</RLRG_CraftedReset_Desc>
+  <RLRG_CraftedResetConfirm>製作済み装備リストを本当に消去しますか？両方のModで消去され、襲撃者と入植者は今後製作された装備しか使えなくなります。</RLRG_CraftedResetConfirm>
+  <RLRG_MsgRaidItems>{0}個の装備を没収、{1}個を弱いものに置き換え（襲撃者{2}人）。</RLRG_MsgRaidItems>
+  <RLRG_TraderTechBonus>商人が販売できる上位レベル：{0}</RLRG_TraderTechBonus>
+  <RLRG_TraderTechBonus_Desc>商人が世界レベルより何段階上の技術レベルの商品を提供できるか。0 = 世界レベルまで（武器と衣服は研究に従う）、1 = 1段階上（例：中世のゲームで産業レベルの銃）…</RLRG_TraderTechBonus_Desc>
+  <RLRG_TabTraders>商人</RLRG_TabTraders>
+  <RLRG_TabTraders_Desc>世界レベルを超えているため、商人が現在販売できない商品。商人の在庫と同じルールを使います。</RLRG_TabTraders_Desc>
+  <RLRG_TraderNoGame>商人が現在販売できないものを見るにはゲームをロードしてください。</RLRG_TraderNoGame>
+  <RLRG_TraderOff>世界のアイテムフィルターはオフです – 商人は何でも売ります。</RLRG_TraderOff>
+  <RLRG_TraderMax>商人が販売できる商品の上限：{0}（世界レベル{1} + {2}）</RLRG_TraderMax>
+  <RLRG_TraderMax_Desc>商人は技術レベル{0}までの商品を販売できます（世界レベル + 「商人が販売できる上位レベル」）。武器と衣服は研究で許可されていれば販売されることもあります。動物、奴隷、技術レベルのない商品は決して取り除かれません。</RLRG_TraderMax_Desc>
+  <RLRG_TraderCount>商人が現在販売できない商品：{0}</RLRG_TraderCount>
+  <RLRG_TraderBlocked>販売不可</RLRG_TraderBlocked>
+  <RLRG_TraderBlocked_Desc>技術レベル{0}は、商人が現在販売できる上限（{1}）を超えています。</RLRG_TraderBlocked_Desc>
+  <RLRG_TraderBlockedGear>販売不可（研究）</RLRG_TraderBlockedGear>
+  <RLRG_TraderBlockedGear_Desc>研究で許可されておらず、技術レベル{0}は商人が現在販売できる上限（{1}）を超えています。</RLRG_TraderBlockedGear_Desc>
+  <RLRG_TabRaids>襲撃と脅威</RLRG_TabRaids>
+  <RLRG_RaidsIntro>チェックされていない襲撃と脅威（Mod製のものも：モンスター、人間狩りの動物、虫、病気、降下物…）は起きません。チェック = 許可。変更は新しい襲撃にすぐ適用されます。</RLRG_RaidsIntro>
+  <RLRG_RaidsSummary>{1}種類中{0}種類の襲撃をブロック</RLRG_RaidsSummary>
+  <RLRG_RaidsResetAll>すべてリセット</RLRG_RaidsResetAll>
+  <RLRG_RaidsResetAll_Desc>すべての襲撃の種類を再び許可します（デフォルト）。</RLRG_RaidsResetAll_Desc>
+  <RLRG_RaidsAllowAll>すべて許可</RLRG_RaidsAllowAll>
+  <RLRG_RaidsAllowAll_Desc>このグループのすべてを再び許可します。</RLRG_RaidsAllowAll_Desc>
+  <RLRG_RaidsGroupCount>ブロック {0} / {1}</RLRG_RaidsGroupCount>
+  <RLRG_RaidsGroupIncidents>脅威イベント</RLRG_RaidsGroupIncidents>
+  <RLRG_RaidsGroupStrategies>襲撃の戦略</RLRG_RaidsGroupStrategies>
+  <RLRG_RaidsGroupArrivals>到着方法</RLRG_RaidsGroupArrivals>
+  <RLRG_RaidsGroupQuests>ランダムクエスト – [!] = 脅威</RLRG_RaidsGroupQuests>
+  <RLRG_RaidsSource>出典：{0}</RLRG_RaidsSource>
+  <RLRG_RaidsAllowedTip>許可。チェックを外すと起きなくなります。</RLRG_RaidsAllowedTip>
+  <RLRG_RaidsBlockedTip>ブロック：ストーリーテラーはこれを使いません。襲撃が使えるすべての選択肢がブロックされている場合、襲撃は失敗する代わりに即時攻撃/マップ端からの徒歩到着になります。</RLRG_RaidsBlockedTip>
+  <RLRG_MechEscorts>襲撃者は研究済みのメカノイドだけを連れてくる</RLRG_MechEscorts>
+  <RLRG_MechEscorts_Desc>人間の派閥（襲撃中のメカニター）は、あなたが培養を研究済みのメカノイドだけを連れてこられます。未研究のメカはグループから取り除かれます。メカノイドのみの襲撃は影響を受けません。</RLRG_MechEscorts_Desc>
+  <RLRG_MatchColony>来訪者はコロニーの装備より良いものを持たない</RLRG_MatchColony>
+  <RLRG_MatchColony_Desc>来訪者全員（襲撃者、訪問者、難民、クエストのポーン。商人は対象外にしていない場合のみ）は、コロニーが製作した最良のもの以下の装備しか持てません：銃はあなたが製作した最良の銃まで、近接武器はあなたが製作した最良の近接武器まで（素材も考慮）、防具はあなたが製作した最良の防具まで。普通の衣服は常に許可されます。装備は実際に研究済み（製作可能）である必要もあります。火炎、爆発、EMP武器（火炎放射器、爆発矢…）は、あなた自身がその武器を製作して初めて許可されます。より良い装備は最も近い弱いものに、良すぎる素材は普通の素材に置き換えられます。「製作したもののみ」と併用すると、製作したことのない弱い装備も許可されます – より多様になります。</RLRG_MatchColony_Desc>
+  <RLRG_MatchQuality>品質はあなたの最良の製品まで</RLRG_MatchQuality>
+  <RLRG_MatchQuality_Desc>来訪者の武器と衣服の品質は、コロニーが製作した品質まで（武器と衣服で別々、最低でも標準）。</RLRG_MatchQuality_Desc>
+  <RLRG_MatchMargin>許容差：{0} % 上まで</RLRG_MatchMargin>
+  <RLRG_MatchMargin_Desc>他者の装備があなたのものより何パーセント良くてもよいか。0 = 同等まで。</RLRG_MatchMargin_Desc>
+  <RLRG_MatchNow>現在の上限 – 銃：{0}、近接：{1}、防具：{2}、武器の品質：{3}、衣服の品質：{4}</RLRG_MatchNow>
+  <RLRG_ShowHud>研究レベルを画面に表示</RLRG_ShowHud>
+  <RLRG_ShowHud_Desc>右下の日付の上に、コロニーのレベルと次のレベルまでの進捗を表示します。マウスを合わせるとレベルごとの詳細、クリックで世界タブを開きます。</RLRG_ShowHud_Desc>
+  <RLRG_HudLine>レベル：{0}</RLRG_HudLine>
+  <RLRG_HudLineNext>{0} → {1} {2} %</RLRG_HudLineNext>
+  <RLRG_HudTipTitle>研究レベル（World at Your Level）</RLRG_HudTipTitle>
+  <RLRG_HudTipColony>コロニー：{0}（シナリオ：{1}、研究：{2}）</RLRG_HudTipColony>
+  <RLRG_HudTipWorld>世界（許容差/時間ボーナス込み）：{0}</RLRG_HudTipWorld>
+  <RLRG_HudTipTier>{0} {1}：{2}/{3}（{4} %）、必要 {5}</RLRG_HudTipTier>
+  <RLRG_HudTipClick>クリックで世界タブを開きます。</RLRG_HudTipClick>
+  <MUI_Title>推奨設定</MUI_Title>
+  <MUI_TitleOff>推奨設定 · オフ</MUI_TitleOff>
+  <MUI_DescOn>Modが自動で設定され、すぐに使えます。初心者や何も調整したくない方に最適です。</MUI_DescOn>
+  <MUI_DescOff>カスタム設定。推奨から変更した項目：{0}。</MUI_DescOff>
+  <MUI_DescOffSame>カスタム設定。まだ推奨と同じです。</MUI_DescOffSame>
+  <MUI_On>オン</MUI_On>
+  <MUI_Off>オフ</MUI_Off>
+  <MUI_ResetAll>すべて推奨にリセット</MUI_ResetAll>
+  <MUI_ConfirmOn>推奨設定をオンにしますか？あなたの変更（{0}）は推奨値に置き換えられます。</MUI_ConfirmOn>
+  <MUI_Locked>詳細設定はロックされています。変更したい場合は上のスイッチをオフにしてください – 値は推奨値から始まります。</MUI_Locked>
+  <MUI_Changed>変更済み</MUI_Changed>
+  <MUI_ChangedTip>推奨設定（{0}）と異なります。クリックで推奨値に戻します。</MUI_ChangedTip>
+  <MUI_Yes>オン</MUI_Yes>
+  <MUI_No>オフ</MUI_No>
+  <RLRG_Rec1>襲撃者はあなたの技術レベルの装備だけを持つ</RLRG_Rec1>
+  <RLRG_Rec2>商人はあなたのレベルのアイテムを売る</RLRG_Rec2>
+  <RLRG_Rec3>クエストと報酬があなたのレベルに合う</RLRG_Rec3>
+  <RLRG_Rec4>派閥はあなたと共に発展する</RLRG_Rec4>
+  <RLRG_Rec5>襲撃者の弱い装備は人数の増加で補われる</RLRG_Rec5>
+  <RLRG_Rec6>世界レベルが画面に表示される</RLRG_Rec6>
+  <MUI_RecTag>推奨</MUI_RecTag>
+  <RLRG_RareAdvanced>まれな高技術の襲撃：{0}%</RLRG_RareAdvanced>
+  <RLRG_RareAdvanced_Desc>この確率で、襲撃はコロニーより1つ上の技術レベルの装備を持ってきます。襲撃者は少なく（ポイント25%減）、装備は戦利品として残るので、新技術を早く知ることができます。襲撃する派閥がそうした装備を持っている場合のみ。</RLRG_RareAdvanced_Desc>
+  <RLRG_RareLowTech>まれな低技術の襲撃：{0}%</RLRG_RareLowTech>
+  <RLRG_RareLowTech_Desc>この確率で、襲撃はコロニーより1つ下の技術レベルの装備を持ってきますが、襲撃者は多くなります（ポイント35%増）。</RLRG_RareLowTech_Desc>
+  <RLRG_MsgRareAdvanced>襲撃者は未知の技術（{0}）を持っています！ 人数は少ないですが、より良く武装しています。</RLRG_MsgRareAdvanced>
+  <RLRG_MsgRareLowTech>時代遅れの装備を持った大規模な襲撃（{0}）。</RLRG_MsgRareLowTech>
+  <RLRG_StrictCrafted>厳格：コロニーとの比較時も製作したもののみ</RLRG_StrictCrafted>
+  <RLRG_StrictCrafted_Desc>「コロニーに合わせる」は通常、あなたの装備とほぼ同等の強さのものを何でも許可します。これをオンにすると、敵はコロニーが実際に製作した武器と衣服しか持てません – あなたがまだ弓を使っている間は、粗製ライフルやSMGは出てきません。</RLRG_StrictCrafted_Desc>
+  <RLRG_SiteTurrets>敵のタレットはあなたのもの以下</RLRG_SiteTurrets>
+  <RLRG_SiteTurrets_Desc>他の派閥のタレット（クエストの場所、拠点、包囲戦）は、あなた自身が同じ技術レベルのタレットを建設していない限り取り除かれます。タレットがまだない = 敵のタレットもなし。</RLRG_SiteTurrets_Desc>
+  <RLRG_GearLogLine>World at Your Level：{0}</RLRG_GearLogLine>
+  <RLRG_MsgRaidSwaps>最も多かったもの：{0}。</RLRG_MsgRaidSwaps>
+</LanguageData>

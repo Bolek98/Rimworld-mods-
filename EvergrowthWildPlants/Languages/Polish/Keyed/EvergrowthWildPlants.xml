@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <EWP_Title>Evergrowth – Dzikie rośliny</EWP_Title>
+  <EWP_Bullet1>Każdy biom zachowuje swoje domyślne rośliny</EWP_Bullet1>
+  <EWP_Bullet2>Poprawka biomu mapy (Geological Landforms itp.)</EWP_Bullet2>
+  <EWP_Bullet3>Rośliny jaskiniowe jak w grze</EWP_Bullet3>
+  <EWP_Bullet4>Stopniowe zarastanie mapy według Twoich ustawień</EWP_Bullet4>
+  <EWP_TabBiomes>Biomy</EWP_TabBiomes>
+  <EWP_TabCave>Rośliny jaskiniowe</EWP_TabCave>
+  <EWP_TabMap>Ta mapa</EWP_TabMap>
+  <EWP_Import>Importuj z Choose Wild Plant Spawns</EWP_Import>
+  <EWP_ImportTip>Wczytuje Twoje ustawienia z Choose Wild Plant Spawns (listy roślin i gęstość). Pniaki, martwe rośliny i rośliny z wyłączonych modów są pomijane. Potem możesz wyłączyć Choose Wild Plant Spawns.</EWP_ImportTip>
+  <EWP_ImportNone>Nie znaleziono ustawień Choose Wild Plant Spawns.</EWP_ImportNone>
+  <EWP_ImportDone>Zaimportowano: {0} biomów, {1} roślin. Pominięto {2} (pniaki, martwe rośliny, brakujące mody).</EWP_ImportDone>
+  <EWP_ResetAll>Wszystkie biomy na domyślne</EWP_ResetAll>
+  <EWP_ResetAllConfirm>Przywrócić wszystkim biomom domyślne rośliny, gęstość i odrastanie?</EWP_ResetAllConfirm>
+  <EWP_SearchBiome>Szukaj biomu lub moda…</EWP_SearchBiome>
+  <EWP_SearchPlant>Szukaj rośliny lub moda…</EWP_SearchPlant>
+  <EWP_NPlants>Roślin: {0}</EWP_NPlants>
+  <EWP_PickBiome>Wybierz biom po lewej, aby zobaczyć, jakie dzikie rośliny tam rosną i jak często.</EWP_PickBiome>
+  <EWP_Customized>zmienione</EWP_Customized>
+  <EWP_Default>domyślne</EWP_Default>
+  <EWP_AddPlant>Dodaj rośliny</EWP_AddPlant>
+  <EWP_CopyFrom>Kopiuj z biomu…</EWP_CopyFrom>
+  <EWP_ResetBiome>Przywróć domyślne</EWP_ResetBiome>
+  <EWP_Density>Gęstość roślin: {0} (domyślnie {1})</EWP_Density>
+  <EWP_DensityTip>Ile dzikich roślin jest na mapie. 0 = brak, więcej = gęstsza przyroda. Evergrowth może to jeszcze zwielokrotnić.</EWP_DensityTip>
+  <EWP_Regrow>Odrastanie: {0} dni (domyślnie {1})</EWP_Regrow>
+  <EWP_RegrowTip>Ile czasu mija, zanim na wolnym polu znów coś wyrośnie. Mniej dni = szybsze odrastanie.</EWP_RegrowTip>
+  <EWP_NoPlants>Brak roślin.</EWP_NoPlants>
+  <EWP_KindDead>martwa roślina</EWP_KindDead>
+  <EWP_KindDeadTip>Gra nigdy nie tworzy martwych roślin jako dzikich roślin.</EWP_KindDeadTip>
+  <EWP_KindStump>pniak</EWP_KindStump>
+  <EWP_KindStumpTip>Pniaki nie są rosnącymi roślinami – to tylko to, co zostało z drzewa.</EWP_KindStumpTip>
+  <EWP_KindCrop>uprawa</EWP_KindCrop>
+  <EWP_KindCropTip>Roślina uprawna, która zwykle nie rośnie dziko. Może rosnąć, ale klimat często jej nie odpowiada.</EWP_KindCropTip>
+  <EWP_KindCave>jaskinia</EWP_KindCave>
+  <EWP_KindCaveTip>Roślina jaskiniowa – rośnie tylko pod skalnym dachem.</EWP_KindCaveTip>
+  <EWP_KindWater>woda</EWP_KindWater>
+  <EWP_KindWaterTip>Roślina wodna – rośnie tylko w wodzie lub przy brzegu.</EWP_KindWaterTip>
+  <EWP_ProbMissing>Brakuje {0} roślin z listy (mod wyłączony).</EWP_ProbMissing>
+  <EWP_ProbDead>{0}× pniak lub martwa roślina – nigdy nie rosną, możesz je usunąć.</EWP_ProbDead>
+  <EWP_ProbCrops>{0}× uprawa – często nie przeżywają na dziko.</EWP_ProbCrops>
+  <EWP_ProbNoLand>Na lądzie nic tu nie rośnie (tylko woda / jaskinie).</EWP_ProbNoLand>
+  <EWP_ProbEmpty>Lista jest pusta – w tym biomie nic nie wyrośnie.</EWP_ProbEmpty>
+  <EWP_ProbZeroDensity>Gęstość wynosi 0 – w tym biomie nic nie wyrośnie.</EWP_ProbZeroDensity>
+  <EWP_CaveIntro>Rośliny jaskiniowe rosną pod skalnymi dachami w każdym biomie. Ustaw, jak często pojawia się każda z nich (0 = nigdy).</EWP_CaveIntro>
+  <EWP_ResetCave>Wszystko na domyślne</EWP_ResetCave>
+  <EWP_CaveValue>{0} (domyślnie {1})</EWP_CaveValue>
+  <EWP_SecFix>Poprawka biomu</EWP_SecFix>
+  <EWP_FixBiome>Dzikie rośliny podążają za biomem pola świata</EWP_FixBiome>
+  <EWP_FixBiomeTip>Niektóre mody map (np. Geological Landforms) podają dla mapy inny biom niż ma pole. Gra wybiera wtedy rośliny z jednego biomu, ale waży je według drugiego – i na lądzie prawie nic nie rośnie. To to naprawia.</EWP_FixBiomeTip>
+  <EWP_SecMap>Ta mapa</EWP_SecMap>
+  <EWP_NoGame>Wczytaj grę, aby zobaczyć tutaj stan bieżącej mapy.</EWP_NoGame>
+  <EWP_TileBiome>Biom pola: {0}</EWP_TileBiome>
+  <EWP_MapBiome>Mody map podają: {0}</EWP_MapBiome>
+  <EWP_MismatchFixed>Biomy się różnią – poprawka jest włączona, rośliny podążają za polem.</EWP_MismatchFixed>
+  <EWP_MismatchWarn>Biomy się różnią, a poprawka jest wyłączona – na lądzie może rosnąć mało roślin!</EWP_MismatchWarn>
+  <EWP_PlantCount>Dzikie rośliny: {0} z {1} ({2} %)</EWP_PlantCount>
+  <EWP_UsedList>Używana lista: {0} roślin</EWP_UsedList>
+  <EWP_Fill>Zarośnij teraz (wszystko naraz)</EWP_Fill>
+  <EWP_FillTip>Jednorazowo wypełnia mapę do pełnej gęstości roślinami różnej wielkości. Pomija obszar domowy, strefy i pomieszczenia.</EWP_FillTip>
+  <EWP_Filling>Sadzenie dzikich roślin…</EWP_Filling>
+  <EWP_Filled>Posadzono dzikich roślin: {0}.</EWP_Filled>
+  <EWP_HideDead>Ukryj pniaki</EWP_HideDead>
+  <MUI_Title>Zalecane ustawienia</MUI_Title>
+  <MUI_TitleOff>Zalecane ustawienia · wył.</MUI_TitleOff>
+  <MUI_DescOn>Mod konfiguruje się sam i działa od razu. Idealny dla nowych graczy i każdego, kto nie chce niczego zmieniać.</MUI_DescOn>
+  <MUI_DescOff>Własne ustawienia. Zmienione względem zalecanych: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Własne ustawienia. Nadal takie same jak zalecane.</MUI_DescOffSame>
+  <MUI_On>WŁ.</MUI_On>
+  <MUI_Off>WYŁ.</MUI_Off>
+  <MUI_ResetAll>Przywróć wszystko do zalecanych</MUI_ResetAll>
+  <MUI_ConfirmOn>Włączyć zalecane ustawienia? Twoje zmiany ({0}) zostaną zastąpione zalecanymi wartościami.</MUI_ConfirmOn>
+  <MUI_Locked>Szczegółowe ustawienia są zablokowane. Chcesz je zmienić? Wyłącz przełącznik powyżej – Twoje wartości zaczną od zalecanych.</MUI_Locked>
+  <MUI_Changed>ZMIENIONO</MUI_Changed>
+  <MUI_ChangedTip>Różni się od zalecanego ustawienia ({0}). Kliknij, aby przywrócić zalecaną wartość.</MUI_ChangedTip>
+  <MUI_Yes>wł.</MUI_Yes>
+  <MUI_No>wył.</MUI_No>
+  <MUI_RecTag>ZALECANE</MUI_RecTag>
+  <EWP_AddIntro>Każda roślina, drzewo, trawa, krzew i grzyb z gry, DLC i modów – także te, które w tym biomie nigdy nie rosną.</EWP_AddIntro>
+  <EWP_AllMods>Wszystkie mody</EWP_AllMods>
+  <EWP_GroupAll>Wszystkie</EWP_GroupAll>
+  <EWP_GroupTrees>Drzewa</EWP_GroupTrees>
+  <EWP_GroupGrass>Trawa</EWP_GroupGrass>
+  <EWP_GroupBushes>Krzewy i kwiaty</EWP_GroupBushes>
+  <EWP_GroupCrops>Uprawy</EWP_GroupCrops>
+  <EWP_GroupCave>Grzyby i jaskinia</EWP_GroupCave>
+  <EWP_GroupWater>Woda</EWP_GroupWater>
+  <EWP_AddAllShown>Dodaj wszystkie widoczne ({0})</EWP_AddAllShown>
+  <EWP_AddedN>Dodano: {0}</EWP_AddedN>
+  <EWP_AddOne>Dodaj</EWP_AddOne>
+  <EWP_GrowsIn>Domyślnie rośnie w: {0}</EWP_GrowsIn>
+  <EWP_GrowsNowhere>Domyślnie nie rośnie w żadnym biomie.</EWP_GrowsNowhere>
+  <EWP_SecGrow>Zarastanie mapy</EWP_SecGrow>
+  <EWP_MapDensity>Zarośnięcie tej mapy: {0} %</EWP_MapDensity>
+  <EWP_MapDensityTip>Jak gęsto ta mapa ma być pokryta dzikimi roślinami (100 % = normalnie dla biomu). Zmienia się stopniowo – nowe rośliny wyrastają same. Obniżenie niczego nie wycina, tylko przestaje dodawać rośliny.</EWP_MapDensityTip>
+  <EWP_FillDays>Zarastanie przez: {0} dni</EWP_FillDays>
+  <EWP_FillDaysTip>W ilu dniach gry mapa ma osiągnąć ustawione zarośnięcie. Rośliny kiełkują małe i rosną w normalnym tempie.</EWP_FillDaysTip>
+  <EWP_FillGradual>Zarastaj stopniowo ({0} dni)</EWP_FillGradual>
+  <EWP_FillGradualTip>Rośliny pojawiają się po trochu jako małe sadzonki i same dorastają. Pomija obszar domowy, strefy i pomieszczenia.</EWP_FillGradualTip>
+  <EWP_FillStarted>Mapa będzie stopniowo zarastać (cel za {0} dni).</EWP_FillStarted>
+  <EWP_FillRunning>Mapa zarasta – zostało {0} dni, gotowe w {1} %.</EWP_FillRunning>
+  <EWP_FillStop>Zatrzymaj zarastanie</EWP_FillStop>
+  <EWP_FillDone>Mapa {0} jest zarośnięta zgodnie z ustawieniem.</EWP_FillDone>
+  <EWP_LockedHere>Edycja jest zablokowana, bo u góry włączone są zalecane ustawienia (domyślne rośliny).</EWP_LockedHere>
+  <EWP_Unlock>Odblokuj edycję</EWP_Unlock>
+  <EWP_ShowAll>Wszystkie rośliny ({0})</EWP_ShowAll>
+  <EWP_ShowAllTip>Pokazuje każdą roślinę z gry, DLC i modów, także te, które zwykle tu nie rosną. Przesuń suwak powyżej 0, a roślina zacznie tu rosnąć.</EWP_ShowAllTip>
+</LanguageData>

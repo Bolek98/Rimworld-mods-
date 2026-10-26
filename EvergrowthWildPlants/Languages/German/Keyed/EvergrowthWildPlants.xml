@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <EWP_Title>Evergrowth – Wildpflanzen</EWP_Title>
+  <EWP_Bullet1>Jedes Biom behält seine Standardpflanzen</EWP_Bullet1>
+  <EWP_Bullet2>Kartenbiom-Korrektur (Geological Landforms usw.)</EWP_Bullet2>
+  <EWP_Bullet3>Höhlenpflanzen wie im Spiel</EWP_Bullet3>
+  <EWP_Bullet4>Allmähliche Begrünung der Karte nach deinen Einstellungen</EWP_Bullet4>
+  <EWP_TabBiomes>Biome</EWP_TabBiomes>
+  <EWP_TabCave>Höhlenpflanzen</EWP_TabCave>
+  <EWP_TabMap>Diese Karte</EWP_TabMap>
+  <EWP_Import>Aus Choose Wild Plant Spawns importieren</EWP_Import>
+  <EWP_ImportTip>Liest deine Einstellungen aus Choose Wild Plant Spawns (Pflanzenlisten und Dichte). Baumstümpfe, tote Pflanzen und Pflanzen aus deaktivierten Mods werden übersprungen. Danach kannst du Choose Wild Plant Spawns deaktivieren.</EWP_ImportTip>
+  <EWP_ImportNone>Keine Einstellungen von Choose Wild Plant Spawns gefunden.</EWP_ImportNone>
+  <EWP_ImportDone>Importiert: {0} Biome, {1} Pflanzen. Übersprungen: {2} (Baumstümpfe, tote Pflanzen, fehlende Mods).</EWP_ImportDone>
+  <EWP_ResetAll>Alle Biome auf Standard</EWP_ResetAll>
+  <EWP_ResetAllConfirm>Alle Biome auf ihre Standardpflanzen, -dichte und -nachwuchs zurücksetzen?</EWP_ResetAllConfirm>
+  <EWP_SearchBiome>Biom oder Mod suchen…</EWP_SearchBiome>
+  <EWP_SearchPlant>Pflanze oder Mod suchen…</EWP_SearchPlant>
+  <EWP_NPlants>{0} Pflanzen</EWP_NPlants>
+  <EWP_PickBiome>Wähle links ein Biom, um zu sehen, welche Wildpflanzen dort wachsen und wie häufig.</EWP_PickBiome>
+  <EWP_Customized>angepasst</EWP_Customized>
+  <EWP_Default>Standard</EWP_Default>
+  <EWP_AddPlant>Pflanzen hinzufügen</EWP_AddPlant>
+  <EWP_CopyFrom>Aus Biom kopieren…</EWP_CopyFrom>
+  <EWP_ResetBiome>Auf Standard zurücksetzen</EWP_ResetBiome>
+  <EWP_Density>Pflanzendichte: {0} (Standard {1})</EWP_Density>
+  <EWP_DensityTip>Wie viele Wildpflanzen auf der Karte sind. 0 = keine, höher = dichtere Natur. Evergrowth kann das weiter vervielfachen.</EWP_DensityTip>
+  <EWP_Regrow>Nachwuchs: {0} Tage (Standard {1})</EWP_Regrow>
+  <EWP_RegrowTip>Wie lange es dauert, bis auf einem freien Feld wieder etwas wächst. Weniger Tage = schnellerer Nachwuchs.</EWP_RegrowTip>
+  <EWP_NoPlants>Keine Pflanzen.</EWP_NoPlants>
+  <EWP_KindDead>tote Pflanze</EWP_KindDead>
+  <EWP_KindDeadTip>Das Spiel erzeugt tote Pflanzen nie als Wildpflanzen.</EWP_KindDeadTip>
+  <EWP_KindStump>Baumstumpf</EWP_KindStump>
+  <EWP_KindStumpTip>Baumstümpfe sind keine wachsenden Pflanzen – nur das, was von einem Baum übrig ist.</EWP_KindStumpTip>
+  <EWP_KindCrop>Nutzpflanze</EWP_KindCrop>
+  <EWP_KindCropTip>Eine Nutzpflanze, die normalerweise nicht wild wächst. Sie kann wachsen, aber das Klima passt oft nicht.</EWP_KindCropTip>
+  <EWP_KindCave>Höhle</EWP_KindCave>
+  <EWP_KindCaveTip>Höhlenpflanze – wächst nur unter einem Felsdach.</EWP_KindCaveTip>
+  <EWP_KindWater>Wasser</EWP_KindWater>
+  <EWP_KindWaterTip>Wasserpflanze – wächst nur im Wasser oder am Ufer.</EWP_KindWaterTip>
+  <EWP_ProbMissing>{0} Pflanzen aus der Liste fehlen (Mod deaktiviert).</EWP_ProbMissing>
+  <EWP_ProbDead>{0}× Baumstumpf oder tote Pflanze – sie wachsen nie, du kannst sie entfernen.</EWP_ProbDead>
+  <EWP_ProbCrops>{0}× Nutzpflanze – sie überleben in der Wildnis oft nicht.</EWP_ProbCrops>
+  <EWP_ProbNoLand>Hier wächst nichts an Land (nur Wasser / Höhlen).</EWP_ProbNoLand>
+  <EWP_ProbEmpty>Die Liste ist leer – in diesem Biom wird nichts wachsen.</EWP_ProbEmpty>
+  <EWP_ProbZeroDensity>Die Dichte ist 0 – in diesem Biom wird nichts wachsen.</EWP_ProbZeroDensity>
+  <EWP_CaveIntro>Höhlenpflanzen wachsen in jedem Biom unter Felsdächern. Lege fest, wie oft jede erscheint (0 = nie).</EWP_CaveIntro>
+  <EWP_ResetCave>Alle auf Standard</EWP_ResetCave>
+  <EWP_CaveValue>{0} (Standard {1})</EWP_CaveValue>
+  <EWP_SecFix>Biom-Korrektur</EWP_SecFix>
+  <EWP_FixBiome>Wildpflanzen folgen dem Biom des Weltfelds</EWP_FixBiome>
+  <EWP_FixBiomeTip>Manche Karten-Mods (z. B. Geological Landforms) melden für die Karte ein anderes Biom als das Feld hat. Das Spiel wählt dann Pflanzen aus einem Biom, gewichtet sie aber nach dem anderen – und an Land wächst fast nichts. Das behebt es.</EWP_FixBiomeTip>
+  <EWP_SecMap>Diese Karte</EWP_SecMap>
+  <EWP_NoGame>Lade ein Spiel, um hier den Zustand der aktuellen Karte zu sehen.</EWP_NoGame>
+  <EWP_TileBiome>Biom des Feldes: {0}</EWP_TileBiome>
+  <EWP_MapBiome>Karten-Mods melden: {0}</EWP_MapBiome>
+  <EWP_MismatchFixed>Die Biome unterscheiden sich – die Korrektur ist an, die Pflanzen folgen dem Feld.</EWP_MismatchFixed>
+  <EWP_MismatchWarn>Die Biome unterscheiden sich und die Korrektur ist aus – an Land wachsen womöglich nur wenige Pflanzen!</EWP_MismatchWarn>
+  <EWP_PlantCount>Wildpflanzen: {0} von {1} ({2} %)</EWP_PlantCount>
+  <EWP_UsedList>Verwendete Liste: {0} Pflanzen</EWP_UsedList>
+  <EWP_Fill>Jetzt begrünen (alles auf einmal)</EWP_Fill>
+  <EWP_FillTip>Füllt die Karte einmalig bis zur vollen Dichte mit Pflanzen unterschiedlicher Größe. Lässt Heimbereich, Zonen und Räume aus.</EWP_FillTip>
+  <EWP_Filling>Wildpflanzen werden gepflanzt…</EWP_Filling>
+  <EWP_Filled>{0} Wildpflanzen gepflanzt.</EWP_Filled>
+  <EWP_HideDead>Baumstümpfe ausblenden</EWP_HideDead>
+  <MUI_Title>Empfohlene Einstellungen</MUI_Title>
+  <MUI_TitleOff>Empfohlene Einstellungen · aus</MUI_TitleOff>
+  <MUI_DescOn>Die Mod richtet sich selbst ein und funktioniert sofort. Ideal für neue Spieler und alle, die nichts anpassen wollen.</MUI_DescOn>
+  <MUI_DescOff>Eigene Einstellungen. Geändert gegenüber Empfehlung: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Eigene Einstellungen. Noch identisch mit der Empfehlung.</MUI_DescOffSame>
+  <MUI_On>AN</MUI_On>
+  <MUI_Off>AUS</MUI_Off>
+  <MUI_ResetAll>Alles auf Empfehlung zurücksetzen</MUI_ResetAll>
+  <MUI_ConfirmOn>Empfohlene Einstellungen einschalten? Deine Änderungen ({0}) werden durch die empfohlenen Werte ersetzt.</MUI_ConfirmOn>
+  <MUI_Locked>Detaillierte Einstellungen sind gesperrt. Willst du sie ändern? Schalte den Schalter oben aus – deine Werte starten bei den empfohlenen.</MUI_Locked>
+  <MUI_Changed>GEÄNDERT</MUI_Changed>
+  <MUI_ChangedTip>Weicht von der Empfehlung ab ({0}). Klicken, um den empfohlenen Wert wiederherzustellen.</MUI_ChangedTip>
+  <MUI_Yes>an</MUI_Yes>
+  <MUI_No>aus</MUI_No>
+  <MUI_RecTag>EMPFOHLEN</MUI_RecTag>
+  <EWP_AddIntro>Jede Pflanze, jeder Baum, jedes Gras, jeder Busch und Pilz aus dem Spiel, den DLCs und Mods – auch solche, die in diesem Biom nie wachsen.</EWP_AddIntro>
+  <EWP_AllMods>Alle Mods</EWP_AllMods>
+  <EWP_GroupAll>Alle</EWP_GroupAll>
+  <EWP_GroupTrees>Bäume</EWP_GroupTrees>
+  <EWP_GroupGrass>Gras</EWP_GroupGrass>
+  <EWP_GroupBushes>Büsche &amp; Blumen</EWP_GroupBushes>
+  <EWP_GroupCrops>Nutzpflanzen</EWP_GroupCrops>
+  <EWP_GroupCave>Pilze &amp; Höhle</EWP_GroupCave>
+  <EWP_GroupWater>Wasser</EWP_GroupWater>
+  <EWP_AddAllShown>Alle angezeigten hinzufügen ({0})</EWP_AddAllShown>
+  <EWP_AddedN>Hinzugefügt: {0}</EWP_AddedN>
+  <EWP_AddOne>Hinzufügen</EWP_AddOne>
+  <EWP_GrowsIn>Wächst standardmäßig in: {0}</EWP_GrowsIn>
+  <EWP_GrowsNowhere>Wächst standardmäßig in keinem Biom.</EWP_GrowsNowhere>
+  <EWP_SecGrow>Begrünung der Karte</EWP_SecGrow>
+  <EWP_MapDensity>Begrünung dieser Karte: {0} %</EWP_MapDensity>
+  <EWP_MapDensityTip>Wie dicht diese Karte mit Wildpflanzen bedeckt sein soll (100 % = normal für das Biom). Ändert sich allmählich – neue Pflanzen wachsen von selbst nach. Senken schneidet nichts ab, es kommen nur keine Pflanzen mehr hinzu.</EWP_MapDensityTip>
+  <EWP_FillDays>Begrünen über: {0} Tage</EWP_FillDays>
+  <EWP_FillDaysTip>In wie vielen Spieltagen die Karte die eingestellte Begrünung erreichen soll. Pflanzen sprießen klein und wachsen in normalem Tempo.</EWP_FillDaysTip>
+  <EWP_FillGradual>Allmählich begrünen ({0} Tage)</EWP_FillGradual>
+  <EWP_FillGradualTip>Pflanzen erscheinen nach und nach als kleine Sprösslinge und wachsen von selbst heran. Lässt Heimbereich, Zonen und Räume aus.</EWP_FillGradualTip>
+  <EWP_FillStarted>Die Karte wird allmählich begrünt (Ziel in {0} Tagen).</EWP_FillStarted>
+  <EWP_FillRunning>Die Karte wird begrünt – noch {0} Tage, {1} % fertig.</EWP_FillRunning>
+  <EWP_FillStop>Begrünung stoppen</EWP_FillStop>
+  <EWP_FillDone>Karte {0} ist wie eingestellt begrünt.</EWP_FillDone>
+  <EWP_LockedHere>Die Bearbeitung ist gesperrt, weil oben die empfohlenen Einstellungen aktiv sind (Standardpflanzen).</EWP_LockedHere>
+  <EWP_Unlock>Bearbeitung entsperren</EWP_Unlock>
+  <EWP_ShowAll>Alle Pflanzen ({0})</EWP_ShowAll>
+  <EWP_ShowAllTip>Zeigt jede Pflanze aus dem Spiel, den DLCs und Mods, auch solche, die hier normalerweise nicht wachsen. Schiebe einen Regler über 0 und die Pflanze beginnt hier zu wachsen.</EWP_ShowAllTip>
+</LanguageData>

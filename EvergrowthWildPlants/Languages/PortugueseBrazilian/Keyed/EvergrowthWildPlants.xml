@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <EWP_Title>Evergrowth – Plantas selvagens</EWP_Title>
+  <EWP_Bullet1>Cada bioma mantém suas plantas padrão</EWP_Bullet1>
+  <EWP_Bullet2>Correção do bioma do mapa (Geological Landforms etc.)</EWP_Bullet2>
+  <EWP_Bullet3>Plantas de caverna como no jogo</EWP_Bullet3>
+  <EWP_Bullet4>Vegetação gradual do mapa conforme sua configuração</EWP_Bullet4>
+  <EWP_TabBiomes>Biomas</EWP_TabBiomes>
+  <EWP_TabCave>Plantas de caverna</EWP_TabCave>
+  <EWP_TabMap>Este mapa</EWP_TabMap>
+  <EWP_Import>Importar do Choose Wild Plant Spawns</EWP_Import>
+  <EWP_ImportTip>Lê suas configurações do Choose Wild Plant Spawns (listas de plantas e densidade). Tocos, plantas mortas e plantas de mods desativados são ignorados. Depois você pode desativar o Choose Wild Plant Spawns.</EWP_ImportTip>
+  <EWP_ImportNone>Nenhuma configuração do Choose Wild Plant Spawns encontrada.</EWP_ImportNone>
+  <EWP_ImportDone>Importado: {0} biomas, {1} plantas. Ignorados {2} (tocos, plantas mortas, mods ausentes).</EWP_ImportDone>
+  <EWP_ResetAll>Todos os biomas para o padrão</EWP_ResetAll>
+  <EWP_ResetAllConfirm>Redefinir todos os biomas para suas plantas, densidade e rebrota padrão?</EWP_ResetAllConfirm>
+  <EWP_SearchBiome>Buscar bioma ou mod…</EWP_SearchBiome>
+  <EWP_SearchPlant>Buscar planta ou mod…</EWP_SearchPlant>
+  <EWP_NPlants>{0} plantas</EWP_NPlants>
+  <EWP_PickBiome>Escolha um bioma à esquerda para ver quais plantas selvagens crescem lá e com que frequência.</EWP_PickBiome>
+  <EWP_Customized>personalizado</EWP_Customized>
+  <EWP_Default>padrão</EWP_Default>
+  <EWP_AddPlant>Adicionar plantas</EWP_AddPlant>
+  <EWP_CopyFrom>Copiar de um bioma…</EWP_CopyFrom>
+  <EWP_ResetBiome>Redefinir para o padrão</EWP_ResetBiome>
+  <EWP_Density>Densidade de plantas: {0} (padrão {1})</EWP_Density>
+  <EWP_DensityTip>Quantas plantas selvagens há no mapa. 0 = nenhuma, maior = natureza mais densa. O Evergrowth pode multiplicar isso ainda mais.</EWP_DensityTip>
+  <EWP_Regrow>Rebrota: {0} dias (padrão {1})</EWP_Regrow>
+  <EWP_RegrowTip>Quanto tempo até algo crescer de novo em um espaço livre. Menos dias = rebrota mais rápida.</EWP_RegrowTip>
+  <EWP_NoPlants>Nenhuma planta.</EWP_NoPlants>
+  <EWP_KindDead>planta morta</EWP_KindDead>
+  <EWP_KindDeadTip>O jogo nunca gera plantas mortas como plantas selvagens.</EWP_KindDeadTip>
+  <EWP_KindStump>toco</EWP_KindStump>
+  <EWP_KindStumpTip>Tocos não são plantas que crescem – apenas o que sobrou de uma árvore.</EWP_KindStumpTip>
+  <EWP_KindCrop>cultivo</EWP_KindCrop>
+  <EWP_KindCropTip>Um cultivo que normalmente não cresce na natureza. Ele pode crescer, mas o clima muitas vezes não combina.</EWP_KindCropTip>
+  <EWP_KindCave>caverna</EWP_KindCave>
+  <EWP_KindCaveTip>Planta de caverna – cresce apenas sob teto de rocha.</EWP_KindCaveTip>
+  <EWP_KindWater>água</EWP_KindWater>
+  <EWP_KindWaterTip>Planta aquática – cresce apenas na água ou perto da margem.</EWP_KindWaterTip>
+  <EWP_ProbMissing>{0} plantas da lista estão ausentes (mod desativado).</EWP_ProbMissing>
+  <EWP_ProbDead>{0}× toco ou planta morta – nunca crescem, você pode removê-los.</EWP_ProbDead>
+  <EWP_ProbCrops>{0}× cultivo – muitas vezes não sobrevivem na natureza.</EWP_ProbCrops>
+  <EWP_ProbNoLand>Nada cresce em terra aqui (só água / cavernas).</EWP_ProbNoLand>
+  <EWP_ProbEmpty>A lista está vazia – nada vai crescer neste bioma.</EWP_ProbEmpty>
+  <EWP_ProbZeroDensity>A densidade é 0 – nada vai crescer neste bioma.</EWP_ProbZeroDensity>
+  <EWP_CaveIntro>Plantas de caverna crescem sob tetos de rocha em todos os biomas. Defina com que frequência cada uma aparece (0 = nunca).</EWP_CaveIntro>
+  <EWP_ResetCave>Tudo para o padrão</EWP_ResetCave>
+  <EWP_CaveValue>{0} (padrão {1})</EWP_CaveValue>
+  <EWP_SecFix>Correção do bioma</EWP_SecFix>
+  <EWP_FixBiome>Plantas selvagens seguem o bioma do quadrante do mundo</EWP_FixBiome>
+  <EWP_FixBiomeTip>Alguns mods de mapa (ex.: Geological Landforms) informam para o mapa um bioma diferente do quadrante. O jogo então escolhe plantas de um bioma, mas as pondera pelo outro – e quase nada cresce em terra. Isto corrige o problema.</EWP_FixBiomeTip>
+  <EWP_SecMap>Este mapa</EWP_SecMap>
+  <EWP_NoGame>Carregue um jogo para ver aqui o estado do mapa atual.</EWP_NoGame>
+  <EWP_TileBiome>Bioma do quadrante: {0}</EWP_TileBiome>
+  <EWP_MapBiome>Mods de mapa informam: {0}</EWP_MapBiome>
+  <EWP_MismatchFixed>Os biomas são diferentes – a correção está ligada, as plantas seguem o quadrante.</EWP_MismatchFixed>
+  <EWP_MismatchWarn>Os biomas são diferentes e a correção está desligada – poucas plantas podem crescer em terra!</EWP_MismatchWarn>
+  <EWP_PlantCount>Plantas selvagens: {0} de {1} ({2} %)</EWP_PlantCount>
+  <EWP_UsedList>Lista em uso: {0} plantas</EWP_UsedList>
+  <EWP_Fill>Fazer crescer agora (tudo de uma vez)</EWP_Fill>
+  <EWP_FillTip>Preenche o mapa uma única vez até a densidade total com plantas de tamanhos variados. Ignora a área de casa, zonas e cômodos.</EWP_FillTip>
+  <EWP_Filling>Plantando plantas selvagens…</EWP_Filling>
+  <EWP_Filled>{0} plantas selvagens plantadas.</EWP_Filled>
+  <EWP_HideDead>Ocultar tocos</EWP_HideDead>
+  <MUI_Title>Configurações recomendadas</MUI_Title>
+  <MUI_TitleOff>Configurações recomendadas · desligadas</MUI_TitleOff>
+  <MUI_DescOn>O mod se configura sozinho e funciona na hora. Ideal para novos jogadores e para quem não quer ajustar nada.</MUI_DescOn>
+  <MUI_DescOff>Configurações personalizadas. Alteradas em relação às recomendadas: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Configurações personalizadas. Ainda iguais às recomendadas.</MUI_DescOffSame>
+  <MUI_On>LIGADO</MUI_On>
+  <MUI_Off>DESLIGADO</MUI_Off>
+  <MUI_ResetAll>Redefinir tudo para o recomendado</MUI_ResetAll>
+  <MUI_ConfirmOn>Ativar as configurações recomendadas? Suas alterações ({0}) serão substituídas pelos valores recomendados.</MUI_ConfirmOn>
+  <MUI_Locked>As configurações detalhadas estão bloqueadas. Quer alterá-las? Desligue a chave acima – seus valores partirão dos recomendados.</MUI_Locked>
+  <MUI_Changed>ALTERADO</MUI_Changed>
+  <MUI_ChangedTip>Difere da configuração recomendada ({0}). Clique para restaurar o valor recomendado.</MUI_ChangedTip>
+  <MUI_Yes>ligado</MUI_Yes>
+  <MUI_No>desligado</MUI_No>
+  <MUI_RecTag>RECOMENDADO</MUI_RecTag>
+  <EWP_AddIntro>Todas as plantas, árvores, gramas, arbustos e cogumelos do jogo, das DLCs e dos mods – também os que nunca crescem neste bioma.</EWP_AddIntro>
+  <EWP_AllMods>Todos os mods</EWP_AllMods>
+  <EWP_GroupAll>Todos</EWP_GroupAll>
+  <EWP_GroupTrees>Árvores</EWP_GroupTrees>
+  <EWP_GroupGrass>Grama</EWP_GroupGrass>
+  <EWP_GroupBushes>Arbustos e flores</EWP_GroupBushes>
+  <EWP_GroupCrops>Cultivos</EWP_GroupCrops>
+  <EWP_GroupCave>Cogumelos e caverna</EWP_GroupCave>
+  <EWP_GroupWater>Água</EWP_GroupWater>
+  <EWP_AddAllShown>Adicionar todos os exibidos ({0})</EWP_AddAllShown>
+  <EWP_AddedN>Adicionadas: {0}</EWP_AddedN>
+  <EWP_AddOne>Adicionar</EWP_AddOne>
+  <EWP_GrowsIn>Cresce por padrão em: {0}</EWP_GrowsIn>
+  <EWP_GrowsNowhere>Não cresce por padrão em nenhum bioma.</EWP_GrowsNowhere>
+  <EWP_SecGrow>Vegetação do mapa</EWP_SecGrow>
+  <EWP_MapDensity>Vegetação deste mapa: {0} %</EWP_MapDensity>
+  <EWP_MapDensityTip>Quão densamente este mapa deve ser coberto por plantas selvagens (100 % = normal para o bioma). Muda aos poucos – novas plantas crescem sozinhas. Reduzir não corta nada, só para de adicionar plantas.</EWP_MapDensityTip>
+  <EWP_FillDays>Fazer crescer em: {0} dias</EWP_FillDays>
+  <EWP_FillDaysTip>Em quantos dias de jogo o mapa deve atingir a vegetação definida. As plantas brotam pequenas e crescem em ritmo normal.</EWP_FillDaysTip>
+  <EWP_FillGradual>Fazer crescer aos poucos ({0} dias)</EWP_FillGradual>
+  <EWP_FillGradualTip>As plantas aparecem pouco a pouco como pequenos brotos e crescem sozinhas. Ignora a área de casa, zonas e cômodos.</EWP_FillGradualTip>
+  <EWP_FillStarted>O mapa vai ganhar vegetação aos poucos (meta em {0} dias).</EWP_FillStarted>
+  <EWP_FillRunning>O mapa está ganhando vegetação – faltam {0} dias, {1} % concluído.</EWP_FillRunning>
+  <EWP_FillStop>Parar o crescimento</EWP_FillStop>
+  <EWP_FillDone>O mapa {0} está com a vegetação definida.</EWP_FillDone>
+  <EWP_LockedHere>A edição está bloqueada porque as configurações recomendadas estão ligadas no topo (plantas padrão).</EWP_LockedHere>
+  <EWP_Unlock>Desbloquear edição</EWP_Unlock>
+  <EWP_ShowAll>Todas as plantas ({0})</EWP_ShowAll>
+  <EWP_ShowAllTip>Mostra todas as plantas do jogo, das DLCs e dos mods, também as que normalmente não crescem aqui. Mova um controle deslizante acima de 0 e a planta começa a crescer aqui.</EWP_ShowAllTip>
+</LanguageData>

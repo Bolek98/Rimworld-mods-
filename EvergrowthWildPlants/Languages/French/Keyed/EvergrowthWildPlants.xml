@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <EWP_Title>Evergrowth – Plantes sauvages</EWP_Title>
+  <EWP_Bullet1>Chaque biome garde ses plantes par défaut</EWP_Bullet1>
+  <EWP_Bullet2>Correction du biome de la carte (Geological Landforms etc.)</EWP_Bullet2>
+  <EWP_Bullet3>Plantes de grotte comme dans le jeu</EWP_Bullet3>
+  <EWP_Bullet4>Végétalisation progressive de la carte selon vos réglages</EWP_Bullet4>
+  <EWP_TabBiomes>Biomes</EWP_TabBiomes>
+  <EWP_TabCave>Plantes de grotte</EWP_TabCave>
+  <EWP_TabMap>Cette carte</EWP_TabMap>
+  <EWP_Import>Importer depuis Choose Wild Plant Spawns</EWP_Import>
+  <EWP_ImportTip>Lit vos réglages de Choose Wild Plant Spawns (listes de plantes et densité). Les souches, plantes mortes et plantes de mods désactivés sont ignorées. Vous pouvez ensuite désactiver Choose Wild Plant Spawns.</EWP_ImportTip>
+  <EWP_ImportNone>Aucun réglage de Choose Wild Plant Spawns trouvé.</EWP_ImportNone>
+  <EWP_ImportDone>Importé : {0} biomes, {1} plantes. Ignoré : {2} (souches, plantes mortes, mods manquants).</EWP_ImportDone>
+  <EWP_ResetAll>Tous les biomes par défaut</EWP_ResetAll>
+  <EWP_ResetAllConfirm>Réinitialiser tous les biomes à leurs plantes, densité et repousse par défaut ?</EWP_ResetAllConfirm>
+  <EWP_SearchBiome>Rechercher un biome ou un mod…</EWP_SearchBiome>
+  <EWP_SearchPlant>Rechercher une plante ou un mod…</EWP_SearchPlant>
+  <EWP_NPlants>{0} plantes</EWP_NPlants>
+  <EWP_PickBiome>Choisissez un biome à gauche pour voir quelles plantes sauvages y poussent et à quelle fréquence.</EWP_PickBiome>
+  <EWP_Customized>personnalisé</EWP_Customized>
+  <EWP_Default>par défaut</EWP_Default>
+  <EWP_AddPlant>Ajouter des plantes</EWP_AddPlant>
+  <EWP_CopyFrom>Copier depuis un biome…</EWP_CopyFrom>
+  <EWP_ResetBiome>Réinitialiser par défaut</EWP_ResetBiome>
+  <EWP_Density>Densité des plantes : {0} (par défaut {1})</EWP_Density>
+  <EWP_DensityTip>Combien de plantes sauvages il y a sur la carte. 0 = aucune, plus haut = nature plus dense. Evergrowth peut encore multiplier cette valeur.</EWP_DensityTip>
+  <EWP_Regrow>Repousse : {0} jours (par défaut {1})</EWP_Regrow>
+  <EWP_RegrowTip>Combien de temps avant que quelque chose repousse sur une case libre. Moins de jours = repousse plus rapide.</EWP_RegrowTip>
+  <EWP_NoPlants>Aucune plante.</EWP_NoPlants>
+  <EWP_KindDead>plante morte</EWP_KindDead>
+  <EWP_KindDeadTip>Le jeu ne fait jamais apparaître de plantes mortes comme plantes sauvages.</EWP_KindDeadTip>
+  <EWP_KindStump>souche</EWP_KindStump>
+  <EWP_KindStumpTip>Les souches ne sont pas des plantes qui poussent – juste ce qui reste d'un arbre.</EWP_KindStumpTip>
+  <EWP_KindCrop>culture</EWP_KindCrop>
+  <EWP_KindCropTip>Une culture qui ne pousse normalement pas à l'état sauvage. Elle peut pousser, mais le climat lui convient souvent mal.</EWP_KindCropTip>
+  <EWP_KindCave>grotte</EWP_KindCave>
+  <EWP_KindCaveTip>Plante de grotte – ne pousse que sous un toit de roche.</EWP_KindCaveTip>
+  <EWP_KindWater>eau</EWP_KindWater>
+  <EWP_KindWaterTip>Plante aquatique – ne pousse que dans l'eau ou près du rivage.</EWP_KindWaterTip>
+  <EWP_ProbMissing>{0} plantes de la liste sont manquantes (mod désactivé).</EWP_ProbMissing>
+  <EWP_ProbDead>{0}× souche ou plante morte – elles ne poussent jamais, vous pouvez les retirer.</EWP_ProbDead>
+  <EWP_ProbCrops>{0}× culture – elles survivent souvent mal à l'état sauvage.</EWP_ProbCrops>
+  <EWP_ProbNoLand>Rien ne pousse sur la terre ferme ici (seulement eau / grottes).</EWP_ProbNoLand>
+  <EWP_ProbEmpty>La liste est vide – rien ne poussera dans ce biome.</EWP_ProbEmpty>
+  <EWP_ProbZeroDensity>La densité est de 0 – rien ne poussera dans ce biome.</EWP_ProbZeroDensity>
+  <EWP_CaveIntro>Les plantes de grotte poussent sous les toits de roche dans tous les biomes. Réglez la fréquence d'apparition de chacune (0 = jamais).</EWP_CaveIntro>
+  <EWP_ResetCave>Tout par défaut</EWP_ResetCave>
+  <EWP_CaveValue>{0} (par défaut {1})</EWP_CaveValue>
+  <EWP_SecFix>Correction du biome</EWP_SecFix>
+  <EWP_FixBiome>Les plantes sauvages suivent le biome de la case du monde</EWP_FixBiome>
+  <EWP_FixBiomeTip>Certains mods de carte (p. ex. Geological Landforms) indiquent pour la carte un autre biome que celui de la case. Le jeu choisit alors les plantes d'un biome mais les pondère selon l'autre – et presque rien ne pousse sur la terre ferme. Ceci le corrige.</EWP_FixBiomeTip>
+  <EWP_SecMap>Cette carte</EWP_SecMap>
+  <EWP_NoGame>Chargez une partie pour voir ici l'état de la carte actuelle.</EWP_NoGame>
+  <EWP_TileBiome>Biome de la case : {0}</EWP_TileBiome>
+  <EWP_MapBiome>Les mods de carte indiquent : {0}</EWP_MapBiome>
+  <EWP_MismatchFixed>Les biomes diffèrent – la correction est active, les plantes suivent la case.</EWP_MismatchFixed>
+  <EWP_MismatchWarn>Les biomes diffèrent et la correction est désactivée – peu de plantes risquent de pousser sur la terre ferme !</EWP_MismatchWarn>
+  <EWP_PlantCount>Plantes sauvages : {0} sur {1} ({2} %)</EWP_PlantCount>
+  <EWP_UsedList>Liste utilisée : {0} plantes</EWP_UsedList>
+  <EWP_Fill>Faire pousser maintenant (tout d'un coup)</EWP_Fill>
+  <EWP_FillTip>Remplit une fois la carte jusqu'à pleine densité avec des plantes de tailles variées. Ignore la zone de la base, les zones et les pièces.</EWP_FillTip>
+  <EWP_Filling>Plantation des plantes sauvages…</EWP_Filling>
+  <EWP_Filled>{0} plantes sauvages plantées.</EWP_Filled>
+  <EWP_HideDead>Masquer les souches</EWP_HideDead>
+  <MUI_Title>Réglages recommandés</MUI_Title>
+  <MUI_TitleOff>Réglages recommandés · désactivés</MUI_TitleOff>
+  <MUI_DescOn>Le mod se configure tout seul et fonctionne immédiatement. Idéal pour les nouveaux joueurs et tous ceux qui ne veulent rien ajuster.</MUI_DescOn>
+  <MUI_DescOff>Réglages personnalisés. Modifiés par rapport aux recommandations : {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Réglages personnalisés. Toujours identiques aux recommandations.</MUI_DescOffSame>
+  <MUI_On>ACTIVÉ</MUI_On>
+  <MUI_Off>DÉSACTIVÉ</MUI_Off>
+  <MUI_ResetAll>Tout réinitialiser aux valeurs recommandées</MUI_ResetAll>
+  <MUI_ConfirmOn>Activer les réglages recommandés ? Vos modifications ({0}) seront remplacées par les valeurs recommandées.</MUI_ConfirmOn>
+  <MUI_Locked>Les réglages détaillés sont verrouillés. Vous voulez les modifier ? Désactivez l'interrupteur ci-dessus – vos valeurs partiront des valeurs recommandées.</MUI_Locked>
+  <MUI_Changed>MODIFIÉ</MUI_Changed>
+  <MUI_ChangedTip>Diffère du réglage recommandé ({0}). Cliquez pour rétablir la valeur recommandée.</MUI_ChangedTip>
+  <MUI_Yes>activé</MUI_Yes>
+  <MUI_No>désactivé</MUI_No>
+  <MUI_RecTag>RECOMMANDÉ</MUI_RecTag>
+  <EWP_AddIntro>Chaque plante, arbre, herbe, buisson et champignon du jeu, des DLC et des mods – y compris ceux qui ne poussent jamais dans ce biome.</EWP_AddIntro>
+  <EWP_AllMods>Tous les mods</EWP_AllMods>
+  <EWP_GroupAll>Tout</EWP_GroupAll>
+  <EWP_GroupTrees>Arbres</EWP_GroupTrees>
+  <EWP_GroupGrass>Herbe</EWP_GroupGrass>
+  <EWP_GroupBushes>Buissons &amp; fleurs</EWP_GroupBushes>
+  <EWP_GroupCrops>Cultures</EWP_GroupCrops>
+  <EWP_GroupCave>Champignons &amp; grotte</EWP_GroupCave>
+  <EWP_GroupWater>Eau</EWP_GroupWater>
+  <EWP_AddAllShown>Ajouter tous les affichés ({0})</EWP_AddAllShown>
+  <EWP_AddedN>Ajouté : {0}</EWP_AddedN>
+  <EWP_AddOne>Ajouter</EWP_AddOne>
+  <EWP_GrowsIn>Pousse par défaut dans : {0}</EWP_GrowsIn>
+  <EWP_GrowsNowhere>Ne pousse par défaut dans aucun biome.</EWP_GrowsNowhere>
+  <EWP_SecGrow>Végétalisation de la carte</EWP_SecGrow>
+  <EWP_MapDensity>Végétalisation de cette carte : {0} %</EWP_MapDensity>
+  <EWP_MapDensityTip>À quel point cette carte doit être couverte de plantes sauvages (100 % = normal pour le biome). Change progressivement – les nouvelles plantes poussent d'elles-mêmes. Baisser la valeur ne coupe rien, cela arrête seulement d'ajouter des plantes.</EWP_MapDensityTip>
+  <EWP_FillDays>Faire pousser en : {0} jours</EWP_FillDays>
+  <EWP_FillDaysTip>En combien de jours de jeu la carte doit atteindre la végétalisation réglée. Les plantes apparaissent petites et poussent à un rythme normal.</EWP_FillDaysTip>
+  <EWP_FillGradual>Faire pousser progressivement ({0} jours)</EWP_FillGradual>
+  <EWP_FillGradualTip>Les plantes apparaissent peu à peu sous forme de petites pousses et grandissent d'elles-mêmes. Ignore la zone de la base, les zones et les pièces.</EWP_FillGradualTip>
+  <EWP_FillStarted>La carte va se végétaliser progressivement (objectif dans {0} jours).</EWP_FillStarted>
+  <EWP_FillRunning>La carte se végétalise – encore {0} jours, {1} % effectués.</EWP_FillRunning>
+  <EWP_FillStop>Arrêter la végétalisation</EWP_FillStop>
+  <EWP_FillDone>La carte {0} est végétalisée comme réglé.</EWP_FillDone>
+  <EWP_LockedHere>La modification est verrouillée car les réglages recommandés sont activés en haut (plantes par défaut).</EWP_LockedHere>
+  <EWP_Unlock>Déverrouiller la modification</EWP_Unlock>
+  <EWP_ShowAll>Toutes les plantes ({0})</EWP_ShowAll>
+  <EWP_ShowAllTip>Affiche chaque plante du jeu, des DLC et des mods, y compris celles qui ne poussent normalement pas ici. Placez un curseur au-dessus de 0 et la plante commence à pousser ici.</EWP_ShowAllTip>
+</LanguageData>

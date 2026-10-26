@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_CrisisStart>Steward: {0}. Priorytety dostosowane.</CF_CrisisStart>
+  <CF_CrisisEnd>Steward: kryzys minął ({0}).</CF_CrisisEnd>
+  <CF_D_Food>jedzenie na {0} dni</CF_D_Food>
+  <CF_AutoFocusNow>{0} → teraz: {1} ({2})</CF_AutoFocusNow>
+  <CF_AutoFocusNowNoReason>{0} → teraz: {1}</CF_AutoFocusNowNoReason>
+  <CF_AutoFocusShort>{0} → {1}</CF_AutoFocusShort>
+  <CF_AutoFocusMsg>Steward: Zrównoważony skupia się teraz na: {0} ({1}).</CF_AutoFocusMsg>
+  <CF_AutoFocusEnd>Steward: skupienie na {0} się skończyło – Zrównoważony znów rozdziela pracę równomiernie.</CF_AutoFocusEnd>
+  <CF_AF_Food>jedzenie na {0} dni</CF_AF_Food>
+  <CF_AF_Harvest>{0} roślin gotowych do zbioru</CF_AF_Harvest>
+  <CF_AF_Build>{0} planów budowy</CF_AF_Build>
+  <CF_AF_Industry>stal {0}, komponenty {1}</CF_AF_Industry>
+  <CF_AF_Mine>{0} pól do wydobycia</CF_AF_Mine>
+  <CF_AF_Bills>wiele zleceń produkcji czeka</CF_AF_Bills>
+  <CF_AF_Care>pacjenci {0}, więźniowie {1}, dzieci {2}</CF_AF_Care>
+  <CF_AF_Defense>po najeździe {0} budynków do naprawy</CF_AF_Defense>
+  <CF_AF_Animals>{0} zwierząt do oswojenia lub uboju, {1} do dojenia, strzyżenia lub tresury</CF_AF_Animals>
+  <CF_AF_Dirt>{0} brudu w strefie domowej</CF_AF_Dirt>
+  <CF_AF_Calm>spokój – czas na badania</CF_AF_Calm>
+  <CF_SitStaff>{0} ×{1} (priorytet {2})</CF_SitStaff>
+  <CF_SitHeader>Sytuacje:</CF_SitHeader>
+  <CF_SitStart>Steward – nowa sytuacja: {0}.</CF_SitStart>
+  <CF_SitEnd>Steward – sytuacja minęła: {0}. Powrót do zwykłego planu.</CF_SitEnd>
+  <CF_SitDoesWork>{0} priorytet {1}</CF_SitDoesWork>
+  <CF_SitDoesNothing>nic w tej grze (brak tego typu pracy)</CF_SitDoesNothing>
+  <CF_SitDoesExhausted>ich praca z priorytetem 1 spada na 2 (nagłe przypadki zostają)</CF_SitDoesExhausted>
+  <CF_Sit_BuildBacklog>duże zaległości w budowie</CF_Sit_BuildBacklog>
+  <CF_SitWhen_BuildBacklog>Kiedy: 20 lub więcej planów budowy i szkieletów (trwa, dopóki nie zostanie mniej niż 8). Budowanie na priorytecie 2, jeden budowniczy na 15 planów, co najmniej 2.</CF_SitWhen_BuildBacklog>
+  <CF_SitR_BuildBacklog>{0} planów budowy</CF_SitR_BuildBacklog>
+  <CF_Sit_Deconstruct>zaległości w rozbiórce</CF_Sit_Deconstruct>
+  <CF_SitWhen_Deconstruct>Kiedy: 15 lub więcej oznaczeń do rozbiórki, demontażu, wygładzenia lub usunięcia podłóg. Budowanie na priorytecie 2, jeden kolonista na 20 oznaczeń.</CF_SitWhen_Deconstruct>
+  <CF_SitR_Deconstruct>{0} oznaczeń</CF_SitR_Deconstruct>
+  <CF_Sit_Repairs>potrzebne naprawy</CF_Sit_Repairs>
+  <CF_SitWhen_Repairs>Kiedy: 6 lub więcej uszkodzonych budynków (nie podczas najazdu). Budowanie na priorytecie 2, jeden kolonista na 10 budynków.</CF_SitWhen_Repairs>
+  <CF_SitR_Repairs>{0} uszkodzonych budynków</CF_SitR_Repairs>
+  <CF_Sit_HaulBacklog>dużo do noszenia</CF_Sit_HaulBacklog>
+  <CF_SitWhen_HaulBacklog>Kiedy: 80 lub więcej leżących rzeczy do przeniesienia (bez kawałków skał; nie podczas najazdu, toksycznego powietrza ani ekstremalnej pogody). Noszenie na priorytecie 2, jeden tragarz na 50 rzeczy, co najmniej 2.</CF_SitWhen_HaulBacklog>
+  <CF_SitR_HaulBacklog>{0} rzeczy do przeniesienia</CF_SitR_HaulBacklog>
+  <CF_Sit_RottingOutside>rzeczy gniją na zewnątrz</CF_Sit_RottingOutside>
+  <CF_SitWhen_RottingOutside>Kiedy: 8 lub więcej psujących się stosów poza magazynem, które zgniją w ciągu 5 dni. Noszenie na priorytecie 1, jeden tragarz na 10 stosów.</CF_SitWhen_RottingOutside>
+  <CF_SitR_RottingOutside>{0} stosów zgnije</CF_SitR_RottingOutside>
+  <CF_Sit_FoodSpoiling>jedzenie wkrótce się zepsuje</CF_Sit_FoodSpoiling>
+  <CF_SitWhen_FoodSpoiling>Kiedy: surowe jedzenie o wartości 10+ odżywczości zgnije w ciągu 1,5 dnia. Gotowanie na priorytecie 1 (jeden kucharz na 30 odżywczości) i jeden tragarz na priorytecie 2, by przenieść je do chłodni.</CF_SitWhen_FoodSpoiling>
+  <CF_SitR_FoodSpoiling>{0} odżywczości zepsuje się w ciągu 1,5 dnia</CF_SitR_FoodSpoiling>
+  <CF_Sit_BigHarvest>duże żniwa</CF_Sit_BigHarvest>
+  <CF_SitWhen_BigHarvest>Kiedy: 40 lub więcej dojrzałych roślin w strefach uprawy. Uprawa na priorytecie 2, jeden rolnik na 40 roślin, co najmniej 2.</CF_SitWhen_BigHarvest>
+  <CF_SitR_BigHarvest>{0} dojrzałych roślin</CF_SitR_BigHarvest>
+  <CF_Sit_FrostHarvest>mróz – zbieraj teraz</CF_Sit_FrostHarvest>
+  <CF_SitWhen_FrostHarvest>Kiedy: poniżej 2 °C na zewnątrz i 5 lub więcej dojrzałych roślin – uprawy giną z zimna. Uprawa na priorytecie 1, jeden rolnik na 25 roślin, co najmniej 2.</CF_SitWhen_FrostHarvest>
+  <CF_SitR_FrostHarvest>{0} dojrzałych roślin przy {1}</CF_SitR_FrostHarvest>
+  <CF_Sit_CutBacklog>zaległości w ścinaniu roślin</CF_Sit_CutBacklog>
+  <CF_SitWhen_CutBacklog>Kiedy: 30 lub więcej roślin oznaczonych do ścięcia lub zbioru. Ścinanie roślin na priorytecie 2, jeden kolonista na 30 roślin.</CF_SitWhen_CutBacklog>
+  <CF_SitR_CutBacklog>{0} oznaczonych roślin</CF_SitR_CutBacklog>
+  <CF_Sit_MineBacklog>zaległości w wydobyciu</CF_Sit_MineBacklog>
+  <CF_SitWhen_MineBacklog>Kiedy: 30 lub więcej pól oznaczonych do wydobycia. Górnictwo na priorytecie 2, jeden górnik na 30 pól.</CF_SitWhen_MineBacklog>
+  <CF_SitR_MineBacklog>{0} pól do wydobycia</CF_SitR_MineBacklog>
+  <CF_Sit_LowWood>mało drewna</CF_Sit_LowWood>
+  <CF_SitWhen_LowWood>Kiedy: mniej drewna niż 75 + 25 na kolonistę, a drzewa są oznaczone do ścięcia. Ścinanie roślin na priorytecie 2, 1 kolonista (2 w kolonii od 5 osób).</CF_SitWhen_LowWood>
+  <CF_SitR_LowWood>{0} drewna</CF_SitR_LowWood>
+  <CF_Sit_LowSteel>mało stali</CF_Sit_LowSteel>
+  <CF_SitWhen_LowSteel>Kiedy: mniej stali niż 50 + 20 na kolonistę, a skała jest oznaczona do wydobycia. Górnictwo na priorytecie 2, 1 górnik (2 w kolonii od 5 osób).</CF_SitWhen_LowSteel>
+  <CF_SitR_LowSteel>{0} stali</CF_SitR_LowSteel>
+  <CF_Sit_LowComponents>mało komponentów</CF_Sit_LowComponents>
+  <CF_SitWhen_LowComponents>Kiedy: mniej komponentów niż 3 + 1 na 2 kolonistów, a zlecenie na komponenty czeka. Praca przy tym stole na priorytecie 2, 1 kolonista.</CF_SitWhen_LowComponents>
+  <CF_SitR_LowComponents>{0} komponentów</CF_SitR_LowComponents>
+  <CF_Sit_LowMedicine>kończą się leki</CF_Sit_LowMedicine>
+  <CF_SitWhen_LowMedicine>Kiedy: mniej niż 2 leki na kolonistę (ale jeszcze nie kryzys „brak leków”), a zlecenie na leki czeka lub uprawiany jest leczykorzeń. Praca przy stole i uprawa na priorytecie 2, po 1 koloniście.</CF_SitWhen_LowMedicine>
+  <CF_SitR_LowMedicine>{0} leków</CF_SitR_LowMedicine>
+  <CF_Sit_ColdClothing>brak ubrań na zimno</CF_Sit_ColdClothing>
+  <CF_SitWhen_ColdClothing>Kiedy: na zewnątrz 10 °C lub zimniej, koloniści w niewystarczająco ciepłych ubraniach, a zlecenie na ubrania czeka. Krawiectwo na priorytecie 2, jeden krawiec na 4 marznących kolonistów.</CF_SitWhen_ColdClothing>
+  <CF_SitR_ColdClothing>{0} kolonistów marznie przy {1}</CF_SitR_ColdClothing>
+  <CF_Sit_WornClothing>zniszczone ubrania</CF_Sit_WornClothing>
+  <CF_SitWhen_WornClothing>Kiedy: jedna trzecia kolonistów (co najmniej 2) nosi ubrania poniżej 50 % wytrzymałości, a zlecenie na ubrania czeka. Krawiectwo na priorytecie 2, 1 krawiec.</CF_SitWhen_WornClothing>
+  <CF_SitR_WornClothing>{0} kolonistów w zniszczonych ubraniach</CF_SitR_WornClothing>
+  <CF_Sit_LowWeapons>koloniści bez broni</CF_Sit_LowWeapons>
+  <CF_SitWhen_LowWeapons>Kiedy: połowa kolonistów zdolnych do walki (kolonia od 3 osób) nie ma broni, a zlecenie na broń czeka. Kowalstwo na priorytecie 2, 1 kowal (2 przy 5+ nieuzbrojonych).</CF_SitWhen_LowWeapons>
+  <CF_SitR_LowWeapons>{0} nieuzbrojonych</CF_SitR_LowWeapons>
+  <CF_Sit_Recruit>więźniowie do zwerbowania</CF_Sit_Recruit>
+  <CF_SitWhen_Recruit>Kiedy: więźniowie ustawieni na werbunek, osłabianie oporu, zniewolenie lub nawracanie. Nadzorowanie na priorytecie 2, jeden nadzorca na 3 więźniów – najlepsi rozmówcy.</CF_SitWhen_Recruit>
+  <CF_SitR_Recruit>{0} więźniów do rozmowy</CF_SitR_Recruit>
+  <CF_Sit_HungryPrisoners>głodni więźniowie</CF_Sit_HungryPrisoners>
+  <CF_SitWhen_HungryPrisoners>Kiedy: jedzenie więźnia spadło poniżej 25 %. Nadzorowanie na priorytecie 1, jeden nadzorca na 3 głodnych więźniów.</CF_SitWhen_HungryPrisoners>
+  <CF_SitR_HungryPrisoners>{0} głodnych więźniów</CF_SitR_HungryPrisoners>
+  <CF_Sit_MassCasualties>wielu pacjentów</CF_Sit_MassCasualties>
+  <CF_SitWhen_MassCasualties>Kiedy: 3 lub więcej pacjentów wymaga leczenia. Leczenie na priorytecie 1, dwóch lekarzy na 3 pacjentów, co najmniej 2.</CF_SitWhen_MassCasualties>
+  <CF_SitR_MassCasualties>{0} pacjentów</CF_SitR_MassCasualties>
+  <CF_Sit_Infection>zagrażająca życiu choroba</CF_Sit_Infection>
+  <CF_SitWhen_Infection>Kiedy: ktoś ma chorobę lub ranę, która może zabić (jeszcze bez odporności i już poważną), albo mocno krwawi. Leczenie na priorytecie 1, jeden lekarz na takiego pacjenta.</CF_SitWhen_Infection>
+  <CF_SitR_Infection>{0} w niebezpieczeństwie</CF_SitR_Infection>
+  <CF_Sit_TameTrain>zwierzęta do oswojenia lub tresury</CF_Sit_TameTrain>
+  <CF_SitWhen_TameTrain>Kiedy: 4 lub więcej zwierząt do oswojenia lub tresury. Zwierzęta na priorytecie 2, jeden opiekun na 6 zwierząt.</CF_SitWhen_TameTrain>
+  <CF_SitR_TameTrain>{0} zwierząt</CF_SitR_TameTrain>
+  <CF_Sit_AnimalProducts>zwierzęta do uboju, dojenia lub strzyżenia</CF_Sit_AnimalProducts>
+  <CF_SitWhen_AnimalProducts>Kiedy: 5 lub więcej zwierząt oznaczonych do uboju albo gotowych do dojenia lub strzyżenia. Zwierzęta na priorytecie 2, jeden opiekun na 8.</CF_SitWhen_AnimalProducts>
+  <CF_SitR_AnimalProducts>{0} zwierząt gotowych</CF_SitR_AnimalProducts>
+  <CF_Sit_AnimalsHungry>głodne zwierzęta</CF_Sit_AnimalsHungry>
+  <CF_SitWhen_AnimalsHungry>Kiedy: 2 lub więcej zwierząt kolonii głoduje (jedzenie poniżej 15 %). Noszenie i zwierzęta na priorytecie 2, po 1 koloniście.</CF_SitWhen_AnimalsHungry>
+  <CF_SitR_AnimalsHungry>{0} głodujących zwierząt</CF_SitR_AnimalsHungry>
+  <CF_Sit_DirtyRooms>brudny szpital lub kuchnia</CF_Sit_DirtyRooms>
+  <CF_SitWhen_DirtyRooms>Kiedy: 8 lub więcej brudu w salach szpitalnych lub kuchniach (infekcje, zatrucia pokarmowe). Sprzątanie na priorytecie 1, jeden sprzątający na 20 brudu.</CF_SitWhen_DirtyRooms>
+  <CF_SitR_DirtyRooms>{0} brudu</CF_SitR_DirtyRooms>
+  <CF_Sit_ResearchIdle>czas na badania</CF_Sit_ResearchIdle>
+  <CF_SitWhen_ResearchIdle>Kiedy: wybrano projekt, zbudowano stół badawczy, jest jedzenie na 6+ dni i nie ma kryzysu ani innej sytuacji. Badania na priorytecie 2, jeden badacz na 4 kolonistów.</CF_SitWhen_ResearchIdle>
+  <CF_SitR_ResearchIdle>projekt {0}</CF_SitR_ResearchIdle>
+  <CF_Sit_TradeVisit>handlarze na miejscu</CF_Sit_TradeVisit>
+  <CF_SitWhen_TradeVisit>Kiedy: karawana handlowa jest na mapie albo statek handlowy jest na orbicie i zbudowano radiolatarnię handlową. Noszenie na priorytecie 2, 2 tragarzy do zebrania towarów.</CF_SitWhen_TradeVisit>
+  <CF_SitR_TradeVisit>handlarze czekają</CF_SitR_TradeVisit>
+  <CF_Sit_LowFuel>kończy się paliwo</CF_Sit_LowFuel>
+  <CF_SitWhen_LowFuel>Kiedy: 2 lub więcej budynków z automatycznym tankowaniem ma poniżej 25 % paliwa (generatory, pochodnie, piece …). Tankowanie (noszenie) na priorytecie 1, jeden kolonista na 6 budynków.</CF_SitWhen_LowFuel>
+  <CF_SitR_LowFuel>{0} budynków z małą ilością paliwa</CF_SitR_LowFuel>
+  <CF_Sit_MechThreat>skupisko mechanoidów lub ul w pobliżu</CF_Sit_MechThreat>
+  <CF_SitWhen_MechThreat>Kiedy: budynki mechanoidów lub ule owadów na mapie (nie podczas najazdu). Budowanie (obrona) na priorytecie 2 z 2 kolonistami, kowalstwo na priorytecie 2 z 1.</CF_SitWhen_MechThreat>
+  <CF_SitR_MechThreat>{0} zagrożeń</CF_SitR_MechThreat>
+  <CF_Sit_MoodSlipping>nastrój spada</CF_Sit_MoodSlipping>
+  <CF_SitWhen_MoodSlipping>Kiedy: jedna czwarta kolonistów (co najmniej 2) jest blisko progu załamania, jeszcze przed kryzysem „zły nastrój”. Gotowanie (wykwintne posiłki), sztuka i sprzątanie na priorytecie 2, po 1 koloniście.</CF_SitWhen_MoodSlipping>
+  <CF_SitR_MoodSlipping>{0} nieszczęśliwych kolonistów</CF_SitR_MoodSlipping>
+  <CF_Sit_Childcare>niemowlęta do opieki</CF_Sit_Childcare>
+  <CF_SitWhen_Childcare>Kiedy (Biotech): niemowlęta w kolonii. Opieka nad dziećmi na priorytecie 2 (1, gdy niemowlę jest głodne), jeden opiekun na 2 niemowlęta.</CF_SitWhen_Childcare>
+  <CF_SitR_Childcare>{0} niemowląt</CF_SitR_Childcare>
+  <CF_Sit_Pollution>zanieczyszczenie do usunięcia</CF_Sit_Pollution>
+  <CF_SitWhen_Pollution>Kiedy (Biotech): 20 lub więcej zanieczyszczonych pól w strefie usuwania zanieczyszczeń. Praca usuwania zanieczyszczeń na priorytecie 2, jeden kolonista na 150 pól.</CF_SitWhen_Pollution>
+  <CF_SitR_Pollution>{0} zanieczyszczonych pól</CF_SitR_Pollution>
+  <CF_Sit_Exhausted>wyczerpani koloniści</CF_Sit_Exhausted>
+  <CF_SitWhen_Exhausted>Kiedy: kolonista nie śpi, a jego odpoczynek jest poniżej 15 %. Jego praca z priorytetem 1 spada na 2, a sytuacje go nie wybierają. Uwaga: priorytety nie mogą nikogo posłać do łóżka – koloniści w godzinach „Praca” w harmonogramie nigdy sami nie idą spać i padają na podłogę; daj im godziny „Sen” lub „Dowolnie”.</CF_SitWhen_Exhausted>
+  <CF_SitR_Exhausted>{0} wyczerpanych – sprawdź harmonogram (godziny „Praca” to brak łóżka)</CF_SitR_Exhausted>
+  <CF_Sit_Corpses>zwłoki w bazie</CF_Sit_Corpses>
+  <CF_SitWhen_Corpses>Kiedy: 3 lub więcej zwłok leży w strefie domowej (nie podczas najazdu). Noszenie zwłok na priorytecie 2, jeden kolonista na 6 zwłok.</CF_SitWhen_Corpses>
+  <CF_SitR_Corpses>{0} zwłok</CF_SitR_Corpses>
+  <CF_Sit_StorageFull>magazyn pełny</CF_Sit_StorageFull>
+  <CF_SitWhen_StorageFull>Kiedy: 15 lub więcej rzeczy w strefie domowej nie ma gdzie trafić. Budowanie na priorytecie 2 (półki, magazyny).</CF_SitWhen_StorageFull>
+  <CF_SitR_StorageFull>rzeczy bez miejsca w magazynie: {0}</CF_SitR_StorageFull>
+  <CF_Sit_SowingBacklog>pola czekają na zasiew</CF_Sit_SowingBacklog>
+  <CF_SitWhen_SowingBacklog>Kiedy: 40 lub więcej pustych pól uprawnych w sezonie wegetacyjnym. Uprawa na priorytecie 2.</CF_SitWhen_SowingBacklog>
+  <CF_SitR_SowingBacklog>puste pola do obsiania: {0}</CF_SitR_SowingBacklog>
+  <CF_Sit_NoBedroom>koloniści bez łóżka</CF_Sit_NoBedroom>
+  <CF_SitWhen_NoBedroom>Kiedy: kolonista nie ma własnego łóżka. Budowanie na priorytecie 2.</CF_SitWhen_NoBedroom>
+  <CF_SitR_NoBedroom>koloniści bez łóżka: {0}</CF_SitR_NoBedroom>
+  <CF_Sit_UglyRooms>brzydkie pokoje</CF_Sit_UglyRooms>
+  <CF_SitWhen_UglyRooms>Kiedy: co najmniej 2 sypialnie są brzydkie lub brudne (tylko gdy spokojnie). Sprzątanie i sztuka na priorytecie 2, budowanie na 3.</CF_SitWhen_UglyRooms>
+  <CF_SitR_UglyRooms>brzydkie pokoje: {0}</CF_SitR_UglyRooms>
+  <CF_Sit_LowJoy>mało rekreacji</CF_Sit_LowJoy>
+  <CF_SitWhen_LowJoy>Kiedy: co najmniej 2 kolonistów ma rekreację poniżej 30 %. Budowanie i sztuka na priorytecie 2.</CF_SitWhen_LowJoy>
+  <CF_SitR_LowJoy>koloniści bez rekreacji: {0}</CF_SitR_LowJoy>
+  <CF_Sit_Slaughter>zwierzęta do uboju</CF_Sit_Slaughter>
+  <CF_SitWhen_Slaughter>Kiedy: co najmniej 3 zwierzęta są oznaczone do uboju. Zwierzęta na priorytecie 2.</CF_SitWhen_Slaughter>
+  <CF_SitR_Slaughter>zwierzęta do uboju: {0}</CF_SitR_Slaughter>
+  <CF_Sit_BarrelsReady>beczki gotowe</CF_Sit_BarrelsReady>
+  <CF_SitWhen_BarrelsReady>Kiedy: co najmniej 2 beczki fermentacyjne są gotowe. Wyjmowanie na priorytecie 2.</CF_SitWhen_BarrelsReady>
+  <CF_SitR_BarrelsReady>gotowe beczki: {0}</CF_SitR_BarrelsReady>
+  <CF_Sit_TextilePile>sterta tkanin i skór</CF_Sit_TextilePile>
+  <CF_SitWhen_TextilePile>Kiedy: 400 lub więcej tkanin i skór w magazynie i czekają zlecenia krawieckie (tylko gdy spokojnie). Krawiectwo na priorytecie 2.</CF_SitWhen_TextilePile>
+  <CF_SitR_TextilePile>tkaniny i skóry: {0}</CF_SitR_TextilePile>
+  <CF_Sit_WornGear>zużyty sprzęt</CF_Sit_WornGear>
+  <CF_SitWhen_WornGear>Kiedy: 10 lub więcej broni i ubrań w magazynie poniżej 60 % (tylko z modem do napraw, tylko gdy spokojnie). Rzemiosło na priorytecie 2.</CF_SitWhen_WornGear>
+  <CF_SitR_WornGear>zużyte przedmioty: {0}</CF_SitR_WornGear>
+  <CF_Sit_CaravanPrep>formowanie karawany</CF_Sit_CaravanPrep>
+  <CF_SitWhen_CaravanPrep>Kiedy: formowana jest karawana. Noszenie na priorytecie 1, gotowanie na 2.</CF_SitWhen_CaravanPrep>
+  <CF_SitR_CaravanPrep>formowanie karawany</CF_SitR_CaravanPrep>
+  <CF_Sit_Gathering>impreza lub rytuał</CF_Sit_Gathering>
+  <CF_SitWhen_Gathering>Kiedy: trwa impreza lub rytuał. Gotowanie i sprzątanie na priorytecie 2.</CF_SitWhen_Gathering>
+  <CF_SitR_Gathering>impreza / rytuał</CF_SitR_Gathering>
+  <CF_Sit_Guests>goście w kolonii</CF_Sit_Guests>
+  <CF_SitWhen_Guests>Kiedy: co najmniej 2 odwiedzających lub gości z zadań. Gotowanie i sprzątanie na priorytecie 2.</CF_SitWhen_Guests>
+  <CF_SitR_Guests>goście: {0}</CF_SitR_Guests>
+  <CF_Sit_Snow>śnieg do odśnieżenia</CF_Sit_Snow>
+  <CF_SitWhen_Snow>Kiedy: 60 lub więcej zaśnieżonych pól w strefie odśnieżania. Sprzątanie na priorytecie 2.</CF_SitWhen_Snow>
+  <CF_SitR_Snow>zaśnieżone pola: {0}</CF_SitR_Snow>
+  <CF_Sit_OrbitalTrade>statek handlowy na orbicie</CF_Sit_OrbitalTrade>
+  <CF_SitWhen_OrbitalTrade>Kiedy: statek handlowy jest na orbicie i masz radiolatarnię handlową. Noszenie na priorytecie 2.</CF_SitWhen_OrbitalTrade>
+  <CF_SitR_OrbitalTrade>statek handlowy na orbicie</CF_SitR_OrbitalTrade>
+  <CF_Sit_ChunksOnFields>kawałki na polach</CF_Sit_ChunksOnFields>
+  <CF_SitWhen_ChunksOnFields>Kiedy: co najmniej 5 kawałków skał lub żużlu leży na polach. Noszenie na priorytecie 2.</CF_SitWhen_ChunksOnFields>
+  <CF_SitR_ChunksOnFields>kawałki na polach: {0}</CF_SitR_ChunksOnFields>
+  <CF_Sit_IdleBench>stoły bez pracownika</CF_Sit_IdleBench>
+  <CF_SitWhen_IdleBench>Kiedy: co najmniej 3 stoły warsztatowe mają zlecenia i nikt przy nich nie pracuje. Czekający typ pracy dostaje priorytet 2.</CF_SitWhen_IdleBench>
+  <CF_SitR_IdleBench>stoły bez pracownika: {0}</CF_SitR_IdleBench>
+  <CF_FloorSleep>{0} śpi na podłodze: {1}</CF_FloorSleep>
+  <CF_FloorNoBeds>kolonia nie ma łóżek dla kolonistów.</CF_FloorNoBeds>
+  <CF_FloorAllOwned>wszystkie łóżka mają właściciela – przydziel łóżko lub zbuduj nowe.</CF_FloorAllOwned>
+  <CF_FloorOwnBed>własne łóżko ({0})</CF_FloorOwnBed>
+  <CF_FloorFreeBed>wolne łóżko ({0})</CF_FloorFreeBed>
+  <CF_FloorForbidden>jest zakazane.</CF_FloorForbidden>
+  <CF_FloorArea>jest poza dozwoloną strefą ({0}).</CF_FloorArea>
+  <CF_FloorUnreachable>jest nieosiągalne (zamknięte lub zakazane drzwi, ściana?).</CF_FloorUnreachable>
+  <CF_FloorReserved>jest zarezerwowane przez kogoś innego.</CF_FloorReserved>
+  <CF_FloorCantUse>nie może być używane (łóżko dla niewolników/więźniów, płeć, ideologia lub mod do łóżek).</CF_FloorCantUse>
+  <CF_FloorDanger>stoi w niebezpiecznym miejscu (temperatura, wrogowie).</CF_FloorDanger>
+  <CF_FloorUnknown>nie może być używane z nieznanego powodu (prawdopodobnie inny mod do łóżek).</CF_FloorUnknown>
+  <CF_SafeAreaName>Steward: bezpiecznie</CF_SafeAreaName>
+  <CF_SafeOn>Atak! {0} kolonistów ma teraz strefę „Steward: bezpiecznie”.</CF_SafeOn>
+  <CF_SafeOff>Atak się skończył – {0} kolonistów odzyskało swoją strefę.</CF_SafeOff>
+  <CF_Sit_SlaveSuppression>niewolnicy wymagają tłumienia</CF_Sit_SlaveSuppression>
+  <CF_SitWhen_SlaveSuppression>Kiedy: niewolnik ma stłumienie poniżej 35%. Nadzorowanie na priorytecie 2, poniżej 15% na priorytecie 1.</CF_SitWhen_SlaveSuppression>
+  <CF_SitR_SlaveSuppression>niewolnicy z niskim stłumieniem: {0}</CF_SitR_SlaveSuppression>
+  <CF_Sit_SlaveRebellionRisk>ryzyko buntu niewolników</CF_Sit_SlaveRebellionRisk>
+  <CF_SitWhen_SlaveRebellionRisk>Kiedy: niewolnik może wszcząć bunt w ciągu miesiąca. Nadzorowanie na priorytecie 1, co najmniej 2 kolonistów.</CF_SitWhen_SlaveRebellionRisk>
+  <CF_SitR_SlaveRebellionRisk>niewolnicy skłonni do buntu: {0}</CF_SitR_SlaveRebellionRisk>
+  <CF_Sit_PrisonersHurt>ranni więźniowie</CF_Sit_PrisonersHurt>
+  <CF_SitWhen_PrisonersHurt>Kiedy: więzień potrzebuje opatrzenia. Leczenie na priorytecie 2.</CF_SitWhen_PrisonersHurt>
+  <CF_SitR_PrisonersHurt>więźniowie do opatrzenia: {0}</CF_SitR_PrisonersHurt>
+  <CF_Sit_Wounded>ranni koloniści</CF_Sit_Wounded>
+  <CF_SitWhen_Wounded>Kiedy: kolonista lub niewolnik potrzebuje opatrzenia (nawet tylko jeden). Leczenie na priorytecie 1.</CF_SitWhen_Wounded>
+  <CF_SitR_Wounded>do opatrzenia: {0}</CF_SitR_Wounded>
+  <CF_Sit_BedHungry>głodni w łóżku</CF_Sit_BedHungry>
+  <CF_SitWhen_BedHungry>Kiedy: przykuty do łóżka pacjent lub więzień w łóżku jest głodny. Leczenie (karmi pacjentów) i Nadzorowanie (karmi więźniów) na priorytecie 1.</CF_SitWhen_BedHungry>
+  <CF_SitR_BedHungry>głodni pacjenci: {0}, głodni więźniowie: {1}</CF_SitR_BedHungry>
+  <CF_Sit_HungryNoMeals>głód, mało posiłków</CF_Sit_HungryNoMeals>
+  <CF_SitWhen_HungryNoMeals>Kiedy: koloniści, niewolnicy lub więźniowie są głodni i nie ma dla nich dość gotowych posiłków. Gotowanie na priorytecie 1.</CF_SitWhen_HungryNoMeals>
+  <CF_SitR_HungryNoMeals>brakujące posiłki: {0}</CF_SitR_HungryNoMeals>
+  <CF_Sit_ButcherBacklog>truchła do rozbioru</CF_Sit_ButcherBacklog>
+  <CF_SitWhen_ButcherBacklog>Kiedy: leżą świeże truchła zwierząt, które przyjmie aktywne zlecenie rzeźnicze. Gotowanie na priorytecie 2.</CF_SitWhen_ButcherBacklog>
+  <CF_SitR_ButcherBacklog>truchła do rozbioru: {0}</CF_SitR_ButcherBacklog>
+  <CF_Sit_PrisonRelease>więźniowie do uwolnienia</CF_Sit_PrisonRelease>
+  <CF_SitWhen_PrisonRelease>Kiedy: więzień jest ustawiony do uwolnienia. Nadzorowanie na priorytecie 2.</CF_SitWhen_PrisonRelease>
+  <CF_SitR_PrisonRelease>więźniowie do uwolnienia: {0}</CF_SitR_PrisonRelease>
+  <CF_Sit_DirtyPrison>brudna cela</CF_Sit_DirtyPrison>
+  <CF_SitWhen_DirtyPrison>Kiedy: cela z więźniem jest bardzo brudna. Sprzątanie na priorytecie 2.</CF_SitWhen_DirtyPrison>
+  <CF_SitR_DirtyPrison>brudne cele: {0}</CF_SitR_DirtyPrison>
+  <CF_Sit_PrisonBeds>brak łóżek dla więźniów</CF_Sit_PrisonBeds>
+  <CF_SitWhen_PrisonBeds>Kiedy: więźniów jest więcej niż łóżek dla więźniów. Budowanie na priorytecie 2 (postaw łóżka, steward tylko je przyspiesza).</CF_SitWhen_PrisonBeds>
+  <CF_SitR_PrisonBeds>brakujące łóżka dla więźniów: {0}</CF_SitR_PrisonBeds>
+  <CF_Sit_ProductsWaiting>rzeczy czekają na przeniesienie</CF_Sit_ProductsWaiting>
+  <CF_SitWhen_ProductsWaiting>Kiedy: 5 lub więcej rzeczy leży w strefie domowej poza magazynem, a jakiś magazyn by je przyjął (produkty przy stołach, łupy…). Noszenie na priorytecie 2, jeden tragarz na 15 rzeczy, co najmniej 1.</CF_SitWhen_ProductsWaiting>
+  <CF_SitR_ProductsWaiting>rzeczy czekające na przeniesienie: {0}</CF_SitR_ProductsWaiting>
+  <CF_AF_Tidy>rzeczy do przeniesienia: {0}, brud: {1}</CF_AF_Tidy>
+  <CF_Sit_AnimalTraining>tresura zwierząt</CF_Sit_AnimalTraining>
+  <CF_SitWhen_AnimalTraining>Kiedy: co najmniej jedno oswojone zwierzę można teraz tresować (ma się czego uczyć, nie było tresowane zbyt niedawno) i kolonista jest wystarczająco wprawny. Zwierzęta na priorytecie 1 dla najlepszych opiekunów, jeden na 5 zwierząt.</CF_SitWhen_AnimalTraining>
+  <CF_SitR_AnimalTraining>zwierzęta czekające na tresurę: {0}</CF_SitR_AnimalTraining>
+  <CF2C_Name>Kryzysy i sytuacje</CF2C_Name>
+  <CF2C_UseCrisis>Kryzysy</CF2C_UseCrisis>
+  <CF2C_UseCrisisTip>Pożar, najazdy, ranni, głód i więcej: steward od razu kieruje ludzi do pracy, której wymaga kryzys, a to, co może poczekać, spada na najniższy poziom.</CF2C_UseCrisisTip>
+  <CF2C_UseSituations>Sytuacje</CF2C_UseSituations>
+  <CF2C_UseSituationsTip>Duże żniwa, zaległości w budowie, truchła do rozbioru …: praca dostaje więcej ludzi, dopóki trwa sytuacja.</CF2C_UseSituationsTip>
+  <CF2C_AutoFocus>Zrównoważony sam wybiera, na czym się skupić</CF2C_AutoFocus>
+  <CF2C_AutoFocusTip>Gdy kolonia czegoś potrzebuje (kończy się jedzenie, wiele planów budowy …), Zrównoważony na jakiś czas dokłada ludzi do tej pracy.</CF2C_AutoFocusTip>
+  <CF2C_Messages>Wiadomości o kryzysach i sytuacjach</CF2C_Messages>
+  <CF2C_Medical>Lekarz od razu idzie do pilnych przypadków</CF2C_Medical>
+  <CF2C_MedicalTip>Krwawienie, infekcja, ranny poza łóżkiem: najbliższy wolny lekarz idzie od razu.</CF2C_MedicalTip>
+  <CF2C_Fire>Gaszenie pożarów w bazie</CF2C_Fire>
+  <CF2C_FireTip>Wolni koloniści idą do pożarów w strefie domowej (nie podczas ataków, nie poza dozwoloną strefą).</CF2C_FireTip>
+  <CF2C_Butcher>Najpierw rozbiór, gdy jest dość jedzenia</CF2C_Butcher>
+  <CF2C_ButcherTip>Gdy są świeże truchła zwierząt i dość gotowych posiłków, kucharze najpierw je rozbierają.</CF2C_ButcherTip>
+  <CF2C_SafeArea>Bezpieczna strefa podczas najazdów</CF2C_SafeArea>
+  <CF2C_SafeAreaTip>Podczas najazdów, ataków rozwścieczonych zwierząt i oblężeń koloniści są trzymani w zadaszonych pomieszczeniach bazy, a potem odzyskują swoją strefę.</CF2C_SafeAreaTip>
+  <CF2C_CrisesList>Które kryzysy:</CF2C_CrisesList>
+  <CF2C_SituationsList>Które sytuacje:</CF2C_SituationsList>
+  <CF2C_HistCrisis>kryzys: {0}</CF2C_HistCrisis>
+  <CF2C_NoCrisis>brak (zakończony)</CF2C_NoCrisis>
+  <CF2C_TipCrisis>Kryzys ({0}): potrzebne teraz.</CF2C_TipCrisis>
+  <CF2C_TipCrisisDown>Kryzys ({0}): ta praca teraz czeka.</CF2C_TipCrisisDown>
+  <CF2C_TipExhausted>Wyczerpany: na razie nic na priorytecie 1.</CF2C_TipExhausted>
+  <CF2C_TipFocus>Skupienie {0}: więcej ludzi przy tej pracy.</CF2C_TipFocus>
+  <CF2C_TipSituation>Sytuacja: {0}</CF2C_TipSituation>
+</LanguageData>
