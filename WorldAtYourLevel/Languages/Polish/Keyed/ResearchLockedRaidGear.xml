@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RLRG_Enable>Włącz filtr</RLRG_Enable>
+  <RLRG_Enable_Desc>Przybysze przychodzą tylko z wyposażeniem, które twoja kolonia zbadała.</RLRG_Enable_Desc>
+  <RLRG_UseRecipes>Receptury liczą się jako badania</RLRG_UseRecipes>
+  <RLRG_UseRecipes_Desc>Przedmiot jest odblokowany, gdy ukończono badanie dla co najmniej jednej receptury, która go wytwarza.</RLRG_UseRecipes_Desc>
+  <RLRG_BlockHigherTech>Blokuj przedmioty powyżej poziomu technologicznego kolonii</RLRG_BlockHigherTech>
+  <RLRG_BlockHigherTech_Desc>Przedmioty bez badań są dozwolone tylko do zbadanego poziomu technologicznego twojej kolonii.</RLRG_BlockHigherTech_Desc>
+  <RLRG_BlockUntagged>Blokuj przedmioty z modów bez badań</RLRG_BlockUntagged>
+  <RLRG_BlockUntagged_Desc>Broń i odzież z innych modów bez badań są traktowane jako zablokowane.</RLRG_BlockUntagged_Desc>
+  <RLRG_FilterAll>Filtruj wszystkich przybyszów</RLRG_FilterAll>
+  <RLRG_FilterAll_Desc>Najazdy, goście, karawany i zadania. Gdy wyłączone, tylko wrogowie i napastnicy.</RLRG_FilterAll_Desc>
+  <RLRG_SkipTraders>Pomijaj handlarzy</RLRG_SkipTraders>
+  <RLRG_SkipTraders_Desc>Handlarze zachowują swoje wyposażenie.</RLRG_SkipTraders_Desc>
+  <RLRG_FilterApparel>Filtruj odzież i pancerze</RLRG_FilterApparel>
+  <RLRG_FilterInventory>Filtruj ekwipunek</RLRG_FilterInventory>
+  <RLRG_FilterInventory_Desc>Broń i odzież w ekwipunku (na przykład broń zapasowa).</RLRG_FilterInventory_Desc>
+  <RLRG_Replace>Zastąp najbliższym zbadanym przedmiotem</RLRG_Replace>
+  <RLRG_Replace_Desc>Zablokowany przedmiot zostaje zastąpiony podobnym dozwolonym, o tej samej jakości i zużyciu.</RLRG_Replace_Desc>
+  <RLRG_Drop>Zostaw zablokowane przedmioty na ziemi</RLRG_Drop>
+  <RLRG_Drop_Desc>Najeźdźcy niosą zablokowane przedmioty w ekwipunku – dostajesz je jako łup, gdy ich pokonasz. Goście i handlarze niczego nie zostawiają. W przeciwnym razie zablokowany przedmiot znika.</RLRG_Drop_Desc>
+  <RLRG_ExemptAncients>Pomijaj starożytne niebezpieczeństwa i kriosypialnie</RLRG_ExemptAncients>
+  <RLRG_ExemptAncients_Desc>Ich wyposażenie jest częścią nagrody za ich otwarcie.</RLRG_ExemptAncients_Desc>
+  <RLRG_KeepTitleApparel>Szlachta zachowuje wymaganą odzież</RLRG_KeepTitleApparel>
+  <RLRG_KeepTitleApparel_Desc>Odzież wymagana przez tytuł królewski lub rolę w ideologii nie jest usuwana.</RLRG_KeepTitleApparel_Desc>
+  <RLRG_DamageDropped>Uszkadzaj upuszczone przedmioty</RLRG_DamageDropped>
+  <RLRG_DamageDropped_Desc>Zablokowane przedmioty zostawione na ziemi mają tylko 20–50% wytrzymałości, a odzież jest oznaczona jako noszona przez zwłoki. Zapobiega łatwemu zarobkowi na ich sprzedaży.</RLRG_DamageDropped_Desc>
+  <RLRG_Compensate>Wyrównuj siłę najazdu</RLRG_Compensate>
+  <RLRG_Compensate_Desc>Gdy najeźdźcy stracą część wyposażenia, najazd dostaje dodatkowych najeźdźców, aby trudność pozostała zrównoważona.</RLRG_Compensate_Desc>
+  <RLRG_CompensationPct>Siła wyrównania: {0}%</RLRG_CompensationPct>
+  <RLRG_CompensationPct_Desc>Jaka część utraconego wyposażenia jest wyrównywana dodatkowymi najeźdźcami. Najazd może dostać maksymalnie 50% więcej punktów.</RLRG_CompensationPct_Desc>
+  <RLRG_TechAhead>Tolerancja poziomu technologicznego: +{0}</RLRG_TechAhead>
+  <RLRG_TechAhead_Desc>Przybysze mogą mieć przedmioty do tylu poziomów technologicznych powyżej twojej kolonii, nawet bez badań. 0 = tylko zbadane przedmioty.</RLRG_TechAhead_Desc>
+  <RLRG_KeepChance>Szansa na zachowanie zablokowanego przedmiotu: {0}%</RLRG_KeepChance>
+  <RLRG_KeepChance_Desc>Z tą szansą postać zachowuje zablokowany przedmiot. Wynik jest zapamiętywany, więc nie jest losowany ponownie następnym razem.</RLRG_KeepChance_Desc>
+  <RLRG_ExemptFactions>Frakcje wyłączone (zaznaczone zachowują wyposażenie):</RLRG_ExemptFactions>
+  <RLRG_NotifyRaid>Powiadamiaj o nadejściu najazdu</RLRG_NotifyRaid>
+  <RLRG_NotifyRaid_Desc>Wiadomość w lewym górnym rogu, ile wyposażenia stracili najeźdźcy i ilu dodano.</RLRG_NotifyRaid_Desc>
+  <RLRG_OpenList>Przegląd wyposażenia i ręczne zakazy...</RLRG_OpenList>
+  <RLRG_Biocode>Biokoduj zamienniki</RLRG_Biocode>
+  <RLRG_Biocode_Desc>Przedmioty zastępcze są biokodowane dla noszącego, więc nie możesz ich używać po walce i sprzedają się taniej. Działa tylko dla przedmiotów obsługujących biokodowanie (głównie zaawansowanej broni).</RLRG_Biocode_Desc>
+  <RLRG_Years>Odblokowanie z czasem: +1 poziom co {0} lat</RLRG_Years>
+  <RLRG_Years_Desc>Najeźdźcy stopniowo dostają lepsze wyposażenie, nawet bez twoich badań. Dodaje się do tolerancji poziomu technologicznego.</RLRG_Years_Desc>
+  <RLRG_YearsOff>Odblokowanie z czasem: wył.</RLRG_YearsOff>
+  <RLRG_MsgRaid>Najeźdźcy stracili {0}% wyposażenia.</RLRG_MsgRaid>
+  <RLRG_MsgRaidCompensated>Najeźdźcy stracili {0}% wyposażenia. Najazd wzmocniony o {1} dodatkowych najeźdźców.</RLRG_MsgRaidCompensated>
+  <RLRG_TabWeapons>Broń</RLRG_TabWeapons>
+  <RLRG_TabApparel>Odzież i pancerze</RLRG_TabApparel>
+  <RLRG_Search>Szukaj:</RLRG_Search>
+  <RLRG_ListHint>Zaznaczone przedmioty nigdy nie są dawane przybyszom. Status pokazuje, co mogą mieć w tej chwili.</RLRG_ListHint>
+  <RLRG_ListNoGame>Zaznaczone przedmioty nigdy nie są dawane przybyszom. Wczytaj grę, aby zobaczyć aktualny status.</RLRG_ListNoGame>
+  <RLRG_StatusBanned>Zakazany</RLRG_StatusBanned>
+  <RLRG_StatusAllowed>Dozwolony</RLRG_StatusAllowed>
+  <RLRG_StatusLocked>Zablokowany</RLRG_StatusLocked>
+  <RLRG_Ex_Allowed>Dozwolony</RLRG_Ex_Allowed>
+  <RLRG_Ex_Locked>Zablokowany</RLRG_Ex_Locked>
+  <RLRG_Ex_Always>Zawsze wymaga: {0}</RLRG_Ex_Always>
+  <RLRG_Ex_Option>Wytwarzanie: {0}</RLRG_Ex_Option>
+  <RLRG_Ex_Free>Można wytworzyć bez badań</RLRG_Ex_Free>
+  <RLRG_Ex_NoResearch>Brak badań (decyduje poziom technologiczny i reguła przedmiotów z modów)</RLRG_Ex_NoResearch>
+  <RLRG_Ex_Tech>Poziom technologiczny: {0} (limit: {1})</RLRG_Ex_Tech>
+  <RLRG_Ex_Mod>Mod: {0}</RLRG_Ex_Mod>
+  <RLRG_Ex_Done>ukończone</RLRG_Ex_Done>
+  <RLRG_Ex_Missing>brak</RLRG_Ex_Missing>
+  <RLRG_TechMismatch>Sprawdzaj przedmioty bardziej zaawansowane niż ich badanie</RLRG_TechMismatch>
+  <RLRG_TechMismatch_Desc>Gdy mod umieszcza zaawansowany przedmiot pod niższym badaniem (kosmiczny karabin pod badaniem przemysłowym), kolonia musi też osiągnąć poziom technologiczny tego przedmiotu.</RLRG_TechMismatch_Desc>
+  <RLRG_PowerEstimate>Szacuj poziom technologiczny przedmiotów z modów na podstawie siły</RLRG_PowerEstimate>
+  <RLRG_PowerEstimate_Desc>Broń lub pancerz z moda wyraźnie silniejszy od najlepszego przemysłowego z podstawowej gry liczy się jako kosmiczny, nawet jeśli autor moda ustawił niższy poziom. To jest szacunek.</RLRG_PowerEstimate_Desc>
+  <RLRG_Ex_Power>Siła odpowiada poziomowi technologicznemu: {0}</RLRG_Ex_Power>
+  <RLRG_Ex_NeedColony>Kolonia musi osiągnąć poziom technologiczny: {0}</RLRG_Ex_NeedColony>
+  <RLRG_LevelByProgress>Poziom kolonii według postępu badań</RLRG_LevelByProgress>
+  <RLRG_LevelByProgress_Desc>Kolonia osiąga poziom technologiczny, gdy ukończy ustawioną część badań tego poziomu. Wył. = decyduje najwyższe ukończone badanie (wystarczy jedno). Poziom scenariusza zawsze liczy się jako minimum.</RLRG_LevelByProgress_Desc>
+  <RLRG_LevelProgress>Wymagana część badań poziomu: {0}%</RLRG_LevelProgress>
+  <RLRG_LevelProgress_Desc>Ile badań danego poziomu musi być ukończonych, aby kolonia liczyła się jako ten poziom.</RLRG_LevelProgress_Desc>
+  <RLRG_CurrentLevel>Obecny poziom kolonii: {0} (scenariusz: {1}, badania: {2})</RLRG_CurrentLevel>
+  <RLRG_WorldHeader>Świat na poziomie kolonii</RLRG_WorldHeader>
+  <RLRG_WorldRaids>Najazdy tylko od frakcji do poziomu świata</RLRG_WorldRaids>
+  <RLRG_WorldRaids_Desc>Frakcje bardziej zaawansowane niż poziom świata (twój poziom + tolerancja) nie mogą wysyłać najazdów. Frakcje wyłączone z listy poniżej nie są ograniczone.</RLRG_WorldRaids_Desc>
+  <RLRG_WorldMechs>Ograniczaj też mechanoidy i insektoidy</RLRG_WorldMechs>
+  <RLRG_WorldMechs_Desc>Domyślnie mechanoidy i insektoidy nie są ograniczone. Gdy włączone, najazdy mechanoidów i klastry mechów nie przyjdą, dopóki świat nie osiągnie ich poziomu.</RLRG_WorldMechs_Desc>
+  <RLRG_WorldItems>Handlarze, nagrody i łupy do poziomu świata</RLRG_WorldItems>
+  <RLRG_WorldItems_Desc>Przedmioty powyżej poziomu świata są usuwane z towarów handlarzy, nagród za zadania i łupów. Broń i odzież podlegają tym samym zasadom co wyposażenie przybyszów.</RLRG_WorldItems_Desc>
+  <RLRG_WorldIncidents>Zdarzenia do poziomu świata</RLRG_WorldIncidents>
+  <RLRG_WorldIncidents_Desc>Rozbicia części statku, szczątki statku, handlarze orbitalni i (z mechanoidami) klastry mechów nie wystąpią, dopóki świat nie osiągnie ich poziomu.</RLRG_WorldIncidents_Desc>
+  <RLRG_WorldMessages>Wiadomość przy zmianie poziomu świata</RLRG_WorldMessages>
+  <RLRG_WorldUp>Świat awansował na poziom technologiczny: {0}.</RLRG_WorldUp>
+  <RLRG_WorldDown>Poziom technologiczny świata wynosi teraz: {0}.</RLRG_WorldDown>
+  <RLRG_WorldQuests>Zadania do poziomu świata</RLRG_WorldQuests>
+  <RLRG_WorldQuests_Desc>Losowe zadania narratora z udziałem frakcji bardziej zaawansowanej niż świat (napastnik, sojusznik, zleceniodawca) są po cichu odrzucane. Zadania związane z zaawansowaną technologią (archotech, grawistatki, z mechanoidami także zadania z mechami) nie są oferowane. Nagrody podlegają badaniom tak jak u handlarzy. Zadania fabularne i ceremonie nigdy nie są blokowane.</RLRG_WorldQuests_Desc>
+  <RLRG_TabWorld>Poziom świata</RLRG_TabWorld>
+  <RLRG_TabArrivals>Najeźdźcy i przybysze</RLRG_TabArrivals>
+  <RLRG_TabRules>Zasady badań</RLRG_TabRules>
+  <RLRG_TabFilters>Filtry świata</RLRG_TabFilters>
+  <RLRG_TabFactions>Frakcje</RLRG_TabFactions>
+  <RLRG_WorldLevelNow>Obecny poziom świata (z tolerancją): {0}</RLRG_WorldLevelNow>
+  <RLRG_ManualLevel>Ustaw poziom świata ręcznie</RLRG_ManualLevel>
+  <RLRG_ManualLevel_Desc>Poziom świata nie jest obliczany z badań; wybrany obowiązuje dokładnie, bez tolerancji i odblokowania z czasem.</RLRG_ManualLevel_Desc>
+  <RLRG_ManualLevelPick>Poziom świata: {0}</RLRG_ManualLevelPick>
+  <RLRG_PerTier>Osobny udział dla każdego poziomu</RLRG_PerTier>
+  <RLRG_PerTier_Desc>Ustaw osobno dla każdego poziomu, ile jego badań musi być ukończonych.</RLRG_PerTier_Desc>
+  <RLRG_PctTier>{0}: {1}%</RLRG_PctTier>
+  <RLRG_LockResearch>Blokuj wyższe badania</RLRG_LockResearch>
+  <RLRG_LockResearch_Desc>Badań o więcej niż jeden poziom powyżej świata nie można rozpocząć. Trzeba awansować poziom po poziomie.</RLRG_LockResearch_Desc>
+  <RLRG_FilterPossessions>Inne przedmioty w ekwipunku powyżej poziomu świata</RLRG_FilterPossessions>
+  <RLRG_FilterPossessions_Desc>Przybysze tracą też lekarstwa, narkotyki, komponenty i inne przedmioty powyżej poziomu świata (u handlarzy obejmuje to ich towary).</RLRG_FilterPossessions_Desc>
+  <RLRG_FactionOk>może atakować</RLRG_FactionOk>
+  <RLRG_FactionAbove>powyżej poziomu świata</RLRG_FactionAbove>
+  <RLRG_ReplaceQuests>Zastąp odrzucone zadanie innym</RLRG_ReplaceQuests>
+  <RLRG_ReplaceQuests_Desc>Zamiast zadania odrzuconego z powodu poziomu świata narrator od razu próbuje innego odpowiedniego (do 5 prób). Zadania przychodzą tak często jak zwykle.</RLRG_ReplaceQuests_Desc>
+  <RLRG_WorldVisitors>Karawany i goście tylko do poziomu świata (ściśle)</RLRG_WorldVisitors>
+  <RLRG_WorldVisitors_Desc>Karawany handlowe, goście i podróżnicy przychodzą tylko od frakcji do poziomu świata. UWAGA: z kosmicznymi frakcjami z modów może nie przychodzić prawie żaden handlarz. Gdy wyłączone (zalecane), przychodzą od wszystkich frakcji, ale ich towary i wyposażenie są filtrowane według poziomu świata.</RLRG_WorldVisitors_Desc>
+  <RLRG_ReplaceEvents>Zastąp zablokowane wydarzenie losowym</RLRG_ReplaceEvents>
+  <RLRG_ReplaceEvents_Desc>Gdy narrator wybierze wydarzenie, na które świat nie jest gotowy (handlarz orbitalny, rozbicie części statku, szczątki statku…), albo najazd lub karawana nie znajdzie odpowiedniej frakcji, zamiast tego następuje inne losowe wydarzenie tej samej kategorii. Wydarzenia przychodzą tak często jak bez moda. Wydarzenia zadań nie są zmieniane.</RLRG_ReplaceEvents_Desc>
+  <RLRG_OvTitle>Świat i wydarzenia</RLRG_OvTitle>
+  <RLRG_OvStoryteller>Narrator: {0}, trudność: {1}</RLRG_OvStoryteller>
+  <RLRG_OvQuests>Zadania</RLRG_OvQuests>
+  <RLRG_OvQuestCounts>W toku: {0}, czekające na przyjęcie: {1}</RLRG_OvQuestCounts>
+  <RLRG_OvExpires>wygasa za {0}</RLRG_OvExpires>
+  <RLRG_OvEvents>Wydarzenia</RLRG_OvEvents>
+  <RLRG_OvEventsHint>Narrator wybiera wydarzenia losowo, więc dokładnego czasu następnego nie da się poznać. Szacunek opiera się na średnim odstępie między wydarzeniami w tej grze i staje się dokładniejszy, im dłużej grasz.</RLRG_OvEventsHint>
+  <RLRG_OvNoEvents>Nic jeszcze nie zapisano. Zapis zaczyna się od tej wersji.</RLRG_OvNoEvents>
+  <RLRG_OvColKind>Rodzaj</RLRG_OvColKind>
+  <RLRG_OvColLast>Ostatnio</RLRG_OvColLast>
+  <RLRG_OvCol30>Ostatnie 30 dni</RLRG_OvCol30>
+  <RLRG_OvColAvg>Śr. odstęp</RLRG_OvColAvg>
+  <RLRG_OvColNext>Następne (szacunek)</RLRG_OvColNext>
+  <RLRG_OvDays>{0} d</RLRG_OvDays>
+  <RLRG_OvAgo>{0} d temu</RLRG_OvAgo>
+  <RLRG_OvInDays>≈ za {0} d</RLRG_OvInDays>
+  <RLRG_OvAnyTime>w każdej chwili</RLRG_OvAnyTime>
+  <RLRG_OvRecent>Ostatnie 10 wydarzeń:</RLRG_OvRecent>
+  <RLRG_WorldCausers>Zagrożenia powyżej poziomu świata nie zostają</RLRG_WorldCausers>
+  <RLRG_WorldCausers_Desc>Nowe rzeczy, które nakładają stan na mapę (toksyczny rozpylacz, dym, kontroler pogody, bloker słońca, psychiczny emiter…), powyżej poziomu świata są natychmiast usuwane – na mapie i na mapie świata, nawet jeśli należą do mechanoidów. Zadania, które wysłałyby coś takiego, są odrzucane (zadania narratora są zastępowane). To, co już stoi, zostaje.</RLRG_WorldCausers_Desc>
+  <RLRG_CauserBlocked>Zagrożenie powyżej poziomu świata nie zostało: {0}.</RLRG_CauserBlocked>
+  <RLRG_TraderGuarantee>Gwarancja handlarzy</RLRG_TraderGuarantee>
+  <RLRG_TraderGuarantee_Desc>Jeśli przez długi czas żadna karawana handlowa nie dotrze do głównej kolonii, mod próbuje jakąś wezwać. Gra akceptuje wtedy także frakcje, które inaczej nie podróżowałyby w tej temperaturze. Jeśli karawana nie może przyjść (wszyscy wrodzy, blokująca grupa na mapie…), powód jest zapisywany w logu i wyświetlana jest wiadomość.</RLRG_TraderGuarantee_Desc>
+  <RLRG_TraderGuaranteeDays>Karawana najpóźniej po: {0} dniach</RLRG_TraderGuaranteeDays>
+  <RLRG_TraderGuaranteeDays_Desc>Po ilu dniach bez karawany mod jakąś wzywa.</RLRG_TraderGuaranteeDays_Desc>
+  <RLRG_Diag_Open>Dlaczego nie przychodzą handlarze, goście ani zagrożenia?</RLRG_Diag_Open>
+  <RLRG_Diag_Title>Handlarze i goście – diagnostyka</RLRG_Diag_Title>
+  <RLRG_Diag_NoMap>Brak głównej mapy.</RLRG_Diag_NoMap>
+  <RLRG_Diag_Map>Mapa: {0}, temperatura na zewnątrz {1}, sezonowa {2}</RLRG_Diag_Map>
+  <RLRG_Diag_LastTrader>Ostatnia karawana handlowa: {0} dni temu</RLRG_Diag_LastTrader>
+  <RLRG_Diag_LastTraderNone>Ostatnia karawana handlowa: jeszcze żadnej nie zapisano</RLRG_Diag_LastTraderNone>
+  <RLRG_Diag_LastVisitor>Ostatni goście/podróżnicy: {0} dni temu</RLRG_Diag_LastVisitor>
+  <RLRG_Diag_GuaranteeOn>Gwarancja handlarzy: wł. (najpóźniej po {0} dniach)</RLRG_Diag_GuaranteeOn>
+  <RLRG_Diag_GuaranteeOff>Gwarancja handlarzy: wył.</RLRG_Diag_GuaranteeOff>
+  <RLRG_Diag_Allies>Niewrogie: {0} z {1} frakcji</RLRG_Diag_Allies>
+  <RLRG_Diag_NoAllies>Wszystkie frakcje są wrogie – narrator nie wysyła handlarzy ani gości. Popraw relacje (prezenty, zadania, konsola komunikacyjna).</RLRG_Diag_NoAllies>
+  <RLRG_Diag_Events>Wydarzenia:</RLRG_Diag_Events>
+  <RLRG_Diag_Can>może przyjść teraz</RLRG_Diag_Can>
+  <RLRG_Diag_Cannot>NIE może przyjść teraz – {0}</RLRG_Diag_Cannot>
+  <RLRG_Diag_R_Missing>wydarzenie nie istnieje</RLRG_Diag_R_Missing>
+  <RLRG_Diag_R_Scenario>wyłączone przez scenariusz</RLRG_Diag_R_Scenario>
+  <RLRG_Diag_R_Difficulty>wyłączone przez ustawienia trudności</RLRG_Diag_R_Difficulty>
+  <RLRG_Diag_R_Early>za wcześnie po osiedleniu (od dnia {0})</RLRG_Diag_R_Early>
+  <RLRG_Diag_R_Target>niedozwolone na tej mapie</RLRG_Diag_R_Target>
+  <RLRG_Diag_R_Biome>biom niedozwolony</RLRG_Diag_R_Biome>
+  <RLRG_Diag_R_Recent>wydarzyło się niedawno (czas odnowienia)</RLRG_Diag_R_Recent>
+  <RLRG_Diag_R_Condition>uniemożliwione przez: {0}</RLRG_Diag_R_Condition>
+  <RLRG_Diag_R_NoFaction>żadna frakcja nie może teraz przyjść (zobacz listę frakcji)</RLRG_Diag_R_NoFaction>
+  <RLRG_Diag_R_OnlyDesperate>narrator tego nie wyśle – frakcje nie podróżują w tej temperaturze</RLRG_Diag_R_OnlyDesperate>
+  <RLRG_Diag_R_Other>inny powód (prawdopodobnie inny mod)</RLRG_Diag_R_Other>
+  <RLRG_Diag_Factions>Frakcje (karawany handlowe):</RLRG_Diag_Factions>
+  <RLRG_Diag_F_Ok>może wysłać karawanę</RLRG_Diag_F_Ok>
+  <RLRG_Diag_F_Desperate>tylko w desperacji – temperatura na zewnątrz poza {0}</RLRG_Diag_F_Desperate>
+  <RLRG_Diag_F_No>nie przyjdzie: {0}</RLRG_Diag_F_No>
+  <RLRG_Diag_F_Defeated>pokonana</RLRG_Diag_F_Defeated>
+  <RLRG_Diag_F_Hostile>wroga (nastawienie {0})</RLRG_Diag_F_Hostile>
+  <RLRG_Diag_F_NoTraders>nie ma karawan handlowych</RLRG_Diag_F_NoTraders>
+  <RLRG_Diag_F_Lord>jej wróg jest na mapie: {0}</RLRG_Diag_F_Lord>
+  <RLRG_Diag_F_World>powyżej poziomu świata (opcja „Karawany i goście tylko do poziomu świata”)</RLRG_Diag_F_World>
+  <RLRG_Diag_F_Temp>temperatura poza {0}</RLRG_Diag_F_Temp>
+  <RLRG_Diag_F_Other>inny powód (rodzaj handlarza, warstwa planety lub inny mod)</RLRG_Diag_F_Other>
+  <RLRG_Diag_Summon>Wezwij karawanę teraz (test)</RLRG_Diag_Summon>
+  <RLRG_Diag_SummonOk>Nadchodzi karawana handlowa.</RLRG_Diag_SummonOk>
+  <RLRG_Diag_SummonFail>Nie można wezwać karawany: {0}</RLRG_Diag_SummonFail>
+  <RLRG_Diag_ToLog>Zapisz do logu</RLRG_Diag_ToLog>
+  <RLRG_Diag_Logged>Diagnostyka zapisana do logu.</RLRG_Diag_Logged>
+  <RLRG_Diag_Refresh>Odśwież</RLRG_Diag_Refresh>
+  <RLRG_Diag_GuaranteeFailed>Gwarancja handlarzy: karawana nie mogła przyjść ({0}). Szczegóły: karta Świat → Dlaczego nie przychodzą handlarze?</RLRG_Diag_GuaranteeFailed>
+  <RLRG_Diag_Title2>Handlarze, goście i zagrożenia – diagnostyka</RLRG_Diag_Title2>
+  <RLRG_Diag_Threats>Zagrożenia i najazdy:</RLRG_Diag_Threats>
+  <RLRG_Diag_ThreatScale>Trudność: skala zagrożeń {0}, duże zagrożenia dozwolone: {1}</RLRG_Diag_ThreatScale>
+  <RLRG_Diag_ThreatsOff>UWAGA: zagrożenia są wyłączone w trudności narratora – dlatego nie przychodzą najazdy.</RLRG_Diag_ThreatsOff>
+  <RLRG_Diag_ThreatPoints>Obecne punkty zagrożenia: {0}</RLRG_Diag_ThreatPoints>
+  <RLRG_Diag_LastThreat>Ostatnie zagrożenie od narratora: {0} dni temu</RLRG_Diag_LastThreat>
+  <RLRG_Diag_LastThreatNone>Ostatnie zagrożenie od narratora: jeszcze żadnego nie zapisano</RLRG_Diag_LastThreatNone>
+  <RLRG_Diag_Yes>tak</RLRG_Diag_Yes>
+  <RLRG_Diag_No>nie</RLRG_Diag_No>
+  <RLRG_Diag_AboveWorld>powyżej poziomu świata – zastąpione innym wydarzeniem</RLRG_Diag_AboveWorld>
+  <RLRG_Diag_Raiders>Wrogie frakcje (najazdy):</RLRG_Diag_Raiders>
+  <RLRG_Diag_RaidOk>może najechać</RLRG_Diag_RaidOk>
+  <RLRG_Diag_RaidWorld>powyżej poziomu świata – najeżdża tylko, gdy nikt inny nie może (wyposażenie jest filtrowane)</RLRG_Diag_RaidWorld>
+  <RLRG_Diag_RaidDesperate>tylko w desperacji (temperatura / krótko po osiedleniu)</RLRG_Diag_RaidDesperate>
+  <RLRG_Diag_RaidEarly>jeszcze nie – najazdy od dnia {0}</RLRG_Diag_RaidEarly>
+  <RLRG_Diag_RaidNo>nie może najechać (warstwa planety, strategia lub inny mod)</RLRG_Diag_RaidNo>
+  <RLRG_Diag_NoRaiders>Żadna wroga frakcja nie może teraz wysłać najazdu – nie ma wrogich frakcji albo coś innego blokuje je wszystkie.</RLRG_Diag_NoRaiders>
+  <RLRG_FactionsAtWorld>Wszystkie frakcje na poziomie twojej kolonii</RLRG_FactionsAtWorld>
+  <RLRG_FactionsAtWorld_Desc>Wszystkie frakcje (w tym kosmiczne i z modów) zachowują się tak, jakby miały te same badania co ty: mogą najeżdżać, handlować, odwiedzać i dawać zadania, ale każdy ich członek ma tylko wyposażenie, które zbadałeś (zawsze filtrowane, dla wszystkich przybyszów), a handlarze sprzedają tylko przedmioty do poziomu świata. Wyłącz, aby całkowicie zablokować frakcje powyżej poziomu świata.</RLRG_FactionsAtWorld_Desc>
+  <RLRG_OnlyCrafted>Inni używają tylko tego, co wytworzyłeś</RLRG_OnlyCrafted>
+  <RLRG_OnlyCrafted_Desc>Najeźdźcy, goście, handlarze i postacie z zadań mogą mieć tylko broń i odzież, którą twoja kolonia już co najmniej raz wytworzyła (i zbadała). Wszystko, czego jeszcze nie wytworzono, jest usuwane lub zastępowane najbliższym wytworzonym przedmiotem. Bez żadnej wytworzonej broni dostają co najmniej krótki łuk lub maczugę. Towary na sprzedaż podlegają tylko badaniom. W trwającej grze wyposażenie kolonistów i przechowywane przedmioty, które umiesz wytworzyć, są jednorazowo przejmowane.</RLRG_OnlyCrafted_Desc>
+  <RLRG_CraftedCount>Wytworzone rodzaje broni i odzieży: {0}</RLRG_CraftedCount>
+  <RLRG_MsgCraftedNew>Wytworzono po raz pierwszy: {0} – teraz inni też mogą tego używać.</RLRG_MsgCraftedNew>
+  <RLRG_Ex_NotCrafted>Zbadane, ale twoja kolonia jeszcze tego nie wytworzyła.</RLRG_Ex_NotCrafted>
+  <RLRG_CraftedReset>Wyczyść listę wytworzonych</RLRG_CraftedReset>
+  <RLRG_CraftedReset_Desc>Czyści listę wytworzonej broni i odzieży (wspólną ze Smart Colonist Gear). Od teraz liczy się tylko to, co wytworzy kolonia.</RLRG_CraftedReset_Desc>
+  <RLRG_CraftedResetConfirm>Na pewno wyczyścić listę wytworzonego wyposażenia? Zostanie wyczyszczona w obu modach, a najeźdźcy i koloniści będą mogli używać tylko wyposażenia wytworzonego od teraz.</RLRG_CraftedResetConfirm>
+  <RLRG_MsgRaidItems>Odebrano {0} części wyposażenia, {1} zastąpiono słabszą wersją ({2} najeźdźców).</RLRG_MsgRaidItems>
+  <RLRG_TraderTechBonus>Handlarze mogą sprzedawać wyższe poziomy: {0}</RLRG_TraderTechBonus>
+  <RLRG_TraderTechBonus_Desc>O ile poziomów technologicznych powyżej poziomu świata handlarze mogą oferować towary. 0 = tylko do poziomu świata (broń i odzież według badań), 1 = poziom wyżej (np. przemysłowa broń palna w średniowiecznej grze) …</RLRG_TraderTechBonus_Desc>
+  <RLRG_TabTraders>Handlarze</RLRG_TabTraders>
+  <RLRG_TabTraders_Desc>Towary, których handlarze nie mogą teraz sprzedawać, bo są powyżej poziomu świata. Używa tej samej zasady co towary handlarzy.</RLRG_TabTraders_Desc>
+  <RLRG_TraderNoGame>Wczytaj grę, aby zobaczyć, czego handlarze nie mogą teraz sprzedawać.</RLRG_TraderNoGame>
+  <RLRG_TraderOff>Filtr przedmiotów świata jest wyłączony – handlarze sprzedają wszystko.</RLRG_TraderOff>
+  <RLRG_TraderMax>Handlarze mogą sprzedawać towary do: {0} (poziom świata {1} + {2})</RLRG_TraderMax>
+  <RLRG_TraderMax_Desc>Handlarze mogą sprzedawać towary do poziomu technologicznego {0} (poziom świata + „Handlarze mogą sprzedawać wyższe poziomy”). Broń i odzież mogą być też sprzedawane, gdy pozwalają na to badania. Zwierzęta, niewolnicy i towary bez poziomu technologicznego nigdy nie są usuwane.</RLRG_TraderMax_Desc>
+  <RLRG_TraderCount>Towary, których handlarze nie mogą teraz sprzedawać: {0}</RLRG_TraderCount>
+  <RLRG_TraderBlocked>Nie na sprzedaż</RLRG_TraderBlocked>
+  <RLRG_TraderBlocked_Desc>Poziom technologiczny {0} jest powyżej tego, co handlarze mogą teraz sprzedawać ({1}).</RLRG_TraderBlocked_Desc>
+  <RLRG_TraderBlockedGear>Nie na sprzedaż (badania)</RLRG_TraderBlockedGear>
+  <RLRG_TraderBlockedGear_Desc>Niedozwolone przez badania, a poziom technologiczny {0} jest powyżej tego, co handlarze mogą teraz sprzedawać ({1}).</RLRG_TraderBlockedGear_Desc>
+  <!-- 2.10.0: Raids tab -->
+  <RLRG_TabRaids>Najazdy i zagrożenia</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Odznaczone najazdy i zagrożenia (także z modów: potwory, szalone zwierzęta, insektoidy, choroby, opad …) nie wystąpią. Zaznaczone = dozwolone. Zmiany działają od razu dla nowych najazdów.</RLRG_RaidsIntro>
+  <RLRG_RaidsSummary>Zablokowano {0} z {1} rodzajów najazdów</RLRG_RaidsSummary>
+  <RLRG_RaidsResetAll>Resetuj wszystko</RLRG_RaidsResetAll>
+  <RLRG_RaidsResetAll_Desc>Ponownie zezwól na każdy rodzaj najazdu (domyślnie).</RLRG_RaidsResetAll_Desc>
+  <RLRG_RaidsAllowAll>Zezwól na wszystko</RLRG_RaidsAllowAll>
+  <RLRG_RaidsAllowAll_Desc>Ponownie zezwól na wszystko w tej grupie.</RLRG_RaidsAllowAll_Desc>
+  <RLRG_RaidsGroupCount>zablokowane {0} / {1}</RLRG_RaidsGroupCount>
+  <RLRG_RaidsGroupIncidents>Wydarzenia zagrożeń</RLRG_RaidsGroupIncidents>
+  <RLRG_RaidsGroupStrategies>Strategie najazdów</RLRG_RaidsGroupStrategies>
+  <RLRG_RaidsGroupArrivals>Sposoby przybycia</RLRG_RaidsGroupArrivals>
+  <RLRG_RaidsGroupQuests>Losowe zadania – [!] = zagrożenie</RLRG_RaidsGroupQuests>
+  <RLRG_RaidsSource>Źródło: {0}</RLRG_RaidsSource>
+  <RLRG_RaidsAllowedTip>Dozwolone. Odznacz, aby to nie występowało.</RLRG_RaidsAllowedTip>
+  <RLRG_RaidsBlockedTip>Zablokowane: narrator tego nie użyje. Jeśli każda opcja, której najazd mógłby użyć, jest zablokowana, najazd przechodzi na natychmiastowy atak / wejście z krawędzi mapy zamiast się nie udać.</RLRG_RaidsBlockedTip>
+  <RLRG_MechEscorts>Najeźdźcy przyprowadzają tylko zbadane przez ciebie mechanoidy</RLRG_MechEscorts>
+  <RLRG_MechEscorts_Desc>Ludzkie frakcje (mechanitorzy w najazdach) mogą przyprowadzać tylko mechanoidy, których gestację zbadałeś. Niezbadane mechy są usuwane z grupy. Czyste najazdy mechanoidów nie są objęte.</RLRG_MechEscorts_Desc>
+  <RLRG_MatchColony>Przybysze nie noszą niczego lepszego niż wyposażenie twojej kolonii</RLRG_MatchColony>
+  <RLRG_MatchColony_Desc>Każdy, kto przybywa (najeźdźcy, goście, uchodźcy, postacie z zadań; handlarze tylko, gdy nie są pomijani), może nosić tylko wyposażenie równe lub słabsze od najlepszego, jakie wytworzyła twoja kolonia: broń palną do twojej najlepszej wytworzonej broni palnej, broń białą do najlepszej wytworzonej (liczy się materiał), pancerz do twojego najlepszego wytworzonego pancerza. Zwykłe ubrania są zawsze w porządku. Wyposażenie musi też być naprawdę zbadane (musisz móc je wytworzyć). Broń zapalająca, wybuchowa i EMP (miotacze ognia, wybuchowe strzały…) dopiero gdy sam wytworzysz tę broń. Lepsze wyposażenie jest zastępowane najbliższym słabszym, zbyt dobry materiał zwykłym. Razem z „tylko wytworzone” dozwolone jest też słabsze wyposażenie, którego nigdy nie wytworzyłeś – więcej różnorodności.</RLRG_MatchColony_Desc>
+  <RLRG_MatchQuality>Jakość najwyżej taka jak twój najlepszy wyrób</RLRG_MatchQuality>
+  <RLRG_MatchQuality_Desc>Broń i odzież przybyszów mają najwyżej jakość, jaką wytworzyła twoja kolonia (osobno dla broni i odzieży, co najmniej normalna).</RLRG_MatchQuality_Desc>
+  <RLRG_MatchMargin>Tolerancja: {0} % lepsze</RLRG_MatchMargin>
+  <RLRG_MatchMargin_Desc>O ile procent wyposażenie innych może być lepsze od twojego. 0 = najwyżej równe.</RLRG_MatchMargin_Desc>
+  <RLRG_MatchNow>Obecny limit – broń palna: {0}, broń biała: {1}, pancerz: {2}, jakość broni: {3}, jakość odzieży: {4}</RLRG_MatchNow>
+  <RLRG_ShowHud>Pokazuj poziom badań na ekranie</RLRG_ShowHud>
+  <RLRG_ShowHud_Desc>W prawym dolnym rogu nad datą: poziom kolonii i ile brakuje do następnego poziomu. Najedź kursorem, aby zobaczyć szczegóły dla poziomów, kliknij, aby otworzyć kartę Świat.</RLRG_ShowHud_Desc>
+  <RLRG_HudLine>Poziom: {0}</RLRG_HudLine>
+  <RLRG_HudLineNext>{0} → {1} {2} %</RLRG_HudLineNext>
+  <RLRG_HudTipTitle>Poziom badań (World at Your Level)</RLRG_HudTipTitle>
+  <RLRG_HudTipColony>Kolonia: {0} (scenariusz: {1}, badania: {2})</RLRG_HudTipColony>
+  <RLRG_HudTipWorld>Świat (z premią za przewagę/czas): {0}</RLRG_HudTipWorld>
+  <RLRG_HudTipTier>{0} {1}: {2}/{3} ({4} %), wymagane {5}</RLRG_HudTipTier>
+  <RLRG_HudTipClick>Kliknij, aby otworzyć kartę Świat.</RLRG_HudTipClick>
+  <MUI_Title>Zalecane ustawienia</MUI_Title>
+  <MUI_TitleOff>Zalecane ustawienia · wył.</MUI_TitleOff>
+  <MUI_DescOn>Mod konfiguruje się sam i działa od razu. Idealny dla nowych graczy i każdego, kto nie chce niczego zmieniać.</MUI_DescOn>
+  <MUI_DescOff>Własne ustawienia. Zmienione względem zalecanych: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Własne ustawienia. Nadal takie same jak zalecane.</MUI_DescOffSame>
+  <MUI_On>WŁ.</MUI_On>
+  <MUI_Off>WYŁ.</MUI_Off>
+  <MUI_ResetAll>Przywróć wszystko do zalecanych</MUI_ResetAll>
+  <MUI_ConfirmOn>Włączyć zalecane ustawienia? Twoje zmiany ({0}) zostaną zastąpione zalecanymi wartościami.</MUI_ConfirmOn>
+  <MUI_Locked>Szczegółowe ustawienia są zablokowane. Chcesz je zmienić? Wyłącz przełącznik powyżej – Twoje wartości zaczną od zalecanych.</MUI_Locked>
+  <MUI_Changed>ZMIENIONO</MUI_Changed>
+  <MUI_ChangedTip>Różni się od zalecanego ustawienia ({0}). Kliknij, aby przywrócić zalecaną wartość.</MUI_ChangedTip>
+  <MUI_Yes>wł.</MUI_Yes>
+  <MUI_No>wył.</MUI_No>
+  <RLRG_Rec1>Najeźdźcy noszą tylko wyposażenie twojego poziomu technologicznego</RLRG_Rec1>
+  <RLRG_Rec2>Handlarze sprzedają przedmioty twojego poziomu</RLRG_Rec2>
+  <RLRG_Rec3>Zadania i nagrody pasują do twojego poziomu</RLRG_Rec3>
+  <RLRG_Rec4>Frakcje rozwijają się razem z tobą</RLRG_Rec4>
+  <RLRG_Rec5>Słabsze wyposażenie najeźdźców jest wyrównywane większą ich liczbą</RLRG_Rec5>
+  <RLRG_Rec6>Poziom świata jest pokazywany na ekranie</RLRG_Rec6>
+  <MUI_RecTag>ZALECANE</MUI_RecTag>
+  <RLRG_RareAdvanced>Rzadki najazd z zaawansowaną technologią: {0}%</RLRG_RareAdvanced>
+  <RLRG_RareAdvanced_Desc>Z tą szansą najazd przynosi wyposażenie o jeden poziom technologiczny powyżej twojej kolonii. Najeźdźców jest mniej (25% mniej punktów), a ich wyposażenie zostaje jako łup, więc możesz wcześniej odkryć nową technologię. Tylko gdy atakująca frakcja ma takie wyposażenie.</RLRG_RareAdvanced_Desc>
+  <RLRG_RareLowTech>Rzadki najazd z prymitywną technologią: {0}%</RLRG_RareLowTech>
+  <RLRG_RareLowTech_Desc>Z tą szansą najazd przynosi wyposażenie o jeden poziom technologiczny poniżej twojej kolonii, ale z większą liczbą najeźdźców (35% więcej punktów).</RLRG_RareLowTech_Desc>
+  <RLRG_MsgRareAdvanced>Najeźdźcy niosą nieznaną technologię ({0})! Jest ich mniej, ale są lepiej uzbrojeni.</RLRG_MsgRareAdvanced>
+  <RLRG_MsgRareLowTech>Duży najazd z przestarzałym wyposażeniem ({0}).</RLRG_MsgRareLowTech>
+  <RLRG_StrictCrafted>Ściśle: tylko to, co wytworzyłeś, także przy dopasowaniu do kolonii</RLRG_StrictCrafted>
+  <RLRG_StrictCrafted_Desc>„Dopasuj do kolonii” normalnie pozwala na wszystko mniej więcej tak silne jak twoje wyposażenie. Gdy to jest włączone, wrogowie mogą nosić tylko broń i odzież, którą twoja kolonia faktycznie wytworzyła – żadnych prowizorycznych karabinów ani pistoletów maszynowych, dopóki wciąż używasz łuków.</RLRG_StrictCrafted_Desc>
+  <RLRG_SiteTurrets>Wrogie działka tylko do poziomu twoich własnych</RLRG_SiteTurrets>
+  <RLRG_SiteTurrets_Desc>Działka innych frakcji – w miejscach zadań, w bazach, podczas oblężeń – są usuwane, chyba że sam zbudowałeś działko tego samego poziomu technologicznego. Brak działek = brak wrogich działek.</RLRG_SiteTurrets_Desc>
+  <RLRG_GearLogLine>World at Your Level: {0}</RLRG_GearLogLine>
+  <RLRG_MsgRaidSwaps>Najczęściej: {0}.</RLRG_MsgRaidSwaps>
+</LanguageData>
