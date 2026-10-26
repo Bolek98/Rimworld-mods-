@@ -286,6 +286,7 @@ namespace UniversalRimTranslator
             if (Widgets.ButtonText(new Rect(c.x + 3 * (bw + 6f), y, bw, 30f), "URT_Ed_Again".Translate()))
             {
                 store.Forget(sel.Source);
+                Live.Requeue(sel.Source);   // 2.4.0: texts from the screen go back into the queue too
                 editText = "";
                 note = "URT_Ed_AgainNote".Translate();
                 Runtime.RetryFailed();

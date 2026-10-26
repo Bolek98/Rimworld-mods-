@@ -11,7 +11,7 @@ namespace UniversalRimTranslator
 {
     public static class UrtVersion
     {
-        public const string Number = "2.3.3";
+        public const string Number = "2.4.0";
         public static string Display => Number + " (test)";
     }
 
@@ -165,8 +165,8 @@ namespace UniversalRimTranslator
         private void DrawWindow(Rect r)
         {
             MUI.Version(r, "v" + UrtVersion.Display + " · Bolek98");
-            string[] tabs = { "URT_Tab_Overview".Translate(), "URT_Tab_Services".Translate(), "URT_Tab_Mods".Translate(), "URT_Tab_Editor".Translate() };
-            float tw = 180f;
+            string[] tabs = { "URT_Tab_Overview".Translate(), "URT_Tab_Services".Translate(), "URT_Tab_Mods".Translate(), "URT_Tab_Editor".Translate(), QualityTab.TabLabel() };
+            float tw = Mathf.Min(180f, (r.width - 6f * (tabs.Length - 1)) / tabs.Length);
             for (int i = 0; i < tabs.Length; i++)
             {
                 Rect t = new Rect(r.x + i * (tw + 6f), r.y, tw, 30f);
@@ -181,7 +181,8 @@ namespace UniversalRimTranslator
             if (tab == 0) Overview(body);
             else if (tab == 1) Services(body);
             else if (tab == 2) ModsTab.Draw(body);
-            else EditorTab.Draw(body);
+            else if (tab == 3) EditorTab.Draw(body);
+            else QualityTab.Draw(body);
         }
 
         // ---------------- Overview ----------------

@@ -104,4 +104,41 @@
   <URT_Mods_ExportedOne>Exportováno {0} textů do {1}</URT_Mods_ExportedOne>
   <URT_Mods_ExportedAll>Exportováno {0} textů v {1} souborech do {2}</URT_Mods_ExportedAll>
   <URT_Mods_ExportFailed>Export se nepovedl: {0}</URT_Mods_ExportFailed>
+  <URT_Tab_Quality>Kontrola</URT_Tab_Quality>
+  <URT_Q_Intro>Strojové překlady, které prošly automatickou kontrolou, ale pořád vypadají špatně. Tvoje vlastní překlady se tu nikdy neukazují.</URT_Q_Intro>
+  <URT_Q_All>Vše</URT_Q_All>
+  <URT_Q_K_Number>Čísla</URT_Q_K_Number>
+  <URT_Q_K_Number_Tip>V překladu chybí číslo z originálu – hra by ukázala špatné množství nebo žádné.</URT_Q_K_Number_Tip>
+  <URT_Q_K_English>Zbylá angličtina</URT_Q_K_English>
+  <URT_Q_K_English_Tip>Do překladu se dostala anglická slova místo přeložených.</URT_Q_K_English_Tip>
+  <URT_Q_K_Name>Jména</URT_Q_K_Name>
+  <URT_Q_K_Name_Tip>Přeložilo se jméno kolonisty, frakce, místa nebo modu – jména mají zůstat, jak jsou.</URT_Q_K_Name_Tip>
+  <URT_Q_K_Cut>Useknuté</URT_Q_K_Cut>
+  <URT_Q_K_Cut_Tip>Překlad končí uprostřed věty nebo je mnohem kratší než originál.</URT_Q_K_Cut_Tip>
+  <URT_Q_K_Chars>Divné znaky</URT_Q_K_Chars>
+  <URT_Q_K_Chars_Tip>Rozbité znaky jako &amp;amp;, \n napsané jako text nebo dvojité mezery.</URT_Q_K_Chars_Tip>
+  <URT_Q_K_Differs>Nejednotné</URT_Q_K_Differs>
+  <URT_Q_K_Differs_Tip>Stejný krátký text (tlačítko, slovo) je na různých místech přeložený jinak.</URT_Q_K_Differs_Tip>
+  <URT_Q_WhyNumber>Chybí číslo {0}.</URT_Q_WhyNumber>
+  <URT_Q_WhyEnglish>Zůstalo anglicky: {0}</URT_Q_WhyEnglish>
+  <URT_Q_WhyName>Jméno „{0}“ se přeložilo.</URT_Q_WhyName>
+  <URT_Q_WhyCut>Vypadá useknutě.</URT_Q_WhyCut>
+  <URT_Q_WhyChars>Divné znaky: {0}</URT_Q_WhyChars>
+  <URT_Q_WhySpaces>Dvojité mezery.</URT_Q_WhySpaces>
+  <URT_Q_WhyDiffers>Jinde ({1}×) je to „{0}“.</URT_Q_WhyDiffers>
+  <URT_Q_Checking>Kontroluji…</URT_Q_Checking>
+  <URT_Q_Recheck>Zkontrolovat znovu</URT_Q_Recheck>
+  <URT_Q_AgainAll>Přeložit znovu zobrazené ({0})</URT_Q_AgainAll>
+  <URT_Q_AgainAllTip>Pošle všechny zobrazené texty (kromě „Nejednotné“) znovu překladačům. Tvých vlastních překladů se to nedotkne.</URT_Q_AgainAllTip>
+  <URT_Q_AgainAllConfirm>Přeložit {0} textů znovu? Současné strojové překlady se zahodí.</URT_Q_AgainAllConfirm>
+  <URT_Q_UnifyAll>Sjednotit vše ({0})</URT_Q_UnifyAll>
+  <URT_Q_None>Nic podezřelého jsem nenašla. 👍</URT_Q_None>
+  <URT_Q_Pick>Vyber text vlevo.</URT_Q_Pick>
+  <URT_Q_YourFix>Tvůj překlad</URT_Q_YourFix>
+  <URT_Q_Save>Uložit opravu</URT_Q_Save>
+  <URT_Q_SaveTip>Tvůj text se od teď používá a strojový překlad ho už nikdy nepřepíše.</URT_Q_SaveTip>
+  <URT_Q_Unify>Použít ten častější</URT_Q_Unify>
+  <URT_Q_Unified>Sjednoceno.</URT_Q_Unified>
+  <URT_Q_Fine>Je to dobře</URT_Q_Fine>
+  <URT_Q_FineNote>Dobře – už se to neukáže.</URT_Q_FineNote>
 </LanguageData>

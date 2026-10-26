@@ -484,6 +484,35 @@ namespace UniversalRimTranslator
 
         public static void ClearCache() { cache.Clear(); old.Clear(); Version++; }
 
+        // 2.4.0: for the quality check
+        private static readonly HashSet<string> commonSet = new HashSet<string>(Common);
+        public static bool IsEnglishWord(string w)
+        {
+            string l = w.ToLowerInvariant();
+            return commonSet.Contains(l) || vocab.Contains(l);
+        }
+
+        // whole names (colonists, factions, places) and mod names – never translated
+        public static List<string> WholeNames()
+        {
+            var l = new List<string>();
+            foreach (string s in names) if (s.IndexOf(' ') > 0 && s.Length >= 5) l.Add(s);
+            foreach (string s in modNames) if (s.Length >= 5) l.Add(s);
+            return l;
+        }
+
+        // a text the player wants translated again: back into the queue even if it was tried this session
+        public static void Requeue(string source)
+        {
+            string key = Store.Key(source);
+            if (key.Length == 0) return;
+            lock (tried) tried.Remove(key);
+            cache.Remove(key);
+            old.Remove(key);
+            if (Pending.Count < MaxPending && Pending.TryAdd(key, 0)) toFile.Enqueue(key);
+            Runtime.Kick();
+        }
+
         // names of colonists, factions and places: never translated ("Rose", "Hunter" …)
         private static void RefreshNames()
         {

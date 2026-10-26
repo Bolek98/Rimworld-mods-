@@ -104,4 +104,41 @@
   <URT_Mods_ExportedOne>Exported {0} texts into {1}</URT_Mods_ExportedOne>
   <URT_Mods_ExportedAll>Exported {0} texts in {1} files into {2}</URT_Mods_ExportedAll>
   <URT_Mods_ExportFailed>Export failed: {0}</URT_Mods_ExportFailed>
+  <URT_Tab_Quality>Check</URT_Tab_Quality>
+  <URT_Q_Intro>Machine translations that passed the automatic checks but still look wrong. Your own translations are never listed.</URT_Q_Intro>
+  <URT_Q_All>All</URT_Q_All>
+  <URT_Q_K_Number>Numbers</URT_Q_K_Number>
+  <URT_Q_K_Number_Tip>A number of the original is missing in the translation – the game would show the wrong amount or none.</URT_Q_K_Number_Tip>
+  <URT_Q_K_English>English left</URT_Q_K_English>
+  <URT_Q_K_English_Tip>English words were copied into the translation instead of being translated.</URT_Q_K_English_Tip>
+  <URT_Q_K_Name>Names</URT_Q_K_Name>
+  <URT_Q_K_Name_Tip>A name of a colonist, faction, place or mod was translated – names should stay as they are.</URT_Q_K_Name_Tip>
+  <URT_Q_K_Cut>Cut off</URT_Q_K_Cut>
+  <URT_Q_K_Cut_Tip>The translation ends in the middle of a sentence or is much shorter than the original.</URT_Q_K_Cut_Tip>
+  <URT_Q_K_Chars>Odd characters</URT_Q_K_Chars>
+  <URT_Q_K_Chars_Tip>Broken characters like &amp;amp;, \n written as text or double spaces.</URT_Q_K_Chars_Tip>
+  <URT_Q_K_Differs>Different</URT_Q_K_Differs>
+  <URT_Q_K_Differs_Tip>The same short text (a button, a word) is translated differently in different places.</URT_Q_K_Differs_Tip>
+  <URT_Q_WhyNumber>The number {0} is missing.</URT_Q_WhyNumber>
+  <URT_Q_WhyEnglish>Left in English: {0}</URT_Q_WhyEnglish>
+  <URT_Q_WhyName>The name "{0}" was translated.</URT_Q_WhyName>
+  <URT_Q_WhyCut>Looks cut off.</URT_Q_WhyCut>
+  <URT_Q_WhyChars>Odd characters: {0}</URT_Q_WhyChars>
+  <URT_Q_WhySpaces>Double spaces.</URT_Q_WhySpaces>
+  <URT_Q_WhyDiffers>Elsewhere ({1}×) it is "{0}".</URT_Q_WhyDiffers>
+  <URT_Q_Checking>Checking…</URT_Q_Checking>
+  <URT_Q_Recheck>Check again</URT_Q_Recheck>
+  <URT_Q_AgainAll>Translate shown again ({0})</URT_Q_AgainAll>
+  <URT_Q_AgainAllTip>Sends every listed text (except "Different") to the translation services again. Your own translations are not touched.</URT_Q_AgainAllTip>
+  <URT_Q_AgainAllConfirm>Translate {0} texts again? The current machine translations are thrown away.</URT_Q_AgainAllConfirm>
+  <URT_Q_UnifyAll>Unify all ({0})</URT_Q_UnifyAll>
+  <URT_Q_None>Nothing suspicious found. 👍</URT_Q_None>
+  <URT_Q_Pick>Pick a text on the left.</URT_Q_Pick>
+  <URT_Q_YourFix>Your translation</URT_Q_YourFix>
+  <URT_Q_Save>Save my fix</URT_Q_Save>
+  <URT_Q_SaveTip>Your text is used from now on and is never replaced by a machine translation.</URT_Q_SaveTip>
+  <URT_Q_Unify>Use the common one</URT_Q_Unify>
+  <URT_Q_Unified>Unified.</URT_Q_Unified>
+  <URT_Q_Fine>It's fine</URT_Q_Fine>
+  <URT_Q_FineNote>OK – this will not be shown again.</URT_Q_FineNote>
 </LanguageData>
