@@ -43,12 +43,13 @@ namespace ModSortManager
 
     public class MSMMod : Mod
     {
-        public const string Version = "0.2.0";
+        public const string Version = "0.2.1";
         public static MSMSettings Settings;
 
         public MSMMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<MSMSettings>();
+            Removal.ProcessPending();       // 0.2.1: mods that could not be removed while they were running
             MNews.Register(content, Version);
             MUI.Init(new MSMSettings(), null, "recommended", "settingsVersion", "loadLastSave", "returnToGame");
             if (Settings.recommended)
@@ -334,6 +335,60 @@ namespace ModSortManager
                 Log.Warning("[Mod Sort Manager] unsubscribe failed: " + e.Message);
                 return false;
             }
+        }
+    }
+
+    // ---------------- 0.2.1: removing a mod for good ----------------
+    public static class Removal
+    {
+        public static readonly HashSet<string> Gone = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        private static string PendingPath => Path.Combine(MSM.DataDir, "remove_pending.txt");
+
+        public static bool IsGone(ModMetaData m) => m != null && Gone.Contains(m.RootDir.FullName);
+
+        // true = done now; false = done at the next start (the mod's files are in use)
+        public static bool RemoveFolder(ModMetaData m, bool permanent)
+        {
+            string dir = m.RootDir.FullName;
+            if (TryRemove(dir, permanent)) { Gone.Add(dir); return true; }
+            try { File.AppendAllText(PendingPath, (permanent ? "delete|" : "park|") + dir + "\n"); } catch { }
+            Gone.Add(dir);
+            return false;
+        }
+
+        private static bool TryRemove(string dir, bool permanent)
+        {
+            try
+            {
+                if (!Directory.Exists(dir)) return true;
+                if (permanent) Directory.Delete(dir, true);
+                else Directory.Move(dir, Path.Combine(MSM.ParkDir, Path.GetFileName(dir) + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss")));
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Mod Sort Manager] could not remove " + dir + " now (" + e.Message + ") – it is removed at the next start.");
+                return false;
+            }
+        }
+
+        public static void ProcessPending()
+        {
+            try
+            {
+                if (!File.Exists(PendingPath)) return;
+                var left = new List<string>();
+                foreach (string line in File.ReadAllLines(PendingPath))
+                {
+                    string[] p = line.Split(new[] { '|' }, 2);
+                    if (p.Length < 2 || p[1].Length == 0) continue;
+                    if (TryRemove(p[1], p[0] == "delete")) Log.Message("[Mod Sort Manager] removed " + p[1]);
+                    else left.Add(line);
+                }
+                if (left.Count == 0) File.Delete(PendingPath);
+                else File.WriteAllLines(PendingPath, left.ToArray());
+            }
+            catch (Exception e) { Log.Warning("[Mod Sort Manager] pending removals: " + e.Message); }
         }
     }
 

@@ -273,4 +273,15 @@ Mod Sort Manager выключит половину подозреваемых м
   <MSM_WeightTitle>Что сильнее всего замедляет загрузку</MSM_WeightTitle>
   <MSM_WeightHint>Размер текстур, кода, дефов и звуков активных модов. Больше обычно значит дольше; текстуры весят больше всего.</MSM_WeightHint>
   <MSM_WeightSum>Всего {0} в {1} модах</MSM_WeightSum>
+  <MSM_Remove>Удалить мод…</MSM_Remove>
+  <MSM_RemoveTip>Отписаться в Мастерской или убрать / удалить локальный мод.</MSM_RemoveTip>
+  <MSM_RemoveUnsub>Отписаться (Steam удалит файлы)</MSM_RemoveUnsub>
+  <MSM_RemoveUnsubConfirm>Отписаться от {0}? Steam удалит его файлы; мод будет выключен. Подписаться снова можно в любой момент.</MSM_RemoveUnsubConfirm>
+  <MSM_RemovePark>Переместить в папку отложенных (можно вернуть)</MSM_RemovePark>
+  <MSM_RemoveParkConfirm>Переместить {0} из папки Mods в:\n{1}\n\nВернуть его можно в любой момент.</MSM_RemoveParkConfirm>
+  <MSM_RemoveDelete>Удалить навсегда</MSM_RemoveDelete>
+  <MSM_RemoveDeleteConfirm>Удалить {0} навсегда?\n{1}\n\nЭто нельзя отменить.</MSM_RemoveDeleteConfirm>
+  <MSM_RemovedNow>{0} удалён. Перезапустите игру, чтобы завершить.</MSM_RemovedNow>
+  <MSM_RemovedLater>{0} сейчас используется – он будет удалён при следующем запуске (он выключен).</MSM_RemovedLater>
+  <MSM_RemoveFailed>Не удалось удалить {0}.</MSM_RemoveFailed>
 </LanguageData>

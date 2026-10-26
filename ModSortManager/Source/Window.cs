@@ -159,7 +159,7 @@ namespace ModSortManager
             marks.Clear();
             notes.Clear();
             var set = new HashSet<ModMetaData>(active);
-            inactiveCache = ModLister.AllInstalledMods.Where(m => !set.Contains(m)).OrderByDescending(m => NewMods.IsNew(m) ? NewMods.AddedAt(m).Value.Ticks : 0L).ThenByDescending(m => m.Official).ThenBy(m => m.Name).ToList();
+            inactiveCache = ModLister.AllInstalledMods.Where(m => !set.Contains(m) && !Removal.IsGone(m)).OrderByDescending(m => NewMods.IsNew(m) ? NewMods.AddedAt(m).Value.Ticks : 0L).ThenByDescending(m => m.Official).ThenBy(m => m.Name).ToList();
 
             // duplicates
             foreach (List<DupCopy> g in dups)
@@ -376,6 +376,36 @@ namespace ModSortManager
             }
             else
                 Find.WindowStack.Add(new Dialog_MessageBox(err));
+        }
+
+        private void RemoveMenu(ModMetaData m)
+        {
+            var opts = new List<FloatMenuOption>();
+            void Done(bool now)
+            {
+                if (active.Contains(m)) { active.Remove(m); }
+                dirty = true;
+                needsRestart = true;
+                if (selected == m) selected = active.FirstOrDefault();
+                Messages.Message((now ? "MSM_RemovedNow" : "MSM_RemovedLater").Translate(m.Name), MessageTypeDefOf.TaskCompletion, false);
+            }
+            if (m.OnSteamWorkshop)
+                opts.Add(new FloatMenuOption("MSM_RemoveUnsub".Translate(), () =>
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_RemoveUnsubConfirm".Translate(m.Name), () =>
+                    {
+                        if (MSM.Unsubscribe(m)) { Removal.Gone.Add(m.RootDir.FullName); Done(true); }
+                        else Messages.Message("MSM_RemoveFailed".Translate(m.Name), MessageTypeDefOf.RejectInput, false);
+                    }, true))));
+            else
+            {
+                opts.Add(new FloatMenuOption("MSM_RemovePark".Translate(), () =>
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_RemoveParkConfirm".Translate(m.Name, MSM.ParkDir), () =>
+                        Done(Removal.RemoveFolder(m, false)), false))));
+                opts.Add(new FloatMenuOption("MSM_RemoveDelete".Translate(), () =>
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_RemoveDeleteConfirm".Translate(m.Name, m.RootDir.FullName), () =>
+                        Done(Removal.RemoveFolder(m, true)), true))));
+            }
+            Find.WindowStack.Add(new FloatMenu(opts));
         }
 
         private void KeepOnly(List<DupCopy> g, DupCopy keep)
@@ -1090,6 +1120,14 @@ namespace ModSortManager
             }
             if (Button(new Rect(r.x + bw + 8f, y, bw, 30f), "MSM_Folder".Translate())) MSM.OpenFolder(m.RootDir.FullName);
             y += 36f;
+            // 0.2.1: get rid of a mod – unsubscribe (Workshop) or move away / delete (local)
+            if (!m.Official && !m.IsCoreMod)
+            {
+                Rect rr = new Rect(r.x, y, r.width, 28f);
+                if (Button(rr, "MSM_Remove".Translate())) RemoveMenu(m);
+                TooltipHandler.TipRegion(rr, "MSM_RemoveTip".Translate());
+                y += 34f;
+            }
             if (isActive)
             {
                 int idx = active.IndexOf(m);

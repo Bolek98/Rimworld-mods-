@@ -273,4 +273,15 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_WeightTitle>最拖慢加载的模组</MSM_WeightTitle>
   <MSM_WeightHint>当前模组的贴图、代码、定义和声音大小。越大通常加载越久；贴图占比最大。</MSM_WeightHint>
   <MSM_WeightSum>共 {0}，{1} 个模组</MSM_WeightSum>
+  <MSM_Remove>移除模组…</MSM_Remove>
+  <MSM_RemoveTip>取消创意工坊订阅，或搁置 / 删除本地模组。</MSM_RemoveTip>
+  <MSM_RemoveUnsub>取消订阅（Steam 会删除文件）</MSM_RemoveUnsub>
+  <MSM_RemoveUnsubConfirm>取消订阅 {0}？Steam 会删除其文件，模组将被停用。你随时可以在创意工坊重新订阅。</MSM_RemoveUnsubConfirm>
+  <MSM_RemovePark>移到搁置文件夹（可恢复）</MSM_RemovePark>
+  <MSM_RemoveParkConfirm>将 {0} 移出 Mods 文件夹，移到：\n{1}\n\n你随时可以把它放回去。</MSM_RemoveParkConfirm>
+  <MSM_RemoveDelete>永久删除</MSM_RemoveDelete>
+  <MSM_RemoveDeleteConfirm>永久删除 {0}？\n{1}\n\n此操作无法撤销。</MSM_RemoveDeleteConfirm>
+  <MSM_RemovedNow>{0} 已移除。重启游戏以完成。</MSM_RemovedNow>
+  <MSM_RemovedLater>{0} 正在使用中——将在下次启动时移除（已停用）。</MSM_RemovedLater>
+  <MSM_RemoveFailed>无法移除 {0}。</MSM_RemoveFailed>
 </LanguageData>

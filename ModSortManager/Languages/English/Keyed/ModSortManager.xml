@@ -273,4 +273,15 @@ Start?</MSM_BisectConfirm>
   <MSM_WeightTitle>What slows loading the most</MSM_WeightTitle>
   <MSM_WeightHint>Sizes of textures, code, defs and sounds of the active mods. Bigger usually means longer loading; textures weigh the most.</MSM_WeightHint>
   <MSM_WeightSum>Total {0} in {1} mods</MSM_WeightSum>
+  <MSM_Remove>Remove mod…</MSM_Remove>
+  <MSM_RemoveTip>Unsubscribe from the Workshop, or move away / delete a local mod.</MSM_RemoveTip>
+  <MSM_RemoveUnsub>Unsubscribe (Steam deletes the files)</MSM_RemoveUnsub>
+  <MSM_RemoveUnsubConfirm>Unsubscribe from {0}? Steam deletes its files; the mod is turned off. Subscribe again any time on the Workshop.</MSM_RemoveUnsubConfirm>
+  <MSM_RemovePark>Move to the put-aside folder (can be put back)</MSM_RemovePark>
+  <MSM_RemoveParkConfirm>Move {0} out of the Mods folder to:\n{1}\n\nYou can put it back any time.</MSM_RemoveParkConfirm>
+  <MSM_RemoveDelete>Delete for good</MSM_RemoveDelete>
+  <MSM_RemoveDeleteConfirm>Delete {0} for good?\n{1}\n\nThis cannot be undone.</MSM_RemoveDeleteConfirm>
+  <MSM_RemovedNow>{0} was removed. Restart the game to finish.</MSM_RemovedNow>
+  <MSM_RemovedLater>{0} is in use right now – it is removed at the next start (it is turned off).</MSM_RemovedLater>
+  <MSM_RemoveFailed>Could not remove {0}.</MSM_RemoveFailed>
 </LanguageData>

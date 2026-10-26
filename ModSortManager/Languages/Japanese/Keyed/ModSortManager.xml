@@ -273,4 +273,15 @@ Mod Sort Manager は {0} 個の疑わしいModの半分を無効化し、ゲー�
   <MSM_WeightTitle>読み込みを最も遅くしているもの</MSM_WeightTitle>
   <MSM_WeightHint>有効なMODのテクスチャ、コード、Def、サウンドのサイズ。大きいほど読み込みが長くなりがちで、テクスチャが最も重いです。</MSM_WeightHint>
   <MSM_WeightSum>合計 {0}（{1} 個のMOD）</MSM_WeightSum>
+  <MSM_Remove>MODを削除…</MSM_Remove>
+  <MSM_RemoveTip>ワークショップの購読を解除、またはローカルMODを退避 / 削除します。</MSM_RemoveTip>
+  <MSM_RemoveUnsub>購読解除（Steam がファイルを削除）</MSM_RemoveUnsub>
+  <MSM_RemoveUnsubConfirm>{0} の購読を解除しますか？ Steam がファイルを削除し、MODは無効になります。いつでも再購読できます。</MSM_RemoveUnsubConfirm>
+  <MSM_RemovePark>退避フォルダへ移動（元に戻せます）</MSM_RemovePark>
+  <MSM_RemoveParkConfirm>{0} を Mods フォルダから次へ移動します：\n{1}\n\nいつでも戻せます。</MSM_RemoveParkConfirm>
+  <MSM_RemoveDelete>完全に削除</MSM_RemoveDelete>
+  <MSM_RemoveDeleteConfirm>{0} を完全に削除しますか？\n{1}\n\n元に戻せません。</MSM_RemoveDeleteConfirm>
+  <MSM_RemovedNow>{0} を削除しました。ゲームを再起動して完了してください。</MSM_RemovedNow>
+  <MSM_RemovedLater>{0} は使用中です――次回起動時に削除されます（無効化済み）。</MSM_RemovedLater>
+  <MSM_RemoveFailed>{0} を削除できませんでした。</MSM_RemoveFailed>
 </LanguageData>

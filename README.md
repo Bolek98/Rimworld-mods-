@@ -26,7 +26,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Mech Commander | 0.1.1 | [MechCommander](MechCommander) |
 | Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
 | Mišák Tabs – Clear Bills, Health & Info | 0.1.0 | [MisakTabs](MisakTabs) |
-| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.2.0 | [ModSortManager](ModSortManager) |
+| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.2.1 | [ModSortManager](ModSortManager) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.1 | [PlaceForEverything](PlaceForEverything) |
 | Research Fixer – Tech Progression | 0.3.3 | [ResearchFixer](ResearchFixer) |
 | Secular Colony – Ideology Off & Tweaks | 1.5.2 | [SecularColony](SecularColony) |
