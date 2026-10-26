@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <URT_Tab_Overview>Resumen</URT_Tab_Overview>
+  <URT_Tab_Services>Servicios de traducción</URT_Tab_Services>
+  <URT_Rec1>Traduce en segundo plano y sin tirones cada texto de mod que tu paquete de idioma no cubre.</URT_Rec1>
+  <URT_Rec2>Servicios gratuitos sin ninguna clave; si uno está ocupado, el siguiente toma el relevo.</URT_Rec2>
+  <URT_Rec3>Cada traducción se comprueba: las defectuosas nunca se usan (nada de «ERR» en nombres y textos).</URT_Rec3>
+  <URT_Status_Inactive>Sin traducir: {0}</URT_Status_Inactive>
+  <URT_Status_Language>Idioma: {0} ({1})</URT_Status_Language>
+  <URT_Status_Phase>Ahora: {0}</URT_Status_Phase>
+  <URT_Status_Counts>Textos sin traducción encontrados: {0} · traducciones recordadas: {1} · aplicadas al juego: {2} · pendientes de traducir: {3}</URT_Status_Counts>
+  <URT_Status_Session>Esta sesión: traducidos {0}, rechazados por la comprobación {1}, fallidos {2} · sustitutos gramaticales usados {3}</URT_Status_Session>
+  <URT_Status_Migrated>Recuperado de la 0.9: {0}</URT_Status_Migrated>
+  <URT_Pause>Pausar la traducción</URT_Pause>
+  <URT_Resume>Continuar la traducción</URT_Resume>
+  <URT_RetryFailed>Reintentar textos fallidos</URT_RetryFailed>
+  <URT_Sec_What>Qué traducir</URT_Sec_What>
+  <URT_Sec_Grammar>Gramática</URT_Sec_Grammar>
+  <URT_Enabled>Traducir textos que faltan</URT_Enabled>
+  <URT_Enabled_Desc>Desactivado: solo se usan las traducciones ya guardadas en memoria, no se envía nada nuevo a los servicios.</URT_Enabled_Desc>
+  <URT_Defs>Nombres y descripciones (defs)</URT_Defs>
+  <URT_Defs_Desc>Nombres, descripciones y otros textos de objetos, edificios, hediffs, investigaciones … de todos los mods.</URT_Defs_Desc>
+  <URT_Keyed>Textos de interfaz (Keyed)</URT_Keyed>
+  <URT_Keyed_Desc>Botones, mensajes y textos de configuración que los mods incluyen en inglés.</URT_Keyed_Desc>
+  <URT_Rules>Reglas gramaticales (historias, arte, registros, misiones)</URT_Rules>
+  <URT_Rules_Desc>Solo se traduce el texto tras «-&gt;»; cada [token] se conserva exactamente. Una regla que no pasa la comprobación se queda en inglés.</URT_Rules_Desc>
+  <URT_GrammarFallback>Rellenar casos gramaticales que faltan</URT_GrammarFallback>
+  <URT_GrammarFallback_Desc>Los idiomas con casos (checo: imageNom, imageGen …) piden palabras clave que los mods no tienen, y el juego escribe entonces «ERR». En su lugar se usa la palabra clave simple.</URT_GrammarFallback_Desc>
+  <URT_Services_Intro>Los servicios se prueban de arriba abajo. Desactiva los que no quieras; los gratuitos funcionan sin nada. Un servicio ocupado o bloqueado se pausa solo y el siguiente toma el relevo. Las claves se quedan solo en tu archivo de configuración.</URT_Services_Intro>
+  <URT_Badge_Free>gratis, sin clave</URT_Badge_Free>
+  <URT_Badge_Key>necesita tu clave</URT_Badge_Key>
+  <URT_Badge_AiKey>IA: necesita tu clave o un servidor local</URT_Badge_AiKey>
+  <URT_NotSetUp>sin configurar (introduce una clave)</URT_NotSetUp>
+  <URT_Test>Probar</URT_Test>
+  <URT_Testing>probando …</URT_Testing>
+  <URT_Key>Clave</URT_Key>
+  <URT_Region>Región</URT_Region>
+  <URT_Model>Modelo</URT_Model>
+  <URT_Url>Dirección (URL)</URT_Url>
+  <URT_Email>Correo (límite diario mayor)</URT_Email>
+  <MUI_Title>Configuración recomendada</MUI_Title>
+  <MUI_TitleOff>Configuración recomendada · desactivada</MUI_TitleOff>
+  <MUI_DescOn>El mod se configura solo y funciona al instante. Ideal para jugadores nuevos y para quien no quiera ajustar nada.</MUI_DescOn>
+  <MUI_DescOff>Configuración personalizada. Cambios respecto a la recomendada: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Configuración personalizada. Sigue igual que la recomendada.</MUI_DescOffSame>
+  <MUI_On>SÍ</MUI_On>
+  <MUI_Off>NO</MUI_Off>
+  <MUI_ResetAll>Restablecer todo a lo recomendado</MUI_ResetAll>
+  <MUI_ConfirmOn>¿Activar la configuración recomendada? Tus cambios ({0}) se sustituirán por los valores recomendados.</MUI_ConfirmOn>
+  <MUI_Locked>La configuración detallada está bloqueada. ¿Quieres cambiarla? Desactiva el interruptor de arriba: tus valores partirán de los recomendados.</MUI_Locked>
+  <MUI_Changed>CAMBIADO</MUI_Changed>
+  <MUI_ChangedTip>Difiere del valor recomendado ({0}). Haz clic para restaurar el valor recomendado.</MUI_ChangedTip>
+  <MUI_Yes>sí</MUI_Yes>
+  <MUI_No>no</MUI_No>
+  <MUI_RecTag>RECOMENDADO</MUI_RecTag>
+  <URT_Live>Textos creados en el código (en vivo)</URT_Live>
+  <URT_Live_Desc>Mensajes, cartas, botones, descripciones emergentes y líneas de información que los mods escriben directamente en su código (no en archivos de idioma). Se traducen solo en pantalla: no cambia nada en los datos del juego. Los textos conocidos aparecen al instante; los textos nuevos en inglés se recogen y se traducen en segundo plano (los números no importan, «Harvested 25 rice» y «Harvested 3 rice» son un solo texto). Los nombres de colonos, facciones y lugares nunca se traducen.</URT_Live_Desc>
+  <URT_Status_Live>En vivo: {0} textos mostrados traducidos, {1} recogidos en esta sesión, {2} en espera, {3} recibidos</URT_Status_Live>
+  <URT_Tab_Editor>Editor</URT_Tab_Editor>
+  <URT_Ed_Intro>Busca cualquier texto por su original o su traducción y escribe tu propia versión. Tu texto nunca será reemplazado por la máquina.</URT_Ed_Intro>
+  <URT_Ed_F_All>Todos</URT_Ed_F_All>
+  <URT_Ed_F_Mine>Míos</URT_Ed_F_Mine>
+  <URT_Ed_F_Problems>Problemas</URT_Ed_F_Problems>
+  <URT_Ed_F_Untranslated>Sin traducir</URT_Ed_F_Untranslated>
+  <URT_Ed_Searching>Buscando…</URT_Ed_Searching>
+  <URT_Ed_Count>{0} textos</URT_Ed_Count>
+  <URT_Ed_CountMore>primeros {0} de {1} textos: busca con más precisión</URT_Ed_CountMore>
+  <URT_Ed_SearchHint>Escribe una palabra para buscar (en inglés o traducida). Aquí se muestran tus propias traducciones.</URT_Ed_SearchHint>
+  <URT_Ed_NoTranslation>aún sin traducir</URT_Ed_NoTranslation>
+  <URT_Ed_Pick>Elige un texto a la izquierda.</URT_Ed_Pick>
+  <URT_Ed_Original>Original</URT_Ed_Original>
+  <URT_Ed_Yours>Traducción</URT_Ed_Yours>
+  <URT_Ed_YoursNow>la tuya</URT_Ed_YoursNow>
+  <URT_Ed_MachineNow>automática ({0})</URT_Ed_MachineNow>
+  <URT_Ed_Machine>Versión automática:</URT_Ed_Machine>
+  <URT_Ed_Save>Guardar la mía</URT_Ed_Save>
+  <URT_Ed_Revert>Versión automática</URT_Ed_Revert>
+  <URT_Ed_KeepOriginal>Mantener el original</URT_Ed_KeepOriginal>
+  <URT_Ed_Again>Traducir de nuevo</URT_Ed_Again>
+  <URT_Ed_AgainTip>Descarta la traducción actual; los servicios la vuelven a traducir en un momento.</URT_Ed_AgainTip>
+  <URT_Ed_Saved>Guardado: ya está en el juego.</URT_Ed_Saved>
+  <URT_Ed_Broken>Guardado, pero no se usa: faltan o se han cambiado marcadores entre llaves o etiquetas &lt;color&gt; ({0}). Mantenlos como en el original.</URT_Ed_Broken>
+  <URT_Ed_EmptyNote>Texto vacío: usa «Versión automática» o «Mantener el original».</URT_Ed_EmptyNote>
+  <URT_Ed_Reverted>De vuelta a la versión automática.</URT_Ed_Reverted>
+  <URT_Ed_Kept>Se mantiene el original (inglés).</URT_Ed_Kept>
+  <URT_Ed_AgainNote>Se volverá a traducir en un momento.</URT_Ed_AgainNote>
+  <URT_Gl_Title>Mis palabras</URT_Gl_Title>
+  <URT_Gl_Hint>Una palabra de la izquierda se sustituye por la tuya en cada traducción (palabras completas, se respeta la mayúscula de la primera letra). Si el lado derecho está vacío, la palabra se elimina.</URT_Gl_Hint>
+  <URT_Gl_Add>Añadir</URT_Gl_Add>
+  <URT_Gl_Delete>Eliminar</URT_Gl_Delete>
+  <URT_Gl_Remove>(eliminada)</URT_Gl_Remove>
+  <URT_Tab_Mods>Mods</URT_Tab_Mods>
+  <URT_Mods_Intro>Cuánto está traducido de cada mod. Desmarca un mod para dejarlo en inglés (sus textos se retiran del juego y no se envían a traducir). Exportar guarda la traducción de un mod como una carpeta Languages normal: compártela o envíasela al autor del mod. Los textos creados en el código (en vivo) no se cuentan aquí.</URT_Mods_Intro>
+  <URT_Mods_SearchHint>Buscar un mod…</URT_Mods_SearchHint>
+  <URT_Mods_ExportAll>Exportar todo</URT_Mods_ExportAll>
+  <URT_Mods_Exporting>Exportando…</URT_Mods_Exporting>
+  <URT_Mods_ExportTip>Guarda las traducciones de todos los mods en:\n{0}\nCada mod recibe su propia carpeta con Languages dentro: cópiala en la carpeta del mod o envíasela al autor.</URT_Mods_ExportTip>
+  <URT_Mods_OpenFolder>Abrir carpeta de exportación</URT_Mods_OpenFolder>
+  <URT_Mods_Counting>Contando…</URT_Mods_Counting>
+  <URT_Mods_Sum>{0} mods · {1} de {2} textos traducidos ({3})</URT_Mods_Sum>
+  <URT_Mods_SkipTip>Traducir este mod. Desmárcalo para dejarlo en inglés.</URT_Mods_SkipTip>
+  <URT_Mods_Export>Exportar</URT_Mods_Export>
+  <URT_Mods_ExportedOne>Exportados {0} textos a {1}</URT_Mods_ExportedOne>
+  <URT_Mods_ExportedAll>Exportados {0} textos en {1} archivos a {2}</URT_Mods_ExportedAll>
+  <URT_Mods_ExportFailed>Error al exportar: {0}</URT_Mods_ExportFailed>
+  <URT_Tab_Quality>Revisión</URT_Tab_Quality>
+  <URT_Q_Intro>Traducciones automáticas que pasaron las comprobaciones automáticas pero aun así parecen incorrectas. Tus propias traducciones nunca aparecen aquí.</URT_Q_Intro>
+  <URT_Q_All>Todos</URT_Q_All>
+  <URT_Q_K_Number>Números</URT_Q_K_Number>
+  <URT_Q_K_Number_Tip>Falta en la traducción un número del original: el juego mostraría una cantidad incorrecta o ninguna.</URT_Q_K_Number_Tip>
+  <URT_Q_K_English>Restos en inglés</URT_Q_K_English>
+  <URT_Q_K_English_Tip>Se copiaron palabras en inglés en la traducción en lugar de traducirlas.</URT_Q_K_English_Tip>
+  <URT_Q_K_Name>Nombres</URT_Q_K_Name>
+  <URT_Q_K_Name_Tip>Se tradujo el nombre de un colono, una facción, un lugar o un mod: los nombres deben quedarse como están.</URT_Q_K_Name_Tip>
+  <URT_Q_K_Cut>Cortado</URT_Q_K_Cut>
+  <URT_Q_K_Cut_Tip>La traducción termina a mitad de frase o es mucho más corta que el original.</URT_Q_K_Cut_Tip>
+  <URT_Q_K_Chars>Caracteres raros</URT_Q_K_Chars>
+  <URT_Q_K_Chars_Tip>Caracteres rotos como &amp;amp;, \n escrito como texto o espacios dobles.</URT_Q_K_Chars_Tip>
+  <URT_Q_K_Differs>Distinto</URT_Q_K_Differs>
+  <URT_Q_K_Differs_Tip>El mismo texto corto (un botón, una palabra) está traducido de forma distinta en distintos sitios.</URT_Q_K_Differs_Tip>
+  <URT_Q_WhyNumber>Falta el número {0}.</URT_Q_WhyNumber>
+  <URT_Q_WhyEnglish>Quedó en inglés: {0}</URT_Q_WhyEnglish>
+  <URT_Q_WhyName>Se tradujo el nombre «{0}».</URT_Q_WhyName>
+  <URT_Q_WhyCut>Parece cortado.</URT_Q_WhyCut>
+  <URT_Q_WhyChars>Caracteres raros: {0}</URT_Q_WhyChars>
+  <URT_Q_WhySpaces>Espacios dobles.</URT_Q_WhySpaces>
+  <URT_Q_WhyDiffers>En otros sitios ({1}×) es «{0}».</URT_Q_WhyDiffers>
+  <URT_Q_Checking>Comprobando…</URT_Q_Checking>
+  <URT_Q_Recheck>Comprobar de nuevo</URT_Q_Recheck>
+  <URT_Q_AgainAll>Traducir de nuevo lo mostrado ({0})</URT_Q_AgainAll>
+  <URT_Q_AgainAllTip>Vuelve a enviar cada texto de la lista (excepto «Distinto») a los servicios de traducción. Tus propias traducciones no se tocan.</URT_Q_AgainAllTip>
+  <URT_Q_AgainAllConfirm>¿Traducir de nuevo {0} textos? Las traducciones automáticas actuales se descartarán.</URT_Q_AgainAllConfirm>
+  <URT_Q_UnifyAll>Unificar todo ({0})</URT_Q_UnifyAll>
+  <URT_Q_None>No se encontró nada sospechoso. 👍</URT_Q_None>
+  <URT_Q_Pick>Elige un texto a la izquierda.</URT_Q_Pick>
+  <URT_Q_YourFix>Tu traducción</URT_Q_YourFix>
+  <URT_Q_Save>Guardar mi corrección</URT_Q_Save>
+  <URT_Q_SaveTip>Tu texto se usará a partir de ahora y nunca será reemplazado por una traducción automática.</URT_Q_SaveTip>
+  <URT_Q_Unify>Usar la habitual</URT_Q_Unify>
+  <URT_Q_Unified>Unificado.</URT_Q_Unified>
+  <URT_Q_Fine>Está bien</URT_Q_Fine>
+  <URT_Q_FineNote>OK: no se volverá a mostrar.</URT_Q_FineNote>
+  <URT_Ed_AgainWait>Traduciendo de nuevo con otro servicio… ({0} s)</URT_Ed_AgainWait>
+  <URT_Ed_AgainDone>Traducido de nuevo ({0}).</URT_Ed_AgainDone>
+  <URT_Ed_AgainBad>La nueva traducción no pasó la comprobación ({0}): escribe la tuya y pulsa Guardar.</URT_Ed_AgainBad>
+  <URT_Ed_AgainSlow>Ningún servicio ha respondido aún: el texto sigue en la cola. Vuelve a mirar más tarde.</URT_Ed_AgainSlow>
+  <URT_PickFix>Alt + clic derecho corrige un texto</URT_PickFix>
+  <URT_PickFix_Desc>Mantén Alt y haz clic derecho en cualquier texto del juego: el editor se abre con exactamente ese texto, para que puedas escribir una traducción mejor o volver a traducirlo.</URT_PickFix_Desc>
+  <URT_Pick_NotFound>Este texto no está en la memoria de URT (puede venir del paquete de idioma del juego o estar formado por varias piezas). La búsqueda muestra textos parecidos.</URT_Pick_NotFound>
+  <URT_Welcome_Title>Universal RimTranslator</URT_Welcome_Title>
+  <URT_Welcome_Body>URT traduce todos tus mods al {0}, gratis y sin nada que configurar.
+
+• Los textos que ya conoce están en el juego ahora mismo; el resto se traduce en segundo plano mientras juegas. Puedes jugar enseguida.
+• Los textos que los mods crean durante la partida se traducen en pantalla a medida que aparecen.
+• ¿Un texto parece incorrecto o a medio traducir? Mantén Alt y haz clic derecho sobre él: el editor se abre con exactamente ese texto.
+• Progreso, servicios, mods dejados en inglés y el editor: Opciones → Configuración de mods → Universal RimTranslator.</URT_Welcome_Body>
+  <URT_Welcome_English>El juego está en inglés, así que URT no tiene nada que traducir.
+
+Elige tu idioma en Opciones → Idioma y reinicia el juego: URT traducirá entonces todos tus mods a ese idioma, gratis y sin configurar nada.</URT_Welcome_English>
+  <URT_Welcome_Ok>Entendido</URT_Welcome_Ok>
+  <URT_Welcome_Settings>Abrir configuración</URT_Welcome_Settings>
+</LanguageData>
