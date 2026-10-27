@@ -13,7 +13,7 @@ namespace UniversalRimTranslator
     // of exactly those, and the next start with the same fingerprint reads it in a moment.
     public static class ScanCache
     {
-        private const int FormatVersion = 1;
+        private const int FormatVersion = 2;   // 2.5.1: scans of 2.5.0 could hold our own translations as "originals"
 
         public static string FilePath(string folder, string target) => Path.Combine(folder, "scan_" + target + ".bin");
 

@@ -145,9 +145,13 @@ namespace UniversalRimTranslator
                     var result = new List<Row>();
                     int count = 0;
                     var seen = new HashSet<string>();
+                    // 2.5.1: also without diacritics and odd spaces ("muj ze dreva" finds "Můj ze dřeva",
+                    // a non-breaking space from a service does not hide a text)
+                    string fq = Fold(q);
                     bool Match(string src, string txt) => q.Length == 0 ||
                         src.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                        (txt != null && txt.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0);
+                        (txt != null && txt.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                        (fq.Length > 0 && (Fold(src).Contains(fq) || (txt != null && Fold(txt).Contains(fq))));
                     foreach (var kv in store.Snapshot())
                     {
                         if (id != searchId) return;      // a newer search started
@@ -234,6 +238,23 @@ namespace UniversalRimTranslator
             int max = Mathf.Max(8, (int)(width / 5.5f));
             if (s.Length > max) s = s.Substring(0, max) + "…";
             return s.Truncate(width);
+        }
+
+        public static string Fold(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return "";
+            string d = s.Normalize(System.Text.NormalizationForm.FormD);
+            var sb = new System.Text.StringBuilder(d.Length);
+            bool space = false;
+            foreach (char ch in d)
+            {
+                var cat = System.Globalization.CharUnicodeInfo.GetUnicodeCategory(ch);
+                if (cat == System.Globalization.UnicodeCategory.NonSpacingMark) continue;
+                if (char.IsWhiteSpace(ch)) { if (!space && sb.Length > 0) sb.Append(' '); space = true; continue; }
+                space = false;
+                sb.Append(char.ToLowerInvariant(ch));
+            }
+            return sb.ToString().TrimEnd();
         }
 
         private static string One(string s) => (s ?? "").Replace("\r", "").Replace("\n", " ⏎ ");

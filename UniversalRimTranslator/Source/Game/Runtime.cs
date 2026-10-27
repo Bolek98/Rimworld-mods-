@@ -75,6 +75,7 @@ namespace UniversalRimTranslator
             Stopwatch sw = Stopwatch.StartNew();
             bool haveNew = File.Exists(Path.Combine(Folder, "memory_" + Target + ".bin")) || File.Exists(Path.Combine(Folder, "memory_" + Target + ".journal"));
             if (haveNew) Store.Load();
+            if (haveNew) Cleanup251();
             long loadMs = sw.ElapsedMilliseconds;
 
             sw.Restart();
@@ -131,6 +132,33 @@ namespace UniversalRimTranslator
 
             worker = new Thread(() => Work(!haveNew)) { IsBackground = true, Name = "URT translator", Priority = ThreadPriority.BelowNormal };
             worker.Start();
+        }
+
+        // 2.5.1, once: 2.5.0 sometimes scanned the game after our translations were in, so it sent
+        // already translated texts to the services again ("Untranslated" results, wrong totals in Mods).
+        // Those records and the misread "Mine" labels are dropped; the rest of the memory stays.
+        private static void Cleanup251()
+        {
+            string marker = Path.Combine(Folder, "cleanup251_" + Target + ".done");
+            if (File.Exists(marker)) return;
+            try
+            {
+                int n = 0;
+                foreach (var kv in Store.Snapshot())
+                {
+                    Rec r = kv.Value;
+                    if (r == null || r.Manual) continue;
+                    if (r.Verdict == Verdict.Untranslated || Protect.NeedsContext(kv.Key))
+                    {
+                        Store.Forget(kv.Key);
+                        n++;
+                    }
+                }
+                if (n > 0) Store.Compact();
+                File.WriteAllText(marker, DateTime.Now.ToString("s") + " removed " + n);
+                MLog.Info("[URT] cleanup 2.5.1: removed " + n + " records (texts translated twice, misread labels)");
+            }
+            catch (Exception e) { MLog.Warn("[URT] cleanup 2.5.1: " + e.Message); }
         }
 
         public static void UpdateLive()

@@ -1,4 +1,10 @@
 === Not on the Workshop yet (test versions) ===
+2.5.1
+- Fix: after a mod change the background scan of 2.5.0 could read texts that were already translated and take them for originals. The Mods tab then showed low percentages and those texts were sent to the services again. The scan now always sees the originals; the old scan is thrown away once and the texts translated twice are removed from the memory (your own translations stay).
+- Fix: Keyed texts translated by URT disappeared from the list after a rescan.
+- Short labels read the wrong way without context: "Mine" (the building) and "Mine for …" (mining recipes) are no longer translated as "my". Wrong old translations of these are made again.
+- Editor search ignores diacritics and odd spaces ("muj ze dreva" finds "Můj ze dřeva").
+
 2.5.0
 - Faster start: when mods changed, the game no longer waits ~25 s for the scan of all texts – the last scan is used at once and the new one runs in the background (only what is new is put in when it is done).
 - Alt + right click on any text in the game opens the editor with exactly that text – the quick way to fix a wrong or half-translated text (setting, on).

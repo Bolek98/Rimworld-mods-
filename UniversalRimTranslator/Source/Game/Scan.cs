@@ -88,6 +88,9 @@ namespace UniversalRimTranslator
                             string mod = def?.modContentPack?.Name ?? "?";
                             if (!isCollection)
                             {
+                                // 2.5.1: a field we already translated this session – take its original
+                                if (Apply.TryOriginal(defType.Name + "|" + suggestedPath, currentValue, out string orig))
+                                    currentValue = orig;
                                 if (!Wanted(currentValue)) return;
                                 items.Add(new Item
                                 {
@@ -99,6 +102,10 @@ namespace UniversalRimTranslator
                             }
                             else if (fullListTranslationAllowed && currentValueCollection != null)
                             {
+                                // 2.5.1: a list we injected holds our translations – use the originals we kept
+                                string lk0 = ListKey(defType, suggestedPath);
+                                if (Apply.ListTouched(lk0) && Scan.OriginalLists.TryGetValue(lk0, out List<string> before) && before != null)
+                                    currentValueCollection = before;
                                 OriginalLists[ListKey(defType, suggestedPath)] = currentValueCollection.ToList();
                                 int i = 0;
                                 foreach (string v in currentValueCollection)
@@ -129,7 +136,8 @@ namespace UniversalRimTranslator
             {
                 foreach (var kv in english.keyedReplacements)
                 {
-                    if (active.keyedReplacements.TryGetValue(kv.Key, out var have) && !have.isPlaceholder)
+                    // 2.5.1: our own Keyed translations stay in the list (a rescan dropped them before)
+                    if (active.keyedReplacements.TryGetValue(kv.Key, out var have) && !have.isPlaceholder && have.fileSource != "Universal RimTranslator")
                         continue;
                     string v = kv.Value?.value;
                     if (!Wanted(v)) continue;

@@ -80,6 +80,7 @@ namespace Urt2
                 return "{" + (m.Tokens.Count - 1) + "}";
             });
             m.Text = Regex.Replace(m.Text, "\u0001(\\d+)\u0002", x => "{" + x.Groups[1].Value + "}");
+            if (m.Prefix == null) m.Text = Context(m.Text);
             return m;
         }
 
@@ -188,6 +189,21 @@ namespace Urt2
         public static List<string> Lines(string text) => new List<string>(text.Replace("\r\n", "\n").Split('\n'));
 
         public static string Join(List<string> lines) => string.Join("\n", lines.ToArray());
+
+        // 2.5.1: short English labels a translator reads the wrong way without context
+        // ("Mine" = the building, not "my"; "Mine for jade" = a recipe, not "my for jade")
+        private static readonly Regex MineFor = new Regex(@"^Mine for (.+)$", RegexOptions.Compiled);
+        public static bool NeedsContext(string text) => text == "Mine" || (text != null && text.Length < 80 && MineFor.IsMatch(text));
+        public static string Context(string text)
+        {
+            if (text == "Mine") return "The mine";
+            if (text != null && text.Length < 80)
+            {
+                Match x = MineFor.Match(text);
+                if (x.Success) return "Mining for " + x.Groups[1].Value;
+            }
+            return text;
+        }
 
         public static string Normalize(string s) => s?.Replace("\r\n", "\n").Trim();
     }

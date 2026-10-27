@@ -6659,9 +6659,11 @@ namespace ResearchedLoadout
 					return true;
 				}
 			}
-			if (settings.useOwnDresser && settings.autoEquipApparel)
+			// 2.15.2: "Gear up now" always uses our dresser and may replace what is worn (not only add)
+			bool rush = EquipRush.Active(pawn);
+			if ((settings.useOwnDresser || rush) && settings.autoEquipApparel)
 			{
-				bool onlyAdditions = ApparelMemory.Calm(pawn, now) && !LoadoutFilter.FreezingOrOverheating(pawn) && !TempRush.Active(pawn) && !Coverage.NeedsBasicsAny(pawn) && !EmergencyGear.AnyActive(map);
+				bool onlyAdditions = !rush && ApparelMemory.Calm(pawn, now) && !LoadoutFilter.FreezingOrOverheating(pawn) && !TempRush.Active(pawn) && !Coverage.NeedsBasicsAny(pawn) && !EmergencyGear.AnyActive(map);
 				Thing thing4 = FindBestApparel(pawn, onlyAdditions);
 				if (thing4 != null)
 				{
@@ -7561,6 +7563,14 @@ namespace ResearchedLoadout
 			{
 				return num5 >= num6 * 0.9f;
 			}
+			// 2.15.2: "Gear up now" – a newer era wins, and any better piece is taken (no extra margin)
+			if (EquipRush.Active(pawn) && current.def != null && candidate.def != null)
+			{
+				int ec = LoadoutFilter.EraRank(candidate.def), eh = LoadoutFilter.EraRank(current.def);
+				if (ec > eh) return !IsBroken(candidate);
+				if (ec < eh) return false;
+				return num5 > num6 * 1.01f;
+			}
 			return num5 > num6 * (1.04f + Stability);
 		}
 
@@ -8148,6 +8158,12 @@ namespace ResearchedLoadout
 				{
 					num2 = JobGiver_OptimizeApparel.ApparelScoreGain(pawn, apparel, list);
 					num2 -= Mathf.Abs(num2) * DistanceExtra(pawn, apparel);
+					// 2.15.2: "Gear up now" – a piece of a newer era replaces the older one it covers
+					if (EquipRush.Active(pawn))
+					{
+						int newer = RushEraGain(pawn, apparel);
+						if (newer > 0) num2 = Mathf.Max(num2, 0.5f + newer);
+					}
 					if (num2 < 0.05f)
 					{
 						// 2.8.5: a free slot is filled even by a low-scoring piece, if it is fine to wear
@@ -8179,6 +8195,23 @@ namespace ResearchedLoadout
 				}
 			}
 			return result;
+		}
+
+		// how many eras newer the piece is than the newest worn piece it would replace (0 = none replaced or not newer)
+		private static int RushEraGain(Pawn pawn, Apparel apparel)
+		{
+			List<Apparel> worn = pawn.apparel?.WornApparel;
+			if (worn == null || apparel?.def == null) return 0;
+			int mine = LoadoutFilter.EraRank(apparel.def), best = int.MinValue;
+			BodyDef body = pawn.RaceProps.body;
+			for (int i = 0; i < worn.Count; i++)
+			{
+				Apparel w = worn[i];
+				if (w == null || w.def == null || ApparelUtility.CanWearTogether(apparel.def, w.def, body)) continue;
+				if (pawn.outfits != null && pawn.outfits.forcedHandler != null && pawn.outfits.forcedHandler.IsForced(w)) return 0;
+				best = Mathf.Max(best, LoadoutFilter.EraRank(w.def));
+			}
+			return best == int.MinValue ? 0 : Mathf.Max(0, mine - best);
 		}
 
 		private static List<float> VanillaWornScores(Pawn pawn)

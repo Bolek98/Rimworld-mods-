@@ -15,7 +15,21 @@ namespace UniversalRimTranslator
     public static class Apply
     {
         private static readonly Dictionary<Type, DefInjectionPackage> packages = new Dictionary<Type, DefInjectionPackage>();
-        private static readonly Dictionary<string, string> appliedText = new Dictionary<string, string>();  // what we put in, per item key
+        // what we put in, per item key (2.5.1: thread-safe – the background scan reads it)
+        private static readonly System.Collections.Concurrent.ConcurrentDictionary<string, string> appliedText = new System.Collections.Concurrent.ConcurrentDictionary<string, string>();
+        // 2.5.1: the original text of every field we changed – a scan must see the original, not our translation
+        private static readonly System.Collections.Concurrent.ConcurrentDictionary<string, string> originalText = new System.Collections.Concurrent.ConcurrentDictionary<string, string>();
+        private static readonly System.Collections.Concurrent.ConcurrentDictionary<string, bool> touchedLists = new System.Collections.Concurrent.ConcurrentDictionary<string, bool>();
+
+        // the field now holds our translation → its original text
+        public static bool TryOriginal(string itemKey, string current, out string original)
+        {
+            original = null;
+            return current != null && appliedText.TryGetValue(itemKey, out string mine) && mine == current
+                   && originalText.TryGetValue(itemKey, out original) && original != null;
+        }
+
+        public static bool ListTouched(string listKey) => touchedLists.ContainsKey(listKey);
         private static bool rulesTouched;
 
         private static readonly FieldInfo rulesResolved = AccessTools.Field(typeof(RulePack), "rulesResolved");
@@ -88,6 +102,7 @@ namespace UniversalRimTranslator
                     n++;
                 }
                 Package(first.DefType).injections[first.Path] = new DefInjectionPackage.DefInjection { path = first.Path, fullListInjection = full, fileSource = "Universal RimTranslator" };
+                touchedLists[kv.Key] = true;
                 touchedTypes.Add(first.DefType);
                 if (first.IsRule || kv.Value.Any(x => x.Item1.IsRule)) rulesTouched = true;
             }
@@ -151,8 +166,9 @@ namespace UniversalRimTranslator
 
         private static void Remember(Item it, string text)
         {
-            if (text == null) appliedText.Remove(ItemKey(it));
-            else appliedText[ItemKey(it)] = text;
+            string k = ItemKey(it);
+            if (text == null) { appliedText.TryRemove(k, out _); originalText.TryRemove(k, out _); }
+            else { appliedText[k] = text; originalText[k] = it.Source; }
         }
 
         // the list as it is now in the def (earlier translated entries included)
