@@ -11,7 +11,7 @@ namespace UniversalRimTranslator
 {
     public static class UrtVersion
     {
-        public const string Number = "2.5.2";
+        public const string Number = "2.6.0";
         public static string Display => Number + " (test)";
     }
 
@@ -228,9 +228,6 @@ namespace UniversalRimTranslator
             }, recBullets) + 8f;
 
             // status card
-            Rect card = new Rect(r.x, y, r.width, 172f);
-            MUI.Card(card);
-            Rect c = card.ContractedBy(12f);
             var lines = new List<string>();
             if (!Runtime.Active)
                 lines.Add("URT_Status_Inactive".Translate(Runtime.Phase));
@@ -243,20 +240,73 @@ namespace UniversalRimTranslator
                 if (Live.On) lines.Add("URT_Status_Live".Translate(Live.Shown, Live.Queued, Live.Pending.Count, Live.Arrived));
                 if (!string.IsNullOrEmpty(Runtime.MigrationReport)) lines.Add("URT_Status_Migrated".Translate(Runtime.MigrationReport));
             }
-            Widgets.Label(c, string.Join("\n", lines.ToArray()));
+            string statusText = string.Join("\n", lines.ToArray());
+            // 2.6.0: progress of "translate everything now" and the diagnostics line
+            string diag = null;
+            if (Runtime.Active)
+            {
+                string prog = UrtTools.ProgressLine();
+                diag = (prog != null ? prog + "\n" : "") + UrtTools.Diagnostics();
+            }
+            float statusH = Text.CalcHeight(statusText, r.width - 24f);
+            float diagH = diag == null ? 0f : Text.CalcHeight(diag, r.width - 24f) + 4f;
+            Rect card = new Rect(r.x, y, r.width, Mathf.Max(150f, statusH + diagH + 24f));
+            MUI.Card(card);
+            Rect c = card.ContractedBy(12f);
+            Widgets.Label(new Rect(c.x, c.y, c.width, statusH), statusText);
+            if (diag != null)
+            {
+                GUI.color = UrtTools.AllRunning ? MUI.Accent : MUI.Muted;
+                Widgets.Label(new Rect(c.x, c.y + statusH + 4f, c.width, diagH), diag);
+                GUI.color = Color.white;
+            }
             y = card.yMax + 8f;
 
             if (Runtime.Active)
             {
-                float bw = 220f;
-                if (Widgets.ButtonText(new Rect(r.x, y, bw, 32f), Runtime.Paused ? "URT_Resume".Translate() : "URT_Pause".Translate()))
+                // 2.6.0: one click – retry, forget failed machine translations, let waiting mods in, rescan, translate
+                float big = 300f;
+                Rect allR = new Rect(r.x, y, big, 34f);
+                MUI.Fill(allR, MUI.OnBg);
+                MUI.Frame(allR, MUI.Accent);
+                if (Widgets.ButtonText(allR, UrtTools.AllRunning ? "URT_All_Running".Translate() : "URT_All_Button".Translate()) && !UrtTools.AllRunning)
+                    UrtTools.ConfirmAll();
+                TooltipHandler.TipRegion(allR, "URT_All_Tip".Translate());
+                float bw = 200f;
+                if (Widgets.ButtonText(new Rect(r.x + big + 8f, y, bw, 34f), Runtime.Paused ? "URT_Resume".Translate() : "URT_Pause".Translate()))
                 {
                     Runtime.Paused = !Runtime.Paused;
                     Runtime.Kick();
                 }
-                if (Widgets.ButtonText(new Rect(r.x + bw + 8f, y, bw, 32f), "URT_RetryFailed".Translate()))
+                if (Widgets.ButtonText(new Rect(r.x + big + bw + 16f, y, bw, 34f), "URT_RetryFailed".Translate()))
                     Runtime.RetryFailed();
                 y += 40f;
+                // 2.6.0: import from other translators, translation packs
+                float iw = Mathf.Min(220f, (r.width - 16f) / 3f);
+                Rect imp = new Rect(r.x, y, iw, 30f);
+                if (Widgets.ButtonText(imp, "URT_Import_Button".Translate(), active: !UrtTools.Busy) && !UrtTools.Busy)
+                    UrtTools.ImportOthers();
+                TooltipHandler.TipRegion(imp, "URT_Import_Tip".Translate(System.IO.Path.GetFileName(UrtTools.TsvImportPath)));
+                Rect exp = new Rect(r.x + iw + 8f, y, iw, 30f);
+                if (Widgets.ButtonText(exp, "URT_Pack_Export".Translate(), active: !UrtTools.Busy) && !UrtTools.Busy)
+                    Find.WindowStack.Add(new Dialog_UrtPack());
+                TooltipHandler.TipRegion(exp, "URT_Pack_ExportTip".Translate());
+                Rect pim = new Rect(r.x + 2f * (iw + 8f), y, iw, 30f);
+                if (Widgets.ButtonText(pim, "URT_Pack_Import".Translate(), active: !UrtTools.Busy) && !UrtTools.Busy)
+                    UrtTools.ImportPackMenu();
+                TooltipHandler.TipRegion(pim, "URT_Pack_ImportTip".Translate());
+                y += 34f;
+                string note = UrtTools.Note;
+                if (!string.IsNullOrEmpty(note))
+                {
+                    GUI.color = MUI.Muted;
+                    Text.Font = GameFont.Tiny;
+                    Widgets.Label(new Rect(r.x, y, r.width, 20f), note.Truncate(r.width));
+                    Text.Font = GameFont.Small;
+                    GUI.color = Color.white;
+                    y += 22f;
+                }
+                y += 4f;
             }
 
             Rect rest = new Rect(r.x, y, r.width, r.yMax - y);

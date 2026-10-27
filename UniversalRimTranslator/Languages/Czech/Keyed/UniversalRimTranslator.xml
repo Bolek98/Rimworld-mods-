@@ -170,4 +170,38 @@ Vyber svůj jazyk v Možnosti → Jazyk a restartuj hru – URT pak do něj pře
   <URT_RaceNames_Desc>Překládají se i jména humanoidních ras a xenotypů z modů. Vypnuto: zůstanou tak, jak je mod pojmenoval (služby braly jména jako „Yuran“ za obyčejná slova).</URT_RaceNames_Desc>
   <URT_Mods_NewWaiting>{0} nových modů čeká na překlad: {1}</URT_Mods_NewWaiting>
   <URT_Mods_AllowNew>Přeložit nové mody</URT_Mods_AllowNew>
+  <URT_All_Button>Přeložit všechno hned</URT_All_Button>
+  <URT_All_Running>Překládám všechno…</URT_All_Running>
+  <URT_All_Tip>Jedno kliknutí: zkusí znovu texty, které selhaly, zapomene strojové překlady, které neprošly kontrolou (tvoje vlastní zůstanou), pustí čekající nové mody, znovu projde všechny mody a přeloží všechno, co chybí.</URT_All_Tip>
+  <URT_All_Confirm>Přeložit všechno hned?\n\nZkusí znovu každý text, který selhal, zapomene strojové překlady, které neprošly kontrolou (tvoje vlastní překlady zůstanou), pustí čekající nové mody, znovu projde všechny mody a přeloží všechno, co chybí. S hodně mody to může trvat dlouho (i hodiny) – mezitím můžeš normálně hrát.</URT_All_Confirm>
+  <URT_All_Started>Překládám všechno: {0} strojových překladů, které selhaly, se udělá znovu, procházím všechny mody.</URT_All_Started>
+  <URT_All_Done>Universal RimTranslator: všechno nalezené je přeložené (nových překladů: {0}).</URT_All_Done>
+  <URT_All_Stopped>Universal RimTranslator: teď nejde nic přeložit – je zapnutý offline režim nebo nefunguje žádná služba. Podrobnosti jsou v Přehledu.</URT_All_Stopped>
+  <URT_All_Scanning>Znovu procházím všechny mody…</URT_All_Scanning>
+  <URT_All_Progress>Překládám: zbývá {0} · {1}/min · služba: {2}</URT_All_Progress>
+  <URT_Diag_Line>Čeká: {0} textů · selhalo u všech služeb: {1} · neprošlo kontrolou: {2}</URT_Diag_Line>
+  <URT_Diag_Offline>Je zapnuté „Offline – jen paměť“: žádná služba se neptá.</URT_Diag_Offline>
+  <URT_Diag_NoService>Teď nefunguje žádná služba – všechny jsou vypnuté, nenastavené, pozastavené nebo jim byl odmítnut klíč.</URT_Diag_NoService>
+  <URT_Diag_KeyRejected>{0}: klíč odmítnut – v tomhle spuštění se přeskakuje</URT_Diag_KeyRejected>
+  <URT_Diag_Paused>{0}: pozastaveno na {1} s</URT_Diag_Paused>
+  <URT_Diag_Services>Služby s problémy: {0}</URT_Diag_Services>
+  <URT_Import_Button>Importovat překlady…</URT_Import_Button>
+  <URT_Import_Tip>Převezme do paměti překlady z jiných překladových modů: Auto Translation (jeho cache ve složce s uloženými hrami) a soubor {0} ve složce Config (originál TAB překlad, jeden na řádek). Jen pro aktuální jazyk; tvoje vlastní překlady mají přednost a fungující překlady se nikdy nepřepíšou.</URT_Import_Tip>
+  <URT_Import_Working>Importuji…</URT_Import_Working>
+  <URT_Import_None>Nenašlo se nic k importu. Podporováno: cache modu Auto Translation a soubor {0} ve složce Config (originál TAB překlad).</URT_Import_None>
+  <URT_Import_Done>Importováno překladů: {0} ({1}); přeskočeno {2} (už přeložené, neznámé nebo neprošly kontrolou).</URT_Import_Done>
+  <URT_Pack_Export>Exportovat balíček…</URT_Pack_Export>
+  <URT_Pack_ExportTip>Uloží paměť – nebo jen texty vybraných modů – jako soubor .tsv do Config/UniversalRimTranslator2/packs, abys ho mohl sdílet s ostatními hráči.</URT_Pack_ExportTip>
+  <URT_Pack_Import>Importovat balíček…</URT_Pack_Import>
+  <URT_Pack_ImportTip>Převezme balíček (.tsv) z Config/UniversalRimTranslator2/packs do paměti. Tvoje vlastní překlady mají přednost a fungující překlady se nikdy nepřepíšou.</URT_Pack_ImportTip>
+  <URT_Pack_Working>Pracuji…</URT_Pack_Working>
+  <URT_Pack_Title>Balíček překladů</URT_Pack_Title>
+  <URT_Pack_Name>Název souboru:</URT_Pack_Name>
+  <URT_Pack_All>Všechny překlady v paměti</URT_Pack_All>
+  <URT_Pack_Mods>Jen tyto mody:</URT_Pack_Mods>
+  <URT_Pack_DoExport>Exportovat</URT_Pack_DoExport>
+  <URT_Pack_Exported>Uloženo překladů: {0} do {1}</URT_Pack_Exported>
+  <URT_Pack_NoFiles>Ve složce {0} nejsou žádné balíčky – dej tam balíčky .tsv.</URT_Pack_NoFiles>
+  <URT_Pack_WrongLang>Tento balíček je pro {0}, hra je v {1} – nic se neimportovalo.</URT_Pack_WrongLang>
+  <URT_Pack_OpenFolder>Otevřít složku s balíčky</URT_Pack_OpenFolder>
 </LanguageData>

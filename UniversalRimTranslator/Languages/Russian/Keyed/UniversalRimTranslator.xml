@@ -169,4 +169,38 @@
   <URT_RaceNames_Desc>Названия человекоподобных рас и ксенотипов из модов тоже переводятся. Выключено: они остаются такими, как их назвал мод (сервисы принимали имена вроде «Yuran» за обычные слова).</URT_RaceNames_Desc>
   <URT_Mods_NewWaiting>{0} новых модов ждут перевода: {1}</URT_Mods_NewWaiting>
   <URT_Mods_AllowNew>Перевести новые моды</URT_Mods_AllowNew>
+  <URT_All_Button>Перевести всё сейчас</URT_All_Button>
+  <URT_All_Running>Перевожу всё…</URT_All_Running>
+  <URT_All_Tip>Один клик: повторяет неудавшиеся тексты, забывает машинные переводы, не прошедшие проверку (ваши собственные остаются), впускает ожидающие новые моды, заново сканирует все моды и переводит всё недостающее.</URT_All_Tip>
+  <URT_All_Confirm>Перевести всё сейчас?\n\nКаждый неудавшийся текст будет повторён, машинные переводы, не прошедшие проверку, будут забыты (ваши собственные переводы остаются), ожидающие новые моды будут впущены, все моды будут заново просканированы, и всё недостающее будет переведено. С большим количеством модов это может занять много времени (часы) – тем временем можно играть.</URT_All_Confirm>
+  <URT_All_Started>Перевожу всё: {0} неудавшихся машинных переводов будут сделаны заново, сканирую все моды.</URT_All_Started>
+  <URT_All_Done>Universal RimTranslator: всё найденное переведено ({0} новых переводов).</URT_All_Done>
+  <URT_All_Stopped>Universal RimTranslator: сейчас ничего нельзя перевести – офлайн-режим или ни одна служба не работает. Подробности в обзоре.</URT_All_Stopped>
+  <URT_All_Scanning>Заново сканирую все моды…</URT_All_Scanning>
+  <URT_All_Progress>Перевод: осталось {0} · {1}/мин · служба: {2}</URT_All_Progress>
+  <URT_Diag_Line>Ожидают: {0} текстов · не удалось ни в одной службе: {1} · отклонено проверкой: {2}</URT_Diag_Line>
+  <URT_Diag_Offline>Включено «Офлайн – только память»: ни одна служба не опрашивается.</URT_Diag_Offline>
+  <URT_Diag_NoService>Сейчас не работает ни одна служба – все выключены, не настроены, на паузе или их ключ отклонён.</URT_Diag_NoService>
+  <URT_Diag_KeyRejected>{0}: ключ отклонён – пропускается в этой сессии</URT_Diag_KeyRejected>
+  <URT_Diag_Paused>{0}: пауза {1} с</URT_Diag_Paused>
+  <URT_Diag_Services>Службы с проблемами: {0}</URT_Diag_Services>
+  <URT_Import_Button>Импорт переводов…</URT_Import_Button>
+  <URT_Import_Tip>Переносит в память переводы из других модов-переводчиков: Auto Translation (его кэш в папке сохранений игры) и файл {0} в папке Config (оригинал TAB перевод, по одному в строке). Только текущий язык; ваши собственные переводы в приоритете, работающие переводы никогда не заменяются.</URT_Import_Tip>
+  <URT_Import_Working>Импортирую…</URT_Import_Working>
+  <URT_Import_None>Нечего импортировать. Поддерживается: кэш Auto Translation и файл {0} в папке Config (оригинал TAB перевод).</URT_Import_None>
+  <URT_Import_Done>Импортировано переводов: {0} ({1}); пропущено {2} (уже переведены, неизвестны или не прошли проверку).</URT_Import_Done>
+  <URT_Pack_Export>Экспорт пакета…</URT_Pack_Export>
+  <URT_Pack_ExportTip>Сохраняет память – или только тексты выбранных модов – в файл .tsv в Config/UniversalRimTranslator2/packs, чтобы поделиться с другими игроками.</URT_Pack_ExportTip>
+  <URT_Pack_Import>Импорт пакета…</URT_Pack_Import>
+  <URT_Pack_ImportTip>Переносит пакет (.tsv) из Config/UniversalRimTranslator2/packs в память. Ваши собственные переводы в приоритете, работающие переводы никогда не заменяются.</URT_Pack_ImportTip>
+  <URT_Pack_Working>Работаю…</URT_Pack_Working>
+  <URT_Pack_Title>Пакет переводов</URT_Pack_Title>
+  <URT_Pack_Name>Имя файла:</URT_Pack_Name>
+  <URT_Pack_All>Все переводы в памяти</URT_Pack_All>
+  <URT_Pack_Mods>Только эти моды:</URT_Pack_Mods>
+  <URT_Pack_DoExport>Экспортировать</URT_Pack_DoExport>
+  <URT_Pack_Exported>Сохранено переводов: {0} в {1}</URT_Pack_Exported>
+  <URT_Pack_NoFiles>В {0} нет пакетов – положите туда пакеты .tsv.</URT_Pack_NoFiles>
+  <URT_Pack_WrongLang>Этот пакет для {0}, а игра на {1} – ничего не импортировано.</URT_Pack_WrongLang>
+  <URT_Pack_OpenFolder>Открыть папку пакетов</URT_Pack_OpenFolder>
 </LanguageData>

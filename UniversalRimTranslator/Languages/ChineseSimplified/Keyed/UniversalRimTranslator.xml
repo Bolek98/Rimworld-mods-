@@ -169,4 +169,38 @@
   <URT_RaceNames_Desc>模组添加的类人种族和异种名称也会被翻译。关闭：保持模组起的名字（翻译服务曾把“Yuran”之类的名字当作普通词语）。</URT_RaceNames_Desc>
   <URT_Mods_NewWaiting>{0} 个新模组等待翻译：{1}</URT_Mods_NewWaiting>
   <URT_Mods_AllowNew>翻译新模组</URT_Mods_AllowNew>
+  <URT_All_Button>立即翻译全部</URT_All_Button>
+  <URT_All_Running>正在翻译全部…</URT_All_Running>
+  <URT_All_Tip>一键完成：重试失败的文本，忘记未通过检查的机器翻译（你自己的翻译保留），放行等待中的新模组，重新扫描所有模组并翻译所有缺失的内容。</URT_All_Tip>
+  <URT_All_Confirm>立即翻译全部？\n\n将重试每个失败的文本，忘记未通过检查的机器翻译（你自己的翻译保留），放行等待中的新模组，重新扫描所有模组并翻译所有缺失的内容。模组很多时可能需要很长时间（数小时）——期间你可以继续游戏。</URT_All_Confirm>
+  <URT_All_Started>正在翻译全部：{0} 条失败的机器翻译将重新翻译，正在扫描所有模组。</URT_All_Started>
+  <URT_All_Done>Universal RimTranslator：找到的内容已全部翻译（新增 {0} 条翻译）。</URT_All_Done>
+  <URT_All_Stopped>Universal RimTranslator：现在无法翻译——处于离线模式或没有可用的服务。请查看概览中的诊断信息。</URT_All_Stopped>
+  <URT_All_Scanning>正在重新扫描所有模组…</URT_All_Scanning>
+  <URT_All_Progress>翻译中：剩余 {0} · {1}/分钟 · 服务：{2}</URT_All_Progress>
+  <URT_Diag_Line>等待中：{0} 条文本 · 所有服务均失败：{1} · 未通过检查：{2}</URT_Diag_Line>
+  <URT_Diag_Offline>已开启“离线——仅使用记忆”：不会请求任何服务。</URT_Diag_Offline>
+  <URT_Diag_NoService>现在没有可用的服务——全部已关闭、未设置、暂停或密钥被拒绝。</URT_Diag_NoService>
+  <URT_Diag_KeyRejected>{0}：密钥被拒绝——本次运行跳过</URT_Diag_KeyRejected>
+  <URT_Diag_Paused>{0}：暂停 {1} 秒</URT_Diag_Paused>
+  <URT_Diag_Services>有问题的服务：{0}</URT_Diag_Services>
+  <URT_Import_Button>导入翻译…</URT_Import_Button>
+  <URT_Import_Tip>将其他翻译模组的翻译导入记忆：Auto Translation（其缓存位于游戏存档文件夹中）以及 Config 文件夹中的文件 {0}（原文 TAB 译文，每行一条）。仅限当前语言；你自己的翻译优先，可用的翻译永远不会被替换。</URT_Import_Tip>
+  <URT_Import_Working>导入中…</URT_Import_Working>
+  <URT_Import_None>没有找到可导入的内容。支持：Auto Translation 的缓存，以及 Config 文件夹中的文件 {0}（原文 TAB 译文）。</URT_Import_None>
+  <URT_Import_Done>已导入 {0} 条翻译（{1}）；跳过 {2} 条（已翻译、未知或未通过检查）。</URT_Import_Done>
+  <URT_Pack_Export>导出翻译包…</URT_Pack_Export>
+  <URT_Pack_ExportTip>将记忆（或仅所选模组的文本）保存为 .tsv 文件，放在 Config/UniversalRimTranslator2/packs 中，方便与其他玩家分享。</URT_Pack_ExportTip>
+  <URT_Pack_Import>导入翻译包…</URT_Pack_Import>
+  <URT_Pack_ImportTip>将 Config/UniversalRimTranslator2/packs 中的翻译包（.tsv）导入记忆。你自己的翻译优先，可用的翻译永远不会被替换。</URT_Pack_ImportTip>
+  <URT_Pack_Working>处理中…</URT_Pack_Working>
+  <URT_Pack_Title>翻译包</URT_Pack_Title>
+  <URT_Pack_Name>文件名：</URT_Pack_Name>
+  <URT_Pack_All>记忆中的所有翻译</URT_Pack_All>
+  <URT_Pack_Mods>仅这些模组：</URT_Pack_Mods>
+  <URT_Pack_DoExport>导出</URT_Pack_DoExport>
+  <URT_Pack_Exported>已将 {0} 条翻译保存到 {1}</URT_Pack_Exported>
+  <URT_Pack_NoFiles>{0} 中没有翻译包——请把 .tsv 翻译包放在那里。</URT_Pack_NoFiles>
+  <URT_Pack_WrongLang>此翻译包适用于 {0}，而游戏语言是 {1}——未导入任何内容。</URT_Pack_WrongLang>
+  <URT_Pack_OpenFolder>打开翻译包文件夹</URT_Pack_OpenFolder>
 </LanguageData>

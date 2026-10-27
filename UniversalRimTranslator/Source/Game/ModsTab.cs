@@ -73,7 +73,12 @@ namespace UniversalRimTranslator
 
             // search + export all + open folder
             float bw = 190f;
-            query = Widgets.TextField(new Rect(r.x, y, r.width - 2 * (bw + 8f), 30f), query ?? "");
+            // 2.6.0: "translate everything now" also here
+            Rect allR = new Rect(r.xMax - 3 * bw - 16f, y, bw, 30f);
+            if (Widgets.ButtonText(allR, UrtTools.AllRunning ? "URT_All_Running".Translate() : "URT_All_Button".Translate()) && !UrtTools.AllRunning)
+                UrtTools.ConfirmAll();
+            TooltipHandler.TipRegion(allR, "URT_All_Tip".Translate());
+            query = Widgets.TextField(new Rect(r.x, y, r.width - 3 * (bw + 8f), 30f), query ?? "");
             if (string.IsNullOrEmpty(query))
             {
                 GUI.color = MUI.Muted;

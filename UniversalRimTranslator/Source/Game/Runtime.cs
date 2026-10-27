@@ -504,6 +504,9 @@ namespace UniversalRimTranslator
 
         public static void Kick() => wake.Set();
 
+        // 2.6.0: give-up counts of this session (>= 3 failed at every service, 99 rejected by the checks)
+        public static List<int> GiveUpValues() => giveUp.Values.ToList();
+
         public static void RetryFailed() { giveUp.Clear(); Chain.ClearPauses(); Kick(); }
 
         // 2.4.1: "translate again" – the next try skips the service that made the old translation

@@ -169,4 +169,38 @@ Choisissez votre langue dans Options → Langue et redémarrez le jeu – URT tr
   <URT_RaceNames_Desc>Les noms des races humanoïdes et des xénotypes ajoutés par des mods sont aussi traduits. Désactivé : ils restent tels que le mod les a nommés (les services prenaient des noms comme « Yuran » pour des mots ordinaires).</URT_RaceNames_Desc>
   <URT_Mods_NewWaiting>{0} nouveaux mods attendent la traduction : {1}</URT_Mods_NewWaiting>
   <URT_Mods_AllowNew>Traduire les nouveaux mods</URT_Mods_AllowNew>
+  <URT_All_Button>Tout traduire maintenant</URT_All_Button>
+  <URT_All_Running>Traduction de tout…</URT_All_Running>
+  <URT_All_Tip>Un clic : réessaie les textes en échec, oublie les traductions automatiques qui n'ont pas passé les vérifications (les vôtres restent), laisse entrer les nouveaux mods en attente, réanalyse tous les mods et traduit tout ce qui manque.</URT_All_Tip>
+  <URT_All_Confirm>Tout traduire maintenant ?\n\nChaque texte en échec est réessayé, les traductions automatiques qui n'ont pas passé les vérifications sont oubliées (vos propres traductions restent), les nouveaux mods en attente sont acceptés, tous les mods sont réanalysés et tout ce qui manque est traduit. Avec beaucoup de mods, cela peut prendre longtemps (des heures) – vous pouvez continuer à jouer pendant ce temps.</URT_All_Confirm>
+  <URT_All_Started>Traduction de tout : {0} traductions automatiques en échec seront refaites, tous les mods sont analysés.</URT_All_Started>
+  <URT_All_Done>Universal RimTranslator : tout ce qui a été trouvé est traduit ({0} nouvelles traductions).</URT_All_Done>
+  <URT_All_Stopped>Universal RimTranslator : rien ne peut être traduit pour l'instant – mode hors ligne ou aucun service ne fonctionne. Voir le diagnostic dans l'aperçu.</URT_All_Stopped>
+  <URT_All_Scanning>Nouvelle analyse de tous les mods…</URT_All_Scanning>
+  <URT_All_Progress>Traduction : reste {0} · {1}/min · service : {2}</URT_All_Progress>
+  <URT_Diag_Line>En attente : {0} textes · échec chez tous les services : {1} · rejetés par les vérifications : {2}</URT_Diag_Line>
+  <URT_Diag_Offline>« Hors ligne – mémoire seulement » est activé : aucun service n'est sollicité.</URT_Diag_Offline>
+  <URT_Diag_NoService>Aucun service ne fonctionne pour l'instant – tous sont désactivés, non configurés, en pause ou leur clé a été refusée.</URT_Diag_NoService>
+  <URT_Diag_KeyRejected>{0} : clé refusée – ignoré pour cette session</URT_Diag_KeyRejected>
+  <URT_Diag_Paused>{0} : en pause {1} s</URT_Diag_Paused>
+  <URT_Diag_Services>Services en difficulté : {0}</URT_Diag_Services>
+  <URT_Import_Button>Importer des traductions…</URT_Import_Button>
+  <URT_Import_Tip>Reprend dans la mémoire les traductions d'autres mods de traduction : Auto Translation (son cache dans le dossier de sauvegarde du jeu) et le fichier {0} dans le dossier Config (original TAB traduction, une par ligne). Seulement la langue actuelle ; vos propres traductions priment et les traductions qui fonctionnent ne sont jamais remplacées.</URT_Import_Tip>
+  <URT_Import_Working>Importation…</URT_Import_Working>
+  <URT_Import_None>Rien à importer. Pris en charge : le cache d'Auto Translation et le fichier {0} dans le dossier Config (original TAB traduction).</URT_Import_None>
+  <URT_Import_Done>{0} traductions importées ({1}) ; {2} ignorées (déjà traduites, inconnues ou refusées par les vérifications).</URT_Import_Done>
+  <URT_Pack_Export>Exporter un pack…</URT_Pack_Export>
+  <URT_Pack_ExportTip>Enregistre la mémoire – ou seulement les textes des mods choisis – dans un fichier .tsv dans Config/UniversalRimTranslator2/packs, pour le partager avec d'autres joueurs.</URT_Pack_ExportTip>
+  <URT_Pack_Import>Importer un pack…</URT_Pack_Import>
+  <URT_Pack_ImportTip>Reprend un pack (.tsv) de Config/UniversalRimTranslator2/packs dans la mémoire. Vos propres traductions priment et les traductions qui fonctionnent ne sont jamais remplacées.</URT_Pack_ImportTip>
+  <URT_Pack_Working>En cours…</URT_Pack_Working>
+  <URT_Pack_Title>Pack de traduction</URT_Pack_Title>
+  <URT_Pack_Name>Nom du fichier :</URT_Pack_Name>
+  <URT_Pack_All>Toutes les traductions de la mémoire</URT_Pack_All>
+  <URT_Pack_Mods>Seulement ces mods :</URT_Pack_Mods>
+  <URT_Pack_DoExport>Exporter</URT_Pack_DoExport>
+  <URT_Pack_Exported>{0} traductions enregistrées dans {1}</URT_Pack_Exported>
+  <URT_Pack_NoFiles>Aucun pack dans {0} – placez-y des packs .tsv.</URT_Pack_NoFiles>
+  <URT_Pack_WrongLang>Ce pack est pour {0}, le jeu est en {1} – rien n'a été importé.</URT_Pack_WrongLang>
+  <URT_Pack_OpenFolder>Ouvrir le dossier des packs</URT_Pack_OpenFolder>
 </LanguageData>

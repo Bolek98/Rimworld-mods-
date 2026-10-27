@@ -169,4 +169,38 @@ Elige tu idioma en Opciones → Idioma y reinicia el juego: URT traducirá enton
   <URT_RaceNames_Desc>También se traducen los nombres de razas humanoides y xenotipos añadidos por mods. Desactivado: se quedan como los nombró el mod (los servicios tomaban nombres como «Yuran» por palabras normales).</URT_RaceNames_Desc>
   <URT_Mods_NewWaiting>{0} mods nuevos esperan traducción: {1}</URT_Mods_NewWaiting>
   <URT_Mods_AllowNew>Traducir mods nuevos</URT_Mods_AllowNew>
+  <URT_All_Button>Traducir todo ahora</URT_All_Button>
+  <URT_All_Running>Traduciendo todo…</URT_All_Running>
+  <URT_All_Tip>Un clic: reintenta los textos que fallaron, olvida las traducciones automáticas que no pasaron las comprobaciones (las tuyas se quedan), deja entrar los mods nuevos en espera, vuelve a analizar todos los mods y traduce todo lo que falta.</URT_All_Tip>
+  <URT_All_Confirm>¿Traducir todo ahora?\n\nSe reintenta cada texto que falló, se olvidan las traducciones automáticas que no pasaron las comprobaciones (tus propias traducciones se quedan), se aceptan los mods nuevos en espera, se vuelven a analizar todos los mods y se traduce todo lo que falta. Con muchos mods puede tardar mucho (horas); mientras tanto puedes seguir jugando.</URT_All_Confirm>
+  <URT_All_Started>Traduciendo todo: se rehacen {0} traducciones automáticas fallidas, se analizan todos los mods.</URT_All_Started>
+  <URT_All_Done>Universal RimTranslator: todo lo encontrado está traducido ({0} traducciones nuevas).</URT_All_Done>
+  <URT_All_Stopped>Universal RimTranslator: ahora no se puede traducir nada – modo sin conexión o ningún servicio funciona. Mira el diagnóstico en el resumen.</URT_All_Stopped>
+  <URT_All_Scanning>Analizando de nuevo todos los mods…</URT_All_Scanning>
+  <URT_All_Progress>Traduciendo: quedan {0} · {1}/min · servicio: {2}</URT_All_Progress>
+  <URT_Diag_Line>En espera: {0} textos · fallaron en todos los servicios: {1} · rechazados por las comprobaciones: {2}</URT_Diag_Line>
+  <URT_Diag_Offline>«Sin conexión – solo memoria» está activado: no se consulta ningún servicio.</URT_Diag_Offline>
+  <URT_Diag_NoService>Ahora no funciona ningún servicio: todos están desactivados, sin configurar, en pausa o se rechazó su clave.</URT_Diag_NoService>
+  <URT_Diag_KeyRejected>{0}: clave rechazada – omitido en esta sesión</URT_Diag_KeyRejected>
+  <URT_Diag_Paused>{0}: en pausa {1} s</URT_Diag_Paused>
+  <URT_Diag_Services>Servicios con problemas: {0}</URT_Diag_Services>
+  <URT_Import_Button>Importar traducciones…</URT_Import_Button>
+  <URT_Import_Tip>Pasa a la memoria las traducciones de otros mods de traducción: Auto Translation (su caché en la carpeta de guardado del juego) y el archivo {0} en la carpeta Config (original TAB traducción, una por línea). Solo el idioma actual; tus propias traducciones tienen prioridad y las traducciones que funcionan nunca se sustituyen.</URT_Import_Tip>
+  <URT_Import_Working>Importando…</URT_Import_Working>
+  <URT_Import_None>No se encontró nada que importar. Compatible: la caché de Auto Translation y el archivo {0} en la carpeta Config (original TAB traducción).</URT_Import_None>
+  <URT_Import_Done>{0} traducciones importadas ({1}); {2} omitidas (ya traducidas, desconocidas o rechazadas por las comprobaciones).</URT_Import_Done>
+  <URT_Pack_Export>Exportar paquete…</URT_Pack_Export>
+  <URT_Pack_ExportTip>Guarda la memoria – o solo los textos de los mods elegidos – como archivo .tsv en Config/UniversalRimTranslator2/packs, para compartirlo con otros jugadores.</URT_Pack_ExportTip>
+  <URT_Pack_Import>Importar paquete…</URT_Pack_Import>
+  <URT_Pack_ImportTip>Pasa un paquete (.tsv) de Config/UniversalRimTranslator2/packs a la memoria. Tus propias traducciones tienen prioridad y las traducciones que funcionan nunca se sustituyen.</URT_Pack_ImportTip>
+  <URT_Pack_Working>Trabajando…</URT_Pack_Working>
+  <URT_Pack_Title>Paquete de traducción</URT_Pack_Title>
+  <URT_Pack_Name>Nombre del archivo:</URT_Pack_Name>
+  <URT_Pack_All>Todas las traducciones de la memoria</URT_Pack_All>
+  <URT_Pack_Mods>Solo estos mods:</URT_Pack_Mods>
+  <URT_Pack_DoExport>Exportar</URT_Pack_DoExport>
+  <URT_Pack_Exported>{0} traducciones guardadas en {1}</URT_Pack_Exported>
+  <URT_Pack_NoFiles>No hay paquetes en {0}: pon ahí paquetes .tsv.</URT_Pack_NoFiles>
+  <URT_Pack_WrongLang>Este paquete es para {0} y el juego está en {1}: no se importó nada.</URT_Pack_WrongLang>
+  <URT_Pack_OpenFolder>Abrir la carpeta de paquetes</URT_Pack_OpenFolder>
 </LanguageData>

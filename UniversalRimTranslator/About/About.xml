@@ -3,7 +3,7 @@
   <name>Universal RimTranslator</name>
   <author>Bolek98</author>
   <packageId>misak.universalrimtranslator</packageId>
-  <modVersion>2.5.2</modVersion>
+  <modVersion>2.6.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -28,6 +28,8 @@
 - Several translation services can be chained; rate limits are respected.
 - Manual corrections of any text are kept.
 - Optional offline mode (memory only), and newly added mods can wait until you let them be translated.
+- "Translate everything now": one click retries, rescans and translates everything that is missing, with progress and diagnostics.
+- Import translations from Auto Translation, and share your translations as packs (.tsv).
 
 Note: machine translation uses online translation services; texts of your mods are sent to them.</description>
 </ModMetaData>

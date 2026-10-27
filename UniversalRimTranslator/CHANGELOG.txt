@@ -1,4 +1,11 @@
 === Not on the Workshop yet (test versions) ===
+2.6.0
+- New "Translate everything now" button (Overview, also in the Mods tab): one click retries the texts that failed, forgets machine translations that failed the checks (your own translations stay), lets waiting new mods in, scans all mods again and translates everything that is missing. Asks first, shows the progress (texts left, speed, service) and a message when done.
+- Diagnostics under the status: how many texts wait, how many failed at every service, how many were rejected by the checks, and which services do not work right now (no working service, key rejected, paused).
+- A service whose key is rejected (HTTP 401/403, e.g. Azure with an invalid key) is skipped for the rest of the session instead of being tried again – until you change its settings.
+- Import translations (Overview): takes the translations of Auto Translation (its cache for your language) and of a file urt_import_<language>.tsv in the Config folder (original TAB translation) into the memory. Your own translations win, working translations are never replaced, every imported text is checked.
+- Translation packs (Overview): export the memory – or only the texts of chosen mods – as a .tsv file into Config/UniversalRimTranslator2/packs, and import packs from there, to share translations with other players.
+
 2.5.2
 - Race and xenotype names from mods are no longer translated (a race called "Yuran" was taken for a Malay word and became "Fees"). Setting "Translate race names" (off) if you want them translated.
 - Short English texts are always sent as English, so a service can no longer take them for another language.

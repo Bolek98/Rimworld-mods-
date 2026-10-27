@@ -169,4 +169,38 @@
   <URT_RaceNames_Desc>MODが追加した人型種族とゼノタイプの名前も翻訳します。オフ：MODが付けた名前のまま残ります（サービスは「Yuran」のような名前を普通の単語と誤解していました）。</URT_RaceNames_Desc>
   <URT_Mods_NewWaiting>{0} 個の新しいMODが翻訳を待っています：{1}</URT_Mods_NewWaiting>
   <URT_Mods_AllowNew>新しいMODを翻訳</URT_Mods_AllowNew>
+  <URT_All_Button>今すぐすべて翻訳</URT_All_Button>
+  <URT_All_Running>すべて翻訳中…</URT_All_Running>
+  <URT_All_Tip>ワンクリックで：失敗したテキストを再試行し、チェックに通らなかった機械翻訳を忘れ（自分の翻訳は残ります）、待機中の新しいMODを許可し、すべてのMODを再スキャンして、足りないものをすべて翻訳します。</URT_All_Tip>
+  <URT_All_Confirm>今すぐすべて翻訳しますか？\n\n失敗したテキストをすべて再試行し、チェックに通らなかった機械翻訳を忘れ（自分の翻訳は残ります）、待機中の新しいMODを許可し、すべてのMODを再スキャンして、足りないものをすべて翻訳します。MODが多いと長時間（数時間）かかることがあります。その間もプレイを続けられます。</URT_All_Confirm>
+  <URT_All_Started>すべて翻訳中：失敗した機械翻訳 {0} 件をやり直し、すべてのMODをスキャンしています。</URT_All_Started>
+  <URT_All_Done>Universal RimTranslator：見つかったものはすべて翻訳されました（新しい翻訳 {0} 件）。</URT_All_Done>
+  <URT_All_Stopped>Universal RimTranslator：今は何も翻訳できません。オフラインモードか、使えるサービスがありません。概要の診断を見てください。</URT_All_Stopped>
+  <URT_All_Scanning>すべてのMODを再スキャン中…</URT_All_Scanning>
+  <URT_All_Progress>翻訳中：残り {0} · {1}/分 · サービス：{2}</URT_All_Progress>
+  <URT_Diag_Line>待機中：{0} 件 · すべてのサービスで失敗：{1} · チェックで却下：{2}</URT_Diag_Line>
+  <URT_Diag_Offline>「オフライン – メモリのみ」がオンです：どのサービスにも問い合わせません。</URT_Diag_Offline>
+  <URT_Diag_NoService>今使えるサービスがありません。すべてオフ、未設定、一時停止中、またはキーが拒否されています。</URT_Diag_NoService>
+  <URT_Diag_KeyRejected>{0}：キーが拒否されました – このセッションではスキップ</URT_Diag_KeyRejected>
+  <URT_Diag_Paused>{0}：{1} 秒停止中</URT_Diag_Paused>
+  <URT_Diag_Services>問題のあるサービス：{0}</URT_Diag_Services>
+  <URT_Import_Button>翻訳をインポート…</URT_Import_Button>
+  <URT_Import_Tip>他の翻訳MODの翻訳をメモリに取り込みます：Auto Translation（ゲームのセーブフォルダ内のキャッシュ）と、Configフォルダのファイル {0}（原文 TAB 訳文、1行に1件）。現在の言語のみ。自分の翻訳が優先され、正常な翻訳は置き換えられません。</URT_Import_Tip>
+  <URT_Import_Working>インポート中…</URT_Import_Working>
+  <URT_Import_None>インポートできるものが見つかりません。対応：Auto Translation のキャッシュと、Configフォルダのファイル {0}（原文 TAB 訳文）。</URT_Import_None>
+  <URT_Import_Done>{0} 件の翻訳をインポートしました（{1}）。{2} 件はスキップ（翻訳済み、不明、またはチェック不合格）。</URT_Import_Done>
+  <URT_Pack_Export>パックをエクスポート…</URT_Pack_Export>
+  <URT_Pack_ExportTip>メモリ（または選んだMODのテキストのみ）を .tsv ファイルとして Config/UniversalRimTranslator2/packs に保存し、他のプレイヤーと共有できます。</URT_Pack_ExportTip>
+  <URT_Pack_Import>パックをインポート…</URT_Pack_Import>
+  <URT_Pack_ImportTip>Config/UniversalRimTranslator2/packs のパック（.tsv）をメモリに取り込みます。自分の翻訳が優先され、正常な翻訳は置き換えられません。</URT_Pack_ImportTip>
+  <URT_Pack_Working>処理中…</URT_Pack_Working>
+  <URT_Pack_Title>翻訳パック</URT_Pack_Title>
+  <URT_Pack_Name>ファイル名：</URT_Pack_Name>
+  <URT_Pack_All>メモリ内のすべての翻訳</URT_Pack_All>
+  <URT_Pack_Mods>これらのMODのみ：</URT_Pack_Mods>
+  <URT_Pack_DoExport>エクスポート</URT_Pack_DoExport>
+  <URT_Pack_Exported>{0} 件の翻訳を {1} に保存しました</URT_Pack_Exported>
+  <URT_Pack_NoFiles>{0} にパックがありません。.tsv パックを入れてください。</URT_Pack_NoFiles>
+  <URT_Pack_WrongLang>このパックは {0} 用で、ゲームは {1} です。何もインポートしませんでした。</URT_Pack_WrongLang>
+  <URT_Pack_OpenFolder>パックフォルダを開く</URT_Pack_OpenFolder>
 </LanguageData>

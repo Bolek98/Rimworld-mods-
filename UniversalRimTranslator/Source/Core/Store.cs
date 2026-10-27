@@ -168,18 +168,35 @@ namespace Urt2
         // forgotten so they are translated again (the player's own translations stay)
         public int ForgetFailedAuto()
         {
-            var drop = new List<string>();
-            lock (gate)
+            int n = 0;
+            try
             {
-                foreach (var kv in map)
+                Directory.CreateDirectory(folder);
+                lock (gate)
                 {
-                    Rec r = kv.Value;
-                    if (r == null || r.Manual) continue;
-                    if (r.Verdict != Verdict.Ok || string.IsNullOrEmpty(r.Text)) drop.Add(kv.Key);
+                    var drop = new List<string>();
+                    foreach (var kv in map)
+                    {
+                        Rec r = kv.Value;
+                        if (r == null || r.Manual) continue;
+                        if (r.Verdict != Verdict.Ok || string.IsNullOrEmpty(r.Text)) drop.Add(kv.Key);
+                    }
+                    if (drop.Count == 0) return 0;
+                    foreach (string k in drop) map.Remove(k);
+                    Version++;
+                    n = drop.Count;
+                    // one journal write for all of them (tens of thousands of single writes would stall the game)
+                    using (var fs = new FileStream(JournalPath, FileMode.Append, FileAccess.Write, FileShare.Read))
+                    using (var bw = new BinaryWriter(new BufferedStream(fs, 1 << 16), Encoding.UTF8))
+                        foreach (string k in drop) Write(bw, k, null);
+                    journalCount += drop.Count;
                 }
             }
-            foreach (string k in drop) Forget(k);
-            return drop.Count;
+            catch (Exception e)
+            {
+                Log("memory journal write failed: " + e.Message);
+            }
+            return n;
         }
 
         // 2.6.0: how many machine translations failed the checks (kept, but not used)

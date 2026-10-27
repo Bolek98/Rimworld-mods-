@@ -169,4 +169,38 @@
   <URT_RaceNames_Desc>Назви людиноподібних рас і ксенотипів із модів теж перекладаються. Вимкнено: вони лишаються такими, як їх назвав мод (сервіси сприймали імена на кшталт «Yuran» за звичайні слова).</URT_RaceNames_Desc>
   <URT_Mods_NewWaiting>{0} нових модів чекають на переклад: {1}</URT_Mods_NewWaiting>
   <URT_Mods_AllowNew>Перекласти нові моди</URT_Mods_AllowNew>
+  <URT_All_Button>Перекласти все зараз</URT_All_Button>
+  <URT_All_Running>Перекладаю все…</URT_All_Running>
+  <URT_All_Tip>Один клік: повторює тексти, що не вдалися, забуває машинні переклади, які не пройшли перевірку (ваші власні лишаються), впускає нові моди, що чекають, заново сканує всі моди й перекладає все, чого бракує.</URT_All_Tip>
+  <URT_All_Confirm>Перекласти все зараз?\n\nКожен текст, що не вдався, буде повторено, машинні переклади, які не пройшли перевірку, буде забуто (ваші власні переклади лишаються), нові моди, що чекають, буде впущено, всі моди буде заново проскановано, і все, чого бракує, буде перекладено. З великою кількістю модів це може тривати довго (години) – тим часом можна грати.</URT_All_Confirm>
+  <URT_All_Started>Перекладаю все: {0} машинних перекладів, що не вдалися, буде зроблено заново, сканую всі моди.</URT_All_Started>
+  <URT_All_Done>Universal RimTranslator: усе знайдене перекладено ({0} нових перекладів).</URT_All_Done>
+  <URT_All_Stopped>Universal RimTranslator: зараз нічого не можна перекласти – офлайн-режим або жодна служба не працює. Подробиці в огляді.</URT_All_Stopped>
+  <URT_All_Scanning>Заново сканую всі моди…</URT_All_Scanning>
+  <URT_All_Progress>Переклад: залишилось {0} · {1}/хв · служба: {2}</URT_All_Progress>
+  <URT_Diag_Line>Чекають: {0} текстів · не вдалося в жодній службі: {1} · відхилено перевіркою: {2}</URT_Diag_Line>
+  <URT_Diag_Offline>Увімкнено «Офлайн – лише пам'ять»: жодна служба не опитується.</URT_Diag_Offline>
+  <URT_Diag_NoService>Зараз не працює жодна служба – всі вимкнені, не налаштовані, на паузі або їхній ключ відхилено.</URT_Diag_NoService>
+  <URT_Diag_KeyRejected>{0}: ключ відхилено – пропускається в цій сесії</URT_Diag_KeyRejected>
+  <URT_Diag_Paused>{0}: пауза {1} с</URT_Diag_Paused>
+  <URT_Diag_Services>Служби з проблемами: {0}</URT_Diag_Services>
+  <URT_Import_Button>Імпорт перекладів…</URT_Import_Button>
+  <URT_Import_Tip>Переносить у пам'ять переклади з інших модів-перекладачів: Auto Translation (його кеш у теці збережень гри) і файл {0} у теці Config (оригінал TAB переклад, по одному в рядку). Лише поточна мова; ваші власні переклади мають перевагу, а робочі переклади ніколи не замінюються.</URT_Import_Tip>
+  <URT_Import_Working>Імпортую…</URT_Import_Working>
+  <URT_Import_None>Нічого імпортувати. Підтримується: кеш Auto Translation і файл {0} у теці Config (оригінал TAB переклад).</URT_Import_None>
+  <URT_Import_Done>Імпортовано перекладів: {0} ({1}); пропущено {2} (вже перекладені, невідомі або не пройшли перевірку).</URT_Import_Done>
+  <URT_Pack_Export>Експорт пакета…</URT_Pack_Export>
+  <URT_Pack_ExportTip>Зберігає пам'ять – або лише тексти вибраних модів – у файл .tsv у Config/UniversalRimTranslator2/packs, щоб поділитися з іншими гравцями.</URT_Pack_ExportTip>
+  <URT_Pack_Import>Імпорт пакета…</URT_Pack_Import>
+  <URT_Pack_ImportTip>Переносить пакет (.tsv) з Config/UniversalRimTranslator2/packs у пам'ять. Ваші власні переклади мають перевагу, а робочі переклади ніколи не замінюються.</URT_Pack_ImportTip>
+  <URT_Pack_Working>Працюю…</URT_Pack_Working>
+  <URT_Pack_Title>Пакет перекладів</URT_Pack_Title>
+  <URT_Pack_Name>Назва файлу:</URT_Pack_Name>
+  <URT_Pack_All>Усі переклади в пам'яті</URT_Pack_All>
+  <URT_Pack_Mods>Лише ці моди:</URT_Pack_Mods>
+  <URT_Pack_DoExport>Експортувати</URT_Pack_DoExport>
+  <URT_Pack_Exported>Збережено перекладів: {0} у {1}</URT_Pack_Exported>
+  <URT_Pack_NoFiles>У {0} немає пакетів – покладіть туди пакети .tsv.</URT_Pack_NoFiles>
+  <URT_Pack_WrongLang>Цей пакет для {0}, а гра мовою {1} – нічого не імпортовано.</URT_Pack_WrongLang>
+  <URT_Pack_OpenFolder>Відкрити теку пакетів</URT_Pack_OpenFolder>
 </LanguageData>

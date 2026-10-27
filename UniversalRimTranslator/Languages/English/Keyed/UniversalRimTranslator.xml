@@ -170,4 +170,38 @@ Choose your language in Options → Language and restart the game – URT then t
   <URT_RaceNames_Desc>Names of humanlike races and xenotypes added by mods are translated too. Off: they stay as the mod named them (services took names like "Yuran" for ordinary words).</URT_RaceNames_Desc>
   <URT_Mods_NewWaiting>{0} new mods wait for translation: {1}</URT_Mods_NewWaiting>
   <URT_Mods_AllowNew>Translate new mods</URT_Mods_AllowNew>
+  <URT_All_Button>Translate everything now</URT_All_Button>
+  <URT_All_Running>Translating everything…</URT_All_Running>
+  <URT_All_Tip>One click: retries texts that failed, forgets machine translations that failed the checks (your own stay), lets waiting new mods in, scans all mods again and translates everything that is missing.</URT_All_Tip>
+  <URT_All_Confirm>Translate everything now?\n\nThis retries every text that failed, forgets machine translations that failed the checks (your own translations stay), lets new mods that wait in, scans all mods again and translates everything that is missing. With many mods it can take a long time (hours) – you can keep playing meanwhile.</URT_All_Confirm>
+  <URT_All_Started>Translating everything: {0} failed machine translations will be made again, all mods are being scanned.</URT_All_Started>
+  <URT_All_Done>Universal RimTranslator: everything found is translated ({0} new translations).</URT_All_Done>
+  <URT_All_Stopped>Universal RimTranslator: nothing can be translated now – offline mode or no working service. See the diagnostics in the Overview.</URT_All_Stopped>
+  <URT_All_Scanning>Scanning all mods again…</URT_All_Scanning>
+  <URT_All_Progress>Translating: {0} left · {1}/min · service: {2}</URT_All_Progress>
+  <URT_Diag_Line>Waiting: {0} texts · failed at every service: {1} · rejected by the checks: {2}</URT_Diag_Line>
+  <URT_Diag_Offline>Offline – memory only is on: no service is asked.</URT_Diag_Offline>
+  <URT_Diag_NoService>No working service right now – all are switched off, not set up, paused or their key was rejected.</URT_Diag_NoService>
+  <URT_Diag_KeyRejected>{0}: key rejected – skipped this session</URT_Diag_KeyRejected>
+  <URT_Diag_Paused>{0}: paused {1} s</URT_Diag_Paused>
+  <URT_Diag_Services>Services with problems: {0}</URT_Diag_Services>
+  <URT_Import_Button>Import translations…</URT_Import_Button>
+  <URT_Import_Tip>Takes translations from other translator mods into the memory: Auto Translation (its cache in the game's save folder) and the file {0} in the Config folder (source TAB translation, one per line). Only the current language; your own translations win and working translations are never replaced.</URT_Import_Tip>
+  <URT_Import_Working>Importing…</URT_Import_Working>
+  <URT_Import_None>Nothing to import was found. Supported: the cache of Auto Translation, and the file {0} in the Config folder (source TAB translation).</URT_Import_None>
+  <URT_Import_Done>Imported {0} translations ({1}); {2} skipped (already translated, unknown or failed the checks).</URT_Import_Done>
+  <URT_Pack_Export>Export pack…</URT_Pack_Export>
+  <URT_Pack_ExportTip>Saves the memory – or only the texts of chosen mods – as a .tsv file in Config/UniversalRimTranslator2/packs, to share with other players.</URT_Pack_ExportTip>
+  <URT_Pack_Import>Import pack…</URT_Pack_Import>
+  <URT_Pack_ImportTip>Takes a pack (.tsv) from Config/UniversalRimTranslator2/packs into the memory. Your own translations win and working translations are never replaced.</URT_Pack_ImportTip>
+  <URT_Pack_Working>Working…</URT_Pack_Working>
+  <URT_Pack_Title>Translation pack</URT_Pack_Title>
+  <URT_Pack_Name>File name:</URT_Pack_Name>
+  <URT_Pack_All>All translations in the memory</URT_Pack_All>
+  <URT_Pack_Mods>Only these mods:</URT_Pack_Mods>
+  <URT_Pack_DoExport>Export</URT_Pack_DoExport>
+  <URT_Pack_Exported>Saved {0} translations to {1}</URT_Pack_Exported>
+  <URT_Pack_NoFiles>No packs in {0} – put .tsv packs there.</URT_Pack_NoFiles>
+  <URT_Pack_WrongLang>This pack is for {0}, the game is in {1} – nothing was imported.</URT_Pack_WrongLang>
+  <URT_Pack_OpenFolder>Open packs folder</URT_Pack_OpenFolder>
 </LanguageData>
