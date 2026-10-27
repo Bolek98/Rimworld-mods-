@@ -360,19 +360,61 @@ namespace Urt2
         public override double MinIntervalSeconds => 0.2;
         public override bool Configured(ProviderConfig c) => !string.IsNullOrWhiteSpace(c.AzureKey);
 
+        // 2.6.1: a key from a regional (or multi-service) Azure resource only works when the
+        // request names that resource's region; "global" or a wrong region gives HTTP 401.
+        // On the first 401 we try the request without a region and then the common regions,
+        // remember the one that works and hand it back to the settings (FoundRegion).
+        public static volatile string FoundRegion;
+        private static volatile bool probed;
+        private static readonly string[] Regions =
+        {
+            "", "global", "westeurope", "northeurope", "germanywestcentral", "swedencentral", "francecentral",
+            "uksouth", "switzerlandnorth", "polandcentral", "norwayeast", "italynorth", "eastus", "eastus2",
+            "westus", "westus2", "westus3", "centralus", "southcentralus", "northcentralus", "canadacentral",
+            "brazilsouth", "eastasia", "southeastasia", "japaneast", "koreacentral", "australiaeast",
+            "centralindia", "uaenorth", "southafricanorth"
+        };
+
         public override List<string> Translate(List<string> texts, string src, string tgt, ProviderConfig cfg, CancellationToken ct)
         {
             string url = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=" + AzureCode(tgt) + (src == null ? "" : "&from=" + AzureCode(src));
             string body = "[" + string.Join(",", texts.Select(t => "{\"Text\":" + Json.Quote(t) + "}").ToArray()) + "]";
-            var headers = new List<(string, string)> { ("Ocp-Apim-Subscription-Key", cfg.AzureKey.Trim()) };
-            if (!string.IsNullOrWhiteSpace(cfg.AzureRegion)) headers.Add(("Ocp-Apim-Subscription-Region", cfg.AzureRegion.Trim()));
-            object j = ParseJson(PostJson(url, body, ct, headers.ToArray()));
+            string key = (cfg.AzureKey ?? "").Trim();
+            string region = FoundRegion ?? (cfg.AzureRegion ?? "").Trim();
+            string answer;
+            try { answer = Call(url, body, key, region, ct); }
+            catch (ProviderError e) when (e.Kind == FailKind.Auth && !probed)
+            {
+                probed = true;
+                string found = null;
+                foreach (string r in Regions)
+                {
+                    if (ct.IsCancellationRequested) break;
+                    if (string.Equals(r, region, StringComparison.OrdinalIgnoreCase)) continue;
+                    try { Call("https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=de", "[{\"Text\":\"ok\"}]", key, r, ct); found = r; break; }
+                    catch (ProviderError pe) when (pe.Kind == FailKind.Auth) { Thread.Sleep(150); }
+                }
+                if (found == null)
+                    throw new ProviderError(FailKind.Auth, e.Message + " – the key works in no Azure region; check that it is the Translator key (Keys and Endpoint), not a subscription or Foundry project key");
+                FoundRegion = found;
+                answer = Call(url, body, key, found, ct);
+            }
+            object j = ParseJson(answer);
             var arr = j as List<object>;
             if (arr == null) throw new ProviderError(FailKind.BadAnswer, Name + ": unexpected answer");
             var res = Nulls(texts.Count);
             for (int i = 0; i < texts.Count && i < arr.Count; i++) res[i] = Json.Str(arr[i], "translations", 0, "text");
             return res;
         }
+
+        private string Call(string url, string body, string key, string region, CancellationToken ct)
+        {
+            var headers = new List<(string, string)> { ("Ocp-Apim-Subscription-Key", key) };
+            if (!string.IsNullOrWhiteSpace(region)) headers.Add(("Ocp-Apim-Subscription-Region", region));
+            return PostJson(url, body, ct, headers.ToArray());
+        }
+
+        public static void KeyChanged() { probed = false; FoundRegion = null; }
     }
 
     public sealed class GoogleCloudProvider : Provider

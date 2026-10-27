@@ -11,7 +11,7 @@ namespace UniversalRimTranslator
 {
     public static class UrtVersion
     {
-        public const string Number = "2.6.0";
+        public const string Number = "2.6.1";
         public static string Display => Number + " (test)";
     }
 
@@ -104,6 +104,12 @@ namespace UniversalRimTranslator
 
         public ProviderConfig ProviderConfig()
         {
+            string found = AzureProvider.FoundRegion;
+            if (found != null && !string.Equals(found, azureRegion, StringComparison.OrdinalIgnoreCase))
+            {
+                azureRegion = found;
+                Log.Message("[URT] Azure Translator: the key belongs to region \"" + (found.Length == 0 ? "(none)" : found) + "\" – saved in the settings.");
+            }
             bool customIsLibre = (customEndpointType ?? "").IndexOf("libre", StringComparison.OrdinalIgnoreCase) >= 0;
             return new ProviderConfig
             {
@@ -423,8 +429,8 @@ namespace UniversalRimTranslator
             {
                 case "deepl": l.Add(("URT_Key".Translate(), () => s.deepLApiKey, v => s.deepLApiKey = v)); break;
                 case "azure":
-                    l.Add(("URT_Key".Translate(), () => s.azureApiKey, v => s.azureApiKey = v));
-                    l.Add(("URT_Region".Translate(), () => s.azureRegion, v => s.azureRegion = v));
+                    l.Add(("URT_Key".Translate(), () => s.azureApiKey, v => { if (v != s.azureApiKey) AzureProvider.KeyChanged(); s.azureApiKey = v; }));
+                    l.Add(("URT_Region".Translate(), () => s.azureRegion, v => { if (v != s.azureRegion) AzureProvider.KeyChanged(); s.azureRegion = v; }));
                     break;
                 case "googlecloud": l.Add(("URT_Key".Translate(), () => s.googleApiKey, v => s.googleApiKey = v)); break;
                 case "gemini":

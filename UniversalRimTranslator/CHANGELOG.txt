@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+2.6.1
+- Azure Translator: a new key that still gave HTTP 401 works now. Keys from a regional or multi-service Azure resource need the resource's region; when the key is rejected, URT now finds the right region by itself (no region, global, the common regions), uses it and saves it in the settings. If the key works in no region, the message says to check that it is the Translator key from "Keys and Endpoint".
+
 2.6.0
 - New "Translate everything now" button (Overview, also in the Mods tab): one click retries the texts that failed, forgets machine translations that failed the checks (your own translations stay), lets waiting new mods in, scans all mods again and translates everything that is missing. Asks first, shows the progress (texts left, speed, service) and a message when done.
 - Diagnostics under the status: how many texts wait, how many failed at every service, how many were rejected by the checks, and which services do not work right now (no working service, key rejected, paused).
