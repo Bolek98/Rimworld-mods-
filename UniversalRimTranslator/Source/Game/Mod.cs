@@ -11,7 +11,7 @@ namespace UniversalRimTranslator
 {
     public static class UrtVersion
     {
-        public const string Number = "2.6.1";
+        public const string Number = "2.6.2";
         public static string Display => Number + " (test)";
     }
 
@@ -464,7 +464,7 @@ namespace UniversalRimTranslator
             testResult[p.Id] = "URT_Testing".Translate();
             string target = Runtime.Target ?? Lang.ToIso(LanguageDatabase.activeLanguage?.folderName);
             if (string.IsNullOrEmpty(target) || Lang.Same(target, "en")) target = "cs";
-            var chain = new Chain { Order = new List<string> { p.Id }, Config = cfg };
+            var chain = new Chain { Order = new List<string> { p.Id }, Config = cfg, Log = m => MLog.Info("[URT] test: " + m) };
             try
             {
                 new Thread(() =>
@@ -474,7 +474,11 @@ namespace UniversalRimTranslator
                         var job = new Job { Source = "The colonist is hungry and wants to eat {0}.", SourceLang = "en" };
                         var cts = new CancellationTokenSource(TimeSpan.FromSeconds(45));
                         chain.Run(new List<Job> { job }, target, cts.Token);
-                        testResult[p.Id] = job.Result != null ? "✓ " + job.Result : "✗ " + (job.Error ?? chain.Status(p.Id));
+                        string st = chain.Status(p.Id);
+                        // 2.6.2: show the service's real error (HTTP code, message) instead of only "no service could translate it"
+                        string why = st.StartsWith("ready") || st.StartsWith("ok") ? (job.Error ?? st) : st;
+                        testResult[p.Id] = job.Result != null ? "✓ " + job.Result : "✗ " + why;
+                        MLog.Info("[URT] test " + p.Name + ": " + (job.Result != null ? "ok" : why) + (p is AzureProvider ? " (" + AzureProvider.Mode + ")" : ""));
                     }
                     catch (Exception e) { testResult[p.Id] = "✗ " + e.Message; }
                     finally { testing.TryRemove(p.Id, out _); }

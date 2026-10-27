@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+2.6.2
+- Azure Translator: when a key that works elsewhere is rejected (HTTP 401), URT now also sends the key in the request address instead of the header, then tries the regions, and keeps what works. Invisible characters copied with the key are removed.
+- The Test button shows the service's real error (e.g. HTTP 401 and its message) instead of only "no service could translate it", and writes the test result to Logs\URT.log.
+
 2.6.1
 - Azure Translator: a new key that still gave HTTP 401 works now. Keys from a regional or multi-service Azure resource need the resource's region; when the key is rejected, URT now finds the right region by itself (no region, global, the common regions), uses it and saves it in the settings. If the key works in no region, the message says to check that it is the Translator key from "Keys and Endpoint".
 

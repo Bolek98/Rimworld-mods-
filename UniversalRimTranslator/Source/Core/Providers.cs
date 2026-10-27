@@ -365,7 +365,7 @@ namespace Urt2
         // On the first 401 we try the request without a region and then the common regions,
         // remember the one that works and hand it back to the settings (FoundRegion).
         public static volatile string FoundRegion;
-        private static volatile bool probed;
+        private static volatile bool probed, useQuery;
         private static readonly string[] Regions =
         {
             "", "global", "westeurope", "northeurope", "germanywestcentral", "swedencentral", "francecentral",
@@ -374,30 +374,38 @@ namespace Urt2
             "brazilsouth", "eastasia", "southeastasia", "japaneast", "koreacentral", "australiaeast",
             "centralindia", "uaenorth", "southafricanorth"
         };
+        private const string Base = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0";
 
         public override List<string> Translate(List<string> texts, string src, string tgt, ProviderConfig cfg, CancellationToken ct)
         {
-            string url = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=" + AzureCode(tgt) + (src == null ? "" : "&from=" + AzureCode(src));
+            string url = Base + "&to=" + AzureCode(tgt) + (src == null ? "" : "&from=" + AzureCode(src));
             string body = "[" + string.Join(",", texts.Select(t => "{\"Text\":" + Json.Quote(t) + "}").ToArray()) + "]";
-            string key = (cfg.AzureKey ?? "").Trim();
+            string key = new string((cfg.AzureKey ?? "").Where(c => !char.IsWhiteSpace(c) && !char.IsControl(c) && c != '\uFEFF' && c != '\u200B').ToArray());
             string region = FoundRegion ?? (cfg.AzureRegion ?? "").Trim();
             string answer;
-            try { answer = Call(url, body, key, region, ct); }
+            try { answer = Call(url, body, key, region, useQuery, ct); }
             catch (ProviderError e) when (e.Kind == FailKind.Auth && !probed)
             {
                 probed = true;
-                string found = null;
-                foreach (string r in Regions)
+                // 2.6.2: the key header can get lost on the way (Unity's Mono HTTP client); the
+                // Translator also accepts the key in the address – try that first, then the regions
+                const string probe = "[{\"Text\":\"ok\"}]";
+                string probeUrl = Base + "&to=de&from=en";
+                string found = null; bool q = false;
+                foreach (bool mode in new[] { !useQuery, true })
                 {
-                    if (ct.IsCancellationRequested) break;
-                    if (string.Equals(r, region, StringComparison.OrdinalIgnoreCase)) continue;
-                    try { Call("https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=de", "[{\"Text\":\"ok\"}]", key, r, ct); found = r; break; }
-                    catch (ProviderError pe) when (pe.Kind == FailKind.Auth) { Thread.Sleep(150); }
+                    foreach (string r in mode == useQuery ? Regions.Where(x => !string.Equals(x, region, StringComparison.OrdinalIgnoreCase)) : new[] { region }.Concat(Regions))
+                    {
+                        if (ct.IsCancellationRequested) break;
+                        try { Call(probeUrl, probe, key, r, mode, ct); found = r; q = mode; break; }
+                        catch (ProviderError pe) when (pe.Kind == FailKind.Auth) { Thread.Sleep(120); }
+                    }
+                    if (found != null) break;
                 }
                 if (found == null)
                     throw new ProviderError(FailKind.Auth, e.Message + " – the key works in no Azure region; check that it is the Translator key (Keys and Endpoint), not a subscription or Foundry project key");
-                FoundRegion = found;
-                answer = Call(url, body, key, found, ct);
+                FoundRegion = found; useQuery = q;
+                answer = Call(url, body, key, found, q, ct);
             }
             object j = ParseJson(answer);
             var arr = j as List<object>;
@@ -407,14 +415,26 @@ namespace Urt2
             return res;
         }
 
-        private string Call(string url, string body, string key, string region, CancellationToken ct)
+        private string Call(string url, string body, string key, string region, bool inQuery, CancellationToken ct)
         {
+            bool hasRegion = !string.IsNullOrWhiteSpace(region);
+            if (inQuery)
+            {
+                url += "&Subscription-Key=" + Uri.EscapeDataString(key) + (hasRegion ? "&Subscription-Region=" + Uri.EscapeDataString(region.Trim()) : "");
+                try { return PostJson(url, body, ct); }
+                catch (ProviderError e) when (key.Length > 0 && e.Message.Contains(key))
+                {
+                    throw new ProviderError(e.Kind, e.Message.Replace(Uri.EscapeDataString(key), "***").Replace(key, "***"), e.RetryAfterSeconds);   // never log the key
+                }
+            }
             var headers = new List<(string, string)> { ("Ocp-Apim-Subscription-Key", key) };
-            if (!string.IsNullOrWhiteSpace(region)) headers.Add(("Ocp-Apim-Subscription-Region", region));
+            if (hasRegion) headers.Add(("Ocp-Apim-Subscription-Region", region.Trim()));
             return PostJson(url, body, ct, headers.ToArray());
         }
 
-        public static void KeyChanged() { probed = false; FoundRegion = null; }
+        public static string Mode => (useQuery ? "key in address" : "key in header") + ", region " + (FoundRegion == null ? "from settings" : FoundRegion.Length == 0 ? "none" : FoundRegion);
+
+        public static void KeyChanged() { probed = false; FoundRegion = null; useQuery = false; }
     }
 
     public sealed class GoogleCloudProvider : Provider
