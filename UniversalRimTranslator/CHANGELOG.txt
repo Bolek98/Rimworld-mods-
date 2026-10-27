@@ -1,4 +1,11 @@
 === Not on the Workshop yet (test versions) ===
+2.5.2
+- Race and xenotype names from mods are no longer translated (a race called "Yuran" was taken for a Malay word and became "Fees"). Setting "Translate race names" (off) if you want them translated.
+- Short English texts are always sent as English, so a service can no longer take them for another language.
+- AI services (Gemini, OpenAI-compatible) now get context: what kind of text it is (label, description, letter, grammar rule, interface), which mod it is from, and your glossary words.
+- New settings (Overview, off by default): "Offline – memory only" (no service is asked, only the memory is used) and "Don't translate newly added mods automatically" (new mods wait in the Mods tab until you let them in).
+- The "Test" button of a service with empty fields says at once that it is not set up, instead of starting a request; one test at a time, at most 45 s. A broken server address gives a clear message.
+
 2.5.1
 - Fix: after a mod change the background scan of 2.5.0 could read texts that were already translated and take them for originals. The Mods tab then showed low percentages and those texts were sent to the services again. The scan now always sees the originals; the old scan is thrown away once and the texts translated twice are removed from the memory (your own translations stay).
 - Fix: Keyed texts translated by URT disappeared from the list after a rescan.
