@@ -37,6 +37,9 @@ namespace HaulSmarter
                 Job work = __args != null && __args.Length > 0 ? __args[__args.Length - 1] as Job : null;
                 if (pawn?.Map == null || work == null || !HaulUtil.CanUsePockets(pawn))
                     return;
+                // 3.4.1: the game's single haul stays as it is – no detour round in a ceremony, caravan, emergency
+                if (StepAside.Now(pawn))
+                    return;
                 IntVec3 dest = work.targetA.Cell;
                 if (!dest.IsValid)
                     return;
@@ -331,6 +334,111 @@ namespace HaulSmarter
             {
                 Safe.Fail("animals", e);
             }
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // 3.4.1 Extra hauling steps aside: no pocket filling on the way and no
+    // detour rounds while a colonist takes part in a ritual, party, speech,
+    // wedding or any other gathering, while he forms a caravan or loads a
+    // shuttle / transport pods (every one of these is a Lord), while he is
+    // bleeding, or while a downed colonist he could tend is waiting.
+    // ------------------------------------------------------------------
+    public static class StepAside
+    {
+        private static readonly Dictionary<int, int> patientTick = new Dictionary<int, int>();
+        private static readonly Dictionary<int, bool> patientAny = new Dictionary<int, bool>();
+
+        // a ceremony, gathering, caravan forming or transporter loading (any Lord) – the pawn belongs to it
+        public static bool InLord(Pawn pawn)
+        {
+            try
+            {
+                return pawn != null && pawn.GetLord() != null;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        // cached per map for 250 ticks – a downed colonist who needs tending now
+        private static bool PatientWaiting(Map map)
+        {
+            int now = Find.TickManager.TicksGame;
+            if (patientTick.TryGetValue(map.uniqueID, out int at) && now - at < 250 && patientAny.TryGetValue(map.uniqueID, out bool v))
+                return v;
+            bool any = false;
+            List<Pawn> list = map.mapPawns.FreeColonistsSpawned;
+            for (int i = 0; i < list.Count && !any; i++)
+            {
+                Pawn p = list[i];
+                if (p.Downed && HealthAIUtility.ShouldBeTendedNowByPlayer(p))
+                    any = true;
+            }
+            patientTick[map.uniqueID] = now;
+            patientAny[map.uniqueID] = any;
+            return any;
+        }
+
+        // true = do not start extra (opportunistic / detour) hauling now
+        public static bool Now(Pawn pawn)
+        {
+            if (pawn == null)
+                return true;
+            if (InLord(pawn))
+                return true;
+            if (HSMod.S == null || !HSMod.S.stepAside)
+                return false;
+            try
+            {
+                if (pawn.health?.hediffSet != null && pawn.health.hediffSet.BleedRateTotal > 0.01f)
+                    return true;
+                if (pawn.Map != null && pawn.workSettings != null && !pawn.WorkTypeIsDisabled(WorkTypeDefOf.Doctor)
+                    && pawn.workSettings.WorkIsActive(WorkTypeDefOf.Doctor) && PatientWaiting(pawn.Map))
+                    return true;
+            }
+            catch (Exception e)
+            {
+                Log.WarningOnce("[Haul Master] step-aside check: " + e.Message, 0x4a51e9);
+            }
+            return false;
+        }
+    }
+
+    // 3.4.1: a colonist who leaves with a caravan or boards a shuttle / transport pod keeps
+    // everything in his pockets – Haul Master only forgets that it was meant for storage here
+    public static class ForgetPockets
+    {
+        public static void Run(Pawn pawn)
+        {
+            try
+            {
+                if (pawn?.inventory == null || HSData.I == null)
+                    return;
+                foreach (Thing t in HaulUtil.TrackedItems(pawn).ToList())
+                    HSData.Untrack(t);
+            }
+            catch (Exception e)
+            {
+                Log.WarningOnce("[Haul Master] forget pockets: " + e.Message, 0x4a51ea);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(Pawn), nameof(Pawn.ExitMap))]
+    public static class Patch_ForgetOnExitMap
+    {
+        public static void Prefix(Pawn __instance) => ForgetPockets.Run(__instance);
+    }
+
+    [HarmonyPatch(typeof(CompTransporter), nameof(CompTransporter.Notify_ThingAdded))]
+    public static class Patch_ForgetOnBoard
+    {
+        public static void Prefix(Thing t)
+        {
+            if (t is Pawn p)
+                ForgetPockets.Run(p);
         }
     }
 }

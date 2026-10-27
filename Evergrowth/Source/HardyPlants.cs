@@ -74,6 +74,9 @@ namespace HardyPlants
         // 1.9.0: plants from other mods – kind and group guessed from their own values
         public bool autoGuess = true;
 
+        // 1.9.1: crops of one grow zone sown within about a day ripen together
+        public bool cropSync = false;
+
         // 1.7.0: chosen profile. 0 Vanilla, 1 Recommended, 2 Lush, 3 Custom.
         // A new install starts on Recommended; settings from an older version
         // stay Custom (missing key). Profiles 0-2 are applied again on every
@@ -154,6 +157,7 @@ namespace HardyPlants
             Scribe_Values.Look(ref fewerFires, "fewerFires", false);
             Scribe_Values.Look(ref fruitRepeat, "fruitRepeat", false);
             Scribe_Values.Look(ref autoGuess, "autoGuess", true);
+            Scribe_Values.Look(ref cropSync, "cropSync", false);
             Scribe_Values.Look(ref profile, "profile", 3);
             if (Scribe.mode == LoadSaveMode.LoadingVars)
             {
@@ -225,7 +229,7 @@ namespace HardyPlants
     // ------------------------------------------------------------------
     public class HardyPlantsMod : Mod
     {
-        public const string Version = "1.9.0";
+        public const string Version = "1.9.1";
         public static HardyPlantsSettings Settings;
         private Vector2 scroll;
         private Vector2 leftScroll;
@@ -351,6 +355,8 @@ namespace HardyPlants
             MUI.Section(l, "HardyPlants_SecSeason".Translate());
             MUI.Check(l, "HardyPlants_AnySeason".Translate(), "HardyPlants_AnySeasonDesc".Translate(), ref s.anySeason, s, "anySeason");
             MUI.Check(l, "HardyPlants_Greenhouse".Translate(), "HardyPlants_GreenhouseDesc".Translate(), ref s.greenhouse, s, "greenhouse");
+            // 1.9.1
+            MUI.Check(l, "HardyPlants_CropSync".Translate(), "HardyPlants_CropSyncDesc".Translate(), ref s.cropSync, s, null);
             Note(l);
         }
 

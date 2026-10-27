@@ -415,4 +415,16 @@
   <GT_ED_K_Job>殖民者的工作出错。通常他会去做别的事。</GT_ED_K_Job>
   <GT_ED_K_Other>模组代码出错。复制后发给模组作者。</GT_ED_K_Other>
   <GT_MemBlocked17>在 1.7 中 Smooth FPS 不再强制清理内存——这会导致贴图、图标和门消失。游戏会自行清理。</GT_MemBlocked17>
+  <!-- 1.5.3 -->
+  <GT_HideResources>仅在鼠标下显示资源列表</GT_HideResources>
+  <GT_HideResources_Desc>左侧的资源列表只在鼠标位于其上方时绘制。物品种类很多时，这个列表每帧都会花费一些时间。</GT_HideResources_Desc>
+  <GT_UltraSpeed>无需开发者模式的速度 4</GT_UltraSpeed>
+  <GT_UltraSpeed_Desc>将游戏自带的第 4 档速度（通常只在开发者模式中）作为按钮添加在速度 3 之后。速度 4 的按键以及从速度 3 按“加速”也有效。大型殖民地在较慢的电脑上可能达不到该速度。</GT_UltraSpeed_Desc>
+  <GT_UltraButton>速度 4</GT_UltraButton>
+  <GT_DangerSpeed>危险时的速度</GT_DangerSpeed>
+  <GT_DangerSpeed_Desc>袭击或战斗开始时，游戏会暂时切换到速度 1。在这里你可以改为保持速度 2 或 3。游戏仍会像往常一样暂停和警告。</GT_DangerSpeed_Desc>
+  <GT_Danger0>与游戏相同（速度 1）</GT_Danger0>
+  <GT_Danger1>保持速度 2</GT_Danger1>
+  <GT_Danger2>保持速度 3</GT_Danger2>
+  <GT_SpeedOtherMod>Smart Speed 已启用——它自己处理速度 4 和危险时的速度，因此这两项设置不起作用。</GT_SpeedOtherMod>
 </LanguageData>

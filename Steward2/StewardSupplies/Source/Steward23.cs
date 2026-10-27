@@ -579,7 +579,7 @@ public sealed partial class SupplyManager
 		slaughterMarks.Clear();
 		int removed = 0;
 		DesignationManager dm = map.designationManager;
-		foreach (DesignationDef dd in new[] { DesignationDefOf.Hunt, DesignationDefOf.Mine, DesignationDefOf.CutPlant, DesignationDefOf.HarvestPlant, DesignationDefOf.Slaughter })
+		foreach (DesignationDef dd in new[] { DesignationDefOf.Hunt, DesignationDefOf.Mine, DesignationDefOf.CutPlant, DesignationDefOf.HarvestPlant, DesignationDefOf.Slaughter, DesignationDefOf.ReleaseAnimalToWild })
 			foreach (Designation d in dm.SpawnedDesignationsOfDef(dd).ToList())
 			{
 				string key = d.target.HasThing ? d.target.Thing.ThingID : d.target.Cell.x + "," + d.target.Cell.z;

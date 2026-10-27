@@ -782,7 +782,7 @@ namespace ResearchedLoadout
 				}
 				try
 				{
-					if (item.IsWeapon && item.equipmentType == EquipmentType.Primary && !item.IsStuff)
+					if (LoadoutFilter.IsRealWeapon(item))   // 2.15.3: real weapons only
 					{
 						if (item.IsRangedWeapon)
 						{
@@ -5190,7 +5190,8 @@ namespace ResearchedLoadout
 			{
 				return true;
 			}
-			if (!def.IsWeapon && !def.IsApparel)
+			// 2.15.3: only real weapons (not beer or other items with an attack)
+			if (!IsRealWeapon(def) && !def.IsApparel)
 			{
 				return true;
 			}
@@ -5214,7 +5215,8 @@ namespace ResearchedLoadout
 			{
 				return true;
 			}
-			if (!def.IsWeapon && !def.IsApparel)
+			// 2.15.3: only real weapons (not beer or other items with an attack)
+			if (!IsRealWeapon(def) && !def.IsApparel)
 			{
 				return true;
 			}
@@ -5310,9 +5312,56 @@ namespace ResearchedLoadout
 			return bannedApparel.Contains(def.defName);
 		}
 
+		// 2.15.3: the game counts every item with an attack as a "weapon" – beer, food, medicine and resources
+		// or work items from mods (Expanded Woodworking, Brewing, ...) included. Only real weapons are managed:
+		// a gun, or a melee weapon with real attacks that is a weapon by its tags or category.
+		private static readonly Dictionary<ThingDef, bool> realWeaponCache = new Dictionary<ThingDef, bool>();
+
 		public static bool IsRealWeapon(ThingDef def)
 		{
-			return def != null && def.IsWeapon && def.equipmentType == EquipmentType.Primary && !def.IsStuff;
+			if (def == null || !def.IsWeapon || def.equipmentType != EquipmentType.Primary || def.IsStuff)
+			{
+				return false;
+			}
+			bool value;
+			if (realWeaponCache.TryGetValue(def, out value))
+			{
+				return value;
+			}
+			value = true;
+			try
+			{
+				if (def.IsIngestible || def.IsMedicine)
+				{
+					value = false;
+				}
+				else if (!def.IsRangedWeapon)
+				{
+					ThingCategoryDef weapons = ThingCategoryDefOf.Weapons;
+					ThingCategoryDef raw = ThingCategoryDefOf.ResourcesRaw;
+					if (weapons == null)
+					{
+						return true;   // too early (defs not bound yet) – answer like before, do not cache
+					}
+					bool inWeapons = def.IsWithinCategory(weapons);
+					bool tagged = def.weaponTags != null && def.weaponTags.Count > 0;
+					if (def.tools.NullOrEmpty())
+					{
+						value = false;
+					}
+					else if (!inWeapons && (!tagged || (raw != null && def.IsWithinCategory(raw))))
+					{
+						value = false;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MLog.WarnOnce("[Smart Colonist Gear] weapon check for " + def.defName + ": " + ex.Message, 7310050);
+				value = true;
+			}
+			realWeaponCache[def] = value;
+			return value;
 		}
 
 		// 2.6.1: grenades and other thrown weapons are never auto-picked, compared or dropped
@@ -10110,7 +10159,7 @@ namespace ResearchedLoadout
 				{
 					foreach (Thing t in p.inventory.innerContainer)
 					{
-						if (t != null && t.def.IsWeapon && !t.def.IsApparel && t.def.equipmentType == EquipmentType.Primary)
+						if (t != null && LoadoutFilter.IsRealWeapon(t.def))   // 2.15.3: beer in the pockets is not a sidearm
 						{
 							side = (side.Length == 0) ? t.LabelCapNoCount : (side + ", " + t.LabelCapNoCount);
 							mass += t.GetStatValue(StatDefOf.Mass) * t.stackCount;
@@ -11503,7 +11552,8 @@ namespace ResearchedLoadout
 			{
 				return true;
 			}
-			if (!job.targetA.Thing.def.IsWeapon)
+			// 2.15.3: beer, food and other items with an attack are never blocked
+			if (!LoadoutFilter.IsRealWeapon(job.targetA.Thing.def))
 			{
 				return true;
 			}

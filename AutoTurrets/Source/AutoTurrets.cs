@@ -23,6 +23,8 @@ namespace AutoTurrets
 		public bool fuelStone = false;       // 1.1.0: … and with stone blocks
 		public bool wallTurrets = false;     // 1.2.0: picked turrets get a version built over walls
 		public Dictionary<string, bool> wallPick = new Dictionary<string, bool>();   // only choices that differ from the recommendation
+		public bool smartShells = true;      // 1.3.1: auto mortars pick targets that suit the loaded shell, haulers pick shells that suit the enemy
+		public bool noHitBuildings = false;  // 1.3.1: true = your turrets' bullets and shell blasts spare your own buildings
 
 		public override void ExposeData()
 		{
@@ -37,6 +39,8 @@ namespace AutoTurrets
 			Scribe_Values.Look(ref fuelWood, "fuelWood", false);
 			Scribe_Values.Look(ref fuelStone, "fuelStone", false);
 			Scribe_Values.Look(ref wallTurrets, "wallTurrets", false);
+			Scribe_Values.Look(ref smartShells, "smartShells", true);
+			Scribe_Values.Look(ref noHitBuildings, "noHitBuildings", false);
 			Scribe_Collections.Look(ref wallPick, "wallPick", LookMode.Value, LookMode.Value);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit && wallPick == null)
 				wallPick = new Dictionary<string, bool>();
@@ -90,7 +94,9 @@ namespace AutoTurrets
 						S.safetyExtra = Mathf.Round(l.Slider(S.safetyExtra, 0f, 15f));
 					}
 					l.CheckboxLabeled("AT_LoadShells".Translate(), ref S.loadShells, "AT_LoadShells_Desc".Translate());
+					l.CheckboxLabeled("AT_SmartShells".Translate(), ref S.smartShells, "AT_SmartShells_Desc".Translate());
 					l.CheckboxLabeled("AT_FriendlyFire".Translate(), ref S.friendlyFire, "AT_FriendlyFire_Desc".Translate());
+					l.CheckboxLabeled("AT_NoHitBuildings".Translate(), ref S.noHitBuildings, "AT_NoHitBuildings_Desc".Translate());
 				}
 				else
 				{
@@ -269,9 +275,35 @@ namespace AutoTurrets
 		public static Thing FindShell(Pawn pawn, Building_TurretGun t)
 		{
 			StorageSettings allowed = t.gun.TryGetComp<CompChangeableProjectile>().allowedShellsSettings;
+			Predicate<Thing> ok = x => !x.IsForbidden(pawn) && pawn.CanReserve(x, 10, 1) && (allowed == null || allowed.AllowedToAccept(x));
+			// 1.3.1: smart shell choice – first the best kind for the enemies on the map, then any useful kind, then anything allowed
+			if (SmartShells.On)
+			{
+				try
+				{
+					List<Thing> shells = pawn.Map.listerThings.ThingsInGroup(ThingRequestGroup.Shell);
+					for (int tier = 0; tier < 2; tier++)
+					{
+						int want = tier;
+						bool any = false;
+						for (int i = 0; i < shells.Count && !any; i++)
+							if (SmartShells.Tier(shells[i].def, pawn.Map) <= want && (allowed == null || allowed.AllowedToAccept(shells[i])))
+								any = true;
+						if (!any)
+							continue;
+						Thing found = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.Shell), PathEndMode.ClosestTouch,
+							TraverseParms.For(pawn), 9999f, x => SmartShells.Tier(x.def, pawn.Map) <= want && ok(x));
+						if (found != null)
+							return found;
+					}
+				}
+				catch (Exception e)
+				{
+					Log.WarningOnce("[Auto Turrets] smart shell choice: " + e.Message, 0x41545331);
+				}
+			}
 			return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.Shell), PathEndMode.ClosestTouch,
-				TraverseParms.For(pawn), 9999f,
-				x => !x.IsForbidden(pawn) && pawn.CanReserve(x, 10, 1) && (allowed == null || allowed.AllowedToAccept(x)));
+				TraverseParms.For(pawn), 9999f, x => ok(x));
 		}
 
 		public override bool HasJobOnThing(Pawn pawn, Thing thing, bool forced = false)
@@ -393,7 +425,13 @@ namespace AutoTurrets
 	{
 		public static bool Off => ATMod.S != null && !ATMod.S.friendlyFire;
 
-		public static bool OurTurret(Thing t) => t is Building_Turret b && b.Faction == Faction.OfPlayer;
+		// 1.3.1: any building of ours that aims and shoots (vanilla, ancient/odyssey and modded turrets – they all search targets)
+		public static bool OurTurret(Thing t) => t is Building b && b.Faction == Faction.OfPlayer && (b is Building_Turret || b is IAttackTargetSearcher);
+
+		// 1.3.1: "turrets don't hit our buildings"
+		public static bool SpareBuildings => ATMod.S != null && ATMod.S.noHitBuildings;
+
+		public static bool OurBuilding(Thing t) => t is Building b && b.Faction == Faction.OfPlayer;
 
 		public static bool Friendly(Thing t)
 		{
@@ -408,9 +446,14 @@ namespace AutoTurrets
 	[HarmonyPatch(typeof(Projectile), "CanHit")]
 	public static class Patch_ProjectileCanHit
 	{
-		public static void Postfix(Thing thing, ref bool __result, Thing ___launcher)
+		public static void Postfix(Projectile __instance, Thing thing, ref bool __result, Thing ___launcher)
 		{
-			if (__result && FriendlyFire.Off && FriendlyFire.OurTurret(___launcher) && FriendlyFire.Friendly(thing))
+			if (!__result || !FriendlyFire.OurTurret(___launcher))
+				return;
+			if (FriendlyFire.Off && FriendlyFire.Friendly(thing))
+				__result = false;
+			// 1.3.1: bullets fly past our own buildings unless the building itself was aimed at
+			else if (FriendlyFire.SpareBuildings && FriendlyFire.OurBuilding(thing) && thing != __instance.intendedTarget.Thing)
 				__result = false;
 		}
 	}
@@ -422,12 +465,14 @@ namespace AutoTurrets
 		{
 			try
 			{
-				if (!FriendlyFire.Off || explosion?.Map == null || !FriendlyFire.OurTurret(explosion.instigator))
+					// 1.3.1: also our buildings, when that option is on
+				bool people = FriendlyFire.Off, buildings = FriendlyFire.SpareBuildings;
+				if ((!people && !buildings) || explosion?.Map == null || !FriendlyFire.OurTurret(explosion.instigator))
 					return;
 				List<Thing> here = c.GetThingList(explosion.Map);
 				for (int i = 0; i < here.Count; i++)
 				{
-					if (!FriendlyFire.Friendly(here[i]))
+					if (!(people && FriendlyFire.Friendly(here[i])) && !(buildings && FriendlyFire.OurBuilding(here[i])))
 						continue;
 					if (ignoredThings == null)
 						ignoredThings = new List<Thing>();
@@ -437,6 +482,165 @@ namespace AutoTurrets
 			}
 			catch
 			{
+			}
+		}
+	}
+
+	// ------------------------------------------------------------------
+	// 1.3.1 Smart shell choice: an automatic mortar does not waste a shell on a
+	// target it can't hurt (EMP on flesh without a shield, firefoam on anything
+	// but a fire, incendiary on mechanoids); with firefoam loaded it puts out
+	// fires in the home area instead. Haulers bring the kind that suits the
+	// enemies on the map (EMP against mostly mechanoids/shields, otherwise HE).
+	// ------------------------------------------------------------------
+	public static class SmartShells
+	{
+		public enum Kind { Other, HE, EMP, Foam, Fire }
+
+		public static bool On => ATMod.S != null && ATMod.S.smartShells;
+
+		public static Kind KindOfShell(ThingDef shell)
+		{
+			DamageDef d = shell?.projectileWhenLoaded?.projectile?.damageDef;
+			if (d == null) return Kind.Other;
+			if (d == DamageDefOf.EMP) return Kind.EMP;
+			if (d == DamageDefOf.Extinguish) return Kind.Foam;
+			if (d == DamageDefOf.Flame) return Kind.Fire;
+			if (d == DamageDefOf.Bomb) return Kind.HE;
+			return Kind.Other;
+		}
+
+		public static Kind Loaded(Building_TurretGun t)
+		{
+			CompChangeableProjectile c = t.gun?.TryGetComp<CompChangeableProjectile>();
+			return c != null && c.Loaded ? KindOfShell(c.LoadedShell) : Kind.Other;
+		}
+
+		public static bool Shielded(Pawn p)
+		{
+			if (p.apparel != null)
+			{
+				List<Apparel> worn = p.apparel.WornApparel;
+				for (int i = 0; i < worn.Count; i++)
+					if (worn[i].TryGetComp<CompShield>() != null)
+						return true;
+			}
+			return p.TryGetComp<CompShield>() != null || p.TryGetComp<CompProjectileInterceptor>() != null;
+		}
+
+		// is this shell kind pointless against this target?
+		public static bool Pointless(Kind k, Thing t)
+		{
+			switch (k)
+			{
+				case Kind.Foam:
+					return true;   // never at enemies – only at fires (see Patch_FindFireTarget)
+				case Kind.EMP:
+					return t is Pawn p && !p.RaceProps.IsMechanoid && !Shielded(p);
+				case Kind.Fire:
+					return t is Pawn q && q.RaceProps.IsMechanoid;
+				default:
+					return false;
+			}
+		}
+
+		// what the enemies on the map are, refreshed every few seconds
+		private static int cacheMap = -1, cacheTick = -9999;
+		private static bool cacheMechs, cacheAnyMech;
+
+		private static void Scan(Map map)
+		{
+			int now = Find.TickManager.TicksGame;
+			if (map.uniqueID == cacheMap && now - cacheTick < 250 && now >= cacheTick)
+				return;
+			cacheMap = map.uniqueID;
+			cacheTick = now;
+			int all = 0, mechs = 0;
+			IReadOnlyList<Pawn> pawns = map.mapPawns.AllPawnsSpawned;
+			for (int i = 0; i < pawns.Count; i++)
+			{
+				Pawn p = pawns[i];
+				if (p.Dead || p.Downed || p.Faction == null || !p.HostileTo(Faction.OfPlayer))
+					continue;
+				all++;
+				if (p.RaceProps.IsMechanoid || Shielded(p))
+					mechs++;
+			}
+			cacheAnyMech = mechs > 0;
+			cacheMechs = all > 0 && mechs * 2 > all;
+		}
+
+		// 0 = best kind now, 1 = still useful, 2 = rather not (firefoam, EMP with no mechanoids around)
+		public static int Tier(ThingDef shell, Map map)
+		{
+			Scan(map);
+			Kind k = KindOfShell(shell);
+			Kind best = cacheMechs ? Kind.EMP : Kind.HE;
+			if (k == best) return 0;
+			if (k == Kind.Foam || (k == Kind.EMP && !cacheAnyMech)) return 2;
+			return 1;
+		}
+	}
+
+	[HarmonyPatch(typeof(Building_TurretGun), "IsValidTarget")]
+	public static class Patch_SmartShellTarget
+	{
+		public static void Postfix(Building_TurretGun __instance, Thing t, ref bool __result)
+		{
+			if (!__result || !SmartShells.On || t == null || !Auto.IsAuto(__instance))
+				return;
+			try
+			{
+				if (SmartShells.Pointless(SmartShells.Loaded(__instance), t))
+					__result = false;
+			}
+			catch (Exception e)
+			{
+				Log.WarningOnce("[Auto Turrets] smart shell target: " + e.Message, 0x41545332);
+			}
+		}
+	}
+
+	// with firefoam loaded and nothing else to do, an automatic mortar puts out fires in the home area
+	[HarmonyPatch(typeof(Building_TurretGun), nameof(Building_TurretGun.TryFindNewTarget))]
+	public static class Patch_FindFireTarget
+	{
+		public static void Postfix(Building_TurretGun __instance, ref LocalTargetInfo __result)
+		{
+			if (__result.IsValid || !SmartShells.On || !Auto.IsAuto(__instance))
+				return;
+			try
+			{
+				if (SmartShells.Loaded(__instance) != SmartShells.Kind.Foam)
+					return;
+				Map map = __instance.Map;
+				Verb v = __instance.AttackVerb;
+				Area home = map?.areaManager?.Home;
+				if (v == null || home == null)
+					return;
+				List<Thing> fires = map.listerThings.ThingsOfDef(ThingDefOf.Fire);
+				Thing best = null;
+				float bestD = float.MaxValue;
+				for (int i = 0; i < fires.Count && i < 400; i++)
+				{
+					Thing f = fires[i];
+					if (!f.Spawned || !home[f.Position])
+						continue;
+					RoofDef roof = map.roofGrid.RoofAt(f.Position);
+					if (roof != null && roof.isThickRoof)
+						continue;
+					float d = f.Position.DistanceToSquared(__instance.Position);
+					if (d >= bestD || !v.CanHitTarget(f))
+						continue;
+					best = f;
+					bestD = d;
+				}
+				if (best != null)
+					__result = best;
+			}
+			catch (Exception e)
+			{
+				Log.WarningOnce("[Auto Turrets] firefoam target: " + e.Message, 0x41545333);
 			}
 		}
 	}

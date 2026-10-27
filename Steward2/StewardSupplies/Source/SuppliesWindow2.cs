@@ -802,6 +802,10 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 			rule.young = SmallNumber(new Rect(cx, row.y + 60f, 200f, 26f), "CF_J_KeepYoung".Translate(), rule.young, 0, 500);
 			Rect kp = new Rect(row.xMax - 200f, row.y + 4f, 200f, 26f);
 			Widgets.CheckboxLabeled(kp, "CF_J_KeepPregnant".Translate(), ref rule.keepPregnant);
+			// 1.0.3: release surplus to the wild instead of slaughtering it
+			Rect rel = new Rect(row.xMax - 200f, row.y + 64f, 200f, 26f);
+			Widgets.CheckboxLabeled(rel, "CF_J_ReleaseSurplus".Translate(), ref rule.release);
+			TooltipHandler.TipRegion(rel, "CF_J_ReleaseSurplusTip".Translate());
 			Rect ar = new Rect(row.xMax - 200f, row.y + 34f, 200f, 26f);
 			if (Widgets.ButtonText(ar, rule.area == null ? (string)"CF_J_AnimalAreaNone".Translate() : rule.area.Label))
 			{

@@ -30,6 +30,14 @@ namespace Urt2
         public string LingvaUrl = "https://lingva.lunar.icu";
     }
 
+    // 2.5.2: what an AI service may know about a batch: one hint per text (null = none) and
+    // general notes. Ignored by the plain translation services.
+    public sealed class TranslateContext
+    {
+        public List<string> Hints;
+        public string Notes;
+    }
+
     public abstract class Provider
     {
         public abstract string Id { get; }
@@ -47,6 +55,19 @@ namespace Urt2
         // Returns one entry per text (null where that one failed). Throws ProviderError when the
         // whole request failed.
         public abstract List<string> Translate(List<string> texts, string src, string tgt, ProviderConfig cfg, CancellationToken ct);
+
+        // 2.5.2: the same with context (only AI services use it)
+        public virtual List<string> Translate(List<string> texts, string src, string tgt, ProviderConfig cfg, CancellationToken ct, TranslateContext ctx)
+            => Translate(texts, src, tgt, cfg, ct);
+
+        // 2.5.2: an own server address that is not a valid http(s) URL fails at once with a clear message
+        // (before, an empty or broken address threw deep inside the HTTP client)
+        protected Uri CheckUrl(string url)
+        {
+            if (string.IsNullOrWhiteSpace(url) || !Uri.TryCreate(url.Trim(), UriKind.Absolute, out Uri u) || (u.Scheme != "http" && u.Scheme != "https"))
+                throw new ProviderError(FailKind.Auth, Name + ": the address is not a valid http(s) URL");
+            return u;
+        }
 
         // ---- HTTP helpers ----
         private static HttpClient client;
@@ -395,6 +416,7 @@ namespace Urt2
 
         public override List<string> Translate(List<string> texts, string src, string tgt, ProviderConfig cfg, CancellationToken ct)
         {
+            CheckUrl(cfg.LibreUrl);
             string body = "{\"q\":" + Json.Array(texts) + ",\"source\":" + Json.Quote(src == null ? "auto" : Lang.Base(src)) + ",\"target\":" + Json.Quote(Lang.Base(tgt)) +
                           ",\"format\":\"text\"" + (string.IsNullOrWhiteSpace(cfg.LibreKey) ? "" : ",\"api_key\":" + Json.Quote(cfg.LibreKey.Trim())) + "}";
             object j = ParseJson(PostJson(cfg.LibreUrl.TrimEnd('/') + "/translate", body, ct));
@@ -417,12 +439,24 @@ namespace Urt2
         public override int MaxChars => 8000;
         public override double MinIntervalSeconds => 1.0;
 
-        protected static string Prompt(List<string> texts, string src, string tgt)
+        protected static string Prompt(List<string> texts, string src, string tgt, TranslateContext ctx = null)
         {
-            return "You translate texts of the video game RimWorld (a colony sim) " + (src == null ? "" : "from " + src + " ") + "into the language with code '" + tgt + "'.\n" +
-                   "Rules: keep every placeholder like {0} {1} exactly as it is; keep the meaning, short UI style for short labels; " +
-                   "do not add explanations. Answer ONLY with a JSON array of strings, the same length and order as the input.\n" +
-                   "Input: " + Json.Array(texts);
+            var sb = new StringBuilder();
+            sb.Append("You translate texts of the video game RimWorld (a colony sim) ").Append(src == null ? "" : "from " + src + " ")
+              .Append("into the language with code '").Append(tgt).Append("'.\n");
+            sb.Append("Rules: keep every placeholder like {0} {1} exactly as it is; keep the meaning, short UI style for short labels; " +
+                      "keep proper names (people, races, xenotypes, factions, places) unchanged; " +
+                      "do not add explanations. Answer ONLY with a JSON array of strings, the same length and order as the input.\n");
+            // 2.5.2: context – the kind of text and its mod, and the player's own words
+            if (ctx != null)
+            {
+                if (ctx.Hints != null && ctx.Hints.Count == texts.Count && ctx.Hints.Any(h => !string.IsNullOrEmpty(h)))
+                    sb.Append("Context of each input text (same order, do not translate this): ").Append(Json.Array(ctx.Hints.Select(h => h ?? "").ToList())).Append("\n");
+                if (!string.IsNullOrEmpty(ctx.Notes))
+                    sb.Append(ctx.Notes).Append("\n");
+            }
+            sb.Append("Input: ").Append(Json.Array(texts));
+            return sb.ToString();
         }
 
         protected static List<string> ReadArray(string answer, int n)
@@ -447,10 +481,13 @@ namespace Urt2
         public override bool Configured(ProviderConfig c) => !string.IsNullOrWhiteSpace(c.GeminiKey);
 
         public override List<string> Translate(List<string> texts, string src, string tgt, ProviderConfig cfg, CancellationToken ct)
+            => Translate(texts, src, tgt, cfg, ct, null);
+
+        public override List<string> Translate(List<string> texts, string src, string tgt, ProviderConfig cfg, CancellationToken ct, TranslateContext ctx)
         {
             string model = string.IsNullOrWhiteSpace(cfg.GeminiModel) ? "gemini-2.5-flash" : cfg.GeminiModel.Trim();
             string url = "https://generativelanguage.googleapis.com/v1beta/models/" + Uri.EscapeDataString(model) + ":generateContent?key=" + Uri.EscapeDataString(cfg.GeminiKey.Trim());
-            string body = "{\"contents\":[{\"parts\":[{\"text\":" + Json.Quote(Prompt(texts, src, tgt)) + "}]}],\"generationConfig\":{\"temperature\":0.2,\"responseMimeType\":\"application/json\"}}";
+            string body = "{\"contents\":[{\"parts\":[{\"text\":" + Json.Quote(Prompt(texts, src, tgt, ctx)) + "}]}],\"generationConfig\":{\"temperature\":0.2,\"responseMimeType\":\"application/json\"}}";
             object j = ParseJson(PostJson(url, body, ct));
             string answer = Json.Str(j, "candidates", 0, "content", "parts", 0, "text");
             return ReadArray(answer, texts.Count) ?? throw new ProviderError(FailKind.BadAnswer, Name + ": answer was not a list of " + texts.Count + " texts");
@@ -464,10 +501,14 @@ namespace Urt2
         public override bool Configured(ProviderConfig c) => !string.IsNullOrWhiteSpace(c.AiUrl) && !string.IsNullOrWhiteSpace(c.AiModel);
 
         public override List<string> Translate(List<string> texts, string src, string tgt, ProviderConfig cfg, CancellationToken ct)
+            => Translate(texts, src, tgt, cfg, ct, null);
+
+        public override List<string> Translate(List<string> texts, string src, string tgt, ProviderConfig cfg, CancellationToken ct, TranslateContext ctx)
         {
+            CheckUrl(cfg.AiUrl);
             string url = cfg.AiUrl.Trim().TrimEnd('/');
             if (!url.EndsWith("/chat/completions")) url += "/chat/completions";
-            string body = "{\"model\":" + Json.Quote(cfg.AiModel.Trim()) + ",\"temperature\":0.2,\"messages\":[{\"role\":\"user\",\"content\":" + Json.Quote(Prompt(texts, src, tgt)) + "}]}";
+            string body = "{\"model\":" + Json.Quote(cfg.AiModel.Trim()) + ",\"temperature\":0.2,\"messages\":[{\"role\":\"user\",\"content\":" + Json.Quote(Prompt(texts, src, tgt, ctx)) + "}]}";
             var headers = string.IsNullOrWhiteSpace(cfg.AiKey) ? new (string, string)[0] : new[] { ("Authorization", "Bearer " + cfg.AiKey.Trim()) };
             object j = ParseJson(PostJson(url, body, ct, headers));
             string answer = Json.Str(j, "choices", 0, "message", "content");

@@ -1256,7 +1256,7 @@ public sealed partial class SupplyManager : MapComponent
 		females = males = young = 0;
 		foreach (Pawn p in map.mapPawns.SpawnedColonyAnimals)
 		{
-			if (p.def != race || p.Dead)
+			if (p.def != race || p.Dead || IsGuestAnimal(p))
 				continue;
 			if (!p.ageTracker.Adult) young++;
 			else if (p.gender == Gender.Female) females++;
@@ -1281,7 +1281,8 @@ public sealed partial class SupplyManager : MapComponent
 		{
 			if (r == null || r.race == null)
 				continue;
-			var herd = map.mapPawns.SpawnedColonyAnimals.Where(p => p.def == r.race && !p.Dead).ToList();
+			// 1.0.3: quest guest animals (lodgers) are not part of the herd
+			var herd = map.mapPawns.SpawnedColonyAnimals.Where(p => p.def == r.race && !p.Dead && !IsGuestAnimal(p)).ToList();
 			if (!r.enabled)
 			{
 				UnmarkSlaughter(herd, dm);
@@ -1321,6 +1322,31 @@ public sealed partial class SupplyManager : MapComponent
 		return marked;
 	}
 
+	// 1.0.3: animals that only stay with the colony for a quest (lodgers,
+	// borrowed animals) never count toward the herd targets and are never culled.
+	private static bool IsGuestAnimal(Pawn p)
+	{
+		try
+		{
+			return p.Faction != Faction.OfPlayer || p.IsQuestLodger();
+		}
+		catch
+		{
+			return false;
+		}
+	}
+
+	// 1.0.3: the steward's cull mark is either a slaughter or a release-to-the-wild designation
+	private static Designation CullMark(Pawn p, DesignationManager dm)
+	{
+		return dm.DesignationOn(p, DesignationDefOf.Slaughter) ?? dm.DesignationOn(p, DesignationDefOf.ReleaseAnimalToWild);
+	}
+
+	private static bool CanRelease(Pawn p)
+	{
+		return p.RaceProps != null && p.RaceProps.canReleaseToWild && p.Faction == Faction.OfPlayer;
+	}
+
 	private static bool HerdProtected(Pawn p, LivestockRule r)
 	{
 		if (p.relations != null && p.relations.GetFirstDirectRelationPawn(PawnRelationDefOf.Bond) != null)
@@ -1336,7 +1362,7 @@ public sealed partial class SupplyManager : MapComponent
 		{
 			if (p == null || !slaughterMarks.Contains(p.ThingID))
 				continue;
-			Designation d = dm.DesignationOn(p, DesignationDefOf.Slaughter);
+			Designation d = CullMark(p, dm);
 			if (d != null)
 				dm.RemoveDesignation(d);
 			slaughterMarks.Remove(p.ThingID);
@@ -1350,19 +1376,32 @@ public sealed partial class SupplyManager : MapComponent
 	private int Cull(IEnumerable<Pawn> group, int keep, LivestockRule r, DesignationManager dm)
 	{
 		var list = group.ToList();
+		// 1.0.3: the rule switched between slaughter and release – the steward's own
+		// marks of the other kind are taken off and placed again below.
+		DesignationDef wanted = r.release ? DesignationDefOf.ReleaseAnimalToWild : DesignationDefOf.Slaughter;
+		foreach (Pawn p in list)
+		{
+			if (!slaughterMarks.Contains(p.ThingID))
+				continue;
+			Designation d = CullMark(p, dm);
+			if (d == null || d.def == wanted)
+				continue;
+			dm.RemoveDesignation(d);
+			slaughterMarks.Remove(p.ThingID);
+		}
 		foreach (Pawn p in list)
 		{
 			if (!HerdProtected(p, r))
 				continue;
 			if (!slaughterMarks.Contains(p.ThingID))
 				continue;
-			Designation d = dm.DesignationOn(p, DesignationDefOf.Slaughter);
+			Designation d = CullMark(p, dm);
 			if (d != null)
 				dm.RemoveDesignation(d);
 			slaughterMarks.Remove(p.ThingID);
 		}
 		int maxMarks = Math.Max(0, list.Count - keep);
-		var marked = list.Where(p => dm.DesignationOn(p, DesignationDefOf.Slaughter) != null).ToList();
+		var marked = list.Where(p => CullMark(p, dm) != null).ToList();
 		int marks = marked.Count;
 		if (marks > maxMarks)
 		{
@@ -1372,14 +1411,14 @@ public sealed partial class SupplyManager : MapComponent
 					break;
 				if (!slaughterMarks.Contains(p.ThingID))
 					continue;
-				Designation d = dm.DesignationOn(p, DesignationDefOf.Slaughter);
+				Designation d = CullMark(p, dm);
 				if (d != null)
 					dm.RemoveDesignation(d);
 				slaughterMarks.Remove(p.ThingID);
 				marks--;
 			}
 		}
-		int current = list.Count(p => dm.DesignationOn(p, DesignationDefOf.Slaughter) != null);
+		int current = list.Count(p => CullMark(p, dm) != null);
 		int surplus = list.Count - current - keep;
 		if (surplus <= 0)
 			return 0;
@@ -1388,11 +1427,13 @@ public sealed partial class SupplyManager : MapComponent
 		{
 			if (done >= surplus)
 				break;
-			if (dm.DesignationOn(p, DesignationDefOf.Slaughter) != null)
+			if (CullMark(p, dm) != null)
 				continue;
 			if (HerdProtected(p, r))
 				continue;
-			dm.AddDesignation(new Designation(p, DesignationDefOf.Slaughter));
+			// 1.0.3: release to the wild instead of slaughter (only species that can be released)
+			DesignationDef def = r.release && CanRelease(p) ? DesignationDefOf.ReleaseAnimalToWild : DesignationDefOf.Slaughter;
+			dm.AddDesignation(new Designation(p, def));
 			slaughterMarks.Add(p.ThingID);
 			done++;
 		}
@@ -1438,6 +1479,8 @@ public sealed class LivestockRule : IExposable
 	public int males = 1;
 	public int young = 2;
 	public bool keepPregnant = true;
+	// 1.0.3: surplus is released to the wild instead of slaughtered
+	public bool release;
 	public Area area;
 	public Area appliedArea;
 	// 2.52.3: animals that already got the herd area once – "Unrestricted" set by you later is kept
@@ -1460,6 +1503,7 @@ public sealed class LivestockRule : IExposable
 		Scribe_Values.Look(ref males, "males", 1);
 		Scribe_Values.Look(ref young, "young", 2);
 		Scribe_Values.Look(ref keepPregnant, "keepPregnant", true);
+		Scribe_Values.Look(ref release, "release", false);
 		Scribe_References.Look(ref area, "area");
 		Scribe_References.Look(ref appliedArea, "appliedArea");
 	}

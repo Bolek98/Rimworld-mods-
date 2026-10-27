@@ -72,6 +72,24 @@ namespace Urt2
             }
         }
 
+        // 2.5.2: the entries whose word occurs in the text (for the context of AI services)
+        public List<KeyValuePair<string, string>> Found(string text, int max)
+        {
+            var res = new List<KeyValuePair<string, string>>();
+            Regex r;
+            Dictionary<string, string> m;
+            lock (this) { r = rx; m = map; }
+            if (r == null || string.IsNullOrEmpty(text)) return res;
+            var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (Match x in r.Matches(text))
+            {
+                if (res.Count >= max) break;
+                if (seen.Add(x.Value) && m.TryGetValue(x.Value, out string to))
+                    res.Add(new KeyValuePair<string, string>(x.Value, to));
+            }
+            return res;
+        }
+
         public string Apply(string text)
         {
             Regex r;

@@ -1,4 +1,10 @@
 === Not on the Workshop yet (test versions) ===
+1.5.3
+- Speed 4 without dev mode (Simulation tab, off by default): the game's own 4th speed as a button after speed 3; its key and "faster" from speed 3 work too.
+- Speed during danger (Simulation tab): when a raid or a fight starts, keep speed 2 or 3 instead of the forced speed 1 (default: like the game).
+- Resource list only under the mouse (off by default): the list on the left is drawn only while the mouse is over it.
+- With Smart Speed active, the two speed settings stay off – Smart Speed handles them.
+
 1.5.2
 - Fix (1.7): Smooth FPS no longer forces any memory clean-up on 1.7 (after a pause, after a save, the button, the compaction). Icons, textures and doors disappeared twice a moment after such a clean-up right after loading, even without moving the memory – the 1.7 graphics engine let go of pictures it still needed. The game's own background clean-up does the job.
 

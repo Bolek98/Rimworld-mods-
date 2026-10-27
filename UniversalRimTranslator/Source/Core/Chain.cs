@@ -16,6 +16,7 @@ namespace Urt2
         public Verdict Verdict = Verdict.Empty;
         public string Error;
         public string Avoid;             // 2.4.1: a service not to use ("translate again" wants a different result)
+        public string Hint;              // 2.5.2: short context for AI services (kind of text, mod, glossary words)
     }
 
     // Translates jobs with the chain of services: the first service that is configured, not
@@ -26,6 +27,7 @@ namespace Urt2
         public List<string> Order = new List<string> { "edge", "yandex", "google", "mymemory", "lingva" };
         public ProviderConfig Config = new ProviderConfig();
         public Action<string> Log = s => { };
+        public string Notes;             // 2.5.2: extra instructions for AI services (the player's preferred words)
 
         private readonly Dictionary<string, DateTime> pausedUntil = new Dictionary<string, DateTime>();
         private readonly Dictionary<string, int> strikes = new Dictionary<string, int>();
@@ -143,7 +145,9 @@ namespace Urt2
                         try
                         {
                             Throttle(p);
-                            got = p.Translate(batch.Select(u => u.Masked.Text).ToList(), src, targetIso, Config, ct);
+                            // 2.5.2: AI services get the context of every text (other services ignore it)
+                            var ctx = p.IsAi ? new TranslateContext { Hints = batch.Select(u => u.Job.Hint).ToList(), Notes = Notes } : null;
+                            got = p.Translate(batch.Select(u => u.Masked.Text).ToList(), src, targetIso, Config, ct, ctx);
                         }
                         catch (ProviderError e)
                         {

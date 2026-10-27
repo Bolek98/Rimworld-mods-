@@ -163,6 +163,9 @@ namespace HaulSmarter
                 return false;
             if (pawn.workSettings == null || !pawn.workSettings.WorkIsActive(WorkTypeDefOf.Hauling))
                 return false;
+            // 3.4.1: not during a ritual, party, caravan forming or transporter loading; not while bleeding or a patient waits
+            if (StepAside.Now(pawn))
+                return false;
             if (job != null)
             {
                 if (job.playerForced || job.def == HSDefOf.HaulSmarterMany || job.def == HSDefOf.HaulSmarterUnload || busyJobs.Contains(job.def.defName)

@@ -415,4 +415,16 @@
   <GT_ED_K_Job>入植者の仕事でエラーが起きました。たいてい別のことをするだけです。</GT_ED_K_Job>
   <GT_ED_K_Other>MOD のコードのエラーです。コピーして作者に送ってください。</GT_ED_K_Other>
   <GT_MemBlocked17>1.7 では Smooth FPS はメモリの強制クリーンアップを行いません（テクスチャ・アイコン・ドアが消える原因でした）。ゲームが自動で片付けます。</GT_MemBlocked17>
+  <!-- 1.5.3 -->
+  <GT_HideResources>資源リストはマウスの下だけ</GT_HideResources>
+  <GT_HideResources_Desc>左側の資源リストは、マウスがその上にあるときだけ描画されます。アイテムの種類が多いと、このリストは毎フレーム時間を使います。</GT_HideResources_Desc>
+  <GT_UltraSpeed>開発者モードなしで速度 4</GT_UltraSpeed>
+  <GT_UltraSpeed_Desc>ゲーム本来の 4 段階目の速度（通常は開発者モードのみ）を速度 3 の後ろにボタンとして追加します。速度 4 のキーと速度 3 からの「速く」も使えます。大きなコロニーでは遅い PC だと到達できないことがあります。</GT_UltraSpeed_Desc>
+  <GT_UltraButton>速度 4</GT_UltraButton>
+  <GT_DangerSpeed>危険時の速度</GT_DangerSpeed>
+  <GT_DangerSpeed_Desc>襲撃や戦闘が始まると、ゲームはしばらく速度 1 に切り替わります。ここで代わりに速度 2 または 3 を保てます。ゲームは通常どおり一時停止と警告を行います。</GT_DangerSpeed_Desc>
+  <GT_Danger0>ゲームと同じ（速度 1）</GT_Danger0>
+  <GT_Danger1>速度 2 を保つ</GT_Danger1>
+  <GT_Danger2>速度 3 を保つ</GT_Danger2>
+  <GT_SpeedOtherMod>Smart Speed が有効です。速度 4 と危険時の速度はそちらが扱うため、この 2 つの設定は何もしません。</GT_SpeedOtherMod>
 </LanguageData>

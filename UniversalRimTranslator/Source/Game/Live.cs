@@ -562,6 +562,13 @@ namespace UniversalRimTranslator
                 }
             }
             catch { }
+            // 2.5.2: race and xenotype names of mods are names too
+            try
+            {
+                if (!UniversalRimTranslatorMod.Settings.translateRaceNames)
+                    foreach (string rn in Runtime.ProperNames) AddWords(n, rn);
+            }
+            catch { }
             var w = new HashSet<string>(StringComparer.Ordinal);
             foreach (string s in n)
                 foreach (Match m in Word.Matches(s))

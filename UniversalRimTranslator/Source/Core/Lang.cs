@@ -112,6 +112,23 @@ namespace Urt2
             }
         }
 
+        // 2.5.2: the source language when the scan left it open (Latin script). Short Latin texts are
+        // English: services detected names like "Yuran" as Malay and "translated" them. Longer texts
+        // keep the detection (a mod written in another Latin-script language still works).
+        public static string LatinDefault(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return "en";
+            int words = 0;
+            bool inWord = false;
+            foreach (char c in text)
+            {
+                bool letter = char.IsLetter(c);
+                if (letter && !inWord) words++;
+                inWord = letter;
+            }
+            return words <= 4 ? "en" : null;
+        }
+
         // a guess of the source language from the script alone (null = Latin, ask the service)
         public static string GuessFromScript(string text)
         {

@@ -3,7 +3,7 @@
   <name>Smooth FPS – Performance &amp; Graphics</name>
   <author>Bolek98</author>
   <packageId>misak.graphicstuner</packageId>
-  <modVersion>1.5.2</modVersion>
+  <modVersion>1.5.3</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -28,6 +28,7 @@ SMOOTHNESS
 - Simulation budget at every speed: you choose the target FPS (also per speed) and the game no longer spends the whole frame on ticks. Speed 1 and 2 always run at full speed; at 3 and 4 the simulation gets at least as much time as drawing.
 - Smart FPS target that steps down when the PC can't keep up and back up when it can. Higher FPS while you move the camera, more game speed while you watch.
 - Turbo at speed 3 and 4 (optional): while you don't touch anything, the picture drops to a few FPS and the rest goes to the game.
+- Speed 4 without dev mode and speed 2 or 3 kept during danger (both optional).
 
 SIMULATION
 - Game size profile: far settlements, world pawns and quiet maps are updated in bigger steps – never during fights, fires or for drafted colonists.
@@ -58,6 +59,7 @@ PLYNULOST
 - Rozpočet simulace na každé rychlosti: vybereš cílové FPS (i pro každou rychlost zvlášť) a hra už nespotřebuje celý snímek na tiky. Rychlost 1 a 2 běží vždy naplno; na 3 a 4 dostane simulace aspoň tolik času jako kreslení.
 - Chytrý cíl FPS, který se sníží, když PC nestíhá, a vrátí se, když je rezerva. Vyšší FPS při pohybu kamery, víc rychlosti, když se jen díváš.
 - Turbo na rychlosti 3 a 4 (volitelné): když na nic nesaháš, obraz klesne na pár FPS a zbytek dostane hra.
+- Rychlost 4 bez vývojářského režimu a rychlost 2 nebo 3 i při nebezpečí (obojí volitelné).
 
 SIMULACE
 - Profil velikosti hry: vzdálené osady, postavy světa a klidné mapy se počítají ve větších krocích – nikdy během boje, požáru ani u draftnutých.

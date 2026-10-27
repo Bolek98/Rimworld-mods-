@@ -818,6 +818,33 @@ public class Comp : GameComponent
 			}
 	}
 
+	// 1.4.2: Biotech / Anomaly rot diseases, looked up by name so a missing DLC is no problem
+	private static HediffDef lungRot, bloodRot;
+	private static bool rotLooked;
+	private static bool IsRot(HediffDef d)
+	{
+		if (!rotLooked)
+		{
+			rotLooked = true;
+			lungRot = DefDatabase<HediffDef>.GetNamedSilentFail("LungRot");
+			bloodRot = DefDatabase<HediffDef>.GetNamedSilentFail("BloodRot");
+		}
+		return d != null && (d == lungRot || d == bloodRot);
+	}
+
+	private static bool LosingRace(Hediff h)
+	{
+		HediffComp_Immunizable ci = h.TryGetComp<HediffComp_Immunizable>();
+		if (ci == null || ci.FullyImmune)
+			return false;
+		var pr = ci.Props;
+		if (h.def.lethalSeverity <= 0f || pr.severityPerDayNotImmune <= 0f || pr.immunityPerDaySick <= 0f)
+			return false;
+		float toDeath = (h.def.lethalSeverity - h.Severity) / pr.severityPerDayNotImmune;
+		float toImmune = (1f - ci.Immunity) / pr.immunityPerDaySick;
+		return toImmune > toDeath * 0.6f;
+	}
+
 	public static MedicalCareCategory CareFor(Pawn p)
 	{
 		HediffSet hs = p.health.hediffSet;
@@ -834,6 +861,15 @@ public class Comp : GameComponent
 				injuries += h.Severity;
 			if (h.TryGetComp<HediffComp_Immunizable>() != null || h.def.tendable && !(h is Hediff_Injury))
 				sick = true;
+			// 1.4.2: lung rot / blood rot are deadly races against immunity (tend quality
+			// decides them) – industrial medicine from the start, the best once they grow
+			// or once immunity is losing the race.
+			if (IsRot(h.def))
+			{
+				sick = true;
+				if (h.Severity >= 0.35f || LosingRace(h))
+					life = true;
+			}
 		}
 		if (life || injuries > 25f)
 			return MedicalCareCategory.Best;
@@ -1248,7 +1284,7 @@ public class AutoPharmacyMod : Mod
 	private Vector2 scroll;
 	private static string search = "";
 	public static bool PharmacistActive => ModsConfig.IsActive("fluffy.pharmacist");
-	public const string Version = "1.4.1";
+	public const string Version = "1.4.2";
 	private static List<string> recBullets;
 
 	private static void Check(Listing_Standard l, string key, ref bool value, string field)

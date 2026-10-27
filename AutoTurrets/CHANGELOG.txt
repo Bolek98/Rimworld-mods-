@@ -1,4 +1,9 @@
 === Not on the Workshop yet (test versions) ===
+1.3.1
+- Smart shell choice (settings, on by default): an automatic mortar doesn't waste shells – EMP only at mechanoids and shielded enemies, incendiary not at mechanoids, firefoam never at enemies but at fires in the home area. Haulers bring EMP shells when most enemies are mechanoids, otherwise high-explosive ones (if the mortar's filter allows them).
+- New option "Turrets don't hit our buildings" (off by default): bullets from your turrets fly past your own walls, sandbags and other buildings unless you aim at them, and their shell blasts don't damage them. Enemy buildings are hit as usual.
+- Friendly fire protection now also covers modded shooting buildings of yours that aren't regular turrets.
+
 1.3.0
 - Turrets in walls look like part of the wall: a 1×1 wall turret is drawn as a piece of wall in its material (stone blocks, metal or wood – chosen when you place it, 5 extra), joined with the walls next to it, with the gun on top. Before, the old wall was taken down and the turret stood there on its normal base like on the floor. Bigger wall turrets keep their base.
 

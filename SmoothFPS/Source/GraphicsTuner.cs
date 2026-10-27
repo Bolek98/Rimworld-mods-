@@ -128,6 +128,10 @@ namespace GraphicsTuner
         public bool worldSleep = true;          // 1.4.6: mod conditions do not keep world pawns awake
         public bool turbo;                      // 1.4.3: speed 3/4 untouched – few frames, all time to the game
         public int turboFps = 12;
+        // 1.5.3: speed 4 without dev mode, speed while the game slows down for danger, hidden resource list
+        public bool ultraSpeed;                 // the 4th speed button and key (off = like the game)
+        public int dangerSpeed;                 // 0 = like the game (speed 1), 1 = speed 2 allowed, 2 = speed 3 allowed
+        public bool hideResources;              // the resource list on the left is drawn only under the mouse
 
 
         // display – your own choice, never changed by a profile
@@ -263,6 +267,9 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref turbo, "turbo", false);
             Scribe_Values.Look(ref worldSleep, "worldSleep", true);
             Scribe_Values.Look(ref turboFps, "turboFps", 12);
+            Scribe_Values.Look(ref ultraSpeed, "ultraSpeed", false);
+            Scribe_Values.Look(ref dangerSpeed, "dangerSpeed", 0);
+            Scribe_Values.Look(ref hideResources, "hideResources", false);
 
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
                 Preset(profile);
@@ -736,7 +743,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.5.2";
+        public const string Version = "1.5.3";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -772,6 +779,7 @@ namespace GraphicsTuner
             SmartWork.PatchSpread(harmony);         // 1.4.0: job searches spread over ticks
             TempSpread.Patch(harmony);              // 1.4.0: room temperatures in parts
             FastNight.Patch(harmony);               // 1.4.0: fast nights
+            SpeedControls.Patch(harmony);           // 1.5.3: speed 4, speed during danger, hidden resource list
             // 1.3.4: no more swapping textures that were loaded before Smooth FPS started – icons and
             // pictures already handed out kept pointing at the destroyed originals (pink X, blank icons).
             // Only textures loaded from now on start smaller.
@@ -918,6 +926,7 @@ namespace GraphicsTuner
             MUI.Section(l, "GT_SecSmooth".Translate());
             Check(l, "GT_FastLog", ref s.fastLog, "fastLog");
             Note(l, "GT_FastLog_Note".Translate());
+            MUI.Check(l, "GT_HideResources".Translate(), "GT_HideResources_Desc".Translate(), ref s.hideResources, s, null);   // 1.5.3
             if (s.profile >= 0 && s.profile <= 2 && !s.Matches(s.profile))
                 s.profile = 3;
             float leftH = l.CurHeight;
@@ -1238,6 +1247,13 @@ namespace GraphicsTuner
             MUI.Check(l, "GT_TempSpread".Translate(), "GT_TempSpread_Desc".Translate(), ref s.tempSpread, s, null);
             MUI.Check(l, "GT_NightFast".Translate(), "GT_NightFast_Desc".Translate(), ref s.nightFast, s, null);
             MUI.Check(l, "GT_Turbo".Translate(), "GT_Turbo_Desc".Translate(), ref s.turbo, s, null);
+            // 1.5.3: speed 4 and the speed during danger
+            MUI.Check(l, "GT_UltraSpeed".Translate(), "GT_UltraSpeed_Desc".Translate(), ref s.ultraSpeed, s, null);
+            string[] dangerNames = { "GT_Danger0".Translate(), "GT_Danger1".Translate(), "GT_Danger2".Translate() };
+            Dropdown(l, "GT_DangerSpeed".Translate(), "GT_DangerSpeed_Desc".Translate(), dangerNames[Mathf.Clamp(s.dangerSpeed, 0, 2)],
+                () => Enumerable.Range(0, 3).Select(i => new FloatMenuOption(dangerNames[i], () => s.dangerSpeed = i)).ToList());
+            if (SpeedControls.OtherSpeedMod)
+                Muted(l.GetRect(36f), "GT_SpeedOtherMod".Translate());
             if (s.turbo)
             {
                 Rect tr = l.GetRect(28f);

@@ -415,4 +415,16 @@
   <GT_ED_K_Job>An error in a colonist's job. The colonist usually just does something else.</GT_ED_K_Job>
   <GT_ED_K_Other>An error in a mod's code. Copy it and send it to the mod's author.</GT_ED_K_Other>
   <GT_MemBlocked17>On 1.7 Smooth FPS does not force memory clean-ups – they made textures, icons and doors disappear. The game cleans up on its own.</GT_MemBlocked17>
+  <!-- 1.5.3 -->
+  <GT_HideResources>Resource list only under the mouse</GT_HideResources>
+  <GT_HideResources_Desc>The list of resources on the left is drawn only while the mouse is over its place. With many kinds of items this list costs some time in every frame.</GT_HideResources_Desc>
+  <GT_UltraSpeed>Speed 4 without dev mode</GT_UltraSpeed>
+  <GT_UltraSpeed_Desc>Adds the game's own 4th speed (the one normally only in dev mode) as a button after speed 3. The key for speed 4 and "faster" from speed 3 work too. Big colonies may not reach it on a slower PC.</GT_UltraSpeed_Desc>
+  <GT_UltraButton>Speed 4</GT_UltraButton>
+  <GT_DangerSpeed>Speed during danger</GT_DangerSpeed>
+  <GT_DangerSpeed_Desc>When a raid or a fight starts, the game switches to speed 1 for a while. Here you can keep speed 2 or 3 instead. The game still pauses and warns you as usual.</GT_DangerSpeed_Desc>
+  <GT_Danger0>Like the game (speed 1)</GT_Danger0>
+  <GT_Danger1>Keep speed 2</GT_Danger1>
+  <GT_Danger2>Keep speed 3</GT_Danger2>
+  <GT_SpeedOtherMod>Smart Speed is active – it handles speed 4 and danger speed itself, so these two settings do nothing.</GT_SpeedOtherMod>
 </LanguageData>

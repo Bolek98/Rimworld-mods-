@@ -11,7 +11,7 @@ namespace UniversalRimTranslator
 {
     public static class UrtVersion
     {
-        public const string Number = "2.5.1";
+        public const string Number = "2.5.2";
         public static string Display => Number + " (test)";
     }
 
@@ -37,6 +37,9 @@ namespace UniversalRimTranslator
         public string skippedMods = "";     // 2.3.0: mods left in English (one name per line)
         public bool welcomeShown;           // 2.5.0: the first-start window was shown
         public bool pickFix = true;         // 2.5.0: Alt + right click on a text opens it in the editor
+        public bool translateRaceNames;     // 2.5.2: race and xenotype names of mods are translated too (off = kept)
+        public bool holdNewMods;            // 2.5.2: texts of newly added mods wait until the player lets them in
+        public bool offlineOnly;            // 2.5.2: no services, only the translation memory
 
         public override void ExposeData()
         {
@@ -66,6 +69,9 @@ namespace UniversalRimTranslator
             Scribe_Values.Look(ref skippedMods, "urt2_skippedMods", "");
             Scribe_Values.Look(ref welcomeShown, "urt2_welcomeShown", false);
             Scribe_Values.Look(ref pickFix, "urt2_pickFix", true);
+            Scribe_Values.Look(ref translateRaceNames, "urt2_translateRaceNames", false);
+            Scribe_Values.Look(ref holdNewMods, "urt2_holdNewMods", false);
+            Scribe_Values.Look(ref offlineOnly, "urt2_offlineOnly", false);
             if (Scribe.mode == LoadSaveMode.PostLoadInit) Normalize();
         }
 
@@ -135,7 +141,9 @@ namespace UniversalRimTranslator
         private static List<string> recBullets;
         private int tab;
         private Vector2 scroll;
-        private static readonly Dictionary<string, string> testResult = new Dictionary<string, string>();
+        // 2.5.2: written by the test thread, read while drawing – thread-safe
+        private static readonly System.Collections.Concurrent.ConcurrentDictionary<string, string> testResult = new System.Collections.Concurrent.ConcurrentDictionary<string, string>();
+        private static readonly System.Collections.Concurrent.ConcurrentDictionary<string, byte> testing = new System.Collections.Concurrent.ConcurrentDictionary<string, byte>();
 
         public UniversalRimTranslatorMod(ModContentPack content) : base(content)
         {
@@ -252,6 +260,7 @@ namespace UniversalRimTranslator
             }
 
             Rect rest = new Rect(r.x, y, r.width, r.yMax - y);
+            float col2Y = 0f;
             var l = new Listing_Standard();
             MUI.BeginLock(s.recommended);
             try
@@ -268,13 +277,26 @@ namespace UniversalRimTranslator
                 MUI.Section(l, "URT_Sec_Grammar".Translate());
                 Check(l, "URT_Rules", ref s.translateRules, "translateRules");
                 Check(l, "URT_GrammarFallback", ref s.grammarFallback, "grammarFallback");
+                col2Y = l.CurHeight;
                 l.End();
             }
             finally
             {
                 MUI.EndLock(rest);
             }
-            if (GUI.changed) Runtime.Reapply();
+            // 2.5.2: these three are the player's own choice – never locked by "recommended"
+            var l2 = new Listing_Standard();
+            float cw = (rest.width - 24f) / 2f;
+            l2.Begin(new Rect(rest.x + cw + 17f, rest.y + col2Y, cw, Mathf.Max(0f, rest.height - col2Y)));
+            MUI.Section(l2, "URT_Sec_Control".Translate());
+            bool race0 = s.translateRaceNames, hold0 = s.holdNewMods;
+            Check(l2, "URT_Offline", ref s.offlineOnly, null);
+            Check(l2, "URT_HoldNew", ref s.holdNewMods, null);
+            Check(l2, "URT_RaceNames", ref s.translateRaceNames, null);
+            l2.End();
+            if (hold0 != s.holdNewMods && !s.holdNewMods) Runtime.AllowNewMods();
+            if (race0 != s.translateRaceNames) Live.ClearCache();
+            if (GUI.changed) { Runtime.Reapply(); Runtime.Kick(); }
         }
 
         private static string PhaseText() => Runtime.Phase;
@@ -376,20 +398,37 @@ namespace UniversalRimTranslator
         // one short sentence through this service only
         private static void Test(Provider p)
         {
+            if (p == null) return;
+            // 2.5.2: empty fields – say so at once instead of starting a request; one test at a time
+            ProviderConfig cfg;
+            try { cfg = Settings.ProviderConfig(); }
+            catch (Exception e) { testResult[p.Id] = "✗ " + e.Message; return; }
+            if (!p.Configured(cfg)) { testResult[p.Id] = "✗ " + "URT_NotSetUp".Translate(); return; }
+            if (!testing.TryAdd(p.Id, 0)) return;
             testResult[p.Id] = "URT_Testing".Translate();
             string target = Runtime.Target ?? Lang.ToIso(LanguageDatabase.activeLanguage?.folderName);
-            if (Lang.Same(target, "en")) target = "cs";
-            var chain = new Chain { Order = new List<string> { p.Id }, Config = Settings.ProviderConfig() };
-            new Thread(() =>
+            if (string.IsNullOrEmpty(target) || Lang.Same(target, "en")) target = "cs";
+            var chain = new Chain { Order = new List<string> { p.Id }, Config = cfg };
+            try
             {
-                try
+                new Thread(() =>
                 {
-                    var job = new Job { Source = "The colonist is hungry and wants to eat {0}.", SourceLang = "en" };
-                    chain.Run(new List<Job> { job }, target, CancellationToken.None);
-                    testResult[p.Id] = job.Result != null ? "✓ " + job.Result : "✗ " + (job.Error ?? chain.Status(p.Id));
-                }
-                catch (Exception e) { testResult[p.Id] = "✗ " + e.Message; }
-            }) { IsBackground = true }.Start();
+                    try
+                    {
+                        var job = new Job { Source = "The colonist is hungry and wants to eat {0}.", SourceLang = "en" };
+                        var cts = new CancellationTokenSource(TimeSpan.FromSeconds(45));
+                        chain.Run(new List<Job> { job }, target, cts.Token);
+                        testResult[p.Id] = job.Result != null ? "✓ " + job.Result : "✗ " + (job.Error ?? chain.Status(p.Id));
+                    }
+                    catch (Exception e) { testResult[p.Id] = "✗ " + e.Message; }
+                    finally { testing.TryRemove(p.Id, out _); }
+                }) { IsBackground = true }.Start();
+            }
+            catch (Exception e)
+            {
+                testing.TryRemove(p.Id, out _);
+                testResult[p.Id] = "✗ " + e.Message;
+            }
         }
     }
 }

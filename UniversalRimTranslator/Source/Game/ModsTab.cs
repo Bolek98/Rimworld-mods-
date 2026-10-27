@@ -96,6 +96,20 @@ namespace UniversalRimTranslator
                 y += 26f;
             }
 
+            // 2.5.2: new mods that wait for the player ("don't translate newly added mods automatically")
+            HashSet<string> held = Runtime.HeldMods;
+            if (UniversalRimTranslatorMod.Settings.holdNewMods && held != null && held.Count > 0)
+            {
+                string names = string.Join(", ", held.OrderBy(x => x).Take(8).ToArray()) + (held.Count > 8 ? " …" : "");
+                float aw = 220f;
+                GUI.color = MUI.Warn;
+                Widgets.Label(new Rect(r.x, y + 4f, r.width - aw - 8f, 26f), ((string)"URT_Mods_NewWaiting".Translate(held.Count, names)).Truncate(r.width - aw - 8f));
+                GUI.color = Color.white;
+                if (Widgets.ButtonText(new Rect(r.xMax - aw, y, aw, 30f), "URT_Mods_AllowNew".Translate()))
+                    Runtime.AllowNewMods();
+                y += 36f;
+            }
+
             List<Stat> list = stats;
             if (list == null)
             {

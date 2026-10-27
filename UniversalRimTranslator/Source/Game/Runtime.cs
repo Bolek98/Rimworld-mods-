@@ -37,6 +37,12 @@ namespace UniversalRimTranslator
         private static readonly AutoResetEvent wake = new AutoResetEvent(false);
         private static Dictionary<string, List<Item>> bySource = new Dictionary<string, List<Item>>();
 
+        // 2.5.2: labels of humanlike races and xenotypes from mods – proper names, kept as they are
+        public static HashSet<string> ProperNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        // 2.5.2: mods added since the last start that wait for the player (names, as in Item.Mod)
+        public static volatile HashSet<string> HeldMods = new HashSet<string>(StringComparer.Ordinal);
+        private static Dictionary<string, string> modIdByName = new Dictionary<string, string>(StringComparer.Ordinal);
+
         public static string Folder => Path.Combine(GenFilePaths.ConfigFolderPath, "UniversalRimTranslator2");
 
         static Runtime()
@@ -116,6 +122,8 @@ namespace UniversalRimTranslator
             }
             bySource = Items.GroupBy(i => Store.Key(i.Source)).ToDictionary(g => g.Key, g => g.ToList());
             long scanMs = sw.ElapsedMilliseconds;
+            BuildProperNames();
+            CheckNewMods();
 
             sw.Restart();
             int known = ApplyKnown();
@@ -175,6 +183,146 @@ namespace UniversalRimTranslator
             Chain.Order = s.ProviderOrder();
             Chain.Config = s.ProviderConfig();
             Chain.Log = m => MLog.Info("[URT] " + m);
+            Chain.Notes = GlossaryNotes();
+        }
+
+        // 2.5.2: the player's own words for the AI services ("use osadník for colonist" …)
+        private static string GlossaryNotes()
+        {
+            try
+            {
+                var pairs = Store?.Glossary?.Pairs;
+                if (pairs == null || pairs.Count == 0) return null;
+                var use = pairs.Where(p => !string.IsNullOrEmpty(p.Value)).Take(30).Select(p => p.Key + " -> " + p.Value).ToList();
+                if (use.Count == 0) return null;
+                return "The player's glossary (word -> the word the player wants in the translation; use these words where they fit): " + string.Join("; ", use.ToArray());
+            }
+            catch { return null; }
+        }
+
+        // 2.5.2: a short context of one text for the AI services: what kind of text, which mod,
+        // glossary words that occur in it
+        private static string HintFor(string key, string source)
+        {
+            try
+            {
+                string kind = "text shown in the game", mod = null;
+                if (bySource.TryGetValue(key, out var its) && its.Count > 0)
+                {
+                    Item it = its[0];
+                    mod = it.Mod;
+                    string field = it.Path ?? "";
+                    int dot = field.LastIndexOf('.');
+                    if (it.Kind != ItemKind.Keyed && dot >= 0) field = field.Substring(dot + 1);
+                    string f = field.ToLowerInvariant();
+                    string of = it.DefType != null ? " of a " + it.DefType.Name : "";
+                    if (it.IsRule || it.Kind == ItemKind.DefListItem) kind = "grammar rule / generated text piece" + of;
+                    else if (it.Kind == ItemKind.Keyed) kind = "interface text";
+                    else if (f.Contains("letter")) kind = "letter" + of;
+                    else if (f.Contains("desc")) kind = "description" + of;
+                    else if (f.Contains("label") || f.Contains("title")) kind = "label (short name)" + of;
+                    else if (f.Contains("message")) kind = "message" + of;
+                    else kind = "text" + of;
+                }
+                string h = kind + (string.IsNullOrEmpty(mod) || mod == "?" ? "" : ", mod: " + mod);
+                var found = Store?.Glossary?.Found(source, 8);
+                if (found != null && found.Count > 0)
+                    h += ", glossary: " + string.Join("; ", found.Select(p => p.Key + " -> " + p.Value).ToArray());
+                return h;
+            }
+            catch { return null; }
+        }
+
+        // 2.5.2: humanlike race and xenotype names of mods are proper names ("Yuran" became "Fees")
+        private static void BuildProperNames()
+        {
+            var set = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            try
+            {
+                foreach (ThingDef td in DefDatabase<ThingDef>.AllDefsListForReading)
+                    if (td?.race != null && td.race.Humanlike && Official(td) == false && !string.IsNullOrWhiteSpace(td.label))
+                        set.Add(td.label.Trim());
+                foreach (RimWorld.XenotypeDef xd in DefDatabase<RimWorld.XenotypeDef>.AllDefsListForReading)
+                    if (xd != null && Official(xd) == false && !string.IsNullOrWhiteSpace(xd.label))
+                        set.Add(xd.label.Trim());
+            }
+            catch (Exception e) { MLog.Warn("[URT] race names: " + e.Message); }
+            ProperNames = set;
+        }
+
+        // official content (the game and its DLCs) is translated by the game's language packs
+        private static bool? Official(Def d) => d.modContentPack == null ? (bool?)null : d.modContentPack.IsOfficialMod;
+
+        public static bool IsProperName(Item it)
+        {
+            if (it?.Source == null || UniversalRimTranslatorMod.Settings.translateRaceNames) return false;
+            HashSet<string> p = ProperNames;
+            return p.Count > 0 && p.Contains(it.Source.Trim());
+        }
+
+        // 2.5.2: "don't translate newly added mods automatically" – the mods known at the last start
+        // are kept in a file; mods that are new wait in the Mods tab until the player lets them in
+        private static string KnownModsPath => Path.Combine(Folder, "known_mods.txt");
+
+        private static void CheckNewMods()
+        {
+            try
+            {
+                var ids = new Dictionary<string, string>(StringComparer.Ordinal);
+                foreach (ModContentPack m in LoadedModManager.RunningModsListForReading)
+                    if (!string.IsNullOrEmpty(m.Name) && !string.IsNullOrEmpty(m.PackageId)) ids[m.Name] = m.PackageId.ToLowerInvariant();
+                modIdByName = ids;
+                bool exists = File.Exists(KnownModsPath);
+                if (!UniversalRimTranslatorMod.Settings.holdNewMods || !exists)
+                {
+                    // off (or the very first start): every mod present now counts as known
+                    SaveKnown(new HashSet<string>(ids.Values));
+                    HeldMods = new HashSet<string>(StringComparer.Ordinal);
+                    return;
+                }
+                var known = new HashSet<string>(File.ReadAllLines(KnownModsPath).Select(x => x.Trim().ToLowerInvariant()).Where(x => x.Length > 0));
+                HeldMods = new HashSet<string>(ids.Where(kv => !known.Contains(kv.Value)).Select(kv => kv.Key), StringComparer.Ordinal);
+                if (HeldMods.Count > 0)
+                    MLog.Info("[URT] new mods wait for the player: " + string.Join(", ", HeldMods.ToArray()));
+            }
+            catch (Exception e)
+            {
+                MLog.Warn("[URT] new mods: " + e.Message);
+                HeldMods = new HashSet<string>(StringComparer.Ordinal);
+            }
+        }
+
+        private static void SaveKnown(HashSet<string> ids)
+        {
+            try
+            {
+                Directory.CreateDirectory(Folder);
+                File.WriteAllLines(KnownModsPath, ids.OrderBy(x => x).ToArray());
+            }
+            catch (Exception e) { MLog.Warn("[URT] known mods: " + e.Message); }
+        }
+
+        public static bool IsHeld(string mod)
+        {
+            if (!UniversalRimTranslatorMod.Settings.holdNewMods || mod == null) return false;
+            HashSet<string> h = HeldMods;
+            return h.Count > 0 && h.Contains(mod);
+        }
+
+        // the player lets the waiting mods be translated
+        public static void AllowNewMods()
+        {
+            try
+            {
+                var known = File.Exists(KnownModsPath)
+                    ? new HashSet<string>(File.ReadAllLines(KnownModsPath).Select(x => x.Trim().ToLowerInvariant()).Where(x => x.Length > 0))
+                    : new HashSet<string>();
+                foreach (string id in modIdByName.Values) known.Add(id);
+                SaveKnown(known);
+            }
+            catch (Exception e) { MLog.Warn("[URT] known mods: " + e.Message); }
+            HeldMods = new HashSet<string>(StringComparer.Ordinal);
+            Kick();
         }
 
         // everything the memory already knows goes into the game now
@@ -230,6 +378,7 @@ namespace UniversalRimTranslator
         {
             var s = UniversalRimTranslatorMod.Settings;
             if (ModsTab.IsSkipped(it.Mod)) return false;     // 2.3.0: left in English by the player
+            if (IsProperName(it)) return false;               // 2.5.2: race and xenotype names stay
             if (it.Kind == ItemKind.Keyed) return s.translateKeyed;
             if (it.IsRule) return s.translateRules;
             return s.translateDefs;
@@ -245,6 +394,8 @@ namespace UniversalRimTranslator
                 while (!cts.IsCancellationRequested)
                 {
                     if (Paused || !UniversalRimTranslatorMod.Settings.enabled) { Phase = "paused"; wake.WaitOne(2000); continue; }
+                    // 2.5.2: offline – only the memory is used, no service is asked
+                    if (UniversalRimTranslatorMod.Settings.offlineOnly) { Phase = "offline – memory only"; wake.WaitOne(5000); continue; }
                     Live.Flush();
                     Live.Prune(k => Store.NeedsTranslation(k) && !(giveUp.TryGetValue(k, out int gg) && gg >= 3));
                     List<string> todo = Pending(200);
@@ -257,7 +408,16 @@ namespace UniversalRimTranslator
                         continue;
                     }
                     Phase = "translating (" + PendingCount() + " left)";
-                    var jobs = todo.Select(src => new Job { Source = src, SourceLang = bySource.TryGetValue(src, out var its) ? its[0].SourceLang : (Lang.GuessFromScript(src) ?? "en"), Avoid = AvoidOnce.TryRemove(src, out string av) ? av : null }).ToList();
+                    // 2.5.2: Latin texts the scan left to detection: short ones are English (names were taken for Malay);
+                    // AI services get the kind of text, the mod and the glossary words as context
+                    var jobs = todo.Select(src => new Job
+                    {
+                        Source = src,
+                        SourceLang = bySource.TryGetValue(src, out var its) ? (its[0].SourceLang ?? Lang.LatinDefault(src)) : (Lang.GuessFromScript(src) ?? "en"),
+                        Avoid = AvoidOnce.TryRemove(src, out string av) ? av : null,
+                        Hint = HintFor(src, src)
+                    }).ToList();
+                    Chain.Notes = GlossaryNotes();
                     Chain.Run(jobs, Target, cts.Token);
                     int got = 0;
                     foreach (Job j in jobs)
@@ -301,7 +461,8 @@ namespace UniversalRimTranslator
         {
             // texts on the screen right now first (live), then the game's texts
             IEnumerable<string> live = Live.On ? Live.Pending.Keys.ToList() : Enumerable.Empty<string>();
-            return live.Concat(Items.Where(Allowed).OrderBy(i => i.Priority).Select(i => Store.Key(i.Source))).Distinct()
+            // 2.5.2: texts of new mods that wait for the player are not sent to the services
+            return live.Concat(Items.Where(i => Allowed(i) && !IsHeld(i.Mod)).OrderBy(i => i.Priority).Select(i => Store.Key(i.Source))).Distinct()
                         .Where(k => Store.NeedsTranslation(k) && !(giveUp.TryGetValue(k, out int g) && g >= 3));
         }
 

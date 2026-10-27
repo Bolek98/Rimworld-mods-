@@ -53,6 +53,7 @@ namespace HaulSmarter
         public float pocketHours = 1f;          // 3.3: carried things go to storage at the latest after this (in-game hours)
         public bool smartPickup = true;         // 3.4: a builder takes all materials for the site (and sites next to it) in one trip
         public int foodMinutes = 15;            // 3.3: food, medicine and drugs at the latest after this (in-game minutes)
+        public bool stepAside = true;           // 3.4.1: no extra hauling while bleeding or while a downed colonist needs tending
 
         public static readonly string[] ProfileFields =
         {
@@ -139,6 +140,7 @@ namespace HaulSmarter
             Scribe_Values.Look(ref pocketHours, "pocketHours", 1f);
             Scribe_Values.Look(ref foodMinutes, "foodMinutes", 15);
             Scribe_Values.Look(ref smartPickup, "smartPickup", true);
+            Scribe_Values.Look(ref stepAside, "stepAside", true);
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
                 Preset(profile);
         }
@@ -146,7 +148,7 @@ namespace HaulSmarter
 
     public sealed class HSMod : Mod
     {
-        public const string Version = "3.4.0";
+        public const string Version = "3.4.1";
         public static HSSettings S;
         private Vector2 scroll;
         private float height = 900f;
@@ -260,6 +262,7 @@ namespace HaulSmarter
             Check(l, "HS_MergeStacks", ref s.mergeStacks, "mergeStacks");
             Check(l, "HS_DropOnDraft", ref s.dropOnDraft, "dropOnDraft");
             Check(l, "HS_Detour", ref s.detourHaul, "detourHaul");
+            Check(l, "HS_StepAside", ref s.stepAside, null);
             Check(l, "HS_TraderCarry", ref s.traderCarry, "traderCarry");
             Check(l, "HS_MechHaul", ref s.mechHaul, "mechHaul");
             Check(l, "HS_AnimalHaul", ref s.animalHaul, "animalHaul");
