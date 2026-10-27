@@ -53,6 +53,11 @@ public sealed class SupplyJob : IExposable
 	public int keepTrees;        // never go below this many chosen trees on the map
 	// Hunting
 	public int keepPerSpecies = 3;
+	// 1.0.4: stock once per in-game hour, last 7 days (sparkline)
+	public StockHistory hourly = new StockHistory();
+	// 1.0.4: Mining – deep drills on this resource are switched off above the
+	// target and back on below it
+	public bool controlDrills;
 
 	public void ExposeData()
 	{
@@ -68,6 +73,8 @@ public sealed class SupplyJob : IExposable
 		Scribe_Values.Look(ref onlyOutsideHome, "onlyOutsideHome", false);
 		Scribe_Values.Look(ref keepTrees, "keepTrees", 0);
 		Scribe_Values.Look(ref keepPerSpecies, "keepPerSpecies", 3);
+		Scribe_Values.Look(ref controlDrills, "controlDrills", false);
+		hourly.Expose("hourly");
 		if (choices == null)
 			choices = new Dictionary<string, bool>();
 		if (ownMarks == null)
@@ -430,6 +437,7 @@ public sealed partial class SupplyManager : MapComponent
 		ExposeBlight();
 		ExposeProductionVersion();
 		ExposeAuto();
+		ExposeChains();
 		if (Scribe.mode == LoadSaveMode.PostLoadInit)
 		{
 			if (livestock == null) livestock = new List<LivestockRule>();
@@ -483,6 +491,7 @@ public sealed partial class SupplyManager : MapComponent
 		// hauler then takes them to storage; with no storage for chunks the
 		// "carry out" job takes them out of the home area.
 		TickBlight();
+		TickStockHistory(now);
 		if (enabled && tidyChunks && now >= nextChunkMark)
 		{
 			nextChunkMark = now + 1000;
@@ -531,6 +540,9 @@ public sealed partial class SupplyManager : MapComponent
 				nextCheck = now + Mathf.Clamp(intervalHours, 1, 48) * 2500;
 				try { SuspendProduction(); RemoveAuto(null); }
 				catch (Exception ex) { MLog.Warn("[Steward] production: " + ex.Message); }
+				// 1.0.4: drills the steward switched off are switched on again
+				try { CheckDrills(); }
+				catch (Exception ex) { MLog.WarnOnce("[Steward] deep drills: " + ex.Message, 0x5e0104); }
 			}
 			return;
 		}
@@ -625,6 +637,7 @@ public sealed partial class SupplyManager : MapComponent
 		// 2.16.2: every step on its own – an error in one does not stop the
 		// others, and the log names the step with the full error (once)
 		Step("clearing", "CF_J_Clear", MarkClearArea, ref total, parts);
+		Step("ingredients", "CF_J_Production", CheckChains, ref total, parts);   // 1.0.4
 		Step("production", "CF_J_Production", CheckProduction, ref total, parts);
 		Step("self-supply", "CF_A_Page", CheckAuto, ref total, parts);
 		Step("livestock", "CF_J_Livestock", CheckLivestock, ref total, parts);
@@ -640,6 +653,7 @@ public sealed partial class SupplyManager : MapComponent
 				parts.Add(JobLabel(job) + " " + marked);
 			}
 		}
+		Step("drills", "CF_D_Drills", CheckDrills, ref total, parts);   // 1.0.4: after the stock was counted
 		bool tell = SuppliesMod.S == null || SuppliesMod.S.supplyMessages;
 		if (total > 0 && (manual || tell))
 			Messages.Message("CF_S_Marked".Translate(string.Join(", ", parts)), MessageTypeDefOf.SilentInput, historical: false);

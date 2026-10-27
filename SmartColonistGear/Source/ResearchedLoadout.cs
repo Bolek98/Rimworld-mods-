@@ -318,6 +318,10 @@ namespace ResearchedLoadout
 			listing_Standard.NewColumn();
 			Check(listing_Standard, "RL_ConsiderDistance", ref Settings.considerDistance, "considerDistance");
 			Check(listing_Standard, "RL_PauseThreat", ref Settings.pauseDuringThreat, "pauseDuringThreat");
+			if (CEAmmo.Loaded)
+			{
+				Check(listing_Standard, "RL_CEAmmo", ref Settings.ceAmmoCheck, "ceAmmoCheck");
+			}
 			Settings.weaponCalmHours = (int)Sl(listing_Standard, "weaponCalmHours", "RL_WeaponCalm".Translate(Settings.weaponCalmHours), Settings.weaponCalmHours, 0f, 72f, 0.5f, "RL_WeaponCalm_Desc".Translate());
 			listing_Standard.End();
 		}
@@ -4841,7 +4845,9 @@ namespace ResearchedLoadout
 
 		public string allowedKinds = string.Empty;   // 2.15.1: locked kinds allowed anyway ("Allow this kind")
 
-		public bool enemyLootFromStorage = true;    // 2.15.1: gear dropped by enemies is taken only once it is in storage
+		public bool enemyLootFromStorage = true;
+
+		public bool ceAmmoCheck = true;             // 2.16.0: with Combat Extended only ranged weapons with ammo are taken    // 2.15.1: gear dropped by enemies is taken only once it is in storage
 
 		// 2.6.4: a new install starts at the current version; with 0 the value was never written
 		// (it equals the Scribe default) and the migrations below reset useOwnDresser/onlyFromStockpile on every start
@@ -4937,6 +4943,7 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref bannedApparel, "bannedApparel", string.Empty);
 			Scribe_Values.Look(ref allowedKinds, "allowedKinds", string.Empty);
 			Scribe_Values.Look(ref enemyLootFromStorage, "enemyLootFromStorage", true);
+			Scribe_Values.Look(ref ceAmmoCheck, "ceAmmoCheck", true);
 			Scribe_Values.Look(ref settingsVersion, "settingsVersion", 0);
 			Scribe_Values.Look(ref recommended, "recommended", false);
 			if (Scribe.mode != LoadSaveMode.PostLoadInit)
@@ -6484,6 +6491,8 @@ namespace ResearchedLoadout
 			if (IsBroken(thing)) return "too damaged";
 			if (thing.IsForbidden(pawn)) return "forbidden";
 			if (!EquipmentUtility.CanEquip(thing, pawn)) return "CanEquip false";
+			if (!OutfitWeapons.Allows(pawn, thing.def)) return "not allowed by outfit";
+			if (!CEAmmo.HasAmmo(thing, pawn)) return "no CE ammo";
 			if (!pawn.CanReserveAndReach(thing, PathEndMode.ClosestTouch, Danger.Some)) return "can't reach/reserve";
 			return "candidate";
 		}
@@ -7639,6 +7648,11 @@ namespace ResearchedLoadout
 				{
 					return true;
 				}
+				// 2.16.0: Combat Extended – a gun with no ammo anywhere is replaced by one that has ammo
+				if (current.def != null && current.def.IsRangedWeapon && CEAmmo.Active && !CEAmmo.HasAmmo(current, pawn) && CEAmmo.HasAmmo(candidate, pawn))
+				{
+					return true;
+				}
 				// 2.15.1: the newer era wins even when the weapon is weaker; an older one never replaces a newer
 				// one (unless the one in hand is falling apart)
 				if (LoadoutFilter.NewEraFirst && current.def != null && candidate.def != null)
@@ -7949,7 +7963,9 @@ namespace ResearchedLoadout
 
 		private void ConsiderWeapon(Pawn pawn, Thing thing, bool? wantRanged, bool forPrimary, ref Thing best, ref float bestScore)
 		{
-			if (thing != null && !thing.Destroyed && thing.Spawned && thing.def != null && LoadoutFilter.IsManagedWeapon(thing.def) && !LoadoutFilter.ToolNotWeapon(thing.def) && !_reservedThings.Contains(thing.thingIDNumber) && (LoadoutFilter.IsAllowed(thing.def) || EmergencyGear.AllowsThing(pawn, thing)) && InAllowedStorage(thing) && (!wantRanged.HasValue || thing.def.IsRangedWeapon == wantRanged.Value) && (!forPrimary || !thing.def.IsRangedWeapon || !IsBrawler(pawn)) && !IsBroken(thing) && !thing.IsForbidden(pawn) && EquipmentUtility.CanEquip(thing, pawn) && (!thing.def.IsRangedWeapon || !WearsRangedBlockingShield(pawn)))
+			if (thing != null && !thing.Destroyed && thing.Spawned && thing.def != null && LoadoutFilter.IsManagedWeapon(thing.def) && !LoadoutFilter.ToolNotWeapon(thing.def) && !_reservedThings.Contains(thing.thingIDNumber) && (LoadoutFilter.IsAllowed(thing.def) || EmergencyGear.AllowsThing(pawn, thing)) && InAllowedStorage(thing) && (!wantRanged.HasValue || thing.def.IsRangedWeapon == wantRanged.Value) && (!forPrimary || !thing.def.IsRangedWeapon || !IsBrawler(pawn)) && !IsBroken(thing) && !thing.IsForbidden(pawn) && EquipmentUtility.CanEquip(thing, pawn) && (!thing.def.IsRangedWeapon || !WearsRangedBlockingShield(pawn))
+				// 2.16.0: the outfit's weapon list and (with Combat Extended) ammo for the weapon
+				&& OutfitWeapons.Allows(pawn, thing.def) && CEAmmo.HasAmmo(thing, pawn))
 			{
 				float num = ScoreWeapon(pawn, thing);
 				// 2.15.1: among weapons of one kind the newest era wins first, then the score
@@ -9095,6 +9111,9 @@ namespace ResearchedLoadout
 		// 2.15.1: ids of gear dropped or stripped from non-colonists (not yet in storage)
 		public HashSet<int> enemyLoot = new HashSet<int>();
 
+		// 2.16.0: weapon kinds not allowed per outfit: "<policy id>|<weapon defName>"
+		public HashSet<string> outfitWeaponBans = new HashSet<string>();
+
 		public ResearchedLoadoutGameComponent(Game game)
 		{
 			GuestWardrobe.ResetGameState();
@@ -9353,6 +9372,15 @@ namespace ResearchedLoadout
 			if (emergencyBills == null)
 			{
 				emergencyBills = new HashSet<string>();
+			}
+			if (Scribe.mode == LoadSaveMode.Saving)
+			{
+				OutfitWeapons.Prune(outfitWeaponBans);
+			}
+			Scribe_Collections.Look(ref outfitWeaponBans, "researchedLoadoutOutfitWeaponBans", LookMode.Value);
+			if (outfitWeaponBans == null)
+			{
+				outfitWeaponBans = new HashSet<string>();
 			}
 		}
 	}

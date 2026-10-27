@@ -27,6 +27,11 @@ public sealed class ProductionTarget : IExposable
 	// 2.15: the steward paused the bill itself (switched off). A bill you
 	// paused by hand stays paused.
 	public bool pausedByUs;
+	// 1.0.4: also keep enough ingredients – adds or raises the targets of the
+	// recipe's ingredients (ingredient count x batches needed for the target)
+	public bool feedIngredients;
+	// 1.0.4: stock once per in-game hour, last 7 days (sparkline)
+	public StockHistory hourly = new StockHistory();
 
 	// The game can count "do until X" only for recipes with exactly one product
 	// and no special products. Others (several products) are counted by the
@@ -41,6 +46,8 @@ public sealed class ProductionTarget : IExposable
 		Scribe_Values.Look(ref target, "target", 20);
 		Scribe_Values.Look(ref enabled, "enabled", true);
 		Scribe_Values.Look(ref billId, "billId");
+		Scribe_Values.Look(ref feedIngredients, "feedIngredients", false);
+		hourly.Expose("hourly");
 	}
 }
 

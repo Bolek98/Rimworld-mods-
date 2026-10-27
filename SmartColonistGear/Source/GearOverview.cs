@@ -103,6 +103,13 @@ namespace ResearchedLoadout
 				Messages.Message("RL_GO_EquipAllDone".Translate(n), MessageTypeDefOf.TaskCompletion, false);
 			}
 			TooltipHandler.TipRegion(all, "RL_GO_EquipAll_Desc".Translate());
+			// 2.16.0: which weapons each outfit allows
+			Rect ow = new Rect(all.x - 238f, r.y, 230f, 32f);
+			if (Widgets.ButtonText(ow, "RL_OW_Button".Translate()))
+			{
+				Find.WindowStack.Add(new Dialog_OutfitWeapons());
+			}
+			TooltipHandler.TipRegion(ow, "RL_OW_Desc".Translate());
 			List<Pawn> pawns = map.mapPawns.FreeColonistsSpawned.OrderBy(p => p.LabelShort).ToList();
 			float y = r.y + 40f;
 			float[] cx = { 0f, 0.18f, 0.40f, 0.48f, 0.56f, 0.78f };
