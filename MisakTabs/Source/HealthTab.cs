@@ -104,6 +104,11 @@ namespace MisakTabs
             Rect left = new Rect(body.x, body.y, 250f, body.height);
             Rect mid = new Rect(left.xMax, body.y, 230f, body.height);
             Rect right = new Rect(mid.xMax, body.y, body.width - left.width - mid.width, body.height);
+            if (opsMode && OpsTab.Available && CanOperate(pawn))
+            {
+                OpsTab.Draw(body, pawn);
+                return;
+            }
             Widgets.DrawBoxSolid(new Rect(left.xMax, body.y, 1f, body.height), Look.Line);
             Widgets.DrawBoxSolid(new Rect(mid.xMax, body.y, 1f, body.height), Look.Line);
             Overview(left.ContractedBy(10f), pawn);
@@ -120,10 +125,15 @@ namespace MisakTabs
             Look.Text(new Rect(r.x + 12f, r.y + 30f, 420f, 20f), state, sc, GameFont.Tiny);
             bool ops = CanOperate(pawn);
             Rect op = new Rect(r.xMax - 262f, r.y + 13f, 120f, 28f);
-            if (Look.Button(op, "MT_Operations".Translate(), true, ops))
+            bool inOps = opsMode && ops && OpsTab.Available;
+            if (Look.Button(op, inOps ? "MT_O_BackHealth".Translate() : "MT_Operations".Translate(), true, ops || inOps))
             {
-                showOriginal = true;
-                if (opTab != null) opTab() = true;
+                if (OpsTab.Available) opsMode = !inOps;
+                else
+                {
+                    showOriginal = true;
+                    if (opTab != null) opTab() = true;
+                }
             }
             TooltipHandler.TipRegion(op, ops ? "MT_OperationsTip".Translate() : "MT_OperationsNo".Translate());
             Rect orig = new Rect(r.xMax - 132f, r.y + 13f, 120f, 28f);
@@ -384,6 +394,10 @@ namespace MisakTabs
         }
 
         public static bool silhouette = true;
+        public static bool opsMode;            // 0.4.0: our own operations view
+
+        public static void FigureForOps(Rect r, Pawn pawn) => Figure(r, pawn);
+        public static Silhouette.Region RegionOfPart(BodyPartRecord part) => RegionOf(part);
         private static readonly HashSet<string> ArmParts = new HashSet<string> { "Shoulder", "Clavicle", "Arm", "Humerus", "Radius", "Hand", "Finger" };
         private static readonly HashSet<string> LegParts = new HashSet<string> { "Leg", "Femur", "Tibia", "Foot", "Toe" };
 
