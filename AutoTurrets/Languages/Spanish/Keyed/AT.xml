@@ -12,7 +12,7 @@
   <AT_AnyMetal>Las torretas se recargan con cualquier metal</AT_AnyMetal>
   <AT_AnyMetal_Desc>Las torretas que se recargan con acero (u otro único metal) aceptan cualquier metal: acero, plastiacero, oro, uranio y metales de mods.</AT_AnyMetal_Desc>
   <AT_AllowSilver>…incluida la plata</AT_AllowSilver>
-  <AT_Restart>Los ajustes de materiales se aplican tras reiniciar el juego.</AT_Restart>
+  <AT_Restart>Los ajustes de materiales y de torretas en muros se aplican tras reiniciar el juego.</AT_Restart>
   <AT_NoShell>No hay proyectiles disponibles</AT_NoShell>
   <AT_FriendlyFire>Fuego amigo de las torretas</AT_FriendlyFire>
   <AT_FriendlyFire_Desc>Desactivado: las balas de tus torretas pasan junto a tus colonos, invitados y aliados, y las explosiones de sus proyectiles no les hacen daño. Activado = como en el juego.</AT_FriendlyFire_Desc>
@@ -20,4 +20,11 @@
   <AT_FuelWood_Desc>Las torretas que se recargan con metal también aceptan madera.</AT_FuelWood_Desc>
   <AT_FuelStone>Recargar torretas también con bloques de piedra</AT_FuelStone>
   <AT_FuelStone_Desc>Las torretas que se recargan con metal también aceptan bloques de piedra.</AT_FuelStone_Desc>
+  <AT_WallTurrets>Torretas en muros</AT_WallTurrets>
+  <AT_WallTurrets_Desc>Las torretas elegidas obtienen una segunda versión «… (en muro)» en el menú Seguridad. Se construye directamente sobre un muro o una pared de roca pulida, sustituye ese trozo de muro y funciona como muro: bloquea el paso, sostiene el techo y mantiene la habitación cerrada. Las torretas normales no cambian.</AT_WallTurrets_Desc>
+  <AT_WallPick>Qué torretas tienen versión de muro (★ = recomendado, pequeñas hasta 2×2):</AT_WallPick>
+  <AT_WallRecommended>Selección recomendada</AT_WallRecommended>
+  <AT_WallNone>No se encontraron torretas.</AT_WallNone>
+  <AT_WallLabel>{0} (en muro)</AT_WallLabel>
+  <AT_WallDescExtra>Se construye sobre un muro: sustituye ese trozo, bloquea el paso y sostiene el techo como un muro. Si se destruye, queda un hueco en el muro.</AT_WallDescExtra>
 </LanguageData>

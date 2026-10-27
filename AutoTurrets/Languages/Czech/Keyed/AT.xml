@@ -12,7 +12,7 @@
   <AT_AnyMetal>Věže se dobíjí jakýmkoliv kovem</AT_AnyMetal>
   <AT_AnyMetal_Desc>Věže, které se dobíjí ocelí (nebo jiným jedním kovem), berou jakýkoliv kov: ocel, plastocel, zlato, uran i kovy z modů.</AT_AnyMetal_Desc>
   <AT_AllowSilver>…včetně stříbra</AT_AllowSilver>
-  <AT_Restart>Nastavení materiálů platí po restartu hry.</AT_Restart>
+  <AT_Restart>Nastavení materiálů a věží ve zdi platí po restartu hry.</AT_Restart>
   <AT_NoShell>Žádný granát k dispozici</AT_NoShell>
   <AT_FriendlyFire>Palba do vlastních z věží</AT_FriendlyFire>
   <AT_FriendlyFire_Desc>Když je vypnuto, střely tvých věží prolétnou kolem tvých kolonistů, hostů a spojenců a výbuchy jejich granátů jim neublíží. Zapnuto = jako ve hře.</AT_FriendlyFire_Desc>
@@ -20,4 +20,11 @@
   <AT_FuelWood_Desc>Věže, které se doplňují kovem, vezmou i dřevo.</AT_FuelWood_Desc>
   <AT_FuelStone>Věže jde doplnit i kamennými bloky</AT_FuelStone>
   <AT_FuelStone_Desc>Věže, které se doplňují kovem, vezmou i kamenné bloky.</AT_FuelStone_Desc>
+  <AT_WallTurrets>Věže ve zdi</AT_WallTurrets>
+  <AT_WallTurrets_Desc>Vybrané věže dostanou v menu Obrana druhou verzi „… (ve zdi)“. Staví se rovnou přes zeď nebo vyhlazenou skálu, nahradí ten kus zdi a funguje sama jako zeď: nedá se jí projít, drží střechu a místnost zůstane uzavřená. Obyčejné věže zůstanou, jak jsou.</AT_WallTurrets_Desc>
+  <AT_WallPick>Které věže dostanou verzi do zdi (★ = doporučené, malé do 2×2):</AT_WallPick>
+  <AT_WallRecommended>Doporučený výběr</AT_WallRecommended>
+  <AT_WallNone>Žádné věže nenalezeny.</AT_WallNone>
+  <AT_WallLabel>{0} (ve zdi)</AT_WallLabel>
+  <AT_WallDescExtra>Staví se přes zeď: nahradí kus zdi, nedá se jí projít a drží střechu jako zeď. Když ji zničí, zůstane ve zdi díra.</AT_WallDescExtra>
 </LanguageData>

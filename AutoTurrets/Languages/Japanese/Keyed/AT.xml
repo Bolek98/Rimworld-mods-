@@ -12,7 +12,7 @@
   <AT_AnyMetal>タレットはどの金属でも再装填</AT_AnyMetal>
   <AT_AnyMetal_Desc>鋼鉄（またはその他の単一の金属）で再装填するタレットが、どの金属でも受け付けます：鋼鉄、プラスチール、金、ウラン、Mod製の金属。</AT_AnyMetal_Desc>
   <AT_AllowSilver>…銀も含む</AT_AllowSilver>
-  <AT_Restart>素材の設定はゲーム再起動後に反映されます。</AT_Restart>
+  <AT_Restart>素材と壁内タレットの設定はゲームの再起動後に反映されます。</AT_Restart>
   <AT_NoShell>利用可能な砲弾がありません</AT_NoShell>
   <AT_FriendlyFire>タレットの同士討ち</AT_FriendlyFire>
   <AT_FriendlyFire_Desc>オフにすると、タレットの弾は入植者・客人・同盟者をすり抜け、砲弾の爆発も彼らを傷つけません。オン＝ゲームと同じ。</AT_FriendlyFire_Desc>
@@ -20,4 +20,11 @@
   <AT_FuelWood_Desc>金属で補給するタレットが木材も受け付けます。</AT_FuelWood_Desc>
   <AT_FuelStone>タレットに石材ブロックも補給できる</AT_FuelStone>
   <AT_FuelStone_Desc>金属で補給するタレットが石材ブロックも受け付けます。</AT_FuelStone_Desc>
+  <AT_WallTurrets>壁内タレット</AT_WallTurrets>
+  <AT_WallTurrets_Desc>選んだタレットに、防衛メニューで「…（壁内）」の別バージョンが追加されます。壁や滑らかにした岩壁の上に直接建てられ、その壁を置き換え、それ自体が壁として働きます：通行を遮り、屋根を支え、部屋を密閉したままにします。通常のタレットは変わりません。</AT_WallTurrets_Desc>
+  <AT_WallPick>壁内版を作るタレット（★ = おすすめ、2×2 までの小型）：</AT_WallPick>
+  <AT_WallRecommended>おすすめの選択</AT_WallRecommended>
+  <AT_WallNone>タレットが見つかりません。</AT_WallNone>
+  <AT_WallLabel>{0}（壁内）</AT_WallLabel>
+  <AT_WallDescExtra>壁の上に建てる：壁を置き換え、壁と同じく通行を遮り屋根を支えます。破壊されると壁に穴が残ります。</AT_WallDescExtra>
 </LanguageData>

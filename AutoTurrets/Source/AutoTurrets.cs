@@ -21,6 +21,8 @@ namespace AutoTurrets
 		public bool friendlyFire = true;     // 1.1.0: false = your turrets never hit your own people (bullets and blasts)
 		public bool fuelWood = false;        // 1.1.0: turrets can also be refilled with wood
 		public bool fuelStone = false;       // 1.1.0: … and with stone blocks
+		public bool wallTurrets = false;     // 1.2.0: picked turrets get a version built over walls
+		public Dictionary<string, bool> wallPick = new Dictionary<string, bool>();   // only choices that differ from the recommendation
 
 		public override void ExposeData()
 		{
@@ -34,6 +36,10 @@ namespace AutoTurrets
 			Scribe_Values.Look(ref friendlyFire, "friendlyFire", true);
 			Scribe_Values.Look(ref fuelWood, "fuelWood", false);
 			Scribe_Values.Look(ref fuelStone, "fuelStone", false);
+			Scribe_Values.Look(ref wallTurrets, "wallTurrets", false);
+			Scribe_Collections.Look(ref wallPick, "wallPick", LookMode.Value, LookMode.Value);
+			if (Scribe.mode == LoadSaveMode.PostLoadInit && wallPick == null)
+				wallPick = new Dictionary<string, bool>();
 		}
 	}
 
@@ -49,10 +55,15 @@ namespace AutoTurrets
 
 		public override string SettingsCategory() => "Auto Turrets";
 
+		private Vector2 scroll;
+		private float viewHeight = 900f;
+
 		public override void DoSettingsWindowContents(Rect r)
 		{
+			Rect view = new Rect(0f, 0f, r.width - 20f, viewHeight);
+			Widgets.BeginScrollView(r, ref scroll, view);
 			var l = new Listing_Standard();
-			l.Begin(r);
+			l.Begin(view);
 			l.CheckboxLabeled("AT_AutoManned".Translate(), ref S.autoManned, "AT_AutoManned_Desc".Translate());
 			l.CheckboxLabeled("AT_AutoMortars".Translate(), ref S.autoMortars, "AT_AutoMortars_Desc".Translate());
 			l.CheckboxLabeled("AT_MortarSafety".Translate(), ref S.mortarSafety, "AT_MortarSafety_Desc".Translate());
@@ -68,8 +79,15 @@ namespace AutoTurrets
 			l.CheckboxLabeled("AT_AllowSilver".Translate(), ref S.allowSilver);
 			l.CheckboxLabeled("AT_FuelWood".Translate(), ref S.fuelWood, "AT_FuelWood_Desc".Translate());
 			l.CheckboxLabeled("AT_FuelStone".Translate(), ref S.fuelStone, "AT_FuelStone_Desc".Translate());
+			l.GapLine();
+			l.CheckboxLabeled("AT_WallTurrets".Translate(), ref S.wallTurrets, "AT_WallTurrets_Desc".Translate());
+			if (S.wallTurrets)
+				WallTurrets.DrawList(l);
+			l.Gap();
 			l.Label("AT_Restart".Translate());
+			viewHeight = l.CurHeight + 20f;
 			l.End();
+			Widgets.EndScrollView();
 		}
 
 		public override void WriteSettings()

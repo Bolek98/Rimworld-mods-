@@ -12,7 +12,7 @@
   <AT_AnyMetal>Torretas se rearmam com qualquer metal</AT_AnyMetal>
   <AT_AnyMetal_Desc>Torretas que se rearmam com aço (ou outro metal único) aceitam qualquer metal: aço, plastaço, ouro, urânio e metais de mods.</AT_AnyMetal_Desc>
   <AT_AllowSilver>…incluindo prata</AT_AllowSilver>
-  <AT_Restart>As configurações de materiais valem após reiniciar o jogo.</AT_Restart>
+  <AT_Restart>As configurações de materiais e torretas nas paredes valem após reiniciar o jogo.</AT_Restart>
   <AT_NoShell>Nenhum projétil disponível</AT_NoShell>
   <AT_FriendlyFire>Fogo amigo das torres</AT_FriendlyFire>
   <AT_FriendlyFire_Desc>Desligado: as balas das suas torres passam pelos seus colonos, convidados e aliados, e as explosões dos projéteis não os ferem. Ligado = como no jogo.</AT_FriendlyFire_Desc>
@@ -20,4 +20,11 @@
   <AT_FuelWood_Desc>Torres que recarregam com metal também aceitam madeira.</AT_FuelWood_Desc>
   <AT_FuelStone>Recarregar torres também com blocos de pedra</AT_FuelStone>
   <AT_FuelStone_Desc>Torres que recarregam com metal também aceitam blocos de pedra.</AT_FuelStone_Desc>
+  <AT_WallTurrets>Torretas nas paredes</AT_WallTurrets>
+  <AT_WallTurrets_Desc>As torretas escolhidas ganham uma segunda versão "… (na parede)" no menu Segurança. Ela é construída direto sobre uma parede ou parede de rocha polida, substitui esse pedaço de parede e funciona como parede: bloqueia a passagem, sustenta o teto e mantém o cômodo fechado. As torretas normais continuam iguais.</AT_WallTurrets_Desc>
+  <AT_WallPick>Quais torretas ganham versão de parede (★ = recomendado, pequenas até 2×2):</AT_WallPick>
+  <AT_WallRecommended>Seleção recomendada</AT_WallRecommended>
+  <AT_WallNone>Nenhuma torreta encontrada.</AT_WallNone>
+  <AT_WallLabel>{0} (na parede)</AT_WallLabel>
+  <AT_WallDescExtra>Construída sobre uma parede: substitui o pedaço de parede, bloqueia a passagem e sustenta o teto como parede. Se for destruída, fica um buraco na parede.</AT_WallDescExtra>
 </LanguageData>

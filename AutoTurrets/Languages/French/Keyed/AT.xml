@@ -12,7 +12,7 @@
   <AT_AnyMetal>Les tourelles se réarment avec n'importe quel métal</AT_AnyMetal>
   <AT_AnyMetal_Desc>Les tourelles qui se réarment avec de l'acier (ou un autre métal unique) acceptent n'importe quel métal : acier, plastacier, or, uranium et métaux des mods.</AT_AnyMetal_Desc>
   <AT_AllowSilver>…argent compris</AT_AllowSilver>
-  <AT_Restart>Les réglages de matériaux s'appliquent après redémarrage du jeu.</AT_Restart>
+  <AT_Restart>Les réglages des matériaux et des tourelles murales s'appliquent après un redémarrage du jeu.</AT_Restart>
   <AT_NoShell>Aucun obus disponible</AT_NoShell>
   <AT_FriendlyFire>Tirs amis des tourelles</AT_FriendlyFire>
   <AT_FriendlyFire_Desc>Désactivé : les balles de tes tourelles passent à côté de tes colons, invités et alliés, et les explosions de leurs obus ne les blessent pas. Activé = comme dans le jeu.</AT_FriendlyFire_Desc>
@@ -20,4 +20,11 @@
   <AT_FuelWood_Desc>Les tourelles rechargées en métal acceptent aussi le bois.</AT_FuelWood_Desc>
   <AT_FuelStone>Recharger les tourelles avec des blocs de pierre</AT_FuelStone>
   <AT_FuelStone_Desc>Les tourelles rechargées en métal acceptent aussi les blocs de pierre.</AT_FuelStone_Desc>
+  <AT_WallTurrets>Tourelles dans les murs</AT_WallTurrets>
+  <AT_WallTurrets_Desc>Les tourelles choisies reçoivent une seconde version « … (dans le mur) » dans le menu Sécurité. Elle se construit directement sur un mur ou un mur de roche lissé, remplace ce morceau de mur et sert elle-même de mur : elle bloque le passage, soutient le toit et garde la pièce fermée. Les tourelles normales restent inchangées.</AT_WallTurrets_Desc>
+  <AT_WallPick>Quelles tourelles ont une version murale (★ = recommandé, petites jusqu'à 2×2) :</AT_WallPick>
+  <AT_WallRecommended>Sélection recommandée</AT_WallRecommended>
+  <AT_WallNone>Aucune tourelle trouvée.</AT_WallNone>
+  <AT_WallLabel>{0} (dans le mur)</AT_WallLabel>
+  <AT_WallDescExtra>Se construit sur un mur : remplace le morceau de mur, bloque le passage et soutient le toit comme un mur. Si elle est détruite, il reste un trou dans le mur.</AT_WallDescExtra>
 </LanguageData>

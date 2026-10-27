@@ -12,7 +12,7 @@
   <AT_AnyMetal>포탑을 아무 금속으로나 재무장</AT_AnyMetal>
   <AT_AnyMetal_Desc>강철(또는 다른 한 가지 금속)로 재무장하는 포탑이 아무 금속이나 받습니다: 강철, 플라스틸, 금, 우라늄, 모드의 금속.</AT_AnyMetal_Desc>
   <AT_AllowSilver>…은 포함</AT_AllowSilver>
-  <AT_Restart>재료 설정은 게임을 다시 시작한 후 적용됩니다.</AT_Restart>
+  <AT_Restart>재료와 벽 속 포탑 설정은 게임을 다시 시작한 후 적용됩니다.</AT_Restart>
   <AT_NoShell>사용할 수 있는 포탄 없음</AT_NoShell>
   <AT_FriendlyFire>포탑 아군 사격</AT_FriendlyFire>
   <AT_FriendlyFire_Desc>끄면 포탑의 총알이 정착민, 손님, 동맹을 지나쳐 가고 포탄 폭발도 그들을 해치지 않습니다. 켜기 = 게임과 동일.</AT_FriendlyFire_Desc>
@@ -20,4 +20,11 @@
   <AT_FuelWood_Desc>금속으로 보충하는 포탑이 나무도 받습니다.</AT_FuelWood_Desc>
   <AT_FuelStone>포탑을 돌 벽돌로도 보충</AT_FuelStone>
   <AT_FuelStone_Desc>금속으로 보충하는 포탑이 돌 벽돌도 받습니다.</AT_FuelStone_Desc>
+  <AT_WallTurrets>벽 속 포탑</AT_WallTurrets>
+  <AT_WallTurrets_Desc>선택한 포탑은 보안 메뉴에 "…(벽 속)" 버전이 하나 더 생깁니다. 벽이나 다듬은 암벽 위에 바로 지으며, 그 벽을 대체하고 그 자체로 벽 역할을 합니다: 통행을 막고, 지붕을 받치고, 방을 막힌 상태로 유지합니다. 일반 포탑은 그대로입니다.</AT_WallTurrets_Desc>
+  <AT_WallPick>벽 속 버전을 만들 포탑 (★ = 추천, 2×2 이하 소형):</AT_WallPick>
+  <AT_WallRecommended>추천 선택</AT_WallRecommended>
+  <AT_WallNone>포탑을 찾을 수 없습니다.</AT_WallNone>
+  <AT_WallLabel>{0} (벽 속)</AT_WallLabel>
+  <AT_WallDescExtra>벽 위에 짓습니다: 벽 조각을 대체하고 벽처럼 통행을 막고 지붕을 받칩니다. 파괴되면 벽에 구멍이 남습니다.</AT_WallDescExtra>
 </LanguageData>

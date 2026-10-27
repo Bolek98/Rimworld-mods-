@@ -3,7 +3,7 @@
   <name>Auto Turrets</name>
   <author>Bolek98</author>
   <packageId>bolek98.autoturrets</packageId>
-  <modVersion>1.1.0</modVersion>
+  <modVersion>1.2.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -26,6 +26,7 @@
 - Mortar safety: an automatic mortar skips targets where the shell could land on your colonists, animals or guests (extra safety distance adjustable).
 - Turrets that rearm with steel (or another single metal) accept any metal: plasteel, gold, uranium and metals from mods (silver optional) – and optionally wood or stone blocks.
 - Friendly fire switch: turn it off and your turrets never hit your colonists, guests or allies – neither bullets nor shell blasts.
+- Turrets in walls (optional, off by default): pick turrets in the settings and they get a version that is built straight over a wall and works as a wall itself – blocks the way, holds the roof, keeps the room sealed. Small turrets are recommended.
 
 Only your own turrets change – enemy siege mortars still need their crew. Every part can be switched in the mod settings. Safe to add to an existing save. Requires Harmony. 12 languages.
 
@@ -39,6 +40,7 @@ Každá věž, minomet a dělo – z vanilly i z jakéhokoli modu – funguje be
 - Bezpečnost minometů: automatický minomet vynechá cíle, kde by granát mohl dopadnout na tvé kolonisty, zvířata nebo hosty (bezpečnou vzdálenost lze nastavit).
 - Věže, které se dobíjí ocelí (nebo jiným jedním kovem), vezmou jakýkoli kov: plastocel, zlato, uran i kovy z modů (stříbro volitelně) – a volitelně i dřevo nebo kamenné bloky.
 - Přepínač palby do vlastních: vypni ho a tvoje věže nikdy nezasáhnou tvé kolonisty, hosty ani spojence – ani střelou, ani výbuchem granátu.
+- Věže ve zdi (volitelné, ve výchozím stavu vypnuto): vyber věže v nastavení a dostanou verzi, která se staví rovnou přes zeď a sama funguje jako zeď – nedá se jí projít, drží střechu a místnost zůstane uzavřená. Doporučené jsou malé věže.
 
 Mění se jen tvoje věže – nepřátelské obléhací minomety dál potřebují obsluhu. Každou část lze přepnout v nastavení modu. Lze bezpečně přidat do rozehrané hry. Vyžaduje Harmony. 12 jazyků.</description>
 </ModMetaData>

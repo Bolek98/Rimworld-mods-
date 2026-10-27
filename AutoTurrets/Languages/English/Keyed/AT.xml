@@ -12,7 +12,7 @@
   <AT_AnyMetal>Turrets rearm with any metal</AT_AnyMetal>
   <AT_AnyMetal_Desc>Turrets that rearm with steel (or another single metal) take any metal: steel, plasteel, gold, uranium and metals from mods.</AT_AnyMetal_Desc>
   <AT_AllowSilver>…including silver</AT_AllowSilver>
-  <AT_Restart>Material settings apply after restarting the game.</AT_Restart>
+  <AT_Restart>Material and wall turret settings apply after restarting the game.</AT_Restart>
   <AT_NoShell>No shell available</AT_NoShell>
   <AT_FriendlyFire>Friendly fire from turrets</AT_FriendlyFire>
   <AT_FriendlyFire_Desc>When off, bullets from your turrets fly past your colonists, guests and allies, and blasts from their shells don't hurt them. On = like the game.</AT_FriendlyFire_Desc>
@@ -20,4 +20,11 @@
   <AT_FuelWood_Desc>Turrets that rearm with metal also take wood.</AT_FuelWood_Desc>
   <AT_FuelStone>Turrets can be refilled with stone blocks</AT_FuelStone>
   <AT_FuelStone_Desc>Turrets that rearm with metal also take stone blocks.</AT_FuelStone_Desc>
+  <AT_WallTurrets>Turrets in walls</AT_WallTurrets>
+  <AT_WallTurrets_Desc>Picked turrets get a second version "… (in wall)" in the Security menu. It is built straight over a wall or a smoothed rock wall, replaces that piece of wall and works as a wall itself: it blocks the way, holds the roof and keeps the room sealed. The normal turrets stay as they are.</AT_WallTurrets_Desc>
+  <AT_WallPick>Which turrets get a wall version (★ = recommended, small up to 2×2):</AT_WallPick>
+  <AT_WallRecommended>Recommended selection</AT_WallRecommended>
+  <AT_WallNone>No turrets found.</AT_WallNone>
+  <AT_WallLabel>{0} (in wall)</AT_WallLabel>
+  <AT_WallDescExtra>Built over a wall: replaces the wall piece, blocks the way and holds the roof like a wall. If it is destroyed, a hole is left in the wall.</AT_WallDescExtra>
 </LanguageData>
