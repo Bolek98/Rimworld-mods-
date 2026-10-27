@@ -736,7 +736,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.5.1";
+        public const string Version = "1.5.2";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -1290,12 +1290,16 @@ namespace GraphicsTuner
                     s.memSliceMs = Mathf.Round(MUI.Slider(l, "GT_MemSlice".Translate(s.memSliceMs.ToString("0")), s.memSliceMs, 1f, 20f, "GT_MemSlice_Desc".Translate(), s, null));
                 s.memThresholdMb = Mathf.RoundToInt(MUI.Slider(l, "GT_MemThreshold".Translate(s.memThresholdMb), s.memThresholdMb, 100f, 2000f, "GT_MemThreshold_Desc".Translate(), s, null) / 50f) * 50;
             }
-            Plain(l, "GT_MemOnPause", ref s.memOnPause);
-            Plain(l, "GT_MemOnSave", ref s.memOnSave);
             if (Freezer.Net)
             {
+                // 1.5.2: no forced clean-ups on 1.7 (they made textures disappear)
+                Note(l, "GT_MemBlocked17".Translate());
                 Plain(l, "GT_MemLowLatency", ref s.memLowLatency);
-                Plain(l, "GT_MemCompact", ref s.memCompact);
+            }
+            else
+            {
+                Plain(l, "GT_MemOnPause", ref s.memOnPause);
+                Plain(l, "GT_MemOnSave", ref s.memOnSave);
             }
             if (!Freezer.Net) Plain(l, "GT_MemUnload", ref s.memUnload);
             Plain(l, "GT_MemRamWarn", ref s.memRamWarn);
@@ -1333,7 +1337,7 @@ namespace GraphicsTuner
                     Find.WindowStack.Add(new Dialog_MessageBox(Vram.Report(), title: "GT_VramTitle".Translate()));
             }
             o.Gap(6f);
-            if (o.ButtonText("GT_MemCollectNow".Translate()))
+            if (!Freezer.ForcedGcBlocked && o.ButtonText("GT_MemCollectNow".Translate()))
                 Freezer.Collect(true);
             o.Gap(6f);
             Plain(o, "GT_MemHud", ref s.memHud);

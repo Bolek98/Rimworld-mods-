@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+1.5.2
+- Fix (1.7): Smooth FPS no longer forces any memory clean-up on 1.7 (after a pause, after a save, the button, the compaction). Icons, textures and doors disappeared twice a moment after such a clean-up right after loading, even without moving the memory – the 1.7 graphics engine let go of pictures it still needed. The game's own background clean-up does the job.
+
 1.5.1
 - Fix (1.7): "Clean memory during long pauses" no longer packs the large memory blocks together. On 1.7 the graphics engine uploads pictures on demand from those blocks; moving them made icons, textures and doors disappear until a restart.
 - Fix: the error doctor stopped on some error lines ("Index and length must refer to a location within the string").
