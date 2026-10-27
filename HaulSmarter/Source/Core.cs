@@ -51,12 +51,13 @@ namespace HaulSmarter
         public bool mechHaul = true;            // 3.3: hauling mechanoids carry several things in one trip
         public bool animalHaul = true;          // 3.3: trained animals carry several things in one trip
         public float pocketHours = 1f;          // 3.3: carried things go to storage at the latest after this (in-game hours)
+        public bool smartPickup = true;         // 3.4: a builder takes all materials for the site (and sites next to it) in one trip
         public int foodMinutes = 15;            // 3.3: food, medicine and drugs at the latest after this (in-game minutes)
 
         public static readonly string[] ProfileFields =
         {
             "haulMany", "maxItems", "scanRadius", "pocketHarvest", "pocketMine", "unloadAt", "smartRoute", "opportunistic", "prioPerish", "prioWeather", "prioValuable", "buildFromPockets",
-            "dropOnDraft", "fuelRound", "mergeStacks", "detourHaul", "refillBelow", "traderCarry", "mechHaul", "animalHaul", "pocketHours", "foodMinutes"
+            "dropOnDraft", "fuelRound", "mergeStacks", "detourHaul", "refillBelow", "traderCarry", "mechHaul", "animalHaul", "pocketHours", "foodMinutes", "smartPickup"
         };
 
         public static HSSettings PresetValues(int which)
@@ -68,7 +69,7 @@ namespace HaulSmarter
                     p.smartRoute = false; p.opportunistic = false; p.buildFromPockets = false; p.prioPerish = 0; p.prioWeather = 0; p.prioValuable = 0;
                     p.pocketHarvest = false; p.pocketMine = false;
                     p.dropOnDraft = false; p.fuelRound = false; p.mergeStacks = false;
-                    p.detourHaul = false; p.refillBelow = 0f; p.traderCarry = false; p.mechHaul = false; p.animalHaul = false;
+                    p.detourHaul = false; p.refillBelow = 0f; p.traderCarry = false; p.mechHaul = false; p.animalHaul = false; p.smartPickup = false;
                     break;
                 case 2:
                     p.maxItems = 60; p.scanRadius = 24; p.unloadAt = 0.95f; p.prioValuable = 2;
@@ -137,6 +138,7 @@ namespace HaulSmarter
             Scribe_Values.Look(ref animalHaul, "animalHaul", true);
             Scribe_Values.Look(ref pocketHours, "pocketHours", 1f);
             Scribe_Values.Look(ref foodMinutes, "foodMinutes", 15);
+            Scribe_Values.Look(ref smartPickup, "smartPickup", true);
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
                 Preset(profile);
         }
@@ -144,7 +146,7 @@ namespace HaulSmarter
 
     public sealed class HSMod : Mod
     {
-        public const string Version = "3.3.0";
+        public const string Version = "3.4.0";
         public static HSSettings S;
         private Vector2 scroll;
         private float height = 900f;
@@ -253,6 +255,7 @@ namespace HaulSmarter
             Check(l, "HS_SmartRoute", ref s.smartRoute, "smartRoute");
             Check(l, "HS_Opportunistic", ref s.opportunistic, "opportunistic");
             Check(l, "HS_BuildPockets", ref s.buildFromPockets, "buildFromPockets");
+            Check(l, "HS_SmartPickup", ref s.smartPickup, "smartPickup");
             Check(l, "HS_FuelRound", ref s.fuelRound, "fuelRound");
             Check(l, "HS_MergeStacks", ref s.mergeStacks, "mergeStacks");
             Check(l, "HS_DropOnDraft", ref s.dropOnDraft, "dropOnDraft");
@@ -354,6 +357,7 @@ namespace HaulSmarter
         public static JobDef HaulSmarterRefuelRound;
         public static JobDef HaulSmarterMany;
         public static JobDef HaulSmarterUnload;
+        public static JobDef HaulSmarterFetch;
         public static MainButtonDef HaulSmarterOverview;
 
         static HSDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(HSDefOf));
@@ -473,6 +477,26 @@ namespace HaulSmarter
             if (I == null || t == null) return;
             I.tracked.Remove(t.thingIDNumber);
             I.pickedAt.Remove(t.thingIDNumber);
+        }
+
+        // 3.4: material a builder fetched for a construction site – not unloaded for a while
+        private readonly Dictionary<int, int> forBuild = new Dictionary<int, int>();
+        public const int BuildKeep = 2500;
+
+        public static void MarkBuild(Thing t)
+        {
+            if (I != null && t != null && Find.TickManager != null)
+                I.forBuild[t.thingIDNumber] = Find.TickManager.TicksGame;
+        }
+
+        public static bool ForBuild(Thing t)
+        {
+            if (I == null || t == null || Find.TickManager == null || !I.forBuild.TryGetValue(t.thingIDNumber, out int at))
+                return false;
+            if (Find.TickManager.TicksGame - at <= BuildKeep)
+                return true;
+            I.forBuild.Remove(t.thingIDNumber);
+            return false;
         }
 
         public static int AgeTicks(Thing t)

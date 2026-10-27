@@ -13,6 +13,12 @@
     <casualInterruptible>true</casualInterruptible>
   </JobDef>
   <JobDef>
+    <defName>HaulSmarterFetch</defName>
+    <driverClass>HaulSmarter.JobDriver_HaulMany</driverClass>
+    <reportString>taking materials for construction.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
+  <JobDef>
     <defName>HaulSmarterRefuelRound</defName>
     <driverClass>HaulSmarter.JobDriver_RefuelRound</driverClass>
     <reportString>refueling several things.</reportString>

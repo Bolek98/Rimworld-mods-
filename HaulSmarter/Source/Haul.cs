@@ -117,7 +117,7 @@ namespace HaulSmarter
             if (pawn?.Map == null || !pawn.Map.IsPlayerHome || !HasTracked(pawn))
                 return false;
             foreach (Thing t in TrackedItems(pawn))
-                if (StoreUtility.TryFindBestBetterStoreCellFor(t, pawn, pawn.Map, StoragePriority.Unstored, pawn.Faction, out _, false))
+                if (!HSData.ForBuild(t) && StoreUtility.TryFindBestBetterStoreCellFor(t, pawn, pawn.Map, StoragePriority.Unstored, pawn.Faction, out _, false))
                     return true;
             return false;
         }
@@ -142,7 +142,7 @@ namespace HaulSmarter
         public static bool MustUnloadSoon(Pawn pawn)
         {
             foreach (Thing t in TrackedItems(pawn))
-                if (HSData.AgeTicks(t) > (NeededByOthers(t) ? FoodTicks : PocketTicks))
+                if (!HSData.ForBuild(t) && HSData.AgeTicks(t) > (NeededByOthers(t) ? FoodTicks : PocketTicks))
                     return true;
             return false;
         }
@@ -434,6 +434,19 @@ namespace HaulSmarter
 
             // ---- unload -------------------------------------------------
             yield return unloadStart;
+            // 3.4: a materials pick-up for building ends here – the things stay in the pockets for the builder
+            Toil fetchEnd = ToilMaker.MakeToil("HS_FetchEnd");
+            fetchEnd.initAction = delegate
+            {
+                if (job.def != HSDefOf.HaulSmarterFetch)
+                    return;
+                foreach (Thing t in HaulUtil.TrackedItems(pawn))
+                    if (MaterialPickup.Wanted(job, t.def))
+                        HSData.MarkBuild(t);
+                JumpToToil(done);
+            };
+            fetchEnd.defaultCompleteMode = ToilCompleteMode.Instant;
+            yield return fetchEnd;
             Toil choose = ToilMaker.MakeToil("HS_ChooseStore");
             choose.initAction = delegate
             {
@@ -443,6 +456,8 @@ namespace HaulSmarter
                 int bestDist = int.MaxValue;
                 foreach (Thing item in HaulUtil.TrackedItems(pawn).ToList())
                 {
+                    if (HSData.ForBuild(item))
+                        continue;   // 3.4: material the builder fetched – kept for the construction
                     if (StoreUtility.TryFindBestBetterStoreCellFor(item, pawn, pawn.Map, StoragePriority.Unstored, pawn.Faction, out IntVec3 c))
                     {
                         int d = c.DistanceToSquared(pawn.Position);

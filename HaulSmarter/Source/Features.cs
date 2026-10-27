@@ -315,18 +315,31 @@ namespace HaulSmarter
                 HSSettings s = HSMod.S;
                 if (s == null || !s.buildFromPockets || !Safe.On("buildPockets") || pawn == null || c == null || c is Blueprint_Install || !(c is Thing ct) || !ct.Spawned)
                     return true;
-                if (FloatMenuMakerMap.makingFor == pawn || pawn.carryTracker == null || pawn.carryTracker.CarriedThing != null || !HaulUtil.HasTracked(pawn))
+                if (FloatMenuMakerMap.makingFor == pawn || pawn.carryTracker == null || pawn.carryTracker.CarriedThing != null)
                     return true;
-                Thing mat = BuildFromPockets.Material(pawn, c, forced, out int needed);
+                Thing mat = HaulUtil.HasTracked(pawn) ? BuildFromPockets.Material(pawn, c, forced, out int needed) : null;
                 if (mat == null)
+                {
+                    // 3.4: nothing for it in the pockets – take everything the site needs in one trip
+                    if (BuildFromPockets.RealJob)
+                    {
+                        Job fetch = MaterialPickup.Make(pawn, c, forced);
+                        if (fetch != null)
+                        {
+                            __result = fetch;
+                            return false;
+                        }
+                    }
                     return true;
+                }
                 if (!BuildFromPockets.RealJob)
                 {
                     // only a check ("is there work?") – answer yes without touching anything
                     __result = JobMaker.MakeJob(JobDefOf.HaulToContainer, ct, ct, ct);
                     return false;
                 }
-                int count = Mathf.Min(needed, mat.stackCount);
+                BuildFromPockets.Material(pawn, c, forced, out int needed2);
+                int count = Mathf.Min(needed2, mat.stackCount);
                 pawn.inventory.innerContainer.TryTransferToContainer(mat, pawn.carryTracker.innerContainer, count, out Thing carried, false);
                 if (carried == null)
                     return true;
