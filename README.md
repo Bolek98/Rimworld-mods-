@@ -31,7 +31,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Randy's Table – Chaos Storytellers | 0.1.0 | [RandysTable](RandysTable) |
 | Research Fixer – Tech Progression | 0.3.3 | [ResearchFixer](ResearchFixer) |
 | Secular Colony – Ideology Off & Tweaks | 1.5.2 | [SecularColony](SecularColony) |
-| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.15.0 | [SmartColonistGear](SmartColonistGear) |
+| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.15.1 | [SmartColonistGear](SmartColonistGear) |
 | Smooth FPS – Performance & Graphics | 1.4.0 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 3.4.1 | [Steward2/Steward](Steward2/Steward) |
@@ -42,7 +42,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Universal RimTranslator | 2.5.0 | [UniversalRimTranslator](UniversalRimTranslator) |
 | Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.1 | [UnofficialPatch](UnofficialPatch) |
 | Wild Spawn Zone | 1.1.3 | [WildSpawnZone](WildSpawnZone) |
-| Tech Progression: World at Your Level | 2.15.0 | [WorldAtYourLevel](WorldAtYourLevel) |
+| World at Your Level – Raiders Match Your Tech | 2.15.0 | [WorldAtYourLevel](WorldAtYourLevel) |
 
 Each folder is a complete mod (About, Assemblies, Defs, Languages, Source), most with a `CHANGELOG.txt`.
 All mods need [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077).

@@ -6133,6 +6133,10 @@ namespace ResearchedLoadout
 			{
 				TempFastLane(settings);
 			}
+			if (EquipRush.Any && Find.TickManager.TicksGame % 120 == 37)
+			{
+				RushLane(settings);
+			}
 			MaybeReport(Find.TickManager.TicksGame);
 			_ticker++;
 			// 2.16.7: the colonists of a round are checked one by one (one every 5 ticks), not all in one tick –
@@ -6347,6 +6351,32 @@ namespace ResearchedLoadout
 					_pawnCooldown.Remove(pawn.thingIDNumber);
 					ProcessPawn(pawn, now, settings);
 				}
+			}
+		}
+
+		// 2.15.1: "Gear up now" button on a colonist – checks the gear at once and keeps checking for an hour, so weapon,
+		// armor and clothes of the newest era are all taken one after another (not one item per normal round)
+		public void EquipNow(Pawn pawn)
+		{
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			if (settings == null || !settings.enabled || pawn == null) return;
+			int now = Find.TickManager.TicksGame;
+			_pawnCooldown.Remove(pawn.thingIDNumber);
+			_weaponCalmUntil[pawn.thingIDNumber] = now - 1;
+			EquipRush.Start(pawn, now);
+			try { ProcessPawn(pawn, now, settings); } catch (Exception e) { MLog.Warn("[Smart Colonist Gear] gear up now: " + e.Message); }
+		}
+
+		private void RushLane(ResearchedLoadoutSettings settings)
+		{
+			int now = Find.TickManager.TicksGame;
+			List<Pawn> list = map.mapPawns.FreeColonistsSpawned;
+			for (int i = 0; i < list.Count; i++)
+			{
+				Pawn pawn = list[i];
+				if (!EquipRush.Active(pawn) || !LoadoutFilter.IsPlayerColonist(pawn) || pawn.Drafted || pawn.Downed) continue;
+				_pawnCooldown.Remove(pawn.thingIDNumber);
+				try { ProcessPawn(pawn, now, settings); } catch (Exception e) { MLog.Warn("[Smart Colonist Gear] gear up now: " + e.Message); }
 			}
 		}
 
@@ -9053,6 +9083,63 @@ namespace ResearchedLoadout
 					ExemptPawns.Set(pawn, !ExemptPawns.IsExempt(pawn));
 				}
 			};
+			// 2.15.1: gear up now (newest era, best gear) – also for several selected colonists at once
+			if (!ExemptPawns.IsExempt(pawn) && !pawn.Drafted && pawn.Map != null)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "RL_GizmoEquipNow".Translate(),
+					defaultDesc = "RL_GizmoEquipNow_Desc".Translate(),
+					icon = EquipRush.Icon,
+					action = delegate
+					{
+						pawn.Map?.GetComponent<ResearchedLoadoutMapComponent>()?.EquipNow(pawn);
+					}
+				};
+			}
+		}
+	}
+
+	// 2.15.1: colonists who pressed "Gear up now" are checked every two seconds for an in-game hour
+	public static class EquipRush
+	{
+		private static readonly Dictionary<int, int> until = new Dictionary<int, int>();
+		private static Texture2D icon;
+
+		public static Texture2D Icon
+		{
+			get
+			{
+				if (icon == null)
+				{
+					ThingDef vest = DefDatabase<ThingDef>.GetNamedSilentFail("Apparel_FlakVest");
+					icon = vest?.uiIcon ?? TexCommand.Attack;
+				}
+				return icon;
+			}
+		}
+
+		public static void Start(Pawn pawn, int now)
+		{
+			until[pawn.thingIDNumber] = now + 2500;
+		}
+
+		public static bool Active(Pawn pawn)
+		{
+			int u;
+			return pawn != null && until.TryGetValue(pawn.thingIDNumber, out u) && Find.TickManager.TicksGame < u;
+		}
+
+		public static bool Any
+		{
+			get
+			{
+				if (until.Count == 0) return false;
+				int now = Find.TickManager.TicksGame;
+				foreach (int k in new List<int>(until.Keys))
+					if (until[k] <= now) until.Remove(k);
+				return until.Count > 0;
+			}
 		}
 	}
 	[HarmonyPatch(typeof(ResearchManager), "FinishProject")]
