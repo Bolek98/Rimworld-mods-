@@ -17,6 +17,9 @@ $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 $cfgFile = Join-Path $here 'nastaveni.json'
 $stateFile = Join-Path $here 'stav.json'
 $logFile = Join-Path $here 'hlidac.log'
+$histFile = Join-Path $here 'historie.csv'
+$statsFile = Join-Path $here 'statistiky.html'
+$statsTemplate = Join-Path $here 'statistiky_sablona.html'
 
 function Log($text) {
     $line = (Get-Date -Format 'yyyy-MM-dd HH:mm') + '  ' + $text
@@ -82,6 +85,7 @@ $script:quit = $false
 $script:checkNow = $false
 $script:checkGame = $false
 [void]$menu.Items.Add('Zkontrolovat teď', $null, { $script:checkNow = $true })
+[void]$menu.Items.Add('Otevřít statistiky', $null, { if (Test-Path $statsFile) { Start-Process $statsFile } })
 [void]$menu.Items.Add('Otevřít log', $null, { Start-Process notepad.exe $logFile })
 [void]$menu.Items.Add('Zkontrolovat chyby ze hry', $null, { $script:checkGame = $true })
 [void]$menu.Items.Add('Ukončit', $null, { $script:quit = $true })
@@ -240,6 +244,52 @@ function Check-GameLog {
     Notify 'Chyby z tvých modů' (($parts -join "`n") + "`nCelé: chyby\" + (Split-Path -Leaf $out)) $null
 }
 
+# ---------- historie a stránka se statistikami ----------
+function Add-History($new, $items) {
+    $stamp = (Get-Date).ToString('yyyy-MM-ddTHH:mm:sszzz')
+    if (-not (Test-Path $histFile)) { Set-Content -Path $histFile -Value 'cas;id;odbery;odberyCelkem;oblibene;oblibeneCelkem;navstevy;komentare' -Encoding UTF8 }
+    $lines = @()
+    foreach ($it in $items) {
+        $id = "$($it.publishedfileid)"
+        if (-not $new.Contains($id)) { continue }
+        $c = $new[$id]
+        $lines += ($stamp + ';' + $id + ';' + $c.subs + ';' + $c.life + ';' + $c.fav + ';' + $c.lifeFav + ';' + [int]$it.views + ';' + $c.comments)
+    }
+    if ($lines.Count -gt 0) { Add-Content -Path $histFile -Value $lines -Encoding UTF8 }
+}
+
+function Write-Stats($titles) {
+    if (-not (Test-Path $statsTemplate) -or -not (Test-Path $histFile)) { return }
+    $rows = New-Object System.Collections.ArrayList
+    foreach ($l in (Get-Content $histFile -Encoding UTF8 | Select-Object -Skip 1)) {
+        $f = $l -split ';'
+        if ($f.Count -lt 8) { continue }
+        $vals = @($f[2..7] | ForEach-Object { if ($_ -eq '') { 'null' } else { [string][int]$_ } })
+        [void]$rows.Add('["' + $f[0] + '","' + $f[1] + '",' + ($vals -join ',') + ']')
+    }
+    $mods = @()
+    foreach ($k in $titles.Keys) { $mods += ('"' + $k + '":' + (ConvertTo-Json ([string]$titles[$k]) -Compress)) }
+    $json = '{"mods":{' + ($mods -join ',') + '},"rows":[' + ($rows -join ',') + ']}'
+    $html = Get-Content $statsTemplate -Raw -Encoding UTF8
+    $a = $html.IndexOf('/*DATA*/')
+    $b = $html.IndexOf('/*END*/')
+    if ($a -lt 0 -or $b -lt $a) { return }
+    $html = $html.Substring(0, $a + 8) + $json + $html.Substring($b)
+    [System.IO.File]::WriteAllText($statsFile, $html, (New-Object System.Text.UTF8Encoding($false)))
+}
+
+# krátký název modu (část před pomlčkou), jen když se tím dva mody neslijí do jednoho jména
+function Short-Names($items) {
+    $short = @{}
+    $count = @{}
+    foreach ($it in $items) { $n = ($it.title -split ' – ')[0]; $count[$n] = 1 + [int]$count[$n] }
+    foreach ($it in $items) {
+        $n = ($it.title -split ' – ')[0]
+        $short["$($it.publishedfileid)"] = if ($count[$n] -gt 1) { $it.title } else { $n }
+    }
+    return $short
+}
+
 # ---------- jedna kontrola ----------
 function Check {
     $ids = Get-ModIds
@@ -255,13 +305,14 @@ function Check {
 
     $new = [ordered]@{}
     $lines = @()
+    $short = Short-Names $items
     foreach ($it in $items) {
         $id = "$($it.publishedfileid)"
         $cur = [ordered]@{
             title = $it.title; subs = [int]$it.subscriptions; life = [int]$it.lifetime_subscriptions
             fav = [int]$it.favorited; lifeFav = [int]$it.lifetime_favorited; comments = 0
         }
-        $name = ($it.title -split ' – ')[0]
+        $name = $short[$id]
         # komentáře
         try {
             $last = if ($lastComment.ContainsKey($id)) { [decimal]$lastComment[$id] } else { [decimal]-1 }
@@ -313,7 +364,7 @@ function Check {
             $k = $c.comments - [int]$b.comments
             $tn += $n; $tl += [Math]::Max(0, $l); $tf += $f; $tc += [Math]::Max(0, $k)
             if ($n -ne 0 -or $l -gt 0 -or $f -ne 0 -or $k -gt 0) {
-                $sum += (($c.title -split ' – ')[0] + ": +$n odběrů, -$([Math]::Max(0,$l)) zrušeno, ★ $(Sign $f), komentáře +$([Math]::Max(0,$k))")
+                $sum += ($short[$id] + ": +$n odběrů, -$([Math]::Max(0,$l)) zrušeno, ★ $(Sign $f), komentáře +$([Math]::Max(0,$k))")
             }
         }
         $head = "Dnes celkem: +$tn odběrů, -$tl zrušeno, ★ $(Sign $tf), komentáře +$tc"
@@ -322,6 +373,9 @@ function Check {
         $day.sent = $true
     }
 
+    $full = @{}
+    foreach ($it in $items) { $full["$($it.publishedfileid)"] = [string]$it.title }
+    try { Add-History $new $items; Write-Stats $full } catch { Log ('statistiky: ' + $_.Exception.Message) }
     [ordered]@{ items = $new; comments = $lastComment; day = $day; logSeen = (Get-Prop $st 'logSeen') } | ConvertTo-Json -Depth 6 | Set-Content -Path $stateFile -Encoding UTF8
     if ($oldItems.Count -eq 0) {
         Notify 'Workshop hlídač běží' ("Hlídané mody: $($items.Count), kontrola každých $($cfg.intervalMinut) min.") $null

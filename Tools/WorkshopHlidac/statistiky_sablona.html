@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="600">
+<title>Statistiky modů</title>
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #121417; --surface-1: #1a1d21; --surface-2: #22262b; --line: #33383f; --grid: #2a2e34;
+  --text-primary: #f0efec; --text-secondary: #c3c2b7; --text-muted: #8d9096;
+  --series-1: #3987e5; --series-2: #d95926; --good: #4caf6e; --bad: #e66767;
+}
+@media (prefers-color-scheme: light) {
+  :root:where(:not([data-theme="dark"])) {
+    color-scheme: light;
+    --bg: #f3f2ef; --surface-1: #fcfcfb; --surface-2: #f1f0ed; --line: #dcdad4; --grid: #ebe9e4;
+    --text-primary: #0b0b0b; --text-secondary: #52514e; --text-muted: #77756f;
+    --series-1: #2a78d6; --series-2: #eb6834; --good: #2e8b4f; --bad: #c93b3a;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text-primary); font: 14px/1.45 "Segoe UI", system-ui, sans-serif; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 20px 16px 40px; }
+h1 { font-size: 22px; margin: 0; font-weight: 600; }
+.sub { color: var(--text-muted); font-size: 12px; margin-top: 2px; }
+.top { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { background: var(--surface-2); border: 1px solid var(--line); color: var(--text-secondary); border-radius: 999px; padding: 4px 12px; cursor: pointer; font: inherit; font-size: 13px; }
+.chip.on { border-color: var(--series-1); color: var(--text-primary); background: color-mix(in srgb, var(--series-1) 18%, var(--surface-2)); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.tile, .card, .panel { background: var(--surface-1); border: 1px solid var(--line); border-radius: 10px; }
+.tile { padding: 12px 14px; }
+.tile .k { color: var(--text-muted); font-size: 12px; }
+.tile .v { font-size: 26px; font-weight: 600; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.tile .d { font-size: 12px; color: var(--text-secondary); }
+.up { color: var(--good); } .down { color: var(--bad); }
+.panel { padding: 12px 14px; margin-bottom: 14px; }
+.panel h2 { font-size: 14px; margin: 0 0 6px; font-weight: 600; }
+.legend { display: flex; gap: 14px; font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+.chart { position: relative; }
+svg { display: block; width: 100%; overflow: visible; }
+.axis { fill: var(--text-muted); font-size: 11px; }
+.tip { position: absolute; pointer-events: none; background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; padding: 6px 9px; font-size: 12px; white-space: nowrap; display: none; z-index: 2; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.card { padding: 12px 14px; }
+.card .t { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card .big { font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.card .row { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-secondary); padding: 1px 0; }
+.card .row b { color: var(--text-primary); font-weight: 600; font-variant-numeric: tabular-nums; }
+.card .goal { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: right; padding: 5px 8px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--text-muted); font-weight: 500; }
+.note { color: var(--text-muted); font-size: 12px; }
+button.link { background: none; border: none; color: var(--series-1); cursor: pointer; font: inherit; padding: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div><h1>Statistiky modů – Bolek98</h1><div class="sub" id="updated"></div></div>
+    <div class="chips" id="ranges"></div>
+  </div>
+  <div class="tiles" id="tiles"></div>
+  <div class="panel"><h2>Odběratelé celkem</h2><div class="chart" id="total"></div></div>
+  <div class="panel"><h2 id="flowTitle">Nové a zrušené odběry</h2>
+    <div class="legend"><span><i style="background:var(--series-1)"></i>nové odběry</span><span><i style="background:var(--series-2)"></i>zrušené odběry</span></div>
+    <div class="chart" id="flow"></div></div>
+  <div class="panel" id="hourPanel"><h2>Kdy přibývá nejvíc odběrů (průměr podle hodiny dne)</h2><div class="chart" id="hours"></div></div>
+  <div class="panel"><h2>Mody</h2><div class="grid" id="mods"></div></div>
+  <div class="panel"><h2>Tabulka <button class="link" id="tblToggle">ukázat</button></h2><div id="table" hidden></div></div>
+  <p class="note">Steam neříká, kdo mod odebral ani odkud je – jen čísla. „Návštěvy" jsou unikátní návštěvníci stránky modu; „z návštěv odebírá" = kolik z nich mod někdy odebíralo. Stránka se sama obnoví každých 10 minut, hlídač ji přepisuje po každé kontrole.</p>
+</div>
+<script>
+const DATA = /*DATA*/{"mods":{},"rows":[]}/*END*/;
+const H = 3600e3, D = 24 * H;
+const fmt = n => n == null ? "–" : Math.round(n).toLocaleString("cs-CZ");
+const sign = n => n == null ? "–" : (n > 0 ? "+" : n < 0 ? "−" : "") + fmt(Math.abs(n));
+const cls = n => n > 0 ? "up" : n < 0 ? "down" : "";
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+// rows: [time, id, subs, life, fav, lifeFav, views, comments]
+const series = {};
+for (const r of DATA.rows) {
+  const t = Date.parse(r[0]); if (isNaN(t)) continue;
+  (series[r[1]] = series[r[1]] || []).push({ t, subs: r[2], life: r[3], fav: r[4], lfav: r[5], views: r[6], com: r[7] });
+}
+for (const id in series) series[id].sort((a, b) => a.t - b.t);
+const ids = Object.keys(DATA.mods).filter(id => series[id]);
+const allT = [...new Set(DATA.rows.map(r => Date.parse(r[0])).filter(t => !isNaN(t)))].sort((a, b) => a - b);
+const now = allT.length ? allT[allT.length - 1] : Date.now();
+const name = id => (DATA.mods[id] || id);
+
+let range = (() => { try { return +localStorage.getItem("range") || 7 * D; } catch (e) { return 7 * D; } })();
+const RANGES = [["24 h", D], ["7 dní", 7 * D], ["30 dní", 30 * D], ["vše", 1e15]];
+
+// value of a field at time t (last known before or at t)
+function at(id, t, f) {
+  const s = series[id]; let v = null;
+  for (const p of s) { if (p.t > t) break; if (p[f] != null) v = p[f]; }
+  return v;
+}
+function first(id, t0, f) { for (const p of series[id]) if (p.t >= t0 && p[f] != null) return p[f]; return null; }
+function last(id, f) { const s = series[id]; for (let i = s.length - 1; i >= 0; i--) if (s[i][f] != null) return s[i][f]; return null; }
+function delta(id, t0, f) { const a = at(id, t0, f) ?? first(id, t0, f), b = last(id, f); return a == null || b == null ? null : b - a; }
+
+function render() {
+  const t0 = Math.max(now - range, allT[0] || now);
+  document.getElementById("updated").textContent = allT.length ? "Poslední kontrola " + new Date(now).toLocaleString("cs-CZ") + " · data od " + new Date(allT[0]).toLocaleString("cs-CZ") : "Zatím žádná data – první kontrola proběhne do hodiny.";
+  document.getElementById("ranges").innerHTML = RANGES.map(([l, v]) => `<button class="chip${v === range ? " on" : ""}" data-r="${v}">${l}</button>`).join("");
+  document.querySelectorAll("#ranges .chip").forEach(b => b.onclick = () => { range = +b.dataset.r; try { localStorage.setItem("range", range); } catch (e) {} render(); });
+
+  // tiles
+  let subs = 0, dSubs = 0, nw = 0, lost = 0, fav = 0, dFav = 0, views = 0, dViews = 0, hasLife = false;
+  for (const id of ids) {
+    subs += last(id, "subs") || 0; dSubs += delta(id, t0, "subs") || 0;
+    fav += last(id, "fav") || 0; dFav += delta(id, t0, "fav") || 0;
+    views += last(id, "views") || 0; dViews += delta(id, t0, "views") || 0;
+    const dl = delta(id, t0, "life"), ds = delta(id, t0, "subs");
+    if (dl != null) { hasLife = true; nw += dl; lost += Math.max(0, dl - (ds || 0)); }
+  }
+  const tiles = [
+    ["Odběratelé teď", fmt(subs), sign(dSubs) + " za období", dSubs],
+    ["Nové odběry", hasLife ? "+" + fmt(nw) : "–", "za období", 0],
+    ["Zrušené odběry", hasLife ? "−" + fmt(lost) : "–", hasLife && nw ? "na 100 nových: " + fmt(100 * lost / nw) : "za období", 0],
+    ["V oblíbených", fmt(fav), sign(dFav) + " za období", dFav],
+    ["Návštěvy stránek", views ? fmt(views) : "–", views ? sign(dViews) + " za období" : "od příští kontroly", dViews],
+  ];
+  document.getElementById("tiles").innerHTML = tiles.map(([k, v, d, n]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d ${cls(n)}">${d}</div></div>`).join("");
+
+  // total over time
+  const pts = allT.filter(t => t >= t0).map(t => ({ t, v: ids.reduce((s, id) => s + (at(id, t, "subs") || 0), 0) }));
+  lineChart(document.getElementById("total"), pts, 220, p => `${new Date(p.t).toLocaleString("cs-CZ", { day: "numeric", month: "numeric", hour: "2-digit", minute: "2-digit" })}<br><b>${fmt(p.v)}</b> odběratelů`);
+
+  // new vs cancelled per bucket
+  const bucket = now - t0 <= 2 * D ? H : D;
+  document.getElementById("flowTitle").textContent = "Nové a zrušené odběry " + (bucket === H ? "po hodinách" : "po dnech");
+  const buckets = new Map();
+  for (const id of ids) {
+    const s = series[id];
+    for (let i = 1; i < s.length; i++) {
+      const a = s[i - 1], b = s[i];
+      if (b.t < t0 || a.life == null || b.life == null) continue;
+      const k = Math.floor(b.t / bucket) * bucket, n = b.life - a.life, l = Math.max(0, n - (b.subs - a.subs));
+      const e = buckets.get(k) || { t: k, n: 0, l: 0 }; e.n += Math.max(0, n); e.l += l; buckets.set(k, e);
+    }
+  }
+  barChart(document.getElementById("flow"), [...buckets.values()].sort((a, b) => a.t - b.t), 180, bucket);
+
+  // by hour of day (all data)
+  const hrs = Array.from({ length: 24 }, () => ({ n: 0, c: 0 }));
+  for (const id of ids) {
+    const s = series[id];
+    for (let i = 1; i < s.length; i++) {
+      const a = s[i - 1], b = s[i]; if (a.life == null || b.life == null || b.t - a.t > 2 * H) continue;
+      const h = new Date(b.t - H / 2).getHours(); hrs[h].n += Math.max(0, b.life - a.life);
+    }
+  }
+  const days = allT.length ? Math.max(1, (now - allT[0]) / D) : 1;
+  const hp = document.getElementById("hourPanel");
+  if (days < 1.5) { hp.querySelector(".chart").innerHTML = `<div class="note">Ukáže se, až budou data aspoň za dva dny.</div>`; }
+  else hourChart(hp.querySelector(".chart"), hrs.map((h, i) => ({ h: i, v: h.n / days })), 140);
+
+  // cards
+  const order = ids.slice().sort((a, b) => (last(b, "subs") || 0) - (last(a, "subs") || 0));
+  document.getElementById("mods").innerHTML = order.map(id => {
+    const s = last(id, "subs"), ds = delta(id, t0, "subs"), f = last(id, "fav"), v = last(id, "views"), l = last(id, "life"), c = last(id, "com");
+    const conv = v && l ? (100 * l / v).toFixed(1).replace(".", ",") + " %" : "–";
+    const keep = s && l ? Math.round(100 * s / l) + " %" : "–";
+    const rate = delta(id, now - D, "subs");
+    const goals = [50, 100, 200, 250, 500, 750, 1000, 1500, 2000, 2500, 5000, 7500, 10000, 25000, 50000, 100000];
+    const g = goals.find(x => x > (s || 0));
+    let goal = "";
+    if (g && rate > 0) { const dd = (g - s) / rate; goal = `${fmt(g)} odběratelů za ~${dd < 1 ? Math.max(1, Math.round(dd * 24)) + " h" : dd < 60 ? Math.round(dd) + " " + (Math.round(dd) === 1 ? "den" : Math.round(dd) < 5 ? "dny" : "dní") : "dlouho"} (při dnešním tempu)`; }
+    return `<div class="card"><div class="t" title="${esc(name(id))}">${esc(name(id))}</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end"><div class="big">${fmt(s)}</div><div class="${cls(ds)}" style="font-size:13px">${sign(ds)}</div></div>
+      <div class="spark" data-id="${id}"></div>
+      <div class="row"><span>V oblíbených</span><b>${fmt(f)}</b></div>
+      <div class="row"><span>Návštěvy stránky</span><b>${fmt(v)}</b></div>
+      <div class="row"><span>Z návštěv odebírá</span><b>${conv}</b></div>
+      <div class="row"><span>Zůstalo z všech, co kdy odebírali</span><b>${keep}</b></div>
+      <div class="row"><span>Komentáře</span><b>${fmt(c)}</b></div>
+      ${goal ? `<div class="goal">🎯 ${goal}</div>` : ""}</div>`;
+  }).join("");
+  document.querySelectorAll(".spark").forEach(el => {
+    const id = el.dataset.id;
+    sparkline(el, series[id].filter(p => p.t >= t0 && p.subs != null).map(p => ({ t: p.t, v: p.subs })), id);
+  });
+
+  // table view
+  document.getElementById("table").innerHTML = `<table><tr><th>Mod</th><th>Odběratelé</th><th>Změna</th><th>Celkem kdy</th><th>★</th><th>Návštěvy</th><th>Komentáře</th></tr>` +
+    order.map(id => `<tr><td>${esc(name(id))}</td><td>${fmt(last(id, "subs"))}</td><td>${sign(delta(id, t0, "subs"))}</td><td>${fmt(last(id, "life"))}</td><td>${fmt(last(id, "fav"))}</td><td>${fmt(last(id, "views"))}</td><td>${fmt(last(id, "com"))}</td></tr>`).join("") + `</table>`;
+}
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+// ---------- charts ----------
+function scaleY(min, max) {
+  if (min === max) { min -= 1; max += 1; }
+  const step = Math.pow(10, Math.floor(Math.log10((max - min) / 4))) || 1;
+  const nice = [1, 2, 2.5, 5, 10].map(m => m * step).find(s => (max - min) / s <= 5) || step * 10;
+  const lo = Math.floor(min / nice) * nice, hi = Math.ceil(max / nice) * nice;
+  const ticks = []; for (let v = lo; v <= hi + 1e-9; v += nice) ticks.push(v);
+  return { lo, hi, ticks };
+}
+function tipFor(el) { let t = el.querySelector(".tip"); if (!t) { t = document.createElement("div"); t.className = "tip"; el.appendChild(t); } return t; }
+
+function lineChart(el, pts, h, label) {
+  const w = el.clientWidth || 800, L = 48, R = 12, T = 8, B = 22;
+  if (pts.length < 2) { el.innerHTML = `<div class="note" style="padding:20px 0">Zatím málo dat pro graf.</div>`; return; }
+  const xs = pts.map(p => p.t), ys = pts.map(p => p.v);
+  const sy = scaleY(Math.min(...ys), Math.max(...ys));
+  const x = t => L + (t - xs[0]) / (xs[xs.length - 1] - xs[0] || 1) * (w - L - R);
+  const y = v => T + (1 - (v - sy.lo) / (sy.hi - sy.lo)) * (h - T - B);
+  let s = `<svg viewBox="0 0 ${w} ${h}" height="${h}">`;
+  for (const v of sy.ticks) s += `<line x1="${L}" x2="${w - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)"/><text class="axis" x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${fmt(v)}</text>`;
+  const nT = Math.max(2, Math.min(6, pts.length, Math.floor(w / 120)));
+  for (let i = 0; i < nT; i++) { const t = xs[0] + (xs[xs.length - 1] - xs[0]) * i / (nT - 1 || 1); s += `<text class="axis" x="${x(t)}" y="${h - 4}" text-anchor="${i === 0 ? "start" : i === nT - 1 ? "end" : "middle"}">${new Date(t).toLocaleString("cs-CZ", { day: "numeric", month: "numeric", hour: "2-digit" })}</text>`; }
+  s += `<path d="${pts.map((p, i) => (i ? "L" : "M") + x(p.t).toFixed(1) + "," + y(p.v).toFixed(1)).join("")}" fill="none" stroke="var(--series-1)" stroke-width="2" stroke-linejoin="round"/>`;
+  s += `<line class="cross" y1="${T}" y2="${h - B}" stroke="var(--text-muted)" stroke-dasharray="3 3" style="display:none"/><circle class="dot" r="4.5" fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2" style="display:none"/>`;
+  s += `<rect x="${L}" y="0" width="${w - L - R}" height="${h}" fill="transparent" class="hit"/></svg>`;
+  el.innerHTML = s;
+  const svg = el.querySelector("svg"), tip = tipFor(el), cross = svg.querySelector(".cross"), dot = svg.querySelector(".dot");
+  svg.querySelector(".hit").addEventListener("mousemove", e => {
+    const r = svg.getBoundingClientRect(), mx = (e.clientX - r.left) * w / r.width;
+    let best = pts[0]; for (const p of pts) if (Math.abs(x(p.t) - mx) < Math.abs(x(best.t) - mx)) best = p;
+    cross.setAttribute("x1", x(best.t)); cross.setAttribute("x2", x(best.t)); cross.style.display = "";
+    dot.setAttribute("cx", x(best.t)); dot.setAttribute("cy", y(best.v)); dot.style.display = "";
+    tip.innerHTML = label(best); tip.style.display = "block";
+    const px = x(best.t) * r.width / w; tip.style.left = Math.min(px + 12, r.width - tip.offsetWidth - 4) + "px"; tip.style.top = (y(best.v) * r.height / h - 40) + "px";
+  });
+  svg.querySelector(".hit").addEventListener("mouseleave", () => { tip.style.display = "none"; cross.style.display = "none"; dot.style.display = "none"; });
+}
+
+function barChart(el, data, h, bucket) {
+  const w = el.clientWidth || 800, L = 48, R = 12, T = 8, B = 22;
+  if (!data.length) { el.innerHTML = `<div class="note" style="padding:20px 0">Zatím žádná data o nových a zrušených odběrech (přibudou od další kontroly).</div>`; return; }
+  const max = Math.max(1, ...data.map(d => d.n), ...data.map(d => d.l));
+  const sy = scaleY(0, max);
+  const bw = (w - L - R) / data.length, gap = 2, half = Math.max(1, Math.min(22, (bw - gap * 3) / 2)), pad = (bw - half * 2 - gap * 3) / 2;
+  const y = v => T + (1 - v / sy.hi) * (h - T - B);
+  let s = `<svg viewBox="0 0 ${w} ${h}" height="${h}">`;
+  for (const v of sy.ticks) s += `<line x1="${L}" x2="${w - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)"/><text class="axis" x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${fmt(v)}</text>`;
+  const every = Math.ceil(data.length / 8);
+  data.forEach((d, i) => {
+    const x0 = L + i * bw + gap + Math.max(0, pad);
+    const bar = (x, v, c) => v > 0 ? `<path d="M${x},${y(0)}V${y(v) + Math.min(4, (y(0) - y(v)) / 2)}q0,-4 4,-4h${half - 8}q4,0 4,4V${y(0)}Z" fill="${c}"/>` : "";
+    s += half >= 8 ? bar(x0, d.n, "var(--series-1)") + bar(x0 + half + gap, d.l, "var(--series-2)")
+      : `<rect x="${x0}" y="${y(d.n)}" width="${half}" height="${y(0) - y(d.n)}" fill="var(--series-1)"/><rect x="${x0 + half + gap}" y="${y(d.l)}" width="${half}" height="${y(0) - y(d.l)}" fill="var(--series-2)"/>`;
+    if (i % every === 0) s += `<text class="axis" x="${x0 + half}" y="${h - 4}" text-anchor="middle">${new Date(d.t).toLocaleString("cs-CZ", bucket < D ? { hour: "2-digit" } : { day: "numeric", month: "numeric" })}</text>`;
+    s += `<rect x="${L + i * bw}" y="0" width="${bw}" height="${h - B}" fill="transparent" data-i="${i}" class="hb"/>`;
+  });
+  s += `</svg>`; el.innerHTML = s;
+  const tip = tipFor(el), svg = el.querySelector("svg");
+  svg.querySelectorAll(".hb").forEach(r => {
+    r.addEventListener("mousemove", e => {
+      const d = data[+r.dataset.i], b = svg.getBoundingClientRect();
+      tip.innerHTML = `${new Date(d.t).toLocaleString("cs-CZ", bucket < D ? { day: "numeric", month: "numeric", hour: "2-digit", minute: "2-digit" } : { day: "numeric", month: "numeric" })}<br>nové: <b>${d.n}</b> · zrušené: <b>${d.l}</b>`;
+      tip.style.display = "block"; tip.style.left = Math.min(e.clientX - b.left + 12, b.width - tip.offsetWidth - 4) + "px"; tip.style.top = "0px";
+    });
+    r.addEventListener("mouseleave", () => tip.style.display = "none");
+  });
+}
+
+function hourChart(el, data, h) {
+  const w = el.clientWidth || 800, L = 36, R = 8, T = 8, B = 20, max = Math.max(0.1, ...data.map(d => d.v));
+  const bw = (w - L - R) / 24, y = v => T + (1 - v / max) * (h - T - B);
+  let s = `<svg viewBox="0 0 ${w} ${h}" height="${h}">`;
+  data.forEach((d, i) => {
+    const x = L + i * bw + 1, hh = y(0) - y(d.v);
+    if (hh > 0) s += `<rect x="${x}" y="${y(d.v)}" width="${bw - 2}" height="${hh}" rx="${Math.min(4, (bw - 2) / 2)}" fill="var(--series-1)"><title>${i}:00–${i + 1}:00 · průměrně ${d.v.toFixed(1).replace(".", ",")} nových odběrů</title></rect>`;
+    if (i % 3 === 0) s += `<text class="axis" x="${x + bw / 2}" y="${h - 4}" text-anchor="middle">${i}:00</text>`;
+  });
+  el.innerHTML = s + `</svg>`;
+}
+
+function sparkline(el, pts, id) {
+  const w = 230, h = 38;
+  if (pts.length < 2) { el.innerHTML = `<div style="height:${h}px"></div>`; return; }
+  const ys = pts.map(p => p.v), lo = Math.min(...ys), hi = Math.max(...ys), t0 = pts[0].t, t1 = pts[pts.length - 1].t;
+  const x = t => 2 + (t - t0) / (t1 - t0 || 1) * (w - 4), y = v => 4 + (1 - (v - lo) / (hi - lo || 1)) * (h - 8);
+  el.innerHTML = `<svg viewBox="0 0 ${w} ${h}" height="${h}" preserveAspectRatio="none"><path d="${pts.map((p, i) => (i ? "L" : "M") + x(p.t).toFixed(1) + "," + y(p.v).toFixed(1)).join("")}" fill="none" stroke="var(--series-1)" stroke-width="2" vector-effect="non-scaling-stroke"/><title>${fmt(lo)} – ${fmt(hi)} odběratelů v období</title></svg>`;
+}
+
+document.getElementById("tblToggle").onclick = () => { const t = document.getElementById("table"); t.hidden = !t.hidden; document.getElementById("tblToggle").textContent = t.hidden ? "ukázat" : "skrýt"; };
+render();
+let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(render, 150); });
+</script>
+</body>
+</html>
