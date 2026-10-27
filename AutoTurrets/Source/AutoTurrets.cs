@@ -55,54 +55,62 @@ namespace AutoTurrets
 
 		public override string SettingsCategory() => "Auto Turrets";
 
-		private Vector2 scroll;
-		private float viewHeight = 900f;
+		// 1.2.2: real tabs; every page fits on the screen, the turret list scrolls on its own
+		private static int tab;
 
 		public override void DoSettingsWindowContents(Rect r)
 		{
-			Rect view = new Rect(0f, 0f, r.width - 20f, viewHeight);
-			Widgets.BeginScrollView(r, ref scroll, view);
-			var l = new Listing_Standard();
-			l.Begin(view);
-			Section(l, "AT_SecShooting");
-			l.CheckboxLabeled("AT_AutoManned".Translate(), ref S.autoManned, "AT_AutoManned_Desc".Translate());
-			l.CheckboxLabeled("AT_AutoMortars".Translate(), ref S.autoMortars, "AT_AutoMortars_Desc".Translate());
-			l.CheckboxLabeled("AT_MortarSafety".Translate(), ref S.mortarSafety, "AT_MortarSafety_Desc".Translate());
-			if (S.mortarSafety)
+			Rect body = new Rect(r.x, r.y + 34f, r.width, r.height - 34f);
+			var tabs = new List<TabRecord>
 			{
-				l.Label("AT_SafetyExtra".Translate(S.safetyExtra.ToString("0")));
-				S.safetyExtra = Mathf.Round(l.Slider(S.safetyExtra, 0f, 15f));
-			}
-			l.CheckboxLabeled("AT_LoadShells".Translate(), ref S.loadShells, "AT_LoadShells_Desc".Translate());
-			l.CheckboxLabeled("AT_FriendlyFire".Translate(), ref S.friendlyFire, "AT_FriendlyFire_Desc".Translate());
+				new TabRecord("AT_SecShooting".Translate(), () => tab = 0, tab == 0),
+				new TabRecord("AT_SecMaterials".Translate(), () => tab = 1, tab == 1),
+				new TabRecord("AT_WallTurrets".Translate(), () => tab = 2, tab == 2),
+			};
+			Widgets.DrawMenuSection(body);
+			TabDrawer.DrawTabs(body, tabs);
+			Rect inner = body.ContractedBy(12f);
+			bool restart = WallTurrets.RestartNeeded();
+			if (restart) inner.height -= 36f;
 
-			Section(l, "AT_SecMaterials");
-			l.CheckboxLabeled("AT_AnyMetal".Translate(), ref S.anyMetal, "AT_AnyMetal_Desc".Translate());
-			l.CheckboxLabeled("AT_AllowSilver".Translate(), ref S.allowSilver);
-			l.CheckboxLabeled("AT_FuelWood".Translate(), ref S.fuelWood, "AT_FuelWood_Desc".Translate());
-			l.CheckboxLabeled("AT_FuelStone".Translate(), ref S.fuelStone, "AT_FuelStone_Desc".Translate());
-			Small(l, "AT_Restart".Translate());
-
-			Section(l, "AT_WallTurrets");
-			Small(l, "AT_WallTurrets_Desc".Translate());
-			l.CheckboxLabeled("AT_WallEnable".Translate(), ref S.wallTurrets);
-			if (S.wallTurrets)
+			if (tab == 2)
+				WallTurrets.DrawPage(inner);
+			else
 			{
-				l.Gap(4f);
-				WallTurrets.DrawList(l);
+				var l = new Listing_Standard { maxOneColumn = true };
+				l.Begin(inner);
+				if (tab == 0)
+				{
+					l.CheckboxLabeled("AT_AutoManned".Translate(), ref S.autoManned, "AT_AutoManned_Desc".Translate());
+					l.CheckboxLabeled("AT_AutoMortars".Translate(), ref S.autoMortars, "AT_AutoMortars_Desc".Translate());
+					l.CheckboxLabeled("AT_MortarSafety".Translate(), ref S.mortarSafety, "AT_MortarSafety_Desc".Translate());
+					if (S.mortarSafety)
+					{
+						l.Label("AT_SafetyExtra".Translate(S.safetyExtra.ToString("0")));
+						S.safetyExtra = Mathf.Round(l.Slider(S.safetyExtra, 0f, 15f));
+					}
+					l.CheckboxLabeled("AT_LoadShells".Translate(), ref S.loadShells, "AT_LoadShells_Desc".Translate());
+					l.CheckboxLabeled("AT_FriendlyFire".Translate(), ref S.friendlyFire, "AT_FriendlyFire_Desc".Translate());
+				}
+				else
+				{
+					l.CheckboxLabeled("AT_AnyMetal".Translate(), ref S.anyMetal, "AT_AnyMetal_Desc".Translate());
+					l.CheckboxLabeled("AT_AllowSilver".Translate(), ref S.allowSilver);
+					l.CheckboxLabeled("AT_FuelWood".Translate(), ref S.fuelWood, "AT_FuelWood_Desc".Translate());
+					l.CheckboxLabeled("AT_FuelStone".Translate(), ref S.fuelStone, "AT_FuelStone_Desc".Translate());
+					l.Gap(6f);
+					Small(l, "AT_Restart".Translate());
+				}
+				l.End();
 			}
-			if (WallTurrets.RestartNeeded())
+			if (restart)
 			{
-				l.Gap(6f);
-				Rect w = l.GetRect(30f);
+				Rect w = new Rect(inner.x, inner.yMax + 6f, inner.width, 30f);
 				Widgets.DrawBoxSolid(w, new Color(0.45f, 0.35f, 0.05f, 0.5f));
 				Text.Anchor = TextAnchor.MiddleCenter;
 				Widgets.Label(w, "AT_RestartNeeded".Translate());
 				Text.Anchor = TextAnchor.UpperLeft;
 			}
-			viewHeight = l.CurHeight + 20f;
-			l.End();
-			Widgets.EndScrollView();
 		}
 
 		private static void Section(Listing_Standard l, string key)

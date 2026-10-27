@@ -193,6 +193,7 @@ namespace AutoTurrets
             int area = d.size.x * d.size.z;
             if (on == Recommended(area)) ATMod.S.wallPick.Remove(d.defName);
             else ATMod.S.wallPick[d.defName] = on;
+            restartAt = -10f;
         }
 
         private static void Flash(string text)
@@ -201,35 +202,51 @@ namespace AutoTurrets
             flashUntil = Time.realtimeSinceStartup + 3f;
         }
 
+        // compared with the start of the game once a second, not every frame
+        private static bool restartCache;
+        private static float restartAt = -10f;
         public static bool RestartNeeded()
         {
+            if (Time.realtimeSinceStartup - restartAt < 1f) return restartCache;
+            restartAt = Time.realtimeSinceStartup;
             ATSettings s = ATMod.S;
-            if (s.wallTurrets != startEnabled) return true;
-            if (!s.wallTurrets) return false;
-            foreach (ThingDef d in Candidates)
-                if (Picked(d.defName, d.size.x * d.size.z) != startMade.Contains(d.defName))
-                    return true;
-            return false;
+            restartCache = s.wallTurrets != startEnabled
+                || (s.wallTurrets && Candidates.Any(d => Picked(d.defName, d.size.x * d.size.z) != startMade.Contains(d.defName)));
+            return restartCache;
         }
 
-        public static void DrawList(Listing_Standard l)
+        private static Vector2 listScroll;
+        private static readonly Dictionary<ThingDef, string> subText = new Dictionary<ThingDef, string>();
+
+        public static void DrawPage(Rect r)
         {
             ATSettings s = ATMod.S;
             if (s.wallPick == null) s.wallPick = new Dictionary<string, bool>();
+            float y = r.y;
+            // what it is + the switch
+            Text.Font = GameFont.Tiny;
+            GUI.color = new Color(0.75f, 0.75f, 0.75f);
+            float dh = Text.CalcHeight("AT_WallTurrets_Desc".Translate(), r.width);
+            Widgets.Label(new Rect(r.x, y, r.width, dh), "AT_WallTurrets_Desc".Translate());
+            GUI.color = Color.white;
+            Text.Font = GameFont.Small;
+            y += dh + 6f;
+            Widgets.CheckboxLabeled(new Rect(r.x, y, Mathf.Min(420f, r.width), 26f), "AT_WallEnable".Translate(), ref s.wallTurrets);
+            y += 32f;
+            if (!s.wallTurrets) return;
+
             List<ThingDef> all = Candidates;
             if (all.Count == 0)
             {
-                l.Label("AT_WallNone".Translate());
+                Widgets.Label(new Rect(r.x, y, r.width, 26f), "AT_WallNone".Translate());
                 return;
             }
-            int picked = all.Count(d => Picked(d.defName, d.size.x * d.size.z));
+            int picked = 0;
+            foreach (ThingDef d in all) if (Picked(d.defName, d.size.x * d.size.z)) picked++;
 
             // buttons + counter
-            Rect row = l.GetRect(30f);
-            float bw = Mathf.Min(170f, (row.width - 200f) / 3f);
-            Rect b1 = new Rect(row.x, row.y, bw, 28f);
-            Rect b2 = new Rect(b1.xMax + 6f, row.y, bw, 28f);
-            Rect b3 = new Rect(b2.xMax + 6f, row.y, bw, 28f);
+            float bw = Mathf.Min(170f, (r.width - 200f) / 3f);
+            Rect b1 = new Rect(r.x, y, bw, 28f), b2 = new Rect(b1.xMax + 6f, y, bw, 28f), b3 = new Rect(b2.xMax + 6f, y, bw, 28f);
             if (Widgets.ButtonText(b1, "AT_WallRecommended".Translate()))
             {
                 s.wallPick.Clear();
@@ -246,73 +263,73 @@ namespace AutoTurrets
                 Flash("AT_WallClearDone".Translate());
             }
             Text.Anchor = TextAnchor.MiddleRight;
-            Widgets.Label(new Rect(b3.xMax + 6f, row.y, row.xMax - b3.xMax - 6f, 28f), "AT_WallCount".Translate(picked, all.Count));
+            Widgets.Label(new Rect(b3.xMax + 6f, y, r.xMax - b3.xMax - 6f, 28f), "AT_WallCount".Translate(picked, all.Count));
             Text.Anchor = TextAnchor.UpperLeft;
+            y += 34f;
 
-            // feedback after a button
+            // search + feedback on one line
+            Widgets.Label(new Rect(r.x, y + 3f, 80f, 24f), "AT_WallSearch".Translate());
+            filter = Widgets.TextField(new Rect(r.x + 80f, y, Mathf.Min(260f, r.width - 80f), 26f), filter ?? "");
             if (flash != null && Time.realtimeSinceStartup < flashUntil)
             {
                 GUI.color = new Color(0.55f, 0.9f, 0.55f);
-                l.Label("✓ " + flash);
+                Widgets.Label(new Rect(r.x + 350f, y + 3f, r.width - 350f, 24f), "✓ " + flash);
                 GUI.color = Color.white;
             }
-
-            // search
-            Rect sr = l.GetRect(28f);
-            Widgets.Label(new Rect(sr.x, sr.y + 3f, 80f, 24f), "AT_WallSearch".Translate());
-            filter = Widgets.TextField(new Rect(sr.x + 80f, sr.y, Mathf.Min(300f, sr.width - 80f), 26f), filter ?? "");
-            l.Gap(4f);
+            y += 34f;
 
             List<ThingDef> shown = filter.NullOrEmpty() ? all
                 : all.Where(d => (d.label ?? "").IndexOf(filter, StringComparison.OrdinalIgnoreCase) >= 0
                               || (d.modContentPack?.Name ?? "").IndexOf(filter, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
 
-            // cards in two columns
+            // cards in two columns, in their own scroll area; only the visible rows are drawn
             const float h = 44f, gap = 6f;
-            int cols = l.ColumnWidth > 620f ? 2 : 1;
+            Rect outR = new Rect(r.x, y, r.width, r.yMax - y);
+            int cols = outR.width > 620f ? 2 : 1;
             int rows = (shown.Count + cols - 1) / cols;
-            Rect area = l.GetRect(rows * (h + gap));
-            float w = (area.width - gap * (cols - 1)) / cols;
-            for (int i = 0; i < shown.Count; i++)
+            Rect view = new Rect(0f, 0f, outR.width - 16f, rows * (h + gap));
+            float w = (view.width - gap * (cols - 1)) / cols;
+            Widgets.BeginScrollView(outR, ref listScroll, view);
+            int firstRow = Mathf.Max(0, (int)(listScroll.y / (h + gap)) - 1);
+            int lastRow = Mathf.Min(rows - 1, (int)((listScroll.y + outR.height) / (h + gap)) + 1);
+            for (int i = firstRow * cols; i <= Mathf.Min(shown.Count - 1, lastRow * cols + cols - 1); i++)
             {
                 ThingDef d = shown[i];
                 int a = d.size.x * d.size.z;
                 bool on = Picked(d.defName, a);
-                Rect c = new Rect(area.x + (i % cols) * (w + gap), area.y + (i / cols) * (h + gap), w, h);
+                Rect c = new Rect((i % cols) * (w + gap), (i / cols) * (h + gap), w, h);
                 Widgets.DrawBoxSolidWithOutline(c, on ? CardOn : CardOff, on ? EdgeOn : Edge);
                 Widgets.DrawHighlightIfMouseover(c);
-
                 Rect icon = new Rect(c.x + 4f, c.y + 4f, h - 8f, h - 8f);
                 try { Widgets.DefIcon(icon, d); } catch { }
-
-                float tx = icon.xMax + 8f, tw = c.xMax - 34f - tx;
-                Text.Font = GameFont.Small;
-                Text.Anchor = TextAnchor.UpperLeft;
-                Widgets.Label(new Rect(tx, c.y + 3f, tw, 22f), d.LabelCap.Truncate(tw));
+                float tx = icon.xMax + 8f, tw = c.xMax - 34f - tx - 20f;
+                Widgets.Label(new Rect(tx, c.y + 3f, tw, 22f), d.LabelCap);
                 Text.Font = GameFont.Tiny;
                 GUI.color = new Color(0.7f, 0.7f, 0.7f);
-                string sub = d.size.x + "×" + d.size.z + "  ·  " + (d.modContentPack?.Name ?? "?");
-                Widgets.Label(new Rect(tx, c.y + 23f, tw, 18f), sub.Truncate(tw));
+                if (!subText.TryGetValue(d, out string sub))
+                    subText[d] = sub = d.size.x + "×" + d.size.z + "  ·  " + (d.modContentPack?.Name ?? "?");
+                Widgets.Label(new Rect(tx, c.y + 23f, tw, 18f), sub);
                 GUI.color = Color.white;
                 Text.Font = GameFont.Small;
-
                 if (Recommended(a))
                 {
                     GUI.color = Gold;
-                    Text.Anchor = TextAnchor.UpperRight;
                     Widgets.Label(new Rect(c.xMax - 52f, c.y + 2f, 20f, 20f), "★");
-                    Text.Anchor = TextAnchor.UpperLeft;
                     GUI.color = Color.white;
-                    TooltipHandler.TipRegion(new Rect(c.xMax - 52f, c.y + 2f, 20f, 20f), "AT_WallRecTip".Translate());
                 }
                 bool now = on;
                 Widgets.Checkbox(c.xMax - 30f, c.y + (h - 24f) / 2f, ref now);
                 if (Widgets.ButtonInvisible(new Rect(c.x, c.y, c.width - 34f, c.height)))
                     now = !on;
                 if (now != on)
+                {
                     SetPick(d, now);
-                TooltipHandler.TipRegion(c, d.description.NullOrEmpty() ? d.LabelCap.ToString() : d.LabelCap + "\n\n" + d.description.Truncate(400f));
+                    restartAt = -10f;
+                }
+                if (Mouse.IsOver(c))
+                    TooltipHandler.TipRegion(c, new TipSignal(() => d.LabelCap.ToString() + (Recommended(a) ? "\n★ " + "AT_WallRecTip".Translate().ToString() : "") + (d.description.NullOrEmpty() ? "" : "\n\n" + d.description), d.shortHash));
             }
+            Widgets.EndScrollView();
             Text.Anchor = TextAnchor.UpperLeft;
         }
     }
