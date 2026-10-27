@@ -31,7 +31,7 @@ namespace ResearchLockedRaidGear
 			Raids
 		}
 
-		public const string Version = "2.15.1";
+		public const string Version = "2.15.2";
 
 		public static ResearchLockedRaidGearSettings Settings;
 
@@ -333,6 +333,7 @@ namespace ResearchLockedRaidGear
 			Settings.yearsPerTechLevel = (int)Sl(listing_Standard, "yearsPerTechLevel", (Settings.yearsPerTechLevel > 0) ? "RLRG_Years".Translate(Settings.yearsPerTechLevel).ToString() : "RLRG_YearsOff".Translate().ToString(), Settings.yearsPerTechLevel, 0f, 5f, 0.55f, "RLRG_Years_Desc".Translate());
 			Check(listing_Standard, "RLRG_LockResearch", ref Settings.lockHigherResearch, "lockHigherResearch");
 			Check(listing_Standard, "RLRG_WorldMessages", ref Settings.worldMessages, "worldMessages");
+			Check(listing_Standard, "RLRG_WorldLetter", ref Settings.worldLetter, "worldLetter");
 			listing_Standard.End();
 		}
 
@@ -701,6 +702,8 @@ namespace ResearchLockedRaidGear
 		public bool worldIncidents = true;
 
 		public bool worldMessages = true;
+		// 2.15.2: a letter (not just a short message) when the world reaches a higher level
+		public bool worldLetter = true;
 
 		public bool worldQuests = true;
 
@@ -866,6 +869,7 @@ namespace ResearchLockedRaidGear
 			Scribe_Values.Look(ref worldItems, "worldItems", true);
 			Scribe_Values.Look(ref worldIncidents, "worldIncidents", true);
 			Scribe_Values.Look(ref worldMessages, "worldMessages", true);
+			Scribe_Values.Look(ref worldLetter, "worldLetter", true);
 			Scribe_Values.Look(ref worldQuests, "worldQuests", true);
 			Scribe_Values.Look(ref useManualLevel, "useManualLevel", false);
 			Scribe_Values.Look(ref manualLevel, "manualLevel", TechLevel.Industrial);
@@ -1245,6 +1249,22 @@ namespace ResearchLockedRaidGear
 			researchCache.Clear();
 		}
 
+		// 2.15.2: which research projects count for the colony tier. Anomaly projects (studied through
+		// knowledge, not at a bench) and projects without a tech level are left out, so the tier
+		// cannot get stuck on research that most colonies never do.
+		public static bool CountsForTier(ResearchProjectDef r)
+		{
+			if (r == null || r.techLevel == TechLevel.Undefined)
+			{
+				return false;
+			}
+			if (r.knowledgeCategory != null)
+			{
+				return false;
+			}
+			return r.tab == null || r.tab.defName != "Anomaly";
+		}
+
 		public static TechLevel ComputeColonyTech(out TechLevel scenario, out TechLevel research)
 		{
 			scenario = TechLevel.Neolithic;
@@ -1268,7 +1288,7 @@ namespace ResearchLockedRaidGear
 			for (int i = 0; i < allDefsListForReading.Count; i++)
 			{
 				ResearchProjectDef researchProjectDef = allDefsListForReading[i];
-				if (researchProjectDef == null)
+				if (!CountsForTier(researchProjectDef))
 				{
 					continue;
 				}
@@ -3702,7 +3722,19 @@ namespace ResearchLockedRaidGear
 					eraRiseTick = -1;
 				}
 				lastWorldLevel = techLevel;
-				if (settings.worldMessages)
+				// 2.15.2: a rise gets a letter that says what it means (can be switched back to the short message)
+				if (flag && settings.worldLetter)
+				{
+					try
+					{
+						Find.LetterStack.ReceiveLetter("RLRG_WorldLetterTitle".Translate(techLevel.ToStringHuman().CapitalizeFirst()), "RLRG_WorldLetterText".Translate(techLevel.ToStringHuman()), LetterDefOf.NeutralEvent);
+					}
+					catch (Exception exL)
+					{
+						MLog.Warn("[World at Your Level] world level letter failed: " + exL.Message);
+					}
+				}
+				else if (settings.worldMessages)
 				{
 					Messages.Message(((!flag) ? "RLRG_WorldDown" : "RLRG_WorldUp").Translate(techLevel.ToStringHuman()), (!flag) ? MessageTypeDefOf.NeutralEvent : MessageTypeDefOf.PositiveEvent, false);
 				}
@@ -5500,7 +5532,7 @@ namespace ResearchLockedRaidGear
 			for (int i = 0; i < all.Count; i++)
 			{
 				ResearchProjectDef r = all[i];
-				if (r == null)
+				if (!ResearchLockedGearFilter.CountsForTier(r))   // 2.15.2: same projects as the tier itself
 				{
 					continue;
 				}
@@ -5559,7 +5591,7 @@ namespace ResearchLockedRaidGear
 			for (int i = 0; i < all.Count; i++)
 			{
 				ResearchProjectDef r = all[i];
-				if (r == null)
+				if (!ResearchLockedGearFilter.CountsForTier(r))   // 2.15.2: same projects as the tier itself
 				{
 					continue;
 				}
