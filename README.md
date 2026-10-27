@@ -18,14 +18,14 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Evergrowth – Wild Plants | 1.1.4 | [EvergrowthWildPlants](EvergrowthWildPlants) |
 | Fewer Freezes – Smart Memory Cleanup | 1.1.1 | [FewerFreezes](FewerFreezes) |
 | Gender Balance | 1.3.3 | [GenderBalance](GenderBalance) |
-| Haul Master | 3.3.0 | [HaulSmarter](HaulSmarter) |
+| Haul Master – Pockets, Routes & Storage | 3.3.0 | [HaulSmarter](HaulSmarter) |
 | Legacy – Your Old Colonies Live On | 0.1.0 | [Legacy](Legacy) |
 | Map Architect | 0.4.2 | [MapArchitect](MapArchitect) |
 | Masks & Headgear Together | 1.0.0 | [MasksAndHeadgear](MasksAndHeadgear) |
 | Matchmaker | 0.1.0 | [Matchmaker](Matchmaker) |
 | Mech Commander | 0.1.1 | [MechCommander](MechCommander) |
 | Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
-| Mišák Tabs – Clear Bills, Health & Info | 0.1.3 | [MisakTabs](MisakTabs) |
+| Mišák Tabs – Clear Bills, Health & Info | 0.2.0 | [MisakTabs](MisakTabs) |
 | Mod Sort Manager – Load Order, Conflicts & Profiles | 0.2.0 | [ModSortManager](ModSortManager) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.1 | [PlaceForEverything](PlaceForEverything) |
 | Randy's Table – Chaos Storytellers | 0.1.0 | [RandysTable](RandysTable) |

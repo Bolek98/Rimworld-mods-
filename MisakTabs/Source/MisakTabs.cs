@@ -18,18 +18,22 @@ namespace MisakTabs
         public bool recommended = true;
         public bool bills = true;
         public bool replaceOtherBillTabs = true;   // take over from Nice Bill Tab & co. on the bills tab
+        public bool health = true;                 // 0.2.0: our health tab
+        public bool replaceOtherHealthTabs = true; // 0.2.0: take over the health tab from other mods
 
         public override void ExposeData()
         {
             Scribe_Values.Look(ref recommended, "recommended", true);
             Scribe_Values.Look(ref bills, "bills", true);
             Scribe_Values.Look(ref replaceOtherBillTabs, "replaceOtherBillTabs", true);
+            Scribe_Values.Look(ref health, "health", true);
+            Scribe_Values.Look(ref replaceOtherHealthTabs, "replaceOtherHealthTabs", true);
         }
     }
 
     public class MTMod : Mod
     {
-        public const string Version = "0.1.3";
+        public const string Version = "0.2.0";
         public static MTSettings S;
         public static Harmony H;
         private static List<string> recBullets;
@@ -44,7 +48,9 @@ namespace MisakTabs
             try { MUI.PatchWindow(H, typeof(MTMod)); } catch { }
             BillsTab.Patch(H);
             BillPrio.Patch(H);
+            HealthTab.Patch(H);
             LongEventHandler.ExecuteWhenFinished(BillsTab.TakeOver);
+            LongEventHandler.ExecuteWhenFinished(HealthTab.TakeOver);
             Log.Message("[Mišák Tabs] v" + Version + " loaded.");
         }
 
@@ -57,7 +63,7 @@ namespace MisakTabs
         {
             MUI.Version(r, "v" + Version + " · Bolek98");
             if (recBullets == null)
-                recBullets = new List<string> { "MT_Rec1".Translate(), "MT_Rec2".Translate() };
+                recBullets = new List<string> { "MT_Rec1".Translate(), "MT_Rec2".Translate(), "MT_Rec3".Translate() };
             float y = r.y;
             y += MUI.RecommendedCard(new Rect(r.x, y, r.width, 0f), S, S.recommended, v => { S.recommended = v; if (v) MUI.ApplyAll(S); }, recBullets) + 6f;
             if (S.recommended) y += MUI.LockNote(new Rect(r.x, y, r.width, 0f)) + 4f;
@@ -69,6 +75,8 @@ namespace MisakTabs
                 l.Begin(rest);
                 Check(l, "MT_Bills", ref S.bills, "bills");
                 Check(l, "MT_ReplaceOther", ref S.replaceOtherBillTabs, "replaceOtherBillTabs");
+                Check(l, "MT_Health", ref S.health, "health");
+                Check(l, "MT_ReplaceOtherHealth", ref S.replaceOtherHealthTabs, "replaceOtherHealthTabs");
                 l.End();
             }
             finally { MUI.EndLock(rest); }
@@ -192,6 +200,8 @@ namespace MisakTabs
         public static void SizePostfix(InspectTabBase __instance)
         {
             if (__instance is ITab_Bills && MTMod.S.bills && !showOriginal) sizeRef(__instance) = Size;
+            else if (HealthTab.Ours(__instance)) sizeRef(__instance) = HealthTab.Size;
+            else if (__instance is ITab_Pawn_Health && sizeRef(__instance) == HealthTab.Size) sizeRef(__instance) = new Vector2(630f, 430f);
         }
 
         private static Building_WorkTable Table => Find.Selector.SingleSelectedThing as Building_WorkTable;
