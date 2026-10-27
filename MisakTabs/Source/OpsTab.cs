@@ -27,6 +27,8 @@ namespace MisakTabs
             public BodyPartRecord part;
             public FloatMenuOption option;
             public string label, reason;
+            public List<ThingDef> missing;      // 0.4.2: kept for the right-click menu on the figure
+            public AcceptanceReport report;
             public Kind kind;
             public Area area;
         }
@@ -74,30 +76,33 @@ namespace MisakTabs
                 Widgets.BeginScrollView(outR, ref queueScroll, view);
                 Bill del = null;
                 Bill up = null, down = null;
-                for (int i = 0; i < bills.Count; i++)
+                try
                 {
-                    Bill b = bills[i];
-                    Rect row = new Rect(0f, i * rowH, view.width, rowH - 6f);
-                    Look.Box(row, b.suspended ? Look.Bg : Look.Card, Look.Line);
-                    Look.Icon(new Rect(row.x + 6f, row.y + 6f, 30f, 30f), (Def)b.recipe.UIIconThing ?? b.recipe, b.recipe.UIIcon);
-                    Look.Text(new Rect(row.x + 42f, row.y + 2f, row.width - 110f, 20f), (i + 1) + ". " + b.LabelCap.ToString().Truncate(row.width - 120f), b.suspended ? Muted : Color.white);
-                    string part = (b as Bill_Medical)?.Part?.LabelCap ?? "MT_O_WholeBody".Translate().ToString();
-                    var missing = Missing(b.recipe, pawn);
-                    string sub = b.suspended ? "MT_O_Paused".Translate().ToString()
-                               : missing.Count > 0 ? "MT_O_Missing".Translate(string.Join(", ", missing.Select(m => m.label).ToArray())).ToString()
-                               : "MT_O_Ready".Translate().ToString();
-                    Look.Text(new Rect(row.x + 42f, row.y + 20f, row.width - 110f, 16f), part.Truncate(row.width - 120f), Muted, GameFont.Tiny);
-                    Look.Text(new Rect(row.x + 42f, row.y + 36f, row.width - 110f, 16f), sub.Truncate(row.width - 120f), b.suspended ? Muted : missing.Count > 0 ? Look.Orange : Look.Green, GameFont.Tiny);
-                    // buttons: up, down, pause, remove
-                    float bx = row.xMax - 66f;
-                    if (Small(new Rect(bx, row.y + 6f, 20f, 20f), "▲", i > 0)) up = b;
-                    if (Small(new Rect(bx + 22f, row.y + 6f, 20f, 20f), "▼", i < bills.Count - 1)) down = b;
-                    if (Small(new Rect(bx + 44f, row.y + 6f, 20f, 20f), "✕", true)) del = b;
-                    Rect pr = new Rect(bx, row.y + 30f, 64f, 20f);
-                    if (Small(pr, b.suspended ? "MT_O_Resume".Translate() : "MT_O_Pause".Translate(), true)) b.suspended = !b.suspended;
-                    TooltipHandler.TipRegion(new Rect(row.x, row.y, row.width - 70f, row.height), b.recipe.description ?? b.LabelCap.ToString());
+                    for (int i = 0; i < bills.Count; i++)
+                    {
+                        Bill b = bills[i];
+                        Rect row = new Rect(0f, i * rowH, view.width, rowH - 6f);
+                        Look.Box(row, b.suspended ? Look.Bg : Look.Card, Look.Line);
+                        Look.Icon(new Rect(row.x + 6f, row.y + 6f, 30f, 30f), (Def)b.recipe.UIIconThing ?? b.recipe, b.recipe.UIIcon);
+                        Look.Text(new Rect(row.x + 42f, row.y + 2f, row.width - 110f, 20f), (i + 1) + ". " + b.LabelCap.ToString().Truncate(row.width - 120f), b.suspended ? Muted : Color.white);
+                        string part = (b as Bill_Medical)?.Part?.LabelCap ?? "MT_O_WholeBody".Translate().ToString();
+                        var missing = Missing(b.recipe, pawn);
+                        string sub = b.suspended ? "MT_O_Paused".Translate().ToString()
+                                   : missing.Count > 0 ? "MT_O_Missing".Translate(string.Join(", ", missing.Select(m => m.label).ToArray())).ToString()
+                                   : "MT_O_Ready".Translate().ToString();
+                        Look.Text(new Rect(row.x + 42f, row.y + 20f, row.width - 110f, 16f), part.Truncate(row.width - 120f), Muted, GameFont.Tiny);
+                        Look.Text(new Rect(row.x + 42f, row.y + 36f, row.width - 110f, 16f), sub.Truncate(row.width - 120f), b.suspended ? Muted : missing.Count > 0 ? Look.Orange : Look.Green, GameFont.Tiny);
+                        // buttons: up, down, pause, remove
+                        float bx = row.xMax - 66f;
+                        if (Small(new Rect(bx, row.y + 6f, 20f, 20f), "▲", i > 0)) up = b;
+                        if (Small(new Rect(bx + 22f, row.y + 6f, 20f, 20f), "▼", i < bills.Count - 1)) down = b;
+                        if (Small(new Rect(bx + 44f, row.y + 6f, 20f, 20f), "✕", true)) del = b;
+                        Rect pr = new Rect(bx, row.y + 30f, 64f, 20f);
+                        if (Small(pr, b.suspended ? "MT_O_Resume".Translate() : "MT_O_Pause".Translate(), true)) b.suspended = !b.suspended;
+                        TooltipHandler.TipRegion(new Rect(row.x, row.y, row.width - 70f, row.height), b.recipe.description ?? b.LabelCap.ToString());
+                    }
                 }
-                Widgets.EndScrollView();
+                finally { Widgets.EndScrollView(); }   // 0.4.2
                 if (up != null) { pawn.BillStack.Reorder(up, -1); SoundDefOf.Tick_High.PlayOneShotOnCamera(); }
                 if (down != null) { pawn.BillStack.Reorder(down, 1); SoundDefOf.Tick_Low.PlayOneShotOnCamera(); }
                 if (del != null) { pawn.BillStack.Delete(del); SoundDefOf.Click.PlayOneShotOnCamera(); opsAt = -10f; }
@@ -180,7 +185,7 @@ namespace MisakTabs
         private static Op Make(Pawn pawn, RecipeDef rec, List<ThingDef> missing, AcceptanceReport report, int index, BodyPartRecord part)
         {
             var opt = (FloatMenuOption)generate.Invoke(null, new object[] { pawn, pawn, rec, missing, report, index, part });
-            var o = new Op { recipe = rec, part = part, option = opt, label = rec.Worker.GetLabelWhenUsedOn(pawn, part).CapitalizeFirst() };
+            var o = new Op { recipe = rec, part = part, option = opt, label = rec.Worker.GetLabelWhenUsedOn(pawn, part).CapitalizeFirst(), missing = missing, report = report };
             if (!report.Reason.NullOrEmpty()) o.reason = report.Reason;
             else if (missing.Count > 0) o.reason = "MT_O_Missing".Translate(string.Join(", ", missing.Select(m => m.label).ToArray()));
             o.kind = KindOf(rec);
@@ -211,11 +216,46 @@ namespace MisakTabs
             }
         }
 
+        // 0.4.2: switch to the operations view filtered to the body region of this part
+        public static void ShowFor(BodyPartRecord part)
+        {
+            area = part == null ? Area.Whole : AreaOf(HealthTab.RegionOfPart(part));
+            kind = Kind.All;
+            search = "";
+            listScroll = Vector2.zero;
+            HealthTab.opsMode = true;
+        }
+
+        // 0.4.2: the operations that can be done on these body parts, as fresh menu options
+        // (the game's own GenerateSurgeryOption, like the list on the right)
+        public static List<FloatMenuOption> OptionsFor(Pawn pawn, ICollection<BodyPartRecord> parts)
+        {
+            var res = new List<FloatMenuOption>();
+            if (!Available || parts == null || parts.Count == 0) return res;
+            try
+            {
+                Refresh(pawn);
+                int index = 0;
+                foreach (Op o in ops.Where(x => x.part != null && parts.Contains(x.part)).OrderBy(x => x.reason != null).ThenBy(x => x.label).ThenBy(x => x.part.Label))
+                {
+                    var opt = (FloatMenuOption)generate.Invoke(null, new object[] { pawn, pawn, o.recipe, o.missing ?? new List<ThingDef>(), o.report, index++, o.part });
+                    if (opt == null) continue;
+                    Action act = opt.action;
+                    if (act != null) opt.action = () => { act(); opsAt = -10f; };
+                    res.Add(opt);
+                }
+            }
+            catch (Exception e) { Log.WarningOnce("[Mišák Tabs] operations menu: " + e.Message, 0x51A7B14); }
+            return res;
+        }
+
         private static void List(Rect r, Pawn pawn)
         {
             Refresh(pawn);
             Look.Text(new Rect(r.x, r.y, r.width, 22f), "MT_O_Possible".Translate(ops.Count), Muted, GameFont.Tiny);
             float y = r.y + 24f;
+            Look.EscUnfocus("MT_OpsSearch");          // 0.4.2
+            GUI.SetNextControlName("MT_OpsSearch");
             search = Widgets.TextField(new Rect(r.x, y, r.width, 26f), search ?? "");
             if (search.NullOrEmpty())
                 Look.Text(new Rect(r.x + 6f, y, r.width, 26f), "MT_O_Search".Translate(), Look.Line, GameFont.Small);
@@ -255,27 +295,30 @@ namespace MisakTabs
             const float rowH = 44f;
             Rect view = new Rect(0f, 0f, outR.width - 16f, shown.Count * rowH);
             Widgets.BeginScrollView(outR, ref listScroll, view);
-            int first = Mathf.Max(0, (int)(listScroll.y / rowH) - 1), last = Mathf.Min(shown.Count - 1, (int)((listScroll.y + outR.height) / rowH) + 1);
             Op clicked = null;
-            for (int i = first; i <= last; i++)
+            try
             {
-                Op o = shown[i];
-                bool ok = o.reason == null && o.option?.action != null && !o.option.Disabled;
-                Rect row = new Rect(0f, i * rowH, view.width, rowH - 4f);
-                bool over = Mouse.IsOver(row);
-                Look.Box(row, over && ok ? Look.Card2 : Look.Card);
-                Def icon = o.recipe.Worker is Recipe_RemoveBodyPart && o.part?.def.spawnThingOnRemoved != null ? (Def)o.part.def.spawnThingOnRemoved : (Def)o.recipe.UIIconThing ?? o.recipe;
-                Look.Icon(new Rect(row.x + 6f, row.y + 5f, 30f, 30f), icon, o.recipe.UIIcon);
-                float tw = row.width - 42f - 70f;
-                Look.Text(new Rect(row.x + 42f, row.y + 2f, tw, 20f), o.label.Truncate(tw), ok ? Color.white : Muted);
-                string sub = (o.part != null && !o.recipe.hideBodyPartNames ? o.part.LabelCap.ToString() : "MT_O_WholeBody".Translate().ToString())
-                             + (o.reason != null ? " · " + o.reason : "");
-                Look.Text(new Rect(row.x + 42f, row.y + 21f, tw, 16f), sub.Truncate(tw), o.reason != null ? Look.Orange : Muted, GameFont.Tiny);
-                Look.Text(new Rect(row.xMax - 66f, row.y, 60f, row.height), ok ? "MT_Add".Translate() : "", Look.Green, GameFont.Tiny, TextAnchor.MiddleRight);
-                if (over) TooltipHandler.TipRegion(row, new TipSignal(() => o.recipe.description.NullOrEmpty() ? o.label : o.label + "\n\n" + o.recipe.description, o.recipe.GetHashCode() ^ (o.part?.Index ?? -1)));
-                if (ok && Widgets.ButtonInvisible(row)) clicked = o;
+                int first = Mathf.Max(0, (int)(listScroll.y / rowH) - 1), last = Mathf.Min(shown.Count - 1, (int)((listScroll.y + outR.height) / rowH) + 1);
+                for (int i = first; i <= last; i++)
+                {
+                    Op o = shown[i];
+                    bool ok = o.reason == null && o.option?.action != null && !o.option.Disabled;
+                    Rect row = new Rect(0f, i * rowH, view.width, rowH - 4f);
+                    bool over = Mouse.IsOver(row);
+                    Look.Box(row, over && ok ? Look.Card2 : Look.Card);
+                    Def icon = o.recipe.Worker is Recipe_RemoveBodyPart && o.part?.def.spawnThingOnRemoved != null ? (Def)o.part.def.spawnThingOnRemoved : (Def)o.recipe.UIIconThing ?? o.recipe;
+                    Look.Icon(new Rect(row.x + 6f, row.y + 5f, 30f, 30f), icon, o.recipe.UIIcon);
+                    float tw = row.width - 42f - 70f;
+                    Look.Text(new Rect(row.x + 42f, row.y + 2f, tw, 20f), o.label.Truncate(tw), ok ? Color.white : Muted);
+                    string sub = (o.part != null && !o.recipe.hideBodyPartNames ? o.part.LabelCap.ToString() : "MT_O_WholeBody".Translate().ToString())
+                                 + (o.reason != null ? " · " + o.reason : "");
+                    Look.Text(new Rect(row.x + 42f, row.y + 21f, tw, 16f), sub.Truncate(tw), o.reason != null ? Look.Orange : Muted, GameFont.Tiny);
+                    Look.Text(new Rect(row.xMax - 66f, row.y, 60f, row.height), ok ? "MT_Add".Translate() : "", Look.Green, GameFont.Tiny, TextAnchor.MiddleRight);
+                    if (over) TooltipHandler.TipRegion(row, new TipSignal(() => o.recipe.description.NullOrEmpty() ? o.label : o.label + "\n\n" + o.recipe.description, o.recipe.GetHashCode() ^ (o.part?.Index ?? -1)));
+                    if (ok && Widgets.ButtonInvisible(row)) clicked = o;
+                }
             }
-            Widgets.EndScrollView();
+            finally { Widgets.EndScrollView(); }   // 0.4.2
             if (clicked != null)
             {
                 try { clicked.option.action(); } catch (Exception e) { Log.Warning("[Mišák Tabs] add operation: " + e.Message); }

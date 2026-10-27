@@ -77,6 +77,7 @@ namespace MisakTabs
             try { Draw(new Rect(0f, 0f, Size.x, Size.y), pawn); }
             catch (Exception e)
             {
+                Look.ResetGui();   // 0.4.2
                 Log.ErrorOnce("[Mišák Tabs] health tab: " + e, 0x51A7B12);
                 showOriginal = true;
             }
@@ -122,10 +123,36 @@ namespace MisakTabs
             Widgets.DrawBoxSolid(new Rect(r.x, r.yMax - 1f, r.width, 1f), Look.Line);
             Look.Text(new Rect(r.x + 12f, r.y + 6f, 360f, 24f), pawn.LabelCap, Color.white, GameFont.Medium);
             State(pawn, out string state, out Color sc);
-            Look.Text(new Rect(r.x + 12f, r.y + 30f, 420f, 20f), state, sc, GameFont.Tiny);
             bool ops = CanOperate(pawn);
             Rect op = new Rect(r.xMax - 262f, r.y + 13f, 120f, 28f);
             bool inOps = opsMode && ops && OpsTab.Available;
+            // 0.4.2: planned operations as a chip – a click opens the operations view
+            float stateW = 420f;
+            int planned = 0;
+            try { planned = pawn.BillStack?.Count ?? 0; } catch { }
+            if (planned > 0 && !inOps)
+            {
+                string pl = "MT_H_Planned".Translate(planned);
+                Verse.Text.Font = GameFont.Tiny;
+                float pw = Mathf.Min(170f, Verse.Text.CalcSize(pl).x + 16f);
+                Verse.Text.Font = GameFont.Small;
+                Rect chip = new Rect(op.x - 8f - pw, r.y + 16f, pw, 22f);
+                stateW = Mathf.Min(stateW, chip.x - r.x - 20f);
+                bool over = Mouse.IsOver(chip);
+                Look.Box(chip, over ? Look.Card2 : Look.Card, Look.Blue);
+                Look.Text(chip, pl.Truncate(pw - 6f), Look.Blue, GameFont.Tiny, TextAnchor.MiddleCenter);
+                TooltipHandler.TipRegion(chip, "MT_H_PlannedTip".Translate());
+                if (Widgets.ButtonInvisible(chip))
+                {
+                    if (OpsTab.Available && ops) opsMode = true;
+                    else
+                    {
+                        showOriginal = true;
+                        if (opTab != null) opTab() = true;
+                    }
+                }
+            }
+            Look.Text(new Rect(r.x + 12f, r.y + 30f, stateW, 20f), state.Truncate(stateW), sc, GameFont.Tiny);
             if (Look.Button(op, inOps ? "MT_O_BackHealth".Translate() : "MT_Operations".Translate(), true, ops || inOps))
             {
                 if (OpsTab.Available) opsMode = !inOps;
@@ -263,17 +290,20 @@ namespace MisakTabs
             var caps = Capacities(pawn).ToList();
             Rect view = new Rect(0f, 0f, outR.width - (caps.Count * 28f > outR.height ? 16f : 0f), caps.Count * 28f);
             Widgets.BeginScrollView(outR, ref leftScroll, view);
-            float cy = 0f;
-            foreach (PawnCapacityDef cap in caps)
+            try
             {
-                PawnCapacityDef c = cap;
-                Pair<string, Color> eff = HealthCardUtility.GetEfficiencyLabel(pawn, c);
-                float lvl = pawn.health.capacities.GetLevel(c);
-                Row(new Rect(0f, cy, view.width, 24f), c.GetLabelFor(pawn).CapitalizeFirst(), eff.First, eff.Second, lvl, null, false,
-                    new TipSignal(() => HealthCardUtility.GetPawnCapacityTip(pawn, c), pawn.thingIDNumber ^ c.index));
-                cy += 28f;
+                float cy = 0f;
+                foreach (PawnCapacityDef cap in caps)
+                {
+                    PawnCapacityDef c = cap;
+                    Pair<string, Color> eff = HealthCardUtility.GetEfficiencyLabel(pawn, c);
+                    float lvl = pawn.health.capacities.GetLevel(c);
+                    Row(new Rect(0f, cy, view.width, 24f), c.GetLabelFor(pawn).CapitalizeFirst(), eff.First, eff.Second, lvl, null, false,
+                        new TipSignal(() => HealthCardUtility.GetPawnCapacityTip(pawn, c), pawn.thingIDNumber ^ c.index));
+                    cy += 28f;
+                }
             }
-            Widgets.EndScrollView();
+            finally { Widgets.EndScrollView(); }   // 0.4.2
         }
 
         private static IEnumerable<PawnCapacityDef> Capacities(Pawn pawn)
@@ -360,6 +390,12 @@ namespace MisakTabs
                 Widgets.DrawBoxSolid(mr.ExpandedBy(sel ? 3f : 1.5f), sel ? Color.white : new Color(0f, 0f, 0f, 0.85f));
                 Widgets.DrawBoxSolid(mr, m.color);
                 Rect hit = mr.ExpandedBy(5f);
+                // 0.4.2: right click – the operations for this body part
+                if (RightClick(hit))
+                {
+                    PartMenu(pawn, m.list.Where(h => h.Part != null).Select(h => h.Part).Distinct().ToList());
+                    continue;
+                }
                 if (Mouse.IsOver(hit))
                 {
                     string tip = string.Join("\n", m.list.Select(h => (h.Part != null ? h.Part.LabelCap + ": " : "") + h.LabelCap).Distinct().ToArray());
@@ -545,33 +581,98 @@ namespace MisakTabs
             foreach (var g in groups) h += 30f + g.Count() * 26f + 8f;
             Rect view = new Rect(0f, 0f, outR.width - 16f, Mathf.Max(h, outR.height - 2f));
             Widgets.BeginScrollView(outR, ref listScroll, view);
-            float y = 0f;
-            foreach (var g in groups)
+            try
             {
-                float gh = 30f + g.Count() * 26f;
-                Rect card = new Rect(0f, y, view.width, gh);
-                Look.Box(card, Look.Card, Look.Line);
-                // part name and its condition
-                string part = g.Key == null ? "WholeBody".Translate().ToString() : g.Key.LabelCap;
-                Look.Text(new Rect(card.x + 8f, card.y + 4f, card.width - 120f, 22f), part, Color.white, GameFont.Small);
-                if (g.Key != null)
+                float y = 0f;
+                foreach (var g in groups)
                 {
-                    Pair<string, Color> cond = HealthUtility.GetPartConditionLabel(pawn, g.Key);
-                    Look.Text(new Rect(card.xMax - 116f, card.y + 4f, 108f, 22f), cond.First, cond.Second, GameFont.Tiny, TextAnchor.MiddleRight);
-                    float max = g.Key.def.GetMaxHealth(pawn);
-                    if (max > 0f) Look.Bar(new Rect(card.x + 8f, card.y + 26f, card.width - 16f, 2f), pawn.health.hediffSet.GetPartHealth(g.Key) / max, cond.Second);
+                    float gh = 30f + g.Count() * 26f;
+                    Rect card = new Rect(0f, y, view.width, gh);
+                    Look.Box(card, Look.Card, Look.Line);
+                    // part name and its condition
+                    string part = g.Key == null ? "WholeBody".Translate().ToString() : g.Key.LabelCap;
+                    float nameW = card.width - 120f;
+                    // 0.4.2: the exact hit points of the part next to its name ("Left leg 20/30")
+                    string hpText = PartHp(pawn, g.Key);
+                    if (hpText != null)
+                    {
+                        Verse.Text.Font = GameFont.Tiny;
+                        float hw = Verse.Text.CalcSize(hpText).x + 8f;
+                        Verse.Text.Font = GameFont.Small;
+                        float pw = Mathf.Min(Verse.Text.CalcSize(part).x + 6f, nameW - hw);
+                        Look.Text(new Rect(card.x + 8f, card.y + 4f, pw, 22f), part.Truncate(pw), Color.white, GameFont.Small);
+                        Look.Text(new Rect(card.x + 8f + pw, card.y + 5f, hw, 22f), hpText, Muted, GameFont.Tiny);
+                    }
+                    else
+                        Look.Text(new Rect(card.x + 8f, card.y + 4f, nameW, 22f), part, Color.white, GameFont.Small);
+                    // 0.4.2: right click on a part card – the operations for this body part
+                    if (g.Key != null && RightClick(card))
+                        PartMenu(pawn, new List<BodyPartRecord> { g.Key });
+                    if (g.Key != null)
+                    {
+                        Pair<string, Color> cond = HealthUtility.GetPartConditionLabel(pawn, g.Key);
+                        Look.Text(new Rect(card.xMax - 116f, card.y + 4f, 108f, 22f), cond.First, cond.Second, GameFont.Tiny, TextAnchor.MiddleRight);
+                        float max = g.Key.def.GetMaxHealth(pawn);
+                        if (max > 0f) Look.Bar(new Rect(card.x + 8f, card.y + 26f, card.width - 16f, 2f), pawn.health.hediffSet.GetPartHealth(g.Key) / max, cond.Second);
+                    }
+                    float ry = card.y + 30f;
+                    foreach (Hediff d in g.OrderByDescending(x => x.Bleeding).ThenByDescending(x => x.Severity))
+                    {
+                        HediffRow(new Rect(card.x + 8f, ry, card.width - 16f, 24f), pawn, d);
+                        ry += 26f;
+                    }
+                    y += gh + 8f;
                 }
-                float ry = card.y + 30f;
-                foreach (Hediff d in g.OrderByDescending(x => x.Bleeding).ThenByDescending(x => x.Severity))
-                {
-                    HediffRow(new Rect(card.x + 8f, ry, card.width - 16f, 24f), pawn, d);
-                    ry += 26f;
-                }
-                y += gh + 8f;
+                if (groups.Count == 0)
+                    Look.Text(new Rect(0f, 0f, view.width, 60f), "MT_H_NoConditions".Translate(), Look.Green, GameFont.Small, TextAnchor.MiddleCenter);
             }
-            if (groups.Count == 0)
-                Look.Text(new Rect(0f, 0f, view.width, 60f), "MT_H_NoConditions".Translate(), Look.Green, GameFont.Small, TextAnchor.MiddleCenter);
-            Widgets.EndScrollView();
+            finally { Widgets.EndScrollView(); }   // 0.4.2
+        }
+
+        // 0.4.2: "20/30" for a body part that is still there
+        private static string PartHp(Pawn pawn, BodyPartRecord part)
+        {
+            if (part == null) return null;
+            try
+            {
+                if (pawn.health.hediffSet.PartIsMissing(part)) return null;
+                float max = part.def.GetMaxHealth(pawn);
+                if (max <= 0f) return null;
+                float hp = pawn.health.hediffSet.GetPartHealth(part);
+                return Mathf.CeilToInt(hp) + "/" + Mathf.RoundToInt(max);
+            }
+            catch { return null; }
+        }
+
+        private static bool RightClick(Rect r)
+        {
+            Event e = Event.current;
+            if (e != null && e.type == EventType.MouseDown && e.button == 1 && Mouse.IsOver(r))
+            {
+                e.Use();
+                return true;
+            }
+            return false;
+        }
+
+        // 0.4.2: the right-click menu of a body part – its operations and a jump to the operations view
+        private static void PartMenu(Pawn pawn, List<BodyPartRecord> parts)
+        {
+            if (parts == null || parts.Count == 0) return;
+            try
+            {
+                bool can = OpsTab.Available && CanOperate(pawn);
+                List<FloatMenuOption> opts = can ? OpsTab.OptionsFor(pawn, parts) : new List<FloatMenuOption>();
+                if (opts.Count == 0)
+                    opts.Add(new FloatMenuOption(can ? "MT_H_NoOpsHere".Translate() : "MT_OperationsNo".Translate(), null));
+                if (can)
+                {
+                    BodyPartRecord first = parts[0];
+                    opts.Add(new FloatMenuOption("MT_H_ShowOpsHere".Translate(), () => OpsTab.ShowFor(first)));
+                }
+                Find.WindowStack.Add(new FloatMenu(opts));
+            }
+            catch (Exception e) { Log.WarningOnce("[Mišák Tabs] part menu: " + e.Message, 0x51A7B15); }
         }
 
         private static string Key(Pawn pawn, BodyPartRecord part)
@@ -580,9 +681,42 @@ namespace MisakTabs
             return key;
         }
 
+        // 0.4.2: how long a hediff still lasts, when the game's label does not say it already
+        // (HediffComp_Disappears without showRemainingTime; recovery days that the game only has in the tooltip)
+        private static string TimeLeft(Hediff d)
+        {
+            if (!(d is HediffWithComps hw) || hw.comps == null) return null;
+            try
+            {
+                string brackets = d.LabelInBrackets ?? "";
+                foreach (HediffComp c in hw.comps)
+                {
+                    if (c is HediffComp_Disappears dis && !dis.Props.showRemainingTime && dis.ticksToDisappear > 0)
+                    {
+                        int t = dis.EffectiveTicksToDisappear;
+                        string s = t < 2500 ? t.ToStringSecondsFromTicks("F0") : t.ToStringTicksToPeriod(true, true, true, true);
+                        if (!s.NullOrEmpty() && !brackets.Contains(s)) return s;
+                    }
+                    else if (c is HediffComp_SeverityPerDay spd && spd.props is HediffCompProperties_SeverityPerDay sp && sp.showDaysToRecover && !sp.showHoursToRecover
+                             && d.TryGetComp<HediffComp_Immunizable>() == null)
+                    {
+                        float rate = spd.SeverityChangePerDay();
+                        if (rate < 0f && d.Severity > 0f)
+                        {
+                            string s = ((int)(d.Severity / -rate * 60000f)).ToStringTicksToPeriod(true, true, true, true);
+                            if (!s.NullOrEmpty() && !brackets.Contains(s)) return s;
+                        }
+                    }
+                }
+            }
+            catch { }
+            return null;
+        }
+
         private static void HediffRow(Rect r, Pawn pawn, Hediff d)
         {
             if (Mouse.IsOver(r)) Widgets.DrawBoxSolid(r, Look.Card2);
+            if (d.Part != null && RightClick(r)) PartMenu(pawn, new List<BodyPartRecord> { d.Part });   // 0.4.2
             Color c = Severity(pawn, d);
             Widgets.DrawBoxSolid(new Rect(r.x, r.y + 8f, 6f, 8f), c);
             float right = 0f;
@@ -614,6 +748,8 @@ namespace MisakTabs
                 textW = r.width - right - 16f;
             }
             string label = d.LabelCap;
+            string left = TimeLeft(d);              // 0.4.2: remaining time the game does not show in the label
+            if (left != null) label += " · " + left;
             Color lc = d.LabelColor;
             if (lc.r > 0.95f && lc.g > 0.95f && lc.b > 0.95f) lc = Color.white;
             Look.Text(new Rect(r.x + 12f, r.y, textW, r.height), label.Truncate(textW), lc, GameFont.Small);

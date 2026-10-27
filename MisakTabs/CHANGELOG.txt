@@ -1,4 +1,10 @@
 === Not on the Workshop yet (test versions) ===
+0.4.2
+- Right click on a mark on the silhouette or on a condition: the operations for that body part in a menu, and "Show operations for this part" opens the operations view for its body region.
+- Health details: the exact hit points of every body part next to its name (e.g. "Left leg 20/30"), and the time left for conditions whose label does not show it.
+- "Operations planned: 2" in the health header when operations are planned – a click opens them.
+- Safer drawing: a recipe without an icon shows a "?", a drawing error no longer leaves the tab with broken text or colours, and Esc in a search field just leaves the field.
+
 0.4.1
 - The silhouette (and the portrait) in the health tab always stands upright, also when the colonist lies wounded or downed.
 

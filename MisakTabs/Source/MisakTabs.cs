@@ -33,7 +33,7 @@ namespace MisakTabs
 
     public class MTMod : Mod
     {
-        public const string Version = "0.2.0";
+        public const string Version = "0.4.2";
         public static MTSettings S;
         public static Harmony H;
         private static List<string> recBullets;
@@ -107,10 +107,34 @@ namespace MisakTabs
             Verse.Text.Font = f;
             Verse.Text.Anchor = a;
             GUI.color = c;
-            Widgets.Label(r, s);
+            // 0.4.2: the GUI state is always put back, also when the label throws
+            try { Widgets.Label(r, s); }
+            finally
+            {
+                GUI.color = Color.white;
+                Verse.Text.Anchor = TextAnchor.UpperLeft;
+                Verse.Text.Font = GameFont.Small;
+            }
+        }
+
+        // 0.4.2: puts the GUI state back after a drawing error (used by the tab prefixes)
+        public static void ResetGui()
+        {
             GUI.color = Color.white;
             Verse.Text.Anchor = TextAnchor.UpperLeft;
             Verse.Text.Font = GameFont.Small;
+        }
+
+        // 0.4.2: Esc in a search field only leaves the field (the tab is not stuck in it).
+        // Call right before Widgets.TextField with the name given to it via GUI.SetNextControlName.
+        public static void EscUnfocus(string control)
+        {
+            Event e = Event.current;
+            if (e != null && e.type == EventType.KeyDown && e.keyCode == KeyCode.Escape && GUI.GetNameOfFocusedControl() == control)
+            {
+                GUI.FocusControl(null);
+                e.Use();
+            }
         }
 
         public static void Bar(Rect r, float pct, Color c)
@@ -138,12 +162,17 @@ namespace MisakTabs
         {
             Box(r, Card2, Line);
             Rect inner = r.ContractedBy(3f);
+            bool drawn = false;
             try
             {
-                if (def != null) Widgets.DefIcon(inner, def);
-                else if (fallback != null) GUI.DrawTexture(inner, fallback, ScaleMode.ScaleToFit);
+                // 0.4.2: a recipe without any icon draws the fallback instead of nothing
+                if (def is RecipeDef rd && rd.UIIconThing == null && rd.UIIcon == null) def = null;
+                if (def != null) { Widgets.DefIcon(inner, def); drawn = true; }
+                else if (fallback != null) { GUI.DrawTexture(inner, fallback, ScaleMode.ScaleToFit); drawn = true; }
             }
-            catch { }
+            catch { drawn = false; }
+            finally { GUI.color = Color.white; }
+            if (!drawn) Text(r, "?", Line, GameFont.Small, TextAnchor.MiddleCenter);
         }
     }
 
@@ -215,6 +244,7 @@ namespace MisakTabs
             try { Draw(new Rect(0f, 0f, Size.x, Size.y), t); }
             catch (Exception e)
             {
+                Look.ResetGui();
                 Log.ErrorOnce("[Mišák Tabs] bills tab: " + e, 0x51A7B11);
                 showOriginal = true;
             }
@@ -308,6 +338,8 @@ namespace MisakTabs
             float y = r.y;
             Rect sr = new Rect(r.x, y, r.width, 30f);
             Look.Box(sr, Look.Card2, Look.Line);
+            Look.EscUnfocus("MT_BillSearch");
+            GUI.SetNextControlName("MT_BillSearch");
             search = Widgets.TextField(new Rect(sr.x + 6f, sr.y + 3f, sr.width - 12f, 24f), search ?? "");
             if (search.NullOrEmpty()) Look.Text(new Rect(sr.x + 10f, sr.y, sr.width, 30f), "MT_Search".Translate(), Muted, GameFont.Tiny);
             y += 36f;
@@ -334,29 +366,32 @@ namespace MisakTabs
             const float rowH = 48f;
             Rect view = new Rect(0f, 0f, outR.width - 16f, rows.Count * rowH);
             Widgets.BeginScrollView(outR, ref recipeScroll, view);
-            int first = Mathf.Max(0, (int)(recipeScroll.y / rowH) - 1), last = Mathf.Min(rows.Count - 1, (int)((recipeScroll.y + outR.height) / rowH) + 1);
-            for (int i = first; i <= last; i++)
+            try
             {
-                var (rec, locked, why) = rows[i];
-                Rect row = new Rect(0f, i * rowH, view.width, rowH - 4f);
-                bool over = Mouse.IsOver(row);
-                Look.Box(row, over && !locked ? Look.Card2 : Look.Card);
-                Look.Icon(new Rect(row.x + 6f, row.y + 6f, 32f, 32f), rec.UIIconThing, rec.UIIcon);
-                // 0.2.1: the text ends before the info button (long names ran under the "i")
-                float tw = row.width - 46f - 100f;
-                Look.Text(new Rect(row.x + 46f, row.y + 3f, tw, 20f), rec.LabelCap.ToString().Truncate(tw), locked ? Muted : Color.white);
-                Look.Text(new Rect(row.x + 46f, row.y + 22f, tw, 18f), (locked ? why : Ingredients(rec)).Truncate(tw), locked ? Look.Orange : Muted, GameFont.Tiny);
-                Look.Text(new Rect(row.xMax - 66f, row.y, 60f, row.height), locked ? "MT_LockedShort".Translate() : "MT_Add".Translate(), locked ? Muted : Look.Green, GameFont.Tiny, TextAnchor.MiddleRight);
-                // 0.1.2: what the thing is – a rich tooltip and the game's info card
-                Rect info = new Rect(row.xMax - 92f, row.y + (row.height - 22f) / 2f, 22f, 22f);
-                if (InfoButton(info, rec)) { }
-                else
+                int first = Mathf.Max(0, (int)(recipeScroll.y / rowH) - 1), last = Mathf.Min(rows.Count - 1, (int)((recipeScroll.y + outR.height) / rowH) + 1);
+                for (int i = first; i <= last; i++)
                 {
-                    if (over) TooltipHandler.TipRegion(row, new TipSignal(() => RecipeInfo(rec), rec.GetHashCode()));
-                    if (!locked && Widgets.ButtonInvisible(row)) Add(table, rec);
+                    var (rec, locked, why) = rows[i];
+                    Rect row = new Rect(0f, i * rowH, view.width, rowH - 4f);
+                    bool over = Mouse.IsOver(row);
+                    Look.Box(row, over && !locked ? Look.Card2 : Look.Card);
+                    Look.Icon(new Rect(row.x + 6f, row.y + 6f, 32f, 32f), rec.UIIconThing, rec.UIIcon);
+                    // 0.2.1: the text ends before the info button (long names ran under the "i")
+                    float tw = row.width - 46f - 100f;
+                    Look.Text(new Rect(row.x + 46f, row.y + 3f, tw, 20f), rec.LabelCap.ToString().Truncate(tw), locked ? Muted : Color.white);
+                    Look.Text(new Rect(row.x + 46f, row.y + 22f, tw, 18f), (locked ? why : Ingredients(rec)).Truncate(tw), locked ? Look.Orange : Muted, GameFont.Tiny);
+                    Look.Text(new Rect(row.xMax - 66f, row.y, 60f, row.height), locked ? "MT_LockedShort".Translate() : "MT_Add".Translate(), locked ? Muted : Look.Green, GameFont.Tiny, TextAnchor.MiddleRight);
+                    // 0.1.2: what the thing is – a rich tooltip and the game's info card
+                    Rect info = new Rect(row.xMax - 92f, row.y + (row.height - 22f) / 2f, 22f, 22f);
+                    if (InfoButton(info, rec)) { }
+                    else
+                    {
+                        if (over) TooltipHandler.TipRegion(row, new TipSignal(() => RecipeInfo(rec), rec.GetHashCode()));
+                        if (!locked && Widgets.ButtonInvisible(row)) Add(table, rec);
+                    }
                 }
             }
-            Widgets.EndScrollView();
+            finally { Widgets.EndScrollView(); }   // 0.4.2
         }
 
         private static void OpenInfo(RecipeDef rec)
@@ -453,79 +488,82 @@ namespace MisakTabs
             Rect view = new Rect(0f, 0f, outR.width - 16f, Mathf.Max(bills.Count * (cardH + 6f), outR.height - 2f));
             Widgets.BeginScrollView(outR, ref queueScroll, view);
             Bill toDelete = null, toUp = null, toDown = null;
-            for (int i = 0; i < bills.Count; i++)
+            try
             {
-                Bill b = bills[i];
-                Rect c = new Rect(0f, i * (cardH + 6f), view.width, cardH);
-                Pawn doer = Doer(b, table.Map);
-                bool waiting = !b.suspended && b.ShouldDoNow() && Find.TickManager.TicksGame <= b.nextTickToSearchForIngredients;
-                Color border = doer != null ? Look.Green : waiting ? Look.Orange : Look.Line;
-                Look.Box(c, doer != null ? Look.GreenBg : Look.Card, border);
-                Rect ic = new Rect(c.x + 8f, c.y + 8f, 34f, 34f);
-                Look.Icon(ic, b.recipe.UIIconThing, b.recipe.UIIcon);
-                if (Mouse.IsOver(ic)) TooltipHandler.TipRegion(ic, new TipSignal(() => RecipeInfo(b.recipe) + "\n\n" + "MT_ClickInfo".Translate(), b.recipe.GetHashCode() ^ 0x55));
-                if (Widgets.ButtonInvisible(ic)) OpenInfo(b.recipe);
-                float tx = c.x + 52f, tw = c.width - 52f - 150f;
-                Look.Text(new Rect(tx, c.y + 6f, tw, 22f), b.LabelCap.ToString().Truncate(tw), b.suspended ? Muted : Color.white);
-                string status;
-                Color sc = Muted;
-                float progress = -1f;
-                if (b.suspended) status = "MT_Suspended".Translate();
-                else if (doer != null) { status = "MT_DoingNow".Translate(doer.LabelShort); sc = Look.Green; }
-                else if (waiting) { status = "MT_NoIngredients".Translate(); sc = Look.Orange; }
-                else if (!b.ShouldDoNow()) status = "MT_Done".Translate();
-                else status = "MT_Waiting".Translate();
-                string repeat = "";
-                if (b is Bill_Production bp)
+                for (int i = 0; i < bills.Count; i++)
                 {
-                    if (bp.repeatMode == BillRepeatModeDefOf.Forever) repeat = "MT_Forever".Translate();
-                    else if (bp.repeatMode == BillRepeatModeDefOf.RepeatCount) repeat = "MT_RepeatLeft".Translate(bp.repeatCount);
-                    else if (bp.repeatMode == BillRepeatModeDefOf.TargetCount)
+                    Bill b = bills[i];
+                    Rect c = new Rect(0f, i * (cardH + 6f), view.width, cardH);
+                    Pawn doer = Doer(b, table.Map);
+                    bool waiting = !b.suspended && b.ShouldDoNow() && Find.TickManager.TicksGame <= b.nextTickToSearchForIngredients;
+                    Color border = doer != null ? Look.Green : waiting ? Look.Orange : Look.Line;
+                    Look.Box(c, doer != null ? Look.GreenBg : Look.Card, border);
+                    Rect ic = new Rect(c.x + 8f, c.y + 8f, 34f, 34f);
+                    Look.Icon(ic, b.recipe.UIIconThing, b.recipe.UIIcon);
+                    if (Mouse.IsOver(ic)) TooltipHandler.TipRegion(ic, new TipSignal(() => RecipeInfo(b.recipe) + "\n\n" + "MT_ClickInfo".Translate(), b.recipe.GetHashCode() ^ 0x55));
+                    if (Widgets.ButtonInvisible(ic)) OpenInfo(b.recipe);
+                    float tx = c.x + 52f, tw = c.width - 52f - 150f;
+                    Look.Text(new Rect(tx, c.y + 6f, tw, 22f), b.LabelCap.ToString().Truncate(tw), b.suspended ? Muted : Color.white);
+                    string status;
+                    Color sc = Muted;
+                    float progress = -1f;
+                    if (b.suspended) status = "MT_Suspended".Translate();
+                    else if (doer != null) { status = "MT_DoingNow".Translate(doer.LabelShort); sc = Look.Green; }
+                    else if (waiting) { status = "MT_NoIngredients".Translate(); sc = Look.Orange; }
+                    else if (!b.ShouldDoNow()) status = "MT_Done".Translate();
+                    else status = "MT_Waiting".Translate();
+                    string repeat = "";
+                    if (b is Bill_Production bp)
                     {
-                        int have = 0;
-                        try { have = b.recipe.WorkerCounter.CountProducts(bp); } catch { }
-                        repeat = "MT_Target".Translate(have, bp.targetCount).ToString() + (bp.paused ? " · " + "MT_PausedSatisfied".Translate() : "");
-                        progress = bp.targetCount > 0 ? (float)have / bp.targetCount : 0f;
+                        if (bp.repeatMode == BillRepeatModeDefOf.Forever) repeat = "MT_Forever".Translate();
+                        else if (bp.repeatMode == BillRepeatModeDefOf.RepeatCount) repeat = "MT_RepeatLeft".Translate(bp.repeatCount);
+                        else if (bp.repeatMode == BillRepeatModeDefOf.TargetCount)
+                        {
+                            int have = 0;
+                            try { have = b.recipe.WorkerCounter.CountProducts(bp); } catch { }
+                            repeat = "MT_Target".Translate(have, bp.targetCount).ToString() + (bp.paused ? " · " + "MT_PausedSatisfied".Translate() : "");
+                            progress = bp.targetCount > 0 ? (float)have / bp.targetCount : 0f;
+                        }
+                    }
+                    Look.Text(new Rect(tx, c.y + 28f, tw, 18f), status, sc, GameFont.Tiny);
+                    Look.Text(new Rect(tx, c.y + 44f, tw, 18f), repeat, Muted, GameFont.Tiny);
+                    if (progress >= 0f) Look.Bar(new Rect(tx, c.y + 63f, tw, 4f), progress, Look.Green);
+                    // buttons
+                    float bx = c.xMax - 146f, by = c.y + 8f;
+                    // 0.1.3: priority 1 (first) … 10 (last)
+                    int pr = BillPrio.Get(b);
+                    Rect pc = new Rect(bx - 46f, by, 40f, 26f);
+                    Color prc = pr <= 2 ? Look.Red : pr <= 4 ? Look.Orange : pr == 5 ? Muted : Look.Blue;
+                    Look.Box(pc, Look.Card2, prc);
+                    Look.Text(pc, "P" + pr, prc, GameFont.Small, TextAnchor.MiddleCenter);
+                    TooltipHandler.TipRegion(pc, "MT_PrioTip".Translate(pr));
+                    if (Widgets.ButtonInvisible(pc))
+                    {
+                        Bill bb = b;
+                        var opts = new List<FloatMenuOption>();
+                        for (int p = 1; p <= 10; p++)
+                        {
+                            int pp = p;
+                            opts.Add(new FloatMenuOption("MT_PrioOption".Translate(p) + (p == 1 ? " – " + "MT_PrioFirst".Translate() : p == 5 ? " – " + "MT_PrioNormal".Translate() : p == 10 ? " – " + "MT_PrioLast".Translate() : ""), () => BillPrio.Set(bb, pp, table)));
+                        }
+                        Find.WindowStack.Add(new FloatMenu(opts));
+                    }
+                    if (Look.Button(new Rect(bx, by, 26f, 26f), "▲", false, i > 0)) toUp = b;
+                    if (Look.Button(new Rect(bx + 30f, by, 26f, 26f), "▼", false, i < bills.Count - 1)) toDown = b;
+                    if (Look.Button(new Rect(bx + 60f, by, 54f, 26f), b.suspended ? "MT_Resume".Translate() : "MT_Pause".Translate())) b.suspended = !b.suspended;
+                    if (Look.Button(new Rect(bx + 118f, by, 26f, 26f), "✕")) toDelete = b;
+                    if (Look.Button(new Rect(bx, by + 32f, 70f, 26f), "MT_Edit".Translate(), true) && b is Bill_Production bp2)
+                        Find.WindowStack.Add(new Dialog_BillConfig(bp2, table.Position));
+                    if (Look.Button(new Rect(bx + 74f, by + 32f, 70f, 26f), "MT_Copy".Translate()))
+                    {
+                        BillUtility.Clipboard = b.Clone();
+                        Messages.Message("MT_Copied".Translate(b.LabelCap), MessageTypeDefOf.SilentInput, false);
                     }
                 }
-                Look.Text(new Rect(tx, c.y + 28f, tw, 18f), status, sc, GameFont.Tiny);
-                Look.Text(new Rect(tx, c.y + 44f, tw, 18f), repeat, Muted, GameFont.Tiny);
-                if (progress >= 0f) Look.Bar(new Rect(tx, c.y + 63f, tw, 4f), progress, Look.Green);
-                // buttons
-                float bx = c.xMax - 146f, by = c.y + 8f;
-                // 0.1.3: priority 1 (first) … 10 (last)
-                int pr = BillPrio.Get(b);
-                Rect pc = new Rect(bx - 46f, by, 40f, 26f);
-                Color prc = pr <= 2 ? Look.Red : pr <= 4 ? Look.Orange : pr == 5 ? Muted : Look.Blue;
-                Look.Box(pc, Look.Card2, prc);
-                Look.Text(pc, "P" + pr, prc, GameFont.Small, TextAnchor.MiddleCenter);
-                TooltipHandler.TipRegion(pc, "MT_PrioTip".Translate(pr));
-                if (Widgets.ButtonInvisible(pc))
-                {
-                    Bill bb = b;
-                    var opts = new List<FloatMenuOption>();
-                    for (int p = 1; p <= 10; p++)
-                    {
-                        int pp = p;
-                        opts.Add(new FloatMenuOption("MT_PrioOption".Translate(p) + (p == 1 ? " – " + "MT_PrioFirst".Translate() : p == 5 ? " – " + "MT_PrioNormal".Translate() : p == 10 ? " – " + "MT_PrioLast".Translate() : ""), () => BillPrio.Set(bb, pp, table)));
-                    }
-                    Find.WindowStack.Add(new FloatMenu(opts));
-                }
-                if (Look.Button(new Rect(bx, by, 26f, 26f), "▲", false, i > 0)) toUp = b;
-                if (Look.Button(new Rect(bx + 30f, by, 26f, 26f), "▼", false, i < bills.Count - 1)) toDown = b;
-                if (Look.Button(new Rect(bx + 60f, by, 54f, 26f), b.suspended ? "MT_Resume".Translate() : "MT_Pause".Translate())) b.suspended = !b.suspended;
-                if (Look.Button(new Rect(bx + 118f, by, 26f, 26f), "✕")) toDelete = b;
-                if (Look.Button(new Rect(bx, by + 32f, 70f, 26f), "MT_Edit".Translate(), true) && b is Bill_Production bp2)
-                    Find.WindowStack.Add(new Dialog_BillConfig(bp2, table.Position));
-                if (Look.Button(new Rect(bx + 74f, by + 32f, 70f, 26f), "MT_Copy".Translate()))
-                {
-                    BillUtility.Clipboard = b.Clone();
-                    Messages.Message("MT_Copied".Translate(b.LabelCap), MessageTypeDefOf.SilentInput, false);
-                }
+                if (bills.Count == 0)
+                    Look.Text(new Rect(0f, 0f, view.width, 60f), "MT_NoBills".Translate(), Muted, GameFont.Small, TextAnchor.MiddleCenter);
             }
-            if (bills.Count == 0)
-                Look.Text(new Rect(0f, 0f, view.width, 60f), "MT_NoBills".Translate(), Muted, GameFont.Small, TextAnchor.MiddleCenter);
-            Widgets.EndScrollView();
+            finally { Widgets.EndScrollView(); }   // 0.4.2
             if (toUp != null) { table.billStack.Reorder(toUp, -1); SoundDefOf.Tick_High.PlayOneShotOnCamera(); }
             if (toDown != null) { table.billStack.Reorder(toDown, 1); SoundDefOf.Tick_Low.PlayOneShotOnCamera(); }
             if (toDelete != null) { table.billStack.Delete(toDelete); SoundDefOf.Click.PlayOneShotOnCamera(); }

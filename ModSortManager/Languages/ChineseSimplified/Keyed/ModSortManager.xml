@@ -308,4 +308,17 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_CrashMoved>只有顺序变了。</MSM_CrashMoved>
   <MSM_CrashRestore>打开之前的列表</MSM_CrashRestore>
   <MSM_CrashKeep>保留我现在的列表</MSM_CrashKeep>
+  <!-- 0.2.2 -->
+  <MSM_FromSave>从存档读取模组列表…</MSM_FromSave>
+  <MSM_FromSaveTip>选择一个存档：查看它使用了哪些模组、缺少什么、与你的列表有何不同——并可使用它的列表。</MSM_FromSaveTip>
+  <MSM_NoSaves>没有找到存档。</MSM_NoSaves>
+  <MSM_SaveNoMods>此存档没有模组列表（或无法读取）。</MSM_SaveNoMods>
+  <MSM_SaveTitle>存档 {0} 的模组</MSM_SaveTitle>
+  <MSM_SaveSub>存档中有 {0} 个模组 · 游戏版本 {1}</MSM_SaveSub>
+  <MSM_SaveMissing>未安装（{0}）</MSM_SaveMissing>
+  <MSM_SaveTurnOn>将被启用（{0}）</MSM_SaveTurnOn>
+  <MSM_SaveTurnOff>将被停用（{0}）</MSM_SaveTurnOff>
+  <MSM_SaveSame>与你的列表模组相同、顺序相同。</MSM_SaveSame>
+  <MSM_SaveSameMods>与你的列表模组相同——只是顺序不同。</MSM_SaveSameMods>
+  <MSM_SaveApply>应用此列表</MSM_SaveApply>
 </LanguageData>

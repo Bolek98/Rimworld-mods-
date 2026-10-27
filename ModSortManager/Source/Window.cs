@@ -920,6 +920,53 @@ namespace ModSortManager
         }
 
         // ================= tab: load order =================
+        // 0.2.2: Up/Down moves the selection, Shift+Up/Down moves the selected mod in the active list
+        // (only while no text field has the keyboard)
+        private float hActive = 400f, hInactive = 400f;
+
+        private void KeyNav()
+        {
+            Event ev = Event.current;
+            if (ev == null || ev.type != EventType.KeyDown || (ev.keyCode != KeyCode.UpArrow && ev.keyCode != KeyCode.DownArrow)) return;
+            if (GUIUtility.keyboardControl != 0 || selected == null || dragging) return;
+            int dir = ev.keyCode == KeyCode.UpArrow ? -1 : 1;
+            bool inActive = active.Contains(selected);
+            List<ModMetaData> list = inActive ? (ActiveFiltered ? cAct : active) : cInact;
+            if (list == null) return;
+            int i = list.IndexOf(selected);
+            if (i < 0) return;
+            if (ev.shift)
+            {
+                if (!inActive || ActiveFiltered) return;   // only the full active list can be reordered
+                int to = i + dir;
+                if (to < 0 || to >= active.Count) { ev.Use(); return; }
+                if (active[to].IsCoreMod || selected.IsCoreMod) { ev.Use(); return; }
+                Move(i, to);
+                SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+                i = to;
+            }
+            else
+            {
+                int to = Mathf.Clamp(i + dir, 0, list.Count - 1);
+                if (to == i) { ev.Use(); return; }
+                selected = list[to];
+                i = to;
+            }
+            // keep the row in view
+            float rowY = i * RowH, h = inActive ? hActive : hInactive;
+            if (inActive)
+            {
+                if (rowY < sActive.y) sActive.y = rowY;
+                else if (rowY + RowH > sActive.y + h) sActive.y = rowY + RowH - h;
+            }
+            else
+            {
+                if (rowY < sInactive.y) sInactive.y = rowY;
+                else if (rowY + RowH > sInactive.y + h) sInactive.y = rowY + RowH - h;
+            }
+            ev.Use();
+        }
+
         private void DrawOrder(Rect body)
         {
             float detailW = Mathf.Max(340f, body.width * 0.3f);
@@ -946,6 +993,9 @@ namespace ModSortManager
                 cVer = ver;
             }
             List<ModMetaData> inact = cInact;
+            KeyNav();   // 0.2.2
+            hInactive = l.height - 62f;
+            hActive = mid.ContractedBy(Pad, 10f).height - 62f;
             DrawList(new Rect(l.x, l.y + 62f, l.width, l.height - 62f), inact, ref sInactive, false);
 
             // active
@@ -1513,6 +1563,11 @@ namespace ModSortManager
             }
             TooltipHandler.TipRegion(pasteR, "MSM_SharePasteTip".Translate());
             y += 40f;
+            // 0.2.2: the mod list of a save – what is missing or different, and use it
+            Rect saveR = new Rect(left.x, y, left.width, 30f);
+            if (Button(saveR, "MSM_FromSave".Translate())) SaveMenu();
+            TooltipHandler.TipRegion(saveR, "MSM_FromSaveTip".Translate());
+            y += 40f;
             Rect outL = new Rect(left.x, y, left.width, left.yMax - y);
             Rect viewL = new Rect(0f, 0f, outL.width - 16f, Mathf.Max(profileFiles.Count * 40f, outL.height - 2f));
             Widgets.BeginScrollView(outL, ref sProfiles, viewL);
@@ -1559,6 +1614,33 @@ namespace ModSortManager
                 Label(new Rect(0f, 0f, viewR.width, 30f), "MSM_NoBackups".Translate(), MUI.Muted);
             Widgets.EndScrollView();
             if (restore != null) ApplyIds(MSM.ReadModsConfigIds(restore.FullName), null);
+        }
+
+        // 0.2.2: pick a save (newest first) and show its mod list
+        private void SaveMenu()
+        {
+            List<FileInfo> saves = SaveMods.Files();
+            if (saves.Count == 0)
+            {
+                Messages.Message("MSM_NoSaves".Translate(), MessageTypeDefOf.RejectInput, false);
+                return;
+            }
+            var opts = new List<FloatMenuOption>();
+            foreach (FileInfo f in saves.Take(60))
+            {
+                FileInfo file = f;
+                opts.Add(new FloatMenuOption(Path.GetFileNameWithoutExtension(f.Name) + "  ·  " + f.LastWriteTime.ToString("d.M.yyyy HH:mm"), delegate
+                {
+                    SaveModList d = SaveMods.Read(file);
+                    if (d == null)
+                    {
+                        Messages.Message("MSM_SaveNoMods".Translate(), MessageTypeDefOf.RejectInput, false);
+                        return;
+                    }
+                    Find.WindowStack.Add(new Dialog_SaveMods(d, active, () => ApplyIds(d.ids, d.names, d.wids)));
+                }));
+            }
+            Find.WindowStack.Add(new FloatMenu(opts));
         }
 
         private void SaveProfile()
