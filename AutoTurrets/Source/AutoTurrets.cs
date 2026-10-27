@@ -18,6 +18,9 @@ namespace AutoTurrets
 		public bool loadShells = true;
 		public bool anyMetal = true;
 		public bool allowSilver = false;
+		public bool friendlyFire = true;     // 1.1.0: false = your turrets never hit your own people (bullets and blasts)
+		public bool fuelWood = false;        // 1.1.0: turrets can also be refilled with wood
+		public bool fuelStone = false;       // 1.1.0: … and with stone blocks
 
 		public override void ExposeData()
 		{
@@ -28,6 +31,9 @@ namespace AutoTurrets
 			Scribe_Values.Look(ref loadShells, "loadShells", true);
 			Scribe_Values.Look(ref anyMetal, "anyMetal", true);
 			Scribe_Values.Look(ref allowSilver, "allowSilver", false);
+			Scribe_Values.Look(ref friendlyFire, "friendlyFire", true);
+			Scribe_Values.Look(ref fuelWood, "fuelWood", false);
+			Scribe_Values.Look(ref fuelStone, "fuelStone", false);
 		}
 	}
 
@@ -56,9 +62,12 @@ namespace AutoTurrets
 				S.safetyExtra = Mathf.Round(l.Slider(S.safetyExtra, 0f, 15f));
 			}
 			l.CheckboxLabeled("AT_LoadShells".Translate(), ref S.loadShells, "AT_LoadShells_Desc".Translate());
+			l.CheckboxLabeled("AT_FriendlyFire".Translate(), ref S.friendlyFire, "AT_FriendlyFire_Desc".Translate());
 			l.GapLine();
 			l.CheckboxLabeled("AT_AnyMetal".Translate(), ref S.anyMetal, "AT_AnyMetal_Desc".Translate());
 			l.CheckboxLabeled("AT_AllowSilver".Translate(), ref S.allowSilver);
+			l.CheckboxLabeled("AT_FuelWood".Translate(), ref S.fuelWood, "AT_FuelWood_Desc".Translate());
+			l.CheckboxLabeled("AT_FuelStone".Translate(), ref S.fuelStone, "AT_FuelStone_Desc".Translate());
 			l.Label("AT_Restart".Translate());
 			l.End();
 		}
@@ -281,12 +290,20 @@ namespace AutoTurrets
 		private static bool Metal(ThingDef d) =>
 			d.stuffProps?.categories != null && d.stuffProps.categories.Contains(StuffCategoryDefOf.Metallic) && !d.IsCorpse && !d.destroyOnDrop;
 
+		private static bool Cat(ThingDef d, StuffCategoryDef c) =>
+			c != null && d.stuffProps?.categories != null && d.stuffProps.categories.Contains(c) && !d.IsCorpse && !d.destroyOnDrop;
+
 		private static void Run()
 		{
-			if (ATMod.S == null || !ATMod.S.anyMetal)
+			ATSettings s = ATMod.S;
+			if (s == null || (!s.anyMetal && !s.fuelWood && !s.fuelStone))
 				return;
+			// 1.1.0: besides any metal also wood and/or stone blocks, as you choose
 			List<ThingDef> metals = DefDatabase<ThingDef>.AllDefsListForReading
-				.Where(d => d.category == ThingCategory.Item && Metal(d) && (ATMod.S.allowSilver || d != ThingDefOf.Silver))
+				.Where(d => d.category == ThingCategory.Item && (
+					(s.anyMetal && Metal(d) && (s.allowSilver || d != ThingDefOf.Silver))
+					|| (s.fuelWood && Cat(d, StuffCategoryDefOf.Woody))
+					|| (s.fuelStone && Cat(d, StuffCategoryDefOf.Stony))))
 				.ToList();
 			int n = 0;
 			foreach (ThingDef def in DefDatabase<ThingDef>.AllDefsListForReading)
@@ -306,6 +323,60 @@ namespace AutoTurrets
 				}
 			}
 			Log.Message("[Auto Turrets] " + n + " turrets take any metal (" + metals.Count + " metals).");
+		}
+	}
+
+	// 1.1.0: friendly fire switch – with it off, bullets from your turrets fly past your own people and allies,
+	// and blasts from their shells do not hurt them
+	public static class FriendlyFire
+	{
+		public static bool Off => ATMod.S != null && !ATMod.S.friendlyFire;
+
+		public static bool OurTurret(Thing t) => t is Building_Turret b && b.Faction == Faction.OfPlayer;
+
+		public static bool Friendly(Thing t)
+		{
+			if (!(t is Pawn p) || p.Dead)
+				return false;
+			if (p.Faction == Faction.OfPlayer || p.HostFaction == Faction.OfPlayer)
+				return true;
+			return p.Faction != null && !p.Faction.HostileTo(Faction.OfPlayer) && !p.InMentalState;
+		}
+	}
+
+	[HarmonyPatch(typeof(Projectile), "CanHit")]
+	public static class Patch_ProjectileCanHit
+	{
+		public static void Postfix(Thing thing, ref bool __result, Thing ___launcher)
+		{
+			if (__result && FriendlyFire.Off && FriendlyFire.OurTurret(___launcher) && FriendlyFire.Friendly(thing))
+				__result = false;
+		}
+	}
+
+	[HarmonyPatch(typeof(DamageWorker), nameof(DamageWorker.ExplosionAffectCell))]
+	public static class Patch_ExplosionFriendly
+	{
+		public static void Prefix(Explosion explosion, IntVec3 c, ref List<Thing> ignoredThings)
+		{
+			try
+			{
+				if (!FriendlyFire.Off || explosion?.Map == null || !FriendlyFire.OurTurret(explosion.instigator))
+					return;
+				List<Thing> here = c.GetThingList(explosion.Map);
+				for (int i = 0; i < here.Count; i++)
+				{
+					if (!FriendlyFire.Friendly(here[i]))
+						continue;
+					if (ignoredThings == null)
+						ignoredThings = new List<Thing>();
+					if (!ignoredThings.Contains(here[i]))
+						ignoredThings.Add(here[i]);
+				}
+			}
+			catch
+			{
+			}
 		}
 	}
 }
