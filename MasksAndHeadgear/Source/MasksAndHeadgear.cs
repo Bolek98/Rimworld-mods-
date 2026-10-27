@@ -20,7 +20,7 @@ namespace MasksAndHeadgear
 				var h = new Harmony("misak.masksandheadgear");
 				h.Patch(AccessTools.Method(typeof(ApparelUtility), nameof(ApparelUtility.CanWearTogether), new[] { typeof(ThingDef), typeof(ThingDef), typeof(BodyDef) }),
 					postfix: new HarmonyMethod(typeof(Startup), nameof(CanWearTogetherPostfix)));
-				// 1.1.0: per-hat hair visibility and "hide all headgear"
+				// 1.0.1: per-hat hair visibility and "hide all headgear"
 				HairPatches.Apply(h);
 				HairPatches.Rebuild();
 				int masks = 0;
@@ -150,7 +150,7 @@ namespace MasksAndHeadgear
 
 namespace MasksAndHeadgear
 {
-	// 1.1.0: settings – hair visibility per headgear (0 = like the game, 1 = show hair, 2 = hide hair)
+	// 1.0.1: settings – hair visibility per headgear (0 = like the game, 1 = show hair, 2 = hide hair)
 	// and one switch that hides all headgear (hats, helmets, masks) on every pawn.
 	public class MasksSettings : ModSettings
 	{
@@ -169,7 +169,7 @@ namespace MasksAndHeadgear
 
 	public class MasksMod : Mod
 	{
-		public const string Version = "1.1.0";
+		public const string Version = "1.0.1";
 		public static MasksSettings Settings;
 		private Vector2 scroll;
 		private string filter = "";
@@ -265,7 +265,7 @@ namespace MasksAndHeadgear
 		}
 	}
 
-	// 1.1.0: hair under headgear and hiding all headgear.
+	// 1.0.1: hair under headgear and hiding all headgear.
 	// PawnRenderTree.AdjustParms runs in parallel render threads in 1.7, so the patches only read
 	// an immutable snapshot (rebuilt on the main thread when settings are saved).
 	public static class HairPatches

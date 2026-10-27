@@ -35,6 +35,10 @@ namespace MechCommander
 				h.Patch(AccessTools.Method(typeof(MechanitorUtility), nameof(MechanitorUtility.InMechanitorCommandRange)),
 					postfix: new HarmonyMethod(typeof(Startup), nameof(CommandRangePostfix)));
 				int sites = PatchCallSites(h);
+				// 0.1.3: mechs stay controllable while their mechanitor is away (setting, off)
+				System.Reflection.MethodInfo cdm = AccessTools.Method(typeof(MechanitorUtility), nameof(MechanitorUtility.CanDraftMech));
+				if (cdm != null)
+					h.Patch(cdm, postfix: new HarmonyMethod(typeof(Startup), nameof(CanDraftPostfix)));
 				h.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.GetGizmos)),
 					postfix: new HarmonyMethod(typeof(Startup), nameof(GizmosPostfix)));
 				// 0.1.2: each mechanitor's command radius in its own colour
@@ -42,7 +46,7 @@ namespace MechCommander
 				if (dcr != null)
 					h.Patch(dcr, prefix: new HarmonyMethod(typeof(RadiusColors), nameof(RadiusColors.Prefix)));
 				int mechs = DefDatabase<ThingDef>.AllDefsListForReading.Count(d => d.race != null && d.race.IsMechanoid);
-				Log.Message("[Mech Commander] v0.1.2 loaded – " + Modules.Count + " modules, " + mechs + " mech kinds (vanilla and mods), relay in " + sites + " order checks.");
+				Log.Message("[Mech Commander] v0.1.3 loaded – " + Modules.Count + " modules, " + mechs + " mech kinds (vanilla and mods), relay in " + sites + " order checks.");
 			}
 			catch (Exception ex)
 			{
@@ -134,9 +138,46 @@ namespace MechCommander
 				Pawn o = mech.GetOverseer();
 				if (o != null && o.MapHeld == mech.MapHeld && Has(mech, "MC_Hediff_Relay"))
 					__result = true;
+				// 0.1.3: the mechanitor is in a caravan or on another map
+				else if (RemoteControl(mech))
+					__result = true;
 			}
 			catch
 			{
+			}
+		}
+
+		// 0.1.3: "Mechs stay controllable when the mechanitor is away" – the mech's
+		// overseer is not on the mech's map (caravan, another map) but is alive,
+		// conscious, free, sane and has the mech in his bandwidth.
+		public static bool RemoteControl(Pawn mech)
+		{
+			if (MechCommanderMod.Settings == null || !MechCommanderMod.Settings.remoteControl || mech == null || !mech.IsColonyMech)
+				return false;
+			Pawn o = mech.GetOverseer();
+			if (o?.mechanitor == null || o.Dead || o.Downed || o.IsPrisoner || o.InMentalState)
+				return false;
+			if (o.Spawned && o.MapHeld == mech.MapHeld)
+				return false;   // not away – the game's own rules
+			if (!o.Spawned && o.SpawnedParentOrMe is Building)
+				return false;   // in a casket, pod … – as the game says
+			if (mech.needs?.energy != null && mech.needs.energy.IsLowEnergySelfShutdown)
+				return false;
+			return o.mechanitor.ControlledPawns.Contains(mech);
+		}
+
+		public static void CanDraftPostfix(Pawn mech, ref AcceptanceReport __result)
+		{
+			if (__result.Accepted)
+				return;
+			try
+			{
+				if (RemoteControl(mech))
+					__result = AcceptanceReport.WasAccepted;
+			}
+			catch (Exception ex)
+			{
+				Log.WarningOnce("[Mech Commander] remote control: " + ex.Message, 0x4d4301);
 			}
 		}
 
@@ -203,10 +244,13 @@ namespace MechCommander
 	public class MCSettings : ModSettings
 	{
 		public bool colorRadius = true;
+		// 0.1.3
+		public bool remoteControl;
 
 		public override void ExposeData()
 		{
 			Scribe_Values.Look(ref colorRadius, "colorRadius", true);
+			Scribe_Values.Look(ref remoteControl, "remoteControl", false);
 		}
 	}
 
@@ -226,6 +270,7 @@ namespace MechCommander
 			var l = new Listing_Standard();
 			l.Begin(r);
 			l.CheckboxLabeled("MC_ColorRadius".Translate(), ref Settings.colorRadius, "MC_ColorRadiusDesc".Translate());
+			l.CheckboxLabeled("MC_RemoteControl".Translate(), ref Settings.remoteControl, "MC_RemoteControlDesc".Translate());
 			l.End();
 		}
 	}

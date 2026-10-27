@@ -42,4 +42,6 @@
   <AT_SmartShells_Desc>Automatic mortars don't waste shells: EMP only at mechanoids and shielded enemies, incendiary not at mechanoids, firefoam only at fires in the home area (never at enemies). Haulers bring EMP shells when most enemies are mechanoids, otherwise high-explosive ones – if the mortar's filter allows them.</AT_SmartShells_Desc>
   <AT_NoHitBuildings>Turrets don't hit our buildings</AT_NoHitBuildings>
   <AT_NoHitBuildings_Desc>When on, bullets from your turrets fly past your own buildings (walls, sandbags, doors…) unless you aimed at them, and blasts from their shells don't damage them. Enemy buildings are hit as usual. Off = like the game.</AT_NoHitBuildings_Desc>
+  <AT_WallOutward>Wall turrets shoot only outward</AT_WallOutward>
+  <AT_WallOutward_Desc>A turret in a wall only shoots at targets on the outer side of its wall (away from the room). If neither side is clearly outside (a wall between two rooms), it shoots everywhere.</AT_WallOutward_Desc>
 </LanguageData>

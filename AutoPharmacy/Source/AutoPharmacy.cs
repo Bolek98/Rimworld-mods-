@@ -808,14 +808,46 @@ public class Comp : GameComponent
 		if (!s.enabled || !s.autoCare || Find.TickManager.TicksGame % 600 != 0 || AutoPharmacyMod.PharmacistActive)
 			return;
 		foreach (Map m in Find.Maps)
+		{
+			// 1.4.3: colonists and slaves (as before), plus prisoners, guests and
+			// animals – each group with its own highest medicine level (or off)
 			foreach (Pawn p in m.mapPawns.FreeColonistsSpawned.ToList())
-			{
-				if (p.playerSettings == null || p.health?.hediffSet == null)
-					continue;
-				MedicalCareCategory want = CareFor(p);
-				if (p.playerSettings.medCare != want && p.playerSettings.medCare != MedicalCareCategory.NoCare)
-					p.playerSettings.medCare = want;
-			}
+				ApplyCare(p, p.IsSlave ? s.careSlaves : s.careColonists);
+			if (s.carePrisoners >= 0)
+				foreach (Pawn p in m.mapPawns.PrisonersOfColonySpawned.ToList())
+					ApplyCare(p, s.carePrisoners);
+			if (s.careAnimals >= 0)
+				foreach (Pawn p in m.mapPawns.SpawnedColonyAnimals.ToList())
+					ApplyCare(p, s.careAnimals);
+			if (s.careGuests >= 0)
+				foreach (Pawn p in m.mapPawns.AllPawnsSpawned.ToList())
+					if (IsGuest(p))
+						ApplyCare(p, s.careGuests);
+		}
+	}
+
+	// 1.4.3: a guest – a humanlike staying with the colony (quest lodger, guest)
+	// who is neither ours nor a prisoner
+	private static bool IsGuest(Pawn p)
+	{
+		return p != null && p.RaceProps != null && p.RaceProps.Humanlike && p.Faction != Faction.OfPlayer
+		       && p.HostFaction == Faction.OfPlayer && !p.IsPrisoner && !p.IsSlave;
+	}
+
+	// 1.4.3: cap < 0 = this group is not managed. "No care" chosen by hand is kept.
+	private static void ApplyCare(Pawn p, int cap)
+	{
+		if (cap < 0 || p?.playerSettings == null || p.health?.hediffSet == null || p.Dead)
+			return;
+		try
+		{
+			MedicalCareCategory want = CareFor(p);
+			if ((int)want > cap)
+				want = (MedicalCareCategory)Mathf.Clamp(cap, 0, (int)MedicalCareCategory.Best);
+			if (p.playerSettings.medCare != want && p.playerSettings.medCare != MedicalCareCategory.NoCare)
+				p.playerSettings.medCare = want;
+		}
+		catch (Exception ex) { Log.WarningOnce("[Auto Pharmacy] medical care for " + p.LabelShort + ": " + ex.Message, 0x41506f); }
 	}
 
 	// 1.4.2: Biotech / Anomaly rot diseases, looked up by name so a missing DLC is no problem
@@ -1248,6 +1280,13 @@ public class AutoPharmacySettings : ModSettings
 	public bool moodEarly = true;
 	public bool doctorCarry = true;
 	public bool warnMissing = true;
+	// 1.4.3: highest medical care per group for the automatic care level
+	// (-1 = not managed; 0..4 = MedicalCareCategory). Defaults = the old behaviour.
+	public int careColonists = (int)MedicalCareCategory.Best;
+	public int careSlaves = (int)MedicalCareCategory.Best;
+	public int carePrisoners = -1;
+	public int careGuests = -1;
+	public int careAnimals = -1;
 	// 1.2.0: recommended settings switch (missing key = off, so old settings stay)
 	public bool recommended = true;
 	public HashSet<string> blocked = new HashSet<string>();
@@ -1271,6 +1310,11 @@ public class AutoPharmacySettings : ModSettings
 		Scribe_Values.Look(ref moodEarly, "moodEarly", true);
 		Scribe_Values.Look(ref doctorCarry, "doctorCarry", true);
 		Scribe_Values.Look(ref warnMissing, "warnMissing", true);
+		Scribe_Values.Look(ref careColonists, "careColonists", (int)MedicalCareCategory.Best);
+		Scribe_Values.Look(ref careSlaves, "careSlaves", (int)MedicalCareCategory.Best);
+		Scribe_Values.Look(ref carePrisoners, "carePrisoners", -1);
+		Scribe_Values.Look(ref careGuests, "careGuests", -1);
+		Scribe_Values.Look(ref careAnimals, "careAnimals", -1);
 		Scribe_Values.Look(ref recommended, "recommended", false);
 		Scribe_Collections.Look(ref blocked, "blocked", LookMode.Value);
 		if (blocked == null)
@@ -1284,7 +1328,7 @@ public class AutoPharmacyMod : Mod
 	private Vector2 scroll;
 	private static string search = "";
 	public static bool PharmacistActive => ModsConfig.IsActive("fluffy.pharmacist");
-	public const string Version = "1.4.2";
+	public const string Version = "1.4.3";
 	private static List<string> recBullets;
 
 	private static void Check(Listing_Standard l, string key, ref bool value, string field)
@@ -1308,6 +1352,23 @@ public class AutoPharmacyMod : Mod
 
 	public override string SettingsCategory() => "Auto Pharmacy";
 
+	// 1.4.3: "not managed" or the highest medical care level for one group
+	private static string CareLabel(int v) => v < 0 ? (string)"AP_CareOff".Translate() : ((MedicalCareCategory)Mathf.Clamp(v, 0, 4)).GetLabel().CapitalizeFirst();
+
+	private static void CareButton(Listing_Standard l, string key, Func<int> get, Action<int> set)
+	{
+		if (l.ButtonTextLabeled(key.Translate(), CareLabel(get())))
+		{
+			var menu = new List<FloatMenuOption> { new FloatMenuOption(CareLabel(-1), () => set(-1)) };
+			for (int i = (int)MedicalCareCategory.NoMeds; i <= (int)MedicalCareCategory.Best; i++)
+			{
+				int li = i;
+				menu.Add(new FloatMenuOption(CareLabel(li), () => set(li)));
+			}
+			Find.WindowStack.Add(new FloatMenu(menu));
+		}
+	}
+
 	public override void DoSettingsWindowContents(Rect r)
 	{
 		MUI.Version(r, "v" + Version + " · Bolek98");
@@ -1326,7 +1387,7 @@ public class AutoPharmacyMod : Mod
 		if (Settings.recommended)
 			y0 += MUI.LockNote(new Rect(r.x, y0, r.width, 0f)) + 4f;
 		var l = new Listing_Standard();
-		Rect top = new Rect(r.x, y0, r.width, 420f);
+		Rect top = new Rect(r.x, y0, r.width, Settings.autoCare && !PharmacistActive ? 490f : 420f);   // 1.4.3: care per group
 		MUI.BeginLock(Settings.recommended);
 		try
 		{
@@ -1366,6 +1427,17 @@ public class AutoPharmacyMod : Mod
 		GUI.color = Color.white;
 		Check(l, "AP_DoctorCarry", ref Settings.doctorCarry, "doctorCarry");
 		Check(l, "AP_WarnMissing", ref Settings.warnMissing, "warnMissing");
+		// 1.4.3: highest medicine per group for the automatic care level
+		if (Settings.autoCare && !PharmacistActive)
+		{
+			l.Gap(4f);
+			l.Label("AP_CareGroups".Translate(), -1f, "AP_CareGroups_Desc".Translate());
+			CareButton(l, "AP_CareColonists", () => Settings.careColonists, v => Settings.careColonists = v);
+			CareButton(l, "AP_CareSlaves", () => Settings.careSlaves, v => Settings.careSlaves = v);
+			CareButton(l, "AP_CarePrisoners", () => Settings.carePrisoners, v => Settings.carePrisoners = v);
+			CareButton(l, "AP_CareGuests", () => Settings.careGuests, v => Settings.careGuests = v);
+			CareButton(l, "AP_CareAnimals", () => Settings.careAnimals, v => Settings.careAnimals = v);
+		}
 		l.End();
 		}
 		finally

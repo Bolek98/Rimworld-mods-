@@ -181,4 +181,12 @@
   <CF2U_PUAHTip>L'intendant porte les objets au stockage dans les poches de Pick Up And Haul.</CF2U_PUAHTip>
   <CF_J_ReleaseSurplus>Relâcher le surplus</CF_J_ReleaseSurplus>
   <CF_J_ReleaseSurplusTip>Les animaux en surplus sont relâchés dans la nature au lieu d'être abattus (les espèces qui ne peuvent pas être relâchées sont toujours abattues). Les animaux des invités de quête ne comptent jamais dans les objectifs.</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>Foreuses profondes</CF_D_Drills>
+  <CF_D_Control>Commuter les foreuses profondes selon l'objectif ({0} ici)</CF_D_Control>
+  <CF_D_ControlTip>Les foreuses profondes sur cette ressource sont éteintes quand le stock atteint l'objectif et rallumées quand il passe en dessous. Seules les foreuses éteintes par l'intendant sont rallumées. Les types de foreuses choisis sur la page Énergie restent gérés par la gestion de l'énergie.</CF_D_ControlTip>
+  <CF_J_SparkWait>historique après 2 heures</CF_J_SparkWait>
+  <CF_J_SparkTip>Stock une fois par heure sur les {0} derniers jours : minimum {1}, maximum {2}, maintenant {3}. Ligne jaune : l'objectif.</CF_J_SparkTip>
+  <CF_X_Ingredients>Garder aussi assez d'ingrédients</CF_X_Ingredients>
+  <CF_X_IngredientsTip>Ajoute ou relève les objectifs des ingrédients de cette recette (minage, production ou bois) pour en avoir assez pour tout l'objectif. Les objectifs sont seulement relevés, jamais baissés. Seulement les ingrédients d'un type fixe (acier, composants …), pas « n'importe quelle viande » ou « n'importe quel tissu ».</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>Cette recette n'a aucun ingrédient d'un type fixe.</CF_X_IngredientsNone>
 </LanguageData>

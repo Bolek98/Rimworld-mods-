@@ -32,6 +32,10 @@ public class GenderSettings : ModSettings
 	// 1.1.0: Humanoid Alien Races – per-race chance of a man, by race defName.
 	// A race that is not in here keeps its own maleGenderProbability.
 	public Dictionary<string, float> raceMale = new Dictionary<string, float>();
+	// 1.3.4: body types and traits per race (see BodyTraits.cs); empty = nothing changes
+	public Dictionary<string, string> bodyBlocked = new Dictionary<string, string>();
+	public Dictionary<string, string> traitForced = new Dictionary<string, string>();
+	public Dictionary<string, string> traitBlocked = new Dictionary<string, string>();
 
 	public static readonly string[] ProfileFields = { "maleJoiners", "othersOn", "maleOthers" };
 
@@ -78,6 +82,15 @@ public class GenderSettings : ModSettings
 		Scribe_Collections.Look(ref raceMale, "raceMale", LookMode.Value, LookMode.Value);
 		if (raceMale == null)
 			raceMale = new Dictionary<string, float>();
+		Scribe_Collections.Look(ref bodyBlocked, "bodyBlocked", LookMode.Value, LookMode.Value);
+		Scribe_Collections.Look(ref traitForced, "traitForced", LookMode.Value, LookMode.Value);
+		Scribe_Collections.Look(ref traitBlocked, "traitBlocked", LookMode.Value, LookMode.Value);
+		if (bodyBlocked == null)
+			bodyBlocked = new Dictionary<string, string>();
+		if (traitForced == null)
+			traitForced = new Dictionary<string, string>();
+		if (traitBlocked == null)
+			traitBlocked = new Dictionary<string, string>();
 		if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
 			Preset(profile);
 	}
@@ -91,7 +104,7 @@ public class GenderSettings : ModSettings
 
 public class GenderBalanceMod : Mod
 {
-	public const string Version = "1.3.3";
+	public const string Version = "1.3.4";
 	public static GenderSettings Settings;
 	private Vector2 scroll;
 	private float viewHeight = 600f;
@@ -124,6 +137,8 @@ public class GenderBalanceMod : Mod
 			MethodInfo redress = AccessTools.Method(typeof(PawnGenerator), "IsValidCandidateToRedress");
 			if (redress != null)
 				harmony.Patch(redress, postfix: new HarmonyMethod(typeof(GenderPatch), nameof(GenderPatch.RedressPostfix)));
+			// 1.3.4: body types and traits per race
+			BodyTraits.Apply(harmony);
 			Log.Message("[Gender Balance] v" + Version + " loaded.");
 		}
 		catch (Exception ex)
@@ -207,6 +222,7 @@ public class GenderBalanceMod : Mod
 		l.Label("GB_Note".Translate());
 		GUI.color = Color.white;
 		DoRaceList(l);
+		BodyTraits.DoSection(l, s);
 		viewHeight = l.CurHeight + 20f;
 		l.End();
 		Widgets.EndScrollView();

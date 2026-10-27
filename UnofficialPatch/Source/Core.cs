@@ -42,7 +42,7 @@ namespace UnofficialPatch
         }
     }
 
-    public enum FixState { Active, OffByUser, GameChanged, Missing, Failed }
+    public enum FixState { Active, OffByUser, GameChanged, Missing, Failed, OtherMod }
 
     // One fix: the vanilla methods it relies on (with their fingerprints) and how it patches.
     public class Fix
@@ -52,6 +52,8 @@ namespace UnofficialPatch
         public string credit;         // who found it
         public (string type, string method, uint sig)[] needs;
         public Action<Harmony> apply;
+        // 0.1.2: Performance Fish patches the same game code – this fix steps aside when it is active
+        public bool pfConflict;
         public FixState state;
         public string detail;
         public static bool runtimeOn = true;
@@ -61,7 +63,7 @@ namespace UnofficialPatch
 
     public class UnofficialPatchMod : Mod
     {
-        public const string Version = "0.1.1";
+        public const string Version = "0.1.2";
         public const string TestedBuild = "1.7.4985";
         public static PatchSettings Settings;
         public static readonly List<Fix> Fixes = new List<Fix>();
@@ -96,6 +98,12 @@ namespace UnofficialPatch
             if (!Settings.IsOn(f.id))
             {
                 f.state = FixState.OffByUser;
+                return;
+            }
+            if (f.pfConflict && PerformanceFishActive)
+            {
+                f.state = FixState.OtherMod;
+                f.detail = "Performance Fish";
                 return;
             }
             foreach (var n in f.needs)
@@ -133,6 +141,33 @@ namespace UnofficialPatch
             }
         }
 
+        // 0.1.2: Performance Fish (packageId bs.performance; forks usually have "performancefish" in it)
+        private static bool? pfActive;
+        public static bool PerformanceFishActive
+        {
+            get
+            {
+                if (pfActive == null)
+                {
+                    pfActive = false;
+                    try
+                    {
+                        foreach (ModMetaData m in ModsConfig.ActiveModsInLoadOrder)
+                        {
+                            string id = (m?.PackageId ?? "").ToLowerInvariant();
+                            if (id.Contains("performancefish") || id == "bs.performance" || id.StartsWith("bs.performance_"))
+                            {
+                                pfActive = true;
+                                break;
+                            }
+                        }
+                    }
+                    catch { }
+                }
+                return pfActive.Value;
+            }
+        }
+
         // The switches: a fix patched at startup can be turned off at once (the patch then does
         // what vanilla does); turning one on that was off at startup needs a restart.
         public static void Refresh()
@@ -153,7 +188,7 @@ namespace UnofficialPatch
         {
             Fixes.Add(new Fix
             {
-                id = "wind", group = "perf", credit = "Dreadarm",
+                id = "wind", group = "perf", credit = "Dreadarm", pfConflict = true,
                 needs = new[] { ("Verse.WindManager", "WindManagerTick", 0x6D17431Eu) },
                 apply = Perf.PatchWind
             });
@@ -170,7 +205,7 @@ namespace UnofficialPatch
             });
             Fixes.Add(new Fix
             {
-                id = "gas", group = "perf", credit = "Dreadarm",
+                id = "gas", group = "perf", credit = "Dreadarm", pfConflict = true,
                 needs = new[]
                 {
                     ("Verse.GasGrid", "Tick", 0x405F8E43u),
@@ -187,7 +222,7 @@ namespace UnofficialPatch
             });
             Fixes.Add(new Fix
             {
-                id = "world", group = "perf", credit = "Dreadarm",
+                id = "world", group = "perf", credit = "Dreadarm", pfConflict = true,
                 needs = new[]
                 {
                     ("RimWorld.Planet.WorldObject", "DoTick", 0x9ECA8BBFu),
@@ -198,7 +233,7 @@ namespace UnofficialPatch
             });
             Fixes.Add(new Fix
             {
-                id = "health", group = "perf", credit = "Dreadarm",
+                id = "health", group = "perf", credit = "Dreadarm", pfConflict = true,
                 needs = new[] { ("Verse.Pawn_HealthTracker", "HealthTick", 0xAC8023FFu) },
                 apply = Perf.PatchHealth
             });
@@ -219,6 +254,14 @@ namespace UnofficialPatch
                 id = "wanderers", group = "bug", credit = "ifforgotmysocks",
                 needs = new[] { ("RimWorld.GameEnder", "CanSpawnNewWanderers", 0xA67A4DA9u) },
                 apply = Bugs.PatchWanderers
+            });
+            // 0.1.2: idea from Performance Fish (bradson), own implementation – checks def data
+            // once after loading instead of patching game code, so it needs no fingerprint
+            Fixes.Add(new Fix
+            {
+                id = "workers", group = "bug", credit = "bradson (Performance Fish)",
+                needs = new (string, string, uint)[0],
+                apply = Bugs.PatchMissingWorkers
             });
         }
 
@@ -278,6 +321,7 @@ namespace UnofficialPatch
                 case FixState.OffByUser: return "UP_State_Restart".Translate();
                 case FixState.GameChanged: return "UP_State_Changed".Translate(f.detail ?? "");
                 case FixState.Missing: return "UP_State_Missing".Translate(f.detail ?? "");
+                case FixState.OtherMod: return "UP_State_OtherMod".Translate(f.detail ?? "");
                 default: return "UP_State_Failed".Translate(f.detail ?? "");
             }
         }

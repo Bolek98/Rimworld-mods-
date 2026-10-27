@@ -181,4 +181,12 @@
   <CF2U_PUAHTip>The steward carries things to storage in Pick Up And Haul's pockets.</CF2U_PUAHTip>
   <CF_J_ReleaseSurplus>Release surplus</CF_J_ReleaseSurplus>
   <CF_J_ReleaseSurplusTip>Surplus animals are released to the wild instead of slaughtered (species that cannot be released are still slaughtered). Quest guest animals never count toward the targets.</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>Deep drills</CF_D_Drills>
+  <CF_D_Control>Switch deep drills by the target ({0} here)</CF_D_Control>
+  <CF_D_ControlTip>Deep drills on this resource are switched off when the stock reaches the target and on again when it drops below. Only drills the steward switched off are switched on again. Drill types chosen on the power page are left to power management.</CF_D_ControlTip>
+  <CF_J_SparkWait>history after 2 hours</CF_J_SparkWait>
+  <CF_J_SparkTip>Stock once an hour over the last {0} days: lowest {1}, highest {2}, now {3}. Yellow line: the target.</CF_J_SparkTip>
+  <CF_X_Ingredients>Also keep enough ingredients</CF_X_Ingredients>
+  <CF_X_IngredientsTip>Adds or raises the targets of this recipe's ingredients (mining, production or wood) so there is enough for the whole target. Targets are only raised, never lowered. Only ingredients of one fixed kind (steel, components …), not 'any meat' or 'any fabric'.</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>This recipe has no ingredient of one fixed kind.</CF_X_IngredientsNone>
 </LanguageData>

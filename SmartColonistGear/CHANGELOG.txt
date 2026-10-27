@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+2.16.0
+- Weapons per outfit: a new "Weapons per outfit" button in the Gear overview – for every outfit (apparel policy) tick which weapon kinds colonists wearing it may take by themselves (buttons "Only ranged" / "Only melee"). Everything is allowed by default; weapons you equip by hand are not affected.
+- Combat Extended: colonists only pick up ranged weapons whose ammo is on the map (in storage, lying around or in their pockets), and a gun with no ammo anywhere is swapped for one that has ammo (setting, on by default; shown only with Combat Extended).
+
 2.15.3
 - Only real weapons count as weapons: beer, food, medicine, wood and other resources or work items from mods (Expanded Woodworking, Brewing and similar) that have an attack are no longer picked, compared, locked or listed as sidearms – and taking such items into the inventory is never blocked by weapon locks (research, "only crafted").
 - Simple Sidearms: when a colonist gets a better main weapon and the old one goes into his pockets, the old one is put away if he now has too many – not the sidearm of the other kind he already carried.

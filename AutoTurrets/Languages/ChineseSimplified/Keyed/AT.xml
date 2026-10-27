@@ -42,4 +42,6 @@
   <AT_SmartShells_Desc>自动迫击炮不会浪费炮弹：EMP只打机械体和带护盾的敌人，燃烧弹不打机械体，灭火泡沫只打居住区内的火（绝不打敌人）。当大多数敌人是机械体时搬运工会送来EMP炮弹，否则送高爆弹——前提是迫击炮的过滤设置允许。</AT_SmartShells_Desc>
   <AT_NoHitBuildings>炮塔不击中我方建筑</AT_NoHitBuildings>
   <AT_NoHitBuildings_Desc>开启时，你的炮塔子弹会绕过你自己的建筑（墙、沙袋、门……），除非你瞄准它们，炮弹爆炸也不会损坏它们。敌方建筑照常被击中。关闭 = 与游戏相同。</AT_NoHitBuildings_Desc>
+  <AT_WallOutward>墙内炮塔只向外射击</AT_WallOutward>
+  <AT_WallOutward_Desc>墙内的炮塔只射击墙外侧（远离房间一侧）的目标。如果没有哪一侧明显在室外（两个房间之间的墙），则向所有方向射击。</AT_WallOutward_Desc>
 </LanguageData>

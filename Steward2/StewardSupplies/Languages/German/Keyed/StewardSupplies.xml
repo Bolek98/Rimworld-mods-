@@ -181,4 +181,12 @@
   <CF2U_PUAHTip>Der Verwalter trägt Dinge in den Taschen von Pick Up And Haul ins Lager.</CF2U_PUAHTip>
   <CF_J_ReleaseSurplus>Überschuss freilassen</CF_J_ReleaseSurplus>
   <CF_J_ReleaseSurplusTip>Überzählige Tiere werden in die Wildnis entlassen statt geschlachtet (Arten, die nicht freigelassen werden können, werden weiter geschlachtet). Tiere von Quest-Gästen zählen nie zu den Zielen.</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>Tiefenbohrer</CF_D_Drills>
+  <CF_D_Control>Tiefenbohrer nach dem Ziel schalten ({0} hier)</CF_D_Control>
+  <CF_D_ControlTip>Tiefenbohrer auf diesem Rohstoff werden ausgeschaltet, wenn der Bestand das Ziel erreicht, und wieder eingeschaltet, wenn er darunter fällt. Nur Bohrer, die der Verwalter ausgeschaltet hat, werden wieder eingeschaltet. Auf der Strom-Seite gewählte Bohrertypen bleiben der Stromverwaltung überlassen.</CF_D_ControlTip>
+  <CF_J_SparkWait>Verlauf nach 2 Stunden</CF_J_SparkWait>
+  <CF_J_SparkTip>Bestand einmal pro Stunde in den letzten {0} Tagen: niedrigster {1}, höchster {2}, jetzt {3}. Gelbe Linie: das Ziel.</CF_J_SparkTip>
+  <CF_X_Ingredients>Auch genug Zutaten vorhalten</CF_X_Ingredients>
+  <CF_X_IngredientsTip>Fügt Ziele für die Zutaten dieses Rezepts hinzu oder erhöht sie (Bergbau, Produktion oder Holz), damit genug für das ganze Ziel da ist. Ziele werden nur erhöht, nie gesenkt. Nur Zutaten einer festen Art (Stahl, Komponenten …), nicht 'beliebiges Fleisch' oder 'beliebiger Stoff'.</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>Dieses Rezept hat keine Zutat einer festen Art.</CF_X_IngredientsNone>
 </LanguageData>

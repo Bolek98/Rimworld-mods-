@@ -126,6 +126,7 @@ namespace HaulSmarter
             HSSettings s = HSMod.S;
             if (t == null || s == null || !t.Spawned) return 0f;
             int p = 0;
+            if (Urgent.Is(t)) return 4f;            // 3.5.0: marked "haul urgently" by the player
             if (Cleanup.Marked(t)) return 3f;       // 3.1: after a battle – before everything else
             if (Bought.Urgent(t)) return 3f;        // 3.3: bought things the traders did not carry away
             if (s.prioPerish > p && Perishable(t)) p = s.prioPerish;
@@ -437,6 +438,7 @@ namespace HaulSmarter
                 Log.Warning("[Haul Master] load slowdown not available: " + e.Message);
             }
             Overview.SetButton();
+            Urgent.AddDesignator();     // 3.5.0
         }
     }
 
@@ -535,6 +537,8 @@ namespace HaulSmarter
                 UnloadSoon(map);
             if (now % 250 == 121)
                 Cleanup.Watch(map);
+            if (now % 250 == 199)
+                Urgent.Tidy(map);       // 3.5.0
         }
 
         // 3.0.1: food, medicine or things carried for over an hour go to storage after the current job

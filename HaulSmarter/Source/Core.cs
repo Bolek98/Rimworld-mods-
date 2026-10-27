@@ -148,7 +148,7 @@ namespace HaulSmarter
 
     public sealed class HSMod : Mod
     {
-        public const string Version = "3.4.1";
+        public const string Version = "3.5.0";
         public static HSSettings S;
         private Vector2 scroll;
         private float height = 900f;

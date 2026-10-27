@@ -3,7 +3,7 @@
   <name>Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update</name>
   <author>Bolek98</author>
   <packageId>bolek98.unofficialpatch</packageId>
-  <modVersion>0.1.1</modVersion>
+  <modVersion>0.1.2</modVersion>
   <supportedVersions>
     <li>1.7</li>
   </supportedVersions>
@@ -35,13 +35,14 @@ Fixes for problems of the vanilla game in the RimWorld 1.7 (Waylith) beta – un
 [list]
 [*][b]Form caravan window[/b] no longer breaks with vehicles or other modded pawns.
 [*][b]"Create new wanderers"[/b] is offered again when the last colonist lies in an ancient cryptosleep casket.
+[*][b]Mod incidents and work without a class[/b] no longer spam errors – named in the log with their mod and switched off.
 [/list]
 
 [h2]Safe by design[/h2]
 [list]
 [*]Every fix gives exactly the same result as the game – it only skips work whose result was thrown away.
 [*]Every fix knows the exact game code it was written for. When an update changes that code (most likely Ludeon fixed it), the fix pauses itself and the settings tell you so.
-[*]Every fix has its own switch. Steps aside when another mod changes the same code.
+[*]Every fix has its own switch. Steps aside when another mod changes the same code (also when Performance Fish is active).
 [*]Safe to add to or remove from a running save. RimWorld 1.7 only.
 [/list]
 
@@ -73,13 +74,14 @@ Opravy čisté hry v betě RimWorld 1.7 (Waylith) – dokud je Ludeon neopraví 
 [list]
 [*][b]Okno sestavení karavany[/b] se už nerozbije s vozidly ani jinými pěšáky z modů.
 [*][b]„Vytvořit nové poutníky“[/b] se znovu nabídne, když poslední kolonista leží ve starověké kryospánkové kapsli.
+[*][b]Události a práce z modů bez třídy[/b] už nezaplaví log chybami – vypíšou se i s modem a vypnou se.
 [/list]
 
 [h2]Bezpečné[/h2]
 [list]
 [*]Každá oprava dává přesně stejný výsledek jako hra – jen vynechá práci, jejíž výsledek se zahazoval.
 [*]Každá oprava zná přesný kód hry, pro který byla napsaná. Když ho aktualizace změní (nejspíš to opravil Ludeon), oprava se sama pozastaví a nastavení to ukáže.
-[*]Každá oprava má vlastní přepínač. Ustoupí, když stejný kód mění jiný mod.
+[*]Každá oprava má vlastní přepínač. Ustoupí, když stejný kód mění jiný mod (i když je zapnutý Performance Fish).
 [*]Lze přidat i odebrat v rozehrané hře. Jen RimWorld 1.7.
 [/list]
 

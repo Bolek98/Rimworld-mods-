@@ -3,7 +3,7 @@
   <name>Auto Pharmacy – Doctors Give the Right Drug</name>
   <author>Bolek98</author>
   <packageId>misak.autopharmacy</packageId>
-  <modVersion>1.4.2</modVersion>
+  <modVersion>1.4.3</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -30,6 +30,7 @@
 - Never twice: a drug whose effect is still running is not given again; overdose risk, teetotalers and your blocked drugs are respected.
 - Also injectors, serums and kits used on a pawn (healer serum and the like only when life is in danger).
 - Medical care level for tending (bandages, herbal, industrial, glitterworld) set by how serious it is – unless Pharmacist is installed, which does that.
+- Highest medicine per group (1.4.3): colonists, slaves, prisoners, guests and animals each with their own limit, or not managed at all.
 - The settings list every drug and what it does; untick any you do not want used.
 - Combat drugs: a drafted fighter with enemies close takes one combat drug (Go-juice, Wake-up …) – never with a chance of addiction, once per fight, can be switched off per colonist.
 - Regular use (1.3.0): prevention drugs (penoxycyline and the like) for everyone a little before the last dose runs out; a family plan button per adult colonist – no children (contraception given regularly) or children wanted (fertility drug) – whenever a mod adds such drugs.

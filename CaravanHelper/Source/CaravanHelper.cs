@@ -31,6 +31,9 @@ public sealed class CHSettings : ModSettings
 	public bool addictDrugs = true;
 	public bool showBlockers = true;
 	public bool leavePastSleeping = true;
+	// 1.0.3: map exit side when forming, sharing inventory on arrival
+	public bool chooseExit = true;
+	public bool shareOnArrival = true;
 
 	public override void ExposeData()
 	{
@@ -43,6 +46,8 @@ public sealed class CHSettings : ModSettings
 		Scribe_Values.Look(ref addictDrugs, "addictDrugs", true);
 		Scribe_Values.Look(ref showBlockers, "showBlockers", true);
 		Scribe_Values.Look(ref leavePastSleeping, "leavePastSleeping", true);
+		Scribe_Values.Look(ref chooseExit, "chooseExit", true);
+		Scribe_Values.Look(ref shareOnArrival, "shareOnArrival", true);
 	}
 }
 
@@ -77,6 +82,11 @@ public sealed class CaravanHelperMod : Mod
 		l.Label("CH_SecLeave".Translate());
 		l.CheckboxLabeled("CH_Blockers".Translate(), ref S.showBlockers, "CH_BlockersTip".Translate());
 		l.CheckboxLabeled("CH_LeaveSleeping".Translate(), ref S.leavePastSleeping, "CH_LeaveSleepingTip".Translate());
+		// 1.0.3
+		l.GapLine();
+		l.Label("CH_SecTravel".Translate());
+		l.CheckboxLabeled("CH_ChooseExit".Translate(), ref S.chooseExit, "CH_ChooseExitTip".Translate());
+		l.CheckboxLabeled("CH_Share".Translate(), ref S.shareOnArrival, "CH_ShareTip".Translate());
 		l.End();
 	}
 

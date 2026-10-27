@@ -24,4 +24,17 @@
   <CH_StateActive>active</CH_StateActive>
   <CH_StateHidden>under fog</CH_StateHidden>
   <CH_StateSleeping>asleep / still</CH_StateSleeping>
+  <CH_SecTravel>Travelling</CH_SecTravel>
+  <CH_ChooseExit>Choose the map exit side when forming a caravan</CH_ChooseExit>
+  <CH_ChooseExitTip>Adds an 'Exit' button to the form caravan window: the caravan leaves the map through the chosen edge (the reachable cell nearest to your pawns). Automatic keeps the game's choice. The route on the world map is chosen as usual.</CH_ChooseExitTip>
+  <CH_Share>Share inventory on arrival</CH_Share>
+  <CH_ShareTip>When a caravan enters a map, items are moved between its members so every colonist carries what his drug policy ('take to inventory') and his inventory stock (medicine …) ask for – taken from pack animals and from those who have more than they need.</CH_ShareTip>
+  <CH_Exit>Exit: {0}</CH_Exit>
+  <CH_ExitTip>Which map edge the caravan walks out through. Automatic = the game's choice. The route on the world map does not change.</CH_ExitTip>
+  <CH_ExitAuto>automatic</CH_ExitAuto>
+  <CH_ExitNorth>north</CH_ExitNorth>
+  <CH_ExitEast>east</CH_ExitEast>
+  <CH_ExitSouth>south</CH_ExitSouth>
+  <CH_ExitWest>west</CH_ExitWest>
+  <CH_ExitNone>No reachable exit on the {0} edge – the caravan uses the game's exit instead.</CH_ExitNone>
 </LanguageData>

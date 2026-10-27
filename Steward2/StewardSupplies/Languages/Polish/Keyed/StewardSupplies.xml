@@ -181,4 +181,12 @@
   <CF2U_PUAHTip>Zarządca zanosi rzeczy do magazynu w kieszeniach Pick Up And Haul.</CF2U_PUAHTip>
   <CF_J_ReleaseSurplus>Wypuść nadwyżkę</CF_J_ReleaseSurplus>
   <CF_J_ReleaseSurplusTip>Nadmiarowe zwierzęta są wypuszczane na wolność zamiast zabijane (gatunki, których nie można wypuścić, są nadal zabijane). Zwierzęta gości z zadań nigdy nie liczą się do celów.</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>Wiertła głębinowe</CF_D_Drills>
+  <CF_D_Control>Przełączaj wiertła głębinowe według celu ({0} tutaj)</CF_D_Control>
+  <CF_D_ControlTip>Wiertła głębinowe na tym surowcu są wyłączane, gdy zapas osiągnie cel, i włączane ponownie, gdy spadnie poniżej. Ponownie włączane są tylko wiertła wyłączone przez zarządcę. Typy wierteł wybrane na stronie zasilania zostają przy zarządzaniu zasilaniem.</CF_D_ControlTip>
+  <CF_J_SparkWait>historia po 2 godzinach</CF_J_SparkWait>
+  <CF_J_SparkTip>Zapas raz na godzinę z ostatnich {0} dni: najmniej {1}, najwięcej {2}, teraz {3}. Żółta linia: cel.</CF_J_SparkTip>
+  <CF_X_Ingredients>Pilnuj też składników</CF_X_Ingredients>
+  <CF_X_IngredientsTip>Dodaje lub podnosi cele składników tego przepisu (wydobycie, produkcja lub drewno), aby starczyło na cały cel. Cele są tylko podnoszone, nigdy obniżane. Tylko składniki jednego stałego rodzaju (stal, komponenty …), nie 'dowolne mięso' ani 'dowolna tkanina'.</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>Ten przepis nie ma składnika jednego stałego rodzaju.</CF_X_IngredientsNone>
 </LanguageData>

@@ -181,4 +181,12 @@
   <CF2U_PUAHTip>El administrador lleva las cosas al almacén en los bolsillos de Pick Up And Haul.</CF2U_PUAHTip>
   <CF_J_ReleaseSurplus>Liberar el excedente</CF_J_ReleaseSurplus>
   <CF_J_ReleaseSurplusTip>Los animales sobrantes se liberan en la naturaleza en lugar de sacrificarse (las especies que no se pueden liberar se siguen sacrificando). Los animales de invitados de misiones nunca cuentan para los objetivos.</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>Perforadoras profundas</CF_D_Drills>
+  <CF_D_Control>Encender perforadoras profundas según el objetivo ({0} aquí)</CF_D_Control>
+  <CF_D_ControlTip>Las perforadoras profundas sobre este recurso se apagan cuando las existencias llegan al objetivo y se encienden de nuevo cuando bajan. Solo se encienden de nuevo las que apagó el administrador. Los tipos de perforadora elegidos en la página de energía quedan para la gestión de energía.</CF_D_ControlTip>
+  <CF_J_SparkWait>historial tras 2 horas</CF_J_SparkWait>
+  <CF_J_SparkTip>Existencias una vez por hora en los últimos {0} días: mínimo {1}, máximo {2}, ahora {3}. Línea amarilla: el objetivo.</CF_J_SparkTip>
+  <CF_X_Ingredients>Mantener también suficientes ingredientes</CF_X_Ingredients>
+  <CF_X_IngredientsTip>Añade o sube los objetivos de los ingredientes de esta receta (minería, producción o madera) para que haya suficiente para todo el objetivo. Los objetivos solo se suben, nunca se bajan. Solo ingredientes de un tipo fijo (acero, componentes …), no 'cualquier carne' ni 'cualquier tela'.</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>Esta receta no tiene ningún ingrediente de un tipo fijo.</CF_X_IngredientsNone>
 </LanguageData>

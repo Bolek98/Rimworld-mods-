@@ -25,6 +25,7 @@ namespace AutoTurrets
 		public Dictionary<string, bool> wallPick = new Dictionary<string, bool>();   // only choices that differ from the recommendation
 		public bool smartShells = true;      // 1.3.1: auto mortars pick targets that suit the loaded shell, haulers pick shells that suit the enemy
 		public bool noHitBuildings = false;  // 1.3.1: true = your turrets' bullets and shell blasts spare your own buildings
+		public bool wallTurretsOutward = true; // 1.4.0: turrets in walls only shoot at targets on the outer side of the wall
 
 		public override void ExposeData()
 		{
@@ -41,6 +42,7 @@ namespace AutoTurrets
 			Scribe_Values.Look(ref wallTurrets, "wallTurrets", false);
 			Scribe_Values.Look(ref smartShells, "smartShells", true);
 			Scribe_Values.Look(ref noHitBuildings, "noHitBuildings", false);
+			Scribe_Values.Look(ref wallTurretsOutward, "wallTurretsOutward", true);
 			Scribe_Collections.Look(ref wallPick, "wallPick", LookMode.Value, LookMode.Value);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit && wallPick == null)
 				wallPick = new Dictionary<string, bool>();

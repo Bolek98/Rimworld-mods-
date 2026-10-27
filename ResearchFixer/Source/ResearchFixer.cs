@@ -36,7 +36,7 @@ namespace ResearchFixer
 
     public class RFMod : Mod
     {
-        public const string Version = "0.3.3";
+        public const string Version = "0.3.4";
         public static RFSettings Settings;
         public static RFMod Instance;
 
@@ -132,6 +132,22 @@ namespace ResearchFixer
         public static int AppliedCount;
         public static ResearchTabDef Tab;
 
+        // 0.3.4: World Tech Level (m00nl1ght.WorldTechLevel) caps the world's tech level and can move
+        // things to another era with its own config. Adding a higher-era vanilla research to such a
+        // thing ("misplaced" fix) could lock it behind research WTL hides – so that fix is skipped.
+        // New research projects keep their era (techLevel), WTL re-reads the research list on its
+        // own when it changes and hides projects above the world's level together with their things.
+        public static bool WorldTechLevelActive
+        {
+            get
+            {
+                try { return ModsConfig.IsActive("m00nl1ght.WorldTechLevel") || ModsConfig.IsActive("m00nl1ght.WorldTechLevel_steam"); }
+                catch { return false; }
+            }
+        }
+
+        public static bool FixMisplacedNow => RFMod.Settings != null && RFMod.Settings.fixMisplaced && !WorldTechLevelActive;
+
         private static readonly AccessTools.FieldRef<ResearchProjectDef, float> fx = AccessTools.FieldRefAccess<ResearchProjectDef, float>("x");
         private static readonly AccessTools.FieldRef<ResearchProjectDef, float> fy = AccessTools.FieldRefAccess<ResearchProjectDef, float>("y");
 
@@ -145,6 +161,8 @@ namespace ResearchFixer
                 AppliedThisRun = false;
                 Analyze();
                 Log.Message("[Research Fixer] v" + RFMod.Version + ": " + Groups.Sum(g => g.things.Count) + " things without research in " + Groups.Count + " groups, " + Wrong.Count + " misplaced.");
+                if (WorldTechLevelActive)
+                    Log.Message("[Research Fixer] World Tech Level is active – fixing misplaced research is skipped (it could lock things behind research World Tech Level hides). New research projects keep their era, World Tech Level hides those above the world's tech level.");
                 if (RFMod.Settings != null && RFMod.Settings.applied)
                     Apply(RFMod.Settings.excluded);
             }
@@ -381,7 +399,7 @@ namespace ResearchFixer
                 foreach (ThingDef t in g.things) Require(t, g.cat, p, allowed);
                 row++;
             }
-            if (RFMod.Settings.fixMisplaced)
+            if (FixMisplacedNow)
                 foreach (Misplaced m in Wrong)
                 {
                     if (skip.Contains(m.key)) continue;
@@ -510,7 +528,7 @@ namespace ResearchFixer
         }
 
         private int Selected => Fixer.Groups.Where(g => !skip.Contains(g.key)).Sum(g => g.things.Count)
-            + (RFMod.Settings.fixMisplaced ? Fixer.Wrong.Count(w => !skip.Contains(w.key)) : 0);
+            + (Fixer.FixMisplacedNow ? Fixer.Wrong.Count(w => !skip.Contains(w.key)) : 0);
 
         private static void Label(Rect r, string text, Color c, GameFont font = GameFont.Small, TextAnchor anchor = TextAnchor.MiddleLeft, bool wrap = true)
         {
@@ -627,7 +645,7 @@ namespace ResearchFixer
                     Card(new Rect(0f, y, cardW, h), title, text, g.key, Err, "RF_Include".Translate());
                     y += h + 8f;
                 }
-            y = Header(y, cardW, 1, "RF_GrpWrong".Translate(Fixer.Wrong.Count), RFMod.Settings.fixMisplaced ? "RF_GrpWrongHint".Translate() : "RF_GrpWrongOff".Translate(), MUI.Warn, Fixer.Wrong.Count);
+            y = Header(y, cardW, 1, "RF_GrpWrong".Translate(Fixer.Wrong.Count), Fixer.FixMisplacedNow ? "RF_GrpWrongHint".Translate() : (Fixer.WorldTechLevelActive ? "RF_GrpWrongWtl".Translate() : "RF_GrpWrongOff".Translate()), MUI.Warn, Fixer.Wrong.Count);
             if (!collapsed[1])
                 foreach (Misplaced m in Fixer.Wrong)
                 {

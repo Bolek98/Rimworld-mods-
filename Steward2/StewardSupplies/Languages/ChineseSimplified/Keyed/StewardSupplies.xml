@@ -181,4 +181,12 @@
   <CF2U_PUAHTip>管家用 Pick Up And Haul 的口袋把物品送往储存区。</CF2U_PUAHTip>
   <CF_J_ReleaseSurplus>放生多余的</CF_J_ReleaseSurplus>
   <CF_J_ReleaseSurplusTip>多余的动物会被放归野外而不是屠宰（无法放生的物种仍会被屠宰）。任务访客的动物永远不计入目标。</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>深层钻机</CF_D_Drills>
+  <CF_D_Control>按目标开关深层钻机（此处 {0} 台）</CF_D_Control>
+  <CF_D_ControlTip>库存达到目标时关闭开采此资源的深层钻机，低于目标时重新开启。只会重新开启由管家关闭的钻机。在电力页面中选择的钻机类型交由电力管理。</CF_D_ControlTip>
+  <CF_J_SparkWait>2 小时后显示历史</CF_J_SparkWait>
+  <CF_J_SparkTip>最近 {0} 天每小时的库存：最低 {1}，最高 {2}，当前 {3}。黄线：目标。</CF_J_SparkTip>
+  <CF_X_Ingredients>同时保持足够的原料</CF_X_Ingredients>
+  <CF_X_IngredientsTip>添加或提高此配方原料的目标（采矿、生产或木材），使其足够完成整个目标。目标只会提高，不会降低。仅限固定种类的原料（钢铁、零部件……），不包括“任意肉类”或“任意布料”。</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>此配方没有固定种类的原料。</CF_X_IngredientsNone>
 </LanguageData>

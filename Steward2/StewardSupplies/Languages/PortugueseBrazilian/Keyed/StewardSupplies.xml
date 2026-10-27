@@ -181,4 +181,12 @@
   <CF2U_PUAHTip>O administrador leva as coisas para o estoque nos bolsos do Pick Up And Haul.</CF2U_PUAHTip>
   <CF_J_ReleaseSurplus>Soltar o excedente</CF_J_ReleaseSurplus>
   <CF_J_ReleaseSurplusTip>Animais excedentes são soltos na natureza em vez de abatidos (espécies que não podem ser soltas continuam sendo abatidas). Animais de hóspedes de missões nunca contam para as metas.</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>Perfuratrizes profundas</CF_D_Drills>
+  <CF_D_Control>Ligar perfuratrizes profundas conforme a meta ({0} aqui)</CF_D_Control>
+  <CF_D_ControlTip>As perfuratrizes profundas neste recurso são desligadas quando o estoque atinge a meta e religadas quando ele cai abaixo. Só são religadas as que o administrador desligou. Tipos de perfuratriz escolhidos na página de energia ficam com o gerenciamento de energia.</CF_D_ControlTip>
+  <CF_J_SparkWait>histórico após 2 horas</CF_J_SparkWait>
+  <CF_J_SparkTip>Estoque uma vez por hora nos últimos {0} dias: mínimo {1}, máximo {2}, agora {3}. Linha amarela: a meta.</CF_J_SparkTip>
+  <CF_X_Ingredients>Manter também ingredientes suficientes</CF_X_Ingredients>
+  <CF_X_IngredientsTip>Adiciona ou aumenta as metas dos ingredientes desta receita (mineração, produção ou madeira) para que haja o suficiente para toda a meta. As metas só sobem, nunca descem. Apenas ingredientes de um tipo fixo (aço, componentes …), não 'qualquer carne' ou 'qualquer tecido'.</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>Esta receita não tem ingrediente de um tipo fixo.</CF_X_IngredientsNone>
 </LanguageData>

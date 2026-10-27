@@ -181,4 +181,12 @@
   <CF2U_PUAHTip>Steward nosí věci do skladu přes kapsy z Pick Up And Haul.</CF2U_PUAHTip>
   <CF_J_ReleaseSurplus>Přebytek vypustit</CF_J_ReleaseSurplus>
   <CF_J_ReleaseSurplusTip>Přebytečná zvířata se vypustí do divočiny místo porážky (druhy, které vypustit nejde, se dál porážejí). Zvířata hostů z úkolů se do cílů nikdy nepočítají.</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>Hlubinné vrty</CF_D_Drills>
+  <CF_D_Control>Zapínat hlubinné vrty podle cíle (tady {0})</CF_D_Control>
+  <CF_D_ControlTip>Hlubinné vrty na této surovině se vypnou, když zásoba dosáhne cíle, a znovu zapnou, když klesne pod něj. Znovu se zapnou jen vrty, které vypnul správce. Typy vrtů vybrané na stránce Elektřina nechá na řízení elektřiny.</CF_D_ControlTip>
+  <CF_J_SparkWait>historie za 2 hodiny</CF_J_SparkWait>
+  <CF_J_SparkTip>Zásoba jednou za hodinu za posledních {0} dní: nejméně {1}, nejvíc {2}, teď {3}. Žlutá čára: cíl.</CF_J_SparkTip>
+  <CF_X_Ingredients>Hlídat i suroviny</CF_X_Ingredients>
+  <CF_X_IngredientsTip>Přidá nebo zvýší cíle surovin tohoto receptu (těžba, výroba nebo dřevo), aby jich bylo dost na celý cíl. Cíle se jen zvyšují, nikdy nesnižují. Jen suroviny jednoho pevného druhu (ocel, součástky …), ne „jakékoli maso“ nebo „jakákoli látka“.</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>Tento recept nemá žádnou surovinu jednoho pevného druhu.</CF_X_IngredientsNone>
 </LanguageData>

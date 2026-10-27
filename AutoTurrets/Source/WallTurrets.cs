@@ -282,6 +282,11 @@ namespace AutoTurrets
             Widgets.CheckboxLabeled(new Rect(r.x, y, Mathf.Min(420f, r.width), 26f), "AT_WallEnable".Translate(), ref s.wallTurrets);
             y += 32f;
             if (!s.wallTurrets) return;
+            // 1.4.0: firing arc
+            Rect ow = new Rect(r.x, y, Mathf.Min(420f, r.width), 26f);
+            Widgets.CheckboxLabeled(ow, "AT_WallOutward".Translate(), ref s.wallTurretsOutward);
+            TooltipHandler.TipRegion(ow, "AT_WallOutward_Desc".Translate());
+            y += 30f;
 
             List<ThingDef> all = Candidates;
             if (all.Count == 0)

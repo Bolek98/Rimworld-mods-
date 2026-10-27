@@ -181,4 +181,12 @@
   <CF2U_PUAHTip>管理人は Pick Up And Haul のポケットで物を備蓄区域へ運びます。</CF2U_PUAHTip>
   <CF_J_ReleaseSurplus>余剰は野生に放す</CF_J_ReleaseSurplus>
   <CF_J_ReleaseSurplusTip>余剰の動物は屠殺せず野生に放します（放せない種は引き続き屠殺されます）。クエストの客の動物は目標数に含まれません。</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>深層ドリル</CF_D_Drills>
+  <CF_D_Control>目標に応じて深層ドリルを切り替える（ここに {0} 台）</CF_D_Control>
+  <CF_D_ControlTip>在庫が目標に達するとこの資源の深層ドリルを停止し、下回ると再び稼働させます。再稼働するのは管理人が停止したドリルだけです。電力ページで選んだドリルの種類は電力管理に任せます。</CF_D_ControlTip>
+  <CF_J_SparkWait>2時間後に履歴を表示</CF_J_SparkWait>
+  <CF_J_SparkTip>直近 {0} 日間の1時間ごとの在庫：最小 {1}、最大 {2}、現在 {3}。黄色の線：目標。</CF_J_SparkTip>
+  <CF_X_Ingredients>材料も十分に確保する</CF_X_Ingredients>
+  <CF_X_IngredientsTip>このレシピの材料の目標（採掘、生産、木材）を追加または引き上げ、目標全体に足りるようにします。目標は引き上げるだけで、下げることはありません。種類が固定された材料（鋼鉄、部品など）のみで、「任意の肉」や「任意の布」は対象外です。</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>このレシピには種類が固定された材料がありません。</CF_X_IngredientsNone>
 </LanguageData>

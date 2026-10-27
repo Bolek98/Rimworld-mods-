@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+1.4.0
+- Turrets in walls shoot only outward (setting, on by default): a wall turret only fires at targets on the outer side of its wall – the side that is outdoors while the other side is a room. A turret in a wall between two rooms (or where no side is clearly outside) still shoots in every direction. Turrets on the floor are not affected.
+
 1.3.1
 - Smart shell choice (settings, on by default): an automatic mortar doesn't waste shells – EMP only at mechanoids and shielded enemies, incendiary not at mechanoids, firefoam never at enemies but at fires in the home area. Haulers bring EMP shells when most enemies are mechanoids, otherwise high-explosive ones (if the mortar's filter allows them).
 - New option "Turrets don't hit our buildings" (off by default): bullets from your turrets fly past your own walls, sandbags and other buildings unless you aim at them, and their shell blasts don't damage them. Enemy buildings are hit as usual.

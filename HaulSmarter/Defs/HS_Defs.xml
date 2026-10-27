@@ -25,6 +25,23 @@
     <casualInterruptible>true</casualInterruptible>
   </JobDef>
 
+  <!-- 3.5.0: "Haul urgently" order (the designator is added to the Orders tab from code) -->
+  <DesignationDef>
+    <defName>HaulSmarterUrgent</defName>
+    <texturePath>UI/Designators/Haul</texturePath>
+    <targetType>Thing</targetType>
+  </DesignationDef>
+  <WorkGiverDef>
+    <defName>HaulSmarterHaulUrgent</defName>
+    <label>haul things marked urgent</label>
+    <giverClass>HaulSmarter.WorkGiver_HaulUrgent</giverClass>
+    <workType>Hauling</workType>
+    <priorityInType>190</priorityInType>
+    <verb>haul</verb>
+    <gerund>hauling</gerund>
+    <requiredCapacities><li>Manipulation</li></requiredCapacities>
+  </WorkGiverDef>
+
   <WorkGiverDef>
     <defName>HaulSmarterMergeStacks</defName>
     <label>join half stacks in storage</label>

@@ -22,6 +22,9 @@
   <UP_caravan_Desc>Picking medicine for a pawn without player settings (vehicles and other modded pawns) threw an error every frame and broke the Form caravan window. Such pawns now just get no medicine.</UP_caravan_Desc>
   <UP_wanderers>"Create new wanderers" with a colonist in an ancient casket</UP_wanderers>
   <UP_wanderers_Desc>When the last colonist lay in an ancient cryptosleep casket, the game declared game over but never offered new wanderers. A colonist in a casket that is not yours no longer blocks the offer.</UP_wanderers_Desc>
+  <UP_workers>Mod incidents and work without a class: no error spam</UP_workers>
+  <UP_workers_Desc>An incident or a work type from a mod whose class is missing (forgotten or failed to load) threw an unhelpful error every time the storyteller or a pawn tried it. Checked once after loading: such entries are named in the log with their mod and switched off (the incident never fires, pawns skip the work).</UP_workers_Desc>
+  <UP_State_OtherMod>Paused: {0} already changes this code</UP_State_OtherMod>
   <UP_State_Active>Active</UP_State_Active>
   <UP_State_OffUser>Off</UP_State_OffUser>
   <UP_State_Restart>Turns on after a restart</UP_State_Restart>

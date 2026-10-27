@@ -3,7 +3,7 @@
   <name>Research Fixer – Tech Progression</name>
   <author>Bolek98</author>
   <packageId>misak.researchfixer</packageId>
-  <modVersion>0.3.3</modVersion>
+  <modVersion>0.3.4</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -40,5 +40,6 @@ YOU DECIDE
 
 WORKS WITH
 - World at Your Level and Smart Colonist Gear follow research – fixed items are locked correctly for raiders and colonists too.
+- World Tech Level: new research keeps its era so it is hidden above your world's tech level; the misplaced-research fix is skipped while it is active.
 - Vanilla content and DLCs are never touched.</description>
 </ModMetaData>
