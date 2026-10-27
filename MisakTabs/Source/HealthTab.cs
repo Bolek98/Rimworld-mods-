@@ -303,20 +303,47 @@ namespace MisakTabs
         {
             Rect fig = new Rect(r.x + (r.width - 200f) / 2f, r.y + 6f, 200f, 280f);
             Look.Box(fig, Look.Card, Look.Line);
-            try
+            // 0.3.0: the colonist's own silhouette coloured by health (any race), or the plain portrait
+            Rect box = new Rect(0f, 0f, 1f, 1f);
+            bool sil = false;
+            if (silhouette)
             {
-                RenderTexture tex = PortraitsCache.Get(pawn, new Vector2(fig.width, fig.height), Rot4.South, default(Vector3), 1f);
-                GUI.DrawTexture(fig, tex);
+                try
+                {
+                    var health = Silhouette.RegionHealth(pawn, RegionOf);
+                    Texture2D st = Silhouette.Get(pawn, new Vector2(fig.width, fig.height), health, out box);
+                    if (st != null) { GUI.DrawTexture(fig, st); sil = true; }
+                }
+                catch (Exception e)
+                {
+                    silhouette = false;
+                    Log.Warning("[Mišák Tabs] silhouette: " + e.Message);
+                }
             }
-            catch
+            if (!sil)
             {
-                try { Widgets.ThingIcon(fig.ContractedBy(20f), pawn); } catch { }
+                try
+                {
+                    RenderTexture tex = PortraitsCache.Get(pawn, new Vector2(fig.width, fig.height), Rot4.South, default(Vector3), 1f);
+                    GUI.DrawTexture(fig, tex);
+                }
+                catch
+                {
+                    try { Widgets.ThingIcon(fig.ContractedBy(20f), pawn); } catch { }
+                }
             }
+            Rect vb = new Rect(fig.xMax - 26f, fig.y + 4f, 22f, 22f);
+            if (Widgets.ButtonInvisible(vb)) { silhouette = !silhouette; SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(); }
+            Widgets.DrawBoxSolid(vb, Mouse.IsOver(vb) ? Look.Card2 : new Color(0f, 0f, 0f, 0.35f));
+            Look.Text(vb, silhouette ? "◐" : "◑", Muted, GameFont.Small, TextAnchor.MiddleCenter);
+            TooltipHandler.TipRegion(vb, silhouette ? "MT_H_ToPortrait".Translate() : "MT_H_ToSilhouette".Translate());
 
             var marks = Marks(pawn);
             foreach (Mark m in marks)
             {
-                Vector2 p = new Vector2(fig.x + m.pos.x * fig.width, fig.y + m.pos.y * fig.height);
+                Vector2 mp = sil ? Silhouette.MapSpot(m.pos) : m.pos;
+                if (sil) mp = new Vector2(box.x + mp.x * box.width, box.y + mp.y * box.height);
+                Vector2 p = new Vector2(fig.x + mp.x * fig.width, fig.y + mp.y * fig.height);
                 float s = m.bleeding ? 12f + Mathf.PingPong(Time.realtimeSinceStartup * 8f, 4f) : 12f;
                 Rect mr = new Rect(p.x - s / 2f, p.y - s / 2f, s, s);
                 bool sel = region == m.key;
@@ -354,6 +381,28 @@ namespace MisakTabs
                 if (Look.Button(new Rect(r.x + 20f, r.yMax - 30f, r.width - 40f, 26f), "MT_H_ShowAllParts".Translate()))
                     region = null;
             }
+        }
+
+        public static bool silhouette = true;
+        private static readonly HashSet<string> ArmParts = new HashSet<string> { "Shoulder", "Clavicle", "Arm", "Humerus", "Radius", "Hand", "Finger" };
+        private static readonly HashSet<string> LegParts = new HashSet<string> { "Leg", "Femur", "Tibia", "Foot", "Toe" };
+
+        // which region of the silhouette a body part belongs to
+        private static Silhouette.Region RegionOf(BodyPartRecord part)
+        {
+            int side = Side(part);
+            for (BodyPartRecord p = part; p != null; p = p.parent)
+            {
+                string n = p.def.defName;
+                if (ArmParts.Contains(n)) return side > 0 ? Silhouette.Region.ArmR : Silhouette.Region.ArmL;
+                if (LegParts.Contains(n)) return side > 0 ? Silhouette.Region.LegR : Silhouette.Region.LegL;
+                if (Spots.TryGetValue(n, out Vector2 v)) return v.y < 0.4f ? Silhouette.Region.Head : Silhouette.Region.Torso;
+            }
+            // other bodies: by height; limbs of an unknown body by their name
+            string d = part.def.defName.ToLowerInvariant();
+            if (d.Contains("arm") || d.Contains("hand") || d.Contains("wing")) return side > 0 ? Silhouette.Region.ArmR : Silhouette.Region.ArmL;
+            if (d.Contains("leg") || d.Contains("foot") || d.Contains("paw")) return side > 0 ? Silhouette.Region.LegR : Silhouette.Region.LegL;
+            return part.height == BodyPartHeight.Top ? Silhouette.Region.Head : Silhouette.Region.Torso;
         }
 
         private static void Legend(Rect r, Color c, string text)
