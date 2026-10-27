@@ -64,6 +64,7 @@ namespace AutoTurrets
 			Widgets.BeginScrollView(r, ref scroll, view);
 			var l = new Listing_Standard();
 			l.Begin(view);
+			Section(l, "AT_SecShooting");
 			l.CheckboxLabeled("AT_AutoManned".Translate(), ref S.autoManned, "AT_AutoManned_Desc".Translate());
 			l.CheckboxLabeled("AT_AutoMortars".Translate(), ref S.autoMortars, "AT_AutoMortars_Desc".Translate());
 			l.CheckboxLabeled("AT_MortarSafety".Translate(), ref S.mortarSafety, "AT_MortarSafety_Desc".Translate());
@@ -74,20 +75,54 @@ namespace AutoTurrets
 			}
 			l.CheckboxLabeled("AT_LoadShells".Translate(), ref S.loadShells, "AT_LoadShells_Desc".Translate());
 			l.CheckboxLabeled("AT_FriendlyFire".Translate(), ref S.friendlyFire, "AT_FriendlyFire_Desc".Translate());
-			l.GapLine();
+
+			Section(l, "AT_SecMaterials");
 			l.CheckboxLabeled("AT_AnyMetal".Translate(), ref S.anyMetal, "AT_AnyMetal_Desc".Translate());
 			l.CheckboxLabeled("AT_AllowSilver".Translate(), ref S.allowSilver);
 			l.CheckboxLabeled("AT_FuelWood".Translate(), ref S.fuelWood, "AT_FuelWood_Desc".Translate());
 			l.CheckboxLabeled("AT_FuelStone".Translate(), ref S.fuelStone, "AT_FuelStone_Desc".Translate());
-			l.GapLine();
-			l.CheckboxLabeled("AT_WallTurrets".Translate(), ref S.wallTurrets, "AT_WallTurrets_Desc".Translate());
+			Small(l, "AT_Restart".Translate());
+
+			Section(l, "AT_WallTurrets");
+			Small(l, "AT_WallTurrets_Desc".Translate());
+			l.CheckboxLabeled("AT_WallEnable".Translate(), ref S.wallTurrets);
 			if (S.wallTurrets)
+			{
+				l.Gap(4f);
 				WallTurrets.DrawList(l);
-			l.Gap();
-			l.Label("AT_Restart".Translate());
+			}
+			if (WallTurrets.RestartNeeded())
+			{
+				l.Gap(6f);
+				Rect w = l.GetRect(30f);
+				Widgets.DrawBoxSolid(w, new Color(0.45f, 0.35f, 0.05f, 0.5f));
+				Text.Anchor = TextAnchor.MiddleCenter;
+				Widgets.Label(w, "AT_RestartNeeded".Translate());
+				Text.Anchor = TextAnchor.UpperLeft;
+			}
 			viewHeight = l.CurHeight + 20f;
 			l.End();
 			Widgets.EndScrollView();
+		}
+
+		private static void Section(Listing_Standard l, string key)
+		{
+			l.Gap(10f);
+			Text.Font = GameFont.Medium;
+			l.Label(key.Translate());
+			Text.Font = GameFont.Small;
+			Rect line = l.GetRect(2f);
+			Widgets.DrawBoxSolid(line, new Color(1f, 1f, 1f, 0.15f));
+			l.Gap(6f);
+		}
+
+		private static void Small(Listing_Standard l, string text)
+		{
+			Text.Font = GameFont.Tiny;
+			GUI.color = new Color(0.75f, 0.75f, 0.75f);
+			l.Label(text);
+			GUI.color = Color.white;
+			Text.Font = GameFont.Small;
 		}
 
 		public override void WriteSettings()
