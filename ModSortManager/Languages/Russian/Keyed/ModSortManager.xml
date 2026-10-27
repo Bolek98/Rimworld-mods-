@@ -285,4 +285,27 @@ Mod Sort Manager выключит половину подозреваемых м
   <MSM_RemovedLater>{0} сейчас используется – он будет удалён при следующем запуске (он выключен).</MSM_RemovedLater>
   <MSM_RemoveFailed>Не удалось удалить {0}.</MSM_RemoveFailed>
   <MSM_SameExplain>Это не дубликаты и не ошибки. Моды в каждой паре меняют одну и ту же часть кода игры. Если они сделаны хорошо, их изменения просто выполняются друг за другом в порядке загрузки, и оба работают. Только если в одном из них есть ошибка, он может мешать моду, стоящему ниже. Поэтому не удаляй мод только потому, что он здесь – используй этот список, когда что-то не так, чтобы знать, какие моды проверить первыми.</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – делают одно и то же</MSM_RivalTitle>
+  <MSM_RivalHint>Известная пара из собственного списка Mod Sort Manager, а не догадка по коду.</MSM_RivalHint>
+  <MSM_Rival_Haul>Оба переносят несколько вещей за раз. Пока {1} включён, та же часть {0} сама отключается – оставь только один.</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>Оба кладут урожай прямо в карманы. Пока {1} включён, эта часть {0} сама отключается.</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>Оба берут на себя цикл тиков или скорость игры. Вместе они могут вызывать подёргивания или неверную скорость – оставь только один.</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1} требует, чтобы игра у всех игроков шла одинаково; {0} меняет то, как игра тикает. Не используй их вместе.</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0} уже содержит всё из {1} (очистка памяти без зависаний). Отключи {1}.</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>Оба сами расставляют приоритеты работ – будут переписывать выбор друг друга. Оставь только один.</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0} берёт эту вкладку на себя, пока включён; вкладка {1} не используется (можно переключить в настройках {0}).</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>Оба заменяют окно модов игры. Mod Sort Manager отходит в сторону, пока {1} включён.</MSM_Rival_Managers>
+  <MSM_NoteRival>делает то же, что {0}</MSM_NoteRival>
+  <MSM_SameWorks>У меня работает – скрыть</MSM_SameWorks>
+  <MSM_SameUnhide>Снова показывать в списке</MSM_SameUnhide>
+  <MSM_SameHiddenTag>скрыто</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>Показать скрытые ({0})</MSM_SameShowHidden>
+  <MSM_SameHideHidden>Спрятать скрытые</MSM_SameHideHidden>
+  <MSM_CrashTitle>Прошлая игра завершилась неправильно</MSM_CrashTitle>
+  <MSM_CrashText>В прошлый раз игра закрылась неправильно (вылет или зависание). Незадолго до этого, в {0}, был изменён список модов:\n\n{1}\n\nВернуться к списку, который был до этого? Он откроется в Mod Sort Manager, чтобы ты проверил его перед сохранением.</MSM_CrashText>
+  <MSM_CrashAdded>Добавлено ({0}):</MSM_CrashAdded>
+  <MSM_CrashRemoved>Удалено ({0}):</MSM_CrashRemoved>
+  <MSM_CrashMoved>Изменился только порядок.</MSM_CrashMoved>
+  <MSM_CrashRestore>Открыть прежний список</MSM_CrashRestore>
+  <MSM_CrashKeep>Оставить текущий список</MSM_CrashKeep>
 </LanguageData>

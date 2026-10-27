@@ -102,4 +102,29 @@
   <HardyPlants_SecEvents>이벤트</HardyPlants_SecEvents>
   <HardyPlants_ImmuneEvents>식물이 나쁜 이벤트를 무시함</HardyPlants_ImmuneEvents>
   <HardyPlants_ImmuneEventsDesc>가뭄(모드의 건기 포함), 유독성 연무, 독성 낙진, 오염이 더 이상 식물을 느리게 하거나 잎을 떨어뜨리지 않습니다. 추위와 더위는 여전히 적용됩니다.</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>어디서 자라나</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>생장 지도 숨기기</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>{0}이(가) 어디서 자라는지 지도에 표시합니다: 초록 – 잘 자람, 노랑 – 느림, 빨강 – 안 자람. 칸에 마우스를 올리면 이유가 나옵니다. 우클릭: 다른 식물.</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>{0} 생장 – 초록: 잘 자람, 노랑: 느림, 빨강: 안 자람. 칸에 마우스를 올리면 이유가 나옵니다.</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>여기서 잘 자랍니다.</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>느리게 자람: 지금 {0}, 최적 {1}.</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>느리게 자람: 지붕 아래 빛이 부족 – 조명을 놓으세요.</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>느리게 자람: 척박한 땅 (비옥도 {0}).</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>지금 너무 추움: {0}, 생장 범위 {1}.</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>지금 너무 더움: {0}, 생장 범위 {1}.</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>여기서는 안 자람: 땅이 너무 척박함 ({0}, 필요 {1}).</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>지붕이 필요함 (동굴 식물).</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>지붕 아래가 너무 어두움 – 조명이 필요함.</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>여기에 무언가 지어져 있습니다.</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>수경재배기나 화분에서만 – 여기 땅에는 안 됨.</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>다른 모드 식물 자동 판단</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>어떤 생물군계에도 없거나, 목재가 나오는데 나무로 표시되지 않은 다른 모드의 식물을 자체 수치(종류, 내한성)로 분류합니다. 목록에 "auto"로 표시됩니다.</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>{0}에서. Evergrowth 판단: {1}, {2}부터 생장, 생장 {3}일.</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>야생 식물</HardyPlants_Kind0>
+  <HardyPlants_Kind1>나무</HardyPlants_Kind1>
+  <HardyPlants_Kind2>작물</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>{0}(으)로 취급: 목재가 나오지만 모드가 나무로 표시하지 않았습니다.</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>어떤 생물군계에도 없음 – 야생 식물 그룹에 추가했습니다.</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>어떤 생물군계에도 없음 – 야생 식물에 추가했고, 추위에 강해서 추운 생물군계 그룹에도 추가했습니다.</HardyPlants_AutoAddedCold>
 </LanguageData>

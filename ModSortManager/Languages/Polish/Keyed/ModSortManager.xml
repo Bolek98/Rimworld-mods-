@@ -285,4 +285,27 @@ Rozpocząć?</MSM_BisectConfirm>
   <MSM_RemovedLater>{0} jest teraz używany – zostanie usunięty przy następnym uruchomieniu (jest wyłączony).</MSM_RemovedLater>
   <MSM_RemoveFailed>Nie udało się usunąć {0}.</MSM_RemoveFailed>
   <MSM_SameExplain>To nie są duplikaty ani błędy. Mody w każdej parze zmieniają tę samą część kodu gry. Jeśli są dobrze zrobione, ich zmiany po prostu wykonują się jedna po drugiej w kolejności ładowania i oba działają. Tylko gdy jeden ma błąd, może zakłócać mod ułożony pod nim. Nie usuwaj więc moda tylko dlatego, że tu jest – użyj tej listy, gdy coś nie działa, by wiedzieć, które mody sprawdzić najpierw.</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – robią to samo</MSM_RivalTitle>
+  <MSM_RivalHint>Znana para z własnej listy Mod Sort Managera, nie szacunek na podstawie kodu.</MSM_RivalHint>
+  <MSM_Rival_Haul>Oba noszą kilka rzeczy naraz. Dopóki {1} jest włączony, ta sama część {0} sama się wyłącza – zostaw tylko jeden.</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>Oba wkładają plony od razu do kieszeni. Dopóki {1} jest włączony, ta część {0} sama się wyłącza.</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>Oba przejmują pętlę ticków lub prędkość gry. Razem mogą powodować przycięcia lub złą prędkość – zostaw tylko jeden.</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1} wymaga, by gra działała u wszystkich graczy dokładnie tak samo; {0} zmienia sposób tykania gry. Nie używaj ich razem.</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0} zawiera już wszystko z {1} (czyszczenie pamięci bez zawieszeń). Wyłącz {1}.</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>Oba same ustawiają priorytety pracy – będą nadpisywać nawzajem swoje wybory. Zostaw tylko jeden.</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0} przejmuje tę zakładkę, dopóki jest włączony; zakładka z {1} nie jest używana (zmienisz to w ustawieniach {0}).</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>Oba zastępują okno Mody w grze. Mod Sort Manager ustępuje, dopóki {1} jest włączony.</MSM_Rival_Managers>
+  <MSM_NoteRival>robi to samo co {0}</MSM_NoteRival>
+  <MSM_SameWorks>U mnie działa – ukryj</MSM_SameWorks>
+  <MSM_SameUnhide>Pokazuj znowu na liście</MSM_SameUnhide>
+  <MSM_SameHiddenTag>ukryte</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>Pokaż ukryte ({0})</MSM_SameShowHidden>
+  <MSM_SameHideHidden>Schowaj ukryte</MSM_SameHideHidden>
+  <MSM_CrashTitle>Ostatnia gra nie zakończyła się poprawnie</MSM_CrashTitle>
+  <MSM_CrashText>Ostatnio gra nie zamknęła się poprawnie (awaria lub zawieszenie). Krótko wcześniej, o {0}, zmieniono listę modów:\n\n{1}\n\nChcesz wrócić do listy sprzed zmiany? Otworzy się w Mod Sort Managerze, więc sprawdzisz ją przed zapisem.</MSM_CrashText>
+  <MSM_CrashAdded>Dodane ({0}):</MSM_CrashAdded>
+  <MSM_CrashRemoved>Usunięte ({0}):</MSM_CrashRemoved>
+  <MSM_CrashMoved>Zmieniła się tylko kolejność.</MSM_CrashMoved>
+  <MSM_CrashRestore>Otwórz listę sprzed zmiany</MSM_CrashRestore>
+  <MSM_CrashKeep>Zostaw moją obecną listę</MSM_CrashKeep>
 </LanguageData>

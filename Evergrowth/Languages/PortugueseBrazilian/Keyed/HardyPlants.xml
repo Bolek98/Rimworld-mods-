@@ -102,4 +102,29 @@
   <HardyPlants_SecEvents>Eventos</HardyPlants_SecEvents>
   <HardyPlants_ImmuneEvents>Plantas ignoram eventos ruins</HardyPlants_ImmuneEvents>
   <HardyPlants_ImmuneEventsDesc>Seca (também períodos secos de mods), névoa nociva, precipitação tóxica e poluição não atrasam mais as plantas nem as deixam sem folhas. Frio e calor ainda contam.</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>Onde cresce</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>Ocultar mapa de crescimento</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>Mostra no mapa onde {0} cresce: verde – bem, amarelo – mais devagar, vermelho – nada. Passe o mouse numa célula para ver o motivo. Clique direito: outra planta.</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>Onde {0} cresce – verde: bem, amarelo: mais devagar, vermelho: não. Passe o mouse numa célula para ver o motivo.</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>Cresce bem aqui.</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>Cresce mais devagar: {0} agora, ideal entre {1}.</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>Cresce mais devagar: pouca luz sob o teto – coloque uma lâmpada.</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>Cresce mais devagar: solo pobre (fertilidade {0}).</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>Frio demais agora: {0}, cresce entre {1}.</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>Quente demais agora: {0}, cresce entre {1}.</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>Não cresce aqui: solo pobre demais ({0}, precisa de {1}).</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>Precisa de teto (planta de caverna).</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>Escuro demais sob o teto – precisa de lâmpada.</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>Há algo construído aqui.</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>Só em hidroponia ou vaso – não no chão aqui.</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>Adivinhar para plantas de outros mods</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>Plantas de outros mods que nenhum bioma lista, ou que dão madeira sem serem marcadas como árvore, são classificadas pelos próprios valores (tipo, resistência ao frio). Marcadas "auto" na lista.</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>De {0}. O Evergrowth a vê como: {1}, cresce a partir de {2}, {3} dias para crescer.</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>planta silvestre</HardyPlants_Kind0>
+  <HardyPlants_Kind1>árvore</HardyPlants_Kind1>
+  <HardyPlants_Kind2>cultivo</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>Tratada como {0}: dá madeira, mas o mod não a marcou como árvore.</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>Nenhum bioma a lista – adicionada ao grupo de plantas silvestres.</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>Nenhum bioma a lista – adicionada às plantas silvestres e, como cresce no frio, ao grupo de biomas frios.</HardyPlants_AutoAddedCold>
 </LanguageData>

@@ -328,6 +328,7 @@ namespace ResearchedLoadout
 			Check(listing_Standard, "RL_OwnDresser", ref Settings.useOwnDresser, "useOwnDresser");
 			Check(listing_Standard, "RL_AutoApparel", ref Settings.autoEquipApparel, "autoEquipApparel");
 			Check(listing_Standard, "RL_OnlyStockpile", ref Settings.onlyFromStockpile, "onlyFromStockpile");
+			Check(listing_Standard, "RL_EnemyLoot", ref Settings.enemyLootFromStorage, "enemyLootFromStorage");
 			Check(listing_Standard, "RL_ReplaceBroken", ref Settings.replaceBrokenGear, "replaceBrokenGear");
 			Check(listing_Standard, "RL_StoreDropped", ref Settings.storeDroppedGear, "storeDroppedGear");
 			bool gb = Settings.gearButton;
@@ -445,6 +446,38 @@ namespace ResearchedLoadout
 				LoadoutFilter.InvalidateBans();
 			}
 			y += 30f;
+			// 2.15.1: kinds allowed anyway ("Allow this kind" on an item) – click one to remove it
+			List<string> exc = LoadoutFilter.Exceptions();
+			if (exc.Count > 0)
+			{
+				Widgets.Label(new Rect(inRect.x, y, 200f, height), "RL_Exceptions".Translate());
+				float ex = inRect.x + 200f;
+				string removeName = null;
+				foreach (string name in exc)
+				{
+					ThingDef d = DefDatabase<ThingDef>.GetNamedSilentFail(name);
+					string lab = (d != null ? d.LabelCap.ToString() : name) + "  ✕";
+					float w = Text.CalcSize(lab).x + 16f;
+					if (ex + w > inRect.xMax)
+					{
+						ex = inRect.x + 200f;
+						y += 26f;
+					}
+					Rect br = new Rect(ex, y, w, height);
+					if (Widgets.ButtonText(br, lab))
+					{
+						removeName = name;
+					}
+					TooltipHandler.TipRegion(br, "RL_ExceptionRemove".Translate());
+					ex += w + 6f;
+				}
+				if (removeName != null)
+				{
+					exc.Remove(removeName);
+					LoadoutFilter.SetExceptions(exc);
+				}
+				y += 30f;
+			}
 			float num3 = (inRect.width - 8f) * 0.5f;
 			float num4 = inRect.yMax - y;
 			if (num4 < 120f)
@@ -4806,6 +4839,10 @@ namespace ResearchedLoadout
 
 		public string bannedApparel = string.Empty;
 
+		public string allowedKinds = string.Empty;   // 2.15.1: locked kinds allowed anyway ("Allow this kind")
+
+		public bool enemyLootFromStorage = true;    // 2.15.1: gear dropped by enemies is taken only once it is in storage
+
 		// 2.6.4: a new install starts at the current version; with 0 the value was never written
 		// (it equals the Scribe default) and the migrations below reset useOwnDresser/onlyFromStockpile on every start
 		public int settingsVersion = 11;
@@ -4898,6 +4935,8 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref weaponCalmHours, "weaponCalmHours", 24);
 			Scribe_Values.Look(ref bannedWeapons, "bannedWeapons", string.Empty);
 			Scribe_Values.Look(ref bannedApparel, "bannedApparel", string.Empty);
+			Scribe_Values.Look(ref allowedKinds, "allowedKinds", string.Empty);
+			Scribe_Values.Look(ref enemyLootFromStorage, "enemyLootFromStorage", true);
 			Scribe_Values.Look(ref settingsVersion, "settingsVersion", 0);
 			Scribe_Values.Look(ref recommended, "recommended", false);
 			if (Scribe.mode != LoadSaveMode.PostLoadInit)
@@ -5020,6 +5059,74 @@ namespace ResearchedLoadout
 			bansDirty = true;
 		}
 
+		// 2.15.1: "Allow this kind" – a locked kind the player allowed anyway
+		private static readonly HashSet<string> allowedKindSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+		private static string allowedKindsBlob;
+
+		public static bool IsException(ThingDef def)
+		{
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			if (def == null || settings == null || string.IsNullOrEmpty(settings.allowedKinds))
+			{
+				return false;
+			}
+			if (allowedKindsBlob != settings.allowedKinds)
+			{
+				ParseBanBlob(settings.allowedKinds, allowedKindSet);
+				allowedKindsBlob = settings.allowedKinds;
+			}
+			return allowedKindSet.Contains(def.defName);
+		}
+
+		public static List<string> Exceptions()
+		{
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			var l = new List<string>();
+			if (settings == null || string.IsNullOrEmpty(settings.allowedKinds))
+			{
+				return l;
+			}
+			var set = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+			ParseBanBlob(settings.allowedKinds, set);
+			l.AddRange(set);
+			l.Sort();
+			return l;
+		}
+
+		public static void SetException(ThingDef def, bool on)
+		{
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			if (def == null || settings == null)
+			{
+				return;
+			}
+			var set = new HashSet<string>(Exceptions(), StringComparer.OrdinalIgnoreCase);
+			if (on)
+			{
+				set.Add(def.defName);
+			}
+			else
+			{
+				set.Remove(def.defName);
+			}
+			SetExceptions(set);
+		}
+
+		public static void SetExceptions(IEnumerable<string> names)
+		{
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			if (settings == null)
+			{
+				return;
+			}
+			var l = new List<string>(names);
+			l.Sort();
+			settings.allowedKinds = string.Join("\n", l.ToArray());
+			settings.Write();
+			InvalidateResearch();
+			ResearchedLoadoutMapComponent.ResearchVersion++;
+		}
+
 		public static void InvalidateResearch()
 		{
 			researchCache.Clear();
@@ -5065,6 +5172,10 @@ namespace ResearchedLoadout
 
 		public static bool IsAllowed(ThingDef def)
 		{
+			if (IsException(def))
+			{
+				return true;
+			}
 			if (!IsResearchAllowed(def))
 			{
 				return false;
@@ -5104,6 +5215,10 @@ namespace ResearchedLoadout
 				return true;
 			}
 			if (!def.IsWeapon && !def.IsApparel)
+			{
+				return true;
+			}
+			if (IsException(def))
 			{
 				return true;
 			}
@@ -6355,6 +6470,42 @@ namespace ResearchedLoadout
 			}
 		}
 
+		// 2.15.1: what the colonist would take next (for the Gear overview) – the same search as a normal round
+		public Thing PeekNext(Pawn pawn, out bool weapon)
+		{
+			weapon = false;
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			if (pawn == null || settings == null || !settings.enabled || ExemptPawns.IsExempt(pawn))
+			{
+				return null;
+			}
+			try
+			{
+				if (_weaponCache == null || _apparelCache == null)
+				{
+					return null;
+				}
+				if (settings.autoEquipPrimary && !pawn.WorkTagIsDisabled(WorkTags.Violent))
+				{
+					Thing prim = pawn.equipment?.Primary;
+					Thing bw = FindBestWeapon(pawn, null, true);
+					if (bw != null && IsUpgrade(pawn, prim, bw, true))
+					{
+						weapon = true;
+						return bw;
+					}
+				}
+				if (settings.autoEquipApparel)
+				{
+					return FindBestApparel(pawn, false);
+				}
+			}
+			catch
+			{
+			}
+			return null;
+		}
+
 		// 2.15.1: "Gear up now" button on a colonist – checks the gear at once and keeps checking for an hour, so weapon,
 		// armor and clothes of the newest era are all taken one after another (not one item per normal round)
 		public void EquipNow(Pawn pawn)
@@ -7448,6 +7599,15 @@ namespace ResearchedLoadout
 		private static bool InAllowedStorage(Thing thing)
 		{
 			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			// 2.15.1: gear an enemy dropped is taken only once it is in storage, not straight from the battlefield
+			if (settings != null && settings.enemyLootFromStorage && thing != null && EnemyLoot.Is(thing))
+			{
+				if (!thing.Spawned || thing.GetSlotGroup() == null)
+				{
+					return false;
+				}
+				EnemyLoot.Forget(thing);
+			}
 			if (settings == null || !settings.onlyFromStockpile)
 			{
 				return true;
@@ -8778,6 +8938,9 @@ namespace ResearchedLoadout
 		// 2.8.1: bills added by emergency gear: "<bill load id>|<hazard kind>|<map id>"
 		public HashSet<string> emergencyBills = new HashSet<string>();
 
+		// 2.15.1: ids of gear dropped or stripped from non-colonists (not yet in storage)
+		public HashSet<int> enemyLoot = new HashSet<int>();
+
 		public ResearchedLoadoutGameComponent(Game game)
 		{
 			GuestWardrobe.ResetGameState();
@@ -9023,6 +9186,15 @@ namespace ResearchedLoadout
 				crafted = new HashSet<string>();
 			}
 			Scribe_Values.Look(ref craftedSeeded, "researchedLoadoutCraftedSeeded", false);
+			if (Scribe.mode == LoadSaveMode.Saving)
+			{
+				EnemyLoot.Prune(enemyLoot);
+			}
+			Scribe_Collections.Look(ref enemyLoot, "researchedLoadoutEnemyLoot", LookMode.Value);
+			if (enemyLoot == null)
+			{
+				enemyLoot = new HashSet<int>();
+			}
 			Scribe_Collections.Look(ref emergencyBills, "researchedLoadoutEmergencyBills", LookMode.Value);
 			if (emergencyBills == null)
 			{
@@ -11634,6 +11806,158 @@ namespace ResearchedLoadout
 			catch
 			{
 			}
+		}
+	}
+
+	// 2.15.1: "Allow this kind" on a locked weapon or piece of apparel lying in the colony
+	[HarmonyPatch(typeof(ThingWithComps), "GetGizmos")]
+	public static class AllowKindGizmoPatch
+	{
+		[HarmonyPostfix]
+		public static void Postfix(ThingWithComps __instance, ref IEnumerable<Gizmo> __result)
+		{
+			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+			if (settings == null || !settings.enabled || __instance == null || __instance.def == null || !__instance.Spawned)
+			{
+				return;
+			}
+			ThingDef def = __instance.def;
+			if (!(LoadoutFilter.IsRealWeapon(def) || def.IsApparel) || __instance.Map == null || !__instance.Map.IsPlayerHome)
+			{
+				return;
+			}
+			bool exc = LoadoutFilter.IsException(def);
+			if (!exc && LoadoutFilter.LockReason(def) == null)
+			{
+				return;
+			}
+			__result = Append(__result, def, exc);
+		}
+
+		private static IEnumerable<Gizmo> Append(IEnumerable<Gizmo> gizmos, ThingDef def, bool exc)
+		{
+			foreach (Gizmo g in gizmos)
+			{
+				yield return g;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = (exc ? "RL_LockKind" : "RL_AllowKind").Translate(),
+				defaultDesc = (exc ? "RL_LockKind_Desc" : "RL_AllowKind_Desc").Translate(def.LabelCap),
+				icon = def.uiIcon ?? BaseContent.BadTex,
+				action = delegate
+				{
+					LoadoutFilter.SetException(def, !exc);
+					Messages.Message((exc ? "RL_LockKind_Done" : "RL_AllowKind_Done").Translate(def.LabelCap), MessageTypeDefOf.SilentInput, false);
+				}
+			};
+		}
+	}
+
+	// 2.15.1: remembers gear dropped or stripped from non-colonists, so it is taken only from storage
+	public static class EnemyLoot
+	{
+		private static HashSet<int> Set => ResearchedLoadoutGameComponent.Get()?.enemyLoot;
+
+		public static bool Is(Thing t)
+		{
+			HashSet<int> s = Set;
+			return s != null && s.Count > 0 && s.Contains(t.thingIDNumber);
+		}
+
+		public static void Forget(Thing t)
+		{
+			Set?.Remove(t.thingIDNumber);
+		}
+
+		public static void Note(Pawn pawn, IEnumerable<Thing> things)
+		{
+			try
+			{
+				ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
+				HashSet<int> s = Set;
+				if (s == null || settings == null || !settings.enemyLootFromStorage || pawn == null || pawn.Faction == Faction.OfPlayer || pawn.IsPrisonerOfColony || pawn.IsSlaveOfColony)
+				{
+					return;
+				}
+				foreach (Thing t in things)
+				{
+					if (t != null && (t.def.IsWeapon || t.def.IsApparel))
+					{
+						s.Add(t.thingIDNumber);
+					}
+				}
+			}
+			catch
+			{
+			}
+		}
+
+		// forget ids of gear that is gone or already stored
+		public static void Prune(HashSet<int> set)
+		{
+			if (set == null || set.Count == 0 || Find.Maps == null)
+			{
+				return;
+			}
+			try
+			{
+				var keep = new HashSet<int>();
+				foreach (Map m in Find.Maps)
+				{
+					foreach (Thing t in m.listerThings.ThingsInGroup(ThingRequestGroup.Weapon))
+					{
+						if (set.Contains(t.thingIDNumber) && t.GetSlotGroup() == null) keep.Add(t.thingIDNumber);
+					}
+					foreach (Thing t in m.listerThings.ThingsInGroup(ThingRequestGroup.Apparel))
+					{
+						if (set.Contains(t.thingIDNumber) && t.GetSlotGroup() == null) keep.Add(t.thingIDNumber);
+					}
+					// still worn by corpses / downed enemies on the map
+					foreach (Pawn p in m.mapPawns.AllPawnsSpawned)
+					{
+						if (p.Faction == Faction.OfPlayer) continue;
+						if (p.equipment != null) foreach (ThingWithComps eq in p.equipment.AllEquipmentListForReading) if (set.Contains(eq.thingIDNumber)) keep.Add(eq.thingIDNumber);
+						if (p.apparel != null) foreach (Apparel ap in p.apparel.WornApparel) if (set.Contains(ap.thingIDNumber)) keep.Add(ap.thingIDNumber);
+					}
+				}
+				set.IntersectWith(keep);
+			}
+			catch
+			{
+			}
+		}
+	}
+
+	[HarmonyPatch(typeof(Pawn_EquipmentTracker), "DropAllEquipment")]
+	public static class EnemyLootDropPatch
+	{
+		[HarmonyPrefix]
+		public static void Prefix(Pawn_EquipmentTracker __instance)
+		{
+			if (__instance?.pawn != null)
+			{
+				var l = new List<Thing>();
+				foreach (ThingWithComps eq in __instance.AllEquipmentListForReading) l.Add(eq);
+				EnemyLoot.Note(__instance.pawn, l);
+			}
+		}
+	}
+
+	[HarmonyPatch(typeof(Pawn), "Strip")]
+	public static class EnemyLootStripPatch
+	{
+		[HarmonyPrefix]
+		public static void Prefix(Pawn __instance)
+		{
+			if (__instance == null)
+			{
+				return;
+			}
+			var l = new List<Thing>();
+			if (__instance.equipment != null) foreach (ThingWithComps eq in __instance.equipment.AllEquipmentListForReading) l.Add(eq);
+			if (__instance.apparel != null) foreach (Apparel ap in __instance.apparel.WornApparel) l.Add(ap);
+			EnemyLoot.Note(__instance, l);
 		}
 	}
 }

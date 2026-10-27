@@ -102,4 +102,29 @@
   <HardyPlants_SecEvents>Événements</HardyPlants_SecEvents>
   <HardyPlants_ImmuneEvents>Les plantes ignorent les mauvais événements</HardyPlants_ImmuneEvents>
   <HardyPlants_ImmuneEventsDesc>La sécheresse (y compris les périodes sèches des mods), la brume nocive, les retombées toxiques et la pollution ne ralentissent plus les plantes et ne les font plus perdre leurs feuilles. Le froid et la chaleur comptent toujours.</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>Où ça pousse</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>Masquer la carte de croissance</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>Montre sur la carte où pousse {0} : vert – bien, jaune – plus lentement, rouge – pas du tout. Survole une case pour la raison. Clic droit : autre plante.</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>Où pousse {0} – vert : bien, jaune : plus lentement, rouge : non. Survole une case pour la raison.</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>Pousse bien ici.</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>Pousse plus lentement : {0} maintenant, idéal entre {1}.</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>Pousse plus lentement : pas assez de lumière sous le toit – ajoute une lampe.</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>Pousse plus lentement : sol pauvre (fertilité {0}).</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>Trop froid maintenant : {0}, pousse entre {1}.</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>Trop chaud maintenant : {0}, pousse entre {1}.</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>Ne pousse pas ici : sol trop pauvre ({0}, il faut {1}).</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>Il faut un toit (plante de grotte).</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>Trop sombre sous le toit – il faut une lampe.</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>Quelque chose est construit ici.</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>Seulement en hydroponie ou en jardinière – pas en pleine terre ici.</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>Deviner pour les plantes d'autres mods</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>Les plantes d'autres mods qu'aucun biome ne liste, ou qui donnent du bois sans être marquées comme arbres, sont classées d'après leurs propres valeurs (type, résistance au froid). Marquées « auto » dans la liste.</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>De {0}. Evergrowth la voit comme : {1}, pousse dès {2}, {3} jours de croissance.</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>plante sauvage</HardyPlants_Kind0>
+  <HardyPlants_Kind1>arbre</HardyPlants_Kind1>
+  <HardyPlants_Kind2>culture</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>Traitée comme {0} : elle donne du bois, mais son mod ne l'a pas marquée comme arbre.</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>Aucun biome ne la liste – ajoutée au groupe des plantes sauvages.</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>Aucun biome ne la liste – ajoutée aux plantes sauvages et, comme elle pousse au froid, au groupe des biomes froids.</HardyPlants_AutoAddedCold>
 </LanguageData>

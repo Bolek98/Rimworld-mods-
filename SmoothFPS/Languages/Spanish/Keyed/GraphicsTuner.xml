@@ -386,4 +386,32 @@
   <GT_SimSleepLine>Vivos: {0} despiertos, {1} dormidos. Mantenidos despiertos por: {2}</GT_SimSleepLine>
   <GT_SimSlept>{0} personajes puestos a dormir.</GT_SimSlept>
   <GT_TexCapWaylith>no hace falta en 1.7</GT_TexCapWaylith>
+  <GT_SaveBuffer>Guardado más rápido (búfer grande)</GT_SaveBuffer>
+  <GT_SaveBuffer_Desc>El archivo de guardado se escribe en trozos grandes en vez de muchos pequeños: la parada al guardar es más corta. Mismo archivo, mismo contenido. El guardado en sí no puede ir en segundo plano: el juego no debe cambiar mientras se escribe.</GT_SaveBuffer_Desc>
+  <GT_SaveLast>Último guardado: {0} ms (mejor {1} ms)</GT_SaveLast>
+  <GT_ED_Open>Doctor de errores</GT_ED_Open>
+  <GT_ED_Open_Desc>Los errores rojos del registro agrupados, con el mod que realmente los causó y qué significan en palabras sencillas.</GT_ED_Open_Desc>
+  <GT_ErrorAlert>Avisar de errores nuevos</GT_ErrorAlert>
+  <GT_ErrorAlert_Desc>Un mensaje corto cuando aparece un error de un sitio nuevo – en el Doctor de errores verás qué mod lo causó.</GT_ErrorAlert_Desc>
+  <GT_ED_Title>Doctor de errores</GT_ED_Title>
+  <GT_ED_Summary>{0} errores · {1} tipos · de {2} mods</GT_ED_Summary>
+  <GT_ED_Warnings>También avisos</GT_ED_Warnings>
+  <GT_ED_Unknown>Mod desconocido (juego o no encontrado)</GT_ED_Unknown>
+  <GT_ED_Copy>Copiar</GT_ED_Copy>
+  <GT_ED_Workshop>Página del Workshop</GT_ED_Workshop>
+  <GT_ED_None>No hay errores en el registro 👍</GT_ED_None>
+  <GT_ED_Copied>Copiado – pégalo en un comentario para el autor del mod.</GT_ED_Copied>
+  <GT_ED_NewMsg>Nuevo error en el registro – probablemente {0}. Detalles en Smooth FPS → Doctor de errores.</GT_ED_NewMsg>
+  <GT_ED_K_Null>Algo estaba vacío y no debía (por ejemplo un peón, objeto o def eliminado). Normalmente un fallo de este mod o un choque con otro – avísale a su autor con el texto copiado.</GT_ED_K_Null>
+  <GT_ED_K_MissingDef>No existe algo que el mod necesita: falta un mod requerido, el mod es para otra versión del juego o se eliminó un objeto. Revisa los requisitos del mod.</GT_ED_K_MissingDef>
+  <GT_ED_K_Patch>No se pudo aplicar un cambio de código (parche Harmony): el mod probablemente es para otra versión o choca con otro mod. Parte de él puede no funcionar.</GT_ED_K_Patch>
+  <GT_ED_K_Xml>Un archivo XML roto o anticuado en un mod. El juego se salta esa parte; suele ser inofensivo, pero puede faltar ese objeto o función.</GT_ED_K_Xml>
+  <GT_ED_K_Texture>Falta una imagen o está rota. Solo afecta al aspecto: puedes ver un marcador rosa.</GT_ED_K_Texture>
+  <GT_ED_K_Duplicate>Dos mods añaden lo mismo. Gana uno; suele ser inofensivo, pero comprueba que no tengas el mismo mod dos veces.</GT_ED_K_Duplicate>
+  <GT_ED_K_Cast>Dos mods no coinciden en qué es un objeto. Suele ser un choque entre mods que cambian lo mismo.</GT_ED_K_Cast>
+  <GT_ED_K_List>Un mod buscó en una lista algo que no estaba. Un fallo del mod – avísalo con el texto copiado.</GT_ED_K_List>
+  <GT_ED_K_Tick>Un error mientras el juego actualizaba algo del mapa. Eso puede dejar de funcionar hasta que recargues.</GT_ED_K_Tick>
+  <GT_ED_K_PawnGen>Un error al crear un peón (mods de razas, ropa o armas). El peón puede verse mal o saltarse.</GT_ED_K_PawnGen>
+  <GT_ED_K_Job>Un error en el trabajo de un colono. Normalmente simplemente hace otra cosa.</GT_ED_K_Job>
+  <GT_ED_K_Other>Un error en el código de un mod. Cópialo y envíaselo a su autor.</GT_ED_K_Other>
 </LanguageData>

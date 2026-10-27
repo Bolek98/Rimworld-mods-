@@ -102,4 +102,29 @@
   <HardyPlants_SecEvents>Events</HardyPlants_SecEvents>
   <HardyPlants_ImmuneEvents>Plants ignore bad events</HardyPlants_ImmuneEvents>
   <HardyPlants_ImmuneEventsDesc>Drought (also dry spells from mods), noxious haze, toxic fallout and pollution no longer slow plants down or make them leafless. Cold and heat still count.</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>Where it grows</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>Hide grow map</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>Shows on the map where {0} grows: green – well, yellow – slower, red – not at all. Hover a cell for the reason. Right click: show another plant.</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>Where {0} grows – green: well, yellow: slower, red: no. Hover a cell for the reason.</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>Grows well here.</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>Grows slower: {0} now, best between {1}.</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>Grows slower: not enough light under the roof – add a sun lamp.</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>Grows slower: poor soil ({0} fertility).</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>Too cold now: {0}, it grows between {1}.</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>Too hot now: {0}, it grows between {1}.</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>Does not grow here: the ground is too poor ({0}, needs {1}).</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>Needs a roof (cave plant).</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>Too dark under the roof – it needs a lamp.</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>Something is built here.</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>Only in hydroponics or a planter – not in the ground here.</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>Guess for plants from other mods</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>Plants from other mods that no biome lists, or that give wood without being marked as trees, are sorted by their own values (kind, cold-hardiness). Marked "auto" in the list.</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>From {0}. Evergrowth sees it as: {1}, grows from {2}, {3} days to grow.</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>wild plant</HardyPlants_Kind0>
+  <HardyPlants_Kind1>tree</HardyPlants_Kind1>
+  <HardyPlants_Kind2>crop</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>Treated as {0}: it gives wood, but its mod did not mark it as a tree.</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>No biome lists it – added to the wild plants group.</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>No biome lists it – added to the wild plants group and, as it grows in the cold, to the cold biomes group.</HardyPlants_AutoAddedCold>
 </LanguageData>

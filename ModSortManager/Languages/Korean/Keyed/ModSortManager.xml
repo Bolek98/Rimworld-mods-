@@ -285,4 +285,27 @@ Mod Sort Manager가 의심 모드 {0}개 중 절반을 비활성화하고 게임
   <MSM_RemovedLater>{0}은(는) 사용 중입니다 – 다음 시작 때 제거됩니다 (꺼져 있음).</MSM_RemovedLater>
   <MSM_RemoveFailed>{0}을(를) 제거하지 못했습니다.</MSM_RemoveFailed>
   <MSM_SameExplain>이것은 중복도 오류도 아닙니다. 각 쌍의 모드는 게임 코드의 같은 부분을 바꿉니다. 잘 만들어졌다면 변경 사항이 로드 순서대로 차례로 실행되어 둘 다 작동합니다. 둘 중 하나에 버그가 있을 때만 아래에 정렬된 모드를 방해할 수 있습니다. 그러니 여기 있다는 이유만으로 모드를 제거하지 마세요 – 문제가 생겼을 때 어떤 모드를 먼저 시험할지 알기 위해 이 목록을 사용하세요.</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – 같은 일을 함</MSM_RivalTitle>
+  <MSM_RivalHint>Mod Sort Manager 자체 목록에 있는 알려진 조합이며, 코드로 추측한 것이 아닙니다.</MSM_RivalHint>
+  <MSM_Rival_Haul>둘 다 한 번에 여러 물건을 운반합니다. {1}이(가) 켜져 있는 동안 {0}의 같은 기능은 스스로 꺼집니다 – 하나만 남기세요.</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>둘 다 수확물을 바로 주머니에 넣습니다. {1}이(가) 켜져 있는 동안 {0}의 이 기능은 스스로 꺼집니다.</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>둘 다 게임의 틱 루프나 게임 속도를 맡습니다. 함께 쓰면 끊김이나 잘못된 속도가 생길 수 있습니다 – 하나만 남기세요.</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1}은(는) 모든 플레이어의 게임이 완전히 똑같이 돌아가야 합니다. {0}은(는) 게임이 진행되는 방식을 바꿉니다. 함께 쓰지 마세요.</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0}에는 {1}의 모든 기능(멈춤 없는 메모리 정리)이 이미 들어 있습니다. {1}을(를) 끄세요.</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>둘 다 작업 우선순위를 스스로 정해 서로의 선택을 덮어씁니다. 하나만 남기세요.</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0}이(가) 켜져 있는 동안 이 탭을 맡고 {1}의 탭은 쓰이지 않습니다({0} 설정에서 바꿀 수 있음).</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>둘 다 게임의 모드 창을 대체합니다. {1}이(가) 켜져 있는 동안 Mod Sort Manager는 물러납니다.</MSM_Rival_Managers>
+  <MSM_NoteRival>{0}와(과) 같은 일을 함</MSM_NoteRival>
+  <MSM_SameWorks>나는 잘 됨 – 숨기기</MSM_SameWorks>
+  <MSM_SameUnhide>목록에 다시 표시</MSM_SameUnhide>
+  <MSM_SameHiddenTag>숨김</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>숨긴 항목 보기 ({0})</MSM_SameShowHidden>
+  <MSM_SameHideHidden>숨긴 항목 감추기</MSM_SameHideHidden>
+  <MSM_CrashTitle>지난 게임이 제대로 끝나지 않았습니다</MSM_CrashTitle>
+  <MSM_CrashText>지난번 게임이 제대로 종료되지 않았습니다(충돌 또는 멈춤). 그 직전인 {0}에 모드 목록이 바뀌었습니다:\n\n{1}\n\n바꾸기 전 목록으로 돌아갈까요? Mod Sort Manager에서 열리므로 저장하기 전에 확인할 수 있습니다.</MSM_CrashText>
+  <MSM_CrashAdded>추가됨 ({0}):</MSM_CrashAdded>
+  <MSM_CrashRemoved>제거됨 ({0}):</MSM_CrashRemoved>
+  <MSM_CrashMoved>순서만 바뀌었습니다.</MSM_CrashMoved>
+  <MSM_CrashRestore>이전 목록 열기</MSM_CrashRestore>
+  <MSM_CrashKeep>현재 목록 유지</MSM_CrashKeep>
 </LanguageData>

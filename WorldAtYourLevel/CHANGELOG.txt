@@ -1,4 +1,9 @@
 === Not on the Workshop yet (test versions) ===
+2.15.1
+- World tab: "What the next tier brings" – how many research projects are still missing for the next tier, the world level it leads to, and what arrives with it (new weapon and armor kinds, factions that start raiding, mechanoids, events, trader goods).
+- Gradual change of era (Arrivals tab, off by default): after the world level rises, at first only about 1 in 5 arrivals carries gear of the new era; the share grows evenly over the set number of days (default 5). Which pawns lag is fixed per pawn; saved with the game.
+- Fewer gaps: the gear filter now runs after other mods' pawn generation and spawn patches (races, kind extensions, sidearm mods), so gear they hand out afterwards no longer slips through.
+
 2.15.0
 - Why raiders have their gear: select an enemy (or a visitor) and the inspect pane shows what this mod took from them and what they got instead ("assault rifle → bolt-action rifle"). The raid message also names the most common swaps.
 

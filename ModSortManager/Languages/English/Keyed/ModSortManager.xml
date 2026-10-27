@@ -285,4 +285,27 @@ Start?</MSM_BisectConfirm>
   <MSM_RemovedLater>{0} is in use right now – it is removed at the next start (it is turned off).</MSM_RemovedLater>
   <MSM_RemoveFailed>Could not remove {0}.</MSM_RemoveFailed>
   <MSM_SameExplain>These are not duplicates and not errors. The mods in each pair change the same part of the game's code. When they are made well, their changes simply run one after another in load order and both work. Only when one of them has a bug can it disturb the mod sorted below it. So do not remove a mod just because it is listed here – use this list when something misbehaves, to know which mods to test first.</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – do the same job</MSM_RivalTitle>
+  <MSM_RivalHint>Known pair from Mod Sort Manager's own list, not a guess from the code.</MSM_RivalHint>
+  <MSM_Rival_Haul>Both carry several things in one trip. While {1} is active, the same part of {0} switches itself off – keep only one of them.</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>Both put the harvest straight into the pockets. While {1} is active, this part of {0} switches itself off.</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>Both take over the game's tick loop or game speed. Together they can make the game stutter or run at the wrong speed – keep only one.</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1} needs every player's game to run exactly the same; {0} changes how the game ticks. Do not use them together.</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0} already contains everything from {1} (memory clean-up without freezes). Switch {1} off.</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>Both set work priorities by themselves – they will keep changing each other's choices. Keep only one.</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0} takes over this tab while it is on; the tab of {1} is not used (you can switch that in the settings of {0}).</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>Both replace the game's Mods window. Mod Sort Manager steps aside while {1} is active.</MSM_Rival_Managers>
+  <MSM_NoteRival>does the same job as {0}</MSM_NoteRival>
+  <MSM_SameWorks>Works for me – hide</MSM_SameWorks>
+  <MSM_SameUnhide>Show in the list again</MSM_SameUnhide>
+  <MSM_SameHiddenTag>hidden</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>Show hidden ({0})</MSM_SameShowHidden>
+  <MSM_SameHideHidden>Hide the hidden ones</MSM_SameHideHidden>
+  <MSM_CrashTitle>The last game did not end properly</MSM_CrashTitle>
+  <MSM_CrashText>Last time the game did not close properly (a crash or a freeze). Shortly before, at {0}, the mod list was changed:\n\n{1}\n\nDo you want to go back to the list from before? It opens in Mod Sort Manager, so you can check it before saving.</MSM_CrashText>
+  <MSM_CrashAdded>Added ({0}):</MSM_CrashAdded>
+  <MSM_CrashRemoved>Removed ({0}):</MSM_CrashRemoved>
+  <MSM_CrashMoved>Only the order changed.</MSM_CrashMoved>
+  <MSM_CrashRestore>Open the list from before</MSM_CrashRestore>
+  <MSM_CrashKeep>Keep my current list</MSM_CrashKeep>
 </LanguageData>

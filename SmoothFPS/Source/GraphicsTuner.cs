@@ -50,6 +50,8 @@ namespace GraphicsTuner
         public bool sfRealNormal = true;
         public bool sfFastShare = true;
         public bool saveSmart = true;           // 1.7.4: autosave waits for a quiet moment
+        public bool saveBuffer = true;          // 1.5.0: the save file is written in big pieces (shorter save stop)
+        public bool errorAlert = true;          // 1.5.0: a message when an error from a new place appears in the log
         public int saveMaxWaitMin = 3;         // 1.7.3: speed 3/4 – simulation gets at least the drawing time        // 1.7.2: speed 1 and 2 never run slower than real
         public int sfIdleFps = 30;
         public bool sfBackground = true;
@@ -216,6 +218,8 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref sfRealNormal, "sfRealNormal", true);
             Scribe_Values.Look(ref sfFastShare, "sfFastShare", true);
             Scribe_Values.Look(ref saveSmart, "saveSmart", true);
+            Scribe_Values.Look(ref saveBuffer, "saveBuffer", true);
+            Scribe_Values.Look(ref errorAlert, "errorAlert", true);
             Scribe_Values.Look(ref saveMaxWaitMin, "saveMaxWaitMin", 3);
             Scribe_Values.Look(ref sfIdleFps, "sfIdleFps", 30);
             Scribe_Values.Look(ref sfBackground, "sfBackground", true);
@@ -687,6 +691,7 @@ namespace GraphicsTuner
         {
             Runtime.Update();
             SaveTiming.Update();
+            ErrorDoctor.Update();
         }
     }
 
@@ -731,7 +736,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.4.0";
+        public const string Version = "1.5.0";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -760,6 +765,7 @@ namespace GraphicsTuner
             FastCull.Patch(harmony);                // 1.7.0
             WorldPathSpread.Patch(harmony);         // 1.7.0
             SaveTiming.Patch(harmony);              // 1.7.4
+            SaveBuffer.Patch(harmony);              // 1.5.0
             ModEffects.Patch(harmony);              // 1.3.2: effects from mods too
             TextureCap.Patch(harmony);              // 1.3.3: oversized mod textures
             SmartWork.Patch(harmony);               // 1.4.0: smart work search
@@ -1073,6 +1079,9 @@ namespace GraphicsTuner
             Plain(l, "GT_SaveSmart", ref s.saveSmart);
             if (s.saveSmart)
                 s.saveMaxWaitMin = Mathf.RoundToInt(MUI.Slider(l, "GT_SaveWait".Translate(s.saveMaxWaitMin), s.saveMaxWaitMin, 1f, 10f, "GT_SaveSmart_Desc".Translate(), s, null));
+            Plain(l, "GT_SaveBuffer", ref s.saveBuffer);
+            if (SaveBuffer.LastMs >= 0f)
+                Note(l, "GT_SaveLast".Translate(SaveBuffer.LastMs.ToString("0"), SaveBuffer.BestMs.ToString("0")));
 
             // 1.2.1: every speed can have its own target and simulation limit
             MUI.Section(l, "GT_SecBySpeed".Translate());
@@ -1132,6 +1141,11 @@ namespace GraphicsTuner
             else if (Widgets.ButtonText(pbtn, "GT_BenchStart".Translate()))
                 Profiler.Start();
             Note(r, "GT_Prof_Note".Translate());
+            // 1.5.0: error doctor
+            if (r.ButtonText("GT_ED_Open".Translate()))
+                Find.WindowStack.Add(new Dialog_ErrorDoctor());
+            TooltipHandler.TipRegion(new Rect(0f, r.CurHeight - 30f, colW, 30f), "GT_ED_Open_Desc".Translate());
+            Plain(r, "GT_ErrorAlert", ref s.errorAlert);
             // 1.4.0: what is expensive on the map
             if (Current.ProgramState == ProgramState.Playing && Find.CurrentMap != null)
             {

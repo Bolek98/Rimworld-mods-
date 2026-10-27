@@ -102,4 +102,29 @@
   <HardyPlants_SecEvents>イベント</HardyPlants_SecEvents>
   <HardyPlants_ImmuneEvents>植物が悪いイベントを無視する</HardyPlants_ImmuneEvents>
   <HardyPlants_ImmuneEventsDesc>干ばつ（MODの乾期も含む）、有毒な煙霧、毒性降下物、汚染によって植物の成長が遅くなったり葉を落としたりしなくなります。寒さと暑さは引き続き影響します。</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>どこで育つか</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>生育マップを隠す</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>{0}がどこで育つかをマップに表示します：緑――よく育つ、黄――遅い、赤――育たない。マスにカーソルを合わせると理由が出ます。右クリック：別の植物。</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>{0}の生育――緑：よく育つ、黄：遅い、赤：育たない。マスにカーソルを合わせると理由が出ます。</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>ここではよく育ちます。</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>成長が遅い：現在{0}、最適は{1}。</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>成長が遅い：屋根の下で光が足りない――ランプを置こう。</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>成長が遅い：やせた土（肥沃度{0}）。</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>今は寒すぎる：{0}、生育範囲は{1}。</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>今は暑すぎる：{0}、生育範囲は{1}。</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>ここでは育たない：土がやせすぎ（{0}、必要{1}）。</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>屋根が必要（洞窟植物）。</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>屋根の下が暗すぎる――ランプが必要。</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>ここには何か建っています。</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>水耕栽培やプランターのみ――ここの地面には植えられません。</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>他MODの植物を自動判定</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>どのバイオームにも載っていない、または木材が取れるのに木として登録されていない他MODの植物を、自身の数値（種類・耐寒性）で分類します。リストでは「auto」と表示されます。</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>{0}より。Evergrowthの判定：{1}、{2}から成長、成長に{3}日。</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>野生植物</HardyPlants_Kind0>
+  <HardyPlants_Kind1>木</HardyPlants_Kind1>
+  <HardyPlants_Kind2>作物</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>{0}として扱います：木材が取れるのに、MODが木として登録していません。</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>どのバイオームにもないため、野生植物グループに追加。</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>どのバイオームにもないため野生植物に追加し、寒さに強いので寒冷バイオームのグループにも追加。</HardyPlants_AutoAddedCold>
 </LanguageData>

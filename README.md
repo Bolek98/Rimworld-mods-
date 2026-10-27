@@ -14,7 +14,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.5.3 | [BodyFit](BodyFit) |
 | Call for Backup – Summon Your Allies | 0.1.0 | [CallForBackup](CallForBackup) |
 | Caravan Helper | 1.0.1 | [CaravanHelper](CaravanHelper) |
-| Evergrowth – Plant Growth Control | 1.8.2 | [Evergrowth](Evergrowth) |
+| Evergrowth – Plant Growth Control | 1.9.0 | [Evergrowth](Evergrowth) |
 | Evergrowth – Wild Plants | 1.1.4 | [EvergrowthWildPlants](EvergrowthWildPlants) |
 | Fewer Freezes – Smart Memory Cleanup | 1.1.1 | [FewerFreezes](FewerFreezes) |
 | Gender Balance | 1.3.3 | [GenderBalance](GenderBalance) |
@@ -32,7 +32,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Research Fixer – Tech Progression | 0.3.3 | [ResearchFixer](ResearchFixer) |
 | Secular Colony – Ideology Off & Tweaks | 1.5.2 | [SecularColony](SecularColony) |
 | Smart Colonist Gear – Auto Equip Weapons & Armor | 2.15.1 | [SmartColonistGear](SmartColonistGear) |
-| Smooth FPS – Performance & Graphics | 1.4.0 | [SmoothFPS](SmoothFPS) |
+| Smooth FPS – Performance & Graphics | 1.5.0 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 3.4.1 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.0.6 | [Steward2/StewardCrises](Steward2/StewardCrises) |
@@ -42,7 +42,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Universal RimTranslator | 2.5.0 | [UniversalRimTranslator](UniversalRimTranslator) |
 | Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.1 | [UnofficialPatch](UnofficialPatch) |
 | Wild Spawn Zone | 1.1.3 | [WildSpawnZone](WildSpawnZone) |
-| World at Your Level – Raiders Match Your Tech | 2.15.0 | [WorldAtYourLevel](WorldAtYourLevel) |
+| World at Your Level – Raiders Match Your Tech | 2.15.1 | [WorldAtYourLevel](WorldAtYourLevel) |
 
 Each folder is a complete mod (About, Assemblies, Defs, Languages, Source), most with a `CHANGELOG.txt`.
 All mods need [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077).

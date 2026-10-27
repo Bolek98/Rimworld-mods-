@@ -285,4 +285,27 @@ Mod Sort Manager は {0} 個の疑わしいModの半分を無効化し、ゲー�
   <MSM_RemovedLater>{0} は使用中です――次回起動時に削除されます（無効化済み）。</MSM_RemovedLater>
   <MSM_RemoveFailed>{0} を削除できませんでした。</MSM_RemoveFailed>
   <MSM_SameExplain>これらは重複でもエラーでもありません。各ペアの MOD はゲームのコードの同じ部分を変更します。正しく作られていれば、変更はロード順に次々と実行され、両方とも動作します。どちらかにバグがある場合にだけ、下に並んだ MOD を妨げることがあります。ここに表示されているという理由だけで MOD を外さないでください。不具合が起きたときに、どの MOD から試すべきかを知るためにこの一覧を使ってください。</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – 同じ役割の MOD</MSM_RivalTitle>
+  <MSM_RivalHint>Mod Sort Manager に内蔵された既知の組み合わせで、コードからの推測ではありません。</MSM_RivalHint>
+  <MSM_Rival_Haul>どちらも一度に複数の物を運びます。{1} が有効な間、{0} の同じ機能は自動でオフになります。どちらか一つだけにしてください。</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>どちらも収穫物を直接ポケットに入れます。{1} が有効な間、{0} のこの機能は自動でオフになります。</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>どちらもゲームのティック処理やゲーム速度を制御します。併用するとカクつきや速度の狂いが起きることがあります。どちらか一つだけにしてください。</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1} は全プレイヤーでゲームがまったく同じに動く必要があります。{0} はゲームの進み方を変えます。併用しないでください。</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0} には {1} の機能（フリーズしないメモリ解放）がすでに含まれています。{1} をオフにしてください。</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>どちらも作業優先度を自動で設定し、互いの設定を上書きします。どちらか一つだけにしてください。</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0} が有効な間はこのタブを担当し、{1} のタブは使われません（{0} の設定で切り替えられます）。</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>どちらもゲームの MOD 画面を置き換えます。{1} が有効な間、Mod Sort Manager は身を引きます。</MSM_Rival_Managers>
+  <MSM_NoteRival>{0} と同じ役割</MSM_NoteRival>
+  <MSM_SameWorks>問題なし – 非表示</MSM_SameWorks>
+  <MSM_SameUnhide>再び一覧に表示</MSM_SameUnhide>
+  <MSM_SameHiddenTag>非表示</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>非表示を表示（{0}）</MSM_SameShowHidden>
+  <MSM_SameHideHidden>非表示を隠す</MSM_SameHideHidden>
+  <MSM_CrashTitle>前回のゲームが正常に終了しませんでした</MSM_CrashTitle>
+  <MSM_CrashText>前回ゲームが正常に終了しませんでした（クラッシュまたはフリーズ）。その少し前の {0} に MOD リストが変更されています：\n\n{1}\n\n変更前のリストに戻しますか？ Mod Sort Manager で開くので、保存する前に確認できます。</MSM_CrashText>
+  <MSM_CrashAdded>追加（{0}）：</MSM_CrashAdded>
+  <MSM_CrashRemoved>削除（{0}）：</MSM_CrashRemoved>
+  <MSM_CrashMoved>順番だけが変わりました。</MSM_CrashMoved>
+  <MSM_CrashRestore>変更前のリストを開く</MSM_CrashRestore>
+  <MSM_CrashKeep>今のリストのままにする</MSM_CrashKeep>
 </LanguageData>

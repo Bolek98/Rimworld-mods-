@@ -1,3 +1,9 @@
+=== Not on the Workshop yet (test versions) ===
+1.5.0
+- Error doctor (Tools): the red errors in the log grouped by message, with the mod that really caused each one (found from its own code in the stack, not from the list of mods that only patch the same method), a short explanation in plain words, how often and since when, and buttons to copy the error for a comment and to open the mod's Workshop page.
+- New errors: a short message when an error from a new place appears in the log (can be switched off).
+- Faster saving: the save file is written in big pieces (1 MB buffer) instead of thousands of tiny ones, so the stop while saving is shorter. The time of the last save is shown in the settings. Saving cannot run in the background – the game must not change while it is written.
+
 === Workshop release 1.4.0 (26 Oct 2026) ===
 1.4.0
 Simulation (Simulation tab)

@@ -102,4 +102,29 @@
   <HardyPlants_SecEvents>Ereignisse</HardyPlants_SecEvents>
   <HardyPlants_ImmuneEvents>Pflanzen ignorieren schlechte Ereignisse</HardyPlants_ImmuneEvents>
   <HardyPlants_ImmuneEventsDesc>Dürre (auch Trockenperioden aus Mods), giftiger Dunst, giftiger Niederschlag und Verschmutzung bremsen Pflanzen nicht mehr und lassen sie nicht mehr kahl werden. Kälte und Hitze zählen weiterhin.</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>Wo es wächst</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>Wachstumskarte ausblenden</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>Zeigt auf der Karte, wo {0} wächst: grün – gut, gelb – langsamer, rot – gar nicht. Fahre über ein Feld für den Grund. Rechtsklick: andere Pflanze.</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>Wo {0} wächst – grün: gut, gelb: langsamer, rot: nein. Fahre über ein Feld für den Grund.</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>Wächst hier gut.</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>Wächst langsamer: jetzt {0}, am besten zwischen {1}.</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>Wächst langsamer: zu wenig Licht unter dem Dach – stell eine Lampe auf.</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>Wächst langsamer: karger Boden ({0} Fruchtbarkeit).</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>Jetzt zu kalt: {0}, wächst zwischen {1}.</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>Jetzt zu heiß: {0}, wächst zwischen {1}.</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>Wächst hier nicht: Boden zu karg ({0}, braucht {1}).</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>Braucht ein Dach (Höhlenpflanze).</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>Unter dem Dach zu dunkel – braucht eine Lampe.</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>Hier ist etwas gebaut.</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>Nur in Hydrokultur oder Pflanzkübel – hier nicht in den Boden.</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>Für Pflanzen anderer Mods schätzen</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>Pflanzen anderer Mods, die kein Biom listet oder die Holz geben, ohne als Baum markiert zu sein, werden nach ihren eigenen Werten eingeordnet (Art, Kältefestigkeit). In der Liste mit „auto“ markiert.</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>Aus {0}. Evergrowth sieht sie als: {1}, wächst ab {2}, {3} Tage Wachstum.</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>Wildpflanze</HardyPlants_Kind0>
+  <HardyPlants_Kind1>Baum</HardyPlants_Kind1>
+  <HardyPlants_Kind2>Feldfrucht</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>Als {0} behandelt: gibt Holz, aber ihr Mod hat sie nicht als Baum markiert.</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>Kein Biom listet sie – zu den Wildpflanzen hinzugefügt.</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>Kein Biom listet sie – zu den Wildpflanzen und, da sie in der Kälte wächst, zu den kalten Biomen hinzugefügt.</HardyPlants_AutoAddedCold>
 </LanguageData>

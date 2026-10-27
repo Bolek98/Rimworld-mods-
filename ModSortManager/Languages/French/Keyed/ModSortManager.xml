@@ -285,4 +285,27 @@ Commencer ?</MSM_BisectConfirm>
   <MSM_RemovedLater>{0} est utilisé en ce moment – il sera retiré au prochain lancement (il est désactivé).</MSM_RemovedLater>
   <MSM_RemoveFailed>Impossible de retirer {0}.</MSM_RemoveFailed>
   <MSM_SameExplain>Ce ne sont ni des doublons ni des erreurs. Les mods de chaque paire modifient la même partie du code du jeu. S'ils sont bien faits, leurs changements s'exécutent simplement l'un après l'autre dans l'ordre de chargement et les deux fonctionnent. Ce n'est que si l'un d'eux a un bug qu'il peut perturber le mod placé en dessous. Ne retire donc pas un mod juste parce qu'il figure ici – utilise cette liste quand quelque chose cloche, pour savoir quels mods tester en premier.</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – font le même travail</MSM_RivalTitle>
+  <MSM_RivalHint>Paire connue de la liste propre à Mod Sort Manager, pas une estimation d'après le code.</MSM_RivalHint>
+  <MSM_Rival_Haul>Les deux transportent plusieurs objets en un trajet. Tant que {1} est actif, la même partie de {0} se désactive d'elle-même – n'en garde qu'un.</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>Les deux mettent la récolte directement dans les poches. Tant que {1} est actif, cette partie de {0} se désactive d'elle-même.</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>Les deux prennent le contrôle de la boucle de ticks ou de la vitesse du jeu. Ensemble, ils peuvent saccader ou fausser la vitesse – n'en garde qu'un.</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1} exige que le jeu tourne exactement pareil chez tous les joueurs ; {0} modifie la façon dont le jeu avance. Ne les utilise pas ensemble.</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0} contient déjà tout ce que fait {1} (nettoyage de la mémoire sans blocages). Désactive {1}.</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>Les deux règlent eux-mêmes les priorités de travail – ils vont écraser les choix de l'autre. N'en garde qu'un.</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0} prend en charge cet onglet tant qu'il est actif ; l'onglet de {1} n'est pas utilisé (modifiable dans les réglages de {0}).</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>Les deux remplacent la fenêtre Mods du jeu. Mod Sort Manager se met de côté tant que {1} est actif.</MSM_Rival_Managers>
+  <MSM_NoteRival>fait le même travail que {0}</MSM_NoteRival>
+  <MSM_SameWorks>Ça marche chez moi – masquer</MSM_SameWorks>
+  <MSM_SameUnhide>Afficher de nouveau dans la liste</MSM_SameUnhide>
+  <MSM_SameHiddenTag>masqué</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>Afficher les masqués ({0})</MSM_SameShowHidden>
+  <MSM_SameHideHidden>Cacher les masqués</MSM_SameHideHidden>
+  <MSM_CrashTitle>La dernière partie ne s'est pas terminée correctement</MSM_CrashTitle>
+  <MSM_CrashText>La dernière fois, le jeu ne s'est pas fermé correctement (plantage ou blocage). Peu avant, à {0}, la liste des mods a été modifiée :\n\n{1}\n\nVeux-tu revenir à la liste d'avant ? Elle s'ouvre dans Mod Sort Manager pour que tu la vérifies avant d'enregistrer.</MSM_CrashText>
+  <MSM_CrashAdded>Ajoutés ({0}) :</MSM_CrashAdded>
+  <MSM_CrashRemoved>Retirés ({0}) :</MSM_CrashRemoved>
+  <MSM_CrashMoved>Seul l'ordre a changé.</MSM_CrashMoved>
+  <MSM_CrashRestore>Ouvrir la liste d'avant</MSM_CrashRestore>
+  <MSM_CrashKeep>Garder ma liste actuelle</MSM_CrashKeep>
 </LanguageData>

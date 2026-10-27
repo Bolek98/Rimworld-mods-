@@ -27,6 +27,8 @@ namespace ModSortManager
         public bool orderGuard = true;
         public bool preSaveCheck = true;
         public int settingsVersion = 1;
+        // 0.2.1: "works for me" – pairs in Possible conflicts the player hid ("idA|idB", lower case, sorted)
+        public List<string> hiddenSame = new List<string>();
 
         public override void ExposeData()
         {
@@ -38,6 +40,8 @@ namespace ModSortManager
             Scribe_Values.Look(ref orderGuard, "orderGuard", true);
             Scribe_Values.Look(ref preSaveCheck, "preSaveCheck", true);
             Scribe_Values.Look(ref settingsVersion, "settingsVersion", 1);
+            Scribe_Collections.Look(ref hiddenSame, "hiddenSame", LookMode.Value);
+            if (hiddenSame == null) hiddenSame = new List<string>();
         }
     }
 
@@ -49,6 +53,7 @@ namespace ModSortManager
         public MSMMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<MSMSettings>();
+            CrashGuard.SessionStart();      // 0.2.1: notice when the last session did not end properly
             Removal.ProcessPending();       // 0.2.1: mods that could not be removed while they were running
             MNews.Register(content, Version);
             MUI.Init(new MSMSettings(), null, "recommended", "settingsVersion", "loadLastSave", "returnToGame");

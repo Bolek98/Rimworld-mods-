@@ -102,4 +102,29 @@
   <HardyPlants_SecEvents>Події</HardyPlants_SecEvents>
   <HardyPlants_ImmuneEvents>Рослини ігнорують погані події</HardyPlants_ImmuneEvents>
   <HardyPlants_ImmuneEventsDesc>Посуха (а також посушливі періоди з модів), отруйний серпанок, токсичні опади й забруднення більше не сповільнюють рослини й не позбавляють їх листя. Холод і спека й далі враховуються.</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>Де росте</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>Сховати карту росту</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>Показує на карті, де росте {0}: зелений – добре, жовтий – повільніше, червоний – зовсім ні. Наведи на клітинку, щоб побачити причину. Правий клік: інша рослина.</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>Де росте {0} – зелений: добре, жовтий: повільніше, червоний: ні. Наведи на клітинку, щоб побачити причину.</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>Тут росте добре.</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>Росте повільніше: зараз {0}, найкраще {1}.</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>Росте повільніше: мало світла під дахом – постав лампу.</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>Росте повільніше: бідний ґрунт (родючість {0}).</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>Зараз надто холодно: {0}, росте при {1}.</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>Зараз надто жарко: {0}, росте при {1}.</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>Тут не росте: надто бідний ґрунт ({0}, потрібно {1}).</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>Потрібен дах (печерна рослина).</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>Під дахом надто темно – потрібна лампа.</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>Тут щось збудовано.</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>Лише в гідропоніці чи вазоні – тут не в землю.</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>Вгадувати для рослин з інших модів</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>Рослини з інших модів, яких немає в жодному біомі або які дають деревину, не будучи позначеними як дерева, розподіляються за власними значеннями (тип, морозостійкість). У списку позначені «auto».</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>З {0}. Evergrowth вважає її: {1}, росте від {2}, росте {3} дн.</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>дика рослина</HardyPlants_Kind0>
+  <HardyPlants_Kind1>дерево</HardyPlants_Kind1>
+  <HardyPlants_Kind2>культура</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>Вважається {0}: дає деревину, але мод не позначив її як дерево.</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>Жоден біом її не містить – додано до групи диких рослин.</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>Жоден біом її не містить – додано до диких рослин і, оскільки росте в холоді, до групи холодних біомів.</HardyPlants_AutoAddedCold>
 </LanguageData>

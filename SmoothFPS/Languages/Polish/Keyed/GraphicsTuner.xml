@@ -386,4 +386,32 @@
   <GT_SimSleepLine>Żywi: {0} czuwa, {1} śpi. Utrzymywane w czuwaniu przez: {2}</GT_SimSleepLine>
   <GT_SimSlept>Uśpiono {0} postaci.</GT_SimSlept>
   <GT_TexCapWaylith>niepotrzebne w 1.7</GT_TexCapWaylith>
+  <GT_SaveBuffer>Szybszy zapis (duży bufor)</GT_SaveBuffer>
+  <GT_SaveBuffer_Desc>Plik zapisu jest zapisywany dużymi kawałkami zamiast wielu małych – przestój przy zapisie jest krótszy. Ten sam plik, ta sama treść. Samego zapisu nie da się przenieść w tło: gra nie może się zmieniać podczas zapisu.</GT_SaveBuffer_Desc>
+  <GT_SaveLast>Ostatni zapis: {0} ms (najlepszy {1} ms)</GT_SaveLast>
+  <GT_ED_Open>Doktor błędów</GT_ED_Open>
+  <GT_ED_Open_Desc>Czerwone błędy z logu pogrupowane, z modem, który naprawdę je spowodował, i co znaczą prostymi słowami.</GT_ED_Open_Desc>
+  <GT_ErrorAlert>Powiadamiaj o nowych błędach</GT_ErrorAlert>
+  <GT_ErrorAlert_Desc>Krótka wiadomość, gdy w logu pojawi się błąd z nowego miejsca – w Doktorze błędów zobaczysz, który mod go spowodował.</GT_ErrorAlert_Desc>
+  <GT_ED_Title>Doktor błędów</GT_ED_Title>
+  <GT_ED_Summary>{0} błędów · {1} rodzajów · z {2} modów</GT_ED_Summary>
+  <GT_ED_Warnings>Także ostrzeżenia</GT_ED_Warnings>
+  <GT_ED_Unknown>Nieznany mod (gra lub nie znaleziono)</GT_ED_Unknown>
+  <GT_ED_Copy>Kopiuj</GT_ED_Copy>
+  <GT_ED_Workshop>Strona Workshop</GT_ED_Workshop>
+  <GT_ED_None>Brak błędów w logu 👍</GT_ED_None>
+  <GT_ED_Copied>Skopiowano – wklej to w komentarzu dla autora moda.</GT_ED_Copied>
+  <GT_ED_NewMsg>Nowy błąd w logu – prawdopodobnie {0}. Szczegóły w Smooth FPS → Doktor błędów.</GT_ED_NewMsg>
+  <GT_ED_K_Null>Coś było puste, choć nie powinno (np. usunięty pionek, przedmiot lub def). Zwykle błąd tego moda lub konflikt z innym – zgłoś go autorowi ze skopiowanym tekstem.</GT_ED_K_Null>
+  <GT_ED_K_MissingDef>Coś, czego mod potrzebuje, nie istnieje: brak wymaganego moda, mod do innej wersji gry lub usunięty przedmiot. Sprawdź wymagania moda.</GT_ED_K_MissingDef>
+  <GT_ED_K_Patch>Nie udało się zastosować zmiany kodu (patch Harmony) – mod jest pewnie do innej wersji lub koliduje z innym modem. Część może nie działać.</GT_ED_K_Patch>
+  <GT_ED_K_Xml>Uszkodzony lub przestarzały plik XML w modzie. Gra pomija tę część; zwykle nieszkodliwe, ale ten przedmiot lub funkcja może zniknąć.</GT_ED_K_Xml>
+  <GT_ED_K_Texture>Brak obrazka lub jest uszkodzony. Dotyczy tylko wyglądu – możesz zobaczyć różowy zamiennik.</GT_ED_K_Texture>
+  <GT_ED_K_Duplicate>Dwa mody dodają to samo. Jeden wygrywa; zwykle nieszkodliwe, ale sprawdź, czy nie masz tego samego moda dwa razy.</GT_ED_K_Duplicate>
+  <GT_ED_K_Cast>Dwa mody nie zgadzają się, czym jest obiekt. Zwykle konflikt modów zmieniających to samo.</GT_ED_K_Cast>
+  <GT_ED_K_List>Mod szukał na liście czegoś, czego tam nie było. Błąd moda – zgłoś go ze skopiowanym tekstem.</GT_ED_K_List>
+  <GT_ED_K_Tick>Błąd podczas aktualizacji czegoś na mapie. Ta rzecz może przestać działać do ponownego wczytania.</GT_ED_K_Tick>
+  <GT_ED_K_PawnGen>Błąd przy tworzeniu pionka (mody ras, ubrań lub broni). Pionek może źle wyglądać lub zostać pominięty.</GT_ED_K_PawnGen>
+  <GT_ED_K_Job>Błąd w pracy kolonisty. Zwykle po prostu robi coś innego.</GT_ED_K_Job>
+  <GT_ED_K_Other>Błąd w kodzie moda. Skopiuj go i wyślij autorowi.</GT_ED_K_Other>
 </LanguageData>

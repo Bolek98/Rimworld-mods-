@@ -285,4 +285,27 @@ Začít?</MSM_BisectConfirm>
   <MSM_RemovedLater>{0} je teď používán – odstraní se při dalším spuštění (je vypnutý).</MSM_RemovedLater>
   <MSM_RemoveFailed>{0} se nepodařilo odstranit.</MSM_RemoveFailed>
   <MSM_SameExplain>Nejsou to duplikáty ani chyby. Mody v každé dvojici mění stejnou část kódu hry. Když jsou udělané dobře, jejich změny se prostě spustí jedna po druhé podle pořadí načítání a fungují oba. Jen když má jeden z nich chybu, může rušit mod seřazený pod ním. Mod proto neodstraňuj jen kvůli tomu, že je tady – seznam použij, až něco zlobí, abys věděl, které mody vyzkoušet nejdřív.</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – dělají stejnou práci</MSM_RivalTitle>
+  <MSM_RivalHint>Známá dvojice z vlastního seznamu Mod Sort Manageru, ne odhad z kódu.</MSM_RivalHint>
+  <MSM_Rival_Haul>Oba nosí víc věcí najednou. Dokud je zapnutý {1}, stejná část {0} se sama vypne – nech zapnutý jen jeden.</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>Oba dávají sklizeň rovnou do kapes. Dokud je zapnutý {1}, tahle část {0} se sama vypne.</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>Oba přebírají tikání nebo rychlost hry. Spolu můžou hru sekat nebo měnit rychlost – nech jen jeden.</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1} potřebuje, aby hra běžela u všech hráčů úplně stejně; {0} mění, jak hra tiká. Nepoužívej je spolu.</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0} už obsahuje všechno z {1} (úklid paměti bez zamrzání). Vypni {1}.</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>Oba samy nastavují priority práce – budou si navzájem přepisovat volby. Nech jen jeden.</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0} tuhle záložku převezme, dokud je zapnutý; záložka z {1} se nepoužije (přepneš to v nastavení {0}).</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>Oba nahrazují herní okno Mody. Mod Sort Manager ustoupí, dokud je zapnutý {1}.</MSM_Rival_Managers>
+  <MSM_NoteRival>dělá stejnou práci jako {0}</MSM_NoteRival>
+  <MSM_SameWorks>U mě funguje – skrýt</MSM_SameWorks>
+  <MSM_SameUnhide>Znovu ukazovat v seznamu</MSM_SameUnhide>
+  <MSM_SameHiddenTag>skryté</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>Ukázat skryté ({0})</MSM_SameShowHidden>
+  <MSM_SameHideHidden>Schovat skryté</MSM_SameHideHidden>
+  <MSM_CrashTitle>Minulá hra neskončila správně</MSM_CrashTitle>
+  <MSM_CrashText>Minule se hra neukončila správně (pád nebo zamrznutí). Krátce předtím, v {0}, se změnil seznam modů:\n\n{1}\n\nChceš se vrátit k seznamu z doby předtím? Otevře se v Mod Sort Manageru, takže ho před uložením zkontroluješ.</MSM_CrashText>
+  <MSM_CrashAdded>Přidané ({0}):</MSM_CrashAdded>
+  <MSM_CrashRemoved>Odebrané ({0}):</MSM_CrashRemoved>
+  <MSM_CrashMoved>Změnilo se jen pořadí.</MSM_CrashMoved>
+  <MSM_CrashRestore>Otevřít seznam z doby předtím</MSM_CrashRestore>
+  <MSM_CrashKeep>Nechat můj současný seznam</MSM_CrashKeep>
 </LanguageData>

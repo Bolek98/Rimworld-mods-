@@ -386,4 +386,32 @@
   <GT_SimSleepLine>存活：{0} 个清醒，{1} 个休眠。保持清醒的原因：{2}</GT_SimSleepLine>
   <GT_SimSlept>已让 {0} 个角色休眠。</GT_SimSlept>
   <GT_TexCapWaylith>1.7 上不需要</GT_TexCapWaylith>
+  <GT_SaveBuffer>更快保存（大写入缓冲）</GT_SaveBuffer>
+  <GT_SaveBuffer_Desc>存档文件以大块写入，而不是很多小块——保存时的停顿更短。文件和内容完全相同。保存本身无法在后台进行：写入时游戏不能变化。</GT_SaveBuffer_Desc>
+  <GT_SaveLast>上次保存：{0} 毫秒（最佳 {1} 毫秒）</GT_SaveLast>
+  <GT_ED_Open>错误医生</GT_ED_Open>
+  <GT_ED_Open_Desc>日志中的红色错误按组显示，附上真正引起错误的模组，并用简单的话说明含义。</GT_ED_Open_Desc>
+  <GT_ErrorAlert>提示新错误</GT_ErrorAlert>
+  <GT_ErrorAlert_Desc>当日志中出现来自新位置的错误时显示简短消息——在错误医生中可以看到是哪个模组引起的。</GT_ErrorAlert_Desc>
+  <GT_ED_Title>错误医生</GT_ED_Title>
+  <GT_ED_Summary>{0} 个错误 · {1} 种 · 来自 {2} 个模组</GT_ED_Summary>
+  <GT_ED_Warnings>也显示警告</GT_ED_Warnings>
+  <GT_ED_Unknown>未知模组（游戏或未找到）</GT_ED_Unknown>
+  <GT_ED_Copy>复制</GT_ED_Copy>
+  <GT_ED_Workshop>创意工坊页面</GT_ED_Workshop>
+  <GT_ED_None>日志中没有错误 👍</GT_ED_None>
+  <GT_ED_Copied>已复制——把它粘贴到给模组作者的评论里。</GT_ED_Copied>
+  <GT_ED_NewMsg>日志中出现新错误——可能来自 {0}。详情见 Smooth FPS → 错误医生。</GT_ED_NewMsg>
+  <GT_ED_K_Null>本不该为空的东西是空的（例如已移除的小人、物品或定义）。通常是该模组的漏洞或与其他模组冲突——把复制的文本报告给作者。</GT_ED_K_Null>
+  <GT_ED_K_MissingDef>模组需要的东西不存在：缺少前置模组、模组适用于其他游戏版本或物品已被移除。请检查模组的前置要求。</GT_ED_K_MissingDef>
+  <GT_ED_K_Patch>代码修改（Harmony 补丁）无法应用——模组可能适用于其他游戏版本或与其他模组冲突。部分功能可能无效。</GT_ED_K_Patch>
+  <GT_ED_K_Xml>模组中的 XML 文件损坏或过时。游戏会跳过这部分；通常无害，但该物品或功能可能缺失。</GT_ED_K_Xml>
+  <GT_ED_K_Texture>图片缺失或损坏。只影响外观——你可能会看到粉色占位图。</GT_ED_K_Texture>
+  <GT_ED_K_Duplicate>两个模组添加了同样的东西。其中一个生效；通常无害，但请检查是否重复安装了同一模组。</GT_ED_K_Duplicate>
+  <GT_ED_K_Cast>两个模组对某个对象是什么看法不一。通常是修改同一内容的模组之间冲突。</GT_ED_K_Cast>
+  <GT_ED_K_List>模组在列表中查找了不存在的东西。这是模组的漏洞——用复制的文本报告。</GT_ED_K_List>
+  <GT_ED_K_Tick>游戏更新地图上某样东西时出错。该东西在重新载入前可能无法工作。</GT_ED_K_Tick>
+  <GT_ED_K_PawnGen>生成小人时出错（种族、服装或武器模组）。该小人可能显示异常或被跳过。</GT_ED_K_PawnGen>
+  <GT_ED_K_Job>殖民者的工作出错。通常他会去做别的事。</GT_ED_K_Job>
+  <GT_ED_K_Other>模组代码出错。复制后发给模组作者。</GT_ED_K_Other>
 </LanguageData>

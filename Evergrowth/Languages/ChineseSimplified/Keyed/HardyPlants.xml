@@ -102,4 +102,29 @@
   <HardyPlants_SecEvents>事件</HardyPlants_SecEvents>
   <HardyPlants_ImmuneEvents>植物无视不利事件</HardyPlants_ImmuneEvents>
   <HardyPlants_ImmuneEventsDesc>干旱（包括模组中的干旱期）、有毒雾霾、毒性尘埃和污染不再减缓植物生长或使其落叶。寒冷和炎热仍然有效。</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>哪里能长</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>隐藏生长地图</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>在地图上显示{0}能在哪里生长：绿色——良好，黄色——较慢，红色——不能。鼠标悬停查看原因。右键：换一种植物。</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>{0}的生长情况——绿：良好，黄：较慢，红：不能。悬停查看原因。</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>这里长得很好。</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>生长较慢：现在{0}，最适宜{1}。</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>生长较慢：屋顶下光线不足——加一盏灯。</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>生长较慢：土壤贫瘠（肥力{0}）。</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>现在太冷：{0}，生长范围{1}。</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>现在太热：{0}，生长范围{1}。</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>这里不能生长：土壤太贫瘠（{0}，需要{1}）。</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>需要屋顶（洞穴植物）。</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>屋顶下太暗——需要灯光。</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>这里建了东西。</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>只能种在水培槽或花盆里——这里的地面不行。</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>为其他模组的植物自动判断</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>其他模组中没有任何生物群系列出、或产木材却未标记为树的植物，会按其自身数值归类（种类、耐寒性）。列表中标记为“auto”。</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>来自{0}。Evergrowth 视其为：{1}，{2}起可生长，生长{3}天。</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>野生植物</HardyPlants_Kind0>
+  <HardyPlants_Kind1>树</HardyPlants_Kind1>
+  <HardyPlants_Kind2>作物</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>按{0}处理：它产出木材，但其模组没有把它标记为树。</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>没有生物群系列出它——已加入野生植物组。</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>没有生物群系列出它——已加入野生植物组，并因耐寒加入寒冷生物群系组。</HardyPlants_AutoAddedCold>
 </LanguageData>

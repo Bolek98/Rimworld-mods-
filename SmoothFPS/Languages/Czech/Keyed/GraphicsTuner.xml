@@ -386,4 +386,32 @@
   <GT_SimSleepLine>Živé: {0} vzhůru, {1} spí. Vzhůru je drží: {2}</GT_SimSleepLine>
   <GT_SimSlept>Uspáno {0} postav.</GT_SimSlept>
   <GT_TexCapWaylith>v 1.7 není potřeba</GT_TexCapWaylith>
+  <GT_SaveBuffer>Rychlejší ukládání (velký zápis)</GT_SaveBuffer>
+  <GT_SaveBuffer_Desc>Soubor s uloženou hrou se zapisuje po velkých kusech místo spousty malých – zastavení při ukládání je kratší. Stejný soubor, stejný obsah. Samotné ukládání nejde přesunout na pozadí: hra se během zápisu nesmí měnit.</GT_SaveBuffer_Desc>
+  <GT_SaveLast>Poslední uložení: {0} ms (nejlepší {1} ms)</GT_SaveLast>
+  <GT_ED_Open>Doktor chyb</GT_ED_Open>
+  <GT_ED_Open_Desc>Červené chyby z logu po skupinách, s modem, který je opravdu způsobil, a co znamenají lidsky.</GT_ED_Open_Desc>
+  <GT_ErrorAlert>Upozornit na nové chyby</GT_ErrorAlert>
+  <GT_ErrorAlert_Desc>Krátká zpráva, když se v logu objeví chyba z nového místa – v Doktoru chyb uvidíš, který mod ji způsobil.</GT_ErrorAlert_Desc>
+  <GT_ED_Title>Doktor chyb</GT_ED_Title>
+  <GT_ED_Summary>{0} chyb · {1} druhů · z {2} modů</GT_ED_Summary>
+  <GT_ED_Warnings>I varování</GT_ED_Warnings>
+  <GT_ED_Unknown>Neznámý mod (hra nebo nenalezen)</GT_ED_Unknown>
+  <GT_ED_Copy>Kopírovat</GT_ED_Copy>
+  <GT_ED_Workshop>Stránka na Workshopu</GT_ED_Workshop>
+  <GT_ED_None>V logu nejsou žádné chyby 👍</GT_ED_None>
+  <GT_ED_Copied>Zkopírováno – vlož to do komentáře autorovi modu.</GT_ED_Copied>
+  <GT_ED_NewMsg>Nová chyba v logu – nejspíš {0}. Podrobnosti v Smooth FPS → Doktor chyb.</GT_ED_NewMsg>
+  <GT_ED_K_Null>Něco bylo prázdné, i když nemělo (třeba odstraněná postava, věc nebo definice). Obvykle chyba v tomto modu nebo střet s jiným modem – pošli autorovi zkopírovaný text.</GT_ED_K_Null>
+  <GT_ED_K_MissingDef>Něco, co mod potřebuje, neexistuje: chybí požadovaný mod, mod je pro jinou verzi hry nebo věc byla odstraněna. Zkontroluj požadavky modu.</GT_ED_K_MissingDef>
+  <GT_ED_K_Patch>Změnu kódu (Harmony patch) nešlo použít – mod je asi pro jinou verzi hry nebo se tluče s jiným modem. Část modu nemusí fungovat.</GT_ED_K_Patch>
+  <GT_ED_K_Xml>Rozbitý nebo zastaralý XML soubor v modu. Hra tu část přeskočí; obvykle neškodné, ale ta věc nebo funkce může chybět.</GT_ED_K_Xml>
+  <GT_ED_K_Texture>Chybí nebo je rozbitý obrázek. Týká se jen vzhledu – můžeš vidět růžový zástupný obrázek.</GT_ED_K_Texture>
+  <GT_ED_K_Duplicate>Dva mody přidávají stejnou věc. Jeden vyhraje; obvykle neškodné, ale zkontroluj, že nemáš stejný mod dvakrát.</GT_ED_K_Duplicate>
+  <GT_ED_K_Cast>Dva mody se neshodnou, co je nějaký objekt. Obvykle střet modů, které mění totéž.</GT_ED_K_Cast>
+  <GT_ED_K_List>Mod hledal v seznamu něco, co tam nebylo. Chyba v modu – pošli autorovi zkopírovaný text.</GT_ED_K_List>
+  <GT_ED_K_Tick>Chyba, když hra aktualizovala něco na mapě. Ta věc může přestat fungovat, dokud hru znovu nenačteš.</GT_ED_K_Tick>
+  <GT_ED_K_PawnGen>Chyba při vytváření postavy (mody ras, oblečení nebo zbraní). Postava může vypadat špatně nebo se vynechá.</GT_ED_K_PawnGen>
+  <GT_ED_K_Job>Chyba v práci kolonisty. Kolonista obvykle prostě dělá něco jiného.</GT_ED_K_Job>
+  <GT_ED_K_Other>Chyba v kódu modu. Zkopíruj ji a pošli autorovi modu.</GT_ED_K_Other>
 </LanguageData>

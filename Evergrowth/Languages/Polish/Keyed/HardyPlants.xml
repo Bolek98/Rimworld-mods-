@@ -102,4 +102,29 @@
   <HardyPlants_SecEvents>Zdarzenia</HardyPlants_SecEvents>
   <HardyPlants_ImmuneEvents>Rośliny ignorują złe zdarzenia</HardyPlants_ImmuneEvents>
   <HardyPlants_ImmuneEventsDesc>Susza (także suche okresy z modów), szkodliwa mgła, toksyczny opad i zanieczyszczenie nie spowalniają już roślin ani nie pozbawiają ich liści. Zimno i upał nadal się liczą.</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>Gdzie rośnie</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>Ukryj mapę wzrostu</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>Pokazuje na mapie, gdzie rośnie {0}: zielony – dobrze, żółty – wolniej, czerwony – wcale. Najedź na pole, by zobaczyć powód. Prawy przycisk: inna roślina.</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>Gdzie rośnie {0} – zielony: dobrze, żółty: wolniej, czerwony: nie. Najedź na pole, by zobaczyć powód.</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>Rośnie tu dobrze.</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>Rośnie wolniej: teraz {0}, najlepiej między {1}.</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>Rośnie wolniej: za mało światła pod dachem – dodaj lampę.</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>Rośnie wolniej: uboga gleba (żyzność {0}).</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>Teraz za zimno: {0}, rośnie między {1}.</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>Teraz za gorąco: {0}, rośnie między {1}.</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>Tu nie rośnie: gleba za uboga ({0}, potrzebuje {1}).</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>Potrzebuje dachu (roślina jaskiniowa).</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>Pod dachem za ciemno – potrzebuje lampy.</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>Coś tu jest zbudowane.</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>Tylko w hydroponice lub donicy – tu nie w ziemi.</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>Zgaduj dla roślin z innych modów</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>Rośliny z innych modów, których nie ma w żadnym biomie lub które dają drewno, choć nie są oznaczone jako drzewo, są przypisane według własnych wartości (rodzaj, odporność na zimno). Na liście mają znak „auto”.</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>Z modu {0}. Evergrowth traktuje ją jako: {1}, rośnie od {2}, rośnie {3} dni.</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>dzika roślina</HardyPlants_Kind0>
+  <HardyPlants_Kind1>drzewo</HardyPlants_Kind1>
+  <HardyPlants_Kind2>uprawa</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>Traktowana jako {0}: daje drewno, ale jej mod nie oznaczył jej jako drzewa.</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>Żaden biom jej nie ma – dodana do grupy dzikich roślin.</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>Żaden biom jej nie ma – dodana do dzikich roślin i, ponieważ rośnie w zimnie, do grupy zimnych biomów.</HardyPlants_AutoAddedCold>
 </LanguageData>

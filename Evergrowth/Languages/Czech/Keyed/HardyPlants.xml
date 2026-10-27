@@ -102,4 +102,29 @@
   <HardyPlants_SecEvents>Události</HardyPlants_SecEvents>
   <HardyPlants_ImmuneEvents>Rostliny ignorují špatné události</HardyPlants_ImmuneEvents>
   <HardyPlants_ImmuneEventsDesc>Sucho (i období sucha z modů), jedovatý opar, toxický spad a znečištění už rostliny nezpomalí ani neshodí listí. Zima a horko platí dál.</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>Kde roste</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>Skrýt mapu růstu</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>Ukáže na mapě, kde roste {0}: zeleně – dobře, žlutě – pomaleji, červeně – vůbec. Najeď na políčko pro důvod. Pravé tlačítko: jiná rostlina.</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>Kde roste {0} – zelená: dobře, žlutá: pomaleji, červená: ne. Najeď na políčko pro důvod.</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>Tady roste dobře.</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>Roste pomaleji: teď {0}, nejlépe mezi {1}.</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>Roste pomaleji: pod střechou je málo světla – přidej lampu.</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>Roste pomaleji: chudá půda (úrodnost {0}).</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>Teď moc zima: {0}, roste mezi {1}.</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>Teď moc horko: {0}, roste mezi {1}.</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>Tady neroste: moc chudá půda ({0}, potřebuje {1}).</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>Potřebuje střechu (jeskynní rostlina).</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>Pod střechou je moc tma – potřebuje lampu.</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>Je tu něco postavené.</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>Jen v hydroponii nebo truhlíku – tady do země ne.</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>Odhadnout u rostlin z jiných modů</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>Rostliny z jiných modů, které nemá žádný biom, nebo dávají dřevo a nejsou označené jako strom, se zařadí podle vlastních hodnot (druh, odolnost proti zimě). V seznamu mají značku „auto“.</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>Z modu {0}. Evergrowth ji bere jako: {1}, roste od {2}, roste {3} dní.</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>divoká rostlina</HardyPlants_Kind0>
+  <HardyPlants_Kind1>strom</HardyPlants_Kind1>
+  <HardyPlants_Kind2>plodina</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>Bere se jako {0}: dává dřevo, ale její mod ji neoznačil jako strom.</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>Nemá ji žádný biom – přidaná do skupiny divokých rostlin.</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>Nemá ji žádný biom – přidaná do divokých rostlin a protože roste v zimě, i do skupiny chladných biomů.</HardyPlants_AutoAddedCold>
 </LanguageData>

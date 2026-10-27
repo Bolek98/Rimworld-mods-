@@ -251,6 +251,21 @@ namespace ModSortManager
                 }
             }
 
+            // 0.2.1: known mods that do the same job (one switches itself off, or they fight)
+            foreach (Rivals.Hit h in Rivals.Find(active))
+            {
+                var iss = new Issue { group = 1, sev = h.rule.sev, title = "MSM_RivalTitle".Translate(h.a.Name, h.b.Name) };
+                iss.text = ("MSM_Rival_" + h.rule.key).Translate(h.a.Name, h.b.Name).ToString() + "\n" + "MSM_RivalHint".Translate();
+                ModMetaData ra = h.a, rb = h.b;
+                iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateX".Translate(ra.Name.Truncate(120f)), () => Deactivate(ra)));
+                iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateX".Translate(rb.Name.Truncate(120f)), () => Deactivate(rb)));
+                issues.Add(iss);
+                Sorter.Mark(marks, ra, h.rule.sev);
+                Sorter.Mark(marks, rb, h.rule.sev);
+                Note(ra, h.rule.sev, "MSM_NoteRival".Translate(rb.Name));
+                Note(rb, h.rule.sev, "MSM_NoteRival".Translate(ra.Name));
+            }
+
             // load order rules
             List<string> order = Sorter.OrderProblems(active, marks);
             if (order.Count > 0)
@@ -279,10 +294,16 @@ namespace ModSortManager
             }
 
             // doing the same thing
+            hiddenSameCount = 0;
             foreach (SamePair sp in same)
             {
                 if (!active.Contains(sp.a) || !active.Contains(sp.b)) continue;
-                var iss = new Issue { group = 2, sev = Sev.Info, title = sp.a.Name + " × " + sp.b.Name };
+                // 0.2.1: "works for me" – the player hid this pair
+                string hk = SameKey(sp);
+                bool hidden = MSMMod.Settings.hiddenSame.Contains(hk);
+                if (hidden) hiddenSameCount++;
+                if (hidden && !showHiddenSame) continue;
+                var iss = new Issue { group = 2, sev = Sev.Info, title = sp.a.Name + " × " + sp.b.Name + (hidden ? "  · " + "MSM_SameHiddenTag".Translate() : "") };
                 iss.text = (sp.hot ? "MSM_SameHot".Translate() : "MSM_SameText".Translate()).ToString() + " (" + sp.methods.Count + "): " + string.Join(", ", sp.methods.Take(4).ToArray()) + (sp.methods.Count > 4 ? "…" : "");
                 // 0.1.7: how they change it – first two methods, the rest in the details window
                 foreach (SameMethod d in sp.detail.Take(2))
@@ -297,7 +318,12 @@ namespace ModSortManager
                 }
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(sp.a.Name.Truncate(120f)), () => { selected = p.a; tab = 0; }));
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(sp.b.Name.Truncate(120f)), () => { selected = p.b; tab = 0; }));
+                if (hidden)
+                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_SameUnhide".Translate(), () => { MSMMod.Settings.hiddenSame.Remove(hk); MSMMod.Settings.Write(); dirty = true; }));
+                else
+                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_SameWorks".Translate(), () => { if (!MSMMod.Settings.hiddenSame.Contains(hk)) MSMMod.Settings.hiddenSame.Add(hk); MSMMod.Settings.Write(); dirty = true; }));
                 issues.Add(iss);
+                if (hidden) continue;
                 Sorter.Mark(marks, sp.a, Sev.Info);
                 Sorter.Mark(marks, sp.b, Sev.Info);
                 Note(sp.a, Sev.Info, "MSM_NoteSame".Translate(sp.b.Name));
@@ -321,6 +347,16 @@ namespace ModSortManager
             nProbCache = active.Count(x => marks.ContainsKey(x));
             indexOf.Clear();
             for (int k = 0; k < active.Count; k++) indexOf[active[k]] = k;
+        }
+
+        // 0.2.1: hidden "works for me" pairs
+        private int hiddenSameCount;
+        private bool showHiddenSame;
+
+        private static string SameKey(SamePair sp)
+        {
+            string a = sp.a.PackageId.ToLowerInvariant(), b = sp.b.PackageId.ToLowerInvariant();
+            return string.CompareOrdinal(a, b) <= 0 ? a + "|" + b : b + "|" + a;
         }
 
         private void Note(ModMetaData m, Sev s, string text)
@@ -1239,7 +1275,22 @@ namespace ModSortManager
                 string head = groupKeys[g].Translate().ToString().ToUpperInvariant() + " · " + gi.Count + (gi.Count > 0 ? (collapsed[g] ? "  ▸" : "  ▾") : "");
                 Label(new Rect(16f, hr.y, cardW - 16f, 24f), head, groupCol[g], GameFont.Small, TextAnchor.MiddleLeft, false);
                 if (g == 2)
+                {
                     Label(new Rect(16f + Text.CalcSize(head).x + 16f, hr.y, 360f, 24f), "MSM_SameHint".Translate(), MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false);
+                    // 0.2.1: pairs hidden with "works for me" can be shown again
+                    if (hiddenSameCount > 0)
+                    {
+                        string hl = showHiddenSame ? "MSM_SameHideHidden".Translate().ToString() : "MSM_SameShowHidden".Translate(hiddenSameCount).ToString();
+                        Text.Font = GameFont.Tiny;
+                        float bw = Text.CalcSize(hl).x + 20f;
+                        Text.Font = GameFont.Small;
+                        if (Button(new Rect(hr.xMax - bw, hr.y + 1f, bw, 22f), hl))
+                        {
+                            showHiddenSame = !showHiddenSame;
+                            dirty = true;
+                        }
+                    }
+                }
                 if (gi.Count > 0 && Widgets.ButtonInvisible(hr)) collapsed[g] = !collapsed[g];
                 y += 32f;
                 if (gi.Count == 0)

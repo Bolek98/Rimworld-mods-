@@ -1,6 +1,9 @@
 === Not on the Workshop yet (test versions) ===
 2.15.1
 - "Gear up now" button on every colonist (and on several selected at once): checks weapons, armor and clothes right away and keeps checking for an hour, so everything of the newest era and the best gear is taken one after another. Weapons you equipped by hand stay.
+- Gear overview: a new "Takes next" column – what each colonist would take next and where it lies (storage or map), or "nothing better".
+- "Allow this kind": select a locked weapon or piece of apparel and allow its kind anyway (or lock it again). Exceptions are listed in the settings (Bans tab) and removed with one click.
+- New option "Enemy gear only from storage" (on by default): weapons and apparel dropped by enemies or stripped from them are not taken straight from the battlefield, only once they are in storage.
 - Faster: the debug summary asks for the lock reason once per kind of item (was a 100+ ms stop on big maps), and the lock reasons are written to the log only when they change.
 - Translations: German, French, Spanish, Brazilian Portuguese, Polish, Russian, Ukrainian, Simplified Chinese, Japanese, Korean.
 

@@ -386,4 +386,32 @@
   <GT_SimSleepLine>Lebend: {0} wach, {1} schlafend. Wachgehalten durch: {2}</GT_SimSleepLine>
   <GT_SimSlept>{0} Figuren schlafen gelegt.</GT_SimSlept>
   <GT_TexCapWaylith>in 1.7 nicht nötig</GT_TexCapWaylith>
+  <GT_SaveBuffer>Schnelleres Speichern (großer Schreibpuffer)</GT_SaveBuffer>
+  <GT_SaveBuffer_Desc>Die Speicherdatei wird in großen statt vielen kleinen Stücken geschrieben – der Halt beim Speichern ist kürzer. Gleiche Datei, gleicher Inhalt. Das Speichern selbst kann nicht im Hintergrund laufen: das Spiel darf sich währenddessen nicht ändern.</GT_SaveBuffer_Desc>
+  <GT_SaveLast>Letztes Speichern: {0} ms (beste {1} ms)</GT_SaveLast>
+  <GT_ED_Open>Fehlerdoktor</GT_ED_Open>
+  <GT_ED_Open_Desc>Die roten Fehler im Log gruppiert, mit dem Mod, der sie wirklich verursacht hat, und was sie in einfachen Worten bedeuten.</GT_ED_Open_Desc>
+  <GT_ErrorAlert>Neue Fehler melden</GT_ErrorAlert>
+  <GT_ErrorAlert_Desc>Eine kurze Nachricht, wenn ein Fehler von einer neuen Stelle im Log erscheint – im Fehlerdoktor siehst du, welcher Mod es war.</GT_ErrorAlert_Desc>
+  <GT_ED_Title>Fehlerdoktor</GT_ED_Title>
+  <GT_ED_Summary>{0} Fehler · {1} Arten · von {2} Mods</GT_ED_Summary>
+  <GT_ED_Warnings>Auch Warnungen</GT_ED_Warnings>
+  <GT_ED_Unknown>Unbekannter Mod (Spiel oder nicht gefunden)</GT_ED_Unknown>
+  <GT_ED_Copy>Kopieren</GT_ED_Copy>
+  <GT_ED_Workshop>Workshop-Seite</GT_ED_Workshop>
+  <GT_ED_None>Keine Fehler im Log 👍</GT_ED_None>
+  <GT_ED_Copied>Kopiert – füge es in einen Kommentar für den Autor ein.</GT_ED_Copied>
+  <GT_ED_NewMsg>Neuer Fehler im Log – wahrscheinlich {0}. Details unter Smooth FPS → Fehlerdoktor.</GT_ED_NewMsg>
+  <GT_ED_K_Null>Etwas war leer, das es nicht sein sollte (z. B. ein entfernter Pawn, Gegenstand oder Def). Meist ein Fehler in diesem Mod oder ein Konflikt mit einem anderen – melde ihn mit dem kopierten Text.</GT_ED_K_Null>
+  <GT_ED_K_MissingDef>Etwas, das der Mod braucht, existiert nicht: ein fehlender benötigter Mod, ein Mod für eine andere Spielversion oder ein entfernter Gegenstand. Prüfe die Anforderungen des Mods.</GT_ED_K_MissingDef>
+  <GT_ED_K_Patch>Eine Codeänderung (Harmony-Patch) konnte nicht angewendet werden – der Mod ist wohl für eine andere Spielversion oder kollidiert mit einem anderen Mod. Teile davon funktionieren evtl. nicht.</GT_ED_K_Patch>
+  <GT_ED_K_Xml>Eine kaputte oder veraltete XML-Datei in einem Mod. Das Spiel überspringt diesen Teil; meist harmlos, aber dieser Gegenstand oder diese Funktion fehlt evtl.</GT_ED_K_Xml>
+  <GT_ED_K_Texture>Ein Bild fehlt oder ist kaputt. Nur das Aussehen ist betroffen – evtl. siehst du einen rosa Platzhalter.</GT_ED_K_Texture>
+  <GT_ED_K_Duplicate>Zwei Mods fügen dasselbe hinzu. Einer gewinnt; meist harmlos, aber prüfe, ob du denselben Mod nicht doppelt hast.</GT_ED_K_Duplicate>
+  <GT_ED_K_Cast>Zwei Mods sind sich nicht einig, was ein Objekt ist. Meist ein Konflikt zwischen Mods, die dasselbe ändern.</GT_ED_K_Cast>
+  <GT_ED_K_List>Ein Mod suchte in einer Liste etwas, das nicht da war. Ein Fehler im Mod – melde ihn mit dem kopierten Text.</GT_ED_K_List>
+  <GT_ED_K_Tick>Ein Fehler, während das Spiel etwas auf der Karte aktualisierte. Das Ding funktioniert evtl. bis zum Neuladen nicht.</GT_ED_K_Tick>
+  <GT_ED_K_PawnGen>Ein Fehler beim Erstellen eines Pawns (Rassen-, Kleidungs- oder Waffenmods). Der Pawn sieht evtl. falsch aus oder wird übersprungen.</GT_ED_K_PawnGen>
+  <GT_ED_K_Job>Ein Fehler in der Arbeit eines Kolonisten. Meist macht er einfach etwas anderes.</GT_ED_K_Job>
+  <GT_ED_K_Other>Ein Fehler im Code eines Mods. Kopiere ihn und schicke ihn dem Autor.</GT_ED_K_Other>
 </LanguageData>

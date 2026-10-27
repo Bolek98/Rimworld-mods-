@@ -386,4 +386,32 @@
   <GT_SimSleepLine>生存：起きている {0}、休眠中 {1}。起きたままにしている要因：{2}</GT_SimSleepLine>
   <GT_SimSlept>{0} 体のポーンを休眠させました。</GT_SimSlept>
   <GT_TexCapWaylith>1.7では不要</GT_TexCapWaylith>
+  <GT_SaveBuffer>保存を速く（大きな書き込みバッファ）</GT_SaveBuffer>
+  <GT_SaveBuffer_Desc>セーブファイルを細かく何度も書く代わりに大きな塊で書きます。保存中の停止が短くなります。ファイルも内容も同じです。保存そのものはバックグラウンドで行えません（書き込み中にゲームが変化してはいけないため）。</GT_SaveBuffer_Desc>
+  <GT_SaveLast>前回の保存：{0} ms（最短 {1} ms）</GT_SaveLast>
+  <GT_ED_Open>エラードクター</GT_ED_Open>
+  <GT_ED_Open_Desc>ログの赤いエラーをまとめて表示し、本当に原因となった MOD と、その意味をわかりやすく説明します。</GT_ED_Open_Desc>
+  <GT_ErrorAlert>新しいエラーを知らせる</GT_ErrorAlert>
+  <GT_ErrorAlert_Desc>新しい場所からのエラーがログに出たときに短いメッセージを表示します。エラードクターでどの MOD が原因か確認できます。</GT_ErrorAlert_Desc>
+  <GT_ED_Title>エラードクター</GT_ED_Title>
+  <GT_ED_Summary>{0} 件のエラー · {1} 種類 · {2} 個の MOD</GT_ED_Summary>
+  <GT_ED_Warnings>警告も表示</GT_ED_Warnings>
+  <GT_ED_Unknown>不明な MOD（ゲーム本体または見つからない）</GT_ED_Unknown>
+  <GT_ED_Copy>コピー</GT_ED_Copy>
+  <GT_ED_Workshop>Workshop ページ</GT_ED_Workshop>
+  <GT_ED_None>ログにエラーはありません 👍</GT_ED_None>
+  <GT_ED_Copied>コピーしました。MOD 作者へのコメントに貼り付けてください。</GT_ED_Copied>
+  <GT_ED_NewMsg>ログに新しいエラー – おそらく {0}。詳細は Smooth FPS → エラードクター。</GT_ED_NewMsg>
+  <GT_ED_K_Null>空であってはならないものが空でした（削除されたポーン、アイテム、Def など）。多くはこの MOD のバグか他の MOD との衝突です。コピーした文章を作者に報告してください。</GT_ED_K_Null>
+  <GT_ED_K_MissingDef>MOD に必要なものが存在しません。前提 MOD がない、別のゲームバージョン用の MOD、またはアイテムが削除されています。MOD の前提条件を確認してください。</GT_ED_K_MissingDef>
+  <GT_ED_K_Patch>コードの変更（Harmony パッチ）を適用できませんでした。別のバージョン用か、他の MOD と衝突している可能性があります。一部が動かないかもしれません。</GT_ED_K_Patch>
+  <GT_ED_K_Xml>MOD の XML ファイルが壊れているか古いものです。ゲームはその部分を飛ばします。たいてい無害ですが、そのアイテムや機能が欠ける場合があります。</GT_ED_K_Xml>
+  <GT_ED_K_Texture>画像がないか壊れています。見た目だけの問題で、ピンクの代替画像が表示されることがあります。</GT_ED_K_Texture>
+  <GT_ED_K_Duplicate>2 つの MOD が同じものを追加しています。どちらかが優先されます。たいてい無害ですが、同じ MOD を二重に入れていないか確認してください。</GT_ED_K_Duplicate>
+  <GT_ED_K_Cast>2 つの MOD があるオブジェクトの種類について食い違っています。同じものを変更する MOD 同士の衝突が多いです。</GT_ED_K_Cast>
+  <GT_ED_K_List>MOD がリストにないものを探しました。MOD のバグです。コピーした文章で報告してください。</GT_ED_K_List>
+  <GT_ED_K_Tick>ゲームがマップ上の何かを更新中にエラーが起きました。再読み込みまでその物が動かないことがあります。</GT_ED_K_Tick>
+  <GT_ED_K_PawnGen>ポーン生成中のエラーです（種族・服・武器 MOD）。そのポーンの見た目がおかしいか、生成されないことがあります。</GT_ED_K_PawnGen>
+  <GT_ED_K_Job>入植者の仕事でエラーが起きました。たいてい別のことをするだけです。</GT_ED_K_Job>
+  <GT_ED_K_Other>MOD のコードのエラーです。コピーして作者に送ってください。</GT_ED_K_Other>
 </LanguageData>

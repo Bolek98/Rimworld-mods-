@@ -386,4 +386,32 @@
   <GT_SimSleepLine>Living: {0} awake, {1} asleep. Kept awake by: {2}</GT_SimSleepLine>
   <GT_SimSlept>{0} pawns put to sleep.</GT_SimSlept>
   <GT_TexCapWaylith>not needed on 1.7</GT_TexCapWaylith>
+  <GT_SaveBuffer>Faster saving (big write buffer)</GT_SaveBuffer>
+  <GT_SaveBuffer_Desc>The save file is written in big pieces instead of many tiny ones – the stop while saving is shorter. Same file, same content. Saving itself cannot run in the background: the game must not change while it is written.</GT_SaveBuffer_Desc>
+  <GT_SaveLast>Last save: {0} ms (best {1} ms)</GT_SaveLast>
+  <GT_ED_Open>Error doctor</GT_ED_Open>
+  <GT_ED_Open_Desc>The red errors in the log, grouped, with the mod that really caused them and what they mean in plain words.</GT_ED_Open_Desc>
+  <GT_ErrorAlert>Tell me about new errors</GT_ErrorAlert>
+  <GT_ErrorAlert_Desc>A short message when an error from a new place appears in the log – open the Error doctor to see which mod caused it.</GT_ErrorAlert_Desc>
+  <GT_ED_Title>Error doctor</GT_ED_Title>
+  <GT_ED_Summary>{0} errors · {1} kinds · from {2} mods</GT_ED_Summary>
+  <GT_ED_Warnings>Warnings too</GT_ED_Warnings>
+  <GT_ED_Unknown>Unknown mod (game or not found)</GT_ED_Unknown>
+  <GT_ED_Copy>Copy</GT_ED_Copy>
+  <GT_ED_Workshop>Workshop page</GT_ED_Workshop>
+  <GT_ED_None>No errors in the log 👍</GT_ED_None>
+  <GT_ED_Copied>Copied – paste it into a comment for the mod's author.</GT_ED_Copied>
+  <GT_ED_NewMsg>New error in the log – probably {0}. Details in Smooth FPS → Error doctor.</GT_ED_NewMsg>
+  <GT_ED_K_Null>Something was empty that should not be (for example a removed pawn, item or def). Usually a bug in this mod or a clash with another mod – report it to its author with the copied text.</GT_ED_K_Null>
+  <GT_ED_K_MissingDef>Something the mod needs does not exist: a missing required mod, a mod for another game version or a removed item. Check the mod's requirements.</GT_ED_K_MissingDef>
+  <GT_ED_K_Patch>A code change (Harmony patch) could not be applied – the mod is probably made for another game version or clashes with another mod. Parts of it may not work.</GT_ED_K_Patch>
+  <GT_ED_K_Xml>A broken or outdated XML file in a mod. The game skips that part; usually harmless, but that item or feature may be missing.</GT_ED_K_Xml>
+  <GT_ED_K_Texture>A picture is missing or broken. Only looks are affected – you may see a pink placeholder.</GT_ED_K_Texture>
+  <GT_ED_K_Duplicate>Two mods add the same thing. One of them wins; usually harmless, but check that you don't have the same mod twice.</GT_ED_K_Duplicate>
+  <GT_ED_K_Cast>Two mods disagree about what an object is. Usually a clash between mods that change the same thing.</GT_ED_K_Cast>
+  <GT_ED_K_List>A mod looked for something in a list that was not there. A bug in the mod – report it with the copied text.</GT_ED_K_List>
+  <GT_ED_K_Tick>An error while the game was updating something on the map. That thing may stop working until you reload.</GT_ED_K_Tick>
+  <GT_ED_K_PawnGen>An error while creating a pawn (race, apparel or weapon mods). That pawn may look wrong or be skipped.</GT_ED_K_PawnGen>
+  <GT_ED_K_Job>An error in a colonist's job. The colonist usually just does something else.</GT_ED_K_Job>
+  <GT_ED_K_Other>An error in a mod's code. Copy it and send it to the mod's author.</GT_ED_K_Other>
 </LanguageData>
