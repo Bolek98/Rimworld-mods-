@@ -6805,7 +6805,7 @@ namespace ResearchedLoadout
 			if (SidearmsCompat.Present)
 			{
 				JobDef jd = SidearmsCompat.EquipSecondaryJob;
-				if (jd == null || !SidearmsCompat.CanPickup(pawn, thing))
+				if (jd == null || !SidearmsCompat.CanPickup(pawn, thing) || CountWeapons(pawn) >= CarryRuleFor(pawn).maxWeapons)
 				{
 					return false;
 				}
@@ -6995,6 +6995,11 @@ namespace ResearchedLoadout
 			{
 				return false;
 			}
+			// 2.15.2: the overall limit ("At most weapons per colonist") and no second copy of a carried weapon
+			if (CountWeapons(pawn) >= CarryRuleFor(pawn).maxWeapons || CarriesDef(pawn, thing.def))
+			{
+				return false;
+			}
 			Job job4 = JobMaker.MakeJob(equipSecondaryJob, thing);
 			job4.count = 1;
 			if (!GiveSoftJob(pawn, job4))
@@ -7084,7 +7089,7 @@ namespace ResearchedLoadout
 			{
 				return false;
 			}
-			bool result = false;
+			bool result = DropDuplicateWeapons(pawn);
 			for (int i = 0; i < 8; i++)
 			{
 				bool flag = CountWeapons(pawn) > carryRule.maxWeapons;
@@ -7107,6 +7112,41 @@ namespace ResearchedLoadout
 				GearStorage.TryQueueStore(pawn, lastResultingThing);
 			}
 			return result;
+		}
+
+		// 2.15.2: a second copy of the same weapon (the one in hand or another carried one) is useless – the worse copy goes
+		private static bool DropDuplicateWeapons(Pawn pawn)
+		{
+			if (pawn.inventory == null || pawn.Map == null) return false;
+			bool any = false;
+			for (int guard = 0; guard < 4; guard++)
+			{
+				Thing drop = null;
+				var seen = new Dictionary<ThingDef, Thing>();
+				Thing prim = pawn.equipment?.Primary;
+				if (prim != null) seen[prim.def] = prim;
+				foreach (Thing t in pawn.inventory.innerContainer.InnerListForReading)
+				{
+					if (t?.def == null || !LoadoutFilter.IsManagedWeapon(t.def)) continue;
+					if (seen.TryGetValue(t.def, out Thing other))
+					{
+						// keep the one in hand / the better one; never drop something the player chose
+						Thing worse = other == prim || ScoreWeapon(pawn, other) >= ScoreWeapon(pawn, t) ? t : other;
+						if (worse == prim || IsPlayerChosen(worse)) worse = worse == t ? other : t;
+						if (worse == prim || IsPlayerChosen(worse)) continue;
+						drop = worse;
+						break;
+					}
+					seen[t.def] = t;
+				}
+				if (drop == null) break;
+				SidearmsCompat.Forget(pawn, drop);
+				if (!pawn.inventory.innerContainer.TryDrop(drop, pawn.Position, pawn.Map, ThingPlaceMode.Near, out Thing dropped)) break;
+				RL.Debug(pawn.LabelShort + " odklada duplicitni zbran " + drop.def.defName);
+				GearStorage.TryQueueStore(pawn, dropped);
+				any = true;
+			}
+			return any;
 		}
 
 		private static Thing WorstInventoryWeapon(Pawn pawn)
