@@ -777,7 +777,7 @@ namespace ModSortManager
                         }
                 }
                 result = pairs.Values.Where(p => p != null && (p.hot || p.methods.Count >= 3))
-                    .OrderByDescending(p => p.hot).ThenByDescending(p => p.methods.Count).Take(15).ToList();
+                    .OrderByDescending(p => p.hot).ThenByDescending(p => p.methods.Count).ToList();   // 0.2.2: no cap (it showed only the first 15)
             }
             catch (Exception e)
             {
