@@ -52,7 +52,7 @@
   <MSM_Folder>フォルダ</MSM_Folder>
   <MSM_GrpBreak>不具合の恐れ</MSM_GrpBreak>
   <MSM_GrpDup>重複</MSM_GrpDup>
-  <MSM_GrpSame>同じ機能</MSM_GrpSame>
+  <MSM_GrpSame>競合の可能性（共有コード）</MSM_GrpSame>
   <MSM_Inactive>無効 · {0}</MSM_Inactive>
   <MSM_IncText>{0} の作者によると、これらは併用できません。どちらか一方だけを有効にしてください。</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – 非互換</MSM_IncTitle>
@@ -102,8 +102,8 @@
   <MSM_ProfilesHint>ゲームのModウィンドウ（リストの保存/読み込み）と同じファイルです – このModがなくても使えます。</MSM_ProfilesHint>
   <MSM_ReturnToGame>再起動後にゲームへ戻る</MSM_ReturnToGame>
   <MSM_Revert>すべて元に戻す</MSM_Revert>
-  <MSM_SameHint>読み込まれたModの Harmony パッチからの推定</MSM_SameHint>
-  <MSM_SameHot>どちらもゲームの同じ重要部分を置き換えます – 一つで十分です</MSM_SameHot>
+  <MSM_SameHint>Harmony パッチからの推定 – エラーではありません</MSM_SameHint>
+  <MSM_SameHot>どちらもゲームの同じ重要な部分を置き換えます – 不具合が起きたら最初に確認するペア</MSM_SameHot>
   <MSM_SameText>どちらも同じゲームコードを変更します</MSM_SameText>
   <MSM_SaveFailed>Modリストを保存できませんでした：{0}</MSM_SaveFailed>
   <MSM_SaveProfile>現在のリストを保存</MSM_SaveProfile>
@@ -284,4 +284,5 @@ Mod Sort Manager は {0} 個の疑わしいModの半分を無効化し、ゲー�
   <MSM_RemovedNow>{0} を削除しました。ゲームを再起動して完了してください。</MSM_RemovedNow>
   <MSM_RemovedLater>{0} は使用中です――次回起動時に削除されます（無効化済み）。</MSM_RemovedLater>
   <MSM_RemoveFailed>{0} を削除できませんでした。</MSM_RemoveFailed>
+  <MSM_SameExplain>これらは重複でもエラーでもありません。各ペアの MOD はゲームのコードの同じ部分を変更します。正しく作られていれば、変更はロード順に次々と実行され、両方とも動作します。どちらかにバグがある場合にだけ、下に並んだ MOD を妨げることがあります。ここに表示されているという理由だけで MOD を外さないでください。不具合が起きたときに、どの MOD から試すべきかを知るためにこの一覧を使ってください。</MSM_SameExplain>
 </LanguageData>

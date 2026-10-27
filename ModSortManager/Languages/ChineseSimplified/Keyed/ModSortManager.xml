@@ -52,7 +52,7 @@
   <MSM_Folder>文件夹</MSM_Folder>
   <MSM_GrpBreak>可能导致崩溃</MSM_GrpBreak>
   <MSM_GrpDup>重复安装</MSM_GrpDup>
-  <MSM_GrpSame>功能重复</MSM_GrpSame>
+  <MSM_GrpSame>可能的冲突（共享代码）</MSM_GrpSame>
   <MSM_Inactive>未启用 · {0}</MSM_Inactive>
   <MSM_IncText>{0} 的作者声明二者不兼容。请只启用其中一个。</MSM_IncText>
   <MSM_IncTitle>{0} × {1} —— 不兼容</MSM_IncTitle>
@@ -102,8 +102,8 @@
   <MSM_ProfilesHint>与游戏自带模组窗口使用同样的文件(保存/载入列表)——不用本模组也能用。</MSM_ProfilesHint>
   <MSM_ReturnToGame>重启后返回游戏</MSM_ReturnToGame>
   <MSM_Revert>全部撤销</MSM_Revert>
-  <MSM_SameHint>根据已加载模组的 Harmony 补丁估算</MSM_SameHint>
-  <MSM_SameHot>两者都替换了游戏同一处重要部分——留一个就够</MSM_SameHot>
+  <MSM_SameHint>根据 Harmony 补丁估计——不是错误</MSM_SameHint>
+  <MSM_SameHot>两者替换了游戏的同一重要部分——出问题时首先检查的一对</MSM_SameHot>
   <MSM_SameText>两者修改了同一段游戏代码</MSM_SameText>
   <MSM_SaveFailed>无法保存模组列表:{0}</MSM_SaveFailed>
   <MSM_SaveProfile>保存当前</MSM_SaveProfile>
@@ -284,4 +284,5 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_RemovedNow>{0} 已移除。重启游戏以完成。</MSM_RemovedNow>
   <MSM_RemovedLater>{0} 正在使用中——将在下次启动时移除（已停用）。</MSM_RemovedLater>
   <MSM_RemoveFailed>无法移除 {0}。</MSM_RemoveFailed>
+  <MSM_SameExplain>这些不是重复，也不是错误。每一对模组修改了游戏代码的同一部分。如果做得好，它们的修改会按加载顺序依次执行，两个都能正常工作。只有当其中一个有漏洞时，才可能干扰排在它下面的模组。所以不要仅仅因为模组出现在这里就移除它——当出问题时再用这个列表，知道先测试哪些模组。</MSM_SameExplain>
 </LanguageData>

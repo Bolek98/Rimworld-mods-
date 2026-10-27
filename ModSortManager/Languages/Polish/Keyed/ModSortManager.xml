@@ -52,7 +52,7 @@
   <MSM_Folder>Folder</MSM_Folder>
   <MSM_GrpBreak>Mogą się psuć</MSM_GrpBreak>
   <MSM_GrpDup>Duplikaty</MSM_GrpDup>
-  <MSM_GrpSame>Robią to samo</MSM_GrpSame>
+  <MSM_GrpSame>Możliwe konflikty (wspólny kod)</MSM_GrpSame>
   <MSM_Inactive>NIEAKTYWNE · {0}</MSM_Inactive>
   <MSM_IncText>Autor moda {0} podaje, że nie działają razem. Zostaw włączony tylko jeden.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – niekompatybilne</MSM_IncTitle>
@@ -102,8 +102,8 @@ Zamknij grę i przenieś je ręcznie. Folder kopii zapasowej: {1}</MSM_KeepFaile
   <MSM_ProfilesHint>Te same pliki co w oknie modów w grze (zapisz/wczytaj listę) – działają także bez tego moda.</MSM_ProfilesHint>
   <MSM_ReturnToGame>Po restarcie wróć do gry</MSM_ReturnToGame>
   <MSM_Revert>Cofnij wszystko</MSM_Revert>
-  <MSM_SameHint>szacunek na podstawie łatek Harmony wczytanych modów</MSM_SameHint>
-  <MSM_SameHot>Oba zastępują tę samą ważną część gry – wystarczy jeden</MSM_SameHot>
+  <MSM_SameHint>szacunek na podstawie patchy Harmony – to nie błąd</MSM_SameHint>
+  <MSM_SameHot>Oba zastępują tę samą ważną część gry – pierwsza para do sprawdzenia, gdy coś nie działa</MSM_SameHot>
   <MSM_SameText>Oba zmieniają ten sam kod gry</MSM_SameText>
   <MSM_SaveFailed>Nie udało się zapisać listy modów: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>Zapisz bieżącą</MSM_SaveProfile>
@@ -284,4 +284,5 @@ Rozpocząć?</MSM_BisectConfirm>
   <MSM_RemovedNow>Usunięto {0}. Uruchom grę ponownie, aby zakończyć.</MSM_RemovedNow>
   <MSM_RemovedLater>{0} jest teraz używany – zostanie usunięty przy następnym uruchomieniu (jest wyłączony).</MSM_RemovedLater>
   <MSM_RemoveFailed>Nie udało się usunąć {0}.</MSM_RemoveFailed>
+  <MSM_SameExplain>To nie są duplikaty ani błędy. Mody w każdej parze zmieniają tę samą część kodu gry. Jeśli są dobrze zrobione, ich zmiany po prostu wykonują się jedna po drugiej w kolejności ładowania i oba działają. Tylko gdy jeden ma błąd, może zakłócać mod ułożony pod nim. Nie usuwaj więc moda tylko dlatego, że tu jest – użyj tej listy, gdy coś nie działa, by wiedzieć, które mody sprawdzić najpierw.</MSM_SameExplain>
 </LanguageData>

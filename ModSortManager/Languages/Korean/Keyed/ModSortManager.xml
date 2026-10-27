@@ -52,7 +52,7 @@
   <MSM_Folder>폴더</MSM_Folder>
   <MSM_GrpBreak>문제 가능성</MSM_GrpBreak>
   <MSM_GrpDup>중복 설치</MSM_GrpDup>
-  <MSM_GrpSame>같은 기능</MSM_GrpSame>
+  <MSM_GrpSame>충돌 가능성 (공유 코드)</MSM_GrpSame>
   <MSM_Inactive>비활성 · {0}</MSM_Inactive>
   <MSM_IncText>{0}의 제작자가 함께 작동하지 않는다고 밝혔습니다. 하나만 활성화하세요.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – 호환되지 않음</MSM_IncTitle>
@@ -102,8 +102,8 @@
   <MSM_ProfilesHint>게임의 모드 창(목록 저장/불러오기)과 같은 파일입니다 – 이 모드 없이도 작동합니다.</MSM_ProfilesHint>
   <MSM_ReturnToGame>재시작 후 게임으로 돌아가기</MSM_ReturnToGame>
   <MSM_Revert>모두 되돌리기</MSM_Revert>
-  <MSM_SameHint>불러온 모드의 Harmony 패치를 바탕으로 한 추정</MSM_SameHint>
-  <MSM_SameHot>둘 다 게임의 같은 핵심 부분을 대체합니다 – 하나면 충분합니다</MSM_SameHot>
+  <MSM_SameHint>Harmony 패치로 추정 – 오류가 아닙니다</MSM_SameHint>
+  <MSM_SameHot>둘 다 게임의 같은 중요한 부분을 대체합니다 – 문제가 생기면 가장 먼저 확인할 쌍</MSM_SameHot>
   <MSM_SameText>둘 다 같은 게임 코드를 변경합니다</MSM_SameText>
   <MSM_SaveFailed>모드 목록을 저장하지 못했습니다: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>현재 목록 저장</MSM_SaveProfile>
@@ -284,4 +284,5 @@ Mod Sort Manager가 의심 모드 {0}개 중 절반을 비활성화하고 게임
   <MSM_RemovedNow>{0}을(를) 제거했습니다. 게임을 재시작해 마무리하세요.</MSM_RemovedNow>
   <MSM_RemovedLater>{0}은(는) 사용 중입니다 – 다음 시작 때 제거됩니다 (꺼져 있음).</MSM_RemovedLater>
   <MSM_RemoveFailed>{0}을(를) 제거하지 못했습니다.</MSM_RemoveFailed>
+  <MSM_SameExplain>이것은 중복도 오류도 아닙니다. 각 쌍의 모드는 게임 코드의 같은 부분을 바꿉니다. 잘 만들어졌다면 변경 사항이 로드 순서대로 차례로 실행되어 둘 다 작동합니다. 둘 중 하나에 버그가 있을 때만 아래에 정렬된 모드를 방해할 수 있습니다. 그러니 여기 있다는 이유만으로 모드를 제거하지 마세요 – 문제가 생겼을 때 어떤 모드를 먼저 시험할지 알기 위해 이 목록을 사용하세요.</MSM_SameExplain>
 </LanguageData>

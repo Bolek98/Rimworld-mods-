@@ -52,7 +52,7 @@
   <MSM_Folder>Папка</MSM_Folder>
   <MSM_GrpBreak>Могут сломаться</MSM_GrpBreak>
   <MSM_GrpDup>Дубликаты</MSM_GrpDup>
-  <MSM_GrpSame>Делают одно и то же</MSM_GrpSame>
+  <MSM_GrpSame>Возможные конфликты (общий код)</MSM_GrpSame>
   <MSM_Inactive>НЕАКТИВНЫЕ · {0}</MSM_Inactive>
   <MSM_IncText>Автор {0} сообщает, что они несовместимы. Оставьте включённым только один.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – несовместимы</MSM_IncTitle>
@@ -102,8 +102,8 @@
   <MSM_ProfilesHint>Те же файлы, что и в окне модов игры (сохранить/загрузить список) – они работают и без этого мода.</MSM_ProfilesHint>
   <MSM_ReturnToGame>Вернуться в игру после перезапуска</MSM_ReturnToGame>
   <MSM_Revert>Отменить всё</MSM_Revert>
-  <MSM_SameHint>оценка по патчам Harmony загруженных модов</MSM_SameHint>
-  <MSM_SameHot>Оба заменяют одну и ту же важную часть игры – достаточно одного</MSM_SameHot>
+  <MSM_SameHint>оценка по патчам Harmony – это не ошибка</MSM_SameHint>
+  <MSM_SameHot>Оба заменяют одну и ту же важную часть игры – первая пара для проверки, если что-то не так</MSM_SameHot>
   <MSM_SameText>Оба изменяют один и тот же код игры</MSM_SameText>
   <MSM_SaveFailed>Не удалось сохранить список модов: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>Сохранить текущий</MSM_SaveProfile>
@@ -284,4 +284,5 @@ Mod Sort Manager выключит половину подозреваемых м
   <MSM_RemovedNow>{0} удалён. Перезапустите игру, чтобы завершить.</MSM_RemovedNow>
   <MSM_RemovedLater>{0} сейчас используется – он будет удалён при следующем запуске (он выключен).</MSM_RemovedLater>
   <MSM_RemoveFailed>Не удалось удалить {0}.</MSM_RemoveFailed>
+  <MSM_SameExplain>Это не дубликаты и не ошибки. Моды в каждой паре меняют одну и ту же часть кода игры. Если они сделаны хорошо, их изменения просто выполняются друг за другом в порядке загрузки, и оба работают. Только если в одном из них есть ошибка, он может мешать моду, стоящему ниже. Поэтому не удаляй мод только потому, что он здесь – используй этот список, когда что-то не так, чтобы знать, какие моды проверить первыми.</MSM_SameExplain>
 </LanguageData>

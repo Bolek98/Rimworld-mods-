@@ -52,7 +52,7 @@
   <MSM_Folder>Carpeta</MSM_Folder>
   <MSM_GrpBreak>Pueden fallar</MSM_GrpBreak>
   <MSM_GrpDup>Duplicados</MSM_GrpDup>
-  <MSM_GrpSame>Hacen lo mismo</MSM_GrpSame>
+  <MSM_GrpSame>Posibles conflictos (código compartido)</MSM_GrpSame>
   <MSM_Inactive>INACTIVOS · {0}</MSM_Inactive>
   <MSM_IncText>El autor de {0} indica que no funcionan juntos. Deja solo uno activado.</MSM_IncText>
   <MSM_IncTitle>{0} × {1}: incompatibles</MSM_IncTitle>
@@ -102,8 +102,8 @@ Cierra el juego y muévelas a mano. Carpeta de respaldo: {1}</MSM_KeepFailed>
   <MSM_ProfilesHint>Los mismos archivos que en la ventana de mods del juego (guardar/cargar lista): funcionan también sin este mod.</MSM_ProfilesHint>
   <MSM_ReturnToGame>Volver a la partida tras reiniciar</MSM_ReturnToGame>
   <MSM_Revert>Deshacer todo</MSM_Revert>
-  <MSM_SameHint>estimación según los parches de Harmony de los mods cargados</MSM_SameHint>
-  <MSM_SameHot>Ambos reemplazan la misma parte importante del juego: basta con uno</MSM_SameHot>
+  <MSM_SameHint>estimación a partir de los parches Harmony – no es un error</MSM_SameHint>
+  <MSM_SameHot>Ambos sustituyen la misma parte importante del juego – la primera pareja a revisar cuando algo falla</MSM_SameHot>
   <MSM_SameText>Ambos modifican el mismo código del juego</MSM_SameText>
   <MSM_SaveFailed>No se pudo guardar la lista de mods: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>Guardar actual</MSM_SaveProfile>
@@ -284,4 +284,5 @@ Importante: no guardes tu colonia durante la prueba: con la mitad de los mods au
   <MSM_RemovedNow>{0} se ha quitado. Reinicia el juego para terminar.</MSM_RemovedNow>
   <MSM_RemovedLater>{0} está en uso ahora – se quitará en el próximo inicio (está desactivado).</MSM_RemovedLater>
   <MSM_RemoveFailed>No se pudo quitar {0}.</MSM_RemoveFailed>
+  <MSM_SameExplain>No son duplicados ni errores. Los mods de cada pareja cambian la misma parte del código del juego. Si están bien hechos, sus cambios simplemente se ejecutan uno tras otro según el orden de carga y ambos funcionan. Solo si uno tiene un fallo puede molestar al mod ordenado debajo. Así que no quites un mod solo porque aparezca aquí: usa esta lista cuando algo falle, para saber qué mods probar primero.</MSM_SameExplain>
 </LanguageData>

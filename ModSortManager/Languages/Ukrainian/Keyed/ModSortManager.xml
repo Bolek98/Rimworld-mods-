@@ -52,7 +52,7 @@
   <MSM_Folder>Папка</MSM_Folder>
   <MSM_GrpBreak>Можуть зламатися</MSM_GrpBreak>
   <MSM_GrpDup>Дублікати</MSM_GrpDup>
-  <MSM_GrpSame>Роблять те саме</MSM_GrpSame>
+  <MSM_GrpSame>Можливі конфлікти (спільний код)</MSM_GrpSame>
   <MSM_Inactive>НЕАКТИВНІ · {0}</MSM_Inactive>
   <MSM_IncText>Автор {0} повідомляє, що вони несумісні. Залиште увімкненим лише один.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – несумісні</MSM_IncTitle>
@@ -102,8 +102,8 @@
   <MSM_ProfilesHint>Ті самі файли, що й у вікні модів гри (зберегти/завантажити список) – вони працюють і без цього мода.</MSM_ProfilesHint>
   <MSM_ReturnToGame>Повернутися до гри після перезапуску</MSM_ReturnToGame>
   <MSM_Revert>Скасувати все</MSM_Revert>
-  <MSM_SameHint>оцінка за патчами Harmony завантажених модів</MSM_SameHint>
-  <MSM_SameHot>Обидва замінюють ту саму важливу частину гри – досить одного</MSM_SameHot>
+  <MSM_SameHint>оцінка за патчами Harmony – це не помилка</MSM_SameHint>
+  <MSM_SameHot>Обидва замінюють ту саму важливу частину гри – перша пара для перевірки, коли щось не так</MSM_SameHot>
   <MSM_SameText>Обидва змінюють той самий код гри</MSM_SameText>
   <MSM_SaveFailed>Не вдалося зберегти список модів: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>Зберегти поточний</MSM_SaveProfile>
@@ -284,4 +284,5 @@ Mod Sort Manager вимкне половину підозрілих модів (
   <MSM_RemovedNow>{0} видалено. Перезапустіть гру, щоб завершити.</MSM_RemovedNow>
   <MSM_RemovedLater>{0} зараз використовується – його буде видалено під час наступного запуску (його вимкнено).</MSM_RemovedLater>
   <MSM_RemoveFailed>Не вдалося видалити {0}.</MSM_RemoveFailed>
+  <MSM_SameExplain>Це не дублікати й не помилки. Моди в кожній парі змінюють ту саму частину коду гри. Якщо вони зроблені добре, їхні зміни просто виконуються одна за одною в порядку завантаження, і обидва працюють. Лише якщо в одному з них є помилка, він може заважати моду, що стоїть нижче. Тож не видаляй мод лише тому, що він тут – використовуй цей список, коли щось не так, щоб знати, які моди перевірити першими.</MSM_SameExplain>
 </LanguageData>

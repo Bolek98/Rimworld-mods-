@@ -52,7 +52,7 @@
   <MSM_Folder>Dossier</MSM_Folder>
   <MSM_GrpBreak>Risque de casse</MSM_GrpBreak>
   <MSM_GrpDup>Doublons</MSM_GrpDup>
-  <MSM_GrpSame>Font la même chose</MSM_GrpSame>
+  <MSM_GrpSame>Conflits possibles (code partagé)</MSM_GrpSame>
   <MSM_Inactive>INACTIFS · {0}</MSM_Inactive>
   <MSM_IncText>L'auteur de {0} indique qu'ils ne fonctionnent pas ensemble. N'en gardez qu'un activé.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – incompatibles</MSM_IncTitle>
@@ -102,8 +102,8 @@ Fermez le jeu et déplacez-les à la main. Dossier de sauvegarde : {1}</MSM_Keep
   <MSM_ProfilesHint>Les mêmes fichiers que dans la fenêtre des mods du jeu (enregistrer/charger la liste) – ils fonctionnent aussi sans ce mod.</MSM_ProfilesHint>
   <MSM_ReturnToGame>Revenir à la partie après redémarrage</MSM_ReturnToGame>
   <MSM_Revert>Tout annuler</MSM_Revert>
-  <MSM_SameHint>estimation d'après les patchs Harmony des mods chargés</MSM_SameHint>
-  <MSM_SameHot>Les deux remplacent la même partie importante du jeu – un seul suffit</MSM_SameHot>
+  <MSM_SameHint>estimation d'après les patchs Harmony – pas une erreur</MSM_SameHint>
+  <MSM_SameHot>Les deux remplacent la même partie importante du jeu – la première paire à vérifier quand quelque chose cloche</MSM_SameHot>
   <MSM_SameText>Les deux modifient le même code du jeu</MSM_SameText>
   <MSM_SaveFailed>Impossible d'enregistrer la liste de mods : {0}</MSM_SaveFailed>
   <MSM_SaveProfile>Enregistrer l'actuelle</MSM_SaveProfile>
@@ -284,4 +284,5 @@ Commencer ?</MSM_BisectConfirm>
   <MSM_RemovedNow>{0} a été retiré. Redémarre le jeu pour terminer.</MSM_RemovedNow>
   <MSM_RemovedLater>{0} est utilisé en ce moment – il sera retiré au prochain lancement (il est désactivé).</MSM_RemovedLater>
   <MSM_RemoveFailed>Impossible de retirer {0}.</MSM_RemoveFailed>
+  <MSM_SameExplain>Ce ne sont ni des doublons ni des erreurs. Les mods de chaque paire modifient la même partie du code du jeu. S'ils sont bien faits, leurs changements s'exécutent simplement l'un après l'autre dans l'ordre de chargement et les deux fonctionnent. Ce n'est que si l'un d'eux a un bug qu'il peut perturber le mod placé en dessous. Ne retire donc pas un mod juste parce qu'il figure ici – utilise cette liste quand quelque chose cloche, pour savoir quels mods tester en premier.</MSM_SameExplain>
 </LanguageData>

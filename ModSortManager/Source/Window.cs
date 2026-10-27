@@ -1199,6 +1199,12 @@ namespace ModSortManager
             catch { return ""; }
         }
 
+        private static float SameExplainH(float w)
+        {
+            Text.Font = GameFont.Small;
+            return Text.CalcHeight("MSM_SameExplain".Translate(), w - 20f) + 14f;
+        }
+
         // ================= tab: problems =================
         private void DrawProblems(Rect body)
         {
@@ -1218,6 +1224,7 @@ namespace ModSortManager
                 List<Issue> gi = issues.Where(i => i.group == g).ToList();
                 if (gi.Count == 0) { total += 30f; continue; }
                 if (collapsed[g]) continue;
+                if (g == 2) total += SameExplainH(cardW) + 8f;
                 foreach (Issue i in gi) total += Height(i, cardW) + 8f;
             }
             Rect view = new Rect(0f, 0f, cardW, Mathf.Max(total + 10f, left.height - 2f));
@@ -1242,6 +1249,16 @@ namespace ModSortManager
                     continue;
                 }
                 if (collapsed[g]) continue;
+                if (g == 2)
+                {
+                    // 0.2.1: these are not duplicates – explain before the list (people removed mods they needed)
+                    float eh = SameExplainH(cardW);
+                    Rect er = new Rect(0f, y, cardW, eh);
+                    MUI.Fill(er, new Color(Info.r, Info.g, Info.b, 0.08f));
+                    MUI.Fill(new Rect(er.x, er.y, 3f, er.height), Info);
+                    Label(new Rect(er.x + 12f, er.y + 6f, er.width - 20f, er.height - 12f), "MSM_SameExplain".Translate(), MUI.Muted, GameFont.Small, TextAnchor.UpperLeft, true);
+                    y += eh + 8f;
+                }
                 foreach (Issue i in gi)
                 {
                     float h = Height(i, cardW);

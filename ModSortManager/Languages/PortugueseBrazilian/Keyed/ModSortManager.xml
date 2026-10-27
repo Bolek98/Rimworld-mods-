@@ -52,7 +52,7 @@
   <MSM_Folder>Pasta</MSM_Folder>
   <MSM_GrpBreak>Podem quebrar</MSM_GrpBreak>
   <MSM_GrpDup>Duplicados</MSM_GrpDup>
-  <MSM_GrpSame>Fazem a mesma coisa</MSM_GrpSame>
+  <MSM_GrpSame>Possíveis conflitos (código compartilhado)</MSM_GrpSame>
   <MSM_Inactive>INATIVOS · {0}</MSM_Inactive>
   <MSM_IncText>O autor de {0} diz que eles não funcionam juntos. Mantenha só um ativado.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – incompatíveis</MSM_IncTitle>
@@ -102,8 +102,8 @@ Feche o jogo e mova-as manualmente. Pasta de backup: {1}</MSM_KeepFailed>
   <MSM_ProfilesHint>Os mesmos arquivos da janela de mods do jogo (salvar/carregar lista) – funcionam também sem este mod.</MSM_ProfilesHint>
   <MSM_ReturnToGame>Voltar ao jogo após reiniciar</MSM_ReturnToGame>
   <MSM_Revert>Desfazer tudo</MSM_Revert>
-  <MSM_SameHint>estimativa pelos patches Harmony dos mods carregados</MSM_SameHint>
-  <MSM_SameHot>Ambos substituem a mesma parte importante do jogo – um basta</MSM_SameHot>
+  <MSM_SameHint>estimativa pelos patches Harmony – não é um erro</MSM_SameHint>
+  <MSM_SameHot>Ambos substituem a mesma parte importante do jogo – o primeiro par a verificar quando algo dá errado</MSM_SameHot>
   <MSM_SameText>Ambos alteram o mesmo código do jogo</MSM_SameText>
   <MSM_SaveFailed>Não foi possível salvar a lista de mods: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>Salvar atual</MSM_SaveProfile>
@@ -284,4 +284,5 @@ Começar?</MSM_BisectConfirm>
   <MSM_RemovedNow>{0} foi removido. Reinicie o jogo para concluir.</MSM_RemovedNow>
   <MSM_RemovedLater>{0} está em uso agora – será removido no próximo início (está desativado).</MSM_RemovedLater>
   <MSM_RemoveFailed>Não foi possível remover {0}.</MSM_RemoveFailed>
+  <MSM_SameExplain>Não são duplicatas nem erros. Os mods de cada par alteram a mesma parte do código do jogo. Se forem bem feitos, as mudanças apenas rodam uma após a outra na ordem de carregamento e os dois funcionam. Só se um deles tiver um bug ele pode atrapalhar o mod ordenado abaixo. Então não remova um mod só porque ele aparece aqui – use esta lista quando algo der errado, para saber quais mods testar primeiro.</MSM_SameExplain>
 </LanguageData>

@@ -52,7 +52,7 @@
   <MSM_Folder>Ordner</MSM_Folder>
   <MSM_GrpBreak>Kann Probleme machen</MSM_GrpBreak>
   <MSM_GrpDup>Duplikate</MSM_GrpDup>
-  <MSM_GrpSame>Machen dasselbe</MSM_GrpSame>
+  <MSM_GrpSame>Mögliche Konflikte (geteilter Code)</MSM_GrpSame>
   <MSM_Inactive>INAKTIV · {0}</MSM_Inactive>
   <MSM_IncText>Laut Autor von {0} funktionieren sie nicht zusammen. Nur eine aktiviert lassen.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – inkompatibel</MSM_IncTitle>
@@ -102,8 +102,8 @@ Schließe das Spiel und verschiebe sie von Hand. Sicherungsordner: {1}</MSM_Keep
   <MSM_ProfilesHint>Dieselben Dateien wie im Mod-Fenster des Spiels (Liste speichern/laden) – sie funktionieren auch ohne diese Mod.</MSM_ProfilesHint>
   <MSM_ReturnToGame>Nach Neustart ins Spiel zurückkehren</MSM_ReturnToGame>
   <MSM_Revert>Alles rückgängig</MSM_Revert>
-  <MSM_SameHint>Schätzung anhand der Harmony-Patches der geladenen Mods</MSM_SameHint>
-  <MSM_SameHot>Beide ersetzen denselben wichtigen Teil des Spiels – eine genügt</MSM_SameHot>
+  <MSM_SameHint>Schätzung aus Harmony-Patches – kein Fehler</MSM_SameHint>
+  <MSM_SameHot>Beide ersetzen denselben wichtigen Teil des Spiels – das erste Paar, das du prüfen solltest, wenn etwas nicht stimmt</MSM_SameHot>
   <MSM_SameText>Beide ändern denselben Spielcode</MSM_SameText>
   <MSM_SaveFailed>Die Mod-Liste konnte nicht gespeichert werden: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>Aktuelle speichern</MSM_SaveProfile>
@@ -284,4 +284,5 @@ Starten?</MSM_BisectConfirm>
   <MSM_RemovedNow>{0} wurde entfernt. Starte das Spiel neu, um es abzuschließen.</MSM_RemovedNow>
   <MSM_RemovedLater>{0} wird gerade benutzt – sie wird beim nächsten Start entfernt (sie ist ausgeschaltet).</MSM_RemovedLater>
   <MSM_RemoveFailed>{0} konnte nicht entfernt werden.</MSM_RemoveFailed>
+  <MSM_SameExplain>Das sind keine Duplikate und keine Fehler. Die Mods jedes Paares ändern denselben Teil des Spielcodes. Sind sie gut gemacht, laufen ihre Änderungen einfach nacheinander in der Ladereihenfolge und beide funktionieren. Nur wenn einer einen Fehler hat, kann er den darunter sortierten Mod stören. Entferne also keinen Mod, nur weil er hier steht – nutze die Liste, wenn etwas nicht stimmt, um zu wissen, welche Mods du zuerst testen solltest.</MSM_SameExplain>
 </LanguageData>

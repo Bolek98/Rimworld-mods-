@@ -52,7 +52,7 @@
   <MSM_Folder>Folder</MSM_Folder>
   <MSM_GrpBreak>May break</MSM_GrpBreak>
   <MSM_GrpDup>Duplicates</MSM_GrpDup>
-  <MSM_GrpSame>Do the same thing</MSM_GrpSame>
+  <MSM_GrpSame>Possible conflicts (shared code)</MSM_GrpSame>
   <MSM_Inactive>INACTIVE · {0}</MSM_Inactive>
   <MSM_IncText>The author of {0} says they do not work together. Keep only one enabled.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – incompatible</MSM_IncTitle>
@@ -102,8 +102,8 @@ Close the game and move them by hand. Backup folder: {1}</MSM_KeepFailed>
   <MSM_ProfilesHint>The same files as in the game's mod window (save/load list) – they work without this mod too.</MSM_ProfilesHint>
   <MSM_ReturnToGame>Return to the game after restart</MSM_ReturnToGame>
   <MSM_Revert>Undo all</MSM_Revert>
-  <MSM_SameHint>estimate from the loaded mods' Harmony patches</MSM_SameHint>
-  <MSM_SameHot>Both replace the same important part of the game – one is enough</MSM_SameHot>
+  <MSM_SameHint>estimate from Harmony patches – not an error</MSM_SameHint>
+  <MSM_SameHot>Both replace the same important part of the game – the first pair to check when something misbehaves</MSM_SameHot>
   <MSM_SameText>Both change the same game code</MSM_SameText>
   <MSM_SaveFailed>The mod list could not be saved: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>Save current</MSM_SaveProfile>
@@ -284,4 +284,5 @@ Start?</MSM_BisectConfirm>
   <MSM_RemovedNow>{0} was removed. Restart the game to finish.</MSM_RemovedNow>
   <MSM_RemovedLater>{0} is in use right now – it is removed at the next start (it is turned off).</MSM_RemovedLater>
   <MSM_RemoveFailed>Could not remove {0}.</MSM_RemoveFailed>
+  <MSM_SameExplain>These are not duplicates and not errors. The mods in each pair change the same part of the game's code. When they are made well, their changes simply run one after another in load order and both work. Only when one of them has a bug can it disturb the mod sorted below it. So do not remove a mod just because it is listed here – use this list when something misbehaves, to know which mods to test first.</MSM_SameExplain>
 </LanguageData>

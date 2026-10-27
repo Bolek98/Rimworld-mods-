@@ -52,7 +52,7 @@
   <MSM_Folder>Složka</MSM_Folder>
   <MSM_GrpBreak>Může se rozbít</MSM_GrpBreak>
   <MSM_GrpDup>Duplikáty</MSM_GrpDup>
-  <MSM_GrpSame>Dělají totéž</MSM_GrpSame>
+  <MSM_GrpSame>Možné konflikty (sdílený kód)</MSM_GrpSame>
   <MSM_Inactive>NEAKTIVNÍ · {0}</MSM_Inactive>
   <MSM_IncText>Autor modu {0} uvádí, že spolu nefungují. Nech zapnutý jen jeden.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – neslučitelné</MSM_IncTitle>
@@ -102,8 +102,8 @@ Zavři hru a přesuň je ručně. Záložní složka: {1}</MSM_KeepFailed>
   <MSM_ProfilesHint>Stejné soubory jako v herním okně modů (Uložit/Načíst seznam) – fungují i bez tohoto modu.</MSM_ProfilesHint>
   <MSM_ReturnToGame>Po restartu se vrátit do hry</MSM_ReturnToGame>
   <MSM_Revert>Vrátit zpět</MSM_Revert>
-  <MSM_SameHint>odhad podle Harmony patchů načtených modů</MSM_SameHint>
-  <MSM_SameHot>Oba nahrazují stejnou důležitou část hry – stačí jeden</MSM_SameHot>
+  <MSM_SameHint>odhad podle Harmony patchů – nejde o chybu</MSM_SameHint>
+  <MSM_SameHot>Oba nahrazují stejnou důležitou část hry – první dvojice ke kontrole, když něco zlobí</MSM_SameHot>
   <MSM_SameText>Oba mění stejný kód hry</MSM_SameText>
   <MSM_SaveFailed>Seznam modů se nepodařilo uložit: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>Uložit aktuální</MSM_SaveProfile>
@@ -284,4 +284,5 @@ Začít?</MSM_BisectConfirm>
   <MSM_RemovedNow>{0} byl odstraněn. Dokonči to restartem hry.</MSM_RemovedNow>
   <MSM_RemovedLater>{0} je teď používán – odstraní se při dalším spuštění (je vypnutý).</MSM_RemovedLater>
   <MSM_RemoveFailed>{0} se nepodařilo odstranit.</MSM_RemoveFailed>
+  <MSM_SameExplain>Nejsou to duplikáty ani chyby. Mody v každé dvojici mění stejnou část kódu hry. Když jsou udělané dobře, jejich změny se prostě spustí jedna po druhé podle pořadí načítání a fungují oba. Jen když má jeden z nich chybu, může rušit mod seřazený pod ním. Mod proto neodstraňuj jen kvůli tomu, že je tady – seznam použij, až něco zlobí, abys věděl, které mody vyzkoušet nejdřív.</MSM_SameExplain>
 </LanguageData>
