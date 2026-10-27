@@ -11,7 +11,7 @@ namespace UniversalRimTranslator
 {
     public static class UrtVersion
     {
-        public const string Number = "2.6.2";
+        public const string Number = "2.6.3";
         public static string Display => Number + " (test)";
     }
 
@@ -478,7 +478,7 @@ namespace UniversalRimTranslator
                         // 2.6.2: show the service's real error (HTTP code, message) instead of only "no service could translate it"
                         string why = st.StartsWith("ready") || st.StartsWith("ok") ? (job.Error ?? st) : st;
                         testResult[p.Id] = job.Result != null ? "✓ " + job.Result : "✗ " + why;
-                        MLog.Info("[URT] test " + p.Name + ": " + (job.Result != null ? "ok" : why) + (p is AzureProvider ? " (" + AzureProvider.Mode + ")" : ""));
+                        MLog.Info("[URT] test " + p.Name + ": " + (job.Result != null ? "ok" : why) + (p is AzureProvider ? " (" + AzureProvider.Mode + ", key " + AzureProvider.KeyPrint(cfg.AzureKey) + ")" : ""));
                     }
                     catch (Exception e) { testResult[p.Id] = "✗ " + e.Message; }
                     finally { testing.TryRemove(p.Id, out _); }

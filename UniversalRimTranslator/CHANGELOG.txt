@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+2.6.3
+- The Azure test writes the length and a short fingerprint of the key it uses to Logs\URT.log (never the key itself), so you can check it is the same key that works elsewhere.
+
 2.6.2
 - Azure Translator: when a key that works elsewhere is rejected (HTTP 401), URT now also sends the key in the request address instead of the header, then tries the regions, and keeps what works. Invisible characters copied with the key are removed.
 - The Test button shows the service's real error (e.g. HTTP 401 and its message) instead of only "no service could translate it", and writes the test result to Logs\URT.log.

@@ -432,6 +432,18 @@ namespace Urt2
             return PostJson(url, body, ct, headers.ToArray());
         }
 
+        // 2.6.3: a short fingerprint of the key (first 8 hex digits of its SHA-256) – lets the player
+        // compare the key URT uses with the one that works elsewhere without the key itself appearing anywhere
+        public static string KeyPrint(string raw)
+        {
+            string key = new string((raw ?? "").Where(c => !char.IsWhiteSpace(c) && !char.IsControl(c) && c != '\uFEFF' && c != '\u200B').ToArray());
+            using (var sha = System.Security.Cryptography.SHA256.Create())
+            {
+                byte[] h = sha.ComputeHash(Encoding.UTF8.GetBytes(key));
+                return key.Length + " chars, fingerprint " + BitConverter.ToString(h, 0, 4).Replace("-", "");
+            }
+        }
+
         public static string Mode => (useQuery ? "key in address" : "key in header") + ", region " + (FoundRegion == null ? "from settings" : FoundRegion.Length == 0 ? "none" : FoundRegion);
 
         public static void KeyChanged() { probed = false; FoundRegion = null; useQuery = false; }
