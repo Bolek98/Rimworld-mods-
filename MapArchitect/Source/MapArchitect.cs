@@ -496,8 +496,22 @@ namespace MapArchitect
 
 		public override bool DragDrawMeasurements => true;
 
+		// 0.4.3: survival mode – only terraforming tools are shown; they need research
+		// and cost materials from storage (see Survival)
+		protected virtual bool Terraforming => false;
+
+		// materials for these cells in survival mode (default: steel per cell)
+		protected virtual Dictionary<ThingDef, int> CostFor(List<IntVec3> cells) => Survival.PerCell(cells.Count);
+
+		public override bool Visible => !Survival.On || Terraforming;
+
 		public override void ProcessInput(Event ev)
 		{
+			if (Survival.On && Terraforming && !Survival.Researched(out string why))
+			{
+				Messages.Message(why, MessageTypeDefOf.RejectInput, historical: false);
+				return;
+			}
 			if (Preset == null && NeedsChoice && (choice == null || ev.button == 1))
 			{
 				Find.WindowStack.Add(new Dialog_Pick(BaseLabel, Options(), o =>
@@ -520,10 +534,27 @@ namespace MapArchitect
 		{
 			if (choice == null && Preset != null)
 				choice = Preset;
+			List<IntVec3> list = cells.Where(c => c.InBounds(Map)).ToList();
+			// 0.4.3: survival mode – paid from storage first, nothing happens without the materials
+			if (Survival.On)
+			{
+				if (!Terraforming)
+					return;
+				if (!Survival.Researched(out string why))
+				{
+					Messages.Message(why, MessageTypeDefOf.RejectInput, historical: false);
+					return;
+				}
+				Dictionary<ThingDef, int> cost;
+				try { cost = CostFor(list); }
+				catch (Exception ex) { Log.Warning("[Map Architect] cost: " + ex.Message); return; }
+				if (!Survival.TryPay(Map, cost))
+					return;
+			}
 			Undo.Begin(Map);
 			try
 			{
-				Apply(cells.Where(c => c.InBounds(Map)).ToList());
+				Apply(list);
 			}
 			catch (Exception ex)
 			{
@@ -562,6 +593,24 @@ namespace MapArchitect
 					icon = BaseContent.WhiteTex,
 					iconColor = t.uiIconColor
 				}).ToList();
+		}
+
+		protected override bool Terraforming => true;
+
+		// 0.4.3: a floor costs what it costs to build; natural terrain the steel per cell
+		protected override Dictionary<ThingDef, int> CostFor(List<IntVec3> cells)
+		{
+			var def = choice as TerrainDef;
+			int n = def == null ? 0 : cells.Count(c => Map.terrainGrid.TopTerrainAt(c) != def);
+			if (def?.CostList != null && def.CostList.Count > 0)
+			{
+				var cost = new Dictionary<ThingDef, int>();
+				foreach (ThingDefCountClass tc in def.CostList)
+					if (tc?.thingDef != null)
+						cost[tc.thingDef] = (cost.TryGetValue(tc.thingDef, out int a) ? a : 0) + tc.count * n;
+				return cost;
+			}
+			return Survival.PerCell(n);
 		}
 
 		protected override void Apply(List<IntVec3> cells)
@@ -674,6 +723,17 @@ namespace MapArchitect
 
 		protected override string BaseLabel => "MA_Mountain".Translate();
 
+		protected override bool Terraforming => true;
+
+		// 0.4.3: ore veins also cost what they will give when mined (no free steel)
+		protected override Dictionary<ThingDef, int> CostFor(List<IntVec3> cells)
+		{
+			Dictionary<ThingDef, int> cost = Survival.PerCell(cells.Count);
+			if (choice is ThingDef d && d.building?.isResourceRock == true && d.building.mineableThing != null)
+				Survival.Add(cost, d.building.mineableThing, d.building.mineableYield * cells.Count);
+			return cost;
+		}
+
 		protected override List<PickOption> Options()
 		{
 			var list = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.building != null && d.building.isNaturalRock && !d.label.NullOrEmpty())
@@ -743,6 +803,17 @@ namespace MapArchitect
 		}
 
 		protected override string BaseLabel => "MA_Deep".Translate();
+
+		protected override bool Terraforming => true;
+
+		// 0.4.3: deep resources also cost what a drill will get out of them
+		protected override Dictionary<ThingDef, int> CostFor(List<IntVec3> cells)
+		{
+			Dictionary<ThingDef, int> cost = Survival.PerCell(cells.Count);
+			if (choice is ThingDef d)
+				Survival.Add(cost, d, Math.Max(1, d.deepCountPerCell) * cells.Count);
+			return cost;
+		}
 
 		protected override List<PickOption> Options()
 		{
@@ -1110,6 +1181,8 @@ namespace MapArchitect
 		}
 		protected override string BaseLabel => "MA_Smooth".Translate();
 		protected override bool NeedsChoice => false;
+		protected override bool Terraforming => true;   // 0.4.3
+		protected override Dictionary<ThingDef, int> CostFor(List<IntVec3> cells) => Survival.PerCell(cells.Count(c => Map.terrainGrid.TopTerrainAt(c)?.smoothedTerrain != null));
 		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/SmoothSurface");
 		protected override void Apply(List<IntVec3> cells)
 		{
@@ -1303,6 +1376,7 @@ namespace MapArchitect
 		public Designator_MA_RoofBuild() { defaultLabel = "MA_RoofBuild".Translate(); defaultDesc = "MA_RoofBuildDesc".Translate(); }
 		protected override string PresetLabel => "MA_RoofBuild".Translate();
 		protected override object Preset => RoofDefOf.RoofConstructed;
+		protected override bool Terraforming => false;   // 0.4.3: a free tool, hidden in survival mode
 		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/BuildRoofArea");
 		protected override void Apply(List<IntVec3> cells)
 		{
@@ -1317,6 +1391,7 @@ namespace MapArchitect
 		public Designator_MA_RoofRemoveAll() { defaultLabel = "MA_RoofRemoveAll".Translate(); defaultDesc = "MA_RoofRemoveAllDesc".Translate(); }
 		protected override string PresetLabel => "MA_RoofRemoveAll".Translate();
 		protected override object Preset => "any";
+		protected override bool Terraforming => false;   // 0.4.3: a free tool, hidden in survival mode
 		protected override Texture2D LazyIcon() => Pick.Tex("UI/Designators/NoRoofArea");
 		protected override void Apply(List<IntVec3> cells)
 		{

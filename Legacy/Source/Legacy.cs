@@ -42,7 +42,7 @@ namespace Legacy
 
     public class LegacyMod : Mod
     {
-        public const string Version = "0.1.0";
+        public const string Version = "0.1.1";
         public static LegacySettings S;
         private static List<string> recBullets;
 
@@ -185,6 +185,13 @@ namespace Legacy
 
         public static void Save(LRecord r)
         {
+            BuildDoc(r).Save(Path.Combine(Folder, r.id + ".xml"));
+            Forget();
+        }
+
+        // 0.1.1: the record as an XML document (the same for the Legacy folder and an export)
+        private static XmlDocument BuildDoc(LRecord r)
+        {
             var doc = new XmlDocument();
             XmlElement root = doc.CreateElement("Legacy");
             doc.AppendChild(root);
@@ -222,8 +229,88 @@ namespace Legacy
             }
             XmlElement ev = doc.CreateElement("events"); root.AppendChild(ev);
             foreach (string s in r.events) { XmlElement x = doc.CreateElement("e"); x.InnerText = s; ev.AppendChild(x); }
-            doc.Save(Path.Combine(Folder, r.id + ".xml"));
-            Forget();
+            return doc;
+        }
+
+        // ---------- 0.1.1: export / import (Config/Legacy/exports) ----------
+        public static string ExportFolderPath => Path.Combine(Path.Combine(GenFilePaths.ConfigFolderPath, "Legacy"), "exports");
+
+        public static string ExportFolder
+        {
+            get
+            {
+                string f = Path.Combine(Folder, "exports");   // Folder creates Config/Legacy first
+                Directory.CreateDirectory(f);
+                return f;
+            }
+        }
+
+        public static List<string> ExportFiles()
+        {
+            try { return Directory.GetFiles(ExportFolder, "*.xml").OrderByDescending(File.GetLastWriteTime).ToList(); }
+            catch (Exception e) { Log.Warning("[Legacy] exports: " + e.Message); return new List<string>(); }
+        }
+
+        // one self-contained file: the record plus its portraits (PNG as base64)
+        public static string Export(LRecord r)
+        {
+            try
+            {
+                XmlDocument doc = BuildDoc(r);
+                XmlElement pics = doc.CreateElement("portraits");
+                doc.DocumentElement.AppendChild(pics);
+                foreach (LColonist c in r.people)
+                {
+                    if (c.portrait.NullOrEmpty() || !File.Exists(PortraitPath(c.portrait))) continue;
+                    XmlElement e = doc.CreateElement("img");
+                    e.SetAttribute("file", c.portrait);
+                    e.InnerText = Convert.ToBase64String(File.ReadAllBytes(PortraitPath(c.portrait)));
+                    pics.AppendChild(e);
+                }
+                string name = GenText.SanitizeFilename((r.colony ?? "colony").Replace(' ', '_')) + "_" + r.id + ".xml";
+                string path = Path.Combine(ExportFolder, name);
+                doc.Save(path);
+                return path;
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Legacy] export: " + e.Message);
+                return null;
+            }
+        }
+
+        // the file becomes one of the old colonies (a copy with a new id if that id is
+        // already taken by a different record); portraits are written next to the others
+        public static LRecord Import(string path, out bool already)
+        {
+            already = false;
+            try
+            {
+                var doc = new XmlDocument();
+                doc.Load(path);
+                LRecord r = Read(doc, Path.GetFileNameWithoutExtension(path));
+                if (r == null) return null;
+                LRecord same = Get(r.id);
+                if (same != null)
+                {
+                    if (same.savedAt == r.savedAt && same.colony == r.colony) { already = true; return same; }
+                    r.id = r.id + "_" + Guid.NewGuid().ToString("N").Substring(0, 6);
+                }
+                foreach (XmlElement e in doc.DocumentElement.SelectNodes("portraits/img"))
+                {
+                    string file = e.GetAttribute("file");
+                    if (file.NullOrEmpty() || file.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0 || file.Contains("..")) continue;
+                    string to = PortraitPath(file);
+                    if (!File.Exists(to)) File.WriteAllBytes(to, Convert.FromBase64String(e.InnerText));
+                }
+                Save(r);
+                return Get(r.id) ?? r;
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Legacy] import " + Path.GetFileName(path) + ": " + e.Message);
+                return null;
+            }
         }
 
         private static LRecord Load(string path)
@@ -232,12 +319,25 @@ namespace Legacy
             {
                 var doc = new XmlDocument();
                 doc.Load(path);
+                return Read(doc, Path.GetFileNameWithoutExtension(path));
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Legacy] could not read " + Path.GetFileName(path) + ": " + e.Message);
+                return null;
+            }
+        }
+
+        private static LRecord Read(XmlDocument doc, string fallbackId)
+        {
+            try
+            {
                 XmlElement root = doc.DocumentElement;
                 string S(XmlElement e, string n) => e.HasAttribute(n) ? e.GetAttribute(n) : null;
                 int I(XmlElement e, string n) => int.TryParse(S(e, n), NumberStyles.Integer, CultureInfo.InvariantCulture, out int v) ? v : 0;
                 var r = new LRecord
                 {
-                    id = S(root, "id") ?? Path.GetFileNameWithoutExtension(path),
+                    id = S(root, "id") ?? fallbackId,
                     colony = S(root, "colony") ?? "?", faction = S(root, "faction") ?? "", world = S(root, "world") ?? "",
                     worldKey = S(root, "worldKey") ?? "", ending = S(root, "ending") ?? "going",
                     startYear = I(root, "startYear"), endYear = I(root, "endYear"), days = I(root, "days"),
@@ -284,7 +384,7 @@ namespace Legacy
             }
             catch (Exception e)
             {
-                Log.Warning("[Legacy] could not read " + Path.GetFileName(path) + ": " + e.Message);
+                Log.Warning("[Legacy] could not read " + fallbackId + ": " + e.Message);
                 return null;
             }
         }
@@ -1098,6 +1198,44 @@ namespace Legacy
                     Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("LG_WriteConfirm".Translate(), () => { g.Write("going"); }));
             }
             TooltipHandler.TipRegion(new Rect(lc.x, y, lc.width, 30f), "LG_WriteNowTip".Translate());
+            y += 34f;
+            // 0.1.1: export the shown chronicle / import one from Config/Legacy/exports
+            float half = (lc.width - 4f) / 2f;
+            Rect exR = new Rect(lc.x, y, half, 30f), imR = new Rect(lc.x + half + 4f, y, half, 30f);
+            LRecord shown = showCurrent ? cur : sel;
+            if (Widgets.ButtonText(exR, "LG_Export".Translate()))
+            {
+                if (shown == null)
+                    Messages.Message("LG_ExportNothing".Translate(), MessageTypeDefOf.RejectInput, false);
+                else
+                {
+                    string path = Store.Export(shown);
+                    if (path != null) Messages.Message("LG_Exported".Translate(shown.colony, path), MessageTypeDefOf.PositiveEvent, false);
+                    else Messages.Message("LG_ExportFailed".Translate(), MessageTypeDefOf.RejectInput, false);
+                }
+            }
+            TooltipHandler.TipRegion(exR, "LG_ExportTip".Translate(Store.ExportFolderPath));
+            if (Widgets.ButtonText(imR, "LG_Import".Translate()))
+            {
+                var menu = new List<FloatMenuOption>();
+                foreach (string f in Store.ExportFiles())
+                {
+                    string local = f;
+                    menu.Add(new FloatMenuOption(Path.GetFileNameWithoutExtension(f), () =>
+                    {
+                        LRecord got = Store.Import(local, out bool already);
+                        if (got == null) Messages.Message("LG_ImportFailed".Translate(Path.GetFileName(local)), MessageTypeDefOf.RejectInput, false);
+                        else
+                        {
+                            Messages.Message((already ? "LG_ImportAlready" : "LG_Imported").Translate(got.colony), MessageTypeDefOf.PositiveEvent, false);
+                            sel = got; showCurrent = false; storyScroll = Vector2.zero;
+                        }
+                    }));
+                }
+                if (menu.Count == 0) menu.Add(new FloatMenuOption("LG_ImportNone".Translate(), null));
+                Find.WindowStack.Add(new FloatMenu(menu));
+            }
+            TooltipHandler.TipRegion(imR, "LG_ImportTip".Translate(Store.ExportFolderPath));
             y += 40f;
             Widgets.Label(new Rect(lc.x, y, lc.width, 24f), "<b>" + "LG_OldColonies".Translate() + "</b>");
             y += 26f;
