@@ -101,7 +101,7 @@ public static class LayerClip
 		if (!BF.Main)
 			return;
 		var sw = System.Diagnostics.Stopwatch.StartNew();
-		while (sw.ElapsedMilliseconds < 6)
+		while (sw.ElapsedMilliseconds < 6 && !BF.OverBudget)
 		{
 			string key;
 			(string inner, string outer) job;

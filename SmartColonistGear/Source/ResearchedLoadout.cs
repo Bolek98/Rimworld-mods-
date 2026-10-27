@@ -6092,6 +6092,7 @@ namespace ResearchedLoadout
 		private int _lastPauseDiag = -999999;
 
 		private string _lastDiagText;
+		private string _lastReasonText;
 
 		private static readonly FieldInfo NeededWarmthField = AccessTools.Field(typeof(JobGiver_OptimizeApparel), "neededWarmth");
 
@@ -7559,13 +7560,15 @@ namespace ResearchedLoadout
 			}
 			List<string> list = new List<string>();
 			Dictionary<string, int> dictionary = new Dictionary<string, int>();
+			// 2.15.1: the reason is the same for every item of one kind – asked once per kind (was a 100+ ms stop on big maps)
+			var reasonOf = new Dictionary<ThingDef, string>();
 			foreach (Thing item3 in _weaponCache)
 			{
-				CountReason(item3, dictionary, list);
+				CountReason(item3, dictionary, list, reasonOf);
 			}
 			foreach (Thing item4 in _apparelCache)
 			{
-				CountReason(item4, dictionary, list);
+				CountReason(item4, dictionary, list, reasonOf);
 			}
 			List<string> list2 = new List<string>();
 			foreach (KeyValuePair<string, int> item5 in dictionary)
@@ -7575,25 +7578,35 @@ namespace ResearchedLoadout
 			string text = ((list2.Count <= 0) ? null : ("Duvody zamceni: " + string.Join(", ", list2.ToArray()) + " | priklady: " + string.Join("; ", list.ToArray())));
 			string text2 = "Souhrn: uroven kolonie " + LoadoutFilter.ColonyTechPublic().ToStringHuman() + " | zbrane na mape " + num + " (povoleno " + num2 + ", dostupne " + num3 + ") | obleceni " + num4 + " (povoleno " + num5 + ", dostupne " + num6 + ")" + ((!settings.onlyFromStockpile) ? string.Empty : " | jen ze skladu");
 			// 2.6.2: compare without the "available" counts, which change with every hauled item
-			string text3 = LoadoutFilter.ColonyTechPublic().ToStringHuman() + num + "/" + num2 + "|" + num4 + "/" + num5 + text;
-			if (!(text3 == _lastDiagText))
+			// 2.15.1: the lock reasons are written only when they change (not with every new item on the map)
+			if (text != _lastReasonText)
 			{
-				_lastDiagText = text3;
+				_lastReasonText = text;
 				if (text != null)
 				{
 					RL.Debug(text);
 				}
+			}
+			string text3 = LoadoutFilter.ColonyTechPublic().ToStringHuman() + num + "/" + num2 + "|" + num4 + "/" + num5;
+			if (!(text3 == _lastDiagText))
+			{
+				_lastDiagText = text3;
 				RL.Debug(text2);
 			}
 		}
 
-		private static void CountReason(Thing t, Dictionary<string, int> reasons, List<string> examples)
+		private static void CountReason(Thing t, Dictionary<string, int> reasons, List<string> examples, Dictionary<ThingDef, string> reasonOf)
 		{
 			if (t == null || t.def == null || (t.def.IsWeapon && !LoadoutFilter.IsRealWeapon(t.def)))
 			{
 				return;
 			}
-			string text = LoadoutFilter.LockReason(t.def);
+			string text;
+			if (!reasonOf.TryGetValue(t.def, out text))
+			{
+				text = LoadoutFilter.LockReason(t.def);
+				reasonOf[t.def] = text;
+			}
 			if (text != null)
 			{
 				string key = ((!text.StartsWith("vyspelejsi")) ? text : "vyspelejsi nez kolonie");

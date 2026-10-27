@@ -325,11 +325,22 @@ public class BodyFitGameComponent : GameComponent
 			LongEventHandler.ExecuteWhenFinished(Dump.Run);
 	}
 
+	private int turn;
+
 	public override void GameComponentUpdate()
 	{
-		BF.ProcessPending();
-		Refit.ProcessPending();
-		LayerClip.ProcessPending();
+		// 2.5.3: one shared budget; the queues take turns going first so none waits for ever
+		BF.FrameStart();
+		turn = (turn + 1) % 3;
+		for (int i = 0; i < 3; i++)
+		{
+			switch ((turn + i) % 3)
+			{
+				case 0: BF.ProcessPending(); break;
+				case 1: Refit.ProcessPending(); break;
+				default: LayerClip.ProcessPending(); break;
+			}
+		}
 		Shots.Update();
 	}
 

@@ -29,6 +29,17 @@ public static class BF
 
 	public static bool Main => UnityData.IsInMainThread;
 
+	// 2.5.3: one time budget per frame for ALL queued work (textures, outlines, refits, layer clips) –
+	// each queue had its own 6 ms, together with a texture batch that was 40–100 ms stops after loading a game
+	private static readonly System.Diagnostics.Stopwatch frame = new System.Diagnostics.Stopwatch();
+	public const double FrameBudgetMs = 8.0;
+
+	public static void FrameStart() => frame.Restart();
+
+	public static double BudgetLeft => frame.IsRunning ? FrameBudgetMs - frame.Elapsed.TotalMilliseconds : FrameBudgetMs;
+
+	public static bool OverBudget => BudgetLeft <= 0.0;
+
 	// 2.3.0: only the human race is changed by default – alien races (HAR and others) are drawn exactly
 	// as their mod draws them, unless you switch a race on in the Races tab
 	public static bool Handles(Pawn p) => p != null && Handles(p.def);
@@ -80,10 +91,26 @@ public static class BF
 			pendingOutline.CopyTo(outl);
 			pendingOutline.Clear();
 		}
+		// 2.5.3: textures within the frame budget too, the rest next frame
 		for (int i = 0; i < tex.Length; i++)
+		{
+			if (i > 0 && OverBudget)
+			{
+				lock (Gate)
+					for (int k = i; k < tex.Length; k++)
+						pendingTex.Add(tex[k]);
+				break;
+			}
 			Bodies.TextureExists(tex[i]);
-		if (outl.Length == 0)
+		}
+		if (outl.Length == 0 || OverBudget)
+		{
+			if (outl.Length > 0)
+				lock (Gate)
+					for (int k = 0; k < outl.Length; k++)
+						pendingOutline.Add(outl[k]);
 			return;
+		}
 		// 2.2.4: at most ~6 ms of outlines per frame, the rest next frame
 		TraceAllowed = true;
 		var sw = System.Diagnostics.Stopwatch.StartNew();
@@ -94,7 +121,7 @@ public static class BF
 			{
 				Silhouette.Of(outl[i].Item1, new Rot4(outl[i].Item2));
 				doneCount++;
-				if (sw.Elapsed.TotalMilliseconds > 6.0)
+				if (sw.Elapsed.TotalMilliseconds > 6.0 || OverBudget)
 					break;
 			}
 		}

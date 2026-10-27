@@ -143,7 +143,7 @@ public static class Refit
 		var sw = System.Diagnostics.Stopwatch.StartNew();
 		jobs = new List<Job>();
 		bool anyBuilt = false;
-		while (true)
+		while (!BF.OverBudget)
 		{
 			Job next;
 			lock (BF.Gate)
@@ -181,7 +181,7 @@ public static class Refit
 					waiters.Remove(next.key);
 			else
 				skipped++;
-			if (sw.Elapsed.TotalMilliseconds > 6.0)
+			if (sw.Elapsed.TotalMilliseconds > 6.0 || BF.OverBudget)
 				break;
 		}
 		if (anyBuilt)
