@@ -17,6 +17,7 @@ namespace PlaceForEverything
         public bool includeForbidden = false;
         public bool onlyHome = true;         // only items inside the home area
         public bool includeChunks = false;   // rock and slag chunks usually stay where they are
+        public bool stackLimits = true;      // 0.1.2: stack limit / refill per storage (gizmo)
 
         public override void ExposeData()
         {
@@ -27,12 +28,13 @@ namespace PlaceForEverything
             Scribe_Values.Look(ref includeForbidden, "includeForbidden", false);
             Scribe_Values.Look(ref onlyHome, "onlyHome", true);
             Scribe_Values.Look(ref includeChunks, "includeChunks", false);
+            Scribe_Values.Look(ref stackLimits, "stackLimits", true);
         }
     }
 
     public class PFEMod : Mod
     {
-        public const string Version = "0.1.1";
+        public const string Version = "0.1.2";
         public static PFESettings S;
         private static List<string> recBullets;
 
@@ -72,6 +74,7 @@ namespace PlaceForEverything
                 Check(l, "PFE_Forbidden", ref S.includeForbidden, "includeForbidden");
                 Check(l, "PFE_OnlyHome", ref S.onlyHome, "onlyHome");
                 Check(l, "PFE_Chunks", ref S.includeChunks, "includeChunks");
+                Check(l, "PFE_StackLimits", ref S.stackLimits, "stackLimits");
                 l.End();
             }
             finally { MUI.EndLock(rest); }
@@ -511,6 +514,7 @@ namespace PlaceForEverything
         {
             foreach (Gizmo g in __result) yield return g;
             if (__instance.Map != null) yield return Gizmos.Button(__instance.Map);
+            if (__instance.Map != null && PFEMod.S.stackLimits) yield return LimitGizmo.Button(__instance.Map, __instance);   // 0.1.2
         }
     }
 
@@ -521,6 +525,7 @@ namespace PlaceForEverything
         {
             foreach (Gizmo g in __result) yield return g;
             if (__instance.Map != null && __instance.Faction == Faction.OfPlayer) yield return Gizmos.Button(__instance.Map);
+            if (__instance.Map != null && __instance.Faction == Faction.OfPlayer && PFEMod.S.stackLimits) yield return LimitGizmo.Button(__instance.Map, __instance);   // 0.1.2
         }
     }
 }

@@ -47,4 +47,14 @@
   <PFE_OnlyHome_Desc>Only items lying inside the home area count – not loot far away on the map.</PFE_OnlyHome_Desc>
   <PFE_Chunks>Include chunks</PFE_Chunks>
   <PFE_Chunks_Desc>Rock and slag chunks usually stay where they lie. Turn on to find a place for them too.</PFE_Chunks_Desc>
+  <PFE_StackLimits>Stack limit per storage</PFE_StackLimits>
+  <PFE_StackLimits_Desc>Adds a button to every stockpile and shelf: how full a cell may get with one kind of item, and when it is refilled.</PFE_StackLimits_Desc>
+  <PFE_LimitOff>Stack limit</PFE_LimitOff>
+  <PFE_LimitOn>Limit {0} % · refill {1} %</PFE_LimitOn>
+  <PFE_LimitDesc>Limit: a cell of this storage holds at most this share of a full stack of one kind of item (several stacks of one kind on a shelf count together). Refill: a cell that already holds that kind gets more only once it has dropped below this share of the limit. 100 % and 100 % = the game's normal behaviour. Items already stored are never moved out.</PFE_LimitDesc>
+  <PFE_LimitTitle>Stack limit: {0}</PFE_LimitTitle>
+  <PFE_LimitStack>Limit per cell: {0} % of a full stack</PFE_LimitStack>
+  <PFE_LimitRefill>Refill when below {0} % of the limit</PFE_LimitRefill>
+  <PFE_LimitRefillOff>Refill: top up at once</PFE_LimitRefillOff>
+  <PFE_LimitReset>No limit</PFE_LimitReset>
 </LanguageData>

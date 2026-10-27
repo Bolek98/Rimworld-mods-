@@ -47,4 +47,14 @@
   <PFE_OnlyHome_Desc>Počítají se jen věci uvnitř domovské oblasti – ne kořist daleko na mapě.</PFE_OnlyHome_Desc>
   <PFE_Chunks>Počítat i kamení</PFE_Chunks>
   <PFE_Chunks_Desc>Kusy kamene a strusky obvykle zůstávají, kde leží. Zapni, pokud chceš místo i pro ně.</PFE_Chunks_Desc>
+  <PFE_StackLimits>Limit hromádek pro každý sklad</PFE_StackLimits>
+  <PFE_StackLimits_Desc>Přidá ke každému skladu a polici tlačítko: jak moc se smí jedno políčko zaplnit jedním druhem věci a kdy se doplňuje.</PFE_StackLimits_Desc>
+  <PFE_LimitOff>Limit hromádek</PFE_LimitOff>
+  <PFE_LimitOn>Limit {0} % · doplnit {1} %</PFE_LimitOn>
+  <PFE_LimitDesc>Limit: políčko tohoto skladu pojme nejvýš tento podíl plné hromádky jednoho druhu věci (víc hromádek stejného druhu na polici se sčítá). Doplnění: políčko, kde už ten druh leží, dostane další až poté, co klesne pod tento podíl limitu. 100 % a 100 % = běžné chování hry. Věci, které už ve skladu leží, se nikdy neodnášejí.</PFE_LimitDesc>
+  <PFE_LimitTitle>Limit hromádek: {0}</PFE_LimitTitle>
+  <PFE_LimitStack>Limit na políčko: {0} % plné hromádky</PFE_LimitStack>
+  <PFE_LimitRefill>Doplnit, když klesne pod {0} % limitu</PFE_LimitRefill>
+  <PFE_LimitRefillOff>Doplnění: hned dorovnat</PFE_LimitRefillOff>
+  <PFE_LimitReset>Bez limitu</PFE_LimitReset>
 </LanguageData>

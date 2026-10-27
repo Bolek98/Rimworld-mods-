@@ -148,6 +148,7 @@ namespace GraphicsTuner
             if (p.mindState?.enemyTarget != null || p.mindState?.meleeThreat != null) return false;
             if (p.IsBurning() || p.health?.hediffSet?.BleedRateTotal > 0.1f) return false;
             if (p.Faction != Faction.OfPlayer) return false;
+            if (SmoothFPS.ExclusionRules.SkipPawn(p)) return false;   // 1.6.0: opt-out rules of other mods
             if (GenHostility.AnyHostileActiveThreatToPlayer(p.Map, true)) return false;
             return true;
         }

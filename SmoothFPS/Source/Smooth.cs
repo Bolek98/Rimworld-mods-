@@ -938,7 +938,7 @@ namespace GraphicsTuner
 
     public class GTGameComp : GameComponent
     {
-        public GTGameComp(Game game) { Sim.ResetGame(); }
+        public GTGameComp(Game game) { Sim.ResetGame(); RainWash.ResetGame(); }
         public override void FinalizeInit()
         {
             HitchFinder.WatchGeneration();

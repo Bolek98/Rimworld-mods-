@@ -132,6 +132,10 @@ namespace GraphicsTuner
         public bool ultraSpeed;                 // the 4th speed button and key (off = like the game)
         public int dangerSpeed;                 // 0 = like the game (speed 1), 1 = speed 2 allowed, 2 = speed 3 allowed
         public bool hideResources;              // the resource list on the left is drawn only under the mouse
+        // 1.6.0: rain washes the filth away (both off = like the game)
+        public bool rainCall;                   // call rain when there is too much filth outside
+        public int rainThreshold = 1500;        // outdoor filth things on the home maps
+        public bool rainWashAll;                // rain thins all outdoor filth, not only "rainWashes" filth
 
 
         // display – your own choice, never changed by a profile
@@ -270,6 +274,9 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref ultraSpeed, "ultraSpeed", false);
             Scribe_Values.Look(ref dangerSpeed, "dangerSpeed", 0);
             Scribe_Values.Look(ref hideResources, "hideResources", false);
+            Scribe_Values.Look(ref rainCall, "rainCall", false);
+            Scribe_Values.Look(ref rainThreshold, "rainThreshold", 1500);
+            Scribe_Values.Look(ref rainWashAll, "rainWashAll", false);
 
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
                 Preset(profile);
@@ -743,7 +750,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.5.3";
+        public const string Version = "1.6.0";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -780,6 +787,9 @@ namespace GraphicsTuner
             TempSpread.Patch(harmony);              // 1.4.0: room temperatures in parts
             FastNight.Patch(harmony);               // 1.4.0: fast nights
             SpeedControls.Patch(harmony);           // 1.5.3: speed 4, speed during danger, hidden resource list
+            RainWash.Patch(harmony);                // 1.6.0: rain washes the filth away
+            // 1.6.0: opt-out rules of other mods (SmoothFPS.ExclusionDef, Extras/SmoothFPSRules.xml)
+            LongEventHandler.ExecuteWhenFinished(SmoothFPS.ExclusionRules.Load);
             // 1.3.4: no more swapping textures that were loaded before Smooth FPS started – icons and
             // pictures already handed out kept pointing at the destroyed originals (pink X, blank icons).
             // Only textures loaded from now on start smaller.
@@ -1271,6 +1281,9 @@ namespace GraphicsTuner
             MUI.Section(l, "GT_SimCleanSec".Translate());
             MUI.Check(l, "GT_SimClean".Translate(), "GT_SimClean_Desc".Translate(), ref s.worldClean, s, null);
             MUI.Check(l, "GT_WorldSleep".Translate(), "GT_WorldSleep_Desc".Translate(), ref s.worldSleep, s, null);
+            // 1.6.0: opt-out rules of other mods
+            if (SmoothFPS.ExclusionRules.Any)
+                Muted(l.GetRect(40f), "GT_RulesLine".Translate(SmoothFPS.ExclusionRules.Entries, SmoothFPS.ExclusionRules.Mods));
             Muted(l.GetRect(40f), Sim.KeepBattles > 0 ? "GT_SimKeep".Translate(Sim.KeepBattles) : "GT_SimKeepOff".Translate());
             if (Verse.Current.ProgramState == ProgramState.Playing)
             {
@@ -1282,6 +1295,15 @@ namespace GraphicsTuner
                     LongEventHandler.ExecuteWhenFinished(() => Messages.Message(t, MessageTypeDefOf.NeutralEvent, false));
                 }
             }
+            // 1.6.0: rain washes the filth away
+            MUI.Section(l, "GT_RainSec".Translate());
+            MUI.Check(l, "GT_RainCall".Translate(), "GT_RainCall_Desc".Translate(), ref s.rainCall, s, null);
+            if (s.rainCall)
+                s.rainThreshold = Mathf.RoundToInt(MUI.Slider(l, "GT_RainThreshold".Translate(s.rainThreshold), s.rainThreshold, 300f, 5000f, "GT_RainThreshold_Desc".Translate(), s, null) / 100f) * 100;
+            MUI.Check(l, "GT_RainWashAll".Translate(), "GT_RainWashAll_Desc".Translate(), ref s.rainWashAll, s, null);
+            int filth = RainWash.OutdoorFilth();
+            if (filth >= 0)
+                Muted(l.GetRect(22f), "GT_RainNow".Translate(filth));
             l.End();
         }
 
