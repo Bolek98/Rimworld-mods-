@@ -507,4 +507,16 @@
   <RL_ExceptionRemove>Haz clic para quitar la excepción: vuelven a aplicarse las reglas normales.</RL_ExceptionRemove>
   <RL_EnemyLoot>Equipo enemigo solo del almacén</RL_EnemyLoot>
   <RL_EnemyLoot_Desc>Las armas y la ropa que sueltan los enemigos (o que les quitas) no se cogen directamente del campo de batalla, solo cuando ya están en el almacén.</RL_EnemyLoot_Desc>
+  <RL_CEAmmo>Combat Extended: solo armas con munición</RL_CEAmmo>
+  <RL_CEAmmo_Desc>Con Combat Extended, los colonos solo toman armas a distancia cuya munición esté en el mapa (en almacén, en el suelo o en su inventario). Un arma sin munición en ninguna parte se cambia por una que sí la tenga.</RL_CEAmmo_Desc>
+  <RL_OW_Button>Armas por atuendo</RL_OW_Button>
+  <RL_OW_Title>Armas permitidas por atuendo</RL_OW_Title>
+  <RL_OW_Desc>Los colonos con este atuendo solo toman por sí mismos las armas marcadas. Las armas que equipes a mano no se ven afectadas. Por defecto todo está permitido.</RL_OW_Desc>
+  <RL_OW_Outfit>Atuendo: {0}</RL_OW_Outfit>
+  <RL_OW_Banned>{0} tipos de armas no permitidos</RL_OW_Banned>
+  <RL_OW_AllAllowed>Todas las armas permitidas</RL_OW_AllAllowed>
+  <RL_OW_AllowAll>Permitir todo</RL_OW_AllowAll>
+  <RL_OW_OnlyRanged>Solo a distancia</RL_OW_OnlyRanged>
+  <RL_OW_OnlyMelee>Solo cuerpo a cuerpo</RL_OW_OnlyMelee>
+  <RL_OW_Melee>cuerpo a cuerpo</RL_OW_Melee>
 </LanguageData>

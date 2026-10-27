@@ -32,6 +32,7 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 		miningBufs.Clear();
 		miningDraft.Clear();
 		prodBufs.Clear();
+		drillCache.Clear();
 		bufOwner = null;
 		bufTarget = null;
 		listScroll = Vector2.zero;
@@ -185,7 +186,8 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 		DrawTarget(new Rect(r.x + 220f, y, 330f, 28f), job, ref bufTarget, job == bufOwner, () => bufOwner = job);
 		DrawArea(new Rect(r.xMax - 160f, y, 160f, 28f), sm, job);
 		y += 36f;
-		DrawProgress(new Rect(r.x, y, r.width, 24f), job, unit);
+		DrawProgress(new Rect(r.x, y, r.width - 130f, 24f), job, unit);
+		DrawSpark(new Rect(r.xMax - 120f, y, 120f, 24f), job.hourly, job.target);   // 1.0.4
 		y += 30f;
 		if (job.enabled && job.noSources)
 		{
@@ -237,6 +239,47 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 		float ty = r.yMax - r.height * job.target / max;
 		Widgets.DrawLine(new Vector2(r.x, ty), new Vector2(r.xMax, ty), new Color(0.9f, 0.8f, 0.4f, 0.6f), 1f);
 		TooltipHandler.TipRegion(r, "CF_J_GraphTip".Translate());
+	}
+
+	// 1.0.4: hourly stock of the last 7 days as a tiny line; the target is the
+	// yellow line. Grouped to at most one point per 2 px.
+	private static void DrawSpark(Rect r, StockHistory hist, int target)
+	{
+		Widgets.DrawBoxSolid(r, new Color(0.1f, 0.1f, 0.1f));
+		List<int> h = hist?.values;
+		if (h == null || h.Count < 2)
+		{
+			GUI.color = Dim;
+			Text.Font = GameFont.Tiny;
+			Widgets.Label(r.ContractedBy(2f), "CF_J_SparkWait".Translate());
+			Text.Font = GameFont.Small;
+			GUI.color = Color.white;
+			TooltipHandler.TipRegion(r, "CF_J_SparkWait".Translate());
+			return;
+		}
+		int points = Mathf.Clamp(Mathf.FloorToInt(r.width / 2f), 2, h.Count);
+		int min = h.Min(), max0 = h.Max();
+		float max = Mathf.Max(target, max0, 1);
+		Rect inner = r.ContractedBy(2f);
+		Vector2 prev = Vector2.zero;
+		for (int i = 0; i < points; i++)
+		{
+			int a = i * h.Count / points, b = Mathf.Max(a + 1, (i + 1) * h.Count / points);
+			float sum = 0f;
+			for (int k = a; k < b; k++)
+				sum += h[k];
+			float v = sum / (b - a);
+			Vector2 pt = new Vector2(inner.x + inner.width * i / (points - 1), inner.yMax - inner.height * v / max);
+			if (i > 0)
+				Widgets.DrawLine(prev, pt, new Color(0.45f, 0.8f, 0.45f), 1f);
+			prev = pt;
+		}
+		if (target > 0)
+		{
+			float ty = inner.yMax - inner.height * target / max;
+			Widgets.DrawLine(new Vector2(inner.x, ty), new Vector2(inner.xMax, ty), new Color(0.9f, 0.8f, 0.4f, 0.5f), 1f);
+		}
+		TooltipHandler.TipRegion(r, "CF_J_SparkTip".Translate((h.Count / 24f).ToString("0.#"), min, max0, h[h.Count - 1]));
 	}
 
 	private static void DrawTarget(Rect r, SupplyJob job, ref string buf, bool owns, System.Action takeBuffer)
@@ -564,7 +607,7 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 			TooltipHandler.TipRegion(ar, "CF_X_AdoptTip".Translate());
 		y += 38f;
 		Rect outRect = new Rect(r.x, y, r.width, r.yMax - y);
-		float rowH = 40f;
+		float rowH = 64f;   // 1.0.4: second line (history, ingredients)
 		Rect view = new Rect(0f, 0f, outRect.width - 16f, sm.production.Count * rowH);
 		ProductionTarget remove = null;
 		Widgets.BeginScrollView(outRect, ref listScroll, view);
@@ -599,10 +642,24 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 			if (Widgets.ButtonImage(del, TexButton.Delete))
 				remove = t;
 			TooltipHandler.TipRegion(del, "CF_X_RemoveProduct".Translate());
+			// 1.0.4: stock history and "also keep enough ingredients"
+			DrawSpark(new Rect(row.x + 70f, row.y + 36f, 190f, 20f), t.hourly, t.target);
+			Rect ing = new Rect(row.x + 270f, row.y + 34f, Mathf.Min(360f, row.width - 300f), 24f);
+			Widgets.CheckboxLabeled(ing, "CF_X_Ingredients".Translate(), ref t.feedIngredients);
+			TooltipHandler.TipRegion(ing, () => IngredientsTip(t), t.GetHashCode() ^ 0x5e0106);
 		}
 		Widgets.EndScrollView();
 		if (remove != null)
 			sm.RemoveProduction(remove);
+	}
+
+	private static string IngredientsTip(ProductionTarget t)
+	{
+		string tip = "CF_X_IngredientsTip".Translate();
+		var needs = SupplyManager.IngredientNeeds(t);
+		tip += "\n\n" + (needs.Count == 0 ? (string)"CF_X_IngredientsNone".Translate()
+			: string.Join("\n", needs.Select(n => "  " + n.def.LabelCap + ": " + n.count)));
+		return tip;
 	}
 
 	// ---- power -------------------------------------------------------------------------
@@ -880,7 +937,7 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 			return;
 		}
 		Rect outRect = new Rect(r.x, y, r.width, r.yMax - y);
-		float rowH = 70f;
+		float rowH = 98f;   // 1.0.4: third line (deep drills)
 		Rect view = new Rect(0f, 0f, outRect.width - 16f, res.Count * rowH);
 		Widgets.BeginScrollView(outRect, ref listScroll, view);
 		for (int i = 0; i < res.Count; i++)
@@ -936,9 +993,36 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 			}
 			TooltipHandler.TipRegion(ar, "CF_S_AreaTip".Translate());
 			if (job != null)
-				DrawProgress(new Rect(row.x + 34f, row.y + 38f, row.width - 34f, 22f), job, "");
+			{
+				DrawProgress(new Rect(row.x + 34f, row.y + 38f, row.width - 34f - 130f, 22f), job, "");
+				DrawSpark(new Rect(row.xMax - 120f, row.y + 38f, 120f, 22f), job.hourly, job.target);
+				// 1.0.4: deep drills follow the target
+				Rect dr = new Rect(row.x + 34f, row.y + 66f, 420f, 26f);
+				Widgets.CheckboxLabeled(dr, "CF_D_Control".Translate(DrillCountCached(sm, d)), ref job.controlDrills);
+				TooltipHandler.TipRegion(dr, "CF_D_ControlTip".Translate());
+			}
 		}
 		Widgets.EndScrollView();
+	}
+
+	// 1.0.4: deep drills per resource, counted twice a second at most
+	private readonly Dictionary<ThingDef, int> drillCache = new Dictionary<ThingDef, int>();
+	private int drillCacheFrame = -999;
+
+	private int DrillCountCached(SupplyManager sm, ThingDef d)
+	{
+		if (Time.frameCount - drillCacheFrame > 30)
+		{
+			drillCacheFrame = Time.frameCount;
+			drillCache.Clear();
+		}
+		if (!drillCache.TryGetValue(d, out int n))
+		{
+			try { n = sm.DrillCount(d); }
+			catch { n = 0; }
+			drillCache[d] = n;
+		}
+		return n;
 	}
 
 	private static void DrawTargetValue(Rect r, ref int value, ref string buf)

@@ -33,7 +33,7 @@ namespace MisakTabs
 
     public class MTMod : Mod
     {
-        public const string Version = "0.4.2";
+        public const string Version = "0.5.0";
         public static MTSettings S;
         public static Harmony H;
         private static List<string> recBullets;
@@ -305,9 +305,102 @@ namespace MisakTabs
                 SoundDefOf.Tick_Low.PlayOneShotOnCamera();
             }
             if (clip != null) TooltipHandler.TipRegion(pr, "MT_PasteTip".Translate(clip.LabelCap));
+            // 0.5.0: the workbench menu – copy all bills, paste them here or into several workbenches
+            Rect bm = new Rect(r.xMax - 284f, r.y + 13f, 28f, 28f);
+            if (Look.Button(bm, "⋯")) BenchMenu(table);
+            TooltipHandler.TipRegion(bm, "MT_BenchMenuTip".Translate());
             Rect orig = new Rect(r.xMax - 132f, r.y + 13f, 120f, 28f);
             if (Look.Button(orig, "MT_Original".Translate())) showOriginal = true;
             TooltipHandler.TipRegion(orig, "MT_OriginalTip".Translate());
+        }
+
+        // 0.5.0
+        private static void BenchMenu(Building_WorkTable table)
+        {
+            var opts = new List<FloatMenuOption>();
+            opts.Add(table.billStack.Count > 0
+                ? new FloatMenuOption("MT_CopyAll".Translate(table.billStack.Count), () => BenchClipboard.Copy(table))
+                : new FloatMenuOption("MT_CopyAll".Translate(0), null));
+            string from = BenchClipboard.From ?? "-";
+            opts.Add(BenchClipboard.CanPaste(table)
+                ? new FloatMenuOption("MT_PasteAll".Translate(BenchClipboard.Count, from), () =>
+                {
+                    int n = BenchClipboard.PasteInto(table);
+                    Messages.Message("MT_PastedInto".Translate(n, 1), MessageTypeDefOf.SilentInput, false);
+                    SoundDefOf.Tick_High.PlayOneShotOnCamera();
+                })
+                : new FloatMenuOption("MT_PasteAll".Translate(BenchClipboard.Count, from), null));
+            opts.Add(BenchClipboard.Count > 0
+                ? new FloatMenuOption("MT_PasteSeveral".Translate() + "…", () => Find.WindowStack.Add(new Dialog_PasteBenches(table)))
+                : new FloatMenuOption("MT_PasteSeveral".Translate() + "…", null));
+            Find.WindowStack.Add(new FloatMenu(opts));
+        }
+
+        // 0.5.0: rename (the game's own bill name) and linked bills
+        private static void BillMenu(Bill b, Building_WorkTable table)
+        {
+            var opts = new List<FloatMenuOption>();
+            if (b is Bill_Production bp)
+                opts.Add(new FloatMenuOption("MT_Rename".Translate() + "…", () => Find.WindowStack.Add(new Dialog_RenameBill(bp))));
+            opts.Add(new FloatMenuOption("MT_LinkWith".Translate() + "…", () =>
+            {
+                var cands = BillLinks.Candidates(b, table.Map);
+                var sub = new List<FloatMenuOption>();
+                foreach (Bill o in cands)
+                {
+                    Bill oo = o;
+                    Thing bench = o.billStack?.billGiver as Thing;
+                    string where = bench != null ? bench.LabelCap + " (" + bench.Position.x + ", " + bench.Position.z + ")" : "?";
+                    sub.Add(new FloatMenuOption(where + ": " + o.LabelCap, () =>
+                    {
+                        BillLinks.Link(b, oo);
+                        Messages.Message("MT_Linked".Translate(b.LabelCap, where), MessageTypeDefOf.SilentInput, false);
+                    }));
+                }
+                if (sub.Count == 0) sub.Add(new FloatMenuOption("MT_NoLinkTargets".Translate(), null));
+                Find.WindowStack.Add(new FloatMenu(sub));
+            }));
+            if (BillLinks.GroupOf(b) != 0)
+                opts.Add(new FloatMenuOption("MT_Unlink".Translate(), () => BillLinks.Unlink(b)));
+            Find.WindowStack.Add(new FloatMenu(opts));
+        }
+
+        // 0.5.0: − / + next to the count: click ±1, Shift ±10, Ctrl ±100 (like the game)
+        private static void CountButtons(Rect r, Bill_Production bp)
+        {
+            bool repeat = bp.repeatMode == BillRepeatModeDefOf.RepeatCount, target = bp.repeatMode == BillRepeatModeDefOf.TargetCount;
+            if (!repeat && !target) return;
+            Rect minus = new Rect(r.x, r.y, 22f, r.height), plus = new Rect(r.x + 24f, r.y, 22f, r.height);
+            int delta = 0;
+            if (Look.Button(minus, "−")) delta = -1;
+            if (Look.Button(plus, "+")) delta = 1;
+            TooltipHandler.TipRegion(minus, "MT_CountTip".Translate());
+            TooltipHandler.TipRegion(plus, "MT_CountTip".Translate());
+            if (delta == 0) return;
+            int step = delta * GenUI.CurrentAdjustmentMultiplier();
+            if (repeat) bp.repeatCount = Mathf.Max(0, bp.repeatCount + step);
+            else
+            {
+                int adj = Mathf.Max(1, bp.recipe.targetCountAdjustment);
+                int old = bp.targetCount;
+                bp.targetCount = Mathf.Max(1, bp.targetCount + step * adj);
+                bp.unpauseWhenYouHave = Mathf.Clamp(bp.unpauseWhenYouHave + (bp.targetCount - old), 0, bp.targetCount - 1);
+            }
+            (delta > 0 ? SoundDefOf.Tick_High : SoundDefOf.Tick_Low).PlayOneShotOnCamera();
+        }
+
+        // 0.5.0: what a "do until you have X" bill counts (the game's options, set in Edit)
+        private static string CountInfo(Bill_Production bp)
+        {
+            var parts = new List<string>();
+            if (bp.includeEquipped) parts.Add("MT_InclEquipped".Translate());
+            ISlotGroup g = bp.GetIncludeSlotGroup();
+            if (g != null)
+            {
+                string name = g is IRenameable rn ? rn.RenamableLabel : g is SlotGroup sg && sg.parent is IRenameable pr ? pr.RenamableLabel : g.GroupingLabel;
+                parts.Add("MT_OnlyIn".Translate(name));
+            }
+            return parts.Count == 0 ? "" : " · " + string.Join(" · ", parts.ToArray());
         }
 
         private static bool Locked(RecipeDef rec, out string why)
@@ -503,7 +596,12 @@ namespace MisakTabs
                     if (Mouse.IsOver(ic)) TooltipHandler.TipRegion(ic, new TipSignal(() => RecipeInfo(b.recipe) + "\n\n" + "MT_ClickInfo".Translate(), b.recipe.GetHashCode() ^ 0x55));
                     if (Widgets.ButtonInvisible(ic)) OpenInfo(b.recipe);
                     float tx = c.x + 52f, tw = c.width - 52f - 150f;
-                    Look.Text(new Rect(tx, c.y + 6f, tw, 22f), b.LabelCap.ToString().Truncate(tw), b.suspended ? Muted : Color.white);
+                    // 0.5.0: linked bills are marked; the tooltip says where the others are
+                    List<Bill> linked = BillLinks.GroupOf(b) != 0 ? BillLinks.Others(b) : null;
+                    Rect title = new Rect(tx, c.y + 6f, tw, 22f);
+                    Look.Text(title, b.LabelCap.ToString().Truncate(tw), b.suspended ? Muted : Color.white);
+                    if (linked != null && linked.Count > 0)
+                        TooltipHandler.TipRegion(title, "MT_LinkedTip".Translate() + "\n" + string.Join("\n", linked.Select(o => "- " + ((o.billStack?.billGiver as Thing)?.LabelCap ?? "?") + ": " + o.LabelCap).ToArray()));
                     string status;
                     Color sc = Muted;
                     float progress = -1f;
@@ -523,10 +621,18 @@ namespace MisakTabs
                             try { have = b.recipe.WorkerCounter.CountProducts(bp); } catch { }
                             repeat = "MT_Target".Translate(have, bp.targetCount).ToString() + (bp.paused ? " · " + "MT_PausedSatisfied".Translate() : "");
                             progress = bp.targetCount > 0 ? (float)have / bp.targetCount : 0f;
+                            repeat += CountInfo(bp);   // 0.5.0
                         }
                     }
+                    if (linked != null && linked.Count > 0) repeat += " · " + "MT_LinkedN".Translate(linked.Count);
                     Look.Text(new Rect(tx, c.y + 28f, tw, 18f), status, sc, GameFont.Tiny);
-                    Look.Text(new Rect(tx, c.y + 44f, tw, 18f), repeat, Muted, GameFont.Tiny);
+                    // 0.5.0: − / + buttons right after the count line
+                    bool hasCount = b is Bill_Production bpc && bpc.repeatMode != BillRepeatModeDefOf.Forever;
+                    float rw = hasCount ? tw - 50f : tw;
+                    Rect rr = new Rect(tx, c.y + 44f, rw, 18f);
+                    Look.Text(rr, repeat.Truncate(rw), Muted, GameFont.Tiny);
+                    if (Mouse.IsOver(rr) && !repeat.NullOrEmpty()) TooltipHandler.TipRegion(rr, repeat);
+                    if (hasCount) CountButtons(new Rect(tx + rw + 4f, c.y + 42f, 46f, 20f), (Bill_Production)b);
                     if (progress >= 0f) Look.Bar(new Rect(tx, c.y + 63f, tw, 4f), progress, Look.Green);
                     // buttons
                     float bx = c.xMax - 146f, by = c.y + 8f;
@@ -548,6 +654,10 @@ namespace MisakTabs
                         }
                         Find.WindowStack.Add(new FloatMenu(opts));
                     }
+                    // 0.5.0: bill menu – rename, link with another bill, unlink
+                    Rect mr = new Rect(bx - 46f, by + 32f, 40f, 26f);
+                    if (Look.Button(mr, "⋯")) BillMenu(b, table);
+                    TooltipHandler.TipRegion(mr, "MT_BillMenuTip".Translate());
                     if (Look.Button(new Rect(bx, by, 26f, 26f), "▲", false, i > 0)) toUp = b;
                     if (Look.Button(new Rect(bx + 30f, by, 26f, 26f), "▼", false, i < bills.Count - 1)) toDown = b;
                     if (Look.Button(new Rect(bx + 60f, by, 54f, 26f), b.suspended ? "MT_Resume".Translate() : "MT_Pause".Translate())) b.suspended = !b.suspended;
@@ -612,6 +722,22 @@ namespace MisakTabs
         {
             if (I == null || b == null) return Normal;
             return I.prio.TryGetValue(b.GetUniqueLoadID(), out int p) ? p : Normal;
+        }
+
+        // 0.5.0: set without re-sorting (bench paste); call Resort once afterwards
+        public static void SetRaw(Bill b, int p)
+        {
+            if (I == null || b == null) return;
+            string k = b.GetUniqueLoadID();
+            if (p == Normal) I.prio.Remove(k); else I.prio[k] = p;
+        }
+
+        public static void Resort(Building_WorkTable table)
+        {
+            List<Bill> bills = table.billStack.Bills;
+            List<Bill> sorted = bills.Select((x, i) => new { x, i }).OrderBy(z => Get(z.x)).ThenBy(z => z.i).Select(z => z.x).ToList();
+            bills.Clear();
+            bills.AddRange(sorted);
         }
 
         public static void Set(Bill b, int p, Building_WorkTable table)

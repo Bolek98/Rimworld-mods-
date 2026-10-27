@@ -236,7 +236,7 @@ namespace ResearchedLoadout
 			int banned = OutfitWeapons.BannedCount(policy);
 			GUI.color = banned > 0 ? MUI.Warn : MUI.Accent;
 			Text.Anchor = TextAnchor.MiddleLeft;
-			Widgets.Label(new Rect(r.x + 250f, y, r.width - 250f, 30f), banned > 0 ? "RL_OW_Banned".Translate(banned) : "RL_OW_AllAllowed".Translate());
+			Widgets.Label(new Rect(r.x + 250f, y, r.width - 250f, 30f), banned > 0 ? "RL_OW_Banned".Translate(banned).ToString() : "RL_OW_AllAllowed".Translate().ToString());
 			Text.Anchor = TextAnchor.UpperLeft;
 			GUI.color = Color.white;
 			y += 36f;
@@ -267,7 +267,7 @@ namespace ResearchedLoadout
 				Widgets.DefIcon(new Rect(row.x + 2f, row.y + 2f, 24f, 24f), d);
 				bool on = OutfitWeapons.Allows(policy, d);
 				bool was = on;
-				Widgets.CheckboxLabeled(new Rect(row.x + 30f, row.y, row.width - 30f, rowH), d.LabelCap + (d.IsRangedWeapon ? "" : "  (" + "RL_OW_Melee".Translate() + ")"), ref on);
+				Widgets.CheckboxLabeled(new Rect(row.x + 30f, row.y, row.width - 30f, rowH), d.LabelCap.ToString() + (d.IsRangedWeapon ? "" : "  (" + "RL_OW_Melee".Translate().ToString() + ")"), ref on);
 				if (on != was) OutfitWeapons.Set_(policy, d, on);
 				TooltipHandler.TipRegion(row, d.description ?? "");
 			}

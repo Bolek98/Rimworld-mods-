@@ -507,4 +507,16 @@
   <RL_ExceptionRemove>点击移除此例外——重新适用常规规则。</RL_ExceptionRemove>
   <RL_EnemyLoot>敌人装备只从仓库拿</RL_EnemyLoot>
   <RL_EnemyLoot_Desc>敌人掉落（或被扒下）的武器和衣服不会直接从战场上拿——只有在被搬进仓库后才会使用。</RL_EnemyLoot_Desc>
+  <RL_CEAmmo>Combat Extended：只拿有弹药的枪</RL_CEAmmo>
+  <RL_CEAmmo_Desc>启用 Combat Extended 时，殖民者只会拿取地图上有弹药（仓库、地面或背包中）的远程武器。完全没有弹药的枪会换成有弹药的。</RL_CEAmmo_Desc>
+  <RL_OW_Button>按服装方案的武器</RL_OW_Button>
+  <RL_OW_Title>按服装方案允许的武器</RL_OW_Title>
+  <RL_OW_Desc>使用此服装方案的殖民者只会自行拿取勾选的武器。手动装备的武器不受影响。默认全部允许。</RL_OW_Desc>
+  <RL_OW_Outfit>服装方案：{0}</RL_OW_Outfit>
+  <RL_OW_Banned>{0} 种武器不允许</RL_OW_Banned>
+  <RL_OW_AllAllowed>允许所有武器</RL_OW_AllAllowed>
+  <RL_OW_AllowAll>全部允许</RL_OW_AllowAll>
+  <RL_OW_OnlyRanged>仅远程</RL_OW_OnlyRanged>
+  <RL_OW_OnlyMelee>仅近战</RL_OW_OnlyMelee>
+  <RL_OW_Melee>近战</RL_OW_Melee>
 </LanguageData>
