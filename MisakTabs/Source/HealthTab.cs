@@ -334,7 +334,7 @@ namespace MisakTabs
             {
                 try
                 {
-                    RenderTexture tex = PortraitsCache.Get(pawn, new Vector2(fig.width, fig.height), Rot4.South, default(Vector3), 1f);
+                    RenderTexture tex = PortraitsCache.Get(pawn, new Vector2(fig.width, fig.height), Rot4.South, default(Vector3), 1f, healthStateOverride: PawnHealthState.Mobile);
                     GUI.DrawTexture(fig, tex);
                 }
                 catch

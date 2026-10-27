@@ -93,7 +93,7 @@ namespace MisakTabs
         private static Texture2D Make(Pawn pawn, Vector2 size, Dictionary<Region, float> health, out Rect box)
         {
             box = new Rect(0f, 0f, 1f, 1f);
-            RenderTexture rt = PortraitsCache.Get(pawn, size, Rot4.South, default(Vector3), 1f, true, true, false, false);
+            RenderTexture rt = PortraitsCache.Get(pawn, size, Rot4.South, default(Vector3), 1f, true, true, false, false, null, null, false, PawnHealthState.Mobile);   // 0.4.1: always standing, even when lying wounded
             if (rt == null) return null;
             int w = rt.width, h = rt.height;
             RenderTexture prev = RenderTexture.active;
