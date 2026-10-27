@@ -340,10 +340,32 @@ namespace UniversalRimTranslator
             return n;
         }
 
+        // 2.6.0: is this text (Store.Key form) one of the texts of the current scan
+        public static bool KnownSource(string key)
+        {
+            var b = bySource;
+            return key != null && b != null && b.ContainsKey(key);
+        }
+
+        public static volatile bool Scanning;
+
+        // 2.6.0: "translate everything now" – a fresh scan of all mods, the scan cache is ignored
+        // (and replaced when the scan is done)
+        public static bool Rescan()
+        {
+            if (!Active || Scanning) return false;
+            string fp = null;
+            try { fp = ScanCache.Fingerprint(); }
+            catch (Exception e) { MLog.Warn("[URT] scan fingerprint: " + e.Message); }
+            BackgroundScan(fp, ScanCache.FilePath(Folder, Target));
+            return true;
+        }
+
         // 2.5.0: the def scan off the main thread; the result replaces the list on the main thread
         private static void BackgroundScan(string fp, string cachePath)
         {
             Phase = "scanning the mods in the background";
+            Scanning = true;
             ThreadPool.QueueUserWorkItem(_ =>
             {
                 try
@@ -363,12 +385,14 @@ namespace UniversalRimTranslator
                         // only what the last scan did not have – usually a few hundred texts of the changed mods
                         int n = ApplyKnown();
                         MLog.Info("[URT] background scan done: " + fresh.Count + " texts (" + rep + ") in " + ms + " ms, " + n + " known translations queued");
+                        Scanning = false;
                         Kick();
                     });
                     if (fp != null && ok) ScanCache.Save(cachePath, fp, fresh, rep, lists);
                 }
                 catch (Exception e)
                 {
+                    Scanning = false;
                     MLog.Error("[URT] background scan: " + e);
                 }
             });
@@ -533,6 +557,7 @@ namespace UniversalRimTranslator
             try
             {
                 Live.Tick();
+                UrtTools.Tick();     // 2.6.0: "translate everything now" progress / done message
                 while (mainThread.TryDequeue(out Action a)) a();
                 if (toApply.IsEmpty) return;
                 var sw = Stopwatch.StartNew();

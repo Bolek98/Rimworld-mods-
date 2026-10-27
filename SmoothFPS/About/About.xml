@@ -3,7 +3,7 @@
   <name>Smooth FPS – Performance &amp; Graphics</name>
   <author>Bolek98</author>
   <packageId>misak.graphicstuner</packageId>
-  <modVersion>1.5.3</modVersion>
+  <modVersion>1.6.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -33,6 +33,8 @@ SMOOTHNESS
 SIMULATION
 - Game size profile: far settlements, world pawns and quiet maps are updated in bigger steps – never during fights, fires or for drafted colonists.
 - Sleeping world pawns, smart work search, job searches and room temperatures spread over ticks, fast nights while everyone sleeps.
+- Rain washes the filth away (optional): calls rain when too much filth lies outside, and lets rain wash all outdoor filth.
+- Other mods can name pawns, conditions, things and world objects that must never be slowed down (SmoothFPS.ExclusionDef or Extras/SmoothFPSRules.xml).
 - World clean-up and travel recalculation in parts – smaller saves, shorter stops.
 
 MEMORY &amp; FREEZES
@@ -64,6 +66,8 @@ PLYNULOST
 SIMULACE
 - Profil velikosti hry: vzdálené osady, postavy světa a klidné mapy se počítají ve větších krocích – nikdy během boje, požáru ani u draftnutých.
 - Spící postavy světa, chytré hledání práce, hledání práce a teploty místností rozložené do tiků, rychlé noci, když všichni spí.
+- Déšť smyje špínu (volitelné): přivolá déšť, když venku leží moc špíny, a nechá déšť smýt veškerou špínu venku.
+- Jiné mody můžou určit postavy, stavy, věci a objekty světa, které se nikdy nesmí zpomalit (SmoothFPS.ExclusionDef nebo Extras/SmoothFPSRules.xml).
 - Úklid světa a přepočet cestování po částech – menší savy, kratší zastavení.
 
 PAMĚŤ A ZÁSEKY

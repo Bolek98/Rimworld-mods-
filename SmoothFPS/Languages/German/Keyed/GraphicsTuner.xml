@@ -427,4 +427,14 @@
   <GT_Danger1>Geschwindigkeit 2 behalten</GT_Danger1>
   <GT_Danger2>Geschwindigkeit 3 behalten</GT_Danger2>
   <GT_SpeedOtherMod>Smart Speed ist aktiv – es regelt Geschwindigkeit 4 und die Geschwindigkeit bei Gefahr selbst, daher bewirken diese zwei Einstellungen nichts.</GT_SpeedOtherMod>
+  <GT_RulesLine>Ausnahmeregeln anderer Mods: {0} Einträge aus {1} Mod(s) – diese Figuren, Dinge und Weltobjekte werden nie verlangsamt.</GT_RulesLine>
+  <GT_RainSec>Regen wäscht den Schmutz weg</GT_RainSec>
+  <GT_RainCall>Regen rufen, wenn draußen zu viel Schmutz liegt</GT_RainCall>
+  <GT_RainCall_Desc>Tausende Schmutzflecken im Freien lassen das Spiel ruckeln. Etwa alle 40 s wird der Schmutz draußen auf deinen Heimatkarten gezählt; über dem Limit, wenn es nicht regnet, über 0 °C und in den letzten 2 Tagen kein Regen gerufen wurde, beginnt ein Regen, den dein Biom kennt. Von einem Ereignis erzwungenes Wetter wird nie geändert. Aus = wie im Spiel.</GT_RainCall_Desc>
+  <GT_RainThreshold>Schmutz draußen, bevor Regen gerufen wird: {0}</GT_RainThreshold>
+  <GT_RainThreshold_Desc>Wie viele Schmutzflecken draußen (ohne Dach) auf deinen Heimatkarten den Regen rufen.</GT_RainThreshold_Desc>
+  <GT_RainWashAll>Regen wäscht allen Schmutz draußen weg</GT_RainWashAll>
+  <GT_RainWashAll_Desc>Das Spiel lässt den Regen nur manche Schmutzarten wegwaschen. Damit dünnt der Regen jeden Schmutz im Freien (ohne Dach) mit derselben Chance aus. Schmutz drinnen wird nie berührt. Aus = wie im Spiel.</GT_RainWashAll_Desc>
+  <GT_RainNow>Schmutz draußen auf deinen Heimatkarten jetzt: {0}</GT_RainNow>
+  <GT_RainStarted>Es hat angefangen zu regnen – der Regen wäscht den Schmutz weg (Smooth FPS).</GT_RainStarted>
 </LanguageData>

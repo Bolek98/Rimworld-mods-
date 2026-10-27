@@ -427,4 +427,14 @@
   <GT_Danger1>Keep speed 2</GT_Danger1>
   <GT_Danger2>Keep speed 3</GT_Danger2>
   <GT_SpeedOtherMod>Smart Speed is active – it handles speed 4 and danger speed itself, so these two settings do nothing.</GT_SpeedOtherMod>
+  <GT_RulesLine>Opt-out rules from other mods: {0} entries from {1} mod(s) – those pawns, things and world objects are never slowed down.</GT_RulesLine>
+  <GT_RainSec>Rain washes the filth away</GT_RainSec>
+  <GT_RainCall>Call rain when there is too much filth outside</GT_RainCall>
+  <GT_RainCall_Desc>Thousands of filth things outdoors make the game stutter. Every ~40 s the outdoor filth on your home maps is counted; above the limit, when it is not raining, above 0 °C and no rain was called in the last 2 days, a rain that your biome knows starts. Weather forced by an event is never changed. Off = like the game.</GT_RainCall_Desc>
+  <GT_RainThreshold>Outdoor filth before rain is called: {0}</GT_RainThreshold>
+  <GT_RainThreshold_Desc>How many filth things outside (no roof) on your home maps call the rain.</GT_RainThreshold_Desc>
+  <GT_RainWashAll>Rain washes all outdoor filth</GT_RainWashAll>
+  <GT_RainWashAll_Desc>The game lets rain wash away only some kinds of filth. With this, rain thins every kind of filth outdoors (no roof) with the same chance. Filth indoors is never touched. Off = like the game.</GT_RainWashAll_Desc>
+  <GT_RainNow>Outdoor filth on your home maps now: {0}</GT_RainNow>
+  <GT_RainStarted>It started to rain – it washes away the filth (Smooth FPS).</GT_RainStarted>
 </LanguageData>

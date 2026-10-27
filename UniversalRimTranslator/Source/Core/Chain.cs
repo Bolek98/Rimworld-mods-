@@ -34,12 +34,71 @@ namespace Urt2
         private readonly Dictionary<string, DateTime> lastCall = new Dictionary<string, DateTime>();
         private readonly Dictionary<string, string> lastError = new Dictionary<string, string>();
         private readonly Dictionary<string, int> doneCount = new Dictionary<string, int>();
+        // 2.6.0: a service that rejected its key (HTTP 401/403) is skipped for the rest of the
+        // session – until its settings change (the value is a fingerprint of the settings)
+        private readonly Dictionary<string, string> authFailed = new Dictionary<string, string>();
         private readonly object gate = new object();
+        public volatile string LastProvider;    // 2.6.0: the service that answered last (for the progress line)
+
+        private string Fingerprint()
+        {
+            ProviderConfig c = Config;
+            if (c == null) return "";
+            var sb = new System.Text.StringBuilder();
+            foreach (var f in typeof(ProviderConfig).GetFields())
+                sb.Append(f.GetValue(c)).Append('\u0001');
+            return sb.ToString();
+        }
+
+        public bool AuthSkipped(string id)
+        {
+            lock (gate) return authFailed.TryGetValue(id, out string fp) && fp == Fingerprint();
+        }
+
+        public sealed class Problem
+        {
+            public string Id, Name, Message;
+            public bool KeyRejected;
+            public int Seconds;
+        }
+
+        // 2.6.0: services that do not work right now (key rejected or paused) – for the diagnostics line
+        public List<Problem> Problems()
+        {
+            var l = new List<Problem>();
+            foreach (string id in Order)
+            {
+                Provider p = Providers.Get(id);
+                if (p == null || !p.Configured(Config)) continue;
+                lock (gate)
+                {
+                    lastError.TryGetValue(id, out string e);
+                    if (authFailed.TryGetValue(id, out string fp) && fp == Fingerprint())
+                        l.Add(new Problem { Id = id, Name = p.Name, Message = e, KeyRejected = true });
+                    else if (pausedUntil.TryGetValue(id, out DateTime t) && t > DateTime.UtcNow)
+                        l.Add(new Problem { Id = id, Name = p.Name, Message = e, Seconds = (int)Math.Ceiling((t - DateTime.UtcNow).TotalSeconds) });
+                }
+            }
+            return l;
+        }
+
+        // 2.6.0: is there at least one service that can be asked now
+        public bool AnyAvailable()
+        {
+            foreach (string id in Order)
+            {
+                Provider p = Providers.Get(id);
+                if (p != null && p.Configured(Config) && !Paused(id) && !AuthSkipped(id)) return true;
+            }
+            return false;
+        }
 
         public string Status(string id)
         {
             lock (gate)
             {
+                if (authFailed.TryGetValue(id, out string afp) && afp == Fingerprint())
+                    return "key rejected – skipped this session" + (lastError.TryGetValue(id, out string ae) ? " – " + ae : "");
                 if (pausedUntil.TryGetValue(id, out DateTime t) && t > DateTime.UtcNow)
                     return "paused " + Math.Ceiling((t - DateTime.UtcNow).TotalSeconds) + " s" + (lastError.TryGetValue(id, out string e) ? " – " + e : "");
                 return doneCount.TryGetValue(id, out int n) ? "ok, " + n + " texts" : "ready";
@@ -63,7 +122,7 @@ namespace Urt2
                 int sec;
                 switch (e.Kind)
                 {
-                    case FailKind.Auth: sec = 3600; break;                         // wrong key – until fixed
+                    case FailKind.Auth: sec = 3600; authFailed[id] = Fingerprint(); break;   // wrong key – skipped this session (2.6.0)
                     case FailKind.Blocked: sec = Math.Max(e.RetryAfterSeconds, 300 * s); break;
                     case FailKind.RateLimit: sec = Math.Max(e.RetryAfterSeconds, Math.Min(30 * (1 << Math.Min(s, 6)), 1800)); break;
                     case FailKind.Unsupported: sec = 0; break;
@@ -132,6 +191,7 @@ namespace Urt2
                 if (ct.IsCancellationRequested) break;
                 Provider p = Providers.Get(id);
                 if (p == null || !p.Configured(Config)) continue;
+                if (AuthSkipped(id)) continue;     // 2.6.0: key rejected this session
                 var todo = units.Where(u => u.Done == null && !u.Tried.Contains(id)).ToList();
                 if (todo.Count == 0) break;
                 foreach (var group in todo.GroupBy(u => u.Job.SourceLang ?? ""))
@@ -184,7 +244,7 @@ namespace Urt2
                             batch[i].By = p.Id;
                             ok++;
                         }
-                        if (ok > 0) Success(id, ok);
+                        if (ok > 0) { Success(id, ok); LastProvider = p.Name; }
                     }
                 }
             }

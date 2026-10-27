@@ -427,4 +427,14 @@
   <GT_Danger1>Nechat rychlost 2</GT_Danger1>
   <GT_Danger2>Nechat rychlost 3</GT_Danger2>
   <GT_SpeedOtherMod>Je zapnutý Smart Speed – rychlost 4 a rychlost při nebezpečí řeší sám, proto tato dvě nastavení nic nedělají.</GT_SpeedOtherMod>
+  <GT_RulesLine>Pravidla výjimek z jiných modů: {0} položek z {1} modů – tyto postavy, věci a objekty na mapě světa se nikdy nezpomalují.</GT_RulesLine>
+  <GT_RainSec>Déšť smyje špínu</GT_RainSec>
+  <GT_RainCall>Přivolat déšť, když je venku moc špíny</GT_RainCall>
+  <GT_RainCall_Desc>Tisíce kousků špíny venku dělají hru trhanou. Zhruba každých 40 s se spočítá špína venku na tvých domovských mapách; když je nad limitem, neprší, je nad 0 °C a za poslední 2 dny se déšť nevolal, začne pršet (déšť, který tvůj biom zná). Počasí vynucené událostí se nikdy nemění. Vypnuto = jako ve hře.</GT_RainCall_Desc>
+  <GT_RainThreshold>Špína venku, než se přivolá déšť: {0}</GT_RainThreshold>
+  <GT_RainThreshold_Desc>Kolik kousků špíny venku (bez střechy) na tvých domovských mapách přivolá déšť.</GT_RainThreshold_Desc>
+  <GT_RainWashAll>Déšť smyje veškerou špínu venku</GT_RainWashAll>
+  <GT_RainWashAll_Desc>Hra nechá déšť smýt jen některé druhy špíny. S tímhle déšť ztenčuje venku (bez střechy) každou špínu se stejnou šancí. Špínu uvnitř nikdy nemění. Vypnuto = jako ve hře.</GT_RainWashAll_Desc>
+  <GT_RainNow>Špína venku na tvých domovských mapách teď: {0}</GT_RainNow>
+  <GT_RainStarted>Začalo pršet – déšť smyje špínu (Smooth FPS).</GT_RainStarted>
 </LanguageData>

@@ -427,4 +427,14 @@
   <GT_Danger1>保持速度 2</GT_Danger1>
   <GT_Danger2>保持速度 3</GT_Danger2>
   <GT_SpeedOtherMod>Smart Speed 已启用——它自己处理速度 4 和危险时的速度，因此这两项设置不起作用。</GT_SpeedOtherMod>
+  <GT_RulesLine>其他模组的排除规则：来自 {1} 个模组的 {0} 条 – 这些角色、物品和世界物体永远不会被降速。</GT_RulesLine>
+  <GT_RainSec>雨水冲走污物</GT_RainSec>
+  <GT_RainCall>室外污物太多时召唤降雨</GT_RainCall>
+  <GT_RainCall_Desc>室外成千上万的污物会让游戏卡顿。大约每 40 秒统计一次你家园地图上的室外污物；超过上限、没有下雨、气温高于 0 °C 且过去 2 天内没有召唤过降雨时，就会开始一场你的生物群系有的雨。由事件强制的天气永远不会被改变。关闭 = 与游戏相同。</GT_RainCall_Desc>
+  <GT_RainThreshold>召唤降雨前的室外污物数量：{0}</GT_RainThreshold>
+  <GT_RainThreshold_Desc>你家园地图上室外（无屋顶）有多少污物时召唤降雨。</GT_RainThreshold_Desc>
+  <GT_RainWashAll>雨水冲走所有室外污物</GT_RainWashAll>
+  <GT_RainWashAll_Desc>游戏只让雨水冲走部分种类的污物。开启后，雨水会以相同几率减少室外（无屋顶）的所有污物。室内污物永远不会被改动。关闭 = 与游戏相同。</GT_RainWashAll_Desc>
+  <GT_RainNow>你家园地图上当前的室外污物：{0}</GT_RainNow>
+  <GT_RainStarted>开始下雨了 – 雨水会冲走污物（Smooth FPS）。</GT_RainStarted>
 </LanguageData>

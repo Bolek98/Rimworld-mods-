@@ -427,4 +427,14 @@
   <GT_Danger1>Garder la vitesse 2</GT_Danger1>
   <GT_Danger2>Garder la vitesse 3</GT_Danger2>
   <GT_SpeedOtherMod>Smart Speed est actif – il gère lui-même la vitesse 4 et la vitesse en cas de danger, ces deux réglages n'ont donc aucun effet.</GT_SpeedOtherMod>
+  <GT_RulesLine>Règles d'exclusion d'autres mods : {0} entrées de {1} mod(s) – ces personnages, objets et objets du monde ne sont jamais ralentis.</GT_RulesLine>
+  <GT_RainSec>La pluie lave la saleté</GT_RainSec>
+  <GT_RainCall>Appeler la pluie quand il y a trop de saleté dehors</GT_RainCall>
+  <GT_RainCall_Desc>Des milliers de saletés dehors font saccader le jeu. Environ toutes les 40 s, la saleté extérieure de vos cartes de base est comptée ; au-dessus de la limite, s'il ne pleut pas, au-dessus de 0 °C et si aucune pluie n'a été appelée ces 2 derniers jours, une pluie connue de votre biome commence. La météo imposée par un événement n'est jamais changée. Désactivé = comme le jeu.</GT_RainCall_Desc>
+  <GT_RainThreshold>Saleté dehors avant d'appeler la pluie : {0}</GT_RainThreshold>
+  <GT_RainThreshold_Desc>Combien de saletés dehors (sans toit) sur vos cartes de base appellent la pluie.</GT_RainThreshold_Desc>
+  <GT_RainWashAll>La pluie lave toute la saleté dehors</GT_RainWashAll>
+  <GT_RainWashAll_Desc>Le jeu ne laisse la pluie laver que certains types de saleté. Avec ceci, la pluie réduit toute saleté dehors (sans toit) avec la même chance. La saleté à l'intérieur n'est jamais touchée. Désactivé = comme le jeu.</GT_RainWashAll_Desc>
+  <GT_RainNow>Saleté dehors sur vos cartes de base maintenant : {0}</GT_RainNow>
+  <GT_RainStarted>Il s'est mis à pleuvoir – la pluie lave la saleté (Smooth FPS).</GT_RainStarted>
 </LanguageData>

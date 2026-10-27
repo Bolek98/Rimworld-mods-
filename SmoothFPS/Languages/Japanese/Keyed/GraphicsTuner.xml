@@ -427,4 +427,14 @@
   <GT_Danger1>速度 2 を保つ</GT_Danger1>
   <GT_Danger2>速度 3 を保つ</GT_Danger2>
   <GT_SpeedOtherMod>Smart Speed が有効です。速度 4 と危険時の速度はそちらが扱うため、この 2 つの設定は何もしません。</GT_SpeedOtherMod>
+  <GT_RulesLine>他のMODの除外ルール：{1} 個のMODから {0} 件 – これらのポーン、物、ワールドオブジェクトは決して減速されません。</GT_RulesLine>
+  <GT_RainSec>雨が汚れを洗い流す</GT_RainSec>
+  <GT_RainCall>屋外の汚れが多すぎるときに雨を呼ぶ</GT_RainCall>
+  <GT_RainCall_Desc>屋外の何千もの汚れはゲームのカクつきの原因になります。約40秒ごとにホームマップの屋外の汚れを数え、上限を超えていて、雨が降っておらず、0 °Cより暖かく、過去2日間に雨を呼んでいなければ、バイオームにある雨が降り始めます。イベントで固定された天候は変更しません。オフ = ゲームと同じ。</GT_RainCall_Desc>
+  <GT_RainThreshold>雨を呼ぶまでの屋外の汚れ：{0}</GT_RainThreshold>
+  <GT_RainThreshold_Desc>ホームマップの屋外（屋根なし）にいくつ汚れがあると雨を呼ぶか。</GT_RainThreshold_Desc>
+  <GT_RainWashAll>雨が屋外のすべての汚れを洗い流す</GT_RainWashAll>
+  <GT_RainWashAll_Desc>ゲームでは雨が一部の種類の汚れしか洗い流しません。これをオンにすると、雨が屋外（屋根なし）のあらゆる汚れを同じ確率で薄くします。屋内の汚れには決して触れません。オフ = ゲームと同じ。</GT_RainWashAll_Desc>
+  <GT_RainNow>現在のホームマップの屋外の汚れ：{0}</GT_RainNow>
+  <GT_RainStarted>雨が降り始めました – 雨が汚れを洗い流します（Smooth FPS）。</GT_RainStarted>
 </LanguageData>

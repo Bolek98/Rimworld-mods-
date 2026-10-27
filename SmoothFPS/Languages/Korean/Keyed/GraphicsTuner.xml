@@ -427,4 +427,14 @@
   <GT_Danger1>속도 2 유지</GT_Danger1>
   <GT_Danger2>속도 3 유지</GT_Danger2>
   <GT_SpeedOtherMod>Smart Speed가 활성화되어 있습니다. 속도 4와 위험 시 속도는 그쪽이 직접 처리하므로 이 두 설정은 아무 효과가 없습니다.</GT_SpeedOtherMod>
+  <GT_RulesLine>다른 모드의 제외 규칙: {1}개 모드에서 {0}개 항목 – 이 폰, 물건, 월드 오브젝트는 절대 느려지지 않습니다.</GT_RulesLine>
+  <GT_RainSec>비가 오물을 씻어냄</GT_RainSec>
+  <GT_RainCall>바깥에 오물이 너무 많으면 비 부르기</GT_RainCall>
+  <GT_RainCall_Desc>바깥의 수천 개 오물은 게임을 끊기게 합니다. 약 40초마다 내 기지 맵의 바깥 오물을 세고, 한도를 넘었고 비가 오지 않으며 0 °C보다 따뜻하고 지난 2일 동안 비를 부르지 않았다면 바이옴에 있는 비가 내리기 시작합니다. 이벤트가 강제한 날씨는 절대 바꾸지 않습니다. 끄기 = 게임과 동일.</GT_RainCall_Desc>
+  <GT_RainThreshold>비를 부르기 전 바깥 오물: {0}</GT_RainThreshold>
+  <GT_RainThreshold_Desc>기지 맵의 바깥(지붕 없음)에 오물이 몇 개 있으면 비를 부를지.</GT_RainThreshold_Desc>
+  <GT_RainWashAll>비가 바깥의 모든 오물을 씻어냄</GT_RainWashAll>
+  <GT_RainWashAll_Desc>게임은 비가 일부 종류의 오물만 씻어내게 합니다. 이것을 켜면 비가 바깥(지붕 없음)의 모든 오물을 같은 확률로 줄입니다. 실내 오물은 절대 건드리지 않습니다. 끄기 = 게임과 동일.</GT_RainWashAll_Desc>
+  <GT_RainNow>지금 기지 맵의 바깥 오물: {0}</GT_RainNow>
+  <GT_RainStarted>비가 내리기 시작했습니다 – 비가 오물을 씻어냅니다 (Smooth FPS).</GT_RainStarted>
 </LanguageData>

@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+1.6.0
+- Rain washes the filth away (Simulation tab, both off by default): "Call rain when there is too much filth outside" – when your home maps have more outdoor filth than the limit (300–5000, default 1500), it is not raining and it is above 0 °C, a rain your biome knows starts (at most once in 2 days, never over weather forced by an event). "Rain washes all outdoor filth" – rain thins every kind of filth outdoors, not only the kinds the game lets it wash. Filth indoors is never touched.
+- Opt-out rules for other mods: a mod can list pawn kinds, conditions (hediffs), things and world objects that Smooth FPS must never slow down – as a def (SmoothFPS.ExclusionDef with pawnKinds / hediffs / worldObjects / thingDefs lists of defNames) or as a file Extras/SmoothFPSRules.xml (root element SmoothFPSRules, same lists). Those keep the game's own tick rate, world pawns with such conditions are not put to sleep, and such colonists' job searches are never put off.
+
 1.5.3
 - Speed 4 without dev mode (Simulation tab, off by default): the game's own 4th speed as a button after speed 3; its key and "faster" from speed 3 work too.
 - Speed during danger (Simulation tab): when a raid or a fight starts, keep speed 2 or 3 instead of the forced speed 1 (default: like the game).

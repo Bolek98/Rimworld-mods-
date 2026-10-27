@@ -427,4 +427,14 @@
   <GT_Danger1>Manter velocidade 2</GT_Danger1>
   <GT_Danger2>Manter velocidade 3</GT_Danger2>
   <GT_SpeedOtherMod>O Smart Speed está ativo – ele mesmo cuida da velocidade 4 e da velocidade durante perigo, então estas duas opções não fazem nada.</GT_SpeedOtherMod>
+  <GT_RulesLine>Regras de exceção de outros mods: {0} entradas de {1} mod(s) – esses peões, coisas e objetos do mundo nunca são desacelerados.</GT_RulesLine>
+  <GT_RainSec>A chuva lava a sujeira</GT_RainSec>
+  <GT_RainCall>Chamar a chuva quando houver sujeira demais lá fora</GT_RainCall>
+  <GT_RainCall_Desc>Milhares de sujeiras ao ar livre fazem o jogo travar. A cada ~40 s a sujeira externa dos seus mapas de base é contada; acima do limite, se não estiver chovendo, acima de 0 °C e sem chuva chamada nos últimos 2 dias, começa uma chuva que o seu bioma conhece. O clima forçado por um evento nunca é alterado. Desligado = como o jogo.</GT_RainCall_Desc>
+  <GT_RainThreshold>Sujeira lá fora antes de chamar a chuva: {0}</GT_RainThreshold>
+  <GT_RainThreshold_Desc>Quantas sujeiras lá fora (sem teto) nos seus mapas de base chamam a chuva.</GT_RainThreshold_Desc>
+  <GT_RainWashAll>A chuva lava toda a sujeira lá fora</GT_RainWashAll>
+  <GT_RainWashAll_Desc>O jogo só deixa a chuva lavar alguns tipos de sujeira. Com isto, a chuva reduz toda sujeira ao ar livre (sem teto) com a mesma chance. A sujeira dentro de casa nunca é tocada. Desligado = como o jogo.</GT_RainWashAll_Desc>
+  <GT_RainNow>Sujeira lá fora nos seus mapas de base agora: {0}</GT_RainNow>
+  <GT_RainStarted>Começou a chover – a chuva lava a sujeira (Smooth FPS).</GT_RainStarted>
 </LanguageData>

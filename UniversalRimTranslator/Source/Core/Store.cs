@@ -140,6 +140,61 @@ namespace Urt2
             Append(k, null);
         }
 
+        // 2.6.0: a translation taken from another translator mod or a shared pack. The player's own
+        // translations win and a working translation is never replaced; the text must pass the check.
+        // Returns 1 = taken, 0 = already translated (or manual), -1 = failed the check.
+        public int PutImported(string source, string text, string provider)
+        {
+            string k = Key(source);
+            string t = Protect.Normalize(text);
+            if (k.Length == 0 || string.IsNullOrWhiteSpace(t)) return -1;
+            if (Protect.LooksLikeNonText(k)) return -1;
+            Verdict v = Validate.Check(k, t, Target);
+            if (v != Verdict.Ok) return -1;
+            Rec r;
+            lock (gate)
+            {
+                if (map.TryGetValue(k, out Rec have) && (have.Manual || (have.Verdict == Verdict.Ok && !string.IsNullOrEmpty(have.Text) && (have.Flags & RecFlags.Retranslate) == 0)))
+                    return 0;
+                r = new Rec { Text = t, Auto = t, Provider = provider ?? "import", Verdict = Verdict.Ok, Flags = RecFlags.None, Time = DateTime.UtcNow.Ticks };
+                map[k] = r;
+                Version++;
+            }
+            Append(k, r);
+            return 1;
+        }
+
+        // 2.6.0: "translate everything now" – machine translations that failed the checks are
+        // forgotten so they are translated again (the player's own translations stay)
+        public int ForgetFailedAuto()
+        {
+            var drop = new List<string>();
+            lock (gate)
+            {
+                foreach (var kv in map)
+                {
+                    Rec r = kv.Value;
+                    if (r == null || r.Manual) continue;
+                    if (r.Verdict != Verdict.Ok || string.IsNullOrEmpty(r.Text)) drop.Add(kv.Key);
+                }
+            }
+            foreach (string k in drop) Forget(k);
+            return drop.Count;
+        }
+
+        // 2.6.0: how many machine translations failed the checks (kept, but not used)
+        public int CountFailedAuto()
+        {
+            int n = 0;
+            lock (gate)
+                foreach (var kv in map)
+                {
+                    Rec r = kv.Value;
+                    if (r != null && !r.Manual && (r.Verdict != Verdict.Ok || string.IsNullOrEmpty(r.Text))) n++;
+                }
+            return n;
+        }
+
         // texts that need a (new) machine translation
         public bool NeedsTranslation(string source)
         {

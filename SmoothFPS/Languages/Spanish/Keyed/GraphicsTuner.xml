@@ -427,4 +427,14 @@
   <GT_Danger1>Mantener velocidad 2</GT_Danger1>
   <GT_Danger2>Mantener velocidad 3</GT_Danger2>
   <GT_SpeedOtherMod>Smart Speed está activo: gestiona él mismo la velocidad 4 y la velocidad en peligro, así que estos dos ajustes no hacen nada.</GT_SpeedOtherMod>
+  <GT_RulesLine>Reglas de exclusión de otros mods: {0} entradas de {1} mod(s) – esos personajes, objetos y objetos del mundo nunca se ralentizan.</GT_RulesLine>
+  <GT_RainSec>La lluvia limpia la suciedad</GT_RainSec>
+  <GT_RainCall>Llamar a la lluvia cuando hay demasiada suciedad fuera</GT_RainCall>
+  <GT_RainCall_Desc>Miles de manchas de suciedad al aire libre hacen que el juego dé tirones. Cada ~40 s se cuenta la suciedad exterior de tus mapas base; por encima del límite, si no llueve, por encima de 0 °C y si no se llamó a la lluvia en los últimos 2 días, empieza una lluvia que tu bioma conoce. El clima forzado por un evento nunca se cambia. Desactivado = como el juego.</GT_RainCall_Desc>
+  <GT_RainThreshold>Suciedad fuera antes de llamar a la lluvia: {0}</GT_RainThreshold>
+  <GT_RainThreshold_Desc>Cuántas manchas de suciedad fuera (sin techo) en tus mapas base llaman a la lluvia.</GT_RainThreshold_Desc>
+  <GT_RainWashAll>La lluvia limpia toda la suciedad exterior</GT_RainWashAll>
+  <GT_RainWashAll_Desc>El juego solo deja que la lluvia limpie algunos tipos de suciedad. Con esto, la lluvia reduce toda la suciedad al aire libre (sin techo) con la misma probabilidad. La suciedad interior nunca se toca. Desactivado = como el juego.</GT_RainWashAll_Desc>
+  <GT_RainNow>Suciedad fuera en tus mapas base ahora: {0}</GT_RainNow>
+  <GT_RainStarted>Ha empezado a llover – la lluvia limpia la suciedad (Smooth FPS).</GT_RainStarted>
 </LanguageData>

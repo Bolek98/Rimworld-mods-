@@ -427,4 +427,14 @@
   <GT_Danger1>Zachowaj prędkość 2</GT_Danger1>
   <GT_Danger2>Zachowaj prędkość 3</GT_Danger2>
   <GT_SpeedOtherMod>Smart Speed jest aktywny – sam obsługuje prędkość 4 i prędkość w niebezpieczeństwie, więc te dwa ustawienia nic nie robią.</GT_SpeedOtherMod>
+  <GT_RulesLine>Reguły wyjątków z innych modów: {0} wpisów z {1} modów – te postacie, rzeczy i obiekty świata nigdy nie są spowalniane.</GT_RulesLine>
+  <GT_RainSec>Deszcz zmywa brud</GT_RainSec>
+  <GT_RainCall>Wezwij deszcz, gdy na zewnątrz jest za dużo brudu</GT_RainCall>
+  <GT_RainCall_Desc>Tysiące plam brudu na zewnątrz sprawiają, że gra się przycina. Mniej więcej co 40 s liczony jest brud na zewnątrz na twoich mapach bazy; powyżej limitu, gdy nie pada, powyżej 0 °C i jeśli w ostatnich 2 dniach nie wezwano deszczu, zaczyna padać deszcz znany twojemu biomowi. Pogoda wymuszona przez wydarzenie nigdy nie jest zmieniana. Wyłączone = jak w grze.</GT_RainCall_Desc>
+  <GT_RainThreshold>Brud na zewnątrz przed wezwaniem deszczu: {0}</GT_RainThreshold>
+  <GT_RainThreshold_Desc>Ile plam brudu na zewnątrz (bez dachu) na twoich mapach bazy wzywa deszcz.</GT_RainThreshold_Desc>
+  <GT_RainWashAll>Deszcz zmywa cały brud na zewnątrz</GT_RainWashAll>
+  <GT_RainWashAll_Desc>Gra pozwala deszczowi zmywać tylko niektóre rodzaje brudu. Z tym deszcz zmniejsza każdy brud na zewnątrz (bez dachu) z tą samą szansą. Brud w środku nigdy nie jest ruszany. Wyłączone = jak w grze.</GT_RainWashAll_Desc>
+  <GT_RainNow>Brud na zewnątrz na twoich mapach bazy teraz: {0}</GT_RainNow>
+  <GT_RainStarted>Zaczęło padać – deszcz zmywa brud (Smooth FPS).</GT_RainStarted>
 </LanguageData>
