@@ -342,8 +342,10 @@ namespace MisakTabs
                 bool over = Mouse.IsOver(row);
                 Look.Box(row, over && !locked ? Look.Card2 : Look.Card);
                 Look.Icon(new Rect(row.x + 6f, row.y + 6f, 32f, 32f), rec.UIIconThing, rec.UIIcon);
-                Look.Text(new Rect(row.x + 46f, row.y + 3f, row.width - 110f, 20f), rec.LabelCap.ToString().Truncate(row.width - 110f), locked ? Muted : Color.white);
-                Look.Text(new Rect(row.x + 46f, row.y + 22f, row.width - 110f, 18f), (locked ? why : Ingredients(rec)).Truncate(row.width - 110f), locked ? Look.Orange : Muted, GameFont.Tiny);
+                // 0.2.1: the text ends before the info button (long names ran under the "i")
+                float tw = row.width - 46f - 100f;
+                Look.Text(new Rect(row.x + 46f, row.y + 3f, tw, 20f), rec.LabelCap.ToString().Truncate(tw), locked ? Muted : Color.white);
+                Look.Text(new Rect(row.x + 46f, row.y + 22f, tw, 18f), (locked ? why : Ingredients(rec)).Truncate(tw), locked ? Look.Orange : Muted, GameFont.Tiny);
                 Look.Text(new Rect(row.xMax - 66f, row.y, 60f, row.height), locked ? "MT_LockedShort".Translate() : "MT_Add".Translate(), locked ? Muted : Look.Green, GameFont.Tiny, TextAnchor.MiddleRight);
                 // 0.1.2: what the thing is – a rich tooltip and the game's info card
                 Rect info = new Rect(row.xMax - 92f, row.y + (row.height - 22f) / 2f, 22f, 22f);
