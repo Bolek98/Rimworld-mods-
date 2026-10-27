@@ -330,9 +330,10 @@ namespace GraphicsTuner
             ourCollect = true;
             if (Net)
             {
-                if (compact)
-                    GCSettings.LargeObjectHeapCompactionMode = GCLargeObjectHeapCompactionMode.CompactOnce;
-                GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true, compact);
+                // 1.5.1: never move the large objects on 1.7 – the Waylith engine uploads pictures on demand
+                // from big memory blocks; packing them together made icons, textures and doors disappear
+                // (the same kind of trouble as the texture limit and unloading, both off on 1.7)
+                GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true, false);
             }
             else
                 GC.Collect();

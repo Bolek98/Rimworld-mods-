@@ -171,7 +171,12 @@ namespace GraphicsTuner
             return s.Length > 300 ? s.Substring(0, 297) + "…" : s;
         }
 
-        private static string KeyOf(string line) => Regex.Replace(line, @"\d+", "#").Substring(0, Math.Min(140, line.Length));
+        // 1.5.1: cut the shortened text, not by the length of the original (numbers become one "#")
+        private static string KeyOf(string line)
+        {
+            string k = Regex.Replace(line ?? "", @"\d+", "#");
+            return k.Length > 140 ? k.Substring(0, 140) : k;
+        }
 
         // reads the new messages of the game's log (cheap when nothing is new)
         public static int Scan(bool warningsToo)

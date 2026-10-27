@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+1.5.1
+- Fix (1.7): "Clean memory during long pauses" no longer packs the large memory blocks together. On 1.7 the graphics engine uploads pictures on demand from those blocks; moving them made icons, textures and doors disappear until a restart.
+- Fix: the error doctor stopped on some error lines ("Index and length must refer to a location within the string").
+
 1.5.0
 - Error doctor (Tools): the red errors in the log grouped by message, with the mod that really caused each one (found from its own code in the stack, not from the list of mods that only patch the same method), a short explanation in plain words, how often and since when, and buttons to copy the error for a comment and to open the mod's Workshop page.
 - New errors: a short message when an error from a new place appears in the log (can be switched off).

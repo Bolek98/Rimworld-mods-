@@ -218,8 +218,8 @@
   <GT_MemOnSave_Desc>Right after a save (also an autosave) – saving leaves a lot of unused memory behind.</GT_MemOnSave_Desc>
   <GT_MemLowLatency>Smooth play: no big clean-ups during play (1.7)</GT_MemLowLatency>
   <GT_MemLowLatency_Desc>Tells .NET to avoid clean-ups that stop the whole game while you play – it cleans in the background instead. The game may hold a bit more memory. When the computer runs low on memory, it switches back to normal by itself.</GT_MemLowLatency_Desc>
-  <GT_MemCompact>Compact memory during long pauses (1.7)</GT_MemCompact>
-  <GT_MemCompact_Desc>During a pause of at least 5 s (at most every 30 minutes) memory is packed together – helps when the game holds a lot of memory for hours. The game stops for a moment then, but you are paused anyway. Off by default.</GT_MemCompact_Desc>
+  <GT_MemCompact>Clean memory during long pauses (1.7)</GT_MemCompact>
+  <GT_MemCompact_Desc>During a pause of at least 20 s (at most every 30 minutes, only when memory grew a lot) memory is cleaned up. Nothing is moved – the graphics engine of 1.7 keeps pictures in big memory blocks that must stay where they are. Off by default.</GT_MemCompact_Desc>
   <GT_MemUnload>Free unused textures while paused</GT_MemUnload>
   <GT_MemUnload_Desc>During a longer pause (3 s) it frees textures and sounds the game no longer uses. Helps with many mods when memory runs low. At most once every 10 minutes. Off, because it can take a moment.</GT_MemUnload_Desc>
   <GT_MemRamWarn>Warn when the computer runs out of memory</GT_MemRamWarn>

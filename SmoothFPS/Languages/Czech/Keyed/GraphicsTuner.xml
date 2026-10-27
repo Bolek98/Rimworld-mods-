@@ -218,8 +218,8 @@
   <GT_MemOnSave_Desc>Hned po uložení (i automatickém) – ukládání po sobě nechá hodně nepotřebné paměti.</GT_MemOnSave_Desc>
   <GT_MemLowLatency>Plynulé hraní: žádné velké úklidy během hry (1.7)</GT_MemLowLatency>
   <GT_MemLowLatency_Desc>Řekne .NET, ať se během hraní vyhne úklidům, které zastaví celou hru – uklízí pak na pozadí. Hra může držet o něco víc paměti. Když počítači dochází paměť, sám se vrátí k normálu.</GT_MemLowLatency_Desc>
-  <GT_MemCompact>Zhutnit paměť při dlouhé pauze (1.7)</GT_MemCompact>
-  <GT_MemCompact_Desc>Při pauze aspoň 5 s (nejvýš jednou za 30 minut) se paměť sesype k sobě – pomáhá, když hra drží hodiny hodně paměti. Hra se při tom na chvilku zastaví, ale máš stejně pauzu. Ve výchozím stavu vypnuto.</GT_MemCompact_Desc>
+  <GT_MemCompact>Uklidit paměť při dlouhé pauze (1.7)</GT_MemCompact>
+  <GT_MemCompact_Desc>Při pauze aspoň 20 s (nejvýš jednou za 30 minut a jen když paměť hodně narostla) se paměť uklidí. Nic se nepřesouvá – grafické jádro 1.7 drží obrázky ve velkých blocích paměti, které musí zůstat na místě. Ve výchozím stavu vypnuto.</GT_MemCompact_Desc>
   <GT_MemUnload>Uvolnit nepoužívané textury při pauze</GT_MemUnload>
   <GT_MemUnload_Desc>Při delší pauze (3 s) uvolní textury a zvuky, které hra už nepoužívá. Pomáhá při velkém množství modů, když dochází paměť. Nejvýš jednou za 10 minut. Vypnuto, protože může krátce trvat.</GT_MemUnload_Desc>
   <GT_MemRamWarn>Varovat, když dochází paměť počítače</GT_MemRamWarn>
