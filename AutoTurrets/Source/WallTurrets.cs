@@ -77,6 +77,20 @@ namespace AutoTurrets
                     return null;
                 }
 
+                // 1.3.0: the wall's own picture – a 1×1 wall turret looks like a piece of the wall with the gun on top
+                XmlElement wallGfx = null;
+                foreach (XmlElement e in all)
+                    if (e["defName"]?.InnerText?.Trim() == "Wall")
+                    {
+                        for (XmlElement x = e; x != null && wallGfx == null;)
+                        {
+                            wallGfx = x["graphicData"];
+                            string p = x.GetAttribute("ParentName");
+                            x = !p.NullOrEmpty() && byName.TryGetValue(p, out XmlElement px) ? px : null;
+                        }
+                        break;
+                    }
+
                 int made = 0;
                 foreach (XmlElement e in all)
                 {
@@ -106,6 +120,31 @@ namespace AutoTurrets
                     if (b == null) { b = xml.CreateElement("building"); c.AppendChild(b); }
                     Set(b, "canPlaceOverWall", "true");
                     Empty(b, "buildingTags");     // raider and quest bases keep using the normal turrets
+                    if (size.x == 1 && size.z == 1 && wallGfx != null)
+                    {
+                        // the base is drawn as the wall (joined with the walls next to it, in the wall's material)
+                        foreach (XmlNode old in c.ChildNodes.OfType<XmlElement>().Where(x => x.Name == "graphicData").ToList())
+                            c.RemoveChild(old);
+                        var g = (XmlElement)xml.ImportNode(wallGfx, true);
+                        g.SetAttribute("Inherit", "False");
+                        c.AppendChild(g);
+                        // built from a material like a wall (stone blocks, metal, wood) – 5 of it, as one wall piece
+                        if (Find(e, "stuffCategories").NullOrEmpty())
+                        {
+                            XmlElement sc = xml.CreateElement("stuffCategories");
+                            foreach (string k in new[] { "Stony", "Metallic", "Woody" })
+                            {
+                                XmlElement li = xml.CreateElement("li");
+                                li.InnerText = k;
+                                sc.AppendChild(li);
+                            }
+                            foreach (XmlNode old in c.ChildNodes.OfType<XmlElement>().Where(x => x.Name == "stuffCategories").ToList())
+                                c.RemoveChild(old);
+                            c.AppendChild(sc);
+                            Set(c, "costStuffCount", "5");
+                        }
+                        wallLook.Add(defName + Suffix);
+                    }
                     e.ParentNode.InsertAfter(c, e);
                     if (assets != null && assets.TryGetValue(e, out LoadableXmlAsset a))
                         assets[c] = a;
@@ -157,6 +196,14 @@ namespace AutoTurrets
                     ThingDef orig = DefDatabase<ThingDef>.GetNamedSilentFail(w.defName.Substring(0, w.defName.Length - Suffix.Length));
                     if (orig == null) continue;
                     w.label = "AT_WallLabel".Translate(orig.label);
+                    // the menu shows the turret, not the wall picture
+                    if (orig.uiIcon != null && wallLook.Contains(w.defName))
+                    {
+                        w.uiIcon = orig.uiIcon;
+                        w.uiIconPath = orig.uiIconPath;
+                        w.uiIconColor = orig.uiIconColor;
+                        w.uiIconScale = orig.uiIconScale;
+                    }
                     w.description = (orig.description ?? "") + "\n\n" + "AT_WallDescExtra".Translate();
                     if (w.blueprintDef != null) w.blueprintDef.label = w.label + "BlueprintLabelExtra".Translate();
                     if (w.installBlueprintDef != null) w.installBlueprintDef.label = w.label + "BlueprintLabelExtra".Translate();
@@ -176,6 +223,7 @@ namespace AutoTurrets
         // ---------------- settings list ----------------
         // what this game session was started with (wall versions exist only for these)
         public static bool startEnabled;
+        public static readonly HashSet<string> wallLook = new HashSet<string>();
         public static readonly HashSet<string> startMade = new HashSet<string>();
 
         private static string filter = "";

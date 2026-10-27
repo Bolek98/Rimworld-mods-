@@ -219,6 +219,20 @@ namespace UniversalRimTranslator
         private static Entry Compute(string core, string key, bool collect, int numCount)
         {
             var e = new Entry { Ver = Version, Collected = collect };
+            // 2.5.1: text in another script than the game language (a Chinese quest from a mod's
+            // generator, Russian names …): drawn translated when the memory knows it, otherwise collected
+            if (ForeignScript(core))
+            {
+                string ft = Runtime.Store?.Use(key);
+                if (ft != null)
+                {
+                    e.Out = ft;
+                    Shown++;
+                    return e;
+                }
+                if (collect) Collect(key);
+                return e;
+            }
             if (!Candidate(core))
             {
                 // 2.4.0: half-translated texts – "Mine kus břidlice": the translated names of things
@@ -249,6 +263,17 @@ namespace UniversalRimTranslator
             }
             if (collect) Collect(key);
             return e;
+        }
+
+        // most of the letters are in a script the game language does not use
+        private static bool ForeignScript(string s)
+        {
+            string sl = Lang.GuessFromScript(s);
+            if (sl == null) return false;
+            string t = Runtime.Target ?? "";
+            if (sl == "zh-Hans") return !t.StartsWith("zh");
+            if (sl == "ru") return !(t == "ru" || t == "uk" || t == "be" || t == "bg" || t == "mk" || t == "sr" || t == "kk");
+            return !t.StartsWith(sl);
         }
 
         // English text worth translating: Latin letters only, mostly known English words, no names

@@ -4,6 +4,7 @@
 - Fix: Keyed texts translated by URT disappeared from the list after a rescan.
 - Short labels read the wrong way without context: "Mine" (the building) and "Mine for …" (mining recipes) are no longer translated as "my". Wrong old translations of these are made again.
 - Editor search ignores diacritics and odd spaces ("muj ze dreva" finds "Můj ze dřeva").
+- Texts in another script than the game language that mods make in code – e.g. a Chinese quest title and description from a race mod – are now shown translated (from the memory) or sent for translation; before, only English texts were translated on screen.
 
 2.5.0
 - Faster start: when mods changed, the game no longer waits ~25 s for the scan of all texts – the last scan is used at once and the new one runs in the background (only what is new is put in when it is done).

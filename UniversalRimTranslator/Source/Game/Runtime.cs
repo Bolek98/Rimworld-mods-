@@ -257,7 +257,7 @@ namespace UniversalRimTranslator
                         continue;
                     }
                     Phase = "translating (" + PendingCount() + " left)";
-                    var jobs = todo.Select(src => new Job { Source = src, SourceLang = bySource.TryGetValue(src, out var its) ? its[0].SourceLang : "en", Avoid = AvoidOnce.TryRemove(src, out string av) ? av : null }).ToList();
+                    var jobs = todo.Select(src => new Job { Source = src, SourceLang = bySource.TryGetValue(src, out var its) ? its[0].SourceLang : (Lang.GuessFromScript(src) ?? "en"), Avoid = AvoidOnce.TryRemove(src, out string av) ? av : null }).ToList();
                     Chain.Run(jobs, Target, cts.Token);
                     int got = 0;
                     foreach (Job j in jobs)
