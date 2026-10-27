@@ -229,7 +229,7 @@ namespace HardyPlants
     // ------------------------------------------------------------------
     public class HardyPlantsMod : Mod
     {
-        public const string Version = "1.9.1";
+        public const string Version = "1.9.2";
         public static HardyPlantsSettings Settings;
         private Vector2 scroll;
         private Vector2 leftScroll;
@@ -773,6 +773,7 @@ namespace HardyPlants
 
         public static void Apply()
         {
+            FixPlantIcons();
             HardyPlantsSettings s = HardyPlantsMod.Settings;
             if (s == null)
                 return;
@@ -817,6 +818,36 @@ namespace HardyPlants
             int days = ApplyGrowDays(s);
             Log.Message("[Evergrowth " + HardyPlantsMod.Version + "] " + changed + " plants made hardier" +
                 (days > 0 ? ", " + days + " grow times set" : "") + ".");
+        }
+
+        // 1.9.2: plants whose icon is the red "missing texture" square (a mod gave a wrong icon
+        // path or the icon could not be made from the graphic) get the picture they are drawn with
+        // on the map, so buttons such as "Where it grows" or "Copy" show the plant.
+        private static bool iconsFixed;
+        private static void FixPlantIcons()
+        {
+            if (iconsFixed) return;
+            iconsFixed = true;
+            int fixedN = 0;
+            var broken = new List<string>();
+            foreach (ThingDef d in DefDatabase<ThingDef>.AllDefsListForReading)
+            {
+                if (d.plant == null) continue;
+                if (d.uiIcon != null && d.uiIcon != BaseContent.BadTex) continue;
+                Texture2D t = null;
+                try
+                {
+                    Graphic g = d.graphic ?? d.graphicData?.Graphic;
+                    t = g?.MatSingle?.mainTexture as Texture2D;
+                    if (t == null || t == BaseContent.BadTex) t = g?.MatSouth?.mainTexture as Texture2D;
+                }
+                catch { t = null; }
+                if (t != null && t != BaseContent.BadTex) { d.uiIcon = t; fixedN++; }
+                else broken.Add(d.label + " (" + d.defName + ", " + (d.modContentPack?.Name ?? "?") + ")");
+            }
+            if (fixedN > 0 || broken.Count > 0)
+                Log.Message("[Evergrowth " + HardyPlantsMod.Version + "] plant icons: " + fixedN + " missing icons replaced by the map picture" +
+                    (broken.Count > 0 ? "; no picture at all (the mod's textures are missing): " + string.Join(", ", broken.Take(20).ToArray()) : "") + ".");
         }
 
         // 1.4.0: grow days for crops (sowable, not trees) and trees (no stumps).

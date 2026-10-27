@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+1.9.2
+- Plants from other mods whose icon is the red "missing texture" square (wrong icon path in that mod) get the picture they are drawn with on the map, so buttons such as "Where it grows" and "Copy" show the plant. Plants with no picture at all are named in the log with their mod.
+
 1.9.1
 - Crop growth sync (setting, off): crops in one grow zone that were sown within about a day of each other ripen together – the slower ones catch up a little every hour. A later sowing is left alone.
 
