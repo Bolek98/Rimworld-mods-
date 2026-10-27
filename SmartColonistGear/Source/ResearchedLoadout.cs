@@ -7204,6 +7204,38 @@ namespace ResearchedLoadout
 			{
 				return null;
 			}
+			// 2.15.3: first a weapon of the kind (ranged / melee) that is over its own limit – after an upgrade
+			// the old gun put into the pockets goes, never the melee sidearm the colonist already carried
+			try
+			{
+				bool rangedOver = CountKind(pawn, true) > MaxKind(true);
+				bool meleeOver = CountKind(pawn, false) > MaxKind(false);
+				if (rangedOver != meleeOver)
+				{
+					Thing over = null;
+					float best = float.MaxValue;
+					foreach (Thing t in pawn.inventory.innerContainer.InnerListForReading)
+					{
+						if (t != null && t.def != null && LoadoutFilter.IsManagedWeapon(t.def) && !IsPlayerChosen(t) && t.def.IsRangedWeapon == rangedOver)
+						{
+							float sc = ScoreWeapon(pawn, t);
+							if (sc < best)
+							{
+								best = sc;
+								over = t;
+							}
+						}
+					}
+					if (over != null)
+					{
+						return over;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MLog.WarnOnce("[Smart Colonist Gear] weapon trim by kind: " + ex.Message, 7310051);
+			}
 			Thing result = null;
 			float num = float.MaxValue;
 			List<Thing> innerListForReading = pawn.inventory.innerContainer.InnerListForReading;
@@ -11294,7 +11326,51 @@ namespace ResearchedLoadout
 			}
 		}
 
+		// 2.15.3: Simple Sidearms remembers a forced weapon by its kind (def + material), not by the item.
+		// When the forced item is gone (destroyed, lost) and the colonist later holds another copy, the old
+		// mark would block every upgrade for ever. It now counts only for the item that was in hand when the
+		// mark was first seen, or for a weapon you equipped yourself.
+		private static readonly Dictionary<int, int> _forcedThing = new Dictionary<int, int>();
+
 		public static bool IsCurrentWeaponForced(Pawn pawn)
+		{
+			bool raw = RawForced(pawn);
+			if (pawn == null)
+			{
+				return raw;
+			}
+			try
+			{
+				if (!raw)
+				{
+					_forcedThing.Remove(pawn.thingIDNumber);
+					return false;
+				}
+				Thing prim = pawn.equipment?.Primary;
+				if (prim == null)
+				{
+					return true;
+				}
+				if (ResearchedLoadoutMapComponent.IsPlayerChosen(prim) || !_forcedThing.TryGetValue(pawn.thingIDNumber, out int had))
+				{
+					_forcedThing[pawn.thingIDNumber] = prim.thingIDNumber;
+					return true;
+				}
+				if (had != prim.thingIDNumber)
+				{
+					RL.Debug(pawn.LabelShort + " SS forced mark is stale (forced weapon gone) - ignored");
+					return false;
+				}
+				return true;
+			}
+			catch (Exception ex)
+			{
+				MLog.WarnOnce("[Smart Colonist Gear] Simple Sidearms forced check: " + ex.Message, 7310052);
+				return raw;
+			}
+		}
+
+		private static bool RawForced(Pawn pawn)
 		{
 			Init();
 			object obj = Memory(pawn);

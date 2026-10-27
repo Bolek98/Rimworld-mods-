@@ -57,8 +57,22 @@ namespace Matchmaker
     {
         public List<Pawn> a = new List<Pawn>();
         public List<Pawn> b = new List<Pawn>();
+        // 0.1.1: pawns that may not date – no romance attempts from or to them
+        public List<Pawn> noRomance = new List<Pawn>();
 
         public MM_Pairs(Game g) { }
+
+        public static bool RomanceBlocked(Pawn x)
+        {
+            MM_Pairs p = Get;
+            return x != null && p != null && p.noRomance.Count > 0 && p.noRomance.Contains(x);
+        }
+
+        public void SetRomanceAllowed(Pawn x, bool allowed)
+        {
+            noRomance.RemoveAll(q => q == null || q == x);
+            if (!allowed) noRomance.Add(x);
+        }
 
         public static MM_Pairs Get => Current.Game?.GetComponent<MM_Pairs>();
 
@@ -66,8 +80,11 @@ namespace Matchmaker
         {
             Scribe_Collections.Look(ref a, "a", LookMode.Reference);
             Scribe_Collections.Look(ref b, "b", LookMode.Reference);
+            Scribe_Collections.Look(ref noRomance, "noRomance", LookMode.Reference);
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
+                if (noRomance == null) noRomance = new List<Pawn>();
+                noRomance.RemoveAll(q => q == null);
                 if (a == null) a = new List<Pawn>();
                 if (b == null) b = new List<Pawn>();
                 for (int i = Mathf.Min(a.Count, b.Count) - 1; i >= 0; i--)
@@ -153,6 +170,12 @@ namespace Matchmaker
         private static void Menu(Pawn p)
         {
             var opts = new List<FloatMenuOption>();
+            // 0.1.1: may this colonist date at all (romance attempts from and to them)
+            bool blocked = MM_Pairs.RomanceBlocked(p);
+            opts.Add(new FloatMenuOption((blocked ? "MM_RomanceOff" : "MM_RomanceOn").Translate(p.LabelShort), () =>
+            {
+                MM_Pairs.Get?.SetRomanceAllowed(p, blocked);
+            }, blocked ? Widgets.CheckboxOffTex : Widgets.CheckboxOnTex, Color.white));
             foreach (Pawn o in PawnsFinder.AllMaps_FreeColonistsSpawned.Where(x => x != p && MM.Adult(x)).OrderBy(x => x.LabelShort))
             {
                 Pawn other = o;
@@ -167,7 +190,7 @@ namespace Matchmaker
                 else
                     opts.Add(new FloatMenuOption("MM_PairOpt".Translate(other.LabelShort) + extra, () => MM.MakePair(p, other)));
             }
-            if (opts.Count == 0) opts.Add(new FloatMenuOption("MM_NoOne".Translate(), null));
+            if (opts.Count == 1) opts.Add(new FloatMenuOption("MM_NoOne".Translate(), null));
             Find.WindowStack.Add(new FloatMenu(opts));
         }
     }
@@ -179,6 +202,8 @@ namespace Matchmaker
         public static void Postfix(Pawn initiator, Pawn recipient, ref float __result)
         {
             if (MMMod.S.onlyMine && initiator != null && (initiator.IsColonist || (recipient != null && recipient.IsColonist))) __result = 0f;
+            // 0.1.1: a pawn marked "may not date" neither starts nor receives romance attempts
+            else if (__result > 0f && (MM_Pairs.RomanceBlocked(initiator) || MM_Pairs.RomanceBlocked(recipient))) __result = 0f;
         }
     }
 

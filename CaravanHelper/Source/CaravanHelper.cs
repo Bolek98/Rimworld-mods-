@@ -334,7 +334,44 @@ public static class Threats
 		return p.HostileTo(Faction.OfPlayer);
 	}
 
-	public static bool AnyReal(Map map) => Blocking(map).Any(Real);
+	public static bool AnyReal(Map map)
+	{
+		// 1.0.2: the gizmos and the game's threat check ask every frame while the
+		// site is selected – the answer is kept for half a second of game time
+		// (and at most one real second while paused).
+		int tick = Find.TickManager.TicksGame;
+		float now = Time.realtimeSinceStartup;
+		if (cacheMap == map && tick - cacheTick < 30 && tick >= cacheTick && now - cacheTime < 1f)
+			return cacheReal;
+		cacheReal = Blocking(map).Any(Real);
+		cacheMap = map;
+		cacheTick = tick;
+		cacheTime = now;
+		return cacheReal;
+	}
+
+	// 1.0.2: same short cache for the "who blocks" button
+	public static List<Thing> BlockingCached(Map map)
+	{
+		int tick = Find.TickManager.TicksGame;
+		float now = Time.realtimeSinceStartup;
+		if (listMap == map && listCache != null && tick - listTick < 30 && tick >= listTick && now - listTime < 1f)
+			return listCache;
+		listCache = Blocking(map);
+		listMap = map;
+		listTick = tick;
+		listTime = now;
+		return listCache;
+	}
+
+	private static Map listMap;
+	private static List<Thing> listCache;
+	private static int listTick;
+	private static float listTime;
+	private static Map cacheMap;
+	private static int cacheTick;
+	private static float cacheTime;
+	private static bool cacheReal;
 }
 
 [HarmonyPatch(typeof(FormCaravanComp), "AnyActiveThreatNow", MethodType.Getter)]
@@ -377,7 +414,7 @@ public static class Patch_Gizmos
 		if (map == null || !__instance.Reform || !CaravanHelperMod.S.showBlockers)
 			yield break;
 		List<Thing> blocking;
-		try { blocking = Threats.Blocking(map); }
+		try { blocking = Threats.BlockingCached(map); }
 		catch { yield break; }
 		if (blocking.Count == 0)
 			yield break;

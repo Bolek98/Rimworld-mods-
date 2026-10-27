@@ -37,8 +37,12 @@ namespace MechCommander
 				int sites = PatchCallSites(h);
 				h.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.GetGizmos)),
 					postfix: new HarmonyMethod(typeof(Startup), nameof(GizmosPostfix)));
+				// 0.1.2: each mechanitor's command radius in its own colour
+				System.Reflection.MethodInfo dcr = AccessTools.Method(typeof(Pawn_MechanitorTracker), nameof(Pawn_MechanitorTracker.DrawCommandRadius));
+				if (dcr != null)
+					h.Patch(dcr, prefix: new HarmonyMethod(typeof(RadiusColors), nameof(RadiusColors.Prefix)));
 				int mechs = DefDatabase<ThingDef>.AllDefsListForReading.Count(d => d.race != null && d.race.IsMechanoid);
-				Log.Message("[Mech Commander] v0.1.1 loaded – " + Modules.Count + " modules, " + mechs + " mech kinds (vanilla and mods), relay in " + sites + " order checks.");
+				Log.Message("[Mech Commander] v0.1.2 loaded – " + Modules.Count + " modules, " + mechs + " mech kinds (vanilla and mods), relay in " + sites + " order checks.");
 			}
 			catch (Exception ex)
 			{
@@ -192,6 +196,96 @@ namespace MechCommander
 			if (opts.Count == 0)
 				opts.Add(new FloatMenuOption("MC_NoModules".Translate(), null));
 			Find.WindowStack.Add(new FloatMenu(opts));
+		}
+	}
+
+	// 0.1.2: settings (only the radius colours so far)
+	public class MCSettings : ModSettings
+	{
+		public bool colorRadius = true;
+
+		public override void ExposeData()
+		{
+			Scribe_Values.Look(ref colorRadius, "colorRadius", true);
+		}
+	}
+
+	public class MechCommanderMod : Mod
+	{
+		public static MCSettings Settings;
+
+		public MechCommanderMod(ModContentPack content) : base(content)
+		{
+			Settings = GetSettings<MCSettings>();
+		}
+
+		public override string SettingsCategory() => "Mech Commander";
+
+		public override void DoSettingsWindowContents(Rect r)
+		{
+			var l = new Listing_Standard();
+			l.Begin(r);
+			l.CheckboxLabeled("MC_ColorRadius".Translate(), ref Settings.colorRadius, "MC_ColorRadiusDesc".Translate());
+			l.End();
+		}
+	}
+
+	// 0.1.2: with several mechanitors on one map their command radii are told apart by
+	// colour – the first (oldest) one keeps the game's white, the others get a colour
+	// from a fixed palette by their order. Only the colour of the ring changes.
+	public static class RadiusColors
+	{
+		private static readonly Color[] Palette =
+		{
+			Color.white,
+			new Color(0.35f, 0.8f, 1f),
+			new Color(1f, 0.65f, 0.25f),
+			new Color(0.55f, 1f, 0.45f),
+			new Color(1f, 0.45f, 0.8f),
+			new Color(1f, 0.95f, 0.35f),
+			new Color(0.7f, 0.55f, 1f),
+		};
+		private static readonly List<Pawn> order = new List<Pawn>();
+		private static Map orderMap;
+		private static int orderFrame = -1;
+		private static bool failed;
+
+		public static bool Prefix(Pawn_MechanitorTracker __instance)
+		{
+			if (failed || MechCommanderMod.Settings == null || !MechCommanderMod.Settings.colorRadius)
+				return true;
+			try
+			{
+				Pawn p = __instance.Pawn;
+				if (p == null || !p.Spawned || !__instance.AnySelectedDraftedMechs)
+					return false;
+				Color c = Palette[Index(p) % Palette.Length];
+				GenDraw.DrawRadiusRing(p.Position, 24.9f, c, (IntVec3 cell) => __instance.CanCommandTo(cell));
+				return false;
+			}
+			catch (Exception ex)
+			{
+				failed = true;
+				Log.Warning("[Mech Commander] radius colours turned off: " + ex.Message);
+				return true;
+			}
+		}
+
+		private static int Index(Pawn p)
+		{
+			Map map = p.Map;
+			if (orderFrame != Time.frameCount || orderMap != map)
+			{
+				orderFrame = Time.frameCount;
+				orderMap = map;
+				order.Clear();
+				foreach (Pawn q in map.mapPawns.FreeColonistsSpawned)
+					if (q.mechanitor != null)
+						order.Add(q);
+				order.Sort((a, b) => a.thingIDNumber.CompareTo(b.thingIDNumber));
+			}
+			int i = order.IndexOf(p);
+			return i < 0 ? 0 : i;
 		}
 	}
 

@@ -1,4 +1,9 @@
 === Not on the Workshop yet (test versions) ===
+2.15.3
+- Only real weapons count as weapons: beer, food, medicine, wood and other resources or work items from mods (Expanded Woodworking, Brewing and similar) that have an attack are no longer picked, compared, locked or listed as sidearms – and taking such items into the inventory is never blocked by weapon locks (research, "only crafted").
+- Simple Sidearms: when a colonist gets a better main weapon and the old one goes into his pockets, the old one is put away if he now has too many – not the sidearm of the other kind he already carried.
+- Simple Sidearms: a "forced weapon" mark that stayed after the forced weapon itself was lost no longer blocks better weapons for ever (a weapon you equip yourself is still kept).
+
 2.15.2
 - "Gear up now" really swaps the gear: worn clothes and armor of an older era are taken off and replaced with newer ones (before, a calm colonist only added missing pieces), any better piece is taken without the usual margin, and it works even when the game's own dresser is used.
 - With Simple Sidearms the limit "At most weapons per colonist" is now also checked before a new sidearm is picked up (before, only the extra trimming kept it), and a second copy of a weapon the colonist already carries (two stun batons) is put away.
