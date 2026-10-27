@@ -1,4 +1,11 @@
 === Not on the Workshop yet (test versions) ===
+0.5.0
+- Bills: - and + next to the count change "Do X times" or "Do until you have X" right in the list (Shift ±10, Ctrl ±100).
+- Linked bills: "…" on a bill → "Link with a bill on another workbench" – bills with the same recipe share their settings (count, target, pause, materials, stockpiles); a change to one is copied to the others. Marked "linked ×N" with the other workbenches in the tooltip.
+- Rename a bill from the "…" menu (the game's own bill name).
+- "…" in the header: copy all bills of a workbench and paste them here or into several workbenches of the same kind at once (priorities come along).
+- "Do until you have X" bills show when they also count worn/carried items or only one stockpile (set in Edit).
+
 0.4.2
 - Right click on a mark on the silhouette or on a condition: the operations for that body part in a menu, and "Show operations for this part" opens the operations view for its body region.
 - Health details: the exact hit points of every body part next to its name (e.g. "Left leg 20/30"), and the time left for conditions whose label does not show it.

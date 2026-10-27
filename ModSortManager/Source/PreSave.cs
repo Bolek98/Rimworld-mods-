@@ -45,7 +45,7 @@ namespace ModSortManager
             return list;
         }
 
-        public static List<ModMetaData> Old(List<ModMetaData> newMods) => newMods.Where(m => !m.Official && !m.VersionCompatible).ToList();
+        public static List<ModMetaData> Old(List<ModMetaData> newMods) => newMods.Where(m => !Rules.VersionOk(m)).ToList();   // 0.3.0
 
         // groups of about 8; a new mod goes together with the new mods it needs
         public static List<List<ModMetaData>> Groups(List<ModMetaData> newMods)

@@ -279,7 +279,7 @@ namespace ModSortManager
             }
 
             // made for an older game version
-            List<ModMetaData> old = active.Where(m => !m.Official && !m.VersionCompatible).ToList();
+            List<ModMetaData> old = active.Where(m => !Rules.VersionOk(m)).ToList();   // 0.3.0: no-warning lists
             if (old.Count > 0)
             {
                 string cur = VersionControl.CurrentMajor + "." + VersionControl.CurrentMinor;
@@ -408,7 +408,9 @@ namespace ModSortManager
             if (Sorter.Sort(active, out err))
             {
                 dirty = true;
-                Messages.Message("MSM_Sorted".Translate(), MessageTypeDefOf.TaskCompletion, false);
+                // 0.3.0: say when load order rules placed some mods
+                if (Sorter.LastMoved.Count > 0) Messages.Message("MSM_SortedRules".Translate(Sorter.LastMoved.Count), MessageTypeDefOf.TaskCompletion, false);
+                else Messages.Message("MSM_Sorted".Translate(), MessageTypeDefOf.TaskCompletion, false);
             }
             else
                 Find.WindowStack.Add(new Dialog_MessageBox(err));
@@ -1050,7 +1052,7 @@ namespace ModSortManager
                     Label(new Rect(x, row.y, 34f, RowH), ((indexOf.TryGetValue(mod, out ix) ? ix : active.IndexOf(mod)) + 1).ToString(), new Color32(111, 119, 126, 255), GameFont.Tiny, TextAnchor.MiddleRight, false);
                     x += 40f;
                 }
-                DrawDot(new Rect(x, row.y, 8f, RowH), isActive ? Dot(mod) : (mod.VersionCompatible ? MUI.Accent : MUI.Warn));
+                DrawDot(new Rect(x, row.y, 8f, RowH), isActive ? Dot(mod) : (Rules.VersionOk(mod) ? MUI.Accent : MUI.Warn));
                 x += 14f;
                 Rect btn = new Rect(row.xMax - 24f, row.y + 3f, 20f, 20f);
                 float nameW = row.width - x - 30f;
@@ -1061,7 +1063,7 @@ namespace ModSortManager
                     Pill(new Rect(row.xMax - 30f - nw, row.y + 4f, nw, 18f), nl, MUI.Accent);
                     nameW -= nw + 6f;
                 }
-                string side = isActive ? ShortNote(mod) : (mod.VersionCompatible ? "" : "MSM_OldShort".Translate(MSM.Versions(mod)).ToString());
+                string side = isActive ? ShortNote(mod) : (Rules.VersionOk(mod) ? "" : "MSM_OldShort".Translate(MSM.Versions(mod)).ToString());
                 float sideW = side.NullOrEmpty() ? 0f : Mathf.Min(nameW * 0.45f, Text.CalcSize(side).x * 0.85f + 6f);
                 Label(new Rect(x, row.y, nameW - sideW, RowH), mod.Name.Truncate(nameW - sideW), MUI.Text1, GameFont.Small, TextAnchor.MiddleLeft, false);
                 if (sideW > 0f)
@@ -1224,6 +1226,8 @@ namespace ModSortManager
                 if (Button(new Rect(r.x + 3 * (qw + 8f), y, qw, 28f), "MSM_Bottom".Translate(), false, idx < active.Count - 1)) Move(idx, active.Count - 1);
                 y += 34f;
             }
+            // 0.3.0: the player's load order rules for this mod, and which rule moved it in the last sort
+            if (!m.Official) y = DrawRules(r, y, m);
             if (MSM.CanOpenPage(m))
             {
                 if (Button(new Rect(r.x, y, r.width, 28f), m.OnSteamWorkshop ? "MSM_Workshop".Translate() : "MSM_Web".Translate())) MSM.OpenPage(m);
@@ -1257,6 +1261,64 @@ namespace ModSortManager
             if (pic != null) GUI.DrawTexture(new Rect(0f, 0f, view.width, picH), pic, ScaleMode.ScaleToFit);
             Label(new Rect(0f, picH + (picH > 0 ? 8f : 0f), view.width, textH + 4f), desc, new Color32(200, 204, 208, 255), GameFont.Small, TextAnchor.UpperLeft);
             Widgets.EndScrollView();
+        }
+
+        // 0.3.0: rule editor – one line per rule with ✕, "+ Rule" opens a menu; plus "works in this version"
+        private float DrawRules(Rect r, float y, ModMetaData m)
+        {
+            List<string> moved;
+            if (Sorter.LastMoved.TryGetValue(m, out moved) && moved.Count > 0)
+            {
+                string t = "MSM_RuleMoved".Translate(string.Join("; ", moved.ToArray()));
+                float h = Mathf.Max(20f, Text.CalcHeight(t, r.width) + 2f);
+                Label(new Rect(r.x, y, r.width, h), t, Info, GameFont.Tiny, TextAnchor.UpperLeft, true);
+                y += h + 2f;
+            }
+            OrderRule remove = null;
+            foreach (OrderRule rule in Rules.UserFor(m))
+            {
+                Label(new Rect(r.x, y, r.width - 30f, 24f), "MSM_RuleSec".Translate() + ": " + rule.Describe(), MUI.Text1, GameFont.Tiny, TextAnchor.MiddleLeft, false);
+                if (Button(new Rect(r.xMax - 26f, y, 26f, 24f), "✕")) remove = rule;
+                y += 26f;
+            }
+            if (remove != null) Rules.RemoveUser(remove);
+            float bw = (r.width - 8f) / 2f;
+            Rect add = new Rect(r.x, y, bw, 28f);
+            if (Button(add, "MSM_RuleAdd".Translate())) RuleMenu(m);
+            TooltipHandler.TipRegion(add, "MSM_RuleAddTip".Translate());
+            if (!m.VersionCompatible)
+            {
+                bool user = Rules.UserNoWarn(m);
+                Rect nw = new Rect(r.x + bw + 8f, y, bw, 28f);
+                if (Button(nw, user ? "MSM_NoWarnUndo".Translate() : "MSM_NoWarn".Translate())) { Rules.SetUserNoWarn(m, !user); dirty = true; }
+                TooltipHandler.TipRegion(nw, "MSM_NoWarnTip".Translate());
+            }
+            return y + 34f;
+        }
+
+        private void RuleMenu(ModMetaData m)
+        {
+            string id = Rules.Id(m);
+            var opts = new List<FloatMenuOption>
+            {
+                new FloatMenuOption("MSM_RuleTop".Translate().CapitalizeFirst(), () => Rules.AddUser(new OrderRule { mod = id, kind = "top" })),
+                new FloatMenuOption("MSM_RuleBottom".Translate().CapitalizeFirst(), () => Rules.AddUser(new OrderRule { mod = id, kind = "bottom" }))
+            };
+            foreach (string kind in new[] { "after", "before" })
+            {
+                string k = kind;
+                opts.Add(new FloatMenuOption((k == "after" ? "MSM_RuleAfter" : "MSM_RuleBefore").Translate("…").CapitalizeFirst(), () =>
+                {
+                    var sub = new List<FloatMenuOption>();
+                    foreach (ModMetaData o in active.Where(x => x != m).OrderBy(x => x.Name))
+                    {
+                        string oid = Rules.Id(o);
+                        sub.Add(new FloatMenuOption(o.Name, () => Rules.AddUser(new OrderRule { mod = id, kind = k, other = oid })));
+                    }
+                    if (sub.Count > 0) Find.WindowStack.Add(new FloatMenu(sub));
+                }));
+            }
+            Find.WindowStack.Add(new FloatMenu(opts));
         }
 
         // 0.1.7: what the mod needs and who needs it (shown above the description)
@@ -1379,7 +1441,7 @@ namespace ModSortManager
             float sy = side.y;
             Label(new Rect(side.x, sy, side.width, 22f), "MSM_Summary".Translate(), MUI.Muted, GameFont.Tiny);
             sy += 26f;
-            int compat = active.Count(m => m.Official || m.VersionCompatible);
+            int compat = active.Count(m => Rules.VersionOk(m));
             string cur = VersionControl.CurrentMajor + "." + VersionControl.CurrentMinor;
             sy += SideCard(new Rect(side.x, sy, side.width, 0f), "MSM_SumActive".Translate(active.Count, cur),
                 "MSM_SumCompat".Translate(compat, cur) + "\n" + "MSM_SumOld".Translate(active.Count - compat)) + 10f;

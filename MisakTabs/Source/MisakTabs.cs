@@ -307,7 +307,7 @@ namespace MisakTabs
             if (clip != null) TooltipHandler.TipRegion(pr, "MT_PasteTip".Translate(clip.LabelCap));
             // 0.5.0: the workbench menu – copy all bills, paste them here or into several workbenches
             Rect bm = new Rect(r.xMax - 284f, r.y + 13f, 28f, 28f);
-            if (Look.Button(bm, "⋯")) BenchMenu(table);
+            if (Look.Button(bm, "…")) BenchMenu(table);
             TooltipHandler.TipRegion(bm, "MT_BenchMenuTip".Translate());
             Rect orig = new Rect(r.xMax - 132f, r.y + 13f, 120f, 28f);
             if (Look.Button(orig, "MT_Original".Translate())) showOriginal = true;
@@ -372,7 +372,7 @@ namespace MisakTabs
             if (!repeat && !target) return;
             Rect minus = new Rect(r.x, r.y, 22f, r.height), plus = new Rect(r.x + 24f, r.y, 22f, r.height);
             int delta = 0;
-            if (Look.Button(minus, "−")) delta = -1;
+            if (Look.Button(minus, "-")) delta = -1;
             if (Look.Button(plus, "+")) delta = 1;
             TooltipHandler.TipRegion(minus, "MT_CountTip".Translate());
             TooltipHandler.TipRegion(plus, "MT_CountTip".Translate());
@@ -656,7 +656,7 @@ namespace MisakTabs
                     }
                     // 0.5.0: bill menu – rename, link with another bill, unlink
                     Rect mr = new Rect(bx - 46f, by + 32f, 40f, 26f);
-                    if (Look.Button(mr, "⋯")) BillMenu(b, table);
+                    if (Look.Button(mr, "…")) BillMenu(b, table);
                     TooltipHandler.TipRegion(mr, "MT_BillMenuTip".Translate());
                     if (Look.Button(new Rect(bx, by, 26f, 26f), "▲", false, i > 0)) toUp = b;
                     if (Look.Button(new Rect(bx + 30f, by, 26f, 26f), "▼", false, i < bills.Count - 1)) toDown = b;

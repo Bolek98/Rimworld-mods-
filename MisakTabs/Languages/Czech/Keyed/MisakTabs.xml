@@ -123,4 +123,27 @@
   <MT_H_PlannedTip>Kliknutím otevřeš naplánované operace.</MT_H_PlannedTip>
   <MT_H_NoOpsHere>Na tuhle část těla žádná operace není</MT_H_NoOpsHere>
   <MT_H_ShowOpsHere>Ukázat operace pro tuhle část</MT_H_ShowOpsHere>
+  <!-- 0.5.0 -->
+  <MT_BenchMenuTip>Pracovní stůl: zkopírovat všechny jeho zakázky, vložit je sem nebo do více stolů stejného druhu.</MT_BenchMenuTip>
+  <MT_CopyAll>Kopírovat všechny zakázky tohoto stolu ({0})</MT_CopyAll>
+  <MT_PasteAll>Vložit sem zkopírované zakázky ({0} z: {1})</MT_PasteAll>
+  <MT_PasteSeveral>Vložit zakázky do více stolů</MT_PasteSeveral>
+  <MT_PasteSeveralSub>Zkopírováno {0} zakázek z: {1}. Zakázky, které stůl neumí, se přeskočí.</MT_PasteSeveralSub>
+  <MT_BenchCopied>Zkopírováno {0} zakázek z: {1}.</MT_BenchCopied>
+  <MT_PastedInto>Vloženo {0} zakázek do {1} stolů.</MT_PastedInto>
+  <MT_PasteN>Vložit do {0}</MT_PasteN>
+  <MT_None>Nic</MT_None>
+  <MT_BillsN>zakázek: {0}</MT_BillsN>
+  <MT_ThisBench>tento</MT_ThisBench>
+  <MT_BillMenuTip>Další: přejmenovat zakázku, propojit ji se zakázkou na jiném stole.</MT_BillMenuTip>
+  <MT_Rename>Přejmenovat</MT_Rename>
+  <MT_LinkWith>Propojit se zakázkou na jiném stole</MT_LinkWith>
+  <MT_Unlink>Zrušit propojení</MT_Unlink>
+  <MT_NoLinkTargets>Žádný jiný stůl na této mapě nemá zakázku se stejným receptem.</MT_NoLinkTargets>
+  <MT_Linked>Propojeno: {0} s {1}</MT_Linked>
+  <MT_LinkedN>propojeno ×{0}</MT_LinkedN>
+  <MT_LinkedTip>Propojené zakázky mají společné nastavení (počet, cíl, pozastavení, suroviny, sklady). Změna jedné se zkopíruje do ostatních:</MT_LinkedTip>
+  <MT_CountTip>Kliknutí: ±1 · Shift+kliknutí: ±10 · Ctrl+kliknutí: ±100</MT_CountTip>
+  <MT_InclEquipped>počítá i nošené a nesené</MT_InclEquipped>
+  <MT_OnlyIn>jen v: {0}</MT_OnlyIn>
 </LanguageData>

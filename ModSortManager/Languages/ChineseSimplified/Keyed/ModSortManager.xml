@@ -321,4 +321,22 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_SaveSame>与你的列表模组相同、顺序相同。</MSM_SaveSame>
   <MSM_SaveSameMods>与你的列表模组相同——只是顺序不同。</MSM_SaveSameMods>
   <MSM_SaveApply>应用此列表</MSM_SaveApply>
+  <!-- 0.3.0 -->
+  <MSM_RuleSec>加载顺序规则</MSM_RuleSec>
+  <MSM_RuleAdd>+ 加载顺序规则</MSM_RuleAdd>
+  <MSM_RuleAddTip>你为此模组设定的加载顺序规则——智能排序会遵循它。</MSM_RuleAddTip>
+  <MSM_RuleTop>始终在最上面</MSM_RuleTop>
+  <MSM_RuleBottom>始终在最下面</MSM_RuleBottom>
+  <MSM_RuleAfter>在 {0} 之后</MSM_RuleAfter>
+  <MSM_RuleBefore>在 {0} 之前</MSM_RuleBefore>
+  <MSM_RuleSrcUser>你的规则</MSM_RuleSrcUser>
+  <MSM_RuleSrcMsm>Mod Sort Manager 规则</MSM_RuleSrcMsm>
+  <MSM_RuleSrcRimSort>RimSort 社区规则</MSM_RuleSrcRimSort>
+  <MSM_RuleMoved>被以下规则移动：{0}</MSM_RuleMoved>
+  <MSM_SortedRules>已排序——{0} 个模组按加载顺序规则放置（见其详情）。</MSM_SortedRules>
+  <MSM_SetRules>使用共享加载顺序规则</MSM_SetRules>
+  <MSM_SetRulesTip>智能排序也会遵循 Mod Sort Manager 自带的规则（Data/rules.xml），以及在安装了 RimSort 时的 RimSort 社区规则。你自己的规则始终有效。</MSM_SetRulesTip>
+  <MSM_NoWarn>可用——不再警告</MSM_NoWarn>
+  <MSM_NoWarnUndo>重新警告版本</MSM_NoWarnUndo>
+  <MSM_NoWarnTip>此模组并非为当前游戏版本制作，但可以使用。Data/noVersionWarning.xml 或 No Version Warning 模组中列出的模组同样不会警告。</MSM_NoWarnTip>
 </LanguageData>

@@ -321,4 +321,22 @@ Importante: no guardes tu colonia durante la prueba: con la mitad de los mods au
   <MSM_SaveSame>Los mismos mods en el mismo orden que tu lista.</MSM_SaveSame>
   <MSM_SaveSameMods>Los mismos mods que tu lista; solo cambia el orden.</MSM_SaveSameMods>
   <MSM_SaveApply>Aplicar esta lista</MSM_SaveApply>
+  <!-- 0.3.0 -->
+  <MSM_RuleSec>Regla de orden de carga</MSM_RuleSec>
+  <MSM_RuleAdd>+ Regla de orden</MSM_RuleAdd>
+  <MSM_RuleAddTip>Tu propia regla de orden de carga para este mod: el orden inteligente la sigue.</MSM_RuleAddTip>
+  <MSM_RuleTop>siempre arriba</MSM_RuleTop>
+  <MSM_RuleBottom>siempre abajo</MSM_RuleBottom>
+  <MSM_RuleAfter>después de {0}</MSM_RuleAfter>
+  <MSM_RuleBefore>antes de {0}</MSM_RuleBefore>
+  <MSM_RuleSrcUser>tu regla</MSM_RuleSrcUser>
+  <MSM_RuleSrcMsm>reglas de Mod Sort Manager</MSM_RuleSrcMsm>
+  <MSM_RuleSrcRimSort>reglas comunitarias de RimSort</MSM_RuleSrcRimSort>
+  <MSM_RuleMoved>Movido por: {0}</MSM_RuleMoved>
+  <MSM_SortedRules>Ordenado: {0} mods fueron colocados por reglas de orden (ver sus detalles).</MSM_SortedRules>
+  <MSM_SetRules>Usar reglas de orden compartidas</MSM_SetRules>
+  <MSM_SetRulesTip>El orden inteligente también sigue las reglas incluidas con Mod Sort Manager (Data/rules.xml) y las reglas comunitarias de RimSort si RimSort está instalado. Tus propias reglas se usan siempre.</MSM_SetRulesTip>
+  <MSM_NoWarn>Funciona – no avisar</MSM_NoWarn>
+  <MSM_NoWarnUndo>Volver a avisar por la versión</MSM_NoWarnUndo>
+  <MSM_NoWarnTip>El mod no está hecho para esta versión del juego, pero funciona. Los mods de Data/noVersionWarning.xml o del mod No Version Warning tampoco generan aviso.</MSM_NoWarnTip>
 </LanguageData>

@@ -321,4 +321,22 @@ Commencer ?</MSM_BisectConfirm>
   <MSM_SaveSame>Mêmes mods dans le même ordre que ta liste.</MSM_SaveSame>
   <MSM_SaveSameMods>Mêmes mods que ta liste – seul l'ordre diffère.</MSM_SaveSameMods>
   <MSM_SaveApply>Appliquer cette liste</MSM_SaveApply>
+  <!-- 0.3.0 -->
+  <MSM_RuleSec>Règle d'ordre de chargement</MSM_RuleSec>
+  <MSM_RuleAdd>+ Règle d'ordre</MSM_RuleAdd>
+  <MSM_RuleAddTip>Ta propre règle d'ordre de chargement pour ce mod – le tri intelligent la suit.</MSM_RuleAddTip>
+  <MSM_RuleTop>toujours en haut</MSM_RuleTop>
+  <MSM_RuleBottom>toujours en bas</MSM_RuleBottom>
+  <MSM_RuleAfter>après {0}</MSM_RuleAfter>
+  <MSM_RuleBefore>avant {0}</MSM_RuleBefore>
+  <MSM_RuleSrcUser>ta règle</MSM_RuleSrcUser>
+  <MSM_RuleSrcMsm>règles de Mod Sort Manager</MSM_RuleSrcMsm>
+  <MSM_RuleSrcRimSort>règles communautaires de RimSort</MSM_RuleSrcRimSort>
+  <MSM_RuleMoved>Déplacé par : {0}</MSM_RuleMoved>
+  <MSM_SortedRules>Trié – {0} mods ont été placés par des règles d'ordre (voir leurs détails).</MSM_SortedRules>
+  <MSM_SetRules>Utiliser les règles d'ordre partagées</MSM_SetRules>
+  <MSM_SetRulesTip>Le tri intelligent suit aussi les règles fournies avec Mod Sort Manager (Data/rules.xml) et les règles communautaires de RimSort si RimSort est installé. Tes propres règles s'appliquent toujours.</MSM_SetRulesTip>
+  <MSM_NoWarn>Fonctionne – ne pas avertir</MSM_NoWarn>
+  <MSM_NoWarnUndo>Avertir à nouveau pour la version</MSM_NoWarnUndo>
+  <MSM_NoWarnTip>Le mod n'est pas fait pour cette version du jeu mais fonctionne. Les mods listés dans Data/noVersionWarning.xml ou par le mod No Version Warning ne sont pas signalés non plus.</MSM_NoWarnTip>
 </LanguageData>

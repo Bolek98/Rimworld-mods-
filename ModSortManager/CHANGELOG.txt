@@ -1,4 +1,10 @@
 === Not on the Workshop yet (test versions) ===
+0.3.0
+- Your own load order rules: "+ Load order rule" in a mod's details – always at the top, always at the bottom, after a mod or before a mod. Smart sort follows them (a rule that would make a loop is skipped).
+- Shared rules: Smart sort also follows the rules shipped in Data/rules.xml (Harmony, Prepatcher, HugsLib, Humanoid Alien Races early; Vanilla Expanded Framework after Harmony) and RimSort's community rules when RimSort is installed (can be switched off in the settings).
+- After Smart sort the details of a mod say which rule moved it.
+- "Works here – don't warn" for mods made for an older game version that work; mods listed in Data/noVersionWarning.xml or by the No Version Warning mod are not warned about either.
+
 0.2.2
 - Possible conflicts: all pairs are listed now – the list stopped at 15 (thanks ColossalFossil).
 - Profiles → "Mod list from a save…": pick a save and see which mods it was played with, which are not installed, which would be turned on or off – and apply its list in its order (only the save's header is read, it loads in a moment).

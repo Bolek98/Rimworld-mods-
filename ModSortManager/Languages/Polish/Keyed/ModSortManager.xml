@@ -321,4 +321,22 @@ Rozpocząć?</MSM_BisectConfirm>
   <MSM_SaveSame>Te same mody w tej samej kolejności co twoja lista.</MSM_SaveSame>
   <MSM_SaveSameMods>Te same mody co twoja lista – różni się tylko kolejność.</MSM_SaveSameMods>
   <MSM_SaveApply>Użyj tej listy</MSM_SaveApply>
+  <!-- 0.3.0 -->
+  <MSM_RuleSec>Reguła kolejności</MSM_RuleSec>
+  <MSM_RuleAdd>+ Reguła kolejności</MSM_RuleAdd>
+  <MSM_RuleAddTip>Twoja własna reguła kolejności ładowania dla tego moda – inteligentne sortowanie jej przestrzega.</MSM_RuleAddTip>
+  <MSM_RuleTop>zawsze na górze</MSM_RuleTop>
+  <MSM_RuleBottom>zawsze na dole</MSM_RuleBottom>
+  <MSM_RuleAfter>po {0}</MSM_RuleAfter>
+  <MSM_RuleBefore>przed {0}</MSM_RuleBefore>
+  <MSM_RuleSrcUser>twoja reguła</MSM_RuleSrcUser>
+  <MSM_RuleSrcMsm>reguły Mod Sort Managera</MSM_RuleSrcMsm>
+  <MSM_RuleSrcRimSort>reguły społeczności RimSort</MSM_RuleSrcRimSort>
+  <MSM_RuleMoved>Przesunięty przez: {0}</MSM_RuleMoved>
+  <MSM_SortedRules>Posortowano – {0} modów umieściły reguły kolejności (zobacz ich szczegóły).</MSM_SortedRules>
+  <MSM_SetRules>Używaj wspólnych reguł kolejności</MSM_SetRules>
+  <MSM_SetRulesTip>Inteligentne sortowanie przestrzega też reguł dostarczonych z Mod Sort Managerem (Data/rules.xml) i reguł społeczności RimSort, jeśli RimSort jest zainstalowany. Twoje własne reguły obowiązują zawsze.</MSM_SetRulesTip>
+  <MSM_NoWarn>Działa – nie ostrzegaj</MSM_NoWarn>
+  <MSM_NoWarnUndo>Znów ostrzegaj o wersji</MSM_NoWarnUndo>
+  <MSM_NoWarnTip>Mod nie jest zrobiony dla tej wersji gry, ale działa. Mody z Data/noVersionWarning.xml lub z moda No Version Warning też nie dostają ostrzeżenia.</MSM_NoWarnTip>
 </LanguageData>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Mod Sort Manager 0.3.0 – shared load order rules used by the smart sort (can be switched off in the settings).
+  <rule mod="packageId" position="top|bottom" after="id1,id2" before="id3" />
+  "top" / "bottom" only decide which mod goes first when the mods' own rules allow it.
+  Harmony first, then Core and the DLCs in release order, is built into the smart sort.
+  A rule that would make a loop with the mods' own rules is skipped.
+-->
+<MsmRules>
+  <rule mod="brrainz.harmony" position="top" />
+  <rule mod="zetrith.prepatcher" position="top" after="brrainz.harmony" />
+  <rule mod="unlimitedhugs.hugslib" position="top" after="brrainz.harmony" />
+  <rule mod="oskarpotocki.vanillafactionsexpanded.core" after="brrainz.harmony" />
+  <rule mod="erdelf.humanoidalienraces" position="top" after="brrainz.harmony" />
+</MsmRules>

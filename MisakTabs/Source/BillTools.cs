@@ -321,7 +321,7 @@ namespace MisakTabs
                 {
                     Building_WorkTable t = benches[i];
                     bool on = chosen.Contains(t);
-                    string label = t.LabelCap + " (" + t.Position.x + ", " + t.Position.z + ") – " + "MT_BillsN".Translate(t.billStack.Count) + (t == current ? " – " + "MT_ThisBench".Translate() : "");
+                    string label = t.LabelCap + " (" + t.Position.x + ", " + t.Position.z + ") – " + "MT_BillsN".Translate(t.billStack.Count).ToString() + (t == current ? " – " + "MT_ThisBench".Translate().ToString() : "");
                     bool was = on;
                     Widgets.CheckboxLabeled(new Rect(0f, i * 28f, view.width, 26f), label, ref on);
                     if (on != was) { if (on) chosen.Add(t); else chosen.Remove(t); }

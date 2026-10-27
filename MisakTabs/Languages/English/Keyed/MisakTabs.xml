@@ -123,4 +123,27 @@
   <MT_H_PlannedTip>Click to open the planned operations.</MT_H_PlannedTip>
   <MT_H_NoOpsHere>No operation for this body part</MT_H_NoOpsHere>
   <MT_H_ShowOpsHere>Show operations for this part</MT_H_ShowOpsHere>
+  <!-- 0.5.0 -->
+  <MT_BenchMenuTip>Workbench: copy all its bills, paste them here or into several workbenches of the same kind.</MT_BenchMenuTip>
+  <MT_CopyAll>Copy all bills of this workbench ({0})</MT_CopyAll>
+  <MT_PasteAll>Paste the copied bills here ({0} from {1})</MT_PasteAll>
+  <MT_PasteSeveral>Paste bills into several workbenches</MT_PasteSeveral>
+  <MT_PasteSeveralSub>{0} copied bills from {1}. Bills a workbench cannot make are skipped.</MT_PasteSeveralSub>
+  <MT_BenchCopied>Copied {0} bills of {1}.</MT_BenchCopied>
+  <MT_PastedInto>Pasted {0} bills into {1} workbenches.</MT_PastedInto>
+  <MT_PasteN>Paste into {0}</MT_PasteN>
+  <MT_None>None</MT_None>
+  <MT_BillsN>{0} bills</MT_BillsN>
+  <MT_ThisBench>this one</MT_ThisBench>
+  <MT_BillMenuTip>More: rename the bill, link it with a bill on another workbench.</MT_BillMenuTip>
+  <MT_Rename>Rename</MT_Rename>
+  <MT_LinkWith>Link with a bill on another workbench</MT_LinkWith>
+  <MT_Unlink>Unlink</MT_Unlink>
+  <MT_NoLinkTargets>No other workbench on this map has a bill with this recipe.</MT_NoLinkTargets>
+  <MT_Linked>Linked: {0} with {1}</MT_Linked>
+  <MT_LinkedN>linked ×{0}</MT_LinkedN>
+  <MT_LinkedTip>Linked bills share their settings (count, target, pause, materials, stockpiles). A change to one is copied to the others:</MT_LinkedTip>
+  <MT_CountTip>Click: ±1 · Shift+click: ±10 · Ctrl+click: ±100</MT_CountTip>
+  <MT_InclEquipped>counts worn and carried</MT_InclEquipped>
+  <MT_OnlyIn>only in {0}</MT_OnlyIn>
 </LanguageData>
