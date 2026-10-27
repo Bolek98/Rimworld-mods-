@@ -157,7 +157,7 @@ namespace ResearchLockedRaidGear
 
 		public override string SettingsCategory()
 		{
-			return "Tech Progression: World at Your Level";
+			return "World at Your Level";
 		}
 
 		private static List<string> recBullets;

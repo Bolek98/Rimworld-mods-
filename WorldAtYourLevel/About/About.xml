@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Tech Progression: World at Your Level</name>
+  <name>World at Your Level – Raiders Match Your Tech</name>
   <author>Bolek98</author>
   <packageId>misak.researchlockedraidgear</packageId>
   <modVersion>2.15.0</modVersion>
@@ -19,59 +19,62 @@
     <li>brrainz.harmony</li>
     <li>Ludeon.RimWorld</li>
   </loadAfter>
-  <description>Keeps the whole world at your colony's tech level.
+  <description>No charge rifles while you still craft bows.
 
-ENEMIES AND VISITORS
-- Raiders, visitors, caravans and quest pawns arrive only with gear your colony has researched (closest researched replacement, raid strength compensation for lost gear).
-- Arrivals carry nothing better than your colony's own gear – guns, melee weapons (material counts), armor and quality at most as good as the best your colony has crafted, with an optional tolerance.
-- Optional "Only crafted": others only use gear kinds your colony has already crafted – strictly, also when matching the colony (no makeshift rifles while you still use bows).
-- Flamethrowers, explosive, incendiary and EMP weapons only after your colony has made that kind itself.
-- Enemy turrets (quest sites, bases, sieges) only up to the turrets you have built yourself.
+Raiders, visitors, traders, quests and mechanoids match your colony's tech level – the world grows together with you instead of jumping ahead. Your own colonists are never touched.
 
-MECHANOIDS
-- Every hostile mechanoid or drone the colony could not build yet, or whose faction is above the world level, is removed – from any faction, arriving in any way (raids, quests, quest sites, events, map generation), on any map.
-- Mechanitors in human raids bring only mechanoids you have researched (Biotech).
+WHAT YOU GET
+- Enemies only bring gear your colony has researched – never better than your own best gun, armor or quality. Raid strength is balanced for the lost gear.
+- No flamethrowers, explosives or EMP before you make them yourself; enemy turrets only up to the ones you have built.
+- Mechanoids above your level are removed – from raids, quests, events and map generation, from any mod.
+- Traders, quest rewards and loot follow the world level; high-tech events are swapped for one of the same kind.
+- Select an enemy to see what this mod took from him and what he got instead.
 
-WORLD
-- All factions act at your colony's level (default), or block factions above the world level completely.
-- Traders, quest rewards and loot are filtered by the world level; trader guarantee if no caravan arrives for too long.
-- High-tech events (mech clusters, ship parts, toxic spewers…) are replaced with another event of the same kind; quests above the world level are dropped, also from other mods.
-- "Raids" tab: choose which raid types, strategies and arrival modes will not happen, from all mods.
-- World level = scenario level + share of finished research per tech tier, with tolerance, time bonus or a manual level. Research level readout above the date.
-- "World" tab: world level, quests, event history and diagnostics showing why traders, visitors or raids don't come.
+MORE
+- "Raids" tab: switch off raid types, strategies and arrival modes you don't want – from all mods.
+- "World" tab: world level, quests, event history and why traders or visitors don't come.
+- World level = your research per tech tier (tolerance, time bonus or a manual level). Optional "Only crafted" mode for a strict feel.
+- Recommended settings switch (on by default) – install and play.
 
-Your own colonists are never affected. Recommended settings switch (on by default), settings in tabs.
-
-Works great with Smart Colonist Gear (same author): your colonists and the rest of the world share one tech level. Both mods also work on their own.
-Requires Harmony. RimWorld 1.6 and 1.7. Safe to add to an existing save. English and Czech.
-Something broken, or want something added? Please write it in the comments.
+Pairs with Smart Colonist Gear (same author): your colonists and the rest of the world share one tech level. Both also work alone.
+Requires Harmony. RimWorld 1.6 and 1.7. Safe to add to an existing save. 12 languages.
 
 ---
 
-Drží celý svět na technologické úrovni tvé kolonie.
+Žádné pulzní pušky, dokud sám vyrábíš luky.
 
-NEPŘÁTELÉ A NÁVŠTĚVNÍCI
-- Nájezdníci, návštěvníci, karavany a postavy z úkolů přijdou jen s výbavou, kterou má tvoje kolonie vyzkoumanou (nejbližší vyzkoumaná náhrada, síla nájezdu se za ztracenou výbavu dorovná).
-- Příchozí nenesou nic lepšího než tvoje kolonie – zbraně na dálku i na blízko (počítá se materiál), brnění a kvalita nejvýš tak dobré jako to nejlepší, co tvoje kolonie vyrobila, s volitelnou tolerancí.
-- Volitelně „Jen vyrobené“: ostatní používají jen druhy výbavy, které už tvoje kolonie vyrobila – přísně i při přizpůsobení kolonii (žádné provizorní pušky, dokud sám používáš luky).
-- Plamenomety, výbušné, zápalné a EMP zbraně až poté, co je tvoje kolonie sama vyrobí.
-- Nepřátelské věže (místa úkolů, základny, obléhání) jen do úrovně věží, které jsi sám postavil.
+Nájezdníci, návštěvníci, obchodníci, úkoly i mechanoidi odpovídají technologické úrovni tvé kolonie – svět roste spolu s tebou, místo aby utíkal napřed. Tvých kolonistů se to nikdy netýká.
 
-MECHANOIDI
-- Každý nepřátelský mechanoid nebo dron, kterého kolonie ještě neumí postavit, nebo jehož frakce je nad úrovní světa, zmizí – z jakékoli frakce, ať přijde jakkoli (přepadení, úkoly, místa úkolů, události, tvorba mapy), na jakékoli mapě.
-- Mechanitoři v lidských nájezdech přivedou jen mechanoidy, které máš vyzkoumané (Biotech).
+CO DOSTANEŠ
+- Nepřátelé nesou jen výbavu, kterou máš vyzkoumanou – nikdy lepší než tvoje nejlepší zbraň, brnění nebo kvalita. Síla nájezdu se za ztracenou výbavu dorovná.
+- Žádné plamenomety, výbušniny ani EMP, dokud je sám nevyrobíš; nepřátelské věže jen do úrovně těch, které jsi postavil.
+- Mechanoidi nad tvou úrovní zmizí – z nájezdů, úkolů, událostí i tvorby mapy, z jakéhokoli modu.
+- Obchodníci, odměny z úkolů a kořist se řídí úrovní světa; pokročilé události se vymění za jinou stejného druhu.
+- Označ nepřítele a uvidíš, co mu mod vzal a co dostal místo toho.
 
-SVĚT
-- Všechny frakce jednají na úrovni tvé kolonie (výchozí), nebo frakce nad úrovní světa úplně zablokuj.
-- Obchodníci, odměny z úkolů a kořist se filtrují podle úrovně světa; záruka obchodníka, když karavana dlouho nepřijde.
-- Pokročilé události (shluky mechanoidů, části lodí, jedovaté chrliče…) se nahradí jinou událostí stejného druhu; úkoly nad úrovní světa se zahodí, i z jiných modů.
-- Záložka „Nájezdy“: vyber, které druhy nájezdů, strategie a způsoby příchodu se nestanou, ze všech modů.
-- Úroveň světa = úroveň scénáře + podíl dokončeného výzkumu v každé úrovni, s tolerancí, časovým bonusem nebo ruční úrovní. Ukazatel úrovně výzkumu nad datem.
-- Záložka „Svět“: úroveň světa, úkoly, historie událostí a diagnostika, proč nechodí obchodníci, návštěvníci nebo nájezdy.
+DALŠÍ
+- Záložka „Nájezdy“: vypni druhy nájezdů, strategie a způsoby příchodu, které nechceš – ze všech modů.
+- Záložka „Svět“: úroveň světa, úkoly, historie událostí a proč nechodí obchodníci nebo návštěvníci.
+- Úroveň světa = tvůj výzkum v každé technologické úrovni (tolerance, časový bonus nebo ruční úroveň). Volitelný přísný režim „Jen vyrobené“.
+- Přepínač Doporučené nastavení (zapnutý) – nainstaluj a hraj.
 
-Tvých vlastních kolonistů se to nikdy netýká. Přepínač Doporučené nastavení (zapnutý), nastavení v záložkách.
+Ve dvojici se Smart Colonist Gear (stejný autor): tvoji kolonisté i zbytek světa sdílí jednu technologickou úroveň. Oba fungují i samostatně.
+Vyžaduje Harmony. RimWorld 1.6 a 1.7. Lze bezpečně přidat do rozehrané hry. 12 jazyků.
 
-Skvěle funguje se Smart Colonist Gear (stejný autor): tvoji kolonisté i zbytek světa sdílí jednu technologickou úroveň. Oba mody fungují i samostatně.
-Vyžaduje Harmony. RimWorld 1.6 a 1.7. Lze bezpečně přidat do rozehrané hry. Angličtina a čeština.
-Něco nefunguje, nebo chceš něco přidat? Napiš to do komentářů.</description>
+═══════════════════════
+IDEAS AND SUGGESTIONS
+Want something changed or added? Write it in the comments – I read every idea and take it into account.
+
+WHAT'S NEW IN 2.15.0
+- New name, clearer description
+- See why an enemy has his gear (select him)
+- 12 languages, "Report a bug" button
+
+NÁPADY A NÁVRHY
+Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
+
+CO JE NOVÉHO VE VERZI 2.15.0
+- Nové jméno a jasnější popis
+- Proč má nepřítel svou výbavu (stačí ho označit)
+- 12 jazyků, tlačítko „Nahlásit chybu“</description>
 </ModMetaData>
