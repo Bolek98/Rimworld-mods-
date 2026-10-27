@@ -1,4 +1,9 @@
 === Not on the Workshop yet (test versions) ===
+2.16.0
+- Raiders' implants follow the world level (Arrivals tab, on by default): hostile pawns no longer get bionic, archotech or other implants above the world level. They are simply not installed, so nobody arrives with a missing arm instead.
+- Raiders' drugs follow the world level (Arrivals tab, on by default): go-juice, yayo and other drugs above the world level are taken from hostile pawns' pockets as they are made, so they can't take them before the fight.
+- Research cost by world level (World tab, off by default): research above the world level costs more (default +50 %), research below it less (default −25 %). The research screen shows the changed cost.
+
 2.15.2
 - Colony tier: Anomaly research (studied through knowledge, not at a bench) and research without a tech level no longer count, so the tier can't get stuck on projects most colonies never do. The level bar and "What the next tier brings" count the same way.
 - A letter when the world level rises, saying what it means (settings, on by default; switch it off to get the short message as before). Drops still show a message.

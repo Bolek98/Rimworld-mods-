@@ -307,4 +307,14 @@
   <RLRG_WorldLetter_Desc>世界レベルが上がると、短いメッセージの代わりに説明付きの手紙が届きます。下がった場合は引き続きメッセージで表示されます。</RLRG_WorldLetter_Desc>
   <RLRG_WorldLetterTitle>世界レベル：{0}</RLRG_WorldLetterTitle>
   <RLRG_WorldLetterText>世界は技術レベル「{0}」に達しました。\n\nこれから襲撃者・商人・訪問者は、このレベルまでの武器・衣服・その他の品を持ち込めます。次の段階で何が来るかはMod設定（世界タブ）で確認できます。</RLRG_WorldLetterText>
+  <RLRG_FilterImplants>襲撃者のインプラントは世界レベルに従う</RLRG_FilterImplants>
+  <RLRG_FilterImplants_Desc>敵対ポーンは世界レベルを超えるバイオニック、アーコテックなどのインプラントを受けません。単に取り付けられないだけで、体の部位が欠けることはありません。</RLRG_FilterImplants_Desc>
+  <RLRG_FilterDrugs>襲撃者のドラッグは世界レベルに従う</RLRG_FilterDrugs>
+  <RLRG_FilterDrugs_Desc>敵対ポーンは世界レベルを超えるゴージュース、ヤヨなどのドラッグを持たないため、戦闘前に使えません。</RLRG_FilterDrugs_Desc>
+  <RLRG_ResearchCost>世界レベルによる研究コスト</RLRG_ResearchCost>
+  <RLRG_ResearchCost_Desc>世界レベルより上の研究はコストが増え、下の研究は減ります。初期状態はオフです。</RLRG_ResearchCost_Desc>
+  <RLRG_ResearchAbove>世界レベルより上：コスト +{0}%</RLRG_ResearchAbove>
+  <RLRG_ResearchAbove_Desc>世界より高い技術レベルの研究がどれだけ高くなるか。</RLRG_ResearchAbove_Desc>
+  <RLRG_ResearchBelow>世界レベルより下：コスト −{0}%</RLRG_ResearchBelow>
+  <RLRG_ResearchBelow_Desc>世界より低い技術レベルの研究がどれだけ安くなるか。</RLRG_ResearchBelow_Desc>
 </LanguageData>

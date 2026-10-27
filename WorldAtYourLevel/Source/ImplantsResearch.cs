@@ -33,7 +33,7 @@ namespace ResearchLockedRaidGear
 				{
 					return true;
 				}
-				GearLog.NoteImplant(pawn, partDef);
+				GearLog.AddDef(pawn, partDef, null);
 				return false;
 			}
 			catch (Exception ex)
@@ -60,6 +60,7 @@ namespace ResearchLockedRaidGear
 					Thing t = list[i];
 					if (t?.def != null && t.def.IsDrug && AboveWorld(t.def))
 					{
+						GearLog.Add(p, t, null);
 						p.inventory.innerContainer.Remove(t);
 						t.Destroy();
 					}

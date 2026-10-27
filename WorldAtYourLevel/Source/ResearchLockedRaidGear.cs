@@ -31,7 +31,7 @@ namespace ResearchLockedRaidGear
 			Raids
 		}
 
-		public const string Version = "2.15.2";
+		public const string Version = "2.16.0";
 
 		public static ResearchLockedRaidGearSettings Settings;
 
@@ -112,6 +112,10 @@ namespace ResearchLockedRaidGear
 			TryPatch(h, AccessTools.Method(typeof(IncidentWorker), "CanFireNow"), null, "Postfix", typeof(RaidTypeIncidentPatch));
 			RaidTypeFilter.PatchWorkers(h);
 			TryPatch(h, AccessTools.Method(typeof(Pawn), "GetInspectString"), null, "Postfix", typeof(GearLogInspectPatch));   // 2.15.0
+			// 2.16.0: raiders' implants and drugs, research cost by world level
+			TryPatch(h, AccessTools.Method(typeof(PawnTechHediffsGenerator), "InstallPart"), "InstallPartPrefix", null, typeof(RaiderImplants));
+			TryPatch(h, AccessTools.Method(typeof(PawnInventoryGenerator), "GenerateInventoryFor"), null, "InventoryPostfix", typeof(RaiderImplants));
+			TryPatch(h, AccessTools.Method(typeof(ResearchProjectDef), "CostFactor"), null, "CostFactorPostfix", typeof(ResearchCostByLevel));
 			MLog.Game("[World at Your Level] v" + Version + " loaded (messages: Logs\\WorldAtYourLevel.log).");
 		}
 
@@ -332,6 +336,13 @@ namespace ResearchLockedRaidGear
 			Settings.techLevelsAhead = (int)Sl(listing_Standard, "techLevelsAhead", "RLRG_TechAhead".Translate(Settings.techLevelsAhead), Settings.techLevelsAhead, 0f, 3f, 0.55f, "RLRG_TechAhead_Desc".Translate());
 			Settings.yearsPerTechLevel = (int)Sl(listing_Standard, "yearsPerTechLevel", (Settings.yearsPerTechLevel > 0) ? "RLRG_Years".Translate(Settings.yearsPerTechLevel).ToString() : "RLRG_YearsOff".Translate().ToString(), Settings.yearsPerTechLevel, 0f, 5f, 0.55f, "RLRG_Years_Desc".Translate());
 			Check(listing_Standard, "RLRG_LockResearch", ref Settings.lockHigherResearch, "lockHigherResearch");
+			// 2.16.0: research cost by world level
+			Check(listing_Standard, "RLRG_ResearchCost", ref Settings.researchCostByLevel, "researchCostByLevel");
+			if (Settings.researchCostByLevel)
+			{
+				Settings.researchAbovePercent = (int)Sl(listing_Standard, "researchAbovePercent", "RLRG_ResearchAbove".Translate(Settings.researchAbovePercent), Settings.researchAbovePercent, 0f, 200f, 0.55f, "RLRG_ResearchAbove_Desc".Translate());
+				Settings.researchBelowPercent = (int)Sl(listing_Standard, "researchBelowPercent", "RLRG_ResearchBelow".Translate(Settings.researchBelowPercent), Settings.researchBelowPercent, 0f, 75f, 0.55f, "RLRG_ResearchBelow_Desc".Translate());
+			}
 			Check(listing_Standard, "RLRG_WorldMessages", ref Settings.worldMessages, "worldMessages");
 			Check(listing_Standard, "RLRG_WorldLetter", ref Settings.worldLetter, "worldLetter");
 			listing_Standard.End();
@@ -355,6 +366,8 @@ namespace ResearchLockedRaidGear
 			Check(listing_Standard, "RLRG_FilterApparel", ref Settings.filterApparel, "filterApparel");
 			Check(listing_Standard, "RLRG_FilterInventory", ref Settings.filterInventory, "filterInventory");
 			Check(listing_Standard, "RLRG_FilterPossessions", ref Settings.filterPossessions, "filterPossessions");
+			Check(listing_Standard, "RLRG_FilterImplants", ref Settings.filterImplants, "filterImplants");
+			Check(listing_Standard, "RLRG_FilterDrugs", ref Settings.filterRaiderDrugs, "filterRaiderDrugs");
 			Check(listing_Standard, "RLRG_NotifyRaid", ref Settings.notifyRaid, "notifyRaid");
 			listing_Standard.NewColumn();
 			Check(listing_Standard, "RLRG_Replace", ref Settings.replaceWithClosest, "replaceWithClosest");
@@ -792,6 +805,18 @@ namespace ResearchLockedRaidGear
 		// get gear of the new era (off by default)
 		public bool gradualEras;
 
+		// 2.16.0: raiders' implants and drugs above the world level are not given
+		public bool filterImplants = true;
+
+		public bool filterRaiderDrugs = true;
+
+		// 2.16.0: research above the world level costs more, below it less (off by default)
+		public bool researchCostByLevel;
+
+		public int researchAbovePercent = 50;
+
+		public int researchBelowPercent = 25;
+
 		public int gradualDays = 5;
 
 		public bool keepTitleApparel = true;
@@ -911,6 +936,11 @@ namespace ResearchLockedRaidGear
 			Scribe_Values.Look(ref keepChancePercent, "keepChancePercent", 0);
 			Scribe_Values.Look(ref gradualEras, "gradualEras", false);
 			Scribe_Values.Look(ref gradualDays, "gradualDays", 5);
+			Scribe_Values.Look(ref filterImplants, "filterImplants", true);
+			Scribe_Values.Look(ref filterRaiderDrugs, "filterRaiderDrugs", true);
+			Scribe_Values.Look(ref researchCostByLevel, "researchCostByLevel", false);
+			Scribe_Values.Look(ref researchAbovePercent, "researchAbovePercent", 50);
+			Scribe_Values.Look(ref researchBelowPercent, "researchBelowPercent", 25);
 			Scribe_Values.Look(ref keepTitleApparel, "keepTitleApparel", true);
 			Scribe_Values.Look(ref exemptAncients, "exemptAncients", true);
 			Scribe_Collections.Look(ref exemptFactions, "exemptFactions", LookMode.Value);
@@ -6069,15 +6099,21 @@ namespace ResearchLockedRaidGear
 
 		public static void Add(Pawn pawn, Thing taken, ThingDef given)
 		{
+			if (taken != null) AddDef(pawn, taken.def, given);
+		}
+
+		// 2.16.0: also for things that never existed (implants not installed)
+		public static void AddDef(Pawn pawn, ThingDef takenDef, ThingDef given)
+		{
 			try
 			{
-				if (pawn == null || taken == null) return;
+				if (pawn == null || takenDef == null) return;
 				if (!byPawn.TryGetValue(pawn.thingIDNumber, out List<string> l))
 				{
 					if (byPawn.Count > 4000) byPawn.Clear();
 					byPawn[pawn.thingIDNumber] = l = new List<string>();
 				}
-				string what = taken.def.LabelCap.ToString() + (given != null ? " → " + given.LabelCap : " → –");
+				string what = takenDef.LabelCap.ToString() + (given != null ? " → " + given.LabelCap : " → –");
 				if (!l.Contains(what)) l.Add(what);
 				if (RaidCompensation.Collecting)
 				{

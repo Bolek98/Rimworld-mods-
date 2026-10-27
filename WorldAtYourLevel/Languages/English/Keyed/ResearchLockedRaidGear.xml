@@ -308,4 +308,14 @@
   <RLRG_WorldLetter_Desc>When the world level rises you get a letter that explains it, instead of a short message. Drops are still shown as a message.</RLRG_WorldLetter_Desc>
   <RLRG_WorldLetterTitle>World level: {0}</RLRG_WorldLetterTitle>
   <RLRG_WorldLetterText>The world has reached the {0} tech level.\n\nFrom now on raiders, traders and visitors may bring weapons, apparel and other goods up to this level. See the mod settings (World tab) for what the next tier brings.</RLRG_WorldLetterText>
+  <RLRG_FilterImplants>Raiders' implants follow the world level</RLRG_FilterImplants>
+  <RLRG_FilterImplants_Desc>Hostile pawns don't get bionic, archotech or other implants above the world level. They are simply not installed – no missing body parts.</RLRG_FilterImplants_Desc>
+  <RLRG_FilterDrugs>Raiders' drugs follow the world level</RLRG_FilterDrugs>
+  <RLRG_FilterDrugs_Desc>Hostile pawns don't carry go-juice, yayo and other drugs above the world level, so they can't take them before the fight.</RLRG_FilterDrugs_Desc>
+  <RLRG_ResearchCost>Research cost by world level</RLRG_ResearchCost>
+  <RLRG_ResearchCost_Desc>Research above the world level costs more, research below it costs less. Off by default.</RLRG_ResearchCost_Desc>
+  <RLRG_ResearchAbove>Above the world level: +{0}% cost</RLRG_ResearchAbove>
+  <RLRG_ResearchAbove_Desc>How much more research of a higher tech level than the world costs.</RLRG_ResearchAbove_Desc>
+  <RLRG_ResearchBelow>Below the world level: −{0}% cost</RLRG_ResearchBelow>
+  <RLRG_ResearchBelow_Desc>How much less research of a lower tech level than the world costs.</RLRG_ResearchBelow_Desc>
 </LanguageData>
