@@ -52,7 +52,7 @@
   <MSM_Folder>文件夹</MSM_Folder>
   <MSM_GrpBreak>可能导致崩溃</MSM_GrpBreak>
   <MSM_GrpDup>重复安装</MSM_GrpDup>
-  <MSM_GrpSame>功能重复</MSM_GrpSame>
+  <MSM_GrpSame>可能的冲突（共享代码）</MSM_GrpSame>
   <MSM_Inactive>未启用 · {0}</MSM_Inactive>
   <MSM_IncText>{0} 的作者声明二者不兼容。请只启用其中一个。</MSM_IncText>
   <MSM_IncTitle>{0} × {1} —— 不兼容</MSM_IncTitle>
@@ -102,8 +102,8 @@
   <MSM_ProfilesHint>与游戏自带模组窗口使用同样的文件(保存/载入列表)——不用本模组也能用。</MSM_ProfilesHint>
   <MSM_ReturnToGame>重启后返回游戏</MSM_ReturnToGame>
   <MSM_Revert>全部撤销</MSM_Revert>
-  <MSM_SameHint>根据已加载模组的 Harmony 补丁估算</MSM_SameHint>
-  <MSM_SameHot>两者都替换了游戏同一处重要部分——留一个就够</MSM_SameHot>
+  <MSM_SameHint>根据 Harmony 补丁估计——不是错误</MSM_SameHint>
+  <MSM_SameHot>两者替换了游戏的同一重要部分——出问题时首先检查的一对</MSM_SameHot>
   <MSM_SameText>两者修改了同一段游戏代码</MSM_SameText>
   <MSM_SaveFailed>无法保存模组列表:{0}</MSM_SaveFailed>
   <MSM_SaveProfile>保存当前</MSM_SaveProfile>
@@ -284,4 +284,59 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_RemovedNow>{0} 已移除。重启游戏以完成。</MSM_RemovedNow>
   <MSM_RemovedLater>{0} 正在使用中——将在下次启动时移除（已停用）。</MSM_RemovedLater>
   <MSM_RemoveFailed>无法移除 {0}。</MSM_RemoveFailed>
+  <MSM_SameExplain>这些不是重复，也不是错误。每一对模组修改了游戏代码的同一部分。如果做得好，它们的修改会按加载顺序依次执行，两个都能正常工作。只有当其中一个有漏洞时，才可能干扰排在它下面的模组。所以不要仅仅因为模组出现在这里就移除它——当出问题时再用这个列表，知道先测试哪些模组。</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – 做同样的事</MSM_RivalTitle>
+  <MSM_RivalHint>这是 Mod Sort Manager 自带列表中的已知组合，不是根据代码推测的。</MSM_RivalHint>
+  <MSM_Rival_Haul>两者都会一次搬运多件物品。{1} 启用时，{0} 的相同功能会自动关闭——只保留一个。</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>两者都会把收获直接放进口袋。{1} 启用时，{0} 的这部分会自动关闭。</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>两者都会接管游戏的刻循环或游戏速度。同时使用可能卡顿或速度不对——只保留一个。</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1} 要求所有玩家的游戏运行完全一致；{0} 会改变游戏的运行方式。不要同时使用。</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0} 已包含 {1} 的全部功能（无卡顿的内存清理）。请关闭 {1}。</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>两者都会自行设置工作优先级——会互相覆盖。只保留一个。</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0} 启用时会接管这个标签页；{1} 的标签页不会被使用（可在 {0} 的设置中切换）。</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>两者都会替换游戏的模组窗口。{1} 启用时 Mod Sort Manager 会让位。</MSM_Rival_Managers>
+  <MSM_NoteRival>与 {0} 做同样的事</MSM_NoteRival>
+  <MSM_SameWorks>我这里没问题——隐藏</MSM_SameWorks>
+  <MSM_SameUnhide>重新在列表中显示</MSM_SameUnhide>
+  <MSM_SameHiddenTag>已隐藏</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>显示已隐藏（{0}）</MSM_SameShowHidden>
+  <MSM_SameHideHidden>收起已隐藏</MSM_SameHideHidden>
+  <MSM_CrashTitle>上一局游戏没有正常结束</MSM_CrashTitle>
+  <MSM_CrashText>上次游戏没有正常关闭（崩溃或卡死）。在此之前不久，{0}，模组列表被修改过：\n\n{1}\n\n要回到修改之前的列表吗？它会在 Mod Sort Manager 中打开，保存前可以先检查。</MSM_CrashText>
+  <MSM_CrashAdded>新增（{0}）：</MSM_CrashAdded>
+  <MSM_CrashRemoved>移除（{0}）：</MSM_CrashRemoved>
+  <MSM_CrashMoved>只有顺序变了。</MSM_CrashMoved>
+  <MSM_CrashRestore>打开之前的列表</MSM_CrashRestore>
+  <MSM_CrashKeep>保留我现在的列表</MSM_CrashKeep>
+  <!-- 0.2.2 -->
+  <MSM_FromSave>从存档读取模组列表…</MSM_FromSave>
+  <MSM_FromSaveTip>选择一个存档：查看它使用了哪些模组、缺少什么、与你的列表有何不同——并可使用它的列表。</MSM_FromSaveTip>
+  <MSM_NoSaves>没有找到存档。</MSM_NoSaves>
+  <MSM_SaveNoMods>此存档没有模组列表（或无法读取）。</MSM_SaveNoMods>
+  <MSM_SaveTitle>存档 {0} 的模组</MSM_SaveTitle>
+  <MSM_SaveSub>存档中有 {0} 个模组 · 游戏版本 {1}</MSM_SaveSub>
+  <MSM_SaveMissing>未安装（{0}）</MSM_SaveMissing>
+  <MSM_SaveTurnOn>将被启用（{0}）</MSM_SaveTurnOn>
+  <MSM_SaveTurnOff>将被停用（{0}）</MSM_SaveTurnOff>
+  <MSM_SaveSame>与你的列表模组相同、顺序相同。</MSM_SaveSame>
+  <MSM_SaveSameMods>与你的列表模组相同——只是顺序不同。</MSM_SaveSameMods>
+  <MSM_SaveApply>应用此列表</MSM_SaveApply>
+  <!-- 0.3.0 -->
+  <MSM_RuleSec>加载顺序规则</MSM_RuleSec>
+  <MSM_RuleAdd>+ 加载顺序规则</MSM_RuleAdd>
+  <MSM_RuleAddTip>你为此模组设定的加载顺序规则——智能排序会遵循它。</MSM_RuleAddTip>
+  <MSM_RuleTop>始终在最上面</MSM_RuleTop>
+  <MSM_RuleBottom>始终在最下面</MSM_RuleBottom>
+  <MSM_RuleAfter>在 {0} 之后</MSM_RuleAfter>
+  <MSM_RuleBefore>在 {0} 之前</MSM_RuleBefore>
+  <MSM_RuleSrcUser>你的规则</MSM_RuleSrcUser>
+  <MSM_RuleSrcMsm>Mod Sort Manager 规则</MSM_RuleSrcMsm>
+  <MSM_RuleSrcRimSort>RimSort 社区规则</MSM_RuleSrcRimSort>
+  <MSM_RuleMoved>被以下规则移动：{0}</MSM_RuleMoved>
+  <MSM_SortedRules>已排序——{0} 个模组按加载顺序规则放置（见其详情）。</MSM_SortedRules>
+  <MSM_SetRules>使用共享加载顺序规则</MSM_SetRules>
+  <MSM_SetRulesTip>智能排序也会遵循 Mod Sort Manager 自带的规则（Data/rules.xml），以及在安装了 RimSort 时的 RimSort 社区规则。你自己的规则始终有效。</MSM_SetRulesTip>
+  <MSM_NoWarn>可用——不再警告</MSM_NoWarn>
+  <MSM_NoWarnUndo>重新警告版本</MSM_NoWarnUndo>
+  <MSM_NoWarnTip>此模组并非为当前游戏版本制作，但可以使用。Data/noVersionWarning.xml 或 No Version Warning 模组中列出的模组同样不会警告。</MSM_NoWarnTip>
 </LanguageData>

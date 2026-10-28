@@ -52,7 +52,7 @@
   <MSM_Folder>Folder</MSM_Folder>
   <MSM_GrpBreak>Mogą się psuć</MSM_GrpBreak>
   <MSM_GrpDup>Duplikaty</MSM_GrpDup>
-  <MSM_GrpSame>Robią to samo</MSM_GrpSame>
+  <MSM_GrpSame>Możliwe konflikty (wspólny kod)</MSM_GrpSame>
   <MSM_Inactive>NIEAKTYWNE · {0}</MSM_Inactive>
   <MSM_IncText>Autor moda {0} podaje, że nie działają razem. Zostaw włączony tylko jeden.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – niekompatybilne</MSM_IncTitle>
@@ -102,8 +102,8 @@ Zamknij grę i przenieś je ręcznie. Folder kopii zapasowej: {1}</MSM_KeepFaile
   <MSM_ProfilesHint>Te same pliki co w oknie modów w grze (zapisz/wczytaj listę) – działają także bez tego moda.</MSM_ProfilesHint>
   <MSM_ReturnToGame>Po restarcie wróć do gry</MSM_ReturnToGame>
   <MSM_Revert>Cofnij wszystko</MSM_Revert>
-  <MSM_SameHint>szacunek na podstawie łatek Harmony wczytanych modów</MSM_SameHint>
-  <MSM_SameHot>Oba zastępują tę samą ważną część gry – wystarczy jeden</MSM_SameHot>
+  <MSM_SameHint>szacunek na podstawie patchy Harmony – to nie błąd</MSM_SameHint>
+  <MSM_SameHot>Oba zastępują tę samą ważną część gry – pierwsza para do sprawdzenia, gdy coś nie działa</MSM_SameHot>
   <MSM_SameText>Oba zmieniają ten sam kod gry</MSM_SameText>
   <MSM_SaveFailed>Nie udało się zapisać listy modów: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>Zapisz bieżącą</MSM_SaveProfile>
@@ -284,4 +284,59 @@ Rozpocząć?</MSM_BisectConfirm>
   <MSM_RemovedNow>Usunięto {0}. Uruchom grę ponownie, aby zakończyć.</MSM_RemovedNow>
   <MSM_RemovedLater>{0} jest teraz używany – zostanie usunięty przy następnym uruchomieniu (jest wyłączony).</MSM_RemovedLater>
   <MSM_RemoveFailed>Nie udało się usunąć {0}.</MSM_RemoveFailed>
+  <MSM_SameExplain>To nie są duplikaty ani błędy. Mody w każdej parze zmieniają tę samą część kodu gry. Jeśli są dobrze zrobione, ich zmiany po prostu wykonują się jedna po drugiej w kolejności ładowania i oba działają. Tylko gdy jeden ma błąd, może zakłócać mod ułożony pod nim. Nie usuwaj więc moda tylko dlatego, że tu jest – użyj tej listy, gdy coś nie działa, by wiedzieć, które mody sprawdzić najpierw.</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – robią to samo</MSM_RivalTitle>
+  <MSM_RivalHint>Znana para z własnej listy Mod Sort Managera, nie szacunek na podstawie kodu.</MSM_RivalHint>
+  <MSM_Rival_Haul>Oba noszą kilka rzeczy naraz. Dopóki {1} jest włączony, ta sama część {0} sama się wyłącza – zostaw tylko jeden.</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>Oba wkładają plony od razu do kieszeni. Dopóki {1} jest włączony, ta część {0} sama się wyłącza.</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>Oba przejmują pętlę ticków lub prędkość gry. Razem mogą powodować przycięcia lub złą prędkość – zostaw tylko jeden.</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1} wymaga, by gra działała u wszystkich graczy dokładnie tak samo; {0} zmienia sposób tykania gry. Nie używaj ich razem.</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0} zawiera już wszystko z {1} (czyszczenie pamięci bez zawieszeń). Wyłącz {1}.</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>Oba same ustawiają priorytety pracy – będą nadpisywać nawzajem swoje wybory. Zostaw tylko jeden.</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0} przejmuje tę zakładkę, dopóki jest włączony; zakładka z {1} nie jest używana (zmienisz to w ustawieniach {0}).</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>Oba zastępują okno Mody w grze. Mod Sort Manager ustępuje, dopóki {1} jest włączony.</MSM_Rival_Managers>
+  <MSM_NoteRival>robi to samo co {0}</MSM_NoteRival>
+  <MSM_SameWorks>U mnie działa – ukryj</MSM_SameWorks>
+  <MSM_SameUnhide>Pokazuj znowu na liście</MSM_SameUnhide>
+  <MSM_SameHiddenTag>ukryte</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>Pokaż ukryte ({0})</MSM_SameShowHidden>
+  <MSM_SameHideHidden>Schowaj ukryte</MSM_SameHideHidden>
+  <MSM_CrashTitle>Ostatnia gra nie zakończyła się poprawnie</MSM_CrashTitle>
+  <MSM_CrashText>Ostatnio gra nie zamknęła się poprawnie (awaria lub zawieszenie). Krótko wcześniej, o {0}, zmieniono listę modów:\n\n{1}\n\nChcesz wrócić do listy sprzed zmiany? Otworzy się w Mod Sort Managerze, więc sprawdzisz ją przed zapisem.</MSM_CrashText>
+  <MSM_CrashAdded>Dodane ({0}):</MSM_CrashAdded>
+  <MSM_CrashRemoved>Usunięte ({0}):</MSM_CrashRemoved>
+  <MSM_CrashMoved>Zmieniła się tylko kolejność.</MSM_CrashMoved>
+  <MSM_CrashRestore>Otwórz listę sprzed zmiany</MSM_CrashRestore>
+  <MSM_CrashKeep>Zostaw moją obecną listę</MSM_CrashKeep>
+  <!-- 0.2.2 -->
+  <MSM_FromSave>Lista modów z zapisu gry…</MSM_FromSave>
+  <MSM_FromSaveTip>Wybierz zapis: zobaczysz, z jakimi modami był grany, czego brakuje lub co różni się od twojej listy – i możesz użyć jego listy.</MSM_FromSaveTip>
+  <MSM_NoSaves>Nie znaleziono zapisów gry.</MSM_NoSaves>
+  <MSM_SaveNoMods>Ten zapis nie ma listy modów (lub nie da się jej odczytać).</MSM_SaveNoMods>
+  <MSM_SaveTitle>Mody zapisu {0}</MSM_SaveTitle>
+  <MSM_SaveSub>{0} modów w zapisie · wersja gry {1}</MSM_SaveSub>
+  <MSM_SaveMissing>Niezainstalowane ({0})</MSM_SaveMissing>
+  <MSM_SaveTurnOn>Zostaną włączone ({0})</MSM_SaveTurnOn>
+  <MSM_SaveTurnOff>Zostaną wyłączone ({0})</MSM_SaveTurnOff>
+  <MSM_SaveSame>Te same mody w tej samej kolejności co twoja lista.</MSM_SaveSame>
+  <MSM_SaveSameMods>Te same mody co twoja lista – różni się tylko kolejność.</MSM_SaveSameMods>
+  <MSM_SaveApply>Użyj tej listy</MSM_SaveApply>
+  <!-- 0.3.0 -->
+  <MSM_RuleSec>Reguła kolejności</MSM_RuleSec>
+  <MSM_RuleAdd>+ Reguła kolejności</MSM_RuleAdd>
+  <MSM_RuleAddTip>Twoja własna reguła kolejności ładowania dla tego moda – inteligentne sortowanie jej przestrzega.</MSM_RuleAddTip>
+  <MSM_RuleTop>zawsze na górze</MSM_RuleTop>
+  <MSM_RuleBottom>zawsze na dole</MSM_RuleBottom>
+  <MSM_RuleAfter>po {0}</MSM_RuleAfter>
+  <MSM_RuleBefore>przed {0}</MSM_RuleBefore>
+  <MSM_RuleSrcUser>twoja reguła</MSM_RuleSrcUser>
+  <MSM_RuleSrcMsm>reguły Mod Sort Managera</MSM_RuleSrcMsm>
+  <MSM_RuleSrcRimSort>reguły społeczności RimSort</MSM_RuleSrcRimSort>
+  <MSM_RuleMoved>Przesunięty przez: {0}</MSM_RuleMoved>
+  <MSM_SortedRules>Posortowano – {0} modów umieściły reguły kolejności (zobacz ich szczegóły).</MSM_SortedRules>
+  <MSM_SetRules>Używaj wspólnych reguł kolejności</MSM_SetRules>
+  <MSM_SetRulesTip>Inteligentne sortowanie przestrzega też reguł dostarczonych z Mod Sort Managerem (Data/rules.xml) i reguł społeczności RimSort, jeśli RimSort jest zainstalowany. Twoje własne reguły obowiązują zawsze.</MSM_SetRulesTip>
+  <MSM_NoWarn>Działa – nie ostrzegaj</MSM_NoWarn>
+  <MSM_NoWarnUndo>Znów ostrzegaj o wersji</MSM_NoWarnUndo>
+  <MSM_NoWarnTip>Mod nie jest zrobiony dla tej wersji gry, ale działa. Mody z Data/noVersionWarning.xml lub z moda No Version Warning też nie dostają ostrzeżenia.</MSM_NoWarnTip>
 </LanguageData>

@@ -304,8 +304,27 @@ namespace GraphicsTuner
         // every autosave). Measured: once it stops the game, it is only done while paused.
         private static bool bgBlocks;
 
+        // 1.5.2: on 1.7 Smooth FPS never forces a clean-up. Twice in a row icons, textures and doors vanished
+        // a moment after our full clean-up right after loading (17:24 and 18:20, also without compaction):
+        // the Waylith engine lets go of pictures it still needs when a full clean-up is forced. The .NET
+        // runtime of 1.7 cleans up on its own in the background, so nothing is lost by leaving it alone.
+        public static bool ForcedGcBlocked => Net;
+        private static bool blockedLogged;
+
+        private static bool Blocked()
+        {
+            if (!ForcedGcBlocked) return false;
+            if (!blockedLogged)
+            {
+                blockedLogged = true;
+                MLog.Info("[Smooth FPS] 1.7: no forced memory clean-ups (they made textures disappear) – the game cleans up on its own.");
+            }
+            return true;
+        }
+
         private static void Background()
         {
+            if (Blocked()) return;
             try
             {
                 var sw = System.Diagnostics.Stopwatch.StartNew();
@@ -325,14 +344,20 @@ namespace GraphicsTuner
 
         public static void Collect(bool manual, bool compact = false)
         {
+            if (Blocked())
+            {
+                if (manual) Messages.Message("GT_MemBlocked17".Translate(), MessageTypeDefOf.RejectInput, historical: false);
+                return;
+            }
             long before = GC.GetTotalMemory(false) / MB;
             var sw = System.Diagnostics.Stopwatch.StartNew();
             ourCollect = true;
             if (Net)
             {
-                if (compact)
-                    GCSettings.LargeObjectHeapCompactionMode = GCLargeObjectHeapCompactionMode.CompactOnce;
-                GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true, compact);
+                // 1.5.1: never move the large objects on 1.7 – the Waylith engine uploads pictures on demand
+                // from big memory blocks; packing them together made icons, textures and doors disappear
+                // (the same kind of trouble as the texture limit and unloading, both off on 1.7)
+                GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true, false);
             }
             else
                 GC.Collect();

@@ -52,7 +52,7 @@
   <MSM_Folder>Pasta</MSM_Folder>
   <MSM_GrpBreak>Podem quebrar</MSM_GrpBreak>
   <MSM_GrpDup>Duplicados</MSM_GrpDup>
-  <MSM_GrpSame>Fazem a mesma coisa</MSM_GrpSame>
+  <MSM_GrpSame>Possíveis conflitos (código compartilhado)</MSM_GrpSame>
   <MSM_Inactive>INATIVOS · {0}</MSM_Inactive>
   <MSM_IncText>O autor de {0} diz que eles não funcionam juntos. Mantenha só um ativado.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – incompatíveis</MSM_IncTitle>
@@ -102,8 +102,8 @@ Feche o jogo e mova-as manualmente. Pasta de backup: {1}</MSM_KeepFailed>
   <MSM_ProfilesHint>Os mesmos arquivos da janela de mods do jogo (salvar/carregar lista) – funcionam também sem este mod.</MSM_ProfilesHint>
   <MSM_ReturnToGame>Voltar ao jogo após reiniciar</MSM_ReturnToGame>
   <MSM_Revert>Desfazer tudo</MSM_Revert>
-  <MSM_SameHint>estimativa pelos patches Harmony dos mods carregados</MSM_SameHint>
-  <MSM_SameHot>Ambos substituem a mesma parte importante do jogo – um basta</MSM_SameHot>
+  <MSM_SameHint>estimativa pelos patches Harmony – não é um erro</MSM_SameHint>
+  <MSM_SameHot>Ambos substituem a mesma parte importante do jogo – o primeiro par a verificar quando algo dá errado</MSM_SameHot>
   <MSM_SameText>Ambos alteram o mesmo código do jogo</MSM_SameText>
   <MSM_SaveFailed>Não foi possível salvar a lista de mods: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>Salvar atual</MSM_SaveProfile>
@@ -284,4 +284,59 @@ Começar?</MSM_BisectConfirm>
   <MSM_RemovedNow>{0} foi removido. Reinicie o jogo para concluir.</MSM_RemovedNow>
   <MSM_RemovedLater>{0} está em uso agora – será removido no próximo início (está desativado).</MSM_RemovedLater>
   <MSM_RemoveFailed>Não foi possível remover {0}.</MSM_RemoveFailed>
+  <MSM_SameExplain>Não são duplicatas nem erros. Os mods de cada par alteram a mesma parte do código do jogo. Se forem bem feitos, as mudanças apenas rodam uma após a outra na ordem de carregamento e os dois funcionam. Só se um deles tiver um bug ele pode atrapalhar o mod ordenado abaixo. Então não remova um mod só porque ele aparece aqui – use esta lista quando algo der errado, para saber quais mods testar primeiro.</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – fazem o mesmo trabalho</MSM_RivalTitle>
+  <MSM_RivalHint>Par conhecido da lista própria do Mod Sort Manager, não uma estimativa pelo código.</MSM_RivalHint>
+  <MSM_Rival_Haul>Ambos carregam várias coisas em uma viagem. Enquanto {1} estiver ativo, a mesma parte de {0} se desliga sozinha – mantenha só um.</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>Ambos colocam a colheita direto nos bolsos. Enquanto {1} estiver ativo, esta parte de {0} se desliga sozinha.</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>Ambos assumem o ciclo de ticks ou a velocidade do jogo. Juntos podem causar travadas ou velocidade errada – mantenha só um.</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1} precisa que o jogo rode exatamente igual para todos os jogadores; {0} muda como o jogo avança. Não os use juntos.</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0} já contém tudo do {1} (limpeza de memória sem travamentos). Desative o {1}.</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>Ambos definem as prioridades de trabalho sozinhos – vão sobrescrever as escolhas um do outro. Mantenha só um.</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0} assume esta aba enquanto estiver ativo; a aba do {1} não é usada (dá para mudar nas configurações do {0}).</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>Ambos substituem a janela de Mods do jogo. O Mod Sort Manager se afasta enquanto {1} estiver ativo.</MSM_Rival_Managers>
+  <MSM_NoteRival>faz o mesmo trabalho que {0}</MSM_NoteRival>
+  <MSM_SameWorks>Funciona para mim – ocultar</MSM_SameWorks>
+  <MSM_SameUnhide>Mostrar de novo na lista</MSM_SameUnhide>
+  <MSM_SameHiddenTag>oculto</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>Mostrar ocultos ({0})</MSM_SameShowHidden>
+  <MSM_SameHideHidden>Esconder os ocultos</MSM_SameHideHidden>
+  <MSM_CrashTitle>A última partida não terminou direito</MSM_CrashTitle>
+  <MSM_CrashText>Da última vez o jogo não fechou direito (um travamento ou congelamento). Pouco antes, às {0}, a lista de mods foi alterada:\n\n{1}\n\nQuer voltar à lista de antes? Ela abre no Mod Sort Manager para você conferir antes de salvar.</MSM_CrashText>
+  <MSM_CrashAdded>Adicionados ({0}):</MSM_CrashAdded>
+  <MSM_CrashRemoved>Removidos ({0}):</MSM_CrashRemoved>
+  <MSM_CrashMoved>Só a ordem mudou.</MSM_CrashMoved>
+  <MSM_CrashRestore>Abrir a lista de antes</MSM_CrashRestore>
+  <MSM_CrashKeep>Manter minha lista atual</MSM_CrashKeep>
+  <!-- 0.2.2 -->
+  <MSM_FromSave>Lista de mods de um save…</MSM_FromSave>
+  <MSM_FromSaveTip>Escolha um save: veja com quais mods ele foi jogado, o que falta ou difere da sua lista – e use a lista dele.</MSM_FromSaveTip>
+  <MSM_NoSaves>Nenhum save encontrado.</MSM_NoSaves>
+  <MSM_SaveNoMods>Este save não tem lista de mods (ou ela não pôde ser lida).</MSM_SaveNoMods>
+  <MSM_SaveTitle>Mods do save {0}</MSM_SaveTitle>
+  <MSM_SaveSub>{0} mods no save · versão do jogo {1}</MSM_SaveSub>
+  <MSM_SaveMissing>Não instalados ({0})</MSM_SaveMissing>
+  <MSM_SaveTurnOn>Serão ativados ({0})</MSM_SaveTurnOn>
+  <MSM_SaveTurnOff>Serão desativados ({0})</MSM_SaveTurnOff>
+  <MSM_SaveSame>Mesmos mods na mesma ordem da sua lista.</MSM_SaveSame>
+  <MSM_SaveSameMods>Mesmos mods da sua lista – só a ordem é diferente.</MSM_SaveSameMods>
+  <MSM_SaveApply>Aplicar esta lista</MSM_SaveApply>
+  <!-- 0.3.0 -->
+  <MSM_RuleSec>Regra de ordem</MSM_RuleSec>
+  <MSM_RuleAdd>+ Regra de ordem</MSM_RuleAdd>
+  <MSM_RuleAddTip>Sua própria regra de ordem de carregamento para este mod – a ordenação inteligente a segue.</MSM_RuleAddTip>
+  <MSM_RuleTop>sempre no topo</MSM_RuleTop>
+  <MSM_RuleBottom>sempre no fim</MSM_RuleBottom>
+  <MSM_RuleAfter>depois de {0}</MSM_RuleAfter>
+  <MSM_RuleBefore>antes de {0}</MSM_RuleBefore>
+  <MSM_RuleSrcUser>sua regra</MSM_RuleSrcUser>
+  <MSM_RuleSrcMsm>regras do Mod Sort Manager</MSM_RuleSrcMsm>
+  <MSM_RuleSrcRimSort>regras da comunidade do RimSort</MSM_RuleSrcRimSort>
+  <MSM_RuleMoved>Movido por: {0}</MSM_RuleMoved>
+  <MSM_SortedRules>Ordenado – {0} mods foram posicionados por regras de ordem (veja os detalhes deles).</MSM_SortedRules>
+  <MSM_SetRules>Usar regras de ordem compartilhadas</MSM_SetRules>
+  <MSM_SetRulesTip>A ordenação inteligente também segue as regras incluídas no Mod Sort Manager (Data/rules.xml) e as regras da comunidade do RimSort, se o RimSort estiver instalado. Suas próprias regras valem sempre.</MSM_SetRulesTip>
+  <MSM_NoWarn>Funciona – não avisar</MSM_NoWarn>
+  <MSM_NoWarnUndo>Avisar de novo sobre a versão</MSM_NoWarnUndo>
+  <MSM_NoWarnTip>O mod não foi feito para esta versão do jogo, mas funciona. Mods listados em Data/noVersionWarning.xml ou pelo mod No Version Warning também não geram aviso.</MSM_NoWarnTip>
 </LanguageData>

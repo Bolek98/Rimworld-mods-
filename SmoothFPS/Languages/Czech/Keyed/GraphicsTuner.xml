@@ -218,8 +218,8 @@
   <GT_MemOnSave_Desc>Hned po uložení (i automatickém) – ukládání po sobě nechá hodně nepotřebné paměti.</GT_MemOnSave_Desc>
   <GT_MemLowLatency>Plynulé hraní: žádné velké úklidy během hry (1.7)</GT_MemLowLatency>
   <GT_MemLowLatency_Desc>Řekne .NET, ať se během hraní vyhne úklidům, které zastaví celou hru – uklízí pak na pozadí. Hra může držet o něco víc paměti. Když počítači dochází paměť, sám se vrátí k normálu.</GT_MemLowLatency_Desc>
-  <GT_MemCompact>Zhutnit paměť při dlouhé pauze (1.7)</GT_MemCompact>
-  <GT_MemCompact_Desc>Při pauze aspoň 5 s (nejvýš jednou za 30 minut) se paměť sesype k sobě – pomáhá, když hra drží hodiny hodně paměti. Hra se při tom na chvilku zastaví, ale máš stejně pauzu. Ve výchozím stavu vypnuto.</GT_MemCompact_Desc>
+  <GT_MemCompact>Uklidit paměť při dlouhé pauze (1.7)</GT_MemCompact>
+  <GT_MemCompact_Desc>Při pauze aspoň 20 s (nejvýš jednou za 30 minut a jen když paměť hodně narostla) se paměť uklidí. Nic se nepřesouvá – grafické jádro 1.7 drží obrázky ve velkých blocích paměti, které musí zůstat na místě. Ve výchozím stavu vypnuto.</GT_MemCompact_Desc>
   <GT_MemUnload>Uvolnit nepoužívané textury při pauze</GT_MemUnload>
   <GT_MemUnload_Desc>Při delší pauze (3 s) uvolní textury a zvuky, které hra už nepoužívá. Pomáhá při velkém množství modů, když dochází paměť. Nejvýš jednou za 10 minut. Vypnuto, protože může krátce trvat.</GT_MemUnload_Desc>
   <GT_MemRamWarn>Varovat, když dochází paměť počítače</GT_MemRamWarn>
@@ -386,4 +386,55 @@
   <GT_SimSleepLine>Živé: {0} vzhůru, {1} spí. Vzhůru je drží: {2}</GT_SimSleepLine>
   <GT_SimSlept>Uspáno {0} postav.</GT_SimSlept>
   <GT_TexCapWaylith>v 1.7 není potřeba</GT_TexCapWaylith>
+  <GT_SaveBuffer>Rychlejší ukládání (velký zápis)</GT_SaveBuffer>
+  <GT_SaveBuffer_Desc>Soubor s uloženou hrou se zapisuje po velkých kusech místo spousty malých – zastavení při ukládání je kratší. Stejný soubor, stejný obsah. Samotné ukládání nejde přesunout na pozadí: hra se během zápisu nesmí měnit.</GT_SaveBuffer_Desc>
+  <GT_SaveLast>Poslední uložení: {0} ms (nejlepší {1} ms)</GT_SaveLast>
+  <GT_ED_Open>Doktor chyb</GT_ED_Open>
+  <GT_ED_Open_Desc>Červené chyby z logu po skupinách, s modem, který je opravdu způsobil, a co znamenají lidsky.</GT_ED_Open_Desc>
+  <GT_ErrorAlert>Upozornit na nové chyby</GT_ErrorAlert>
+  <GT_ErrorAlert_Desc>Krátká zpráva, když se v logu objeví chyba z nového místa – v Doktoru chyb uvidíš, který mod ji způsobil.</GT_ErrorAlert_Desc>
+  <GT_ED_Title>Doktor chyb</GT_ED_Title>
+  <GT_ED_Summary>{0} chyb · {1} druhů · z {2} modů</GT_ED_Summary>
+  <GT_ED_Warnings>I varování</GT_ED_Warnings>
+  <GT_ED_Unknown>Neznámý mod (hra nebo nenalezen)</GT_ED_Unknown>
+  <GT_ED_Copy>Kopírovat</GT_ED_Copy>
+  <GT_ED_Workshop>Stránka na Workshopu</GT_ED_Workshop>
+  <GT_ED_None>V logu nejsou žádné chyby 👍</GT_ED_None>
+  <GT_ED_Copied>Zkopírováno – vlož to do komentáře autorovi modu.</GT_ED_Copied>
+  <GT_ED_NewMsg>Nová chyba v logu – nejspíš {0}. Podrobnosti v Smooth FPS → Doktor chyb.</GT_ED_NewMsg>
+  <GT_ED_K_Null>Něco bylo prázdné, i když nemělo (třeba odstraněná postava, věc nebo definice). Obvykle chyba v tomto modu nebo střet s jiným modem – pošli autorovi zkopírovaný text.</GT_ED_K_Null>
+  <GT_ED_K_MissingDef>Něco, co mod potřebuje, neexistuje: chybí požadovaný mod, mod je pro jinou verzi hry nebo věc byla odstraněna. Zkontroluj požadavky modu.</GT_ED_K_MissingDef>
+  <GT_ED_K_Patch>Změnu kódu (Harmony patch) nešlo použít – mod je asi pro jinou verzi hry nebo se tluče s jiným modem. Část modu nemusí fungovat.</GT_ED_K_Patch>
+  <GT_ED_K_Xml>Rozbitý nebo zastaralý XML soubor v modu. Hra tu část přeskočí; obvykle neškodné, ale ta věc nebo funkce může chybět.</GT_ED_K_Xml>
+  <GT_ED_K_Texture>Chybí nebo je rozbitý obrázek. Týká se jen vzhledu – můžeš vidět růžový zástupný obrázek.</GT_ED_K_Texture>
+  <GT_ED_K_Duplicate>Dva mody přidávají stejnou věc. Jeden vyhraje; obvykle neškodné, ale zkontroluj, že nemáš stejný mod dvakrát.</GT_ED_K_Duplicate>
+  <GT_ED_K_Cast>Dva mody se neshodnou, co je nějaký objekt. Obvykle střet modů, které mění totéž.</GT_ED_K_Cast>
+  <GT_ED_K_List>Mod hledal v seznamu něco, co tam nebylo. Chyba v modu – pošli autorovi zkopírovaný text.</GT_ED_K_List>
+  <GT_ED_K_Tick>Chyba, když hra aktualizovala něco na mapě. Ta věc může přestat fungovat, dokud hru znovu nenačteš.</GT_ED_K_Tick>
+  <GT_ED_K_PawnGen>Chyba při vytváření postavy (mody ras, oblečení nebo zbraní). Postava může vypadat špatně nebo se vynechá.</GT_ED_K_PawnGen>
+  <GT_ED_K_Job>Chyba v práci kolonisty. Kolonista obvykle prostě dělá něco jiného.</GT_ED_K_Job>
+  <GT_ED_K_Other>Chyba v kódu modu. Zkopíruj ji a pošli autorovi modu.</GT_ED_K_Other>
+  <GT_MemBlocked17>Na 1.7 Smooth FPS paměť násilím neuklízí – způsobovalo to mizení textur, ikon a dveří. Hra si paměť uklízí sama.</GT_MemBlocked17>
+  <!-- 1.5.3 -->
+  <GT_HideResources>Seznam surovin jen pod myší</GT_HideResources>
+  <GT_HideResources_Desc>Seznam surovin vlevo se kreslí, jen když je nad ním myš. Při spoustě druhů věcí stojí tenhle seznam kus času v každém snímku.</GT_HideResources_Desc>
+  <GT_UltraSpeed>Rychlost 4 bez vývojářského režimu</GT_UltraSpeed>
+  <GT_UltraSpeed_Desc>Přidá vlastní 4. rychlost hry (normálně jen ve vývojářském režimu) jako tlačítko za rychlostí 3. Funguje i klávesa pro rychlost 4 a „rychleji“ z rychlosti 3. Velké kolonie ji na slabším počítači nemusí stíhat.</GT_UltraSpeed_Desc>
+  <GT_UltraButton>Rychlost 4</GT_UltraButton>
+  <GT_DangerSpeed>Rychlost při nebezpečí</GT_DangerSpeed>
+  <GT_DangerSpeed_Desc>Když začne nájezd nebo boj, hra na chvíli přepne na rychlost 1. Tady si můžeš místo toho nechat rychlost 2 nebo 3. Hra dál pozastavuje a varuje jako obvykle.</GT_DangerSpeed_Desc>
+  <GT_Danger0>Jako hra (rychlost 1)</GT_Danger0>
+  <GT_Danger1>Nechat rychlost 2</GT_Danger1>
+  <GT_Danger2>Nechat rychlost 3</GT_Danger2>
+  <GT_SpeedOtherMod>Je zapnutý Smart Speed – rychlost 4 a rychlost při nebezpečí řeší sám, proto tato dvě nastavení nic nedělají.</GT_SpeedOtherMod>
+  <GT_RulesLine>Pravidla výjimek z jiných modů: {0} položek z {1} modů – tyto postavy, věci a objekty na mapě světa se nikdy nezpomalují.</GT_RulesLine>
+  <GT_RainSec>Déšť smyje špínu</GT_RainSec>
+  <GT_RainCall>Přivolat déšť, když je venku moc špíny</GT_RainCall>
+  <GT_RainCall_Desc>Tisíce kousků špíny venku dělají hru trhanou. Zhruba každých 40 s se spočítá špína venku na tvých domovských mapách; když je nad limitem, neprší, je nad 0 °C a za poslední 2 dny se déšť nevolal, začne pršet (déšť, který tvůj biom zná). Počasí vynucené událostí se nikdy nemění. Vypnuto = jako ve hře.</GT_RainCall_Desc>
+  <GT_RainThreshold>Špína venku, než se přivolá déšť: {0}</GT_RainThreshold>
+  <GT_RainThreshold_Desc>Kolik kousků špíny venku (bez střechy) na tvých domovských mapách přivolá déšť.</GT_RainThreshold_Desc>
+  <GT_RainWashAll>Déšť smyje veškerou špínu venku</GT_RainWashAll>
+  <GT_RainWashAll_Desc>Hra nechá déšť smýt jen některé druhy špíny. S tímhle déšť ztenčuje venku (bez střechy) každou špínu se stejnou šancí. Špínu uvnitř nikdy nemění. Vypnuto = jako ve hře.</GT_RainWashAll_Desc>
+  <GT_RainNow>Špína venku na tvých domovských mapách teď: {0}</GT_RainNow>
+  <GT_RainStarted>Začalo pršet – déšť smyje špínu (Smooth FPS).</GT_RainStarted>
 </LanguageData>

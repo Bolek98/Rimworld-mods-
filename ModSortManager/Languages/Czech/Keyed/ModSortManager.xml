@@ -52,7 +52,7 @@
   <MSM_Folder>Složka</MSM_Folder>
   <MSM_GrpBreak>Může se rozbít</MSM_GrpBreak>
   <MSM_GrpDup>Duplikáty</MSM_GrpDup>
-  <MSM_GrpSame>Dělají totéž</MSM_GrpSame>
+  <MSM_GrpSame>Možné konflikty (sdílený kód)</MSM_GrpSame>
   <MSM_Inactive>NEAKTIVNÍ · {0}</MSM_Inactive>
   <MSM_IncText>Autor modu {0} uvádí, že spolu nefungují. Nech zapnutý jen jeden.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – neslučitelné</MSM_IncTitle>
@@ -102,8 +102,8 @@ Zavři hru a přesuň je ručně. Záložní složka: {1}</MSM_KeepFailed>
   <MSM_ProfilesHint>Stejné soubory jako v herním okně modů (Uložit/Načíst seznam) – fungují i bez tohoto modu.</MSM_ProfilesHint>
   <MSM_ReturnToGame>Po restartu se vrátit do hry</MSM_ReturnToGame>
   <MSM_Revert>Vrátit zpět</MSM_Revert>
-  <MSM_SameHint>odhad podle Harmony patchů načtených modů</MSM_SameHint>
-  <MSM_SameHot>Oba nahrazují stejnou důležitou část hry – stačí jeden</MSM_SameHot>
+  <MSM_SameHint>odhad podle Harmony patchů – nejde o chybu</MSM_SameHint>
+  <MSM_SameHot>Oba nahrazují stejnou důležitou část hry – první dvojice ke kontrole, když něco zlobí</MSM_SameHot>
   <MSM_SameText>Oba mění stejný kód hry</MSM_SameText>
   <MSM_SaveFailed>Seznam modů se nepodařilo uložit: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>Uložit aktuální</MSM_SaveProfile>
@@ -284,4 +284,59 @@ Začít?</MSM_BisectConfirm>
   <MSM_RemovedNow>{0} byl odstraněn. Dokonči to restartem hry.</MSM_RemovedNow>
   <MSM_RemovedLater>{0} je teď používán – odstraní se při dalším spuštění (je vypnutý).</MSM_RemovedLater>
   <MSM_RemoveFailed>{0} se nepodařilo odstranit.</MSM_RemoveFailed>
+  <MSM_SameExplain>Nejsou to duplikáty ani chyby. Mody v každé dvojici mění stejnou část kódu hry. Když jsou udělané dobře, jejich změny se prostě spustí jedna po druhé podle pořadí načítání a fungují oba. Jen když má jeden z nich chybu, může rušit mod seřazený pod ním. Mod proto neodstraňuj jen kvůli tomu, že je tady – seznam použij, až něco zlobí, abys věděl, které mody vyzkoušet nejdřív.</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – dělají stejnou práci</MSM_RivalTitle>
+  <MSM_RivalHint>Známá dvojice z vlastního seznamu Mod Sort Manageru, ne odhad z kódu.</MSM_RivalHint>
+  <MSM_Rival_Haul>Oba nosí víc věcí najednou. Dokud je zapnutý {1}, stejná část {0} se sama vypne – nech zapnutý jen jeden.</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>Oba dávají sklizeň rovnou do kapes. Dokud je zapnutý {1}, tahle část {0} se sama vypne.</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>Oba přebírají tikání nebo rychlost hry. Spolu můžou hru sekat nebo měnit rychlost – nech jen jeden.</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1} potřebuje, aby hra běžela u všech hráčů úplně stejně; {0} mění, jak hra tiká. Nepoužívej je spolu.</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0} už obsahuje všechno z {1} (úklid paměti bez zamrzání). Vypni {1}.</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>Oba samy nastavují priority práce – budou si navzájem přepisovat volby. Nech jen jeden.</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0} tuhle záložku převezme, dokud je zapnutý; záložka z {1} se nepoužije (přepneš to v nastavení {0}).</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>Oba nahrazují herní okno Mody. Mod Sort Manager ustoupí, dokud je zapnutý {1}.</MSM_Rival_Managers>
+  <MSM_NoteRival>dělá stejnou práci jako {0}</MSM_NoteRival>
+  <MSM_SameWorks>U mě funguje – skrýt</MSM_SameWorks>
+  <MSM_SameUnhide>Znovu ukazovat v seznamu</MSM_SameUnhide>
+  <MSM_SameHiddenTag>skryté</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>Ukázat skryté ({0})</MSM_SameShowHidden>
+  <MSM_SameHideHidden>Schovat skryté</MSM_SameHideHidden>
+  <MSM_CrashTitle>Minulá hra neskončila správně</MSM_CrashTitle>
+  <MSM_CrashText>Minule se hra neukončila správně (pád nebo zamrznutí). Krátce předtím, v {0}, se změnil seznam modů:\n\n{1}\n\nChceš se vrátit k seznamu z doby předtím? Otevře se v Mod Sort Manageru, takže ho před uložením zkontroluješ.</MSM_CrashText>
+  <MSM_CrashAdded>Přidané ({0}):</MSM_CrashAdded>
+  <MSM_CrashRemoved>Odebrané ({0}):</MSM_CrashRemoved>
+  <MSM_CrashMoved>Změnilo se jen pořadí.</MSM_CrashMoved>
+  <MSM_CrashRestore>Otevřít seznam z doby předtím</MSM_CrashRestore>
+  <MSM_CrashKeep>Nechat můj současný seznam</MSM_CrashKeep>
+  <!-- 0.2.2 -->
+  <MSM_FromSave>Seznam modů z uložené hry…</MSM_FromSave>
+  <MSM_FromSaveTip>Vyber uloženou hru: uvidíš, s jakými mody se hrála, co chybí nebo se liší od tvého seznamu – a můžeš její seznam použít.</MSM_FromSaveTip>
+  <MSM_NoSaves>Žádné uložené hry nenalezeny.</MSM_NoSaves>
+  <MSM_SaveNoMods>Tahle uložená hra nemá seznam modů (nebo ho nejde přečíst).</MSM_SaveNoMods>
+  <MSM_SaveTitle>Mody uložené hry {0}</MSM_SaveTitle>
+  <MSM_SaveSub>{0} modů v uložené hře · verze hry {1}</MSM_SaveSub>
+  <MSM_SaveMissing>Nejsou nainstalované ({0})</MSM_SaveMissing>
+  <MSM_SaveTurnOn>Zapnou se ({0})</MSM_SaveTurnOn>
+  <MSM_SaveTurnOff>Vypnou se ({0})</MSM_SaveTurnOff>
+  <MSM_SaveSame>Stejné mody ve stejném pořadí jako tvůj seznam.</MSM_SaveSame>
+  <MSM_SaveSameMods>Stejné mody jako tvůj seznam – liší se jen pořadí.</MSM_SaveSameMods>
+  <MSM_SaveApply>Použít tenhle seznam</MSM_SaveApply>
+  <!-- 0.3.0 -->
+  <MSM_RuleSec>Pravidlo pořadí</MSM_RuleSec>
+  <MSM_RuleAdd>+ Pravidlo pořadí</MSM_RuleAdd>
+  <MSM_RuleAddTip>Tvoje vlastní pravidlo pořadí pro tento mod – chytré řazení se jím řídí.</MSM_RuleAddTip>
+  <MSM_RuleTop>vždy nahoře</MSM_RuleTop>
+  <MSM_RuleBottom>vždy dole</MSM_RuleBottom>
+  <MSM_RuleAfter>za {0}</MSM_RuleAfter>
+  <MSM_RuleBefore>před {0}</MSM_RuleBefore>
+  <MSM_RuleSrcUser>tvoje pravidlo</MSM_RuleSrcUser>
+  <MSM_RuleSrcMsm>pravidla Mod Sort Manageru</MSM_RuleSrcMsm>
+  <MSM_RuleSrcRimSort>komunitní pravidla RimSortu</MSM_RuleSrcRimSort>
+  <MSM_RuleMoved>Posunuto podle: {0}</MSM_RuleMoved>
+  <MSM_SortedRules>Seřazeno – {0} modů umístila pravidla pořadí (viz jejich detail).</MSM_SortedRules>
+  <MSM_SetRules>Používat sdílená pravidla pořadí</MSM_SetRules>
+  <MSM_SetRulesTip>Chytré řazení se řídí i pravidly dodanými s Mod Sort Managerem (Data/rules.xml) a komunitními pravidly RimSortu, pokud je RimSort nainstalovaný. Tvoje vlastní pravidla platí vždy.</MSM_SetRulesTip>
+  <MSM_NoWarn>Funguje – nevarovat</MSM_NoWarn>
+  <MSM_NoWarnUndo>Zase varovat kvůli verzi</MSM_NoWarnUndo>
+  <MSM_NoWarnTip>Mod není dělaný pro tuto verzi hry, ale funguje. Bez varování jsou i mody uvedené v Data/noVersionWarning.xml nebo v modu No Version Warning.</MSM_NoWarnTip>
 </LanguageData>

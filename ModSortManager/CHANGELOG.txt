@@ -1,3 +1,35 @@
+=== Workshop release 0.3.0 (28 Oct 2026) ===
+0.3.0
+New
+- Your own load order rules: "+ Load order rule" in a mod's details – always at the top, always at the bottom, after or before a mod. Smart sort follows them and says which rule moved a mod.
+- Shared rules: Smart sort also follows the built-in rules (Harmony, Prepatcher, HugsLib, Humanoid Alien Races early …) and RimSort's community rules when RimSort is installed.
+- Mod list from a save: see which mods a save was played with, which are missing, and apply its list in its order.
+- "Possible conflicts (shared code)" with a short explanation, "Works for me – hide" on every pair, and known rivals (mods that do the same job) under May break.
+- "Works here – don't warn" for older mods that work fine.
+- Safe start after a crash: offers the mod list from before your last change.
+- Keyboard: Up/Down moves the selection, Shift+Up/Down moves the selected mod.
+
+Fixes
+- Possible conflicts: all pairs are listed – the list stopped at 15 (thanks ColossalFossil).
+
+=== Development history since the last Workshop release (test versions) ===
+0.3.0
+- Your own load order rules: "+ Load order rule" in a mod's details – always at the top, always at the bottom, after a mod or before a mod. Smart sort follows them (a rule that would make a loop is skipped).
+- Shared rules: Smart sort also follows the rules shipped in Data/rules.xml (Harmony, Prepatcher, HugsLib, Humanoid Alien Races early; Vanilla Expanded Framework after Harmony) and RimSort's community rules when RimSort is installed (can be switched off in the settings).
+- After Smart sort the details of a mod say which rule moved it.
+- "Works here – don't warn" for mods made for an older game version that work; mods listed in Data/noVersionWarning.xml or by the No Version Warning mod are not warned about either.
+
+0.2.2
+- Possible conflicts: all pairs are listed now – the list stopped at 15 (thanks ColossalFossil).
+- Profiles → "Mod list from a save…": pick a save and see which mods it was played with, which are not installed, which would be turned on or off – and apply its list in its order (only the save's header is read, it loads in a moment).
+- Keyboard in the mod lists: Up/Down moves the selection, Shift+Up/Down moves the selected mod in the active list (while you are not typing in a search field).
+
+0.2.1
+- "Do the same thing" is now "Possible conflicts (shared code)" with a short explanation above the list: these mods are not duplicates – done right, their changes run one after another in load order; only a bug in one can disturb the mod sorted below it, so the list is for finding the cause when something misbehaves, not for removing mods (idea: ColossalFossil).
+- "Works for me – hide" on every pair in Possible conflicts: the pair is not shown any more (saved); "Show hidden" in the group header brings them back.
+- Known rivals: pairs of mods that are known to do the same job are shown under May break with an explanation – Pick Up And Haul / Harvest And Haul with Haul Master, Smooth Frames / RocketMan / Performance Fish / Multiplayer / Fewer Freezes with Smooth FPS, Work Manager / Free Will with Steward, Nice Bill Tab / Nice Health Tab with Mišák Tabs.
+- Safe start after a crash: when the last game did not end properly and the mod list had been changed shortly before, Mod Sort Manager offers the list from before the change (it opens in the manager to check before saving).
+
 === Workshop release 0.2.0 (26 Oct 2026) ===
 0.2.0
 New

@@ -52,7 +52,7 @@
   <MSM_Folder>Ordner</MSM_Folder>
   <MSM_GrpBreak>Kann Probleme machen</MSM_GrpBreak>
   <MSM_GrpDup>Duplikate</MSM_GrpDup>
-  <MSM_GrpSame>Machen dasselbe</MSM_GrpSame>
+  <MSM_GrpSame>Mögliche Konflikte (geteilter Code)</MSM_GrpSame>
   <MSM_Inactive>INAKTIV · {0}</MSM_Inactive>
   <MSM_IncText>Laut Autor von {0} funktionieren sie nicht zusammen. Nur eine aktiviert lassen.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – inkompatibel</MSM_IncTitle>
@@ -102,8 +102,8 @@ Schließe das Spiel und verschiebe sie von Hand. Sicherungsordner: {1}</MSM_Keep
   <MSM_ProfilesHint>Dieselben Dateien wie im Mod-Fenster des Spiels (Liste speichern/laden) – sie funktionieren auch ohne diese Mod.</MSM_ProfilesHint>
   <MSM_ReturnToGame>Nach Neustart ins Spiel zurückkehren</MSM_ReturnToGame>
   <MSM_Revert>Alles rückgängig</MSM_Revert>
-  <MSM_SameHint>Schätzung anhand der Harmony-Patches der geladenen Mods</MSM_SameHint>
-  <MSM_SameHot>Beide ersetzen denselben wichtigen Teil des Spiels – eine genügt</MSM_SameHot>
+  <MSM_SameHint>Schätzung aus Harmony-Patches – kein Fehler</MSM_SameHint>
+  <MSM_SameHot>Beide ersetzen denselben wichtigen Teil des Spiels – das erste Paar, das du prüfen solltest, wenn etwas nicht stimmt</MSM_SameHot>
   <MSM_SameText>Beide ändern denselben Spielcode</MSM_SameText>
   <MSM_SaveFailed>Die Mod-Liste konnte nicht gespeichert werden: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>Aktuelle speichern</MSM_SaveProfile>
@@ -284,4 +284,59 @@ Starten?</MSM_BisectConfirm>
   <MSM_RemovedNow>{0} wurde entfernt. Starte das Spiel neu, um es abzuschließen.</MSM_RemovedNow>
   <MSM_RemovedLater>{0} wird gerade benutzt – sie wird beim nächsten Start entfernt (sie ist ausgeschaltet).</MSM_RemovedLater>
   <MSM_RemoveFailed>{0} konnte nicht entfernt werden.</MSM_RemoveFailed>
+  <MSM_SameExplain>Das sind keine Duplikate und keine Fehler. Die Mods jedes Paares ändern denselben Teil des Spielcodes. Sind sie gut gemacht, laufen ihre Änderungen einfach nacheinander in der Ladereihenfolge und beide funktionieren. Nur wenn einer einen Fehler hat, kann er den darunter sortierten Mod stören. Entferne also keinen Mod, nur weil er hier steht – nutze die Liste, wenn etwas nicht stimmt, um zu wissen, welche Mods du zuerst testen solltest.</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – erledigen dieselbe Aufgabe</MSM_RivalTitle>
+  <MSM_RivalHint>Bekanntes Paar aus der eigenen Liste von Mod Sort Manager, keine Schätzung aus dem Code.</MSM_RivalHint>
+  <MSM_Rival_Haul>Beide tragen mehrere Dinge auf einmal. Solange {1} aktiv ist, schaltet sich derselbe Teil von {0} selbst ab – behalte nur einen.</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>Beide legen die Ernte direkt in die Taschen. Solange {1} aktiv ist, schaltet sich dieser Teil von {0} selbst ab.</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>Beide übernehmen den Tick-Ablauf oder die Spielgeschwindigkeit. Zusammen können sie ruckeln oder die Geschwindigkeit verfälschen – behalte nur einen.</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1} braucht, dass das Spiel bei allen Spielern genau gleich läuft; {0} ändert, wie das Spiel tickt. Nicht zusammen verwenden.</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0} enthält bereits alles aus {1} (Speicherbereinigung ohne Hänger). Schalte {1} ab.</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>Beide setzen Arbeitsprioritäten selbst – sie überschreiben sich gegenseitig. Behalte nur einen.</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0} übernimmt diesen Tab, solange es aktiv ist; der Tab von {1} wird nicht genutzt (umstellbar in den Einstellungen von {0}).</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>Beide ersetzen das Mod-Fenster des Spiels. Mod Sort Manager tritt zurück, solange {1} aktiv ist.</MSM_Rival_Managers>
+  <MSM_NoteRival>erledigt dieselbe Aufgabe wie {0}</MSM_NoteRival>
+  <MSM_SameWorks>Funktioniert bei mir – ausblenden</MSM_SameWorks>
+  <MSM_SameUnhide>Wieder in der Liste zeigen</MSM_SameUnhide>
+  <MSM_SameHiddenTag>ausgeblendet</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>Ausgeblendete zeigen ({0})</MSM_SameShowHidden>
+  <MSM_SameHideHidden>Ausgeblendete verbergen</MSM_SameHideHidden>
+  <MSM_CrashTitle>Das letzte Spiel endete nicht richtig</MSM_CrashTitle>
+  <MSM_CrashText>Das Spiel wurde letztes Mal nicht richtig beendet (Absturz oder Hänger). Kurz davor, um {0}, wurde die Mod-Liste geändert:\n\n{1}\n\nMöchtest du zur Liste von davor zurück? Sie öffnet sich in Mod Sort Manager, damit du sie vor dem Speichern prüfen kannst.</MSM_CrashText>
+  <MSM_CrashAdded>Hinzugefügt ({0}):</MSM_CrashAdded>
+  <MSM_CrashRemoved>Entfernt ({0}):</MSM_CrashRemoved>
+  <MSM_CrashMoved>Nur die Reihenfolge hat sich geändert.</MSM_CrashMoved>
+  <MSM_CrashRestore>Liste von davor öffnen</MSM_CrashRestore>
+  <MSM_CrashKeep>Meine aktuelle Liste behalten</MSM_CrashKeep>
+  <!-- 0.2.2 -->
+  <MSM_FromSave>Modliste aus einem Spielstand…</MSM_FromSave>
+  <MSM_FromSaveTip>Wähle einen Spielstand: Du siehst, mit welchen Mods er gespielt wurde, was fehlt oder von deiner Liste abweicht – und kannst seine Liste übernehmen.</MSM_FromSaveTip>
+  <MSM_NoSaves>Keine Spielstände gefunden.</MSM_NoSaves>
+  <MSM_SaveNoMods>Dieser Spielstand hat keine Modliste (oder sie konnte nicht gelesen werden).</MSM_SaveNoMods>
+  <MSM_SaveTitle>Mods des Spielstands {0}</MSM_SaveTitle>
+  <MSM_SaveSub>{0} Mods im Spielstand · Spielversion {1}</MSM_SaveSub>
+  <MSM_SaveMissing>Nicht installiert ({0})</MSM_SaveMissing>
+  <MSM_SaveTurnOn>Werden aktiviert ({0})</MSM_SaveTurnOn>
+  <MSM_SaveTurnOff>Werden deaktiviert ({0})</MSM_SaveTurnOff>
+  <MSM_SaveSame>Gleiche Mods in gleicher Reihenfolge wie deine Liste.</MSM_SaveSame>
+  <MSM_SaveSameMods>Gleiche Mods wie deine Liste – nur die Reihenfolge ist anders.</MSM_SaveSameMods>
+  <MSM_SaveApply>Diese Liste übernehmen</MSM_SaveApply>
+  <!-- 0.3.0 -->
+  <MSM_RuleSec>Ladereihenfolge-Regel</MSM_RuleSec>
+  <MSM_RuleAdd>+ Ladereihenfolge-Regel</MSM_RuleAdd>
+  <MSM_RuleAddTip>Deine eigene Ladereihenfolge-Regel für diese Mod – die intelligente Sortierung hält sich daran.</MSM_RuleAddTip>
+  <MSM_RuleTop>immer ganz oben</MSM_RuleTop>
+  <MSM_RuleBottom>immer ganz unten</MSM_RuleBottom>
+  <MSM_RuleAfter>nach {0}</MSM_RuleAfter>
+  <MSM_RuleBefore>vor {0}</MSM_RuleBefore>
+  <MSM_RuleSrcUser>deine Regel</MSM_RuleSrcUser>
+  <MSM_RuleSrcMsm>Regeln von Mod Sort Manager</MSM_RuleSrcMsm>
+  <MSM_RuleSrcRimSort>RimSort-Community-Regeln</MSM_RuleSrcRimSort>
+  <MSM_RuleMoved>Verschoben durch: {0}</MSM_RuleMoved>
+  <MSM_SortedRules>Sortiert – {0} Mods wurden durch Ladereihenfolge-Regeln platziert (siehe ihre Details).</MSM_SortedRules>
+  <MSM_SetRules>Gemeinsame Ladereihenfolge-Regeln verwenden</MSM_SetRules>
+  <MSM_SetRulesTip>Die intelligente Sortierung folgt auch den mit Mod Sort Manager gelieferten Regeln (Data/rules.xml) und den Community-Regeln von RimSort, wenn RimSort installiert ist. Deine eigenen Regeln gelten immer.</MSM_SetRulesTip>
+  <MSM_NoWarn>Funktioniert – nicht warnen</MSM_NoWarn>
+  <MSM_NoWarnUndo>Wieder wegen der Version warnen</MSM_NoWarnUndo>
+  <MSM_NoWarnTip>Die Mod ist nicht für diese Spielversion gemacht, funktioniert aber. Mods aus Data/noVersionWarning.xml oder aus der Mod No Version Warning werden ebenfalls nicht gemeldet.</MSM_NoWarnTip>
 </LanguageData>

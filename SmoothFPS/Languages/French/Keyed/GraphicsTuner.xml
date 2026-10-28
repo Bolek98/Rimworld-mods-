@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MUI_Title>Réglages recommandés</MUI_Title>
+  <MUI_TitleOff>Réglages recommandés · désactivés</MUI_TitleOff>
+  <MUI_DescOn>Le mod se configure tout seul et fonctionne immédiatement. Idéal pour les nouveaux joueurs et tous ceux qui ne veulent rien ajuster.</MUI_DescOn>
+  <MUI_DescOff>Réglages personnalisés. Modifiés par rapport aux recommandations : {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Réglages personnalisés. Toujours identiques aux recommandations.</MUI_DescOffSame>
+  <MUI_On>ACTIVÉ</MUI_On>
+  <MUI_Off>DÉSACTIVÉ</MUI_Off>
+  <MUI_ResetAll>Tout réinitialiser aux valeurs recommandées</MUI_ResetAll>
+  <MUI_ConfirmOn>Activer les réglages recommandés ? Vos modifications ({0}) seront remplacées par les valeurs recommandées.</MUI_ConfirmOn>
+  <MUI_Locked>Les réglages détaillés sont verrouillés. Vous voulez les modifier ? Désactivez l'interrupteur ci-dessus – vos valeurs partiront des valeurs recommandées.</MUI_Locked>
+  <MUI_Changed>MODIFIÉ</MUI_Changed>
+  <MUI_ChangedTip>Diffère du réglage recommandé ({0}). Cliquez pour rétablir la valeur recommandée.</MUI_ChangedTip>
+  <MUI_Yes>activé</MUI_Yes>
+  <MUI_No>désactivé</MUI_No>
+  <MUI_RecTag>RECOMMANDÉ</MUI_RecTag>
+  <GT_Profile>Profil graphique. Les changements s'appliquent immédiatement, sans redémarrage.</GT_Profile>
+  <GT_ProfPerf>Performance</GT_ProfPerf>
+  <GT_ProfPerf_Card>Le plus de FPS. Moins d'effets, pas d'ondulation des plantes, ni pluie ni neige.</GT_ProfPerf_Card>
+  <GT_ProfBal>Équilibré</GT_ProfBal>
+  <GT_ProfBal_Card>Presque identique visuellement, mais l'inutile n'est pas dessiné.</GT_ProfBal_Card>
+  <GT_ProfQual>Qualité</GT_ProfQual>
+  <GT_ProfQual_Card>Tous les effets comme dans le jeu. Journal complet.</GT_ProfQual_Card>
+  <GT_ProfCustom>Personnalisé</GT_ProfCustom>
+  <GT_ProfCustom_Card>Réglez chaque élément vous-même.</GT_ProfCustom_Card>
+  <GT_ProfileHint>Un profil ne modifie que la partie gauche (effets, fluidité). L'affichage à droite reste toujours votre choix.</GT_ProfileHint>
+  <GT_SecEffects>Effets et monde</GT_SecEffects>
+  <GT_SecSmooth>Fluidité</GT_SecSmooth>
+  <GT_SecDisplay>Affichage</GT_SecDisplay>
+  <GT_SecAdvanced>Avancé (après redémarrage)</GT_SecAdvanced>
+  <GT_SecNow>Maintenant</GT_SecNow>
+  <GT_Effects>Effets (fumée, étincelles, poussière – aussi des mods) : {0} %</GT_Effects>
+  <GT_Effects_Desc>Combien d'effets visuels sont créés. Ils ne changent pas le jeu, seulement l'apparence. Moins = plus de FPS, surtout pendant les combats et les incendies.</GT_Effects_Desc>
+  <GT_Cap>Maximum d'effets par seconde : {0}</GT_Cap>
+  <GT_Cap_Desc>Une limite stricte – dans les grands combats, les nouveaux effets s'arrêtent avant que les FPS chutent. 0 = aucune limite.</GT_Cap_Desc>
+  <GT_CullEffects>Pas d'effets en zoom très éloigné</GT_CullEffects>
+  <GT_CullEffects_Desc>Avec la caméra très éloignée, la fumée et les étincelles ne seraient de toute façon pas visibles.</GT_CullEffects_Desc>
+  <GT_CullWeapons>Pas d'armes en main en zoom très éloigné</GT_CullWeapons>
+  <GT_CullWeapons_Desc>Les armes et accessoires des personnages ne sont pas dessinés quand la caméra est éloignée. Les portraits ne changent pas.</GT_CullWeapons_Desc>
+  <GT_CullZoom>« Éloigné » signifie un zoom au-delà de : {0}</GT_CullZoom>
+  <GT_CullZoom_Desc>Plus bas = les effets et armes disparaissent plus tôt en dézoomant. Le jeu va d'environ 11 (le plus proche) à 60 (le plus loin).</GT_CullZoom_Desc>
+  <GT_NoWeather>Ne pas dessiner la pluie et la neige</GT_NoWeather>
+  <GT_NoWeather_Desc>La météo fonctionne toujours (humidité, froid, humeur), seules les gouttes et les flocons à l'écran ne sont pas dessinés.</GT_NoWeather_Desc>
+  <GT_PlantSway>Ondulation des plantes au vent</GT_PlantSway>
+  <GT_PlantSway_Desc>Comme l'option du jeu. Désactivé = les plantes restent immobiles et le jeu dessine moins.</GT_PlantSway_Desc>
+  <GT_FastLog>Journal plus rapide</GT_FastLog>
+  <GT_FastLog_Desc>RimWorld 1.7 enregistre une trace de pile complète avec chaque message du journal. Avec beaucoup de mods qui affichent des avertissements, cela provoque des saccades. Activé = les traces de pile ne sont pas enregistrées.</GT_FastLog_Desc>
+  <GT_FastLog_Note>Quand vous envoyez un journal pour un rapport de bug, désactivez ceci un moment – les traces de pile aident à trouver la cause.</GT_FastLog_Note>
+  <GT_VSync>V-Sync</GT_VSync>
+  <GT_VSync_Desc>Désactivé = le plus de FPS, l'image peut se déchirer. Activé = FPS selon votre écran, sans déchirement. Triple = image fluide avec un léger délai.</GT_VSync_Desc>
+  <GT_VSync_Off>Désactivé</GT_VSync_Off>
+  <GT_VSync_On>Activé</GT_VSync_On>
+  <GT_VSync_TripleBuffer>Triple (fluide)</GT_VSync_TripleBuffer>
+  <GT_VSync_Adaptive>Adaptatif</GT_VSync_Adaptive>
+  <GT_VSync_Mailbox>Triple (rapide)</GT_VSync_Mailbox>
+  <GT_VSync_Fifo>Activé</GT_VSync_Fifo>
+  <GT_VSync_Immediate>Désactivé</GT_VSync_Immediate>
+  <GT_Fps>Limite de FPS</GT_Fps>
+  <GT_Fps_Desc>Comme le jeu = la fréquence de rafraîchissement de votre écran. Illimité = autant que possible (avec V-Sync activé, toujours selon l'écran).</GT_Fps_Desc>
+  <GT_BgFps>Limite de FPS en arrière-plan (Alt+Tab)</GT_BgFps>
+  <GT_BgFps_Desc>Quand le jeu n'est pas au premier plan, il dessine moins d'images – votre PC reste frais et le jeu continue de tourner.</GT_BgFps_Desc>
+  <GT_Display>Mode d'affichage</GT_Display>
+  <GT_Display_Desc>Fenêtré, fenêtre sans bordure ou plein écran. Le plein écran exclusif est généralement le plus rapide.</GT_Display_Desc>
+  <GT_Display_Windowed>Fenêtré</GT_Display_Windowed>
+  <GT_Display_Borderless>Fenêtre sans bordure</GT_Display_Borderless>
+  <GT_Display_BorderlessWindowed>Fenêtre sans bordure</GT_Display_BorderlessWindowed>
+  <GT_Display_BorderlessFullscreen>Plein écran (sans bordure)</GT_Display_BorderlessFullscreen>
+  <GT_Display_Fullscreen>Plein écran</GT_Display_Fullscreen>
+  <GT_Display_FullscreenExclusive>Plein écran (exclusif)</GT_Display_FullscreenExclusive>
+  <GT_Display_ExclusiveFullscreen>Plein écran (exclusif)</GT_Display_ExclusiveFullscreen>
+  <GT_Display_FullScreenWindow>Plein écran (fenêtré)</GT_Display_FullScreenWindow>
+  <GT_Game>Comme le jeu</GT_Game>
+  <GT_Unlimited>Illimité</GT_Unlimited>
+  <GT_NoChange>Aucun changement</GT_NoChange>
+  <GT_OverlayOn>Afficher les FPS en haut à droite</GT_OverlayOn>
+  <GT_OverlayOn_Desc>Une petite case avec les FPS, le temps d'image et la vitesse du jeu (TPS = ticks de jeu par seconde ; vitesse normale 60, vitesse max 360+).</GT_OverlayOn_Desc>
+  <GT_Overlay>FPS {0} · {1} ms · TPS {2}</GT_Overlay>
+  <GT_Not17>V-Sync et le mode d'affichage nécessitent RimWorld 1.7 (le nouveau moteur).</GT_Not17>
+  <GT_Gc>Nettoyage de la mémoire (GC)</GT_Gc>
+  <GT_Gc_Desc>Comment .NET nettoie la mémoire. Écrit dans RimWorld.runtimeconfig.json dans le dossier du jeu, prend effet après le redémarrage du jeu.</GT_Gc_Desc>
+  <GT_Gc0>Comme le jeu</GT_Gc0>
+  <GT_Gc1>Fluide (moins de saccades)</GT_Gc1>
+  <GT_Gc2>Serveur (plus de cœurs, plus de mémoire)</GT_Gc2>
+  <GT_Gc_Note>Fluide = la mémoire est nettoyée en arrière-plan et pas rendue tout de suite au système → moins de saccades. Serveur = nettoyage sur tous les cœurs, pauses plus courtes, mais plus de RAM. Le mod sauvegarde le fichier d'origine. Une mise à jour du jeu peut le réinitialiser – il suffit de le choisir à nouveau.</GT_Gc_Note>
+  <GT_GcRestore>Restaurer le fichier d'origine du jeu</GT_GcRestore>
+  <GT_GcSaved>Enregistré. Redémarrez le jeu pour l'appliquer.</GT_GcSaved>
+  <GT_GcRestored>Fichier d'origine restauré. Redémarrez le jeu.</GT_GcRestored>
+  <GT_GcError>Échec : {0}</GT_GcError>
+  <GT_GcNone>Uniquement sur RimWorld 1.7.</GT_GcNone>
+  <GT_Now>FPS {0} · image {1} ms · TPS {2}</GT_Now>
+  <GT_NowEffects>Effets depuis le lancement : créés {0}, économisés {1}</GT_NowEffects>
+  <GT_TabGraphics>Graphismes</GT_TabGraphics>
+  <GT_TabSmooth>Fluidité</GT_TabSmooth>
+  <GT_AutoSpeed>Moins d'effets automatiquement en vitesse 3</GT_AutoSpeed>
+  <GT_AutoSpeed_Desc>À la vitesse maximale, trois fois plus d'effets (fumée, étincelles, poussière) apparaissent par seconde, et pourtant on les voit à peine. Les divise par deux.</GT_AutoSpeed_Desc>
+  <GT_Adaptive>Moins d'effets quand les FPS passent sous l'objectif</GT_Adaptive>
+  <GT_Adaptive_Desc>Quand les FPS passent sous l'objectif de l'onglet Fluidité, les effets sont réduits progressivement (jusqu'à un quart). Quand les FPS remontent, ils reviennent.</GT_Adaptive_Desc>
+  <GT_NowAuto>Création de {0} % des effets actuellement (réduit automatiquement)</GT_NowAuto>
+  <GT_SmoothOther>Smooth Frames est actif – l'onglet Fluidité est désactivé pour que deux mods ne se disputent pas la même chose. Smooth FPS contient désormais tout Smooth Frames : désactivez Smooth Frames dans la liste des mods et redémarrez.</GT_SmoothOther>
+  <GT_SecHighSpeed>Fluidité à toutes les vitesses</GT_SecHighSpeed>
+  <GT_Budget>Garder l'image fluide (budget de simulation)</GT_Budget>
+  <GT_Budget_Desc>À chaque vitesse (1× à 4×), le jeu exécute un certain nombre de ticks par image et, sans le mod, peut leur accorder jusqu'à 45 ms – aux vitesses élevées, l'image saccade alors. Le mod mesure le temps de dessin et ne donne à la simulation que le reste du temps d'image pour l'objectif de FPS. Ce qui ne rentre pas est fait dans les images suivantes. Ci-dessous, vous pouvez donner à chaque vitesse son propre objectif de FPS et sa propre limite de simulation.</GT_Budget_Desc>
+  <GT_Target>Objectif de FPS à maintenir</GT_Target>
+  <GT_Target_Desc>Combien d'images par seconde le jeu doit maintenir même à vitesse élevée.</GT_Target_Desc>
+  <GT_Slow>Quand les FPS chutent</GT_Slow>
+  <GT_Slow_Desc>Image fluide : les ticks qui ne rentrent pas sont abandonnés – l'image reste fluide, le jeu tourne un peu plus lentement (comme en vanilla, sans saccades). Garder la vitesse : les ticks sont faits dans les images suivantes – le jeu garde sa vitesse, l'image peut être un peu moins fluide.</GT_Slow_Desc>
+  <GT_SlowPicture>Ralentir le jeu, pas l'image</GT_SlowPicture>
+  <GT_SlowKeep>Garder la vitesse du jeu</GT_SlowKeep>
+  <GT_MaxSim>Temps de simulation max par image : {0}</GT_MaxSim>
+  <GT_MaxSim_Desc>Automatique = d'après l'objectif de FPS et le temps de dessin. Plus bas = image plus fluide, jeu plus lent.</GT_MaxSim_Desc>
+  <GT_Auto>automatique</GT_Auto>
+  <GT_Move>FPS en déplaçant la caméra et en construisant : {0}</GT_Move>
+  <GT_Move_Desc>Quand vous déplacez la caméra, cliquez ou construisez, l'image reçoit plus de temps – les contrôles sont plus réactifs.</GT_Move_Desc>
+  <GT_RealNormal>Vitesses 1 et 2 toujours à pleine vitesse</GT_RealNormal>
+  <GT_RealNormal_Desc>En vitesse 1 et 2, le jeu ne tourne jamais plus lentement que prévu – l'objectif de FPS décide seulement de la fluidité de l'image. Avec une grande colonie, un tick prend plus de temps que ce qu'un objectif de FPS élevé laisse par image, et le jeu tournait au rythme des FPS (par ex. 40 au lieu de 60 ticks par seconde). Les vitesses 3 et 4 suivent « Quand les FPS chutent ».</GT_RealNormal_Desc>
+  <GT_FastShare>Vitesses 3 et 4 : la simulation reçoit au moins la moitié</GT_FastShare>
+  <GT_FastShare_Desc>En vitesse 3 et 4, la simulation reçoit toujours au moins autant de temps que le dessin d'une image. Quand l'objectif de FPS ne pouvait pas être atteint (par ex. objectif 165, réel 45), la simulation n'avait que 3 ms par image et la vitesse 4 tournait presque comme la vitesse 1. L'image peut être un peu moins fluide en 3–4, mais le jeu tourne vraiment vite.</GT_FastShare_Desc>
+  <GT_SaveSmart>Sauvegarde auto au bon moment</GT_SaveSmart>
+  <GT_SaveSmart_Desc>Sauvegarder une grande colonie arrête le jeu quelques secondes et ne peut pas tourner en arrière-plan en toute sécurité. La sauvegarde automatique attend donc un moment où cela ne gêne pas : le jeu est en pause, une fenêtre ou un onglet est ouvert (Travail, Santé …), ou vous n'avez rien touché pendant 4 s. Après le délai réglé, elle sauvegarde quand même. Fonctionne pour la sauvegarde automatique du jeu et des mods comme Real Time Autosave.</GT_SaveSmart_Desc>
+  <GT_SaveWait>Attendre au plus : {0} min</GT_SaveWait>
+  <GT_Idle>Plus de TPS quand vous ne faites que regarder</GT_Idle>
+  <GT_Idle_Desc>À partir de la vitesse 2, quand vous ne touchez à rien pendant 2 s, le jeu dessine moins d'images et le temps gagné va à la simulation – le jeu tourne plus vite. Bougez la souris ou la caméra et les FPS complets reviennent.</GT_Idle_Desc>
+  <GT_IdleFps>FPS quand vous ne faites que regarder : {0}</GT_IdleFps>
+  <GT_Background>En arrière-plan, donner tout le temps à la simulation</GT_Background>
+  <GT_Background_Desc>Quand vous passez à une autre fenêtre (Alt+Tab), le jeu ne dessine que 10 images (ou la valeur de Graphismes → FPS en arrière-plan) et le reste va à la simulation.</GT_Background_Desc>
+  <GT_Camera>Caméra fluide</GT_Camera>
+  <GT_Camera_Desc>La caméra se déplace selon un temps d'image lissé – elle ne saute pas après une saccade et ne tremble pas quand les FPS varient.</GT_Camera_Desc>
+  <GT_SecHidden>Charge invisible</GT_SecHidden>
+  <GT_Regen>Reconstructions de la carte par image : {0}</GT_Regen>
+  <GT_Regen_Desc>Quand l'herbe pousse, qu'on construit ou qu'il neige, le jeu reconstruit chaque partie modifiée de la carte en une seule image – en 3x, cela saccade. Ceci limite le nombre par image, le reste est fait dans les images suivantes (quelques centièmes de seconde plus tard). Expérimental – désactivé par défaut. 4–8 recommandé.</GT_Regen_Desc>
+  <GT_Off>désactivé</GT_Off>
+  <GT_SlowAlerts>Vérifier les alertes à droite moins souvent en 3x</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>Le jeu revérifie une partie des alertes à chaque image (avec des mods, il y en a des centaines). À vitesse élevée, une image sur deux suffit.</GT_SlowAlerts_Desc>
+  <GT_SecDiag>Diagnostic</GT_SecDiag>
+  <GT_OverlayBar>Graphique d'image : simulation vs dessin</GT_OverlayBar>
+  <GT_OverlayBar_Desc>Une barre dans l'affichage en haut à droite : vert = simulation (ticks), bleu = dessin, gris = réserve jusqu'à l'objectif de FPS. Vous voyez immédiatement ce qui ralentit le jeu.</GT_OverlayBar_Desc>
+  <GT_Bar>simulation {0} ms · dessin {1} ms</GT_Bar>
+  <GT_Bench>Benchmark (60 s à votre vitesse)</GT_Bench>
+  <GT_Bench_Desc>Ferme les paramètres et mesure les FPS et TPS pendant 60 secondes à la vitesse à laquelle vous jouez – aussi 4× avec Smart Speed (en pause = 3×). Affiche ensuite le résultat et recommande un profil.</GT_Bench_Desc>
+  <GT_BenchStart>Démarrer</GT_BenchStart>
+  <GT_BenchNoGame>uniquement dans une partie en cours</GT_BenchNoGame>
+  <GT_BenchRunning>test : {0} s</GT_BenchRunning>
+  <GT_Bench_Note>Après le test, affiche la moyenne, les pires images et recommande un profil.</GT_Bench_Note>
+  <GT_BenchStarted>Benchmark en cours pendant 60 secondes – laissez le jeu tourner sans y toucher.</GT_BenchStarted>
+  <GT_BenchTitle>Benchmark</GT_BenchTitle>
+  <GT_BenchResult>Moyenne : {0} FPS\nPires 1 % des images : {1} FPS\nImage la plus longue : {2} ms\nVitesse de simulation : {3} TPS ({4}x la vitesse normale)\nSaccades de plus de 100 ms : {5}\n\nProfil recommandé : {6}</GT_BenchResult>
+  <GT_Hitch>Trouver ce qui fait saccader le jeu</GT_Hitch>
+  <GT_Hitch_Desc>À chaque saccade, écrit dans le journal ce qui a pris le plus de temps (un composant, la carte, un événement) et à quel mod cela appartient. Coûte un peu de performance – désactivez-le une fois le coupable trouvé.</GT_Hitch_Desc>
+  <GT_HitchThings>Surveiller aussi chaque objet de la carte (ralentit le jeu)</GT_HitchThings>
+  <GT_HitchThings_Desc>Chronomètre le tick de chaque objet, animal et personnage. Trouve davantage mais coûte lui-même de la performance. Prend effet après un redémarrage.</GT_HitchThings_Desc>
+  <GT_HitchMs>Compter une image de plus de {0} ms comme saccade</GT_HitchMs>
+  <GT_HitchIncident>incident</GT_HitchIncident>
+  <GT_HitchQuest>quête</GT_HitchQuest>
+  <GT_LastHitch>dernière saccade {0}</GT_LastHitch>
+  <GT_GcHold>Pas de nettoyage de la mémoire pendant la génération d'événements</GT_GcHold>
+  <GT_GcHold_Desc>Pendant que le jeu génère un incident, une quête, un raid ou une carte, beaucoup d'objets sont créés. Ceci retient le grand nettoyage de la mémoire jusqu'à la fin. Sur 1.7, le mode .NET doux est utilisé (sans risque), sur 1.6 l'ancienne méthode. Désactivé par défaut.</GT_GcHold_Desc>
+  <GT_NowSmooth>FPS {0} · TPS {1} · simulation {2} ms · dessin {3} ms · budget {4} ms</GT_NowSmooth>
+  <GT_NowSmoothOff>Le budget de simulation ne tourne pas actuellement (désactivé, ou aucune partie en cours).</GT_NowSmoothOff>
+  <GT_NowRegen>Reconstructions de parties de carte reportées : {0}</GT_NowRegen>
+  <GT_Mode1>contrôle</GT_Mode1>
+  <GT_Mode2>plus de TPS</GT_Mode2>
+  <GT_Mode3>arrière-plan</GT_Mode3>
+  <GT_BudgetOther>{0} contrôle aussi la boucle de ticks du jeu – le budget de simulation s'est désactivé pour que les deux mods ne se gênent pas. Tout le reste de Smooth FPS continue de fonctionner.</GT_BudgetOther>
+  <GT_BudgetStuck>Le temps de jeu s'est arrêté, le budget de simulation s'est donc retiré (un autre mod contrôle peut-être aussi les ticks). Il réessaie dans 20 s ; après 3 arrêts, il reste désactivé jusqu'au redémarrage du jeu.</GT_BudgetStuck>
+  <GT_BenchSpeed>Vitesse du jeu pendant le test : jusqu'à {0}x</GT_BenchSpeed>
+  <GT_SmartTarget>Objectif de FPS intelligent</GT_SmartTarget>
+  <GT_SmartTarget_Desc>Quand votre PC ne peut pas tenir l'objectif pendant un moment (grande colonie, raid, 4×), l'objectif baisse progressivement (par ex. 90 → 75 → 60) pour que le jeu garde un rythme régulier au lieu de sauter. Quand il y a de nouveau de la marge, il remonte jusqu'à votre choix.</GT_SmartTarget_Desc>
+  <GT_SmartLowered>L'objectif est abaissé pour l'instant : {0} FPS (votre choix {1}).</GT_SmartLowered>
+  <GT_SmartNow>objectif {0}</GT_SmartNow>
+  <GT_SecFast>4× ET PLUS RAPIDE</GT_SecFast>
+  <GT_FastMode>Mode haute vitesse</GT_FastMode>
+  <GT_FastMode_Desc>À 4× et plus (Smart Speed et mods similaires), personne ne peut suivre chaque étincelle : encore moins d'effets et alertes vérifiées seulement toutes les 4 images. Tout redevient normal aux vitesses inférieures.</GT_FastMode_Desc>
+  <GT_FastWeather>Pas de dessin de la météo à 4×+</GT_FastWeather>
+  <GT_FastWeather_Desc>Les surcouches de pluie, de neige et de brouillard ne sont pas dessinées à 4× et plus. La météo elle-même fonctionne toujours.</GT_FastWeather_Desc>
+  <GT_FastRegen>Étaler les reconstructions de la carte à 4×+ (expérimental)</GT_FastRegen>
+  <GT_FastRegen_Desc>À 4× et plus, au plus 8 parties visibles de la carte sont reconstruites par image, le reste une image plus tard. Moins de saccades quand beaucoup change à la fois ; un mur ou une plante modifié peut apparaître un instant plus tard.</GT_FastRegen_Desc>
+  <GT_FastNowOn>Le mode haute vitesse est actif en ce moment.</GT_FastNowOn>
+  <GT_FastNowOff>Pas actif en ce moment – il démarre à 4× et plus.</GT_FastNowOff>
+  <GT_Prof>Ce qui ralentit le jeu (30 s)</GT_Prof>
+  <GT_Prof_Desc>Ferme les paramètres et mesure pendant 30 secondes, à la vitesse à laquelle vous jouez (aussi 4×), quels mods, objets et parties du jeu prennent le plus de temps. Affiche ensuite le top 10 des mods et le top 10 des objets. Pendant la préparation et le retrait de la mesure, un court écran de chargement s'affiche. La mesure est ensuite désactivée ; après le prochain redémarrage du jeu, tout est exactement comme avant.</GT_Prof_Desc>
+  <GT_Prof_Note>Affiche les 10 mods les plus lents et les 10 objets ou fonctions les plus lents – à la vitesse à laquelle vous jouez actuellement.</GT_Prof_Note>
+  <GT_ProfShow>Afficher le dernier résultat</GT_ProfShow>
+  <GT_ProfPreparing>Smooth FPS : préparation de la mesure…</GT_ProfPreparing>
+  <GT_ProfStarted>Mesure de ce qui ralentit le jeu pendant {0} secondes – laissez le jeu tourner.</GT_ProfStarted>
+  <GT_ProfRunning>mesure : {0} s</GT_ProfRunning>
+  <GT_ProfTitle>Ce qui ralentit le jeu</GT_ProfTitle>
+  <GT_ProfSummary>Moyenne {0} FPS · pires 1 % {1} FPS · simulation {2} TPS ({3}x la vitesse normale) · saccades de plus de 100 ms : {4} · mesuré {5} s</GT_ProfSummary>
+  <GT_ProfMods>Mods – temps par seconde</GT_ProfMods>
+  <GT_ProfItems>Objets et fonctions – temps par seconde</GT_ProfItems>
+  <GT_ProfVanilla>Le jeu lui-même (RimWorld + DLC)</GT_ProfVanilla>
+  <GT_ProfMsPerSec>{0} ms/s</GT_ProfMsPerSec>
+  <GT_ProfThing>{0} (ticks)</GT_ProfThing>
+  <GT_ProfPatch>modification de {0}</GT_ProfPatch>
+  <GT_ProfNote>Une estimation : {0} points surveillés (dont {1} patchs de mods). Chaque milliseconde est comptée une fois – pour le mod ou l'objet le plus profond dans lequel elle s'est écoulée. Le dessin à l'écran et les transpileurs (mods qui réécrivent le code du jeu) ne peuvent pas être mesurés ainsi. 1000 ms/s = la seconde entière.</GT_ProfNote>
+  <GT_ReportCopy>Copier le rapport de performance</GT_ReportCopy>
+  <GT_ReportSave>Enregistrer le rapport dans un fichier</GT_ReportSave>
+  <GT_Report_Desc>Tout sur la performance dans un seul texte : votre PC, la carte, les FPS/TPS actuels, les paramètres, le dernier benchmark et « Ce qui ralentit le jeu ». Collez-le dans un commentaire du Workshop quand vous demandez de l'aide.</GT_Report_Desc>
+  <GT_ReportCopied>Rapport de performance copié – collez-le avec Ctrl+V.</GT_ReportCopied>
+  <GT_ReportSaved>Enregistré : {0}</GT_ReportSaved>
+  <GT_ProfBusy>occupé – patientez un instant</GT_ProfBusy>
+  <GT_ProfRemoving>Smooth FPS : retrait de la mesure…</GT_ProfRemoving>
+  <GT_TabMemory>Mémoire &amp; blocages</GT_TabMemory>
+  <GT_SecMem>NETTOYAGE DE LA MÉMOIRE</GT_SecMem>
+  <GT_SecMemStats>CE QUI SE PASSE</GT_SecMemStats>
+  <GT_MemOther>Fewer Freezes est actif – cet onglet est désactivé pour que les deux ne se gênent pas. Désactivez Fewer Freezes : Smooth FPS en contient désormais tout, adapté aussi à 1.7.</GT_MemOther>
+  <GT_MemMode17>Mode : RimWorld 1.7 et plus récent (.NET) – choisi automatiquement. La mémoire est nettoyée en arrière-plan ; les grands nettoyages qui arrêtent le jeu sont évités.</GT_MemMode17>
+  <GT_MemMode16>Mode : RimWorld 1.6 et plus ancien (Mono) – choisi automatiquement. Nettoyage continu à chaque image et grands nettoyages pendant la pause.</GT_MemMode16>
+  <GT_MemAuto>Automatique</GT_MemAuto>
+  <GT_MemAuto_Desc>Selon la quantité de mémoire utilisée par le jeu, le mod décide combien nettoyer en continu et quand faire un grand nettoyage.</GT_MemAuto_Desc>
+  <GT_MemSlice>Nettoyage continu par image : {0} ms</GT_MemSlice>
+  <GT_MemSlice_Desc>Plus = la mémoire est nettoyée au fur et à mesure et les grands blocages sont plus rares, mais les FPS peuvent baisser un peu. Le jeu lui-même utilise 3 ms.</GT_MemSlice_Desc>
+  <GT_MemThreshold>Grand nettoyage quand la mémoire augmente de : {0} Mo</GT_MemThreshold>
+  <GT_MemThreshold_Desc>Plus bas = nettoie plus souvent, plus haut = moins souvent.</GT_MemThreshold_Desc>
+  <GT_MemOnPause>Nettoyer pendant la pause</GT_MemOnPause>
+  <GT_MemOnPause_Desc>Quand vous mettez en pause (ou ouvrez un menu qui met le jeu en pause) pendant au moins 1,5 s, la mémoire est nettoyée, pour qu'il en faille moins en pleine partie. Au plus une fois toutes les 90 s. Sur 1.7, cela se fait en arrière-plan.</GT_MemOnPause_Desc>
+  <GT_MemOnSave>Nettoyer après la sauvegarde</GT_MemOnSave>
+  <GT_MemOnSave_Desc>Juste après une sauvegarde (aussi automatique) – la sauvegarde laisse beaucoup de mémoire inutilisée.</GT_MemOnSave_Desc>
+  <GT_MemLowLatency>Jeu fluide : pas de grands nettoyages en jouant (1.7)</GT_MemLowLatency>
+  <GT_MemLowLatency_Desc>Demande à .NET d'éviter les nettoyages qui arrêtent tout le jeu pendant que vous jouez – il nettoie en arrière-plan à la place. Le jeu peut utiliser un peu plus de mémoire. Quand l'ordinateur manque de mémoire, il revient de lui-même au mode normal.</GT_MemLowLatency_Desc>
+  <GT_MemCompact>Compacter la mémoire pendant les longues pauses (1.7)</GT_MemCompact>
+  <GT_MemCompact_Desc>Pendant une pause d'au moins 5 s (au plus toutes les 30 minutes), la mémoire est compactée – utile quand le jeu occupe beaucoup de mémoire pendant des heures. Le jeu s'arrête alors un instant, mais vous êtes de toute façon en pause. Désactivé par défaut.</GT_MemCompact_Desc>
+  <GT_MemUnload>Libérer les textures inutilisées pendant la pause</GT_MemUnload>
+  <GT_MemUnload_Desc>Pendant une pause plus longue (3 s), libère les textures et les sons que le jeu n'utilise plus. Utile avec beaucoup de mods quand la mémoire manque. Au plus une fois toutes les 10 minutes. Désactivé, car cela peut prendre un moment.</GT_MemUnload_Desc>
+  <GT_MemRamWarn>Avertir quand l'ordinateur manque de mémoire</GT_MemRamWarn>
+  <GT_MemRamWarn_Desc>Quand le jeu occupe plus de 80 % de la mémoire de l'ordinateur, vous recevez une lettre avec des conseils.</GT_MemRamWarn_Desc>
+  <GT_MemHud>Afficher la mémoire en bas à gauche</GT_MemHud>
+  <GT_MemHud_Desc>Une petite case avec la mémoire, le dernier arrêt de nettoyage et un graphique de la mémoire sur la dernière minute et demie.</GT_MemHud_Desc>
+  <GT_MemHud_Text>Mémoire : {0} Mo · dernier arrêt {1} s</GT_MemHud_Text>
+  <GT_MemNow>Le jeu utilise actuellement {0} Mo de mémoire ({1} Mo réservés) ; le nettoyage continu peut durer {2} ms par image.</GT_MemNow>
+  <GT_MemNow17>Le jeu utilise actuellement {0} Mo de mémoire.</GT_MemNow17>
+  <GT_MemCollectNow>Nettoyer la mémoire maintenant</GT_MemCollectNow>
+  <GT_MemDone>Mémoire nettoyée : {0} → {1} Mo ({2} ms)</GT_MemDone>
+  <GT_MemDoneSave>Nettoyage après sauvegarde : {0} → {1} Mo</GT_MemDoneSave>
+  <GT_MemNote>Vous ne pouvez pas imposer une taille de mémoire au jeu – RimWorld prend ce dont il a besoin. Cet onglet contrôle quand et comment la mémoire est nettoyée, pour que le jeu se bloque moins. Remplace le mod Fewer Freezes.</GT_MemNote>
+  <GT_MemHitches>Dernière heure : {0} blocages de plus de 0,25 s, dont {1} dus au nettoyage de la mémoire. Le plus long : {2} s.</GT_MemHitches>
+  <GT_MemHitchNone>Dernière heure : aucun blocage de plus de 0,25 s.</GT_MemHitchNone>
+  <GT_MemCleans>Nettoyages effectués : {0}× en pause, {1}× après sauvegarde, {2}× manuellement.</GT_MemCleans>
+  <GT_MemRam>Ordinateur : le jeu occupe {0} Mo sur {1} Mo de mémoire ({2} %).</GT_MemRam>
+  <GT_MemRamWarn_Title>Mémoire de l'ordinateur presque épuisée</GT_MemRamWarn_Title>
+  <GT_MemRamWarn_Text>Le jeu occupe actuellement {0} Mo sur les {1} Mo de mémoire de l'ordinateur. Quand la mémoire est épuisée, le jeu se bloque souvent ou plante.\n\nCe qui aide :\n- fermer les autres programmes (navigateur…),\n- désactiver les mods dont vous n'avez pas besoin,\n- un mod de compression des textures,\n- une carte plus petite ou moins de cartes à la fois.</GT_MemRamWarn_Text>
+  <GT_SecBySpeed>Selon la vitesse du jeu</GT_SecBySpeed>
+  <GT_BySpeed_Desc>Chaque vitesse peut avoir son propre objectif de FPS et sa propre limite de simulation – par ex. 90 FPS fluides en 1× et plus de vitesse de jeu en 4×. « Comme ci-dessus » utilise les paramètres communs.</GT_BySpeed_Desc>
+  <GT_SpeedTarget>Vitesse {0} : objectif de FPS</GT_SpeedTarget>
+  <GT_SpeedTarget_Desc>Objectif de FPS uniquement pour cette vitesse. Comme ci-dessus = l'objectif commun (ou l'objectif intelligent).</GT_SpeedTarget_Desc>
+  <GT_SpeedMaxSim>Vitesse {0} : temps de simulation max par image : {1}</GT_SpeedMaxSim>
+  <GT_SpeedMaxSim_Desc>Comme ci-dessus = la limite commune. Automatique = d'après l'objectif de FPS et le temps de dessin. Plus bas = image plus fluide, jeu plus lent ; plus haut = jeu plus rapide, moins de FPS.</GT_SpeedMaxSim_Desc>
+  <GT_Same>comme ci-dessus</GT_Same>
+  <GT_Crash_Title>La dernière partie a planté</GT_Crash_Title>
+  <GT_Crash_When>Le jeu s'est terminé sans se fermer correctement le {0}.</GT_Crash_When>
+  <GT_Crash_Kind_Loop>Type : une boucle infinie (dépassement de pile) – du code s'est appelé lui-même jusqu'à l'arrêt du jeu. Généralement un bug de mod ou deux mods qui s'appellent mutuellement.</GT_Crash_Kind_Loop>
+  <GT_Crash_Kind_Memory>Type : accès mémoire invalide – généralement du code natif (pilote graphique, un mod avec sa propre bibliothèque native, des overlays comme OBS/Medal/Discord).</GT_Crash_Kind_Memory>
+  <GT_Crash_Kind_OutOfMemory>Type : mémoire épuisée.</GT_Crash_Kind_OutOfMemory>
+  <GT_Crash_Kind_Managed>Type : une erreur non gérée dans le code du jeu.</GT_Crash_Kind_Managed>
+  <GT_Crash_Kind_Fast>Type : le jeu s'est arrêté lui-même après une grave erreur interne.</GT_Crash_Kind_Fast>
+  <GT_Crash_KindUnknown>Type : inconnu (Windows n'a enregistré aucun rapport de plantage – coupure de courant, le jeu a été tué, ou les rapports de plantage sont désactivés).</GT_Crash_KindUnknown>
+  <GT_Crash_Place>Où : la boucle s'est répétée sur la case de carte ({0}) – vérifiez ce qui y est construit ou posé.</GT_Crash_Place>
+  <GT_Crash_Mods>Mods actifs dans les derniers instants : {0}</GT_Crash_Mods>
+  <GT_Crash_LastError>Dernière erreur avant : {0}</GT_Crash_LastError>
+  <GT_Crash_Advice>Rapport complet : SmoothFPS_crash.txt dans votre dossier de sauvegardes RimWorld. Si cela se répète, envoyez le rapport aux auteurs des mods cités ci-dessus.</GT_Crash_Advice>
+  <GT_VramWarnSet>Avertir quand la mémoire vidéo est presque pleine</GT_VramWarnSet>
+  <GT_VramWarnSet_Desc>Un message quand le jeu utilise 95 % ou plus de ce que le pilote graphique autorise (vérifié toutes les 5 s, au plus toutes les 10 minutes), avec les mods qui en prennent le plus. Les textures qui ne rentrent pas apparaissent en retard, vides ou en croix rouges.</GT_VramWarnSet_Desc>
+  <GT_VramWarn>Mémoire vidéo presque pleine : {0} sur {1} Go. Les textures peuvent apparaître en retard ou vides. Le plus : {2}. Fermez les autres programmes (navigateur, Discord, OBS, Medal) ou voyez Smooth FPS → Mémoire.</GT_VramWarn>
+  <GT_VramNow>Mémoire vidéo : {0} / {1} Go autorisés ({3} %), la carte a {2} Go</GT_VramNow>
+  <GT_VramWho>Ce qui occupe la mémoire vidéo</GT_VramWho>
+  <GT_VramTitle>Mémoire vidéo</GT_VramTitle>
+  <GT_VramNone>Les données de mémoire vidéo ne sont pas disponibles (uniquement sur 1.7).</GT_VramNone>
+  <GT_VramTop>Plus gros consommateurs (textures par mod) :</GT_VramTop>
+  <GT_VramGame>jeu et inconnu</GT_VramGame>
+  <GT_VramTargets>cibles de rendu (écran, portraits, effets)</GT_VramTargets>
+  <GT_VramAtlas>atlas de textures</GT_VramAtlas>
+  <GT_VramOther>maillages et autres</GT_VramOther>
+  <GT_VramAdvice>La quantité autorisée est ce que le pilote donne au jeu – les autres programmes qui utilisent la carte graphique la réduisent. Les mods avec beaucoup de grandes textures (mods de races, packs haute résolution) en prennent le plus ; désactiver ceux dont vous n'avez pas besoin en libère.</GT_VramAdvice>
+  <GT_TexCap>Plus grande image de mod</GT_TexCap>
+  <GT_TexCapOff>aucune limite</GT_TexCapOff>
+  <GT_TexCap_Desc>Les images de mods (DDS) plus grandes que cela démarrent avec leur copie intégrée plus petite – moins de mémoire vidéo, moins d'images en retard ou vides. Les images du jeu lui-même ne sont jamais modifiées, aucun fichier n'est modifié. Prend effet après un redémarrage. Actuellement : {0} images, environ {1} Mo économisés.</GT_TexCap_Desc>
+  <GT_Laptop>Mode portable</GT_Laptop>
+  <GT_Laptop_Desc>Limite de FPS plus basse et 40 % d'effets en moins – plus frais, plus silencieux et plus longtemps sur batterie. « Sur batterie uniquement » s'active tout seul quand le chargeur est débranché (si le système le signale).</GT_Laptop_Desc>
+  <GT_LaptopOff>désactivé</GT_LaptopOff>
+  <GT_LaptopOn>toujours</GT_LaptopOn>
+  <GT_LaptopBattery>sur batterie uniquement</GT_LaptopBattery>
+  <GT_LaptopFps>FPS en mode portable</GT_LaptopFps>
+  <GT_LaptopFps_Desc>La limite de FPS tant que le mode portable est actif. Une limite plus basse que vous avez réglée vous-même est conservée.</GT_LaptopFps_Desc>
+  <GT_LaptopNowBattery>Actuellement : sur batterie – le mode portable est actif.</GT_LaptopNowBattery>
+  <GT_LaptopNowMains>Actuellement : sur secteur (ou le système ne signale pas la batterie) – le mode portable attend.</GT_LaptopNowMains>
+  <GT_MC_Open>Ce qui est coûteux sur cette carte</GT_MC_Open>
+  <GT_MC_Open_Desc>Compte tout ce que le jeu doit mettre à jour sur la carte actuelle, avec des conseils sur ce qu'il faut ranger. Ne change rien.</GT_MC_Open_Desc>
+  <GT_MC_Title>Ce qui est coûteux sur cette carte</GT_MC_Title>
+  <GT_MC_Sub>Carte : {0} · orange = beaucoup, voir les conseils à droite</GT_MC_Sub>
+  <GT_MC_Colonists>Colons</GT_MC_Colonists>
+  <GT_MC_AnimalsOwn>Vos animaux</GT_MC_AnimalsOwn>
+  <GT_MC_AnimalsWild>Animaux sauvages</GT_MC_AnimalsWild>
+  <GT_MC_Mechs>Mécanoïdes</GT_MC_Mechs>
+  <GT_MC_Hostile>Hostiles</GT_MC_Hostile>
+  <GT_MC_OtherPawns>Autres personnes (invités, prisonniers …)</GT_MC_OtherPawns>
+  <GT_MC_Ticking>Objets mis à jour à chaque tick</GT_MC_Ticking>
+  <GT_MC_Rare>Objets mis à jour rarement</GT_MC_Rare>
+  <GT_MC_Long>Objets mis à jour très rarement</GT_MC_Long>
+  <GT_MC_Filth>Saletés</GT_MC_Filth>
+  <GT_MC_Loose>Objets hors des zones de stockage</GT_MC_Loose>
+  <GT_MC_Corpses>Cadavres</GT_MC_Corpses>
+  <GT_MC_Plants>Plantes</GT_MC_Plants>
+  <GT_MC_Fires>Feux</GT_MC_Fires>
+  <GT_MC_Buildings>Vos bâtiments</GT_MC_Buildings>
+  <GT_MC_WorldPawns>Personnages du monde (enregistrés en arrière-plan)</GT_MC_WorldPawns>
+  <GT_MC_Things>Tous les objets de la carte</GT_MC_Things>
+  <GT_MC_Top>Objets mis à jour à chaque tick les plus courants</GT_MC_Top>
+  <GT_MC_Tips>Conseils</GT_MC_Tips>
+  <GT_MC_AllGood>Rien ne ressort – cette carte va bien. Si le jeu est quand même lent, utilisez « Ce qui ralentit le jeu ».</GT_MC_AllGood>
+  <GT_MC_TipAnimals>Vous avez {0} animaux. Chacun réfléchit et se déplace à chaque tick – abattez ou vendez ceux dont vous n'avez pas besoin.</GT_MC_TipAnimals>
+  <GT_MC_TipWild>{0} animaux sauvages sur la carte. Wild Spawn Zone ou une densité d'animaux plus faible aide.</GT_MC_TipWild>
+  <GT_MC_TipTicking>{0} objets sont mis à jour à chaque tick. Regardez la liste à droite – un bâtiment ou objet de mod que vous possédez en grand nombre peut coûter cher.</GT_MC_TipTicking>
+  <GT_MC_TipFilth>{0} saletés. Le nettoyage (ou un robot de nettoyage) allège la carte.</GT_MC_TipFilth>
+  <GT_MC_TipLoose>{0} objets traînent hors des zones de stockage. Les transporter dans des zones de stockage aide beaucoup.</GT_MC_TipLoose>
+  <GT_MC_TipCorpses>{0} cadavres. Brûlez-les ou enterrez-les – ils pourrissent et sont mis à jour en permanence.</GT_MC_TipCorpses>
+  <GT_MC_TipFires>{0} feux brûlent. Le feu est coûteux tant qu'il se propage.</GT_MC_TipFires>
+  <GT_MC_TipWorldPawns>{0} personnages vivent en arrière-plan du monde. Les sauvegardes et le chargement ralentissent ; un mod de nettoyage des personnages du monde aide.</GT_MC_TipWorldPawns>
+  <GT_MC_Refresh>Recompter</GT_MC_Refresh>
+  <GT_HitchDeep>Recherche approfondie : ce qui prend du temps à l'intérieur d'un colon (ralentit le jeu)</GT_HitchDeep>
+  <GT_HitchDeep_Desc>Ajoute des détails à chaque saccade : recherche de travail (quel travail, de quel mod), décisions de l'IA, recherche de chemin, composants d'objets et d'hediffs, besoins. Activez-le uniquement pour trouver une cause, puis désactivez-le. Prend effet après un redémarrage.</GT_HitchDeep_Desc>
+  <GT_HitchOwnGc>nettoyage de la mémoire [Smooth FPS]</GT_HitchOwnGc>
+  <GT_DeepWork>recherche de travail {0} ({1})</GT_DeepWork>
+  <GT_DeepJobSearch>recherche de tâche totale</GT_DeepJobSearch>
+  <GT_DeepPather>marche du personnage</GT_DeepPather>
+  <GT_DeepPath>recherche de chemin (immédiate)</GT_DeepPath>
+  <GT_DeepKindJobGiver>décision</GT_DeepKindJobGiver>
+  <GT_DeepKindComp>composant</GT_DeepKindComp>
+  <GT_DeepKindHediff>santé</GT_DeepKindHediff>
+  <GT_DeepKindNeed>besoin</GT_DeepKindNeed>
+  <GT_TabSim>Simulation</GT_TabSim>
+  <GT_SizeHeader>Taille de la partie – définit combien la simulation économise (monde, cartes, nettoyage)</GT_SizeHeader>
+  <GT_SizeAuto>Automatique</GT_SizeAuto>
+  <GT_SizeAuto_Card>Détectée d'après le nombre de mods, la taille de la carte et du monde. Actuellement : {0}.</GT_SizeAuto_Card>
+  <GT_SizeSmall>Petite partie</GT_SizeSmall>
+  <GT_SizeSmall_Card>Peu de mods, carte plus petite. Le jeu tourne comme sans ce mod, rien ne change.</GT_SizeSmall_Card>
+  <GT_SizeNormal>Partie normale</GT_SizeNormal>
+  <GT_SizeNormal_Card>Pack de mods de taille moyenne. Le monde lointain et les autres cartes sont mis à jour deux fois moins souvent.</GT_SizeNormal_Card>
+  <GT_SizeHuge>Énorme partie</GT_SizeHuge>
+  <GT_SizeHuge_Card>Carte énorme et des centaines de mods. Monde et autres cartes 4× moins souvent, objets hors écran 2× moins.</GT_SizeHuge_Card>
+  <GT_SimTickSec>Tick plus intelligent</GT_SimTickSec>
+  <GT_SimSmartTick>Mettre à jour les objets lointains moins souvent</GT_SimSmartTick>
+  <GT_SimSmartTick_Desc>Le jeu ne met déjà à jour les besoins, la santé, la croissance et les minuteurs des objets que vous ne voyez pas que tous les 15 ticks – toujours avec tout le temps écoulé. Ici, cet intervalle est étiré selon la taille de la partie : colonies lointaines, sites et personnages du monde, autres cartes sans danger, et dans une énorme partie aussi les objets hors écran. Rien n'est sauté, c'est seulement compté par plus grands pas. Pendant les combats, les incendies et pour les colons mobilisés, tout reste comme dans le jeu.</GT_SimSmartTick_Desc>
+  <GT_SimRates>Actuellement : monde tous les {0} ticks, autres cartes {1}, hors écran {2} (le jeu lui-même : 15).</GT_SimRates>
+  <GT_TC_Open>Ce qui ralentit le tick…</GT_TC_Open>
+  <GT_TC_NeedHitch>La fenêtre nécessite le détecteur de saccades activé (onglet Fluidité) – elle utilise ses points de mesure.</GT_TC_NeedHitch>
+  <GT_TC_Title>Ce qui ralentit le tick</GT_TC_Title>
+  <GT_TC_Sub>Combien de millisecondes par seconde de jeu chaque partie du monde et de la carte prend (dernières {0} s, profil : {1}). Se rafraîchit toutes les 3 s.</GT_TC_Sub>
+  <GT_TC_Ms>{0} ms/s</GT_TC_Ms>
+  <GT_TC_Wait>Mesure… laissez le jeu tourner un moment.</GT_TC_Wait>
+  <GT_SimCleanSec>Nettoyage du monde</GT_SimCleanSec>
+  <GT_SimClean>Nettoyer les anciennes batailles et les personnages du monde inutiles</GT_SimClean>
+  <GT_SimClean_Desc>Les anciennes batailles du journal de combat gardent en mémoire et dans la sauvegarde chaque personnage qui y a combattu (même les pillards morts). Seules les batailles les plus récentes sont conservées, puis le nettoyage propre du jeu s'exécute – il garde toujours les colons, les proches, les chefs de faction, les personnages des quêtes et des récits. Sauvegarde plus petite, sauvegarde plus rapide, moins de mémoire. Automatiquement pendant une pause, au plus une fois tous les 2 jours de jeu.</GT_SimClean_Desc>
+  <GT_SimKeep>Les {0} batailles les plus récentes sont conservées.</GT_SimKeep>
+  <GT_SimKeepOff>Pas de nettoyage dans une petite partie.</GT_SimKeepOff>
+  <GT_SimWorldLine>Monde : {0} personnages du monde vivants et {1} morts, {2} objets, {3} batailles dans le journal.</GT_SimWorldLine>
+  <GT_SimCleanNow>Nettoyer le monde maintenant</GT_SimCleanNow>
+  <GT_SimCleaning>Nettoyage du monde…</GT_SimCleaning>
+  <GT_SimCleaned>Nettoyage du monde : {0} personnages supprimés ({1} restants), {2} anciennes batailles effacées ({3} ms).</GT_SimCleaned>
+  <GT_FastCull>Choix plus rapide de ce qu'il faut dessiner</GT_FastCull>
+  <GT_FastCull_Desc>À chaque image, le jeu calcule la position et la taille exactes de chaque objet dessiné en temps réel sur la carte (personnages, animaux, bâtiments animés, objets de mods) – même des objets loin hors écran qu'il jette juste après. Pour les objets clairement hors écran, seule leur case est utilisée ici et le jeu les jette comme avant, juste sans la partie coûteuse. Les objets à l'écran et près de l'écran sont mesurés exactement comme dans le jeu.</GT_FastCull_Desc>
+  <GT_TC_Things>Objets dessinés en temps réel sur la carte : {0}.</GT_TC_Things>
+  <GT_SpeedSec>Vitesse et écoulement du temps</GT_SpeedSec>
+  <GT_SmartWork>Recherche de travail intelligente</GT_SmartWork>
+  <GT_SmartWork_Desc>Un travail long à vérifier qui n'a rien trouvé pour un colon n'est pas revérifié par ce colon pendant 5 s de temps de jeu (par ex. vider les distributeurs, combustible, extraction de ressources de mods). Le travail d'urgence est toujours vérifié.</GT_SmartWork_Desc>
+  <GT_SpreadJobs>Étaler les recherches de tâches</GT_SpreadJobs>
+  <GT_SpreadJobs_Desc>Quand les recherches de tâches d'un tick ont déjà pris plus de 6 ms, les autres colons cherchent du travail 1–3 ticks plus tard au lieu de tous en même temps. Jamais pour les colons mobilisés, en danger ou pendant un raid.</GT_SpreadJobs_Desc>
+  <GT_TempSpread>Températures des pièces par parties</GT_TempSpread>
+  <GT_TempSpread_Desc>Chaque pièce est toujours équilibrée toutes les 2 s, comme dans le jeu, mais pas toutes les pièces dans le même tick (les grandes bases avaient un petit arrêt toutes les 2 s).</GT_TempSpread_Desc>
+  <GT_NightFast>Nuits rapides</GT_NightFast>
+  <GT_NightFast_Desc>Tant que tous les colons dorment et qu'il ne se passe rien (pas d'ennemis, pas de feu à la maison, personne à terre), le jeu tourne en vitesse 3. Votre vitesse revient quand quelqu'un se réveille, qu'une lettre arrive ou qu'un danger apparaît. Changer vous-même la vitesse l'arrête jusqu'à la nuit suivante.</GT_NightFast_Desc>
+  <GT_SpeedStats>Cette session : {0} vérifications de travail lentes sautées (environ {1} s économisées), {2} recherches de tâches déplacées, {3} nuits rapides.</GT_SpeedStats>
+  <GT_NightFastOn>Tout le monde dort – nuit rapide (vitesse 3) jusqu'au matin.</GT_NightFastOn>
+  <GT_NightFastTag>nuit rapide</GT_NightFastTag>
+  <GT_BehindSim>Le jeu ne suit pas : la simulation prend {0} ms par image (dessin {1} ms). « Ce qui ralentit le tick » montre quelle partie et quel mod.</GT_BehindSim>
+  <GT_BehindDraw>Le jeu ne suit pas : le dessin prend {1} ms par image (simulation {0} ms). Moins d'effets, moins de dézoom ou un objectif de FPS plus bas aident.</GT_BehindDraw>
+  <GT_MC_CleanFilth>Supprimer les saletés hors de la zone de résidence ({0})</GT_MC_CleanFilth>
+  <GT_MC_CleanFilthConfirm>Supprimer {0} saletés hors de la zone de résidence ? Personne ne les nettoie là-bas et le jeu les garde toutes. Cette action est irréversible.</GT_MC_CleanFilthConfirm>
+  <GT_Turbo>Turbo en vitesse 3 et 4</GT_Turbo>
+  <GT_Turbo_Desc>Tant que vous ne touchez ni la souris ni le clavier en vitesse 3 ou 4, l'image descend à quelques images par seconde et tout le reste du temps va au jeu – le temps passe aussi vite que votre PC le permet. Bougez la souris et l'image redevient immédiatement fluide. Les ticks qui ne rentraient pas sont rattrapés, pas jetés.</GT_Turbo_Desc>
+  <GT_TurboFps>Images par seconde en turbo : {0}</GT_TurboFps>
+  <GT_Mode4>turbo</GT_Mode4>
+  <GT_OverlayClick>Clic : ce qui ralentit le tick (le jeu continue de tourner).</GT_OverlayClick>
+  <GT_TC_Running>Les paramètres se sont fermés pour que le jeu puisse tourner – mettez la vitesse 3 ou 4 et attendez quelques secondes.</GT_TC_Running>
+  <GT_WorldSleep>Les personnages du monde des mods peuvent dormir</GT_WorldSleep>
+  <GT_WorldSleep_Desc>Le jeu ne met à jour les personnages du monde lointains que toutes les quelques heures quand ils n'ont besoin de rien. Les états ajoutés par des mods (parties RJW, gènes de races, particularités …) gardaient presque chaque personnage éveillé, si bien que des centaines étaient mis à jour à chaque tick. Désormais, seules les grossesses et les états propres au jeu les gardent éveillés. Un personnage se réveille dès qu'il revient sur une carte ou dans une caravane.</GT_WorldSleep_Desc>
+  <GT_SimSleepLine>Vivants : {0} éveillés, {1} endormis. Gardés éveillés par : {2}</GT_SimSleepLine>
+  <GT_SimSlept>{0} personnages endormis.</GT_SimSlept>
+  <GT_TexCapWaylith>inutile sur 1.7</GT_TexCapWaylith>
+  <GT_SaveBuffer>Sauvegarde plus rapide (grand tampon)</GT_SaveBuffer>
+  <GT_SaveBuffer_Desc>Le fichier de sauvegarde est écrit en gros morceaux au lieu de nombreux petits – l'arrêt pendant la sauvegarde est plus court. Même fichier, même contenu. La sauvegarde elle-même ne peut pas se faire en arrière-plan : le jeu ne doit pas changer pendant l'écriture.</GT_SaveBuffer_Desc>
+  <GT_SaveLast>Dernière sauvegarde : {0} ms (meilleure {1} ms)</GT_SaveLast>
+  <GT_ED_Open>Docteur des erreurs</GT_ED_Open>
+  <GT_ED_Open_Desc>Les erreurs rouges du journal regroupées, avec le mod qui les a vraiment causées et ce qu'elles signifient en termes simples.</GT_ED_Open_Desc>
+  <GT_ErrorAlert>Signaler les nouvelles erreurs</GT_ErrorAlert>
+  <GT_ErrorAlert_Desc>Un court message quand une erreur venant d'un nouvel endroit apparaît – le Docteur des erreurs montre quel mod l'a causée.</GT_ErrorAlert_Desc>
+  <GT_ED_Title>Docteur des erreurs</GT_ED_Title>
+  <GT_ED_Summary>{0} erreurs · {1} types · de {2} mods</GT_ED_Summary>
+  <GT_ED_Warnings>Avertissements aussi</GT_ED_Warnings>
+  <GT_ED_Unknown>Mod inconnu (jeu ou introuvable)</GT_ED_Unknown>
+  <GT_ED_Copy>Copier</GT_ED_Copy>
+  <GT_ED_Workshop>Page Workshop</GT_ED_Workshop>
+  <GT_ED_None>Aucune erreur dans le journal 👍</GT_ED_None>
+  <GT_ED_Copied>Copié – colle-le dans un commentaire pour l'auteur du mod.</GT_ED_Copied>
+  <GT_ED_NewMsg>Nouvelle erreur dans le journal – probablement {0}. Détails dans Smooth FPS → Docteur des erreurs.</GT_ED_NewMsg>
+  <GT_ED_K_Null>Quelque chose était vide alors que ça ne devait pas (par ex. un pion, un objet ou une def supprimé). En général un bug de ce mod ou un conflit avec un autre – signale-le avec le texte copié.</GT_ED_K_Null>
+  <GT_ED_K_MissingDef>Quelque chose dont le mod a besoin n'existe pas : un mod requis manquant, un mod pour une autre version du jeu ou un objet supprimé. Vérifie les prérequis du mod.</GT_ED_K_MissingDef>
+  <GT_ED_K_Patch>Une modification du code (patch Harmony) n'a pas pu être appliquée – le mod est sans doute pour une autre version ou entre en conflit avec un autre mod. Une partie peut ne pas fonctionner.</GT_ED_K_Patch>
+  <GT_ED_K_Xml>Un fichier XML cassé ou obsolète dans un mod. Le jeu ignore cette partie ; en général sans gravité, mais cet objet ou cette fonction peut manquer.</GT_ED_K_Xml>
+  <GT_ED_K_Texture>Une image manque ou est cassée. Seul l'aspect est touché – tu peux voir un remplaçant rose.</GT_ED_K_Texture>
+  <GT_ED_K_Duplicate>Deux mods ajoutent la même chose. L'un l'emporte ; en général sans gravité, mais vérifie que tu n'as pas le même mod en double.</GT_ED_K_Duplicate>
+  <GT_ED_K_Cast>Deux mods ne sont pas d'accord sur la nature d'un objet. En général un conflit entre mods qui modifient la même chose.</GT_ED_K_Cast>
+  <GT_ED_K_List>Un mod a cherché dans une liste quelque chose qui n'y était pas. Un bug du mod – signale-le avec le texte copié.</GT_ED_K_List>
+  <GT_ED_K_Tick>Une erreur pendant que le jeu mettait à jour quelque chose sur la carte. Cette chose peut ne plus fonctionner jusqu'au rechargement.</GT_ED_K_Tick>
+  <GT_ED_K_PawnGen>Une erreur en créant un pion (mods de races, vêtements ou armes). Le pion peut mal s'afficher ou être ignoré.</GT_ED_K_PawnGen>
+  <GT_ED_K_Job>Une erreur dans le travail d'un colon. En général il fait simplement autre chose.</GT_ED_K_Job>
+  <GT_ED_K_Other>Une erreur dans le code d'un mod. Copie-la et envoie-la à son auteur.</GT_ED_K_Other>
+  <GT_MemBlocked17>Sous 1.7, Smooth FPS ne force plus le nettoyage de la mémoire – cela faisait disparaître textures, icônes et portes. Le jeu nettoie tout seul.</GT_MemBlocked17>
+  <!-- 1.5.3 -->
+  <GT_HideResources>Liste des ressources seulement sous la souris</GT_HideResources>
+  <GT_HideResources_Desc>La liste des ressources à gauche n'est dessinée que lorsque la souris est dessus. Avec beaucoup de types d'objets, cette liste coûte du temps à chaque image.</GT_HideResources_Desc>
+  <GT_UltraSpeed>Vitesse 4 sans mode développeur</GT_UltraSpeed>
+  <GT_UltraSpeed_Desc>Ajoute la 4e vitesse du jeu (normalement réservée au mode développeur) comme bouton après la vitesse 3. La touche de la vitesse 4 et « plus vite » depuis la vitesse 3 fonctionnent aussi. Les grandes colonies peuvent ne pas l'atteindre sur un PC plus lent.</GT_UltraSpeed_Desc>
+  <GT_UltraButton>Vitesse 4</GT_UltraButton>
+  <GT_DangerSpeed>Vitesse en cas de danger</GT_DangerSpeed>
+  <GT_DangerSpeed_Desc>Quand un raid ou un combat commence, le jeu passe en vitesse 1 pendant un moment. Ici vous pouvez garder la vitesse 2 ou 3 à la place. Le jeu met toujours en pause et prévient comme d'habitude.</GT_DangerSpeed_Desc>
+  <GT_Danger0>Comme le jeu (vitesse 1)</GT_Danger0>
+  <GT_Danger1>Garder la vitesse 2</GT_Danger1>
+  <GT_Danger2>Garder la vitesse 3</GT_Danger2>
+  <GT_SpeedOtherMod>Smart Speed est actif – il gère lui-même la vitesse 4 et la vitesse en cas de danger, ces deux réglages n'ont donc aucun effet.</GT_SpeedOtherMod>
+  <GT_RulesLine>Règles d'exclusion d'autres mods : {0} entrées de {1} mod(s) – ces personnages, objets et objets du monde ne sont jamais ralentis.</GT_RulesLine>
+  <GT_RainSec>La pluie lave la saleté</GT_RainSec>
+  <GT_RainCall>Appeler la pluie quand il y a trop de saleté dehors</GT_RainCall>
+  <GT_RainCall_Desc>Des milliers de saletés dehors font saccader le jeu. Environ toutes les 40 s, la saleté extérieure de vos cartes de base est comptée ; au-dessus de la limite, s'il ne pleut pas, au-dessus de 0 °C et si aucune pluie n'a été appelée ces 2 derniers jours, une pluie connue de votre biome commence. La météo imposée par un événement n'est jamais changée. Désactivé = comme le jeu.</GT_RainCall_Desc>
+  <GT_RainThreshold>Saleté dehors avant d'appeler la pluie : {0}</GT_RainThreshold>
+  <GT_RainThreshold_Desc>Combien de saletés dehors (sans toit) sur vos cartes de base appellent la pluie.</GT_RainThreshold_Desc>
+  <GT_RainWashAll>La pluie lave toute la saleté dehors</GT_RainWashAll>
+  <GT_RainWashAll_Desc>Le jeu ne laisse la pluie laver que certains types de saleté. Avec ceci, la pluie réduit toute saleté dehors (sans toit) avec la même chance. La saleté à l'intérieur n'est jamais touchée. Désactivé = comme le jeu.</GT_RainWashAll_Desc>
+  <GT_RainNow>Saleté dehors sur vos cartes de base maintenant : {0}</GT_RainNow>
+  <GT_RainStarted>Il s'est mis à pleuvoir – la pluie lave la saleté (Smooth FPS).</GT_RainStarted>
+</LanguageData>

@@ -52,7 +52,7 @@
   <MSM_Folder>フォルダ</MSM_Folder>
   <MSM_GrpBreak>不具合の恐れ</MSM_GrpBreak>
   <MSM_GrpDup>重複</MSM_GrpDup>
-  <MSM_GrpSame>同じ機能</MSM_GrpSame>
+  <MSM_GrpSame>競合の可能性（共有コード）</MSM_GrpSame>
   <MSM_Inactive>無効 · {0}</MSM_Inactive>
   <MSM_IncText>{0} の作者によると、これらは併用できません。どちらか一方だけを有効にしてください。</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – 非互換</MSM_IncTitle>
@@ -102,8 +102,8 @@
   <MSM_ProfilesHint>ゲームのModウィンドウ（リストの保存/読み込み）と同じファイルです – このModがなくても使えます。</MSM_ProfilesHint>
   <MSM_ReturnToGame>再起動後にゲームへ戻る</MSM_ReturnToGame>
   <MSM_Revert>すべて元に戻す</MSM_Revert>
-  <MSM_SameHint>読み込まれたModの Harmony パッチからの推定</MSM_SameHint>
-  <MSM_SameHot>どちらもゲームの同じ重要部分を置き換えます – 一つで十分です</MSM_SameHot>
+  <MSM_SameHint>Harmony パッチからの推定 – エラーではありません</MSM_SameHint>
+  <MSM_SameHot>どちらもゲームの同じ重要な部分を置き換えます – 不具合が起きたら最初に確認するペア</MSM_SameHot>
   <MSM_SameText>どちらも同じゲームコードを変更します</MSM_SameText>
   <MSM_SaveFailed>Modリストを保存できませんでした：{0}</MSM_SaveFailed>
   <MSM_SaveProfile>現在のリストを保存</MSM_SaveProfile>
@@ -284,4 +284,59 @@ Mod Sort Manager は {0} 個の疑わしいModの半分を無効化し、ゲー�
   <MSM_RemovedNow>{0} を削除しました。ゲームを再起動して完了してください。</MSM_RemovedNow>
   <MSM_RemovedLater>{0} は使用中です――次回起動時に削除されます（無効化済み）。</MSM_RemovedLater>
   <MSM_RemoveFailed>{0} を削除できませんでした。</MSM_RemoveFailed>
+  <MSM_SameExplain>これらは重複でもエラーでもありません。各ペアの MOD はゲームのコードの同じ部分を変更します。正しく作られていれば、変更はロード順に次々と実行され、両方とも動作します。どちらかにバグがある場合にだけ、下に並んだ MOD を妨げることがあります。ここに表示されているという理由だけで MOD を外さないでください。不具合が起きたときに、どの MOD から試すべきかを知るためにこの一覧を使ってください。</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – 同じ役割の MOD</MSM_RivalTitle>
+  <MSM_RivalHint>Mod Sort Manager に内蔵された既知の組み合わせで、コードからの推測ではありません。</MSM_RivalHint>
+  <MSM_Rival_Haul>どちらも一度に複数の物を運びます。{1} が有効な間、{0} の同じ機能は自動でオフになります。どちらか一つだけにしてください。</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>どちらも収穫物を直接ポケットに入れます。{1} が有効な間、{0} のこの機能は自動でオフになります。</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>どちらもゲームのティック処理やゲーム速度を制御します。併用するとカクつきや速度の狂いが起きることがあります。どちらか一つだけにしてください。</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1} は全プレイヤーでゲームがまったく同じに動く必要があります。{0} はゲームの進み方を変えます。併用しないでください。</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0} には {1} の機能（フリーズしないメモリ解放）がすでに含まれています。{1} をオフにしてください。</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>どちらも作業優先度を自動で設定し、互いの設定を上書きします。どちらか一つだけにしてください。</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0} が有効な間はこのタブを担当し、{1} のタブは使われません（{0} の設定で切り替えられます）。</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>どちらもゲームの MOD 画面を置き換えます。{1} が有効な間、Mod Sort Manager は身を引きます。</MSM_Rival_Managers>
+  <MSM_NoteRival>{0} と同じ役割</MSM_NoteRival>
+  <MSM_SameWorks>問題なし – 非表示</MSM_SameWorks>
+  <MSM_SameUnhide>再び一覧に表示</MSM_SameUnhide>
+  <MSM_SameHiddenTag>非表示</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>非表示を表示（{0}）</MSM_SameShowHidden>
+  <MSM_SameHideHidden>非表示を隠す</MSM_SameHideHidden>
+  <MSM_CrashTitle>前回のゲームが正常に終了しませんでした</MSM_CrashTitle>
+  <MSM_CrashText>前回ゲームが正常に終了しませんでした（クラッシュまたはフリーズ）。その少し前の {0} に MOD リストが変更されています：\n\n{1}\n\n変更前のリストに戻しますか？ Mod Sort Manager で開くので、保存する前に確認できます。</MSM_CrashText>
+  <MSM_CrashAdded>追加（{0}）：</MSM_CrashAdded>
+  <MSM_CrashRemoved>削除（{0}）：</MSM_CrashRemoved>
+  <MSM_CrashMoved>順番だけが変わりました。</MSM_CrashMoved>
+  <MSM_CrashRestore>変更前のリストを開く</MSM_CrashRestore>
+  <MSM_CrashKeep>今のリストのままにする</MSM_CrashKeep>
+  <!-- 0.2.2 -->
+  <MSM_FromSave>セーブデータのMODリスト…</MSM_FromSave>
+  <MSM_FromSaveTip>セーブを選ぶと、どのMODでプレイされたか、足りないものや今のリストとの違いが分かり、そのリストを使えます。</MSM_FromSaveTip>
+  <MSM_NoSaves>セーブデータが見つかりません。</MSM_NoSaves>
+  <MSM_SaveNoMods>このセーブにはMODリストがありません（または読み込めません）。</MSM_SaveNoMods>
+  <MSM_SaveTitle>セーブ {0} のMOD</MSM_SaveTitle>
+  <MSM_SaveSub>セーブ内のMOD {0}個 · ゲームバージョン {1}</MSM_SaveSub>
+  <MSM_SaveMissing>未インストール（{0}）</MSM_SaveMissing>
+  <MSM_SaveTurnOn>有効になる（{0}）</MSM_SaveTurnOn>
+  <MSM_SaveTurnOff>無効になる（{0}）</MSM_SaveTurnOff>
+  <MSM_SaveSame>今のリストと同じMOD・同じ順番です。</MSM_SaveSame>
+  <MSM_SaveSameMods>今のリストと同じMODです（順番だけ違います）。</MSM_SaveSameMods>
+  <MSM_SaveApply>このリストを使う</MSM_SaveApply>
+  <!-- 0.3.0 -->
+  <MSM_RuleSec>ロード順ルール</MSM_RuleSec>
+  <MSM_RuleAdd>+ ロード順ルール</MSM_RuleAdd>
+  <MSM_RuleAddTip>このModに対するあなた独自のロード順ルール――スマートソートが従います。</MSM_RuleAddTip>
+  <MSM_RuleTop>常に一番上</MSM_RuleTop>
+  <MSM_RuleBottom>常に一番下</MSM_RuleBottom>
+  <MSM_RuleAfter>{0} の後</MSM_RuleAfter>
+  <MSM_RuleBefore>{0} の前</MSM_RuleBefore>
+  <MSM_RuleSrcUser>あなたのルール</MSM_RuleSrcUser>
+  <MSM_RuleSrcMsm>Mod Sort Manager のルール</MSM_RuleSrcMsm>
+  <MSM_RuleSrcRimSort>RimSort コミュニティルール</MSM_RuleSrcRimSort>
+  <MSM_RuleMoved>移動したルール：{0}</MSM_RuleMoved>
+  <MSM_SortedRules>並べ替え完了――{0} 個のModがロード順ルールで配置されました（詳細を参照）。</MSM_SortedRules>
+  <MSM_SetRules>共有ロード順ルールを使う</MSM_SetRules>
+  <MSM_SetRulesTip>スマートソートは Mod Sort Manager 同梱のルール（Data/rules.xml）と、RimSort がインストールされていれば RimSort のコミュニティルールにも従います。あなた独自のルールは常に使われます。</MSM_SetRulesTip>
+  <MSM_NoWarn>動作する――警告しない</MSM_NoWarn>
+  <MSM_NoWarnUndo>バージョン警告を再表示</MSM_NoWarnUndo>
+  <MSM_NoWarnTip>このModは現在のゲームバージョン向けではありませんが動作します。Data/noVersionWarning.xml や No Version Warning Mod に載っているModも警告されません。</MSM_NoWarnTip>
 </LanguageData>

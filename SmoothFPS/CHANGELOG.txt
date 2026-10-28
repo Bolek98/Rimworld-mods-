@@ -1,3 +1,42 @@
+=== Workshop release 1.5.0 (28 Oct 2026) ===
+1.5.0
+New
+- Error doctor (Tools): the red errors in the log grouped by message, with the mod that really caused each one, a short explanation in plain words and buttons to copy the error or open the mod's Workshop page. A short message tells you when a new error appears (can be switched off).
+- Rain washes the filth away (optional): rain is called when too much filth lies outside, and rain can wash all outdoor filth – less lag from filth in big colonies.
+- Speed 4 without dev mode (optional) and speed 2 or 3 kept when a raid starts instead of the forced speed 1 (optional).
+- Resource list only under the mouse (optional).
+- For modders: pawns, conditions, things and world objects your mod lists are never slowed down (SmoothFPS.ExclusionDef or Extras/SmoothFPSRules.xml).
+
+Performance
+- Faster saving: the save is written in big pieces, the stop while saving is shorter.
+
+Fixes
+- RimWorld 1.7: icons, textures and doors no longer disappear – Smooth FPS no longer forces any memory clean-up on 1.7; the game cleans up on its own.
+- The error doctor no longer stops on some error lines.
+
+=== Development history since the last Workshop release (test versions) ===
+1.6.0
+- Rain washes the filth away (Simulation tab, both off by default): "Call rain when there is too much filth outside" – when your home maps have more outdoor filth than the limit (300–5000, default 1500), it is not raining and it is above 0 °C, a rain your biome knows starts (at most once in 2 days, never over weather forced by an event). "Rain washes all outdoor filth" – rain thins every kind of filth outdoors, not only the kinds the game lets it wash. Filth indoors is never touched.
+- Opt-out rules for other mods: a mod can list pawn kinds, conditions (hediffs), things and world objects that Smooth FPS must never slow down – as a def (SmoothFPS.ExclusionDef with pawnKinds / hediffs / worldObjects / thingDefs lists of defNames) or as a file Extras/SmoothFPSRules.xml (root element SmoothFPSRules, same lists). Those keep the game's own tick rate, world pawns with such conditions are not put to sleep, and such colonists' job searches are never put off.
+
+1.5.3
+- Speed 4 without dev mode (Simulation tab, off by default): the game's own 4th speed as a button after speed 3; its key and "faster" from speed 3 work too.
+- Speed during danger (Simulation tab): when a raid or a fight starts, keep speed 2 or 3 instead of the forced speed 1 (default: like the game).
+- Resource list only under the mouse (off by default): the list on the left is drawn only while the mouse is over it.
+- With Smart Speed active, the two speed settings stay off – Smart Speed handles them.
+
+1.5.2
+- Fix (1.7): Smooth FPS no longer forces any memory clean-up on 1.7 (after a pause, after a save, the button, the compaction). Icons, textures and doors disappeared twice a moment after such a clean-up right after loading, even without moving the memory – the 1.7 graphics engine let go of pictures it still needed. The game's own background clean-up does the job.
+
+1.5.1
+- Fix (1.7): "Clean memory during long pauses" no longer packs the large memory blocks together. On 1.7 the graphics engine uploads pictures on demand from those blocks; moving them made icons, textures and doors disappear until a restart.
+- Fix: the error doctor stopped on some error lines ("Index and length must refer to a location within the string").
+
+1.5.0
+- Error doctor (Tools): the red errors in the log grouped by message, with the mod that really caused each one (found from its own code in the stack, not from the list of mods that only patch the same method), a short explanation in plain words, how often and since when, and buttons to copy the error for a comment and to open the mod's Workshop page.
+- New errors: a short message when an error from a new place appears in the log (can be switched off).
+- Faster saving: the save file is written in big pieces (1 MB buffer) instead of thousands of tiny ones, so the stop while saving is shorter. The time of the last save is shown in the settings. Saving cannot run in the background – the game must not change while it is written.
+
 === Workshop release 1.4.0 (26 Oct 2026) ===
 1.4.0
 Simulation (Simulation tab)

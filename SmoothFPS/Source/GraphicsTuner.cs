@@ -50,6 +50,8 @@ namespace GraphicsTuner
         public bool sfRealNormal = true;
         public bool sfFastShare = true;
         public bool saveSmart = true;           // 1.7.4: autosave waits for a quiet moment
+        public bool saveBuffer = true;          // 1.5.0: the save file is written in big pieces (shorter save stop)
+        public bool errorAlert = true;          // 1.5.0: a message when an error from a new place appears in the log
         public int saveMaxWaitMin = 3;         // 1.7.3: speed 3/4 – simulation gets at least the drawing time        // 1.7.2: speed 1 and 2 never run slower than real
         public int sfIdleFps = 30;
         public bool sfBackground = true;
@@ -126,6 +128,14 @@ namespace GraphicsTuner
         public bool worldSleep = true;          // 1.4.6: mod conditions do not keep world pawns awake
         public bool turbo;                      // 1.4.3: speed 3/4 untouched – few frames, all time to the game
         public int turboFps = 12;
+        // 1.5.3: speed 4 without dev mode, speed while the game slows down for danger, hidden resource list
+        public bool ultraSpeed;                 // the 4th speed button and key (off = like the game)
+        public int dangerSpeed;                 // 0 = like the game (speed 1), 1 = speed 2 allowed, 2 = speed 3 allowed
+        public bool hideResources;              // the resource list on the left is drawn only under the mouse
+        // 1.6.0: rain washes the filth away (both off = like the game)
+        public bool rainCall;                   // call rain when there is too much filth outside
+        public int rainThreshold = 1500;        // outdoor filth things on the home maps
+        public bool rainWashAll;                // rain thins all outdoor filth, not only "rainWashes" filth
 
 
         // display – your own choice, never changed by a profile
@@ -216,6 +226,8 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref sfRealNormal, "sfRealNormal", true);
             Scribe_Values.Look(ref sfFastShare, "sfFastShare", true);
             Scribe_Values.Look(ref saveSmart, "saveSmart", true);
+            Scribe_Values.Look(ref saveBuffer, "saveBuffer", true);
+            Scribe_Values.Look(ref errorAlert, "errorAlert", true);
             Scribe_Values.Look(ref saveMaxWaitMin, "saveMaxWaitMin", 3);
             Scribe_Values.Look(ref sfIdleFps, "sfIdleFps", 30);
             Scribe_Values.Look(ref sfBackground, "sfBackground", true);
@@ -259,6 +271,12 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref turbo, "turbo", false);
             Scribe_Values.Look(ref worldSleep, "worldSleep", true);
             Scribe_Values.Look(ref turboFps, "turboFps", 12);
+            Scribe_Values.Look(ref ultraSpeed, "ultraSpeed", false);
+            Scribe_Values.Look(ref dangerSpeed, "dangerSpeed", 0);
+            Scribe_Values.Look(ref hideResources, "hideResources", false);
+            Scribe_Values.Look(ref rainCall, "rainCall", false);
+            Scribe_Values.Look(ref rainThreshold, "rainThreshold", 1500);
+            Scribe_Values.Look(ref rainWashAll, "rainWashAll", false);
 
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
                 Preset(profile);
@@ -687,6 +705,7 @@ namespace GraphicsTuner
         {
             Runtime.Update();
             SaveTiming.Update();
+            ErrorDoctor.Update();
         }
     }
 
@@ -731,7 +750,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.4.0";
+        public const string Version = "1.5.0";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -760,12 +779,17 @@ namespace GraphicsTuner
             FastCull.Patch(harmony);                // 1.7.0
             WorldPathSpread.Patch(harmony);         // 1.7.0
             SaveTiming.Patch(harmony);              // 1.7.4
+            SaveBuffer.Patch(harmony);              // 1.5.0
             ModEffects.Patch(harmony);              // 1.3.2: effects from mods too
             TextureCap.Patch(harmony);              // 1.3.3: oversized mod textures
             SmartWork.Patch(harmony);               // 1.4.0: smart work search
             SmartWork.PatchSpread(harmony);         // 1.4.0: job searches spread over ticks
             TempSpread.Patch(harmony);              // 1.4.0: room temperatures in parts
             FastNight.Patch(harmony);               // 1.4.0: fast nights
+            SpeedControls.Patch(harmony);           // 1.5.3: speed 4, speed during danger, hidden resource list
+            RainWash.Patch(harmony);                // 1.6.0: rain washes the filth away
+            // 1.6.0: opt-out rules of other mods (SmoothFPS.ExclusionDef, Extras/SmoothFPSRules.xml)
+            LongEventHandler.ExecuteWhenFinished(SmoothFPS.ExclusionRules.Load);
             // 1.3.4: no more swapping textures that were loaded before Smooth FPS started – icons and
             // pictures already handed out kept pointing at the destroyed originals (pink X, blank icons).
             // Only textures loaded from now on start smaller.
@@ -912,6 +936,7 @@ namespace GraphicsTuner
             MUI.Section(l, "GT_SecSmooth".Translate());
             Check(l, "GT_FastLog", ref s.fastLog, "fastLog");
             Note(l, "GT_FastLog_Note".Translate());
+            MUI.Check(l, "GT_HideResources".Translate(), "GT_HideResources_Desc".Translate(), ref s.hideResources, s, null);   // 1.5.3
             if (s.profile >= 0 && s.profile <= 2 && !s.Matches(s.profile))
                 s.profile = 3;
             float leftH = l.CurHeight;
@@ -1073,6 +1098,9 @@ namespace GraphicsTuner
             Plain(l, "GT_SaveSmart", ref s.saveSmart);
             if (s.saveSmart)
                 s.saveMaxWaitMin = Mathf.RoundToInt(MUI.Slider(l, "GT_SaveWait".Translate(s.saveMaxWaitMin), s.saveMaxWaitMin, 1f, 10f, "GT_SaveSmart_Desc".Translate(), s, null));
+            Plain(l, "GT_SaveBuffer", ref s.saveBuffer);
+            if (SaveBuffer.LastMs >= 0f)
+                Note(l, "GT_SaveLast".Translate(SaveBuffer.LastMs.ToString("0"), SaveBuffer.BestMs.ToString("0")));
 
             // 1.2.1: every speed can have its own target and simulation limit
             MUI.Section(l, "GT_SecBySpeed".Translate());
@@ -1132,6 +1160,11 @@ namespace GraphicsTuner
             else if (Widgets.ButtonText(pbtn, "GT_BenchStart".Translate()))
                 Profiler.Start();
             Note(r, "GT_Prof_Note".Translate());
+            // 1.5.0: error doctor
+            if (r.ButtonText("GT_ED_Open".Translate()))
+                Find.WindowStack.Add(new Dialog_ErrorDoctor());
+            TooltipHandler.TipRegion(new Rect(0f, r.CurHeight - 30f, colW, 30f), "GT_ED_Open_Desc".Translate());
+            Plain(r, "GT_ErrorAlert", ref s.errorAlert);
             // 1.4.0: what is expensive on the map
             if (Current.ProgramState == ProgramState.Playing && Find.CurrentMap != null)
             {
@@ -1224,6 +1257,13 @@ namespace GraphicsTuner
             MUI.Check(l, "GT_TempSpread".Translate(), "GT_TempSpread_Desc".Translate(), ref s.tempSpread, s, null);
             MUI.Check(l, "GT_NightFast".Translate(), "GT_NightFast_Desc".Translate(), ref s.nightFast, s, null);
             MUI.Check(l, "GT_Turbo".Translate(), "GT_Turbo_Desc".Translate(), ref s.turbo, s, null);
+            // 1.5.3: speed 4 and the speed during danger
+            MUI.Check(l, "GT_UltraSpeed".Translate(), "GT_UltraSpeed_Desc".Translate(), ref s.ultraSpeed, s, null);
+            string[] dangerNames = { "GT_Danger0".Translate(), "GT_Danger1".Translate(), "GT_Danger2".Translate() };
+            Dropdown(l, "GT_DangerSpeed".Translate(), "GT_DangerSpeed_Desc".Translate(), dangerNames[Mathf.Clamp(s.dangerSpeed, 0, 2)],
+                () => Enumerable.Range(0, 3).Select(i => new FloatMenuOption(dangerNames[i], () => s.dangerSpeed = i)).ToList());
+            if (SpeedControls.OtherSpeedMod)
+                Muted(l.GetRect(36f), "GT_SpeedOtherMod".Translate());
             if (s.turbo)
             {
                 Rect tr = l.GetRect(28f);
@@ -1241,6 +1281,9 @@ namespace GraphicsTuner
             MUI.Section(l, "GT_SimCleanSec".Translate());
             MUI.Check(l, "GT_SimClean".Translate(), "GT_SimClean_Desc".Translate(), ref s.worldClean, s, null);
             MUI.Check(l, "GT_WorldSleep".Translate(), "GT_WorldSleep_Desc".Translate(), ref s.worldSleep, s, null);
+            // 1.6.0: opt-out rules of other mods
+            if (SmoothFPS.ExclusionRules.Any)
+                Muted(l.GetRect(40f), "GT_RulesLine".Translate(SmoothFPS.ExclusionRules.Entries, SmoothFPS.ExclusionRules.Mods));
             Muted(l.GetRect(40f), Sim.KeepBattles > 0 ? "GT_SimKeep".Translate(Sim.KeepBattles) : "GT_SimKeepOff".Translate());
             if (Verse.Current.ProgramState == ProgramState.Playing)
             {
@@ -1252,6 +1295,15 @@ namespace GraphicsTuner
                     LongEventHandler.ExecuteWhenFinished(() => Messages.Message(t, MessageTypeDefOf.NeutralEvent, false));
                 }
             }
+            // 1.6.0: rain washes the filth away
+            MUI.Section(l, "GT_RainSec".Translate());
+            MUI.Check(l, "GT_RainCall".Translate(), "GT_RainCall_Desc".Translate(), ref s.rainCall, s, null);
+            if (s.rainCall)
+                s.rainThreshold = Mathf.RoundToInt(MUI.Slider(l, "GT_RainThreshold".Translate(s.rainThreshold), s.rainThreshold, 300f, 5000f, "GT_RainThreshold_Desc".Translate(), s, null) / 100f) * 100;
+            MUI.Check(l, "GT_RainWashAll".Translate(), "GT_RainWashAll_Desc".Translate(), ref s.rainWashAll, s, null);
+            int filth = RainWash.OutdoorFilth();
+            if (filth >= 0)
+                Muted(l.GetRect(22f), "GT_RainNow".Translate(filth));
             l.End();
         }
 
@@ -1276,12 +1328,16 @@ namespace GraphicsTuner
                     s.memSliceMs = Mathf.Round(MUI.Slider(l, "GT_MemSlice".Translate(s.memSliceMs.ToString("0")), s.memSliceMs, 1f, 20f, "GT_MemSlice_Desc".Translate(), s, null));
                 s.memThresholdMb = Mathf.RoundToInt(MUI.Slider(l, "GT_MemThreshold".Translate(s.memThresholdMb), s.memThresholdMb, 100f, 2000f, "GT_MemThreshold_Desc".Translate(), s, null) / 50f) * 50;
             }
-            Plain(l, "GT_MemOnPause", ref s.memOnPause);
-            Plain(l, "GT_MemOnSave", ref s.memOnSave);
             if (Freezer.Net)
             {
+                // 1.5.2: no forced clean-ups on 1.7 (they made textures disappear)
+                Note(l, "GT_MemBlocked17".Translate());
                 Plain(l, "GT_MemLowLatency", ref s.memLowLatency);
-                Plain(l, "GT_MemCompact", ref s.memCompact);
+            }
+            else
+            {
+                Plain(l, "GT_MemOnPause", ref s.memOnPause);
+                Plain(l, "GT_MemOnSave", ref s.memOnSave);
             }
             if (!Freezer.Net) Plain(l, "GT_MemUnload", ref s.memUnload);
             Plain(l, "GT_MemRamWarn", ref s.memRamWarn);
@@ -1319,7 +1375,7 @@ namespace GraphicsTuner
                     Find.WindowStack.Add(new Dialog_MessageBox(Vram.Report(), title: "GT_VramTitle".Translate()));
             }
             o.Gap(6f);
-            if (o.ButtonText("GT_MemCollectNow".Translate()))
+            if (!Freezer.ForcedGcBlocked && o.ButtonText("GT_MemCollectNow".Translate()))
                 Freezer.Collect(true);
             o.Gap(6f);
             Plain(o, "GT_MemHud", ref s.memHud);

@@ -131,6 +131,8 @@ namespace GraphicsTuner
                 return vanilla;
             if (t is Pawn p && (p.Drafted || p.IsFighting()))
                 return vanilla;
+            if (SmoothFPS.ExclusionRules.Skip(t))   // 1.6.0: opt-out rules of other mods
+                return vanilla;
             Map map = t.MapHeld;
             if (map == null)
                 return WorldRate;   // world pawns, pawns in caravans and transport pods
@@ -168,6 +170,8 @@ namespace GraphicsTuner
             if (__result < 15 || !On || __instance == null)
                 return;
             if (__instance.Faction == Faction.OfPlayer || __instance is Caravan || (__instance is MapParent mp && mp.HasMap))
+                return;
+            if (SmoothFPS.ExclusionRules.Skip(__instance))   // 1.6.0: opt-out rules of other mods
                 return;
             __result = WorldRate;
         }
@@ -415,6 +419,8 @@ namespace GraphicsTuner
             if (__result == null || !On || !ModCondition(__result)) return;
             try
             {
+                // 1.6.0: a pawn named in another mod's opt-out rules keeps the game's own answer
+                if (SmoothFPS.ExclusionRules.SkipPawn(p)) return;
                 // only the game's own conditions may keep it awake
                 foreach (Hediff h in p.health.hediffSet.hediffs)
                 {

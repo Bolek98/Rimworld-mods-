@@ -25,8 +25,10 @@ namespace ModSortManager
             }
             if (done) return;
             done = true;
-            if (!ReturnToSave.Pending)
-                OrderGuard.Check();
+            if (ReturnToSave.Pending) return;
+            // 0.2.1: the last session crashed right after a mod list change – offer the list from before
+            if (CrashGuard.Check()) return;
+            OrderGuard.Check();
         }
     }
 

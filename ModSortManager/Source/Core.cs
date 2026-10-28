@@ -27,6 +27,14 @@ namespace ModSortManager
         public bool orderGuard = true;
         public bool preSaveCheck = true;
         public int settingsVersion = 1;
+        // 0.2.1: "works for me" – pairs in Possible conflicts the player hid ("idA|idB", lower case, sorted)
+        public List<string> hiddenSame = new List<string>();
+        // 0.3.0: the player's load order rules ("mod|top|", "mod|after|other" …, lower case)
+        public List<string> userRules = new List<string>();
+        // 0.3.0: mods the player marked as working in this game version (no old-version warning)
+        public List<string> noWarn = new List<string>();
+        // 0.3.0: smart sort also follows Data/rules.xml and RimSort's community rules
+        public bool sharedRules = true;
 
         public override void ExposeData()
         {
@@ -38,17 +46,26 @@ namespace ModSortManager
             Scribe_Values.Look(ref orderGuard, "orderGuard", true);
             Scribe_Values.Look(ref preSaveCheck, "preSaveCheck", true);
             Scribe_Values.Look(ref settingsVersion, "settingsVersion", 1);
+            Scribe_Collections.Look(ref hiddenSame, "hiddenSame", LookMode.Value);
+            if (hiddenSame == null) hiddenSame = new List<string>();
+            Scribe_Collections.Look(ref userRules, "userRules", LookMode.Value);
+            if (userRules == null) userRules = new List<string>();
+            Scribe_Collections.Look(ref noWarn, "noWarn", LookMode.Value);
+            if (noWarn == null) noWarn = new List<string>();
+            Scribe_Values.Look(ref sharedRules, "sharedRules", true);
         }
     }
 
     public class MSMMod : Mod
     {
-        public const string Version = "0.2.0";
+        public const string Version = "0.3.0";
         public static MSMSettings Settings;
 
         public MSMMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<MSMSettings>();
+            Rules.Root = content.RootDir;   // 0.3.0
+            CrashGuard.SessionStart();      // 0.2.1: notice when the last session did not end properly
             Removal.ProcessPending();       // 0.2.1: mods that could not be removed while they were running
             MNews.Register(content, Version);
             MUI.Init(new MSMSettings(), null, "recommended", "settingsVersion", "loadLastSave", "returnToGame");
@@ -86,6 +103,7 @@ namespace ModSortManager
             MUI.Check(l, "MSM_SetEsc".Translate(), "MSM_SetEscTip".Translate(), ref Settings.escMenuEntry, Settings, "escMenuEntry");
             MUI.Check(l, "MSM_SetGuard".Translate(), "MSM_SetGuardTip".Translate(), ref Settings.orderGuard, Settings, "orderGuard");
             MUI.Check(l, "MSM_SetPreSave".Translate(), "MSM_SetPreSaveTip".Translate(), ref Settings.preSaveCheck, Settings, "preSaveCheck");
+            MUI.Check(l, "MSM_SetRules".Translate(), "MSM_SetRulesTip".Translate(), ref Settings.sharedRules, Settings, "sharedRules");
             l.End();
             MUI.EndLock(body);
             if (Widgets.ButtonText(new Rect(inRect.x, inRect.yMax - 40f, 280f, 36f), "MSM_OpenNow".Translate()))
@@ -772,7 +790,7 @@ namespace ModSortManager
                         }
                 }
                 result = pairs.Values.Where(p => p != null && (p.hot || p.methods.Count >= 3))
-                    .OrderByDescending(p => p.hot).ThenByDescending(p => p.methods.Count).Take(15).ToList();
+                    .OrderByDescending(p => p.hot).ThenByDescending(p => p.methods.Count).ToList();   // 0.2.2: no cap (it showed only the first 15)
             }
             catch (Exception e)
             {
@@ -932,9 +950,41 @@ namespace ModSortManager
                 error = "MSM_SortCycle".Translate();
                 return false;
             }
+            // 0.3.0: remember which rule moved which mod (shown in the mod's details)
+            LastMoved.Clear();
+            foreach (var kv in hits)
+                if (list.IndexOf(kv.Key) != r.IndexOf(kv.Key)) LastMoved[kv.Key] = kv.Value;
             list.Clear();
             list.AddRange(r);
             return true;
+        }
+
+        // 0.3.0: mods moved by a load order rule in the last smart sort
+        public static readonly Dictionary<ModMetaData, List<string>> LastMoved = new Dictionary<ModMetaData, List<string>>();
+        private static readonly Dictionary<ModMetaData, List<string>> hits = new Dictionary<ModMetaData, List<string>>();
+
+        private static void Hit(ModMetaData m, OrderRule r)
+        {
+            List<string> l;
+            if (!hits.TryGetValue(m, out l)) hits[m] = l = new List<string>();
+            string d = r.Describe();
+            if (!l.Contains(d)) l.Add(d);
+        }
+
+        // would the edge a -> b close a loop (b already reaches a)?
+        private static bool Reaches(List<int>[] after, int from, int to)
+        {
+            var stack = new Stack<int>();
+            var seen = new HashSet<int>();
+            stack.Push(from);
+            while (stack.Count > 0)
+            {
+                int x = stack.Pop();
+                if (x == to) return true;
+                if (!seen.Add(x)) continue;
+                foreach (int y in after[x]) stack.Push(y);
+            }
+            return false;
         }
 
         private static readonly string[] Dlc = { "ludeon.rimworld", "ludeon.rimworld.royalty", "ludeon.rimworld.ideology", "ludeon.rimworld.biotech", "ludeon.rimworld.anomaly", "ludeon.rimworld.odyssey" };
@@ -985,16 +1035,50 @@ namespace ModSortManager
                         if (d != null && !d.packageId.NullOrEmpty() && Present(list, d.packageId, out j)) edge(j, i);
                 }
             }
-            var ready = new SortedSet<int>();
-            for (int i = 0; i < n; i++) if (indeg[i] == 0) ready.Add(i);
+            // 0.3.0: load order rules (the player's, shipped and RimSort's); top / bottom only change
+            // which ready mod goes first, after / before are added unless they would make a loop
+            var bucket = new int[n];
+            for (int i = 0; i < n; i++) bucket[i] = 1;
+            hits.Clear();
+            if (implicitRules)
+            {
+                try
+                {
+                    var idx = new Dictionary<string, int>();
+                    for (int i = 0; i < n; i++) { string id = Rules.Id(list[i]); if (!idx.ContainsKey(id)) idx[id] = i; }
+                    var doneTB = new HashSet<int>();
+                    foreach (OrderRule rule in Rules.ForSort())
+                    {
+                        int a, b;
+                        if (!idx.TryGetValue(rule.mod, out a) || list[a].Official) continue;
+                        if (rule.kind == "top" || rule.kind == "bottom")
+                        {
+                            if (!doneTB.Add(a)) continue;   // the first rule wins (the player's come first)
+                            bucket[a] = rule.kind == "top" ? 0 : 2;
+                            Hit(list[a], rule);
+                            continue;
+                        }
+                        if (!idx.TryGetValue(rule.other, out b) || a == b) continue;
+                        int from = rule.kind == "after" ? b : a, to = rule.kind == "after" ? a : b;
+                        if (seen.Contains(((long)from << 32) | (uint)to)) continue;
+                        if (Reaches(after, to, from)) continue;
+                        edge(from, to);
+                        Hit(list[a], rule);
+                    }
+                }
+                catch (Exception e) { Log.Warning("[Mod Sort Manager] load order rules: " + e.Message); }
+            }
+            var ready = new SortedSet<long>();
+            for (int i = 0; i < n; i++) if (indeg[i] == 0) ready.Add((long)bucket[i] << 32 | (uint)i);
             var res = new List<ModMetaData>(n);
             while (ready.Count > 0)
             {
-                int i = ready.Min;
-                ready.Remove(i);
+                long key = ready.Min;
+                ready.Remove(key);
+                int i = (int)(key & 0xFFFFFFFF);
                 res.Add(list[i]);
                 foreach (int k in after[i])
-                    if (--indeg[k] == 0) ready.Add(k);
+                    if (--indeg[k] == 0) ready.Add((long)bucket[k] << 32 | (uint)k);
             }
             return res.Count == n ? res : null;
         }

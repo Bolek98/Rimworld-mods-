@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MUI_Title>推奨設定</MUI_Title>
+  <MUI_TitleOff>推奨設定 · オフ</MUI_TitleOff>
+  <MUI_DescOn>Modが自動で設定され、すぐに使えます。初心者や何も調整したくない方に最適です。</MUI_DescOn>
+  <MUI_DescOff>カスタム設定。推奨から変更した項目：{0}。</MUI_DescOff>
+  <MUI_DescOffSame>カスタム設定。まだ推奨と同じです。</MUI_DescOffSame>
+  <MUI_On>オン</MUI_On>
+  <MUI_Off>オフ</MUI_Off>
+  <MUI_ResetAll>すべて推奨にリセット</MUI_ResetAll>
+  <MUI_ConfirmOn>推奨設定をオンにしますか？あなたの変更（{0}）は推奨値に置き換えられます。</MUI_ConfirmOn>
+  <MUI_Locked>詳細設定はロックされています。変更したい場合は上のスイッチをオフにしてください – 値は推奨値から始まります。</MUI_Locked>
+  <MUI_Changed>変更済み</MUI_Changed>
+  <MUI_ChangedTip>推奨設定（{0}）と異なります。クリックで推奨値に戻します。</MUI_ChangedTip>
+  <MUI_Yes>オン</MUI_Yes>
+  <MUI_No>オフ</MUI_No>
+  <MUI_RecTag>推奨</MUI_RecTag>
+  <GT_Profile>グラフィックプロファイル。変更はすぐに反映され、再起動は不要です。</GT_Profile>
+  <GT_ProfPerf>パフォーマンス</GT_ProfPerf>
+  <GT_ProfPerf_Card>FPS最優先。エフェクト減少、植物の揺れなし、雨と雪なし。</GT_ProfPerf_Card>
+  <GT_ProfBal>バランス</GT_ProfBal>
+  <GT_ProfBal_Card>見た目はほぼ同じですが、不要なものは描画しません。</GT_ProfBal_Card>
+  <GT_ProfQual>品質</GT_ProfQual>
+  <GT_ProfQual_Card>すべてのエフェクトがゲーム通り。ログ出力も完全。</GT_ProfQual_Card>
+  <GT_ProfCustom>カスタム</GT_ProfCustom>
+  <GT_ProfCustom_Card>すべての項目を自分で設定します。</GT_ProfCustom_Card>
+  <GT_ProfileHint>プロファイルが変更するのは左側（エフェクト、滑らかさ）だけです。右側の表示設定は常にあなたの選択です。</GT_ProfileHint>
+  <GT_SecEffects>エフェクトとワールド</GT_SecEffects>
+  <GT_SecSmooth>滑らかさ</GT_SecSmooth>
+  <GT_SecDisplay>表示</GT_SecDisplay>
+  <GT_SecAdvanced>詳細（再起動後）</GT_SecAdvanced>
+  <GT_SecNow>現在</GT_SecNow>
+  <GT_Effects>エフェクト（煙、火花、ほこり – Modのものも）：{0} %</GT_Effects>
+  <GT_Effects_Desc>生成する視覚エフェクトの量。ゲームには影響せず、見た目だけが変わります。少ない = FPSが上がる、特に戦闘や火災時。</GT_Effects_Desc>
+  <GT_Cap>1秒あたりの最大エフェクト数：{0}</GT_Cap>
+  <GT_Cap_Desc>絶対上限 – 大規模な戦闘では、FPSが落ちる前に新しいエフェクトを止めます。0 = 上限なし。</GT_Cap_Desc>
+  <GT_CullEffects>大きくズームアウトしたらエフェクトなし</GT_CullEffects>
+  <GT_CullEffects_Desc>カメラが遠いときは、煙や火花はどうせ見えません。</GT_CullEffects_Desc>
+  <GT_CullWeapons>大きくズームアウトしたら手持ち武器なし</GT_CullWeapons>
+  <GT_CullWeapons_Desc>カメラが遠いときは、武器やポーンの装飾を描画しません。ポートレートは変わりません。</GT_CullWeapons_Desc>
+  <GT_CullZoom>「遠い」とはこれ以上のズームアウト：{0}</GT_CullZoom>
+  <GT_CullZoom_Desc>低い = ズームアウト時にエフェクトと武器が早く消える。ゲームの範囲はおよそ11（最も近い）から60（最も遠い）です。</GT_CullZoom_Desc>
+  <GT_NoWeather>雨と雪を描画しない</GT_NoWeather>
+  <GT_NoWeather_Desc>天候は引き続き機能します（濡れ、寒さ、気分）。画面上の雨粒や雪片が描画されないだけです。</GT_NoWeather_Desc>
+  <GT_PlantSway>植物が風で揺れる</GT_PlantSway>
+  <GT_PlantSway_Desc>ゲームのオプションと同じです。オフ = 植物は静止し、描画が減ります。</GT_PlantSway_Desc>
+  <GT_FastLog>高速ログ</GT_FastLog>
+  <GT_FastLog_Desc>RimWorld 1.7はログメッセージごとに完全なスタックトレースを保存します。警告を出すModが多いと、これがカクつきの原因になります。オン = スタックトレースを保存しません。</GT_FastLog_Desc>
+  <GT_FastLog_Note>バグ報告用にログを送るときは、しばらくこれをオフにしてください – スタックトレースは原因の特定に役立ちます。</GT_FastLog_Note>
+  <GT_VSync>V-Sync</GT_VSync>
+  <GT_VSync_Desc>オフ = FPS最大、画面が裂けることがあります。オン = FPSはモニターに合わせ、裂けなし。トリプル = 少しの遅延で滑らかな画面。</GT_VSync_Desc>
+  <GT_VSync_Off>オフ</GT_VSync_Off>
+  <GT_VSync_On>オン</GT_VSync_On>
+  <GT_VSync_TripleBuffer>トリプル（滑らか）</GT_VSync_TripleBuffer>
+  <GT_VSync_Adaptive>アダプティブ</GT_VSync_Adaptive>
+  <GT_VSync_Mailbox>トリプル（高速）</GT_VSync_Mailbox>
+  <GT_VSync_Fifo>オン</GT_VSync_Fifo>
+  <GT_VSync_Immediate>オフ</GT_VSync_Immediate>
+  <GT_Fps>FPS上限</GT_Fps>
+  <GT_Fps_Desc>ゲーム通り = モニターのリフレッシュレート。無制限 = できるだけ多く（V-Syncがオンならモニターに合わせます）。</GT_Fps_Desc>
+  <GT_BgFps>バックグラウンドでのFPS上限（Alt+Tab）</GT_BgFps>
+  <GT_BgFps_Desc>ゲームが前面にないときは描画するフレームを減らします – PCは熱くならず、ゲームは動き続けます。</GT_BgFps_Desc>
+  <GT_Display>表示モード</GT_Display>
+  <GT_Display_Desc>ウィンドウ、ボーダーレスウィンドウ、またはフルスクリーン。通常は排他的フルスクリーンが最速です。</GT_Display_Desc>
+  <GT_Display_Windowed>ウィンドウ</GT_Display_Windowed>
+  <GT_Display_Borderless>ボーダーレスウィンドウ</GT_Display_Borderless>
+  <GT_Display_BorderlessWindowed>ボーダーレスウィンドウ</GT_Display_BorderlessWindowed>
+  <GT_Display_BorderlessFullscreen>フルスクリーン（ボーダーレス）</GT_Display_BorderlessFullscreen>
+  <GT_Display_Fullscreen>フルスクリーン</GT_Display_Fullscreen>
+  <GT_Display_FullscreenExclusive>フルスクリーン（排他）</GT_Display_FullscreenExclusive>
+  <GT_Display_ExclusiveFullscreen>フルスクリーン（排他）</GT_Display_ExclusiveFullscreen>
+  <GT_Display_FullScreenWindow>フルスクリーン（ウィンドウ）</GT_Display_FullScreenWindow>
+  <GT_Game>ゲーム通り</GT_Game>
+  <GT_Unlimited>無制限</GT_Unlimited>
+  <GT_NoChange>変更なし</GT_NoChange>
+  <GT_OverlayOn>右上にFPSを表示</GT_OverlayOn>
+  <GT_OverlayOn_Desc>FPS、フレーム時間、ゲーム速度を表示する小さなボックス（TPS = 1秒あたりのゲームティック数。通常速度60、最高速度360+）。</GT_OverlayOn_Desc>
+  <GT_Overlay>FPS {0} · {1} ms · TPS {2}</GT_Overlay>
+  <GT_Not17>V-Syncと表示モードにはRimWorld 1.7（新エンジン）が必要です。</GT_Not17>
+  <GT_Gc>メモリ解放（GC）</GT_Gc>
+  <GT_Gc_Desc>.NETがメモリを解放する方法。ゲームフォルダのRimWorld.runtimeconfig.jsonに書き込まれ、ゲームの再起動後に有効になります。</GT_Gc_Desc>
+  <GT_Gc0>ゲーム通り</GT_Gc0>
+  <GT_Gc1>スムーズ（カクつき減少）</GT_Gc1>
+  <GT_Gc2>サーバー（コア多め、メモリ多め）</GT_Gc2>
+  <GT_Gc_Note>スムーズ = メモリはバックグラウンドで解放され、すぐにはシステムに返されません → カクつき減少。サーバー = 全コアで解放、停止は短いがRAMを多く使用。Modは元のファイルをバックアップします。ゲームのアップデートでリセットされることがあります – その場合はもう一度選んでください。</GT_Gc_Note>
+  <GT_GcRestore>ゲームの元のファイルを復元</GT_GcRestore>
+  <GT_GcSaved>保存しました。反映するにはゲームを再起動してください。</GT_GcSaved>
+  <GT_GcRestored>元のファイルを復元しました。ゲームを再起動してください。</GT_GcRestored>
+  <GT_GcError>失敗：{0}</GT_GcError>
+  <GT_GcNone>RimWorld 1.7のみ。</GT_GcNone>
+  <GT_Now>FPS {0} · フレーム {1} ms · TPS {2}</GT_Now>
+  <GT_NowEffects>開始からのエフェクト：生成 {0}、節約 {1}</GT_NowEffects>
+  <GT_TabGraphics>グラフィック</GT_TabGraphics>
+  <GT_TabSmooth>滑らかさ</GT_TabSmooth>
+  <GT_AutoSpeed>速度3では自動でエフェクトを減らす</GT_AutoSpeed>
+  <GT_AutoSpeed_Desc>最高速度では1秒あたり3倍のエフェクト（煙、火花、ほこり）が出ますが、ほとんど見えません。それを半分にします。</GT_AutoSpeed_Desc>
+  <GT_Adaptive>FPSが目標を下回ったらエフェクトを減らす</GT_Adaptive>
+  <GT_Adaptive_Desc>FPSが「滑らかさ」タブの目標を下回ると、エフェクトを段階的に減らします（最大4分の1まで）。FPSが回復すると元に戻ります。</GT_Adaptive_Desc>
+  <GT_NowAuto>現在エフェクトの {0} % を生成中（自動で削減）</GT_NowAuto>
+  <GT_SmoothOther>Smooth Framesが有効です – 2つのModが同じものを奪い合わないよう、「滑らかさ」タブはオフになっています。Smooth FPSは現在Smooth Framesの機能をすべて含んでいます：ModリストでSmooth Framesを無効にして再起動してください。</GT_SmoothOther>
+  <GT_SecHighSpeed>どの速度でも滑らかに</GT_SecHighSpeed>
+  <GT_Budget>画面を滑らかに保つ（シミュレーション予算）</GT_Budget>
+  <GT_Budget_Desc>どの速度（1×から4×）でも、ゲームは1フレームごとに複数のティックを実行し、Modなしでは最大45 msを費やすことがあります – 高速時に画面がカクつくのはこのためです。Modは描画にかかる時間を測り、目標FPSに対するフレーム時間の残りだけをシミュレーションに与えます。収まらなかった分は次のフレームで処理されます。下で各速度ごとに目標FPSとシミュレーション上限を設定できます。</GT_Budget_Desc>
+  <GT_Target>維持する目標FPS</GT_Target>
+  <GT_Target_Desc>高速時でもゲームが維持すべき1秒あたりのフレーム数。</GT_Target_Desc>
+  <GT_Slow>FPSが落ちたとき</GT_Slow>
+  <GT_Slow_Desc>滑らかな画面：収まらなかったティックは破棄されます – 画面は滑らかなまま、ゲームが少し遅くなります（バニラと同様、カクつきなし）。速度を維持：ティックは次のフレームで処理されます – ゲームは速度を保ち、画面は少し滑らかさが落ちることがあります。</GT_Slow_Desc>
+  <GT_SlowPicture>画面ではなくゲームを遅くする</GT_SlowPicture>
+  <GT_SlowKeep>ゲーム速度を維持</GT_SlowKeep>
+  <GT_MaxSim>1フレームあたりの最大シミュレーション時間：{0}</GT_MaxSim>
+  <GT_MaxSim_Desc>自動 = 目標FPSと描画時間から算出。低い = 画面が滑らか、ゲームが遅い。</GT_MaxSim_Desc>
+  <GT_Auto>自動</GT_Auto>
+  <GT_Move>カメラ移動・建設中のFPS：{0}</GT_Move>
+  <GT_Move_Desc>カメラを動かしたり、クリックや建設をしたりすると、画面により多くの時間が割り当てられます – 操作がきびきびします。</GT_Move_Desc>
+  <GT_RealNormal>速度1と2は常にフルスピード</GT_RealNormal>
+  <GT_RealNormal_Desc>速度1と2では、ゲームが本来より遅くなることはありません – 目標FPSは画面の滑らかさを決めるだけです。大きなコロニーでは1ティックが高い目標FPSで1フレームに残る時間より長くかかり、ゲームがFPSのペースで進んでいました（例：1秒あたり60ではなく40ティック）。速度3と4は「FPSが落ちたとき」に従います。</GT_RealNormal_Desc>
+  <GT_FastShare>速度3と4：シミュレーションに最低半分</GT_FastShare>
+  <GT_FastShare_Desc>速度3と4では、シミュレーションは常に少なくとも1フレームの描画と同じだけの時間を得ます。目標FPSに届かないとき（例：目標165、実際45）、シミュレーションは1フレームあたり3 msしか得られず、速度4がほぼ速度1のように進んでいました。3–4では画面が少し滑らかさを欠くことがありますが、ゲームは本当に速く進みます。</GT_FastShare_Desc>
+  <GT_SaveSmart>良いタイミングでオートセーブ</GT_SaveSmart>
+  <GT_SaveSmart_Desc>大きなコロニーの保存はゲームを数秒止め、バックグラウンドで安全に実行できません。そのためオートセーブは邪魔にならない瞬間を待ちます：ゲームが一時停止中、ウィンドウやタブ（作業、健康…）が開いている、または4秒間何も操作していないとき。設定時間を過ぎたら必ず保存します。ゲームのオートセーブとReal Time AutosaveなどのModに対応します。</GT_SaveSmart_Desc>
+  <GT_SaveWait>最大待機時間：{0} 分</GT_SaveWait>
+  <GT_Idle>見ているだけのときはTPSを上げる</GT_Idle>
+  <GT_Idle_Desc>速度2以上で2秒間何も操作しないと、ゲームは描画するフレームを減らし、節約した時間をシミュレーションに回します – ゲームが速く進みます。マウスかカメラを動かせばFPSは元に戻ります。</GT_Idle_Desc>
+  <GT_IdleFps>見ているだけのときのFPS：{0}</GT_IdleFps>
+  <GT_Background>バックグラウンドでは全時間をシミュレーションに</GT_Background>
+  <GT_Background_Desc>別のウィンドウに切り替えると（Alt+Tab）、ゲームは10フレーム（または「グラフィック → バックグラウンドFPS」の値）だけ描画し、残りはシミュレーションに回します。</GT_Background_Desc>
+  <GT_Camera>滑らかなカメラ</GT_Camera>
+  <GT_Camera_Desc>カメラは平滑化したフレーム時間で動きます – カクつきの後に跳ねたり、FPSの変動で揺れたりしません。</GT_Camera_Desc>
+  <GT_SecHidden>見えない負荷</GT_SecHidden>
+  <GT_Regen>1フレームあたりのマップ再構築数：{0}</GT_Regen>
+  <GT_Regen_Desc>草が伸びたり、何かが建設されたり、雪が降ったりすると、ゲームは変更されたマップの各部分を1フレームで再構築します – 3xではこれがカクつきになります。1フレームあたりの数を制限し、残りは次のフレームで処理します（数百分の1秒遅れ）。実験的 – デフォルトはオフ。推奨は4–8。</GT_Regen_Desc>
+  <GT_Off>オフ</GT_Off>
+  <GT_SlowAlerts>3xでは右側のアラートの確認を減らす</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>ゲームは毎フレーム一部のアラートを再確認します（Modがあると数百個）。高速時は1フレームおきで十分です。</GT_SlowAlerts_Desc>
+  <GT_SecDiag>診断</GT_SecDiag>
+  <GT_OverlayBar>フレームグラフ：シミュレーションと描画</GT_OverlayBar>
+  <GT_OverlayBar_Desc>右上の表示にバーを追加：緑 = シミュレーション（ティック）、青 = 描画、灰色 = 目標FPSまでの余裕。何がゲームを遅くしているか一目でわかります。</GT_OverlayBar_Desc>
+  <GT_Bar>シミュレーション {0} ms · 描画 {1} ms</GT_Bar>
+  <GT_Bench>ベンチマーク（現在の速度で60秒）</GT_Bench>
+  <GT_Bench_Desc>設定を閉じ、プレイ中の速度で60秒間FPSとTPSを測定します – Smart Speedの4×にも対応（一時停止中 = 3×）。その後結果を表示し、プロファイルを推奨します。</GT_Bench_Desc>
+  <GT_BenchStart>開始</GT_BenchStart>
+  <GT_BenchNoGame>ゲーム実行中のみ</GT_BenchNoGame>
+  <GT_BenchRunning>テスト：{0} 秒</GT_BenchRunning>
+  <GT_Bench_Note>テスト後に平均値、最悪のフレームを表示し、プロファイルを推奨します。</GT_Bench_Note>
+  <GT_BenchStarted>ベンチマークを60秒間実行中 – ゲームを動かしたまま、操作しないでください。</GT_BenchStarted>
+  <GT_BenchTitle>ベンチマーク</GT_BenchTitle>
+  <GT_BenchResult>平均：{0} FPS\n最悪1 %のフレーム：{1} FPS\n最長フレーム：{2} ms\nシミュレーション速度：{3} TPS（通常速度の{4}x）\n100 msを超えるカクつき：{5}\n\n推奨プロファイル：{6}</GT_BenchResult>
+  <GT_Hitch>ゲームがカクつく原因を探す</GT_Hitch>
+  <GT_Hitch_Desc>カクつくたびに、最も時間がかかったもの（コンポーネント、マップ、イベント）とそれがどのModに属するかをログに書き込みます。少しパフォーマンスを消費します – 原因が見つかったらオフにしてください。</GT_Hitch_Desc>
+  <GT_HitchThings>マップ上のすべての物も監視（ゲームが遅くなります）</GT_HitchThings>
+  <GT_HitchThings_Desc>すべての物、動物、ポーンのティックを計測します。より多く見つかりますが、それ自体がパフォーマンスを消費します。再起動後に有効になります。</GT_HitchThings_Desc>
+  <GT_HitchMs>{0} msより長いフレームをカクつきとみなす</GT_HitchMs>
+  <GT_HitchIncident>イベント</GT_HitchIncident>
+  <GT_HitchQuest>クエスト</GT_HitchQuest>
+  <GT_LastHitch>最後のカクつき {0}</GT_LastHitch>
+  <GT_GcHold>イベント生成中はメモリ解放しない</GT_GcHold>
+  <GT_GcHold_Desc>ゲームがイベント、クエスト、襲撃、マップを生成している間は大量のオブジェクトが作られます。完了するまで大きなメモリ解放を保留します。1.7では穏やかな.NETモード（リスクなし）、1.6では従来の方法を使います。デフォルトはオフ。</GT_GcHold_Desc>
+  <GT_NowSmooth>FPS {0} · TPS {1} · シミュレーション {2} ms · 描画 {3} ms · 予算 {4} ms</GT_NowSmooth>
+  <GT_NowSmoothOff>シミュレーション予算は現在動作していません（オフ、またはゲームが実行されていません）。</GT_NowSmoothOff>
+  <GT_NowRegen>遅延したマップ部分の再構築：{0}</GT_NowRegen>
+  <GT_Mode1>制御中</GT_Mode1>
+  <GT_Mode2>TPS優先</GT_Mode2>
+  <GT_Mode3>バックグラウンド</GT_Mode3>
+  <GT_BudgetOther>{0}もゲームのティックループを制御しています – 2つのModが競合しないよう、シミュレーション予算は自動でオフになりました。Smooth FPSのその他の機能はすべて動作し続けます。</GT_BudgetOther>
+  <GT_BudgetStuck>ゲーム内時間が止まったため、シミュレーション予算は身を引きました（別のModもティックを制御している可能性があります）。20秒後に再試行します。3回止まった場合、ゲームを再起動するまでオフのままです。</GT_BudgetStuck>
+  <GT_BenchSpeed>テスト中のゲーム速度：最大{0}x</GT_BenchSpeed>
+  <GT_SmartTarget>スマート目標FPS</GT_SmartTarget>
+  <GT_SmartTarget_Desc>PCがしばらく目標を維持できないとき（大きなコロニー、襲撃、4×）、目標を段階的に下げ（例：90 → 75 → 60）、ゲームが飛び跳ねずに一定のリズムを保つようにします。余裕が戻れば、あなたの設定値まで再び上がります。</GT_SmartTarget_Desc>
+  <GT_SmartLowered>目標は一時的に下がっています：{0} FPS（あなたの設定 {1}）。</GT_SmartLowered>
+  <GT_SmartNow>目標 {0}</GT_SmartNow>
+  <GT_SecFast>4×以上</GT_SecFast>
+  <GT_FastMode>高速モード</GT_FastMode>
+  <GT_FastMode_Desc>4×以上（Smart Speedや類似のMod）では、誰もすべての火花を追えません：エフェクトをさらに減らし、アラートは4フレームごとにのみ確認します。速度を下げればすべて通常に戻ります。</GT_FastMode_Desc>
+  <GT_FastWeather>4×+では天候を描画しない</GT_FastWeather>
+  <GT_FastWeather_Desc>4×以上では雨、雪、霧のオーバーレイを描画しません。天候そのものは引き続き機能します。</GT_FastWeather_Desc>
+  <GT_FastRegen>4×+ではマップ再構築を分散（実験的）</GT_FastRegen>
+  <GT_FastRegen_Desc>4×以上では1フレームあたり最大8つの可視マップ部分を再構築し、残りは次のフレームで処理します。一度に多くが変わるときのカクつきが減ります。変更された壁や植物が一瞬遅れて表示されることがあります。</GT_FastRegen_Desc>
+  <GT_FastNowOn>高速モードは現在有効です。</GT_FastNowOn>
+  <GT_FastNowOff>現在は無効です – 4×以上で開始します。</GT_FastNowOff>
+  <GT_Prof>ゲームを遅くしているもの（30秒）</GT_Prof>
+  <GT_Prof_Desc>設定を閉じ、プレイ中の速度（4×も含む）で30秒間、どのMod、物、ゲームの部分が最も時間を使っているかを測定します。その後、上位10のModと上位10の物を表示します。測定の準備中と削除中は短いロード画面が表示されます。その後測定はオフになり、次にゲームを再起動すればすべて元通りです。</GT_Prof_Desc>
+  <GT_Prof_Note>最も遅いModを10個と、最も遅い物や関数を10個表示します – 現在プレイ中の速度で。</GT_Prof_Note>
+  <GT_ProfShow>前回の結果を表示</GT_ProfShow>
+  <GT_ProfPreparing>Smooth FPS：測定を準備中…</GT_ProfPreparing>
+  <GT_ProfStarted>ゲームを遅くしているものを{0}秒間測定中 – ゲームを動かしたままにしてください。</GT_ProfStarted>
+  <GT_ProfRunning>測定中：{0} 秒</GT_ProfRunning>
+  <GT_ProfTitle>ゲームを遅くしているもの</GT_ProfTitle>
+  <GT_ProfSummary>平均 {0} FPS · 最悪1 % {1} FPS · シミュレーション {2} TPS（通常速度の{3}x） · 100 msを超えるカクつき：{4} · 測定 {5} 秒</GT_ProfSummary>
+  <GT_ProfMods>Mod – 1秒あたりの時間</GT_ProfMods>
+  <GT_ProfItems>物と関数 – 1秒あたりの時間</GT_ProfItems>
+  <GT_ProfVanilla>ゲーム本体（RimWorld + DLC）</GT_ProfVanilla>
+  <GT_ProfMsPerSec>{0} ms/s</GT_ProfMsPerSec>
+  <GT_ProfThing>{0}（ティック）</GT_ProfThing>
+  <GT_ProfPatch>{0}による変更</GT_ProfPatch>
+  <GT_ProfNote>推定値：{0}か所を監視（うちModのパッチ{1}か所）。各ミリ秒は一度だけ、それが実行された最も深いModまたは物に計上されます。画面への描画とトランスパイラ（ゲームコードを書き換えるMod）はこの方法では測定できません。1000 ms/s = 1秒すべて。</GT_ProfNote>
+  <GT_ReportCopy>パフォーマンスレポートをコピー</GT_ReportCopy>
+  <GT_ReportSave>レポートをファイルに保存</GT_ReportSave>
+  <GT_Report_Desc>パフォーマンスに関するすべてを1つのテキストに：あなたのPC、マップ、現在のFPS/TPS、設定、前回のベンチマーク、「ゲームを遅くしているもの」。助けを求めるときにWorkshopのコメントに貼り付けてください。</GT_Report_Desc>
+  <GT_ReportCopied>パフォーマンスレポートをコピーしました – Ctrl+Vで貼り付けてください。</GT_ReportCopied>
+  <GT_ReportSaved>保存しました：{0}</GT_ReportSaved>
+  <GT_ProfBusy>処理中 – 少しお待ちください</GT_ProfBusy>
+  <GT_ProfRemoving>Smooth FPS：測定を削除中…</GT_ProfRemoving>
+  <GT_TabMemory>メモリとフリーズ</GT_TabMemory>
+  <GT_SecMem>メモリ解放</GT_SecMem>
+  <GT_SecMemStats>現在の状況</GT_SecMemStats>
+  <GT_MemOther>Fewer Freezesが有効です – 競合しないよう、このタブはオフになっています。Fewer Freezesをオフにしてください：Smooth FPSは現在その機能をすべて含み、1.7にも対応しています。</GT_MemOther>
+  <GT_MemMode17>モード：RimWorld 1.7以降（.NET） – 自動選択。メモリはバックグラウンドで解放され、ゲームを止める大きな解放は避けられます。</GT_MemMode17>
+  <GT_MemMode16>モード：RimWorld 1.6以前（Mono） – 自動選択。フレームごとの継続的な解放と、一時停止中の大きな解放。</GT_MemMode16>
+  <GT_MemAuto>自動</GT_MemAuto>
+  <GT_MemAuto_Desc>ゲームが保持しているメモリ量に応じて、Modが継続的にどれだけ解放するか、いつ大きな解放を行うかを決めます。</GT_MemAuto_Desc>
+  <GT_MemSlice>1フレームあたりの継続的な解放：{0} ms</GT_MemSlice>
+  <GT_MemSlice_Desc>多い = メモリが随時解放され、大きなフリーズの頻度が減りますが、FPSが少し下がることがあります。ゲーム本体は3 msを使います。</GT_MemSlice_Desc>
+  <GT_MemThreshold>メモリがこれだけ増えたら大きな解放：{0} MB</GT_MemThreshold>
+  <GT_MemThreshold_Desc>低い = 頻繁に解放、高い = 解放が少ない。</GT_MemThreshold_Desc>
+  <GT_MemOnPause>一時停止中に解放</GT_MemOnPause>
+  <GT_MemOnPause_Desc>1.5秒以上一時停止すると（またはゲームを一時停止するメニューを開くと）メモリを解放し、プレイ中に必要になる回数を減らします。最大で90秒に1回。1.7ではバックグラウンドで実行します。</GT_MemOnPause_Desc>
+  <GT_MemOnSave>セーブ後に解放</GT_MemOnSave>
+  <GT_MemOnSave_Desc>セーブ（オートセーブも含む）の直後 – セーブは多くの未使用メモリを残します。</GT_MemOnSave_Desc>
+  <GT_MemLowLatency>スムーズプレイ：プレイ中は大きな解放なし（1.7）</GT_MemLowLatency>
+  <GT_MemLowLatency_Desc>プレイ中はゲーム全体を止める解放を避けるよう.NETに指示します – 代わりにバックグラウンドで解放します。ゲームが少し多くメモリを保持することがあります。コンピューターのメモリが不足すると、自動で通常に戻ります。</GT_MemLowLatency_Desc>
+  <GT_MemCompact>長い一時停止中にメモリを圧縮（1.7）</GT_MemCompact>
+  <GT_MemCompact_Desc>5秒以上の一時停止中に（最大で30分に1回）メモリを詰めてまとめます – ゲームが何時間も大量のメモリを保持しているときに役立ちます。そのときゲームは一瞬止まりますが、どのみち一時停止中です。デフォルトはオフ。</GT_MemCompact_Desc>
+  <GT_MemUnload>一時停止中に未使用のテクスチャを解放</GT_MemUnload>
+  <GT_MemUnload_Desc>長めの一時停止（3秒）中に、ゲームがもう使っていないテクスチャとサウンドを解放します。Modが多くメモリが不足しているときに役立ちます。最大で10分に1回。少し時間がかかることがあるため、オフになっています。</GT_MemUnload_Desc>
+  <GT_MemRamWarn>コンピューターのメモリが不足したら警告</GT_MemRamWarn>
+  <GT_MemRamWarn_Desc>ゲームがコンピューターのメモリの80 %以上を使うと、アドバイス付きのレターが1通届きます。</GT_MemRamWarn_Desc>
+  <GT_MemHud>左下にメモリを表示</GT_MemHud>
+  <GT_MemHud_Desc>メモリ量、最後の解放による停止、直近1分半のメモリグラフを表示する小さなボックス。</GT_MemHud_Desc>
+  <GT_MemHud_Text>メモリ：{0} MB · 最後の停止 {1} 秒</GT_MemHud_Text>
+  <GT_MemNow>ゲームは現在 {0} MB のメモリを使用中（{1} MB 予約済み）。継続的な解放は1フレームあたり {2} ms 実行できます。</GT_MemNow>
+  <GT_MemNow17>ゲームは現在 {0} MB のメモリを使用中です。</GT_MemNow17>
+  <GT_MemCollectNow>今すぐメモリを解放</GT_MemCollectNow>
+  <GT_MemDone>メモリを解放しました：{0} → {1} MB（{2} ms）</GT_MemDone>
+  <GT_MemDoneSave>セーブ後の解放：{0} → {1} MB</GT_MemDoneSave>
+  <GT_MemNote>ゲームにメモリサイズを指定することはできません – RimWorldは必要な分を使います。このタブはメモリをいつ、どのように解放するかを制御し、ゲームのフリーズを減らします。Fewer Freezes Modの代わりになります。</GT_MemNote>
+  <GT_MemHitches>直近1時間：0.25秒を超えるフリーズ {0} 回、うちメモリ解放によるもの {1} 回。最長：{2} 秒。</GT_MemHitches>
+  <GT_MemHitchNone>直近1時間：0.25秒を超えるフリーズはありません。</GT_MemHitchNone>
+  <GT_MemCleans>実行した解放：一時停止中 {0}×、セーブ後 {1}×、手動 {2}×。</GT_MemCleans>
+  <GT_MemRam>コンピューター：ゲームは {1} MB 中 {0} MB のメモリを使用（{2} %）。</GT_MemRam>
+  <GT_MemRamWarn_Title>コンピューターのメモリが不足しています</GT_MemRamWarn_Title>
+  <GT_MemRamWarn_Text>ゲームは現在、コンピューターの {1} MB のメモリのうち {0} MB を使用しています。メモリが尽きると、ゲームは頻繁にフリーズするかクラッシュします。\n\n対処法：\n- 他のプログラム（ブラウザ…）を閉じる、\n- 不要なModをオフにする、\n- テクスチャ圧縮Modを使う、\n- マップを小さくするか、同時に開くマップを減らす。</GT_MemRamWarn_Text>
+  <GT_SecBySpeed>ゲーム速度別</GT_SecBySpeed>
+  <GT_BySpeed_Desc>各速度に独自の目標FPSとシミュレーション上限を設定できます – 例：1×では滑らかな90 FPS、4×ではゲーム速度優先。「上と同じ」は共通設定を使います。</GT_BySpeed_Desc>
+  <GT_SpeedTarget>速度 {0}：目標FPS</GT_SpeedTarget>
+  <GT_SpeedTarget_Desc>この速度専用の目標FPS。上と同じ = 共通の目標（またはスマート目標）。</GT_SpeedTarget_Desc>
+  <GT_SpeedMaxSim>速度 {0}：1フレームあたりの最大シミュレーション時間：{1}</GT_SpeedMaxSim>
+  <GT_SpeedMaxSim_Desc>上と同じ = 共通の上限。自動 = 目標FPSと描画時間から算出。低い = 画面が滑らか、ゲームが遅い。高い = ゲームが速い、FPSが下がる。</GT_SpeedMaxSim_Desc>
+  <GT_Same>上と同じ</GT_Same>
+  <GT_Crash_Title>前回のゲームはクラッシュしました</GT_Crash_Title>
+  <GT_Crash_When>ゲームは{0}に正常に終了しませんでした。</GT_Crash_When>
+  <GT_Crash_Kind_Loop>種類：無限ループ（スタックオーバーフロー） – あるコードがゲームが止まるまで自分自身を呼び続けました。通常はModのバグか、2つのModが互いを呼び合っています。</GT_Crash_Kind_Loop>
+  <GT_Crash_Kind_Memory>種類：不正なメモリアクセス – 通常はネイティブコード（グラフィックドライバー、独自のネイティブライブラリを持つMod、OBS/Medal/Discordなどのオーバーレイ）。</GT_Crash_Kind_Memory>
+  <GT_Crash_Kind_OutOfMemory>種類：メモリ不足。</GT_Crash_Kind_OutOfMemory>
+  <GT_Crash_Kind_Managed>種類：ゲームのコード内の未処理エラー。</GT_Crash_Kind_Managed>
+  <GT_Crash_Kind_Fast>種類：深刻な内部エラーの後、ゲームが自ら停止しました。</GT_Crash_Kind_Fast>
+  <GT_Crash_KindUnknown>種類：不明（Windowsがクラッシュ記録を保存していません – 電源断、ゲームの強制終了、またはクラッシュ記録がオフ）。</GT_Crash_KindUnknown>
+  <GT_Crash_Place>場所：ループはマップのセル（{0}）で繰り返されました – そこに何が建てられているか、置かれているかを確認してください。</GT_Crash_Place>
+  <GT_Crash_Mods>最後の瞬間に動作していたMod：{0}</GT_Crash_Mods>
+  <GT_Crash_LastError>その前の最後のエラー：{0}</GT_Crash_LastError>
+  <GT_Crash_Advice>完全なレポート：RimWorldのセーブフォルダ内のSmoothFPS_crash.txt。再発する場合は、上記のModの作者にレポートを送ってください。</GT_Crash_Advice>
+  <GT_VramWarnSet>ビデオメモリがほぼ満杯になったら警告</GT_VramWarnSet>
+  <GT_VramWarnSet_Desc>ゲームがグラフィックドライバーの許容量の95 %以上を使用したとき（5秒ごとに確認、最大で10分に1回）、最も多く使っているModとともにメッセージを表示します。収まらないテクスチャは遅れて表示されたり、空白や赤いバツ印になったりします。</GT_VramWarnSet_Desc>
+  <GT_VramWarn>ビデオメモリがほぼ満杯です：{1} GB 中 {0} GB。テクスチャが遅れて表示されたり空白になったりすることがあります。最大：{2}。他のプログラム（ブラウザ、Discord、OBS、Medal）を閉じるか、Smooth FPS → メモリを確認してください。</GT_VramWarn>
+  <GT_VramNow>ビデオメモリ：{0} / {1} GB 許容（{3} %）、カード搭載 {2} GB</GT_VramNow>
+  <GT_VramWho>ビデオメモリを使っているもの</GT_VramWho>
+  <GT_VramTitle>ビデオメモリ</GT_VramTitle>
+  <GT_VramNone>ビデオメモリの数値は利用できません（1.7のみ）。</GT_VramNone>
+  <GT_VramTop>最大の使用元（Mod別テクスチャ）：</GT_VramTop>
+  <GT_VramGame>ゲームと不明</GT_VramGame>
+  <GT_VramTargets>レンダーターゲット（画面、ポートレート、エフェクト）</GT_VramTargets>
+  <GT_VramAtlas>テクスチャアトラス</GT_VramAtlas>
+  <GT_VramOther>メッシュとその他</GT_VramOther>
+  <GT_VramAdvice>許容量はドライバーがゲームに与える量です – グラフィックカードを使う他のプログラムがあると減ります。大きなテクスチャを多く持つMod（種族Mod、高解像度パック）が最も多く使います。不要なものをオフにすると解放されます。</GT_VramAdvice>
+  <GT_TexCap>Mod画像の最大サイズ</GT_TexCap>
+  <GT_TexCapOff>制限なし</GT_TexCapOff>
+  <GT_TexCap_Desc>これより大きいMod画像（DDS）は、内蔵の小さいコピーから読み込みます – ビデオメモリが減り、遅れて表示される画像や空白の画像が減ります。ゲーム本体の画像は決して変更されず、ファイルも変更されません。再起動後に有効になります。現在：{0} 枚の画像、約 {1} MB 節約。</GT_TexCap_Desc>
+  <GT_Laptop>ノートPCモード</GT_Laptop>
+  <GT_Laptop_Desc>FPS上限を下げ、エフェクトを40 %減らします – 涼しく、静かに、バッテリーも長持ち。「バッテリー時のみ」は充電器を抜くと自動で切り替わります（システムが報告する場合）。</GT_Laptop_Desc>
+  <GT_LaptopOff>オフ</GT_LaptopOff>
+  <GT_LaptopOn>常時</GT_LaptopOn>
+  <GT_LaptopBattery>バッテリー時のみ</GT_LaptopBattery>
+  <GT_LaptopFps>ノートPCモードのFPS</GT_LaptopFps>
+  <GT_LaptopFps_Desc>ノートPCモードが有効な間のFPS上限。自分で設定したより低い上限はそのまま維持されます。</GT_LaptopFps_Desc>
+  <GT_LaptopNowBattery>現在：バッテリーで動作中 – ノートPCモードは有効です。</GT_LaptopNowBattery>
+  <GT_LaptopNowMains>現在：充電器に接続中（またはシステムがバッテリーを報告していません） – ノートPCモードは待機中です。</GT_LaptopNowMains>
+  <GT_MC_Open>このマップで負荷が高いもの</GT_MC_Open>
+  <GT_MC_Open_Desc>現在のマップでゲームが更新しなければならないものをすべて数え、片付けのヒントを表示します。何も変更しません。</GT_MC_Open_Desc>
+  <GT_MC_Title>このマップで負荷が高いもの</GT_MC_Title>
+  <GT_MC_Sub>マップ：{0} · オレンジ = 多い、右のヒントを参照</GT_MC_Sub>
+  <GT_MC_Colonists>入植者</GT_MC_Colonists>
+  <GT_MC_AnimalsOwn>あなたの動物</GT_MC_AnimalsOwn>
+  <GT_MC_AnimalsWild>野生動物</GT_MC_AnimalsWild>
+  <GT_MC_Mechs>メカノイド</GT_MC_Mechs>
+  <GT_MC_Hostile>敵対</GT_MC_Hostile>
+  <GT_MC_OtherPawns>その他の人々（訪問者、囚人…）</GT_MC_OtherPawns>
+  <GT_MC_Ticking>毎ティック更新される物</GT_MC_Ticking>
+  <GT_MC_Rare>たまに更新される物</GT_MC_Rare>
+  <GT_MC_Long>ごくたまに更新される物</GT_MC_Long>
+  <GT_MC_Filth>汚れ</GT_MC_Filth>
+  <GT_MC_Loose>保管場所の外にあるアイテム</GT_MC_Loose>
+  <GT_MC_Corpses>死体</GT_MC_Corpses>
+  <GT_MC_Plants>植物</GT_MC_Plants>
+  <GT_MC_Fires>火災</GT_MC_Fires>
+  <GT_MC_Buildings>あなたの建物</GT_MC_Buildings>
+  <GT_MC_WorldPawns>ワールドポーン（バックグラウンドで保存）</GT_MC_WorldPawns>
+  <GT_MC_Things>マップ上のすべての物</GT_MC_Things>
+  <GT_MC_Top>毎ティック更新される物で最も多いもの</GT_MC_Top>
+  <GT_MC_Tips>ヒント</GT_MC_Tips>
+  <GT_MC_AllGood>目立つものはありません – このマップは問題ありません。それでもゲームが遅い場合は「ゲームを遅くしているもの」を使ってください。</GT_MC_AllGood>
+  <GT_MC_TipAnimals>動物が {0} 頭います。それぞれが毎ティック考えて動きます – 不要な動物は屠殺するか売却しましょう。</GT_MC_TipAnimals>
+  <GT_MC_TipWild>マップ上に野生動物が {0} 頭います。Wild Spawn Zoneや動物密度を下げると改善します。</GT_MC_TipWild>
+  <GT_MC_TipTicking>{0} 個の物が毎ティック更新されています。右のリストを見てください – 大量にあるModの建物やアイテムが大きな負荷になっていることがあります。</GT_MC_TipTicking>
+  <GT_MC_TipFilth>汚れが {0} 個。掃除（または掃除ロボット）でマップが軽くなります。</GT_MC_TipFilth>
+  <GT_MC_TipLoose>{0} 個のアイテムが保管場所の外にあります。備蓄区域に運ぶと大きく改善します。</GT_MC_TipLoose>
+  <GT_MC_TipCorpses>死体が {0} 体。焼却するか埋葬しましょう – 腐敗して常に更新されます。</GT_MC_TipCorpses>
+  <GT_MC_TipFires>{0} か所で火災が発生中。延焼中の火は負荷が高いです。</GT_MC_TipFires>
+  <GT_MC_TipWorldPawns>{0} 体のポーンがワールドのバックグラウンドに存在します。セーブとロードが遅くなります。ワールドポーンを整理するModが役立ちます。</GT_MC_TipWorldPawns>
+  <GT_MC_Refresh>再集計</GT_MC_Refresh>
+  <GT_HitchDeep>詳細検索：入植者の内部で具体的に何に時間がかかっているか（ゲームが遅くなります）</GT_HitchDeep>
+  <GT_HitchDeep_Desc>各カクつきに詳細を追加します：作業の検索（どの作業か、どのModか）、AIの判断、経路探索、物と健康状態のコンポーネント、欲求。原因を探すときだけオンにし、その後オフに戻してください。再起動後に有効になります。</GT_HitchDeep_Desc>
+  <GT_HitchOwnGc>メモリ解放 [Smooth FPS]</GT_HitchOwnGc>
+  <GT_DeepWork>作業検索 {0}（{1}）</GT_DeepWork>
+  <GT_DeepJobSearch>仕事検索の合計</GT_DeepJobSearch>
+  <GT_DeepPather>ポーンの歩行</GT_DeepPather>
+  <GT_DeepPath>経路探索（即時）</GT_DeepPath>
+  <GT_DeepKindJobGiver>判断</GT_DeepKindJobGiver>
+  <GT_DeepKindComp>コンポーネント</GT_DeepKindComp>
+  <GT_DeepKindHediff>健康</GT_DeepKindHediff>
+  <GT_DeepKindNeed>欲求</GT_DeepKindNeed>
+  <GT_TabSim>シミュレーション</GT_TabSim>
+  <GT_SizeHeader>ゲーム規模 – シミュレーションがどれだけ節約するかを決めます（ワールド、マップ、整理）</GT_SizeHeader>
+  <GT_SizeAuto>自動</GT_SizeAuto>
+  <GT_SizeAuto_Card>Mod数、マップとワールドのサイズから自動で判定します。現在：{0}。</GT_SizeAuto_Card>
+  <GT_SizeSmall>小規模ゲーム</GT_SizeSmall>
+  <GT_SizeSmall_Card>Modが少なく、マップは小さめ。このModがない場合と同じように動作し、何も変わりません。</GT_SizeSmall_Card>
+  <GT_SizeNormal>標準ゲーム</GT_SizeNormal>
+  <GT_SizeNormal_Card>中規模のModパック。遠くのワールドと他のマップの更新頻度を半分にします。</GT_SizeNormal_Card>
+  <GT_SizeHuge>超大規模ゲーム</GT_SizeHuge>
+  <GT_SizeHuge_Card>巨大なマップと数百のMod。ワールドと他のマップは4×少なく、画面外の物は2×少なく更新します。</GT_SizeHuge_Card>
+  <GT_SimTickSec>スマートティック</GT_SimTickSec>
+  <GT_SimSmartTick>遠くのものの更新頻度を下げる</GT_SimSmartTick>
+  <GT_SimSmartTick_Desc>ゲームは見えていない物の欲求、健康、成長、タイマーをもともと15ティックごとにしか更新しません – 常に経過した全時間を含めて。ここではそれをゲーム規模に応じて引き延ばします：遠くの拠点、サイト、ワールドポーン、危険のない他のマップ、超大規模ゲームでは画面外の物も。何も飛ばされず、より大きな刻みで計算されるだけです。戦闘中、火災中、徴兵された入植者はすべてゲーム通りのままです。</GT_SimSmartTick_Desc>
+  <GT_SimRates>現在：ワールドは {0} ティックごと、他のマップ {1}、画面外 {2}（ゲーム本体：15）。</GT_SimRates>
+  <GT_TC_Open>ティックを遅くしているもの…</GT_TC_Open>
+  <GT_TC_NeedHitch>このウィンドウにはカクつき検出（「滑らかさ」タブ）をオンにする必要があります – その測定ポイントを使います。</GT_TC_NeedHitch>
+  <GT_TC_Title>ティックを遅くしているもの</GT_TC_Title>
+  <GT_TC_Sub>ワールドとマップの各部分が、プレイ1秒あたり何ミリ秒使っているか（直近 {0} 秒、プロファイル：{1}）。3秒ごとに更新。</GT_TC_Sub>
+  <GT_TC_Ms>{0} ms/s</GT_TC_Ms>
+  <GT_TC_Wait>測定中… しばらくゲームを動かしてください。</GT_TC_Wait>
+  <GT_SimCleanSec>ワールドの整理</GT_SimCleanSec>
+  <GT_SimClean>古い戦闘と不要なワールドポーンを整理</GT_SimClean>
+  <GT_SimClean_Desc>戦闘ログ内の古い戦闘は、参加したすべてのポーン（死んだ襲撃者も）をメモリとセーブに保持し続けます。最新の戦闘だけを残し、その後ゲーム本体の整理を実行します – 入植者、親族、派閥のリーダー、クエストや物語に関わるポーンは常に残します。セーブが小さく、保存が速く、メモリも少なくなります。一時停止中に自動で、最大でゲーム内2日に1回。</GT_SimClean_Desc>
+  <GT_SimKeep>最新の {0} 件の戦闘を保持します。</GT_SimKeep>
+  <GT_SimKeepOff>小規模ゲームでは整理しません。</GT_SimKeepOff>
+  <GT_SimWorldLine>ワールド：生存ワールドポーン {0}、死亡 {1}、オブジェクト {2}、ログ内の戦闘 {3}。</GT_SimWorldLine>
+  <GT_SimCleanNow>今すぐワールドを整理</GT_SimCleanNow>
+  <GT_SimCleaning>ワールドを整理中…</GT_SimCleaning>
+  <GT_SimCleaned>ワールドの整理：ポーン {0} 体を削除（残り {1}）、古い戦闘 {2} 件を削除（{3} ms）。</GT_SimCleaned>
+  <GT_FastCull>描画対象の高速選択</GT_FastCull>
+  <GT_FastCull_Desc>ゲームは毎フレーム、マップ上でリアルタイム描画されるすべての物（ポーン、動物、アニメーションする建物、Modの物）の正確な位置とサイズを計算します – 画面外遠くにあってすぐに捨てられる物まで。明らかに画面外の物にはそのセルだけを使い、ゲームはこれまで通りそれらを捨てますが、負荷の高い部分は省かれます。画面上と画面近くの物はゲーム通り正確に計算されます。</GT_FastCull_Desc>
+  <GT_TC_Things>マップ上でリアルタイム描画される物：{0}。</GT_TC_Things>
+  <GT_SpeedSec>速度と時間の流れ</GT_SpeedSec>
+  <GT_SmartWork>スマートな作業検索</GT_SmartWork>
+  <GT_SmartWork_Desc>確認に時間がかかり、入植者にとって何も見つからなかった作業は、その入植者がゲーム内時間で5秒間再確認しません（例：自販機を空にする、燃料、Modの資源採掘）。緊急の作業は常に確認されます。</GT_SmartWork_Desc>
+  <GT_SpreadJobs>仕事検索を分散</GT_SpreadJobs>
+  <GT_SpreadJobs_Desc>1ティック内の仕事検索がすでに6 msを超えた場合、他の入植者は全員同時ではなく1–3ティック後に仕事を探します。徴兵中の入植者、危険時、襲撃中は対象外です。</GT_SpreadJobs_Desc>
+  <GT_TempSpread>部屋の温度を分割計算</GT_TempSpread>
+  <GT_TempSpread_Desc>各部屋はゲーム通り2秒ごとに均されますが、すべての部屋を1ティックで処理しません（大きな拠点では2秒ごとに小さな停止がありました）。</GT_TempSpread_Desc>
+  <GT_NightFast>高速な夜</GT_NightFast>
+  <GT_NightFast_Desc>入植者全員が眠っていて何も起きていない間（敵なし、ホームで火災なし、ダウンしている者なし）、ゲームは速度3で進みます。誰かが起きる、レターが届く、危険が現れると元の速度に戻ります。自分で速度を変えると、次の夜まで停止します。</GT_NightFast_Desc>
+  <GT_SpeedStats>このセッション：遅い作業確認を {0} 回スキップ（約 {1} 秒節約）、仕事検索を {2} 回移動、高速な夜 {3} 回。</GT_SpeedStats>
+  <GT_NightFastOn>全員就寝中 – 朝まで高速な夜（速度3）。</GT_NightFastOn>
+  <GT_NightFastTag>高速な夜</GT_NightFastTag>
+  <GT_BehindSim>ゲームが追いついていません：シミュレーションが1フレームあたり {0} ms（描画 {1} ms）。「ティックを遅くしているもの」でどの部分とModかを確認できます。</GT_BehindSim>
+  <GT_BehindDraw>ゲームが追いついていません：描画が1フレームあたり {1} ms（シミュレーション {0} ms）。エフェクトを減らす、ズームアウトを控える、目標FPSを下げると改善します。</GT_BehindDraw>
+  <GT_MC_CleanFilth>ホーム外の汚れを除去（{0}）</GT_MC_CleanFilth>
+  <GT_MC_CleanFilthConfirm>ホームエリア外の汚れ {0} 個を除去しますか？そこは誰も掃除せず、ゲームはそのすべてを保持し続けます。この操作は元に戻せません。</GT_MC_CleanFilthConfirm>
+  <GT_Turbo>速度3と4でターボ</GT_Turbo>
+  <GT_Turbo_Desc>速度3または4でマウスやキーボードに触れていない間、画面は毎秒数フレームまで下がり、残りの時間はすべてゲームに回ります – 時間はPCが許す限り速く進みます。マウスを動かせば画面はすぐに滑らかに戻ります。収まらなかったティックは捨てられず、後で追いつきます。</GT_Turbo_Desc>
+  <GT_TurboFps>ターボ時の毎秒フレーム数：{0}</GT_TurboFps>
+  <GT_Mode4>ターボ</GT_Mode4>
+  <GT_OverlayClick>クリック：ティックを遅くしているもの（ゲームは動き続けます）。</GT_OverlayClick>
+  <GT_TC_Running>ゲームを動かせるよう設定を閉じました – 速度3か4にして数秒お待ちください。</GT_TC_Running>
+  <GT_WorldSleep>Mod由来のワールドポーンも休眠可能に</GT_WorldSleep>
+  <GT_WorldSleep_Desc>ゲームは遠くのワールドポーンを、何も必要がないときは数時間ごとにしか更新しません。Modが追加した状態（RJWの部位、種族の遺伝子、癖…）がほぼすべてのポーンを起こしたままにし、数百体が毎ティック更新されていました。今は妊娠とゲーム本来の状態だけが起きたままにします。ポーンはマップやキャラバンに戻った瞬間に起きます。</GT_WorldSleep_Desc>
+  <GT_SimSleepLine>生存：起きている {0}、休眠中 {1}。起きたままにしている要因：{2}</GT_SimSleepLine>
+  <GT_SimSlept>{0} 体のポーンを休眠させました。</GT_SimSlept>
+  <GT_TexCapWaylith>1.7では不要</GT_TexCapWaylith>
+  <GT_SaveBuffer>保存を速く（大きな書き込みバッファ）</GT_SaveBuffer>
+  <GT_SaveBuffer_Desc>セーブファイルを細かく何度も書く代わりに大きな塊で書きます。保存中の停止が短くなります。ファイルも内容も同じです。保存そのものはバックグラウンドで行えません（書き込み中にゲームが変化してはいけないため）。</GT_SaveBuffer_Desc>
+  <GT_SaveLast>前回の保存：{0} ms（最短 {1} ms）</GT_SaveLast>
+  <GT_ED_Open>エラードクター</GT_ED_Open>
+  <GT_ED_Open_Desc>ログの赤いエラーをまとめて表示し、本当に原因となった MOD と、その意味をわかりやすく説明します。</GT_ED_Open_Desc>
+  <GT_ErrorAlert>新しいエラーを知らせる</GT_ErrorAlert>
+  <GT_ErrorAlert_Desc>新しい場所からのエラーがログに出たときに短いメッセージを表示します。エラードクターでどの MOD が原因か確認できます。</GT_ErrorAlert_Desc>
+  <GT_ED_Title>エラードクター</GT_ED_Title>
+  <GT_ED_Summary>{0} 件のエラー · {1} 種類 · {2} 個の MOD</GT_ED_Summary>
+  <GT_ED_Warnings>警告も表示</GT_ED_Warnings>
+  <GT_ED_Unknown>不明な MOD（ゲーム本体または見つからない）</GT_ED_Unknown>
+  <GT_ED_Copy>コピー</GT_ED_Copy>
+  <GT_ED_Workshop>Workshop ページ</GT_ED_Workshop>
+  <GT_ED_None>ログにエラーはありません 👍</GT_ED_None>
+  <GT_ED_Copied>コピーしました。MOD 作者へのコメントに貼り付けてください。</GT_ED_Copied>
+  <GT_ED_NewMsg>ログに新しいエラー – おそらく {0}。詳細は Smooth FPS → エラードクター。</GT_ED_NewMsg>
+  <GT_ED_K_Null>空であってはならないものが空でした（削除されたポーン、アイテム、Def など）。多くはこの MOD のバグか他の MOD との衝突です。コピーした文章を作者に報告してください。</GT_ED_K_Null>
+  <GT_ED_K_MissingDef>MOD に必要なものが存在しません。前提 MOD がない、別のゲームバージョン用の MOD、またはアイテムが削除されています。MOD の前提条件を確認してください。</GT_ED_K_MissingDef>
+  <GT_ED_K_Patch>コードの変更（Harmony パッチ）を適用できませんでした。別のバージョン用か、他の MOD と衝突している可能性があります。一部が動かないかもしれません。</GT_ED_K_Patch>
+  <GT_ED_K_Xml>MOD の XML ファイルが壊れているか古いものです。ゲームはその部分を飛ばします。たいてい無害ですが、そのアイテムや機能が欠ける場合があります。</GT_ED_K_Xml>
+  <GT_ED_K_Texture>画像がないか壊れています。見た目だけの問題で、ピンクの代替画像が表示されることがあります。</GT_ED_K_Texture>
+  <GT_ED_K_Duplicate>2 つの MOD が同じものを追加しています。どちらかが優先されます。たいてい無害ですが、同じ MOD を二重に入れていないか確認してください。</GT_ED_K_Duplicate>
+  <GT_ED_K_Cast>2 つの MOD があるオブジェクトの種類について食い違っています。同じものを変更する MOD 同士の衝突が多いです。</GT_ED_K_Cast>
+  <GT_ED_K_List>MOD がリストにないものを探しました。MOD のバグです。コピーした文章で報告してください。</GT_ED_K_List>
+  <GT_ED_K_Tick>ゲームがマップ上の何かを更新中にエラーが起きました。再読み込みまでその物が動かないことがあります。</GT_ED_K_Tick>
+  <GT_ED_K_PawnGen>ポーン生成中のエラーです（種族・服・武器 MOD）。そのポーンの見た目がおかしいか、生成されないことがあります。</GT_ED_K_PawnGen>
+  <GT_ED_K_Job>入植者の仕事でエラーが起きました。たいてい別のことをするだけです。</GT_ED_K_Job>
+  <GT_ED_K_Other>MOD のコードのエラーです。コピーして作者に送ってください。</GT_ED_K_Other>
+  <GT_MemBlocked17>1.7 では Smooth FPS はメモリの強制クリーンアップを行いません（テクスチャ・アイコン・ドアが消える原因でした）。ゲームが自動で片付けます。</GT_MemBlocked17>
+  <!-- 1.5.3 -->
+  <GT_HideResources>資源リストはマウスの下だけ</GT_HideResources>
+  <GT_HideResources_Desc>左側の資源リストは、マウスがその上にあるときだけ描画されます。アイテムの種類が多いと、このリストは毎フレーム時間を使います。</GT_HideResources_Desc>
+  <GT_UltraSpeed>開発者モードなしで速度 4</GT_UltraSpeed>
+  <GT_UltraSpeed_Desc>ゲーム本来の 4 段階目の速度（通常は開発者モードのみ）を速度 3 の後ろにボタンとして追加します。速度 4 のキーと速度 3 からの「速く」も使えます。大きなコロニーでは遅い PC だと到達できないことがあります。</GT_UltraSpeed_Desc>
+  <GT_UltraButton>速度 4</GT_UltraButton>
+  <GT_DangerSpeed>危険時の速度</GT_DangerSpeed>
+  <GT_DangerSpeed_Desc>襲撃や戦闘が始まると、ゲームはしばらく速度 1 に切り替わります。ここで代わりに速度 2 または 3 を保てます。ゲームは通常どおり一時停止と警告を行います。</GT_DangerSpeed_Desc>
+  <GT_Danger0>ゲームと同じ（速度 1）</GT_Danger0>
+  <GT_Danger1>速度 2 を保つ</GT_Danger1>
+  <GT_Danger2>速度 3 を保つ</GT_Danger2>
+  <GT_SpeedOtherMod>Smart Speed が有効です。速度 4 と危険時の速度はそちらが扱うため、この 2 つの設定は何もしません。</GT_SpeedOtherMod>
+  <GT_RulesLine>他のMODの除外ルール：{1} 個のMODから {0} 件 – これらのポーン、物、ワールドオブジェクトは決して減速されません。</GT_RulesLine>
+  <GT_RainSec>雨が汚れを洗い流す</GT_RainSec>
+  <GT_RainCall>屋外の汚れが多すぎるときに雨を呼ぶ</GT_RainCall>
+  <GT_RainCall_Desc>屋外の何千もの汚れはゲームのカクつきの原因になります。約40秒ごとにホームマップの屋外の汚れを数え、上限を超えていて、雨が降っておらず、0 °Cより暖かく、過去2日間に雨を呼んでいなければ、バイオームにある雨が降り始めます。イベントで固定された天候は変更しません。オフ = ゲームと同じ。</GT_RainCall_Desc>
+  <GT_RainThreshold>雨を呼ぶまでの屋外の汚れ：{0}</GT_RainThreshold>
+  <GT_RainThreshold_Desc>ホームマップの屋外（屋根なし）にいくつ汚れがあると雨を呼ぶか。</GT_RainThreshold_Desc>
+  <GT_RainWashAll>雨が屋外のすべての汚れを洗い流す</GT_RainWashAll>
+  <GT_RainWashAll_Desc>ゲームでは雨が一部の種類の汚れしか洗い流しません。これをオンにすると、雨が屋外（屋根なし）のあらゆる汚れを同じ確率で薄くします。屋内の汚れには決して触れません。オフ = ゲームと同じ。</GT_RainWashAll_Desc>
+  <GT_RainNow>現在のホームマップの屋外の汚れ：{0}</GT_RainNow>
+  <GT_RainStarted>雨が降り始めました – 雨が汚れを洗い流します（Smooth FPS）。</GT_RainStarted>
+</LanguageData>

@@ -52,7 +52,7 @@
   <MSM_Folder>폴더</MSM_Folder>
   <MSM_GrpBreak>문제 가능성</MSM_GrpBreak>
   <MSM_GrpDup>중복 설치</MSM_GrpDup>
-  <MSM_GrpSame>같은 기능</MSM_GrpSame>
+  <MSM_GrpSame>충돌 가능성 (공유 코드)</MSM_GrpSame>
   <MSM_Inactive>비활성 · {0}</MSM_Inactive>
   <MSM_IncText>{0}의 제작자가 함께 작동하지 않는다고 밝혔습니다. 하나만 활성화하세요.</MSM_IncText>
   <MSM_IncTitle>{0} × {1} – 호환되지 않음</MSM_IncTitle>
@@ -102,8 +102,8 @@
   <MSM_ProfilesHint>게임의 모드 창(목록 저장/불러오기)과 같은 파일입니다 – 이 모드 없이도 작동합니다.</MSM_ProfilesHint>
   <MSM_ReturnToGame>재시작 후 게임으로 돌아가기</MSM_ReturnToGame>
   <MSM_Revert>모두 되돌리기</MSM_Revert>
-  <MSM_SameHint>불러온 모드의 Harmony 패치를 바탕으로 한 추정</MSM_SameHint>
-  <MSM_SameHot>둘 다 게임의 같은 핵심 부분을 대체합니다 – 하나면 충분합니다</MSM_SameHot>
+  <MSM_SameHint>Harmony 패치로 추정 – 오류가 아닙니다</MSM_SameHint>
+  <MSM_SameHot>둘 다 게임의 같은 중요한 부분을 대체합니다 – 문제가 생기면 가장 먼저 확인할 쌍</MSM_SameHot>
   <MSM_SameText>둘 다 같은 게임 코드를 변경합니다</MSM_SameText>
   <MSM_SaveFailed>모드 목록을 저장하지 못했습니다: {0}</MSM_SaveFailed>
   <MSM_SaveProfile>현재 목록 저장</MSM_SaveProfile>
@@ -284,4 +284,59 @@ Mod Sort Manager가 의심 모드 {0}개 중 절반을 비활성화하고 게임
   <MSM_RemovedNow>{0}을(를) 제거했습니다. 게임을 재시작해 마무리하세요.</MSM_RemovedNow>
   <MSM_RemovedLater>{0}은(는) 사용 중입니다 – 다음 시작 때 제거됩니다 (꺼져 있음).</MSM_RemovedLater>
   <MSM_RemoveFailed>{0}을(를) 제거하지 못했습니다.</MSM_RemoveFailed>
+  <MSM_SameExplain>이것은 중복도 오류도 아닙니다. 각 쌍의 모드는 게임 코드의 같은 부분을 바꿉니다. 잘 만들어졌다면 변경 사항이 로드 순서대로 차례로 실행되어 둘 다 작동합니다. 둘 중 하나에 버그가 있을 때만 아래에 정렬된 모드를 방해할 수 있습니다. 그러니 여기 있다는 이유만으로 모드를 제거하지 마세요 – 문제가 생겼을 때 어떤 모드를 먼저 시험할지 알기 위해 이 목록을 사용하세요.</MSM_SameExplain>
+  <MSM_RivalTitle>{0} × {1} – 같은 일을 함</MSM_RivalTitle>
+  <MSM_RivalHint>Mod Sort Manager 자체 목록에 있는 알려진 조합이며, 코드로 추측한 것이 아닙니다.</MSM_RivalHint>
+  <MSM_Rival_Haul>둘 다 한 번에 여러 물건을 운반합니다. {1}이(가) 켜져 있는 동안 {0}의 같은 기능은 스스로 꺼집니다 – 하나만 남기세요.</MSM_Rival_Haul>
+  <MSM_Rival_HarvestHaul>둘 다 수확물을 바로 주머니에 넣습니다. {1}이(가) 켜져 있는 동안 {0}의 이 기능은 스스로 꺼집니다.</MSM_Rival_HarvestHaul>
+  <MSM_Rival_Tick>둘 다 게임의 틱 루프나 게임 속도를 맡습니다. 함께 쓰면 끊김이나 잘못된 속도가 생길 수 있습니다 – 하나만 남기세요.</MSM_Rival_Tick>
+  <MSM_Rival_Multiplayer>{1}은(는) 모든 플레이어의 게임이 완전히 똑같이 돌아가야 합니다. {0}은(는) 게임이 진행되는 방식을 바꿉니다. 함께 쓰지 마세요.</MSM_Rival_Multiplayer>
+  <MSM_Rival_Freezes>{0}에는 {1}의 모든 기능(멈춤 없는 메모리 정리)이 이미 들어 있습니다. {1}을(를) 끄세요.</MSM_Rival_Freezes>
+  <MSM_Rival_Priorities>둘 다 작업 우선순위를 스스로 정해 서로의 선택을 덮어씁니다. 하나만 남기세요.</MSM_Rival_Priorities>
+  <MSM_Rival_Tabs>{0}이(가) 켜져 있는 동안 이 탭을 맡고 {1}의 탭은 쓰이지 않습니다({0} 설정에서 바꿀 수 있음).</MSM_Rival_Tabs>
+  <MSM_Rival_Managers>둘 다 게임의 모드 창을 대체합니다. {1}이(가) 켜져 있는 동안 Mod Sort Manager는 물러납니다.</MSM_Rival_Managers>
+  <MSM_NoteRival>{0}와(과) 같은 일을 함</MSM_NoteRival>
+  <MSM_SameWorks>나는 잘 됨 – 숨기기</MSM_SameWorks>
+  <MSM_SameUnhide>목록에 다시 표시</MSM_SameUnhide>
+  <MSM_SameHiddenTag>숨김</MSM_SameHiddenTag>
+  <MSM_SameShowHidden>숨긴 항목 보기 ({0})</MSM_SameShowHidden>
+  <MSM_SameHideHidden>숨긴 항목 감추기</MSM_SameHideHidden>
+  <MSM_CrashTitle>지난 게임이 제대로 끝나지 않았습니다</MSM_CrashTitle>
+  <MSM_CrashText>지난번 게임이 제대로 종료되지 않았습니다(충돌 또는 멈춤). 그 직전인 {0}에 모드 목록이 바뀌었습니다:\n\n{1}\n\n바꾸기 전 목록으로 돌아갈까요? Mod Sort Manager에서 열리므로 저장하기 전에 확인할 수 있습니다.</MSM_CrashText>
+  <MSM_CrashAdded>추가됨 ({0}):</MSM_CrashAdded>
+  <MSM_CrashRemoved>제거됨 ({0}):</MSM_CrashRemoved>
+  <MSM_CrashMoved>순서만 바뀌었습니다.</MSM_CrashMoved>
+  <MSM_CrashRestore>이전 목록 열기</MSM_CrashRestore>
+  <MSM_CrashKeep>현재 목록 유지</MSM_CrashKeep>
+  <!-- 0.2.2 -->
+  <MSM_FromSave>세이브의 모드 목록…</MSM_FromSave>
+  <MSM_FromSaveTip>세이브를 고르면 어떤 모드로 플레이했는지, 무엇이 없거나 지금 목록과 다른지 보고 그 목록을 사용할 수 있습니다.</MSM_FromSaveTip>
+  <MSM_NoSaves>세이브를 찾을 수 없습니다.</MSM_NoSaves>
+  <MSM_SaveNoMods>이 세이브에는 모드 목록이 없습니다(또는 읽을 수 없습니다).</MSM_SaveNoMods>
+  <MSM_SaveTitle>세이브 {0}의 모드</MSM_SaveTitle>
+  <MSM_SaveSub>세이브의 모드 {0}개 · 게임 버전 {1}</MSM_SaveSub>
+  <MSM_SaveMissing>설치되지 않음 ({0})</MSM_SaveMissing>
+  <MSM_SaveTurnOn>켜질 모드 ({0})</MSM_SaveTurnOn>
+  <MSM_SaveTurnOff>꺼질 모드 ({0})</MSM_SaveTurnOff>
+  <MSM_SaveSame>지금 목록과 같은 모드, 같은 순서입니다.</MSM_SaveSame>
+  <MSM_SaveSameMods>지금 목록과 같은 모드입니다 – 순서만 다릅니다.</MSM_SaveSameMods>
+  <MSM_SaveApply>이 목록 적용</MSM_SaveApply>
+  <!-- 0.3.0 -->
+  <MSM_RuleSec>로드 순서 규칙</MSM_RuleSec>
+  <MSM_RuleAdd>+ 로드 순서 규칙</MSM_RuleAdd>
+  <MSM_RuleAddTip>이 모드에 대한 나만의 로드 순서 규칙 – 스마트 정렬이 이를 따릅니다.</MSM_RuleAddTip>
+  <MSM_RuleTop>항상 맨 위</MSM_RuleTop>
+  <MSM_RuleBottom>항상 맨 아래</MSM_RuleBottom>
+  <MSM_RuleAfter>{0} 다음</MSM_RuleAfter>
+  <MSM_RuleBefore>{0} 이전</MSM_RuleBefore>
+  <MSM_RuleSrcUser>내 규칙</MSM_RuleSrcUser>
+  <MSM_RuleSrcMsm>Mod Sort Manager 규칙</MSM_RuleSrcMsm>
+  <MSM_RuleSrcRimSort>RimSort 커뮤니티 규칙</MSM_RuleSrcRimSort>
+  <MSM_RuleMoved>이동시킨 규칙: {0}</MSM_RuleMoved>
+  <MSM_SortedRules>정렬됨 – 모드 {0}개가 로드 순서 규칙으로 배치되었습니다(세부 정보 참고).</MSM_SortedRules>
+  <MSM_SetRules>공유 로드 순서 규칙 사용</MSM_SetRules>
+  <MSM_SetRulesTip>스마트 정렬은 Mod Sort Manager에 포함된 규칙(Data/rules.xml)과, RimSort가 설치되어 있으면 RimSort 커뮤니티 규칙도 따릅니다. 내 규칙은 항상 적용됩니다.</MSM_SetRulesTip>
+  <MSM_NoWarn>작동함 – 경고 안 함</MSM_NoWarn>
+  <MSM_NoWarnUndo>버전 경고 다시 표시</MSM_NoWarnUndo>
+  <MSM_NoWarnTip>이 모드는 현재 게임 버전용이 아니지만 작동합니다. Data/noVersionWarning.xml 또는 No Version Warning 모드에 있는 모드도 경고하지 않습니다.</MSM_NoWarnTip>
 </LanguageData>
