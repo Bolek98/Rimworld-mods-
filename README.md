@@ -32,6 +32,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
 | Randy's Table – Chaos Storytellers | 0.1.0 | [RandysTable](RandysTable) |
 | Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
+| Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.1.0 | [SeasonsHolidays](SeasonsHolidays) |
 | Secular Colony – Ideology Off & Tweaks | 1.5.2 | [SecularColony](SecularColony) |
 | Smart Colonist Gear – Auto Equip Weapons & Armor | 2.16.0 | [SmartColonistGear](SmartColonistGear) |
 | Smooth FPS – Performance & Graphics | 1.5.0 | [SmoothFPS](SmoothFPS) |

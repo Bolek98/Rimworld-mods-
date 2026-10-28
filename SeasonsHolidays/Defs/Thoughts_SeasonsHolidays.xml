@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThoughtDef>
+    <defName>SH_H_NewYear</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>new year</label>
+        <description>A new year, a fresh start. Who knows what it brings!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>new year (tradition)</label>
+        <description>A new year, a fresh start. Who knows what it brings!</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>new year (our tradition)</label>
+        <description>A new year, a fresh start. Who knows what it brings!</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+      <li>
+        <label>new year (old tradition)</label>
+        <description>A new year, a fresh start. Who knows what it brings!</description>
+        <baseMoodEffect>9</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_Valentine</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>valentine's day</label>
+        <description>A day just for the two of us.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+      <li>
+        <label>valentine's day (tradition)</label>
+        <description>A day just for the two of us.</description>
+        <baseMoodEffect>9</baseMoodEffect>
+      </li>
+      <li>
+        <label>valentine's day (our tradition)</label>
+        <description>A day just for the two of us.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <li>
+        <label>valentine's day (old tradition)</label>
+        <description>A day just for the two of us.</description>
+        <baseMoodEffect>11</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_Carnival</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>carnival</label>
+        <description>Masks, music and a big feast before the lean weeks.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>carnival (tradition)</label>
+        <description>Masks, music and a big feast before the lean weeks.</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>carnival (our tradition)</label>
+        <description>Masks, music and a big feast before the lean weeks.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+      <li>
+        <label>carnival (old tradition)</label>
+        <description>Masks, music and a big feast before the lean weeks.</description>
+        <baseMoodEffect>9</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_Easter</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>easter</label>
+        <description>Painted eggs, spring flowers and a good mood all around.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>easter (tradition)</label>
+        <description>Painted eggs, spring flowers and a good mood all around.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>easter (our tradition)</label>
+        <description>Painted eggs, spring flowers and a good mood all around.</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>easter (old tradition)</label>
+        <description>Painted eggs, spring flowers and a good mood all around.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_Witches</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>witches' night</label>
+        <description>We burned the witch and chased the winter away. What a bonfire!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>witches' night (tradition)</label>
+        <description>We burned the witch and chased the winter away. What a bonfire!</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>witches' night (our tradition)</label>
+        <description>We burned the witch and chased the winter away. What a bonfire!</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+      <li>
+        <label>witches' night (old tradition)</label>
+        <description>We burned the witch and chased the winter away. What a bonfire!</description>
+        <baseMoodEffect>9</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_MayDay</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>may day of love</label>
+        <description>A kiss under the blossoming tree – love is in the air.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+      <li>
+        <label>may day of love (tradition)</label>
+        <description>A kiss under the blossoming tree – love is in the air.</description>
+        <baseMoodEffect>9</baseMoodEffect>
+      </li>
+      <li>
+        <label>may day of love (our tradition)</label>
+        <description>A kiss under the blossoming tree – love is in the air.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <li>
+        <label>may day of love (old tradition)</label>
+        <description>A kiss under the blossoming tree – love is in the air.</description>
+        <baseMoodEffect>11</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_ChildrenDay</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>children's day</label>
+        <description>Today is all about us kids! Games and sweets!</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <li>
+        <label>children's day (tradition)</label>
+        <description>Today is all about us kids! Games and sweets!</description>
+        <baseMoodEffect>11</baseMoodEffect>
+      </li>
+      <li>
+        <label>children's day (our tradition)</label>
+        <description>Today is all about us kids! Games and sweets!</description>
+        <baseMoodEffect>12</baseMoodEffect>
+      </li>
+      <li>
+        <label>children's day (old tradition)</label>
+        <description>Today is all about us kids! Games and sweets!</description>
+        <baseMoodEffect>13</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_ChildrenDayAdult</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>children's day</label>
+        <description>Seeing the kids so happy warms my heart.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>children's day (tradition)</label>
+        <description>Seeing the kids so happy warms my heart.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+      <li>
+        <label>children's day (our tradition)</label>
+        <description>Seeing the kids so happy warms my heart.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>children's day (old tradition)</label>
+        <description>Seeing the kids so happy warms my heart.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_Solstice</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>midsummer</label>
+        <description>The longest day of the year. We celebrated under the open sky.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>midsummer (tradition)</label>
+        <description>The longest day of the year. We celebrated under the open sky.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>midsummer (our tradition)</label>
+        <description>The longest day of the year. We celebrated under the open sky.</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>midsummer (old tradition)</label>
+        <description>The longest day of the year. We celebrated under the open sky.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_Halloween</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>Halloween</label>
+        <description>Pumpkins, spooky stories and a bit of fear – just right.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>Halloween (tradition)</label>
+        <description>Pumpkins, spooky stories and a bit of fear – just right.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>Halloween (our tradition)</label>
+        <description>Pumpkins, spooky stories and a bit of fear – just right.</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>Halloween (old tradition)</label>
+        <description>Pumpkins, spooky stories and a bit of fear – just right.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_AllSouls</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>all souls' day</label>
+        <description>We remembered those who are no longer with us. It helps to remember together.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>all souls' day (tradition)</label>
+        <description>We remembered those who are no longer with us. It helps to remember together.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+      <li>
+        <label>all souls' day (our tradition)</label>
+        <description>We remembered those who are no longer with us. It helps to remember together.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>all souls' day (old tradition)</label>
+        <description>We remembered those who are no longer with us. It helps to remember together.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_Thanksgiving</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>thanksgiving</label>
+        <description>We are thankful for what we have and for each other.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>thanksgiving (tradition)</label>
+        <description>We are thankful for what we have and for each other.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>thanksgiving (our tradition)</label>
+        <description>We are thankful for what we have and for each other.</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>thanksgiving (old tradition)</label>
+        <description>We are thankful for what we have and for each other.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_StNicholas</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>st. nicholas</label>
+        <description>St. Nicholas came with gifts. The kids were thrilled.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>st. nicholas (tradition)</label>
+        <description>St. Nicholas came with gifts. The kids were thrilled.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>st. nicholas (our tradition)</label>
+        <description>St. Nicholas came with gifts. The kids were thrilled.</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>st. nicholas (old tradition)</label>
+        <description>St. Nicholas came with gifts. The kids were thrilled.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_StNicholasChild</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>st. nicholas</label>
+        <description>St. Nicholas brought me sweets! I was good this year. Mostly.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <li>
+        <label>st. nicholas (tradition)</label>
+        <description>St. Nicholas brought me sweets! I was good this year. Mostly.</description>
+        <baseMoodEffect>11</baseMoodEffect>
+      </li>
+      <li>
+        <label>st. nicholas (our tradition)</label>
+        <description>St. Nicholas brought me sweets! I was good this year. Mostly.</description>
+        <baseMoodEffect>12</baseMoodEffect>
+      </li>
+      <li>
+        <label>st. nicholas (old tradition)</label>
+        <description>St. Nicholas brought me sweets! I was good this year. Mostly.</description>
+        <baseMoodEffect>13</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_Christmas</defName>
+    <durationDays>5</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>christmas</label>
+        <description>Christmas Eve, gifts, a feast and everyone together. The best night of the year.</description>
+        <baseMoodEffect>12</baseMoodEffect>
+      </li>
+      <li>
+        <label>christmas (tradition)</label>
+        <description>Christmas Eve, gifts, a feast and everyone together. The best night of the year.</description>
+        <baseMoodEffect>13</baseMoodEffect>
+      </li>
+      <li>
+        <label>christmas (our tradition)</label>
+        <description>Christmas Eve, gifts, a feast and everyone together. The best night of the year.</description>
+        <baseMoodEffect>14</baseMoodEffect>
+      </li>
+      <li>
+        <label>christmas (old tradition)</label>
+        <description>Christmas Eve, gifts, a feast and everyone together. The best night of the year.</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_NewYearsEve</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>new year's eve</label>
+        <description>Fireworks lit up the sky. Goodbye, old year!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>new year's eve (tradition)</label>
+        <description>Fireworks lit up the sky. Goodbye, old year!</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+      <li>
+        <label>new year's eve (our tradition)</label>
+        <description>Fireworks lit up the sky. Goodbye, old year!</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+      <li>
+        <label>new year's eve (old tradition)</label>
+        <description>Fireworks lit up the sky. Goodbye, old year!</description>
+        <baseMoodEffect>9</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_H_Harvest</defName>
+    <durationDays>4</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>harvest festival (poor harvest)</label>
+        <description>We celebrated, but the stores are thin.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>harvest festival</label>
+        <description>A good harvest! We celebrated with a feast.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+      <li>
+        <label>harvest festival (rich harvest)</label>
+        <description>The stores are full – we won't go hungry this winter!</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_Birthday</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>my birthday</label>
+        <description>It's my birthday! Everyone remembered.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_FirstSnow</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>first snow</label>
+        <description>The first snow of the year! Everything is white and quiet.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_SpringMood</defName>
+    <durationDays>4</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>spring in the air</label>
+        <description>The days are longer and everything is coming back to life.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_SummerEvenings</defName>
+    <durationDays>4</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>warm summer evenings</label>
+        <description>Long warm evenings – the best part of summer.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_WinterBlues</defName>
+    <durationDays>4</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>winter blues</label>
+        <description>Short days, long dark nights. I miss the sun.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

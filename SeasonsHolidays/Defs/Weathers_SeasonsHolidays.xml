@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WeatherDef>
+    <defName>SH_Hoarfrost</defName>
+    <label>hoarfrost</label>
+    <description>A frosty, still, crystal-clear day. Everything outside is covered in white frost.</description>
+    <repeatable>true</repeatable>
+    <temperatureRange>-999~2</temperatureRange>
+    <favorability>Good</favorability>
+    <perceivePriority>0</perceivePriority>
+    <windSpeedFactor>0.3</windSpeedFactor>
+    <ambientSounds>
+      <li>Ambient_Wind_Clear</li>
+    </ambientSounds>
+    <skyColorsDay>
+      <sky>(0.88,0.95,1.05)</sky>
+      <shadow>(0.718,0.745,0.757)</shadow>
+      <overlay>(1,1,1)</overlay>
+      <saturation>0.85</saturation>
+    </skyColorsDay>
+    <skyColorsDusk>
+      <sky>(0.80,0.78,0.92)</sky>
+      <shadow>(0.955,0.886,0.914)</shadow>
+      <overlay>(0.8,0.8,0.8)</overlay>
+      <saturation>0.85</saturation>
+    </skyColorsDusk>
+    <skyColorsNightEdge>
+      <sky>(0.482,0.603,0.682)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.6,0.6,0.6)</overlay>
+      <saturation>0.85</saturation>
+    </skyColorsNightEdge>
+    <skyColorsNightMid>
+      <sky>(0.482,0.603,0.682)</sky>
+      <shadow>(0.85, 0.85, 0.85)</shadow>
+      <overlay>(0.6,0.6,0.6)</overlay>
+      <saturation>0.85</saturation>
+    </skyColorsNightMid>
+  </WeatherDef>
+
+  <WeatherDef>
+    <defName>SH_IndianSummer</defName>
+    <label>Indian summer</label>
+    <description>A warm, golden autumn day full of cobwebs drifting in the sun.</description>
+    <repeatable>true</repeatable>
+    <temperatureRange>8~999</temperatureRange>
+    <favorability>Good</favorability>
+    <perceivePriority>0</perceivePriority>
+    <windSpeedFactor>0.6</windSpeedFactor>
+    <ambientSounds>
+      <li>Ambient_Wind_Clear</li>
+    </ambientSounds>
+    <skyColorsDay>
+      <sky>(1.05,0.98,0.85)</sky>
+      <shadow>(0.718,0.745,0.757)</shadow>
+      <overlay>(1,1,1)</overlay>
+      <saturation>1.35</saturation>
+    </skyColorsDay>
+    <skyColorsDusk>
+      <sky>(0.95,0.68,0.40)</sky>
+      <shadow>(0.955,0.886,0.914)</shadow>
+      <overlay>(0.8,0.8,0.8)</overlay>
+      <saturation>1.35</saturation>
+    </skyColorsDusk>
+    <skyColorsNightEdge>
+      <sky>(0.482,0.603,0.682)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.6,0.6,0.6)</overlay>
+      <saturation>1.35</saturation>
+    </skyColorsNightEdge>
+    <skyColorsNightMid>
+      <sky>(0.482,0.603,0.682)</sky>
+      <shadow>(0.85, 0.85, 0.85)</shadow>
+      <overlay>(0.6,0.6,0.6)</overlay>
+      <saturation>1.35</saturation>
+    </skyColorsNightMid>
+  </WeatherDef>
+
+  <WeatherDef>
+    <defName>SH_SpringShowers</defName>
+    <label>spring showers</label>
+    <description>Short light showers with sun in between. Good for the fields.</description>
+    <repeatable>true</repeatable>
+    <temperatureRange>2~100</temperatureRange>
+    <windSpeedFactor>1.1</windSpeedFactor>
+    <accuracyMultiplier>0.9</accuracyMultiplier>
+    <favorability>Neutral</favorability>
+    <perceivePriority>1</perceivePriority>
+    <rainRate>0.4</rainRate>
+    <moveSpeedMultiplier>0.95</moveSpeedMultiplier>
+    <ambientSounds>
+      <li>Ambient_Rain</li>
+    </ambientSounds>
+    <overlayClasses>
+      <li>WeatherOverlay_Rain</li>
+    </overlayClasses>
+    <skyColorsDay>
+      <sky>(0.86,0.88,0.86)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.8,0.8,0.8)</overlay>
+      <saturation>1</saturation>
+    </skyColorsDay>
+    <skyColorsDusk>
+      <sky>(1,0.95,0.9)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.65,0.65,0.65)</overlay>
+      <saturation>1</saturation>
+    </skyColorsDusk>
+    <skyColorsNightEdge>
+      <sky>(0.35,0.40,0.45)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.5,0.5,0.5)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsNightEdge>
+    <skyColorsNightMid>
+      <sky>(0.35,0.40,0.45)</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.5,0.5,0.5)</overlay>
+      <saturation>0.9</saturation>
+    </skyColorsNightMid>
+  </WeatherDef>
+
+</Defs>

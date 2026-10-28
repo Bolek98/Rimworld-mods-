@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <MainButtonDef>
+    <defName>SH_Calendar</defName>
+    <label>calendar</label>
+    <description>The year at a glance: months, holidays, birthdays, temperatures and the growing season.</description>
+    <tabWindowClass>SeasonsHolidays.MainTabWindow_Calendar</tabWindowClass>
+    <order>58</order>
+  </MainButtonDef>
+
+  <HediffDef>
+    <defName>SH_Resolution</defName>
+    <label>New Year's resolution</label>
+    <description>This year I'm going to learn more! Learns faster for a few days.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <defaultLabelColor>(0.6, 0.9, 0.6)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>300000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <GlobalLearningFactor>0.25</GlobalLearningFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThingDef ParentName="MealBaseIngredientless">
+    <defName>SH_ChristmasCookies</defName>
+    <label>Christmas cookies</label>
+    <description>A box of homemade Christmas cookies. Sweet, festive and they keep for weeks.</description>
+    <graphicData>
+      <texPath>Things/Item/Meal/Fine</texPath>
+      <graphicClass>Graphic_MealVariants</graphicClass>
+      <color>(0.95,0.78,0.52)</color>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MarketValue>18</MarketValue>
+      <Nutrition>0.5</Nutrition>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>30</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+    <ingestible>
+      <preferability>MealFine</preferability>
+      <tasteThought>AteFineMeal</tasteThought>
+      <joy>0.25</joy>
+      <joyKind>Gluttonous</joyKind>
+      <ingestSound>Meal_Eat</ingestSound>
+      <optimalityOffsetFeedingAnimals>-75</optimalityOffsetFeedingAnimals>
+    </ingestible>
+  </ThingDef>
+
+</Defs>
