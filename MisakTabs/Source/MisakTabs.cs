@@ -20,6 +20,8 @@ namespace MisakTabs
         public bool replaceOtherBillTabs = true;   // take over from Nice Bill Tab & co. on the bills tab
         public bool health = true;                 // 0.2.0: our health tab
         public bool replaceOtherHealthTabs = true; // 0.2.0: take over the health tab from other mods
+        // 0.6.0: the player's window sizes (drag the corner) and the width of the recipe list
+        public float billsW = 820f, billsH = 580f, billsLeft = 300f, healthW = 820f, healthH = 540f;
 
         public override void ExposeData()
         {
@@ -28,12 +30,17 @@ namespace MisakTabs
             Scribe_Values.Look(ref replaceOtherBillTabs, "replaceOtherBillTabs", true);
             Scribe_Values.Look(ref health, "health", true);
             Scribe_Values.Look(ref replaceOtherHealthTabs, "replaceOtherHealthTabs", true);
+            Scribe_Values.Look(ref billsW, "billsW", 820f);
+            Scribe_Values.Look(ref billsH, "billsH", 580f);
+            Scribe_Values.Look(ref billsLeft, "billsLeft", 300f);
+            Scribe_Values.Look(ref healthW, "healthW", 820f);
+            Scribe_Values.Look(ref healthH, "healthH", 540f);
         }
     }
 
     public class MTMod : Mod
     {
-        public const string Version = "0.5.1";
+        public const string Version = "0.6.0";
         public static MTSettings S;
         public static Harmony H;
         private static List<string> recBullets;
@@ -41,7 +48,7 @@ namespace MisakTabs
         public MTMod(ModContentPack content) : base(content)
         {
             S = GetSettings<MTSettings>();
-            MUI.Init(new MTSettings(), null, "recommended");
+            MUI.Init(new MTSettings(), null, "recommended", "billsW", "billsH", "billsLeft", "healthW", "healthH");
             if (S.recommended) MUI.ApplyAll(S);
             MNews.Register(content, Version);
             H = new Harmony("bolek98.misaktabs");
@@ -179,13 +186,64 @@ namespace MisakTabs
     // ---------------------------------------------------------------------------
     // Bills tab
     // ---------------------------------------------------------------------------
+    // 0.6.0: the bills and health tabs can be made bigger – drag the corner (top right) or pick a size
+    public static class TabSize
+    {
+        private static string dragId;
+        private static Vector2 startMouse, startSize;
+
+        // the tab grows up and to the right from the bottom left corner; it must stay on the screen
+        public static Vector2 Fit(float w, float h, float minW, float minH)
+        {
+            float maxW = Mathf.Max(minW, UI.screenWidth - 8f);
+            float maxH = Mathf.Max(minH, UI.screenHeight - 35f - 165f - 6f);
+            return new Vector2(Mathf.Clamp(w, minW, maxW), Mathf.Clamp(h, minH, maxH));
+        }
+
+        public static bool Grip(Rect r, string id, ref float w, ref float h, float minW, float minH)
+        {
+            Rect g = new Rect(r.xMax - 18f, r.y, 18f, 12f);
+            bool over = Mouse.IsOver(g), on = dragId == id;
+            Color c = over || on ? Look.Green : new Color(1f, 1f, 1f, 0.35f);
+            for (int i = 0; i < 3; i++)
+                Widgets.DrawBoxSolid(new Rect(g.x + 4f + i * 4f, g.y + 2f + (2 - i) * 3f, 10f - i * 4f + (i == 0 ? 2f : 0f), 1.5f), c);
+            if (over) TooltipHandler.TipRegion(g, "MT_GripTip".Translate());
+            Vector2 m = UI.MousePositionOnUIInverted;
+            if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && over)
+            {
+                dragId = id; startMouse = m; startSize = new Vector2(r.width, r.height);
+                Event.current.Use();
+                return false;
+            }
+            if (!on) return false;
+            if (!Input.GetMouseButton(0)) { dragId = null; MTMod.S.Write(); return true; }
+            Vector2 s = Fit(startSize.x + (m.x - startMouse.x), startSize.y + (startMouse.y - m.y), minW, minH);
+            w = s.x; h = s.y;
+            return false;
+        }
+
+        public static void Menu(Action<Vector2> set, Vector2 normal, float normalLeft, Action<float> setLeft)
+        {
+            Vector2 max = Fit(9999f, 9999f, normal.x, normal.y);
+            var big = new Vector2(Mathf.Min(max.x, normal.x * 1.3f), Mathf.Min(max.y, normal.y * 1.3f));
+            var opts = new List<FloatMenuOption>
+            {
+                new FloatMenuOption("MT_SizeNormal".Translate(), () => { set(normal); setLeft?.Invoke(normalLeft); MTMod.S.Write(); }),
+                new FloatMenuOption("MT_SizeBig".Translate(), () => { set(big); setLeft?.Invoke(normalLeft * 1.3f); MTMod.S.Write(); }),
+                new FloatMenuOption("MT_SizeMax".Translate(), () => { set(max); setLeft?.Invoke(Mathf.Min(max.x * 0.4f, 520f)); MTMod.S.Write(); }),
+            };
+            Find.WindowStack.Add(new FloatMenu(opts));
+        }
+    }
+
     public static class BillsTab
     {
-        public static readonly Vector2 Size = new Vector2(820f, 580f);
+        public static Vector2 Size => TabSize.Fit(MTMod.S.billsW, MTMod.S.billsH, 760f, 420f);
         private static readonly AccessTools.FieldRef<InspectTabBase, Vector2> sizeRef = AccessTools.FieldRefAccess<InspectTabBase, Vector2>("size");
         public static bool showOriginal;
         private static string search = "";
-        private static int filter;            // 0 all, 1 available, 2 locked
+        private static int filter;            // 0 all, 1 available, 2 locked, 3 not in the queue yet (0.6.0)
+        private static bool splitDrag;
         private static Vector2 recipeScroll, queueScroll;
         private static readonly Color Muted = new Color32(160, 167, 174, 255);
 
@@ -266,11 +324,23 @@ namespace MisakTabs
             Rect head = new Rect(r.x, r.y, r.width, 54f);
             Header(head, table);
             Rect body = new Rect(r.x, head.yMax, r.width, r.height - head.height);
-            Rect left = new Rect(body.x, body.y, 300f, body.height);
+            float lw = Mathf.Clamp(MTMod.S.billsLeft, 220f, Mathf.Max(220f, body.width - 500f));
+            Rect left = new Rect(body.x, body.y, lw, body.height);
             Rect right = new Rect(left.xMax, body.y, body.width - left.width, body.height);
-            Widgets.DrawBoxSolid(new Rect(left.xMax, body.y, 1f, body.height), Look.Line);
+            // 0.6.0: drag the line between the recipes and the queue
+            Rect split = new Rect(left.xMax - 4f, body.y, 8f, body.height);
+            bool overSplit = Mouse.IsOver(split);
+            Widgets.DrawBoxSolid(new Rect(left.xMax - (overSplit || splitDrag ? 1f : 0f), body.y, overSplit || splitDrag ? 3f : 1f, body.height), overSplit || splitDrag ? Look.Green : Look.Line);
+            if (overSplit) TooltipHandler.TipRegion(split, "MT_SplitTip".Translate());
+            if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && overSplit) { splitDrag = true; Event.current.Use(); }
+            if (splitDrag)
+            {
+                if (!Input.GetMouseButton(0)) { splitDrag = false; MTMod.S.Write(); }
+                else MTMod.S.billsLeft = Mathf.Clamp(Event.current.mousePosition.x - body.x, 220f, Mathf.Max(220f, body.width - 500f));
+            }
             Recipes(left.ContractedBy(10f), table);
             Queue(right.ContractedBy(10f), table);
+            if (TabSize.Grip(r, "bills", ref MTMod.S.billsW, ref MTMod.S.billsH, 760f, 420f)) { }
         }
 
         private static WorkTypeDef WorkTypeOf(ThingDef bench)
@@ -306,6 +376,9 @@ namespace MisakTabs
             }
             if (clip != null) TooltipHandler.TipRegion(pr, "MT_PasteTip".Translate(clip.LabelCap));
             // 0.5.0: the workbench menu – copy all bills, paste them here or into several workbenches
+            Rect sz = new Rect(r.xMax - 318f, r.y + 13f, 28f, 28f);
+            if (Look.Button(sz, "□")) TabSize.Menu(v => { MTMod.S.billsW = v.x; MTMod.S.billsH = v.y; }, new Vector2(820f, 580f), 300f, w => MTMod.S.billsLeft = w);
+            TooltipHandler.TipRegion(sz, "MT_SizeTip".Translate());
             Rect bm = new Rect(r.xMax - 284f, r.y + 13f, 28f, 28f);
             if (Look.Button(bm, "…")) BenchMenu(table);
             TooltipHandler.TipRegion(bm, "MT_BenchMenuTip".Translate());
@@ -436,22 +509,25 @@ namespace MisakTabs
             search = Widgets.TextField(new Rect(sr.x + 6f, sr.y + 3f, sr.width - 12f, 24f), search ?? "");
             if (search.NullOrEmpty()) Look.Text(new Rect(sr.x + 10f, sr.y, sr.width, 30f), "MT_Search".Translate(), Muted, GameFont.Tiny);
             y += 36f;
-            string[] names = { "MT_All".Translate(), "MT_Available".Translate(), "MT_Locked".Translate() };
+            string[] names = { "MT_All".Translate(), "MT_Available".Translate(), "MT_Locked".Translate(), "MT_NotAdded".Translate() };
             float cx = r.x;
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < names.Length; i++)
             {
                 float w = Verse.Text.CalcSize(names[i]).x + 18f;
+                if (cx + w > r.xMax && cx > r.x) { cx = r.x; y += 28f; }   // 0.6.0: wraps in a narrow list
                 if (Look.Chip(new Rect(cx, y, w, 22f), names[i], filter == i)) filter = i;
+                if (i == 3) TooltipHandler.TipRegion(new Rect(cx, y, w, 22f), "MT_NotAddedTip".Translate());
                 cx += w + 6f;
             }
             y += 30f;
+            var inQueue = new HashSet<RecipeDef>(table.billStack.Bills.Select(b => b.recipe));
             string q = (search ?? "").Trim();
             var list = table.def.AllRecipes.Where(rec => rec.AvailableOnNow(table) && (q.Length == 0 || rec.LabelCap.ToString().IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0)).ToList();
             var rows = new List<(RecipeDef rec, bool locked, string why)>();
             foreach (RecipeDef rec in list)
             {
                 bool l = Locked(rec, out string why);
-                if (filter == 1 && l || filter == 2 && !l) continue;
+                if (filter == 1 && l || filter == 2 && !l || filter == 3 && (l || inQueue.Contains(rec))) continue;
                 rows.Add((rec, l, why));
             }
             rows = rows.OrderBy(x => x.locked).ThenBy(x => x.rec.label).ToList();

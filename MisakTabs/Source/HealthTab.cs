@@ -16,7 +16,7 @@ namespace MisakTabs
     // ---------------------------------------------------------------------------
     public static class HealthTab
     {
-        public static readonly Vector2 Size = new Vector2(820f, 540f);
+        public static Vector2 Size => TabSize.Fit(MTMod.S.healthW, MTMod.S.healthH, 640f, 400f);
         private static readonly AccessTools.FieldRef<InspectTabBase, Vector2> sizeRef = AccessTools.FieldRefAccess<InspectTabBase, Vector2>("size");
         private static AccessTools.FieldRef<bool> opTab;
         public static bool showOriginal;
@@ -101,6 +101,7 @@ namespace MisakTabs
             Look.Box(r, Look.Bg);
             Rect head = new Rect(r.x, r.y, r.width, 54f);
             Header(head, pawn);
+            TabSize.Grip(r, "health", ref MTMod.S.healthW, ref MTMod.S.healthH, 640f, 400f);   // 0.6.0
             Rect body = new Rect(r.x, head.yMax, r.width, r.height - head.height);
             Rect left = new Rect(body.x, body.y, 250f, body.height);
             Rect mid = new Rect(left.xMax, body.y, 230f, body.height);
