@@ -956,6 +956,10 @@ public class WorkGiver_GiveDrug : WorkGiver_Scanner
 		Pawn patient = t as Pawn;
 		if (patient == null || !Ok(patient))
 			return false;
+		// 1.4.4: a colonist lying hurt outside a bed is rescued and tended first – drugs only after that
+		// (before, a doctor sometimes ran to the downed colonist with a drug instead of carrying him to bed)
+		if (!forced && patient != pawn && ((patient.Downed && !patient.InBed()) || HealthAIUtility.ShouldBeTendedNowByPlayerUrgent(patient)))
+			return false;
 		if (patient != pawn && !pawn.CanReserveAndReach(patient, PathEndMode.Touch, Danger.Some, 1, -1, null, forced))
 			return false;
 		Pharmacy.Choice c = Pharmacy.Choose(pawn, patient);
@@ -1328,7 +1332,7 @@ public class AutoPharmacyMod : Mod
 	private Vector2 scroll;
 	private static string search = "";
 	public static bool PharmacistActive => ModsConfig.IsActive("fluffy.pharmacist");
-	public const string Version = "1.4.3";
+	public const string Version = "1.4.4";
 	private static List<string> recBullets;
 
 	private static void Check(Listing_Standard l, string key, ref bool value, string field)

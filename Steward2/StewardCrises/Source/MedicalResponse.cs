@@ -205,21 +205,35 @@ public static class MedicalResponse
 		return which + " " + why;
 	}
 
+	// 1.0.7: only rescue or tending – other doctor jobs from mods (giving drugs, feeding …) are never
+	// started for an emergency; a colonist bleeding fast on the floor is stabilised (tended) first and
+	// then carried to bed, a slow bleeder is carried first
+	private static bool IsRescueGiver(WorkGiverDef g) => g.defName.IndexOf("Rescue", StringComparison.OrdinalIgnoreCase) >= 0;
+
+	private static bool IsTendJob(Job j) => j != null && (j.def == JobDefOf.TendPatient || j.def.defName.IndexOf("Tend", StringComparison.OrdinalIgnoreCase) >= 0);
+
 	private static Job JobFor(Pawn doctor, Pawn patient)
 	{
 		bool onFloor = patient.Downed && !patient.InBed();
+		float bleed = patient.health.hediffSet.BleedRateTotal;
 		if (onFloor)
 		{
-			Job rescue = TryGivers(doctor, patient, g => g.defName.IndexOf("Rescue", StringComparison.OrdinalIgnoreCase) >= 0);
+			if (bleed >= 0.5f)
+			{
+				Job stop = TryGivers(doctor, patient, g => !IsRescueGiver(g), IsTendJob);
+				if (stop != null)
+					return stop;
+			}
+			Job rescue = TryGivers(doctor, patient, IsRescueGiver, j => j.def == JobDefOf.Rescue || j.def.defName.IndexOf("Rescue", StringComparison.OrdinalIgnoreCase) >= 0);
 			if (rescue != null)
 				return rescue;
-			if (patient.health.hediffSet.BleedRateTotal <= 0.01f)
+			if (bleed <= 0.01f)
 				return null;
 		}
-		return TryGivers(doctor, patient, g => g.defName.IndexOf("Rescue", StringComparison.OrdinalIgnoreCase) < 0);
+		return TryGivers(doctor, patient, g => !IsRescueGiver(g), IsTendJob);
 	}
 
-	private static Job TryGivers(Pawn doctor, Pawn patient, Predicate<WorkGiverDef> which)
+	private static Job TryGivers(Pawn doctor, Pawn patient, Predicate<WorkGiverDef> which, Predicate<Job> accept = null)
 	{
 		foreach (WorkGiverDef g in Givers())
 		{
@@ -232,7 +246,7 @@ public static class MedicalResponse
 				if (!s.HasJobOnThing(doctor, patient))
 					continue;
 				Job j = s.JobOnThing(doctor, patient);
-				if (j != null)
+				if (j != null && (accept == null || accept(j)))
 				{
 					j.workGiverDef = g;
 					return j;
