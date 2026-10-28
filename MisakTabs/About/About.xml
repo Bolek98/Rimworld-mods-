@@ -3,7 +3,7 @@
   <name>Mišák Tabs – Clear Bills, Health &amp; Info</name>
   <author>Bolek98</author>
   <packageId>bolek98.misaktabs</packageId>
-  <modVersion>0.8.0</modVersion>
+  <modVersion>0.9.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -19,7 +19,7 @@
     <li>brrainz.harmony</li>
     <li>andromeda.nicebilltab</li>
   </loadAfter>
-  <description>Clear, modern inspect tabs in one dark style. First part: the bills tab.
+  <description>Clear, modern inspect tabs in one dark style. Bills, health, character and social.
 
 - Recipes with pictures, search and filters; locked recipes say which research is missing.
 - The bill queue as cards: who works on it right now, how many you have of the target, when materials are missing.
@@ -27,21 +27,23 @@
 - Linked bills on several workbenches share their settings; copy all bills of a workbench into others; − / + to change the count right in the list.
 - The original tab is one click away (for buttons other mods add to it).
 
-New in 0.2: the health tab.
-- The state in one line (bleeding and time until death, a disease you are losing, needs tending).
-- Care, pain and capacities with bars on the left.
-- The colonist's whole figure with coloured marks where something is wrong – click a mark to see only that part.
-- Conditions by body part, with tended / needs tending / bleeding, and immunity against a disease as two bars.
-- Operations and the original tab are one click away.
-- Right click on a mark or a condition: the operations for that body part.
+The health tab:
+- A big anatomy figure (by body type) with three views – Body, Organs, Bones: every part coloured by its state (healthy, hurt, missing, prosthesis, bionic, archotech), broken bones red.
+- Race features from the race itself – ears, tails, horns, wings, halo … – also for races from mods.
+- Point at a part: a card with what is wrong there; click: only that part in the list; right click: its operations.
+- The state with bars, care settings, filters (All / Injuries / Replacements / Missing / Diseases) and one row per condition.
 
-Colonist info and gear tabs follow in the next versions.
+The character tab: portrait, backstory, traits and what they will not do; skills; a life timeline by year (birth, joining, the game's stories, breakdowns, lost and new body parts, skill levels, partners); records.
+
+The social tab: everyone they know with both opinions; click one to see why – every reason both ways, compatibility and romance chance; otherwise partner, best friend, worst rival and the last talks.
+
+Every tab can be resized (drag the top right corner) and switched back to the original with one click.
 
 Requires Harmony. Czech and English.
 
 ---
 
-Přehledné moderní záložky v jednom tmavém stylu. První část: zakázky.
+Přehledné moderní záložky v jednom tmavém stylu. Zakázky, zdraví, postava a vztahy.
 
 - Recepty s obrázky, hledáním a filtry; zamčené recepty řeknou, jaký výzkum chybí.
 - Fronta zakázek jako karty: kdo na ní právě pracuje, kolik už máš z cíle, kdy chybí suroviny.
@@ -49,15 +51,17 @@ Přehledné moderní záložky v jednom tmavém stylu. První část: zakázky.
 - Propojené zakázky na více stolech mají společné nastavení; všechny zakázky stolu zkopíruješ do dalších stolů; − / + mění počet přímo v seznamu.
 - Původní záložka je na jedno kliknutí (kvůli tlačítkům, která do ní přidávají jiné mody).
 
-Nově v 0.2: záložka zdraví.
-- Stav v jednom řádku (krvácení a čas do smrti, nemoc, kterou prohrává, potřebuje ošetřit).
-- Vlevo péče, bolest a schopnosti s pruhy.
-- Uprostřed celá postava kolonisty s barevnými značkami, kde je co špatně – kliknutím na značku uvidíš jen tu část.
-- Stavy podle částí těla s ošetřeno / ošetřit / krvácí a imunitou proti nemoci jako dva pruhy.
-- Operace a původní záložka jsou na jedno kliknutí.
-- Pravým kliknutím na značku nebo stav: operace pro tu část těla.
+Záložka zdraví:
+- Velká anatomická postava (podle typu těla) se třemi pohledy – Tělo, Orgány, Kosti: každá část má barvu podle stavu (zdravé, zraněné, chybí, protéza, bionika, archotech), zlomené kosti jsou červené.
+- Rasové doplňky podle samotné rasy – uši, ocasy, rohy, křídla, svatozář … – i pro rasy z modů.
+- Najetí na část: karta s tím, co je s ní; klik: v seznamu jen ta část; pravý klik: operace.
+- Stav s pruhy, nastavení péče, filtry (Vše / Zranění / Náhrady / Chybí / Nemoci) a řádek pro každý stav.
 
-Zdraví, informace o kolonistovi a výbava přijdou v dalších verzích.
+Záložka postava: portrét, minulost, rysy a co nebude dělat; dovednosti; časová osa života po letech (narození, příchod, příběhy ze hry, zhroucení, ztracené a nové části těla, úrovně dovedností, partneři); záznamy.
+
+Sociální záložka: všichni, koho zná, s názory obou stran; klikni na někoho a uvidíš proč – každý důvod oběma směry, povahovou shodu a šanci na romantiku; jinak partner, nejlepší přítel, největší rival a poslední rozhovory.
+
+Každou záložku zvětšíš (táhni za pravý horní roh) a jedním kliknutím přepneš na původní.
 
 Vyžaduje Harmony. Čeština a angličtina.</description>
 </ModMetaData>

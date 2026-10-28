@@ -22,6 +22,8 @@ namespace MisakTabs
         public bool replaceOtherHealthTabs = true; // 0.2.0: take over the health tab from other mods
         // 0.6.0: the player's window sizes (drag the corner) and the width of the recipe list
         public float billsW = 820f, billsH = 580f, billsLeft = 300f, healthW = 820f, healthH = 540f;
+        public bool character = true, social = true;                                  // 0.9.0
+        public float charW = 820f, charH = 560f, socialW = 800f, socialH = 540f;      // 0.9.0
 
         public override void ExposeData()
         {
@@ -35,12 +37,18 @@ namespace MisakTabs
             Scribe_Values.Look(ref billsLeft, "billsLeft", 300f);
             Scribe_Values.Look(ref healthW, "healthW", 820f);
             Scribe_Values.Look(ref healthH, "healthH", 540f);
+            Scribe_Values.Look(ref character, "character", true);
+            Scribe_Values.Look(ref social, "social", true);
+            Scribe_Values.Look(ref charW, "charW", 820f);
+            Scribe_Values.Look(ref charH, "charH", 560f);
+            Scribe_Values.Look(ref socialW, "socialW", 800f);
+            Scribe_Values.Look(ref socialH, "socialH", 540f);
         }
     }
 
     public class MTMod : Mod
     {
-        public const string Version = "0.8.0";
+        public const string Version = "0.9.0";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0
@@ -50,7 +58,7 @@ namespace MisakTabs
         {
             S = GetSettings<MTSettings>();
             Pack = content;
-            MUI.Init(new MTSettings(), null, "recommended", "billsW", "billsH", "billsLeft", "healthW", "healthH");
+            MUI.Init(new MTSettings(), null, "recommended", "billsW", "billsH", "billsLeft", "healthW", "healthH", "charW", "charH", "socialW", "socialH");
             if (S.recommended) MUI.ApplyAll(S);
             MNews.Register(content, Version);
             H = new Harmony("bolek98.misaktabs");
@@ -58,6 +66,7 @@ namespace MisakTabs
             BillsTab.Patch(H);
             BillPrio.Patch(H);
             HealthTab.Patch(H);
+            PawnTabs.Patch(H);   // 0.9.0
             LongEventHandler.ExecuteWhenFinished(BillsTab.TakeOver);
             LongEventHandler.ExecuteWhenFinished(HealthTab.TakeOver);
             Log.Message("[Mišák Tabs] v" + Version + " loaded.");
@@ -86,6 +95,8 @@ namespace MisakTabs
                 Check(l, "MT_ReplaceOther", ref S.replaceOtherBillTabs, "replaceOtherBillTabs");
                 Check(l, "MT_Health", ref S.health, "health");
                 Check(l, "MT_ReplaceOtherHealth", ref S.replaceOtherHealthTabs, "replaceOtherHealthTabs");
+                Check(l, "MT_Character", ref S.character, "character");
+                Check(l, "MT_Social", ref S.social, "social");
                 l.End();
             }
             finally { MUI.EndLock(rest); }
@@ -290,6 +301,8 @@ namespace MisakTabs
         {
             if (__instance is ITab_Bills && MTMod.S.bills && !showOriginal) sizeRef(__instance) = Size;
             else if (HealthTab.Ours(__instance)) sizeRef(__instance) = HealthTab.Size;
+            else if (PawnTabs.OursSocial(__instance)) sizeRef(__instance) = PawnTabs.SocialSize;
+            else if (__instance is ITab_Pawn_Social && sizeRef(__instance) == PawnTabs.SocialSize) sizeRef(__instance) = new Vector2(540f, 510f);
             else if (__instance is ITab_Pawn_Health && sizeRef(__instance) == HealthTab.Size) sizeRef(__instance) = new Vector2(630f, 430f);
         }
 
