@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <TT_ModsToGroup>Tlačítka z modů dát do skupiny „{0}“</TT_ModsToGroup>
+  <TT_ModsToGroupTip>Tlačítka ze hry zůstanou na liště; každé tlačítko, které přidal mod, je v jednom tlačítku skupiny, které otevře menu. Kterékoli můžeš vrátit na lištu nebo dát do vlastní skupiny.</TT_ModsToGroupTip>
   <TT_AutoMove>Co se nevejde, přesunout do „Více“</TT_AutoMove>
   <TT_AutoMoveTip>Když je lišta plná, poslední tlačítka se přesunou do menu „Více“, místo aby se mačkala, dokud se jim neusekne název.</TT_AutoMoveTip>
   <TT_IconsSmall>Tlačítka s ikonou ukazují jen ikonu</TT_IconsSmall>
   <TT_IconsSmallTip>Tlačítko, které má ikonu, zabere jen šířku ikony; název je v bublině. Ostatním zbude víc místa.</TT_IconsSmallTip>
-  <TT_Hint>Pravým klikem na tlačítko v liště ho schováš, posuneš nebo otevřeš toto nastavení. Klávesové zkratky schovaných tlačítek fungují dál.</TT_Hint>
-  <TT_Reset>Obnovit pořadí ze hry</TT_Reset>
+  <TT_Hint>Pravým klikem na tlačítko v liště ho dáš do skupiny nebo zpět. Pravým klikem na skupinu roztřídíš její tlačítka. Klávesové zkratky fungují všude.</TT_Hint>
+  <TT_Reset>Obnovit vše</TT_Reset>
   <TT_OnBar>Na liště</TT_OnBar>
-  <TT_More>Více…</TT_More>
-  <TT_MoreTip>Další tlačítka: {0}</TT_MoreTip>
+  <TT_InGroup>Ve skupině: {0}</TT_InGroup>
+  <TT_ToBar>Dát na lištu</TT_ToBar>
+  <TT_ToGroup>Do skupiny „{0}“</TT_ToGroup>
+  <TT_NewGroup>Nová skupina…</TT_NewGroup>
+  <TT_GroupNameAsk>Název nové skupiny:</TT_GroupNameAsk>
+  <TT_WhereTo>{0} – přesunout…</TT_WhereTo>
+  <TT_Mods>Mody</TT_Mods>
+  <TT_More>Více</TT_More>
+  <TT_GroupTip>{0}: {1}\n\nPravým klikem tato tlačítka přesuneš.</TT_GroupTip>
   <TT_Edit>Upravit lištu…</TT_Edit>
-  <TT_Hide>Přesunout „{0}“ do „Více“</TT_Hide>
   <TT_Left>Posunout doleva</TT_Left>
   <TT_Right>Posunout doprava</TT_Right>
 </LanguageData>

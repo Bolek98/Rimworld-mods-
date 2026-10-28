@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <TT_ModsToGroup>Buttons from mods go into the group "{0}"</TT_ModsToGroup>
+  <TT_ModsToGroupTip>The game's own buttons stay on the bar; every button added by a mod goes into one group button that opens a menu. You can still put any of them back on the bar or into your own groups.</TT_ModsToGroupTip>
   <TT_AutoMove>Move buttons that don't fit into "More"</TT_AutoMove>
   <TT_AutoMoveTip>When the bar is full, the last buttons go into the "More" menu instead of being squeezed until their labels are cut.</TT_AutoMoveTip>
   <TT_IconsSmall>Buttons with an icon show only the icon</TT_IconsSmall>
   <TT_IconsSmallTip>A button that has an icon takes only the icon's width; its name is in the tooltip. Leaves more room for the others.</TT_IconsSmallTip>
-  <TT_Hint>Right click any button on the bar to hide it, move it or open these settings. Hotkeys of hidden buttons still work.</TT_Hint>
-  <TT_Reset>Reset to the game's order</TT_Reset>
+  <TT_Hint>Right click a button on the bar to move it into a group or back. Right click a group to sort its buttons. Hotkeys work everywhere.</TT_Hint>
+  <TT_Reset>Reset everything</TT_Reset>
   <TT_OnBar>On the bar</TT_OnBar>
-  <TT_More>More…</TT_More>
-  <TT_MoreTip>More buttons: {0}</TT_MoreTip>
+  <TT_InGroup>In group: {0}</TT_InGroup>
+  <TT_ToBar>Put on the bar</TT_ToBar>
+  <TT_ToGroup>Into group "{0}"</TT_ToGroup>
+  <TT_NewGroup>New group…</TT_NewGroup>
+  <TT_GroupNameAsk>Name of the new group:</TT_GroupNameAsk>
+  <TT_WhereTo>{0} – move to…</TT_WhereTo>
+  <TT_Mods>Mods</TT_Mods>
+  <TT_More>More</TT_More>
+  <TT_GroupTip>{0}: {1}\n\nRight click to move these buttons.</TT_GroupTip>
   <TT_Edit>Edit the toolbar…</TT_Edit>
-  <TT_Hide>Move "{0}" into "More"</TT_Hide>
   <TT_Left>Move left</TT_Left>
   <TT_Right>Move right</TT_Right>
 </LanguageData>

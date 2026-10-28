@@ -9,26 +9,38 @@ using Verse;
 namespace TidyToolbar
 {
     // ---------------------------------------------------------------------------
-    // Tidy Toolbar: the bottom bar with too many buttons from mods. Every button gets the width its
-    // label needs (no more cut labels), buttons with an icon stay small, and what does not fit goes
-    // into a "More" menu at the end of the bar. Right click a button to hide it, move it or open the
-    // settings. Hotkeys of hidden buttons still work.
+    // Tidy Toolbar: the bottom bar with too many buttons from mods.
+    // - Buttons are sorted into GROUPS: each group is one button on the bar that opens a menu
+    //   with its buttons. By default the game's own buttons stay on the bar and every button
+    //   added by a mod goes into the group "Mods".
+    // - Right click any button (on the bar or in a group menu): put it on the bar, into another
+    //   group or a new group, move it left/right.
+    // - Every button gets the width its label needs (no more cut labels), buttons with an icon
+    //   stay small, and what still does not fit goes into "More".
+    // - Hotkeys of buttons inside groups still work.
     // ---------------------------------------------------------------------------
     public sealed class TTSettings : ModSettings
     {
         public List<string> order = new List<string>();     // user order (defNames); empty = the game's order
-        public List<string> hidden = new List<string>();    // always in the "More" menu
+        public List<string> placeKeys = new List<string>(); // defName → where it is ("" = bar, else group name)
+        public List<string> placeVals = new List<string>();
+        public List<string> groups = new List<string>();    // user group names, in bar order
+        public bool modsToGroup = true;                     // buttons from mods go into the group "Mods" by default
         public bool autoMove = true;                        // what does not fit goes into "More"
         public bool iconsSmall = true;                      // buttons with an icon take only the icon's width
 
         public override void ExposeData()
         {
             Scribe_Collections.Look(ref order, "order", LookMode.Value);
-            Scribe_Collections.Look(ref hidden, "hidden", LookMode.Value);
+            Scribe_Collections.Look(ref placeKeys, "placeKeys", LookMode.Value);
+            Scribe_Collections.Look(ref placeVals, "placeVals", LookMode.Value);
+            Scribe_Collections.Look(ref groups, "groups", LookMode.Value);
+            Scribe_Values.Look(ref modsToGroup, "modsToGroup", true);
             Scribe_Values.Look(ref autoMove, "autoMove", true);
             Scribe_Values.Look(ref iconsSmall, "iconsSmall", true);
             if (order == null) order = new List<string>();
-            if (hidden == null) hidden = new List<string>();
+            if (placeKeys == null || placeVals == null || placeKeys.Count != placeVals.Count) { placeKeys = new List<string>(); placeVals = new List<string>(); }
+            if (groups == null) groups = new List<string>();
         }
     }
 
@@ -59,21 +71,28 @@ namespace TidyToolbar
         public override void DoSettingsWindowContents(Rect inRect)
         {
             var top = new Listing_Standard();
-            top.Begin(new Rect(inRect.x, inRect.y, inRect.width, 110f));
+            top.Begin(new Rect(inRect.x, inRect.y, inRect.width, 90f));
+            top.CheckboxLabeled("TT_ModsToGroup".Translate(Bar.ModsGroup), ref S.modsToGroup, "TT_ModsToGroupTip".Translate());
             top.CheckboxLabeled("TT_AutoMove".Translate(), ref S.autoMove, "TT_AutoMoveTip".Translate());
             top.CheckboxLabeled("TT_IconsSmall".Translate(), ref S.iconsSmall, "TT_IconsSmallTip".Translate());
             top.End();
             GUI.color = new Color(0.7f, 0.72f, 0.76f);
-            Widgets.Label(new Rect(inRect.x, inRect.y + 60f, inRect.width - 200f, 44f), "TT_Hint".Translate());
+            Text.Font = GameFont.Tiny;
+            Widgets.Label(new Rect(inRect.x, inRect.y + 92f, inRect.width - 420f, 40f), "TT_Hint".Translate());
+            Text.Font = GameFont.Small;
             GUI.color = Color.white;
-            if (Widgets.ButtonText(new Rect(inRect.xMax - 190f, inRect.y + 64f, 190f, 30f), "TT_Reset".Translate()))
+            if (Widgets.ButtonText(new Rect(inRect.xMax - 410f, inRect.y + 94f, 200f, 30f), "TT_NewGroup".Translate()))
+                Bar.AskNewGroup(null);
+            if (Widgets.ButtonText(new Rect(inRect.xMax - 200f, inRect.y + 94f, 200f, 30f), "TT_Reset".Translate()))
             {
                 S.order.Clear();
-                S.hidden.Clear();
+                S.placeKeys.Clear();
+                S.placeVals.Clear();
+                S.groups.Clear();
             }
 
             List<MainButtonDef> all = Bar.Ordered(DefDatabase<MainButtonDef>.AllDefsListForReading.Where(d => d.buttonVisible).ToList());
-            Rect outR = new Rect(inRect.x, inRect.y + 110f, inRect.width, inRect.height - 110f);
+            Rect outR = new Rect(inRect.x, inRect.y + 136f, inRect.width, inRect.height - 136f);
             const float rowH = 30f;
             Rect view = new Rect(0f, 0f, outR.width - 16f, all.Count * rowH);
             Widgets.BeginScrollView(outR, ref scroll, view);
@@ -85,13 +104,12 @@ namespace TidyToolbar
                 float x = 4f;
                 if (d.Icon != null) GUI.DrawTexture(new Rect(x, r.y + 3f, 24f, 24f), d.Icon);
                 x += 30f;
-                bool onBar = !S.hidden.Contains(d.defName);
-                bool was = onBar;
                 Text.Anchor = TextAnchor.MiddleLeft;
-                Widgets.Label(new Rect(x, r.y, r.width - x - 260f, rowH), d.LabelCap + "  <color=#888888>(" + (d.modContentPack?.Name ?? "?") + ")</color>");
+                Widgets.Label(new Rect(x, r.y, r.width - x - 330f, rowH), d.LabelCap + "  <color=#888888>(" + (d.modContentPack?.Name ?? "?") + ")</color>");
                 Text.Anchor = TextAnchor.UpperLeft;
-                Widgets.CheckboxLabeled(new Rect(r.xMax - 250f, r.y + 3f, 160f, 24f), "TT_OnBar".Translate(), ref onBar);
-                if (onBar != was) Bar.SetHidden(d, !onBar);
+                string place = Bar.PlaceOf(d);
+                if (Widgets.ButtonText(new Rect(r.xMax - 320f, r.y + 2f, 230f, 26f), place == "" ? "TT_OnBar".Translate().ToString() : "TT_InGroup".Translate(place).ToString()))
+                    Find.WindowStack.Add(new FloatMenu(Bar.PlaceOptions(d)));
                 if (i > 0 && Widgets.ButtonImage(new Rect(r.xMax - 74f, r.y + 3f, 24f, 24f), TexButton.ReorderUp))
                     Bar.Move(all, i, -1);
                 if (i < all.Count - 1 && Widgets.ButtonImage(new Rect(r.xMax - 36f, r.y + 3f, 24f, 24f), TexButton.ReorderDown))
@@ -111,12 +129,72 @@ namespace TidyToolbar
         private const float Pad = 22f;
         private static bool failed;
 
+        public static string ModsGroup => "TT_Mods".Translate();
+        public static string MoreGroup => "TT_More".Translate();
+        private static TTSettings S => TidyToolbarMod.S;
+
+        // ---- where a button lives ----
+        public static bool IsGameButton(MainButtonDef d) => d.modContentPack == null || d.modContentPack.IsOfficialMod;
+
+        public static string PlaceOf(MainButtonDef d)
+        {
+            int i = S.placeKeys.IndexOf(d.defName);
+            if (i >= 0) return S.placeVals[i];
+            if (S.modsToGroup && !IsGameButton(d) && !IsMenu(d)) return ModsGroup;
+            return "";
+        }
+
+        public static void SetPlace(MainButtonDef d, string place)
+        {
+            int i = S.placeKeys.IndexOf(d.defName);
+            if (i >= 0) S.placeVals[i] = place;
+            else { S.placeKeys.Add(d.defName); S.placeVals.Add(place); }
+            if (place != "" && place != ModsGroup && place != MoreGroup && !S.groups.Contains(place)) S.groups.Add(place);
+            // groups nobody uses any more disappear
+            S.groups.RemoveAll(g => !S.placeVals.Contains(g));
+            Save();
+        }
+
+        public static List<string> AllGroups()
+        {
+            var g = new List<string>(S.groups);
+            if (!g.Contains(ModsGroup)) g.Add(ModsGroup);
+            return g;
+        }
+
+        public static List<FloatMenuOption> PlaceOptions(MainButtonDef d)
+        {
+            var opts = new List<FloatMenuOption>();
+            string cur = PlaceOf(d);
+            if (cur != "") opts.Add(new FloatMenuOption("TT_ToBar".Translate(), () => SetPlace(d, "")));
+            foreach (string g in AllGroups().Concat(new[] { MoreGroup }))
+                if (g != cur)
+                {
+                    string gg = g;
+                    opts.Add(new FloatMenuOption("TT_ToGroup".Translate(gg), () => SetPlace(d, gg)));
+                }
+            opts.Add(new FloatMenuOption("TT_NewGroup".Translate(), () => AskNewGroup(d)));
+            return opts;
+        }
+
+        public static void AskNewGroup(MainButtonDef d)
+        {
+            Find.WindowStack.Add(new Dialog_GroupName(name =>
+            {
+                if (name.NullOrEmpty()) return;
+                if (!S.groups.Contains(name)) S.groups.Add(name);
+                if (d != null) SetPlace(d, name);
+                else Save();
+            }));
+        }
+
+        // ---- order ----
         // the buttons in the user's order; buttons the user never moved keep their place after the
         // button that comes before them in the game's order
         public static List<MainButtonDef> Ordered(List<MainButtonDef> defs)
         {
             var game = defs.OrderBy(d => d.order).ToList();
-            List<string> order = TidyToolbarMod.S.order;
+            List<string> order = S.order;
             if (order.Count == 0)
                 return game;
             var result = new List<MainButtonDef>();
@@ -146,15 +224,7 @@ namespace TidyToolbar
             MainButtonDef t = list[i];
             list[i] = list[j];
             list[j] = t;
-            TidyToolbarMod.S.order = list.Select(d => d.defName).ToList();
-            Save();
-        }
-
-        public static void SetHidden(MainButtonDef d, bool hide)
-        {
-            List<string> h = TidyToolbarMod.S.hidden;
-            if (hide && !h.Contains(d.defName)) h.Add(d.defName);
-            if (!hide) h.Remove(d.defName);
+            S.order = list.Select(d => d.defName).ToList();
             Save();
         }
 
@@ -167,13 +237,20 @@ namespace TidyToolbar
 
         private static float Want(MainButtonDef d, bool shortened)
         {
-            if (d.Icon != null && (TidyToolbarMod.S.iconsSmall || d.minimized))
+            if (d.Icon != null && (S.iconsSmall || d.minimized))
                 return IconW;
             Text.Font = GameFont.Small;
             float w = shortened ? d.ShortenedLabelCapWidth : d.LabelCapWidth;
             return Mathf.Max(MinText, w + Pad);
         }
 
+        private static float GroupWant(string g)
+        {
+            Text.Font = GameFont.Small;
+            return Mathf.Max(MinText, Text.CalcSize(g + " (99)").x + Pad);
+        }
+
+        // ---- drawing ----
         public static bool Prefix(MainButtonsRoot __instance)
         {
             if (failed) return true;
@@ -190,110 +267,130 @@ namespace TidyToolbar
             }
         }
 
+        // one thing on the bar: a button or a group
+        private sealed class Item
+        {
+            public MainButtonDef def;
+            public string group;
+            public List<MainButtonDef> members;
+            public float w;
+        }
+
         private static void Draw(MainButtonsRoot root)
         {
             List<MainButtonDef> all = allRef(root);
             List<MainButtonDef> visible = Ordered(all.Where(d => d.Worker.Visible).ToList());
             var bar = new List<MainButtonDef>();
-            var more = new List<MainButtonDef>();
+            var inGroup = new Dictionary<string, List<MainButtonDef>>();
             foreach (MainButtonDef d in visible)
-                (TidyToolbarMod.S.hidden.Contains(d.defName) && !IsMenu(d) ? more : bar).Add(d);
+            {
+                string p = IsMenu(d) ? "" : PlaceOf(d);
+                if (p == "") { bar.Add(d); continue; }
+                if (!inGroup.TryGetValue(p, out var l)) inGroup[p] = l = new List<MainButtonDef>();
+                l.Add(d);
+            }
+            if (!inGroup.TryGetValue(MoreGroup, out var more)) more = new List<MainButtonDef>();
 
             float screen = UI.screenWidth;
-            float moreW = MoreWidth();
+            List<string> groupNames = AllGroups().Where(g => inGroup.ContainsKey(g)).ToList();
             bool shortened = false;
-            Func<float> need = () => bar.Sum(d => Want(d, shortened)) + (more.Count > 0 ? moreW : 0f);
+            Func<float> need = () => bar.Sum(d => Want(d, shortened)) + groupNames.Sum(GroupWant) + (more.Count > 0 ? GroupWant(MoreGroup) : 0f);
             if (need() > screen) shortened = true;
-            if (TidyToolbarMod.S.autoMove)
+            if (S.autoMove)
                 while (need() > screen && bar.Count > 1)
                 {
-                    // the last button that is not the main menu goes into "More"
                     int k = bar.FindLastIndex(d => !IsMenu(d));
                     if (k < 0) break;
                     more.Insert(0, bar[k]);
                     bar.RemoveAt(k);
                 }
 
-            // widths: what each needs, the space left goes to the text buttons
-            var w = bar.Select(d => Want(d, shortened)).ToList();
-            float used = w.Sum() + (more.Count > 0 ? moreW : 0f);
+            // the items in bar order: buttons, then the groups and "More" right before the main menu
+            var items = new List<Item>();
+            foreach (MainButtonDef d in bar)
+                if (!IsMenu(d)) items.Add(new Item { def = d, w = Want(d, shortened) });
+            foreach (string g in groupNames)
+                items.Add(new Item { group = g, members = inGroup[g], w = GroupWant(g) });
+            if (more.Count > 0)
+                items.Add(new Item { group = MoreGroup, members = more, w = GroupWant(MoreGroup) });
+            foreach (MainButtonDef d in bar)
+                if (IsMenu(d)) items.Add(new Item { def = d, w = Want(d, shortened) });
+
+            float used = items.Sum(it => it.w);
             float left = screen - used;
             if (left > 0f)
             {
-                var growable = Enumerable.Range(0, bar.Count).Where(i => w[i] > IconW).ToList();
-                if (growable.Count == 0) growable = Enumerable.Range(0, bar.Count).ToList();
-                if (growable.Count > 0)
-                {
-                    float total = growable.Sum(i => w[i]);
-                    foreach (int i in growable) w[i] += left * w[i] / Mathf.Max(1f, total);
-                }
+                var grow = items.Where(it => it.w > IconW).ToList();
+                if (grow.Count == 0) grow = items;
+                float total = grow.Sum(it => it.w);
+                foreach (Item it in grow) it.w += left * it.w / Mathf.Max(1f, total);
             }
             else if (left < 0f)
             {
-                float f = (screen - (more.Count > 0 ? moreW : 0f)) / Mathf.Max(1f, w.Sum());
-                for (int i = 0; i < w.Count; i++) w[i] *= f;
+                float f = screen / Mathf.Max(1f, used);
+                foreach (Item it in items) it.w *= f;
             }
 
             GUI.color = Color.white;
             float y = UI.screenHeight - 35;
             float x = 0f;
-            // "More" sits right before the main menu (or at the very end)
-            int menuAt = bar.FindIndex(IsMenu);
-            int moreAt = more.Count == 0 ? -1 : (menuAt >= 0 ? menuAt : bar.Count);
-            for (int i = 0; i <= bar.Count; i++)
+            for (int i = 0; i < items.Count; i++)
             {
-                if (i == moreAt)
-                {
-                    Rect mr = new Rect(Mathf.Round(x), y, Mathf.Round(moreW), 36f);
-                    DrawMore(mr, more);
-                    x += moreW;
-                }
-                if (i == bar.Count) break;
-                bool last = i == bar.Count - 1 && moreAt != bar.Count;
-                float bw = last ? screen - Mathf.Round(x) : Mathf.Round(x + w[i]) - Mathf.Round(x);
+                Item it = items[i];
+                float bw = i == items.Count - 1 ? screen - Mathf.Round(x) : Mathf.Round(x + it.w) - Mathf.Round(x);
                 Rect r = new Rect(Mathf.Round(x), y, bw, 36f);
-                MainButtonDef d = bar[i];
-                if (Event.current.type == EventType.MouseDown && Event.current.button == 1 && Mouse.IsOver(r))
+                if (it.def != null)
                 {
-                    Event.current.Use();
-                    Find.WindowStack.Add(new FloatMenu(ButtonMenu(d, visible)));
+                    if (Event.current.type == EventType.MouseDown && Event.current.button == 1 && Mouse.IsOver(r))
+                    {
+                        Event.current.Use();
+                        Find.WindowStack.Add(new FloatMenu(ButtonMenu(it.def, visible)));
+                    }
+                    it.def.Worker.DoButton(r);
                 }
-                d.Worker.DoButton(r);
-                x += w[i];
+                else
+                    DrawGroup(r, it.group, it.members, visible);
+                x += it.w;
             }
         }
 
-        private static float MoreWidth()
+        private static void DrawGroup(Rect r, string name, List<MainButtonDef> members, List<MainButtonDef> visible)
         {
-            Text.Font = GameFont.Small;
-            return Mathf.Max(MinText, Text.CalcSize("TT_More".Translate()).x + Pad);
-        }
-
-        private static void DrawMore(Rect r, List<MainButtonDef> more)
-        {
-            bool open = more.Any(d => Find.MainTabsRoot.OpenTab == d);
+            bool open = members.Any(d => Find.MainTabsRoot.OpenTab == d);
             if (open) Widgets.DrawHighlight(r);
-            if (Widgets.ButtonTextSubtle(r, "TT_More".Translate(), 0f, -1f, SoundDefOf.Mouseover_Category))
+            bool right = Event.current.type == EventType.MouseDown && Event.current.button == 1 && Mouse.IsOver(r);
+            if (right) Event.current.Use();
+            if (Widgets.ButtonTextSubtle(r, name + " (" + members.Count + ")", 0f, -1f, SoundDefOf.Mouseover_Category) || right)
             {
                 var opts = new List<FloatMenuOption>();
-                foreach (MainButtonDef d in more)
+                foreach (MainButtonDef d in members)
                 {
                     MainButtonDef def = d;
                     string label = def.LabelCap;
-                    if (def.Worker.Disabled) { opts.Add(new FloatMenuOption(label, null, def.Icon, Color.white)); continue; }
+                    if (def.Worker.Disabled) { opts.Add(new FloatMenuOption(label, null, def.Icon ?? BaseContent.ClearTex, Color.white)); continue; }
                     opts.Add(new FloatMenuOption(label, () => def.Worker.InterfaceTryActivate(), def.Icon ?? BaseContent.ClearTex, Color.white));
+                }
+                if (right)
+                {
+                    // right click on a group: move its buttons somewhere
+                    opts.Clear();
+                    foreach (MainButtonDef d in members)
+                    {
+                        MainButtonDef def = d;
+                        opts.Add(new FloatMenuOption("TT_WhereTo".Translate(def.LabelCap), () => Find.WindowStack.Add(new FloatMenu(ButtonMenu(def, visible))), def.Icon ?? BaseContent.ClearTex, Color.white));
+                    }
                 }
                 opts.Add(new FloatMenuOption("TT_Edit".Translate(), OpenSettings));
                 Find.WindowStack.Add(new FloatMenu(opts));
             }
-            TooltipHandler.TipRegion(r, "TT_MoreTip".Translate(string.Join(", ", more.Select(d => d.LabelCap.ToString()).ToArray())));
+            TooltipHandler.TipRegion(r, "TT_GroupTip".Translate(name, string.Join(", ", members.Select(d => d.LabelCap.ToString()).ToArray())));
         }
 
         private static List<FloatMenuOption> ButtonMenu(MainButtonDef d, List<MainButtonDef> visible)
         {
             var opts = new List<FloatMenuOption>();
             if (!IsMenu(d))
-                opts.Add(new FloatMenuOption("TT_Hide".Translate(d.LabelCap), () => SetHidden(d, true)));
+                opts.AddRange(PlaceOptions(d));
             var all = Ordered(DefDatabase<MainButtonDef>.AllDefsListForReading.Where(x => x.buttonVisible).ToList());
             int i = all.IndexOf(d);
             if (i > 0)
@@ -304,16 +401,17 @@ namespace TidyToolbar
             return opts;
         }
 
-        // moves past the next button that is actually on the bar (invisible ones are skipped)
+        // moves past the next visible button in the same place (bar or the same group)
         private static void MoveVisible(List<MainButtonDef> all, MainButtonDef d, int dir, List<MainButtonDef> visible)
         {
+            string place = PlaceOf(d);
             int i = all.IndexOf(d);
             int j = i + dir;
-            while (j >= 0 && j < all.Count && !visible.Contains(all[j])) j += dir;
+            while (j >= 0 && j < all.Count && (!visible.Contains(all[j]) || PlaceOf(all[j]) != place)) j += dir;
             if (j < 0 || j >= all.Count) return;
             all.RemoveAt(i);
             all.Insert(j, d);
-            TidyToolbarMod.S.order = all.Select(x => x.defName).ToList();
+            S.order = all.Select(x => x.defName).ToList();
             Save();
         }
 
@@ -321,6 +419,41 @@ namespace TidyToolbar
         {
             Mod mod = LoadedModManager.GetMod<TidyToolbarMod>();
             if (mod != null) Find.WindowStack.Add(new Dialog_ModSettings(mod));
+        }
+    }
+
+    // a small window that asks for the name of a new group
+    public sealed class Dialog_GroupName : Window
+    {
+        private readonly Action<string> done;
+        private string name = "";
+        private bool focused;
+
+        public Dialog_GroupName(Action<string> done)
+        {
+            this.done = done;
+            doCloseX = true;
+            closeOnClickedOutside = true;
+            absorbInputAroundWindow = true;
+            forcePause = true;
+        }
+
+        public override Vector2 InitialSize => new Vector2(360f, 150f);
+
+        public override void DoWindowContents(Rect inRect)
+        {
+            Widgets.Label(new Rect(0f, 0f, inRect.width, 28f), "TT_GroupNameAsk".Translate());
+            GUI.SetNextControlName("TT_GroupName");
+            name = Widgets.TextField(new Rect(0f, 32f, inRect.width, 32f), name);
+            if (!focused) { GUI.FocusControl("TT_GroupName"); focused = true; }
+            bool enter = Event.current.type == EventType.KeyDown && (Event.current.keyCode == KeyCode.Return || Event.current.keyCode == KeyCode.KeypadEnter);
+            if (Widgets.ButtonText(new Rect(inRect.width - 120f, inRect.height - 34f, 120f, 34f), "OK") || enter)
+            {
+                if (enter) Event.current.Use();
+                string n = name.Trim();
+                Close();
+                if (n.Length > 0) done(n);
+            }
         }
     }
 }
