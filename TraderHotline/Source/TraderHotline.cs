@@ -28,6 +28,11 @@ namespace TraderHotline
         public float stayMul = 1.5f;          // a called trader stays this many times longer
         public bool refund = true;            // fee back when it could not come
         public float caravanMul = 0.6f;       // a caravan costs this part of the fee
+        // 0.3.0
+        public float requestValue = 1500f;    // a special order brings goods worth this much
+        public float requestFeeMul = 0.35f;   // and costs this part of their value
+        public bool loyalty = true;           // every 5 calls 5 % off (max 20 %)
+        public List<string> favorites = new List<string>();
 
         public override void ExposeData()
         {
@@ -41,19 +46,24 @@ namespace TraderHotline
             Scribe_Values.Look(ref stayMul, "stayMul", 1.5f);
             Scribe_Values.Look(ref refund, "refund", true);
             Scribe_Values.Look(ref caravanMul, "caravanMul", 0.6f);
+            Scribe_Values.Look(ref requestValue, "requestValue", 1500f);
+            Scribe_Values.Look(ref requestFeeMul, "requestFeeMul", 0.35f);
+            Scribe_Values.Look(ref loyalty, "loyalty", true);
+            Scribe_Collections.Look(ref favorites, "favorites", LookMode.Value);
+            if (favorites == null) favorites = new List<string>();
         }
     }
 
     public class THMod : Mod
     {
-        public const string Version = "0.2.0";
+        public const string Version = "0.3.0";
         public static THSettings S;
         private static List<string> recBullets;
 
         public THMod(ModContentPack content) : base(content)
         {
             S = GetSettings<THSettings>();
-            MUI.Init(new THSettings(), null, "recommended");
+            MUI.Init(new THSettings(), null, "recommended", "favorites");
             if (S.recommended) MUI.ApplyAll(S);
             MNews.Register(content, Version);
             var h = new Harmony("misak.traderhotline");
@@ -92,6 +102,9 @@ namespace TraderHotline
                 S.stayMul = Mathf.Round(MUI.Slider(l, "TH_Stay".Translate(S.stayMul.ToString("0.0")), S.stayMul, 1f, 4f, "TH_Stay_Desc".Translate(), S, "stayMul") * 10f) / 10f;
                 S.caravanMul = Mathf.Round(MUI.Slider(l, "TH_CaravanMul".Translate(Mathf.RoundToInt(S.caravanMul * 100f)), S.caravanMul, 0.1f, 2f, "TH_CaravanMul_Desc".Translate(), S, "caravanMul") * 20f) / 20f;
                 MUI.Check(l, "TH_Refund".Translate(), "TH_Refund_Desc".Translate(), ref S.refund, S, "refund");
+                S.requestValue = Mathf.Round(MUI.Slider(l, "TH_ReqValue".Translate(Mathf.RoundToInt(S.requestValue)), S.requestValue, 300f, 5000f, "TH_ReqValue_Desc".Translate(), S, "requestValue") / 100f) * 100f;
+                S.requestFeeMul = Mathf.Round(MUI.Slider(l, "TH_ReqFee".Translate(Mathf.RoundToInt(S.requestFeeMul * 100f)), S.requestFeeMul, 0f, 1f, "TH_ReqFee_Desc".Translate(), S, "requestFeeMul") * 20f) / 20f;
+                MUI.Check(l, "TH_Loyalty".Translate(), "TH_Loyalty_Desc".Translate(), ref S.loyalty, S, "loyalty");
                 l.End();
             }
             finally { MUI.EndLock(rest); }
@@ -106,9 +119,13 @@ namespace TraderHotline
         public bool caravan;
         public int fireTick, deadline, fee;
         public bool announced;
+        public int request = -1;    // 0.3.0: special order (Cat) or -1
+        public int edge = -1;       // 0.3.0: caravans: map edge (Rot4) or -1 = any
 
         public void ExposeData()
         {
+            Scribe_Values.Look(ref request, "request", -1);
+            Scribe_Values.Look(ref edge, "edge", -1);
             Scribe_Values.Look(ref mapId, "mapId");
             Scribe_Defs.Look(ref kind, "kind");
             Scribe_Values.Look(ref fireTick, "fireTick");
@@ -127,12 +144,34 @@ namespace TraderHotline
         public Faction faction;
         public bool caravan;
         public string Label => caravan ? kind.LabelCap + " – " + faction.Name : kind.LabelCap.ToString();
+        public string Key => kind.defName + "|" + (caravan ? faction?.def?.defName ?? "" : "ship");
+        public bool Fav => THMod.S.favorites.Contains(Key);
+    }
+
+    // 0.3.0: a past call
+    public class CallRecord : IExposable
+    {
+        public TraderKindDef kind;
+        public Faction faction;
+        public bool caravan;
+        public int tick, fee;
+
+        public void ExposeData()
+        {
+            Scribe_Defs.Look(ref kind, "kind");
+            Scribe_References.Look(ref faction, "faction");
+            Scribe_Values.Look(ref caravan, "caravan");
+            Scribe_Values.Look(ref tick, "tick");
+            Scribe_Values.Look(ref fee, "fee");
+        }
     }
 
     public class HotlineComponent : GameComponent
     {
         public List<PendingCall> calls = new List<PendingCall>();
         public int nextCallTick;
+        public List<CallRecord> history = new List<CallRecord>();
+        public int callCount;
 
         public HotlineComponent(Game g) { }
 
@@ -142,8 +181,12 @@ namespace TraderHotline
         {
             Scribe_Collections.Look(ref calls, "calls", LookMode.Deep);
             Scribe_Values.Look(ref nextCallTick, "nextCallTick");
+            Scribe_Collections.Look(ref history, "history", LookMode.Deep);
+            Scribe_Values.Look(ref callCount, "callCount");
             if (calls == null) calls = new List<PendingCall>();
             calls.RemoveAll(c => c?.kind == null);
+            if (history == null) history = new List<CallRecord>();
+            history.RemoveAll(c => c?.kind == null);
         }
 
         // a called ship that vanishes long before its time was taken by another mod – say so in the log
@@ -170,7 +213,7 @@ namespace TraderHotline
                 Map map = Find.Maps.FirstOrDefault(m => m.uniqueID == c.mapId);
                 if (map == null) { calls.Remove(c); continue; }
                 if (now < c.fireTick) continue;
-                if (c.caravan ? Hotline.ArriveCaravan(map, c.kind, c.faction) : Hotline.Arrive(map, c.kind))
+                if (c.caravan ? Hotline.ArriveCaravan(map, c.kind, c.faction, c) : Hotline.Arrive(map, c.kind, c))
                 {
                     calls.Remove(c);
                     continue;
@@ -211,13 +254,23 @@ namespace TraderHotline
         public static IEnumerable<Offer> Ships() =>
             Orbital.Select(k => new Offer { kind = k, faction = k.faction != null ? Find.FactionManager.FirstFactionOfDef(k.faction) : null });
 
-        public static bool ArriveCaravan(Map map, TraderKindDef kind, Faction fac)
+        public static bool ArriveCaravan(Map map, TraderKindDef kind, Faction fac, PendingCall call = null)
         {
             try
             {
                 if (fac == null || fac.defeated || fac.HostileTo(Faction.OfPlayer)) return false;
                 var parms = new IncidentParms { target = map, faction = fac, traderKind = kind, forced = true };
+                if (call != null && call.edge >= 0 && CellFinder.TryFindRandomEdgeCellWith(c => c.Standable(map) && !c.Fogged(map) && map.reachability.CanReachColony(c), map, new Rot4(call.edge), CellFinder.EdgeRoadChance_Neutral, out IntVec3 spot))
+                    parms.spawnCenter = spot;
+                var before = new HashSet<Pawn>(map.mapPawns.AllPawnsSpawned);
                 bool ok = IncidentDefOf.TraderCaravanArrival.Worker.TryExecute(parms);
+                if (ok && call != null && call.request >= 0)
+                {
+                    Pawn trader = map.mapPawns.AllPawnsSpawned.FirstOrDefault(p => !before.Contains(p) && p.Faction == fac && p.trader?.traderKind != null);
+                    if (trader != null)
+                        foreach (Thing t in Catalog.MakeRequest(kind, (Cat)call.request))
+                            if (!trader.inventory.innerContainer.TryAdd(t)) t.Destroy();
+                }
                 Log.Message("[Trader Hotline] caravan " + kind.defName + " of " + fac.Name + (ok ? " arrived." : " could not come yet."));
                 return ok;
             }
@@ -228,13 +281,25 @@ namespace TraderHotline
             }
         }
 
-        public static int Fee(Map map, bool express, bool caravan = false)
+        public static int Fee(Map map, bool express, bool caravan = false, int request = -1)
         {
             float w = map != null ? map.wealthWatcher.WealthTotal : 0f;
             float f = THMod.S.baseFee + w * THMod.S.wealthFee / 100f;
             if (caravan) f *= THMod.S.caravanMul;
             if (express) f *= THMod.S.expressMul;
+            if (request >= 0) f += RequestFee();
+            f *= 1f - Discount();
             return Mathf.RoundToInt(f / 10f) * 10;
+        }
+
+        public static float RequestFee() => THMod.S.requestValue * THMod.S.requestFeeMul;
+
+        // 0.3.0: loyalty – 5 % off for every 5 calls, at most 20 %
+        public static float Discount()
+        {
+            if (!THMod.S.loyalty) return 0f;
+            int n = HotlineComponent.Get?.callCount ?? 0;
+            return Mathf.Min(0.2f, 0.05f * (n / 5));
         }
 
         public static int SilverOn(Map map) =>
@@ -274,15 +339,18 @@ namespace TraderHotline
             return null;
         }
 
-        public static void Call(Map map, Offer o, bool express)
+        public static void Call(Map map, Offer o, bool express, int request = -1, int edge = -1)
         {
             TraderKindDef kind = o.kind;
             HotlineComponent hc = HotlineComponent.Get;
-            int fee = Fee(map, express, o.caravan);
+            int fee = Fee(map, express, o.caravan, request);
             if (!Pay(map, fee)) { Messages.Message("TH_NoSilver".Translate(fee), MessageTypeDefOf.RejectInput, false); return; }
             int now = Find.TickManager.TicksGame;
             int delay = express ? Mathf.RoundToInt(THMod.S.expressHours * 2500f) : Mathf.RoundToInt(THMod.S.delayDays * 60000f * Rand.Range(0.8f, 1.2f));
-            hc.calls.Add(new PendingCall { mapId = map.uniqueID, kind = kind, faction = o.caravan ? o.faction : null, caravan = o.caravan, fee = fee, fireTick = now + delay, deadline = now + delay + 120000 });
+            hc.calls.Add(new PendingCall { mapId = map.uniqueID, kind = kind, faction = o.caravan ? o.faction : null, caravan = o.caravan, fee = fee, fireTick = now + delay, deadline = now + delay + 120000, request = request, edge = o.caravan ? edge : -1 });
+            hc.history.Insert(0, new CallRecord { kind = kind, faction = o.faction, caravan = o.caravan, tick = now, fee = fee });
+            if (hc.history.Count > 10) hc.history.RemoveRange(10, hc.history.Count - 10);
+            hc.callCount++;
             hc.nextCallTick = now + Mathf.RoundToInt(THMod.S.cooldownDays * 60000f);
             Messages.Message("TH_Called".Translate(o.Label, delay.ToStringTicksToPeriod(), fee), MessageTypeDefOf.PositiveEvent, false);
         }
@@ -290,7 +358,7 @@ namespace TraderHotline
         // the trade ship is made here directly (like the vanilla incident does), so mods that
         // take over or block the orbital trader incident (Trader Ships, vehicle mods …) cannot
         // swallow a paid call. Only if that fails, the vanilla incident is tried.
-        public static bool Arrive(Map map, TraderKindDef kind)
+        public static bool Arrive(Map map, TraderKindDef kind, PendingCall call = null)
         {
             try
             {
@@ -307,6 +375,9 @@ namespace TraderHotline
                 bool comms = map.listerBuildings.allBuildingsColonist.Any(b => b.def.IsCommsConsole && (b.GetComp<CompPowerTrader>() == null || b.GetComp<CompPowerTrader>().PowerOn));
                 map.passingShipManager.AddShip(ship);
                 ship.GenerateThings();
+                if (call != null && call.request >= 0)
+                    foreach (Thing t in Catalog.MakeRequest(kind, (Cat)call.request))
+                        if (!ship.GetDirectlyHeldThings().TryAdd(t)) t.Destroy();
                 if (THMod.S.stayMul > 1.01f) ship.ticksUntilDeparture = Mathf.RoundToInt(ship.ticksUntilDeparture * THMod.S.stayMul);
                 ship.WasAnnounced = true;
                 Find.LetterStack.ReceiveLetter(ship.def.LabelCap,
@@ -346,154 +417,8 @@ namespace TraderHotline
             __result = list;
         }
 
-        // what a trader kind sells: a few category / item names
-        private static readonly Dictionary<TraderKindDef, string> stockCache = new Dictionary<TraderKindDef, string>();
-
-        public static string Stock(TraderKindDef k)
-        {
-            if (stockCache.TryGetValue(k, out string s)) return s;
-            var names = new List<string>();
-            try
-            {
-                var cats = new Dictionary<string, int>();
-                foreach (ThingDef d in DefDatabase<ThingDef>.AllDefsListForReading)
-                {
-                    if (d.category != ThingCategory.Item && !d.Minifiable && d.race == null) continue;
-                    if (d.tradeability == Tradeability.None || d.BaseMarketValue <= 0f) continue;
-                    bool sells = false;
-                    foreach (StockGenerator g in k.stockGenerators)
-                        if (g.HandlesThingDef(d)) { sells = true; break; }
-                    if (!sells) continue;
-                    string c = d.race != null ? "TH_Animals".Translate().ToString() : (d.FirstThingCategory?.LabelCap.ToString() ?? d.LabelCap.ToString());
-                    cats.TryGetValue(c, out int n);
-                    cats[c] = n + 1;
-                }
-                names = cats.OrderByDescending(kv => kv.Value).Take(10).Select(kv => kv.Key).ToList();
-            }
-            catch { }
-            s = names.Count == 0 ? "?" : string.Join(", ", names);
-            stockCache[k] = s;
-            return s;
-        }
     }
 
-    public class Dialog_Hotline : Window
-    {
-        private readonly Map map;
-        private Vector2 scroll;
-        private Offer sel;
-        private bool express;
-        private readonly List<Offer> ships, caravans;
-
-        public override Vector2 InitialSize => new Vector2(860f, 620f);
-
-        public Dialog_Hotline(Map map)
-        {
-            this.map = map;
-            doCloseX = true;
-            closeOnClickedOutside = true;
-            absorbInputAroundWindow = true;
-            ships = Hotline.Ships().ToList();
-            caravans = Hotline.Caravans(map).OrderBy(o => o.faction.Name).ThenBy(o => o.kind.label).ToList();
-            sel = ships.FirstOrDefault() ?? caravans.FirstOrDefault();
-        }
-
-        public override void DoWindowContents(Rect r)
-        {
-            Text.Font = GameFont.Medium;
-            Widgets.Label(new Rect(r.x, r.y, r.width, 34f), "TH_Title".Translate());
-            Text.Font = GameFont.Small;
-            int silver = Hotline.SilverOn(map);
-            GUI.color = MUI.Muted;
-            Widgets.Label(new Rect(r.x, r.y + 34f, r.width, 24f), "TH_Silver".Translate(silver));
-            GUI.color = Color.white;
-            // list: headers + offers
-            var rows = new List<object> { "TH_SecOrbital".Translate().ToString() };
-            rows.AddRange(ships.Cast<object>());
-            rows.Add("TH_SecCaravan".Translate().ToString());
-            if (caravans.Count == 0) rows.Add(0);
-            rows.AddRange(caravans.Cast<object>());
-            Rect left = new Rect(r.x, r.y + 64f, 330f, r.height - 64f);
-            Rect right = new Rect(left.xMax + 14f, left.y, r.width - left.width - 14f, left.height);
-            Rect view = new Rect(0f, 0f, left.width - 16f, rows.Count * 32f);
-            Widgets.BeginScrollView(left, ref scroll, view);
-            for (int i = 0; i < rows.Count; i++)
-            {
-                Rect row = new Rect(0f, i * 32f, view.width, 30f);
-                if (rows[i] is string h)
-                {
-                    GUI.color = MUI.Accent;
-                    Text.Font = GameFont.Tiny;
-                    Widgets.Label(new Rect(row.x + 4f, row.y + 10f, row.width, 20f), h.ToUpper());
-                    Text.Font = GameFont.Small;
-                    GUI.color = Color.white;
-                    continue;
-                }
-                if (rows[i] is int)
-                {
-                    GUI.color = MUI.Muted;
-                    Widgets.Label(new Rect(row.x + 8f, row.y + 5f, row.width, 24f), "TH_NoCaravans".Translate());
-                    GUI.color = Color.white;
-                    continue;
-                }
-                Offer o = (Offer)rows[i];
-                if (o == sel) Widgets.DrawHighlightSelected(row);
-                else if (Mouse.IsOver(row)) Widgets.DrawHighlight(row);
-                Widgets.Label(new Rect(row.x + 8f, row.y + 5f, row.width - 12f, 24f), o.Label.Truncate(row.width - 12f));
-                if (Mouse.IsOver(row)) TooltipHandler.TipRegion(row, o.Label);
-                if (Widgets.ButtonInvisible(row)) sel = o;
-            }
-            Widgets.EndScrollView();
-            if (sel == null) return;
-            float y = right.y;
-            Text.Font = GameFont.Medium;
-            Widgets.Label(new Rect(right.x, y, right.width, 32f), sel.kind.LabelCap);
-            Text.Font = GameFont.Small;
-            y += 36f;
-            Faction f = sel.faction;
-            if (f != null) { Widgets.Label(new Rect(right.x, y, right.width, 24f), "TH_Faction".Translate(f.Name)); y += 26f; }
-            GUI.color = MUI.Muted;
-            Widgets.Label(new Rect(right.x, y, right.width, 24f), (sel.caravan ? "TH_KindCaravan" : "TH_KindShip").Translate());
-            GUI.color = Color.white;
-            y += 28f;
-            GUI.color = MUI.Muted;
-            Widgets.Label(new Rect(right.x, y, right.width, 18f), "TH_Sells".Translate());
-            GUI.color = Color.white;
-            y += 20f;
-            string stock = Hotline.Stock(sel.kind);
-            float sh = Text.CalcHeight(stock, right.width);
-            Widgets.Label(new Rect(right.x, y, right.width, sh), stock);
-            y += sh + 16f;
-            // delivery
-            Widgets.Label(new Rect(right.x, y, right.width, 24f), "TH_Delivery".Translate());
-            y += 26f;
-            int feeN = Hotline.Fee(map, false, sel.caravan), feeE = Hotline.Fee(map, true, sel.caravan);
-            if (Widgets.RadioButtonLabeled(new Rect(right.x, y, right.width, 26f), "TH_Normal".Translate(THMod.S.delayDays.ToString("0.0"), feeN), !express)) express = false;
-            y += 30f;
-            if (Widgets.RadioButtonLabeled(new Rect(right.x, y, right.width, 26f), "TH_ExpressOpt".Translate(Mathf.RoundToInt(THMod.S.expressHours), feeE), express)) express = true;
-            y += 40f;
-            GUI.color = MUI.Muted;
-            string note = sel.caravan ? "TH_NoteCaravan".Translate().ToString() : "TH_Note".Translate(Mathf.RoundToInt(THMod.S.stayMul * 100f)).ToString();
-            float nh = Text.CalcHeight(note, right.width);
-            Widgets.Label(new Rect(right.x, y, right.width, nh), note);
-            GUI.color = Color.white;
-            int fee = express ? feeE : feeN;
-            string why = Hotline.Blocked(map);
-            if (why == null && silver < fee) why = "TH_NoSilver".Translate(fee);
-            Rect b = new Rect(right.xMax - 260f, right.yMax - 40f, 260f, 38f);
-            if (why != null)
-            {
-                GUI.color = MUI.Warn;
-                Widgets.Label(new Rect(right.x, b.y - 28f, right.width, 24f), why);
-                GUI.color = Color.white;
-            }
-            if (Widgets.ButtonText(b, "TH_CallBtn".Translate(fee), true, true, why == null))
-            {
-                Hotline.Call(map, sel, express);
-                Close();
-            }
-        }
-    }
 
     // countdown in the alerts
     public class Alert_TraderComing : Alert
