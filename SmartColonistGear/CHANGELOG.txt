@@ -1,4 +1,9 @@
 === Not on the Workshop yet (test versions) ===
+2.16.1
+- New setting "Ranged weapons for everyone" (Weapons tab, off by default): every colonist who can shoot takes a gun as the main weapon and swaps a melee weapon in hand for the best gun you have. Brawlers and colonists who cannot shoot keep melee.
+- "Gear up now" takes any clearly better weapon (5 % better, or one quality level for the same weapon) instead of waiting for the usual margin.
+- No going back and forth: a weapon kind a colonist just put away is not taken again for two days, unless the one in hand is falling apart.
+
 2.16.0
 - Weapons per outfit: a new "Weapons per outfit" button in the Gear overview – for every outfit (apparel policy) tick which weapon kinds colonists wearing it may take by themselves (buttons "Only ranged" / "Only melee"). Everything is allowed by default; weapons you equip by hand are not affected.
 - Combat Extended: colonists only pick up ranged weapons whose ammo is on the map (in storage, lying around or in their pockets), and a gun with no ammo anywhere is swapped for one that has ammo (setting, on by default; shown only with Combat Extended).

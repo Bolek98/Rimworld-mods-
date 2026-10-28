@@ -313,6 +313,7 @@ namespace ResearchedLoadout
 			Check(listing_Standard, "RL_AutoSidearm", ref Settings.autoEquipSidearm, "autoEquipSidearm");
 			Check(listing_Standard, "RL_PrioritizeFighters", ref Settings.prioritizeFighters, "prioritizeFighters");
 			Check(listing_Standard, "RL_ArmSlaves", ref Settings.armSlaves, "armSlaves");
+			Check(listing_Standard, "RL_RangedForAll", ref Settings.rangedForAll, "rangedForAll");
 			Check(listing_Standard, "RL_RoleGear", ref Settings.roleGear, "roleGear");
 			Check(listing_Standard, "RL_SpecialEffects", ref Settings.specialEffects, "specialEffects");
 			listing_Standard.NewColumn();
@@ -4826,6 +4827,7 @@ namespace ResearchedLoadout
 		public bool pauseDuringThreat = true;
 
 		public bool armSlaves;
+		public bool rangedForAll;                   // 2.16.1: everyone who can shoot takes a ranged main weapon
 
 		public bool prioritizeFighters = true;
 
@@ -4933,6 +4935,7 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref storeDroppedGear, "storeDroppedGear", true);
 			Scribe_Values.Look(ref pauseDuringThreat, "pauseDuringThreat", true);
 			Scribe_Values.Look(ref armSlaves, "armSlaves", false);
+			Scribe_Values.Look(ref rangedForAll, "rangedForAll", false);
 			Scribe_Values.Look(ref prioritizeFighters, "prioritizeFighters", true);
 			Scribe_Values.Look(ref considerDistance, "considerDistance", true);
 			Scribe_Values.Look(ref notifyPlayer, "notifyPlayer", false);
@@ -6677,7 +6680,13 @@ namespace ResearchedLoadout
 			}
 			else if (settings.autoEquipPrimary && flag && pawn.equipment != null && !LoadoutFilter.IsPersonaWeapon(thing))
 			{
-				Thing thing2 = FindBestWeapon(pawn, null, true);
+				// 2.16.1: with "Ranged weapons for everyone" only guns are looked for (anything else only if there is no gun)
+				bool gunsOnly = RangedForAll(pawn);
+				Thing thing2 = FindBestWeapon(pawn, gunsOnly ? (bool?)true : null, true);
+				if (thing2 == null && gunsOnly && thing == null)
+				{
+					thing2 = FindBestWeapon(pawn, null, true);
+				}
 				if (thing2 != null && IsUpgrade(pawn, thing, thing2, true))
 				{
 					Job job = JobMaker.MakeJob(JobDefOf.Equip, thing2);
@@ -6794,8 +6803,24 @@ namespace ResearchedLoadout
 			return result;
 		}
 
+		// 2.16.1: "Ranged weapons for everyone" – who can shoot and is no brawler always wants a gun in hand
+		public static bool RangedForAll(Pawn pawn)
+		{
+			ResearchedLoadoutSettings s = ResearchedLoadoutMod.Settings;
+			if (s == null || !s.rangedForAll || pawn == null || IsBrawler(pawn) || pawn.WorkTagIsDisabled(WorkTags.Violent))
+			{
+				return false;
+			}
+			SkillRecord sk = pawn.skills?.GetSkill(SkillDefOf.Shooting);
+			return sk == null || !sk.TotallyDisabled;
+		}
+
 		public static bool PrefersRanged(Pawn pawn, Thing primary)
 		{
+			if (RangedForAll(pawn))
+			{
+				return true;
+			}
 			if (primary != null)
 			{
 				return primary.def.IsRangedWeapon;
@@ -7640,6 +7665,11 @@ namespace ResearchedLoadout
 			{
 				if (current.def != null && candidate.def != null && current.def.IsRangedWeapon != candidate.def.IsRangedWeapon)
 				{
+					// 2.16.1: "Ranged weapons for everyone" – a gun always replaces a melee weapon in hand, never the other way
+					if (RangedForAll(pawn))
+					{
+						return candidate.def.IsRangedWeapon && !IsBroken(candidate);
+					}
 					float num = ScoreWeapon(pawn, candidate);
 					float num2 = ScoreWeapon(pawn, current);
 					return num > num2 * (1.25f + Stability * 0.5f + DistanceExtra(pawn, candidate));
@@ -7686,11 +7716,13 @@ namespace ResearchedLoadout
 					if (current.TryGetQuality(out qc) && candidate.TryGetQuality(out qc2))
 					{
 						// 2.15.1: quality matters less – the same weapon only for a clearly better one (2 levels)
-						return (int)qc2 >= (int)qc + 2 && !IsBroken(candidate);
+						// 2.16.1: "Gear up now" – one level is enough
+						return (int)qc2 >= (int)qc + (EquipRush.Active(pawn) ? 1 : 2) && !IsBroken(candidate);
 					}
 					return false;
 				}
-				return num3 > num4 * (1f + Mathf.Max(0.15f, Stability) + DistanceExtra(pawn, candidate));
+				// 2.16.1: "Gear up now" takes any clearly better weapon (5 %), not only one past the usual margin
+				return num3 > num4 * (1f + (EquipRush.Active(pawn) ? 0.05f : Mathf.Max(0.15f, Stability) + DistanceExtra(pawn, candidate)));
 			}
 			float num5 = ScoreApparel(pawn, candidate);
 			float num6 = ScoreApparel(pawn, current);
