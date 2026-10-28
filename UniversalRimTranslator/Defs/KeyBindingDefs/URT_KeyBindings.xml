@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <KeyBindingCategoryDef>
+    <defName>URT_KeyBindings</defName>
+    <label>Universal RimTranslator</label>
+    <description>Fix translations of the text under the mouse.</description>
+  </KeyBindingCategoryDef>
+
+  <KeyBindingDef>
+    <defName>URT_Retranslate</defName>
+    <label>Translate text under mouse again</label>
+    <category>URT_KeyBindings</category>
+    <defaultKeyCodeA>F9</defaultKeyCodeA>
+  </KeyBindingDef>
+
+  <KeyBindingDef>
+    <defName>URT_KeepOriginal</defName>
+    <label>Keep text under mouse untranslated</label>
+    <category>URT_KeyBindings</category>
+    <defaultKeyCodeA>F10</defaultKeyCodeA>
+  </KeyBindingDef>
+</Defs>

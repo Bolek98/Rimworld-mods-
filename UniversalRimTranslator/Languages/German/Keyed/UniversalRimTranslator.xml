@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <URT_Tab_Overview>Übersicht</URT_Tab_Overview>
+  <URT_Tab_Services>Übersetzungsdienste</URT_Tab_Services>
+  <URT_Rec1>Übersetzt jeden Modtext, den dein Sprachpaket nicht abdeckt, im Hintergrund und ohne Ruckeln.</URT_Rec1>
+  <URT_Rec2>Kostenlose Dienste ohne Schlüssel; ist einer ausgelastet, übernimmt der nächste.</URT_Rec2>
+  <URT_Rec3>Jede Übersetzung wird geprüft – fehlerhafte werden nie verwendet (kein „ERR“ in Namen und Texten).</URT_Rec3>
+  <URT_Status_Inactive>Keine Übersetzung: {0}</URT_Status_Inactive>
+  <URT_Status_Language>Sprache: {0} ({1})</URT_Status_Language>
+  <URT_Status_Phase>Jetzt: {0}</URT_Status_Phase>
+  <URT_Status_Counts>Texte ohne Übersetzung gefunden: {0} · gemerkte Übersetzungen: {1} · ins Spiel übernommen: {2} · noch zu übersetzen: {3}</URT_Status_Counts>
+  <URT_Status_Session>Diese Sitzung: übersetzt {0}, von der Prüfung abgelehnt {1}, fehlgeschlagen {2} · Grammatik-Ersatz verwendet {3}</URT_Status_Session>
+  <URT_Status_Migrated>Aus 0.9 übernommen: {0}</URT_Status_Migrated>
+  <URT_Pause>Übersetzen pausieren</URT_Pause>
+  <URT_Resume>Übersetzen fortsetzen</URT_Resume>
+  <URT_RetryFailed>Fehlgeschlagene Texte erneut versuchen</URT_RetryFailed>
+  <URT_Sec_What>Was übersetzt wird</URT_Sec_What>
+  <URT_Sec_Grammar>Grammatik</URT_Sec_Grammar>
+  <URT_Enabled>Fehlende Texte übersetzen</URT_Enabled>
+  <URT_Enabled_Desc>Aus: Es werden nur bereits gespeicherte Übersetzungen verwendet, nichts Neues wird an die Dienste gesendet.</URT_Enabled_Desc>
+  <URT_Defs>Namen und Beschreibungen (Defs)</URT_Defs>
+  <URT_Defs_Desc>Bezeichnungen, Beschreibungen und andere Texte von Gegenständen, Gebäuden, Hediffs, Forschung … aller Mods.</URT_Defs_Desc>
+  <URT_Keyed>Oberflächentexte (Keyed)</URT_Keyed>
+  <URT_Keyed_Desc>Schaltflächen, Nachrichten und Einstellungstexte, die Mods auf Englisch mitliefern.</URT_Keyed_Desc>
+  <URT_Rules>Grammatikregeln (Geschichten, Kunst, Protokolle, Quests)</URT_Rules>
+  <URT_Rules_Desc>Nur der Text nach „-&gt;“ wird übersetzt; jedes [Token] bleibt genau erhalten. Eine Regel, die die Prüfung nicht besteht, bleibt auf Englisch.</URT_Rules_Desc>
+  <URT_GrammarFallback>Fehlende Grammatikfälle ergänzen</URT_GrammarFallback>
+  <URT_GrammarFallback_Desc>Sprachen mit Fällen (Tschechisch: imageNom, imageGen …) verlangen Schlüsselwörter, die Mods nicht haben – das Spiel schreibt dann „ERR“. Stattdessen wird das einfache Schlüsselwort verwendet.</URT_GrammarFallback_Desc>
+  <URT_Services_Intro>Die Dienste werden von oben nach unten versucht. Schalte ab, was du nicht willst; kostenlose funktionieren ohne alles. Ein ausgelasteter oder blockierter Dienst pausiert von selbst und der nächste übernimmt. Schlüssel bleiben nur in deiner Einstellungsdatei.</URT_Services_Intro>
+  <URT_Badge_Free>kostenlos, ohne Schlüssel</URT_Badge_Free>
+  <URT_Badge_Key>braucht deinen Schlüssel</URT_Badge_Key>
+  <URT_Badge_AiKey>KI – braucht deinen Schlüssel oder einen lokalen Server</URT_Badge_AiKey>
+  <URT_NotSetUp>nicht eingerichtet (Schlüssel eingeben)</URT_NotSetUp>
+  <URT_Test>Testen</URT_Test>
+  <URT_Testing>teste …</URT_Testing>
+  <URT_Key>Schlüssel</URT_Key>
+  <URT_Region>Region</URT_Region>
+  <URT_Model>Modell</URT_Model>
+  <URT_Url>Adresse (URL)</URT_Url>
+  <URT_Email>E-Mail (höheres Tageslimit)</URT_Email>
+  <MUI_Title>Empfohlene Einstellungen</MUI_Title>
+  <MUI_TitleOff>Empfohlene Einstellungen · aus</MUI_TitleOff>
+  <MUI_DescOn>Die Mod richtet sich selbst ein und funktioniert sofort. Ideal für neue Spieler und alle, die nichts anpassen wollen.</MUI_DescOn>
+  <MUI_DescOff>Eigene Einstellungen. Geändert gegenüber Empfehlung: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Eigene Einstellungen. Noch identisch mit der Empfehlung.</MUI_DescOffSame>
+  <MUI_On>AN</MUI_On>
+  <MUI_Off>AUS</MUI_Off>
+  <MUI_ResetAll>Alles auf Empfehlung zurücksetzen</MUI_ResetAll>
+  <MUI_ConfirmOn>Empfohlene Einstellungen einschalten? Deine Änderungen ({0}) werden durch die empfohlenen Werte ersetzt.</MUI_ConfirmOn>
+  <MUI_Locked>Detaillierte Einstellungen sind gesperrt. Willst du sie ändern? Schalte den Schalter oben aus – deine Werte starten bei den empfohlenen.</MUI_Locked>
+  <MUI_Changed>GEÄNDERT</MUI_Changed>
+  <MUI_ChangedTip>Weicht von der Empfehlung ab ({0}). Klicken, um den empfohlenen Wert wiederherzustellen.</MUI_ChangedTip>
+  <MUI_Yes>an</MUI_Yes>
+  <MUI_No>aus</MUI_No>
+  <MUI_RecTag>EMPFOHLEN</MUI_RecTag>
+  <URT_Live>Im Code erzeugte Texte (live)</URT_Live>
+  <URT_Live_Desc>Nachrichten, Briefe, Schaltflächen, Tooltips und Infozeilen, die Mods direkt in ihrem Code schreiben (nicht in Sprachdateien). Sie werden nur auf dem Bildschirm übersetzt – an den Spieldaten ändert sich nichts. Bekannte Texte erscheinen sofort, neue englische Texte werden gesammelt und im Hintergrund übersetzt (Zahlen spielen keine Rolle, „Harvested 25 rice“ und „Harvested 3 rice“ sind ein Text). Namen von Kolonisten, Fraktionen und Orten werden nie übersetzt.</URT_Live_Desc>
+  <URT_Status_Live>Live: {0} Texte übersetzt angezeigt, {1} in dieser Sitzung gesammelt, {2} wartend, {3} eingetroffen</URT_Status_Live>
+  <URT_Tab_Editor>Editor</URT_Tab_Editor>
+  <URT_Ed_Intro>Finde jeden Text über sein Original oder seine Übersetzung und schreibe deine eigene Version. Dein Text wird nie von der Maschine ersetzt.</URT_Ed_Intro>
+  <URT_Ed_F_All>Alle</URT_Ed_F_All>
+  <URT_Ed_F_Mine>Meine</URT_Ed_F_Mine>
+  <URT_Ed_F_Problems>Probleme</URT_Ed_F_Problems>
+  <URT_Ed_F_Untranslated>Unübersetzt</URT_Ed_F_Untranslated>
+  <URT_Ed_Searching>Suche…</URT_Ed_Searching>
+  <URT_Ed_Count>{0} Texte</URT_Ed_Count>
+  <URT_Ed_CountMore>erste {0} von {1} Texten – genauer suchen</URT_Ed_CountMore>
+  <URT_Ed_SearchHint>Gib ein Wort zum Suchen ein (Englisch oder übersetzt). Deine eigenen Übersetzungen werden hier aufgelistet.</URT_Ed_SearchHint>
+  <URT_Ed_NoTranslation>noch nicht übersetzt</URT_Ed_NoTranslation>
+  <URT_Ed_Pick>Wähle links einen Text.</URT_Ed_Pick>
+  <URT_Ed_Original>Original</URT_Ed_Original>
+  <URT_Ed_Yours>Übersetzung</URT_Ed_Yours>
+  <URT_Ed_YoursNow>deine eigene</URT_Ed_YoursNow>
+  <URT_Ed_MachineNow>maschinell ({0})</URT_Ed_MachineNow>
+  <URT_Ed_Machine>Maschinelle Version:</URT_Ed_Machine>
+  <URT_Ed_Save>Meine speichern</URT_Ed_Save>
+  <URT_Ed_Revert>Maschinelle Version</URT_Ed_Revert>
+  <URT_Ed_KeepOriginal>Original behalten</URT_Ed_KeepOriginal>
+  <URT_Ed_Again>Erneut übersetzen</URT_Ed_Again>
+  <URT_Ed_AgainTip>Verwirft die aktuelle Übersetzung; die Dienste übersetzen den Text gleich neu.</URT_Ed_AgainTip>
+  <URT_Ed_Saved>Gespeichert – jetzt im Spiel.</URT_Ed_Saved>
+  <URT_Ed_Broken>Gespeichert, aber nicht verwendet: Platzhalter in geschweiften Klammern oder &lt;color&gt;-Tags fehlen oder wurden geändert ({0}). Behalte sie wie im Original.</URT_Ed_Broken>
+  <URT_Ed_EmptyNote>Leerer Text – nutze „Maschinelle Version“ oder „Original behalten“.</URT_Ed_EmptyNote>
+  <URT_Ed_Reverted>Zurück zur maschinellen Version.</URT_Ed_Reverted>
+  <URT_Ed_Kept>Das Original (Englisch) bleibt.</URT_Ed_Kept>
+  <URT_Ed_AgainNote>Wird gleich neu übersetzt.</URT_Ed_AgainNote>
+  <URT_Gl_Title>Meine Wörter</URT_Gl_Title>
+  <URT_Gl_Hint>Ein Wort links wird in jeder Übersetzung durch deins ersetzt (ganze Wörter, die Groß-/Kleinschreibung des ersten Buchstabens bleibt). Eine leere rechte Seite entfernt das Wort.</URT_Gl_Hint>
+  <URT_Gl_Add>Hinzufügen</URT_Gl_Add>
+  <URT_Gl_Delete>Löschen</URT_Gl_Delete>
+  <URT_Gl_Remove>(entfernt)</URT_Gl_Remove>
+  <URT_Tab_Mods>Mods</URT_Tab_Mods>
+  <URT_Mods_Intro>Wie viel von jeder Mod übersetzt ist. Entferne den Haken bei einer Mod, um sie auf Englisch zu lassen (ihre Texte werden aus dem Spiel genommen und nicht zur Übersetzung gesendet). Export speichert die Übersetzung einer Mod als normalen Languages-Ordner – teile ihn oder schicke ihn dem Autor der Mod. Im Code erzeugte Texte (live) werden hier nicht gezählt.</URT_Mods_Intro>
+  <URT_Mods_SearchHint>Mod suchen…</URT_Mods_SearchHint>
+  <URT_Mods_ExportAll>Alle exportieren</URT_Mods_ExportAll>
+  <URT_Mods_Exporting>Exportiere…</URT_Mods_Exporting>
+  <URT_Mods_ExportTip>Speichert die Übersetzungen aller Mods in:\n{0}\nJede Mod bekommt einen eigenen Ordner mit Languages darin – kopiere ihn in den Ordner der Mod oder schicke ihn dem Autor.</URT_Mods_ExportTip>
+  <URT_Mods_OpenFolder>Exportordner öffnen</URT_Mods_OpenFolder>
+  <URT_Mods_Counting>Zähle…</URT_Mods_Counting>
+  <URT_Mods_Sum>{0} Mods · {1} von {2} Texten übersetzt ({3})</URT_Mods_Sum>
+  <URT_Mods_SkipTip>Diese Mod übersetzen. Haken entfernen, um sie auf Englisch zu lassen.</URT_Mods_SkipTip>
+  <URT_Mods_Export>Exportieren</URT_Mods_Export>
+  <URT_Mods_ExportedOne>{0} Texte nach {1} exportiert</URT_Mods_ExportedOne>
+  <URT_Mods_ExportedAll>{0} Texte in {1} Dateien nach {2} exportiert</URT_Mods_ExportedAll>
+  <URT_Mods_ExportFailed>Export fehlgeschlagen: {0}</URT_Mods_ExportFailed>
+  <URT_Tab_Quality>Prüfung</URT_Tab_Quality>
+  <URT_Q_Intro>Maschinelle Übersetzungen, die die automatischen Prüfungen bestanden haben, aber trotzdem falsch aussehen. Deine eigenen Übersetzungen werden nie aufgelistet.</URT_Q_Intro>
+  <URT_Q_All>Alle</URT_Q_All>
+  <URT_Q_K_Number>Zahlen</URT_Q_K_Number>
+  <URT_Q_K_Number_Tip>Eine Zahl aus dem Original fehlt in der Übersetzung – das Spiel würde die falsche Menge oder gar keine anzeigen.</URT_Q_K_Number_Tip>
+  <URT_Q_K_English>Englisch übrig</URT_Q_K_English>
+  <URT_Q_K_English_Tip>Englische Wörter wurden in die Übersetzung kopiert, statt übersetzt zu werden.</URT_Q_K_English_Tip>
+  <URT_Q_K_Name>Namen</URT_Q_K_Name>
+  <URT_Q_K_Name_Tip>Ein Name eines Kolonisten, einer Fraktion, eines Ortes oder einer Mod wurde übersetzt – Namen sollten bleiben, wie sie sind.</URT_Q_K_Name_Tip>
+  <URT_Q_K_Cut>Abgeschnitten</URT_Q_K_Cut>
+  <URT_Q_K_Cut_Tip>Die Übersetzung endet mitten im Satz oder ist viel kürzer als das Original.</URT_Q_K_Cut_Tip>
+  <URT_Q_K_Chars>Seltsame Zeichen</URT_Q_K_Chars>
+  <URT_Q_K_Chars_Tip>Kaputte Zeichen wie &amp;amp;, als Text geschriebenes \n oder doppelte Leerzeichen.</URT_Q_K_Chars_Tip>
+  <URT_Q_K_Differs>Abweichend</URT_Q_K_Differs>
+  <URT_Q_K_Differs_Tip>Derselbe kurze Text (eine Schaltfläche, ein Wort) ist an verschiedenen Stellen unterschiedlich übersetzt.</URT_Q_K_Differs_Tip>
+  <URT_Q_WhyNumber>Die Zahl {0} fehlt.</URT_Q_WhyNumber>
+  <URT_Q_WhyEnglish>Auf Englisch geblieben: {0}</URT_Q_WhyEnglish>
+  <URT_Q_WhyName>Der Name „{0}“ wurde übersetzt.</URT_Q_WhyName>
+  <URT_Q_WhyCut>Sieht abgeschnitten aus.</URT_Q_WhyCut>
+  <URT_Q_WhyChars>Seltsame Zeichen: {0}</URT_Q_WhyChars>
+  <URT_Q_WhySpaces>Doppelte Leerzeichen.</URT_Q_WhySpaces>
+  <URT_Q_WhyDiffers>Anderswo ({1}×) lautet es „{0}“.</URT_Q_WhyDiffers>
+  <URT_Q_Checking>Prüfe…</URT_Q_Checking>
+  <URT_Q_Recheck>Erneut prüfen</URT_Q_Recheck>
+  <URT_Q_AgainAll>Angezeigte erneut übersetzen ({0})</URT_Q_AgainAll>
+  <URT_Q_AgainAllTip>Sendet jeden aufgelisteten Text (außer „Abweichend“) erneut an die Übersetzungsdienste. Deine eigenen Übersetzungen bleiben unberührt.</URT_Q_AgainAllTip>
+  <URT_Q_AgainAllConfirm>{0} Texte erneut übersetzen? Die aktuellen maschinellen Übersetzungen werden verworfen.</URT_Q_AgainAllConfirm>
+  <URT_Q_UnifyAll>Alle vereinheitlichen ({0})</URT_Q_UnifyAll>
+  <URT_Q_None>Nichts Verdächtiges gefunden. 👍</URT_Q_None>
+  <URT_Q_Pick>Wähle links einen Text.</URT_Q_Pick>
+  <URT_Q_YourFix>Deine Übersetzung</URT_Q_YourFix>
+  <URT_Q_Save>Meine Korrektur speichern</URT_Q_Save>
+  <URT_Q_SaveTip>Dein Text wird ab jetzt verwendet und nie durch eine maschinelle Übersetzung ersetzt.</URT_Q_SaveTip>
+  <URT_Q_Unify>Die übliche verwenden</URT_Q_Unify>
+  <URT_Q_Unified>Vereinheitlicht.</URT_Q_Unified>
+  <URT_Q_Fine>Passt so</URT_Q_Fine>
+  <URT_Q_FineNote>OK – wird nicht mehr angezeigt.</URT_Q_FineNote>
+  <URT_Ed_AgainWait>Wird mit einem anderen Dienst neu übersetzt… ({0} s)</URT_Ed_AgainWait>
+  <URT_Ed_AgainDone>Neu übersetzt ({0}).</URT_Ed_AgainDone>
+  <URT_Ed_AgainBad>Die neue Übersetzung hat die Prüfung nicht bestanden ({0}) – schreib deine eigene und drücke Speichern.</URT_Ed_AgainBad>
+  <URT_Ed_AgainSlow>Noch hat kein Dienst geantwortet – der Text bleibt in der Warteschlange. Schau später noch einmal.</URT_Ed_AgainSlow>
+  <URT_PickFix>Alt + Rechtsklick korrigiert einen Text</URT_PickFix>
+  <URT_PickFix_Desc>Halte Alt und klicke mit rechts auf einen beliebigen Text im Spiel: Der Editor öffnet sich mit genau diesem Text, sodass du eine bessere Übersetzung schreiben oder ihn neu übersetzen lassen kannst.</URT_PickFix_Desc>
+  <URT_Pick_NotFound>Dieser Text ist nicht im Speicher von URT (er stammt vielleicht aus dem Sprachpaket des Spiels oder ist aus mehreren Teilen zusammengesetzt). Die Suche zeigt ähnliche Texte.</URT_Pick_NotFound>
+  <URT_Welcome_Title>Universal RimTranslator</URT_Welcome_Title>
+  <URT_Welcome_Body>URT übersetzt alle deine Mods in die Sprache {0} – kostenlos, ohne Einrichtung.
+
+• Bereits bekannte Texte sind sofort im Spiel; der Rest wird im Hintergrund übersetzt, während du spielst. Du kannst sofort loslegen.
+• Texte, die Mods während des Spiels erzeugen, werden auf dem Bildschirm übersetzt, sobald sie erscheinen.
+• Ein Text sieht falsch oder halb übersetzt aus? Halte Alt und klicke mit rechts darauf – der Editor öffnet sich mit genau diesem Text.
+• Fortschritt, Dienste, auf Englisch belassene Mods und der Editor: Optionen → Mod-Einstellungen → Universal RimTranslator.</URT_Welcome_Body>
+  <URT_Welcome_English>Das Spiel ist auf Englisch, daher hat URT nichts zu übersetzen.
+
+Wähle deine Sprache unter Optionen → Sprache und starte das Spiel neu – URT übersetzt dann alle deine Mods in diese Sprache, kostenlos und ohne Einrichtung.</URT_Welcome_English>
+  <URT_Welcome_Ok>Verstanden</URT_Welcome_Ok>
+  <URT_Welcome_Settings>Einstellungen öffnen</URT_Welcome_Settings>
+  <!-- 2.5.2 -->
+  <URT_Sec_Control>Deine Wahl</URT_Sec_Control>
+  <URT_Offline>Offline – nur Speicher</URT_Offline>
+  <URT_Offline_Desc>Kein Übersetzungsdienst wird gefragt. Nur Übersetzungen, die schon im Speicher sind (und deine eigenen), werden verwendet.</URT_Offline_Desc>
+  <URT_HoldNew>Neu hinzugefügte Mods nicht automatisch übersetzen</URT_HoldNew>
+  <URT_HoldNew_Desc>Seit dem letzten Start hinzugefügte Mods warten im Tab Mods, bis du sie freigibst. Übersetzungen aus dem Speicher werden trotzdem verwendet.</URT_HoldNew_Desc>
+  <URT_RaceNames>Rassennamen übersetzen</URT_RaceNames>
+  <URT_RaceNames_Desc>Namen menschenähnlicher Rassen und Xenotypen aus Mods werden auch übersetzt. Aus: Sie bleiben, wie der Mod sie benannt hat (Dienste hielten Namen wie „Yuran“ für gewöhnliche Wörter).</URT_RaceNames_Desc>
+  <URT_Mods_NewWaiting>{0} neue Mods warten auf Übersetzung: {1}</URT_Mods_NewWaiting>
+  <URT_Mods_AllowNew>Neue Mods übersetzen</URT_Mods_AllowNew>
+  <URT_All_Button>Jetzt alles übersetzen</URT_All_Button>
+  <URT_All_Running>Übersetze alles…</URT_All_Running>
+  <URT_All_Tip>Ein Klick: versucht fehlgeschlagene Texte erneut, vergisst maschinelle Übersetzungen, die die Prüfung nicht bestanden haben (deine eigenen bleiben), lässt wartende neue Mods zu, durchsucht alle Mods neu und übersetzt alles, was fehlt.</URT_All_Tip>
+  <URT_All_Confirm>Jetzt alles übersetzen?\n\nJeder fehlgeschlagene Text wird erneut versucht, maschinelle Übersetzungen, die die Prüfung nicht bestanden haben, werden vergessen (deine eigenen Übersetzungen bleiben), wartende neue Mods werden zugelassen, alle Mods werden neu durchsucht und alles Fehlende wird übersetzt. Mit vielen Mods kann das lange dauern (Stunden) – du kannst währenddessen weiterspielen.</URT_All_Confirm>
+  <URT_All_Started>Übersetze alles: {0} fehlgeschlagene maschinelle Übersetzungen werden neu gemacht, alle Mods werden durchsucht.</URT_All_Started>
+  <URT_All_Done>Universal RimTranslator: alles Gefundene ist übersetzt ({0} neue Übersetzungen).</URT_All_Done>
+  <URT_All_Stopped>Universal RimTranslator: gerade kann nichts übersetzt werden – Offline-Modus oder kein funktionierender Dienst. Siehe die Diagnose in der Übersicht.</URT_All_Stopped>
+  <URT_All_Scanning>Durchsuche alle Mods neu…</URT_All_Scanning>
+  <URT_All_Progress>Übersetze: noch {0} · {1}/min · Dienst: {2}</URT_All_Progress>
+  <URT_Diag_Line>Wartend: {0} Texte · bei allen Diensten fehlgeschlagen: {1} · von der Prüfung abgelehnt: {2}</URT_Diag_Line>
+  <URT_Diag_Offline>„Offline – nur Gedächtnis“ ist an: kein Dienst wird gefragt.</URT_Diag_Offline>
+  <URT_Diag_NoService>Gerade funktioniert kein Dienst – alle sind aus, nicht eingerichtet, pausiert oder ihr Schlüssel wurde abgelehnt.</URT_Diag_NoService>
+  <URT_Diag_KeyRejected>{0}: Schlüssel abgelehnt – in dieser Sitzung übersprungen</URT_Diag_KeyRejected>
+  <URT_Diag_Paused>{0}: pausiert {1} s</URT_Diag_Paused>
+  <URT_Diag_Services>Dienste mit Problemen: {0}</URT_Diag_Services>
+  <URT_Import_Button>Übersetzungen importieren…</URT_Import_Button>
+  <URT_Import_Tip>Übernimmt Übersetzungen anderer Übersetzungsmods ins Gedächtnis: Auto Translation (sein Cache im Speicherordner des Spiels) und die Datei {0} im Config-Ordner (Original TAB Übersetzung, eine pro Zeile). Nur die aktuelle Sprache; deine eigenen Übersetzungen haben Vorrang und funktionierende Übersetzungen werden nie ersetzt.</URT_Import_Tip>
+  <URT_Import_Working>Importiere…</URT_Import_Working>
+  <URT_Import_None>Nichts zum Importieren gefunden. Unterstützt: der Cache von Auto Translation und die Datei {0} im Config-Ordner (Original TAB Übersetzung).</URT_Import_None>
+  <URT_Import_Done>{0} Übersetzungen importiert ({1}); {2} übersprungen (schon übersetzt, unbekannt oder Prüfung nicht bestanden).</URT_Import_Done>
+  <URT_Pack_Export>Paket exportieren…</URT_Pack_Export>
+  <URT_Pack_ExportTip>Speichert das Gedächtnis – oder nur die Texte ausgewählter Mods – als .tsv-Datei in Config/UniversalRimTranslator2/packs, um sie mit anderen Spielern zu teilen.</URT_Pack_ExportTip>
+  <URT_Pack_Import>Paket importieren…</URT_Pack_Import>
+  <URT_Pack_ImportTip>Übernimmt ein Paket (.tsv) aus Config/UniversalRimTranslator2/packs ins Gedächtnis. Deine eigenen Übersetzungen haben Vorrang und funktionierende Übersetzungen werden nie ersetzt.</URT_Pack_ImportTip>
+  <URT_Pack_Working>Arbeite…</URT_Pack_Working>
+  <URT_Pack_Title>Übersetzungspaket</URT_Pack_Title>
+  <URT_Pack_Name>Dateiname:</URT_Pack_Name>
+  <URT_Pack_All>Alle Übersetzungen im Gedächtnis</URT_Pack_All>
+  <URT_Pack_Mods>Nur diese Mods:</URT_Pack_Mods>
+  <URT_Pack_DoExport>Exportieren</URT_Pack_DoExport>
+  <URT_Pack_Exported>{0} Übersetzungen gespeichert in {1}</URT_Pack_Exported>
+  <URT_Pack_NoFiles>Keine Pakete in {0} – lege .tsv-Pakete dort ab.</URT_Pack_NoFiles>
+  <URT_Pack_WrongLang>Dieses Paket ist für {0}, das Spiel ist auf {1} – nichts wurde importiert.</URT_Pack_WrongLang>
+  <URT_Pack_OpenFolder>Paketordner öffnen</URT_Pack_OpenFolder>
+</LanguageData>

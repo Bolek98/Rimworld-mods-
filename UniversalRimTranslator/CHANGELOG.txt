@@ -1,0 +1,108 @@
+=== Workshop release 1.0.0 (28 Oct 2026) ===
+1.0.0
+First Workshop release of Universal RimTranslator.
+
+NEW
+- Translates all your mods into your language in the game: def texts, Keyed texts and texts that mods write in code (messages, letters, buttons, tooltips) – live on the screen.
+- Works without any key: free services (Microsoft Edge, Yandex, Google, MyMemory) with automatic fallback. Optional own keys: DeepL, Azure, Google Cloud, Gemini, OpenAI-compatible AI (also local Ollama / LM Studio), LibreTranslate – each with a Test button.
+- Every translation is checked (placeholders, grammar tokens, wrong language, cut text) – a broken one is never used. Names of colonists, factions, races and mods stay as they are.
+- Editor: find any text and write your own version; Alt + right click on a text in the game opens it. "My words" glossary used in every translation.
+- Mods tab: how much of each mod is translated; keep chosen mods in English; export a mod's translation as a normal Languages folder.
+- Check tab: machine translations that look wrong, with one-click fixes.
+- "Translate everything now", import from Auto Translation, translation packs (.tsv) to share, offline mode (memory only).
+
+PERFORMANCE
+- The scan of all texts is cached and runs in the background – no long wait at start.
+- Live translation: texts on your screen are translated first, up to 400 new texts a minute.
+
+=== Development history before the first Workshop release (test versions 0.9 – 2.6.4) ===
+2.6.4
+- Live translation is faster: texts on the screen go to the translation services first in their own small batch instead of waiting behind long batches of game texts, and game texts go in smaller batches so new screen texts get their turn within seconds. Up to 400 new screen texts a minute (was 120).
+- Live translation catches more: modded texts with many own terms (60 % English words instead of 70 %) and texts that are mostly English with a few words already in your language are translated too.
+
+2.6.3
+- The Azure test writes the length and a short fingerprint of the key it uses to Logs\URT.log (never the key itself), so you can check it is the same key that works elsewhere.
+
+2.6.2
+- Azure Translator: when a key that works elsewhere is rejected (HTTP 401), URT now also sends the key in the request address instead of the header, then tries the regions, and keeps what works. Invisible characters copied with the key are removed.
+- The Test button shows the service's real error (e.g. HTTP 401 and its message) instead of only "no service could translate it", and writes the test result to Logs\URT.log.
+
+2.6.1
+- Azure Translator: a new key that still gave HTTP 401 works now. Keys from a regional or multi-service Azure resource need the resource's region; when the key is rejected, URT now finds the right region by itself (no region, global, the common regions), uses it and saves it in the settings. If the key works in no region, the message says to check that it is the Translator key from "Keys and Endpoint".
+
+2.6.0
+- New "Translate everything now" button (Overview, also in the Mods tab): one click retries the texts that failed, forgets machine translations that failed the checks (your own translations stay), lets waiting new mods in, scans all mods again and translates everything that is missing. Asks first, shows the progress (texts left, speed, service) and a message when done.
+- Diagnostics under the status: how many texts wait, how many failed at every service, how many were rejected by the checks, and which services do not work right now (no working service, key rejected, paused).
+- A service whose key is rejected (HTTP 401/403, e.g. Azure with an invalid key) is skipped for the rest of the session instead of being tried again – until you change its settings.
+- Import translations (Overview): takes the translations of Auto Translation (its cache for your language) and of a file urt_import_<language>.tsv in the Config folder (original TAB translation) into the memory. Your own translations win, working translations are never replaced, every imported text is checked.
+- Translation packs (Overview): export the memory – or only the texts of chosen mods – as a .tsv file into Config/UniversalRimTranslator2/packs, and import packs from there, to share translations with other players.
+
+2.5.2
+- Race and xenotype names from mods are no longer translated (a race called "Yuran" was taken for a Malay word and became "Fees"). Setting "Translate race names" (off) if you want them translated.
+- Short English texts are always sent as English, so a service can no longer take them for another language.
+- AI services (Gemini, OpenAI-compatible) now get context: what kind of text it is (label, description, letter, grammar rule, interface), which mod it is from, and your glossary words.
+- New settings (Overview, off by default): "Offline – memory only" (no service is asked, only the memory is used) and "Don't translate newly added mods automatically" (new mods wait in the Mods tab until you let them in).
+- The "Test" button of a service with empty fields says at once that it is not set up, instead of starting a request; one test at a time, at most 45 s. A broken server address gives a clear message.
+
+2.5.1
+- Fix: after a mod change the background scan of 2.5.0 could read texts that were already translated and take them for originals. The Mods tab then showed low percentages and those texts were sent to the services again. The scan now always sees the originals; the old scan is thrown away once and the texts translated twice are removed from the memory (your own translations stay).
+- Fix: Keyed texts translated by URT disappeared from the list after a rescan.
+- Short labels read the wrong way without context: "Mine" (the building) and "Mine for …" (mining recipes) are no longer translated as "my". Wrong old translations of these are made again.
+- Editor search ignores diacritics and odd spaces ("muj ze dreva" finds "Můj ze dřeva").
+- Texts in another script than the game language that mods make in code – e.g. a Chinese quest title and description from a race mod – are now shown translated (from the memory) or sent for translation; before, only English texts were translated on screen.
+
+2.5.0
+- Faster start: when mods changed, the game no longer waits ~25 s for the scan of all texts – the last scan is used at once and the new one runs in the background (only what is new is put in when it is done).
+- Alt + right click on any text in the game opens the editor with exactly that text – the quick way to fix a wrong or half-translated text (setting, on).
+- First start: a short window explains what URT does (nothing to set up – free services by default); when the game is in English it says how to pick a language.
+
+2.4.1
+- Editor – Translate again: the new try uses a different service than the one that made the old translation (the same service gave the same half-translated text again), and the editor shows the new translation as soon as it arrives (before, the field stayed empty).
+
+2.4.0
+- New "Check" tab: machine translations that look wrong – a lost number, English words left in, a translated name, a cut end, odd characters, or the same short text translated differently. Fix it yourself, translate it again, use the common translation, or mark it as fine.
+- "Translate again" (also in the Editor) now works for texts from the screen too, not only for texts of the game files.
+
+2.3.3
+- Half-translated texts are translated too: in "Mine slate chunk" shown as "Mine kus břidlice", the already translated name stays and the English rest is translated ("Těžit kus břidlice").
+
+2.3.2
+- Settings: a new "Bolek98's mods" button (next to "Report a bug") – all of Bolek98's mods you run in one list with their versions and settings, and saving or loading all their settings at once (for another PC or a reinstall).
+
+2.3.1
+- Faster start: the scan cache now really works – mod settings files (which many mods rewrite at every start) no longer count as a change, so the 25 s scan is skipped while mods and language stay the same.
+
+2.3.0
+- Mods (new tab): how much of each mod is translated, with a progress bar and a search. Untick a mod to keep it in English – its texts go back to the original and are not sent for translation.
+- Export: a mod's translation (or all of them) is saved as a normal Languages folder (Keyed + DefInjected) – copy it into the mod or send it to the mod's author.
+
+2.2.2
+- Fix: names of mods are never translated (the mod settings list showed "Simple Sidearms" as a translated sentence).
+
+2.2.1
+- Editor: searching no longer makes the game stutter – the search runs in the background, only the rows you see are drawn, and the list does not rebuild itself every few seconds while machine translation runs. URT's own window is not live-translated.
+
+2.2.0
+- Editor (new tab): find any text by its original or translation and write your own version; go back to the machine version, keep the English original or translate again. Filters: all, mine, problems, untranslated. Your own texts are never replaced by the machine.
+- My words: a word you set ("kolonista" → "osadník") is used in every translation – whole words, the first letter's case kept.
+- Live translation collects less junk: texts cut by the game ("Mod Sort Manage..."), version numbers, hashes and words of your own language ("Pacient", "Mramor") are not sent to translation any more, and a text the services could not translate is not asked again in the same session. A line in the log every 10 minutes tells how live translation goes.
+
+2.1.0
+- Stage 2 – texts made in code: messages, letters, buttons, tooltips and info lines that mods write directly in their code are now translated where they are drawn (on the screen only, the game data does not change). Known texts appear at once; new English texts are collected and translated in the background, the texts on your screen first. Numbers do not matter ("Harvested 25 rice" and "Harvested 3 rice" are one text). Names of colonists, factions, places and mods are never translated. Setting "Texts made in code (live)", on by default.
+- Faster start: the result of the scan is kept on disk and used again while your mods, their files and the language stay the same (the 20+ second scan is skipped).
+- Faster start: translations of plain def fields (labels, descriptions …) are put in directly instead of through the game's slower injection.
+- What's new: after an update a window shows once what changed (together with Bolek98's other mods; can be turned off).
+
+2.0.1
+- Fix (important): 2.0.0 also translated identifiers that some mods keep in text fields (body part names, enum values, lists of work types, paths) – this broke Steward styles, RJW body parts and pawn graphics. Now only fields that hold text a player reads are translated (labels, descriptions, messages, grammar rules …).
+
+2.0.0
+- 2.0 test, stage 1: new clean translator. Free services without a key (Microsoft Edge, Yandex, Google, MyMemory) with automatic fallback; DeepL, Azure, Google Cloud, Gemini, OpenAI-compatible AI (also local Ollama/LM Studio) and LibreTranslate with your own key and a Test button.
+- Translates def texts and Keyed texts through the game's own language system; every translation is checked (placeholders, grammar [tokens], wrong language, untranslated) – a broken one is never used.
+- Grammar rules: only the text after -> is translated, tokens kept exactly; missing grammatical cases of languages like Czech (imageNom …) fall back to the plain keyword – no more ERR.
+- Translation memory in a new compact format with a journal (no data loss on a crash); the 0.9 cache, manual corrections and keep-original list are taken over once and checked – broken entries are translated again.
+- Not yet in this stage: live translation of texts that mods build in code, the untranslated-text collector, glossary and export (next stages).
+
+0.9.57
+- Fix: "ERR" on the world map and in quests. Grammar rule translations are only used when they keep exactly the original [tokens]; names already saved as ERR (settlements, factions, world features, landmarks, quest names) are generated again when a save loads.
+

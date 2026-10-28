@@ -9,7 +9,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 ## Mods (dev)
 | Mod | Version | Folder |
 |---|---|---|
-| Auto Pharmacy – Doctors Give the Right Drug | 1.4.3 | [AutoPharmacy](AutoPharmacy) |
+| Auto Pharmacy – Doctors Give the Right Drug | 1.4.4 | [AutoPharmacy](AutoPharmacy) |
 | Auto Turrets | 1.4.0 | [AutoTurrets](AutoTurrets) |
 | Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.5.3 | [BodyFit](BodyFit) |
 | Call for Backup – Summon Your Allies | 0.1.0 | [CallForBackup](CallForBackup) |
@@ -27,7 +27,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Mech Commander | 0.1.3 | [MechCommander](MechCommander) |
 | Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
 | Mišák Tabs – Clear Bills, Health & Info | 0.5.1 | [MisakTabs](MisakTabs) |
-| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.3.0 | [ModSortManager](ModSortManager) |
+| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.3.1 | [ModSortManager](ModSortManager) |
 | Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
 | Randy's Table – Chaos Storytellers | 0.1.0 | [RandysTable](RandysTable) |
@@ -37,11 +37,11 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Smooth FPS – Performance & Graphics | 1.5.0 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 3.4.1 | [Steward2/Steward](Steward2/Steward) |
-| Steward – Crises & Situations | 1.0.6 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| Steward – Crises & Situations | 1.0.7 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | Steward – Schedules | 1.0.1 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
 | Steward – Supplies | 1.0.5 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
-| Universal RimTranslator | 2.6.3 | [UniversalRimTranslator](UniversalRimTranslator) |
+| Universal RimTranslator | 1.0.0 | [UniversalRimTranslator](UniversalRimTranslator) |
 | Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.2 | [UnofficialPatch](UnofficialPatch) |
 | Wild Spawn Zone | 1.1.3 | [WildSpawnZone](WildSpawnZone) |
 | World at Your Level – Raiders Match Your Tech | 2.16.0 | [WorldAtYourLevel](WorldAtYourLevel) |

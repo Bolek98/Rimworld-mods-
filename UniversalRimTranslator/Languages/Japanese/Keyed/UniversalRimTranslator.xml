@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <URT_Tab_Overview>概要</URT_Tab_Overview>
+  <URT_Tab_Services>翻訳サービス</URT_Tab_Services>
+  <URT_Rec1>言語パックでカバーされていないMODのテキストをすべて、バックグラウンドでカクつきなく翻訳します。</URT_Rec1>
+  <URT_Rec2>キー不要の無料サービス。1つが混雑していれば次のサービスが引き継ぎます。</URT_Rec2>
+  <URT_Rec3>すべての翻訳はチェックされ、壊れた翻訳は決して使われません（名前やテキストに「ERR」は出ません）。</URT_Rec3>
+  <URT_Status_Inactive>翻訳していません：{0}</URT_Status_Inactive>
+  <URT_Status_Language>言語：{0}（{1}）</URT_Status_Language>
+  <URT_Status_Phase>現在：{0}</URT_Status_Phase>
+  <URT_Status_Counts>未翻訳のテキスト：{0} · 記憶済みの翻訳：{1} · ゲームに反映：{2} · 翻訳待ち：{3}</URT_Status_Counts>
+  <URT_Status_Session>このセッション：翻訳 {0}、チェックで却下 {1}、失敗 {2} · 文法の代替使用 {3}</URT_Status_Session>
+  <URT_Status_Migrated>0.9から引き継ぎ：{0}</URT_Status_Migrated>
+  <URT_Pause>翻訳を一時停止</URT_Pause>
+  <URT_Resume>翻訳を再開</URT_Resume>
+  <URT_RetryFailed>失敗したテキストを再試行</URT_RetryFailed>
+  <URT_Sec_What>翻訳対象</URT_Sec_What>
+  <URT_Sec_Grammar>文法</URT_Sec_Grammar>
+  <URT_Enabled>不足しているテキストを翻訳</URT_Enabled>
+  <URT_Enabled_Desc>オフ：記憶済みの翻訳のみ使用し、新しいものはサービスに送信しません。</URT_Enabled_Desc>
+  <URT_Defs>名前と説明（defs）</URT_Defs>
+  <URT_Defs_Desc>すべてのMODのアイテム、建築物、健康状態、研究などのラベル、説明、その他のテキスト。</URT_Defs_Desc>
+  <URT_Keyed>インターフェースのテキスト（Keyed）</URT_Keyed>
+  <URT_Keyed_Desc>MODが英語で提供するボタン、メッセージ、設定のテキスト。</URT_Keyed_Desc>
+  <URT_Rules>文法ルール（物語、アート、ログ、クエスト）</URT_Rules>
+  <URT_Rules_Desc>「-&gt;」以降のテキストのみ翻訳され、[トークン]はすべてそのまま保持されます。チェックに通らないルールは英語のままです。</URT_Rules_Desc>
+  <URT_GrammarFallback>不足している文法の格を補う</URT_GrammarFallback>
+  <URT_GrammarFallback_Desc>格変化のある言語（チェコ語：imageNom、imageGen …）はMODにないキーワードを要求するため、ゲームが「ERR」と表示します。その代わりに通常のキーワードを使います。</URT_GrammarFallback_Desc>
+  <URT_Services_Intro>サービスは上から順に試されます。不要なものはオフにしてください。無料のものは何も設定せずに使えます。混雑中やブロックされたサービスは自動的に一時停止し、次のサービスが引き継ぎます。キーはあなたの設定ファイルにのみ保存されます。</URT_Services_Intro>
+  <URT_Badge_Free>無料、キー不要</URT_Badge_Free>
+  <URT_Badge_Key>キーが必要</URT_Badge_Key>
+  <URT_Badge_AiKey>AI – キーまたはローカルサーバーが必要</URT_Badge_AiKey>
+  <URT_NotSetUp>未設定（キーを入力）</URT_NotSetUp>
+  <URT_Test>テスト</URT_Test>
+  <URT_Testing>テスト中 …</URT_Testing>
+  <URT_Key>キー</URT_Key>
+  <URT_Region>リージョン</URT_Region>
+  <URT_Model>モデル</URT_Model>
+  <URT_Url>アドレス（URL）</URT_Url>
+  <URT_Email>メールアドレス（1日の上限が増加）</URT_Email>
+  <MUI_Title>推奨設定</MUI_Title>
+  <MUI_TitleOff>推奨設定 · オフ</MUI_TitleOff>
+  <MUI_DescOn>Modが自動で設定され、すぐに使えます。初心者や何も調整したくない方に最適です。</MUI_DescOn>
+  <MUI_DescOff>カスタム設定。推奨から変更した項目：{0}。</MUI_DescOff>
+  <MUI_DescOffSame>カスタム設定。まだ推奨と同じです。</MUI_DescOffSame>
+  <MUI_On>オン</MUI_On>
+  <MUI_Off>オフ</MUI_Off>
+  <MUI_ResetAll>すべて推奨にリセット</MUI_ResetAll>
+  <MUI_ConfirmOn>推奨設定をオンにしますか？あなたの変更（{0}）は推奨値に置き換えられます。</MUI_ConfirmOn>
+  <MUI_Locked>詳細設定はロックされています。変更したい場合は上のスイッチをオフにしてください – 値は推奨値から始まります。</MUI_Locked>
+  <MUI_Changed>変更済み</MUI_Changed>
+  <MUI_ChangedTip>推奨設定（{0}）と異なります。クリックで推奨値に戻します。</MUI_ChangedTip>
+  <MUI_Yes>オン</MUI_Yes>
+  <MUI_No>オフ</MUI_No>
+  <MUI_RecTag>推奨</MUI_RecTag>
+  <URT_Live>コードで生成されるテキスト（ライブ）</URT_Live>
+  <URT_Live_Desc>MODが言語ファイルではなくコード内に直接書いているメッセージ、レター、ボタン、ツールチップ、情報行。画面上でのみ翻訳され、ゲームデータは何も変わりません。既知のテキストはすぐに表示され、新しい英語のテキストはバックグラウンドで収集・翻訳されます（数字は関係なく、「Harvested 25 rice」と「Harvested 3 rice」は同じテキストです）。入植者、派閥、場所の名前は決して翻訳されません。</URT_Live_Desc>
+  <URT_Status_Live>ライブ：翻訳表示 {0} 件、このセッションで収集 {1} 件、待機中 {2} 件、到着 {3} 件</URT_Status_Live>
+  <URT_Tab_Editor>エディター</URT_Tab_Editor>
+  <URT_Ed_Intro>原文または訳文で任意のテキストを検索し、自分の訳を書けます。あなたのテキストが機械翻訳で置き換えられることはありません。</URT_Ed_Intro>
+  <URT_Ed_F_All>すべて</URT_Ed_F_All>
+  <URT_Ed_F_Mine>自分の訳</URT_Ed_F_Mine>
+  <URT_Ed_F_Problems>問題</URT_Ed_F_Problems>
+  <URT_Ed_F_Untranslated>未翻訳</URT_Ed_F_Untranslated>
+  <URT_Ed_Searching>検索中…</URT_Ed_Searching>
+  <URT_Ed_Count>{0} 件のテキスト</URT_Ed_Count>
+  <URT_Ed_CountMore>{1} 件中最初の {0} 件 – より詳しく検索してください</URT_Ed_CountMore>
+  <URT_Ed_SearchHint>検索する単語を入力してください（英語または訳文）。自分の翻訳がここに一覧表示されます。</URT_Ed_SearchHint>
+  <URT_Ed_NoTranslation>未翻訳</URT_Ed_NoTranslation>
+  <URT_Ed_Pick>左側からテキストを選んでください。</URT_Ed_Pick>
+  <URT_Ed_Original>原文</URT_Ed_Original>
+  <URT_Ed_Yours>翻訳</URT_Ed_Yours>
+  <URT_Ed_YoursNow>自分の訳</URT_Ed_YoursNow>
+  <URT_Ed_MachineNow>機械翻訳（{0}）</URT_Ed_MachineNow>
+  <URT_Ed_Machine>機械翻訳版：</URT_Ed_Machine>
+  <URT_Ed_Save>自分の訳を保存</URT_Ed_Save>
+  <URT_Ed_Revert>機械翻訳版</URT_Ed_Revert>
+  <URT_Ed_KeepOriginal>原文のまま</URT_Ed_KeepOriginal>
+  <URT_Ed_Again>再翻訳</URT_Ed_Again>
+  <URT_Ed_AgainTip>現在の翻訳を破棄し、まもなくサービスが再翻訳します。</URT_Ed_AgainTip>
+  <URT_Ed_Saved>保存しました – ゲームに反映済みです。</URT_Ed_Saved>
+  <URT_Ed_Broken>保存しましたが使用されません：波括弧内のプレースホルダーまたは &lt;color&gt; タグが欠けているか変更されています（{0}）。原文どおりに残してください。</URT_Ed_Broken>
+  <URT_Ed_EmptyNote>テキストが空です – 「機械翻訳版」か「原文のまま」を使ってください。</URT_Ed_EmptyNote>
+  <URT_Ed_Reverted>機械翻訳版に戻しました。</URT_Ed_Reverted>
+  <URT_Ed_Kept>原文（英語）のままにします。</URT_Ed_Kept>
+  <URT_Ed_AgainNote>まもなく再翻訳されます。</URT_Ed_AgainNote>
+  <URT_Gl_Title>マイ単語</URT_Gl_Title>
+  <URT_Gl_Hint>左の単語はすべての翻訳であなたの単語に置き換えられます（単語単位、先頭文字の大小は維持）。右側を空にするとその単語を削除します。</URT_Gl_Hint>
+  <URT_Gl_Add>追加</URT_Gl_Add>
+  <URT_Gl_Delete>削除</URT_Gl_Delete>
+  <URT_Gl_Remove>（削除済み）</URT_Gl_Remove>
+  <URT_Tab_Mods>MOD</URT_Tab_Mods>
+  <URT_Mods_Intro>各MODの翻訳状況。チェックを外すとそのMODは英語のままになります（テキストはゲームから外され、翻訳にも送信されません）。エクスポートすると、MODの翻訳が通常のLanguagesフォルダとして保存されます – 共有したり、MOD作者に送ったりできます。コードで生成されるテキスト（ライブ）はここでは数えられません。</URT_Mods_Intro>
+  <URT_Mods_SearchHint>MODを検索…</URT_Mods_SearchHint>
+  <URT_Mods_ExportAll>すべてエクスポート</URT_Mods_ExportAll>
+  <URT_Mods_Exporting>エクスポート中…</URT_Mods_Exporting>
+  <URT_Mods_ExportTip>すべてのMODの翻訳を次の場所に保存します：\n{0}\n各MODに中にLanguagesを含む専用フォルダが作られます – MODのフォルダにコピーするか、作者に送ってください。</URT_Mods_ExportTip>
+  <URT_Mods_OpenFolder>エクスポートフォルダを開く</URT_Mods_OpenFolder>
+  <URT_Mods_Counting>集計中…</URT_Mods_Counting>
+  <URT_Mods_Sum>{0} 個のMOD · {2} 件中 {1} 件翻訳済み（{3}）</URT_Mods_Sum>
+  <URT_Mods_SkipTip>このMODを翻訳します。チェックを外すと英語のままになります。</URT_Mods_SkipTip>
+  <URT_Mods_Export>エクスポート</URT_Mods_Export>
+  <URT_Mods_ExportedOne>{0} 件のテキストを {1} にエクスポートしました</URT_Mods_ExportedOne>
+  <URT_Mods_ExportedAll>{0} 件のテキストを {1} 個のファイルで {2} にエクスポートしました</URT_Mods_ExportedAll>
+  <URT_Mods_ExportFailed>エクスポート失敗：{0}</URT_Mods_ExportFailed>
+  <URT_Tab_Quality>チェック</URT_Tab_Quality>
+  <URT_Q_Intro>自動チェックは通ったものの、まだ間違っていそうな機械翻訳。自分の翻訳がここに表示されることはありません。</URT_Q_Intro>
+  <URT_Q_All>すべて</URT_Q_All>
+  <URT_Q_K_Number>数字</URT_Q_K_Number>
+  <URT_Q_K_Number_Tip>原文の数字が訳文にありません – ゲームが間違った量を表示するか、何も表示しません。</URT_Q_K_Number_Tip>
+  <URT_Q_K_English>英語が残存</URT_Q_K_English>
+  <URT_Q_K_English_Tip>英単語が翻訳されずにそのまま訳文にコピーされています。</URT_Q_K_English_Tip>
+  <URT_Q_K_Name>名前</URT_Q_K_Name>
+  <URT_Q_K_Name_Tip>入植者、派閥、場所、MODの名前が翻訳されています – 名前はそのままにすべきです。</URT_Q_K_Name_Tip>
+  <URT_Q_K_Cut>途切れ</URT_Q_K_Cut>
+  <URT_Q_K_Cut_Tip>訳文が文の途中で終わっているか、原文よりかなり短くなっています。</URT_Q_K_Cut_Tip>
+  <URT_Q_K_Chars>おかしな文字</URT_Q_K_Chars>
+  <URT_Q_K_Chars_Tip>&amp;amp; のような壊れた文字、テキストとして書かれた \n、二重スペースなど。</URT_Q_K_Chars_Tip>
+  <URT_Q_K_Differs>不一致</URT_Q_K_Differs>
+  <URT_Q_K_Differs_Tip>同じ短いテキスト（ボタン、単語）が場所によって異なる訳になっています。</URT_Q_K_Differs_Tip>
+  <URT_Q_WhyNumber>数字 {0} がありません。</URT_Q_WhyNumber>
+  <URT_Q_WhyEnglish>英語のまま：{0}</URT_Q_WhyEnglish>
+  <URT_Q_WhyName>名前「{0}」が翻訳されています。</URT_Q_WhyName>
+  <URT_Q_WhyCut>途切れているようです。</URT_Q_WhyCut>
+  <URT_Q_WhyChars>おかしな文字：{0}</URT_Q_WhyChars>
+  <URT_Q_WhySpaces>二重スペース。</URT_Q_WhySpaces>
+  <URT_Q_WhyDiffers>他の場所（{1}×）では「{0}」です。</URT_Q_WhyDiffers>
+  <URT_Q_Checking>チェック中…</URT_Q_Checking>
+  <URT_Q_Recheck>再チェック</URT_Q_Recheck>
+  <URT_Q_AgainAll>表示中を再翻訳（{0}）</URT_Q_AgainAll>
+  <URT_Q_AgainAllTip>一覧のすべてのテキスト（「不一致」を除く）を翻訳サービスに再送信します。自分の翻訳には影響しません。</URT_Q_AgainAllTip>
+  <URT_Q_AgainAllConfirm>{0} 件のテキストを再翻訳しますか？現在の機械翻訳は破棄されます。</URT_Q_AgainAllConfirm>
+  <URT_Q_UnifyAll>すべて統一（{0}）</URT_Q_UnifyAll>
+  <URT_Q_None>疑わしいものは見つかりませんでした。👍</URT_Q_None>
+  <URT_Q_Pick>左側からテキストを選んでください。</URT_Q_Pick>
+  <URT_Q_YourFix>自分の翻訳</URT_Q_YourFix>
+  <URT_Q_Save>修正を保存</URT_Q_Save>
+  <URT_Q_SaveTip>今後はあなたのテキストが使われ、機械翻訳で置き換えられることはありません。</URT_Q_SaveTip>
+  <URT_Q_Unify>共通の訳を使う</URT_Q_Unify>
+  <URT_Q_Unified>統一しました。</URT_Q_Unified>
+  <URT_Q_Fine>問題なし</URT_Q_Fine>
+  <URT_Q_FineNote>OK – 今後は表示されません。</URT_Q_FineNote>
+  <URT_Ed_AgainWait>別のサービスで再翻訳中…（{0} 秒）</URT_Ed_AgainWait>
+  <URT_Ed_AgainDone>再翻訳しました（{0}）。</URT_Ed_AgainDone>
+  <URT_Ed_AgainBad>新しい翻訳はチェックに通りませんでした（{0}） – 自分で書いて保存を押してください。</URT_Ed_AgainBad>
+  <URT_Ed_AgainSlow>まだどのサービスも応答していません – キューに残っています。後でもう一度確認してください。</URT_Ed_AgainSlow>
+  <URT_PickFix>Alt + 右クリックでテキストを修正</URT_PickFix>
+  <URT_PickFix_Desc>Altを押しながらゲーム内の任意のテキストを右クリック：そのテキストでエディターが開き、より良い翻訳を書いたり再翻訳したりできます。</URT_PickFix_Desc>
+  <URT_Pick_NotFound>このテキストはURTの記憶にありません（ゲームの言語パック由来か、複数の断片を組み合わせたものかもしれません）。検索では似たテキストが表示されます。</URT_Pick_NotFound>
+  <URT_Welcome_Title>Universal RimTranslator</URT_Welcome_Title>
+  <URT_Welcome_Body>URTはあなたのすべてのMODを{0}に翻訳します – 無料で、設定は不要です。
+
+• 既知のテキストはすでにゲームに反映されています。残りはプレイ中にバックグラウンドで翻訳されます。すぐにプレイできます。
+• プレイ中にMODが生成するテキストは、表示されると同時に画面上で翻訳されます。
+• テキストがおかしい、または半分しか翻訳されていない？Altを押しながら右クリックすると、そのテキストでエディターが開きます。
+• 進行状況、サービス、英語のままのMOD、エディター：オプション → MOD設定 → Universal RimTranslator。</URT_Welcome_Body>
+  <URT_Welcome_English>ゲームが英語なので、URTが翻訳するものはありません。
+
+オプション → 言語 で自分の言語を選んでゲームを再起動してください – URTがすべてのMODをその言語に、無料で設定なしで翻訳します。</URT_Welcome_English>
+  <URT_Welcome_Ok>了解</URT_Welcome_Ok>
+  <URT_Welcome_Settings>設定を開く</URT_Welcome_Settings>
+  <!-- 2.5.2 -->
+  <URT_Sec_Control>あなたの選択</URT_Sec_Control>
+  <URT_Offline>オフライン――メモリのみ</URT_Offline>
+  <URT_Offline_Desc>翻訳サービスを一切使いません。メモリにある翻訳（とあなた自身の翻訳）だけを使います。</URT_Offline_Desc>
+  <URT_HoldNew>新しく追加したMODを自動で翻訳しない</URT_HoldNew>
+  <URT_HoldNew_Desc>前回の起動以降に追加されたMODは、あなたが許可するまで「MOD」タブで待機します。メモリにある翻訳はそのまま使われます。</URT_HoldNew_Desc>
+  <URT_RaceNames>種族名を翻訳する</URT_RaceNames>
+  <URT_RaceNames_Desc>MODが追加した人型種族とゼノタイプの名前も翻訳します。オフ：MODが付けた名前のまま残ります（サービスは「Yuran」のような名前を普通の単語と誤解していました）。</URT_RaceNames_Desc>
+  <URT_Mods_NewWaiting>{0} 個の新しいMODが翻訳を待っています：{1}</URT_Mods_NewWaiting>
+  <URT_Mods_AllowNew>新しいMODを翻訳</URT_Mods_AllowNew>
+  <URT_All_Button>今すぐすべて翻訳</URT_All_Button>
+  <URT_All_Running>すべて翻訳中…</URT_All_Running>
+  <URT_All_Tip>ワンクリックで：失敗したテキストを再試行し、チェックに通らなかった機械翻訳を忘れ（自分の翻訳は残ります）、待機中の新しいMODを許可し、すべてのMODを再スキャンして、足りないものをすべて翻訳します。</URT_All_Tip>
+  <URT_All_Confirm>今すぐすべて翻訳しますか？\n\n失敗したテキストをすべて再試行し、チェックに通らなかった機械翻訳を忘れ（自分の翻訳は残ります）、待機中の新しいMODを許可し、すべてのMODを再スキャンして、足りないものをすべて翻訳します。MODが多いと長時間（数時間）かかることがあります。その間もプレイを続けられます。</URT_All_Confirm>
+  <URT_All_Started>すべて翻訳中：失敗した機械翻訳 {0} 件をやり直し、すべてのMODをスキャンしています。</URT_All_Started>
+  <URT_All_Done>Universal RimTranslator：見つかったものはすべて翻訳されました（新しい翻訳 {0} 件）。</URT_All_Done>
+  <URT_All_Stopped>Universal RimTranslator：今は何も翻訳できません。オフラインモードか、使えるサービスがありません。概要の診断を見てください。</URT_All_Stopped>
+  <URT_All_Scanning>すべてのMODを再スキャン中…</URT_All_Scanning>
+  <URT_All_Progress>翻訳中：残り {0} · {1}/分 · サービス：{2}</URT_All_Progress>
+  <URT_Diag_Line>待機中：{0} 件 · すべてのサービスで失敗：{1} · チェックで却下：{2}</URT_Diag_Line>
+  <URT_Diag_Offline>「オフライン – メモリのみ」がオンです：どのサービスにも問い合わせません。</URT_Diag_Offline>
+  <URT_Diag_NoService>今使えるサービスがありません。すべてオフ、未設定、一時停止中、またはキーが拒否されています。</URT_Diag_NoService>
+  <URT_Diag_KeyRejected>{0}：キーが拒否されました – このセッションではスキップ</URT_Diag_KeyRejected>
+  <URT_Diag_Paused>{0}：{1} 秒停止中</URT_Diag_Paused>
+  <URT_Diag_Services>問題のあるサービス：{0}</URT_Diag_Services>
+  <URT_Import_Button>翻訳をインポート…</URT_Import_Button>
+  <URT_Import_Tip>他の翻訳MODの翻訳をメモリに取り込みます：Auto Translation（ゲームのセーブフォルダ内のキャッシュ）と、Configフォルダのファイル {0}（原文 TAB 訳文、1行に1件）。現在の言語のみ。自分の翻訳が優先され、正常な翻訳は置き換えられません。</URT_Import_Tip>
+  <URT_Import_Working>インポート中…</URT_Import_Working>
+  <URT_Import_None>インポートできるものが見つかりません。対応：Auto Translation のキャッシュと、Configフォルダのファイル {0}（原文 TAB 訳文）。</URT_Import_None>
+  <URT_Import_Done>{0} 件の翻訳をインポートしました（{1}）。{2} 件はスキップ（翻訳済み、不明、またはチェック不合格）。</URT_Import_Done>
+  <URT_Pack_Export>パックをエクスポート…</URT_Pack_Export>
+  <URT_Pack_ExportTip>メモリ（または選んだMODのテキストのみ）を .tsv ファイルとして Config/UniversalRimTranslator2/packs に保存し、他のプレイヤーと共有できます。</URT_Pack_ExportTip>
+  <URT_Pack_Import>パックをインポート…</URT_Pack_Import>
+  <URT_Pack_ImportTip>Config/UniversalRimTranslator2/packs のパック（.tsv）をメモリに取り込みます。自分の翻訳が優先され、正常な翻訳は置き換えられません。</URT_Pack_ImportTip>
+  <URT_Pack_Working>処理中…</URT_Pack_Working>
+  <URT_Pack_Title>翻訳パック</URT_Pack_Title>
+  <URT_Pack_Name>ファイル名：</URT_Pack_Name>
+  <URT_Pack_All>メモリ内のすべての翻訳</URT_Pack_All>
+  <URT_Pack_Mods>これらのMODのみ：</URT_Pack_Mods>
+  <URT_Pack_DoExport>エクスポート</URT_Pack_DoExport>
+  <URT_Pack_Exported>{0} 件の翻訳を {1} に保存しました</URT_Pack_Exported>
+  <URT_Pack_NoFiles>{0} にパックがありません。.tsv パックを入れてください。</URT_Pack_NoFiles>
+  <URT_Pack_WrongLang>このパックは {0} 用で、ゲームは {1} です。何もインポートしませんでした。</URT_Pack_WrongLang>
+  <URT_Pack_OpenFolder>パックフォルダを開く</URT_Pack_OpenFolder>
+</LanguageData>

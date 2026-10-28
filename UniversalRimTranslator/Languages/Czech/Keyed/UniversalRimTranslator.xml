@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <URT_Tab_Overview>Přehled</URT_Tab_Overview>
+  <URT_Tab_Services>Překladové služby</URT_Tab_Services>
+  <URT_Rec1>Přeloží všechny texty modů, které tvoje jazyková sada nepokrývá – na pozadí a bez zasekávání.</URT_Rec1>
+  <URT_Rec2>Bezplatné služby bez klíče; když je jedna vytížená, převezme to další.</URT_Rec2>
+  <URT_Rec3>Každý překlad se zkontroluje – rozbitý se nikdy nepoužije (žádné „ERR“ ve jménech a textech).</URT_Rec3>
+  <URT_Status_Inactive>Nepřekládá se: {0}</URT_Status_Inactive>
+  <URT_Status_Language>Jazyk: {0} ({1})</URT_Status_Language>
+  <URT_Status_Phase>Teď: {0}</URT_Status_Phase>
+  <URT_Status_Counts>Nalezené texty bez překladu: {0} · zapamatované překlady: {1} · vloženo do hry: {2} · zbývá přeložit: {3}</URT_Status_Counts>
+  <URT_Status_Session>Toto spuštění: přeloženo {0}, odmítnuto kontrolou {1}, nepovedlo se {2} · použité náhrady pádů {3}</URT_Status_Session>
+  <URT_Status_Migrated>Převzato z verze 0.9: {0}</URT_Status_Migrated>
+  <URT_Pause>Pozastavit překládání</URT_Pause>
+  <URT_Resume>Pokračovat v překládání</URT_Resume>
+  <URT_RetryFailed>Zkusit nepovedené znovu</URT_RetryFailed>
+  <URT_Sec_What>Co překládat</URT_Sec_What>
+  <URT_Sec_Grammar>Gramatika</URT_Sec_Grammar>
+  <URT_Enabled>Překládat chybějící texty</URT_Enabled>
+  <URT_Enabled_Desc>Vypnuto: použijí se jen překlady, které už jsou v paměti, nic nového se do služeb neposílá.</URT_Enabled_Desc>
+  <URT_Defs>Názvy a popisy (defy)</URT_Defs>
+  <URT_Defs_Desc>Názvy, popisy a další texty věcí, budov, zdravotních stavů, výzkumu … všech modů.</URT_Defs_Desc>
+  <URT_Keyed>Texty rozhraní (Keyed)</URT_Keyed>
+  <URT_Keyed_Desc>Tlačítka, zprávy a texty nastavení, které mody mají jen anglicky.</URT_Keyed_Desc>
+  <URT_Rules>Gramatická pravidla (příběhy, umění, logy, úkoly)</URT_Rules>
+  <URT_Rules_Desc>Překládá se jen text za „-&gt;“, každá [značka] zůstane přesně. Pravidlo, které neprojde kontrolou, zůstane anglicky.</URT_Rules_Desc>
+  <URT_GrammarFallback>Doplnit chybějící pády</URT_GrammarFallback>
+  <URT_GrammarFallback_Desc>Jazyky s pády (čeština: imageNom, imageGen …) chtějí klíčová slova, která mody nemají – hra pak napíše „ERR“. Místo nich se použije základní tvar.</URT_GrammarFallback_Desc>
+  <URT_Services_Intro>Služby se zkoušejí odshora. Vypni, co nechceš; bezplatné fungují bez čehokoli. Služba, která je vytížená nebo blokuje, se sama pozastaví a převezme to další. Klíče zůstávají jen v tvém souboru nastavení.</URT_Services_Intro>
+  <URT_Badge_Free>zdarma, bez klíče</URT_Badge_Free>
+  <URT_Badge_Key>potřebuje tvůj klíč</URT_Badge_Key>
+  <URT_Badge_AiKey>AI – potřebuje tvůj klíč nebo místní server</URT_Badge_AiKey>
+  <URT_NotSetUp>nenastaveno (zadej klíč)</URT_NotSetUp>
+  <URT_Test>Vyzkoušet</URT_Test>
+  <URT_Testing>zkouším …</URT_Testing>
+  <URT_Key>Klíč</URT_Key>
+  <URT_Region>Oblast</URT_Region>
+  <URT_Model>Model</URT_Model>
+  <URT_Url>Adresa (URL)</URT_Url>
+  <URT_Email>E-mail (vyšší denní limit)</URT_Email>
+
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+  <URT_Live>Texty tvořené v kódu (živě)</URT_Live>
+  <URT_Live_Desc>Zprávy, dopisy, tlačítka, nápovědy a řádky informací, které mody píšou přímo v kódu (ne v jazykových souborech). Překládají se jen na obrazovce – v datech hry se nic nemění. Známé texty se ukážou hned, nové anglické se sbírají a překládají na pozadí (na číslech nezáleží, „Harvested 25 rice“ a „Harvested 3 rice“ je jeden text). Jména kolonistů, frakcí a míst se nikdy nepřekládají.</URT_Live_Desc>
+  <URT_Status_Live>Živě: zobrazeno přeložených {0}, nasbíráno {1}, čeká {2}, hotovo {3}</URT_Status_Live>
+  <URT_Tab_Editor>Editor</URT_Tab_Editor>
+  <URT_Ed_Intro>Najdi jakýkoli text podle originálu nebo překladu a napiš si vlastní verzi. Tvůj text stroj nikdy nepřepíše.</URT_Ed_Intro>
+  <URT_Ed_F_All>Vše</URT_Ed_F_All>
+  <URT_Ed_F_Mine>Moje</URT_Ed_F_Mine>
+  <URT_Ed_F_Problems>Problémy</URT_Ed_F_Problems>
+  <URT_Ed_F_Untranslated>Nepřeložené</URT_Ed_F_Untranslated>
+  <URT_Ed_Searching>Hledám…</URT_Ed_Searching>
+  <URT_Ed_Count>{0} textů</URT_Ed_Count>
+  <URT_Ed_CountMore>prvních {0} z {1} textů – hledej přesněji</URT_Ed_CountMore>
+  <URT_Ed_SearchHint>Napiš slovo k hledání (anglicky nebo přeložené). Tady se ukazují tvoje vlastní překlady.</URT_Ed_SearchHint>
+  <URT_Ed_NoTranslation>zatím nepřeloženo</URT_Ed_NoTranslation>
+  <URT_Ed_Pick>Vyber text vlevo.</URT_Ed_Pick>
+  <URT_Ed_Original>Originál</URT_Ed_Original>
+  <URT_Ed_Yours>Překlad</URT_Ed_Yours>
+  <URT_Ed_YoursNow>tvůj vlastní</URT_Ed_YoursNow>
+  <URT_Ed_MachineNow>strojový ({0})</URT_Ed_MachineNow>
+  <URT_Ed_Machine>Strojová verze:</URT_Ed_Machine>
+  <URT_Ed_Save>Uložit můj</URT_Ed_Save>
+  <URT_Ed_Revert>Strojová verze</URT_Ed_Revert>
+  <URT_Ed_KeepOriginal>Nechat originál</URT_Ed_KeepOriginal>
+  <URT_Ed_Again>Přeložit znovu</URT_Ed_Again>
+  <URT_Ed_AgainTip>Zahodí současný překlad; služby ho za chvíli přeloží znovu.</URT_Ed_AgainTip>
+  <URT_Ed_Saved>Uloženo – už je ve hře.</URT_Ed_Saved>
+  <URT_Ed_Broken>Uloženo, ale nepoužije se: chybí nebo se změnily značky ve složených závorkách nebo &lt;color&gt; ({0}). Nech je jako v originálu.</URT_Ed_Broken>
+  <URT_Ed_EmptyNote>Prázdný text – použij „Strojová verze“ nebo „Nechat originál“.</URT_Ed_EmptyNote>
+  <URT_Ed_Reverted>Zpět na strojovou verzi.</URT_Ed_Reverted>
+  <URT_Ed_Kept>Zůstane originál (anglicky).</URT_Ed_Kept>
+  <URT_Ed_AgainNote>Za chvíli se přeloží znovu.</URT_Ed_AgainNote>
+  <URT_Gl_Title>Moje slova</URT_Gl_Title>
+  <URT_Gl_Hint>Slovo vlevo se ve všech překladech nahradí tvým (celá slova, velikost prvního písmene zůstane). Prázdná pravá strana slovo odstraní.</URT_Gl_Hint>
+  <URT_Gl_Add>Přidat</URT_Gl_Add>
+  <URT_Gl_Delete>Smazat</URT_Gl_Delete>
+  <URT_Gl_Remove>(odstraní se)</URT_Gl_Remove>
+  <URT_Tab_Mods>Mody</URT_Tab_Mods>
+  <URT_Mods_Intro>Kolik je přeloženo z každého modu. Odškrtni mod, který chceš nechat anglicky (jeho texty se ze hry vrátí do originálu a nepošlou se k překladu). Export uloží překlad modu jako normální složku Languages – můžeš ji sdílet nebo poslat autorovi modu. Texty z kódu (živý překlad) se tu nepočítají.</URT_Mods_Intro>
+  <URT_Mods_SearchHint>Najít mod…</URT_Mods_SearchHint>
+  <URT_Mods_ExportAll>Exportovat vše</URT_Mods_ExportAll>
+  <URT_Mods_Exporting>Exportuji…</URT_Mods_Exporting>
+  <URT_Mods_ExportTip>Uloží překlady všech modů do:\n{0}\nKaždý mod má svou složku a v ní Languages – zkopíruj ji do složky modu, nebo ji pošli autorovi.</URT_Mods_ExportTip>
+  <URT_Mods_OpenFolder>Otevřít složku exportu</URT_Mods_OpenFolder>
+  <URT_Mods_Counting>Počítám…</URT_Mods_Counting>
+  <URT_Mods_Sum>{0} modů · přeloženo {1} z {2} textů ({3})</URT_Mods_Sum>
+  <URT_Mods_SkipTip>Překládat tento mod. Odškrtni, aby zůstal anglicky.</URT_Mods_SkipTip>
+  <URT_Mods_Export>Export</URT_Mods_Export>
+  <URT_Mods_ExportedOne>Exportováno {0} textů do {1}</URT_Mods_ExportedOne>
+  <URT_Mods_ExportedAll>Exportováno {0} textů v {1} souborech do {2}</URT_Mods_ExportedAll>
+  <URT_Mods_ExportFailed>Export se nepovedl: {0}</URT_Mods_ExportFailed>
+  <URT_Tab_Quality>Kontrola</URT_Tab_Quality>
+  <URT_Q_Intro>Strojové překlady, které prošly automatickou kontrolou, ale pořád vypadají špatně. Tvoje vlastní překlady se tu nikdy neukazují.</URT_Q_Intro>
+  <URT_Q_All>Vše</URT_Q_All>
+  <URT_Q_K_Number>Čísla</URT_Q_K_Number>
+  <URT_Q_K_Number_Tip>V překladu chybí číslo z originálu – hra by ukázala špatné množství nebo žádné.</URT_Q_K_Number_Tip>
+  <URT_Q_K_English>Zbylá angličtina</URT_Q_K_English>
+  <URT_Q_K_English_Tip>Do překladu se dostala anglická slova místo přeložených.</URT_Q_K_English_Tip>
+  <URT_Q_K_Name>Jména</URT_Q_K_Name>
+  <URT_Q_K_Name_Tip>Přeložilo se jméno kolonisty, frakce, místa nebo modu – jména mají zůstat, jak jsou.</URT_Q_K_Name_Tip>
+  <URT_Q_K_Cut>Useknuté</URT_Q_K_Cut>
+  <URT_Q_K_Cut_Tip>Překlad končí uprostřed věty nebo je mnohem kratší než originál.</URT_Q_K_Cut_Tip>
+  <URT_Q_K_Chars>Divné znaky</URT_Q_K_Chars>
+  <URT_Q_K_Chars_Tip>Rozbité znaky jako &amp;amp;, \n napsané jako text nebo dvojité mezery.</URT_Q_K_Chars_Tip>
+  <URT_Q_K_Differs>Nejednotné</URT_Q_K_Differs>
+  <URT_Q_K_Differs_Tip>Stejný krátký text (tlačítko, slovo) je na různých místech přeložený jinak.</URT_Q_K_Differs_Tip>
+  <URT_Q_WhyNumber>Chybí číslo {0}.</URT_Q_WhyNumber>
+  <URT_Q_WhyEnglish>Zůstalo anglicky: {0}</URT_Q_WhyEnglish>
+  <URT_Q_WhyName>Jméno „{0}“ se přeložilo.</URT_Q_WhyName>
+  <URT_Q_WhyCut>Vypadá useknutě.</URT_Q_WhyCut>
+  <URT_Q_WhyChars>Divné znaky: {0}</URT_Q_WhyChars>
+  <URT_Q_WhySpaces>Dvojité mezery.</URT_Q_WhySpaces>
+  <URT_Q_WhyDiffers>Jinde ({1}×) je to „{0}“.</URT_Q_WhyDiffers>
+  <URT_Q_Checking>Kontroluji…</URT_Q_Checking>
+  <URT_Q_Recheck>Zkontrolovat znovu</URT_Q_Recheck>
+  <URT_Q_AgainAll>Přeložit znovu zobrazené ({0})</URT_Q_AgainAll>
+  <URT_Q_AgainAllTip>Pošle všechny zobrazené texty (kromě „Nejednotné“) znovu překladačům. Tvých vlastních překladů se to nedotkne.</URT_Q_AgainAllTip>
+  <URT_Q_AgainAllConfirm>Přeložit {0} textů znovu? Současné strojové překlady se zahodí.</URT_Q_AgainAllConfirm>
+  <URT_Q_UnifyAll>Sjednotit vše ({0})</URT_Q_UnifyAll>
+  <URT_Q_None>Nic podezřelého jsem nenašla. 👍</URT_Q_None>
+  <URT_Q_Pick>Vyber text vlevo.</URT_Q_Pick>
+  <URT_Q_YourFix>Tvůj překlad</URT_Q_YourFix>
+  <URT_Q_Save>Uložit opravu</URT_Q_Save>
+  <URT_Q_SaveTip>Tvůj text se od teď používá a strojový překlad ho už nikdy nepřepíše.</URT_Q_SaveTip>
+  <URT_Q_Unify>Použít ten častější</URT_Q_Unify>
+  <URT_Q_Unified>Sjednoceno.</URT_Q_Unified>
+  <URT_Q_Fine>Je to dobře</URT_Q_Fine>
+  <URT_Q_FineNote>Dobře – už se to neukáže.</URT_Q_FineNote>
+  <URT_Ed_AgainWait>Překládám znovu jinou službou… ({0} s)</URT_Ed_AgainWait>
+  <URT_Ed_AgainDone>Přeloženo znovu ({0}).</URT_Ed_AgainDone>
+  <URT_Ed_AgainBad>Nový překlad neprošel kontrolou ({0}) – napiš vlastní a dej Uložit.</URT_Ed_AgainBad>
+  <URT_Ed_AgainSlow>Zatím neodpověděla žádná služba – zůstává ve frontě. Podívej se později.</URT_Ed_AgainSlow>
+  <URT_PickFix>Alt + pravé tlačítko opraví text</URT_PickFix>
+  <URT_PickFix_Desc>Podrž Alt a klikni pravým tlačítkem na jakýkoli text ve hře: otevře se editor přesně s tímto textem, takže napíšeš lepší překlad nebo ho necháš přeložit znovu.</URT_PickFix_Desc>
+  <URT_Pick_NotFound>Tento text není v paměti URT (může být z jazykového balíčku hry nebo poskládaný z několika kousků). Hledání ukazuje podobné texty.</URT_Pick_NotFound>
+  <URT_Welcome_Title>Universal RimTranslator</URT_Welcome_Title>
+  <URT_Welcome_Body>URT překládá všechny tvoje mody do jazyka {0} – zdarma a bez nastavování.
+
+• Texty, které už zná, jsou ve hře hned; zbytek se překládá na pozadí, zatímco hraješ. Můžeš hned hrát.
+• Texty, které mody vytvářejí během hry, se překládají přímo na obrazovce, jakmile se objeví.
+• Vypadá text špatně nebo napůl přeloženě? Podrž Alt a klikni na něj pravým tlačítkem – otevře se editor přesně s tímto textem.
+• Průběh, služby, mody nechané v angličtině a editor: Možnosti → Nastavení modů → Universal RimTranslator.</URT_Welcome_Body>
+  <URT_Welcome_English>Hra je v angličtině, takže URT nemá co překládat.
+
+Vyber svůj jazyk v Možnosti → Jazyk a restartuj hru – URT pak do něj přeloží všechny tvoje mody, zdarma a bez nastavování.</URT_Welcome_English>
+  <URT_Welcome_Ok>Rozumím</URT_Welcome_Ok>
+  <URT_Welcome_Settings>Otevřít nastavení</URT_Welcome_Settings>
+  <!-- 2.5.2 -->
+  <URT_Sec_Control>Tvoje volba</URT_Sec_Control>
+  <URT_Offline>Offline – jen paměť</URT_Offline>
+  <URT_Offline_Desc>Žádná překladová služba se nevolá. Použijí se jen překlady, které už jsou v paměti (a tvoje vlastní).</URT_Offline_Desc>
+  <URT_HoldNew>Nově přidané mody nepřekládat automaticky</URT_HoldNew>
+  <URT_HoldNew_Desc>Mody přidané od posledního spuštění čekají na kartě Mody, dokud je nepustíš. Překlady, které už jsou v paměti, se použijí i tak.</URT_HoldNew_Desc>
+  <URT_RaceNames>Překládat jména ras</URT_RaceNames>
+  <URT_RaceNames_Desc>Překládají se i jména humanoidních ras a xenotypů z modů. Vypnuto: zůstanou tak, jak je mod pojmenoval (služby braly jména jako „Yuran“ za obyčejná slova).</URT_RaceNames_Desc>
+  <URT_Mods_NewWaiting>{0} nových modů čeká na překlad: {1}</URT_Mods_NewWaiting>
+  <URT_Mods_AllowNew>Přeložit nové mody</URT_Mods_AllowNew>
+  <URT_All_Button>Přeložit všechno hned</URT_All_Button>
+  <URT_All_Running>Překládám všechno…</URT_All_Running>
+  <URT_All_Tip>Jedno kliknutí: zkusí znovu texty, které selhaly, zapomene strojové překlady, které neprošly kontrolou (tvoje vlastní zůstanou), pustí čekající nové mody, znovu projde všechny mody a přeloží všechno, co chybí.</URT_All_Tip>
+  <URT_All_Confirm>Přeložit všechno hned?\n\nZkusí znovu každý text, který selhal, zapomene strojové překlady, které neprošly kontrolou (tvoje vlastní překlady zůstanou), pustí čekající nové mody, znovu projde všechny mody a přeloží všechno, co chybí. S hodně mody to může trvat dlouho (i hodiny) – mezitím můžeš normálně hrát.</URT_All_Confirm>
+  <URT_All_Started>Překládám všechno: {0} strojových překladů, které selhaly, se udělá znovu, procházím všechny mody.</URT_All_Started>
+  <URT_All_Done>Universal RimTranslator: všechno nalezené je přeložené (nových překladů: {0}).</URT_All_Done>
+  <URT_All_Stopped>Universal RimTranslator: teď nejde nic přeložit – je zapnutý offline režim nebo nefunguje žádná služba. Podrobnosti jsou v Přehledu.</URT_All_Stopped>
+  <URT_All_Scanning>Znovu procházím všechny mody…</URT_All_Scanning>
+  <URT_All_Progress>Překládám: zbývá {0} · {1}/min · služba: {2}</URT_All_Progress>
+  <URT_Diag_Line>Čeká: {0} textů · selhalo u všech služeb: {1} · neprošlo kontrolou: {2}</URT_Diag_Line>
+  <URT_Diag_Offline>Je zapnuté „Offline – jen paměť“: žádná služba se neptá.</URT_Diag_Offline>
+  <URT_Diag_NoService>Teď nefunguje žádná služba – všechny jsou vypnuté, nenastavené, pozastavené nebo jim byl odmítnut klíč.</URT_Diag_NoService>
+  <URT_Diag_KeyRejected>{0}: klíč odmítnut – v tomhle spuštění se přeskakuje</URT_Diag_KeyRejected>
+  <URT_Diag_Paused>{0}: pozastaveno na {1} s</URT_Diag_Paused>
+  <URT_Diag_Services>Služby s problémy: {0}</URT_Diag_Services>
+  <URT_Import_Button>Importovat překlady…</URT_Import_Button>
+  <URT_Import_Tip>Převezme do paměti překlady z jiných překladových modů: Auto Translation (jeho cache ve složce s uloženými hrami) a soubor {0} ve složce Config (originál TAB překlad, jeden na řádek). Jen pro aktuální jazyk; tvoje vlastní překlady mají přednost a fungující překlady se nikdy nepřepíšou.</URT_Import_Tip>
+  <URT_Import_Working>Importuji…</URT_Import_Working>
+  <URT_Import_None>Nenašlo se nic k importu. Podporováno: cache modu Auto Translation a soubor {0} ve složce Config (originál TAB překlad).</URT_Import_None>
+  <URT_Import_Done>Importováno překladů: {0} ({1}); přeskočeno {2} (už přeložené, neznámé nebo neprošly kontrolou).</URT_Import_Done>
+  <URT_Pack_Export>Exportovat balíček…</URT_Pack_Export>
+  <URT_Pack_ExportTip>Uloží paměť – nebo jen texty vybraných modů – jako soubor .tsv do Config/UniversalRimTranslator2/packs, abys ho mohl sdílet s ostatními hráči.</URT_Pack_ExportTip>
+  <URT_Pack_Import>Importovat balíček…</URT_Pack_Import>
+  <URT_Pack_ImportTip>Převezme balíček (.tsv) z Config/UniversalRimTranslator2/packs do paměti. Tvoje vlastní překlady mají přednost a fungující překlady se nikdy nepřepíšou.</URT_Pack_ImportTip>
+  <URT_Pack_Working>Pracuji…</URT_Pack_Working>
+  <URT_Pack_Title>Balíček překladů</URT_Pack_Title>
+  <URT_Pack_Name>Název souboru:</URT_Pack_Name>
+  <URT_Pack_All>Všechny překlady v paměti</URT_Pack_All>
+  <URT_Pack_Mods>Jen tyto mody:</URT_Pack_Mods>
+  <URT_Pack_DoExport>Exportovat</URT_Pack_DoExport>
+  <URT_Pack_Exported>Uloženo překladů: {0} do {1}</URT_Pack_Exported>
+  <URT_Pack_NoFiles>Ve složce {0} nejsou žádné balíčky – dej tam balíčky .tsv.</URT_Pack_NoFiles>
+  <URT_Pack_WrongLang>Tento balíček je pro {0}, hra je v {1} – nic se neimportovalo.</URT_Pack_WrongLang>
+  <URT_Pack_OpenFolder>Otevřít složku s balíčky</URT_Pack_OpenFolder>
+</LanguageData>
