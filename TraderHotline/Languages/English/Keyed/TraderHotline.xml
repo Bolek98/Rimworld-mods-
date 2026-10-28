@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <TH_ModName>Trader Hotline</TH_ModName>
+  <TH_Rec1>Call the orbital trader you want from the comms console</TH_Rec1>
+  <TH_Rec2>Pay from any silver in your stores – no orbital beacons</TH_Rec2>
+  <TH_Rec3>Countdown in the alerts; retries and refunds if it can't come</TH_Rec3>
+  <TH_BaseFee>Fee for a call: {0} silver</TH_BaseFee>
+  <TH_BaseFee_Desc>The basic price for calling a trader.</TH_BaseFee_Desc>
+  <TH_WealthFee>+ {0} % of colony wealth</TH_WealthFee>
+  <TH_WealthFee_Desc>A richer colony pays a bit more. 0 = always the same fee.</TH_WealthFee_Desc>
+  <TH_Delay>Normal delivery: about {0} days</TH_Delay>
+  <TH_Delay_Desc>How long a normally called trader takes to arrive.</TH_Delay_Desc>
+  <TH_Express>Express delivery: after {0} hours</TH_Express>
+  <TH_Express_Desc>How fast an express call arrives.</TH_Express_Desc>
+  <TH_ExpressMul>Express price: {0}× the fee</TH_ExpressMul>
+  <TH_ExpressMul_Desc>How much more an express call costs.</TH_ExpressMul_Desc>
+  <TH_Cooldown>Wait between calls: {0} days</TH_Cooldown>
+  <TH_Cooldown_Desc>How long until you can call the next trader. 0 = any time.</TH_Cooldown_Desc>
+  <TH_Stay>A called trader stays {0}× longer</TH_Stay>
+  <TH_Stay_Desc>You called it – it gives you more time to trade.</TH_Stay_Desc>
+  <TH_Refund>Refund if it can't come</TH_Refund>
+  <TH_Refund_Desc>When the trader can't arrive for two days (another mod, game limits), the fee comes back in a drop pod.</TH_Refund_Desc>
+  <TH_CallMenu>Call an orbital trader…</TH_CallMenu>
+  <TH_NoPower>no power</TH_NoPower>
+  <TH_AlreadyCalled>a trader is already on the way</TH_AlreadyCalled>
+  <TH_Cooldown_Wait>next call in {0} days</TH_Cooldown_Wait>
+  <TH_Title>Trader Hotline</TH_Title>
+  <TH_Silver>Silver in your stores: {0}</TH_Silver>
+  <TH_Faction>Faction: {0}</TH_Faction>
+  <TH_Sells>Usually sells:</TH_Sells>
+  <TH_Delivery>Delivery:</TH_Delivery>
+  <TH_Normal>Normal – in about {0} days, {1} silver</TH_Normal>
+  <TH_ExpressOpt>Express – in {0} hours, {1} silver</TH_ExpressOpt>
+  <TH_Note>The trader arrives for sure: if it can't come right away it tries again for two days, otherwise the fee comes back. It stays {0} % as long as a normal trader. Trading works as usual through the comms console.</TH_Note>
+  <TH_NoSilver>Not enough silver in your stores ({0} needed).</TH_NoSilver>
+  <TH_CallBtn>Call ({0} silver)</TH_CallBtn>
+  <TH_Called>{0} is on the way – arrives in {1}. Paid {2} silver.</TH_Called>
+  <TH_FailTitle>Trader could not come</TH_FailTitle>
+  <TH_FailText>{0} could not reach your colony. Your {1} silver was sent back.</TH_FailText>
+  <TH_AlertLabel>{0} in {1}</TH_AlertLabel>
+  <TH_AlertText>An orbital trader you called is on the way.</TH_AlertText>
+  <TH_Animals>Animals</TH_Animals>
+</LanguageData>
