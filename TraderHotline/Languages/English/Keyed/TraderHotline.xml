@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <TH_ModName>Trader Hotline</TH_ModName>
-  <TH_Rec1>Call the orbital trader you want from the comms console</TH_Rec1>
+  <TH_Rec1>Call the orbital trader or faction caravan you want from the comms console</TH_Rec1>
   <TH_Rec2>Pay from any silver in your stores – no orbital beacons</TH_Rec2>
   <TH_Rec3>Countdown in the alerts; retries and refunds if it can't come</TH_Rec3>
   <TH_BaseFee>Fee for a call: {0} silver</TH_BaseFee>
@@ -20,7 +20,7 @@
   <TH_Stay_Desc>You called it – it gives you more time to trade.</TH_Stay_Desc>
   <TH_Refund>Refund if it can't come</TH_Refund>
   <TH_Refund_Desc>When the trader can't arrive for two days (another mod, game limits), the fee comes back in a drop pod.</TH_Refund_Desc>
-  <TH_CallMenu>Call an orbital trader…</TH_CallMenu>
+  <TH_CallMenu>Call a trader…</TH_CallMenu>
   <TH_NoPower>no power</TH_NoPower>
   <TH_AlreadyCalled>a trader is already on the way</TH_AlreadyCalled>
   <TH_Cooldown_Wait>next call in {0} days</TH_Cooldown_Wait>
@@ -38,8 +38,16 @@
   <TH_FailTitle>Trader could not come</TH_FailTitle>
   <TH_FailText>{0} could not reach your colony. Your {1} silver was sent back.</TH_FailText>
   <TH_AlertLabel>{0} in {1}</TH_AlertLabel>
-  <TH_AlertText>An orbital trader you called is on the way.</TH_AlertText>
+  <TH_AlertText>The trader you called is on the way.</TH_AlertText>
   <TH_Animals>Animals</TH_Animals>
   <TH_Arrived>The {1} {0} you called is in orbit now. It stays for {2}. Talk to it from the comms console.</TH_Arrived>
   <TH_NoComms>No powered comms console – you need one to trade.</TH_NoComms>
+  <TH_SecOrbital>Orbital trade ships</TH_SecOrbital>
+  <TH_SecCaravan>Caravans from factions</TH_SecCaravan>
+  <TH_NoCaravans>No friendly faction sends caravans now.</TH_NoCaravans>
+  <TH_KindShip>Trade ship in orbit – trade from the comms console.</TH_KindShip>
+  <TH_KindCaravan>Caravan – walks in to your colony and trades in person.</TH_KindCaravan>
+  <TH_NoteCaravan>The caravan comes surely: if it can't come at once (danger on the map, the faction turned hostile), it tries again for two days, otherwise the fee is sent back.</TH_NoteCaravan>
+  <TH_CaravanMul>Caravan costs {0} % of the fee</TH_CaravanMul>
+  <TH_CaravanMul_Desc>A caravan walks in and is cheaper than a trade ship.</TH_CaravanMul_Desc>
 </LanguageData>

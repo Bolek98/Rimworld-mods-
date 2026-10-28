@@ -27,6 +27,7 @@ namespace TraderHotline
         public float cooldownDays = 5f;       // between two calls (0 = none)
         public float stayMul = 1.5f;          // a called trader stays this many times longer
         public bool refund = true;            // fee back when it could not come
+        public float caravanMul = 0.6f;       // a caravan costs this part of the fee
 
         public override void ExposeData()
         {
@@ -39,12 +40,13 @@ namespace TraderHotline
             Scribe_Values.Look(ref cooldownDays, "cooldownDays", 5f);
             Scribe_Values.Look(ref stayMul, "stayMul", 1.5f);
             Scribe_Values.Look(ref refund, "refund", true);
+            Scribe_Values.Look(ref caravanMul, "caravanMul", 0.6f);
         }
     }
 
     public class THMod : Mod
     {
-        public const string Version = "0.1.1";
+        public const string Version = "0.2.0";
         public static THSettings S;
         private static List<string> recBullets;
 
@@ -88,6 +90,7 @@ namespace TraderHotline
                 S.expressMul = Mathf.Round(MUI.Slider(l, "TH_ExpressMul".Translate(S.expressMul.ToString("0.0")), S.expressMul, 1f, 5f, "TH_ExpressMul_Desc".Translate(), S, "expressMul") * 10f) / 10f;
                 S.cooldownDays = Mathf.Round(MUI.Slider(l, "TH_Cooldown".Translate(S.cooldownDays.ToString("0")), S.cooldownDays, 0f, 30f, "TH_Cooldown_Desc".Translate(), S, "cooldownDays"));
                 S.stayMul = Mathf.Round(MUI.Slider(l, "TH_Stay".Translate(S.stayMul.ToString("0.0")), S.stayMul, 1f, 4f, "TH_Stay_Desc".Translate(), S, "stayMul") * 10f) / 10f;
+                S.caravanMul = Mathf.Round(MUI.Slider(l, "TH_CaravanMul".Translate(Mathf.RoundToInt(S.caravanMul * 100f)), S.caravanMul, 0.1f, 2f, "TH_CaravanMul_Desc".Translate(), S, "caravanMul") * 20f) / 20f;
                 MUI.Check(l, "TH_Refund".Translate(), "TH_Refund_Desc".Translate(), ref S.refund, S, "refund");
                 l.End();
             }
@@ -99,6 +102,8 @@ namespace TraderHotline
     {
         public int mapId;
         public TraderKindDef kind;
+        public Faction faction;     // caravans: who sends it
+        public bool caravan;
         public int fireTick, deadline, fee;
         public bool announced;
 
@@ -110,7 +115,18 @@ namespace TraderHotline
             Scribe_Values.Look(ref deadline, "deadline");
             Scribe_Values.Look(ref fee, "fee");
             Scribe_Values.Look(ref announced, "announced");
+            Scribe_References.Look(ref faction, "faction");
+            Scribe_Values.Look(ref caravan, "caravan");
         }
+    }
+
+    // one thing you can call: an orbital trade ship or a caravan of one faction
+    public class Offer
+    {
+        public TraderKindDef kind;
+        public Faction faction;
+        public bool caravan;
+        public string Label => caravan ? kind.LabelCap + " – " + faction.Name : kind.LabelCap.ToString();
     }
 
     public class HotlineComponent : GameComponent
@@ -150,10 +166,11 @@ namespace TraderHotline
             if (now % 250 != 31 || calls.Count == 0) return;
             foreach (PendingCall c in calls.ToList())
             {
+                if (c.caravan && c.faction == null) { calls.Remove(c); continue; }
                 Map map = Find.Maps.FirstOrDefault(m => m.uniqueID == c.mapId);
                 if (map == null) { calls.Remove(c); continue; }
                 if (now < c.fireTick) continue;
-                if (Hotline.Arrive(map, c.kind))
+                if (c.caravan ? Hotline.ArriveCaravan(map, c.kind, c.faction) : Hotline.Arrive(map, c.kind))
                 {
                     calls.Remove(c);
                     continue;
@@ -175,10 +192,47 @@ namespace TraderHotline
             DefDatabase<TraderKindDef>.AllDefsListForReading.Where(k => k.orbital && (k.faction == null || Find.FactionManager.FirstFactionOfDef(k.faction) != null))
                 .OrderBy(k => k.label);
 
-        public static int Fee(Map map, bool express)
+        // caravans of every faction that is not hostile and would send that kind of trader
+        public static IEnumerable<Offer> Caravans(Map map)
+        {
+            foreach (Faction f in Find.FactionManager.AllFactionsVisibleInViewOrder)
+            {
+                if (f.IsPlayer || f.defeated || f.temporary || f.def.caravanTraderKinds.NullOrEmpty() || f.HostileTo(Faction.OfPlayer)) continue;
+                foreach (TraderKindDef k in f.def.caravanTraderKinds)
+                {
+                    if (k.faction != null && k.faction != f.def) continue;
+                    if (ModsConfig.IdeologyActive && f.ideos != null && k.category == "Slaver" && f.ideos.AllIdeos.Any(i => !i.IdeoApprovesOfSlavery())) continue;
+                    if (k.permitRequiredForTrading != null && !map.mapPawns.FreeColonists.Any(p => p.royalty != null && p.royalty.HasPermit(k.permitRequiredForTrading, f))) continue;
+                    yield return new Offer { kind = k, faction = f, caravan = true };
+                }
+            }
+        }
+
+        public static IEnumerable<Offer> Ships() =>
+            Orbital.Select(k => new Offer { kind = k, faction = k.faction != null ? Find.FactionManager.FirstFactionOfDef(k.faction) : null });
+
+        public static bool ArriveCaravan(Map map, TraderKindDef kind, Faction fac)
+        {
+            try
+            {
+                if (fac == null || fac.defeated || fac.HostileTo(Faction.OfPlayer)) return false;
+                var parms = new IncidentParms { target = map, faction = fac, traderKind = kind, forced = true };
+                bool ok = IncidentDefOf.TraderCaravanArrival.Worker.TryExecute(parms);
+                Log.Message("[Trader Hotline] caravan " + kind.defName + " of " + fac.Name + (ok ? " arrived." : " could not come yet."));
+                return ok;
+            }
+            catch (Exception e)
+            {
+                Log.Warning("[Trader Hotline] caravan " + kind?.defName + ": " + e);
+                return false;
+            }
+        }
+
+        public static int Fee(Map map, bool express, bool caravan = false)
         {
             float w = map != null ? map.wealthWatcher.WealthTotal : 0f;
             float f = THMod.S.baseFee + w * THMod.S.wealthFee / 100f;
+            if (caravan) f *= THMod.S.caravanMul;
             if (express) f *= THMod.S.expressMul;
             return Mathf.RoundToInt(f / 10f) * 10;
         }
@@ -220,16 +274,17 @@ namespace TraderHotline
             return null;
         }
 
-        public static void Call(Map map, TraderKindDef kind, bool express)
+        public static void Call(Map map, Offer o, bool express)
         {
+            TraderKindDef kind = o.kind;
             HotlineComponent hc = HotlineComponent.Get;
-            int fee = Fee(map, express);
+            int fee = Fee(map, express, o.caravan);
             if (!Pay(map, fee)) { Messages.Message("TH_NoSilver".Translate(fee), MessageTypeDefOf.RejectInput, false); return; }
             int now = Find.TickManager.TicksGame;
             int delay = express ? Mathf.RoundToInt(THMod.S.expressHours * 2500f) : Mathf.RoundToInt(THMod.S.delayDays * 60000f * Rand.Range(0.8f, 1.2f));
-            hc.calls.Add(new PendingCall { mapId = map.uniqueID, kind = kind, fee = fee, fireTick = now + delay, deadline = now + delay + 120000 });
+            hc.calls.Add(new PendingCall { mapId = map.uniqueID, kind = kind, faction = o.caravan ? o.faction : null, caravan = o.caravan, fee = fee, fireTick = now + delay, deadline = now + delay + 120000 });
             hc.nextCallTick = now + Mathf.RoundToInt(THMod.S.cooldownDays * 60000f);
-            Messages.Message("TH_Called".Translate(kind.label, delay.ToStringTicksToPeriod(), fee), MessageTypeDefOf.PositiveEvent, false);
+            Messages.Message("TH_Called".Translate(o.Label, delay.ToStringTicksToPeriod(), fee), MessageTypeDefOf.PositiveEvent, false);
         }
 
         // the trade ship is made here directly (like the vanilla incident does), so mods that
@@ -326,10 +381,11 @@ namespace TraderHotline
     {
         private readonly Map map;
         private Vector2 scroll;
-        private TraderKindDef sel;
+        private Offer sel;
         private bool express;
+        private readonly List<Offer> ships, caravans;
 
-        public override Vector2 InitialSize => new Vector2(820f, 600f);
+        public override Vector2 InitialSize => new Vector2(860f, 620f);
 
         public Dialog_Hotline(Map map)
         {
@@ -337,7 +393,9 @@ namespace TraderHotline
             doCloseX = true;
             closeOnClickedOutside = true;
             absorbInputAroundWindow = true;
-            sel = Hotline.Orbital.FirstOrDefault();
+            ships = Hotline.Ships().ToList();
+            caravans = Hotline.Caravans(map).OrderBy(o => o.faction.Name).ThenBy(o => o.kind.label).ToList();
+            sel = ships.FirstOrDefault() ?? caravans.FirstOrDefault();
         }
 
         public override void DoWindowContents(Rect r)
@@ -349,46 +407,73 @@ namespace TraderHotline
             GUI.color = MUI.Muted;
             Widgets.Label(new Rect(r.x, r.y + 34f, r.width, 24f), "TH_Silver".Translate(silver));
             GUI.color = Color.white;
-            var kinds = Hotline.Orbital.ToList();
-            Rect left = new Rect(r.x, r.y + 64f, 300f, r.height - 64f);
+            // list: headers + offers
+            var rows = new List<object> { "TH_SecOrbital".Translate().ToString() };
+            rows.AddRange(ships.Cast<object>());
+            rows.Add("TH_SecCaravan".Translate().ToString());
+            if (caravans.Count == 0) rows.Add(0);
+            rows.AddRange(caravans.Cast<object>());
+            Rect left = new Rect(r.x, r.y + 64f, 330f, r.height - 64f);
             Rect right = new Rect(left.xMax + 14f, left.y, r.width - left.width - 14f, left.height);
-            Rect view = new Rect(0f, 0f, left.width - 16f, kinds.Count * 34f);
+            Rect view = new Rect(0f, 0f, left.width - 16f, rows.Count * 32f);
             Widgets.BeginScrollView(left, ref scroll, view);
-            for (int i = 0; i < kinds.Count; i++)
+            for (int i = 0; i < rows.Count; i++)
             {
-                Rect row = new Rect(0f, i * 34f, view.width, 32f);
-                if (kinds[i] == sel) Widgets.DrawHighlightSelected(row);
+                Rect row = new Rect(0f, i * 32f, view.width, 30f);
+                if (rows[i] is string h)
+                {
+                    GUI.color = MUI.Accent;
+                    Text.Font = GameFont.Tiny;
+                    Widgets.Label(new Rect(row.x + 4f, row.y + 10f, row.width, 20f), h.ToUpper());
+                    Text.Font = GameFont.Small;
+                    GUI.color = Color.white;
+                    continue;
+                }
+                if (rows[i] is int)
+                {
+                    GUI.color = MUI.Muted;
+                    Widgets.Label(new Rect(row.x + 8f, row.y + 5f, row.width, 24f), "TH_NoCaravans".Translate());
+                    GUI.color = Color.white;
+                    continue;
+                }
+                Offer o = (Offer)rows[i];
+                if (o == sel) Widgets.DrawHighlightSelected(row);
                 else if (Mouse.IsOver(row)) Widgets.DrawHighlight(row);
-                Widgets.Label(new Rect(row.x + 8f, row.y + 6f, row.width - 12f, 24f), kinds[i].LabelCap.ToString().Truncate(row.width - 12f));
-                if (Widgets.ButtonInvisible(row)) sel = kinds[i];
+                Widgets.Label(new Rect(row.x + 8f, row.y + 5f, row.width - 12f, 24f), o.Label.Truncate(row.width - 12f));
+                if (Mouse.IsOver(row)) TooltipHandler.TipRegion(row, o.Label);
+                if (Widgets.ButtonInvisible(row)) sel = o;
             }
             Widgets.EndScrollView();
             if (sel == null) return;
             float y = right.y;
             Text.Font = GameFont.Medium;
-            Widgets.Label(new Rect(right.x, y, right.width, 32f), sel.LabelCap);
+            Widgets.Label(new Rect(right.x, y, right.width, 32f), sel.kind.LabelCap);
             Text.Font = GameFont.Small;
             y += 36f;
-            Faction f = sel.faction != null ? Find.FactionManager.FirstFactionOfDef(sel.faction) : null;
+            Faction f = sel.faction;
             if (f != null) { Widgets.Label(new Rect(right.x, y, right.width, 24f), "TH_Faction".Translate(f.Name)); y += 26f; }
+            GUI.color = MUI.Muted;
+            Widgets.Label(new Rect(right.x, y, right.width, 24f), (sel.caravan ? "TH_KindCaravan" : "TH_KindShip").Translate());
+            GUI.color = Color.white;
+            y += 28f;
             GUI.color = MUI.Muted;
             Widgets.Label(new Rect(right.x, y, right.width, 18f), "TH_Sells".Translate());
             GUI.color = Color.white;
             y += 20f;
-            string stock = Hotline.Stock(sel);
+            string stock = Hotline.Stock(sel.kind);
             float sh = Text.CalcHeight(stock, right.width);
             Widgets.Label(new Rect(right.x, y, right.width, sh), stock);
             y += sh + 16f;
             // delivery
             Widgets.Label(new Rect(right.x, y, right.width, 24f), "TH_Delivery".Translate());
             y += 26f;
-            int feeN = Hotline.Fee(map, false), feeE = Hotline.Fee(map, true);
+            int feeN = Hotline.Fee(map, false, sel.caravan), feeE = Hotline.Fee(map, true, sel.caravan);
             if (Widgets.RadioButtonLabeled(new Rect(right.x, y, right.width, 26f), "TH_Normal".Translate(THMod.S.delayDays.ToString("0.0"), feeN), !express)) express = false;
             y += 30f;
             if (Widgets.RadioButtonLabeled(new Rect(right.x, y, right.width, 26f), "TH_ExpressOpt".Translate(Mathf.RoundToInt(THMod.S.expressHours), feeE), express)) express = true;
             y += 40f;
             GUI.color = MUI.Muted;
-            string note = "TH_Note".Translate(Mathf.RoundToInt(THMod.S.stayMul * 100f));
+            string note = sel.caravan ? "TH_NoteCaravan".Translate().ToString() : "TH_Note".Translate(Mathf.RoundToInt(THMod.S.stayMul * 100f)).ToString();
             float nh = Text.CalcHeight(note, right.width);
             Widgets.Label(new Rect(right.x, y, right.width, nh), note);
             GUI.color = Color.white;

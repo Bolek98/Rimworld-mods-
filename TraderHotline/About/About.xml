@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Trader Hotline – Call the Orbital Trader You Want</name>
+  <name>Trader Hotline – Call the Trader You Want</name>
   <author>Bolek98</author>
   <packageId>misak.traderhotline</packageId>
-  <modVersion>0.1.1</modVersion>
+  <modVersion>0.2.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -18,14 +18,14 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>Call the orbital trader you want from the comms console – and it really comes.
+  <description>Call the trader you want from the comms console – and it really comes.
 
-- Pick any orbital trader (also from mods) and see what it usually sells.
+- Pick any orbital trade ship or a caravan of any friendly faction (also from mods) and see what it usually sells.
 - Normal or express delivery; pay from any silver in your stores – no orbital beacons needed.
 - Countdown in the alerts.
 - If it can't come (game limits, other mods), it tries again for two days – otherwise your fee comes back.
-- A called trader stays longer.
-- Works with Trader Ships and other trader mods.
+- A called trade ship stays longer; caravans are cheaper.
+- The called ship is put in orbit directly, so other trader mods can't swallow it.
 
 Safe to add to an existing save. Requires Harmony. English and Czech.</description>
 </ModMetaData>

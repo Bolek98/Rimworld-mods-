@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <TH_ModName>Linka pro obchodníky</TH_ModName>
-  <TH_Rec1>Přivolej si orbitálního obchodníka, kterého chceš, z komunikačního pultu</TH_Rec1>
+  <TH_Rec1>Přivolej si z komunikačního pultu orbitálního obchodníka nebo karavanu frakce, kterou chceš</TH_Rec1>
   <TH_Rec2>Platíš stříbrem odkudkoli ze skladu – bez orbitálních majáků</TH_Rec2>
   <TH_Rec3>Odpočet v upozorněních; když nemůže přiletět, zkouší to znovu a vrátí peníze</TH_Rec3>
   <TH_BaseFee>Poplatek za zavolání: {0} stříbra</TH_BaseFee>
@@ -20,7 +20,7 @@
   <TH_Stay_Desc>Zavolal sis ho – dá ti víc času na obchod.</TH_Stay_Desc>
   <TH_Refund>Vrátit peníze, když nemůže přiletět</TH_Refund>
   <TH_Refund_Desc>Když obchodník nemůže přiletět ani do dvou dnů (jiný mod, omezení hry), poplatek se vrátí v kapsli.</TH_Refund_Desc>
-  <TH_CallMenu>Zavolat orbitálního obchodníka…</TH_CallMenu>
+  <TH_CallMenu>Zavolat obchodníka…</TH_CallMenu>
   <TH_NoPower>bez proudu</TH_NoPower>
   <TH_AlreadyCalled>obchodník už je na cestě</TH_AlreadyCalled>
   <TH_Cooldown_Wait>další zavolání za {0} dne</TH_Cooldown_Wait>
@@ -38,8 +38,16 @@
   <TH_FailTitle>Obchodník nemohl přiletět</TH_FailTitle>
   <TH_FailText>{0} se k vaší kolonii nedostal. Vašich {1} stříbra bylo posláno zpátky.</TH_FailText>
   <TH_AlertLabel>{0} za {1}</TH_AlertLabel>
-  <TH_AlertText>Orbitální obchodník, kterého jste zavolali, je na cestě.</TH_AlertText>
+  <TH_AlertText>Obchodník, kterého jste zavolali, je na cestě.</TH_AlertText>
   <TH_Animals>Zvířata</TH_Animals>
   <TH_Arrived>Přivolaný obchodník {0} ({1}) je na oběžné dráze. Zůstane {2}. Obchoduj s ním přes komunikační konzoli.</TH_Arrived>
   <TH_NoComms>Nemáš zapnutou komunikační konzoli – bez ní s ním neobchoduješ.</TH_NoComms>
+  <TH_SecOrbital>Orbitální obchodní lodě</TH_SecOrbital>
+  <TH_SecCaravan>Karavany frakcí</TH_SecCaravan>
+  <TH_NoCaravans>Teď vám žádná přátelská frakce karavanu nepošle.</TH_NoCaravans>
+  <TH_KindShip>Obchodní loď na oběžné dráze – obchoduje se přes komunikační pult.</TH_KindShip>
+  <TH_KindCaravan>Karavana – přijde pěšky do kolonie a obchoduje osobně.</TH_KindCaravan>
+  <TH_NoteCaravan>Karavana přijde určitě: když nemůže hned (nebezpečí na mapě, frakce se stala nepřátelskou), zkouší to ještě dva dny, jinak se poplatek vrátí.</TH_NoteCaravan>
+  <TH_CaravanMul>Karavana stojí {0} % poplatku</TH_CaravanMul>
+  <TH_CaravanMul_Desc>Karavana přijde pěšky a je levnější než obchodní loď.</TH_CaravanMul_Desc>
 </LanguageData>
