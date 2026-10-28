@@ -6,6 +6,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.AI.Group;
 
 namespace TraderHotline
 {
@@ -56,7 +57,7 @@ namespace TraderHotline
 
     public class THMod : Mod
     {
-        public const string Version = "0.3.0";
+        public const string Version = "0.3.1";
         public static THSettings S;
         private static List<string> recBullets;
 
@@ -254,29 +255,97 @@ namespace TraderHotline
         public static IEnumerable<Offer> Ships() =>
             Orbital.Select(k => new Offer { kind = k, faction = k.faction != null ? Find.FactionManager.FirstFactionOfDef(k.faction) : null });
 
+        // 0.3.1: the caravan is made here step by step (like the game's incident does), so one broken
+        // step of another mod (a letter, a pawn without a trader tag) no longer throws away a group that
+        // already stands on the map – which made the countdown start again and again
         public static bool ArriveCaravan(Map map, TraderKindDef kind, Faction fac, PendingCall call = null)
         {
+            string step = "check";
+            List<Pawn> pawns = null;
             try
             {
                 if (fac == null || fac.defeated || fac.HostileTo(Faction.OfPlayer)) return false;
+                if (NeutralGroupIncidentUtility.AnyBlockingHostileLord(map, fac)) return false;
+                // 0.3.1: a caravan of this faction that already stands on the map without orders (left by a
+                // broken earlier try) is sent to trade instead of a new one
+                step = "orphans";
+                var orphans = map.mapPawns.SpawnedPawnsInFaction(fac).Where(p => p.GetLord() == null && !p.Downed && !p.IsPrisoner && !p.Dead).ToList();
+                if (orphans.Any(p => p.TraderKind != null))
+                {
+                    Pawn tr = orphans.First(p => p.TraderKind != null);
+                    IntVec3 spot0;
+                    if (!RCellFinder.TryFindRandomSpotJustOutsideColony(tr.Position, map, tr, out spot0, c => orphans.All(p => p.CanReach(c, PathEndMode.OnCell, Danger.Deadly))))
+                        spot0 = DropCellFinder.TradeDropSpot(map);
+                    LordMaker.MakeNewLord(fac, new LordJob_TradeWithColony(fac, spot0), map, orphans);
+                    Find.LetterStack.ReceiveLetter("LetterLabelTraderCaravanArrival".Translate(fac.Name, tr.TraderKind.label).CapitalizeFirst(),
+                        "LetterTraderCaravanArrival".Translate(fac.NameColored, tr.TraderKind.label).CapitalizeFirst(), LetterDefOf.PositiveEvent, new LookTargets(tr));
+                    Log.Message("[Trader Hotline] caravan of " + fac.Name + " was already on the map without orders (" + orphans.Count + " pawns) – sent to trade.");
+                    return true;
+                }
+                step = "entry";
                 var parms = new IncidentParms { target = map, faction = fac, traderKind = kind, forced = true };
                 if (call != null && call.edge >= 0 && CellFinder.TryFindRandomEdgeCellWith(c => c.Standable(map) && !c.Fogged(map) && map.reachability.CanReachColony(c), map, new Rot4(call.edge), CellFinder.EdgeRoadChance_Neutral, out IntVec3 spot))
                     parms.spawnCenter = spot;
-                var before = new HashSet<Pawn>(map.mapPawns.AllPawnsSpawned);
-                bool ok = IncidentDefOf.TraderCaravanArrival.Worker.TryExecute(parms);
-                if (ok && call != null && call.request >= 0)
+                if (!parms.spawnCenter.IsValid && !RCellFinder.TryFindRandomPawnEntryCell(out parms.spawnCenter, map, CellFinder.EdgeRoadChance_Neutral))
+                    return false;
+                parms.points = TraderCaravanUtility.GenerateGuardPoints();
+                step = "generate";
+                pawns = PawnGroupMakerUtility.GeneratePawns(IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Trader, parms, true), false).Where(p => p != null).ToList();
+                if (pawns.Count == 0) { Log.Warning("[Trader Hotline] caravan " + kind.defName + ": the faction made no pawns."); return false; }
+                step = "spawn";
+                foreach (Pawn p in pawns)
                 {
-                    Pawn trader = map.mapPawns.AllPawnsSpawned.FirstOrDefault(p => !before.Contains(p) && p.Faction == fac && p.trader?.traderKind != null);
-                    if (trader != null)
-                        foreach (Thing t in Catalog.MakeRequest(kind, (Cat)call.request))
-                            if (!trader.inventory.innerContainer.TryAdd(t)) t.Destroy();
+                    GenSpawn.Spawn(p, CellFinder.RandomClosewalkCellNear(parms.spawnCenter, map, 5), map);
+                    if (p.needs?.food != null) p.needs.food.CurLevel = p.needs.food.MaxLevel;
                 }
-                Log.Message("[Trader Hotline] caravan " + kind.defName + " of " + fac.Name + (ok ? " arrived." : " could not come yet."));
-                return ok;
+                // from here on the caravan stands on the map – it must not be thrown away any more
+                Pawn trader = pawns.FirstOrDefault(p => p.TraderKind != null);
+                if (trader == null)
+                {
+                    Log.Warning("[Trader Hotline] caravan " + kind.defName + ": no pawn got the trader role – the first one takes it.");
+                    trader = pawns.FirstOrDefault(p => p.RaceProps.Humanlike) ?? pawns[0];
+                    try
+                    {
+                        if (trader.trader == null) trader.trader = new Pawn_TraderTracker(trader);
+                        trader.trader.traderKind = kind;
+                    }
+                    catch (Exception e) { Log.Warning("[Trader Hotline] trader role: " + e.Message); }
+                }
+                step = "special order";
+                if (call != null && call.request >= 0)
+                    foreach (Thing t in Catalog.MakeRequest(kind, (Cat)call.request))
+                        if (!trader.inventory.innerContainer.TryAdd(t)) t.Destroy();
+                step = "letter";
+                try
+                {
+                    TaggedString label = "LetterLabelTraderCaravanArrival".Translate(fac.Name, kind.label).CapitalizeFirst();
+                    TaggedString text = "LetterTraderCaravanArrival".Translate(fac.NameColored, kind.label).CapitalizeFirst();
+                    Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.PositiveEvent, new LookTargets(trader));
+                }
+                catch (Exception e) { Log.Warning("[Trader Hotline] caravan letter: " + e.Message); }
+                step = "lord";
+                IntVec3 chill;
+                if (!RCellFinder.TryFindRandomSpotJustOutsideColony(trader.Position, map, trader, out chill, c => pawns.All(p => p.CanReach(c, PathEndMode.OnCell, Danger.Deadly))))
+                    chill = DropCellFinder.TradeDropSpot(map);
+                LordMaker.MakeNewLord(fac, new LordJob_TradeWithColony(fac, chill), map, pawns);
+                Log.Message("[Trader Hotline] caravan " + kind.defName + " of " + fac.Name + " arrived (" + pawns.Count + " pawns, trader " + trader.LabelShort + ").");
+                return true;
             }
             catch (Exception e)
             {
-                Log.Warning("[Trader Hotline] caravan " + kind?.defName + ": " + e);
+                Log.Warning("[Trader Hotline] caravan " + kind?.defName + " failed at '" + step + "': " + e);
+                // the pawns are already here: give them a lord so they trade and leave, and count it as arrived
+                if (pawns != null && pawns.Any(p => p.Spawned))
+                {
+                    try
+                    {
+                        var here = pawns.Where(p => p.Spawned).ToList();
+                        if (here.All(p => p.GetLord() == null))
+                            LordMaker.MakeNewLord(fac, new LordJob_TradeWithColony(fac, DropCellFinder.TradeDropSpot(map)), map, here);
+                        return true;
+                    }
+                    catch { }
+                }
                 return false;
             }
         }
