@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CA_ModName>Rádce kolonie</CA_ModName>
+  <CA_Rec1>Upozornění vpravo, když čeká něco důležitého</CA_Rec1>
+  <CA_Rec2>Každé ráno v 7:00 krátký plán na den</CA_Rec2>
+  <CA_Rec3>Rádce otevřeš kdykoli tlačítkem dole nebo klávesou F9</CA_Rec3>
+  <CA_SecAlert>Upozornění</CA_SecAlert>
+  <CA_ShowAlert>Zobrazovat upozornění rádce</CA_ShowAlert>
+  <CA_ShowAlert_Desc>Upozornění vpravo na obrazovce, když čeká něco naléhavého nebo důležitého. Kliknutím otevřeš rádce.</CA_ShowAlert_Desc>
+  <CA_AlertTips>Upozornění i kvůli obyčejným tipům</CA_AlertTips>
+  <CA_AlertTips_Desc>Normálně upozornění ukazuje jen naléhavé a důležité věci. Se zapnutím ukáže i obyčejné tipy, takže bude vidět skoro pořád.</CA_AlertTips_Desc>
+  <CA_SecMorning>Ranní plán</CA_SecMorning>
+  <CA_Morning>Každé ráno plán na den</CA_Morning>
+  <CA_Morning_Desc>V 7:00 tři nejdůležitější věci na dnešek a další krok k tvému cíli.</CA_Morning_Desc>
+  <CA_MorningLetter>Ranní plán jako dopis</CA_MorningLetter>
+  <CA_MorningLetter_Desc>Dopis vpravo (zůstane, dokud si ho nepřečteš) místo krátké zprávy nahoře.</CA_MorningLetter_Desc>
+  <CA_Morning_Title>Plán na dnešek (skóre kolonie {0})</CA_Morning_Title>
+  <CA_Morning_Calm>Nic naléhavého. Dobrý den na stavění a výzkum.</CA_Morning_Calm>
+  <CA_Morning_Goal>Cíl {0}: {1}</CA_Morning_Goal>
+  <CA_AlertLabel>Rádce: {0} ({1})</CA_AlertLabel>
+  <CA_AlertHead>Co rádce teď doporučuje:</CA_AlertHead>
+  <CA_AlertClick>Kliknutím otevřeš rádce.</CA_AlertClick>
+  <CA_NoMap>Žádná domovská mapa.</CA_NoMap>
+  <CA_Tab_Now>Teď</CA_Tab_Now>
+  <CA_Tab_Make>Výroba</CA_Tab_Make>
+  <CA_Tab_Research>Výzkum</CA_Tab_Research>
+  <CA_Tab_Goal>Cesta ke konci</CA_Tab_Goal>
+  <CA_Tab_Quests>Úkoly</CA_Tab_Quests>
+  <CA_ScoreTip>Skóre kolonie 0–100: jídlo, nálada, zdraví, bezpečí a postup. Každý naléhavý problém ubere 5 bodů.</CA_ScoreTip>
+  <CA_Sc_Food>Jídlo</CA_Sc_Food>
+  <CA_Sc_Mood>Nálada</CA_Sc_Mood>
+  <CA_Sc_Health>Zdraví</CA_Sc_Health>
+  <CA_Sc_Safety>Bezpečí</CA_Sc_Safety>
+  <CA_Sc_Progress>Postup</CA_Sc_Progress>
+  <CA_Head>Kolonisté {0} · jídlo na {1} dní · léky {2} · bojovníci {3} · síla {4}/3</CA_Head>
+  <CA_HeadGoal>Cíl {0} – další krok: {1}</CA_HeadGoal>
+  <CA_HeadStage>Fáze: {0}</CA_HeadStage>
+  <CA_Btn_Show>Ukázat</CA_Btn_Show>
+  <CA_Btn_AddBill>Přidat zakázku</CA_Btn_AddBill>
+  <CA_Btn_RaiseBill>Nastavit na {0}</CA_Btn_RaiseBill>
+  <CA_Btn_Build>Postavit</CA_Btn_Build>
+  <CA_Btn_Research>Zkoumat</CA_Btn_Research>
+  <CA_Btn_OpenQuest>Otevřít úkol</CA_Btn_OpenQuest>
+  <CA_Btn_Work>Otevřít práci</CA_Btn_Work>
+  <CA_Btn_Architect>Otevřít stavění</CA_Btn_Architect>
+  <CA_Btn_Goal>Ukázat cestu</CA_Btn_Goal>
+  <CA_Btn_Choose>Vybrat</CA_Btn_Choose>
+  <CA_Btn_AutoGoal>Vyber cíl za mě</CA_Btn_AutoGoal>
+  <CA_M_BillAdded>Zakázka přidána: {0}, dokud jich nebude {1} ({2}).</CA_M_BillAdded>
+  <CA_M_Research>Teď se zkoumá: {0}.</CA_M_Research>
+  <CA_Now_Title>Co dělat teď</CA_Now_Title>
+  <CA_Now_Sub>Nejdůležitější nahoře. Červené: hned. Oranžové: brzy. Šedé: dobrý nápad.</CA_Now_Sub>
+  <CA_Now_AllGood>Všechno je v pořádku. Mrkni do „Cesta ke konci“ na další velký krok.</CA_Now_AllGood>
+  <CA_Make_Title>Co vyrábět</CA_Make_Title>
+  <CA_Make_Sub>Čeho má kolonie málo. „Přidat zakázku“ dá zakázku na správný pracovní stůl, který je bude vyrábět, dokud jich nebude dost.</CA_Make_Sub>
+  <CA_Make_None>Teď nic nechybí.</CA_Make_None>
+  <CA_Make_Count>{0} / {1}</CA_Make_Count>
+  <CA_Make_NoRecipe>zatím nejde vyrobit (vyzkoumej nebo kup)</CA_Make_NoRecipe>
+  <CA_Make_HasBill>už je zakázka na {0} (do {1})</CA_Make_HasBill>
+  <CA_Make_At>vyrábí se na {0}</CA_Make_At>
+  <CA_Make_Build>nejdřív postav {0}</CA_Make_Build>
+  <CA_N_Meals>jídla asi na den a půl pro {0} kolonistů</CA_N_Meals>
+  <CA_N_Medicine>{0} léků je bezpečná zásoba</CA_N_Medicine>
+  <CA_N_Parka>zima tu jde až na {0} – každý potřebuje teplé oblečení</CA_N_Parka>
+  <CA_N_Clothes>{0} má roztrhané oblečení, {1} je bez trička (špatná nálada)</CA_N_Clothes>
+  <CA_N_Weapons>{0} bojovníků nemá zbraň</CA_N_Weapons>
+  <CA_N_Components>součástky jsou potřeba skoro na každou pokročilou stavbu</CA_N_Components>
+  <CA_N_Chemfuel>{0} staveb spaluje chemopalivo</CA_N_Chemfuel>
+  <CA_Res_Title>Co zkoumat</CA_Res_Title>
+  <CA_Res_Current>Teď: {0} ({1})</CA_Res_Current>
+  <CA_Res_None>Nic se nezkoumá! Vyber něco níže.</CA_Res_None>
+  <CA_R_First>(nejdřív potřeba pro {0})</CA_R_First>
+  <CA_R_Cheap>Levné a dostupné ({0} bodů).</CA_R_Cheap>
+  <CA_R_Electricity>Elektřina je klíč skoro ke všemu: světla, chlazení, věže, lepší stoly.</CA_R_Electricity>
+  <CA_R_Batteries>Ukládá energii na noc a bezvětří.</CA_R_Batteries>
+  <CA_R_Cooling>Chladič udělá mrazák – jídlo vydrží měsíce místo dní.</CA_R_Cooling>
+  <CA_R_PassiveCooler>Chlazení bez elektřiny na horké dny.</CA_R_PassiveCooler>
+  <CA_R_Stonecutting>Kamenné bloky: zdi, které nehoří.</CA_R_Stonecutting>
+  <CA_R_Furniture>Lepší nábytek: komody, stolky, lepší pokoje a nálada.</CA_R_Furniture>
+  <CA_R_Smithing>Kovárna: zbraně na blízko a cesta k obrábění.</CA_R_Smithing>
+  <CA_R_Clothing>Parky a pláště – nutné v zimě nebo vedru.</CA_R_Clothing>
+  <CA_R_Brewing>Pivo: zábava a zboží na prodej.</CA_R_Brewing>
+  <CA_R_Psychoid>Psychitový čaj, levné zlepšení nálady.</CA_R_Psychoid>
+  <CA_R_Solar>Solární panely: čistá elektřina přes den.</CA_R_Solar>
+  <CA_R_Watermill>Vodní mlýn dává stálou energii, pokud máš řeku.</CA_R_Watermill>
+  <CA_R_Paste>Výživová pasta: hodně jídla z mála, bez kuchaře.</CA_R_Paste>
+  <CA_R_Hydroponics>Úroda uvnitř celý rok – v chladných oblastech nutnost.</CA_R_Hydroponics>
+  <CA_R_Survival>Balené jídlo na karavany a pro nouzi.</CA_R_Survival>
+  <CA_R_Micro>Mikroelektronika otevře komunikační konzoli, nemocniční lůžka a většinu stromu výzkumu.</CA_R_Micro>
+  <CA_R_Machining>Obráběcí stůl: pušky, brnění, později bioniky.</CA_R_Machining>
+  <CA_R_Guns>Puškařství: pořádné zbraně pro bojovníky.</CA_R_Guns>
+  <CA_R_Turrets>Věže brání základnu, i když kolonisté spí.</CA_R_Turrets>
+  <CA_R_Mortars>Minomety rozbijí obléhání z dálky.</CA_R_Mortars>
+  <CA_R_Drugs>Drogová laboratoř: cesta k výrobě léků.</CA_R_Drugs>
+  <CA_R_Medicine>Vyráběj vlastní léky – máš jich málo.</CA_R_Medicine>
+  <CA_R_Fabrication>Součástky sám – potřeba na všechno pokročilé i na loď.</CA_R_Fabrication>
+  <CA_R_MultiAnalyzer>Multianalyzátor odemkne pozdní výzkum (potřeba pro loď).</CA_R_MultiAnalyzer>
+  <CA_R_Flak>Neprůstřelná vesta – bojovníci přežijí mnohem víc.</CA_R_Flak>
+  <CA_R_Prosthetics>Náhrada ztracených končetin.</CA_R_Prosthetics>
+  <CA_R_Geothermal>Geotermální elektrárna: hodně stálé energie z gejzíru.</CA_R_Geothermal>
+  <CA_R_Pods>Transportní kapsle: rychlé cesty, obchod a vzdálené úkoly.</CA_R_Pods>
+  <CA_R_Ship>Vesmírná loď – klasický způsob, jak dohrát hru.</CA_R_Ship>
+  <CA_R_Refining>Chemopalivo pro generátory a později loď.</CA_R_Refining>
+  <CA_T_NoResearch>Nic se nezkoumá</CA_T_NoResearch>
+  <CA_T_NoResearchD>Doporučuji: {0} – {1}</CA_T_NoResearchD>
+  <CA_T_NextStep>Další krok ({0})</CA_T_NextStep>
+  <CA_T_Goal>{0}: {1}</CA_T_Goal>
+  <CA_T_QuestExpiring>Dobrý úkol brzy vyprší: {0}</CA_T_QuestExpiring>
+  <CA_T_Enemies>Nepřátelé na mapě: {0}</CA_T_Enemies>
+  <CA_T_EnemiesD>Povoláno {0} z {1} bojovníků. Povolej je, bojuj za krytem a raněné stáhni dozadu.</CA_T_EnemiesD>
+  <CA_T_Fire>Požár v základně ({0})</CA_T_Fire>
+  <CA_T_FireD>Hasit musí někdo se zapnutým hašením – nebo povolej kolonisty a hasi ručně.</CA_T_FireD>
+  <CA_T_Downed>{0} potřebuje pomoc</CA_T_Downed>
+  <CA_T_DownedD>Leží – odnes do postele a ošetři.</CA_T_DownedD>
+  <CA_T_Bleeding>Krvácí {0} za den – ošetři hned!</CA_T_Bleeding>
+  <CA_T_Cold>{0} mrzne</CA_T_Cold>
+  <CA_T_ColdD>Podchlazení. Dostaň ho do teplé místnosti, dej teplé oblečení, postav topení nebo ohniště.</CA_T_ColdD>
+  <CA_T_Hot>{0} se přehřívá</CA_T_Hot>
+  <CA_T_HotD>Úpal. Dostaň ho do chladné místnosti, postav chladič nebo pasivní chladič.</CA_T_HotD>
+  <CA_T_Starving>{0} hladoví</CA_T_Starving>
+  <CA_T_StarvingD>Nedostane se k jídlu. Zkontroluj jídlo, kuchaře a sklady.</CA_T_StarvingD>
+  <CA_T_Break>{0} je blízko zhroucení</CA_T_Break>
+  <CA_T_BreakD>Dej mu zábavu a odpočinek, dobré jídlo, hezký pokoj. Rychle pomůže droga nebo oslava.</CA_T_BreakD>
+  <CA_T_Mood>{0} má špatnou náladu</CA_T_Mood>
+  <CA_T_MoodD>Podívej se na jeho potřeby a myšlenky – oprav tu nejhorší.</CA_T_MoodD>
+  <CA_T_FoodLow>Jídlo jen na {0} dní!</CA_T_FoodLow>
+  <CA_T_FoodLowD>Lov zvířata, sklízej, co dozrálo, sbírej bobule, kupuj od obchodníků.</CA_T_FoodLowD>
+  <CA_T_FoodSome>Jídlo na {0} dní</CA_T_FoodSome>
+  <CA_T_FoodSomeD>Zasaď víc úrody (rýže roste rychle, kukuřice vydrží), lov a postav mrazák.</CA_T_FoodSomeD>
+  <CA_T_NoMeds>{0} zraněných a žádné léky</CA_T_NoMeds>
+  <CA_T_NoMedsD>Ošetření bez léků je slabé. Kup léky, pěstuj léčivku nebo vyzkoumej výrobu léků.</CA_T_NoMedsD>
+  <CA_T_FewMeds>Jen {0} léků</CA_T_FewMeds>
+  <CA_T_FewMedsD>Měj aspoň {0} na další nájezd nebo nemoc.</CA_T_FewMedsD>
+  <CA_T_Freezer>{0} jídla se kazí v teple</CA_T_Freezer>
+  <CA_T_FreezerD>Uzavřená místnost s chladičem pod 0° udrží jídlo měsíce.</CA_T_FreezerD>
+  <CA_T_NoWorker>Nikdo nedělá: {0}</CA_T_NoWorker>
+  <CA_W_Cooking>Nebudou jídla – kolonisté jedí syrové a mají špatnou náladu (a otravy).</CA_W_Cooking>
+  <CA_W_Doctor>Nikdo neošetří raněné. Rány se zanítí.</CA_W_Doctor>
+  <CA_W_Fire>Nikdo nehasí požáry.</CA_W_Fire>
+  <CA_W_Hauling>Věci zůstanou ležet a hnijí.</CA_W_Hauling>
+  <CA_W_Growing>Pole se neosejí ani nesklidí.</CA_W_Growing>
+  <CA_W_Research>Výzkumný stůl stojí prázdný.</CA_W_Research>
+  <CA_T_NoBed>{0} kolonistů bez postele</CA_T_NoBed>
+  <CA_T_NoBedD>Spaní na zemi kazí náladu. Postav postele (nejlepší je vlastní pokoj).</CA_T_NoBedD>
+  <CA_T_BedOutside>{0} postelí bez střechy</CA_T_BedOutside>
+  <CA_T_BedOutsideD>Spaní venku: špatná nálada, zima a déšť. Postav zdi a střechu.</CA_T_BedOutsideD>
+  <CA_T_Power>{0} staveb bez elektřiny</CA_T_Power>
+  <CA_T_PowerD>Málo elektřiny. Postav víc generátorů nebo baterií, nebo vypni, co nepotřebuješ.</CA_T_PowerD>
+  <CA_T_Defence>Zatím žádná obrana</CA_T_Defence>
+  <CA_T_DefenceD>Nájezdy budou větší. Postav pytle s pískem a zdi u vstupu, později věže.</CA_T_DefenceD>
+  <CA_T_Unarmed>{0} bojovníků beze zbraně</CA_T_Unarmed>
+  <CA_T_UnarmedD>Vyrob nebo kup zbraně (viz „Výroba“), nebo je seber po nájezdu.</CA_T_UnarmedD>
+  <CA_T_Make>Vyrob {0}: ještě {1}</CA_T_Make>
+  <CA_Goal_Title>Cesta hrou</CA_Goal_Title>
+  <CA_Goal_Sub>Čtyři fáze k silné kolonii, pak konec hry. Najeď na krok pro nápovědu. Vyber si konec – rádce pak všude ukáže jeho další krok.</CA_Goal_Sub>
+  <CA_Goal_Stage>Fáze {0}: {1} ({2}/{3})</CA_Goal_Stage>
+  <CA_Goal_Endings>Jak dohrát hru</CA_Goal_Endings>
+  <CA_Q_Title>Nabízené úkoly</CA_Q_Title>
+  <CA_Q_Sub>Hodnoceno podle nebezpečí (hvězdičky) proti tvé síle ({0}/3: bojovníci, zbraně, brnění, věže) a podle odměny.</CA_Q_Sub>
+  <CA_Q_None>Teď se nenabízí žádný úkol.</CA_Q_None>
+  <CA_Q_V0>ber</CA_Q_V0>
+  <CA_Q_V1>zvaž</CA_Q_V1>
+  <CA_Q_V2>raději ne</CA_Q_V2>
+  <CA_Q_Left>vyprší za {0}</CA_Q_Left>
+  <CA_Q_Safe>Boj se nečeká.</CA_Q_Safe>
+  <CA_Q_Ok>Nebezpečí {0}, tvoje síla {1} – zvládneš to.</CA_Q_Ok>
+  <CA_Q_Maybe>Nebezpečí {0}, tvoje síla {1} – jde to s dobrou přípravou (kryt, léky, všichni bojovníci).</CA_Q_Maybe>
+  <CA_Q_No>Nebezpečí {0}, tvoje síla {1} – teď je to na tebe moc silné.</CA_Q_No>
+  <CA_Q_Value>Odměna v hodnotě asi {0}.</CA_Q_Value>
+  <CA_S_Survive>Přežít</CA_S_Survive>
+  <CA_S_Survive_Goal>Střecha, postele, jídlo a začátek výzkumu.</CA_S_Survive_Goal>
+  <CA_S_Stable>Stabilní kolonie</CA_S_Stable>
+  <CA_S_Stable_Goal>Jídlo, které vydrží, elektřina, nemocnice a první obrana.</CA_S_Stable_Goal>
+  <CA_S_Grow>Rostoucí kolonie</CA_S_Grow>
+  <CA_S_Grow_Goal>Víc lidí, pole, mikroelektronika, obchod přes vysílačku, zbraně pro všechny.</CA_S_Grow_Goal>
+  <CA_S_Strong>Silná kolonie</CA_S_Strong>
+  <CA_S_Strong_Goal>Vlastní součástky, pozdní výzkum, věže, brnění – připraveno na konec hry.</CA_S_Strong_Goal>
+  <CA_C_Beds>Každý kolonista má postel</CA_C_Beds>
+  <CA_C_Beds_H>Stavění → Nábytek → Postel. Přiřaď postele, nebo si je kolonisté vyberou sami.</CA_C_Beds_H>
+  <CA_C_Roof>Všechny postele jsou pod střechou</CA_C_Roof>
+  <CA_C_Roof_H>Zdi kolem místnosti jí automaticky dají střechu.</CA_C_Roof_H>
+  <CA_C_Food5>Jídlo na 5 a více dní</CA_C_Food5>
+  <CA_C_Food5_H>Pěstuj rýži a brambory, lov, sbírej bobule.</CA_C_Food5_H>
+  <CA_C_Stove>Místo na vaření (ohniště nebo sporák)</CA_C_Stove>
+  <CA_C_Stove_H>Stavění → Výroba → Ohniště / Sporák na palivo. Přidej zakázku „Uvařit jednoduché jídlo“.</CA_C_Stove_H>
+  <CA_C_Research>Výzkum běží</CA_C_Research>
+  <CA_C_Research_H>Postav jednoduchý výzkumný stůl a vyber projekt.</CA_C_Research_H>
+  <CA_C_Freezer>Mrazák (jídlo uložené pod 0°)</CA_C_Freezer>
+  <CA_C_Freezer_H>Uzavřená místnost s chladičem ve zdi foukajícím dovnitř a sklad pro jídlo.</CA_C_Freezer_H>
+  <CA_C_Power>Elektřina</CA_C_Power>
+  <CA_C_Power_H>Vyzkoumej Elektřinu, pak generátor na dřevo, solární panel nebo větrnou turbínu.</CA_C_Power_H>
+  <CA_C_Medicine>Aspoň {0} léků</CA_C_Medicine>
+  <CA_C_Medicine_H>Kupuj od obchodníků, pěstuj léčivku, později vyráběj sám.</CA_C_Medicine_H>
+  <CA_C_Hospital>Nemocniční postel (postel nastavená jako lékařská)</CA_C_Hospital>
+  <CA_C_Hospital_H>Vyber postel → „Lékařská“. Nejlepší je čistá místnost u základny.</CA_C_Hospital_H>
+  <CA_C_Defence>První obrana (věž nebo pytle s pískem)</CA_C_Defence>
+  <CA_C_Defence_H>Pytle s pískem u vstupu dávají kryt. Později minivěže.</CA_C_Defence_H>
+  <CA_C_Six>6 a více kolonistů (teď {0})</CA_C_Six>
+  <CA_C_Six_H>Po nájezdu ber zajatce a naverbuj je, přijímej uprchlíky, kupuj otroky.</CA_C_Six_H>
+  <CA_C_Fields>Pěstební zóna</CA_C_Fields>
+  <CA_C_Fields_H>Zóna → Pěstební zóna na dobré půdě.</CA_C_Fields_H>
+  <CA_C_Micro>Vyzkoumaná mikroelektronika</CA_C_Micro>
+  <CA_C_Micro_H>Otevře komunikační konzoli a hi-tech výzkumný stůl.</CA_C_Micro_H>
+  <CA_C_Comms>Komunikační konzole</CA_C_Comms>
+  <CA_C_Comms_H>Volej obchodníky, mluv s frakcemi – odtud přichází hodně úkolů.</CA_C_Comms_H>
+  <CA_C_Armed>Každý bojovník má zbraň</CA_C_Armed>
+  <CA_C_Armed_H>Viz záložka „Výroba“.</CA_C_Armed_H>
+  <CA_C_Fabrication>Vyzkoumaná fabrikace</CA_C_Fabrication>
+  <CA_C_Fabrication_H>Fabrikační stůl: součástky a pokročilé součástky.</CA_C_Fabrication_H>
+  <CA_C_MultiAnalyzer>Vyzkoumaný multianalyzátor</CA_C_MultiAnalyzer>
+  <CA_C_MultiAnalyzer_H>Postav ho vedle hi-tech výzkumného stolu.</CA_C_MultiAnalyzer_H>
+  <CA_C_Turrets>3 a více věží</CA_C_Turrets>
+  <CA_C_Turrets_H>Věže za pytli s pískem u vstupu, s elektřinou.</CA_C_Turrets_H>
+  <CA_C_Armor>Polovina bojovníků nosí brnění</CA_C_Armor>
+  <CA_C_Armor_H>Neprůstřelná vesta a helma z obráběcího stolu.</CA_C_Armor_H>
+  <CA_C_Wealth>Bohatství kolonie 150 000 (teď {0})</CA_C_Wealth>
+  <CA_C_Wealth_H>Bohatství zvětšuje nájezdy – ale pozdní hra ho potřebuje.</CA_C_Wealth_H>
+  <CA_E_Ship>Vesmírná loď</CA_E_Ship>
+  <CA_E_Ship_D>Postav loď a odleť. Po spuštění reaktoru chodí asi 15 dní nájezdy – pak start.</CA_E_Ship_D>
+  <CA_E_Journey>Cesta ke staré lodi</CA_E_Journey>
+  <CA_E_Journey_D>Úkol ti řekne o staré lodi daleko ve světě. Doputuj k ní karavanou, spusť ji a braň, dokud neodstartuje.</CA_E_Journey_D>
+  <CA_E_Royal>Královský vzestup (Royalty)</CA_E_Royal>
+  <CA_E_Royal_D>Získej tituly od Impéria. S vysokým titulem přijde úkol s Vysokým stellarchou – uhosti a ochraň ho, pak odletíš s Impériem.</CA_E_Royal_D>
+  <CA_E_Archonexus>Archonexus (Ideology)</CA_E_Archonexus>
+  <CA_E_Archonexus_D>S velkým bohatstvím ti archotech nabídne dohodu: prodej kolonii a třikrát se přesuň, pak probuď jádro archonexu.</CA_E_Archonexus_D>
+  <CA_E_Void>Monolit prázdnoty (Anomaly)</CA_E_Void>
+  <CA_E_Void_D>Zkoumej monolit prázdnoty a jeho hrůzy, zvyšuj jeho úroveň a nakonec čel prázdnotě.</CA_E_Void_D>
+  <CA_E_Gravship>Gravitační loď (Odyssey)</CA_E_Gravship>
+  <CA_E_Gravship_D>Postav gravitační loď kolem gravitačního motoru, cestuj světem i na orbitu a utkej se s mechaúlem.</CA_E_Gravship_D>
+  <CA_ES_ShipBase>Elektřina a mikroelektronika</CA_ES_ShipBase>
+  <CA_ES_ShipBase_H>Základ veškerého výzkumu lodi.</CA_ES_ShipBase_H>
+  <CA_ES_ShipFab>Fabrikace a multianalyzátor</CA_ES_ShipFab>
+  <CA_ES_ShipFab_H>Díly lodi potřebují pokročilé součástky a pozdní výzkum.</CA_ES_ShipFab_H>
+  <CA_ES_Research>Výzkum: {0}</CA_ES_Research>
+  <CA_ES_Research_H>Vyber ho v záložce „Výzkum“.</CA_ES_Research_H>
+  <CA_ES_Components>Zásoba součástek (20+)</CA_ES_Components>
+  <CA_ES_Components_H>Loď potřebuje hodně součástek, pokročilých součástek, plastoocel a uran.</CA_ES_Components_H>
+  <CA_ES_Hull>Nosníky a kryospánkové rakve</CA_ES_Hull>
+  <CA_ES_Hull_H>Jedna rakev pro každého kolonistu, který má odletět.</CA_ES_Hull_H>
+  <CA_ES_Core>Počítačové jádro a senzorový svazek</CA_ES_Core>
+  <CA_ES_Core_H>Počítačové jádro se často kupuje od obchodníků nebo najde.</CA_ES_Core_H>
+  <CA_ES_Engine>Motor lodi</CA_ES_Engine>
+  <CA_ES_Engine_H>Potřebuje uran a plastoocel.</CA_ES_Engine_H>
+  <CA_ES_Reactor>Reaktor lodi</CA_ES_Reactor>
+  <CA_ES_Reactor_H>Postav ho nakonec: po spuštění chodí nájezdy až do startu. Nejdřív připrav obranu!</CA_ES_Reactor_H>
+  <CA_ES_Launch>Spusť reaktor, přežij a odstartuj</CA_ES_Launch>
+  <CA_ES_Launch_H>Asi 15 dní útoků. Věže, minomety, všichni bojovníci.</CA_ES_Launch_H>
+  <CA_ES_Offer>Získej nabídku cesty</CA_ES_Offer>
+  <CA_ES_Offer_H>Přijde jako úkol po nějaké době, často když máš komunikační konzoli.</CA_ES_Offer_H>
+  <CA_ES_Supplies>Jídlo na cestu (balená jídla)</CA_ES_Supplies>
+  <CA_ES_Supplies_H>Balená jídla nebo pemikán se nekazí.</CA_ES_Supplies_H>
+  <CA_ES_Arms>Ozbrojení cestovatelé</CA_ES_Arms>
+  <CA_ES_Arms_H>Karavany na cestě přepadají.</CA_ES_Arms_H>
+  <CA_ES_FindShip>Dostaň se k lodi</CA_ES_FindShip>
+  <CA_ES_FindShip_H>Sestav karavanu (mapa světa) a jeď tam.</CA_ES_FindShip_H>
+  <CA_ES_Defend>Spusť ji a braň do startu</CA_ES_Defend>
+  <CA_ES_Defend_H>Během startu přicházejí nájezdy.</CA_ES_Defend_H>
+  <CA_ES_Title>Kolonista se šlechtickým titulem</CA_ES_Title>
+  <CA_ES_Title_H>Plň úkoly pro Impérium a získávej čest.</CA_ES_Title_H>
+  <CA_ES_Throne>Trůnní sál</CA_ES_Throne>
+  <CA_ES_Throne_H>Vyšší tituly chtějí trůnní sál s pěkným vybavením.</CA_ES_Throne_H>
+  <CA_ES_HighTitle>Vysoký titul</CA_ES_HighTitle>
+  <CA_ES_HighTitle_H>Plň jejich nároky (pokoje, jídlo, hudba), jinak budou nespokojení.</CA_ES_HighTitle_H>
+  <CA_ES_Ascent>Úkol královského vzestupu</CA_ES_Ascent>
+  <CA_ES_Ascent_H>Přijde, až budeš mít dost vysoký titul.</CA_ES_Ascent_H>
+  <CA_ES_Stellarch>Uhosti a ochraň Vysokého stellarchu</CA_ES_Stellarch>
+  <CA_ES_Stellarch_H>Během pobytu přicházejí silné útoky.</CA_ES_Stellarch_H>
+  <CA_ES_Wealth175>Bohatství 175 000 (teď {0})</CA_ES_Wealth175>
+  <CA_ES_Wealth175_H>V polovině cesty k nabídce archonexu.</CA_ES_Wealth175_H>
+  <CA_ES_Wealth350>Bohatství 350 000 (teď {0})</CA_ES_Wealth350>
+  <CA_ES_Wealth350_H>Pak ti archotech nabídne dohodu jako úkol.</CA_ES_Wealth350_H>
+  <CA_ES_Cycle2>Druhý cyklus: nová kolonie</CA_ES_Cycle2>
+  <CA_ES_Cycle2_H>Jen pár kolonistů a věcí může jít s tebou. Vybuduj to znovu.</CA_ES_Cycle2_H>
+  <CA_ES_Cycle3>Třetí cyklus</CA_ES_Cycle3>
+  <CA_ES_Cycle3_H>Znovu zbohatni na poslední přesun.</CA_ES_Cycle3_H>
+  <CA_ES_ArchCore>Probuď jádro archonexu</CA_ES_ArchCore>
+  <CA_ES_ArchCore_H>Dojdi k archonexu a aktivuj jádro.</CA_ES_ArchCore_H>
+  <CA_ES_Activate>Aktivuj monolit prázdnoty</CA_ES_Activate>
+  <CA_ES_Activate_H>Najdi monolit na mapě a dotkni se ho kolonistou.</CA_ES_Activate_H>
+  <CA_ES_Study>Zkoumej entity</CA_ES_Study>
+  <CA_ES_Study_H>Chyť entity na zadržovací plošiny a zkoumej je pro temné znalosti.</CA_ES_Study_H>
+  <CA_ES_Level2>Monolit úrovně 2</CA_ES_Level2>
+  <CA_ES_Level2_H>Prozkoumej dost a znovu aktivuj monolit.</CA_ES_Level2_H>
+  <CA_ES_Level3>Monolit úrovně 3</CA_ES_Level3>
+  <CA_ES_Level3_H>Přijdou silnější hrůzy – měj silnou obranu.</CA_ES_Level3_H>
+  <CA_ES_VoidEnd>Čel prázdnotě</CA_ES_VoidEnd>
+  <CA_ES_VoidEnd_H>Poslední aktivace vede ke konci – tam si vybereš svůj konec.</CA_ES_VoidEnd_H>
+  <CA_ES_GravEngine>Gravitační motor</CA_ES_GravEngine>
+  <CA_ES_GravEngine_H>Najdeš ho na začátku hry s Odyssey nebo ve starých místech.</CA_ES_GravEngine_H>
+  <CA_ES_Console>Pilotní konzole a nosná konstrukce</CA_ES_Console>
+  <CA_ES_Console_H>Vše na nosné konstrukci letí s tebou.</CA_ES_Console_H>
+  <CA_ES_Fly>První let</CA_ES_Fly>
+  <CA_ES_Fly_H>Potřebuje chemopalivo; leť na nová místa pro suroviny.</CA_ES_Fly_H>
+  <CA_ES_Mechhive>Utkej se s mechaúlem</CA_ES_Mechhive>
+  <CA_ES_Mechhive_H>Velký boj – brnění, dobré zbraně, léky.</CA_ES_Mechhive_H>
+  <!-- shared settings look -->
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+</LanguageData>

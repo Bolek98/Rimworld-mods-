@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CA_ModName>Colony Advisor</CA_ModName>
+  <CA_Rec1>An alert on the right when something important waits</CA_Rec1>
+  <CA_Rec2>A short plan for the day every morning at 7:00</CA_Rec2>
+  <CA_Rec3>Open the advisor any time with the button at the bottom or F9</CA_Rec3>
+  <CA_SecAlert>Alert</CA_SecAlert>
+  <CA_ShowAlert>Show the advisor alert</CA_ShowAlert>
+  <CA_ShowAlert_Desc>An alert on the right side of the screen when something urgent or important waits. Click it to open the advisor.</CA_ShowAlert_Desc>
+  <CA_AlertTips>Alert also for plain tips</CA_AlertTips>
+  <CA_AlertTips_Desc>Normally the alert shows only urgent and important things. With this on it also shows plain tips, so it is nearly always visible.</CA_AlertTips_Desc>
+  <CA_SecMorning>Morning plan</CA_SecMorning>
+  <CA_Morning>Plan for the day every morning</CA_Morning>
+  <CA_Morning_Desc>At 7:00 the three most important things for today and the next step to your goal.</CA_Morning_Desc>
+  <CA_MorningLetter>Morning plan as a letter</CA_MorningLetter>
+  <CA_MorningLetter_Desc>A letter on the right (stays until you read it) instead of a short message at the top.</CA_MorningLetter_Desc>
+  <CA_Morning_Title>Plan for today (colony score {0})</CA_Morning_Title>
+  <CA_Morning_Calm>Nothing urgent. A good day to build and research.</CA_Morning_Calm>
+  <CA_Morning_Goal>Goal {0}: {1}</CA_Morning_Goal>
+  <CA_AlertLabel>Advisor: {0} ({1})</CA_AlertLabel>
+  <CA_AlertHead>What the advisor recommends now:</CA_AlertHead>
+  <CA_AlertClick>Click to open the advisor.</CA_AlertClick>
+  <CA_NoMap>No home map.</CA_NoMap>
+  <CA_Tab_Now>Now</CA_Tab_Now>
+  <CA_Tab_Make>Make</CA_Tab_Make>
+  <CA_Tab_Research>Research</CA_Tab_Research>
+  <CA_Tab_Goal>Way to the end</CA_Tab_Goal>
+  <CA_Tab_Quests>Quests</CA_Tab_Quests>
+  <CA_ScoreTip>Colony score 0–100: food, mood, health, safety and progress. Every urgent problem takes 5 points.</CA_ScoreTip>
+  <CA_Sc_Food>Food</CA_Sc_Food>
+  <CA_Sc_Mood>Mood</CA_Sc_Mood>
+  <CA_Sc_Health>Health</CA_Sc_Health>
+  <CA_Sc_Safety>Safety</CA_Sc_Safety>
+  <CA_Sc_Progress>Progress</CA_Sc_Progress>
+  <CA_Head>Colonists {0} · food for {1} days · medicine {2} · fighters {3} · strength {4}/3</CA_Head>
+  <CA_HeadGoal>Goal {0} – next step: {1}</CA_HeadGoal>
+  <CA_HeadStage>Stage: {0}</CA_HeadStage>
+  <CA_Btn_Show>Show</CA_Btn_Show>
+  <CA_Btn_AddBill>Add bill</CA_Btn_AddBill>
+  <CA_Btn_RaiseBill>Make it {0}</CA_Btn_RaiseBill>
+  <CA_Btn_Build>Build it</CA_Btn_Build>
+  <CA_Btn_Research>Research</CA_Btn_Research>
+  <CA_Btn_OpenQuest>Open quest</CA_Btn_OpenQuest>
+  <CA_Btn_Work>Open work</CA_Btn_Work>
+  <CA_Btn_Architect>Open architect</CA_Btn_Architect>
+  <CA_Btn_Goal>Show the way</CA_Btn_Goal>
+  <CA_Btn_Choose>Choose</CA_Btn_Choose>
+  <CA_Btn_AutoGoal>Pick the goal for me</CA_Btn_AutoGoal>
+  <CA_M_BillAdded>Bill added: {0} until you have {1} ({2}).</CA_M_BillAdded>
+  <CA_M_Research>Researching now: {0}.</CA_M_Research>
+  <CA_Now_Title>What to do now</CA_Now_Title>
+  <CA_Now_Sub>The most important first. Red: right now. Orange: soon. Grey: a good idea.</CA_Now_Sub>
+  <CA_Now_AllGood>All is fine. Look at "Way to the end" for the next big step.</CA_Now_AllGood>
+  <CA_Make_Title>What to make</CA_Make_Title>
+  <CA_Make_Sub>What the colony is short of. "Add bill" puts a bill on the right workbench that makes them until you have enough.</CA_Make_Sub>
+  <CA_Make_None>Nothing is missing right now.</CA_Make_None>
+  <CA_Make_Count>{0} / {1}</CA_Make_Count>
+  <CA_Make_NoRecipe>can't be made yet (research or buy it)</CA_Make_NoRecipe>
+  <CA_Make_HasBill>already a bill at {0} (until {1})</CA_Make_HasBill>
+  <CA_Make_At>made at {0}</CA_Make_At>
+  <CA_Make_Build>build a {0} first</CA_Make_Build>
+  <CA_N_Meals>about a day and a half of meals for {0} colonists</CA_N_Meals>
+  <CA_N_Medicine>{0} medicine is a safe reserve</CA_N_Medicine>
+  <CA_N_Parka>winter here gets to {0} – everyone needs warm clothes</CA_N_Parka>
+  <CA_N_Clothes>{0} with torn clothes, {1} without a shirt (bad mood)</CA_N_Clothes>
+  <CA_N_Weapons>{0} fighters have no weapon</CA_N_Weapons>
+  <CA_N_Components>components are needed for almost every advanced building</CA_N_Components>
+  <CA_N_Chemfuel>{0} buildings burn chemfuel</CA_N_Chemfuel>
+  <CA_Res_Title>What to research</CA_Res_Title>
+  <CA_Res_Current>Now: {0} ({1})</CA_Res_Current>
+  <CA_Res_None>Nothing is being researched! Pick something below.</CA_Res_None>
+  <CA_R_First>(first needed for {0})</CA_R_First>
+  <CA_R_Cheap>Cheap and available ({0} points).</CA_R_Cheap>
+  <CA_R_Electricity>Power is the key to almost everything: lights, coolers, turrets, better workbenches.</CA_R_Electricity>
+  <CA_R_Batteries>Stores power for the night and windless days.</CA_R_Batteries>
+  <CA_R_Cooling>A cooler makes a freezer – food lasts for months instead of days.</CA_R_Cooling>
+  <CA_R_PassiveCooler>Cooling without power for hot days.</CA_R_PassiveCooler>
+  <CA_R_Stonecutting>Stone blocks: walls that don't burn.</CA_R_Stonecutting>
+  <CA_R_Furniture>Better furniture: dressers, end tables, better rooms and mood.</CA_R_Furniture>
+  <CA_R_Smithing>Smithy: melee weapons and the way to machining.</CA_R_Smithing>
+  <CA_R_Clothing>Parkas and dusters – needed in cold or hot climate.</CA_R_Clothing>
+  <CA_R_Brewing>Beer: recreation and trade goods.</CA_R_Brewing>
+  <CA_R_Psychoid>Psychite tea, a cheap mood boost.</CA_R_Psychoid>
+  <CA_R_Solar>Solar panels: clean daytime power.</CA_R_Solar>
+  <CA_R_Watermill>A watermill gives steady power if you have a river.</CA_R_Watermill>
+  <CA_R_Paste>Nutrient paste: lots of food from little, no cook needed.</CA_R_Paste>
+  <CA_R_Hydroponics>Indoor crops all year – essential in cold biomes.</CA_R_Hydroponics>
+  <CA_R_Survival>Survival meals for caravans and emergencies.</CA_R_Survival>
+  <CA_R_Micro>Microelectronics opens comms console, hospital beds and most of the tech tree.</CA_R_Micro>
+  <CA_R_Machining>Machining table: guns, armor, bionics later.</CA_R_Machining>
+  <CA_R_Guns>Gunsmithing: real guns for your fighters.</CA_R_Guns>
+  <CA_R_Turrets>Turrets defend the base even when colonists sleep.</CA_R_Turrets>
+  <CA_R_Mortars>Mortars break sieges from far away.</CA_R_Mortars>
+  <CA_R_Drugs>Drug lab: the way to making medicine.</CA_R_Drugs>
+  <CA_R_Medicine>Make your own medicine – you are short of it.</CA_R_Medicine>
+  <CA_R_Fabrication>Components yourself – needed for everything advanced and for the ship.</CA_R_Fabrication>
+  <CA_R_MultiAnalyzer>Multi-analyzer unlocks the late research (needed for the ship).</CA_R_MultiAnalyzer>
+  <CA_R_Flak>Flak armor – your fighters survive much more.</CA_R_Flak>
+  <CA_R_Prosthetics>Replace lost limbs.</CA_R_Prosthetics>
+  <CA_R_Geothermal>Geothermal: lots of steady power from a steam geyser.</CA_R_Geothermal>
+  <CA_R_Pods>Transport pods: quick trips, trade and quests far away.</CA_R_Pods>
+  <CA_R_Ship>The spaceship – the classic way to win the game.</CA_R_Ship>
+  <CA_R_Refining>Chemfuel for generators and later the ship.</CA_R_Refining>
+  <CA_T_NoResearch>Nothing is being researched</CA_T_NoResearch>
+  <CA_T_NoResearchD>Recommended: {0} – {1}</CA_T_NoResearchD>
+  <CA_T_NextStep>Next step ({0})</CA_T_NextStep>
+  <CA_T_Goal>{0}: {1}</CA_T_Goal>
+  <CA_T_QuestExpiring>Good quest expires soon: {0}</CA_T_QuestExpiring>
+  <CA_T_Enemies>Enemies on the map: {0}</CA_T_Enemies>
+  <CA_T_EnemiesD>Drafted {0} of {1} fighters. Draft them, fight behind cover and keep the wounded away.</CA_T_EnemiesD>
+  <CA_T_Fire>Fire in the base ({0})</CA_T_Fire>
+  <CA_T_FireD>Firefighting needs someone with firefighting on – or draft colonists and put it out by hand.</CA_T_FireD>
+  <CA_T_Downed>{0} needs help</CA_T_Downed>
+  <CA_T_DownedD>Down – carry to a bed and tend.</CA_T_DownedD>
+  <CA_T_Bleeding>Bleeding {0} a day – tend now!</CA_T_Bleeding>
+  <CA_T_Cold>{0} is freezing</CA_T_Cold>
+  <CA_T_ColdD>Hypothermia. Get them into a warm room, give warm clothes, build a heater or campfire.</CA_T_ColdD>
+  <CA_T_Hot>{0} is overheating</CA_T_Hot>
+  <CA_T_HotD>Heatstroke. Get them into a cool room, build a cooler or passive cooler.</CA_T_HotD>
+  <CA_T_Starving>{0} is starving</CA_T_Starving>
+  <CA_T_StarvingD>No food reaches them. Check food, cooks and stockpiles.</CA_T_StarvingD>
+  <CA_T_Break>{0} is about to break</CA_T_Break>
+  <CA_T_BreakD>Give them recreation and rest, good food, a nice room. Drugs or a party help quickly.</CA_T_BreakD>
+  <CA_T_Mood>{0} has low mood</CA_T_Mood>
+  <CA_T_MoodD>Look at their needs and thoughts – fix the biggest bad thought.</CA_T_MoodD>
+  <CA_T_FoodLow>Food for only {0} days!</CA_T_FoodLow>
+  <CA_T_FoodLowD>Hunt animals, harvest what is ripe, gather berries, buy from traders.</CA_T_FoodLowD>
+  <CA_T_FoodSome>Food for {0} days</CA_T_FoodSome>
+  <CA_T_FoodSomeD>Plant more crops (rice is fast, corn lasts), hunt and build a freezer.</CA_T_FoodSomeD>
+  <CA_T_NoMeds>{0} wounded and no medicine</CA_T_NoMeds>
+  <CA_T_NoMedsD>Tending without medicine is weak. Buy medicine, grow healroot or research medicine production.</CA_T_NoMedsD>
+  <CA_T_FewMeds>Only {0} medicine</CA_T_FewMeds>
+  <CA_T_FewMedsD>Keep at least {0} for the next raid or sickness.</CA_T_FewMedsD>
+  <CA_T_Freezer>{0} food rotting in the warm</CA_T_Freezer>
+  <CA_T_FreezerD>A closed room with a cooler below 0° keeps food for months.</CA_T_FreezerD>
+  <CA_T_NoWorker>Nobody does: {0}</CA_T_NoWorker>
+  <CA_W_Cooking>No meals – colonists eat raw food and get a bad mood (and food poisoning).</CA_W_Cooking>
+  <CA_W_Doctor>Nobody tends the wounded. Wounds get infected.</CA_W_Doctor>
+  <CA_W_Fire>Nobody puts out fires.</CA_W_Fire>
+  <CA_W_Hauling>Things stay lying around and rot.</CA_W_Hauling>
+  <CA_W_Growing>Fields are not sown or harvested.</CA_W_Growing>
+  <CA_W_Research>The research bench stands empty.</CA_W_Research>
+  <CA_T_NoBed>{0} colonists without a bed</CA_T_NoBed>
+  <CA_T_NoBedD>Sleeping on the ground gives a bad mood. Build beds (a bedroom each is best).</CA_T_NoBedD>
+  <CA_T_BedOutside>{0} beds without a roof</CA_T_BedOutside>
+  <CA_T_BedOutsideD>Sleeping outside: bad mood, cold and rain. Build walls and a roof.</CA_T_BedOutsideD>
+  <CA_T_Power>{0} buildings without power</CA_T_Power>
+  <CA_T_PowerD>Not enough power. Build more generators or batteries, or turn off what you don't need.</CA_T_PowerD>
+  <CA_T_Defence>No defence yet</CA_T_Defence>
+  <CA_T_DefenceD>Raids get bigger. Build sandbags and walls at the entrance, later turrets.</CA_T_DefenceD>
+  <CA_T_Unarmed>{0} fighters without a weapon</CA_T_Unarmed>
+  <CA_T_UnarmedD>Make or buy weapons (see "Make"), or pick them up after a raid.</CA_T_UnarmedD>
+  <CA_T_Make>Make {0}: {1} more</CA_T_Make>
+  <CA_Goal_Title>The way through the game</CA_Goal_Title>
+  <CA_Goal_Sub>Four stages to a strong colony, then the end of the game. Hover a step for help. Pick your ending – the advisor then shows its next step everywhere.</CA_Goal_Sub>
+  <CA_Goal_Stage>Stage {0}: {1} ({2}/{3})</CA_Goal_Stage>
+  <CA_Goal_Endings>How to finish the game</CA_Goal_Endings>
+  <CA_Q_Title>Quests on offer</CA_Q_Title>
+  <CA_Q_Sub>Rated by danger (stars) against your strength ({0}/3: fighters, weapons, armor, turrets) and by reward.</CA_Q_Sub>
+  <CA_Q_None>No quests on offer right now.</CA_Q_None>
+  <CA_Q_V0>take it</CA_Q_V0>
+  <CA_Q_V1>think about it</CA_Q_V1>
+  <CA_Q_V2>better not</CA_Q_V2>
+  <CA_Q_Left>expires in {0}</CA_Q_Left>
+  <CA_Q_Safe>No fight expected.</CA_Q_Safe>
+  <CA_Q_Ok>Danger {0}, your strength {1} – you can handle it.</CA_Q_Ok>
+  <CA_Q_Maybe>Danger {0}, your strength {1} – possible with good preparation (cover, medicine, all fighters).</CA_Q_Maybe>
+  <CA_Q_No>Danger {0}, your strength {1} – too strong for you now.</CA_Q_No>
+  <CA_Q_Value>Reward worth about {0}.</CA_Q_Value>
+  <CA_S_Survive>Survive</CA_S_Survive>
+  <CA_S_Survive_Goal>A roof, beds, food and a start of research.</CA_S_Survive_Goal>
+  <CA_S_Stable>Stable colony</CA_S_Stable>
+  <CA_S_Stable_Goal>Food that lasts, power, a hospital and a first defence.</CA_S_Stable_Goal>
+  <CA_S_Grow>Growing colony</CA_S_Grow>
+  <CA_S_Grow_Goal>More people, fields, microelectronics, trade over radio, weapons for all.</CA_S_Grow_Goal>
+  <CA_S_Strong>Strong colony</CA_S_Strong>
+  <CA_S_Strong_Goal>Own components, late research, turrets, armor – ready for the end of the game.</CA_S_Strong_Goal>
+  <CA_C_Beds>Every colonist has a bed</CA_C_Beds>
+  <CA_C_Beds_H>Architect → Furniture → Bed. Assign beds or let colonists pick.</CA_C_Beds_H>
+  <CA_C_Roof>All beds are under a roof</CA_C_Roof>
+  <CA_C_Roof_H>Walls around a room give it a roof automatically.</CA_C_Roof_H>
+  <CA_C_Food5>Food for 5 days or more</CA_C_Food5>
+  <CA_C_Food5_H>Grow rice and potatoes, hunt, gather berries.</CA_C_Food5_H>
+  <CA_C_Stove>A place to cook (campfire or stove)</CA_C_Stove>
+  <CA_C_Stove_H>Architect → Production → Campfire / Fueled stove. Add a bill "Cook simple meal".</CA_C_Stove_H>
+  <CA_C_Research>Research is running</CA_C_Research>
+  <CA_C_Research_H>Build a simple research bench and pick a project.</CA_C_Research_H>
+  <CA_C_Freezer>A freezer (food stored below 0°)</CA_C_Freezer>
+  <CA_C_Freezer_H>A closed room with a cooler in the wall blowing in, and a stockpile for food.</CA_C_Freezer_H>
+  <CA_C_Power>Power</CA_C_Power>
+  <CA_C_Power_H>Research Electricity, then wood generator, solar or wind turbine.</CA_C_Power_H>
+  <CA_C_Medicine>At least {0} medicine</CA_C_Medicine>
+  <CA_C_Medicine_H>Buy from traders, grow healroot, later make your own.</CA_C_Medicine_H>
+  <CA_C_Hospital>A hospital bed (bed set to medical)</CA_C_Hospital>
+  <CA_C_Hospital_H>Select a bed → "Medical". A clean room near the base is best.</CA_C_Hospital_H>
+  <CA_C_Defence>A first defence (turret or sandbags)</CA_C_Defence>
+  <CA_C_Defence_H>Sandbags at the entrance give cover. Later mini-turrets.</CA_C_Defence_H>
+  <CA_C_Six>6 or more colonists (now {0})</CA_C_Six>
+  <CA_C_Six_H>Take prisoners after raids and recruit them, accept refugees, buy slaves.</CA_C_Six_H>
+  <CA_C_Fields>A growing zone</CA_C_Fields>
+  <CA_C_Fields_H>Zone → Growing zone on good soil.</CA_C_Fields_H>
+  <CA_C_Micro>Microelectronics researched</CA_C_Micro>
+  <CA_C_Micro_H>Opens comms console and hi-tech research bench.</CA_C_Micro_H>
+  <CA_C_Comms>A comms console</CA_C_Comms>
+  <CA_C_Comms_H>Call traders, talk to factions – many quests come from here.</CA_C_Comms_H>
+  <CA_C_Armed>Every fighter has a weapon</CA_C_Armed>
+  <CA_C_Armed_H>See the "Make" tab.</CA_C_Armed_H>
+  <CA_C_Fabrication>Fabrication researched</CA_C_Fabrication>
+  <CA_C_Fabrication_H>Fabrication bench: components and advanced components.</CA_C_Fabrication_H>
+  <CA_C_MultiAnalyzer>Multi-analyzer researched</CA_C_MultiAnalyzer>
+  <CA_C_MultiAnalyzer_H>Build it next to the hi-tech research bench.</CA_C_MultiAnalyzer_H>
+  <CA_C_Turrets>3 or more turrets</CA_C_Turrets>
+  <CA_C_Turrets_H>Turrets behind sandbags at the entrance, with power.</CA_C_Turrets_H>
+  <CA_C_Armor>Half of the fighters wear armor</CA_C_Armor>
+  <CA_C_Armor_H>Flak vest and helmet at the machining table.</CA_C_Armor_H>
+  <CA_C_Wealth>Colony wealth 150 000 (now {0})</CA_C_Wealth>
+  <CA_C_Wealth_H>Wealth makes raids bigger – but the late game needs it.</CA_C_Wealth_H>
+  <CA_E_Ship>Spaceship</CA_E_Ship>
+  <CA_E_Ship_D>Build a ship and fly away. After the reactor starts, raids come for about 15 days – then launch.</CA_E_Ship_D>
+  <CA_E_Journey>Journey to an old ship</CA_E_Journey>
+  <CA_E_Journey_D>A quest tells you about an old ship far away. Travel there with a caravan, start it and defend it until it launches.</CA_E_Journey_D>
+  <CA_E_Royal>Royal ascent (Royalty)</CA_E_Royal>
+  <CA_E_Royal_D>Earn titles from the Empire. When a high title is reached a quest brings the High Stellarch – host and protect them, then leave with the Empire.</CA_E_Royal_D>
+  <CA_E_Archonexus>Archonexus (Ideology)</CA_E_Archonexus>
+  <CA_E_Archonexus_D>With great wealth an archotech offers a deal: sell the colony and move three times, then wake the archonexus core.</CA_E_Archonexus_D>
+  <CA_E_Void>The void monolith (Anomaly)</CA_E_Void>
+  <CA_E_Void_D>Study the void monolith and its horrors, raise its level and finally face the void.</CA_E_Void_D>
+  <CA_E_Gravship>Gravship (Odyssey)</CA_E_Gravship>
+  <CA_E_Gravship_D>Build a gravship around a grav engine, travel the world and to orbit, and take on the mechhive.</CA_E_Gravship_D>
+  <CA_ES_ShipBase>Electricity and microelectronics</CA_ES_ShipBase>
+  <CA_ES_ShipBase_H>The base of all ship research.</CA_ES_ShipBase_H>
+  <CA_ES_ShipFab>Fabrication and multi-analyzer</CA_ES_ShipFab>
+  <CA_ES_ShipFab_H>Ship parts need advanced components and late research.</CA_ES_ShipFab_H>
+  <CA_ES_Research>Research: {0}</CA_ES_Research>
+  <CA_ES_Research_H>Pick it in the "Research" tab.</CA_ES_Research_H>
+  <CA_ES_Components>A stock of components (20+)</CA_ES_Components>
+  <CA_ES_Components_H>The ship needs lots of components, advanced components, plasteel and uranium.</CA_ES_Components_H>
+  <CA_ES_Hull>Structural beams and cryptosleep caskets</CA_ES_Hull>
+  <CA_ES_Hull_H>One casket for every colonist who should leave.</CA_ES_Hull_H>
+  <CA_ES_Core>Computer core and sensor cluster</CA_ES_Core>
+  <CA_ES_Core_H>The computer core is often bought from traders or found.</CA_ES_Core_H>
+  <CA_ES_Engine>Ship engine</CA_ES_Engine>
+  <CA_ES_Engine_H>Needs uranium and plasteel.</CA_ES_Engine_H>
+  <CA_ES_Reactor>Ship reactor</CA_ES_Reactor>
+  <CA_ES_Reactor_H>Build it last: once started, raids come until launch. Prepare defences first!</CA_ES_Reactor_H>
+  <CA_ES_Launch>Start the reactor, survive and launch</CA_ES_Launch>
+  <CA_ES_Launch_H>About 15 days of attacks. Turrets, mortars, all fighters.</CA_ES_Launch_H>
+  <CA_ES_Offer>Get the journey offer</CA_ES_Offer>
+  <CA_ES_Offer_H>It comes as a quest after some time, often after you have a comms console.</CA_ES_Offer_H>
+  <CA_ES_Supplies>Food for the road (survival meals)</CA_ES_Supplies>
+  <CA_ES_Supplies_H>Packaged survival meals or pemmican don't rot.</CA_ES_Supplies_H>
+  <CA_ES_Arms>Armed travellers</CA_ES_Arms>
+  <CA_ES_Arms_H>Caravans get ambushed on the way.</CA_ES_Arms_H>
+  <CA_ES_FindShip>Reach the ship</CA_ES_FindShip>
+  <CA_ES_FindShip_H>Form a caravan (world map) and travel there.</CA_ES_FindShip_H>
+  <CA_ES_Defend>Start it and defend until launch</CA_ES_Defend>
+  <CA_ES_Defend_H>Raids come while it powers up.</CA_ES_Defend_H>
+  <CA_ES_Title>A colonist with a royal title</CA_ES_Title>
+  <CA_ES_Title_H>Do quests for the Empire and earn honor.</CA_ES_Title_H>
+  <CA_ES_Throne>A throne room</CA_ES_Throne>
+  <CA_ES_Throne_H>Higher titles want a throne room with fine furniture.</CA_ES_Throne_H>
+  <CA_ES_HighTitle>A high title</CA_ES_HighTitle>
+  <CA_ES_HighTitle_H>Keep their needs (rooms, food, music) or they get unhappy.</CA_ES_HighTitle_H>
+  <CA_ES_Ascent>The royal ascent quest</CA_ES_Ascent>
+  <CA_ES_Ascent_H>Comes once you have a high enough title.</CA_ES_Ascent_H>
+  <CA_ES_Stellarch>Host and protect the High Stellarch</CA_ES_Stellarch>
+  <CA_ES_Stellarch_H>Strong attacks come during the stay.</CA_ES_Stellarch_H>
+  <CA_ES_Wealth175>Wealth 175 000 (now {0})</CA_ES_Wealth175>
+  <CA_ES_Wealth175_H>Halfway to the archonexus offer.</CA_ES_Wealth175_H>
+  <CA_ES_Wealth350>Wealth 350 000 (now {0})</CA_ES_Wealth350>
+  <CA_ES_Wealth350_H>Then the archotech offers the deal as a quest.</CA_ES_Wealth350_H>
+  <CA_ES_Cycle2>Second cycle: a new colony</CA_ES_Cycle2>
+  <CA_ES_Cycle2_H>Only a few colonists and items can go along. Build up again.</CA_ES_Cycle2_H>
+  <CA_ES_Cycle3>Third cycle</CA_ES_Cycle3>
+  <CA_ES_Cycle3_H>Grow wealthy again for the last move.</CA_ES_Cycle3_H>
+  <CA_ES_ArchCore>Wake the archonexus core</CA_ES_ArchCore>
+  <CA_ES_ArchCore_H>Travel to the archonexus and invoke the core.</CA_ES_ArchCore_H>
+  <CA_ES_Activate>Activate the void monolith</CA_ES_Activate>
+  <CA_ES_Activate_H>Find the monolith on the map and touch it with a colonist.</CA_ES_Activate_H>
+  <CA_ES_Study>Study entities</CA_ES_Study>
+  <CA_ES_Study_H>Capture entities on holding platforms and study them for dark knowledge.</CA_ES_Study_H>
+  <CA_ES_Level2>Monolith level 2</CA_ES_Level2>
+  <CA_ES_Level2_H>Study enough, then activate the monolith again.</CA_ES_Level2_H>
+  <CA_ES_Level3>Monolith level 3</CA_ES_Level3>
+  <CA_ES_Level3_H>Stronger horrors come – keep strong defences.</CA_ES_Level3_H>
+  <CA_ES_VoidEnd>Face the void</CA_ES_VoidEnd>
+  <CA_ES_VoidEnd_H>The last activation leads to the end – choose your ending there.</CA_ES_VoidEnd_H>
+  <CA_ES_GravEngine>A grav engine</CA_ES_GravEngine>
+  <CA_ES_GravEngine_H>Found at the start of an Odyssey game or in ancient sites.</CA_ES_GravEngine_H>
+  <CA_ES_Console>Pilot console and substructure</CA_ES_Console>
+  <CA_ES_Console_H>Everything on the substructure flies with you.</CA_ES_Console_H>
+  <CA_ES_Fly>First flight</CA_ES_Fly>
+  <CA_ES_Fly_H>Needs chemfuel; fly to new places for resources.</CA_ES_Fly_H>
+  <CA_ES_Mechhive>Take on the mechhive</CA_ES_Mechhive>
+  <CA_ES_Mechhive_H>A big fight – armor, good weapons, medicine.</CA_ES_Mechhive_H>
+  <!-- shared settings look -->
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+</LanguageData>
