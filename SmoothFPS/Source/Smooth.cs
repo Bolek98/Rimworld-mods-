@@ -898,7 +898,9 @@ namespace GraphicsTuner
                 return;
             GfxSettings s = GraphicsTunerMod.Settings;
             int gc = GC.CollectionCount(GC.MaxGeneration);
-            bool log = s != null && frameMs >= s.hitchMs && Time.realtimeSinceStartup - lastLog > 1f;
+            // 1.6.2: the first frame after the main menu or loading a save measured the whole time
+            // since the last game frame (hours) – that is no hitch; a gap over a minute is skipped
+            bool log = s != null && frameMs >= s.hitchMs && frameMs < 60000.0 && Time.realtimeSinceStartup - lastLog > 1f;
             lock (gate)
             {
             if (DeepHitch.On)

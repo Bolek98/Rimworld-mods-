@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+1.6.2
+- Fix: the hitch finder no longer reports the time spent in the main menu or loading a save as one huge hitch ("hitch 8256321 ms").
+
 1.6.1
 - Fix (1.7): "What takes video memory" and the video memory warning found the engine's memory report only by a search that skips the engine – they now ask the engine directly.
 - Safer 1.7 check: one shared check (game version, engine, runtime) is used by the texture limit and the memory clean-ups, and the log says at start which mode is on.
