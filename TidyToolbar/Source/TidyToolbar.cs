@@ -28,6 +28,13 @@ namespace TidyToolbar
         public bool modsToGroup = true;                     // buttons from mods go into the group "Mods" by default
         public bool autoMove = true;                        // what does not fit goes into "More"
         public bool iconsSmall = true;                      // buttons with an icon take only the icon's width
+        // the right side of the screen (alerts, letters, play settings)
+        public bool tidyAlerts = true;                      // same alerts once with ×N, mute, the rest folded
+        public int alertLimit = 10;                         // at most this many alerts shown (critical and high always)
+        public List<string> mutedAlerts = new List<string>();
+        public int letterDays = 3;                          // letters older than this go away by themselves (0 = never)
+        public int letterMax = 15;                          // at most this many letters on the stack (0 = no limit)
+        public bool collapsePlay = true;                    // the play settings icons behind one button
 
         public override void ExposeData()
         {
@@ -38,6 +45,13 @@ namespace TidyToolbar
             Scribe_Values.Look(ref modsToGroup, "modsToGroup", true);
             Scribe_Values.Look(ref autoMove, "autoMove", true);
             Scribe_Values.Look(ref iconsSmall, "iconsSmall", true);
+            Scribe_Values.Look(ref tidyAlerts, "tidyAlerts", true);
+            Scribe_Values.Look(ref alertLimit, "alertLimit", 10);
+            Scribe_Collections.Look(ref mutedAlerts, "mutedAlerts", LookMode.Value);
+            Scribe_Values.Look(ref letterDays, "letterDays", 3);
+            Scribe_Values.Look(ref letterMax, "letterMax", 15);
+            Scribe_Values.Look(ref collapsePlay, "collapsePlay", true);
+            if (mutedAlerts == null) mutedAlerts = new List<string>();
             if (order == null) order = new List<string>();
             if (placeKeys == null || placeVals == null || placeKeys.Count != placeVals.Count) { placeKeys = new List<string>(); placeVals = new List<string>(); }
             if (groups == null) groups = new List<string>();
@@ -58,6 +72,7 @@ namespace TidyToolbar
                 var h = new Harmony("bolek98.tidytoolbar");
                 h.Patch(AccessTools.Method(typeof(MainButtonsRoot), "DoButtons"),
                     prefix: new HarmonyMethod(typeof(Bar), nameof(Bar.Prefix)) { priority = Priority.Low });
+                TidyHud.Patch(h);
                 Log.Message("[Tidy Toolbar] v" + Version + " loaded.");
             }
             catch (Exception e)
@@ -68,8 +83,15 @@ namespace TidyToolbar
 
         public override string SettingsCategory() => "Tidy Toolbar";
 
+        private static int page;
+
         public override void DoSettingsWindowContents(Rect inRect)
         {
+            // two pages: the bottom bar and the right side of the screen
+            if (Widgets.ButtonText(new Rect(inRect.x, inRect.y, 220f, 30f), "TT_PageBar".Translate(), true, true, page != 0)) page = 0;
+            if (Widgets.ButtonText(new Rect(inRect.x + 228f, inRect.y, 260f, 30f), "TT_PageHud".Translate(), true, true, page != 1)) page = 1;
+            inRect.yMin += 40f;
+            if (page == 1) { TidyHud.DrawSettings(inRect); return; }
             var top = new Listing_Standard();
             top.Begin(new Rect(inRect.x, inRect.y, inRect.width, 90f));
             top.CheckboxLabeled("TT_ModsToGroup".Translate(Bar.ModsGroup), ref S.modsToGroup, "TT_ModsToGroupTip".Translate());
