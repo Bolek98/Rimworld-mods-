@@ -38,6 +38,9 @@ namespace GraphicsTuner
             }
         }
 
+        // 1.6.1: GenTypes only searches the game's and mods' assemblies – engine types are asked for by name
+        private static Type W(string name) => Type.GetType(name + ", Waylith") ?? GenTypes.GetTypeInAnyAssembly(name);
+
         private static void Init()
         {
             if (tried)
@@ -45,15 +48,15 @@ namespace GraphicsTuner
             tried = true;
             try
             {
-                Type rep = GenTypes.GetTypeInAnyAssembly("Waylith.Graphics.GpuMemoryReport");
-                Type sum = GenTypes.GetTypeInAnyAssembly("Waylith.Graphics.GpuMemorySummary");
+                Type rep = W("Waylith.Graphics.GpuMemoryReport");
+                Type sum = W("Waylith.Graphics.GpuMemorySummary");
                 if (rep == null || sum == null)
                     return;
                 trySummary = rep.GetMethod("TryGetSummary", BindingFlags.Public | BindingFlags.Static);
                 pUsed = sum.GetProperty("DeviceLocalDriverUsageBytes");
                 pBudget = sum.GetProperty("DeviceLocalBudgetBytes");
                 pTotal = sum.GetProperty("DeviceLocalTotalBytes");
-                Type tracker = GenTypes.GetTypeInAnyAssembly("Waylith.Graphics.GpuMemoryTracker");
+                Type tracker = W("Waylith.Graphics.GpuMemoryTracker");
                 allocType = tracker?.GetNestedType("TrackedAllocation", BindingFlags.Public);
                 if (allocType != null)
                 {
