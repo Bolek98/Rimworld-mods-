@@ -34,8 +34,11 @@ public static class AutoSchedules
 		int nightNow = pawns.Count(p => ss.scheduled.TryGetValue(p.thingIDNumber, out string h) && h != null && h.StartsWith("N") && !(owl != null && p.story?.traits != null && p.story.traits.HasTrait(owl)));
 		foreach (Pawn p in pawns)
 		{
-			bool night = (owl != null && p.story?.traits != null && p.story.traits.HasTrait(owl));
-			if (!night && nightWanted > 0)
+			// 1.1.0: children learn only in hours that allow recreation ("Anything" / "Recreation") –
+			// the adult work day left them a few hours a day; they get "Anything" all day except sleep
+			bool child = ModsConfig.BiotechActive && p.DevelopmentalStage.Child();
+			bool night = !child && (owl != null && p.story?.traits != null && p.story.traits.HasTrait(owl));
+			if (!child && !night && nightWanted > 0)
 			{
 				bool was = ss.scheduled.TryGetValue(p.thingIDNumber, out string h0) && h0 != null && h0.StartsWith("N");
 				if (was && nightNow <= nightWanted)
@@ -85,7 +88,7 @@ public static class AutoSchedules
 				if (joy >= JoyMax && Bored(p) >= 2)
 					BoredHint(p);
 			}
-			string want = Pattern(night, joy);
+			string want = child ? ChildPattern() : Pattern(night, joy);
 			if (want != lastPattern || st.Length < 4)
 			{
 				if (!SchedState.Of(comp).schedHold.ContainsKey(id))
@@ -141,6 +144,16 @@ public static class AutoSchedules
 			return;
 		lastBoredHint = now;
 		Messages.Message("CF_SchedBored".Translate(p.LabelShort), p, MessageTypeDefOf.CautionInput, historical: false);
+	}
+
+	// 1.1.0: a child sleeps 22–6 and has "Anything" the rest of the day: learning (lessons, reading,
+	// nature running …), play and its light work all fit in; the game decides by the child's needs
+	public static string ChildPattern()
+	{
+		var c = new char[24];
+		for (int h = 0; h < 24; h++)
+			c[h] = h >= 22 || h < 6 ? 'S' : 'A';
+		return new string(c);
 	}
 
 	// S = sleep, J = recreation, A = anything, W = work

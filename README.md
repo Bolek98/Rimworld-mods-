@@ -38,7 +38,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 3.4.1 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.0.7 | [Steward2/StewardCrises](Steward2/StewardCrises) |
-| Steward – Schedules | 1.0.1 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
+| Steward – Schedules | 1.1.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
 | Steward – Supplies | 1.0.5 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
 | Universal RimTranslator | 1.0.0 | [UniversalRimTranslator](UniversalRimTranslator) |
