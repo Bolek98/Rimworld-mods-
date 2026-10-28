@@ -33,7 +33,7 @@ namespace MisakTabs
 
     public class MTMod : Mod
     {
-        public const string Version = "0.5.0";
+        public const string Version = "0.5.1";
         public static MTSettings S;
         public static Harmony H;
         private static List<string> recBullets;
@@ -370,7 +370,7 @@ namespace MisakTabs
         {
             bool repeat = bp.repeatMode == BillRepeatModeDefOf.RepeatCount, target = bp.repeatMode == BillRepeatModeDefOf.TargetCount;
             if (!repeat && !target) return;
-            Rect minus = new Rect(r.x, r.y, 22f, r.height), plus = new Rect(r.x + 24f, r.y, 22f, r.height);
+            Rect minus = new Rect(r.x, r.y, 27f, r.height), plus = new Rect(r.x + 31f, r.y, 27f, r.height);
             int delta = 0;
             if (Look.Button(minus, "-")) delta = -1;
             if (Look.Button(plus, "+")) delta = 1;
@@ -595,7 +595,7 @@ namespace MisakTabs
                     Look.Icon(ic, b.recipe.UIIconThing, b.recipe.UIIcon);
                     if (Mouse.IsOver(ic)) TooltipHandler.TipRegion(ic, new TipSignal(() => RecipeInfo(b.recipe) + "\n\n" + "MT_ClickInfo".Translate(), b.recipe.GetHashCode() ^ 0x55));
                     if (Widgets.ButtonInvisible(ic)) OpenInfo(b.recipe);
-                    float tx = c.x + 52f, tw = c.width - 52f - 150f;
+                    float tx = c.x + 52f, tw = c.width - 52f - 200f;   // 0.5.1: leave room for the P / … column (the − / + were hidden under it)
                     // 0.5.0: linked bills are marked; the tooltip says where the others are
                     List<Bill> linked = BillLinks.GroupOf(b) != 0 ? BillLinks.Others(b) : null;
                     Rect title = new Rect(tx, c.y + 6f, tw, 22f);
@@ -628,11 +628,11 @@ namespace MisakTabs
                     Look.Text(new Rect(tx, c.y + 28f, tw, 18f), status, sc, GameFont.Tiny);
                     // 0.5.0: − / + buttons right after the count line
                     bool hasCount = b is Bill_Production bpc && bpc.repeatMode != BillRepeatModeDefOf.Forever;
-                    float rw = hasCount ? tw - 50f : tw;
+                    float rw = hasCount ? tw - 62f : tw;
                     Rect rr = new Rect(tx, c.y + 44f, rw, 18f);
                     Look.Text(rr, repeat.Truncate(rw), Muted, GameFont.Tiny);
                     if (Mouse.IsOver(rr) && !repeat.NullOrEmpty()) TooltipHandler.TipRegion(rr, repeat);
-                    if (hasCount) CountButtons(new Rect(tx + rw + 4f, c.y + 42f, 46f, 20f), (Bill_Production)b);
+                    if (hasCount) CountButtons(new Rect(tx + rw + 4f, c.y + 40f, 58f, 24f), (Bill_Production)b);
                     if (progress >= 0f) Look.Bar(new Rect(tx, c.y + 63f, tw, 4f), progress, Look.Green);
                     // buttons
                     float bx = c.xMax - 146f, by = c.y + 8f;
