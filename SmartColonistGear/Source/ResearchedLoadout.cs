@@ -324,6 +324,12 @@ namespace ResearchedLoadout
 				Check(listing_Standard, "RL_CEAmmo", ref Settings.ceAmmoCheck, "ceAmmoCheck");
 			}
 			Settings.weaponCalmHours = (int)Sl(listing_Standard, "weaponCalmHours", "RL_WeaponCalm".Translate(Settings.weaponCalmHours), Settings.weaponCalmHours, 0f, 72f, 0.5f, "RL_WeaponCalm_Desc".Translate());
+			// 2.17.0
+			Check(listing_Standard, "RL_SwapCarriedGun", ref Settings.swapCarriedGun, "swapCarriedGun");
+			Check(listing_Standard, "RL_RoleWeapons", ref Settings.roleWeapons, "roleWeapons");
+			Check(listing_Standard, "RL_UnarmedAlert", ref Settings.unarmedAlert, "unarmedAlert");
+			Settings.reserveRanged = Mathf.RoundToInt(Sl(listing_Standard, "reserveRanged", "RL_ReserveRanged".Translate(Settings.reserveRanged), Settings.reserveRanged, 0f, 10f, 0.5f, "RL_ReserveRanged_Desc".Translate()));
+			Settings.explosivesMinShooting = Mathf.RoundToInt(Sl(listing_Standard, "explosivesMinShooting", Settings.explosivesMinShooting == 0 ? "RL_ExplosivesOff".Translate().ToString() : "RL_ExplosivesMin".Translate(Settings.explosivesMinShooting).ToString(), Settings.explosivesMinShooting, 0f, 20f, 0.5f, "RL_ExplosivesMin_Desc".Translate()));
 			listing_Standard.End();
 		}
 
@@ -4828,6 +4834,11 @@ namespace ResearchedLoadout
 
 		public bool armSlaves;
 		public bool rangedForAll;                   // 2.16.1: everyone who can shoot takes a ranged main weapon
+		public bool swapCarriedGun = true;          // 2.17.0: a gun in the pockets goes into the hand (with rangedForAll)
+		public bool roleWeapons;                    // 2.17.0: long guns for the best shooters, short ones for the weaker
+		public int reserveRanged;                   // 2.17.0: this many guns stay in storage as spares
+		public int explosivesMinShooting;           // 2.17.0: explosive weapons only from this Shooting level (0 = off)
+		public bool unarmedAlert = true;            // 2.17.0: alert about unarmed colonists during a threat
 
 		public bool prioritizeFighters = true;
 
@@ -4936,6 +4947,11 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref pauseDuringThreat, "pauseDuringThreat", true);
 			Scribe_Values.Look(ref armSlaves, "armSlaves", false);
 			Scribe_Values.Look(ref rangedForAll, "rangedForAll", false);
+			Scribe_Values.Look(ref swapCarriedGun, "swapCarriedGun", true);
+			Scribe_Values.Look(ref roleWeapons, "roleWeapons", false);
+			Scribe_Values.Look(ref reserveRanged, "reserveRanged", 0);
+			Scribe_Values.Look(ref explosivesMinShooting, "explosivesMinShooting", 0);
+			Scribe_Values.Look(ref unarmedAlert, "unarmedAlert", true);
 			Scribe_Values.Look(ref prioritizeFighters, "prioritizeFighters", true);
 			Scribe_Values.Look(ref considerDistance, "considerDistance", true);
 			Scribe_Values.Look(ref notifyPlayer, "notifyPlayer", false);
@@ -6669,6 +6685,12 @@ namespace ResearchedLoadout
 			{
 				flag = false;
 			}
+			// 2.17.0: a gun carried in the pockets goes into the hand instead of a melee weapon
+			if (flag && WeaponPlus.TrySwapCarriedGun(pawn))
+			{
+				RememberOrder(pawn, pawn.equipment?.Primary, now);
+				return true;
+			}
 			if (SidearmsCompat.Active)
 			{
 				GearWhy.Pending(pawn, GearWhy.Reason("RL_Why_Weapon"));
@@ -7986,6 +8008,7 @@ namespace ResearchedLoadout
 			Thing best = null;
 			float bestScore = float.MinValue;
 			List<Thing> list = _weaponCache ?? CollectCandidates(ThingRequestGroup.Weapon);
+			WeaponPlus.CountSpares(list);
 			for (int i = 0; i < list.Count; i++)
 			{
 				ConsiderWeapon(pawn, list[i], wantRanged, forPrimary, ref best, ref bestScore);
@@ -7997,7 +8020,9 @@ namespace ResearchedLoadout
 		{
 			if (thing != null && !thing.Destroyed && thing.Spawned && thing.def != null && LoadoutFilter.IsManagedWeapon(thing.def) && !LoadoutFilter.ToolNotWeapon(thing.def) && !_reservedThings.Contains(thing.thingIDNumber) && (LoadoutFilter.IsAllowed(thing.def) || EmergencyGear.AllowsThing(pawn, thing)) && InAllowedStorage(thing) && (!wantRanged.HasValue || thing.def.IsRangedWeapon == wantRanged.Value) && (!forPrimary || !thing.def.IsRangedWeapon || !IsBrawler(pawn)) && !IsBroken(thing) && !thing.IsForbidden(pawn) && EquipmentUtility.CanEquip(thing, pawn) && (!thing.def.IsRangedWeapon || !WearsRangedBlockingShield(pawn))
 				// 2.16.0: the outfit's weapon list and (with Combat Extended) ammo for the weapon
-				&& OutfitWeapons.Allows(pawn, thing.def) && CEAmmo.HasAmmo(thing, pawn))
+				&& OutfitWeapons.Allows(pawn, thing.def) && CEAmmo.HasAmmo(thing, pawn)
+				// 2.17.0: spare guns in storage and explosives only for good shooters
+				&& !WeaponPlus.ReserveBlocks(pawn, thing) && !WeaponPlus.ExplosiveBlocked(pawn, thing.def))
 			{
 				float num = ScoreWeapon(pawn, thing);
 				// 2.15.1: among weapons of one kind the newest era wins first, then the score
@@ -8253,7 +8278,7 @@ namespace ResearchedLoadout
 			return num * QualityMul(thing);
 		}
 
-		private static float ScoreWeapon(Pawn pawn, Thing thing)
+		internal static float ScoreWeapon(Pawn pawn, Thing thing)
 		{
 			float num = 10f + ScoreWeaponPower(thing) + thing.MarketValue * 0.005f;
 			bool isRangedWeapon = thing.def.IsRangedWeapon;
@@ -8288,6 +8313,7 @@ namespace ResearchedLoadout
 				num *= 0.05f;
 			}
 			num *= LoadoutFilter.TechMul(thing.def);
+			num *= WeaponPlus.RoleFactor(pawn, thing);
 			return num * Specialization.WeaponFactor(pawn, thing);
 		}
 

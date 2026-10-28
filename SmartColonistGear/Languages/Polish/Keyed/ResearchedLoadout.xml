@@ -521,4 +521,22 @@
   <RL_OW_Melee>biała</RL_OW_Melee>
   <RL_RangedForAll>Broń dystansowa dla wszystkich</RL_RangedForAll>
   <RL_RangedForAll_Desc>Każdy kolonista, który umie strzelać, bierze broń palną jako główną – broń białą w ręce wymienia na najlepszą broń palną, jaką masz. Zabijaki i ci, którzy nie mogą strzelać, zostają przy broni białej. Broń białą można dalej nosić jako zapasową.</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>Broń palna z kieszeni do ręki</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>Z „Broń dystansowa dla wszystkich”: kolonista z bronią palną w kieszeni i bronią białą w ręce sam je zamieni (nie w trakcie walki).</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>Broń według roli</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>Broń dalekiego zasięgu (snajperki) trafia do najlepszych strzelców (strzelanie 12+), broń krótkiego zasięgu (strzelby, pistolety maszynowe) do słabszych.</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>Ostrzeżenie: nieuzbrojeni koloniści</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>W czasie zagrożenia ostrzeżenie pokazuje kolonistów bez broni – a z „Broń dystansowa dla wszystkich” także tych tylko z bronią białą.</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>Zapasowa broń palna w magazynie: {0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>Tyle broni palnej zostaje w magazynie dla nowych kolonistów i zepsutej broni. Uzbrojony strzelec jej nie weźmie, nieuzbrojony kolonista tak. 0 = wyłączone.</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>Broń wybuchowa: dla wszystkich</RL_ExplosivesOff>
+  <RL_ExplosivesMin>Broń wybuchowa od strzelania {0}</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>Granaty, wyrzutnie rakiet i granatniki biorą tylko koloniści z co najmniej tym poziomem strzelania, żeby nie trafiali swoich. 0 = każdy.</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>tylko biała</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>Kliknij, aby wybrać broń z magazynu</RL_GO_PickWeapon>
+  <RL_GO_Ranged>dystansowa</RL_GO_Ranged>
+  <RL_GO_Melee>biała</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>W magazynie nie ma broni, której ten kolonista mógłby użyć.</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>Nieuzbrojeni koloniści</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>Na mapie są wrogowie, a ci koloniści nie mają broni (albo tylko białą):\n\n{0}\n\nDaj im broń w przeglądzie wyposażenia (kliknij broń).</RL_AlertUnarmed_Desc>
 </LanguageData>

@@ -521,4 +521,22 @@
   <RL_OW_Melee>近战</RL_OW_Melee>
   <RL_RangedForAll>所有人使用远程武器</RL_RangedForAll>
   <RL_RangedForAll_Desc>每个会射击的殖民者都以枪械作为主武器——手中的近战武器会换成你拥有的最好的枪。斗殴者和无法射击的殖民者保留近战武器。近战武器仍可作为副武器携带。</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>口袋里的枪拿到手上</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>开启“所有人使用远程武器”时：口袋里有枪、手上拿着近战武器的殖民者会自己换过来（战斗中不会）。</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>按角色分配武器</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>远程枪械（狙击枪）给最好的射手（射击12+），近程武器（霰弹枪、冲锋枪）给较弱的射手。</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>警报：无武器的殖民者</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>威胁期间提示没有武器的殖民者——开启“所有人使用远程武器”时也提示只有近战武器的人。</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>仓库备用枪械：{0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>仓库中保留这么多枪给新殖民者和损坏的武器。已武装的射手不会拿，未武装的仍可以。0 = 关闭。</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>爆炸武器：所有人</RL_ExplosivesOff>
+  <RL_ExplosivesMin>爆炸武器需射击 {0}</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>手榴弹、火箭和榴弹发射器只由射击技能至少达到此等级的殖民者使用，以免误伤自己人。0 = 任何人。</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>仅近战</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>点击从仓库选择武器</RL_GO_PickWeapon>
+  <RL_GO_Ranged>远程</RL_GO_Ranged>
+  <RL_GO_Melee>近战</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>仓库中没有这名殖民者能用的武器。</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>无武器的殖民者</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>地图上有敌人，这些殖民者没有武器（或只有近战武器）：\n\n{0}\n\n在装备总览中给他们武器（点击武器）。</RL_AlertUnarmed_Desc>
 </LanguageData>

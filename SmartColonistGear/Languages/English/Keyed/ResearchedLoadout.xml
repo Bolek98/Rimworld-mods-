@@ -521,4 +521,22 @@
   <RL_OW_Melee>melee</RL_OW_Melee>
   <RL_RangedForAll>Ranged weapons for everyone</RL_RangedForAll>
   <RL_RangedForAll_Desc>Every colonist who can shoot takes a gun as the main weapon – a melee weapon in hand is swapped for the best gun you have. Brawlers and colonists who cannot shoot keep melee. Melee weapons can still be carried as sidearms.</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>Gun from the pockets into the hand</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>With "Ranged weapons for everyone": a colonist who carries a gun in the pockets and holds a melee weapon swaps them by himself (not in the middle of a fight).</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>Weapons by role</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>Long-range guns (sniper rifles) go to the best shooters (Shooting 12+), short-range ones (shotguns, SMGs) to the weaker shooters.</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>Alert: unarmed colonists</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>During a threat an alert shows colonists with no weapon – and with "Ranged weapons for everyone" also those with only a melee weapon.</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>Spare guns in storage: {0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>This many guns stay in storage for new colonists and broken weapons. An armed shooter does not take them; an unarmed colonist still may. 0 = off.</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>Explosive weapons: for everyone</RL_ExplosivesOff>
+  <RL_ExplosivesMin>Explosive weapons from Shooting {0}</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>Grenades, rocket and grenade launchers are taken only by colonists with at least this Shooting skill, so they don't hit their own. 0 = anyone.</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>only melee</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>Click to choose a weapon from storage</RL_GO_PickWeapon>
+  <RL_GO_Ranged>ranged</RL_GO_Ranged>
+  <RL_GO_Melee>melee</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>No weapon in storage that this colonist can use.</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>Unarmed colonists</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>Enemies are on the map and these colonists have no weapon (or only a melee weapon):\n\n{0}\n\nGive them a weapon in the Gear overview (click the weapon).</RL_AlertUnarmed_Desc>
 </LanguageData>

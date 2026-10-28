@@ -521,4 +521,22 @@
   <RL_OW_Melee>근접</RL_OW_Melee>
   <RL_RangedForAll>모두에게 원거리 무기</RL_RangedForAll>
   <RL_RangedForAll_Desc>사격할 수 있는 모든 정착민이 총을 주무기로 듭니다 – 손에 든 근접 무기는 보유한 가장 좋은 총으로 바뀝니다. 난투꾼과 사격할 수 없는 정착민은 근접 무기를 유지합니다. 근접 무기는 보조 무기로 계속 들고 다닐 수 있습니다.</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>주머니 속 총을 손에</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>"모두에게 원거리 무기" 사용 시: 주머니에 총이 있고 손에 근접 무기를 든 정착민은 스스로 바꿔 듭니다 (전투 중에는 제외).</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>역할별 무기</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>장거리 총 (저격총)은 최고의 사수 (사격 12+)에게, 단거리 무기 (산탄총, 기관단총)는 약한 사수에게 갑니다.</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>경고: 무장하지 않은 정착민</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>위협 중에 무기가 없는 정착민을 알려줍니다 – "모두에게 원거리 무기"를 쓰면 근접 무기만 든 정착민도 알려줍니다.</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>창고의 예비 총: {0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>이만큼의 총은 새 정착민과 망가진 무기를 위해 창고에 남습니다. 무장한 사수는 가져가지 않고, 무장하지 않은 정착민은 가져갈 수 있습니다. 0 = 끔.</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>폭발 무기: 모두</RL_ExplosivesOff>
+  <RL_ExplosivesMin>폭발 무기는 사격 {0}부터</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>수류탄, 로켓·유탄 발사기는 아군을 맞히지 않도록 사격이 이 수준 이상인 정착민만 가져갑니다. 0 = 누구나.</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>근접 무기만</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>클릭해서 창고에서 무기 고르기</RL_GO_PickWeapon>
+  <RL_GO_Ranged>원거리</RL_GO_Ranged>
+  <RL_GO_Melee>근접</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>이 정착민이 쓸 수 있는 무기가 창고에 없습니다.</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>무장하지 않은 정착민</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>맵에 적이 있고 다음 정착민은 무기가 없습니다 (또는 근접 무기만):\n\n{0}\n\n장비 개요에서 무기를 주세요 (무기를 클릭).</RL_AlertUnarmed_Desc>
 </LanguageData>

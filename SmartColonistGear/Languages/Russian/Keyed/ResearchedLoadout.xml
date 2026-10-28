@@ -521,4 +521,22 @@
   <RL_OW_Melee>ближний бой</RL_OW_Melee>
   <RL_RangedForAll>Дальнобойное оружие для всех</RL_RangedForAll>
   <RL_RangedForAll_Desc>Каждый колонист, умеющий стрелять, берёт огнестрельное оружие как основное – оружие ближнего боя в руках меняется на лучшее огнестрельное, что у вас есть. Драчуны и те, кто не может стрелять, остаются с ближним боем. Оружие ближнего боя можно носить как запасное.</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>Оружие из кармана в руки</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>С «Дальнобойное оружие для всех»: колонист с огнестрельным оружием в кармане и оружием ближнего боя в руках сам меняет их (не посреди боя).</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>Оружие по роли</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>Дальнобойное оружие (снайперские винтовки) получают лучшие стрелки (стрельба 12+), оружие ближней дистанции (дробовики, ПП) — более слабые.</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>Оповещение: безоружные колонисты</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>Во время угрозы оповещение показывает колонистов без оружия — а с «Дальнобойное оружие для всех» и тех, у кого только оружие ближнего боя.</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>Запасное огнестрельное оружие на складе: {0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>Столько огнестрельного оружия остаётся на складе для новых колонистов и сломанного оружия. Вооружённый стрелок его не берёт, безоружный колонист — может. 0 = выкл.</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>Взрывное оружие: для всех</RL_ExplosivesOff>
+  <RL_ExplosivesMin>Взрывное оружие от стрельбы {0}</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>Гранаты, ракетные и гранатомёты берут только колонисты с навыком стрельбы не ниже этого, чтобы не попадать по своим. 0 = кто угодно.</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>только ближний бой</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>Нажмите, чтобы выбрать оружие со склада</RL_GO_PickWeapon>
+  <RL_GO_Ranged>дальний бой</RL_GO_Ranged>
+  <RL_GO_Melee>ближний бой</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>На складе нет оружия, которым мог бы пользоваться этот колонист.</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>Безоружные колонисты</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>На карте враги, а у этих колонистов нет оружия (или только ближнего боя):\n\n{0}\n\nДайте им оружие в обзоре снаряжения (нажмите на оружие).</RL_AlertUnarmed_Desc>
 </LanguageData>

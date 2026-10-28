@@ -521,4 +521,22 @@
   <RL_OW_Melee>ближній бій</RL_OW_Melee>
   <RL_RangedForAll>Далекобійна зброя для всіх</RL_RangedForAll>
   <RL_RangedForAll_Desc>Кожен колоніст, який уміє стріляти, бере вогнепальну зброю як основну – зброю ближнього бою в руках змінює на найкращу вогнепальну, яка у вас є. Забіяки й ті, хто не може стріляти, лишаються з ближнім боєм. Зброю ближнього бою можна носити як запасну.</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>Зброя з кишені в руки</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>З «Далекобійна зброя для всіх»: колоніст із вогнепальною зброєю в кишені та зброєю ближнього бою в руках сам їх міняє (не посеред бою).</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>Зброя за роллю</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>Далекобійну зброю (снайперські гвинтівки) отримують найкращі стрільці (стрільба 12+), зброю ближньої дистанції (дробовики, ПП) — слабші.</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>Сповіщення: беззбройні колоністи</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>Під час загрози сповіщення показує колоністів без зброї — а з «Далекобійна зброя для всіх» і тих, хто має лише зброю ближнього бою.</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>Запасна вогнепальна зброя на складі: {0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>Стільки вогнепальної зброї лишається на складі для нових колоністів і зламаної зброї. Озброєний стрілець її не бере, беззбройний колоніст — може. 0 = вимкнено.</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>Вибухова зброя: для всіх</RL_ExplosivesOff>
+  <RL_ExplosivesMin>Вибухова зброя від стрільби {0}</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>Гранати, ракетні та гранатомети беруть лише колоністи з навичкою стрільби не нижче цієї, щоб не влучати у своїх. 0 = будь-хто.</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>лише ближній бій</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>Натисніть, щоб вибрати зброю зі складу</RL_GO_PickWeapon>
+  <RL_GO_Ranged>дальній бій</RL_GO_Ranged>
+  <RL_GO_Melee>ближній бій</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>На складі немає зброї, якою міг би користуватися цей колоніст.</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>Беззбройні колоністи</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>На мапі вороги, а ці колоністи не мають зброї (або лише ближнього бою):\n\n{0}\n\nДайте їм зброю в огляді спорядження (натисніть на зброю).</RL_AlertUnarmed_Desc>
 </LanguageData>

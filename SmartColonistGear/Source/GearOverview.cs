@@ -64,6 +64,7 @@ namespace ResearchedLoadout
 			try
 			{
 				if (p.equipment?.Primary == null && !p.WorkTagIsDisabled(WorkTags.Violent)) l.Add("RL_GO_NoWeapon".Translate());
+				else if (p.equipment?.Primary != null && !p.equipment.Primary.def.IsRangedWeapon && ResearchedLoadoutMapComponent.RangedForAll(p)) l.Add("RL_GO_OnlyMelee".Translate());
 				BodyPartRecord torso = p.RaceProps.body.corePart;
 				if (p.apparel != null && !p.apparel.WornApparel.Any(a => a.def.apparel.CoversBodyPart(torso))) l.Add("RL_GO_NoTorso".Translate());
 				if (p.apparel != null)
@@ -136,11 +137,21 @@ namespace ResearchedLoadout
 				Text.Anchor = TextAnchor.MiddleLeft;
 				Widgets.Label(new Rect(row.x + 36f, row.y, w * cx[1] - 40f, row.height), p.LabelShortCap);
 				ThingWithComps wpn = p.equipment?.Primary;
+				// 2.17.0: click the weapon to choose another one from storage
+				Rect wcell = new Rect(w * cx[1], row.y, w * (cx[2] - cx[1]) - 4f, row.height);
+				if (Mouse.IsOver(wcell)) Widgets.DrawHighlight(wcell);
+				TooltipHandler.TipRegion(wcell, "RL_GO_PickWeapon".Translate());
+				if (Widgets.ButtonInvisible(wcell))
+				{
+					Find.WindowStack.Add(new FloatMenu(WeaponPlus.PickMenu(p)));
+					Event.current.Use();
+				}
 				if (wpn != null)
 				{
 					Widgets.ThingIcon(new Rect(w * cx[1], row.y + 3f, 26f, 26f), wpn);
 					string hp = wpn.def.useHitPoints ? "  " + ((float)wpn.HitPoints / wpn.MaxHitPoints).ToStringPercent() : "";
-					Widgets.Label(new Rect(w * cx[1] + 30f, row.y, w * (cx[2] - cx[1]) - 34f, row.height), (wpn.LabelShortCap + hp).Truncate(w * (cx[2] - cx[1]) - 34f));
+					string kind = "  <color=" + (wpn.def.IsRangedWeapon ? "#8fc6e8" : "#e0b070") + ">" + (wpn.def.IsRangedWeapon ? "RL_GO_Ranged" : "RL_GO_Melee").Translate() + "</color>";
+					Widgets.Label(new Rect(w * cx[1] + 30f, row.y, w * (cx[2] - cx[1]) - 34f, row.height), (wpn.LabelShortCap + hp).Truncate(w * (cx[2] - cx[1]) - 110f) + kind);
 				}
 				else
 				{

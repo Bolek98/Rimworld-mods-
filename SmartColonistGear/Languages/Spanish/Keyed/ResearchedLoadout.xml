@@ -521,4 +521,22 @@
   <RL_OW_Melee>cuerpo a cuerpo</RL_OW_Melee>
   <RL_RangedForAll>Armas a distancia para todos</RL_RangedForAll>
   <RL_RangedForAll_Desc>Cada colono que sabe disparar toma un arma de fuego como arma principal: el arma cuerpo a cuerpo en la mano se cambia por la mejor arma de fuego que tengas. Los camorristas y quienes no pueden disparar siguen con cuerpo a cuerpo. Las armas cuerpo a cuerpo se pueden llevar como secundarias.</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>Arma de fuego del bolsillo a la mano</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>Con "Armas a distancia para todos": un colono con un arma de fuego en el bolsillo y un arma cuerpo a cuerpo en la mano las cambia solo (no en mitad de un combate).</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>Armas según el rol</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>Las armas de largo alcance (rifles de francotirador) van a los mejores tiradores (Disparo 12+), las de corto alcance (escopetas, subfusiles) a los más flojos.</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>Alerta: colonos desarmados</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>Durante una amenaza, una alerta muestra colonos sin arma, y con "Armas a distancia para todos" también los que solo tienen cuerpo a cuerpo.</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>Armas de fuego de reserva en el almacén: {0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>Este número de armas de fuego se queda en el almacén para nuevos colonos y armas rotas. Un tirador armado no las coge; un colono desarmado sí. 0 = desactivado.</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>Armas explosivas: para todos</RL_ExplosivesOff>
+  <RL_ExplosivesMin>Armas explosivas desde Disparo {0}</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>Granadas, lanzacohetes y lanzagranadas solo los cogen colonos con al menos este nivel de Disparo, para no herir a los suyos. 0 = cualquiera.</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>solo cuerpo a cuerpo</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>Haz clic para elegir un arma del almacén</RL_GO_PickWeapon>
+  <RL_GO_Ranged>a distancia</RL_GO_Ranged>
+  <RL_GO_Melee>cuerpo a cuerpo</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>No hay ningún arma en el almacén que este colono pueda usar.</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>Colonos desarmados</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>Hay enemigos en el mapa y estos colonos no tienen arma (o solo cuerpo a cuerpo):\n\n{0}\n\nDales un arma en la vista general del equipo (haz clic en el arma).</RL_AlertUnarmed_Desc>
 </LanguageData>

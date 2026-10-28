@@ -1,4 +1,12 @@
 === Not on the Workshop yet (test versions) ===
+2.17.0
+- Gun from the pockets into the hand: with "Ranged weapons for everyone" a colonist who carries a gun and holds a melee weapon swaps them by himself (not in the middle of a fight). On by default.
+- Weapons by role (setting, off by default): sniper rifles and other long guns go to the best shooters, shotguns and SMGs to the weaker ones.
+- Spare guns in storage (setting, 0 = off): this many guns stay in storage for new colonists and broken weapons; armed shooters leave them alone.
+- Explosive weapons only from a Shooting level (setting, 0 = anyone): grenades and launchers only for good shooters.
+- Alert "Unarmed colonists" during a threat (no weapon, or only melee with "Ranged weapons for everyone").
+- Gear overview: the weapon shows whether it is ranged or melee, "only melee" is listed as a problem with "Ranged weapons for everyone", and clicking the weapon lets you pick another one from storage.
+
 2.16.1
 - New setting "Ranged weapons for everyone" (Weapons tab, off by default): every colonist who can shoot takes a gun as the main weapon and swaps a melee weapon in hand for the best gun you have. Brawlers and colonists who cannot shoot keep melee.
 - "Gear up now" takes any clearly better weapon (5 % better, or one quality level for the same weapon) instead of waiting for the usual margin.

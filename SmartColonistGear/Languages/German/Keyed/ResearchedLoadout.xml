@@ -521,4 +521,22 @@
   <RL_OW_Melee>Nahkampf</RL_OW_Melee>
   <RL_RangedForAll>Fernkampfwaffen für alle</RL_RangedForAll>
   <RL_RangedForAll_Desc>Jeder Kolonist, der schießen kann, nimmt eine Schusswaffe als Hauptwaffe – eine Nahkampfwaffe in der Hand wird gegen die beste vorhandene Schusswaffe getauscht. Raufbolde und wer nicht schießen kann, behalten Nahkampf. Nahkampfwaffen können weiter als Zweitwaffe getragen werden.</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>Schusswaffe aus der Tasche in die Hand</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>Mit „Fernkampfwaffen für alle“: Ein Kolonist mit einer Schusswaffe in der Tasche und einer Nahkampfwaffe in der Hand tauscht sie selbst (nicht mitten im Kampf).</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>Waffen nach Rolle</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>Langstreckenwaffen (Scharfschützengewehre) gehen an die besten Schützen (Schießen 12+), Kurzstreckenwaffen (Schrotflinten, MPs) an schwächere Schützen.</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>Warnung: unbewaffnete Kolonisten</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>Bei Gefahr zeigt eine Warnung Kolonisten ohne Waffe – mit „Fernkampfwaffen für alle“ auch die mit nur einer Nahkampfwaffe.</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>Reserve-Schusswaffen im Lager: {0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>So viele Schusswaffen bleiben für neue Kolonisten und kaputte Waffen im Lager. Ein bewaffneter Schütze nimmt sie nicht, ein unbewaffneter Kolonist schon. 0 = aus.</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>Sprengwaffen: für alle</RL_ExplosivesOff>
+  <RL_ExplosivesMin>Sprengwaffen ab Schießen {0}</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>Granaten, Raketen- und Granatwerfer nehmen nur Kolonisten mit mindestens dieser Schießen-Stufe, damit sie keine eigenen treffen. 0 = jeder.</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>nur Nahkampf</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>Klicken, um eine Waffe aus dem Lager zu wählen</RL_GO_PickWeapon>
+  <RL_GO_Ranged>Fernkampf</RL_GO_Ranged>
+  <RL_GO_Melee>Nahkampf</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>Keine Waffe im Lager, die dieser Kolonist benutzen kann.</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>Unbewaffnete Kolonisten</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>Feinde sind auf der Karte und diese Kolonisten haben keine Waffe (oder nur Nahkampf):\n\n{0}\n\nGib ihnen in der Ausrüstungsübersicht eine Waffe (auf die Waffe klicken).</RL_AlertUnarmed_Desc>
 </LanguageData>

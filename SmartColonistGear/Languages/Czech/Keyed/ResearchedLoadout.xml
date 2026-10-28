@@ -521,4 +521,22 @@
   <RL_OW_Melee>chladná</RL_OW_Melee>
   <RL_RangedForAll>Střelné zbraně pro všechny</RL_RangedForAll>
   <RL_RangedForAll_Desc>Každý kolonista, který umí střílet, si vezme jako hlavní zbraň střelnou – zbraň na blízko v ruce vymění za nejlepší střelnou, jakou máš. Rváči a kdo střílet nemůže, zůstanou u zbraní na blízko. Zbraň na blízko může dál nosit jako záložní.</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>Střelná zbraň z kapsy do ruky</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>Se „Střelné zbraně pro všechny“: kolonista, který má střelnou zbraň v kapse a v ruce zbraň na blízko, si je sám prohodí (ne uprostřed boje).</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>Zbraně podle role</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>Zbraně na dálku (odstřelovačky) dostanou nejlepší střelci (střelba 12+), zbraně na krátko (brokovnice, samopaly) slabší střelci.</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>Upozornění: neozbrojení kolonisté</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>Při nebezpečí upozorní na kolonisty bez zbraně – a se „Střelné zbraně pro všechny“ i na ty, kdo mají jen zbraň na blízko.</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>Náhradní střelné zbraně ve skladu: {0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>Tolik střelných zbraní zůstane ve skladu pro nové kolonisty a rozbité zbraně. Ozbrojený střelec si je nevezme, neozbrojený ano. 0 = vypnuto.</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>Výbušné zbraně: pro všechny</RL_ExplosivesOff>
+  <RL_ExplosivesMin>Výbušné zbraně od střelby {0}</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>Granáty, raketomety a granátomety si vezmou jen kolonisté s aspoň touto úrovní střelby, ať nezasahují vlastní. 0 = kdokoli.</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>jen na blízko</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>Klikni a vyber zbraň ze skladu</RL_GO_PickWeapon>
+  <RL_GO_Ranged>střelná</RL_GO_Ranged>
+  <RL_GO_Melee>na blízko</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>Ve skladu není zbraň, kterou by tento kolonista mohl použít.</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>Neozbrojení kolonisté</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>Na mapě jsou nepřátelé a tito kolonisté nemají zbraň (nebo jen na blízko):\n\n{0}\n\nZbraň jim dáš v přehledu výbavy (klikni na zbraň).</RL_AlertUnarmed_Desc>
 </LanguageData>

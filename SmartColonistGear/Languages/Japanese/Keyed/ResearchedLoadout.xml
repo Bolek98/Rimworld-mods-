@@ -521,4 +521,22 @@
   <RL_OW_Melee>近接</RL_OW_Melee>
   <RL_RangedForAll>全員に遠距離武器</RL_RangedForAll>
   <RL_RangedForAll_Desc>射撃できる入植者は全員、銃をメイン武器にします。手に持った近接武器は手持ちの最良の銃と交換されます。乱闘者や射撃できない入植者は近接武器のままです。近接武器はサイドアームとして携帯できます。</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>ポケットの銃を手に持つ</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>「全員に遠距離武器」が有効のとき：ポケットに銃を持ち、手に近接武器を持つ入植者は自分で持ち替えます（戦闘中は除く）。</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>役割に応じた武器</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>長距離の銃（狙撃銃）は優れた射手（射撃12以上）に、短距離の銃（ショットガン、SMG）は射撃の弱い者に回ります。</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>警告：武器を持たない入植者</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>脅威の間、武器を持たない入植者を警告します。「全員に遠距離武器」が有効なら近接武器だけの者も警告します。</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>倉庫の予備の銃：{0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>この数の銃は新しい入植者や壊れた武器のために倉庫に残ります。武装した射手は取りませんが、武器のない入植者は取れます。0 = オフ。</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>爆発武器：全員</RL_ExplosivesOff>
+  <RL_ExplosivesMin>爆発武器は射撃 {0} から</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>手榴弾、ロケット・グレネードランチャーは、味方に当てないよう射撃が少なくともこのレベルの入植者だけが使います。0 = 誰でも。</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>近接のみ</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>クリックして倉庫から武器を選ぶ</RL_GO_PickWeapon>
+  <RL_GO_Ranged>遠距離</RL_GO_Ranged>
+  <RL_GO_Melee>近接</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>この入植者が使える武器が倉庫にありません。</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>武器を持たない入植者</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>マップに敵がいて、以下の入植者は武器を持っていません（または近接武器のみ）：\n\n{0}\n\n装備一覧で武器を渡してください（武器をクリック）。</RL_AlertUnarmed_Desc>
 </LanguageData>

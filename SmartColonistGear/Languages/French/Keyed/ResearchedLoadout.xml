@@ -521,4 +521,22 @@
   <RL_OW_Melee>mêlée</RL_OW_Melee>
   <RL_RangedForAll>Armes à distance pour tous</RL_RangedForAll>
   <RL_RangedForAll_Desc>Chaque colon capable de tirer prend une arme à feu comme arme principale – une arme de mêlée en main est échangée contre la meilleure arme à feu disponible. Les bagarreurs et ceux qui ne peuvent pas tirer gardent la mêlée. Les armes de mêlée peuvent rester en arme secondaire.</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>Arme à feu de la poche à la main</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>Avec « Armes à distance pour tous » : un colon qui porte une arme à feu dans ses poches et une arme de mêlée en main les échange lui-même (pas en plein combat).</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>Armes selon le rôle</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>Les armes à longue portée (fusils de précision) vont aux meilleurs tireurs (Tir 12+), celles à courte portée (fusils à pompe, mitraillettes) aux tireurs plus faibles.</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>Alerte : colons non armés</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>Pendant une menace, une alerte montre les colons sans arme – et avec « Armes à distance pour tous » aussi ceux qui n'ont qu'une arme de mêlée.</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>Armes à feu de réserve en stock : {0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>Ce nombre d'armes à feu reste en stock pour les nouveaux colons et les armes cassées. Un tireur armé ne les prend pas ; un colon non armé peut. 0 = désactivé.</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>Armes explosives : pour tous</RL_ExplosivesOff>
+  <RL_ExplosivesMin>Armes explosives dès Tir {0}</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>Grenades, lance-roquettes et lance-grenades ne sont pris que par les colons ayant au moins ce niveau de Tir, pour ne pas toucher les leurs. 0 = n'importe qui.</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>mêlée seulement</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>Cliquez pour choisir une arme en stock</RL_GO_PickWeapon>
+  <RL_GO_Ranged>à distance</RL_GO_Ranged>
+  <RL_GO_Melee>mêlée</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>Aucune arme en stock utilisable par ce colon.</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>Colons non armés</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>Des ennemis sont sur la carte et ces colons n'ont pas d'arme (ou seulement de mêlée) :\n\n{0}\n\nDonnez-leur une arme dans l'aperçu de l'équipement (cliquez sur l'arme).</RL_AlertUnarmed_Desc>
 </LanguageData>
