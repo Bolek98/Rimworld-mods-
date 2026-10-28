@@ -1,6 +1,6 @@
 === Not on the Workshop yet (test versions) ===
-2.6.4
-First Workshop release of the new Universal RimTranslator 2 (rewritten from scratch).
+1.0.0
+First Workshop release of Universal RimTranslator.
 
 NEW
 - Translates all your mods into your language in the game: def texts, Keyed texts and texts that mods write in code (messages, letters, buttons, tooltips) – live on the screen.
@@ -15,7 +15,7 @@ PERFORMANCE
 - The scan of all texts is cached and runs in the background – no long wait at start.
 - Live translation: texts on your screen are translated first, up to 400 new texts a minute.
 
-=== Development history since the last Workshop release (test versions) ===
+=== Development history before the first Workshop release (test versions 0.9 – 2.6.4) ===
 2.6.4
 - Live translation is faster: texts on the screen go to the translation services first in their own small batch instead of waiting behind long batches of game texts, and game texts go in smaller batches so new screen texts get their turn within seconds. Up to 400 new screen texts a minute (was 120).
 - Live translation catches more: modded texts with many own terms (60 % English words instead of 70 %) and texts that are mostly English with a few words already in your language are translated too.

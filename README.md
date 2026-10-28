@@ -41,7 +41,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Steward – Schedules | 1.0.1 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
 | Steward – Supplies | 1.0.5 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
-| Universal RimTranslator | 2.6.4 | [UniversalRimTranslator](UniversalRimTranslator) |
+| Universal RimTranslator | 1.0.0 | [UniversalRimTranslator](UniversalRimTranslator) |
 | Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.2 | [UnofficialPatch](UnofficialPatch) |
 | Wild Spawn Zone | 1.1.3 | [WildSpawnZone](WildSpawnZone) |
 | World at Your Level – Raiders Match Your Tech | 2.16.0 | [WorldAtYourLevel](WorldAtYourLevel) |
