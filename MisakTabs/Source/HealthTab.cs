@@ -103,19 +103,223 @@ namespace MisakTabs
             Header(head, pawn);
             TabSize.Grip(r, "health", ref MTMod.S.healthW, ref MTMod.S.healthH, 640f, 400f);   // 0.6.0
             Rect body = new Rect(r.x, head.yMax, r.width, r.height - head.height);
-            Rect left = new Rect(body.x, body.y, 250f, body.height);
-            Rect mid = new Rect(left.xMax, body.y, 230f, body.height);
-            Rect right = new Rect(mid.xMax, body.y, body.width - left.width - mid.width, body.height);
             if (opsMode && OpsTab.Available && CanOperate(pawn))
             {
                 OpsTab.Draw(body, pawn);
                 return;
             }
-            Widgets.DrawBoxSolid(new Rect(left.xMax, body.y, 1f, body.height), Look.Line);
-            Widgets.DrawBoxSolid(new Rect(mid.xMax, body.y, 1f, body.height), Look.Line);
-            Overview(left.ContractedBy(10f), pawn);
-            Figure(mid.ContractedBy(8f), pawn);
-            Conditions(right.ContractedBy(10f), pawn);
+            // 0.8.0: the figure big on the left, the state and the list on the right
+            float lw = Mathf.Clamp(body.width * 0.42f, 280f, 480f);
+            Rect left = new Rect(body.x + 10f, body.y + 10f, lw, body.height - 20f);
+            Rect right = new Rect(left.xMax + 14f, body.y + 10f, body.xMax - left.xMax - 24f, body.height - 20f);
+            Look.Box(left, Look.Bg, Look.Line);
+            Figure(left.ContractedBy(10f), pawn);
+            StatePanel(right, pawn);
+        }
+
+        // ---------- 0.8.0 right side: state grid, care, filters, the list ----------
+        private static int filter;   // 0 all, 1 injuries, 2 replacements, 3 missing, 4 diseases
+
+        private static void StatePanel(Rect r, Pawn pawn)
+        {
+            float y = r.y;
+            Look.Text(new Rect(r.x, y, r.width, 26f), "MT_H_State".Translate(), Color.white, GameFont.Medium);
+            y += 30f;
+            // capacities (and pain) in three columns with bars
+            var cells = new List<(string label, string val, Color c, float pct, TipSignal tip)>();
+            if (pawn.RaceProps.IsFlesh)
+            {
+                Pair<string, Color> pain = HealthCardUtility.GetPainLabel(pawn);
+                float pt = pawn.health.hediffSet.PainTotal;
+                cells.Add(("PainLevel".Translate().CapitalizeFirst(), pain.First, pain.Second, Mathf.Clamp01(pt), new TipSignal(HealthCardUtility.GetPainTip(pawn))));
+            }
+            if (!pawn.Dead)
+                foreach (PawnCapacityDef cap in Capacities(pawn))
+                {
+                    PawnCapacityDef c = cap;
+                    float lvl = pawn.health.capacities.GetLevel(c);
+                    Color col = lvl >= 0.999f ? Look.Green : Anatomy.HpColor(lvl);
+                    cells.Add((c.GetLabelFor(pawn).CapitalizeFirst(), lvl.ToStringPercent(), col, Mathf.Clamp01(lvl), new TipSignal(() => HealthCardUtility.GetPawnCapacityTip(pawn, c), pawn.thingIDNumber ^ c.index)));
+                }
+            int cols = r.width > 520f ? 3 : 2;
+            float cw = (r.width - (cols - 1) * 14f) / cols;
+            for (int i = 0; i < cells.Count; i++)
+            {
+                Rect cr = new Rect(r.x + (i % cols) * (cw + 14f), y + (i / cols) * 40f, cw, 36f);
+                var (label, val, c, pct, tip) = cells[i];
+                if (Mouse.IsOver(cr)) Widgets.DrawBoxSolid(cr, Look.Card);
+                Look.Text(new Rect(cr.x, cr.y, cr.width - 64f, 20f), label.Truncate(cr.width - 64f), Muted, GameFont.Small);
+                Look.Text(new Rect(cr.xMax - 64f, cr.y, 64f, 20f), val, c, GameFont.Small, TextAnchor.MiddleRight);
+                Rect bar = new Rect(cr.x, cr.y + 24f, cr.width, 6f);
+                Widgets.DrawBoxSolid(bar, Look.Card2);
+                Widgets.DrawBoxSolid(new Rect(bar.x, bar.y, bar.width * pct, bar.height), c);
+                TooltipHandler.TipRegion(cr, tip);
+            }
+            y += ((cells.Count + cols - 1) / cols) * 40f + 4f;
+            // care: medical care, self-tend, food
+            y = CareRow(new Rect(r.x, y, r.width, 28f), pawn) + 8f;
+            // filter chips
+            string[] chips = { "MT_H_FAll".Translate(), "MT_H_FInjuries".Translate(), "MT_H_FParts".Translate(), "MT_H_FMissing".Translate(), "MT_H_FDiseases".Translate() };
+            float x = r.x;
+            for (int i = 0; i < chips.Length; i++)
+            {
+                Verse.Text.Font = GameFont.Small;
+                float w = Verse.Text.CalcSize(chips[i]).x + 22f;
+                if (Look.Chip(new Rect(x, y, w, 24f), chips[i], filter == i)) { filter = i; listScroll = Vector2.zero; }
+                x += w + 6f;
+            }
+            if (Look.Chip(new Rect(r.xMax - 120f, y, 120f, 24f), "MT_H_ShowAll".Translate(), showAll)) showAll = !showAll;
+            y += 32f;
+            Rows(new Rect(r.x, y, r.width, r.yMax - y), pawn);
+        }
+
+        private static float CareRow(Rect r, Pawn pawn)
+        {
+            bool own = pawn.Faction == Faction.OfPlayer || pawn.HostFaction == Faction.OfPlayer;
+            if (pawn.Dead || pawn.playerSettings == null || !own || !pawn.RaceProps.IsFlesh || Current.ProgramState != ProgramState.Playing) return r.y;
+            float x = r.x;
+            Look.Text(new Rect(x, r.y, 60f, r.height), "MT_H_Care".Translate(), Muted, GameFont.Tiny);
+            x += 62f;
+            Rect mc = new Rect(x, r.y, 120f, r.height);
+            Look.Box(mc, Look.Card2, Look.Line);
+            Widgets.DrawHighlightIfMouseover(mc);
+            MedicalCareUtility.MedicalCareSelectButton(mc, pawn);
+            TooltipHandler.TipRegionByKey(mc, "MedicineQualityDescription");
+            x += 130f;
+            if (pawn.IsColonist && !pawn.DevelopmentalStage.Baby())
+            {
+                Rect st = new Rect(x, r.y + 2f, 170f, 24f);
+                bool before = pawn.playerSettings.selfTend;
+                Widgets.CheckboxLabeled(st, "AllowSelfTend".Translate(), ref pawn.playerSettings.selfTend);
+                TooltipHandler.TipRegion(st, "AllowSelfTendTip".Translate(Faction.OfPlayer.def.pawnsPlural, 0.7f.ToStringPercent()).CapitalizeFirst());
+                if (pawn.playerSettings.selfTend && !before && pawn.WorkTypeIsDisabled(WorkTypeDefOf.Doctor))
+                {
+                    pawn.playerSettings.selfTend = false;
+                    Messages.Message("MessageCannotSelfTendEver".Translate(pawn.LabelShort, pawn), MessageTypeDefOf.RejectInput, false);
+                }
+                x += 180f;
+            }
+            if (pawn.foodRestriction != null && pawn.foodRestriction.Configurable && pawn.needs?.food != null && !pawn.DevelopmentalStage.Baby() && r.xMax - x > 120f)
+            {
+                Rect fr = new Rect(x, r.y, Mathf.Min(220f, r.xMax - x), r.height);
+                if (Look.Button(fr, ("AllowFood".Translate() + ": " + pawn.foodRestriction.CurrentFoodPolicy.label).Truncate(fr.width - 10f)))
+                {
+                    var opts = new List<FloatMenuOption>();
+                    foreach (FoodPolicy fp in Current.Game.foodRestrictionDatabase.AllFoodRestrictions)
+                    {
+                        FoodPolicy f = fp;
+                        opts.Add(new FloatMenuOption(f.label, () => pawn.foodRestriction.CurrentFoodPolicy = f));
+                    }
+                    opts.Add(new FloatMenuOption("ManageFoodPolicies".Translate() + "...", () => Find.WindowStack.Add(new Dialog_ManageFoodPolicies(pawn.foodRestriction.CurrentFoodPolicy))));
+                    Find.WindowStack.Add(new FloatMenu(opts));
+                }
+            }
+            return r.yMax;
+        }
+
+        private sealed class HRow
+        {
+            public Hediff h;
+            public Color stripe, desc;
+            public string part, what, value;
+            public int rank;
+        }
+
+        private static List<HRow> BuildRows(Pawn pawn)
+        {
+            var list = new List<HRow>();
+            HediffSet hs = pawn.health.hediffSet;
+            foreach (Hediff h in Visible(pawn))
+            {
+                var row = new HRow { h = h, part = h.Part != null ? h.Part.LabelCap.ToString() : "WholeBody".Translate().CapitalizeFirst().ToString(), what = h.LabelCap, value = "" };
+                bool inj = h is Hediff_Injury, miss = h is Hediff_MissingPart, added = h is Hediff_AddedPart;
+                bool implant = !added && h is Hediff_Implant;
+                bool disease = h.TryGetComp<HediffComp_Immunizable>() != null;
+                int cat = miss ? 3 : inj ? 1 : (added || implant) ? 2 : disease || h.def.chronic || (h.def.isBad && h.Part == null) ? 4 : 0;
+                if (filter != 0 && filter != cat && !(filter == 1 && cat == 3)) continue;
+                if (miss)
+                {
+                    row.stripe = row.desc = Anatomy.Missing;
+                    row.value = "0 %";
+                    row.rank = 0;
+                }
+                else if (added)
+                {
+                    row.stripe = row.desc = Anatomy.ReplacementColor(h, out _);
+                    float eff = h.def.addedPartProps?.partEfficiency ?? 1f;
+                    row.value = eff.ToStringPercent();
+                    row.rank = 5;
+                }
+                else if (implant)
+                {
+                    row.stripe = row.desc = Anatomy.Implant;
+                    row.rank = 6;
+                }
+                else if (inj && h.Part != null)
+                {
+                    float max = h.Part.def.GetMaxHealth(pawn);
+                    float f = max > 0f ? hs.GetPartHealth(h.Part) / max : 1f;
+                    row.stripe = row.desc = h.IsPermanent() ? Look.Blue : Anatomy.HpColor(f);
+                    row.value = f.ToStringPercent();
+                    row.rank = h.Bleeding ? 1 : 2;
+                }
+                else if (disease)
+                {
+                    float imm = Immunity(h);
+                    bool losing = h.Severity > imm && !h.FullyImmune();
+                    row.stripe = row.desc = losing ? Look.Red : Look.Orange;
+                    row.value = "MT_H_Immunity".Translate(imm.ToStringPercent());
+                    row.rank = losing ? 1 : 3;
+                }
+                else
+                {
+                    row.stripe = row.desc = Severity(pawn, h);
+                    row.rank = row.stripe == Look.Red ? 2 : row.stripe == Look.Orange ? 3 : 7;
+                }
+                // what the game says in the label colour and the chips (bleeding, tended …)
+                var extra = new List<string>();
+                if (h.Bleeding) extra.Add("MT_H_ChipBleed".Translate(h.BleedRate.ToStringPercent()));
+                if (h.IsTended()) extra.Add("MT_H_ChipTended".Translate());
+                else if (h.TendableNow()) extra.Add("MT_H_ChipTend".Translate());
+                string left2 = TimeLeft(h);
+                if (left2 != null) extra.Add(left2);
+                if (extra.Count > 0) row.what += " · " + string.Join(" · ", extra);
+                list.Add(row);
+            }
+            if (partFilter != null) list = list.Where(x => x.h.Part != null && partFilter.Contains(x.h.Part)).ToList();
+            if (region != null) list = list.Where(x => x.h.Part != null && Key(pawn, x.h.Part) == region).ToList();
+            return list.OrderBy(x => x.rank).ThenBy(x => x.part).ToList();
+        }
+
+        private static void Rows(Rect r, Pawn pawn)
+        {
+            var rows = BuildRows(pawn);
+            const float rh = 40f;
+            Rect view = new Rect(0f, 0f, r.width - (rows.Count * (rh + 6f) > r.height ? 16f : 0f), rows.Count * (rh + 6f));
+            Widgets.BeginScrollView(r, ref listScroll, view);
+            try
+            {
+                float y = 0f;
+                foreach (HRow row in rows)
+                {
+                    Rect rr = new Rect(0f, y, view.width, rh);
+                    Widgets.DrawBoxSolid(rr, Mouse.IsOver(rr) ? Look.Card2 : Look.Card);
+                    Widgets.DrawBoxSolid(new Rect(rr.x, rr.y, 5f, rr.height), row.stripe);
+                    float pw = Mathf.Min(200f, rr.width * 0.32f);
+                    Look.Text(new Rect(rr.x + 16f, rr.y, pw - 8f, rr.height), row.part.Truncate(pw - 8f), Color.white, GameFont.Small);
+                    float vw = 90f;
+                    Look.Text(new Rect(rr.xMax - vw - 12f, rr.y, vw, rr.height), row.value, new Color(0.85f, 0.87f, 0.9f), GameFont.Small, TextAnchor.MiddleRight);
+                    float ww = rr.width - pw - vw - 32f;
+                    Look.Text(new Rect(rr.x + 16f + pw, rr.y, ww, rr.height), row.what.Truncate(ww), row.desc, GameFont.Small);
+                    Hediff dd = row.h;
+                    if (Mouse.IsOver(rr)) TooltipHandler.TipRegion(rr, new TipSignal(() => dd.GetTooltip(pawn, false), dd.loadID ^ 0x3A1));
+                    if (dd.Part != null && RightClick(rr)) PartMenu(pawn, new List<BodyPartRecord> { dd.Part });
+                    y += rh + 6f;
+                }
+                if (rows.Count == 0)
+                    Look.Text(new Rect(0f, 0f, view.width, 60f), "MT_H_NoConditions".Translate(), Look.Green, GameFont.Small, TextAnchor.MiddleCenter);
+            }
+            finally { Widgets.EndScrollView(); }
         }
 
         private static void Header(Rect r, Pawn pawn)
@@ -153,7 +357,14 @@ namespace MisakTabs
                     }
                 }
             }
-            Look.Text(new Rect(r.x + 12f, r.y + 30f, stateW, 20f), state.Truncate(stateW), sc, GameFont.Tiny);
+            // 0.8.0: race and age before the state
+            string who = "";
+            try { who = pawn.def.LabelCap + (pawn.ageTracker != null ? " · " + "MT_H_Age".Translate(pawn.ageTracker.AgeBiologicalYears) : "") + " · "; } catch { }
+            Verse.Text.Font = GameFont.Tiny;
+            float ww = Mathf.Min(Verse.Text.CalcSize(who).x + 2f, stateW * 0.5f);
+            Verse.Text.Font = GameFont.Small;
+            Look.Text(new Rect(r.x + 12f, r.y + 30f, ww, 20f), who.Truncate(ww), Muted, GameFont.Tiny);
+            Look.Text(new Rect(r.x + 12f + ww, r.y + 30f, stateW - ww, 20f), state.Truncate(stateW - ww), sc, GameFont.Tiny);
             if (Look.Button(op, inOps ? "MT_O_BackHealth".Translate() : "MT_Operations".Translate(), true, ops || inOps))
             {
                 if (OpsTab.Available) opsMode = !inOps;
@@ -486,12 +697,24 @@ namespace MisakTabs
                 var here = new HashSet<BodyPartRecord>(hover);
                 var hs = Visible(pawn).Where(h => h.Part != null && here.Contains(h.Part)).ToList();
                 BodyPartRecord top = hover.OrderBy(x => x.depth == BodyPartDepth.Inside ? 1 : 0).ThenByDescending(x => x.coverageAbsWithChildren).First();
-                string tip = top.LabelCap;
+                // 0.8.0: a card in the corner of the figure instead of a tooltip
+                var lines = new List<(string, Color)>();
+                foreach (Hediff h in hs.Take(4))
+                {
+                    Color c = h is Hediff_AddedPart ? Anatomy.ReplacementColor(h, out _) : h is Hediff_MissingPart ? Anatomy.Missing : Severity(pawn, h);
+                    lines.Add(((h.Part != top ? h.Part.LabelCap + ": " : "") + h.LabelCap, c));
+                }
+                if (lines.Count == 0) lines.Add(("MT_A_Fine".Translate(), Look.Green));
                 string hp = PartHp(pawn, top);
-                if (hp != null) tip += "  " + hp;
-                if (hs.Count > 0) tip += "\n" + string.Join("\n", hs.Select(h => "• " + (h.Part != top ? h.Part.LabelCap + ": " : "") + h.LabelCap).Distinct().ToArray());
-                else tip += "\n" + "MT_A_Fine".Translate();
-                TooltipHandler.TipRegion(new Rect(Event.current.mousePosition.x - 2f, Event.current.mousePosition.y - 2f, 4f, 4f), tip + "\n\n" + "MT_H_MarkTip".Translate());
+                float ch = 34f + lines.Count * 20f + (hp != null ? 18f : 0f) + 18f;
+                Rect card = new Rect(r.x + 4f, r.yMax - legendH - ch - 6f, Mathf.Min(260f, r.width - 8f), ch);
+                Look.Box(card, new Color(0.06f, 0.08f, 0.1f, 0.94f), new Color32(70, 200, 255, 255));
+                float cy = card.y + 6f;
+                Look.Text(new Rect(card.x + 10f, cy, card.width - 20f, 24f), top.LabelCap, Color.white, GameFont.Medium);
+                cy += 28f;
+                foreach (var (t, c) in lines) { Look.Text(new Rect(card.x + 10f, cy, card.width - 20f, 20f), t.Truncate(card.width - 20f), c, GameFont.Small); cy += 20f; }
+                if (hp != null) { Look.Text(new Rect(card.x + 10f, cy, card.width - 20f, 18f), "MT_A_PartHp".Translate(hp), new Color(0.85f, 0.87f, 0.9f), GameFont.Tiny); cy += 18f; }
+                Look.Text(new Rect(card.x + 10f, cy, card.width - 20f, 18f), "MT_A_CardHint".Translate(), Muted, GameFont.Tiny);
                 if (RightClick(fr)) PartMenu(pawn, hover.Where(x => !pawn.health.hediffSet.PartIsMissing(x) || x == top).Distinct().ToList());
                 else if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && Mouse.IsOver(fr))
                 {

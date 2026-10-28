@@ -45,7 +45,8 @@ namespace MisakTabs
             public byte[] organA, boneA;              // alpha
             public Color32[] basePx, linePx;
             public byte[] lineRegion;                 // the body part a pixel of the outline belongs to
-            public Dictionary<string, Texture2D> feats = new Dictionary<string, Texture2D>();
+            public Texture2D featTex;                   // 0.8.0: all race features in one atlas
+            public Dictionary<string, (Rect uv, Rect at)> feats = new Dictionary<string, (Rect, Rect)>();   // at: 0…1 of the frame
             public Vector2[] partC = new Vector2[NParts], organC = new Vector2[NOrgans], boneC = new Vector2[NBones];   // centres 0…1 from the top
         }
 
@@ -133,10 +134,18 @@ namespace MisakTabs
                                     }
                             k.lineRegion[i] = best;
                         }
-                    foreach (string f in Directory.GetFiles(d, "f_*.png"))
+                    k.featTex = LoadPng(Path.Combine(d, "features.png"));
+                    string idx = Path.Combine(d, "features.txt");
+                    if (k.featTex != null && File.Exists(idx))
                     {
-                        Texture2D t = LoadPng(f);
-                        if (t != null) k.feats[Path.GetFileNameWithoutExtension(f).Substring(2)] = t;
+                        float fw = k.w, fh = k.h, aw = k.featTex.width, ah = k.featTex.height;
+                        foreach (string line in File.ReadAllLines(idx))
+                        {
+                            string[] a = line.Split(' ');
+                            if (a.Length < 7) continue;
+                            float x = float.Parse(a[1]), y = float.Parse(a[2]), w = float.Parse(a[3]), h = float.Parse(a[4]), ox = float.Parse(a[5]), oy = float.Parse(a[6]);
+                            k.feats[a[0]] = (new Rect(x / aw, 1f - (y + h) / ah, w / aw, h / ah), new Rect(ox / fw, oy / fh, w / fw, h / fh));
+                        }
                     }
                 }
                 foreach (Texture2D t in new[] { b, l, p, o, bo }) if (t != null) UnityEngine.Object.Destroy(t);
@@ -659,13 +668,11 @@ namespace MisakTabs
             Rect fr = new Rect(r.x + (r.width - k.w * scale) / 2f, r.y + (r.height - k.h * scale) / 2f, k.w * scale, k.h * scale);
             List<string> feats = Features(pawn);
             Color dimF = view == View.Parts ? Color.white : new Color(0.75f, 0.75f, 0.78f, 0.8f);
-            foreach (string t in feats)
-                if (k.feats.TryGetValue(t + "_back", out Texture2D bt)) { GUI.color = dimF; GUI.DrawTexture(fr, bt); }
+            foreach (string t in feats) DrawFeat(k, fr, t + "_back", dimF);
             GUI.color = Color.white;
             Pic pic = Picture(pawn, k);
             GUI.DrawTexture(fr, pic.tex);
-            foreach (string t in feats)
-                if (k.feats.TryGetValue(t + "_front", out Texture2D ft)) { GUI.color = dimF; GUI.DrawTexture(fr, ft); }
+            foreach (string t in feats) DrawFeat(k, fr, t + "_front", dimF);
             GUI.color = Color.white;
             State state = pic.state;
             centres = view == View.Parts ? k.partC : view == View.Organs ? k.organC : k.boneC;
@@ -680,6 +687,25 @@ namespace MisakTabs
             }
             return fr;
         }
+
+        private static void DrawFeat(Kit k, Rect fr, string name, Color c)
+        {
+            if (k.featTex == null || !k.feats.TryGetValue(name, out var f)) return;
+            GUI.color = c;
+            GUI.DrawTextureWithTexCoords(new Rect(fr.x + f.at.x * fr.width, fr.y + f.at.y * fr.height, f.at.width * fr.width, f.at.height * fr.height), k.featTex, f.uv);
+            GUI.color = Color.white;
+        }
+
+        // 0.8.0: the colour and kind of a replacement part, for the list
+        public static Color ReplacementColor(Hediff h, out string kind)
+        {
+            St st = Replacement(h);
+            kind = st == St.Archo ? "archo" : st == St.Bionic ? "bionic" : "prosthetic";
+            return st == St.Archo ? CArcho : st == St.Bionic ? CBionic : CProst;
+        }
+
+        public static Color Implant => CBionic;
+        public static Color Missing => Red;
 
         public static Vector2 SpotOf(BodyPartRecord part, Vector2[] centres)
         {
