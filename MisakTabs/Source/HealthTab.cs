@@ -602,6 +602,7 @@ namespace MisakTabs
             Look.Text(vb, silhouette ? "◐" : "◑", Muted, GameFont.Small, TextAnchor.MiddleCenter);
             TooltipHandler.TipRegion(vb, figMode == 1 ? "MT_H_ToPortrait".Translate() : Anatomy.CanDraw(pawn) ? "MT_A_ToAnatomy".Translate() : "MT_H_ToSilhouette".Translate());
 
+            SideLabels(fig);
             var marks = Marks(pawn);
             foreach (Mark m in marks)
             {
@@ -675,6 +676,7 @@ namespace MisakTabs
             float legendH = 52f + (partFilter != null || region != null ? 30f : 0f);
             Rect area = new Rect(r.x, r.y + 26f, r.width, r.height - 26f - legendH);
             Rect fr = Anatomy.Draw(area, pawn, out List<BodyPartRecord> hover, out Vector2[] centres);
+            SideLabels(fr);
 
             // marks: only what needs care now (bleeding, tending, a disease), pulsing when bleeding
             foreach (Hediff h in Visible(pawn))
@@ -734,6 +736,21 @@ namespace MisakTabs
                 { partFilter = null; region = null; }
         }
         public static bool opsMode;            // 0.4.0: our own operations view
+
+        // 0.9.2: the figure faces us – its right side is on our left. Small R / L letters at the feet
+        // so a missing left leg is not taken for the right one.
+        private static void SideLabels(Rect fr)
+        {
+            Color c = new Color(0.75f, 0.8f, 0.85f, 0.85f);
+            Rect rr = new Rect(fr.x + 4f, fr.yMax - 24f, 22f, 20f);
+            Rect lr = new Rect(fr.xMax - 26f, fr.yMax - 24f, 22f, 20f);
+            Widgets.DrawBoxSolid(rr, new Color(0f, 0f, 0f, 0.45f));
+            Widgets.DrawBoxSolid(lr, new Color(0f, 0f, 0f, 0.45f));
+            Look.Text(rr, "MT_A_SideRight".Translate(), c, GameFont.Tiny, TextAnchor.MiddleCenter);
+            Look.Text(lr, "MT_A_SideLeft".Translate(), c, GameFont.Tiny, TextAnchor.MiddleCenter);
+            TooltipHandler.TipRegion(rr, "MT_A_SideTip".Translate());
+            TooltipHandler.TipRegion(lr, "MT_A_SideTip".Translate());
+        }
 
         public static void FigureForOps(Rect r, Pawn pawn) => Figure(r, pawn);
         public static Silhouette.Region RegionOfPart(BodyPartRecord part) => RegionOf(part);

@@ -18,7 +18,7 @@ namespace MisakTabs
     // ---------------------------------------------------------------------------
     public static class OpsTab
     {
-        private enum Kind { All, Implant, Remove, Drug, Other }
+        private enum Kind { All, Implant, Remove, Drug, Other, NoPart }
         private enum Area { All, Head, Torso, Arms, Legs, Whole }
 
         private sealed class Op
@@ -31,6 +31,11 @@ namespace MisakTabs
             public AcceptanceReport report;
             public Kind kind;
             public Area area;
+            // 0.9.2: an install operation whose body part is not in stock – shown greyed with where to get it
+            public bool noStock;
+            public ThingDef needed;
+            public string source;
+            public RecipeDef craft;
         }
 
         private static readonly MethodInfo generate = AccessTools.Method(typeof(HealthCardUtility), "GenerateSurgeryOption");
@@ -167,7 +172,16 @@ namespace MisakTabs
                     AcceptanceReport report = rec.Worker.AvailableReport(pawn);
                     if (!report.Accepted && report.Reason.NullOrEmpty()) continue;
                     List<ThingDef> missing = rec.PotentiallyMissingIngredients(null, pawn.MapHeld).ToList();
-                    if (missing.Any(x => x.isTechHediff) || missing.Any(x => x.IsDrug) || (missing.Any() && rec.dontShowIfAnyIngredientMissing)) continue;
+                    if (missing.Any(x => x.isTechHediff))
+                    {
+                        // 0.9.2: no such part in stock – the game hides these; we list them greyed
+                        if (report.Accepted && rec.targetsBodyPart && !missing.Any(x => x.IsDrug))
+                            foreach (BodyPartRecord part in rec.Worker.GetPartsToApplyOn(pawn, rec))
+                                if (rec.AvailableOnNow(pawn, part))
+                                    list.Add(MakeNoStock(pawn, rec, missing, part));
+                        continue;
+                    }
+                    if (missing.Any(x => x.IsDrug) || (missing.Any() && rec.dontShowIfAnyIngredientMissing)) continue;
                     if (rec.targetsBodyPart)
                     {
                         foreach (BodyPartRecord part in rec.Worker.GetPartsToApplyOn(pawn, rec))
@@ -191,6 +205,79 @@ namespace MisakTabs
             o.kind = KindOf(rec);
             o.area = part == null ? Area.Whole : AreaOf(HealthTab.RegionOfPart(part));
             return o;
+        }
+
+        private static Op MakeNoStock(Pawn pawn, RecipeDef rec, List<ThingDef> missing, BodyPartRecord part)
+        {
+            ThingDef need = missing.FirstOrDefault(x => x.isTechHediff);
+            var o = new Op { recipe = rec, part = part, label = rec.Worker.GetLabelWhenUsedOn(pawn, part).CapitalizeFirst(), missing = missing, report = AcceptanceReport.WasAccepted, noStock = true, needed = need };
+            o.source = SourceOf(need, out o.craft);
+            o.reason = "MT_O_Missing".Translate(need?.label ?? "?") + (o.source.NullOrEmpty() ? "" : " – " + o.source);
+            o.kind = Kind.NoPart;
+            o.area = AreaOf(HealthTab.RegionOfPart(part));
+            return o;
+        }
+
+        // where a part comes from: a bench you can use now, research still to do, or only trade
+        private static readonly Dictionary<ThingDef, (string, RecipeDef)> sources = new Dictionary<ThingDef, (string, RecipeDef)>();
+        private static int sourcesAt = -1;
+        private static string SourceOf(ThingDef thing, out RecipeDef craft)
+        {
+            craft = null;
+            if (thing == null) return null;
+            int now = Find.TickManager?.TicksGame ?? 0;
+            if (Math.Abs(now - sourcesAt) > 2500) { sources.Clear(); sourcesAt = now; }
+            if (sources.TryGetValue(thing, out var got)) { craft = got.Item2; return got.Item1; }
+            string text;
+            RecipeDef can = null, later = null;
+            foreach (RecipeDef r in DefDatabase<RecipeDef>.AllDefsListForReading)
+            {
+                if (r.products == null || !r.products.Any(p => p.thingDef == thing)) continue;
+                if (r.AllRecipeUsers == null || !r.AllRecipeUsers.Any()) continue;
+                if (r.AvailableNow) { can = r; break; }
+                if (later == null) later = r;
+            }
+            if (can != null)
+            {
+                craft = can;
+                text = "MT_O_MakeAt".Translate(string.Join(" / ", can.AllRecipeUsers.Select(u => u.label).Distinct().Take(2).ToArray()));
+            }
+            else if (later != null)
+            {
+                ResearchProjectDef rp = later.researchPrerequisite ?? later.researchPrerequisites?.FirstOrDefault(x => !x.IsFinished)
+                    ?? later.AllRecipeUsers.Select(u => u.researchPrerequisites?.FirstOrDefault(x => !x.IsFinished)).FirstOrDefault(x => x != null);
+                text = rp != null ? "MT_O_ResearchFirst".Translate(rp.LabelCap).ToString() : "MT_O_MakeAt".Translate(later.AllRecipeUsers.First().label).ToString();
+            }
+            else text = "MT_O_OnlyTrade".Translate();
+            sources[thing] = (text, craft);
+            return text;
+        }
+
+        // 0.9.2: one click on a greyed operation – queue the part at a bench of this map
+        private static void CraftMenu(Pawn pawn, Op o)
+        {
+            var opts = new List<FloatMenuOption>();
+            Map map = pawn.MapHeld;
+            if (o.craft != null && map != null)
+            {
+                var benches = map.listerBuildings.allBuildingsColonist.OfType<Building_WorkTable>()
+                    .Where(b => o.craft.AllRecipeUsers.Contains(b.def) && b.def.AllRecipes.Contains(o.craft)).ToList();
+                foreach (Building_WorkTable b in benches.Take(6))
+                {
+                    Building_WorkTable bench = b;
+                    opts.Add(new FloatMenuOption("MT_O_QueueAt".Translate(o.needed.label, bench.LabelCap), () =>
+                    {
+                        Bill bill = o.craft.MakeNewBill();
+                        bench.BillStack.AddBill(bill);
+                        Messages.Message("MT_O_Queued".Translate(o.needed.label, bench.LabelCap), bench, MessageTypeDefOf.TaskCompletion, false);
+                    }));
+                }
+                if (benches.Count == 0)
+                    opts.Add(new FloatMenuOption("MT_O_NoBench".Translate(string.Join(" / ", o.craft.AllRecipeUsers.Select(u => u.label).Distinct().Take(2).ToArray())), null));
+            }
+            if (o.needed != null)
+                opts.Add(new FloatMenuOption("MT_O_InfoPart".Translate(o.needed.label), () => Find.WindowStack.Add(new Dialog_InfoCard(o.needed))));
+            if (opts.Count > 0) Find.WindowStack.Add(new FloatMenu(opts));
         }
 
         private static Kind KindOf(RecipeDef r)
@@ -236,7 +323,7 @@ namespace MisakTabs
             {
                 Refresh(pawn);
                 int index = 0;
-                foreach (Op o in ops.Where(x => x.part != null && parts.Contains(x.part)).OrderBy(x => x.reason != null).ThenBy(x => x.label).ThenBy(x => x.part.Label))
+                foreach (Op o in ops.Where(x => x.part != null && !x.noStock && parts.Contains(x.part)).OrderBy(x => x.reason != null).ThenBy(x => x.label).ThenBy(x => x.part.Label))
                 {
                     var opt = (FloatMenuOption)generate.Invoke(null, new object[] { pawn, pawn, o.recipe, o.missing ?? new List<ThingDef>(), o.report, index++, o.part });
                     if (opt == null) continue;
@@ -252,7 +339,8 @@ namespace MisakTabs
         private static void List(Rect r, Pawn pawn)
         {
             Refresh(pawn);
-            Look.Text(new Rect(r.x, r.y, r.width, 22f), "MT_O_Possible".Translate(ops.Count), Muted, GameFont.Tiny);
+            int noStock = ops.Count(o => o.noStock);
+            Look.Text(new Rect(r.x, r.y, r.width, 22f), "MT_O_Possible".Translate(ops.Count - noStock), Muted, GameFont.Tiny);
             float y = r.y + 24f;
             Look.EscUnfocus("MT_OpsSearch");          // 0.4.2
             GUI.SetNextControlName("MT_OpsSearch");
@@ -264,6 +352,7 @@ namespace MisakTabs
             foreach (Kind k in Enum.GetValues(typeof(Kind)))
             {
                 string lab = ("MT_O_K_" + k).Translate();
+                if (k == Kind.NoPart) lab += " (" + noStock + ")";
                 float w = Text.CalcSize(lab).x + 18f;
                 if (cx + w > r.xMax && cx > r.x) { cx = r.x; y += 26f; }     // wrap to the next line
                 if (Look.Chip(new Rect(cx, y, w, 22f), lab, kind == k)) kind = k;
@@ -282,7 +371,8 @@ namespace MisakTabs
             y += 30f;
 
             string q = (search ?? "").Trim();
-            var shown = ops.Where(o => (kind == Kind.All || o.kind == kind) && (area == Area.All || o.area == area)
+            // greyed no-stock rows: under their own chip, and in All only for a body part that is missing
+            var shown = ops.Where(o => (o.noStock ? kind == Kind.NoPart || (kind == Kind.All && pawn.health.hediffSet.PartIsMissing(o.part)) : kind == Kind.All || o.kind == kind) && (area == Area.All || o.area == area)
                                      && (q.Length == 0 || o.label.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0
                                          || (o.part != null && o.part.Label.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0)))
                            .OrderBy(o => o.reason != null).ThenBy(o => o.label).ThenBy(o => o.part?.Label).ToList();
@@ -313,9 +403,10 @@ namespace MisakTabs
                     string sub = (o.part != null && !o.recipe.hideBodyPartNames ? o.part.LabelCap.ToString() : "MT_O_WholeBody".Translate().ToString())
                                  + (o.reason != null ? " · " + o.reason : "");
                     Look.Text(new Rect(row.x + 42f, row.y + 21f, tw, 16f), sub.Truncate(tw), o.reason != null ? Look.Orange : Muted, GameFont.Tiny);
-                    Look.Text(new Rect(row.xMax - 66f, row.y, 60f, row.height), ok ? "MT_Add".Translate() : "", Look.Green, GameFont.Tiny, TextAnchor.MiddleRight);
+                    Look.Text(new Rect(row.xMax - 66f, row.y, 60f, row.height), ok ? "MT_Add".Translate() : o.noStock && o.craft != null ? "MT_O_Make".Translate() : "", o.noStock ? Look.Orange : Look.Green, GameFont.Tiny, TextAnchor.MiddleRight);
                     if (over) TooltipHandler.TipRegion(row, new TipSignal(() => o.recipe.description.NullOrEmpty() ? o.label : o.label + "\n\n" + o.recipe.description, o.recipe.GetHashCode() ^ (o.part?.Index ?? -1)));
                     if (ok && Widgets.ButtonInvisible(row)) clicked = o;
+                    else if (o.noStock && Widgets.ButtonInvisible(row)) CraftMenu(pawn, o);
                 }
             }
             finally { Widgets.EndScrollView(); }   // 0.4.2

@@ -119,7 +119,24 @@ namespace AutoTurrets
 	{
 		public static IEnumerable<Gizmo> Postfix(IEnumerable<Gizmo> __result, Building_TurretGun __instance)
 		{
-			foreach (Gizmo g in __result) yield return g;
+			// 1.5.1: another mod's button that throws must not take ours (and the rest) with it
+			IEnumerator<Gizmo> it = null;
+			try { it = __result?.GetEnumerator(); } catch (Exception ex) { Log.WarningOnce("[Auto Turrets] buttons of another mod: " + ex.Message, 0x41544732); }
+			while (it != null)
+			{
+				Gizmo cur;
+				try
+				{
+					if (!it.MoveNext()) break;
+					cur = it.Current;
+				}
+				catch (Exception ex)
+				{
+					Log.WarningOnce("[Auto Turrets] a button of another mod failed on " + __instance.LabelCap + " – skipped: " + ex.Message, 0x41544733 ^ __instance.def.shortHash);
+					break;
+				}
+				yield return cur;
+			}
 			IEnumerable<Gizmo> extra = null;
 			try { extra = TurretControls.Extra(__instance).ToList(); } catch (Exception e) { Log.WarningOnce("[Auto Turrets] buttons: " + e.Message, 0x41544731); }
 			if (extra != null) foreach (Gizmo g in extra) yield return g;

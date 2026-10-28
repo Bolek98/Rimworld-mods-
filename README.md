@@ -10,7 +10,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Mod | Version | Folder |
 |---|---|---|
 | Auto Pharmacy – Doctors Give the Right Drug | 1.4.4 | [AutoPharmacy](AutoPharmacy) |
-| Auto Turrets – Manned Turrets & Mortars Fire on Their Own | 1.5.0 | [AutoTurrets](AutoTurrets) |
+| Auto Turrets – Manned Turrets & Mortars Fire on Their Own | 1.5.1 | [AutoTurrets](AutoTurrets) |
 | Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.5.3 | [BodyFit](BodyFit) |
 | Call for Backup – Summon Your Allies | 0.1.0 | [CallForBackup](CallForBackup) |
 | Caravan Helper | 1.0.3 | [CaravanHelper](CaravanHelper) |
@@ -26,7 +26,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Matchmaker | 0.1.1 | [Matchmaker](Matchmaker) |
 | Mech Commander | 0.1.3 | [MechCommander](MechCommander) |
 | Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
-| Mišák Tabs – Clear Bills, Health & Info | 0.9.1 | [MisakTabs](MisakTabs) |
+| Mišák Tabs – Clear Bills, Health & Info | 0.9.2 | [MisakTabs](MisakTabs) |
 | Mod Sort Manager – Load Order, Conflicts & Profiles | 0.3.1 | [ModSortManager](ModSortManager) |
 | Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
