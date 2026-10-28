@@ -45,8 +45,8 @@
   <AT_WallOutward>Wall turrets shoot only outward</AT_WallOutward>
   <AT_WallOutward_Desc>A turret in a wall only shoots at targets on the outer side of its wall (away from the room). If neither side is clearly outside (a wall between two rooms), it shoots everywhere.</AT_WallOutward_Desc>
   <AT_TabTurrets>Turrets</AT_TabTurrets>
-  <AT_TurretsDesc>Ticked turrets and mortars fire on their own. Untick the ones that should keep needing a colonist (for example big guns you want to aim yourself).</AT_TurretsDesc>
-  <AT_TurretsNone>No turret here needs a colonist.</AT_TurretsNone>
+  <AT_TurretsDesc>Every turret, mortar and gun – vanilla and from mods. Ticked ones fire on their own. Unticked: manned turrets and mortars need a colonist again, automatic turrets hold fire until you pick a target.</AT_TurretsDesc>
+  <AT_TurretsNone>No turrets found.</AT_TurretsNone>
   <AT_TurretsCount>{0} of {1} fire on their own</AT_TurretsCount>
   <AT_FuelEdit>Materials…</AT_FuelEdit>
   <AT_FuelPerTurret>Each turret's materials – also turrets that need their own ammo or fuel from a mod. Click "Materials…" and tick what else it may be rearmed with. Changes work right away.</AT_FuelPerTurret>
@@ -59,4 +59,8 @@
   <AT_FuelGroup2>Stone blocks</AT_FuelGroup2>
   <AT_FuelGroup3>Ammo and shells</AT_FuelGroup3>
   <AT_FuelGroup4>Other resources</AT_FuelGroup4>
+  <AT_KindManned>manned</AT_KindManned>
+  <AT_KindMortar>manned mortar</AT_KindMortar>
+  <AT_KindAuto>automatic</AT_KindAuto>
+  <AT_KindMortarAuto>mortar</AT_KindMortarAuto>
 </LanguageData>

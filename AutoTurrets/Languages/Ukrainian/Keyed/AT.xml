@@ -45,7 +45,7 @@
   <AT_WallOutward>Турелі в стінах стріляють лише назовні</AT_WallOutward>
   <AT_WallOutward_Desc>Турель у стіні стріляє лише по цілях із зовнішнього боку своєї стіни (від кімнати). Якщо жоден бік явно не назовні (стіна між двома кімнатами), вона стріляє в усі боки.</AT_WallOutward_Desc>
   <AT_TabTurrets>Турелі</AT_TabTurrets>
-  <AT_TurretsDesc>Позначені турелі й міномети стріляють самі. Зніміть позначку з тих, яким і далі потрібен колоніст (наприклад, великі гармати, які ви хочете наводити самі).</AT_TurretsDesc>
+  <AT_TurretsDesc>Усі турелі, міномети й гармати — ванільні та з модів. Позначені стріляють самі. Без позначки: турелям і мінометам з обслугою знову потрібен колоніст, автоматичні турелі не стріляють, доки ви не виберете ціль.</AT_TurretsDesc>
   <AT_TurretsNone>Тут немає турелей, яким потрібен колоніст.</AT_TurretsNone>
   <AT_TurretsCount>{0} з {1} стріляють самі</AT_TurretsCount>
   <AT_FuelEdit>Матеріали…</AT_FuelEdit>
@@ -59,4 +59,8 @@
   <AT_FuelGroup2>Кам'яні блоки</AT_FuelGroup2>
   <AT_FuelGroup3>Набої та снаряди</AT_FuelGroup3>
   <AT_FuelGroup4>Інші ресурси</AT_FuelGroup4>
+  <AT_KindManned>з обслугою</AT_KindManned>
+  <AT_KindMortar>міномет з обслугою</AT_KindMortar>
+  <AT_KindAuto>автоматична</AT_KindAuto>
+  <AT_KindMortarAuto>міномет</AT_KindMortarAuto>
 </LanguageData>

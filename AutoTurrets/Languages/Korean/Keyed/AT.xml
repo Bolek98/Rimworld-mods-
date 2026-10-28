@@ -45,7 +45,7 @@
   <AT_WallOutward>벽 포탑은 바깥쪽으로만 사격</AT_WallOutward>
   <AT_WallOutward_Desc>벽 안의 포탑은 벽 바깥쪽(방 반대편)의 대상에게만 사격합니다. 어느 쪽도 확실히 바깥이 아니면(두 방 사이의 벽) 모든 방향으로 사격합니다.</AT_WallOutward_Desc>
   <AT_TabTurrets>포탑</AT_TabTurrets>
-  <AT_TurretsDesc>체크한 포탑과 박격포는 스스로 사격합니다. 계속 정착민이 필요하게 할 것(직접 조준하고 싶은 큰 포 등)은 체크를 해제하세요.</AT_TurretsDesc>
+  <AT_TurretsDesc>모든 포탑, 박격포, 대포 – 바닐라와 모드. 체크한 것은 스스로 사격합니다. 체크 해제: 조작형 포탑과 박격포는 다시 정착민이 필요하고, 자동 포탑은 목표를 지정할 때까지 사격하지 않습니다.</AT_TurretsDesc>
   <AT_TurretsNone>정착민이 필요한 포탑이 없습니다.</AT_TurretsNone>
   <AT_TurretsCount>{1}개 중 {0}개 자동 사격</AT_TurretsCount>
   <AT_FuelEdit>재료…</AT_FuelEdit>
@@ -59,4 +59,8 @@
   <AT_FuelGroup2>석재 블록</AT_FuelGroup2>
   <AT_FuelGroup3>탄약과 포탄</AT_FuelGroup3>
   <AT_FuelGroup4>기타 자원</AT_FuelGroup4>
+  <AT_KindManned>조작형</AT_KindManned>
+  <AT_KindMortar>조작형 박격포</AT_KindMortar>
+  <AT_KindAuto>자동</AT_KindAuto>
+  <AT_KindMortarAuto>박격포</AT_KindMortarAuto>
 </LanguageData>

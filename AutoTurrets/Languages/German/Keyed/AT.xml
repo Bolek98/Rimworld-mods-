@@ -45,7 +45,7 @@
   <AT_WallOutward>Wandgeschütze schießen nur nach außen</AT_WallOutward>
   <AT_WallOutward_Desc>Ein Geschütz in der Wand schießt nur auf Ziele an der Außenseite seiner Wand (vom Raum weg). Ist keine Seite eindeutig draußen (Wand zwischen zwei Räumen), schießt es überallhin.</AT_WallOutward_Desc>
   <AT_TabTurrets>Geschütze</AT_TabTurrets>
-  <AT_TurretsDesc>Angehakte Geschütze und Mörser feuern von selbst. Entferne den Haken bei denen, die weiter einen Kolonisten brauchen sollen (z. B. große Kanonen, die du selbst zielen willst).</AT_TurretsDesc>
+  <AT_TurretsDesc>Alle Geschütze, Mörser und Kanonen – Vanilla und aus Mods. Angehakte feuern selbst. Nicht angehakt: bemannte Geschütze und Mörser brauchen wieder einen Kolonisten, automatische Geschütze feuern erst, wenn du ein Ziel wählst.</AT_TurretsDesc>
   <AT_TurretsNone>Hier braucht kein Geschütz einen Kolonisten.</AT_TurretsNone>
   <AT_TurretsCount>{0} von {1} feuern selbst</AT_TurretsCount>
   <AT_FuelEdit>Materialien…</AT_FuelEdit>
@@ -59,4 +59,8 @@
   <AT_FuelGroup2>Steinblöcke</AT_FuelGroup2>
   <AT_FuelGroup3>Munition und Granaten</AT_FuelGroup3>
   <AT_FuelGroup4>Andere Rohstoffe</AT_FuelGroup4>
+  <AT_KindManned>bemannt</AT_KindManned>
+  <AT_KindMortar>bemannter Mörser</AT_KindMortar>
+  <AT_KindAuto>automatisch</AT_KindAuto>
+  <AT_KindMortarAuto>Mörser</AT_KindMortarAuto>
 </LanguageData>

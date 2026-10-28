@@ -229,7 +229,7 @@ namespace AutoTurrets
 	{
 		public static void Postfix(Building_TurretGun __instance, ref bool __result)
 		{
-			if (!__result && Auto.IsAuto(__instance))
+			if (!__result && (Auto.IsAuto(__instance) || TurretPage.HoldsFire(__instance)))
 				__result = true;
 		}
 	}
@@ -633,6 +633,23 @@ namespace AutoTurrets
 			{
 				Log.WarningOnce("[Auto Turrets] firefoam target: " + e.Message, 0x41545333);
 			}
+		}
+	}
+}
+
+namespace AutoTurrets
+{
+	// 1.5.0: an automatic turret you unticked on the Turrets page does not pick targets by itself –
+	// it fires only at the target you give it
+	[HarmonyLib.HarmonyPatch(typeof(Building_TurretGun), nameof(Building_TurretGun.TryFindNewTarget))]
+	[HarmonyLib.HarmonyPriority(HarmonyLib.Priority.First)]
+	public static class Patch_HoldFire
+	{
+		public static bool Prefix(Building_TurretGun __instance, ref LocalTargetInfo __result)
+		{
+			if (!TurretPage.HoldsFire(__instance)) return true;
+			__result = LocalTargetInfo.Invalid;
+			return false;
 		}
 	}
 }

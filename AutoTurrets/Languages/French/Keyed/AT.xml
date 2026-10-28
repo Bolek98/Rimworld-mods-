@@ -45,7 +45,7 @@
   <AT_WallOutward>Les tourelles murales tirent seulement vers l'extérieur</AT_WallOutward>
   <AT_WallOutward_Desc>Une tourelle dans un mur ne tire que sur les cibles du côté extérieur de son mur (à l'opposé de la pièce). Si aucun côté n'est clairement dehors (mur entre deux pièces), elle tire partout.</AT_WallOutward_Desc>
   <AT_TabTurrets>Tourelles</AT_TabTurrets>
-  <AT_TurretsDesc>Les tourelles et mortiers cochés tirent seuls. Décochez ceux qui doivent toujours avoir besoin d'un colon (par exemple les gros canons que vous voulez viser vous-même).</AT_TurretsDesc>
+  <AT_TurretsDesc>Toutes les tourelles, mortiers et canons – vanilla et des mods. Ceux qui sont cochés tirent seuls. Décochés : les tourelles et mortiers servis ont de nouveau besoin d'un colon, les tourelles automatiques ne tirent pas tant que vous ne choisissez pas de cible.</AT_TurretsDesc>
   <AT_TurretsNone>Aucune tourelle ici n'a besoin d'un colon.</AT_TurretsNone>
   <AT_TurretsCount>{0} sur {1} tirent seuls</AT_TurretsCount>
   <AT_FuelEdit>Matériaux…</AT_FuelEdit>
@@ -59,4 +59,8 @@
   <AT_FuelGroup2>Blocs de pierre</AT_FuelGroup2>
   <AT_FuelGroup3>Munitions et obus</AT_FuelGroup3>
   <AT_FuelGroup4>Autres ressources</AT_FuelGroup4>
+  <AT_KindManned>servie</AT_KindManned>
+  <AT_KindMortar>mortier servi</AT_KindMortar>
+  <AT_KindAuto>automatique</AT_KindAuto>
+  <AT_KindMortarAuto>mortier</AT_KindMortarAuto>
 </LanguageData>

@@ -45,7 +45,7 @@
   <AT_WallOutward>Турели в стенах стреляют только наружу</AT_WallOutward>
   <AT_WallOutward_Desc>Турель в стене стреляет только по целям с внешней стороны своей стены (от комнаты). Если ни одна сторона явно не снаружи (стена между двумя комнатами), она стреляет во все стороны.</AT_WallOutward_Desc>
   <AT_TabTurrets>Турели</AT_TabTurrets>
-  <AT_TurretsDesc>Отмеченные турели и миномёты стреляют сами. Снимите отметку с тех, которым по-прежнему нужен колонист (например, большие орудия, которые вы хотите наводить сами).</AT_TurretsDesc>
+  <AT_TurretsDesc>Все турели, миномёты и орудия — ванильные и из модов. Отмеченные стреляют сами. Без отметки: турелям и миномётам с расчётом снова нужен колонист, автоматические турели не стреляют, пока вы не выберете цель.</AT_TurretsDesc>
   <AT_TurretsNone>Здесь нет турелей, которым нужен колонист.</AT_TurretsNone>
   <AT_TurretsCount>{0} из {1} стреляют сами</AT_TurretsCount>
   <AT_FuelEdit>Материалы…</AT_FuelEdit>
@@ -59,4 +59,8 @@
   <AT_FuelGroup2>Каменные блоки</AT_FuelGroup2>
   <AT_FuelGroup3>Боеприпасы и снаряды</AT_FuelGroup3>
   <AT_FuelGroup4>Другие ресурсы</AT_FuelGroup4>
+  <AT_KindManned>с расчётом</AT_KindManned>
+  <AT_KindMortar>миномёт с расчётом</AT_KindMortar>
+  <AT_KindAuto>автоматическая</AT_KindAuto>
+  <AT_KindMortarAuto>миномёт</AT_KindMortarAuto>
 </LanguageData>

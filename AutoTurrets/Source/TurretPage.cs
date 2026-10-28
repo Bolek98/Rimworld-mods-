@@ -49,7 +49,7 @@ namespace AutoTurrets
 				if (manned == null)
 					manned = DefDatabase<ThingDef>.AllDefsListForReading
 						.Where(d => d.thingClass != null && typeof(Building_TurretGun).IsAssignableFrom(d.thingClass) && !d.defName.EndsWith(WallTurrets.Suffix)
-							&& d.comps != null && d.comps.Any(c => c is CompProperties_Mannable))
+							&& (d.designationCategory != null || d.minifiedDef != null || (d.comps != null && d.comps.Any(c => c is CompProperties_Mannable))))
 						.OrderBy(d => d.label ?? d.defName).ToList();
 				return manned;
 			}
@@ -83,8 +83,21 @@ namespace AutoTurrets
 			y += 34f;
 			List<ThingDef> shown = Filter(all, filterT);
 			Cards(new Rect(r.x, y, r.width, r.yMax - y), shown, ref scrollT, d => AutoOn(d), (d, v) => SetAuto(d, v),
-				d => (d.comps.Any(c => c is CompProperties_Refuelable) ? FuelText(d) + "  ·  " : "") + (d.modContentPack?.Name ?? "?"), null);
+				d => (IsManned(d) ? (IsMortar(d) ? "AT_KindMortar" : "AT_KindManned") : (IsMortar(d) ? "AT_KindMortarAuto" : "AT_KindAuto")).Translate() + "  ·  "
+					+ (d.comps != null && d.comps.Any(c => c is CompProperties_Refuelable) ? FuelText(d) + "  ·  " : "") + (d.modContentPack?.Name ?? "?"), null);
 		}
+
+		public static bool IsManned(ThingDef d) => d.comps != null && d.comps.Any(c => c is CompProperties_Mannable);
+
+		private static bool IsMortar(ThingDef d)
+		{
+			ThingDef gun = d.building?.turretGunDef;
+			return gun?.comps != null && gun.comps.Any(c => c is CompProperties_ChangeableProjectile);
+		}
+
+		// an automatic turret you unticked holds fire until you pick a target
+		public static bool HoldsFire(Building_TurretGun t) =>
+			t != null && t.Faction == Faction.OfPlayer && !IsManned(t.def) && !AutoOn(t.def);
 
 		private static List<ThingDef> Filter(List<ThingDef> all, string f) =>
 			f.NullOrEmpty() ? all : all.Where(d => (d.label ?? "").IndexOf(f, StringComparison.OrdinalIgnoreCase) >= 0

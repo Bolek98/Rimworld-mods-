@@ -45,7 +45,7 @@
   <AT_WallOutward>壁内タレットは外側にのみ射撃</AT_WallOutward>
   <AT_WallOutward_Desc>壁内のタレットは、壁の外側（部屋の反対側）の標的にのみ射撃します。どちらの側も明確に屋外でない場合（二つの部屋の間の壁）は全方向に射撃します。</AT_WallOutward_Desc>
   <AT_TabTurrets>タレット</AT_TabTurrets>
-  <AT_TurretsDesc>チェックしたタレットと迫撃砲は自動で射撃します。入植者が必要なままにしたいもの（自分で狙いたい大砲など）はチェックを外してください。</AT_TurretsDesc>
+  <AT_TurretsDesc>すべてのタレット、迫撃砲、砲 – バニラもMODも。チェックしたものは自動で射撃します。チェックなし：人手が必要なタレットと迫撃砲は再び入植者が必要になり、自動タレットは目標を指定するまで撃ちません。</AT_TurretsDesc>
   <AT_TurretsNone>入植者が必要なタレットはありません。</AT_TurretsNone>
   <AT_TurretsCount>{1} 中 {0} が自動射撃</AT_TurretsCount>
   <AT_FuelEdit>素材…</AT_FuelEdit>
@@ -59,4 +59,8 @@
   <AT_FuelGroup2>石材ブロック</AT_FuelGroup2>
   <AT_FuelGroup3>弾薬と砲弾</AT_FuelGroup3>
   <AT_FuelGroup4>その他の資源</AT_FuelGroup4>
+  <AT_KindManned>要操作</AT_KindManned>
+  <AT_KindMortar>要操作の迫撃砲</AT_KindMortar>
+  <AT_KindAuto>自動</AT_KindAuto>
+  <AT_KindMortarAuto>迫撃砲</AT_KindMortarAuto>
 </LanguageData>

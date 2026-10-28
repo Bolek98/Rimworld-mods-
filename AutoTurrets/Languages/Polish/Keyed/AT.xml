@@ -45,7 +45,7 @@
   <AT_WallOutward>Wieżyczki w murze strzelają tylko na zewnątrz</AT_WallOutward>
   <AT_WallOutward_Desc>Wieżyczka w murze strzela tylko do celów po zewnętrznej stronie muru (od pomieszczenia). Jeśli żadna strona nie jest wyraźnie na zewnątrz (mur między dwoma pomieszczeniami), strzela wszędzie.</AT_WallOutward_Desc>
   <AT_TabTurrets>Wieżyczki</AT_TabTurrets>
-  <AT_TurretsDesc>Zaznaczone wieżyczki i moździerze strzelają same. Odznacz te, które mają dalej potrzebować kolonisty (np. duże działa, które chcesz celować sam).</AT_TurretsDesc>
+  <AT_TurretsDesc>Wszystkie wieżyczki, moździerze i działa – z gry i z modów. Zaznaczone strzelają same. Odznaczone: obsługiwane wieżyczki i moździerze znów potrzebują kolonisty, automatyczne wieżyczki nie strzelają, dopóki nie wybierzesz celu.</AT_TurretsDesc>
   <AT_TurretsNone>Żadna wieżyczka tu nie potrzebuje kolonisty.</AT_TurretsNone>
   <AT_TurretsCount>{0} z {1} strzela samo</AT_TurretsCount>
   <AT_FuelEdit>Materiały…</AT_FuelEdit>
@@ -59,4 +59,8 @@
   <AT_FuelGroup2>Bloki kamienne</AT_FuelGroup2>
   <AT_FuelGroup3>Amunicja i pociski</AT_FuelGroup3>
   <AT_FuelGroup4>Inne surowce</AT_FuelGroup4>
+  <AT_KindManned>obsługiwana</AT_KindManned>
+  <AT_KindMortar>obsługiwany moździerz</AT_KindMortar>
+  <AT_KindAuto>automatyczna</AT_KindAuto>
+  <AT_KindMortarAuto>moździerz</AT_KindMortarAuto>
 </LanguageData>

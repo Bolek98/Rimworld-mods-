@@ -45,7 +45,7 @@
   <AT_WallOutward>墙内炮塔只向外射击</AT_WallOutward>
   <AT_WallOutward_Desc>墙内的炮塔只射击墙外侧（远离房间一侧）的目标。如果没有哪一侧明显在室外（两个房间之间的墙），则向所有方向射击。</AT_WallOutward_Desc>
   <AT_TabTurrets>炮塔</AT_TabTurrets>
-  <AT_TurretsDesc>勾选的炮塔和迫击炮会自动开火。取消勾选的仍需要殖民者操作（例如你想亲自瞄准的大炮）。</AT_TurretsDesc>
+  <AT_TurretsDesc>所有炮塔、迫击炮和火炮——原版和模组。勾选的会自动开火。取消勾选：需要操作的炮塔和迫击炮重新需要殖民者，自动炮塔在你指定目标前不会开火。</AT_TurretsDesc>
   <AT_TurretsNone>这里没有需要殖民者操作的炮塔。</AT_TurretsNone>
   <AT_TurretsCount>{0} / {1} 自动开火</AT_TurretsCount>
   <AT_FuelEdit>材料…</AT_FuelEdit>
@@ -59,4 +59,8 @@
   <AT_FuelGroup2>石砖</AT_FuelGroup2>
   <AT_FuelGroup3>弹药和炮弹</AT_FuelGroup3>
   <AT_FuelGroup4>其他资源</AT_FuelGroup4>
+  <AT_KindManned>需操作</AT_KindManned>
+  <AT_KindMortar>需操作的迫击炮</AT_KindMortar>
+  <AT_KindAuto>自动</AT_KindAuto>
+  <AT_KindMortarAuto>迫击炮</AT_KindMortarAuto>
 </LanguageData>

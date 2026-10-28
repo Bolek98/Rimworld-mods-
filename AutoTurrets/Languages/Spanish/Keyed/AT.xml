@@ -45,7 +45,7 @@
   <AT_WallOutward>Las torretas de muro solo disparan hacia fuera</AT_WallOutward>
   <AT_WallOutward_Desc>Una torreta en un muro solo dispara a objetivos del lado exterior de su muro (lejos de la habitación). Si ningún lado está claramente fuera (muro entre dos habitaciones), dispara a todas partes.</AT_WallOutward_Desc>
   <AT_TabTurrets>Torretas</AT_TabTurrets>
-  <AT_TurretsDesc>Las torretas y morteros marcados disparan solos. Desmarca los que deban seguir necesitando un colono (por ejemplo cañones grandes que quieras apuntar tú).</AT_TurretsDesc>
+  <AT_TurretsDesc>Todas las torretas, morteros y cañones, vanilla y de mods. Los marcados disparan solos. Sin marcar: las torretas y morteros manejados vuelven a necesitar un colono y las torretas automáticas no disparan hasta que elijas un objetivo.</AT_TurretsDesc>
   <AT_TurretsNone>Aquí ninguna torreta necesita un colono.</AT_TurretsNone>
   <AT_TurretsCount>{0} de {1} disparan solos</AT_TurretsCount>
   <AT_FuelEdit>Materiales…</AT_FuelEdit>
@@ -59,4 +59,8 @@
   <AT_FuelGroup2>Bloques de piedra</AT_FuelGroup2>
   <AT_FuelGroup3>Munición y proyectiles</AT_FuelGroup3>
   <AT_FuelGroup4>Otros recursos</AT_FuelGroup4>
+  <AT_KindManned>manejada</AT_KindManned>
+  <AT_KindMortar>mortero manejado</AT_KindMortar>
+  <AT_KindAuto>automática</AT_KindAuto>
+  <AT_KindMortarAuto>mortero</AT_KindMortarAuto>
 </LanguageData>

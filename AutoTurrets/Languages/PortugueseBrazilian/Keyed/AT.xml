@@ -45,7 +45,7 @@
   <AT_WallOutward>Torretas de parede só atiram para fora</AT_WallOutward>
   <AT_WallOutward_Desc>Uma torreta na parede só atira em alvos do lado de fora da sua parede (longe do cômodo). Se nenhum lado estiver claramente do lado de fora (parede entre dois cômodos), ela atira em todas as direções.</AT_WallOutward_Desc>
   <AT_TabTurrets>Torres</AT_TabTurrets>
-  <AT_TurretsDesc>Torres e morteiros marcados atiram sozinhos. Desmarque os que devem continuar precisando de um colono (por exemplo canhões grandes que você quer mirar).</AT_TurretsDesc>
+  <AT_TurretsDesc>Todas as torres, morteiros e canhões – vanilla e de mods. Os marcados atiram sozinhos. Desmarcados: torres e morteiros operados voltam a precisar de colono, torres automáticas não atiram até você escolher um alvo.</AT_TurretsDesc>
   <AT_TurretsNone>Nenhuma torre aqui precisa de colono.</AT_TurretsNone>
   <AT_TurretsCount>{0} de {1} atiram sozinhos</AT_TurretsCount>
   <AT_FuelEdit>Materiais…</AT_FuelEdit>
@@ -59,4 +59,8 @@
   <AT_FuelGroup2>Blocos de pedra</AT_FuelGroup2>
   <AT_FuelGroup3>Munição e projéteis</AT_FuelGroup3>
   <AT_FuelGroup4>Outros recursos</AT_FuelGroup4>
+  <AT_KindManned>operada</AT_KindManned>
+  <AT_KindMortar>morteiro operado</AT_KindMortar>
+  <AT_KindAuto>automática</AT_KindAuto>
+  <AT_KindMortarAuto>morteiro</AT_KindMortarAuto>
 </LanguageData>
