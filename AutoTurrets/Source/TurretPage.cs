@@ -47,10 +47,11 @@ namespace AutoTurrets
 			get
 			{
 				if (manned == null)
-					manned = DefDatabase<ThingDef>.AllDefsListForReading
-						.Where(d => d.thingClass != null && typeof(Building_TurretGun).IsAssignableFrom(d.thingClass) && !d.defName.EndsWith(WallTurrets.Suffix)
-							&& (d.designationCategory != null || d.minifiedDef != null || (d.comps != null && d.comps.Any(c => c is CompProperties_Mannable))))
-						.OrderBy(d => d.label ?? d.defName).ToList();
+					// the same turrets as on the "Turrets in walls" page, plus manned ones you can't build yourself
+					manned = WallTurrets.Candidates
+						.Concat(DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.thingClass != null && typeof(Building_TurretGun).IsAssignableFrom(d.thingClass)
+							&& !d.defName.EndsWith(WallTurrets.Suffix) && IsManned(d)))
+						.Distinct().OrderBy(d => d.label ?? d.defName).ToList();
 				return manned;
 			}
 		}
