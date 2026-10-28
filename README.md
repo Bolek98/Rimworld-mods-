@@ -9,40 +9,42 @@ Source code of my RimWorld mods (RimWorld 1.7).
 ## Mods (dev)
 | Mod | Version | Folder |
 |---|---|---|
-| Auto Pharmacy – Doctors Give the Right Drug | 1.4.1 | [AutoPharmacy](AutoPharmacy) |
-| Auto Turrets | 1.1.0 | [AutoTurrets](AutoTurrets) |
+| Auto Pharmacy – Doctors Give the Right Drug | 1.4.3 | [AutoPharmacy](AutoPharmacy) |
+| Auto Turrets | 1.4.0 | [AutoTurrets](AutoTurrets) |
 | Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.5.3 | [BodyFit](BodyFit) |
 | Call for Backup – Summon Your Allies | 0.1.0 | [CallForBackup](CallForBackup) |
-| Caravan Helper | 1.0.1 | [CaravanHelper](CaravanHelper) |
-| Evergrowth – Plant Growth Control | 1.9.0 | [Evergrowth](Evergrowth) |
+| Caravan Helper | 1.0.3 | [CaravanHelper](CaravanHelper) |
+| Colony Advisor – What To Do Next | 0.1.0 | [ColonyAdvisor](ColonyAdvisor) |
+| Evergrowth – Plant Growth Control | 1.9.2 | [Evergrowth](Evergrowth) |
 | Evergrowth – Wild Plants | 1.1.4 | [EvergrowthWildPlants](EvergrowthWildPlants) |
 | Fewer Freezes – Smart Memory Cleanup | 1.1.1 | [FewerFreezes](FewerFreezes) |
-| Gender Balance | 1.3.3 | [GenderBalance](GenderBalance) |
-| Haul Master – Pockets, Routes & Storage | 3.4.0 | [HaulSmarter](HaulSmarter) |
-| Legacy – Your Old Colonies Live On | 0.1.0 | [Legacy](Legacy) |
-| Map Architect | 0.4.2 | [MapArchitect](MapArchitect) |
-| Masks & Headgear Together | 1.0.0 | [MasksAndHeadgear](MasksAndHeadgear) |
-| Matchmaker | 0.1.0 | [Matchmaker](Matchmaker) |
-| Mech Commander | 0.1.1 | [MechCommander](MechCommander) |
+| Gender Balance | 1.3.4 | [GenderBalance](GenderBalance) |
+| Haul Master – Pockets, Routes & Storage | 3.5.0 | [HaulSmarter](HaulSmarter) |
+| Legacy – Your Old Colonies Live On | 0.1.1 | [Legacy](Legacy) |
+| Map Architect | 0.4.3 | [MapArchitect](MapArchitect) |
+| Masks & Headgear Together | 1.0.1 | [MasksAndHeadgear](MasksAndHeadgear) |
+| Matchmaker | 0.1.1 | [Matchmaker](Matchmaker) |
+| Mech Commander | 0.1.3 | [MechCommander](MechCommander) |
 | Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
-| Mišák Tabs – Clear Bills, Health & Info | 0.2.0 | [MisakTabs](MisakTabs) |
-| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.2.1 | [ModSortManager](ModSortManager) |
-| Place for Everything – Smart Storage for Homeless Items | 0.1.1 | [PlaceForEverything](PlaceForEverything) |
+| Mišák Tabs – Clear Bills, Health & Info | 0.5.1 | [MisakTabs](MisakTabs) |
+| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.3.0 | [ModSortManager](ModSortManager) |
+| Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
+| Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
 | Randy's Table – Chaos Storytellers | 0.1.0 | [RandysTable](RandysTable) |
-| Research Fixer – Tech Progression | 0.3.3 | [ResearchFixer](ResearchFixer) |
+| Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
 | Secular Colony – Ideology Off & Tweaks | 1.5.2 | [SecularColony](SecularColony) |
-| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.15.1 | [SmartColonistGear](SmartColonistGear) |
+| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.16.0 | [SmartColonistGear](SmartColonistGear) |
 | Smooth FPS – Performance & Graphics | 1.5.0 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 3.4.1 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.0.6 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | Steward – Schedules | 1.0.1 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
-| Steward – Supplies | 1.0.2 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
+| Steward – Supplies | 1.0.5 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
-| Universal RimTranslator | 2.5.0 | [UniversalRimTranslator](UniversalRimTranslator) |
-| Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.1 | [UnofficialPatch](UnofficialPatch) |
+| Universal RimTranslator | 2.6.3 | [UniversalRimTranslator](UniversalRimTranslator) |
+| Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.2 | [UnofficialPatch](UnofficialPatch) |
 | Wild Spawn Zone | 1.1.3 | [WildSpawnZone](WildSpawnZone) |
-| World at Your Level – Raiders Match Your Tech | 2.15.1 | [WorldAtYourLevel](WorldAtYourLevel) |
+| World at Your Level – Raiders Match Your Tech | 2.16.0 | [WorldAtYourLevel](WorldAtYourLevel) |
 
 Each folder is a complete mod (About, Assemblies, Defs, Languages, Source), most with a `CHANGELOG.txt`.
 All mods need [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077).

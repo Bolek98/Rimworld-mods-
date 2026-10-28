@@ -3,7 +3,7 @@
   <name>Smooth FPS – Performance &amp; Graphics</name>
   <author>Bolek98</author>
   <packageId>misak.graphicstuner</packageId>
-  <modVersion>1.6.0</modVersion>
+  <modVersion>1.5.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -38,18 +38,19 @@ SIMULATION
 - World clean-up and travel recalculation in parts – smaller saves, shorter stops.
 
 MEMORY &amp; FREEZES
-- Replaces Fewer Freezes: memory cleaned without big stops while you play, autosave at a good moment, video memory per mod (1.7).
+- Replaces Fewer Freezes: memory cleaned without big stops while you play (1.6), faster saving, autosave at a good moment, video memory per mod (1.7).
 
 GRAPHICS
 - Profiles (Performance / Balanced / Quality), fewer effects at high speed, V-Sync, FPS limit, laptop mode.
 
 TOOLS
+- Error doctor: every red log error with the mod that really caused it, explained in plain words.
 - What slows the game (top 10 mods and functions), "What slows the tick" live, "What is expensive on this map", benchmark, hitch finder, freeze watch and crash check.
 - FPS / TPS overlay that turns red when the game can't keep up. Performance report and "Report a bug" in one click.
 
 COMPATIBILITY
 - Do not combine with other mods that take over the tick loop or game speed (Smooth Frames, Multiplayer, RocketMan, Performance Fish). Fine with Performance Optimizer and Dubs Performance Analyzer.
-- Safe to add to an existing save. English and Czech.
+- Safe to add to an existing save. 12 languages.
 
 —————————————————————
 ČESKY
@@ -71,18 +72,19 @@ SIMULACE
 - Úklid světa a přepočet cestování po částech – menší savy, kratší zastavení.
 
 PAMĚŤ A ZÁSEKY
-- Nahrazuje Fewer Freezes: úklid paměti bez velkých zastavení, ukládání ve vhodnou chvíli, grafická paměť podle modů (1.7).
+- Nahrazuje Fewer Freezes: úklid paměti bez velkých zastavení (1.6), rychlejší ukládání, ukládání ve vhodnou chvíli, grafická paměť podle modů (1.7).
 
 GRAFIKA
 - Profily (Výkon / Vyvážený / Kvalita), méně efektů při vysoké rychlosti, V-Sync, limit FPS, režim notebooku.
 
 NÁSTROJE
+- Doktor chyb: každá červená chyba v logu s modem, který ji opravdu způsobil, lidsky vysvětlená.
 - Co brzdí hru (10 nejpomalejších modů a funkcí), „Co zpomaluje tik“ živě, „Co je na mapě drahé“, test výkonu, hledač záseků, hlídač zamrznutí a kontrola pádu.
 - Ukazatel FPS / TPS, který zčervená, když hra nestíhá. Zpráva o výkonu a „Nahlásit chybu“ jedním klikem.
 
 KOMPATIBILITA
 - Nekombinuj s mody, které přebírají tikání nebo rychlost hry (Smooth Frames, Multiplayer, RocketMan, Performance Fish). S Performance Optimizer a Dubs Performance Analyzer v pořádku.
-- Lze přidat do rozehrané hry. Česky a anglicky.
+- Lze přidat do rozehrané hry. 12 jazyků.
 
 ═══════════════════════
 IDEAS AND SUGGESTIONS
@@ -90,14 +92,18 @@ Want something changed or added? Write it in the comments – I read every idea 
 
 WHAT'S NEW IN 1.5.0
 - Error doctor: which mod caused each log error, in plain words
-- Faster saving (shorter stop)
-- 12 languages
+- Rain washes the filth away (less lag)
+- Speed 4 without dev mode, speed kept during raids
+- Faster saving
+- Fix: textures and doors no longer disappear on 1.7
 
 NÁPADY A NÁVRHY
 Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
 
 CO JE NOVÉHO VE VERZI 1.5.0
 - Doktor chyb: který mod způsobil kterou chybu, lidsky vysvětleno
-- Rychlejší ukládání (kratší zastavení)
-- 12 jazyků</description>
+- Déšť smyje špínu (méně sekání)
+- Rychlost 4 bez vývojářského režimu, rychlost i při nájezdu
+- Rychlejší ukládání
+- Oprava: na 1.7 už nemizí textury a dveře</description>
 </ModMetaData>

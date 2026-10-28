@@ -1,5 +1,19 @@
 === Not on the Workshop yet (test versions) ===
 0.3.0
+New
+- Your own load order rules: "+ Load order rule" in a mod's details – always at the top, always at the bottom, after or before a mod. Smart sort follows them and says which rule moved a mod.
+- Shared rules: Smart sort also follows the built-in rules (Harmony, Prepatcher, HugsLib, Humanoid Alien Races early …) and RimSort's community rules when RimSort is installed.
+- Mod list from a save: see which mods a save was played with, which are missing, and apply its list in its order.
+- "Possible conflicts (shared code)" with a short explanation, "Works for me – hide" on every pair, and known rivals (mods that do the same job) under May break.
+- "Works here – don't warn" for older mods that work fine.
+- Safe start after a crash: offers the mod list from before your last change.
+- Keyboard: Up/Down moves the selection, Shift+Up/Down moves the selected mod.
+
+Fixes
+- Possible conflicts: all pairs are listed – the list stopped at 15 (thanks ColossalFossil).
+
+=== Development history since the last Workshop release (test versions) ===
+0.3.0
 - Your own load order rules: "+ Load order rule" in a mod's details – always at the top, always at the bottom, after a mod or before a mod. Smart sort follows them (a rule that would make a loop is skipped).
 - Shared rules: Smart sort also follows the rules shipped in Data/rules.xml (Harmony, Prepatcher, HugsLib, Humanoid Alien Races early; Vanilla Expanded Framework after Harmony) and RimSort's community rules when RimSort is installed (can be switched off in the settings).
 - After Smart sort the details of a mod say which rule moved it.
