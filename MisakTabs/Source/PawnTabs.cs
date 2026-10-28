@@ -325,13 +325,28 @@ namespace MisakTabs
                     l.Add(new LifeEntry { tick = t.date, text = t.ShortSummary, c = Look.Blue });
                 }
                 foreach (LifeLog.Entry e in LifeLog.For(pawn))
-                    l.Add(new LifeEntry { tick = e.tick, text = e.text, c = e.kind == "break" || e.kind == "lost" ? Look.Red : e.kind == "part" ? new Color32(70, 200, 255, 255) : e.kind == "rel" ? new Color32(230, 140, 190, 255) : Look.Orange });
+                    l.Add(new LifeEntry { tick = e.tick, text = e.text, c = KindColor(e.kind) });
             }
             catch (Exception ex) { Log.WarningOnce("[Mišák Tabs] life: " + ex.Message, 0x51A7B23); }
             cache = l.OrderByDescending(x => x.tick).ToList();
             cachePawn = pawn.thingIDNumber;
             cacheFrame = Time.frameCount;
             return cache;
+        }
+
+        public static Color KindColor(string k)
+        {
+            switch (k)
+            {
+                case "break": case "lost": case "wound": return Look.Red;
+                case "part": case "surgery": return new Color32(70, 200, 255, 255);
+                case "rel": case "birthday": return new Color32(230, 140, 190, 255);
+                case "healed": return Look.Green;
+                case "death": return new Color32(120, 125, 130, 255);
+                case "honor": return new Color32(240, 200, 90, 255);
+                case "research": return Look.Blue;
+            }
+            return Look.Orange;
         }
 
         private static void Life(Rect r, Pawn pawn)
@@ -742,6 +757,106 @@ namespace MisakTabs
                 prefix: new HarmonyMethod(typeof(LifeHooks), nameof(LearnPre)), postfix: new HarmonyMethod(typeof(LifeHooks), nameof(LearnPost))));
             Try("relations", () => h.Patch(AccessTools.Method(typeof(Pawn_RelationsTracker), nameof(Pawn_RelationsTracker.AddDirectRelation)),
                 postfix: new HarmonyMethod(typeof(LifeHooks), nameof(Relation))));
+            // 0.9.1
+            Try("surgery fail", () => h.Patch(AccessTools.Method(typeof(Recipe_Surgery), "CheckSurgeryFail"),
+                postfix: new HarmonyMethod(typeof(LifeHooks), nameof(SurgeryFail))));
+            Try("surgery", () => h.Patch(AccessTools.Method(typeof(Bill_Medical), nameof(Bill_Medical.Notify_IterationCompleted)),
+                prefix: new HarmonyMethod(typeof(LifeHooks), nameof(SurgeryPre)), postfix: new HarmonyMethod(typeof(LifeHooks), nameof(SurgeryPost))));
+            Try("healed", () => h.Patch(AccessTools.Method(typeof(Pawn_HealthTracker), nameof(Pawn_HealthTracker.RemoveHediff)),
+                postfix: new HarmonyMethod(typeof(LifeHooks), nameof(Removed))));
+            Try("death", () => h.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.Kill)),
+                prefix: new HarmonyMethod(typeof(LifeHooks), nameof(KillPre)), postfix: new HarmonyMethod(typeof(LifeHooks), nameof(KillPost))));
+            Try("titles", () => h.Patch(AccessTools.Method(typeof(Pawn_RoyaltyTracker), nameof(Pawn_RoyaltyTracker.SetTitle)),
+                postfix: new HarmonyMethod(typeof(LifeHooks), nameof(Title))));
+            Try("roles", () =>
+            {
+                foreach (Type t in new[] { typeof(Precept_RoleSingle), typeof(Precept_RoleMulti) })
+                    h.Patch(AccessTools.Method(t, "Assign"), postfix: new HarmonyMethod(typeof(LifeHooks), nameof(Role)));
+            });
+            Try("birthday", () => h.Patch(AccessTools.Method(typeof(Pawn_AgeTracker), "BirthdayBiological"),
+                postfix: new HarmonyMethod(typeof(LifeHooks), nameof(Birthday))));
+            Try("research", () => h.Patch(AccessTools.Method(typeof(ResearchManager), nameof(ResearchManager.FinishProject)),
+                postfix: new HarmonyMethod(typeof(LifeHooks), nameof(Research))));
+        }
+
+        // ---- 0.9.1: operations, healing, deaths, titles, roles, birthdays, research, heavy wounds ----
+        private static readonly Dictionary<Pawn, int> failed = new Dictionary<Pawn, int>();
+
+        public static void SurgeryFail(bool __result, Pawn patient)
+        {
+            if (__result && patient != null) failed[patient] = Find.TickManager.TicksGame;
+        }
+
+        public static void SurgeryPre(Bill_Medical __instance, out (Pawn, string, BodyPartRecord) __state)
+        {
+            __state = (null, null, null);
+            try { __state = (__instance.GiverPawn, __instance.recipe?.label, __instance.Part); } catch { }
+        }
+
+        public static void SurgeryPost(Pawn billDoer, (Pawn patient, string label, BodyPartRecord part) __state)
+        {
+            try
+            {
+                Pawn patient = __state.patient;
+                if (patient == null || __state.label == null) return;
+                bool bad = failed.TryGetValue(patient, out int t) && Find.TickManager.TicksGame - t < 600;
+                failed.Remove(patient);
+                string what = __state.label.CapitalizeFirst() + (__state.part != null ? " (" + __state.part.Label + ")" : "");
+                LifeLog.Add(patient, bad ? "lost" : "surgery", (bad ? "MT_L_SurgeryBad" : "MT_L_Surgery").Translate(what, billDoer?.LabelShort ?? "?"));
+                if (billDoer != null && billDoer != patient)
+                    LifeLog.Add(billDoer, bad ? "lost" : "surgery", (bad ? "MT_L_OperatedBad" : "MT_L_Operated").Translate(patient.LabelShort, what));
+            }
+            catch { }
+        }
+
+        public static void Removed(Hediff hediff, Pawn ___pawn)
+        {
+            try
+            {
+                if (___pawn == null || ___pawn.Dead || hediff == null || Current.ProgramState != ProgramState.Playing) return;
+                if (hediff.TryGetComp<HediffComp_Immunizable>() != null && hediff.def.isBad)
+                    LifeLog.Add(___pawn, "healed", "MT_L_Healed".Translate(hediff.LabelBase));
+            }
+            catch { }
+        }
+
+        public static void KillPre(Pawn __instance, out bool __state) => __state = !__instance.Dead;
+
+        public static void KillPost(Pawn __instance, bool __state, DamageInfo? dinfo, Hediff exactCulprit)
+        {
+            try
+            {
+                if (!__state || !__instance.Dead || !__instance.RaceProps.Humanlike || Current.ProgramState != ProgramState.Playing) return;
+                string cause = exactCulprit?.LabelBase ?? dinfo?.Def?.label;
+                LifeLog.Add(__instance, "death", cause.NullOrEmpty() ? "MT_L_Died".Translate().ToString() : "MT_L_DiedOf".Translate(cause).ToString());
+                foreach (Pawn c in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_FreeColonists)
+                {
+                    if (c == __instance || c.relations == null) continue;
+                    PawnRelationDef rel = c.GetMostImportantRelation(__instance);
+                    int op = 0;
+                    try { op = c.relations.OpinionOf(__instance); } catch { }
+                    if (rel != null) LifeLog.Add(c, "death", "MT_L_LostRel".Translate(rel.GetGenderSpecificLabel(__instance), __instance.LabelShort));
+                    else if (op >= 20) LifeLog.Add(c, "death", "MT_L_LostFriend".Translate(__instance.LabelShort));
+                }
+            }
+            catch { }
+        }
+
+        public static void Title(Faction faction, RoyalTitleDef title, Pawn ___pawn)
+        {
+            try { if (title != null) LifeLog.Add(___pawn, "honor", "MT_L_Title".Translate(title.GetLabelCapFor(___pawn), faction?.Name ?? "")); } catch { }
+        }
+
+        public static void Role(Precept_Role __instance, Pawn p)
+        {
+            try { if (p != null) LifeLog.Add(p, "honor", "MT_L_Role".Translate(__instance.LabelCap)); } catch { }
+        }
+
+        public static void Birthday(int birthdayAge, Pawn ___pawn) => LifeLog.Add(___pawn, "birthday", "MT_L_Birthday".Translate(birthdayAge));
+
+        public static void Research(ResearchProjectDef proj, Pawn researcher)
+        {
+            if (researcher != null && proj != null) LifeLog.Add(researcher, "research", "MT_L_Research".Translate(proj.LabelCap));
         }
 
         public static void Break(bool __result, MentalStateDef stateDef, Pawn ___pawn)
@@ -759,6 +874,12 @@ namespace MisakTabs
                     LifeLog.Add(p, "lost", "MT_L_Lost".Translate(hediff.Part.Label));
                 else if (hediff is Hediff_AddedPart || hediff is Hediff_Implant)
                     LifeLog.Add(p, "part", "MT_L_Installed".Translate(hediff.LabelBase, hediff.Part.Label));
+                else if (hediff is Hediff_Injury && !hediff.IsPermanent())
+                {
+                    float max = hediff.Part.def.GetMaxHealth(p);
+                    if (hediff.Severity >= Mathf.Max(8f, max * 0.5f))
+                        LifeLog.Add(p, "wound", "MT_L_Wound".Translate(hediff.LabelBase, hediff.Part.Label));
+                }
             }
             catch { }
         }
