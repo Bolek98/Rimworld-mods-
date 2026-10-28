@@ -342,6 +342,18 @@ namespace MisakTabs
 
         private static void Figure(Rect r, Pawn pawn)
         {
+            // 0.7.0: the anatomy figure (parts / organs / bones)
+            if (figMode == 0 && Anatomy.CanDraw(pawn))
+            {
+                try { AnatomyFigure(r, pawn); return; }
+                catch (Exception e)
+                {
+                    figMode = 1;
+                    Look.ResetGui();
+                    Log.Warning("[Mišák Tabs] anatomy: " + e);
+                }
+            }
+            bool silhouette = figMode != 2;
             Rect fig = new Rect(r.x + (r.width - 200f) / 2f, r.y + 6f, 200f, 280f);
             Look.Box(fig, Look.Card, Look.Line);
             // 0.3.0: the colonist's own silhouette coloured by health (any race), or the plain portrait
@@ -357,7 +369,7 @@ namespace MisakTabs
                 }
                 catch (Exception e)
                 {
-                    silhouette = false;
+                    figMode = 2;
                     Log.Warning("[Mišák Tabs] silhouette: " + e.Message);
                 }
             }
@@ -374,10 +386,10 @@ namespace MisakTabs
                 }
             }
             Rect vb = new Rect(fig.xMax - 26f, fig.y + 4f, 22f, 22f);
-            if (Widgets.ButtonInvisible(vb)) { silhouette = !silhouette; SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(); }
+            if (Widgets.ButtonInvisible(vb)) { figMode = (figMode + 1) % 3; SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(); }
             Widgets.DrawBoxSolid(vb, Mouse.IsOver(vb) ? Look.Card2 : new Color(0f, 0f, 0f, 0.35f));
             Look.Text(vb, silhouette ? "◐" : "◑", Muted, GameFont.Small, TextAnchor.MiddleCenter);
-            TooltipHandler.TipRegion(vb, silhouette ? "MT_H_ToPortrait".Translate() : "MT_H_ToSilhouette".Translate());
+            TooltipHandler.TipRegion(vb, figMode == 1 ? "MT_H_ToPortrait".Translate() : Anatomy.CanDraw(pawn) ? "MT_A_ToAnatomy".Translate() : "MT_H_ToSilhouette".Translate());
 
             var marks = Marks(pawn);
             foreach (Mark m in marks)
@@ -430,7 +442,74 @@ namespace MisakTabs
             }
         }
 
-        public static bool silhouette = true;
+        public static int figMode;              // 0.7.0: 0 anatomy, 1 own silhouette, 2 portrait
+        private static HashSet<BodyPartRecord> partFilter;   // 0.7.0: a part of the anatomy figure clicked
+
+        private static void AnatomyFigure(Rect r, Pawn pawn)
+        {
+            // view chips
+            string[] names = { "MT_A_Parts".Translate(), "MT_A_Organs".Translate(), "MT_A_Bones".Translate() };
+            float cw = (r.width - 26f - 8f) / 3f;
+            for (int i = 0; i < 3; i++)
+            {
+                Rect c = new Rect(r.x + i * (cw + 4f), r.y, cw, 22f);
+                if (Look.Chip(c, names[i], (int)Anatomy.view == i)) { Anatomy.view = (Anatomy.View)i; SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(); }
+            }
+            Rect vb = new Rect(r.xMax - 22f, r.y, 22f, 22f);
+            if (Widgets.ButtonInvisible(vb)) { figMode = 1; SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(); }
+            Widgets.DrawBoxSolid(vb, Mouse.IsOver(vb) ? Look.Card2 : Look.Card);
+            Look.Text(vb, "◐", Muted, GameFont.Small, TextAnchor.MiddleCenter);
+            TooltipHandler.TipRegion(vb, "MT_A_ToSilhouette".Translate());
+
+            float legendH = 52f + (partFilter != null || region != null ? 30f : 0f);
+            Rect area = new Rect(r.x, r.y + 26f, r.width, r.height - 26f - legendH);
+            Rect fr = Anatomy.Draw(area, pawn, out List<BodyPartRecord> hover, out Vector2[] centres);
+
+            // marks: only what needs care now (bleeding, tending, a disease), pulsing when bleeding
+            foreach (Hediff h in Visible(pawn))
+            {
+                if (h.Part == null) continue;
+                Color c = Severity(pawn, h);
+                bool urgent = h.Bleeding || h.TendableNow() || (h.TryGetComp<HediffComp_Immunizable>() != null && !h.FullyImmune());
+                if (!urgent) continue;
+                Vector2 sp = Anatomy.SpotOf(h.Part, centres);
+                Vector2 p = new Vector2(fr.x + sp.x * fr.width, fr.y + sp.y * fr.height);
+                float s = h.Bleeding ? 9f + Mathf.PingPong(Time.realtimeSinceStartup * 8f, 4f) : 8f;
+                Rect mr = new Rect(p.x - s / 2f, p.y - s / 2f, s, s);
+                Widgets.DrawBoxSolid(mr.ExpandedBy(1.5f), new Color(0f, 0f, 0f, 0.85f));
+                Widgets.DrawBoxSolid(mr, h.Bleeding ? Look.Red : c);
+            }
+
+            // hover: what is there; click: only that in the list; right click: operations
+            if (hover != null && hover.Count > 0)
+            {
+                var here = new HashSet<BodyPartRecord>(hover);
+                var hs = Visible(pawn).Where(h => h.Part != null && here.Contains(h.Part)).ToList();
+                BodyPartRecord top = hover.OrderBy(x => x.depth == BodyPartDepth.Inside ? 1 : 0).ThenByDescending(x => x.coverageAbsWithChildren).First();
+                string tip = top.LabelCap;
+                string hp = PartHp(pawn, top);
+                if (hp != null) tip += "  " + hp;
+                if (hs.Count > 0) tip += "\n" + string.Join("\n", hs.Select(h => "• " + (h.Part != top ? h.Part.LabelCap + ": " : "") + h.LabelCap).Distinct().ToArray());
+                else tip += "\n" + "MT_A_Fine".Translate();
+                TooltipHandler.TipRegion(new Rect(Event.current.mousePosition.x - 2f, Event.current.mousePosition.y - 2f, 4f, 4f), tip + "\n\n" + "MT_H_MarkTip".Translate());
+                if (RightClick(fr)) PartMenu(pawn, hover.Where(x => !pawn.health.hediffSet.PartIsMissing(x) || x == top).Distinct().ToList());
+                else if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && Mouse.IsOver(fr))
+                {
+                    Event.current.Use();
+                    bool same = partFilter != null && partFilter.SetEquals(here);
+                    partFilter = same ? null : here;
+                    region = null;
+                    listScroll = Vector2.zero;
+                    SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+                }
+            }
+
+            float y = r.yMax - legendH + 4f;
+            y += Anatomy.Legend(new Rect(r.x, y, r.width, 50f)) + 4f;
+            if (partFilter != null || region != null)
+                if (Look.Button(new Rect(r.x + 10f, r.yMax - 28f, r.width - 20f, 24f), "MT_H_ShowAllParts".Translate()))
+                { partFilter = null; region = null; }
+        }
         public static bool opsMode;            // 0.4.0: our own operations view
 
         public static void FigureForOps(Rect r, Pawn pawn) => Figure(r, pawn);
@@ -570,12 +649,14 @@ namespace MisakTabs
         // ---------- right: conditions by body part ----------
         private static void Conditions(Rect r, Pawn pawn)
         {
-            Look.Text(new Rect(r.x, r.y, r.width - 140f, 20f), region == null ? "MT_H_Conditions".Translate() : "MT_H_ConditionsHere".Translate(), Muted, GameFont.Tiny);
+            Look.Text(new Rect(r.x, r.y, r.width - 140f, 20f), region == null && partFilter == null ? "MT_H_Conditions".Translate() : "MT_H_ConditionsHere".Translate(), Muted, GameFont.Tiny);
             if (Look.Chip(new Rect(r.xMax - 130f, r.y, 130f, 20f), "MT_H_ShowAll".Translate(), showAll)) showAll = !showAll;
             var groups = Visible(pawn).GroupBy(h => h.Part)
                 .OrderByDescending(g => g.Key == null ? 9999999f : (int)g.Key.height * 10000 + g.Key.coverageAbsWithChildren).ToList();
             if (region != null)
                 groups = groups.Where(g => g.Key != null && Key(pawn, g.Key) == region).ToList();
+            if (partFilter != null)
+                groups = groups.Where(g => g.Key != null && partFilter.Contains(g.Key)).ToList();
 
             Rect outR = new Rect(r.x, r.y + 26f, r.width, r.height - 26f);
             float h = 0f;

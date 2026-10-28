@@ -40,14 +40,16 @@ namespace MisakTabs
 
     public class MTMod : Mod
     {
-        public const string Version = "0.6.0";
+        public const string Version = "0.7.0";
         public static MTSettings S;
         public static Harmony H;
+        public static ModContentPack Pack;   // 0.7.0
         private static List<string> recBullets;
 
         public MTMod(ModContentPack content) : base(content)
         {
             S = GetSettings<MTSettings>();
+            Pack = content;
             MUI.Init(new MTSettings(), null, "recommended", "billsW", "billsH", "billsLeft", "healthW", "healthH");
             if (S.recommended) MUI.ApplyAll(S);
             MNews.Register(content, Version);
