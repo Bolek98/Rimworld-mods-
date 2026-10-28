@@ -908,7 +908,9 @@ public sealed partial class SupplyManager : MapComponent
 		return n.Contains("anima") || n.Contains("gauranlen") || n.Contains("polux") || n.Contains("harbinger");
 	}
 
-	public static bool DefaultForage(ThingDef plant) => plant.plant.harvestedThingDef != null && plant.plant.harvestedThingDef.IsNutritionGivingIngestible;
+	// 1.0.5: sowable crops (rice, potatoes, corn …) are not foraging by default – their harvest from your
+	// fields counted as forage stock, so a full barn of rice meant "enough" and wild berries were never marked
+	public static bool DefaultForage(ThingDef plant) => plant.plant.harvestedThingDef != null && plant.plant.harvestedThingDef.IsNutritionGivingIngestible && !plant.plant.Sowable;
 
 	// Animals: wild ones on this map and those of this biome.
 	public List<ThingDef> AnimalChoices()
