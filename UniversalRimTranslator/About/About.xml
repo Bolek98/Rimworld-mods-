@@ -19,17 +19,80 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>Translates your mods into your language, right in the game – Workshop and local mods, from and into many languages.
+  <description>Universal RimTranslator translates all your mods into your language, right in the game – Workshop and local mods, into any language RimWorld supports. No key needed, nothing to set up.
 
-- Scans Defs, Keyed texts and strings of every mod and translates what is missing in your language.
-- Translations are written straight into the running game; no files in other mods are changed.
-- Names, placeholders ({0}, {PAWN_name}), colour tags and line breaks are protected; texture paths and defNames are never translated.
-- Everything is cached, so each text is translated only once.
-- Several translation services can be chained; rate limits are respected.
-- Manual corrections of any text are kept.
-- Optional offline mode (memory only), and newly added mods can wait until you let them be translated.
-- "Translate everything now": one click retries, rescans and translates everything that is missing, with progress and diagnostics.
-- Import translations from Auto Translation, and share your translations as packs (.tsv).
+WHAT IT TRANSLATES
+- Def texts (labels, descriptions, messages, grammar rules) and Keyed texts of every mod – only what is missing in your language.
+- Texts that mods write in code: messages, letters, buttons, tooltips and info lines – translated live where they are drawn, the texts on your screen first.
+- Half-translated texts too ("Mine kus břidlice" → the English rest is translated).
+- Names of colonists, factions, races, places and mods stay as they are. Placeholders ({0}, {PAWN_name}), [grammar tokens], colour tags, defNames and paths are protected.
 
-Note: machine translation uses online translation services; texts of your mods are sent to them.</description>
+TRANSLATION SERVICES
+- Free, without a key: Microsoft Edge, Yandex, Google, MyMemory – with automatic fallback when one fails.
+- With your own key (optional): DeepL, Azure, Google Cloud, Gemini, OpenAI-compatible AI (also local Ollama / LM Studio), LibreTranslate. Every service has a Test button that shows the real error.
+- Every translation is checked (lost placeholders, broken tokens, wrong language, cut text) – a broken one is never used.
+
+YOUR CONTROL
+- Editor: find any text by original or translation and write your own version. Alt + right click on a text in the game opens it directly. Your own texts are never replaced.
+- My words: "colonist" → your word, used in every translation.
+- Mods tab: how much of each mod is translated; untick a mod to keep it in English; export a translation as a normal Languages folder for the mod's author.
+- Check tab: machine translations that look wrong, with one-click fixes.
+- "Translate everything now", import from Auto Translation, translation packs (.tsv) to share, offline mode (memory only).
+
+FAST
+- Everything is remembered – each text is translated only once.
+- The scan of all texts is cached and runs in the background; no long wait at start.
+
+Note: machine translation sends the texts of your mods to the chosen online services. Your keys stay in your settings and are never shown in the log.
+Found a problem? Use "Report a bug" (bottom left in the mod settings): a short report for a Workshop comment, a full one for GitHub Issues.
+
+—————————————————————
+ČESKY
+—————————————————————
+
+Universal RimTranslator přeloží všechny tvoje mody do tvého jazyka přímo ve hře – z Workshopu i místní, do jakéhokoli jazyka, který RimWorld umí. Bez klíče, nic se nenastavuje.
+
+CO PŘEKLÁDÁ
+- Texty v Defs (názvy, popisy, zprávy, gramatická pravidla) a Keyed texty všech modů – jen to, co ve tvém jazyce chybí.
+- Texty, které mody píšou v kódu: zprávy, dopisy, tlačítka, popisky a info řádky – překládané živě tam, kde se kreslí, texty na obrazovce první.
+- I napůl přeložené texty („Mine kus břidlice“ → přeloží se anglický zbytek).
+- Jména kolonistů, frakcí, ras, míst a modů zůstávají. Zástupné znaky ({0}, {PAWN_name}), [gramatické tokeny], barvy, defName a cesty jsou chráněné.
+
+PŘEKLADOVÉ SLUŽBY
+- Zdarma bez klíče: Microsoft Edge, Yandex, Google, MyMemory – když jedna selže, nastoupí další.
+- S vlastním klíčem (volitelně): DeepL, Azure, Google Cloud, Gemini, AI kompatibilní s OpenAI (i místní Ollama / LM Studio), LibreTranslate. Každá služba má tlačítko Test se skutečnou chybou.
+- Každý překlad se kontroluje (ztracené zástupné znaky, rozbité tokeny, špatný jazyk, useknutý text) – rozbitý se nikdy nepoužije.
+
+MÁŠ TO POD KONTROLOU
+- Editor: najdi jakýkoli text podle originálu nebo překladu a napiš vlastní verzi. Alt + pravý klik na text ve hře ho rovnou otevře. Tvoje texty se nikdy nepřepíšou.
+- Moje slova: „colonist“ → tvoje slovo, v každém překladu.
+- Záložka Mody: kolik je z každého modu přeloženo; odškrtni mod a zůstane anglicky; export překladu jako běžné složky Languages pro autora modu.
+- Záložka Kontrola: strojové překlady, které vypadají špatně, s opravou jedním klikem.
+- „Přeložit vše teď“, import z Auto Translation, balíčky překladů (.tsv) ke sdílení, offline režim (jen paměť).
+
+RYCHLÝ
+- Vše se pamatuje – každý text se překládá jen jednou.
+- Prohledání textů se ukládá a běží na pozadí; žádné dlouhé čekání při startu.
+
+Pozor: strojový překlad posílá texty tvých modů zvoleným online službám. Tvoje klíče zůstávají v nastavení a v logu se nikdy neukazují.
+Problém? Tlačítko „Nahlásit chybu“ (vlevo dole v nastavení modu): krátké hlášení do komentáře na Workshopu, celé na GitHub Issues.
+
+═══════════════════════
+IDEAS AND SUGGESTIONS
+Want something changed or added? Write it in the comments – I read every idea and take it into account.
+
+WHAT'S NEW IN 2.6.4
+- New Universal RimTranslator 2, rewritten from scratch
+- Live translation of texts made in code, screen texts first
+- Editor, My words, Mods and Check tabs
+- Free services without a key, optional DeepL / Azure / Gemini / AI
+
+NÁPADY A NÁVRHY
+Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
+
+CO JE NOVÉHO VE VERZI 2.6.4
+- Nový Universal RimTranslator 2, napsaný úplně znovu
+- Živý překlad textů z kódu, texty na obrazovce první
+- Editor, Moje slova, záložky Mody a Kontrola
+- Služby zdarma bez klíče, volitelně DeepL / Azure / Gemini / AI</description>
 </ModMetaData>
