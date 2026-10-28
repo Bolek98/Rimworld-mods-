@@ -15,6 +15,10 @@ Fixes
 - The error doctor no longer stops on some error lines.
 
 === Development history since the last Workshop release (test versions) ===
+1.6.1
+- Fix (1.7): doors, icons and furniture pictures went blank again. The check "is this RimWorld 1.7?" used by the texture limit never recognised 1.7, so oversized mod pictures were still made smaller on 1.7 and the 1.7 engine lost them. One shared check now (game version, engine, runtime) is used by the texture limit and the memory clean-ups, and the log says which mode is on.
+- The log names the first picture the texture limit makes smaller (on 1.6).
+
 1.6.0
 - Rain washes the filth away (Simulation tab, both off by default): "Call rain when there is too much filth outside" – when your home maps have more outdoor filth than the limit (300–5000, default 1500), it is not raining and it is above 0 °C, a rain your biome knows starts (at most once in 2 days, never over weather forced by an event). "Rain washes all outdoor filth" – rain thins every kind of filth outdoors, not only the kinds the game lets it wash. Filth indoors is never touched.
 - Opt-out rules for other mods: a mod can list pawn kinds, conditions (hediffs), things and world objects that Smooth FPS must never slow down – as a def (SmoothFPS.ExclusionDef with pawnKinds / hediffs / worldObjects / thingDefs lists of defNames) or as a file Extras/SmoothFPSRules.xml (root element SmoothFPSRules, same lists). Those keep the game's own tick rate, world pawns with such conditions are not put to sleep, and such colonists' job searches are never put off.
