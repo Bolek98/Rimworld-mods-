@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+2.6.4
+- Live translation is faster: texts on the screen go to the translation services first in their own small batch instead of waiting behind long batches of game texts, and game texts go in smaller batches so new screen texts get their turn within seconds. Up to 400 new screen texts a minute (was 120).
+- Live translation catches more: modded texts with many own terms (60 % English words instead of 70 %) and texts that are mostly English with a few words already in your language are translated too.
+
 2.6.3
 - The Azure test writes the length and a short fingerprint of the key it uses to Logs\URT.log (never the key itself), so you can check it is the same key that works elsewhere.
 

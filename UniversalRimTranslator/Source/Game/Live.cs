@@ -40,7 +40,7 @@ namespace UniversalRimTranslator
         private static float lastBump;
         private static int queuedThisMinute;
         private static float minuteStart;
-        private const int MaxPending = 5000, PerMinute = 120, CacheMax = 40000, MaxLen = 600;
+        private const int MaxPending = 5000, PerMinute = 400, CacheMax = 40000, MaxLen = 600;   // 2.6.4: 120 → 400 a minute
         private static string collectorPath;
         private static readonly object fileGate = new object();
 
@@ -251,6 +251,14 @@ namespace UniversalRimTranslator
                     if (collect) Collect(tpl);
                     return e;
                 }
+                // 2.6.4: mostly English with a few words of the game language
+                if (numCount >= 0 && HasForeign(core) && MostlyEnglish(core))
+                {
+                    string mt2 = Runtime.Store?.Use(key);
+                    if (mt2 != null) { e.Out = mt2; Shown++; return e; }
+                    if (collect) Collect(key);
+                    return e;
+                }
                 e.Collected = true;
                 return e;      // never worth collecting
             }
@@ -297,7 +305,25 @@ namespace UniversalRimTranslator
                 if (vocab.Contains(w.ToLowerInvariant())) known++;
             }
             if (words == 0 || known == 0) return false;
-            return known * 10 >= words * 7;
+            // 2.6.4: 60 % known English words (was 70 %) – modded texts with many own terms were left out
+            return known * 10 >= words * 6;
+        }
+
+        // 2.6.4: a text that is mostly English with a few words of the game language that are not
+        // known labels ("Hauling 25 dřevo to stockpile"): the whole text is sent – the services keep
+        // the words that are already in the target language
+        private static bool MostlyEnglish(string s)
+        {
+            if (Protect.LooksLikeNonText(s) || Protect.IsRule(s) || s.EndsWith("...") || s.EndsWith("\u2026") || Junk.IsMatch(s)) return false;
+            int words = 0, english = 0;
+            foreach (Match m in AnyWord.Matches(StripTags(s)))
+            {
+                words++;
+                string w = m.Value;
+                if (char.IsUpper(w[0]) && nameWords.Contains(w)) continue;
+                if (vocab.Contains(w.ToLowerInvariant())) english++;
+            }
+            return english >= 3 && english * 10 >= words * 7;
         }
 
         // ---------------- 2.4.0: half-translated texts ----------------

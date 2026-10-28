@@ -422,7 +422,11 @@ namespace UniversalRimTranslator
                     if (UniversalRimTranslatorMod.Settings.offlineOnly) { Phase = "offline – memory only"; wake.WaitOne(5000); continue; }
                     Live.Flush();
                     Live.Prune(k => Store.NeedsTranslation(k) && !(giveUp.TryGetValue(k, out int gg) && gg >= 3));
-                    List<string> todo = Pending(200);
+                    // 2.6.4: texts on the screen go first in their own small batch – they no longer wait
+                    // behind a long batch of game texts; game texts go in smaller batches so new screen
+                    // texts get their turn within seconds
+                    List<string> todo = LivePending(40);
+                    if (todo.Count == 0) todo = Pending(80);
                     if (todo.Count == 0)
                     {
                         PendingCached = 0;
@@ -491,6 +495,13 @@ namespace UniversalRimTranslator
         }
 
         private static List<string> Pending(int max) => PendingSources().Take(max).ToList();
+
+        // 2.6.4: only the texts collected on the screen
+        private static List<string> LivePending(int max)
+        {
+            if (!Live.On || Live.Pending.IsEmpty) return new List<string>();
+            return Live.Pending.Keys.Where(k => Store.NeedsTranslation(k) && !(giveUp.TryGetValue(k, out int g) && g >= 3)).Take(max).ToList();
+        }
 
         // counted by the translator thread (counting every frame in the settings window would be slow)
         public static volatile int PendingCached;
