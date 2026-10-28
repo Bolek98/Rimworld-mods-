@@ -44,4 +44,19 @@
   <AT_NoHitBuildings_Desc>Activé : les balles de tes tourelles passent à côté de tes propres bâtiments (murs, sacs de sable, portes…) sauf si tu les vises, et les explosions de leurs obus ne les endommagent pas. Les bâtiments ennemis sont touchés normalement. Désactivé = comme dans le jeu.</AT_NoHitBuildings_Desc>
   <AT_WallOutward>Les tourelles murales tirent seulement vers l'extérieur</AT_WallOutward>
   <AT_WallOutward_Desc>Une tourelle dans un mur ne tire que sur les cibles du côté extérieur de son mur (à l'opposé de la pièce). Si aucun côté n'est clairement dehors (mur entre deux pièces), elle tire partout.</AT_WallOutward_Desc>
+  <AT_TabTurrets>Tourelles</AT_TabTurrets>
+  <AT_TurretsDesc>Les tourelles et mortiers cochés tirent seuls. Décochez ceux qui doivent toujours avoir besoin d'un colon (par exemple les gros canons que vous voulez viser vous-même).</AT_TurretsDesc>
+  <AT_TurretsNone>Aucune tourelle ici n'a besoin d'un colon.</AT_TurretsNone>
+  <AT_TurretsCount>{0} sur {1} tirent seuls</AT_TurretsCount>
+  <AT_FuelEdit>Matériaux…</AT_FuelEdit>
+  <AT_FuelPerTurret>Les matériaux de chaque tourelle – aussi celles qui ont besoin de leurs propres munitions ou carburant d'un mod. Cliquez sur « Matériaux… » et cochez ce qui peut aussi servir à les recharger. Effet immédiat.</AT_FuelPerTurret>
+  <AT_FuelNone>Aucune tourelle ici ne se recharge.</AT_FuelNone>
+  <AT_FuelTakes>prend : {0}</AT_FuelTakes>
+  <AT_FuelOriginal>Prend de base : {0}. Cochez ce qui peut aussi servir à la recharger :</AT_FuelOriginal>
+  <AT_FuelOrig>d'origine</AT_FuelOrig>
+  <AT_FuelGroup0>Métaux</AT_FuelGroup0>
+  <AT_FuelGroup1>Bois</AT_FuelGroup1>
+  <AT_FuelGroup2>Blocs de pierre</AT_FuelGroup2>
+  <AT_FuelGroup3>Munitions et obus</AT_FuelGroup3>
+  <AT_FuelGroup4>Autres ressources</AT_FuelGroup4>
 </LanguageData>

@@ -26,6 +26,8 @@ namespace AutoTurrets
 		public bool smartShells = true;      // 1.3.1: auto mortars pick targets that suit the loaded shell, haulers pick shells that suit the enemy
 		public bool noHitBuildings = false;  // 1.3.1: true = your turrets' bullets and shell blasts spare your own buildings
 		public bool wallTurretsOutward = true; // 1.4.0: turrets in walls only shoot at targets on the outer side of the wall
+		public Dictionary<string, bool> autoPick = new Dictionary<string, bool>();   // 1.5.0: turrets that should NOT fire alone (false); missing = yes
+		public List<string> fuelExtra = new List<string>();  // 1.5.0: "turretDef|thingDef" – extra materials a turret is rearmed with
 
 		public override void ExposeData()
 		{
@@ -44,6 +46,10 @@ namespace AutoTurrets
 			Scribe_Values.Look(ref noHitBuildings, "noHitBuildings", false);
 			Scribe_Values.Look(ref wallTurretsOutward, "wallTurretsOutward", true);
 			Scribe_Collections.Look(ref wallPick, "wallPick", LookMode.Value, LookMode.Value);
+			Scribe_Collections.Look(ref autoPick, "autoPick", LookMode.Value, LookMode.Value);
+			Scribe_Collections.Look(ref fuelExtra, "fuelExtra", LookMode.Value);
+			if (autoPick == null) autoPick = new Dictionary<string, bool>();
+			if (fuelExtra == null) fuelExtra = new List<string>();
 			if (Scribe.mode == LoadSaveMode.PostLoadInit && wallPick == null)
 				wallPick = new Dictionary<string, bool>();
 		}
@@ -71,6 +77,7 @@ namespace AutoTurrets
 			{
 				new TabRecord("AT_SecShooting".Translate(), () => tab = 0, tab == 0),
 				new TabRecord("AT_SecMaterials".Translate(), () => tab = 1, tab == 1),
+				new TabRecord("AT_TabTurrets".Translate(), () => tab = 3, tab == 3),
 				new TabRecord("AT_WallTurrets".Translate(), () => tab = 2, tab == 2),
 			};
 			Widgets.DrawMenuSection(body);
@@ -81,6 +88,8 @@ namespace AutoTurrets
 
 			if (tab == 2)
 				WallTurrets.DrawPage(inner);
+			else if (tab == 3)
+				TurretPage.DrawTurrets(inner);
 			else
 			{
 				var l = new Listing_Standard { maxOneColumn = true };
@@ -106,10 +115,13 @@ namespace AutoTurrets
 					l.CheckboxLabeled("AT_AllowSilver".Translate(), ref S.allowSilver);
 					l.CheckboxLabeled("AT_FuelWood".Translate(), ref S.fuelWood, "AT_FuelWood_Desc".Translate());
 					l.CheckboxLabeled("AT_FuelStone".Translate(), ref S.fuelStone, "AT_FuelStone_Desc".Translate());
-					l.Gap(6f);
-					Small(l, "AT_Restart".Translate());
+					l.Gap(4f);
 				}
+				float used = l.CurHeight;
 				l.End();
+				// 1.5.0: every turret's materials, also turrets that need their own ammo
+				if (tab == 1)
+					TurretPage.DrawMaterials(new Rect(inner.x, inner.y + used + 4f, inner.width, inner.height - used - 4f));
 			}
 			if (restart)
 			{
@@ -144,6 +156,7 @@ namespace AutoTurrets
 		public override void WriteSettings()
 		{
 			base.WriteSettings();
+			try { TurretPage.ApplyFuel(false); } catch (Exception e) { Log.Warning("[Auto Turrets] materials: " + e.Message); }
 			if (Current.ProgramState == ProgramState.Playing && Find.Maps != null)
 				foreach (Map m in Find.Maps)
 					foreach (Building b in m.listerBuildings.allBuildingsColonist.ToList())
@@ -173,6 +186,9 @@ namespace AutoTurrets
 		public static bool Wants(Building_TurretGun t)
 		{
 			if (ATMod.S == null || t.Faction != Faction.OfPlayer || t.GetComp<CompMannable>() == null)
+				return false;
+			// 1.5.0: turrets you chose to keep manned
+			if (!TurretPage.AutoOn(t.def))
 				return false;
 			return IsMortar(t) ? ATMod.S.autoMortars : ATMod.S.autoManned;
 		}
@@ -388,37 +404,10 @@ namespace AutoTurrets
 		private static bool Cat(ThingDef d, StuffCategoryDef c) =>
 			c != null && d.stuffProps?.categories != null && d.stuffProps.categories.Contains(c) && !d.IsCorpse && !d.destroyOnDrop;
 
-		private static void Run()
-		{
-			ATSettings s = ATMod.S;
-			if (s == null || (!s.anyMetal && !s.fuelWood && !s.fuelStone))
-				return;
-			// 1.1.0: besides any metal also wood and/or stone blocks, as you choose
-			List<ThingDef> metals = DefDatabase<ThingDef>.AllDefsListForReading
-				.Where(d => d.category == ThingCategory.Item && (
-					(s.anyMetal && Metal(d) && (s.allowSilver || d != ThingDefOf.Silver))
-					|| (s.fuelWood && Cat(d, StuffCategoryDefOf.Woody))
-					|| (s.fuelStone && Cat(d, StuffCategoryDefOf.Stony))))
-				.ToList();
-			int n = 0;
-			foreach (ThingDef def in DefDatabase<ThingDef>.AllDefsListForReading)
-			{
-				if (def.thingClass == null || !typeof(Building_Turret).IsAssignableFrom(def.thingClass) || def.comps == null)
-					continue;
-				foreach (CompProperties cp in def.comps)
-				{
-					if (!(cp is CompProperties_Refuelable rp) || rp.fuelFilter == null)
-						continue;
-					List<ThingDef> allowed = rp.fuelFilter.AllowedThingDefs.ToList();
-					if (allowed.Count == 0 || !allowed.All(Metal))
-						continue;
-					foreach (ThingDef m in metals)
-						rp.fuelFilter.SetAllow(m, true);
-					n++;
-				}
-			}
-			Log.Message("[Auto Turrets] " + n + " turrets take any metal (" + metals.Count + " metals).");
-		}
+		private static void Run() => TurretPage.ApplyFuel(true);
+
+		public static bool IsMetal(ThingDef d) => Metal(d);
+		public static bool IsCat(ThingDef d, StuffCategoryDef c) => Cat(d, c);
 	}
 
 	// 1.1.0: friendly fire switch – with it off, bullets from your turrets fly past your own people and allies,

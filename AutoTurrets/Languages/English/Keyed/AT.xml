@@ -44,4 +44,19 @@
   <AT_NoHitBuildings_Desc>When on, bullets from your turrets fly past your own buildings (walls, sandbags, doors…) unless you aimed at them, and blasts from their shells don't damage them. Enemy buildings are hit as usual. Off = like the game.</AT_NoHitBuildings_Desc>
   <AT_WallOutward>Wall turrets shoot only outward</AT_WallOutward>
   <AT_WallOutward_Desc>A turret in a wall only shoots at targets on the outer side of its wall (away from the room). If neither side is clearly outside (a wall between two rooms), it shoots everywhere.</AT_WallOutward_Desc>
+  <AT_TabTurrets>Turrets</AT_TabTurrets>
+  <AT_TurretsDesc>Ticked turrets and mortars fire on their own. Untick the ones that should keep needing a colonist (for example big guns you want to aim yourself).</AT_TurretsDesc>
+  <AT_TurretsNone>No turret here needs a colonist.</AT_TurretsNone>
+  <AT_TurretsCount>{0} of {1} fire on their own</AT_TurretsCount>
+  <AT_FuelEdit>Materials…</AT_FuelEdit>
+  <AT_FuelPerTurret>Each turret's materials – also turrets that need their own ammo or fuel from a mod. Click "Materials…" and tick what else it may be rearmed with. Changes work right away.</AT_FuelPerTurret>
+  <AT_FuelNone>No turret here is rearmed.</AT_FuelNone>
+  <AT_FuelTakes>takes: {0}</AT_FuelTakes>
+  <AT_FuelOriginal>Takes by itself: {0}. Tick what else it may be rearmed with:</AT_FuelOriginal>
+  <AT_FuelOrig>its own</AT_FuelOrig>
+  <AT_FuelGroup0>Metals</AT_FuelGroup0>
+  <AT_FuelGroup1>Wood</AT_FuelGroup1>
+  <AT_FuelGroup2>Stone blocks</AT_FuelGroup2>
+  <AT_FuelGroup3>Ammo and shells</AT_FuelGroup3>
+  <AT_FuelGroup4>Other resources</AT_FuelGroup4>
 </LanguageData>

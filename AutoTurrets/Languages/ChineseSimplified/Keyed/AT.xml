@@ -44,4 +44,19 @@
   <AT_NoHitBuildings_Desc>开启时，你的炮塔子弹会绕过你自己的建筑（墙、沙袋、门……），除非你瞄准它们，炮弹爆炸也不会损坏它们。敌方建筑照常被击中。关闭 = 与游戏相同。</AT_NoHitBuildings_Desc>
   <AT_WallOutward>墙内炮塔只向外射击</AT_WallOutward>
   <AT_WallOutward_Desc>墙内的炮塔只射击墙外侧（远离房间一侧）的目标。如果没有哪一侧明显在室外（两个房间之间的墙），则向所有方向射击。</AT_WallOutward_Desc>
+  <AT_TabTurrets>炮塔</AT_TabTurrets>
+  <AT_TurretsDesc>勾选的炮塔和迫击炮会自动开火。取消勾选的仍需要殖民者操作（例如你想亲自瞄准的大炮）。</AT_TurretsDesc>
+  <AT_TurretsNone>这里没有需要殖民者操作的炮塔。</AT_TurretsNone>
+  <AT_TurretsCount>{0} / {1} 自动开火</AT_TurretsCount>
+  <AT_FuelEdit>材料…</AT_FuelEdit>
+  <AT_FuelPerTurret>每个炮塔的材料——也包括需要模组专用弹药或燃料的炮塔。点击"材料…"并勾选它还能用什么补给。更改立即生效。</AT_FuelPerTurret>
+  <AT_FuelNone>这里没有需要补给的炮塔。</AT_FuelNone>
+  <AT_FuelTakes>使用：{0}</AT_FuelTakes>
+  <AT_FuelOriginal>原本使用：{0}。勾选它还能用什么补给：</AT_FuelOriginal>
+  <AT_FuelOrig>原有</AT_FuelOrig>
+  <AT_FuelGroup0>金属</AT_FuelGroup0>
+  <AT_FuelGroup1>木材</AT_FuelGroup1>
+  <AT_FuelGroup2>石砖</AT_FuelGroup2>
+  <AT_FuelGroup3>弹药和炮弹</AT_FuelGroup3>
+  <AT_FuelGroup4>其他资源</AT_FuelGroup4>
 </LanguageData>

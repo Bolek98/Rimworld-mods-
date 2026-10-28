@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Auto Turrets</name>
+  <name>Auto Turrets – Manned Turrets &amp; Mortars Fire on Their Own</name>
   <author>Bolek98</author>
   <packageId>bolek98.autoturrets</packageId>
-  <modVersion>1.4.0</modVersion>
+  <modVersion>1.5.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -18,7 +18,7 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>Every turret, mortar and gun emplacement – vanilla and from any mod – works without a colonist.
+  <description>No more colonists stuck behind a mortar or a manned gun: every turret, mortar and gun emplacement – vanilla and from any mod – fires on its own, gets its shells brought by haulers and never hits your own people.
 
 - Manned turrets shoot on their own: turrets that normally need a colonist fire automatically, like a mini-turret. You can still pick a target by hand.
 - Mortars fire on their own while a shell is loaded.
@@ -30,8 +30,23 @@
 - Optional: your turrets don't hit your own buildings (walls, sandbags…) – bullets fly past them and shell blasts spare them.
 - Turrets in walls (optional, off by default): pick turrets in the settings and they get a version that is built straight over a wall and works as a wall itself – blocks the way, holds the roof, keeps the room sealed. Small turrets are recommended.
 - Turrets in walls shoot only outward – at targets on the outer side of their wall (option, on by default).
+- Pick which turrets fire on their own – keep the big guns you want to aim yourself manned.
+- Materials for every turret: tick what each turret may be rearmed with – also modded turrets that need their own ammo or fuel.
 
 Only your own turrets change – enemy siege mortars still need their crew. Every part can be switched in the mod settings. Safe to add to an existing save. Requires Harmony. 12 languages.
+
+
+简体中文：所有需要人操作的炮塔和迫击炮（原版和模组）都能自动开火，搬运工会送炮弹，可关闭友军误伤，每个炮塔可选择补给材料。
+
+Русский: все турели и миномёты, которым нужен колонист (ванильные и из модов), стреляют сами, снаряды подносят носильщики, огонь по своим можно отключить, для каждой турели можно выбрать материалы перезарядки.
+
+한국어: 정착민이 필요한 모든 포탑과 박격포(바닐라와 모드)가 스스로 사격하고, 운반꾼이 포탄을 가져다주며, 아군 오사를 끌 수 있고, 포탑마다 보급 재료를 고를 수 있습니다.
+
+日本語：人手が必要なタレットと迫撃砲（バニラもMODも）がすべて自動で射撃し、運搬係が砲弾を運び、味方への誤射をオフにでき、タレットごとに補給素材を選べます。
+
+Deutsch: Alle bemannten Geschütze und Mörser (Vanilla und aus Mods) feuern von selbst, Träger bringen Granaten, Eigenbeschuss lässt sich abschalten, und für jedes Geschütz wählst du die Nachlade-Materialien.
+
+Español: todas las torretas y morteros que necesitan un colono (vanilla y de mods) disparan solos, los porteadores traen proyectiles, el fuego amigo se puede desactivar y eliges los materiales de recarga de cada torreta.
 
 ---
 
@@ -47,6 +62,8 @@ Každá věž, minomet a dělo – z vanilly i z jakéhokoli modu – funguje be
 - Volitelně: tvoje věže nezasáhnou tvé vlastní budovy (zdi, pytle s pískem…) – střely je minou a výbuchy granátů je ušetří.
 - Věže ve zdi (volitelné, ve výchozím stavu vypnuto): vyber věže v nastavení a dostanou verzi, která se staví rovnou přes zeď a sama funguje jako zeď – nedá se jí projít, drží střechu a místnost zůstane uzavřená. Doporučené jsou malé věže.
 - Věže ve zdi střílí jen ven – na cíle na vnější straně své zdi (volba, ve výchozím stavu zapnutá).
+- Vyber, které věže střílí samy – velká děla, která chceš mířit sám, můžou dál potřebovat kolonistu.
+- Materiály pro každou věž: zaškrtni, čím se která věž smí dobíjet – i věže z modů, které potřebují vlastní náboje nebo palivo.
 
 Mění se jen tvoje věže – nepřátelské obléhací minomety dál potřebují obsluhu. Každou část lze přepnout v nastavení modu. Lze bezpečně přidat do rozehrané hry. Vyžaduje Harmony. 12 jazyků.</description>
 </ModMetaData>

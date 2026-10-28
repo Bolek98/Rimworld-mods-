@@ -44,4 +44,19 @@
   <AT_NoHitBuildings_Desc>켜면 포탑의 총알이 직접 조준하지 않는 한 내 건물(벽, 모래주머니, 문…)을 지나쳐 가고 포탄 폭발도 건물을 손상시키지 않습니다. 적 건물은 평소처럼 맞습니다. 끄기 = 게임과 동일.</AT_NoHitBuildings_Desc>
   <AT_WallOutward>벽 포탑은 바깥쪽으로만 사격</AT_WallOutward>
   <AT_WallOutward_Desc>벽 안의 포탑은 벽 바깥쪽(방 반대편)의 대상에게만 사격합니다. 어느 쪽도 확실히 바깥이 아니면(두 방 사이의 벽) 모든 방향으로 사격합니다.</AT_WallOutward_Desc>
+  <AT_TabTurrets>포탑</AT_TabTurrets>
+  <AT_TurretsDesc>체크한 포탑과 박격포는 스스로 사격합니다. 계속 정착민이 필요하게 할 것(직접 조준하고 싶은 큰 포 등)은 체크를 해제하세요.</AT_TurretsDesc>
+  <AT_TurretsNone>정착민이 필요한 포탑이 없습니다.</AT_TurretsNone>
+  <AT_TurretsCount>{1}개 중 {0}개 자동 사격</AT_TurretsCount>
+  <AT_FuelEdit>재료…</AT_FuelEdit>
+  <AT_FuelPerTurret>각 포탑의 재료 – 모드 전용 탄약이나 연료가 필요한 포탑도 포함. "재료…"를 눌러 추가로 보급에 쓸 수 있는 것을 체크하세요. 바로 적용됩니다.</AT_FuelPerTurret>
+  <AT_FuelNone>보급이 필요한 포탑이 없습니다.</AT_FuelNone>
+  <AT_FuelTakes>사용: {0}</AT_FuelTakes>
+  <AT_FuelOriginal>기본 재료: {0}. 추가로 보급에 쓸 수 있는 것을 체크하세요:</AT_FuelOriginal>
+  <AT_FuelOrig>기본</AT_FuelOrig>
+  <AT_FuelGroup0>금속</AT_FuelGroup0>
+  <AT_FuelGroup1>나무</AT_FuelGroup1>
+  <AT_FuelGroup2>석재 블록</AT_FuelGroup2>
+  <AT_FuelGroup3>탄약과 포탄</AT_FuelGroup3>
+  <AT_FuelGroup4>기타 자원</AT_FuelGroup4>
 </LanguageData>
