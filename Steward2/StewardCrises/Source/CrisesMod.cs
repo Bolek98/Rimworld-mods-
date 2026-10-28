@@ -547,13 +547,21 @@ public static class SafeArea
 			st.safePawns.Clear();
 			st.safeOldArea.Clear();
 			st.safeActive = true;
-			foreach (Pawn p in map.mapPawns.FreeColonistsSpawned.ToList())
+			foreach (Pawn p in Sheltered(map))
 			{
-				if (p.playerSettings == null || p.Drafted || p.GetLord() != null)
+				if (p.playerSettings == null || p.Drafted || p.GetLord() != null || !p.playerSettings.SupportsAllowedAreas)
 					continue;
 				st.safePawns.Add(p);
-				st.safeOldArea.Add(p.playerSettings.AreaRestrictionInPawnCurrentMap?.ID ?? -1);
+				Area old = p.playerSettings.AreaRestrictionInPawnCurrentMap;
+				st.safeOldArea.Add(old == null || old == area ? -1 : old.ID);   // 1.0.8: never the safe area itself
 				p.playerSettings.AreaRestrictionInPawnCurrentMap = area;
+				// 1.0.8: whoever is outside stops the job and goes in at once
+				try
+				{
+					if (!area[p.Position] && p.jobs?.curJob != null && !p.Downed && !p.InMentalState)
+						p.jobs.EndCurrentJob(Verse.AI.JobCondition.InterruptForced);
+				}
+				catch { }
 			}
 			Messages.Message("CF_SafeOn".Translate(st.safePawns.Count), MessageTypeDefOf.CautionInput, historical: false);
 		}
@@ -572,11 +580,53 @@ public static class SafeArea
 				p.playerSettings.AreaRestrictionInPawnCurrentMap = id < 0 ? null : map.areaManager.AllAreas.FirstOrDefault(a => a.ID == id);
 				n++;
 			}
+			n += Heal(map, area);
 			st.safePawns.Clear();
 			st.safeOldArea.Clear();
 			st.safeActive = false;
 			if (n > 0)
 				Messages.Message("CF_SafeOff".Translate(n), MessageTypeDefOf.PositiveEvent, historical: false);
+		}
+		else if (!threat && !st.safeActive && Find.TickManager.TicksGame % 2500 < 250)
+		{
+			// 1.0.8: nobody may stay locked in the safe area after the danger (before, colonists could keep it
+			// for good – then they did not hunt, fetch food from outside or cook)
+			int n = Heal(map, Build(map, false));
+			if (n > 0)
+			{
+				MLog.Info("[Steward] safe area: " + n + " pawns still had it after the danger – freed.");
+				Messages.Message("CF_SafeOff".Translate(n), MessageTypeDefOf.PositiveEvent, historical: false);
+			}
+		}
+	}
+
+	private static int Heal(Map map, Area_Allowed area)
+	{
+		if (area == null)
+			return 0;
+		int n = 0;
+		foreach (Pawn p in map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer).ToList())
+		{
+			if (p.playerSettings == null || p.playerSettings.AreaRestrictionInPawnCurrentMap != area)
+				continue;
+			p.playerSettings.AreaRestrictionInPawnCurrentMap = null;
+			n++;
+		}
+		return n;
+	}
+
+	// 1.0.8: colonists and the colony's work mechs, robots and droids (not fighting mechs, not animals)
+	private static IEnumerable<Pawn> Sheltered(Map map)
+	{
+		foreach (Pawn p in map.mapPawns.FreeColonistsSpawned.ToList())
+			yield return p;
+		foreach (Pawn p in map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer).ToList())
+		{
+			if (p.Dead || p.IsColonist || p.RaceProps.Humanlike || p.RaceProps.Animal)
+				continue;
+			if (p.RaceProps.IsMechanoid && !p.RaceProps.IsWorkMech)
+				continue;   // fighting mechs fight
+			yield return p;
 		}
 	}
 

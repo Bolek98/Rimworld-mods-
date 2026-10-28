@@ -276,6 +276,9 @@ public static partial class CrisisRules
 			c |= Crisis.Medical;
 		if (Allowed(Crisis.Food) && colonists > 0 && d.foodDays < 2f)
 			c |= Crisis.Food;
+		// 1.0.8: plenty of raw food but almost no meals – cooks and hunters are needed just the same
+		else if (Allowed(Crisis.Food) && colonists > 0 && MapDemand.MealDays(map) < 0.75f)
+			c |= Crisis.Food;
 		if (Allowed(Crisis.Winter) && WinterComing(map, d))
 			c |= Crisis.Winter;
 		Try(ref c, Crisis.Weather, () => ExtremeWeather(map));

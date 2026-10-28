@@ -111,6 +111,27 @@ public sealed class MapDemand
 	// planner): human food in storage plus what lies in the home area, not
 	// forbidden and not rotten. Before, some parts counted only storage and
 	// a crisis could run with meals lying next to the stove.
+	// 1.0.8: days of cooked meals (raw rice does not feed a colony that eats meals)
+	public static float MealDays(Map map)
+	{
+		int eaters = Eaters(map);
+		if (eaters <= 0)
+			return 99f;
+		float sum = 0f;
+		Area_Home home = map.areaManager.Home;
+		List<Thing> list = map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree);
+		for (int i = 0; i < list.Count; i++)
+		{
+			Thing t = list[i];
+			if (!t.Spawned || t.def.ingestible == null || !t.def.ingestible.IsMeal || !t.def.ingestible.HumanEdible || t.IsForbidden(Faction.OfPlayer))
+				continue;
+			if (!t.IsInAnyStorage() && !home[t.Position])
+				continue;
+			sum += t.GetStatValue(StatDefOf.Nutrition) * t.stackCount;
+		}
+		return sum / (eaters * 1.6f);
+	}
+
 	public static float FoodNutrition(Map map)
 	{
 		float sum = 0f;
