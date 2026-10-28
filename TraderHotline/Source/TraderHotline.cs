@@ -44,7 +44,7 @@ namespace TraderHotline
 
     public class THMod : Mod
     {
-        public const string Version = "0.1.0";
+        public const string Version = "0.1.1";
         public static THSettings S;
         private static List<string> recBullets;
 
@@ -130,9 +130,23 @@ namespace TraderHotline
             calls.RemoveAll(c => c?.kind == null);
         }
 
+        // a called ship that vanishes long before its time was taken by another mod – say so in the log
+        private Map watchMap; private PassingShip watchShip; private int watchUntil;
+
+        public void Watch(Map map, PassingShip ship) { watchMap = map; watchShip = ship; watchUntil = Find.TickManager.TicksGame + 5000; }
+
         public override void GameComponentTick()
         {
             int now = Find.TickManager.TicksGame;
+            if (watchShip != null && now % 250 == 77)
+            {
+                if (watchMap?.passingShipManager == null || now > watchUntil) watchShip = null;
+                else if (!watchMap.passingShipManager.passingShips.Contains(watchShip))
+                {
+                    Log.Warning("[Trader Hotline] the called ship " + watchShip.name + " left orbit after less than 2 hours – another mod removed it (" + (watchShip.ticksUntilDeparture) + " ticks were left).");
+                    watchShip = null;
+                }
+            }
             if (now % 250 != 31 || calls.Count == 0) return;
             foreach (PendingCall c in calls.ToList())
             {
@@ -218,25 +232,44 @@ namespace TraderHotline
             Messages.Message("TH_Called".Translate(kind.label, delay.ToStringTicksToPeriod(), fee), MessageTypeDefOf.PositiveEvent, false);
         }
 
-        // the vanilla arrival (other mods like Trader Ships take over from there), forced so the
-        // storyteller limits do not stop it
+        // the trade ship is made here directly (like the vanilla incident does), so mods that
+        // take over or block the orbital trader incident (Trader Ships, vehicle mods …) cannot
+        // swallow a paid call. Only if that fails, the vanilla incident is tried.
         public static bool Arrive(Map map, TraderKindDef kind)
         {
             try
             {
-                var parms = new IncidentParms { target = map, traderKind = kind, forced = true };
-                IncidentDef def = IncidentDefOf.OrbitalTraderArrival;
-                int before = map.passingShipManager.passingShips.Count;
-                if (!def.Worker.TryExecute(parms)) return false;
-                if (THMod.S.stayMul > 1.01f)
-                    foreach (PassingShip s in map.passingShipManager.passingShips.Skip(before))
-                        s.ticksUntilDeparture = Mathf.RoundToInt(s.ticksUntilDeparture * THMod.S.stayMul);
+                if (map.passingShipManager.passingShips.Count >= 5)
+                {
+                    // room for the called one: the ship that leaves soonest goes now
+                    PassingShip first = map.passingShipManager.passingShips.OrderBy(p => p.ticksUntilDeparture).First();
+                    map.passingShipManager.RemoveShip(first);
+                }
+                Faction fac = null;
+                if (kind.faction != null)
+                    Find.FactionManager.AllFactions.Where(f => f.def == kind.faction).TryRandomElement(out fac);
+                TradeShip ship = new TradeShip(kind, fac);
+                bool comms = map.listerBuildings.allBuildingsColonist.Any(b => b.def.IsCommsConsole && (b.GetComp<CompPowerTrader>() == null || b.GetComp<CompPowerTrader>().PowerOn));
+                map.passingShipManager.AddShip(ship);
+                ship.GenerateThings();
+                if (THMod.S.stayMul > 1.01f) ship.ticksUntilDeparture = Mathf.RoundToInt(ship.ticksUntilDeparture * THMod.S.stayMul);
+                ship.WasAnnounced = true;
+                Find.LetterStack.ReceiveLetter(ship.def.LabelCap,
+                    "TH_Arrived".Translate(ship.name, ship.def.label, ship.ticksUntilDeparture.ToStringTicksToPeriod()).ToString() + (comms ? "" : "\n\n" + "TH_NoComms".Translate().ToString()),
+                    LetterDefOf.PositiveEvent);
+                Log.Message("[Trader Hotline] " + kind.defName + " arrived (" + ship.name + "), leaves in " + ship.ticksUntilDeparture + " ticks; ships in orbit: " + map.passingShipManager.passingShips.Count);
+                HotlineComponent.Get?.Watch(map, ship);
                 return true;
             }
             catch (Exception e)
             {
-                Log.Warning("[Trader Hotline] arrival of " + kind?.defName + ": " + e.Message);
-                return false;
+                Log.Warning("[Trader Hotline] arrival of " + kind?.defName + ": " + e);
+                try
+                {
+                    var parms = new IncidentParms { target = map, traderKind = kind, forced = true };
+                    return IncidentDefOf.OrbitalTraderArrival.Worker.TryExecute(parms);
+                }
+                catch { return false; }
             }
         }
 

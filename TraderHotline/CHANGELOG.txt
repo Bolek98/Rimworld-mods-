@@ -1,3 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+0.1.1
+- The called ship is now put in orbit directly. Before, mods that take over the orbital trader incident (Trader Ships, vehicle mods) could swallow a paid call.
+- Letter when it arrives; a log warning if another mod removes the ship early.
+
 0.1.0
 - First version: call any orbital trader from the comms console, stock preview, normal or express delivery, pay from stored silver, alert countdown, retries for two days and refunds, called traders stay longer.
