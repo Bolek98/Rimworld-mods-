@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Tidy Toolbar – No More Cut-Off Tabs</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.tidytoolbar</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>Too many mods, too many buttons on the bottom bar – and every label cut to "Brkng", "Správc", "Dědctv"?
+
+Tidy Toolbar gives every button the width its name needs. Buttons with an icon take only the icon's width. What doesn't fit goes into a "More" menu at the end of the bar.
+
+- Right click any button: move it into "More", move it left or right.
+- Settings: a list of all buttons – choose which stay on the bar and in what order.
+- Hotkeys of buttons in "More" still work.
+- Safe to add to or remove from a save. English and Czech.
+
+Mnoho modů, mnoho tlačítek na spodní liště – a každý název useknutý? Tidy Toolbar dá každému tlačítku šířku, jakou jeho název potřebuje, tlačítka s ikonou zaberou jen ikonu a co se nevejde, je v menu „Více“. Pravým klikem tlačítko schováš nebo posuneš, v nastavení vybereš, co zůstane na liště a v jakém pořadí. Lze přidat i odebrat kdykoli.</description>
+</ModMetaData>
