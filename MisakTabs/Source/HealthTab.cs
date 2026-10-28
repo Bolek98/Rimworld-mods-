@@ -359,7 +359,7 @@ namespace MisakTabs
             }
             // 0.8.0: race and age before the state
             string who = "";
-            try { who = pawn.def.LabelCap + (pawn.ageTracker != null ? " · " + "MT_H_Age".Translate(pawn.ageTracker.AgeBiologicalYears) : "") + " · "; } catch { }
+            try { who = pawn.def.LabelCap.ToString() + (pawn.ageTracker != null ? " · " + "MT_H_Age".Translate(pawn.ageTracker.AgeBiologicalYears).ToString() : "") + " · "; } catch { }
             Verse.Text.Font = GameFont.Tiny;
             float ww = Mathf.Min(Verse.Text.CalcSize(who).x + 2f, stateW * 0.5f);
             Verse.Text.Font = GameFont.Small;
