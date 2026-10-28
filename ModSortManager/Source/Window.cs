@@ -48,6 +48,8 @@ namespace ModSortManager
 
         private int dragFrom = -1;
         private bool dragging;
+        // 0.3.1: several mods selected at once (Ctrl+click, Shift+click, Ctrl+A); 'selected' is the last one clicked
+        private readonly HashSet<ModMetaData> multi = new HashSet<ModMetaData>();
         private float dragStartY;
 
         private string profileName = "";
@@ -820,12 +822,13 @@ namespace ModSortManager
             // tabs
             Rect tabs = new Rect(inRect.x + Pad, head.yMax + 1f, inRect.width - 2 * Pad, 36f);
             int nErr = issues.Count(i => i.sev == Sev.Error), nWarn = issues.Count(i => i.sev == Sev.Warn), nInfo = issues.Count(i => i.sev == Sev.Info);
-            string[] names = { "MSM_TabOrder".Translate(), "MSM_TabProblems".Translate(), "MSM_TabProfiles".Translate(), "MSM_TabUpdates".Translate() };
+            string[] names = { "MSM_TabOrder".Translate(), "MSM_TabProblems".Translate(), "MSM_TabProfiles".Translate(), "MSM_TabUpdates".Translate(), "MSM_TabReplace".Translate() };
+            int nRep = ReplaceCount();
             int nUpd = Updates.Pending;
             float tx = tabs.x;
             for (int i = 0; i < names.Length; i++)
             {
-                float w = Text.CalcSize(names[i]).x + 34f + (i == 1 ? 80f : 0f) + (i == 3 && nUpd > 0 ? 40f : 0f);
+                float w = Text.CalcSize(names[i]).x + 34f + (i == 1 ? 80f : 0f) + (i == 3 && nUpd > 0 ? 40f : 0f) + (i == 4 && nRep > 0 ? 40f : 0f);
                 Rect t = new Rect(tx, tabs.y, w, tabs.height);
                 if (Mouse.IsOver(t)) MUI.Fill(t, Hover);
                 Label(new Rect(t.x + 16f, t.y, w, t.height), names[i], tab == i ? MUI.Text1 : MUI.Muted);
@@ -837,6 +840,8 @@ namespace ModSortManager
                 }
                 if (i == 3 && nUpd > 0)
                     Pill(new Rect(t.x + 22f + Text.CalcSize(names[i]).x, t.y + 9f, 30f, 18f), nUpd.ToString(), Info);
+                if (i == 4 && nRep > 0)
+                    Pill(new Rect(t.x + 22f + Text.CalcSize(names[i]).x, t.y + 9f, 30f, 18f), nRep.ToString(), MUI.Warn);
                 if (tab == i) MUI.Fill(new Rect(t.x, t.yMax - 2f, t.width, 2f), MUI.Accent);
                 if (Widgets.ButtonInvisible(t)) tab = i;
                 tx += w + 2f;
@@ -860,7 +865,8 @@ namespace ModSortManager
             if (tab == 0) DrawOrder(body);
             else if (tab == 1) DrawProblems(body);
             else if (tab == 2) DrawProfiles(body);
-            else DrawUpdates(body);
+            else if (tab == 3) DrawUpdates(body);
+            else DrawReplace(body);
         }
 
         private static void Pill(Rect r, string text, Color c)
@@ -926,30 +932,69 @@ namespace ModSortManager
         // (only while no text field has the keyboard)
         private float hActive = 400f, hInactive = 400f;
 
+        // 0.3.1: arrows or WASD, several mods at once:
+        //   Up/Down (W/S)          move the cursor          Shift+Up/Down  move the selected mods
+        //   Left/A, Delete         switch the selected off   Right/D        switch the selected on
+        //   Ctrl+A                 select the whole list     Esc            only the cursor stays selected
+        private List<ModMetaData> ListOf(ModMetaData m) => m == null ? null : active.Contains(m) ? (ActiveFiltered ? cAct : active) : cInact;
+
+        public List<ModMetaData> Selection()
+        {
+            var l = new List<ModMetaData>();
+            if (multi.Count > 0) l.AddRange(multi);
+            if (selected != null && !l.Contains(selected)) l.Add(selected);
+            return l;
+        }
+
         private void KeyNav()
         {
             Event ev = Event.current;
-            if (ev == null || ev.type != EventType.KeyDown || (ev.keyCode != KeyCode.UpArrow && ev.keyCode != KeyCode.DownArrow)) return;
+            if (ev == null || ev.type != EventType.KeyDown) return;
             if (GUIUtility.keyboardControl != 0 || selected == null || dragging) return;
-            int dir = ev.keyCode == KeyCode.UpArrow ? -1 : 1;
+            KeyCode k = ev.keyCode;
+            bool up = k == KeyCode.UpArrow || k == KeyCode.W, down = k == KeyCode.DownArrow || k == KeyCode.S;
+            bool off = k == KeyCode.LeftArrow || k == KeyCode.A && !(ev.control || ev.command) || k == KeyCode.Delete;
+            bool on = k == KeyCode.RightArrow || k == KeyCode.D;
+            bool all = k == KeyCode.A && (ev.control || ev.command);
+            if (k == KeyCode.Escape && multi.Count > 0) { multi.Clear(); ev.Use(); return; }
+            if (!up && !down && !off && !on && !all) return;
             bool inActive = active.Contains(selected);
-            List<ModMetaData> list = inActive ? (ActiveFiltered ? cAct : active) : cInact;
+            List<ModMetaData> list = ListOf(selected);
             if (list == null) return;
             int i = list.IndexOf(selected);
             if (i < 0) return;
+            if (all)
+            {
+                multi.Clear();
+                foreach (ModMetaData m in list) multi.Add(m);
+                ev.Use();
+                return;
+            }
+            if (off || on)
+            {
+                List<ModMetaData> sel = Selection().Where(m => active.Contains(m) == off).ToList();
+                if (sel.Count == 0) { ev.Use(); return; }
+                // the cursor goes to the next mod that stays in this list
+                ModMetaData next = list.Skip(i + 1).FirstOrDefault(m => !sel.Contains(m)) ?? list.Take(i).LastOrDefault(m => !sel.Contains(m));
+                if (off) DeactivateMany(sel); else ActivateMany(sel);
+                multi.Clear();
+                selected = next ?? selected;
+                SoundDefOf.Click.PlayOneShotOnCamera();
+                ev.Use();
+                return;
+            }
+            int dir = up ? -1 : 1;
             if (ev.shift)
             {
                 if (!inActive || ActiveFiltered) return;   // only the full active list can be reordered
-                int to = i + dir;
-                if (to < 0 || to >= active.Count) { ev.Use(); return; }
-                if (active[to].IsCoreMod || selected.IsCoreMod) { ev.Use(); return; }
-                Move(i, to);
+                MoveGroup(dir);
                 SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-                i = to;
+                i = active.IndexOf(selected);
             }
             else
             {
                 int to = Mathf.Clamp(i + dir, 0, list.Count - 1);
+                multi.Clear();
                 if (to == i) { ev.Use(); return; }
                 selected = list[to];
                 i = to;
@@ -967,6 +1012,62 @@ namespace ModSortManager
                 else if (rowY + RowH > sInactive.y + h) sInactive.y = rowY + RowH - h;
             }
             ev.Use();
+        }
+
+        // ---- 0.3.1: several mods at once ----
+        private void ActivateMany(List<ModMetaData> mods)
+        {
+            ModMetaData keep = selected;
+            foreach (ModMetaData m in mods) Activate(m);
+            selected = keep;
+        }
+
+        private void DeactivateMany(List<ModMetaData> mods)
+        {
+            int core = 0;
+            foreach (ModMetaData m in mods)
+            {
+                if (m.IsCoreMod) { core++; continue; }
+                active.Remove(m);
+            }
+            if (core > 0 && mods.Count == core) Messages.Message("MSM_CoreStays".Translate(), MessageTypeDefOf.RejectInput, false);
+            dirty = true;
+        }
+
+        // one step up or down for every selected active mod, keeping their order; Core stays first
+        private void MoveGroup(int dir)
+        {
+            var sel = new HashSet<ModMetaData>(Selection().Where(m => active.Contains(m) && !m.IsCoreMod));
+            if (sel.Count == 0) return;
+            if (dir < 0)
+            {
+                for (int i = 1; i < active.Count; i++)
+                    if (sel.Contains(active[i]) && !sel.Contains(active[i - 1]) && !active[i - 1].IsCoreMod)
+                    { ModMetaData t = active[i - 1]; active[i - 1] = active[i]; active[i] = t; }
+            }
+            else
+            {
+                for (int i = active.Count - 2; i >= 0; i--)
+                    if (sel.Contains(active[i]) && !sel.Contains(active[i + 1]))
+                    { ModMetaData t = active[i + 1]; active[i + 1] = active[i]; active[i] = t; }
+            }
+            dirty = true;
+        }
+
+        // the selected active mods as one block at a position (their order kept)
+        private void MoveGroupTo(int index)
+        {
+            List<ModMetaData> sel = active.Where(m => Selection().Contains(m) && !m.IsCoreMod).ToList();
+            if (sel.Count == 0) return;
+            int before = active.Take(Mathf.Clamp(index, 0, active.Count)).Count(m => sel.Contains(m));
+            foreach (ModMetaData m in sel) active.Remove(m);
+            int at = Mathf.Clamp(index - before, 0, active.Count);
+            // never above Core and the DLCs
+            int firstFree = 0;
+            while (firstFree < active.Count && (active[firstFree].IsCoreMod || active[firstFree].Official)) firstFree++;
+            at = Mathf.Max(at, firstFree);
+            active.InsertRange(at, sel);
+            dirty = true;
         }
 
         private void DrawOrder(Rect body)
@@ -1041,8 +1142,8 @@ namespace ModSortManager
             {
                 ModMetaData mod = list[i];
                 Rect row = new Rect(0f, i * RowH, view.width, RowH);
-                bool sel = mod == selected;
-                if (sel) { MUI.Fill(row, MUI.OnBg); MUI.Frame(row, MUI.Accent); }
+                bool sel = mod == selected || multi.Contains(mod);   // 0.3.1
+                if (sel) { MUI.Fill(row, MUI.OnBg); MUI.Frame(row, mod == selected ? MUI.Accent : MUI.Border); }
                 else if (Mouse.IsOver(row)) MUI.Fill(row, Hover);
                 else if (i % 2 == 0) MUI.Fill(row, Row1);
                 float x = 6f;
@@ -1089,6 +1190,24 @@ namespace ModSortManager
 
                 if (ev.type == EventType.MouseDown && ev.button == 0 && Mouse.IsOver(row))
                 {
+                    // 0.3.1: Ctrl+click adds or removes a mod, Shift+click selects everything between
+                    if ((ev.control || ev.command) && ev.clickCount == 1)
+                    {
+                        if (multi.Count == 0 && selected != null && list.Contains(selected)) multi.Add(selected);
+                        if (!multi.Remove(mod)) multi.Add(mod);
+                        selected = mod;
+                        ev.Use();
+                        break;
+                    }
+                    if (ev.shift && ev.clickCount == 1 && selected != null && list.Contains(selected))
+                    {
+                        int a0 = list.IndexOf(selected);
+                        multi.Clear();
+                        for (int q = Mathf.Min(a0, i); q <= Mathf.Max(a0, i); q++) multi.Add(list[q]);
+                        ev.Use();
+                        break;
+                    }
+                    if (!(multi.Count > 1 && multi.Contains(mod) && canDrag)) multi.Clear();
                     selected = mod;
                     if (ev.clickCount == 2)
                     {
@@ -1125,7 +1244,10 @@ namespace ModSortManager
                 if (ev.rawType == EventType.MouseUp)
                 {
                     if (dragging)
-                        Move(dragFrom, target > dragFrom ? target - 1 : target);
+                    {
+                        if (multi.Count > 1 && dragFrom < list.Count && multi.Contains(list[dragFrom])) MoveGroupTo(target);   // 0.3.1
+                        else Move(dragFrom, target > dragFrom ? target - 1 : target);
+                    }
                     dragFrom = -1;
                     dragging = false;
                 }
@@ -1140,8 +1262,43 @@ namespace ModSortManager
             return l.OrderByDescending(x => x.Key).First().Value;
         }
 
+        // 0.3.1: several mods selected – one panel for all of them
+        private void DrawGroup(Rect r, List<ModMetaData> sel)
+        {
+            float y = r.y;
+            Label(new Rect(r.x, y, r.width, 30f), "MSM_GroupTitle".Translate(sel.Count), MUI.Text1, GameFont.Medium, TextAnchor.MiddleLeft, false);
+            y += 34f;
+            int nAct = sel.Count(x => active.Contains(x)), nIn = sel.Count - nAct;
+            foreach (ModMetaData x in sel.OrderBy(x => active.Contains(x) ? active.IndexOf(x) : 100000).Take(8))
+            {
+                Label(new Rect(r.x, y, r.width, 20f), "• " + x.Name.Truncate(r.width - 14f), active.Contains(x) ? MUI.Text1 : MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false);
+                y += 20f;
+            }
+            if (sel.Count > 8) { Label(new Rect(r.x, y, r.width, 20f), "MSM_GroupMore".Translate(sel.Count - 8), MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false); y += 20f; }
+            y += 8f;
+            float bw = (r.width - 8f) / 2f;
+            if (Button(new Rect(r.x, y, bw, 30f), "MSM_GroupOn".Translate(nIn), true, nIn > 0)) ActivateMany(sel.Where(x => !active.Contains(x)).ToList());
+            if (Button(new Rect(r.x + bw + 8f, y, bw, 30f), "MSM_GroupOff".Translate(nAct), false, nAct > 0)) DeactivateMany(sel.Where(x => active.Contains(x)).ToList());
+            y += 36f;
+            if (nAct > 0 && !ActiveFiltered)
+            {
+                float qw = (r.width - 24f) / 4f;
+                if (Button(new Rect(r.x, y, qw, 28f), "MSM_Top".Translate())) MoveGroupTo(0);
+                if (Button(new Rect(r.x + (qw + 8f), y, qw, 28f), "▲")) MoveGroup(-1);
+                if (Button(new Rect(r.x + 2 * (qw + 8f), y, qw, 28f), "▼")) MoveGroup(1);
+                if (Button(new Rect(r.x + 3 * (qw + 8f), y, qw, 28f), "MSM_Bottom".Translate())) MoveGroupTo(active.Count);
+                y += 34f;
+            }
+            if (Button(new Rect(r.x, y, r.width, 28f), "MSM_GroupClear".Translate())) multi.Clear();
+            y += 40f;
+            float hh = Text.CalcHeight("MSM_KeysHelp".Translate(), r.width);
+            Label(new Rect(r.x, y, r.width, hh + 40f), "MSM_KeysHelp".Translate(), MUI.Muted, GameFont.Tiny, TextAnchor.UpperLeft);
+        }
+
         private void DrawDetail(Rect r)
         {
+            List<ModMetaData> group = Selection();
+            if (group.Count > 1) { DrawGroup(r, group); return; }   // 0.3.1
             ModMetaData m = selected;
             if (m == null)
             {
@@ -1534,6 +1691,135 @@ namespace ModSortManager
         // ================= tab: updates (Steam Workshop) =================
         private Vector2 sUpdates;
         private float lastUpdRefresh;
+
+        // ---- 0.3.1: replacements tab ----
+        private List<ReplaceRow> repRows;
+        private float repAt = -100f;
+        private Vector2 sReplace;
+
+        private int ReplaceCount()
+        {
+            if (repRows == null || Time.realtimeSinceStartup - repAt > 5f)
+            {
+                repAt = Time.realtimeSinceStartup;
+                try { repRows = Replacements.Find(active, blames, MSMMod.Settings.replaceHidden); }
+                catch (Exception e) { repRows = new List<ReplaceRow>(); Log.WarningOnce("[Mod Sort Manager] replacements: " + e.Message, 0x3A5E01); }
+            }
+            return repRows.Count(r => r.oldActive);
+        }
+
+        private static ModMetaData FindInstalled(ReplaceRow r)
+        {
+            if (r.newMod != null) return r.newMod;
+            ModMetaData m = ModLister.AllInstalledMods.FirstOrDefault(x => x != r.oldMod && Replacements.IdOf(x) == r.rule.newId);
+            if (m == null && r.rule.newPackage.Length > 0)
+                m = ModLister.AllInstalledMods.FirstOrDefault(x => x != r.oldMod && string.Equals(x.PackageIdNonUnique, r.rule.newPackage, StringComparison.OrdinalIgnoreCase) && Replacements.IdOf(x) != Replacements.IdOf(r.oldMod));
+            return m;
+        }
+
+        // the new mod takes the old one's place in the load order
+        private void SwapIn(ReplaceRow r, ModMetaData nm)
+        {
+            int i = active.IndexOf(r.oldMod);
+            if (active.Contains(nm)) { if (i >= 0) active.RemoveAt(i); }
+            else if (i >= 0) active[i] = nm;
+            else active.Add(nm);
+            selected = nm;
+            multi.Clear();
+            dirty = true;
+            repRows = null;
+            Messages.Message("MSM_RepDone".Translate(r.oldMod.Name, nm.Name), MessageTypeDefOf.PositiveEvent, false);
+        }
+
+        private void DrawReplace(Rect body)
+        {
+            Rect r = body.ContractedBy(Pad, 10f);
+            ReplaceCount();
+            float y = r.y;
+            Label(new Rect(r.x, y, r.width - 220f, 22f), "MSM_RepTitle".Translate(repRows.Count), MUI.Text1, GameFont.Small, TextAnchor.MiddleLeft, false);
+            if (Button(new Rect(r.xMax - 200f, y - 4f, 200f, 32f), "MSM_RepReload".Translate()))
+            {
+                Replacements.Reload();
+                repRows = null;
+            }
+            y += 30f;
+            string src = Replacements.SourceInfo;
+            Label(new Rect(r.x, y, r.width, 40f), "MSM_RepHint".Translate().ToString() + (src.NullOrEmpty() ? "" : "\n" + "MSM_RepSource".Translate(src).ToString()), MUI.Muted, GameFont.Tiny, TextAnchor.UpperLeft);
+            y += 42f;
+            if (!Replacements.HasUti)
+            {
+                Rect note = new Rect(r.x, y, r.width, 54f);
+                MUI.Fill(note, Row1, 6f);
+                Label(new Rect(note.x + 12f, note.y, note.width - 250f, note.height), "MSM_RepNoUti".Translate(), MUI.Warn, GameFont.Small, TextAnchor.MiddleLeft);
+                Rect b = new Rect(note.xMax - 230f, note.y + 11f, 218f, 32f);
+                if (Updates.CanSubscribe)
+                {
+                    if (Button(b, "MSM_RepGetUti".Translate(), true) && Updates.Subscribe(3396308787UL))
+                        Messages.Message("MSM_RepSubscribed".Translate("Use This Instead"), MessageTypeDefOf.PositiveEvent, false);
+                }
+                else if (Button(b, "MSM_Workshop".Translate()))
+                    Application.OpenURL("https://steamcommunity.com/sharedfiles/filedetails/?id=3396308787");
+                y += 62f;
+            }
+            const float H = 58f;
+            Rect outR = new Rect(r.x, y, r.width, r.yMax - y);
+            Rect view = new Rect(0f, 0f, outR.width - 16f, Mathf.Max(repRows.Count * (H + 4f), outR.height - 2f));
+            Widgets.BeginScrollView(outR, ref sReplace, view);
+            ReplaceRow act = null; string what = null;
+            for (int i = 0; i < repRows.Count; i++)
+            {
+                ReplaceRow rr = repRows[i];
+                Rect row = new Rect(0f, i * (H + 4f), view.width, H);
+                if (row.yMax < sReplace.y || row.y > sReplace.y + outR.height) continue;
+                MUI.Fill(row, i % 2 == 0 ? Row1 : Bg, 6f);
+                Color c = rr.oldActive ? (rr.newForThisVersion && !rr.oldForThisVersion || rr.errors > 0 ? MUI.Warn : Info) : MUI.Muted;
+                DrawDot(new Rect(row.x + 8f, row.y, 8f, row.height), c);
+                float tw = row.width - 24f - 420f;
+                string newName = rr.rule.newName.NullOrEmpty() ? rr.rule.newId : rr.rule.newName;
+                if (!rr.rule.newAuthor.NullOrEmpty()) newName += " (" + rr.rule.newAuthor + ")";
+                Label(new Rect(row.x + 24f, row.y + 4f, tw, 24f), (rr.oldMod.Name + "  →  " + newName).Truncate(tw), MUI.Text1, GameFont.Small, TextAnchor.MiddleLeft, false);
+                var why = new List<string>();
+                if (!rr.oldActive) why.Add("MSM_RepInactive".Translate());
+                if (!rr.oldForThisVersion && rr.newForThisVersion) why.Add("MSM_RepVersion".Translate(Replacements.Cur));
+                else if (rr.newForThisVersion) why.Add("MSM_RepBoth".Translate(Replacements.Cur));
+                if (rr.errors > 0) why.Add("MSM_RepErrors".Translate(rr.errors));
+                if (!rr.rule.why.NullOrEmpty()) why.Add(rr.rule.why);
+                why.Add(FindInstalled(rr) != null ? "MSM_RepHave".Translate().ToString() : "MSM_RepNotHave".Translate().ToString());
+                Label(new Rect(row.x + 24f, row.y + 28f, tw, 24f), string.Join(" · ", why).Truncate(tw), MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false);
+                TooltipHandler.TipRegion(new Rect(row.x, row.y, tw + 24f, row.height), rr.oldMod.Name + "\n→ " + newName + "\n\n" + string.Join("\n", why) + "\n\n" + "MSM_RepFrom".Translate(rr.rule.source));
+                float bx = row.xMax - 8f;
+                Rect bHide = new Rect(bx - 90f, row.y + 14f, 86f, 30f); bx -= 94f;
+                Rect bPage = new Rect(bx - 110f, row.y + 14f, 106f, 30f); bx -= 114f;
+                Rect bMain = new Rect(bx - 200f, row.y + 14f, 196f, 30f);
+                if (Button(bHide, "MSM_RepHide".Translate())) { act = rr; what = "hide"; }
+                if (Button(bPage, "MSM_Workshop".Translate())) Application.OpenURL("https://steamcommunity.com/sharedfiles/filedetails/?id=" + rr.rule.newId);
+                ModMetaData have = FindInstalled(rr);
+                if (have != null)
+                {
+                    if (rr.oldActive && Button(bMain, "MSM_RepSwap".Translate(), true)) { act = rr; what = "swap"; }
+                }
+                else if (Updates.CanSubscribe)
+                {
+                    if (Button(bMain, "MSM_RepSubscribe".Translate(), true)) { act = rr; what = "sub"; }
+                }
+            }
+            if (repRows.Count == 0)
+                Label(new Rect(0f, 0f, view.width, 30f), Replacements.Rules.Count == 0 ? "MSM_RepNoList".Translate() : "MSM_RepNone".Translate(), Replacements.Rules.Count == 0 ? MUI.Muted : MUI.Accent);
+            Widgets.EndScrollView();
+            if (act != null)
+            {
+                if (what == "hide")
+                {
+                    string id = Replacements.IdOf(act.oldMod);
+                    MSMMod.Settings.replaceHidden.Add(id + ">" + act.rule.newId);
+                    MSMMod.Settings.Write();
+                    repRows = null;
+                }
+                else if (what == "swap") SwapIn(act, FindInstalled(act));
+                else if (what == "sub" && ulong.TryParse(act.rule.newId, out ulong nid) && Updates.Subscribe(nid))
+                    Messages.Message("MSM_RepSubscribed".Translate(act.rule.newName), MessageTypeDefOf.PositiveEvent, false);
+            }
+        }
 
         private void DrawUpdates(Rect body)
         {

@@ -112,7 +112,7 @@ Zamknij grę i przenieś je ręcznie. Folder kopii zapasowej: {1}</MSM_KeepFaile
   <MSM_SearchActiveHint>Szukaj w aktywnych…</MSM_SearchActiveHint>
   <MSM_SearchHint>Szukaj moda, autora, ID…</MSM_SearchHint>
   <MSM_SecWhere>Gdzie go znaleźć</MSM_SecWhere>
-  <MSM_SelectHint>Wybierz mod po lewej.</MSM_SelectHint>
+  <MSM_SelectHint>Wybierz mod po lewej. Ctrl+klik lub Shift+klik wybiera więcej.</MSM_SelectHint>
   <MSM_SetEsc>Pozycja w menu Esc w grze</MSM_SetEsc>
   <MSM_SetEscTip>Mod Sort Manager można otworzyć także podczas gry. Przy zapisie gra zostanie zapisana, uruchomiona ponownie i do niej wrócisz.</MSM_SetEscTip>
   <MSM_SetReplace>Przycisk Mody otwiera Mod Sort Manager</MSM_SetReplace>
@@ -339,4 +339,31 @@ Rozpocząć?</MSM_BisectConfirm>
   <MSM_NoWarn>Działa – nie ostrzegaj</MSM_NoWarn>
   <MSM_NoWarnUndo>Znów ostrzegaj o wersji</MSM_NoWarnUndo>
   <MSM_NoWarnTip>Mod nie jest zrobiony dla tej wersji gry, ale działa. Mody z Data/noVersionWarning.xml lub z moda No Version Warning też nie dostają ostrzeżenia.</MSM_NoWarnTip>
+  <MSM_TabReplace>Zamienniki</MSM_TabReplace>
+  <MSM_RepTitle>Mody z lepszym zamiennikiem: {0}</MSM_RepTitle>
+  <MSM_RepReload>Wczytaj ponownie</MSM_RepReload>
+  <MSM_RepHint>Stare mody, które mają kontynuację, aktualizację lub poprawioną wersję od innego moddera. Zamień ustawia nowy mod w tym samym miejscu kolejności.</MSM_RepHint>
+  <MSM_RepSource>Listy: {0}</MSM_RepSource>
+  <MSM_RepNoUti>Duża lista pochodzi z moda "Use This Instead" (autor Mlie). Zasubskrybuj go, a ta karta znajdzie znacznie więcej.</MSM_RepNoUti>
+  <MSM_RepGetUti>Subskrybuj Use This Instead</MSM_RepGetUti>
+  <MSM_RepSubscribed>Subskrybujesz {0} – Steam pobiera.</MSM_RepSubscribed>
+  <MSM_RepInactive>nieaktywny</MSM_RepInactive>
+  <MSM_RepVersion>zrobiony dla {0}, stary nie</MSM_RepVersion>
+  <MSM_RepBoth>oba dla {0}</MSM_RepBoth>
+  <MSM_RepErrors>{0} błędów w logu</MSM_RepErrors>
+  <MSM_RepHave>zamiennik zainstalowany</MSM_RepHave>
+  <MSM_RepNotHave>zamiennik jeszcze niezainstalowany</MSM_RepNotHave>
+  <MSM_RepFrom>Poleca: {0}</MSM_RepFrom>
+  <MSM_RepHide>Ukryj</MSM_RepHide>
+  <MSM_RepSwap>Zamień</MSM_RepSwap>
+  <MSM_RepSubscribe>Subskrybuj</MSM_RepSubscribe>
+  <MSM_RepNoList>Brak listy zamienników.</MSM_RepNoList>
+  <MSM_RepNone>Nic do zamiany – wszystko w porządku.</MSM_RepNone>
+  <MSM_RepDone>{0} zastąpiony przez {1} w tym samym miejscu.</MSM_RepDone>
+  <MSM_GroupTitle>Wybrane mody: {0}</MSM_GroupTitle>
+  <MSM_GroupMore>… i {0} więcej</MSM_GroupMore>
+  <MSM_GroupOn>Włącz ({0})</MSM_GroupOn>
+  <MSM_GroupOff>Wyłącz ({0})</MSM_GroupOff>
+  <MSM_GroupClear>Wyczyść wybór</MSM_GroupClear>
+  <MSM_KeysHelp>Klawisze: W/S lub ↑/↓ ruch · Shift+W/S przesuwa wybrane · A/D lub ←/→ wyłącz/włącz · Ctrl+klik, Shift+klik, Ctrl+A wybór · Esc czyści</MSM_KeysHelp>
 </LanguageData>

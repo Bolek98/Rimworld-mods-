@@ -35,6 +35,8 @@ namespace ModSortManager
         public List<string> noWarn = new List<string>();
         // 0.3.0: smart sort also follows Data/rules.xml and RimSort's community rules
         public bool sharedRules = true;
+        // 0.3.1: replacements the player hid ("oldWorkshopId>newWorkshopId")
+        public List<string> replaceHidden = new List<string>();
 
         public override void ExposeData()
         {
@@ -53,12 +55,14 @@ namespace ModSortManager
             Scribe_Collections.Look(ref noWarn, "noWarn", LookMode.Value);
             if (noWarn == null) noWarn = new List<string>();
             Scribe_Values.Look(ref sharedRules, "sharedRules", true);
+            Scribe_Collections.Look(ref replaceHidden, "replaceHidden", LookMode.Value);
+            if (replaceHidden == null) replaceHidden = new List<string>();
         }
     }
 
     public class MSMMod : Mod
     {
-        public const string Version = "0.3.0";
+        public const string Version = "0.3.1";
         public static MSMSettings Settings;
 
         public MSMMod(ModContentPack content) : base(content)

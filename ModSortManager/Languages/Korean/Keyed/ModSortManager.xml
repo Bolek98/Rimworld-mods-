@@ -112,7 +112,7 @@
   <MSM_SearchActiveHint>활성 모드 검색…</MSM_SearchActiveHint>
   <MSM_SearchHint>모드, 제작자, ID 검색…</MSM_SearchHint>
   <MSM_SecWhere>위치</MSM_SecWhere>
-  <MSM_SelectHint>왼쪽에서 모드를 선택하세요.</MSM_SelectHint>
+  <MSM_SelectHint>왼쪽에서 모드를 고르세요. Ctrl+클릭 또는 Shift+클릭으로 여러 개 선택.</MSM_SelectHint>
   <MSM_SetEsc>게임 내 Esc 메뉴에 항목 추가</MSM_SetEsc>
   <MSM_SetEscTip>플레이 중에도 Mod Sort Manager를 열 수 있습니다. 저장하면 게임이 저장되고 재시작된 뒤 다시 돌아옵니다.</MSM_SetEscTip>
   <MSM_SetReplace>모드 버튼으로 Mod Sort Manager 열기</MSM_SetReplace>
@@ -339,4 +339,31 @@ Mod Sort Manager가 의심 모드 {0}개 중 절반을 비활성화하고 게임
   <MSM_NoWarn>작동함 – 경고 안 함</MSM_NoWarn>
   <MSM_NoWarnUndo>버전 경고 다시 표시</MSM_NoWarnUndo>
   <MSM_NoWarnTip>이 모드는 현재 게임 버전용이 아니지만 작동합니다. Data/noVersionWarning.xml 또는 No Version Warning 모드에 있는 모드도 경고하지 않습니다.</MSM_NoWarnTip>
+  <MSM_TabReplace>대체</MSM_TabReplace>
+  <MSM_RepTitle>더 나은 대체가 있는 모드: {0}</MSM_RepTitle>
+  <MSM_RepReload>다시 불러오기</MSM_RepReload>
+  <MSM_RepHint>다른 모더가 이어서 관리·업데이트·수정한 버전이 있는 오래된 모드. '교체'는 새 모드를 로드 순서의 같은 자리에 둡니다.</MSM_RepHint>
+  <MSM_RepSource>목록: {0}</MSM_RepSource>
+  <MSM_RepNoUti>큰 대체 목록은 "Use This Instead" 모드(Mlie 제작)에서 옵니다. 구독하면 이 탭이 훨씬 더 많이 찾습니다.</MSM_RepNoUti>
+  <MSM_RepGetUti>Use This Instead 구독</MSM_RepGetUti>
+  <MSM_RepSubscribed>{0} 구독됨 – Steam이 다운로드 중입니다.</MSM_RepSubscribed>
+  <MSM_RepInactive>비활성</MSM_RepInactive>
+  <MSM_RepVersion>{0}용, 이전 것은 아님</MSM_RepVersion>
+  <MSM_RepBoth>둘 다 {0}용</MSM_RepBoth>
+  <MSM_RepErrors>로그에 오류 {0}개</MSM_RepErrors>
+  <MSM_RepHave>대체 설치됨</MSM_RepHave>
+  <MSM_RepNotHave>대체 아직 미설치</MSM_RepNotHave>
+  <MSM_RepFrom>추천: {0}</MSM_RepFrom>
+  <MSM_RepHide>숨기기</MSM_RepHide>
+  <MSM_RepSwap>교체</MSM_RepSwap>
+  <MSM_RepSubscribe>구독</MSM_RepSubscribe>
+  <MSM_RepNoList>대체 목록을 아직 찾지 못했습니다.</MSM_RepNoList>
+  <MSM_RepNone>교체할 것이 없습니다 – 모두 정상.</MSM_RepNone>
+  <MSM_RepDone>{0}을(를) 같은 자리에서 {1}(으)로 교체했습니다.</MSM_RepDone>
+  <MSM_GroupTitle>선택한 모드 {0}개</MSM_GroupTitle>
+  <MSM_GroupMore>… 외 {0}개</MSM_GroupMore>
+  <MSM_GroupOn>켜기 ({0})</MSM_GroupOn>
+  <MSM_GroupOff>끄기 ({0})</MSM_GroupOff>
+  <MSM_GroupClear>선택 해제</MSM_GroupClear>
+  <MSM_KeysHelp>키: W/S 또는 ↑/↓ 이동 · Shift+W/S 선택 이동 · A/D 또는 ←/→ 끄기/켜기 · Ctrl+클릭, Shift+클릭, Ctrl+A 선택 · Esc 해제</MSM_KeysHelp>
 </LanguageData>

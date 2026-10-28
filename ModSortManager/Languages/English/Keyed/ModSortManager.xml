@@ -112,7 +112,7 @@ Close the game and move them by hand. Backup folder: {1}</MSM_KeepFailed>
   <MSM_SearchActiveHint>Search active…</MSM_SearchActiveHint>
   <MSM_SearchHint>Search mod, author, ID…</MSM_SearchHint>
   <MSM_SecWhere>Where to find it</MSM_SecWhere>
-  <MSM_SelectHint>Select a mod on the left.</MSM_SelectHint>
+  <MSM_SelectHint>Select a mod on the left. Ctrl+click or Shift+click selects more.</MSM_SelectHint>
   <MSM_SetEsc>Entry in the in-game Esc menu</MSM_SetEsc>
   <MSM_SetEscTip>Mod Sort Manager can be opened while playing too. On save the game is saved, restarted and you return to it.</MSM_SetEscTip>
   <MSM_SetReplace>The Mods button opens Mod Sort Manager</MSM_SetReplace>
@@ -339,4 +339,31 @@ Start?</MSM_BisectConfirm>
   <MSM_NoWarn>Works here – don't warn</MSM_NoWarn>
   <MSM_NoWarnUndo>Warn about the version again</MSM_NoWarnUndo>
   <MSM_NoWarnTip>The mod is not made for this game version but works. Mods listed in Data/noVersionWarning.xml or by the No Version Warning mod are not warned about either.</MSM_NoWarnTip>
+  <MSM_TabReplace>Replacements</MSM_TabReplace>
+  <MSM_RepTitle>Mods with a better replacement: {0}</MSM_RepTitle>
+  <MSM_RepReload>Reload list</MSM_RepReload>
+  <MSM_RepHint>Old mods that have a continued, updated or fixed version by another modder. Swap puts the new mod at the same place in the load order.</MSM_RepHint>
+  <MSM_RepSource>Lists: {0}</MSM_RepSource>
+  <MSM_RepNoUti>The big replacement list comes from the mod "Use This Instead" (by Mlie). Subscribe to it and this tab finds far more replacements.</MSM_RepNoUti>
+  <MSM_RepGetUti>Subscribe to Use This Instead</MSM_RepGetUti>
+  <MSM_RepSubscribed>Subscribed to {0} – Steam is downloading it.</MSM_RepSubscribed>
+  <MSM_RepInactive>not active</MSM_RepInactive>
+  <MSM_RepVersion>made for {0}, the old one is not</MSM_RepVersion>
+  <MSM_RepBoth>both made for {0}</MSM_RepBoth>
+  <MSM_RepErrors>{0} errors in the log</MSM_RepErrors>
+  <MSM_RepHave>replacement installed</MSM_RepHave>
+  <MSM_RepNotHave>replacement not installed yet</MSM_RepNotHave>
+  <MSM_RepFrom>Suggested by: {0}</MSM_RepFrom>
+  <MSM_RepHide>Hide</MSM_RepHide>
+  <MSM_RepSwap>Swap in</MSM_RepSwap>
+  <MSM_RepSubscribe>Subscribe</MSM_RepSubscribe>
+  <MSM_RepNoList>No replacement list found yet.</MSM_RepNoList>
+  <MSM_RepNone>Nothing to replace – your mods are fine.</MSM_RepNone>
+  <MSM_RepDone>{0} was replaced by {1} at the same place.</MSM_RepDone>
+  <MSM_GroupTitle>{0} mods selected</MSM_GroupTitle>
+  <MSM_GroupMore>… and {0} more</MSM_GroupMore>
+  <MSM_GroupOn>Turn on ({0})</MSM_GroupOn>
+  <MSM_GroupOff>Turn off ({0})</MSM_GroupOff>
+  <MSM_GroupClear>Clear selection</MSM_GroupClear>
+  <MSM_KeysHelp>Keys: W/S or ↑/↓ move · Shift+W/S moves the selected mods · A/D or ←/→ turn off/on · Ctrl+click, Shift+click, Ctrl+A select · Esc clears</MSM_KeysHelp>
 </LanguageData>

@@ -112,7 +112,7 @@ Cierra el juego y muévelas a mano. Carpeta de respaldo: {1}</MSM_KeepFailed>
   <MSM_SearchActiveHint>Buscar en activos…</MSM_SearchActiveHint>
   <MSM_SearchHint>Buscar mod, autor, ID…</MSM_SearchHint>
   <MSM_SecWhere>Dónde encontrarlo</MSM_SecWhere>
-  <MSM_SelectHint>Selecciona un mod a la izquierda.</MSM_SelectHint>
+  <MSM_SelectHint>Elige un mod a la izquierda. Ctrl+clic o Mayús+clic selecciona varios.</MSM_SelectHint>
   <MSM_SetEsc>Entrada en el menú Esc de la partida</MSM_SetEsc>
   <MSM_SetEscTip>Mod Sort Manager también se puede abrir durante la partida. Al guardar, la partida se guarda, el juego se reinicia y vuelves a ella.</MSM_SetEscTip>
   <MSM_SetReplace>El botón Mods abre Mod Sort Manager</MSM_SetReplace>
@@ -339,4 +339,31 @@ Importante: no guardes tu colonia durante la prueba: con la mitad de los mods au
   <MSM_NoWarn>Funciona – no avisar</MSM_NoWarn>
   <MSM_NoWarnUndo>Volver a avisar por la versión</MSM_NoWarnUndo>
   <MSM_NoWarnTip>El mod no está hecho para esta versión del juego, pero funciona. Los mods de Data/noVersionWarning.xml o del mod No Version Warning tampoco generan aviso.</MSM_NoWarnTip>
+  <MSM_TabReplace>Reemplazos</MSM_TabReplace>
+  <MSM_RepTitle>Mods con un mejor reemplazo: {0}</MSM_RepTitle>
+  <MSM_RepReload>Recargar lista</MSM_RepReload>
+  <MSM_RepHint>Mods antiguos con una versión continuada, actualizada o corregida por otro modder. Reemplazar coloca el nuevo mod en el mismo lugar del orden.</MSM_RepHint>
+  <MSM_RepSource>Listas: {0}</MSM_RepSource>
+  <MSM_RepNoUti>La gran lista viene del mod "Use This Instead" (de Mlie). Suscríbete y esta pestaña encontrará muchos más.</MSM_RepNoUti>
+  <MSM_RepGetUti>Suscribirse a Use This Instead</MSM_RepGetUti>
+  <MSM_RepSubscribed>Suscrito a {0}: Steam lo está descargando.</MSM_RepSubscribed>
+  <MSM_RepInactive>no activo</MSM_RepInactive>
+  <MSM_RepVersion>hecho para {0}, el antiguo no</MSM_RepVersion>
+  <MSM_RepBoth>ambos para {0}</MSM_RepBoth>
+  <MSM_RepErrors>{0} errores en el registro</MSM_RepErrors>
+  <MSM_RepHave>reemplazo instalado</MSM_RepHave>
+  <MSM_RepNotHave>reemplazo aún no instalado</MSM_RepNotHave>
+  <MSM_RepFrom>Sugerido por: {0}</MSM_RepFrom>
+  <MSM_RepHide>Ocultar</MSM_RepHide>
+  <MSM_RepSwap>Reemplazar</MSM_RepSwap>
+  <MSM_RepSubscribe>Suscribirse</MSM_RepSubscribe>
+  <MSM_RepNoList>Aún no hay lista de reemplazos.</MSM_RepNoList>
+  <MSM_RepNone>Nada que reemplazar: todo bien.</MSM_RepNone>
+  <MSM_RepDone>{0} reemplazado por {1} en el mismo lugar.</MSM_RepDone>
+  <MSM_GroupTitle>{0} mods seleccionados</MSM_GroupTitle>
+  <MSM_GroupMore>… y {0} más</MSM_GroupMore>
+  <MSM_GroupOn>Activar ({0})</MSM_GroupOn>
+  <MSM_GroupOff>Desactivar ({0})</MSM_GroupOff>
+  <MSM_GroupClear>Borrar selección</MSM_GroupClear>
+  <MSM_KeysHelp>Teclas: W/S o ↑/↓ mover · Mayús+W/S mueve la selección · A/D o ←/→ desactivar/activar · Ctrl+clic, Mayús+clic, Ctrl+A seleccionar · Esc borra</MSM_KeysHelp>
 </LanguageData>
