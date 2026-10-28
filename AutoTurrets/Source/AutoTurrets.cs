@@ -28,6 +28,9 @@ namespace AutoTurrets
 		public bool wallTurretsOutward = true; // 1.4.0: turrets in walls only shoot at targets on the outer side of the wall
 		public Dictionary<string, bool> autoPick = new Dictionary<string, bool>();   // 1.5.0: turrets that should NOT fire alone (false); missing = yes
 		public List<string> fuelExtra = new List<string>();  // 1.5.0: "turretDef|thingDef" – extra materials a turret is rearmed with
+		public bool ammoAlsoMetal = false;     // 1.5.0: turrets that need their own ammo also take any metal
+		public bool freeAmmo = false;          // 1.5.0: your turrets need no ammo or fuel at all
+		public bool specialOnlyPicked = false;   // 1.5.0: haulers bring special shells (EMP, incendiary, firefoam) only to a mortar set to them
 
 		public override void ExposeData()
 		{
@@ -48,6 +51,9 @@ namespace AutoTurrets
 			Scribe_Collections.Look(ref wallPick, "wallPick", LookMode.Value, LookMode.Value);
 			Scribe_Collections.Look(ref autoPick, "autoPick", LookMode.Value, LookMode.Value);
 			Scribe_Collections.Look(ref fuelExtra, "fuelExtra", LookMode.Value);
+			Scribe_Values.Look(ref specialOnlyPicked, "specialOnlyPicked", false);
+			Scribe_Values.Look(ref ammoAlsoMetal, "ammoAlsoMetal", false);
+			Scribe_Values.Look(ref freeAmmo, "freeAmmo", false);
 			if (autoPick == null) autoPick = new Dictionary<string, bool>();
 			if (fuelExtra == null) fuelExtra = new List<string>();
 			if (Scribe.mode == LoadSaveMode.PostLoadInit && wallPick == null)
@@ -106,6 +112,7 @@ namespace AutoTurrets
 					}
 					l.CheckboxLabeled("AT_LoadShells".Translate(), ref S.loadShells, "AT_LoadShells_Desc".Translate());
 					l.CheckboxLabeled("AT_SmartShells".Translate(), ref S.smartShells, "AT_SmartShells_Desc".Translate());
+					l.CheckboxLabeled("AT_SpecialOnlyPicked".Translate(), ref S.specialOnlyPicked, "AT_SpecialOnlyPicked_Desc".Translate());
 					l.CheckboxLabeled("AT_FriendlyFire".Translate(), ref S.friendlyFire, "AT_FriendlyFire_Desc".Translate());
 					l.CheckboxLabeled("AT_NoHitBuildings".Translate(), ref S.noHitBuildings, "AT_NoHitBuildings_Desc".Translate());
 				}
@@ -115,6 +122,8 @@ namespace AutoTurrets
 					l.CheckboxLabeled("AT_AllowSilver".Translate(), ref S.allowSilver);
 					l.CheckboxLabeled("AT_FuelWood".Translate(), ref S.fuelWood, "AT_FuelWood_Desc".Translate());
 					l.CheckboxLabeled("AT_FuelStone".Translate(), ref S.fuelStone, "AT_FuelStone_Desc".Translate());
+					l.CheckboxLabeled("AT_AmmoAlsoMetal".Translate(), ref S.ammoAlsoMetal, "AT_AmmoAlsoMetal_Desc".Translate());
+					l.CheckboxLabeled("AT_FreeAmmo".Translate(), ref S.freeAmmo, "AT_FreeAmmo_Desc".Translate());
 					l.Gap(4f);
 				}
 				float used = l.CurHeight;
@@ -229,7 +238,8 @@ namespace AutoTurrets
 	{
 		public static void Postfix(Building_TurretGun __instance, ref bool __result)
 		{
-			if (!__result && (Auto.IsAuto(__instance) || TurretPage.HoldsFire(__instance)))
+			// 1.5.0: every turret of yours can be given a target, also the automatic ones
+			if (!__result && __instance.Faction == Faction.OfPlayer && __instance.GetComp<CompInteractable>() == null)
 				__result = true;
 		}
 	}
@@ -284,7 +294,7 @@ namespace AutoTurrets
 
 		public static bool Needs(Building_TurretGun t)
 		{
-			if (!Auto.IsAuto(t))
+			if (!Auto.IsAuto(t) || !TurretControlsComp.AutoLoad(t))
 				return false;
 			CompChangeableProjectile c = t.gun?.TryGetComp<CompChangeableProjectile>();
 			return c != null && !c.Loaded;
@@ -294,8 +304,18 @@ namespace AutoTurrets
 		{
 			StorageSettings allowed = t.gun.TryGetComp<CompChangeableProjectile>().allowedShellsSettings;
 			Predicate<Thing> ok = x => !x.IsForbidden(pawn) && pawn.CanReserve(x, 10, 1) && (allowed == null || allowed.AllowedToAccept(x));
+			// 1.5.0: the shell you picked for this mortar, nothing else
+			ThingDef only = TurretControlsComp.Chosen(t);
+			if (only != null)
+				return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(only), PathEndMode.ClosestTouch, TraverseParms.For(pawn), 9999f, x => !x.IsForbidden(pawn) && pawn.CanReserve(x, 10, 1));
+			// 1.5.0: special shells (EMP, incendiary, firefoam …) only when you pick them
+			if (ATMod.S.specialOnlyPicked)
+			{
+				Predicate<Thing> ok0 = ok;
+				ok = x => ok0(x) && SmartShells.KindOfShell(x.def) == SmartShells.Kind.HE;
+			}
 			// 1.3.1: smart shell choice – first the best kind for the enemies on the map, then any useful kind, then anything allowed
-			if (SmartShells.On)
+			if (SmartShells.On && !ATMod.S.specialOnlyPicked)
 			{
 				try
 				{

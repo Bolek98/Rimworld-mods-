@@ -63,4 +63,15 @@
   <AT_KindMortar>조작형 박격포</AT_KindMortar>
   <AT_KindAuto>자동</AT_KindAuto>
   <AT_KindMortarAuto>박격포</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>포탄 자동 장전</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>운반꾼이 이 박격포에 알아서 포탄을 가져옵니다. 손으로만 장전하려면 끄세요.</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>탄약: {0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>이 포탑을 장전하거나 보급할 포탄이나 재료를 하나만 고릅니다 – 다른 것은 가져오지 않습니다. "허용된 모든 것"은 포탑이 받는 모든 것을 씁니다.</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>허용된 모든 것</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>특수 포탄은 고를 때만</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>운반꾼은 EMP, 소이, 소화 거품 등 특수 포탄을 "탄약" 버튼으로 지정한 박격포에만 가져오고, 그 외에는 고폭탄을 가져옵니다.</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>전용 탄약 포탑도 금속 사용</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>전용 탄약이나 연료가 필요한 포탑(주로 모드)도 강철이나 다른 금속으로 보급할 수 있어 탄약이 없어서 멈추는 일이 없습니다.</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>포탑에 탄약 불필요</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>포탑이 항상 장전된 것으로 간주되며 탄약이나 연료를 쓰지 않습니다. 모드 포탑이 만들 수 없는 탄약을 요구할 때 유용합니다.</AT_FreeAmmo_Desc>
 </LanguageData>

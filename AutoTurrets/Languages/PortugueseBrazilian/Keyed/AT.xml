@@ -63,4 +63,15 @@
   <AT_KindMortar>morteiro operado</AT_KindMortar>
   <AT_KindAuto>automática</AT_KindAuto>
   <AT_KindMortarAuto>morteiro</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>Carregar projéteis automaticamente</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>Os carregadores levam projéteis a este morteiro sozinhos. Desligue para carregá-lo só à mão.</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>Munição: {0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>Escolha o único projétil ou material com que esta torre é carregada ou recarregada – nada mais é levado. "Qualquer permitido" usa tudo o que a torre aceita.</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>qualquer permitido</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>Projéteis especiais só quando escolhidos</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>Os carregadores levam projéteis EMP, incendiários, de espuma e outros especiais só a um morteiro ajustado para eles no botão "Munição"; senão levam explosivos.</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>Torres com munição própria aceitam metal também</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>Torres que precisam de munição ou combustível próprio (geralmente de mods) também podem ser recarregadas com aço ou outro metal – nunca ficam paradas por falta de munição.</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>Torres não precisam de munição</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>Suas torres contam sempre como carregadas e não gastam munição nem combustível. Útil quando uma torre de mod precisa de munição que você não consegue fazer.</AT_FreeAmmo_Desc>
 </LanguageData>

@@ -63,4 +63,15 @@
   <AT_KindMortar>mortero manejado</AT_KindMortar>
   <AT_KindAuto>automática</AT_KindAuto>
   <AT_KindMortarAuto>mortero</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>Cargar proyectiles automáticamente</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>Los porteadores llevan proyectiles a este mortero por sí solos. Desactívalo para cargarlo solo a mano.</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>Munición: {0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>Elige el único proyectil o material con el que se carga o recarga esta torreta: no se trae nada más. "Cualquiera permitido" usa todo lo que acepta la torreta.</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>cualquiera permitido</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>Proyectiles especiales solo si se eligen</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>Los porteadores llevan proyectiles EMP, incendiarios, de espuma y otros especiales solo a un mortero ajustado a ellos con su botón "Munición"; si no, llevan explosivos.</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>Las torretas con munición propia aceptan metal también</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>Las torretas que necesitan su propia munición o combustible (a menudo de mods) también se pueden recargar con acero u otro metal, así nunca se quedan quietas por falta de munición.</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>Las torretas no necesitan munición</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>Tus torretas siempre cuentan como cargadas y no gastan munición ni combustible. Útil cuando una torreta de un mod necesita munición que no puedes fabricar.</AT_FreeAmmo_Desc>
 </LanguageData>

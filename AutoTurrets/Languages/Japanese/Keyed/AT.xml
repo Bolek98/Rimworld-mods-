@@ -63,4 +63,15 @@
   <AT_KindMortar>要操作の迫撃砲</AT_KindMortar>
   <AT_KindAuto>自動</AT_KindAuto>
   <AT_KindMortarAuto>迫撃砲</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>砲弾を自動装填</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>運搬係がこの迫撃砲に自動で砲弾を運びます。手動でのみ装填したい場合はオフにします。</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>弾薬：{0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>このタレットに装填・補給する砲弾または素材を1つだけ選びます – それ以外は運ばれません。「許可されたもの全部」はタレットが受け付けるものすべてを使います。</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>許可されたもの全部</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>特殊砲弾は選んだときだけ</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>運搬係はEMP、焼夷、消火泡などの特殊砲弾を「弾薬」ボタンで指定した迫撃砲にだけ運びます。それ以外は榴弾を運びます。</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>専用弾薬のタレットも金属を受け付ける</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>専用の弾薬や燃料が必要なタレット（多くはMOD）も鋼鉄や他の金属で補給できます – 弾薬がないせいで止まることがなくなります。</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>タレットに弾薬は不要</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>あなたのタレットは常に装填済みとして扱われ、弾薬も燃料も消費しません。MODのタレットが作れない弾薬を必要とするときに便利です。</AT_FreeAmmo_Desc>
 </LanguageData>

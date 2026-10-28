@@ -63,4 +63,15 @@
   <AT_KindMortar>需操作的迫击炮</AT_KindMortar>
   <AT_KindAuto>自动</AT_KindAuto>
   <AT_KindMortarAuto>迫击炮</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>自动装填炮弹</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>搬运工会自动把炮弹送到这门迫击炮。关闭后只能手动装填。</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>弹药：{0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>选择这个炮塔装填或补给的唯一炮弹或材料——不会搬运其他东西。"任何允许的"使用炮塔接受的所有东西。</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>任何允许的</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>特殊炮弹仅在选择时</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>搬运工只会把EMP、燃烧弹、灭火泡沫等特殊炮弹送到用"弹药"按钮选择了它们的迫击炮；否则送高爆弹。</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>需要专用弹药的炮塔也接受金属</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>需要专用弹药或燃料的炮塔（通常来自模组）也可以用钢铁或其他金属补给——不会因为缺少弹药而闲置。</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>炮塔不需要弹药</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>你的炮塔始终视为已装填，不消耗弹药或燃料。适用于模组炮塔需要你无法制作的弹药时。</AT_FreeAmmo_Desc>
 </LanguageData>

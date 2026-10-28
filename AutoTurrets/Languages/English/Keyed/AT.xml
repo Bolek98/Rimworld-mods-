@@ -63,4 +63,15 @@
   <AT_KindMortar>manned mortar</AT_KindMortar>
   <AT_KindAuto>automatic</AT_KindAuto>
   <AT_KindMortarAuto>mortar</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>Auto load shells</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>Haulers bring shells to this mortar by themselves. Turn off to load it only by hand.</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>Ammo: {0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>Pick the one shell or material this turret is loaded or rearmed with – nothing else is brought. "Anything allowed" uses everything the turret takes.</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>anything allowed</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>Special shells only when picked</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>Haulers bring EMP, incendiary, firefoam and other special shells only to a mortar set to them with its "Ammo" button; otherwise they bring high-explosive shells.</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>Turrets with their own ammo take any metal too</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>Turrets that need their own ammo or fuel (often from mods) can also be rearmed with steel or any other metal – so they never stand idle because their ammo is missing.</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>Turrets need no ammo</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>Your turrets always count as loaded and never use up ammo or fuel. Useful when a mod's turret needs ammo you can't make.</AT_FreeAmmo_Desc>
 </LanguageData>

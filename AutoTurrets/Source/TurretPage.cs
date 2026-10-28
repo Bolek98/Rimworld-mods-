@@ -202,7 +202,16 @@ namespace AutoTurrets
 		// what the global switches add (only to turrets that are rearmed with metal, as before)
 		private static IEnumerable<ThingDef> GlobalAdds(List<ThingDef> orig)
 		{
-			if (S == null || orig.Count == 0 || !orig.All(MetalFuel.IsMetal)) yield break;
+			if (S == null || orig.Count == 0) yield break;
+			// 1.5.0: turrets that need their own ammo (or fuel) can take any metal too
+			if (!orig.All(MetalFuel.IsMetal))
+			{
+				if (S.ammoAlsoMetal)
+					foreach (ThingDef d in DefDatabase<ThingDef>.AllDefsListForReading)
+						if (d.category == ThingCategory.Item && MetalFuel.IsMetal(d) && (S.allowSilver || d != ThingDefOf.Silver))
+							yield return d;
+				yield break;
+			}
 			foreach (ThingDef d in DefDatabase<ThingDef>.AllDefsListForReading)
 			{
 				if (d.category != ThingCategory.Item) continue;
@@ -230,6 +239,8 @@ namespace AutoTurrets
 					ThingDef f = DefDatabase<ThingDef>.GetNamedSilentFail(k.Substring(bar + 1));
 					if (f != null) want.Add(f);
 				}
+				// 1.5.0: the "Auto rearm" button on every turret that is rearmed
+				foreach (var p0 in Props(t)) p0.showAllowAutoRefuelToggle = true;
 				bool more = want.Count > original[t].Count;
 				if (more) changed++;
 				// the turret and its wall version

@@ -3,6 +3,8 @@
 - Turrets tab: every turret, mortar and gun (vanilla and mods) in one list. Ticked ones fire on their own; unticked manned ones need a colonist again, unticked automatic ones hold fire until you pick a target.
 - Materials for every turret: each turret that is rearmed – also modded ones that need their own ammo or fuel – gets a "Materials…" button where you tick what else it may be rearmed with (metals, wood, stone blocks, ammo, other resources). Changes work right away, no restart.
 - The material switches (any metal, wood, stone) now work right away too.
+- Buttons on every turret of yours: "Set forced target" also on automatic turrets, "Auto rearm" on every turret that is rearmed, "Auto load shells" on mortars that fire alone, and "Ammo" – pick the one shell or material this turret uses (or anything allowed).
+- New options: special shells (EMP, incendiary, firefoam) only for mortars you set to them; turrets that need their own ammo can take any metal too; turrets need no ammo at all (for modded turrets whose ammo you can't make).
 
 1.4.0
 - Turrets in walls shoot only outward (setting, on by default): a wall turret only fires at targets on the outer side of its wall – the side that is outdoors while the other side is a room. A turret in a wall between two rooms (or where no side is clearly outside) still shoots in every direction. Turrets on the floor are not affected.
