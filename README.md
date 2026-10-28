@@ -26,24 +26,25 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Matchmaker | 0.1.1 | [Matchmaker](Matchmaker) |
 | Mech Commander | 0.1.3 | [MechCommander](MechCommander) |
 | Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
-| Mišák Tabs – Clear Bills, Health & Info | 0.6.0 | [MisakTabs](MisakTabs) |
+| Mišák Tabs – Clear Bills, Health & Info | 0.9.1 | [MisakTabs](MisakTabs) |
 | Mod Sort Manager – Load Order, Conflicts & Profiles | 0.3.1 | [ModSortManager](ModSortManager) |
 | Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
 | Randy's Table – Chaos Storytellers | 0.1.0 | [RandysTable](RandysTable) |
 | Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
 | Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.1.0 | [SeasonsHolidays](SeasonsHolidays) |
-| Secular Colony – Ideology Off & Tweaks | 1.5.2 | [SecularColony](SecularColony) |
-| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.16.0 | [SmartColonistGear](SmartColonistGear) |
-| Smooth FPS – Performance & Graphics | 1.5.0 | [SmoothFPS](SmoothFPS) |
+| Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |
+| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.0 | [SmartColonistGear](SmartColonistGear) |
+| Smooth FPS – Performance & Graphics | 1.6.1 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 3.4.1 | [Steward2/Steward](Steward2/Steward) |
-| Steward – Crises & Situations | 1.0.7 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| Steward – Crises & Situations | 1.0.8 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | Steward – Schedules | 1.1.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
 | Steward – Supplies | 1.0.5 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
-| Trader Hotline – Call the Orbital Trader You Want | 0.1.0 | [TraderHotline](TraderHotline) |
-| Universal RimTranslator | 1.0.0 | [UniversalRimTranslator](UniversalRimTranslator) |
+| Tidy Toolbar – No More Cut-Off Tabs | 1.0.0 | [TidyToolbar](TidyToolbar) |
+| Trader Hotline – Call the Trader You Want | 0.3.1 | [TraderHotline](TraderHotline) |
+| Universal RimTranslator – Auto-Translate All Your Mods | 1.0.0 | [UniversalRimTranslator](UniversalRimTranslator) |
 | Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.2 | [UnofficialPatch](UnofficialPatch) |
 | Wild Spawn Zone | 1.1.3 | [WildSpawnZone](WildSpawnZone) |
 | World at Your Level – Raiders Match Your Tech | 2.16.0 | [WorldAtYourLevel](WorldAtYourLevel) |

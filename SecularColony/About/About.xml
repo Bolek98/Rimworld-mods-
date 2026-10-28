@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Secular Colony – Ideology Off &amp; Tweaks</name>
+  <name>Secular Colony – No Ideology for Your Colony (Works Mid-Save)</name>
   <author>Bolek98</author>
   <packageId>misak.secularcolony</packageId>
-  <modVersion>1.5.2</modVersion>
+  <modVersion>1.6.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -21,37 +21,54 @@
     <li>Ludeon.RimWorld</li>
     <li>Ludeon.RimWorld.Ideology</li>
   </loadAfter>
-  <description>Your colony lives as if ideoligions did not exist – also in an ongoing game. Other factions are not affected.
+  <description>Turn Ideology off for your colony – even in a running save. No belief moods, no conversions, no crisis of faith, no "ideoligion forbids". Other factions keep their beliefs, so you keep the rest of the DLC.
 
-- No mood from beliefs: precept thoughts, rituals, roles, ideoligion buildings, desired apparel and colors give neither bonus nor penalty. Existing ones disappear.
-- Certainty never drops, nobody converts your colonists and your colonists don't preach to others.
+WHAT CHANGES FOR YOUR COLONY
+- No mood from beliefs: precepts, rituals, roles, ideoligion buildings, desired apparel and colours give neither bonus nor penalty. Existing ones disappear.
+- Certainty never drops; nobody converts your colonists and they don't preach to others.
 - "Ideoligion forbids" no longer blocks any job or action.
-- No mental breaks caused by beliefs (crisis of faith and similar).
-- No nagging alerts: empty roles, ideoligion buildings, date rituals, age reversal demand.
-- New: colonists now and then want a new hairstyle, beard or tattoo and visit a styling station by themselves; styles are chosen freely, not by the ideoligion.
-- New: remove the ideoligion completely with one button in the settings – classic mode, no Ideoligion tab, no roles, relics or ideoligion buildings, newcomers take the plain belief too.
-- New: relationships without belief – by traits (default), one partner for everyone, or free love. Two new traits, polyamorous and polygamous (more partners or spouses, no jealousy, mood from a big family); RimJobWorld recognises them as its polyamory and polygamy support.
-- New: barber's table (Vanilla Hair Expanded) works like a styling station; women pick women's hairstyles, men men's; restyles change hair colour too, from the colours of all your mods.
-- New: partial mode – keep moods from rituals, roles, belief buildings or desired clothes if you like them, and switch off the rest.
-- Recommended settings switch (on by default) and a new settings window.
-- Every part can be switched on or off, the whole mod with one switch. Switching off brings everything back.
-- Requires Ideology (does nothing without it) and Harmony. Safe to add to or remove from an existing save.
+- No mental breaks from beliefs (crisis of faith and similar) and no nagging belief alerts.
+- Partial mode: keep moods from rituals, roles, buildings or desired clothes if you like them.
+- Remove the ideoligion completely with one button – classic mode, no Ideoligion tab.
 
-—
+EXTRAS
+- Colonists now and then want a new hairstyle, beard or tattoo and visit a styling station by themselves; styles are free, not set by the ideoligion. Barber's table (Vanilla Hair Expanded) works too.
+- Relationships without belief: by traits (default), one partner for everyone, or free love. Two new traits, polyamorous and polygamous (RimJobWorld recognises them).
 
-Tvoje kolonie žije, jako by ideologie neexistovaly – i v rozehrané hře. Ostatních frakcí se to netýká.
+Every part can be switched on or off; switching off brings everything back. Requires Ideology and Harmony. Safe to add to or remove from a save.
 
-- Žádné nálady z přesvědčení: myšlenky z přesvědčení, rituály, role, ideologické stavby, žádané oblečení a barvy nedávají plus ani minus. Stávající zmizí.
-- Jistota víry neklesá, nikdo tvé kolonisty nepřevede na jinou víru a tvoji kolonisté nikoho nepřesvědčují.
-- „Ideologie zakazuje“ už neblokuje žádnou práci ani akci.
-- Nové: ideologii jde jedním tlačítkem v nastavení odstranit úplně – klasický režim, žádná záložka Ideologie, role, relikvie ani ideologické stavby, nováčci převezmou obyčejnou víru taky.
-- Nové: vztahy bez víry – podle vlastností (výchozí), jeden partner pro všechny, nebo volná láska. Dvě nové vlastnosti, polyamorní a polygamní (víc partnerů nebo manželů, žádná žárlivost, radost z velké rodiny); RimJobWorld je pozná jako svou podporu polyamorie a polygamie.
-- Žádná psychická zhroucení kvůli víře (krize víry a podobně).
-- Žádná otravná upozornění: neobsazené role, ideologické stavby, rituály podle data, požadavek na omlazení.
-- Nové: kolonisté občas zatouží po novém účesu, vousech nebo tetování a sami si zajdou ke kadeřnickému křeslu; styl si volí svobodně, ne podle ideologie.
-- Nové: holičský stůl (Vanilla Hair Expanded) funguje jako kadeřnické křeslo; ženy si vybírají ženské účesy, muži mužské; při úpravě se mění i barva vlasů, z barev všech tvých modů.
-- Nové: částečný režim – nálady z rituálů, rolí, náboženských staveb nebo žádaného oblečení si můžeš nechat, zbytek vypnout.
-- Přepínač doporučeného nastavení (zapnutý) a nové okno nastavení.
-- Každou část lze zapnout nebo vypnout, celý mod jedním přepínačem. Po vypnutí se vše vrátí.
-- Vyžaduje Ideology (bez ní nic nedělá) a Harmony. Lze přidat i odebrat z rozehrané hry.</description>
+Found a bug? Write it in the comments or use the "Report a bug" button (bottom left in the mod settings) – a short report for a Workshop comment, the full one for GitHub Issues.
+
+简体中文：为你的殖民地关闭文化体系——存档中途也可以。没有信仰心情、没有改信、没有信仰危机，"文化禁止"不再阻止任何工作。其他派系保留信仰。
+
+Русский: отключает идеологию для вашей колонии – даже в текущем сохранении. Никаких настроений от верований, обращений, кризисов веры и запретов «идеология запрещает». Другие фракции сохраняют свои верования.
+
+한국어: 정착지의 이념을 끕니다 – 진행 중인 세이브에서도 가능. 신념으로 인한 기분, 개종, 신앙의 위기, "이념이 금지함" 제한이 없습니다. 다른 세력은 신념을 유지합니다.
+
+日本語：入植地のイデオロギーをオフにします（進行中のセーブでも可）。信念による気分、改宗、信仰の危機、「イデオロギーが禁じている」がなくなります。他の勢力は信念を保ちます。
+
+Deutsch: Schaltet die Ideologie für deine Kolonie aus – auch in einem laufenden Spielstand. Keine Glaubens-Stimmungen, keine Bekehrungen, keine Glaubenskrise, kein „Ideologie verbietet“. Andere Fraktionen behalten ihren Glauben.
+
+Português: desliga a ideologia da sua colônia – até em um save em andamento. Sem humor de crenças, sem conversões, sem crise de fé, sem "a ideologia proíbe". Outras facções mantêm suas crenças.
+
+Español: desactiva la ideología de tu colonia, incluso en una partida empezada. Sin estados de ánimo por creencias, sin conversiones, sin crisis de fe, sin "la ideología lo prohíbe". Las demás facciones conservan sus creencias.
+
+Čeština: vypne ideologii pro tvou kolonii – i v rozehrané hře. Žádné nálady z víry, převádění, krize víry ani „ideologie zakazuje“. Ostatní frakce si víru nechají. Navíc: kolonisté si sami mění účes a tetování, vztahy bez víry (podle vlastností, jeden partner nebo volná láska) a částečný režim. Každou část lze vypnout. Chyby piš do komentářů nebo použij tlačítko „Nahlásit chybu“ vlevo dole v nastavení.
+
+═══════════════════════
+IDEAS AND SUGGESTIONS
+Want something changed or added? Write it in the comments – I read every idea and take it into account.
+
+WHAT'S NEW IN 1.6.0
+- "Report a bug" button in the settings (bottom left)
+- "Bolek98's mods": all my mods' versions and settings in one list, save/load all settings
+- New name, description in 8 languages, new preview
+
+NÁPADY A NÁVRHY
+Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
+
+CO JE NOVÉHO VE VERZI 1.6.0
+- Tlačítko „Nahlásit chybu“ v nastavení (vlevo dole)
+- „Bolek98's mods“: verze a nastavení všech mých modů v jednom seznamu, uložení/načtení všech nastavení
+- Nový název, popis v 8 jazycích, nový náhled</description>
 </ModMetaData>
