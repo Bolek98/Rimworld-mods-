@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+1.6.5
+- Crash report: errors that kept repeating all game long no longer count – such a mod was wrongly named as a suspect – and mods that only add a class to the game's own namespaces (or Harmony itself) are not blamed. When nothing points at a mod, the report says so.
+
 1.6.4
 - Memory (1.7): new switch "Keep textures in the graphics card as long as possible" – the game no longer moves textures out of the card at about 80 % but only when it is really full, so pictures stay sharp longer.
 
