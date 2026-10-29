@@ -23,6 +23,9 @@ namespace RandysTable
         public bool diceAlert = true;        // the "die: 5 – hard day" alert with today's odds
         public bool diceLetter = false;      // the roll as a letter instead of a short message
         public bool heavyOnlySix = true;     // 0.1.5: infestations, mech clusters … only on a mad day
+        public bool diceEvents = true;       // 0.2.0: the Gambler's own events
+        public int eventChance = 60;         // % of days that bring one
+        public List<string> disabledEvents = new List<string>();
 
         public override void ExposeData()
         {
@@ -33,12 +36,16 @@ namespace RandysTable
             Scribe_Values.Look(ref diceAlert, "diceAlert", true);
             Scribe_Values.Look(ref diceLetter, "diceLetter", false);
             Scribe_Values.Look(ref heavyOnlySix, "heavyOnlySix", true);
+            Scribe_Values.Look(ref diceEvents, "diceEvents", true);
+            Scribe_Values.Look(ref eventChance, "eventChance", 60);
+            Scribe_Collections.Look(ref disabledEvents, "disabledEvents", LookMode.Value);
+            if (disabledEvents == null) disabledEvents = new List<string>();
         }
     }
 
     public class RTMod : Mod
     {
-        public const string Version = "0.1.5";
+        public const string Version = "0.2.0";
         public static RTSettings S;
         private static List<string> recBullets;
 
@@ -78,6 +85,9 @@ namespace RandysTable
                 Check(l, "RT_DiceAlert", ref S.diceAlert, "diceAlert");
                 Check(l, "RT_DiceLetter", ref S.diceLetter, "diceLetter");
                 Check(l, "RT_HeavySix", ref S.heavyOnlySix, "heavyOnlySix");
+                MUI.Section(l, "RT_SecEvents".Translate());
+                Check(l, "RT_Events", ref S.diceEvents, "diceEvents");
+                S.eventChance = Mathf.RoundToInt(MUI.Slider(l, "RT_EventChance".Translate(S.eventChance), S.eventChance, 0f, 100f, "RT_EventChance_Desc".Translate(), S, "eventChance"));
                 MUI.Section(l, "RT_SecDiary".Translate());
                 Check(l, "RT_Diary", ref S.diary, "diary");
                 Check(l, "RT_DiaryAll", ref S.diaryAll, "diaryAll");
@@ -85,6 +95,9 @@ namespace RandysTable
                 l.End();
             }
             finally { MUI.EndLock(rest); }
+            // 0.2.0: the list of events (not locked – it's your choice which ones you want)
+            if (Widgets.ButtonText(new Rect(r.xMax - 260f, r.yMax - 34f, 260f, 32f), "RT_EventList".Translate(DiceEvents.All.Count - S.disabledEvents.Count, DiceEvents.All.Count)))
+                Find.WindowStack.Add(new Dialog_DiceEvents());
         }
     }
 
@@ -175,6 +188,12 @@ namespace RandysTable
                 Roll(true);
         }
 
+        // 0.2.0: "the Gambler plays for you" – a new face right now
+        public void ForceRoll()
+        {
+            Face(Rand.RangeInclusive(1, 6), true);
+        }
+
         public void Roll(bool announce)
         {
             day = GenDate.DaysPassed;
@@ -215,6 +234,7 @@ namespace RandysTable
                     Surprise(1, "Misc", "Misc", "ThreatSmall", "OrbitalVisitor", "FactionArrival");
                 if (roll != 7)
                     Weather();
+                DiceEvents.AfterRoll(roll);   // 0.2.0
             }
             catch (Exception e)
             {

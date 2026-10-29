@@ -103,4 +103,121 @@
   <RT_RollSay7_3>Seven. That does not count. Once more, in a while.</RT_RollSay7_3>
   <RT_HeavySix>Heaviest threats only on a mad day (6)</RT_HeavySix>
   <RT_HeavySix_Desc>With Dice the Gambler, infestations, mechanoid clusters and crashed ship parts come only when the die shows 6. Quests are not affected.</RT_HeavySix_Desc>
+  <!-- 0.2.0 the Gambler's events -->
+  <RT_SecEvents>The Gambler's events</RT_SecEvents>
+  <RT_Events>The Gambler's own events</RT_Events>
+  <RT_Events_Desc>After a roll, Dice the Gambler may bring one of his own events that fits the day: bets, challenges with a deadline, situations for a few days, twisted vanilla events.</RT_Events_Desc>
+  <RT_EventChance>Chance of an event after a roll: {0} %</RT_EventChance>
+  <RT_EventChance_Desc>How often a day brings one of the Gambler's events.</RT_EventChance_Desc>
+  <RT_EventList>Events: {0} of {1} on…</RT_EventList>
+  <RT_EventListTitle>The Gambler's events</RT_EventListTitle>
+  <RT_EventListDesc>Untick the events you don't want. Each one belongs to one face of the die. Hover for a description.</RT_EventListDesc>
+  <RT_EventTry>Try</RT_EventTry>
+  <RT_EV_Prefix>Gambler: {0}</RT_EV_Prefix>
+  <RT_EV_ChallengeGoal>Goal: {0}\nTime: {1} days.</RT_EV_ChallengeGoal>
+  <RT_EV_Won>Challenge won: {0}</RT_EV_Won>
+  <RT_EV_Lost>Challenge lost: {0}</RT_EV_Lost>
+  <RT_EV_Dropped>{0}: {1}</RT_EV_Dropped>
+  <RT_EV_InspiredBy>the Gambler's favour</RT_EV_InspiredBy>
+  <RT_EV_NoSilver>You don't have {0} silver to bet.</RT_EV_NoSilver>
+  <RT_EV_AlertLabel>Gambler's challenge</RT_EV_AlertLabel>
+  <RT_EV_Festival>Feast day</RT_EV_Festival>
+  <RT_EV_Festival_Text>"Put the work away for a moment. Today we celebrate – just because the dice said so."\n\nEveryone is in a festive mood for two days.</RT_EV_Festival_Text>
+  <RT_EV_Dreams>Dice dreams</RT_EV_Dreams>
+  <RT_EV_Dreams_Text>"Sleep well tonight. I'll watch the dice."\n\nFor two days sleep refreshes your colonists more.</RT_EV_Dreams_Text>
+  <RT_EV_LostDie>The lost die</RT_EV_LostDie>
+  <RT_EV_LostDie_Text>"I dropped a die somewhere around here. Whoever finds it can keep what's with it."\n\nA pod falls near your colony.</RT_EV_LostDie_Text>
+  <RT_EV_QuietDays>Quiet days</RT_EV_QuietDays>
+  <RT_EV_QuietDays_Text>"Three days without anyone losing their temper. Can you do it?"</RT_EV_QuietDays_Text>
+  <RT_EV_QuietDays_Goal>no mental break for three days</RT_EV_QuietDays_Goal>
+  <RT_EV_QuietDays_Won>"I didn't believe it. Well done."\n\nEveryone is proud of the team and two colonists get an inspiration.</RT_EV_QuietDays_Won>
+  <RT_EV_QuietDays_Lost>"Someone cracked. As I expected."</RT_EV_QuietDays_Lost>
+  <RT_EV_Lesson>A lesson from the Gambler</RT_EV_Lesson>
+  <RT_EV_Lesson_Text>"Let me show you a trick or two."\n\nThree colonists improve their best skill.</RT_EV_Lesson_Text>
+  <RT_EV_Crafter>The craftsman</RT_EV_Crafter>
+  <RT_EV_Crafter_Text>"Show me your hands are good for more than holding dice."</RT_EV_Crafter_Text>
+  <RT_EV_Crafter_Goal>craft {0} things</RT_EV_Crafter_Goal>
+  <RT_EV_Crafter_Won>"Fine work. Here's something for the next ones."\n\nComponents and plasteel are on the way.</RT_EV_Crafter_Won>
+  <RT_EV_Crafter_Lost>"Lazy hands. Pity."</RT_EV_Crafter_Lost>
+  <RT_EV_Hunter>The hunter</RT_EV_Hunter>
+  <RT_EV_Hunter_Text>"I'm hungry for a good hunt story."</RT_EV_Hunter_Text>
+  <RT_EV_Hunter_Goal>hunt {0} animals</RT_EV_Hunter_Goal>
+  <RT_EV_Hunter_Won>"Now that's a story!"\n\nThe hunters are proud and a bag of silver falls from the sky.</RT_EV_Hunter_Won>
+  <RT_EV_Hunter_Lost>"The animals won this time."</RT_EV_Hunter_Lost>
+  <RT_EV_Cleaning>Spring cleaning</RT_EV_Cleaning>
+  <RT_EV_Cleaning_Text>"This place is a mess. Clean it up by tomorrow and I'll make it worth it."</RT_EV_Cleaning_Text>
+  <RT_EV_Cleaning_Goal>clean {0} spots of dirt</RT_EV_Cleaning_Goal>
+  <RT_EV_Cleaning_Won>"Sparkling. Even I want to live here."</RT_EV_Cleaning_Won>
+  <RT_EV_Cleaning_Lost>"Still dirty. Never mind."</RT_EV_Cleaning_Lost>
+  <RT_EV_Focus>Sharp minds</RT_EV_Focus>
+  <RT_EV_Focus_Text>"Today everything sticks. Learn while you can."\n\nFor two days your colonists learn 50 % faster.</RT_EV_Focus_Text>
+  <RT_EV_OddEven>Odd or even</RT_EV_OddEven>
+  <RT_EV_OddEven_Text>"A little bet? Even – you win. Odd – I keep your silver."</RT_EV_OddEven_Text>
+  <RT_EV_OddEven_O1>Bet 100 silver (win 250)</RT_EV_OddEven_O1>
+  <RT_EV_OddEven_O2>Bet 300 silver (win 750)</RT_EV_OddEven_O2>
+  <RT_EV_OddEven_O3>No thanks</RT_EV_OddEven_O3>
+  <RT_EV_OddEven_Lose>The die shows {0}. Your {1} silver is gone.</RT_EV_OddEven_Lose>
+  <RT_EV_Miner>Gold digger</RT_EV_Miner>
+  <RT_EV_Miner_Text>"There's treasure under your feet. Dig!"</RT_EV_Miner_Text>
+  <RT_EV_Miner_Goal>mine {0} cells</RT_EV_Miner_Goal>
+  <RT_EV_Miner_Won>"Told you so."\n\nGold and silver are on the way.</RT_EV_Miner_Won>
+  <RT_EV_Miner_Lost>"The treasure stays in the rock."</RT_EV_Miner_Lost>
+  <RT_EV_Builder>The builder</RT_EV_Builder>
+  <RT_EV_Builder_Text>"Build me something. Anything. Quickly."</RT_EV_Builder_Text>
+  <RT_EV_Builder_Goal>build {0} things</RT_EV_Builder_Goal>
+  <RT_EV_Builder_Won>"That'll stand for a while."\n\nSteel and components are on the way.</RT_EV_Builder_Won>
+  <RT_EV_Builder_Lost>"Nothing built. Pity."</RT_EV_Builder_Lost>
+  <RT_EV_GoldFever>Gold fever</RT_EV_GoldFever>
+  <RT_EV_GoldFever_Text>"Every rock might hide a fortune…"\n\nFor two days mining yields 50 % more, but nerves are thin.</RT_EV_GoldFever_Text>
+  <RT_EV_Reroll>The Gambler plays for you</RT_EV_Reroll>
+  <RT_EV_Reroll_Text>"I don't like today's number. Let me throw again."</RT_EV_Reroll_Text>
+  <RT_EV_Roulette>Roulette</RT_EV_Roulette>
+  <RT_EV_Roulette_Text>"One of your people, one throw. Heads – a stroke of genius. Tails – a bruise."</RT_EV_Roulette_Text>
+  <RT_EV_Roulette_O1>Throw</RT_EV_Roulette_O1>
+  <RT_EV_Roulette_O2>Not today</RT_EV_Roulette_O2>
+  <RT_EV_Roulette_Win>{0} got lucky – an inspiration!</RT_EV_Roulette_Win>
+  <RT_EV_Roulette_Lose>{0} got unlucky – ouch.</RT_EV_Roulette_Lose>
+  <RT_EV_Gift3>Pick a gift</RT_EV_Gift3>
+  <RT_EV_Gift3_Text>"Today I'm generous. Pick one."</RT_EV_Gift3_Text>
+  <RT_EV_Gift3_O1>500 silver</RT_EV_Gift3_O1>
+  <RT_EV_Gift3_O2>10 medicine</RT_EV_Gift3_O2>
+  <RT_EV_Gift3_O3>A surprise</RT_EV_Gift3_O3>
+  <RT_EV_LuckyHand>Lucky hand</RT_EV_LuckyHand>
+  <RT_EV_LuckyHand_Text>"The dice smile on you."\n\nFor three days surgery succeeds more often and your words persuade better (recruiting, trade).</RT_EV_LuckyHand_Text>
+  <RT_EV_Pilgrim>A pilgrim with a story</RT_EV_Pilgrim>
+  <RT_EV_Pilgrim_Text>"Someone is coming who wants to join you. Someone else may come looking for him."</RT_EV_Pilgrim_Text>
+  <RT_EV_Pilgrim_O1>Take him in</RT_EV_Pilgrim_O1>
+  <RT_EV_Pilgrim_O2>Send him away</RT_EV_Pilgrim_O2>
+  <RT_EV_Blessing>The Gambler's blessing</RT_EV_Blessing>
+  <RT_EV_Blessing_Text>"Today the work goes by itself."\n\nFor a day everyone works 25 % faster.</RT_EV_Blessing_Text>
+  <RT_EV_Supplies>Supplies</RT_EV_Supplies>
+  <RT_EV_Supplies_Text>"Eat. You look thin."\n\nA pod with meals falls nearby.</RT_EV_Supplies_Text>
+  <RT_EV_TwoSides>From two sides</RT_EV_TwoSides>
+  <RT_EV_TwoSides_Text>"One raid is boring. How about two?"\n\nTwo smaller raids are coming at once.</RT_EV_TwoSides_Text>
+  <RT_EV_BadLuck>Unlucky day</RT_EV_BadLuck>
+  <RT_EV_BadLuck_Text>"Everything will go wrong today. At least you'll learn something."\n\nFor a day everyone moves 10 % slower but learns twice as fast.</RT_EV_BadLuck_Text>
+  <RT_EV_Fortress>The fortress</RT_EV_Fortress>
+  <RT_EV_Fortress_Text>"Here they come. Hold the walls and don't lose anyone."\n\nA raid is coming right now.</RT_EV_Fortress_Text>
+  <RT_EV_Fortress_Goal>nobody dies for two days</RT_EV_Fortress_Goal>
+  <RT_EV_Fortress_Won>"A real fortress."\n\nA mini-turret and steel are on the way.</RT_EV_Fortress_Won>
+  <RT_EV_Fortress_Lost>"The walls held, people didn't."</RT_EV_Fortress_Lost>
+  <RT_EV_Tax>The Gambler's tax</RT_EV_Tax>
+  <RT_EV_Tax_Text>"A fifth of your silver for me – or I send someone to take it."</RT_EV_Tax_Text>
+  <RT_EV_Tax_O1>Pay</RT_EV_Tax_O1>
+  <RT_EV_Tax_O2>Refuse</RT_EV_Tax_O2>
+  <RT_EV_ColdShower>Cold shower</RT_EV_ColdShower>
+  <RT_EV_ColdShower_Text>"Too comfortable? Let's change the weather."\n\nFor two days it gets very cold (or very hot in summer).</RT_EV_ColdShower_Text>
+  <RT_EV_AllIn>All in</RT_EV_AllIn>
+  <RT_EV_AllIn_Text>"One throw. 4 to 6 – a fortune falls from the sky. 1 to 3 – a strong raid comes for you."</RT_EV_AllIn_Text>
+  <RT_EV_AllIn_O1>Throw</RT_EV_AllIn_O1>
+  <RT_EV_AllIn_O2>No, thank you</RT_EV_AllIn_O2>
+  <RT_EV_AllIn_Lose>The die shows {0}. They're coming…</RT_EV_AllIn_Lose>
+  <RT_EV_MadPack>The mad pack</RT_EV_MadPack>
+  <RT_EV_MadPack_Text>"The animals went mad. Lots of them."</RT_EV_MadPack_Text>
+  <RT_EV_Eclipse>The dark die</RT_EV_Eclipse>
+  <RT_EV_Eclipse_Text>"Let's play in the dark for a while."\n\nAn eclipse, and something whispers numbers.</RT_EV_Eclipse_Text>
+  <RT_EV_Revenge>The Gambler's revenge</RT_EV_Revenge>
+  <RT_EV_Revenge_Text>"You've been lucky lately. Too lucky."\n\nA strong raid is coming.</RT_EV_Revenge_Text>
+  <RT_EV_Double>Double throw</RT_EV_Double>
+  <RT_EV_Double_Text>"Two dice today: one for you, one against you."</RT_EV_Double_Text>
 </LanguageData>
