@@ -136,8 +136,15 @@ namespace ModSortManager
             if (closeConfirmed || !Changed)
                 return true;
             // 0.1.1: unsaved changes – save, throw away, or go back
-            Find.WindowStack.Add(new Dialog_MessageBox("MSM_CloseAsk".Translate(), "MSM_SaveRestart".Translate(), SaveAndRestart,
-                "MSM_DiscardShort".Translate(), delegate { closeConfirmed = true; Close(); }, null, false, null, null));
+            var box = new Dialog_MessageBox("MSM_CloseAsk".Translate(), "MSM_SaveRestart".Translate(), SaveAndRestart,
+                "MSM_DiscardShort".Translate(), delegate { closeConfirmed = true; Close(); }, null, false, null, null);
+            // 0.3.3: save now, the new list is used the next time you start the game yourself
+            if (!Bisect.Active)
+            {
+                box.buttonCText = "MSM_SaveContinue".Translate();
+                box.buttonCAction = SaveAndContinue;
+            }
+            Find.WindowStack.Add(box);
             return false;
         }
 
@@ -682,7 +689,22 @@ namespace ModSortManager
             }
         }
 
+        private void SaveAndContinue()
+        {
+            if (!SaveList()) return;
+            Messages.Message("MSM_SavedNextStart".Translate(), MessageTypeDefOf.TaskCompletion, false);
+            closeConfirmed = true;
+            Close();
+        }
+
         private void SaveListAndRestart()
+        {
+            if (!SaveList()) return;
+            closeConfirmed = true;
+            GenCommandLine.Restart();
+        }
+
+        private bool SaveList()
         {
             try
             {
@@ -699,19 +721,18 @@ namespace ModSortManager
                 if (!same)
                 {
                     Find.WindowStack.Add(new Dialog_MessageBox("MSM_SaveFailed".Translate("ModsConfig.xml")));
-                    return;
+                    return false;
                 }
                 LoadedModManager.GetMod<MSMMod>()?.WriteSettings();
                 if (queueAfterSave != null) PreSave.WriteQueue(queueOrder, queueAfterSave);
+                return true;
             }
             catch (Exception e)
             {
                 Log.Error("[Mod Sort Manager] saving the mod list failed: " + e);
                 Find.WindowStack.Add(new Dialog_MessageBox("MSM_SaveFailed".Translate(e.Message)));
-                return;
+                return false;
             }
-            closeConfirmed = true;
-            GenCommandLine.Restart();
         }
 
         private static bool CanSaveGame()

@@ -27,7 +27,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Mech Commander | 0.1.3 | [MechCommander](MechCommander) |
 | Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
 | Mišák Tabs – Clear Bills, Health & Info | 0.10.1 | [MisakTabs](MisakTabs) |
-| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.3.2 | [ModSortManager](ModSortManager) |
+| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.3.3 | [ModSortManager](ModSortManager) |
 | Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
 | Randy's Table – Chaos Storytellers | 0.2.2 | [RandysTable](RandysTable) |
