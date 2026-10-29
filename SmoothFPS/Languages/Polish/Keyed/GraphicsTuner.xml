@@ -446,4 +446,6 @@
   <GT_VramCount>{0} tekstur ({1} dużych)</GT_VramCount>
   <GT_VramRowTip>{0}\n\nTekstury: około {1} MB\nLiczba: {2}, duże (ponad 4 MB): {3}\nNajwiększa: {4} ({5} MB)</GT_VramRowTip>
   <GT_VramModsNote>Rozmiar to szacunek z wymiarów obrazów (wszystkie tekstury moda, także wyniesione z karty). Mody na górze zwolnią najwięcej pamięci po wyłączeniu. Atlasy i powierzchnie rysowania należą do gry i zmniejszą się tylko przy niższej rozdzielczości lub mniejszej liczbie modów.</GT_VramModsNote>
+  <GT_KeepTex>Trzymaj tekstury w karcie graficznej jak najdłużej</GT_KeepTex>
+  <GT_KeepTex_Desc>W 1.7 gra zaczyna przenosić tekstury z karty graficznej do zwykłej pamięci już przy około 80 % – obrazy mogą wtedy wyglądać na rozmyte lub pojawiać się z opóźnieniem. Po włączeniu zostają w karcie w pełnej jakości, aż zostanie tylko około 200 MB. Gdy karta jest naprawdę pełna, gra i tak sama zrobi miejsce (inaczej by się wysypała) – wyłączenie dużych modów pomoże bardziej.</GT_KeepTex_Desc>
 </LanguageData>

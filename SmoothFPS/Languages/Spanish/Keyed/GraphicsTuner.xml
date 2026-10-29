@@ -446,4 +446,6 @@
   <GT_VramCount>{0} texturas ({1} grandes)</GT_VramCount>
   <GT_VramRowTip>{0}\n\nTexturas: unos {1} MB\nCantidad: {2}, grandes (más de 4 MB): {3}\nLa mayor: {4} ({5} MB)</GT_VramRowTip>
   <GT_VramModsNote>El tamaño es una estimación según las dimensiones de las imágenes (todas las texturas del mod, también las que el juego sacó de la tarjeta). Los mods de arriba liberan más memoria al desactivarlos. Atlas y superficies de dibujo son del juego y solo bajan con menos resolución o menos mods.</GT_VramModsNote>
+  <GT_KeepTex>Mantener las texturas en la tarjeta gráfica el mayor tiempo posible</GT_KeepTex>
+  <GT_KeepTex_Desc>En 1.7 el juego empieza a sacar texturas de la tarjeta gráfica a la memoria normal hacia el 80 % – las imágenes pueden verse borrosas o llegar tarde. Activado, se quedan en la tarjeta con calidad completa hasta que solo quedan unos 200 MB. Cuando la tarjeta está realmente llena, el juego aún hace sitio por sí mismo (si no, se cerraría) – desactivar mods grandes ayuda más.</GT_KeepTex_Desc>
 </LanguageData>

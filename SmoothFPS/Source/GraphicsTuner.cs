@@ -116,6 +116,7 @@ namespace GraphicsTuner
         public bool memUnload;
         public bool memRamWarn = true;
         public bool vramWarn = true;   // 1.3.0
+        public bool keepTexInCard;     // 1.6.3: 1.7 – textures stay in the card until it is really full
         public bool memLowLatency = true;       // 1.7: no blocking full clean-ups during play
         public bool memCompact;                 // 1.7: compact memory during long pauses
         public int texCap = 2048;               // 1.3.3: oversized mod pictures start smaller (0 = off)
@@ -260,6 +261,7 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref memUnload, "memUnload", false);
             Scribe_Values.Look(ref memRamWarn, "memRamWarn", true);
             Scribe_Values.Look(ref vramWarn, "vramWarn", true);
+            Scribe_Values.Look(ref keepTexInCard, "keepTexInCard", false);
             Scribe_Values.Look(ref memLowLatency, "memLowLatency", true);
             Scribe_Values.Look(ref memCompact, "memCompact", false);
             Scribe_Values.Look(ref texCap, "texCap", 2048);
@@ -750,7 +752,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.6.3";
+        public const string Version = "1.6.4";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -777,6 +779,7 @@ namespace GraphicsTuner
             Sim.Patch(harmony);                     // 1.6.0
             WorldSleep.Patch(harmony);              // 1.4.6: sleeping world pawns
             FastCull.Patch(harmony);                // 1.7.0
+            KeepTextures.Patch(harmony);            // 1.6.3
             WorldPathSpread.Patch(harmony);         // 1.7.0
             SaveTiming.Patch(harmony);              // 1.7.4
             SaveBuffer.Patch(harmony);              // 1.5.0
@@ -1343,6 +1346,7 @@ namespace GraphicsTuner
             if (!Freezer.Net) Plain(l, "GT_MemUnload", ref s.memUnload);
             Plain(l, "GT_MemRamWarn", ref s.memRamWarn);
             if (Vram.Available) Plain(l, "GT_VramWarnSet", ref s.vramWarn);
+            if (KeepTextures.Possible) Plain(l, "GT_KeepTex", ref s.keepTexInCard);
             // 1.3.3: oversized mod textures
             string capText = TextureCap.Blocked ? "GT_TexCapWaylith".Translate().ToString() : s.texCap <= 0 ? "GT_TexCapOff".Translate().ToString() : s.texCap + " px";
             if (l.ButtonTextLabeled("GT_TexCap".Translate(), capText) && !TextureCap.Blocked)

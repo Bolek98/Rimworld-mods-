@@ -446,4 +446,6 @@
   <GT_VramCount>{0} 张贴图（{1} 张大图）</GT_VramCount>
   <GT_VramRowTip>{0}\n\n贴图：约 {1} MB\n数量：{2}，大图（超过 4 MB）：{3}\n最大：{4}（{5} MB）</GT_VramRowTip>
   <GT_VramModsNote>大小是根据图片尺寸估算的（模组的全部贴图，包括已移出显卡的）。排在上面的模组关闭后能释放最多显存。图集和绘制表面属于游戏本身，只有降低分辨率或减少模组才会变小。</GT_VramModsNote>
+  <GT_KeepTex>尽量让贴图留在显卡中</GT_KeepTex>
+  <GT_KeepTex_Desc>在 1.7 中，显存约 80% 满时游戏就开始把贴图移到普通内存——图像可能显得模糊或加载延迟。开启后，贴图会以完整画质留在显卡中，直到只剩约 200 MB。显存真正满时游戏仍会自行腾出空间（否则会崩溃）——关闭大型模组效果更好。</GT_KeepTex_Desc>
 </LanguageData>

@@ -446,4 +446,6 @@
   <GT_VramCount>{0} textur ({1} velkých)</GT_VramCount>
   <GT_VramRowTip>{0}\n\nTextury: asi {1} MB\nPočet: {2}, z toho velkých (nad 4 MB): {3}\nNejvětší: {4} ({5} MB)</GT_VramRowTip>
   <GT_VramModsNote>Velikost je odhad podle rozměrů obrázků (všechny textury modu, i ty, které hra zrovna odložila z grafiky). Mody nahoře uvolní nejvíc paměti, když je vypneš. Atlasy a vykreslovací plochy patří hře a dají se zmenšit jen nižším rozlišením nebo méně mody.</GT_VramModsNote>
+  <GT_KeepTex>Nechat textury v grafice co nejdéle</GT_KeepTex>
+  <GT_KeepTex_Desc>Hra na 1.7 začne textury odkládat z grafické karty do běžné paměti už při zhruba 80 % zaplnění – obrázky pak můžou vypadat rozmazaně nebo se načítat pozdě. Se zapnutím zůstanou v grafice v plné kvalitě, dokud nezbývá jen asi 200 MB. Když je karta opravdu plná, hra místo udělá sama (jinak by spadla) – vypnutí velkých modů pomůže víc.</GT_KeepTex_Desc>
 </LanguageData>

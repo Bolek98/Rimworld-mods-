@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+1.6.4
+- Memory (1.7): new switch "Keep textures in the graphics card as long as possible" – the game no longer moves textures out of the card at about 80 % but only when it is really full, so pictures stay sharp longer.
+
 1.6.3
 - Memory: "What uses video memory" now opens a list of all mods sorted by the size of their textures (an estimate, also for textures the game has moved out of the card), with the number of big textures and the largest one in the tooltip, plus the biggest drawing surfaces. Works in every game version.
 
