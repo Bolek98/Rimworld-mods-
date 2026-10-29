@@ -22,6 +22,7 @@ namespace RandysTable
         public int diaryChance = 35;         // % of events that get a comment
         public bool diceAlert = true;        // the "die: 5 – hard day" alert with today's odds
         public bool diceLetter = false;      // the roll as a letter instead of a short message
+        public bool heavyOnlySix = true;     // 0.1.5: infestations, mech clusters … only on a mad day
 
         public override void ExposeData()
         {
@@ -31,12 +32,13 @@ namespace RandysTable
             Scribe_Values.Look(ref diaryChance, "diaryChance", 35);
             Scribe_Values.Look(ref diceAlert, "diceAlert", true);
             Scribe_Values.Look(ref diceLetter, "diceLetter", false);
+            Scribe_Values.Look(ref heavyOnlySix, "heavyOnlySix", true);
         }
     }
 
     public class RTMod : Mod
     {
-        public const string Version = "0.1.4";
+        public const string Version = "0.1.5";
         public static RTSettings S;
         private static List<string> recBullets;
 
@@ -75,6 +77,7 @@ namespace RandysTable
                 MUI.Section(l, "RT_SecDice".Translate());
                 Check(l, "RT_DiceAlert", ref S.diceAlert, "diceAlert");
                 Check(l, "RT_DiceLetter", ref S.diceLetter, "diceLetter");
+                Check(l, "RT_HeavySix", ref S.heavyOnlySix, "heavyOnlySix");
                 MUI.Section(l, "RT_SecDiary".Translate());
                 Check(l, "RT_Diary", ref S.diary, "diary");
                 Check(l, "RT_DiaryAll", ref S.diaryAll, "diaryAll");
@@ -465,6 +468,37 @@ namespace RandysTable
                 parms.points *= Rand.Range(m.pointsMin, m.pointsMax);
             }
             return parms;
+        }
+    }
+
+    // 0.1.5: with Dice the Gambler, the heaviest threats (infestations, mech clusters, crashed
+    // ship parts) come only on a mad day (6). Forced incidents (quests, dev mode) are not touched.
+    [HarmonyPatch(typeof(IncidentWorker), nameof(IncidentWorker.CanFireNow))]
+    public static class Patch_HeavyOnlySix
+    {
+        private static readonly HashSet<string> heavy = new HashSet<string>
+        {
+            "Infestation", "MechCluster", "PsychicEmanatorShipPartCrash", "DefoliatorShipPartCrash"
+        };
+
+        public static bool IsHeavy(IncidentDef d)
+        {
+            if (d == null) return false;
+            if (heavy.Contains(d.defName)) return true;
+            string n = d.defName;
+            return n.IndexOf("Infestation", StringComparison.OrdinalIgnoreCase) >= 0 && n.IndexOf("DeepDrill", StringComparison.OrdinalIgnoreCase) < 0;
+        }
+
+        public static void Postfix(IncidentWorker __instance, IncidentParms parms, ref bool __result)
+        {
+            try
+            {
+                if (!__result || parms == null || parms.forced || RTMod.S == null || !RTMod.S.heavyOnlySix) return;
+                DiceState d = DiceState.I;
+                if (d == null || !DiceState.DiceActive || d.roll == 6) return;
+                if (IsHeavy(__instance.def)) __result = false;
+            }
+            catch { }
         }
     }
 
