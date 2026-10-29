@@ -317,4 +317,36 @@
   <RLRG_ResearchAbove_Desc>Наскільки дорожчі дослідження вищого технологічного рівня, ніж у світу.</RLRG_ResearchAbove_Desc>
   <RLRG_ResearchBelow>Нижче рівня світу: вартість −{0}%</RLRG_ResearchBelow>
   <RLRG_ResearchBelow_Desc>Наскільки дешевші дослідження нижчого технологічного рівня, ніж у світу.</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>Розвиток світу</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>Власний рівень у кожної фракції</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>Кожна фракція рухається навколо рівня світу у своєму темпі: одні відстають, небагато випереджають. Їхні нападники та гості носять спорядження рівня своєї фракції. Знищення одного з їхніх поселень відкидає їх назад, торгівля з ними допомагає їм. Вкладка «Світ» показує всі фракції.</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>Провідні фракції на рівень попереду</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>Провідна фракція може носити спорядження на рівень вище рівня світу (не з «Чужі використовують лише те, що виготовили ви»). Вимкнено: фракції можуть лише відставати.</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>Вивчати чужі технології</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>Зброя чи одяг вище ваших досліджень отримують кнопку «Вивчити»: предмет розбирається й дає очки досліджень проєкту, який його відкриває (або проєкту його епохи). Потрібен дослідницький стіл.</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>Нова епоха приводить торговця</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>Коли рівень світу зростає, за день-два приходить торговий караван фракції нового рівня з новими товарами.</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>Набіги за реальною обороною</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>Сила набігів залежить і від вашої реальної оборони – бійців, їхньої зброї, броні та навичок, турелей і бойових механоїдів, – а не лише від багатства колонії. Багата, але слабка колонія отримує чесніші набіги, сильна бідна – жорсткіші.</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>Вага оборони: {0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>Наскільки сила набігу залежить від вашої оборони, а не від очок гри (100 % = лише оборона).</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0}: перехід на рівень {1}.</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0}: відкат на рівень {1}.</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>поселення знищено</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>торгівля допомагає</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>Вивчити</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>Розібрати для досліджень: {0} отримує {1} очок. Предмет витрачається.</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>Немає відкритого дослідницького проєкту, куди це можна вкласти.</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>Потрібен дослідницький стіл.</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>{0} розібрано: {1} +{2} досліджень.</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>Торговці нової епохи</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>Звістка про ваші успіхи поширилася. {0} відправляють караван із товарами епохи {1} – він має прибути за день-два.</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>Фракції</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>Власні рівні фракцій вимкнено (налаштування, вкладка «Розвиток світу»).</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>зростає</RLRG_EV_Rising>
+  <RLRG_EV_Falling>падає</RLRG_EV_Falling>
+  <RLRG_EV_Steady>стабільно</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0}: рівень {1} (світ: {2}). Їхні нападники та гості носять спорядження цього рівня.</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>Ваша оборона: {0} очок · очки набігу зараз: {1}</RLRG_EV_DefenseNow>
 </LanguageData>

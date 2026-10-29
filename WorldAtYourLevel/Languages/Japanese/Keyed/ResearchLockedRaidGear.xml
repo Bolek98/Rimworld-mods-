@@ -317,4 +317,36 @@
   <RLRG_ResearchAbove_Desc>世界より高い技術レベルの研究がどれだけ高くなるか。</RLRG_ResearchAbove_Desc>
   <RLRG_ResearchBelow>世界レベルより下：コスト −{0}%</RLRG_ResearchBelow>
   <RLRG_ResearchBelow_Desc>世界より低い技術レベルの研究がどれだけ安くなるか。</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>世界の進化</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>派閥ごとに独自のレベル</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>各派閥はそれぞれのペースで世界レベルの前後を動きます：遅れる派閥もあれば、先行する派閥もわずかにあります。その襲撃者や訪問者は派閥のレベルの装備を持ちます。派閥の拠点を破壊すると後退し、交易すると前進を助けます。世界タブにすべての派閥が表示されます。</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>先行する派閥は1段階上まで</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>先行する派閥は世界レベルより1段階上の装備を持てます（「他者はあなたが製作したものだけを使う」が有効な場合を除く）。オフ：派閥は遅れることしかできません。</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>異文明の技術を研究</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>研究レベルを超える武器や衣服に「研究」ボタンが付きます：分解すると、それを解放する研究プロジェクト（またはその時代のプロジェクト）に研究ポイントが入ります。研究台が必要です。</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>新しい時代は商人を呼ぶ</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>世界レベルが上がると、1～2日後に新しいレベルの派閥の交易キャラバンが新しい商品を持ってやって来ます。</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>実際の防衛力による襲撃</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>襲撃の強さは入植地の富だけでなく、実際の防衛力（戦闘員、その武器・防具・技能、タレット、戦闘用メカノイド）にも従います。裕福でも弱い入植地にはより公平な襲撃が、強くても貧しい入植地にはより厳しい襲撃が来ます。</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>防衛力の比重：{0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>襲撃の強さがゲーム本来のポイントではなく防衛力にどれだけ従うか（100 % = 防衛力のみ）。</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0}が{1}レベルに進歩しました。</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0}が{1}レベルに後退しました。</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>拠点が破壊された</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>交易が助けに</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>研究</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>分解して研究する：{0}に{1}ポイント。アイテムは消費されます。</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>投入できる未完了の研究プロジェクトがありません。</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>研究台が必要です。</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>{0}を分解：{1} +{2} 研究。</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>新しい時代の商人</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>あなたの進歩の噂が広まりました。{0}が{1}時代の商品を積んだキャラバンを送っています――1～2日で到着するはずです。</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>派閥</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>派閥ごとのレベルはオフです（設定、世界の進化タブ）。</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>上昇中</RLRG_EV_Rising>
+  <RLRG_EV_Falling>下降中</RLRG_EV_Falling>
+  <RLRG_EV_Steady>安定</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0}：{1}レベル（世界：{2}）。その襲撃者と訪問者はこのレベルの装備を持ちます。</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>あなたの防衛力：{0}ポイント · 現在の襲撃ポイント：{1}</RLRG_EV_DefenseNow>
 </LanguageData>

@@ -539,4 +539,55 @@
   <RL_GO_NoWeaponsStored>この入植者が使える武器が倉庫にありません。</RL_GO_NoWeaponsStored>
   <RL_AlertUnarmed>武器を持たない入植者</RL_AlertUnarmed>
   <RL_AlertUnarmed_Desc>マップに敵がいて、以下の入植者は武器を持っていません（または近接武器のみ）：\n\n{0}\n\n装備一覧で武器を渡してください（武器をクリック）。</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>戦闘と作業</RL_TabBattle>
+  <RL_BG_Outfits>戦闘用服装</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>各服装に戦闘用服装を設定できます（「服装ごとの武器」で設定）。徴兵された入植者は戦闘用服装を使い、徴兵解除後は作業用服装に戻ります。戦闘用の装備を脱ぎ、作業着を着直します。</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>襲撃中も戦闘用服装</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>マップに敵がいる間、全員が戦闘用服装に切り替えます（「攻撃されたら防具を着る」がオンなら防具も着ます）。襲撃後は作業着に戻ります。</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>戦闘用服装を設定…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>徴兵時に防具を取りに行く</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>近くに敵がいない徴兵中の入植者は、命令を出す前に近くにある最良の許可された防具（保管場所や拠点内）を取りに行きます。あなたが命令を出すと中断します。</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>防具の範囲：{0}マス</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>徴兵中の入植者が防具を取りに行く距離。</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>着替えたら元の位置に戻る</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>防具を取った後、入植者は徴兵した場所へ戻ります。</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>天気予報に合わせて着る</RL_BG_Season>
+  <RL_BG_Season_Desc>現在の気温だけでなく、今後数時間の気温（寒い夜、近づく冬、夏の暑さ）にも合わせて服を選びます。</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>予報の範囲：{0}時間</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>予報で何時間先まで考慮するか。</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>キャラバン用に着る</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>キャラバンを編成中の入植者は、今後4日間の天気に合わせて服を着ます。</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>傷んだ装備を早めに交換</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>しきい値を下回った装備は、保管場所にある同じ種類または同じ部位の良品（80%以上）と交換します。防御力は同等以上、保温性はほぼ同じ。</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>交換するしきい値：{0} %</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>傷んだ装備を交換する耐久度。</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – 戦闘</RL_BG_NewLabel>
+  <RL_BG_BattleIs>戦闘用服装：{0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>戦闘用服装：なし</RL_BG_BattleNone>
+  <RL_BG_None>なし（戦闘中もこの服装のまま）</RL_BG_None>
+  <RL_BG_Create>この服装から戦闘用服装を作成</RL_BG_Create>
+  <RL_BG_Battle_Desc>この服装の徴兵中の入植者（設定時は襲撃中の全員）は戦闘用服装を使い、その後この服装に戻ります。「作成」はこの服装をコピーし、すべての防具とヘルメットを許可します。</RL_BG_Battle_Desc>
+  <RL_BG_Edit>戦闘用服装を編集</RL_BG_Edit>
+  <RL_Why_BattleDraft>徴兵中 – 戦闘装備</RL_Why_BattleDraft>
+  <RL_Why_Worn>傷み – より良い装備に交換</RL_Why_Worn>
+  <RL_GP_Open>装備プランナー</RL_GP_Open>
+  <RL_GP_Title>装備プランナー</RL_GP_Title>
+  <RL_GP_Desc>入植者に足りないものと、今それを補うために作れる最良の物です。作業指示は不足数だけ作ります（「X個になるまで」）。</RL_GP_Desc>
+  <RL_GP_AllGood>全員がヘルメット、ボディアーマー、銃を持っており、傷んだ装備はありません。</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>ヘルメット</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>ボディアーマー</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>銃</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>傷み</RL_GP_Slot_Worn>
+  <RL_GP_Worn>傷み：{0}</RL_GP_Worn>
+  <RL_GP_Line>未所持 {0}人 · 保管中 {1} · 作成 {2}</RL_GP_Line>
+  <RL_GP_Best>最良：{0}（{1}）</RL_GP_Best>
+  <RL_GP_NoRecipe>まだ作れる物がありません</RL_GP_NoRecipe>
+  <RL_GP_InStock>保管中の数で足りています</RL_GP_InStock>
+  <RL_GP_HasBill>作業指示は登録済み</RL_GP_HasBill>
+  <RL_GP_Add>作業指示を追加（{0}）</RL_GP_Add>
+  <RL_GP_Auto>作業指示を自動で追加（1日1回）</RL_GP_Auto>
+  <RL_GP_Auto_Desc>1日1回、プランナーが不足していてまだ作業指示がない物すべてに「X個になるまで」の作業指示を追加します。</RL_GP_Auto_Desc>
+  <RL_GP_Added>作業指示を追加：{0}（{1}、{2}）。</RL_GP_Added>
+  <RL_GP_AutoAdded>装備プランナーが作業指示を追加：{0}</RL_GP_AutoAdded>
 </LanguageData>

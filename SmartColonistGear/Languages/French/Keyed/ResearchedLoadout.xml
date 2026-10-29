@@ -539,4 +539,55 @@
   <RL_GO_NoWeaponsStored>Aucune arme en stock utilisable par ce colon.</RL_GO_NoWeaponsStored>
   <RL_AlertUnarmed>Colons non armés</RL_AlertUnarmed>
   <RL_AlertUnarmed_Desc>Des ennemis sont sur la carte et ces colons n'ont pas d'arme (ou seulement de mêlée) :\n\n{0}\n\nDonnez-leur une arme dans l'aperçu de l'équipement (cliquez sur l'arme).</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>Combat &amp; travail</RL_TabBattle>
+  <RL_BG_Outfits>Tenues de combat</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>Chaque tenue peut avoir une tenue de combat (à régler dans « Armes par tenue »). Les colons mobilisés utilisent la tenue de combat et reviennent à leur tenue de travail une fois démobilisés – les pièces de combat sont retirées et les vêtements de travail remis.</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>Tenue de combat aussi pendant les raids</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>Tant que des ennemis sont sur la carte, tout le monde passe à la tenue de combat (et met une armure avec « Mettre une armure en cas d'attaque ») ; après le raid, ils reprennent leurs vêtements de travail.</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>Configurer les tenues de combat…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>Aller chercher une armure à la mobilisation</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>Un colon mobilisé sans ennemi à proximité va chercher la meilleure armure autorisée qui se trouve près de lui (stockage ou recoins de la base) avant que vous lui donniez un ordre. N'importe quel ordre de votre part l'interrompt.</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>Armure à moins de : {0} cases</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>Distance maximale qu'un colon mobilisé parcourt pour une armure.</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>Revenir après s'être équipé</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>Après avoir récupéré l'armure, le colon retourne à l'endroit où vous l'avez mobilisé.</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>S'habiller selon la météo à venir</RL_BG_Season>
+  <RL_BG_Season_Desc>Les vêtements suivent aussi la température des prochaines heures (nuit froide, hiver qui arrive, chaleur estivale), pas seulement la température actuelle.</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>Prévoir : {0} h</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>Combien d'heures à l'avance la prévision compte.</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>S'habiller pour les caravanes</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>Les colons qui forment une caravane s'habillent pour la météo des quatre prochains jours.</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>Remplacer l'équipement usé à temps</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>Une pièce sous le seuil est remplacée par une bonne (80 %+) du même type ou couvrant les mêmes parties du corps, prise dans le stockage – au moins autant d'armure, à peu près aussi chaude.</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>Remplacer sous : {0} %</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>Durabilité à partir de laquelle une pièce usée est remplacée.</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – combat</RL_BG_NewLabel>
+  <RL_BG_BattleIs>Tenue de combat : {0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>Tenue de combat : aucune</RL_BG_BattleNone>
+  <RL_BG_None>Aucune (garder cette tenue au combat)</RL_BG_None>
+  <RL_BG_Create>Créer une tenue de combat à partir de celle-ci</RL_BG_Create>
+  <RL_BG_Battle_Desc>Les colons mobilisés avec cette tenue (et tout le monde pendant un raid, si activé) utilisent la tenue de combat ; ensuite, ils reviennent à celle-ci. « Créer » copie cette tenue et autorise toutes les armures et tous les casques.</RL_BG_Battle_Desc>
+  <RL_BG_Edit>Modifier la tenue de combat</RL_BG_Edit>
+  <RL_Why_BattleDraft>mobilisé – équipement de combat</RL_Why_BattleDraft>
+  <RL_Why_Worn>usé – remplacé par une meilleure pièce</RL_Why_Worn>
+  <RL_GP_Open>Planificateur d'équipement</RL_GP_Open>
+  <RL_GP_Title>Planificateur d'équipement</RL_GP_Title>
+  <RL_GP_Desc>Ce qui manque à vos colons et la meilleure chose que vous pouvez fabriquer pour cela dès maintenant. Un ordre ne fabrique que le nombre manquant (« jusqu'à avoir X »).</RL_GP_Desc>
+  <RL_GP_AllGood>Tout le monde a un casque, une armure corporelle et une arme à feu, et rien n'est usé.</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>Casques</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>Armure corporelle</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>Armes à feu</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>Usé</RL_GP_Slot_Worn>
+  <RL_GP_Worn>Usé : {0}</RL_GP_Worn>
+  <RL_GP_Line>{0} colons sans · {1} en stock · {2} à fabriquer</RL_GP_Line>
+  <RL_GP_Best>Meilleur : {0} ({1})</RL_GP_Best>
+  <RL_GP_NoRecipe>rien que vous puissiez encore fabriquer</RL_GP_NoRecipe>
+  <RL_GP_InStock>assez en stock</RL_GP_InStock>
+  <RL_GP_HasBill>ordre déjà en file</RL_GP_HasBill>
+  <RL_GP_Add>Ajouter l'ordre ({0})</RL_GP_Add>
+  <RL_GP_Auto>Ajouter les ordres automatiquement (une fois par jour)</RL_GP_Auto>
+  <RL_GP_Auto_Desc>Une fois par jour, le planificateur ajoute des ordres « jusqu'à avoir X » pour tout ce qui manque et n'a pas encore d'ordre.</RL_GP_Auto_Desc>
+  <RL_GP_Added>Ordre ajouté : {0} à {1} ({2}).</RL_GP_Added>
+  <RL_GP_AutoAdded>Le planificateur d'équipement a ajouté des ordres : {0}</RL_GP_AutoAdded>
 </LanguageData>

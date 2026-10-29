@@ -539,4 +539,55 @@
   <RL_GO_NoWeaponsStored>No hay ningún arma en el almacén que este colono pueda usar.</RL_GO_NoWeaponsStored>
   <RL_AlertUnarmed>Colonos desarmados</RL_AlertUnarmed>
   <RL_AlertUnarmed_Desc>Hay enemigos en el mapa y estos colonos no tienen arma (o solo cuerpo a cuerpo):\n\n{0}\n\nDales un arma en la vista general del equipo (haz clic en el arma).</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>Combate y trabajo</RL_TabBattle>
+  <RL_BG_Outfits>Atuendos de combate</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>Cada atuendo puede tener un atuendo de combate (se configura en «Armas por atuendo»). Los colonos reclutados usan el atuendo de combate y vuelven a su atuendo de trabajo al dejar de estar reclutados: se quitan las piezas de combate y se vuelven a poner la ropa de trabajo.</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>Atuendo de combate también en incursiones</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>Mientras haya enemigos en el mapa, todos cambian al atuendo de combate (y se ponen armadura con «Ponerse armadura al ser atacados»); tras la incursión vuelven a la ropa de trabajo.</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>Configurar atuendos de combate…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>Ir a por armadura al reclutar</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>Un colono reclutado sin enemigos cerca va a por la mejor armadura permitida que haya cerca (almacén o rincones de la base) antes de que le des una orden. Cualquier orden tuya lo interrumpe.</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>Armadura a menos de: {0} casillas</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>Hasta dónde camina un colono reclutado para buscar armadura.</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>Volver después de vestirse</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>Tras recoger la armadura, el colono vuelve al lugar donde lo reclutaste.</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>Vestirse según el pronóstico</RL_BG_Season>
+  <RL_BG_Season_Desc>La ropa sigue también la temperatura de las próximas horas (noche fría, invierno que se acerca, calor de verano), no solo la temperatura actual.</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>Prever: {0} h</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>Cuántas horas por adelantado cuenta el pronóstico.</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>Vestirse para las caravanas</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>Los colonos que forman una caravana se visten para el clima de los próximos cuatro días.</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>Cambiar a tiempo el equipo desgastado</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>Una pieza por debajo del límite se cambia por una buena (80 %+) del mismo tipo o para las mismas partes del cuerpo del almacén: al menos la misma armadura y más o menos igual de abrigada.</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>Cambiar por debajo de: {0} %</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>Durabilidad a la que se cambia una pieza desgastada.</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – combate</RL_BG_NewLabel>
+  <RL_BG_BattleIs>Atuendo de combate: {0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>Atuendo de combate: ninguno</RL_BG_BattleNone>
+  <RL_BG_None>Ninguno (mantener este atuendo en combate)</RL_BG_None>
+  <RL_BG_Create>Crear un atuendo de combate a partir de este</RL_BG_Create>
+  <RL_BG_Battle_Desc>Los colonos reclutados con este atuendo (y todos durante una incursión, si está activado) usan el atuendo de combate; después vuelven a este. «Crear» copia este atuendo y permite todas las armaduras y cascos.</RL_BG_Battle_Desc>
+  <RL_BG_Edit>Editar atuendo de combate</RL_BG_Edit>
+  <RL_Why_BattleDraft>reclutado – equipo de combate</RL_Why_BattleDraft>
+  <RL_Why_Worn>desgastado – cambiado por una pieza mejor</RL_Why_Worn>
+  <RL_GP_Open>Planificador de equipo</RL_GP_Open>
+  <RL_GP_Title>Planificador de equipo</RL_GP_Title>
+  <RL_GP_Desc>Lo que les falta a tus colonos y lo mejor que puedes fabricar para ello ahora mismo. Un encargo fabrica solo la cantidad que falta («hasta tener X»).</RL_GP_Desc>
+  <RL_GP_AllGood>Todos tienen casco, armadura corporal y arma de fuego, y nada está desgastado.</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>Cascos</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>Armadura corporal</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>Armas de fuego</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>Desgastado</RL_GP_Slot_Worn>
+  <RL_GP_Worn>Desgastado: {0}</RL_GP_Worn>
+  <RL_GP_Line>{0} colonos sin · {1} en almacén · {2} por fabricar</RL_GP_Line>
+  <RL_GP_Best>Mejor: {0} ({1})</RL_GP_Best>
+  <RL_GP_NoRecipe>aún no puedes fabricar nada</RL_GP_NoRecipe>
+  <RL_GP_InStock>suficiente en almacén</RL_GP_InStock>
+  <RL_GP_HasBill>encargo ya en cola</RL_GP_HasBill>
+  <RL_GP_Add>Añadir encargo ({0})</RL_GP_Add>
+  <RL_GP_Auto>Añadir encargos solo (una vez al día)</RL_GP_Auto>
+  <RL_GP_Auto_Desc>Una vez al día, el planificador añade encargos «hasta tener X» para todo lo que falta y aún no tiene encargo.</RL_GP_Auto_Desc>
+  <RL_GP_Added>Encargo añadido: {0} en {1} ({2}).</RL_GP_Added>
+  <RL_GP_AutoAdded>El planificador de equipo añadió encargos: {0}</RL_GP_AutoAdded>
 </LanguageData>

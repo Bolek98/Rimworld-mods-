@@ -539,4 +539,55 @@
   <RL_GO_NoWeaponsStored>이 정착민이 쓸 수 있는 무기가 창고에 없습니다.</RL_GO_NoWeaponsStored>
   <RL_AlertUnarmed>무장하지 않은 정착민</RL_AlertUnarmed>
   <RL_AlertUnarmed_Desc>맵에 적이 있고 다음 정착민은 무기가 없습니다 (또는 근접 무기만):\n\n{0}\n\n장비 개요에서 무기를 주세요 (무기를 클릭).</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>전투와 작업</RL_TabBattle>
+  <RL_BG_Outfits>전투 의복</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>각 의복에는 전투 의복을 지정할 수 있습니다 ("의복별 무기"에서 설정). 징집된 정착민은 전투 의복을 사용하고, 징집 해제 후에는 작업 의복으로 돌아갑니다 – 전투용 장비는 벗고 작업복을 다시 입습니다.</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>습격 중에도 전투 의복</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>맵에 적이 있는 동안 모두 전투 의복으로 바꿉니다 ("공격받으면 방어구 착용"이 켜져 있으면 방어구도 입습니다). 습격이 끝나면 작업복으로 돌아갑니다.</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>전투 의복 설정…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>징집 시 방어구 가져오기</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>근처에 적이 없는 징집된 정착민은 명령을 내리기 전에 가까이에 있는 가장 좋은 허용된 방어구(보관소나 기지 곳곳)를 가져옵니다. 명령을 내리면 중단됩니다.</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>방어구 범위: {0}칸</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>징집된 정착민이 방어구를 가지러 가는 거리.</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>착용 후 원래 위치로 복귀</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>방어구를 가져온 뒤 정착민은 징집한 위치로 돌아갑니다.</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>일기 예보에 맞춰 입기</RL_BG_Season>
+  <RL_BG_Season_Desc>현재 온도뿐 아니라 앞으로 몇 시간의 온도(추운 밤, 다가오는 겨울, 여름 더위)에도 맞춰 옷을 입습니다.</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>예보 범위: {0}시간</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>예보를 몇 시간 앞까지 고려할지.</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>캐러밴에 맞춰 입기</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>캐러밴을 구성 중인 정착민은 앞으로 4일간의 날씨에 맞춰 옷을 입습니다.</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>낡은 장비 제때 교체</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>기준 아래로 떨어진 장비는 보관소에 있는 같은 종류나 같은 부위의 좋은 장비(80% 이상)로 교체됩니다 – 방어력은 같거나 높고, 보온은 비슷합니다.</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>교체 기준: {0} % 미만</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>낡은 장비를 교체하는 내구도.</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – 전투</RL_BG_NewLabel>
+  <RL_BG_BattleIs>전투 의복: {0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>전투 의복: 없음</RL_BG_BattleNone>
+  <RL_BG_None>없음 (전투 중에도 이 의복 유지)</RL_BG_None>
+  <RL_BG_Create>이 의복으로 전투 의복 만들기</RL_BG_Create>
+  <RL_BG_Battle_Desc>이 의복을 쓰는 징집된 정착민(설정 시 습격 중에는 모두)은 전투 의복을 사용하고, 그 후 이 의복으로 돌아갑니다. "만들기"는 이 의복을 복사하고 모든 방어구와 헬멧을 허용합니다.</RL_BG_Battle_Desc>
+  <RL_BG_Edit>전투 의복 편집</RL_BG_Edit>
+  <RL_Why_BattleDraft>징집 – 전투 장비</RL_Why_BattleDraft>
+  <RL_Why_Worn>낡음 – 더 나은 장비로 교체</RL_Why_Worn>
+  <RL_GP_Open>장비 계획</RL_GP_Open>
+  <RL_GP_Title>장비 계획</RL_GP_Title>
+  <RL_GP_Desc>정착민에게 부족한 것과 지금 그것을 위해 만들 수 있는 가장 좋은 물건입니다. 작업은 부족한 수량만 만듭니다 ("X개가 될 때까지").</RL_GP_Desc>
+  <RL_GP_AllGood>모두 헬멧, 몸 방어구, 총기를 가지고 있고 낡은 것도 없습니다.</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>헬멧</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>몸 방어구</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>총기</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>낡음</RL_GP_Slot_Worn>
+  <RL_GP_Worn>낡음: {0}</RL_GP_Worn>
+  <RL_GP_Line>없는 정착민 {0}명 · 보관 중 {1} · 제작 필요 {2}</RL_GP_Line>
+  <RL_GP_Best>최선: {0} ({1})</RL_GP_Best>
+  <RL_GP_NoRecipe>아직 만들 수 있는 것이 없음</RL_GP_NoRecipe>
+  <RL_GP_InStock>보관 중인 수량으로 충분</RL_GP_InStock>
+  <RL_GP_HasBill>작업이 이미 등록됨</RL_GP_HasBill>
+  <RL_GP_Add>작업 추가 ({0})</RL_GP_Add>
+  <RL_GP_Auto>작업 자동 추가 (하루 한 번)</RL_GP_Auto>
+  <RL_GP_Auto_Desc>하루 한 번 계획이 부족하고 아직 작업이 없는 모든 것에 "X개가 될 때까지" 작업을 추가합니다.</RL_GP_Auto_Desc>
+  <RL_GP_Added>작업 추가됨: {1}에서 {0} ({2}).</RL_GP_Added>
+  <RL_GP_AutoAdded>장비 계획이 작업을 추가함: {0}</RL_GP_AutoAdded>
 </LanguageData>

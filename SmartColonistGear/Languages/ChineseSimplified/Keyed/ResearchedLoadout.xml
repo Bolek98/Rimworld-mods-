@@ -539,4 +539,55 @@
   <RL_GO_NoWeaponsStored>仓库中没有这名殖民者能用的武器。</RL_GO_NoWeaponsStored>
   <RL_AlertUnarmed>无武器的殖民者</RL_AlertUnarmed>
   <RL_AlertUnarmed_Desc>地图上有敌人，这些殖民者没有武器（或只有近战武器）：\n\n{0}\n\n在装备总览中给他们武器（点击武器）。</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>战斗与工作</RL_TabBattle>
+  <RL_BG_Outfits>战斗服装方案</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>每个服装方案都可以有一个战斗服装方案（在“按服装方案的武器”中设置）。被征召的殖民者使用战斗服装方案，解除征召后回到工作服装方案——脱下战斗装备，重新穿上工作服。</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>袭击时也使用战斗服装方案</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>只要地图上有敌人，所有人都切换到战斗服装方案（并在开启“遭到攻击时穿上护甲”时穿上护甲）；袭击结束后换回工作服。</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>设置战斗服装方案…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>征召时去取护甲</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>附近没有敌人的被征召殖民者，在你下达命令前会去取附近最好的允许护甲（仓储或基地各处）。你的任何命令都会中断此行为。</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>护甲范围：{0} 格</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>被征召的殖民者为取护甲最远走多远。</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>穿好后返回原位</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>取得护甲后，殖民者会走回你征召他的位置。</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>按天气预报穿衣</RL_BG_Season>
+  <RL_BG_Season_Desc>服装也会考虑未来几小时的温度（寒冷的夜晚、即将到来的冬天、夏季酷热），而不只是当前温度。</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>预测：{0} 小时</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>天气预报向前考虑多少小时。</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>为远行队穿衣</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>正在组建远行队的殖民者会按未来四天的天气穿衣。</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>及时更换破旧装备</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>低于阈值的物品会被换成仓储中同类或覆盖相同身体部位的良好物品（80%+）——护甲至少相同，保暖程度大致相同。</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>低于此值时更换：{0} %</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>破旧物品被更换时的耐久度。</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – 战斗</RL_BG_NewLabel>
+  <RL_BG_BattleIs>战斗服装方案：{0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>战斗服装方案：无</RL_BG_BattleNone>
+  <RL_BG_None>无（战斗中保持此服装方案）</RL_BG_None>
+  <RL_BG_Create>以此方案创建战斗服装方案</RL_BG_Create>
+  <RL_BG_Battle_Desc>使用此服装方案的被征召殖民者（如已开启，袭击时所有人）会使用战斗服装方案；之后回到此方案。“创建”会复制此服装方案并允许所有护甲和头盔。</RL_BG_Battle_Desc>
+  <RL_BG_Edit>编辑战斗服装方案</RL_BG_Edit>
+  <RL_Why_BattleDraft>已征召——战斗装备</RL_Why_BattleDraft>
+  <RL_Why_Worn>已破旧——换成更好的物品</RL_Why_Worn>
+  <RL_GP_Open>装备规划器</RL_GP_Open>
+  <RL_GP_Title>装备规划器</RL_GP_Title>
+  <RL_GP_Desc>殖民者缺少什么，以及你现在能为此制作的最佳物品。清单只制作缺少的数量（“直到拥有 X 件”）。</RL_GP_Desc>
+  <RL_GP_AllGood>所有人都有头盔、身体护甲和枪械，且没有破旧的装备。</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>头盔</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>身体护甲</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>枪械</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>破旧</RL_GP_Slot_Worn>
+  <RL_GP_Worn>破旧：{0}</RL_GP_Worn>
+  <RL_GP_Line>{0} 名殖民者缺少 · 仓储中 {1} · 需制作 {2}</RL_GP_Line>
+  <RL_GP_Best>最佳：{0}（{1}）</RL_GP_Best>
+  <RL_GP_NoRecipe>目前还没有可制作的物品</RL_GP_NoRecipe>
+  <RL_GP_InStock>仓储中足够</RL_GP_InStock>
+  <RL_GP_HasBill>清单已在队列中</RL_GP_HasBill>
+  <RL_GP_Add>添加清单（{0}）</RL_GP_Add>
+  <RL_GP_Auto>自动添加清单（每天一次）</RL_GP_Auto>
+  <RL_GP_Auto_Desc>规划器每天一次为所有缺少且尚无清单的物品添加“直到拥有 X 件”清单。</RL_GP_Auto_Desc>
+  <RL_GP_Added>已添加清单：{0}，于{1}（{2}）。</RL_GP_Added>
+  <RL_GP_AutoAdded>装备规划器已添加清单：{0}</RL_GP_AutoAdded>
 </LanguageData>

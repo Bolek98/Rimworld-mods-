@@ -539,4 +539,55 @@
   <RL_GO_NoWeaponsStored>Não há arma no depósito que este colono possa usar.</RL_GO_NoWeaponsStored>
   <RL_AlertUnarmed>Colonos desarmados</RL_AlertUnarmed>
   <RL_AlertUnarmed_Desc>Há inimigos no mapa e estes colonos não têm arma (ou só corpo a corpo):\n\n{0}\n\nDê uma arma a eles na visão geral do equipamento (clique na arma).</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>Combate e trabalho</RL_TabBattle>
+  <RL_BG_Outfits>Trajes de combate</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>Cada traje pode ter um traje de combate (configure em "Armas por traje"). Colonos convocados usam o traje de combate e voltam ao traje de trabalho quando dispensados – as peças de combate saem e as roupas de trabalho voltam.</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>Traje de combate também durante ataques</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>Enquanto houver inimigos no mapa, todos trocam para o traje de combate (e vestem armadura com "Vestir armadura quando atacados"); depois do ataque voltam às roupas de trabalho.</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>Configurar trajes de combate…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>Buscar armadura ao convocar</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>Um colono convocado sem inimigo por perto vai buscar a melhor armadura permitida que esteja próxima (estoque ou cantos da base) antes de você dar uma ordem. Qualquer ordem sua interrompe isso.</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>Armadura a até: {0} células</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>Até onde um colono convocado anda para buscar armadura.</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>Voltar depois de se vestir</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>Depois de pegar a armadura, o colono volta ao lugar onde você o convocou.</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>Vestir-se conforme a previsão</RL_BG_Season>
+  <RL_BG_Season_Desc>As roupas seguem também a temperatura das próximas horas (noite fria, inverno chegando, calor de verão), não só a temperatura atual.</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>Prever: {0} h</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>Quantas horas à frente a previsão considera.</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>Vestir-se para caravanas</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>Colonos que estão formando uma caravana se vestem para o clima dos próximos quatro dias.</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>Trocar equipamento desgastado a tempo</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>Uma peça abaixo do limite é trocada por uma boa (80 %+) do mesmo tipo ou para as mesmas partes do corpo, do estoque – pelo menos a mesma armadura e mais ou menos tão quente.</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>Trocar abaixo de: {0} %</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>Durabilidade em que uma peça desgastada é trocada.</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – combate</RL_BG_NewLabel>
+  <RL_BG_BattleIs>Traje de combate: {0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>Traje de combate: nenhum</RL_BG_BattleNone>
+  <RL_BG_None>Nenhum (manter este traje em combate)</RL_BG_None>
+  <RL_BG_Create>Criar traje de combate a partir deste</RL_BG_Create>
+  <RL_BG_Battle_Desc>Colonos convocados com este traje (e todos durante um ataque, se ativado) usam o traje de combate; depois voltam a este. "Criar" copia este traje e permite todas as armaduras e capacetes.</RL_BG_Battle_Desc>
+  <RL_BG_Edit>Editar traje de combate</RL_BG_Edit>
+  <RL_Why_BattleDraft>convocado – equipamento de combate</RL_Why_BattleDraft>
+  <RL_Why_Worn>desgastado – trocado por uma peça melhor</RL_Why_Worn>
+  <RL_GP_Open>Planejador de equipamento</RL_GP_Open>
+  <RL_GP_Title>Planejador de equipamento</RL_GP_Title>
+  <RL_GP_Desc>O que falta aos seus colonos e a melhor coisa que você pode fabricar para isso agora. Uma ordem fabrica só a quantidade que falta ("até ter X").</RL_GP_Desc>
+  <RL_GP_AllGood>Todos têm capacete, armadura corporal e arma de fogo, e nada está desgastado.</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>Capacetes</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>Armadura corporal</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>Armas de fogo</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>Desgastado</RL_GP_Slot_Worn>
+  <RL_GP_Worn>Desgastado: {0}</RL_GP_Worn>
+  <RL_GP_Line>{0} colonos sem · {1} no estoque · {2} a fabricar</RL_GP_Line>
+  <RL_GP_Best>Melhor: {0} ({1})</RL_GP_Best>
+  <RL_GP_NoRecipe>nada que você possa fabricar ainda</RL_GP_NoRecipe>
+  <RL_GP_InStock>suficiente no estoque</RL_GP_InStock>
+  <RL_GP_HasBill>ordem já na fila</RL_GP_HasBill>
+  <RL_GP_Add>Adicionar ordem ({0})</RL_GP_Add>
+  <RL_GP_Auto>Adicionar ordens sozinho (uma vez por dia)</RL_GP_Auto>
+  <RL_GP_Auto_Desc>Uma vez por dia o planejador adiciona ordens "até ter X" para tudo o que falta e ainda não tem ordem.</RL_GP_Auto_Desc>
+  <RL_GP_Added>Ordem adicionada: {0} em {1} ({2}).</RL_GP_Added>
+  <RL_GP_AutoAdded>O planejador de equipamento adicionou ordens: {0}</RL_GP_AutoAdded>
 </LanguageData>

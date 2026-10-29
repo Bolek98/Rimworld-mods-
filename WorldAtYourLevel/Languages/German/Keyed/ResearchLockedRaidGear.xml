@@ -318,4 +318,36 @@
   <RLRG_ResearchAbove_Desc>Wie viel mehr Forschung einer höheren Techstufe als die Welt kostet.</RLRG_ResearchAbove_Desc>
   <RLRG_ResearchBelow>Unter der Weltstufe: −{0}% Kosten</RLRG_ResearchBelow>
   <RLRG_ResearchBelow_Desc>Wie viel weniger Forschung einer niedrigeren Techstufe als die Welt kostet.</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>Entwicklung</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>Fraktionen haben eine eigene Stufe</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>Jede Fraktion bewegt sich in ihrem eigenen Tempo um die Weltstufe: Manche hinken hinterher, einige sind voraus. Ihre Angreifer und Besucher tragen Ausrüstung der Stufe ihrer Fraktion. Die Zerstörung einer ihrer Siedlungen wirft sie zurück, Handel mit ihnen hilft ihnen. Der Tab Welt zeigt alle Fraktionen.</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>Führende Fraktionen eine Stufe voraus</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>Eine führende Fraktion darf Ausrüstung eine Stufe über der Weltstufe tragen (nicht mit „Andere nutzen nur, was du hergestellt hast“). Aus: Fraktionen können nur zurückfallen.</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>Fremde Technik erforschen</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>Eine Waffe oder Kleidung über deiner Forschung bekommt einen Knopf „Untersuchen“: Sie wird zerlegt und gibt Forschungspunkte für das Projekt, das sie freischaltet (oder ein Projekt ihrer Ära). Braucht einen Forschungstisch.</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>Eine neue Ära bringt einen Händler</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>Wenn die Weltstufe steigt, kommt ein oder zwei Tage später eine Händlerkarawane einer Fraktion der neuen Stufe mit den neuen Waren.</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>Überfälle nach echter Verteidigung</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>Die Stärke von Überfällen richtet sich auch nach deiner echten Verteidigung – Kämpfer, ihre Waffen, Rüstung und Fertigkeiten, Geschütze und Kampfmechanoiden – nicht nur nach dem Koloniewohlstand. Eine reiche, aber schwache Kolonie bekommt fairere Überfälle, eine starke arme härtere.</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>Gewicht der Verteidigung: {0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>Wie stark sich die Überfallstärke nach deiner Verteidigung statt nach den Punkten des Spiels richtet (100 % = nur Verteidigung).</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0} hat die Stufe {1} erreicht.</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0} ist auf die Stufe {1} zurückgefallen.</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>Siedlung zerstört</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>Handel hilft</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>Untersuchen</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>Für die Forschung zerlegen: {0} erhält {1} Punkte. Der Gegenstand wird verbraucht.</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>Kein offenes Forschungsprojekt, in das es fließen könnte.</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>Du brauchst einen Forschungstisch.</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>{0} zerlegt: {1} +{2} Forschung.</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>Händler der neuen Ära</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>Die Nachricht von deinem Fortschritt hat sich verbreitet. {0} schicken eine Karawane mit Waren der Ära {1} – sie sollte in ein oder zwei Tagen eintreffen.</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>Fraktionen</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>Eigene Fraktionsstufen sind ausgeschaltet (Einstellungen, Tab Entwicklung).</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>steigt</RLRG_EV_Rising>
+  <RLRG_EV_Falling>fällt</RLRG_EV_Falling>
+  <RLRG_EV_Steady>stabil</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0}: Stufe {1} (Welt: {2}). Ihre Angreifer und Besucher tragen Ausrüstung dieser Stufe.</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>Deine Verteidigung: {0} Punkte · Überfallpunkte jetzt: {1}</RLRG_EV_DefenseNow>
 </LanguageData>

@@ -318,4 +318,36 @@
   <RLRG_ResearchAbove_Desc>Cuánto más cuesta la investigación de un nivel tecnológico superior al del mundo.</RLRG_ResearchAbove_Desc>
   <RLRG_ResearchBelow>Por debajo del nivel del mundo: coste −{0}%</RLRG_ResearchBelow>
   <RLRG_ResearchBelow_Desc>Cuánto menos cuesta la investigación de un nivel tecnológico inferior al del mundo.</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>Evolución</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>Las facciones tienen su propio nivel</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>Cada facción se mueve alrededor del nivel del mundo a su propio ritmo: algunas se quedan atrás, unas pocas van por delante. Sus asaltantes y visitantes llevan equipo del nivel de su facción. Destruir uno de sus asentamientos las hace retroceder, comerciar con ellas las ayuda. La pestaña Mundo muestra todas las facciones.</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>Facciones líderes un nivel por delante</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>Una facción líder puede llevar equipo un nivel por encima del nivel del mundo (no con «Los demás solo usan lo que tú has fabricado»). Desactivado: las facciones solo pueden quedarse atrás.</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>Estudiar tecnología ajena</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>Un arma o prenda por encima de tu investigación recibe un botón «Estudiar»: se desmonta y da puntos de investigación al proyecto que la desbloquea (o a un proyecto de su era). Necesita una mesa de investigación.</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>Una nueva era trae un comerciante</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>Cuando sube el nivel del mundo, uno o dos días después llega una caravana comercial de una facción del nuevo nivel con la mercancía nueva.</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>Incursiones según la defensa real</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>La fuerza de las incursiones también depende de tu defensa real – combatientes, sus armas, armaduras y habilidades, torretas y mecanoides de combate – no solo de la riqueza de la colonia. Una colonia rica pero débil recibe incursiones más justas, una fuerte y pobre, más duras.</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>Peso de la defensa: {0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>Cuánto depende la fuerza de la incursión de tu defensa en lugar de los puntos del juego (100 % = solo defensa).</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0} ha avanzado al nivel {1}.</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0} ha retrocedido al nivel {1}.</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>asentamiento destruido</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>el comercio ayuda</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>Estudiar</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>Desmontar para investigar: {0} recibe {1} puntos. El objeto se consume.</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>No hay ningún proyecto de investigación abierto al que destinarlo.</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>Necesitas una mesa de investigación.</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>{0} desmontado: {1} +{2} de investigación.</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>Comerciantes de la nueva era</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>La noticia de tu progreso se ha extendido. {0} envían una caravana con mercancía de la era {1}; debería llegar en uno o dos días.</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>Facciones</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>Los niveles propios de las facciones están desactivados (ajustes, pestaña Evolución).</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>subiendo</RLRG_EV_Rising>
+  <RLRG_EV_Falling>bajando</RLRG_EV_Falling>
+  <RLRG_EV_Steady>estable</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0}: nivel {1} (mundo: {2}). Sus asaltantes y visitantes llevan equipo de este nivel.</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>Tu defensa: {0} puntos · puntos de incursión ahora: {1}</RLRG_EV_DefenseNow>
 </LanguageData>

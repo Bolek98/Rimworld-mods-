@@ -318,4 +318,36 @@
   <RLRG_ResearchAbove_Desc>Combien coûte en plus une recherche d'un niveau technologique supérieur à celui du monde.</RLRG_ResearchAbove_Desc>
   <RLRG_ResearchBelow>En dessous du niveau du monde : coût −{0} %</RLRG_ResearchBelow>
   <RLRG_ResearchBelow_Desc>Combien coûte en moins une recherche d'un niveau technologique inférieur à celui du monde.</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>Évolution</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>Les factions ont leur propre niveau</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>Chaque faction évolue autour du niveau du monde à son propre rythme : certaines sont en retard, quelques-unes en avance. Leurs pillards et visiteurs portent l'équipement du niveau de leur faction. Détruire une de leurs implantations les fait reculer, commercer avec elles les aide. L'onglet Monde affiche toutes les factions.</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>Factions en tête avec un niveau d'avance</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>Une faction en tête peut porter un équipement d'un niveau au-dessus du niveau du monde (pas avec « Les autres n'utilisent que ce que vous avez fabriqué »). Désactivé : les factions peuvent seulement prendre du retard.</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>Étudier la technologie étrangère</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>Une arme ou un vêtement au-dessus de votre recherche reçoit un bouton « Étudier » : il est démonté et donne des points de recherche au projet qui le débloque (ou à un projet de son époque). Nécessite un établi de recherche.</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>Une nouvelle ère amène un marchand</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>Quand le niveau du monde augmente, une caravane marchande d'une faction du nouveau niveau arrive un ou deux jours plus tard avec les nouvelles marchandises.</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>Raids selon la vraie défense</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>La force des raids suit aussi votre vraie défense – combattants, leurs armes, armures et compétences, tourelles et mécanoïdes de combat – et pas seulement la richesse de la colonie. Une colonie riche mais faible reçoit des raids plus justes, une colonie forte et pauvre des raids plus durs.</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>Poids de la défense : {0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>À quel point la force des raids suit votre défense plutôt que les points du jeu (100 % = uniquement la défense).</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0} a progressé au niveau {1}.</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0} est retombé au niveau {1}.</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>implantation détruite</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>le commerce aide</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>Étudier</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>Démonter pour la recherche : {0} reçoit {1} points. L'objet est consommé.</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>Aucun projet de recherche ouvert où l'utiliser.</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>Il vous faut un établi de recherche.</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>{0} démonté : {1} +{2} de recherche.</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>Marchands de la nouvelle ère</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>La nouvelle de vos progrès s'est répandue. {0} envoient une caravane avec des marchandises de l'ère {1} – elle devrait arriver dans un ou deux jours.</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>Factions</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>Les niveaux propres des factions sont désactivés (paramètres, onglet Évolution).</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>en hausse</RLRG_EV_Rising>
+  <RLRG_EV_Falling>en baisse</RLRG_EV_Falling>
+  <RLRG_EV_Steady>stable</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0} : niveau {1} (monde : {2}). Leurs pillards et visiteurs portent l'équipement de ce niveau.</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>Votre défense : {0} points · points de raid actuels : {1}</RLRG_EV_DefenseNow>
 </LanguageData>

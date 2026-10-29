@@ -539,4 +539,55 @@
   <RL_GO_NoWeaponsStored>Keine Waffe im Lager, die dieser Kolonist benutzen kann.</RL_GO_NoWeaponsStored>
   <RL_AlertUnarmed>Unbewaffnete Kolonisten</RL_AlertUnarmed>
   <RL_AlertUnarmed_Desc>Feinde sind auf der Karte und diese Kolonisten haben keine Waffe (oder nur Nahkampf):\n\n{0}\n\nGib ihnen in der Ausrüstungsübersicht eine Waffe (auf die Waffe klicken).</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>Kampf &amp; Arbeit</RL_TabBattle>
+  <RL_BG_Outfits>Kampf-Outfits</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>Jedes Outfit kann ein Kampf-Outfit haben (einzustellen unter „Waffen je Outfit“). Eingezogene Kolonisten nutzen das Kampf-Outfit und kehren nach dem Entlassen zu ihrem Arbeits-Outfit zurück – die Kampfteile kommen runter, die Arbeitskleidung wieder an.</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>Kampf-Outfit auch bei Überfällen</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>Solange Feinde auf der Karte sind, wechseln alle zum Kampf-Outfit (und ziehen mit „Bei Angriff Rüstung anziehen“ Rüstung an); nach dem Überfall kehren sie zur Arbeitskleidung zurück.</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>Kampf-Outfits einrichten…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>Beim Einziehen Rüstung holen</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>Ein eingezogener Kolonist ohne Feind in der Nähe holt die beste erlaubte Rüstung, die in der Nähe liegt (Lager oder Lagerecken der Basis), bevor du ihm einen Befehl gibst. Jeder Befehl von dir bricht das ab.</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>Rüstung im Umkreis: {0} Felder</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>Wie weit ein eingezogener Kolonist für Rüstung läuft.</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>Nach dem Anziehen zurückgehen</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>Nach dem Holen der Rüstung geht der Kolonist zurück an die Stelle, an der du ihn eingezogen hast.</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>Nach der Wettervorhersage kleiden</RL_BG_Season>
+  <RL_BG_Season_Desc>Kleidung richtet sich auch nach der Temperatur der kommenden Stunden (kalte Nacht, nahender Winter, Sommerhitze), nicht nur nach der aktuellen.</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>Vorausschau: {0} h</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>Wie viele Stunden im Voraus die Vorhersage zählt.</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>Für Karawanen kleiden</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>Kolonisten, die eine Karawane bilden, kleiden sich für das Wetter der nächsten vier Tage.</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>Abgenutzte Ausrüstung rechtzeitig tauschen</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>Ein Teil unter dem Grenzwert wird gegen ein gutes (80 %+) derselben Art oder für dieselben Körperteile aus dem Lager getauscht – mindestens gleich viel Rüstung, etwa gleich warm.</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>Tauschen unter: {0} %</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>Haltbarkeit, ab der ein abgenutztes Teil getauscht wird.</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – Kampf</RL_BG_NewLabel>
+  <RL_BG_BattleIs>Kampf-Outfit: {0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>Kampf-Outfit: keins</RL_BG_BattleNone>
+  <RL_BG_None>Keins (dieses Outfit im Kampf behalten)</RL_BG_None>
+  <RL_BG_Create>Kampf-Outfit aus diesem erstellen</RL_BG_Create>
+  <RL_BG_Battle_Desc>Eingezogene Kolonisten mit diesem Outfit (und bei einem Überfall alle, falls eingestellt) nutzen das Kampf-Outfit; danach kehren sie zu diesem zurück. „Erstellen“ kopiert dieses Outfit und erlaubt alle Rüstungen und Helme.</RL_BG_Battle_Desc>
+  <RL_BG_Edit>Kampf-Outfit bearbeiten</RL_BG_Edit>
+  <RL_Why_BattleDraft>eingezogen – Kampfausrüstung</RL_Why_BattleDraft>
+  <RL_Why_Worn>abgenutzt – gegen ein besseres Teil getauscht</RL_Why_Worn>
+  <RL_GP_Open>Ausrüstungsplaner</RL_GP_Open>
+  <RL_GP_Title>Ausrüstungsplaner</RL_GP_Title>
+  <RL_GP_Desc>Was deinen Kolonisten fehlt und das Beste, was du dafür gerade herstellen kannst. Ein Auftrag stellt nur die fehlende Anzahl her („bis du X hast“).</RL_GP_Desc>
+  <RL_GP_AllGood>Alle haben Helm, Körperrüstung und eine Schusswaffe, und nichts ist abgenutzt.</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>Helme</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>Körperrüstung</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>Schusswaffen</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>Abgenutzt</RL_GP_Slot_Worn>
+  <RL_GP_Worn>Abgenutzt: {0}</RL_GP_Worn>
+  <RL_GP_Line>{0} Kolonisten ohne · {1} im Lager · {2} herzustellen</RL_GP_Line>
+  <RL_GP_Best>Am besten: {0} ({1})</RL_GP_Best>
+  <RL_GP_NoRecipe>noch nichts, was du herstellen kannst</RL_GP_NoRecipe>
+  <RL_GP_InStock>genug im Lager</RL_GP_InStock>
+  <RL_GP_HasBill>Auftrag bereits vorhanden</RL_GP_HasBill>
+  <RL_GP_Add>Auftrag hinzufügen ({0})</RL_GP_Add>
+  <RL_GP_Auto>Aufträge selbst hinzufügen (einmal am Tag)</RL_GP_Auto>
+  <RL_GP_Auto_Desc>Einmal am Tag fügt der Planer Aufträge „bis du X hast“ für alles hinzu, was fehlt und noch keinen Auftrag hat.</RL_GP_Auto_Desc>
+  <RL_GP_Added>Auftrag hinzugefügt: {0} an {1} ({2}).</RL_GP_Added>
+  <RL_GP_AutoAdded>Ausrüstungsplaner hat Aufträge hinzugefügt: {0}</RL_GP_AutoAdded>
 </LanguageData>

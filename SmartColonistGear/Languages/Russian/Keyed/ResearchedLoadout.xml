@@ -539,4 +539,55 @@
   <RL_GO_NoWeaponsStored>На складе нет оружия, которым мог бы пользоваться этот колонист.</RL_GO_NoWeaponsStored>
   <RL_AlertUnarmed>Безоружные колонисты</RL_AlertUnarmed>
   <RL_AlertUnarmed_Desc>На карте враги, а у этих колонистов нет оружия (или только ближнего боя):\n\n{0}\n\nДайте им оружие в обзоре снаряжения (нажмите на оружие).</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>Бой и работа</RL_TabBattle>
+  <RL_BG_Outfits>Боевая одежда</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>У каждого комплекта одежды может быть боевой комплект (настраивается в «Оружие по одежде»). Призванные колонисты используют боевой комплект, а после роспуска возвращаются к рабочему – боевые вещи снимают, рабочую одежду надевают обратно.</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>Боевая одежда и во время набега</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>Пока на карте есть враги, все переключаются на боевой комплект (и с «Надевать броню при нападении» надевают броню); после набега возвращаются к рабочей одежде.</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>Настроить боевую одежду…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>При призыве сходить за бронёй</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>Призванный колонист без врагов поблизости приносит лучшую разрешённую броню, лежащую рядом (склад или углы базы), пока вы не отдали ему приказ. Любой ваш приказ это прерывает.</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>Броня в пределах: {0} клеток</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>Как далеко призванный колонист ходит за бронёй.</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>Вернуться после одевания</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>Надев броню, колонист возвращается туда, где вы его призвали.</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>Одеваться по прогнозу погоды</RL_BG_Season>
+  <RL_BG_Season_Desc>Одежда учитывает и температуру ближайших часов (холодная ночь, приближающаяся зима, летняя жара), а не только текущую.</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>Смотреть вперёд: {0} ч</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>На сколько часов вперёд учитывается прогноз.</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>Одеваться для каравана</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>Колонисты, которые собираются в караван, одеваются по погоде на ближайшие четыре дня.</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>Вовремя менять изношенное снаряжение</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>Вещь ниже порога меняется на хорошую (80 %+) того же вида или на те же части тела со склада – с не меньшей бронёй и примерно такую же тёплую.</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>Менять ниже: {0} %</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>Прочность, ниже которой изношенная вещь меняется.</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – бой</RL_BG_NewLabel>
+  <RL_BG_BattleIs>Боевая одежда: {0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>Боевая одежда: нет</RL_BG_BattleNone>
+  <RL_BG_None>Нет (в бою оставить этот комплект)</RL_BG_None>
+  <RL_BG_Create>Создать боевой комплект из этого</RL_BG_Create>
+  <RL_BG_Battle_Desc>Призванные колонисты с этим комплектом (и все во время набега, если включено) используют боевой комплект; потом возвращаются к этому. «Создать» копирует этот комплект и разрешает всю броню и шлемы.</RL_BG_Battle_Desc>
+  <RL_BG_Edit>Изменить боевую одежду</RL_BG_Edit>
+  <RL_Why_BattleDraft>призван – боевое снаряжение</RL_Why_BattleDraft>
+  <RL_Why_Worn>изношено – замена на лучшую вещь</RL_Why_Worn>
+  <RL_GP_Open>Планировщик снаряжения</RL_GP_Open>
+  <RL_GP_Title>Планировщик снаряжения</RL_GP_Title>
+  <RL_GP_Desc>Чего не хватает колонистам и лучшее, что вы можете для этого изготовить прямо сейчас. Задание изготовит только недостающее количество («пока не будет X»).</RL_GP_Desc>
+  <RL_GP_AllGood>У всех есть шлем, бронежилет и огнестрельное оружие, и ничего не изношено.</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>Шлемы</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>Броня на тело</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>Огнестрельное оружие</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>Изношено</RL_GP_Slot_Worn>
+  <RL_GP_Worn>Изношено: {0}</RL_GP_Worn>
+  <RL_GP_Line>{0} колонистов без · {1} на складе · изготовить {2}</RL_GP_Line>
+  <RL_GP_Best>Лучшее: {0} ({1})</RL_GP_Best>
+  <RL_GP_NoRecipe>пока нечего изготовить</RL_GP_NoRecipe>
+  <RL_GP_InStock>на складе достаточно</RL_GP_InStock>
+  <RL_GP_HasBill>задание уже добавлено</RL_GP_HasBill>
+  <RL_GP_Add>Добавить задание ({0})</RL_GP_Add>
+  <RL_GP_Auto>Добавлять задания самостоятельно (раз в день)</RL_GP_Auto>
+  <RL_GP_Auto_Desc>Раз в день планировщик добавляет задания «пока не будет X» на всё, чего не хватает и на что ещё нет задания.</RL_GP_Auto_Desc>
+  <RL_GP_Added>Задание добавлено: {0} на {1} ({2}).</RL_GP_Added>
+  <RL_GP_AutoAdded>Планировщик снаряжения добавил задания: {0}</RL_GP_AutoAdded>
 </LanguageData>

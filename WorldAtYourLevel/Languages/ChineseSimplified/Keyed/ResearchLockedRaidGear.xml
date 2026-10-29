@@ -317,4 +317,36 @@
   <RLRG_ResearchAbove_Desc>科技等级高于世界的研究要多花多少。</RLRG_ResearchAbove_Desc>
   <RLRG_ResearchBelow>低于世界等级：成本 −{0}%</RLRG_ResearchBelow>
   <RLRG_ResearchBelow_Desc>科技等级低于世界的研究要少花多少。</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>世界演进</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>派系拥有各自的等级</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>每个派系都以自己的节奏在世界等级附近变动：有些落后，少数领先。他们的袭击者和访客携带其派系等级的装备。摧毁他们的一个定居点会让其倒退，与他们交易则会帮助他们。世界标签页会显示所有派系。</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>领先派系可高出一级</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>领先的派系可以携带比世界等级高一级的装备（启用"别人只使用你制作过的东西"时除外）。关闭：派系只会落后。</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>研究外来技术</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>高于你研究水平的武器或服装会出现"研究"按钮：将其拆解，为解锁它的研究项目（或其时代的某个项目）提供研究点数。需要研究台。</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>新时代带来商人</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>当世界等级提升时，一两天后会有一支新等级派系的商队带着新货物到来。</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>按实际防御决定袭击</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>袭击强度也会根据你的实际防御而定——战斗人员、他们的武器、护甲和技能、炮塔以及战斗机械体——而不仅仅是殖民地财富。富有但弱小的殖民地会遇到更公平的袭击，强大但贫穷的则会更艰难。</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>防御权重：{0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>袭击强度在多大程度上依据你的防御而不是游戏自身的点数（100 % = 仅按防御）。</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0} 已进步到 {1} 等级。</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0} 已倒退到 {1} 等级。</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>定居点被摧毁</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>交易有帮助</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>研究</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>拆解用于研究：{0} 获得 {1} 点。物品将被消耗。</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>没有可投入的未完成研究项目。</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>你需要一张研究台。</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>已拆解 {0}：{1} +{2} 研究。</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>新时代的商人</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>你进步的消息已经传开。{0} 正派出一支商队，带着 {1} 时代的货物——应在一两天内到达。</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>派系</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>派系独立等级已关闭（设置，世界演进标签页）。</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>上升</RLRG_EV_Rising>
+  <RLRG_EV_Falling>下降</RLRG_EV_Falling>
+  <RLRG_EV_Steady>稳定</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0}：{1} 等级（世界：{2}）。他们的袭击者和访客携带该等级的装备。</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>你的防御：{0} 点 · 当前袭击点数：{1}</RLRG_EV_DefenseNow>
 </LanguageData>

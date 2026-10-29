@@ -317,4 +317,36 @@
   <RLRG_ResearchAbove_Desc>세계보다 높은 기술 수준의 연구 비용이 얼마나 더 드는지.</RLRG_ResearchAbove_Desc>
   <RLRG_ResearchBelow>세계 수준 이하: 비용 −{0}%</RLRG_ResearchBelow>
   <RLRG_ResearchBelow_Desc>세계보다 낮은 기술 수준의 연구 비용이 얼마나 덜 드는지.</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>세계 발전</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>세력마다 고유 수준</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>각 세력은 자기 속도로 세계 수준 주변을 오갑니다: 뒤처지는 세력도 있고, 앞서는 세력도 몇 있습니다. 그 세력의 습격자와 방문자는 세력 수준의 장비를 지닙니다. 정착지를 파괴하면 세력이 후퇴하고, 교역하면 세력에 도움이 됩니다. 세계 탭에서 모든 세력을 볼 수 있습니다.</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>앞선 세력은 한 단계 위까지</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>앞선 세력은 세계 수준보다 한 단계 높은 장비를 지닐 수 있습니다("다른 이들은 당신이 제작한 것만 사용"과 함께는 불가). 끄면: 세력은 뒤처지기만 할 수 있습니다.</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>외부 기술 연구</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>당신의 연구보다 높은 무기나 의류에 "연구" 버튼이 생깁니다: 분해하면 그것을 해금하는 연구 프로젝트(또는 그 시대의 프로젝트)에 연구 점수를 줍니다. 연구대가 필요합니다.</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>새 시대가 상인을 부른다</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>세계 수준이 오르면 하루 이틀 뒤 새 수준 세력의 무역 상단이 새 상품을 가지고 옵니다.</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>실제 방어력에 따른 습격</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>습격 강도는 정착지 재산만이 아니라 실제 방어력 – 전투원, 그들의 무기, 방어구와 기술, 포탑, 전투 메카노이드 – 도 따릅니다. 부유하지만 약한 정착지는 더 공정한 습격을, 강하지만 가난한 정착지는 더 힘든 습격을 받습니다.</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>방어력 비중: {0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>습격 강도가 게임 자체 점수 대신 방어력을 얼마나 따르는지(100 % = 방어력만).</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0}이(가) {1} 수준으로 발전했습니다.</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0}이(가) {1} 수준으로 후퇴했습니다.</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>정착지 파괴됨</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>교역이 도움</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>연구</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>연구를 위해 분해: {0}에 {1}점. 아이템은 소모됩니다.</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>넣을 수 있는 진행 중인 연구 프로젝트가 없습니다.</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>연구대가 필요합니다.</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>{0} 분해됨: {1} +{2} 연구.</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>새 시대의 상인</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>당신의 발전 소식이 퍼졌습니다. {0}이(가) {1} 시대의 상품을 실은 상단을 보내고 있습니다 – 하루 이틀 안에 도착할 것입니다.</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>세력</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>세력별 수준이 꺼져 있습니다(설정, 세계 발전 탭).</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>상승 중</RLRG_EV_Rising>
+  <RLRG_EV_Falling>하락 중</RLRG_EV_Falling>
+  <RLRG_EV_Steady>유지</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0}: {1} 수준(세계: {2}). 이 세력의 습격자와 방문자는 이 수준의 장비를 지닙니다.</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>당신의 방어력: {0}점 · 현재 습격 점수: {1}</RLRG_EV_DefenseNow>
 </LanguageData>

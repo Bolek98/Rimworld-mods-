@@ -539,4 +539,55 @@
   <RL_GO_NoWeaponsStored>W magazynie nie ma broni, której ten kolonista mógłby użyć.</RL_GO_NoWeaponsStored>
   <RL_AlertUnarmed>Nieuzbrojeni koloniści</RL_AlertUnarmed>
   <RL_AlertUnarmed_Desc>Na mapie są wrogowie, a ci koloniści nie mają broni (albo tylko białą):\n\n{0}\n\nDaj im broń w przeglądzie wyposażenia (kliknij broń).</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>Walka i praca</RL_TabBattle>
+  <RL_BG_Outfits>Stroje bojowe</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>Każdy strój może mieć strój bojowy (ustawisz go w „Broń wg stroju”). Zmobilizowani koloniści używają stroju bojowego, a po demobilizacji wracają do stroju roboczego – części bojowe zdejmują, a ubrania robocze zakładają z powrotem.</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>Strój bojowy także podczas najazdu</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>Dopóki na mapie są wrogowie, wszyscy przełączają się na strój bojowy (a z „Zakładaj pancerz przy ataku” zakładają pancerz); po najeździe wracają do ubrań roboczych.</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>Ustaw stroje bojowe…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>Po mobilizacji idź po pancerz</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>Zmobilizowany kolonista bez wroga w pobliżu idzie po najlepszy dozwolony pancerz leżący blisko (magazyn lub zakamarki bazy), zanim wydasz mu rozkaz. Każdy twój rozkaz to przerywa.</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>Pancerz w promieniu: {0} pól</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>Jak daleko zmobilizowany kolonista idzie po pancerz.</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>Wróć po ubraniu się</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>Po zabraniu pancerza kolonista wraca na miejsce, w którym go zmobilizowałeś.</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>Ubieraj się według prognozy</RL_BG_Season>
+  <RL_BG_Season_Desc>Ubranie zależy też od temperatury w najbliższych godzinach (zimna noc, nadchodząca zima, letni upał), nie tylko od obecnej temperatury.</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>Patrz do przodu: {0} h</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>Ile godzin naprzód liczy się prognoza.</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>Ubieraj się na karawanę</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>Koloniści formujący karawanę ubierają się na pogodę na najbliższe cztery dni.</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>Wymieniaj zużyte wyposażenie na czas</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>Część poniżej limitu jest wymieniana na dobrą (80 %+) tego samego rodzaju lub na te same części ciała z magazynu – co najmniej tak samo opancerzoną i mniej więcej tak samo ciepłą.</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>Wymieniaj poniżej: {0} %</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>Wytrzymałość, poniżej której zużyta część jest wymieniana.</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – walka</RL_BG_NewLabel>
+  <RL_BG_BattleIs>Strój bojowy: {0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>Strój bojowy: brak</RL_BG_BattleNone>
+  <RL_BG_None>Brak (w walce zostaw ten strój)</RL_BG_None>
+  <RL_BG_Create>Utwórz strój bojowy z tego</RL_BG_Create>
+  <RL_BG_Battle_Desc>Zmobilizowani koloniści z tym strojem (a podczas najazdu wszyscy, jeśli włączone) używają stroju bojowego; potem wracają do tego. „Utwórz” kopiuje ten strój i zezwala na każdy pancerz i hełm.</RL_BG_Battle_Desc>
+  <RL_BG_Edit>Edytuj strój bojowy</RL_BG_Edit>
+  <RL_Why_BattleDraft>zmobilizowany – wyposażenie bojowe</RL_Why_BattleDraft>
+  <RL_Why_Worn>zużyte – wymiana na lepszą część</RL_Why_Worn>
+  <RL_GP_Open>Planer wyposażenia</RL_GP_Open>
+  <RL_GP_Title>Planer wyposażenia</RL_GP_Title>
+  <RL_GP_Desc>Czego brakuje twoim kolonistom i najlepsza rzecz, jaką możesz na to teraz wytworzyć. Zlecenie wytwarza tylko brakującą liczbę („aż będziesz mieć X”).</RL_GP_Desc>
+  <RL_GP_AllGood>Wszyscy mają hełm, pancerz i broń palną, i nic nie jest zużyte.</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>Hełmy</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>Pancerz na tułów</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>Broń palna</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>Zużyte</RL_GP_Slot_Worn>
+  <RL_GP_Worn>Zużyte: {0}</RL_GP_Worn>
+  <RL_GP_Line>{0} kolonistów bez · {1} w magazynie · {2} do wytworzenia</RL_GP_Line>
+  <RL_GP_Best>Najlepsze: {0} ({1})</RL_GP_Best>
+  <RL_GP_NoRecipe>na razie nic, co możesz wytworzyć</RL_GP_NoRecipe>
+  <RL_GP_InStock>wystarczająco w magazynie</RL_GP_InStock>
+  <RL_GP_HasBill>zlecenie już dodane</RL_GP_HasBill>
+  <RL_GP_Add>Dodaj zlecenie ({0})</RL_GP_Add>
+  <RL_GP_Auto>Dodawaj zlecenia samo (raz dziennie)</RL_GP_Auto>
+  <RL_GP_Auto_Desc>Raz dziennie planer dodaje zlecenia „aż będziesz mieć X” na wszystko, czego brakuje i co nie ma jeszcze zlecenia.</RL_GP_Auto_Desc>
+  <RL_GP_Added>Dodano zlecenie: {0} przy {1} ({2}).</RL_GP_Added>
+  <RL_GP_AutoAdded>Planer wyposażenia dodał zlecenia: {0}</RL_GP_AutoAdded>
 </LanguageData>

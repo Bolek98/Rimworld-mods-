@@ -318,4 +318,36 @@
   <RLRG_ResearchAbove_Desc>O ile więcej kosztują badania wyższego poziomu technologii niż świat.</RLRG_ResearchAbove_Desc>
   <RLRG_ResearchBelow>Poniżej poziomu świata: koszt −{0}%</RLRG_ResearchBelow>
   <RLRG_ResearchBelow_Desc>O ile mniej kosztują badania niższego poziomu technologii niż świat.</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>Rozwój świata</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>Frakcje mają własny poziom</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>Każda frakcja porusza się wokół poziomu świata we własnym tempie: niektóre zostają w tyle, kilka prowadzi. Ich najeźdźcy i goście noszą wyposażenie poziomu swojej frakcji. Zniszczenie jednej z ich osad cofa je, handel z nimi im pomaga. Karta Świat pokazuje wszystkie frakcje.</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>Prowadzące frakcje o poziom wyżej</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>Prowadząca frakcja może nosić wyposażenie o poziom wyższe od poziomu świata (nie z „Inni używają tylko tego, co wytworzyłeś”). Wyłączone: frakcje mogą tylko zostawać w tyle.</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>Badaj obcą technologię</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>Broń lub odzież powyżej twoich badań dostaje przycisk „Zbadaj”: zostaje rozebrana i daje punkty badań projektowi, który ją odblokowuje (albo projektowi jej epoki). Wymaga stołu badawczego.</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>Nowa epoka sprowadza handlarza</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>Gdy poziom świata wzrośnie, dzień lub dwa później przybywa karawana handlowa frakcji z nowego poziomu z nowymi towarami.</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>Najazdy według prawdziwej obrony</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>Siła najazdów zależy też od twojej prawdziwej obrony – wojowników, ich broni, pancerzy i umiejętności, wieżyczek i bojowych mechanoidów – a nie tylko od bogactwa kolonii. Bogata, ale słaba kolonia dostaje uczciwsze najazdy, silna i biedna – trudniejsze.</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>Waga obrony: {0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>Na ile siła najazdu zależy od twojej obrony zamiast od punktów gry (100 % = tylko obrona).</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0} awansowali na poziom {1}.</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0} cofnęli się na poziom {1}.</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>osada zniszczona</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>handel pomaga</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>Zbadaj</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>Rozebrać dla badań: {0} otrzymuje {1} pkt. Przedmiot zostanie zużyty.</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>Brak otwartego projektu badawczego, do którego można by to dodać.</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>Potrzebujesz stołu badawczego.</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>Rozebrano {0}: {1} +{2} badań.</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>Handlarze nowej epoki</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>Wieść o twoich postępach się rozeszła. {0} wysyłają karawanę z towarami epoki {1} – powinna dotrzeć za dzień lub dwa.</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>Frakcje</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>Własne poziomy frakcji są wyłączone (ustawienia, karta Rozwój świata).</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>rośnie</RLRG_EV_Rising>
+  <RLRG_EV_Falling>spada</RLRG_EV_Falling>
+  <RLRG_EV_Steady>stały</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0}: poziom {1} (świat: {2}). Ich najeźdźcy i goście noszą wyposażenie tego poziomu.</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>Twoja obrona: {0} pkt · punkty najazdu teraz: {1}</RLRG_EV_DefenseNow>
 </LanguageData>
