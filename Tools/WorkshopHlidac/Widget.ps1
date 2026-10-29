@@ -76,7 +76,8 @@ function Refresh {
         $list += [pscustomobject]@{ id = $p.Name; title = [string]$it.title; subs = [int]$it.subs; fav = [int]$it.fav; com = [int]$it.comments; delta = $delta }
     }
     # dva mody se stejným začátkem názvu (Evergrowth …) dostanou celý název
-    $shorts = $list | ForEach-Object { Short $_.title } | Group-Object | Where-Object { $_.Count -gt 1 } | ForEach-Object { $_.Name }
+    $cnt = @{}
+    foreach ($x in $list) { $k = Short $x.title; if ($cnt.ContainsKey($k)) { $cnt[$k]++ } else { $cnt[$k] = 1 } }
     $sum = 0; $sumDelta = 0
     foreach ($m in ($list | Sort-Object subs -Descending)) {
         $sum += $m.subs; $sumDelta += $m.delta
@@ -90,7 +91,7 @@ function Refresh {
             [void]$g.ColumnDefinitions.Add($cd)
         }
         $n = New-Object System.Windows.Controls.TextBlock
-        $sn = Short $m.title; if ($shorts -contains $sn) { $sn = $m.title }; $n.Text = $sn; $n.Foreground = Brush '#C9CDD2'; $n.FontSize = 12; $n.TextTrimming = 'CharacterEllipsis'; $n.MaxWidth = 210
+        $sn = Short $m.title; if ($cnt[$sn] -gt 1) { $sn = $m.title.Replace($sn + ' – ', $sn + ': ') }; $n.Text = $sn; $n.Foreground = Brush '#C9CDD2'; $n.FontSize = 12; $n.TextTrimming = 'CharacterEllipsis'; $n.MaxWidth = 260
         $v = New-Object System.Windows.Controls.TextBlock
         $v.Text = ('{0:N0}' -f $m.subs); $v.Foreground = Brush '#E6E3DC'; $v.FontSize = 12; $v.FontWeight = 'SemiBold'; $v.HorizontalAlignment = 'Right'
         [System.Windows.Controls.Grid]::SetColumn($v, 1)
@@ -115,7 +116,7 @@ function Refresh {
     $total.Text = ('{0:N0}' -f $sum) + $(if ($sumDelta -gt 0) { '  +' + $sumDelta } else { '' })
     $age = ''
     try { $age = (Get-Item $stavPath).LastWriteTime.ToString('HH:mm') } catch {}
-    $updated.Text = 'Data hlídače: ' + $age + '  ·  dnes = od začátku dne'
+    $updated.Text = 'Data hlídače: ' + $age + '  ·  dnes = od začátku dne  ·  v2'
 }
 
 # tažení oknem
