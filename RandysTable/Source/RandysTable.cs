@@ -36,7 +36,7 @@ namespace RandysTable
 
     public class RTMod : Mod
     {
-        public const string Version = "0.1.1";
+        public const string Version = "0.1.2";
         public static RTSettings S;
         private static List<string> recBullets;
 
@@ -119,12 +119,12 @@ namespace RandysTable
                 case 1: return new Mood { mtb = 2.5f, big = 0f, small = 0.25f, visitors = 1.4f, pointsMin = 0.6f, pointsMax = 0.8f, forceOverdueThreat = false };
                 case 2: return new Mood { mtb = 1.5f, big = 0.35f, small = 0.6f, misc = 1.3f, visitors = 1.5f, trade = 1.3f, pointsMin = 0.7f, pointsMax = 1f, forceOverdueThreat = false };
                 case 4: return new Mood { mtb = 1f, big = 0.5f, small = 0.6f, trade = 2.5f, visitors = 2f, chunks = 3f, pointsMin = 0.6f, pointsMax = 1.1f };
-                case 5: return new Mood { mtb = 0.9f, big = 2f, small = 1.8f, misc = 0.8f, pointsMin = 1f, pointsMax = 1.5f };
+                case 5: return new Mood { mtb = 0.75f, big = 2f, small = 1.8f, misc = 0.8f, pointsMin = 1f, pointsMax = 1.5f };
                 case 6:
                     // mad day: every category gets its own random weight (same for the whole day)
                     var r = new System.Random(seed);
                     float R() => 0.3f + (float)r.NextDouble() * 2.2f;
-                    return new Mood { mtb = 0.5f, big = R(), small = R(), misc = R(), trade = R(), visitors = R(), chunks = R(), pointsMin = 0.6f, pointsMax = 1.8f };
+                    return new Mood { mtb = 0.45f, big = R(), small = R(), misc = R(), trade = R(), visitors = R(), chunks = R(), pointsMin = 0.6f, pointsMax = 1.8f };
                 default: return new Mood { pointsMin = 0.5f, pointsMax = 1.5f };
             }
         }
@@ -183,10 +183,47 @@ namespace RandysTable
                     Messages.Message(title + (line != null ? " – „" + line + "“" : ""), roll >= 5 ? MessageTypeDefOf.ThreatSmall : MessageTypeDefOf.NeutralEvent, false);
                 if (roll == 4)
                     Gift();
+                // 0.1.2: the roll always shows – a hard day brings at least one threat, a mad day two
+                // random events, both at a random time of the day (on top of the usual events)
+                if (roll == 5)
+                    Surprise(1, Rand.Chance(0.6f) ? new[] { "ThreatBig" } : new[] { "ThreatSmall" });
+                if (roll == 6)
+                    Surprise(2, "Misc", "Misc", "Misc", "ThreatSmall", "ThreatBig", "OrbitalVisitor", "FactionArrival", "FactionArrival", "ShipChunkDrop");
             }
             catch (Exception e)
             {
                 Log.Warning("[Randy's Table] roll: " + e.Message);
+            }
+        }
+
+        private void Surprise(int count, params string[] cats)
+        {
+            Map map = Find.AnyPlayerHomeMap;
+            if (map == null)
+                return;
+            int queued = 0;
+            for (int tries = 0; tries < 12 && queued < count; tries++)
+            {
+                IncidentCategoryDef cat = DefDatabase<IncidentCategoryDef>.GetNamedSilentFail(cats.RandomElement());
+                if (cat == null)
+                    continue;
+                IncidentParms probe = StorytellerUtility.DefaultParmsNow(cat, map);
+                var defs = DefDatabase<IncidentDef>.AllDefsListForReading
+                    .Where(d => d.category == cat && d.baseChance > 0f && d.TargetAllowed(map) && Find.Storyteller.def != null)
+                    .ToList();
+                IncidentDef pick = null;
+                foreach (IncidentDef d in defs.InRandomOrder())
+                {
+                    try { if (d.Worker.CanFireNow(StorytellerUtility.DefaultParmsNow(cat, map))) { pick = d; break; } }
+                    catch { }
+                }
+                if (pick == null)
+                    continue;
+                IncidentParms parms = StorytellerUtility.DefaultParmsNow(cat, map);
+                if (parms.points >= 0f)
+                    parms.points *= Rand.Range(Mood.pointsMin, Mood.pointsMax);
+                Find.Storyteller.incidentQueue.Add(pick, Find.TickManager.TicksGame + Rand.Range(2500, 50000), parms, 5000);
+                queued++;
             }
         }
 
