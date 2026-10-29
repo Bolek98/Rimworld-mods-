@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <QFW_Rec1>工作速度 1.5×（你的角色）</QFW_Rec1>
+  <QFW_Rec2>招募和奴役速度 2×</QFW_Rec2>
+  <QFW_Rec3>坚定忠诚的囚犯关押 15 天后可招募</QFW_Rec3>
+  <QFW_Rec4>吸管、复制设置、立即搬运、区域 ±、QoL 窗口</QFW_Rec4>
+  <QFW_PageWork>快速工作</QFW_PageWork>
+  <QFW_PagePrisoners>囚犯</QFW_PagePrisoners>
+  <QFW_PageTools>吸管和工具</QFW_PageTools>
+  <QFW_PageNotify>通知</QFW_PageNotify>
+  <QFW_SecWork>工作速度</QFW_SecWork>
+  <QFW_WorkSpeed>快速工作</QFW_WorkSpeed>
+  <QFW_WorkSpeed_Desc>按下方滑块分别加快各类工作的速度。</QFW_WorkSpeed_Desc>
+  <QFW_ColonistsOnly>仅限我的角色</QFW_ColonistsOnly>
+  <QFW_ColonistsOnly_Desc>开启：只有你殖民地的角色（殖民者、奴隶、机械体）工作更快。关闭：所有人，包括访客和袭击者。</QFW_ColonistsOnly_Desc>
+  <QFW_SpCraft>制作：×{0}</QFW_SpCraft>
+  <QFW_SpCraft_Desc>制作、锻造、缝纫、艺术、制药及其他工作台工作。</QFW_SpCraft_Desc>
+  <QFW_SpBuild>建造：×{0}</QFW_SpBuild>
+  <QFW_SpBuild_Desc>建造、修理和磨平。</QFW_SpBuild_Desc>
+  <QFW_SpMine>采矿：×{0}</QFW_SpMine>
+  <QFW_SpMine_Desc>采矿和深层钻探。</QFW_SpMine_Desc>
+  <QFW_SpPlants>种植：×{0}</QFW_SpPlants>
+  <QFW_SpPlants_Desc>播种、收获、割除植物和砍树。</QFW_SpPlants_Desc>
+  <QFW_SpResearch>研究：×{0}</QFW_SpResearch>
+  <QFW_SpResearch_Desc>研究速度。</QFW_SpResearch_Desc>
+  <QFW_SpCook>烹饪：×{0}</QFW_SpCook>
+  <QFW_SpCook_Desc>烹饪、屠宰和酿造。</QFW_SpCook_Desc>
+  <QFW_SpClean>清洁：×{0}</QFW_SpClean>
+  <QFW_SpClean_Desc>清洁速度。</QFW_SpClean_Desc>
+  <QFW_SpMedical>医疗：×{0}</QFW_SpMedical>
+  <QFW_SpMedical_Desc>治疗和手术速度（不影响成功率）。</QFW_SpMedical_Desc>
+  <QFW_SpAnimals>动物：×{0}</QFW_SpAnimals>
+  <QFW_SpAnimals_Desc>挤奶和剪毛。</QFW_SpAnimals_Desc>
+  <QFW_WorkNote>已修改的属性：{0}</QFW_WorkNote>
+  <QFW_SpeedExplain>QoL 快速工作</QFW_SpeedExplain>
+  <QFW_SecPrisoners>囚犯</QFW_SecPrisoners>
+  <QFW_Prisoners>囚犯助手</QFW_Prisoners>
+  <QFW_Prisoners_Desc>更快的招募和奴役，以及下方的坚定忠诚设置。</QFW_Prisoners_Desc>
+  <QFW_RecruitMult>招募：×{0}</QFW_RecruitMult>
+  <QFW_RecruitMult_Desc>每次招募谈话降低的抵抗值按此倍数增加。</QFW_RecruitMult_Desc>
+  <QFW_EnslaveMult>奴役：×{0}</QFW_EnslaveMult>
+  <QFW_EnslaveMult_Desc>每次奴役谈话降低的意志值按此倍数增加。</QFW_EnslaveMult_Desc>
+  <QFW_Unwavering>坚定忠诚</QFW_Unwavering>
+  <QFW_Unwavering_Desc>有些囚犯永远无法招募（坚定忠诚）。你可以保留它、在关押若干天后移除，或立即移除。</QFW_Unwavering_Desc>
+  <QFW_Unw_Off>保留（原版）</QFW_Unw_Off>
+  <QFW_Unw_AfterDays>{0} 天后消失</QFW_Unw_AfterDays>
+  <QFW_Unw_Always>立即消失</QFW_Unw_Always>
+  <QFW_UnwDays>关押天数：{0}</QFW_UnwDays>
+  <QFW_UnwDays_Desc>在你的监狱关押这么多天后，忠诚会瓦解，囚犯即可招募。</QFW_UnwDays_Desc>
+  <QFW_NowRecruitable>{0} 不再坚定忠诚——现在可以招募了。</QFW_NowRecruitable>
+  <QFW_SecPipette>吸管</QFW_SecPipette>
+  <QFW_Pipette>吸管</QFW_Pipette>
+  <QFW_Pipette_Desc>按下按键并点击地图上的任何东西：即可拿来建造（相同的建筑、材料、风格和朝向）。地板会选取该地板，物品则会在工作台上提供清单。</QFW_Pipette_Desc>
+  <QFW_PipetteInstant>立即选取</QFW_PipetteInstant>
+  <QFW_PipetteInstant_Desc>按键直接选取鼠标下的东西，无需再点击。</QFW_PipetteInstant_Desc>
+  <QFW_PipetteKey>按键：{0}（在 选项 → 键盘 的 "QoL – Faster Work" 分类中更改）。</QFW_PipetteKey>
+  <QFW_PipFogged>那里还未探明。</QFW_PipFogged>
+  <QFW_PipNothing>那里没有可建造的东西。</QFW_PipNothing>
+  <QFW_PipCantBuild>你无法建造 {0}。</QFW_PipCantBuild>
+  <QFW_PipLocked>{0} 尚不可用（缺少研究或其他条件）。</QFW_PipLocked>
+  <QFW_PipNoRecipe>没有工作台配方可以制作 {0}。</QFW_PipNoRecipe>
+  <QFW_PipNoBench>尚未建造可制作 {0} 的工作台（{1}）。</QFW_PipNoBench>
+  <QFW_PipAddBill>添加清单：在 {1} 制作 {0}</QFW_PipAddBill>
+  <QFW_PipBillAdded>已添加清单：在 {1} 制作 {0}。</QFW_PipBillAdded>
+  <QFW_SecTools>工具</QFW_SecTools>
+  <QFW_CopyPawn>复制 / 粘贴角色设置</QFW_CopyPawn>
+  <QFW_CopyPawn_Desc>殖民者上的按钮：复制工作优先级、日程、方针、医疗护理、敌对反应和允许区域，并粘贴给其他殖民者。</QFW_CopyPawn_Desc>
+  <QFW_CopyPawn_Btn>复制设置</QFW_CopyPawn_Btn>
+  <QFW_CopyPawn_BtnDesc>记住该殖民者的工作优先级、日程、方针、医疗护理、敌对反应和允许区域。</QFW_CopyPawn_BtnDesc>
+  <QFW_PastePawn_Btn>粘贴设置</QFW_PastePawn_Btn>
+  <QFW_PastePawn_BtnDesc>将从 {0} 复制的设置应用到所选殖民者——全部或部分。</QFW_PastePawn_BtnDesc>
+  <QFW_Copied>已复制 {0} 的设置。</QFW_Copied>
+  <QFW_Pasted>已将 {0} 的设置粘贴给 {1} 名殖民者。</QFW_Pasted>
+  <QFW_PasteAll>全部</QFW_PasteAll>
+  <QFW_PasteWork>仅工作优先级</QFW_PasteWork>
+  <QFW_PasteSchedule>仅日程</QFW_PasteSchedule>
+  <QFW_PastePolicies>仅方针、医疗护理和敌对反应</QFW_PastePolicies>
+  <QFW_PasteArea>仅允许区域</QFW_PasteArea>
+  <QFW_HaulNow>立即搬运</QFW_HaulNow>
+  <QFW_HaulNow_Desc>物品上的按钮：最近的空闲殖民者立即将所选物品搬到储存区。</QFW_HaulNow_Desc>
+  <QFW_HaulNow_Btn>立即搬运</QFW_HaulNow_Btn>
+  <QFW_HaulNow_BtnDesc>最近的空闲殖民者会立即把所选物品搬到储存区。</QFW_HaulNow_BtnDesc>
+  <QFW_HaulNoPawn>没有可以搬运的空闲殖民者。</QFW_HaulNoPawn>
+  <QFW_HaulNoStore>{0} 件物品没有可到达且接受它们的储存区。</QFW_HaulNoStore>
+  <QFW_ZoneTools>扩大 / 缩小区域</QFW_ZoneTools>
+  <QFW_ZoneTools_Desc>储存区和种植区上的按钮：将区域每边扩大或缩小一格。</QFW_ZoneTools_Desc>
+  <QFW_ZoneGrow>扩大区域</QFW_ZoneGrow>
+  <QFW_ZoneGrow_Desc>在区域可延伸的地方，每边增加一格。</QFW_ZoneGrow_Desc>
+  <QFW_ZoneShrink>缩小区域</QFW_ZoneShrink>
+  <QFW_ZoneShrink_Desc>移除最外一圈格子。</QFW_ZoneShrink_Desc>
+  <QFW_ZoneNoRoom>此处区域无法扩大。</QFW_ZoneNoRoom>
+  <QFW_ZoneTooSmall>区域太小，无法缩小。</QFW_ZoneTooSmall>
+  <QFW_ColonyTab>底部栏的 QoL 按钮</QFW_ColonyTab>
+  <QFW_ColonyTab_Desc>地图搜索、囚犯总览和殖民地操作（全员进食 / 睡觉 / 起床）。</QFW_ColonyTab_Desc>
+  <QFW_SecStacks>堆叠数量</QFW_SecStacks>
+  <QFW_Stacks>更大的堆叠</QFW_Stacks>
+  <QFW_Stacks_Desc>提高每堆可容纳的物品数量。重启后生效。若之后关闭，过大的堆叠可能会拆分或报错一次。</QFW_Stacks_Desc>
+  <QFW_StackMult>堆叠数量：×{0}</QFW_StackMult>
+  <QFW_StackMult_Desc>所有物品堆叠上限的倍数。</QFW_StackMult_Desc>
+  <QFW_StacksRestart>重启游戏以应用新的堆叠数量。</QFW_StacksRestart>
+  <QFW_StacksOgre>OgreStack 已启用——堆叠数量请只用其中一个。</QFW_StacksOgre>
+  <QFW_SecNotify>通知</QFW_SecNotify>
+  <QFW_Notifications>通知过滤</QFW_Notifications>
+  <QFW_Notifications_Desc>让所选类型的信件和消息静音或隐藏。</QFW_Notifications_Desc>
+  <QFW_NotifyNote>静音 = 到达时没有声音。隐藏 = 完全不弹出，但仍会记入历史（菜单 → 历史 → 消息）。威胁类信件请慎用。这些选项不属于推荐设置。</QFW_NotifyNote>
+  <QFW_SecLetters>信件（右侧）</QFW_SecLetters>
+  <QFW_SecMessages>消息（左上）</QFW_SecMessages>
+  <QFW_ColMute>静音</QFW_ColMute>
+  <QFW_ColHide>隐藏</QFW_ColHide>
+  <QFW_TabSearch>地图搜索</QFW_TabSearch>
+  <QFW_TabPrisoners>囚犯</QFW_TabPrisoners>
+  <QFW_TabColony>殖民地</QFW_TabColony>
+  <QFW_SearchHint>此地图上的物品、建筑、角色和植物。忽略重音符号和连字符。</QFW_SearchHint>
+  <QFW_SearchType>请至少输入两个字，例如"钢铁"。</QFW_SearchType>
+  <QFW_SearchNone>未找到任何结果。</QFW_SearchNone>
+  <QFW_Show>显示</QFW_Show>
+  <QFW_ShowNext>显示 {0}/{1}</QFW_ShowNext>
+  <QFW_NoPrisoners>此地图上没有囚犯。</QFW_NoPrisoners>
+  <QFW_PColName>名字</QFW_PColName>
+  <QFW_PColMode>互动</QFW_PColMode>
+  <QFW_PColRes>抵抗</QFW_PColRes>
+  <QFW_PColWill>意志</QFW_PColWill>
+  <QFW_PColRecruit>可招募</QFW_PColRecruit>
+  <QFW_PColDays>关押天数</QFW_PColDays>
+  <QFW_Yes>是</QFW_Yes>
+  <QFW_No>否</QFW_No>
+  <QFW_InDays>{0} 天后</QFW_InDays>
+  <QFW_AllEat>全员立即进食</QFW_AllEat>
+  <QFW_AllEat_Desc>饱食度低于 80 % 的空闲殖民者立即去吃饭（例如长途旅行或袭击之前）。</QFW_AllEat_Desc>
+  <QFW_AllEat_Done>{0} 名殖民者去吃饭，{1} 名不饿或没有食物。</QFW_AllEat_Done>
+  <QFW_AllSleep>全员去睡觉</QFW_AllSleep>
+  <QFW_AllSleep_Desc>休息值低于 90 % 的空闲殖民者立即上床。</QFW_AllSleep_Desc>
+  <QFW_AllSleep_Done>{0} 名殖民者去睡觉，{1} 名已休息好或正在睡觉。</QFW_AllSleep_Done>
+  <QFW_AllWake>全员起床</QFW_AllWake>
+  <QFW_AllWake_Desc>叫醒正在睡觉的殖民者（需要卧床休息的病人和伤员除外）。</QFW_AllWake_Desc>
+  <QFW_AllWake_Done>已叫醒 {0} 名殖民者。</QFW_AllWake_Done>
+  <QFW_PipetteBtn>吸管</QFW_PipetteBtn>
+  <QFW_PipetteBtn_Desc>点击地图上的任何东西来建造相同的。用按键更快。</QFW_PipetteBtn_Desc>
+
+  <!-- shared settings look -->
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <MUI_RecTag>推荐</MUI_RecTag>
+</LanguageData>
