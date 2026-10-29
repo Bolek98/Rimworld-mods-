@@ -25,6 +25,7 @@ namespace ResearchedLoadout
 			Sidearms,
 			Apparel,
 			Temperature,
+			Battle,
 			Bans,
 			Other
 		}
@@ -73,7 +74,7 @@ namespace ResearchedLoadout
 			MNews.Register(content, MUIVersion.Version);
 			LongEventHandler.ExecuteWhenFinished(GearOverview.SetButton);
 			Harmony harmony = new Harmony("misak.researchedloadout");
-			MUI.Init(new ResearchedLoadoutSettings(), null, "settingsVersion", "recommended", "debugLog");
+			MUI.Init(new ResearchedLoadoutSettings(), null, "settingsVersion", "recommended", "debugLog", "plannerAuto");
 			if (Settings.recommended)
 			{
 				MUI.ApplyAll(Settings);
@@ -105,6 +106,7 @@ namespace ResearchedLoadout
 					Log.Error("[Smart Colonist Gear] Patch " + array[i].Name + " failed: " + ex);
 				}
 			}
+			BattleGear.Patch(harmony);
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
 			MLog.Game("[Smart Colonist Gear] v" + MUIVersion.Version + " loaded (messages: Logs\\SmartColonistGear.log).");
@@ -161,7 +163,7 @@ namespace ResearchedLoadout
 					tab = SettingsTab.Sidearms;
 				}, tab == SettingsTab.Sidearms));
 			}
-			list2.AddRange(new TabRecord[4]
+			list2.AddRange(new TabRecord[5]
 			{
 				new TabRecord("RL_TabApparel".Translate(), delegate
 				{
@@ -171,6 +173,10 @@ namespace ResearchedLoadout
 				{
 					tab = SettingsTab.Temperature;
 				}, tab == SettingsTab.Temperature),
+				new TabRecord("RL_TabBattle".Translate(), delegate
+				{
+					tab = SettingsTab.Battle;
+				}, tab == SettingsTab.Battle),
 				new TabRecord("RL_TabBans".Translate(), delegate
 				{
 					tab = SettingsTab.Bans;
@@ -203,6 +209,9 @@ namespace ResearchedLoadout
 				break;
 			case SettingsTab.Temperature:
 				DrawTemperatureTab(rect2);
+				break;
+			case SettingsTab.Battle:
+				DrawBattleTab(rect2);
 				break;
 			case SettingsTab.Bans:
 				DrawBansTab(rect2);
@@ -365,6 +374,39 @@ namespace ResearchedLoadout
 			Settings.apparelCalmHours = (int)Sl(listing_Standard, "apparelCalmHours", "RL_ApparelCalm".Translate(Settings.apparelCalmHours), Settings.apparelCalmHours, 0f, 48f, 0.5f, "RL_ApparelCalm_Desc".Translate());
 			Settings.minApparelHpPercent = (int)Sl(listing_Standard, "minApparelHpPercent", "RL_MinHp".Translate(Settings.minApparelHpPercent), Settings.minApparelHpPercent, 5f, 90f, 0.5f, "RL_MinHp_Desc".Translate());
 			listing_Standard.End();
+		}
+
+		// 2.18.0
+		private void DrawBattleTab(Rect r)
+		{
+			Listing_Standard l = Begin(r);
+			Check(l, "RL_BG_Outfits", ref Settings.battleOutfits, "battleOutfits");
+			if (Settings.battleOutfits)
+			{
+				Check(l, "RL_BG_OnThreat", ref Settings.battleOnThreat, "battleOnThreat");
+				if (Current.Game != null && l.ButtonText("RL_BG_SetUp".Translate()))
+					Find.WindowStack.Add(new Dialog_OutfitWeapons());
+			}
+			l.GapLine();
+			Check(l, "RL_BG_ArmDraft", ref Settings.armOnDraft, "armOnDraft");
+			if (Settings.armOnDraft)
+			{
+				Settings.armRange = (int)Sl(l, "armRange", "RL_BG_ArmRange".Translate(Settings.armRange), Settings.armRange, 5f, 80f, 0.5f, "RL_BG_ArmRange_Desc".Translate());
+				Check(l, "RL_BG_ArmReturn", ref Settings.armReturn, "armReturn");
+			}
+			l.NewColumn();
+			Check(l, "RL_BG_Season", ref Settings.seasonClothes, "seasonClothes");
+			if (Settings.seasonClothes)
+				Settings.seasonHours = (int)Sl(l, "seasonHours", "RL_BG_SeasonHours".Translate(Settings.seasonHours), Settings.seasonHours, 2f, 72f, 0.5f, "RL_BG_SeasonHours_Desc".Translate());
+			Check(l, "RL_BG_Caravan", ref Settings.caravanClothes, "caravanClothes");
+			l.GapLine();
+			Check(l, "RL_BG_WornSwap", ref Settings.wornSwap, "wornSwap");
+			if (Settings.wornSwap)
+				Settings.wornSwapPercent = (int)Sl(l, "wornSwapPercent", "RL_BG_WornPct".Translate(Settings.wornSwapPercent), Settings.wornSwapPercent, 20f, 90f, 0.5f, "RL_BG_WornPct_Desc".Translate());
+			l.GapLine();
+			if (Current.Game != null && l.ButtonText("RL_GP_Open".Translate()))
+				Find.WindowStack.Add(new Dialog_GearPlanner());
+			l.End();
 		}
 
 		private void DrawTemperatureTab(Rect r)
@@ -4870,8 +4912,32 @@ namespace ResearchedLoadout
 		// settings saved by an older version keep their own values (missing key = off).
 		public bool recommended = true;
 
+		// 2.18.0: battle and work
+		public bool battleOutfits = true;
+		public bool battleOnThreat = true;
+		public bool armOnDraft = true;
+		public int armRange = 30;
+		public bool armReturn = true;
+		public bool seasonClothes = true;
+		public int seasonHours = 24;
+		public bool caravanClothes = true;
+		public bool wornSwap = true;
+		public int wornSwapPercent = 60;
+		public bool plannerAuto;
+
 		public override void ExposeData()
 		{
+			Scribe_Values.Look(ref battleOutfits, "battleOutfits", true);
+			Scribe_Values.Look(ref battleOnThreat, "battleOnThreat", true);
+			Scribe_Values.Look(ref armOnDraft, "armOnDraft", true);
+			Scribe_Values.Look(ref armRange, "armRange", 30);
+			Scribe_Values.Look(ref armReturn, "armReturn", true);
+			Scribe_Values.Look(ref seasonClothes, "seasonClothes", true);
+			Scribe_Values.Look(ref seasonHours, "seasonHours", 24);
+			Scribe_Values.Look(ref caravanClothes, "caravanClothes", true);
+			Scribe_Values.Look(ref wornSwap, "wornSwap", true);
+			Scribe_Values.Look(ref wornSwapPercent, "wornSwapPercent", 60);
+			Scribe_Values.Look(ref plannerAuto, "plannerAuto", false);
 			Scribe_Values.Look(ref enabled, "enabled", true);
 			Scribe_Values.Look(ref useRecipes, "useRecipes", true);
 			Scribe_Values.Look(ref blockHigherTech, "blockHigherTech", true);
@@ -5811,14 +5877,17 @@ namespace ResearchedLoadout
 					heat = 2;
 				}
 				float outdoorTemp = mapHeld.mapTemperature.OutdoorTemp;
+				// 2.18.0: the coming hours (and a caravan trip) count too
+				float lo, hi;
+				BattleGear.PlannedTemps(pawn, mapHeld, outdoorTemp, out lo, out hi);
 				ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
 				if (settings != null && settings.tempByThresholds)
 				{
-					if (cold == 0 && outdoorTemp < settings.coldThreshold)
+					if (cold == 0 && lo < settings.coldThreshold)
 					{
 						cold = 1;
 					}
-					if (heat == 0 && outdoorTemp > settings.heatThreshold)
+					if (heat == 0 && hi > settings.heatThreshold)
 					{
 						heat = 1;
 					}
@@ -5826,11 +5895,11 @@ namespace ResearchedLoadout
 				else
 				{
 					FloatRange floatRange = pawn.SafeTemperatureRange();
-					if (cold == 0 && outdoorTemp < floatRange.min)
+					if (cold == 0 && lo < floatRange.min)
 					{
 						cold = 1;
 					}
-					if (heat == 0 && outdoorTemp > floatRange.max)
+					if (heat == 0 && hi > floatRange.max)
 					{
 						heat = 1;
 					}
@@ -5865,18 +5934,20 @@ namespace ResearchedLoadout
 				return false;
 			}
 			float outdoorTemp = mapHeld.mapTemperature.OutdoorTemp;
+			float lo, hi;
+			BattleGear.PlannedTemps(pawn, mapHeld, outdoorTemp, out lo, out hi);
 			bool flag;
 			bool flag2;
 			if (settings.tempByThresholds)
 			{
-				flag = statValue >= 5f && outdoorTemp < settings.coldThreshold + 3f;
-				flag2 = statValue2 >= 5f && outdoorTemp > settings.heatThreshold - 3f;
+				flag = statValue >= 5f && lo < settings.coldThreshold + 3f;
+				flag2 = statValue2 >= 5f && hi > settings.heatThreshold - 3f;
 			}
 			else
 			{
 				FloatRange floatRange = pawn.SafeTemperatureRange();
-				flag = statValue >= 5f && outdoorTemp < floatRange.min + statValue;
-				flag2 = statValue2 >= 5f && outdoorTemp > floatRange.max - statValue2;
+				flag = statValue >= 5f && lo < floatRange.min + statValue;
+				flag2 = statValue2 >= 5f && hi > floatRange.max - statValue2;
 			}
 			return flag || flag2 || FreezingOrOverheating(pawn);
 		}

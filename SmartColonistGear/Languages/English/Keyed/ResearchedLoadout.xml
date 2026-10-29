@@ -539,4 +539,55 @@
   <RL_GO_NoWeaponsStored>No weapon in storage that this colonist can use.</RL_GO_NoWeaponsStored>
   <RL_AlertUnarmed>Unarmed colonists</RL_AlertUnarmed>
   <RL_AlertUnarmed_Desc>Enemies are on the map and these colonists have no weapon (or only a melee weapon):\n\n{0}\n\nGive them a weapon in the Gear overview (click the weapon).</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>Battle &amp; work</RL_TabBattle>
+  <RL_BG_Outfits>Battle outfits</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>Every outfit can have a battle outfit (set it up in "Weapons per outfit"). Drafted colonists use the battle outfit and go back to their work outfit when undrafted – the battle pieces come off and the work clothes go back on.</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>Battle outfit also during raids</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>While enemies are on the map, everyone switches to the battle outfit (and puts on armor with "Put on armor when attacked"); after the raid they go back to work clothes.</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>Set up battle outfits…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>Fetch armor when drafted</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>A drafted colonist with no enemy nearby fetches the best allowed armor lying close by (storage or pockets of the base) before you give him an order. Any order of yours stops it.</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>Armor within: {0} cells</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>How far a drafted colonist walks for armor.</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>Walk back after dressing</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>After fetching the armor the colonist walks back to where you drafted him.</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>Dress for the coming weather</RL_BG_Season>
+  <RL_BG_Season_Desc>Clothes follow the temperature of the coming hours too (cold night, coming winter, summer heat), not only the temperature right now.</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>Look ahead: {0} h</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>How many hours ahead the forecast counts.</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>Dress for caravans</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>Colonists who are forming a caravan dress for the next four days of weather.</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>Swap worn gear in time</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>A piece below the limit is swapped for a good one (80 %+) of the same kind or the same body parts from storage – at least as much armor, about as warm.</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>Swap below: {0} %</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>Durability at which a worn piece is swapped.</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – battle</RL_BG_NewLabel>
+  <RL_BG_BattleIs>Battle outfit: {0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>Battle outfit: none</RL_BG_BattleNone>
+  <RL_BG_None>None (keep this outfit in battle)</RL_BG_None>
+  <RL_BG_Create>Create a battle outfit from this one</RL_BG_Create>
+  <RL_BG_Battle_Desc>Drafted colonists with this outfit (and everyone during a raid, if set) use the battle outfit; afterwards they go back to this one. "Create" copies this outfit and allows all armor and helmets.</RL_BG_Battle_Desc>
+  <RL_BG_Edit>Edit battle outfit</RL_BG_Edit>
+  <RL_Why_BattleDraft>drafted – battle gear</RL_Why_BattleDraft>
+  <RL_Why_Worn>worn out – swapped for a better piece</RL_Why_Worn>
+  <RL_GP_Open>Gear planner</RL_GP_Open>
+  <RL_GP_Title>Gear planner</RL_GP_Title>
+  <RL_GP_Desc>What your colonists are missing and the best thing you can make for it right now. A bill makes only the missing count ("until you have X").</RL_GP_Desc>
+  <RL_GP_AllGood>Everyone has a helmet, body armor and a gun, and nothing is worn out.</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>Helmets</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>Body armor</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>Guns</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>Worn out</RL_GP_Slot_Worn>
+  <RL_GP_Worn>Worn out: {0}</RL_GP_Worn>
+  <RL_GP_Line>{0} colonists without · {1} in storage · {2} to make</RL_GP_Line>
+  <RL_GP_Best>Best: {0} ({1})</RL_GP_Best>
+  <RL_GP_NoRecipe>nothing you can make yet</RL_GP_NoRecipe>
+  <RL_GP_InStock>enough in storage</RL_GP_InStock>
+  <RL_GP_HasBill>bill already queued</RL_GP_HasBill>
+  <RL_GP_Add>Add bill ({0})</RL_GP_Add>
+  <RL_GP_Auto>Add the bills by itself (once a day)</RL_GP_Auto>
+  <RL_GP_Auto_Desc>Once a day the planner adds "until you have X" bills for everything missing that has no bill yet.</RL_GP_Auto_Desc>
+  <RL_GP_Added>Bill added: {0} at {1} ({2}).</RL_GP_Added>
+  <RL_GP_AutoAdded>Gear planner added bills: {0}</RL_GP_AutoAdded>
 </LanguageData>

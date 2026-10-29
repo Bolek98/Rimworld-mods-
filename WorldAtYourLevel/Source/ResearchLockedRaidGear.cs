@@ -28,10 +28,11 @@ namespace ResearchLockedRaidGear
 			Rules,
 			Filters,
 			Factions,
-			Raids
+			Raids,
+			Evolution
 		}
 
-		public const string Version = "2.16.0";
+		public const string Version = "2.17.0";
 
 		public static ResearchLockedRaidGearSettings Settings;
 
@@ -116,6 +117,7 @@ namespace ResearchLockedRaidGear
 			TryPatch(h, AccessTools.Method(typeof(PawnTechHediffsGenerator), "InstallPart"), "InstallPartPrefix", null, typeof(RaiderImplants));
 			TryPatch(h, AccessTools.Method(typeof(PawnInventoryGenerator), "GenerateInventoryFor"), null, "InventoryPostfix", typeof(RaiderImplants));
 			TryPatch(h, AccessTools.Method(typeof(ResearchProjectDef), "CostFactor"), null, "CostFactorPostfix", typeof(ResearchCostByLevel));
+			WorldEvolution.Patch(h);   // 2.17.0
 			MLog.Game("[World at Your Level] v" + Version + " loaded (messages: Logs\\WorldAtYourLevel.log).");
 		}
 
@@ -237,6 +239,10 @@ namespace ResearchLockedRaidGear
 			{
 				tab = SettingsTab.Raids;
 			}, tab == SettingsTab.Raids));
+			list.Add(new TabRecord("RLRG_TabEvolution".Translate(), delegate
+			{
+				tab = SettingsTab.Evolution;
+			}, tab == SettingsTab.Evolution));
 			List<TabRecord> tabs = list;
 			Rect rect = new Rect(inRect.x, inRect.y + 34f, inRect.width, inRect.height - 34f);
 			Widgets.DrawMenuSection(rect);
@@ -264,6 +270,9 @@ namespace ResearchLockedRaidGear
 				break;
 			case SettingsTab.Raids:
 				DrawRaidsTab(r);
+				break;
+			case SettingsTab.Evolution:
+				DrawEvolutionTab(r);
 				break;
 			}
 			}
@@ -482,6 +491,25 @@ namespace ResearchLockedRaidGear
 				Check(listing_Standard, "RLRG_ReplaceQuests", ref Settings.replaceQuests, "replaceQuests");
 			}
 			listing_Standard.End();
+		}
+
+		// 2.17.0
+		private void DrawEvolutionTab(Rect r)
+		{
+			Listing_Standard l = new Listing_Standard();
+			l.Begin(r);
+			l.ColumnWidth = (r.width - 34f) / 2f;
+			Check(l, "RLRG_EV_FactionTech", ref Settings.factionTech, "factionTech");
+			if (Settings.factionTech)
+				Check(l, "RLRG_EV_FactionLead", ref Settings.factionLead, "factionLead");
+			l.GapLine();
+			Check(l, "RLRG_EV_Study", ref Settings.studyTech, "studyTech");
+			Check(l, "RLRG_EV_EraEvents", ref Settings.eraEvents, "eraEvents");
+			l.NewColumn();
+			Check(l, "RLRG_EV_RaidDefense", ref Settings.raidByDefense, "raidByDefense");
+			if (Settings.raidByDefense)
+				Settings.defenseWeight = (int)Sl(l, "defenseWeight", "RLRG_EV_DefenseWeight".Translate(Settings.defenseWeight), Settings.defenseWeight, 10f, 100f, 0.55f, "RLRG_EV_DefenseWeight_Desc".Translate());
+			l.End();
 		}
 
 		private void DrawFactionsTab(Rect r)
@@ -821,6 +849,14 @@ namespace ResearchLockedRaidGear
 
 		public bool keepTitleApparel = true;
 
+		// 2.17.0: a world that grows
+		public bool factionTech = true;
+		public bool factionLead = true;
+		public bool raidByDefense;
+		public int defenseWeight = 50;
+		public bool studyTech = true;
+		public bool eraEvents = true;
+
 		public bool exemptAncients = true;
 
 		public List<string> exemptFactions = new List<string>();
@@ -942,6 +978,12 @@ namespace ResearchLockedRaidGear
 			Scribe_Values.Look(ref researchAbovePercent, "researchAbovePercent", 50);
 			Scribe_Values.Look(ref researchBelowPercent, "researchBelowPercent", 25);
 			Scribe_Values.Look(ref keepTitleApparel, "keepTitleApparel", true);
+			Scribe_Values.Look(ref factionTech, "factionTech", true);
+			Scribe_Values.Look(ref factionLead, "factionLead", true);
+			Scribe_Values.Look(ref raidByDefense, "raidByDefense", false);
+			Scribe_Values.Look(ref defenseWeight, "defenseWeight", 50);
+			Scribe_Values.Look(ref studyTech, "studyTech", true);
+			Scribe_Values.Look(ref eraEvents, "eraEvents", true);
 			Scribe_Values.Look(ref exemptAncients, "exemptAncients", true);
 			Scribe_Collections.Look(ref exemptFactions, "exemptFactions", LookMode.Value);
 			if (exemptFactions == null)
@@ -1873,6 +1915,15 @@ namespace ResearchLockedRaidGear
 		// 2.15.1: gradual change of era – while this is >= 0 the pawn being filtered only keeps gear up to this tech level
 		public static int LagCap = -1;
 
+		public static int LeadCap = -1;
+
+		// 2.17.0: gear of a leading faction's level (one above the world)
+		private static bool LeadOk(ThingDef def)
+		{
+			return LeadCap >= 0 && def != null && (def.IsWeapon || def.IsApparel) && !IsManuallyBanned(def)
+				&& (int)EffectiveTech(def) <= LeadCap && (!IsExplosive(def) || ExplosiveTierOpen(def));
+		}
+
 		public static void FilterPawn(Pawn pawn)
 		{
 			if (Applying > 0 || !ShouldFilter(pawn))
@@ -1881,6 +1932,10 @@ namespace ResearchLockedRaidGear
 			}
 			Applying++;
 			LagCap = EraTransition.CapFor(pawn);
+			// 2.17.0: a lagging faction carries gear of its own level, a leading one a level more
+			int fcap = WorldEvolution.CapFor(pawn);
+			if (fcap >= 0) LagCap = LagCap < 0 ? fcap : Math.Min(LagCap, fcap);
+			LeadCap = WorldEvolution.LeadFor(pawn);
 			try
 			{
 				StripDisallowed(pawn, ResearchLockedRaidGearMod.Settings);
@@ -1892,6 +1947,7 @@ namespace ResearchLockedRaidGear
 			finally
 			{
 				LagCap = -1;
+				LeadCap = -1;
 				Applying--;
 			}
 		}
@@ -2636,6 +2692,10 @@ namespace ResearchLockedRaidGear
 			if (!beast && AboveLag(t.def))
 			{
 				return false;
+			}
+			if (!beast && LeadOk(t.def))
+			{
+				return true;
 			}
 			if (beast || !MatchOn)
 			{
@@ -3753,6 +3813,10 @@ namespace ResearchLockedRaidGear
 				}
 				lastWorldLevel = techLevel;
 				// 2.15.2: a rise gets a letter that says what it means (can be switched back to the short message)
+				if (flag)
+				{
+					WorldEvolution.OnLevelRise(techLevel);   // 2.17.0
+				}
 				if (flag && settings.worldLetter)
 				{
 					try
@@ -5161,6 +5225,7 @@ namespace ResearchLockedRaidGear
 			try
 			{
 				DrawContents(listing_Standard, settings, comp, ticksGame);
+				WorldEvolution.DrawFactions(listing_Standard);   // 2.17.0
 			}
 			catch (Exception ex)
 			{

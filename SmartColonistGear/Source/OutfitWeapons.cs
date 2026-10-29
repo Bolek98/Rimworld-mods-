@@ -204,7 +204,7 @@ namespace ResearchedLoadout
 		private Vector2 scroll;
 		private string search = "";
 
-		public override Vector2 InitialSize => new Vector2(520f, 640f);
+		public override Vector2 InitialSize => new Vector2(560f, 680f);
 
 		public Dialog_OutfitWeapons()
 		{
@@ -240,6 +240,8 @@ namespace ResearchedLoadout
 			Text.Anchor = TextAnchor.UpperLeft;
 			GUI.color = Color.white;
 			y += 36f;
+			BattleGear.OutfitRow(new Rect(r.x, y, r.width, 28f), policy);   // 2.18.0
+			y += 34f;
 			List<ThingDef> list = OutfitWeapons.Weapons();
 			float bw = (r.width - 16f) / 3f;
 			if (Widgets.ButtonText(new Rect(r.x, y, bw, 28f), "RL_OW_AllowAll".Translate()))

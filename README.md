@@ -34,7 +34,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
 | Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.1.0 | [SeasonsHolidays](SeasonsHolidays) |
 | Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |
-| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.0 | [SmartColonistGear](SmartColonistGear) |
+| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.18.0 | [SmartColonistGear](SmartColonistGear) |
 | Smooth FPS – Performance & Graphics | 1.6.4 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 3.4.1 | [Steward2/Steward](Steward2/Steward) |
@@ -47,7 +47,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Universal RimTranslator – Auto-Translate All Your Mods | 1.0.0 | [UniversalRimTranslator](UniversalRimTranslator) |
 | Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.2 | [UnofficialPatch](UnofficialPatch) |
 | Wild Spawn Zone | 1.1.3 | [WildSpawnZone](WildSpawnZone) |
-| World at Your Level – Raiders Match Your Tech | 2.16.0 | [WorldAtYourLevel](WorldAtYourLevel) |
+| World at Your Level – Raiders Match Your Tech | 2.17.0 | [WorldAtYourLevel](WorldAtYourLevel) |
 
 Each folder is a complete mod (About, Assemblies, Defs, Languages, Source), most with a `CHANGELOG.txt`.
 All mods need [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077).

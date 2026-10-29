@@ -95,7 +95,7 @@ namespace ResearchedLoadout
 			Map map = Find.CurrentMap;
 			if (map == null) return;
 			Text.Font = GameFont.Medium;
-			Widgets.Label(new Rect(r.x, r.y, 500f, 32f), "RL_GO_Title".Translate());
+			Widgets.Label(new Rect(r.x, r.y, Mathf.Max(160f, r.width - 690f), 32f), "RL_GO_Title".Translate().Truncate(Mathf.Max(160f, r.width - 690f)));
 			Text.Font = GameFont.Small;
 			Rect all = new Rect(r.xMax - 230f, r.y, 230f, 32f);
 			if (Widgets.ButtonText(all, "RL_GO_EquipAll".Translate()))
@@ -109,6 +109,11 @@ namespace ResearchedLoadout
 			if (Widgets.ButtonText(ow, "RL_OW_Button".Translate()))
 			{
 				Find.WindowStack.Add(new Dialog_OutfitWeapons());
+			}
+			Rect gp = new Rect(ow.x - 208f, r.y, 200f, 32f);
+			if (Widgets.ButtonText(gp, "RL_GP_Open".Translate()))
+			{
+				Find.WindowStack.Add(new Dialog_GearPlanner());
 			}
 			TooltipHandler.TipRegion(ow, "RL_OW_Desc".Translate());
 			List<Pawn> pawns = map.mapPawns.FreeColonistsSpawned.OrderBy(p => p.LabelShort).ToList();

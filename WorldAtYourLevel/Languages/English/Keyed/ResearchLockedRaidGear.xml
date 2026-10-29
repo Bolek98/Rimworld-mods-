@@ -318,4 +318,36 @@
   <RLRG_ResearchAbove_Desc>How much more research of a higher tech level than the world costs.</RLRG_ResearchAbove_Desc>
   <RLRG_ResearchBelow>Below the world level: −{0}% cost</RLRG_ResearchBelow>
   <RLRG_ResearchBelow_Desc>How much less research of a lower tech level than the world costs.</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>Evolution</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>Factions have their own level</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>Every faction moves around the world level at its own pace: some lag behind, a few lead. Their raiders and visitors carry gear of the faction's level. Destroying one of their settlements sets them back, trading with them helps them. The World tab shows every faction.</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>Leading factions one level ahead</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>A leading faction may carry gear one level above the world level (not with "Only what you crafted"). Off: factions can only lag behind.</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>Study foreign tech</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>A weapon or apparel above your research gets a "Study" button: it is taken apart and gives research to the project that unlocks it (or a project of its era). Needs a research bench.</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>A new era brings a trader</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>When the world level rises, a trader caravan of a faction at the new level comes a day or two later with the new goods.</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>Raids by real defence</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>Raid strength also follows your real defence – fighters, their weapons, armor and skills, turrets and combat mechanoids – not only colony wealth. A rich but weak colony gets fairer raids, a strong poor one tougher.</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>Weight of defence: {0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>How much the raid strength follows your defence instead of the game's own points (100 % = only defence).</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0} has advanced to the {1} level.</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0} fell back to the {1} level.</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>settlement destroyed</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>trade helps</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>Study</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>Take it apart for research: {0} gets {1} points. The item is used up.</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>No open research project to put it into.</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>You need a research bench.</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>{0} taken apart: {1} +{2} research.</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>Traders of the new era</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>Word of your progress has spread. {0} are sending a caravan with goods of the {1} era – it should arrive in a day or two.</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>Factions</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>Own faction levels are switched off (settings, Evolution tab).</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>rising</RLRG_EV_Rising>
+  <RLRG_EV_Falling>falling</RLRG_EV_Falling>
+  <RLRG_EV_Steady>steady</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0}: {1} level (world: {2}). Their raiders and visitors carry gear of this level.</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>Your defence: {0} points · raid points now: {1}</RLRG_EV_DefenseNow>
 </LanguageData>

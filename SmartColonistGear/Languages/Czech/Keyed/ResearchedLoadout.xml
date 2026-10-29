@@ -202,7 +202,7 @@
   <RL_Ex_EmergencyFor>Náhradní výbava pro: {0}</RL_Ex_EmergencyFor>
   <RL_EmergencyProvide>Hledat a vyrábět náhradní výbavu</RL_EmergencyProvide>
   <RL_EmergencyProvide_Desc>Když kolonistům v nebezpečí chybí ochrana: zakázané ochranné věci kdekoli na mapě se povolí (jen kolik je potřeba, ne v ohni a ne u nepřátel), a když to pořád nestačí, přidá se účet na nejlepší ochranu, kterou kolonie umí vyrobit. Když správnou ochranu vyrobit ještě nejde (chybí výzkum), najde nebo vyrobí se nejbližší náhrada – slabší ochrana proti jedu nebo něco přes obličej, nejteplejší/nejchladivější oblečení, nejlepší brnění. Takto přidané účty se po skončení nebezpečí smažou, pokud se na nich ještě nezačalo pracovat.</RL_EmergencyProvide_Desc>
-  <RL_EmProv_Msg>{0}: kolonistům chybí ochrana – {2}.</RL_EmProv_Msg>
+  <RL_EmProv_Msg>{0}: nedostatek – {1} – {2}.</RL_EmProv_Msg>
   <RL_EmProv_Unforbade>povoleno {0} ({1})</RL_EmProv_Unforbade>
   <RL_EmProv_Bill>přidán účet na {0}× {1} ({2})</RL_EmProv_Bill>
   <RL_EmProv_Substitute>na správnou ochranu chybí recept, vyrábí se náhrada: {0}× {1} ({2})</RL_EmProv_Substitute>
@@ -539,4 +539,55 @@
   <RL_GO_NoWeaponsStored>Ve skladu není zbraň, kterou by tento kolonista mohl použít.</RL_GO_NoWeaponsStored>
   <RL_AlertUnarmed>Neozbrojení kolonisté</RL_AlertUnarmed>
   <RL_AlertUnarmed_Desc>Na mapě jsou nepřátelé a tito kolonisté nemají zbraň (nebo jen na blízko):\n\n{0}\n\nZbraň jim dáš v přehledu výbavy (klikni na zbraň).</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>Boj a práce</RL_TabBattle>
+  <RL_BG_Outfits>Bojové oblečení</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>Každé oblečení (zásady) může mít bojové oblečení (nastavíš ho ve „Zbraně podle oblečení“). Odvedení kolonisti používají bojové oblečení a po propuštění se vrátí k pracovnímu – bojové kusy si sundají a obléknou zase pracovní.</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>Bojové oblečení i při nájezdu</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>Dokud jsou na mapě nepřátelé, všichni přepnou na bojové oblečení (a se „Zbroj při útoku“ si obléknou zbroj); po nájezdu se vrátí k pracovnímu.</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>Nastavit bojová oblečení…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>Při odvedení si dojít pro zbroj</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>Odvedený kolonista bez nepřítele poblíž si dojde pro nejlepší povolenou zbroj ležící blízko, než mu dáš rozkaz. Jakýkoli tvůj rozkaz to přeruší.</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>Zbroj do vzdálenosti: {0} políček</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>Jak daleko odvedený kolonista dojde pro zbroj.</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>Po oblečení se vrátit zpět</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>Po oblečení zbroje se kolonista vrátí na místo, kde jsi ho odvedla.</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>Oblékat se podle předpovědi</RL_BG_Season>
+  <RL_BG_Season_Desc>Oblečení se řídí i teplotou v příštích hodinách (studená noc, blížící se zima, letní vedro), ne jen teplotou teď.</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>Dívat se dopředu: {0} h</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>Kolik hodin dopředu se předpověď počítá.</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>Oblékat se na karavanu</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>Kolonisti, kteří se chystají do karavany, se obléknou na počasí příštích čtyř dnů.</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>Včas vyměnit opotřebenou výbavu</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>Kus pod limitem se vymění za dobrý (80 %+) stejného druhu nebo na stejné části těla ze skladu – aspoň stejná zbroj, zhruba stejně teplý.</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>Vyměnit pod: {0} %</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>Výdrž, pod kterou se kus vymění.</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – boj</RL_BG_NewLabel>
+  <RL_BG_BattleIs>Bojové oblečení: {0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>Bojové oblečení: žádné</RL_BG_BattleNone>
+  <RL_BG_None>Žádné (v boji nechat toto oblečení)</RL_BG_None>
+  <RL_BG_Create>Vytvořit bojové oblečení z tohoto</RL_BG_Create>
+  <RL_BG_Battle_Desc>Odvedení kolonisti s tímto oblečením (a při nájezdu všichni, pokud je to zapnuté) používají bojové oblečení; potom se vrátí k tomuto. „Vytvořit“ zkopíruje toto oblečení a povolí všechnu zbroj a helmy.</RL_BG_Battle_Desc>
+  <RL_BG_Edit>Upravit bojové oblečení</RL_BG_Edit>
+  <RL_Why_BattleDraft>odveden – bojová výbava</RL_Why_BattleDraft>
+  <RL_Why_Worn>opotřebené – výměna za lepší kus</RL_Why_Worn>
+  <RL_GP_Open>Plánovač výbavy</RL_GP_Open>
+  <RL_GP_Title>Plánovač výbavy</RL_GP_Title>
+  <RL_GP_Desc>Co kolonistům chybí a nejlepší věc, kterou na to teď umíš vyrobit. Zakázka vyrobí jen chybějící počet („dokud nemáš X“).</RL_GP_Desc>
+  <RL_GP_AllGood>Všichni mají helmu, zbroj i střelnou zbraň a nic není opotřebené.</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>Helmy</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>Zbroj na tělo</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>Střelné zbraně</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>Opotřebené</RL_GP_Slot_Worn>
+  <RL_GP_Worn>Opotřebené: {0}</RL_GP_Worn>
+  <RL_GP_Line>{0} kolonistů bez · {1} ve skladu · vyrobit {2}</RL_GP_Line>
+  <RL_GP_Best>Nejlepší: {0} ({1})</RL_GP_Best>
+  <RL_GP_NoRecipe>zatím nic, co umíš vyrobit</RL_GP_NoRecipe>
+  <RL_GP_InStock>ve skladu je dost</RL_GP_InStock>
+  <RL_GP_HasBill>zakázka už je zadaná</RL_GP_HasBill>
+  <RL_GP_Add>Přidat zakázku ({0})</RL_GP_Add>
+  <RL_GP_Auto>Přidávat zakázky samo (jednou denně)</RL_GP_Auto>
+  <RL_GP_Auto_Desc>Jednou denně plánovač přidá zakázky „dokud nemáš X“ na všechno, co chybí a ještě nemá zakázku.</RL_GP_Auto_Desc>
+  <RL_GP_Added>Zakázka přidána: {0} u {1} ({2}).</RL_GP_Added>
+  <RL_GP_AutoAdded>Plánovač výbavy přidal zakázky: {0}</RL_GP_AutoAdded>
 </LanguageData>

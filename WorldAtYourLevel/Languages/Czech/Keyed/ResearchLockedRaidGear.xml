@@ -318,4 +318,36 @@
   <RLRG_ResearchAbove_Desc>O kolik víc stojí výzkum vyšší technologické úrovně, než má svět.</RLRG_ResearchAbove_Desc>
   <RLRG_ResearchBelow>Pod úrovní světa: cena −{0} %</RLRG_ResearchBelow>
   <RLRG_ResearchBelow_Desc>O kolik méně stojí výzkum nižší technologické úrovně, než má svět.</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>Vývoj světa</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>Frakce mají vlastní úroveň</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>Každá frakce se pohybuje kolem úrovně světa svým tempem: některé zaostávají, pár jich vede. Jejich nájezdníci a návštěvníci nosí výbavu úrovně své frakce. Zničení jejich osady je vrátí zpět, obchod s nimi jim pomáhá. Záložka Svět ukazuje všechny frakce.</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>Vedoucí frakce o úroveň napřed</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>Vedoucí frakce smí nosit výbavu o úroveň nad úrovní světa (ne s „Jen co jsi vyrobila“). Vypnuto: frakce můžou jen zaostávat.</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>Zkoumat cizí techniku</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>Zbraň nebo oblečení nad tvým výzkumem dostane tlačítko „Prozkoumat“: rozebere se a dá body výzkumu projektu, který ho odemyká (nebo projektu jeho éry). Potřebuje výzkumný stůl.</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>Nová éra přivede obchodníka</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>Když úroveň světa stoupne, za den až dva přijde karavana frakce na nové úrovni s novým zbožím.</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>Nájezdy podle skutečné obrany</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>Síla nájezdů se řídí i tvou skutečnou obranou – bojovníky, jejich zbraněmi, zbrojí a dovednostmi, věžemi a bojovými mechanoidy – ne jen bohatstvím kolonie. Bohatá, ale slabá kolonie dostane férovější nájezdy, silná chudá tvrdší.</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>Váha obrany: {0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>Jak moc se síla nájezdu řídí obranou místo bodů hry (100 % = jen obrana).</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0} postoupili na úroveň {1}.</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0} klesli na úroveň {1}.</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>osada zničena</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>obchod pomáhá</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>Prozkoumat</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>Rozebrat pro výzkum: {0} získá {1} bodů. Předmět se spotřebuje.</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>Žádný otevřený výzkum, do kterého by to šlo.</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>Potřebuješ výzkumný stůl.</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>{0} rozebráno: {1} +{2} výzkumu.</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>Obchodníci nové éry</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>Zpráva o tvém pokroku se rozšířila. {0} posílají karavanu se zbožím éry {1} – měla by dorazit za den až dva.</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>Frakce</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>Vlastní úrovně frakcí jsou vypnuté (nastavení, záložka Vývoj světa).</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>stoupá</RLRG_EV_Rising>
+  <RLRG_EV_Falling>klesá</RLRG_EV_Falling>
+  <RLRG_EV_Steady>drží se</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0}: úroveň {1} (svět: {2}). Jejich nájezdníci a návštěvníci nosí výbavu této úrovně.</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>Tvoje obrana: {0} bodů · body nájezdu teď: {1}</RLRG_EV_DefenseNow>
 </LanguageData>
