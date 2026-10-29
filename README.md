@@ -30,7 +30,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Mod Sort Manager – Load Order, Conflicts & Profiles | 0.3.1 | [ModSortManager](ModSortManager) |
 | Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
-| Randy's Table – Chaos Storytellers | 0.1.0 | [RandysTable](RandysTable) |
+| Randy's Table – Chaos Storytellers | 0.1.1 | [RandysTable](RandysTable) |
 | Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
 | Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.1.0 | [SeasonsHolidays](SeasonsHolidays) |
 | Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |

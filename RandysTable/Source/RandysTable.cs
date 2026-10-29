@@ -36,7 +36,7 @@ namespace RandysTable
 
     public class RTMod : Mod
     {
-        public const string Version = "0.1.0";
+        public const string Version = "0.1.1";
         public static RTSettings S;
         private static List<string> recBullets;
 
@@ -204,7 +204,10 @@ namespace RandysTable
                 IncidentParms parms = StorytellerUtility.DefaultParmsNow(def.category, map);
                 if (!def.Worker.CanFireNow(parms))
                     continue;
-                Find.Storyteller.incidentQueue.Add(def, Find.TickManager.TicksGame + Rand.Range(2500, 40000), parms, 20000);
+                // 0.1.1: CanFireNow fills in faction, trader and spawn spot for *now*; the gift comes
+                // hours later, so it gets fresh parms and the game picks those again when it fires
+                IncidentParms later = StorytellerUtility.DefaultParmsNow(def.category, map);
+                Find.Storyteller.incidentQueue.Add(def, Find.TickManager.TicksGame + Rand.Range(2500, 40000), later, 5000);
                 return;
             }
         }
