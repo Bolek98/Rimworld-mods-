@@ -211,5 +211,207 @@ namespace GraphicsTuner
             sb.AppendLine("GT_VramAdvice".Translate());
             return sb.ToString().TrimEnd();
         }
+            // ---- 1.6.3: every mod's textures, whether they sit in the card now or not ----
+        // The tracker above only sees what is in the card right now (and puts atlases and screen
+        // surfaces in their own bins). This counts each mod's own pictures by their size, so the
+        // list shows which mods would free the most when switched off.
+        public sealed class ModTex
+        {
+            public string mod;
+            public int count, big;
+            public long bytes;
+            public string largest;
+            public long largestBytes;
+        }
+
+        private static List<ModTex> modTex;
+
+        public static long TexBytes(Texture2D t)
+        {
+            if (t == null)
+                return 0;
+            int w = t.width, h = t.height;
+            float bpp;
+            string f = t.format.ToString();
+            if (f.StartsWith("DXT1") || f.StartsWith("BC4") || f.Contains("ETC_") || f.StartsWith("ETC2_RGB") && !f.Contains("A8"))
+                bpp = 0.5f;
+            else if (f.StartsWith("DXT5") || f.StartsWith("BC5") || f.StartsWith("BC7") || f.StartsWith("BC6") || f.Contains("ASTC") || f.Contains("ETC2_RGBA8"))
+                bpp = 1f;
+            else if (f == "Alpha8" || f == "R8")
+                bpp = 1f;
+            else if (f.Contains("RGBAHalf") || f.Contains("RGBA64"))
+                bpp = 8f;
+            else if (f.Contains("RGBAFloat"))
+                bpp = 16f;
+            else
+                bpp = 4f;
+            float mips = t.mipmapCount > 1 ? 1.333f : 1f;
+            return (long)(w * (long)h * bpp * mips);
+        }
+
+        public static List<ModTex> ModTextures(bool refresh = false)
+        {
+            if (modTex != null && !refresh)
+                return modTex;
+            var list = new List<ModTex>();
+            var seen = new HashSet<Texture2D>();
+            foreach (ModContentPack m in LoadedModManager.RunningModsListForReading)
+            {
+                var e = new ModTex { mod = m.Name };
+                try
+                {
+                    var holder = m.GetContentHolder<Texture2D>();
+                    if (holder?.contentList != null)
+                        foreach (var kv in holder.contentList)
+                        {
+                            Texture2D t = kv.Value;
+                            if (t == null || !seen.Add(t))
+                                continue;
+                            long b = 0;
+                            try { b = TexBytes(t); } catch { }
+                            e.count++;
+                            e.bytes += b;
+                            if (b >= 4L * 1024 * 1024) e.big++;
+                            if (b > e.largestBytes) { e.largestBytes = b; e.largest = kv.Key; }
+                        }
+                }
+                catch { }
+                if (e.count > 0)
+                    list.Add(e);
+            }
+            modTex = list.OrderByDescending(x => x.bytes).ToList();
+            return modTex;
+        }
+
+        // the biggest single surfaces the game draws into (screen, portraits, effects)
+        public static List<KeyValuePair<string, long>> TopTargets(int count)
+        {
+            var bytes = new Dictionary<string, long>();
+            if (!Available || collectAll == null)
+                return new List<KeyValuePair<string, long>>();
+            try
+            {
+                var list = (IList)Activator.CreateInstance(typeof(List<>).MakeGenericType(allocType));
+                collectAll.Invoke(null, new object[] { list });
+                foreach (object a in list)
+                {
+                    if (aCat.GetValue(a)?.ToString() != "RenderTarget")
+                        continue;
+                    string n = aName.GetValue(a) as string;
+                    if (n.NullOrEmpty()) n = "?";
+                    // portraits and the like share a name prefix – group them
+                    int cut = n.IndexOfAny(new[] { '#', '(', '_' });
+                    string key = cut > 3 ? n.Substring(0, cut) : n;
+                    bytes.TryGetValue(key, out long o);
+                    bytes[key] = o + (long)aBytes.GetValue(a);
+                }
+            }
+            catch { }
+            return bytes.OrderByDescending(kv => kv.Value).Take(count).ToList();
+        }
+
+        public static string Mb(long b) => (b / 1048576.0).ToString(b < 10L * 1048576 ? "0.0" : "0");
+    }
+
+    // 1.6.3: the window "which mods take the video memory"
+    public class Dialog_VramMods : Window
+    {
+        private Vector2 scroll;
+        private List<Vram.ModTex> rows;
+        private List<KeyValuePair<string, long>> bins, targets;
+        private long total;
+
+        public override Vector2 InitialSize => new Vector2(760f, 640f);
+
+        public Dialog_VramMods()
+        {
+            doCloseX = true;
+            closeOnClickedOutside = true;
+            absorbInputAroundWindow = true;
+            Refresh();
+        }
+
+        private void Refresh()
+        {
+            rows = Vram.ModTextures(true);
+            total = rows.Sum(r => r.bytes);
+            bins = Vram.TopMods(6);
+            targets = Vram.TopTargets(5);
+        }
+
+        public override void DoWindowContents(Rect inRect)
+        {
+            float y = inRect.y;
+            Text.Font = GameFont.Medium;
+            Widgets.Label(new Rect(inRect.x, y, inRect.width - 120f, 32f), "GT_VramTitle".Translate());
+            Text.Font = GameFont.Small;
+            if (Widgets.ButtonText(new Rect(inRect.xMax - 110f, y + 2f, 100f, 28f), "GT_VramRefresh".Translate()))
+                Refresh();
+            y += 36f;
+            string line = Vram.Line();
+            if (line != null)
+            {
+                Widgets.Label(new Rect(inRect.x, y, inRect.width, 24f), line);
+                y += 24f;
+                if (bins.Count > 0)
+                {
+                    GUI.color = new Color(0.75f, 0.78f, 0.82f);
+                    string b = string.Join("  ·  ", bins.Select(kv => kv.Key + " " + Vram.Gb(kv.Value) + " GB").ToArray());
+                    float h = Text.CalcHeight(b, inRect.width);
+                    Widgets.Label(new Rect(inRect.x, y, inRect.width, h), b);
+                    y += h;
+                    if (targets.Count > 0)
+                    {
+                        string t = "GT_VramTargetsTop".Translate(string.Join(", ", targets.Select(kv => kv.Key + " " + Vram.Mb(kv.Value) + " MB").ToArray()));
+                        h = Text.CalcHeight(t, inRect.width);
+                        Widgets.Label(new Rect(inRect.x, y, inRect.width, h), t);
+                        y += h;
+                    }
+                    GUI.color = Color.white;
+                }
+                y += 6f;
+            }
+            Widgets.Label(new Rect(inRect.x, y, inRect.width, 24f), "GT_VramModsHead".Translate(rows.Count, Vram.Gb(total)));
+            y += 26f;
+            // header
+            GUI.color = new Color(0.75f, 0.78f, 0.82f);
+            Widgets.Label(new Rect(inRect.x + 4f, y, 300f, 22f), "GT_VramColMod".Translate());
+            Widgets.Label(new Rect(inRect.xMax - 330f, y, 90f, 22f), "GT_VramColSize".Translate());
+            Widgets.Label(new Rect(inRect.xMax - 236f, y, 220f, 22f), "GT_VramColCount".Translate());
+            GUI.color = Color.white;
+            y += 24f;
+            Rect outR = new Rect(inRect.x, y, inRect.width, inRect.yMax - y - 52f);
+            float rowH = 30f;
+            Rect view = new Rect(0f, 0f, outR.width - 16f, rows.Count * rowH);
+            long max = rows.Count > 0 ? Math.Max(1L, rows[0].bytes) : 1L;
+            Widgets.BeginScrollView(outR, ref scroll, view);
+            int first = Mathf.Max(0, (int)(scroll.y / rowH) - 1), last = Mathf.Min(rows.Count - 1, (int)((scroll.y + outR.height) / rowH) + 1);
+            for (int i = first; i <= last; i++)
+            {
+                Vram.ModTex r = rows[i];
+                Rect row = new Rect(0f, i * rowH, view.width, rowH - 2f);
+                if (i % 2 == 0) Widgets.DrawLightHighlight(row);
+                // bar behind the size
+                float frac = (float)r.bytes / max;
+                Color bar = frac > 0.5f ? new Color(0.85f, 0.35f, 0.3f, 0.35f) : frac > 0.15f ? new Color(0.9f, 0.7f, 0.3f, 0.3f) : new Color(0.4f, 0.7f, 0.45f, 0.25f);
+                Widgets.DrawBoxSolid(new Rect(row.x, row.y, row.width * frac, row.height), bar);
+                string name = ((i + 1) + ". " + r.mod).Truncate(row.width - 340f);
+                Widgets.Label(new Rect(row.x + 4f, row.y + 4f, row.width - 340f, 24f), name);
+                Text.Anchor = TextAnchor.UpperRight;
+                Widgets.Label(new Rect(row.xMax - 330f, row.y + 4f, 80f, 24f), Vram.Mb(r.bytes) + " MB");
+                Text.Anchor = TextAnchor.UpperLeft;
+                GUI.color = new Color(0.75f, 0.78f, 0.82f);
+                Widgets.Label(new Rect(row.xMax - 236f, row.y + 4f, 232f, 24f), ("GT_VramCount".Translate(r.count, r.big)).ToString().Truncate(232f));
+                GUI.color = Color.white;
+                if (Mouse.IsOver(row))
+                    TooltipHandler.TipRegion(row, "GT_VramRowTip".Translate(r.mod, Vram.Mb(r.bytes), r.count, r.big, r.largest ?? "-", Vram.Mb(r.largestBytes)));
+            }
+            Widgets.EndScrollView();
+            GUI.color = new Color(0.75f, 0.78f, 0.82f);
+            Text.Font = GameFont.Tiny;
+            Widgets.Label(new Rect(inRect.x, inRect.yMax - 48f, inRect.width, 48f), "GT_VramModsNote".Translate());
+            Text.Font = GameFont.Small;
+            GUI.color = Color.white;
+        }
     }
 }

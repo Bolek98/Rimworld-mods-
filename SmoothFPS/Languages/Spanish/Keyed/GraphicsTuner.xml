@@ -437,4 +437,13 @@
   <GT_RainWashAll_Desc>El juego solo deja que la lluvia limpie algunos tipos de suciedad. Con esto, la lluvia reduce toda la suciedad al aire libre (sin techo) con la misma probabilidad. La suciedad interior nunca se toca. Desactivado = como el juego.</GT_RainWashAll_Desc>
   <GT_RainNow>Suciedad fuera en tus mapas base ahora: {0}</GT_RainNow>
   <GT_RainStarted>Ha empezado a llover – la lluvia limpia la suciedad (Smooth FPS).</GT_RainStarted>
+  <GT_VramRefresh>Actualizar</GT_VramRefresh>
+  <GT_VramTargetsTop>Superficies de dibujo más grandes: {0}</GT_VramTargetsTop>
+  <GT_VramModsHead>Texturas por mod ({0} mods, unos {1} GB en total) – de mayor a menor:</GT_VramModsHead>
+  <GT_VramColMod>Mod</GT_VramColMod>
+  <GT_VramColSize>Tamaño</GT_VramColSize>
+  <GT_VramColCount>Texturas (grandes)</GT_VramColCount>
+  <GT_VramCount>{0} texturas ({1} grandes)</GT_VramCount>
+  <GT_VramRowTip>{0}\n\nTexturas: unos {1} MB\nCantidad: {2}, grandes (más de 4 MB): {3}\nLa mayor: {4} ({5} MB)</GT_VramRowTip>
+  <GT_VramModsNote>El tamaño es una estimación según las dimensiones de las imágenes (todas las texturas del mod, también las que el juego sacó de la tarjeta). Los mods de arriba liberan más memoria al desactivarlos. Atlas y superficies de dibujo son del juego y solo bajan con menos resolución o menos mods.</GT_VramModsNote>
 </LanguageData>

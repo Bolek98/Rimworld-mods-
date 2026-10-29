@@ -750,7 +750,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.6.2";
+        public const string Version = "1.6.3";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -1372,9 +1372,10 @@ namespace GraphicsTuner
             {
                 o.Gap(4f);
                 o.Label(vl);
-                if (o.ButtonText("GT_VramWho".Translate()))
-                    Find.WindowStack.Add(new Dialog_MessageBox(Vram.Report(), title: "GT_VramTitle".Translate()));
             }
+            // 1.6.3: the per-mod list works in every game version (it counts the mods' own pictures)
+            if (o.ButtonText("GT_VramWho".Translate()))
+                Find.WindowStack.Add(new Dialog_VramMods());
             o.Gap(6f);
             if (!Freezer.ForcedGcBlocked && o.ButtonText("GT_MemCollectNow".Translate()))
                 Freezer.Collect(true);

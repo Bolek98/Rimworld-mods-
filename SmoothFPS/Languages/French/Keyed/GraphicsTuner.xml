@@ -437,4 +437,13 @@
   <GT_RainWashAll_Desc>Le jeu ne laisse la pluie laver que certains types de saleté. Avec ceci, la pluie réduit toute saleté dehors (sans toit) avec la même chance. La saleté à l'intérieur n'est jamais touchée. Désactivé = comme le jeu.</GT_RainWashAll_Desc>
   <GT_RainNow>Saleté dehors sur vos cartes de base maintenant : {0}</GT_RainNow>
   <GT_RainStarted>Il s'est mis à pleuvoir – la pluie lave la saleté (Smooth FPS).</GT_RainStarted>
+  <GT_VramRefresh>Actualiser</GT_VramRefresh>
+  <GT_VramTargetsTop>Plus grandes surfaces de rendu : {0}</GT_VramTargetsTop>
+  <GT_VramModsHead>Textures par mod ({0} mods, environ {1} Go au total) – les plus grosses d'abord :</GT_VramModsHead>
+  <GT_VramColMod>Mod</GT_VramColMod>
+  <GT_VramColSize>Taille</GT_VramColSize>
+  <GT_VramColCount>Textures (grandes)</GT_VramColCount>
+  <GT_VramCount>{0} textures ({1} grandes)</GT_VramCount>
+  <GT_VramRowTip>{0}\n\nTextures : environ {1} Mo\nNombre : {2}, grandes (plus de 4 Mo) : {3}\nLa plus grande : {4} ({5} Mo)</GT_VramRowTip>
+  <GT_VramModsNote>La taille est une estimation d'après les dimensions des images (toutes les textures du mod, même celles sorties de la carte). Les mods en haut libèrent le plus de mémoire une fois désactivés. Atlas et surfaces de rendu appartiennent au jeu et ne diminuent qu'avec une résolution plus basse ou moins de mods.</GT_VramModsNote>
 </LanguageData>
