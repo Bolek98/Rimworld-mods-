@@ -75,6 +75,8 @@ function Refresh {
         if ($base) { $delta = [int]$it.subs - [int]$base.subs }
         $list += [pscustomobject]@{ id = $p.Name; title = [string]$it.title; subs = [int]$it.subs; fav = [int]$it.fav; com = [int]$it.comments; delta = $delta }
     }
+    # dva mody se stejným začátkem názvu (Evergrowth …) dostanou celý název
+    $shorts = $list | ForEach-Object { Short $_.title } | Group-Object | Where-Object { $_.Count -gt 1 } | ForEach-Object { $_.Name }
     $sum = 0; $sumDelta = 0
     foreach ($m in ($list | Sort-Object subs -Descending)) {
         $sum += $m.subs; $sumDelta += $m.delta
@@ -88,7 +90,7 @@ function Refresh {
             [void]$g.ColumnDefinitions.Add($cd)
         }
         $n = New-Object System.Windows.Controls.TextBlock
-        $n.Text = (Short $m.title); $n.Foreground = Brush '#C9CDD2'; $n.FontSize = 12; $n.TextTrimming = 'CharacterEllipsis'; $n.MaxWidth = 210
+        $sn = Short $m.title; if ($shorts -contains $sn) { $sn = $m.title }; $n.Text = $sn; $n.Foreground = Brush '#C9CDD2'; $n.FontSize = 12; $n.TextTrimming = 'CharacterEllipsis'; $n.MaxWidth = 210
         $v = New-Object System.Windows.Controls.TextBlock
         $v.Text = ('{0:N0}' -f $m.subs); $v.Foreground = Brush '#E6E3DC'; $v.FontSize = 12; $v.FontWeight = 'SemiBold'; $v.HorizontalAlignment = 'Right'
         [System.Windows.Controls.Grid]::SetColumn($v, 1)
