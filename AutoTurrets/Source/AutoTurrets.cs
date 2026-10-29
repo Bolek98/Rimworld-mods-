@@ -75,6 +75,7 @@ namespace AutoTurrets
 			var h = new Harmony("bolek98.autoturrets");
 			h.PatchAll();
 			LongEventHandler.ExecuteWhenFinished(() => VfesArtillery.Install(h));   // 1.5.2
+			LongEventHandler.ExecuteWhenFinished(() => LoopGuard.Install(h));   // 1.6.1
 		}
 
 		public override string SettingsCategory() => "Auto Turrets";
@@ -379,6 +380,7 @@ namespace AutoTurrets
 				return false;
 			if (FindShell(pawn, t) == null)
 			{
+				ShellMaterial.Explain(pawn, t);   // 1.6.1: why nothing was found, once per turret in the log
 				JobFailReason.Is(ShellMaterial.On ? "AT_NoMaterial".Translate(ShellMaterial.Cost) : "AT_NoShell".Translate());
 				return false;
 			}

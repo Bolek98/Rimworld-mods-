@@ -48,6 +48,28 @@ namespace AutoTurrets
 				TraverseParms.For(pawn), 9999f, ok);
 		}
 
+		private static readonly HashSet<int> explained = new HashSet<int>();
+
+		public static void Explain(Pawn pawn, Building_TurretGun t)
+		{
+			try
+			{
+				if (!On || !explained.Add(t.thingIDNumber)) return;
+				int stacks = 0, big = 0, forb = 0, total = 0;
+				foreach (Thing x in pawn.Map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver))
+				{
+					if (!IsMaterial(x.def) || !x.Spawned) continue;
+					stacks++;
+					total += x.stackCount;
+					if (x.stackCount >= Cost) big++;
+					if (x.IsForbidden(pawn)) forb++;
+				}
+				Log.Message("[Auto Turrets] " + pawn.LabelShort + " found no material for " + t.LabelShort + ": metal on the map " + total
+					+ " in " + stacks + " stacks, " + big + " stacks of " + Cost + "+, " + forb + " forbidden for this pawn.");
+			}
+			catch { }
+		}
+
 		// ---------------- VFE automated mortar: shells as the second fuel ----------------
 		private class Orig
 		{
