@@ -31,7 +31,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
 | QoL – Faster Work, Prisoners & Pipette | 1.0.1 | [QoLFasterWork](QoLFasterWork) |
-| Randy's Table – Chaos Storytellers | 0.2.2 | [RandysTable](RandysTable) |
+| Randy's Table – Chaos Storytellers | 0.3.0 | [RandysTable](RandysTable) |
 | Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
 | Ride & Drive – Mounts and Vehicles Together | 0.1.1 | [RideAndDrive](RideAndDrive) |
 | Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.1.0 | [SeasonsHolidays](SeasonsHolidays) |

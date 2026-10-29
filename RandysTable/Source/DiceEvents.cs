@@ -520,7 +520,7 @@ namespace RandysTable
 		}
 	}
 
-	public static class DiceEvents
+	public static partial class DiceEvents
 	{
 		public static DiceEventsComp Comp => Current.Game?.GetComponent<DiceEventsComp>();
 
@@ -779,6 +779,7 @@ namespace RandysTable
 					if (bad != null) RunNow(bad.id, m);
 				}
 			});
+			AddBatch2(L);   // 0.3.0
 			return L;
 		}
 
