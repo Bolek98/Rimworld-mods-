@@ -68,7 +68,9 @@ namespace AutoTurrets
 		public ATMod(ModContentPack content) : base(content)
 		{
 			S = GetSettings<ATSettings>();
-			new Harmony("bolek98.autoturrets").PatchAll();
+			var h = new Harmony("bolek98.autoturrets");
+			h.PatchAll();
+			LongEventHandler.ExecuteWhenFinished(() => VfesArtillery.Install(h));   // 1.5.2
 		}
 
 		public override string SettingsCategory() => "Auto Turrets";
