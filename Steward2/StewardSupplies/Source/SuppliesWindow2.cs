@@ -199,9 +199,29 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 		y += 4f;
 	}
 
+	// 1.0.6: a checkbox whose label is cut to fit (full text in the tooltip) – no overlaps
+	private static void Check(Rect r, string label, ref bool value, string tip = null)
+	{
+		Rect lr = new Rect(r.x, r.y, r.width - 30f, r.height);
+		string shown = label.Truncate(lr.width);
+		Text.Anchor = TextAnchor.MiddleLeft;
+		Widgets.Label(lr, shown);
+		Text.Anchor = TextAnchor.UpperLeft;
+		Widgets.Checkbox(new Vector2(r.xMax - 24f, r.y + (r.height - 24f) / 2f), ref value);
+		if (Widgets.ButtonInvisible(lr)) { value = !value; }
+		string t = shown != label ? label + (tip != null ? "\n\n" + tip : "") : tip;
+		if (t != null)
+			TooltipHandler.TipRegion(r, t);
+	}
+
 	private static int SmallNumber(Rect r, string label, int value, int min, int max)
 	{
-		Widgets.Label(new Rect(r.x, r.y + 3f, r.width - 92f, 24f), label);
+		// 1.0.6: the label never runs under the buttons
+		Rect lr = new Rect(r.x, r.y + 3f, Mathf.Max(0f, r.width - 98f), 24f);
+		string shown = label.Truncate(lr.width);
+		Widgets.Label(lr, shown);
+		if (shown != label)
+			TooltipHandler.TipRegion(lr, label);
 		float x = r.xMax - 90f;
 		// Shift = 10, Ctrl = 100
 		int step = Event.current.control ? 100 : Event.current.shift ? 10 : 1;
@@ -855,7 +875,7 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 			TooltipHandler.TipRegion(wr, "CF_J_WatchTip".Translate());
 			Widgets.DefIcon(new Rect(row.x + 36f, row.y + 4f, 32f, 32f), d);
 			Text.Font = GameFont.Medium;
-			Widgets.Label(new Rect(row.x + 74f, row.y + 4f, 240f, 30f), d.LabelCap);
+			Widgets.Label(new Rect(row.x + 74f, row.y + 4f, 240f, 30f), d.LabelCap.ToString().Truncate(240f));
 			Text.Font = GameFont.Small;
 			GUI.color = Dim;
 			Widgets.Label(new Rect(row.x + 74f, row.y + 36f, 240f, 24f), "CF_J_HerdNow".Translate(f, m, yg));
@@ -864,7 +884,7 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 			if (f + m + yg == 0)
 			{
 				GUI.color = new Color(1f, 0.75f, 0.5f);
-				Widgets.Label(new Rect(row.x + 74f, row.y + 84f, 150f, 24f), "CF_J_NoneLeft".Translate());
+				Widgets.Label(new Rect(row.x + 74f, row.y + 86f, 128f, 24f), "CF_J_NoneLeft".Translate().ToString().Truncate(128f));
 				GUI.color = Color.white;
 				if (Widgets.ButtonText(new Rect(row.x + 210f, row.y + 82f, 100f, 26f), "CF_J_RemoveRule".Translate()))
 					remove = d;
@@ -872,30 +892,29 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 			if (!rule.enabled)
 				GUI.color = new Color(1f, 1f, 1f, 0.55f);
 			// middle: how many to keep
+			float rw = Mathf.Clamp(row.width - 330f - 230f - 20f, 200f, 270f);
 			float cx = row.x + 330f;
-			float cw = Mathf.Min(260f, row.xMax - 280f - 20f - cx);
+			float cw = Mathf.Clamp(row.xMax - rw - 20f - cx, 180f, 260f);
 			rule.females = SmallNumber(new Rect(cx, row.y + 6f, cw, 26f), "CF_J_KeepFemales".Translate(), rule.females, 0, 500);
 			rule.males = SmallNumber(new Rect(cx, row.y + 36f, cw, 26f), "CF_J_KeepMales".Translate(), rule.males, 0, 500);
 			if (rule.spareYoung)
 			{
 				GUI.color = Dim;
-				Widgets.Label(new Rect(cx, row.y + 69f, cw, 24f), "CF_J_KeepYoung".Translate() + ": " + "CF_J_AllYoung".Translate());
+				Widgets.Label(new Rect(cx, row.y + 69f, cw, 24f), ("CF_J_KeepYoung".Translate() + ": " + "CF_J_AllYoung".Translate()).Truncate(cw));
 				GUI.color = rule.enabled ? Color.white : new Color(1f, 1f, 1f, 0.55f);
 			}
 			else
 				rule.young = SmallNumber(new Rect(cx, row.y + 66f, cw, 26f), "CF_J_KeepYoung".Translate(), rule.young, 0, 500);
 			// right: switches and the herd area
-			float rx = row.xMax - 280f;
-			Rect kp = new Rect(rx, row.y + 6f, 270f, 26f);
-			Widgets.CheckboxLabeled(kp, "CF_J_KeepPregnant".Translate(), ref rule.keepPregnant);
-			Rect sy = new Rect(rx, row.y + 32f, 270f, 26f);
-			Widgets.CheckboxLabeled(sy, "CF_J_SpareYoung".Translate(), ref rule.spareYoung);
-			TooltipHandler.TipRegion(sy, "CF_J_SpareYoungTip".Translate());
-			Rect rel = new Rect(rx, row.y + 58f, 270f, 26f);
-			Widgets.CheckboxLabeled(rel, "CF_J_ReleaseSurplus".Translate(), ref rule.release);
-			TooltipHandler.TipRegion(rel, "CF_J_ReleaseSurplusTip".Translate());
-			Rect ar = new Rect(rx, row.y + 86f, 270f, 26f);
-			if (Widgets.ButtonText(ar, rule.area == null ? (string)"CF_J_AnimalAreaNone".Translate() : rule.area.Label))
+			float rx = row.xMax - rw - 6f;
+			Rect kp = new Rect(rx, row.y + 6f, rw, 26f);
+			Check(kp, "CF_J_KeepPregnant".Translate(), ref rule.keepPregnant);
+			Rect sy = new Rect(rx, row.y + 32f, rw, 26f);
+			Check(sy, "CF_J_SpareYoung".Translate(), ref rule.spareYoung, "CF_J_SpareYoungTip".Translate());
+			Rect rel = new Rect(rx, row.y + 58f, rw, 26f);
+			Check(rel, "CF_J_ReleaseSurplus".Translate(), ref rule.release, "CF_J_ReleaseSurplusTip".Translate());
+			Rect ar = new Rect(rx, row.y + 86f, rw, 26f);
+			if (Widgets.ButtonText(ar, (rule.area == null ? (string)"CF_J_AnimalAreaNone".Translate() : rule.area.Label).Truncate(ar.width - 12f)))
 			{
 				var menu = new List<FloatMenuOption> { new FloatMenuOption("CF_J_AnimalAreaNone".Translate(), () => rule.area = null) };
 				foreach (Area a in sm.map.areaManager.AllAreas)
