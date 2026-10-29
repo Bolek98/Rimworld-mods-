@@ -174,7 +174,70 @@ namespace MisakTabs
         }
 
         // ---------- which picture fits the pawn ----------
+        // 0.10.0: the race's own figure (Anatomy/<Race>_F, _M, _Kid; humans Clovek_F/M/Kid/Fat/Hulk/Thin)
+        // when there is one, otherwise the body-type figure with the race features drawn over it
+        private static readonly (string, string)[] RaceKits =
+        {
+            ("Human", "Clovek"), ("Wolfein_Race", "Wolfein"), ("Alien_Miho", "Miho"), ("Maru", "Maru"), ("Yuran_Race", "Yuran"),
+            ("VV_Vivi", "Vivi"), ("HAR_Saclean", "Saclean"), ("HAR_Outerm", "Outerm"), ("HAR_Nearmaere", "Nearmare"), ("HAR_Idhale", "Idhale"),
+            ("NivarianRace_Pawn", "Nivarian"), ("Mugirl", "Mugirl"), ("TailinRace", "Tailin"), ("MP_Mariponica", "Mariponica")
+        };
+        private static readonly Dictionary<string, bool> kitExists = new Dictionary<string, bool>();
+        private static bool KitExists(string name)
+        {
+            if (!kitExists.TryGetValue(name, out bool e))
+            {
+                try { e = Directory.Exists(Path.Combine(root, name)); } catch { e = false; }
+                kitExists[name] = e;
+            }
+            return e;
+        }
+
+        private static string RacePrefix(ThingDef race)
+        {
+            string dn = race?.defName;
+            if (dn == null) return null;
+            foreach (var (def, pre) in RaceKits)
+                if (dn == def || (def != "Human" && def != "Maru" && def != "Mugirl" && dn.StartsWith(def))) return pre;
+            return null;
+        }
+
+        public static bool IsRaceKit(string kind) => kind != null && kind.IndexOf('_') > 0 && !kind.StartsWith("Clovek_");
+
         public static string KindOf(Pawn pawn)
+        {
+            string std = StdKind(pawn);
+            if (std == null || !Available) return std;
+            try
+            {
+                string pre = RacePrefix(pawn.def);
+                if (pre == null) return std;
+                bool kid = pawn.DevelopmentalStage.Juvenile() || pawn.DevelopmentalStage.Baby();
+                var tries = new List<string>();
+                if (pre == "Clovek")
+                {
+                    string bt = pawn.story.bodyType?.defName ?? "";
+                    if (kid) tries.Add("Clovek_Kid");
+                    else if (bt == "Fat") tries.Add("Clovek_Fat");
+                    else if (bt == "Hulk") tries.Add("Clovek_Hulk");
+                    else if (bt == "Thin") tries.Add("Clovek_Thin");
+                    tries.Add(pawn.gender == Gender.Female ? "Clovek_F" : "Clovek_M");
+                }
+                else
+                {
+                    if (kid) tries.Add(pre + "_Kid");
+                    if (pawn.gender == Gender.Male) tries.Add(pre + "_M");
+                    tries.Add(pre + "_F");
+                    tries.Add(pre + "_M");
+                }
+                foreach (string t in tries)
+                    if (KitExists(t)) return t;
+            }
+            catch { }
+            return std;
+        }
+
+        public static string StdKind(Pawn pawn)
         {
             if (pawn?.RaceProps == null || !pawn.RaceProps.Humanlike || pawn.story == null) return null;
             if (pawn.DevelopmentalStage.Juvenile() || pawn.DevelopmentalStage.Baby()) return "Kid";
@@ -666,13 +729,17 @@ namespace MisakTabs
             if (k == null) return Rect.zero;
             float scale = Mathf.Min(r.width / k.w, r.height / k.h);
             Rect fr = new Rect(r.x + (r.width - k.w * scale) / 2f, r.y + (r.height - k.h * scale) / 2f, k.w * scale, k.h * scale);
-            List<string> feats = Features(pawn);
+            // 0.10.0: a race's own figure has its ears, tails and wings drawn in; a human figure still gets
+            // gene features (xenotypes) from the body-type figure's pictures
+            string kind = KindOf(pawn);
+            Kit fk = IsRaceKit(kind) ? null : kind.StartsWith("Clovek_") ? KitFor(StdKind(pawn)) : k;
+            List<string> feats = fk == null ? new List<string>() : Features(pawn);
             Color dimF = view == View.Parts ? Color.white : new Color(0.75f, 0.75f, 0.78f, 0.8f);
-            foreach (string t in feats) DrawFeat(k, fr, t + "_back", dimF);
+            foreach (string t in feats) DrawFeat(fk, fr, t + "_back", dimF);
             GUI.color = Color.white;
             Pic pic = Picture(pawn, k);
             GUI.DrawTexture(fr, pic.tex);
-            foreach (string t in feats) DrawFeat(k, fr, t + "_front", dimF);
+            foreach (string t in feats) DrawFeat(fk, fr, t + "_front", dimF);
             GUI.color = Color.white;
             State state = pic.state;
             centres = view == View.Parts ? k.partC : view == View.Organs ? k.organC : k.boneC;
@@ -690,7 +757,7 @@ namespace MisakTabs
 
         private static void DrawFeat(Kit k, Rect fr, string name, Color c)
         {
-            if (k.featTex == null || !k.feats.TryGetValue(name, out var f)) return;
+            if (k?.featTex == null || !k.feats.TryGetValue(name, out var f)) return;
             GUI.color = c;
             GUI.DrawTextureWithTexCoords(new Rect(fr.x + f.at.x * fr.width, fr.y + f.at.y * fr.height, f.at.width * fr.width, f.at.height * fr.height), k.featTex, f.uv);
             GUI.color = Color.white;
