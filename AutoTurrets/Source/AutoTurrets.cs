@@ -347,9 +347,9 @@ namespace AutoTurrets
 					Log.WarningOnce("[Auto Turrets] smart shell choice: " + e.Message, 0x41545331);
 				}
 			}
-			Thing any = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.Shell), PathEndMode.ClosestTouch,
+			Thing anyShell = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.Shell), PathEndMode.ClosestTouch,
 				TraverseParms.For(pawn), 9999f, x => ok(x));
-			if (any != null || allowed == null) return any;
+			if (anyShell != null || allowed == null) return anyShell;
 			// 1.5.3: modded ammo that the game doesn't count as a shell but the turret accepts
 			return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.HaulableEver), PathEndMode.ClosestTouch,
 				TraverseParms.For(pawn), 9999f, x => x.def.projectileWhenLoaded != null && ok(x));
