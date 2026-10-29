@@ -78,4 +78,8 @@
   <AT_VfesSend>Nobody mans it – the nearest free colonist who can fight goes there right away.</AT_VfesSend>
   <AT_VfesNobody>Nobody can man the artillery.</AT_VfesNobody>
   <AT_VfesGoes>{0} goes to man the artillery.</AT_VfesGoes>
+  <AT_ShellsFromMaterial>Load mortars and artillery with material instead of shells</AT_ShellsFromMaterial>
+  <AT_ShellsFromMaterial_Desc>Haulers bring steel (or another metal) to mortars, artillery and field guns and the gun is loaded with the shell you picked for it, otherwise a high-explosive one. Shells are not needed at all. The VFE automated mortar refills its shells from material too.</AT_ShellsFromMaterial_Desc>
+  <AT_ShellCost>Material per shell: {0}</AT_ShellCost>
+  <AT_NoMaterial>Not enough material ({0} metal per shell)</AT_NoMaterial>
 </LanguageData>

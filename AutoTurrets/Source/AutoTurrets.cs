@@ -31,6 +31,8 @@ namespace AutoTurrets
 		public bool ammoAlsoMetal = false;     // 1.5.0: turrets that need their own ammo also take any metal
 		public bool freeAmmo = false;          // 1.5.0: your turrets need no ammo or fuel at all
 		public bool specialOnlyPicked = false;   // 1.5.0: haulers bring special shells (EMP, incendiary, firefoam) only to a mortar set to them
+		public bool shellsFromMaterial = true;  // 1.6.0: mortars and artillery are loaded with material instead of shells
+		public int shellCost = 10;              // 1.6.0: material for one shell
 
 		public override void ExposeData()
 		{
@@ -54,6 +56,8 @@ namespace AutoTurrets
 			Scribe_Values.Look(ref specialOnlyPicked, "specialOnlyPicked", false);
 			Scribe_Values.Look(ref ammoAlsoMetal, "ammoAlsoMetal", false);
 			Scribe_Values.Look(ref freeAmmo, "freeAmmo", false);
+			Scribe_Values.Look(ref shellsFromMaterial, "shellsFromMaterial", true);
+			Scribe_Values.Look(ref shellCost, "shellCost", 10);
 			if (autoPick == null) autoPick = new Dictionary<string, bool>();
 			if (fuelExtra == null) fuelExtra = new List<string>();
 			if (Scribe.mode == LoadSaveMode.PostLoadInit && wallPick == null)
@@ -126,6 +130,16 @@ namespace AutoTurrets
 					l.CheckboxLabeled("AT_FuelStone".Translate(), ref S.fuelStone, "AT_FuelStone_Desc".Translate());
 					l.CheckboxLabeled("AT_AmmoAlsoMetal".Translate(), ref S.ammoAlsoMetal, "AT_AmmoAlsoMetal_Desc".Translate());
 					l.CheckboxLabeled("AT_FreeAmmo".Translate(), ref S.freeAmmo, "AT_FreeAmmo_Desc".Translate());
+					// 1.6.0
+					bool wasMat = S.shellsFromMaterial;
+					int wasCost = S.shellCost;
+					l.CheckboxLabeled("AT_ShellsFromMaterial".Translate(), ref S.shellsFromMaterial, "AT_ShellsFromMaterial_Desc".Translate());
+					if (S.shellsFromMaterial)
+					{
+						l.Label("AT_ShellCost".Translate(S.shellCost));
+						S.shellCost = Mathf.RoundToInt(l.Slider(S.shellCost, 1f, 50f));
+					}
+					if (wasMat != S.shellsFromMaterial || wasCost != S.shellCost) ShellMaterial.Apply();
 					l.Gap(4f);
 				}
 				float used = l.CurHeight;
@@ -305,6 +319,8 @@ namespace AutoTurrets
 
 		public static Thing FindShell(Pawn pawn, Building_TurretGun t)
 		{
+			// 1.6.0: material instead of shells
+			if (ShellMaterial.On) return ShellMaterial.FindMaterial(pawn, t);
 			StorageSettings allowed = t.gun.TryGetComp<CompChangeableProjectile>().allowedShellsSettings;
 			Predicate<Thing> ok = x => !x.IsForbidden(pawn) && pawn.CanReserve(x, 10, 1) && (allowed == null || allowed.AllowedToAccept(x));
 			// 1.5.0: the shell you picked for this mortar, nothing else
@@ -363,7 +379,7 @@ namespace AutoTurrets
 				return false;
 			if (FindShell(pawn, t) == null)
 			{
-				JobFailReason.Is("AT_NoShell".Translate());
+				JobFailReason.Is(ShellMaterial.On ? "AT_NoMaterial".Translate(ShellMaterial.Cost) : "AT_NoShell".Translate());
 				return false;
 			}
 			return true;
@@ -376,7 +392,7 @@ namespace AutoTurrets
 			if (shell == null)
 				return null;
 			Job job = JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("AT_LoadShell"), t, shell);
-			job.count = 1;
+			job.count = shell.def.projectileWhenLoaded != null ? 1 : Mathf.Min(ShellMaterial.Cost, shell.stackCount);
 			return job;
 		}
 	}
@@ -405,8 +421,22 @@ namespace AutoTurrets
 				CompChangeableProjectile c = Turret.gun?.TryGetComp<CompChangeableProjectile>();
 				if (carried == null || c == null || c.Loaded)
 					return;
-				c.LoadShell(carried.def, 1);
-				carried.SplitOff(1).Destroy();
+				if (carried.def.projectileWhenLoaded != null)
+				{
+					c.LoadShell(carried.def, 1);
+					carried.SplitOff(1).Destroy();
+				}
+				else
+				{
+					// 1.6.0: material becomes the shell this gun should fire
+					int need = ShellMaterial.Cost;
+					if (carried.stackCount < need)
+						return;
+					c.LoadShell(ShellMaterial.ShellFor(Turret), 1);
+					carried.SplitOff(need).Destroy();
+				}
+				if (pawn.carryTracker.CarriedThing != null)
+					pawn.carryTracker.TryDropCarriedThing(pawn.Position, ThingPlaceMode.Near, out Thing _);
 			};
 			load.defaultCompleteMode = ToilCompleteMode.Instant;
 			yield return load;
@@ -435,7 +465,11 @@ namespace AutoTurrets
 		private static bool Cat(ThingDef d, StuffCategoryDef c) =>
 			c != null && d.stuffProps?.categories != null && d.stuffProps.categories.Contains(c) && !d.IsCorpse && !d.destroyOnDrop;
 
-		private static void Run() => TurretPage.ApplyFuel(true);
+		private static void Run()
+		{
+			TurretPage.ApplyFuel(true);
+			ShellMaterial.Apply();   // 1.6.0
+		}
 
 		public static bool IsMetal(ThingDef d) => Metal(d);
 		public static bool IsCat(ThingDef d, StuffCategoryDef c) => Cat(d, c);
