@@ -36,7 +36,7 @@ namespace RandysTable
 
     public class RTMod : Mod
     {
-        public const string Version = "0.1.2";
+        public const string Version = "0.1.3";
         public static RTSettings S;
         private static List<string> recBullets;
 
@@ -189,11 +189,50 @@ namespace RandysTable
                     Surprise(1, Rand.Chance(0.6f) ? new[] { "ThreatBig" } : new[] { "ThreatSmall" });
                 if (roll == 6)
                     Surprise(2, "Misc", "Misc", "Misc", "ThreatSmall", "ThreatBig", "OrbitalVisitor", "FactionArrival", "FactionArrival", "ShipChunkDrop");
+                // 0.1.3: quieter days now and then bring something too, and the roll sets the weather
+                if (roll == 2 && Rand.Chance(0.5f))
+                    Surprise(1, "Misc");
+                if (roll == 3 && Rand.Chance(0.5f))
+                    Surprise(1, "Misc", "Misc", "ThreatSmall", "OrbitalVisitor", "FactionArrival");
+                Weather();
             }
             catch (Exception e)
             {
                 Log.Warning("[Randy's Table] roll: " + e.Message);
             }
+        }
+
+        private static readonly AccessTools.FieldRef<WeatherDecider, int> weatherLeft = AccessTools.FieldRefAccess<WeatherDecider, int>("curWeatherDuration");
+
+        // 1 and 4: fine weather; 5: the worst the biome has; 6: anything (also weather from mods);
+        // 2 and 3: now and then a change of weather the biome knows
+        private void Weather()
+        {
+            Map map = Find.AnyPlayerHomeMap;
+            if (map?.weatherManager == null || map.weatherDecider == null)
+                return;
+            if ((roll == 2 || roll == 3) && !Rand.Chance(0.3f))
+                return;
+            float temp = map.mapTemperature.OutdoorTemp;
+            bool Ok(WeatherDef w) => w != null && w.temperatureRange.Includes(temp) && w.minMonolithLevel <= 0 && w != map.weatherManager.curWeather;
+            var biome = map.Biome.baseWeatherCommonalities.Where(c => c.commonality > 0f && Ok(c.weather)).Select(c => c.weather).Distinct().ToList();
+            WeatherDef pick = null;
+            if (roll == 1 || roll == 4)
+                pick = biome.Where(w => !w.isBad && w.rainRate < 0.1f).OrderByDescending(w => (int)w.favorability).FirstOrDefault();
+            else if (roll == 5)
+                pick = biome.Where(w => w.isBad || (int)w.favorability <= 1).InRandomOrder().FirstOrDefault()
+                    ?? biome.OrderBy(w => (int)w.favorability).FirstOrDefault();
+            else if (roll == 6)
+            {
+                var any = DefDatabase<WeatherDef>.AllDefsListForReading.Where(w => Ok(w) && w.canOccurAsRandomForcedEvent && !w.doToxicBuildup).ToList();
+                pick = any.RandomElementWithFallback();
+            }
+            else
+                pick = biome.RandomElementWithFallback();
+            if (pick == null)
+                return;
+            map.weatherManager.TransitionTo(pick);
+            try { weatherLeft(map.weatherDecider) = Rand.Range(20000, 45000); } catch { }
         }
 
         private void Surprise(int count, params string[] cats)
