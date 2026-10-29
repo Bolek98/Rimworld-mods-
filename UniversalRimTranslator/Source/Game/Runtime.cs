@@ -572,6 +572,7 @@ namespace UniversalRimTranslator
             {
                 Live.Tick();
                 UrtTools.Tick();     // 2.6.0: "translate everything now" progress / done message
+                Derived.Tick();      // 1.0.1: bills, blueprints … built from translated names
                 while (mainThread.TryDequeue(out Action a)) a();
                 if (toApply.IsEmpty) return;
                 var sw = Stopwatch.StartNew();

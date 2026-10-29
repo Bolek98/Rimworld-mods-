@@ -91,7 +91,7 @@ namespace UniversalRimTranslator
                                 // 2.5.1: a field we already translated this session – take its original
                                 if (Apply.TryOriginal(defType.Name + "|" + suggestedPath, currentValue, out string orig))
                                     currentValue = orig;
-                                if (!Wanted(currentValue)) return;
+                                if (!Wanted(currentValue) || Derived.Owns(defType.Name + "|" + suggestedPath)) return;
                                 items.Add(new Item
                                 {
                                     Kind = ItemKind.Def, DefType = defType, Path = suggestedPath, Source = currentValue, Mod = mod,
