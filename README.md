@@ -10,7 +10,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Mod | Version | Folder |
 |---|---|---|
 | Auto Pharmacy – Doctors Give the Right Drug | 1.4.4 | [AutoPharmacy](AutoPharmacy) |
-| Auto Turrets – Manned Turrets & Mortars Fire on Their Own | 1.5.2 | [AutoTurrets](AutoTurrets) |
+| Auto Turrets – Manned Turrets & Mortars Fire on Their Own | 1.5.3 | [AutoTurrets](AutoTurrets) |
 | Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.5.3 | [BodyFit](BodyFit) |
 | Call for Backup – Summon Your Allies | 0.1.0 | [CallForBackup](CallForBackup) |
 | Caravan Helper | 1.0.3 | [CaravanHelper](CaravanHelper) |

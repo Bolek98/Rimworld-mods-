@@ -296,7 +296,8 @@ namespace AutoTurrets
 
 		public static bool Needs(Building_TurretGun t)
 		{
-			if (!Auto.IsAuto(t) || !TurretControlsComp.AutoLoad(t))
+			// 1.5.3: every shell turret of yours, also the manned ones (the crew can fire right away)
+			if (t.Faction != Faction.OfPlayer || !TurretControlsComp.AutoLoad(t))
 				return false;
 			CompChangeableProjectile c = t.gun?.TryGetComp<CompChangeableProjectile>();
 			return c != null && !c.Loaded;
@@ -309,7 +310,11 @@ namespace AutoTurrets
 			// 1.5.0: the shell you picked for this mortar, nothing else
 			ThingDef only = TurretControlsComp.Chosen(t);
 			if (only != null)
-				return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(only), PathEndMode.ClosestTouch, TraverseParms.For(pawn), 9999f, x => !x.IsForbidden(pawn) && pawn.CanReserve(x, 10, 1));
+			{
+				Thing picked = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(only), PathEndMode.ClosestTouch, TraverseParms.For(pawn), 9999f, x => !x.IsForbidden(pawn) && pawn.CanReserve(x, 10, 1));
+				if (picked != null) return picked;
+				// 1.5.3: the picked shell is gone – any allowed one is better than an empty mortar
+			}
 			// 1.5.0: special shells (EMP, incendiary, firefoam …) only when you pick them
 			if (ATMod.S.specialOnlyPicked)
 			{
@@ -342,8 +347,12 @@ namespace AutoTurrets
 					Log.WarningOnce("[Auto Turrets] smart shell choice: " + e.Message, 0x41545331);
 				}
 			}
-			return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.Shell), PathEndMode.ClosestTouch,
+			Thing any = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.Shell), PathEndMode.ClosestTouch,
 				TraverseParms.For(pawn), 9999f, x => ok(x));
+			if (any != null || allowed == null) return any;
+			// 1.5.3: modded ammo that the game doesn't count as a shell but the turret accepts
+			return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.HaulableEver), PathEndMode.ClosestTouch,
+				TraverseParms.For(pawn), 9999f, x => x.def.projectileWhenLoaded != null && ok(x));
 		}
 
 		public override bool HasJobOnThing(Pawn pawn, Thing thing, bool forced = false)

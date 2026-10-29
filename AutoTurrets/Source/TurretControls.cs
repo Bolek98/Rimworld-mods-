@@ -153,7 +153,8 @@ namespace AutoTurrets
 			if (only == null) return true;
 			__result = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(only), PathEndMode.ClosestTouch, TraverseParms.For(pawn), 9999f,
 				x => !x.IsForbidden(pawn) && pawn.CanReserve(x));
-			return false;
+			// 1.5.3: the picked ammo is gone – rearm with anything the turret takes instead of staying empty
+			return __result == null;
 		}
 	}
 
@@ -166,7 +167,7 @@ namespace AutoTurrets
 			if (only == null) return true;
 			int n = refuelable.TryGetComp<CompRefuelable>().GetFuelCountToFullyRefuel();
 			__result = RefuelWorkGiverUtility.FindEnoughReservableThings(pawn, refuelable.Position, new IntRange(n, n), x => x.def == only);
-			return false;
+			return __result == null;
 		}
 	}
 
