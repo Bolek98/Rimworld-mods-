@@ -10,13 +10,13 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Mod | Version | Folder |
 |---|---|---|
 | Auto Pharmacy – Doctors Give the Right Drug | 1.4.4 | [AutoPharmacy](AutoPharmacy) |
-| Auto Turrets – Manned Turrets & Mortars Fire on Their Own | 1.6.2 | [AutoTurrets](AutoTurrets) |
+| Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.6.2 | [AutoTurrets](AutoTurrets) |
 | Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.5.3 | [BodyFit](BodyFit) |
 | Call for Backup – Summon Your Allies | 0.1.0 | [CallForBackup](CallForBackup) |
 | Caravan Helper | 1.0.3 | [CaravanHelper](CaravanHelper) |
 | Colony Advisor – What To Do Next | 0.1.0 | [ColonyAdvisor](ColonyAdvisor) |
 | Evergrowth – Plant Growth Control | 1.9.2 | [Evergrowth](Evergrowth) |
-| Evergrowth – Wild Plants | 1.1.4 | [EvergrowthWildPlants](EvergrowthWildPlants) |
+| Evergrowth – Wild Plant Spawns per Biome (Choose What Grows) | 1.1.4 | [EvergrowthWildPlants](EvergrowthWildPlants) |
 | Fewer Freezes – Smart Memory Cleanup | 1.1.1 | [FewerFreezes](FewerFreezes) |
 | Gender Balance | 1.3.4 | [GenderBalance](GenderBalance) |
 | Haul Master – Pockets, Routes & Storage | 3.5.0 | [HaulSmarter](HaulSmarter) |
@@ -30,8 +30,10 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Mod Sort Manager – Load Order, Conflicts & Profiles | 0.3.3 | [ModSortManager](ModSortManager) |
 | Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
+| QoL – Faster Work, Prisoners & Pipette | 1.0.1 | [QoLFasterWork](QoLFasterWork) |
 | Randy's Table – Chaos Storytellers | 0.2.2 | [RandysTable](RandysTable) |
 | Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
+| Ride & Drive – Mounts and Vehicles Together | 0.1.0 | [RideAndDrive](RideAndDrive) |
 | Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.1.0 | [SeasonsHolidays](SeasonsHolidays) |
 | Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |
 | Smart Colonist Gear – Auto Equip Weapons & Armor | 2.18.0 | [SmartColonistGear](SmartColonistGear) |

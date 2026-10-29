@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Ride &amp; Drive – Mounts and Vehicles Together</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.rideanddrive</packageId>
+  <modVersion>0.1.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>MemeGoddess.GiddyUp</li>
+    <li>Owlchemist.GiddyUp</li>
+    <li>SmashPhil.VehicleFramework</li>
+    <li>font.mountownership.core</li>
+    <li>font.mountpassengers</li>
+  </loadAfter>
+  <description>Giddy-Up and Vehicle Framework finally know about each other – and riding gets safe.
+
+SAFE RIDING (Giddy-Up)
+- Repairs a Giddy-Up start that another mod broke (no more "every mounting throws an error").
+- A mounting that fails halfway is undone cleanly – no rider stuck "on" an animal that never got the order.
+- A rider whose mounting keeps failing takes a break instead of retrying for ever (that endless retry could crash the game).
+
+RIDERS AND VEHICLES
+- A rider gets off properly before boarding a vehicle. The animal rides along as cargo (if it fits), waits next to the vehicle, or goes free – your choice.
+- Riders can ride right up to the vehicle instead of parking 25 cells away.
+- The animal stays the rider's own while he is inside (no more "lead it back to the pen").
+- After getting out, the rider takes his animal out of the cargo and gets back on.
+- Vehicle caravans: walkers ride their animals next to the vehicles and get back on them when the caravan arrives.
+- Mount Passengers: passengers on an animal get off before its rider boards.
+
+MORE SEATS
+- Passenger seats of every vehicle × a multiplier (1–4×).
+- Vehicles with no passenger seats get some (by their size).
+- Plus or minus seats for each vehicle separately.
+- Driver and gunner seats are never touched; nobody is thrown out when seats go down.
+
+Works with Giddy-Up 2, Vehicle Framework, Companion Mounts and Mount Passengers – each part switches on only when its mod is there. Every part can be switched off; "Recommended settings" set everything up. Safe to add to an existing save. Requires Harmony. 12 languages.
+
+Note: the extra passenger place for vehicles that had none is saved with the vehicle – remove passengers from those places before removing this mod.
+
+---
+
+Giddy-Up a Vehicle Framework o sobě konečně vědí – a jízda na zvířatech je bezpečná.
+
+BEZPEČNÁ JÍZDA (Giddy-Up)
+- Opraví start Giddy-Upu, který rozbil jiný mod (konec chyb při každém nasedání).
+- Nasednutí, které selže v půlce, se čistě vrátí – žádný jezdec „na“ zvířeti, které rozkaz nikdy nedostalo.
+- Jezdec, kterému nasedání pořád selhává, si dá pauzu místo nekonečného zkoušení (to mohlo shodit hru).
+
+JEZDCI A VOZIDLA
+- Jezdec před nástupem do vozidla pořádně sesedne. Zvíře jede s ním jako náklad (když se vejde), počká u vozidla, nebo jde volně – podle nastavení.
+- Jezdci můžou dojet až k vozidlu, místo aby zvíře nechali 25 políček daleko.
+- Zvíře zůstává jezdcovo, i když sedí ve vozidle (už žádné „odveď ho do ohrady“).
+- Po vystoupení si jezdec vezme zvíře z nákladu a znovu nasedne.
+- Karavany s vozidly: kdo jde pěšky, jede na svém zvířeti vedle vozidel a po příjezdu znovu nasedne.
+- Mount Passengers: spolujezdci na zvířeti sesednou, než jeho jezdec nastoupí.
+
+VÍC MÍST
+- Místa pro cestující u všech vozidel × násobek (1–4×).
+- Vozidla bez míst pro cestující nějaká dostanou (podle velikosti).
+- Plus nebo minus místa u každého vozidla zvlášť.
+- Místa řidiče a střelců se nikdy nemění; když míst ubude, nikoho to nevyhodí.
+
+Funguje s Giddy-Up 2, Vehicle Framework, Companion Mounts a Mount Passengers – každá část se zapne jen tehdy, když je její mod ve hře. Vše jde vypnout; „Doporučené nastavení“ vše nastaví za tebe. Lze přidat do rozehrané hry. Vyžaduje Harmony. 12 jazyků.</description>
+</ModMetaData>
