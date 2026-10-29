@@ -299,7 +299,7 @@ namespace AutoTurrets
 	{
 		public override PathEndMode PathEndMode => PathEndMode.Touch;
 
-		public override bool ShouldSkip(Pawn pawn, bool forced = false) => ATMod.S == null || !ATMod.S.loadShells;
+		public override bool ShouldSkip(Pawn pawn, bool forced = false) => ATMod.S == null || !ATMod.S.loadShells || ATMod.S.freeAmmo;
 
 		public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
 		{

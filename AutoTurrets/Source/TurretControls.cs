@@ -196,3 +196,65 @@ namespace AutoTurrets
 		public static bool Prefix(CompRefuelable __instance) => !FreeAmmo.On(__instance);
 	}
 }
+
+namespace AutoTurrets
+{
+	// 1.6.2: "Turrets need no ammo" also for mortars, artillery and field guns (a shell is always loaded and
+	// never used up) and for the VFE automated mortar's shell gauge – nobody has to bring anything.
+	public class FreeShellsComp : GameComponent
+	{
+		private static System.Reflection.FieldInfo secFuel, secCap;
+		private static System.Type dualProps;
+		private static bool looked;
+
+		public FreeShellsComp(Game g) { }
+
+		public override void GameComponentTick()
+		{
+			if (ATMod.S == null || !ATMod.S.freeAmmo || Find.TickManager.TicksGame % 120 != 0)
+				return;
+			try
+			{
+				if (!looked)
+				{
+					looked = true;
+					System.Type comp = GenTypes.GetTypeInAnyAssembly("VEF.Buildings.CompRefuelable_DualFuel");
+					dualProps = GenTypes.GetTypeInAnyAssembly("VEF.Buildings.CompProperties_Refuelable_DualFuel");
+					if (comp != null) secFuel = HarmonyLib.AccessTools.Field(comp, "secondaryFuel");
+					if (dualProps != null) secCap = HarmonyLib.AccessTools.Field(dualProps, "secondaryFuelCapacity");
+				}
+				foreach (Map m in Find.Maps)
+				{
+					List<Building> list = m.listerBuildings.allBuildingsColonist;
+					for (int i = 0; i < list.Count; i++)
+					{
+						if (!(list[i] is Building_TurretGun t))
+							continue;
+						CompChangeableProjectile c = t.gun?.TryGetComp<CompChangeableProjectile>();
+						if (c != null && !c.Loaded)
+							c.LoadShell(ShellMaterial.ShellFor(t), 1);
+						if (secFuel != null && secCap != null)
+							foreach (ThingComp tc in t.AllComps)
+								if (secFuel.DeclaringType.IsInstanceOfType(tc) && dualProps.IsInstanceOfType(tc.props))
+									secFuel.SetValue(tc, System.Convert.ToSingle(secCap.GetValue(tc.props)));
+					}
+				}
+			}
+			catch (System.Exception e)
+			{
+				Log.WarningOnce("[Auto Turrets] free shells: " + e.Message, 0x41545336);
+			}
+		}
+	}
+
+	[HarmonyPatch(typeof(CompChangeableProjectile), nameof(CompChangeableProjectile.Notify_ProjectileLaunched))]
+	public static class Patch_FreeShellLaunched
+	{
+		public static bool Prefix(CompChangeableProjectile __instance)
+		{
+			if (ATMod.S == null || !ATMod.S.freeAmmo) return true;
+			Thing caster = __instance.parent?.TryGetComp<CompEquippable>()?.PrimaryVerb?.caster;
+			return !(caster is Building_TurretGun && caster.Faction == Faction.OfPlayer);   // only your own guns keep their shell
+		}
+	}
+}

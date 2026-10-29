@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+1.6.2
+- 'Turrets need no ammo' now covers mortars, artillery and field guns too: a shell is always loaded and never used up, also the VFE automated mortar's shell gauge – nobody has to bring anything. Only your own guns.
+
 1.6.1
 - Loop guard: a turret or gun that keeps calling itself (seen with the VFE Pirates field gun and a forced target) no longer crashes the game – the shot is skipped and the log names the loop once.
 - When haulers find no material for a mortar or artillery, the log says why (how much metal there is, stack sizes, forbidden).
