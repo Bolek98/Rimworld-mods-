@@ -1,6 +1,8 @@
 === Not on the Workshop yet (test versions) ===
 1.0.1
 - Bills, blueprints, corpses and meat of mod items are no longer half English ("Vyrobit plasteel sword"). The game builds these names once while loading, from the English item name; URT now builds them again from your language's template and the translated name, and keeps them up to date when a name gets translated.
+- Settlements called "ERR 5": some mods ship their name lists only in their own language (e.g. only in Chinese), so the game found none in your language or in English. URT now takes the list from any language the mod has; settlements already named ERR get a real name when the save loads.
+- More Faction Interaction: the English word "items" written in code behind a category ("rostlinné produkty items") is left out in other languages.
 
 === Workshop release 1.0.0 (28 Oct 2026) ===
 1.0.0

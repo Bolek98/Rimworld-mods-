@@ -52,6 +52,7 @@ namespace UniversalRimTranslator
             catch (Exception e) { MLog.Warn("[URT] main thread pump not active: " + e.Message); }
             try { GrammarFallback.Patch(h); }
             catch (Exception e) { MLog.Warn("[URT] grammar fallback not active: " + e.Message); }
+            Compat.Patch(h);     // 1.0.1: name lists only in a mod's own language, MFI "items"
             try { Live.Patch(h); }
             catch (Exception e) { MLog.Warn("[URT] live translation not active: " + e.Message); }
             try { Pick.Patch(h); }
