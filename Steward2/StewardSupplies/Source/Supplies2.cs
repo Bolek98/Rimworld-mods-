@@ -1251,9 +1251,16 @@ public sealed partial class SupplyManager : MapComponent
 		var set = new HashSet<ThingDef>();
 		foreach (Pawn p in map.mapPawns.SpawnedColonyAnimals)
 			set.Add(p.def);
+		// 1.0.6: species you no longer have only stay while their rule is switched on
 		foreach (LivestockRule r in livestock)
-			set.Add(r.race);
+			if (r.enabled)
+				set.Add(r.race);
 		return set.Where(d => d != null).OrderBy(d => d.label).ToList();
+	}
+
+	public void RemoveRule(ThingDef race)
+	{
+		livestock.RemoveAll(x => x.race == race);
 	}
 
 	public LivestockRule Rule(ThingDef race, bool create)
@@ -1333,7 +1340,11 @@ public sealed partial class SupplyManager : MapComponent
 			marked += Cull(herd.Where(p => p.ageTracker.Adult && p.gender == Gender.Male), r.males, r, dm);
 			// 2.14.5: a species without genders was counted as all males
 			marked += Cull(herd.Where(p => p.ageTracker.Adult && p.gender == Gender.None), r.females + r.males, r, dm);
-			marked += Cull(herd.Where(p => !p.ageTracker.Adult), r.young, r, dm);
+			// 1.0.6: young animals can be spared completely
+			if (r.spareYoung)
+				UnmarkSlaughter(herd.Where(p => !p.ageTracker.Adult), dm);
+			else
+				marked += Cull(herd.Where(p => !p.ageTracker.Adult), r.young, r, dm);
 		}
 		return marked;
 	}
@@ -1495,6 +1506,7 @@ public sealed class LivestockRule : IExposable
 	public int males = 1;
 	public int young = 2;
 	public bool keepPregnant = true;
+	public bool spareYoung;     // 1.0.6: never cull the young
 	// 1.0.3: surplus is released to the wild instead of slaughtered
 	public bool release;
 	public Area area;
@@ -1519,6 +1531,7 @@ public sealed class LivestockRule : IExposable
 		Scribe_Values.Look(ref males, "males", 1);
 		Scribe_Values.Look(ref young, "young", 2);
 		Scribe_Values.Look(ref keepPregnant, "keepPregnant", true);
+		Scribe_Values.Look(ref spareYoung, "spareYoung", false);
 		Scribe_Values.Look(ref release, "release", false);
 		Scribe_References.Look(ref area, "area");
 		Scribe_References.Look(ref appliedArea, "appliedArea");

@@ -836,34 +836,65 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 			return;
 		}
 		Rect outRect = new Rect(r.x, y, r.width, r.yMax - y);
-		float rowH = 96f;
+		// 1.0.6: a cleaner row – name and counts | three numbers | four switches; no overlaps
+		float rowH = 124f;
 		Rect view = new Rect(0f, 0f, outRect.width - 16f, species.Count * rowH);
 		Widgets.BeginScrollView(outRect, ref listScroll, view);
+		ThingDef remove = null;
 		for (int i = 0; i < species.Count; i++)
 		{
 			ThingDef d = species[i];
 			LivestockRule rule = sm.Rule(d, create: true);
 			sm.CountHerd(d, out int f, out int m, out int yg);
-			Rect row = new Rect(0f, i * rowH, view.width, rowH - 4f);
+			Rect row = new Rect(0f, i * rowH, view.width, rowH - 6f);
 			if (i % 2 == 0)
 				Widgets.DrawLightHighlight(row);
-			Widgets.Checkbox(new Vector2(row.x + 4f, row.y + 8f), ref rule.enabled);
-			Widgets.DefIcon(new Rect(row.x + 34f, row.y + 4f, 32f, 32f), d);
-			Widgets.Label(new Rect(row.x + 72f, row.y + 8f, 200f, 24f), d.LabelCap);
+			// left: watch switch, picture, name, what is there now
+			Rect wr = new Rect(row.x + 6f, row.y + 8f, 24f, 24f);
+			Widgets.Checkbox(wr.position, ref rule.enabled);
+			TooltipHandler.TipRegion(wr, "CF_J_WatchTip".Translate());
+			Widgets.DefIcon(new Rect(row.x + 36f, row.y + 4f, 32f, 32f), d);
+			Text.Font = GameFont.Medium;
+			Widgets.Label(new Rect(row.x + 74f, row.y + 4f, 240f, 30f), d.LabelCap);
+			Text.Font = GameFont.Small;
 			GUI.color = Dim;
-			Widgets.Label(new Rect(row.x + 72f, row.y + 32f, 260f, 24f), "CF_J_HerdNow".Translate(f, m, yg));
+			Widgets.Label(new Rect(row.x + 74f, row.y + 36f, 240f, 24f), "CF_J_HerdNow".Translate(f, m, yg));
+			Widgets.Label(new Rect(row.x + 74f, row.y + 60f, 240f, 24f), rule.enabled ? "CF_J_Watched".Translate() : "CF_J_NotWatched".Translate());
 			GUI.color = Color.white;
-			float cx = row.x + 340f;
-			rule.females = SmallNumber(new Rect(cx, row.y + 4f, 200f, 26f), "CF_J_KeepFemales".Translate(), rule.females, 0, 500);
-			rule.males = SmallNumber(new Rect(cx, row.y + 32f, 200f, 26f), "CF_J_KeepMales".Translate(), rule.males, 0, 500);
-			rule.young = SmallNumber(new Rect(cx, row.y + 60f, 200f, 26f), "CF_J_KeepYoung".Translate(), rule.young, 0, 500);
-			Rect kp = new Rect(row.xMax - 200f, row.y + 4f, 200f, 26f);
+			if (f + m + yg == 0)
+			{
+				GUI.color = new Color(1f, 0.75f, 0.5f);
+				Widgets.Label(new Rect(row.x + 74f, row.y + 84f, 150f, 24f), "CF_J_NoneLeft".Translate());
+				GUI.color = Color.white;
+				if (Widgets.ButtonText(new Rect(row.x + 210f, row.y + 82f, 100f, 26f), "CF_J_RemoveRule".Translate()))
+					remove = d;
+			}
+			if (!rule.enabled)
+				GUI.color = new Color(1f, 1f, 1f, 0.55f);
+			// middle: how many to keep
+			float cx = row.x + 330f;
+			float cw = Mathf.Min(260f, row.xMax - 280f - 20f - cx);
+			rule.females = SmallNumber(new Rect(cx, row.y + 6f, cw, 26f), "CF_J_KeepFemales".Translate(), rule.females, 0, 500);
+			rule.males = SmallNumber(new Rect(cx, row.y + 36f, cw, 26f), "CF_J_KeepMales".Translate(), rule.males, 0, 500);
+			if (rule.spareYoung)
+			{
+				GUI.color = Dim;
+				Widgets.Label(new Rect(cx, row.y + 69f, cw, 24f), "CF_J_KeepYoung".Translate() + ": " + "CF_J_AllYoung".Translate());
+				GUI.color = rule.enabled ? Color.white : new Color(1f, 1f, 1f, 0.55f);
+			}
+			else
+				rule.young = SmallNumber(new Rect(cx, row.y + 66f, cw, 26f), "CF_J_KeepYoung".Translate(), rule.young, 0, 500);
+			// right: switches and the herd area
+			float rx = row.xMax - 280f;
+			Rect kp = new Rect(rx, row.y + 6f, 270f, 26f);
 			Widgets.CheckboxLabeled(kp, "CF_J_KeepPregnant".Translate(), ref rule.keepPregnant);
-			// 1.0.3: release surplus to the wild instead of slaughtering it
-			Rect rel = new Rect(row.xMax - 200f, row.y + 64f, 200f, 26f);
+			Rect sy = new Rect(rx, row.y + 32f, 270f, 26f);
+			Widgets.CheckboxLabeled(sy, "CF_J_SpareYoung".Translate(), ref rule.spareYoung);
+			TooltipHandler.TipRegion(sy, "CF_J_SpareYoungTip".Translate());
+			Rect rel = new Rect(rx, row.y + 58f, 270f, 26f);
 			Widgets.CheckboxLabeled(rel, "CF_J_ReleaseSurplus".Translate(), ref rule.release);
 			TooltipHandler.TipRegion(rel, "CF_J_ReleaseSurplusTip".Translate());
-			Rect ar = new Rect(row.xMax - 200f, row.y + 34f, 200f, 26f);
+			Rect ar = new Rect(rx, row.y + 86f, 270f, 26f);
 			if (Widgets.ButtonText(ar, rule.area == null ? (string)"CF_J_AnimalAreaNone".Translate() : rule.area.Label))
 			{
 				var menu = new List<FloatMenuOption> { new FloatMenuOption("CF_J_AnimalAreaNone".Translate(), () => rule.area = null) };
@@ -876,8 +907,11 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 				Find.WindowStack.Add(new FloatMenu(menu));
 			}
 			TooltipHandler.TipRegion(ar, "CF_J_AnimalAreaTip".Translate());
+			GUI.color = Color.white;
 		}
 		Widgets.EndScrollView();
+		if (remove != null)
+			sm.RemoveRule(remove);
 	}
 
 	private void DrawForestry(Rect r, SupplyManager sm)
