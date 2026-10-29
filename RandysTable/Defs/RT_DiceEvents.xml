@@ -3,7 +3,7 @@
   <HediffDef>
     <defName>RT_Sit_Rested</defName>
     <label>dice dreams</label>
-    <description>Dice the Gambler sent good dreams: sleep refreshes more.</description>
+    <description>Mad Dice Max sent good dreams: sleep refreshes more.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <defaultLabelColor>(0.85, 0.75, 0.45)</defaultLabelColor>
     <isBad>false</isBad>
@@ -98,7 +98,7 @@
   </HediffDef>
   <HediffDef>
     <defName>RT_Sit_Blessing</defName>
-    <label>gambler's blessing</label>
+    <label>Max's blessing</label>
     <description>Work goes easily today.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <defaultLabelColor>(0.85, 0.75, 0.45)</defaultLabelColor>
@@ -151,7 +151,7 @@
     <stages>
       <li>
         <label>dice festival</label>
-        <description>Dice the Gambler declared a feast day. Music, games and laughter!</description>
+        <description>Mad Dice Max declared a feast day. Music, games and laughter!</description>
         <baseMoodEffect>8</baseMoodEffect>
       </li>
     </stages>
@@ -164,7 +164,7 @@
     <stages>
       <li>
         <label>sparkling home</label>
-        <description>We cleaned the whole place for the Gambler's challenge. It feels so good.</description>
+        <description>We cleaned the whole place for Max's challenge. It feels so good.</description>
         <baseMoodEffect>5</baseMoodEffect>
       </li>
     </stages>
@@ -177,7 +177,7 @@
     <stages>
       <li>
         <label>great hunt</label>
-        <description>We won the Gambler's hunting challenge!</description>
+        <description>We won Max's hunting challenge!</description>
         <baseMoodEffect>6</baseMoodEffect>
       </li>
     </stages>
@@ -216,7 +216,7 @@
     <stages>
       <li>
         <label>we held the fortress</label>
-        <description>We came through the Gambler's test without losing anyone.</description>
+        <description>We came through Max's test without losing anyone.</description>
         <baseMoodEffect>8</baseMoodEffect>
       </li>
     </stages>
@@ -254,8 +254,8 @@
     <stackLimit>1</stackLimit>
     <stages>
       <li>
-        <label>failed the Gambler</label>
-        <description>The Gambler set us a task and we failed it.</description>
+        <label>failed Max</label>
+        <description>Max set us a task and we failed it.</description>
         <baseMoodEffect>-4</baseMoodEffect>
       </li>
     </stages>

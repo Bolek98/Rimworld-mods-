@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <RT_Rec1>Vypravěč Kostkař oznámí každý hod a ukáže dnešní šance.</RT_Rec1>
+  <RT_Rec1>Vypravěč Max oznámí každý hod a ukáže dnešní šance.</RT_Rec1>
   <RT_Rec2>Vypravěč občas okomentuje událost (zhruba každou třetí).</RT_Rec2>
   <RT_Rec3>Funguje s každým vypravěčem; v savu se nic nemění.</RT_Rec3>
-  <RT_SecDice>Kostkař</RT_SecDice>
+  <RT_SecDice>Šílený kostkař Max</RT_SecDice>
   <RT_DiceAlert>Ukazovat dnešní hod a šance</RT_DiceAlert>
   <RT_DiceAlert_Desc>Upozornění vpravo: dnešní hod, jaký je to den, šance na nájezd, na malé hrozby a na obchodníky či návštěvy a čas do dalšího hodu.</RT_DiceAlert_Desc>
   <RT_DiceLetter>Hod jako dopis</RT_DiceLetter>
@@ -15,8 +15,8 @@
   <RT_DiaryAll_Desc>Komentáře i u Randyho, Cassandry, Phoebe a vypravěčů z jiných modů – nejen u těch z tohoto modu.</RT_DiaryAll_Desc>
   <RT_DiaryChance>Komentovat {0} % událostí</RT_DiaryChance>
   <RT_DiaryChance_Desc>Jak často přijde komentář. Mezi dvěma komentáři je vždy aspoň pár hodin.</RT_DiaryChance_Desc>
-  <RT_RollTitle>Kostkař hodil {0}: {1}</RT_RollTitle>
-  <RT_RollLetter>Kostkař hodil {0}</RT_RollLetter>
+  <RT_RollTitle>Max hodil {0}: {1}</RT_RollTitle>
+  <RT_RollLetter>Max hodil {0}</RT_RollLetter>
   <RT_AlertLabel>Kostka {0}: {1}</RT_AlertLabel>
   <RT_Mood1>klidný den</RT_Mood1>
   <RT_Mood2>pohodový den</RT_Mood2>
@@ -102,28 +102,28 @@
   <RT_RollSay7_2>Spadla mi pod stůl. Chvilku strpení.</RT_RollSay7_2>
   <RT_RollSay7_3>Sedm. To se nepočítá. Ještě jednou, za chvíli.</RT_RollSay7_3>
   <RT_HeavySix>Nejtěžší hrozby jen v šílený den (6)</RT_HeavySix>
-  <RT_HeavySix_Desc>S Kostkařem přijde zamoření hmyzem, shluk mechanoidů nebo spadlá část lodi jen tehdy, když padne šestka. Úkoly se to netýká.</RT_HeavySix_Desc>
+  <RT_HeavySix_Desc>S Maxem přijde zamoření hmyzem, shluk mechanoidů nebo spadlá část lodi jen tehdy, když padne šestka. Úkoly se to netýká.</RT_HeavySix_Desc>
   <!-- 0.2.0 the Gambler's events -->
-  <RT_SecEvents>Kostkařovy události</RT_SecEvents>
-  <RT_Events>Kostkařovy vlastní události</RT_Events>
-  <RT_Events_Desc>Po hodu může Kostkař přinést jednu svou událost, která sedí k danému dni: sázky, výzvy s termínem, situace na pár dní nebo překroucené události ze hry.</RT_Events_Desc>
+  <RT_SecEvents>Maxovy události</RT_SecEvents>
+  <RT_Events>Maxovy vlastní události</RT_Events>
+  <RT_Events_Desc>Po hodu může Max přinést jednu svou událost, která sedí k danému dni: sázky, výzvy s termínem, situace na pár dní nebo překroucené události ze hry.</RT_Events_Desc>
   <RT_EventChance>Šance na událost po hodu: {0} %</RT_EventChance>
-  <RT_EventChance_Desc>Jak často den přinese jednu z Kostkařových událostí.</RT_EventChance_Desc>
+  <RT_EventChance_Desc>Jak často den přinese jednu z Maxových událostí.</RT_EventChance_Desc>
   <RT_EventList>Události: zapnuto {0} z {1}…</RT_EventList>
-  <RT_EventListTitle>Kostkařovy události</RT_EventListTitle>
+  <RT_EventListTitle>Maxovy události</RT_EventListTitle>
   <RT_EventListDesc>Odškrtni události, které nechceš. Každá patří k jednomu číslu kostky. Popis uvidíš po najetí myší.</RT_EventListDesc>
   <RT_EventTry>Zkusit</RT_EventTry>
-  <RT_EV_Prefix>Kostkař: {0}</RT_EV_Prefix>
+  <RT_EV_Prefix>Max: {0}</RT_EV_Prefix>
   <RT_EV_ChallengeGoal>Cíl: {0}\nČas: {1} dny.</RT_EV_ChallengeGoal>
   <RT_EV_Won>Výzva splněna: {0}</RT_EV_Won>
   <RT_EV_Lost>Výzva nesplněna: {0}</RT_EV_Lost>
   <RT_EV_Dropped>{0}: {1}</RT_EV_Dropped>
-  <RT_EV_InspiredBy>Kostkařova přízeň</RT_EV_InspiredBy>
+  <RT_EV_InspiredBy>Maxova přízeň</RT_EV_InspiredBy>
   <RT_EV_NoSilver>Nemáš {0} stříbra na sázku.</RT_EV_NoSilver>
-  <RT_EV_AlertLabel>Kostkařova výzva</RT_EV_AlertLabel>
+  <RT_EV_AlertLabel>Maxova výzva</RT_EV_AlertLabel>
   <RT_EV_Festival>Sváteční den</RT_EV_Festival>
   <RT_EV_Festival_Text>„Odložte na chvíli práci. Dnes se slaví – prostě proto, že to kostky řekly.“\n\nVšichni mají dva dny sváteční náladu.</RT_EV_Festival_Text>
-  <RT_EV_Dreams>Kostkařovy sny</RT_EV_Dreams>
+  <RT_EV_Dreams>Maxovy sny</RT_EV_Dreams>
   <RT_EV_Dreams_Text>„Dnes se dobře vyspěte. Já pohlídám kostky.“\n\nDva dny kolonisty spánek osvěží víc.</RT_EV_Dreams_Text>
   <RT_EV_LostDie>Ztracená kostka</RT_EV_LostDie>
   <RT_EV_LostDie_Text>„Někde tady mi upadla kostka. Kdo ji najde, ať si nechá, co je u ní.“\n\nPoblíž kolonie dopadl modul.</RT_EV_LostDie_Text>
@@ -132,7 +132,7 @@
   <RT_EV_QuietDays_Goal>tři dny žádné zhroucení</RT_EV_QuietDays_Goal>
   <RT_EV_QuietDays_Won>„Nevěřil jsem tomu. Dobrá práce.“\n\nVšichni jsou na tým hrdí a dva kolonisti dostanou inspiraci.</RT_EV_QuietDays_Won>
   <RT_EV_QuietDays_Lost>„Někdo to nevydržel. Jak jsem čekal.“</RT_EV_QuietDays_Lost>
-  <RT_EV_Lesson>Lekce od Kostkaře</RT_EV_Lesson>
+  <RT_EV_Lesson>Lekce od Maxe</RT_EV_Lesson>
   <RT_EV_Lesson_Text>„Ukážu vám pár triků.“\n\nTři kolonisti se zlepší ve své nejlepší dovednosti.</RT_EV_Lesson_Text>
   <RT_EV_Crafter>Řemeslník</RT_EV_Crafter>
   <RT_EV_Crafter_Text>„Ukažte mi, že vaše ruce umí víc než držet kostky.“</RT_EV_Crafter_Text>
@@ -169,7 +169,7 @@
   <RT_EV_Builder_Lost>„Nic nepostaveno. Škoda.“</RT_EV_Builder_Lost>
   <RT_EV_GoldFever>Zlatá horečka</RT_EV_GoldFever>
   <RT_EV_GoldFever_Text>„Každý kámen může skrývat poklad…“\n\nDva dny vynáší těžba o 50 % víc, ale nervy jsou napjaté.</RT_EV_GoldFever_Text>
-  <RT_EV_Reroll>Kostkař hraje za tebe</RT_EV_Reroll>
+  <RT_EV_Reroll>Max hraje za tebe</RT_EV_Reroll>
   <RT_EV_Reroll_Text>„Dnešní číslo se mi nelíbí. Hodím znovu.“</RT_EV_Reroll_Text>
   <RT_EV_Roulette>Ruleta</RT_EV_Roulette>
   <RT_EV_Roulette_Text>„Jeden z tvých lidí, jeden hod. Panna – geniální nápad. Orel – modřina.“</RT_EV_Roulette_Text>
@@ -188,7 +188,7 @@
   <RT_EV_Pilgrim_Text>„Přichází někdo, kdo se k vám chce přidat. Někdo jiný ho možná bude hledat.“</RT_EV_Pilgrim_Text>
   <RT_EV_Pilgrim_O1>Přijmout ho</RT_EV_Pilgrim_O1>
   <RT_EV_Pilgrim_O2>Poslat ho pryč</RT_EV_Pilgrim_O2>
-  <RT_EV_Blessing>Kostkařovo požehnání</RT_EV_Blessing>
+  <RT_EV_Blessing>Maxovo požehnání</RT_EV_Blessing>
   <RT_EV_Blessing_Text>„Dnes jde práce sama.“\n\nCelý den všichni pracují o 25 % rychleji.</RT_EV_Blessing_Text>
   <RT_EV_Supplies>Zásoby</RT_EV_Supplies>
   <RT_EV_Supplies_Text>„Najezte se. Vypadáte pohuble.“\n\nPoblíž dopadl modul s jídlem.</RT_EV_Supplies_Text>
@@ -201,7 +201,7 @@
   <RT_EV_Fortress_Goal>dva dny nikdo nezemře</RT_EV_Fortress_Goal>
   <RT_EV_Fortress_Won>„Opravdová pevnost.“\n\nMini věž a ocel jsou na cestě.</RT_EV_Fortress_Won>
   <RT_EV_Fortress_Lost>„Hradby vydržely, lidi ne.“</RT_EV_Fortress_Lost>
-  <RT_EV_Tax>Kostkařova daň</RT_EV_Tax>
+  <RT_EV_Tax>Maxova daň</RT_EV_Tax>
   <RT_EV_Tax_Text>„Pětina tvého stříbra pro mě – nebo pošlu někoho, kdo si ji vezme.“</RT_EV_Tax_Text>
   <RT_EV_Tax_O1>Zaplatit</RT_EV_Tax_O1>
   <RT_EV_Tax_O2>Odmítnout</RT_EV_Tax_O2>
@@ -216,12 +216,12 @@
   <RT_EV_MadPack_Text>„Zvířata se zbláznila. Hodně zvířat.“</RT_EV_MadPack_Text>
   <RT_EV_Eclipse>Temná kostka</RT_EV_Eclipse>
   <RT_EV_Eclipse_Text>„Chvíli si zahrajeme potmě.“\n\nZatmění a něco šeptá čísla.</RT_EV_Eclipse_Text>
-  <RT_EV_Revenge>Kostkařova pomsta</RT_EV_Revenge>
+  <RT_EV_Revenge>Maxova pomsta</RT_EV_Revenge>
   <RT_EV_Revenge_Text>„Poslední dobou máte štěstí. Moc štěstí.“\n\nPřichází silný nájezd.</RT_EV_Revenge_Text>
   <RT_EV_Double>Dvojitý hod</RT_EV_Double>
   <RT_EV_Double_Text>„Dnes dvě kostky: jedna pro vás, jedna proti vám.“</RT_EV_Double_Text>
   <RT_EV_Difficulty>Obtížnost {0}: odměny ×{1}, cíle ×{2}, {3}.</RT_EV_Difficulty>
   <RT_EV_RaidsYes>nájezdy povolené</RT_EV_RaidsYes>
   <RT_EV_RaidsNo>bez nájezdů</RT_EV_RaidsNo>
-  <RT_EV_NoRaid>Kostkař mávne rukou – na téhle obtížnosti nikoho neposílá.</RT_EV_NoRaid>
+  <RT_EV_NoRaid>Max mávne rukou – na téhle obtížnosti nikoho neposílá.</RT_EV_NoRaid>
 </LanguageData>
