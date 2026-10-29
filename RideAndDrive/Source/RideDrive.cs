@@ -19,6 +19,7 @@ namespace RideDrive
         public bool safeMounting = true;      // repair a broken Giddy-Up start, catch failed mounting
         public bool mountPause = true;        // a rider whose mounting keeps failing waits before trying again
         public float pauseHours = 2f;
+        public bool noMountCarrying = true;   // 0.1.1: no automatic mounting with a corpse or a person to carry
 
         // riders and vehicles
         public bool dismountToBoard = true;   // a rider gets off before boarding a vehicle
@@ -41,6 +42,7 @@ namespace RideDrive
             Scribe_Values.Look(ref safeMounting, "safeMounting", true);
             Scribe_Values.Look(ref mountPause, "mountPause", true);
             Scribe_Values.Look(ref pauseHours, "pauseHours", 2f);
+            Scribe_Values.Look(ref noMountCarrying, "noMountCarrying", true);
             Scribe_Values.Look(ref dismountToBoard, "dismountToBoard", true);
             Scribe_Values.Look(ref animalPlace, "animalPlace", AnimalPlace.Cargo);
             Scribe_Values.Look(ref rideToVehicle, "rideToVehicle", true);
@@ -57,7 +59,7 @@ namespace RideDrive
 
     public class RDMod : Mod
     {
-        public const string Version = "0.1.0";
+        public const string Version = "0.1.1";
         public static RDSettings S;
         public static Harmony H;
         private static List<string> recBullets;
@@ -154,6 +156,7 @@ namespace RideDrive
             MUI.Section(l, "RD_SecSafety".Translate());
             if (!Compat.GiddyUp) Missing(l, "RD_NoGiddyUp");
             Check(l, "RD_SafeMounting", ref S.safeMounting, "safeMounting");
+            Check(l, "RD_NoMountCarrying", ref S.noMountCarrying, "noMountCarrying");
             Check(l, "RD_MountPause", ref S.mountPause, "mountPause");
             if (S.mountPause)
                 S.pauseHours = Mathf.Round(MUI.Slider(l, "RD_PauseHours".Translate(S.pauseHours.ToString("0.#")), S.pauseHours, 0.5f, 12f, "RD_PauseHours_Desc".Translate(), S, "pauseHours") * 2f) / 2f;

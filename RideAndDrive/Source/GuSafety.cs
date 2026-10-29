@@ -129,7 +129,7 @@ namespace RideDrive
                 __result = thinkResult;
                 return false;
             }
-            if (giveJobMethod != TryOrder && IsPaused(rider))
+            if (giveJobMethod != TryOrder && (IsPaused(rider) || CarryingJob(rider)))
             {
                 __result = thinkResult;
                 return false;
@@ -149,10 +149,33 @@ namespace RideDrive
             try
             {
                 if (mountDef == null || __result.Job?.def != mountDef || ___pawn == null) return;
-                if (IsPaused(___pawn) || (SkipMount != null && SkipMount(___pawn)))
+                if (IsPaused(___pawn) || CarryingJob(___pawn) || (SkipMount != null && SkipMount(___pawn)))
                     __result = ThinkResult.NoJob;   // the job it was going to do is already queued first
             }
             catch { }
+        }
+
+        // 0.1.1: no automatic mounting with a corpse or a person to carry – Giddy-Up wanted the rider to get on
+        // first, the mounting failed with the load in his arms and he tried again and again
+        public static bool CarryingJob(Pawn p)
+        {
+            if (p == null || !S.noMountCarrying) return false;
+            try
+            {
+                if (p.carryTracker?.CarriedThing != null) return true;
+                Job next = p.jobs?.jobQueue != null && p.jobs.jobQueue.Count > 0 ? p.jobs.jobQueue[0].job : p.CurJob;
+                if (next == null) return false;
+                if (CarriesBody(next.targetA) || CarriesBody(next.targetB)) return true;
+                string d = next.def?.defName ?? "";
+                return d.Contains("Corpse") || d == "Rescue" || d == "Capture" || d == "Arrest" || d == "Kidnap" || d.StartsWith("Carry") || d.Contains("ToBed") || d.Contains("Cryptosleep");
+            }
+            catch { return false; }
+        }
+
+        private static bool CarriesBody(LocalTargetInfo t)
+        {
+            Thing th = t.Thing;
+            return th is Corpse || (th is Pawn other && other.Downed);
         }
 
         // the same rider starting "mount" over and over without ever sitting on the animal → pause
