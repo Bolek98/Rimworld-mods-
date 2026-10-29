@@ -366,4 +366,12 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_GroupOff>停用（{0}）</MSM_GroupOff>
   <MSM_GroupClear>清除选择</MSM_GroupClear>
   <MSM_KeysHelp>按键：W/S 或 ↑/↓ 移动 · Shift+W/S 移动所选 · A/D 或 ←/→ 停用/启用 · Ctrl+点击、Shift+点击、Ctrl+A 选择 · Esc 清除</MSM_KeysHelp>
+  <MSM_GroupRemove>移除 {0} 个模组…</MSM_GroupRemove>
+  <MSM_GroupUnsub>取消订阅 {0} 个创意工坊模组</MSM_GroupUnsub>
+  <MSM_GroupPark>将 {0} 个本地模组移出 Mods 文件夹</MSM_GroupPark>
+  <MSM_GroupDelete>永久删除 {0} 个本地模组</MSM_GroupDelete>
+  <MSM_GroupUnsubConfirm>取消订阅这 {0} 个模组？Steam 会删除其文件，模组将被停用。\n\n{1}</MSM_GroupUnsubConfirm>
+  <MSM_GroupParkConfirm>将这 {0} 个模组移出 Mods 文件夹到：\n{1}\n\n{2}\n\n随时可以放回。</MSM_GroupParkConfirm>
+  <MSM_GroupDeleteConfirm>永久删除这 {0} 个模组？\n\n{1}\n\n此操作无法撤销。</MSM_GroupDeleteConfirm>
+  <MSM_GroupRemoved>已移除 {0} 个模组（失败：{1}）。重启游戏以完成。</MSM_GroupRemoved>
 </LanguageData>

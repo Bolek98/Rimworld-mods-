@@ -366,4 +366,12 @@ Mod Sort Manager は {0} 個の疑わしいModの半分を無効化し、ゲー�
   <MSM_GroupOff>無効化（{0}）</MSM_GroupOff>
   <MSM_GroupClear>選択解除</MSM_GroupClear>
   <MSM_KeysHelp>キー：W/S または ↑/↓ 移動 · Shift+W/S 選択を移動 · A/D または ←/→ 無効/有効 · Ctrl+クリック、Shift+クリック、Ctrl+A 選択 · Esc 解除</MSM_KeysHelp>
+  <MSM_GroupRemove>{0}個のMODを削除…</MSM_GroupRemove>
+  <MSM_GroupUnsub>{0}個のワークショップMODの購読を解除</MSM_GroupUnsub>
+  <MSM_GroupPark>{0}個のローカルMODをModsフォルダの外へ移動</MSM_GroupPark>
+  <MSM_GroupDelete>{0}個のローカルMODを完全に削除</MSM_GroupDelete>
+  <MSM_GroupUnsubConfirm>この{0}個のMODの購読を解除しますか？Steamがファイルを削除し、MODは無効になります。\n\n{1}</MSM_GroupUnsubConfirm>
+  <MSM_GroupParkConfirm>この{0}個のMODをModsフォルダから次へ移動します：\n{1}\n\n{2}\n\nいつでも元に戻せます。</MSM_GroupParkConfirm>
+  <MSM_GroupDeleteConfirm>この{0}個のMODを完全に削除しますか？\n\n{1}\n\n元に戻せません。</MSM_GroupDeleteConfirm>
+  <MSM_GroupRemoved>{0}個のMODを削除しました（失敗：{1}）。ゲームを再起動して完了してください。</MSM_GroupRemoved>
 </LanguageData>

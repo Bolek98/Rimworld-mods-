@@ -448,6 +448,57 @@ namespace ModSortManager
             Find.WindowStack.Add(new FloatMenu(opts));
         }
 
+        // 0.3.2: the same as RemoveMenu for several mods; Workshop and local mods are handled each their way
+        private void RemoveManyMenu(List<ModMetaData> mods)
+        {
+            List<ModMetaData> steam = mods.Where(x => x.OnSteamWorkshop).ToList();
+            List<ModMetaData> local = mods.Where(x => !x.OnSteamWorkshop).ToList();
+            string Names(List<ModMetaData> l) => string.Join("\n", l.Take(15).Select(x => "• " + x.Name).ToArray()) + (l.Count > 15 ? "\n…" : "");
+            void Finish(List<ModMetaData> done, int failed)
+            {
+                foreach (ModMetaData m in done)
+                {
+                    active.Remove(m);
+                    multi.Remove(m);
+                }
+                if (done.Count > 0) { dirty = true; needsRestart = true; }
+                if (selected != null && done.Contains(selected)) selected = active.FirstOrDefault();
+                Messages.Message("MSM_GroupRemoved".Translate(done.Count, failed), failed > 0 ? MessageTypeDefOf.CautionInput : MessageTypeDefOf.TaskCompletion, false);
+            }
+            var opts = new List<FloatMenuOption>();
+            if (steam.Count > 0)
+                opts.Add(new FloatMenuOption("MSM_GroupUnsub".Translate(steam.Count), () =>
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_GroupUnsubConfirm".Translate(steam.Count, Names(steam)), () =>
+                    {
+                        var done = new List<ModMetaData>();
+                        int failed = 0;
+                        foreach (ModMetaData m in steam)
+                        {
+                            if (MSM.Unsubscribe(m)) { Removal.Gone.Add(m.RootDir.FullName); done.Add(m); }
+                            else failed++;
+                        }
+                        Finish(done, failed);
+                    }, true))));
+            if (local.Count > 0)
+            {
+                opts.Add(new FloatMenuOption("MSM_GroupPark".Translate(local.Count), () =>
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_GroupParkConfirm".Translate(local.Count, MSM.ParkDir, Names(local)), () =>
+                    {
+                        var done = new List<ModMetaData>();
+                        foreach (ModMetaData m in local) { Removal.RemoveFolder(m, false); done.Add(m); }
+                        Finish(done, 0);
+                    }, false))));
+                opts.Add(new FloatMenuOption("MSM_GroupDelete".Translate(local.Count), () =>
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_GroupDeleteConfirm".Translate(local.Count, Names(local)), () =>
+                    {
+                        var done = new List<ModMetaData>();
+                        foreach (ModMetaData m in local) { Removal.RemoveFolder(m, true); done.Add(m); }
+                        Finish(done, 0);
+                    }, true))));
+            }
+            if (opts.Count > 0) Find.WindowStack.Add(new FloatMenu(opts));
+        }
+
         private void KeepOnly(List<DupCopy> g, DupCopy keep)
         {
             var others = g.Where(c => c != keep).ToList();
@@ -1287,6 +1338,15 @@ namespace ModSortManager
                 if (Button(new Rect(r.x + (qw + 8f), y, qw, 28f), "▲")) MoveGroup(-1);
                 if (Button(new Rect(r.x + 2 * (qw + 8f), y, qw, 28f), "▼")) MoveGroup(1);
                 if (Button(new Rect(r.x + 3 * (qw + 8f), y, qw, 28f), "MSM_Bottom".Translate())) MoveGroupTo(active.Count);
+                y += 34f;
+            }
+            // 0.3.2: remove several mods at once (unsubscribe / move away / delete)
+            List<ModMetaData> removable = sel.Where(x => !x.Official && !x.IsCoreMod).ToList();
+            if (removable.Count > 0)
+            {
+                Rect rr = new Rect(r.x, y, r.width, 28f);
+                if (Button(rr, "MSM_GroupRemove".Translate(removable.Count))) RemoveManyMenu(removable);
+                TooltipHandler.TipRegion(rr, "MSM_RemoveTip".Translate());
                 y += 34f;
             }
             if (Button(new Rect(r.x, y, r.width, 28f), "MSM_GroupClear".Translate())) multi.Clear();

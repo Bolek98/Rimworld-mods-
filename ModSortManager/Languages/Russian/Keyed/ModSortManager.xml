@@ -366,4 +366,12 @@ Mod Sort Manager выключит половину подозреваемых м
   <MSM_GroupOff>Выключить ({0})</MSM_GroupOff>
   <MSM_GroupClear>Снять выбор</MSM_GroupClear>
   <MSM_KeysHelp>Клавиши: W/S или ↑/↓ – перемещение · Shift+W/S двигает выбранные · A/D или ←/→ выкл/вкл · Ctrl+клик, Shift+клик, Ctrl+A – выбор · Esc снимает</MSM_KeysHelp>
+  <MSM_GroupRemove>Удалить модов: {0}…</MSM_GroupRemove>
+  <MSM_GroupUnsub>Отписаться от модов Мастерской: {0}</MSM_GroupUnsub>
+  <MSM_GroupPark>Перенести локальные моды из папки Mods: {0}</MSM_GroupPark>
+  <MSM_GroupDelete>Удалить локальные моды навсегда: {0}</MSM_GroupDelete>
+  <MSM_GroupUnsubConfirm>Отписаться от этих модов ({0})? Steam удалит их файлы; они будут выключены.\n\n{1}</MSM_GroupUnsubConfirm>
+  <MSM_GroupParkConfirm>Перенести эти моды ({0}) из папки Mods в:\n{1}\n\n{2}\n\nИх можно вернуть в любой момент.</MSM_GroupParkConfirm>
+  <MSM_GroupDeleteConfirm>Удалить эти моды ({0}) навсегда?\n\n{1}\n\nЭто нельзя отменить.</MSM_GroupDeleteConfirm>
+  <MSM_GroupRemoved>Удалено модов: {0} (не удалось: {1}). Перезапустите игру, чтобы завершить.</MSM_GroupRemoved>
 </LanguageData>

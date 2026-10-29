@@ -366,4 +366,12 @@ Start?</MSM_BisectConfirm>
   <MSM_GroupOff>Turn off ({0})</MSM_GroupOff>
   <MSM_GroupClear>Clear selection</MSM_GroupClear>
   <MSM_KeysHelp>Keys: W/S or ↑/↓ move · Shift+W/S moves the selected mods · A/D or ←/→ turn off/on · Ctrl+click, Shift+click, Ctrl+A select · Esc clears</MSM_KeysHelp>
+  <MSM_GroupRemove>Remove {0} mods…</MSM_GroupRemove>
+  <MSM_GroupUnsub>Unsubscribe from {0} Workshop mods</MSM_GroupUnsub>
+  <MSM_GroupPark>Move {0} local mods out of the Mods folder</MSM_GroupPark>
+  <MSM_GroupDelete>Delete {0} local mods for good</MSM_GroupDelete>
+  <MSM_GroupUnsubConfirm>Unsubscribe from these {0} mods? Steam deletes their files; they are turned off.\n\n{1}</MSM_GroupUnsubConfirm>
+  <MSM_GroupParkConfirm>Move these {0} mods out of the Mods folder to:\n{1}\n\n{2}\n\nYou can put them back any time.</MSM_GroupParkConfirm>
+  <MSM_GroupDeleteConfirm>Delete these {0} mods for good?\n\n{1}\n\nThis cannot be undone.</MSM_GroupDeleteConfirm>
+  <MSM_GroupRemoved>{0} mods removed (failed: {1}). Restart the game to finish.</MSM_GroupRemoved>
 </LanguageData>
