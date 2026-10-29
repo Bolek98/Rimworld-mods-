@@ -221,8 +221,8 @@
   <RLRG_TraderBlockedGear>Neprodává se (výzkum)</RLRG_TraderBlockedGear>
   <RLRG_TraderBlockedGear_Desc>Výzkum to nepovoluje a technologická úroveň {0} je vyšší, než obchodníci teď smí prodávat ({1}).</RLRG_TraderBlockedGear_Desc>
   <!-- 2.10.0: Raids tab -->
-  <RLRG_TabRaids>Nájezdy a hrozby</RLRG_TabRaids>
-  <RLRG_RaidsIntro>Nezaškrtnuté nájezdy a hrozby (i z modů: monstra, šílená zvířata, hmyz, nemoci, spad …) se nebudou spouštět. Zaškrtnuté = povolené. Změny platí hned pro další nájezdy.</RLRG_RaidsIntro>
+  <RLRG_TabRaids>Nájezdy</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Nezaškrtnuté strategie nájezdů, způsoby příchodu a náhodné úkoly se nebudou používat. Zaškrtnuté = povolené. Hrozby (monstra, nemoci, spad …) jsou v záložce Hrozby.</RLRG_RaidsIntro>
   <RLRG_RaidsSummary>Zakázáno {0} z {1} druhů nájezdů</RLRG_RaidsSummary>
   <RLRG_RaidsResetAll>Povolit vše</RLRG_RaidsResetAll>
   <RLRG_RaidsResetAll_Desc>Znovu povolí všechny druhy nájezdů (výchozí stav).</RLRG_RaidsResetAll_Desc>
@@ -350,4 +350,30 @@
   <RLRG_EV_Steady>drží se</RLRG_EV_Steady>
   <RLRG_EV_FactionTip>{0}: úroveň {1} (svět: {2}). Jejich nájezdníci a návštěvníci nosí výbavu této úrovně.</RLRG_EV_FactionTip>
   <RLRG_EV_DefenseNow>Tvoje obrana: {0} bodů · body nájezdu teď: {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>Hrozby</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>Nezaškrtnuté události se nikdy nespustí – ani od vypravěče, ani z úkolů či modů. Zaškrtnuté = povolené. Změny platí hned.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>Nechat bossy, které si přivolám</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>Bossové přivolaní mechanitorem u komunikační konzole (ďábelník, válečná královna, apokriton …) a jejich doprovod se nikdy neodstraní kvůli „Omezit i mechanoidy a hmyz“ – přivolal sis je kvůli signálním čipům.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>Ukázat všechny události</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>Vypsat i události, které nejsou hrozby (návštěvy, obchodníci, poutníci, dobré události …), abys mohl vypnout i ty.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>Velké hrozby</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>Malé hrozby</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>Špatné události a hrozby z modů</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>Ostatní události</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>Zakázat vše</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>Zakázat vše, co je v této skupině vidět (podle hledání).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>Vypnuto {0} z {1} událostí</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>Znovu povolit všechny události (výchozí).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>Vypnuto: tato událost se nikdy nespustí – ani od vypravěče, z úkolů ani z modů.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>Odstraňuje World at Your Level</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>zůstává – povolil sis</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>odstraní se – ještě nevyzkoumáno</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>odstraní se – nad úrovní světa</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>dříve odstraněno</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>zůstává – pravidla to dovolí</RLRG_RemStatusStays>
+  <RLRG_RemRules>Podle pravidel</RLRG_RemRules>
+  <RLRG_RemRules_Desc>U všeho, co je tu vidět, znovu rozhodují pravidla modu.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>Nechat vše</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>Nechat vše, co je tu vidět – už se to nebude odstraňovat.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>Zaškrtnuté = zůstane. Nezaškrtnuté = rozhodují pravidla modu (nevyzkoumaní mechanoidi a drony, stroje na počasí/podmínky nad úrovní světa, věže lepší než tvoje). Zaškrtni, pokud to chceš mít i tak.</RLRG_RemTip>
 </LanguageData>

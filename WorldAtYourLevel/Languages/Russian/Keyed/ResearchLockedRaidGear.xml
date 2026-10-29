@@ -220,8 +220,8 @@
   <RLRG_TraderBlocked_Desc>Техуровень {0} выше того, что торговцы могут продавать сейчас ({1}).</RLRG_TraderBlocked_Desc>
   <RLRG_TraderBlockedGear>Не продаётся (исследования)</RLRG_TraderBlockedGear>
   <RLRG_TraderBlockedGear_Desc>Не разрешено исследованиями, а техуровень {0} выше того, что торговцы могут продавать сейчас ({1}).</RLRG_TraderBlockedGear_Desc>
-  <RLRG_TabRaids>Набеги и угрозы</RLRG_TabRaids>
-  <RLRG_RaidsIntro>Неотмеченные набеги и угрозы (также из модов: монстры, бешеные животные, насекомые, болезни, осадки…) не произойдут. Отмечено = разрешено. Изменения сразу применяются к новым набегам.</RLRG_RaidsIntro>
+  <RLRG_TabRaids>Набеги</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Неотмеченные стратегии набегов, способы прибытия и случайные задания не будут использоваться. Отмечено = разрешено. События-угрозы (монстры, болезни, осадки…) — на вкладке «Угрозы».</RLRG_RaidsIntro>
   <RLRG_RaidsSummary>Заблокировано типов набегов: {0} из {1}</RLRG_RaidsSummary>
   <RLRG_RaidsResetAll>Сбросить всё</RLRG_RaidsResetAll>
   <RLRG_RaidsResetAll_Desc>Снова разрешить все типы набегов (по умолчанию).</RLRG_RaidsResetAll_Desc>
@@ -349,4 +349,30 @@
   <RLRG_EV_Steady>стабильно</RLRG_EV_Steady>
   <RLRG_EV_FactionTip>{0}: уровень {1} (мир: {2}). Их налётчики и гости носят снаряжение этого уровня.</RLRG_EV_FactionTip>
   <RLRG_EV_DefenseNow>Ваша оборона: {0} очков · очки набега сейчас: {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>Угрозы</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>Неотмеченные события никогда не начнутся — ни от рассказчика, ни из заданий или модов. Отмечено = разрешено. Действует сразу.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>Оставлять вызванных мной боссов</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>Боссы, которых вы вызываете механитором у консоли связи (Диаболус, Королева войны, Апокритон…), и их эскорт никогда не удаляются из-за «Ограничивать также механоидов и насекомых» — вы вызвали их ради сигнальных чипов.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>Показать все события</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>Показывать и события, которые не являются угрозами (гости, торговцы, странники, хорошие события…), чтобы их тоже можно было отключить.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>Большие угрозы</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>Малые угрозы</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>Плохие события и угрозы из модов</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>Другие события</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>Запретить всё</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>Запретить всё видимое в этой группе (с учётом поиска).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>Отключено {0} из {1} событий</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>Снова разрешить все события (по умолчанию).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>Отключено: это событие никогда не начнётся — ни от рассказчика, ни из заданий или модов.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>Удаляется модом World at Your Level</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>остаётся – разрешено вами</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>удаляется – ещё не исследовано</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>удаляется – выше уровня мира</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>удалялось ранее</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>остаётся – правила разрешают</RLRG_RemStatusStays>
+  <RLRG_RemRules>По правилам</RLRG_RemRules>
+  <RLRG_RemRules_Desc>Для всего показанного здесь снова решают правила мода.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>Оставить всё</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>Оставить всё показанное здесь – больше не будет удаляться.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>Отмечено = остаётся. Не отмечено = решают правила мода (неисследованные механоиды и дроны, машины погоды/условий выше уровня мира, турели лучше ваших). Отметьте, чтобы оставить в любом случае.</RLRG_RemTip>
 </LanguageData>

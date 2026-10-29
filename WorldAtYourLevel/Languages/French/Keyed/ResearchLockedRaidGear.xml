@@ -221,8 +221,8 @@
   <RLRG_TraderBlockedGear>Pas à vendre (recherche)</RLRG_TraderBlockedGear>
   <RLRG_TraderBlockedGear_Desc>Non autorisé par la recherche, et le niveau technologique {0} est au-dessus de ce que les marchands peuvent vendre maintenant ({1}).</RLRG_TraderBlockedGear_Desc>
   <!-- 2.10.0: Raids tab -->
-  <RLRG_TabRaids>Raids et menaces</RLRG_TabRaids>
-  <RLRG_RaidsIntro>Les raids et menaces décochés (y compris ceux des mods : monstres, animaux enragés, insectoïdes, maladies, retombées …) n'auront pas lieu. Coché = autorisé. Les changements s'appliquent immédiatement aux nouveaux raids.</RLRG_RaidsIntro>
+  <RLRG_TabRaids>Raids</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Les stratégies de raid, modes d'arrivée et quêtes aléatoires décochés ne seront pas utilisés. Coché = autorisé. Les événements menaçants (monstres, maladies, retombées …) sont dans l'onglet Menaces.</RLRG_RaidsIntro>
   <RLRG_RaidsSummary>{0} types de raid bloqués sur {1}</RLRG_RaidsSummary>
   <RLRG_RaidsResetAll>Tout réinitialiser</RLRG_RaidsResetAll>
   <RLRG_RaidsResetAll_Desc>Autoriser à nouveau tous les types de raid (par défaut).</RLRG_RaidsResetAll_Desc>
@@ -350,4 +350,30 @@
   <RLRG_EV_Steady>stable</RLRG_EV_Steady>
   <RLRG_EV_FactionTip>{0} : niveau {1} (monde : {2}). Leurs pillards et visiteurs portent l'équipement de ce niveau.</RLRG_EV_FactionTip>
   <RLRG_EV_DefenseNow>Votre défense : {0} points · points de raid actuels : {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>Menaces</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>Les événements décochés ne se déclenchent jamais – ni par le narrateur, ni par les quêtes ou les mods. Coché = autorisé. Effet immédiat.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>Garder les boss que j'appelle</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>Les boss que vous invoquez avec un mécaniteur à la console de communication (Diabolus, Reine de guerre, Apocriton …) et leur escorte ne sont jamais retirés par « Limiter aussi les mécanoïdes et les insectoïdes » – vous les appelez pour leurs puces de signal.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>Afficher tous les événements</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>Lister aussi les événements qui ne sont pas des menaces (visiteurs, marchands, errants, bons événements …) pour pouvoir les désactiver aussi.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>Menaces majeures</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>Menaces mineures</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>Mauvais événements et menaces de mods</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>Autres événements</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>Tout bloquer</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>Bloquer tout ce qui est affiché dans ce groupe (selon la recherche).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>{0} sur {1} événements désactivés</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>Autoriser à nouveau tous les événements (par défaut).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>Désactivé : cet événement ne se déclenche jamais – ni par le narrateur, ni par les quêtes ou les mods.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>Retiré par World at Your Level</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>gardé – vous l'avez autorisé</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>retiré – pas encore recherché</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>retiré – au-dessus du niveau du monde</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>retiré auparavant</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>reste – les règles le permettent</RLRG_RemStatusStays>
+  <RLRG_RemRules>Selon les règles</RLRG_RemRules>
+  <RLRG_RemRules_Desc>Les règles du mod décident à nouveau pour tout ce qui est affiché ici.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>Tout garder</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>Garder tout ce qui est affiché ici – ce ne sera plus retiré.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>Coché = reste. Décoché = les règles du mod décident (mécanoïdes et drones non recherchés, machines météo/conditions au-dessus du niveau du monde, tourelles meilleures que les vôtres). Cochez pour le garder quand même.</RLRG_RemTip>
 </LanguageData>

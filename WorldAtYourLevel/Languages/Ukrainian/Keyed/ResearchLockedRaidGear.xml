@@ -220,8 +220,8 @@
   <RLRG_TraderBlocked_Desc>Техрівень {0} вищий за той, що торговці можуть продавати зараз ({1}).</RLRG_TraderBlocked_Desc>
   <RLRG_TraderBlockedGear>Не продається (дослідження)</RLRG_TraderBlockedGear>
   <RLRG_TraderBlockedGear_Desc>Не дозволено дослідженнями, а техрівень {0} вищий за той, що торговці можуть продавати зараз ({1}).</RLRG_TraderBlockedGear_Desc>
-  <RLRG_TabRaids>Набіги та загрози</RLRG_TabRaids>
-  <RLRG_RaidsIntro>Непозначені набіги та загрози (також з модів: монстри, скажені тварини, комахи, хвороби, опади…) не відбудуться. Позначено = дозволено. Зміни одразу застосовуються до нових набігів.</RLRG_RaidsIntro>
+  <RLRG_TabRaids>Набіги</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Непозначені стратегії набігів, способи прибуття та випадкові завдання не використовуватимуться. Позначено = дозволено. Події-загрози (монстри, хвороби, опади…) — на вкладці «Загрози».</RLRG_RaidsIntro>
   <RLRG_RaidsSummary>Заблоковано типів набігів: {0} з {1}</RLRG_RaidsSummary>
   <RLRG_RaidsResetAll>Скинути все</RLRG_RaidsResetAll>
   <RLRG_RaidsResetAll_Desc>Знову дозволити всі типи набігів (типово).</RLRG_RaidsResetAll_Desc>
@@ -349,4 +349,30 @@
   <RLRG_EV_Steady>стабільно</RLRG_EV_Steady>
   <RLRG_EV_FactionTip>{0}: рівень {1} (світ: {2}). Їхні нападники та гості носять спорядження цього рівня.</RLRG_EV_FactionTip>
   <RLRG_EV_DefenseNow>Ваша оборона: {0} очок · очки набігу зараз: {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>Загрози</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>Непозначені події ніколи не почнуться — ні від оповідача, ні із завдань чи модів. Позначено = дозволено. Діє одразу.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>Залишати викликаних мною босів</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>Боси, яких ви викликаєте механітором біля консолі зв'язку (Діаболус, Королева війни, Апокритон…), та їхній ескорт ніколи не видаляються через «Обмежувати також механоїдів і комах» — ви викликали їх заради сигнальних чипів.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>Показати всі події</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>Показувати й події, що не є загрозами (гості, торговці, мандрівники, добрі події…), щоб їх теж можна було вимкнути.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>Великі загрози</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>Малі загрози</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>Погані події та загрози з модів</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>Інші події</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>Заборонити все</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>Заборонити все видиме в цій групі (з урахуванням пошуку).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>Вимкнено {0} з {1} подій</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>Знову дозволити всі події (типово).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>Вимкнено: ця подія ніколи не почнеться — ні від оповідача, ні із завдань чи модів.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>Видаляється модом World at Your Level</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>залишається – дозволено вами</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>видаляється – ще не досліджено</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>видаляється – вище рівня світу</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>видалялося раніше</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>залишається – правила дозволяють</RLRG_RemStatusStays>
+  <RLRG_RemRules>За правилами</RLRG_RemRules>
+  <RLRG_RemRules_Desc>Для всього показаного тут знову вирішують правила мода.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>Залишити все</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>Залишити все показане тут – більше не видалятиметься.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>Позначено = залишається. Не позначено = вирішують правила мода (недосліджені механоїди й дрони, машини погоди/умов вище рівня світу, турелі кращі за ваші). Позначте, щоб залишити попри все.</RLRG_RemTip>
 </LanguageData>

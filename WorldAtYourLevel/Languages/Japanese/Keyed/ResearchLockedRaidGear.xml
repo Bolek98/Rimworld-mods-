@@ -220,8 +220,8 @@
   <RLRG_TraderBlocked_Desc>技術レベル{0}は、商人が現在販売できる上限（{1}）を超えています。</RLRG_TraderBlocked_Desc>
   <RLRG_TraderBlockedGear>販売不可（研究）</RLRG_TraderBlockedGear>
   <RLRG_TraderBlockedGear_Desc>研究で許可されておらず、技術レベル{0}は商人が現在販売できる上限（{1}）を超えています。</RLRG_TraderBlockedGear_Desc>
-  <RLRG_TabRaids>襲撃と脅威</RLRG_TabRaids>
-  <RLRG_RaidsIntro>チェックされていない襲撃と脅威（Mod製のものも：モンスター、人間狩りの動物、虫、病気、降下物…）は起きません。チェック = 許可。変更は新しい襲撃にすぐ適用されます。</RLRG_RaidsIntro>
+  <RLRG_TabRaids>襲撃</RLRG_TabRaids>
+  <RLRG_RaidsIntro>チェックされていない襲撃戦略、到着方法、ランダムクエストは使われません。チェック = 許可。脅威イベント（モンスター、病気、降下物…）は「脅威」タブにあります。</RLRG_RaidsIntro>
   <RLRG_RaidsSummary>{1}種類中{0}種類の襲撃をブロック</RLRG_RaidsSummary>
   <RLRG_RaidsResetAll>すべてリセット</RLRG_RaidsResetAll>
   <RLRG_RaidsResetAll_Desc>すべての襲撃の種類を再び許可します（デフォルト）。</RLRG_RaidsResetAll_Desc>
@@ -349,4 +349,30 @@
   <RLRG_EV_Steady>安定</RLRG_EV_Steady>
   <RLRG_EV_FactionTip>{0}：{1}レベル（世界：{2}）。その襲撃者と訪問者はこのレベルの装備を持ちます。</RLRG_EV_FactionTip>
   <RLRG_EV_DefenseNow>あなたの防衛力：{0}ポイント · 現在の襲撃ポイント：{1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>脅威</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>チェックされていないイベントは決して始まりません（ストーリーテラー、クエスト、Modのいずれからも）。チェック = 許可。すぐに反映されます。</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>自分で呼んだボスを残す</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>メカニターで通信コンソールから呼んだボス（ディアボルス、ウォークイーン、アポクリトン…）とその護衛は「メカノイドと虫も制限」で消されません。シグナルチップのために呼んだのですから。</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>すべてのイベントを表示</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>脅威ではないイベント（訪問者、商人、放浪者、良いイベント…）も表示して、それらもオフにできるようにします。</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>大きな脅威</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>小さな脅威</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>悪いイベントとModの脅威</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>その他のイベント</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>すべて禁止</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>このグループで表示中のものをすべて禁止（検索に従う）。</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>{1} 件中 {0} 件のイベントをオフ</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>すべてのイベントを再び許可（デフォルト）。</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>オフ：このイベントは決して始まりません（ストーリーテラー、クエスト、Modのいずれからも）。</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>World at Your Level が削除</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>残す – あなたが許可</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>削除 – まだ未研究</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>削除 – 世界レベルより上</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>以前に削除</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>残る – ルール上OK</RLRG_RemStatusStays>
+  <RLRG_RemRules>ルールどおり</RLRG_RemRules>
+  <RLRG_RemRules_Desc>ここに表示中のものはすべて再びModのルールで決まります。</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>すべて残す</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>ここに表示中のものをすべて残す – もう削除されません。</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>チェック = 残る。チェックなし = Modのルールで決まる（未研究のメカノイドやドローン、世界レベルより上の天候/状態装置、あなたより強いタレット）。それでも残したい場合はチェック。</RLRG_RemTip>
 </LanguageData>

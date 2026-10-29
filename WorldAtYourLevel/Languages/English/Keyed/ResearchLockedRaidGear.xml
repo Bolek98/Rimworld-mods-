@@ -221,8 +221,8 @@
   <RLRG_TraderBlockedGear>Not for sale (research)</RLRG_TraderBlockedGear>
   <RLRG_TraderBlockedGear_Desc>Not allowed by research, and tech level {0} is above what traders may sell now ({1}).</RLRG_TraderBlockedGear_Desc>
   <!-- 2.10.0: Raids tab -->
-  <RLRG_TabRaids>Raids and threats</RLRG_TabRaids>
-  <RLRG_RaidsIntro>Unchecked raids and threats (also from mods: monsters, manhunters, insects, diseases, fallout …) will not happen. Checked = allowed. Changes apply to new raids right away.</RLRG_RaidsIntro>
+  <RLRG_TabRaids>Raids</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Unchecked raid strategies, arrival modes and random quests will not be used. Checked = allowed. Threat events (monsters, diseases, fallout …) are in the Threats tab.</RLRG_RaidsIntro>
   <RLRG_RaidsSummary>{0} of {1} raid types blocked</RLRG_RaidsSummary>
   <RLRG_RaidsResetAll>Reset all</RLRG_RaidsResetAll>
   <RLRG_RaidsResetAll_Desc>Allow every raid type again (the default).</RLRG_RaidsResetAll_Desc>
@@ -350,4 +350,30 @@
   <RLRG_EV_Steady>steady</RLRG_EV_Steady>
   <RLRG_EV_FactionTip>{0}: {1} level (world: {2}). Their raiders and visitors carry gear of this level.</RLRG_EV_FactionTip>
   <RLRG_EV_DefenseNow>Your defence: {0} points · raid points now: {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>Threats</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>Unchecked events never start – not from the storyteller, not from quests or mods. Checked = allowed. Changes apply right away.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>Keep bosses I call myself</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>Bosses you summon with a mechanitor at the comms console (Diabolus, War Queen, Apocriton …) and their escort are never removed by "Also limit mechanoids and insects" – you called them for their signal chips.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>Show all events</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>Also list events that are not threats (visitors, traders, wanderers, good events …), so you can switch those off too.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>Big threats</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>Small threats</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>Bad events and mod threats</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>Other events</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>Block all</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>Block everything shown in this group (respects the search).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>{0} of {1} events turned off</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>Allow every event again (the default).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>Turned off: this event never starts – not from the storyteller, quests or mods.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>Removed by World at Your Level</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>kept – you allowed it</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>removed – not researched yet</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>removed – above the world level</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>removed earlier</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>stays – the rules allow it</RLRG_RemStatusStays>
+  <RLRG_RemRules>By the rules</RLRG_RemRules>
+  <RLRG_RemRules_Desc>Let the mod's rules decide again for everything shown here.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>Keep all</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>Keep everything shown here – it will no longer be removed.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>Ticked = it stays. Unticked = the mod's rules decide (mechanoids and drones you have not researched, weather/condition machines above the world level, turrets better than yours). Tick it to keep it anyway.</RLRG_RemTip>
 </LanguageData>

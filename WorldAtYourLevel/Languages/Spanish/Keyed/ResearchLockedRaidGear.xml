@@ -221,8 +221,8 @@
   <RLRG_TraderBlockedGear>No está a la venta (investigación)</RLRG_TraderBlockedGear>
   <RLRG_TraderBlockedGear_Desc>No lo permite la investigación y el nivel tecnológico {0} está por encima de lo que los comerciantes pueden vender ahora ({1}).</RLRG_TraderBlockedGear_Desc>
   <!-- 2.10.0: Raids tab -->
-  <RLRG_TabRaids>Incursiones y amenazas</RLRG_TabRaids>
-  <RLRG_RaidsIntro>Las incursiones y amenazas desmarcadas (también de mods: monstruos, animales enloquecidos, insectoides, enfermedades, lluvia radiactiva …) no ocurrirán. Marcado = permitido. Los cambios se aplican de inmediato a las nuevas incursiones.</RLRG_RaidsIntro>
+  <RLRG_TabRaids>Incursiones</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Las estrategias de incursión, modos de llegada y misiones aleatorias desmarcadas no se usarán. Marcado = permitido. Los eventos de amenaza (monstruos, enfermedades, lluvia radiactiva …) están en la pestaña Amenazas.</RLRG_RaidsIntro>
   <RLRG_RaidsSummary>{0} de {1} tipos de incursión bloqueados</RLRG_RaidsSummary>
   <RLRG_RaidsResetAll>Restablecer todo</RLRG_RaidsResetAll>
   <RLRG_RaidsResetAll_Desc>Permitir de nuevo todos los tipos de incursión (por defecto).</RLRG_RaidsResetAll_Desc>
@@ -350,4 +350,30 @@
   <RLRG_EV_Steady>estable</RLRG_EV_Steady>
   <RLRG_EV_FactionTip>{0}: nivel {1} (mundo: {2}). Sus asaltantes y visitantes llevan equipo de este nivel.</RLRG_EV_FactionTip>
   <RLRG_EV_DefenseNow>Tu defensa: {0} puntos · puntos de incursión ahora: {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>Amenazas</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>Los eventos desmarcados nunca empiezan: ni por el narrador, ni por misiones o mods. Marcado = permitido. Se aplica al instante.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>Mantener los jefes que invoco</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>Los jefes que invocas con un mecanitor en la consola de comunicaciones (Diabolus, Reina de guerra, Apocritón …) y su escolta nunca se eliminan por «Limitar también mecanoides e insectoides»: los llamaste por sus chips de señal.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>Mostrar todos los eventos</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>Listar también eventos que no son amenazas (visitantes, comerciantes, vagabundos, eventos buenos …) para poder desactivarlos también.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>Amenazas grandes</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>Amenazas pequeñas</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>Eventos malos y amenazas de mods</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>Otros eventos</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>Bloquear todo</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>Bloquear todo lo visible en este grupo (respeta la búsqueda).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>{0} de {1} eventos desactivados</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>Permitir de nuevo todos los eventos (predeterminado).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>Desactivado: este evento nunca empieza, ni por el narrador, ni por misiones o mods.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>Eliminado por World at Your Level</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>se queda – lo permitiste</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>eliminado – aún no investigado</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>eliminado – por encima del nivel del mundo</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>eliminado antes</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>se queda – las reglas lo permiten</RLRG_RemStatusStays>
+  <RLRG_RemRules>Según las reglas</RLRG_RemRules>
+  <RLRG_RemRules_Desc>Las reglas del mod vuelven a decidir para todo lo mostrado aquí.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>Mantener todo</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>Mantener todo lo mostrado aquí: ya no se eliminará.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>Marcado = se queda. Desmarcado = deciden las reglas del mod (mecanoides y drones no investigados, máquinas de clima/condiciones por encima del nivel del mundo, torretas mejores que las tuyas). Márcalo para mantenerlo de todos modos.</RLRG_RemTip>
 </LanguageData>

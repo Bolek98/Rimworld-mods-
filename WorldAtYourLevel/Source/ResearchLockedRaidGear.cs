@@ -29,10 +29,11 @@ namespace ResearchLockedRaidGear
 			Filters,
 			Factions,
 			Raids,
+			Threats,
 			Evolution
 		}
 
-		public const string Version = "2.17.0";
+		public const string Version = "2.18.0";
 
 		public static ResearchLockedRaidGearSettings Settings;
 
@@ -239,6 +240,10 @@ namespace ResearchLockedRaidGear
 			{
 				tab = SettingsTab.Raids;
 			}, tab == SettingsTab.Raids));
+			list.Add(new TabRecord("RLRG_TabThreats".Translate(), delegate
+			{
+				tab = SettingsTab.Threats;
+			}, tab == SettingsTab.Threats));
 			list.Add(new TabRecord("RLRG_TabEvolution".Translate(), delegate
 			{
 				tab = SettingsTab.Evolution;
@@ -248,7 +253,7 @@ namespace ResearchLockedRaidGear
 			Widgets.DrawMenuSection(rect);
 			TabDrawer.DrawTabs(rect, tabs, 1, 200f);
 			Rect r = rect.ContractedBy(12f);
-			MUI.BeginLock(Settings.recommended && tab != SettingsTab.Factions && tab != SettingsTab.Raids);
+			MUI.BeginLock(Settings.recommended && tab != SettingsTab.Factions && tab != SettingsTab.Raids && tab != SettingsTab.Threats);
 			try
 			{
 			switch (tab)
@@ -270,6 +275,9 @@ namespace ResearchLockedRaidGear
 				break;
 			case SettingsTab.Raids:
 				DrawRaidsTab(r);
+				break;
+			case SettingsTab.Threats:
+				DrawThreatsTab(r);
 				break;
 			case SettingsTab.Evolution:
 				DrawEvolutionTab(r);
@@ -561,13 +569,18 @@ namespace ResearchLockedRaidGear
 
 		private string raidSearch = string.Empty;
 
+		private void DrawThreatsTab(Rect r)
+		{
+			ThreatsTab.Draw(r, Settings);
+		}
+
 		// 2.10.0: tab with raid types that will not happen (checked = allowed)
 		private void DrawRaidsTab(Rect r)
 		{
 			ResearchLockedRaidGearSettings s = Settings;
 			RaidTypeFilter.EnsureLists();
-			int blocked = RaidTypeFilter.BlockedCountAll();
-			int total = RaidTypeFilter.TotalCountAll();
+			int blocked = RaidTypeFilter.BlockedCount(1) + RaidTypeFilter.BlockedCount(2) + RaidTypeFilter.BlockedCount(3);
+			int total = RaidTypeFilter.TotalCount(1) + RaidTypeFilter.TotalCount(2) + RaidTypeFilter.TotalCount(3);
 			Widgets.Label(new Rect(r.x, r.y, r.width, 26f), "RLRG_RaidsIntro".Translate());
 			float y = r.y + 26f;
 			GUI.color = (blocked > 0) ? new Color(1f, 0.75f, 0.45f) : new Color(0.7f, 0.9f, 0.7f);
@@ -579,14 +592,13 @@ namespace ResearchLockedRaidGear
 			TooltipHandler.TipRegion(resetRect, "RLRG_RaidsResetAll_Desc".Translate());
 			if (Widgets.ButtonText(resetRect, "RLRG_RaidsResetAll".Translate()))
 			{
-				s.blockedIncidents.Clear();
 				s.blockedRaidStrategies.Clear();
 				s.blockedArrivalModes.Clear();
 				s.blockedQuests.Clear();
 				RaidTypeFilter.Invalidate();
 			}
 			y += 36f;
-			List<RaidTypeFilter.Row> rows = RaidTypeFilter.BuildRows(raidSearch);
+			List<RaidTypeFilter.Row> rows = RaidTypeFilter.BuildRows(raidSearch, 1);
 			float rowH = 26f;
 			float headerH = 34f;
 			float viewH = 0f;
@@ -733,6 +745,14 @@ namespace ResearchLockedRaidGear
 		public bool worldRaidFactions = true;
 
 		public bool worldMechanoids;
+
+		// 2.18.0: bosses the player called himself (Diabolus, War Queen, Apocriton … from the comms console) stay
+		public bool keepCalledBosses = true;
+
+		// 2.18.0: things the player wants to keep even though a rule of this mod would remove them (defNames),
+		// and what the mod has removed so far (shown in the Threats tab)
+		public List<string> keepDefs = new List<string>();
+		public List<string> removedSeen = new List<string>();
 		// 2.14.0: with "match the colony" enemies still only get what you have crafted
 		public bool strictCrafted = true;
 		// 2.14.0: turrets on quest sites, bases and sieges only up to the turrets you have built yourself
@@ -925,6 +945,13 @@ namespace ResearchLockedRaidGear
 			Scribe_Values.Look(ref levelByProgress, "levelByProgress", true);
 			Scribe_Values.Look(ref worldRaidFactions, "worldRaidFactions", true);
 			Scribe_Values.Look(ref worldMechanoids, "worldMechanoids", false);
+			Scribe_Values.Look(ref keepCalledBosses, "keepCalledBosses", true);
+			Scribe_Collections.Look(ref keepDefs, "keepDefs", LookMode.Value);
+			Scribe_Collections.Look(ref removedSeen, "removedSeen", LookMode.Value);
+			if (keepDefs == null)
+				keepDefs = new List<string>();
+			if (removedSeen == null)
+				removedSeen = new List<string>();
 			Scribe_Values.Look(ref strictCrafted, "strictCrafted", true);
 			Scribe_Values.Look(ref siteTurrets, "siteTurrets", true);
 			Scribe_Values.Look(ref worldItems, "worldItems", true);
@@ -3910,7 +3937,71 @@ namespace ResearchLockedRaidGear
 			return st != null && st.worldMechanoids && pawn != null && !pawn.Dead && pawn.RaceProps != null && pawn.RaceProps.IsMechanoid
 			       && pawn.Faction != null && !pawn.Faction.IsPlayer && pawn.Map != null && !pawn.IsColonyMech
 			       && pawn.HostileTo(Faction.OfPlayer)
-			       && (!WorldTech.FactionWithinWorld(pawn.Faction) || !MechEscorts.Researched(pawn.def));
+			       && (!WorldTech.FactionWithinWorld(pawn.Faction) || !MechEscorts.Researched(pawn.def))
+			       && !(st.keepCalledBosses && CalledBoss(pawn))
+			       && !Kept(pawn.def);
+		}
+
+		// 2.18.0: unticked in the Threats tab = the player wants it, whatever the rules say
+		public static bool Kept(ThingDef d)
+		{
+			ResearchLockedRaidGearSettings st = ResearchLockedRaidGearMod.Settings;
+			return d != null && st != null && st.keepDefs != null && st.keepDefs.Count > 0 && st.keepDefs.Contains(d.defName);
+		}
+
+		// what the Threats tab shows for a def: 0 = stays, 1 = removed (not researched / above the world level)
+		public static bool WouldRemove(ThingDef d)
+		{
+			ResearchLockedRaidGearSettings st = ResearchLockedRaidGearMod.Settings;
+			if (d == null || st == null || !st.enabled || Kept(d))
+				return false;
+			if (d.race != null)
+				return d.race.IsMechanoid && st.worldMechanoids && (Current.Game == null || !MechEscorts.Researched(d));
+			if (!st.worldCausers)
+				return false;
+			int t = TechOf(d);
+			return t != 0 && (Current.Game == null || t > (int)WorldTech.Level());
+		}
+
+		public static bool IsCauser(ThingDef d) => d != null && d.race == null && TechOf(d) != 0;
+
+		private static void Seen(ThingDef d)
+		{
+			ResearchLockedRaidGearSettings st = ResearchLockedRaidGearMod.Settings;
+			if (d == null || st?.removedSeen == null || st.removedSeen.Contains(d.defName))
+				return;
+			st.removedSeen.Add(d.defName);
+			if (st.removedSeen.Count > 300)
+				st.removedSeen.RemoveAt(0);
+			ThreatsTab.Invalidate();
+		}
+
+		// 2.18.0: a bossgroup the player called with a mechanitor at the comms console – its boss and escort
+		// are what he asked for (signal chips, research), never "unwanted"
+		public static bool CalledBoss(Pawn p)
+		{
+			try
+			{
+				if (p.GetLord()?.LordJob is LordJob_BossgroupAssaultColony)
+					return true;
+				List<Quest> quests = Find.QuestManager?.QuestsListForReading;
+				if (quests == null)
+					return false;
+				for (int i = 0; i < quests.Count; i++)
+				{
+					Quest q = quests[i];
+					if (q == null || q.State != QuestState.Ongoing)
+						continue;
+					List<QuestPart> parts = q.PartsListForReading;
+					for (int j = 0; j < parts.Count; j++)
+						if (parts[j] is QuestPart_Bossgroup bg && ((bg.pawns != null && bg.pawns.Contains(p)) || (bg.bosses != null && bg.bosses.Contains(p))))
+							return true;
+				}
+			}
+			catch
+			{
+			}
+			return false;
 		}
 
 		// 2.13.2: once after loading a save – mechanoids and drones that were already on the maps
@@ -3952,7 +4043,7 @@ namespace ResearchLockedRaidGear
 				}
 				return;
 			}
-			if (!respawningAfterLoad && thing != null && !(thing is Pawn) && thing.def != null && Enabled)
+			if (!respawningAfterLoad && thing != null && !(thing is Pawn) && thing.def != null && Enabled && !Kept(thing.def))
 			{
 				int num = TechOf(thing.def);
 				if (num != 0 && num > (int)WorldTech.Level() && (thing.Faction == null || !thing.Faction.IsPlayer))
@@ -4041,6 +4132,7 @@ namespace ResearchLockedRaidGear
 					{
 						continue;
 					}
+					Seen(thing.def);
 					told.TryGetValue(text, out int n);
 					told[text] = n + 1;
 				}
@@ -6446,7 +6538,7 @@ namespace ResearchLockedRaidGear
 			for (int i = list.Count - 1; i >= 0; i--)
 			{
 				Pawn p = list[i];
-				if (p == null || p.RaceProps == null || !p.RaceProps.IsMechanoid || Researched(p.def))
+				if (p == null || p.RaceProps == null || !p.RaceProps.IsMechanoid || Researched(p.def) || ThreatCausers.Kept(p.def))
 				{
 					continue;
 				}
@@ -7197,11 +7289,11 @@ namespace ResearchLockedRaidGear
 			all = lists;
 		}
 
-		public static List<Row> BuildRows(string search)
+		public static List<Row> BuildRows(string search, int firstGroup = 0)
 		{
 			EnsureLists();
 			List<Row> rows = new List<Row>();
-			for (int g = 0; g < 4; g++)
+			for (int g = firstGroup; g < 4; g++)
 			{
 				Row header = new Row();
 				header.header = true;

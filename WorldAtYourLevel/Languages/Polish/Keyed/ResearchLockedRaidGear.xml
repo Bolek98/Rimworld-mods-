@@ -221,8 +221,8 @@
   <RLRG_TraderBlockedGear>Nie na sprzedaż (badania)</RLRG_TraderBlockedGear>
   <RLRG_TraderBlockedGear_Desc>Niedozwolone przez badania, a poziom technologiczny {0} jest powyżej tego, co handlarze mogą teraz sprzedawać ({1}).</RLRG_TraderBlockedGear_Desc>
   <!-- 2.10.0: Raids tab -->
-  <RLRG_TabRaids>Najazdy i zagrożenia</RLRG_TabRaids>
-  <RLRG_RaidsIntro>Odznaczone najazdy i zagrożenia (także z modów: potwory, szalone zwierzęta, insektoidy, choroby, opad …) nie wystąpią. Zaznaczone = dozwolone. Zmiany działają od razu dla nowych najazdów.</RLRG_RaidsIntro>
+  <RLRG_TabRaids>Najazdy</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Odznaczone strategie najazdów, sposoby przybycia i losowe zadania nie będą używane. Zaznaczone = dozwolone. Zdarzenia-zagrożenia (potwory, choroby, opad …) są w zakładce Zagrożenia.</RLRG_RaidsIntro>
   <RLRG_RaidsSummary>Zablokowano {0} z {1} rodzajów najazdów</RLRG_RaidsSummary>
   <RLRG_RaidsResetAll>Resetuj wszystko</RLRG_RaidsResetAll>
   <RLRG_RaidsResetAll_Desc>Ponownie zezwól na każdy rodzaj najazdu (domyślnie).</RLRG_RaidsResetAll_Desc>
@@ -350,4 +350,30 @@
   <RLRG_EV_Steady>stały</RLRG_EV_Steady>
   <RLRG_EV_FactionTip>{0}: poziom {1} (świat: {2}). Ich najeźdźcy i goście noszą wyposażenie tego poziomu.</RLRG_EV_FactionTip>
   <RLRG_EV_DefenseNow>Twoja obrona: {0} pkt · punkty najazdu teraz: {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>Zagrożenia</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>Odznaczone zdarzenia nigdy się nie zaczną – ani od narratora, ani z zadań czy modów. Zaznaczone = dozwolone. Działa od razu.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>Zostaw bossów, których sam wzywam</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>Bossowie wezwani mechanitorem przy konsoli komunikacyjnej (Diabolus, Królowa wojny, Apokryton …) i ich eskorta nigdy nie są usuwani przez „Ograniczaj też mechanoidy i insektoidy” – wezwałeś ich dla chipów sygnałowych.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>Pokaż wszystkie zdarzenia</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>Wypisz też zdarzenia, które nie są zagrożeniami (goście, handlarze, wędrowcy, dobre zdarzenia …), by móc wyłączyć i je.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>Duże zagrożenia</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>Małe zagrożenia</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>Złe zdarzenia i zagrożenia z modów</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>Inne zdarzenia</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>Zablokuj wszystko</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>Zablokuj wszystko widoczne w tej grupie (zgodnie z wyszukiwaniem).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>Wyłączono {0} z {1} zdarzeń</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>Znowu pozwól na wszystkie zdarzenia (domyślnie).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>Wyłączone: to zdarzenie nigdy się nie zacznie – ani od narratora, ani z zadań czy modów.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>Usuwane przez World at Your Level</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>zostaje – pozwoliłeś</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>usuwane – jeszcze niezbadane</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>usuwane – powyżej poziomu świata</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>usunięte wcześniej</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>zostaje – zasady na to pozwalają</RLRG_RemStatusStays>
+  <RLRG_RemRules>Według zasad</RLRG_RemRules>
+  <RLRG_RemRules_Desc>Dla wszystkiego widocznego tutaj znów decydują zasady moda.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>Zostaw wszystko</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>Zostaw wszystko widoczne tutaj – nie będzie już usuwane.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>Zaznaczone = zostaje. Odznaczone = decydują zasady moda (niezbadane mechanoidy i drony, maszyny pogody/warunków powyżej poziomu świata, wieżyczki lepsze od twoich). Zaznacz, by i tak to zostawić.</RLRG_RemTip>
 </LanguageData>

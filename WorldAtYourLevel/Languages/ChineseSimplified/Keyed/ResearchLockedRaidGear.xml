@@ -220,8 +220,8 @@
   <RLRG_TraderBlocked_Desc>科技等级{0}高于商人当前可出售的等级（{1}）。</RLRG_TraderBlocked_Desc>
   <RLRG_TraderBlockedGear>不出售（研究）</RLRG_TraderBlockedGear>
   <RLRG_TraderBlockedGear_Desc>研究不允许，且科技等级{0}高于商人当前可出售的等级（{1}）。</RLRG_TraderBlockedGear_Desc>
-  <RLRG_TabRaids>袭击和威胁</RLRG_TabRaids>
-  <RLRG_RaidsIntro>未勾选的袭击和威胁（包括模组中的：怪物、猎杀人类的动物、虫族、疾病、沉降物…）不会发生。勾选 = 允许。更改会立即应用于新的袭击。</RLRG_RaidsIntro>
+  <RLRG_TabRaids>袭击</RLRG_TabRaids>
+  <RLRG_RaidsIntro>未勾选的袭击策略、到达方式和随机任务不会被使用。勾选 = 允许。威胁事件（怪物、疾病、沉降物…）在“威胁”标签页。</RLRG_RaidsIntro>
   <RLRG_RaidsSummary>已阻止{1}种袭击类型中的{0}种</RLRG_RaidsSummary>
   <RLRG_RaidsResetAll>全部重置</RLRG_RaidsResetAll>
   <RLRG_RaidsResetAll_Desc>重新允许所有袭击类型（默认）。</RLRG_RaidsResetAll_Desc>
@@ -349,4 +349,30 @@
   <RLRG_EV_Steady>稳定</RLRG_EV_Steady>
   <RLRG_EV_FactionTip>{0}：{1} 等级（世界：{2}）。他们的袭击者和访客携带该等级的装备。</RLRG_EV_FactionTip>
   <RLRG_EV_DefenseNow>你的防御：{0} 点 · 当前袭击点数：{1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>威胁</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>未勾选的事件永远不会发生——无论来自叙事者、任务还是模组。勾选 = 允许。更改立即生效。</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>保留我自己召唤的首领</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>你用机械师在通讯台召唤的首领（恶魔机、战争女王、天启者…）及其护卫不会被“同样限制机械族和虫族”移除——你召唤它们是为了信号芯片。</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>显示所有事件</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>也列出不是威胁的事件（访客、商人、流浪者、好事件…），以便也能关闭它们。</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>重大威胁</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>小型威胁</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>坏事件和模组威胁</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>其他事件</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>全部禁止</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>禁止此组中显示的所有项（遵循搜索）。</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>已关闭 {0} / {1} 个事件</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>重新允许所有事件（默认）。</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>已关闭：此事件永远不会发生——无论来自叙事者、任务还是模组。</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>被 World at Your Level 移除</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>保留——你已允许</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>移除——尚未研究</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>移除——高于世界等级</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>之前已移除</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>保留——规则允许</RLRG_RemStatusStays>
+  <RLRG_RemRules>按规则</RLRG_RemRules>
+  <RLRG_RemRules_Desc>此处显示的所有项重新由模组规则决定。</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>全部保留</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>保留此处显示的所有项——不再移除。</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>勾选 = 保留。未勾选 = 由模组规则决定（未研究的机械体和无人机、高于世界等级的天气/状态机器、比你更好的炮塔）。勾选即可无论如何保留。</RLRG_RemTip>
 </LanguageData>

@@ -221,8 +221,8 @@
   <RLRG_TraderBlockedGear>Não está à venda (pesquisa)</RLRG_TraderBlockedGear>
   <RLRG_TraderBlockedGear_Desc>Não permitido pela pesquisa, e o nível tecnológico {0} está acima do que os comerciantes podem vender agora ({1}).</RLRG_TraderBlockedGear_Desc>
   <!-- 2.10.0: Raids tab -->
-  <RLRG_TabRaids>Ataques e ameaças</RLRG_TabRaids>
-  <RLRG_RaidsIntro>Ataques e ameaças desmarcados (também de mods: monstros, animais enfurecidos, insetoides, doenças, precipitação radioativa …) não vão acontecer. Marcado = permitido. As mudanças valem para novos ataques imediatamente.</RLRG_RaidsIntro>
+  <RLRG_TabRaids>Ataques</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Estratégias de ataque, modos de chegada e missões aleatórias desmarcados não serão usados. Marcado = permitido. Eventos de ameaça (monstros, doenças, precipitação radioativa …) estão na aba Ameaças.</RLRG_RaidsIntro>
   <RLRG_RaidsSummary>{0} de {1} tipos de ataque bloqueados</RLRG_RaidsSummary>
   <RLRG_RaidsResetAll>Redefinir tudo</RLRG_RaidsResetAll>
   <RLRG_RaidsResetAll_Desc>Permitir de novo todos os tipos de ataque (o padrão).</RLRG_RaidsResetAll_Desc>
@@ -350,4 +350,30 @@
   <RLRG_EV_Steady>estável</RLRG_EV_Steady>
   <RLRG_EV_FactionTip>{0}: nível {1} (mundo: {2}). Seus saqueadores e visitantes usam equipamento deste nível.</RLRG_EV_FactionTip>
   <RLRG_EV_DefenseNow>Sua defesa: {0} pontos · pontos de ataque agora: {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>Ameaças</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>Eventos desmarcados nunca começam – nem pelo narrador, nem por missões ou mods. Marcado = permitido. Vale na hora.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>Manter chefes que eu invoco</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>Chefes que você invoca com um mecanitor no console de comunicação (Diabolus, Rainha de Guerra, Apocriton …) e sua escolta nunca são removidos por "Limitar também mecanoides e insetoides" – você os chamou pelos chips de sinal.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>Mostrar todos os eventos</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>Listar também eventos que não são ameaças (visitantes, comerciantes, andarilhos, eventos bons …) para poder desligá-los também.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>Ameaças grandes</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>Ameaças pequenas</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>Eventos ruins e ameaças de mods</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>Outros eventos</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>Bloquear tudo</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>Bloquear tudo o que aparece neste grupo (respeita a busca).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>{0} de {1} eventos desligados</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>Permitir todos os eventos de novo (padrão).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>Desligado: este evento nunca começa – nem pelo narrador, nem por missões ou mods.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>Removido pelo World at Your Level</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>fica – você permitiu</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>removido – ainda não pesquisado</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>removido – acima do nível do mundo</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>removido antes</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>fica – as regras permitem</RLRG_RemStatusStays>
+  <RLRG_RemRules>Pelas regras</RLRG_RemRules>
+  <RLRG_RemRules_Desc>As regras do mod voltam a decidir para tudo o que aparece aqui.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>Manter tudo</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>Manter tudo o que aparece aqui – não será mais removido.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>Marcado = fica. Desmarcado = as regras do mod decidem (mecanoides e drones não pesquisados, máquinas de clima/condição acima do nível do mundo, torretas melhores que as suas). Marque para manter mesmo assim.</RLRG_RemTip>
 </LanguageData>

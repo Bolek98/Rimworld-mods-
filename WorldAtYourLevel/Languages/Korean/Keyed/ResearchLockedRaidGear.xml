@@ -220,8 +220,8 @@
   <RLRG_TraderBlocked_Desc>기술 수준 {0}은(는) 상인이 지금 팔 수 있는 수준({1})보다 높습니다.</RLRG_TraderBlocked_Desc>
   <RLRG_TraderBlockedGear>판매 불가(연구)</RLRG_TraderBlockedGear>
   <RLRG_TraderBlockedGear_Desc>연구로 허용되지 않았고, 기술 수준 {0}은(는) 상인이 지금 팔 수 있는 수준({1})보다 높습니다.</RLRG_TraderBlockedGear_Desc>
-  <RLRG_TabRaids>습격과 위협</RLRG_TabRaids>
-  <RLRG_RaidsIntro>체크하지 않은 습격과 위협(모드의 것도 포함: 괴물, 광포한 동물, 곤충, 질병, 낙진…)은 일어나지 않습니다. 체크 = 허용. 변경 사항은 새 습격에 바로 적용됩니다.</RLRG_RaidsIntro>
+  <RLRG_TabRaids>습격</RLRG_TabRaids>
+  <RLRG_RaidsIntro>체크하지 않은 습격 전략, 도착 방식, 무작위 퀘스트는 사용되지 않습니다. 체크 = 허용. 위협 이벤트(괴물, 질병, 낙진…)는 '위협' 탭에 있습니다.</RLRG_RaidsIntro>
   <RLRG_RaidsSummary>습격 유형 {1}개 중 {0}개 차단됨</RLRG_RaidsSummary>
   <RLRG_RaidsResetAll>모두 초기화</RLRG_RaidsResetAll>
   <RLRG_RaidsResetAll_Desc>모든 습격 유형을 다시 허용합니다(기본값).</RLRG_RaidsResetAll_Desc>
@@ -349,4 +349,30 @@
   <RLRG_EV_Steady>유지</RLRG_EV_Steady>
   <RLRG_EV_FactionTip>{0}: {1} 수준(세계: {2}). 이 세력의 습격자와 방문자는 이 수준의 장비를 지닙니다.</RLRG_EV_FactionTip>
   <RLRG_EV_DefenseNow>당신의 방어력: {0}점 · 현재 습격 점수: {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>위협</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>체크하지 않은 이벤트는 절대 시작되지 않습니다 — 스토리텔러, 퀘스트, 모드 어디서도. 체크 = 허용. 바로 적용됩니다.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>내가 부른 보스 유지</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>메카니터로 통신 콘솔에서 부른 보스(디아볼루스, 워퀸, 아포크리톤…)와 호위대는 '기계체와 곤충도 제한'으로 제거되지 않습니다 — 신호 칩을 얻으려고 부른 것이니까요.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>모든 이벤트 보기</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>위협이 아닌 이벤트(방문객, 상인, 방랑자, 좋은 이벤트…)도 표시하여 그것들도 끌 수 있게 합니다.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>큰 위협</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>작은 위협</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>나쁜 이벤트와 모드 위협</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>기타 이벤트</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>모두 차단</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>이 그룹에 보이는 모든 항목 차단(검색 반영).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>이벤트 {1}개 중 {0}개 꺼짐</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>모든 이벤트를 다시 허용(기본값).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>꺼짐: 이 이벤트는 절대 시작되지 않습니다 — 스토리텔러, 퀘스트, 모드 어디서도.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>World at Your Level이 제거</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>유지 – 허용함</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>제거 – 아직 연구 안 됨</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>제거 – 세계 레벨보다 높음</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>이전에 제거됨</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>유지 – 규칙상 허용</RLRG_RemStatusStays>
+  <RLRG_RemRules>규칙대로</RLRG_RemRules>
+  <RLRG_RemRules_Desc>여기 보이는 모든 항목을 다시 모드 규칙이 결정합니다.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>모두 유지</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>여기 보이는 모든 항목 유지 – 더 이상 제거되지 않습니다.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>체크 = 유지. 체크 해제 = 모드 규칙이 결정(연구하지 않은 기계체와 드론, 세계 레벨보다 높은 날씨/상태 장치, 당신보다 좋은 포탑). 그래도 유지하려면 체크하세요.</RLRG_RemTip>
 </LanguageData>

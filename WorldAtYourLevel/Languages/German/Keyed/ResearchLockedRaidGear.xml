@@ -221,8 +221,8 @@
   <RLRG_TraderBlockedGear>Nicht zum Verkauf (Forschung)</RLRG_TraderBlockedGear>
   <RLRG_TraderBlockedGear_Desc>Nicht durch Forschung erlaubt, und Technologiestufe {0} liegt über dem, was Händler jetzt verkaufen dürfen ({1}).</RLRG_TraderBlockedGear_Desc>
   <!-- 2.10.0: Raids tab -->
-  <RLRG_TabRaids>Überfälle und Bedrohungen</RLRG_TabRaids>
-  <RLRG_RaidsIntro>Nicht markierte Überfälle und Bedrohungen (auch aus Mods: Monster, Menschenjäger, Insektoiden, Krankheiten, Fallout …) finden nicht statt. Markiert = erlaubt. Änderungen gelten sofort für neue Überfälle.</RLRG_RaidsIntro>
+  <RLRG_TabRaids>Überfälle</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Nicht markierte Überfallstrategien, Ankunftsarten und zufällige Quests werden nicht genutzt. Markiert = erlaubt. Bedrohungsereignisse (Monster, Krankheiten, Fallout …) stehen im Reiter Bedrohungen.</RLRG_RaidsIntro>
   <RLRG_RaidsSummary>{0} von {1} Überfallarten blockiert</RLRG_RaidsSummary>
   <RLRG_RaidsResetAll>Alles zurücksetzen</RLRG_RaidsResetAll>
   <RLRG_RaidsResetAll_Desc>Alle Überfallarten wieder erlauben (Standard).</RLRG_RaidsResetAll_Desc>
@@ -350,4 +350,30 @@
   <RLRG_EV_Steady>stabil</RLRG_EV_Steady>
   <RLRG_EV_FactionTip>{0}: Stufe {1} (Welt: {2}). Ihre Angreifer und Besucher tragen Ausrüstung dieser Stufe.</RLRG_EV_FactionTip>
   <RLRG_EV_DefenseNow>Deine Verteidigung: {0} Punkte · Überfallpunkte jetzt: {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>Bedrohungen</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>Nicht markierte Ereignisse starten nie – weder vom Erzähler noch aus Quests oder Mods. Markiert = erlaubt. Änderungen gelten sofort.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>Selbst gerufene Bosse behalten</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>Bosse, die du mit einem Mechanitor an der Kommunikationskonsole rufst (Diabolus, Kriegskönigin, Apocriton …), und ihre Eskorte werden von „Auch Mechanoiden und Insektoiden begrenzen“ nie entfernt – du hast sie für ihre Signalchips gerufen.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>Alle Ereignisse zeigen</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>Auch Ereignisse auflisten, die keine Bedrohung sind (Besucher, Händler, Wanderer, gute Ereignisse …), um auch diese abzuschalten.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>Große Bedrohungen</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>Kleine Bedrohungen</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>Schlechte Ereignisse und Mod-Bedrohungen</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>Andere Ereignisse</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>Alle sperren</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>Alles in dieser Gruppe Sichtbare sperren (beachtet die Suche).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>{0} von {1} Ereignissen aus</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>Alle Ereignisse wieder erlauben (Standard).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>Aus: Dieses Ereignis startet nie – weder vom Erzähler noch aus Quests oder Mods.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>Entfernt von World at Your Level</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>bleibt – von dir erlaubt</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>entfernt – noch nicht erforscht</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>entfernt – über dem Weltniveau</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>früher entfernt</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>bleibt – die Regeln erlauben es</RLRG_RemStatusStays>
+  <RLRG_RemRules>Nach Regeln</RLRG_RemRules>
+  <RLRG_RemRules_Desc>Für alles hier Sichtbare entscheiden wieder die Regeln der Mod.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>Alle behalten</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>Alles hier Sichtbare behalten – es wird nicht mehr entfernt.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>Markiert = bleibt. Nicht markiert = die Regeln der Mod entscheiden (nicht erforschte Mechanoiden und Drohnen, Wetter-/Zustandsmaschinen über dem Weltniveau, Geschütze besser als deine). Markieren, um es trotzdem zu behalten.</RLRG_RemTip>
 </LanguageData>
