@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RD_Rec1>Safe riding: Giddy-Up repaired, failed mounting undone, endless retries paused</RD_Rec1>
+  <RD_Rec2>Riders get off before boarding; the animal rides along as cargo</RD_Rec2>
+  <RD_Rec3>Back on the animal after getting out; caravans ride too</RD_Rec3>
+  <RD_Rec4>Passenger seats ×2, vehicles without passenger places get some</RD_Rec4>
+  <RD_PageSafety>Safe riding</RD_PageSafety>
+  <RD_PageVehicles>Riders &amp; vehicles</RD_PageVehicles>
+  <RD_PageSeats>Seats</RD_PageSeats>
+  <RD_PageStatus>Status</RD_PageStatus>
+  <RD_SecSafety>Safe riding (Giddy-Up)</RD_SecSafety>
+  <RD_NoGiddyUp>Giddy-Up is not in the game – this page does nothing.</RD_NoGiddyUp>
+  <RD_NeedBoth>Needs both Giddy-Up and Vehicle Framework – one of them is missing.</RD_NeedBoth>
+  <RD_NoVehicles>Vehicle Framework is not in the game – this page does nothing.</RD_NoVehicles>
+  <RD_SafeMounting>Repair and protect mounting</RD_SafeMounting>
+  <RD_SafeMounting_Desc>If another mod broke Giddy-Up's start, the list of mountable animals and the rider offsets are repaired. A mounting that throws halfway is undone cleanly instead of leaving the rider half on the animal.</RD_SafeMounting_Desc>
+  <RD_MountPause>Pause endless mounting</RD_MountPause>
+  <RD_MountPause_Desc>A rider whose mounting keeps failing (5 tries within an hour, or a mounting that threw) takes a break before trying again. Your own orders still go through. This stops the endless retry that could crash the game.</RD_MountPause_Desc>
+  <RD_PauseHours>Break length: {0} h</RD_PauseHours>
+  <RD_PauseHours_Desc>How long a rider waits before trying to mount again (game hours).</RD_PauseHours_Desc>
+  <RD_SecVehicles>Riders and vehicles</RD_SecVehicles>
+  <RD_DismountToBoard>Get off before boarding</RD_DismountToBoard>
+  <RD_DismountToBoard_Desc>A rider gets off his animal properly before getting into a vehicle (before, he simply vanished from under Giddy-Up and the animal was left confused).</RD_DismountToBoard_Desc>
+  <RD_AnimalPlace>The animal meanwhile</RD_AnimalPlace>
+  <RD_AnimalPlace_Desc>What the animal does while its rider is in a vehicle.</RD_AnimalPlace_Desc>
+  <RD_Place_Cargo>Rides along</RD_Place_Cargo>
+  <RD_Place_Cargo_Desc>The animal goes into the vehicle's cargo if it fits (by weight). If not, it waits next to the vehicle.</RD_Place_Cargo_Desc>
+  <RD_Place_Wait>Waits by it</RD_Place_Wait>
+  <RD_Place_Wait_Desc>The animal stays next to the vehicle (tied up if it is an animal that can be roped).</RD_Place_Wait_Desc>
+  <RD_Place_Free>Goes free</RD_Place_Free>
+  <RD_Place_Free_Desc>The animal is left to itself.</RD_Place_Free_Desc>
+  <RD_RideToVehicle>Ride up to vehicles</RD_RideToVehicle>
+  <RD_RideToVehicle_Desc>Riders stay on their animal while going to board, follow or escort a vehicle, instead of parking it 25 cells away and walking.</RD_RideToVehicle_Desc>
+  <RD_RemountAfter>Back on after getting out</RD_RemountAfter>
+  <RD_RemountAfter_Desc>After getting out of a vehicle the rider takes his animal out of the cargo (if it rode along) and gets back on.</RD_RemountAfter_Desc>
+  <RD_KeepOwnership>The animal stays his</RD_KeepOwnership>
+  <RD_KeepOwnership_Desc>While the rider is inside the vehicle, the animal stays reserved for him – he is not sent to lead it to the pen and nobody else takes it.</RD_KeepOwnership_Desc>
+  <RD_SecCaravans>Vehicle caravans</RD_SecCaravans>
+  <RD_CaravanMounts>Riders ride in vehicle caravans</RD_CaravanMounts>
+  <RD_CaravanMounts_Desc>Colonists walking with a vehicle caravan ride their own animals, and get back on them when the caravan arrives (Giddy-Up does this only for caravans without vehicles).</RD_CaravanMounts_Desc>
+  <RD_SecSeats>Seats in vehicles</RD_SecSeats>
+  <RD_Seats>Change vehicle seats</RD_Seats>
+  <RD_Seats_Desc>Passenger seats are changed on the vehicle types – new vehicles, loaded ones and those on the map all get it. Driver and gunner seats are never touched. Nobody is thrown out when seats go down.</RD_Seats_Desc>
+  <RD_PassengerMult>Passenger seats: ×{0}</RD_PassengerMult>
+  <RD_PassengerMult_Desc>Every vehicle's passenger seats multiplied (rounded up).</RD_PassengerMult_Desc>
+  <RD_AddSeats>Seats for vehicles without passenger places</RD_AddSeats>
+  <RD_AddSeats_Desc>Vehicles that only have a driver (or gunners) get a passenger place with 1–4 seats by their size.</RD_AddSeats_Desc>
+  <RD_SecPerVehicle>Each vehicle</RD_SecPerVehicle>
+  <RD_PerVehicle_Desc>Add or remove passenger seats on a single vehicle. Shown: crew seats · passenger seats originally → now.</RD_PerVehicle_Desc>
+  <RD_Search>Search:</RD_Search>
+  <RD_ResetAll>Reset all</RD_ResetAll>
+  <RD_SeatsRow>crew {0} · passengers {1} → {2}</RD_SeatsRow>
+  <RD_PassengerRole>Passengers</RD_PassengerRole>
+  <RD_SecStatus>What the mod found</RD_SecStatus>
+  <RD_StGiddyUp>Giddy-Up</RD_StGiddyUp>
+  <RD_StVehicles>Vehicle Framework</RD_StVehicles>
+  <RD_StCompanion>Companion Mounts</RD_StCompanion>
+  <RD_StPassengers>Mount Passengers</RD_StPassengers>
+  <RD_StNotFound>not in the game</RD_StNotFound>
+  <RD_StSetupOk>Giddy-Up started fine.</RD_StSetupOk>
+  <RD_StSetupRepaired>Giddy-Up's start was broken by another mod – repaired.</RD_StSetupRepaired>
+  <RD_StCounts>This session: {0} failed mountings undone · {1} riders paused · {2} got off to board · {3} got back on</RD_StCounts>
+  <RD_StSeats>Seats: {0} vehicle types changed · {1} got a passenger place</RD_StSeats>
+  <RD_LogMountThrew>{0} could not get on {1} ({2}) – undone, next try in {3} h.</RD_LogMountThrew>
+  <RD_LogMountLoop>{0} kept trying to get on {1} without success – next try in {3} h.</RD_LogMountLoop>
+</LanguageData>

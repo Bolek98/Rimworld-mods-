@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RD_Rec1>安全骑乘：修复 Giddy-Up，撤销失败的骑乘，暂停无限重试</RD_Rec1>
+  <RD_Rec2>骑手登车前先下坐骑；动物作为货物随车</RD_Rec2>
+  <RD_Rec3>下车后重新骑上动物；载具车队中也能骑乘</RD_Rec3>
+  <RD_Rec4>乘客座位 ×2，没有乘客位的载具也会获得一些</RD_Rec4>
+  <RD_PageSafety>安全骑乘</RD_PageSafety>
+  <RD_PageVehicles>骑手与载具</RD_PageVehicles>
+  <RD_PageSeats>座位</RD_PageSeats>
+  <RD_PageStatus>状态</RD_PageStatus>
+  <RD_SecSafety>安全骑乘（Giddy-Up）</RD_SecSafety>
+  <RD_NoGiddyUp>游戏中没有 Giddy-Up – 本页不起作用。</RD_NoGiddyUp>
+  <RD_NeedBoth>需要同时安装 Giddy-Up 和 Vehicle Framework – 缺少其中之一。</RD_NeedBoth>
+  <RD_NoVehicles>游戏中没有 Vehicle Framework – 本页不起作用。</RD_NoVehicles>
+  <RD_SafeMounting>修复并保护骑乘</RD_SafeMounting>
+  <RD_SafeMounting_Desc>如果其他模组破坏了 Giddy-Up 的启动，可骑乘动物列表和骑手偏移会被修复。中途出错的骑乘会被干净地撤销，而不会让骑手半挂在动物身上。</RD_SafeMounting_Desc>
+  <RD_MountPause>暂停无限骑乘尝试</RD_MountPause>
+  <RD_MountPause_Desc>骑乘屡次失败的骑手（一小时内尝试 5 次，或骑乘时出错）会先休息一段时间再重试。你自己的命令仍会执行。这能阻止可能导致游戏崩溃的无限重试。</RD_MountPause_Desc>
+  <RD_PauseHours>休息时长：{0} 小时</RD_PauseHours>
+  <RD_PauseHours_Desc>骑手再次尝试骑乘前等待的时间（游戏小时）。</RD_PauseHours_Desc>
+  <RD_SecVehicles>骑手与载具</RD_SecVehicles>
+  <RD_DismountToBoard>登车前下坐骑</RD_DismountToBoard>
+  <RD_DismountToBoard_Desc>骑手在进入载具前会正常地从动物身上下来（以前他会在 Giddy-Up 不知情的情况下直接消失，留下不知所措的动物）。</RD_DismountToBoard_Desc>
+  <RD_AnimalPlace>此时的动物</RD_AnimalPlace>
+  <RD_AnimalPlace_Desc>骑手在载具中时，动物做什么。</RD_AnimalPlace_Desc>
+  <RD_Place_Cargo>随车同行</RD_Place_Cargo>
+  <RD_Place_Cargo_Desc>如果装得下（按重量），动物会进入载具的货舱。否则在载具旁等待。</RD_Place_Cargo_Desc>
+  <RD_Place_Wait>在旁等待</RD_Place_Wait>
+  <RD_Place_Wait_Desc>动物留在载具旁（如果是可拴绳的动物则会被拴住）。</RD_Place_Wait_Desc>
+  <RD_Place_Free>自由活动</RD_Place_Free>
+  <RD_Place_Free_Desc>动物自行其是。</RD_Place_Free_Desc>
+  <RD_RideToVehicle>骑到载具旁</RD_RideToVehicle>
+  <RD_RideToVehicle_Desc>骑手在前往登车、跟随或护送载具时保持骑乘，而不是把动物留在 25 格外再步行。</RD_RideToVehicle_Desc>
+  <RD_RemountAfter>下车后重新骑乘</RD_RemountAfter>
+  <RD_RemountAfter_Desc>下车后，骑手会从货舱中取出自己的动物（如果它随车同行）并重新骑上。</RD_RemountAfter_Desc>
+  <RD_KeepOwnership>动物仍归他所有</RD_KeepOwnership>
+  <RD_KeepOwnership_Desc>骑手在载具内时，动物仍为他保留 – 他不会被派去把它牵回围栏，其他人也不会占用它。</RD_KeepOwnership_Desc>
+  <RD_SecCaravans>载具车队</RD_SecCaravans>
+  <RD_CaravanMounts>在载具车队中骑乘</RD_CaravanMounts>
+  <RD_CaravanMounts_Desc>随载具车队步行的殖民者会骑自己的动物，并在车队抵达时重新骑上（Giddy-Up 只对没有载具的车队这样做）。</RD_CaravanMounts_Desc>
+  <RD_SecSeats>载具座位</RD_SecSeats>
+  <RD_Seats>更改载具座位</RD_Seats>
+  <RD_Seats_Desc>乘客座位按载具类型更改 – 新载具、读档载入的载具和地图上的载具都会生效。驾驶员和炮手座位永不改动。座位减少时不会有人被赶出去。</RD_Seats_Desc>
+  <RD_PassengerMult>乘客座位：×{0}</RD_PassengerMult>
+  <RD_PassengerMult_Desc>每辆载具的乘客座位乘以该倍数（向上取整）。</RD_PassengerMult_Desc>
+  <RD_AddSeats>为没有乘客位的载具添加座位</RD_AddSeats>
+  <RD_AddSeats_Desc>只有驾驶员（或炮手）的载具会按大小获得一个 1–4 座的乘客位。</RD_AddSeats_Desc>
+  <RD_SecPerVehicle>单个载具</RD_SecPerVehicle>
+  <RD_PerVehicle_Desc>为单个载具增加或减少乘客座位。显示：乘员座位 · 乘客座位 原始 → 现在。</RD_PerVehicle_Desc>
+  <RD_Search>搜索：</RD_Search>
+  <RD_ResetAll>全部重置</RD_ResetAll>
+  <RD_SeatsRow>乘员 {0} · 乘客 {1} → {2}</RD_SeatsRow>
+  <RD_PassengerRole>乘客</RD_PassengerRole>
+  <RD_SecStatus>模组检测结果</RD_SecStatus>
+  <RD_StGiddyUp>Giddy-Up</RD_StGiddyUp>
+  <RD_StVehicles>Vehicle Framework</RD_StVehicles>
+  <RD_StCompanion>Companion Mounts</RD_StCompanion>
+  <RD_StPassengers>Mount Passengers</RD_StPassengers>
+  <RD_StNotFound>不在游戏中</RD_StNotFound>
+  <RD_StSetupOk>Giddy-Up 启动正常。</RD_StSetupOk>
+  <RD_StSetupRepaired>Giddy-Up 的启动被其他模组破坏 – 已修复。</RD_StSetupRepaired>
+  <RD_StCounts>本次游戏：撤销失败骑乘 {0} 次 · 暂停骑手 {1} 名 · 下坐骑登车 {2} 名 · 重新骑乘 {3} 名</RD_StCounts>
+  <RD_StSeats>座位：更改载具类型 {0} 种 · 获得乘客位 {1} 种</RD_StSeats>
+  <RD_LogMountThrew>{0} 无法骑上 {1}（{2}）– 已撤销，{3} 小时后再试。</RD_LogMountThrew>
+  <RD_LogMountLoop>{0} 多次尝试骑上 {1} 均未成功 – {3} 小时后再试。</RD_LogMountLoop>
+</LanguageData>

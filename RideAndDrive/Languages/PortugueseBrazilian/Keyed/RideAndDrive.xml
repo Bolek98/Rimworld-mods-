@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RD_Rec1>Montaria segura: Giddy-Up reparado, montarias falhas desfeitas, tentativas infinitas pausadas</RD_Rec1>
+  <RD_Rec2>Cavaleiros desmontam antes de embarcar; o animal vai junto como carga</RD_Rec2>
+  <RD_Rec3>De volta ao animal após desembarcar; também se monta em caravanas</RD_Rec3>
+  <RD_Rec4>Assentos de passageiros ×2, veículos sem lugares para passageiros ganham alguns</RD_Rec4>
+  <RD_PageSafety>Montaria segura</RD_PageSafety>
+  <RD_PageVehicles>Cavaleiros e veículos</RD_PageVehicles>
+  <RD_PageSeats>Assentos</RD_PageSeats>
+  <RD_PageStatus>Status</RD_PageStatus>
+  <RD_SecSafety>Montaria segura (Giddy-Up)</RD_SecSafety>
+  <RD_NoGiddyUp>Giddy-Up não está no jogo – esta página não faz nada.</RD_NoGiddyUp>
+  <RD_NeedBoth>Requer Giddy-Up e Vehicle Framework – um deles está faltando.</RD_NeedBoth>
+  <RD_NoVehicles>Vehicle Framework não está no jogo – esta página não faz nada.</RD_NoVehicles>
+  <RD_SafeMounting>Reparar e proteger a montaria</RD_SafeMounting>
+  <RD_SafeMounting_Desc>Se outro mod quebrou a inicialização do Giddy-Up, a lista de animais montáveis e os deslocamentos dos cavaleiros são reparados. Uma montaria que dá erro no meio é desfeita de forma limpa, em vez de deixar o cavaleiro meio em cima do animal.</RD_SafeMounting_Desc>
+  <RD_MountPause>Pausar montaria infinita</RD_MountPause>
+  <RD_MountPause_Desc>Um cavaleiro cuja montaria continua falhando (5 tentativas em uma hora, ou uma montaria que deu erro) faz uma pausa antes de tentar de novo. Suas próprias ordens continuam valendo. Isso interrompe as tentativas infinitas que podiam travar o jogo.</RD_MountPause_Desc>
+  <RD_PauseHours>Duração da pausa: {0} h</RD_PauseHours>
+  <RD_PauseHours_Desc>Quanto tempo um cavaleiro espera antes de tentar montar de novo (horas de jogo).</RD_PauseHours_Desc>
+  <RD_SecVehicles>Cavaleiros e veículos</RD_SecVehicles>
+  <RD_DismountToBoard>Desmontar antes de embarcar</RD_DismountToBoard>
+  <RD_DismountToBoard_Desc>Um cavaleiro desmonta direito do animal antes de entrar em um veículo (antes, ele simplesmente sumia sem o Giddy-Up perceber e o animal ficava confuso).</RD_DismountToBoard_Desc>
+  <RD_AnimalPlace>O animal enquanto isso</RD_AnimalPlace>
+  <RD_AnimalPlace_Desc>O que o animal faz enquanto seu cavaleiro está em um veículo.</RD_AnimalPlace_Desc>
+  <RD_Place_Cargo>Vai junto</RD_Place_Cargo>
+  <RD_Place_Cargo_Desc>O animal vai para a carga do veículo se couber (pelo peso). Se não, ele espera ao lado do veículo.</RD_Place_Cargo_Desc>
+  <RD_Place_Wait>Espera ao lado</RD_Place_Wait>
+  <RD_Place_Wait_Desc>O animal fica ao lado do veículo (amarrado, se for um animal que pode ser amarrado).</RD_Place_Wait_Desc>
+  <RD_Place_Free>Fica livre</RD_Place_Free>
+  <RD_Place_Free_Desc>O animal é deixado por conta própria.</RD_Place_Free_Desc>
+  <RD_RideToVehicle>Ir montado até os veículos</RD_RideToVehicle>
+  <RD_RideToVehicle_Desc>Cavaleiros continuam montados ao ir embarcar, seguir ou escoltar um veículo, em vez de deixar o animal a 25 células de distância e ir a pé.</RD_RideToVehicle_Desc>
+  <RD_RemountAfter>Montar de novo após desembarcar</RD_RemountAfter>
+  <RD_RemountAfter_Desc>Depois de sair de um veículo, o cavaleiro tira seu animal da carga (se ele foi junto) e monta de novo.</RD_RemountAfter_Desc>
+  <RD_KeepOwnership>O animal continua dele</RD_KeepOwnership>
+  <RD_KeepOwnership_Desc>Enquanto o cavaleiro está dentro do veículo, o animal continua reservado para ele – ele não é mandado levá-lo ao cercado e ninguém mais o pega.</RD_KeepOwnership_Desc>
+  <RD_SecCaravans>Caravanas de veículos</RD_SecCaravans>
+  <RD_CaravanMounts>Cavaleiros montam em caravanas de veículos</RD_CaravanMounts>
+  <RD_CaravanMounts_Desc>Colonos que andam com uma caravana de veículos montam seus próprios animais e montam de novo quando a caravana chega (o Giddy-Up só faz isso em caravanas sem veículos).</RD_CaravanMounts_Desc>
+  <RD_SecSeats>Assentos nos veículos</RD_SecSeats>
+  <RD_Seats>Alterar assentos dos veículos</RD_Seats>
+  <RD_Seats_Desc>Os assentos de passageiros são alterados nos tipos de veículo – veículos novos, carregados e os que estão no mapa recebem a mudança. Assentos de motorista e atiradores nunca são alterados. Ninguém é expulso quando os assentos diminuem.</RD_Seats_Desc>
+  <RD_PassengerMult>Assentos de passageiros: ×{0}</RD_PassengerMult>
+  <RD_PassengerMult_Desc>Assentos de passageiros de cada veículo multiplicados (arredondado para cima).</RD_PassengerMult_Desc>
+  <RD_AddSeats>Assentos para veículos sem lugares para passageiros</RD_AddSeats>
+  <RD_AddSeats_Desc>Veículos que só têm motorista (ou atiradores) ganham um espaço para passageiros com 1–4 assentos conforme o tamanho.</RD_AddSeats_Desc>
+  <RD_SecPerVehicle>Cada veículo</RD_SecPerVehicle>
+  <RD_PerVehicle_Desc>Adicione ou remova assentos de passageiros em um único veículo. Mostrado: assentos da tripulação · assentos de passageiros originais → agora.</RD_PerVehicle_Desc>
+  <RD_Search>Buscar:</RD_Search>
+  <RD_ResetAll>Redefinir tudo</RD_ResetAll>
+  <RD_SeatsRow>tripulação {0} · passageiros {1} → {2}</RD_SeatsRow>
+  <RD_PassengerRole>Passageiros</RD_PassengerRole>
+  <RD_SecStatus>O que o mod encontrou</RD_SecStatus>
+  <RD_StGiddyUp>Giddy-Up</RD_StGiddyUp>
+  <RD_StVehicles>Vehicle Framework</RD_StVehicles>
+  <RD_StCompanion>Companion Mounts</RD_StCompanion>
+  <RD_StPassengers>Mount Passengers</RD_StPassengers>
+  <RD_StNotFound>não está no jogo</RD_StNotFound>
+  <RD_StSetupOk>Giddy-Up iniciou normalmente.</RD_StSetupOk>
+  <RD_StSetupRepaired>A inicialização do Giddy-Up foi quebrada por outro mod – reparada.</RD_StSetupRepaired>
+  <RD_StCounts>Esta sessão: {0} montarias falhas desfeitas · {1} cavaleiros em pausa · {2} desmontaram para embarcar · {3} montaram de novo</RD_StCounts>
+  <RD_StSeats>Assentos: {0} tipos de veículo alterados · {1} ganharam espaço para passageiros</RD_StSeats>
+  <RD_LogMountThrew>{0} não conseguiu montar em {1} ({2}) – desfeito, próxima tentativa em {3} h.</RD_LogMountThrew>
+  <RD_LogMountLoop>{0} continuou tentando montar em {1} sem sucesso – próxima tentativa em {3} h.</RD_LogMountLoop>
+</LanguageData>

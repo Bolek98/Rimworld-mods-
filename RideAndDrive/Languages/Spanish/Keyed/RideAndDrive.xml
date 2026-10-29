@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RD_Rec1>Monta segura: Giddy-Up reparado, montas fallidas deshechas, reintentos infinitos en pausa</RD_Rec1>
+  <RD_Rec2>Los jinetes desmontan antes de subir; el animal va como carga</RD_Rec2>
+  <RD_Rec3>De vuelta al animal tras bajar; también se monta en caravanas</RD_Rec3>
+  <RD_Rec4>Asientos de pasajeros ×2, los vehículos sin plazas de pasajeros reciben algunas</RD_Rec4>
+  <RD_PageSafety>Monta segura</RD_PageSafety>
+  <RD_PageVehicles>Jinetes y vehículos</RD_PageVehicles>
+  <RD_PageSeats>Asientos</RD_PageSeats>
+  <RD_PageStatus>Estado</RD_PageStatus>
+  <RD_SecSafety>Monta segura (Giddy-Up)</RD_SecSafety>
+  <RD_NoGiddyUp>Giddy-Up no está en la partida – esta página no hace nada.</RD_NoGiddyUp>
+  <RD_NeedBoth>Requiere Giddy-Up y Vehicle Framework – falta uno de ellos.</RD_NeedBoth>
+  <RD_NoVehicles>Vehicle Framework no está en la partida – esta página no hace nada.</RD_NoVehicles>
+  <RD_SafeMounting>Reparar y proteger la monta</RD_SafeMounting>
+  <RD_SafeMounting_Desc>Si otro mod rompió el arranque de Giddy-Up, se reparan la lista de animales montables y los desplazamientos de los jinetes. Una monta que falla a medias se deshace limpiamente en lugar de dejar al jinete medio subido al animal.</RD_SafeMounting_Desc>
+  <RD_MountPause>Pausar la monta infinita</RD_MountPause>
+  <RD_MountPause_Desc>Un jinete cuya monta sigue fallando (5 intentos en una hora, o una monta que dio error) se toma un descanso antes de volver a intentarlo. Tus propias órdenes siguen funcionando. Esto detiene los reintentos infinitos que podían colgar el juego.</RD_MountPause_Desc>
+  <RD_PauseHours>Duración del descanso: {0} h</RD_PauseHours>
+  <RD_PauseHours_Desc>Cuánto espera un jinete antes de volver a intentar montar (horas de juego).</RD_PauseHours_Desc>
+  <RD_SecVehicles>Jinetes y vehículos</RD_SecVehicles>
+  <RD_DismountToBoard>Desmontar antes de subir</RD_DismountToBoard>
+  <RD_DismountToBoard_Desc>Un jinete desmonta correctamente de su animal antes de subir a un vehículo (antes simplemente desaparecía sin que Giddy-Up se enterara y el animal quedaba desorientado).</RD_DismountToBoard_Desc>
+  <RD_AnimalPlace>Mientras tanto, el animal</RD_AnimalPlace>
+  <RD_AnimalPlace_Desc>Qué hace el animal mientras su jinete está en un vehículo.</RD_AnimalPlace_Desc>
+  <RD_Place_Cargo>Va con él</RD_Place_Cargo>
+  <RD_Place_Cargo_Desc>El animal entra en la carga del vehículo si cabe (por peso). Si no, espera junto al vehículo.</RD_Place_Cargo_Desc>
+  <RD_Place_Wait>Espera al lado</RD_Place_Wait>
+  <RD_Place_Wait_Desc>El animal se queda junto al vehículo (atado si es un animal que se puede atar).</RD_Place_Wait_Desc>
+  <RD_Place_Free>Queda libre</RD_Place_Free>
+  <RD_Place_Free_Desc>El animal queda a su aire.</RD_Place_Free_Desc>
+  <RD_RideToVehicle>Ir montado hasta los vehículos</RD_RideToVehicle>
+  <RD_RideToVehicle_Desc>Los jinetes siguen montados al ir a subir, seguir o escoltar un vehículo, en lugar de dejar el animal a 25 casillas e ir a pie.</RD_RideToVehicle_Desc>
+  <RD_RemountAfter>Volver a montar al bajar</RD_RemountAfter>
+  <RD_RemountAfter_Desc>Tras bajar de un vehículo, el jinete saca su animal de la carga (si iba con él) y vuelve a montarlo.</RD_RemountAfter_Desc>
+  <RD_KeepOwnership>El animal sigue siendo suyo</RD_KeepOwnership>
+  <RD_KeepOwnership_Desc>Mientras el jinete está dentro del vehículo, el animal sigue reservado para él – no se le manda llevarlo al corral y nadie más lo toma.</RD_KeepOwnership_Desc>
+  <RD_SecCaravans>Caravanas de vehículos</RD_SecCaravans>
+  <RD_CaravanMounts>Los jinetes montan en caravanas de vehículos</RD_CaravanMounts>
+  <RD_CaravanMounts_Desc>Los colonos que van a pie con una caravana de vehículos montan sus propios animales y vuelven a montarlos cuando llega la caravana (Giddy-Up solo lo hace en caravanas sin vehículos).</RD_CaravanMounts_Desc>
+  <RD_SecSeats>Asientos en vehículos</RD_SecSeats>
+  <RD_Seats>Cambiar asientos de vehículos</RD_Seats>
+  <RD_Seats_Desc>Los asientos de pasajeros se cambian en los tipos de vehículo – los vehículos nuevos, los cargados y los del mapa lo reciben. Los asientos del conductor y de los artilleros nunca se tocan. Nadie es expulsado cuando se reducen los asientos.</RD_Seats_Desc>
+  <RD_PassengerMult>Asientos de pasajeros: ×{0}</RD_PassengerMult>
+  <RD_PassengerMult_Desc>Asientos de pasajeros de cada vehículo multiplicados (redondeando hacia arriba).</RD_PassengerMult_Desc>
+  <RD_AddSeats>Asientos para vehículos sin plazas de pasajeros</RD_AddSeats>
+  <RD_AddSeats_Desc>Los vehículos que solo tienen conductor (o artilleros) reciben una zona de pasajeros con 1–4 asientos según su tamaño.</RD_AddSeats_Desc>
+  <RD_SecPerVehicle>Cada vehículo</RD_SecPerVehicle>
+  <RD_PerVehicle_Desc>Añade o quita asientos de pasajeros en un solo vehículo. Se muestra: asientos de tripulación · asientos de pasajeros originales → ahora.</RD_PerVehicle_Desc>
+  <RD_Search>Buscar:</RD_Search>
+  <RD_ResetAll>Restablecer todo</RD_ResetAll>
+  <RD_SeatsRow>tripulación {0} · pasajeros {1} → {2}</RD_SeatsRow>
+  <RD_PassengerRole>Pasajeros</RD_PassengerRole>
+  <RD_SecStatus>Lo que encontró el mod</RD_SecStatus>
+  <RD_StGiddyUp>Giddy-Up</RD_StGiddyUp>
+  <RD_StVehicles>Vehicle Framework</RD_StVehicles>
+  <RD_StCompanion>Companion Mounts</RD_StCompanion>
+  <RD_StPassengers>Mount Passengers</RD_StPassengers>
+  <RD_StNotFound>no está en la partida</RD_StNotFound>
+  <RD_StSetupOk>Giddy-Up arrancó bien.</RD_StSetupOk>
+  <RD_StSetupRepaired>Otro mod rompió el arranque de Giddy-Up – reparado.</RD_StSetupRepaired>
+  <RD_StCounts>Esta sesión: {0} montas fallidas deshechas · {1} jinetes en pausa · {2} desmontaron para subir · {3} volvieron a montar</RD_StCounts>
+  <RD_StSeats>Asientos: {0} tipos de vehículo cambiados · {1} recibieron zona de pasajeros</RD_StSeats>
+  <RD_LogMountThrew>{0} no pudo montar en {1} ({2}) – deshecho, próximo intento en {3} h.</RD_LogMountThrew>
+  <RD_LogMountLoop>{0} siguió intentando montar en {1} sin éxito – próximo intento en {3} h.</RD_LogMountLoop>
+</LanguageData>

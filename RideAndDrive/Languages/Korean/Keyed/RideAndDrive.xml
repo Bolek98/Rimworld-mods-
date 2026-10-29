@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RD_Rec1>안전한 탑승: Giddy-Up 복구, 실패한 탑승 취소, 무한 재시도 일시 중지</RD_Rec1>
+  <RD_Rec2>기수는 차량 탑승 전에 내리고, 동물은 화물로 함께 이동</RD_Rec2>
+  <RD_Rec3>하차 후 다시 동물에 탑승; 캐러밴에서도 동물을 탐</RD_Rec3>
+  <RD_Rec4>승객석 ×2, 승객석이 없는 차량도 좌석을 얻음</RD_Rec4>
+  <RD_PageSafety>안전한 탑승</RD_PageSafety>
+  <RD_PageVehicles>기수와 차량</RD_PageVehicles>
+  <RD_PageSeats>좌석</RD_PageSeats>
+  <RD_PageStatus>상태</RD_PageStatus>
+  <RD_SecSafety>안전한 탑승 (Giddy-Up)</RD_SecSafety>
+  <RD_NoGiddyUp>Giddy-Up이 게임에 없습니다 – 이 페이지는 아무 효과가 없습니다.</RD_NoGiddyUp>
+  <RD_NeedBoth>Giddy-Up과 Vehicle Framework가 모두 필요합니다 – 둘 중 하나가 없습니다.</RD_NeedBoth>
+  <RD_NoVehicles>Vehicle Framework가 게임에 없습니다 – 이 페이지는 아무 효과가 없습니다.</RD_NoVehicles>
+  <RD_SafeMounting>탑승 복구 및 보호</RD_SafeMounting>
+  <RD_SafeMounting_Desc>다른 모드가 Giddy-Up의 시작을 망가뜨렸다면, 탈 수 있는 동물 목록과 기수 위치 보정을 복구합니다. 도중에 오류가 난 탑승은 깔끔하게 취소되어 기수가 동물 위에 반쯤 걸쳐진 채로 남지 않습니다.</RD_SafeMounting_Desc>
+  <RD_MountPause>무한 탑승 일시 중지</RD_MountPause>
+  <RD_MountPause_Desc>탑승에 계속 실패하는 기수(1시간 안에 5번 시도, 또는 오류가 난 탑승)는 다시 시도하기 전에 휴식합니다. 직접 내린 명령은 그대로 실행됩니다. 게임을 튕기게 할 수 있던 무한 재시도를 막습니다.</RD_MountPause_Desc>
+  <RD_PauseHours>휴식 시간: {0}시간</RD_PauseHours>
+  <RD_PauseHours_Desc>기수가 다시 탑승을 시도하기 전까지 기다리는 시간(게임 시간).</RD_PauseHours_Desc>
+  <RD_SecVehicles>기수와 차량</RD_SecVehicles>
+  <RD_DismountToBoard>차량 탑승 전에 내리기</RD_DismountToBoard>
+  <RD_DismountToBoard_Desc>기수가 차량에 타기 전에 동물에서 제대로 내립니다(이전에는 Giddy-Up이 모르는 사이에 그냥 사라져서 동물이 혼란에 빠졌습니다).</RD_DismountToBoard_Desc>
+  <RD_AnimalPlace>그동안 동물은</RD_AnimalPlace>
+  <RD_AnimalPlace_Desc>기수가 차량에 있는 동안 동물이 하는 일.</RD_AnimalPlace_Desc>
+  <RD_Place_Cargo>함께 탑승</RD_Place_Cargo>
+  <RD_Place_Cargo_Desc>동물은 (무게상) 들어갈 수 있으면 차량 화물칸에 들어갑니다. 아니면 차량 옆에서 기다립니다.</RD_Place_Cargo_Desc>
+  <RD_Place_Wait>옆에서 대기</RD_Place_Wait>
+  <RD_Place_Wait_Desc>동물은 차량 옆에 머뭅니다(밧줄로 묶을 수 있는 동물이면 묶어 둡니다).</RD_Place_Wait_Desc>
+  <RD_Place_Free>자유롭게</RD_Place_Free>
+  <RD_Place_Free_Desc>동물을 그대로 내버려 둡니다.</RD_Place_Free_Desc>
+  <RD_RideToVehicle>차량까지 타고 가기</RD_RideToVehicle>
+  <RD_RideToVehicle_Desc>기수는 차량에 탑승하거나 따라가거나 호위하러 갈 때도 동물에 탄 채로 이동하며, 25칸 떨어진 곳에 세워 두고 걸어가지 않습니다.</RD_RideToVehicle_Desc>
+  <RD_RemountAfter>하차 후 다시 타기</RD_RemountAfter>
+  <RD_RemountAfter_Desc>차량에서 내린 후 기수는 (함께 탔다면) 화물칸에서 자기 동물을 꺼내 다시 탑니다.</RD_RemountAfter_Desc>
+  <RD_KeepOwnership>동물은 계속 그의 것</RD_KeepOwnership>
+  <RD_KeepOwnership_Desc>기수가 차량 안에 있는 동안 동물은 그를 위해 예약된 상태로 유지됩니다 – 동물을 우리로 데려가라고 보내지 않으며 다른 누구도 데려가지 않습니다.</RD_KeepOwnership_Desc>
+  <RD_SecCaravans>차량 캐러밴</RD_SecCaravans>
+  <RD_CaravanMounts>차량 캐러밴에서 동물 타기</RD_CaravanMounts>
+  <RD_CaravanMounts_Desc>차량 캐러밴과 함께 걷는 정착민은 자기 동물을 타고 가며, 캐러밴이 도착하면 다시 탑니다(Giddy-Up은 차량이 없는 캐러밴에서만 이렇게 합니다).</RD_CaravanMounts_Desc>
+  <RD_SecSeats>차량 좌석</RD_SecSeats>
+  <RD_Seats>차량 좌석 변경</RD_Seats>
+  <RD_Seats_Desc>승객석은 차량 종류별로 변경됩니다 – 새 차량, 불러온 차량, 맵 위의 차량 모두 적용됩니다. 운전석과 사수석은 절대 변경하지 않습니다. 좌석이 줄어도 아무도 쫓겨나지 않습니다.</RD_Seats_Desc>
+  <RD_PassengerMult>승객석: ×{0}</RD_PassengerMult>
+  <RD_PassengerMult_Desc>모든 차량의 승객석에 곱합니다(올림).</RD_PassengerMult_Desc>
+  <RD_AddSeats>승객석이 없는 차량에 좌석 추가</RD_AddSeats>
+  <RD_AddSeats_Desc>운전자(또는 사수)만 있는 차량은 크기에 따라 1–4석의 승객석을 얻습니다.</RD_AddSeats_Desc>
+  <RD_SecPerVehicle>차량별</RD_SecPerVehicle>
+  <RD_PerVehicle_Desc>개별 차량의 승객석을 추가하거나 제거합니다. 표시: 승무원석 · 승객석 원래 → 현재.</RD_PerVehicle_Desc>
+  <RD_Search>검색:</RD_Search>
+  <RD_ResetAll>모두 초기화</RD_ResetAll>
+  <RD_SeatsRow>승무원 {0} · 승객 {1} → {2}</RD_SeatsRow>
+  <RD_PassengerRole>승객</RD_PassengerRole>
+  <RD_SecStatus>모드가 찾은 것</RD_SecStatus>
+  <RD_StGiddyUp>Giddy-Up</RD_StGiddyUp>
+  <RD_StVehicles>Vehicle Framework</RD_StVehicles>
+  <RD_StCompanion>Companion Mounts</RD_StCompanion>
+  <RD_StPassengers>Mount Passengers</RD_StPassengers>
+  <RD_StNotFound>게임에 없음</RD_StNotFound>
+  <RD_StSetupOk>Giddy-Up이 정상적으로 시작되었습니다.</RD_StSetupOk>
+  <RD_StSetupRepaired>다른 모드가 Giddy-Up의 시작을 망가뜨렸습니다 – 복구됨.</RD_StSetupRepaired>
+  <RD_StCounts>이번 세션: 실패한 탑승 취소 {0} · 일시 중지된 기수 {1} · 차량 탑승을 위해 내림 {2} · 다시 탐 {3}</RD_StCounts>
+  <RD_StSeats>좌석: 변경된 차량 종류 {0} · 승객석을 얻은 차량 {1}</RD_StSeats>
+  <RD_LogMountThrew>{0}이(가) {1}에 타지 못했습니다({2}) – 취소됨, {3}시간 후 다시 시도.</RD_LogMountThrew>
+  <RD_LogMountLoop>{0}이(가) {1}에 계속 타려 했지만 실패했습니다 – {3}시간 후 다시 시도.</RD_LogMountLoop>
+</LanguageData>

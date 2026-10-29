@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RD_Rec1>Bezpieczna jazda: naprawiony Giddy-Up, nieudane dosiadanie cofnięte, niekończące się próby wstrzymane</RD_Rec1>
+  <RD_Rec2>Jeźdźcy zsiadają przed wejściem do pojazdu; zwierzę jedzie jako ładunek</RD_Rec2>
+  <RD_Rec3>Po wyjściu z pojazdu z powrotem na zwierzę; w karawanach też się jeździ</RD_Rec3>
+  <RD_Rec4>Miejsca dla pasażerów ×2, pojazdy bez miejsc dla pasażerów jakieś dostają</RD_Rec4>
+  <RD_PageSafety>Bezpieczna jazda</RD_PageSafety>
+  <RD_PageVehicles>Jeźdźcy i pojazdy</RD_PageVehicles>
+  <RD_PageSeats>Miejsca</RD_PageSeats>
+  <RD_PageStatus>Stan</RD_PageStatus>
+  <RD_SecSafety>Bezpieczna jazda (Giddy-Up)</RD_SecSafety>
+  <RD_NoGiddyUp>Giddy-Up nie ma w grze – ta strona nic nie robi.</RD_NoGiddyUp>
+  <RD_NeedBoth>Wymaga Giddy-Up i Vehicle Framework – jednego z nich brakuje.</RD_NeedBoth>
+  <RD_NoVehicles>Vehicle Framework nie ma w grze – ta strona nic nie robi.</RD_NoVehicles>
+  <RD_SafeMounting>Napraw i chroń dosiadanie</RD_SafeMounting>
+  <RD_SafeMounting_Desc>Jeśli inny mod zepsuł start Giddy-Up, lista zwierząt do dosiadania i przesunięcia jeźdźców zostają naprawione. Dosiadanie, które w połowie rzuci błąd, zostaje czysto cofnięte, zamiast zostawiać jeźdźca w połowie na zwierzęciu.</RD_SafeMounting_Desc>
+  <RD_MountPause>Wstrzymaj niekończące się dosiadanie</RD_MountPause>
+  <RD_MountPause_Desc>Jeździec, któremu dosiadanie ciągle się nie udaje (5 prób w ciągu godziny lub dosiadanie z błędem), robi przerwę przed kolejną próbą. Twoje własne rozkazy nadal działają. To zatrzymuje niekończące się ponawianie, które mogło wywalić grę.</RD_MountPause_Desc>
+  <RD_PauseHours>Długość przerwy: {0} h</RD_PauseHours>
+  <RD_PauseHours_Desc>Jak długo jeździec czeka przed ponowną próbą dosiadania (godziny gry).</RD_PauseHours_Desc>
+  <RD_SecVehicles>Jeźdźcy i pojazdy</RD_SecVehicles>
+  <RD_DismountToBoard>Zsiądź przed wejściem</RD_DismountToBoard>
+  <RD_DismountToBoard_Desc>Jeździec porządnie zsiada ze zwierzęcia przed wejściem do pojazdu (wcześniej po prostu znikał bez wiedzy Giddy-Up, a zwierzę zostawało zdezorientowane).</RD_DismountToBoard_Desc>
+  <RD_AnimalPlace>Zwierzę w tym czasie</RD_AnimalPlace>
+  <RD_AnimalPlace_Desc>Co robi zwierzę, gdy jego jeździec jest w pojeździe.</RD_AnimalPlace_Desc>
+  <RD_Place_Cargo>Jedzie razem</RD_Place_Cargo>
+  <RD_Place_Cargo_Desc>Zwierzę trafia do ładunku pojazdu, jeśli się zmieści (wagowo). Jeśli nie, czeka obok pojazdu.</RD_Place_Cargo_Desc>
+  <RD_Place_Wait>Czeka obok</RD_Place_Wait>
+  <RD_Place_Wait_Desc>Zwierzę zostaje obok pojazdu (uwiązane, jeśli da się je uwiązać).</RD_Place_Wait_Desc>
+  <RD_Place_Free>Puszczone wolno</RD_Place_Free>
+  <RD_Place_Free_Desc>Zwierzę zostaje pozostawione samo sobie.</RD_Place_Free_Desc>
+  <RD_RideToVehicle>Podjeżdżaj do pojazdów</RD_RideToVehicle>
+  <RD_RideToVehicle_Desc>Jeźdźcy zostają na zwierzęciu, idąc wsiąść do pojazdu, podążać za nim lub go eskortować, zamiast zostawiać je 25 pól dalej i iść pieszo.</RD_RideToVehicle_Desc>
+  <RD_RemountAfter>Dosiądź po wyjściu</RD_RemountAfter>
+  <RD_RemountAfter_Desc>Po wyjściu z pojazdu jeździec zabiera swoje zwierzę z ładunku (jeśli jechało razem) i znowu go dosiada.</RD_RemountAfter_Desc>
+  <RD_KeepOwnership>Zwierzę pozostaje jego</RD_KeepOwnership>
+  <RD_KeepOwnership_Desc>Gdy jeździec jest w pojeździe, zwierzę pozostaje dla niego zarezerwowane – nie jest wysyłany, by odprowadzić je do zagrody, i nikt inny go nie bierze.</RD_KeepOwnership_Desc>
+  <RD_SecCaravans>Karawany pojazdów</RD_SecCaravans>
+  <RD_CaravanMounts>Jeźdźcy jeżdżą w karawanach pojazdów</RD_CaravanMounts>
+  <RD_CaravanMounts_Desc>Koloniści idący pieszo z karawaną pojazdów jadą na własnych zwierzętach i dosiadają ich ponownie po dotarciu karawany (Giddy-Up robi to tylko w karawanach bez pojazdów).</RD_CaravanMounts_Desc>
+  <RD_SecSeats>Miejsca w pojazdach</RD_SecSeats>
+  <RD_Seats>Zmieniaj miejsca w pojazdach</RD_Seats>
+  <RD_Seats_Desc>Miejsca dla pasażerów są zmieniane w typach pojazdów – dostają je nowe pojazdy, wczytane i te na mapie. Miejsca kierowcy i strzelców nigdy nie są zmieniane. Nikt nie zostaje wyrzucony, gdy miejsc ubywa.</RD_Seats_Desc>
+  <RD_PassengerMult>Miejsca dla pasażerów: ×{0}</RD_PassengerMult>
+  <RD_PassengerMult_Desc>Miejsca dla pasażerów każdego pojazdu pomnożone (zaokrąglone w górę).</RD_PassengerMult_Desc>
+  <RD_AddSeats>Miejsca dla pojazdów bez miejsc dla pasażerów</RD_AddSeats>
+  <RD_AddSeats_Desc>Pojazdy, które mają tylko kierowcę (lub strzelców), dostają przedział pasażerski z 1–4 miejscami zależnie od rozmiaru.</RD_AddSeats_Desc>
+  <RD_SecPerVehicle>Każdy pojazd</RD_SecPerVehicle>
+  <RD_PerVehicle_Desc>Dodaj lub usuń miejsca dla pasażerów w jednym pojeździe. Pokazano: miejsca załogi · miejsca dla pasażerów pierwotnie → teraz.</RD_PerVehicle_Desc>
+  <RD_Search>Szukaj:</RD_Search>
+  <RD_ResetAll>Resetuj wszystko</RD_ResetAll>
+  <RD_SeatsRow>załoga {0} · pasażerowie {1} → {2}</RD_SeatsRow>
+  <RD_PassengerRole>Pasażerowie</RD_PassengerRole>
+  <RD_SecStatus>Co znalazł mod</RD_SecStatus>
+  <RD_StGiddyUp>Giddy-Up</RD_StGiddyUp>
+  <RD_StVehicles>Vehicle Framework</RD_StVehicles>
+  <RD_StCompanion>Companion Mounts</RD_StCompanion>
+  <RD_StPassengers>Mount Passengers</RD_StPassengers>
+  <RD_StNotFound>brak w grze</RD_StNotFound>
+  <RD_StSetupOk>Giddy-Up uruchomił się poprawnie.</RD_StSetupOk>
+  <RD_StSetupRepaired>Start Giddy-Up zepsuł inny mod – naprawiono.</RD_StSetupRepaired>
+  <RD_StCounts>Ta sesja: cofnięte nieudane dosiadania: {0} · jeźdźcy na przerwie: {1} · zsiedli przed wejściem: {2} · dosiedli ponownie: {3}</RD_StCounts>
+  <RD_StSeats>Miejsca: zmienione typy pojazdów: {0} · z nowym przedziałem pasażerskim: {1}</RD_StSeats>
+  <RD_LogMountThrew>{0} nie mógł dosiąść {1} ({2}) – cofnięto, następna próba za {3} h.</RD_LogMountThrew>
+  <RD_LogMountLoop>{0} bezskutecznie próbował dosiąść {1} – następna próba za {3} h.</RD_LogMountLoop>
+</LanguageData>

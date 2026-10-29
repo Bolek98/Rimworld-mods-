@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RD_Rec1>Sicheres Reiten: Giddy-Up repariert, fehlgeschlagenes Aufsteigen rückgängig gemacht, endlose Versuche pausiert</RD_Rec1>
+  <RD_Rec2>Reiter steigen vor dem Einsteigen ab; das Tier fährt als Fracht mit</RD_Rec2>
+  <RD_Rec3>Nach dem Aussteigen wieder aufs Tier; auch in Karawanen wird geritten</RD_Rec3>
+  <RD_Rec4>Passagierplätze ×2, Fahrzeuge ohne Passagierplätze bekommen welche</RD_Rec4>
+  <RD_PageSafety>Sicheres Reiten</RD_PageSafety>
+  <RD_PageVehicles>Reiter &amp; Fahrzeuge</RD_PageVehicles>
+  <RD_PageSeats>Sitze</RD_PageSeats>
+  <RD_PageStatus>Status</RD_PageStatus>
+  <RD_SecSafety>Sicheres Reiten (Giddy-Up)</RD_SecSafety>
+  <RD_NoGiddyUp>Giddy-Up ist nicht im Spiel – diese Seite bewirkt nichts.</RD_NoGiddyUp>
+  <RD_NeedBoth>Benötigt Giddy-Up und Vehicle Framework – eines davon fehlt.</RD_NeedBoth>
+  <RD_NoVehicles>Vehicle Framework ist nicht im Spiel – diese Seite bewirkt nichts.</RD_NoVehicles>
+  <RD_SafeMounting>Aufsteigen reparieren und schützen</RD_SafeMounting>
+  <RD_SafeMounting_Desc>Hat ein anderer Mod den Start von Giddy-Up beschädigt, werden die Liste der reitbaren Tiere und die Reiterversätze repariert. Ein Aufsteigen, das mittendrin einen Fehler wirft, wird sauber rückgängig gemacht, statt den Reiter halb auf dem Tier zu lassen.</RD_SafeMounting_Desc>
+  <RD_MountPause>Endloses Aufsteigen pausieren</RD_MountPause>
+  <RD_MountPause_Desc>Ein Reiter, dessen Aufsteigen immer wieder scheitert (5 Versuche innerhalb einer Stunde oder ein Aufsteigen mit Fehler), macht eine Pause, bevor er es erneut versucht. Deine eigenen Befehle werden weiterhin ausgeführt. Das stoppt die endlose Wiederholung, die das Spiel abstürzen lassen konnte.</RD_MountPause_Desc>
+  <RD_PauseHours>Pausenlänge: {0} h</RD_PauseHours>
+  <RD_PauseHours_Desc>Wie lange ein Reiter wartet, bevor er erneut aufzusteigen versucht (Spielstunden).</RD_PauseHours_Desc>
+  <RD_SecVehicles>Reiter und Fahrzeuge</RD_SecVehicles>
+  <RD_DismountToBoard>Vor dem Einsteigen absteigen</RD_DismountToBoard>
+  <RD_DismountToBoard_Desc>Ein Reiter steigt ordentlich von seinem Tier ab, bevor er in ein Fahrzeug steigt (früher verschwand er einfach, ohne dass Giddy-Up es mitbekam, und das Tier blieb verwirrt zurück).</RD_DismountToBoard_Desc>
+  <RD_AnimalPlace>Das Tier währenddessen</RD_AnimalPlace>
+  <RD_AnimalPlace_Desc>Was das Tier tut, während sein Reiter in einem Fahrzeug ist.</RD_AnimalPlace_Desc>
+  <RD_Place_Cargo>Fährt mit</RD_Place_Cargo>
+  <RD_Place_Cargo_Desc>Das Tier kommt in die Fracht des Fahrzeugs, wenn es (nach Gewicht) passt. Wenn nicht, wartet es neben dem Fahrzeug.</RD_Place_Cargo_Desc>
+  <RD_Place_Wait>Wartet daneben</RD_Place_Wait>
+  <RD_Place_Wait_Desc>Das Tier bleibt neben dem Fahrzeug (angebunden, wenn es ein Tier ist, das angeleint werden kann).</RD_Place_Wait_Desc>
+  <RD_Place_Free>Bleibt frei</RD_Place_Free>
+  <RD_Place_Free_Desc>Das Tier wird sich selbst überlassen.</RD_Place_Free_Desc>
+  <RD_RideToVehicle>Bis zum Fahrzeug reiten</RD_RideToVehicle>
+  <RD_RideToVehicle_Desc>Reiter bleiben auf ihrem Tier, wenn sie zum Einsteigen gehen oder einem Fahrzeug folgen bzw. es eskortieren, statt es 25 Felder entfernt abzustellen und zu laufen.</RD_RideToVehicle_Desc>
+  <RD_RemountAfter>Nach dem Aussteigen wieder aufsteigen</RD_RemountAfter>
+  <RD_RemountAfter_Desc>Nach dem Aussteigen aus einem Fahrzeug holt der Reiter sein Tier aus der Fracht (falls es mitgefahren ist) und steigt wieder auf.</RD_RemountAfter_Desc>
+  <RD_KeepOwnership>Das Tier bleibt seins</RD_KeepOwnership>
+  <RD_KeepOwnership_Desc>Während der Reiter im Fahrzeug ist, bleibt das Tier für ihn reserviert – er wird nicht losgeschickt, es ins Gehege zu bringen, und niemand sonst nimmt es.</RD_KeepOwnership_Desc>
+  <RD_SecCaravans>Fahrzeugkarawanen</RD_SecCaravans>
+  <RD_CaravanMounts>Reiter reiten in Fahrzeugkarawanen</RD_CaravanMounts>
+  <RD_CaravanMounts_Desc>Kolonisten, die mit einer Fahrzeugkarawane laufen, reiten auf ihren eigenen Tieren und steigen bei Ankunft der Karawane wieder auf (Giddy-Up macht das nur bei Karawanen ohne Fahrzeuge).</RD_CaravanMounts_Desc>
+  <RD_SecSeats>Sitze in Fahrzeugen</RD_SecSeats>
+  <RD_Seats>Fahrzeugsitze ändern</RD_Seats>
+  <RD_Seats_Desc>Passagiersitze werden an den Fahrzeugtypen geändert – neue, geladene und auf der Karte befindliche Fahrzeuge erhalten es alle. Fahrer- und Schützensitze werden nie verändert. Niemand wird hinausgeworfen, wenn Sitze wegfallen.</RD_Seats_Desc>
+  <RD_PassengerMult>Passagiersitze: ×{0}</RD_PassengerMult>
+  <RD_PassengerMult_Desc>Die Passagiersitze jedes Fahrzeugs werden multipliziert (aufgerundet).</RD_PassengerMult_Desc>
+  <RD_AddSeats>Sitze für Fahrzeuge ohne Passagierplätze</RD_AddSeats>
+  <RD_AddSeats_Desc>Fahrzeuge, die nur einen Fahrer (oder Schützen) haben, bekommen je nach Größe einen Passagierbereich mit 1–4 Sitzen.</RD_AddSeats_Desc>
+  <RD_SecPerVehicle>Jedes Fahrzeug</RD_SecPerVehicle>
+  <RD_PerVehicle_Desc>Passagiersitze an einem einzelnen Fahrzeug hinzufügen oder entfernen. Angezeigt: Crewsitze · Passagiersitze ursprünglich → jetzt.</RD_PerVehicle_Desc>
+  <RD_Search>Suche:</RD_Search>
+  <RD_ResetAll>Alles zurücksetzen</RD_ResetAll>
+  <RD_SeatsRow>Crew {0} · Passagiere {1} → {2}</RD_SeatsRow>
+  <RD_PassengerRole>Passagiere</RD_PassengerRole>
+  <RD_SecStatus>Was der Mod gefunden hat</RD_SecStatus>
+  <RD_StGiddyUp>Giddy-Up</RD_StGiddyUp>
+  <RD_StVehicles>Vehicle Framework</RD_StVehicles>
+  <RD_StCompanion>Companion Mounts</RD_StCompanion>
+  <RD_StPassengers>Mount Passengers</RD_StPassengers>
+  <RD_StNotFound>nicht im Spiel</RD_StNotFound>
+  <RD_StSetupOk>Giddy-Up ist normal gestartet.</RD_StSetupOk>
+  <RD_StSetupRepaired>Der Start von Giddy-Up wurde von einem anderen Mod beschädigt – repariert.</RD_StSetupRepaired>
+  <RD_StCounts>Diese Sitzung: {0} fehlgeschlagene Aufstiege rückgängig gemacht · {1} Reiter pausiert · {2} zum Einsteigen abgestiegen · {3} wieder aufgestiegen</RD_StCounts>
+  <RD_StSeats>Sitze: {0} Fahrzeugtypen geändert · {1} bekamen einen Passagierbereich</RD_StSeats>
+  <RD_LogMountThrew>{0} konnte nicht auf {1} aufsteigen ({2}) – rückgängig gemacht, nächster Versuch in {3} h.</RD_LogMountThrew>
+  <RD_LogMountLoop>{0} hat erfolglos versucht, auf {1} aufzusteigen – nächster Versuch in {3} h.</RD_LogMountLoop>
+</LanguageData>

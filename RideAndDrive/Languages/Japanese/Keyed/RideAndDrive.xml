@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RD_Rec1>安全な騎乗：Giddy-Upを修復、失敗した騎乗を取り消し、無限リトライを一時停止</RD_Rec1>
+  <RD_Rec2>乗車前に騎手は降り、動物は貨物として同乗</RD_Rec2>
+  <RD_Rec3>降車後は再び動物に乗る。キャラバンでも騎乗</RD_Rec3>
+  <RD_Rec4>乗客席×2、乗客席のない車両にも席を追加</RD_Rec4>
+  <RD_PageSafety>安全な騎乗</RD_PageSafety>
+  <RD_PageVehicles>騎手と車両</RD_PageVehicles>
+  <RD_PageSeats>座席</RD_PageSeats>
+  <RD_PageStatus>状態</RD_PageStatus>
+  <RD_SecSafety>安全な騎乗（Giddy-Up）</RD_SecSafety>
+  <RD_NoGiddyUp>Giddy-Upが導入されていません – このページは機能しません。</RD_NoGiddyUp>
+  <RD_NeedBoth>Giddy-UpとVehicle Frameworkの両方が必要です – どちらかがありません。</RD_NeedBoth>
+  <RD_NoVehicles>Vehicle Frameworkが導入されていません – このページは機能しません。</RD_NoVehicles>
+  <RD_SafeMounting>騎乗の修復と保護</RD_SafeMounting>
+  <RD_SafeMounting_Desc>他のMODがGiddy-Upの起動を壊した場合、騎乗可能な動物のリストと騎手のオフセットを修復します。途中でエラーになった騎乗はきれいに取り消され、騎手が動物に半分乗ったままになることはありません。</RD_SafeMounting_Desc>
+  <RD_MountPause>無限騎乗の一時停止</RD_MountPause>
+  <RD_MountPause_Desc>騎乗に失敗し続ける騎手（1時間以内に5回の試行、またはエラーが出た騎乗）は、再試行の前に休憩します。プレイヤー自身の命令は引き続き実行されます。これにより、ゲームをクラッシュさせかねない無限リトライを止めます。</RD_MountPause_Desc>
+  <RD_PauseHours>休憩時間：{0} 時間</RD_PauseHours>
+  <RD_PauseHours_Desc>騎手が再び騎乗を試みるまで待つ時間（ゲーム内時間）。</RD_PauseHours_Desc>
+  <RD_SecVehicles>騎手と車両</RD_SecVehicles>
+  <RD_DismountToBoard>乗車前に降りる</RD_DismountToBoard>
+  <RD_DismountToBoard_Desc>騎手は車両に乗る前に動物からきちんと降ります（以前はGiddy-Upが気付かないまま消えてしまい、動物は取り残されて混乱していました）。</RD_DismountToBoard_Desc>
+  <RD_AnimalPlace>その間の動物</RD_AnimalPlace>
+  <RD_AnimalPlace_Desc>騎手が車両に乗っている間、動物がどうするか。</RD_AnimalPlace_Desc>
+  <RD_Place_Cargo>同乗する</RD_Place_Cargo>
+  <RD_Place_Cargo_Desc>（重量的に）入るなら動物は車両の貨物に入ります。入らなければ車両の横で待ちます。</RD_Place_Cargo_Desc>
+  <RD_Place_Wait>横で待つ</RD_Place_Wait>
+  <RD_Place_Wait_Desc>動物は車両の横にとどまります（ロープでつなげる動物ならつながれます）。</RD_Place_Wait_Desc>
+  <RD_Place_Free>自由にする</RD_Place_Free>
+  <RD_Place_Free_Desc>動物は放っておかれます。</RD_Place_Free_Desc>
+  <RD_RideToVehicle>車両まで騎乗で移動</RD_RideToVehicle>
+  <RD_RideToVehicle_Desc>騎手は車両への乗車、追従、護衛に向かう間も動物に乗ったままで、25マス離れた所に置いて歩くことはしません。</RD_RideToVehicle_Desc>
+  <RD_RemountAfter>降車後に再騎乗</RD_RemountAfter>
+  <RD_RemountAfter_Desc>車両から降りた後、騎手は（同乗していれば）貨物から自分の動物を出し、再び乗ります。</RD_RemountAfter_Desc>
+  <RD_KeepOwnership>動物は彼のもののまま</RD_KeepOwnership>
+  <RD_KeepOwnership_Desc>騎手が車両内にいる間、動物は彼のために確保されたままです – 囲いへ連れて行くよう送り出されることはなく、他の誰も連れて行きません。</RD_KeepOwnership_Desc>
+  <RD_SecCaravans>車両キャラバン</RD_SecCaravans>
+  <RD_CaravanMounts>車両キャラバンで騎乗する</RD_CaravanMounts>
+  <RD_CaravanMounts_Desc>車両キャラバンと一緒に歩く入植者は自分の動物に乗り、キャラバン到着時に再び乗ります（Giddy-Upは車両のないキャラバンでのみこれを行います）。</RD_CaravanMounts_Desc>
+  <RD_SecSeats>車両の座席</RD_SecSeats>
+  <RD_Seats>車両の座席を変更</RD_Seats>
+  <RD_Seats_Desc>乗客席は車両の種類ごとに変更されます – 新しい車両、ロードした車両、マップ上の車両すべてに適用されます。運転手と砲手の席は変更されません。席が減っても誰も放り出されません。</RD_Seats_Desc>
+  <RD_PassengerMult>乗客席：×{0}</RD_PassengerMult>
+  <RD_PassengerMult_Desc>各車両の乗客席を倍増します（切り上げ）。</RD_PassengerMult_Desc>
+  <RD_AddSeats>乗客席のない車両に座席を追加</RD_AddSeats>
+  <RD_AddSeats_Desc>運転手（または砲手）しかいない車両に、大きさに応じて1–4席の乗客席を追加します。</RD_AddSeats_Desc>
+  <RD_SecPerVehicle>車両ごと</RD_SecPerVehicle>
+  <RD_PerVehicle_Desc>個別の車両の乗客席を増減します。表示：乗員席 · 乗客席 元 → 現在。</RD_PerVehicle_Desc>
+  <RD_Search>検索：</RD_Search>
+  <RD_ResetAll>すべてリセット</RD_ResetAll>
+  <RD_SeatsRow>乗員 {0} · 乗客 {1} → {2}</RD_SeatsRow>
+  <RD_PassengerRole>乗客</RD_PassengerRole>
+  <RD_SecStatus>MODの検出結果</RD_SecStatus>
+  <RD_StGiddyUp>Giddy-Up</RD_StGiddyUp>
+  <RD_StVehicles>Vehicle Framework</RD_StVehicles>
+  <RD_StCompanion>Companion Mounts</RD_StCompanion>
+  <RD_StPassengers>Mount Passengers</RD_StPassengers>
+  <RD_StNotFound>未導入</RD_StNotFound>
+  <RD_StSetupOk>Giddy-Upは正常に起動しました。</RD_StSetupOk>
+  <RD_StSetupRepaired>Giddy-Upの起動が他のMODに壊されていました – 修復済み。</RD_StSetupRepaired>
+  <RD_StCounts>このセッション：失敗した騎乗の取り消し {0} · 一時停止した騎手 {1} · 乗車のため降りた {2} · 再騎乗 {3}</RD_StCounts>
+  <RD_StSeats>座席：変更した車両の種類 {0} · 乗客席を得た {1}</RD_StSeats>
+  <RD_LogMountThrew>{0}は{1}に乗れませんでした（{2}）– 取り消し、{3} 時間後に再試行。</RD_LogMountThrew>
+  <RD_LogMountLoop>{0}は{1}に乗ろうとして失敗し続けました – {3} 時間後に再試行。</RD_LogMountLoop>
+</LanguageData>

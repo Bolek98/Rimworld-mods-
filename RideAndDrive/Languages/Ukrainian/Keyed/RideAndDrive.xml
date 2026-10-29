@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RD_Rec1>Безпечна їзда: Giddy-Up виправлено, невдале сідання верхи скасовується, нескінченні спроби ставляться на паузу</RD_Rec1>
+  <RD_Rec2>Вершники спішуються перед посадкою в транспорт; тварина їде як вантаж</RD_Rec2>
+  <RD_Rec3>Після виходу з транспорту — знову верхи; у караванах теж їздять верхи</RD_Rec3>
+  <RD_Rec4>Пасажирські місця ×2, транспорт без пасажирських місць їх отримує</RD_Rec4>
+  <RD_PageSafety>Безпечна їзда</RD_PageSafety>
+  <RD_PageVehicles>Вершники й транспорт</RD_PageVehicles>
+  <RD_PageSeats>Місця</RD_PageSeats>
+  <RD_PageStatus>Стан</RD_PageStatus>
+  <RD_SecSafety>Безпечна їзда (Giddy-Up)</RD_SecSafety>
+  <RD_NoGiddyUp>Giddy-Up немає в грі – ця сторінка нічого не робить.</RD_NoGiddyUp>
+  <RD_NeedBoth>Потрібні і Giddy-Up, і Vehicle Framework – одного з них немає.</RD_NeedBoth>
+  <RD_NoVehicles>Vehicle Framework немає в грі – ця сторінка нічого не робить.</RD_NoVehicles>
+  <RD_SafeMounting>Виправляти й захищати сідання верхи</RD_SafeMounting>
+  <RD_SafeMounting_Desc>Якщо інший мод зламав запуск Giddy-Up, список тварин для верхової їзди та зміщення вершників виправляються. Сідання, що на півдорозі видає помилку, акуратно скасовується, замість того щоб лишити вершника наполовину на тварині.</RD_SafeMounting_Desc>
+  <RD_MountPause>Пауза при нескінченному сіданні</RD_MountPause>
+  <RD_MountPause_Desc>Вершник, якому сідання постійно не вдається (5 спроб за годину або сідання з помилкою), робить перерву перед новою спробою. Ваші власні накази й далі виконуються. Це зупиняє нескінченні повтори, які могли обвалити гру.</RD_MountPause_Desc>
+  <RD_PauseHours>Тривалість перерви: {0} год</RD_PauseHours>
+  <RD_PauseHours_Desc>Скільки вершник чекає перед новою спробою сісти верхи (ігрові години).</RD_PauseHours_Desc>
+  <RD_SecVehicles>Вершники й транспорт</RD_SecVehicles>
+  <RD_DismountToBoard>Спішуватися перед посадкою</RD_DismountToBoard>
+  <RD_DismountToBoard_Desc>Вершник як слід злазить із тварини перед посадкою в транспорт (раніше він просто зникав без відома Giddy-Up, і тварина лишалася розгубленою).</RD_DismountToBoard_Desc>
+  <RD_AnimalPlace>Тварина тим часом</RD_AnimalPlace>
+  <RD_AnimalPlace_Desc>Що робить тварина, поки її вершник у транспорті.</RD_AnimalPlace_Desc>
+  <RD_Place_Cargo>Їде з ним</RD_Place_Cargo>
+  <RD_Place_Cargo_Desc>Тварина йде у вантаж транспорту, якщо вміщається (за вагою). Якщо ні, чекає поруч із транспортом.</RD_Place_Cargo_Desc>
+  <RD_Place_Wait>Чекає поруч</RD_Place_Wait>
+  <RD_Place_Wait_Desc>Тварина лишається поруч із транспортом (прив'язана, якщо її можна прив'язати).</RD_Place_Wait_Desc>
+  <RD_Place_Free>Вільна</RD_Place_Free>
+  <RD_Place_Free_Desc>Тварину лишають саму на себе.</RD_Place_Free_Desc>
+  <RD_RideToVehicle>Під'їжджати до транспорту верхи</RD_RideToVehicle>
+  <RD_RideToVehicle_Desc>Вершники лишаються верхи, коли йдуть на посадку, слідують за транспортом або супроводжують його, замість того щоб лишити тварину за 25 клітинок і йти пішки.</RD_RideToVehicle_Desc>
+  <RD_RemountAfter>Знову верхи після виходу</RD_RemountAfter>
+  <RD_RemountAfter_Desc>Вийшовши з транспорту, вершник забирає свою тварину з вантажу (якщо вона їхала з ним) і знову сідає на неї.</RD_RemountAfter_Desc>
+  <RD_KeepOwnership>Тварина лишається за ним</RD_KeepOwnership>
+  <RD_KeepOwnership_Desc>Поки вершник у транспорті, тварина лишається закріпленою за ним – його не відправляють відвести її до загону, і ніхто інший її не забирає.</RD_KeepOwnership_Desc>
+  <RD_SecCaravans>Каравани з транспортом</RD_SecCaravans>
+  <RD_CaravanMounts>Верхи в караванах із транспортом</RD_CaravanMounts>
+  <RD_CaravanMounts_Desc>Колоністи, що йдуть пішки з караваном транспорту, їдуть на своїх тваринах і знову сідають на них після прибуття каравану (Giddy-Up робить це лише для караванів без транспорту).</RD_CaravanMounts_Desc>
+  <RD_SecSeats>Місця в транспорті</RD_SecSeats>
+  <RD_Seats>Змінювати місця в транспорті</RD_Seats>
+  <RD_Seats_Desc>Пасажирські місця змінюються в типів транспорту – це отримують нові, завантажені й ті, що на мапі. Місця водія та стрільців ніколи не змінюються. Нікого не висаджують, коли місць стає менше.</RD_Seats_Desc>
+  <RD_PassengerMult>Пасажирські місця: ×{0}</RD_PassengerMult>
+  <RD_PassengerMult_Desc>Пасажирські місця кожного транспорту множаться (з округленням угору).</RD_PassengerMult_Desc>
+  <RD_AddSeats>Місця для транспорту без пасажирських місць</RD_AddSeats>
+  <RD_AddSeats_Desc>Транспорт, що має лише водія (або стрільців), отримує пасажирський відсік на 1–4 місця залежно від розміру.</RD_AddSeats_Desc>
+  <RD_SecPerVehicle>Кожен транспорт</RD_SecPerVehicle>
+  <RD_PerVehicle_Desc>Додавайте або прибирайте пасажирські місця окремого транспорту. Показано: місця екіпажу · пасажирські місця спочатку → зараз.</RD_PerVehicle_Desc>
+  <RD_Search>Пошук:</RD_Search>
+  <RD_ResetAll>Скинути все</RD_ResetAll>
+  <RD_SeatsRow>екіпаж {0} · пасажири {1} → {2}</RD_SeatsRow>
+  <RD_PassengerRole>Пасажири</RD_PassengerRole>
+  <RD_SecStatus>Що знайшов мод</RD_SecStatus>
+  <RD_StGiddyUp>Giddy-Up</RD_StGiddyUp>
+  <RD_StVehicles>Vehicle Framework</RD_StVehicles>
+  <RD_StCompanion>Companion Mounts</RD_StCompanion>
+  <RD_StPassengers>Mount Passengers</RD_StPassengers>
+  <RD_StNotFound>немає в грі</RD_StNotFound>
+  <RD_StSetupOk>Giddy-Up запустився нормально.</RD_StSetupOk>
+  <RD_StSetupRepaired>Запуск Giddy-Up зламав інший мод – виправлено.</RD_StSetupRepaired>
+  <RD_StCounts>Ця сесія: скасовано невдалих сідань: {0} · вершників на паузі: {1} · спішилися для посадки: {2} · знову сіли верхи: {3}</RD_StCounts>
+  <RD_StSeats>Місця: змінено типів транспорту: {0} · отримали пасажирський відсік: {1}</RD_StSeats>
+  <RD_LogMountThrew>{0} не зміг сісти на {1} ({2}) – скасовано, наступна спроба через {3} год.</RD_LogMountThrew>
+  <RD_LogMountLoop>{0} безуспішно намагався сісти на {1} – наступна спроба через {3} год.</RD_LogMountLoop>
+</LanguageData>

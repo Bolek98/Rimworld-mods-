@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RD_Rec1>Monte sûre : Giddy-Up réparé, montées ratées annulées, tentatives sans fin mises en pause</RD_Rec1>
+  <RD_Rec2>Les cavaliers descendent avant d'embarquer ; l'animal voyage comme cargaison</RD_Rec2>
+  <RD_Rec3>Retour sur l'animal après être sorti ; on monte aussi en caravane</RD_Rec3>
+  <RD_Rec4>Places passagers ×2, les véhicules sans places passagers en obtiennent</RD_Rec4>
+  <RD_PageSafety>Monte sûre</RD_PageSafety>
+  <RD_PageVehicles>Cavaliers &amp; véhicules</RD_PageVehicles>
+  <RD_PageSeats>Places</RD_PageSeats>
+  <RD_PageStatus>État</RD_PageStatus>
+  <RD_SecSafety>Monte sûre (Giddy-Up)</RD_SecSafety>
+  <RD_NoGiddyUp>Giddy-Up n'est pas dans la partie – cette page n'a aucun effet.</RD_NoGiddyUp>
+  <RD_NeedBoth>Nécessite Giddy-Up et Vehicle Framework – l'un des deux manque.</RD_NeedBoth>
+  <RD_NoVehicles>Vehicle Framework n'est pas dans la partie – cette page n'a aucun effet.</RD_NoVehicles>
+  <RD_SafeMounting>Réparer et protéger la montée en selle</RD_SafeMounting>
+  <RD_SafeMounting_Desc>Si un autre mod a cassé le démarrage de Giddy-Up, la liste des animaux montables et les décalages des cavaliers sont réparés. Une montée qui plante en cours de route est proprement annulée au lieu de laisser le cavalier à moitié sur l'animal.</RD_SafeMounting_Desc>
+  <RD_MountPause>Mettre en pause les montées sans fin</RD_MountPause>
+  <RD_MountPause_Desc>Un cavalier dont la montée échoue sans cesse (5 essais en une heure, ou une montée qui a planté) fait une pause avant de réessayer. Vos propres ordres passent toujours. Cela stoppe les tentatives sans fin qui pouvaient faire planter le jeu.</RD_MountPause_Desc>
+  <RD_PauseHours>Durée de la pause : {0} h</RD_PauseHours>
+  <RD_PauseHours_Desc>Combien de temps un cavalier attend avant de réessayer de monter (heures de jeu).</RD_PauseHours_Desc>
+  <RD_SecVehicles>Cavaliers et véhicules</RD_SecVehicles>
+  <RD_DismountToBoard>Descendre avant d'embarquer</RD_DismountToBoard>
+  <RD_DismountToBoard_Desc>Un cavalier descend correctement de son animal avant de monter dans un véhicule (avant, il disparaissait simplement sans que Giddy-Up le remarque et l'animal restait désorienté).</RD_DismountToBoard_Desc>
+  <RD_AnimalPlace>L'animal pendant ce temps</RD_AnimalPlace>
+  <RD_AnimalPlace_Desc>Ce que fait l'animal pendant que son cavalier est dans un véhicule.</RD_AnimalPlace_Desc>
+  <RD_Place_Cargo>Voyage avec lui</RD_Place_Cargo>
+  <RD_Place_Cargo_Desc>L'animal va dans la cargaison du véhicule s'il y tient (selon le poids). Sinon, il attend à côté du véhicule.</RD_Place_Cargo_Desc>
+  <RD_Place_Wait>Attend à côté</RD_Place_Wait>
+  <RD_Place_Wait_Desc>L'animal reste à côté du véhicule (attaché s'il peut être tenu en longe).</RD_Place_Wait_Desc>
+  <RD_Place_Free>Laissé libre</RD_Place_Free>
+  <RD_Place_Free_Desc>L'animal est livré à lui-même.</RD_Place_Free_Desc>
+  <RD_RideToVehicle>Rejoindre les véhicules en selle</RD_RideToVehicle>
+  <RD_RideToVehicle_Desc>Les cavaliers restent sur leur animal pour aller embarquer, suivre ou escorter un véhicule, au lieu de le laisser à 25 cases et de marcher.</RD_RideToVehicle_Desc>
+  <RD_RemountAfter>Remonter en selle après être sorti</RD_RemountAfter>
+  <RD_RemountAfter_Desc>Après être sorti d'un véhicule, le cavalier récupère son animal dans la cargaison (s'il a voyagé avec lui) et remonte dessus.</RD_RemountAfter_Desc>
+  <RD_KeepOwnership>L'animal reste le sien</RD_KeepOwnership>
+  <RD_KeepOwnership_Desc>Pendant que le cavalier est dans le véhicule, l'animal lui reste réservé – il n'est pas envoyé le ramener à l'enclos et personne d'autre ne le prend.</RD_KeepOwnership_Desc>
+  <RD_SecCaravans>Caravanes de véhicules</RD_SecCaravans>
+  <RD_CaravanMounts>Monter en selle dans les caravanes de véhicules</RD_CaravanMounts>
+  <RD_CaravanMounts_Desc>Les colons qui marchent avec une caravane de véhicules montent leurs propres animaux et remontent dessus à l'arrivée de la caravane (Giddy-Up ne le fait que pour les caravanes sans véhicules).</RD_CaravanMounts_Desc>
+  <RD_SecSeats>Places dans les véhicules</RD_SecSeats>
+  <RD_Seats>Modifier les places des véhicules</RD_Seats>
+  <RD_Seats_Desc>Les places passagers sont modifiées sur les types de véhicules – les nouveaux véhicules, ceux chargés et ceux sur la carte en profitent tous. Les places du conducteur et des tireurs ne sont jamais modifiées. Personne n'est éjecté quand des places disparaissent.</RD_Seats_Desc>
+  <RD_PassengerMult>Places passagers : ×{0}</RD_PassengerMult>
+  <RD_PassengerMult_Desc>Les places passagers de chaque véhicule sont multipliées (arrondi au supérieur).</RD_PassengerMult_Desc>
+  <RD_AddSeats>Places pour véhicules sans places passagers</RD_AddSeats>
+  <RD_AddSeats_Desc>Les véhicules qui n'ont qu'un conducteur (ou des tireurs) reçoivent une zone passagers de 1–4 places selon leur taille.</RD_AddSeats_Desc>
+  <RD_SecPerVehicle>Chaque véhicule</RD_SecPerVehicle>
+  <RD_PerVehicle_Desc>Ajouter ou retirer des places passagers sur un seul véhicule. Affiché : places d'équipage · places passagers d'origine → maintenant.</RD_PerVehicle_Desc>
+  <RD_Search>Rechercher :</RD_Search>
+  <RD_ResetAll>Tout réinitialiser</RD_ResetAll>
+  <RD_SeatsRow>équipage {0} · passagers {1} → {2}</RD_SeatsRow>
+  <RD_PassengerRole>Passagers</RD_PassengerRole>
+  <RD_SecStatus>Ce que le mod a trouvé</RD_SecStatus>
+  <RD_StGiddyUp>Giddy-Up</RD_StGiddyUp>
+  <RD_StVehicles>Vehicle Framework</RD_StVehicles>
+  <RD_StCompanion>Companion Mounts</RD_StCompanion>
+  <RD_StPassengers>Mount Passengers</RD_StPassengers>
+  <RD_StNotFound>absent de la partie</RD_StNotFound>
+  <RD_StSetupOk>Giddy-Up a démarré normalement.</RD_StSetupOk>
+  <RD_StSetupRepaired>Le démarrage de Giddy-Up a été cassé par un autre mod – réparé.</RD_StSetupRepaired>
+  <RD_StCounts>Cette session : {0} montées ratées annulées · {1} cavaliers en pause · {2} descendus pour embarquer · {3} remontés en selle</RD_StCounts>
+  <RD_StSeats>Places : {0} types de véhicules modifiés · {1} ont reçu une zone passagers</RD_StSeats>
+  <RD_LogMountThrew>{0} n'a pas pu monter sur {1} ({2}) – annulé, prochain essai dans {3} h.</RD_LogMountThrew>
+  <RD_LogMountLoop>{0} a essayé sans succès de monter sur {1} – prochain essai dans {3} h.</RD_LogMountLoop>
+</LanguageData>

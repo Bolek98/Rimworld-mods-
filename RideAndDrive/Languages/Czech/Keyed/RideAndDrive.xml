@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RD_Rec1>Bezpečná jízda: opravený Giddy-Up, nepovedené nasednutí se vrátí, nekonečné pokusy dostanou pauzu</RD_Rec1>
+  <RD_Rec2>Jezdci před nástupem sesednou; zvíře jede s nimi jako náklad</RD_Rec2>
+  <RD_Rec3>Po vystoupení zpátky na zvíře; jezdí se i v karavanách</RD_Rec3>
+  <RD_Rec4>Místa pro cestující ×2, vozidla bez nich nějaká dostanou</RD_Rec4>
+  <RD_PageSafety>Bezpečná jízda</RD_PageSafety>
+  <RD_PageVehicles>Jezdci a vozidla</RD_PageVehicles>
+  <RD_PageSeats>Místa</RD_PageSeats>
+  <RD_PageStatus>Stav</RD_PageStatus>
+  <RD_SecSafety>Bezpečná jízda (Giddy-Up)</RD_SecSafety>
+  <RD_NoGiddyUp>Giddy-Up ve hře není – tahle stránka nic nedělá.</RD_NoGiddyUp>
+  <RD_NeedBoth>Potřebuje Giddy-Up i Vehicle Framework – jeden z nich chybí.</RD_NeedBoth>
+  <RD_NoVehicles>Vehicle Framework ve hře není – tahle stránka nic nedělá.</RD_NoVehicles>
+  <RD_SafeMounting>Opravit a chránit nasedání</RD_SafeMounting>
+  <RD_SafeMounting_Desc>Když jiný mod rozbil start Giddy-Upu, opraví se seznam zvířat, na která se dá nasednout, i posunutí jezdců. Nasednutí, které v půlce spadne, se čistě vrátí, místo aby jezdec zůstal napůl na zvířeti.</RD_SafeMounting_Desc>
+  <RD_MountPause>Pauza při nekonečném nasedání</RD_MountPause>
+  <RD_MountPause_Desc>Jezdec, kterému nasedání pořád selhává (5 pokusů během hodiny nebo nasednutí s chybou), si dá pauzu, než to zkusí znovu. Tvoje vlastní rozkazy platí dál. Tím se zastaví nekonečné zkoušení, které mohlo shodit hru.</RD_MountPause_Desc>
+  <RD_PauseHours>Délka pauzy: {0} h</RD_PauseHours>
+  <RD_PauseHours_Desc>Jak dlouho jezdec čeká, než zkusí znovu nasednout (herní hodiny).</RD_PauseHours_Desc>
+  <RD_SecVehicles>Jezdci a vozidla</RD_SecVehicles>
+  <RD_DismountToBoard>Před nástupem sesednout</RD_DismountToBoard>
+  <RD_DismountToBoard_Desc>Jezdec před nástupem do vozidla pořádně sesedne ze zvířete (dřív prostě zmizel Giddy-Upu zpod ruky a zvíře nevědělo, co dál).</RD_DismountToBoard_Desc>
+  <RD_AnimalPlace>Zvíře mezitím</RD_AnimalPlace>
+  <RD_AnimalPlace_Desc>Co dělá zvíře, zatímco je jeho jezdec ve vozidle.</RD_AnimalPlace_Desc>
+  <RD_Place_Cargo>Jede s ním</RD_Place_Cargo>
+  <RD_Place_Cargo_Desc>Zvíře jde do nákladu vozidla, pokud se vejde (podle váhy). Když ne, počká vedle vozidla.</RD_Place_Cargo_Desc>
+  <RD_Place_Wait>Počká u vozidla</RD_Place_Wait>
+  <RD_Place_Wait_Desc>Zvíře zůstane vedle vozidla (uvázané, pokud se dá uvázat).</RD_Place_Wait_Desc>
+  <RD_Place_Free>Jde volně</RD_Place_Free>
+  <RD_Place_Free_Desc>Zvíře se nechá být.</RD_Place_Free_Desc>
+  <RD_RideToVehicle>Dojet až k vozidlu</RD_RideToVehicle>
+  <RD_RideToVehicle_Desc>Jezdci zůstanou na zvířeti i cestou k nástupu, při doprovodu nebo následování vozidla, místo aby ho nechali 25 políček daleko a šli pěšky.</RD_RideToVehicle_Desc>
+  <RD_RemountAfter>Po vystoupení znovu nasednout</RD_RemountAfter>
+  <RD_RemountAfter_Desc>Po vystoupení z vozidla si jezdec vezme zvíře z nákladu (pokud jelo s ním) a znovu nasedne.</RD_RemountAfter_Desc>
+  <RD_KeepOwnership>Zvíře zůstane jeho</RD_KeepOwnership>
+  <RD_KeepOwnership_Desc>Zatímco je jezdec ve vozidle, zvíře zůstává jeho – nepošle se ho odvést do ohrady a nikdo jiný si ho nevezme.</RD_KeepOwnership_Desc>
+  <RD_SecCaravans>Karavany s vozidly</RD_SecCaravans>
+  <RD_CaravanMounts>V karavanách s vozidly se jezdí</RD_CaravanMounts>
+  <RD_CaravanMounts_Desc>Kolonisté, kteří jdou s karavanou vozidel pěšky, jedou na svých zvířatech a po příjezdu na ně znovu nasednou (Giddy-Up to dělá jen u karavan bez vozidel).</RD_CaravanMounts_Desc>
+  <RD_SecSeats>Místa ve vozidlech</RD_SecSeats>
+  <RD_Seats>Měnit místa ve vozidlech</RD_Seats>
+  <RD_Seats_Desc>Místa pro cestující se mění u typů vozidel – dostanou je nová vozidla, načtená i ta na mapě. Místa řidiče a střelců se nikdy nemění. Když míst ubude, nikoho to nevyhodí.</RD_Seats_Desc>
+  <RD_PassengerMult>Místa pro cestující: ×{0}</RD_PassengerMult>
+  <RD_PassengerMult_Desc>Místa pro cestující u každého vozidla vynásobená (zaokrouhleno nahoru).</RD_PassengerMult_Desc>
+  <RD_AddSeats>Místa i pro vozidla bez cestujících</RD_AddSeats>
+  <RD_AddSeats_Desc>Vozidla, která mají jen řidiče (nebo střelce), dostanou místa pro 1–4 cestující podle velikosti.</RD_AddSeats_Desc>
+  <RD_SecPerVehicle>Každé vozidlo zvlášť</RD_SecPerVehicle>
+  <RD_PerVehicle_Desc>Přidej nebo uber místa pro cestující u jednoho vozidla. Vidíš: místa posádky · místa pro cestující původně → teď.</RD_PerVehicle_Desc>
+  <RD_Search>Hledat:</RD_Search>
+  <RD_ResetAll>Vrátit vše</RD_ResetAll>
+  <RD_SeatsRow>posádka {0} · cestující {1} → {2}</RD_SeatsRow>
+  <RD_PassengerRole>Cestující</RD_PassengerRole>
+  <RD_SecStatus>Co mod našel</RD_SecStatus>
+  <RD_StGiddyUp>Giddy-Up</RD_StGiddyUp>
+  <RD_StVehicles>Vehicle Framework</RD_StVehicles>
+  <RD_StCompanion>Companion Mounts</RD_StCompanion>
+  <RD_StPassengers>Mount Passengers</RD_StPassengers>
+  <RD_StNotFound>není ve hře</RD_StNotFound>
+  <RD_StSetupOk>Giddy-Up nastartoval v pořádku.</RD_StSetupOk>
+  <RD_StSetupRepaired>Start Giddy-Upu rozbil jiný mod – opraveno.</RD_StSetupRepaired>
+  <RD_StCounts>Tato hra: {0} nepovedených nasednutí vráceno · {1} jezdců na pauze · {2} sesedlo kvůli nástupu · {3} znovu nasedlo</RD_StCounts>
+  <RD_StSeats>Místa: {0} typů vozidel změněno · {1} dostalo místa pro cestující</RD_StSeats>
+  <RD_LogMountThrew>{0} nemohl nasednout na {1} ({2}) – vráceno, další pokus za {3} h.</RD_LogMountThrew>
+  <RD_LogMountLoop>{0} pořád zkoušel nasednout na {1} bez úspěchu – další pokus za {3} h.</RD_LogMountLoop>
+</LanguageData>
