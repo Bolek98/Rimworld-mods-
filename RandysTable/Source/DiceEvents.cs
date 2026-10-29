@@ -19,6 +19,7 @@ namespace RandysTable
 		public string id;
 		public int face;
 		public float weight = 1f;
+		public bool threat;   // 0.2.1: a threat – follows the difficulty, never on peaceful difficulties
 
 		public string Title => ("RT_EV_" + id).Translate();
 		public string Text => ("RT_EV_" + id + "_Text").Translate();
@@ -179,7 +180,7 @@ namespace RandysTable
 				mapId = map.uniqueID,
 				start = Find.TickManager.TicksGame,
 				end = Find.TickManager.TicksGame + Mathf.RoundToInt(days * 60000f),
-				goal = Mathf.Max(minGoal, Mathf.Round(perColonist * n)),
+				goal = Mathf.Max(minGoal, Mathf.Round(perColonist * n * DiceDifficulty.GoalFactor)),
 			};
 			c.Init(this, map);
 			DiceEvents.Comp?.challenges.Add(c);
@@ -326,6 +327,25 @@ namespace RandysTable
 		}
 	}
 
+	// 0.2.1: everything the events do follows the storyteller difficulty (threat scale):
+	// harder games – stronger raids, bigger goals, smaller rewards; peaceful games – no threats at all
+	public static class DiceDifficulty
+	{
+		public static float D => Mathf.Max(0f, Find.Storyteller?.difficulty?.threatScale ?? 1f);
+
+		public static bool ThreatsAllowed => D >= 0.3f && (Find.Storyteller?.difficulty?.allowBigThreats ?? true);
+
+		// an extra raid factor (1.3 = 30 % stronger) is softened on easy and sharpened on hard difficulties
+		public static float Threat(float factor) => Mathf.Max(0.3f, 1f + (factor - 1f) * Mathf.Clamp(D, 0.3f, 2f));
+
+		public static float RewardFactor => Mathf.Clamp(1.35f - 0.35f * D, 0.6f, 1.3f);
+
+		public static float GoalFactor => Mathf.Clamp(0.7f + 0.3f * D, 0.6f, 1.6f);
+
+		public static string Explain() => "RT_EV_Difficulty".Translate(Find.Storyteller?.difficultyDef?.LabelCap ?? "?",
+			RewardFactor.ToString("0.0#"), GoalFactor.ToString("0.0#"), (ThreatsAllowed ? "RT_EV_RaidsYes" : "RT_EV_RaidsNo").Translate());
+	}
+
 	// ---------------------------------------------------------------------------
 	// rewards and penalties
 	// ---------------------------------------------------------------------------
@@ -361,6 +381,7 @@ namespace RandysTable
 
 		public static List<Thing> Goods(float value)
 		{
+			value *= DiceDifficulty.RewardFactor;
 			try
 			{
 				var parms = new ThingSetMakerParams { totalMarketValueRange = new FloatRange(value * 0.8f, value * 1.2f), countRange = new IntRange(1, 4) };
@@ -372,9 +393,13 @@ namespace RandysTable
 			}
 		}
 
-		public static void Drop(Map map, List<Thing> things, string why)
+		public static void Drop(Map map, List<Thing> things, string why, bool exact = false)
 		{
 			if (things == null || things.Count == 0) return;
+			// 0.2.1: rewards follow the difficulty (bets pay exactly what was promised)
+			if (!exact)
+				foreach (Thing t in things)
+					if (t.def.stackLimit > 1 && !(t is MinifiedThing)) t.stackCount = Mathf.Max(1, Mathf.RoundToInt(t.stackCount * DiceDifficulty.RewardFactor));
 			IntVec3 spot = DropCellFinder.TradeDropSpot(map);
 			DropPodUtility.DropThingsNear(spot, map, things, 110, false, false, true);
 			Messages.Message("RT_EV_Dropped".Translate(why, Describe(things)), new TargetInfo(spot, map), MessageTypeDefOf.PositiveEvent, false);
@@ -383,7 +408,7 @@ namespace RandysTable
 		public static string Describe(List<Thing> things) =>
 			string.Join(", ", things.Select(t => t.LabelCap.ToString()).ToArray());
 
-		public static void Silver(Map map, int n, string why) => Drop(map, Make("Silver", n), why);
+		public static void Silver(Map map, int n, string why, bool exact = false) => Drop(map, Make("Silver", n), why, exact);
 
 		public static int SilverOnMap(Map map) =>
 			map.listerThings.ThingsOfDef(ThingDefOf.Silver).Where(t => !t.IsForbidden(Faction.OfPlayer)).Sum(t => t.stackCount);
@@ -413,8 +438,13 @@ namespace RandysTable
 		public static void Raid(Map map, float pointsFactor, string why)
 		{
 			IncidentDef d = IncidentDefOf.RaidEnemy;
+			if (!DiceDifficulty.ThreatsAllowed)
+			{
+				Messages.Message("RT_EV_NoRaid".Translate(), MessageTypeDefOf.NeutralEvent, false);
+				return;
+			}
 			IncidentParms parms = StorytellerUtility.DefaultParmsNow(d.category, map);
-			parms.points *= pointsFactor;
+			parms.points *= DiceDifficulty.Threat(pointsFactor);
 			parms.forced = true;
 			if (!d.Worker.TryExecute(parms))
 				Log.Message("[Randy's Table] " + why + ": no raid possible right now.");
@@ -424,8 +454,9 @@ namespace RandysTable
 		{
 			IncidentDef d = DefDatabase<IncidentDef>.GetNamedSilentFail(defName);
 			if (d == null) return false;
+			if (!DiceDifficulty.ThreatsAllowed && (d.category == IncidentCategoryDefOf.ThreatBig || d.category == IncidentCategoryDefOf.ThreatSmall)) return false;
 			IncidentParms parms = StorytellerUtility.DefaultParmsNow(d.category, map);
-			if (parms.points > 0f) parms.points *= pointsFactor;
+			if (parms.points > 0f) parms.points *= DiceDifficulty.Threat(pointsFactor);
 			parms.forced = true;
 			if (delay > 0)
 			{
@@ -516,10 +547,12 @@ namespace RandysTable
 				DiceEventsComp c = Comp;
 				RTSettings s = RTMod.S;
 				if (c == null || s == null || !s.diceEvents || face < 1 || face > 6) return;
-				if (!Rand.Chance(s.eventChance / 100f)) return;
+				float chance = s.eventChance / 100f;
+				if (face >= 5) chance *= Mathf.Min(1f, DiceDifficulty.D);   // easier games: fewer hard events
+				if (!Rand.Chance(chance)) return;
 				Map map = Find.AnyPlayerHomeMap;
 				if (map == null) return;
-				DiceEvent e = All.Where(x => x.face == face && Enabled(x) && Safe(x, map)).RandomElementByWeightWithFallback(x => x.weight);
+				DiceEvent e = All.Where(x => x.face == face && Enabled(x) && (!x.threat || DiceDifficulty.ThreatsAllowed) && Safe(x, map)).RandomElementByWeightWithFallback(x => x.weight);
 				if (e == null) return;
 				c.pendingId = e.id;
 				c.pendingTick = Find.TickManager.TicksGame + Rand.Range(3000, 30000);
@@ -681,13 +714,13 @@ namespace RandysTable
 			// ---------------- 5: hard ----------------
 			L.Add(new DE_Action
 			{
-				id = "TwoSides", face = 5, bad = true,
+				id = "TwoSides", threat = true, face = 5, bad = true,
 				act = m => { DiceReward.Raid(m, 0.6f, "TwoSides"); DiceReward.Raid(m, 0.6f, "TwoSides"); }
 			});
-			L.Add(new DE_Situation { id = "BadLuck", face = 5, hediff = "RT_Sit_BadLuck", bad = true });
+			L.Add(new DE_Situation { id = "BadLuck", threat = true, face = 5, hediff = "RT_Sit_BadLuck", bad = true });
 			L.Add(new DE_Challenge
 			{
-				id = "Fortress", face = 5, kind = DE_Challenge.Kind.NoDeaths, days = 2f,
+				id = "Fortress", threat = true, face = 5, kind = DE_Challenge.Kind.NoDeaths, days = 2f,
 				onStart = m => DiceReward.Raid(m, 0.9f, "Fortress"),
 				reward = m =>
 				{
@@ -696,17 +729,17 @@ namespace RandysTable
 				},
 				penalty = m => DiceReward.ThinkAll(m, "RT_Thought_FailedChallenge")
 			});
-			L.Add(new DE_Choice { id = "Tax", face = 5 }
+			L.Add(new DE_Choice { id = "Tax", threat = true, face = 5 }
 				.Opt("O1", m =>
 				{
 					int n = Mathf.Max(50, DiceReward.SilverOnMap(m) / 5);
 					if (!DiceReward.TakeSilver(m, n)) DiceReward.Raid(m, 0.8f, "Tax");
 				})
 				.Opt("O2", m => DiceReward.Raid(m, 0.8f, "Tax")));
-			L.Add(new DE_Condition { id = "ColdShower", face = 5, condition = "ColdSnap", alt = "HeatWave", days = 2f });
+			L.Add(new DE_Condition { id = "ColdShower", threat = true, face = 5, condition = "ColdSnap", alt = "HeatWave", days = 2f });
 
 			// ---------------- 6: mad ----------------
-			L.Add(new DE_Choice { id = "AllIn", face = 6 }
+			L.Add(new DE_Choice { id = "AllIn", threat = true, face = 6 }
 				.Opt("O1", m =>
 				{
 					int r = Rand.RangeInclusive(1, 6);
@@ -725,19 +758,19 @@ namespace RandysTable
 				.Opt("O2", m => { }));
 			L.Add(new DE_Action
 			{
-				id = "MadPack", face = 6, bad = true,
+				id = "MadPack", threat = true, face = 6, bad = true,
 				can = m => DefDatabase<IncidentDef>.GetNamedSilentFail("ManhunterPack") != null,
 				act = m => DiceReward.Fire(m, "ManhunterPack", 1.5f)
 			});
-			L.Add(new DE_Condition { id = "Eclipse", face = 6, condition = "Eclipse", days = 1f, thought = "RT_Thought_Whisper" });
+			L.Add(new DE_Condition { id = "Eclipse", threat = true, face = 6, condition = "Eclipse", days = 1f, thought = "RT_Thought_Whisper" });
 			L.Add(new DE_Action
 			{
-				id = "Revenge", face = 6, bad = true,
+				id = "Revenge", threat = true, face = 6, bad = true,
 				act = m => DiceReward.Raid(m, 1.3f, "Revenge")
 			});
 			L.Add(new DE_Action
 			{
-				id = "Double", face = 6, letter = true,
+				id = "Double", threat = true, face = 6, letter = true,
 				act = m =>
 				{
 					DiceEvent good = All.Where(x => x.face <= 4 && x.face >= 1 && !(x is DE_Choice) && Enabled(x) && Safe(x, m) && x.id != "Double" && x.id != "Reroll").RandomElementWithFallback();
@@ -759,7 +792,7 @@ namespace RandysTable
 			int r = Rand.RangeInclusive(1, 6);
 			if (r % 2 == 0)
 			{
-				DiceReward.Silver(map, win, Txt(id, "") + " (" + r + ")");
+				DiceReward.Silver(map, win, Txt(id, "") + " (" + r + ")", true);
 				DiceReward.ThinkAll(map, "RT_Thought_WonBet");
 			}
 			else
@@ -827,7 +860,7 @@ namespace RandysTable
 			Text.Font = GameFont.Small;
 			GUI.color = MUI.Muted;
 			Text.Font = GameFont.Tiny;
-			Widgets.Label(new Rect(r.x, r.y + 32f, r.width, 34f), "RT_EventListDesc".Translate());
+			Widgets.Label(new Rect(r.x, r.y + 32f, r.width, 34f), "RT_EventListDesc".Translate() + (Current.Game != null ? "\n" + DiceDifficulty.Explain() : ""));
 			Text.Font = GameFont.Small;
 			GUI.color = Color.white;
 			List<DiceEvent> list = DiceEvents.All;
