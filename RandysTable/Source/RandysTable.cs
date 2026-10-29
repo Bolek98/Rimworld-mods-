@@ -36,7 +36,7 @@ namespace RandysTable
 
     public class RTMod : Mod
     {
-        public const string Version = "0.1.3";
+        public const string Version = "0.1.4";
         public static RTSettings S;
         private static List<string> recBullets;
 
@@ -135,6 +135,7 @@ namespace RandysTable
         public static DiceState I;
         public int day = -1;
         public int roll = 3;
+        public int rerollAt = -1;      // 0.1.4: a 7 – the dice are thrown again at this tick
 
         public DiceState(Game game) { I = this; }
 
@@ -144,6 +145,7 @@ namespace RandysTable
         {
             Scribe_Values.Look(ref day, "day", -1);
             Scribe_Values.Look(ref roll, "roll", 3);
+            Scribe_Values.Look(ref rerollAt, "rerollAt", -1);
             if (Scribe.mode == LoadSaveMode.PostLoadInit) I = this;
         }
 
@@ -157,6 +159,11 @@ namespace RandysTable
                 return;
             if (GenDate.DaysPassed != day)
                 Roll(true);
+            else if (rerollAt > 0 && Find.TickManager.TicksGame >= rerollAt)
+            {
+                rerollAt = -1;
+                Face(Rand.RangeInclusive(1, 6), true);
+            }
         }
 
         public void Ensure()
@@ -168,7 +175,16 @@ namespace RandysTable
         public void Roll(bool announce)
         {
             day = GenDate.DaysPassed;
-            roll = Rand.RangeInclusive(1, 6);
+            rerollAt = -1;
+            // 0.1.4: a seven-sided die – 7 means "throw again" a few hours later (an ordinary day until then)
+            Face(Rand.RangeInclusive(1, 7), announce);
+        }
+
+        private void Face(int value, bool announce)
+        {
+            roll = value;
+            if (roll == 7)
+                rerollAt = Find.TickManager.TicksGame + Rand.Range(5000, 20000);
             if (!announce || Find.TickManager.TicksGame < 2500)
                 return;
             try
@@ -194,7 +210,8 @@ namespace RandysTable
                     Surprise(1, "Misc");
                 if (roll == 3 && Rand.Chance(0.5f))
                     Surprise(1, "Misc", "Misc", "ThreatSmall", "OrbitalVisitor", "FactionArrival");
-                Weather();
+                if (roll != 7)
+                    Weather();
             }
             catch (Exception e)
             {
@@ -337,7 +354,7 @@ namespace RandysTable
                 sb.AppendLine("RT_FcNoForced".Translate());
             if (d.roll == 4)
                 sb.AppendLine("RT_FcGift".Translate());
-            int ticksLeft = 60000 - Find.TickManager.TicksGame % 60000;
+            int ticksLeft = d.rerollAt > 0 ? d.rerollAt - Find.TickManager.TicksGame : 60000 - Find.TickManager.TicksGame % 60000;
             sb.Append("RT_FcNext".Translate(ticksLeft.ToStringTicksToPeriod()));
             return sb.ToString();
         }
