@@ -25,7 +25,8 @@ DEPENDS = {
     "Steward2/StewardSupplies": ["Steward2/Steward"],
 }
 # old sources kept for history, not built any more
-SKIP = {"Steward"}
+SKIP = {"Steward",
+        "RideAndDrive"}   # needs Vehicle Framework (third-party, not in the repo) to compile – built locally only
 
 PROJ = """<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
