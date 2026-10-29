@@ -58,12 +58,65 @@ def frame_for(name):
     kid = name.endswith("_Kid")
     return (150, 945) if kid else (75, 945)
 
+GRAY = {}   # name -> grey picture in the padded frame (for skin masks)
+
 def build(path):
     name = os.path.basename(path).rsplit(".", 1)[0]
     top, bot = frame_for(name)
     m, g = mask_of(Image.open(path))
     am, gg = fit(m, g, top, bot, maxw=720)
+    GRAY[name] = gg
     return line_of(am, gg)
+
+# 0.10.1: races whose dark wings lie behind the arms – the body is found by its grey
+# (wings are much darker), so the arms get their parts even when they lie over the wings.
+SKIN_RACES = ("Outerm",)
+
+def skin_of(full, gray):
+    gs = ndi.gaussian_filter(gray, 3)
+    FH = full.shape[0]
+    core = full[int(FH * .35):int(FH * .55)]
+    vals = gs[int(FH * .35):int(FH * .55)][core]
+    med = np.median(vals[vals > np.percentile(vals, 40)])
+    sk = full & (gs > med - 40) & (gs < med + 45)
+    sk = ndi.binary_opening(sk, iterations=2)
+    sk = ndi.binary_fill_holes(ndi.binary_closing(sk, iterations=2))
+    lab, n = ndi.label(sk)
+    sizes = ndi.sum(sk, lab, range(1, n + 1))
+    return lab == (np.argmax(sizes) + 1)
+
+def refine_arms(lab, skin):
+    """every skin pixel outside head/neck/torso/legs that touches an arm becomes arm; then each
+    arm is cut by distance from the shoulder: 45 % upper arm, 35 % forearm, rest hand"""
+    out = lab.copy()
+    out[np.isin(lab, (4, 5, 6, 7, 8, 9))] = 0          # arms are rebuilt from the skin
+    body = np.isin(lab, (1, 2, 3, 10, 11, 12, 13, 14, 15))
+    legs = ndi.binary_dilation(np.isin(lab, (10, 11, 12, 13, 14, 15)), iterations=5)
+    free = ndi.binary_opening(skin & ~body & ~legs, iterations=3)   # no thin strips along the legs or wing edges
+    comp, n = ndi.label(free)
+    for first in (4, 7):
+        arm = np.isin(lab, (first, first + 1, first + 2)) & skin
+        ids = np.unique(comp[arm & (comp > 0)])
+        region = np.isin(comp, ids[ids > 0])
+        if not region.any(): continue
+        torso = ndi.binary_dilation(lab == 3, iterations=4)
+        ys = np.flatnonzero(region.any(1))
+        seed = region & torso
+        seed[ys[0] + int((ys[-1] - ys[0]) * .2):] = False      # only the shoulder, not the whole side
+        if not seed.any():
+            seed = region.copy(); seed[ys[0] + 6:] = False
+        if not seed.any(): continue
+        # geodesic distance inside the arm region
+        dist = np.full(lab.shape, np.inf); dist[seed] = 0
+        frontier = seed.copy(); d = 0
+        while frontier.any() and d < 2000:
+            d += 1
+            nxt = ndi.binary_dilation(frontier) & region & np.isinf(dist)
+            dist[nxt] = d; frontier = nxt
+        dmax = dist[region & np.isfinite(dist)].max()
+        r = region & np.isfinite(dist)
+        out[r] = np.where(dist[r] < .45 * dmax, first, np.where(dist[r] < .8 * dmax, first + 1, first + 2))
+    return out
 
 KITS = "/home/claude/rimworld-mods-/MisakTabs/Anatomy"
 
@@ -182,7 +235,12 @@ if __name__ == "__main__":
         built[os.path.basename(f)[:-4]] = build(f)
     import export_kit
     for n, (line, full, a) in built.items():
-        ids = fit_labels(full, kind_for(n))
+        race = n.split("_")[0]
+        if race in SKIN_RACES:
+            skin = skin_of(full, GRAY[n])
+            ids = refine_arms(fit_labels(full, kind_for(n)), skin)
+        else:
+            ids = fit_labels(full, kind_for(n))
         B = RaceBody(line, full, a, ids)
         export_kit.export(B, f"{out}/{n}")
         print(n, "ok")
