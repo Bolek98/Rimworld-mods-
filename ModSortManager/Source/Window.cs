@@ -136,15 +136,8 @@ namespace ModSortManager
             if (closeConfirmed || !Changed)
                 return true;
             // 0.1.1: unsaved changes – save, throw away, or go back
-            var box = new Dialog_MessageBox("MSM_CloseAsk".Translate(), "MSM_SaveRestart".Translate(), SaveAndRestart,
-                "MSM_DiscardShort".Translate(), delegate { closeConfirmed = true; Close(); }, null, false, null, null);
-            // 0.3.3: save now, the new list is used the next time you start the game yourself
-            if (!Bisect.Active)
-            {
-                box.buttonCText = "MSM_SaveContinue".Translate();
-                box.buttonCAction = SaveAndContinue;
-            }
-            Find.WindowStack.Add(box);
+            // 0.3.3: save and restart / save and keep playing / save and quit / throw away
+            Find.WindowStack.Add(new Dialog_Unsaved(this));
             return false;
         }
 
@@ -696,6 +689,28 @@ namespace ModSortManager
             closeConfirmed = true;
             Close();
         }
+
+        // 0.3.3: save the list (and the return save) and quit the game
+        internal void SaveAndQuit()
+        {
+            Action go = delegate
+            {
+                PrepareReturn();
+                if (!SaveList()) return;
+                closeConfirmed = true;
+                Root.Shutdown();
+            };
+            if (InGame && !(MSMMod.Settings.returnToGame && CanSaveGame()))
+            {
+                Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_NoSaveConfirm".Translate(), go, true));
+                return;
+            }
+            go();
+        }
+
+        internal void SaveRestartPublic() => SaveAndRestart();
+        internal void SaveContinuePublic() => SaveAndContinue();
+        internal void DiscardAndClose() { closeConfirmed = true; Close(); }
 
         private void SaveListAndRestart()
         {
@@ -2184,6 +2199,36 @@ namespace ModSortManager
                 Verse.Widgets.Label(new UnityEngine.Rect(row.x + 18f, row.y + 41f, row.width - 24f, 20f), pair.b.Name + ": " + d.kindsB);
             }
             Verse.Widgets.EndScrollView();
+        }
+    }
+
+    // 0.3.3: the unsaved-changes question with four answers
+    public class Dialog_Unsaved : Verse.Window
+    {
+        private readonly Dialog_ModSortManager owner;
+
+        public Dialog_Unsaved(Dialog_ModSortManager owner)
+        {
+            this.owner = owner;
+            forcePause = true;
+            absorbInputAroundWindow = true;
+            closeOnClickedOutside = false;
+            doCloseX = true;
+        }
+
+        public override Vector2 InitialSize => new Vector2(560f, 300f);
+
+        public override void DoWindowContents(Rect r)
+        {
+            Text.Font = GameFont.Small;
+            Widgets.Label(new Rect(r.x, r.y, r.width, 60f), "MSM_CloseAsk".Translate());
+            float w = (r.width - 10f) / 2f, h = 38f;
+            float y = r.yMax - 2 * h - 10f;
+            bool bis = Bisect.Active;
+            if (Widgets.ButtonText(new Rect(r.x, y, w, h), "MSM_SaveRestart".Translate())) { Close(); owner.SaveRestartPublic(); }
+            if (!bis && Widgets.ButtonText(new Rect(r.x + w + 10f, y, w, h), "MSM_SaveContinue".Translate())) { Close(); owner.SaveContinuePublic(); }
+            if (!bis && Widgets.ButtonText(new Rect(r.x, y + h + 10f, w, h), "MSM_SaveQuit".Translate())) { Close(); owner.SaveAndQuit(); }
+            if (Widgets.ButtonText(new Rect(r.x + w + 10f, y + h + 10f, w, h), "MSM_DiscardShort".Translate())) { Close(); owner.DiscardAndClose(); }
         }
     }
 }
