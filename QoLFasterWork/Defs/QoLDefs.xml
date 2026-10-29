@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <KeyBindingCategoryDef>
+    <defName>QFW_Keys</defName>
+    <label>QoL – Faster Work, Prisoners &amp; Pipette</label>
+    <description>Keys of the QoL – Faster Work, Prisoners &amp; Pipette mod.</description>
+  </KeyBindingCategoryDef>
+
+  <KeyBindingDef>
+    <defName>QFW_Pipette</defName>
+    <label>pipette (click a thing to build the same)</label>
+    <category>QFW_Keys</category>
+    <defaultKeyCodeA>P</defaultKeyCodeA>
+  </KeyBindingDef>
+
+  <MainButtonDef>
+    <defName>QFW_Colony</defName>
+    <label>QoL</label>
+    <description>Map search, prisoner overview and colony actions (everyone eat / sleep).</description>
+    <tabWindowClass>QoLFW.MainTabWindow_QoL</tabWindowClass>
+    <order>95</order>
+    <minimized>true</minimized>
+    <iconPath>QoLFW/Pipette</iconPath>
+  </MainButtonDef>
+</Defs>

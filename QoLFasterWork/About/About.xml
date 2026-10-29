@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>QoL – Faster Work, Prisoners &amp; Pipette</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.qolfasterwork</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>Small quality-of-life helpers in one mod. Every part can be switched off, and "Recommended settings" set everything up for you.
+
+FASTER WORK
+- Separate speed sliders for crafting, construction, mining, plants, research, cooking, cleaning, medical work and animal work (0.5× to 10×).
+- Only your own pawns by default (raiders and visitors work as usual).
+- Recipe speeds from other mods are picked up too.
+
+PRISONERS
+- Recruiting and enslaving go faster (each talk lowers resistance / will more).
+- Unwavering loyalty: keep it, remove it after X days in prison, or remove it right away.
+- Prisoner overview (QoL button): interaction mode, resistance, will, days held, when they become recruitable.
+
+PIPETTE
+- Press P (can be changed in the key settings) and click anything: you get it in hand to build – same building, material, style and rotation. Works on buildings, blueprints, frames, floors and minified furniture.
+- Click an item and you can add a bill for it at a workbench that makes it.
+
+TOOLS
+- Copy / paste pawn settings: work priorities, schedule, outfit, food, drug and reading policy, medical care, response to hostiles, allowed area.
+- Haul now: selected items go to storage right away, carried by the nearest free colonists.
+- Grow or shrink a stockpile or growing zone by one cell on every side.
+- Map search: type "steel" and see where all of it lies, click to jump there.
+- Everyone eat now / everyone go to sleep / wake everyone up.
+- Stack size multiplier (off by default, needs a restart; don't use together with OgreStack).
+- Notifications: make letters and messages of any kind silent, or hide them (they still go to History).
+
+Safe to add to an existing save. Removing it: the game only loses the remembered prisoner days.</description>
+</ModMetaData>

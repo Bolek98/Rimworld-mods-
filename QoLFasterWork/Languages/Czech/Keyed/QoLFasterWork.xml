@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- recommended settings -->
+  <QFW_Rec1>Práce 1,5× rychlejší (tvoji lidé)</QFW_Rec1>
+  <QFW_Rec2>Verbování a zotročování 2× rychlejší</QFW_Rec2>
+  <QFW_Rec3>Neochvějní vězni naverbovatelní po 15 dnech</QFW_Rec3>
+  <QFW_Rec4>Kapátko, kopírování nastavení, odnést hned, zóna ±, okno QoL</QFW_Rec4>
+  <QFW_PageWork>Rychlejší práce</QFW_PageWork>
+  <QFW_PagePrisoners>Vězni</QFW_PagePrisoners>
+  <QFW_PageTools>Kapátko a nástroje</QFW_PageTools>
+  <QFW_PageNotify>Oznámení</QFW_PageNotify>
+
+  <!-- faster work -->
+  <QFW_SecWork>Rychlost práce</QFW_SecWork>
+  <QFW_WorkSpeed>Rychlejší práce</QFW_WorkSpeed>
+  <QFW_WorkSpeed_Desc>Vynásobí rychlost každého druhu práce jeho posuvníkem níže.</QFW_WorkSpeed_Desc>
+  <QFW_ColonistsOnly>Jen moji lidé</QFW_ColonistsOnly>
+  <QFW_ColonistsOnly_Desc>Zapnuto: rychleji pracují jen postavy tvé kolonie (kolonisti, otroci, mechanoidi). Vypnuto: všichni, i návštěvníci a nájezdníci.</QFW_ColonistsOnly_Desc>
+  <QFW_SpCraft>Výroba: ×{0}</QFW_SpCraft>
+  <QFW_SpCraft_Desc>Výroba, kovářství, krejčovství, umění, výroba drog a další práce u pracovních stolů.</QFW_SpCraft_Desc>
+  <QFW_SpBuild>Stavění: ×{0}</QFW_SpBuild>
+  <QFW_SpBuild_Desc>Stavění, opravy a hlazení.</QFW_SpBuild_Desc>
+  <QFW_SpMine>Těžba: ×{0}</QFW_SpMine>
+  <QFW_SpMine_Desc>Těžba a hlubinné vrtání.</QFW_SpMine_Desc>
+  <QFW_SpPlants>Rostliny: ×{0}</QFW_SpPlants>
+  <QFW_SpPlants_Desc>Setí, sklizeň, kácení rostlin a stromů.</QFW_SpPlants_Desc>
+  <QFW_SpResearch>Výzkum: ×{0}</QFW_SpResearch>
+  <QFW_SpResearch_Desc>Rychlost výzkumu.</QFW_SpResearch_Desc>
+  <QFW_SpCook>Vaření: ×{0}</QFW_SpCook>
+  <QFW_SpCook_Desc>Vaření, porcování a vaření piva.</QFW_SpCook_Desc>
+  <QFW_SpClean>Úklid: ×{0}</QFW_SpClean>
+  <QFW_SpClean_Desc>Rychlost úklidu.</QFW_SpClean_Desc>
+  <QFW_SpMedical>Medicína: ×{0}</QFW_SpMedical>
+  <QFW_SpMedical_Desc>Rychlost ošetřování a operací (ne šance na úspěch).</QFW_SpMedical_Desc>
+  <QFW_SpAnimals>Zvířata: ×{0}</QFW_SpAnimals>
+  <QFW_SpAnimals_Desc>Dojení a stříhání.</QFW_SpAnimals_Desc>
+  <QFW_WorkNote>Upravené vlastnosti: {0}</QFW_WorkNote>
+  <QFW_SpeedExplain>QoL rychlejší práce</QFW_SpeedExplain>
+
+  <!-- prisoners -->
+  <QFW_SecPrisoners>Vězni</QFW_SecPrisoners>
+  <QFW_Prisoners>Pomocníci pro vězně</QFW_Prisoners>
+  <QFW_Prisoners_Desc>Rychlejší verbování a zotročování a nastavení neochvějné loajality níže.</QFW_Prisoners_Desc>
+  <QFW_RecruitMult>Verbování: ×{0}</QFW_RecruitMult>
+  <QFW_RecruitMult_Desc>Každý rozhovor o naverbování sníží odpor tolikrát víc.</QFW_RecruitMult_Desc>
+  <QFW_EnslaveMult>Zotročování: ×{0}</QFW_EnslaveMult>
+  <QFW_EnslaveMult_Desc>Každý rozhovor o zotročení sníží vůli tolikrát víc.</QFW_EnslaveMult_Desc>
+  <QFW_Unwavering>Neochvějná loajalita</QFW_Unwavering>
+  <QFW_Unwavering_Desc>Někteří vězni se nedají nikdy naverbovat (neochvějná loajalita). Tady ji můžeš nechat, zrušit po několika dnech ve vězení, nebo zrušit hned.</QFW_Unwavering_Desc>
+  <QFW_Unw_Off>Nechat (vanilla)</QFW_Unw_Off>
+  <QFW_Unw_AfterDays>Zmizí po {0} dnech</QFW_Unw_AfterDays>
+  <QFW_Unw_Always>Zmizí hned</QFW_Unw_Always>
+  <QFW_UnwDays>Dnů ve vězení: {0}</QFW_UnwDays>
+  <QFW_UnwDays_Desc>Po tolika dnech v tvém vězení se loajalita zlomí a vězeň jde naverbovat.</QFW_UnwDays_Desc>
+  <QFW_NowRecruitable>{0} už není neochvějný – teď jde naverbovat.</QFW_NowRecruitable>
+
+  <!-- pipette and tools -->
+  <QFW_SecPipette>Kapátko</QFW_SecPipette>
+  <QFW_Pipette>Kapátko</QFW_Pipette>
+  <QFW_Pipette_Desc>Stiskni klávesu a klikni na cokoli na mapě: dostaneš to do ruky ke stavbě (stejná stavba, materiál, styl i otočení). Podlaha dá podlahu, u předmětů nabídne zakázku u pracovního stolu.</QFW_Pipette_Desc>
+  <QFW_PipetteInstant>Vybrat hned</QFW_PipetteInstant>
+  <QFW_PipetteInstant_Desc>Klávesa rovnou vezme to, co je pod myší, bez dalšího kliknutí.</QFW_PipetteInstant_Desc>
+  <QFW_PipetteKey>Klávesa: {0} (změníš v Možnosti → Klávesnice, sekce „QoL – Faster Work“).</QFW_PipetteKey>
+  <QFW_PipFogged>To místo je ještě skryté.</QFW_PipFogged>
+  <QFW_PipNothing>Tady není nic, co by šlo postavit.</QFW_PipNothing>
+  <QFW_PipCantBuild>{0} postavit nemůžeš.</QFW_PipCantBuild>
+  <QFW_PipLocked>{0} ještě není dostupné (chybí výzkum nebo jiná podmínka).</QFW_PipLocked>
+  <QFW_PipNoRecipe>Žádný recept u pracovního stolu nevyrábí {0}.</QFW_PipNoRecipe>
+  <QFW_PipNoBench>Pro {0} ještě nemáš postavený stůl ({1}).</QFW_PipNoBench>
+  <QFW_PipAddBill>Přidat zakázku: {0} u {1}</QFW_PipAddBill>
+  <QFW_PipBillAdded>Zakázka přidána: {0} u {1}.</QFW_PipBillAdded>
+
+  <QFW_SecTools>Nástroje</QFW_SecTools>
+  <QFW_CopyPawn>Kopírovat / vložit nastavení postavy</QFW_CopyPawn>
+  <QFW_CopyPawn_Desc>Tlačítka u kolonisty: zkopíruj priority práce, rozvrh, zásady, lékařskou péči, reakci na nepřátele a povolenou oblast a vlož je dalším kolonistům.</QFW_CopyPawn_Desc>
+  <QFW_CopyPawn_Btn>Kopírovat nastavení</QFW_CopyPawn_Btn>
+  <QFW_CopyPawn_BtnDesc>Zapamatuje si priority práce, rozvrh, zásady, lékařskou péči, reakci na nepřátele a povolenou oblast tohoto kolonisty.</QFW_CopyPawn_BtnDesc>
+  <QFW_PastePawn_Btn>Vložit nastavení</QFW_PastePawn_Btn>
+  <QFW_PastePawn_BtnDesc>Dá vybraným kolonistům nastavení zkopírované od {0} – vše, nebo jen část.</QFW_PastePawn_BtnDesc>
+  <QFW_Copied>Nastavení {0} zkopírováno.</QFW_Copied>
+  <QFW_Pasted>Nastavení {0} vloženo {1} kolonistům.</QFW_Pasted>
+  <QFW_PasteAll>Všechno</QFW_PasteAll>
+  <QFW_PasteWork>Jen priority práce</QFW_PasteWork>
+  <QFW_PasteSchedule>Jen rozvrh</QFW_PasteSchedule>
+  <QFW_PastePolicies>Jen zásady, lékařskou péči a reakci na nepřátele</QFW_PastePolicies>
+  <QFW_PasteArea>Jen povolenou oblast</QFW_PasteArea>
+  <QFW_HaulNow>Odnést hned</QFW_HaulNow>
+  <QFW_HaulNow_Desc>Tlačítko u předmětů: vybrané předměty hned odnesou do skladu nejbližší volní kolonisti.</QFW_HaulNow_Desc>
+  <QFW_HaulNow_Btn>Odnést hned</QFW_HaulNow_Btn>
+  <QFW_HaulNow_BtnDesc>Nejbližší volní kolonisti hned odnesou vybrané předměty do skladu.</QFW_HaulNow_BtnDesc>
+  <QFW_HaulNoPawn>Žádný volný kolonista, který může nosit.</QFW_HaulNoPawn>
+  <QFW_HaulNoStore>Pro {0} předmět(ů) není dostupný sklad, který by je přijal.</QFW_HaulNoStore>
+  <QFW_ZoneTools>Zvětšit / zmenšit zónu</QFW_ZoneTools>
+  <QFW_ZoneTools_Desc>Tlačítka u skladových a pěstebních zón: zóna se zvětší nebo zmenší o jedno políčko na každou stranu.</QFW_ZoneTools_Desc>
+  <QFW_ZoneGrow>Zvětšit zónu</QFW_ZoneGrow>
+  <QFW_ZoneGrow_Desc>Přidá jedno políčko na každou stranu, kam zóna může.</QFW_ZoneGrow_Desc>
+  <QFW_ZoneShrink>Zmenšit zónu</QFW_ZoneShrink>
+  <QFW_ZoneShrink_Desc>Odebere vnější okraj políček.</QFW_ZoneShrink_Desc>
+  <QFW_ZoneNoRoom>Zóna se tu nemá kam zvětšit.</QFW_ZoneNoRoom>
+  <QFW_ZoneTooSmall>Zóna je moc malá na zmenšení.</QFW_ZoneTooSmall>
+  <QFW_ColonyTab>Tlačítko QoL v dolní liště</QFW_ColonyTab>
+  <QFW_ColonyTab_Desc>Hledání na mapě, přehled vězňů a akce kolonie (všichni jíst / spát / vzbudit).</QFW_ColonyTab_Desc>
+  <QFW_SecStacks>Velikost hromádek</QFW_SecStacks>
+  <QFW_Stacks>Větší hromádky</QFW_Stacks>
+  <QFW_Stacks_Desc>Vynásobí, kolik předmětů se vejde na jednu hromádku. Projeví se po restartu. Když to později vypneš, přerostlé hromádky se můžou rozdělit nebo jednou ukázat chyby.</QFW_Stacks_Desc>
+  <QFW_StackMult>Velikost hromádky: ×{0}</QFW_StackMult>
+  <QFW_StackMult_Desc>Násobek limitu hromádky každého předmětu.</QFW_StackMult_Desc>
+  <QFW_StacksRestart>Nová velikost hromádek se projeví po restartu hry.</QFW_StacksRestart>
+  <QFW_StacksOgre>Je zapnutý OgreStack – na velikost hromádek používej jen jeden z nich.</QFW_StacksOgre>
+
+  <!-- notifications -->
+  <QFW_SecNotify>Oznámení</QFW_SecNotify>
+  <QFW_Notifications>Filtr oznámení</QFW_Notifications>
+  <QFW_Notifications_Desc>Dopisy a zprávy vybraného druhu můžou chodit potichu, nebo se skrýt.</QFW_Notifications_Desc>
+  <QFW_NotifyNote>Potichu = přijde bez zvuku. Skryté = vůbec nevyskočí, ale pořád se uloží do Historie (Menu → Historie → Zprávy). Pozor u dopisů o hrozbách. Tyhle volby nejsou součástí doporučeného nastavení.</QFW_NotifyNote>
+  <QFW_SecLetters>Dopisy (vpravo)</QFW_SecLetters>
+  <QFW_SecMessages>Zprávy (vlevo nahoře)</QFW_SecMessages>
+  <QFW_ColMute>Potichu</QFW_ColMute>
+  <QFW_ColHide>Skryté</QFW_ColHide>
+
+  <!-- QoL window -->
+  <QFW_TabSearch>Hledat na mapě</QFW_TabSearch>
+  <QFW_TabPrisoners>Vězni</QFW_TabPrisoners>
+  <QFW_TabColony>Kolonie</QFW_TabColony>
+  <QFW_SearchHint>Předměty, stavby, postavy a rostliny na této mapě. Na diakritice a pomlčkách nezáleží.</QFW_SearchHint>
+  <QFW_SearchType>Napiš aspoň dvě písmena, třeba „ocel“.</QFW_SearchType>
+  <QFW_SearchNone>Nic nenalezeno.</QFW_SearchNone>
+  <QFW_Show>Ukázat</QFW_Show>
+  <QFW_ShowNext>Ukázat {0}/{1}</QFW_ShowNext>
+  <QFW_NoPrisoners>Na této mapě nejsou žádní vězni.</QFW_NoPrisoners>
+  <QFW_PColName>Jméno</QFW_PColName>
+  <QFW_PColMode>Zacházení</QFW_PColMode>
+  <QFW_PColRes>Odpor</QFW_PColRes>
+  <QFW_PColWill>Vůle</QFW_PColWill>
+  <QFW_PColRecruit>Naverbovatelný</QFW_PColRecruit>
+  <QFW_PColDays>Dnů ve vězení</QFW_PColDays>
+  <QFW_Yes>ano</QFW_Yes>
+  <QFW_No>ne</QFW_No>
+  <QFW_InDays>za {0} d</QFW_InDays>
+  <QFW_AllEat>Všichni se najíst</QFW_AllEat>
+  <QFW_AllEat_Desc>Volní kolonisti s jídlem pod 80 % se jdou hned najíst (třeba před dlouhou cestou nebo nájezdem).</QFW_AllEat_Desc>
+  <QFW_AllEat_Done>{0} kolonistů se jde najíst, {1} nemá hlad nebo nemá jídlo.</QFW_AllEat_Done>
+  <QFW_AllSleep>Všichni spát</QFW_AllSleep>
+  <QFW_AllSleep_Desc>Volní kolonisti s odpočinkem pod 90 % jdou hned do postele.</QFW_AllSleep_Desc>
+  <QFW_AllSleep_Done>{0} kolonistů jde spát, {1} je odpočatých nebo už spí.</QFW_AllSleep_Done>
+  <QFW_AllWake>Všechny vzbudit</QFW_AllWake>
+  <QFW_AllWake_Desc>Spící kolonisti vstanou (kromě nemocných a zraněných, kteří potřebují klid na lůžku).</QFW_AllWake_Desc>
+  <QFW_AllWake_Done>Vzbuzeno kolonistů: {0}.</QFW_AllWake_Done>
+  <QFW_PipetteBtn>Kapátko</QFW_PipetteBtn>
+  <QFW_PipetteBtn_Desc>Klikni na cokoli na mapě a postav totéž. Rychleji jde klávesou.</QFW_PipetteBtn_Desc>
+
+  <!-- shared settings look -->
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+</LanguageData>
