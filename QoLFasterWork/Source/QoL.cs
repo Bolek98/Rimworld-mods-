@@ -25,6 +25,7 @@ namespace QoLFW
         public float recruitMult = 2f, enslaveMult = 2f;
         public Unwavering unwavering = Unwavering.AfterDays;
         public int unwaveringDays = 15;
+        public bool slaveRecruit = true;
 
         // tools
         public bool pipette = true;
@@ -32,6 +33,7 @@ namespace QoLFW
         public bool copyPawn = true;
         public bool haulNow = true;
         public bool zoneTools = true;
+        public bool deconstructAll = true;
         public bool colonyTab = true;
         public bool stacks = false;
         public float stackMult = 2f;
@@ -63,6 +65,8 @@ namespace QoLFW
             Scribe_Values.Look(ref enslaveMult, "enslaveMult", 2f);
             Scribe_Values.Look(ref unwavering, "unwavering", Unwavering.AfterDays);
             Scribe_Values.Look(ref unwaveringDays, "unwaveringDays", 15);
+            Scribe_Values.Look(ref slaveRecruit, "slaveRecruit", true);
+            Scribe_Values.Look(ref deconstructAll, "deconstructAll", true);
             Scribe_Values.Look(ref pipette, "pipette", true);
             Scribe_Values.Look(ref pipetteInstant, "pipetteInstant", false);
             Scribe_Values.Look(ref copyPawn, "copyPawn", true);
@@ -85,7 +89,7 @@ namespace QoLFW
 
     public class QoLMod : Mod
     {
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
         public static QSettings S;
         public static string StacksAtStart;   // what the stack size was set to when the game started
         private static List<string> recBullets;
@@ -224,6 +228,7 @@ namespace QoLFW
             l.Gap(6f);
             if (S.unwavering == Unwavering.AfterDays)
                 S.unwaveringDays = Mathf.RoundToInt(MUI.Slider(l, "QFW_UnwDays".Translate(S.unwaveringDays), S.unwaveringDays, 1f, 60f, "QFW_UnwDays_Desc".Translate(), S, "unwaveringDays"));
+            Check(l, "QFW_SlaveRecruit", ref S.slaveRecruit, "slaveRecruit");
         }
 
         private static void PageTools(Listing_Standard l)
@@ -240,6 +245,7 @@ namespace QoLFW
             Check(l, "QFW_CopyPawn", ref S.copyPawn, "copyPawn");
             Check(l, "QFW_HaulNow", ref S.haulNow, "haulNow");
             Check(l, "QFW_ZoneTools", ref S.zoneTools, "zoneTools");
+            Check(l, "QFW_DeconAll", ref S.deconstructAll, "deconstructAll");
             Check(l, "QFW_ColonyTab", ref S.colonyTab, "colonyTab");
             MUI.Section(l, "QFW_SecStacks".Translate());
             Check(l, "QFW_Stacks", ref S.stacks, "stacks");

@@ -202,61 +202,111 @@ namespace QoLFW
 
         private void PrisonersTab(Rect r, Map map)
         {
-            List<Pawn> list = map.mapPawns.PrisonersOfColonySpawned.ToList();
-            if (list.Count == 0)
+            List<Pawn> pris = map.mapPawns.PrisonersOfColonySpawned.ToList();
+            List<Pawn> slaves = map.mapPawns.SlavesOfColonySpawned.ToList();
+            if (pris.Count == 0 && slaves.Count == 0)
             {
                 GUI.color = MUI.Muted;
                 Widgets.Label(r, "QFW_NoPrisoners".Translate());
                 GUI.color = Color.white;
                 return;
             }
-            float[] col = { 0f, 200f, 380f, 470f, 550f, 650f };
-            Text.Font = GameFont.Tiny;
-            GUI.color = MUI.Muted;
-            string[] head = { "QFW_PColName", "QFW_PColMode", "QFW_PColRes", "QFW_PColWill", "QFW_PColRecruit", "QFW_PColDays" };
-            for (int i = 0; i < head.Length; i++)
-                Widgets.Label(new Rect(r.x + col[i] + 4f, r.y, 120f, 20f), head[i].Translate());
-            GUI.color = Color.white;
-            Text.Font = GameFont.Small;
-            Rect list2 = new Rect(r.x, r.y + 22f, r.width, r.height - 22f);
-            float rowH = 34f;
-            Rect view = new Rect(0f, 0f, list2.width - 18f, list.Count * rowH);
-            Widgets.BeginScrollView(list2, ref scroll, view);
+            float rowH = 34f, headH = 26f;
+            float total = (pris.Count > 0 ? headH + pris.Count * rowH : 0f) + (slaves.Count > 0 ? headH + 8f + slaves.Count * rowH : 0f);
+            Rect view = new Rect(0f, 0f, r.width - 18f, total);
+            Widgets.BeginScrollView(r, ref scroll, view);
             try
             {
-                for (int i = 0; i < list.Count; i++)
+                float y = 0f;
+                if (pris.Count > 0)
                 {
-                    Pawn p = list[i];
-                    Rect row = new Rect(0f, i * rowH, view.width, rowH - 2f);
-                    if (i % 2 == 0) MUI.Fill(row, MUI.CardBg);
-                    Widgets.DrawHighlightIfMouseover(row);
-                    Text.Anchor = TextAnchor.MiddleLeft;
-                    Rect name = new Rect(row.x + 4f, row.y, col[1] - 8f, row.height);
-                    Widgets.Label(name, p.LabelShortCap);
-                    TooltipHandler.TipRegion(name, p.LabelCap + "\n" + (p.def.label ?? "").CapitalizeFirst() + (p.Faction != null ? "\n" + p.Faction.Name : ""));
-                    if (Widgets.ButtonInvisible(name)) CameraJumper.TryJumpAndSelect(p);
-
-                    PrisonerInteractionModeDef mode = p.guest.ExclusiveInteractionMode;
-                    if (Widgets.ButtonText(new Rect(row.x + col[1], row.y + 3f, col[2] - col[1] - 8f, 26f), mode != null ? mode.LabelCap.ToString() : "-"))
-                        ModeMenu(p);
-                    Widgets.Label(new Rect(row.x + col[2] + 4f, row.y, 80f, row.height), p.guest.resistance >= 0f ? p.guest.resistance.ToString("0.0") : "-");
-                    Widgets.Label(new Rect(row.x + col[3] + 4f, row.y, 80f, row.height), p.guest.will >= 0f ? p.guest.will.ToString("0.0") : "-");
-                    QoLGameComp gc = QoLGameComp.Instance;
-                    bool rec = p.guest.Recruitable;
-                    string rs = rec ? "QFW_Yes".Translate().ToString() : "QFW_No".Translate().ToString();
-                    if (!rec && gc != null)
-                    {
-                        float left = gc.DaysLeft(p);
-                        if (left >= 0f) rs += " (" + "QFW_InDays".Translate(left.ToString("0.0")) + ")";
-                    }
-                    GUI.color = rec ? MUI.Accent : MUI.Warn;
-                    Widgets.Label(new Rect(row.x + col[4] + 4f, row.y, col[5] - col[4] - 4f, row.height), rs);
-                    GUI.color = Color.white;
-                    Widgets.Label(new Rect(row.x + col[5] + 4f, row.y, 90f, row.height), gc != null ? gc.DaysHeld(p).ToString("0.0") : "-");
-                    Text.Anchor = TextAnchor.UpperLeft;
+                    Head(view.width, y, "QFW_PColName", "QFW_PColMode");
+                    y += headH;
+                    foreach (Pawn p in pris) { Row(p, new Rect(0f, y, view.width, rowH - 2f), false); y += rowH; }
+                }
+                if (slaves.Count > 0)
+                {
+                    y += 8f;
+                    Head(view.width, y, "QFW_SColName", "QFW_SColAction");
+                    y += headH;
+                    foreach (Pawn p in slaves) { Row(p, new Rect(0f, y, view.width, rowH - 2f), true); y += rowH; }
                 }
             }
             finally { Widgets.EndScrollView(); }
+        }
+
+        private static readonly float[] col = { 0f, 200f, 380f, 470f, 550f, 650f };
+
+        private static void Head(float w, float y, string name, string mode)
+        {
+            Text.Font = GameFont.Tiny;
+            GUI.color = MUI.Muted;
+            string[] head = { name, mode, "QFW_PColRes", "QFW_PColWill", "QFW_PColRecruit", "QFW_PColDays" };
+            for (int i = 0; i < head.Length; i++)
+                Widgets.Label(new Rect(col[i] + 4f, y + 4f, 140f, 20f), head[i].Translate());
+            GUI.color = Color.white;
+            Text.Font = GameFont.Small;
+        }
+
+        private static void Row(Pawn p, Rect row, bool slave)
+        {
+            QSettings s = QoLMod.S;
+            MUI.Fill(row, MUI.CardBg);
+            Widgets.DrawHighlightIfMouseover(row);
+            Text.Anchor = TextAnchor.MiddleLeft;
+            Rect name = new Rect(row.x + 4f, row.y, col[1] - 8f, row.height);
+            Widgets.Label(name, p.LabelShortCap);
+            TooltipHandler.TipRegion(name, p.LabelCap + "\n" + (p.def.label ?? "").CapitalizeFirst() + (p.Faction != null ? "\n" + p.Faction.Name : ""));
+            if (Widgets.ButtonInvisible(name)) CameraJumper.TryJumpAndSelect(p);
+
+            bool rec = p.guest != null && p.guest.Recruitable;
+            Rect act = new Rect(row.x + col[1], row.y + 3f, col[2] - col[1] - 8f, 26f);
+            if (!slave)
+            {
+                PrisonerInteractionModeDef mode = p.guest.ExclusiveInteractionMode;
+                if (Widgets.ButtonText(act, mode != null ? mode.LabelCap.ToString() : "-")) ModeMenu(p);
+            }
+            else if (s.prisoners && s.slaveRecruit && rec)
+            {
+                TooltipHandler.TipRegion(act, "QFW_MakeColonist_Desc".Translate());
+                if (Widgets.ButtonText(act, "QFW_MakeColonist".Translate()))
+                {
+                    Pawn pawn = p;
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("QFW_MakeColonist_Confirm".Translate(pawn.LabelShort), () =>
+                    {
+                        try
+                        {
+                            RecruitUtility.Recruit(pawn, Faction.OfPlayer);
+                            if (pawn.needs?.mood != null) pawn.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.WasEnslaved);
+                            Messages.Message("QFW_MadeColonist".Translate(pawn.LabelShort), pawn, MessageTypeDefOf.PositiveEvent, false);
+                        }
+                        catch (Exception e) { Log.Warning("[QoL Faster Work] slave to colonist: " + e.Message); }
+                    }));
+                }
+            }
+            else
+            {
+                GUI.color = MUI.Muted;
+                Widgets.Label(act, "-");
+                GUI.color = Color.white;
+            }
+            if (!slave)
+            {
+                Widgets.Label(new Rect(row.x + col[2] + 4f, row.y, 80f, row.height), p.guest.resistance >= 0f ? p.guest.resistance.ToString("0.0") : "-");
+                Widgets.Label(new Rect(row.x + col[3] + 4f, row.y, 80f, row.height), p.guest.will >= 0f ? p.guest.will.ToString("0.0") : "-");
+            }
+            QoLGameComp gc = QoLGameComp.Instance;
+            string rs = rec ? "QFW_Yes".Translate().ToString() : "QFW_No".Translate().ToString();
+            if (!rec && gc != null)
+            {
+                float left = gc.DaysLeft(p);
+                if (left >= 0f) rs += " (" + "QFW_InDays".Translate(left.ToString("0.0")) + ")";
+            }
+            GUI.color = rec ? MUI.Accent : MUI.Warn;
+            Widgets.Label(new Rect(row.x + col[4] + 4f, row.y, col[5] - col[4] - 4f, row.height), rs);
+            GUI.color = Color.white;
+            Widgets.Label(new Rect(row.x + col[5] + 4f, row.y, 90f, row.height), gc != null ? gc.DaysHeld(p).ToString("0.0") : "-");
+            Text.Anchor = TextAnchor.UpperLeft;
         }
 
         private static void ModeMenu(Pawn p)

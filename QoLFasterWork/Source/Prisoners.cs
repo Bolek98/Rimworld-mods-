@@ -80,10 +80,24 @@ namespace QoLFW
             return heldSince.TryGetValue(p.thingIDNumber, out t) ? t : -1;
         }
 
+        // 1.0.1: the game's own records count too, so prisoners and slaves taken before the
+        // mod was added don't start from zero (slaves: time as prisoner + time in the colony).
         public float DaysHeld(Pawn p)
         {
             int t = HeldSince(p);
-            return t < 0 ? 0f : (Find.TickManager.TicksGame - t) / 60000f;
+            float mine = t < 0 ? 0f : (Find.TickManager.TicksGame - t) / 60000f;
+            float rec = 0f;
+            try
+            {
+                if (p.records != null)
+                {
+                    rec = p.records.GetValue(RecordDefOf.TimeAsPrisoner);
+                    if (p.IsSlaveOfColony) rec += p.records.GetValue(RecordDefOf.TimeAsColonistOrColonyAnimal);
+                    rec /= 60000f;
+                }
+            }
+            catch { }
+            return Mathf.Max(mine, rec);
         }
 
         // days left until an unwavering prisoner becomes recruitable (-1 = never / not unwavering)
@@ -107,14 +121,15 @@ namespace QoLFW
             QSettings s = QoLMod.S;
             foreach (Map map in Find.Maps)
             {
-                List<Pawn> list = map.mapPawns.PrisonersOfColony;
+                var list = new List<Pawn>(map.mapPawns.PrisonersOfColony);
+                list.AddRange(map.mapPawns.SlavesOfColonySpawned);
                 for (int i = 0; i < list.Count; i++)
                 {
                     Pawn p = list[i];
                     if (p?.guest == null) continue;
                     if (!heldSince.ContainsKey(p.thingIDNumber)) heldSince[p.thingIDNumber] = now;
                     if (!s.prisoners || s.unwavering == Unwavering.Off || p.guest.Recruitable) continue;
-                    bool go = s.unwavering == Unwavering.Always || now - heldSince[p.thingIDNumber] >= s.unwaveringDays * 60000;
+                    bool go = s.unwavering == Unwavering.Always || DaysHeld(p) >= s.unwaveringDays;
                     if (!go) continue;
                     p.guest.Recruitable = true;
                     Messages.Message("QFW_NowRecruitable".Translate(p.LabelShort), p, MessageTypeDefOf.PositiveEvent, false);
