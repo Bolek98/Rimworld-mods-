@@ -562,7 +562,7 @@ namespace MisakTabs
             Rect inner = r.ContractedBy(10f);
             var mine = Reasons(pawn, other);
             var theirs = other.relations != null && !other.Dead && other.RaceProps.Humanlike ? Reasons(other, pawn) : new List<(string, string, int)>();
-            Rect view = new Rect(0f, 0f, inner.width - 16f, 160f + (mine.Count + theirs.Count) * 24f + 60f);
+            Rect view = new Rect(0f, 0f, inner.width - 16f, 200f + (mine.Count + theirs.Count) * 24f + 60f);
             Widgets.BeginScrollView(inner, ref rightScroll, view);
             try
             {
@@ -590,13 +590,84 @@ namespace MisakTabs
                     }
                 }
                 catch { }
-                y += 8f;
+                y += 4f;
+                y += RomancePairButton(new Rect(0f, y, view.width, 28f), pawn, other);   // 0.11.0
+                y += 4f;
                 y = Side(new Rect(0f, y, view.width, 0f), "MT_S_Thinks".Translate(pawn.LabelShort, other.LabelShort), pawn.relations.OpinionOf(other), mine);
                 if (other.relations != null && !other.Dead && other.RaceProps.Humanlike)
                     y = Side(new Rect(0f, y + 10f, view.width, 0f), "MT_S_Thinks".Translate(other.LabelShort, pawn.LabelShort), other.relations.OpinionOf(pawn), theirs);
             }
             finally { Widgets.EndScrollView(); }
             if (Look.Button(new Rect(r.xMax - 110f, r.yMax - 32f, 100f, 24f), "MT_S_Back".Translate())) selected = null;
+            RomanceMenuButton(new Rect(r.xMax - 226f, r.yMax - 32f, 110f, 24f), pawn);   // 0.11.0
+        }
+
+        // ---------- 0.11.0: romance, as on the game's social tab ----------
+        private static bool CanRomance(Pawn pawn) =>
+            ModsConfig.BiotechActive && pawn.ageTracker != null && pawn.ageTracker.AgeBiologicalYearsFloat >= 16f && pawn.Spawned && pawn.IsFreeColonist;
+
+        private static List<FloatMenuOption> RomanceOptions(Pawn romancer)
+        {
+            var ok = new List<(float, FloatMenuOption)>();
+            var no = new List<FloatMenuOption>();
+            foreach (Pawn p in romancer.Map.mapPawns.FreeColonistsSpawned)
+            {
+                if (RelationsUtility.RomanceOption(romancer, p, out FloatMenuOption opt, out float chance)) ok.Add((chance, opt));
+                else if (opt != null) no.Add(opt);
+            }
+            return ok.OrderByDescending(x => x.Item1).Select(x => x.Item2).Concat(no.OrderBy(o => o.Label)).ToList();
+        }
+
+        private static void RomanceMenuButton(Rect r, Pawn pawn)
+        {
+            try
+            {
+                if (!CanRomance(pawn)) return;
+                bool cooldown = pawn.relations.IsTryRomanceOnCooldown;
+                AcceptanceReport rep = RelationsUtility.RomanceEligible(pawn, true, false);
+                List<FloatMenuOption> list = rep.Accepted ? RomanceOptions(pawn) : null;
+                bool dim = !rep.Accepted || list.NullOrEmpty() || cooldown;
+                if (Look.Button(r, "TryRomanceButtonLabel".Translate() + "…", false, true))
+                {
+                    if (cooldown)
+                    {
+                        int t = pawn.relations.romanceEnableTick - Find.TickManager.TicksGame;
+                        Messages.Message("CantRomanceInitiateMessageCooldown".Translate(pawn, t.ToStringTicksToPeriod()), MessageTypeDefOf.RejectInput, false);
+                    }
+                    else if (!rep.Accepted)
+                    {
+                        if (!rep.Reason.NullOrEmpty()) Messages.Message(rep.Reason, MessageTypeDefOf.RejectInput, false);
+                    }
+                    else if (list.NullOrEmpty()) Messages.Message("TryRomanceNoOptsMessage".Translate(pawn), MessageTypeDefOf.RejectInput, false);
+                    else Find.WindowStack.Add(new FloatMenu(list));
+                }
+                if (dim) Widgets.DrawBoxSolid(r, new Color(0f, 0f, 0f, 0.35f));
+                TooltipHandler.TipRegion(r, "MT_S_RomanceTip".Translate(pawn.LabelShort));
+            }
+            catch (Exception e) { Log.ErrorOnce("[Mišák Tabs] romance button: " + e.Message, 0x51A7B31); }
+        }
+
+        // a direct button for the selected pair; returns the height used
+        private static float RomancePairButton(Rect r, Pawn pawn, Pawn other)
+        {
+            try
+            {
+                if (!CanRomance(pawn) || other.Dead || !other.Spawned || other.Map != pawn.Map || !other.IsFreeColonist) return 0f;
+                bool can = RelationsUtility.RomanceOption(pawn, other, out FloatMenuOption opt, out float chance);
+                if (opt == null) return 0f;   // not attracted to that gender – the game shows nothing either
+                bool cooldown = pawn.relations.IsTryRomanceOnCooldown;
+                string label = can ? "MT_S_RomanceThem".Translate(other.LabelShort, chance.ToStringPercent()).ToString() : "MT_S_RomanceThemNo".Translate(other.LabelShort).ToString();
+                Rect b = new Rect(r.x, r.y, Mathf.Min(r.width, 300f), 28f);
+                bool enabled = can && !cooldown;
+                if (Look.Button(b, label, enabled, enabled)) opt.action?.Invoke();
+                if (!enabled)
+                {
+                    string why = cooldown ? "CantRomanceInitiateMessageCooldown".Translate(pawn, (pawn.relations.romanceEnableTick - Find.TickManager.TicksGame).ToStringTicksToPeriod()).ToString() : opt.Label;
+                    TooltipHandler.TipRegion(b, why);
+                }
+                return 34f;
+            }
+            catch { return 0f; }
         }
 
         private static float Side(Rect r, string title, int total, List<(string label, string val, int n)> reasons)
@@ -658,7 +729,9 @@ namespace MisakTabs
             y += 24f;
             var talks = new List<LogEntry>();
             try { talks = Find.PlayLog.AllEntries.Where(e => e.Concerns(pawn)).Take(40).ToList(); } catch { }
-            Rect outR = new Rect(inner.x, y, inner.width, inner.yMax - y);
+            bool rom = CanRomance(pawn);
+            Rect outR = new Rect(inner.x, y, inner.width, inner.yMax - y - (rom ? 32f : 0f));
+            if (rom) RomanceMenuButton(new Rect(r.xMax - 130f, r.yMax - 32f, 120f, 24f), pawn);   // 0.11.0
             float need = 0f;
             var texts = talks.Select(t => { string s = ""; try { s = t.ToGameStringFromPOV(pawn).StripTags(); } catch { } return (t, s); }).Where(x => !x.s.NullOrEmpty()).ToList();
             foreach (var (_, s) in texts) need += Verse.Text.CalcHeight(s, outR.width - 76f) + 4f;

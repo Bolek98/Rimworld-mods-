@@ -24,6 +24,8 @@ namespace MisakTabs
         public float billsW = 820f, billsH = 580f, billsLeft = 300f, healthW = 820f, healthH = 540f;
         public bool character = true, social = true;                                  // 0.9.0
         public float charW = 820f, charH = 560f, socialW = 800f, socialH = 540f;      // 0.9.0
+        public bool needs = true, billDialog = true;                                  // 0.11.0
+        public float needsW = 640f, needsH = 520f;                                    // 0.11.0
 
         public override void ExposeData()
         {
@@ -43,12 +45,16 @@ namespace MisakTabs
             Scribe_Values.Look(ref charH, "charH", 560f);
             Scribe_Values.Look(ref socialW, "socialW", 800f);
             Scribe_Values.Look(ref socialH, "socialH", 540f);
+            Scribe_Values.Look(ref needs, "needs", true);
+            Scribe_Values.Look(ref billDialog, "billDialog", true);
+            Scribe_Values.Look(ref needsW, "needsW", 640f);
+            Scribe_Values.Look(ref needsH, "needsH", 520f);
         }
     }
 
     public class MTMod : Mod
     {
-        public const string Version = "0.10.3";
+        public const string Version = "0.11.0";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0
@@ -58,7 +64,7 @@ namespace MisakTabs
         {
             S = GetSettings<MTSettings>();
             Pack = content;
-            MUI.Init(new MTSettings(), null, "recommended", "billsW", "billsH", "billsLeft", "healthW", "healthH", "charW", "charH", "socialW", "socialH");
+            MUI.Init(new MTSettings(), null, "recommended", "billsW", "billsH", "billsLeft", "healthW", "healthH", "charW", "charH", "socialW", "socialH", "needsW", "needsH");
             if (S.recommended) MUI.ApplyAll(S);
             MNews.Register(content, Version);
             H = new Harmony("bolek98.misaktabs");
@@ -67,6 +73,8 @@ namespace MisakTabs
             BillPrio.Patch(H);
             HealthTab.Patch(H);
             PawnTabs.Patch(H);   // 0.9.0
+            NeedsTab.Patch(H);   // 0.11.0
+            BillDialogSwap.Patch(H); // 0.11.0
             LongEventHandler.ExecuteWhenFinished(BillsTab.TakeOver);
             LongEventHandler.ExecuteWhenFinished(HealthTab.TakeOver);
             Log.Message("[Mišák Tabs] v" + Version + " loaded.");
@@ -97,6 +105,8 @@ namespace MisakTabs
                 Check(l, "MT_ReplaceOtherHealth", ref S.replaceOtherHealthTabs, "replaceOtherHealthTabs");
                 Check(l, "MT_Character", ref S.character, "character");
                 Check(l, "MT_Social", ref S.social, "social");
+                Check(l, "MT_Needs", ref S.needs, "needs");
+                Check(l, "MT_BillDialog", ref S.billDialog, "billDialog");
                 l.End();
             }
             finally { MUI.EndLock(rest); }
