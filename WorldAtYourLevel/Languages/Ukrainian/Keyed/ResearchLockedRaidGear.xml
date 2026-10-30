@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RLRG_Enable>Увімкнути фільтр</RLRG_Enable>
+  <RLRG_Enable_Desc>Чужинці приходять лише зі спорядженням, яке дослідила ваша колонія.</RLRG_Enable_Desc>
+  <RLRG_UseRecipes>Рецепти рахуються як дослідження</RLRG_UseRecipes>
+  <RLRG_UseRecipes_Desc>Предмет відкрито, коли завершено дослідження хоча б для одного рецепта, за яким його виготовляють.</RLRG_UseRecipes_Desc>
+  <RLRG_BlockHigherTech>Блокувати предмети вище техрівня колонії</RLRG_BlockHigherTech>
+  <RLRG_BlockHigherTech_Desc>Предмети без дослідження дозволені лише до дослідженого технологічного рівня колонії.</RLRG_BlockHigherTech_Desc>
+  <RLRG_BlockUntagged>Блокувати предмети модів без дослідження</RLRG_BlockUntagged>
+  <RLRG_BlockUntagged_Desc>Зброя та одяг з інших модів без дослідження вважаються заблокованими.</RLRG_BlockUntagged_Desc>
+  <RLRG_FilterAll>Фільтрувати всіх, хто прибуває</RLRG_FilterAll>
+  <RLRG_FilterAll_Desc>Набіги, гості, каравани та завдання. Якщо вимкнено – лише вороги та нападники.</RLRG_FilterAll_Desc>
+  <RLRG_SkipTraders>Не чіпати торговців</RLRG_SkipTraders>
+  <RLRG_SkipTraders_Desc>Торговці зберігають своє спорядження.</RLRG_SkipTraders_Desc>
+  <RLRG_FilterApparel>Фільтрувати одяг і броню</RLRG_FilterApparel>
+  <RLRG_FilterInventory>Фільтрувати інвентар</RLRG_FilterInventory>
+  <RLRG_FilterInventory_Desc>Зброя та одяг в інвентарі (наприклад, запасна зброя).</RLRG_FilterInventory_Desc>
+  <RLRG_Replace>Замінювати найближчим дослідженим предметом</RLRG_Replace>
+  <RLRG_Replace_Desc>Заблокований предмет замінюється схожим дозволеним, з тією ж якістю та зносом.</RLRG_Replace_Desc>
+  <RLRG_Drop>Залишати заблоковані предмети на землі</RLRG_Drop>
+  <RLRG_Drop_Desc>Нападники несуть заблоковані предмети в інвентарі – ви отримаєте їх як здобич, коли переможете. Гості й торговці нічого не залишають. Інакше заблокований предмет зникає.</RLRG_Drop_Desc>
+  <RLRG_ExemptAncients>Не чіпати давні небезпеки та криптокапсули</RLRG_ExemptAncients>
+  <RLRG_ExemptAncients_Desc>Їхнє спорядження – частина нагороди за їх відкриття.</RLRG_ExemptAncients_Desc>
+  <RLRG_KeepTitleApparel>Знать зберігає обов'язковий одяг</RLRG_KeepTitleApparel>
+  <RLRG_KeepTitleApparel_Desc>Одяг, якого вимагає королівський титул або роль в ідеології, не знімається.</RLRG_KeepTitleApparel_Desc>
+  <RLRG_DamageDropped>Пошкоджувати залишені предмети</RLRG_DamageDropped>
+  <RLRG_DamageDropped_Desc>Заблоковані предмети на землі мають лише 20–50% міцності, а одяг позначається як знятий з трупа. Не дає легко на них заробити.</RLRG_DamageDropped_Desc>
+  <RLRG_Compensate>Компенсувати силу набігу</RLRG_Compensate>
+  <RLRG_Compensate_Desc>Коли нападники втрачають частину спорядження, набіг отримує додаткових нападників, щоб складність лишалася збалансованою.</RLRG_Compensate_Desc>
+  <RLRG_CompensationPct>Сила компенсації: {0}%</RLRG_CompensationPct>
+  <RLRG_CompensationPct_Desc>Яку частину втраченого спорядження компенсують додаткові нападники. Набіг може отримати щонайбільше 50% очок зверху.</RLRG_CompensationPct_Desc>
+  <RLRG_TechAhead>Допуск техрівня: +{0}</RLRG_TechAhead>
+  <RLRG_TechAhead_Desc>Чужинці можуть мати предмети на стільки технологічних рівнів вище за вашу колонію навіть без дослідження. 0 = лише досліджені предмети.</RLRG_TechAhead_Desc>
+  <RLRG_KeepChance>Шанс зберегти заблокований предмет: {0}%</RLRG_KeepChance>
+  <RLRG_KeepChance_Desc>З цим шансом пішак зберігає заблокований предмет. Результат запам'ятовується, тож наступного разу не перекидається.</RLRG_KeepChance_Desc>
+  <RLRG_ExemptFactions>Виключені фракції (позначені зберігають спорядження):</RLRG_ExemptFactions>
+  <RLRG_NotifyRaid>Сповіщати про прибуття набігу</RLRG_NotifyRaid>
+  <RLRG_NotifyRaid_Desc>Повідомлення вгорі ліворуч про те, скільки спорядження втратили нападники і скільки їх додано.</RLRG_NotifyRaid_Desc>
+  <RLRG_OpenList>Огляд спорядження та ручні заборони...</RLRG_OpenList>
+  <RLRG_Biocode>Біокодувати заміни</RLRG_Biocode>
+  <RLRG_Biocode_Desc>Замінені предмети біокодуються на власника, тож після бою ви не зможете ними користуватися, і продаються вони дешевше. Працює лише для предметів, що підтримують біокодування (переважно передова зброя).</RLRG_Biocode_Desc>
+  <RLRG_Years>Відкриття з часом: +1 рівень кожні {0} років</RLRG_Years>
+  <RLRG_Years_Desc>Нападники поступово отримують краще спорядження навіть без ваших досліджень. Додається до допуску техрівня.</RLRG_Years_Desc>
+  <RLRG_YearsOff>Відкриття з часом: вимк.</RLRG_YearsOff>
+  <RLRG_MsgRaid>Нападники втратили {0}% спорядження.</RLRG_MsgRaid>
+  <RLRG_MsgRaidCompensated>Нападники втратили {0}% спорядження. Набіг посилено на {1} дод. нападників.</RLRG_MsgRaidCompensated>
+  <RLRG_TabWeapons>Зброя</RLRG_TabWeapons>
+  <RLRG_TabApparel>Одяг і броня</RLRG_TabApparel>
+  <RLRG_Search>Пошук:</RLRG_Search>
+  <RLRG_ListHint>Позначені предмети ніколи не видаються чужинцям. Статус показує, що їм дозволено зараз.</RLRG_ListHint>
+  <RLRG_ListNoGame>Позначені предмети ніколи не видаються чужинцям. Завантажте гру, щоб побачити поточний статус.</RLRG_ListNoGame>
+  <RLRG_StatusBanned>Заборонено</RLRG_StatusBanned>
+  <RLRG_StatusAllowed>Дозволено</RLRG_StatusAllowed>
+  <RLRG_StatusLocked>Заблоковано</RLRG_StatusLocked>
+  <RLRG_Ex_Allowed>Дозволено</RLRG_Ex_Allowed>
+  <RLRG_Ex_Locked>Заблоковано</RLRG_Ex_Locked>
+  <RLRG_Ex_Always>Завжди потребує: {0}</RLRG_Ex_Always>
+  <RLRG_Ex_Option>Виготовлення: {0}</RLRG_Ex_Option>
+  <RLRG_Ex_Free>Можна виготовити без дослідження</RLRG_Ex_Free>
+  <RLRG_Ex_NoResearch>Без дослідження (вирішують техрівень і правило для предметів модів)</RLRG_Ex_NoResearch>
+  <RLRG_Ex_Tech>Техрівень: {0} (ліміт: {1})</RLRG_Ex_Tech>
+  <RLRG_Ex_Mod>Мод: {0}</RLRG_Ex_Mod>
+  <RLRG_Ex_Done>готово</RLRG_Ex_Done>
+  <RLRG_Ex_Missing>бракує</RLRG_Ex_Missing>
+  <RLRG_TechMismatch>Перевіряти предмети, передовіші за своє дослідження</RLRG_TechMismatch>
+  <RLRG_TechMismatch_Desc>Якщо мод розміщує передовий предмет під нижчим дослідженням (космічна гвинтівка під індустріальним дослідженням), колонія також мусить досягти техрівня цього предмета.</RLRG_TechMismatch_Desc>
+  <RLRG_PowerEstimate>Оцінювати техрівень предметів модів за силою</RLRG_PowerEstimate>
+  <RLRG_PowerEstimate_Desc>Зброя чи броня з мода, явно сильніша за найкращу ванільну індустріальну, вважається космічною, навіть якщо автор мода вказав нижчий рівень. Це оцінка.</RLRG_PowerEstimate_Desc>
+  <RLRG_Ex_Power>Сила відповідає техрівню: {0}</RLRG_Ex_Power>
+  <RLRG_Ex_NeedColony>Колонія мусить досягти техрівня: {0}</RLRG_Ex_NeedColony>
+  <RLRG_LevelByProgress>Рівень колонії за прогресом досліджень</RLRG_LevelByProgress>
+  <RLRG_LevelByProgress_Desc>Колонія досягає техрівня, коли завершить задану частку досліджень цього рівня. Вимк. = вирішує найвище завершене дослідження (досить одного). Рівень сценарію завжди вважається мінімумом.</RLRG_LevelByProgress_Desc>
+  <RLRG_LevelProgress>Потрібна частка досліджень рівня: {0}%</RLRG_LevelProgress>
+  <RLRG_LevelProgress_Desc>Яку частину досліджень рівня треба завершити, щоб колонія вважалася на цьому рівні.</RLRG_LevelProgress_Desc>
+  <RLRG_CurrentLevel>Рівень колонії зараз: {0} (сценарій: {1}, дослідження: {2})</RLRG_CurrentLevel>
+  <RLRG_WorldHeader>Світ на рівні колонії</RLRG_WorldHeader>
+  <RLRG_WorldRaids>Набіги лише від фракцій до рівня світу</RLRG_WorldRaids>
+  <RLRG_WorldRaids_Desc>Фракції, передовіші за рівень світу (ваш рівень + допуск), не можуть влаштовувати набіги. Виключені фракції зі списку нижче не обмежуються.</RLRG_WorldRaids_Desc>
+  <RLRG_WorldMechs>Обмежувати також механоїдів і комах</RLRG_WorldMechs>
+  <RLRG_WorldMechs_Desc>Типово механоїди й комахи не обмежуються. Якщо увімкнено, набіги механоїдів і мехкластери не з'являться, доки світ не досягне їхнього рівня.</RLRG_WorldMechs_Desc>
+  <RLRG_WorldItems>Торговці, нагороди та здобич до рівня світу</RLRG_WorldItems>
+  <RLRG_WorldItems_Desc>Предмети вище рівня світу прибираються з товарів торговців, нагород за завдання та здобичі. Зброя та одяг підлягають тим самим правилам, що й спорядження чужинців.</RLRG_WorldItems_Desc>
+  <RLRG_WorldIncidents>Події до рівня світу</RLRG_WorldIncidents>
+  <RLRG_WorldIncidents_Desc>Падіння частини корабля, уламки корабля, орбітальні торговці та (з механоїдами) мехкластери не відбудуться, доки світ не досягне їхнього рівня.</RLRG_WorldIncidents_Desc>
+  <RLRG_WorldMessages>Повідомлення при зміні рівня світу</RLRG_WorldMessages>
+  <RLRG_WorldUp>Світ досяг технологічного рівня: {0}.</RLRG_WorldUp>
+  <RLRG_WorldDown>Технологічний рівень світу тепер: {0}.</RLRG_WorldDown>
+  <RLRG_WorldQuests>Завдання до рівня світу</RLRG_WorldQuests>
+  <RLRG_WorldQuests_Desc>Випадкові завдання оповідача, пов'язані з фракцією, передовішою за світ (нападник, союзник, замовник), тихо відкидаються. Завдання, пов'язані з передовими технологіями (архотех, гравікораблі, з механоїдами також завдання мехів), не пропонуються. Нагороди підлягають дослідженням, як у торговців. Сюжетні завдання та церемонії ніколи не блокуються.</RLRG_WorldQuests_Desc>
+  <RLRG_TabWorld>Рівень світу</RLRG_TabWorld>
+  <RLRG_TabArrivals>Нападники та прибулі</RLRG_TabArrivals>
+  <RLRG_TabRules>Правила досліджень</RLRG_TabRules>
+  <RLRG_TabFilters>Фільтри світу</RLRG_TabFilters>
+  <RLRG_TabFactions>Фракції</RLRG_TabFactions>
+  <RLRG_WorldLevelNow>Рівень світу зараз (з допуском): {0}</RLRG_WorldLevelNow>
+  <RLRG_ManualLevel>Задати рівень світу вручну</RLRG_ManualLevel>
+  <RLRG_ManualLevel_Desc>Рівень світу не обчислюється з досліджень; вибраний вами діє точно, без допуску та відкриття з часом.</RLRG_ManualLevel_Desc>
+  <RLRG_ManualLevelPick>Рівень світу: {0}</RLRG_ManualLevelPick>
+  <RLRG_PerTier>Окрема частка для кожного рівня</RLRG_PerTier>
+  <RLRG_PerTier_Desc>Окремо для кожного рівня задайте, яку частину його досліджень треба завершити.</RLRG_PerTier_Desc>
+  <RLRG_PctTier>{0}: {1}%</RLRG_PctTier>
+  <RLRG_LockResearch>Блокувати вищі дослідження</RLRG_LockResearch>
+  <RLRG_LockResearch_Desc>Дослідження більш ніж на один рівень вище за світ не можна почати. Просуватися треба рівень за рівнем.</RLRG_LockResearch_Desc>
+  <RLRG_FilterPossessions>Інші предмети інвентарю вище рівня світу</RLRG_FilterPossessions>
+  <RLRG_FilterPossessions_Desc>Прибулі також втрачають ліки, препарати, компоненти та інші предмети вище рівня світу (у торговців – включно з їхніми товарами).</RLRG_FilterPossessions_Desc>
+  <RLRG_FactionOk>може нападати</RLRG_FactionOk>
+  <RLRG_FactionAbove>вище рівня світу</RLRG_FactionAbove>
+  <RLRG_ReplaceQuests>Замінювати відкинуте завдання іншим</RLRG_ReplaceQuests>
+  <RLRG_ReplaceQuests_Desc>Замість завдання, відкинутого через рівень світу, оповідач одразу пробує інше відповідне (до 5 спроб). Завдання приходять так само часто, як зазвичай.</RLRG_ReplaceQuests_Desc>
+  <RLRG_WorldVisitors>Каравани та гості лише до рівня світу (суворо)</RLRG_WorldVisitors>
+  <RLRG_WorldVisitors_Desc>Торгові каравани, гості й мандрівники приходять лише від фракцій до рівня світу. УВАГА: з космічними фракціями з модів торговці можуть майже не приходити. Якщо вимкнено (рекомендовано), вони приходять від усіх фракцій, але їхні товари та спорядження фільтруються за рівнем світу.</RLRG_WorldVisitors_Desc>
+  <RLRG_ReplaceEvents>Замінювати заблоковану подію випадковою</RLRG_ReplaceEvents>
+  <RLRG_ReplaceEvents_Desc>Коли оповідач вибирає подію, до якої світ не готовий (орбітальний торговець, падіння частини корабля, уламки корабля…), або набіг чи караван не знаходить відповідної фракції, замість неї стається інша випадкова подія тієї ж категорії. Події приходять так само часто, як без мода. Події завдань не змінюються.</RLRG_ReplaceEvents_Desc>
+  <RLRG_OvTitle>Світ і події</RLRG_OvTitle>
+  <RLRG_OvStoryteller>Оповідач: {0}, складність: {1}</RLRG_OvStoryteller>
+  <RLRG_OvQuests>Завдання</RLRG_OvQuests>
+  <RLRG_OvQuestCounts>Виконуються: {0}, чекають на прийняття: {1}</RLRG_OvQuestCounts>
+  <RLRG_OvExpires>спливає через {0}</RLRG_OvExpires>
+  <RLRG_OvEvents>Події</RLRG_OvEvents>
+  <RLRG_OvEventsHint>Оповідач вибирає події випадково, тож точний час наступної дізнатися неможливо. Оцінка ґрунтується на середньому проміжку між подіями в цій грі й стає точнішою, що довше ви граєте.</RLRG_OvEventsHint>
+  <RLRG_OvNoEvents>Поки нічого не записано. Запис починається з цієї версії.</RLRG_OvNoEvents>
+  <RLRG_OvColKind>Тип</RLRG_OvColKind>
+  <RLRG_OvColLast>Остання</RLRG_OvColLast>
+  <RLRG_OvCol30>За 30 днів</RLRG_OvCol30>
+  <RLRG_OvColAvg>Сер. проміжок</RLRG_OvColAvg>
+  <RLRG_OvColNext>Наступна (оцінка)</RLRG_OvColNext>
+  <RLRG_OvDays>{0} д.</RLRG_OvDays>
+  <RLRG_OvAgo>{0} д. тому</RLRG_OvAgo>
+  <RLRG_OvInDays>≈ через {0} д.</RLRG_OvInDays>
+  <RLRG_OvAnyTime>будь-коли</RLRG_OvAnyTime>
+  <RLRG_OvRecent>Останні 10 подій:</RLRG_OvRecent>
+  <RLRG_WorldCausers>Загрози вище рівня світу не залишаються</RLRG_WorldCausers>
+  <RLRG_WorldCausers_Desc>Нові об'єкти, що накладають умову на карту (токсичний розпилювач, дим, контролер погоди, блокатор сонця, псі-випромінювач…), вище рівня світу одразу прибираються – на карті й на карті світу, навіть якщо належать механоїдам. Завдання, які надіслали б такий об'єкт, відкидаються (завдання оповідача замінюються). Те, що вже стоїть, залишається.</RLRG_WorldCausers_Desc>
+  <RLRG_CauserBlocked>Загроза вище рівня світу не залишилася: {0}.</RLRG_CauserBlocked>
+  <RLRG_TraderGuarantee>Гарантія торговців</RLRG_TraderGuarantee>
+  <RLRG_TraderGuarantee_Desc>Якщо торговий караван довго не приходить до головної колонії, мод намагається його викликати. Тоді гра приймає й фракції, які інакше не подорожували б за такої температури. Якщо караван не може прийти (усі ворожі, блокувальна група на карті…), причину записано в журнал і показано повідомлення.</RLRG_TraderGuarantee_Desc>
+  <RLRG_TraderGuaranteeDays>Караван не пізніше ніж через: {0} дн.</RLRG_TraderGuaranteeDays>
+  <RLRG_TraderGuaranteeDays_Desc>Через скільки днів без каравану мод його викликає.</RLRG_TraderGuaranteeDays_Desc>
+  <RLRG_Diag_Open>Чому не приходять торговці, гості чи загрози?</RLRG_Diag_Open>
+  <RLRG_Diag_Title>Торговці та гості – діагностика</RLRG_Diag_Title>
+  <RLRG_Diag_NoMap>Немає домашньої карти.</RLRG_Diag_NoMap>
+  <RLRG_Diag_Map>Карта: {0}, температура надворі {1}, сезонна {2}</RLRG_Diag_Map>
+  <RLRG_Diag_LastTrader>Останній торговий караван: {0} дн. тому</RLRG_Diag_LastTrader>
+  <RLRG_Diag_LastTraderNone>Останній торговий караван: ще не записано</RLRG_Diag_LastTraderNone>
+  <RLRG_Diag_LastVisitor>Останні гості/мандрівники: {0} дн. тому</RLRG_Diag_LastVisitor>
+  <RLRG_Diag_GuaranteeOn>Гарантія торговців: увімк. (не пізніше ніж через {0} дн.)</RLRG_Diag_GuaranteeOn>
+  <RLRG_Diag_GuaranteeOff>Гарантія торговців: вимк.</RLRG_Diag_GuaranteeOff>
+  <RLRG_Diag_Allies>Не ворожі: {0} з {1} фракцій</RLRG_Diag_Allies>
+  <RLRG_Diag_NoAllies>Усі фракції ворожі – оповідач не надсилає торговців і гостей. Покращте стосунки (подарунки, завдання, консоль зв'язку).</RLRG_Diag_NoAllies>
+  <RLRG_Diag_Events>Події:</RLRG_Diag_Events>
+  <RLRG_Diag_Can>може прийти зараз</RLRG_Diag_Can>
+  <RLRG_Diag_Cannot>НЕ може прийти зараз – {0}</RLRG_Diag_Cannot>
+  <RLRG_Diag_R_Missing>подія не існує</RLRG_Diag_R_Missing>
+  <RLRG_Diag_R_Scenario>вимкнено сценарієм</RLRG_Diag_R_Scenario>
+  <RLRG_Diag_R_Difficulty>вимкнено налаштуваннями складності</RLRG_Diag_R_Difficulty>
+  <RLRG_Diag_R_Early>надто рано після заснування (з дня {0})</RLRG_Diag_R_Early>
+  <RLRG_Diag_R_Target>не дозволено для цієї карти</RLRG_Diag_R_Target>
+  <RLRG_Diag_R_Biome>біом не дозволено</RLRG_Diag_R_Biome>
+  <RLRG_Diag_R_Recent>нещодавно була (перезарядка)</RLRG_Diag_R_Recent>
+  <RLRG_Diag_R_Condition>заважає: {0}</RLRG_Diag_R_Condition>
+  <RLRG_Diag_R_NoFaction>жодна фракція не може прийти зараз (див. список фракцій)</RLRG_Diag_R_NoFaction>
+  <RLRG_Diag_R_OnlyDesperate>оповідач не надішле – фракції не подорожують за такої температури</RLRG_Diag_R_OnlyDesperate>
+  <RLRG_Diag_R_Other>інша причина (ймовірно, інший мод)</RLRG_Diag_R_Other>
+  <RLRG_Diag_Factions>Фракції (торгові каравани):</RLRG_Diag_Factions>
+  <RLRG_Diag_F_Ok>може надіслати караван</RLRG_Diag_F_Ok>
+  <RLRG_Diag_F_Desperate>лише в крайньому разі – температура надворі поза {0}</RLRG_Diag_F_Desperate>
+  <RLRG_Diag_F_No>не прийде: {0}</RLRG_Diag_F_No>
+  <RLRG_Diag_F_Defeated>розгромлена</RLRG_Diag_F_Defeated>
+  <RLRG_Diag_F_Hostile>ворожа (стосунки {0})</RLRG_Diag_F_Hostile>
+  <RLRG_Diag_F_NoTraders>не має торгових караванів</RLRG_Diag_F_NoTraders>
+  <RLRG_Diag_F_Lord>її ворог на карті: {0}</RLRG_Diag_F_Lord>
+  <RLRG_Diag_F_World>вище рівня світу (опція «Каравани та гості лише до рівня світу»)</RLRG_Diag_F_World>
+  <RLRG_Diag_F_Temp>температура поза {0}</RLRG_Diag_F_Temp>
+  <RLRG_Diag_F_Other>інша причина (тип торговця, шар планети чи інший мод)</RLRG_Diag_F_Other>
+  <RLRG_Diag_Summon>Викликати караван зараз (тест)</RLRG_Diag_Summon>
+  <RLRG_Diag_SummonOk>Торговий караван у дорозі.</RLRG_Diag_SummonOk>
+  <RLRG_Diag_SummonFail>Неможливо викликати караван: {0}</RLRG_Diag_SummonFail>
+  <RLRG_Diag_ToLog>Записати в журнал</RLRG_Diag_ToLog>
+  <RLRG_Diag_Logged>Діагностику записано в журнал.</RLRG_Diag_Logged>
+  <RLRG_Diag_Refresh>Оновити</RLRG_Diag_Refresh>
+  <RLRG_Diag_GuaranteeFailed>Гарантія торговців: караван не зміг прийти ({0}). Подробиці: вкладка «Світ» → Чому не приходять торговці?</RLRG_Diag_GuaranteeFailed>
+  <RLRG_Diag_Title2>Торговці, гості та загрози – діагностика</RLRG_Diag_Title2>
+  <RLRG_Diag_Threats>Загрози та набіги:</RLRG_Diag_Threats>
+  <RLRG_Diag_ThreatScale>Складність: масштаб загроз {0}, великі загрози дозволено: {1}</RLRG_Diag_ThreatScale>
+  <RLRG_Diag_ThreatsOff>УВАГА: загрози вимкнено у складності оповідача – тому набігів немає.</RLRG_Diag_ThreatsOff>
+  <RLRG_Diag_ThreatPoints>Очки загрози зараз: {0}</RLRG_Diag_ThreatPoints>
+  <RLRG_Diag_LastThreat>Остання загроза оповідача: {0} дн. тому</RLRG_Diag_LastThreat>
+  <RLRG_Diag_LastThreatNone>Остання загроза оповідача: ще не записано</RLRG_Diag_LastThreatNone>
+  <RLRG_Diag_Yes>так</RLRG_Diag_Yes>
+  <RLRG_Diag_No>ні</RLRG_Diag_No>
+  <RLRG_Diag_AboveWorld>вище рівня світу – замінюється іншою подією</RLRG_Diag_AboveWorld>
+  <RLRG_Diag_Raiders>Ворожі фракції (набіги):</RLRG_Diag_Raiders>
+  <RLRG_Diag_RaidOk>може напасти</RLRG_Diag_RaidOk>
+  <RLRG_Diag_RaidWorld>вище рівня світу – нападає, лише якщо ніхто інший не може (спорядження фільтрується)</RLRG_Diag_RaidWorld>
+  <RLRG_Diag_RaidDesperate>лише в крайньому разі (температура / рано після заснування)</RLRG_Diag_RaidDesperate>
+  <RLRG_Diag_RaidEarly>ще ні – набіги з дня {0}</RLRG_Diag_RaidEarly>
+  <RLRG_Diag_RaidNo>не може напасти (шар планети, стратегія чи інший мод)</RLRG_Diag_RaidNo>
+  <RLRG_Diag_NoRaiders>Жодна ворожа фракція зараз не може влаштувати набіг – ворожих фракцій немає, або щось блокує їх усі.</RLRG_Diag_NoRaiders>
+  <RLRG_FactionsAtWorld>Усі фракції на рівні вашої колонії</RLRG_FactionsAtWorld>
+  <RLRG_FactionsAtWorld_Desc>Усі фракції (включно з космічними та з модів) поводяться так, ніби мають ті самі дослідження, що й ви: можуть нападати, торгувати, приходити в гості й давати завдання, але кожна їхня людина має лише досліджене вами спорядження (завжди фільтрується, для всіх прибулих), а торговці продають предмети лише до рівня світу. Вимкніть, щоб повністю блокувати фракції вище рівня світу.</RLRG_FactionsAtWorld_Desc>
+  <RLRG_OnlyCrafted>Чужі використовують лише те, що виготовили ви</RLRG_OnlyCrafted>
+  <RLRG_OnlyCrafted_Desc>Нападники, гості, торговці та пішаки завдань можуть мати лише зброю та одяг, які ваша колонія вже хоча б раз виготовила (і дослідила). Усе ще не виготовлене прибирається або замінюється найближчим виготовленим предметом. Без виготовленої зброї вони отримають щонайменше короткий лук або кийок. Товари на продаж підлягають лише дослідженням. У поточній грі спорядження колоністів і збережені предмети, які ви можете виготовити, зараховуються одноразово.</RLRG_OnlyCrafted_Desc>
+  <RLRG_CraftedCount>Виготовлено видів зброї та одягу: {0}</RLRG_CraftedCount>
+  <RLRG_MsgCraftedNew>Виготовлено вперше: {0} – тепер це можуть використовувати й інші.</RLRG_MsgCraftedNew>
+  <RLRG_Ex_NotCrafted>Досліджено, але ваша колонія ще не виготовила це.</RLRG_Ex_NotCrafted>
+  <RLRG_CraftedReset>Очистити список виготовленого</RLRG_CraftedReset>
+  <RLRG_CraftedReset_Desc>Очищає список виготовленої зброї та одягу (спільний зі Smart Colonist Gear). Відтепер рахується лише те, що виготовить колонія.</RLRG_CraftedReset_Desc>
+  <RLRG_CraftedResetConfirm>Справді очистити список виготовленого спорядження? Його буде очищено в обох модах, і нападники та колоністи зможуть використовувати лише спорядження, виготовлене відтепер.</RLRG_CraftedResetConfirm>
+  <RLRG_MsgRaidItems>Вилучено предметів спорядження: {0}, замінено слабшими: {1} (нападників: {2}).</RLRG_MsgRaidItems>
+  <RLRG_TraderTechBonus>Торговці можуть продавати на рівнів вище: {0}</RLRG_TraderTechBonus>
+  <RLRG_TraderTechBonus_Desc>На скільки технологічних рівнів вище рівня світу торговці можуть пропонувати товари. 0 = лише до рівня світу (зброя та одяг за дослідженнями), 1 = на рівень вище (наприклад, індустріальна вогнепальна зброя в середньовічній грі) …</RLRG_TraderTechBonus_Desc>
+  <RLRG_TabTraders>Торговці</RLRG_TabTraders>
+  <RLRG_TabTraders_Desc>Товари, які торговці зараз не можуть продавати, бо вони вище рівня світу. Використовується те саме правило, що й для товарів торговців.</RLRG_TabTraders_Desc>
+  <RLRG_TraderNoGame>Завантажте гру, щоб побачити, що торговці зараз не можуть продавати.</RLRG_TraderNoGame>
+  <RLRG_TraderOff>Фільтр предметів світу вимкнено – торговці продають усе.</RLRG_TraderOff>
+  <RLRG_TraderMax>Торговці можуть продавати товари до: {0} (рівень світу {1} + {2})</RLRG_TraderMax>
+  <RLRG_TraderMax_Desc>Торговці можуть продавати товари до техрівня {0} (рівень світу + «Торговці можуть продавати на рівнів вище»). Зброю та одяг також можна продавати, якщо їх дозволено дослідженнями. Тварини, раби та товари без техрівня ніколи не прибираються.</RLRG_TraderMax_Desc>
+  <RLRG_TraderCount>Товарів, які торговці зараз не можуть продавати: {0}</RLRG_TraderCount>
+  <RLRG_TraderBlocked>Не продається</RLRG_TraderBlocked>
+  <RLRG_TraderBlocked_Desc>Техрівень {0} вищий за той, що торговці можуть продавати зараз ({1}).</RLRG_TraderBlocked_Desc>
+  <RLRG_TraderBlockedGear>Не продається (дослідження)</RLRG_TraderBlockedGear>
+  <RLRG_TraderBlockedGear_Desc>Не дозволено дослідженнями, а техрівень {0} вищий за той, що торговці можуть продавати зараз ({1}).</RLRG_TraderBlockedGear_Desc>
+  <RLRG_TabRaids>Набіги</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Непозначені стратегії набігів, способи прибуття та випадкові завдання не використовуватимуться. Позначено = дозволено. Події-загрози (монстри, хвороби, опади…) — на вкладці «Загрози».</RLRG_RaidsIntro>
+  <RLRG_RaidsSummary>Заблоковано типів набігів: {0} з {1}</RLRG_RaidsSummary>
+  <RLRG_RaidsResetAll>Скинути все</RLRG_RaidsResetAll>
+  <RLRG_RaidsResetAll_Desc>Знову дозволити всі типи набігів (типово).</RLRG_RaidsResetAll_Desc>
+  <RLRG_RaidsAllowAll>Дозволити все</RLRG_RaidsAllowAll>
+  <RLRG_RaidsAllowAll_Desc>Знову дозволити все в цій групі.</RLRG_RaidsAllowAll_Desc>
+  <RLRG_RaidsGroupCount>заблоковано {0} / {1}</RLRG_RaidsGroupCount>
+  <RLRG_RaidsGroupIncidents>Події-загрози</RLRG_RaidsGroupIncidents>
+  <RLRG_RaidsGroupStrategies>Стратегії набігів</RLRG_RaidsGroupStrategies>
+  <RLRG_RaidsGroupArrivals>Способи прибуття</RLRG_RaidsGroupArrivals>
+  <RLRG_RaidsGroupQuests>Випадкові завдання – [!] = загроза</RLRG_RaidsGroupQuests>
+  <RLRG_RaidsSource>Джерело: {0}</RLRG_RaidsSource>
+  <RLRG_RaidsAllowedTip>Дозволено. Зніміть позначку, щоб це не відбувалося.</RLRG_RaidsAllowedTip>
+  <RLRG_RaidsBlockedTip>Заблоковано: оповідач не використовуватиме це. Якщо всі варіанти, які міг би використати набіг, заблоковано, набіг замість провалу переходить до негайної атаки / приходу з краю карти.</RLRG_RaidsBlockedTip>
+  <RLRG_MechEscorts>Нападники приводять лише досліджених вами механоїдів</RLRG_MechEscorts>
+  <RLRG_MechEscorts_Desc>Людські фракції (механітори в набігах) можуть приводити лише механоїдів, вирощування яких ви дослідили. Недосліджених мехів прибирають із групи. Суто механоїдні набіги не зачіпаються.</RLRG_MechEscorts_Desc>
+  <RLRG_MatchColony>Прибулі несуть не краще за спорядження вашої колонії</RLRG_MatchColony>
+  <RLRG_MatchColony_Desc>Усі прибулі (нападники, гості, біженці, пішаки завдань; торговці – лише якщо не виключені) можуть нести лише спорядження, не краще за найкраще, що виготовила ваша колонія: вогнепальна зброя – до вашої найкращої виготовленої, зброя ближнього бою – до вашої найкращої виготовленої (матеріал враховується), броня – до вашої найкращої виготовленої. Звичайний одяг дозволено завжди. Спорядження також мусить бути справді досліджене (ви мусите вміти його виготовити). Вогняна, вибухова та ЕМІ-зброя (вогнемети, вибухові стріли…) – лише після того, як ви самі виготовили цю зброю. Краще спорядження замінюється найближчим слабшим, надто добрий матеріал – звичайним. Разом із «лише виготовленим» дозволено й слабше спорядження, яке ви ніколи не виготовляли – більше різноманіття.</RLRG_MatchColony_Desc>
+  <RLRG_MatchQuality>Якість не вища за ваш найкращий виріб</RLRG_MatchQuality>
+  <RLRG_MatchQuality_Desc>Зброя та одяг прибулих не вищі за якість, яку виготовила ваша колонія (окремо для зброї та одягу, щонайменше нормальна).</RLRG_MatchQuality_Desc>
+  <RLRG_MatchMargin>Допуск: на {0} % краще</RLRG_MatchMargin>
+  <RLRG_MatchMargin_Desc>На скільки відсотків спорядження інших може бути кращим за ваше. 0 = щонайбільше рівне.</RLRG_MatchMargin_Desc>
+  <RLRG_MatchNow>Межа зараз – вогнепальна: {0}, ближній бій: {1}, броня: {2}, якість зброї: {3}, якість одягу: {4}</RLRG_MatchNow>
+  <RLRG_ShowHud>Показувати рівень досліджень на екрані</RLRG_ShowHud>
+  <RLRG_ShowHud_Desc>Праворуч унизу над датою: рівень колонії і скільки лишилося до наступного рівня. Наведіть для подробиць за рівнями, натисніть, щоб відкрити вкладку «Світ».</RLRG_ShowHud_Desc>
+  <RLRG_HudLine>Рівень: {0}</RLRG_HudLine>
+  <RLRG_HudLineNext>{0} → {1} {2} %</RLRG_HudLineNext>
+  <RLRG_HudTipTitle>Рівень досліджень (World at Your Level)</RLRG_HudTipTitle>
+  <RLRG_HudTipColony>Колонія: {0} (сценарій: {1}, дослідження: {2})</RLRG_HudTipColony>
+  <RLRG_HudTipWorld>Світ (з бонусом допуску/часу): {0}</RLRG_HudTipWorld>
+  <RLRG_HudTipTier>{0} {1}: {2}/{3} ({4} %), потрібно {5}</RLRG_HudTipTier>
+  <RLRG_HudTipClick>Натисніть, щоб відкрити вкладку «Світ».</RLRG_HudTipClick>
+  <MUI_Title>Рекомендовані налаштування</MUI_Title>
+  <MUI_TitleOff>Рекомендовані налаштування · вимк.</MUI_TitleOff>
+  <MUI_DescOn>Мод налаштовується сам і одразу працює. Ідеально для новачків і всіх, хто не хоче нічого налаштовувати.</MUI_DescOn>
+  <MUI_DescOff>Власні налаштування. Змінено порівняно з рекомендованими: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Власні налаштування. Поки збігаються з рекомендованими.</MUI_DescOffSame>
+  <MUI_On>УВІМК.</MUI_On>
+  <MUI_Off>ВИМК.</MUI_Off>
+  <MUI_ResetAll>Скинути все до рекомендованих</MUI_ResetAll>
+  <MUI_ConfirmOn>Увімкнути рекомендовані налаштування? Ваші зміни ({0}) буде замінено рекомендованими значеннями.</MUI_ConfirmOn>
+  <MUI_Locked>Детальні налаштування заблоковано. Хочете їх змінити? Вимкніть перемикач вище – ваші значення почнуться з рекомендованих.</MUI_Locked>
+  <MUI_Changed>ЗМІНЕНО</MUI_Changed>
+  <MUI_ChangedTip>Відрізняється від рекомендованого значення ({0}). Натисніть, щоб відновити рекомендоване значення.</MUI_ChangedTip>
+  <MUI_Yes>увімк.</MUI_Yes>
+  <MUI_No>вимк.</MUI_No>
+  <RLRG_Rec1>Нападники носять лише спорядження вашого техрівня</RLRG_Rec1>
+  <RLRG_Rec2>Торговці продають предмети вашого рівня</RLRG_Rec2>
+  <RLRG_Rec3>Завдання та нагороди відповідають вашому рівню</RLRG_Rec3>
+  <RLRG_Rec4>Фракції розвиваються разом із вами</RLRG_Rec4>
+  <RLRG_Rec5>Слабше спорядження нападників урівноважується їхньою кількістю</RLRG_Rec5>
+  <RLRG_Rec6>Рівень світу показано на екрані</RLRG_Rec6>
+  <MUI_RecTag>РЕКОМЕНДОВАНО</MUI_RecTag>
+  <RLRG_RareAdvanced>Рідкісний високотехнологічний набіг: {0}%</RLRG_RareAdvanced>
+  <RLRG_RareAdvanced_Desc>З цим шансом набіг приносить спорядження на один техрівень вище за вашу колонію. Нападників менше (на 25% менше очок), а їхнє спорядження залишається здобиччю, тож ви можете відкрити нові технології раніше. Лише якщо нападна фракція має таке спорядження.</RLRG_RareAdvanced_Desc>
+  <RLRG_RareLowTech>Рідкісний низькотехнологічний набіг: {0}%</RLRG_RareLowTech>
+  <RLRG_RareLowTech_Desc>З цим шансом набіг приносить спорядження на один техрівень нижче за вашу колонію, але нападників більше (на 35% більше очок).</RLRG_RareLowTech_Desc>
+  <RLRG_MsgRareAdvanced>Нападники несуть невідомі технології ({0})! Їх менше, але вони краще озброєні.</RLRG_MsgRareAdvanced>
+  <RLRG_MsgRareLowTech>Великий набіг із застарілим спорядженням ({0}).</RLRG_MsgRareLowTech>
+  <RLRG_StrictCrafted>Суворо: лише виготовлене вами, також при порівнянні з колонією</RLRG_StrictCrafted>
+  <RLRG_StrictCrafted_Desc>«Порівняння з колонією» зазвичай дозволяє все, що приблизно рівне за силою вашому спорядженню. З цією опцією вороги можуть носити лише зброю та одяг, які ваша колонія справді виготовила – жодних саморобних гвинтівок чи ПП, поки ви ще користуєтеся луками.</RLRG_StrictCrafted_Desc>
+  <RLRG_SiteTurrets>Ворожі турелі лише до рівня ваших</RLRG_SiteTurrets>
+  <RLRG_SiteTurrets_Desc>Турелі інших фракцій – на місцях завдань, на базах, під час облог – прибираються, якщо ви самі не збудували турель того ж техрівня. Немає турелей = немає ворожих турелей.</RLRG_SiteTurrets_Desc>
+  <RLRG_GearLogLine>World at Your Level: {0}</RLRG_GearLogLine>
+  <RLRG_MsgRaidSwaps>Найчастіше: {0}.</RLRG_MsgRaidSwaps>
+  <RLRG_Gradual>Поступова зміна епохи</RLRG_Gradual>
+  <RLRG_Gradual_Desc>Коли рівень світу зростає, спершу лише приблизно кожен п'ятий прибулий отримує спорядження нової епохи; частка рівномірно росте, доки його не матимуть усі. Без різкого стрибка.</RLRG_Gradual_Desc>
+  <RLRG_GradualDays>Поступова зміна за: {0} дн.</RLRG_GradualDays>
+  <RLRG_GradualDays_Desc>Скільки ігрових днів мине, доки всі прибулі не носитимуть спорядження нової епохи.</RLRG_GradualDays_Desc>
+  <RLRG_OutTitle>Що дасть наступний рівень</RLRG_OutTitle>
+  <RLRG_OutManual>Ручний рівень світу ({0}) – прогноз працює лише з рівнем за дослідженнями.</RLRG_OutManual>
+  <RLRG_OutTop>Колонія на найвищому рівні ({0}) – більше нічого відкривати.</RLRG_OutTop>
+  <RLRG_OutNext>Наступний рівень: {0} – ще {1} досліджень ({2} з потрібних {3}, усього {4} на цьому рівні).</RLRG_OutNext>
+  <RLRG_OutWorld>Рівень світу тоді: {0} → {1}</RLRG_OutWorld>
+  <RLRG_OutGuns>Нова зброя у прибулих: {0} видів, напр. {1}</RLRG_OutGuns>
+  <RLRG_OutArmor>Нова броня та одяг у прибулих: {0} видів, напр. {1}</RLRG_OutArmor>
+  <RLRG_OutFactions>Фракції, які почнуть нападати: {0}</RLRG_OutFactions>
+  <RLRG_OutMechs>Можуть з'явитися ворожі механоїди.</RLRG_OutMechs>
+  <RLRG_OutEvents>Події, що відкриються: {0}</RLRG_OutEvents>
+  <RLRG_OutTraders>Торговці зможуть возити товари до рівня: {0}</RLRG_OutTraders>
+  <RLRG_OutGradual>Поступова зміна епохи ввімкнена – нове спорядження пошириться за {0} дн.</RLRG_OutGradual>
+  <RLRG_OutGradualNow>Триває зміна епохи: {0} % прибулих уже мають спорядження нової епохи.</RLRG_OutGradualNow>
+  <RLRG_WorldLetter>Лист, коли світ досягає вищого рівня</RLRG_WorldLetter>
+  <RLRG_WorldLetter_Desc>Коли рівень світу підвищується, ви отримуєте лист із поясненням замість короткого повідомлення. Зниження й далі показується повідомленням.</RLRG_WorldLetter_Desc>
+  <RLRG_WorldLetterTitle>Рівень світу: {0}</RLRG_WorldLetterTitle>
+  <RLRG_WorldLetterText>Світ досяг технологічного рівня «{0}».\n\nВідтепер нападники, торговці та гості можуть приносити зброю, одяг та інші товари до цього рівня. Що принесе наступний щабель, дивіться в налаштуваннях мода (вкладка «Світ»).</RLRG_WorldLetterText>
+  <RLRG_FilterImplants>Імпланти нападників за рівнем світу</RLRG_FilterImplants>
+  <RLRG_FilterImplants_Desc>Ворожі пішаки не отримують біонічних, архотех- та інших імплантів вище рівня світу. Їх просто не встановлюють – жодних відсутніх частин тіла.</RLRG_FilterImplants_Desc>
+  <RLRG_FilterDrugs>Наркотики нападників за рівнем світу</RLRG_FilterDrugs>
+  <RLRG_FilterDrugs_Desc>Ворожі пішаки не носять go-juice, йайо та інших наркотиків вище рівня світу, тому не можуть прийняти їх перед боєм.</RLRG_FilterDrugs_Desc>
+  <RLRG_ResearchCost>Вартість досліджень за рівнем світу</RLRG_ResearchCost>
+  <RLRG_ResearchCost_Desc>Дослідження вище рівня світу коштують більше, нижче — менше. Типово вимкнено.</RLRG_ResearchCost_Desc>
+  <RLRG_ResearchAbove>Вище рівня світу: вартість +{0}%</RLRG_ResearchAbove>
+  <RLRG_ResearchAbove_Desc>Наскільки дорожчі дослідження вищого технологічного рівня, ніж у світу.</RLRG_ResearchAbove_Desc>
+  <RLRG_ResearchBelow>Нижче рівня світу: вартість −{0}%</RLRG_ResearchBelow>
+  <RLRG_ResearchBelow_Desc>Наскільки дешевші дослідження нижчого технологічного рівня, ніж у світу.</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>Розвиток світу</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>Власний рівень у кожної фракції</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>Кожна фракція рухається навколо рівня світу у своєму темпі: одні відстають, небагато випереджають. Їхні нападники та гості носять спорядження рівня своєї фракції. Знищення одного з їхніх поселень відкидає їх назад, торгівля з ними допомагає їм. Вкладка «Світ» показує всі фракції.</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>Провідні фракції на рівень попереду</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>Провідна фракція може носити спорядження на рівень вище рівня світу (не з «Чужі використовують лише те, що виготовили ви»). Вимкнено: фракції можуть лише відставати.</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>Вивчати чужі технології</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>Зброя чи одяг вище ваших досліджень отримують кнопку «Вивчити»: предмет розбирається й дає очки досліджень проєкту, який його відкриває (або проєкту його епохи). Потрібен дослідницький стіл.</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>Нова епоха приводить торговця</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>Коли рівень світу зростає, за день-два приходить торговий караван фракції нового рівня з новими товарами.</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>Набіги за реальною обороною</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>Сила набігів залежить і від вашої реальної оборони – бійців, їхньої зброї, броні та навичок, турелей і бойових механоїдів, – а не лише від багатства колонії. Багата, але слабка колонія отримує чесніші набіги, сильна бідна – жорсткіші.</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>Вага оборони: {0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>Наскільки сила набігу залежить від вашої оборони, а не від очок гри (100 % = лише оборона).</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0}: перехід на рівень {1}.</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0}: відкат на рівень {1}.</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>поселення знищено</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>торгівля допомагає</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>Вивчити</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>Розібрати для досліджень: {0} отримує {1} очок. Предмет витрачається.</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>Немає відкритого дослідницького проєкту, куди це можна вкласти.</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>Потрібен дослідницький стіл.</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>{0} розібрано: {1} +{2} досліджень.</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>Торговці нової епохи</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>Звістка про ваші успіхи поширилася. {0} відправляють караван із товарами епохи {1} – він має прибути за день-два.</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>Фракції</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>Власні рівні фракцій вимкнено (налаштування, вкладка «Розвиток світу»).</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>зростає</RLRG_EV_Rising>
+  <RLRG_EV_Falling>падає</RLRG_EV_Falling>
+  <RLRG_EV_Steady>стабільно</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0}: рівень {1} (світ: {2}). Їхні нападники та гості носять спорядження цього рівня.</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>Ваша оборона: {0} очок · очки набігу зараз: {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>Загрози</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>Непозначені події ніколи не почнуться — ні від оповідача, ні із завдань чи модів. Позначено = дозволено. Діє одразу.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>Залишати викликаних мною босів</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>Боси, яких ви викликаєте механітором біля консолі зв'язку (Діаболус, Королева війни, Апокритон…), та їхній ескорт ніколи не видаляються через «Обмежувати також механоїдів і комах» — ви викликали їх заради сигнальних чипів.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>Показати всі події</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>Показувати й події, що не є загрозами (гості, торговці, мандрівники, добрі події…), щоб їх теж можна було вимкнути.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>Великі загрози</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>Малі загрози</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>Погані події та загрози з модів</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>Інші події</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>Заборонити все</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>Заборонити все видиме в цій групі (з урахуванням пошуку).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>Вимкнено {0} з {1} подій</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>Знову дозволити всі події (типово).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>Вимкнено: ця подія ніколи не почнеться — ні від оповідача, ні із завдань чи модів.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>Видаляється модом World at Your Level</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>залишається – дозволено вами</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>видаляється – ще не досліджено</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>видаляється – вище рівня світу</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>видалялося раніше</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>залишається – правила дозволяють</RLRG_RemStatusStays>
+  <RLRG_RemRules>За правилами</RLRG_RemRules>
+  <RLRG_RemRules_Desc>Для всього показаного тут знову вирішують правила мода.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>Залишити все</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>Залишити все показане тут – більше не видалятиметься.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>Позначено = залишається. Не позначено = вирішують правила мода (недосліджені механоїди й дрони, машини погоди/умов вище рівня світу, турелі кращі за ваші). Позначте, щоб залишити попри все.</RLRG_RemTip>
+</LanguageData>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_CrisisStart>Steward：{0}。優先度を調整しました。</CF_CrisisStart>
+  <CF_CrisisEnd>Steward：危機は去りました（{0}）。</CF_CrisisEnd>
+  <CF_D_Food>食料 {0} 日分</CF_D_Food>
+  <CF_AutoFocusNow>{0} → 現在：{1}（{2}）</CF_AutoFocusNow>
+  <CF_AutoFocusNowNoReason>{0} → 現在：{1}</CF_AutoFocusNowNoReason>
+  <CF_AutoFocusShort>{0} → {1}</CF_AutoFocusShort>
+  <CF_AutoFocusMsg>Steward：「バランス」は現在 {0} を重視しています（{1}）。</CF_AutoFocusMsg>
+  <CF_AutoFocusEnd>Steward：{0} の重視は終了――「バランス」は再び作業を均等に割り振ります。</CF_AutoFocusEnd>
+  <CF_AF_Food>食料 {0} 日分</CF_AF_Food>
+  <CF_AF_Harvest>収穫可能な植物 {0}</CF_AF_Harvest>
+  <CF_AF_Build>設計図 {0}</CF_AF_Build>
+  <CF_AF_Industry>鋼鉄 {0}、部品 {1}</CF_AF_Industry>
+  <CF_AF_Mine>採掘するマス {0}</CF_AF_Mine>
+  <CF_AF_Bills>多くの生産依頼が待機中</CF_AF_Bills>
+  <CF_AF_Care>患者 {0}、囚人 {1}、子供 {2}</CF_AF_Care>
+  <CF_AF_Defense>襲撃後、修理が必要な建物 {0}</CF_AF_Defense>
+  <CF_AF_Animals>手懐けか屠殺を待つ動物 {0}、搾乳・毛刈り・訓練を待つ動物 {1}</CF_AF_Animals>
+  <CF_AF_Dirt>ホームエリアの汚れ {0}</CF_AF_Dirt>
+  <CF_AF_Calm>平穏――研究の時間</CF_AF_Calm>
+  <CF_SitStaff>{0} ×{1}（優先度 {2}）</CF_SitStaff>
+  <CF_SitHeader>状況：</CF_SitHeader>
+  <CF_SitStart>Steward――新しい状況：{0}。</CF_SitStart>
+  <CF_SitEnd>Steward――状況終了：{0}。通常の計画に戻ります。</CF_SitEnd>
+  <CF_SitDoesWork>{0} 優先度 {1}</CF_SitDoesWork>
+  <CF_SitDoesNothing>このゲームでは何もしない（その作業タイプがありません）</CF_SitDoesNothing>
+  <CF_SitDoesExhausted>優先度 1 の作業は 2 に下がります（緊急作業は除く）</CF_SitDoesExhausted>
+  <CF_Sit_BuildBacklog>建築の大量待ち</CF_Sit_BuildBacklog>
+  <CF_SitWhen_BuildBacklog>条件：設計図と骨組みが 20 以上（8 未満になるまで継続）。建築を優先度 2、設計図 15 ごとに建築者 1 人、最低 2 人。</CF_SitWhen_BuildBacklog>
+  <CF_SitR_BuildBacklog>設計図 {0}</CF_SitR_BuildBacklog>
+  <CF_Sit_Deconstruct>解体の待ち</CF_Sit_Deconstruct>
+  <CF_SitWhen_Deconstruct>条件：解体、撤去、床の研磨または床の除去の指定が 15 以上。建築を優先度 2、指定 20 ごとに入植者 1 人。</CF_SitWhen_Deconstruct>
+  <CF_SitR_Deconstruct>指定 {0}</CF_SitR_Deconstruct>
+  <CF_Sit_Repairs>修理が必要</CF_Sit_Repairs>
+  <CF_SitWhen_Repairs>条件：損傷した建物が 6 以上（襲撃中を除く）。建築を優先度 2、建物 10 ごとに入植者 1 人。</CF_SitWhen_Repairs>
+  <CF_SitR_Repairs>損傷した建物 {0}</CF_SitR_Repairs>
+  <CF_Sit_HaulBacklog>運ぶ物が多い</CF_Sit_HaulBacklog>
+  <CF_SitWhen_HaulBacklog>条件：運搬待ちの物が 80 以上（石塊は除く。襲撃、有毒な空気、極端な天候の間は除く）。運搬を優先度 2、物 50 ごとに運搬者 1 人、最低 2 人。</CF_SitWhen_HaulBacklog>
+  <CF_SitR_HaulBacklog>運搬待ちの物 {0}</CF_SitR_HaulBacklog>
+  <CF_Sit_RottingOutside>屋外で腐りかけ</CF_Sit_RottingOutside>
+  <CF_SitWhen_RottingOutside>条件：保管場所の外にある傷みやすいスタックが 8 以上、5 日以内に腐る。運搬を優先度 1、スタック 10 ごとに運搬者 1 人。</CF_SitWhen_RottingOutside>
+  <CF_SitR_RottingOutside>腐るスタック {0}</CF_SitR_RottingOutside>
+  <CF_Sit_FoodSpoiling>食料がまもなく傷む</CF_Sit_FoodSpoiling>
+  <CF_SitWhen_FoodSpoiling>条件：栄養 10 以上分の生の食料が 1.5 日以内に腐る。料理を優先度 1（栄養 30 ごとに料理人 1 人）、さらに運搬者 1 人を優先度 2 で冷所へ運ばせる。</CF_SitWhen_FoodSpoiling>
+  <CF_SitR_FoodSpoiling>栄養 {0} が 1.5 日以内に傷む</CF_SitR_FoodSpoiling>
+  <CF_Sit_BigHarvest>大収穫</CF_Sit_BigHarvest>
+  <CF_SitWhen_BigHarvest>条件：栽培区域に成熟した植物が 40 以上。栽培を優先度 2、植物 40 ごとに栽培者 1 人、最低 2 人。</CF_SitWhen_BigHarvest>
+  <CF_SitR_BigHarvest>成熟した植物 {0}</CF_SitR_BigHarvest>
+  <CF_Sit_FrostHarvest>霜――今すぐ収穫</CF_Sit_FrostHarvest>
+  <CF_SitWhen_FrostHarvest>条件：屋外が 2 °C 未満で成熟した植物が 5 以上――作物が寒さで枯れます。栽培を優先度 1、植物 25 ごとに栽培者 1 人、最低 2 人。</CF_SitWhen_FrostHarvest>
+  <CF_SitR_FrostHarvest>成熟した植物 {0}、気温 {1}</CF_SitR_FrostHarvest>
+  <CF_Sit_CutBacklog>伐採の待ち</CF_Sit_CutBacklog>
+  <CF_SitWhen_CutBacklog>条件：伐採または収穫に指定された植物が 30 以上。伐採を優先度 2、植物 30 ごとに入植者 1 人。</CF_SitWhen_CutBacklog>
+  <CF_SitR_CutBacklog>指定された植物 {0}</CF_SitR_CutBacklog>
+  <CF_Sit_MineBacklog>採掘の待ち</CF_Sit_MineBacklog>
+  <CF_SitWhen_MineBacklog>条件：採掘指定されたマスが 30 以上。採掘を優先度 2、マス 30 ごとに採掘者 1 人。</CF_SitWhen_MineBacklog>
+  <CF_SitR_MineBacklog>採掘するマス {0}</CF_SitR_MineBacklog>
+  <CF_Sit_LowWood>木材不足</CF_Sit_LowWood>
+  <CF_SitWhen_LowWood>条件：木材が 75 + 入植者 1 人につき 25 未満で、木が伐採指定されている。伐採を優先度 2、入植者 1 人（5 人以上のコロニーでは 2 人）。</CF_SitWhen_LowWood>
+  <CF_SitR_LowWood>木材 {0}</CF_SitR_LowWood>
+  <CF_Sit_LowSteel>鋼鉄不足</CF_Sit_LowSteel>
+  <CF_SitWhen_LowSteel>条件：鋼鉄が 50 + 入植者 1 人につき 20 未満で、岩が採掘指定されている。採掘を優先度 2、採掘者 1 人（5 人以上のコロニーでは 2 人）。</CF_SitWhen_LowSteel>
+  <CF_SitR_LowSteel>鋼鉄 {0}</CF_SitR_LowSteel>
+  <CF_Sit_LowComponents>部品不足</CF_Sit_LowComponents>
+  <CF_SitWhen_LowComponents>条件：部品が 3 + 入植者 2 人につき 1 未満で、部品の依頼が待機中。その作業台の作業を優先度 2、入植者 1 人。</CF_SitWhen_LowComponents>
+  <CF_SitR_LowComponents>部品 {0}</CF_SitR_LowComponents>
+  <CF_Sit_LowMedicine>医薬品が残り少ない</CF_Sit_LowMedicine>
+  <CF_SitWhen_LowMedicine>条件：医薬品が入植者 1 人につき 2 未満（ただし「医薬品なし」の危機にはまだ至らない）で、医薬品の依頼が待機中か治療草を栽培中。その作業台の作業と栽培を優先度 2、それぞれ入植者 1 人。</CF_SitWhen_LowMedicine>
+  <CF_SitR_LowMedicine>医薬品 {0}</CF_SitR_LowMedicine>
+  <CF_Sit_ColdClothing>寒さに合わない服装</CF_Sit_ColdClothing>
+  <CF_SitWhen_ColdClothing>条件：屋外が 10 °C 以下で、服が十分に暖かくない入植者がいて、衣服の依頼が待機中。裁縫を優先度 2、寒がる入植者 4 人ごとに仕立て屋 1 人。</CF_SitWhen_ColdClothing>
+  <CF_SitR_ColdClothing>寒がる入植者 {0}、気温 {1}</CF_SitR_ColdClothing>
+  <CF_Sit_WornClothing>傷んだ衣服</CF_Sit_WornClothing>
+  <CF_SitWhen_WornClothing>条件：入植者の 3 分の 1（最低 2 人）が耐久度 50 % 未満の服を着ていて、衣服の依頼が待機中。裁縫を優先度 2、仕立て屋 1 人。</CF_SitWhen_WornClothing>
+  <CF_SitR_WornClothing>傷んだ服を着た入植者 {0}</CF_SitR_WornClothing>
+  <CF_Sit_LowWeapons>武器のない入植者</CF_Sit_LowWeapons>
+  <CF_SitWhen_LowWeapons>条件：戦える入植者の半数（3 人以上のコロニー）が武器を持たず、武器の依頼が待機中。鍛冶を優先度 2、鍛冶師 1 人（非武装が 5 人以上なら 2 人）。</CF_SitWhen_LowWeapons>
+  <CF_SitR_LowWeapons>非武装 {0}</CF_SitR_LowWeapons>
+  <CF_Sit_Recruit>勧誘する囚人</CF_Sit_Recruit>
+  <CF_SitWhen_Recruit>条件：囚人が勧誘、抵抗の軽減、奴隷化または改宗に設定されている。看守を優先度 2、囚人 3 人ごとに看守 1 人――最も話のうまい者が担当。</CF_SitWhen_Recruit>
+  <CF_SitR_Recruit>話しかける囚人 {0}</CF_SitR_Recruit>
+  <CF_Sit_HungryPrisoners>空腹の囚人</CF_Sit_HungryPrisoners>
+  <CF_SitWhen_HungryPrisoners>条件：囚人の満腹度が 25 % 未満。看守を優先度 1、空腹の囚人 3 人ごとに看守 1 人。</CF_SitWhen_HungryPrisoners>
+  <CF_SitR_HungryPrisoners>空腹の囚人 {0}</CF_SitR_HungryPrisoners>
+  <CF_Sit_MassCasualties>多数の患者</CF_Sit_MassCasualties>
+  <CF_SitWhen_MassCasualties>条件：治療が必要な患者が 3 人以上。医療を優先度 1、患者 3 人ごとに医師 2 人、最低 2 人。</CF_SitWhen_MassCasualties>
+  <CF_SitR_MassCasualties>患者 {0}</CF_SitR_MassCasualties>
+  <CF_Sit_Infection>命に関わる病気</CF_Sit_Infection>
+  <CF_SitWhen_Infection>条件：誰かが命に関わる病気や傷（まだ免疫がなく、すでに重い）を抱えているか、大量に出血している。医療を優先度 1、そのような患者 1 人につき医師 1 人。</CF_SitWhen_Infection>
+  <CF_SitR_Infection>危険な状態 {0}</CF_SitR_Infection>
+  <CF_Sit_TameTrain>手懐け・訓練する動物</CF_Sit_TameTrain>
+  <CF_SitWhen_TameTrain>条件：手懐けか訓練を待つ動物が 4 以上。調教を優先度 2、動物 6 ごとに調教師 1 人。</CF_SitWhen_TameTrain>
+  <CF_SitR_TameTrain>動物 {0}</CF_SitR_TameTrain>
+  <CF_Sit_AnimalProducts>屠殺・搾乳・毛刈りする動物</CF_Sit_AnimalProducts>
+  <CF_SitWhen_AnimalProducts>条件：屠殺指定された、または搾乳・毛刈りの準備ができた動物が 5 以上。調教を優先度 2、8 頭ごとに調教師 1 人。</CF_SitWhen_AnimalProducts>
+  <CF_SitR_AnimalProducts>準備ができた動物 {0}</CF_SitR_AnimalProducts>
+  <CF_Sit_AnimalsHungry>空腹の動物</CF_Sit_AnimalsHungry>
+  <CF_SitWhen_AnimalsHungry>条件：コロニーの動物 2 頭以上が飢えている（満腹度 15 % 未満）。運搬と調教を優先度 2、それぞれ入植者 1 人。</CF_SitWhen_AnimalsHungry>
+  <CF_SitR_AnimalsHungry>飢えた動物 {0}</CF_SitR_AnimalsHungry>
+  <CF_Sit_DirtyRooms>病院か厨房が汚い</CF_Sit_DirtyRooms>
+  <CF_SitWhen_DirtyRooms>条件：病室や厨房に汚れが 8 以上（感染、食中毒）。掃除を優先度 1、汚れ 20 ごとに掃除係 1 人。</CF_SitWhen_DirtyRooms>
+  <CF_SitR_DirtyRooms>汚れ {0}</CF_SitR_DirtyRooms>
+  <CF_Sit_ResearchIdle>研究の時間</CF_Sit_ResearchIdle>
+  <CF_SitWhen_ResearchIdle>条件：研究プロジェクトが選択済み、研究台が建設済み、食料 6 日分以上、危機や他の状況がない。研究を優先度 2、入植者 4 人ごとに研究者 1 人。</CF_SitWhen_ResearchIdle>
+  <CF_SitR_ResearchIdle>プロジェクト {0}</CF_SitR_ResearchIdle>
+  <CF_Sit_TradeVisit>商人が来ている</CF_Sit_TradeVisit>
+  <CF_SitWhen_TradeVisit>条件：マップに交易キャラバンがいる、または軌道上に交易船がいて交易ビーコンが建設済み。運搬を優先度 2、運搬者 2 人が商品を集める。</CF_SitWhen_TradeVisit>
+  <CF_SitR_TradeVisit>商人が待っている</CF_SitR_TradeVisit>
+  <CF_Sit_LowFuel>燃料が残り少ない</CF_Sit_LowFuel>
+  <CF_SitWhen_LowFuel>条件：自動給油が有効な建物 2 つ以上の燃料が 25 % 未満（発電機、松明、かまど…）。給油（運搬）を優先度 1、建物 6 ごとに入植者 1 人。</CF_SitWhen_LowFuel>
+  <CF_SitR_LowFuel>燃料の少ない建物 {0}</CF_SitR_LowFuel>
+  <CF_Sit_MechThreat>近くにメカノイドクラスターか巣</CF_Sit_MechThreat>
+  <CF_SitWhen_MechThreat>条件：マップにメカノイドの建造物や昆虫の巣がある（襲撃中を除く）。建築（防衛）を優先度 2 で入植者 2 人、鍛冶を優先度 2 で 1 人。</CF_SitWhen_MechThreat>
+  <CF_SitR_MechThreat>脅威 {0}</CF_SitR_MechThreat>
+  <CF_Sit_MoodSlipping>気分が低下中</CF_Sit_MoodSlipping>
+  <CF_SitWhen_MoodSlipping>条件：入植者の 4 分の 1（最低 2 人）が精神崩壊の閾値に近く、「気分不良」の危機の手前。料理（上質な食事）、芸術、掃除を優先度 2、それぞれ入植者 1 人。</CF_SitWhen_MoodSlipping>
+  <CF_SitR_MoodSlipping>不満な入植者 {0}</CF_SitR_MoodSlipping>
+  <CF_Sit_Childcare>世話が必要な赤ん坊</CF_Sit_Childcare>
+  <CF_SitWhen_Childcare>条件（Biotech）：コロニーに赤ん坊がいる。育児を優先度 2（赤ん坊が空腹なら 1）、赤ん坊 2 人ごとに世話係 1 人。</CF_SitWhen_Childcare>
+  <CF_SitR_Childcare>赤ん坊 {0}</CF_SitR_Childcare>
+  <CF_Sit_Pollution>除去すべき汚染</CF_Sit_Pollution>
+  <CF_SitWhen_Pollution>条件（Biotech）：汚染除去エリアに汚染されたマスが 20 以上。汚染除去の作業を優先度 2、マス 150 ごとに入植者 1 人。</CF_SitWhen_Pollution>
+  <CF_SitR_Pollution>汚染されたマス {0}</CF_SitR_Pollution>
+  <CF_Sit_Exhausted>疲れ切った入植者</CF_Sit_Exhausted>
+  <CF_SitWhen_Exhausted>条件：入植者が起きていて休息が 15 % 未満。その人の優先度 1 の作業は 2 に下がり、状況にも選ばれません。注意：優先度では誰も寝かせられません――スケジュールの「仕事」時間の入植者は自分から寝に行かず、床に倒れ込みます。「睡眠」か「なんでも」の時間を与えてください。</CF_SitWhen_Exhausted>
+  <CF_SitR_Exhausted>疲労困憊 {0}――スケジュールを確認（「仕事」時間はベッドなし）</CF_SitR_Exhausted>
+  <CF_Sit_Corpses>基地内の死体</CF_Sit_Corpses>
+  <CF_SitWhen_Corpses>条件：ホームエリアに死体が 3 以上（襲撃中を除く）。死体の運搬を優先度 2、死体 6 ごとに入植者 1 人。</CF_SitWhen_Corpses>
+  <CF_SitR_Corpses>死体 {0}</CF_SitR_Corpses>
+  <CF_Sit_StorageFull>保管場所が満杯</CF_Sit_StorageFull>
+  <CF_SitWhen_StorageFull>条件：ホームエリアの物 15 以上に置き場所がない。建築を優先度 2（棚、備蓄区域）。</CF_SitWhen_StorageFull>
+  <CF_SitR_StorageFull>置き場所のない物：{0}</CF_SitR_StorageFull>
+  <CF_Sit_SowingBacklog>種まきを待つ畑</CF_Sit_SowingBacklog>
+  <CF_SitWhen_SowingBacklog>条件：生育期に畑の空きマスが 40 以上。栽培を優先度 2。</CF_SitWhen_SowingBacklog>
+  <CF_SitR_SowingBacklog>種まきする空きマス：{0}</CF_SitR_SowingBacklog>
+  <CF_Sit_NoBedroom>ベッドのない入植者</CF_Sit_NoBedroom>
+  <CF_SitWhen_NoBedroom>条件：自分のベッドを持たない入植者がいる。建築を優先度 2。</CF_SitWhen_NoBedroom>
+  <CF_SitR_NoBedroom>ベッドのない入植者：{0}</CF_SitR_NoBedroom>
+  <CF_Sit_UglyRooms>醜い部屋</CF_Sit_UglyRooms>
+  <CF_SitWhen_UglyRooms>条件：寝室 2 つ以上が醜いか汚い（平穏時のみ）。掃除と芸術を優先度 2、建築を 3。</CF_SitWhen_UglyRooms>
+  <CF_SitR_UglyRooms>醜い部屋：{0}</CF_SitR_UglyRooms>
+  <CF_Sit_LowJoy>娯楽不足</CF_Sit_LowJoy>
+  <CF_SitWhen_LowJoy>条件：入植者 2 人以上の娯楽が 30 % 未満。建築と芸術を優先度 2。</CF_SitWhen_LowJoy>
+  <CF_SitR_LowJoy>娯楽の足りない入植者：{0}</CF_SitR_LowJoy>
+  <CF_Sit_Slaughter>屠殺する動物</CF_Sit_Slaughter>
+  <CF_SitWhen_Slaughter>条件：屠殺指定された動物が 3 頭以上。調教を優先度 2。</CF_SitWhen_Slaughter>
+  <CF_SitR_Slaughter>屠殺する動物：{0}</CF_SitR_Slaughter>
+  <CF_Sit_BarrelsReady>樽の完成</CF_Sit_BarrelsReady>
+  <CF_SitWhen_BarrelsReady>条件：発酵樽 2 つ以上が完成。取り出しを優先度 2。</CF_SitWhen_BarrelsReady>
+  <CF_SitR_BarrelsReady>完成した樽：{0}</CF_SitR_BarrelsReady>
+  <CF_Sit_TextilePile>布と革の山</CF_Sit_TextilePile>
+  <CF_SitWhen_TextilePile>条件：保管中の布と革が 400 以上で、裁縫の依頼が待機中（平穏時のみ）。裁縫を優先度 2。</CF_SitWhen_TextilePile>
+  <CF_SitR_TextilePile>布と革：{0}</CF_SitR_TextilePile>
+  <CF_Sit_WornGear>傷んだ装備</CF_Sit_WornGear>
+  <CF_SitWhen_WornGear>条件：保管中の武器と衣服で 60 % 未満のものが 10 以上（修理 MOD がある場合のみ、平穏時のみ）。工作を優先度 2。</CF_SitWhen_WornGear>
+  <CF_SitR_WornGear>傷んだ品：{0}</CF_SitR_WornGear>
+  <CF_Sit_CaravanPrep>キャラバン編成中</CF_Sit_CaravanPrep>
+  <CF_SitWhen_CaravanPrep>条件：キャラバンを編成中。運搬を優先度 1、料理を 2。</CF_SitWhen_CaravanPrep>
+  <CF_SitR_CaravanPrep>キャラバン編成中</CF_SitR_CaravanPrep>
+  <CF_Sit_Gathering>パーティーか儀式</CF_Sit_Gathering>
+  <CF_SitWhen_Gathering>条件：パーティーか儀式が行われている。料理と掃除を優先度 2。</CF_SitWhen_Gathering>
+  <CF_SitR_Gathering>パーティー / 儀式</CF_SitR_Gathering>
+  <CF_Sit_Guests>コロニーに客</CF_Sit_Guests>
+  <CF_SitWhen_Guests>条件：訪問者かクエストの客が 2 人以上。料理と掃除を優先度 2。</CF_SitWhen_Guests>
+  <CF_SitR_Guests>客：{0}</CF_SitR_Guests>
+  <CF_Sit_Snow>除雪が必要</CF_Sit_Snow>
+  <CF_SitWhen_Snow>条件：除雪エリアに雪のマスが 60 以上。掃除を優先度 2。</CF_SitWhen_Snow>
+  <CF_SitR_Snow>雪のマス：{0}</CF_SitR_Snow>
+  <CF_Sit_OrbitalTrade>軌道上に交易船</CF_Sit_OrbitalTrade>
+  <CF_SitWhen_OrbitalTrade>条件：軌道上に交易船がいて、交易ビーコンがある。運搬を優先度 2。</CF_SitWhen_OrbitalTrade>
+  <CF_SitR_OrbitalTrade>軌道上に交易船</CF_SitR_OrbitalTrade>
+  <CF_Sit_ChunksOnFields>畑に石塊</CF_Sit_ChunksOnFields>
+  <CF_SitWhen_ChunksOnFields>条件：畑に石塊かスラグが 5 つ以上。運搬を優先度 2。</CF_SitWhen_ChunksOnFields>
+  <CF_SitR_ChunksOnFields>畑の石塊：{0}</CF_SitR_ChunksOnFields>
+  <CF_Sit_IdleBench>作業者のいない作業台</CF_Sit_IdleBench>
+  <CF_SitWhen_IdleBench>条件：依頼のある作業台 3 つ以上で誰も作業していない。待っている作業タイプを優先度 2。</CF_SitWhen_IdleBench>
+  <CF_SitR_IdleBench>作業者のいない作業台：{0}</CF_SitR_IdleBench>
+  <CF_FloorSleep>{0} は床で寝ています：{1}</CF_FloorSleep>
+  <CF_FloorNoBeds>コロニーに入植者用のベッドがありません。</CF_FloorNoBeds>
+  <CF_FloorAllOwned>すべてのベッドに持ち主がいます――ベッドを割り当てるか新しく建ててください。</CF_FloorAllOwned>
+  <CF_FloorOwnBed>自分のベッド（{0}）</CF_FloorOwnBed>
+  <CF_FloorFreeBed>空きベッド（{0}）</CF_FloorFreeBed>
+  <CF_FloorForbidden>は禁止されています。</CF_FloorForbidden>
+  <CF_FloorArea>は許可エリアの外にあります（{0}）。</CF_FloorArea>
+  <CF_FloorUnreachable>に到達できません（ドアが施錠か禁止、壁？）。</CF_FloorUnreachable>
+  <CF_FloorReserved>は他の誰かに予約されています。</CF_FloorReserved>
+  <CF_FloorCantUse>は使用できません（奴隷/囚人用ベッド、性別、イデオロギー、またはベッド MOD）。</CF_FloorCantUse>
+  <CF_FloorDanger>は危険な場所にあります（気温、敵）。</CF_FloorDanger>
+  <CF_FloorUnknown>は不明な理由で使用できません（おそらく別のベッド MOD）。</CF_FloorUnknown>
+  <CF_SafeAreaName>Steward：安全</CF_SafeAreaName>
+  <CF_SafeOn>攻撃！入植者 {0} 人がエリア「Steward：安全」に入りました。</CF_SafeOn>
+  <CF_SafeOff>攻撃は終わりました――入植者 {0} 人のエリアを元に戻しました。</CF_SafeOff>
+  <CF_Sit_SlaveSuppression>奴隷の抑圧が必要</CF_Sit_SlaveSuppression>
+  <CF_SitWhen_SlaveSuppression>条件：奴隷の抑圧度が 35% 未満。看守を優先度 2、15% 未満なら優先度 1。</CF_SitWhen_SlaveSuppression>
+  <CF_SitR_SlaveSuppression>抑圧度の低い奴隷：{0}</CF_SitR_SlaveSuppression>
+  <CF_Sit_SlaveRebellionRisk>奴隷反乱の危険</CF_Sit_SlaveRebellionRisk>
+  <CF_SitWhen_SlaveRebellionRisk>条件：奴隷が 1 か月以内に反乱を起こすおそれがある。看守を優先度 1、最低入植者 2 人。</CF_SitWhen_SlaveRebellionRisk>
+  <CF_SitR_SlaveRebellionRisk>反乱しそうな奴隷：{0}</CF_SitR_SlaveRebellionRisk>
+  <CF_Sit_PrisonersHurt>負傷した囚人</CF_Sit_PrisonersHurt>
+  <CF_SitWhen_PrisonersHurt>条件：治療が必要な囚人がいる。医療を優先度 2。</CF_SitWhen_PrisonersHurt>
+  <CF_SitR_PrisonersHurt>治療する囚人：{0}</CF_SitR_PrisonersHurt>
+  <CF_Sit_Wounded>負傷した入植者</CF_Sit_Wounded>
+  <CF_SitWhen_Wounded>条件：入植者か奴隷が治療を必要としている（1 人だけでも）。医療を優先度 1。</CF_SitWhen_Wounded>
+  <CF_SitR_Wounded>治療対象：{0}</CF_SitR_Wounded>
+  <CF_Sit_BedHungry>ベッドで空腹</CF_Sit_BedHungry>
+  <CF_SitWhen_BedHungry>条件：寝たきりの患者かベッドの囚人が空腹。医療（患者に食事を与える）と看守（囚人に食事を与える）を優先度 1。</CF_SitWhen_BedHungry>
+  <CF_SitR_BedHungry>空腹の患者：{0}、空腹の囚人：{1}</CF_SitR_BedHungry>
+  <CF_Sit_HungryNoMeals>空腹、食事が少ない</CF_Sit_HungryNoMeals>
+  <CF_SitWhen_HungryNoMeals>条件：入植者、奴隷または囚人が空腹で、調理済みの食事が足りない。料理を優先度 1。</CF_SitWhen_HungryNoMeals>
+  <CF_SitR_HungryNoMeals>不足している食事：{0}</CF_SitR_HungryNoMeals>
+  <CF_Sit_ButcherBacklog>解体する死骸</CF_Sit_ButcherBacklog>
+  <CF_SitWhen_ButcherBacklog>条件：有効な解体依頼の対象となる新鮮な動物の死骸がある。料理を優先度 2。</CF_SitWhen_ButcherBacklog>
+  <CF_SitR_ButcherBacklog>解体する死骸：{0}</CF_SitR_ButcherBacklog>
+  <CF_Sit_PrisonRelease>解放する囚人</CF_Sit_PrisonRelease>
+  <CF_SitWhen_PrisonRelease>条件：囚人が解放に設定されている。看守を優先度 2。</CF_SitWhen_PrisonRelease>
+  <CF_SitR_PrisonRelease>解放する囚人：{0}</CF_SitR_PrisonRelease>
+  <CF_Sit_DirtyPrison>汚い独房</CF_Sit_DirtyPrison>
+  <CF_SitWhen_DirtyPrison>条件：囚人のいる独房がとても汚い。掃除を優先度 2。</CF_SitWhen_DirtyPrison>
+  <CF_SitR_DirtyPrison>汚い独房：{0}</CF_SitR_DirtyPrison>
+  <CF_Sit_PrisonBeds>囚人用ベッドの不足</CF_Sit_PrisonBeds>
+  <CF_SitWhen_PrisonBeds>条件：囚人の数が囚人用ベッドより多い。建築を優先度 2（ベッドは自分で配置してください。Steward は建設を早めるだけです）。</CF_SitWhen_PrisonBeds>
+  <CF_SitR_PrisonBeds>不足している囚人用ベッド：{0}</CF_SitR_PrisonBeds>
+  <CF_Sit_ProductsWaiting>運搬を待つ物</CF_Sit_ProductsWaiting>
+  <CF_SitWhen_ProductsWaiting>条件：ホームエリアの保管場所外に物が 5 つ以上あり、受け入れる備蓄区域がある（作業台の製品、戦利品…）。運搬を優先度 2、物 15 ごとに運搬者 1 人、最低 1 人。</CF_SitWhen_ProductsWaiting>
+  <CF_SitR_ProductsWaiting>運搬を待つ物：{0}</CF_SitR_ProductsWaiting>
+  <CF_AF_Tidy>運搬する物：{0}、汚れ：{1}</CF_AF_Tidy>
+  <CF_Sit_AnimalTraining>動物の訓練</CF_Sit_AnimalTraining>
+  <CF_SitWhen_AnimalTraining>条件：今すぐ訓練できる飼い慣らされた動物が 1 頭以上いて（学ぶことがあり、最近訓練していない）、十分な技能の入植者がいる。最も優秀な調教師に調教を優先度 1、動物 5 頭ごとに 1 人。</CF_SitWhen_AnimalTraining>
+  <CF_SitR_AnimalTraining>訓練を待つ動物：{0}</CF_SitR_AnimalTraining>
+  <CF2C_Name>危機と状況</CF2C_Name>
+  <CF2C_UseCrisis>危機</CF2C_UseCrisis>
+  <CF2C_UseCrisisTip>火災、襲撃、負傷者、飢えなど：Steward は危機に必要な作業へすぐに人を割り当て、後回しにできる作業は最低レベルに下げます。</CF2C_UseCrisisTip>
+  <CF2C_UseSituations>状況</CF2C_UseSituations>
+  <CF2C_UseSituationsTip>大収穫、建築の待ち、解体する死骸…：状況が続く間、その作業に人を多く割り当てます。</CF2C_UseSituationsTip>
+  <CF2C_AutoFocus>「バランス」が自動で重点を選ぶ</CF2C_AutoFocus>
+  <CF2C_AutoFocusTip>コロニーに何かが必要なとき（食料が尽きかけている、設計図が多い…）、「バランス」はしばらくその作業に人を増やします。</CF2C_AutoFocusTip>
+  <CF2C_Messages>危機と状況についてのメッセージ</CF2C_Messages>
+  <CF2C_Medical>医師が緊急の患者へすぐ向かう</CF2C_Medical>
+  <CF2C_MedicalTip>出血、感染、ベッド外での負傷：一番近い手の空いた医師がすぐ向かいます。</CF2C_MedicalTip>
+  <CF2C_Fire>基地内の消火</CF2C_Fire>
+  <CF2C_FireTip>手の空いた入植者がホームエリアの火災へ向かいます（攻撃中は除く、許可エリアの外へは行きません）。</CF2C_FireTip>
+  <CF2C_Butcher>食料が十分なら解体を優先</CF2C_Butcher>
+  <CF2C_ButcherTip>新鮮な動物の死骸があり調理済みの食事が十分にあるとき、料理人はまず解体します。</CF2C_ButcherTip>
+  <CF2C_SafeArea>襲撃中の安全エリア</CF2C_SafeArea>
+  <CF2C_SafeAreaTip>襲撃、人間狩りの動物、包囲の間、入植者は基地の屋根のある部屋に留まり、その後エリアが元に戻ります。</CF2C_SafeAreaTip>
+  <CF2C_CrisesList>対象の危機：</CF2C_CrisesList>
+  <CF2C_SituationsList>対象の状況：</CF2C_SituationsList>
+  <CF2C_HistCrisis>危機：{0}</CF2C_HistCrisis>
+  <CF2C_NoCrisis>なし（終了）</CF2C_NoCrisis>
+  <CF2C_TipCrisis>危機（{0}）：今すぐ必要。</CF2C_TipCrisis>
+  <CF2C_TipCrisisDown>危機（{0}）：この作業は今は後回し。</CF2C_TipCrisisDown>
+  <CF2C_TipExhausted>疲労困憊：当面は優先度 1 の作業なし。</CF2C_TipExhausted>
+  <CF2C_TipFocus>重点 {0}：この作業に人を増員。</CF2C_TipFocus>
+  <CF2C_TipSituation>状況：{0}</CF2C_TipSituation>
+</LanguageData>

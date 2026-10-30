@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_SchedTired>{0} jest wyczerpany – plan dnia: teraz sen.</CF_SchedTired>
+  <CF_SchedBreak>{0} jest bliski załamania psychicznego – plan dnia: teraz rekreacja.</CF_SchedBreak>
+  <CF_ComfortEat>{0} je na stojąco: {1}</CF_ComfortEat>
+  <CF_ComfortToilet>{0} nie może skorzystać z toalety: {1}</CF_ComfortToilet>
+  <CF_WhyNoTable>w domu nie ma krzesła przy stole</CF_WhyNoTable>
+  <CF_WhyArea>jest poza jego dozwolonym obszarem „{0}”</CF_WhyArea>
+  <CF_WhyForbidden>jest zakazane</CF_WhyForbidden>
+  <CF_WhyPrison>jest w celi więziennej (lub w pomieszczeniu dla innych)</CF_WhyPrison>
+  <CF_WhyReach>nie może się tam dostać</CF_WhyReach>
+  <CF_WhyReserved>{0} to zarezerwował</CF_WhyReserved>
+  <CF_WhyFull>wszystkie miejsca są zajęte</CF_WhyFull>
+  <CF_WhyDanger>tam jest niebezpiecznie (temperatura, wróg)</CF_WhyDanger>
+  <CF_WhyFar>najbliższe jest za daleko ({0} pól)</CF_WhyFar>
+  <CF_WhyNoToilet>w domu nie ma toalety</CF_WhyNoToilet>
+  <CF_WhyBroken>toaleta nie działa: {0}</CF_WhyBroken>
+  <CF_WhyNotAllowed>toaleta nie jest dla niego: {0}</CF_WhyNotAllowed>
+  <CF_WhyBusy>toaleta jest zajęta lub za daleko</CF_WhyBusy>
+  <CF_SchedMoreJoy>{0} brakuje rekreacji – plan dnia: {1} h rekreacji dziennie.</CF_SchedMoreJoy>
+  <CF_SchedBored>{0} jest znudzony większością rodzajów rekreacji – więcej czasu na rekreację niewiele pomoże; zbuduj inne rodzaje (gry, sztuka, telewizor, teleskop, ładny pokój …).</CF_SchedBored>
+  <CF_MoodRescue>{0} przerywa pracę, żeby się uspokoić (głównie: {1}).</CF_MoodRescue>
+  <CF_MoodHint_Table>{0} kolonistów jest zdenerwowanych jedzeniem bez stołu. Pomógłby stół z krzesłami bliżej miejsca, gdzie pracują lub śpią.</CF_MoodHint_Table>
+  <CF_MoodHint_Comfort>{0} kolonistom brakuje wygody. Pomogłoby więcej krzeseł, foteli lub lepsze łóżka.</CF_MoodHint_Comfort>
+  <CF_MoodHint_Dark>{0} kolonistów jest zdenerwowanych ciemnością. Pomogłoby więcej świateł tam, gdzie pracują i chodzą.</CF_MoodHint_Dark>
+  <CF_MoodHint_Cramped>{0} kolonistów czuje się ciasno. Pomogłyby większe sypialnie lub pomieszczenia.</CF_MoodHint_Cramped>
+  <CF_MoodHint_Outdoors>{0} kolonistom brakuje świeżego powietrza (klaustrofobia). Pomogłaby rekreacja na zewnątrz lub praca na dworze.</CF_MoodHint_Outdoors>
+  <CF_MoodHint_Temperature>{0} kolonistów cierpi z powodu upału lub zimna. Pomogłyby grzejniki, chłodnice lub lepsze ubrania.</CF_MoodHint_Temperature>
+  <CF_MoodCause_Rest>zmęczenie</CF_MoodCause_Rest>
+  <CF_MoodCause_Joy>brak rekreacji</CF_MoodCause_Joy>
+  <CF_MoodCause_Food>jedzenie</CF_MoodCause_Food>
+  <CF_MoodCause_Table>jedzenie bez stołu</CF_MoodCause_Table>
+  <CF_MoodCause_Pain>ból</CF_MoodCause_Pain>
+  <CF_MoodCause_Room>brzydkie lub brudne otoczenie</CF_MoodCause_Room>
+  <CF_MoodCause_Comfort>brak wygody</CF_MoodCause_Comfort>
+  <CF_MoodCause_Dark>ciemność</CF_MoodCause_Dark>
+  <CF_MoodCause_Cramped>ciasne pomieszczenia</CF_MoodCause_Cramped>
+  <CF_MoodCause_Outdoors>klaustrofobia</CF_MoodCause_Outdoors>
+  <CF_MoodCause_Apparel>ubrania</CF_MoodCause_Apparel>
+  <CF_MoodCause_Temperature>upał lub zimno</CF_MoodCause_Temperature>
+  <CF_MoodCause_Social>ludzie</CF_MoodCause_Social>
+  <CF_MoodCause_Other>wydarzenia i wspomnienia</CF_MoodCause_Other>
+  <CF_MoodNoFood>{0} jest głodny i bliski załamania, ale nie może dotrzeć do żadnego jedzenia. Sprawdź zapasy jedzenia, dozwolony obszar i zakazane jedzenie.</CF_MoodNoFood>
+  <CF2S_Name>Plany dnia</CF2S_Name>
+  <CF2S_Auto>Automatyczne plany dnia</CF2S_Auto>
+  <CF2S_AutoTip>Każdy kolonista dostaje plan dnia: sen, praca i rekreacja, która rośnie, gdy jej brakuje, i maleje, gdy jest jej dość. Gdy sam zmienisz plan dnia, Steward zostawia tego kolonistę w spokoju.</CF2S_AutoTip>
+  <CF2S_Night>Nocna zmiana</CF2S_Night>
+  <CF2S_NightTip>Około jednej czwartej kolonii (od 6 osób) pracuje w nocy i śpi w dzień. Nocne marki zawsze w nocy.</CF2S_NightTip>
+  <CF2S_Care>Dbałość o odpoczynek i nastrój</CF2S_Care>
+  <CF2S_CareTip>Wyczerpany kolonista dostaje godzinę snu, a bliski załamania psychicznego godzinę rekreacji. Potem godziny wracają do normy.</CF2S_CareTip>
+  <CF2S_SitToEat>Jedzenie przy stole</CF2S_SitToEat>
+  <CF2S_SitToEatTip>Koloniści siadają do stołu, nawet nieco dalej położonego; gdy go nie ma, Steward mówi dlaczego.</CF2S_SitToEatTip>
+  <CF2S_Messages>Wiadomości o planach dnia i nastroju</CF2S_Messages>
+  <CF2S_Quiet>Mniej wiadomości w lewym górnym rogu</CF2S_Quiet>
+  <CF2S_QuietTip>Rutynowe powiadomienia (także innych modów) nie są wyświetlane, tylko zapisywane w historii wiadomości. Zagrożenia i ważne wiadomości zostają.</CF2S_QuietTip>
+</LanguageData>

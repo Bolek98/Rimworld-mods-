@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AT_AutoManned>需人操作的炮塔自动开火</AT_AutoManned>
+  <AT_AutoManned_Desc>你那些通常需要殖民者操作的炮塔（来自任何模组）会像迷你炮塔一样自动射击。你仍然可以手动选择目标。</AT_AutoManned_Desc>
+  <AT_AutoMortars>迫击炮自动开火</AT_AutoMortars>
+  <AT_AutoMortars_Desc>你的迫击炮和其他炮弹武器只要装填了炮弹，就会自动向敌人开火。</AT_AutoMortars_Desc>
+  <AT_MortarSafety>迫击炮不在己方人员附近开火</AT_MortarSafety>
+  <AT_MortarSafety_Desc>自动迫击炮会跳过炮弹可能落在你的殖民者、动物或访客身上的目标。</AT_MortarSafety_Desc>
+  <AT_SafetyExtra>额外安全距离：{0} 格</AT_SafetyExtra>
+  <AT_LoadShells>殖民者装填炮弹（搬运工作）</AT_LoadShells>
+  <AT_LoadShells_Desc>搬运者会从地图任何地方把炮弹运到空的自动迫击炮。会遵守迫击炮自身的炮弹过滤设置。</AT_LoadShells_Desc>
+  <AT_AnyMetal>炮塔可用任意金属补给</AT_AnyMetal>
+  <AT_AnyMetal_Desc>用钢铁（或其他单一金属）补给的炮塔可使用任意金属：钢铁、玻璃钢、黄金、铀以及模组中的金属。</AT_AnyMetal_Desc>
+  <AT_AllowSilver>…包括白银</AT_AllowSilver>
+  <AT_Restart>材料和墙内炮塔设置在重启游戏后生效。</AT_Restart>
+  <AT_NoShell>没有可用的炮弹</AT_NoShell>
+  <AT_FriendlyFire>炮塔误伤友军</AT_FriendlyFire>
+  <AT_FriendlyFire_Desc>关闭时，你的炮塔子弹会绕过你的殖民者、访客和盟友，炮弹爆炸也不会伤害他们。开启 = 与游戏相同。</AT_FriendlyFire_Desc>
+  <AT_FuelWood>炮塔也可用木材补充</AT_FuelWood>
+  <AT_FuelWood_Desc>用金属补充的炮塔也接受木材。</AT_FuelWood_Desc>
+  <AT_FuelStone>炮塔也可用石砖补充</AT_FuelStone>
+  <AT_FuelStone_Desc>用金属补充的炮塔也接受石砖。</AT_FuelStone_Desc>
+  <AT_WallTurrets>墙内炮塔</AT_WallTurrets>
+  <AT_WallTurrets_Desc>所选炮塔会在安全菜单中多出一个“…（墙内）”版本。它直接建在墙或磨光的岩壁上，替换那段墙，并且本身就像墙一样：阻挡通行、支撑屋顶、保持房间封闭。普通炮塔保持不变。</AT_WallTurrets_Desc>
+  <AT_WallRecommended>推荐选择</AT_WallRecommended>
+  <AT_WallNone>未找到炮塔。</AT_WallNone>
+  <AT_WallLabel>{0}（墙内）</AT_WallLabel>
+  <AT_WallDescExtra>建在墙上：替换那段墙，像墙一样阻挡通行并支撑屋顶。被摧毁后墙上会留下缺口。</AT_WallDescExtra>
+  <AT_SecShooting>射击</AT_SecShooting>
+  <AT_SecMaterials>弹药与材料</AT_SecMaterials>
+  <AT_WallEnable>允许墙内炮塔</AT_WallEnable>
+  <AT_WallAll>全选</AT_WallAll>
+  <AT_WallClear>全部取消</AT_WallClear>
+  <AT_WallCount>已选 {0} / {1}</AT_WallCount>
+  <AT_WallSearch>搜索：</AT_WallSearch>
+  <AT_WallRecDone>已恢复推荐选择——选中 {0} 个小型炮塔。</AT_WallRecDone>
+  <AT_WallAllDone>已选中全部 {0} 个炮塔。</AT_WallAllDone>
+  <AT_WallClearDone>已清空选择。</AT_WallClearDone>
+  <AT_RestartNeeded>⚠ 重启游戏后墙内炮塔的更改才会生效。</AT_RestartNeeded>
+  <AT_WallRecTip>推荐：最大 2×2 的小型炮塔</AT_WallRecTip>
+  <AT_SmartShells>智能选择炮弹</AT_SmartShells>
+  <AT_SmartShells_Desc>自动迫击炮不会浪费炮弹：EMP只打机械体和带护盾的敌人，燃烧弹不打机械体，灭火泡沫只打居住区内的火（绝不打敌人）。当大多数敌人是机械体时搬运工会送来EMP炮弹，否则送高爆弹——前提是迫击炮的过滤设置允许。</AT_SmartShells_Desc>
+  <AT_NoHitBuildings>炮塔不击中我方建筑</AT_NoHitBuildings>
+  <AT_NoHitBuildings_Desc>开启时，你的炮塔子弹会绕过你自己的建筑（墙、沙袋、门……），除非你瞄准它们，炮弹爆炸也不会损坏它们。敌方建筑照常被击中。关闭 = 与游戏相同。</AT_NoHitBuildings_Desc>
+  <AT_WallOutward>墙内炮塔只向外射击</AT_WallOutward>
+  <AT_WallOutward_Desc>墙内的炮塔只射击墙外侧（远离房间一侧）的目标。如果没有哪一侧明显在室外（两个房间之间的墙），则向所有方向射击。</AT_WallOutward_Desc>
+  <AT_TabTurrets>炮塔</AT_TabTurrets>
+  <AT_TurretsDesc>所有炮塔、迫击炮和火炮——原版和模组。勾选的会自动开火。取消勾选：需要操作的炮塔和迫击炮重新需要殖民者，自动炮塔在你指定目标前不会开火。</AT_TurretsDesc>
+  <AT_TurretsNone>这里没有需要殖民者操作的炮塔。</AT_TurretsNone>
+  <AT_TurretsCount>{0} / {1} 自动开火</AT_TurretsCount>
+  <AT_FuelEdit>材料…</AT_FuelEdit>
+  <AT_FuelPerTurret>每个炮塔的材料——也包括需要模组专用弹药或燃料的炮塔。点击"材料…"并勾选它还能用什么补给。更改立即生效。</AT_FuelPerTurret>
+  <AT_FuelNone>这里没有需要补给的炮塔。</AT_FuelNone>
+  <AT_FuelTakes>使用：{0}</AT_FuelTakes>
+  <AT_FuelOriginal>原本使用：{0}。勾选它还能用什么补给：</AT_FuelOriginal>
+  <AT_FuelOrig>原有</AT_FuelOrig>
+  <AT_FuelGroup0>金属</AT_FuelGroup0>
+  <AT_FuelGroup1>木材</AT_FuelGroup1>
+  <AT_FuelGroup2>石砖</AT_FuelGroup2>
+  <AT_FuelGroup3>弹药和炮弹</AT_FuelGroup3>
+  <AT_FuelGroup4>其他资源</AT_FuelGroup4>
+  <AT_KindManned>需操作</AT_KindManned>
+  <AT_KindMortar>需操作的迫击炮</AT_KindMortar>
+  <AT_KindAuto>自动</AT_KindAuto>
+  <AT_KindMortarAuto>迫击炮</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>自动装填炮弹</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>搬运工会自动把炮弹送到这门迫击炮。关闭后只能手动装填。</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>弹药：{0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>选择这个炮塔装填或补给的唯一炮弹或材料——不会搬运其他东西。"任何允许的"使用炮塔接受的所有东西。</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>任何允许的</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>特殊炮弹仅在选择时</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>搬运工只会把EMP、燃烧弹、灭火泡沫等特殊炮弹送到用"弹药"按钮选择了它们的迫击炮；否则送高爆弹。</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>需要专用弹药的炮塔也接受金属</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>需要专用弹药或燃料的炮塔（通常来自模组）也可以用钢铁或其他金属补给——不会因为缺少弹药而闲置。</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>炮塔不需要弹药</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>你的炮塔始终视为已装填，不消耗弹药或燃料。适用于模组炮塔需要你无法制作的弹药时。迫击炮、火炮和野战炮也始终装有炮弹。</AT_FreeAmmo_Desc>
+  <AT_VfesAuto>自动开火（Auto Turrets）——无需殖民者操作。</AT_VfesAuto>
+  <AT_VfesSend>无人操作——最近的可战斗空闲殖民者会立即前往。</AT_VfesSend>
+  <AT_VfesNobody>没有人能操作火炮。</AT_VfesNobody>
+  <AT_VfesGoes>{0}前去操作火炮。</AT_VfesGoes>
+  <AT_ShellsFromMaterial>迫击炮和火炮用材料代替炮弹装填</AT_ShellsFromMaterial>
+  <AT_ShellsFromMaterial_Desc>搬运者把钢铁（或其他金属）送到迫击炮、火炮和野战炮，炮会装填你为它选的炮弹，未选择时装填高爆弹。完全不需要炮弹。VFE 自动迫击炮也会用材料补充炮弹。</AT_ShellsFromMaterial_Desc>
+  <AT_ShellCost>每发炮弹所需材料：{0}</AT_ShellCost>
+  <AT_NoMaterial>材料不足（每发需要 {0} 金属）</AT_NoMaterial>
+</LanguageData>

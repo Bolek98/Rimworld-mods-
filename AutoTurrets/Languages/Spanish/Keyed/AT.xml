@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AT_AutoManned>Las torretas manuales disparan solas</AT_AutoManned>
+  <AT_AutoManned_Desc>Tus torretas que normalmente necesitan un colono (de cualquier mod) disparan automáticamente, como una minitorreta. Aún puedes elegir un objetivo a mano.</AT_AutoManned_Desc>
+  <AT_AutoMortars>Los morteros disparan solos</AT_AutoMortars>
+  <AT_AutoMortars_Desc>Tus morteros y otras armas de proyectiles disparan automáticamente a los enemigos mientras tengan un proyectil cargado.</AT_AutoMortars_Desc>
+  <AT_MortarSafety>Los morteros no disparan cerca de tu gente</AT_MortarSafety>
+  <AT_MortarSafety_Desc>Un mortero automático omite los objetivos donde el proyectil podría caer sobre tus colonos, animales o invitados.</AT_MortarSafety_Desc>
+  <AT_SafetyExtra>Distancia de seguridad adicional: {0} casillas</AT_SafetyExtra>
+  <AT_LoadShells>Los colonos cargan proyectiles (trabajo Acarrear)</AT_LoadShells>
+  <AT_LoadShells_Desc>Los acarreadores llevan proyectiles desde cualquier parte del mapa a los morteros automáticos vacíos. Se respeta el filtro de proyectiles del mortero.</AT_LoadShells_Desc>
+  <AT_AnyMetal>Las torretas se recargan con cualquier metal</AT_AnyMetal>
+  <AT_AnyMetal_Desc>Las torretas que se recargan con acero (u otro único metal) aceptan cualquier metal: acero, plastiacero, oro, uranio y metales de mods.</AT_AnyMetal_Desc>
+  <AT_AllowSilver>…incluida la plata</AT_AllowSilver>
+  <AT_Restart>Los ajustes de materiales y de torretas en muros se aplican tras reiniciar el juego.</AT_Restart>
+  <AT_NoShell>No hay proyectiles disponibles</AT_NoShell>
+  <AT_FriendlyFire>Fuego amigo de las torretas</AT_FriendlyFire>
+  <AT_FriendlyFire_Desc>Desactivado: las balas de tus torretas pasan junto a tus colonos, invitados y aliados, y las explosiones de sus proyectiles no les hacen daño. Activado = como en el juego.</AT_FriendlyFire_Desc>
+  <AT_FuelWood>Recargar torretas también con madera</AT_FuelWood>
+  <AT_FuelWood_Desc>Las torretas que se recargan con metal también aceptan madera.</AT_FuelWood_Desc>
+  <AT_FuelStone>Recargar torretas también con bloques de piedra</AT_FuelStone>
+  <AT_FuelStone_Desc>Las torretas que se recargan con metal también aceptan bloques de piedra.</AT_FuelStone_Desc>
+  <AT_WallTurrets>Torretas en muros</AT_WallTurrets>
+  <AT_WallTurrets_Desc>Las torretas elegidas obtienen una segunda versión «… (en muro)» en el menú Seguridad. Se construye directamente sobre un muro o una pared de roca pulida, sustituye ese trozo de muro y funciona como muro: bloquea el paso, sostiene el techo y mantiene la habitación cerrada. Las torretas normales no cambian.</AT_WallTurrets_Desc>
+  <AT_WallRecommended>Selección recomendada</AT_WallRecommended>
+  <AT_WallNone>No se encontraron torretas.</AT_WallNone>
+  <AT_WallLabel>{0} (en muro)</AT_WallLabel>
+  <AT_WallDescExtra>Se construye sobre un muro: sustituye ese trozo, bloquea el paso y sostiene el techo como un muro. Si se destruye, queda un hueco en el muro.</AT_WallDescExtra>
+  <AT_SecShooting>Disparo</AT_SecShooting>
+  <AT_SecMaterials>Munición y materiales</AT_SecMaterials>
+  <AT_WallEnable>Permitir torretas en muros</AT_WallEnable>
+  <AT_WallAll>Seleccionar todo</AT_WallAll>
+  <AT_WallClear>Quitar todo</AT_WallClear>
+  <AT_WallCount>Seleccionadas {0} de {1}</AT_WallCount>
+  <AT_WallSearch>Buscar:</AT_WallSearch>
+  <AT_WallRecDone>Selección recomendada restaurada: {0} torretas pequeñas seleccionadas.</AT_WallRecDone>
+  <AT_WallAllDone>Seleccionadas las {0} torretas.</AT_WallAllDone>
+  <AT_WallClearDone>Selección borrada.</AT_WallClearDone>
+  <AT_RestartNeeded>⚠ Reinicia el juego para aplicar los cambios de las torretas en muros.</AT_RestartNeeded>
+  <AT_WallRecTip>Recomendado: torreta pequeña hasta 2×2</AT_WallRecTip>
+  <AT_SmartShells>Elección inteligente de proyectiles</AT_SmartShells>
+  <AT_SmartShells_Desc>Los morteros automáticos no desperdician proyectiles: EMP solo contra mecanoides y enemigos con escudo, incendiarios no contra mecanoides, espuma antiincendios solo contra fuegos en la zona de hogar (nunca contra enemigos). Los porteadores traen proyectiles EMP cuando la mayoría de los enemigos son mecanoides y, si no, explosivos – si el filtro del mortero los permite.</AT_SmartShells_Desc>
+  <AT_NoHitBuildings>Las torretas no dañan nuestros edificios</AT_NoHitBuildings>
+  <AT_NoHitBuildings_Desc>Activado: las balas de tus torretas pasan junto a tus propios edificios (muros, sacos de arena, puertas…) salvo que apuntes a ellos, y las explosiones de sus proyectiles no los dañan. Los edificios enemigos reciben impactos como siempre. Desactivado = como en el juego.</AT_NoHitBuildings_Desc>
+  <AT_WallOutward>Las torretas de muro solo disparan hacia fuera</AT_WallOutward>
+  <AT_WallOutward_Desc>Una torreta en un muro solo dispara a objetivos del lado exterior de su muro (lejos de la habitación). Si ningún lado está claramente fuera (muro entre dos habitaciones), dispara a todas partes.</AT_WallOutward_Desc>
+  <AT_TabTurrets>Torretas</AT_TabTurrets>
+  <AT_TurretsDesc>Todas las torretas, morteros y cañones, vanilla y de mods. Los marcados disparan solos. Sin marcar: las torretas y morteros manejados vuelven a necesitar un colono y las torretas automáticas no disparan hasta que elijas un objetivo.</AT_TurretsDesc>
+  <AT_TurretsNone>Aquí ninguna torreta necesita un colono.</AT_TurretsNone>
+  <AT_TurretsCount>{0} de {1} disparan solos</AT_TurretsCount>
+  <AT_FuelEdit>Materiales…</AT_FuelEdit>
+  <AT_FuelPerTurret>Los materiales de cada torreta, también las que necesitan su propia munición o combustible de un mod. Pulsa "Materiales…" y marca con qué más se puede recargar. Se aplica al momento.</AT_FuelPerTurret>
+  <AT_FuelNone>Aquí no se recarga ninguna torreta.</AT_FuelNone>
+  <AT_FuelTakes>usa: {0}</AT_FuelTakes>
+  <AT_FuelOriginal>Usa de por sí: {0}. Marca con qué más se puede recargar:</AT_FuelOriginal>
+  <AT_FuelOrig>propio</AT_FuelOrig>
+  <AT_FuelGroup0>Metales</AT_FuelGroup0>
+  <AT_FuelGroup1>Madera</AT_FuelGroup1>
+  <AT_FuelGroup2>Bloques de piedra</AT_FuelGroup2>
+  <AT_FuelGroup3>Munición y proyectiles</AT_FuelGroup3>
+  <AT_FuelGroup4>Otros recursos</AT_FuelGroup4>
+  <AT_KindManned>manejada</AT_KindManned>
+  <AT_KindMortar>mortero manejado</AT_KindMortar>
+  <AT_KindAuto>automática</AT_KindAuto>
+  <AT_KindMortarAuto>mortero</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>Cargar proyectiles automáticamente</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>Los porteadores llevan proyectiles a este mortero por sí solos. Desactívalo para cargarlo solo a mano.</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>Munición: {0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>Elige el único proyectil o material con el que se carga o recarga esta torreta: no se trae nada más. "Cualquiera permitido" usa todo lo que acepta la torreta.</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>cualquiera permitido</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>Proyectiles especiales solo si se eligen</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>Los porteadores llevan proyectiles EMP, incendiarios, de espuma y otros especiales solo a un mortero ajustado a ellos con su botón "Munición"; si no, llevan explosivos.</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>Las torretas con munición propia aceptan metal también</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>Las torretas que necesitan su propia munición o combustible (a menudo de mods) también se pueden recargar con acero u otro metal, así nunca se quedan quietas por falta de munición.</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>Las torretas no necesitan munición</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>Tus torretas siempre cuentan como cargadas y no gastan munición ni combustible. Útil cuando una torreta de un mod necesita munición que no puedes fabricar. Los morteros, la artillería y los cañones de campaña también tienen siempre un proyectil cargado.</AT_FreeAmmo_Desc>
+  <AT_VfesAuto>Dispara sola (Auto Turrets): no hace falta un colono.</AT_VfesAuto>
+  <AT_VfesSend>Nadie la maneja: el colono libre más cercano que puede luchar va enseguida.</AT_VfesSend>
+  <AT_VfesNobody>Nadie puede manejar la artillería.</AT_VfesNobody>
+  <AT_VfesGoes>{0} va a manejar la artillería.</AT_VfesGoes>
+  <AT_ShellsFromMaterial>Cargar morteros y artillería con material en vez de proyectiles</AT_ShellsFromMaterial>
+  <AT_ShellsFromMaterial_Desc>Los porteadores llevan acero (u otro metal) a morteros, artillería y cañones de campaña, y la pieza se carga con el proyectil elegido o, si no, con uno explosivo. No hacen falta proyectiles. El mortero automático de VFE también recarga sus proyectiles con material.</AT_ShellsFromMaterial_Desc>
+  <AT_ShellCost>Material por proyectil: {0}</AT_ShellCost>
+  <AT_NoMaterial>Falta material ({0} de metal por proyectil)</AT_NoMaterial>
+</LanguageData>

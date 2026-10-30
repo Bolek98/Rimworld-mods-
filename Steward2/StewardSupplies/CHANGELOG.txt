@@ -1,0 +1,29 @@
+=== Workshop release 1.0.0 (30 Oct 2026) ===
+1.0.0
+First Workshop release.
+- Steward add-on: hunting, wood, bills, livestock and breeding, keep zones, the Supplies tab.
+
+První vydání na Workshopu.
+- Doplněk Stewarda: lov, dřevo, zakázky, chov zvířat, zóny se zásobou, záložka Zásoby.
+
+=== Development history before the first Workshop release (test versions) ===
+1.0.6
+- Breeding: a tidier list – name and counts, the three numbers and the switches no longer overlap; a clear 'looked after / not looked after' under each species.
+- Breeding: new switch 'Never cull the young' – young animals are never marked for slaughter or release.
+- Breeding: species you no longer have disappear from the list; one you still look after shows 'None left' with a Remove button.
+
+1.0.5
+- Foraging: crops you sow yourself (rice, potatoes, corn …) are no longer foraging plants by default. Their harvest from your fields counted as forage stock, so a full barn of rice meant "enough" and wild berries were never marked. You can still tick them by hand.
+
+1.0.4
+- Production: new per-target option "Also keep enough ingredients" – adds or raises the targets of the recipe's ingredients (e.g. Components 30 makes sure there is a Steel target big enough).
+- Mining: new per-resource option to switch deep drills off when the stock reaches the target and on again below it.
+- Every target keeps its stock once an hour for 7 days and shows it as a small line next to the progress bar.
+
+1.0.3
+- Livestock: new per-species option "Release surplus" – surplus animals are released to the wild instead of slaughtered.
+- Livestock: quest guest animals (lodgers) no longer count toward herd targets and are never culled.
+
+1.0.2
+- The game no longer warns at start that the Steward core dependency has no download link.
+

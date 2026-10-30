@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_Auto>Steward</CF_Auto>
+  <CF_StyleButton>风格：{0}</CF_StyleButton>
+  <CF_StyleTip>殖民地方向。提高或降低所选工作的重要性。</CF_StyleTip>
+  <CF_Style_Balanced>均衡</CF_Style_Balanced>
+  <CF_Style_Survival>生存</CF_Style_Survival>
+  <CF_Style_Production>生产</CF_Style_Production>
+  <CF_Style_Research>研究</CF_Style_Research>
+  <CF_HeaderHint>Steward：鼠标中键锁定或解锁整项工作。</CF_HeaderHint>
+  <CF_LockPawn>锁定殖民者（管家不会更改）</CF_LockPawn>
+  <CF_UnlockPawn>解锁殖民者</CF_UnlockPawn>
+  <CF_PrefersOn>喜欢：{0}（移除）</CF_PrefersOn>
+  <CF_PrefersOff>喜欢：{0}</CF_PrefersOff>
+  <CF_Crisis_Medical>医疗紧急情况</CF_Crisis_Medical>
+  <CF_Crisis_Food>食物短缺</CF_Crisis_Food>
+  <CF_Crisis_Winter>过冬准备</CF_Crisis_Winter>
+  <CF_TipCrisis>危机：{0}</CF_TipCrisis>
+  <CF_Style_Farming>农耕</CF_Style_Farming>
+  <CF_Style_Building>建设</CF_Style_Building>
+  <CF_Style_Industry>采矿与工业</CF_Style_Industry>
+  <CF_Style_Defense>防御</CF_Style_Defense>
+  <CF_Style_Care>照料</CF_Style_Care>
+  <CF_Style_Comfort>舒适</CF_Style_Comfort>
+  <CF_Style_Trade>贸易</CF_Style_Trade>
+  <CF_Style_Ranching>畜牧</CF_Style_Ranching>
+  <CF_StyleDesc_Balanced>万能风格。工作在殖民者之间平均分配，并跟随地图上待办的事情：每项有活要干的工作（清单、建造、收获、搬运、病人、研究、动物……）至少分到一名殖民者，活多时分到更多。会对短缺和危机做出反应。只有在需要优先完成某事时才切换到其他风格。</CF_StyleDesc_Balanced>
+  <CF_StyleDesc_Survival>食物和住所优先：烹饪、田地、狩猎、钓鱼，再加一点建造。适合艰难开局。</CF_StyleDesc_Survival>
+  <CF_StyleDesc_Production>工作台、锻造台和缝纫，同等重要。</CF_StyleDesc_Production>
+  <CF_StyleDesc_Research>尽可能多地研究（有 Anomaly 时还包括研究实体）。</CF_StyleDesc_Research>
+  <CF_StyleDesc_Farming>田地优先：播种和收获，并兼顾割除植物和烹饪。</CF_StyleDesc_Farming>
+  <CF_StyleDesc_Building>建造优先，采石和搬运辅助。</CF_StyleDesc_Building>
+  <CF_StyleDesc_Industry>采矿，并在锻造台和工作台把矿石加工成物品。</CF_StyleDesc_Industry>
+  <CF_StyleDesc_Defense>墙壁和炮塔、锻造台出的武器，以及随时应对袭击的医生。</CF_StyleDesc_Defense>
+  <CF_StyleDesc_Care>医生、儿童、囚犯和干净的房间。</CF_StyleDesc_Care>
+  <CF_StyleDesc_Comfort>干净美观的基地：清洁、艺术和家具。</CF_StyleDesc_Comfort>
+  <CF_StyleDesc_Trade>用于出售的商品：艺术品、衣物和制作的物品。</CF_StyleDesc_Trade>
+  <CF_StyleDesc_Ranching>动物优先：驯服、训练、挤奶、剪毛——以及它们的饲料。</CF_StyleDesc_Ranching>
+  <CF_Style_Custom>我的风格</CF_Style_Custom>
+  <CF_StyleDesc_Custom>你自己的风格——不会自行改变任何东西。重要性、殖民者人数和每个优先级的殖民者人数只来自模组设置（选项 → 模组设置 → Steward，“工作类型”和“优先级”标签页）。危机和情况仍然生效（可在设置中关闭）。不考虑需求，不因灵感或学徒而变动，不重新洗牌；只在殖民者加入或离开、定期检查或按下按钮时重新规划。</CF_StyleDesc_Custom>
+  <CF_Crisis_Fire>基地起火</CF_Crisis_Fire>
+  <CF_Crisis_Raid>袭击</CF_Crisis_Raid>
+  <CF_Crisis_Weather>极端天气</CF_Crisis_Weather>
+  <CF_Crisis_Toxic>有毒空气</CF_Crisis_Toxic>
+  <CF_Crisis_Blight>枯萎病</CF_Crisis_Blight>
+  <CF_Crisis_Mood>心情差</CF_Crisis_Mood>
+  <CF_Crisis_Power>停电</CF_Crisis_Power>
+  <CF_Crisis_Medicine>没有药品</CF_Crisis_Medicine>
+  <CF_Crisis_Breakdown>机器故障</CF_Crisis_Breakdown>
+  <CF_PA_Label>优先区域</CF_PA_Label>
+  <CF_PA_Desc>在要处理的地方拖出一个矩形。然后选择做什么（默认全部：建造、拆除、维修、采矿、割除、收获、搬运、清洁）、现在还是完成当前工作后做，以及由谁做（自动选最近的或手动挑选）。吃饭、睡觉和医疗仍然优先。区域会一直保留，直到其中的一切完成；可用“移除优先区域”将其删除。</CF_PA_Desc>
+  <CF_PA_ClearLabel>移除优先区域</CF_PA_ClearLabel>
+  <CF_PA_ClearDesc>拖过优先区域即可将其移除。殖民者会回到平常的工作。</CF_PA_ClearDesc>
+  <CF_PA_Mode_All>全部</CF_PA_Mode_All>
+  <CF_PA_Mode_Build>建造</CF_PA_Mode_Build>
+  <CF_PA_Mode_Mine>采矿</CF_PA_Mode_Mine>
+  <CF_PA_Mode_Plants>植物</CF_PA_Mode_Plants>
+  <CF_PA_Mode_Haul>搬运</CF_PA_Mode_Haul>
+  <CF_PA_Mode_Clean>清洁</CF_PA_Mode_Clean>
+  <CF_PA_Mode_Emergency>救援</CF_PA_Mode_Emergency>
+  <CF_PA_Added>优先区域（{0}）：{1} 名殖民者，{2} 项工作待办。区域会保留到一切完成。</CF_PA_Added>
+  <CF_PA_Stale>优先区域（{0}）已结束——两天内没人在里面做任何事（工作无法到达或不断重现）。殖民者回到平常的工作。</CF_PA_Stale>
+  <CF_PA_Done>优先区域（{0}）已完成，殖民者回到平常的工作。</CF_PA_Done>
+  <CF_PA_Removed>已移除优先区域：{0}。</CF_PA_Removed>
+  <CF_PA_AddedEmpty>优先区域（{0}）已创建，目前那里还没有待办工作。指派工作（建造、采矿、割除……）——一出现就会有 {1} 名殖民者去做。</CF_PA_AddedEmpty>
+  <CF_PA_DlgTitle>优先区域 {0}×{1}</CF_PA_DlgTitle>
+  <CF_PA_DlgWork>当前待办——建造：{0}，采矿：{1}，植物：{2}，搬运：{3}，清洁：{4}</CF_PA_DlgWork>
+  <CF_PA_DlgWhat>做什么：</CF_PA_DlgWhat>
+  <CF_PA_DlgWhen>何时：</CF_PA_DlgWhen>
+  <CF_PA_DlgNow>现在——中断手头的事</CF_PA_DlgNow>
+  <CF_PA_DlgLater>稍后——完成手头的事之后</CF_PA_DlgLater>
+  <CF_PA_DlgWho>由谁：</CF_PA_DlgWho>
+  <CF_PA_DlgAuto>自动——最近的 {0} 名空闲者</CF_PA_DlgAuto>
+  <CF_PA_DlgAutoAll>自动——所有空闲者</CF_PA_DlgAutoAll>
+  <CF_PA_DlgHand>手动挑选（已选：{0}）</CF_PA_DlgHand>
+  <CF_PA_DlgSkills>建造 {0} · 采矿 {1} · 种植 {2}</CF_PA_DlgSkills>
+  <CF_PA_DlgCreate>创建区域</CF_PA_DlgCreate>
+  <CF_Crisis_Manhunters>猎杀人类的动物</CF_Crisis_Manhunters>
+  <CF_Crisis_Epidemic>疫情</CF_Crisis_Epidemic>
+  <CF_Crisis_PrisonBreak>囚犯越狱 / 奴隶叛乱</CF_Crisis_PrisonBreak>
+  <CF_Crisis_DangerousBreak>危险的精神崩溃</CF_Crisis_DangerousBreak>
+  <CF_Crisis_IndoorTemp>室内过冷或过热</CF_Crisis_IndoorTemp>
+  <CF_Crisis_NoBeds>病人没有床</CF_Crisis_NoBeds>
+  <CF_Crisis_FreezerThaw>冷库解冻</CF_Crisis_FreezerThaw>
+  <CF_Crisis_Siege>围攻</CF_Crisis_Siege>
+  <CF_Crisis_Infestation>虫族侵扰</CF_Crisis_Infestation>
+  <CF_Crisis_RoofCollapse>屋顶坍塌风险</CF_Crisis_RoofCollapse>
+  <CF_Crisis_Death>殖民地有人死亡</CF_Crisis_Death>
+  <CF_Crisis_QuestDeadline>任务期限</CF_Crisis_QuestDeadline>
+  <CF_Crisis_AnimalSick>动物生病</CF_Crisis_AnimalSick>
+  <CF_Crisis_Labor>分娩</CF_Crisis_Labor>
+  <CF_Crisis_EntityEscape>实体逃脱</CF_Crisis_EntityEscape>
+  <CF_Crisis_Darkness>异常黑暗</CF_Crisis_Darkness>
+  <CF_Crisis_VacuumBreach>真空泄漏</CF_Crisis_VacuumBreach>
+  <CF_Crisis_ToxGas>有毒气体</CF_Crisis_ToxGas>
+  <CF_Crisis_LowAmmo>弹药不足</CF_Crisis_LowAmmo>
+  <CF_Crisis_WaterShortage>缺水</CF_Crisis_WaterShortage>
+  <CF_Crisis_Hygiene>卫生</CF_Crisis_Hygiene>
+  <CF_Crisis_NoFirefighters>无人灭火</CF_Crisis_NoFirefighters>
+  <CF_HistButton>历史</CF_HistButton>
+  <CF_HistTip>管家何时、为何做了哪些更改。</CF_HistTip>
+  <CF_HistTitle>规划历史</CF_HistTitle>
+  <CF_HistEmpty>尚无规划。</CF_HistEmpty>
+  <CF_LastRun>上次规划：{0}前</CF_LastRun>
+  <CF_NextRun>下次自动规划：{0}后（工作、殖民者或危机发生变化时会更早）</CF_NextRun>
+  <CF_AutoOff>自动规划已关闭——请打开“Steward”。</CF_AutoOff>
+  <CF_PA_OnlyBalanced>区域在任何殖民地风格下都有效。只有在真正危险时（敌人、火灾、有毒气体靠近你的人……）才会等待。当殖民者在自己的区域无事可做时，会去帮助另一个正在进行的区域。</CF_PA_OnlyBalanced>
+  <CF_PA_PauseStyle>等待风格：{0}</CF_PA_PauseStyle>
+  <CF_PA_PauseHostile>等待中：地图上有敌人</CF_PA_PauseHostile>
+  <CF_PA_PauseCrisis>等待中：{0}</CF_PA_PauseCrisis>
+  <CF_BP_Label>优先工作台</CF_BP_Label>
+  <CF_BP_Desc>殖民者会先在这个工作台完成清单，再去同一工作类型（制作、锻造、缝纫、烹饪……）的其他工作台。仅在同一工作类型的工作台之间生效；工作类型的顺序仍在“工作”标签页中设置。</CF_BP_Desc>
+  <CF_BP_Giver>{0}（优先工作台）</CF_BP_Giver>
+  <CF_BP_NotUsed>自游戏开始以来，还没人把它当作优先工作台使用过。</CF_BP_NotUsed>
+  <CF_BP_LastUse>上次作为优先工作台使用：{0}，{1} 小时前。</CF_BP_LastUse>
+  <CF_TipChildLearn>孩子正在学习（{0} %）——暂时不工作。</CF_TipChildLearn>
+  <CF_TipChildLight>孩子——工作只放在最低级别，让其有时间学习（学习 {0} %）。</CF_TipChildLight>
+  <CF_Style_Tidy>整理</CF_Style_Tidy>
+  <CF_StyleDesc_Tidy>只搬运和清洁。</CF_StyleDesc_Tidy>
+  <CF_StyleStrictNote>其他工作：最低优先级。</CF_StyleStrictNote>
+  <CF_StyleStrictNoteOff>其他工作：关闭（搬运和清洁为最低优先级）。</CF_StyleStrictNoteOff>
+  <CF_Style_FieldsForest>田地与森林</CF_Style_FieldsForest>
+  <CF_StyleDesc_FieldsForest>只做田地和森林：种植和伐树，同等重要。</CF_StyleDesc_FieldsForest>
+  <CF_Style_Mining>采矿</CF_Style_Mining>
+  <CF_StyleDesc_Mining>只采矿石和石头，搬运辅助。</CF_StyleDesc_Mining>
+  <CF_Style_Kitchen>厨房</CF_Style_Kitchen>
+  <CF_StyleDesc_Kitchen>烹饪优先，狩猎和钓鱼只负责提供食材。</CF_StyleDesc_Kitchen>
+  <CF_Style_HuntFish>狩猎与钓鱼</CF_Style_HuntFish>
+  <CF_StyleDesc_HuntFish>来自野外的食物：狩猎、钓鱼以及加工它们的厨房。</CF_StyleDesc_HuntFish>
+  <CF_Style_Tailoring>缝纫</CF_Style_Tailoring>
+  <CF_StyleDesc_Tailoring>只缝制衣物。</CF_StyleDesc_Tailoring>
+  <CF_Style_Smithing>锻造</CF_Style_Smithing>
+  <CF_StyleDesc_Smithing>锻造台出的武器和工具，再加一点制作。</CF_StyleDesc_Smithing>
+  <CF_Style_Art>艺术</CF_Style_Art>
+  <CF_StyleDesc_Art>只做雕塑和艺术品。</CF_StyleDesc_Art>
+  <CF_Style_Prison>监狱</CF_Style_Prison>
+  <CF_StyleDesc_Prison>囚犯：招募和奴役，配一名医生。</CF_StyleDesc_Prison>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>简单模式会自行设置一切，因此详细设置已锁定。想修改？请在顶部切换到“推荐”或“高级”。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <MUI_RecTag>推荐</MUI_RecTag>
+  <CF_TipMother>婴儿的母亲——育儿优先。</CF_TipMother>
+  <CF_TipNanny>保姆——照看没有母亲能照顾的婴儿。</CF_TipNanny>
+  <CF_GuardFixed>有模组改动了工作类型——Steward 已为 {0} 名殖民者把优先级放回正确的工作。</CF_GuardFixed>
+  <CF2_AutoTip>此地图上的管家：根据技能、兴趣和地图上真正待办的工作分配优先级。规划很平稳——不会把人调来调去。</CF2_AutoTip>
+  <CF2_PlanNow>立即规划</CF2_PlanNow>
+  <CF2_PlanNowTip>现在就规划优先级（即使管家已关闭）。你的规划不受冷静时间限制。</CF2_PlanNowTip>
+  <CF2_PlanDone>管家已规划优先级：{0} 处更改。</CF2_PlanDone>
+  <CF2_ManualOn>管家已开启数字优先级（“工作”标签页）。</CF2_ManualOn>
+  <CF2_HistStyle>殖民地风格：{0}</CF2_HistStyle>
+  <CF2_TabGeneral>规划</CF2_TabGeneral>
+  <CF2_TabRules>我的规则</CF2_TabRules>
+  <CF2_SecPlan>规划</CF2_SecPlan>
+  <CF2_SecStyles>殖民地风格</CF2_SecStyles>
+  <CF2_SecChildren>儿童和婴儿</CF2_SecChildren>
+  <CF2_SecPriorities>优先级</CF2_SecPriorities>
+  <CF2_AutoByDefault>新地图默认开启 Steward</CF2_AutoByDefault>
+  <CF2_AutoByDefaultTip>关闭时，需要在“工作”标签页中为每张地图单独开启管家。</CF2_AutoByDefaultTip>
+  <CF2_Interval>定期规划：每 {0} 小时</CF2_Interval>
+  <CF2_IntervalTip>两次之间，管家只在确有变化时规划（新殖民者、大量新工作、扩展模组带来的危机）。</CF2_IntervalTip>
+  <CF2_Hold>更改后的优先级至少保持：{0} 小时</CF2_Hold>
+  <CF2_HoldTip>冷静：管家改过的不会马上改回去。危机和你的“立即规划”按钮会跳过此限制。</CF2_HoldTip>
+  <CF2_OneTop>优先级 1 只放一项工作</CF2_OneTop>
+  <CF2_OneTopTip>每个殖民者只有最重要的工作在 1，其他主要工作在 2。</CF2_OneTopTip>
+  <CF2_Backup>后备工作放在最低优先级</CF2_Backup>
+  <CF2_BackupTip>不把某项工作作为主要工作的人，会把它留在最低级别，这样没人会闲着。</CF2_BackupTip>
+  <CF2_Opposed>也分配意识形态反对的工作</CF2_Opposed>
+  <CF2_OpposedTip>关闭：殖民者的意识形态认为危险的工作永远不会分配给他。</CF2_OpposedTip>
+  <CF2_Injured>受伤和生病的殖民者做更轻的工作</CF2_Injured>
+  <CF2_InjuredTip>健康越差，殖民者越不适合主要工作。</CF2_InjuredTip>
+  <CF2_Passion>兴趣更重要</CF2_Passion>
+  <CF2_PassionTip>有兴趣的殖民者更常分到自己的工作（他们乐在其中，学得也更快）。</CF2_PassionTip>
+  <CF2_Prefer>喜爱工作的加成：{0}</CF2_Prefer>
+  <CF2_PreferTip>鼠标中键点击殖民者名字 → 标记他喜欢的工作。会加上这么多。</CF2_PreferTip>
+  <CF2_Lodgers>也规划任务访客</CF2_Lodgers>
+  <CF2_LodgersTip>来自任务、可以工作的访客。</CF2_LodgersTip>
+  <CF2_Mechs>计入工作中的机械体</CF2_Mechs>
+  <CF2_MechsTip>机械体在做的工作需要更少的殖民者。</CF2_MechsTip>
+  <CF2_StyleStrength>风格强度：{0}</CF2_StyleStrength>
+  <CF2_StyleStrengthTip>殖民地风格为其工作增加多少人。</CF2_StyleStrengthTip>
+  <CF2_StyleStrict>风格主要规划自己的工作</CF2_StyleStrict>
+  <CF2_StyleStrictTip>其他工作在地图上有待办时只分配一个人。</CF2_StyleStrictTip>
+  <CF2_StyleOthersOff>完全关闭其他工作</CF2_StyleOthersOff>
+  <CF2_StyleOthersOffTip>不做风格工作的人，连后备的其他工作也不保留。</CF2_StyleOthersOffTip>
+  <CF2_ChildLearning>让孩子有时间学习</CF2_ChildLearning>
+  <CF2_ChildLearningTip>孩子的工作只放在最低级别，需要学习时则完全没有工作。</CF2_ChildLearningTip>
+  <CF2_ParentCare>婴儿的父母和保姆</CF2_ParentCare>
+  <CF2_ParentCareTip>母亲（或父亲）的育儿放在 1；没有父母时管家会挑选一名保姆。</CF2_ParentCareTip>
+  <CF2_Levels>优先级级数：{0}</CF2_Levels>
+  <CF2_LevelsAuto>自动（{0}）</CF2_LevelsAuto>
+  <CF2_LevelsTip>0 = 从 Work Tab / PriorityMaster 读取。没有此类模组时游戏有 4 级。</CF2_LevelsTip>
+  <CF2_PlanMessages>每次规划后显示消息</CF2_PlanMessages>
+  <CF2_PlanMessagesTip>左上角显示一条简短消息，说明更改了多少优先级。</CF2_PlanMessagesTip>
+  <CF2_UseMyRules>使用我的规则</CF2_UseMyRules>
+  <CF2_UseMyRulesTip>每项工作的最少和最多殖民者人数。扩展模组带来的危机和情况优先于最大值。</CF2_UseMyRulesTip>
+  <CF2_RulesHint>最少：至少有这么多殖民者把该工作放在优先级 1–2。最多：不超过这个数。重要性：该工作作为主要工作（优先级 1）的适合程度。</CF2_RulesHint>
+  <CF2_Min>最少</CF2_Min>
+  <CF2_Max>最多</CF2_Max>
+  <CF2_Importance>重要性</CF2_Importance>
+  <CF2_TipEmergency>紧急工作——所有人置顶。</CF2_TipEmergency>
+  <CF2_TipMain>主要工作：{0} 项待办，属于最合适的人之一。</CF2_TipMain>
+  <CF2_TipStyleReady>{0}风格的工作——即使现在没有待办也随时待命。</CF2_TipStyleReady>
+  <CF2_TipHelper>帮手：主力忙不过来时出手。</CF2_TipHelper>
+  <CF2_TipOnCall>待命：现在没有待办，但有人随时准备着。</CF2_TipOnCall>
+  <CF2_TipStyleOff>{0}风格：不做这项工作。</CF2_TipStyleOff>
+  <CF2_TipBackup>后备：最低级别，这样没人会闲着。</CF2_TipBackup>
+  <CF2_TipTop>优先级 1：他眼下最重要的工作。</CF2_TipTop>
+  <CF2_TipYourMin>你的最少值：至少 {0}。</CF2_TipYourMin>
+  <CF2_TipYourMax>你的最多值：最多 {0}。</CF2_TipYourMax>
+  <CF2_TipNobodyIdle>避免闲着：他最合适的待办工作。</CF2_TipNobodyIdle>
+  <CF31_PlanPreview>应用前显示规划</CF31_PlanPreview>
+  <CF31_PlanPreviewTip>“立即规划”会先列出将做的每处更改；在你按下“应用”之前不会改变任何东西。不影响自动规划。</CF31_PlanPreviewTip>
+  <CF31_PreviewTitle>管家的规划——{0} 处更改</CF31_PreviewTitle>
+  <CF31_PreviewHint>在你按下“应用”之前不会做任何更改。原因显示在右侧（悬停查看完整文本）。</CF31_PreviewHint>
+  <CF31_PreviewNone>无需更改——优先级已与规划一致。</CF31_PreviewNone>
+  <CF31_Apply>应用</CF31_Apply>
+  <CF31_Cancel>取消</CF31_Cancel>
+  <CF31_Close>关闭</CF31_Close>
+  <CF31_LocksButton>锁定（{0}）</CF31_LocksButton>
+  <CF31_LocksTip>管家不得更改的殖民者、工作列和单元格。点击查看并解锁。</CF31_LocksTip>
+  <CF31_LocksTitle>锁定</CF31_LocksTitle>
+  <CF31_LocksHowTo>被锁定的项目保持其优先级——管家不会碰它们。在“工作”标签页中，鼠标中键（滚轮）可锁定或解锁：点在殖民者名字上锁定整个殖民者，点在列标题上锁定所有人的该工作，点在单元格上只锁定该单元格。</CF31_LocksHowTo>
+  <CF31_LocksPawns>已锁定的殖民者（其所有工作保持不变）</CF31_LocksPawns>
+  <CF31_LocksWork>已锁定的工作列（对所有人）</CF31_LocksWork>
+  <CF31_LocksCells>已锁定的单元格</CF31_LocksCells>
+  <CF31_Unlock>解锁</CF31_Unlock>
+  <CF31_UnlockAll>全部解锁</CF31_UnlockAll>
+  <CF31_LocksNone>没有锁定任何东西。</CF31_LocksNone>
+  <CF31_StOk>Steward：正在规划此殖民者。</CF31_StOk>
+  <CF31_StAutoOff>此地图上的管家已关闭——优先级只会通过“立即规划”更改。</CF31_StAutoOff>
+  <CF31_StLockedPawn>Steward：已锁定——他的所有工作保持不变。用鼠标中键点击名字即可解锁。</CF31_StLockedPawn>
+  <CF31_StAchtung>Steward：已跳过——他有来自 Achtung! 的强制工作。在强制工作清除前，其优先级保持不变。</CF31_StAchtung>
+  <CF31_StDowned>Steward：倒地期间跳过——站起来后会重新规划。</CF31_StDowned>
+  <CF31_StSlave>Steward：已跳过——不规划奴隶。</CF31_StSlave>
+  <CF31_StGuest>Steward：已跳过——访客或任务房客（见设置中的“也规划任务访客”）。</CF31_StGuest>
+  <CF31_StBaby>Steward：已跳过——婴儿。</CF31_StBaby>
+  <CF31_StNoWork>Steward：已跳过——完全不工作。</CF31_StNoWork>
+  <CF31_StNotHere>Steward：目前不在此地图——会在其所在的地图上规划。</CF31_StNotHere>
+  <CF31_StCells>{0} 个已锁定的单元格保持其优先级。</CF31_StCells>
+  <CF31_StColumns>已锁定的列：{0}。</CF31_StColumns>
+  <CF31_StUnable>目前无法进行（健康原因）：{0}。</CF31_StUnable>
+  <CF32_Apprentices>学徒</CF32_Apprentices>
+  <CF32_ApprenticesTip>有兴趣但技能较低的殖民者，在有擅长者把该工作作为主要工作时，会以学习级别（3）分到该工作。每个殖民者只当一次学徒，每项工作只有一名学徒。</CF32_ApprenticesTip>
+  <CF32_TipApprentice>学徒：对此有兴趣，正跟着师傅学习。</CF32_TipApprentice>
+  <CF32_CopyTo>将{0}的优先级复制到……</CF32_CopyTo>
+  <CF32_CopyToAll>此地图上的其他所有人</CF32_CopyToAll>
+  <CF32_CopyTitle>复制{0}的优先级</CF32_CopyTitle>
+  <CF32_WhyCopy>复制自{0}。</CF32_WhyCopy>
+  <CF32_HistCopy>{0}的优先级已复制到{1}。</CF32_HistCopy>
+  <CF32_Others>{0} 名殖民者</CF32_Others>
+  <CF32_SetsButton>方案</CF32_SetsButton>
+  <CF32_SetsTip>已保存的优先级方案：将当前优先级以名称保存（“冬季”“防御”“收获”……），以后再加载。加载时会先显示更改。</CF32_SetsTip>
+  <CF32_SetsTitle>优先级方案</CF32_SetsTitle>
+  <CF32_SetsHint>保存此地图上每个殖民者的优先级。加载时会先显示所有更改；已锁定的单元格和不在此处的殖民者会被跳过。若管家开启，他的下一次规划会再次改动——要保持方案请关闭管家。</CF32_SetsHint>
+  <CF32_SetsSave>保存当前</CF32_SetsSave>
+  <CF32_SetsDefaultName>方案 {0}</CF32_SetsDefaultName>
+  <CF32_SetsSaved>优先级方案“{0}”已保存。</CF32_SetsSaved>
+  <CF32_SetsNone>尚无已保存的方案。</CF32_SetsNone>
+  <CF32_SetsLoad>加载……</CF32_SetsLoad>
+  <CF32_SetsDelete>删除</CF32_SetsDelete>
+  <CF32_SetsLoadTitle>方案“{0}”——{1} 处更改</CF32_SetsLoadTitle>
+  <CF32_SetsMissing>（方案中有 {0} 名殖民者不在此处）</CF32_SetsMissing>
+  <CF32_HistSetSaved>优先级方案“{0}”已保存。</CF32_HistSetSaved>
+  <CF32_HistSetLoaded>优先级方案“{0}”已加载。</CF32_HistSetLoaded>
+  <CF32_WhySet>来自方案“{0}”。</CF32_WhySet>
+  <CF32_OfferNew>为新殖民者推荐工作</CF32_OfferNew>
+  <CF32_OfferNewTip>管家关闭时，有新殖民者加入会弹出窗口，显示管家会给他的工作。在你按下“应用”之前不会改变任何东西。</CF32_OfferNewTip>
+  <CF32_NewTitle>新成员：{0}——推荐工作</CF32_NewTitle>
+  <CF32_HistNew>已为新殖民者{0}应用工作。</CF32_HistNew>
+  <CF32_Weekly>每周总结</CF32_Weekly>
+  <CF32_WeeklyTip>每周一条简短消息（也记录在历史中）：规划和更改、新殖民者、无人处理的待办工作、危机。</CF32_WeeklyTip>
+  <CF32_WeekTitle>管家的一周（{0}）：</CF32_WeekTitle>
+  <CF32_WeekPlans>{0} 次规划，{1} 处更改</CF32_WeekPlans>
+  <CF32_WeekNew>{0} 名新殖民者</CF32_WeekNew>
+  <CF32_WeekGaps>无人处理：{0}</CF32_WeekGaps>
+  <CF32_WeekNoGaps>没有无人处理的工作</CF32_WeekNoGaps>
+  <CF32_WeekCrises>危机：{0}</CF32_WeekCrises>
+  <CF_Keep_Name>保留区</CF_Keep_Name>
+  <CF_Keep_Label>保留区</CF_Keep_Label>
+  <CF_Keep_Desc>一个没人会从中取东西的储存区。在其储存标签页中选择殖民者应搬来的物品（初始为空）。区域锁定时，殖民者不会从中取出任何东西——无论是吃、制作、建造还是装备，也不会把东西搬到别处。需要时用区域上的按钮解锁。</CF_Keep_Desc>
+  <CF_Keep_Lock>已锁定</CF_Keep_Lock>
+  <CF_Keep_LockDesc>开：没人从此区域取走或搬出任何东西。关：像普通储存区一样工作。</CF_Keep_LockDesc>
+  <CF_Keep_InspectLocked>已锁定：殖民者只往这里搬东西，不会取走任何东西。</CF_Keep_InspectLocked>
+  <CF_Keep_InspectOpen>已解锁：像普通储存区一样工作。</CF_Keep_InspectOpen>
+  <CF_Keep_Beacon>在此设保留区</CF_Keep_Beacon>
+  <CF_Keep_BeaconDesc>在此信标的整个交易范围内建立保留区。在其储存标签页中选择要放在那里的东西——殖民者搬来后就不再动它，但商人仍能看到并购买。区域未设定保留的物品（例如你买来的货物）会照常搬走。</CF_Keep_BeaconDesc>
+  <CF_Keep_What>什么和多少</CF_Keep_What>
+  <CF_Keep_WhatDesc>选择殖民者应往此区域搬什么以及各搬多少。没有清单时，区域使用其储存标签页。</CF_Keep_WhatDesc>
+  <CF_Keep_WinTitle>{0}：什么和多少</CF_Keep_WinTitle>
+  <CF_Keep_WinHint>点击左侧的物品即可添加。设置数量——留空表示有多少要多少。只有列出的物品会被搬到这里并保留。</CF_Keep_WinHint>
+  <CF_Keep_Search>搜索……</CF_Keep_Search>
+  <CF_Keep_OnlyOnMap>只显示我们拥有的</CF_Keep_OnlyOnMap>
+  <CF_Keep_Chosen>搬到这里</CF_Keep_Chosen>
+  <CF_Keep_NoneYet>还没有——请在左侧选择物品。</CF_Keep_NoneYet>
+  <CF_Keep_Have>此处 {0}</CF_Keep_Have>
+  <CF_Keep_All>全部</CF_Keep_All>
+  <CF_Keep_RowTip>殖民者会搬运此物品，直到区域内达到该数量（搬运者只搬缺少的部分）。放在这里的东西会一直留在这里。</CF_Keep_RowTip>
+  <CF_Keep_Now>立即搬运</CF_Keep_Now>
+  <CF_Keep_NowDesc>空闲的殖民者放下手头的事，立刻把缺少的物品搬来——每人搬一趟，其余的由正常搬运跟进。被征召、睡觉、灭火、治疗或救援中的殖民者不会被打扰。</CF_Keep_NowDesc>
+  <CF_Keep_NowStarted>{0} 名殖民者正在往保留区搬东西。</CF_Keep_NowStarted>
+  <CF_Keep_NowNobody>现在没人能搬东西（没有空闲的殖民者，或区域外已没有可到达的物品）。</CF_Keep_NowNobody>
+  <CF_Keep_NowFull>区域里已经有了该有的一切。</CF_Keep_NowFull>
+</LanguageData>

@@ -1,0 +1,65 @@
+=== Workshop release 1.0.0 (30 Oct 2026) ===
+1.0.0
+First Workshop release.
+- Steward plans work priorities by skills, passions, health and the work that really waits – calmly, with any mods; 22 colony styles, priority guard, locks, children and babies care, priority areas and benches.
+
+První vydání na Workshopu.
+- Steward plánuje priority práce podle dovedností, vášní, zdraví a práce, která opravdu čeká – klidně a s jakýmikoli mody; 22 stylů kolonie, pojistka priorit, zámky, péče o děti a miminka, prioritní oblasti a stoly.
+
+=== Development history before the first Workshop release (test versions) ===
+3.4.1
+- Keep zone: "Bring now" (on the zone and in the "What and how much" window) – free colonists drop what they are doing and carry the missing things to the zone right away, one load each; the rest follows with normal hauling. Drafted, sleeping colonists and those fighting fires, treating or rescuing are left alone.
+
+3.4.0
+- Keep zone: new "What and how much" window – pick things from a list (search, only things you have) and set an amount for each (empty = everything). Colonists bring each thing until the zone holds the amount and a hauler carries only what is missing. Only listed things are kept; anything else is hauled away.
+- The "Keep zone here" button on an orbital trade beacon opens this window right away.
+
+3.3.1
+- Keep zone: orbital trade beacons get a "Keep zone here" button that covers the beacon's whole trade area. Traders still see and buy everything in it; only colonists leave it alone.
+- Keep zone: only things the zone is set to keep are locked – goods dropped by a trade ship or anything else that lands there is hauled away as usual.
+
+3.3.0
+- New: Keep zone (Zones menu). A stockpile where you pick what colonists bring in (storage tab, starts empty); while it is locked nobody takes anything out of it – not to eat, craft, build or equip, and nothing is hauled elsewhere. A "Locked" button on the zone turns it into a normal stockpile when you need something.
+
+3.2.5
+- Faster: the ★ marks over priority workbenches are drawn only once per frame and only for benches on the screen (they took about 6 ms every second).
+
+3.2.4
+- Settings: a new "Bolek98's mods" button (next to "Report a bug") – all of Bolek98's mods you run in one list with their versions and settings, and saving or loading all their settings at once (for another PC or a reinstall).
+
+3.2.3
+- Fix: counting items to haul in a priority area could fail with storage mods that expect a hauler (Deep Storage and others).
+
+3.2.2
+- Settings: a long settings page no longer continues in an invisible second column
+
+3.2.1
+- Crises no longer lower or re-plan urgent work (firefighting, urgent hauling, rescue) – during a raid urgent hauling went to the lowest priority
+- Crisis rules for a work no longer pull in unrelated modded work types of the same skill (a raid raised diplomacy, waiting tables and shrine care together with warden work)
+- Loading a priority set no longer fails when a colonist is in two lists (slave and colonist)
+
+3.2.0
+- Copy priorities: middle-click a colonist's name in the Work tab → "Copy priorities to…" one colonist or everybody else (shown first, locks respected)
+- Priority sets: the new "Sets" button saves the current priorities under a name (Winter, Defence, Harvest …) and loads them again later – loading shows the changes first
+- A new colonist joins while the steward is off: a window offers the work the steward would give him (setting "Offer work for a new colonist")
+- Weekly summary: once a week a short message and history line – plans and changes, new colonists, work that waited without anybody, crises (can be turned off)
+- Apprentices (off by default): a colonist with a passion and little skill learns a work on level 3 next to a master
+- What's new: after an update of Bolek98's mods a window shows once what changed since the version you played (all mods in one window, can be turned off)
+
+3.1.0
+- "Plan now" first shows every change (colonist, work, old → new level, reason); nothing changes until you press Apply. Can be turned off in the settings ("Show the plan before applying it")
+- Locks are easy to see: a "Locks (N)" button in the Work tab when anything is locked, with a list of locked colonists, columns and cells and unlocking one by one or all at once; a locked colonist's name is highlighted
+- Hovering a colonist's name in the Work tab tells why the steward plans him or not (locked, forced work from Achtung!, down, slave, guest, baby, another map) and which locks and health limits apply to him
+
+3.0.5
+- Work no longer swaps back and forth between two colonists on every plan: whoever already does a work keeps it unless somebody is clearly better, equal colonists always end in the same order
+- A colonist could end up without any top job (priority 1) during a crisis or a focus – fixed
+- A downed, anaesthetized or blinded colonist no longer loses all his work; it stays as it was until he is up again
+- Keyz' Allow Utilities urgent hauling and finishing off are treated as urgent work (like firefighting)
+- Crisis rules for hauling no longer pull in unrelated no-skill work types (priority cleaning, power generation, recycling …)
+- If the base plan fails, the priorities stay untouched instead of a half-empty plan being written
+- The log lists up to 60 changes per plan and says how many more there were
+
+3.0.4
+- Settings: new "Report a bug" button (bottom left) – a short report for a Workshop comment and a full one for GitHub Issues, with this mod's errors, the mod list and other mods that change the same game code. Nothing is sent anywhere by itself.
+

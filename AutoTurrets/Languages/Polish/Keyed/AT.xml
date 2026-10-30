@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AT_AutoManned>Działka z obsługą strzelają same</AT_AutoManned>
+  <AT_AutoManned_Desc>Twoje działka, które normalnie wymagają kolonisty (z dowolnego moda), strzelają automatycznie jak minidziałko. Nadal możesz ręcznie wybrać cel.</AT_AutoManned_Desc>
+  <AT_AutoMortars>Moździerze strzelają same</AT_AutoMortars>
+  <AT_AutoMortars_Desc>Twoje moździerze i inna broń na pociski strzelają automatycznie do wrogów, dopóki mają załadowany pocisk.</AT_AutoMortars_Desc>
+  <AT_MortarSafety>Moździerze nie strzelają w pobliżu twoich ludzi</AT_MortarSafety>
+  <AT_MortarSafety_Desc>Automatyczny moździerz pomija cele, przy których pocisk mógłby spaść na twoich kolonistów, zwierzęta lub gości.</AT_MortarSafety_Desc>
+  <AT_SafetyExtra>Dodatkowy dystans bezpieczeństwa: {0} pól</AT_SafetyExtra>
+  <AT_LoadShells>Koloniści ładują pociski (praca: Noszenie)</AT_LoadShells>
+  <AT_LoadShells_Desc>Tragarze przynoszą pociski z dowolnego miejsca na mapie do pustych automatycznych moździerzy. Filtr pocisków moździerza jest respektowany.</AT_LoadShells_Desc>
+  <AT_AnyMetal>Działka uzupełniają amunicję dowolnym metalem</AT_AnyMetal>
+  <AT_AnyMetal_Desc>Działka uzupełniane stalą (lub innym pojedynczym metalem) przyjmują dowolny metal: stal, plastal, złoto, uran i metale z modów.</AT_AnyMetal_Desc>
+  <AT_AllowSilver>…łącznie ze srebrem</AT_AllowSilver>
+  <AT_Restart>Ustawienia materiałów i wieżyczek w ścianach działają po ponownym uruchomieniu gry.</AT_Restart>
+  <AT_NoShell>Brak dostępnego pocisku</AT_NoShell>
+  <AT_FriendlyFire>Ogień przyjacielski z wieżyczek</AT_FriendlyFire>
+  <AT_FriendlyFire_Desc>Wyłączone: pociski twoich wieżyczek omijają twoich kolonistów, gości i sojuszników, a wybuchy ich pocisków ich nie ranią. Włączone = jak w grze.</AT_FriendlyFire_Desc>
+  <AT_FuelWood>Wieżyczki można uzupełniać drewnem</AT_FuelWood>
+  <AT_FuelWood_Desc>Wieżyczki uzupełniane metalem przyjmą też drewno.</AT_FuelWood_Desc>
+  <AT_FuelStone>Wieżyczki można uzupełniać blokami kamienia</AT_FuelStone>
+  <AT_FuelStone_Desc>Wieżyczki uzupełniane metalem przyjmą też bloki kamienia.</AT_FuelStone_Desc>
+  <AT_WallTurrets>Wieżyczki w ścianach</AT_WallTurrets>
+  <AT_WallTurrets_Desc>Wybrane wieżyczki dostają w menu Obrona drugą wersję „… (w ścianie)”. Buduje się ją bezpośrednio na ścianie lub wygładzonej skale, zastępuje ten fragment ściany i sama działa jak ściana: blokuje przejście, podtrzymuje dach i utrzymuje pomieszczenie zamknięte. Zwykłe wieżyczki pozostają bez zmian.</AT_WallTurrets_Desc>
+  <AT_WallRecommended>Zalecany wybór</AT_WallRecommended>
+  <AT_WallNone>Nie znaleziono wieżyczek.</AT_WallNone>
+  <AT_WallLabel>{0} (w ścianie)</AT_WallLabel>
+  <AT_WallDescExtra>Buduje się na ścianie: zastępuje fragment ściany, blokuje przejście i podtrzymuje dach jak ściana. Po zniszczeniu zostaje dziura w ścianie.</AT_WallDescExtra>
+  <AT_SecShooting>Strzelanie</AT_SecShooting>
+  <AT_SecMaterials>Amunicja i materiały</AT_SecMaterials>
+  <AT_WallEnable>Pozwól na wieżyczki w ścianach</AT_WallEnable>
+  <AT_WallAll>Zaznacz wszystko</AT_WallAll>
+  <AT_WallClear>Odznacz wszystko</AT_WallClear>
+  <AT_WallCount>Wybrano {0} z {1}</AT_WallCount>
+  <AT_WallSearch>Szukaj:</AT_WallSearch>
+  <AT_WallRecDone>Przywrócono zalecany wybór – wybrano {0} małych wieżyczek.</AT_WallRecDone>
+  <AT_WallAllDone>Wybrano wszystkie {0} wieżyczki.</AT_WallAllDone>
+  <AT_WallClearDone>Wybór wyczyszczony.</AT_WallClearDone>
+  <AT_RestartNeeded>⚠ Uruchom grę ponownie, aby zmiany wieżyczek w ścianach zadziałały.</AT_RestartNeeded>
+  <AT_WallRecTip>Zalecane: mała wieżyczka do 2×2</AT_WallRecTip>
+  <AT_SmartShells>Mądry wybór pocisków</AT_SmartShells>
+  <AT_SmartShells_Desc>Automatyczne moździerze nie marnują pocisków: EMP tylko w mechanoidy i wrogów z tarczą, zapalające nie w mechanoidy, piana gaśnicza tylko w pożary w strefie domowej (nigdy we wrogów). Tragarze przynoszą pociski EMP, gdy większość wrogów to mechanoidy, a w przeciwnym razie odłamkowo-burzące – jeśli filtr moździerza na to pozwala.</AT_SmartShells_Desc>
+  <AT_NoHitBuildings>Wieżyczki nie trafiają naszych budynków</AT_NoHitBuildings>
+  <AT_NoHitBuildings_Desc>Włączone: pociski twoich wieżyczek omijają twoje własne budynki (mury, worki z piaskiem, drzwi…), chyba że w nie celujesz, a wybuchy ich pocisków ich nie niszczą. Wrogie budynki są trafiane normalnie. Wyłączone = jak w grze.</AT_NoHitBuildings_Desc>
+  <AT_WallOutward>Wieżyczki w murze strzelają tylko na zewnątrz</AT_WallOutward>
+  <AT_WallOutward_Desc>Wieżyczka w murze strzela tylko do celów po zewnętrznej stronie muru (od pomieszczenia). Jeśli żadna strona nie jest wyraźnie na zewnątrz (mur między dwoma pomieszczeniami), strzela wszędzie.</AT_WallOutward_Desc>
+  <AT_TabTurrets>Wieżyczki</AT_TabTurrets>
+  <AT_TurretsDesc>Wszystkie wieżyczki, moździerze i działa – z gry i z modów. Zaznaczone strzelają same. Odznaczone: obsługiwane wieżyczki i moździerze znów potrzebują kolonisty, automatyczne wieżyczki nie strzelają, dopóki nie wybierzesz celu.</AT_TurretsDesc>
+  <AT_TurretsNone>Żadna wieżyczka tu nie potrzebuje kolonisty.</AT_TurretsNone>
+  <AT_TurretsCount>{0} z {1} strzela samo</AT_TurretsCount>
+  <AT_FuelEdit>Materiały…</AT_FuelEdit>
+  <AT_FuelPerTurret>Materiały każdej wieżyczki – także tych, które potrzebują własnej amunicji lub paliwa z moda. Kliknij „Materiały…” i zaznacz, czym jeszcze można ją uzupełniać. Działa od razu.</AT_FuelPerTurret>
+  <AT_FuelNone>Żadna wieżyczka tu nie jest uzupełniana.</AT_FuelNone>
+  <AT_FuelTakes>bierze: {0}</AT_FuelTakes>
+  <AT_FuelOriginal>Sama bierze: {0}. Zaznacz, czym jeszcze można ją uzupełniać:</AT_FuelOriginal>
+  <AT_FuelOrig>własne</AT_FuelOrig>
+  <AT_FuelGroup0>Metale</AT_FuelGroup0>
+  <AT_FuelGroup1>Drewno</AT_FuelGroup1>
+  <AT_FuelGroup2>Bloki kamienne</AT_FuelGroup2>
+  <AT_FuelGroup3>Amunicja i pociski</AT_FuelGroup3>
+  <AT_FuelGroup4>Inne surowce</AT_FuelGroup4>
+  <AT_KindManned>obsługiwana</AT_KindManned>
+  <AT_KindMortar>obsługiwany moździerz</AT_KindMortar>
+  <AT_KindAuto>automatyczna</AT_KindAuto>
+  <AT_KindMortarAuto>moździerz</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>Automatycznie ładuj pociski</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>Tragarze sami noszą pociski do tego moździerza. Wyłącz, aby ładować go tylko ręcznie.</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>Amunicja: {0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>Wybierz jedyny pocisk lub materiał, którym ta wieżyczka jest ładowana lub uzupełniana – nic innego nie jest noszone. „Cokolwiek dozwolone” używa wszystkiego, co wieżyczka przyjmuje.</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>cokolwiek dozwolone</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>Specjalne pociski tylko po wybraniu</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>Tragarze noszą pociski EMP, zapalające, gaśnicze i inne specjalne tylko do moździerza ustawionego na nie przyciskiem „Amunicja”; w innym razie noszą odłamkowo-burzące.</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>Wieżyczki z własną amunicją biorą też metal</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>Wieżyczki potrzebujące własnej amunicji lub paliwa (często z modów) można uzupełniać też stalą lub innym metalem – nie stoją bezczynnie przez brak amunicji.</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>Wieżyczki nie potrzebują amunicji</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>Twoje wieżyczki zawsze są naładowane i nie zużywają amunicji ani paliwa. Przydatne, gdy wieżyczka z moda wymaga amunicji, której nie umiesz zrobić. Moździerze, artyleria i działa polowe też zawsze mają załadowany pocisk.</AT_FreeAmmo_Desc>
+  <AT_VfesAuto>Strzela sama (Auto Turrets) – kolonista niepotrzebny.</AT_VfesAuto>
+  <AT_VfesSend>Nikt jej nie obsługuje – najbliższy wolny kolonista zdolny do walki zaraz tam pójdzie.</AT_VfesSend>
+  <AT_VfesNobody>Nikt nie może obsługiwać artylerii.</AT_VfesNobody>
+  <AT_VfesGoes>{0} idzie obsługiwać artylerię.</AT_VfesGoes>
+  <AT_ShellsFromMaterial>Ładuj moździerze i artylerię materiałem zamiast pocisków</AT_ShellsFromMaterial>
+  <AT_ShellsFromMaterial_Desc>Tragarze noszą stal (lub inny metal) do moździerzy, artylerii i dział polowych, a działo ładuje się wybranym pociskiem, a jeśli go nie wybrano – odłamkowo-burzącym. Pociski nie są w ogóle potrzebne. Automatyczny moździerz VFE też uzupełnia pociski z materiału.</AT_ShellsFromMaterial_Desc>
+  <AT_ShellCost>Materiału na jeden pocisk: {0}</AT_ShellCost>
+  <AT_NoMaterial>Za mało materiału ({0} metalu na pocisk)</AT_NoMaterial>
+</LanguageData>

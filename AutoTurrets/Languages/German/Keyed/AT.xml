@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AT_AutoManned>Bemannte Geschütztürme feuern selbstständig</AT_AutoManned>
+  <AT_AutoManned_Desc>Deine Geschütztürme, die normalerweise einen Kolonisten brauchen (aus jeder Mod), schießen automatisch wie ein Mini-Geschützturm. Du kannst trotzdem ein Ziel von Hand wählen.</AT_AutoManned_Desc>
+  <AT_AutoMortars>Mörser feuern selbstständig</AT_AutoMortars>
+  <AT_AutoMortars_Desc>Deine Mörser und andere Granatwaffen schießen automatisch auf Feinde, solange sie eine Granate geladen haben.</AT_AutoMortars_Desc>
+  <AT_MortarSafety>Mörser schießen nicht in die Nähe deiner Leute</AT_MortarSafety>
+  <AT_MortarSafety_Desc>Ein automatischer Mörser überspringt Ziele, bei denen die Granate auf deinen Kolonisten, Tieren oder Gästen landen könnte.</AT_MortarSafety_Desc>
+  <AT_SafetyExtra>Zusätzlicher Sicherheitsabstand: {0} Felder</AT_SafetyExtra>
+  <AT_LoadShells>Kolonisten laden Granaten (Arbeit: Tragen)</AT_LoadShells>
+  <AT_LoadShells_Desc>Träger bringen Granaten von überall auf der Karte zu leeren automatischen Mörsern. Der Granatenfilter des Mörsers wird beachtet.</AT_LoadShells_Desc>
+  <AT_AnyMetal>Geschütztürme laden mit jedem Metall nach</AT_AnyMetal>
+  <AT_AnyMetal_Desc>Geschütztürme, die mit Stahl (oder einem anderen einzelnen Metall) nachgeladen werden, nehmen jedes Metall: Stahl, Plaststahl, Gold, Uran und Metalle aus Mods.</AT_AnyMetal_Desc>
+  <AT_AllowSilver>…einschließlich Silber</AT_AllowSilver>
+  <AT_Restart>Material- und Wandgeschütz-Einstellungen gelten nach einem Neustart des Spiels.</AT_Restart>
+  <AT_NoShell>Keine Granate verfügbar</AT_NoShell>
+  <AT_FriendlyFire>Eigenbeschuss durch Geschütztürme</AT_FriendlyFire>
+  <AT_FriendlyFire_Desc>Aus: Kugeln deiner Türme fliegen an deinen Kolonisten, Gästen und Verbündeten vorbei, und Explosionen ihrer Granaten verletzen sie nicht. An = wie im Spiel.</AT_FriendlyFire_Desc>
+  <AT_FuelWood>Türme auch mit Holz auffüllen</AT_FuelWood>
+  <AT_FuelWood_Desc>Türme, die mit Metall nachgeladen werden, nehmen auch Holz.</AT_FuelWood_Desc>
+  <AT_FuelStone>Türme auch mit Steinblöcken auffüllen</AT_FuelStone>
+  <AT_FuelStone_Desc>Türme, die mit Metall nachgeladen werden, nehmen auch Steinblöcke.</AT_FuelStone_Desc>
+  <AT_WallTurrets>Geschütze in Wänden</AT_WallTurrets>
+  <AT_WallTurrets_Desc>Ausgewählte Geschütze bekommen im Sicherheitsmenü eine zweite Version „… (in Wand)“. Sie wird direkt über eine Wand oder geglättete Felswand gebaut, ersetzt dieses Wandstück und wirkt selbst wie eine Wand: Sie blockiert den Weg, trägt das Dach und hält den Raum geschlossen. Die normalen Geschütze bleiben unverändert.</AT_WallTurrets_Desc>
+  <AT_WallRecommended>Empfohlene Auswahl</AT_WallRecommended>
+  <AT_WallNone>Keine Geschütze gefunden.</AT_WallNone>
+  <AT_WallLabel>{0} (in Wand)</AT_WallLabel>
+  <AT_WallDescExtra>Wird über eine Wand gebaut: ersetzt das Wandstück, blockiert den Weg und trägt das Dach wie eine Wand. Wird es zerstört, bleibt ein Loch in der Wand.</AT_WallDescExtra>
+  <AT_SecShooting>Schießen</AT_SecShooting>
+  <AT_SecMaterials>Munition und Materialien</AT_SecMaterials>
+  <AT_WallEnable>Geschütze in Wänden erlauben</AT_WallEnable>
+  <AT_WallAll>Alle auswählen</AT_WallAll>
+  <AT_WallClear>Alle abwählen</AT_WallClear>
+  <AT_WallCount>{0} von {1} ausgewählt</AT_WallCount>
+  <AT_WallSearch>Suche:</AT_WallSearch>
+  <AT_WallRecDone>Empfohlene Auswahl wiederhergestellt – {0} kleine Geschütze ausgewählt.</AT_WallRecDone>
+  <AT_WallAllDone>Alle {0} Geschütze ausgewählt.</AT_WallAllDone>
+  <AT_WallClearDone>Auswahl geleert.</AT_WallClearDone>
+  <AT_RestartNeeded>⚠ Starte das Spiel neu, damit die Änderungen an Wandgeschützen gelten.</AT_RestartNeeded>
+  <AT_WallRecTip>Empfohlen: kleines Geschütz bis 2×2</AT_WallRecTip>
+  <AT_SmartShells>Kluge Granatenwahl</AT_SmartShells>
+  <AT_SmartShells_Desc>Automatische Mörser verschwenden keine Granaten: EMP nur auf Mechanoiden und Gegner mit Schild, Brandgranaten nicht auf Mechanoiden, Löschschaum nur auf Brände im Heimbereich (nie auf Gegner). Träger bringen EMP-Granaten, wenn die meisten Gegner Mechanoiden sind, sonst Sprenggranaten – sofern der Filter des Mörsers sie erlaubt.</AT_SmartShells_Desc>
+  <AT_NoHitBuildings>Türme treffen unsere Gebäude nicht</AT_NoHitBuildings>
+  <AT_NoHitBuildings_Desc>An: Kugeln deiner Türme fliegen an deinen eigenen Gebäuden (Mauern, Sandsäcke, Türen…) vorbei, außer du zielst auf sie, und Explosionen ihrer Granaten beschädigen sie nicht. Feindliche Gebäude werden normal getroffen. Aus = wie im Spiel.</AT_NoHitBuildings_Desc>
+  <AT_WallOutward>Wandgeschütze schießen nur nach außen</AT_WallOutward>
+  <AT_WallOutward_Desc>Ein Geschütz in der Wand schießt nur auf Ziele an der Außenseite seiner Wand (vom Raum weg). Ist keine Seite eindeutig draußen (Wand zwischen zwei Räumen), schießt es überallhin.</AT_WallOutward_Desc>
+  <AT_TabTurrets>Geschütze</AT_TabTurrets>
+  <AT_TurretsDesc>Alle Geschütze, Mörser und Kanonen – Vanilla und aus Mods. Angehakte feuern selbst. Nicht angehakt: bemannte Geschütze und Mörser brauchen wieder einen Kolonisten, automatische Geschütze feuern erst, wenn du ein Ziel wählst.</AT_TurretsDesc>
+  <AT_TurretsNone>Hier braucht kein Geschütz einen Kolonisten.</AT_TurretsNone>
+  <AT_TurretsCount>{0} von {1} feuern selbst</AT_TurretsCount>
+  <AT_FuelEdit>Materialien…</AT_FuelEdit>
+  <AT_FuelPerTurret>Die Materialien jedes Geschützes – auch von Geschützen, die eigene Munition oder Treibstoff aus einem Mod brauchen. Klicke auf „Materialien…“ und hake an, womit es noch nachgeladen werden darf. Gilt sofort.</AT_FuelPerTurret>
+  <AT_FuelNone>Hier wird kein Geschütz nachgeladen.</AT_FuelNone>
+  <AT_FuelTakes>nimmt: {0}</AT_FuelTakes>
+  <AT_FuelOriginal>Nimmt von sich aus: {0}. Hake an, womit es noch nachgeladen werden darf:</AT_FuelOriginal>
+  <AT_FuelOrig>eigenes</AT_FuelOrig>
+  <AT_FuelGroup0>Metalle</AT_FuelGroup0>
+  <AT_FuelGroup1>Holz</AT_FuelGroup1>
+  <AT_FuelGroup2>Steinblöcke</AT_FuelGroup2>
+  <AT_FuelGroup3>Munition und Granaten</AT_FuelGroup3>
+  <AT_FuelGroup4>Andere Rohstoffe</AT_FuelGroup4>
+  <AT_KindManned>bemannt</AT_KindManned>
+  <AT_KindMortar>bemannter Mörser</AT_KindMortar>
+  <AT_KindAuto>automatisch</AT_KindAuto>
+  <AT_KindMortarAuto>Mörser</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>Granaten automatisch laden</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>Träger bringen von selbst Granaten zu diesem Mörser. Ausschalten, um ihn nur von Hand zu laden.</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>Munition: {0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>Wähle die eine Granate oder das eine Material, mit dem dieses Geschütz geladen oder nachgeladen wird – nichts anderes wird gebracht. „Alles Erlaubte“ nutzt alles, was das Geschütz nimmt.</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>alles Erlaubte</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>Spezialgranaten nur bei Auswahl</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>Träger bringen EMP-, Brand-, Löschschaum- und andere Spezialgranaten nur zu einem Mörser, der mit seiner „Munition“-Taste darauf eingestellt ist; sonst bringen sie Sprenggranaten.</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>Geschütze mit eigener Munition nehmen auch Metall</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>Geschütze, die eigene Munition oder Treibstoff brauchen (oft aus Mods), lassen sich auch mit Stahl oder anderem Metall nachladen – sie stehen nie still, nur weil ihre Munition fehlt.</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>Geschütze brauchen keine Munition</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>Deine Geschütze gelten immer als geladen und verbrauchen weder Munition noch Treibstoff. Nützlich, wenn ein Mod-Geschütz Munition braucht, die du nicht herstellen kannst. Mörser, Artillerie und Feldgeschütze haben auch immer eine Granate geladen.</AT_FreeAmmo_Desc>
+  <AT_VfesAuto>Feuert von selbst (Auto Turrets) – kein Kolonist nötig.</AT_VfesAuto>
+  <AT_VfesSend>Niemand bedient sie – der nächste freie kampffähige Kolonist geht sofort hin.</AT_VfesSend>
+  <AT_VfesNobody>Niemand kann die Artillerie bedienen.</AT_VfesNobody>
+  <AT_VfesGoes>{0} geht die Artillerie bedienen.</AT_VfesGoes>
+  <AT_ShellsFromMaterial>Mörser und Artillerie mit Material statt Granaten laden</AT_ShellsFromMaterial>
+  <AT_ShellsFromMaterial_Desc>Träger bringen Stahl (oder ein anderes Metall) zu Mörsern, Artillerie und Feldgeschützen, und das Geschütz wird mit der gewählten Granate geladen, sonst mit einer Sprenggranate. Granaten werden gar nicht gebraucht. Der automatische VFE-Mörser füllt seine Granaten ebenfalls aus Material auf.</AT_ShellsFromMaterial_Desc>
+  <AT_ShellCost>Material pro Granate: {0}</AT_ShellCost>
+  <AT_NoMaterial>Zu wenig Material ({0} Metall pro Granate)</AT_NoMaterial>
+</LanguageData>

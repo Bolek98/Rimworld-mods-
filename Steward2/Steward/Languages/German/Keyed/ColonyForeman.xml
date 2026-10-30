@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_Auto>Steward</CF_Auto>
+  <CF_StyleButton>Stil: {0}</CF_StyleButton>
+  <CF_StyleTip>Kolonie-Schwerpunkt. Verschiebt die Wichtigkeit ausgewählter Arbeiten nach oben oder unten.</CF_StyleTip>
+  <CF_Style_Balanced>Ausgewogen</CF_Style_Balanced>
+  <CF_Style_Survival>Überleben</CF_Style_Survival>
+  <CF_Style_Production>Produktion</CF_Style_Production>
+  <CF_Style_Research>Forschung</CF_Style_Research>
+  <CF_HeaderHint>Steward: Mittelklick sperrt oder entsperrt die ganze Arbeit.</CF_HeaderHint>
+  <CF_LockPawn>Kolonisten sperren (Steward ändert ihn nicht)</CF_LockPawn>
+  <CF_UnlockPawn>Kolonisten entsperren</CF_UnlockPawn>
+  <CF_PrefersOn>Mag: {0} (entfernen)</CF_PrefersOn>
+  <CF_PrefersOff>Mag: {0}</CF_PrefersOff>
+  <CF_Crisis_Medical>medizinischer Notfall</CF_Crisis_Medical>
+  <CF_Crisis_Food>Nahrungsmangel</CF_Crisis_Food>
+  <CF_Crisis_Winter>Wintervorbereitung</CF_Crisis_Winter>
+  <CF_TipCrisis>Krise: {0}</CF_TipCrisis>
+  <CF_Style_Farming>Ackerbau</CF_Style_Farming>
+  <CF_Style_Building>Bauen</CF_Style_Building>
+  <CF_Style_Industry>Bergbau &amp; Industrie</CF_Style_Industry>
+  <CF_Style_Defense>Verteidigung</CF_Style_Defense>
+  <CF_Style_Care>Pflege</CF_Style_Care>
+  <CF_Style_Comfort>Komfort</CF_Style_Comfort>
+  <CF_Style_Trade>Handel</CF_Style_Trade>
+  <CF_Style_Ranching>Viehzucht</CF_Style_Ranching>
+  <CF_StyleDesc_Balanced>Der Stil für alles. Die Arbeit wird gleichmäßig auf die Kolonisten verteilt und richtet sich danach, was auf der Karte wartet: Jede Arbeit, für die es etwas zu tun gibt (Aufträge, Bauen, Ernte, Transportieren, Patienten, Forschung, Tiere …), bekommt mindestens einen Kolonisten, bei viel Arbeit mehr. Reagiert auf Engpässe und Krisen. Wechsle nur dann zu einem anderen Stil, wenn etwas zuerst erledigt werden muss.</CF_StyleDesc_Balanced>
+  <CF_StyleDesc_Survival>Erst Nahrung und Unterkunft: Kochen, Felder, Jagen, Fischen und ein wenig Bauen. Für einen harten Start.</CF_StyleDesc_Survival>
+  <CF_StyleDesc_Production>Werkstatt, Schmiede und Schneiderei, alle gleich wichtig.</CF_StyleDesc_Production>
+  <CF_StyleDesc_Research>So viel Forschung wie möglich (und Wesensstudium mit Anomaly).</CF_StyleDesc_Research>
+  <CF_StyleDesc_Farming>Erst die Felder: Säen und Ernten, dazu Pflanzenschnitt und Kochen.</CF_StyleDesc_Farming>
+  <CF_StyleDesc_Building>Erst Bauen, Steinabbau und Transportieren helfen.</CF_StyleDesc_Building>
+  <CF_StyleDesc_Industry>Erz abbauen und in Schmiede und Werkstatt zu Waren verarbeiten.</CF_StyleDesc_Industry>
+  <CF_StyleDesc_Defense>Mauern und Geschütztürme, Waffen aus der Schmiede und Ärzte bereit für Überfälle.</CF_StyleDesc_Defense>
+  <CF_StyleDesc_Care>Ärzte, Kinder, Gefangene und saubere Räume.</CF_StyleDesc_Care>
+  <CF_StyleDesc_Comfort>Eine saubere und schöne Basis: Putzen, Kunst und Möbel.</CF_StyleDesc_Comfort>
+  <CF_StyleDesc_Trade>Waren zum Verkaufen: Kunst, Kleidung und hergestellte Gegenstände.</CF_StyleDesc_Trade>
+  <CF_StyleDesc_Ranching>Erst die Tiere: Zähmen, Trainieren, Melken, Scheren – und ihr Futter.</CF_StyleDesc_Ranching>
+  <CF_Style_Custom>Mein Stil</CF_Style_Custom>
+  <CF_StyleDesc_Custom>Dein eigener Stil – nichts ändert sich von selbst. Wichtigkeit, Anzahl der Kolonisten und Kolonisten pro Prioritätsstufe kommen nur aus den Mod-Einstellungen (Optionen → Mod-Einstellungen → Steward, Reiter Arbeitstypen und Prioritätsstufen). Krisen und Situationen gelten weiterhin (sie lassen sich in den Einstellungen abschalten). Kein Bedarf, keine Änderungen durch Inspiration oder Lehrlinge, kein Umverteilen; neu geplant wird nur, wenn Kolonisten kommen oder gehen, bei der regelmäßigen Prüfung oder wenn du den Knopf drückst.</CF_StyleDesc_Custom>
+  <CF_Crisis_Fire>Feuer in der Basis</CF_Crisis_Fire>
+  <CF_Crisis_Raid>Überfall</CF_Crisis_Raid>
+  <CF_Crisis_Weather>extremes Wetter</CF_Crisis_Weather>
+  <CF_Crisis_Toxic>giftige Luft</CF_Crisis_Toxic>
+  <CF_Crisis_Blight>Pflanzenfäule</CF_Crisis_Blight>
+  <CF_Crisis_Mood>schlechte Stimmung</CF_Crisis_Mood>
+  <CF_Crisis_Power>Stromausfall</CF_Crisis_Power>
+  <CF_Crisis_Medicine>keine Medizin</CF_Crisis_Medicine>
+  <CF_Crisis_Breakdown>kaputte Maschinen</CF_Crisis_Breakdown>
+  <CF_PA_Label>Prioritätsbereich</CF_PA_Label>
+  <CF_PA_Desc>Ziehe ein Rechteck über den Ort, an dem gearbeitet werden soll. Wähle dann, was getan wird (Standard alles: Bauen, Abriss, Reparaturen, Bergbau, Fällen, Ernten, Transportieren, Putzen), jetzt oder nach der aktuellen Arbeit, und wer es tut (die Nächsten automatisch oder von Hand ausgewählt). Essen, Schlafen und ärztliche Versorgung gehen weiterhin vor. Der Bereich bleibt, bis alles darin erledigt ist; entferne ihn mit „Prioritätsbereich entfernen“.</CF_PA_Desc>
+  <CF_PA_ClearLabel>Prioritätsbereich entfernen</CF_PA_ClearLabel>
+  <CF_PA_ClearDesc>Ziehe über einen Prioritätsbereich, um ihn zu entfernen. Die Kolonisten kehren zu ihrer üblichen Arbeit zurück.</CF_PA_ClearDesc>
+  <CF_PA_Mode_All>alles</CF_PA_Mode_All>
+  <CF_PA_Mode_Build>Bauen</CF_PA_Mode_Build>
+  <CF_PA_Mode_Mine>Bergbau</CF_PA_Mode_Mine>
+  <CF_PA_Mode_Plants>Pflanzen</CF_PA_Mode_Plants>
+  <CF_PA_Mode_Haul>Transportieren</CF_PA_Mode_Haul>
+  <CF_PA_Mode_Clean>Putzen</CF_PA_Mode_Clean>
+  <CF_PA_Mode_Emergency>Rettung</CF_PA_Mode_Emergency>
+  <CF_PA_Added>Prioritätsbereich ({0}): {1} Kolonisten, {2} Arbeiten warten. Der Bereich bleibt, bis alles erledigt ist.</CF_PA_Added>
+  <CF_PA_Stale>Prioritätsbereich ({0}) beendet – zwei Tage lang hat niemand darin etwas getan (die Arbeit ist unerreichbar oder kommt immer wieder). Die Kolonisten kehren zu ihrer üblichen Arbeit zurück.</CF_PA_Stale>
+  <CF_PA_Done>Prioritätsbereich ({0}) ist erledigt, die Kolonisten kehren zu ihrer üblichen Arbeit zurück.</CF_PA_Done>
+  <CF_PA_Removed>Prioritätsbereiche entfernt: {0}.</CF_PA_Removed>
+  <CF_PA_AddedEmpty>Prioritätsbereich ({0}) erstellt, dort wartet noch nichts. Markiere Arbeit (Bauen, Bergbau, Fällen …) – {1} Kolonisten erledigen sie, sobald sie auftaucht.</CF_PA_AddedEmpty>
+  <CF_PA_DlgTitle>Prioritätsbereich {0}×{1}</CF_PA_DlgTitle>
+  <CF_PA_DlgWork>Wartet dort jetzt – Bauen: {0}, Bergbau: {1}, Pflanzen: {2}, Transportieren: {3}, Putzen: {4}</CF_PA_DlgWork>
+  <CF_PA_DlgWhat>Was tun:</CF_PA_DlgWhat>
+  <CF_PA_DlgWhen>Wann:</CF_PA_DlgWhen>
+  <CF_PA_DlgNow>Jetzt – unterbricht, was sie gerade tun</CF_PA_DlgNow>
+  <CF_PA_DlgLater>Später – nachdem sie fertig sind mit dem, was sie tun</CF_PA_DlgLater>
+  <CF_PA_DlgWho>Wer:</CF_PA_DlgWho>
+  <CF_PA_DlgAuto>Automatisch – die {0} nächsten freien</CF_PA_DlgAuto>
+  <CF_PA_DlgAutoAll>Automatisch – alle freien</CF_PA_DlgAutoAll>
+  <CF_PA_DlgHand>Von Hand wählen (gewählt: {0})</CF_PA_DlgHand>
+  <CF_PA_DlgSkills>Konstruktion {0} · Bergbau {1} · Pflanzen {2}</CF_PA_DlgSkills>
+  <CF_PA_DlgCreate>Bereich erstellen</CF_PA_DlgCreate>
+  <CF_Crisis_Manhunters>Menschenjäger</CF_Crisis_Manhunters>
+  <CF_Crisis_Epidemic>Epidemie</CF_Crisis_Epidemic>
+  <CF_Crisis_PrisonBreak>Gefängnisausbruch / Sklavenaufstand</CF_Crisis_PrisonBreak>
+  <CF_Crisis_DangerousBreak>gefährlicher Nervenzusammenbruch</CF_Crisis_DangerousBreak>
+  <CF_Crisis_IndoorTemp>Kälte oder Hitze drinnen</CF_Crisis_IndoorTemp>
+  <CF_Crisis_NoBeds>Patienten ohne Betten</CF_Crisis_NoBeds>
+  <CF_Crisis_FreezerThaw>Kühlraum taut auf</CF_Crisis_FreezerThaw>
+  <CF_Crisis_Siege>Belagerung</CF_Crisis_Siege>
+  <CF_Crisis_Infestation>Insektenbefall</CF_Crisis_Infestation>
+  <CF_Crisis_RoofCollapse>Einsturzgefahr des Dachs</CF_Crisis_RoofCollapse>
+  <CF_Crisis_Death>Todesfall in der Kolonie</CF_Crisis_Death>
+  <CF_Crisis_QuestDeadline>Quest-Frist</CF_Crisis_QuestDeadline>
+  <CF_Crisis_AnimalSick>kranke Tiere</CF_Crisis_AnimalSick>
+  <CF_Crisis_Labor>Geburt</CF_Crisis_Labor>
+  <CF_Crisis_EntityEscape>Ausbruch einer Wesenheit</CF_Crisis_EntityEscape>
+  <CF_Crisis_Darkness>unnatürliche Dunkelheit</CF_Crisis_Darkness>
+  <CF_Crisis_VacuumBreach>Vakuumleck</CF_Crisis_VacuumBreach>
+  <CF_Crisis_ToxGas>Giftgas</CF_Crisis_ToxGas>
+  <CF_Crisis_LowAmmo>wenig Munition</CF_Crisis_LowAmmo>
+  <CF_Crisis_WaterShortage>Wassermangel</CF_Crisis_WaterShortage>
+  <CF_Crisis_Hygiene>Hygiene</CF_Crisis_Hygiene>
+  <CF_Crisis_NoFirefighters>keine Feuerwehrleute</CF_Crisis_NoFirefighters>
+  <CF_HistButton>Verlauf</CF_HistButton>
+  <CF_HistTip>Was der Steward wann und warum geändert hat.</CF_HistTip>
+  <CF_HistTitle>Planverlauf</CF_HistTitle>
+  <CF_HistEmpty>Noch kein Plan.</CF_HistEmpty>
+  <CF_LastRun>Zuletzt geplant: vor {0}</CF_LastRun>
+  <CF_NextRun>Nächster automatischer Plan in: {0} (früher, wenn sich Arbeit, Kolonisten oder eine Krise ändern)</CF_NextRun>
+  <CF_AutoOff>Automatische Planung ist aus – schalte „Steward“ ein.</CF_AutoOff>
+  <CF_PA_OnlyBalanced>Bereiche funktionieren in jedem Kolonie-Stil. Sie warten nur bei echter Gefahr (Feinde, Feuer, Giftgas bei deinen Leuten …). Wenn ein Kolonist in seinem eigenen Bereich nichts tun kann, hilft er in einem anderen Bereich, der gerade arbeitet.</CF_PA_OnlyBalanced>
+  <CF_PA_PauseStyle>Wartet auf Stil: {0}</CF_PA_PauseStyle>
+  <CF_PA_PauseHostile>Wartet: Feinde auf der Karte</CF_PA_PauseHostile>
+  <CF_PA_PauseCrisis>Wartet: {0}</CF_PA_PauseCrisis>
+  <CF_BP_Label>Prioritäts-Werkbank</CF_BP_Label>
+  <CF_BP_Desc>Kolonisten erledigen Aufträge an dieser Werkbank vor den anderen Werkbänken desselben Arbeitstyps (Handwerk, Schmieden, Schneidern, Kochen …). Wirkt unter Werkbänken desselben Arbeitstyps; die Reihenfolge der Arbeitstypen wird weiterhin im Arbeit-Reiter festgelegt.</CF_BP_Desc>
+  <CF_BP_Giver>{0} an einer Prioritäts-Werkbank</CF_BP_Giver>
+  <CF_BP_NotUsed>Seit Spielbeginn hat sie niemand als Prioritäts-Werkbank benutzt.</CF_BP_NotUsed>
+  <CF_BP_LastUse>Zuletzt als Prioritäts-Werkbank benutzt: {0}, vor {1} h.</CF_BP_LastUse>
+  <CF_TipChildLearn>Kind lernt ({0} %) – vorerst keine Arbeit.</CF_TipChildLearn>
+  <CF_TipChildLight>Kind – Arbeit nur auf der niedrigsten Stufe, damit es Zeit zum Lernen hat (Lernen {0} %).</CF_TipChildLight>
+  <CF_Style_Tidy>Aufräumen</CF_Style_Tidy>
+  <CF_StyleDesc_Tidy>Nur Transportieren und Putzen.</CF_StyleDesc_Tidy>
+  <CF_StyleStrictNote>Andere Arbeit: niedrigste Priorität.</CF_StyleStrictNote>
+  <CF_StyleStrictNoteOff>Andere Arbeit: aus (Transportieren und Putzen auf niedrigster Priorität).</CF_StyleStrictNoteOff>
+  <CF_Style_FieldsForest>Felder und Wald</CF_Style_FieldsForest>
+  <CF_StyleDesc_FieldsForest>Nur Felder und Wald: Anbau und Bäume fällen, beides gleich wichtig.</CF_StyleDesc_FieldsForest>
+  <CF_Style_Mining>Bergbau</CF_Style_Mining>
+  <CF_StyleDesc_Mining>Nur Erz und Stein abbauen, Transportieren hilft.</CF_StyleDesc_Mining>
+  <CF_Style_Kitchen>Küche</CF_Style_Kitchen>
+  <CF_StyleDesc_Kitchen>Erst Kochen, Jagen und Fischen bringen nur die Zutaten.</CF_StyleDesc_Kitchen>
+  <CF_Style_HuntFish>Jagen und Fischen</CF_Style_HuntFish>
+  <CF_StyleDesc_HuntFish>Nahrung aus der Wildnis: Jagen, Fischen und die Küche zum Verarbeiten.</CF_StyleDesc_HuntFish>
+  <CF_Style_Tailoring>Schneiderei</CF_Style_Tailoring>
+  <CF_StyleDesc_Tailoring>Nur Kleidung nähen.</CF_StyleDesc_Tailoring>
+  <CF_Style_Smithing>Schmiede</CF_Style_Smithing>
+  <CF_StyleDesc_Smithing>Waffen und Werkzeuge aus der Schmiede, ein wenig Handwerk.</CF_StyleDesc_Smithing>
+  <CF_Style_Art>Kunst</CF_Style_Art>
+  <CF_StyleDesc_Art>Nur Skulpturen und Kunstwerke.</CF_StyleDesc_Art>
+  <CF_Style_Prison>Gefängnis</CF_Style_Prison>
+  <CF_StyleDesc_Prison>Gefangene: Rekrutieren und Versklaven, mit einem Arzt.</CF_StyleDesc_Prison>
+  <MUI_Title>Empfohlene Einstellungen</MUI_Title>
+  <MUI_TitleOff>Empfohlene Einstellungen · aus</MUI_TitleOff>
+  <MUI_DescOn>Die Mod richtet sich selbst ein und funktioniert sofort. Ideal für neue Spieler und alle, die nichts anpassen wollen.</MUI_DescOn>
+  <MUI_DescOff>Eigene Einstellungen. Geändert gegenüber Empfehlung: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Eigene Einstellungen. Noch identisch mit der Empfehlung.</MUI_DescOffSame>
+  <MUI_On>AN</MUI_On>
+  <MUI_Off>AUS</MUI_Off>
+  <MUI_ResetAll>Alles auf Empfehlung zurücksetzen</MUI_ResetAll>
+  <MUI_ConfirmOn>Empfohlene Einstellungen einschalten? Deine Änderungen ({0}) werden durch die empfohlenen Werte ersetzt.</MUI_ConfirmOn>
+  <MUI_Locked>Der einfache Modus stellt alles selbst ein, daher sind die Details gesperrt. Willst du sie ändern? Wechsle oben zu Empfohlen oder Erweitert.</MUI_Locked>
+  <MUI_Changed>GEÄNDERT</MUI_Changed>
+  <MUI_ChangedTip>Weicht von der Empfehlung ab ({0}). Klicken, um den empfohlenen Wert wiederherzustellen.</MUI_ChangedTip>
+  <MUI_Yes>an</MUI_Yes>
+  <MUI_No>aus</MUI_No>
+  <MUI_RecTag>EMPFOHLEN</MUI_RecTag>
+  <CF_TipMother>Mutter eines Babys – Kinderbetreuung geht vor.</CF_TipMother>
+  <CF_TipNanny>Kindermädchen – kümmert sich um ein Baby ohne Mutter, die es kann.</CF_TipNanny>
+  <CF_GuardFixed>Mods mit geänderten Arbeitstypen – Steward hat die Prioritäten für {0} Kolonisten wieder auf die richtige Arbeit gesetzt.</CF_GuardFixed>
+  <CF2_AutoTip>Der Steward auf dieser Karte: Prioritäten aus Fertigkeiten, Leidenschaften und der Arbeit, die wirklich auf der Karte wartet. Er plant ruhig – niemand wird hin und her geschoben.</CF2_AutoTip>
+  <CF2_PlanNow>Jetzt planen</CF2_PlanNow>
+  <CF2_PlanNowTip>Die Prioritäten sofort planen (auch wenn der Steward aus ist). Dein Plan wird nicht durch die Ruhezeit zurückgehalten.</CF2_PlanNowTip>
+  <CF2_PlanDone>Der Steward hat die Prioritäten geplant: {0} Änderungen.</CF2_PlanDone>
+  <CF2_ManualOn>Der Steward hat nummerierte Prioritäten eingeschaltet (Arbeit-Reiter).</CF2_ManualOn>
+  <CF2_HistStyle>Kolonie-Stil: {0}</CF2_HistStyle>
+  <CF2_TabGeneral>Planung</CF2_TabGeneral>
+  <CF2_TabRules>Meine Regeln</CF2_TabRules>
+  <CF2_SecPlan>Planung</CF2_SecPlan>
+  <CF2_SecStyles>Kolonie-Stile</CF2_SecStyles>
+  <CF2_SecChildren>Kinder und Babys</CF2_SecChildren>
+  <CF2_SecPriorities>Prioritäten</CF2_SecPriorities>
+  <CF2_AutoByDefault>Steward für neue Karten an</CF2_AutoByDefault>
+  <CF2_AutoByDefaultTip>Wenn aus, schaltest du den Steward für jede Karte im Arbeit-Reiter ein.</CF2_AutoByDefaultTip>
+  <CF2_Interval>Regelmäßiger Plan: alle {0} h</CF2_Interval>
+  <CF2_IntervalTip>Dazwischen plant der Steward nur, wenn sich wirklich etwas ändert (neue Kolonisten, viel neue Arbeit, eine Krise aus einem Add-on).</CF2_IntervalTip>
+  <CF2_Hold>Eine geänderte Priorität bleibt mindestens: {0} h</CF2_Hold>
+  <CF2_HoldTip>Ruhe: Was der Steward geändert hat, wird nicht sofort zurückgeändert. Krisen und dein Knopf „Jetzt planen“ überspringen das.</CF2_HoldTip>
+  <CF2_OneTop>Nur eine Arbeit auf Priorität 1</CF2_OneTop>
+  <CF2_OneTopTip>Jeder Kolonist hat nur seine wichtigste Arbeit auf 1, seine übrige Hauptarbeit auf 2.</CF2_OneTopTip>
+  <CF2_Backup>Ersatzarbeit auf niedrigster Priorität</CF2_Backup>
+  <CF2_BackupTip>Wer eine Arbeit nicht als Hauptarbeit hat, behält sie auf der niedrigsten Stufe, damit niemand untätig herumsteht.</CF2_BackupTip>
+  <CF2_Opposed>Auch Arbeit vergeben, die die Ideologie ablehnt</CF2_Opposed>
+  <CF2_OpposedTip>Aus: Arbeit, die die Ideologie des Kolonisten für gefährlich hält, wird ihm nie gegeben.</CF2_OpposedTip>
+  <CF2_Injured>Verletzte und kranke Kolonisten bekommen leichtere Arbeit</CF2_Injured>
+  <CF2_InjuredTip>Je schlechter die Gesundheit, desto weniger eignet sich ein Kolonist für eine Hauptarbeit.</CF2_InjuredTip>
+  <CF2_Passion>Leidenschaft zählt mehr</CF2_Passion>
+  <CF2_PassionTip>Kolonisten mit Leidenschaft bekommen ihre Arbeit öfter (sie haben Freude daran und lernen schneller).</CF2_PassionTip>
+  <CF2_Prefer>Bonus für deine Lieblingsarbeit: {0}</CF2_Prefer>
+  <CF2_PreferTip>Mittelklick auf den Namen eines Kolonisten → markiere die Arbeit, die er mag. So viel wird addiert.</CF2_PreferTip>
+  <CF2_Lodgers>Auch Quest-Gäste planen</CF2_Lodgers>
+  <CF2_LodgersTip>Gäste aus Quests, die arbeiten dürfen.</CF2_LodgersTip>
+  <CF2_Mechs>Arbeitende Mechanoiden mitzählen</CF2_Mechs>
+  <CF2_MechsTip>Arbeit, die Mechanoiden erledigen, braucht weniger Kolonisten.</CF2_MechsTip>
+  <CF2_StyleStrength>Stil-Stärke: {0}</CF2_StyleStrength>
+  <CF2_StyleStrengthTip>Wie viele Leute ein Kolonie-Stil seiner Arbeit hinzufügt.</CF2_StyleStrengthTip>
+  <CF2_StyleStrict>Ein Stil plant hauptsächlich seine eigene Arbeit</CF2_StyleStrict>
+  <CF2_StyleStrictTip>Andere Arbeit bekommt nur eine Person, wenn sie auf der Karte wartet.</CF2_StyleStrictTip>
+  <CF2_StyleOthersOff>Andere Arbeit ganz ausschalten</CF2_StyleOthersOff>
+  <CF2_StyleOthersOffTip>Wer nicht die Arbeit des Stils macht, behält den Rest nicht einmal als Ersatz.</CF2_StyleOthersOffTip>
+  <CF2_ChildLearning>Kinder haben Zeit zum Lernen</CF2_ChildLearning>
+  <CF2_ChildLearningTip>Kinder haben Arbeit nur auf der niedrigsten Stufe und gar keine, solange sie lernen müssen.</CF2_ChildLearningTip>
+  <CF2_ParentCare>Eltern und Kindermädchen für Babys</CF2_ParentCare>
+  <CF2_ParentCareTip>Die Mutter (oder der Vater) hat Kinderbetreuung auf 1; ohne Elternteil wählt der Steward ein Kindermädchen.</CF2_ParentCareTip>
+  <CF2_Levels>Prioritätsstufen: {0}</CF2_Levels>
+  <CF2_LevelsAuto>automatisch ({0})</CF2_LevelsAuto>
+  <CF2_LevelsTip>0 = aus Work Tab / PriorityMaster lesen. Ohne einen solchen Mod hat das Spiel 4 Stufen.</CF2_LevelsTip>
+  <CF2_PlanMessages>Nachricht nach jedem Plan</CF2_PlanMessages>
+  <CF2_PlanMessagesTip>Eine kurze Nachricht oben links mit der Anzahl geänderter Prioritäten.</CF2_PlanMessagesTip>
+  <CF2_UseMyRules>Meine Regeln verwenden</CF2_UseMyRules>
+  <CF2_UseMyRulesTip>Minimum und Maximum an Kolonisten pro Arbeit. Krisen und Situationen aus Add-ons gehen vor dem Maximum.</CF2_UseMyRulesTip>
+  <CF2_RulesHint>Minimum: mindestens so viele Kolonisten haben die Arbeit auf Priorität 1–2. Maximum: nicht mehr. Wichtigkeit: wie gut sich die Arbeit als Hauptarbeit (Priorität 1) eignet.</CF2_RulesHint>
+  <CF2_Min>min</CF2_Min>
+  <CF2_Max>max</CF2_Max>
+  <CF2_Importance>Wichtigkeit</CF2_Importance>
+  <CF2_TipEmergency>Notfallarbeit – alle ganz oben.</CF2_TipEmergency>
+  <CF2_TipMain>Hauptarbeit: {0} Arbeiten warten, unter den Geeignetsten.</CF2_TipMain>
+  <CF2_TipStyleReady>Arbeit des Stils {0} – bereit, auch wenn gerade nichts wartet.</CF2_TipStyleReady>
+  <CF2_TipHelper>Helfer: wenn die Hauptleute nicht nachkommen.</CF2_TipHelper>
+  <CF2_TipOnCall>Bereitschaft: gerade wartet nichts, aber jemand ist bereit.</CF2_TipOnCall>
+  <CF2_TipStyleOff>Stil {0}: macht diese Arbeit nicht.</CF2_TipStyleOff>
+  <CF2_TipBackup>Ersatz: niedrigste Stufe, damit niemand untätig herumsteht.</CF2_TipBackup>
+  <CF2_TipTop>Priorität 1: jetzt die wichtigste Arbeit für ihn.</CF2_TipTop>
+  <CF2_TipYourMin>Dein Minimum: mindestens {0}.</CF2_TipYourMin>
+  <CF2_TipYourMax>Dein Maximum: höchstens {0}.</CF2_TipYourMax>
+  <CF2_TipNobodyIdle>Damit er nicht untätig herumsteht: seine geeignetste wartende Arbeit.</CF2_TipNobodyIdle>
+  <CF31_PlanPreview>Plan vor dem Anwenden anzeigen</CF31_PlanPreview>
+  <CF31_PlanPreviewTip>„Jetzt planen“ zeigt zuerst jede Änderung, die es vornehmen würde; nichts ändert sich, bis du auf Anwenden drückst. Automatische Pläne sind nicht betroffen.</CF31_PlanPreviewTip>
+  <CF31_PreviewTitle>Plan des Stewards – {0} Änderungen</CF31_PreviewTitle>
+  <CF31_PreviewHint>Nichts wird geändert, bis du auf Anwenden drückst. Der Grund steht rechts (für den vollen Text darüberfahren).</CF31_PreviewHint>
+  <CF31_PreviewNone>Nichts zu ändern – die Prioritäten entsprechen bereits dem Plan.</CF31_PreviewNone>
+  <CF31_Apply>Anwenden</CF31_Apply>
+  <CF31_Cancel>Abbrechen</CF31_Cancel>
+  <CF31_Close>Schließen</CF31_Close>
+  <CF31_LocksButton>Sperren ({0})</CF31_LocksButton>
+  <CF31_LocksTip>Kolonisten, Arbeitsspalten und Zellen, die der Steward nicht ändern darf. Klicke, um sie zu sehen und zu entsperren.</CF31_LocksTip>
+  <CF31_LocksTitle>Sperren</CF31_LocksTitle>
+  <CF31_LocksHowTo>Gesperrte Dinge behalten ihre Prioritäten – der Steward rührt sie nicht an. Im Arbeit-Reiter sperrt oder entsperrt die mittlere Maustaste (Mausrad): auf dem Namen eines Kolonisten den ganzen Kolonisten, auf einer Spaltenüberschrift die Arbeit für alle, auf einer Zelle nur diese Zelle.</CF31_LocksHowTo>
+  <CF31_LocksPawns>Gesperrte Kolonisten (all ihre Arbeit bleibt, wie sie ist)</CF31_LocksPawns>
+  <CF31_LocksWork>Gesperrte Arbeitsspalten (für alle)</CF31_LocksWork>
+  <CF31_LocksCells>Gesperrte Zellen</CF31_LocksCells>
+  <CF31_Unlock>Entsperren</CF31_Unlock>
+  <CF31_UnlockAll>Alle entsperren</CF31_UnlockAll>
+  <CF31_LocksNone>Nichts ist gesperrt.</CF31_LocksNone>
+  <CF31_StOk>Steward: plant diesen Kolonisten.</CF31_StOk>
+  <CF31_StAutoOff>Der Steward ist auf dieser Karte aus – Prioritäten ändern sich nur mit „Jetzt planen“.</CF31_StAutoOff>
+  <CF31_StLockedPawn>Steward: GESPERRT – all seine Arbeit bleibt, wie sie ist. Mittelklick auf den Namen zum Entsperren.</CF31_StLockedPawn>
+  <CF31_StAchtung>Steward: übersprungen – er hat erzwungene Arbeit von Achtung!. Seine Prioritäten bleiben, bis die erzwungene Arbeit gelöscht ist.</CF31_StAchtung>
+  <CF31_StDowned>Steward: übersprungen, solange er am Boden liegt – wird neu geplant, wenn er wieder aufsteht.</CF31_StDowned>
+  <CF31_StSlave>Steward: übersprungen – Sklaven werden nicht geplant.</CF31_StSlave>
+  <CF31_StGuest>Steward: übersprungen – Gast oder Quest-Untermieter (siehe „Auch Quest-Gäste planen“ in den Einstellungen).</CF31_StGuest>
+  <CF31_StBaby>Steward: übersprungen – ein Baby.</CF31_StBaby>
+  <CF31_StNoWork>Steward: übersprungen – verrichtet überhaupt keine Arbeit.</CF31_StNoWork>
+  <CF31_StNotHere>Steward: gerade nicht auf dieser Karte – wird auf der Karte geplant, auf der er ist.</CF31_StNotHere>
+  <CF31_StCells>{0} gesperrte Zellen behalten ihre Priorität.</CF31_StCells>
+  <CF31_StColumns>Gesperrte Spalten: {0}.</CF31_StColumns>
+  <CF31_StUnable>Kann gerade nicht (Gesundheit): {0}.</CF31_StUnable>
+  <CF32_Apprentices>Lehrlinge</CF32_Apprentices>
+  <CF32_ApprenticesTip>Ein Kolonist mit Leidenschaft und wenig Fertigkeit bekommt die Arbeit auf einer Lernstufe (3), wenn jemand, der darin gut ist, sie als Hauptarbeit macht. Eine Lehre pro Kolonist, ein Lehrling pro Arbeit.</CF32_ApprenticesTip>
+  <CF32_TipApprentice>Lehrling: hat Leidenschaft dafür und lernt neben einem Meister.</CF32_TipApprentice>
+  <CF32_CopyTo>Prioritäten von {0} kopieren nach …</CF32_CopyTo>
+  <CF32_CopyToAll>Alle anderen auf dieser Karte</CF32_CopyToAll>
+  <CF32_CopyTitle>Prioritäten von {0} kopieren</CF32_CopyTitle>
+  <CF32_WhyCopy>Kopiert von {0}.</CF32_WhyCopy>
+  <CF32_HistCopy>Prioritäten von {0} kopiert nach {1}.</CF32_HistCopy>
+  <CF32_Others>{0} Kolonisten</CF32_Others>
+  <CF32_SetsButton>Sets</CF32_SetsButton>
+  <CF32_SetsTip>Gespeicherte Prioritäts-Sets: speichere die aktuellen Prioritäten unter einem Namen („Winter“, „Verteidigung“, „Ernte“ …) und lade sie später wieder. Beim Laden werden zuerst die Änderungen angezeigt.</CF32_SetsTip>
+  <CF32_SetsTitle>Prioritäts-Sets</CF32_SetsTitle>
+  <CF32_SetsHint>Speichert die Prioritäten jedes Kolonisten auf dieser Karte. Beim Laden werden zuerst alle Änderungen angezeigt; gesperrte Zellen und Kolonisten, die nicht hier sind, werden übersprungen. Ist der Steward an, ändert sein nächster Plan wieder etwas – schalte ihn aus, um ein Set zu behalten.</CF32_SetsHint>
+  <CF32_SetsSave>Aktuelle speichern</CF32_SetsSave>
+  <CF32_SetsDefaultName>Set {0}</CF32_SetsDefaultName>
+  <CF32_SetsSaved>Prioritäts-Set „{0}“ gespeichert.</CF32_SetsSaved>
+  <CF32_SetsNone>Noch keine gespeicherten Sets.</CF32_SetsNone>
+  <CF32_SetsLoad>Laden …</CF32_SetsLoad>
+  <CF32_SetsDelete>Löschen</CF32_SetsDelete>
+  <CF32_SetsLoadTitle>Set „{0}“ – {1} Änderungen</CF32_SetsLoadTitle>
+  <CF32_SetsMissing>({0} Kolonisten aus dem Set sind nicht hier)</CF32_SetsMissing>
+  <CF32_HistSetSaved>Prioritäts-Set „{0}“ gespeichert.</CF32_HistSetSaved>
+  <CF32_HistSetLoaded>Prioritäts-Set „{0}“ geladen.</CF32_HistSetLoaded>
+  <CF32_WhySet>Aus dem Set „{0}“.</CF32_WhySet>
+  <CF32_OfferNew>Arbeit für neuen Kolonisten vorschlagen</CF32_OfferNew>
+  <CF32_OfferNewTip>Wenn der Steward aus ist und ein neuer Kolonist beitritt, zeigt ein Fenster die Arbeit, die der Steward ihm geben würde. Nichts ändert sich, solange du nicht auf Anwenden drückst.</CF32_OfferNewTip>
+  <CF32_NewTitle>Neu: {0} – vorgeschlagene Arbeit</CF32_NewTitle>
+  <CF32_HistNew>Arbeit für den neuen Kolonisten {0} angewendet.</CF32_HistNew>
+  <CF32_Weekly>Wochenübersicht</CF32_Weekly>
+  <CF32_WeeklyTip>Einmal pro Woche eine kurze Nachricht (auch im Verlauf): Pläne und Änderungen, neue Kolonisten, Arbeit, die ohne jemanden wartete, Krisen.</CF32_WeeklyTip>
+  <CF32_WeekTitle>Woche des Stewards ({0}):</CF32_WeekTitle>
+  <CF32_WeekPlans>{0} Pläne, {1} Änderungen</CF32_WeekPlans>
+  <CF32_WeekNew>{0} neue Kolonisten</CF32_WeekNew>
+  <CF32_WeekGaps>wartete ohne jemanden: {0}</CF32_WeekGaps>
+  <CF32_WeekNoGaps>keine Arbeit wartete ohne jemanden</CF32_WeekNoGaps>
+  <CF32_WeekCrises>Krisen: {0}</CF32_WeekCrises>
+  <CF_Keep_Name>Verwahrzone</CF_Keep_Name>
+  <CF_Keep_Label>Verwahrzone</CF_Keep_Label>
+  <CF_Keep_Desc>Ein Lager, aus dem niemand etwas nimmt. Wähle im Lager-Reiter, was die Kolonisten hierher bringen sollen (es startet leer). Solange die Zone gesperrt ist, nehmen Kolonisten nichts heraus – nicht zum Essen, Herstellen, Bauen oder Ausrüsten, und sie transportieren es nicht woandershin. Entsperre sie mit dem Knopf an der Zone, wenn du etwas brauchst.</CF_Keep_Desc>
+  <CF_Keep_Lock>Gesperrt</CF_Keep_Lock>
+  <CF_Keep_LockDesc>An: niemand nimmt oder transportiert etwas aus dieser Zone. Aus: sie funktioniert wie ein normales Lager.</CF_Keep_LockDesc>
+  <CF_Keep_InspectLocked>Gesperrt: Kolonisten bringen nur Dinge hierher, nichts wird herausgenommen.</CF_Keep_InspectLocked>
+  <CF_Keep_InspectOpen>Entsperrt: funktioniert wie ein normales Lager.</CF_Keep_InspectOpen>
+  <CF_Keep_Beacon>Verwahrzone hier</CF_Keep_Beacon>
+  <CF_Keep_BeaconDesc>Erstellt eine Verwahrzone über den ganzen Handelsbereich dieses Orbitalhandelssignals. Wähle im Lager-Reiter, was dorthin soll – Kolonisten bringen es und lassen es dann in Ruhe, aber Händler sehen es weiterhin und können es kaufen. Dinge, die die Zone nicht verwahren soll (zum Beispiel gekaufte Waren), werden wie üblich weggebracht.</CF_Keep_BeaconDesc>
+  <CF_Keep_What>Was und wie viel</CF_Keep_What>
+  <CF_Keep_WhatDesc>Wähle, was die Kolonisten in diese Zone bringen sollen und wie viel davon. Ohne Liste verwendet die Zone ihren Lager-Reiter.</CF_Keep_WhatDesc>
+  <CF_Keep_WinTitle>{0}: was und wie viel</CF_Keep_WinTitle>
+  <CF_Keep_WinHint>Klicke links auf ein Ding, um es hinzuzufügen. Lege eine Menge fest – leer bedeutet alles, was es gibt. Nur die aufgelisteten Dinge werden hierher gebracht und verwahrt.</CF_Keep_WinHint>
+  <CF_Keep_Search>Suchen …</CF_Keep_Search>
+  <CF_Keep_OnlyOnMap>Nur Dinge, die wir haben</CF_Keep_OnlyOnMap>
+  <CF_Keep_Chosen>Hierher bringen</CF_Keep_Chosen>
+  <CF_Keep_NoneYet>Noch nichts – wähle links Dinge aus.</CF_Keep_NoneYet>
+  <CF_Keep_Have>hier {0}</CF_Keep_Have>
+  <CF_Keep_All>alles</CF_Keep_All>
+  <CF_Keep_RowTip>Kolonisten bringen dieses Ding, bis die Zone die Menge enthält (ein Träger trägt nur, was fehlt). Was hier liegt, bleibt hier.</CF_Keep_RowTip>
+  <CF_Keep_Now>Jetzt bringen</CF_Keep_Now>
+  <CF_Keep_NowDesc>Freie Kolonisten unterbrechen ihre Tätigkeit und tragen die fehlenden Dinge sofort hierher – jeder nimmt eine Ladung, der Rest folgt mit dem normalen Transport. Kolonisten, die eingezogen sind, schlafen, Feuer löschen, behandeln oder retten, bleiben in Ruhe.</CF_Keep_NowDesc>
+  <CF_Keep_NowStarted>{0} Kolonisten bringen Dinge zur Verwahrzone.</CF_Keep_NowStarted>
+  <CF_Keep_NowNobody>Niemand kann jetzt etwas bringen (kein freier Kolonist oder nichts Erreichbares mehr außerhalb der Zone).</CF_Keep_NowNobody>
+  <CF_Keep_NowFull>Die Zone hat bereits alles, was sie haben soll.</CF_Keep_NowFull>
+</LanguageData>

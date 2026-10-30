@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -27,10 +28,12 @@ namespace ResearchLockedRaidGear
 			Rules,
 			Filters,
 			Factions,
-			Raids
+			Raids,
+			Threats,
+			Evolution
 		}
 
-		public const string Version = "2.10.2";
+		public const string Version = "2.15.0";
 
 		public static ResearchLockedRaidGearSettings Settings;
 
@@ -52,6 +55,7 @@ namespace ResearchLockedRaidGear
 			: base(content)
 		{
 			Settings = GetSettings<ResearchLockedRaidGearSettings>();
+			MNews.Register(content, ResearchLockedRaidGearMod.Version);   // what's new + Bolek98 overview
 			Harmony h = new Harmony("misak.researchlockedraidgear");
 			MUI.Init(new ResearchLockedRaidGearSettings(), null, "settingsVersion", "recommended");
 			if (Settings.recommended)
@@ -59,9 +63,11 @@ namespace ResearchLockedRaidGear
 				MUI.ApplyAll(Settings);
 			}
 			MUI.PatchWindow(h, typeof(ResearchLockedRaidGearMod));
-			TryPatch(h, AccessTools.Method(typeof(PawnGenerator), "GenerateGearFor"), null, "Postfix", typeof(GenerateGearForPatch));
-			TryPatch(h, AccessTools.Method(typeof(PawnGenerator), "GeneratePawn", new Type[1] { typeof(PawnGenerationRequest) }), null, "Postfix", typeof(GeneratePawnPatch));
-			TryPatch(h, AccessTools.Method(typeof(Pawn), "SpawnSetup"), null, "Postfix", typeof(PawnSpawnSetupPatch));
+			// 2.15.1: the generation and spawn postfixes run last – other mods (races, VEF kind extensions,
+			// sidearm mods) hand out gear in their own postfixes, which used to run after ours and slip through
+			TryPatchLast(h, AccessTools.Method(typeof(PawnGenerator), "GenerateGearFor"), "Postfix", typeof(GenerateGearForPatch));
+			TryPatchLast(h, AccessTools.Method(typeof(PawnGenerator), "GeneratePawn", new Type[1] { typeof(PawnGenerationRequest) }), "Postfix", typeof(GeneratePawnPatch));
+			TryPatchLast(h, AccessTools.Method(typeof(Pawn), "SpawnSetup"), "Postfix", typeof(PawnSpawnSetupPatch));
 			TryPatch(h, AccessTools.Method(typeof(Pawn_EquipmentTracker), "AddEquipment"), "Prefix", null, typeof(AddEquipmentPatch));
 			TryPatch(h, AccessTools.Method(typeof(Pawn_ApparelTracker), "Wear"), "Prefix", null, typeof(WearApparelPatch));
 			TryPatch(h, AccessTools.Method(typeof(JobDriver_Equip), "TryMakePreToilReservations"), "Prefix", null, typeof(JobDriverEquipPatch));
@@ -107,7 +113,13 @@ namespace ResearchLockedRaidGear
 			// 2.10.0: raid types the player switched off (incidents, raid strategies, arrival modes)
 			TryPatch(h, AccessTools.Method(typeof(IncidentWorker), "CanFireNow"), null, "Postfix", typeof(RaidTypeIncidentPatch));
 			RaidTypeFilter.PatchWorkers(h);
-			MLog.Game("[World at Your Level] v2.14.0 loaded (messages: Logs\\WorldAtYourLevel.log).");
+			TryPatch(h, AccessTools.Method(typeof(Pawn), "GetInspectString"), null, "Postfix", typeof(GearLogInspectPatch));   // 2.15.0
+			// 2.16.0: raiders' implants and drugs, research cost by world level
+			TryPatch(h, AccessTools.Method(typeof(PawnTechHediffsGenerator), "InstallPart"), "InstallPartPrefix", null, typeof(RaiderImplants));
+			TryPatch(h, AccessTools.Method(typeof(PawnInventoryGenerator), "GenerateInventoryFor"), null, "InventoryPostfix", typeof(RaiderImplants));
+			TryPatch(h, AccessTools.Method(typeof(ResearchProjectDef), "CostFactor"), null, "CostFactorPostfix", typeof(ResearchCostByLevel));
+			WorldEvolution.Patch(h);   // 2.17.0
+			MLog.Game("[World at Your Level] v" + Version + " loaded (messages: Logs\\WorldAtYourLevel.log).");
 		}
 
 		private static void TryPatch(Harmony h, MethodInfo method, string prefix = null, string postfix = null, Type owner = null)
@@ -122,6 +134,23 @@ namespace ResearchLockedRaidGear
 				HarmonyMethod prefix2 = ((prefix != null) ? new HarmonyMethod(owner, prefix) : null);
 				HarmonyMethod postfix2 = ((postfix != null) ? new HarmonyMethod(owner, postfix) : null);
 				h.Patch(method, prefix2, postfix2);
+			}
+			catch (Exception ex)
+			{
+				MLog.Warn("[World at Your Level] skip " + method.Name + ": " + ex.Message);
+			}
+		}
+
+		private static void TryPatchLast(Harmony h, MethodInfo method, string postfix, Type owner)
+		{
+			if (method == null || owner == null)
+			{
+				MLog.Warn("[World at Your Level] patch target not found for " + ((owner == null) ? "?" : owner.Name));
+				return;
+			}
+			try
+			{
+				h.Patch(method, null, new HarmonyMethod(owner, postfix) { priority = Priority.Last });
 			}
 			catch (Exception ex)
 			{
@@ -154,7 +183,7 @@ namespace ResearchLockedRaidGear
 
 		public override string SettingsCategory()
 		{
-			return "Tech Progression: World at Your Level";
+			return "World at Your Level";
 		}
 
 		private static List<string> recBullets;
@@ -162,7 +191,7 @@ namespace ResearchLockedRaidGear
 		public override void DoSettingsWindowContents(Rect inRect)
 		{
 			// 2.13.0: recommended settings card on top
-			MUI.Version(inRect, "v2.14.0 · Bolek98");
+			MUI.Version(inRect, "v" + Version + " · Bolek98");
 			if (recBullets == null)
 			{
 				recBullets = new List<string>();
@@ -211,12 +240,20 @@ namespace ResearchLockedRaidGear
 			{
 				tab = SettingsTab.Raids;
 			}, tab == SettingsTab.Raids));
+			list.Add(new TabRecord("RLRG_TabThreats".Translate(), delegate
+			{
+				tab = SettingsTab.Threats;
+			}, tab == SettingsTab.Threats));
+			list.Add(new TabRecord("RLRG_TabEvolution".Translate(), delegate
+			{
+				tab = SettingsTab.Evolution;
+			}, tab == SettingsTab.Evolution));
 			List<TabRecord> tabs = list;
 			Rect rect = new Rect(inRect.x, inRect.y + 34f, inRect.width, inRect.height - 34f);
 			Widgets.DrawMenuSection(rect);
 			TabDrawer.DrawTabs(rect, tabs, 1, 200f);
 			Rect r = rect.ContractedBy(12f);
-			MUI.BeginLock(Settings.recommended && tab != SettingsTab.Factions && tab != SettingsTab.Raids);
+			MUI.BeginLock(Settings.recommended && tab != SettingsTab.Factions && tab != SettingsTab.Raids && tab != SettingsTab.Threats);
 			try
 			{
 			switch (tab)
@@ -238,6 +275,12 @@ namespace ResearchLockedRaidGear
 				break;
 			case SettingsTab.Raids:
 				DrawRaidsTab(r);
+				break;
+			case SettingsTab.Threats:
+				DrawThreatsTab(r);
+				break;
+			case SettingsTab.Evolution:
+				DrawEvolutionTab(r);
 				break;
 			}
 			}
@@ -310,7 +353,15 @@ namespace ResearchLockedRaidGear
 			Settings.techLevelsAhead = (int)Sl(listing_Standard, "techLevelsAhead", "RLRG_TechAhead".Translate(Settings.techLevelsAhead), Settings.techLevelsAhead, 0f, 3f, 0.55f, "RLRG_TechAhead_Desc".Translate());
 			Settings.yearsPerTechLevel = (int)Sl(listing_Standard, "yearsPerTechLevel", (Settings.yearsPerTechLevel > 0) ? "RLRG_Years".Translate(Settings.yearsPerTechLevel).ToString() : "RLRG_YearsOff".Translate().ToString(), Settings.yearsPerTechLevel, 0f, 5f, 0.55f, "RLRG_Years_Desc".Translate());
 			Check(listing_Standard, "RLRG_LockResearch", ref Settings.lockHigherResearch, "lockHigherResearch");
+			// 2.16.0: research cost by world level
+			Check(listing_Standard, "RLRG_ResearchCost", ref Settings.researchCostByLevel, "researchCostByLevel");
+			if (Settings.researchCostByLevel)
+			{
+				Settings.researchAbovePercent = (int)Sl(listing_Standard, "researchAbovePercent", "RLRG_ResearchAbove".Translate(Settings.researchAbovePercent), Settings.researchAbovePercent, 0f, 200f, 0.55f, "RLRG_ResearchAbove_Desc".Translate());
+				Settings.researchBelowPercent = (int)Sl(listing_Standard, "researchBelowPercent", "RLRG_ResearchBelow".Translate(Settings.researchBelowPercent), Settings.researchBelowPercent, 0f, 75f, 0.55f, "RLRG_ResearchBelow_Desc".Translate());
+			}
 			Check(listing_Standard, "RLRG_WorldMessages", ref Settings.worldMessages, "worldMessages");
+			Check(listing_Standard, "RLRG_WorldLetter", ref Settings.worldLetter, "worldLetter");
 			listing_Standard.End();
 		}
 
@@ -332,6 +383,8 @@ namespace ResearchLockedRaidGear
 			Check(listing_Standard, "RLRG_FilterApparel", ref Settings.filterApparel, "filterApparel");
 			Check(listing_Standard, "RLRG_FilterInventory", ref Settings.filterInventory, "filterInventory");
 			Check(listing_Standard, "RLRG_FilterPossessions", ref Settings.filterPossessions, "filterPossessions");
+			Check(listing_Standard, "RLRG_FilterImplants", ref Settings.filterImplants, "filterImplants");
+			Check(listing_Standard, "RLRG_FilterDrugs", ref Settings.filterRaiderDrugs, "filterRaiderDrugs");
 			Check(listing_Standard, "RLRG_NotifyRaid", ref Settings.notifyRaid, "notifyRaid");
 			listing_Standard.NewColumn();
 			Check(listing_Standard, "RLRG_Replace", ref Settings.replaceWithClosest, "replaceWithClosest");
@@ -347,6 +400,12 @@ namespace ResearchLockedRaidGear
 			// 2.13.0: rare raids
 			Settings.rareAdvancedChance = (int)Sl(listing_Standard, "rareAdvancedChance", "RLRG_RareAdvanced".Translate(Settings.rareAdvancedChance), Settings.rareAdvancedChance, 0f, 50f, 0.55f, "RLRG_RareAdvanced_Desc".Translate());
 			Settings.rareLowTechChance = (int)Sl(listing_Standard, "rareLowTechChance", "RLRG_RareLowTech".Translate(Settings.rareLowTechChance), Settings.rareLowTechChance, 0f, 50f, 0.55f, "RLRG_RareLowTech_Desc".Translate());
+			// 2.15.1: gradual change of era
+			Check(listing_Standard, "RLRG_Gradual", ref Settings.gradualEras, "gradualEras");
+			if (Settings.gradualEras)
+			{
+				Settings.gradualDays = (int)Sl(listing_Standard, "gradualDays", "RLRG_GradualDays".Translate(Settings.gradualDays), Settings.gradualDays, 1f, 15f, 0.55f, "RLRG_GradualDays_Desc".Translate());
+			}
 			listing_Standard.End();
 		}
 
@@ -442,6 +501,25 @@ namespace ResearchLockedRaidGear
 			listing_Standard.End();
 		}
 
+		// 2.17.0
+		private void DrawEvolutionTab(Rect r)
+		{
+			Listing_Standard l = new Listing_Standard();
+			l.Begin(r);
+			l.ColumnWidth = (r.width - 34f) / 2f;
+			Check(l, "RLRG_EV_FactionTech", ref Settings.factionTech, "factionTech");
+			if (Settings.factionTech)
+				Check(l, "RLRG_EV_FactionLead", ref Settings.factionLead, "factionLead");
+			l.GapLine();
+			Check(l, "RLRG_EV_Study", ref Settings.studyTech, "studyTech");
+			Check(l, "RLRG_EV_EraEvents", ref Settings.eraEvents, "eraEvents");
+			l.NewColumn();
+			Check(l, "RLRG_EV_RaidDefense", ref Settings.raidByDefense, "raidByDefense");
+			if (Settings.raidByDefense)
+				Settings.defenseWeight = (int)Sl(l, "defenseWeight", "RLRG_EV_DefenseWeight".Translate(Settings.defenseWeight), Settings.defenseWeight, 10f, 100f, 0.55f, "RLRG_EV_DefenseWeight_Desc".Translate());
+			l.End();
+		}
+
 		private void DrawFactionsTab(Rect r)
 		{
 			Widgets.Label(new Rect(r.x, r.y, r.width, 26f), "RLRG_ExemptFactions".Translate());
@@ -491,13 +569,18 @@ namespace ResearchLockedRaidGear
 
 		private string raidSearch = string.Empty;
 
+		private void DrawThreatsTab(Rect r)
+		{
+			ThreatsTab.Draw(r, Settings);
+		}
+
 		// 2.10.0: tab with raid types that will not happen (checked = allowed)
 		private void DrawRaidsTab(Rect r)
 		{
 			ResearchLockedRaidGearSettings s = Settings;
 			RaidTypeFilter.EnsureLists();
-			int blocked = RaidTypeFilter.BlockedCountAll();
-			int total = RaidTypeFilter.TotalCountAll();
+			int blocked = RaidTypeFilter.BlockedCount(1) + RaidTypeFilter.BlockedCount(2) + RaidTypeFilter.BlockedCount(3);
+			int total = RaidTypeFilter.TotalCount(1) + RaidTypeFilter.TotalCount(2) + RaidTypeFilter.TotalCount(3);
 			Widgets.Label(new Rect(r.x, r.y, r.width, 26f), "RLRG_RaidsIntro".Translate());
 			float y = r.y + 26f;
 			GUI.color = (blocked > 0) ? new Color(1f, 0.75f, 0.45f) : new Color(0.7f, 0.9f, 0.7f);
@@ -509,14 +592,13 @@ namespace ResearchLockedRaidGear
 			TooltipHandler.TipRegion(resetRect, "RLRG_RaidsResetAll_Desc".Translate());
 			if (Widgets.ButtonText(resetRect, "RLRG_RaidsResetAll".Translate()))
 			{
-				s.blockedIncidents.Clear();
 				s.blockedRaidStrategies.Clear();
 				s.blockedArrivalModes.Clear();
 				s.blockedQuests.Clear();
 				RaidTypeFilter.Invalidate();
 			}
 			y += 36f;
-			List<RaidTypeFilter.Row> rows = RaidTypeFilter.BuildRows(raidSearch);
+			List<RaidTypeFilter.Row> rows = RaidTypeFilter.BuildRows(raidSearch, 1);
 			float rowH = 26f;
 			float headerH = 34f;
 			float viewH = 0f;
@@ -663,6 +745,14 @@ namespace ResearchLockedRaidGear
 		public bool worldRaidFactions = true;
 
 		public bool worldMechanoids;
+
+		// 2.18.0: bosses the player called himself (Diabolus, War Queen, Apocriton … from the comms console) stay
+		public bool keepCalledBosses = true;
+
+		// 2.18.0: things the player wants to keep even though a rule of this mod would remove them (defNames),
+		// and what the mod has removed so far (shown in the Threats tab)
+		public List<string> keepDefs = new List<string>();
+		public List<string> removedSeen = new List<string>();
 		// 2.14.0: with "match the colony" enemies still only get what you have crafted
 		public bool strictCrafted = true;
 		// 2.14.0: turrets on quest sites, bases and sieges only up to the turrets you have built yourself
@@ -673,6 +763,8 @@ namespace ResearchLockedRaidGear
 		public bool worldIncidents = true;
 
 		public bool worldMessages = true;
+		// 2.15.2: a letter (not just a short message) when the world reaches a higher level
+		public bool worldLetter = true;
 
 		public bool worldQuests = true;
 
@@ -757,7 +849,33 @@ namespace ResearchLockedRaidGear
 
 		public int keepChancePercent;
 
+		// 2.15.1: gradual change of era – after the world level rises only a growing share of arrivals
+		// get gear of the new era (off by default)
+		public bool gradualEras;
+
+		// 2.16.0: raiders' implants and drugs above the world level are not given
+		public bool filterImplants = true;
+
+		public bool filterRaiderDrugs = true;
+
+		// 2.16.0: research above the world level costs more, below it less (off by default)
+		public bool researchCostByLevel;
+
+		public int researchAbovePercent = 50;
+
+		public int researchBelowPercent = 25;
+
+		public int gradualDays = 5;
+
 		public bool keepTitleApparel = true;
+
+		// 2.17.0: a world that grows
+		public bool factionTech = true;
+		public bool factionLead = true;
+		public bool raidByDefense;
+		public int defenseWeight = 50;
+		public bool studyTech = true;
+		public bool eraEvents = true;
 
 		public bool exemptAncients = true;
 
@@ -827,11 +945,19 @@ namespace ResearchLockedRaidGear
 			Scribe_Values.Look(ref levelByProgress, "levelByProgress", true);
 			Scribe_Values.Look(ref worldRaidFactions, "worldRaidFactions", true);
 			Scribe_Values.Look(ref worldMechanoids, "worldMechanoids", false);
+			Scribe_Values.Look(ref keepCalledBosses, "keepCalledBosses", true);
+			Scribe_Collections.Look(ref keepDefs, "keepDefs", LookMode.Value);
+			Scribe_Collections.Look(ref removedSeen, "removedSeen", LookMode.Value);
+			if (keepDefs == null)
+				keepDefs = new List<string>();
+			if (removedSeen == null)
+				removedSeen = new List<string>();
 			Scribe_Values.Look(ref strictCrafted, "strictCrafted", true);
 			Scribe_Values.Look(ref siteTurrets, "siteTurrets", true);
 			Scribe_Values.Look(ref worldItems, "worldItems", true);
 			Scribe_Values.Look(ref worldIncidents, "worldIncidents", true);
 			Scribe_Values.Look(ref worldMessages, "worldMessages", true);
+			Scribe_Values.Look(ref worldLetter, "worldLetter", true);
 			Scribe_Values.Look(ref worldQuests, "worldQuests", true);
 			Scribe_Values.Look(ref useManualLevel, "useManualLevel", false);
 			Scribe_Values.Look(ref manualLevel, "manualLevel", TechLevel.Industrial);
@@ -871,7 +997,20 @@ namespace ResearchLockedRaidGear
 			Scribe_Values.Look(ref rareAdvancedChance, "rareAdvancedChance", 0);
 			Scribe_Values.Look(ref rareLowTechChance, "rareLowTechChance", 0);
 			Scribe_Values.Look(ref keepChancePercent, "keepChancePercent", 0);
+			Scribe_Values.Look(ref gradualEras, "gradualEras", false);
+			Scribe_Values.Look(ref gradualDays, "gradualDays", 5);
+			Scribe_Values.Look(ref filterImplants, "filterImplants", true);
+			Scribe_Values.Look(ref filterRaiderDrugs, "filterRaiderDrugs", true);
+			Scribe_Values.Look(ref researchCostByLevel, "researchCostByLevel", false);
+			Scribe_Values.Look(ref researchAbovePercent, "researchAbovePercent", 50);
+			Scribe_Values.Look(ref researchBelowPercent, "researchBelowPercent", 25);
 			Scribe_Values.Look(ref keepTitleApparel, "keepTitleApparel", true);
+			Scribe_Values.Look(ref factionTech, "factionTech", true);
+			Scribe_Values.Look(ref factionLead, "factionLead", true);
+			Scribe_Values.Look(ref raidByDefense, "raidByDefense", false);
+			Scribe_Values.Look(ref defenseWeight, "defenseWeight", 50);
+			Scribe_Values.Look(ref studyTech, "studyTech", true);
+			Scribe_Values.Look(ref eraEvents, "eraEvents", true);
 			Scribe_Values.Look(ref exemptAncients, "exemptAncients", true);
 			Scribe_Collections.Look(ref exemptFactions, "exemptFactions", LookMode.Value);
 			if (exemptFactions == null)
@@ -1209,6 +1348,22 @@ namespace ResearchLockedRaidGear
 			researchCache.Clear();
 		}
 
+		// 2.15.2: which research projects count for the colony tier. Anomaly projects (studied through
+		// knowledge, not at a bench) and projects without a tech level are left out, so the tier
+		// cannot get stuck on research that most colonies never do.
+		public static bool CountsForTier(ResearchProjectDef r)
+		{
+			if (r == null || r.techLevel == TechLevel.Undefined)
+			{
+				return false;
+			}
+			if (r.knowledgeCategory != null)
+			{
+				return false;
+			}
+			return r.tab == null || r.tab.defName != "Anomaly";
+		}
+
 		public static TechLevel ComputeColonyTech(out TechLevel scenario, out TechLevel research)
 		{
 			scenario = TechLevel.Neolithic;
@@ -1232,7 +1387,7 @@ namespace ResearchLockedRaidGear
 			for (int i = 0; i < allDefsListForReading.Count; i++)
 			{
 				ResearchProjectDef researchProjectDef = allDefsListForReading[i];
-				if (researchProjectDef == null)
+				if (!CountsForTier(researchProjectDef))
 				{
 					continue;
 				}
@@ -1784,6 +1939,18 @@ namespace ResearchLockedRaidGear
 			return false;
 		}
 
+		// 2.15.1: gradual change of era – while this is >= 0 the pawn being filtered only keeps gear up to this tech level
+		public static int LagCap = -1;
+
+		public static int LeadCap = -1;
+
+		// 2.17.0: gear of a leading faction's level (one above the world)
+		private static bool LeadOk(ThingDef def)
+		{
+			return LeadCap >= 0 && def != null && (def.IsWeapon || def.IsApparel) && !IsManuallyBanned(def)
+				&& (int)EffectiveTech(def) <= LeadCap && (!IsExplosive(def) || ExplosiveTierOpen(def));
+		}
+
 		public static void FilterPawn(Pawn pawn)
 		{
 			if (Applying > 0 || !ShouldFilter(pawn))
@@ -1791,6 +1958,11 @@ namespace ResearchLockedRaidGear
 				return;
 			}
 			Applying++;
+			LagCap = EraTransition.CapFor(pawn);
+			// 2.17.0: a lagging faction carries gear of its own level, a leading one a level more
+			int fcap = WorldEvolution.CapFor(pawn);
+			if (fcap >= 0) LagCap = LagCap < 0 ? fcap : Math.Min(LagCap, fcap);
+			LeadCap = WorldEvolution.LeadFor(pawn);
 			try
 			{
 				StripDisallowed(pawn, ResearchLockedRaidGearMod.Settings);
@@ -1801,8 +1973,21 @@ namespace ResearchLockedRaidGear
 			}
 			finally
 			{
+				LagCap = -1;
+				LeadCap = -1;
 				Applying--;
 			}
+		}
+
+		// 2.15.1: above the lagging cap (gradual change of era)?
+		private static bool AboveLag(ThingDef def)
+		{
+			return LagCap >= 0 && def != null && (def.IsWeapon || def.IsApparel) && (int)EffectiveTech(def) > LagCap;
+		}
+
+		public static TechLevel EffectiveTechPublic(ThingDef def)
+		{
+			return EffectiveTech(def);
 		}
 
 		public static void StripDisallowed(Pawn pawn, ResearchLockedRaidGearSettings settings)
@@ -1945,6 +2130,7 @@ namespace ResearchLockedRaidGear
 						ThingDef thingDef = ((!settings.replaceWithClosest || beast) ? null : (RestuffOk(thingWithComps) ? thingWithComps.def : FindClosestWeapon(thingWithComps.def)));
 						pawn.equipment.Remove(thingWithComps);
 						RaidCompensation.CountItem(thingDef != null);
+						GearLog.Add(pawn, thingWithComps, thingDef);
 						if (thingDef != null)
 						{
 							GiveWeapon(pawn, thingDef, thingWithComps);
@@ -1964,6 +2150,7 @@ namespace ResearchLockedRaidGear
 						ThingDef thingDef2 = ((!settings.replaceWithClosest || beast) ? null : (RestuffOk(apparel) ? apparel.def : FindClosestApparel(pawn, apparel.def)));
 						pawn.apparel.Remove(apparel);
 						RaidCompensation.CountItem(thingDef2 != null);
+						GearLog.Add(pawn, apparel, thingDef2);
 						if (thingDef2 != null)
 						{
 							GiveApparel(pawn, thingDef2, apparel);
@@ -1982,6 +2169,7 @@ namespace ResearchLockedRaidGear
 					{
 						pawn.inventory.innerContainer.Remove(thing);
 						RaidCompensation.CountItem(false);
+						GearLog.Add(pawn, thing, null);
 						Discard(pawn, thing, settings);
 					}
 				}
@@ -2528,6 +2716,14 @@ namespace ResearchLockedRaidGear
 			{
 				return true;
 			}
+			if (!beast && AboveLag(t.def))
+			{
+				return false;
+			}
+			if (!beast && LeadOk(t.def))
+			{
+				return true;
+			}
 			if (beast || !MatchOn)
 			{
 				return IsAllowed(t.def);
@@ -2542,7 +2738,7 @@ namespace ResearchLockedRaidGear
 		// the same kind is fine, only its material is too good: same kind from ordinary material
 		private static bool RestuffOk(Thing t)
 		{
-			if (t == null || t.Stuff == null || !MatchOn || !t.def.MadeFromStuff)
+			if (t == null || t.Stuff == null || !MatchOn || !t.def.MadeFromStuff || AboveLag(t.def))
 			{
 				return false;
 			}
@@ -2735,7 +2931,8 @@ namespace ResearchLockedRaidGear
 		private static ThingDef FindClosestWeapon(ThingDef original)
 		{
 			ThingDef value;
-			if (closestWeaponCache.TryGetValue(original, out value))
+			bool lag = LagCap >= 0;
+			if (!lag && closestWeaponCache.TryGetValue(original, out value))
 			{
 				return value;
 			}
@@ -2747,7 +2944,7 @@ namespace ResearchLockedRaidGear
 			for (int i = 0; i < list.Count; i++)
 			{
 				ThingDef thingDef2 = list[i];
-				if (thingDef2 != original)
+				if (thingDef2 != original && !(lag && AboveLag(thingDef2)))
 				{
 					float num2 = 0f;
 					if (thingDef2.IsRangedWeapon != isRangedWeapon)
@@ -2767,7 +2964,10 @@ namespace ResearchLockedRaidGear
 					}
 				}
 			}
-			closestWeaponCache[original] = thingDef;
+			if (!lag)
+			{
+				closestWeaponCache[original] = thingDef;
+			}
 			return thingDef;
 		}
 
@@ -2779,7 +2979,7 @@ namespace ResearchLockedRaidGear
 			for (int i = 0; i < list.Count; i++)
 			{
 				ThingDef thingDef = list[i];
-				if (thingDef != original && (original.apparel == null || original.apparel.LastLayer == thingDef.apparel.LastLayer) && thingDef.apparel.PawnCanWear(pawn) && ApparelUtility.HasPartsToWear(pawn, thingDef))
+				if (thingDef != original && !AboveLag(thingDef) && (original.apparel == null || original.apparel.LastLayer == thingDef.apparel.LastLayer) && thingDef.apparel.PawnCanWear(pawn) && ApparelUtility.HasPartsToWear(pawn, thingDef))
 				{
 					float num2 = (float)Math.Abs((int)(thingDef.techLevel - original.techLevel)) * 80f;
 					num2 += Math.Abs(thingDef.BaseMarketValue - original.BaseMarketValue) * 0.08f;
@@ -3266,6 +3466,11 @@ namespace ResearchLockedRaidGear
 
 		public int recVersion;
 
+		// 2.15.1: when the world level last went up and from which level (gradual change of era)
+		public int eraRiseTick = -1;
+
+		public int eraPrevLevel;
+
 		public void NoteProduct(Thing t, bool fromColony)
 		{
 			if (t == null || t.def == null || (!t.def.IsWeapon && !t.def.IsApparel))
@@ -3571,6 +3776,8 @@ namespace ResearchLockedRaidGear
 			Scribe_Values.Look(ref recQualW, "rlrgRecQualW", QualityCategory.Normal);
 			Scribe_Values.Look(ref recQualA, "rlrgRecQualA", QualityCategory.Normal);
 			Scribe_Values.Look(ref productSeeded, "rlrgProductSeeded", false);
+			Scribe_Values.Look(ref eraRiseTick, "rlrgEraRiseTick", -1);
+			Scribe_Values.Look(ref eraPrevLevel, "rlrgEraPrevLevel", 0);
 			if (evTicks == null || evCats == null || evDefs == null || evTicks.Count != evCats.Count || evTicks.Count != evDefs.Count)
 			{
 				evTicks = new List<int>();
@@ -3621,8 +3828,34 @@ namespace ResearchLockedRaidGear
 			else if (techLevel != lastWorldLevel)
 			{
 				bool flag = (int)techLevel > (int)lastWorldLevel;
+				// 2.15.1: gradual change of era starts here (a drop ends it)
+				if (flag)
+				{
+					eraPrevLevel = (int)lastWorldLevel;
+					eraRiseTick = Find.TickManager.TicksGame;
+				}
+				else
+				{
+					eraRiseTick = -1;
+				}
 				lastWorldLevel = techLevel;
-				if (settings.worldMessages)
+				// 2.15.2: a rise gets a letter that says what it means (can be switched back to the short message)
+				if (flag)
+				{
+					WorldEvolution.OnLevelRise(techLevel);   // 2.17.0
+				}
+				if (flag && settings.worldLetter)
+				{
+					try
+					{
+						Find.LetterStack.ReceiveLetter("RLRG_WorldLetterTitle".Translate(techLevel.ToStringHuman().CapitalizeFirst()), "RLRG_WorldLetterText".Translate(techLevel.ToStringHuman()), LetterDefOf.NeutralEvent);
+					}
+					catch (Exception exL)
+					{
+						MLog.Warn("[World at Your Level] world level letter failed: " + exL.Message);
+					}
+				}
+				else if (settings.worldMessages)
 				{
 					Messages.Message(((!flag) ? "RLRG_WorldDown" : "RLRG_WorldUp").Translate(techLevel.ToStringHuman()), (!flag) ? MessageTypeDefOf.NeutralEvent : MessageTypeDefOf.PositiveEvent, false);
 				}
@@ -3704,7 +3937,71 @@ namespace ResearchLockedRaidGear
 			return st != null && st.worldMechanoids && pawn != null && !pawn.Dead && pawn.RaceProps != null && pawn.RaceProps.IsMechanoid
 			       && pawn.Faction != null && !pawn.Faction.IsPlayer && pawn.Map != null && !pawn.IsColonyMech
 			       && pawn.HostileTo(Faction.OfPlayer)
-			       && (!WorldTech.FactionWithinWorld(pawn.Faction) || !MechEscorts.Researched(pawn.def));
+			       && (!WorldTech.FactionWithinWorld(pawn.Faction) || !MechEscorts.Researched(pawn.def))
+			       && !(st.keepCalledBosses && CalledBoss(pawn))
+			       && !Kept(pawn.def);
+		}
+
+		// 2.18.0: unticked in the Threats tab = the player wants it, whatever the rules say
+		public static bool Kept(ThingDef d)
+		{
+			ResearchLockedRaidGearSettings st = ResearchLockedRaidGearMod.Settings;
+			return d != null && st != null && st.keepDefs != null && st.keepDefs.Count > 0 && st.keepDefs.Contains(d.defName);
+		}
+
+		// what the Threats tab shows for a def: 0 = stays, 1 = removed (not researched / above the world level)
+		public static bool WouldRemove(ThingDef d)
+		{
+			ResearchLockedRaidGearSettings st = ResearchLockedRaidGearMod.Settings;
+			if (d == null || st == null || !st.enabled || Kept(d))
+				return false;
+			if (d.race != null)
+				return d.race.IsMechanoid && st.worldMechanoids && (Current.Game == null || !MechEscorts.Researched(d));
+			if (!st.worldCausers)
+				return false;
+			int t = TechOf(d);
+			return t != 0 && (Current.Game == null || t > (int)WorldTech.Level());
+		}
+
+		public static bool IsCauser(ThingDef d) => d != null && d.race == null && TechOf(d) != 0;
+
+		private static void Seen(ThingDef d)
+		{
+			ResearchLockedRaidGearSettings st = ResearchLockedRaidGearMod.Settings;
+			if (d == null || st?.removedSeen == null || st.removedSeen.Contains(d.defName))
+				return;
+			st.removedSeen.Add(d.defName);
+			if (st.removedSeen.Count > 300)
+				st.removedSeen.RemoveAt(0);
+			ThreatsTab.Invalidate();
+		}
+
+		// 2.18.0: a bossgroup the player called with a mechanitor at the comms console – its boss and escort
+		// are what he asked for (signal chips, research), never "unwanted"
+		public static bool CalledBoss(Pawn p)
+		{
+			try
+			{
+				if (p.GetLord()?.LordJob is LordJob_BossgroupAssaultColony)
+					return true;
+				List<Quest> quests = Find.QuestManager?.QuestsListForReading;
+				if (quests == null)
+					return false;
+				for (int i = 0; i < quests.Count; i++)
+				{
+					Quest q = quests[i];
+					if (q == null || q.State != QuestState.Ongoing)
+						continue;
+					List<QuestPart> parts = q.PartsListForReading;
+					for (int j = 0; j < parts.Count; j++)
+						if (parts[j] is QuestPart_Bossgroup bg && ((bg.pawns != null && bg.pawns.Contains(p)) || (bg.bosses != null && bg.bosses.Contains(p))))
+							return true;
+				}
+			}
+			catch
+			{
+			}
+			return false;
 		}
 
 		// 2.13.2: once after loading a save – mechanoids and drones that were already on the maps
@@ -3746,7 +4043,7 @@ namespace ResearchLockedRaidGear
 				}
 				return;
 			}
-			if (!respawningAfterLoad && thing != null && !(thing is Pawn) && thing.def != null && Enabled)
+			if (!respawningAfterLoad && thing != null && !(thing is Pawn) && thing.def != null && Enabled && !Kept(thing.def))
 			{
 				int num = TechOf(thing.def);
 				if (num != 0 && num > (int)WorldTech.Level() && (thing.Faction == null || !thing.Faction.IsPlayer))
@@ -3835,6 +4132,7 @@ namespace ResearchLockedRaidGear
 					{
 						continue;
 					}
+					Seen(thing.def);
 					told.TryGetValue(text, out int n);
 					told[text] = n + 1;
 				}
@@ -4817,6 +5115,24 @@ namespace ResearchLockedRaidGear
 			return (int)techLevel <= (int)TraderMaxTech();
 		}
 
+		// 2.15.1: the high-tech events that open between two world levels (World tab outlook)
+		public static List<string> IncidentsUnlockedBetween(TechLevel from, TechLevel to)
+		{
+			var res = new List<string>();
+			foreach (KeyValuePair<string, TechLevel> kv in incidentTech)
+			{
+				if ((int)kv.Value > (int)from && (int)kv.Value <= (int)to)
+				{
+					IncidentDef d = DefDatabase<IncidentDef>.GetNamedSilentFail(kv.Key);
+					if (d != null)
+					{
+						res.Add(d.LabelCap.ToString());
+					}
+				}
+			}
+			return res;
+		}
+
 		public static bool IncidentAllowed(IncidentDef def)
 		{
 			ResearchLockedRaidGearSettings settings = ResearchLockedRaidGearMod.Settings;
@@ -4994,13 +5310,14 @@ namespace ResearchLockedRaidGear
 			ResearchLockedRaidGearSettings settings = ResearchLockedRaidGearMod.Settings;
 			RaidGearGameComponent comp = RaidGearGameComponent.Get();
 			int ticksGame = Find.TickManager.TicksGame;
-			Rect rect = new Rect(0f, 0f, inRect.width - 20f, 1400f);
+			Rect rect = new Rect(0f, 0f, inRect.width - 20f, 1800f);
 			Widgets.BeginScrollView(inRect, ref scroll, rect);
 			Listing_Standard listing_Standard = new Listing_Standard();
 			listing_Standard.Begin(rect);
 			try
 			{
 				DrawContents(listing_Standard, settings, comp, ticksGame);
+				WorldEvolution.DrawFactions(listing_Standard);   // 2.17.0
 			}
 			catch (Exception ex)
 			{
@@ -5036,6 +5353,23 @@ namespace ResearchLockedRaidGear
 			if (list.ButtonText("RLRG_Diag_Open".Translate()))
 			{
 				Find.WindowStack.Add(new Dialog_VisitorDiag());
+			}
+			// 2.15.1: what the next tier brings
+			list.GapLine();
+			Text.Font = GameFont.Medium;
+			list.Label("RLRG_OutTitle".Translate());
+			Text.Font = GameFont.Small;
+			foreach (string line in Outlook.Lines())
+			{
+				list.Label("   " + line);
+			}
+			if (settings != null && settings.gradualEras)
+			{
+				float share = EraTransition.Share();
+				if (share < 1f)
+				{
+					list.Label("   " + "RLRG_OutGradualNow".Translate(Mathf.RoundToInt(share * 100f)));
+				}
 			}
 			list.GapLine();
 			Text.Font = GameFont.Medium;
@@ -5183,8 +5517,238 @@ namespace ResearchLockedRaidGear
 	}
 	// 2.11.1: small readout above the date: research level, progress to the next level,
 	// details per tech tier in the tooltip, click opens the World tab
+	// 2.15.1: gradual change of era. After the world level goes up, at first only about 20 % of arrivals get the
+	// new era's gear, rising evenly to 100 % over the set number of days. Which pawns lag is fixed per pawn, so a
+	// pawn that is filtered twice keeps the same answer. Stored in RaidGearGameComponent (save-safe).
+	public static class EraTransition
+	{
+		public const float StartShare = 0.2f;
+
+		public static float Share()
+		{
+			ResearchLockedRaidGearSettings settings = ResearchLockedRaidGearMod.Settings;
+			RaidGearGameComponent comp = RaidGearGameComponent.Get();
+			if (settings == null || !settings.gradualEras || comp == null || comp.eraRiseTick < 0 || Find.TickManager == null)
+			{
+				return 1f;
+			}
+			float days = (Find.TickManager.TicksGame - comp.eraRiseTick) / 60000f;
+			float total = Mathf.Max(1, settings.gradualDays);
+			if (days >= total)
+			{
+				return 1f;
+			}
+			return Mathf.Clamp01(StartShare + (1f - StartShare) * days / total);
+		}
+
+		// the tech level this pawn may keep, or -1 when it gets the full world level
+		public static int CapFor(Pawn pawn)
+		{
+			try
+			{
+				if (pawn == null || RareRaid.Shift != 0)
+				{
+					return -1;
+				}
+				float share = Share();
+				if (share >= 1f)
+				{
+					return -1;
+				}
+				RaidGearGameComponent comp = RaidGearGameComponent.Get();
+				if (comp == null)
+				{
+					return -1;
+				}
+				// stable per pawn: 0..999
+				int roll = (int)((uint)Gen.HashCombineInt(pawn.thingIDNumber, 0x5EA7) % 1000u);
+				return roll < Mathf.RoundToInt(share * 1000f) ? -1 : Mathf.Max(1, comp.eraPrevLevel);
+			}
+			catch
+			{
+				return -1;
+			}
+		}
+	}
+
+	// 2.15.1: what the next tier brings – shown in the World tab
+	public static class Outlook
+	{
+		private static int lastFrame = -100000;
+
+		private static List<string> lines = new List<string>();
+
+		public static List<string> Lines()
+		{
+			if (Time.frameCount - lastFrame > 300 || lines.Count == 0)
+			{
+				lastFrame = Time.frameCount;
+				try
+				{
+					lines = Build();
+				}
+				catch (Exception ex)
+				{
+					lines = new List<string> { "error: " + ex.Message };
+				}
+			}
+			return lines;
+		}
+
+		private static string Some(List<string> names, int total)
+		{
+			string s = string.Join(", ", names.ToArray());
+			return total > names.Count ? s + " …" : s;
+		}
+
+		private static List<string> Build()
+		{
+			var res = new List<string>();
+			ResearchLockedRaidGearSettings settings = ResearchLockedRaidGearMod.Settings;
+			if (settings == null)
+			{
+				return res;
+			}
+			TechLevel colony, next;
+			int done, need, total;
+			if (settings.useManualLevel)
+			{
+				res.Add("RLRG_OutManual".Translate(settings.manualLevel.ToStringHuman()));
+				return res;
+			}
+			if (!LevelHud.NextTier(settings, out colony, out next, out done, out need, out total))
+			{
+				res.Add("RLRG_OutTop".Translate(colony.ToStringHuman()));
+				return res;
+			}
+			int left = Mathf.Max(0, need - done);
+			res.Add("RLRG_OutNext".Translate(next.ToStringHuman().CapitalizeFirst(), left, done, need, total));
+			// what the world gets at that tier (world level = colony + tolerance, so one tier more)
+			TechLevel worldNow = ResearchLockedGearFilter.TechLimit(settings);
+			TechLevel worldNext = (TechLevel)Mathf.Clamp((int)worldNow + ((int)next - (int)colony), 1, 7);
+			res.Add("RLRG_OutWorld".Translate(worldNow.ToStringHuman(), worldNext.ToStringHuman()));
+			if ((int)worldNext <= (int)worldNow)
+			{
+				return res;
+			}
+			// gear kinds of the new tier that arrivals could carry
+			var guns = new List<string>();
+			var armor = new List<string>();
+			int gunCount = 0, armorCount = 0;
+			foreach (ThingDef d in DefDatabase<ThingDef>.AllDefsListForReading)
+			{
+				if (d == null || (!d.IsWeapon && !d.IsApparel) || d.destroyOnDrop || !ResearchLockedGearFilter.IsRealItem(d))
+				{
+					continue;
+				}
+				TechLevel t = ResearchLockedGearFilter.EffectiveTechPublic(d);
+				if ((int)t <= (int)worldNow || (int)t > (int)worldNext)
+				{
+					continue;
+				}
+				if (d.IsWeapon && !d.IsApparel)
+				{
+					if (gunCount++ < 4) guns.Add(d.label);
+				}
+				else if (armorCount++ < 4)
+				{
+					armor.Add(d.label);
+				}
+			}
+			if (gunCount > 0)
+			{
+				res.Add("RLRG_OutGuns".Translate(gunCount, Some(guns, gunCount)));
+			}
+			if (armorCount > 0)
+			{
+				res.Add("RLRG_OutArmor".Translate(armorCount, Some(armor, armorCount)));
+			}
+			// factions that start raiding (only when factions above the world level are blocked)
+			if (settings.worldRaidFactions && !settings.factionsAtWorldLevel && Find.FactionManager != null)
+			{
+				var fac = new List<string>();
+				foreach (Faction f in Find.FactionManager.AllFactionsVisible)
+				{
+					if (f == null || f.IsPlayer || f.def == null || !f.HostileTo(Faction.OfPlayer))
+					{
+						continue;
+					}
+					int ft = (int)f.def.techLevel;
+					if (ft > (int)worldNow && ft <= (int)worldNext)
+					{
+						fac.Add(f.Name);
+					}
+				}
+				if (fac.Count > 0)
+				{
+					res.Add("RLRG_OutFactions".Translate(string.Join(", ", fac.ToArray())));
+				}
+			}
+			if (settings.worldMechanoids && (int)worldNow < (int)TechLevel.Ultra && (int)worldNext >= (int)TechLevel.Ultra)
+			{
+				res.Add("RLRG_OutMechs".Translate());
+			}
+			if (settings.worldIncidents)
+			{
+				var ev = WorldTech.IncidentsUnlockedBetween(worldNow, worldNext);
+				if (ev.Count > 0)
+				{
+					res.Add("RLRG_OutEvents".Translate(string.Join(", ", ev.ToArray())));
+				}
+			}
+			if (settings.worldItems)
+			{
+				res.Add("RLRG_OutTraders".Translate(((TechLevel)Mathf.Min((int)worldNext + Math.Max(0, settings.traderTechBonus), 7)).ToStringHuman()));
+			}
+			if (settings.gradualEras)
+			{
+				res.Add("RLRG_OutGradual".Translate(settings.gradualDays));
+			}
+			return res;
+		}
+	}
+
 	public static class LevelHud
 	{
+		// 2.15.1: the next tier above the colony and how much research it still needs (shared with the World tab)
+		public static bool NextTier(ResearchLockedRaidGearSettings settings, out TechLevel colony, out TechLevel next, out int done, out int need, out int totalCount)
+		{
+			int[] total = new int[16];
+			int[] doneArr = new int[16];
+			List<ResearchProjectDef> all = DefDatabase<ResearchProjectDef>.AllDefsListForReading;
+			for (int i = 0; i < all.Count; i++)
+			{
+				ResearchProjectDef r = all[i];
+				if (!ResearchLockedGearFilter.CountsForTier(r))   // 2.15.2: same projects as the tier itself
+				{
+					continue;
+				}
+				int t = Mathf.Clamp((int)r.techLevel, 0, 15);
+				total[t]++;
+				if (r.IsFinished)
+				{
+					doneArr[t]++;
+				}
+			}
+			TechLevel scenario, research;
+			colony = ResearchLockedGearFilter.ComputeColonyTech(out scenario, out research);
+			next = colony;
+			done = need = totalCount = 0;
+			for (int j = (int)colony + 1; j < 16; j++)
+			{
+				if (total[j] > 0)
+				{
+					next = (TechLevel)j;
+					float th = (settings == null) ? 0.25f : settings.ThresholdFor(next);
+					totalCount = total[j];
+					done = doneArr[j];
+					need = Mathf.Max(1, Mathf.CeilToInt(total[j] * th));
+					return true;
+				}
+			}
+			return false;
+		}
+
 		private static int lastFrame = -1000;
 
 		private static string line = string.Empty;
@@ -5214,7 +5778,7 @@ namespace ResearchLockedRaidGear
 			for (int i = 0; i < all.Count; i++)
 			{
 				ResearchProjectDef r = all[i];
-				if (r == null)
+				if (!ResearchLockedGearFilter.CountsForTier(r))   // 2.15.2: same projects as the tier itself
 				{
 					continue;
 				}
@@ -5683,6 +6247,69 @@ namespace ResearchLockedRaidGear
 			}
 		}
 	}
+	// 2.15.0: why raiders have their gear – what this mod took from each arriving pawn and what it
+	// gave instead; shown in the pawn's inspect pane (and in the raid message)
+	public static class GearLog
+	{
+		private static readonly Dictionary<int, List<string>> byPawn = new Dictionary<int, List<string>>();
+		private static readonly Dictionary<string, int> raid = new Dictionary<string, int>();
+
+		public static void Add(Pawn pawn, Thing taken, ThingDef given)
+		{
+			if (taken != null) AddDef(pawn, taken.def, given);
+		}
+
+		// 2.16.0: also for things that never existed (implants not installed)
+		public static void AddDef(Pawn pawn, ThingDef takenDef, ThingDef given)
+		{
+			try
+			{
+				if (pawn == null || takenDef == null) return;
+				if (!byPawn.TryGetValue(pawn.thingIDNumber, out List<string> l))
+				{
+					if (byPawn.Count > 4000) byPawn.Clear();
+					byPawn[pawn.thingIDNumber] = l = new List<string>();
+				}
+				string what = takenDef.LabelCap.ToString() + (given != null ? " → " + given.LabelCap : " → –");
+				if (!l.Contains(what)) l.Add(what);
+				if (RaidCompensation.Collecting)
+				{
+					raid.TryGetValue(what, out int n);
+					raid[what] = n + 1;
+				}
+			}
+			catch { }
+		}
+
+		public static List<string> For(Pawn p) => p != null && byPawn.TryGetValue(p.thingIDNumber, out List<string> l) ? l : null;
+
+		public static void StartRaid() => raid.Clear();
+
+		// "assault rifle → bolt-action rifle ×4, flak vest → – ×2"
+		public static string RaidSummary(int max)
+		{
+			if (raid.Count == 0) return null;
+			var parts = raid.OrderByDescending(kv => kv.Value).Take(max).Select(kv => kv.Key + (kv.Value > 1 ? " ×" + kv.Value : "")).ToList();
+			string s = string.Join(", ", parts.ToArray());
+			return raid.Count > max ? s + ", …" : s;
+		}
+	}
+
+	public static class GearLogInspectPatch
+	{
+		public static void Postfix(Pawn __instance, ref string __result)
+		{
+			try
+			{
+				List<string> l = GearLog.For(__instance);
+				if (l == null || l.Count == 0 || __instance.Faction == Faction.OfPlayer) return;
+				string line = "RLRG_GearLogLine".Translate(string.Join(", ", l.Take(4).ToArray()) + (l.Count > 4 ? ", …" : "")).ToString();
+				__result = __result.NullOrEmpty() ? line : __result + "\n" + line;
+			}
+			catch { }
+		}
+	}
+
 	public static class RaidCompensation
 	{
 		public static bool Collecting;
@@ -5765,6 +6392,7 @@ namespace ResearchLockedRaidGear
 			values.Clear();
 			itemsTaken = 0;
 			itemsReplaced = 0;
+			GearLog.StartRaid();
 			Collecting = true;
 			List<Pawn> list;
 			try
@@ -5802,6 +6430,8 @@ namespace ResearchLockedRaidGear
 					if (itemsTaken > 0)
 					{
 						text = text + " " + "RLRG_MsgRaidItems".Translate(itemsTaken, itemsReplaced, list.Count).ToString();
+						string swaps = GearLog.RaidSummary(4);
+						if (swaps != null) text += " " + "RLRG_MsgRaidSwaps".Translate(swaps).ToString();
 					}
 					Messages.Message(text, MessageTypeDefOf.NeutralEvent, false);
 				}
@@ -5908,7 +6538,7 @@ namespace ResearchLockedRaidGear
 			for (int i = list.Count - 1; i >= 0; i--)
 			{
 				Pawn p = list[i];
-				if (p == null || p.RaceProps == null || !p.RaceProps.IsMechanoid || Researched(p.def))
+				if (p == null || p.RaceProps == null || !p.RaceProps.IsMechanoid || Researched(p.def) || ThreatCausers.Kept(p.def))
 				{
 					continue;
 				}
@@ -6659,11 +7289,11 @@ namespace ResearchLockedRaidGear
 			all = lists;
 		}
 
-		public static List<Row> BuildRows(string search)
+		public static List<Row> BuildRows(string search, int firstGroup = 0)
 		{
 			EnsureLists();
 			List<Row> rows = new List<Row>();
-			for (int g = 0; g < 4; g++)
+			for (int g = firstGroup; g < 4; g++)
 			{
 				Row header = new Row();
 				header.header = true;

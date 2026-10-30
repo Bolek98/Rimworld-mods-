@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- recommended settings -->
+  <QFW_Rec1>Praca 1,5× szybciej (twoje postacie)</QFW_Rec1>
+  <QFW_Rec2>Rekrutacja i zniewalanie 2× szybciej</QFW_Rec2>
+  <QFW_Rec3>Niezachwiani więźniowie do zrekrutowania po 15 dniach</QFW_Rec3>
+  <QFW_Rec4>Pipeta, kopiowanie ustawień, przenieś teraz, strefa ±, okno QoL</QFW_Rec4>
+  <QFW_PageWork>Szybsza praca</QFW_PageWork>
+  <QFW_PagePrisoners>Więźniowie</QFW_PagePrisoners>
+  <QFW_PageTools>Pipeta &amp; narzędzia</QFW_PageTools>
+  <QFW_PageNotify>Powiadomienia</QFW_PageNotify>
+
+  <!-- faster work -->
+  <QFW_SecWork>Szybkość pracy</QFW_SecWork>
+  <QFW_WorkSpeed>Szybsza praca</QFW_WorkSpeed>
+  <QFW_WorkSpeed_Desc>Mnoży szybkość każdego rodzaju pracy przez wartość suwaka poniżej.</QFW_WorkSpeed_Desc>
+  <QFW_ColonistsOnly>Tylko moje postacie</QFW_ColonistsOnly>
+  <QFW_ColonistsOnly_Desc>Wł.: szybciej pracują tylko postacie twojej kolonii (koloniści, niewolnicy, mechanoidy). Wył.: wszyscy, także goście i najeźdźcy.</QFW_ColonistsOnly_Desc>
+  <QFW_SpCraft>Rzemiosło: ×{0}</QFW_SpCraft>
+  <QFW_SpCraft_Desc>Rzemiosło, kowalstwo, krawiectwo, sztuka, produkcja narkotyków i inna praca przy stołach warsztatowych.</QFW_SpCraft_Desc>
+  <QFW_SpBuild>Budowa: ×{0}</QFW_SpBuild>
+  <QFW_SpBuild_Desc>Budowanie, naprawianie i wygładzanie.</QFW_SpBuild_Desc>
+  <QFW_SpMine>Górnictwo: ×{0}</QFW_SpMine>
+  <QFW_SpMine_Desc>Wydobywanie i głębokie wiercenie.</QFW_SpMine_Desc>
+  <QFW_SpPlants>Rośliny: ×{0}</QFW_SpPlants>
+  <QFW_SpPlants_Desc>Sianie, zbiory, ścinanie roślin i wycinka drzew.</QFW_SpPlants_Desc>
+  <QFW_SpResearch>Badania: ×{0}</QFW_SpResearch>
+  <QFW_SpResearch_Desc>Szybkość badań.</QFW_SpResearch_Desc>
+  <QFW_SpCook>Gotowanie: ×{0}</QFW_SpCook>
+  <QFW_SpCook_Desc>Gotowanie, rzeźnictwo i warzenie.</QFW_SpCook_Desc>
+  <QFW_SpClean>Sprzątanie: ×{0}</QFW_SpClean>
+  <QFW_SpClean_Desc>Szybkość sprzątania.</QFW_SpClean_Desc>
+  <QFW_SpMedical>Medycyna: ×{0}</QFW_SpMedical>
+  <QFW_SpMedical_Desc>Szybkość opatrywania i operacji (nie szansa powodzenia).</QFW_SpMedical_Desc>
+  <QFW_SpAnimals>Zwierzęta: ×{0}</QFW_SpAnimals>
+  <QFW_SpAnimals_Desc>Dojenie i strzyżenie.</QFW_SpAnimals_Desc>
+  <QFW_WorkNote>Zmienione statystyki: {0}</QFW_WorkNote>
+  <QFW_SpeedExplain>QoL szybsza praca</QFW_SpeedExplain>
+
+  <!-- prisoners -->
+  <QFW_SecPrisoners>Więźniowie</QFW_SecPrisoners>
+  <QFW_Prisoners>Pomoc z więźniami</QFW_Prisoners>
+  <QFW_Prisoners_Desc>Szybsza rekrutacja i zniewalanie oraz ustawienie niezachwianej lojalności poniżej.</QFW_Prisoners_Desc>
+  <QFW_RecruitMult>Rekrutacja: ×{0}</QFW_RecruitMult>
+  <QFW_RecruitMult_Desc>Każda rozmowa rekrutacyjna obniża opór tyle razy bardziej.</QFW_RecruitMult_Desc>
+  <QFW_EnslaveMult>Zniewalanie: ×{0}</QFW_EnslaveMult>
+  <QFW_EnslaveMult_Desc>Każda rozmowa o zniewoleniu obniża wolę tyle razy bardziej.</QFW_EnslaveMult_Desc>
+  <QFW_Unwavering>Niezachwiana lojalność</QFW_Unwavering>
+  <QFW_Unwavering_Desc>Niektórych więźniów nigdy nie da się zrekrutować (niezachwiana lojalność). Tutaj możesz ją zostawić, usunąć po kilku dniach w więzieniu albo usunąć od razu.</QFW_Unwavering_Desc>
+  <QFW_Unw_Off>Zostaw (vanilla)</QFW_Unw_Off>
+  <QFW_Unw_AfterDays>Znika po {0} dniach</QFW_Unw_AfterDays>
+  <QFW_Unw_Always>Znika od razu</QFW_Unw_Always>
+  <QFW_UnwDays>Dni w więzieniu: {0}</QFW_UnwDays>
+  <QFW_UnwDays_Desc>Po tylu dniach w twoim więzieniu lojalność pęka i więźnia można zrekrutować.</QFW_UnwDays_Desc>
+  <QFW_NowRecruitable>{0} nie jest już niezachwiany – można go teraz zrekrutować.</QFW_NowRecruitable>
+
+  <!-- pipette and tools -->
+  <QFW_SecPipette>Pipeta</QFW_SecPipette>
+  <QFW_Pipette>Pipeta</QFW_Pipette>
+  <QFW_Pipette_Desc>Naciśnij klawisz i kliknij cokolwiek na mapie: masz to w ręce do budowy (ten sam budynek, materiał, styl i obrót). Podłogi dają podłogę, przedmioty proponują zlecenie przy stole warsztatowym.</QFW_Pipette_Desc>
+  <QFW_PipetteInstant>Pobierz od razu</QFW_PipetteInstant>
+  <QFW_PipetteInstant_Desc>Klawisz od razu pobiera to, co jest pod myszką, bez dodatkowego kliknięcia.</QFW_PipetteInstant_Desc>
+  <QFW_PipetteKey>Klawisz: {0} (zmień w Opcje → Klawiatura, sekcja „QoL – Faster Work”).</QFW_PipetteKey>
+  <QFW_PipFogged>To miejsce jest jeszcze ukryte.</QFW_PipFogged>
+  <QFW_PipNothing>Nie ma tu nic do zbudowania.</QFW_PipNothing>
+  <QFW_PipCantBuild>Nie możesz zbudować: {0}.</QFW_PipCantBuild>
+  <QFW_PipLocked>{0} nie jest jeszcze dostępne (brak badań lub innego wymagania).</QFW_PipLocked>
+  <QFW_PipNoRecipe>Żaden przepis stołu warsztatowego nie wytwarza: {0}.</QFW_PipNoRecipe>
+  <QFW_PipNoBench>Nie zbudowano jeszcze stołu warsztatowego dla: {0} ({1}).</QFW_PipNoBench>
+  <QFW_PipAddBill>Dodaj zlecenie: {0} przy {1}</QFW_PipAddBill>
+  <QFW_PipBillAdded>Dodano zlecenie: {0} przy {1}.</QFW_PipBillAdded>
+
+  <QFW_SecTools>Narzędzia</QFW_SecTools>
+  <QFW_CopyPawn>Kopiuj / wklej ustawienia postaci</QFW_CopyPawn>
+  <QFW_CopyPawn_Desc>Przyciski przy koloniście: kopiuj priorytety pracy, harmonogram, zasady, opiekę medyczną, reakcję na wrogów i dozwolony obszar, a potem wklej je innym kolonistom.</QFW_CopyPawn_Desc>
+  <QFW_CopyPawn_Btn>Kopiuj ustawienia</QFW_CopyPawn_Btn>
+  <QFW_CopyPawn_BtnDesc>Zapamiętaj priorytety pracy, harmonogram, zasady, opiekę medyczną, reakcję na wrogów i dozwolony obszar tego kolonisty.</QFW_CopyPawn_BtnDesc>
+  <QFW_PastePawn_Btn>Wklej ustawienia</QFW_PastePawn_Btn>
+  <QFW_PastePawn_BtnDesc>Nadaj zaznaczonym kolonistom ustawienia skopiowane od: {0} – wszystkie albo tylko część.</QFW_PastePawn_BtnDesc>
+  <QFW_Copied>Skopiowano ustawienia: {0}.</QFW_Copied>
+  <QFW_Pasted>Ustawienia {0} wklejono dla {1} kolonisty/kolonistów.</QFW_Pasted>
+  <QFW_PasteAll>Wszystko</QFW_PasteAll>
+  <QFW_PasteWork>Tylko priorytety pracy</QFW_PasteWork>
+  <QFW_PasteSchedule>Tylko harmonogram</QFW_PasteSchedule>
+  <QFW_PastePolicies>Tylko zasady, opieka medyczna i reakcja na wrogów</QFW_PastePolicies>
+  <QFW_PasteArea>Tylko dozwolony obszar</QFW_PasteArea>
+  <QFW_HaulNow>Przenieś teraz</QFW_HaulNow>
+  <QFW_HaulNow_Desc>Przycisk przy przedmiotach: zaznaczone przedmioty od razu trafiają do magazynu, niesione przez najbliższych wolnych kolonistów.</QFW_HaulNow_Desc>
+  <QFW_HaulNow_Btn>Przenieś teraz</QFW_HaulNow_Btn>
+  <QFW_HaulNow_BtnDesc>Najbliżsi wolni koloniści od razu zanoszą zaznaczone przedmioty do magazynu.</QFW_HaulNow_BtnDesc>
+  <QFW_HaulNoPawn>Brak wolnego kolonisty, który może przenosić.</QFW_HaulNoPawn>
+  <QFW_HaulNoStore>{0} przedmiot(ów) nie ma osiągalnego magazynu, który je przyjmie.</QFW_HaulNoStore>
+  <QFW_ZoneTools>Powiększ / zmniejsz strefę</QFW_ZoneTools>
+  <QFW_ZoneTools_Desc>Przyciski przy strefach składowania i uprawy: powiększ lub zmniejsz strefę o jedno pole z każdej strony.</QFW_ZoneTools_Desc>
+  <QFW_ZoneGrow>Powiększ strefę</QFW_ZoneGrow>
+  <QFW_ZoneGrow_Desc>Dodaje jedno pole z każdej strony, tam gdzie strefa może sięgać.</QFW_ZoneGrow_Desc>
+  <QFW_ZoneShrink>Zmniejsz strefę</QFW_ZoneShrink>
+  <QFW_ZoneShrink_Desc>Usuwa zewnętrzny pierścień pól.</QFW_ZoneShrink_Desc>
+  <QFW_ZoneNoRoom>Strefa nie może się tu powiększyć.</QFW_ZoneNoRoom>
+  <QFW_ZoneTooSmall>Strefa jest za mała, by ją zmniejszyć.</QFW_ZoneTooSmall>
+  <QFW_ColonyTab>Przycisk QoL na dolnym pasku</QFW_ColonyTab>
+  <QFW_ColonyTab_Desc>Wyszukiwanie na mapie, przegląd więźniów i akcje kolonii (wszyscy jeść / spać / pobudka).</QFW_ColonyTab_Desc>
+  <QFW_SecStacks>Rozmiar stosu</QFW_SecStacks>
+  <QFW_Stacks>Większe stosy</QFW_Stacks>
+  <QFW_Stacks_Desc>Mnoży, ile przedmiotów mieści się w jednym stosie. Działa po restarcie. Jeśli później to wyłączysz, za duże stosy mogą się podzielić lub raz pokazać błędy.</QFW_Stacks_Desc>
+  <QFW_StackMult>Rozmiar stosu: ×{0}</QFW_StackMult>
+  <QFW_StackMult_Desc>Mnożnik limitu stosu każdego przedmiotu.</QFW_StackMult_Desc>
+  <QFW_StacksRestart>Uruchom grę ponownie, aby zastosować nowy rozmiar stosu.</QFW_StacksRestart>
+  <QFW_StacksOgre>OgreStack jest aktywny – do rozmiaru stosów używaj tylko jednego z nich.</QFW_StacksOgre>
+
+  <!-- notifications -->
+  <QFW_SecNotify>Powiadomienia</QFW_SecNotify>
+  <QFW_Notifications>Filtr powiadomień</QFW_Notifications>
+  <QFW_Notifications_Desc>Wycisz lub ukryj listy i wiadomości wybranego rodzaju.</QFW_Notifications_Desc>
+  <QFW_NotifyNote>Wyciszone = przychodzi bez dźwięku. Ukryte = w ogóle się nie pojawia, ale i tak trafia do Historii (Menu → Historia → Wiadomości). Uważaj na listy o zagrożeniach. Te wybory nie są częścią zalecanych ustawień.</QFW_NotifyNote>
+  <QFW_SecLetters>Listy (po prawej)</QFW_SecLetters>
+  <QFW_SecMessages>Wiadomości (u góry po lewej)</QFW_SecMessages>
+  <QFW_ColMute>Wyciszone</QFW_ColMute>
+  <QFW_ColHide>Ukryte</QFW_ColHide>
+
+  <!-- QoL window -->
+  <QFW_SlaveRecruit>Niewolnicy mogą zostać kolonistami</QFW_SlaveRecruit>
+  <QFW_SlaveRecruit_Desc>Niewolnika, który nie jest niezłomny (lub którego lojalność pękła), możesz w oknie QoL uczynić wolnym kolonistą – także niewolników z innych frakcji.</QFW_SlaveRecruit_Desc>
+  <QFW_DeconAll>Rozbierz wszystko</QFW_DeconAll>
+  <QFW_DeconAll_Desc>Starożytne mury, ruiny, wraki i inne rzeczy, które gra pozwala tylko zniszczyć atakiem, można rozebrać. Budynki wrogich frakcji nie.</QFW_DeconAll_Desc>
+  <QFW_SColName>Niewolnik</QFW_SColName>
+  <QFW_SColAction>Akcja</QFW_SColAction>
+  <QFW_MakeColonist>Uczyń kolonistą</QFW_MakeColonist>
+  <QFW_MakeColonist_Desc>Niewolnik staje się wolnym kolonistą twojej kolonii (przez jakiś czas pamięta zniewolenie).</QFW_MakeColonist_Desc>
+  <QFW_MakeColonist_Confirm>Uczynić {0} wolnym kolonistą?</QFW_MakeColonist_Confirm>
+  <QFW_MadeColonist>{0} jest teraz wolnym kolonistą.</QFW_MadeColonist>
+  <QFW_TabSearch>Szukaj na mapie</QFW_TabSearch>
+  <QFW_TabPrisoners>Więźniowie</QFW_TabPrisoners>
+  <QFW_TabColony>Kolonia</QFW_TabColony>
+  <QFW_SearchHint>Przedmioty, budynki, postacie i rośliny na tej mapie. Polskie znaki i myślniki nie mają znaczenia.</QFW_SearchHint>
+  <QFW_SearchType>Wpisz co najmniej dwie litery, np. „stal”.</QFW_SearchType>
+  <QFW_SearchNone>Nic nie znaleziono.</QFW_SearchNone>
+  <QFW_Show>Pokaż</QFW_Show>
+  <QFW_ShowNext>Pokaż {0}/{1}</QFW_ShowNext>
+  <QFW_NoPrisoners>Brak więźniów na tej mapie.</QFW_NoPrisoners>
+  <QFW_PColName>Imię</QFW_PColName>
+  <QFW_PColMode>Interakcja</QFW_PColMode>
+  <QFW_PColRes>Opór</QFW_PColRes>
+  <QFW_PColWill>Wola</QFW_PColWill>
+  <QFW_PColRecruit>Do rekrutacji</QFW_PColRecruit>
+  <QFW_PColDays>Dni w niewoli</QFW_PColDays>
+  <QFW_Yes>tak</QFW_Yes>
+  <QFW_No>nie</QFW_No>
+  <QFW_InDays>za {0} d.</QFW_InDays>
+  <QFW_AllEat>Wszyscy jeść</QFW_AllEat>
+  <QFW_AllEat_Desc>Wolni koloniści poniżej 80 % jedzenia idą teraz jeść (np. przed długą podróżą albo najazdem).</QFW_AllEat_Desc>
+  <QFW_AllEat_Done>{0} kolonistów idzie jeść, {1} nie jest głodnych lub brak jedzenia.</QFW_AllEat_Done>
+  <QFW_AllSleep>Wszyscy spać</QFW_AllSleep>
+  <QFW_AllSleep_Desc>Wolni koloniści poniżej 90 % odpoczynku idą teraz do łóżka.</QFW_AllSleep_Desc>
+  <QFW_AllSleep_Done>{0} kolonistów idzie spać, {1} wypoczętych lub już śpi.</QFW_AllSleep_Done>
+  <QFW_AllWake>Pobudka dla wszystkich</QFW_AllWake>
+  <QFW_AllWake_Desc>Śpiący koloniści wstają (oprócz chorych i rannych, którzy potrzebują leżenia w łóżku).</QFW_AllWake_Desc>
+  <QFW_AllWake_Done>Obudzono kolonistów: {0}.</QFW_AllWake_Done>
+  <QFW_PipetteBtn>Pipeta</QFW_PipetteBtn>
+  <QFW_PipetteBtn_Desc>Kliknij cokolwiek na mapie, aby zbudować to samo. Szybciej z klawiszem.</QFW_PipetteBtn_Desc>
+
+  <!-- shared settings look -->
+  <MUI_Title>Zalecane ustawienia</MUI_Title>
+  <MUI_TitleOff>Zalecane ustawienia · wył.</MUI_TitleOff>
+  <MUI_DescOn>Mod konfiguruje się sam i działa od razu. Idealny dla nowych graczy i każdego, kto nie chce niczego zmieniać.</MUI_DescOn>
+  <MUI_DescOff>Własne ustawienia. Zmienione względem zalecanych: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Własne ustawienia. Nadal takie same jak zalecane.</MUI_DescOffSame>
+  <MUI_On>WŁ.</MUI_On>
+  <MUI_Off>WYŁ.</MUI_Off>
+  <MUI_ResetAll>Przywróć wszystko do zalecanych</MUI_ResetAll>
+  <MUI_ConfirmOn>Włączyć zalecane ustawienia? Twoje zmiany ({0}) zostaną zastąpione zalecanymi wartościami.</MUI_ConfirmOn>
+  <MUI_Locked>Szczegółowe ustawienia są zablokowane. Chcesz je zmienić? Wyłącz przełącznik powyżej – Twoje wartości zaczną od zalecanych.</MUI_Locked>
+  <MUI_Changed>ZMIENIONO</MUI_Changed>
+  <MUI_ChangedTip>Różni się od zalecanego ustawienia ({0}). Kliknij, aby przywrócić zalecaną wartość.</MUI_ChangedTip>
+  <MUI_Yes>wł.</MUI_Yes>
+  <MUI_No>wył.</MUI_No>
+  <MUI_RecTag>ZALECANE</MUI_RecTag>
+</LanguageData>

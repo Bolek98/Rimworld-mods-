@@ -221,8 +221,8 @@
   <RLRG_TraderBlockedGear>Not for sale (research)</RLRG_TraderBlockedGear>
   <RLRG_TraderBlockedGear_Desc>Not allowed by research, and tech level {0} is above what traders may sell now ({1}).</RLRG_TraderBlockedGear_Desc>
   <!-- 2.10.0: Raids tab -->
-  <RLRG_TabRaids>Raids and threats</RLRG_TabRaids>
-  <RLRG_RaidsIntro>Unchecked raids and threats (also from mods: monsters, manhunters, insects, diseases, fallout …) will not happen. Checked = allowed. Changes apply to new raids right away.</RLRG_RaidsIntro>
+  <RLRG_TabRaids>Raids</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Unchecked raid strategies, arrival modes and random quests will not be used. Checked = allowed. Threat events (monsters, diseases, fallout …) are in the Threats tab.</RLRG_RaidsIntro>
   <RLRG_RaidsSummary>{0} of {1} raid types blocked</RLRG_RaidsSummary>
   <RLRG_RaidsResetAll>Reset all</RLRG_RaidsResetAll>
   <RLRG_RaidsResetAll_Desc>Allow every raid type again (the default).</RLRG_RaidsResetAll_Desc>
@@ -285,4 +285,95 @@
   <RLRG_StrictCrafted_Desc>"Match the colony" normally allows anything about as strong as your gear. With this on, enemies may only carry weapons and apparel your colony has actually crafted – no makeshift rifles or SMGs while you still use bows.</RLRG_StrictCrafted_Desc>
   <RLRG_SiteTurrets>Enemy turrets only up to your own</RLRG_SiteTurrets>
   <RLRG_SiteTurrets_Desc>Turrets of other factions – on quest sites, in bases, in sieges – are removed unless you have built a turret of the same tech level yourself. No turrets yet = no enemy turrets.</RLRG_SiteTurrets_Desc>
+  <RLRG_GearLogLine>World at your level: {0}</RLRG_GearLogLine>
+  <RLRG_MsgRaidSwaps>Most often: {0}.</RLRG_MsgRaidSwaps>
+  <RLRG_Gradual>Gradual change of era</RLRG_Gradual>
+  <RLRG_Gradual_Desc>When the world level goes up, at first only about 1 in 5 arrivals gets gear of the new era; the share grows evenly until everyone has it. No sudden jump.</RLRG_Gradual_Desc>
+  <RLRG_GradualDays>Gradual change over: {0} days</RLRG_GradualDays>
+  <RLRG_GradualDays_Desc>How many in-game days it takes until all arrivals carry gear of the new era.</RLRG_GradualDays_Desc>
+  <RLRG_OutTitle>What the next tier brings</RLRG_OutTitle>
+  <RLRG_OutManual>Manual world level ({0}) – the outlook only works with the level from research.</RLRG_OutManual>
+  <RLRG_OutTop>Your colony is at the top tier ({0}) – nothing more to unlock.</RLRG_OutTop>
+  <RLRG_OutNext>Next tier: {0} – {1} more research projects ({2} of the {3} needed, {4} in this tier).</RLRG_OutNext>
+  <RLRG_OutWorld>World level then: {0} → {1}</RLRG_OutWorld>
+  <RLRG_OutGuns>New weapons for arrivals: {0} kinds, e.g. {1}</RLRG_OutGuns>
+  <RLRG_OutArmor>New armor and apparel for arrivals: {0} kinds, e.g. {1}</RLRG_OutArmor>
+  <RLRG_OutFactions>Factions that start raiding: {0}</RLRG_OutFactions>
+  <RLRG_OutMechs>Hostile mechanoids can appear.</RLRG_OutMechs>
+  <RLRG_OutEvents>Events that open up: {0}</RLRG_OutEvents>
+  <RLRG_OutTraders>Traders can carry goods up to: {0}</RLRG_OutTraders>
+  <RLRG_OutGradual>Gradual change of era is on – the new gear spreads over {0} days.</RLRG_OutGradual>
+  <RLRG_OutGradualNow>Change of era in progress: {0} % of arrivals already have the new era's gear.</RLRG_OutGradualNow>
+  <RLRG_WorldLetter>Letter when the world reaches a higher level</RLRG_WorldLetter>
+  <RLRG_WorldLetter_Desc>When the world level rises you get a letter that explains it, instead of a short message. Drops are still shown as a message.</RLRG_WorldLetter_Desc>
+  <RLRG_WorldLetterTitle>World level: {0}</RLRG_WorldLetterTitle>
+  <RLRG_WorldLetterText>The world has reached the {0} tech level.\n\nFrom now on raiders, traders and visitors may bring weapons, apparel and other goods up to this level. See the mod settings (World tab) for what the next tier brings.</RLRG_WorldLetterText>
+  <RLRG_FilterImplants>Raiders' implants follow the world level</RLRG_FilterImplants>
+  <RLRG_FilterImplants_Desc>Hostile pawns don't get bionic, archotech or other implants above the world level. They are simply not installed – no missing body parts.</RLRG_FilterImplants_Desc>
+  <RLRG_FilterDrugs>Raiders' drugs follow the world level</RLRG_FilterDrugs>
+  <RLRG_FilterDrugs_Desc>Hostile pawns don't carry go-juice, yayo and other drugs above the world level, so they can't take them before the fight.</RLRG_FilterDrugs_Desc>
+  <RLRG_ResearchCost>Research cost by world level</RLRG_ResearchCost>
+  <RLRG_ResearchCost_Desc>Research above the world level costs more, research below it costs less. Off by default.</RLRG_ResearchCost_Desc>
+  <RLRG_ResearchAbove>Above the world level: +{0}% cost</RLRG_ResearchAbove>
+  <RLRG_ResearchAbove_Desc>How much more research of a higher tech level than the world costs.</RLRG_ResearchAbove_Desc>
+  <RLRG_ResearchBelow>Below the world level: −{0}% cost</RLRG_ResearchBelow>
+  <RLRG_ResearchBelow_Desc>How much less research of a lower tech level than the world costs.</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>Evolution</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>Factions have their own level</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>Every faction moves around the world level at its own pace: some lag behind, a few lead. Their raiders and visitors carry gear of the faction's level. Destroying one of their settlements sets them back, trading with them helps them. The World tab shows every faction.</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>Leading factions one level ahead</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>A leading faction may carry gear one level above the world level (not with "Only what you crafted"). Off: factions can only lag behind.</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>Study foreign tech</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>A weapon or apparel above your research gets a "Study" button: it is taken apart and gives research to the project that unlocks it (or a project of its era). Needs a research bench.</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>A new era brings a trader</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>When the world level rises, a trader caravan of a faction at the new level comes a day or two later with the new goods.</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>Raids by real defence</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>Raid strength also follows your real defence – fighters, their weapons, armor and skills, turrets and combat mechanoids – not only colony wealth. A rich but weak colony gets fairer raids, a strong poor one tougher.</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>Weight of defence: {0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>How much the raid strength follows your defence instead of the game's own points (100 % = only defence).</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0} has advanced to the {1} level.</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0} fell back to the {1} level.</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>settlement destroyed</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>trade helps</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>Study</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>Take it apart for research: {0} gets {1} points. The item is used up.</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>No open research project to put it into.</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>You need a research bench.</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>{0} taken apart: {1} +{2} research.</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>Traders of the new era</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>Word of your progress has spread. {0} are sending a caravan with goods of the {1} era – it should arrive in a day or two.</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>Factions</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>Own faction levels are switched off (settings, Evolution tab).</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>rising</RLRG_EV_Rising>
+  <RLRG_EV_Falling>falling</RLRG_EV_Falling>
+  <RLRG_EV_Steady>steady</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0}: {1} level (world: {2}). Their raiders and visitors carry gear of this level.</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>Your defence: {0} points · raid points now: {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>Threats</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>Unchecked events never start – not from the storyteller, not from quests or mods. Checked = allowed. Changes apply right away.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>Keep bosses I call myself</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>Bosses you summon with a mechanitor at the comms console (Diabolus, War Queen, Apocriton …) and their escort are never removed by "Also limit mechanoids and insects" – you called them for their signal chips.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>Show all events</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>Also list events that are not threats (visitors, traders, wanderers, good events …), so you can switch those off too.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>Big threats</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>Small threats</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>Bad events and mod threats</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>Other events</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>Block all</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>Block everything shown in this group (respects the search).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>{0} of {1} events turned off</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>Allow every event again (the default).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>Turned off: this event never starts – not from the storyteller, quests or mods.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>Removed by World at Your Level</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>kept – you allowed it</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>removed – not researched yet</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>removed – above the world level</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>removed earlier</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>stays – the rules allow it</RLRG_RemStatusStays>
+  <RLRG_RemRules>By the rules</RLRG_RemRules>
+  <RLRG_RemRules_Desc>Let the mod's rules decide again for everything shown here.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>Keep all</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>Keep everything shown here – it will no longer be removed.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>Ticked = it stays. Unticked = the mod's rules decide (mechanoids and drones you have not researched, weather/condition machines above the world level, turrets better than yours). Tick it to keep it anyway.</RLRG_RemTip>
 </LanguageData>

@@ -1,0 +1,83 @@
+=== Workshop release 1.1.0 (30 Oct 2026) ===
+1.1.0
+NEW
+- Mortars, artillery and field guns are loaded with plain metal instead of shells (10 per shell, adjustable). The VFE automated mortar refills its shell gauge from metal too.
+- "No ammo" option now covers mortars, artillery and field guns: a shell is always loaded and never used up (your own guns only).
+- Turrets tab: every turret, mortar and gun in one list – pick which fire on their own; "Materials…" and "Ammo" per turret.
+- Turrets in walls: built into your walls, drawn as part of the wall, shooting only outward.
+- Smart shells, "Turrets don't hit our buildings", safe mortars, a nicer settings page in tabs.
+- Vanilla Factions Expanded Security and Pirates guns work with automatic fire (also world-map artillery).
+
+FIXES
+- A turret or gun that kept calling itself (VFE Pirates field gun with a forced target) no longer crashes the game.
+- Turret buttons stay even when another mod's button on the same turret fails.
+
+NOVÉ
+- Minomety, děla a polní zbraně se nabíjí obyčejným kovem místo granátů (10 na granát, nastavitelné). Automatický minomet z VFE si z kovu doplňuje i zásobník.
+- Volba „Bez munice“ teď platí i pro minomety, děla a polní zbraně: granát je vždy nabitý a nikdy se nespotřebuje (jen tvoje děla).
+- Záložka Věže: všechny věže, minomety a děla v jednom seznamu – vyber, které střílí samy; „Materiály…“ a „Munice“ u každé věže.
+- Věže ve zdi: postavené do zdi, vypadají jako její část a střílí jen ven.
+- Chytré granáty, „Věže nezasahují naše budovy“, bezpečné minomety, hezčí nastavení v záložkách.
+- Děla z Vanilla Factions Expanded Security a Pirates fungují s automatickou palbou (i dělostřelectvo na mapu světa).
+
+OPRAVY
+- Věž nebo dělo, které volalo samo sebe (polní dělo z VFE Pirates s vynuceným cílem), už neshodí hru.
+- Tlačítka věže zůstanou, i když tlačítko jiného modu na stejné věži selže.
+
+=== Development history since the last Workshop release (test versions) ===
+1.6.2
+- 'Turrets need no ammo' now covers mortars, artillery and field guns too: a shell is always loaded and never used up, also the VFE automated mortar's shell gauge – nobody has to bring anything. Only your own guns.
+
+1.6.1
+- Loop guard: a turret or gun that keeps calling itself (seen with the VFE Pirates field gun and a forced target) no longer crashes the game – the shot is skipped and the log names the loop once.
+- When haulers find no material for a mortar or artillery, the log says why (how much metal there is, stack sizes, forbidden).
+
+1.6.0
+- Mortars, artillery and field guns can be loaded with plain material (steel or another metal) instead of shells – on by default, 10 per shell (slider). The gun gets the shell you picked for it, otherwise high-explosive.
+- The VFE Security automated mortar refills its shell gauge from material too.
+
+1.5.3
+- Shells are brought to every mortar and artillery of yours, also the manned ones, so the crew can fire right away.
+- When the shell or ammo you picked for a turret runs out, it is loaded or rearmed with anything else it takes instead of staying empty.
+- Modded artillery ammo that the game doesn't count as a shell is found and loaded too.
+
+1.5.2
+- Vanilla Factions Expanded – Security world artillery works with automatic turrets: no more errors when it aims or fires, and "Set world target" is never blocked – an automatic artillery fires by itself, a manned one that nobody mans sends the nearest free colonist who can fight.
+
+1.5.1
+- Turret buttons stay even when another mod's button on the same turret fails (e.g. the VFE Security artillery on 1.7 showed no buttons at all).
+
+1.5.0
+- Turrets tab: every turret, mortar and gun (vanilla and mods) in one list. Ticked ones fire on their own; unticked manned ones need a colonist again, unticked automatic ones hold fire until you pick a target.
+- Materials for every turret: each turret that is rearmed – also modded ones that need their own ammo or fuel – gets a "Materials…" button where you tick what else it may be rearmed with (metals, wood, stone blocks, ammo, other resources). Changes work right away, no restart.
+- The material switches (any metal, wood, stone) now work right away too.
+- Buttons on every turret of yours: "Set forced target" also on automatic turrets, "Auto rearm" on every turret that is rearmed, "Auto load shells" on mortars that fire alone, and "Ammo" – pick the one shell or material this turret uses (or anything allowed).
+- New options: special shells (EMP, incendiary, firefoam) only for mortars you set to them; turrets that need their own ammo can take any metal too; turrets need no ammo at all (for modded turrets whose ammo you can't make).
+
+1.4.0
+- Turrets in walls shoot only outward (setting, on by default): a wall turret only fires at targets on the outer side of its wall – the side that is outdoors while the other side is a room. A turret in a wall between two rooms (or where no side is clearly outside) still shoots in every direction. Turrets on the floor are not affected.
+
+1.3.1
+- Smart shell choice (settings, on by default): an automatic mortar doesn't waste shells – EMP only at mechanoids and shielded enemies, incendiary not at mechanoids, firefoam never at enemies but at fires in the home area. Haulers bring EMP shells when most enemies are mechanoids, otherwise high-explosive ones (if the mortar's filter allows them).
+- New option "Turrets don't hit our buildings" (off by default): bullets from your turrets fly past your own walls, sandbags and other buildings unless you aim at them, and their shell blasts don't damage them. Enemy buildings are hit as usual.
+- Friendly fire protection now also covers modded shooting buildings of yours that aren't regular turrets.
+
+1.3.0
+- Turrets in walls look like part of the wall: a 1×1 wall turret is drawn as a piece of wall in its material (stone blocks, metal or wood – chosen when you place it, 5 extra), joined with the walls next to it, with the gun on top. Before, the old wall was taken down and the turret stood there on its normal base like on the floor. Bigger wall turrets keep their base.
+
+1.2.2
+- Settings in three tabs (Shooting, Ammo and materials, Turrets in walls). Fix: the turret list was drawn into an invisible second column, so it looked empty and the settings stuttered; now the list has its own scroll area and only the visible cards are drawn.
+
+1.2.1
+- Nicer settings page: sections, turret cards with icons, search, "Select all / Clear all", a counter, a confirmation after each button and a notice when a restart is needed.
+
+1.2.0
+- Turrets in walls (settings, off by default, after a restart): picked turrets get a second version "… (in wall)" that is built over a wall or smoothed rock wall and works as a wall. Small turrets (up to 2×2) are picked by default.
+
+1.1.0
+- Friendly fire switch (settings): when off, bullets from your turrets fly past your colonists, guests and allies, and blasts from their shells don't hurt them.
+- Turrets that rearm with metal can optionally also be refilled with wood and/or stone blocks (settings, after a restart).
+
+=== Workshop release 1.0.0 ===
+1.0.0
+- First version.

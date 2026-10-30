@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_CrisisStart>Steward: {0}. Приоритеты изменены.</CF_CrisisStart>
+  <CF_CrisisEnd>Steward: кризис миновал ({0}).</CF_CrisisEnd>
+  <CF_D_Food>еды на {0} дн.</CF_D_Food>
+  <CF_AutoFocusNow>{0} → сейчас: {1} ({2})</CF_AutoFocusNow>
+  <CF_AutoFocusNowNoReason>{0} → сейчас: {1}</CF_AutoFocusNowNoReason>
+  <CF_AutoFocusShort>{0} → {1}</CF_AutoFocusShort>
+  <CF_AutoFocusMsg>Steward: «Сбалансированный» теперь делает упор на {0} ({1}).</CF_AutoFocusMsg>
+  <CF_AutoFocusEnd>Steward: упор на {0} завершён – «Сбалансированный» снова распределяет работу равномерно.</CF_AutoFocusEnd>
+  <CF_AF_Food>еды на {0} дн.</CF_AF_Food>
+  <CF_AF_Harvest>растений готово к сбору: {0}</CF_AF_Harvest>
+  <CF_AF_Build>чертежей: {0}</CF_AF_Build>
+  <CF_AF_Industry>сталь {0}, компоненты {1}</CF_AF_Industry>
+  <CF_AF_Mine>клеток для добычи: {0}</CF_AF_Mine>
+  <CF_AF_Bills>много ожидающих производственных заказов</CF_AF_Bills>
+  <CF_AF_Care>пациенты {0}, заключённые {1}, дети {2}</CF_AF_Care>
+  <CF_AF_Defense>после налёта, зданий для ремонта: {0}</CF_AF_Defense>
+  <CF_AF_Animals>животных приручить или забить: {0}, подоить, остричь или дрессировать: {1}</CF_AF_Animals>
+  <CF_AF_Dirt>грязи в домашней зоне: {0}</CF_AF_Dirt>
+  <CF_AF_Calm>спокойно – время для исследований</CF_AF_Calm>
+  <CF_SitStaff>{0} ×{1} (приоритет {2})</CF_SitStaff>
+  <CF_SitHeader>Ситуации:</CF_SitHeader>
+  <CF_SitStart>Steward – новая ситуация: {0}.</CF_SitStart>
+  <CF_SitEnd>Steward – ситуация завершена: {0}. Возврат к обычному плану.</CF_SitEnd>
+  <CF_SitDoesWork>{0}, приоритет {1}</CF_SitDoesWork>
+  <CF_SitDoesNothing>в этой игре ничего (такого вида работы нет)</CF_SitDoesNothing>
+  <CF_SitDoesExhausted>их работа с приоритетом 1 понижается до 2 (экстренные остаются)</CF_SitDoesExhausted>
+  <CF_Sit_BuildBacklog>большой объём строительства</CF_Sit_BuildBacklog>
+  <CF_SitWhen_BuildBacklog>Когда: 20 и более чертежей и каркасов (держится, пока их не станет меньше 8). Строительство на приоритете 2, один строитель на 15 чертежей, минимум 2.</CF_SitWhen_BuildBacklog>
+  <CF_SitR_BuildBacklog>чертежей: {0}</CF_SitR_BuildBacklog>
+  <CF_Sit_Deconstruct>много разборки</CF_Sit_Deconstruct>
+  <CF_SitWhen_Deconstruct>Когда: 15 и более отметок на разборку, демонтаж, шлифовку или удаление пола. Строительство на приоритете 2, один колонист на 20 отметок.</CF_SitWhen_Deconstruct>
+  <CF_SitR_Deconstruct>отметок: {0}</CF_SitR_Deconstruct>
+  <CF_Sit_Repairs>нужен ремонт</CF_Sit_Repairs>
+  <CF_SitWhen_Repairs>Когда: 6 и более повреждённых построек (не во время налёта). Строительство на приоритете 2, один колонист на 10 построек.</CF_SitWhen_Repairs>
+  <CF_SitR_Repairs>повреждённых построек: {0}</CF_SitR_Repairs>
+  <CF_Sit_HaulBacklog>много переноски</CF_Sit_HaulBacklog>
+  <CF_SitWhen_HaulBacklog>Когда: 80 и более вещей лежат и ждут переноски (без каменных глыб; не во время налёта, токсичного воздуха или экстремальной погоды). Переноска на приоритете 2, один носильщик на 50 вещей, минимум 2.</CF_SitWhen_HaulBacklog>
+  <CF_SitR_HaulBacklog>вещей для переноски: {0}</CF_SitR_HaulBacklog>
+  <CF_Sit_RottingOutside>вещи гниют снаружи</CF_Sit_RottingOutside>
+  <CF_SitWhen_RottingOutside>Когда: 8 и более скоропортящихся стопок вне склада сгниют в течение 5 дней. Переноска на приоритете 1, один носильщик на 10 стопок.</CF_SitWhen_RottingOutside>
+  <CF_SitR_RottingOutside>сгниёт стопок: {0}</CF_SitR_RottingOutside>
+  <CF_Sit_FoodSpoiling>еда скоро испортится</CF_Sit_FoodSpoiling>
+  <CF_SitWhen_FoodSpoiling>Когда: сырая еда на 10+ питательности сгниёт в течение 1,5 дня. Готовка на приоритете 1 (один повар на 30 питательности) и один носильщик на приоритете 2, чтобы унести её в холод.</CF_SitWhen_FoodSpoiling>
+  <CF_SitR_FoodSpoiling>{0} питательности испортится в течение 1,5 дня</CF_SitR_FoodSpoiling>
+  <CF_Sit_BigHarvest>большой урожай</CF_Sit_BigHarvest>
+  <CF_SitWhen_BigHarvest>Когда: 40 и более созревших растений на полях. Выращивание на приоритете 2, один растениевод на 40 растений, минимум 2.</CF_SitWhen_BigHarvest>
+  <CF_SitR_BigHarvest>созревших растений: {0}</CF_SitR_BigHarvest>
+  <CF_Sit_FrostHarvest>мороз – собирайте урожай</CF_Sit_FrostHarvest>
+  <CF_SitWhen_FrostHarvest>Когда: снаружи ниже 2 °C и 5 и более созревших растений – посевы погибнут от холода. Выращивание на приоритете 1, один растениевод на 25 растений, минимум 2.</CF_SitWhen_FrostHarvest>
+  <CF_SitR_FrostHarvest>созревших растений: {0} при {1}</CF_SitR_FrostHarvest>
+  <CF_Sit_CutBacklog>много срезки растений</CF_Sit_CutBacklog>
+  <CF_SitWhen_CutBacklog>Когда: 30 и более растений отмечены для срезки или сбора. Срезка растений на приоритете 2, один колонист на 30 растений.</CF_SitWhen_CutBacklog>
+  <CF_SitR_CutBacklog>отмечено растений: {0}</CF_SitR_CutBacklog>
+  <CF_Sit_MineBacklog>много добычи</CF_Sit_MineBacklog>
+  <CF_SitWhen_MineBacklog>Когда: 30 и более клеток отмечены для добычи. Добыча на приоритете 2, один шахтёр на 30 клеток.</CF_SitWhen_MineBacklog>
+  <CF_SitR_MineBacklog>клеток для добычи: {0}</CF_SitR_MineBacklog>
+  <CF_Sit_LowWood>мало дерева</CF_Sit_LowWood>
+  <CF_SitWhen_LowWood>Когда: дерева меньше, чем 75 + 25 на колониста, и деревья отмечены для рубки. Срезка растений на приоритете 2, 1 колонист (2 в колонии от 5 человек).</CF_SitWhen_LowWood>
+  <CF_SitR_LowWood>дерево: {0}</CF_SitR_LowWood>
+  <CF_Sit_LowSteel>мало стали</CF_Sit_LowSteel>
+  <CF_SitWhen_LowSteel>Когда: стали меньше, чем 50 + 20 на колониста, и порода отмечена для добычи. Добыча на приоритете 2, 1 шахтёр (2 в колонии от 5 человек).</CF_SitWhen_LowSteel>
+  <CF_SitR_LowSteel>сталь: {0}</CF_SitR_LowSteel>
+  <CF_Sit_LowComponents>мало компонентов</CF_Sit_LowComponents>
+  <CF_SitWhen_LowComponents>Когда: компонентов меньше, чем 3 + 1 на каждых 2 колонистов, и ждёт заказ на компоненты. Работа этого верстака на приоритете 2, 1 колонист.</CF_SitWhen_LowComponents>
+  <CF_SitR_LowComponents>компоненты: {0}</CF_SitR_LowComponents>
+  <CF_Sit_LowMedicine>медикаменты заканчиваются</CF_Sit_LowMedicine>
+  <CF_SitWhen_LowMedicine>Когда: медикаментов меньше 2 на колониста (но ещё не кризис «нет медикаментов») и ждёт заказ на медикаменты или выращивается целебный корень. Работа верстака и выращивание на приоритете 2, по 1 колонисту.</CF_SitWhen_LowMedicine>
+  <CF_SitR_LowMedicine>медикаменты: {0}</CF_SitR_LowMedicine>
+  <CF_Sit_ColdClothing>не одеты для холода</CF_Sit_ColdClothing>
+  <CF_SitWhen_ColdClothing>Когда: снаружи 10 °C или холоднее, у колонистов недостаточно тёплая одежда и ждёт заказ на одежду. Шитьё на приоритете 2, один портной на 4 замерзающих колонистов.</CF_SitWhen_ColdClothing>
+  <CF_SitR_ColdClothing>замерзающих колонистов: {0} при {1}</CF_SitR_ColdClothing>
+  <CF_Sit_WornClothing>изношенная одежда</CF_Sit_WornClothing>
+  <CF_SitWhen_WornClothing>Когда: треть колонистов (минимум 2) носит одежду с прочностью ниже 50 % и ждёт заказ на одежду. Шитьё на приоритете 2, 1 портной.</CF_SitWhen_WornClothing>
+  <CF_SitR_WornClothing>колонистов в изношенной одежде: {0}</CF_SitR_WornClothing>
+  <CF_Sit_LowWeapons>колонисты без оружия</CF_Sit_LowWeapons>
+  <CF_SitWhen_LowWeapons>Когда: у половины способных сражаться колонистов (в колонии от 3 человек) нет оружия и ждёт заказ на оружие. Кузнечное дело на приоритете 2, 1 кузнец (2 при 5+ безоружных).</CF_SitWhen_LowWeapons>
+  <CF_SitR_LowWeapons>безоружных: {0}</CF_SitR_LowWeapons>
+  <CF_Sit_Recruit>заключённые для вербовки</CF_Sit_Recruit>
+  <CF_SitWhen_Recruit>Когда: заключённые назначены на вербовку, снижение сопротивления, порабощение или обращение. Надзиратель на приоритете 2, один надзиратель на 3 заключённых – лучшие собеседники.</CF_SitWhen_Recruit>
+  <CF_SitR_Recruit>заключённых для бесед: {0}</CF_SitR_Recruit>
+  <CF_Sit_HungryPrisoners>голодные заключённые</CF_Sit_HungryPrisoners>
+  <CF_SitWhen_HungryPrisoners>Когда: сытость заключённого ниже 25 %. Надзиратель на приоритете 1, один надзиратель на 3 голодных заключённых.</CF_SitWhen_HungryPrisoners>
+  <CF_SitR_HungryPrisoners>голодных заключённых: {0}</CF_SitR_HungryPrisoners>
+  <CF_Sit_MassCasualties>много пациентов</CF_Sit_MassCasualties>
+  <CF_SitWhen_MassCasualties>Когда: 3 и более пациентов нуждаются в лечении. Врач на приоритете 1, два врача на каждых 3 пациентов, минимум 2.</CF_SitWhen_MassCasualties>
+  <CF_SitR_MassCasualties>пациентов: {0}</CF_SitR_MassCasualties>
+  <CF_Sit_Infection>опасная для жизни болезнь</CF_Sit_Infection>
+  <CF_SitWhen_Infection>Когда: у кого-то смертельно опасная болезнь или рана (иммунитет ещё не выработан, а состояние уже тяжёлое) или сильное кровотечение. Врач на приоритете 1, один врач на каждого такого пациента.</CF_SitWhen_Infection>
+  <CF_SitR_Infection>в опасности: {0}</CF_SitR_Infection>
+  <CF_Sit_TameTrain>животные для приручения или дрессировки</CF_Sit_TameTrain>
+  <CF_SitWhen_TameTrain>Когда: 4 и более животных для приручения или дрессировки. Уход за животными на приоритете 2, один дрессировщик на 6 животных.</CF_SitWhen_TameTrain>
+  <CF_SitR_TameTrain>животных: {0}</CF_SitR_TameTrain>
+  <CF_Sit_AnimalProducts>животные на забой, дойку или стрижку</CF_Sit_AnimalProducts>
+  <CF_SitWhen_AnimalProducts>Когда: 5 и более животных отмечены на забой или готовы к дойке или стрижке. Уход за животными на приоритете 2, один дрессировщик на 8.</CF_SitWhen_AnimalProducts>
+  <CF_SitR_AnimalProducts>животных готово: {0}</CF_SitR_AnimalProducts>
+  <CF_Sit_AnimalsHungry>голодные животные</CF_Sit_AnimalsHungry>
+  <CF_SitWhen_AnimalsHungry>Когда: 2 и более животных колонии голодают (сытость ниже 15 %). Переноска и уход за животными на приоритете 2, по 1 колонисту.</CF_SitWhen_AnimalsHungry>
+  <CF_SitR_AnimalsHungry>голодающих животных: {0}</CF_SitR_AnimalsHungry>
+  <CF_Sit_DirtyRooms>грязный госпиталь или кухня</CF_Sit_DirtyRooms>
+  <CF_SitWhen_DirtyRooms>Когда: 8 и более грязи в госпиталях или на кухнях (инфекции, пищевые отравления). Уборка на приоритете 1, один уборщик на 20 грязи.</CF_SitWhen_DirtyRooms>
+  <CF_SitR_DirtyRooms>грязь: {0}</CF_SitR_DirtyRooms>
+  <CF_Sit_ResearchIdle>время для исследований</CF_Sit_ResearchIdle>
+  <CF_SitWhen_ResearchIdle>Когда: проект выбран, исследовательский стол построен, еды на 6+ дней и нет кризиса или другой ситуации. Исследование на приоритете 2, один исследователь на 4 колонистов.</CF_SitWhen_ResearchIdle>
+  <CF_SitR_ResearchIdle>проект {0}</CF_SitR_ResearchIdle>
+  <CF_Sit_TradeVisit>торговцы здесь</CF_Sit_TradeVisit>
+  <CF_SitWhen_TradeVisit>Когда: на карте торговый караван или на орбите торговый корабль и построен торговый маяк. Переноска на приоритете 2, 2 носильщика собирают товары.</CF_SitWhen_TradeVisit>
+  <CF_SitR_TradeVisit>торговцы ждут</CF_SitR_TradeVisit>
+  <CF_Sit_LowFuel>топливо заканчивается</CF_Sit_LowFuel>
+  <CF_SitWhen_LowFuel>Когда: у 2 и более построек с автозаправкой топлива меньше 25 % (генераторы, факелы, печи …). Заправка (переноска) на приоритете 1, один колонист на 6 построек.</CF_SitWhen_LowFuel>
+  <CF_SitR_LowFuel>построек с малым запасом топлива: {0}</CF_SitR_LowFuel>
+  <CF_Sit_MechThreat>рядом кластер механоидов или улей</CF_Sit_MechThreat>
+  <CF_SitWhen_MechThreat>Когда: на карте постройки механоидов или ульи насекомых (не во время налёта). Строительство (оборона) на приоритете 2 с 2 колонистами, кузнечное дело на приоритете 2 с 1.</CF_SitWhen_MechThreat>
+  <CF_SitR_MechThreat>угроз: {0}</CF_SitR_MechThreat>
+  <CF_Sit_MoodSlipping>настроение падает</CF_Sit_MoodSlipping>
+  <CF_SitWhen_MoodSlipping>Когда: четверть колонистов (минимум 2) близка к порогу срыва, ещё до кризиса «плохое настроение». Готовка (хорошая еда), искусство и уборка на приоритете 2, по 1 колонисту.</CF_SitWhen_MoodSlipping>
+  <CF_SitR_MoodSlipping>несчастных колонистов: {0}</CF_SitR_MoodSlipping>
+  <CF_Sit_Childcare>младенцы требуют ухода</CF_Sit_Childcare>
+  <CF_SitWhen_Childcare>Когда (Biotech): в колонии есть младенцы. Уход за детьми на приоритете 2 (1, когда младенец голоден), один воспитатель на 2 младенцев.</CF_SitWhen_Childcare>
+  <CF_SitR_Childcare>младенцев: {0}</CF_SitR_Childcare>
+  <CF_Sit_Pollution>загрязнение для очистки</CF_Sit_Pollution>
+  <CF_SitWhen_Pollution>Когда (Biotech): 20 и более загрязнённых клеток в зоне очистки от загрязнения. Работа по очистке загрязнения на приоритете 2, один колонист на 150 клеток.</CF_SitWhen_Pollution>
+  <CF_SitR_Pollution>загрязнённых клеток: {0}</CF_SitR_Pollution>
+  <CF_Sit_Exhausted>измотанные колонисты</CF_Sit_Exhausted>
+  <CF_SitWhen_Exhausted>Когда: колонист бодрствует с отдыхом ниже 15 %. Его работа с приоритетом 1 понижается до 2, и ситуации его не выбирают. Важно: приоритеты не могут отправить никого спать – колонисты в часы «Работа» по расписанию сами не ложатся спать и падают без сил на пол; дайте им часы «Сон» или «Что угодно».</CF_SitWhen_Exhausted>
+  <CF_SitR_Exhausted>измотано: {0} – проверьте расписание (часы «Работа» означают без кровати)</CF_SitR_Exhausted>
+  <CF_Sit_Corpses>трупы на базе</CF_Sit_Corpses>
+  <CF_SitWhen_Corpses>Когда: 3 и более трупов лежат в домашней зоне (не во время налёта). Переноска трупов на приоритете 2, один колонист на 6 трупов.</CF_SitWhen_Corpses>
+  <CF_SitR_Corpses>трупов: {0}</CF_SitR_Corpses>
+  <CF_Sit_StorageFull>склад переполнен</CF_Sit_StorageFull>
+  <CF_SitWhen_StorageFull>Когда: 15 и более вещей в домашней зоне некуда положить. Строительство на приоритете 2 (стеллажи, склады).</CF_SitWhen_StorageFull>
+  <CF_SitR_StorageFull>вещей без места на складе: {0}</CF_SitR_StorageFull>
+  <CF_Sit_SowingBacklog>поля ждут посева</CF_Sit_SowingBacklog>
+  <CF_SitWhen_SowingBacklog>Когда: 40 и более пустых клеток полей в сезон роста. Выращивание на приоритете 2.</CF_SitWhen_SowingBacklog>
+  <CF_SitR_SowingBacklog>пустых клеток для посева: {0}</CF_SitR_SowingBacklog>
+  <CF_Sit_NoBedroom>колонисты без кровати</CF_Sit_NoBedroom>
+  <CF_SitWhen_NoBedroom>Когда: у колониста нет своей кровати. Строительство на приоритете 2.</CF_SitWhen_NoBedroom>
+  <CF_SitR_NoBedroom>колонистов без кровати: {0}</CF_SitR_NoBedroom>
+  <CF_Sit_UglyRooms>уродливые комнаты</CF_Sit_UglyRooms>
+  <CF_SitWhen_UglyRooms>Когда: минимум 2 спальни уродливы или грязны (только в спокойное время). Уборка и искусство на приоритете 2, строительство на 3.</CF_SitWhen_UglyRooms>
+  <CF_SitR_UglyRooms>уродливых комнат: {0}</CF_SitR_UglyRooms>
+  <CF_Sit_LowJoy>мало отдыха</CF_Sit_LowJoy>
+  <CF_SitWhen_LowJoy>Когда: минимум у 2 колонистов отдых ниже 30 %. Строительство и искусство на приоритете 2.</CF_SitWhen_LowJoy>
+  <CF_SitR_LowJoy>колонистов без отдыха: {0}</CF_SitR_LowJoy>
+  <CF_Sit_Slaughter>животные на забой</CF_Sit_Slaughter>
+  <CF_SitWhen_Slaughter>Когда: минимум 3 животных отмечены на забой. Уход за животными на приоритете 2.</CF_SitWhen_Slaughter>
+  <CF_SitR_Slaughter>животных на забой: {0}</CF_SitR_Slaughter>
+  <CF_Sit_BarrelsReady>бочки готовы</CF_Sit_BarrelsReady>
+  <CF_SitWhen_BarrelsReady>Когда: брожение завершено минимум в 2 бочках. Извлечение на приоритете 2.</CF_SitWhen_BarrelsReady>
+  <CF_SitR_BarrelsReady>готовых бочек: {0}</CF_SitR_BarrelsReady>
+  <CF_Sit_TextilePile>куча ткани и кожи</CF_Sit_TextilePile>
+  <CF_SitWhen_TextilePile>Когда: на складе 400 и более ткани и кожи и ждут заказы на шитьё (только в спокойное время). Шитьё на приоритете 2.</CF_SitWhen_TextilePile>
+  <CF_SitR_TextilePile>ткань и кожа: {0}</CF_SitR_TextilePile>
+  <CF_Sit_WornGear>изношенное снаряжение</CF_Sit_WornGear>
+  <CF_SitWhen_WornGear>Когда: на складе 10 и более единиц оружия и одежды с прочностью ниже 60 % (только с модом на ремонт, только в спокойное время). Ремесло на приоритете 2.</CF_SitWhen_WornGear>
+  <CF_SitR_WornGear>изношенных предметов: {0}</CF_SitR_WornGear>
+  <CF_Sit_CaravanPrep>формируется караван</CF_Sit_CaravanPrep>
+  <CF_SitWhen_CaravanPrep>Когда: формируется караван. Переноска на приоритете 1, готовка на 2.</CF_SitWhen_CaravanPrep>
+  <CF_SitR_CaravanPrep>формируется караван</CF_SitR_CaravanPrep>
+  <CF_Sit_Gathering>вечеринка или ритуал</CF_Sit_Gathering>
+  <CF_SitWhen_Gathering>Когда: идёт вечеринка или ритуал. Готовка и уборка на приоритете 2.</CF_SitWhen_Gathering>
+  <CF_SitR_Gathering>вечеринка / ритуал</CF_SitR_Gathering>
+  <CF_Sit_Guests>гости в колонии</CF_Sit_Guests>
+  <CF_SitWhen_Guests>Когда: минимум 2 посетителя или гостя по заданию. Готовка и уборка на приоритете 2.</CF_SitWhen_Guests>
+  <CF_SitR_Guests>гостей: {0}</CF_SitR_Guests>
+  <CF_Sit_Snow>нужно убрать снег</CF_Sit_Snow>
+  <CF_SitWhen_Snow>Когда: 60 и более заснеженных клеток в зоне уборки снега. Уборка на приоритете 2.</CF_SitWhen_Snow>
+  <CF_SitR_Snow>заснеженных клеток: {0}</CF_SitR_Snow>
+  <CF_Sit_OrbitalTrade>торговый корабль на орбите</CF_Sit_OrbitalTrade>
+  <CF_SitWhen_OrbitalTrade>Когда: на орбите торговый корабль и у вас есть торговый маяк. Переноска на приоритете 2.</CF_SitWhen_OrbitalTrade>
+  <CF_SitR_OrbitalTrade>торговый корабль на орбите</CF_SitR_OrbitalTrade>
+  <CF_Sit_ChunksOnFields>глыбы на полях</CF_Sit_ChunksOnFields>
+  <CF_SitWhen_ChunksOnFields>Когда: минимум 5 глыб или шлака лежат на полях. Переноска на приоритете 2.</CF_SitWhen_ChunksOnFields>
+  <CF_SitR_ChunksOnFields>глыб на полях: {0}</CF_SitR_ChunksOnFields>
+  <CF_Sit_IdleBench>верстаки без работника</CF_Sit_IdleBench>
+  <CF_SitWhen_IdleBench>Когда: минимум у 3 верстаков есть заказы, но никто за ними не работает. Ожидающий вид работы получает приоритет 2.</CF_SitWhen_IdleBench>
+  <CF_SitR_IdleBench>верстаков без работника: {0}</CF_SitR_IdleBench>
+  <CF_FloorSleep>{0} спит на полу: {1}</CF_FloorSleep>
+  <CF_FloorNoBeds>в колонии нет кроватей для колонистов.</CF_FloorNoBeds>
+  <CF_FloorAllOwned>все кровати заняты – назначьте кровать или постройте новую.</CF_FloorAllOwned>
+  <CF_FloorOwnBed>своя кровать ({0})</CF_FloorOwnBed>
+  <CF_FloorFreeBed>свободная кровать ({0})</CF_FloorFreeBed>
+  <CF_FloorForbidden>запрещена.</CF_FloorForbidden>
+  <CF_FloorArea>находится вне разрешённой зоны ({0}).</CF_FloorArea>
+  <CF_FloorUnreachable>недоступна (запертая или запрещённая дверь, стена?).</CF_FloorUnreachable>
+  <CF_FloorReserved>зарезервирована кем-то другим.</CF_FloorReserved>
+  <CF_FloorCantUse>не может использоваться (кровать для рабов/заключённых, пол, идеология или мод на кровати).</CF_FloorCantUse>
+  <CF_FloorDanger>находится в опасном месте (температура, враги).</CF_FloorDanger>
+  <CF_FloorUnknown>не может использоваться по неизвестной причине (вероятно, другой мод на кровати).</CF_FloorUnknown>
+  <CF_SafeAreaName>Steward: безопасно</CF_SafeAreaName>
+  <CF_SafeOn>Атака! Колонистов в зоне «Steward: безопасно»: {0}.</CF_SafeOn>
+  <CF_SafeOff>Атака окончена – колонистам вернули их зоны: {0}.</CF_SafeOff>
+  <CF_Sit_SlaveSuppression>рабов нужно подавлять</CF_Sit_SlaveSuppression>
+  <CF_SitWhen_SlaveSuppression>Когда: подавление раба ниже 35%. Надзиратель на приоритете 2, ниже 15% – на приоритете 1.</CF_SitWhen_SlaveSuppression>
+  <CF_SitR_SlaveSuppression>рабов с низким подавлением: {0}</CF_SitR_SlaveSuppression>
+  <CF_Sit_SlaveRebellionRisk>угроза восстания рабов</CF_Sit_SlaveRebellionRisk>
+  <CF_SitWhen_SlaveRebellionRisk>Когда: раб может поднять восстание в течение месяца. Надзиратель на приоритете 1, минимум 2 колониста.</CF_SitWhen_SlaveRebellionRisk>
+  <CF_SitR_SlaveRebellionRisk>рабов, склонных к восстанию: {0}</CF_SitR_SlaveRebellionRisk>
+  <CF_Sit_PrisonersHurt>раненые заключённые</CF_Sit_PrisonersHurt>
+  <CF_SitWhen_PrisonersHurt>Когда: заключённому нужно лечение. Врач на приоритете 2.</CF_SitWhen_PrisonersHurt>
+  <CF_SitR_PrisonersHurt>заключённых для лечения: {0}</CF_SitR_PrisonersHurt>
+  <CF_Sit_Wounded>раненые колонисты</CF_Sit_Wounded>
+  <CF_SitWhen_Wounded>Когда: колонисту или рабу нужно лечение (даже одному). Врач на приоритете 1.</CF_SitWhen_Wounded>
+  <CF_SitR_Wounded>для лечения: {0}</CF_SitR_Wounded>
+  <CF_Sit_BedHungry>голодные в кровати</CF_Sit_BedHungry>
+  <CF_SitWhen_BedHungry>Когда: прикованный к кровати пациент или заключённый в кровати голоден. Врач (кормит пациентов) и надзиратель (кормит заключённых) на приоритете 1.</CF_SitWhen_BedHungry>
+  <CF_SitR_BedHungry>голодных пациентов: {0}, голодных заключённых: {1}</CF_SitR_BedHungry>
+  <CF_Sit_HungryNoMeals>голод, мало еды</CF_Sit_HungryNoMeals>
+  <CF_SitWhen_HungryNoMeals>Когда: колонисты, рабы или заключённые голодны, а готовой еды для них не хватает. Готовка на приоритете 1.</CF_SitWhen_HungryNoMeals>
+  <CF_SitR_HungryNoMeals>не хватает порций: {0}</CF_SitR_HungryNoMeals>
+  <CF_Sit_ButcherBacklog>туши для разделки</CF_Sit_ButcherBacklog>
+  <CF_SitWhen_ButcherBacklog>Когда: лежат свежие туши животных, которые берёт активный заказ на разделку. Готовка на приоритете 2.</CF_SitWhen_ButcherBacklog>
+  <CF_SitR_ButcherBacklog>туш для разделки: {0}</CF_SitR_ButcherBacklog>
+  <CF_Sit_PrisonRelease>заключённые на освобождение</CF_Sit_PrisonRelease>
+  <CF_SitWhen_PrisonRelease>Когда: заключённый назначен на освобождение. Надзиратель на приоритете 2.</CF_SitWhen_PrisonRelease>
+  <CF_SitR_PrisonRelease>заключённых на освобождение: {0}</CF_SitR_PrisonRelease>
+  <CF_Sit_DirtyPrison>грязная тюремная камера</CF_Sit_DirtyPrison>
+  <CF_SitWhen_DirtyPrison>Когда: камера с заключённым очень грязная. Уборка на приоритете 2.</CF_SitWhen_DirtyPrison>
+  <CF_SitR_DirtyPrison>грязных камер: {0}</CF_SitR_DirtyPrison>
+  <CF_Sit_PrisonBeds>не хватает кроватей для заключённых</CF_Sit_PrisonBeds>
+  <CF_SitWhen_PrisonBeds>Когда: заключённых больше, чем кроватей для заключённых. Строительство на приоритете 2 (разместите кровати, Steward только ускоряет постройку).</CF_SitWhen_PrisonBeds>
+  <CF_SitR_PrisonBeds>не хватает кроватей для заключённых: {0}</CF_SitR_PrisonBeds>
+  <CF_Sit_ProductsWaiting>вещи ждут переноски</CF_Sit_ProductsWaiting>
+  <CF_SitWhen_ProductsWaiting>Когда: 5 и более вещей лежат в домашней зоне вне склада, и какой-то склад их примет (продукция у верстаков, добыча…). Переноска на приоритете 2, один носильщик на 15 вещей, минимум 1.</CF_SitWhen_ProductsWaiting>
+  <CF_SitR_ProductsWaiting>вещей ждут переноски: {0}</CF_SitR_ProductsWaiting>
+  <CF_AF_Tidy>вещей для переноски: {0}, грязи: {1}</CF_AF_Tidy>
+  <CF_Sit_AnimalTraining>дрессировка животных</CF_Sit_AnimalTraining>
+  <CF_SitWhen_AnimalTraining>Когда: хотя бы одно ручное животное можно дрессировать прямо сейчас (есть чему учиться, недавно не дрессировалось) и у колониста достаточно навыка. Уход за животными на приоритете 1 для лучших дрессировщиков, один на 5 животных.</CF_SitWhen_AnimalTraining>
+  <CF_SitR_AnimalTraining>животных ждут дрессировки: {0}</CF_SitR_AnimalTraining>
+  <CF2C_Name>Кризисы и ситуации</CF2C_Name>
+  <CF2C_UseCrisis>Кризисы</CF2C_UseCrisis>
+  <CF2C_UseCrisisTip>Пожар, налёты, раненые, голод и многое другое: Steward сразу повышает людям работу, нужную в кризисе, а то, что может подождать, уходит на самый низкий уровень.</CF2C_UseCrisisTip>
+  <CF2C_UseSituations>Ситуации</CF2C_UseSituations>
+  <CF2C_UseSituationsTip>Большой урожай, много строительства, туши для разделки …: пока ситуация длится, на эту работу выделяется больше людей.</CF2C_UseSituationsTip>
+  <CF2C_AutoFocus>«Сбалансированный» сам выбирает упор</CF2C_AutoFocus>
+  <CF2C_AutoFocusTip>Когда колонии что-то нужно (заканчивается еда, много чертежей …), «Сбалансированный» на время добавляет людей на эту работу.</CF2C_AutoFocusTip>
+  <CF2C_Messages>Сообщения о кризисах и ситуациях</CF2C_Messages>
+  <CF2C_Medical>Врач сразу идёт к срочным случаям</CF2C_Medical>
+  <CF2C_MedicalTip>Кровотечение, инфекция, ранение вне кровати: ближайший свободный врач идёт сразу.</CF2C_MedicalTip>
+  <CF2C_Fire>Тушить пожары на базе</CF2C_Fire>
+  <CF2C_FireTip>Свободные колонисты идут тушить пожары в домашней зоне (не во время атак, не вне своей разрешённой зоны).</CF2C_FireTip>
+  <CF2C_Butcher>Сначала разделка, если еды достаточно</CF2C_Butcher>
+  <CF2C_ButcherTip>Если есть свежие туши животных и достаточно готовой еды, повара сначала разделывают туши.</CF2C_ButcherTip>
+  <CF2C_SafeArea>Безопасная зона во время налётов</CF2C_SafeArea>
+  <CF2C_SafeAreaTip>Во время налётов, нападений бешеных животных и осад колонисты остаются в крытых помещениях базы, а потом получают свою зону обратно.</CF2C_SafeAreaTip>
+  <CF2C_CrisesList>Какие кризисы:</CF2C_CrisesList>
+  <CF2C_SituationsList>Какие ситуации:</CF2C_SituationsList>
+  <CF2C_HistCrisis>кризис: {0}</CF2C_HistCrisis>
+  <CF2C_NoCrisis>нет (завершён)</CF2C_NoCrisis>
+  <CF2C_TipCrisis>Кризис ({0}): нужно сейчас.</CF2C_TipCrisis>
+  <CF2C_TipCrisisDown>Кризис ({0}): эта работа сейчас подождёт.</CF2C_TipCrisisDown>
+  <CF2C_TipExhausted>Измотан: пока ничего на приоритете 1.</CF2C_TipExhausted>
+  <CF2C_TipFocus>Упор {0}: больше людей на этой работе.</CF2C_TipFocus>
+  <CF2C_TipSituation>Ситуация: {0}</CF2C_TipSituation>
+</LanguageData>

@@ -12,6 +12,74 @@
   <AT_AnyMetal>Věže se dobíjí jakýmkoliv kovem</AT_AnyMetal>
   <AT_AnyMetal_Desc>Věže, které se dobíjí ocelí (nebo jiným jedním kovem), berou jakýkoliv kov: ocel, plastocel, zlato, uran i kovy z modů.</AT_AnyMetal_Desc>
   <AT_AllowSilver>…včetně stříbra</AT_AllowSilver>
-  <AT_Restart>Nastavení kovů platí po restartu hry.</AT_Restart>
+  <AT_Restart>Nastavení materiálů a věží ve zdi platí po restartu hry.</AT_Restart>
   <AT_NoShell>Žádný granát k dispozici</AT_NoShell>
+  <AT_FriendlyFire>Palba do vlastních z věží</AT_FriendlyFire>
+  <AT_FriendlyFire_Desc>Když je vypnuto, střely tvých věží prolétnou kolem tvých kolonistů, hostů a spojenců a výbuchy jejich granátů jim neublíží. Zapnuto = jako ve hře.</AT_FriendlyFire_Desc>
+  <AT_FuelWood>Věže jde doplnit i dřevem</AT_FuelWood>
+  <AT_FuelWood_Desc>Věže, které se doplňují kovem, vezmou i dřevo.</AT_FuelWood_Desc>
+  <AT_FuelStone>Věže jde doplnit i kamennými bloky</AT_FuelStone>
+  <AT_FuelStone_Desc>Věže, které se doplňují kovem, vezmou i kamenné bloky.</AT_FuelStone_Desc>
+  <AT_WallTurrets>Věže ve zdi</AT_WallTurrets>
+  <AT_WallTurrets_Desc>Vybrané věže dostanou v menu Obrana druhou verzi „… (ve zdi)“. Staví se rovnou přes zeď nebo vyhlazenou skálu, nahradí ten kus zdi a funguje sama jako zeď: nedá se jí projít, drží střechu a místnost zůstane uzavřená. Obyčejné věže zůstanou, jak jsou.</AT_WallTurrets_Desc>
+  <AT_WallRecommended>Doporučený výběr</AT_WallRecommended>
+  <AT_WallNone>Žádné věže nenalezeny.</AT_WallNone>
+  <AT_WallLabel>{0} (ve zdi)</AT_WallLabel>
+  <AT_WallDescExtra>Staví se přes zeď: vypadá jako kus zdi (z jejího materiálu) s věží nahoře, napojí se na sousední zdi, nedá se jí projít a drží střechu. Malé věže 1×1 stojí navíc 5 kusů materiálu zdi. Když ji zničí, zůstane ve zdi díra.</AT_WallDescExtra>
+  <AT_SecShooting>Střelba</AT_SecShooting>
+  <AT_SecMaterials>Munice a materiály</AT_SecMaterials>
+  <AT_WallEnable>Povolit věže ve zdi</AT_WallEnable>
+  <AT_WallAll>Vybrat vše</AT_WallAll>
+  <AT_WallClear>Zrušit vše</AT_WallClear>
+  <AT_WallCount>Vybráno {0} z {1}</AT_WallCount>
+  <AT_WallSearch>Hledat:</AT_WallSearch>
+  <AT_WallRecDone>Doporučený výběr obnoven – vybráno {0} malých věží.</AT_WallRecDone>
+  <AT_WallAllDone>Vybráno všech {0} věží.</AT_WallAllDone>
+  <AT_WallClearDone>Výběr zrušen.</AT_WallClearDone>
+  <AT_RestartNeeded>⚠ Změny věží ve zdi se projeví po restartu hry.</AT_RestartNeeded>
+  <AT_WallRecTip>Doporučeno: malá věž do 2×2</AT_WallRecTip>
+  <AT_SmartShells>Chytrá volba granátů</AT_SmartShells>
+  <AT_SmartShells_Desc>Automatické minomety neplýtvají granáty: EMP jen na mechanoidy a nepřátele se štítem, zápalné ne na mechanoidy, hasicí pěna jen na požáry v domovské oblasti (nikdy na nepřátele). Nosiči přinesou EMP granáty, když jsou nepřátelé většinou mechanoidi, jinak trhavé – pokud je filtr minometu povolí.</AT_SmartShells_Desc>
+  <AT_NoHitBuildings>Věže nestřílí do našich budov</AT_NoHitBuildings>
+  <AT_NoHitBuildings_Desc>Když je zapnuto, střely tvých věží prolétnou kolem tvých vlastních budov (zdí, pytlů s pískem, dveří…), pokud na ně přímo nemíříš, a výbuchy jejich granátů je nepoškodí. Nepřátelské budovy zasahují normálně. Vypnuto = jako ve hře.</AT_NoHitBuildings_Desc>
+  <AT_WallOutward>Věže ve zdi střílí jen ven</AT_WallOutward>
+  <AT_WallOutward_Desc>Věž ve zdi střílí jen na cíle na vnější straně své zdi (od místnosti ven). Když není ani jedna strana jasně venku (zeď mezi dvěma místnostmi), střílí všude.</AT_WallOutward_Desc>
+  <AT_TabTurrets>Věže</AT_TabTurrets>
+  <AT_TurretsDesc>Všechny věže, minomety a děla – z vanilly i z modů. Zaškrtnuté střílí samy. Odškrtnuté: obsluhované věže a minomety zase potřebují kolonistu, automatické věže nestřílí, dokud jim nevybereš cíl.</AT_TurretsDesc>
+  <AT_TurretsNone>Žádné věže nenalezeny.</AT_TurretsNone>
+  <AT_TurretsCount>{0} z {1} střílí samo</AT_TurretsCount>
+  <AT_FuelEdit>Materiály…</AT_FuelEdit>
+  <AT_FuelPerTurret>Materiály každé věže – i věží, které potřebují vlastní náboje nebo palivo z modu. Klikni na „Materiály…“ a zaškrtni, čím dalším se smí dobíjet. Změny platí hned.</AT_FuelPerTurret>
+  <AT_FuelNone>Žádná věž se tu nedobíjí.</AT_FuelNone>
+  <AT_FuelTakes>bere: {0}</AT_FuelTakes>
+  <AT_FuelOriginal>Sama bere: {0}. Zaškrtni, čím dalším se smí dobíjet:</AT_FuelOriginal>
+  <AT_FuelOrig>vlastní</AT_FuelOrig>
+  <AT_FuelGroup0>Kovy</AT_FuelGroup0>
+  <AT_FuelGroup1>Dřevo</AT_FuelGroup1>
+  <AT_FuelGroup2>Kamenné bloky</AT_FuelGroup2>
+  <AT_FuelGroup3>Náboje a granáty</AT_FuelGroup3>
+  <AT_FuelGroup4>Ostatní suroviny</AT_FuelGroup4>
+  <AT_KindManned>obsluhovaná</AT_KindManned>
+  <AT_KindMortar>obsluhovaný minomet</AT_KindMortar>
+  <AT_KindAuto>automatická</AT_KindAuto>
+  <AT_KindMortarAuto>minomet</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>Automaticky nabíjet granáty</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>Nosiči k tomuto minometu sami nosí granáty. Vypni, když ho chceš nabíjet jen ručně.</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>Munice: {0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>Vyber jediný granát nebo materiál, kterým se tato věž nabíjí nebo dobíjí – nic jiného se nenosí. „Cokoli povoleného“ použije vše, co věž bere.</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>cokoli povoleného</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>Speciální granáty jen na výběr</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>Nosiči nosí EMP, zápalné, hasicí a jiné speciální granáty jen k minometu, kterému je vybereš tlačítkem „Munice“; jinak nosí výbušné granáty.</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>Věže s vlastní municí berou i kovy</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>Věže, které potřebují vlastní munici nebo palivo (často z modů), se dají dobít i ocelí nebo jiným kovem – nikdy tak nestojí jen proto, že jejich munice chybí.</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>Věže nepotřebují munici</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>Tvoje věže jsou vždy nabité a munici ani palivo nespotřebují. Hodí se, když věž z modu potřebuje munici, kterou nedokážeš vyrobit. Minomety, děla a polní zbraně mají taky vždy nabitý granát.</AT_FreeAmmo_Desc>
+  <AT_VfesAuto>Střílí samo (Auto Turrets) – kolonista není potřeba.</AT_VfesAuto>
+  <AT_VfesSend>Nikdo ji neobsluhuje – nejbližší volný kolonista, který může bojovat, k ní hned dojde.</AT_VfesSend>
+  <AT_VfesNobody>Nikdo nemůže dělostřelectvo obsluhovat.</AT_VfesNobody>
+  <AT_VfesGoes>{0} jde obsluhovat dělostřelectvo.</AT_VfesGoes>
+  <AT_ShellsFromMaterial>Minomety a děla nabíjet materiálem místo granátů</AT_ShellsFromMaterial>
+  <AT_ShellsFromMaterial_Desc>Nosiči nosí do minometů, děl a polních zbraní ocel (nebo jiný kov) a dělo se nabije granátem, který jsi mu vybral, jinak tříštivotrhavým. Granáty vůbec nepotřebuješ. Automatický minomet z VFE si granáty doplňuje z materiálu taky.</AT_ShellsFromMaterial_Desc>
+  <AT_ShellCost>Materiálu na jeden granát: {0}</AT_ShellCost>
+  <AT_NoMaterial>Málo materiálu ({0} kovu na granát)</AT_NoMaterial>
 </LanguageData>

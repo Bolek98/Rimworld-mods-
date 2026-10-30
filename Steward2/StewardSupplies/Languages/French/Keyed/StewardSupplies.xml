@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_S_On>Maintenir les réserves</CF_S_On>
+  <CF_S_RunNow>Vérifier maintenant</CF_S_RunNow>
+  <CF_S_AreaAny>Toute la carte</CF_S_AreaAny>
+  <CF_S_AreaTip>Ne marquer que ce qui se trouve dans cette zone.</CF_S_AreaTip>
+  <CF_S_HuntPregnant>Chasser les animaux gestants</CF_S_HuntPregnant>
+  <CF_S_Marked>Steward – réserves : {0} marqué(s).</CF_S_Marked>
+  <CF_S_NothingToMark>Steward – réserves : rien à marquer.</CF_S_NothingToMark>
+  <CF_S_Desc>Indiquez combien vous voulez en stock. S'il y en a moins (en comptant ce qui est déjà marqué ou traîne par terre), l'intendant marque les arbres, plantes, filons ou animaux les plus proches – seulement autant que nécessaire. Les colons font le reste dans leur travail habituel.</CF_S_Desc>
+  <CF_S_OnTip>Activé, l'intendant vérifie cette carte toutes les quelques heures (réglable dans Aperçu) et marque ce qui est nécessaire.</CF_S_OnTip>
+  <CF_S_Status>stocké {0}  +{1} en route  /  {2}</CF_S_Status>
+  <CF_J_Overview>Aperçu</CF_J_Overview>
+  <CF_J_Hunting>Chasse</CF_J_Hunting>
+  <CF_J_Forestry>Sylviculture</CF_J_Forestry>
+  <CF_J_Foraging>Cueillette</CF_J_Foraging>
+  <CF_J_Mining>Minage</CF_J_Mining>
+  <CF_J_Emergency>Urgence alimentaire</CF_J_Emergency>
+  <CF_J_Short>{0} / {1}</CF_J_Short>
+  <CF_J_Off>désactivé</CF_J_Off>
+  <CF_J_Active>{0} actif(s)</CF_J_Active>
+  <CF_J_EmergencyNow>ACTIVE</CF_J_EmergencyNow>
+  <CF_J_EmergencyIdle>en veille</CF_J_EmergencyIdle>
+  <CF_J_NextCheck>Prochaine vérification dans {0} h</CF_J_NextCheck>
+  <CF_J_Interval>Vérifier toutes les {0} h</CF_J_Interval>
+  <CF_J_Enabled>Activé</CF_J_Enabled>
+  <CF_J_Target>Objectif :</CF_J_Target>
+  <CF_J_ProgressTip>Vert = en stock. Jaune = en route (par terre sur la carte, ou dans les arbres, plantes, filons et animaux marqués, ou dans les animaux tués pas encore dépecés).</CF_J_ProgressTip>
+  <CF_J_All>Tout sélectionner</CF_J_All>
+  <CF_J_None>Ne rien sélectionner</CF_J_None>
+  <CF_J_Default>Sélection par défaut</CF_J_Default>
+  <CF_J_UnitMeat>viande</CF_J_UnitMeat>
+  <CF_J_HuntingDesc>Garde de la viande crue en stock. Seuls les animaux cochés ci-dessous sont chassés, les plus proches d'abord. Les prédateurs et les animaux qui deviennent souvent enragés sont désactivés par défaut.</CF_J_HuntingDesc>
+  <CF_J_ForestryDesc>Garde du bois en stock. Seuls les arbres cochés ci-dessous sont abattus, les plus proches d'abord et seulement à maturité. Les arbres des zones de culture ne sont jamais touchés. Les arbres spéciaux (anima, gauranlen …) sont désactivés par défaut.</CF_J_ForestryDesc>
+  <CF_J_ForagingDesc>Garde en stock de la nourriture végétale sauvage (baies, agave …) et d'autres récoltes sauvages. Seules les plantes cochées ci-dessous sont récoltées. Les cultures des zones de culture ne sont jamais touchées.</CF_J_ForagingDesc>
+  <CF_J_MiningDesc>Un objectif pour chaque ressource présente dans des filons sur cette carte. Cochez une ressource, indiquez combien vous en voulez, et les filons les plus proches sont marqués pour le minage.</CF_J_MiningDesc>
+  <CF_J_NoVeins>Aucun filon exploitable trouvé sur cette carte pour l'instant (les zones dans le brouillard ne sont pas comptées).</CF_J_NoVeins>
+  <CF_J_AnimalInfo>sur la carte : {0}  {1}</CF_J_AnimalInfo>
+  <CF_J_Dangerous>· dangereux</CF_J_Dangerous>
+  <CF_J_PlantInfo>sur la carte : {0}  · donne {1}</CF_J_PlantInfo>
+  <CF_J_EmergencyDesc>Quand la colonie a de la nourriture pour moins de jours que le seuil ci-dessous, l'intendant marque immédiatement les plantes sauvages comestibles à récolter, puis les animaux à chasser – quels que soient les objectifs. Il s'arrête quand il y a de nouveau assez de nourriture.</CF_J_EmergencyDesc>
+  <CF_J_EmergencyDays>Urgence sous {0} jours de nourriture</CF_J_EmergencyDays>
+  <CF_J_FoodDays>Nourriture actuelle : {0} jours (colons et prisonniers)</CF_J_FoodDays>
+  <CF_J_EmergencyHow>Utilise la sélection d'animaux et de plantes de Chasse et Cueillette, ainsi que leurs zones. D'abord les plantes sauvages comestibles (sans risque), ensuite la chasse. Les cultures mûres des zones de culture sont de toute façon récoltées par vos cultivateurs.</CF_J_EmergencyHow>
+  <CF_J_EmergencyStart>Urgence alimentaire : nourriture pour seulement {0} jours. L'intendant marque des plantes comestibles et des animaux à chasser.</CF_J_EmergencyStart>
+  <CF_J_EmergencyEnd>Urgence alimentaire terminée.</CF_J_EmergencyEnd>
+  <CF_J_Livestock>Bétail</CF_J_Livestock>
+  <CF_J_LivestockDesc>Pour chaque espèce apprivoisée, indiquez combien de femelles adultes, de mâles adultes et de jeunes vous voulez. Le surplus est marqué pour l'abattage, les plus âgés d'abord. Les animaux liés ne sont jamais marqués ; les gestants seulement si vous l'autorisez. En option, tout le troupeau est gardé dans une zone.</CF_J_LivestockDesc>
+  <CF_J_NoAnimals>Aucun animal apprivoisé sur cette carte pour l'instant.</CF_J_NoAnimals>
+  <CF_J_HerdNow>actuellement : {0} ♀  {1} ♂  {2} jeunes</CF_J_HerdNow>
+  <CF_J_KeepFemales>Garder les femelles</CF_J_KeepFemales>
+  <CF_J_KeepMales>Garder les mâles</CF_J_KeepMales>
+  <CF_J_KeepYoung>Garder les jeunes</CF_J_KeepYoung>
+  <CF_J_KeepPregnant>Ne jamais abattre les gestantes</CF_J_KeepPregnant>
+  <CF_J_AnimalAreaNone>Zone : inchangée</CF_J_AnimalAreaNone>
+  <CF_J_AnimalAreaTip>Garder tous les animaux de cette espèce dans cette zone.</CF_J_AnimalAreaTip>
+  <CF_J_StepTip>Maj : ±10, Ctrl : ±100</CF_J_StepTip>
+  <CF_J_KeepSpecies>Garder en vie de chaque espèce</CF_J_KeepSpecies>
+  <CF_J_OutsideHome>Seulement hors de la zone domestique</CF_J_OutsideHome>
+  <CF_J_OutsideHomeTip>Les arbres de la zone domestique ne sont jamais abattus, la base garde donc ses arbres.</CF_J_OutsideHomeTip>
+  <CF_J_KeepTrees>Toujours laisser debout</CF_J_KeepTrees>
+  <CF_J_ClearOff>Zone à défricher : désactivée</CF_J_ClearOff>
+  <CF_J_ClearOn>Zone à défricher : {0}</CF_J_ClearOn>
+  <CF_J_ClearTip>Toutes les plantes de cette zone sont coupées (arbres, buissons, herbe) – pour un chantier ou un coupe-feu. Les cultures des zones de culture ne sont pas touchées. Indépendant de l'objectif de bois.</CF_J_ClearTip>
+  <CF_J_Clear>défrichage</CF_J_Clear>
+  <CF_J_GraphWait>graphique après 2 jours</CF_J_GraphWait>
+  <CF_J_GraphTip>Stock des derniers jours (vert) et objectif (ligne jaune).</CF_J_GraphTip>
+  <CF_T_Tidy>Sortir les objets sans stockage</CF_T_Tidy>
+  <CF_T_TidyTip>Les objets qui traînent dans la zone domestique vont au stockage comme d'habitude. Quand il n'y a de place pour eux nulle part, les colons les portent à la zone de dépôt. Sans zone de dépôt, ils restent où ils sont. Fait partie du travail Transport. Les morts sont laissés pour les tombes.</CF_T_TidyTip>
+  <CF_T_DumpAuto>Dépôt : zones de stockage uniquement</CF_T_DumpAuto>
+  <CF_T_Dump>Dépôt : {0}</CF_T_Dump>
+  <CF_T_DumpTip>Les objets sans zone de stockage ne sont posés que dans la zone que vous choisissez. Sans zone, les colons les laissent où ils sont.</CF_T_DumpTip>
+  <CF_A_Label>Steward : réserves</CF_A_Label>
+  <CF_A_Explanation>L'intendant ne peut pas maintenir certaines réserves :</CF_A_Explanation>
+  <CF_A_NoSources>{0} : sous l'objectif et plus rien à marquer (vérifiez la sélection, la zone et le brouillard).</CF_A_NoSources>
+  <CF_A_NoHunter>Il faut chasser, mais aucun colon capable de chasser n'a d'arme à distance.</CF_A_NoHunter>
+  <CF_A_NoSourcesHere>Sous l'objectif et rien à marquer – vérifiez la sélection, la zone ou les limites à garder.</CF_A_NoSourcesHere>
+  <CF_J_Production>Production</CF_J_Production>
+  <CF_J_Power>Électricité</CF_J_Power>
+  <CF_J_Household>Ménage</CF_J_Household>
+  <CF_J_On>activé</CF_J_On>
+  <CF_J_ProductionDesc>Garder des produits finis en stock : repas, médicaments, vêtements, composants … Chaque objectif devient un ordre « jusqu'à avoir X » sur le meilleur établi capable de le fabriquer. L'intendant gère cet ordre (le recrée, le déplace, le met à jour, le suspend) ; vos propres ordres ne sont jamais touchés.</CF_J_ProductionDesc>
+  <CF_X_AddProduct>Ajouter un produit</CF_X_AddProduct>
+  <CF_X_NoBillYet>pas encore d'ordre (prochaine vérification)</CF_X_NoBillYet>
+  <CF_X_BillAt>ordre sur {0}</CF_X_BillAt>
+  <CF_X_RemoveProduct>Supprimer l'objectif et son ordre</CF_X_RemoveProduct>
+  <CF_J_PowerDesc>Quand les batteries d'un réseau électrique s'épuisent, les appareils choisis sont éteints ; une fois rechargées, l'intendant rallume ce qu'il a éteint. Les appareils que vous avez éteints vous-même restent éteints.</CF_J_PowerDesc>
+  <CF_X_PowerNow>Actuellement : {0} W d'excédent · stocké {1} / {2} Wj ({3})</CF_X_PowerNow>
+  <CF_X_PowerLow>Éteindre sous {0} de charge</CF_X_PowerLow>
+  <CF_X_PowerHigh>Rallumer au-dessus de {0} de charge</CF_X_PowerHigh>
+  <CF_X_PowerDevices>Appareils pouvant être éteints :</CF_X_PowerDevices>
+  <CF_X_DeviceInfo>{0}× · {1} W chacun</CF_X_DeviceInfo>
+  <CF_J_HouseholdDesc>Ordre dans la base : les objets sans place au stockage sont sortis, et la saleté des pièces importantes est nettoyée en premier.</CF_J_HouseholdDesc>
+  <CF_C_Clean>Nettoyer d'abord les pièces importantes</CF_C_Clean>
+  <CF_C_CleanTip>La saleté des pièces cochées ci-dessous est nettoyée avant la saleté ailleurs. La saleté dans une cuisine propage l'intoxication alimentaire, dans un hôpital elle augmente le risque d'infection. Fait partie du travail Nettoyage.</CF_C_CleanTip>
+  <CF_C_FilthNow>Saleté actuelle dans ces pièces : {0}</CF_C_FilthNow>
+  <CF_C_Rooms>Pièces nettoyées en premier :</CF_C_Rooms>
+  <CF_X_Cancel>Annuler les marques de l'intendant</CF_X_Cancel>
+  <CF_X_CancelTip>Supprime toutes les marques de coupe, chasse, récolte, minage et abattage posées par l'intendant. Vos propres marques restent.</CF_X_CancelTip>
+  <CF_X_CancelConfirm>Supprimer toutes les marques posées par l'intendant sur cette carte ? Les marques que vous avez posées vous-même restent.</CF_X_CancelConfirm>
+  <CF_X_Cancelled>Steward : {0} marques supprimées.</CF_X_Cancelled>
+  <CF_X_OtherMap>{0} : {1}</CF_X_OtherMap>
+  <CF_H_Chunks>Débarrasser les blocs de pierre et les scories</CF_H_Chunks>
+  <CF_H_ChunksTip>Les blocs de pierre et les scories qui traînent dans la zone domestique sont marqués pour le transport par l'intendant – comme si vous les aviez marqués vous-même – quelques-uns à la fois, quand il y a peu d'autres transports. Tout colon avec Transport activé les porte dans une zone de stockage qui accepte les blocs ; sans une telle zone, ils vont à la zone de dépôt, si elle est définie. Les blocs interdits ne sont pas touchés.</CF_H_ChunksTip>
+  <CF_H_Items>Marquer les objets épars pour le transport</CF_H_Items>
+  <CF_H_ItemsTip>Tout ce qui traîne dans la zone domestique hors d'une étagère ou d'une zone de stockage (et qui a une destination) est marqué pour le transport par l'intendant – y compris ce qui est interdit après un raid. Quelques-uns à la fois, les plus proches de la colonie d'abord.</CF_H_ItemsTip>
+  <CF_H_Pockets>Les colons vident les objets oubliés de leurs poches</CF_H_Pockets>
+  <CF_H_PocketsTip>Les objets qu'un colon porte dans son inventaire sans raison (restes du transport par inventaire, ramassés et oubliés) sont posés et portés au stockage. Les armes, drogues et stocks de leurs politiques ainsi que les provisions de voyage sont conservés. Un objet doit d'abord rester environ une demi-heure dans la poche. Avec Harvest And Haul, sa propre tâche de déchargement s'en charge – tout va au stockage en un seul trajet.</CF_H_PocketsTip>
+  <CF_H_Workers>Colons qui s'en chargent :</CF_H_Workers>
+  <CF_H_WorkersTip>Combien de colons sortent les objets sans stockage (et nettoient, dans la ligne ci-dessous). 0 = tous ceux qui ont ce type de travail activé. L'intendant choisit ceux qui ont le moins de tâches de priorité maximale, les plus rapides d'abord, à chaque heure de jeu. Maj : ±10. Les blocs marqués pour le transport sont pris par n'importe quel porteur.</CF_H_WorkersTip>
+  <CF_H_Everyone>tout le monde</CF_H_Everyone>
+  <CF_H_Nobody>personne de disponible</CF_H_Nobody>
+  <CF_X_PickTitle>Ajouter un produit</CF_X_PickTitle>
+  <CF_X_InStock>en stock : {0}</CF_X_InStock>
+  <CF_X_OpenMint>Ouvrir les ordres Mint</CF_X_OpenMint>
+  <CF_X_OpenMintTip>Ouvre le menu des ordres de Dubs Mint Menus avec tous les établis. Créez-y un ordre « jusqu'à avoir X » et adoptez-le ici – l'intendant le gère ensuite.</CF_X_OpenMintTip>
+  <CF_X_Adopt>Adopter des ordres ({0})</CF_X_Adopt>
+  <CF_X_AdoptTip>Ordres « jusqu'à avoir X » créés à la main ou dans Dubs Mint Menus. L'intendant les reprend : les recrée s'ils sont supprimés, les déplace quand l'établi a disparu, les suspend quand désactivés.</CF_X_AdoptTip>
+  <CF_H_Products>Emporter immédiatement les produits finis</CF_H_Products>
+  <CF_H_ProductsTip>Les repas, médicaments, vêtements et autres objets posés à côté d'un établi, d'un fourneau ou d'un poste d'artisanat sont portés au stockage avant tout autre transport. Les ordres de l'intendant réglés sur « poser au sol » passent à « porter à la meilleure zone de stockage ». Fait partie du travail Transport.</CF_H_ProductsTip>
+  <CF_M_Target>Garder des repas prêts pour</CF_M_Target>
+  <CF_M_TargetTip>Stock cible de repas cuisinés, en jours de nourriture pour tous ceux qui mangent. Quand la colonie en a autant ou plus, tous les ordres qui produisent des repas sont mis en pause ; quand le stock passe en dessous, les ordres mis en pause par l'intendant reprennent. Les ordres que vous avez mis en pause vous-même le restent. Maj = pas de 2 jours.</CF_M_TargetTip>
+  <CF_M_Days>{0} jours</CF_M_Days>
+  <CF_M_Now>actuellement {0} jours</CF_M_Now>
+  <CF_M_Paused>{0} ordres de repas en pause</CF_M_Paused>
+  <CF_M_Cooking>en cuisine</CF_M_Cooking>
+  <CF_M_Page>Repas prêts</CF_M_Page>
+  <CF_M_Short>{0} / {1} jours</CF_M_Short>
+  <CF_M_Bills>Ordres qui produisent des repas : {0}</CF_M_Bills>
+  <CF_M_NoBills>Aucun ordre ne produit de repas. Ajoutez-en un à un fourneau (ou dans Production) – l'intendant ne fait que mettre en pause et reprendre les ordres, il ne les crée pas.</CF_M_NoBills>
+  <CF_M_BillOn>en cuisine</CF_M_BillOn>
+  <CF_M_BillSteward>en pause par l'intendant</CF_M_BillSteward>
+  <CF_M_BillYou>en pause par vous</CF_M_BillYou>
+  <CF_H_Blight>Couper les plantes atteintes de la rouille</CF_H_Blight>
+  <CF_H_BlightTip>Les plantes atteintes de la rouille dans les zones de culture, les pots de fleurs, l'hydroponie et la zone domestique sont marquées pour la coupe toutes les heures, pour que la rouille ne se propage pas. La crise de la rouille donne alors plus de colons à la coupe de plantes.</CF_H_BlightTip>
+  <CF_BlightMarked>Steward : {0} plantes atteintes de la rouille marquées pour la coupe.</CF_BlightMarked>
+  <CF_P_MaySwitch>L'intendant peut éteindre</CF_P_MaySwitch>
+  <CF_P_MaySwitchDesc>Quand les batteries s'épuisent, l'intendant éteint les appareils choisis un par un, les plus gourmands d'abord. Désactivez ceci pour garder cet appareil toujours allumé.</CF_P_MaySwitchDesc>
+  <CF_A_Page>Autoapprovisionnement</CF_A_Page>
+  <CF_A_Short>{0} ordres</CF_A_Short>
+  <CF_A_Desc>Quand la colonie manque de quelque chose qu'elle peut fabriquer, l'intendant ajoute un ordre pour exactement ce qui manque, sur le meilleur établi capable de le fabriquer (un vrai établi avant un feu de camp ou un poste), et le supprime une fois terminé – jamais « pour toujours ». Les objets en stock et vos propres ordres comptent en premier.</CF_A_Desc>
+  <CF_A_On>Autoapprovisionnement activé</CF_A_On>
+  <CF_A_Meals>Repas</CF_A_Meals>
+  <CF_A_Medicine>Médicaments</CF_A_Medicine>
+  <CF_A_Clothes>Vêtements et accessoires</CF_A_Clothes>
+  <CF_A_Armor>Armure</CF_A_Armor>
+  <CF_A_Weapons>Armes</CF_A_Weapons>
+  <CF_A_Materials>Matériaux</CF_A_Materials>
+  <CF_A_Worn>Remplacer sous {0} % d'état</CF_A_Worn>
+  <CF_A_Bills>Ordres créés par l'autoapprovisionnement : {0}</CF_A_Bills>
+  <CF_A_RemoveAll>Supprimer ces ordres</CF_A_RemoveAll>
+  <CF_A_Last>Dernier ajout : {0}</CF_A_Last>
+  <CF_A_Kind_meals>repas</CF_A_Kind_meals>
+  <CF_A_Kind_medicine>médicaments</CF_A_Kind_medicine>
+  <CF_A_Kind_clothes>vêtements</CF_A_Kind_clothes>
+  <CF_A_Kind_armor>armure</CF_A_Kind_armor>
+  <CF_A_Kind_weapon>arme</CF_A_Kind_weapon>
+  <CF_A_Kind_material>matériau</CF_A_Kind_material>
+  <CF_A_Left>encore {0}×</CF_A_Left>
+  <CF_A_Until>jusqu'à {0}</CF_A_Until>
+  <CF_A_Race>Respecter les restrictions de race</CF_A_Race>
+  <CF_A_RaceTip>Activé : les races extraterrestres (Humanoid Alien Races) ne reçoivent que les vêtements et armes que leur race peut utiliser. Désactivez si un autre mod lève ces restrictions – alors tout le monde peut tout recevoir.</CF_A_RaceTip>
+  <CF_W_Reassign>Réattribuer le travail maintenant</CF_W_Reassign>
+  <CF_W_ReassignHere_Desc>Replanifie immédiatement les priorités de travail de cette carte (comme « Recalculer » dans l'onglet Travail). Les cases, tâches et colons verrouillés sont conservés.</CF_W_ReassignHere_Desc>
+  <CF_W_LastPlan>Priorités de travail : planifiées il y a {0}, {1} modifiées – style {2}.</CF_W_LastPlan>
+  <CF_W_LastPlanNever>Priorités de travail : pas planifiées sur cette carte depuis le chargement de la partie.</CF_W_LastPlanNever>
+  <CF_W_LastPlan_Desc>Survolez une case de l'onglet Travail pour voir pourquoi un colon a reçu cette priorité : compétence, passion, vitesse, rang, le quota de colons pour la tâche et la règle qui a décidé du niveau.</CF_W_LastPlan_Desc>
+  <CF_W_StewardOff>(l'intendant est désactivé sur cette carte)</CF_W_StewardOff>
+  <CF_NoStorage>{0} ({1}×) traîne par terre et personne ne le transporte : aucune zone de stockage ne l'accepte ou elles sont pleines. Autorisez-le dans le filtre d'une zone de stockage.</CF_NoStorage>
+  <CF_J_ClearTooBig>{0} – trop grande pour être défrichée</CF_J_ClearTooBig>
+  <CF_J_ClearTooBigOff>La zone à défricher « {0} » est trop grande (ce serait la moitié de la carte) – désactivée et ses marques de coupe annulées. Créez une petite zone juste pour un chantier ou un coupe-feu.</CF_J_ClearTooBigOff>
+  <CF_J_ClearCancelled>Marques de coupe de la zone défrichée annulées : {0}</CF_J_ClearCancelled>
+  <CF2U_Name>Réserves</CF2U_Name>
+  <CF2U_Hint>Les objectifs de stock, ordres, animaux et le ménage se règlent dans l'onglet Réserves (barre du bas).</CF2U_Hint>
+  <CF2U_Messages>Messages sur ce que l'intendant a marqué</CF2U_Messages>
+  <CF2U_MasterBills>Ordres de maître</CF2U_MasterBills>
+  <CF2U_MasterBillsTip>Les armes et vêtements de qualité ne sont fabriqués que par les meilleurs artisans (toujours au moins deux). Vos propres réglages d'ordres passent en premier.</CF2U_MasterBillsTip>
+  <CF2U_NoStorage>Alerter quand un objet n'a nulle part où aller</CF2U_NoStorage>
+  <CF2U_NoStorageTip>Quand un objet ne peut être stocké nulle part, l'intendant dit pourquoi.</CF2U_NoStorageTip>
+  <CF2U_PUAH>Transporter avec Pick Up And Haul</CF2U_PUAH>
+  <CF2U_PUAHTip>L'intendant porte les objets au stockage dans les poches de Pick Up And Haul.</CF2U_PUAHTip>
+  <CF_J_ReleaseSurplus>Relâcher le surplus</CF_J_ReleaseSurplus>
+  <CF_J_ReleaseSurplusTip>Les animaux en surplus sont relâchés dans la nature au lieu d'être abattus (les espèces qui ne peuvent pas être relâchées sont toujours abattues). Les animaux des invités de quête ne comptent jamais dans les objectifs.</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>Foreuses profondes</CF_D_Drills>
+  <CF_D_Control>Commuter les foreuses profondes selon l'objectif ({0} ici)</CF_D_Control>
+  <CF_D_ControlTip>Les foreuses profondes sur cette ressource sont éteintes quand le stock atteint l'objectif et rallumées quand il passe en dessous. Seules les foreuses éteintes par l'intendant sont rallumées. Les types de foreuses choisis sur la page Énergie restent gérés par la gestion de l'énergie.</CF_D_ControlTip>
+  <CF_J_SparkWait>historique après 2 heures</CF_J_SparkWait>
+  <CF_J_SparkTip>Stock une fois par heure sur les {0} derniers jours : minimum {1}, maximum {2}, maintenant {3}. Ligne jaune : l'objectif.</CF_J_SparkTip>
+  <CF_X_Ingredients>Garder aussi assez d'ingrédients</CF_X_Ingredients>
+  <CF_X_IngredientsTip>Ajoute ou relève les objectifs des ingrédients de cette recette (minage, production ou bois) pour en avoir assez pour tout l'objectif. Les objectifs sont seulement relevés, jamais baissés. Seulement les ingrédients d'un type fixe (acier, composants …), pas « n'importe quelle viande » ou « n'importe quel tissu ».</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>Cette recette n'a aucun ingrédient d'un type fixe.</CF_X_IngredientsNone>
+  <CF_J_WatchTip>Cochez pour que l'intendant s'occupe de cette espèce (nombres, abattage du surplus, zone).</CF_J_WatchTip>
+  <CF_J_Watched>Suivie</CF_J_Watched>
+  <CF_J_NotWatched>Non suivie – cochez à gauche</CF_J_NotWatched>
+  <CF_J_NoneLeft>Plus aucun</CF_J_NoneLeft>
+  <CF_J_RemoveRule>✕ Supprimer</CF_J_RemoveRule>
+  <CF_J_SpareYoung>Ne jamais abattre les petits</CF_J_SpareYoung>
+  <CF_J_SpareYoungTip>Les petits ne sont jamais marqués pour l'abattage ou la libération ; seuls les adultes comptent.</CF_J_SpareYoungTip>
+  <CF_J_AllYoung>tous</CF_J_AllYoung>
+</LanguageData>

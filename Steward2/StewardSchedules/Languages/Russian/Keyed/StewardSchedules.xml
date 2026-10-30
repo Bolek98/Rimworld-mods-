@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_SchedTired>{0} изнурён(а) — расписание: сон прямо сейчас.</CF_SchedTired>
+  <CF_SchedBreak>{0} на грани нервного срыва — расписание: отдых прямо сейчас.</CF_SchedBreak>
+  <CF_ComfortEat>{0} ест стоя: {1}</CF_ComfortEat>
+  <CF_ComfortToilet>{0} не может воспользоваться туалетом: {1}</CF_ComfortToilet>
+  <CF_WhyNoTable>дома нет стула у стола</CF_WhyNoTable>
+  <CF_WhyArea>это вне разрешённой зоны «{0}»</CF_WhyArea>
+  <CF_WhyForbidden>это запрещено</CF_WhyForbidden>
+  <CF_WhyPrison>это в тюремной камере (или в комнате для других)</CF_WhyPrison>
+  <CF_WhyReach>туда не добраться</CF_WhyReach>
+  <CF_WhyReserved>{0} занял(а) это</CF_WhyReserved>
+  <CF_WhyFull>все места заняты</CF_WhyFull>
+  <CF_WhyDanger>там опасно (температура, враг)</CF_WhyDanger>
+  <CF_WhyFar>ближайший слишком далеко ({0} клеток)</CF_WhyFar>
+  <CF_WhyNoToilet>дома нет туалета</CF_WhyNoToilet>
+  <CF_WhyBroken>туалет не работает: {0}</CF_WhyBroken>
+  <CF_WhyNotAllowed>туалет не для него: {0}</CF_WhyNotAllowed>
+  <CF_WhyBusy>туалет занят или слишком далеко</CF_WhyBusy>
+  <CF_SchedMoreJoy>{0} не хватает отдыха — расписание: {1} ч отдыха в день.</CF_SchedMoreJoy>
+  <CF_SchedBored>{0} надоело большинство видов отдыха — больше времени на отдых особо не поможет; постройте другие виды (игры, искусство, телевизор, телескоп, красивая комната …).</CF_SchedBored>
+  <CF_MoodRescue>{0} прекращает работу, чтобы успокоиться (в основном: {1}).</CF_MoodRescue>
+  <CF_MoodHint_Table>Колонистов расстраивает еда без стола: {0}. Помог бы стол со стульями ближе к месту их работы или сна.</CF_MoodHint_Table>
+  <CF_MoodHint_Comfort>Колонистам не хватает комфорта: {0}. Помогли бы ещё стулья, кресла или лучшие кровати.</CF_MoodHint_Comfort>
+  <CF_MoodHint_Dark>Колонистов расстраивает темнота: {0}. Помогло бы больше света там, где они работают и ходят.</CF_MoodHint_Dark>
+  <CF_MoodHint_Cramped>Колонистам тесно: {0}. Помогли бы спальни или комнаты побольше.</CF_MoodHint_Cramped>
+  <CF_MoodHint_Outdoors>Колонистам не хватает свежего воздуха (клаустрофобия): {0}. Помог бы отдых или работа на улице.</CF_MoodHint_Outdoors>
+  <CF_MoodHint_Temperature>Колонисты страдают от жары или холода: {0}. Помогли бы обогреватели, охладители или лучшая одежда.</CF_MoodHint_Temperature>
+  <CF_MoodCause_Rest>усталость</CF_MoodCause_Rest>
+  <CF_MoodCause_Joy>нехватка отдыха</CF_MoodCause_Joy>
+  <CF_MoodCause_Food>еда</CF_MoodCause_Food>
+  <CF_MoodCause_Table>еда без стола</CF_MoodCause_Table>
+  <CF_MoodCause_Pain>боль</CF_MoodCause_Pain>
+  <CF_MoodCause_Room>некрасивая или грязная обстановка</CF_MoodCause_Room>
+  <CF_MoodCause_Comfort>нехватка комфорта</CF_MoodCause_Comfort>
+  <CF_MoodCause_Dark>темнота</CF_MoodCause_Dark>
+  <CF_MoodCause_Cramped>тесные комнаты</CF_MoodCause_Cramped>
+  <CF_MoodCause_Outdoors>клаустрофобия</CF_MoodCause_Outdoors>
+  <CF_MoodCause_Apparel>одежда</CF_MoodCause_Apparel>
+  <CF_MoodCause_Temperature>жара или холод</CF_MoodCause_Temperature>
+  <CF_MoodCause_Social>люди</CF_MoodCause_Social>
+  <CF_MoodCause_Other>события и воспоминания</CF_MoodCause_Other>
+  <CF_MoodNoFood>{0} голоден(на) и близок(ка) к срыву, но не может добраться до еды. Проверьте запасы еды, разрешённую зону и запрещённую еду.</CF_MoodNoFood>
+  <CF2S_Name>Расписания</CF2S_Name>
+  <CF2S_Auto>Автоматические расписания</CF2S_Auto>
+  <CF2S_AutoTip>Каждый колонист получает расписание: сон, работа и отдых, которого становится больше, когда его не хватает, и меньше, когда его достаточно. Если вы сами меняете расписание, управляющий оставляет этого колониста в покое.</CF2S_AutoTip>
+  <CF2S_Night>Ночная смена</CF2S_Night>
+  <CF2S_NightTip>Примерно четверть колонии (от 6 человек) работает ночью и спит днём. Совы — всегда ночью.</CF2S_NightTip>
+  <CF2S_Care>Забота об отдыхе и настроении</CF2S_Care>
+  <CF2S_CareTip>Изнурённый колонист получает час сна, близкий к нервному срыву — час отдыха. Затем часы возвращаются.</CF2S_CareTip>
+  <CF2S_SitToEat>Есть за столом</CF2S_SitToEat>
+  <CF2S_SitToEatTip>Колонисты садятся за стол, даже если он чуть дальше; если стола нет, управляющий сообщает почему.</CF2S_SitToEatTip>
+  <CF2S_Messages>Сообщения о расписаниях и настроении</CF2S_Messages>
+  <CF2S_Quiet>Меньше сообщений слева вверху</CF2S_Quiet>
+  <CF2S_QuietTip>Рутинные уведомления (в том числе других модов) не показываются, а только сохраняются в истории сообщений. Угрозы и важные сообщения остаются.</CF2S_QuietTip>
+</LanguageData>

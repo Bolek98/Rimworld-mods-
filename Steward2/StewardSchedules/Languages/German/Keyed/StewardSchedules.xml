@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_SchedTired>{0} ist erschöpft – Zeitplan: jetzt schlafen.</CF_SchedTired>
+  <CF_SchedBreak>{0} steht kurz vor einem Nervenzusammenbruch – Zeitplan: jetzt Erholung.</CF_SchedBreak>
+  <CF_ComfortEat>{0} isst im Stehen: {1}</CF_ComfortEat>
+  <CF_ComfortToilet>{0} kann keine Toilette benutzen: {1}</CF_ComfortToilet>
+  <CF_WhyNoTable>zu Hause gibt es keinen Stuhl an einem Tisch</CF_WhyNoTable>
+  <CF_WhyArea>es liegt außerhalb seines erlaubten Bereichs „{0}“</CF_WhyArea>
+  <CF_WhyForbidden>es ist verboten</CF_WhyForbidden>
+  <CF_WhyPrison>es ist in einer Gefängniszelle (oder einem Raum für andere)</CF_WhyPrison>
+  <CF_WhyReach>er kommt nicht dorthin</CF_WhyReach>
+  <CF_WhyReserved>{0} hat es reserviert</CF_WhyReserved>
+  <CF_WhyFull>alle Plätze sind belegt</CF_WhyFull>
+  <CF_WhyDanger>dort ist es gefährlich (Temperatur, Feind)</CF_WhyDanger>
+  <CF_WhyFar>der nächste ist zu weit weg ({0} Felder)</CF_WhyFar>
+  <CF_WhyNoToilet>zu Hause gibt es keine Toilette</CF_WhyNoToilet>
+  <CF_WhyBroken>die Toilette funktioniert nicht: {0}</CF_WhyBroken>
+  <CF_WhyNotAllowed>die Toilette ist nicht für ihn: {0}</CF_WhyNotAllowed>
+  <CF_WhyBusy>die Toilette ist besetzt oder zu weit weg</CF_WhyBusy>
+  <CF_SchedMoreJoy>{0} fehlt Erholung – Zeitplan: {1} h Erholung am Tag.</CF_SchedMoreJoy>
+  <CF_SchedBored>{0} ist der meisten Erholungsarten überdrüssig – mehr Erholungszeit hilft kaum; baue andere Arten (Spiele, Kunst, Fernseher, Teleskop, ein schöner Raum …).</CF_SchedBored>
+  <CF_MoodRescue>{0} unterbricht die Arbeit, um sich zu beruhigen (hauptsächlich: {1}).</CF_MoodRescue>
+  <CF_MoodHint_Table>{0} Kolonisten sind verärgert, weil sie ohne Tisch essen. Ein Tisch mit Stühlen näher an ihrem Arbeits- oder Schlafplatz würde helfen.</CF_MoodHint_Table>
+  <CF_MoodHint_Comfort>{0} Kolonisten fehlt Komfort. Mehr Stühle, Sessel oder bessere Betten würden helfen.</CF_MoodHint_Comfort>
+  <CF_MoodHint_Dark>{0} Kolonisten sind wegen Dunkelheit verärgert. Mehr Licht, wo sie arbeiten und gehen, würde helfen.</CF_MoodHint_Dark>
+  <CF_MoodHint_Cramped>{0} Kolonisten fühlen sich beengt. Größere Schlafzimmer oder Räume würden helfen.</CF_MoodHint_Cramped>
+  <CF_MoodHint_Outdoors>{0} Kolonisten vermissen die frische Luft (Lagerkoller). Erholung im Freien oder Arbeit draußen würde helfen.</CF_MoodHint_Outdoors>
+  <CF_MoodHint_Temperature>{0} Kolonisten leiden unter Hitze oder Kälte. Heizungen, Kühler oder bessere Kleidung würden helfen.</CF_MoodHint_Temperature>
+  <CF_MoodCause_Rest>Müdigkeit</CF_MoodCause_Rest>
+  <CF_MoodCause_Joy>Mangel an Erholung</CF_MoodCause_Joy>
+  <CF_MoodCause_Food>Essen</CF_MoodCause_Food>
+  <CF_MoodCause_Table>Essen ohne Tisch</CF_MoodCause_Table>
+  <CF_MoodCause_Pain>Schmerz</CF_MoodCause_Pain>
+  <CF_MoodCause_Room>hässliche oder schmutzige Umgebung</CF_MoodCause_Room>
+  <CF_MoodCause_Comfort>Mangel an Komfort</CF_MoodCause_Comfort>
+  <CF_MoodCause_Dark>Dunkelheit</CF_MoodCause_Dark>
+  <CF_MoodCause_Cramped>beengte Räume</CF_MoodCause_Cramped>
+  <CF_MoodCause_Outdoors>Lagerkoller</CF_MoodCause_Outdoors>
+  <CF_MoodCause_Apparel>Kleidung</CF_MoodCause_Apparel>
+  <CF_MoodCause_Temperature>Hitze oder Kälte</CF_MoodCause_Temperature>
+  <CF_MoodCause_Social>Menschen</CF_MoodCause_Social>
+  <CF_MoodCause_Other>Ereignisse und Erinnerungen</CF_MoodCause_Other>
+  <CF_MoodNoFood>{0} ist hungrig und kurz vor einem Zusammenbruch, erreicht aber kein Essen. Prüfe den Nahrungsvorrat, den erlaubten Bereich und verbotenes Essen.</CF_MoodNoFood>
+  <CF2S_Name>Zeitpläne</CF2S_Name>
+  <CF2S_Auto>Automatische Zeitpläne</CF2S_Auto>
+  <CF2S_AutoTip>Jeder Kolonist bekommt einen Zeitplan: Schlaf, Arbeit und Erholung, die wächst, wenn sie fehlt, und schrumpft, wenn es genug gibt. Wenn du einen Zeitplan selbst änderst, lässt der Steward diesen Kolonisten in Ruhe.</CF2S_AutoTip>
+  <CF2S_Night>Nachtschicht</CF2S_Night>
+  <CF2S_NightTip>Etwa ein Viertel der Kolonie (ab 6 Leuten) arbeitet nachts und schläft tagsüber. Nachteulen immer nachts.</CF2S_NightTip>
+  <CF2S_Care>Pflege von Ruhe und Stimmung</CF2S_Care>
+  <CF2S_CareTip>Ein erschöpfter Kolonist bekommt eine Stunde Schlaf, einer kurz vor einem Nervenzusammenbruch eine Stunde Erholung. Danach kehren die Stunden zurück.</CF2S_CareTip>
+  <CF2S_SitToEat>Am Tisch essen</CF2S_SitToEat>
+  <CF2S_SitToEatTip>Kolonisten setzen sich auch an einen etwas weiter entfernten Tisch; gibt es keinen, sagt der Steward, warum.</CF2S_SitToEatTip>
+  <CF2S_Messages>Nachrichten zu Zeitplänen und Stimmung</CF2S_Messages>
+  <CF2S_Quiet>Weniger Nachrichten oben links</CF2S_Quiet>
+  <CF2S_QuietTip>Routinehinweise (auch anderer Mods) werden nicht angezeigt, nur im Nachrichtenverlauf gespeichert. Bedrohungen und wichtige Nachrichten bleiben.</CF2S_QuietTip>
+</LanguageData>

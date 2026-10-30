@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_S_On>Utrzymuj zapasy</CF_S_On>
+  <CF_S_RunNow>Sprawdź teraz</CF_S_RunNow>
+  <CF_S_AreaAny>Cała mapa</CF_S_AreaAny>
+  <CF_S_AreaTip>Oznaczaj tylko rzeczy w tym obszarze.</CF_S_AreaTip>
+  <CF_S_HuntPregnant>Poluj na ciężarne zwierzęta</CF_S_HuntPregnant>
+  <CF_S_Marked>Steward – zapasy: oznaczono {0}.</CF_S_Marked>
+  <CF_S_NothingToMark>Steward – zapasy: nic nie trzeba oznaczać.</CF_S_NothingToMark>
+  <CF_S_Desc>Ustaw, ile chcesz mieć w magazynie. Gdy jest mniej (licząc to, co już oznaczone lub leży na ziemi), zarządca oznacza najbliższe drzewa, rośliny, żyły lub zwierzęta – tylko tyle, ile trzeba. Resztę koloniści zrobią w ramach zwykłej pracy.</CF_S_Desc>
+  <CF_S_OnTip>Gdy włączone, zarządca co kilka godzin (ustawienie w Przeglądzie) sprawdza tę mapę i oznacza, co potrzeba.</CF_S_OnTip>
+  <CF_S_Status>w magazynie {0}  +{1} w drodze  /  {2}</CF_S_Status>
+  <CF_J_Overview>Przegląd</CF_J_Overview>
+  <CF_J_Hunting>Polowanie</CF_J_Hunting>
+  <CF_J_Forestry>Leśnictwo</CF_J_Forestry>
+  <CF_J_Foraging>Zbieractwo</CF_J_Foraging>
+  <CF_J_Mining>Górnictwo</CF_J_Mining>
+  <CF_J_Emergency>Kryzys żywnościowy</CF_J_Emergency>
+  <CF_J_Short>{0} / {1}</CF_J_Short>
+  <CF_J_Off>wył.</CF_J_Off>
+  <CF_J_Active>{0} aktywne</CF_J_Active>
+  <CF_J_EmergencyNow>AKTYWNY</CF_J_EmergencyNow>
+  <CF_J_EmergencyIdle>w gotowości</CF_J_EmergencyIdle>
+  <CF_J_NextCheck>Następne sprawdzenie za {0} h</CF_J_NextCheck>
+  <CF_J_Interval>Sprawdzaj co {0} h</CF_J_Interval>
+  <CF_J_Enabled>Wł.</CF_J_Enabled>
+  <CF_J_Target>Cel:</CF_J_Target>
+  <CF_J_ProgressTip>Zielony = w magazynie. Żółty = w drodze (leży na mapie, albo w oznaczonych drzewach, roślinach, żyłach i zwierzętach, albo w zabitych zwierzętach, które nie zostały jeszcze oprawione).</CF_J_ProgressTip>
+  <CF_J_All>Zaznacz wszystko</CF_J_All>
+  <CF_J_None>Odznacz wszystko</CF_J_None>
+  <CF_J_Default>Domyślny wybór</CF_J_Default>
+  <CF_J_UnitMeat>mięsa</CF_J_UnitMeat>
+  <CF_J_HuntingDesc>Utrzymuje surowe mięso w magazynie. Poluje się tylko na zwierzęta zaznaczone poniżej, najbliższe najpierw. Drapieżniki i zwierzęta, które często wpadają w szał, są domyślnie wyłączone.</CF_J_HuntingDesc>
+  <CF_J_ForestryDesc>Utrzymuje drewno w magazynie. Ścinane są tylko drzewa zaznaczone poniżej, najbliższe najpierw i tylko w pełni wyrośnięte. Drzewa w strefach uprawy nigdy nie są ruszane. Drzewa specjalne (anima, gauranlen …) są domyślnie wyłączone.</CF_J_ForestryDesc>
+  <CF_J_ForagingDesc>Utrzymuje w magazynie dziką żywność roślinną (jagody, agawa …) i inne dzikie plony. Zbierane są tylko rośliny zaznaczone poniżej. Uprawy w strefach uprawy nigdy nie są ruszane.</CF_J_ForagingDesc>
+  <CF_J_MiningDesc>Cel dla każdego surowca występującego w żyłach na tej mapie. Zaznacz surowiec, ustaw, ile chcesz, a najbliższe żyły zostaną oznaczone do wydobycia.</CF_J_MiningDesc>
+  <CF_J_NoVeins>Na tej mapie nie znaleziono jeszcze żył do wydobycia (obszary we mgle nie są liczone).</CF_J_NoVeins>
+  <CF_J_AnimalInfo>na mapie: {0}  {1}</CF_J_AnimalInfo>
+  <CF_J_Dangerous>· niebezpieczne</CF_J_Dangerous>
+  <CF_J_PlantInfo>na mapie: {0}  · daje {1}</CF_J_PlantInfo>
+  <CF_J_EmergencyDesc>Gdy kolonia ma żywności na mniej dni, niż ustawiono poniżej, zarządca natychmiast oznacza jadalne dzikie rośliny do zbioru, a potem zwierzęta do polowania – niezależnie od celów. Przestaje, gdy znów jest dość żywności.</CF_J_EmergencyDesc>
+  <CF_J_EmergencyDays>Kryzys poniżej {0} dni żywności</CF_J_EmergencyDays>
+  <CF_J_FoodDays>Żywność teraz: {0} dni (koloniści i więźniowie)</CF_J_FoodDays>
+  <CF_J_EmergencyHow>Używa wyboru zwierząt i roślin z Polowania i Zbieractwa oraz ich obszarów. Najpierw jadalne dzikie rośliny (bezpieczne), potem polowanie. Dojrzałe uprawy w strefach uprawy i tak zbierają twoi uprawiający.</CF_J_EmergencyHow>
+  <CF_J_EmergencyStart>Kryzys żywnościowy: żywności tylko na {0} dni. Zarządca oznacza jadalne rośliny i zwierzęta do polowania.</CF_J_EmergencyStart>
+  <CF_J_EmergencyEnd>Kryzys żywnościowy minął.</CF_J_EmergencyEnd>
+  <CF_J_Livestock>Hodowla</CF_J_Livestock>
+  <CF_J_LivestockDesc>Dla każdego oswojonego gatunku ustaw, ile chcesz dorosłych samic, dorosłych samców i młodych. Nadwyżka jest oznaczana do uboju, najstarsze najpierw. Zwierzęta związane nigdy nie są oznaczane; ciężarne tylko, jeśli na to pozwolisz. Opcjonalnie całe stado jest trzymane w jednym obszarze.</CF_J_LivestockDesc>
+  <CF_J_NoAnimals>Na tej mapie nie ma jeszcze oswojonych zwierząt.</CF_J_NoAnimals>
+  <CF_J_HerdNow>teraz: {0} ♀  {1} ♂  {2} młodych</CF_J_HerdNow>
+  <CF_J_KeepFemales>Zostaw samice</CF_J_KeepFemales>
+  <CF_J_KeepMales>Zostaw samce</CF_J_KeepMales>
+  <CF_J_KeepYoung>Zostaw młode</CF_J_KeepYoung>
+  <CF_J_KeepPregnant>Nigdy nie zabijaj ciężarnych</CF_J_KeepPregnant>
+  <CF_J_AnimalAreaNone>Obszar: bez zmian</CF_J_AnimalAreaNone>
+  <CF_J_AnimalAreaTip>Trzymaj wszystkie zwierzęta tego gatunku w tym obszarze.</CF_J_AnimalAreaTip>
+  <CF_J_StepTip>Shift: ±10, Ctrl: ±100</CF_J_StepTip>
+  <CF_J_KeepSpecies>Zostaw przy życiu z każdego gatunku</CF_J_KeepSpecies>
+  <CF_J_OutsideHome>Tylko poza obszarem domowym</CF_J_OutsideHome>
+  <CF_J_OutsideHomeTip>Drzewa w obszarze domowym nigdy nie są ścinane, więc baza zachowuje swoje drzewa.</CF_J_OutsideHomeTip>
+  <CF_J_KeepTrees>Zawsze zostaw</CF_J_KeepTrees>
+  <CF_J_ClearOff>Obszar do oczyszczenia: wył.</CF_J_ClearOff>
+  <CF_J_ClearOn>Obszar do oczyszczenia: {0}</CF_J_ClearOn>
+  <CF_J_ClearTip>Każda roślina w tym obszarze zostaje ścięta (drzewa, krzaki, trawa) – pod budowę albo pas przeciwpożarowy. Uprawy w strefach uprawy pozostają nietknięte. Niezależne od celu drewna.</CF_J_ClearTip>
+  <CF_J_Clear>oczyszczanie</CF_J_Clear>
+  <CF_J_GraphWait>wykres po 2 dniach</CF_J_GraphWait>
+  <CF_J_GraphTip>Zapas z ostatnich dni (zielony) i cel (żółta linia).</CF_J_GraphTip>
+  <CF_T_Tidy>Wynoś rzeczy bez miejsca w magazynie</CF_T_Tidy>
+  <CF_T_TidyTip>Rzeczy leżące w obszarze domowym trafiają do magazynu jak zwykle. Gdy nigdzie nie ma na nie miejsca, koloniści wynoszą je na wysypisko. Bez wysypiska zostają tam, gdzie są. Część pracy Noszenie. Zmarli są zostawiani do pochówku.</CF_T_TidyTip>
+  <CF_T_DumpAuto>Wysypisko: tylko strefy składowania</CF_T_DumpAuto>
+  <CF_T_Dump>Wysypisko: {0}</CF_T_Dump>
+  <CF_T_DumpTip>Rzeczy bez strefy składowania są odkładane tylko w wybranym przez ciebie obszarze. Bez niego koloniści zostawiają je tam, gdzie są.</CF_T_DumpTip>
+  <CF_A_Label>Steward: zapasy</CF_A_Label>
+  <CF_A_Explanation>Zarządca nie może utrzymać niektórych zapasów:</CF_A_Explanation>
+  <CF_A_NoSources>{0}: poniżej celu i nie ma już czego oznaczyć (sprawdź wybór, obszar i mgłę).</CF_A_NoSources>
+  <CF_A_NoHunter>Potrzebne jest polowanie, ale żaden kolonista zdolny do polowania nie ma broni dystansowej.</CF_A_NoHunter>
+  <CF_A_NoSourcesHere>Poniżej celu i nie ma czego oznaczyć – sprawdź wybór, obszar lub limity do zostawienia.</CF_A_NoSourcesHere>
+  <CF_J_Production>Produkcja</CF_J_Production>
+  <CF_J_Power>Prąd</CF_J_Power>
+  <CF_J_Household>Gospodarstwo</CF_J_Household>
+  <CF_J_On>wł.</CF_J_On>
+  <CF_J_ProductionDesc>Utrzymuj zapas gotowych wyrobów: posiłków, leków, ubrań, komponentów … Każdy cel staje się jednym zleceniem „wykonuj, aż będzie X” na najlepszym stole warsztatowym, który może go wykonać. Zarządca pilnuje tego zlecenia (odtwarza, przenosi, aktualizuje, wstrzymuje); twoich własnych zleceń nigdy nie rusza.</CF_J_ProductionDesc>
+  <CF_X_AddProduct>Dodaj produkt</CF_X_AddProduct>
+  <CF_X_NoBillYet>jeszcze bez zlecenia (następne sprawdzenie)</CF_X_NoBillYet>
+  <CF_X_BillAt>zlecenie na {0}</CF_X_BillAt>
+  <CF_X_RemoveProduct>Usuń cel i jego zlecenie</CF_X_RemoveProduct>
+  <CF_J_PowerDesc>Gdy akumulatory sieci energetycznej się wyczerpują, wybrane urządzenia są wyłączane; gdy znów są naładowane, zarządca włącza z powrotem to, co wyłączył. Urządzenia wyłączone przez ciebie pozostają wyłączone.</CF_J_PowerDesc>
+  <CF_X_PowerNow>Teraz: {0} W nadwyżki · zgromadzone {1} / {2} Wd ({3})</CF_X_PowerNow>
+  <CF_X_PowerLow>Wyłącz poniżej {0} naładowania</CF_X_PowerLow>
+  <CF_X_PowerHigh>Włącz z powrotem powyżej {0} naładowania</CF_X_PowerHigh>
+  <CF_X_PowerDevices>Urządzenia, które można wyłączać:</CF_X_PowerDevices>
+  <CF_X_DeviceInfo>{0}× · {1} W każde</CF_X_DeviceInfo>
+  <CF_J_HouseholdDesc>Porządek w bazie: rzeczy bez miejsca w magazynie są wynoszone, a brud w ważnych pomieszczeniach jest sprzątany najpierw.</CF_J_HouseholdDesc>
+  <CF_C_Clean>Sprzątaj najpierw ważne pomieszczenia</CF_C_Clean>
+  <CF_C_CleanTip>Brud w pomieszczeniach zaznaczonych poniżej jest sprzątany przed brudem gdziekolwiek indziej. Brud w kuchni szerzy zatrucia pokarmowe, w szpitalu zwiększa ryzyko infekcji. Część pracy Sprzątanie.</CF_C_CleanTip>
+  <CF_C_FilthNow>Brud w tych pomieszczeniach teraz: {0}</CF_C_FilthNow>
+  <CF_C_Rooms>Pomieszczenia sprzątane najpierw:</CF_C_Rooms>
+  <CF_X_Cancel>Anuluj oznaczenia zarządcy</CF_X_Cancel>
+  <CF_X_CancelTip>Usuwa wszystkie oznaczenia ścinki, polowania, zbioru, wydobycia i uboju zrobione przez zarządcę. Twoje własne oznaczenia zostają.</CF_X_CancelTip>
+  <CF_X_CancelConfirm>Usunąć wszystkie oznaczenia zrobione przez zarządcę na tej mapie? Oznaczenia zrobione przez ciebie zostają.</CF_X_CancelConfirm>
+  <CF_X_Cancelled>Steward: usunięto {0} oznaczeń.</CF_X_Cancelled>
+  <CF_X_OtherMap>{0}: {1}</CF_X_OtherMap>
+  <CF_H_Chunks>Usuwaj odłamki skalne i żużel</CF_H_Chunks>
+  <CF_H_ChunksTip>Odłamki skalne i żużel leżące w obszarze domowym zarządca oznacza do noszenia – tak, jakbyś oznaczył je sam – po kilka naraz, gdy jest mało innego noszenia. Każdy kolonista z włączonym Noszeniem zanosi je do strefy składowania przyjmującej odłamki; bez takiej strefy trafiają na wysypisko, jeśli jest ustawione. Zakazane odłamki pozostają nietknięte.</CF_H_ChunksTip>
+  <CF_H_Items>Oznaczaj luźne rzeczy do noszenia</CF_H_Items>
+  <CF_H_ItemsTip>Wszystko, co leży w obszarze domowym poza półką lub strefą składowania (i ma dokąd trafić), zarządca oznacza do noszenia – także rzeczy zakazane po napadzie. Po kilka naraz, najbliższe kolonii najpierw.</CF_H_ItemsTip>
+  <CF_H_Pockets>Koloniści wyjmują zapomniane rzeczy z kieszeni</CF_H_Pockets>
+  <CF_H_PocketsTip>Rzeczy, które kolonista nosi w ekwipunku bez powodu (pozostałości noszenia w ekwipunku, podniesione i zapomniane), są odkładane i zanoszone do magazynu. Broń, narkotyki i zapasy z ich polityk oraz prowiant podróżny są zachowywane. Rzecz musi najpierw przeleżeć w kieszeni około pół godziny. Z Harvest And Haul zajmuje się tym jego własne zadanie rozładunku – wszystko trafia do magazynu w jednym kursie.</CF_H_PocketsTip>
+  <CF_H_Workers>Koloniści, którzy to robią:</CF_H_Workers>
+  <CF_H_WorkersTip>Ilu kolonistów wynosi rzeczy bez miejsca w magazynie (i sprząta, w wierszu poniżej). 0 = każdy, kto ma włączony ten rodzaj pracy. Co godzinę gry zarządca wybiera tych z najmniejszą liczbą zadań najwyższego priorytetu, szybszych najpierw. Shift: ±10. Odłamki oznaczone do noszenia zabiera dowolny tragarz.</CF_H_WorkersTip>
+  <CF_H_Everyone>wszyscy</CF_H_Everyone>
+  <CF_H_Nobody>nikt nie jest dostępny</CF_H_Nobody>
+  <CF_X_PickTitle>Dodaj produkt</CF_X_PickTitle>
+  <CF_X_InStock>w magazynie: {0}</CF_X_InStock>
+  <CF_X_OpenMint>Otwórz zlecenia Mint</CF_X_OpenMint>
+  <CF_X_OpenMintTip>Otwiera menu zleceń Dubs Mint Menus ze wszystkimi stołami warsztatowymi. Utwórz tam zlecenie „wykonuj, aż będzie X” i przejmij je tutaj – potem zarządca o nie dba.</CF_X_OpenMintTip>
+  <CF_X_Adopt>Przejmij zlecenia ({0})</CF_X_Adopt>
+  <CF_X_AdoptTip>Zlecenia „wykonuj, aż będzie X” utworzone ręcznie lub w Dubs Mint Menus. Zarządca je przejmuje: odtwarza je po usunięciu, przenosi, gdy stołu już nie ma, wstrzymuje po wyłączeniu.</CF_X_AdoptTip>
+  <CF_H_Products>Od razu odnoś gotowe wyroby</CF_H_Products>
+  <CF_H_ProductsTip>Posiłki, leki, ubrania i inne rzeczy leżące obok stołu warsztatowego, kuchenki lub miejsca rękodzieła trafiają do magazynu przed każdym innym noszeniem. Zlecenia zarządcy ustawione na „upuść na ziemię” zostają przełączone na „zanieś do najlepszej strefy składowania”. Część pracy Noszenie.</CF_H_ProductsTip>
+  <CF_M_Target>Trzymaj gotowe posiłki na</CF_M_Target>
+  <CF_M_TargetTip>Docelowy zapas gotowanych posiłków, w dniach żywności dla wszystkich, którzy jedzą. Gdy kolonia ma tyle lub więcej, każde zlecenie robiące posiłki zostaje wstrzymane; gdy zapas spadnie poniżej, zlecenia wstrzymane przez zarządcę ruszają znowu. Zlecenia wstrzymane przez ciebie pozostają wstrzymane. Shift = krok 2 dni.</CF_M_TargetTip>
+  <CF_M_Days>{0} dni</CF_M_Days>
+  <CF_M_Now>teraz {0} dni</CF_M_Now>
+  <CF_M_Paused>wstrzymano {0} zleceń posiłków</CF_M_Paused>
+  <CF_M_Cooking>gotowanie</CF_M_Cooking>
+  <CF_M_Page>Gotowe posiłki</CF_M_Page>
+  <CF_M_Short>{0} / {1} dni</CF_M_Short>
+  <CF_M_Bills>Zlecenia robiące posiłki: {0}</CF_M_Bills>
+  <CF_M_NoBills>Nie ma żadnego zlecenia robiącego posiłki. Dodaj je przy kuchence (lub w Produkcji) – zarządca tylko wstrzymuje i wznawia zlecenia, nie tworzy ich.</CF_M_NoBills>
+  <CF_M_BillOn>gotowanie</CF_M_BillOn>
+  <CF_M_BillSteward>wstrzymane przez zarządcę</CF_M_BillSteward>
+  <CF_M_BillYou>wstrzymane przez ciebie</CF_M_BillYou>
+  <CF_H_Blight>Ścinaj zarażone rośliny</CF_H_Blight>
+  <CF_H_BlightTip>Rośliny zarażone zarazą w strefach uprawy, doniczkach, hydroponice i obszarze domowym są co godzinę oznaczane do ścięcia, żeby zaraza się nie rozprzestrzeniała. Kryzys zarazy daje wtedy ścinaniu roślin więcej kolonistów.</CF_H_BlightTip>
+  <CF_BlightMarked>Steward: oznaczono do ścięcia {0} zarażonych roślin.</CF_BlightMarked>
+  <CF_P_MaySwitch>Zarządca może wyłączyć</CF_P_MaySwitch>
+  <CF_P_MaySwitchDesc>Gdy akumulatory się wyczerpują, zarządca wyłącza wybrane urządzenia jedno po drugim, największe najpierw. Wyłącz to, by to jedno urządzenie zawsze pozostało włączone.</CF_P_MaySwitchDesc>
+  <CF_A_Page>Samozaopatrzenie</CF_A_Page>
+  <CF_A_Short>{0} zleceń</CF_A_Short>
+  <CF_A_Desc>Gdy kolonii brakuje czegoś, co może wykonać, zarządca dodaje zlecenie dokładnie na to, czego brakuje, na najlepszym stole, który może to zrobić (prawdziwy stół warsztatowy przed ogniskiem czy miejscem), i usuwa je po wykonaniu – nigdy „na zawsze”. Rzeczy w magazynie i twoje własne zlecenia liczą się najpierw.</CF_A_Desc>
+  <CF_A_On>Samozaopatrzenie wł.</CF_A_On>
+  <CF_A_Meals>Posiłki</CF_A_Meals>
+  <CF_A_Medicine>Leki</CF_A_Medicine>
+  <CF_A_Clothes>Ubrania i dodatki</CF_A_Clothes>
+  <CF_A_Armor>Pancerz</CF_A_Armor>
+  <CF_A_Weapons>Broń</CF_A_Weapons>
+  <CF_A_Materials>Materiały</CF_A_Materials>
+  <CF_A_Worn>Wymień poniżej {0} % stanu</CF_A_Worn>
+  <CF_A_Bills>Zlecenia utworzone przez samozaopatrzenie: {0}</CF_A_Bills>
+  <CF_A_RemoveAll>Usuń te zlecenia</CF_A_RemoveAll>
+  <CF_A_Last>Ostatnio dodane: {0}</CF_A_Last>
+  <CF_A_Kind_meals>posiłki</CF_A_Kind_meals>
+  <CF_A_Kind_medicine>leki</CF_A_Kind_medicine>
+  <CF_A_Kind_clothes>ubrania</CF_A_Kind_clothes>
+  <CF_A_Kind_armor>pancerz</CF_A_Kind_armor>
+  <CF_A_Kind_weapon>broń</CF_A_Kind_weapon>
+  <CF_A_Kind_material>materiał</CF_A_Kind_material>
+  <CF_A_Left>zostało {0}×</CF_A_Left>
+  <CF_A_Until>do {0}</CF_A_Until>
+  <CF_A_Race>Przestrzegaj ograniczeń rasowych</CF_A_Race>
+  <CF_A_RaceTip>Wł.: obce rasy (Humanoid Alien Races) dostają tylko ubrania i broń, których ich rasa może używać. Wyłącz, jeśli inny mod znosi te ograniczenia – wtedy każdy może dostać wszystko.</CF_A_RaceTip>
+  <CF_W_Reassign>Przydziel pracę ponownie teraz</CF_W_Reassign>
+  <CF_W_ReassignHere_Desc>Od razu na nowo planuje priorytety pracy na tej mapie (tak samo jak „Przelicz” w zakładce Praca). Zablokowane komórki, prace i koloniści pozostają bez zmian.</CF_W_ReassignHere_Desc>
+  <CF_W_LastPlan>Priorytety pracy: zaplanowane {0} temu, zmieniono {1} – styl {2}.</CF_W_LastPlan>
+  <CF_W_LastPlanNever>Priorytety pracy: nie planowano na tej mapie od wczytania gry.</CF_W_LastPlanNever>
+  <CF_W_LastPlan_Desc>Najedź na komórkę w zakładce Praca, by zobaczyć, dlaczego kolonista dostał ten priorytet: umiejętność, pasja, szybkość, pozycja, limit kolonistów dla pracy i reguła, która zdecydowała o poziomie.</CF_W_LastPlan_Desc>
+  <CF_W_StewardOff>(zarządca jest wyłączony na tej mapie)</CF_W_StewardOff>
+  <CF_NoStorage>{0} ({1}×) leży na ziemi i nikt tego nie nosi: żadna strefa składowania tego nie przyjmuje albo są pełne. Zezwól na to w filtrze którejś strefy składowania.</CF_NoStorage>
+  <CF_J_ClearTooBig>{0} – za duży do oczyszczenia</CF_J_ClearTooBig>
+  <CF_J_ClearTooBigOff>Obszar do oczyszczenia „{0}” jest za duży (byłby połową mapy) – wyłączono go i anulowano jego oznaczenia ścinki. Utwórz mały obszar tylko pod budowę albo pas przeciwpożarowy.</CF_J_ClearTooBigOff>
+  <CF_J_ClearCancelled>Anulowano oznaczenia ścinki oczyszczanego obszaru: {0}</CF_J_ClearCancelled>
+  <CF2U_Name>Zapasy</CF2U_Name>
+  <CF2U_Hint>Cele zapasów, zlecenia, zwierzęta i gospodarstwo ustawia się w zakładce Zapasy (dolny pasek).</CF2U_Hint>
+  <CF2U_Messages>Wiadomości o tym, co oznaczył zarządca</CF2U_Messages>
+  <CF2U_MasterBills>Zlecenia mistrzowskie</CF2U_MasterBills>
+  <CF2U_MasterBillsTip>Jakościową broń i ubrania wykonują tylko najlepsi rzemieślnicy (zawsze co najmniej dwóch). Twoje własne ustawienia zleceń mają pierwszeństwo.</CF2U_MasterBillsTip>
+  <CF2U_NoStorage>Ostrzegaj, gdy rzecz nie ma dokąd trafić</CF2U_NoStorage>
+  <CF2U_NoStorageTip>Gdy rzeczy nie da się nigdzie złożyć, zarządca mówi dlaczego.</CF2U_NoStorageTip>
+  <CF2U_PUAH>Noś z Pick Up And Haul</CF2U_PUAH>
+  <CF2U_PUAHTip>Zarządca zanosi rzeczy do magazynu w kieszeniach Pick Up And Haul.</CF2U_PUAHTip>
+  <CF_J_ReleaseSurplus>Wypuść nadwyżkę</CF_J_ReleaseSurplus>
+  <CF_J_ReleaseSurplusTip>Nadmiarowe zwierzęta są wypuszczane na wolność zamiast zabijane (gatunki, których nie można wypuścić, są nadal zabijane). Zwierzęta gości z zadań nigdy nie liczą się do celów.</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>Wiertła głębinowe</CF_D_Drills>
+  <CF_D_Control>Przełączaj wiertła głębinowe według celu ({0} tutaj)</CF_D_Control>
+  <CF_D_ControlTip>Wiertła głębinowe na tym surowcu są wyłączane, gdy zapas osiągnie cel, i włączane ponownie, gdy spadnie poniżej. Ponownie włączane są tylko wiertła wyłączone przez zarządcę. Typy wierteł wybrane na stronie zasilania zostają przy zarządzaniu zasilaniem.</CF_D_ControlTip>
+  <CF_J_SparkWait>historia po 2 godzinach</CF_J_SparkWait>
+  <CF_J_SparkTip>Zapas raz na godzinę z ostatnich {0} dni: najmniej {1}, najwięcej {2}, teraz {3}. Żółta linia: cel.</CF_J_SparkTip>
+  <CF_X_Ingredients>Pilnuj też składników</CF_X_Ingredients>
+  <CF_X_IngredientsTip>Dodaje lub podnosi cele składników tego przepisu (wydobycie, produkcja lub drewno), aby starczyło na cały cel. Cele są tylko podnoszone, nigdy obniżane. Tylko składniki jednego stałego rodzaju (stal, komponenty …), nie 'dowolne mięso' ani 'dowolna tkanina'.</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>Ten przepis nie ma składnika jednego stałego rodzaju.</CF_X_IngredientsNone>
+  <CF_J_WatchTip>Zaznacz, a zarządca zajmie się tym gatunkiem (liczby, ubój nadwyżki, strefa).</CF_J_WatchTip>
+  <CF_J_Watched>Pod opieką</CF_J_Watched>
+  <CF_J_NotWatched>Bez opieki – zaznacz po lewej</CF_J_NotWatched>
+  <CF_J_NoneLeft>Już żadnego</CF_J_NoneLeft>
+  <CF_J_RemoveRule>✕ Usuń</CF_J_RemoveRule>
+  <CF_J_SpareYoung>Nigdy nie zabijać młodych</CF_J_SpareYoung>
+  <CF_J_SpareYoungTip>Młode nigdy nie są oznaczane do uboju ani wypuszczenia; liczą się tylko dorosłe.</CF_J_SpareYoungTip>
+  <CF_J_AllYoung>wszystkie</CF_J_AllYoung>
+</LanguageData>

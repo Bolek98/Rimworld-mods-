@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RLRG_Enable>Activar filtro</RLRG_Enable>
+  <RLRG_Enable_Desc>Los forasteros solo llegan con el equipo que tu colonia ha investigado.</RLRG_Enable_Desc>
+  <RLRG_UseRecipes>Las recetas cuentan como investigación</RLRG_UseRecipes>
+  <RLRG_UseRecipes_Desc>Un objeto se desbloquea cuando se completa la investigación de al menos una receta que lo fabrica.</RLRG_UseRecipes_Desc>
+  <RLRG_BlockHigherTech>Bloquear objetos por encima del nivel tecnológico de la colonia</RLRG_BlockHigherTech>
+  <RLRG_BlockHigherTech_Desc>Los objetos sin investigación solo se permiten hasta el nivel tecnológico investigado por tu colonia.</RLRG_BlockHigherTech_Desc>
+  <RLRG_BlockUntagged>Bloquear objetos de mods sin investigación</RLRG_BlockUntagged>
+  <RLRG_BlockUntagged_Desc>Las armas y prendas de otros mods sin investigación se consideran bloqueadas.</RLRG_BlockUntagged_Desc>
+  <RLRG_FilterAll>Filtrar todas las llegadas</RLRG_FilterAll>
+  <RLRG_FilterAll_Desc>Incursiones, visitantes, caravanas y misiones. Si está desactivado, solo hostiles y atacantes.</RLRG_FilterAll_Desc>
+  <RLRG_SkipTraders>Omitir comerciantes</RLRG_SkipTraders>
+  <RLRG_SkipTraders_Desc>Los comerciantes conservan su equipo.</RLRG_SkipTraders_Desc>
+  <RLRG_FilterApparel>Filtrar ropa y armadura</RLRG_FilterApparel>
+  <RLRG_FilterInventory>Filtrar inventario</RLRG_FilterInventory>
+  <RLRG_FilterInventory_Desc>Armas y ropa en el inventario (por ejemplo, armas secundarias).</RLRG_FilterInventory_Desc>
+  <RLRG_Replace>Sustituir por el objeto investigado más parecido</RLRG_Replace>
+  <RLRG_Replace_Desc>Un objeto bloqueado se sustituye por uno permitido similar, con la misma calidad y desgaste.</RLRG_Replace_Desc>
+  <RLRG_Drop>Dejar los objetos bloqueados en el suelo</RLRG_Drop>
+  <RLRG_Drop_Desc>Los asaltantes llevan los objetos bloqueados en su inventario: los consigues como botín al derrotarlos. Los visitantes y comerciantes no dejan nada. En otro caso el objeto bloqueado desaparece.</RLRG_Drop_Desc>
+  <RLRG_ExemptAncients>Omitir peligros ancestrales y criodurmientes</RLRG_ExemptAncients>
+  <RLRG_ExemptAncients_Desc>Su equipo forma parte de la recompensa por abrirlos.</RLRG_ExemptAncients_Desc>
+  <RLRG_KeepTitleApparel>Los nobles conservan la ropa requerida</RLRG_KeepTitleApparel>
+  <RLRG_KeepTitleApparel_Desc>No se retira la ropa exigida por un título real o un rol de ideología.</RLRG_KeepTitleApparel_Desc>
+  <RLRG_DamageDropped>Dañar los objetos soltados</RLRG_DamageDropped>
+  <RLRG_DamageDropped_Desc>Los objetos bloqueados dejados en el suelo tienen solo un 20–50 % de durabilidad y la ropa se marca como usada por un cadáver. Evita ganar dinero fácil vendiéndolos.</RLRG_DamageDropped_Desc>
+  <RLRG_Compensate>Compensar la fuerza de la incursión</RLRG_Compensate>
+  <RLRG_Compensate_Desc>Cuando los asaltantes pierden parte de su equipo, la incursión recibe asaltantes extra para que la dificultad siga equilibrada.</RLRG_Compensate_Desc>
+  <RLRG_CompensationPct>Fuerza de compensación: {0}%</RLRG_CompensationPct>
+  <RLRG_CompensationPct_Desc>Qué parte del equipo perdido se compensa con asaltantes extra. Una incursión puede recibir como máximo un 50 % más de puntos.</RLRG_CompensationPct_Desc>
+  <RLRG_TechAhead>Tolerancia de nivel tecnológico: +{0}</RLRG_TechAhead>
+  <RLRG_TechAhead_Desc>Los forasteros pueden tener objetos hasta este número de niveles tecnológicos por encima de tu colonia, incluso sin investigación. 0 = solo objetos investigados.</RLRG_TechAhead_Desc>
+  <RLRG_KeepChance>Probabilidad de conservar un objeto bloqueado: {0}%</RLRG_KeepChance>
+  <RLRG_KeepChance_Desc>Con esta probabilidad un personaje conserva un objeto bloqueado. El resultado se recuerda, así que no se vuelve a tirar la próxima vez.</RLRG_KeepChance_Desc>
+  <RLRG_ExemptFactions>Facciones exentas (las marcadas conservan su equipo):</RLRG_ExemptFactions>
+  <RLRG_NotifyRaid>Avisar cuando llegue una incursión</RLRG_NotifyRaid>
+  <RLRG_NotifyRaid_Desc>Un mensaje arriba a la izquierda que indica cuánto equipo perdieron los asaltantes y cuántos se añadieron.</RLRG_NotifyRaid_Desc>
+  <RLRG_OpenList>Resumen del equipo y prohibiciones manuales...</RLRG_OpenList>
+  <RLRG_Biocode>Biocodificar los sustitutos</RLRG_Biocode>
+  <RLRG_Biocode_Desc>Los objetos sustitutos se biocodifican para su portador, así que no puedes usarlos tras el combate y se venden por menos. Solo funciona con objetos que admiten biocodificación (sobre todo armas avanzadas).</RLRG_Biocode_Desc>
+  <RLRG_Years>Desbloqueo con el tiempo: +1 nivel cada {0} años</RLRG_Years>
+  <RLRG_Years_Desc>Los asaltantes obtienen poco a poco mejor equipo, incluso sin tu investigación. Se suma a la tolerancia de nivel tecnológico.</RLRG_Years_Desc>
+  <RLRG_YearsOff>Desbloqueo con el tiempo: desactivado</RLRG_YearsOff>
+  <RLRG_MsgRaid>Los asaltantes perdieron el {0}% de su equipo.</RLRG_MsgRaid>
+  <RLRG_MsgRaidCompensated>Los asaltantes perdieron el {0}% de su equipo. Incursión reforzada con {1} asaltantes extra.</RLRG_MsgRaidCompensated>
+  <RLRG_TabWeapons>Armas</RLRG_TabWeapons>
+  <RLRG_TabApparel>Ropa y armadura</RLRG_TabApparel>
+  <RLRG_Search>Buscar:</RLRG_Search>
+  <RLRG_ListHint>Los objetos marcados nunca se dan a los forasteros. El estado muestra lo que pueden tener ahora mismo.</RLRG_ListHint>
+  <RLRG_ListNoGame>Los objetos marcados nunca se dan a los forasteros. Carga una partida para ver el estado actual.</RLRG_ListNoGame>
+  <RLRG_StatusBanned>Prohibido</RLRG_StatusBanned>
+  <RLRG_StatusAllowed>Permitido</RLRG_StatusAllowed>
+  <RLRG_StatusLocked>Bloqueado</RLRG_StatusLocked>
+  <RLRG_Ex_Allowed>Permitido</RLRG_Ex_Allowed>
+  <RLRG_Ex_Locked>Bloqueado</RLRG_Ex_Locked>
+  <RLRG_Ex_Always>Siempre requiere: {0}</RLRG_Ex_Always>
+  <RLRG_Ex_Option>Fabricación: {0}</RLRG_Ex_Option>
+  <RLRG_Ex_Free>Se puede fabricar sin investigación</RLRG_Ex_Free>
+  <RLRG_Ex_NoResearch>Sin investigación (deciden el nivel tecnológico y la regla de objetos de mods)</RLRG_Ex_NoResearch>
+  <RLRG_Ex_Tech>Nivel tecnológico: {0} (límite: {1})</RLRG_Ex_Tech>
+  <RLRG_Ex_Mod>Mod: {0}</RLRG_Ex_Mod>
+  <RLRG_Ex_Done>completada</RLRG_Ex_Done>
+  <RLRG_Ex_Missing>falta</RLRG_Ex_Missing>
+  <RLRG_TechMismatch>Comprobar objetos más avanzados que su investigación</RLRG_TechMismatch>
+  <RLRG_TechMismatch_Desc>Cuando un mod coloca un objeto avanzado bajo una investigación inferior (un rifle espacial bajo investigación industrial), la colonia también debe alcanzar el nivel tecnológico de ese objeto.</RLRG_TechMismatch_Desc>
+  <RLRG_PowerEstimate>Estimar el nivel tecnológico de objetos de mods por su potencia</RLRG_PowerEstimate>
+  <RLRG_PowerEstimate_Desc>Un arma o armadura de mod claramente más fuerte que la mejor industrial del juego base cuenta como espacial, aunque el autor del mod haya fijado un nivel inferior. Es una estimación.</RLRG_PowerEstimate_Desc>
+  <RLRG_Ex_Power>La potencia corresponde al nivel tecnológico: {0}</RLRG_Ex_Power>
+  <RLRG_Ex_NeedColony>La colonia debe alcanzar el nivel tecnológico: {0}</RLRG_Ex_NeedColony>
+  <RLRG_LevelByProgress>Nivel de la colonia según el progreso de investigación</RLRG_LevelByProgress>
+  <RLRG_LevelByProgress_Desc>La colonia alcanza un nivel tecnológico cuando ha completado la parte establecida de la investigación de ese nivel. Desactivado = decide la investigación completada más alta (basta con una). El nivel del escenario siempre cuenta como mínimo.</RLRG_LevelByProgress_Desc>
+  <RLRG_LevelProgress>Parte requerida de la investigación de un nivel: {0}%</RLRG_LevelProgress>
+  <RLRG_LevelProgress_Desc>Cuánta investigación de un nivel debe completarse para que la colonia cuente como ese nivel.</RLRG_LevelProgress_Desc>
+  <RLRG_CurrentLevel>Nivel actual de la colonia: {0} (escenario: {1}, investigación: {2})</RLRG_CurrentLevel>
+  <RLRG_WorldHeader>El mundo al nivel de la colonia</RLRG_WorldHeader>
+  <RLRG_WorldRaids>Incursiones solo de facciones hasta el nivel del mundo</RLRG_WorldRaids>
+  <RLRG_WorldRaids_Desc>Las facciones más avanzadas que el nivel del mundo (tu nivel + tolerancia) no pueden enviar incursiones. Las facciones exentas de la lista de abajo no están limitadas.</RLRG_WorldRaids_Desc>
+  <RLRG_WorldMechs>Limitar también mecanoides e insectoides</RLRG_WorldMechs>
+  <RLRG_WorldMechs_Desc>Por defecto los mecanoides e insectoides no están limitados. Si está activado, las incursiones mecanoides y los grupos mecánicos no llegan hasta que el mundo alcance su nivel.</RLRG_WorldMechs_Desc>
+  <RLRG_WorldItems>Comerciantes, recompensas y botín hasta el nivel del mundo</RLRG_WorldItems>
+  <RLRG_WorldItems_Desc>Los objetos por encima del nivel del mundo se retiran del inventario de los comerciantes, de las recompensas de misiones y del botín. Las armas y la ropa siguen las mismas reglas que el equipo de los forasteros.</RLRG_WorldItems_Desc>
+  <RLRG_WorldIncidents>Incidentes hasta el nivel del mundo</RLRG_WorldIncidents>
+  <RLRG_WorldIncidents_Desc>Los accidentes de piezas de nave, restos de nave, comerciantes orbitales y (con mecanoides) grupos mecánicos no ocurren hasta que el mundo alcance su nivel.</RLRG_WorldIncidents_Desc>
+  <RLRG_WorldMessages>Mensaje cuando cambia el nivel del mundo</RLRG_WorldMessages>
+  <RLRG_WorldUp>El mundo avanzó al nivel tecnológico: {0}.</RLRG_WorldUp>
+  <RLRG_WorldDown>El nivel tecnológico del mundo es ahora: {0}.</RLRG_WorldDown>
+  <RLRG_WorldQuests>Misiones hasta el nivel del mundo</RLRG_WorldQuests>
+  <RLRG_WorldQuests_Desc>Las misiones aleatorias del narrador con una facción más avanzada que el mundo (atacante, aliado, quien da la misión) se descartan sin aviso. Las misiones ligadas a tecnología avanzada (arcotecnología, gravinaves, con mecanoides también misiones mecánicas) no se ofrecen. Las recompensas siguen la investigación como con los comerciantes. Las misiones de historia y las ceremonias nunca se bloquean.</RLRG_WorldQuests_Desc>
+  <RLRG_TabWorld>Nivel del mundo</RLRG_TabWorld>
+  <RLRG_TabArrivals>Asaltantes y llegadas</RLRG_TabArrivals>
+  <RLRG_TabRules>Reglas de investigación</RLRG_TabRules>
+  <RLRG_TabFilters>Filtros del mundo</RLRG_TabFilters>
+  <RLRG_TabFactions>Facciones</RLRG_TabFactions>
+  <RLRG_WorldLevelNow>Nivel actual del mundo (con tolerancia): {0}</RLRG_WorldLevelNow>
+  <RLRG_ManualLevel>Fijar el nivel del mundo manualmente</RLRG_ManualLevel>
+  <RLRG_ManualLevel_Desc>El nivel del mundo no se calcula a partir de la investigación; el que elijas se aplica exactamente, sin tolerancia ni desbloqueo con el tiempo.</RLRG_ManualLevel_Desc>
+  <RLRG_ManualLevelPick>Nivel del mundo: {0}</RLRG_ManualLevelPick>
+  <RLRG_PerTier>Porcentaje separado para cada nivel</RLRG_PerTier>
+  <RLRG_PerTier_Desc>Define por separado para cada nivel cuánta de su investigación debe completarse.</RLRG_PerTier_Desc>
+  <RLRG_PctTier>{0}: {1}%</RLRG_PctTier>
+  <RLRG_LockResearch>Bloquear investigación superior</RLRG_LockResearch>
+  <RLRG_LockResearch_Desc>No se puede empezar una investigación más de un nivel por encima del mundo. Hay que avanzar nivel a nivel.</RLRG_LockResearch_Desc>
+  <RLRG_FilterPossessions>Otros objetos del inventario por encima del nivel del mundo</RLRG_FilterPossessions>
+  <RLRG_FilterPossessions_Desc>Los que llegan también pierden medicinas, drogas, componentes y otros objetos por encima del nivel del mundo (para los comerciantes incluye sus mercancías).</RLRG_FilterPossessions_Desc>
+  <RLRG_FactionOk>puede atacar</RLRG_FactionOk>
+  <RLRG_FactionAbove>por encima del nivel del mundo</RLRG_FactionAbove>
+  <RLRG_ReplaceQuests>Sustituir la misión descartada por otra</RLRG_ReplaceQuests>
+  <RLRG_ReplaceQuests_Desc>En lugar de una misión descartada por el nivel del mundo, el narrador intenta de inmediato otra adecuada (hasta 5 intentos). Las misiones llegan con la frecuencia habitual.</RLRG_ReplaceQuests_Desc>
+  <RLRG_WorldVisitors>Caravanas y visitantes solo hasta el nivel del mundo (estricto)</RLRG_WorldVisitors>
+  <RLRG_WorldVisitors_Desc>Las caravanas comerciales, visitantes y viajeros solo vienen de facciones hasta el nivel del mundo. ATENCIÓN: con facciones espaciales de mods puede que casi no vengan comerciantes. Si está desactivado (recomendado), vienen de todas las facciones, pero sus mercancías y equipo se filtran según el nivel del mundo.</RLRG_WorldVisitors_Desc>
+  <RLRG_ReplaceEvents>Sustituir un evento bloqueado por uno aleatorio</RLRG_ReplaceEvents>
+  <RLRG_ReplaceEvents_Desc>Cuando el narrador elige un evento para el que el mundo no está preparado (comerciante orbital, accidente de pieza de nave, restos de nave…), o una incursión o caravana no encuentra ninguna facción adecuada, se activa en su lugar otro evento aleatorio de la misma categoría. Los eventos llegan con la misma frecuencia que sin el mod. Los eventos de misiones no cambian.</RLRG_ReplaceEvents_Desc>
+  <RLRG_OvTitle>Mundo y eventos</RLRG_OvTitle>
+  <RLRG_OvStoryteller>Narrador: {0}, dificultad: {1}</RLRG_OvStoryteller>
+  <RLRG_OvQuests>Misiones</RLRG_OvQuests>
+  <RLRG_OvQuestCounts>En curso: {0}, esperando aceptación: {1}</RLRG_OvQuestCounts>
+  <RLRG_OvExpires>caduca en {0}</RLRG_OvExpires>
+  <RLRG_OvEvents>Eventos</RLRG_OvEvents>
+  <RLRG_OvEventsHint>El narrador elige los eventos al azar, así que no se puede saber el momento exacto del siguiente. La estimación se basa en el intervalo medio entre eventos en esta partida y mejora cuanto más juegues.</RLRG_OvEventsHint>
+  <RLRG_OvNoEvents>Aún no hay nada registrado. El registro empieza con esta versión.</RLRG_OvNoEvents>
+  <RLRG_OvColKind>Tipo</RLRG_OvColKind>
+  <RLRG_OvColLast>Último</RLRG_OvColLast>
+  <RLRG_OvCol30>Últimos 30 días</RLRG_OvCol30>
+  <RLRG_OvColAvg>Intervalo medio</RLRG_OvColAvg>
+  <RLRG_OvColNext>Siguiente (estimación)</RLRG_OvColNext>
+  <RLRG_OvDays>{0} d</RLRG_OvDays>
+  <RLRG_OvAgo>hace {0} d</RLRG_OvAgo>
+  <RLRG_OvInDays>≈ en {0} d</RLRG_OvInDays>
+  <RLRG_OvAnyTime>en cualquier momento</RLRG_OvAnyTime>
+  <RLRG_OvRecent>Últimos 10 eventos:</RLRG_OvRecent>
+  <RLRG_WorldCausers>Las amenazas por encima del nivel del mundo no se quedan</RLRG_WorldCausers>
+  <RLRG_WorldCausers_Desc>Las cosas nuevas que imponen una condición al mapa (escupidor tóxico, humo, controlador del clima, bloqueador solar, emisor psíquico…) por encima del nivel del mundo se retiran de inmediato, en el mapa y en el mapa del mundo, aunque pertenezcan a los mecanoides. Las misiones que enviarían algo así se descartan (las misiones del narrador se sustituyen). Lo que ya está colocado se queda.</RLRG_WorldCausers_Desc>
+  <RLRG_CauserBlocked>Una amenaza por encima del nivel del mundo no se quedó: {0}.</RLRG_CauserBlocked>
+  <RLRG_TraderGuarantee>Garantía de comerciantes</RLRG_TraderGuarantee>
+  <RLRG_TraderGuarantee_Desc>Si ninguna caravana comercial llega a la colonia principal durante mucho tiempo, el mod intenta llamar a una. Entonces el juego también acepta facciones que de otro modo no viajarían con esta temperatura. Si una caravana no puede venir (todos hostiles, grupo bloqueante en el mapa…), el motivo se escribe en el registro y se muestra un mensaje.</RLRG_TraderGuarantee_Desc>
+  <RLRG_TraderGuaranteeDays>Caravana como muy tarde tras: {0} días</RLRG_TraderGuaranteeDays>
+  <RLRG_TraderGuaranteeDays_Desc>Tras cuántos días sin caravana el mod llama a una.</RLRG_TraderGuaranteeDays_Desc>
+  <RLRG_Diag_Open>¿Por qué no vienen comerciantes, visitantes o amenazas?</RLRG_Diag_Open>
+  <RLRG_Diag_Title>Comerciantes y visitantes: diagnóstico</RLRG_Diag_Title>
+  <RLRG_Diag_NoMap>No hay mapa principal.</RLRG_Diag_NoMap>
+  <RLRG_Diag_Map>Mapa: {0}, temperatura exterior {1}, estacional {2}</RLRG_Diag_Map>
+  <RLRG_Diag_LastTrader>Última caravana comercial: hace {0} días</RLRG_Diag_LastTrader>
+  <RLRG_Diag_LastTraderNone>Última caravana comercial: aún no hay registro</RLRG_Diag_LastTraderNone>
+  <RLRG_Diag_LastVisitor>Últimos visitantes/viajeros: hace {0} días</RLRG_Diag_LastVisitor>
+  <RLRG_Diag_GuaranteeOn>Garantía de comerciantes: activada (como muy tarde tras {0} días)</RLRG_Diag_GuaranteeOn>
+  <RLRG_Diag_GuaranteeOff>Garantía de comerciantes: desactivada</RLRG_Diag_GuaranteeOff>
+  <RLRG_Diag_Allies>No hostiles: {0} de {1} facciones</RLRG_Diag_Allies>
+  <RLRG_Diag_NoAllies>Todas las facciones son hostiles: el narrador no envía comerciantes ni visitantes. Mejora las relaciones (regalos, misiones, consola de comunicaciones).</RLRG_Diag_NoAllies>
+  <RLRG_Diag_Events>Eventos:</RLRG_Diag_Events>
+  <RLRG_Diag_Can>puede venir ahora</RLRG_Diag_Can>
+  <RLRG_Diag_Cannot>NO puede venir ahora – {0}</RLRG_Diag_Cannot>
+  <RLRG_Diag_R_Missing>el evento no existe</RLRG_Diag_R_Missing>
+  <RLRG_Diag_R_Scenario>desactivado por el escenario</RLRG_Diag_R_Scenario>
+  <RLRG_Diag_R_Difficulty>desactivado por los ajustes de dificultad</RLRG_Diag_R_Difficulty>
+  <RLRG_Diag_R_Early>demasiado pronto tras el asentamiento (desde el día {0})</RLRG_Diag_R_Early>
+  <RLRG_Diag_R_Target>no permitido en este mapa</RLRG_Diag_R_Target>
+  <RLRG_Diag_R_Biome>bioma no permitido</RLRG_Diag_R_Biome>
+  <RLRG_Diag_R_Recent>ocurrió hace poco (tiempo de espera)</RLRG_Diag_R_Recent>
+  <RLRG_Diag_R_Condition>impedido por: {0}</RLRG_Diag_R_Condition>
+  <RLRG_Diag_R_NoFaction>ninguna facción puede venir ahora (ver lista de facciones)</RLRG_Diag_R_NoFaction>
+  <RLRG_Diag_R_OnlyDesperate>el narrador no lo enviará: las facciones no viajan con esta temperatura</RLRG_Diag_R_OnlyDesperate>
+  <RLRG_Diag_R_Other>otro motivo (probablemente otro mod)</RLRG_Diag_R_Other>
+  <RLRG_Diag_Factions>Facciones (caravanas comerciales):</RLRG_Diag_Factions>
+  <RLRG_Diag_F_Ok>puede enviar una caravana</RLRG_Diag_F_Ok>
+  <RLRG_Diag_F_Desperate>solo en caso desesperado – temperatura exterior fuera de {0}</RLRG_Diag_F_Desperate>
+  <RLRG_Diag_F_No>no vendrá: {0}</RLRG_Diag_F_No>
+  <RLRG_Diag_F_Defeated>derrotada</RLRG_Diag_F_Defeated>
+  <RLRG_Diag_F_Hostile>hostil (buena voluntad {0})</RLRG_Diag_F_Hostile>
+  <RLRG_Diag_F_NoTraders>no tiene caravanas comerciales</RLRG_Diag_F_NoTraders>
+  <RLRG_Diag_F_Lord>su enemigo está en el mapa: {0}</RLRG_Diag_F_Lord>
+  <RLRG_Diag_F_World>por encima del nivel del mundo (opción «Caravanas y visitantes solo hasta el nivel del mundo»)</RLRG_Diag_F_World>
+  <RLRG_Diag_F_Temp>temperatura fuera de {0}</RLRG_Diag_F_Temp>
+  <RLRG_Diag_F_Other>otro motivo (tipo de comerciante, capa planetaria u otro mod)</RLRG_Diag_F_Other>
+  <RLRG_Diag_Summon>Llamar a una caravana ahora (prueba)</RLRG_Diag_Summon>
+  <RLRG_Diag_SummonOk>Viene una caravana comercial.</RLRG_Diag_SummonOk>
+  <RLRG_Diag_SummonFail>No se puede llamar a una caravana: {0}</RLRG_Diag_SummonFail>
+  <RLRG_Diag_ToLog>Escribir en el registro</RLRG_Diag_ToLog>
+  <RLRG_Diag_Logged>Diagnóstico escrito en el registro.</RLRG_Diag_Logged>
+  <RLRG_Diag_Refresh>Actualizar</RLRG_Diag_Refresh>
+  <RLRG_Diag_GuaranteeFailed>Garantía de comerciantes: una caravana no pudo venir ({0}). Detalles: pestaña Mundo → ¿Por qué no vienen comerciantes?</RLRG_Diag_GuaranteeFailed>
+  <RLRG_Diag_Title2>Comerciantes, visitantes y amenazas: diagnóstico</RLRG_Diag_Title2>
+  <RLRG_Diag_Threats>Amenazas e incursiones:</RLRG_Diag_Threats>
+  <RLRG_Diag_ThreatScale>Dificultad: escala de amenazas {0}, amenazas grandes permitidas: {1}</RLRG_Diag_ThreatScale>
+  <RLRG_Diag_ThreatsOff>ATENCIÓN: las amenazas están desactivadas en la dificultad del narrador; por eso no llegan incursiones.</RLRG_Diag_ThreatsOff>
+  <RLRG_Diag_ThreatPoints>Puntos de amenaza actuales: {0}</RLRG_Diag_ThreatPoints>
+  <RLRG_Diag_LastThreat>Última amenaza del narrador: hace {0} días</RLRG_Diag_LastThreat>
+  <RLRG_Diag_LastThreatNone>Última amenaza del narrador: aún no hay registro</RLRG_Diag_LastThreatNone>
+  <RLRG_Diag_Yes>sí</RLRG_Diag_Yes>
+  <RLRG_Diag_No>no</RLRG_Diag_No>
+  <RLRG_Diag_AboveWorld>por encima del nivel del mundo – sustituido por otro evento</RLRG_Diag_AboveWorld>
+  <RLRG_Diag_Raiders>Facciones hostiles (incursiones):</RLRG_Diag_Raiders>
+  <RLRG_Diag_RaidOk>puede hacer incursiones</RLRG_Diag_RaidOk>
+  <RLRG_Diag_RaidWorld>por encima del nivel del mundo – incursiones solo si nadie más puede (el equipo se filtra)</RLRG_Diag_RaidWorld>
+  <RLRG_Diag_RaidDesperate>solo en caso desesperado (temperatura / poco después del asentamiento)</RLRG_Diag_RaidDesperate>
+  <RLRG_Diag_RaidEarly>todavía no – incursiones desde el día {0}</RLRG_Diag_RaidEarly>
+  <RLRG_Diag_RaidNo>no puede hacer incursiones (capa planetaria, estrategia u otro mod)</RLRG_Diag_RaidNo>
+  <RLRG_Diag_NoRaiders>Ninguna facción hostil puede enviar una incursión ahora: no hay facciones hostiles o algo más las bloquea a todas.</RLRG_Diag_NoRaiders>
+  <RLRG_FactionsAtWorld>Todas las facciones al nivel de tu colonia</RLRG_FactionsAtWorld>
+  <RLRG_FactionsAtWorld_Desc>Todas las facciones (incluidas las espaciales y las de mods) actúan como si tuvieran la misma investigación que tú: pueden atacar, comerciar, visitar y dar misiones, pero cada uno de sus miembros solo tiene equipo que tú has investigado (siempre filtrado, para todas las llegadas), y los comerciantes solo venden objetos hasta el nivel del mundo. Desactívalo para bloquear por completo las facciones por encima del nivel del mundo.</RLRG_FactionsAtWorld_Desc>
+  <RLRG_OnlyCrafted>Los demás solo usan lo que tú has fabricado</RLRG_OnlyCrafted>
+  <RLRG_OnlyCrafted_Desc>Asaltantes, visitantes, comerciantes y personajes de misiones solo pueden tener armas y ropa que tu colonia ya haya fabricado al menos una vez (e investigado). Todo lo que aún no se haya fabricado se retira o se sustituye por el objeto fabricado más parecido. Sin ningún arma fabricada reciben al menos un arco corto o un garrote. Las mercancías a la venta solo siguen la investigación. En una partida en curso, el equipo de los colonos y los objetos almacenados que sabes fabricar se registran una vez.</RLRG_OnlyCrafted_Desc>
+  <RLRG_CraftedCount>Tipos de armas y ropa fabricados: {0}</RLRG_CraftedCount>
+  <RLRG_MsgCraftedNew>Fabricado por primera vez: {0}; ahora los demás también pueden usarlo.</RLRG_MsgCraftedNew>
+  <RLRG_Ex_NotCrafted>Investigado, pero tu colonia aún no lo ha fabricado.</RLRG_Ex_NotCrafted>
+  <RLRG_CraftedReset>Vaciar la lista de fabricados</RLRG_CraftedReset>
+  <RLRG_CraftedReset_Desc>Vacía la lista de armas y ropa fabricadas (compartida con Smart Colonist Gear). A partir de ahora solo cuenta lo que fabrique la colonia.</RLRG_CraftedReset_Desc>
+  <RLRG_CraftedResetConfirm>¿Seguro que quieres vaciar la lista de equipo fabricado? Se vacía en ambos mods y los asaltantes y colonos solo podrán usar el equipo fabricado a partir de ahora.</RLRG_CraftedResetConfirm>
+  <RLRG_MsgRaidItems>{0} piezas de equipo retiradas, {1} sustituidas por una versión más débil ({2} asaltantes).</RLRG_MsgRaidItems>
+  <RLRG_TraderTechBonus>Los comerciantes pueden vender niveles superiores: {0}</RLRG_TraderTechBonus>
+  <RLRG_TraderTechBonus_Desc>Cuántos niveles tecnológicos por encima del nivel del mundo pueden ofrecer los comerciantes. 0 = solo hasta el nivel del mundo (armas y ropa según la investigación), 1 = un nivel más (p. ej. armas de fuego industriales en una partida medieval) …</RLRG_TraderTechBonus_Desc>
+  <RLRG_TabTraders>Comerciantes</RLRG_TabTraders>
+  <RLRG_TabTraders_Desc>Mercancías que los comerciantes no pueden vender ahora porque están por encima del nivel del mundo. Usa la misma regla que el inventario de los comerciantes.</RLRG_TabTraders_Desc>
+  <RLRG_TraderNoGame>Carga una partida para ver lo que los comerciantes no pueden vender ahora.</RLRG_TraderNoGame>
+  <RLRG_TraderOff>El filtro de objetos del mundo está desactivado: los comerciantes venden de todo.</RLRG_TraderOff>
+  <RLRG_TraderMax>Los comerciantes pueden vender hasta: {0} (nivel del mundo {1} + {2})</RLRG_TraderMax>
+  <RLRG_TraderMax_Desc>Los comerciantes pueden vender mercancías hasta el nivel tecnológico {0} (nivel del mundo + «Los comerciantes pueden vender niveles superiores»). Las armas y la ropa también se pueden vender si la investigación las permite. Los animales, esclavos y mercancías sin nivel tecnológico nunca se retiran.</RLRG_TraderMax_Desc>
+  <RLRG_TraderCount>Mercancías que los comerciantes no pueden vender ahora: {0}</RLRG_TraderCount>
+  <RLRG_TraderBlocked>No está a la venta</RLRG_TraderBlocked>
+  <RLRG_TraderBlocked_Desc>El nivel tecnológico {0} está por encima de lo que los comerciantes pueden vender ahora ({1}).</RLRG_TraderBlocked_Desc>
+  <RLRG_TraderBlockedGear>No está a la venta (investigación)</RLRG_TraderBlockedGear>
+  <RLRG_TraderBlockedGear_Desc>No lo permite la investigación y el nivel tecnológico {0} está por encima de lo que los comerciantes pueden vender ahora ({1}).</RLRG_TraderBlockedGear_Desc>
+  <!-- 2.10.0: Raids tab -->
+  <RLRG_TabRaids>Incursiones</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Las estrategias de incursión, modos de llegada y misiones aleatorias desmarcadas no se usarán. Marcado = permitido. Los eventos de amenaza (monstruos, enfermedades, lluvia radiactiva …) están en la pestaña Amenazas.</RLRG_RaidsIntro>
+  <RLRG_RaidsSummary>{0} de {1} tipos de incursión bloqueados</RLRG_RaidsSummary>
+  <RLRG_RaidsResetAll>Restablecer todo</RLRG_RaidsResetAll>
+  <RLRG_RaidsResetAll_Desc>Permitir de nuevo todos los tipos de incursión (por defecto).</RLRG_RaidsResetAll_Desc>
+  <RLRG_RaidsAllowAll>Permitir todo</RLRG_RaidsAllowAll>
+  <RLRG_RaidsAllowAll_Desc>Permitir de nuevo todo lo de este grupo.</RLRG_RaidsAllowAll_Desc>
+  <RLRG_RaidsGroupCount>bloqueados {0} / {1}</RLRG_RaidsGroupCount>
+  <RLRG_RaidsGroupIncidents>Eventos de amenaza</RLRG_RaidsGroupIncidents>
+  <RLRG_RaidsGroupStrategies>Estrategias de incursión</RLRG_RaidsGroupStrategies>
+  <RLRG_RaidsGroupArrivals>Modos de llegada</RLRG_RaidsGroupArrivals>
+  <RLRG_RaidsGroupQuests>Misiones aleatorias – [!] = amenaza</RLRG_RaidsGroupQuests>
+  <RLRG_RaidsSource>Origen: {0}</RLRG_RaidsSource>
+  <RLRG_RaidsAllowedTip>Permitido. Desmárcalo para que no ocurra.</RLRG_RaidsAllowedTip>
+  <RLRG_RaidsBlockedTip>Bloqueado: el narrador no lo usará. Si todas las opciones que podría usar una incursión están bloqueadas, la incursión recurre a un ataque inmediato / entrada desde el borde del mapa en lugar de fallar.</RLRG_RaidsBlockedTip>
+  <RLRG_MechEscorts>Los asaltantes solo traen mecanoides que hayas investigado</RLRG_MechEscorts>
+  <RLRG_MechEscorts_Desc>Las facciones humanas (mecanitores en incursiones) solo pueden traer mecanoides cuya gestación hayas investigado. Los mecanoides no investigados se retiran del grupo. Las incursiones solo de mecanoides no se ven afectadas.</RLRG_MechEscorts_Desc>
+  <RLRG_MatchColony>Los que llegan no llevan nada mejor que el equipo de tu colonia</RLRG_MatchColony>
+  <RLRG_MatchColony_Desc>Todo el que llega (asaltantes, visitantes, refugiados, personajes de misiones; comerciantes solo si no se omiten) solo puede llevar equipo igual o más débil que el mejor que ha fabricado tu colonia: armas de fuego hasta tu mejor arma de fuego fabricada, armas cuerpo a cuerpo hasta la mejor que hayas fabricado (el material cuenta), armadura hasta tu mejor armadura fabricada. La ropa corriente siempre está permitida. El equipo también debe estar realmente investigado (debes poder fabricarlo). Las armas de fuego, explosivas y EMP (lanzallamas, flechas explosivas…) solo cuando hayas fabricado esa arma tú mismo. El equipo mejor se sustituye por el más parecido más débil, el material demasiado bueno por uno corriente. Junto con «solo fabricado», también se permite equipo más débil que nunca fabricaste: más variedad.</RLRG_MatchColony_Desc>
+  <RLRG_MatchQuality>Calidad como máximo la de tu mejor producto</RLRG_MatchQuality>
+  <RLRG_MatchQuality_Desc>Las armas y la ropa de los que llegan tienen como máximo la calidad que ha fabricado tu colonia (por separado para armas y ropa, al menos normal).</RLRG_MatchQuality_Desc>
+  <RLRG_MatchMargin>Tolerancia: {0} % mejor</RLRG_MatchMargin>
+  <RLRG_MatchMargin_Desc>Cuánto por ciento mejor que el tuyo puede ser el equipo de los demás. 0 = como máximo igual.</RLRG_MatchMargin_Desc>
+  <RLRG_MatchNow>Límite actual – armas de fuego: {0}, cuerpo a cuerpo: {1}, armadura: {2}, calidad de armas: {3}, calidad de ropa: {4}</RLRG_MatchNow>
+  <RLRG_ShowHud>Mostrar el nivel de investigación en pantalla</RLRG_ShowHud>
+  <RLRG_ShowHud_Desc>Abajo a la derecha, sobre la fecha: el nivel de la colonia y cuánto falta para el siguiente nivel. Pasa el ratón para ver detalles por nivel, haz clic para abrir la pestaña Mundo.</RLRG_ShowHud_Desc>
+  <RLRG_HudLine>Nivel: {0}</RLRG_HudLine>
+  <RLRG_HudLineNext>{0} → {1} {2} %</RLRG_HudLineNext>
+  <RLRG_HudTipTitle>Nivel de investigación (World at Your Level)</RLRG_HudTipTitle>
+  <RLRG_HudTipColony>Colonia: {0} (escenario: {1}, investigación: {2})</RLRG_HudTipColony>
+  <RLRG_HudTipWorld>Mundo (con bonificación de ventaja/tiempo): {0}</RLRG_HudTipWorld>
+  <RLRG_HudTipTier>{0} {1}: {2}/{3} ({4} %), necesario {5}</RLRG_HudTipTier>
+  <RLRG_HudTipClick>Haz clic para la pestaña Mundo.</RLRG_HudTipClick>
+  <MUI_Title>Configuración recomendada</MUI_Title>
+  <MUI_TitleOff>Configuración recomendada · desactivada</MUI_TitleOff>
+  <MUI_DescOn>El mod se configura solo y funciona al instante. Ideal para jugadores nuevos y para quien no quiera ajustar nada.</MUI_DescOn>
+  <MUI_DescOff>Configuración personalizada. Cambios respecto a la recomendada: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Configuración personalizada. Sigue igual que la recomendada.</MUI_DescOffSame>
+  <MUI_On>SÍ</MUI_On>
+  <MUI_Off>NO</MUI_Off>
+  <MUI_ResetAll>Restablecer todo a lo recomendado</MUI_ResetAll>
+  <MUI_ConfirmOn>¿Activar la configuración recomendada? Tus cambios ({0}) se sustituirán por los valores recomendados.</MUI_ConfirmOn>
+  <MUI_Locked>La configuración detallada está bloqueada. ¿Quieres cambiarla? Desactiva el interruptor de arriba: tus valores partirán de los recomendados.</MUI_Locked>
+  <MUI_Changed>CAMBIADO</MUI_Changed>
+  <MUI_ChangedTip>Difiere del valor recomendado ({0}). Haz clic para restaurar el valor recomendado.</MUI_ChangedTip>
+  <MUI_Yes>sí</MUI_Yes>
+  <MUI_No>no</MUI_No>
+  <RLRG_Rec1>Los asaltantes solo llevan equipo de tu nivel tecnológico</RLRG_Rec1>
+  <RLRG_Rec2>Los comerciantes venden objetos de tu nivel</RLRG_Rec2>
+  <RLRG_Rec3>Las misiones y recompensas se ajustan a tu nivel</RLRG_Rec3>
+  <RLRG_Rec4>Las facciones avanzan junto contigo</RLRG_Rec4>
+  <RLRG_Rec5>El equipo más débil de los asaltantes se compensa con más asaltantes</RLRG_Rec5>
+  <RLRG_Rec6>El nivel del mundo se muestra en pantalla</RLRG_Rec6>
+  <MUI_RecTag>RECOMENDADO</MUI_RecTag>
+  <RLRG_RareAdvanced>Incursión rara de alta tecnología: {0}%</RLRG_RareAdvanced>
+  <RLRG_RareAdvanced_Desc>Con esta probabilidad una incursión trae equipo un nivel tecnológico por encima de tu colonia. Hay menos asaltantes (25 % menos puntos) y su equipo queda como botín, así que puedes descubrir nueva tecnología antes. Solo si la facción atacante tiene ese equipo.</RLRG_RareAdvanced_Desc>
+  <RLRG_RareLowTech>Incursión rara de baja tecnología: {0}%</RLRG_RareLowTech>
+  <RLRG_RareLowTech_Desc>Con esta probabilidad una incursión trae equipo un nivel tecnológico por debajo de tu colonia, pero con más asaltantes (35 % más puntos).</RLRG_RareLowTech_Desc>
+  <RLRG_MsgRareAdvanced>¡Los asaltantes llevan tecnología desconocida ({0})! Son menos, pero van mejor armados.</RLRG_MsgRareAdvanced>
+  <RLRG_MsgRareLowTech>Una gran incursión con equipo anticuado ({0}).</RLRG_MsgRareLowTech>
+  <RLRG_StrictCrafted>Estricto: solo lo que has fabricado, también al igualar a la colonia</RLRG_StrictCrafted>
+  <RLRG_StrictCrafted_Desc>«Igualar a la colonia» normalmente permite cualquier cosa aproximadamente tan fuerte como tu equipo. Con esto activado, los enemigos solo pueden llevar armas y ropa que tu colonia haya fabricado de verdad: nada de rifles improvisados ni subfusiles mientras sigas usando arcos.</RLRG_StrictCrafted_Desc>
+  <RLRG_SiteTurrets>Torretas enemigas solo hasta el nivel de las tuyas</RLRG_SiteTurrets>
+  <RLRG_SiteTurrets_Desc>Las torretas de otras facciones (en sitios de misiones, en bases, en asedios) se retiran a menos que tú mismo hayas construido una torreta del mismo nivel tecnológico. Sin torretas todavía = sin torretas enemigas.</RLRG_SiteTurrets_Desc>
+  <RLRG_GearLogLine>World at Your Level: {0}</RLRG_GearLogLine>
+  <RLRG_MsgRaidSwaps>Lo más frecuente: {0}.</RLRG_MsgRaidSwaps>
+  <RLRG_Gradual>Cambio de era gradual</RLRG_Gradual>
+  <RLRG_Gradual_Desc>Cuando sube el nivel del mundo, al principio solo uno de cada cinco recién llegados recibe equipo de la nueva era; la proporción crece de forma pareja hasta que todos lo tienen. Sin saltos bruscos.</RLRG_Gradual_Desc>
+  <RLRG_GradualDays>Cambio gradual durante: {0} días</RLRG_GradualDays>
+  <RLRG_GradualDays_Desc>Cuántos días de juego pasan hasta que todos los recién llegados llevan equipo de la nueva era.</RLRG_GradualDays_Desc>
+  <RLRG_OutTitle>Qué trae el siguiente nivel</RLRG_OutTitle>
+  <RLRG_OutManual>Nivel del mundo manual ({0}): la previsión solo funciona con el nivel según la investigación.</RLRG_OutManual>
+  <RLRG_OutTop>Tu colonia está en el nivel más alto ({0}): no queda nada por desbloquear.</RLRG_OutTop>
+  <RLRG_OutNext>Siguiente nivel: {0} – faltan {1} proyectos de investigación ({2} de los {3} necesarios, {4} en este nivel).</RLRG_OutNext>
+  <RLRG_OutWorld>Nivel del mundo después: {0} → {1}</RLRG_OutWorld>
+  <RLRG_OutGuns>Armas nuevas para los recién llegados: {0} tipos, p. ej. {1}</RLRG_OutGuns>
+  <RLRG_OutArmor>Armaduras y ropa nuevas para los recién llegados: {0} tipos, p. ej. {1}</RLRG_OutArmor>
+  <RLRG_OutFactions>Facciones que empezarán a atacar: {0}</RLRG_OutFactions>
+  <RLRG_OutMechs>Pueden aparecer mecanoides hostiles.</RLRG_OutMechs>
+  <RLRG_OutEvents>Eventos que se abren: {0}</RLRG_OutEvents>
+  <RLRG_OutTraders>Los comerciantes pueden traer bienes hasta el nivel: {0}</RLRG_OutTraders>
+  <RLRG_OutGradual>El cambio de era gradual está activo: el nuevo equipo se extiende en {0} días.</RLRG_OutGradual>
+  <RLRG_OutGradualNow>Cambio de era en curso: el {0} % de los recién llegados ya tiene equipo de la nueva era.</RLRG_OutGradualNow>
+  <RLRG_WorldLetter>Carta cuando el mundo alcanza un nivel superior</RLRG_WorldLetter>
+  <RLRG_WorldLetter_Desc>Cuando sube el nivel del mundo recibes una carta que lo explica en lugar de un mensaje corto. Las bajadas se siguen mostrando como mensaje.</RLRG_WorldLetter_Desc>
+  <RLRG_WorldLetterTitle>Nivel del mundo: {0}</RLRG_WorldLetterTitle>
+  <RLRG_WorldLetterText>El mundo ha alcanzado el nivel tecnológico {0}.\n\nA partir de ahora los asaltantes, comerciantes y visitantes pueden traer armas, ropa y otros bienes hasta este nivel. Lo que trae el siguiente nivel aparece en los ajustes del mod (pestaña Mundo).</RLRG_WorldLetterText>
+  <RLRG_FilterImplants>Los implantes de los asaltantes siguen el nivel del mundo</RLRG_FilterImplants>
+  <RLRG_FilterImplants_Desc>Los peones hostiles no reciben implantes biónicos, arcotecnológicos ni otros por encima del nivel del mundo. Simplemente no se instalan – sin partes del cuerpo perdidas.</RLRG_FilterImplants_Desc>
+  <RLRG_FilterDrugs>Las drogas de los asaltantes siguen el nivel del mundo</RLRG_FilterDrugs>
+  <RLRG_FilterDrugs_Desc>Los peones hostiles no llevan go-juice, yayo ni otras drogas por encima del nivel del mundo, así que no pueden tomarlas antes del combate.</RLRG_FilterDrugs_Desc>
+  <RLRG_ResearchCost>Coste de investigación según el nivel del mundo</RLRG_ResearchCost>
+  <RLRG_ResearchCost_Desc>La investigación por encima del nivel del mundo cuesta más, por debajo cuesta menos. Desactivado por defecto.</RLRG_ResearchCost_Desc>
+  <RLRG_ResearchAbove>Por encima del nivel del mundo: coste +{0}%</RLRG_ResearchAbove>
+  <RLRG_ResearchAbove_Desc>Cuánto más cuesta la investigación de un nivel tecnológico superior al del mundo.</RLRG_ResearchAbove_Desc>
+  <RLRG_ResearchBelow>Por debajo del nivel del mundo: coste −{0}%</RLRG_ResearchBelow>
+  <RLRG_ResearchBelow_Desc>Cuánto menos cuesta la investigación de un nivel tecnológico inferior al del mundo.</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>Evolución</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>Las facciones tienen su propio nivel</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>Cada facción se mueve alrededor del nivel del mundo a su propio ritmo: algunas se quedan atrás, unas pocas van por delante. Sus asaltantes y visitantes llevan equipo del nivel de su facción. Destruir uno de sus asentamientos las hace retroceder, comerciar con ellas las ayuda. La pestaña Mundo muestra todas las facciones.</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>Facciones líderes un nivel por delante</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>Una facción líder puede llevar equipo un nivel por encima del nivel del mundo (no con «Los demás solo usan lo que tú has fabricado»). Desactivado: las facciones solo pueden quedarse atrás.</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>Estudiar tecnología ajena</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>Un arma o prenda por encima de tu investigación recibe un botón «Estudiar»: se desmonta y da puntos de investigación al proyecto que la desbloquea (o a un proyecto de su era). Necesita una mesa de investigación.</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>Una nueva era trae un comerciante</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>Cuando sube el nivel del mundo, uno o dos días después llega una caravana comercial de una facción del nuevo nivel con la mercancía nueva.</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>Incursiones según la defensa real</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>La fuerza de las incursiones también depende de tu defensa real – combatientes, sus armas, armaduras y habilidades, torretas y mecanoides de combate – no solo de la riqueza de la colonia. Una colonia rica pero débil recibe incursiones más justas, una fuerte y pobre, más duras.</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>Peso de la defensa: {0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>Cuánto depende la fuerza de la incursión de tu defensa en lugar de los puntos del juego (100 % = solo defensa).</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0} ha avanzado al nivel {1}.</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0} ha retrocedido al nivel {1}.</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>asentamiento destruido</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>el comercio ayuda</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>Estudiar</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>Desmontar para investigar: {0} recibe {1} puntos. El objeto se consume.</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>No hay ningún proyecto de investigación abierto al que destinarlo.</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>Necesitas una mesa de investigación.</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>{0} desmontado: {1} +{2} de investigación.</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>Comerciantes de la nueva era</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>La noticia de tu progreso se ha extendido. {0} envían una caravana con mercancía de la era {1}; debería llegar en uno o dos días.</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>Facciones</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>Los niveles propios de las facciones están desactivados (ajustes, pestaña Evolución).</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>subiendo</RLRG_EV_Rising>
+  <RLRG_EV_Falling>bajando</RLRG_EV_Falling>
+  <RLRG_EV_Steady>estable</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0}: nivel {1} (mundo: {2}). Sus asaltantes y visitantes llevan equipo de este nivel.</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>Tu defensa: {0} puntos · puntos de incursión ahora: {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>Amenazas</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>Los eventos desmarcados nunca empiezan: ni por el narrador, ni por misiones o mods. Marcado = permitido. Se aplica al instante.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>Mantener los jefes que invoco</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>Los jefes que invocas con un mecanitor en la consola de comunicaciones (Diabolus, Reina de guerra, Apocritón …) y su escolta nunca se eliminan por «Limitar también mecanoides e insectoides»: los llamaste por sus chips de señal.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>Mostrar todos los eventos</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>Listar también eventos que no son amenazas (visitantes, comerciantes, vagabundos, eventos buenos …) para poder desactivarlos también.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>Amenazas grandes</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>Amenazas pequeñas</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>Eventos malos y amenazas de mods</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>Otros eventos</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>Bloquear todo</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>Bloquear todo lo visible en este grupo (respeta la búsqueda).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>{0} de {1} eventos desactivados</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>Permitir de nuevo todos los eventos (predeterminado).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>Desactivado: este evento nunca empieza, ni por el narrador, ni por misiones o mods.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>Eliminado por World at Your Level</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>se queda – lo permitiste</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>eliminado – aún no investigado</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>eliminado – por encima del nivel del mundo</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>eliminado antes</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>se queda – las reglas lo permiten</RLRG_RemStatusStays>
+  <RLRG_RemRules>Según las reglas</RLRG_RemRules>
+  <RLRG_RemRules_Desc>Las reglas del mod vuelven a decidir para todo lo mostrado aquí.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>Mantener todo</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>Mantener todo lo mostrado aquí: ya no se eliminará.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>Marcado = se queda. Desmarcado = deciden las reglas del mod (mecanoides y drones no investigados, máquinas de clima/condiciones por encima del nivel del mundo, torretas mejores que las tuyas). Márcalo para mantenerlo de todos modos.</RLRG_RemTip>
+</LanguageData>

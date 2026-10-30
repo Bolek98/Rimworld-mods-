@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Steward – Supplies</name>
+  <author>Bolek98</author>
+  <packageId>misak.steward.supplies</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>misak.colonyforeman</packageId>
+      <displayName>Steward – Work Priorities</displayName>
+      <downloadUrl>https://github.com/Bolek98/Rimworld-mods-</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>misak.colonyforeman</li>
+    <li>mehni.pickupandhaul</li>
+    <li>keyz182.keyzallowutilities</li>
+  </loadAfter>
+  <description>Optional add-on for Steward – Work Priorities (needs the Steward core; Steward works without it).
+
+The Supplies tab: keep stocks at the level you want – hunting, wood, foraging and mining are marked by themselves when stock runs low, and withdrawn when it is enough. A food emergency marks game and plants at once. Production bills that follow your targets, self-supply (medicine, components, clothes …), meals for a set number of days, livestock (how many of each animal, slaughter or release to the wild, herd area), power (generators switched by need), the household (stone chunks, loose items, things left in pockets) and optional master bills (quality gear by the best crafters). A production target can also keep enough ingredients (Components 30 raises the Steel target), mining targets can switch deep drills on and off, and every target shows its stock over the last 7 days.
+
+---
+
+Volitelný doplněk pro Steward – Work Priorities (potřebuje jádro Stewarda; Steward funguje i bez něj).
+
+Záložka Zásoby: drží zásoby na úrovni, kterou chceš – lov, dřevo, sběr a těžba se samy označí, když zásoby dochází, a zruší, když stačí. Při nouzi o jídlo hned označí zvěř a rostliny. Výrobní zakázky podle tvých cílů, vlastní zásobování (léky, součástky, oblečení …), jídlo na zadaný počet dní, chov (kolik kterých zvířat, porážka nebo vypuštění do divočiny, ohrada), elektřina (generátory podle potřeby), domácnost (kameny, volně ležící věci, věci zapomenuté v kapsách) a volitelné mistrovské zakázky (kvalitní výbava jen od nejlepších řemeslníků). Výrobní cíl umí hlídat i suroviny (Součástky 30 zvedne cíl oceli), cíle těžby umí zapínat a vypínat hlubinné vrty a každý cíl ukazuje zásobu za posledních 7 dní.
+
+═══════════════════════
+IDEAS AND SUGGESTIONS
+Want something changed or added? Write it in the comments – I read every idea and take it into account.
+
+NÁPADY A NÁVRHY
+Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.</description>
+</ModMetaData>

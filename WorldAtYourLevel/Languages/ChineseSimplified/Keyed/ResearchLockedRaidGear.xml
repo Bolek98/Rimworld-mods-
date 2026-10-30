@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RLRG_Enable>启用过滤</RLRG_Enable>
+  <RLRG_Enable_Desc>外来者只会携带你的殖民地已研究过的装备。</RLRG_Enable_Desc>
+  <RLRG_UseRecipes>配方视为研究</RLRG_UseRecipes>
+  <RLRG_UseRecipes_Desc>只要能制作该物品的配方中至少有一个的研究已完成，该物品即解锁。</RLRG_UseRecipes_Desc>
+  <RLRG_BlockHigherTech>禁止高于殖民地科技等级的物品</RLRG_BlockHigherTech>
+  <RLRG_BlockHigherTech_Desc>没有对应研究的物品只允许到殖民地已研究的科技等级为止。</RLRG_BlockHigherTech_Desc>
+  <RLRG_BlockUntagged>禁止没有研究的模组物品</RLRG_BlockUntagged>
+  <RLRG_BlockUntagged_Desc>来自其他模组且没有研究的武器和服装视为已锁定。</RLRG_BlockUntagged_Desc>
+  <RLRG_FilterAll>过滤所有来访者</RLRG_FilterAll>
+  <RLRG_FilterAll_Desc>袭击、访客、商队和任务。关闭时只过滤敌人和进攻者。</RLRG_FilterAll_Desc>
+  <RLRG_SkipTraders>跳过商人</RLRG_SkipTraders>
+  <RLRG_SkipTraders_Desc>商人保留自己的装备。</RLRG_SkipTraders_Desc>
+  <RLRG_FilterApparel>过滤服装和护甲</RLRG_FilterApparel>
+  <RLRG_FilterInventory>过滤物品栏</RLRG_FilterInventory>
+  <RLRG_FilterInventory_Desc>物品栏中的武器和服装（例如副武器）。</RLRG_FilterInventory_Desc>
+  <RLRG_Replace>替换为最接近的已研究物品</RLRG_Replace>
+  <RLRG_Replace_Desc>锁定的物品会被替换为相似的允许物品，品质和耐久保持不变。</RLRG_Replace_Desc>
+  <RLRG_Drop>将锁定物品留在地上</RLRG_Drop>
+  <RLRG_Drop_Desc>袭击者把锁定物品放在物品栏里——击败他们后可作为战利品获得。访客和商人不会留下任何东西。否则锁定物品会消失。</RLRG_Drop_Desc>
+  <RLRG_ExemptAncients>跳过远古危险和冬眠舱</RLRG_ExemptAncients>
+  <RLRG_ExemptAncients_Desc>他们的装备是打开后奖励的一部分。</RLRG_ExemptAncients_Desc>
+  <RLRG_KeepTitleApparel>贵族保留必需服装</RLRG_KeepTitleApparel>
+  <RLRG_KeepTitleApparel_Desc>皇家头衔或文化职位所需的服装不会被移除。</RLRG_KeepTitleApparel_Desc>
+  <RLRG_DamageDropped>损坏掉落物品</RLRG_DamageDropped>
+  <RLRG_DamageDropped_Desc>留在地上的锁定物品只有20–50%耐久，服装会被标记为尸体穿过。防止轻易卖钱获利。</RLRG_DamageDropped_Desc>
+  <RLRG_Compensate>补偿袭击强度</RLRG_Compensate>
+  <RLRG_Compensate_Desc>当袭击者失去部分装备时，袭击会获得额外的袭击者，使难度保持平衡。</RLRG_Compensate_Desc>
+  <RLRG_CompensationPct>补偿强度：{0}%</RLRG_CompensationPct>
+  <RLRG_CompensationPct_Desc>失去的装备有多少由额外袭击者弥补。一次袭击最多可增加50%的点数。</RLRG_CompensationPct_Desc>
+  <RLRG_TechAhead>科技等级容差：+{0}</RLRG_TechAhead>
+  <RLRG_TechAhead_Desc>即使没有研究，外来者也可以拥有比你的殖民地高出这么多科技等级的物品。0 = 仅限已研究的物品。</RLRG_TechAhead_Desc>
+  <RLRG_KeepChance>保留锁定物品的几率：{0}%</RLRG_KeepChance>
+  <RLRG_KeepChance_Desc>角色以此几率保留锁定物品。结果会被记住，下次不会重新判定。</RLRG_KeepChance_Desc>
+  <RLRG_ExemptFactions>豁免派系（勾选的保留装备）：</RLRG_ExemptFactions>
+  <RLRG_NotifyRaid>袭击到来时通知</RLRG_NotifyRaid>
+  <RLRG_NotifyRaid_Desc>左上角的消息，显示袭击者失去了多少装备以及增加了多少人。</RLRG_NotifyRaid_Desc>
+  <RLRG_OpenList>装备概览和手动禁用...</RLRG_OpenList>
+  <RLRG_Biocode>替换品生物编码</RLRG_Biocode>
+  <RLRG_Biocode_Desc>替换物品会生物编码给其持有者，因此战斗后你无法使用，售价也更低。仅对支持生物编码的物品有效（主要是高级武器）。</RLRG_Biocode_Desc>
+  <RLRG_Years>随时间解锁：每{0}年+1级</RLRG_Years>
+  <RLRG_Years_Desc>即使你不研究，袭击者也会逐渐获得更好的装备。会叠加到科技等级容差上。</RLRG_Years_Desc>
+  <RLRG_YearsOff>随时间解锁：关</RLRG_YearsOff>
+  <RLRG_MsgRaid>袭击者失去了{0}%的装备。</RLRG_MsgRaid>
+  <RLRG_MsgRaidCompensated>袭击者失去了{0}%的装备。袭击增派了{1}名袭击者。</RLRG_MsgRaidCompensated>
+  <RLRG_TabWeapons>武器</RLRG_TabWeapons>
+  <RLRG_TabApparel>服装和护甲</RLRG_TabApparel>
+  <RLRG_Search>搜索：</RLRG_Search>
+  <RLRG_ListHint>勾选的物品永远不会给外来者。状态显示他们当前可以拥有什么。</RLRG_ListHint>
+  <RLRG_ListNoGame>勾选的物品永远不会给外来者。载入游戏以查看当前状态。</RLRG_ListNoGame>
+  <RLRG_StatusBanned>已禁用</RLRG_StatusBanned>
+  <RLRG_StatusAllowed>允许</RLRG_StatusAllowed>
+  <RLRG_StatusLocked>已锁定</RLRG_StatusLocked>
+  <RLRG_Ex_Allowed>允许</RLRG_Ex_Allowed>
+  <RLRG_Ex_Locked>已锁定</RLRG_Ex_Locked>
+  <RLRG_Ex_Always>始终需要：{0}</RLRG_Ex_Always>
+  <RLRG_Ex_Option>制作：{0}</RLRG_Ex_Option>
+  <RLRG_Ex_Free>无需研究即可制作</RLRG_Ex_Free>
+  <RLRG_Ex_NoResearch>无研究（由科技等级和模组物品规则决定）</RLRG_Ex_NoResearch>
+  <RLRG_Ex_Tech>科技等级：{0}（上限：{1}）</RLRG_Ex_Tech>
+  <RLRG_Ex_Mod>模组：{0}</RLRG_Ex_Mod>
+  <RLRG_Ex_Done>已完成</RLRG_Ex_Done>
+  <RLRG_Ex_Missing>缺少</RLRG_Ex_Missing>
+  <RLRG_TechMismatch>检查比其研究更先进的物品</RLRG_TechMismatch>
+  <RLRG_TechMismatch_Desc>当某模组把先进物品放在较低的研究下（例如太空步枪放在工业研究下）时，殖民地还必须达到该物品的科技等级。</RLRG_TechMismatch_Desc>
+  <RLRG_PowerEstimate>根据强度估计模组物品的科技等级</RLRG_PowerEstimate>
+  <RLRG_PowerEstimate_Desc>明显强于原版最佳工业级武器或护甲的模组物品会被视为太空级，即使模组作者设定了更低的等级。这只是估计。</RLRG_PowerEstimate_Desc>
+  <RLRG_Ex_Power>强度对应科技等级：{0}</RLRG_Ex_Power>
+  <RLRG_Ex_NeedColony>殖民地需达到科技等级：{0}</RLRG_Ex_NeedColony>
+  <RLRG_LevelByProgress>按研究进度计算殖民地等级</RLRG_LevelByProgress>
+  <RLRG_LevelByProgress_Desc>殖民地完成某一等级设定比例的研究后即达到该科技等级。关闭 = 由已完成的最高研究决定（一个就够）。剧本等级始终作为最低值。</RLRG_LevelByProgress_Desc>
+  <RLRG_LevelProgress>所需等级研究比例：{0}%</RLRG_LevelProgress>
+  <RLRG_LevelProgress_Desc>某一等级的研究需完成多少，殖民地才算达到该等级。</RLRG_LevelProgress_Desc>
+  <RLRG_CurrentLevel>当前殖民地等级：{0}（剧本：{1}，研究：{2}）</RLRG_CurrentLevel>
+  <RLRG_WorldHeader>世界随殖民地等级</RLRG_WorldHeader>
+  <RLRG_WorldRaids>只有不超过世界等级的派系才会袭击</RLRG_WorldRaids>
+  <RLRG_WorldRaids_Desc>比世界等级（你的等级 + 容差）更先进的派系无法发动袭击。下方列表中的豁免派系不受限制。</RLRG_WorldRaids_Desc>
+  <RLRG_WorldMechs>同样限制机械族和虫族</RLRG_WorldMechs>
+  <RLRG_WorldMechs_Desc>默认不限制机械族和虫族。开启后，在世界达到其等级之前，不会出现机械族袭击和机械集群。</RLRG_WorldMechs_Desc>
+  <RLRG_WorldItems>商人、奖励和战利品不超过世界等级</RLRG_WorldItems>
+  <RLRG_WorldItems_Desc>高于世界等级的物品会从商人货物、任务奖励和战利品中移除。武器和服装遵循与外来者装备相同的规则。</RLRG_WorldItems_Desc>
+  <RLRG_WorldIncidents>事件不超过世界等级</RLRG_WorldIncidents>
+  <RLRG_WorldIncidents_Desc>在世界达到其等级之前，不会发生飞船部件坠落、飞船残骸、轨道商船以及（含机械族时）机械集群。</RLRG_WorldIncidents_Desc>
+  <RLRG_WorldMessages>世界等级变化时提示</RLRG_WorldMessages>
+  <RLRG_WorldUp>世界已提升至科技等级：{0}。</RLRG_WorldUp>
+  <RLRG_WorldDown>世界科技等级现在为：{0}。</RLRG_WorldDown>
+  <RLRG_WorldQuests>任务不超过世界等级</RLRG_WorldQuests>
+  <RLRG_WorldQuests_Desc>涉及比世界更先进派系（进攻者、盟友、任务发布者）的叙事者随机任务会被静默丢弃。与先进科技相关的任务（超凡科技、重力船，含机械族时还有机械族任务）不会提供。奖励像商人一样遵循研究。剧情任务和仪式永远不会被阻止。</RLRG_WorldQuests_Desc>
+  <RLRG_TabWorld>世界等级</RLRG_TabWorld>
+  <RLRG_TabArrivals>袭击者和来访者</RLRG_TabArrivals>
+  <RLRG_TabRules>研究规则</RLRG_TabRules>
+  <RLRG_TabFilters>世界过滤</RLRG_TabFilters>
+  <RLRG_TabFactions>派系</RLRG_TabFactions>
+  <RLRG_WorldLevelNow>当前世界等级（含容差）：{0}</RLRG_WorldLevelNow>
+  <RLRG_ManualLevel>手动设置世界等级</RLRG_ManualLevel>
+  <RLRG_ManualLevel_Desc>世界等级不根据研究计算；你选择的等级会严格生效，不含容差和随时间解锁。</RLRG_ManualLevel_Desc>
+  <RLRG_ManualLevelPick>世界等级：{0}</RLRG_ManualLevelPick>
+  <RLRG_PerTier>每个等级单独设置比例</RLRG_PerTier>
+  <RLRG_PerTier_Desc>为每个等级分别设置其研究需完成多少。</RLRG_PerTier_Desc>
+  <RLRG_PctTier>{0}：{1}%</RLRG_PctTier>
+  <RLRG_LockResearch>锁定更高级的研究</RLRG_LockResearch>
+  <RLRG_LockResearch_Desc>高于世界一个等级以上的研究无法开始。你必须逐级推进。</RLRG_LockResearch_Desc>
+  <RLRG_FilterPossessions>高于世界等级的其他物品栏物品</RLRG_FilterPossessions>
+  <RLRG_FilterPossessions_Desc>来访者也会失去高于世界等级的药品、药物、零部件和其他物品（商人包括其货物）。</RLRG_FilterPossessions_Desc>
+  <RLRG_FactionOk>可以袭击</RLRG_FactionOk>
+  <RLRG_FactionAbove>高于世界等级</RLRG_FactionAbove>
+  <RLRG_ReplaceQuests>用其他任务替换被丢弃的任务</RLRG_ReplaceQuests>
+  <RLRG_ReplaceQuests_Desc>因世界等级而丢弃任务时，叙事者会立即尝试另一个合适的任务（最多5次）。任务出现频率与平时相同。</RLRG_ReplaceQuests_Desc>
+  <RLRG_WorldVisitors>商队和访客仅限世界等级以内（严格）</RLRG_WorldVisitors>
+  <RLRG_WorldVisitors_Desc>贸易商队、访客和旅行者只来自不超过世界等级的派系。警告：使用模组太空派系时可能几乎没有商人到来。关闭时（推荐），他们来自所有派系，但其货物和装备按世界等级过滤。</RLRG_WorldVisitors_Desc>
+  <RLRG_ReplaceEvents>用随机事件替换被阻止的事件</RLRG_ReplaceEvents>
+  <RLRG_ReplaceEvents_Desc>当叙事者选择了世界尚未准备好的事件（轨道商船、飞船部件坠落、飞船残骸…），或袭击或商队找不到合适的派系时，会改为触发同类别的另一个随机事件。事件出现频率与没有模组时相同。任务事件不变。</RLRG_ReplaceEvents_Desc>
+  <RLRG_OvTitle>世界和事件</RLRG_OvTitle>
+  <RLRG_OvStoryteller>叙事者：{0}，难度：{1}</RLRG_OvStoryteller>
+  <RLRG_OvQuests>任务</RLRG_OvQuests>
+  <RLRG_OvQuestCounts>进行中：{0}，等待接受：{1}</RLRG_OvQuestCounts>
+  <RLRG_OvExpires>{0}后过期</RLRG_OvExpires>
+  <RLRG_OvEvents>事件</RLRG_OvEvents>
+  <RLRG_OvEventsHint>叙事者随机选择事件，因此无法知道下一次的确切时间。估计基于本局游戏中事件的平均间隔，游玩越久越准确。</RLRG_OvEventsHint>
+  <RLRG_OvNoEvents>尚无记录。记录从此版本开始。</RLRG_OvNoEvents>
+  <RLRG_OvColKind>类型</RLRG_OvColKind>
+  <RLRG_OvColLast>上次</RLRG_OvColLast>
+  <RLRG_OvCol30>最近30天</RLRG_OvCol30>
+  <RLRG_OvColAvg>平均间隔</RLRG_OvColAvg>
+  <RLRG_OvColNext>下次（估计）</RLRG_OvColNext>
+  <RLRG_OvDays>{0} 天</RLRG_OvDays>
+  <RLRG_OvAgo>{0} 天前</RLRG_OvAgo>
+  <RLRG_OvInDays>≈ {0} 天后</RLRG_OvInDays>
+  <RLRG_OvAnyTime>随时</RLRG_OvAnyTime>
+  <RLRG_OvRecent>最近10个事件：</RLRG_OvRecent>
+  <RLRG_WorldCausers>高于世界等级的威胁不会留下</RLRG_WorldCausers>
+  <RLRG_WorldCausers_Desc>新出现的、会给地图施加状态的东西（毒雾喷射器、烟雾、天气控制器、遮阳器、心灵干扰器…）若高于世界等级，会立即被移除——无论在地图上还是世界地图上，即使属于机械族。会送来这类东西的任务会被丢弃（叙事者任务会被替换）。已存在的保持不变。</RLRG_WorldCausers_Desc>
+  <RLRG_CauserBlocked>一个高于世界等级的威胁未能留下：{0}。</RLRG_CauserBlocked>
+  <RLRG_TraderGuarantee>商人保障</RLRG_TraderGuarantee>
+  <RLRG_TraderGuarantee_Desc>如果长时间没有贸易商队来到主殖民地，模组会尝试召唤一支。此时游戏也会接受在当前温度下本不会出行的派系。如果商队无法到来（所有派系敌对、地图上有阻挡的群体…），原因会写入日志并显示消息。</RLRG_TraderGuarantee_Desc>
+  <RLRG_TraderGuaranteeDays>商队最迟在：{0} 天后</RLRG_TraderGuaranteeDays>
+  <RLRG_TraderGuaranteeDays_Desc>没有商队多少天后模组会召唤一支。</RLRG_TraderGuaranteeDays_Desc>
+  <RLRG_Diag_Open>为什么商人、访客或威胁不来？</RLRG_Diag_Open>
+  <RLRG_Diag_Title>商人和访客——诊断</RLRG_Diag_Title>
+  <RLRG_Diag_NoMap>没有主地图。</RLRG_Diag_NoMap>
+  <RLRG_Diag_Map>地图：{0}，室外温度{1}，季节温度{2}</RLRG_Diag_Map>
+  <RLRG_Diag_LastTrader>上一支贸易商队：{0} 天前</RLRG_Diag_LastTrader>
+  <RLRG_Diag_LastTraderNone>上一支贸易商队：尚无记录</RLRG_Diag_LastTraderNone>
+  <RLRG_Diag_LastVisitor>上一批访客/旅行者：{0} 天前</RLRG_Diag_LastVisitor>
+  <RLRG_Diag_GuaranteeOn>商人保障：开（最迟{0}天后）</RLRG_Diag_GuaranteeOn>
+  <RLRG_Diag_GuaranteeOff>商人保障：关</RLRG_Diag_GuaranteeOff>
+  <RLRG_Diag_Allies>非敌对：{1}个派系中的{0}个</RLRG_Diag_Allies>
+  <RLRG_Diag_NoAllies>所有派系都敌对——叙事者不会派来商人或访客。请改善关系（礼物、任务、通讯台）。</RLRG_Diag_NoAllies>
+  <RLRG_Diag_Events>事件：</RLRG_Diag_Events>
+  <RLRG_Diag_Can>现在可以来</RLRG_Diag_Can>
+  <RLRG_Diag_Cannot>现在不能来——{0}</RLRG_Diag_Cannot>
+  <RLRG_Diag_R_Missing>事件不存在</RLRG_Diag_R_Missing>
+  <RLRG_Diag_R_Scenario>被剧本禁用</RLRG_Diag_R_Scenario>
+  <RLRG_Diag_R_Difficulty>被难度设置禁用</RLRG_Diag_R_Difficulty>
+  <RLRG_Diag_R_Early>定居后太早（从第{0}天起）</RLRG_Diag_R_Early>
+  <RLRG_Diag_R_Target>此地图不允许</RLRG_Diag_R_Target>
+  <RLRG_Diag_R_Biome>生物群系不允许</RLRG_Diag_R_Biome>
+  <RLRG_Diag_R_Recent>最近刚发生过（冷却中）</RLRG_Diag_R_Recent>
+  <RLRG_Diag_R_Condition>被阻止：{0}</RLRG_Diag_R_Condition>
+  <RLRG_Diag_R_NoFaction>现在没有派系能来（见派系列表）</RLRG_Diag_R_NoFaction>
+  <RLRG_Diag_R_OnlyDesperate>叙事者不会发送——派系不会在此温度下出行</RLRG_Diag_R_OnlyDesperate>
+  <RLRG_Diag_R_Other>其他原因（可能是其他模组）</RLRG_Diag_R_Other>
+  <RLRG_Diag_Factions>派系（贸易商队）：</RLRG_Diag_Factions>
+  <RLRG_Diag_F_Ok>可以派出商队</RLRG_Diag_F_Ok>
+  <RLRG_Diag_F_Desperate>仅在迫不得已时——室外温度超出{0}</RLRG_Diag_F_Desperate>
+  <RLRG_Diag_F_No>不会来：{0}</RLRG_Diag_F_No>
+  <RLRG_Diag_F_Defeated>已被击败</RLRG_Diag_F_Defeated>
+  <RLRG_Diag_F_Hostile>敌对（好感度{0}）</RLRG_Diag_F_Hostile>
+  <RLRG_Diag_F_NoTraders>没有贸易商队</RLRG_Diag_F_NoTraders>
+  <RLRG_Diag_F_Lord>其敌人在地图上：{0}</RLRG_Diag_F_Lord>
+  <RLRG_Diag_F_World>高于世界等级（选项“商队和访客仅限世界等级以内”）</RLRG_Diag_F_World>
+  <RLRG_Diag_F_Temp>温度超出{0}</RLRG_Diag_F_Temp>
+  <RLRG_Diag_F_Other>其他原因（商人类型、星球层或其他模组）</RLRG_Diag_F_Other>
+  <RLRG_Diag_Summon>立即召唤商队（测试）</RLRG_Diag_Summon>
+  <RLRG_Diag_SummonOk>一支贸易商队正在赶来。</RLRG_Diag_SummonOk>
+  <RLRG_Diag_SummonFail>无法召唤商队：{0}</RLRG_Diag_SummonFail>
+  <RLRG_Diag_ToLog>写入日志</RLRG_Diag_ToLog>
+  <RLRG_Diag_Logged>诊断已写入日志。</RLRG_Diag_Logged>
+  <RLRG_Diag_Refresh>刷新</RLRG_Diag_Refresh>
+  <RLRG_Diag_GuaranteeFailed>商人保障：商队无法到来（{0}）。详情：世界标签页 → 为什么商人不来？</RLRG_Diag_GuaranteeFailed>
+  <RLRG_Diag_Title2>商人、访客和威胁——诊断</RLRG_Diag_Title2>
+  <RLRG_Diag_Threats>威胁和袭击：</RLRG_Diag_Threats>
+  <RLRG_Diag_ThreatScale>难度：威胁规模{0}，允许大型威胁：{1}</RLRG_Diag_ThreatScale>
+  <RLRG_Diag_ThreatsOff>警告：叙事者难度中禁用了威胁——这就是没有袭击的原因。</RLRG_Diag_ThreatsOff>
+  <RLRG_Diag_ThreatPoints>当前威胁点数：{0}</RLRG_Diag_ThreatPoints>
+  <RLRG_Diag_LastThreat>叙事者上次威胁：{0} 天前</RLRG_Diag_LastThreat>
+  <RLRG_Diag_LastThreatNone>叙事者上次威胁：尚无记录</RLRG_Diag_LastThreatNone>
+  <RLRG_Diag_Yes>是</RLRG_Diag_Yes>
+  <RLRG_Diag_No>否</RLRG_Diag_No>
+  <RLRG_Diag_AboveWorld>高于世界等级——被其他事件替换</RLRG_Diag_AboveWorld>
+  <RLRG_Diag_Raiders>敌对派系（袭击）：</RLRG_Diag_Raiders>
+  <RLRG_Diag_RaidOk>可以袭击</RLRG_Diag_RaidOk>
+  <RLRG_Diag_RaidWorld>高于世界等级——仅在没有其他派系可袭击时袭击（装备会被过滤）</RLRG_Diag_RaidWorld>
+  <RLRG_Diag_RaidDesperate>仅在迫不得已时（温度/定居后太早）</RLRG_Diag_RaidDesperate>
+  <RLRG_Diag_RaidEarly>尚未——从第{0}天起袭击</RLRG_Diag_RaidEarly>
+  <RLRG_Diag_RaidNo>无法袭击（星球层、策略或其他模组）</RLRG_Diag_RaidNo>
+  <RLRG_Diag_NoRaiders>现在没有敌对派系能发动袭击——要么没有敌对派系，要么有东西阻止了它们全部。</RLRG_Diag_NoRaiders>
+  <RLRG_FactionsAtWorld>所有派系与你的殖民地同级</RLRG_FactionsAtWorld>
+  <RLRG_FactionsAtWorld_Desc>所有派系（包括太空派系和模组派系）都表现得像拥有与你相同的研究：它们可以袭击、交易、拜访和发布任务，但其每个成员只拥有你已研究的装备（始终过滤，适用于所有来访者），商人也只出售不超过世界等级的物品。关闭则完全阻止高于世界等级的派系。</RLRG_FactionsAtWorld_Desc>
+  <RLRG_OnlyCrafted>别人只使用你制作过的东西</RLRG_OnlyCrafted>
+  <RLRG_OnlyCrafted_Desc>袭击者、访客、商人和任务角色只能拥有你的殖民地至少制作过一次（并已研究）的武器和服装。尚未制作的会被移除或替换为最接近的已制作物品。若没有已制作的武器，他们至少会得到短弓或棍棒。出售的货物只遵循研究。在进行中的游戏里，殖民者的装备和你能制作的库存物品会一次性计入。</RLRG_OnlyCrafted_Desc>
+  <RLRG_CraftedCount>已制作的武器和服装种类：{0}</RLRG_CraftedCount>
+  <RLRG_MsgCraftedNew>首次制作：{0}——现在别人也可以使用了。</RLRG_MsgCraftedNew>
+  <RLRG_Ex_NotCrafted>已研究，但你的殖民地尚未制作过。</RLRG_Ex_NotCrafted>
+  <RLRG_CraftedReset>清空已制作列表</RLRG_CraftedReset>
+  <RLRG_CraftedReset_Desc>清空已制作武器和服装列表（与 Smart Colonist Gear 共享）。从现在起只计算殖民地制作的物品。</RLRG_CraftedReset_Desc>
+  <RLRG_CraftedResetConfirm>确定清空已制作装备列表？两个模组中都会清空，袭击者和殖民者只能使用从现在起制作的装备。</RLRG_CraftedResetConfirm>
+  <RLRG_MsgRaidItems>收走{0}件装备，{1}件替换为较弱版本（{2}名袭击者）。</RLRG_MsgRaidItems>
+  <RLRG_TraderTechBonus>商人可出售更高等级：{0}</RLRG_TraderTechBonus>
+  <RLRG_TraderTechBonus_Desc>商人可以出售高于世界等级多少个科技等级的货物。0 = 仅限世界等级（武器和服装按研究），1 = 高一级（例如中世纪游戏中的工业枪械）…</RLRG_TraderTechBonus_Desc>
+  <RLRG_TabTraders>商人</RLRG_TabTraders>
+  <RLRG_TabTraders_Desc>因高于世界等级而商人当前不能出售的货物。使用与商人货物相同的规则。</RLRG_TabTraders_Desc>
+  <RLRG_TraderNoGame>载入游戏以查看商人当前不能出售什么。</RLRG_TraderNoGame>
+  <RLRG_TraderOff>世界物品过滤已关闭——商人出售一切。</RLRG_TraderOff>
+  <RLRG_TraderMax>商人可出售的货物最高到：{0}（世界等级{1} + {2}）</RLRG_TraderMax>
+  <RLRG_TraderMax_Desc>商人可出售最高到科技等级{0}的货物（世界等级 + “商人可出售更高等级”）。武器和服装在研究允许时也可出售。动物、奴隶和没有科技等级的货物永远不会被移除。</RLRG_TraderMax_Desc>
+  <RLRG_TraderCount>商人当前不能出售的货物：{0}</RLRG_TraderCount>
+  <RLRG_TraderBlocked>不出售</RLRG_TraderBlocked>
+  <RLRG_TraderBlocked_Desc>科技等级{0}高于商人当前可出售的等级（{1}）。</RLRG_TraderBlocked_Desc>
+  <RLRG_TraderBlockedGear>不出售（研究）</RLRG_TraderBlockedGear>
+  <RLRG_TraderBlockedGear_Desc>研究不允许，且科技等级{0}高于商人当前可出售的等级（{1}）。</RLRG_TraderBlockedGear_Desc>
+  <RLRG_TabRaids>袭击</RLRG_TabRaids>
+  <RLRG_RaidsIntro>未勾选的袭击策略、到达方式和随机任务不会被使用。勾选 = 允许。威胁事件（怪物、疾病、沉降物…）在“威胁”标签页。</RLRG_RaidsIntro>
+  <RLRG_RaidsSummary>已阻止{1}种袭击类型中的{0}种</RLRG_RaidsSummary>
+  <RLRG_RaidsResetAll>全部重置</RLRG_RaidsResetAll>
+  <RLRG_RaidsResetAll_Desc>重新允许所有袭击类型（默认）。</RLRG_RaidsResetAll_Desc>
+  <RLRG_RaidsAllowAll>全部允许</RLRG_RaidsAllowAll>
+  <RLRG_RaidsAllowAll_Desc>重新允许此组中的所有内容。</RLRG_RaidsAllowAll_Desc>
+  <RLRG_RaidsGroupCount>已阻止 {0} / {1}</RLRG_RaidsGroupCount>
+  <RLRG_RaidsGroupIncidents>威胁事件</RLRG_RaidsGroupIncidents>
+  <RLRG_RaidsGroupStrategies>袭击策略</RLRG_RaidsGroupStrategies>
+  <RLRG_RaidsGroupArrivals>到达方式</RLRG_RaidsGroupArrivals>
+  <RLRG_RaidsGroupQuests>随机任务——[!] = 威胁</RLRG_RaidsGroupQuests>
+  <RLRG_RaidsSource>来源：{0}</RLRG_RaidsSource>
+  <RLRG_RaidsAllowedTip>允许。取消勾选以阻止其发生。</RLRG_RaidsAllowedTip>
+  <RLRG_RaidsBlockedTip>已阻止：叙事者不会使用它。如果袭击可用的所有选项都被阻止，袭击会改为立即进攻/从地图边缘走入，而不是失败。</RLRG_RaidsBlockedTip>
+  <RLRG_MechEscorts>袭击者只带来你已研究的机械体</RLRG_MechEscorts>
+  <RLRG_MechEscorts_Desc>人类派系（袭击中的机械师）只能带来你已研究其培育的机械体。未研究的机械体会从队伍中移除。纯机械族袭击不受影响。</RLRG_MechEscorts_Desc>
+  <RLRG_MatchColony>来访者的装备不优于你殖民地的装备</RLRG_MatchColony>
+  <RLRG_MatchColony_Desc>所有来访者（袭击者、访客、难民、任务角色；商人仅在未跳过时）只能携带不优于你的殖民地所制作最佳装备的装备：枪械不超过你制作的最佳枪械，近战武器不超过你制作的最佳近战武器（材料计入），护甲不超过你制作的最佳护甲。普通衣服始终允许。装备还必须真正研究过（你必须能制作它）。火焰、爆炸和EMP武器（火焰喷射器、爆炸箭…）只有在你亲自制作过该武器后才允许。更好的装备会被替换为最接近的较弱装备，太好的材料替换为普通材料。与“只用制作过的”同时开启时，你从未制作过的较弱装备也被允许——更多样化。</RLRG_MatchColony_Desc>
+  <RLRG_MatchQuality>品质最高为你的最佳产品</RLRG_MatchQuality>
+  <RLRG_MatchQuality_Desc>来访者的武器和服装品质最高为你的殖民地制作过的品质（武器和服装分别计算，至少为一般）。</RLRG_MatchQuality_Desc>
+  <RLRG_MatchMargin>容差：好 {0} %</RLRG_MatchMargin>
+  <RLRG_MatchMargin_Desc>别人的装备可以比你的好多少百分比。0 = 最多相等。</RLRG_MatchMargin_Desc>
+  <RLRG_MatchNow>当前上限——枪械：{0}，近战：{1}，护甲：{2}，武器品质：{3}，服装品质：{4}</RLRG_MatchNow>
+  <RLRG_ShowHud>在屏幕上显示研究等级</RLRG_ShowHud>
+  <RLRG_ShowHud_Desc>右下角日期上方：殖民地等级以及距下一等级还有多远。悬停查看各等级详情，点击打开世界标签页。</RLRG_ShowHud_Desc>
+  <RLRG_HudLine>等级：{0}</RLRG_HudLine>
+  <RLRG_HudLineNext>{0} → {1} {2} %</RLRG_HudLineNext>
+  <RLRG_HudTipTitle>研究等级（World at Your Level）</RLRG_HudTipTitle>
+  <RLRG_HudTipColony>殖民地：{0}（剧本：{1}，研究：{2}）</RLRG_HudTipColony>
+  <RLRG_HudTipWorld>世界（含领先/时间加成）：{0}</RLRG_HudTipWorld>
+  <RLRG_HudTipTier>{0} {1}：{2}/{3}（{4} %），需要 {5}</RLRG_HudTipTier>
+  <RLRG_HudTipClick>点击打开世界标签页。</RLRG_HudTipClick>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <RLRG_Rec1>袭击者只携带你科技等级的装备</RLRG_Rec1>
+  <RLRG_Rec2>商人出售你等级的物品</RLRG_Rec2>
+  <RLRG_Rec3>任务和奖励匹配你的等级</RLRG_Rec3>
+  <RLRG_Rec4>派系与你一同发展</RLRG_Rec4>
+  <RLRG_Rec5>较弱的袭击者装备由更多袭击者来平衡</RLRG_Rec5>
+  <RLRG_Rec6>世界等级显示在屏幕上</RLRG_Rec6>
+  <MUI_RecTag>推荐</MUI_RecTag>
+  <RLRG_RareAdvanced>罕见高科技袭击：{0}%</RLRG_RareAdvanced>
+  <RLRG_RareAdvanced_Desc>袭击以此几率带来比你的殖民地高一个科技等级的装备。袭击者更少（点数减少25%），其装备会作为战利品留下，让你能提早发现新科技。仅当袭击派系拥有此类装备时。</RLRG_RareAdvanced_Desc>
+  <RLRG_RareLowTech>罕见低科技袭击：{0}%</RLRG_RareLowTech>
+  <RLRG_RareLowTech_Desc>袭击以此几率带来比你的殖民地低一个科技等级的装备，但袭击者更多（点数增加35%）。</RLRG_RareLowTech_Desc>
+  <RLRG_MsgRareAdvanced>袭击者携带着未知科技（{0}）！他们人数更少，但装备更好。</RLRG_MsgRareAdvanced>
+  <RLRG_MsgRareLowTech>一场装备过时的大规模袭击（{0}）。</RLRG_MsgRareLowTech>
+  <RLRG_StrictCrafted>严格：只限你制作过的，匹配殖民地时也是</RLRG_StrictCrafted>
+  <RLRG_StrictCrafted_Desc>“匹配殖民地”通常允许任何与你装备强度相当的东西。开启后，敌人只能携带你的殖民地实际制作过的武器和服装——你还在用弓时，不会出现简易步枪或冲锋枪。</RLRG_StrictCrafted_Desc>
+  <RLRG_SiteTurrets>敌方炮塔不超过你自己的</RLRG_SiteTurrets>
+  <RLRG_SiteTurrets_Desc>其他派系的炮塔（任务地点、基地、围攻中）会被移除，除非你自己建造过同科技等级的炮塔。还没有炮塔 = 没有敌方炮塔。</RLRG_SiteTurrets_Desc>
+  <RLRG_GearLogLine>World at Your Level：{0}</RLRG_GearLogLine>
+  <RLRG_MsgRaidSwaps>最常见：{0}。</RLRG_MsgRaidSwaps>
+  <RLRG_Gradual>逐步更替时代</RLRG_Gradual>
+  <RLRG_Gradual_Desc>世界等级提高后，起初只有约五分之一的来访者获得新时代装备；比例均匀增长，直到所有人都有。没有突然跳变。</RLRG_Gradual_Desc>
+  <RLRG_GradualDays>逐步更替用时：{0} 天</RLRG_GradualDays>
+  <RLRG_GradualDays_Desc>所有来访者都携带新时代装备所需的游戏天数。</RLRG_GradualDays_Desc>
+  <RLRG_OutTitle>下一级会带来什么</RLRG_OutTitle>
+  <RLRG_OutManual>手动世界等级（{0}）——展望只适用于按研究计算的等级。</RLRG_OutManual>
+  <RLRG_OutTop>你的殖民地已处于最高级（{0}）——没有更多可解锁的。</RLRG_OutTop>
+  <RLRG_OutNext>下一级：{0}——还需 {1} 个研究项目（已完成 {2}/{3}，该级共 {4} 个）。</RLRG_OutNext>
+  <RLRG_OutWorld>届时世界等级：{0} → {1}</RLRG_OutWorld>
+  <RLRG_OutGuns>来访者的新武器：{0} 种，例如 {1}</RLRG_OutGuns>
+  <RLRG_OutArmor>来访者的新护甲与衣物：{0} 种，例如 {1}</RLRG_OutArmor>
+  <RLRG_OutFactions>将开始袭击的派系：{0}</RLRG_OutFactions>
+  <RLRG_OutMechs>可能出现敌对机械体。</RLRG_OutMechs>
+  <RLRG_OutEvents>将开放的事件：{0}</RLRG_OutEvents>
+  <RLRG_OutTraders>商人可携带商品的等级上限：{0}</RLRG_OutTraders>
+  <RLRG_OutGradual>逐步更替时代已开启——新装备将在 {0} 天内普及。</RLRG_OutGradual>
+  <RLRG_OutGradualNow>时代更替进行中：{0}% 的来访者已拥有新时代装备。</RLRG_OutGradualNow>
+  <RLRG_WorldLetter>世界达到更高等级时发信件</RLRG_WorldLetter>
+  <RLRG_WorldLetter_Desc>世界等级提升时，你会收到一封说明信件，而不是简短消息。等级下降仍以消息显示。</RLRG_WorldLetter_Desc>
+  <RLRG_WorldLetterTitle>世界等级：{0}</RLRG_WorldLetterTitle>
+  <RLRG_WorldLetterText>世界已达到{0}科技等级。\n\n从现在起，袭击者、商人和访客可以携带不超过此等级的武器、服装和其他物品。下一阶段会带来什么，请查看模组设置（世界标签页）。</RLRG_WorldLetterText>
+  <RLRG_FilterImplants>袭击者的植入物遵循世界等级</RLRG_FilterImplants>
+  <RLRG_FilterImplants_Desc>敌对角色不会获得高于世界等级的仿生、超凡或其他植入物。它们只是不被安装——不会出现缺失的身体部位。</RLRG_FilterImplants_Desc>
+  <RLRG_FilterDrugs>袭击者的药物遵循世界等级</RLRG_FilterDrugs>
+  <RLRG_FilterDrugs_Desc>敌对角色不会携带高于世界等级的勇气果汁、Yayo 等药物，因此无法在战斗前服用。</RLRG_FilterDrugs_Desc>
+  <RLRG_ResearchCost>按世界等级调整研究成本</RLRG_ResearchCost>
+  <RLRG_ResearchCost_Desc>高于世界等级的研究成本更高，低于世界等级的成本更低。默认关闭。</RLRG_ResearchCost_Desc>
+  <RLRG_ResearchAbove>高于世界等级：成本 +{0}%</RLRG_ResearchAbove>
+  <RLRG_ResearchAbove_Desc>科技等级高于世界的研究要多花多少。</RLRG_ResearchAbove_Desc>
+  <RLRG_ResearchBelow>低于世界等级：成本 −{0}%</RLRG_ResearchBelow>
+  <RLRG_ResearchBelow_Desc>科技等级低于世界的研究要少花多少。</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>世界演进</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>派系拥有各自的等级</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>每个派系都以自己的节奏在世界等级附近变动：有些落后，少数领先。他们的袭击者和访客携带其派系等级的装备。摧毁他们的一个定居点会让其倒退，与他们交易则会帮助他们。世界标签页会显示所有派系。</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>领先派系可高出一级</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>领先的派系可以携带比世界等级高一级的装备（启用"别人只使用你制作过的东西"时除外）。关闭：派系只会落后。</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>研究外来技术</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>高于你研究水平的武器或服装会出现"研究"按钮：将其拆解，为解锁它的研究项目（或其时代的某个项目）提供研究点数。需要研究台。</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>新时代带来商人</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>当世界等级提升时，一两天后会有一支新等级派系的商队带着新货物到来。</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>按实际防御决定袭击</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>袭击强度也会根据你的实际防御而定——战斗人员、他们的武器、护甲和技能、炮塔以及战斗机械体——而不仅仅是殖民地财富。富有但弱小的殖民地会遇到更公平的袭击，强大但贫穷的则会更艰难。</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>防御权重：{0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>袭击强度在多大程度上依据你的防御而不是游戏自身的点数（100 % = 仅按防御）。</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0} 已进步到 {1} 等级。</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0} 已倒退到 {1} 等级。</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>定居点被摧毁</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>交易有帮助</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>研究</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>拆解用于研究：{0} 获得 {1} 点。物品将被消耗。</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>没有可投入的未完成研究项目。</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>你需要一张研究台。</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>已拆解 {0}：{1} +{2} 研究。</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>新时代的商人</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>你进步的消息已经传开。{0} 正派出一支商队，带着 {1} 时代的货物——应在一两天内到达。</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>派系</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>派系独立等级已关闭（设置，世界演进标签页）。</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>上升</RLRG_EV_Rising>
+  <RLRG_EV_Falling>下降</RLRG_EV_Falling>
+  <RLRG_EV_Steady>稳定</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0}：{1} 等级（世界：{2}）。他们的袭击者和访客携带该等级的装备。</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>你的防御：{0} 点 · 当前袭击点数：{1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>威胁</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>未勾选的事件永远不会发生——无论来自叙事者、任务还是模组。勾选 = 允许。更改立即生效。</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>保留我自己召唤的首领</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>你用机械师在通讯台召唤的首领（恶魔机、战争女王、天启者…）及其护卫不会被“同样限制机械族和虫族”移除——你召唤它们是为了信号芯片。</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>显示所有事件</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>也列出不是威胁的事件（访客、商人、流浪者、好事件…），以便也能关闭它们。</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>重大威胁</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>小型威胁</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>坏事件和模组威胁</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>其他事件</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>全部禁止</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>禁止此组中显示的所有项（遵循搜索）。</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>已关闭 {0} / {1} 个事件</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>重新允许所有事件（默认）。</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>已关闭：此事件永远不会发生——无论来自叙事者、任务还是模组。</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>被 World at Your Level 移除</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>保留——你已允许</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>移除——尚未研究</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>移除——高于世界等级</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>之前已移除</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>保留——规则允许</RLRG_RemStatusStays>
+  <RLRG_RemRules>按规则</RLRG_RemRules>
+  <RLRG_RemRules_Desc>此处显示的所有项重新由模组规则决定。</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>全部保留</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>保留此处显示的所有项——不再移除。</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>勾选 = 保留。未勾选 = 由模组规则决定（未研究的机械体和无人机、高于世界等级的天气/状态机器、比你更好的炮塔）。勾选即可无论如何保留。</RLRG_RemTip>
+</LanguageData>

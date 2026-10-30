@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_CrisisStart>Správce: {0}. Priority upraveny.</CF_CrisisStart>
+  <CF_CrisisEnd>Správce: krize skončila ({0}).</CF_CrisisEnd>
+  <CF_D_Food>jídlo na {0} dne</CF_D_Food>
+  <CF_AutoFocusNow>{0} → teď: {1} ({2})</CF_AutoFocusNow>
+  <CF_AutoFocusNowNoReason>{0} → teď: {1}</CF_AutoFocusNowNoReason>
+  <CF_AutoFocusShort>{0} → {1}</CF_AutoFocusShort>
+  <CF_AutoFocusMsg>Správce: Vyvážený se teď zaměřuje na {0} ({1}).</CF_AutoFocusMsg>
+  <CF_AutoFocusEnd>Správce: zaměření {0} skončilo – Vyvážený zase rozděluje práci rovnoměrně.</CF_AutoFocusEnd>
+  <CF_AF_Food>jídlo na {0} dní</CF_AF_Food>
+  <CF_AF_Harvest>{0} rostlin ke sklizni</CF_AF_Harvest>
+  <CF_AF_Build>{0} plánů staveb</CF_AF_Build>
+  <CF_AF_Industry>ocel {0}, součástky {1}</CF_AF_Industry>
+  <CF_AF_Mine>{0} políček k těžbě</CF_AF_Mine>
+  <CF_AF_Bills>čeká hodně výrobních zakázek</CF_AF_Bills>
+  <CF_AF_Care>pacienti {0}, vězni {1}, děti {2}</CF_AF_Care>
+  <CF_AF_Defense>po přepadení, {0} budov k opravě</CF_AF_Defense>
+  <CF_AF_Animals>{0} zvířat k ochočení nebo porážce, {1} k dojení, stříhání nebo výcviku</CF_AF_Animals>
+  <CF_AF_Dirt>{0} špíny v domovské oblasti</CF_AF_Dirt>
+  <CF_AF_Calm>klid – čas na výzkum</CF_AF_Calm>
+  <CF_SitStaff>{0} ×{1} (priorita {2})</CF_SitStaff>
+  <CF_SitHeader>Situace:</CF_SitHeader>
+  <CF_SitStart>Správce – nová situace: {0}.</CF_SitStart>
+  <CF_SitEnd>Správce – situace skončila: {0}. Zpátky k běžnému plánu.</CF_SitEnd>
+  <CF_SitDoesWork>{0} priorita {1}</CF_SitDoesWork>
+  <CF_SitDoesNothing>v této hře nic (chybí typ práce)</CF_SitDoesNothing>
+  <CF_SitDoesExhausted>jejich práce s prioritou 1 klesne na 2 (nouzové práce zůstanou)</CF_SitDoesExhausted>
+  <CF_Sit_BuildBacklog>hodně staveb</CF_Sit_BuildBacklog>
+  <CF_SitWhen_BuildBacklog>Kdy: 20 a víc plánů staveb a rozestavěných konstrukcí (trvá, dokud jich není míň než 8). Stavění na prioritě 2, jeden stavitel na 15 plánů, aspoň 2.</CF_SitWhen_BuildBacklog>
+  <CF_SitR_BuildBacklog>plánů staveb: {0}</CF_SitR_BuildBacklog>
+  <CF_Sit_Deconstruct>hodně rozebírání</CF_Sit_Deconstruct>
+  <CF_SitWhen_Deconstruct>Kdy: 15 a víc značek k rozebrání, odinstalování, uhlazení nebo odstranění podlahy. Stavění na prioritě 2, jeden kolonista na 20 značek.</CF_SitWhen_Deconstruct>
+  <CF_SitR_Deconstruct>značek: {0}</CF_SitR_Deconstruct>
+  <CF_Sit_Repairs>potřeba oprav</CF_Sit_Repairs>
+  <CF_SitWhen_Repairs>Kdy: 6 a víc poškozených budov (ne během nájezdu). Stavění na prioritě 2, jeden kolonista na 10 budov.</CF_SitWhen_Repairs>
+  <CF_SitR_Repairs>poškozených budov: {0}</CF_SitR_Repairs>
+  <CF_Sit_HaulBacklog>hodně k odnesení</CF_Sit_HaulBacklog>
+  <CF_SitWhen_HaulBacklog>Kdy: 80 a víc věcí k odnesení (sutiny se nepočítají; ne při nájezdu, jedovatém vzduchu ani extrémním počasí). Odnášení na prioritě 2, jeden nosič na 50 věcí, aspoň 2.</CF_SitWhen_HaulBacklog>
+  <CF_SitR_HaulBacklog>věcí k odnesení: {0}</CF_SitR_HaulBacklog>
+  <CF_Sit_RottingOutside>věci hnijí venku</CF_Sit_RottingOutside>
+  <CF_SitWhen_RottingOutside>Kdy: 8 a víc hromádek zkazitelných věcí mimo sklad, které do 5 dnů shnijí. Odnášení na prioritě 1, jeden nosič na 10 hromádek.</CF_SitWhen_RottingOutside>
+  <CF_SitR_RottingOutside>hromádek, které shnijí: {0}</CF_SitR_RottingOutside>
+  <CF_Sit_FoodSpoiling>jídlo se brzy zkazí</CF_Sit_FoodSpoiling>
+  <CF_SitWhen_FoodSpoiling>Kdy: syrové jídlo za 10+ výživy se do 1,5 dne zkazí. Vaření na prioritě 1 (jeden kuchař na 30 výživy) a jeden nosič na prioritě 2, aby ho dal do chladu.</CF_SitWhen_FoodSpoiling>
+  <CF_SitR_FoodSpoiling>výživa, která se do 1,5 dne zkazí: {0}</CF_SitR_FoodSpoiling>
+  <CF_Sit_BigHarvest>velká sklizeň</CF_Sit_BigHarvest>
+  <CF_SitWhen_BigHarvest>Kdy: 40 a víc zralých rostlin v polích. Pěstování na prioritě 2, jeden pěstitel na 40 rostlin, aspoň 2.</CF_SitWhen_BigHarvest>
+  <CF_SitR_BigHarvest>zralých rostlin: {0}</CF_SitR_BigHarvest>
+  <CF_Sit_FrostHarvest>mráz – sklízet hned</CF_Sit_FrostHarvest>
+  <CF_SitWhen_FrostHarvest>Kdy: venku pod 2 °C a 5 a víc zralých rostlin – úroda v zimě uhyne. Pěstování na prioritě 1, jeden pěstitel na 25 rostlin, aspoň 2.</CF_SitWhen_FrostHarvest>
+  <CF_SitR_FrostHarvest>zralých rostlin: {0} při {1}</CF_SitR_FrostHarvest>
+  <CF_Sit_CutBacklog>hodně ke kácení</CF_Sit_CutBacklog>
+  <CF_SitWhen_CutBacklog>Kdy: 30 a víc rostlin označených ke kácení nebo sklizni. Kácení na prioritě 2, jeden kolonista na 30 rostlin.</CF_SitWhen_CutBacklog>
+  <CF_SitR_CutBacklog>označených rostlin: {0}</CF_SitR_CutBacklog>
+  <CF_Sit_MineBacklog>hodně k těžbě</CF_Sit_MineBacklog>
+  <CF_SitWhen_MineBacklog>Kdy: 30 a víc políček označených k těžbě. Těžba na prioritě 2, jeden horník na 30 políček.</CF_SitWhen_MineBacklog>
+  <CF_SitR_MineBacklog>políček k těžbě: {0}</CF_SitR_MineBacklog>
+  <CF_Sit_LowWood>dochází dřevo</CF_Sit_LowWood>
+  <CF_SitWhen_LowWood>Kdy: méně dřeva než 75 + 25 na kolonistu a stromy jsou označené ke kácení. Kácení na prioritě 2, 1 kolonista (2 v kolonii od 5 lidí).</CF_SitWhen_LowWood>
+  <CF_SitR_LowWood>dřevo: {0}</CF_SitR_LowWood>
+  <CF_Sit_LowSteel>dochází ocel</CF_Sit_LowSteel>
+  <CF_SitWhen_LowSteel>Kdy: méně oceli než 50 + 20 na kolonistu a skála je označená k těžbě. Těžba na prioritě 2, 1 horník (2 v kolonii od 5 lidí).</CF_SitWhen_LowSteel>
+  <CF_SitR_LowSteel>ocel: {0}</CF_SitR_LowSteel>
+  <CF_Sit_LowComponents>docházejí součástky</CF_Sit_LowComponents>
+  <CF_SitWhen_LowComponents>Kdy: méně součástek než 3 + 1 na 2 kolonisty a čeká zakázka na součástky. Práce u toho stolu na prioritě 2, 1 kolonista.</CF_SitWhen_LowComponents>
+  <CF_SitR_LowComponents>součástky: {0}</CF_SitR_LowComponents>
+  <CF_Sit_LowMedicine>docházejí léky</CF_Sit_LowMedicine>
+  <CF_SitWhen_LowMedicine>Kdy: méně léků než 2 na kolonistu (ale ještě ne krize „nedostatek léků“) a čeká zakázka na léky nebo se pěstuje léčivý kořen. Práce u stolu a pěstování na prioritě 2, po 1 kolonistovi.</CF_SitWhen_LowMedicine>
+  <CF_SitR_LowMedicine>léky: {0}</CF_SitR_LowMedicine>
+  <CF_Sit_ColdClothing>chybí teplé oblečení</CF_Sit_ColdClothing>
+  <CF_SitWhen_ColdClothing>Kdy: venku 10 °C nebo méně, kolonisté s nedostatečně teplým oblečením a čeká zakázka na oblečení. Krejčovství na prioritě 2, jeden krejčí na 4 zmrzlé kolonisty.</CF_SitWhen_ColdClothing>
+  <CF_SitR_ColdClothing>kolonistů, kterým je zima při {1}: {0}</CF_SitR_ColdClothing>
+  <CF_Sit_WornClothing>roztrhané oblečení</CF_Sit_WornClothing>
+  <CF_SitWhen_WornClothing>Kdy: třetina kolonistů (aspoň 2) nosí oblečení pod 50 % výdrže a čeká zakázka na oblečení. Krejčovství na prioritě 2, 1 krejčí.</CF_SitWhen_WornClothing>
+  <CF_SitR_WornClothing>kolonistů v roztrhaném oblečení: {0}</CF_SitR_WornClothing>
+  <CF_Sit_LowWeapons>kolonisté beze zbraní</CF_Sit_LowWeapons>
+  <CF_SitWhen_LowWeapons>Kdy: polovina kolonistů (kolonie od 3 lidí), kteří umí bojovat, nemá zbraň a čeká zakázka na zbraně. Kovářství na prioritě 2, 1 kovář (2 při 5+ neozbrojených).</CF_SitWhen_LowWeapons>
+  <CF_SitR_LowWeapons>neozbrojených: {0}</CF_SitR_LowWeapons>
+  <CF_Sit_Recruit>vězni k naverbování</CF_Sit_Recruit>
+  <CF_SitWhen_Recruit>Kdy: vězni nastavení na verbování, snižování odporu, zotročení nebo konverzi. Dozorce na prioritě 2, jeden dozorce na 3 vězně – ti nejlepší vyjednavači.</CF_SitWhen_Recruit>
+  <CF_SitR_Recruit>vězňů k přemlouvání: {0}</CF_SitR_Recruit>
+  <CF_Sit_HungryPrisoners>hladoví vězni</CF_Sit_HungryPrisoners>
+  <CF_SitWhen_HungryPrisoners>Kdy: vězeň má jídlo pod 25 %. Dozorce na prioritě 1, jeden dozorce na 3 hladové vězně.</CF_SitWhen_HungryPrisoners>
+  <CF_SitR_HungryPrisoners>hladových vězňů: {0}</CF_SitR_HungryPrisoners>
+  <CF_Sit_MassCasualties>hodně pacientů</CF_Sit_MassCasualties>
+  <CF_SitWhen_MassCasualties>Kdy: 3 a víc pacientů potřebuje ošetření. Doktor na prioritě 1, dva doktoři na každé 3 pacienty, aspoň 2.</CF_SitWhen_MassCasualties>
+  <CF_SitR_MassCasualties>pacientů: {0}</CF_SitR_MassCasualties>
+  <CF_Sit_Infection>život ohrožující nemoc</CF_Sit_Infection>
+  <CF_SitWhen_Infection>Kdy: někdo má nemoc nebo zranění, které může zabít (zatím bez imunity a už vážné), nebo silně krvácí. Doktor na prioritě 1, jeden doktor na každého takového pacienta.</CF_SitWhen_Infection>
+  <CF_SitR_Infection>v ohrožení: {0}</CF_SitR_Infection>
+  <CF_Sit_TameTrain>zvířata ke krocení a výcviku</CF_Sit_TameTrain>
+  <CF_SitWhen_TameTrain>Kdy: 4 a víc zvířat ke krocení nebo výcviku. Zacházení se zvířaty na prioritě 2, jeden chovatel na 6 zvířat.</CF_SitWhen_TameTrain>
+  <CF_SitR_TameTrain>zvířat: {0}</CF_SitR_TameTrain>
+  <CF_Sit_AnimalProducts>zvířata k porážce, dojení, stříhání</CF_Sit_AnimalProducts>
+  <CF_SitWhen_AnimalProducts>Kdy: 5 a víc zvířat označených k porážce nebo připravených k dojení či stříhání. Zacházení se zvířaty na prioritě 2, jeden chovatel na 8.</CF_SitWhen_AnimalProducts>
+  <CF_SitR_AnimalProducts>připravených zvířat: {0}</CF_SitR_AnimalProducts>
+  <CF_Sit_AnimalsHungry>hladová zvířata</CF_Sit_AnimalsHungry>
+  <CF_SitWhen_AnimalsHungry>Kdy: 2 a víc zvířat kolonie hladoví (jídlo pod 15 %). Odnášení a zacházení se zvířaty na prioritě 2, po 1 kolonistovi.</CF_SitWhen_AnimalsHungry>
+  <CF_SitR_AnimalsHungry>hladovějících zvířat: {0}</CF_SitR_AnimalsHungry>
+  <CF_Sit_DirtyRooms>špinavá nemocnice nebo kuchyně</CF_Sit_DirtyRooms>
+  <CF_SitWhen_DirtyRooms>Kdy: 8 a víc špíny v nemocnici nebo kuchyni (infekce, otravy jídlem). Úklid na prioritě 1, jeden uklízeč na 20 špíny.</CF_SitWhen_DirtyRooms>
+  <CF_SitR_DirtyRooms>špína: {0}</CF_SitR_DirtyRooms>
+  <CF_Sit_ResearchIdle>čas na výzkum</CF_Sit_ResearchIdle>
+  <CF_SitWhen_ResearchIdle>Kdy: je vybraný projekt, stojí výzkumný stůl, jídlo na 6+ dní a není žádná krize ani jiná situace. Výzkum na prioritě 2, jeden výzkumník na 4 kolonisty.</CF_SitWhen_ResearchIdle>
+  <CF_SitR_ResearchIdle>projekt {0}</CF_SitR_ResearchIdle>
+  <CF_Sit_TradeVisit>obchodníci tady</CF_Sit_TradeVisit>
+  <CF_SitWhen_TradeVisit>Kdy: na mapě je obchodní karavana, nebo je na oběžné dráze obchodní loď a stojí obchodní maják. Odnášení na prioritě 2, 2 nosiči, aby snesli zboží.</CF_SitWhen_TradeVisit>
+  <CF_SitR_TradeVisit>obchodníci čekají</CF_SitR_TradeVisit>
+  <CF_Sit_LowFuel>dochází palivo</CF_Sit_LowFuel>
+  <CF_SitWhen_LowFuel>Kdy: 2 a víc budov s automatickým doplňováním má pod 25 % paliva (generátory, pochodně, kamna …). Doplňování paliva (odnášení) na prioritě 1, jeden kolonista na 6 budov.</CF_SitWhen_LowFuel>
+  <CF_SitR_LowFuel>budov s málem paliva: {0}</CF_SitR_LowFuel>
+  <CF_Sit_MechThreat>mechanoidi nebo úl poblíž</CF_Sit_MechThreat>
+  <CF_SitWhen_MechThreat>Kdy: na mapě jsou budovy mechanoidů nebo hmyzí úly (ne během nájezdu). Stavění (obrana) na prioritě 2 se 2 kolonisty, kovářství na prioritě 2 s 1.</CF_SitWhen_MechThreat>
+  <CF_SitR_MechThreat>hrozeb: {0}</CF_SitR_MechThreat>
+  <CF_Sit_MoodSlipping>nálada klesá</CF_Sit_MoodSlipping>
+  <CF_SitWhen_MoodSlipping>Kdy: čtvrtina kolonistů (aspoň 2) je blízko hranice zhroucení, ještě před krizí „špatná nálada“. Vaření (lepší jídla), umění a úklid na prioritě 2, po 1 kolonistovi.</CF_SitWhen_MoodSlipping>
+  <CF_SitR_MoodSlipping>nešťastných kolonistů: {0}</CF_SitR_MoodSlipping>
+  <CF_Sit_Childcare>miminka potřebují péči</CF_Sit_Childcare>
+  <CF_SitWhen_Childcare>Kdy (Biotech): v kolonii jsou miminka. Péče o děti na prioritě 2 (1, když má miminko hlad), jeden pečovatel na 2 miminka.</CF_SitWhen_Childcare>
+  <CF_SitR_Childcare>miminek: {0}</CF_SitR_Childcare>
+  <CF_Sit_Pollution>znečištění k vyčištění</CF_Sit_Pollution>
+  <CF_SitWhen_Pollution>Kdy (Biotech): 20 a víc znečištěných políček v oblasti k čištění znečištění. Čištění znečištění na prioritě 2, jeden kolonista na 150 políček.</CF_SitWhen_Pollution>
+  <CF_SitR_Pollution>znečištěných políček: {0}</CF_SitR_Pollution>
+  <CF_Sit_Exhausted>vyčerpaní kolonisté</CF_Sit_Exhausted>
+  <CF_SitWhen_Exhausted>Kdy: kolonista je vzhůru a má odpočinek pod 15 %. Jeho práce s prioritou 1 klesne na 2 a situace ho nevybírají. Pozor: priority nikoho do postele nepošlou – kolonisté v hodinách „Práce“ v rozvrhu sami spát nejdou a zhroutí se na zemi; dej jim hodiny „Spánek“ nebo „Cokoliv“.</CF_SitWhen_Exhausted>
+  <CF_SitR_Exhausted>vyčerpaných: {0} – zkontroluj rozvrh (v hodinách „Práce“ spát nejdou)</CF_SitR_Exhausted>
+  <CF_Sit_Corpses>mrtvoly v základně</CF_Sit_Corpses>
+  <CF_SitWhen_Corpses>Kdy: 3 a víc mrtvol leží v domovské oblasti (ne během nájezdu). Odnášení mrtvol na prioritě 2, jeden kolonista na 6 mrtvol.</CF_SitWhen_Corpses>
+  <CF_SitR_Corpses>mrtvol: {0}</CF_SitR_Corpses>
+  <CF_Sit_StorageFull>plné sklady</CF_Sit_StorageFull>
+  <CF_SitWhen_StorageFull>Kdy: 15 a víc věcí v domovské oblasti nemá kam jít. Stavění na prioritě 2 (police, sklady).</CF_SitWhen_StorageFull>
+  <CF_SitR_StorageFull>věcí bez místa ve skladu: {0}</CF_SitR_StorageFull>
+  <CF_Sit_SowingBacklog>pole čekají na setí</CF_Sit_SowingBacklog>
+  <CF_SitWhen_SowingBacklog>Kdy: 40 a víc prázdných políček na polích v době růstu. Pěstování na prioritě 2.</CF_SitWhen_SowingBacklog>
+  <CF_SitR_SowingBacklog>prázdných políček k setí: {0}</CF_SitR_SowingBacklog>
+  <CF_Sit_NoBedroom>kolonisté bez postele</CF_Sit_NoBedroom>
+  <CF_SitWhen_NoBedroom>Kdy: kolonista nemá vlastní postel. Stavění na prioritě 2.</CF_SitWhen_NoBedroom>
+  <CF_SitR_NoBedroom>kolonistů bez postele: {0}</CF_SitR_NoBedroom>
+  <CF_Sit_UglyRooms>ošklivé pokoje</CF_Sit_UglyRooms>
+  <CF_SitWhen_UglyRooms>Kdy: aspoň 2 ložnice jsou ošklivé nebo špinavé (jen když je klid). Úklid a umění na prioritě 2, stavění na 3.</CF_SitWhen_UglyRooms>
+  <CF_SitR_UglyRooms>ošklivých pokojů: {0}</CF_SitR_UglyRooms>
+  <CF_Sit_LowJoy>málo zábavy</CF_Sit_LowJoy>
+  <CF_SitWhen_LowJoy>Kdy: aspoň 2 kolonisté mají rekreaci pod 30 %. Stavění a umění na prioritě 2.</CF_SitWhen_LowJoy>
+  <CF_SitR_LowJoy>kolonistů bez zábavy: {0}</CF_SitR_LowJoy>
+  <CF_Sit_Slaughter>zvířata k porážce</CF_Sit_Slaughter>
+  <CF_SitWhen_Slaughter>Kdy: aspoň 3 zvířata jsou označená k porážce. Ošetřování zvířat na prioritě 2.</CF_SitWhen_Slaughter>
+  <CF_SitR_Slaughter>zvířat k porážce: {0}</CF_SitR_Slaughter>
+  <CF_Sit_BarrelsReady>hotové sudy</CF_Sit_BarrelsReady>
+  <CF_SitWhen_BarrelsReady>Kdy: aspoň 2 kvasné sudy jsou hotové. Vybírání na prioritě 2.</CF_SitWhen_BarrelsReady>
+  <CF_SitR_BarrelsReady>hotových sudů: {0}</CF_SitR_BarrelsReady>
+  <CF_Sit_TextilePile>hromada látek a kůží</CF_Sit_TextilePile>
+  <CF_SitWhen_TextilePile>Kdy: 400 a víc látek a kůží ve skladu a čekající krejčovské zakázky (jen když je klid). Krejčovství na prioritě 2.</CF_SitWhen_TextilePile>
+  <CF_SitR_TextilePile>látek a kůží: {0}</CF_SitR_TextilePile>
+  <CF_Sit_WornGear>poškozené vybavení</CF_Sit_WornGear>
+  <CF_SitWhen_WornGear>Kdy: 10 a víc zbraní a oblečení ve skladu pod 60 % (jen s modem na opravy, jen když je klid). Výroba na prioritě 2.</CF_SitWhen_WornGear>
+  <CF_SitR_WornGear>poškozených kusů: {0}</CF_SitR_WornGear>
+  <CF_Sit_CaravanPrep>chystá se karavana</CF_Sit_CaravanPrep>
+  <CF_SitWhen_CaravanPrep>Kdy: formuje se karavana. Odnášení na prioritě 1, vaření na 2.</CF_SitWhen_CaravanPrep>
+  <CF_SitR_CaravanPrep>formuje se karavana</CF_SitR_CaravanPrep>
+  <CF_Sit_Gathering>oslava nebo rituál</CF_Sit_Gathering>
+  <CF_SitWhen_Gathering>Kdy: probíhá oslava nebo rituál. Vaření a úklid na prioritě 2.</CF_SitWhen_Gathering>
+  <CF_SitR_Gathering>oslava / rituál</CF_SitR_Gathering>
+  <CF_Sit_Guests>hosté v kolonii</CF_Sit_Guests>
+  <CF_SitWhen_Guests>Kdy: aspoň 2 návštěvníci nebo hosté z úkolů. Vaření a úklid na prioritě 2.</CF_SitWhen_Guests>
+  <CF_SitR_Guests>hostů: {0}</CF_SitR_Guests>
+  <CF_Sit_Snow>sníh k odklizení</CF_Sit_Snow>
+  <CF_SitWhen_Snow>Kdy: 60 a víc políček sněhu v oblasti k odklízení. Úklid na prioritě 2.</CF_SitWhen_Snow>
+  <CF_SitR_Snow>zasněžených políček: {0}</CF_SitR_Snow>
+  <CF_Sit_OrbitalTrade>obchodní loď na orbitě</CF_Sit_OrbitalTrade>
+  <CF_SitWhen_OrbitalTrade>Kdy: na orbitě je obchodní loď a máš obchodní maják. Odnášení na prioritě 2.</CF_SitWhen_OrbitalTrade>
+  <CF_SitR_OrbitalTrade>obchodní loď na orbitě</CF_SitR_OrbitalTrade>
+  <CF_Sit_ChunksOnFields>kameny na polích</CF_Sit_ChunksOnFields>
+  <CF_SitWhen_ChunksOnFields>Kdy: aspoň 5 kamenů nebo strusky leží na polích. Odnášení na prioritě 2.</CF_SitWhen_ChunksOnFields>
+  <CF_SitR_ChunksOnFields>kamenů na polích: {0}</CF_SitR_ChunksOnFields>
+  <CF_Sit_IdleBench>stoly bez pracovníka</CF_Sit_IdleBench>
+  <CF_SitWhen_IdleBench>Kdy: aspoň 3 stoly mají zakázky a nikdo u nich nepracuje. Ta výroba, která čeká nejvíc, dostane prioritu 2.</CF_SitWhen_IdleBench>
+  <CF_SitR_IdleBench>stolů bez pracovníka: {0}</CF_SitR_IdleBench>
+  <CF_FloorSleep>{0} spí na zemi: {1}</CF_FloorSleep>
+  <CF_FloorNoBeds>v kolonii není žádná postel pro kolonisty.</CF_FloorNoBeds>
+  <CF_FloorAllOwned>všechny postele už mají majitele – přiřaď mu postel nebo postav novou.</CF_FloorAllOwned>
+  <CF_FloorOwnBed>jeho postel ({0})</CF_FloorOwnBed>
+  <CF_FloorFreeBed>volná postel ({0})</CF_FloorFreeBed>
+  <CF_FloorForbidden>je zakázaná.</CF_FloorForbidden>
+  <CF_FloorArea>je mimo jeho povolenou oblast ({0}).</CF_FloorArea>
+  <CF_FloorUnreachable>je nedosažitelná (zamčené nebo zakázané dveře, zeď?).</CF_FloorUnreachable>
+  <CF_FloorReserved>má zabranou někdo jiný.</CF_FloorReserved>
+  <CF_FloorCantUse>nesmí ji použít (postel pro otroky/vězně, pohlaví, ideologie nebo mod na postele).</CF_FloorCantUse>
+  <CF_FloorDanger>je v nebezpečném místě (teplota, nepřátelé).</CF_FloorDanger>
+  <CF_FloorUnknown>nejde použít z neznámého důvodu (nejspíš jiný mod na postele).</CF_FloorUnknown>
+  <CF_SafeAreaName>Steward: bezpečí</CF_SafeAreaName>
+  <CF_SafeOn>Útok! {0} kolonistů a pracovních strojů má teď oblast „Steward: bezpečí“.</CF_SafeOn>
+  <CF_SafeOff>Útok skončil – {0} kolonistům se vrátila jejich oblast.</CF_SafeOff>
+  <CF_Sit_SlaveSuppression>otroci potřebují potlačit</CF_Sit_SlaveSuppression>
+  <CF_SitWhen_SlaveSuppression>Kdy: otrok má potlačení pod 35 %. Dozorce na prioritě 2, při potlačení pod 15 % na prioritě 1.</CF_SitWhen_SlaveSuppression>
+  <CF_SitR_SlaveSuppression>otroků s nízkým potlačením: {0}</CF_SitR_SlaveSuppression>
+  <CF_Sit_SlaveRebellionRisk>hrozí vzpoura otroků</CF_Sit_SlaveRebellionRisk>
+  <CF_SitWhen_SlaveRebellionRisk>Kdy: některý otrok by mohl do měsíce začít vzpouru. Dozorce na prioritě 1, aspoň 2 kolonisté.</CF_SitWhen_SlaveRebellionRisk>
+  <CF_SitR_SlaveRebellionRisk>otroků se sklonem ke vzpouře: {0}</CF_SitR_SlaveRebellionRisk>
+  <CF_Sit_PrisonersHurt>zranění vězni</CF_Sit_PrisonersHurt>
+  <CF_SitWhen_PrisonersHurt>Kdy: vězeň potřebuje ošetřit. Doktor na prioritě 2.</CF_SitWhen_PrisonersHurt>
+  <CF_SitR_PrisonersHurt>vězňů k ošetření: {0}</CF_SitR_PrisonersHurt>
+  <CF_Sit_Wounded>zranění kolonisté</CF_Sit_Wounded>
+  <CF_SitWhen_Wounded>Kdy: kolonista nebo otrok potřebuje ošetřit (i jen jeden). Doktor na prioritě 1.</CF_SitWhen_Wounded>
+  <CF_SitR_Wounded>k ošetření: {0}</CF_SitR_Wounded>
+  <CF_Sit_BedHungry>hladoví na lůžku</CF_Sit_BedHungry>
+  <CF_SitWhen_BedHungry>Kdy: ležící pacient nebo vězeň v posteli má hlad. Doktor (krmí pacienty) a dozorce (krmí vězně) na prioritě 1.</CF_SitWhen_BedHungry>
+  <CF_SitR_BedHungry>hladoví pacienti: {0}, hladoví vězni: {1}</CF_SitR_BedHungry>
+  <CF_Sit_HungryNoMeals>hlad a málo jídla</CF_Sit_HungryNoMeals>
+  <CF_SitWhen_HungryNoMeals>Kdy: kolonisté, otroci nebo vězni mají hlad a není pro ně dost hotových jídel. Kuchař na prioritě 1.</CF_SitWhen_HungryNoMeals>
+  <CF_SitR_HungryNoMeals>chybí jídel: {0}</CF_SitR_HungryNoMeals>
+  <CF_Sit_ButcherBacklog>maso čeká na porcování</CF_Sit_ButcherBacklog>
+  <CF_SitWhen_ButcherBacklog>Kdy: leží čerstvá zvířecí těla, která bere aktivní zakázka na porcování. Kuchař na prioritě 2.</CF_SitWhen_ButcherBacklog>
+  <CF_SitR_ButcherBacklog>těl k porcování: {0}</CF_SitR_ButcherBacklog>
+  <CF_Sit_PrisonRelease>vězni k propuštění</CF_Sit_PrisonRelease>
+  <CF_SitWhen_PrisonRelease>Kdy: vězeň má nastavené propuštění. Dozorce na prioritě 2.</CF_SitWhen_PrisonRelease>
+  <CF_SitR_PrisonRelease>vězňů k propuštění: {0}</CF_SitR_PrisonRelease>
+  <CF_Sit_DirtyPrison>špinavá cela</CF_Sit_DirtyPrison>
+  <CF_SitWhen_DirtyPrison>Kdy: cela s vězněm je hodně špinavá. Úklid na prioritě 2.</CF_SitWhen_DirtyPrison>
+  <CF_SitR_DirtyPrison>špinavých cel: {0}</CF_SitR_DirtyPrison>
+  <CF_Sit_PrisonBeds>chybí postele pro vězně</CF_Sit_PrisonBeds>
+  <CF_SitWhen_PrisonBeds>Kdy: vězňů je víc než vězeňských postelí. Stavba na prioritě 2 (postav postele, správce je jen urychlí).</CF_SitWhen_PrisonBeds>
+  <CF_SitR_PrisonBeds>chybí vězeňských postelí: {0}</CF_SitR_PrisonBeds>
+  <CF_Sit_ProductsWaiting>věci leží a čekají na odnesení</CF_Sit_ProductsWaiting>
+  <CF_SitWhen_ProductsWaiting>Kdy: v domovské oblasti leží 5 a víc věcí mimo sklad, které by nějaký sklad přijal (výrobky u stolů, kořist…). Odnášení na prioritě 2, jeden nosič na 15 věcí, aspoň 1.</CF_SitWhen_ProductsWaiting>
+  <CF_SitR_ProductsWaiting>věcí čeká na odnesení: {0}</CF_SitR_ProductsWaiting>
+  <CF_AF_Tidy>věcí k odnesení: {0}, špíny: {1}</CF_AF_Tidy>
+  <CF_Sit_AnimalTraining>výcvik zvířat</CF_Sit_AnimalTraining>
+  <CF_SitWhen_AnimalTraining>Kdy: aspoň jedno ochočené zvíře se dá právě teď cvičit (má co se učit, nebylo cvičeno nedávno) a někdo z kolonistů na něj má dost dovednosti. Ošetřování zvířat na prioritě 1 pro nejlepší chovatele, jeden na 5 zvířat.</CF_SitWhen_AnimalTraining>
+  <CF_SitR_AnimalTraining>zvířat čeká na výcvik: {0}</CF_SitR_AnimalTraining>
+  <CF2C_Name>Krize a situace</CF2C_Name>
+  <CF2C_UseCrisis>Krize</CF2C_UseCrisis>
+  <CF2C_UseCrisisTip>Požár, přepadení, zranění, hlad a další: Steward hned zvedne lidi na práci, kterou krize potřebuje, a co počká, dá na nejnižší prioritu.</CF2C_UseCrisisTip>
+  <CF2C_UseSituations>Situace</CF2C_UseSituations>
+  <CF2C_UseSituationsTip>Velká sklizeň, hodně stavění, těla k porcování…: na dobu, kdy situace trvá, dostane práce víc lidí.</CF2C_UseSituationsTip>
+  <CF2C_AutoFocus>Vyvážený styl si sám vybírá zaměření</CF2C_AutoFocus>
+  <CF2C_AutoFocusTip>Když kolonie něco potřebuje (dochází jídlo, hodně plánů staveb…), Vyvážený styl na čas přidá lidi na tu práci.</CF2C_AutoFocusTip>
+  <CF2C_Messages>Zprávy o krizích a situacích</CF2C_Messages>
+  <CF2C_Medical>Lékař hned k naléhavým případům</CF2C_Medical>
+  <CF2C_MedicalTip>Krvácení, infekce, zraněný mimo postel: nejbližší volný lékař jde hned.</CF2C_MedicalTip>
+  <CF2C_Fire>Hašení požárů v základně</CF2C_Fire>
+  <CF2C_FireTip>Volní kolonisté jdou hasit oheň v domácí oblasti (ne při útoku, ne mimo povolenou oblast).</CF2C_FireTip>
+  <CF2C_Butcher>Porcování napřed, když je dost jídla</CF2C_Butcher>
+  <CF2C_ButcherTip>Když leží čerstvá zvířecí těla a hotových jídel je dost, kuchaři nejdřív porcují.</CF2C_ButcherTip>
+  <CF2C_SafeArea>Bezpečná zóna při přepadení</CF2C_SafeArea>
+  <CF2C_SafeAreaTip>Při přepadení, šílených zvířatech a obléhání omezí kolonisty i pracovní mechanoidy a roboty kolonie na zastřešené místnosti základny (kdo je venku, jde hned dovnitř) a potom jim vrátí jejich oblast. Bojoví mechanoidi zůstanou venku bojovat.</CF2C_SafeAreaTip>
+  <CF2C_CrisesList>Které krize:</CF2C_CrisesList>
+  <CF2C_SituationsList>Které situace:</CF2C_SituationsList>
+  <CF2C_HistCrisis>krize: {0}</CF2C_HistCrisis>
+  <CF2C_NoCrisis>žádná (skončila)</CF2C_NoCrisis>
+  <CF2C_TipCrisis>Krize ({0}): potřeba hned.</CF2C_TipCrisis>
+  <CF2C_TipCrisisDown>Krize ({0}): tahle práce teď počká.</CF2C_TipCrisisDown>
+  <CF2C_TipExhausted>Vyčerpaný: teď nic na prioritě 1.</CF2C_TipExhausted>
+  <CF2C_TipFocus>Zaměření {0}: víc lidí na tuhle práci.</CF2C_TipFocus>
+  <CF2C_TipSituation>Situace: {0}</CF2C_TipSituation>
+</LanguageData>

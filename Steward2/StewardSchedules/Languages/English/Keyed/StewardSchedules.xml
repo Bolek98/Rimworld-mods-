@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_SchedTired>{0} is exhausted – schedule: sleep now.</CF_SchedTired>
+  <CF_SchedBreak>{0} is close to a mental break – schedule: recreation now.</CF_SchedBreak>
+  <CF_ComfortEat>{0} eats standing: {1}</CF_ComfortEat>
+  <CF_ComfortToilet>{0} can not use a toilet: {1}</CF_ComfortToilet>
+  <CF_WhyNoTable>there is no chair at a table at home</CF_WhyNoTable>
+  <CF_WhyArea>it is outside his allowed area "{0}"</CF_WhyArea>
+  <CF_WhyForbidden>it is forbidden</CF_WhyForbidden>
+  <CF_WhyPrison>it is in a prison cell (or a room for others)</CF_WhyPrison>
+  <CF_WhyReach>he can not get there</CF_WhyReach>
+  <CF_WhyReserved>{0} has reserved it</CF_WhyReserved>
+  <CF_WhyFull>all seats are taken</CF_WhyFull>
+  <CF_WhyDanger>it is dangerous there (temperature, enemy)</CF_WhyDanger>
+  <CF_WhyFar>the nearest one is too far ({0} cells)</CF_WhyFar>
+  <CF_WhyNoToilet>there is no toilet at home</CF_WhyNoToilet>
+  <CF_WhyBroken>the toilet does not work: {0}</CF_WhyBroken>
+  <CF_WhyNotAllowed>the toilet is not for him: {0}</CF_WhyNotAllowed>
+  <CF_WhyBusy>the toilet is busy or too far</CF_WhyBusy>
+  <CF_SchedMoreJoy>{0} lacks recreation – schedule: {1} h of recreation a day.</CF_SchedMoreJoy>
+  <CF_SchedBored>{0} is bored of most kinds of recreation – more recreation time won't help much; build other kinds (games, art, TV, telescope, a nice room …).</CF_SchedBored>
+  <CF_MoodRescue>{0} stops work to calm down (mostly: {1}).</CF_MoodRescue>
+  <CF_MoodHint_Table>{0} colonists are upset about eating without a table. A table with chairs closer to where they work or sleep would help.</CF_MoodHint_Table>
+  <CF_MoodHint_Comfort>{0} colonists lack comfort. More chairs, armchairs or better beds would help.</CF_MoodHint_Comfort>
+  <CF_MoodHint_Dark>{0} colonists are upset about darkness. More lights where they work and walk would help.</CF_MoodHint_Dark>
+  <CF_MoodHint_Cramped>{0} colonists feel cramped. Bigger bedrooms or rooms would help.</CF_MoodHint_Cramped>
+  <CF_MoodHint_Outdoors>{0} colonists are missing the outdoors (cabin fever). Outdoor recreation or work outside would help.</CF_MoodHint_Outdoors>
+  <CF_MoodHint_Temperature>{0} colonists suffer from heat or cold. Heaters, coolers or better clothes would help.</CF_MoodHint_Temperature>
+  <CF_MoodCause_Rest>tiredness</CF_MoodCause_Rest>
+  <CF_MoodCause_Joy>lack of recreation</CF_MoodCause_Joy>
+  <CF_MoodCause_Food>food</CF_MoodCause_Food>
+  <CF_MoodCause_Table>eating without a table</CF_MoodCause_Table>
+  <CF_MoodCause_Pain>pain</CF_MoodCause_Pain>
+  <CF_MoodCause_Room>ugly or dirty surroundings</CF_MoodCause_Room>
+  <CF_MoodCause_Comfort>lack of comfort</CF_MoodCause_Comfort>
+  <CF_MoodCause_Dark>darkness</CF_MoodCause_Dark>
+  <CF_MoodCause_Cramped>cramped rooms</CF_MoodCause_Cramped>
+  <CF_MoodCause_Outdoors>cabin fever</CF_MoodCause_Outdoors>
+  <CF_MoodCause_Apparel>clothes</CF_MoodCause_Apparel>
+  <CF_MoodCause_Temperature>heat or cold</CF_MoodCause_Temperature>
+  <CF_MoodCause_Social>people</CF_MoodCause_Social>
+  <CF_MoodCause_Other>events and memories</CF_MoodCause_Other>
+  <CF_MoodNoFood>{0} is hungry and close to a break, but cannot reach any food. Check the food stock, the allowed area and forbidden food.</CF_MoodNoFood>
+  <CF2S_Name>Schedules</CF2S_Name>
+  <CF2S_Auto>Automatic schedules</CF2S_Auto>
+  <CF2S_AutoTip>Every colonist gets a schedule: sleep, work and recreation that grows when it is missing and shrinks when there is enough. When you change a schedule yourself, the steward leaves that colonist alone.</CF2S_AutoTip>
+  <CF2S_Night>Night shift</CF2S_Night>
+  <CF2S_NightTip>About a quarter of the colony (from 6 people) works at night and sleeps by day. Night owls always at night.</CF2S_NightTip>
+  <CF2S_Care>Rest and mood care</CF2S_Care>
+  <CF2S_CareTip>An exhausted colonist gets an hour of sleep, one close to a mental break an hour of recreation. Afterwards the hours go back.</CF2S_CareTip>
+  <CF2S_SitToEat>Eat at a table</CF2S_SitToEat>
+  <CF2S_SitToEatTip>Colonists sit down at a table even a bit further away; when there is none, the steward says why.</CF2S_SitToEatTip>
+  <CF2S_Messages>Messages about schedules and mood</CF2S_Messages>
+  <CF2S_Quiet>Fewer messages top left</CF2S_Quiet>
+  <CF2S_QuietTip>Routine notices (of other mods too) are not shown, only kept in the message history. Threats and important messages stay.</CF2S_QuietTip>
+</LanguageData>

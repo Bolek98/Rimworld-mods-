@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AT_AutoManned>有人タレットが自動で射撃</AT_AutoManned>
+  <AT_AutoManned_Desc>通常は入植者が必要なあなたのタレット（どのModのものでも）が、ミニタレットのように自動で射撃します。手動で目標を選ぶこともできます。</AT_AutoManned_Desc>
+  <AT_AutoMortars>迫撃砲が自動で射撃</AT_AutoMortars>
+  <AT_AutoMortars_Desc>あなたの迫撃砲やその他の砲弾兵器は、砲弾が装填されている間、敵に自動で射撃します。</AT_AutoMortars_Desc>
+  <AT_MortarSafety>迫撃砲は味方の近くを撃たない</AT_MortarSafety>
+  <AT_MortarSafety_Desc>自動迫撃砲は、砲弾があなたの入植者、動物、ゲストに落ちる可能性のある目標をスキップします。</AT_MortarSafety_Desc>
+  <AT_SafetyExtra>追加の安全距離：{0} マス</AT_SafetyExtra>
+  <AT_LoadShells>入植者が砲弾を装填（運搬作業）</AT_LoadShells>
+  <AT_LoadShells_Desc>運搬係がマップ上のどこからでも砲弾を空の自動迫撃砲に運びます。迫撃砲自身の砲弾フィルターは尊重されます。</AT_LoadShells_Desc>
+  <AT_AnyMetal>タレットはどの金属でも再装填</AT_AnyMetal>
+  <AT_AnyMetal_Desc>鋼鉄（またはその他の単一の金属）で再装填するタレットが、どの金属でも受け付けます：鋼鉄、プラスチール、金、ウラン、Mod製の金属。</AT_AnyMetal_Desc>
+  <AT_AllowSilver>…銀も含む</AT_AllowSilver>
+  <AT_Restart>素材と壁内タレットの設定はゲームの再起動後に反映されます。</AT_Restart>
+  <AT_NoShell>利用可能な砲弾がありません</AT_NoShell>
+  <AT_FriendlyFire>タレットの同士討ち</AT_FriendlyFire>
+  <AT_FriendlyFire_Desc>オフにすると、タレットの弾は入植者・客人・同盟者をすり抜け、砲弾の爆発も彼らを傷つけません。オン＝ゲームと同じ。</AT_FriendlyFire_Desc>
+  <AT_FuelWood>タレットに木材も補給できる</AT_FuelWood>
+  <AT_FuelWood_Desc>金属で補給するタレットが木材も受け付けます。</AT_FuelWood_Desc>
+  <AT_FuelStone>タレットに石材ブロックも補給できる</AT_FuelStone>
+  <AT_FuelStone_Desc>金属で補給するタレットが石材ブロックも受け付けます。</AT_FuelStone_Desc>
+  <AT_WallTurrets>壁内タレット</AT_WallTurrets>
+  <AT_WallTurrets_Desc>選んだタレットに、防衛メニューで「…（壁内）」の別バージョンが追加されます。壁や滑らかにした岩壁の上に直接建てられ、その壁を置き換え、それ自体が壁として働きます：通行を遮り、屋根を支え、部屋を密閉したままにします。通常のタレットは変わりません。</AT_WallTurrets_Desc>
+  <AT_WallRecommended>おすすめの選択</AT_WallRecommended>
+  <AT_WallNone>タレットが見つかりません。</AT_WallNone>
+  <AT_WallLabel>{0}（壁内）</AT_WallLabel>
+  <AT_WallDescExtra>壁の上に建てる：壁を置き換え、壁と同じく通行を遮り屋根を支えます。破壊されると壁に穴が残ります。</AT_WallDescExtra>
+  <AT_SecShooting>射撃</AT_SecShooting>
+  <AT_SecMaterials>弾薬と素材</AT_SecMaterials>
+  <AT_WallEnable>壁内タレットを許可</AT_WallEnable>
+  <AT_WallAll>すべて選択</AT_WallAll>
+  <AT_WallClear>すべて解除</AT_WallClear>
+  <AT_WallCount>{1} 個中 {0} 個を選択</AT_WallCount>
+  <AT_WallSearch>検索：</AT_WallSearch>
+  <AT_WallRecDone>おすすめの選択に戻しました（小型タレット {0} 個）。</AT_WallRecDone>
+  <AT_WallAllDone>{0} 個すべてのタレットを選択しました。</AT_WallAllDone>
+  <AT_WallClearDone>選択を解除しました。</AT_WallClearDone>
+  <AT_RestartNeeded>⚠ 壁内タレットの変更はゲームの再起動後に反映されます。</AT_RestartNeeded>
+  <AT_WallRecTip>おすすめ：2×2 までの小型タレット</AT_WallRecTip>
+  <AT_SmartShells>砲弾の賢い選択</AT_SmartShells>
+  <AT_SmartShells_Desc>自動迫撃砲は砲弾を無駄にしません：EMPはメカノイドとシールド持ちの敵だけに、焼夷弾はメカノイド以外に、消火泡はホームエリア内の火災だけに（敵には撃ちません）。敵の大半がメカノイドなら運搬係がEMP砲弾を、そうでなければ榴弾を運びます（迫撃砲のフィルターが許す場合）。</AT_SmartShells_Desc>
+  <AT_NoHitBuildings>タレットは自軍の建物に当てない</AT_NoHitBuildings>
+  <AT_NoHitBuildings_Desc>オンにすると、タレットの弾は狙った場合を除き自分の建物（壁、土嚢、ドア…）をすり抜け、砲弾の爆発も建物を傷つけません。敵の建物には通常どおり命中します。オフ＝ゲームと同じ。</AT_NoHitBuildings_Desc>
+  <AT_WallOutward>壁内タレットは外側にのみ射撃</AT_WallOutward>
+  <AT_WallOutward_Desc>壁内のタレットは、壁の外側（部屋の反対側）の標的にのみ射撃します。どちらの側も明確に屋外でない場合（二つの部屋の間の壁）は全方向に射撃します。</AT_WallOutward_Desc>
+  <AT_TabTurrets>タレット</AT_TabTurrets>
+  <AT_TurretsDesc>すべてのタレット、迫撃砲、砲 – バニラもMODも。チェックしたものは自動で射撃します。チェックなし：人手が必要なタレットと迫撃砲は再び入植者が必要になり、自動タレットは目標を指定するまで撃ちません。</AT_TurretsDesc>
+  <AT_TurretsNone>入植者が必要なタレットはありません。</AT_TurretsNone>
+  <AT_TurretsCount>{1} 中 {0} が自動射撃</AT_TurretsCount>
+  <AT_FuelEdit>素材…</AT_FuelEdit>
+  <AT_FuelPerTurret>各タレットの素材 – MOD専用の弾薬や燃料が必要なタレットも。「素材…」をクリックし、他に補給に使えるものをチェックします。すぐに反映されます。</AT_FuelPerTurret>
+  <AT_FuelNone>補給が必要なタレットはありません。</AT_FuelNone>
+  <AT_FuelTakes>使用：{0}</AT_FuelTakes>
+  <AT_FuelOriginal>元の素材：{0}。他に補給に使えるものをチェック：</AT_FuelOriginal>
+  <AT_FuelOrig>元の</AT_FuelOrig>
+  <AT_FuelGroup0>金属</AT_FuelGroup0>
+  <AT_FuelGroup1>木材</AT_FuelGroup1>
+  <AT_FuelGroup2>石材ブロック</AT_FuelGroup2>
+  <AT_FuelGroup3>弾薬と砲弾</AT_FuelGroup3>
+  <AT_FuelGroup4>その他の資源</AT_FuelGroup4>
+  <AT_KindManned>要操作</AT_KindManned>
+  <AT_KindMortar>要操作の迫撃砲</AT_KindMortar>
+  <AT_KindAuto>自動</AT_KindAuto>
+  <AT_KindMortarAuto>迫撃砲</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>砲弾を自動装填</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>運搬係がこの迫撃砲に自動で砲弾を運びます。手動でのみ装填したい場合はオフにします。</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>弾薬：{0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>このタレットに装填・補給する砲弾または素材を1つだけ選びます – それ以外は運ばれません。「許可されたもの全部」はタレットが受け付けるものすべてを使います。</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>許可されたもの全部</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>特殊砲弾は選んだときだけ</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>運搬係はEMP、焼夷、消火泡などの特殊砲弾を「弾薬」ボタンで指定した迫撃砲にだけ運びます。それ以外は榴弾を運びます。</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>専用弾薬のタレットも金属を受け付ける</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>専用の弾薬や燃料が必要なタレット（多くはMOD）も鋼鉄や他の金属で補給できます – 弾薬がないせいで止まることがなくなります。</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>タレットに弾薬は不要</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>あなたのタレットは常に装填済みとして扱われ、弾薬も燃料も消費しません。MODのタレットが作れない弾薬を必要とするときに便利です。迫撃砲・砲・野砲にも常に砲弾が装填されています。</AT_FreeAmmo_Desc>
+  <AT_VfesAuto>自動で射撃します（Auto Turrets）——入植者は不要です。</AT_VfesAuto>
+  <AT_VfesSend>誰も操作していません——戦闘可能な最寄りの手の空いた入植者がすぐに向かいます。</AT_VfesSend>
+  <AT_VfesNobody>砲を操作できる人がいません。</AT_VfesNobody>
+  <AT_VfesGoes>{0}が砲の操作に向かいます。</AT_VfesGoes>
+  <AT_ShellsFromMaterial>迫撃砲と砲を砲弾の代わりに素材で装填する</AT_ShellsFromMaterial>
+  <AT_ShellsFromMaterial_Desc>運搬役が迫撃砲・砲・野砲に鋼鉄（または他の金属）を運び、その砲に選んだ砲弾、選んでいなければ榴弾が装填されます。砲弾は一切不要です。VFEの自動迫撃砲も素材で砲弾を補充します。</AT_ShellsFromMaterial_Desc>
+  <AT_ShellCost>砲弾1発あたりの素材: {0}</AT_ShellCost>
+  <AT_NoMaterial>素材が足りません（砲弾1発に金属{0}）</AT_NoMaterial>
+</LanguageData>

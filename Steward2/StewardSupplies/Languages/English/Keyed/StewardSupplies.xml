@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_S_On>Keep supplies</CF_S_On>
+  <CF_S_RunNow>Check now</CF_S_RunNow>
+  <CF_S_AreaAny>Whole map</CF_S_AreaAny>
+  <CF_S_AreaTip>Only mark things inside this area.</CF_S_AreaTip>
+  <CF_S_HuntPregnant>Hunt pregnant animals</CF_S_HuntPregnant>
+  <CF_S_Marked>Steward – supplies: marked {0}.</CF_S_Marked>
+  <CF_S_NothingToMark>Steward – supplies: nothing needs marking.</CF_S_NothingToMark>
+  <CF_S_Desc>Set how much you want in storage. When there is less (counting what is already marked or lying around), the steward marks the nearest trees, plants, veins or animals – only as many as needed. Colonists do the rest through their normal work.</CF_S_Desc>
+  <CF_S_OnTip>When on, the steward checks this map every few hours (set in Overview) and marks what is needed.</CF_S_OnTip>
+  <CF_S_Status>stored {0}  +{1} on the way  /  {2}</CF_S_Status>
+  <CF_J_Overview>Overview</CF_J_Overview>
+  <CF_J_Hunting>Hunting</CF_J_Hunting>
+  <CF_J_Forestry>Forestry</CF_J_Forestry>
+  <CF_J_Foraging>Foraging</CF_J_Foraging>
+  <CF_J_Mining>Mining</CF_J_Mining>
+  <CF_J_Emergency>Food emergency</CF_J_Emergency>
+  <CF_J_Short>{0} / {1}</CF_J_Short>
+  <CF_J_Off>off</CF_J_Off>
+  <CF_J_Active>{0} active</CF_J_Active>
+  <CF_J_EmergencyNow>ACTIVE</CF_J_EmergencyNow>
+  <CF_J_EmergencyIdle>standing by</CF_J_EmergencyIdle>
+  <CF_J_NextCheck>Next check in {0} h</CF_J_NextCheck>
+  <CF_J_Interval>Check every {0} h</CF_J_Interval>
+  <CF_J_Enabled>On</CF_J_Enabled>
+  <CF_J_Target>Target:</CF_J_Target>
+  <CF_J_ProgressTip>Green = in storage. Yellow = on the way (lying on the map, or in marked trees, plants, veins and animals, or in killed animals not butchered yet).</CF_J_ProgressTip>
+  <CF_J_All>Select all</CF_J_All>
+  <CF_J_None>Select none</CF_J_None>
+  <CF_J_Default>Default selection</CF_J_Default>
+  <CF_J_UnitMeat>meat</CF_J_UnitMeat>
+  <CF_J_HuntingDesc>Keeps raw meat in storage. Only the animals ticked below are hunted, nearest first. Predators and animals that often turn manhunter are off by default.</CF_J_HuntingDesc>
+  <CF_J_ForestryDesc>Keeps wood in storage. Only the trees ticked below are cut, nearest first and only when fully grown. Trees in growing zones are never touched. Special trees (anima, gauranlen …) are off by default.</CF_J_ForestryDesc>
+  <CF_J_ForagingDesc>Keeps wild plant food (berries, agave …) and other wild harvests in storage. Only the plants ticked below are harvested. Crops in growing zones are never touched.</CF_J_ForagingDesc>
+  <CF_J_MiningDesc>A target for every resource found in veins on this map. Tick a resource, set how much you want, and the nearest veins are marked for mining.</CF_J_MiningDesc>
+  <CF_J_NoVeins>No mineable veins found on this map yet (fogged areas are not counted).</CF_J_NoVeins>
+  <CF_J_AnimalInfo>on map: {0}  {1}</CF_J_AnimalInfo>
+  <CF_J_Dangerous>· dangerous</CF_J_Dangerous>
+  <CF_J_PlantInfo>on map: {0}  · gives {1}</CF_J_PlantInfo>
+  <CF_J_EmergencyDesc>When the colony has food for fewer days than set below, the steward immediately marks edible wild plants for harvesting and then animals for hunting – whatever the targets are. It stops when there is enough food again.</CF_J_EmergencyDesc>
+  <CF_J_EmergencyDays>Emergency below {0} days of food</CF_J_EmergencyDays>
+  <CF_J_FoodDays>Food now: {0} days (colonists and prisoners)</CF_J_FoodDays>
+  <CF_J_EmergencyHow>Uses the animal and plant selection from Hunting and Foraging, and their areas. Edible wild plants first (safe), hunting second. Mature crops in growing zones are harvested by your growers anyway.</CF_J_EmergencyHow>
+  <CF_J_EmergencyStart>Food emergency: food for only {0} days. The steward is marking edible plants and animals to hunt.</CF_J_EmergencyStart>
+  <CF_J_EmergencyEnd>Food emergency over.</CF_J_EmergencyEnd>
+  <CF_J_Livestock>Livestock</CF_J_Livestock>
+  <CF_J_LivestockDesc>For every tamed species, set how many adult females, adult males and young animals you want. The surplus is marked for slaughter, oldest first. Bonded animals are never marked; pregnant ones only if you allow it. Optionally the whole herd is kept in one area.</CF_J_LivestockDesc>
+  <CF_J_NoAnimals>No tamed animals on this map yet.</CF_J_NoAnimals>
+  <CF_J_HerdNow>now: {0} ♀  {1} ♂  {2} young</CF_J_HerdNow>
+  <CF_J_KeepFemales>Keep females</CF_J_KeepFemales>
+  <CF_J_KeepMales>Keep males</CF_J_KeepMales>
+  <CF_J_KeepYoung>Keep young</CF_J_KeepYoung>
+  <CF_J_KeepPregnant>Never slaughter pregnant</CF_J_KeepPregnant>
+  <CF_J_AnimalAreaNone>Area: unchanged</CF_J_AnimalAreaNone>
+  <CF_J_AnimalAreaTip>Keep all animals of this species in this area.</CF_J_AnimalAreaTip>
+  <CF_J_StepTip>Shift: ±10, Ctrl: ±100</CF_J_StepTip>
+  <CF_J_KeepSpecies>Keep alive of each species</CF_J_KeepSpecies>
+  <CF_J_OutsideHome>Only outside the home area</CF_J_OutsideHome>
+  <CF_J_OutsideHomeTip>Trees inside the home area are never cut, so the base keeps its trees.</CF_J_OutsideHomeTip>
+  <CF_J_KeepTrees>Always leave standing</CF_J_KeepTrees>
+  <CF_J_ClearOff>Clear area: off</CF_J_ClearOff>
+  <CF_J_ClearOn>Clear area: {0}</CF_J_ClearOn>
+  <CF_J_ClearTip>Every plant in this area is cut (trees, bushes, grass) – for a building site or a fire break. Crops in growing zones are left alone. Independent of the wood target.</CF_J_ClearTip>
+  <CF_J_Clear>clearing</CF_J_Clear>
+  <CF_J_GraphWait>graph after 2 days</CF_J_GraphWait>
+  <CF_J_GraphTip>Stock over the last days (green) and the target (yellow line).</CF_J_GraphTip>
+  <CF_T_Tidy>Carry out things with no storage</CF_T_Tidy>
+  <CF_T_TidyTip>Things lying in the home area go to storage as usual. When there is no room for them anywhere, colonists carry them to the dump area. Without a dump area they stay where they are. Part of Hauling work. Dead people are left for graves.</CF_T_TidyTip>
+  <CF_T_DumpAuto>Dump: stockpiles only</CF_T_DumpAuto>
+  <CF_T_Dump>Dump: {0}</CF_T_Dump>
+  <CF_T_DumpTip>Things with no stockpile are put down only in the area you pick. Without one, colonists leave them where they are.</CF_T_DumpTip>
+  <CF_A_Label>Steward: supplies</CF_A_Label>
+  <CF_A_Explanation>The steward cannot keep some supplies:</CF_A_Explanation>
+  <CF_A_NoSources>{0}: below target and nothing left to mark (check the selection, area and fog).</CF_A_NoSources>
+  <CF_A_NoHunter>Hunting is needed, but no colonist who can hunt has a ranged weapon.</CF_A_NoHunter>
+  <CF_A_NoSourcesHere>Below target and nothing to mark – check the selection, area or keep limits.</CF_A_NoSourcesHere>
+  <CF_J_Production>Production</CF_J_Production>
+  <CF_J_Power>Power</CF_J_Power>
+  <CF_J_Household>Household</CF_J_Household>
+  <CF_J_On>on</CF_J_On>
+  <CF_J_ProductionDesc>Keep finished goods in stock: meals, medicine, clothes, components … Each target becomes one "do until X" bill on the best workbench that can make it. The steward keeps that bill (recreates, moves, updates, suspends it); your own bills are never touched.</CF_J_ProductionDesc>
+  <CF_X_AddProduct>Add product</CF_X_AddProduct>
+  <CF_X_NoBillYet>no bill yet (next check)</CF_X_NoBillYet>
+  <CF_X_BillAt>bill at {0}</CF_X_BillAt>
+  <CF_X_RemoveProduct>Remove target and its bill</CF_X_RemoveProduct>
+  <CF_J_PowerDesc>When the batteries of a power net run low, the chosen devices are switched off; when they are charged again, the steward switches back on what it switched off. Devices you switched off yourself stay off.</CF_J_PowerDesc>
+  <CF_X_PowerNow>Now: {0} W surplus · stored {1} / {2} Wd ({3})</CF_X_PowerNow>
+  <CF_X_PowerLow>Switch off below {0} charge</CF_X_PowerLow>
+  <CF_X_PowerHigh>Switch back on above {0} charge</CF_X_PowerHigh>
+  <CF_X_PowerDevices>Devices that may be switched off:</CF_X_PowerDevices>
+  <CF_X_DeviceInfo>{0}× · {1} W each</CF_X_DeviceInfo>
+  <CF_J_HouseholdDesc>Order in the base: things with no room in storage are carried out, and dirt in important rooms is cleaned first.</CF_J_HouseholdDesc>
+  <CF_C_Clean>Clean important rooms first</CF_C_Clean>
+  <CF_C_CleanTip>Dirt in the rooms ticked below is cleaned before dirt anywhere else. Dirt in a kitchen spreads food poisoning, in a hospital it raises infection risk. Part of Cleaning work.</CF_C_CleanTip>
+  <CF_C_FilthNow>Dirt in these rooms now: {0}</CF_C_FilthNow>
+  <CF_C_Rooms>Rooms cleaned first:</CF_C_Rooms>
+  <CF_X_Cancel>Cancel steward marks</CF_X_Cancel>
+  <CF_X_CancelTip>Removes every cut, hunt, harvest, mine and slaughter mark the steward made. Your own marks stay.</CF_X_CancelTip>
+  <CF_X_CancelConfirm>Remove all marks made by the steward on this map? Marks you made yourself stay.</CF_X_CancelConfirm>
+  <CF_X_Cancelled>Steward: {0} marks removed.</CF_X_Cancelled>
+  <CF_X_OtherMap>{0}: {1}</CF_X_OtherMap>
+  <CF_H_Chunks>Clear stone chunks and slag</CF_H_Chunks>
+  <CF_H_ChunksTip>Stone chunks and slag lying in the home area are marked for hauling by the steward – just as if you had marked them yourself – a few at a time, when there is little other hauling. Any colonist with Hauling on takes them to a stockpile that accepts chunks; with no such stockpile they go to the dump area, if one is set. Forbidden chunks are left alone.</CF_H_ChunksTip>
+  <CF_H_Items>Mark loose things for hauling</CF_H_Items>
+  <CF_H_ItemsTip>Everything lying in the home area outside a shelf or stockpile (with a place to go) is marked for hauling by the steward – also things forbidden after a raid. A few at a time, nearest to the colony first.</CF_H_ItemsTip>
+  <CF_H_Pockets>Colonists unload forgotten things from their pockets</CF_H_Pockets>
+  <CF_H_PocketsTip>Things a colonist carries in the inventory for no reason (left from inventory hauling, picked up and forgotten) are put down and carried to storage. Weapons, drugs and stock from their policies and travel food are kept. A thing must sit in the pocket for about half an hour first. With Harvest And Haul its own unload job takes them – everything goes to storage in one trip.</CF_H_PocketsTip>
+  <CF_H_Workers>Colonists doing this:</CF_H_Workers>
+  <CF_H_WorkersTip>How many colonists carry out things with no storage (and clean, in the row below). 0 = everyone who has the work type on. The steward picks those with the fewest top-priority jobs, faster walkers first, every in-game hour. Shift: ±10. Chunks marked for hauling are taken by any hauler.</CF_H_WorkersTip>
+  <CF_H_Everyone>everyone</CF_H_Everyone>
+  <CF_H_Nobody>nobody available</CF_H_Nobody>
+  <CF_X_PickTitle>Add product</CF_X_PickTitle>
+  <CF_X_InStock>in stock: {0}</CF_X_InStock>
+  <CF_X_OpenMint>Open Mint bills</CF_X_OpenMint>
+  <CF_X_OpenMintTip>Opens the Dubs Mint Menus bill menu with all workbenches. Make a "do until X" bill there and adopt it here – the steward then keeps it.</CF_X_OpenMintTip>
+  <CF_X_Adopt>Adopt bills ({0})</CF_X_Adopt>
+  <CF_X_AdoptTip>"Do until X" bills made by hand or in Dubs Mint Menus. The steward takes them over: recreates them if deleted, moves them when the bench is gone, suspends them when switched off.</CF_X_AdoptTip>
+  <CF_H_Products>Carry finished goods away at once</CF_H_Products>
+  <CF_H_ProductsTip>Meals, medicine, clothes and other things lying next to a workbench, stove or crafting spot are taken to storage before any other hauling. Steward bills set to "drop on floor" are switched to "take to best stockpile". Part of Hauling work.</CF_H_ProductsTip>
+  <CF_M_Target>Keep ready meals for</CF_M_Target>
+  <CF_M_TargetTip>Target stock of cooked meals, in days of food for everyone who eats. When the colony has this much or more, every bill that makes meals is paused; when the stock drops below it, the bills paused by the steward start again. Bills you paused yourself stay paused. Shift = step of 2 days.</CF_M_TargetTip>
+  <CF_M_Days>{0} days</CF_M_Days>
+  <CF_M_Now>now {0} days</CF_M_Now>
+  <CF_M_Paused>{0} meal bills paused</CF_M_Paused>
+  <CF_M_Cooking>cooking</CF_M_Cooking>
+  <CF_M_Page>Ready meals</CF_M_Page>
+  <CF_M_Short>{0} / {1} days</CF_M_Short>
+  <CF_M_Bills>Bills that make meals: {0}</CF_M_Bills>
+  <CF_M_NoBills>There is no bill that makes meals. Add one at a stove (or in Production) – the steward only pauses and resumes bills, it does not create them.</CF_M_NoBills>
+  <CF_M_BillOn>cooking</CF_M_BillOn>
+  <CF_M_BillSteward>paused by steward</CF_M_BillSteward>
+  <CF_M_BillYou>paused by you</CF_M_BillYou>
+  <CF_H_Blight>Cut blighted plants</CF_H_Blight>
+  <CF_H_BlightTip>Plants with blight in growing zones, plant pots, hydroponics and the home area are marked for cutting every hour, so blight does not spread. The blight crisis then gives plant cutting more colonists.</CF_H_BlightTip>
+  <CF_BlightMarked>Steward: {0} blighted plants marked for cutting.</CF_BlightMarked>
+  <CF_P_MaySwitch>Steward may switch off</CF_P_MaySwitch>
+  <CF_P_MaySwitchDesc>When batteries run low, the steward switches off chosen devices one by one, the biggest first. Turn this off to keep this one device always on.</CF_P_MaySwitchDesc>
+  <CF_A_Page>Self-supply</CF_A_Page>
+  <CF_A_Short>{0} bills</CF_A_Short>
+  <CF_A_Desc>When the colony runs short of something it can make, the steward adds a bill for exactly what is missing, on the best bench that can make it (a real workbench before a campfire or a spot), and removes it when done – never "forever". Things in storage and your own bills count first.</CF_A_Desc>
+  <CF_A_On>Self-supply on</CF_A_On>
+  <CF_A_Meals>Meals</CF_A_Meals>
+  <CF_A_Medicine>Medicine</CF_A_Medicine>
+  <CF_A_Clothes>Clothes and accessories</CF_A_Clothes>
+  <CF_A_Armor>Armor</CF_A_Armor>
+  <CF_A_Weapons>Weapons</CF_A_Weapons>
+  <CF_A_Materials>Materials</CF_A_Materials>
+  <CF_A_Worn>Replace at less than {0} % condition</CF_A_Worn>
+  <CF_A_Bills>Bills made by self-supply: {0}</CF_A_Bills>
+  <CF_A_RemoveAll>Remove these bills</CF_A_RemoveAll>
+  <CF_A_Last>Last added: {0}</CF_A_Last>
+  <CF_A_Kind_meals>meals</CF_A_Kind_meals>
+  <CF_A_Kind_medicine>medicine</CF_A_Kind_medicine>
+  <CF_A_Kind_clothes>clothes</CF_A_Kind_clothes>
+  <CF_A_Kind_armor>armor</CF_A_Kind_armor>
+  <CF_A_Kind_weapon>weapon</CF_A_Kind_weapon>
+  <CF_A_Kind_material>material</CF_A_Kind_material>
+  <CF_A_Left>{0}× left</CF_A_Left>
+  <CF_A_Until>until {0}</CF_A_Until>
+  <CF_A_Race>Respect race restrictions</CF_A_Race>
+  <CF_A_RaceTip>On: alien races (Humanoid Alien Races) only get clothes and weapons their race may use. Turn off if another mod lifts these restrictions – then everyone can get everything.</CF_A_RaceTip>
+  <CF_W_Reassign>Re-assign work now</CF_W_Reassign>
+  <CF_W_ReassignHere_Desc>Plans the work priorities of this map again right now (the same as "Recalculate" in the Work tab). Locked cells, jobs and colonists are kept.</CF_W_ReassignHere_Desc>
+  <CF_W_LastPlan>Work priorities: planned {0} ago, {1} changed – style {2}.</CF_W_LastPlan>
+  <CF_W_LastPlanNever>Work priorities: not planned on this map since the game was loaded.</CF_W_LastPlanNever>
+  <CF_W_LastPlan_Desc>Hover a cell in the Work tab to see why a colonist got that priority: skill, passion, speed, rank, the quota of colonists for the job and the rule that decided the level.</CF_W_LastPlan_Desc>
+  <CF_W_StewardOff>(steward is off on this map)</CF_W_StewardOff>
+  <CF_NoStorage>{0} ({1}×) lies on the ground and nobody hauls it: no stockpile takes it or they are full. Allow it in some stockpile's filter.</CF_NoStorage>
+  <CF_J_ClearTooBig>{0} – too big to clear</CF_J_ClearTooBig>
+  <CF_J_ClearTooBigOff>Clear area "{0}" is too big (it would be half the map) – switched off and its cut marks cancelled. Make a small area just for a building site or a fire break.</CF_J_ClearTooBigOff>
+  <CF_J_ClearCancelled>Cut marks of the cleared area cancelled: {0}</CF_J_ClearCancelled>
+  <CF2U_Name>Supplies</CF2U_Name>
+  <CF2U_Hint>Stock targets, bills, animals and the household are set in the Supplies tab (bottom bar).</CF2U_Hint>
+  <CF2U_Messages>Messages about what the steward marked</CF2U_Messages>
+  <CF2U_MasterBills>Master bills</CF2U_MasterBills>
+  <CF2U_MasterBillsTip>Quality weapons and clothes are made only by the best crafters (always at least two). Your own bill settings come first.</CF2U_MasterBillsTip>
+  <CF2U_NoStorage>Alert when a thing has nowhere to go</CF2U_NoStorage>
+  <CF2U_NoStorageTip>When a thing cannot be stored anywhere, the steward says why.</CF2U_NoStorageTip>
+  <CF2U_PUAH>Haul with Pick Up And Haul</CF2U_PUAH>
+  <CF2U_PUAHTip>The steward carries things to storage in Pick Up And Haul's pockets.</CF2U_PUAHTip>
+  <CF_J_ReleaseSurplus>Release surplus</CF_J_ReleaseSurplus>
+  <CF_J_ReleaseSurplusTip>Surplus animals are released to the wild instead of slaughtered (species that cannot be released are still slaughtered). Quest guest animals never count toward the targets.</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>Deep drills</CF_D_Drills>
+  <CF_D_Control>Switch deep drills by the target ({0} here)</CF_D_Control>
+  <CF_D_ControlTip>Deep drills on this resource are switched off when the stock reaches the target and on again when it drops below. Only drills the steward switched off are switched on again. Drill types chosen on the power page are left to power management.</CF_D_ControlTip>
+  <CF_J_SparkWait>history after 2 hours</CF_J_SparkWait>
+  <CF_J_SparkTip>Stock once an hour over the last {0} days: lowest {1}, highest {2}, now {3}. Yellow line: the target.</CF_J_SparkTip>
+  <CF_X_Ingredients>Also keep enough ingredients</CF_X_Ingredients>
+  <CF_X_IngredientsTip>Adds or raises the targets of this recipe's ingredients (mining, production or wood) so there is enough for the whole target. Targets are only raised, never lowered. Only ingredients of one fixed kind (steel, components …), not 'any meat' or 'any fabric'.</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>This recipe has no ingredient of one fixed kind.</CF_X_IngredientsNone>
+  <CF_J_WatchTip>Tick it and the steward looks after this species (numbers, culling the surplus, area).</CF_J_WatchTip>
+  <CF_J_Watched>Looked after</CF_J_Watched>
+  <CF_J_NotWatched>Not looked after – tick on the left</CF_J_NotWatched>
+  <CF_J_NoneLeft>None left</CF_J_NoneLeft>
+  <CF_J_RemoveRule>✕ Remove</CF_J_RemoveRule>
+  <CF_J_SpareYoung>Never cull the young</CF_J_SpareYoung>
+  <CF_J_SpareYoungTip>Young animals are never marked for slaughter or release; only grown animals count.</CF_J_SpareYoungTip>
+  <CF_J_AllYoung>all</CF_J_AllYoung>
+</LanguageData>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AT_AutoManned>Torretas tripuladas disparam sozinhas</AT_AutoManned>
+  <AT_AutoManned_Desc>Suas torretas que normalmente precisam de um colono (de qualquer mod) atiram automaticamente, como uma mini-torreta. Você ainda pode escolher um alvo manualmente.</AT_AutoManned_Desc>
+  <AT_AutoMortars>Morteiros disparam sozinhos</AT_AutoMortars>
+  <AT_AutoMortars_Desc>Seus morteiros e outras armas de projéteis atiram automaticamente nos inimigos enquanto tiverem um projétil carregado.</AT_AutoMortars_Desc>
+  <AT_MortarSafety>Morteiros não atiram perto do seu pessoal</AT_MortarSafety>
+  <AT_MortarSafety_Desc>Um morteiro automático ignora alvos onde o projétil poderia cair sobre seus colonos, animais ou hóspedes.</AT_MortarSafety_Desc>
+  <AT_SafetyExtra>Distância de segurança extra: {0} células</AT_SafetyExtra>
+  <AT_LoadShells>Colonos carregam projéteis (trabalho Transportar)</AT_LoadShells>
+  <AT_LoadShells_Desc>Os transportadores levam projéteis de qualquer lugar do mapa para morteiros automáticos vazios. O filtro de projéteis do morteiro é respeitado.</AT_LoadShells_Desc>
+  <AT_AnyMetal>Torretas se rearmam com qualquer metal</AT_AnyMetal>
+  <AT_AnyMetal_Desc>Torretas que se rearmam com aço (ou outro metal único) aceitam qualquer metal: aço, plastaço, ouro, urânio e metais de mods.</AT_AnyMetal_Desc>
+  <AT_AllowSilver>…incluindo prata</AT_AllowSilver>
+  <AT_Restart>As configurações de materiais e torretas nas paredes valem após reiniciar o jogo.</AT_Restart>
+  <AT_NoShell>Nenhum projétil disponível</AT_NoShell>
+  <AT_FriendlyFire>Fogo amigo das torres</AT_FriendlyFire>
+  <AT_FriendlyFire_Desc>Desligado: as balas das suas torres passam pelos seus colonos, convidados e aliados, e as explosões dos projéteis não os ferem. Ligado = como no jogo.</AT_FriendlyFire_Desc>
+  <AT_FuelWood>Recarregar torres também com madeira</AT_FuelWood>
+  <AT_FuelWood_Desc>Torres que recarregam com metal também aceitam madeira.</AT_FuelWood_Desc>
+  <AT_FuelStone>Recarregar torres também com blocos de pedra</AT_FuelStone>
+  <AT_FuelStone_Desc>Torres que recarregam com metal também aceitam blocos de pedra.</AT_FuelStone_Desc>
+  <AT_WallTurrets>Torretas nas paredes</AT_WallTurrets>
+  <AT_WallTurrets_Desc>As torretas escolhidas ganham uma segunda versão "… (na parede)" no menu Segurança. Ela é construída direto sobre uma parede ou parede de rocha polida, substitui esse pedaço de parede e funciona como parede: bloqueia a passagem, sustenta o teto e mantém o cômodo fechado. As torretas normais continuam iguais.</AT_WallTurrets_Desc>
+  <AT_WallRecommended>Seleção recomendada</AT_WallRecommended>
+  <AT_WallNone>Nenhuma torreta encontrada.</AT_WallNone>
+  <AT_WallLabel>{0} (na parede)</AT_WallLabel>
+  <AT_WallDescExtra>Construída sobre uma parede: substitui o pedaço de parede, bloqueia a passagem e sustenta o teto como parede. Se for destruída, fica um buraco na parede.</AT_WallDescExtra>
+  <AT_SecShooting>Disparo</AT_SecShooting>
+  <AT_SecMaterials>Munição e materiais</AT_SecMaterials>
+  <AT_WallEnable>Permitir torretas nas paredes</AT_WallEnable>
+  <AT_WallAll>Selecionar tudo</AT_WallAll>
+  <AT_WallClear>Limpar tudo</AT_WallClear>
+  <AT_WallCount>{0} de {1} selecionadas</AT_WallCount>
+  <AT_WallSearch>Buscar:</AT_WallSearch>
+  <AT_WallRecDone>Seleção recomendada restaurada – {0} torretas pequenas selecionadas.</AT_WallRecDone>
+  <AT_WallAllDone>Todas as {0} torretas selecionadas.</AT_WallAllDone>
+  <AT_WallClearDone>Seleção limpa.</AT_WallClearDone>
+  <AT_RestartNeeded>⚠ Reinicie o jogo para aplicar as mudanças das torretas nas paredes.</AT_RestartNeeded>
+  <AT_WallRecTip>Recomendado: torreta pequena até 2×2</AT_WallRecTip>
+  <AT_SmartShells>Escolha inteligente de projéteis</AT_SmartShells>
+  <AT_SmartShells_Desc>Morteiros automáticos não desperdiçam projéteis: EMP só contra mecanoides e inimigos com escudo, incendiários não contra mecanoides, espuma antichamas só contra incêndios na área de casa (nunca contra inimigos). Os carregadores trazem projéteis EMP quando a maioria dos inimigos é mecanoide e, caso contrário, explosivos – se o filtro do morteiro permitir.</AT_SmartShells_Desc>
+  <AT_NoHitBuildings>Torres não atingem nossos edifícios</AT_NoHitBuildings>
+  <AT_NoHitBuildings_Desc>Ligado: as balas das suas torres passam pelos seus próprios edifícios (muros, sacos de areia, portas…), a menos que você mire neles, e as explosões dos projéteis não os danificam. Edifícios inimigos são atingidos normalmente. Desligado = como no jogo.</AT_NoHitBuildings_Desc>
+  <AT_WallOutward>Torretas de parede só atiram para fora</AT_WallOutward>
+  <AT_WallOutward_Desc>Uma torreta na parede só atira em alvos do lado de fora da sua parede (longe do cômodo). Se nenhum lado estiver claramente do lado de fora (parede entre dois cômodos), ela atira em todas as direções.</AT_WallOutward_Desc>
+  <AT_TabTurrets>Torres</AT_TabTurrets>
+  <AT_TurretsDesc>Todas as torres, morteiros e canhões – vanilla e de mods. Os marcados atiram sozinhos. Desmarcados: torres e morteiros operados voltam a precisar de colono, torres automáticas não atiram até você escolher um alvo.</AT_TurretsDesc>
+  <AT_TurretsNone>Nenhuma torre aqui precisa de colono.</AT_TurretsNone>
+  <AT_TurretsCount>{0} de {1} atiram sozinhos</AT_TurretsCount>
+  <AT_FuelEdit>Materiais…</AT_FuelEdit>
+  <AT_FuelPerTurret>Os materiais de cada torre – também torres que precisam de munição ou combustível próprio de um mod. Clique em "Materiais…" e marque com o que mais ela pode ser recarregada. Vale na hora.</AT_FuelPerTurret>
+  <AT_FuelNone>Nenhuma torre aqui é recarregada.</AT_FuelNone>
+  <AT_FuelTakes>usa: {0}</AT_FuelTakes>
+  <AT_FuelOriginal>Usa por si: {0}. Marque com o que mais pode ser recarregada:</AT_FuelOriginal>
+  <AT_FuelOrig>própria</AT_FuelOrig>
+  <AT_FuelGroup0>Metais</AT_FuelGroup0>
+  <AT_FuelGroup1>Madeira</AT_FuelGroup1>
+  <AT_FuelGroup2>Blocos de pedra</AT_FuelGroup2>
+  <AT_FuelGroup3>Munição e projéteis</AT_FuelGroup3>
+  <AT_FuelGroup4>Outros recursos</AT_FuelGroup4>
+  <AT_KindManned>operada</AT_KindManned>
+  <AT_KindMortar>morteiro operado</AT_KindMortar>
+  <AT_KindAuto>automática</AT_KindAuto>
+  <AT_KindMortarAuto>morteiro</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>Carregar projéteis automaticamente</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>Os carregadores levam projéteis a este morteiro sozinhos. Desligue para carregá-lo só à mão.</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>Munição: {0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>Escolha o único projétil ou material com que esta torre é carregada ou recarregada – nada mais é levado. "Qualquer permitido" usa tudo o que a torre aceita.</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>qualquer permitido</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>Projéteis especiais só quando escolhidos</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>Os carregadores levam projéteis EMP, incendiários, de espuma e outros especiais só a um morteiro ajustado para eles no botão "Munição"; senão levam explosivos.</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>Torres com munição própria aceitam metal também</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>Torres que precisam de munição ou combustível próprio (geralmente de mods) também podem ser recarregadas com aço ou outro metal – nunca ficam paradas por falta de munição.</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>Torres não precisam de munição</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>Suas torres contam sempre como carregadas e não gastam munição nem combustível. Útil quando uma torre de mod precisa de munição que você não consegue fazer. Morteiros, artilharia e canhões de campanha também sempre têm um projétil carregado.</AT_FreeAmmo_Desc>
+  <AT_VfesAuto>Atira sozinha (Auto Turrets) – nenhum colono necessário.</AT_VfesAuto>
+  <AT_VfesSend>Ninguém a opera – o colono livre mais próximo que pode lutar vai até lá agora.</AT_VfesSend>
+  <AT_VfesNobody>Ninguém pode operar a artilharia.</AT_VfesNobody>
+  <AT_VfesGoes>{0} vai operar a artilharia.</AT_VfesGoes>
+  <AT_ShellsFromMaterial>Carregar morteiros e artilharia com material em vez de projéteis</AT_ShellsFromMaterial>
+  <AT_ShellsFromMaterial_Desc>Carregadores levam aço (ou outro metal) a morteiros, artilharia e canhões de campanha, e a peça é carregada com o projétil escolhido ou, se não houver, um explosivo. Projéteis não são necessários. O morteiro automático do VFE também recarrega os projéteis com material.</AT_ShellsFromMaterial_Desc>
+  <AT_ShellCost>Material por projétil: {0}</AT_ShellCost>
+  <AT_NoMaterial>Material insuficiente ({0} de metal por projétil)</AT_NoMaterial>
+</LanguageData>

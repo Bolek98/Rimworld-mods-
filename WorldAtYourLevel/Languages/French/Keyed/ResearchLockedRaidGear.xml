@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RLRG_Enable>Activer le filtre</RLRG_Enable>
+  <RLRG_Enable_Desc>Les étrangers n'arrivent qu'avec l'équipement que votre colonie a recherché.</RLRG_Enable_Desc>
+  <RLRG_UseRecipes>Les recettes comptent comme recherche</RLRG_UseRecipes>
+  <RLRG_UseRecipes_Desc>Un objet est débloqué quand la recherche d'au moins une recette qui le fabrique est terminée.</RLRG_UseRecipes_Desc>
+  <RLRG_BlockHigherTech>Bloquer les objets au-dessus du niveau technologique de la colonie</RLRG_BlockHigherTech>
+  <RLRG_BlockHigherTech_Desc>Les objets sans recherche ne sont autorisés que jusqu'au niveau technologique recherché par votre colonie.</RLRG_BlockHigherTech_Desc>
+  <RLRG_BlockUntagged>Bloquer les objets de mods sans recherche</RLRG_BlockUntagged>
+  <RLRG_BlockUntagged_Desc>Les armes et vêtements d'autres mods sans recherche sont considérés comme verrouillés.</RLRG_BlockUntagged_Desc>
+  <RLRG_FilterAll>Filtrer toutes les arrivées</RLRG_FilterAll>
+  <RLRG_FilterAll_Desc>Raids, visiteurs, caravanes et quêtes. Si désactivé, seulement les hostiles et les attaquants.</RLRG_FilterAll_Desc>
+  <RLRG_SkipTraders>Ignorer les marchands</RLRG_SkipTraders>
+  <RLRG_SkipTraders_Desc>Les marchands gardent leur équipement.</RLRG_SkipTraders_Desc>
+  <RLRG_FilterApparel>Filtrer vêtements et armures</RLRG_FilterApparel>
+  <RLRG_FilterInventory>Filtrer l'inventaire</RLRG_FilterInventory>
+  <RLRG_FilterInventory_Desc>Armes et vêtements dans l'inventaire (par exemple des armes secondaires).</RLRG_FilterInventory_Desc>
+  <RLRG_Replace>Remplacer par l'objet recherché le plus proche</RLRG_Replace>
+  <RLRG_Replace_Desc>Un objet verrouillé est remplacé par un objet autorisé similaire, de même qualité et usure.</RLRG_Replace_Desc>
+  <RLRG_Drop>Laisser les objets verrouillés au sol</RLRG_Drop>
+  <RLRG_Drop_Desc>Les pillards portent les objets verrouillés dans leur inventaire – vous les récupérez comme butin en les battant. Les visiteurs et marchands ne laissent rien. Sinon l'objet verrouillé disparaît.</RLRG_Drop_Desc>
+  <RLRG_ExemptAncients>Ignorer les dangers anciens et les cryptodormeurs</RLRG_ExemptAncients>
+  <RLRG_ExemptAncients_Desc>Leur équipement fait partie de la récompense pour les avoir ouverts.</RLRG_ExemptAncients_Desc>
+  <RLRG_KeepTitleApparel>Les nobles gardent les vêtements requis</RLRG_KeepTitleApparel>
+  <RLRG_KeepTitleApparel_Desc>Les vêtements exigés par un titre royal ou un rôle d'idéologie ne sont pas retirés.</RLRG_KeepTitleApparel_Desc>
+  <RLRG_DamageDropped>Endommager les objets lâchés</RLRG_DamageDropped>
+  <RLRG_DamageDropped_Desc>Les objets verrouillés laissés au sol n'ont que 20–50 % de durabilité et les vêtements sont marqués comme portés par un cadavre. Empêche de les revendre facilement.</RLRG_DamageDropped_Desc>
+  <RLRG_Compensate>Compenser la force des raids</RLRG_Compensate>
+  <RLRG_Compensate_Desc>Quand les pillards perdent une partie de leur équipement, le raid reçoit des pillards supplémentaires pour garder la difficulté équilibrée.</RLRG_Compensate_Desc>
+  <RLRG_CompensationPct>Force de compensation : {0}%</RLRG_CompensationPct>
+  <RLRG_CompensationPct_Desc>Quelle part de l'équipement perdu est compensée par des pillards supplémentaires. Un raid peut recevoir au maximum 50 % de points en plus.</RLRG_CompensationPct_Desc>
+  <RLRG_TechAhead>Tolérance de niveau technologique : +{0}</RLRG_TechAhead>
+  <RLRG_TechAhead_Desc>Les étrangers peuvent avoir des objets jusqu'à ce nombre de niveaux technologiques au-dessus de votre colonie, même sans recherche. 0 = uniquement les objets recherchés.</RLRG_TechAhead_Desc>
+  <RLRG_KeepChance>Chance de garder un objet verrouillé : {0}%</RLRG_KeepChance>
+  <RLRG_KeepChance_Desc>Avec cette chance, un personnage garde un objet verrouillé. Le résultat est mémorisé, il n'est donc pas retiré au sort la fois suivante.</RLRG_KeepChance_Desc>
+  <RLRG_ExemptFactions>Factions exemptées (cochées = gardent leur équipement) :</RLRG_ExemptFactions>
+  <RLRG_NotifyRaid>Notifier l'arrivée d'un raid</RLRG_NotifyRaid>
+  <RLRG_NotifyRaid_Desc>Un message en haut à gauche indiquant combien d'équipement les pillards ont perdu et combien ont été ajoutés.</RLRG_NotifyRaid_Desc>
+  <RLRG_OpenList>Aperçu de l'équipement et interdictions manuelles...</RLRG_OpenList>
+  <RLRG_Biocode>Biocoder les remplacements</RLRG_Biocode>
+  <RLRG_Biocode_Desc>Les objets de remplacement sont biocodés pour leur porteur : vous ne pouvez pas les utiliser après le combat et ils se vendent moins cher. Ne fonctionne que pour les objets compatibles avec le biocodage (surtout les armes avancées).</RLRG_Biocode_Desc>
+  <RLRG_Years>Déblocage avec le temps : +1 niveau tous les {0} ans</RLRG_Years>
+  <RLRG_Years_Desc>Les pillards obtiennent peu à peu un meilleur équipement, même sans votre recherche. S'ajoute à la tolérance de niveau technologique.</RLRG_Years_Desc>
+  <RLRG_YearsOff>Déblocage avec le temps : désactivé</RLRG_YearsOff>
+  <RLRG_MsgRaid>Les pillards ont perdu {0}% de leur équipement.</RLRG_MsgRaid>
+  <RLRG_MsgRaidCompensated>Les pillards ont perdu {0}% de leur équipement. Raid renforcé de {1} pillards supplémentaires.</RLRG_MsgRaidCompensated>
+  <RLRG_TabWeapons>Armes</RLRG_TabWeapons>
+  <RLRG_TabApparel>Vêtements et armures</RLRG_TabApparel>
+  <RLRG_Search>Recherche :</RLRG_Search>
+  <RLRG_ListHint>Les objets cochés ne sont jamais donnés aux étrangers. Le statut montre ce qu'ils peuvent avoir en ce moment.</RLRG_ListHint>
+  <RLRG_ListNoGame>Les objets cochés ne sont jamais donnés aux étrangers. Chargez une partie pour voir le statut actuel.</RLRG_ListNoGame>
+  <RLRG_StatusBanned>Interdit</RLRG_StatusBanned>
+  <RLRG_StatusAllowed>Autorisé</RLRG_StatusAllowed>
+  <RLRG_StatusLocked>Verrouillé</RLRG_StatusLocked>
+  <RLRG_Ex_Allowed>Autorisé</RLRG_Ex_Allowed>
+  <RLRG_Ex_Locked>Verrouillé</RLRG_Ex_Locked>
+  <RLRG_Ex_Always>Nécessite toujours : {0}</RLRG_Ex_Always>
+  <RLRG_Ex_Option>Fabrication : {0}</RLRG_Ex_Option>
+  <RLRG_Ex_Free>Fabricable sans recherche</RLRG_Ex_Free>
+  <RLRG_Ex_NoResearch>Aucune recherche (le niveau technologique et la règle des objets de mods décident)</RLRG_Ex_NoResearch>
+  <RLRG_Ex_Tech>Niveau technologique : {0} (limite : {1})</RLRG_Ex_Tech>
+  <RLRG_Ex_Mod>Mod : {0}</RLRG_Ex_Mod>
+  <RLRG_Ex_Done>terminée</RLRG_Ex_Done>
+  <RLRG_Ex_Missing>manquante</RLRG_Ex_Missing>
+  <RLRG_TechMismatch>Vérifier les objets plus avancés que leur recherche</RLRG_TechMismatch>
+  <RLRG_TechMismatch_Desc>Quand un mod place un objet avancé sous une recherche inférieure (un fusil spatial sous une recherche industrielle), la colonie doit aussi atteindre le niveau technologique de cet objet.</RLRG_TechMismatch_Desc>
+  <RLRG_PowerEstimate>Estimer le niveau technologique des objets de mods selon leur puissance</RLRG_PowerEstimate>
+  <RLRG_PowerEstimate_Desc>Une arme ou armure de mod nettement plus forte que la meilleure industrielle du jeu de base compte comme spatiale, même si l'auteur du mod a fixé un niveau inférieur. C'est une estimation.</RLRG_PowerEstimate_Desc>
+  <RLRG_Ex_Power>La puissance correspond au niveau technologique : {0}</RLRG_Ex_Power>
+  <RLRG_Ex_NeedColony>La colonie doit atteindre le niveau technologique : {0}</RLRG_Ex_NeedColony>
+  <RLRG_LevelByProgress>Niveau de la colonie selon la progression de la recherche</RLRG_LevelByProgress>
+  <RLRG_LevelByProgress_Desc>La colonie atteint un niveau technologique dès qu'elle a terminé la part définie de la recherche de ce niveau. Désactivé = la recherche terminée la plus élevée décide (une seule suffit). Le niveau du scénario compte toujours comme minimum.</RLRG_LevelByProgress_Desc>
+  <RLRG_LevelProgress>Part requise de la recherche d'un niveau : {0}%</RLRG_LevelProgress>
+  <RLRG_LevelProgress_Desc>Quelle part de la recherche d'un niveau doit être terminée pour que la colonie compte comme ce niveau.</RLRG_LevelProgress_Desc>
+  <RLRG_CurrentLevel>Niveau actuel de la colonie : {0} (scénario : {1}, recherche : {2})</RLRG_CurrentLevel>
+  <RLRG_WorldHeader>Le monde au niveau de la colonie</RLRG_WorldHeader>
+  <RLRG_WorldRaids>Raids uniquement des factions jusqu'au niveau du monde</RLRG_WorldRaids>
+  <RLRG_WorldRaids_Desc>Les factions plus avancées que le niveau du monde (votre niveau + tolérance) ne peuvent pas envoyer de raids. Les factions exemptées de la liste ci-dessous ne sont pas limitées.</RLRG_WorldRaids_Desc>
+  <RLRG_WorldMechs>Limiter aussi les mécanoïdes et les insectoïdes</RLRG_WorldMechs>
+  <RLRG_WorldMechs_Desc>Par défaut, les mécanoïdes et les insectoïdes ne sont pas limités. Si activé, les raids mécanoïdes et les groupes de mécas n'arrivent pas avant que le monde atteigne leur niveau.</RLRG_WorldMechs_Desc>
+  <RLRG_WorldItems>Marchands, récompenses et butin jusqu'au niveau du monde</RLRG_WorldItems>
+  <RLRG_WorldItems_Desc>Les objets au-dessus du niveau du monde sont retirés du stock des marchands, des récompenses de quêtes et du butin. Les armes et vêtements suivent les mêmes règles que l'équipement des étrangers.</RLRG_WorldItems_Desc>
+  <RLRG_WorldIncidents>Incidents jusqu'au niveau du monde</RLRG_WorldIncidents>
+  <RLRG_WorldIncidents_Desc>Les crashs de pièces de vaisseau, débris de vaisseau, marchands orbitaux et (avec les mécanoïdes) groupes de mécas n'arrivent pas avant que le monde atteigne leur niveau.</RLRG_WorldIncidents_Desc>
+  <RLRG_WorldMessages>Message quand le niveau du monde change</RLRG_WorldMessages>
+  <RLRG_WorldUp>Le monde a progressé au niveau technologique : {0}.</RLRG_WorldUp>
+  <RLRG_WorldDown>Le niveau technologique du monde est maintenant : {0}.</RLRG_WorldDown>
+  <RLRG_WorldQuests>Quêtes jusqu'au niveau du monde</RLRG_WorldQuests>
+  <RLRG_WorldQuests_Desc>Les quêtes aléatoires du conteur impliquant une faction plus avancée que le monde (attaquant, allié, donneur de quête) sont discrètement abandonnées. Les quêtes liées à une technologie avancée (archotech, gravivaisseaux, avec les mécanoïdes aussi les quêtes de mécas) ne sont pas proposées. Les récompenses suivent la recherche comme chez les marchands. Les quêtes d'histoire et les cérémonies ne sont jamais bloquées.</RLRG_WorldQuests_Desc>
+  <RLRG_TabWorld>Niveau du monde</RLRG_TabWorld>
+  <RLRG_TabArrivals>Pillards et arrivées</RLRG_TabArrivals>
+  <RLRG_TabRules>Règles de recherche</RLRG_TabRules>
+  <RLRG_TabFilters>Filtres du monde</RLRG_TabFilters>
+  <RLRG_TabFactions>Factions</RLRG_TabFactions>
+  <RLRG_WorldLevelNow>Niveau actuel du monde (avec tolérance) : {0}</RLRG_WorldLevelNow>
+  <RLRG_ManualLevel>Définir le niveau du monde manuellement</RLRG_ManualLevel>
+  <RLRG_ManualLevel_Desc>Le niveau du monde n'est pas calculé à partir de la recherche ; celui que vous choisissez s'applique exactement, sans tolérance ni déblocage avec le temps.</RLRG_ManualLevel_Desc>
+  <RLRG_ManualLevelPick>Niveau du monde : {0}</RLRG_ManualLevelPick>
+  <RLRG_PerTier>Part distincte pour chaque niveau</RLRG_PerTier>
+  <RLRG_PerTier_Desc>Définir séparément pour chaque niveau quelle part de sa recherche doit être terminée.</RLRG_PerTier_Desc>
+  <RLRG_PctTier>{0} : {1}%</RLRG_PctTier>
+  <RLRG_LockResearch>Verrouiller la recherche supérieure</RLRG_LockResearch>
+  <RLRG_LockResearch_Desc>Une recherche de plus d'un niveau au-dessus du monde ne peut pas être lancée. Il faut progresser niveau par niveau.</RLRG_LockResearch_Desc>
+  <RLRG_FilterPossessions>Autres objets d'inventaire au-dessus du niveau du monde</RLRG_FilterPossessions>
+  <RLRG_FilterPossessions_Desc>Les arrivants perdent aussi les médicaments, drogues, composants et autres objets au-dessus du niveau du monde (pour les marchands, cela inclut leurs marchandises).</RLRG_FilterPossessions_Desc>
+  <RLRG_FactionOk>peut attaquer</RLRG_FactionOk>
+  <RLRG_FactionAbove>au-dessus du niveau du monde</RLRG_FactionAbove>
+  <RLRG_ReplaceQuests>Remplacer la quête abandonnée par une autre</RLRG_ReplaceQuests>
+  <RLRG_ReplaceQuests_Desc>Au lieu d'une quête abandonnée à cause du niveau du monde, le conteur essaie aussitôt une autre quête adaptée (jusqu'à 5 tentatives). Les quêtes arrivent aussi souvent que d'habitude.</RLRG_ReplaceQuests_Desc>
+  <RLRG_WorldVisitors>Caravanes et visiteurs uniquement jusqu'au niveau du monde (strict)</RLRG_WorldVisitors>
+  <RLRG_WorldVisitors_Desc>Les caravanes marchandes, visiteurs et voyageurs ne viennent que des factions jusqu'au niveau du monde. ATTENTION : avec des factions spatiales de mods, presque aucun marchand risque de venir. Si désactivé (recommandé), ils viennent de toutes les factions, mais leurs marchandises et leur équipement sont filtrés selon le niveau du monde.</RLRG_WorldVisitors_Desc>
+  <RLRG_ReplaceEvents>Remplacer un événement bloqué par un événement aléatoire</RLRG_ReplaceEvents>
+  <RLRG_ReplaceEvents_Desc>Quand le conteur choisit un événement pour lequel le monde n'est pas prêt (marchand orbital, crash de pièce de vaisseau, débris de vaisseau…), ou qu'un raid ou une caravane ne trouve aucune faction adaptée, un autre événement aléatoire de la même catégorie se déclenche à la place. Les événements arrivent aussi souvent que sans le mod. Les événements de quêtes ne sont pas modifiés.</RLRG_ReplaceEvents_Desc>
+  <RLRG_OvTitle>Monde et événements</RLRG_OvTitle>
+  <RLRG_OvStoryteller>Conteur : {0}, difficulté : {1}</RLRG_OvStoryteller>
+  <RLRG_OvQuests>Quêtes</RLRG_OvQuests>
+  <RLRG_OvQuestCounts>En cours : {0}, en attente d'acceptation : {1}</RLRG_OvQuestCounts>
+  <RLRG_OvExpires>expire dans {0}</RLRG_OvExpires>
+  <RLRG_OvEvents>Événements</RLRG_OvEvents>
+  <RLRG_OvEventsHint>Le conteur choisit les événements au hasard, le moment exact du prochain ne peut donc pas être connu. L'estimation se base sur l'écart moyen entre les événements dans cette partie et s'améliore à mesure que vous jouez.</RLRG_OvEventsHint>
+  <RLRG_OvNoEvents>Rien d'enregistré pour l'instant. L'enregistrement commence avec cette version.</RLRG_OvNoEvents>
+  <RLRG_OvColKind>Type</RLRG_OvColKind>
+  <RLRG_OvColLast>Dernier</RLRG_OvColLast>
+  <RLRG_OvCol30>30 derniers jours</RLRG_OvCol30>
+  <RLRG_OvColAvg>Écart moy.</RLRG_OvColAvg>
+  <RLRG_OvColNext>Prochain (estimation)</RLRG_OvColNext>
+  <RLRG_OvDays>{0} j</RLRG_OvDays>
+  <RLRG_OvAgo>il y a {0} j</RLRG_OvAgo>
+  <RLRG_OvInDays>≈ dans {0} j</RLRG_OvInDays>
+  <RLRG_OvAnyTime>à tout moment</RLRG_OvAnyTime>
+  <RLRG_OvRecent>10 derniers événements :</RLRG_OvRecent>
+  <RLRG_WorldCausers>Les menaces au-dessus du niveau du monde ne restent pas</RLRG_WorldCausers>
+  <RLRG_WorldCausers_Desc>Les nouvelles choses qui imposent une condition à la carte (cracheur toxique, fumée, contrôleur météo, bloqueur solaire, drone psychique…) au-dessus du niveau du monde sont retirées immédiatement – sur la carte et sur la carte du monde, même si elles appartiennent aux mécanoïdes. Les quêtes qui enverraient une telle chose sont abandonnées (les quêtes du conteur sont remplacées). Ce qui est déjà là reste.</RLRG_WorldCausers_Desc>
+  <RLRG_CauserBlocked>Une menace au-dessus du niveau du monde n'est pas restée : {0}.</RLRG_CauserBlocked>
+  <RLRG_TraderGuarantee>Garantie de marchands</RLRG_TraderGuarantee>
+  <RLRG_TraderGuarantee_Desc>Si aucune caravane marchande n'atteint la colonie principale pendant longtemps, le mod essaie d'en appeler une. Le jeu accepte alors aussi les factions qui, sinon, ne voyageraient pas par cette température. Si une caravane ne peut pas venir (tout le monde hostile, groupe bloquant sur la carte…), la raison est écrite dans le journal et un message s'affiche.</RLRG_TraderGuarantee_Desc>
+  <RLRG_TraderGuaranteeDays>Caravane au plus tard après : {0} jours</RLRG_TraderGuaranteeDays>
+  <RLRG_TraderGuaranteeDays_Desc>Après combien de jours sans caravane le mod en appelle une.</RLRG_TraderGuaranteeDays_Desc>
+  <RLRG_Diag_Open>Pourquoi les marchands, visiteurs ou menaces ne viennent-ils pas ?</RLRG_Diag_Open>
+  <RLRG_Diag_Title>Marchands et visiteurs – diagnostic</RLRG_Diag_Title>
+  <RLRG_Diag_NoMap>Pas de carte principale.</RLRG_Diag_NoMap>
+  <RLRG_Diag_Map>Carte : {0}, température extérieure {1}, saisonnière {2}</RLRG_Diag_Map>
+  <RLRG_Diag_LastTrader>Dernière caravane marchande : il y a {0} jours</RLRG_Diag_LastTrader>
+  <RLRG_Diag_LastTraderNone>Dernière caravane marchande : aucune enregistrée pour l'instant</RLRG_Diag_LastTraderNone>
+  <RLRG_Diag_LastVisitor>Derniers visiteurs/voyageurs : il y a {0} jours</RLRG_Diag_LastVisitor>
+  <RLRG_Diag_GuaranteeOn>Garantie de marchands : activée (au plus tard après {0} jours)</RLRG_Diag_GuaranteeOn>
+  <RLRG_Diag_GuaranteeOff>Garantie de marchands : désactivée</RLRG_Diag_GuaranteeOff>
+  <RLRG_Diag_Allies>Non hostiles : {0} factions sur {1}</RLRG_Diag_Allies>
+  <RLRG_Diag_NoAllies>Toutes les factions sont hostiles – le conteur n'envoie ni marchands ni visiteurs. Améliorez les relations (cadeaux, quêtes, console de communication).</RLRG_Diag_NoAllies>
+  <RLRG_Diag_Events>Événements :</RLRG_Diag_Events>
+  <RLRG_Diag_Can>peut venir maintenant</RLRG_Diag_Can>
+  <RLRG_Diag_Cannot>ne peut PAS venir maintenant – {0}</RLRG_Diag_Cannot>
+  <RLRG_Diag_R_Missing>l'événement n'existe pas</RLRG_Diag_R_Missing>
+  <RLRG_Diag_R_Scenario>désactivé par le scénario</RLRG_Diag_R_Scenario>
+  <RLRG_Diag_R_Difficulty>désactivé par les réglages de difficulté</RLRG_Diag_R_Difficulty>
+  <RLRG_Diag_R_Early>trop tôt après l'installation (à partir du jour {0})</RLRG_Diag_R_Early>
+  <RLRG_Diag_R_Target>non autorisé pour cette carte</RLRG_Diag_R_Target>
+  <RLRG_Diag_R_Biome>biome non autorisé</RLRG_Diag_R_Biome>
+  <RLRG_Diag_R_Recent>s'est produit récemment (temps de recharge)</RLRG_Diag_R_Recent>
+  <RLRG_Diag_R_Condition>empêché par : {0}</RLRG_Diag_R_Condition>
+  <RLRG_Diag_R_NoFaction>aucune faction ne peut venir maintenant (voir la liste des factions)</RLRG_Diag_R_NoFaction>
+  <RLRG_Diag_R_OnlyDesperate>le conteur ne l'enverra pas – les factions ne voyagent pas par cette température</RLRG_Diag_R_OnlyDesperate>
+  <RLRG_Diag_R_Other>autre raison (probablement un autre mod)</RLRG_Diag_R_Other>
+  <RLRG_Diag_Factions>Factions (caravanes marchandes) :</RLRG_Diag_Factions>
+  <RLRG_Diag_F_Ok>peut envoyer une caravane</RLRG_Diag_F_Ok>
+  <RLRG_Diag_F_Desperate>seulement en désespoir de cause – température extérieure hors de {0}</RLRG_Diag_F_Desperate>
+  <RLRG_Diag_F_No>ne viendra pas : {0}</RLRG_Diag_F_No>
+  <RLRG_Diag_F_Defeated>vaincue</RLRG_Diag_F_Defeated>
+  <RLRG_Diag_F_Hostile>hostile (bonne volonté {0})</RLRG_Diag_F_Hostile>
+  <RLRG_Diag_F_NoTraders>n'a pas de caravanes marchandes</RLRG_Diag_F_NoTraders>
+  <RLRG_Diag_F_Lord>son ennemi est sur la carte : {0}</RLRG_Diag_F_Lord>
+  <RLRG_Diag_F_World>au-dessus du niveau du monde (option « Caravanes et visiteurs uniquement jusqu'au niveau du monde »)</RLRG_Diag_F_World>
+  <RLRG_Diag_F_Temp>température hors de {0}</RLRG_Diag_F_Temp>
+  <RLRG_Diag_F_Other>autre raison (type de marchand, couche planétaire ou un autre mod)</RLRG_Diag_F_Other>
+  <RLRG_Diag_Summon>Appeler une caravane maintenant (test)</RLRG_Diag_Summon>
+  <RLRG_Diag_SummonOk>Une caravane marchande arrive.</RLRG_Diag_SummonOk>
+  <RLRG_Diag_SummonFail>Impossible d'appeler une caravane : {0}</RLRG_Diag_SummonFail>
+  <RLRG_Diag_ToLog>Écrire dans le journal</RLRG_Diag_ToLog>
+  <RLRG_Diag_Logged>Diagnostic écrit dans le journal.</RLRG_Diag_Logged>
+  <RLRG_Diag_Refresh>Actualiser</RLRG_Diag_Refresh>
+  <RLRG_Diag_GuaranteeFailed>Garantie de marchands : une caravane n'a pas pu venir ({0}). Détails : onglet Monde → Pourquoi les marchands ne viennent-ils pas ?</RLRG_Diag_GuaranteeFailed>
+  <RLRG_Diag_Title2>Marchands, visiteurs et menaces – diagnostic</RLRG_Diag_Title2>
+  <RLRG_Diag_Threats>Menaces et raids :</RLRG_Diag_Threats>
+  <RLRG_Diag_ThreatScale>Difficulté : échelle des menaces {0}, grandes menaces autorisées : {1}</RLRG_Diag_ThreatScale>
+  <RLRG_Diag_ThreatsOff>ATTENTION : les menaces sont désactivées dans la difficulté du conteur – c'est pourquoi aucun raid ne vient.</RLRG_Diag_ThreatsOff>
+  <RLRG_Diag_ThreatPoints>Points de menace actuels : {0}</RLRG_Diag_ThreatPoints>
+  <RLRG_Diag_LastThreat>Dernière menace du conteur : il y a {0} jours</RLRG_Diag_LastThreat>
+  <RLRG_Diag_LastThreatNone>Dernière menace du conteur : aucune enregistrée pour l'instant</RLRG_Diag_LastThreatNone>
+  <RLRG_Diag_Yes>oui</RLRG_Diag_Yes>
+  <RLRG_Diag_No>non</RLRG_Diag_No>
+  <RLRG_Diag_AboveWorld>au-dessus du niveau du monde – remplacé par un autre événement</RLRG_Diag_AboveWorld>
+  <RLRG_Diag_Raiders>Factions hostiles (raids) :</RLRG_Diag_Raiders>
+  <RLRG_Diag_RaidOk>peut lancer un raid</RLRG_Diag_RaidOk>
+  <RLRG_Diag_RaidWorld>au-dessus du niveau du monde – raid seulement si personne d'autre ne peut (équipement filtré)</RLRG_Diag_RaidWorld>
+  <RLRG_Diag_RaidDesperate>seulement en désespoir de cause (température / peu après l'installation)</RLRG_Diag_RaidDesperate>
+  <RLRG_Diag_RaidEarly>pas encore – raids à partir du jour {0}</RLRG_Diag_RaidEarly>
+  <RLRG_Diag_RaidNo>ne peut pas lancer de raid (couche planétaire, stratégie ou un autre mod)</RLRG_Diag_RaidNo>
+  <RLRG_Diag_NoRaiders>Aucune faction hostile ne peut envoyer de raid maintenant – il n'y a pas de faction hostile, ou quelque chose d'autre les bloque toutes.</RLRG_Diag_NoRaiders>
+  <RLRG_FactionsAtWorld>Toutes les factions au niveau de votre colonie</RLRG_FactionsAtWorld>
+  <RLRG_FactionsAtWorld_Desc>Toutes les factions (y compris spatiales et de mods) agissent comme si elles avaient la même recherche que vous : elles peuvent attaquer, commercer, rendre visite et donner des quêtes, mais chacun de leurs membres n'a que de l'équipement que vous avez recherché (toujours filtré, pour toutes les arrivées), et les marchands ne vendent que des objets jusqu'au niveau du monde. Désactivez pour bloquer complètement les factions au-dessus du niveau du monde.</RLRG_FactionsAtWorld_Desc>
+  <RLRG_OnlyCrafted>Les autres n'utilisent que ce que vous avez fabriqué</RLRG_OnlyCrafted>
+  <RLRG_OnlyCrafted_Desc>Les pillards, visiteurs, marchands et personnages de quête ne peuvent avoir que des armes et vêtements que votre colonie a déjà fabriqués au moins une fois (et recherchés). Tout ce qui n'a pas encore été fabriqué est retiré ou remplacé par l'objet fabriqué le plus proche. Sans arme fabriquée, ils reçoivent au moins un arc court ou un gourdin. Les marchandises à vendre ne suivent que la recherche. Dans une partie en cours, l'équipement des colons et les objets stockés que vous savez fabriquer sont repris une fois.</RLRG_OnlyCrafted_Desc>
+  <RLRG_CraftedCount>Types d'armes et de vêtements fabriqués : {0}</RLRG_CraftedCount>
+  <RLRG_MsgCraftedNew>Fabriqué pour la première fois : {0} – les autres peuvent maintenant l'utiliser aussi.</RLRG_MsgCraftedNew>
+  <RLRG_Ex_NotCrafted>Recherché, mais votre colonie ne l'a pas encore fabriqué.</RLRG_Ex_NotCrafted>
+  <RLRG_CraftedReset>Vider la liste des objets fabriqués</RLRG_CraftedReset>
+  <RLRG_CraftedReset_Desc>Vide la liste des armes et vêtements fabriqués (partagée avec Smart Colonist Gear). Désormais, seul ce que la colonie fabrique compte.</RLRG_CraftedReset_Desc>
+  <RLRG_CraftedResetConfirm>Vraiment vider la liste de l'équipement fabriqué ? Elle est vidée dans les deux mods, et les pillards comme les colons ne pourront utiliser que l'équipement fabriqué à partir de maintenant.</RLRG_CraftedResetConfirm>
+  <RLRG_MsgRaidItems>{0} pièces d'équipement retirées, {1} remplacées par une version plus faible ({2} pillards).</RLRG_MsgRaidItems>
+  <RLRG_TraderTechBonus>Les marchands peuvent vendre des niveaux supérieurs : {0}</RLRG_TraderTechBonus>
+  <RLRG_TraderTechBonus_Desc>Combien de niveaux technologiques au-dessus du niveau du monde les marchands peuvent proposer. 0 = uniquement jusqu'au niveau du monde (armes et vêtements selon la recherche), 1 = un niveau au-dessus (p. ex. armes à feu industrielles dans une partie médiévale) …</RLRG_TraderTechBonus_Desc>
+  <RLRG_TabTraders>Marchands</RLRG_TabTraders>
+  <RLRG_TabTraders_Desc>Marchandises que les marchands ne peuvent pas vendre en ce moment parce qu'elles sont au-dessus du niveau du monde. Utilise la même règle que le stock des marchands.</RLRG_TabTraders_Desc>
+  <RLRG_TraderNoGame>Chargez une partie pour voir ce que les marchands ne peuvent pas vendre en ce moment.</RLRG_TraderNoGame>
+  <RLRG_TraderOff>Le filtre d'objets du monde est désactivé – les marchands vendent tout.</RLRG_TraderOff>
+  <RLRG_TraderMax>Les marchands peuvent vendre jusqu'à : {0} (niveau du monde {1} + {2})</RLRG_TraderMax>
+  <RLRG_TraderMax_Desc>Les marchands peuvent vendre des marchandises jusqu'au niveau technologique {0} (niveau du monde + « Les marchands peuvent vendre des niveaux supérieurs »). Les armes et vêtements peuvent aussi être vendus s'ils sont autorisés par la recherche. Les animaux, esclaves et marchandises sans niveau technologique ne sont jamais retirés.</RLRG_TraderMax_Desc>
+  <RLRG_TraderCount>Marchandises interdites à la vente maintenant : {0}</RLRG_TraderCount>
+  <RLRG_TraderBlocked>Pas à vendre</RLRG_TraderBlocked>
+  <RLRG_TraderBlocked_Desc>Le niveau technologique {0} est au-dessus de ce que les marchands peuvent vendre maintenant ({1}).</RLRG_TraderBlocked_Desc>
+  <RLRG_TraderBlockedGear>Pas à vendre (recherche)</RLRG_TraderBlockedGear>
+  <RLRG_TraderBlockedGear_Desc>Non autorisé par la recherche, et le niveau technologique {0} est au-dessus de ce que les marchands peuvent vendre maintenant ({1}).</RLRG_TraderBlockedGear_Desc>
+  <!-- 2.10.0: Raids tab -->
+  <RLRG_TabRaids>Raids</RLRG_TabRaids>
+  <RLRG_RaidsIntro>Les stratégies de raid, modes d'arrivée et quêtes aléatoires décochés ne seront pas utilisés. Coché = autorisé. Les événements menaçants (monstres, maladies, retombées …) sont dans l'onglet Menaces.</RLRG_RaidsIntro>
+  <RLRG_RaidsSummary>{0} types de raid bloqués sur {1}</RLRG_RaidsSummary>
+  <RLRG_RaidsResetAll>Tout réinitialiser</RLRG_RaidsResetAll>
+  <RLRG_RaidsResetAll_Desc>Autoriser à nouveau tous les types de raid (par défaut).</RLRG_RaidsResetAll_Desc>
+  <RLRG_RaidsAllowAll>Tout autoriser</RLRG_RaidsAllowAll>
+  <RLRG_RaidsAllowAll_Desc>Autoriser à nouveau tout ce groupe.</RLRG_RaidsAllowAll_Desc>
+  <RLRG_RaidsGroupCount>bloqués {0} / {1}</RLRG_RaidsGroupCount>
+  <RLRG_RaidsGroupIncidents>Événements de menace</RLRG_RaidsGroupIncidents>
+  <RLRG_RaidsGroupStrategies>Stratégies de raid</RLRG_RaidsGroupStrategies>
+  <RLRG_RaidsGroupArrivals>Modes d'arrivée</RLRG_RaidsGroupArrivals>
+  <RLRG_RaidsGroupQuests>Quêtes aléatoires – [!] = menace</RLRG_RaidsGroupQuests>
+  <RLRG_RaidsSource>Source : {0}</RLRG_RaidsSource>
+  <RLRG_RaidsAllowedTip>Autorisé. Décochez pour empêcher cela.</RLRG_RaidsAllowedTip>
+  <RLRG_RaidsBlockedTip>Bloqué : le conteur ne l'utilisera pas. Si toutes les options qu'un raid pourrait utiliser sont bloquées, le raid se rabat sur une attaque immédiate / une arrivée par le bord de la carte au lieu d'échouer.</RLRG_RaidsBlockedTip>
+  <RLRG_MechEscorts>Les pillards n'amènent que les mécanoïdes que vous avez recherchés</RLRG_MechEscorts>
+  <RLRG_MechEscorts_Desc>Les factions humaines (mécaniteurs dans les raids) ne peuvent amener que des mécanoïdes dont vous avez recherché la gestation. Les mécas non recherchés sont retirés du groupe. Les raids purement mécanoïdes ne sont pas concernés.</RLRG_MechEscorts_Desc>
+  <RLRG_MatchColony>Les arrivants ne portent rien de mieux que l'équipement de votre colonie</RLRG_MatchColony>
+  <RLRG_MatchColony_Desc>Tous ceux qui arrivent (pillards, visiteurs, réfugiés, personnages de quête ; marchands seulement s'ils ne sont pas ignorés) ne peuvent porter qu'un équipement égal ou plus faible que le meilleur fabriqué par votre colonie : armes à feu jusqu'à votre meilleure arme à feu fabriquée, armes de mêlée jusqu'à votre meilleure fabriquée (le matériau compte), armures jusqu'à votre meilleure armure fabriquée. Les vêtements ordinaires sont toujours acceptés. L'équipement doit aussi être réellement recherché (vous devez pouvoir le fabriquer). Les armes incendiaires, explosives et IEM (lance-flammes, flèches explosives…) seulement une fois que vous avez fabriqué cette arme vous-même. Un meilleur équipement est remplacé par le plus proche plus faible, un matériau trop bon par un matériau ordinaire. Combiné avec « uniquement fabriqué », l'équipement plus faible que vous n'avez jamais fabriqué est aussi autorisé – plus de variété.</RLRG_MatchColony_Desc>
+  <RLRG_MatchQuality>Qualité au plus celle de votre meilleur produit</RLRG_MatchQuality>
+  <RLRG_MatchQuality_Desc>Les armes et vêtements des arrivants ont au plus la qualité que votre colonie a fabriquée (séparément pour les armes et les vêtements, au moins normale).</RLRG_MatchQuality_Desc>
+  <RLRG_MatchMargin>Tolérance : {0} % de mieux</RLRG_MatchMargin>
+  <RLRG_MatchMargin_Desc>De combien de pour cent l'équipement des autres peut être meilleur que le vôtre. 0 = au plus égal.</RLRG_MatchMargin_Desc>
+  <RLRG_MatchNow>Plafond actuel – armes à feu : {0}, mêlée : {1}, armure : {2}, qualité des armes : {3}, qualité des vêtements : {4}</RLRG_MatchNow>
+  <RLRG_ShowHud>Afficher le niveau de recherche à l'écran</RLRG_ShowHud>
+  <RLRG_ShowHud_Desc>En bas à droite au-dessus de la date : le niveau de la colonie et la distance jusqu'au niveau suivant. Survolez pour les détails par niveau, cliquez pour ouvrir l'onglet Monde.</RLRG_ShowHud_Desc>
+  <RLRG_HudLine>Niveau : {0}</RLRG_HudLine>
+  <RLRG_HudLineNext>{0} → {1} {2} %</RLRG_HudLineNext>
+  <RLRG_HudTipTitle>Niveau de recherche (World at Your Level)</RLRG_HudTipTitle>
+  <RLRG_HudTipColony>Colonie : {0} (scénario : {1}, recherche : {2})</RLRG_HudTipColony>
+  <RLRG_HudTipWorld>Monde (avec bonus d'avance/de temps) : {0}</RLRG_HudTipWorld>
+  <RLRG_HudTipTier>{0} {1} : {2}/{3} ({4} %), requis {5}</RLRG_HudTipTier>
+  <RLRG_HudTipClick>Cliquez pour l'onglet Monde.</RLRG_HudTipClick>
+  <MUI_Title>Réglages recommandés</MUI_Title>
+  <MUI_TitleOff>Réglages recommandés · désactivés</MUI_TitleOff>
+  <MUI_DescOn>Le mod se configure tout seul et fonctionne immédiatement. Idéal pour les nouveaux joueurs et tous ceux qui ne veulent rien ajuster.</MUI_DescOn>
+  <MUI_DescOff>Réglages personnalisés. Modifiés par rapport aux recommandations : {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Réglages personnalisés. Toujours identiques aux recommandations.</MUI_DescOffSame>
+  <MUI_On>ACTIVÉ</MUI_On>
+  <MUI_Off>DÉSACTIVÉ</MUI_Off>
+  <MUI_ResetAll>Tout réinitialiser aux valeurs recommandées</MUI_ResetAll>
+  <MUI_ConfirmOn>Activer les réglages recommandés ? Vos modifications ({0}) seront remplacées par les valeurs recommandées.</MUI_ConfirmOn>
+  <MUI_Locked>Les réglages détaillés sont verrouillés. Vous voulez les modifier ? Désactivez l'interrupteur ci-dessus – vos valeurs partiront des valeurs recommandées.</MUI_Locked>
+  <MUI_Changed>MODIFIÉ</MUI_Changed>
+  <MUI_ChangedTip>Diffère du réglage recommandé ({0}). Cliquez pour rétablir la valeur recommandée.</MUI_ChangedTip>
+  <MUI_Yes>activé</MUI_Yes>
+  <MUI_No>désactivé</MUI_No>
+  <RLRG_Rec1>Les pillards ne portent que l'équipement de votre niveau technologique</RLRG_Rec1>
+  <RLRG_Rec2>Les marchands vendent des objets de votre niveau</RLRG_Rec2>
+  <RLRG_Rec3>Les quêtes et récompenses correspondent à votre niveau</RLRG_Rec3>
+  <RLRG_Rec4>Les factions progressent avec vous</RLRG_Rec4>
+  <RLRG_Rec5>Un équipement plus faible des pillards est compensé par plus de pillards</RLRG_Rec5>
+  <RLRG_Rec6>Le niveau du monde est affiché à l'écran</RLRG_Rec6>
+  <MUI_RecTag>RECOMMANDÉ</MUI_RecTag>
+  <RLRG_RareAdvanced>Raid rare à technologie avancée : {0}%</RLRG_RareAdvanced>
+  <RLRG_RareAdvanced_Desc>Avec cette chance, un raid apporte un équipement d'un niveau technologique au-dessus de votre colonie. Les pillards sont moins nombreux (25 % de points en moins) et leur équipement reste comme butin, vous pouvez donc découvrir une nouvelle technologie plus tôt. Seulement si la faction attaquante possède un tel équipement.</RLRG_RareAdvanced_Desc>
+  <RLRG_RareLowTech>Raid rare à technologie inférieure : {0}%</RLRG_RareLowTech>
+  <RLRG_RareLowTech_Desc>Avec cette chance, un raid apporte un équipement d'un niveau technologique en dessous de votre colonie, mais avec plus de pillards (35 % de points en plus).</RLRG_RareLowTech_Desc>
+  <RLRG_MsgRareAdvanced>Les pillards portent une technologie inconnue ({0}) ! Ils sont moins nombreux, mais mieux armés.</RLRG_MsgRareAdvanced>
+  <RLRG_MsgRareLowTech>Un grand raid à l'équipement dépassé ({0}).</RLRG_MsgRareLowTech>
+  <RLRG_StrictCrafted>Strict : uniquement ce que vous avez fabriqué, même en s'alignant sur la colonie</RLRG_StrictCrafted>
+  <RLRG_StrictCrafted_Desc>« S'aligner sur la colonie » autorise normalement tout ce qui est à peu près aussi fort que votre équipement. Avec cette option, les ennemis ne peuvent porter que des armes et vêtements que votre colonie a réellement fabriqués – pas de fusils de fortune ni de pistolets-mitrailleurs tant que vous utilisez encore des arcs.</RLRG_StrictCrafted_Desc>
+  <RLRG_SiteTurrets>Tourelles ennemies seulement jusqu'au niveau des vôtres</RLRG_SiteTurrets>
+  <RLRG_SiteTurrets_Desc>Les tourelles des autres factions – sur les sites de quête, dans les bases, lors des sièges – sont retirées sauf si vous avez construit vous-même une tourelle du même niveau technologique. Pas encore de tourelles = pas de tourelles ennemies.</RLRG_SiteTurrets_Desc>
+  <RLRG_GearLogLine>World at Your Level : {0}</RLRG_GearLogLine>
+  <RLRG_MsgRaidSwaps>Le plus souvent : {0}.</RLRG_MsgRaidSwaps>
+  <RLRG_Gradual>Changement d'ère progressif</RLRG_Gradual>
+  <RLRG_Gradual_Desc>Quand le niveau du monde monte, au début seul environ un arrivant sur cinq reçoit l'équipement de la nouvelle ère ; la part augmente régulièrement jusqu'à tous. Pas de saut brutal.</RLRG_Gradual_Desc>
+  <RLRG_GradualDays>Changement progressif sur : {0} jours</RLRG_GradualDays>
+  <RLRG_GradualDays_Desc>Combien de jours de jeu avant que tous les arrivants portent l'équipement de la nouvelle ère.</RLRG_GradualDays_Desc>
+  <RLRG_OutTitle>Ce qu'apporte le prochain palier</RLRG_OutTitle>
+  <RLRG_OutManual>Niveau du monde manuel ({0}) – les perspectives ne marchent qu'avec le niveau issu de la recherche.</RLRG_OutManual>
+  <RLRG_OutTop>Ta colonie est au palier le plus haut ({0}) – plus rien à débloquer.</RLRG_OutTop>
+  <RLRG_OutNext>Prochain palier : {0} – encore {1} projets de recherche ({2} sur les {3} nécessaires, {4} dans ce palier).</RLRG_OutNext>
+  <RLRG_OutWorld>Niveau du monde ensuite : {0} → {1}</RLRG_OutWorld>
+  <RLRG_OutGuns>Nouvelles armes pour les arrivants : {0} sortes, par ex. {1}</RLRG_OutGuns>
+  <RLRG_OutArmor>Nouvelles armures et vêtements pour les arrivants : {0} sortes, par ex. {1}</RLRG_OutArmor>
+  <RLRG_OutFactions>Factions qui commenceront à attaquer : {0}</RLRG_OutFactions>
+  <RLRG_OutMechs>Des mécanoïdes hostiles peuvent apparaître.</RLRG_OutMechs>
+  <RLRG_OutEvents>Événements qui s'ouvrent : {0}</RLRG_OutEvents>
+  <RLRG_OutTraders>Les marchands peuvent porter des biens jusqu'au niveau : {0}</RLRG_OutTraders>
+  <RLRG_OutGradual>Le changement d'ère progressif est actif – le nouvel équipement se répand sur {0} jours.</RLRG_OutGradual>
+  <RLRG_OutGradualNow>Changement d'ère en cours : {0} % des arrivants ont déjà l'équipement de la nouvelle ère.</RLRG_OutGradualNow>
+  <RLRG_WorldLetter>Lettre quand le monde atteint un niveau supérieur</RLRG_WorldLetter>
+  <RLRG_WorldLetter_Desc>Quand le niveau du monde monte, tu reçois une lettre explicative au lieu d'un court message. Une baisse reste affichée comme message.</RLRG_WorldLetter_Desc>
+  <RLRG_WorldLetterTitle>Niveau du monde : {0}</RLRG_WorldLetterTitle>
+  <RLRG_WorldLetterText>Le monde a atteint le niveau technologique {0}.\n\nDésormais, les pillards, marchands et visiteurs peuvent apporter des armes, vêtements et autres biens jusqu'à ce niveau. Ce qu'apporte le palier suivant est indiqué dans les paramètres du mod (onglet Monde).</RLRG_WorldLetterText>
+  <RLRG_FilterImplants>Les implants des pillards suivent le niveau du monde</RLRG_FilterImplants>
+  <RLRG_FilterImplants_Desc>Les pions hostiles ne reçoivent pas d'implants bioniques, archotech ou autres au-dessus du niveau du monde. Ils ne sont tout simplement pas installés – aucune partie du corps manquante.</RLRG_FilterImplants_Desc>
+  <RLRG_FilterDrugs>Les drogues des pillards suivent le niveau du monde</RLRG_FilterDrugs>
+  <RLRG_FilterDrugs_Desc>Les pions hostiles ne portent pas de go-juice, de yayo ni d'autres drogues au-dessus du niveau du monde, ils ne peuvent donc pas en prendre avant le combat.</RLRG_FilterDrugs_Desc>
+  <RLRG_ResearchCost>Coût de recherche selon le niveau du monde</RLRG_ResearchCost>
+  <RLRG_ResearchCost_Desc>La recherche au-dessus du niveau du monde coûte plus cher, en dessous moins cher. Désactivé par défaut.</RLRG_ResearchCost_Desc>
+  <RLRG_ResearchAbove>Au-dessus du niveau du monde : coût +{0} %</RLRG_ResearchAbove>
+  <RLRG_ResearchAbove_Desc>Combien coûte en plus une recherche d'un niveau technologique supérieur à celui du monde.</RLRG_ResearchAbove_Desc>
+  <RLRG_ResearchBelow>En dessous du niveau du monde : coût −{0} %</RLRG_ResearchBelow>
+  <RLRG_ResearchBelow_Desc>Combien coûte en moins une recherche d'un niveau technologique inférieur à celui du monde.</RLRG_ResearchBelow_Desc>
+  <!-- 2.17.0 a world that grows -->
+  <RLRG_TabEvolution>Évolution</RLRG_TabEvolution>
+  <RLRG_EV_FactionTech>Les factions ont leur propre niveau</RLRG_EV_FactionTech>
+  <RLRG_EV_FactionTech_Desc>Chaque faction évolue autour du niveau du monde à son propre rythme : certaines sont en retard, quelques-unes en avance. Leurs pillards et visiteurs portent l'équipement du niveau de leur faction. Détruire une de leurs implantations les fait reculer, commercer avec elles les aide. L'onglet Monde affiche toutes les factions.</RLRG_EV_FactionTech_Desc>
+  <RLRG_EV_FactionLead>Factions en tête avec un niveau d'avance</RLRG_EV_FactionLead>
+  <RLRG_EV_FactionLead_Desc>Une faction en tête peut porter un équipement d'un niveau au-dessus du niveau du monde (pas avec « Les autres n'utilisent que ce que vous avez fabriqué »). Désactivé : les factions peuvent seulement prendre du retard.</RLRG_EV_FactionLead_Desc>
+  <RLRG_EV_Study>Étudier la technologie étrangère</RLRG_EV_Study>
+  <RLRG_EV_Study_Desc>Une arme ou un vêtement au-dessus de votre recherche reçoit un bouton « Étudier » : il est démonté et donne des points de recherche au projet qui le débloque (ou à un projet de son époque). Nécessite un établi de recherche.</RLRG_EV_Study_Desc>
+  <RLRG_EV_EraEvents>Une nouvelle ère amène un marchand</RLRG_EV_EraEvents>
+  <RLRG_EV_EraEvents_Desc>Quand le niveau du monde augmente, une caravane marchande d'une faction du nouveau niveau arrive un ou deux jours plus tard avec les nouvelles marchandises.</RLRG_EV_EraEvents_Desc>
+  <RLRG_EV_RaidDefense>Raids selon la vraie défense</RLRG_EV_RaidDefense>
+  <RLRG_EV_RaidDefense_Desc>La force des raids suit aussi votre vraie défense – combattants, leurs armes, armures et compétences, tourelles et mécanoïdes de combat – et pas seulement la richesse de la colonie. Une colonie riche mais faible reçoit des raids plus justes, une colonie forte et pauvre des raids plus durs.</RLRG_EV_RaidDefense_Desc>
+  <RLRG_EV_DefenseWeight>Poids de la défense : {0} %</RLRG_EV_DefenseWeight>
+  <RLRG_EV_DefenseWeight_Desc>À quel point la force des raids suit votre défense plutôt que les points du jeu (100 % = uniquement la défense).</RLRG_EV_DefenseWeight_Desc>
+  <RLRG_EV_FactionUp>{0} a progressé au niveau {1}.</RLRG_EV_FactionUp>
+  <RLRG_EV_FactionDown>{0} est retombé au niveau {1}.</RLRG_EV_FactionDown>
+  <RLRG_EV_NoteRaided>implantation détruite</RLRG_EV_NoteRaided>
+  <RLRG_EV_NoteTrade>le commerce aide</RLRG_EV_NoteTrade>
+  <RLRG_EV_StudyBtn>Étudier</RLRG_EV_StudyBtn>
+  <RLRG_EV_StudyBtn_Desc>Démonter pour la recherche : {0} reçoit {1} points. L'objet est consommé.</RLRG_EV_StudyBtn_Desc>
+  <RLRG_EV_StudyNone>Aucun projet de recherche ouvert où l'utiliser.</RLRG_EV_StudyNone>
+  <RLRG_EV_StudyNoBench>Il vous faut un établi de recherche.</RLRG_EV_StudyNoBench>
+  <RLRG_EV_Studied>{0} démonté : {1} +{2} de recherche.</RLRG_EV_Studied>
+  <RLRG_EV_EraTraderTitle>Marchands de la nouvelle ère</RLRG_EV_EraTraderTitle>
+  <RLRG_EV_EraTraderText>La nouvelle de vos progrès s'est répandue. {0} envoient une caravane avec des marchandises de l'ère {1} – elle devrait arriver dans un ou deux jours.</RLRG_EV_EraTraderText>
+  <RLRG_EV_FactionsTitle>Factions</RLRG_EV_FactionsTitle>
+  <RLRG_EV_FactionsOff>Les niveaux propres des factions sont désactivés (paramètres, onglet Évolution).</RLRG_EV_FactionsOff>
+  <RLRG_EV_Rising>en hausse</RLRG_EV_Rising>
+  <RLRG_EV_Falling>en baisse</RLRG_EV_Falling>
+  <RLRG_EV_Steady>stable</RLRG_EV_Steady>
+  <RLRG_EV_FactionTip>{0} : niveau {1} (monde : {2}). Leurs pillards et visiteurs portent l'équipement de ce niveau.</RLRG_EV_FactionTip>
+  <RLRG_EV_DefenseNow>Votre défense : {0} points · points de raid actuels : {1}</RLRG_EV_DefenseNow>
+  <RLRG_TabThreats>Menaces</RLRG_TabThreats>
+  <RLRG_ThreatsIntro>Les événements décochés ne se déclenchent jamais – ni par le narrateur, ni par les quêtes ou les mods. Coché = autorisé. Effet immédiat.</RLRG_ThreatsIntro>
+  <RLRG_KeepCalledBosses>Garder les boss que j'appelle</RLRG_KeepCalledBosses>
+  <RLRG_KeepCalledBosses_Desc>Les boss que vous invoquez avec un mécaniteur à la console de communication (Diabolus, Reine de guerre, Apocriton …) et leur escorte ne sont jamais retirés par « Limiter aussi les mécanoïdes et les insectoïdes » – vous les appelez pour leurs puces de signal.</RLRG_KeepCalledBosses_Desc>
+  <RLRG_ThreatsShowAll>Afficher tous les événements</RLRG_ThreatsShowAll>
+  <RLRG_ThreatsShowAll_Desc>Lister aussi les événements qui ne sont pas des menaces (visiteurs, marchands, errants, bons événements …) pour pouvoir les désactiver aussi.</RLRG_ThreatsShowAll_Desc>
+  <RLRG_ThreatsGroup0>Menaces majeures</RLRG_ThreatsGroup0>
+  <RLRG_ThreatsGroup1>Menaces mineures</RLRG_ThreatsGroup1>
+  <RLRG_ThreatsGroup2>Mauvais événements et menaces de mods</RLRG_ThreatsGroup2>
+  <RLRG_ThreatsGroup3>Autres événements</RLRG_ThreatsGroup3>
+  <RLRG_ThreatsBlockAll>Tout bloquer</RLRG_ThreatsBlockAll>
+  <RLRG_ThreatsBlockAll_Desc>Bloquer tout ce qui est affiché dans ce groupe (selon la recherche).</RLRG_ThreatsBlockAll_Desc>
+  <RLRG_ThreatsSummary>{0} sur {1} événements désactivés</RLRG_ThreatsSummary>
+  <RLRG_ThreatsResetAll_Desc>Autoriser à nouveau tous les événements (par défaut).</RLRG_ThreatsResetAll_Desc>
+  <RLRG_ThreatsBlockedTip>Désactivé : cet événement ne se déclenche jamais – ni par le narrateur, ni par les quêtes ou les mods.</RLRG_ThreatsBlockedTip>
+  <RLRG_ThreatsGroup4>Retiré par World at Your Level</RLRG_ThreatsGroup4>
+  <RLRG_RemStatusKept>gardé – vous l'avez autorisé</RLRG_RemStatusKept>
+  <RLRG_RemStatusMech>retiré – pas encore recherché</RLRG_RemStatusMech>
+  <RLRG_RemStatusCauser>retiré – au-dessus du niveau du monde</RLRG_RemStatusCauser>
+  <RLRG_RemStatusSeen>retiré auparavant</RLRG_RemStatusSeen>
+  <RLRG_RemStatusStays>reste – les règles le permettent</RLRG_RemStatusStays>
+  <RLRG_RemRules>Selon les règles</RLRG_RemRules>
+  <RLRG_RemRules_Desc>Les règles du mod décident à nouveau pour tout ce qui est affiché ici.</RLRG_RemRules_Desc>
+  <RLRG_RemKeepAll>Tout garder</RLRG_RemKeepAll>
+  <RLRG_RemKeepAll_Desc>Garder tout ce qui est affiché ici – ce ne sera plus retiré.</RLRG_RemKeepAll_Desc>
+  <RLRG_RemTip>Coché = reste. Décoché = les règles du mod décident (mécanoïdes et drones non recherchés, machines météo/conditions au-dessus du niveau du monde, tourelles meilleures que les vôtres). Cochez pour le garder quand même.</RLRG_RemTip>
+</LanguageData>

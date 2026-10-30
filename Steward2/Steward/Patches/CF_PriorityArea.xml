@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- 2.22: priority area tools in the Orders menu -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/DesignationCategoryDef[defName="Orders"]/specialDesignatorClasses</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/DesignationCategoryDef[defName="Orders"]/specialDesignatorClasses</xpath>
+      <value>
+        <li>ColonyForeman.Designator_PriorityArea</li>
+        <li>ColonyForeman.Designator_PriorityAreaClear</li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/DesignationCategoryDef[defName="Orders"]</xpath>
+      <value>
+        <specialDesignatorClasses>
+          <li>ColonyForeman.Designator_PriorityArea</li>
+          <li>ColonyForeman.Designator_PriorityAreaClear</li>
+        </specialDesignatorClasses>
+      </value>
+    </nomatch>
+  </Operation>
+  <!-- 2.35.3: also in the Zones menu -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/DesignationCategoryDef[defName="Zone"]/specialDesignatorClasses</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/DesignationCategoryDef[defName="Zone"]/specialDesignatorClasses</xpath>
+      <value>
+        <li>ColonyForeman.Designator_PriorityArea</li>
+        <li>ColonyForeman.Designator_PriorityAreaClear</li>
+        <li>ColonyForeman.Designator_ZoneAddKeep</li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/DesignationCategoryDef[defName="Zone"]</xpath>
+      <value>
+        <specialDesignatorClasses>
+          <li>ColonyForeman.Designator_PriorityArea</li>
+          <li>ColonyForeman.Designator_PriorityAreaClear</li>
+          <li>ColonyForeman.Designator_ZoneAddKeep</li>
+        </specialDesignatorClasses>
+      </value>
+    </nomatch>
+  </Operation>
+</Patch>

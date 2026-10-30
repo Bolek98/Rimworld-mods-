@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_S_On>在庫を維持</CF_S_On>
+  <CF_S_RunNow>今すぐ確認</CF_S_RunNow>
+  <CF_S_AreaAny>マップ全体</CF_S_AreaAny>
+  <CF_S_AreaTip>このエリア内の物だけを指定します。</CF_S_AreaTip>
+  <CF_S_HuntPregnant>妊娠中の動物も狩る</CF_S_HuntPregnant>
+  <CF_S_Marked>管理人 – 在庫：{0} を指定しました。</CF_S_Marked>
+  <CF_S_NothingToMark>管理人 – 在庫：指定が必要な物はありません。</CF_S_NothingToMark>
+  <CF_S_Desc>保管しておきたい量を設定します。足りないとき（指定済みの物や落ちている物も含めて）、管理人は最寄りの木、植物、鉱脈、動物を必要な分だけ指定します。残りは入植者が通常の仕事で行います。</CF_S_Desc>
+  <CF_S_OnTip>オンにすると、管理人は数時間ごと（「概要」で設定）にこのマップを確認し、必要な物を指定します。</CF_S_OnTip>
+  <CF_S_Status>保管 {0}  +{1} 移動中  /  {2}</CF_S_Status>
+  <CF_J_Overview>概要</CF_J_Overview>
+  <CF_J_Hunting>狩猟</CF_J_Hunting>
+  <CF_J_Forestry>伐採</CF_J_Forestry>
+  <CF_J_Foraging>採集</CF_J_Foraging>
+  <CF_J_Mining>採掘</CF_J_Mining>
+  <CF_J_Emergency>食料危機</CF_J_Emergency>
+  <CF_J_Short>{0} / {1}</CF_J_Short>
+  <CF_J_Off>オフ</CF_J_Off>
+  <CF_J_Active>{0} 件有効</CF_J_Active>
+  <CF_J_EmergencyNow>発動中</CF_J_EmergencyNow>
+  <CF_J_EmergencyIdle>待機中</CF_J_EmergencyIdle>
+  <CF_J_NextCheck>次の確認まで {0} 時間</CF_J_NextCheck>
+  <CF_J_Interval>{0} 時間ごとに確認</CF_J_Interval>
+  <CF_J_Enabled>オン</CF_J_Enabled>
+  <CF_J_Target>目標：</CF_J_Target>
+  <CF_J_ProgressTip>緑 = 保管済み。黄 = 移動中（マップ上に落ちている物、指定済みの木・植物・鉱脈・動物の中の物、殺したがまだ解体していない動物の中の物）。</CF_J_ProgressTip>
+  <CF_J_All>すべて選択</CF_J_All>
+  <CF_J_None>すべて解除</CF_J_None>
+  <CF_J_Default>初期選択</CF_J_Default>
+  <CF_J_UnitMeat>肉</CF_J_UnitMeat>
+  <CF_J_HuntingDesc>生肉の在庫を維持します。下でチェックした動物だけを近い順に狩ります。捕食動物とよく狂暴化する動物は初期設定でオフです。</CF_J_HuntingDesc>
+  <CF_J_ForestryDesc>木材の在庫を維持します。下でチェックした木だけを近い順に、完全に成長したものだけ伐採します。栽培区域の木には決して手を付けません。特別な木（アニマ、ガウランレン …）は初期設定でオフです。</CF_J_ForestryDesc>
+  <CF_J_ForagingDesc>野生の植物性食料（ベリー、アガベ …）や他の野生の収穫物の在庫を維持します。下でチェックした植物だけを収穫します。栽培区域の作物には決して手を付けません。</CF_J_ForagingDesc>
+  <CF_J_MiningDesc>このマップの鉱脈で見つかった資源ごとの目標。資源をチェックして必要量を設定すると、最寄りの鉱脈が採掘指定されます。</CF_J_MiningDesc>
+  <CF_J_NoVeins>このマップではまだ採掘可能な鉱脈が見つかっていません（霧の中は数えません）。</CF_J_NoVeins>
+  <CF_J_AnimalInfo>マップ上：{0}  {1}</CF_J_AnimalInfo>
+  <CF_J_Dangerous>· 危険</CF_J_Dangerous>
+  <CF_J_PlantInfo>マップ上：{0}  · 産出 {1}</CF_J_PlantInfo>
+  <CF_J_EmergencyDesc>コロニーの食料が下で設定した日数分を下回ると、管理人は目標に関係なく、まず食用の野生植物を収穫指定し、次に動物を狩猟指定します。食料が十分に戻ると停止します。</CF_J_EmergencyDesc>
+  <CF_J_EmergencyDays>食料が {0} 日分未満で危機</CF_J_EmergencyDays>
+  <CF_J_FoodDays>現在の食料：{0} 日分（入植者と囚人）</CF_J_FoodDays>
+  <CF_J_EmergencyHow>「狩猟」と「採集」の動物・植物の選択とエリアを使います。まず食用の野生植物（安全）、次に狩猟。栽培区域の成熟した作物はどのみち栽培担当が収穫します。</CF_J_EmergencyHow>
+  <CF_J_EmergencyStart>食料危機：食料が {0} 日分しかありません。管理人が食用植物と狩る動物を指定しています。</CF_J_EmergencyStart>
+  <CF_J_EmergencyEnd>食料危機は終わりました。</CF_J_EmergencyEnd>
+  <CF_J_Livestock>家畜</CF_J_Livestock>
+  <CF_J_LivestockDesc>飼い慣らした種ごとに、成体のメス、成体のオス、子供を何頭残すか設定します。余剰分は年長順に屠殺指定されます。絆のある動物は決して指定されません。妊娠中の動物は許可した場合のみ。群れ全体を1つのエリアに留めることもできます。</CF_J_LivestockDesc>
+  <CF_J_NoAnimals>このマップにはまだ飼い慣らした動物がいません。</CF_J_NoAnimals>
+  <CF_J_HerdNow>現在：{0} ♀  {1} ♂  子供 {2}</CF_J_HerdNow>
+  <CF_J_KeepFemales>残すメス</CF_J_KeepFemales>
+  <CF_J_KeepMales>残すオス</CF_J_KeepMales>
+  <CF_J_KeepYoung>残す子供</CF_J_KeepYoung>
+  <CF_J_KeepPregnant>妊娠中は屠殺しない</CF_J_KeepPregnant>
+  <CF_J_AnimalAreaNone>エリア：変更なし</CF_J_AnimalAreaNone>
+  <CF_J_AnimalAreaTip>この種の動物をすべてこのエリアに留めます。</CF_J_AnimalAreaTip>
+  <CF_J_StepTip>Shift：±10、Ctrl：±100</CF_J_StepTip>
+  <CF_J_KeepSpecies>種ごとに生かしておく数</CF_J_KeepSpecies>
+  <CF_J_OutsideHome>ホームエリアの外だけ</CF_J_OutsideHome>
+  <CF_J_OutsideHomeTip>ホームエリア内の木は決して伐採されないので、拠点の木は残ります。</CF_J_OutsideHomeTip>
+  <CF_J_KeepTrees>常に残す</CF_J_KeepTrees>
+  <CF_J_ClearOff>整地エリア：オフ</CF_J_ClearOff>
+  <CF_J_ClearOn>整地エリア：{0}</CF_J_ClearOn>
+  <CF_J_ClearTip>このエリアのすべての植物（木、茂み、草）を刈り取ります – 建設予定地や防火帯用。栽培区域の作物はそのまま。木材の目標とは無関係です。</CF_J_ClearTip>
+  <CF_J_Clear>整地中</CF_J_Clear>
+  <CF_J_GraphWait>グラフは2日後</CF_J_GraphWait>
+  <CF_J_GraphTip>直近数日の在庫（緑）と目標（黄色の線）。</CF_J_GraphTip>
+  <CF_T_Tidy>保管場所のない物を運び出す</CF_T_Tidy>
+  <CF_T_TidyTip>ホームエリアに落ちている物は通常通り備蓄区域へ運ばれます。どこにも空きがないとき、入植者はそれを投棄エリアへ運びます。投棄エリアがなければその場に残ります。運搬作業の一部です。死者は墓のために残されます。</CF_T_TidyTip>
+  <CF_T_DumpAuto>投棄：備蓄区域のみ</CF_T_DumpAuto>
+  <CF_T_Dump>投棄：{0}</CF_T_Dump>
+  <CF_T_DumpTip>備蓄区域のない物は、選んだエリアにのみ置かれます。エリアがなければ、入植者はその場に残します。</CF_T_DumpTip>
+  <CF_A_Label>管理人：在庫</CF_A_Label>
+  <CF_A_Explanation>管理人が維持できない在庫があります：</CF_A_Explanation>
+  <CF_A_NoSources>{0}：目標を下回っていて、指定できる物がもうありません（選択、エリア、霧を確認してください）。</CF_A_NoSources>
+  <CF_A_NoHunter>狩猟が必要ですが、狩りのできる入植者の誰も遠距離武器を持っていません。</CF_A_NoHunter>
+  <CF_A_NoSourcesHere>目標を下回っていて指定できる物がありません – 選択、エリア、残す上限を確認してください。</CF_A_NoSourcesHere>
+  <CF_J_Production>生産</CF_J_Production>
+  <CF_J_Power>電力</CF_J_Power>
+  <CF_J_Household>家事</CF_J_Household>
+  <CF_J_On>オン</CF_J_On>
+  <CF_J_ProductionDesc>完成品の在庫を保ちます：食事、医薬品、衣服、部品 … 各目標は、それを作れる最良の作業台での「X個になるまで」の作業指示1つになります。管理人がその作業指示を管理します（再作成、移動、更新、一時停止）。あなた自身の作業指示には決して手を付けません。</CF_J_ProductionDesc>
+  <CF_X_AddProduct>製品を追加</CF_X_AddProduct>
+  <CF_X_NoBillYet>作業指示なし（次回の確認）</CF_X_NoBillYet>
+  <CF_X_BillAt>作業指示：{0}</CF_X_BillAt>
+  <CF_X_RemoveProduct>目標とその作業指示を削除</CF_X_RemoveProduct>
+  <CF_J_PowerDesc>送電網のバッテリーが減ると、選んだ機器がオフになります。再び充電されると、管理人は自分がオフにした機器をオンに戻します。あなたが自分でオフにした機器はオフのままです。</CF_J_PowerDesc>
+  <CF_X_PowerNow>現在：余剰 {0} W · 蓄電 {1} / {2} Wd（{3}）</CF_X_PowerNow>
+  <CF_X_PowerLow>充電 {0} 未満でオフ</CF_X_PowerLow>
+  <CF_X_PowerHigh>充電 {0} 超でオンに戻す</CF_X_PowerHigh>
+  <CF_X_PowerDevices>オフにしてよい機器：</CF_X_PowerDevices>
+  <CF_X_DeviceInfo>{0}× · 各 {1} W</CF_X_DeviceInfo>
+  <CF_J_HouseholdDesc>拠点の整頓：保管場所に入らない物は運び出し、重要な部屋の汚れを先に掃除します。</CF_J_HouseholdDesc>
+  <CF_C_Clean>重要な部屋を先に掃除</CF_C_Clean>
+  <CF_C_CleanTip>下でチェックした部屋の汚れは、他の場所より先に掃除されます。台所の汚れは食中毒を広げ、病院では感染リスクを高めます。清掃作業の一部です。</CF_C_CleanTip>
+  <CF_C_FilthNow>これらの部屋の現在の汚れ：{0}</CF_C_FilthNow>
+  <CF_C_Rooms>先に掃除する部屋：</CF_C_Rooms>
+  <CF_X_Cancel>管理人の指定を取り消す</CF_X_Cancel>
+  <CF_X_CancelTip>管理人が行った伐採、狩猟、収穫、採掘、屠殺の指定をすべて取り消します。あなた自身の指定は残ります。</CF_X_CancelTip>
+  <CF_X_CancelConfirm>このマップで管理人が行った指定をすべて取り消しますか？あなた自身の指定は残ります。</CF_X_CancelConfirm>
+  <CF_X_Cancelled>管理人：{0} 件の指定を取り消しました。</CF_X_Cancelled>
+  <CF_X_OtherMap>{0}：{1}</CF_X_OtherMap>
+  <CF_H_Chunks>石塊とスラグを片付ける</CF_H_Chunks>
+  <CF_H_ChunksTip>ホームエリアにある石塊とスラグを、管理人が運搬指定します – あなたが自分で指定したのと同じように – 他の運搬が少ないときに数個ずつ。運搬がオンの入植者なら誰でも、石塊を受け入れる備蓄区域へ運びます。そのような備蓄区域がなければ、設定されていれば投棄エリアへ。禁止された石塊には手を付けません。</CF_H_ChunksTip>
+  <CF_H_Items>散らばった物を運搬指定</CF_H_Items>
+  <CF_H_ItemsTip>ホームエリアで棚や備蓄区域の外にある（行き先のある）物はすべて管理人が運搬指定します – 襲撃後に禁止された物も含めて。数個ずつ、コロニーに近い物から。</CF_H_ItemsTip>
+  <CF_H_Pockets>入植者がポケットの忘れ物を降ろす</CF_H_Pockets>
+  <CF_H_PocketsTip>入植者が理由なく所持品に入れている物（所持品運搬の残り、拾って忘れた物）を置いて備蓄区域へ運びます。武器、薬物、ポリシーで決めた在庫、旅の食料は残します。物は約30分ポケットに入っている必要があります。Harvest And Haul がある場合はその降ろし作業が引き受け、すべて1回で備蓄区域へ運ばれます。</CF_H_PocketsTip>
+  <CF_H_Workers>この作業をする入植者：</CF_H_Workers>
+  <CF_H_WorkersTip>保管場所のない物を運び出す（および下の行で掃除する）入植者の人数。0 = その作業がオンの全員。管理人はゲーム内で1時間ごとに、最優先の作業が最も少ない人を、足の速い人から選びます。Shift：±10。運搬指定された石塊はどの運搬者でも運びます。</CF_H_WorkersTip>
+  <CF_H_Everyone>全員</CF_H_Everyone>
+  <CF_H_Nobody>対応できる人なし</CF_H_Nobody>
+  <CF_X_PickTitle>製品を追加</CF_X_PickTitle>
+  <CF_X_InStock>在庫：{0}</CF_X_InStock>
+  <CF_X_OpenMint>Mint の作業指示を開く</CF_X_OpenMint>
+  <CF_X_OpenMintTip>すべての作業台を含む Dubs Mint Menus の作業指示メニューを開きます。そこで「X個になるまで」の作業指示を作り、ここで引き継ぐと管理人が管理します。</CF_X_OpenMintTip>
+  <CF_X_Adopt>作業指示を引き継ぐ（{0}）</CF_X_Adopt>
+  <CF_X_AdoptTip>手作業または Dubs Mint Menus で作った「X個になるまで」の作業指示。管理人が引き継ぎます：削除されたら再作成し、作業台がなくなれば移動し、オフにされたら一時停止します。</CF_X_AdoptTip>
+  <CF_H_Products>完成品をすぐに運び出す</CF_H_Products>
+  <CF_H_ProductsTip>作業台、コンロ、作業場の横にある食事、医薬品、衣服などは、他の運搬より先に備蓄区域へ運ばれます。「床に置く」設定の管理人の作業指示は「最適な備蓄区域へ運ぶ」に切り替えます。運搬作業の一部です。</CF_H_ProductsTip>
+  <CF_M_Target>調理済み食事の備蓄</CF_M_Target>
+  <CF_M_TargetTip>調理済み食事の目標在庫（食べる全員の何日分か）。コロニーにこの量以上あると、食事を作る作業指示はすべて一時停止し、下回ると管理人が停止した作業指示が再開します。あなたが停止した作業指示は停止したままです。Shift = 2日刻み。</CF_M_TargetTip>
+  <CF_M_Days>{0} 日分</CF_M_Days>
+  <CF_M_Now>現在 {0} 日分</CF_M_Now>
+  <CF_M_Paused>食事の作業指示 {0} 件を停止中</CF_M_Paused>
+  <CF_M_Cooking>調理中</CF_M_Cooking>
+  <CF_M_Page>調理済み食事</CF_M_Page>
+  <CF_M_Short>{0} / {1} 日</CF_M_Short>
+  <CF_M_Bills>食事を作る作業指示：{0}</CF_M_Bills>
+  <CF_M_NoBills>食事を作る作業指示がありません。コンロで（または「生産」で）追加してください – 管理人は作業指示を停止・再開するだけで、作成はしません。</CF_M_NoBills>
+  <CF_M_BillOn>調理中</CF_M_BillOn>
+  <CF_M_BillSteward>管理人が停止</CF_M_BillSteward>
+  <CF_M_BillYou>あなたが停止</CF_M_BillYou>
+  <CF_H_Blight>胴枯れ病の植物を刈る</CF_H_Blight>
+  <CF_H_BlightTip>栽培区域、植木鉢、水耕栽培、ホームエリアで胴枯れ病にかかった植物を1時間ごとに伐採指定し、病気が広がらないようにします。胴枯れ病の危機中は植物伐採により多くの入植者が割り当てられます。</CF_H_BlightTip>
+  <CF_BlightMarked>管理人：胴枯れ病の植物 {0} 本を伐採指定しました。</CF_BlightMarked>
+  <CF_P_MaySwitch>管理人がオフにしてよい</CF_P_MaySwitch>
+  <CF_P_MaySwitchDesc>バッテリーが減ると、管理人は選んだ機器を大きいものから1台ずつオフにします。この機器を常にオンにしておくには、これをオフにしてください。</CF_P_MaySwitchDesc>
+  <CF_A_Page>自給</CF_A_Page>
+  <CF_A_Short>作業指示 {0} 件</CF_A_Short>
+  <CF_A_Desc>コロニーが作れる物が不足すると、管理人はそれを作れる最良の作業台（焚き火や作業場より本物の作業台）に不足分ちょうどの作業指示を追加し、完了したら削除します – 「無期限」には決してしません。保管中の物とあなた自身の作業指示が先に数えられます。</CF_A_Desc>
+  <CF_A_On>自給オン</CF_A_On>
+  <CF_A_Meals>食事</CF_A_Meals>
+  <CF_A_Medicine>医薬品</CF_A_Medicine>
+  <CF_A_Clothes>衣服とアクセサリー</CF_A_Clothes>
+  <CF_A_Armor>防具</CF_A_Armor>
+  <CF_A_Weapons>武器</CF_A_Weapons>
+  <CF_A_Materials>素材</CF_A_Materials>
+  <CF_A_Worn>耐久度 {0} % 未満で交換</CF_A_Worn>
+  <CF_A_Bills>自給で作った作業指示：{0}</CF_A_Bills>
+  <CF_A_RemoveAll>これらの作業指示を削除</CF_A_RemoveAll>
+  <CF_A_Last>最後に追加：{0}</CF_A_Last>
+  <CF_A_Kind_meals>食事</CF_A_Kind_meals>
+  <CF_A_Kind_medicine>医薬品</CF_A_Kind_medicine>
+  <CF_A_Kind_clothes>衣服</CF_A_Kind_clothes>
+  <CF_A_Kind_armor>防具</CF_A_Kind_armor>
+  <CF_A_Kind_weapon>武器</CF_A_Kind_weapon>
+  <CF_A_Kind_material>素材</CF_A_Kind_material>
+  <CF_A_Left>残り {0}×</CF_A_Left>
+  <CF_A_Until>{0} まで</CF_A_Until>
+  <CF_A_Race>種族制限を守る</CF_A_Race>
+  <CF_A_RaceTip>オン：異星種族（Humanoid Alien Races）は、その種族が使える衣服と武器だけを受け取ります。別のMODがこれらの制限を解除している場合はオフにしてください – 全員が何でも受け取れます。</CF_A_RaceTip>
+  <CF_W_Reassign>今すぐ作業を再割り当て</CF_W_Reassign>
+  <CF_W_ReassignHere_Desc>このマップの作業優先度を今すぐ計画し直します（作業タブの「再計算」と同じ）。ロックしたセル、作業、入植者は維持されます。</CF_W_ReassignHere_Desc>
+  <CF_W_LastPlan>作業優先度：{0}前に計画、{1} 件変更 – スタイル {2}。</CF_W_LastPlan>
+  <CF_W_LastPlanNever>作業優先度：ゲームを読み込んでからこのマップでは計画されていません。</CF_W_LastPlanNever>
+  <CF_W_LastPlan_Desc>作業タブのセルにカーソルを合わせると、入植者がその優先度になった理由が表示されます：技能、情熱、速度、順位、作業の入植者枠、レベルを決めたルール。</CF_W_LastPlan_Desc>
+  <CF_W_StewardOff>（このマップでは管理人がオフです）</CF_W_StewardOff>
+  <CF_NoStorage>{0}（{1}×）が地面に落ちていて誰も運びません：受け入れる備蓄区域がないか、満杯です。どこかの備蓄区域のフィルターで許可してください。</CF_NoStorage>
+  <CF_J_ClearTooBig>{0} – 整地するには大きすぎます</CF_J_ClearTooBig>
+  <CF_J_ClearTooBigOff>整地エリア「{0}」が大きすぎます（マップの半分になります） – オフにし、伐採指定を取り消しました。建設予定地や防火帯専用の小さなエリアを作ってください。</CF_J_ClearTooBigOff>
+  <CF_J_ClearCancelled>整地エリアの伐採指定を取り消し：{0}</CF_J_ClearCancelled>
+  <CF2U_Name>在庫</CF2U_Name>
+  <CF2U_Hint>在庫目標、作業指示、動物、家事は「在庫」タブ（下部バー）で設定します。</CF2U_Hint>
+  <CF2U_Messages>管理人が指定した内容のメッセージ</CF2U_Messages>
+  <CF2U_MasterBills>名匠の作業指示</CF2U_MasterBills>
+  <CF2U_MasterBillsTip>品質の高い武器と衣服は最も腕の良い職人だけが作ります（常に2人以上）。あなた自身の作業指示の設定が優先されます。</CF2U_MasterBillsTip>
+  <CF2U_NoStorage>物の行き場がないときに警告</CF2U_NoStorage>
+  <CF2U_NoStorageTip>物をどこにも保管できないとき、管理人がその理由を伝えます。</CF2U_NoStorageTip>
+  <CF2U_PUAH>Pick Up And Haul で運搬</CF2U_PUAH>
+  <CF2U_PUAHTip>管理人は Pick Up And Haul のポケットで物を備蓄区域へ運びます。</CF2U_PUAHTip>
+  <CF_J_ReleaseSurplus>余剰は野生に放す</CF_J_ReleaseSurplus>
+  <CF_J_ReleaseSurplusTip>余剰の動物は屠殺せず野生に放します（放せない種は引き続き屠殺されます）。クエストの客の動物は目標数に含まれません。</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>深層ドリル</CF_D_Drills>
+  <CF_D_Control>目標に応じて深層ドリルを切り替える（ここに {0} 台）</CF_D_Control>
+  <CF_D_ControlTip>在庫が目標に達するとこの資源の深層ドリルを停止し、下回ると再び稼働させます。再稼働するのは管理人が停止したドリルだけです。電力ページで選んだドリルの種類は電力管理に任せます。</CF_D_ControlTip>
+  <CF_J_SparkWait>2時間後に履歴を表示</CF_J_SparkWait>
+  <CF_J_SparkTip>直近 {0} 日間の1時間ごとの在庫：最小 {1}、最大 {2}、現在 {3}。黄色の線：目標。</CF_J_SparkTip>
+  <CF_X_Ingredients>材料も十分に確保する</CF_X_Ingredients>
+  <CF_X_IngredientsTip>このレシピの材料の目標（採掘、生産、木材）を追加または引き上げ、目標全体に足りるようにします。目標は引き上げるだけで、下げることはありません。種類が固定された材料（鋼鉄、部品など）のみで、「任意の肉」や「任意の布」は対象外です。</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>このレシピには種類が固定された材料がありません。</CF_X_IngredientsNone>
+  <CF_J_WatchTip>チェックすると執事がこの種を管理します（頭数、余剰の処分、エリア）。</CF_J_WatchTip>
+  <CF_J_Watched>管理中</CF_J_Watched>
+  <CF_J_NotWatched>未管理 – 左でチェック</CF_J_NotWatched>
+  <CF_J_NoneLeft>もういない</CF_J_NoneLeft>
+  <CF_J_RemoveRule>✕ 削除</CF_J_RemoveRule>
+  <CF_J_SpareYoung>子供は処分しない</CF_J_SpareYoung>
+  <CF_J_SpareYoungTip>子供は屠殺や野生に返す対象になりません。成体だけを数えます。</CF_J_SpareYoungTip>
+  <CF_J_AllYoung>すべて</CF_J_AllYoung>
+</LanguageData>

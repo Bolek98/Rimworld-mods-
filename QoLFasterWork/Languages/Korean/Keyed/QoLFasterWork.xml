@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <QFW_Rec1>작업 속도 1.5× (내 정착민)</QFW_Rec1>
+  <QFW_Rec2>영입과 노예화 2× 빠르게</QFW_Rec2>
+  <QFW_Rec3>흔들림 없는 충성의 죄수도 15일 후 영입 가능</QFW_Rec3>
+  <QFW_Rec4>스포이트, 설정 복사, 지금 운반, 구역 ±, QoL 창</QFW_Rec4>
+  <QFW_PageWork>빠른 작업</QFW_PageWork>
+  <QFW_PagePrisoners>죄수</QFW_PagePrisoners>
+  <QFW_PageTools>스포이트 및 도구</QFW_PageTools>
+  <QFW_PageNotify>알림</QFW_PageNotify>
+  <QFW_SecWork>작업 속도</QFW_SecWork>
+  <QFW_WorkSpeed>빠른 작업</QFW_WorkSpeed>
+  <QFW_WorkSpeed_Desc>아래 슬라이더 값만큼 작업 종류별 속도를 곱합니다.</QFW_WorkSpeed_Desc>
+  <QFW_ColonistsOnly>내 정착지 인원만</QFW_ColonistsOnly>
+  <QFW_ColonistsOnly_Desc>켜짐: 내 정착지 인원(정착민, 노예, 메카노이드)만 더 빠르게 일합니다. 꺼짐: 방문자와 습격자를 포함한 모두.</QFW_ColonistsOnly_Desc>
+  <QFW_SpCraft>제작: ×{0}</QFW_SpCraft>
+  <QFW_SpCraft_Desc>제작, 대장일, 재봉, 예술, 약물 제조 등 작업대 작업.</QFW_SpCraft_Desc>
+  <QFW_SpBuild>건설: ×{0}</QFW_SpBuild>
+  <QFW_SpBuild_Desc>건설, 수리, 다듬기.</QFW_SpBuild_Desc>
+  <QFW_SpMine>채굴: ×{0}</QFW_SpMine>
+  <QFW_SpMine_Desc>채굴과 심층 시추.</QFW_SpMine_Desc>
+  <QFW_SpPlants>식물: ×{0}</QFW_SpPlants>
+  <QFW_SpPlants_Desc>파종, 수확, 식물 베기, 벌목.</QFW_SpPlants_Desc>
+  <QFW_SpResearch>연구: ×{0}</QFW_SpResearch>
+  <QFW_SpResearch_Desc>연구 속도.</QFW_SpResearch_Desc>
+  <QFW_SpCook>요리: ×{0}</QFW_SpCook>
+  <QFW_SpCook_Desc>요리, 도축, 양조.</QFW_SpCook_Desc>
+  <QFW_SpClean>청소: ×{0}</QFW_SpClean>
+  <QFW_SpClean_Desc>청소 속도.</QFW_SpClean_Desc>
+  <QFW_SpMedical>의료: ×{0}</QFW_SpMedical>
+  <QFW_SpMedical_Desc>치료와 수술 속도 (성공 확률은 아님).</QFW_SpMedical_Desc>
+  <QFW_SpAnimals>동물: ×{0}</QFW_SpAnimals>
+  <QFW_SpAnimals_Desc>젖 짜기와 털 깎기.</QFW_SpAnimals_Desc>
+  <QFW_WorkNote>변경되는 능력치: {0}</QFW_WorkNote>
+  <QFW_SpeedExplain>QoL 빠른 작업</QFW_SpeedExplain>
+  <QFW_SecPrisoners>죄수</QFW_SecPrisoners>
+  <QFW_Prisoners>죄수 도우미</QFW_Prisoners>
+  <QFW_Prisoners_Desc>더 빠른 영입과 노예화, 그리고 아래의 흔들림 없는 충성 설정.</QFW_Prisoners_Desc>
+  <QFW_RecruitMult>영입: ×{0}</QFW_RecruitMult>
+  <QFW_RecruitMult_Desc>영입 대화 한 번에 저항이 이 배수만큼 더 많이 내려갑니다.</QFW_RecruitMult_Desc>
+  <QFW_EnslaveMult>노예화: ×{0}</QFW_EnslaveMult>
+  <QFW_EnslaveMult_Desc>노예화 대화 한 번에 의지가 이 배수만큼 더 많이 내려갑니다.</QFW_EnslaveMult_Desc>
+  <QFW_Unwavering>흔들림 없는 충성</QFW_Unwavering>
+  <QFW_Unwavering_Desc>일부 죄수는 절대 영입할 수 없습니다 (흔들림 없는 충성). 그대로 두거나, 수감 며칠 후 없애거나, 바로 없앨 수 있습니다.</QFW_Unwavering_Desc>
+  <QFW_Unw_Off>그대로 (바닐라)</QFW_Unw_Off>
+  <QFW_Unw_AfterDays>{0}일 후 사라짐</QFW_Unw_AfterDays>
+  <QFW_Unw_Always>바로 사라짐</QFW_Unw_Always>
+  <QFW_UnwDays>수감 일수: {0}</QFW_UnwDays>
+  <QFW_UnwDays_Desc>감옥에 이만큼 수감되면 충성이 무너지고 죄수를 영입할 수 있습니다.</QFW_UnwDays_Desc>
+  <QFW_NowRecruitable>{0}의 흔들림 없는 충성이 사라졌습니다 – 이제 영입할 수 있습니다.</QFW_NowRecruitable>
+  <QFW_SecPipette>스포이트</QFW_SecPipette>
+  <QFW_Pipette>스포이트</QFW_Pipette>
+  <QFW_Pipette_Desc>키를 누르고 지도에서 아무거나 클릭하면 바로 그것을 건설할 수 있습니다 (같은 건물, 재료, 스타일, 방향). 바닥은 같은 바닥을, 물품은 작업대 작업 지시를 제안합니다.</QFW_Pipette_Desc>
+  <QFW_PipetteInstant>바로 선택</QFW_PipetteInstant>
+  <QFW_PipetteInstant_Desc>추가 클릭 없이 키만으로 마우스 아래의 것을 바로 선택합니다.</QFW_PipetteInstant_Desc>
+  <QFW_PipetteKey>키: {0} (옵션 → 키보드의 "QoL – Faster Work" 항목에서 변경).</QFW_PipetteKey>
+  <QFW_PipFogged>그곳은 아직 밝혀지지 않았습니다.</QFW_PipFogged>
+  <QFW_PipNothing>그곳에는 건설할 수 있는 것이 없습니다.</QFW_PipNothing>
+  <QFW_PipCantBuild>{0}을(를) 건설할 수 없습니다.</QFW_PipCantBuild>
+  <QFW_PipLocked>{0}은(는) 아직 사용할 수 없습니다 (연구 또는 다른 조건 부족).</QFW_PipLocked>
+  <QFW_PipNoRecipe>{0}을(를) 만드는 작업대 제조법이 없습니다.</QFW_PipNoRecipe>
+  <QFW_PipNoBench>{0}용 작업대가 아직 없습니다 ({1}).</QFW_PipNoBench>
+  <QFW_PipAddBill>작업 지시 추가: {1}에서 {0}</QFW_PipAddBill>
+  <QFW_PipBillAdded>작업 지시 추가됨: {1}에서 {0}.</QFW_PipBillAdded>
+  <QFW_SecTools>도구</QFW_SecTools>
+  <QFW_CopyPawn>정착민 설정 복사 / 붙여넣기</QFW_CopyPawn>
+  <QFW_CopyPawn_Desc>정착민 버튼: 작업 우선순위, 일정, 정책, 의료 방침, 적대 반응, 허용 구역을 복사해 다른 정착민에게 붙여넣습니다.</QFW_CopyPawn_Desc>
+  <QFW_CopyPawn_Btn>설정 복사</QFW_CopyPawn_Btn>
+  <QFW_CopyPawn_BtnDesc>이 정착민의 작업 우선순위, 일정, 정책, 의료 방침, 적대 반응, 허용 구역을 기억합니다.</QFW_CopyPawn_BtnDesc>
+  <QFW_PastePawn_Btn>설정 붙여넣기</QFW_PastePawn_Btn>
+  <QFW_PastePawn_BtnDesc>{0}에게서 복사한 설정을 선택한 정착민에게 적용합니다 – 전부 또는 일부만.</QFW_PastePawn_BtnDesc>
+  <QFW_Copied>{0}의 설정을 복사했습니다.</QFW_Copied>
+  <QFW_Pasted>{0}의 설정을 정착민 {1}명에게 붙여넣었습니다.</QFW_Pasted>
+  <QFW_PasteAll>전부</QFW_PasteAll>
+  <QFW_PasteWork>작업 우선순위만</QFW_PasteWork>
+  <QFW_PasteSchedule>일정만</QFW_PasteSchedule>
+  <QFW_PastePolicies>정책, 의료 방침, 적대 반응만</QFW_PastePolicies>
+  <QFW_PasteArea>허용 구역만</QFW_PasteArea>
+  <QFW_HaulNow>지금 운반</QFW_HaulNow>
+  <QFW_HaulNow_Desc>물품 버튼: 가장 가까운 한가한 정착민이 선택한 물품을 바로 보관 장소로 옮깁니다.</QFW_HaulNow_Desc>
+  <QFW_HaulNow_Btn>지금 운반</QFW_HaulNow_Btn>
+  <QFW_HaulNow_BtnDesc>가장 가까운 한가한 정착민이 선택한 물품을 바로 보관 장소로 옮깁니다.</QFW_HaulNow_BtnDesc>
+  <QFW_HaulNoPawn>운반할 수 있는 한가한 정착민이 없습니다.</QFW_HaulNoPawn>
+  <QFW_HaulNoStore>물품 {0}개를 받아줄 도달 가능한 보관 장소가 없습니다.</QFW_HaulNoStore>
+  <QFW_ZoneTools>구역 확장 / 축소</QFW_ZoneTools>
+  <QFW_ZoneTools_Desc>비축 구역과 재배 구역 버튼: 구역을 사방으로 한 칸씩 늘리거나 줄입니다.</QFW_ZoneTools_Desc>
+  <QFW_ZoneGrow>구역 확장</QFW_ZoneGrow>
+  <QFW_ZoneGrow_Desc>구역이 들어갈 수 있는 곳에 사방으로 한 칸씩 추가합니다.</QFW_ZoneGrow_Desc>
+  <QFW_ZoneShrink>구역 축소</QFW_ZoneShrink>
+  <QFW_ZoneShrink_Desc>가장 바깥쪽 칸을 한 줄 제거합니다.</QFW_ZoneShrink_Desc>
+  <QFW_ZoneNoRoom>여기서는 구역을 넓힐 수 없습니다.</QFW_ZoneNoRoom>
+  <QFW_ZoneTooSmall>구역이 너무 작아 줄일 수 없습니다.</QFW_ZoneTooSmall>
+  <QFW_ColonyTab>하단 바의 QoL 버튼</QFW_ColonyTab>
+  <QFW_ColonyTab_Desc>지도 검색, 죄수 현황, 정착지 명령 (모두 식사 / 취침 / 기상).</QFW_ColonyTab_Desc>
+  <QFW_SecStacks>묶음 크기</QFW_SecStacks>
+  <QFW_Stacks>더 큰 묶음</QFW_Stacks>
+  <QFW_Stacks_Desc>한 묶음에 들어가는 물품 수를 곱합니다. 재시작 후 적용됩니다. 나중에 끄면 너무 큰 묶음이 나뉘거나 오류가 한 번 표시될 수 있습니다.</QFW_Stacks_Desc>
+  <QFW_StackMult>묶음 크기: ×{0}</QFW_StackMult>
+  <QFW_StackMult_Desc>모든 물품 묶음 한도의 배수.</QFW_StackMult_Desc>
+  <QFW_StacksRestart>새 묶음 크기를 적용하려면 게임을 재시작하세요.</QFW_StacksRestart>
+  <QFW_StacksOgre>OgreStack이 활성화되어 있습니다 – 묶음 크기는 둘 중 하나만 사용하세요.</QFW_StacksOgre>
+  <QFW_SecNotify>알림</QFW_SecNotify>
+  <QFW_Notifications>알림 필터</QFW_Notifications>
+  <QFW_Notifications_Desc>선택한 종류의 편지와 메시지를 무음으로 하거나 숨깁니다.</QFW_Notifications_Desc>
+  <QFW_NotifyNote>무음 = 소리 없이 도착합니다. 숨김 = 전혀 뜨지 않지만 기록에는 남습니다 (메뉴 → 기록 → 메시지). 위협 편지는 주의하세요. 이 설정은 권장 설정에 포함되지 않습니다.</QFW_NotifyNote>
+  <QFW_SecLetters>편지 (오른쪽)</QFW_SecLetters>
+  <QFW_SecMessages>메시지 (왼쪽 위)</QFW_SecMessages>
+  <QFW_ColMute>무음</QFW_ColMute>
+  <QFW_ColHide>숨김</QFW_ColHide>
+  <QFW_SlaveRecruit>노예를 정착민으로</QFW_SlaveRecruit>
+  <QFW_SlaveRecruit_Desc>확고한 충성심이 없는(또는 충성심이 무너진) 노예를 QoL 창에서 자유 정착민으로 만들 수 있습니다. 다른 세력의 노예도 가능합니다.</QFW_SlaveRecruit_Desc>
+  <QFW_DeconAll>모두 해체</QFW_DeconAll>
+  <QFW_DeconAll_Desc>고대 벽, 폐허, 잔해 등 공격으로만 부술 수 있는 것들을 해체할 수 있습니다. 적대 세력의 건물은 제외됩니다.</QFW_DeconAll_Desc>
+  <QFW_SColName>노예</QFW_SColName>
+  <QFW_SColAction>동작</QFW_SColAction>
+  <QFW_MakeColonist>정착민으로</QFW_MakeColonist>
+  <QFW_MakeColonist_Desc>노예가 당신 정착지의 자유 정착민이 됩니다(한동안 노예였던 것을 기억합니다).</QFW_MakeColonist_Desc>
+  <QFW_MakeColonist_Confirm>{0}을(를) 자유 정착민으로 만들까요?</QFW_MakeColonist_Confirm>
+  <QFW_MadeColonist>{0}은(는) 이제 자유 정착민입니다.</QFW_MadeColonist>
+  <QFW_TabSearch>지도 검색</QFW_TabSearch>
+  <QFW_TabPrisoners>죄수</QFW_TabPrisoners>
+  <QFW_TabColony>정착지</QFW_TabColony>
+  <QFW_SearchHint>이 지도의 물품, 건물, 인물, 식물. 악센트와 하이픈은 무시됩니다.</QFW_SearchHint>
+  <QFW_SearchType>두 글자 이상 입력하세요. 예: "강철".</QFW_SearchType>
+  <QFW_SearchNone>찾은 것이 없습니다.</QFW_SearchNone>
+  <QFW_Show>보기</QFW_Show>
+  <QFW_ShowNext>보기 {0}/{1}</QFW_ShowNext>
+  <QFW_NoPrisoners>이 지도에 죄수가 없습니다.</QFW_NoPrisoners>
+  <QFW_PColName>이름</QFW_PColName>
+  <QFW_PColMode>상호작용</QFW_PColMode>
+  <QFW_PColRes>저항</QFW_PColRes>
+  <QFW_PColWill>의지</QFW_PColWill>
+  <QFW_PColRecruit>영입 가능</QFW_PColRecruit>
+  <QFW_PColDays>수감 일수</QFW_PColDays>
+  <QFW_Yes>예</QFW_Yes>
+  <QFW_No>아니요</QFW_No>
+  <QFW_InDays>{0}일 후</QFW_InDays>
+  <QFW_AllEat>모두 지금 식사</QFW_AllEat>
+  <QFW_AllEat_Desc>음식 수치가 80 % 미만인 한가한 정착민이 바로 식사하러 갑니다 (예: 긴 여행이나 습격 전).</QFW_AllEat_Desc>
+  <QFW_AllEat_Done>정착민 {0}명 식사하러 감, {1}명은 배고프지 않거나 음식 없음.</QFW_AllEat_Done>
+  <QFW_AllSleep>모두 취침</QFW_AllSleep>
+  <QFW_AllSleep_Desc>휴식 수치가 90 % 미만인 한가한 정착민이 바로 침대로 갑니다.</QFW_AllSleep_Desc>
+  <QFW_AllSleep_Done>정착민 {0}명 취침하러 감, {1}명은 충분히 쉬었거나 이미 자는 중.</QFW_AllSleep_Done>
+  <QFW_AllWake>모두 기상</QFW_AllWake>
+  <QFW_AllWake_Desc>자고 있는 정착민을 깨웁니다 (침상 안정이 필요한 환자와 부상자는 제외).</QFW_AllWake_Desc>
+  <QFW_AllWake_Done>정착민 {0}명을 깨웠습니다.</QFW_AllWake_Done>
+  <QFW_PipetteBtn>스포이트</QFW_PipetteBtn>
+  <QFW_PipetteBtn_Desc>지도에서 아무거나 클릭해 같은 것을 건설합니다. 키를 쓰면 더 빠릅니다.</QFW_PipetteBtn_Desc>
+
+  <!-- shared settings look -->
+  <MUI_Title>권장 설정</MUI_Title>
+  <MUI_TitleOff>권장 설정 · 꺼짐</MUI_TitleOff>
+  <MUI_DescOn>모드가 스스로 설정되어 바로 작동합니다. 처음 하는 플레이어나 아무것도 조정하고 싶지 않은 분께 적합합니다.</MUI_DescOn>
+  <MUI_DescOff>사용자 설정. 권장 설정에서 변경됨: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>사용자 설정. 아직 권장 설정과 같습니다.</MUI_DescOffSame>
+  <MUI_On>켜짐</MUI_On>
+  <MUI_Off>꺼짐</MUI_Off>
+  <MUI_ResetAll>모두 권장값으로 초기화</MUI_ResetAll>
+  <MUI_ConfirmOn>권장 설정을 켜시겠습니까? 변경한 항목({0})이 권장값으로 바뀝니다.</MUI_ConfirmOn>
+  <MUI_Locked>세부 설정이 잠겨 있습니다. 변경하려면 위의 스위치를 끄세요 – 값은 권장값에서 시작합니다.</MUI_Locked>
+  <MUI_Changed>변경됨</MUI_Changed>
+  <MUI_ChangedTip>권장 설정({0})과 다릅니다. 클릭하면 권장값으로 되돌립니다.</MUI_ChangedTip>
+  <MUI_Yes>켜짐</MUI_Yes>
+  <MUI_No>꺼짐</MUI_No>
+  <MUI_RecTag>권장</MUI_RecTag>
+</LanguageData>

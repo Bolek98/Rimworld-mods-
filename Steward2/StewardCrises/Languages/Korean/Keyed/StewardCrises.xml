@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_CrisisStart>Steward: {0}. 우선순위를 조정했습니다.</CF_CrisisStart>
+  <CF_CrisisEnd>Steward: 위기가 끝났습니다 ({0}).</CF_CrisisEnd>
+  <CF_D_Food>{0}일분 식량</CF_D_Food>
+  <CF_AutoFocusNow>{0} → 현재: {1} ({2})</CF_AutoFocusNow>
+  <CF_AutoFocusNowNoReason>{0} → 현재: {1}</CF_AutoFocusNowNoReason>
+  <CF_AutoFocusShort>{0} → {1}</CF_AutoFocusShort>
+  <CF_AutoFocusMsg>Steward: '균형'이 이제 {0}에 집중합니다 ({1}).</CF_AutoFocusMsg>
+  <CF_AutoFocusEnd>Steward: {0} 집중이 끝났습니다 – '균형'이 다시 작업을 고르게 분배합니다.</CF_AutoFocusEnd>
+  <CF_AF_Food>{0}일분 식량</CF_AF_Food>
+  <CF_AF_Harvest>수확 가능한 식물 {0}</CF_AF_Harvest>
+  <CF_AF_Build>청사진 {0}</CF_AF_Build>
+  <CF_AF_Industry>강철 {0}, 부품 {1}</CF_AF_Industry>
+  <CF_AF_Mine>채굴할 칸 {0}</CF_AF_Mine>
+  <CF_AF_Bills>대기 중인 생산 작업 명령이 많음</CF_AF_Bills>
+  <CF_AF_Care>환자 {0}, 죄수 {1}, 아이 {2}</CF_AF_Care>
+  <CF_AF_Defense>습격 후 수리할 건물 {0}</CF_AF_Defense>
+  <CF_AF_Animals>길들이거나 도축할 동물 {0}, 젖 짜기·털 깎기·훈련할 동물 {1}</CF_AF_Animals>
+  <CF_AF_Dirt>거주 구역의 오물 {0}</CF_AF_Dirt>
+  <CF_AF_Calm>평온함 – 연구할 시간</CF_AF_Calm>
+  <CF_SitStaff>{0} ×{1} (우선순위 {2})</CF_SitStaff>
+  <CF_SitHeader>상황:</CF_SitHeader>
+  <CF_SitStart>Steward – 새 상황: {0}.</CF_SitStart>
+  <CF_SitEnd>Steward – 상황 종료: {0}. 평소 계획으로 돌아갑니다.</CF_SitEnd>
+  <CF_SitDoesWork>{0} 우선순위 {1}</CF_SitDoesWork>
+  <CF_SitDoesNothing>이 게임에서는 효과 없음 (해당 작업 유형이 없음)</CF_SitDoesNothing>
+  <CF_SitDoesExhausted>우선순위 1 작업이 2로 내려감 (긴급 작업은 유지)</CF_SitDoesExhausted>
+  <CF_Sit_BuildBacklog>건설 대기 많음</CF_Sit_BuildBacklog>
+  <CF_SitWhen_BuildBacklog>조건: 청사진과 골조가 20개 이상 (8개 미만이 될 때까지 유지). 건설 우선순위 2, 청사진 15개당 건설자 1명, 최소 2명.</CF_SitWhen_BuildBacklog>
+  <CF_SitR_BuildBacklog>청사진 {0}</CF_SitR_BuildBacklog>
+  <CF_Sit_Deconstruct>해체 대기</CF_Sit_Deconstruct>
+  <CF_SitWhen_Deconstruct>조건: 해체, 설치 해제, 다듬기 또는 바닥 제거 지정이 15개 이상. 건설 우선순위 2, 지정 20개당 정착민 1명.</CF_SitWhen_Deconstruct>
+  <CF_SitR_Deconstruct>지정 {0}</CF_SitR_Deconstruct>
+  <CF_Sit_Repairs>수리 필요</CF_Sit_Repairs>
+  <CF_SitWhen_Repairs>조건: 손상된 건물이 6개 이상 (습격 중 제외). 건설 우선순위 2, 건물 10개당 정착민 1명.</CF_SitWhen_Repairs>
+  <CF_SitR_Repairs>손상된 건물 {0}</CF_SitR_Repairs>
+  <CF_Sit_HaulBacklog>운반할 것이 많음</CF_Sit_HaulBacklog>
+  <CF_SitWhen_HaulBacklog>조건: 운반을 기다리는 물건이 80개 이상 (돌덩이 제외; 습격, 독성 공기, 극한 날씨 중 제외). 운반 우선순위 2, 물건 50개당 운반자 1명, 최소 2명.</CF_SitWhen_HaulBacklog>
+  <CF_SitR_HaulBacklog>운반할 물건 {0}</CF_SitR_HaulBacklog>
+  <CF_Sit_RottingOutside>밖에서 썩는 물건</CF_Sit_RottingOutside>
+  <CF_SitWhen_RottingOutside>조건: 보관 장소 밖에 있는 부패성 더미 8개 이상이 5일 안에 썩음. 운반 우선순위 1, 더미 10개당 운반자 1명.</CF_SitWhen_RottingOutside>
+  <CF_SitR_RottingOutside>썩을 더미 {0}</CF_SitR_RottingOutside>
+  <CF_Sit_FoodSpoiling>곧 상할 식량</CF_Sit_FoodSpoiling>
+  <CF_SitWhen_FoodSpoiling>조건: 영양 10 이상의 날음식이 1.5일 안에 썩음. 요리 우선순위 1 (영양 30당 요리사 1명), 그리고 운반자 1명이 우선순위 2로 냉장 장소로 옮김.</CF_SitWhen_FoodSpoiling>
+  <CF_SitR_FoodSpoiling>영양 {0}이 1.5일 안에 상함</CF_SitR_FoodSpoiling>
+  <CF_Sit_BigHarvest>대풍작</CF_Sit_BigHarvest>
+  <CF_SitWhen_BigHarvest>조건: 재배 구역에 다 자란 식물이 40개 이상. 재배 우선순위 2, 식물 40개당 재배자 1명, 최소 2명.</CF_SitWhen_BigHarvest>
+  <CF_SitR_BigHarvest>다 자란 식물 {0}</CF_SitR_BigHarvest>
+  <CF_Sit_FrostHarvest>서리 – 지금 수확</CF_Sit_FrostHarvest>
+  <CF_SitWhen_FrostHarvest>조건: 바깥이 2 °C 미만이고 다 자란 식물이 5개 이상 – 작물이 추위로 죽습니다. 재배 우선순위 1, 식물 25개당 재배자 1명, 최소 2명.</CF_SitWhen_FrostHarvest>
+  <CF_SitR_FrostHarvest>다 자란 식물 {0}, 기온 {1}</CF_SitR_FrostHarvest>
+  <CF_Sit_CutBacklog>식물 베기 대기</CF_Sit_CutBacklog>
+  <CF_SitWhen_CutBacklog>조건: 베기 또는 수확 지정된 식물이 30개 이상. 식물 베기 우선순위 2, 식물 30개당 정착민 1명.</CF_SitWhen_CutBacklog>
+  <CF_SitR_CutBacklog>지정된 식물 {0}</CF_SitR_CutBacklog>
+  <CF_Sit_MineBacklog>채굴 대기</CF_Sit_MineBacklog>
+  <CF_SitWhen_MineBacklog>조건: 채굴 지정된 칸이 30개 이상. 채굴 우선순위 2, 칸 30개당 광부 1명.</CF_SitWhen_MineBacklog>
+  <CF_SitR_MineBacklog>채굴할 칸 {0}</CF_SitR_MineBacklog>
+  <CF_Sit_LowWood>목재 부족</CF_Sit_LowWood>
+  <CF_SitWhen_LowWood>조건: 목재가 75 + 정착민당 25보다 적고 나무가 벌목 지정됨. 식물 베기 우선순위 2, 정착민 1명 (5명 이상 정착지는 2명).</CF_SitWhen_LowWood>
+  <CF_SitR_LowWood>목재 {0}</CF_SitR_LowWood>
+  <CF_Sit_LowSteel>강철 부족</CF_Sit_LowSteel>
+  <CF_SitWhen_LowSteel>조건: 강철이 50 + 정착민당 20보다 적고 암석이 채굴 지정됨. 채굴 우선순위 2, 광부 1명 (5명 이상 정착지는 2명).</CF_SitWhen_LowSteel>
+  <CF_SitR_LowSteel>강철 {0}</CF_SitR_LowSteel>
+  <CF_Sit_LowComponents>부품 부족</CF_Sit_LowComponents>
+  <CF_SitWhen_LowComponents>조건: 부품이 3 + 정착민 2명당 1보다 적고 부품 작업 명령이 대기 중. 해당 작업대의 작업 우선순위 2, 정착민 1명.</CF_SitWhen_LowComponents>
+  <CF_SitR_LowComponents>부품 {0}</CF_SitR_LowComponents>
+  <CF_Sit_LowMedicine>의약품 부족</CF_Sit_LowMedicine>
+  <CF_SitWhen_LowMedicine>조건: 의약품이 정착민당 2보다 적고 (아직 '의약품 없음' 위기는 아님) 의약품 작업 명령이 대기 중이거나 치료초를 재배 중. 작업대의 작업과 재배 우선순위 2, 각각 정착민 1명.</CF_SitWhen_LowMedicine>
+  <CF_SitR_LowMedicine>의약품 {0}</CF_SitR_LowMedicine>
+  <CF_Sit_ColdClothing>추위에 맞지 않는 옷차림</CF_Sit_ColdClothing>
+  <CF_SitWhen_ColdClothing>조건: 바깥이 10 °C 이하이고 옷이 충분히 따뜻하지 않은 정착민이 있으며 의류 작업 명령이 대기 중. 재봉 우선순위 2, 추운 정착민 4명당 재단사 1명.</CF_SitWhen_ColdClothing>
+  <CF_SitR_ColdClothing>추운 정착민 {0}, 기온 {1}</CF_SitR_ColdClothing>
+  <CF_Sit_WornClothing>낡은 옷</CF_Sit_WornClothing>
+  <CF_SitWhen_WornClothing>조건: 정착민의 3분의 1 (최소 2명)이 내구도 50 % 미만의 옷을 입고 있고 의류 작업 명령이 대기 중. 재봉 우선순위 2, 재단사 1명.</CF_SitWhen_WornClothing>
+  <CF_SitR_WornClothing>낡은 옷을 입은 정착민 {0}</CF_SitR_WornClothing>
+  <CF_Sit_LowWeapons>무기 없는 정착민</CF_Sit_LowWeapons>
+  <CF_SitWhen_LowWeapons>조건: 싸울 수 있는 정착민의 절반 (3명 이상 정착지)이 무기가 없고 무기 작업 명령이 대기 중. 대장일 우선순위 2, 대장장이 1명 (비무장 5명 이상이면 2명).</CF_SitWhen_LowWeapons>
+  <CF_SitR_LowWeapons>비무장 {0}</CF_SitR_LowWeapons>
+  <CF_Sit_Recruit>영입할 죄수</CF_Sit_Recruit>
+  <CF_SitWhen_Recruit>조건: 죄수가 영입, 저항 감소, 노예화 또는 개종으로 설정됨. 교도관 우선순위 2, 죄수 3명당 교도관 1명 – 말솜씨가 가장 좋은 사람.</CF_SitWhen_Recruit>
+  <CF_SitR_Recruit>대화할 죄수 {0}</CF_SitR_Recruit>
+  <CF_Sit_HungryPrisoners>배고픈 죄수</CF_Sit_HungryPrisoners>
+  <CF_SitWhen_HungryPrisoners>조건: 죄수의 포만감이 25 % 미만. 교도관 우선순위 1, 배고픈 죄수 3명당 교도관 1명.</CF_SitWhen_HungryPrisoners>
+  <CF_SitR_HungryPrisoners>배고픈 죄수 {0}</CF_SitR_HungryPrisoners>
+  <CF_Sit_MassCasualties>환자 다수</CF_Sit_MassCasualties>
+  <CF_SitWhen_MassCasualties>조건: 치료가 필요한 환자가 3명 이상. 의사 우선순위 1, 환자 3명마다 의사 2명, 최소 2명.</CF_SitWhen_MassCasualties>
+  <CF_SitR_MassCasualties>환자 {0}</CF_SitR_MassCasualties>
+  <CF_Sit_Infection>생명을 위협하는 질병</CF_Sit_Infection>
+  <CF_SitWhen_Infection>조건: 누군가 죽을 수 있는 질병이나 상처가 있거나 (아직 면역이 없고 이미 심각함) 출혈이 심함. 의사 우선순위 1, 그런 환자 1명당 의사 1명.</CF_SitWhen_Infection>
+  <CF_SitR_Infection>위험한 상태 {0}</CF_SitR_Infection>
+  <CF_Sit_TameTrain>길들이거나 훈련할 동물</CF_Sit_TameTrain>
+  <CF_SitWhen_TameTrain>조건: 길들이거나 훈련할 동물이 4마리 이상. 조련 우선순위 2, 동물 6마리당 조련사 1명.</CF_SitWhen_TameTrain>
+  <CF_SitR_TameTrain>동물 {0}</CF_SitR_TameTrain>
+  <CF_Sit_AnimalProducts>도축·젖 짜기·털 깎기할 동물</CF_Sit_AnimalProducts>
+  <CF_SitWhen_AnimalProducts>조건: 도축 지정되었거나 젖 짜기·털 깎기가 준비된 동물이 5마리 이상. 조련 우선순위 2, 8마리당 조련사 1명.</CF_SitWhen_AnimalProducts>
+  <CF_SitR_AnimalProducts>준비된 동물 {0}</CF_SitR_AnimalProducts>
+  <CF_Sit_AnimalsHungry>배고픈 동물</CF_Sit_AnimalsHungry>
+  <CF_SitWhen_AnimalsHungry>조건: 정착지 동물 2마리 이상이 굶주림 (포만감 15 % 미만). 운반과 조련 우선순위 2, 각각 정착민 1명.</CF_SitWhen_AnimalsHungry>
+  <CF_SitR_AnimalsHungry>굶주린 동물 {0}</CF_SitR_AnimalsHungry>
+  <CF_Sit_DirtyRooms>더러운 병원이나 주방</CF_Sit_DirtyRooms>
+  <CF_SitWhen_DirtyRooms>조건: 병실이나 주방에 오물이 8 이상 (감염, 식중독). 청소 우선순위 1, 오물 20당 청소부 1명.</CF_SitWhen_DirtyRooms>
+  <CF_SitR_DirtyRooms>오물 {0}</CF_SitR_DirtyRooms>
+  <CF_Sit_ResearchIdle>연구할 시간</CF_Sit_ResearchIdle>
+  <CF_SitWhen_ResearchIdle>조건: 연구 과제가 선택되어 있고, 연구대가 지어져 있고, 식량이 6일분 이상이며, 위기나 다른 상황이 없음. 연구 우선순위 2, 정착민 4명당 연구자 1명.</CF_SitWhen_ResearchIdle>
+  <CF_SitR_ResearchIdle>과제 {0}</CF_SitR_ResearchIdle>
+  <CF_Sit_TradeVisit>상인 방문</CF_Sit_TradeVisit>
+  <CF_SitWhen_TradeVisit>조건: 지도에 교역 상단이 있거나, 궤도에 교역선이 있고 교역 신호기가 지어져 있음. 운반 우선순위 2, 운반자 2명이 물품을 모음.</CF_SitWhen_TradeVisit>
+  <CF_SitR_TradeVisit>상인 대기 중</CF_SitR_TradeVisit>
+  <CF_Sit_LowFuel>연료 부족</CF_Sit_LowFuel>
+  <CF_SitWhen_LowFuel>조건: 자동 재급유가 켜진 건물 2개 이상의 연료가 25 % 미만 (발전기, 횃불, 화덕 …). 재급유 (운반) 우선순위 1, 건물 6개당 정착민 1명.</CF_SitWhen_LowFuel>
+  <CF_SitR_LowFuel>연료가 부족한 건물 {0}</CF_SitR_LowFuel>
+  <CF_Sit_MechThreat>근처에 기계 군집이나 벌레 둥지</CF_Sit_MechThreat>
+  <CF_SitWhen_MechThreat>조건: 지도에 기계 건물이나 벌레 둥지가 있음 (습격 중 제외). 건설 (방어) 우선순위 2에 정착민 2명, 대장일 우선순위 2에 1명.</CF_SitWhen_MechThreat>
+  <CF_SitR_MechThreat>위협 {0}</CF_SitR_MechThreat>
+  <CF_Sit_MoodSlipping>기분 하락</CF_Sit_MoodSlipping>
+  <CF_SitWhen_MoodSlipping>조건: 정착민의 4분의 1 (최소 2명)이 정신 붕괴 한계에 가까움, '기분 나쁨' 위기 전 단계. 요리 (고급 식사), 예술, 청소 우선순위 2, 각각 정착민 1명.</CF_SitWhen_MoodSlipping>
+  <CF_SitR_MoodSlipping>불행한 정착민 {0}</CF_SitR_MoodSlipping>
+  <CF_Sit_Childcare>돌봐야 할 아기</CF_Sit_Childcare>
+  <CF_SitWhen_Childcare>조건 (Biotech): 정착지에 아기가 있음. 육아 우선순위 2 (아기가 배고프면 1), 아기 2명당 돌보미 1명.</CF_SitWhen_Childcare>
+  <CF_SitR_Childcare>아기 {0}</CF_SitR_Childcare>
+  <CF_Sit_Pollution>제거할 오염</CF_Sit_Pollution>
+  <CF_SitWhen_Pollution>조건 (Biotech): 오염 제거 구역에 오염된 칸이 20개 이상. 오염 제거 작업 우선순위 2, 칸 150개당 정착민 1명.</CF_SitWhen_Pollution>
+  <CF_SitR_Pollution>오염된 칸 {0}</CF_SitR_Pollution>
+  <CF_Sit_Exhausted>지친 정착민</CF_Sit_Exhausted>
+  <CF_SitWhen_Exhausted>조건: 정착민이 깨어 있고 휴식이 15 % 미만. 그 정착민의 우선순위 1 작업은 2로 내려가고 상황에서도 선택되지 않습니다. 참고: 우선순위로는 누구도 잠자리에 보낼 수 없습니다 – 일과표에서 '작업' 시간인 정착민은 스스로 자러 가지 않고 바닥에 쓰러집니다. '수면' 또는 '자유' 시간을 주세요.</CF_SitWhen_Exhausted>
+  <CF_SitR_Exhausted>지친 정착민 {0} – 일과표를 확인하세요 ('작업' 시간은 침대 없음)</CF_SitR_Exhausted>
+  <CF_Sit_Corpses>기지 안의 시체</CF_Sit_Corpses>
+  <CF_SitWhen_Corpses>조건: 거주 구역에 시체가 3구 이상 (습격 중 제외). 시체 운반 우선순위 2, 시체 6구당 정착민 1명.</CF_SitWhen_Corpses>
+  <CF_SitR_Corpses>시체 {0}</CF_SitR_Corpses>
+  <CF_Sit_StorageFull>보관 공간 가득 참</CF_Sit_StorageFull>
+  <CF_SitWhen_StorageFull>조건: 거주 구역의 물건 15개 이상이 갈 곳이 없음. 건설 우선순위 2 (선반, 비축 구역).</CF_SitWhen_StorageFull>
+  <CF_SitR_StorageFull>보관할 곳 없는 물건: {0}</CF_SitR_StorageFull>
+  <CF_Sit_SowingBacklog>파종을 기다리는 밭</CF_Sit_SowingBacklog>
+  <CF_SitWhen_SowingBacklog>조건: 재배철에 빈 밭 칸이 40개 이상. 재배 우선순위 2.</CF_SitWhen_SowingBacklog>
+  <CF_SitR_SowingBacklog>파종할 빈 칸: {0}</CF_SitR_SowingBacklog>
+  <CF_Sit_NoBedroom>침대 없는 정착민</CF_Sit_NoBedroom>
+  <CF_SitWhen_NoBedroom>조건: 자기 침대가 없는 정착민이 있음. 건설 우선순위 2.</CF_SitWhen_NoBedroom>
+  <CF_SitR_NoBedroom>침대 없는 정착민: {0}</CF_SitR_NoBedroom>
+  <CF_Sit_UglyRooms>흉한 방</CF_Sit_UglyRooms>
+  <CF_SitWhen_UglyRooms>조건: 침실 2개 이상이 흉하거나 더러움 (평온할 때만). 청소와 예술 우선순위 2, 건설 3.</CF_SitWhen_UglyRooms>
+  <CF_SitR_UglyRooms>흉한 방: {0}</CF_SitR_UglyRooms>
+  <CF_Sit_LowJoy>오락 부족</CF_Sit_LowJoy>
+  <CF_SitWhen_LowJoy>조건: 정착민 2명 이상의 오락이 30 % 미만. 건설과 예술 우선순위 2.</CF_SitWhen_LowJoy>
+  <CF_SitR_LowJoy>오락이 부족한 정착민: {0}</CF_SitR_LowJoy>
+  <CF_Sit_Slaughter>도축할 동물</CF_Sit_Slaughter>
+  <CF_SitWhen_Slaughter>조건: 도축 지정된 동물이 3마리 이상. 조련 우선순위 2.</CF_SitWhen_Slaughter>
+  <CF_SitR_Slaughter>도축할 동물: {0}</CF_SitR_Slaughter>
+  <CF_Sit_BarrelsReady>통 완성</CF_Sit_BarrelsReady>
+  <CF_SitWhen_BarrelsReady>조건: 발효통 2개 이상이 완성됨. 꺼내기 우선순위 2.</CF_SitWhen_BarrelsReady>
+  <CF_SitR_BarrelsReady>완성된 통: {0}</CF_SitR_BarrelsReady>
+  <CF_Sit_TextilePile>천과 가죽 더미</CF_Sit_TextilePile>
+  <CF_SitWhen_TextilePile>조건: 보관 중인 천과 가죽이 400 이상이고 재봉 작업 명령이 대기 중 (평온할 때만). 재봉 우선순위 2.</CF_SitWhen_TextilePile>
+  <CF_SitR_TextilePile>천과 가죽: {0}</CF_SitR_TextilePile>
+  <CF_Sit_WornGear>낡은 장비</CF_Sit_WornGear>
+  <CF_SitWhen_WornGear>조건: 보관 중인 무기와 옷 중 60 % 미만인 것이 10개 이상 (수리 모드가 있을 때만, 평온할 때만). 제작 우선순위 2.</CF_SitWhen_WornGear>
+  <CF_SitR_WornGear>낡은 물품: {0}</CF_SitR_WornGear>
+  <CF_Sit_CaravanPrep>캐러밴 편성 중</CF_Sit_CaravanPrep>
+  <CF_SitWhen_CaravanPrep>조건: 캐러밴을 편성하는 중. 운반 우선순위 1, 요리 2.</CF_SitWhen_CaravanPrep>
+  <CF_SitR_CaravanPrep>캐러밴 편성 중</CF_SitR_CaravanPrep>
+  <CF_Sit_Gathering>파티 또는 의식</CF_Sit_Gathering>
+  <CF_SitWhen_Gathering>조건: 파티나 의식이 진행 중. 요리와 청소 우선순위 2.</CF_SitWhen_Gathering>
+  <CF_SitR_Gathering>파티 / 의식</CF_SitR_Gathering>
+  <CF_Sit_Guests>정착지의 손님</CF_Sit_Guests>
+  <CF_SitWhen_Guests>조건: 방문자나 퀘스트 손님이 2명 이상. 요리와 청소 우선순위 2.</CF_SitWhen_Guests>
+  <CF_SitR_Guests>손님: {0}</CF_SitR_Guests>
+  <CF_Sit_Snow>치울 눈</CF_Sit_Snow>
+  <CF_SitWhen_Snow>조건: 제설 구역에 눈 덮인 칸이 60개 이상. 청소 우선순위 2.</CF_SitWhen_Snow>
+  <CF_SitR_Snow>눈 덮인 칸: {0}</CF_SitR_Snow>
+  <CF_Sit_OrbitalTrade>궤도의 교역선</CF_Sit_OrbitalTrade>
+  <CF_SitWhen_OrbitalTrade>조건: 궤도에 교역선이 있고 교역 신호기가 있음. 운반 우선순위 2.</CF_SitWhen_OrbitalTrade>
+  <CF_SitR_OrbitalTrade>궤도의 교역선</CF_SitR_OrbitalTrade>
+  <CF_Sit_ChunksOnFields>밭의 돌덩이</CF_Sit_ChunksOnFields>
+  <CF_SitWhen_ChunksOnFields>조건: 밭에 돌덩이나 슬래그가 5개 이상. 운반 우선순위 2.</CF_SitWhen_ChunksOnFields>
+  <CF_SitR_ChunksOnFields>밭의 돌덩이: {0}</CF_SitR_ChunksOnFields>
+  <CF_Sit_IdleBench>일하는 사람 없는 작업대</CF_Sit_IdleBench>
+  <CF_SitWhen_IdleBench>조건: 작업 명령이 있는 작업대 3개 이상에서 아무도 일하지 않음. 대기 중인 작업 유형이 우선순위 2를 받습니다.</CF_SitWhen_IdleBench>
+  <CF_SitR_IdleBench>일하는 사람 없는 작업대: {0}</CF_SitR_IdleBench>
+  <CF_FloorSleep>{0}이(가) 바닥에서 잡니다: {1}</CF_FloorSleep>
+  <CF_FloorNoBeds>정착지에 정착민용 침대가 없습니다.</CF_FloorNoBeds>
+  <CF_FloorAllOwned>모든 침대에 주인이 있습니다 – 침대를 지정하거나 새로 지으세요.</CF_FloorAllOwned>
+  <CF_FloorOwnBed>자기 침대 ({0})</CF_FloorOwnBed>
+  <CF_FloorFreeBed>빈 침대 ({0})</CF_FloorFreeBed>
+  <CF_FloorForbidden>금지되어 있습니다.</CF_FloorForbidden>
+  <CF_FloorArea>허용 구역 밖에 있습니다 ({0}).</CF_FloorArea>
+  <CF_FloorUnreachable>도달할 수 없습니다 (잠겼거나 금지된 문, 벽?).</CF_FloorUnreachable>
+  <CF_FloorReserved>다른 사람이 예약했습니다.</CF_FloorReserved>
+  <CF_FloorCantUse>사용할 수 없습니다 (노예/죄수용 침대, 성별, 이념 또는 침대 모드).</CF_FloorCantUse>
+  <CF_FloorDanger>위험한 장소에 있습니다 (온도, 적).</CF_FloorDanger>
+  <CF_FloorUnknown>알 수 없는 이유로 사용할 수 없습니다 (아마도 다른 침대 모드).</CF_FloorUnknown>
+  <CF_SafeAreaName>Steward: 안전</CF_SafeAreaName>
+  <CF_SafeOn>공격! 정착민 {0}명이 이제 'Steward: 안전' 구역을 사용합니다.</CF_SafeOn>
+  <CF_SafeOff>공격이 끝났습니다 – 정착민 {0}명이 원래 구역을 되찾았습니다.</CF_SafeOff>
+  <CF_Sit_SlaveSuppression>노예 억압 필요</CF_Sit_SlaveSuppression>
+  <CF_SitWhen_SlaveSuppression>조건: 노예의 억압이 35% 미만. 교도관 우선순위 2, 15% 미만이면 우선순위 1.</CF_SitWhen_SlaveSuppression>
+  <CF_SitR_SlaveSuppression>억압이 낮은 노예: {0}</CF_SitR_SlaveSuppression>
+  <CF_Sit_SlaveRebellionRisk>노예 반란 위험</CF_Sit_SlaveRebellionRisk>
+  <CF_SitWhen_SlaveRebellionRisk>조건: 노예가 한 달 안에 반란을 일으킬 수 있음. 교도관 우선순위 1, 최소 정착민 2명.</CF_SitWhen_SlaveRebellionRisk>
+  <CF_SitR_SlaveRebellionRisk>반란할 것 같은 노예: {0}</CF_SitR_SlaveRebellionRisk>
+  <CF_Sit_PrisonersHurt>다친 죄수</CF_Sit_PrisonersHurt>
+  <CF_SitWhen_PrisonersHurt>조건: 치료가 필요한 죄수가 있음. 의사 우선순위 2.</CF_SitWhen_PrisonersHurt>
+  <CF_SitR_PrisonersHurt>치료할 죄수: {0}</CF_SitR_PrisonersHurt>
+  <CF_Sit_Wounded>다친 정착민</CF_Sit_Wounded>
+  <CF_SitWhen_Wounded>조건: 정착민이나 노예가 치료가 필요함 (한 명뿐이라도). 의사 우선순위 1.</CF_SitWhen_Wounded>
+  <CF_SitR_Wounded>치료 대상: {0}</CF_SitR_Wounded>
+  <CF_Sit_BedHungry>침대에서 배고픔</CF_Sit_BedHungry>
+  <CF_SitWhen_BedHungry>조건: 누워 있는 환자나 침대의 죄수가 배고픔. 의사 (환자에게 먹임)와 교도관 (죄수에게 먹임) 우선순위 1.</CF_SitWhen_BedHungry>
+  <CF_SitR_BedHungry>배고픈 환자: {0}, 배고픈 죄수: {1}</CF_SitR_BedHungry>
+  <CF_Sit_HungryNoMeals>배고픔, 식사 부족</CF_Sit_HungryNoMeals>
+  <CF_SitWhen_HungryNoMeals>조건: 정착민, 노예 또는 죄수가 배고프고 준비된 식사가 부족함. 요리 우선순위 1.</CF_SitWhen_HungryNoMeals>
+  <CF_SitR_HungryNoMeals>부족한 식사: {0}</CF_SitR_HungryNoMeals>
+  <CF_Sit_ButcherBacklog>도살할 시체</CF_Sit_ButcherBacklog>
+  <CF_SitWhen_ButcherBacklog>조건: 활성화된 도살 작업 명령이 받는 신선한 동물 시체가 놓여 있음. 요리 우선순위 2.</CF_SitWhen_ButcherBacklog>
+  <CF_SitR_ButcherBacklog>도살할 시체: {0}</CF_SitR_ButcherBacklog>
+  <CF_Sit_PrisonRelease>석방할 죄수</CF_Sit_PrisonRelease>
+  <CF_SitWhen_PrisonRelease>조건: 죄수가 석방으로 설정됨. 교도관 우선순위 2.</CF_SitWhen_PrisonRelease>
+  <CF_SitR_PrisonRelease>석방할 죄수: {0}</CF_SitR_PrisonRelease>
+  <CF_Sit_DirtyPrison>더러운 감방</CF_Sit_DirtyPrison>
+  <CF_SitWhen_DirtyPrison>조건: 죄수가 있는 감방이 매우 더러움. 청소 우선순위 2.</CF_SitWhen_DirtyPrison>
+  <CF_SitR_DirtyPrison>더러운 감방: {0}</CF_SitR_DirtyPrison>
+  <CF_Sit_PrisonBeds>죄수용 침대 부족</CF_Sit_PrisonBeds>
+  <CF_SitWhen_PrisonBeds>조건: 죄수가 죄수용 침대보다 많음. 건설 우선순위 2 (침대는 직접 배치하세요, Steward는 건설만 앞당깁니다).</CF_SitWhen_PrisonBeds>
+  <CF_SitR_PrisonBeds>부족한 죄수용 침대: {0}</CF_SitR_PrisonBeds>
+  <CF_Sit_ProductsWaiting>운반을 기다리는 물건</CF_Sit_ProductsWaiting>
+  <CF_SitWhen_ProductsWaiting>조건: 거주 구역의 보관 장소 밖에 물건이 5개 이상 있고 받아 줄 비축 구역이 있음 (작업대의 생산품, 전리품…). 운반 우선순위 2, 물건 15개당 운반자 1명, 최소 1명.</CF_SitWhen_ProductsWaiting>
+  <CF_SitR_ProductsWaiting>운반을 기다리는 물건: {0}</CF_SitR_ProductsWaiting>
+  <CF_AF_Tidy>운반할 물건: {0}, 오물: {1}</CF_AF_Tidy>
+  <CF_Sit_AnimalTraining>동물 훈련</CF_Sit_AnimalTraining>
+  <CF_SitWhen_AnimalTraining>조건: 지금 바로 훈련할 수 있는 길들인 동물이 1마리 이상 있고 (배울 것이 있고, 최근에 훈련하지 않음) 기술이 충분한 정착민이 있음. 가장 뛰어난 조련사에게 조련 우선순위 1, 동물 5마리당 1명.</CF_SitWhen_AnimalTraining>
+  <CF_SitR_AnimalTraining>훈련을 기다리는 동물: {0}</CF_SitR_AnimalTraining>
+  <CF2C_Name>위기와 상황</CF2C_Name>
+  <CF2C_UseCrisis>위기</CF2C_UseCrisis>
+  <CF2C_UseCrisisTip>화재, 습격, 부상자, 굶주림 등: Steward가 위기에 필요한 작업에 즉시 사람을 올리고, 기다릴 수 있는 작업은 가장 낮은 단계로 내립니다.</CF2C_UseCrisisTip>
+  <CF2C_UseSituations>상황</CF2C_UseSituations>
+  <CF2C_UseSituationsTip>대풍작, 건설 대기, 도살할 시체 …: 상황이 지속되는 동안 그 작업에 더 많은 사람을 배치합니다.</CF2C_UseSituationsTip>
+  <CF2C_AutoFocus>'균형'이 스스로 집중 대상을 선택</CF2C_AutoFocus>
+  <CF2C_AutoFocusTip>정착지에 무언가가 필요할 때 (식량 고갈, 청사진이 많음 …), '균형'이 한동안 그 작업에 사람을 더 배치합니다.</CF2C_AutoFocusTip>
+  <CF2C_Messages>위기와 상황에 대한 메시지</CF2C_Messages>
+  <CF2C_Medical>의사가 긴급 환자에게 즉시 이동</CF2C_Medical>
+  <CF2C_MedicalTip>출혈, 감염, 침대 밖에서 부상: 가장 가까운 한가한 의사가 즉시 갑니다.</CF2C_MedicalTip>
+  <CF2C_Fire>기지 안의 화재 진압</CF2C_Fire>
+  <CF2C_FireTip>한가한 정착민이 거주 구역의 화재로 갑니다 (공격 중 제외, 허용 구역 밖으로는 가지 않음).</CF2C_FireTip>
+  <CF2C_Butcher>식량이 충분하면 도살 먼저</CF2C_Butcher>
+  <CF2C_ButcherTip>신선한 동물 시체가 있고 준비된 식사가 충분하면 요리사가 먼저 도살합니다.</CF2C_ButcherTip>
+  <CF2C_SafeArea>습격 중 안전 구역</CF2C_SafeArea>
+  <CF2C_SafeAreaTip>습격, 사람을 사냥하는 동물, 포위 중에는 정착민이 기지의 지붕 있는 방에 머물고, 이후 원래 구역을 되찾습니다.</CF2C_SafeAreaTip>
+  <CF2C_CrisesList>적용할 위기:</CF2C_CrisesList>
+  <CF2C_SituationsList>적용할 상황:</CF2C_SituationsList>
+  <CF2C_HistCrisis>위기: {0}</CF2C_HistCrisis>
+  <CF2C_NoCrisis>없음 (종료됨)</CF2C_NoCrisis>
+  <CF2C_TipCrisis>위기 ({0}): 지금 필요함.</CF2C_TipCrisis>
+  <CF2C_TipCrisisDown>위기 ({0}): 이 작업은 지금 대기합니다.</CF2C_TipCrisisDown>
+  <CF2C_TipExhausted>지침: 당분간 우선순위 1 작업 없음.</CF2C_TipExhausted>
+  <CF2C_TipFocus>{0} 집중: 이 작업에 더 많은 사람.</CF2C_TipFocus>
+  <CF2C_TipSituation>상황: {0}</CF2C_TipSituation>
+</LanguageData>

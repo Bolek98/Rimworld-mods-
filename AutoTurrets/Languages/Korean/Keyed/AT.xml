@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AT_AutoManned>유인 포탑이 스스로 사격</AT_AutoManned>
+  <AT_AutoManned_Desc>보통 정착민이 필요한 당신의 포탑(어느 모드의 것이든)이 소형 포탑처럼 자동으로 사격합니다. 여전히 직접 목표를 지정할 수도 있습니다.</AT_AutoManned_Desc>
+  <AT_AutoMortars>박격포가 스스로 사격</AT_AutoMortars>
+  <AT_AutoMortars_Desc>당신의 박격포와 기타 포탄 무기는 포탄이 장전되어 있는 동안 적에게 자동으로 사격합니다.</AT_AutoMortars_Desc>
+  <AT_MortarSafety>박격포는 아군 근처를 쏘지 않음</AT_MortarSafety>
+  <AT_MortarSafety_Desc>자동 박격포는 포탄이 당신의 정착민, 동물, 손님에게 떨어질 수 있는 목표를 건너뜁니다.</AT_MortarSafety_Desc>
+  <AT_SafetyExtra>추가 안전 거리: {0}칸</AT_SafetyExtra>
+  <AT_LoadShells>정착민이 포탄 장전(운반 작업)</AT_LoadShells>
+  <AT_LoadShells_Desc>운반자가 맵 어디에서든 포탄을 비어 있는 자동 박격포로 가져갑니다. 박격포 자체의 포탄 필터를 따릅니다.</AT_LoadShells_Desc>
+  <AT_AnyMetal>포탑을 아무 금속으로나 재무장</AT_AnyMetal>
+  <AT_AnyMetal_Desc>강철(또는 다른 한 가지 금속)로 재무장하는 포탑이 아무 금속이나 받습니다: 강철, 플라스틸, 금, 우라늄, 모드의 금속.</AT_AnyMetal_Desc>
+  <AT_AllowSilver>…은 포함</AT_AllowSilver>
+  <AT_Restart>재료와 벽 속 포탑 설정은 게임을 다시 시작한 후 적용됩니다.</AT_Restart>
+  <AT_NoShell>사용할 수 있는 포탄 없음</AT_NoShell>
+  <AT_FriendlyFire>포탑 아군 사격</AT_FriendlyFire>
+  <AT_FriendlyFire_Desc>끄면 포탑의 총알이 정착민, 손님, 동맹을 지나쳐 가고 포탄 폭발도 그들을 해치지 않습니다. 켜기 = 게임과 동일.</AT_FriendlyFire_Desc>
+  <AT_FuelWood>포탑을 나무로도 보충</AT_FuelWood>
+  <AT_FuelWood_Desc>금속으로 보충하는 포탑이 나무도 받습니다.</AT_FuelWood_Desc>
+  <AT_FuelStone>포탑을 돌 벽돌로도 보충</AT_FuelStone>
+  <AT_FuelStone_Desc>금속으로 보충하는 포탑이 돌 벽돌도 받습니다.</AT_FuelStone_Desc>
+  <AT_WallTurrets>벽 속 포탑</AT_WallTurrets>
+  <AT_WallTurrets_Desc>선택한 포탑은 보안 메뉴에 "…(벽 속)" 버전이 하나 더 생깁니다. 벽이나 다듬은 암벽 위에 바로 지으며, 그 벽을 대체하고 그 자체로 벽 역할을 합니다: 통행을 막고, 지붕을 받치고, 방을 막힌 상태로 유지합니다. 일반 포탑은 그대로입니다.</AT_WallTurrets_Desc>
+  <AT_WallRecommended>추천 선택</AT_WallRecommended>
+  <AT_WallNone>포탑을 찾을 수 없습니다.</AT_WallNone>
+  <AT_WallLabel>{0} (벽 속)</AT_WallLabel>
+  <AT_WallDescExtra>벽 위에 짓습니다: 벽 조각을 대체하고 벽처럼 통행을 막고 지붕을 받칩니다. 파괴되면 벽에 구멍이 남습니다.</AT_WallDescExtra>
+  <AT_SecShooting>사격</AT_SecShooting>
+  <AT_SecMaterials>탄약과 재료</AT_SecMaterials>
+  <AT_WallEnable>벽 속 포탑 허용</AT_WallEnable>
+  <AT_WallAll>모두 선택</AT_WallAll>
+  <AT_WallClear>모두 해제</AT_WallClear>
+  <AT_WallCount>{1}개 중 {0}개 선택</AT_WallCount>
+  <AT_WallSearch>검색:</AT_WallSearch>
+  <AT_WallRecDone>추천 선택으로 되돌림 – 소형 포탑 {0}개 선택.</AT_WallRecDone>
+  <AT_WallAllDone>포탑 {0}개 모두 선택.</AT_WallAllDone>
+  <AT_WallClearDone>선택 해제됨.</AT_WallClearDone>
+  <AT_RestartNeeded>⚠ 벽 속 포탑 변경은 게임을 다시 시작해야 적용됩니다.</AT_RestartNeeded>
+  <AT_WallRecTip>추천: 2×2 이하 소형 포탑</AT_WallRecTip>
+  <AT_SmartShells>똑똑한 포탄 선택</AT_SmartShells>
+  <AT_SmartShells_Desc>자동 박격포가 포탄을 낭비하지 않습니다: EMP는 기계체와 보호막을 가진 적에게만, 소이탄은 기계체 외에만, 소화 거품은 거주 구역 안의 불에만 쏩니다(적에게는 절대 쏘지 않음). 적 대부분이 기계체면 운반자가 EMP 포탄을, 아니면 고폭탄을 가져옵니다 — 박격포 필터가 허용하는 경우.</AT_SmartShells_Desc>
+  <AT_NoHitBuildings>포탑이 우리 건물을 맞히지 않음</AT_NoHitBuildings>
+  <AT_NoHitBuildings_Desc>켜면 포탑의 총알이 직접 조준하지 않는 한 내 건물(벽, 모래주머니, 문…)을 지나쳐 가고 포탄 폭발도 건물을 손상시키지 않습니다. 적 건물은 평소처럼 맞습니다. 끄기 = 게임과 동일.</AT_NoHitBuildings_Desc>
+  <AT_WallOutward>벽 포탑은 바깥쪽으로만 사격</AT_WallOutward>
+  <AT_WallOutward_Desc>벽 안의 포탑은 벽 바깥쪽(방 반대편)의 대상에게만 사격합니다. 어느 쪽도 확실히 바깥이 아니면(두 방 사이의 벽) 모든 방향으로 사격합니다.</AT_WallOutward_Desc>
+  <AT_TabTurrets>포탑</AT_TabTurrets>
+  <AT_TurretsDesc>모든 포탑, 박격포, 대포 – 바닐라와 모드. 체크한 것은 스스로 사격합니다. 체크 해제: 조작형 포탑과 박격포는 다시 정착민이 필요하고, 자동 포탑은 목표를 지정할 때까지 사격하지 않습니다.</AT_TurretsDesc>
+  <AT_TurretsNone>정착민이 필요한 포탑이 없습니다.</AT_TurretsNone>
+  <AT_TurretsCount>{1}개 중 {0}개 자동 사격</AT_TurretsCount>
+  <AT_FuelEdit>재료…</AT_FuelEdit>
+  <AT_FuelPerTurret>각 포탑의 재료 – 모드 전용 탄약이나 연료가 필요한 포탑도 포함. "재료…"를 눌러 추가로 보급에 쓸 수 있는 것을 체크하세요. 바로 적용됩니다.</AT_FuelPerTurret>
+  <AT_FuelNone>보급이 필요한 포탑이 없습니다.</AT_FuelNone>
+  <AT_FuelTakes>사용: {0}</AT_FuelTakes>
+  <AT_FuelOriginal>기본 재료: {0}. 추가로 보급에 쓸 수 있는 것을 체크하세요:</AT_FuelOriginal>
+  <AT_FuelOrig>기본</AT_FuelOrig>
+  <AT_FuelGroup0>금속</AT_FuelGroup0>
+  <AT_FuelGroup1>나무</AT_FuelGroup1>
+  <AT_FuelGroup2>석재 블록</AT_FuelGroup2>
+  <AT_FuelGroup3>탄약과 포탄</AT_FuelGroup3>
+  <AT_FuelGroup4>기타 자원</AT_FuelGroup4>
+  <AT_KindManned>조작형</AT_KindManned>
+  <AT_KindMortar>조작형 박격포</AT_KindMortar>
+  <AT_KindAuto>자동</AT_KindAuto>
+  <AT_KindMortarAuto>박격포</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>포탄 자동 장전</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>운반꾼이 이 박격포에 알아서 포탄을 가져옵니다. 손으로만 장전하려면 끄세요.</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>탄약: {0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>이 포탑을 장전하거나 보급할 포탄이나 재료를 하나만 고릅니다 – 다른 것은 가져오지 않습니다. "허용된 모든 것"은 포탑이 받는 모든 것을 씁니다.</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>허용된 모든 것</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>특수 포탄은 고를 때만</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>운반꾼은 EMP, 소이, 소화 거품 등 특수 포탄을 "탄약" 버튼으로 지정한 박격포에만 가져오고, 그 외에는 고폭탄을 가져옵니다.</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>전용 탄약 포탑도 금속 사용</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>전용 탄약이나 연료가 필요한 포탑(주로 모드)도 강철이나 다른 금속으로 보급할 수 있어 탄약이 없어서 멈추는 일이 없습니다.</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>포탑에 탄약 불필요</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>포탑이 항상 장전된 것으로 간주되며 탄약이나 연료를 쓰지 않습니다. 모드 포탑이 만들 수 없는 탄약을 요구할 때 유용합니다. 박격포, 포, 야포도 항상 포탄이 장전되어 있습니다.</AT_FreeAmmo_Desc>
+  <AT_VfesAuto>스스로 사격합니다(Auto Turrets) – 정착민이 필요 없습니다.</AT_VfesAuto>
+  <AT_VfesSend>아무도 조작하지 않습니다 – 싸울 수 있는 가장 가까운 한가한 정착민이 바로 갑니다.</AT_VfesSend>
+  <AT_VfesNobody>포를 조작할 수 있는 사람이 없습니다.</AT_VfesNobody>
+  <AT_VfesGoes>{0}이(가) 포를 조작하러 갑니다.</AT_VfesGoes>
+  <AT_ShellsFromMaterial>박격포와 포를 포탄 대신 재료로 장전</AT_ShellsFromMaterial>
+  <AT_ShellsFromMaterial_Desc>운반자가 박격포, 포, 야포에 강철(또는 다른 금속)을 가져가고, 포에는 선택한 포탄이, 선택하지 않았다면 고폭탄이 장전됩니다. 포탄은 전혀 필요 없습니다. VFE 자동 박격포도 재료로 포탄을 채웁니다.</AT_ShellsFromMaterial_Desc>
+  <AT_ShellCost>포탄 1발당 재료: {0}</AT_ShellCost>
+  <AT_NoMaterial>재료 부족 (포탄 1발에 금속 {0})</AT_NoMaterial>
+</LanguageData>

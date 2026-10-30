@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- recommended settings -->
+  <QFW_Rec1>Work 1.5× faster (your pawns)</QFW_Rec1>
+  <QFW_Rec2>Recruiting and enslaving 2× faster</QFW_Rec2>
+  <QFW_Rec3>Unwavering prisoners recruitable after 15 days</QFW_Rec3>
+  <QFW_Rec4>Pipette, copy settings, haul now, zone ±, QoL window</QFW_Rec4>
+  <QFW_PageWork>Faster work</QFW_PageWork>
+  <QFW_PagePrisoners>Prisoners</QFW_PagePrisoners>
+  <QFW_PageTools>Pipette &amp; tools</QFW_PageTools>
+  <QFW_PageNotify>Notifications</QFW_PageNotify>
+
+  <!-- faster work -->
+  <QFW_SecWork>Work speed</QFW_SecWork>
+  <QFW_WorkSpeed>Faster work</QFW_WorkSpeed>
+  <QFW_WorkSpeed_Desc>Multiplies the work speed of each kind of work by its slider below.</QFW_WorkSpeed_Desc>
+  <QFW_ColonistsOnly>Only my pawns</QFW_ColonistsOnly>
+  <QFW_ColonistsOnly_Desc>On: only pawns of your colony (colonists, slaves, mechanoids) work faster. Off: everyone, also visitors and raiders.</QFW_ColonistsOnly_Desc>
+  <QFW_SpCraft>Crafting: ×{0}</QFW_SpCraft>
+  <QFW_SpCraft_Desc>Crafting, smithing, tailoring, art, drug making and other workbench work.</QFW_SpCraft_Desc>
+  <QFW_SpBuild>Construction: ×{0}</QFW_SpBuild>
+  <QFW_SpBuild_Desc>Building, repairing and smoothing.</QFW_SpBuild_Desc>
+  <QFW_SpMine>Mining: ×{0}</QFW_SpMine>
+  <QFW_SpMine_Desc>Mining and deep drilling.</QFW_SpMine_Desc>
+  <QFW_SpPlants>Plants: ×{0}</QFW_SpPlants>
+  <QFW_SpPlants_Desc>Sowing, harvesting, cutting plants and felling trees.</QFW_SpPlants_Desc>
+  <QFW_SpResearch>Research: ×{0}</QFW_SpResearch>
+  <QFW_SpResearch_Desc>Research speed.</QFW_SpResearch_Desc>
+  <QFW_SpCook>Cooking: ×{0}</QFW_SpCook>
+  <QFW_SpCook_Desc>Cooking, butchering and brewing.</QFW_SpCook_Desc>
+  <QFW_SpClean>Cleaning: ×{0}</QFW_SpClean>
+  <QFW_SpClean_Desc>Cleaning speed.</QFW_SpClean_Desc>
+  <QFW_SpMedical>Medical: ×{0}</QFW_SpMedical>
+  <QFW_SpMedical_Desc>Tending and surgery speed (not the success chance).</QFW_SpMedical_Desc>
+  <QFW_SpAnimals>Animals: ×{0}</QFW_SpAnimals>
+  <QFW_SpAnimals_Desc>Milking and shearing.</QFW_SpAnimals_Desc>
+  <QFW_WorkNote>Changed stats: {0}</QFW_WorkNote>
+  <QFW_SpeedExplain>QoL faster work</QFW_SpeedExplain>
+
+  <!-- prisoners -->
+  <QFW_SecPrisoners>Prisoners</QFW_SecPrisoners>
+  <QFW_Prisoners>Prisoner helpers</QFW_Prisoners>
+  <QFW_Prisoners_Desc>Faster recruiting and enslaving, and the unwavering loyalty setting below.</QFW_Prisoners_Desc>
+  <QFW_RecruitMult>Recruiting: ×{0}</QFW_RecruitMult>
+  <QFW_RecruitMult_Desc>Each recruitment talk lowers resistance this many times more.</QFW_RecruitMult_Desc>
+  <QFW_EnslaveMult>Enslaving: ×{0}</QFW_EnslaveMult>
+  <QFW_EnslaveMult_Desc>Each enslavement talk lowers will this many times more.</QFW_EnslaveMult_Desc>
+  <QFW_Unwavering>Unwavering loyalty</QFW_Unwavering>
+  <QFW_Unwavering_Desc>Some prisoners can never be recruited (unwavering loyalty). Here you can keep it, remove it after some days in prison, or remove it right away.</QFW_Unwavering_Desc>
+  <QFW_Unw_Off>Keep it (vanilla)</QFW_Unw_Off>
+  <QFW_Unw_AfterDays>Gone after {0} days</QFW_Unw_AfterDays>
+  <QFW_Unw_Always>Gone right away</QFW_Unw_Always>
+  <QFW_UnwDays>Days in prison: {0}</QFW_UnwDays>
+  <QFW_UnwDays_Desc>After this many days in your prison the loyalty breaks and the prisoner can be recruited.</QFW_UnwDays_Desc>
+  <QFW_NowRecruitable>{0} is not unwavering any more – can be recruited now.</QFW_NowRecruitable>
+
+  <!-- pipette and tools -->
+  <QFW_SecPipette>Pipette</QFW_SecPipette>
+  <QFW_Pipette>Pipette</QFW_Pipette>
+  <QFW_Pipette_Desc>Press the key and click anything on the map: you get it in hand to build (same building, material, style and rotation). Floors give the floor, items offer a bill at a workbench.</QFW_Pipette_Desc>
+  <QFW_PipetteInstant>Pick right away</QFW_PipetteInstant>
+  <QFW_PipetteInstant_Desc>The key picks what is under the mouse at once, without the extra click.</QFW_PipetteInstant_Desc>
+  <QFW_PipetteKey>Key: {0} (change it in Options → Keyboard, section "QoL – Faster Work").</QFW_PipetteKey>
+  <QFW_PipFogged>That place is still hidden.</QFW_PipFogged>
+  <QFW_PipNothing>Nothing there that can be built.</QFW_PipNothing>
+  <QFW_PipCantBuild>{0} can't be built by you.</QFW_PipCantBuild>
+  <QFW_PipLocked>{0} isn't available yet (research or another requirement missing).</QFW_PipLocked>
+  <QFW_PipNoRecipe>No workbench recipe makes {0}.</QFW_PipNoRecipe>
+  <QFW_PipNoBench>No workbench for {0} built yet ({1}).</QFW_PipNoBench>
+  <QFW_PipAddBill>Add bill: {0} at {1}</QFW_PipAddBill>
+  <QFW_PipBillAdded>Bill added: {0} at {1}.</QFW_PipBillAdded>
+
+  <QFW_SecTools>Tools</QFW_SecTools>
+  <QFW_CopyPawn>Copy / paste pawn settings</QFW_CopyPawn>
+  <QFW_CopyPawn_Desc>Buttons on a colonist: copy work priorities, schedule, policies, medical care, response to hostiles and allowed area, and paste them to other colonists.</QFW_CopyPawn_Desc>
+  <QFW_CopyPawn_Btn>Copy settings</QFW_CopyPawn_Btn>
+  <QFW_CopyPawn_BtnDesc>Remember this colonist's work priorities, schedule, policies, medical care, response to hostiles and allowed area.</QFW_CopyPawn_BtnDesc>
+  <QFW_PastePawn_Btn>Paste settings</QFW_PastePawn_Btn>
+  <QFW_PastePawn_BtnDesc>Give the selected colonists the settings copied from {0} – all, or only a part.</QFW_PastePawn_BtnDesc>
+  <QFW_Copied>Settings of {0} copied.</QFW_Copied>
+  <QFW_Pasted>Settings of {0} pasted to {1} colonist(s).</QFW_Pasted>
+  <QFW_PasteAll>Everything</QFW_PasteAll>
+  <QFW_PasteWork>Only work priorities</QFW_PasteWork>
+  <QFW_PasteSchedule>Only schedule</QFW_PasteSchedule>
+  <QFW_PastePolicies>Only policies, medical care and response to hostiles</QFW_PastePolicies>
+  <QFW_PasteArea>Only allowed area</QFW_PasteArea>
+  <QFW_HaulNow>Haul now</QFW_HaulNow>
+  <QFW_HaulNow_Desc>Button on items: the selected items go to storage right away, carried by the nearest free colonists.</QFW_HaulNow_Desc>
+  <QFW_HaulNow_Btn>Haul now</QFW_HaulNow_Btn>
+  <QFW_HaulNow_BtnDesc>The nearest free colonists carry the selected items to storage right away.</QFW_HaulNow_BtnDesc>
+  <QFW_HaulNoPawn>No free colonist who can haul.</QFW_HaulNoPawn>
+  <QFW_HaulNoStore>{0} item(s) have no reachable storage that accepts them.</QFW_HaulNoStore>
+  <QFW_ZoneTools>Grow / shrink zone</QFW_ZoneTools>
+  <QFW_ZoneTools_Desc>Buttons on stockpile and growing zones: make the zone one cell bigger or smaller on every side.</QFW_ZoneTools_Desc>
+  <QFW_ZoneGrow>Grow zone</QFW_ZoneGrow>
+  <QFW_ZoneGrow_Desc>Adds one cell on every side, where the zone can go.</QFW_ZoneGrow_Desc>
+  <QFW_ZoneShrink>Shrink zone</QFW_ZoneShrink>
+  <QFW_ZoneShrink_Desc>Removes the outer ring of cells.</QFW_ZoneShrink_Desc>
+  <QFW_ZoneNoRoom>The zone can't grow here.</QFW_ZoneNoRoom>
+  <QFW_ZoneTooSmall>The zone is too small to shrink.</QFW_ZoneTooSmall>
+  <QFW_ColonyTab>QoL button in the bottom bar</QFW_ColonyTab>
+  <QFW_ColonyTab_Desc>Map search, prisoner overview and colony actions (everyone eat / sleep / wake up).</QFW_ColonyTab_Desc>
+  <QFW_SecStacks>Stack size</QFW_SecStacks>
+  <QFW_Stacks>Bigger stacks</QFW_Stacks>
+  <QFW_Stacks_Desc>Multiplies how many items fit in one stack. Takes effect after a restart. If you turn it off later, oversized stacks may split or show errors once.</QFW_Stacks_Desc>
+  <QFW_StackMult>Stack size: ×{0}</QFW_StackMult>
+  <QFW_StackMult_Desc>Multiplier of every item's stack limit.</QFW_StackMult_Desc>
+  <QFW_StacksRestart>Restart the game to apply the new stack size.</QFW_StacksRestart>
+  <QFW_StacksOgre>OgreStack is active – use only one of them for stack sizes.</QFW_StacksOgre>
+
+  <!-- notifications -->
+  <QFW_SecNotify>Notifications</QFW_SecNotify>
+  <QFW_Notifications>Notification filter</QFW_Notifications>
+  <QFW_Notifications_Desc>Make letters and messages of a chosen kind silent, or hide them.</QFW_Notifications_Desc>
+  <QFW_NotifyNote>Silent = comes without sound. Hidden = doesn't pop up at all, but still goes to History (Menu → History → Messages). Careful with threat letters. These choices are not part of the recommended settings.</QFW_NotifyNote>
+  <QFW_SecLetters>Letters (right side)</QFW_SecLetters>
+  <QFW_SecMessages>Messages (top left)</QFW_SecMessages>
+  <QFW_ColMute>Silent</QFW_ColMute>
+  <QFW_ColHide>Hidden</QFW_ColHide>
+
+  <!-- QoL window -->
+  <QFW_SlaveRecruit>Slaves can become colonists</QFW_SlaveRecruit>
+  <QFW_SlaveRecruit_Desc>A slave who is not unwavering (or whose loyalty has broken) can be made a free colonist from the QoL window – also slaves taken from other factions.</QFW_SlaveRecruit_Desc>
+  <QFW_DeconAll>Deconstruct everything</QFW_DeconAll>
+  <QFW_DeconAll_Desc>Ancient walls, ruins, wrecks and other things the game only lets you destroy by attacking can be deconstructed. Buildings of hostile factions are not included.</QFW_DeconAll_Desc>
+  <QFW_SColName>Slave</QFW_SColName>
+  <QFW_SColAction>Action</QFW_SColAction>
+  <QFW_MakeColonist>Make colonist</QFW_MakeColonist>
+  <QFW_MakeColonist_Desc>The slave becomes a free colonist of your colony (remembers being enslaved for a while).</QFW_MakeColonist_Desc>
+  <QFW_MakeColonist_Confirm>Make {0} a free colonist?</QFW_MakeColonist_Confirm>
+  <QFW_MadeColonist>{0} is now a free colonist.</QFW_MadeColonist>
+  <QFW_TabSearch>Map search</QFW_TabSearch>
+  <QFW_TabPrisoners>Prisoners</QFW_TabPrisoners>
+  <QFW_TabColony>Colony</QFW_TabColony>
+  <QFW_SearchHint>Items, buildings, pawns and plants on this map. Accents and dashes don't matter.</QFW_SearchHint>
+  <QFW_SearchType>Type at least two letters, e.g. "steel".</QFW_SearchType>
+  <QFW_SearchNone>Nothing found.</QFW_SearchNone>
+  <QFW_Show>Show</QFW_Show>
+  <QFW_ShowNext>Show {0}/{1}</QFW_ShowNext>
+  <QFW_NoPrisoners>No prisoners or slaves on this map.</QFW_NoPrisoners>
+  <QFW_PColName>Name</QFW_PColName>
+  <QFW_PColMode>Interaction</QFW_PColMode>
+  <QFW_PColRes>Resistance</QFW_PColRes>
+  <QFW_PColWill>Will</QFW_PColWill>
+  <QFW_PColRecruit>Recruitable</QFW_PColRecruit>
+  <QFW_PColDays>Days held</QFW_PColDays>
+  <QFW_Yes>yes</QFW_Yes>
+  <QFW_No>no</QFW_No>
+  <QFW_InDays>in {0} d</QFW_InDays>
+  <QFW_AllEat>Everyone eat now</QFW_AllEat>
+  <QFW_AllEat_Desc>Free colonists who are below 80 % food go eat now (e.g. before a long trip or a raid).</QFW_AllEat_Desc>
+  <QFW_AllEat_Done>{0} colonist(s) go eat, {1} not hungry or no food.</QFW_AllEat_Done>
+  <QFW_AllSleep>Everyone go to sleep</QFW_AllSleep>
+  <QFW_AllSleep_Desc>Free colonists who are below 90 % rest go to bed now.</QFW_AllSleep_Desc>
+  <QFW_AllSleep_Done>{0} colonist(s) go to sleep, {1} rested or already sleeping.</QFW_AllSleep_Done>
+  <QFW_AllWake>Wake everyone up</QFW_AllWake>
+  <QFW_AllWake_Desc>Sleeping colonists get up (not the sick or wounded who need bed rest).</QFW_AllWake_Desc>
+  <QFW_AllWake_Done>{0} colonist(s) woken up.</QFW_AllWake_Done>
+  <QFW_PipetteBtn>Pipette</QFW_PipetteBtn>
+  <QFW_PipetteBtn_Desc>Click anything on the map to build the same. Faster with the key.</QFW_PipetteBtn_Desc>
+
+  <!-- shared settings look -->
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+</LanguageData>

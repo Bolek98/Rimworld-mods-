@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_CrisisStart>Steward: {0}. Prioridades ajustadas.</CF_CrisisStart>
+  <CF_CrisisEnd>Steward: crise encerrada ({0}).</CF_CrisisEnd>
+  <CF_D_Food>comida para {0} dias</CF_D_Food>
+  <CF_AutoFocusNow>{0} → agora: {1} ({2})</CF_AutoFocusNow>
+  <CF_AutoFocusNowNoReason>{0} → agora: {1}</CF_AutoFocusNowNoReason>
+  <CF_AutoFocusShort>{0} → {1}</CF_AutoFocusShort>
+  <CF_AutoFocusMsg>Steward: Equilibrado agora foca em {0} ({1}).</CF_AutoFocusMsg>
+  <CF_AutoFocusEnd>Steward: o foco em {0} acabou – Equilibrado volta a dividir o trabalho por igual.</CF_AutoFocusEnd>
+  <CF_AF_Food>comida para {0} dias</CF_AF_Food>
+  <CF_AF_Harvest>{0} plantas prontas para colher</CF_AF_Harvest>
+  <CF_AF_Build>{0} plantas de construção</CF_AF_Build>
+  <CF_AF_Industry>aço {0}, componentes {1}</CF_AF_Industry>
+  <CF_AF_Mine>{0} células para minerar</CF_AF_Mine>
+  <CF_AF_Bills>muitas ordens de produção esperando</CF_AF_Bills>
+  <CF_AF_Care>pacientes {0}, prisioneiros {1}, crianças {2}</CF_AF_Care>
+  <CF_AF_Defense>depois de um ataque, {0} construções para consertar</CF_AF_Defense>
+  <CF_AF_Animals>{0} animais para domar ou abater, {1} para ordenhar, tosquiar ou treinar</CF_AF_Animals>
+  <CF_AF_Dirt>{0} de sujeira na área doméstica</CF_AF_Dirt>
+  <CF_AF_Calm>calmaria – hora de pesquisar</CF_AF_Calm>
+  <CF_SitStaff>{0} ×{1} (prioridade {2})</CF_SitStaff>
+  <CF_SitHeader>Situações:</CF_SitHeader>
+  <CF_SitStart>Steward – nova situação: {0}.</CF_SitStart>
+  <CF_SitEnd>Steward – situação encerrada: {0}. De volta ao plano normal.</CF_SitEnd>
+  <CF_SitDoesWork>{0} prioridade {1}</CF_SitDoesWork>
+  <CF_SitDoesNothing>nada neste jogo (o tipo de trabalho não existe)</CF_SitDoesNothing>
+  <CF_SitDoesExhausted>o trabalho de prioridade 1 deles cai para 2 (emergências continuam)</CF_SitDoesExhausted>
+  <CF_Sit_BuildBacklog>muita construção pendente</CF_Sit_BuildBacklog>
+  <CF_SitWhen_BuildBacklog>Quando: 20 ou mais plantas de construção e estruturas (continua até ficarem menos de 8). Construir na prioridade 2, um construtor a cada 15 plantas, no mínimo 2.</CF_SitWhen_BuildBacklog>
+  <CF_SitR_BuildBacklog>{0} plantas de construção</CF_SitR_BuildBacklog>
+  <CF_Sit_Deconstruct>desconstrução pendente</CF_Sit_Deconstruct>
+  <CF_SitWhen_Deconstruct>Quando: 15 ou mais marcações para desconstruir, desinstalar, polir ou remover pisos. Construir na prioridade 2, um colono a cada 20 marcações.</CF_SitWhen_Deconstruct>
+  <CF_SitR_Deconstruct>{0} marcações</CF_SitR_Deconstruct>
+  <CF_Sit_Repairs>reparos necessários</CF_Sit_Repairs>
+  <CF_SitWhen_Repairs>Quando: 6 ou mais construções danificadas (não durante um ataque). Construir na prioridade 2, um colono a cada 10 construções.</CF_SitWhen_Repairs>
+  <CF_SitR_Repairs>{0} construções danificadas</CF_SitR_Repairs>
+  <CF_Sit_HaulBacklog>muito para transportar</CF_Sit_HaulBacklog>
+  <CF_SitWhen_HaulBacklog>Quando: 80 ou mais itens largados para transportar (pedaços de rocha não contam; não durante ataque, ar tóxico ou clima extremo). Transportar na prioridade 2, um carregador a cada 50 itens, no mínimo 2.</CF_SitWhen_HaulBacklog>
+  <CF_SitR_HaulBacklog>{0} itens para transportar</CF_SitR_HaulBacklog>
+  <CF_Sit_RottingOutside>coisas apodrecendo lá fora</CF_Sit_RottingOutside>
+  <CF_SitWhen_RottingOutside>Quando: 8 ou mais pilhas perecíveis fora do estoque que apodrecem em até 5 dias. Transportar na prioridade 1, um carregador a cada 10 pilhas.</CF_SitWhen_RottingOutside>
+  <CF_SitR_RottingOutside>{0} pilhas vão apodrecer</CF_SitR_RottingOutside>
+  <CF_Sit_FoodSpoiling>comida estragando logo</CF_Sit_FoodSpoiling>
+  <CF_SitWhen_FoodSpoiling>Quando: comida crua valendo 10+ de nutrição apodrece em até 1,5 dia. Cozinhar na prioridade 1 (um cozinheiro a cada 30 de nutrição) e um carregador na prioridade 2 para levá-la ao frio.</CF_SitWhen_FoodSpoiling>
+  <CF_SitR_FoodSpoiling>{0} de nutrição estraga em até 1,5 dia</CF_SitR_FoodSpoiling>
+  <CF_Sit_BigHarvest>grande colheita</CF_Sit_BigHarvest>
+  <CF_SitWhen_BigHarvest>Quando: 40 ou mais plantas maduras em zonas de cultivo. Cultivar na prioridade 2, um cultivador a cada 40 plantas, no mínimo 2.</CF_SitWhen_BigHarvest>
+  <CF_SitR_BigHarvest>{0} plantas maduras</CF_SitR_BigHarvest>
+  <CF_Sit_FrostHarvest>geada – colha agora</CF_Sit_FrostHarvest>
+  <CF_SitWhen_FrostHarvest>Quando: abaixo de 2 °C lá fora e 5 ou mais plantas maduras – a plantação morre no frio. Cultivar na prioridade 1, um cultivador a cada 25 plantas, no mínimo 2.</CF_SitWhen_FrostHarvest>
+  <CF_SitR_FrostHarvest>{0} plantas maduras a {1}</CF_SitR_FrostHarvest>
+  <CF_Sit_CutBacklog>corte de plantas pendente</CF_Sit_CutBacklog>
+  <CF_SitWhen_CutBacklog>Quando: 30 ou mais plantas marcadas para cortar ou colher. Cortar plantas na prioridade 2, um colono a cada 30 plantas.</CF_SitWhen_CutBacklog>
+  <CF_SitR_CutBacklog>{0} plantas marcadas</CF_SitR_CutBacklog>
+  <CF_Sit_MineBacklog>mineração pendente</CF_Sit_MineBacklog>
+  <CF_SitWhen_MineBacklog>Quando: 30 ou mais células marcadas para mineração. Minerar na prioridade 2, um minerador a cada 30 células.</CF_SitWhen_MineBacklog>
+  <CF_SitR_MineBacklog>{0} células para minerar</CF_SitR_MineBacklog>
+  <CF_Sit_LowWood>pouca madeira</CF_Sit_LowWood>
+  <CF_SitWhen_LowWood>Quando: menos madeira que 75 + 25 por colono e há árvores marcadas para corte. Cortar plantas na prioridade 2, 1 colono (2 numa colônia de 5+).</CF_SitWhen_LowWood>
+  <CF_SitR_LowWood>{0} de madeira</CF_SitR_LowWood>
+  <CF_Sit_LowSteel>pouco aço</CF_Sit_LowSteel>
+  <CF_SitWhen_LowSteel>Quando: menos aço que 50 + 20 por colono e há rocha marcada para mineração. Minerar na prioridade 2, 1 minerador (2 numa colônia de 5+).</CF_SitWhen_LowSteel>
+  <CF_SitR_LowSteel>{0} de aço</CF_SitR_LowSteel>
+  <CF_Sit_LowComponents>poucos componentes</CF_Sit_LowComponents>
+  <CF_SitWhen_LowComponents>Quando: menos componentes que 3 + 1 a cada 2 colonos e uma ordem de componentes está esperando. O trabalho dessa bancada na prioridade 2, 1 colono.</CF_SitWhen_LowComponents>
+  <CF_SitR_LowComponents>{0} componentes</CF_SitR_LowComponents>
+  <CF_Sit_LowMedicine>remédios acabando</CF_Sit_LowMedicine>
+  <CF_SitWhen_LowMedicine>Quando: menos de 2 remédios por colono (mas ainda não a crise "sem remédios") e uma ordem de remédios está esperando ou raiz-curativa está sendo cultivada. O trabalho da bancada e cultivar na prioridade 2, 1 colono cada.</CF_SitWhen_LowMedicine>
+  <CF_SitR_LowMedicine>{0} remédios</CF_SitR_LowMedicine>
+  <CF_Sit_ColdClothing>sem roupa para o frio</CF_Sit_ColdClothing>
+  <CF_SitWhen_ColdClothing>Quando: 10 °C ou menos lá fora, colonos com roupas que não aquecem o suficiente e uma ordem de roupas esperando. Costurar na prioridade 2, um alfaiate a cada 4 colonos com frio.</CF_SitWhen_ColdClothing>
+  <CF_SitR_ColdClothing>{0} colonos com muito frio a {1}</CF_SitR_ColdClothing>
+  <CF_Sit_WornClothing>roupas gastas</CF_Sit_WornClothing>
+  <CF_SitWhen_WornClothing>Quando: um terço dos colonos (no mínimo 2) usa roupas abaixo de 50 % de durabilidade e uma ordem de roupas está esperando. Costurar na prioridade 2, 1 alfaiate.</CF_SitWhen_WornClothing>
+  <CF_SitR_WornClothing>{0} colonos com roupas gastas</CF_SitR_WornClothing>
+  <CF_Sit_LowWeapons>colonos sem armas</CF_Sit_LowWeapons>
+  <CF_SitWhen_LowWeapons>Quando: metade dos colonos aptos a lutar (colônia de 3+) não tem arma e uma ordem de armas está esperando. Forjar na prioridade 2, 1 ferreiro (2 com 5+ desarmados).</CF_SitWhen_LowWeapons>
+  <CF_SitR_LowWeapons>{0} desarmados</CF_SitR_LowWeapons>
+  <CF_Sit_Recruit>prisioneiros para recrutar</CF_Sit_Recruit>
+  <CF_SitWhen_Recruit>Quando: prisioneiros definidos para recrutar, reduzir resistência, escravizar ou converter. Carcereiro na prioridade 2, um carcereiro a cada 3 prisioneiros – os melhores de conversa.</CF_SitWhen_Recruit>
+  <CF_SitR_Recruit>{0} prisioneiros para conversar</CF_SitR_Recruit>
+  <CF_Sit_HungryPrisoners>prisioneiros famintos</CF_Sit_HungryPrisoners>
+  <CF_SitWhen_HungryPrisoners>Quando: a comida de um prisioneiro está abaixo de 25 %. Carcereiro na prioridade 1, um carcereiro a cada 3 prisioneiros famintos.</CF_SitWhen_HungryPrisoners>
+  <CF_SitR_HungryPrisoners>{0} prisioneiros famintos</CF_SitR_HungryPrisoners>
+  <CF_Sit_MassCasualties>muitos pacientes</CF_Sit_MassCasualties>
+  <CF_SitWhen_MassCasualties>Quando: 3 ou mais pacientes precisam de tratamento. Médico na prioridade 1, dois médicos a cada 3 pacientes, no mínimo 2.</CF_SitWhen_MassCasualties>
+  <CF_SitR_MassCasualties>{0} pacientes</CF_SitR_MassCasualties>
+  <CF_Sit_Infection>doença com risco de morte</CF_Sit_Infection>
+  <CF_SitWhen_Infection>Quando: alguém tem uma doença ou ferimento que pode matar (ainda não imune e já grave) ou sangra muito. Médico na prioridade 1, um médico por paciente assim.</CF_SitWhen_Infection>
+  <CF_SitR_Infection>{0} em perigo</CF_SitR_Infection>
+  <CF_Sit_TameTrain>animais para domar ou treinar</CF_Sit_TameTrain>
+  <CF_SitWhen_TameTrain>Quando: 4 ou mais animais para domar ou treinar. Lidar com animais na prioridade 2, um tratador a cada 6 animais.</CF_SitWhen_TameTrain>
+  <CF_SitR_TameTrain>{0} animais</CF_SitR_TameTrain>
+  <CF_Sit_AnimalProducts>animais para abater, ordenhar ou tosquiar</CF_Sit_AnimalProducts>
+  <CF_SitWhen_AnimalProducts>Quando: 5 ou mais animais marcados para abate ou prontos para ordenhar ou tosquiar. Lidar com animais na prioridade 2, um tratador a cada 8.</CF_SitWhen_AnimalProducts>
+  <CF_SitR_AnimalProducts>{0} animais prontos</CF_SitR_AnimalProducts>
+  <CF_Sit_AnimalsHungry>animais famintos</CF_Sit_AnimalsHungry>
+  <CF_SitWhen_AnimalsHungry>Quando: 2 ou mais animais da colônia estão passando fome (comida abaixo de 15 %). Transportar e lidar com animais na prioridade 2, 1 colono cada.</CF_SitWhen_AnimalsHungry>
+  <CF_SitR_AnimalsHungry>{0} animais passando fome</CF_SitR_AnimalsHungry>
+  <CF_Sit_DirtyRooms>hospital ou cozinha sujos</CF_Sit_DirtyRooms>
+  <CF_SitWhen_DirtyRooms>Quando: 8 ou mais de sujeira em hospitais ou cozinhas (infecções, intoxicação alimentar). Limpar na prioridade 1, um faxineiro a cada 20 de sujeira.</CF_SitWhen_DirtyRooms>
+  <CF_SitR_DirtyRooms>{0} de sujeira</CF_SitR_DirtyRooms>
+  <CF_Sit_ResearchIdle>hora de pesquisar</CF_Sit_ResearchIdle>
+  <CF_SitWhen_ResearchIdle>Quando: há um projeto escolhido, uma bancada de pesquisa construída, comida para 6+ dias e nenhuma crise ou outra situação. Pesquisar na prioridade 2, um pesquisador a cada 4 colonos.</CF_SitWhen_ResearchIdle>
+  <CF_SitR_ResearchIdle>projeto {0}</CF_SitR_ResearchIdle>
+  <CF_Sit_TradeVisit>comerciantes aqui</CF_Sit_TradeVisit>
+  <CF_SitWhen_TradeVisit>Quando: uma caravana de comércio está no mapa, ou uma nave de comércio está em órbita e há um sinalizador de comércio construído. Transportar na prioridade 2, 2 carregadores para juntar as mercadorias.</CF_SitWhen_TradeVisit>
+  <CF_SitR_TradeVisit>comerciantes esperando</CF_SitR_TradeVisit>
+  <CF_Sit_LowFuel>combustível acabando</CF_Sit_LowFuel>
+  <CF_SitWhen_LowFuel>Quando: 2 ou mais construções com reabastecimento automático estão abaixo de 25 % de combustível (geradores, tochas, fogões …). Reabastecer (transportar) na prioridade 1, um colono a cada 6 construções.</CF_SitWhen_LowFuel>
+  <CF_SitR_LowFuel>{0} construções com pouco combustível</CF_SitR_LowFuel>
+  <CF_Sit_MechThreat>agrupamento mecanoide ou colmeia por perto</CF_Sit_MechThreat>
+  <CF_SitWhen_MechThreat>Quando: construções mecanoides ou colmeias de insetos no mapa (não durante um ataque). Construir (defesas) na prioridade 2 com 2 colonos, forjar na prioridade 2 com 1.</CF_SitWhen_MechThreat>
+  <CF_SitR_MechThreat>{0} ameaças</CF_SitR_MechThreat>
+  <CF_Sit_MoodSlipping>humor caindo</CF_Sit_MoodSlipping>
+  <CF_SitWhen_MoodSlipping>Quando: um quarto dos colonos (no mínimo 2) está perto do limite de colapso, antes da crise "mau humor". Cozinhar (refeições finas), arte e limpar na prioridade 2, 1 colono cada.</CF_SitWhen_MoodSlipping>
+  <CF_SitR_MoodSlipping>{0} colonos infelizes</CF_SitR_MoodSlipping>
+  <CF_Sit_Childcare>bebês para cuidar</CF_Sit_Childcare>
+  <CF_SitWhen_Childcare>Quando (Biotech): bebês na colônia. Cuidar de crianças na prioridade 2 (1 quando um bebê está com fome), um cuidador a cada 2 bebês.</CF_SitWhen_Childcare>
+  <CF_SitR_Childcare>{0} bebês</CF_SitR_Childcare>
+  <CF_Sit_Pollution>poluição para limpar</CF_Sit_Pollution>
+  <CF_SitWhen_Pollution>Quando (Biotech): 20 ou mais células poluídas na área de limpeza de poluição. O trabalho de limpar poluição na prioridade 2, um colono a cada 150 células.</CF_SitWhen_Pollution>
+  <CF_SitR_Pollution>{0} células poluídas</CF_SitR_Pollution>
+  <CF_Sit_Exhausted>colonos exaustos</CF_Sit_Exhausted>
+  <CF_SitWhen_Exhausted>Quando: um colono está acordado com descanso abaixo de 15 %. O trabalho de prioridade 1 dele cai para 2 e as situações não o escolhem. Nota: prioridades não conseguem mandar ninguém para a cama – colonos em horas de "Trabalho" na agenda nunca vão dormir sozinhos e desmaiam no chão; dê a eles horas de "Dormir" ou "Qualquer coisa".</CF_SitWhen_Exhausted>
+  <CF_SitR_Exhausted>{0} exaustos – confira a agenda ("Trabalho" significa sem cama)</CF_SitR_Exhausted>
+  <CF_Sit_Corpses>cadáveres na base</CF_Sit_Corpses>
+  <CF_SitWhen_Corpses>Quando: 3 ou mais cadáveres largados na área doméstica (não durante um ataque). Transportar cadáveres na prioridade 2, um colono a cada 6 cadáveres.</CF_SitWhen_Corpses>
+  <CF_SitR_Corpses>{0} cadáveres</CF_SitR_Corpses>
+  <CF_Sit_StorageFull>estoque cheio</CF_Sit_StorageFull>
+  <CF_SitWhen_StorageFull>Quando: 15 ou mais itens na área doméstica não têm para onde ir. Construir na prioridade 2 (prateleiras, estoques).</CF_SitWhen_StorageFull>
+  <CF_SitR_StorageFull>itens sem estoque: {0}</CF_SitR_StorageFull>
+  <CF_Sit_SowingBacklog>campos esperando semeadura</CF_Sit_SowingBacklog>
+  <CF_SitWhen_SowingBacklog>Quando: 40 ou mais células de campo vazias na estação de cultivo. Cultivar na prioridade 2.</CF_SitWhen_SowingBacklog>
+  <CF_SitR_SowingBacklog>células vazias para semear: {0}</CF_SitR_SowingBacklog>
+  <CF_Sit_NoBedroom>colonos sem cama</CF_Sit_NoBedroom>
+  <CF_SitWhen_NoBedroom>Quando: um colono não tem cama própria. Construir na prioridade 2.</CF_SitWhen_NoBedroom>
+  <CF_SitR_NoBedroom>colonos sem cama: {0}</CF_SitR_NoBedroom>
+  <CF_Sit_UglyRooms>cômodos feios</CF_Sit_UglyRooms>
+  <CF_SitWhen_UglyRooms>Quando: pelo menos 2 quartos estão feios ou sujos (só com calmaria). Limpar e arte na prioridade 2, construir na 3.</CF_SitWhen_UglyRooms>
+  <CF_SitR_UglyRooms>cômodos feios: {0}</CF_SitR_UglyRooms>
+  <CF_Sit_LowJoy>pouca recreação</CF_Sit_LowJoy>
+  <CF_SitWhen_LowJoy>Quando: pelo menos 2 colonos estão com recreação abaixo de 30 %. Construir e arte na prioridade 2.</CF_SitWhen_LowJoy>
+  <CF_SitR_LowJoy>colonos sem recreação: {0}</CF_SitR_LowJoy>
+  <CF_Sit_Slaughter>animais para abater</CF_Sit_Slaughter>
+  <CF_SitWhen_Slaughter>Quando: pelo menos 3 animais estão marcados para abate. Lidar com animais na prioridade 2.</CF_SitWhen_Slaughter>
+  <CF_SitR_Slaughter>animais para abater: {0}</CF_SitR_Slaughter>
+  <CF_Sit_BarrelsReady>barris prontos</CF_Sit_BarrelsReady>
+  <CF_SitWhen_BarrelsReady>Quando: pelo menos 2 barris de fermentação estão prontos. Retirada na prioridade 2.</CF_SitWhen_BarrelsReady>
+  <CF_SitR_BarrelsReady>barris prontos: {0}</CF_SitR_BarrelsReady>
+  <CF_Sit_TextilePile>pilha de tecido e couro</CF_Sit_TextilePile>
+  <CF_SitWhen_TextilePile>Quando: 400 ou mais de tecido e couro no estoque e ordens de costura esperando (só com calmaria). Costurar na prioridade 2.</CF_SitWhen_TextilePile>
+  <CF_SitR_TextilePile>tecido e couro: {0}</CF_SitR_TextilePile>
+  <CF_Sit_WornGear>equipamento gasto</CF_Sit_WornGear>
+  <CF_SitWhen_WornGear>Quando: 10 ou mais armas e roupas no estoque abaixo de 60 % (só com um mod de reparo, só com calmaria). Fabricar na prioridade 2.</CF_SitWhen_WornGear>
+  <CF_SitR_WornGear>peças gastas: {0}</CF_SitR_WornGear>
+  <CF_Sit_CaravanPrep>formando caravana</CF_Sit_CaravanPrep>
+  <CF_SitWhen_CaravanPrep>Quando: uma caravana está sendo formada. Transportar na prioridade 1, cozinhar na 2.</CF_SitWhen_CaravanPrep>
+  <CF_SitR_CaravanPrep>formando caravana</CF_SitR_CaravanPrep>
+  <CF_Sit_Gathering>festa ou ritual</CF_Sit_Gathering>
+  <CF_SitWhen_Gathering>Quando: uma festa ou ritual está acontecendo. Cozinhar e limpar na prioridade 2.</CF_SitWhen_Gathering>
+  <CF_SitR_Gathering>festa / ritual</CF_SitR_Gathering>
+  <CF_Sit_Guests>convidados na colônia</CF_Sit_Guests>
+  <CF_SitWhen_Guests>Quando: pelo menos 2 visitantes ou convidados de missão. Cozinhar e limpar na prioridade 2.</CF_SitWhen_Guests>
+  <CF_SitR_Guests>convidados: {0}</CF_SitR_Guests>
+  <CF_Sit_Snow>neve para limpar</CF_Sit_Snow>
+  <CF_SitWhen_Snow>Quando: 60 ou mais células com neve na área de limpeza de neve. Limpar na prioridade 2.</CF_SitWhen_Snow>
+  <CF_SitR_Snow>células com neve: {0}</CF_SitR_Snow>
+  <CF_Sit_OrbitalTrade>nave de comércio em órbita</CF_Sit_OrbitalTrade>
+  <CF_SitWhen_OrbitalTrade>Quando: uma nave de comércio está em órbita e você tem um sinalizador de comércio. Transportar na prioridade 2.</CF_SitWhen_OrbitalTrade>
+  <CF_SitR_OrbitalTrade>nave de comércio em órbita</CF_SitR_OrbitalTrade>
+  <CF_Sit_ChunksOnFields>pedaços nos campos</CF_Sit_ChunksOnFields>
+  <CF_SitWhen_ChunksOnFields>Quando: pelo menos 5 pedaços de rocha ou escória estão nos campos. Transportar na prioridade 2.</CF_SitWhen_ChunksOnFields>
+  <CF_SitR_ChunksOnFields>pedaços nos campos: {0}</CF_SitR_ChunksOnFields>
+  <CF_Sit_IdleBench>bancadas sem trabalhador</CF_Sit_IdleBench>
+  <CF_SitWhen_IdleBench>Quando: pelo menos 3 bancadas têm ordens e ninguém trabalha nelas. O tipo de trabalho em espera recebe prioridade 2.</CF_SitWhen_IdleBench>
+  <CF_SitR_IdleBench>bancadas sem trabalhador: {0}</CF_SitR_IdleBench>
+  <CF_FloorSleep>{0} dorme no chão: {1}</CF_FloorSleep>
+  <CF_FloorNoBeds>a colônia não tem camas para colonos.</CF_FloorNoBeds>
+  <CF_FloorAllOwned>todas as camas têm dono – atribua uma cama ou construa uma nova.</CF_FloorAllOwned>
+  <CF_FloorOwnBed>cama própria ({0})</CF_FloorOwnBed>
+  <CF_FloorFreeBed>cama livre ({0})</CF_FloorFreeBed>
+  <CF_FloorForbidden>está proibida.</CF_FloorForbidden>
+  <CF_FloorArea>está fora da área permitida ({0}).</CF_FloorArea>
+  <CF_FloorUnreachable>não pode ser alcançada (porta trancada ou proibida, parede?).</CF_FloorUnreachable>
+  <CF_FloorReserved>está reservada por outra pessoa.</CF_FloorReserved>
+  <CF_FloorCantUse>não pode ser usada (cama para escravos/prisioneiros, gênero, ideoligião ou um mod de camas).</CF_FloorCantUse>
+  <CF_FloorDanger>está num lugar perigoso (temperatura, inimigos).</CF_FloorDanger>
+  <CF_FloorUnknown>não pode ser usada por um motivo desconhecido (provavelmente outro mod de camas).</CF_FloorUnknown>
+  <CF_SafeAreaName>Steward: seguro</CF_SafeAreaName>
+  <CF_SafeOn>Ataque! {0} colonos agora têm a área "Steward: seguro".</CF_SafeOn>
+  <CF_SafeOff>O ataque acabou – {0} colonos recuperaram sua área.</CF_SafeOff>
+  <CF_Sit_SlaveSuppression>escravos precisam de supressão</CF_Sit_SlaveSuppression>
+  <CF_SitWhen_SlaveSuppression>Quando: um escravo tem supressão abaixo de 35%. Carcereiro na prioridade 2, abaixo de 15% na prioridade 1.</CF_SitWhen_SlaveSuppression>
+  <CF_SitR_SlaveSuppression>escravos com supressão baixa: {0}</CF_SitR_SlaveSuppression>
+  <CF_Sit_SlaveRebellionRisk>risco de rebelião de escravos</CF_Sit_SlaveRebellionRisk>
+  <CF_SitWhen_SlaveRebellionRisk>Quando: um escravo pode iniciar uma rebelião em até um mês. Carcereiro na prioridade 1, no mínimo 2 colonos.</CF_SitWhen_SlaveRebellionRisk>
+  <CF_SitR_SlaveRebellionRisk>escravos propensos a se rebelar: {0}</CF_SitR_SlaveRebellionRisk>
+  <CF_Sit_PrisonersHurt>prisioneiros feridos</CF_Sit_PrisonersHurt>
+  <CF_SitWhen_PrisonersHurt>Quando: um prisioneiro precisa de tratamento. Médico na prioridade 2.</CF_SitWhen_PrisonersHurt>
+  <CF_SitR_PrisonersHurt>prisioneiros para tratar: {0}</CF_SitR_PrisonersHurt>
+  <CF_Sit_Wounded>colonos feridos</CF_Sit_Wounded>
+  <CF_SitWhen_Wounded>Quando: um colono ou escravo precisa de tratamento (mesmo que só um). Médico na prioridade 1.</CF_SitWhen_Wounded>
+  <CF_SitR_Wounded>para tratar: {0}</CF_SitR_Wounded>
+  <CF_Sit_BedHungry>com fome na cama</CF_Sit_BedHungry>
+  <CF_SitWhen_BedHungry>Quando: um paciente acamado ou um prisioneiro na cama está com fome. Médico (alimenta pacientes) e Carcereiro (alimenta prisioneiros) na prioridade 1.</CF_SitWhen_BedHungry>
+  <CF_SitR_BedHungry>pacientes com fome: {0}, prisioneiros com fome: {1}</CF_SitR_BedHungry>
+  <CF_Sit_HungryNoMeals>fome, poucas refeições</CF_Sit_HungryNoMeals>
+  <CF_SitWhen_HungryNoMeals>Quando: colonos, escravos ou prisioneiros estão com fome e não há refeições prontas suficientes para eles. Cozinhar na prioridade 1.</CF_SitWhen_HungryNoMeals>
+  <CF_SitR_HungryNoMeals>refeições faltando: {0}</CF_SitR_HungryNoMeals>
+  <CF_Sit_ButcherBacklog>carcaças para carnear</CF_Sit_ButcherBacklog>
+  <CF_SitWhen_ButcherBacklog>Quando: há carcaças frescas de animais largadas que uma ordem ativa de açougue aceita. Cozinhar na prioridade 2.</CF_SitWhen_ButcherBacklog>
+  <CF_SitR_ButcherBacklog>carcaças para carnear: {0}</CF_SitR_ButcherBacklog>
+  <CF_Sit_PrisonRelease>prisioneiros para libertar</CF_Sit_PrisonRelease>
+  <CF_SitWhen_PrisonRelease>Quando: um prisioneiro está definido para ser libertado. Carcereiro na prioridade 2.</CF_SitWhen_PrisonRelease>
+  <CF_SitR_PrisonRelease>prisioneiros para libertar: {0}</CF_SitR_PrisonRelease>
+  <CF_Sit_DirtyPrison>cela suja</CF_Sit_DirtyPrison>
+  <CF_SitWhen_DirtyPrison>Quando: uma cela com um prisioneiro está muito suja. Limpar na prioridade 2.</CF_SitWhen_DirtyPrison>
+  <CF_SitR_DirtyPrison>celas sujas: {0}</CF_SitR_DirtyPrison>
+  <CF_Sit_PrisonBeds>faltam camas de prisioneiro</CF_Sit_PrisonBeds>
+  <CF_SitWhen_PrisonBeds>Quando: há mais prisioneiros do que camas de prisioneiro. Construir na prioridade 2 (posicione as camas, o steward só acelera a construção).</CF_SitWhen_PrisonBeds>
+  <CF_SitR_PrisonBeds>camas de prisioneiro faltando: {0}</CF_SitR_PrisonBeds>
+  <CF_Sit_ProductsWaiting>itens esperando transporte</CF_Sit_ProductsWaiting>
+  <CF_SitWhen_ProductsWaiting>Quando: 5 ou mais itens estão na área doméstica fora do estoque e algum estoque os aceitaria (produtos nas bancadas, saque…). Transportar na prioridade 2, um carregador a cada 15 itens, no mínimo 1.</CF_SitWhen_ProductsWaiting>
+  <CF_SitR_ProductsWaiting>itens esperando transporte: {0}</CF_SitR_ProductsWaiting>
+  <CF_AF_Tidy>itens para transportar: {0}, sujeira: {1}</CF_AF_Tidy>
+  <CF_Sit_AnimalTraining>treinamento de animais</CF_Sit_AnimalTraining>
+  <CF_SitWhen_AnimalTraining>Quando: pelo menos um animal domado pode ser treinado agora (tem algo para aprender, não foi treinado há pouco) e um colono tem habilidade suficiente. Lidar com animais na prioridade 1 para os melhores tratadores, um a cada 5 animais.</CF_SitWhen_AnimalTraining>
+  <CF_SitR_AnimalTraining>animais esperando treinamento: {0}</CF_SitR_AnimalTraining>
+  <CF2C_Name>Crises e situações</CF2C_Name>
+  <CF2C_UseCrisis>Crises</CF2C_UseCrisis>
+  <CF2C_UseCrisisTip>Fogo, ataques, feridos, fome e mais: o steward coloca pessoas na hora no trabalho de que a crise precisa, e o que pode esperar vai para o nível mais baixo.</CF2C_UseCrisisTip>
+  <CF2C_UseSituations>Situações</CF2C_UseSituations>
+  <CF2C_UseSituationsTip>Uma grande colheita, construção pendente, carcaças para carnear …: o trabalho ganha mais gente enquanto a situação durar.</CF2C_UseSituationsTip>
+  <CF2C_AutoFocus>Equilibrado escolhe um foco sozinho</CF2C_AutoFocus>
+  <CF2C_AutoFocusTip>Quando a colônia precisa de algo (comida acabando, muitas plantas de construção …), Equilibrado coloca mais gente nesse trabalho por um tempo.</CF2C_AutoFocusTip>
+  <CF2C_Messages>Mensagens sobre crises e situações</CF2C_Messages>
+  <CF2C_Medical>Um médico vai na hora aos casos urgentes</CF2C_Medical>
+  <CF2C_MedicalTip>Sangramento, infecção, ferido fora da cama: o médico livre mais próximo vai na hora.</CF2C_MedicalTip>
+  <CF2C_Fire>Combater incêndios na base</CF2C_Fire>
+  <CF2C_FireTip>Colonos livres vão aos incêndios na área doméstica (não durante ataques, não fora da área permitida).</CF2C_FireTip>
+  <CF2C_Butcher>Carnear primeiro quando há comida suficiente</CF2C_Butcher>
+  <CF2C_ButcherTip>Com carcaças frescas de animais e refeições prontas suficientes, os cozinheiros carneiam primeiro.</CF2C_ButcherTip>
+  <CF2C_SafeArea>Área segura durante ataques</CF2C_SafeArea>
+  <CF2C_SafeAreaTip>Durante ataques, animais enfurecidos e cercos, os colonos ficam nos cômodos cobertos da base e depois recuperam sua área.</CF2C_SafeAreaTip>
+  <CF2C_CrisesList>Quais crises:</CF2C_CrisesList>
+  <CF2C_SituationsList>Quais situações:</CF2C_SituationsList>
+  <CF2C_HistCrisis>crise: {0}</CF2C_HistCrisis>
+  <CF2C_NoCrisis>nenhuma (encerrada)</CF2C_NoCrisis>
+  <CF2C_TipCrisis>Crise ({0}): necessário agora.</CF2C_TipCrisis>
+  <CF2C_TipCrisisDown>Crise ({0}): este trabalho espera agora.</CF2C_TipCrisisDown>
+  <CF2C_TipExhausted>Exausto: nada na prioridade 1 por enquanto.</CF2C_TipExhausted>
+  <CF2C_TipFocus>Foco {0}: mais gente neste trabalho.</CF2C_TipFocus>
+  <CF2C_TipSituation>Situação: {0}</CF2C_TipSituation>
+</LanguageData>

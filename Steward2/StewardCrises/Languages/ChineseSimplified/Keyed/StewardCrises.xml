@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_CrisisStart>Steward：{0}。优先级已调整。</CF_CrisisStart>
+  <CF_CrisisEnd>Steward：危机已结束（{0}）。</CF_CrisisEnd>
+  <CF_D_Food>食物够 {0} 天</CF_D_Food>
+  <CF_AutoFocusNow>{0} → 当前：{1}（{2}）</CF_AutoFocusNow>
+  <CF_AutoFocusNowNoReason>{0} → 当前：{1}</CF_AutoFocusNowNoReason>
+  <CF_AutoFocusShort>{0} → {1}</CF_AutoFocusShort>
+  <CF_AutoFocusMsg>Steward：“均衡”现在侧重于{0}（{1}）。</CF_AutoFocusMsg>
+  <CF_AutoFocusEnd>Steward：{0}侧重已结束——“均衡”重新平均分配工作。</CF_AutoFocusEnd>
+  <CF_AF_Food>食物够 {0} 天</CF_AF_Food>
+  <CF_AF_Harvest>{0} 株作物可收获</CF_AF_Harvest>
+  <CF_AF_Build>{0} 个蓝图</CF_AF_Build>
+  <CF_AF_Industry>钢铁 {0}，零部件 {1}</CF_AF_Industry>
+  <CF_AF_Mine>{0} 格待开采</CF_AF_Mine>
+  <CF_AF_Bills>大量生产清单在等待</CF_AF_Bills>
+  <CF_AF_Care>病人 {0}，囚犯 {1}，儿童 {2}</CF_AF_Care>
+  <CF_AF_Defense>袭击过后，{0} 座建筑待修理</CF_AF_Defense>
+  <CF_AF_Animals>{0} 只动物待驯服或屠宰，{1} 只待挤奶、剪毛或训练</CF_AF_Animals>
+  <CF_AF_Dirt>居住区内污物 {0}</CF_AF_Dirt>
+  <CF_AF_Calm>平静——研究的好时机</CF_AF_Calm>
+  <CF_SitStaff>{0} ×{1}（优先级 {2}）</CF_SitStaff>
+  <CF_SitHeader>状况：</CF_SitHeader>
+  <CF_SitStart>Steward——新状况：{0}。</CF_SitStart>
+  <CF_SitEnd>Steward——状况结束：{0}。恢复常规计划。</CF_SitEnd>
+  <CF_SitDoesWork>{0} 优先级 {1}</CF_SitDoesWork>
+  <CF_SitDoesNothing>本局游戏中无效（缺少该工作类型）</CF_SitDoesNothing>
+  <CF_SitDoesExhausted>其优先级 1 的工作降为 2（紧急工作除外）</CF_SitDoesExhausted>
+  <CF_Sit_BuildBacklog>建造积压严重</CF_Sit_BuildBacklog>
+  <CF_SitWhen_BuildBacklog>条件：20 个或以上的蓝图和框架（直到少于 8 个才结束）。建造设为优先级 2，每 15 个蓝图一名建造者，至少 2 名。</CF_SitWhen_BuildBacklog>
+  <CF_SitR_BuildBacklog>{0} 个蓝图</CF_SitR_BuildBacklog>
+  <CF_Sit_Deconstruct>拆除积压</CF_Sit_Deconstruct>
+  <CF_SitWhen_Deconstruct>条件：15 个或以上的拆除、卸下、磨平或移除地板标记。建造设为优先级 2，每 20 个标记一名殖民者。</CF_SitWhen_Deconstruct>
+  <CF_SitR_Deconstruct>{0} 个标记</CF_SitR_Deconstruct>
+  <CF_Sit_Repairs>需要修理</CF_Sit_Repairs>
+  <CF_SitWhen_Repairs>条件：6 座或以上受损建筑（袭击期间除外）。建造设为优先级 2，每 10 座建筑一名殖民者。</CF_SitWhen_Repairs>
+  <CF_SitR_Repairs>{0} 座建筑受损</CF_SitR_Repairs>
+  <CF_Sit_HaulBacklog>大量物品待搬运</CF_Sit_HaulBacklog>
+  <CF_SitWhen_HaulBacklog>条件：80 件或以上的物品散落待搬运（不计石块；袭击、毒性空气或极端天气期间除外）。搬运设为优先级 2，每 50 件一名搬运者，至少 2 名。</CF_SitWhen_HaulBacklog>
+  <CF_SitR_HaulBacklog>{0} 件物品待搬运</CF_SitR_HaulBacklog>
+  <CF_Sit_RottingOutside>物品在外腐烂</CF_Sit_RottingOutside>
+  <CF_SitWhen_RottingOutside>条件：储存区外有 8 堆或以上易腐物品将在 5 天内腐烂。搬运设为优先级 1，每 10 堆一名搬运者。</CF_SitWhen_RottingOutside>
+  <CF_SitR_RottingOutside>{0} 堆将会腐烂</CF_SitR_RottingOutside>
+  <CF_Sit_FoodSpoiling>食物即将变质</CF_Sit_FoodSpoiling>
+  <CF_SitWhen_FoodSpoiling>条件：价值 10+ 营养的生食将在 1.5 天内腐烂。烹饪设为优先级 1（每 30 营养一名厨师），并有一名搬运者以优先级 2 将其搬入冷库。</CF_SitWhen_FoodSpoiling>
+  <CF_SitR_FoodSpoiling>{0} 营养将在 1.5 天内变质</CF_SitR_FoodSpoiling>
+  <CF_Sit_BigHarvest>大丰收</CF_Sit_BigHarvest>
+  <CF_SitWhen_BigHarvest>条件：种植区中有 40 株或以上成熟作物。种植设为优先级 2，每 40 株一名种植者，至少 2 名。</CF_SitWhen_BigHarvest>
+  <CF_SitR_BigHarvest>{0} 株作物成熟</CF_SitR_BigHarvest>
+  <CF_Sit_FrostHarvest>霜冻——立即收获</CF_Sit_FrostHarvest>
+  <CF_SitWhen_FrostHarvest>条件：室外低于 2 °C 且有 5 株或以上成熟作物——作物会冻死。种植设为优先级 1，每 25 株一名种植者，至少 2 名。</CF_SitWhen_FrostHarvest>
+  <CF_SitR_FrostHarvest>{0} 株成熟作物，温度 {1}</CF_SitR_FrostHarvest>
+  <CF_Sit_CutBacklog>割除积压</CF_Sit_CutBacklog>
+  <CF_SitWhen_CutBacklog>条件：30 株或以上植物被标记割除或收获。割除设为优先级 2，每 30 株一名殖民者。</CF_SitWhen_CutBacklog>
+  <CF_SitR_CutBacklog>{0} 株已标记</CF_SitR_CutBacklog>
+  <CF_Sit_MineBacklog>采矿积压</CF_Sit_MineBacklog>
+  <CF_SitWhen_MineBacklog>条件：30 格或以上被标记开采。采矿设为优先级 2，每 30 格一名矿工。</CF_SitWhen_MineBacklog>
+  <CF_SitR_MineBacklog>{0} 格待开采</CF_SitR_MineBacklog>
+  <CF_Sit_LowWood>木材不足</CF_Sit_LowWood>
+  <CF_SitWhen_LowWood>条件：木材少于 75 + 每名殖民者 25，且有树木被标记砍伐。割除设为优先级 2，1 名殖民者（5 人以上的殖民地为 2 名）。</CF_SitWhen_LowWood>
+  <CF_SitR_LowWood>木材 {0}</CF_SitR_LowWood>
+  <CF_Sit_LowSteel>钢铁不足</CF_Sit_LowSteel>
+  <CF_SitWhen_LowSteel>条件：钢铁少于 50 + 每名殖民者 20，且有岩石被标记开采。采矿设为优先级 2，1 名矿工（5 人以上的殖民地为 2 名）。</CF_SitWhen_LowSteel>
+  <CF_SitR_LowSteel>钢铁 {0}</CF_SitR_LowSteel>
+  <CF_Sit_LowComponents>零部件不足</CF_Sit_LowComponents>
+  <CF_SitWhen_LowComponents>条件：零部件少于 3 + 每 2 名殖民者 1 个，且有零部件清单在等待。该工作台的工作设为优先级 2，1 名殖民者。</CF_SitWhen_LowComponents>
+  <CF_SitR_LowComponents>零部件 {0}</CF_SitR_LowComponents>
+  <CF_Sit_LowMedicine>药品不足</CF_Sit_LowMedicine>
+  <CF_SitWhen_LowMedicine>条件：药品少于每名殖民者 2 份（但尚未达到“无药品”危机），且有药品清单在等待或正在种植治愈草。该工作台的工作和种植设为优先级 2，各 1 名殖民者。</CF_SitWhen_LowMedicine>
+  <CF_SitR_LowMedicine>药品 {0}</CF_SitR_LowMedicine>
+  <CF_Sit_ColdClothing>衣物不够保暖</CF_Sit_ColdClothing>
+  <CF_SitWhen_ColdClothing>条件：室外 10 °C 或更低，有殖民者衣物不够保暖，且有衣物清单在等待。缝纫设为优先级 2，每 4 名受冻殖民者一名裁缝。</CF_SitWhen_ColdClothing>
+  <CF_SitR_ColdClothing>{0} 名殖民者受冻，温度 {1}</CF_SitR_ColdClothing>
+  <CF_Sit_WornClothing>衣物破旧</CF_Sit_WornClothing>
+  <CF_SitWhen_WornClothing>条件：三分之一的殖民者（至少 2 名）所穿衣物耐久低于 50 %，且有衣物清单在等待。缝纫设为优先级 2，1 名裁缝。</CF_SitWhen_WornClothing>
+  <CF_SitR_WornClothing>{0} 名殖民者衣物破旧</CF_SitR_WornClothing>
+  <CF_Sit_LowWeapons>殖民者没有武器</CF_Sit_LowWeapons>
+  <CF_SitWhen_LowWeapons>条件：能战斗的殖民者中有一半（3 人以上的殖民地）没有武器，且有武器清单在等待。锻造设为优先级 2，1 名铁匠（5 人以上无武器时为 2 名）。</CF_SitWhen_LowWeapons>
+  <CF_SitR_LowWeapons>{0} 人无武器</CF_SitR_LowWeapons>
+  <CF_Sit_Recruit>囚犯待招募</CF_Sit_Recruit>
+  <CF_SitWhen_Recruit>条件：囚犯被设为招募、降低抗拒、奴役或转化。狱卒设为优先级 2，每 3 名囚犯一名狱卒——由最会交谈的人担任。</CF_SitWhen_Recruit>
+  <CF_SitR_Recruit>{0} 名囚犯待交谈</CF_SitR_Recruit>
+  <CF_Sit_HungryPrisoners>囚犯饥饿</CF_Sit_HungryPrisoners>
+  <CF_SitWhen_HungryPrisoners>条件：有囚犯饱食度低于 25 %。狱卒设为优先级 1，每 3 名饥饿囚犯一名狱卒。</CF_SitWhen_HungryPrisoners>
+  <CF_SitR_HungryPrisoners>{0} 名饥饿囚犯</CF_SitR_HungryPrisoners>
+  <CF_Sit_MassCasualties>大量病人</CF_Sit_MassCasualties>
+  <CF_SitWhen_MassCasualties>条件：3 名或以上病人需要治疗。医生设为优先级 1，每 3 名病人两名医生，至少 2 名。</CF_SitWhen_MassCasualties>
+  <CF_SitR_MassCasualties>{0} 名病人</CF_SitR_MassCasualties>
+  <CF_Sit_Infection>致命疾病</CF_Sit_Infection>
+  <CF_SitWhen_Infection>条件：有人患有可致死的疾病或伤口（尚未免疫且已很严重）或大量失血。医生设为优先级 1，每名此类病人一名医生。</CF_SitWhen_Infection>
+  <CF_SitR_Infection>{0} 人有危险</CF_SitR_Infection>
+  <CF_Sit_TameTrain>动物待驯服或训练</CF_Sit_TameTrain>
+  <CF_SitWhen_TameTrain>条件：4 只或以上动物待驯服或训练。驯兽设为优先级 2，每 6 只动物一名驯兽师。</CF_SitWhen_TameTrain>
+  <CF_SitR_TameTrain>{0} 只动物</CF_SitR_TameTrain>
+  <CF_Sit_AnimalProducts>动物待屠宰、挤奶或剪毛</CF_Sit_AnimalProducts>
+  <CF_SitWhen_AnimalProducts>条件：5 只或以上动物被标记屠宰或可挤奶、剪毛。驯兽设为优先级 2，每 8 只一名驯兽师。</CF_SitWhen_AnimalProducts>
+  <CF_SitR_AnimalProducts>{0} 只动物就绪</CF_SitR_AnimalProducts>
+  <CF_Sit_AnimalsHungry>动物饥饿</CF_Sit_AnimalsHungry>
+  <CF_SitWhen_AnimalsHungry>条件：2 只或以上殖民地动物正在挨饿（饱食度低于 15 %）。搬运和驯兽设为优先级 2，各 1 名殖民者。</CF_SitWhen_AnimalsHungry>
+  <CF_SitR_AnimalsHungry>{0} 只动物挨饿</CF_SitR_AnimalsHungry>
+  <CF_Sit_DirtyRooms>医院或厨房脏乱</CF_Sit_DirtyRooms>
+  <CF_SitWhen_DirtyRooms>条件：医院或厨房中有 8 处或以上污物（感染、食物中毒）。清洁设为优先级 1，每 20 处污物一名清洁者。</CF_SitWhen_DirtyRooms>
+  <CF_SitR_DirtyRooms>污物 {0}</CF_SitR_DirtyRooms>
+  <CF_Sit_ResearchIdle>研究的好时机</CF_Sit_ResearchIdle>
+  <CF_SitWhen_ResearchIdle>条件：已选择研究项目，已建造研究台，食物够 6+ 天，且没有危机或其他状况。研究设为优先级 2，每 4 名殖民者一名研究者。</CF_SitWhen_ResearchIdle>
+  <CF_SitR_ResearchIdle>项目 {0}</CF_SitR_ResearchIdle>
+  <CF_Sit_TradeVisit>商人到访</CF_Sit_TradeVisit>
+  <CF_SitWhen_TradeVisit>条件：地图上有商队，或轨道上有贸易飞船且已建造轨道交易信标。搬运设为优先级 2，2 名搬运者将货物集中。</CF_SitWhen_TradeVisit>
+  <CF_SitR_TradeVisit>商人在等待</CF_SitR_TradeVisit>
+  <CF_Sit_LowFuel>燃料不足</CF_Sit_LowFuel>
+  <CF_SitWhen_LowFuel>条件：2 座或以上开启自动加燃料的建筑燃料低于 25 %（发电机、火把、炉灶……）。加燃料（搬运）设为优先级 1，每 6 座建筑一名殖民者。</CF_SitWhen_LowFuel>
+  <CF_SitR_LowFuel>{0} 座建筑燃料不足</CF_SitR_LowFuel>
+  <CF_Sit_MechThreat>附近有机械族集群或虫巢</CF_Sit_MechThreat>
+  <CF_SitWhen_MechThreat>条件：地图上有机械族建筑或虫巢（袭击期间除外）。建造（防御）设为优先级 2 共 2 名殖民者，锻造设为优先级 2 共 1 名。</CF_SitWhen_MechThreat>
+  <CF_SitR_MechThreat>{0} 个威胁</CF_SitR_MechThreat>
+  <CF_Sit_MoodSlipping>心情下滑</CF_Sit_MoodSlipping>
+  <CF_SitWhen_MoodSlipping>条件：四分之一的殖民者（至少 2 名）接近崩溃阈值，在“心情低落”危机之前。烹饪（精致食物）、艺术和清洁设为优先级 2，各 1 名殖民者。</CF_SitWhen_MoodSlipping>
+  <CF_SitR_MoodSlipping>{0} 名殖民者不开心</CF_SitR_MoodSlipping>
+  <CF_Sit_Childcare>婴儿需要照顾</CF_Sit_Childcare>
+  <CF_SitWhen_Childcare>条件（Biotech）：殖民地中有婴儿。育儿设为优先级 2（婴儿饥饿时为 1），每 2 名婴儿一名看护者。</CF_SitWhen_Childcare>
+  <CF_SitR_Childcare>{0} 名婴儿</CF_SitR_Childcare>
+  <CF_Sit_Pollution>待清除的污染</CF_Sit_Pollution>
+  <CF_SitWhen_Pollution>条件（Biotech）：污染清除区中有 20 格或以上污染。清除污染的工作设为优先级 2，每 150 格一名殖民者。</CF_SitWhen_Pollution>
+  <CF_SitR_Pollution>{0} 格受污染</CF_SitR_Pollution>
+  <CF_Sit_Exhausted>殖民者精疲力竭</CF_Sit_Exhausted>
+  <CF_SitWhen_Exhausted>条件：有殖民者醒着且休息值低于 15 %。其优先级 1 的工作降为 2，状况也不会选中他们。注意：优先级无法让人去睡觉——日程中处于“工作”时段的殖民者不会自己去睡觉，而会倒在地上；请给他们安排“睡觉”或“任意”时段。</CF_SitWhen_Exhausted>
+  <CF_SitR_Exhausted>{0} 人精疲力竭——请检查日程（“工作”时段意味着不上床）</CF_SitR_Exhausted>
+  <CF_Sit_Corpses>基地内有尸体</CF_Sit_Corpses>
+  <CF_SitWhen_Corpses>条件：居住区内有 3 具或以上尸体（袭击期间除外）。搬运尸体设为优先级 2，每 6 具尸体一名殖民者。</CF_SitWhen_Corpses>
+  <CF_SitR_Corpses>{0} 具尸体</CF_SitR_Corpses>
+  <CF_Sit_StorageFull>储存区已满</CF_Sit_StorageFull>
+  <CF_SitWhen_StorageFull>条件：居住区内有 15 件或以上物品无处存放。建造设为优先级 2（货架、储存区）。</CF_SitWhen_StorageFull>
+  <CF_SitR_StorageFull>无处存放的物品：{0}</CF_SitR_StorageFull>
+  <CF_Sit_SowingBacklog>田地待播种</CF_Sit_SowingBacklog>
+  <CF_SitWhen_SowingBacklog>条件：生长季节内有 40 格或以上空田地。种植设为优先级 2。</CF_SitWhen_SowingBacklog>
+  <CF_SitR_SowingBacklog>待播种的空格：{0}</CF_SitR_SowingBacklog>
+  <CF_Sit_NoBedroom>殖民者没有床</CF_Sit_NoBedroom>
+  <CF_SitWhen_NoBedroom>条件：有殖民者没有自己的床。建造设为优先级 2。</CF_SitWhen_NoBedroom>
+  <CF_SitR_NoBedroom>没有床的殖民者：{0}</CF_SitR_NoBedroom>
+  <CF_Sit_UglyRooms>房间难看</CF_Sit_UglyRooms>
+  <CF_SitWhen_UglyRooms>条件：至少 2 间卧室难看或脏乱（仅在平静时）。清洁和艺术设为优先级 2，建造设为 3。</CF_SitWhen_UglyRooms>
+  <CF_SitR_UglyRooms>难看的房间：{0}</CF_SitR_UglyRooms>
+  <CF_Sit_LowJoy>娱乐不足</CF_Sit_LowJoy>
+  <CF_SitWhen_LowJoy>条件：至少 2 名殖民者娱乐值低于 30 %。建造和艺术设为优先级 2。</CF_SitWhen_LowJoy>
+  <CF_SitR_LowJoy>缺乏娱乐的殖民者：{0}</CF_SitR_LowJoy>
+  <CF_Sit_Slaughter>动物待屠宰</CF_Sit_Slaughter>
+  <CF_SitWhen_Slaughter>条件：至少 3 只动物被标记屠宰。驯兽设为优先级 2。</CF_SitWhen_Slaughter>
+  <CF_SitR_Slaughter>待屠宰的动物：{0}</CF_SitR_Slaughter>
+  <CF_Sit_BarrelsReady>酒桶已就绪</CF_Sit_BarrelsReady>
+  <CF_SitWhen_BarrelsReady>条件：至少 2 个发酵桶已完成。取出设为优先级 2。</CF_SitWhen_BarrelsReady>
+  <CF_SitR_BarrelsReady>就绪的酒桶：{0}</CF_SitR_BarrelsReady>
+  <CF_Sit_TextilePile>布料和皮革堆积</CF_Sit_TextilePile>
+  <CF_SitWhen_TextilePile>条件：储存中有 400 或以上布料和皮革，且有缝纫清单在等待（仅在平静时）。缝纫设为优先级 2。</CF_SitWhen_TextilePile>
+  <CF_SitR_TextilePile>布料和皮革：{0}</CF_SitR_TextilePile>
+  <CF_Sit_WornGear>装备破旧</CF_Sit_WornGear>
+  <CF_SitWhen_WornGear>条件：储存中有 10 件或以上耐久低于 60 % 的武器和衣物（仅在有修理模组时，仅在平静时）。制作设为优先级 2。</CF_SitWhen_WornGear>
+  <CF_SitR_WornGear>破旧物品：{0}</CF_SitR_WornGear>
+  <CF_Sit_CaravanPrep>正在组建远行队</CF_Sit_CaravanPrep>
+  <CF_SitWhen_CaravanPrep>条件：正在组建远行队。搬运设为优先级 1，烹饪设为 2。</CF_SitWhen_CaravanPrep>
+  <CF_SitR_CaravanPrep>正在组建远行队</CF_SitR_CaravanPrep>
+  <CF_Sit_Gathering>派对或仪式</CF_Sit_Gathering>
+  <CF_SitWhen_Gathering>条件：正在举行派对或仪式。烹饪和清洁设为优先级 2。</CF_SitWhen_Gathering>
+  <CF_SitR_Gathering>派对 / 仪式</CF_SitR_Gathering>
+  <CF_Sit_Guests>殖民地有客人</CF_Sit_Guests>
+  <CF_SitWhen_Guests>条件：至少 2 名访客或任务客人。烹饪和清洁设为优先级 2。</CF_SitWhen_Guests>
+  <CF_SitR_Guests>客人：{0}</CF_SitR_Guests>
+  <CF_Sit_Snow>积雪待清除</CF_Sit_Snow>
+  <CF_SitWhen_Snow>条件：扫雪区中有 60 格或以上积雪。清洁设为优先级 2。</CF_SitWhen_Snow>
+  <CF_SitR_Snow>积雪格：{0}</CF_SitR_Snow>
+  <CF_Sit_OrbitalTrade>轨道上有贸易飞船</CF_Sit_OrbitalTrade>
+  <CF_SitWhen_OrbitalTrade>条件：轨道上有贸易飞船且你有轨道交易信标。搬运设为优先级 2。</CF_SitWhen_OrbitalTrade>
+  <CF_SitR_OrbitalTrade>轨道上有贸易飞船</CF_SitR_OrbitalTrade>
+  <CF_Sit_ChunksOnFields>田地里有石块</CF_Sit_ChunksOnFields>
+  <CF_SitWhen_ChunksOnFields>条件：田地里至少有 5 块石块或炉渣。搬运设为优先级 2。</CF_SitWhen_ChunksOnFields>
+  <CF_SitR_ChunksOnFields>田地里的石块：{0}</CF_SitR_ChunksOnFields>
+  <CF_Sit_IdleBench>工作台无人工作</CF_Sit_IdleBench>
+  <CF_SitWhen_IdleBench>条件：至少 3 个工作台有清单但无人在此工作。等待中的工作类型设为优先级 2。</CF_SitWhen_IdleBench>
+  <CF_SitR_IdleBench>无人工作的工作台：{0}</CF_SitR_IdleBench>
+  <CF_FloorSleep>{0} 睡在地上：{1}</CF_FloorSleep>
+  <CF_FloorNoBeds>殖民地没有供殖民者使用的床。</CF_FloorNoBeds>
+  <CF_FloorAllOwned>所有床都已有主人——请分配一张床或建造新床。</CF_FloorAllOwned>
+  <CF_FloorOwnBed>自己的床（{0}）</CF_FloorOwnBed>
+  <CF_FloorFreeBed>空闲的床（{0}）</CF_FloorFreeBed>
+  <CF_FloorForbidden>被禁止使用。</CF_FloorForbidden>
+  <CF_FloorArea>位于允许区域之外（{0}）。</CF_FloorArea>
+  <CF_FloorUnreachable>无法到达（门被锁或被禁止，墙？）。</CF_FloorUnreachable>
+  <CF_FloorReserved>已被其他人预留。</CF_FloorReserved>
+  <CF_FloorCantUse>不允许使用（奴隶/囚犯床、性别、文化信仰或床类模组）。</CF_FloorCantUse>
+  <CF_FloorDanger>位于危险位置（温度、敌人）。</CF_FloorDanger>
+  <CF_FloorUnknown>因未知原因无法使用（可能是其他床类模组）。</CF_FloorUnknown>
+  <CF_SafeAreaName>Steward：安全</CF_SafeAreaName>
+  <CF_SafeOn>遭到袭击！{0} 名殖民者现在使用区域“Steward：安全”。</CF_SafeOn>
+  <CF_SafeOff>袭击结束——{0} 名殖民者恢复了原来的区域。</CF_SafeOff>
+  <CF_Sit_SlaveSuppression>奴隶需要镇压</CF_Sit_SlaveSuppression>
+  <CF_SitWhen_SlaveSuppression>条件：有奴隶镇压度低于 35%。狱卒设为优先级 2，低于 15% 时设为优先级 1。</CF_SitWhen_SlaveSuppression>
+  <CF_SitR_SlaveSuppression>镇压度低的奴隶：{0}</CF_SitR_SlaveSuppression>
+  <CF_Sit_SlaveRebellionRisk>奴隶叛乱风险</CF_Sit_SlaveRebellionRisk>
+  <CF_SitWhen_SlaveRebellionRisk>条件：有奴隶可能在一个月内发动叛乱。狱卒设为优先级 1，至少 2 名殖民者。</CF_SitWhen_SlaveRebellionRisk>
+  <CF_SitR_SlaveRebellionRisk>可能叛乱的奴隶：{0}</CF_SitR_SlaveRebellionRisk>
+  <CF_Sit_PrisonersHurt>囚犯受伤</CF_Sit_PrisonersHurt>
+  <CF_SitWhen_PrisonersHurt>条件：有囚犯需要治疗。医生设为优先级 2。</CF_SitWhen_PrisonersHurt>
+  <CF_SitR_PrisonersHurt>待治疗的囚犯：{0}</CF_SitR_PrisonersHurt>
+  <CF_Sit_Wounded>殖民者受伤</CF_Sit_Wounded>
+  <CF_SitWhen_Wounded>条件：有殖民者或奴隶需要治疗（哪怕只有一人）。医生设为优先级 1。</CF_SitWhen_Wounded>
+  <CF_SitR_Wounded>待治疗：{0}</CF_SitR_Wounded>
+  <CF_Sit_BedHungry>卧床者饥饿</CF_Sit_BedHungry>
+  <CF_SitWhen_BedHungry>条件：卧床的病人或床上的囚犯饥饿。医生（喂病人）和狱卒（喂囚犯）设为优先级 1。</CF_SitWhen_BedHungry>
+  <CF_SitR_BedHungry>饥饿病人：{0}，饥饿囚犯：{1}</CF_SitR_BedHungry>
+  <CF_Sit_HungryNoMeals>饥饿，食物不足</CF_Sit_HungryNoMeals>
+  <CF_SitWhen_HungryNoMeals>条件：殖民者、奴隶或囚犯饥饿，且现成的食物不够。烹饪设为优先级 1。</CF_SitWhen_HungryNoMeals>
+  <CF_SitR_HungryNoMeals>缺少的食物：{0}</CF_SitR_HungryNoMeals>
+  <CF_Sit_ButcherBacklog>尸体待屠宰</CF_Sit_ButcherBacklog>
+  <CF_SitWhen_ButcherBacklog>条件：有新鲜动物尸体，且有启用的屠宰清单可以处理。烹饪设为优先级 2。</CF_SitWhen_ButcherBacklog>
+  <CF_SitR_ButcherBacklog>待屠宰的尸体：{0}</CF_SitR_ButcherBacklog>
+  <CF_Sit_PrisonRelease>囚犯待释放</CF_Sit_PrisonRelease>
+  <CF_SitWhen_PrisonRelease>条件：有囚犯被设为释放。狱卒设为优先级 2。</CF_SitWhen_PrisonRelease>
+  <CF_SitR_PrisonRelease>待释放的囚犯：{0}</CF_SitR_PrisonRelease>
+  <CF_Sit_DirtyPrison>牢房脏乱</CF_Sit_DirtyPrison>
+  <CF_SitWhen_DirtyPrison>条件：关有囚犯的牢房非常脏。清洁设为优先级 2。</CF_SitWhen_DirtyPrison>
+  <CF_SitR_DirtyPrison>脏乱的牢房：{0}</CF_SitR_DirtyPrison>
+  <CF_Sit_PrisonBeds>囚犯床不足</CF_Sit_PrisonBeds>
+  <CF_SitWhen_PrisonBeds>条件：囚犯多于囚犯床。建造设为优先级 2（请放置床，Steward 只负责加快建造）。</CF_SitWhen_PrisonBeds>
+  <CF_SitR_PrisonBeds>缺少的囚犯床：{0}</CF_SitR_PrisonBeds>
+  <CF_Sit_ProductsWaiting>物品待搬运</CF_Sit_ProductsWaiting>
+  <CF_SitWhen_ProductsWaiting>条件：居住区内储存区外有 5 件或以上物品，且有储存区可以接收（工作台旁的产品、战利品……）。搬运设为优先级 2，每 15 件一名搬运者，至少 1 名。</CF_SitWhen_ProductsWaiting>
+  <CF_SitR_ProductsWaiting>待搬运的物品：{0}</CF_SitR_ProductsWaiting>
+  <CF_AF_Tidy>待搬运物品：{0}，污物：{1}</CF_AF_Tidy>
+  <CF_Sit_AnimalTraining>动物训练</CF_Sit_AnimalTraining>
+  <CF_SitWhen_AnimalTraining>条件：至少有一只驯服的动物现在可以训练（还有可学内容，最近没有训练过），且有殖民者技能足够。驯兽设为优先级 1，由最好的驯兽师担任，每 5 只动物一名。</CF_SitWhen_AnimalTraining>
+  <CF_SitR_AnimalTraining>等待训练的动物：{0}</CF_SitR_AnimalTraining>
+  <CF2C_Name>危机与状况</CF2C_Name>
+  <CF2C_UseCrisis>危机</CF2C_UseCrisis>
+  <CF2C_UseCrisisTip>火灾、袭击、伤员、饥饿等：Steward 会立即让人们投入危机所需的工作，可以等待的工作降到最低级别。</CF2C_UseCrisisTip>
+  <CF2C_UseSituations>状况</CF2C_UseSituations>
+  <CF2C_UseSituationsTip>大丰收、建造积压、尸体待屠宰……：状况持续期间，该工作会分配更多人手。</CF2C_UseSituationsTip>
+  <CF2C_AutoFocus>“均衡”自动选择侧重</CF2C_AutoFocus>
+  <CF2C_AutoFocusTip>当殖民地需要某样东西时（食物快吃完、蓝图很多……），“均衡”会暂时为该工作增加人手。</CF2C_AutoFocusTip>
+  <CF2C_Messages>关于危机和状况的消息</CF2C_Messages>
+  <CF2C_Medical>医生立即处理紧急情况</CF2C_Medical>
+  <CF2C_MedicalTip>失血、感染、在床外受伤：最近的空闲医生会立即前往。</CF2C_MedicalTip>
+  <CF2C_Fire>扑灭基地内的火灾</CF2C_Fire>
+  <CF2C_FireTip>空闲的殖民者会前往居住区内的火灾（袭击期间除外，不会离开允许区域）。</CF2C_FireTip>
+  <CF2C_Butcher>食物充足时优先屠宰</CF2C_Butcher>
+  <CF2C_ButcherTip>有新鲜动物尸体且现成食物充足时，厨师会先屠宰。</CF2C_ButcherTip>
+  <CF2C_SafeArea>袭击期间的安全区域</CF2C_SafeArea>
+  <CF2C_SafeAreaTip>在袭击、猎杀人类的动物和围攻期间，殖民者会留在基地有屋顶的房间内，之后恢复原来的区域。</CF2C_SafeAreaTip>
+  <CF2C_CrisesList>启用的危机：</CF2C_CrisesList>
+  <CF2C_SituationsList>启用的状况：</CF2C_SituationsList>
+  <CF2C_HistCrisis>危机：{0}</CF2C_HistCrisis>
+  <CF2C_NoCrisis>无（已结束）</CF2C_NoCrisis>
+  <CF2C_TipCrisis>危机（{0}）：现在需要。</CF2C_TipCrisis>
+  <CF2C_TipCrisisDown>危机（{0}）：此工作暂时等待。</CF2C_TipCrisisDown>
+  <CF2C_TipExhausted>精疲力竭：暂时没有优先级 1 的工作。</CF2C_TipExhausted>
+  <CF2C_TipFocus>侧重{0}：该工作有更多人手。</CF2C_TipFocus>
+  <CF2C_TipSituation>状况：{0}</CF2C_TipSituation>
+</LanguageData>

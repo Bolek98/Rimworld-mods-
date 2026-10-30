@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AT_AutoManned>Турели с расчётом стреляют сами</AT_AutoManned>
+  <AT_AutoManned_Desc>Ваши турели, которым обычно нужен колонист (из любого мода), стреляют автоматически, как мини-турель. Цель по-прежнему можно выбрать вручную.</AT_AutoManned_Desc>
+  <AT_AutoMortars>Миномёты стреляют сами</AT_AutoMortars>
+  <AT_AutoMortars_Desc>Ваши миномёты и другие орудия со снарядами автоматически стреляют по врагам, пока в них заряжен снаряд.</AT_AutoMortars_Desc>
+  <AT_MortarSafety>Миномёты не стреляют рядом с вашими</AT_MortarSafety>
+  <AT_MortarSafety_Desc>Автоматический миномёт пропускает цели, где снаряд может упасть на ваших колонистов, животных или гостей.</AT_MortarSafety_Desc>
+  <AT_SafetyExtra>Доп. безопасное расстояние: {0} клеток</AT_SafetyExtra>
+  <AT_LoadShells>Колонисты заряжают снаряды (работа «Переноска»)</AT_LoadShells>
+  <AT_LoadShells_Desc>Носильщики приносят снаряды с любой точки карты к пустым автоматическим миномётам. Фильтр снарядов самого миномёта соблюдается.</AT_LoadShells_Desc>
+  <AT_AnyMetal>Турели перезаряжаются любым металлом</AT_AnyMetal>
+  <AT_AnyMetal_Desc>Турели, перезаряжающиеся сталью (или другим одним металлом), принимают любой металл: сталь, пласталь, золото, уран и металлы из модов.</AT_AnyMetal_Desc>
+  <AT_AllowSilver>…включая серебро</AT_AllowSilver>
+  <AT_Restart>Настройки материалов и турелей в стенах применяются после перезапуска игры.</AT_Restart>
+  <AT_NoShell>Нет доступного снаряда</AT_NoShell>
+  <AT_FriendlyFire>Огонь турелей по своим</AT_FriendlyFire>
+  <AT_FriendlyFire_Desc>Выкл.: пули ваших турелей пролетают мимо колонистов, гостей и союзников, а взрывы снарядов им не вредят. Вкл. = как в игре.</AT_FriendlyFire_Desc>
+  <AT_FuelWood>Пополнять турели деревом</AT_FuelWood>
+  <AT_FuelWood_Desc>Турели, которые пополняются металлом, принимают и дерево.</AT_FuelWood_Desc>
+  <AT_FuelStone>Пополнять турели каменными блоками</AT_FuelStone>
+  <AT_FuelStone_Desc>Турели, которые пополняются металлом, принимают и каменные блоки.</AT_FuelStone_Desc>
+  <AT_WallTurrets>Турели в стенах</AT_WallTurrets>
+  <AT_WallTurrets_Desc>Выбранные турели получают в меню «Безопасность» вторую версию «… (в стене)». Она строится прямо поверх стены или сглаженной скалы, заменяет этот участок стены и сама работает как стена: не пропускает, держит крышу и сохраняет комнату закрытой. Обычные турели не меняются.</AT_WallTurrets_Desc>
+  <AT_WallRecommended>Рекомендуемый выбор</AT_WallRecommended>
+  <AT_WallNone>Турели не найдены.</AT_WallNone>
+  <AT_WallLabel>{0} (в стене)</AT_WallLabel>
+  <AT_WallDescExtra>Строится поверх стены: заменяет участок стены, не пропускает и держит крышу как стена. Если её уничтожат, в стене останется дыра.</AT_WallDescExtra>
+  <AT_SecShooting>Стрельба</AT_SecShooting>
+  <AT_SecMaterials>Боеприпасы и материалы</AT_SecMaterials>
+  <AT_WallEnable>Разрешить турели в стенах</AT_WallEnable>
+  <AT_WallAll>Выбрать все</AT_WallAll>
+  <AT_WallClear>Снять все</AT_WallClear>
+  <AT_WallCount>Выбрано {0} из {1}</AT_WallCount>
+  <AT_WallSearch>Поиск:</AT_WallSearch>
+  <AT_WallRecDone>Рекомендуемый выбор восстановлен – выбрано маленьких турелей: {0}.</AT_WallRecDone>
+  <AT_WallAllDone>Выбраны все турели: {0}.</AT_WallAllDone>
+  <AT_WallClearDone>Выбор снят.</AT_WallClearDone>
+  <AT_RestartNeeded>⚠ Перезапустите игру, чтобы изменения турелей в стенах вступили в силу.</AT_RestartNeeded>
+  <AT_WallRecTip>Рекомендуется: маленькая турель до 2×2</AT_WallRecTip>
+  <AT_SmartShells>Умный выбор снарядов</AT_SmartShells>
+  <AT_SmartShells_Desc>Автоматические миномёты не тратят снаряды зря: ЭМИ — только по механоидам и врагам со щитом, зажигательные — не по механоидам, огнегасящая пена — только по пожарам в домашней зоне (никогда по врагам). Носильщики приносят ЭМИ-снаряды, когда большинство врагов — механоиды, иначе фугасные — если фильтр миномёта это разрешает.</AT_SmartShells_Desc>
+  <AT_NoHitBuildings>Турели не попадают по нашим постройкам</AT_NoHitBuildings>
+  <AT_NoHitBuildings_Desc>Вкл.: пули ваших турелей пролетают мимо ваших построек (стен, мешков с песком, дверей…), если вы не целитесь в них, а взрывы снарядов их не повреждают. По вражеским постройкам попадания как обычно. Выкл. = как в игре.</AT_NoHitBuildings_Desc>
+  <AT_WallOutward>Турели в стенах стреляют только наружу</AT_WallOutward>
+  <AT_WallOutward_Desc>Турель в стене стреляет только по целям с внешней стороны своей стены (от комнаты). Если ни одна сторона явно не снаружи (стена между двумя комнатами), она стреляет во все стороны.</AT_WallOutward_Desc>
+  <AT_TabTurrets>Турели</AT_TabTurrets>
+  <AT_TurretsDesc>Все турели, миномёты и орудия — ванильные и из модов. Отмеченные стреляют сами. Без отметки: турелям и миномётам с расчётом снова нужен колонист, автоматические турели не стреляют, пока вы не выберете цель.</AT_TurretsDesc>
+  <AT_TurretsNone>Здесь нет турелей, которым нужен колонист.</AT_TurretsNone>
+  <AT_TurretsCount>{0} из {1} стреляют сами</AT_TurretsCount>
+  <AT_FuelEdit>Материалы…</AT_FuelEdit>
+  <AT_FuelPerTurret>Материалы каждой турели — и тех, которым нужны свои боеприпасы или топливо из мода. Нажмите «Материалы…» и отметьте, чем ещё её можно перезаряжать. Действует сразу.</AT_FuelPerTurret>
+  <AT_FuelNone>Здесь нет перезаряжаемых турелей.</AT_FuelNone>
+  <AT_FuelTakes>берёт: {0}</AT_FuelTakes>
+  <AT_FuelOriginal>Сама берёт: {0}. Отметьте, чем ещё её можно перезаряжать:</AT_FuelOriginal>
+  <AT_FuelOrig>своё</AT_FuelOrig>
+  <AT_FuelGroup0>Металлы</AT_FuelGroup0>
+  <AT_FuelGroup1>Дерево</AT_FuelGroup1>
+  <AT_FuelGroup2>Каменные блоки</AT_FuelGroup2>
+  <AT_FuelGroup3>Боеприпасы и снаряды</AT_FuelGroup3>
+  <AT_FuelGroup4>Другие ресурсы</AT_FuelGroup4>
+  <AT_KindManned>с расчётом</AT_KindManned>
+  <AT_KindMortar>миномёт с расчётом</AT_KindMortar>
+  <AT_KindAuto>автоматическая</AT_KindAuto>
+  <AT_KindMortarAuto>миномёт</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>Автозарядка снарядов</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>Носильщики сами носят снаряды к этому миномёту. Выключите, чтобы заряжать его только вручную.</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>Боеприпасы: {0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>Выберите единственный снаряд или материал, которым заряжается или перезаряжается эта турель, — ничего другого не носят. «Всё разрешённое» использует всё, что принимает турель.</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>всё разрешённое</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>Специальные снаряды только по выбору</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>Носильщики носят ЭМИ, зажигательные, огнетушащие и другие специальные снаряды только к миномёту, для которого они выбраны кнопкой «Боеприпасы»; иначе носят фугасные.</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>Турели со своими боеприпасами берут и металл</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>Турели, которым нужны свои боеприпасы или топливо (часто из модов), можно перезаряжать и сталью или другим металлом — они никогда не простаивают из-за нехватки боеприпасов.</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>Турелям не нужны боеприпасы</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>Ваши турели всегда считаются заряженными и не тратят боеприпасы или топливо. Полезно, когда турели из мода нужны боеприпасы, которые вы не можете сделать. Миномёты, артиллерия и полевые орудия тоже всегда заряжены.</AT_FreeAmmo_Desc>
+  <AT_VfesAuto>Стреляет сама (Auto Turrets) – колонист не нужен.</AT_VfesAuto>
+  <AT_VfesSend>Никто не управляет – ближайший свободный колонист, способный сражаться, сразу пойдёт к ней.</AT_VfesSend>
+  <AT_VfesNobody>Никто не может управлять артиллерией.</AT_VfesNobody>
+  <AT_VfesGoes>{0} идёт управлять артиллерией.</AT_VfesGoes>
+  <AT_ShellsFromMaterial>Заряжать миномёты и артиллерию материалом вместо снарядов</AT_ShellsFromMaterial>
+  <AT_ShellsFromMaterial_Desc>Носильщики приносят сталь (или другой металл) к миномётам, артиллерии и полевым орудиям, и орудие заряжается выбранным снарядом, а если он не выбран — фугасным. Снаряды вообще не нужны. Автоматический миномёт VFE тоже пополняет снаряды из материала.</AT_ShellsFromMaterial_Desc>
+  <AT_ShellCost>Материала на один снаряд: {0}</AT_ShellCost>
+  <AT_NoMaterial>Мало материала ({0} металла на снаряд)</AT_NoMaterial>
+</LanguageData>

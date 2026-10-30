@@ -12,6 +12,74 @@
   <AT_AnyMetal>Turrets rearm with any metal</AT_AnyMetal>
   <AT_AnyMetal_Desc>Turrets that rearm with steel (or another single metal) take any metal: steel, plasteel, gold, uranium and metals from mods.</AT_AnyMetal_Desc>
   <AT_AllowSilver>…including silver</AT_AllowSilver>
-  <AT_Restart>Metal settings apply after restarting the game.</AT_Restart>
+  <AT_Restart>Material and wall turret settings apply after restarting the game.</AT_Restart>
   <AT_NoShell>No shell available</AT_NoShell>
+  <AT_FriendlyFire>Friendly fire from turrets</AT_FriendlyFire>
+  <AT_FriendlyFire_Desc>When off, bullets from your turrets fly past your colonists, guests and allies, and blasts from their shells don't hurt them. On = like the game.</AT_FriendlyFire_Desc>
+  <AT_FuelWood>Turrets can be refilled with wood</AT_FuelWood>
+  <AT_FuelWood_Desc>Turrets that rearm with metal also take wood.</AT_FuelWood_Desc>
+  <AT_FuelStone>Turrets can be refilled with stone blocks</AT_FuelStone>
+  <AT_FuelStone_Desc>Turrets that rearm with metal also take stone blocks.</AT_FuelStone_Desc>
+  <AT_WallTurrets>Turrets in walls</AT_WallTurrets>
+  <AT_WallTurrets_Desc>Picked turrets get a second version "… (in wall)" in the Security menu. It is built straight over a wall or a smoothed rock wall, replaces that piece of wall and works as a wall itself: it blocks the way, holds the roof and keeps the room sealed. The normal turrets stay as they are.</AT_WallTurrets_Desc>
+  <AT_WallRecommended>Recommended selection</AT_WallRecommended>
+  <AT_WallNone>No turrets found.</AT_WallNone>
+  <AT_WallLabel>{0} (in wall)</AT_WallLabel>
+  <AT_WallDescExtra>Built over a wall: it looks like a piece of that wall (in its material) with the gun on top, joins the walls next to it, blocks the way and holds the roof. Small 1×1 turrets cost 5 extra of the wall material. If it is destroyed, a hole is left in the wall.</AT_WallDescExtra>
+  <AT_SecShooting>Shooting</AT_SecShooting>
+  <AT_SecMaterials>Ammo and materials</AT_SecMaterials>
+  <AT_WallEnable>Allow turrets in walls</AT_WallEnable>
+  <AT_WallAll>Select all</AT_WallAll>
+  <AT_WallClear>Clear all</AT_WallClear>
+  <AT_WallCount>Selected {0} of {1}</AT_WallCount>
+  <AT_WallSearch>Search:</AT_WallSearch>
+  <AT_WallRecDone>Recommended selection restored – {0} small turrets selected.</AT_WallRecDone>
+  <AT_WallAllDone>All {0} turrets selected.</AT_WallAllDone>
+  <AT_WallClearDone>Selection cleared.</AT_WallClearDone>
+  <AT_RestartNeeded>⚠ Restart the game for the wall turret changes to apply.</AT_RestartNeeded>
+  <AT_WallRecTip>Recommended: small turret up to 2×2</AT_WallRecTip>
+  <AT_SmartShells>Smart shell choice</AT_SmartShells>
+  <AT_SmartShells_Desc>Automatic mortars don't waste shells: EMP only at mechanoids and shielded enemies, incendiary not at mechanoids, firefoam only at fires in the home area (never at enemies). Haulers bring EMP shells when most enemies are mechanoids, otherwise high-explosive ones – if the mortar's filter allows them.</AT_SmartShells_Desc>
+  <AT_NoHitBuildings>Turrets don't hit our buildings</AT_NoHitBuildings>
+  <AT_NoHitBuildings_Desc>When on, bullets from your turrets fly past your own buildings (walls, sandbags, doors…) unless you aimed at them, and blasts from their shells don't damage them. Enemy buildings are hit as usual. Off = like the game.</AT_NoHitBuildings_Desc>
+  <AT_WallOutward>Wall turrets shoot only outward</AT_WallOutward>
+  <AT_WallOutward_Desc>A turret in a wall only shoots at targets on the outer side of its wall (away from the room). If neither side is clearly outside (a wall between two rooms), it shoots everywhere.</AT_WallOutward_Desc>
+  <AT_TabTurrets>Turrets</AT_TabTurrets>
+  <AT_TurretsDesc>Every turret, mortar and gun – vanilla and from mods. Ticked ones fire on their own. Unticked: manned turrets and mortars need a colonist again, automatic turrets hold fire until you pick a target.</AT_TurretsDesc>
+  <AT_TurretsNone>No turrets found.</AT_TurretsNone>
+  <AT_TurretsCount>{0} of {1} fire on their own</AT_TurretsCount>
+  <AT_FuelEdit>Materials…</AT_FuelEdit>
+  <AT_FuelPerTurret>Each turret's materials – also turrets that need their own ammo or fuel from a mod. Click "Materials…" and tick what else it may be rearmed with. Changes work right away.</AT_FuelPerTurret>
+  <AT_FuelNone>No turret here is rearmed.</AT_FuelNone>
+  <AT_FuelTakes>takes: {0}</AT_FuelTakes>
+  <AT_FuelOriginal>Takes by itself: {0}. Tick what else it may be rearmed with:</AT_FuelOriginal>
+  <AT_FuelOrig>its own</AT_FuelOrig>
+  <AT_FuelGroup0>Metals</AT_FuelGroup0>
+  <AT_FuelGroup1>Wood</AT_FuelGroup1>
+  <AT_FuelGroup2>Stone blocks</AT_FuelGroup2>
+  <AT_FuelGroup3>Ammo and shells</AT_FuelGroup3>
+  <AT_FuelGroup4>Other resources</AT_FuelGroup4>
+  <AT_KindManned>manned</AT_KindManned>
+  <AT_KindMortar>manned mortar</AT_KindMortar>
+  <AT_KindAuto>automatic</AT_KindAuto>
+  <AT_KindMortarAuto>mortar</AT_KindMortarAuto>
+  <AT_GizmoAutoLoad>Auto load shells</AT_GizmoAutoLoad>
+  <AT_GizmoAutoLoad_Desc>Haulers bring shells to this mortar by themselves. Turn off to load it only by hand.</AT_GizmoAutoLoad_Desc>
+  <AT_GizmoAmmo>Ammo: {0}</AT_GizmoAmmo>
+  <AT_GizmoAmmo_Desc>Pick the one shell or material this turret is loaded or rearmed with – nothing else is brought. "Anything allowed" uses everything the turret takes.</AT_GizmoAmmo_Desc>
+  <AT_AmmoAny>anything allowed</AT_AmmoAny>
+  <AT_SpecialOnlyPicked>Special shells only when picked</AT_SpecialOnlyPicked>
+  <AT_SpecialOnlyPicked_Desc>Haulers bring EMP, incendiary, firefoam and other special shells only to a mortar set to them with its "Ammo" button; otherwise they bring high-explosive shells.</AT_SpecialOnlyPicked_Desc>
+  <AT_AmmoAlsoMetal>Turrets with their own ammo take any metal too</AT_AmmoAlsoMetal>
+  <AT_AmmoAlsoMetal_Desc>Turrets that need their own ammo or fuel (often from mods) can also be rearmed with steel or any other metal – so they never stand idle because their ammo is missing.</AT_AmmoAlsoMetal_Desc>
+  <AT_FreeAmmo>Turrets need no ammo</AT_FreeAmmo>
+  <AT_FreeAmmo_Desc>Your turrets always count as loaded and never use up ammo or fuel. Useful when a mod's turret needs ammo you can't make. Mortars, artillery and field guns always have a shell loaded too.</AT_FreeAmmo_Desc>
+  <AT_VfesAuto>Fires by itself (Auto Turrets) – no colonist needed.</AT_VfesAuto>
+  <AT_VfesSend>Nobody mans it – the nearest free colonist who can fight goes there right away.</AT_VfesSend>
+  <AT_VfesNobody>Nobody can man the artillery.</AT_VfesNobody>
+  <AT_VfesGoes>{0} goes to man the artillery.</AT_VfesGoes>
+  <AT_ShellsFromMaterial>Load mortars and artillery with material instead of shells</AT_ShellsFromMaterial>
+  <AT_ShellsFromMaterial_Desc>Haulers bring steel (or another metal) to mortars, artillery and field guns and the gun is loaded with the shell you picked for it, otherwise a high-explosive one. Shells are not needed at all. The VFE automated mortar refills its shells from material too.</AT_ShellsFromMaterial_Desc>
+  <AT_ShellCost>Material per shell: {0}</AT_ShellCost>
+  <AT_NoMaterial>Not enough material ({0} metal per shell)</AT_NoMaterial>
 </LanguageData>

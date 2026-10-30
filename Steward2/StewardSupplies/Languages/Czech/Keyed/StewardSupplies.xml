@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_S_On>Hlídat zásoby</CF_S_On>
+  <CF_S_RunNow>Zkontrolovat</CF_S_RunNow>
+  <CF_S_AreaAny>Celá mapa</CF_S_AreaAny>
+  <CF_S_AreaTip>Označovat jen uvnitř této oblasti.</CF_S_AreaTip>
+  <CF_S_HuntPregnant>Lovit březí zvířata</CF_S_HuntPregnant>
+  <CF_S_Marked>Správce – zásoby: označeno {0}.</CF_S_Marked>
+  <CF_S_NothingToMark>Správce – zásoby: není co označit.</CF_S_NothingToMark>
+  <CF_S_Desc>Nastav, kolik čeho chceš mít ve skladu. Když je toho míň (včetně toho, co už je označené nebo leží na zemi), správce označí nejbližší stromy, rostliny, ložiska nebo zvířata – jen tolik, kolik chybí. Zbytek udělají kolonisté v rámci své běžné práce.</CF_S_Desc>
+  <CF_S_OnTip>Když je zapnuto, správce na této mapě každých pár hodin (nastavení v Přehledu) zkontroluje zásoby a označí, co je potřeba.</CF_S_OnTip>
+  <CF_S_Status>ve skladu {0}  +{1} na cestě  /  {2}</CF_S_Status>
+  <CF_J_Overview>Přehled</CF_J_Overview>
+  <CF_J_Hunting>Lov</CF_J_Hunting>
+  <CF_J_Forestry>Dřevo</CF_J_Forestry>
+  <CF_J_Foraging>Sběr</CF_J_Foraging>
+  <CF_J_Mining>Těžba</CF_J_Mining>
+  <CF_J_Emergency>Nouze o jídlo</CF_J_Emergency>
+  <CF_J_Short>{0} / {1}</CF_J_Short>
+  <CF_J_Off>vypnuto</CF_J_Off>
+  <CF_J_Active>aktivních: {0}</CF_J_Active>
+  <CF_J_EmergencyNow>AKTIVNÍ</CF_J_EmergencyNow>
+  <CF_J_EmergencyIdle>v pohotovosti</CF_J_EmergencyIdle>
+  <CF_J_NextCheck>Další kontrola za {0} h</CF_J_NextCheck>
+  <CF_J_Interval>Kontrolovat každé {0} h</CF_J_Interval>
+  <CF_J_Enabled>Zapnuto</CF_J_Enabled>
+  <CF_J_Target>Cíl:</CF_J_Target>
+  <CF_J_ProgressTip>Zelená = ve skladu. Žlutá = na cestě (leží na mapě, nebo je v označených stromech, rostlinách, ložiskách a zvířatech, nebo v ulovených, ještě nerozporcovaných zvířatech).</CF_J_ProgressTip>
+  <CF_J_All>Vybrat vše</CF_J_All>
+  <CF_J_None>Zrušit vše</CF_J_None>
+  <CF_J_Default>Výchozí výběr</CF_J_Default>
+  <CF_J_UnitMeat>masa</CF_J_UnitMeat>
+  <CF_J_HuntingDesc>Udržuje syrové maso ve skladu. Loví se jen zvířata zaškrtnutá níže, nejbližší první. Predátoři a zvířata, která se často rozzuří, jsou ve výchozím stavu vypnutá.</CF_J_HuntingDesc>
+  <CF_J_ForestryDesc>Udržuje dřevo ve skladu. Kácí se jen stromy zaškrtnuté níže, nejbližší první a jen vzrostlé. Stromů v pěstebních zónách se nedotkne. Zvláštní stromy (anima, gauranlen…) jsou ve výchozím stavu vypnuté.</CF_J_ForestryDesc>
+  <CF_J_ForagingDesc>Udržuje ve skladu divokou rostlinnou potravu (bobule, agáve…) a další divokou úrodu. Sklízí se jen rostliny zaškrtnuté níže. Plodin v pěstebních zónách se nedotkne.</CF_J_ForagingDesc>
+  <CF_J_MiningDesc>Cíl pro každou surovinu, která je na mapě v ložiscích. Zaškrtni surovinu, nastav, kolik jí chceš, a nejbližší ložiska se označí k těžbě.</CF_J_MiningDesc>
+  <CF_J_NoVeins>Na této mapě zatím nejsou žádná ložiska (oblasti v mlze se nepočítají).</CF_J_NoVeins>
+  <CF_J_AnimalInfo>na mapě: {0}  {1}</CF_J_AnimalInfo>
+  <CF_J_Dangerous>· nebezpečné</CF_J_Dangerous>
+  <CF_J_PlantInfo>na mapě: {0}  · dává {1}</CF_J_PlantInfo>
+  <CF_J_EmergencyDesc>Když má kolonie jídlo na méně dní, než je nastaveno níže, správce hned označí jedlé divoké rostliny ke sklizni a potom zvířata k lovu – bez ohledu na cíle. Skončí, až je jídla zase dost.</CF_J_EmergencyDesc>
+  <CF_J_EmergencyDays>Nouze pod {0} dní jídla</CF_J_EmergencyDays>
+  <CF_J_FoodDays>Jídlo teď: na {0} dní (kolonisté a vězni)</CF_J_FoodDays>
+  <CF_J_EmergencyHow>Používá výběr zvířat a rostlin z Lovu a Sběru i jejich oblasti. Nejdřív jedlé divoké rostliny (bezpečné), pak lov. Zralé plodiny v pěstebních zónách sklidí tvoji pěstitelé tak jako tak.</CF_J_EmergencyHow>
+  <CF_J_EmergencyStart>Nouze o jídlo: jídlo jen na {0} dní. Správce označuje jedlé rostliny a zvířata k lovu.</CF_J_EmergencyStart>
+  <CF_J_EmergencyEnd>Nouze o jídlo skončila.</CF_J_EmergencyEnd>
+  <CF_J_Livestock>Chov</CF_J_Livestock>
+  <CF_J_LivestockDesc>U každého ochočeného druhu nastav, kolik chceš dospělých samic, samců a mláďat. Přebytek se označí k porážce, nejstarší první. Zvířata s poutem se neoznačí nikdy, březí jen pokud to povolíš. Volitelně se celé stádo drží v jedné oblasti.</CF_J_LivestockDesc>
+  <CF_J_NoAnimals>Na této mapě zatím nejsou žádná ochočená zvířata.</CF_J_NoAnimals>
+  <CF_J_HerdNow>teď: {0} ♀  {1} ♂  {2} mláďat</CF_J_HerdNow>
+  <CF_J_KeepFemales>Nechat samic</CF_J_KeepFemales>
+  <CF_J_KeepMales>Nechat samců</CF_J_KeepMales>
+  <CF_J_KeepYoung>Nechat mláďat</CF_J_KeepYoung>
+  <CF_J_KeepPregnant>Nikdy neporážet březí</CF_J_KeepPregnant>
+  <CF_J_AnimalAreaNone>Oblast: beze změny</CF_J_AnimalAreaNone>
+  <CF_J_AnimalAreaTip>Všechna zvířata tohoto druhu držet v této oblasti.</CF_J_AnimalAreaTip>
+  <CF_J_StepTip>Shift: ±10, Ctrl: ±100</CF_J_StepTip>
+  <CF_J_KeepSpecies>Nechat naživu od druhu</CF_J_KeepSpecies>
+  <CF_J_OutsideHome>Jen mimo domovskou zónu</CF_J_OutsideHome>
+  <CF_J_OutsideHomeTip>Stromy v domovské zóně se nikdy nekácí, takže základna si své stromy nechá.</CF_J_OutsideHomeTip>
+  <CF_J_KeepTrees>Vždy nechat stát</CF_J_KeepTrees>
+  <CF_J_ClearOff>Vyčistit oblast: vypnuto</CF_J_ClearOff>
+  <CF_J_ClearOn>Vyčistit oblast: {0}</CF_J_ClearOn>
+  <CF_J_ClearTip>Všechny rostliny v této oblasti se vykácí (stromy, keře, tráva) – na staveniště nebo jako protipožární pás. Plodin v pěstebních zónách se nedotkne. Nezávisí na cíli dřeva.</CF_J_ClearTip>
+  <CF_J_Clear>čištění</CF_J_Clear>
+  <CF_J_GraphWait>graf po 2 dnech</CF_J_GraphWait>
+  <CF_J_GraphTip>Zásoby za poslední dny (zelená) a cíl (žlutá čára).</CF_J_GraphTip>
+  <CF_T_Tidy>Vynášet věci, pro které není místo</CF_T_Tidy>
+  <CF_T_TidyTip>Věci ležící v domovské zóně se jako obvykle odnesou do skladu. Když pro ně nikde není místo, kolonisté je vynesou na odkladiště. Bez odkladiště zůstanou, kde jsou. Patří to k práci Odnášení. Mrtví lidé zůstanou pro hroby.</CF_T_TidyTip>
+  <CF_T_DumpAuto>Odkladiště: jen sklad</CF_T_DumpAuto>
+  <CF_T_Dump>Odkladiště: {0}</CF_T_Dump>
+  <CF_T_DumpTip>Věci bez skladu se položí jen do vybrané oblasti. Bez ní je kolonisté nenechávají jen tak na zemi.</CF_T_DumpTip>
+  <CF_A_Label>Správce: zásoby</CF_A_Label>
+  <CF_A_Explanation>Správce nedokáže udržet některé zásoby:</CF_A_Explanation>
+  <CF_A_NoSources>{0}: pod cílem a není co označit (zkontroluj výběr, oblast a mlhu).</CF_A_NoSources>
+  <CF_A_NoHunter>Je potřeba lovit, ale žádný kolonista, který smí lovit, nemá zbraň na dálku.</CF_A_NoHunter>
+  <CF_A_NoSourcesHere>Pod cílem a není co označit – zkontroluj výběr, oblast nebo limity.</CF_A_NoSourcesHere>
+  <CF_J_Production>Výroba</CF_J_Production>
+  <CF_J_Power>Energie</CF_J_Power>
+  <CF_J_Household>Domácnost</CF_J_Household>
+  <CF_J_On>zapnuto</CF_J_On>
+  <CF_J_ProductionDesc>Udržuje hotové zboží ve skladu: jídla, léky, oblečení, komponenty… Každý cíl se stane jednou zakázkou „vyrábět, dokud není X“ na nejlepším pracovním stole, který to umí. Správce tu zakázku hlídá (obnoví, přesune, upraví, pozastaví); tvých vlastních zakázek se nedotkne.</CF_J_ProductionDesc>
+  <CF_X_AddProduct>Přidat výrobek</CF_X_AddProduct>
+  <CF_X_NoBillYet>zakázka zatím není (další kontrola)</CF_X_NoBillYet>
+  <CF_X_BillAt>zakázka na: {0}</CF_X_BillAt>
+  <CF_X_RemoveProduct>Odebrat cíl i jeho zakázku</CF_X_RemoveProduct>
+  <CF_J_PowerDesc>Když v elektrické síti docházejí baterie, vybraná zařízení se vypnou; až se baterie nabijí, Správce zapne zpátky, co sám vypnul. Zařízení, která jsi vypnul ty, zůstanou vypnutá.</CF_J_PowerDesc>
+  <CF_X_PowerNow>Teď: přebytek {0} W · v bateriích {1} / {2} Wd ({3})</CF_X_PowerNow>
+  <CF_X_PowerLow>Vypnout pod {0} nabití</CF_X_PowerLow>
+  <CF_X_PowerHigh>Znovu zapnout nad {0} nabití</CF_X_PowerHigh>
+  <CF_X_PowerDevices>Zařízení, která se smí vypnout:</CF_X_PowerDevices>
+  <CF_X_DeviceInfo>{0}× · {1} W každé</CF_X_DeviceInfo>
+  <CF_J_HouseholdDesc>Pořádek v základně: věci, pro které není ve skladu místo, se vynesou ven, a špína v důležitých místnostech se uklízí jako první.</CF_J_HouseholdDesc>
+  <CF_C_Clean>Uklízet nejdřív důležité místnosti</CF_C_Clean>
+  <CF_C_CleanTip>Špína v místnostech zaškrtnutých níže se uklidí dřív než kdekoli jinde. Špína v kuchyni šíří otravy jídlem, v nemocnici zvyšuje riziko infekce. Patří to k práci Úklid.</CF_C_CleanTip>
+  <CF_C_FilthNow>Špíny v těchto místnostech teď: {0}</CF_C_FilthNow>
+  <CF_C_Rooms>Místnosti uklízené jako první:</CF_C_Rooms>
+  <CF_X_Cancel>Zrušit označení Správce</CF_X_Cancel>
+  <CF_X_CancelTip>Odstraní všechna označení ke kácení, lovu, sklizni, těžbě a porážce, která udělal Správce. Tvoje vlastní označení zůstanou.</CF_X_CancelTip>
+  <CF_X_CancelConfirm>Odstranit na této mapě všechna označení, která udělal Správce? Tvoje vlastní označení zůstanou.</CF_X_CancelConfirm>
+  <CF_X_Cancelled>Správce: odstraněno označení: {0}.</CF_X_Cancelled>
+  <CF_X_OtherMap>{0}: {1}</CF_X_OtherMap>
+  <CF_H_Chunks>Uklízet kamenné sutiny a strusku</CF_H_Chunks>
+  <CF_H_ChunksTip>Kamenné sutiny a struska ležící v domovské zóně Správce sám označí k odnesení – stejně, jako bys je označil ručně – po několika kusech, když není moc jiného odnášení. Odnese je kdokoli, kdo má zapnuté Odnášení, do skladiště, které sutiny přijímá; když takové není, na odkladiště, pokud je nastavené. Zakázaných sutin se nedotkne.</CF_H_ChunksTip>
+  <CF_H_Items>Označit k odnesení věci mimo police a sklady</CF_H_Items>
+  <CF_H_ItemsTip>Všechno, co leží v domovské oblasti mimo polici nebo sklad (a má kam jít), správce označí k odnesení – i věci zakázané po nájezdu. Pár kusů najednou, nejbližší ke kolonii první.</CF_H_ItemsTip>
+  <CF_H_Pockets>Kolonisté vyloží zapomenuté věci z kapes</CF_H_Pockets>
+  <CF_H_PocketsTip>Věci, které kolonista zbytečně nosí v inventáři (zbytky po nošení do kapes, sebrané a zapomenuté), položí a odnese do skladu. Zbraně, léky a drogy podle jeho politiky, zásoby podle inventáře a jídlo na cesty si nechá. Věc musí v kapse ležet aspoň půl hodiny. S Harvest And Haul se o vyložení postará jeho vlastní úloha – vše jde do skladu na jednu cestu.</CF_H_PocketsTip>
+  <CF_H_Workers>Kolik kolonistů to dělá:</CF_H_Workers>
+  <CF_H_WorkersTip>Kolik kolonistů vynáší věci, pro které není místo (a v řádku níže kolik uklízí). 0 = všichni, kdo mají tento druh práce zapnutý. Správce každou herní hodinu vybere ty s nejmenším počtem prací na prioritě 1, rychlejší chodce první. Shift: ±10. Sutiny označené k odnesení odnese kdokoli, kdo odnáší.</CF_H_WorkersTip>
+  <CF_H_Everyone>všichni</CF_H_Everyone>
+  <CF_H_Nobody>nikdo není k dispozici</CF_H_Nobody>
+  <CF_X_PickTitle>Přidat výrobek</CF_X_PickTitle>
+  <CF_X_InStock>ve skladu: {0}</CF_X_InStock>
+  <CF_X_OpenMint>Otevřít zakázky Mint</CF_X_OpenMint>
+  <CF_X_OpenMintTip>Otevře menu zakázek Dubs Mint Menus se všemi pracovními stoly. Vytvoř tam zakázku „vyrábět, dokud není X“ a tady ji převezmi – Správce ji pak bude hlídat.</CF_X_OpenMintTip>
+  <CF_X_Adopt>Převzít zakázky ({0})</CF_X_Adopt>
+  <CF_X_AdoptTip>Zakázky „vyrábět, dokud není X“ vytvořené ručně nebo v Dubs Mint Menus. Správce je převezme: obnoví je po smazání, přesune je, když stůl zmizí, a pozastaví je, když cíl vypneš.</CF_X_AdoptTip>
+  <CF_H_Products>Hotové výrobky hned odnést</CF_H_Products>
+  <CF_H_ProductsTip>Jídla, léky, oblečení a další věci ležící u pracovního stolu, sporáku nebo pracovního místa se odnesou do skladu dřív než cokoli jiného. Zakázky Správce nastavené na „položit na zem“ se přepnou na „do nejlepšího skladiště“. Patří to k práci Odnášení.</CF_H_ProductsTip>
+  <CF_M_Target>Držet hotová jídla na</CF_M_Target>
+  <CF_M_TargetTip>Kolik uvařených jídel chceš mít, ve dnech jídla pro všechny, kdo jedí. Když jich kolonie má tolik nebo víc, všechny zakázky na jídla se pozastaví; když zásoba klesne pod cíl, zakázky pozastavené Správcem se znovu spustí. Zakázky, které jsi pozastavil sám, zůstanou pozastavené. Shift = krok 2 dny.</CF_M_TargetTip>
+  <CF_M_Days>{0} dní</CF_M_Days>
+  <CF_M_Now>teď {0} dní</CF_M_Now>
+  <CF_M_Paused>pozastaveno {0} zakázek na jídla</CF_M_Paused>
+  <CF_M_Cooking>vaří se</CF_M_Cooking>
+  <CF_M_Page>Hotová jídla</CF_M_Page>
+  <CF_M_Short>{0} / {1} dní</CF_M_Short>
+  <CF_M_Bills>Zakázky na jídla: {0}</CF_M_Bills>
+  <CF_M_NoBills>Žádná zakázka na jídla neexistuje. Přidej ji u sporáku (nebo ve Výrobě) – Správce zakázky jen pozastavuje a spouští, nezakládá je.</CF_M_NoBills>
+  <CF_M_BillOn>vaří se</CF_M_BillOn>
+  <CF_M_BillSteward>pozastavil Správce</CF_M_BillSteward>
+  <CF_M_BillYou>pozastavil jsi ty</CF_M_BillYou>
+  <CF_H_Blight>Sekat rostliny s plísní</CF_H_Blight>
+  <CF_H_BlightTip>Rostliny s plísní v pěstebních zónách, květináčích, hydroponii a domovské zóně se každou hodinu označí k posekání, aby se plíseň nešířila. Krize Plíseň pak dá sekání víc kolonistů.</CF_H_BlightTip>
+  <CF_BlightMarked>Správce: {0} rostlin s plísní označeno k posekání.</CF_BlightMarked>
+  <CF_P_MaySwitch>Správce smí vypnout</CF_P_MaySwitch>
+  <CF_P_MaySwitchDesc>Když docházejí baterie, Správce vypíná vybraná zařízení jedno po druhém, největší spotřebiče první. Vypni, aby toto jedno zařízení zůstalo vždy zapnuté.</CF_P_MaySwitchDesc>
+  <CF_A_Page>Samozásobení</CF_A_Page>
+  <CF_A_Short>{0} zakázek</CF_A_Short>
+  <CF_A_Desc>Když kolonii dochází něco, co umí vyrobit, Správce založí zakázku přesně na chybějící počet, na nejlepším stole, který to umí (pracovní stůl před ohništěm nebo místem), a po splnění ji smaže – nikdy „pořád dokola“. Nejdřív se počítá, co je ve skladu, a tvoje vlastní zakázky.</CF_A_Desc>
+  <CF_A_On>Samozásobení zapnuto</CF_A_On>
+  <CF_A_Meals>Jídla</CF_A_Meals>
+  <CF_A_Medicine>Léky</CF_A_Medicine>
+  <CF_A_Clothes>Oblečení a doplňky</CF_A_Clothes>
+  <CF_A_Armor>Brnění</CF_A_Armor>
+  <CF_A_Weapons>Zbraně</CF_A_Weapons>
+  <CF_A_Materials>Materiály</CF_A_Materials>
+  <CF_A_Worn>Nahradit pod {0} % stavu</CF_A_Worn>
+  <CF_A_Bills>Zakázky ze samozásobení: {0}</CF_A_Bills>
+  <CF_A_RemoveAll>Smazat tyto zakázky</CF_A_RemoveAll>
+  <CF_A_Last>Naposledy přidáno: {0}</CF_A_Last>
+  <CF_A_Kind_meals>jídla</CF_A_Kind_meals>
+  <CF_A_Kind_medicine>léky</CF_A_Kind_medicine>
+  <CF_A_Kind_clothes>oblečení</CF_A_Kind_clothes>
+  <CF_A_Kind_armor>brnění</CF_A_Kind_armor>
+  <CF_A_Kind_weapon>zbraň</CF_A_Kind_weapon>
+  <CF_A_Kind_material>materiál</CF_A_Kind_material>
+  <CF_A_Left>zbývá {0}×</CF_A_Left>
+  <CF_A_Until>dokud není {0}</CF_A_Until>
+  <CF_A_Race>Respektovat omezení ras</CF_A_Race>
+  <CF_A_RaceTip>Zapnuto: rasy z módů (Humanoid Alien Races) dostanou jen oblečení a zbraně, které jejich rasa smí používat. Vypni, když omezení ruší jiný mód – pak může dostat každý všechno.</CF_A_RaceTip>
+  <CF_W_Reassign>Přerozdělit práci hned</CF_W_Reassign>
+  <CF_W_ReassignHere_Desc>Hned teď znovu naplánuje priority práce na této mapě (totéž co „Přepočítat“ v záložce Práce). Zamčená políčka, práce a kolonisté zůstanou.</CF_W_ReassignHere_Desc>
+  <CF_W_LastPlan>Priority práce: naplánováno před {0}, změněno {1} – styl {2}.</CF_W_LastPlan>
+  <CF_W_LastPlanNever>Priority práce: od načtení hry na této mapě ještě neplánováno.</CF_W_LastPlanNever>
+  <CF_W_LastPlan_Desc>Najeď myší na políčko v záložce Práce a uvidíš, proč kolonista dostal danou prioritu: dovednost, záliba, rychlost, pořadí, počet kolonistů pro tuto práci a pravidlo, které o úrovni rozhodlo.</CF_W_LastPlan_Desc>
+  <CF_W_StewardOff>(správce je na této mapě vypnutý)</CF_W_StewardOff>
+  <CF_NoStorage>{0} ({1}×) leží na zemi a nikdo ho neodnese: žádný sklad ho nepřijímá nebo jsou plné. Povol ho ve filtru nějakého skladu.</CF_NoStorage>
+  <CF_J_ClearTooBig>{0} – moc velká na vyčištění</CF_J_ClearTooBig>
+  <CF_J_ClearTooBigOff>Vyčistit oblast „{0}“ je moc velká (byla by to půlka mapy) – vypnuto a její značky ke kácení zrušeny. Na vyčištění si udělej malou oblast jen pro staveniště nebo protipožární pás.</CF_J_ClearTooBigOff>
+  <CF_J_ClearCancelled>Zrušeno značek ke kácení z čištění oblasti: {0}</CF_J_ClearCancelled>
+  <CF2U_Name>Zásoby</CF2U_Name>
+  <CF2U_Hint>Cíle zásob, zakázky, zvířata a domácnost nastavíš na záložce Zásoby (dole na liště).</CF2U_Hint>
+  <CF2U_Messages>Zprávy o tom, co Steward označil</CF2U_Messages>
+  <CF2U_MasterBills>Mistrovské zakázky</CF2U_MasterBills>
+  <CF2U_MasterBillsTip>Zbraně a oblečení s kvalitou dělají jen nejlepší řemeslníci (vždy aspoň dva). Tvoje vlastní nastavení zakázky má přednost.</CF2U_MasterBillsTip>
+  <CF2U_NoStorage>Upozornění, když věc nemá kam jít</CF2U_NoStorage>
+  <CF2U_NoStorageTip>Když se věc nedá nikam uložit, Steward napíše proč.</CF2U_NoStorageTip>
+  <CF2U_PUAH>Nošení přes Pick Up And Haul</CF2U_PUAH>
+  <CF2U_PUAHTip>Steward nosí věci do skladu přes kapsy z Pick Up And Haul.</CF2U_PUAHTip>
+  <CF_J_ReleaseSurplus>Přebytek vypustit</CF_J_ReleaseSurplus>
+  <CF_J_ReleaseSurplusTip>Přebytečná zvířata se vypustí do divočiny místo porážky (druhy, které vypustit nejde, se dál porážejí). Zvířata hostů z úkolů se do cílů nikdy nepočítají.</CF_J_ReleaseSurplusTip>
+  <CF_D_Drills>Hlubinné vrty</CF_D_Drills>
+  <CF_D_Control>Zapínat hlubinné vrty podle cíle (tady {0})</CF_D_Control>
+  <CF_D_ControlTip>Hlubinné vrty na této surovině se vypnou, když zásoba dosáhne cíle, a znovu zapnou, když klesne pod něj. Znovu se zapnou jen vrty, které vypnul správce. Typy vrtů vybrané na stránce Elektřina nechá na řízení elektřiny.</CF_D_ControlTip>
+  <CF_J_SparkWait>historie za 2 hodiny</CF_J_SparkWait>
+  <CF_J_SparkTip>Zásoba jednou za hodinu za posledních {0} dní: nejméně {1}, nejvíc {2}, teď {3}. Žlutá čára: cíl.</CF_J_SparkTip>
+  <CF_X_Ingredients>Hlídat i suroviny</CF_X_Ingredients>
+  <CF_X_IngredientsTip>Přidá nebo zvýší cíle surovin tohoto receptu (těžba, výroba nebo dřevo), aby jich bylo dost na celý cíl. Cíle se jen zvyšují, nikdy nesnižují. Jen suroviny jednoho pevného druhu (ocel, součástky …), ne „jakékoli maso“ nebo „jakákoli látka“.</CF_X_IngredientsTip>
+  <CF_X_IngredientsNone>Tento recept nemá žádnou surovinu jednoho pevného druhu.</CF_X_IngredientsNone>
+  <CF_J_WatchTip>Zaškrtni a správce bude tento druh hlídat (počty, porážka přebytku, oblast).</CF_J_WatchTip>
+  <CF_J_Watched>Správce hlídá</CF_J_Watched>
+  <CF_J_NotWatched>Nehlídá se – zaškrtni vlevo</CF_J_NotWatched>
+  <CF_J_NoneLeft>Už žádná nemáš</CF_J_NoneLeft>
+  <CF_J_RemoveRule>✕ Smazat</CF_J_RemoveRule>
+  <CF_J_SpareYoung>Nezabíjet mláďata</CF_J_SpareYoung>
+  <CF_J_SpareYoungTip>Mláďata se nikdy neoznačí k porážce ani vypuštění; počítá se až s dospělými.</CF_J_SpareYoungTip>
+  <CF_J_AllYoung>všechna</CF_J_AllYoung>
+</LanguageData>

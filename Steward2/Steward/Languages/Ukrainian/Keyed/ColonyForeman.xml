@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CF_Auto>Steward</CF_Auto>
+  <CF_StyleButton>Стиль: {0}</CF_StyleButton>
+  <CF_StyleTip>Напрям колонії. Підвищує або знижує важливість вибраних робіт.</CF_StyleTip>
+  <CF_Style_Balanced>Збалансований</CF_Style_Balanced>
+  <CF_Style_Survival>Виживання</CF_Style_Survival>
+  <CF_Style_Production>Виробництво</CF_Style_Production>
+  <CF_Style_Research>Дослідження</CF_Style_Research>
+  <CF_HeaderHint>Steward: клацання середньою кнопкою блокує або розблоковує всю роботу.</CF_HeaderHint>
+  <CF_LockPawn>Заблокувати колоніста (управитель не змінюватиме його)</CF_LockPawn>
+  <CF_UnlockPawn>Розблокувати колоніста</CF_UnlockPawn>
+  <CF_PrefersOn>Подобається: {0} (прибрати)</CF_PrefersOn>
+  <CF_PrefersOff>Подобається: {0}</CF_PrefersOff>
+  <CF_Crisis_Medical>медична тривога</CF_Crisis_Medical>
+  <CF_Crisis_Food>нестача їжі</CF_Crisis_Food>
+  <CF_Crisis_Winter>підготовка до зими</CF_Crisis_Winter>
+  <CF_TipCrisis>Криза: {0}</CF_TipCrisis>
+  <CF_Style_Farming>Землеробство</CF_Style_Farming>
+  <CF_Style_Building>Будівництво</CF_Style_Building>
+  <CF_Style_Industry>Видобуток і промисловість</CF_Style_Industry>
+  <CF_Style_Defense>Оборона</CF_Style_Defense>
+  <CF_Style_Care>Турбота</CF_Style_Care>
+  <CF_Style_Comfort>Затишок</CF_Style_Comfort>
+  <CF_Style_Trade>Торгівля</CF_Style_Trade>
+  <CF_Style_Ranching>Тваринництво</CF_Style_Ranching>
+  <CF_StyleDesc_Balanced>Стиль на всі випадки. Робота розподіляється між колоністами рівномірно й відповідає тому, що чекає на карті: кожна робота, де є справи (замовлення, будівництво, збір урожаю, перенесення, пацієнти, дослідження, тварини …), отримує щонайменше одного колоніста, а за великого обсягу — більше. Реагує на нестачі та кризи. Перемикайтеся на інший стиль, лише коли щось треба зробити першочергово.</CF_StyleDesc_Balanced>
+  <CF_StyleDesc_Survival>Спершу їжа і дах над головою: готування, поля, полювання, риболовля і трохи будівництва. Для важкого початку.</CF_StyleDesc_Survival>
+  <CF_StyleDesc_Production>Майстерня, кузня і кравецтво — усе однаково важливе.</CF_StyleDesc_Production>
+  <CF_StyleDesc_Research>Якомога більше досліджень (і вивчення сутностей з Anomaly).</CF_StyleDesc_Research>
+  <CF_StyleDesc_Farming>Спершу поля: сівба і збір урожаю, а також зрізання рослин і готування.</CF_StyleDesc_Farming>
+  <CF_StyleDesc_Building>Спершу будівництво, допомагають видобуток каменю і перенесення.</CF_StyleDesc_Building>
+  <CF_StyleDesc_Industry>Видобуток руди та її переробка на товари в кузні й майстерні.</CF_StyleDesc_Industry>
+  <CF_StyleDesc_Defense>Стіни й турелі, зброя з кузні та лікарі напоготові до нальотів.</CF_StyleDesc_Defense>
+  <CF_StyleDesc_Care>Лікарі, діти, в'язні та чисті кімнати.</CF_StyleDesc_Care>
+  <CF_StyleDesc_Comfort>Чиста й гарна база: прибирання, мистецтво і меблі.</CF_StyleDesc_Comfort>
+  <CF_StyleDesc_Trade>Товари на продаж: мистецтво, одяг і вироби.</CF_StyleDesc_Trade>
+  <CF_StyleDesc_Ranching>Спершу тварини: приручення, дресирування, доїння, стрижка — і корм для них.</CF_StyleDesc_Ranching>
+  <CF_Style_Custom>Мій стиль</CF_Style_Custom>
+  <CF_StyleDesc_Custom>Ваш власний стиль — сам по собі нічого не змінюється. Важливість, кількість колоністів і колоністів на рівень пріоритету беруться лише з налаштувань мода (Параметри → Налаштування модів → Steward, вкладки «Типи робіт» і «Рівні пріоритету»). Кризи й ситуації й далі діють (їх можна вимкнути в налаштуваннях). Без урахування попиту, без змін через натхнення чи учнів, без перетасовування; перепланування лише коли колоністи приходять чи йдуть, під час регулярної перевірки або після натискання кнопки.</CF_StyleDesc_Custom>
+  <CF_Crisis_Fire>пожежа на базі</CF_Crisis_Fire>
+  <CF_Crisis_Raid>наліт</CF_Crisis_Raid>
+  <CF_Crisis_Weather>екстремальна погода</CF_Crisis_Weather>
+  <CF_Crisis_Toxic>токсичне повітря</CF_Crisis_Toxic>
+  <CF_Crisis_Blight>хвороба рослин</CF_Crisis_Blight>
+  <CF_Crisis_Mood>поганий настрій</CF_Crisis_Mood>
+  <CF_Crisis_Power>відключення електрики</CF_Crisis_Power>
+  <CF_Crisis_Medicine>немає ліків</CF_Crisis_Medicine>
+  <CF_Crisis_Breakdown>зламані машини</CF_Crisis_Breakdown>
+  <CF_PA_Label>Пріоритетна зона</CF_PA_Label>
+  <CF_PA_Desc>Виділіть прямокутником місце для роботи. Потім виберіть, що робити (за замовчуванням усе: будівництво, розбирання, ремонт, видобуток, зрізання, збір урожаю, перенесення, прибирання), зараз чи після поточної роботи, і хто це робить (найближчі автоматично або вибрані вручну). Їжа, сон і лікування й далі важливіші. Зона залишається, доки все всередині не буде зроблено; видалити її можна через «Видалити пріоритетну зону».</CF_PA_Desc>
+  <CF_PA_ClearLabel>Видалити пріоритетну зону</CF_PA_ClearLabel>
+  <CF_PA_ClearDesc>Проведіть по пріоритетній зоні, щоб видалити її. Колоністи повернуться до звичайної роботи.</CF_PA_ClearDesc>
+  <CF_PA_Mode_All>усе</CF_PA_Mode_All>
+  <CF_PA_Mode_Build>будівництво</CF_PA_Mode_Build>
+  <CF_PA_Mode_Mine>видобуток</CF_PA_Mode_Mine>
+  <CF_PA_Mode_Plants>рослини</CF_PA_Mode_Plants>
+  <CF_PA_Mode_Haul>перенесення</CF_PA_Mode_Haul>
+  <CF_PA_Mode_Clean>прибирання</CF_PA_Mode_Clean>
+  <CF_PA_Mode_Emergency>порятунок</CF_PA_Mode_Emergency>
+  <CF_PA_Added>Пріоритетна зона ({0}): колоністів: {1}, чекає робіт: {2}. Зона залишається, доки все не буде зроблено.</CF_PA_Added>
+  <CF_PA_Stale>Пріоритетну зону ({0}) завершено — два дні ніхто нічого всередині не робив (робота недосяжна або з'являється знову). Колоністи повернуться до звичайної роботи.</CF_PA_Stale>
+  <CF_PA_Done>Пріоритетну зону ({0}) виконано, колоністи повертаються до звичайної роботи.</CF_PA_Done>
+  <CF_PA_Removed>Видалено пріоритетних зон: {0}.</CF_PA_Removed>
+  <CF_PA_AddedEmpty>Пріоритетну зону ({0}) створено, поки що там нічого не чекає. Призначте роботу (будівництво, видобуток, зрізання…) — колоністи ({1}) виконають її, щойно вона з'явиться.</CF_PA_AddedEmpty>
+  <CF_PA_DlgTitle>Пріоритетна зона {0}×{1}</CF_PA_DlgTitle>
+  <CF_PA_DlgWork>Зараз там чекає — будівництво: {0}, видобуток: {1}, рослини: {2}, перенесення: {3}, прибирання: {4}</CF_PA_DlgWork>
+  <CF_PA_DlgWhat>Що робити:</CF_PA_DlgWhat>
+  <CF_PA_DlgWhen>Коли:</CF_PA_DlgWhen>
+  <CF_PA_DlgNow>Зараз — перервати поточну справу</CF_PA_DlgNow>
+  <CF_PA_DlgLater>Пізніше — після завершення поточної справи</CF_PA_DlgLater>
+  <CF_PA_DlgWho>Хто:</CF_PA_DlgWho>
+  <CF_PA_DlgAuto>Автоматично — {0} найближчих вільних</CF_PA_DlgAuto>
+  <CF_PA_DlgAutoAll>Автоматично — усі вільні</CF_PA_DlgAutoAll>
+  <CF_PA_DlgHand>Вибрати вручну (вибрано: {0})</CF_PA_DlgHand>
+  <CF_PA_DlgSkills>Будівництво {0} · Гірництво {1} · Рослинництво {2}</CF_PA_DlgSkills>
+  <CF_PA_DlgCreate>Створити зону</CF_PA_DlgCreate>
+  <CF_Crisis_Manhunters>тварини-людожери</CF_Crisis_Manhunters>
+  <CF_Crisis_Epidemic>епідемія</CF_Crisis_Epidemic>
+  <CF_Crisis_PrisonBreak>втеча в'язнів / повстання рабів</CF_Crisis_PrisonBreak>
+  <CF_Crisis_DangerousBreak>небезпечний нервовий зрив</CF_Crisis_DangerousBreak>
+  <CF_Crisis_IndoorTemp>холод або спека в приміщенні</CF_Crisis_IndoorTemp>
+  <CF_Crisis_NoBeds>пацієнти без ліжок</CF_Crisis_NoBeds>
+  <CF_Crisis_FreezerThaw>морозильник відтає</CF_Crisis_FreezerThaw>
+  <CF_Crisis_Siege>облога</CF_Crisis_Siege>
+  <CF_Crisis_Infestation>навала комах</CF_Crisis_Infestation>
+  <CF_Crisis_RoofCollapse>загроза обвалу даху</CF_Crisis_RoofCollapse>
+  <CF_Crisis_Death>смерть у колонії</CF_Crisis_Death>
+  <CF_Crisis_QuestDeadline>термін завдання</CF_Crisis_QuestDeadline>
+  <CF_Crisis_AnimalSick>хворі тварини</CF_Crisis_AnimalSick>
+  <CF_Crisis_Labor>пологи</CF_Crisis_Labor>
+  <CF_Crisis_EntityEscape>втеча сутності</CF_Crisis_EntityEscape>
+  <CF_Crisis_Darkness>неприродна темрява</CF_Crisis_Darkness>
+  <CF_Crisis_VacuumBreach>розгерметизація</CF_Crisis_VacuumBreach>
+  <CF_Crisis_ToxGas>токсичний газ</CF_Crisis_ToxGas>
+  <CF_Crisis_LowAmmo>мало набоїв</CF_Crisis_LowAmmo>
+  <CF_Crisis_WaterShortage>нестача води</CF_Crisis_WaterShortage>
+  <CF_Crisis_Hygiene>гігієна</CF_Crisis_Hygiene>
+  <CF_Crisis_NoFirefighters>нікому гасити пожежу</CF_Crisis_NoFirefighters>
+  <CF_HistButton>Історія</CF_HistButton>
+  <CF_HistTip>Що, коли і чому змінив управитель.</CF_HistTip>
+  <CF_HistTitle>Історія планів</CF_HistTitle>
+  <CF_HistEmpty>Плану ще немає.</CF_HistEmpty>
+  <CF_LastRun>Останнє планування: {0} тому</CF_LastRun>
+  <CF_NextRun>Наступний автоматичний план через: {0} (раніше, якщо зміняться робота, колоністи або почнеться криза)</CF_NextRun>
+  <CF_AutoOff>Автоматичне планування вимкнено — увімкніть «Steward».</CF_AutoOff>
+  <CF_PA_OnlyBalanced>Зони працюють у будь-якому стилі колонії. Вони чекають лише за справжньої небезпеки (вороги, пожежа, токсичний газ біля ваших людей …). Коли колоністу нічого робити у своїй зоні, він допомагає в іншій активній зоні.</CF_PA_OnlyBalanced>
+  <CF_PA_PauseStyle>Очікування стилю: {0}</CF_PA_PauseStyle>
+  <CF_PA_PauseHostile>Очікування: вороги на карті</CF_PA_PauseHostile>
+  <CF_PA_PauseCrisis>Очікування: {0}</CF_PA_PauseCrisis>
+  <CF_BP_Label>Пріоритетний верстат</CF_BP_Label>
+  <CF_BP_Desc>Колоністи виконують замовлення на цьому верстаті раніше, ніж на інших верстатах того ж типу роботи (ремесло, ковальство, кравецтво, готування…). Діє серед верстатів одного типу роботи; порядок типів робіт і далі задається у вкладці «Робота».</CF_BP_Desc>
+  <CF_BP_Giver>{0} на пріоритетному верстаті</CF_BP_Giver>
+  <CF_BP_NotUsed>Від початку гри ніхто не використовував його як пріоритетний верстат.</CF_BP_NotUsed>
+  <CF_BP_LastUse>Останнє використання як пріоритетного верстата: {0}, {1} год тому.</CF_BP_LastUse>
+  <CF_TipChildLearn>Дитина навчається ({0} %) — поки без роботи.</CF_TipChildLearn>
+  <CF_TipChildLight>Дитина — робота лише на найнижчому рівні, щоб мала час учитися (навчання {0} %).</CF_TipChildLight>
+  <CF_Style_Tidy>Наведення ладу</CF_Style_Tidy>
+  <CF_StyleDesc_Tidy>Лише перенесення і прибирання.</CF_StyleDesc_Tidy>
+  <CF_StyleStrictNote>Інша робота: найнижчий пріоритет.</CF_StyleStrictNote>
+  <CF_StyleStrictNoteOff>Інша робота: вимкнена (перенесення і прибирання на найнижчому пріоритеті).</CF_StyleStrictNoteOff>
+  <CF_Style_FieldsForest>Поля і ліс</CF_Style_FieldsForest>
+  <CF_StyleDesc_FieldsForest>Лише поля і ліс: вирощування і рубання дерев, однаково важливі.</CF_StyleDesc_FieldsForest>
+  <CF_Style_Mining>Видобуток</CF_Style_Mining>
+  <CF_StyleDesc_Mining>Лише видобуток руди й каменю, допомагає перенесення.</CF_StyleDesc_Mining>
+  <CF_Style_Kitchen>Кухня</CF_Style_Kitchen>
+  <CF_StyleDesc_Kitchen>Спершу готування, полювання і риболовля лише приносять інгредієнти.</CF_StyleDesc_Kitchen>
+  <CF_Style_HuntFish>Полювання і риболовля</CF_Style_HuntFish>
+  <CF_StyleDesc_HuntFish>Їжа з дикої природи: полювання, риболовля і кухня для її переробки.</CF_StyleDesc_HuntFish>
+  <CF_Style_Tailoring>Кравецтво</CF_Style_Tailoring>
+  <CF_StyleDesc_Tailoring>Лише шиття одягу.</CF_StyleDesc_Tailoring>
+  <CF_Style_Smithing>Кузня</CF_Style_Smithing>
+  <CF_StyleDesc_Smithing>Зброя та інструменти з кузні, трохи ремесла.</CF_StyleDesc_Smithing>
+  <CF_Style_Art>Мистецтво</CF_Style_Art>
+  <CF_StyleDesc_Art>Лише скульптури та твори мистецтва.</CF_StyleDesc_Art>
+  <CF_Style_Prison>В'язниця</CF_Style_Prison>
+  <CF_StyleDesc_Prison>В'язні: вербування і поневолення, з лікарем.</CF_StyleDesc_Prison>
+  <MUI_Title>Рекомендовані налаштування</MUI_Title>
+  <MUI_TitleOff>Рекомендовані налаштування · вимк.</MUI_TitleOff>
+  <MUI_DescOn>Мод налаштовується сам і одразу працює. Ідеально для новачків і всіх, хто не хоче нічого налаштовувати.</MUI_DescOn>
+  <MUI_DescOff>Власні налаштування. Змінено порівняно з рекомендованими: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Власні налаштування. Поки збігаються з рекомендованими.</MUI_DescOffSame>
+  <MUI_On>УВІМК.</MUI_On>
+  <MUI_Off>ВИМК.</MUI_Off>
+  <MUI_ResetAll>Скинути все до рекомендованих</MUI_ResetAll>
+  <MUI_ConfirmOn>Увімкнути рекомендовані налаштування? Ваші зміни ({0}) буде замінено рекомендованими значеннями.</MUI_ConfirmOn>
+  <MUI_Locked>Простий режим налаштовує все сам, тому деталі заблоковано. Хочете їх змінити? Перемкніться вгорі на «Рекомендований» або «Розширений».</MUI_Locked>
+  <MUI_Changed>ЗМІНЕНО</MUI_Changed>
+  <MUI_ChangedTip>Відрізняється від рекомендованого значення ({0}). Натисніть, щоб відновити рекомендоване значення.</MUI_ChangedTip>
+  <MUI_Yes>увімк.</MUI_Yes>
+  <MUI_No>вимк.</MUI_No>
+  <MUI_RecTag>РЕКОМЕНДОВАНО</MUI_RecTag>
+  <CF_TipMother>Мати немовляти — догляд за дитиною передусім.</CF_TipMother>
+  <CF_TipNanny>Нянька — доглядає немовля, у якого немає матері, що може це робити.</CF_TipNanny>
+  <CF_GuardFixed>Моди змінили типи робіт — Steward повернув пріоритети на правильну роботу для {0} колоністів.</CF_GuardFixed>
+  <CF2_AutoTip>Управитель на цій карті: пріоритети за навичками, захопленнями і роботою, яка справді чекає на карті. Планує спокійно — нікого не перекидають туди-сюди.</CF2_AutoTip>
+  <CF2_PlanNow>Спланувати зараз</CF2_PlanNow>
+  <CF2_PlanNowTip>Спланувати пріоритети просто зараз (навіть з вимкненим управителем). Ваш план не стримується часом спокою.</CF2_PlanNowTip>
+  <CF2_PlanDone>Управитель спланував пріоритети: змін — {0}.</CF2_PlanDone>
+  <CF2_ManualOn>Управитель увімкнув числові пріоритети (вкладка «Робота»).</CF2_ManualOn>
+  <CF2_HistStyle>стиль колонії: {0}</CF2_HistStyle>
+  <CF2_TabGeneral>Планування</CF2_TabGeneral>
+  <CF2_TabRules>Мої правила</CF2_TabRules>
+  <CF2_SecPlan>Планування</CF2_SecPlan>
+  <CF2_SecStyles>Стилі колонії</CF2_SecStyles>
+  <CF2_SecChildren>Діти й немовлята</CF2_SecChildren>
+  <CF2_SecPriorities>Пріоритети</CF2_SecPriorities>
+  <CF2_AutoByDefault>Steward увімкнено на нових картах</CF2_AutoByDefault>
+  <CF2_AutoByDefaultTip>Якщо вимкнено, управителя треба вмикати для кожної карти у вкладці «Робота».</CF2_AutoByDefaultTip>
+  <CF2_Interval>Регулярний план: кожні {0} год</CF2_Interval>
+  <CF2_IntervalTip>У проміжках управитель планує, лише коли щось справді змінюється (нові колоністи, багато нової роботи, криза з доповнення).</CF2_IntervalTip>
+  <CF2_Hold>Змінений пріоритет тримається щонайменше: {0} год</CF2_Hold>
+  <CF2_HoldTip>Спокій: змінене управителем не змінюється назад одразу. Кризи та ваша кнопка «Спланувати зараз» це пропускають.</CF2_HoldTip>
+  <CF2_OneTop>Лише одна робота на пріоритеті 1</CF2_OneTop>
+  <CF2_OneTopTip>Кожен колоніст має на 1 лише найважливішу роботу, решту основної роботи — на 2.</CF2_OneTopTip>
+  <CF2_Backup>Запасна робота на найнижчому пріоритеті</CF2_Backup>
+  <CF2_BackupTip>Хто не виконує роботу як основну, тримає її на найнижчому рівні, щоб ніхто не простоював.</CF2_BackupTip>
+  <CF2_Opposed>Давати й роботу, яку відкидає ідеологія</CF2_Opposed>
+  <CF2_OpposedTip>Вимк.: роботу, яку ідеологія колоніста вважає небезпечною, йому ніколи не дають.</CF2_OpposedTip>
+  <CF2_Injured>Пораненим і хворим — легша робота</CF2_Injured>
+  <CF2_InjuredTip>Що гірше здоров'я, то менше колоніст підходить для основної роботи.</CF2_InjuredTip>
+  <CF2_Passion>Захоплення важить більше</CF2_Passion>
+  <CF2_PassionTip>Колоністи із захопленням частіше отримують свою роботу (вона їм подобається, і вони швидше вчаться).</CF2_PassionTip>
+  <CF2_Prefer>Бонус за улюблену роботу: {0}</CF2_Prefer>
+  <CF2_PreferTip>Клацніть середньою кнопкою на імені колоніста → позначте роботу, яка йому подобається. Додається стільки.</CF2_PreferTip>
+  <CF2_Lodgers>Планувати й гостей із завдань</CF2_Lodgers>
+  <CF2_LodgersTip>Гості із завдань, яким дозволено працювати.</CF2_LodgersTip>
+  <CF2_Mechs>Враховувати робочих механоїдів</CF2_Mechs>
+  <CF2_MechsTip>Для роботи, яку виконують механоїди, потрібно менше колоністів.</CF2_MechsTip>
+  <CF2_StyleStrength>Сила стилю: {0}</CF2_StyleStrength>
+  <CF2_StyleStrengthTip>Скільки людей стиль колонії додає до своєї роботи.</CF2_StyleStrengthTip>
+  <CF2_StyleStrict>Стиль планує здебільшого свою роботу</CF2_StyleStrict>
+  <CF2_StyleStrictTip>Інша робота отримує лише одну людину, коли вона чекає на карті.</CF2_StyleStrictTip>
+  <CF2_StyleOthersOff>Повністю вимикати іншу роботу</CF2_StyleOthersOff>
+  <CF2_StyleOthersOffTip>Хто не виконує роботу стилю, не залишає собі решту навіть як запасну.</CF2_StyleOthersOffTip>
+  <CF2_ChildLearning>Діти мають час навчатися</CF2_ChildLearning>
+  <CF2_ChildLearningTip>Діти мають роботу лише на найнижчому рівні й жодної, поки потребують навчання.</CF2_ChildLearningTip>
+  <CF2_ParentCare>Батьки й няньки для немовлят</CF2_ParentCare>
+  <CF2_ParentCareTip>Мати (або батько) має догляд за дітьми на 1; без батьків управитель обирає няньку.</CF2_ParentCareTip>
+  <CF2_Levels>Рівні пріоритету: {0}</CF2_Levels>
+  <CF2_LevelsAuto>автоматично ({0})</CF2_LevelsAuto>
+  <CF2_LevelsTip>0 = взяти з Work Tab / PriorityMaster. Без такого мода гра має 4 рівні.</CF2_LevelsTip>
+  <CF2_PlanMessages>Повідомлення після кожного плану</CF2_PlanMessages>
+  <CF2_PlanMessagesTip>Коротке повідомлення вгорі ліворуч із кількістю змінених пріоритетів.</CF2_PlanMessagesTip>
+  <CF2_UseMyRules>Використовувати мої правила</CF2_UseMyRules>
+  <CF2_UseMyRulesTip>Мінімум і максимум колоністів на роботу. Кризи та ситуації з доповнень важливіші за максимум.</CF2_UseMyRulesTip>
+  <CF2_RulesHint>Мінімум: щонайменше стільки колоністів мають роботу на пріоритеті 1–2. Максимум: не більше. Важливість: наскільки робота підходить як основна (пріоритет 1).</CF2_RulesHint>
+  <CF2_Min>мін</CF2_Min>
+  <CF2_Max>макс</CF2_Max>
+  <CF2_Importance>важливість</CF2_Importance>
+  <CF2_TipEmergency>Термінова робота — у всіх нагорі.</CF2_TipEmergency>
+  <CF2_TipMain>Основна робота: чекає робіт — {0}, серед найпридатніших.</CF2_TipMain>
+  <CF2_TipStyleReady>Робота стилю «{0}» — напоготові, навіть коли зараз нічого не чекає.</CF2_TipStyleReady>
+  <CF2_TipHelper>Помічник: коли основні люди не встигають.</CF2_TipHelper>
+  <CF2_TipOnCall>Чергування: зараз нічого не чекає, але хтось напоготові.</CF2_TipOnCall>
+  <CF2_TipStyleOff>Стиль «{0}»: цієї роботи не виконує.</CF2_TipStyleOff>
+  <CF2_TipBackup>Запасна: найнижчий рівень, щоб ніхто не простоював.</CF2_TipBackup>
+  <CF2_TipTop>Пріоритет 1: найважливіша робота для нього зараз.</CF2_TipTop>
+  <CF2_TipYourMin>Ваш мінімум: щонайменше {0}.</CF2_TipYourMin>
+  <CF2_TipYourMax>Ваш максимум: щонайбільше {0}.</CF2_TipYourMax>
+  <CF2_TipNobodyIdle>Щоб не простоювати: найпридатніша для нього робота, яка чекає.</CF2_TipNobodyIdle>
+  <CF31_PlanPreview>Показувати план перед застосуванням</CF31_PlanPreview>
+  <CF31_PlanPreviewTip>«Спланувати зараз» спершу показує всі зміни; нічого не змінюється, доки ви не натиснете «Застосувати». На автоматичні плани не впливає.</CF31_PlanPreviewTip>
+  <CF31_PreviewTitle>План управителя — змін: {0}</CF31_PreviewTitle>
+  <CF31_PreviewHint>Нічого не зміниться, доки ви не натиснете «Застосувати». Причина вказана праворуч (наведіть курсор, щоб побачити повний текст).</CF31_PreviewHint>
+  <CF31_PreviewNone>Нічого змінювати — пріоритети вже відповідають плану.</CF31_PreviewNone>
+  <CF31_Apply>Застосувати</CF31_Apply>
+  <CF31_Cancel>Скасувати</CF31_Cancel>
+  <CF31_Close>Закрити</CF31_Close>
+  <CF31_LocksButton>Блокування ({0})</CF31_LocksButton>
+  <CF31_LocksTip>Колоністи, стовпці робіт і клітинки, які управитель не має змінювати. Натисніть, щоб побачити й розблокувати їх.</CF31_LocksTip>
+  <CF31_LocksTitle>Блокування</CF31_LocksTitle>
+  <CF31_LocksHowTo>Заблоковане зберігає свої пріоритети — управитель їх не чіпає. У вкладці «Робота» середня кнопка миші (коліщатко) блокує або розблоковує: на імені колоніста — всього колоніста, на заголовку стовпця — роботу для всіх, на клітинці — лише цю клітинку.</CF31_LocksHowTo>
+  <CF31_LocksPawns>Заблоковані колоністи (уся їхня робота залишається як є)</CF31_LocksPawns>
+  <CF31_LocksWork>Заблоковані стовпці робіт (для всіх)</CF31_LocksWork>
+  <CF31_LocksCells>Заблоковані клітинки</CF31_LocksCells>
+  <CF31_Unlock>Розблокувати</CF31_Unlock>
+  <CF31_UnlockAll>Розблокувати все</CF31_UnlockAll>
+  <CF31_LocksNone>Нічого не заблоковано.</CF31_LocksNone>
+  <CF31_StOk>Steward: планує цього колоніста.</CF31_StOk>
+  <CF31_StAutoOff>Управителя вимкнено на цій карті — пріоритети змінюються лише через «Спланувати зараз».</CF31_StAutoOff>
+  <CF31_StLockedPawn>Steward: ЗАБЛОКОВАНО — уся його робота залишається як є. Клацніть середньою кнопкою на імені, щоб розблокувати.</CF31_StLockedPawn>
+  <CF31_StAchtung>Steward: пропущено — має примусову роботу з Achtung!. Його пріоритети зберігаються, доки примусову роботу не буде знято.</CF31_StAchtung>
+  <CF31_StDowned>Steward: пропущено, поки він непритомний чи лежить — буде сплановано знову, коли встане.</CF31_StDowned>
+  <CF31_StSlave>Steward: пропущено — раби не плануються.</CF31_StSlave>
+  <CF31_StGuest>Steward: пропущено — гість або мешканець із завдання (див. «Планувати й гостей із завдань» у налаштуваннях).</CF31_StGuest>
+  <CF31_StBaby>Steward: пропущено — немовля.</CF31_StBaby>
+  <CF31_StNoWork>Steward: пропущено — взагалі не працює.</CF31_StNoWork>
+  <CF31_StNotHere>Steward: зараз не на цій карті — планується на тій карті, де перебуває.</CF31_StNotHere>
+  <CF31_StCells>Заблоковані клітинки ({0}) зберігають свій пріоритет.</CF31_StCells>
+  <CF31_StColumns>Заблоковані стовпці: {0}.</CF31_StColumns>
+  <CF31_StUnable>Зараз не може (здоров'я): {0}.</CF31_StUnable>
+  <CF32_Apprentices>Учні</CF32_Apprentices>
+  <CF32_ApprenticesTip>Колоніст із захопленням і невеликою навичкою отримує роботу на навчальному рівні (3), коли хтось, хто добре її знає, виконує її як основну. Одне учнівство на колоніста, один учень на роботу.</CF32_ApprenticesTip>
+  <CF32_TipApprentice>Учень: захоплюється цим і вчиться поруч із майстром.</CF32_TipApprentice>
+  <CF32_CopyTo>Копіювати пріоритети {0} для…</CF32_CopyTo>
+  <CF32_CopyToAll>Усіх інших на цій карті</CF32_CopyToAll>
+  <CF32_CopyTitle>Копіювати пріоритети {0}</CF32_CopyTitle>
+  <CF32_WhyCopy>Скопійовано від {0}.</CF32_WhyCopy>
+  <CF32_HistCopy>Пріоритети {0} скопійовано для {1}.</CF32_HistCopy>
+  <CF32_Others>Колоністів: {0}</CF32_Others>
+  <CF32_SetsButton>Набори</CF32_SetsButton>
+  <CF32_SetsTip>Збережені набори пріоритетів: збережіть поточні пріоритети під назвою («Зима», «Оборона», «Урожай» …) і завантажте їх пізніше. Під час завантаження спершу показуються зміни.</CF32_SetsTip>
+  <CF32_SetsTitle>Набори пріоритетів</CF32_SetsTitle>
+  <CF32_SetsHint>Зберігає пріоритети всіх колоністів на цій карті. Під час завантаження спершу показуються всі зміни; заблоковані клітинки й відсутні колоністи пропускаються. Якщо управитель увімкнений, його наступний план знову все змінить — вимкніть його, щоб зберегти набір.</CF32_SetsHint>
+  <CF32_SetsSave>Зберегти поточні</CF32_SetsSave>
+  <CF32_SetsDefaultName>Набір {0}</CF32_SetsDefaultName>
+  <CF32_SetsSaved>Набір пріоритетів «{0}» збережено.</CF32_SetsSaved>
+  <CF32_SetsNone>Збережених наборів ще немає.</CF32_SetsNone>
+  <CF32_SetsLoad>Завантажити…</CF32_SetsLoad>
+  <CF32_SetsDelete>Видалити</CF32_SetsDelete>
+  <CF32_SetsLoadTitle>Набір «{0}» — змін: {1}</CF32_SetsLoadTitle>
+  <CF32_SetsMissing>(колоністів із набору тут немає: {0})</CF32_SetsMissing>
+  <CF32_HistSetSaved>Набір пріоритетів «{0}» збережено.</CF32_HistSetSaved>
+  <CF32_HistSetLoaded>Набір пріоритетів «{0}» завантажено.</CF32_HistSetLoaded>
+  <CF32_WhySet>З набору «{0}».</CF32_WhySet>
+  <CF32_OfferNew>Пропонувати роботу новому колоністу</CF32_OfferNew>
+  <CF32_OfferNewTip>Коли управитель вимкнений і приєднується новий колоніст, вікно показує роботу, яку дав би йому управитель. Нічого не змінюється, доки ви не натиснете «Застосувати».</CF32_OfferNewTip>
+  <CF32_NewTitle>Новий: {0} — запропонована робота</CF32_NewTitle>
+  <CF32_HistNew>Роботу для нового колоніста {0} застосовано.</CF32_HistNew>
+  <CF32_Weekly>Тижневий підсумок</CF32_Weekly>
+  <CF32_WeeklyTip>Раз на тиждень коротке повідомлення (також в історії): плани і зміни, нові колоністи, робота, що чекала без виконавця, кризи.</CF32_WeeklyTip>
+  <CF32_WeekTitle>Тиждень управителя ({0}):</CF32_WeekTitle>
+  <CF32_WeekPlans>планів: {0}, змін: {1}</CF32_WeekPlans>
+  <CF32_WeekNew>нових колоністів: {0}</CF32_WeekNew>
+  <CF32_WeekGaps>чекало без виконавця: {0}</CF32_WeekGaps>
+  <CF32_WeekNoGaps>жодна робота не чекала без виконавця</CF32_WeekNoGaps>
+  <CF32_WeekCrises>кризи: {0}</CF32_WeekCrises>
+  <CF_Keep_Name>Зона зберігання</CF_Keep_Name>
+  <CF_Keep_Label>Зона зберігання</CF_Keep_Label>
+  <CF_Keep_Desc>Склад, з якого ніхто нічого не бере. У вкладці зберігання виберіть, що колоністи мають сюди приносити (спочатку вона порожня). Поки зона заблокована, колоністи нічого з неї не беруть — ні щоб поїсти, ні для виготовлення, будівництва чи спорядження, і нічого не переносять деінде. Розблокуйте її кнопкою на зоні, коли щось знадобиться.</CF_Keep_Desc>
+  <CF_Keep_Lock>Заблоковано</CF_Keep_Lock>
+  <CF_Keep_LockDesc>Увімк.: ніхто нічого не бере й не виносить із цієї зони. Вимк.: працює як звичайний склад.</CF_Keep_LockDesc>
+  <CF_Keep_InspectLocked>Заблоковано: колоністи лише приносять сюди речі, нічого не забирається.</CF_Keep_InspectLocked>
+  <CF_Keep_InspectOpen>Розблоковано: працює як звичайний склад.</CF_Keep_InspectOpen>
+  <CF_Keep_Beacon>Зона зберігання тут</CF_Keep_Beacon>
+  <CF_Keep_BeaconDesc>Створює зону зберігання на всій торговій області цього маяка. У вкладці зберігання виберіть, що там має бути — колоністи принесуть це й залишать у спокої, але торговці все одно бачать ці речі й можуть їх купити. Речі, які зона не має зберігати (наприклад, куплені товари), відносяться як зазвичай.</CF_Keep_BeaconDesc>
+  <CF_Keep_What>Що і скільки</CF_Keep_What>
+  <CF_Keep_WhatDesc>Виберіть, що і скільки колоністи мають приносити в цю зону. Без списку зона використовує свою вкладку зберігання.</CF_Keep_WhatDesc>
+  <CF_Keep_WinTitle>{0}: що і скільки</CF_Keep_WinTitle>
+  <CF_Keep_WinHint>Натисніть на річ ліворуч, щоб додати її. Вкажіть кількість — порожнє поле означає все, що є. Сюди приносяться і зберігаються лише речі зі списку.</CF_Keep_WinHint>
+  <CF_Keep_Search>Пошук…</CF_Keep_Search>
+  <CF_Keep_OnlyOnMap>Лише те, що в нас є</CF_Keep_OnlyOnMap>
+  <CF_Keep_Chosen>Приносити сюди</CF_Keep_Chosen>
+  <CF_Keep_NoneYet>Поки нічого — виберіть речі ліворуч.</CF_Keep_NoneYet>
+  <CF_Keep_Have>тут {0}</CF_Keep_Have>
+  <CF_Keep_All>усе</CF_Keep_All>
+  <CF_Keep_RowTip>Колоністи приносять цю річ, доки в зоні не набереться потрібна кількість (носій бере лише те, чого бракує). Що лежить тут, тут і залишається.</CF_Keep_RowTip>
+  <CF_Keep_Now>Принести зараз</CF_Keep_Now>
+  <CF_Keep_NowDesc>Вільні колоністи кидають поточні справи й одразу несуть сюди речі, яких бракує, — кожен бере одну ношу, решту доносять звичайним перенесенням. Призваних, сплячих, тих, хто гасить пожежу, лікує чи рятує, не чіпають.</CF_Keep_NowDesc>
+  <CF_Keep_NowStarted>Колоністів несуть речі до зони зберігання: {0}.</CF_Keep_NowStarted>
+  <CF_Keep_NowNobody>Зараз ніхто не може нічого принести (немає вільного колоніста або поза зоною не залишилося досяжних речей).</CF_Keep_NowNobody>
+  <CF_Keep_NowFull>У зоні вже є все, що потрібно.</CF_Keep_NowFull>
+</LanguageData>

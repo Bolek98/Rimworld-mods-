@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Steward – Work Priorities</name>
+  <author>Bolek98</author>
+  <packageId>misak.colonyforeman</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Ludeon.RimWorld</li>
+    <li>brrainz.achtung</li>
+    <li>fluffy.worktab</li>
+  </loadAfter>
+  <incompatibleWith>
+    <li>encoded.adaptivepriorities</li>
+  </incompatibleWith>
+  <description>Steward plans your colonists' work priorities – calmly, and with whatever mods you use.
+
+- Priorities from skills, passions (mods' passions too), work speed, health and the work that really waits on the map. How much work waits is measured by the game's own work givers, so every work type of every mod is planned the same way – nothing is fixed by name.
+- Calm: a regular plan every few hours, a new one only when something really changes. A changed priority stays at least half a day – nobody is moved back and forth.
+- One main work on priority 1 per colonist, helpers on 2–3, everyone else as a backup on the lowest level, so nobody stands idle.
+- 22 colony styles (Balanced, Survival, Farming, Building, Research, Care …) and My style.
+- Priority guard: the game saves priorities only as a list of numbers. When you add, remove or move a mod with its own work type, everyone's priorities land on other work. Steward saves them by work name too and puts them back after loading.
+- Middle-click locks a cell, a work type (header) or a colonist (name). Your minimum / maximum colonists per work.
+- Children have time to learn, parents and nannies care for babies (Biotech).
+- Priority areas (Orders menu) and priority benches.
+- Work Tab / PriorityMaster priority ranges, working mechanoids, quest guests, Achtung! forced work.
+
+Optional add-ons (separate mods – Steward works fully without them, take only what you want):
+- Steward – Crises &amp; Situations: fire, raids, wounded, hunger, butchering, harvest …
+- Steward – Schedules: automatic schedules, rest and mood care.
+- Steward – Supplies: hunting, wood, bills, livestock, the Supplies tab.
+
+Steward is off on a new map until you switch it on in the Work tab.
+Requires Harmony. RimWorld 1.6 and 1.7. Safe to add to an existing save.
+Found a bug? Use "Report a bug" (bottom left in the settings) and post it in the comments.
+
+---
+
+Steward plánuje priority práce tvých kolonistů – klidně a s jakýmikoli mody.
+
+- Priority podle dovedností, vášní (i z modů), rychlosti práce, zdraví a práce, která na mapě opravdu čeká. Kolik práce čeká, měří hra sama přes své úkoly, takže každá práce z každého modu se plánuje stejně – nic není napevno podle jména.
+- Klid: pravidelný plán po pár hodinách, nový jen když se něco opravdu změní. Změněná priorita drží aspoň půl dne – nikdo se nepřehazuje sem a tam.
+- Jedna hlavní práce na prioritě 1 na kolonistu, pomocníci na 2–3, ostatní jako záloha na nejnižší, aby nikdo nestál.
+- 22 stylů kolonie (Vyvážený, Přežití, Farmaření, Stavění, Výzkum, Péče …) a Můj styl.
+- Pojistka priorit: hra si priority ukládá jen jako řadu čísel. Když přidáš, odebereš nebo přesuneš mod s vlastní prací, všem se priority posunou na jinou práci. Steward si je ukládá i podle názvu práce a po načtení je vrátí.
+- Prostřední klik zamkne buňku, práci (záhlaví) nebo kolonistu (jméno). Tvoje minimum / maximum kolonistů na práci.
+- Děti mají čas na učení, rodiče a chůvy pečují o miminka (Biotech).
+- Prioritní oblasti (menu Příkazy) a stoly s předností.
+- Rozsahy priorit Work Tab / PriorityMaster, pracující mechanoidi, hosté z úkolů, vynucená práce z Achtung!.
+
+Volitelné doplňky (samostatné mody – Steward funguje plně i bez nich, vezmi si jen to, co chceš):
+- Steward – Krize a situace: požár, přepadení, zranění, hlad, porcování, sklizeň …
+- Steward – Rozvrh: automatický rozvrh, odpočinek a péče o náladu.
+- Steward – Zásoby: lov, dřevo, zakázky, zvířata, záložka Zásoby.
+
+Na nové mapě je Steward vypnutý, dokud ho nezapneš na kartě Práce.
+Vyžaduje Harmony. RimWorld 1.6 a 1.7. Lze přidat do rozehrané hry.
+Našel jsi chybu? Použij „Nahlásit chybu“ (vlevo dole v nastavení) a napiš ji do komentářů.
+
+═══════════════════════
+IDEAS AND SUGGESTIONS
+Want something changed or added? Write it in the comments – I read every idea and take it into account.
+
+NÁPADY A NÁVRHY
+Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.</description>
+</ModMetaData>
