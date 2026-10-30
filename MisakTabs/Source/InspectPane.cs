@@ -293,8 +293,38 @@ namespace MisakTabs
             {
                 h.Patch(AccessTools.Method(typeof(Widgets), nameof(Widgets.DrawButtonGraphic)), prefix: new HarmonyMethod(typeof(OurLookScope), nameof(ButtonPrefix)));
                 h.Patch(AccessTools.Method(typeof(Widgets), nameof(Widgets.DrawMenuSection)), prefix: new HarmonyMethod(typeof(OurLookScope), nameof(SectionPrefix)));
+                // 0.12.0: storage settings (stockpiles, shelves, fridges …) in our look
+                MethodInfo fill = AccessTools.Method(typeof(ITab_Storage), "FillTab");
+                if (fill != null)
+                    h.Patch(fill, prefix: new HarmonyMethod(typeof(OurLookScope), nameof(StoragePrefix)),
+                        finalizer: new HarmonyMethod(typeof(OurLookScope), nameof(StorageFinalizer)));
             }
             catch (Exception e) { Log.Warning("[Mišák Tabs] our look in windows: " + e.Message); }
+        }
+
+        public static void StoragePrefix(ITab_Storage __instance, out bool __state)
+        {
+            __state = false;
+            if (MTMod.S == null || !MTMod.S.paneLook) return;
+            __state = true;
+            depth++;
+            try
+            {
+                Vector2 size = Traverse.Create(__instance).Field("size").GetValue<Vector2>();
+                Rect r = new Rect(0f, 0f, size.x, size.y);
+                MUI.Fill(r, Look.Bg);
+                MUI.Frame(r, Look.Line);
+                MUI.Fill(new Rect(0f, 0f, size.x, 2f), Look.Green);
+                // the close cross was drawn before – put it back on top
+                GUI.DrawTexture(new Rect(r.width - 22f, 4f, 18f, 18f), TexButton.CloseXSmall);
+            }
+            catch { }
+        }
+
+        public static Exception StorageFinalizer(Exception __exception, bool __state)
+        {
+            if (__state) depth--;
+            return __exception;
         }
 
         public static bool ButtonPrefix(Rect rect)
