@@ -197,4 +197,16 @@
   <CF_J_SpareYoung>Nezabíjet mláďata</CF_J_SpareYoung>
   <CF_J_SpareYoungTip>Mláďata se nikdy neoznačí k porážce ani vypuštění; počítá se až s dospělými.</CF_J_SpareYoungTip>
   <CF_J_AllYoung>všechna</CF_J_AllYoung>
+  <!-- 1.1.0: Mines 2.0 -->
+  <CF_M_Mines>Doly</CF_M_Mines>
+  <CF_M_Source>Zdroj:</CF_M_Source>
+  <CF_M_SourceTip>Odkud se surovina bere. Žíly: správce označuje žíly na mapě. Důl: správce drží na dole z Mines 2.0 zakázku „dokud nemáš X“, kde X je cíl. Zakázek, které sis udělal sám, se nikdy nedotkne.</CF_M_SourceTip>
+  <CF_M_Mode0>Jen žíly</CF_M_Mode0>
+  <CF_M_Mode1>Žíly + důl</CF_M_Mode1>
+  <CF_M_Mode2>Jen důl</CF_M_Mode2>
+  <CF_M_State_NoMine>Nejdřív postav důl (Mines 2.0)</CF_M_State_NoMine>
+  <CF_M_State_NoRecipe>Důl to zatím neumí těžit (výzkum nebo nastavení modu)</CF_M_State_NoRecipe>
+  <CF_M_State_PlayerBill>Na dole máš na tohle vlastní zakázku – správce ji nechá být</CF_M_State_PlayerBill>
+  <CF_M_State_Working>Důl těží</CF_M_State_Working>
+  <CF_M_State_Enough>Dost – zakázka dolu čeká</CF_M_State_Enough>
 </LanguageData>

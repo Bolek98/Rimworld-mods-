@@ -990,7 +990,8 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 			return;
 		}
 		Rect outRect = new Rect(r.x, y, r.width, r.yMax - y);
-		float rowH = 98f;   // 1.0.4: third line (deep drills)
+		bool mines = MinesCompat.Active;
+		float rowH = mines ? 128f : 98f;   // 1.0.4: third line (deep drills), 1.1.0: fourth (Mines 2.0)
 		Rect view = new Rect(0f, 0f, outRect.width - 16f, res.Count * rowH);
 		Widgets.BeginScrollView(outRect, ref listScroll, view);
 		for (int i = 0; i < res.Count; i++)
@@ -1053,9 +1054,37 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 				Rect dr = new Rect(row.x + 34f, row.y + 66f, 420f, 26f);
 				Widgets.CheckboxLabeled(dr, "CF_D_Control".Translate(DrillCountCached(sm, d)), ref job.controlDrills);
 				TooltipHandler.TipRegion(dr, "CF_D_ControlTip".Translate());
+				if (mines)
+					DrawMineLine(new Rect(row.x + 34f, row.y + 96f, row.width - 34f, 26f), sm, job);
 			}
 		}
 		Widgets.EndScrollView();
+	}
+
+	// 1.1.0: Mines 2.0 – where the resource comes from, and what the mine is doing
+	private void DrawMineLine(Rect r, SupplyManager sm, SupplyJob job)
+	{
+		Widgets.Label(new Rect(r.x, r.y + 3f, 90f, 24f), "CF_M_Source".Translate());
+		Rect b = new Rect(r.x + 92f, r.y, 170f, 26f);
+		if (Widgets.ButtonText(b, ("CF_M_Mode" + job.mineMode).Translate()))
+		{
+			var menu = new List<FloatMenuOption>();
+			for (int m = 0; m < 3; m++)
+			{
+				int local = m;
+				menu.Add(new FloatMenuOption(("CF_M_Mode" + m).Translate(), () => { job.mineMode = local; sm.ForceMinesCheck(); }));
+			}
+			Find.WindowStack.Add(new FloatMenu(menu));
+		}
+		TooltipHandler.TipRegion(b, "CF_M_SourceTip".Translate());
+		SupplyManager.MineState st;
+		try { st = sm.MineStatus(job); }
+		catch { st = SupplyManager.MineState.None; }
+		if (st == SupplyManager.MineState.None)
+			return;
+		GUI.color = st == SupplyManager.MineState.Working || st == SupplyManager.MineState.Enough ? Dim : new Color(1f, 0.75f, 0.4f);
+		Widgets.Label(new Rect(b.xMax + 10f, r.y + 3f, r.xMax - b.xMax - 10f, 24f), ("CF_M_State_" + st).Translate());
+		GUI.color = Color.white;
 	}
 
 	// 1.0.4: deep drills per resource, counted twice a second at most

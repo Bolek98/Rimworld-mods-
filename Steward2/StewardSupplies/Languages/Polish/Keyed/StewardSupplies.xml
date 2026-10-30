@@ -197,4 +197,16 @@
   <CF_J_SpareYoung>Nigdy nie zabijać młodych</CF_J_SpareYoung>
   <CF_J_SpareYoungTip>Młode nigdy nie są oznaczane do uboju ani wypuszczenia; liczą się tylko dorosłe.</CF_J_SpareYoungTip>
   <CF_J_AllYoung>wszystkie</CF_J_AllYoung>
+  <!-- 1.1.0: Mines 2.0 -->
+  <CF_M_Mines>Kopalnie</CF_M_Mines>
+  <CF_M_Source>Źródło:</CF_M_Source>
+  <CF_M_SourceTip>Skąd pochodzi surowiec. Żyły: zarządca oznacza żyły na mapie. Kopalnia: zarządca utrzymuje w kopalni z Mines 2.0 zlecenie „aż będziesz mieć X”, z celem jako X. Twoich własnych zleceń nigdy nie rusza.</CF_M_SourceTip>
+  <CF_M_Mode0>Tylko żyły</CF_M_Mode0>
+  <CF_M_Mode1>Żyły + kopalnia</CF_M_Mode1>
+  <CF_M_Mode2>Tylko kopalnia</CF_M_Mode2>
+  <CF_M_State_NoMine>Najpierw zbuduj kopalnię (Mines 2.0)</CF_M_State_NoMine>
+  <CF_M_State_NoRecipe>Kopalnia jeszcze nie może tego wydobywać (badania lub ustawienia moda)</CF_M_State_NoRecipe>
+  <CF_M_State_PlayerBill>Masz na to własne zlecenie w kopalni – zarządca go nie rusza</CF_M_State_PlayerBill>
+  <CF_M_State_Working>Kopalnia wydobywa</CF_M_State_Working>
+  <CF_M_State_Enough>Wystarczy – zlecenie kopalni czeka</CF_M_State_Enough>
 </LanguageData>

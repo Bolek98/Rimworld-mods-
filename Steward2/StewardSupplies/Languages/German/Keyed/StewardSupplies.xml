@@ -197,4 +197,16 @@
   <CF_J_SpareYoung>Jungtiere nie schlachten</CF_J_SpareYoung>
   <CF_J_SpareYoungTip>Jungtiere werden nie zum Schlachten oder Freilassen markiert; es zählen nur ausgewachsene Tiere.</CF_J_SpareYoungTip>
   <CF_J_AllYoung>alle</CF_J_AllYoung>
+  <!-- 1.1.0: Mines 2.0 -->
+  <CF_M_Mines>Minen</CF_M_Mines>
+  <CF_M_Source>Quelle:</CF_M_Source>
+  <CF_M_SourceTip>Woher der Rohstoff kommt. Adern: Der Verwalter markiert Adern auf der Karte. Mine: Der Verwalter hält auf einer Mine aus Mines 2.0 einen Auftrag „bis du X hast“, mit dem Ziel als X. Eigene Aufträge werden nie angerührt.</CF_M_SourceTip>
+  <CF_M_Mode0>Nur Adern</CF_M_Mode0>
+  <CF_M_Mode1>Adern + Mine</CF_M_Mode1>
+  <CF_M_Mode2>Nur Mine</CF_M_Mode2>
+  <CF_M_State_NoMine>Baue zuerst eine Mine (Mines 2.0)</CF_M_State_NoMine>
+  <CF_M_State_NoRecipe>Die Mine kann das noch nicht abbauen (Forschung oder Moddeinstellungen)</CF_M_State_NoRecipe>
+  <CF_M_State_PlayerBill>Du hast dafür einen eigenen Auftrag an einer Mine – der Verwalter lässt ihn in Ruhe</CF_M_State_PlayerBill>
+  <CF_M_State_Working>Die Mine baut ab</CF_M_State_Working>
+  <CF_M_State_Enough>Genug – der Minenauftrag wartet</CF_M_State_Enough>
 </LanguageData>

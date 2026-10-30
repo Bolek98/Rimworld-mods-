@@ -197,4 +197,16 @@
   <CF_J_SpareYoung>새끼는 도축하지 않음</CF_J_SpareYoung>
   <CF_J_SpareYoungTip>새끼는 도축이나 방생 대상으로 지정되지 않으며 성체만 셉니다.</CF_J_SpareYoungTip>
   <CF_J_AllYoung>전부</CF_J_AllYoung>
+  <!-- 1.1.0: Mines 2.0 -->
+  <CF_M_Mines>광산</CF_M_Mines>
+  <CF_M_Source>공급원:</CF_M_Source>
+  <CF_M_SourceTip>자원을 어디서 얻을지. 광맥: 관리인이 지도의 광맥을 지정합니다. 광산: 관리인이 Mines 2.0 광산에 목표치를 X로 하는 'X개가 될 때까지' 작업 지시를 유지합니다. 직접 만든 작업 지시는 건드리지 않습니다.</CF_M_SourceTip>
+  <CF_M_Mode0>광맥만</CF_M_Mode0>
+  <CF_M_Mode1>광맥 + 광산</CF_M_Mode1>
+  <CF_M_Mode2>광산만</CF_M_Mode2>
+  <CF_M_State_NoMine>먼저 광산(Mines 2.0)을 지으세요</CF_M_State_NoMine>
+  <CF_M_State_NoRecipe>광산이 아직 이것을 채굴할 수 없습니다(연구 또는 모드 설정)</CF_M_State_NoRecipe>
+  <CF_M_State_PlayerBill>광산에 이것을 위한 직접 만든 작업 지시가 있습니다 – 관리인은 건드리지 않습니다</CF_M_State_PlayerBill>
+  <CF_M_State_Working>광산이 채굴 중</CF_M_State_Working>
+  <CF_M_State_Enough>충분함 – 광산 작업 지시 대기 중</CF_M_State_Enough>
 </LanguageData>

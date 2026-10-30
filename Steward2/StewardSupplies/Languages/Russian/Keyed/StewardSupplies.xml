@@ -197,4 +197,16 @@
   <CF_J_SpareYoung>Никогда не забивать детёнышей</CF_J_SpareYoung>
   <CF_J_SpareYoungTip>Детёныши никогда не отмечаются на забой или выпуск; считаются только взрослые.</CF_J_SpareYoungTip>
   <CF_J_AllYoung>все</CF_J_AllYoung>
+  <!-- 1.1.0: Mines 2.0 -->
+  <CF_M_Mines>Шахты</CF_M_Mines>
+  <CF_M_Source>Источник:</CF_M_Source>
+  <CF_M_SourceTip>Откуда берётся ресурс. Жилы: управляющий отмечает жилы на карте. Шахта: управляющий держит на шахте из Mines 2.0 заказ «пока не будет X», где X — цель. Ваши собственные заказы он не трогает.</CF_M_SourceTip>
+  <CF_M_Mode0>Только жилы</CF_M_Mode0>
+  <CF_M_Mode1>Жилы + шахта</CF_M_Mode1>
+  <CF_M_Mode2>Только шахта</CF_M_Mode2>
+  <CF_M_State_NoMine>Сначала постройте шахту (Mines 2.0)</CF_M_State_NoMine>
+  <CF_M_State_NoRecipe>Шахта пока не может это добывать (исследование или настройки мода)</CF_M_State_NoRecipe>
+  <CF_M_State_PlayerBill>У вас есть свой заказ на это в шахте — управляющий его не трогает</CF_M_State_PlayerBill>
+  <CF_M_State_Working>Шахта добывает</CF_M_State_Working>
+  <CF_M_State_Enough>Достаточно — заказ шахты ждёт</CF_M_State_Enough>
 </LanguageData>

@@ -197,4 +197,16 @@
   <CF_J_SpareYoung>Ніколи не забивати дитинчат</CF_J_SpareYoung>
   <CF_J_SpareYoungTip>Дитинчата ніколи не позначаються на забій чи випуск; рахуються лише дорослі.</CF_J_SpareYoungTip>
   <CF_J_AllYoung>усі</CF_J_AllYoung>
+  <!-- 1.1.0: Mines 2.0 -->
+  <CF_M_Mines>Шахти</CF_M_Mines>
+  <CF_M_Source>Джерело:</CF_M_Source>
+  <CF_M_SourceTip>Звідки береться ресурс. Жили: управитель позначає жили на мапі. Шахта: управитель тримає на шахті з Mines 2.0 замовлення «доки не буде X», де X — ціль. Ваших власних замовлень він не чіпає.</CF_M_SourceTip>
+  <CF_M_Mode0>Лише жили</CF_M_Mode0>
+  <CF_M_Mode1>Жили + шахта</CF_M_Mode1>
+  <CF_M_Mode2>Лише шахта</CF_M_Mode2>
+  <CF_M_State_NoMine>Спершу збудуйте шахту (Mines 2.0)</CF_M_State_NoMine>
+  <CF_M_State_NoRecipe>Шахта поки не може це добувати (дослідження або налаштування мода)</CF_M_State_NoRecipe>
+  <CF_M_State_PlayerBill>У вас є власне замовлення на це в шахті — управитель його не чіпає</CF_M_State_PlayerBill>
+  <CF_M_State_Working>Шахта добуває</CF_M_State_Working>
+  <CF_M_State_Enough>Досить — замовлення шахти чекає</CF_M_State_Enough>
 </LanguageData>

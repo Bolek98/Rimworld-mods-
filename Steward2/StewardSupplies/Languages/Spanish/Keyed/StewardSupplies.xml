@@ -197,4 +197,16 @@
   <CF_J_SpareYoung>No sacrificar nunca a las crías</CF_J_SpareYoung>
   <CF_J_SpareYoungTip>Las crías nunca se marcan para sacrificio ni liberación; solo cuentan los adultos.</CF_J_SpareYoungTip>
   <CF_J_AllYoung>todas</CF_J_AllYoung>
+  <!-- 1.1.0: Mines 2.0 -->
+  <CF_M_Mines>Minas</CF_M_Mines>
+  <CF_M_Source>Fuente:</CF_M_Source>
+  <CF_M_SourceTip>De dónde sale el recurso. Vetas: el administrador marca vetas en el mapa. Mina: el administrador mantiene en una mina de Mines 2.0 una orden «hasta tener X», con el objetivo como X. Tus propias órdenes nunca se tocan.</CF_M_SourceTip>
+  <CF_M_Mode0>Solo vetas</CF_M_Mode0>
+  <CF_M_Mode1>Vetas + mina</CF_M_Mode1>
+  <CF_M_Mode2>Solo mina</CF_M_Mode2>
+  <CF_M_State_NoMine>Primero construye una mina (Mines 2.0)</CF_M_State_NoMine>
+  <CF_M_State_NoRecipe>La mina aún no puede extraer esto (investigación o ajustes del mod)</CF_M_State_NoRecipe>
+  <CF_M_State_PlayerBill>Tienes tu propia orden para esto en una mina; el administrador no la toca</CF_M_State_PlayerBill>
+  <CF_M_State_Working>La mina está extrayendo</CF_M_State_Working>
+  <CF_M_State_Enough>Suficiente: la orden de la mina espera</CF_M_State_Enough>
 </LanguageData>

@@ -197,4 +197,16 @@
   <CF_J_SpareYoung>Nunca abater os filhotes</CF_J_SpareYoung>
   <CF_J_SpareYoungTip>Filhotes nunca são marcados para abate ou soltura; só contam os adultos.</CF_J_SpareYoungTip>
   <CF_J_AllYoung>todos</CF_J_AllYoung>
+  <!-- 1.1.0: Mines 2.0 -->
+  <CF_M_Mines>Minas</CF_M_Mines>
+  <CF_M_Source>Fonte:</CF_M_Source>
+  <CF_M_SourceTip>De onde vem o recurso. Veios: o administrador marca veios no mapa. Mina: o administrador mantém numa mina do Mines 2.0 uma ordem "até ter X", com a meta como X. Suas próprias ordens nunca são tocadas.</CF_M_SourceTip>
+  <CF_M_Mode0>Só veios</CF_M_Mode0>
+  <CF_M_Mode1>Veios + mina</CF_M_Mode1>
+  <CF_M_Mode2>Só mina</CF_M_Mode2>
+  <CF_M_State_NoMine>Construa uma mina (Mines 2.0) primeiro</CF_M_State_NoMine>
+  <CF_M_State_NoRecipe>A mina ainda não consegue extrair isto (pesquisa ou configurações do mod)</CF_M_State_NoRecipe>
+  <CF_M_State_PlayerBill>Você tem sua própria ordem para isto numa mina – o administrador não mexe nela</CF_M_State_PlayerBill>
+  <CF_M_State_Working>A mina está extraindo</CF_M_State_Working>
+  <CF_M_State_Enough>Suficiente – a ordem da mina aguarda</CF_M_State_Enough>
 </LanguageData>

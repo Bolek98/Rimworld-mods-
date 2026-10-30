@@ -197,4 +197,16 @@
   <CF_J_SpareYoung>子供は処分しない</CF_J_SpareYoung>
   <CF_J_SpareYoungTip>子供は屠殺や野生に返す対象になりません。成体だけを数えます。</CF_J_SpareYoungTip>
   <CF_J_AllYoung>すべて</CF_J_AllYoung>
+  <!-- 1.1.0: Mines 2.0 -->
+  <CF_M_Mines>鉱山</CF_M_Mines>
+  <CF_M_Source>供給元:</CF_M_Source>
+  <CF_M_SourceTip>資源をどこから得るか。鉱脈: 執事がマップ上の鉱脈を指定します。鉱山: 執事は Mines 2.0 の鉱山に「X個になるまで」の指示書を目標値で維持します。自分で作った指示書には触れません。</CF_M_SourceTip>
+  <CF_M_Mode0>鉱脈のみ</CF_M_Mode0>
+  <CF_M_Mode1>鉱脈＋鉱山</CF_M_Mode1>
+  <CF_M_Mode2>鉱山のみ</CF_M_Mode2>
+  <CF_M_State_NoMine>先に鉱山（Mines 2.0）を建ててください</CF_M_State_NoMine>
+  <CF_M_State_NoRecipe>鉱山はまだこれを採掘できません（研究またはMOD設定）</CF_M_State_NoRecipe>
+  <CF_M_State_PlayerBill>鉱山にこれ用の自分の指示書があります――執事は触れません</CF_M_State_PlayerBill>
+  <CF_M_State_Working>鉱山が採掘中</CF_M_State_Working>
+  <CF_M_State_Enough>十分――鉱山の指示書は待機中</CF_M_State_Enough>
 </LanguageData>

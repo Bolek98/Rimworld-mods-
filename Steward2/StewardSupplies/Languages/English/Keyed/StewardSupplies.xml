@@ -197,4 +197,16 @@
   <CF_J_SpareYoung>Never cull the young</CF_J_SpareYoung>
   <CF_J_SpareYoungTip>Young animals are never marked for slaughter or release; only grown animals count.</CF_J_SpareYoungTip>
   <CF_J_AllYoung>all</CF_J_AllYoung>
+  <!-- 1.1.0: Mines 2.0 -->
+  <CF_M_Mines>Mines</CF_M_Mines>
+  <CF_M_Source>Source:</CF_M_Source>
+  <CF_M_SourceTip>Where the resource comes from. Veins: the steward marks veins on the map. Mine: the steward keeps a 'do until you have X' bill on a mine from Mines 2.0, with the target as X. Bills you made yourself are never touched.</CF_M_SourceTip>
+  <CF_M_Mode0>Veins only</CF_M_Mode0>
+  <CF_M_Mode1>Veins + mine</CF_M_Mode1>
+  <CF_M_Mode2>Mine only</CF_M_Mode2>
+  <CF_M_State_NoMine>Build a mine (Mines 2.0) first</CF_M_State_NoMine>
+  <CF_M_State_NoRecipe>The mine cannot dig this yet (research or the mod's settings)</CF_M_State_NoRecipe>
+  <CF_M_State_PlayerBill>You have your own bill for this on a mine – the steward leaves it alone</CF_M_State_PlayerBill>
+  <CF_M_State_Working>The mine is digging</CF_M_State_Working>
+  <CF_M_State_Enough>Enough – the mine's bill waits</CF_M_State_Enough>
 </LanguageData>

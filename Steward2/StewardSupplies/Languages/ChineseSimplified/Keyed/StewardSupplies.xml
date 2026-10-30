@@ -197,4 +197,16 @@
   <CF_J_SpareYoung>永不屠宰幼崽</CF_J_SpareYoung>
   <CF_J_SpareYoungTip>幼崽永远不会被标记屠宰或放生；只计算成年动物。</CF_J_SpareYoungTip>
   <CF_J_AllYoung>全部</CF_J_AllYoung>
+  <!-- 1.1.0: Mines 2.0 -->
+  <CF_M_Mines>矿井</CF_M_Mines>
+  <CF_M_Source>来源：</CF_M_Source>
+  <CF_M_SourceTip>资源从哪里来。矿脉：管家在地图上标记矿脉。矿井：管家在 Mines 2.0 的矿井上保留一张“直到拥有 X”的订单，X 即目标。你自己创建的订单永远不会被改动。</CF_M_SourceTip>
+  <CF_M_Mode0>仅矿脉</CF_M_Mode0>
+  <CF_M_Mode1>矿脉 + 矿井</CF_M_Mode1>
+  <CF_M_Mode2>仅矿井</CF_M_Mode2>
+  <CF_M_State_NoMine>请先建造矿井（Mines 2.0）</CF_M_State_NoMine>
+  <CF_M_State_NoRecipe>矿井暂时无法开采此资源（研究或模组设置）</CF_M_State_NoRecipe>
+  <CF_M_State_PlayerBill>你在矿井上有自己的此类订单——管家不会改动</CF_M_State_PlayerBill>
+  <CF_M_State_Working>矿井正在开采</CF_M_State_Working>
+  <CF_M_State_Enough>已足够——矿井订单等待中</CF_M_State_Enough>
 </LanguageData>

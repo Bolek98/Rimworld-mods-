@@ -197,4 +197,16 @@
   <CF_J_SpareYoung>Ne jamais abattre les petits</CF_J_SpareYoung>
   <CF_J_SpareYoungTip>Les petits ne sont jamais marqués pour l'abattage ou la libération ; seuls les adultes comptent.</CF_J_SpareYoungTip>
   <CF_J_AllYoung>tous</CF_J_AllYoung>
+  <!-- 1.1.0: Mines 2.0 -->
+  <CF_M_Mines>Mines</CF_M_Mines>
+  <CF_M_Source>Source :</CF_M_Source>
+  <CF_M_SourceTip>D'où vient la ressource. Filons : l'intendant marque les filons sur la carte. Mine : l'intendant garde sur une mine de Mines 2.0 une commande « jusqu'à avoir X », avec l'objectif comme X. Vos propres commandes ne sont jamais touchées.</CF_M_SourceTip>
+  <CF_M_Mode0>Filons seulement</CF_M_Mode0>
+  <CF_M_Mode1>Filons + mine</CF_M_Mode1>
+  <CF_M_Mode2>Mine seulement</CF_M_Mode2>
+  <CF_M_State_NoMine>Construisez d'abord une mine (Mines 2.0)</CF_M_State_NoMine>
+  <CF_M_State_NoRecipe>La mine ne peut pas encore extraire ceci (recherche ou réglages du mod)</CF_M_State_NoRecipe>
+  <CF_M_State_PlayerBill>Vous avez votre propre commande pour ceci sur une mine – l'intendant n'y touche pas</CF_M_State_PlayerBill>
+  <CF_M_State_Working>La mine extrait</CF_M_State_Working>
+  <CF_M_State_Enough>Assez – la commande de la mine attend</CF_M_State_Enough>
 </LanguageData>

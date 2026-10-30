@@ -58,6 +58,8 @@ public sealed class SupplyJob : IExposable
 	// 1.0.4: Mining – deep drills on this resource are switched off above the
 	// target and back on below it
 	public bool controlDrills;
+	// 1.1.0: Mines 2.0 – 0 veins only, 1 veins + mine, 2 mine only
+	public int mineMode;
 
 	public void ExposeData()
 	{
@@ -74,6 +76,7 @@ public sealed class SupplyJob : IExposable
 		Scribe_Values.Look(ref keepTrees, "keepTrees", 0);
 		Scribe_Values.Look(ref keepPerSpecies, "keepPerSpecies", 3);
 		Scribe_Values.Look(ref controlDrills, "controlDrills", false);
+		Scribe_Values.Look(ref mineMode, "mineMode", 0);
 		hourly.Expose("hourly");
 		if (choices == null)
 			choices = new Dictionary<string, bool>();
@@ -438,6 +441,7 @@ public sealed partial class SupplyManager : MapComponent
 		ExposeProductionVersion();
 		ExposeAuto();
 		ExposeChains();
+		ExposeMines();
 		if (Scribe.mode == LoadSaveMode.PostLoadInit)
 		{
 			if (livestock == null) livestock = new List<LivestockRule>();
@@ -543,6 +547,8 @@ public sealed partial class SupplyManager : MapComponent
 				// 1.0.4: drills the steward switched off are switched on again
 				try { CheckDrills(); }
 				catch (Exception ex) { MLog.WarnOnce("[Steward] deep drills: " + ex.Message, 0x5e0104); }
+				try { CheckMines(); }
+				catch (Exception ex) { MLog.WarnOnce("[Steward] mines: " + ex.Message, 0x5e1101); }
 			}
 			return;
 		}
@@ -645,7 +651,7 @@ public sealed partial class SupplyManager : MapComponent
 		foreach (SupplyJob job in AllJobs())
 		{
 			int marked = 0;
-			try { marked = Check(job, enabled && job.enabled); }
+			try { marked = Check(job, enabled && job.enabled && UsesVeins(job)); }
 			catch (Exception ex) { MLog.Warn("[Steward] supplies " + job.kind + ": " + ex.Message); }
 			if (marked > 0)
 			{
@@ -654,6 +660,7 @@ public sealed partial class SupplyManager : MapComponent
 			}
 		}
 		Step("drills", "CF_D_Drills", CheckDrills, ref total, parts);   // 1.0.4: after the stock was counted
+		Step("mines", "CF_M_Mines", CheckMines, ref total, parts);       // 1.1.0: Mines 2.0
 		bool tell = SuppliesMod.S == null || SuppliesMod.S.supplyMessages;
 		if (total > 0 && (manual || tell))
 			Messages.Message("CF_S_Marked".Translate(string.Join(", ", parts)), MessageTypeDefOf.SilentInput, historical: false);
@@ -973,6 +980,11 @@ public sealed partial class SupplyManager : MapComponent
 		foreach (ThingDef md in DefDatabase<ThingDef>.AllDefsListForReading)
 			if (md.building?.mineableThing != null && map.listerThings.ThingsOfDef(md).Count > 0)
 				set.Add(md.building.mineableThing);
+		// 1.1.0: resources a built mine (Mines 2.0) can dig up
+		if (MinesCompat.Active && MinesCompat.Mines(map).Count > 0)
+			foreach (ThingDef d in MinesCompat.Resources())
+				if (MineCanMake(d))
+					set.Add(d);
 		return set.OrderBy(d => d.label).ToList();
 	}
 
@@ -982,6 +994,9 @@ public sealed partial class SupplyManager : MapComponent
 		if (j == null && create)
 		{
 			j = new SupplyJob { kind = JobKind.Mining, def = res, target = res == ThingDefOf.Steel ? 300 : 100 };
+			// 1.1.0: no veins on the map but a mine can dig it – the mine is the source
+			if (MinesCompat.Active && !HasVeins(res) && MineCanMake(res))
+				j.mineMode = 2;
 			mining.Add(j);
 		}
 		return j;
