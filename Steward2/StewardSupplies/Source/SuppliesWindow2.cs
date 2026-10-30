@@ -989,6 +989,17 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 	{
 		float y = r.y;
 		Title(ref y, r, "CF_J_Mining".Translate(), "CF_J_MiningDesc".Translate());
+		// 1.2.0: Mines 2.0 – when the mine waits
+		if (MinesCompat.Active)
+		{
+			Rect n1 = new Rect(r.x, y, Mathf.Min(300f, r.width / 2f - 6f), 26f);
+			Widgets.CheckboxLabeled(n1, "CF_M_NotNight".Translate(), ref sm.mineNotAtNight);
+			TooltipHandler.TipRegion(n1, "CF_M_NotNightTip".Translate());
+			Rect n2 = new Rect(n1.xMax + 12f, y, Mathf.Min(300f, r.width / 2f - 6f), 26f);
+			Widgets.CheckboxLabeled(n2, "CF_M_NotRaid".Translate(), ref sm.mineNotInRaid);
+			TooltipHandler.TipRegion(n2, "CF_M_NotRaidTip".Translate());
+			y += 32f;
+		}
 		List<ThingDef> res = sm.MineableResources();
 		foreach (SupplyJob m in sm.mining)
 			if (!res.Contains(m.def))

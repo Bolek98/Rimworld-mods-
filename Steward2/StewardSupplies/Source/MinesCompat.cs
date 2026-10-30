@@ -88,8 +88,15 @@ public sealed partial class SupplyManager
 	// resource defName -> unique load id of the steward's bill on a mine
 	public Dictionary<string, string> mineBills = new Dictionary<string, string>();
 
+	// 1.2.0: the steward's mine bills wait at night and during an attack
+	public bool mineNotAtNight;
+	public bool mineNotInRaid = true;
+	private int nextMinePause;
+
 	public void ExposeMines()
 	{
+		Scribe_Values.Look(ref mineNotAtNight, "mineNotAtNight", false);
+		Scribe_Values.Look(ref mineNotInRaid, "mineNotInRaid", true);
 		Scribe_Collections.Look(ref mineBills, "mineBills", LookMode.Value, LookMode.Value);
 		if (Scribe.mode == LoadSaveMode.PostLoadInit && mineBills == null)
 			mineBills = new Dictionary<string, string>();
@@ -141,7 +148,37 @@ public sealed partial class SupplyManager
 		return false;
 	}
 
-	public enum MineState { None, NoMine, NoRecipe, PlayerBill, Working, Enough }
+	public enum MineState { None, NoMine, NoRecipe, PlayerBill, Working, Enough, Paused }
+
+	public bool MinePauseNow(out bool raid)
+	{
+		raid = false;
+		if (mineNotInRaid)
+		{
+			try { raid = GenHostility.AnyHostileActiveThreatToPlayer(map); } catch { }
+			if (raid) return true;
+		}
+		if (mineNotAtNight)
+		{
+			try { return GenCelestial.CurCelestialSunGlow(map) < 0.3f; } catch { }
+		}
+		return false;
+	}
+
+	// every few in-game minutes: our mine bills follow night and attacks (bills of the player stay)
+	public void TickMinePause(int now)
+	{
+		if (now < nextMinePause || mineBills.Count == 0)
+			return;
+		nextMinePause = now + 250;
+		bool pause = MinePauseNow(out _);
+		foreach (string id in mineBills.Values)
+		{
+			Bill_Production bp = FindMineBill(id);
+			if (bp != null && bp.suspended != pause)
+				bp.suspended = pause;
+		}
+	}
 
 	public MineState MineStatus(SupplyJob job)
 	{
@@ -157,6 +194,7 @@ public sealed partial class SupplyManager
 		Bill_Production bp = FindMineBill(id);
 		if (bp == null)
 			return PlayerMineBill(job.def) ? MineState.PlayerBill : MineState.Enough;
+		if (bp.suspended) return MineState.Paused;
 		return job.lastStock >= job.target ? MineState.Enough : MineState.Working;
 	}
 

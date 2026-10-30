@@ -478,6 +478,8 @@ public sealed partial class SupplyManager : MapComponent
 	public override void MapComponentTick()
 	{
 		int now = Find.TickManager.TicksGame;
+		try { TickMinePause(now); }   // 1.2.0
+		catch (Exception ex) { MLog.WarnOnce("[Steward] mines pause: " + ex.Message, 0x5e1102); }
 		if (now >= nextHistory)
 		{
 			nextHistory = now + 60000;
