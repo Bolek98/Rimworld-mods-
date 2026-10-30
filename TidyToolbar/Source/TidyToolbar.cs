@@ -35,6 +35,22 @@ namespace TidyToolbar
         public int letterDays = 3;                          // letters older than this go away by themselves (0 = never)
         public int letterMax = 15;                          // at most this many letters on the stack (0 = no limit)
         public bool collapsePlay = true;                    // the play settings icons behind one button
+        // 1.1.0: the clock
+        public bool clockOn = true;
+        public int clockSize = 1;                           // 0 small, 1 medium, 2 large
+        public bool clockCompact;
+        public bool clockFree;
+        public float clockX = -1f, clockY = -1f;
+        public bool clockWeather = true;
+        public bool clockHoliday = true;
+        public bool clockColony;
+        public bool alarmOn;
+        public int alarmHour = 22, alarmMin;
+        public int alarmAction = 1;                         // 0 sound only, 1 normal speed, 2 pause
+        public bool duskWarn;
+        // 1.1.0: buttons of the selection
+        public float gizmoScale = 1f;
+        public float gizmoGapX = 5f, gizmoGapY = 14f;
 
         public override void ExposeData()
         {
@@ -51,6 +67,23 @@ namespace TidyToolbar
             Scribe_Values.Look(ref letterDays, "letterDays", 3);
             Scribe_Values.Look(ref letterMax, "letterMax", 15);
             Scribe_Values.Look(ref collapsePlay, "collapsePlay", true);
+            Scribe_Values.Look(ref clockOn, "clockOn", true);
+            Scribe_Values.Look(ref clockSize, "clockSize", 1);
+            Scribe_Values.Look(ref clockCompact, "clockCompact", false);
+            Scribe_Values.Look(ref clockFree, "clockFree", false);
+            Scribe_Values.Look(ref clockX, "clockX", -1f);
+            Scribe_Values.Look(ref clockY, "clockY", -1f);
+            Scribe_Values.Look(ref clockWeather, "clockWeather", true);
+            Scribe_Values.Look(ref clockHoliday, "clockHoliday", true);
+            Scribe_Values.Look(ref clockColony, "clockColony", false);
+            Scribe_Values.Look(ref alarmOn, "alarmOn", false);
+            Scribe_Values.Look(ref alarmHour, "alarmHour", 22);
+            Scribe_Values.Look(ref alarmMin, "alarmMin", 0);
+            Scribe_Values.Look(ref alarmAction, "alarmAction", 1);
+            Scribe_Values.Look(ref duskWarn, "duskWarn", false);
+            Scribe_Values.Look(ref gizmoScale, "gizmoScale", 1f);
+            Scribe_Values.Look(ref gizmoGapX, "gizmoGapX", 5f);
+            Scribe_Values.Look(ref gizmoGapY, "gizmoGapY", 14f);
             if (mutedAlerts == null) mutedAlerts = new List<string>();
             if (order == null) order = new List<string>();
             if (placeKeys == null || placeVals == null || placeKeys.Count != placeVals.Count) { placeKeys = new List<string>(); placeVals = new List<string>(); }
@@ -60,7 +93,7 @@ namespace TidyToolbar
 
     public sealed class TidyToolbarMod : Mod
     {
-        public const string Version = "1.0.0";
+        public const string Version = "1.1.0";
         public static TTSettings S;
         private Vector2 scroll;
 
@@ -73,6 +106,7 @@ namespace TidyToolbar
                 h.Patch(AccessTools.Method(typeof(MainButtonsRoot), "DoButtons"),
                     prefix: new HarmonyMethod(typeof(Bar), nameof(Bar.Prefix)) { priority = Priority.Low });
                 TidyHud.Patch(h);
+                Clock.Patch(h);
                 Log.Message("[Tidy Toolbar] v" + Version + " loaded.");
             }
             catch (Exception e)
@@ -83,15 +117,46 @@ namespace TidyToolbar
 
         public override string SettingsCategory() => "Tidy Toolbar";
 
+        // 1.1.0: the clock and the buttons of the selection
+        private static void DrawClockSettings(Rect r)
+        {
+            var l = new Listing_Standard();
+            l.Begin(r);
+            l.CheckboxLabeled("TT_ClockOn".Translate(), ref S.clockOn, "TT_ClockOnTip".Translate());
+            if (l.ButtonTextLabeled("TT_ClockSizeL".Translate(), ("TT_ClockSize" + S.clockSize).Translate()))
+                S.clockSize = (S.clockSize + 1) % 3;
+            l.CheckboxLabeled("TT_ClockCompactL".Translate(), ref S.clockCompact, "TT_ClockCompactTip".Translate());
+            l.CheckboxLabeled("TT_ClockFreeL".Translate(), ref S.clockFree, "TT_ClockFreeTip".Translate());
+            l.CheckboxLabeled("TT_ClockWeatherL".Translate(), ref S.clockWeather);
+            l.CheckboxLabeled("TT_ClockHolidayL".Translate(), ref S.clockHoliday, "TT_ClockHolidayTip".Translate());
+            l.CheckboxLabeled("TT_ClockColonyL".Translate(), ref S.clockColony, "TT_ClockColonyTip".Translate());
+            l.GapLine();
+            l.CheckboxLabeled("TT_AlarmOnL".Translate(Clock.TimeText(S.alarmHour + S.alarmMin / 60f)), ref S.alarmOn, "TT_AlarmOnTip".Translate());
+            if (l.ButtonTextLabeled("TT_AlarmTime".Translate(), Clock.TimeText(S.alarmHour + S.alarmMin / 60f)))
+                Find.WindowStack.Add(new Dialog_Alarm());
+            l.CheckboxLabeled("TT_DuskWarnL".Translate(), ref S.duskWarn, "TT_DuskWarnTip".Translate());
+            l.GapLine();
+            l.Label("TT_GizmoTitle".Translate());
+            S.gizmoScale = Mathf.Round(l.SliderLabeled("TT_GizmoScale".Translate((S.gizmoScale * 100f).ToString("0")), S.gizmoScale, 0.6f, 1f, tooltip: "TT_GizmoScaleTip".Translate()) * 20f) / 20f;
+            S.gizmoGapX = Mathf.Round(l.SliderLabeled("TT_GizmoGapX".Translate(S.gizmoGapX.ToString("0")), S.gizmoGapX, 0f, 20f));
+            S.gizmoGapY = Mathf.Round(l.SliderLabeled("TT_GizmoGapY".Translate(S.gizmoGapY.ToString("0")), S.gizmoGapY, 2f, 30f));
+            if (l.ButtonText("TT_GizmoReset".Translate())) { S.gizmoScale = 1f; S.gizmoGapX = 5f; S.gizmoGapY = 14f; }
+            l.End();
+        }
+
         private static int page;
+
+        public static void OpenPage(int p) => page = p;
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
             // two pages: the bottom bar and the right side of the screen
             if (Widgets.ButtonText(new Rect(inRect.x, inRect.y, 220f, 30f), "TT_PageBar".Translate(), true, true, page != 0)) page = 0;
             if (Widgets.ButtonText(new Rect(inRect.x + 228f, inRect.y, 260f, 30f), "TT_PageHud".Translate(), true, true, page != 1)) page = 1;
+            if (Widgets.ButtonText(new Rect(inRect.x + 496f, inRect.y, 220f, 30f), "TT_PageClock".Translate(), true, true, page != 2)) page = 2;
             inRect.yMin += 40f;
             if (page == 1) { TidyHud.DrawSettings(inRect); return; }
+            if (page == 2) { DrawClockSettings(inRect); return; }
             var top = new Listing_Standard();
             top.Begin(new Rect(inRect.x, inRect.y, inRect.width, 90f));
             top.CheckboxLabeled("TT_ModsToGroup".Translate(Bar.ModsGroup), ref S.modsToGroup, "TT_ModsToGroupTip".Translate());
@@ -392,6 +457,9 @@ namespace TidyToolbar
                     if (def.Worker.Disabled) { opts.Add(new FloatMenuOption(label, null, def.Icon ?? BaseContent.ClearTex, Color.white)); continue; }
                     opts.Add(new FloatMenuOption(label, () => def.Worker.InterfaceTryActivate(), def.Icon ?? BaseContent.ClearTex, Color.white));
                 }
+                // 1.1.0: a big group gets a search window
+                if (members.Count >= 6)
+                    opts.Insert(0, new FloatMenuOption("TT_SearchOpen".Translate(), () => Find.WindowStack.Add(new Window_ButtonSearch(members))));
                 if (right)
                 {
                     // right click on a group: move its buttons somewhere
@@ -476,6 +544,71 @@ namespace TidyToolbar
                 Close();
                 if (n.Length > 0) done(n);
             }
+        }
+    }
+
+    // 1.1.0: the buttons of a group with a search field (type, Enter opens the first)
+    public sealed class Window_ButtonSearch : Window
+    {
+        private readonly List<MainButtonDef> members;
+        private string search = "";
+        private Vector2 scroll;
+        private bool focused;
+
+        public override Vector2 InitialSize => new Vector2(320f, Mathf.Min(560f, 110f + members.Count * 30f));
+
+        public Window_ButtonSearch(List<MainButtonDef> list)
+        {
+            members = list.ToList();
+            closeOnClickedOutside = true;
+            doCloseX = true;
+            absorbInputAroundWindow = false;
+            preventCameraMotion = false;
+            layer = WindowLayer.GameUI;
+        }
+
+        protected override void SetInitialSizeAndPosition()
+        {
+            Vector2 s = InitialSize;
+            float x = Mathf.Clamp(UI.MousePositionOnUIInverted.x - s.x / 2f, 0f, UI.screenWidth - s.x);
+            windowRect = new Rect(x, UI.screenHeight - 35f - s.y, s.x, s.y);
+        }
+
+        public override void DoWindowContents(Rect r)
+        {
+            GUI.SetNextControlName("TT_Search");
+            search = Widgets.TextField(new Rect(r.x, r.y, r.width - 30f, 28f), search ?? "");
+            if (!focused) { GUI.FocusControl("TT_Search"); focused = true; }
+            List<MainButtonDef> list = members.Where(d => search.NullOrEmpty() || d.LabelCap.ToString().IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            if (Event.current.type == EventType.KeyDown && (Event.current.keyCode == KeyCode.Return || Event.current.keyCode == KeyCode.KeypadEnter) && list.Count > 0)
+            {
+                Event.current.Use();
+                Open(list[0]);
+                return;
+            }
+            Rect outR = new Rect(r.x, r.y + 34f, r.width, r.height - 34f);
+            Rect view = new Rect(0f, 0f, outR.width - 16f, list.Count * 30f);
+            Widgets.BeginScrollView(outR, ref scroll, view);
+            for (int i = 0; i < list.Count; i++)
+            {
+                MainButtonDef d = list[i];
+                Rect row = new Rect(0f, i * 30f, view.width, 28f);
+                Widgets.DrawHighlightIfMouseover(row);
+                if (d.Icon != null) GUI.DrawTexture(new Rect(row.x + 2f, row.y + 2f, 24f, 24f), d.Icon);
+                Text.Anchor = TextAnchor.MiddleLeft;
+                GUI.color = d.Worker.Disabled ? Color.gray : Color.white;
+                Widgets.Label(new Rect(row.x + 32f, row.y, row.width - 32f, row.height), d.LabelCap);
+                GUI.color = Color.white;
+                Text.Anchor = TextAnchor.UpperLeft;
+                if (!d.Worker.Disabled && Widgets.ButtonInvisible(row)) { Open(d); break; }
+            }
+            Widgets.EndScrollView();
+        }
+
+        private void Open(MainButtonDef d)
+        {
+            Close();
+            d.Worker.InterfaceTryActivate();
         }
     }
 }
