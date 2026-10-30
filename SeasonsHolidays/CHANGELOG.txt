@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+0.2.2
+- Fix: "from year 0 / year 1" showed a negative year (-5484) together with mods that change the year numbering themselves (Start Date). The starting year is now counted the same way as today's year.
+
 0.2.1
 - Fix: with a longer year the date at the bottom right is refreshed every day (it changed only every few days).
 

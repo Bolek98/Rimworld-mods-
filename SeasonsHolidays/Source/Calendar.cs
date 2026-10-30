@@ -65,7 +65,7 @@ namespace SeasonsHolidays
 
     public class SHMod : Mod
     {
-        public const string Version = "0.2.1";
+        public const string Version = "0.2.2";
         public static SHSettings S;
         private static List<string> recBullets;
         private static Vector2 scroll;
@@ -218,8 +218,18 @@ namespace SeasonsHolidays
             int y = GenDate.Year(absTicks, lon) + (m <= 1 ? 1 : 0);   // January and February start the new year
             int mode = SHMod.S?.yearMode ?? 0;
             if (mode == 0) return y;
-            int start = Find.TickManager != null ? Find.TickManager.StartingYear : GenDate.DefaultStartingYear;
+            // 0.2.2: the year the colony started, counted the same way as now (other mods that change the
+            // year numbering – Start Date – and the length of the year are taken into account)
+            int start = Find.TickManager != null && Find.TickManager.gameStartAbsTick > 0
+                ? GenDate.Year(Find.TickManager.gameStartAbsTick, lon) + (StartMonthEarly(lon) ? 1 : 0)
+                : GenDate.DefaultStartingYear;
             return y - start + (mode == 2 ? 1 : 0);
+        }
+
+        private static bool StartMonthEarly(float lon)
+        {
+            At(Find.TickManager.gameStartAbsTick, lon, out int m, out _);
+            return m <= 1;
         }
 
         public static string YearText(int y) => (SHMod.S?.yearMode ?? 0) == 0 ? y.ToString() : "SH_YearN".Translate(y).ToString();
