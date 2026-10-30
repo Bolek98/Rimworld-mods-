@@ -11,6 +11,7 @@ namespace SeasonsHolidays
     public class SHMapComponent : MapComponent
     {
         public Fireworks fireworks = new Fireworks();
+        private static int lastDay = -1;
 
         public SHMapComponent(Map map) : base(map) { }
 
@@ -28,9 +29,12 @@ namespace SeasonsHolidays
 
         private void Run()
         {
-            if (Holidays.Colonists(map).Count == 0) return;
             long abs = Find.TickManager.TicksAbs;
             int absDay = (int)(abs / 60000L);
+            // 0.2.1: the date readout refreshes its text only when the game's day of the twelfth
+            // changes – with a longer year that is every few days, so it is refreshed every day here
+            if (absDay != lastDay) { lastDay = absDay; if (YearClock.Days != 60) DatePatches.Reset(); }
+            if (Holidays.Colonists(map).Count == 0) return;
             int hour = GenLocalDate.HourOfDay(map);
             Months.Now(map, out int month, out int day);
             float lat = Find.WorldGrid.LongLatOf(map.Tile).y;

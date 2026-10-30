@@ -1,4 +1,7 @@
 === Not on the Workshop yet (test versions) ===
+0.2.1
+- Fix: with a longer year the date at the bottom right is refreshed every day (it changed only every few days).
+
 0.2.0
 - Length of the year (settings): 60 days (the game's year), 120, 180 or 365. With a longer year the seasons, the date and the seasonal temperature run slower – 365 days give real months (31 January …) and long seasons. Holidays move to their real dates (Easter computed), the calendar tab shows the right number of days. Changing it in a running game keeps today's season.
 - Optional: colonists age with the calendar year (on by default when the year is longer).
