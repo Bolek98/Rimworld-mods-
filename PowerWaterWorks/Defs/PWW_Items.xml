@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- FINAL texture: Things/Item/PowerWaterWorks/FuelRod -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>PWW_FuelRod</defName>
+    <label>fuel rod</label>
+    <description>A sealed rod of enriched uranium. Fuel for the fission reactor; one lasts about a day.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Wastepack</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <color>(0.55,1.0,0.5)</color>
+    </graphicData>
+    <stackLimit>10</stackLimit>
+    <statBases>
+      <MarketValue>380</MarketValue>
+      <Mass>3</Mass>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+    <thingCategories><li>Manufactured</li></thingCategories>
+    <tradeability>Sellable</tradeability>
+    <techLevel>Industrial</techLevel>
+  </ThingDef>
+  <!-- FINAL texture: Things/Item/PowerWaterWorks/FusionCell -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>PWW_FusionCell</defName>
+    <label>fusion cell</label>
+    <description>A magnetic fuel cell for the fusion reactor. One lasts about five days.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/SignalChip</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.5,0.9,1.0)</color>
+    </graphicData>
+    <stackLimit>5</stackLimit>
+    <statBases>
+      <MarketValue>1400</MarketValue>
+      <Mass>2</Mass>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+    <thingCategories><li>Manufactured</li></thingCategories>
+    <tradeability>Sellable</tradeability>
+    <techLevel>Spacer</techLevel>
+  </ThingDef>
+  <!-- FINAL texture: Things/Item/PowerWaterWorks/CannedFood (Graphic_StackCount) -->
+  <ThingDef ParentName="MealBase">
+    <defName>PWW_CannedFood</defName>
+    <label>canned food</label>
+    <description>Raw food cooked and sealed in a tin. It never rots and keeps well even outside.</description>
+    <graphicData>
+      <texPath>Things/Item/Meal/SurvivalPack</texPath>
+      <graphicClass>Graphic_MealVariants</graphicClass>
+      <color>(0.9,0.85,0.75)</color>
+    </graphicData>
+    <statBases>
+      <DeteriorationRate>0.2</DeteriorationRate>
+      <MarketValue>20</MarketValue>
+      <Mass>0.35</Mass>
+      <WorkToMake>400</WorkToMake>
+      <Nutrition>0.9</Nutrition>
+    </statBases>
+    <ingestible>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>-3</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-100</optimalityOffsetFeedingAnimals>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>Meal_Eat</ingestSound>
+    </ingestible>
+  </ThingDef>
+</Defs>

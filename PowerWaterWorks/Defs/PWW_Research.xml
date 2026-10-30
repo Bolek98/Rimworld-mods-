@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ResearchTabDef>
+    <defName>PWW_ResearchTab</defName>
+    <label>power &amp; water</label>
+  </ResearchTabDef>
+  <ResearchProjectDef>
+    <defName>PWW_PowerWorks</defName>
+    <label>power works</label>
+    <description>Better generators, storage and a circuit breaker.</description>
+    <baseCost>900</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites><li>Electricity</li><li>Batteries</li></prerequisites>
+    <tab>PWW_ResearchTab</tab>
+    <researchViewX>0.0</researchViewX>
+    <researchViewY>0.0</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PWW_Industry</defName>
+    <label>electric industry</label>
+    <description>Electric factories, the large battery and the deep geothermal plant.</description>
+    <baseCost>1500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites><li>PWW_PowerWorks</li><li>Machining</li></prerequisites>
+    <tab>PWW_ResearchTab</tab>
+    <researchViewX>1.0</researchViewX>
+    <researchViewY>0.0</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PWW_WaterWorks</defName>
+    <label>water works</label>
+    <description>Irrigation sprinklers and (with Dubs Bad Hygiene) water buildings.</description>
+    <baseCost>800</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites><li>PWW_PowerWorks</li></prerequisites>
+    <tab>PWW_ResearchTab</tab>
+    <researchViewX>1.0</researchViewX>
+    <researchViewY>1.0</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PWW_Nuclear</defName>
+    <label>nuclear fission</label>
+    <description>The fission reactor, cooling towers and fuel rods.</description>
+    <baseCost>4000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites><li>PWW_Industry</li><li>MultiAnalyzer</li></prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities><li>MultiAnalyzer</li></requiredResearchFacilities>
+    <tab>PWW_ResearchTab</tab>
+    <researchViewX>2.0</researchViewX>
+    <researchViewY>0.0</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PWW_Fusion</defName>
+    <label>nuclear fusion</label>
+    <description>The fusion reactor and fusion cells.</description>
+    <baseCost>8000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites><li>PWW_Nuclear</li><li>AdvancedFabrication</li></prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities><li>MultiAnalyzer</li></requiredResearchFacilities>
+    <tab>PWW_ResearchTab</tab>
+    <researchViewX>3.0</researchViewX>
+    <researchViewY>0.0</researchViewY>
+  </ResearchProjectDef>
+</Defs>

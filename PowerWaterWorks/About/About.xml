@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Power &amp; Water Works</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.powerwaterworks</packageId>
+  <modVersion>0.1.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Dubwise.DubsBadHygiene</li>
+  </loadAfter>
+  <description>New buildings for power and water.
+
+POWER
+- Hydro power plant (2400 W, weaker when the river freezes), biogas plant (1500 W, burns raw food and plant matter), incinerator (800 W, burns stone chunks and slag), diesel generator (1800 W, auto-start when batteries run low), deep geothermal plant (5000 W, no geyser needed).
+- Fission reactor (12000 W, fuel rods, needs cooling towers, SCRAM button; optional meltdown) and fusion reactor (30000 W).
+- Large battery (6000 Wd), flywheel, circuit breaker (a short circuit trips it – no explosion), grid overview with a 24-hour graph.
+
+INDUSTRY
+- Automatic stonecutter (no colonist needed), induction furnace, component line, textile mill (old clothes into cloth), cannery (food that never rots), irrigation sprinkler.
+
+WATER (with Dubs Bad Hygiene)
+- Deep borehole, high-capacity pump, compact water treatment, desalination plant, giant water tower.
+
+Own research tab "Power &amp; Water". Placeholder graphics for now.
+
+---
+
+Nové stavby pro elektřinu a vodu.
+
+ELEKTŘINA
+- Vodní elektrárna (2400 W, slabší, když řeka zamrzne), bioplynová stanice (1500 W, spaluje syrové jídlo a rostlinnou hmotu), spalovna (800 W, pálí kamenné úlomky a strusku), dieselagregát (1800 W, sám naskočí, když dochází baterie), hlubinná geotermální elektrárna (5000 W, bez gejzíru).
+- Jaderný reaktor (12000 W, palivové tyče, potřebuje chladicí věže, tlačítko SCRAM; volitelně roztavení) a fúzní reaktor (30000 W).
+- Velká baterie (6000 Wd), setrvačník, jistič (při zkratu vypadne – žádný výbuch), přehled sítě s grafem za 24 hodin.
+
+PRŮMYSL
+- Automatický kameník (bez kolonisty), indukční pec, linka na součástky, textilka (staré oblečení na látku), konzervárna (jídlo, které se nezkazí), zavlažovač.
+
+VODA (s Dubs Bad Hygiene)
+- Hluboký vrt, vysokokapacitní čerpadlo, kompaktní úpravna vody, odsolovací stanice, obří vodojem.
+
+Vlastní záložka výzkumu „Elektřina a voda“. Zatím provizorní grafika.</description>
+</ModMetaData>

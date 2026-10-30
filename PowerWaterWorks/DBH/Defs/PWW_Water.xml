@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/DeepBorehole (1x1) – placeholder: DBH texture -->
+  <ThingDef ParentName="BasedWaterWell">
+    <defName>PWW_DeepBorehole</defName>
+    <label>deep borehole</label>
+    <description>A borehole drilled deep below the water table. Reaches a very large area of clean ground water (radius 22) that pumps can use; unaffected by pollution.</description>
+    <graphicData>
+      <texPath>DBH/Things/Building/Water/DeepWaterWell</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <color>(0.8,0.9,1.0)</color>
+    </graphicData>
+    <size>(1,1)</size>
+    <costList><Steel>250</Steel><ComponentIndustrial>5</ComponentIndustrial></costList>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <researchPrerequisites><li>PWW_WaterWorks</li></researchPrerequisites>
+    <placeWorkers><li>DubsBadHygiene.PlaceWorker_DeepWaterGrid</li><li>DubsBadHygiene.PlaceWorker_SewageGrid</li><li>DubsBadHygiene.PlaceWorker_UserGrid</li></placeWorkers>
+    <comps>
+      <li Class="DubsBadHygiene.CompProperties_Pipe"><mode>Sewage</mode></li>
+      <li Class="DubsBadHygiene.CompProperties_WaterInlet"><Deep>true</Deep><Radius>21.9</Radius></li>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/DeepWellPump (3x3) – placeholder: DBH texture -->
+  <ThingDef ParentName="BasedWaterPump">
+    <defName>PWW_DeepWellPump</defName>
+    <label>high-capacity pump</label>
+    <description>Pumps water from wells to water towers: 30,000 L per day.</description>
+    <graphicData>
+      <texPath>DBH/Things/Building/Water/waterPumpingStation</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <color>(0.8,0.9,1.0)</color>
+    </graphicData>
+    <size>(3,3)</size>
+    <costList><Steel>300</Steel><ComponentIndustrial>8</ComponentIndustrial></costList>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <researchPrerequisites><li>PWW_WaterWorks</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <comps>
+      <li Class="DubsBadHygiene.CompProperties_Pipe"><mode>Sewage</mode></li>
+      <li Class="CompProperties_Power"><compClass>CompPowerTrader</compClass><basePowerConsumption>2000</basePowerConsumption></li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="DubsBadHygiene.CompProperties_WaterPumpingStation"><Capacity>30000</Capacity></li>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/WaterTreatment (2x2) – placeholder: DBH texture -->
+  <ThingDef ParentName="BasedWaterPump">
+    <defName>PWW_WaterTreatment</defName>
+    <label>compact water treatment</label>
+    <description>Cleans the water in towers and the water used by fixtures, like the standard treatment plant, but needs only half the power.</description>
+    <graphicData>
+      <texPath>DBH/Things/Building/Water/waterFiltration</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <color>(0.8,0.9,1.0)</color>
+    </graphicData>
+    <size>(2,2)</size>
+    <costList><Steel>200</Steel><ComponentIndustrial>4</ComponentIndustrial><Silver>50</Silver></costList>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <researchPrerequisites><li>PWW_WaterWorks</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <comps>
+      <li Class="DubsBadHygiene.CompProperties_Pipe"><mode>Sewage</mode></li>
+      <li Class="CompProperties_Power"><compClass>CompPowerTrader</compClass><basePowerConsumption>400</basePowerConsumption></li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="DubsBadHygiene.CompProperties_WaterFiltration"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/Desalination (3x3) – placeholder: DBH texture -->
+  <ThingDef ParentName="BasedWaterTower">
+    <defName>PWW_Desalination</defName>
+    <label>desalination plant</label>
+    <description>Makes fresh water from sea water and fills its own tank (about 15,000 L per day while powered). Must stand within 3 cells of the sea.</description>
+    <graphicData>
+      <texPath>DBH/Things/Building/Spacer/WRS</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <color>(0.8,0.9,1.0)</color>
+    </graphicData>
+    <size>(3,3)</size>
+    <costList><Steel>350</Steel><ComponentIndustrial>6</ComponentIndustrial></costList>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <researchPrerequisites><li>PWW_WaterWorks</li></researchPrerequisites>
+    <placeWorkers><li>PowerWaterWorks.PlaceWorker_NearSaltWater</li></placeWorkers>
+    <comps>
+      <li Class="DubsBadHygiene.CompProperties_Pipe"><mode>Sewage</mode></li>
+      <li Class="CompProperties_Power"><compClass>CompPowerTrader</compClass><basePowerConsumption>1500</basePowerConsumption></li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="DubsBadHygiene.CompProperties_WaterStorage"><WaterStorageCap>20000</WaterStorageCap><Auto>true</Auto><AutoGenRate>15</AutoGenRate></li>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/WaterTower (4x4) – placeholder: DBH texture -->
+  <ThingDef ParentName="BasedWaterTower">
+    <defName>PWW_WaterTower</defName>
+    <label>giant water tower</label>
+    <description>Stores 150,000 L of water. When the power fails, it still keeps the taps running for a long time.</description>
+    <graphicData>
+      <texPath>DBH/Things/Building/Water/WaterTower</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(4,5)</drawSize>
+      <color>(0.8,0.9,1.0)</color>
+    </graphicData>
+    <size>(4,4)</size>
+    <costList><Steel>400</Steel><ComponentIndustrial>2</ComponentIndustrial></costList>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <researchPrerequisites><li>PWW_WaterWorks</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <comps>
+      <li Class="DubsBadHygiene.CompProperties_Pipe"><mode>Sewage</mode></li>
+      <li Class="DubsBadHygiene.CompProperties_WaterStorage"><WaterStorageCap>150000</WaterStorageCap></li>
+    </comps>
+  </ThingDef>
+</Defs>

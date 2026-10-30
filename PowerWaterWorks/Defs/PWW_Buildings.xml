@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/HydroPlant (3x3, rotatable) – placeholder below -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PWW_HydroPlant</defName>
+    <label>hydro power plant</label>
+    <description>A small run-of-river power plant with several turbines. At least three of its cells must stand on moving water, the rest on firm ground. Gives steady power day and night; when the river freezes in hard winter it gives only 40 %.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/PowerWaterWorks/HydroPlant</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <color>(1,1,1)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(3,3)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.8</fillPercent>
+    <blockWind>false</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>9000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>250</Steel><ComponentIndustrial>5</ComponentIndustrial><WoodLog>50</WoodLog></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_PowerWorks</li></researchPrerequisites>
+    <placeWorkers><li>PowerWaterWorks.PlaceWorker_Hydro</li></placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>PowerWaterWorks.CompPowerPlantHydro</compClass>
+        <basePowerConsumption>-2400</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/BiogasPlant (3x3, single) – placeholder below -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PWW_BiogasPlant</defName>
+    <label>biogas plant</label>
+    <description>Ferments raw food, meat, plant matter and (with Dubs Bad Hygiene) fecal sludge into gas that drives a generator.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/GeneProcessor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <color>(0.6,0.9,0.5)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(3,3)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.8</fillPercent>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>7000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>180</Steel><ComponentIndustrial>3</ComponentIndustrial></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_PowerWorks</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-1500</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>25</fuelConsumptionRate>
+        <fuelCapacity>120</fuelCapacity>
+        <fuelFilter><thingDefs><li MayRequire="Dubwise.DubsBadHygiene">FecalSludge</li></thingDefs><categories><li>FoodRaw</li><li>PlantMatter</li></categories></fuelFilter>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/DeepGeothermal (4x4, single) – placeholder below -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PWW_DeepGeothermal</defName>
+    <label>deep geothermal plant</label>
+    <description>Drills kilometres down to hot rock – no steam geyser needed. Very expensive, but gives strong power forever.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/LongRangeMineralScanner</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4,4)</drawSize>
+      <color>(1.0,0.6,0.45)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(4,4)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.8</fillPercent>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>30000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>600</Steel><Plasteel>150</Plasteel><ComponentIndustrial>10</ComponentIndustrial><ComponentSpacer>2</ComponentSpacer></costList>
+    <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_Industry</li><li>GeothermalPower</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-5000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/Incinerator (2x2, single) – placeholder below -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PWW_Incinerator</defName>
+    <label>incinerator generator</label>
+    <description>Burns stone chunks and steel slag at very high temperature and turns the heat into power. Also tidies up the base.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Power/ToxifierGenerator</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <color>(0.55,0.55,0.55)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(2,2)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.8</fillPercent>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>150</Steel><ComponentIndustrial>2</ComponentIndustrial></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_PowerWorks</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-800</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>6</fuelConsumptionRate>
+        <fuelCapacity>12</fuelCapacity>
+        <fuelFilter><categories><li>StoneChunks</li></categories><thingDefs><li>ChunkSlagSteel</li></thingDefs></fuelFilter>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+      <li Class="CompProperties_HeatPusher"><compClass>CompHeatPusherPowered</compClass><heatPerSecond>4</heatPerSecond></li>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/Diesel (2x2, single) – placeholder below -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PWW_Diesel</defName>
+    <label>diesel generator</label>
+    <description>Burns chemfuel. With "Auto-start" on it switches itself on when the batteries of its grid run low and off again when they are full – a backup that only runs when needed.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/PowerWaterWorks/Diesel</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <color>(1,1,1)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(2,2)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.8</fillPercent>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>4500</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>140</Steel><ComponentIndustrial>3</ComponentIndustrial></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_PowerWorks</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-1800</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>8</fuelConsumptionRate>
+        <fuelCapacity>60</fuelCapacity>
+        <fuelFilter><thingDefs><li>Chemfuel</li></thingDefs></fuelFilter>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+      <li Class="PowerWaterWorks.CompProperties_AutoStart"/>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/FissionReactor (4x4, single) – placeholder below -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PWW_FissionReactor</defName>
+    <label>fission reactor</label>
+    <description>A compact fission reactor burning fuel rods. Huge steady power, but it heats up: it needs working cooling towers within 10 cells. At 100 % heat it shuts itself down (or melts down, if that is switched on in the settings). The SCRAM button stops it at once.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/MultiAnalyzer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(4,4)</drawSize>
+      <color>(0.7,1.0,0.7)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(4,4)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.8</fillPercent>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>600</MaxHitPoints>
+      <WorkToBuild>40000</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>500</Steel><Plasteel>200</Plasteel><Uranium>60</Uranium><ComponentIndustrial>12</ComponentIndustrial><ComponentSpacer>3</ComponentSpacer></costList>
+    <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_Nuclear</li></researchPrerequisites>
+    <placeWorkers><li>PowerWaterWorks.PlaceWorker_CoolingRadius</li></placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-12000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>1</fuelConsumptionRate>
+        <fuelCapacity>5</fuelCapacity>
+        <fuelFilter><thingDefs><li>PWW_FuelRod</li></thingDefs></fuelFilter>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+      <li Class="PowerWaterWorks.CompProperties_Reactor"><heatPerHour>10</heatPerHour><coolingRadius>8</coolingRadius></li>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/CoolingTower (3x3, single) – placeholder below -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PWW_CoolingTower</defName>
+    <label>cooling tower</label>
+    <description>Cools a fission reactor within 10 cells. One working tower is enough for one reactor.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/GroundPenetratingScanner</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <color>(0.85,0.9,0.95)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(3,3)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.8</fillPercent>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>12000</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>250</Steel><BlocksGranite>150</BlocksGranite><ComponentIndustrial>4</ComponentIndustrial></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_Nuclear</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>300</basePowerConsumption>
+        <shortCircuitInRain>false</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="PowerWaterWorks.CompProperties_CoolingTower"><cooling>12</cooling></li>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/FusionReactor (5x5, single) – placeholder below -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PWW_FusionReactor</defName>
+    <label>fusion reactor</label>
+    <description>A spacer-age fusion reactor. Enormous power from a fusion cell that lasts many days. Safe – it cannot melt down.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/BandNode</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(5,5)</drawSize>
+      <color>(0.5,0.9,1.0)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(5,5)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.8</fillPercent>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>800</MaxHitPoints>
+      <WorkToBuild>60000</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Plasteel>400</Plasteel><Uranium>100</Uranium><ComponentSpacer>10</ComponentSpacer><Gold>50</Gold></costList>
+    <constructionSkillPrerequisite>14</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_Fusion</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-30000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0.2</fuelConsumptionRate>
+        <fuelCapacity>2</fuelCapacity>
+        <fuelFilter><thingDefs><li>PWW_FusionCell</li></thingDefs></fuelFilter>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/BigBattery (3x2, rotatable) – placeholder below -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PWW_BigBattery</defName>
+    <label>large battery</label>
+    <description>A bank of industrial cells: stores 6000 Wd and loses less energy than small batteries.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/WastepackAtomizer</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,2)</drawSize>
+      <color>(0.6,0.7,0.9)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(3,2)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.8</fillPercent>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>6000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>300</Steel><ComponentIndustrial>6</ComponentIndustrial></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_Industry</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <comps>
+      <li Class="CompProperties_Battery">
+        <storedEnergyMax>6000</storedEnergyMax>
+        <efficiency>0.7</efficiency>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/Flywheel (1x1, single) – placeholder below -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PWW_Flywheel</defName>
+    <label>flywheel</label>
+    <description>A cheap mechanical store for 300 Wd. Good for short gaps, but it loses 10 % of its energy every day.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Production/PollutionPump</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <color>(0.75,0.75,0.75)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(1,1)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.8</fillPercent>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>1500</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>60</Steel><ComponentIndustrial>1</ComponentIndustrial></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_PowerWorks</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <comps>
+      <li Class="CompProperties_Battery">
+        <storedEnergyMax>300</storedEnergyMax>
+        <efficiency>0.85</efficiency>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="PowerWaterWorks.CompProperties_SelfDischarge"><perDay>0.1</perDay></li>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/CircuitBreaker (1x1, single) – placeholder below -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PWW_CircuitBreaker</defName>
+    <label>circuit breaker</label>
+    <description>Works like a power switch. When a short circuit happens anywhere on its grid, the breaker trips instead – no explosion, no fire. Switch it back on by hand.</description>
+    <thingClass>Building_PowerSwitch</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/FirefoamPopper</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <color>(1.0,0.45,0.4)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(1,1)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Standable</passability>
+    <fillPercent>0.2</fillPercent>
+    <blockWind>false</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>800</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>25</Steel><ComponentIndustrial>1</ComponentIndustrial></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_PowerWorks</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTransmitter</compClass>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/AutoStonecutter (2x2, single) – placeholder below -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PWW_AutoStonecutter</defName>
+    <label>automatic stonecutter</label>
+    <description>Takes stone chunks lying next to it and cuts them into blocks on its own – no colonist needed. One chunk per in-game hour.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/GeneProcessor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <color>(0.8,0.7,0.55)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(2,2)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.8</fillPercent>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>150</Steel><ComponentIndustrial>3</ComponentIndustrial></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Production</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_Industry</li><li>Stonecutting</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>400</basePowerConsumption>
+        <shortCircuitInRain>false</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="PowerWaterWorks.CompProperties_AutoStonecutter"><ticksPerChunk>2500</ticksPerChunk></li>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/InductionFurnace (3x2, rotatable) – placeholder below -->
+  <ThingDef ParentName="BenchBase">
+    <defName>PWW_InductionFurnace</defName>
+    <label>induction furnace</label>
+    <description>An electric furnace: gets more steel from slag and makes fuel rods and fusion cells.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/GeneAssembler/GeneAssembler</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,2)</drawSize>
+      <color>(1.0,0.65,0.4)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(3,2)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <blockWind>false</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>200</Steel><ComponentIndustrial>4</ComponentIndustrial></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Production</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_Industry</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <inspectorTabs><li>ITab_Bills</li></inspectorTabs>
+    <building><spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity></building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>1200</basePowerConsumption>
+        <shortCircuitInRain>false</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/ComponentLine (3x2, rotatable) – placeholder below -->
+  <ThingDef ParentName="BenchBase">
+    <defName>PWW_ComponentLine</defName>
+    <label>component line</label>
+    <description>An automated line that makes components five at a time, a bit cheaper than by hand.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/WastepackAtomizer</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,2)</drawSize>
+      <color>(1.0,0.9,0.5)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(3,2)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <blockWind>false</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>250</Steel><ComponentIndustrial>6</ComponentIndustrial></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Production</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_Industry</li><li>Fabrication</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <inspectorTabs><li>ITab_Bills</li></inspectorTabs>
+    <building><spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity></building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>800</basePowerConsumption>
+        <shortCircuitInRain>false</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/TextileMill (3x2, rotatable) – placeholder below -->
+  <ThingDef ParentName="BenchBase">
+    <defName>PWW_TextileMill</defName>
+    <label>textile mill</label>
+    <description>Shreds worn-out clothes back into cloth.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/GeneAssembler/GeneAssembler</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,2)</drawSize>
+      <color>(0.85,0.6,0.95)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(3,2)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <blockWind>false</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>150</Steel><ComponentIndustrial>3</ComponentIndustrial></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Production</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_Industry</li><li>ComplexClothing</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <inspectorTabs><li>ITab_Bills</li></inspectorTabs>
+    <building><spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity></building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>400</basePowerConsumption>
+        <shortCircuitInRain>false</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/Cannery (2x2, single) – placeholder below -->
+  <ThingDef ParentName="BenchBase">
+    <defName>PWW_Cannery</defName>
+    <label>cannery</label>
+    <description>Cans raw food. Canned food never rots.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/GeneProcessor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <color>(0.95,0.95,0.85)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(2,2)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <blockWind>false</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>120</Steel><ComponentIndustrial>2</ComponentIndustrial></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Production</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_Industry</li></researchPrerequisites>
+    <placeWorkers></placeWorkers>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <inspectorTabs><li>ITab_Bills</li></inspectorTabs>
+    <building><spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity></building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>300</basePowerConsumption>
+        <shortCircuitInRain>false</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+  <!-- FINAL texture: Things/Building/PowerWaterWorks/Sprinkler (1x1, single) – placeholder below -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>PWW_Sprinkler</defName>
+    <label>irrigation sprinkler</label>
+    <description>Waters the plants around it: they grow 15 % faster. Needs power.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Production/PollutionPump</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <color>(0.5,0.7,1.0)</color>
+      <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
+    </graphicData>
+    <size>(1,1)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Standable</passability>
+    <fillPercent>0.2</fillPercent>
+    <blockWind>false</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>1200</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <costList><Steel>40</Steel><ComponentIndustrial>1</ComponentIndustrial></costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Production</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites><li>PWW_WaterWorks</li></researchPrerequisites>
+    <placeWorkers><li>PowerWaterWorks.PlaceWorker_SprinklerRadius</li></placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>60</basePowerConsumption>
+        <shortCircuitInRain>false</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="PowerWaterWorks.CompProperties_Sprinkler"><radius>5.9</radius><bonus>0.15</bonus></li>
+      <li Class="PowerWaterWorks.CompProperties_GridOverview"/>
+    </comps>
+  </ThingDef>
+</Defs>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_SetMeltdown>Reactor meltdown</PWW_SetMeltdown>
+  <PWW_SetMeltdownTip>Off: at 100 % heat the fission reactor shuts itself down. On: it explodes and toxic fallout covers the map for 3 days.</PWW_SetMeltdownTip>
+  <PWW_SetHydroWinter>Hydro plants weaker when the river freezes</PWW_SetHydroWinter>
+  <PWW_SetHydroWinterTip>Below −2 °C outside a hydro plant gives only 40 % of its power.</PWW_SetHydroWinterTip>
+  <PWW_SetAutoLow>Diesel auto-start: switch on below {0} % stored energy</PWW_SetAutoLow>
+  <PWW_SetAutoHigh>… and switch off above {0} %</PWW_SetAutoHigh>
+  <PWW_BreakerTrippedLabel>Circuit breaker tripped</PWW_BreakerTrippedLabel>
+  <PWW_BreakerTripped>A short circuit hit the grid, but the circuit breaker tripped in time – no explosion, no fire. The part of the grid behind the breaker is now without power until you switch the breaker back on.</PWW_BreakerTripped>
+  <PWW_HydroFrozen>River frozen: 40 % power</PWW_HydroFrozen>
+  <PWW_HydroGround>The cells that are not on moving water need firm ground.</PWW_HydroGround>
+  <PWW_NeedSea>Must stand within 3 cells of the sea.</PWW_NeedSea>
+  <PWW_MeltdownLabel>Reactor meltdown!</PWW_MeltdownLabel>
+  <PWW_Meltdown>The fission reactor overheated and exploded. Toxic fallout is coming down over the whole area.</PWW_Meltdown>
+  <PWW_Scrammed>Reactor shut down (SCRAM).</PWW_Scrammed>
+  <PWW_Scram>SCRAM</PWW_Scram>
+  <PWW_ScramDesc>Shut the reactor down at once. It cools down and can be switched on again later.</PWW_ScramDesc>
+  <PWW_ReactorHeat>Heat: {0} % · cooling {1} / heat {2} per hour</PWW_ReactorHeat>
+  <PWW_HeatLabel>Reactor heat</PWW_HeatLabel>
+  <PWW_AutoStart>Auto-start</PWW_AutoStart>
+  <PWW_AutoStartDesc>Switches the generator on when the grid's batteries drop below {0} % and off above {1} %. Without batteries it runs while the grid needs more power. Thresholds in the mod settings.</PWW_AutoStartDesc>
+  <PWW_StonecutterIdle>Waiting for stone chunks next to it.</PWW_StonecutterIdle>
+  <PWW_StonecutterWork>Cutting: {0}</PWW_StonecutterWork>
+  <PWW_GridOverview>Grid overview</PWW_GridOverview>
+  <PWW_GridOverviewDesc>Production, consumption and stored energy of this power grid, with the last 24 hours.</PWW_GridOverviewDesc>
+  <PWW_GridNone>Not connected to a grid.</PWW_GridNone>
+  <PWW_GridGen>Production: {0} W</PWW_GridGen>
+  <PWW_GridUse>Consumption: {0} W</PWW_GridUse>
+  <PWW_GridBalance>Balance: {0} W</PWW_GridBalance>
+  <PWW_GridStored>Stored: {0} / {1} Wd</PWW_GridStored>
+  <PWW_GridWait>The graph fills in once per in-game hour.</PWW_GridWait>
+  <PWW_Grid24h>last 24 hours · green production · orange consumption · blue stored</PWW_Grid24h>
+</LanguageData>
