@@ -34,6 +34,11 @@ public sealed class CHSettings : ModSettings
 	// 1.0.3: map exit side when forming, sharing inventory on arrival
 	public bool chooseExit = true;
 	public bool shareOnArrival = true;
+	// 1.1.0: travel items – food not eaten at home, equipment packed for every caravan
+	public bool keepTravelFood = true;
+	public List<string> travelFood = new List<string> { "MealSurvivalPack", "Pemmican" };
+	public List<string> travelGear = new List<string>();
+	public int gearPerColonist = 1;
 
 	public override void ExposeData()
 	{
@@ -48,15 +53,27 @@ public sealed class CHSettings : ModSettings
 		Scribe_Values.Look(ref leavePastSleeping, "leavePastSleeping", true);
 		Scribe_Values.Look(ref chooseExit, "chooseExit", true);
 		Scribe_Values.Look(ref shareOnArrival, "shareOnArrival", true);
+		Scribe_Values.Look(ref keepTravelFood, "keepTravelFood", true);
+		Scribe_Collections.Look(ref travelFood, "travelFood", LookMode.Value);
+		Scribe_Collections.Look(ref travelGear, "travelGear", LookMode.Value);
+		Scribe_Values.Look(ref gearPerColonist, "gearPerColonist", 1);
+		if (Scribe.mode == LoadSaveMode.PostLoadInit)
+		{
+			travelFood ??= new List<string> { "MealSurvivalPack", "Pemmican" };
+			travelGear ??= new List<string>();
+			TravelItems.Invalidate();
+		}
 	}
 }
 
 public sealed class CaravanHelperMod : Mod
 {
 	public static CHSettings S;
+	public static CaravanHelperMod Instance;
 
 	public CaravanHelperMod(ModContentPack content) : base(content)
 	{
+		Instance = this;
 		S = GetSettings<CHSettings>();
 		new Harmony("bolek98.caravanhelper").PatchAll(typeof(CaravanHelperMod).Assembly);
 	}
@@ -87,6 +104,14 @@ public sealed class CaravanHelperMod : Mod
 		l.Label("CH_SecTravel".Translate());
 		l.CheckboxLabeled("CH_ChooseExit".Translate(), ref S.chooseExit, "CH_ChooseExitTip".Translate());
 		l.CheckboxLabeled("CH_Share".Translate(), ref S.shareOnArrival, "CH_ShareTip".Translate());
+		// 1.1.0
+		l.GapLine();
+		l.Label("CH_SecTravelItems".Translate());
+		l.CheckboxLabeled("CH_KeepTravelFood".Translate(), ref S.keepTravelFood, "CH_KeepTravelFoodTip".Translate());
+		l.Label("CH_GearPer".Translate(S.gearPerColonist), tooltip: "CH_GearPerTip".Translate());
+		S.gearPerColonist = Mathf.RoundToInt(Slider(l.GetRect(22f), S.gearPerColonist, 0, 10));
+		if (l.ButtonText("CH_TravelButton".Translate(S.travelFood.Count, S.travelGear.Count)))
+			Find.WindowStack.Add(new Dialog_TravelItems());
 		l.End();
 	}
 
@@ -206,6 +231,15 @@ public static class Patch_Supplies
 				break;
 		}
 
+		// ---- 1.1.0: travel equipment, a set number per colonist ----
+		int colonists = people.Count(p => !p.AnimalOrWildMan());
+		if (s.gearPerColonist > 0 && colonists > 0)
+			foreach (TransferableOneWay t in tr.Where(t => t.HasAnyThing && TravelItems.IsGear(t.ThingDef)).ToList())
+			{
+				int count = s.gearPerColonist * colonists - t.CountToTransfer;
+				if (count > 0) AddIfMassAllows(d, t, count);
+			}
+
 		// ---- drugs for addicts (luciferium, go-juice …) ----
 		if (s.addictDrugs)
 		{
@@ -268,7 +302,7 @@ public static class Patch_Supplies
 	private static float FoodScore(TransferableOneWay t, int wantTicks)
 	{
 		ThingDef def = t.ThingDef;
-		float score = 0f;
+		float score = TravelItems.IsFood(def) ? 20f : 0f;   // 1.1.0: travel food first
 		CompProperties_Rottable rot = def.GetCompProperties<CompProperties_Rottable>();
 		if (rot == null)
 			score += 3f;
