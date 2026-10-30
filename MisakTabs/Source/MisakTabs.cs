@@ -48,7 +48,7 @@ namespace MisakTabs
 
     public class MTMod : Mod
     {
-        public const string Version = "0.10.1";
+        public const string Version = "0.10.2";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0

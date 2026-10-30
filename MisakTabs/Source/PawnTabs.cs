@@ -127,6 +127,7 @@ namespace MisakTabs
                 bits.Add(pawn.def.LabelCap);
                 if (pawn.genes?.Xenotype != null && pawn.genes.Xenotype != XenotypeDefOf.Baseliner) bits.Add(pawn.genes.XenotypeLabelCap);
                 if (pawn.ageTracker != null) bits.Add("MT_H_Age".Translate(pawn.ageTracker.AgeBiologicalYears));
+                if (pawn.gender != Gender.None) bits.Add(pawn.gender.GetLabel(pawn.AnimalOrWildMan()));   // žena / muž
                 string title = pawn.royalty?.MostSeniorTitle?.Label;
                 if (!title.NullOrEmpty()) bits.Add(title.CapitalizeFirst());
                 if (pawn.Faction != null && pawn.Faction != Faction.OfPlayer) bits.Add(pawn.Faction.Name);
@@ -262,7 +263,7 @@ namespace MisakTabs
         private static void Skills(Rect r, Pawn pawn)
         {
             if (pawn.skills == null) { Look.Text(r, "MT_C_NoSkills".Translate(), Muted, GameFont.Small, TextAnchor.MiddleCenter); return; }
-            var list = pawn.skills.skills.OrderBy(s => s.def.listOrder).ToList();
+            var list = pawn.skills.skills.OrderByDescending(s => s.def.listOrder).ToList();   // the game's order (Shooting … Intellectual)
             float rh = 34f;
             Rect view = new Rect(0f, 0f, r.width - (list.Count * rh > r.height ? 16f : 0f), list.Count * rh);
             Widgets.BeginScrollView(r, ref pageScroll, view);
