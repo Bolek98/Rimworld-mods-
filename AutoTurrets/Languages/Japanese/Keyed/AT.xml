@@ -88,4 +88,14 @@
   <AT_StunGiveUp_Desc>脱獄中の囚人や反乱中の奴隷が砲塔でスタンまたはダウンすると降参します。看守が独房に戻し、奴隷は仕事に戻ります。</AT_StunGiveUp_Desc>
   <AT_GaveUpPrisoner>{0}はスタンされ、脱走をあきらめた。</AT_GaveUpPrisoner>
   <AT_GaveUpSlave>{0}はスタンされ、反乱をあきらめた。</AT_GaveUpSlave>
+  <AT_ShellHit>{0}に命中: {1} / {2}</AT_ShellHit>
+  <AT_ShellDestroyed>砲撃で{0}を破壊した。{1}の人々は廃墟を去った。</AT_ShellDestroyed>
+  <AT_ShellDestroyedLabel>砲撃で拠点を破壊</AT_ShellDestroyedLabel>
+  <AT_ShellAppliedLabel>砲撃を受けた拠点</AT_ShellAppliedLabel>
+  <AT_ShellApplied>到着前に砲撃が{0}に{1}回命中した – 砲弾が今着弾した。</AT_ShellApplied>
+  <AT_ShellStart>砲撃で{0}を攻撃中 – 破壊まで約{1}発。</AT_ShellStart>
+  <AT_ShellLabel>砲撃済み: {0} / {1}発</AT_ShellLabel>
+  <AT_ShellSettlements>マップのない敵拠点を砲撃する</AT_ShellSettlements>
+  <AT_ShellSettlements_Desc>VFE Security の世界砲撃で、訪れていない敵拠点も撃てます。命中は記録され、攻撃時に先に着弾し（守備兵が減る）、十分な命中で拠点は破壊されます。</AT_ShellSettlements_Desc>
+  <AT_ShellHitsN>拠点破壊に必要な命中: {0}（部族は少なく、宇宙勢力は多く）</AT_ShellHitsN>
 </LanguageData>

@@ -88,4 +88,14 @@
   <AT_StunGiveUp_Desc>탈옥 중인 죄수나 반란 중인 노예가 포탑에 기절하거나 쓰러지면 포기합니다. 간수가 감방으로 데려가고 노예는 일로 돌아갑니다.</AT_StunGiveUp_Desc>
   <AT_GaveUpPrisoner>{0}이(가) 기절해 탈출을 포기했습니다.</AT_GaveUpPrisoner>
   <AT_GaveUpSlave>{0}이(가) 기절해 반란을 포기했습니다.</AT_GaveUpSlave>
+  <AT_ShellHit>{0} 명중: {1} / {2}</AT_ShellHit>
+  <AT_ShellDestroyed>포격으로 {0}을(를) 파괴했습니다. {1}의 사람들이 폐허를 떠났습니다.</AT_ShellDestroyed>
+  <AT_ShellDestroyedLabel>포격으로 기지 파괴</AT_ShellDestroyedLabel>
+  <AT_ShellAppliedLabel>포격당한 기지</AT_ShellAppliedLabel>
+  <AT_ShellApplied>도착 전에 포격이 {0}에 {1}번 명중했습니다 – 포탄이 지금 떨어졌습니다.</AT_ShellApplied>
+  <AT_ShellStart>포격으로 {0} 공격 중 – 파괴까지 약 {1}발 남음.</AT_ShellStart>
+  <AT_ShellLabel>포격됨: {0} / {1}발</AT_ShellLabel>
+  <AT_ShellSettlements>지도가 없는 적 기지 포격</AT_ShellSettlements>
+  <AT_ShellSettlements_Desc>VFE Security 세계 포격으로 방문하지 않은 적 기지도 쏠 수 있습니다. 명중은 기록되어 공격 시 먼저 떨어지고(방어자 감소), 충분히 명중하면 기지가 파괴됩니다.</AT_ShellSettlements_Desc>
+  <AT_ShellHitsN>기지 파괴에 필요한 명중: {0} (부족은 적게, 우주 세력은 많이)</AT_ShellHitsN>
 </LanguageData>

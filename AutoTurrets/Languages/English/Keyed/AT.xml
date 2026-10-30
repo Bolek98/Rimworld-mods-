@@ -88,4 +88,14 @@
   <AT_StunGiveUp_Desc>A prisoner breaking out or a slave rebelling who is stunned or downed by your turret gives up: wardens take him back to his cell, a slave goes back to work.</AT_StunGiveUp_Desc>
   <AT_GaveUpPrisoner>{0} was stunned and gave up the escape.</AT_GaveUpPrisoner>
   <AT_GaveUpSlave>{0} was stunned and gave up the rebellion.</AT_GaveUpSlave>
+  <AT_ShellHit>Shell hit {0}: {1} / {2}</AT_ShellHit>
+  <AT_ShellDestroyed>Your artillery has destroyed {0}. The people of {1} left the ruins.</AT_ShellDestroyed>
+  <AT_ShellDestroyedLabel>Base destroyed by artillery</AT_ShellDestroyedLabel>
+  <AT_ShellAppliedLabel>Shelled base</AT_ShellAppliedLabel>
+  <AT_ShellApplied>Your artillery hit {0} {1} times before you came – the shells fell on it now.</AT_ShellApplied>
+  <AT_ShellStart>Artillery shells {0} – about {1} more hits destroy it.</AT_ShellStart>
+  <AT_ShellLabel>Shelled: {0} / {1} hits</AT_ShellLabel>
+  <AT_ShellSettlements>Artillery shells hostile bases without a map</AT_ShellSettlements>
+  <AT_ShellSettlements_Desc>VFE Security world artillery can fire at a hostile base you have not visited. Each hit is counted: when you attack the base, the hits fall on it first (fewer defenders), and enough hits destroy it.</AT_ShellSettlements_Desc>
+  <AT_ShellHitsN>Hits that destroy a base: {0} (fewer for tribes, more for spacers)</AT_ShellHitsN>
 </LanguageData>

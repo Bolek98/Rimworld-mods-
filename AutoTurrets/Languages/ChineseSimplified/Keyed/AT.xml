@@ -88,4 +88,14 @@
   <AT_StunGiveUp_Desc>越狱的囚犯或叛乱的奴隶被你的炮塔眩晕或击倒后会放弃：看守会把他带回牢房，奴隶会回去工作。</AT_StunGiveUp_Desc>
   <AT_GaveUpPrisoner>{0}被眩晕，放弃了逃跑。</AT_GaveUpPrisoner>
   <AT_GaveUpSlave>{0}被眩晕，放弃了叛乱。</AT_GaveUpSlave>
+  <AT_ShellHit>命中{0}：{1} / {2}</AT_ShellHit>
+  <AT_ShellDestroyed>你的炮兵摧毁了{0}。{1}的人离开了废墟。</AT_ShellDestroyed>
+  <AT_ShellDestroyedLabel>基地被炮兵摧毁</AT_ShellDestroyedLabel>
+  <AT_ShellAppliedLabel>被炮击的基地</AT_ShellAppliedLabel>
+  <AT_ShellApplied>你的炮兵在你到来前命中{0}共{1}次——炮弹现在落下。</AT_ShellApplied>
+  <AT_ShellStart>炮兵正在炮击{0}——还需约{1}次命中摧毁。</AT_ShellStart>
+  <AT_ShellLabel>已炮击：{0} / {1} 次命中</AT_ShellLabel>
+  <AT_ShellSettlements>炮兵炮击没有地图的敌方基地</AT_ShellSettlements>
+  <AT_ShellSettlements_Desc>VFE Security 世界炮兵可以射击你未去过的敌方基地。每次命中都会记录：进攻时先落下（守军减少），命中足够则基地被摧毁。</AT_ShellSettlements_Desc>
+  <AT_ShellHitsN>摧毁基地所需命中：{0}（部落更少，太空势力更多）</AT_ShellHitsN>
 </LanguageData>
