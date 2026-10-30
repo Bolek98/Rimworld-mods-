@@ -184,6 +184,7 @@ namespace UniversalRimTranslator
             Chain.Order = s.ProviderOrder();
             Chain.Config = s.ProviderConfig();
             Chain.Log = m => MLog.Info("[URT] " + m);
+            Urt2.Chain.EnglishWord = Live.IsEnglishWord;   // 1.1.0
             Chain.Notes = GlossaryNotes();
         }
 
@@ -426,8 +427,13 @@ namespace UniversalRimTranslator
                     // 2.6.4: texts on the screen go first in their own small batch – they no longer wait
                     // behind a long batch of game texts; game texts go in smaller batches so new screen
                     // texts get their turn within seconds
+                    // 1.1.0: once – translations the first service gave back in English go back into the queue
+                    if (!recheckDone && Live.VocabCount > 1000) RecheckEnglish();
                     List<string> todo = LivePending(40);
-                    if (todo.Count == 0) todo = Pending(80);
+                    bool liveBatch = todo.Count > 0;
+                    // 1.1.0: several services at once – every worker starts with a different one
+                    int workers = liveBatch ? 1 : Math.Max(1, Math.Min(3, Chain.ReadyCount()));
+                    if (!liveBatch) todo = Pending(80 * workers);
                     if (todo.Count == 0)
                     {
                         PendingCached = 0;
@@ -447,8 +453,34 @@ namespace UniversalRimTranslator
                         Hint = HintFor(src, src)
                     }).ToList();
                     Chain.Notes = GlossaryNotes();
-                    Chain.Run(jobs, Target, cts.Token);
+                    // 1.1.0: texts the game glued together from parts that are already translated
+                    // ("checkered carpet (pastelově červená) (plán)") are finished here from the memory
+                    var local = new List<Job>();
+                    foreach (Job j in jobs)
+                    {
+                        string done = LocalFill(j.Source);
+                        if (done == null) continue;
+                        j.Result = done; j.Provider = "memory"; j.Verdict = Verdict.Ok;
+                        local.Add(j);
+                    }
+                    if (local.Count > 0) { jobs = jobs.Except(local).ToList(); LocalFilled += local.Count; }
+                    if (workers > 1 && jobs.Count > 40)
+                    {
+                        int size = (int)Math.Ceiling(jobs.Count / (double)workers);
+                        var parts = new List<List<Job>>();
+                        for (int i = 0; i < jobs.Count; i += size) parts.Add(jobs.GetRange(i, Math.Min(size, jobs.Count - i)));
+                        var token = cts.Token;
+                        System.Threading.Tasks.Parallel.For(0, parts.Count, i =>
+                        {
+                            try { Chain.Run(parts[i], Target, token, i); }
+                            catch (OperationCanceledException) { }
+                            catch (Exception e) { MLog.Warn("[URT] worker " + i + ": " + e.Message); }
+                        });
+                    }
+                    else
+                        Chain.Run(jobs, Target, cts.Token);
                     int got = 0;
+                    jobs.AddRange(local);
                     foreach (Job j in jobs)
                     {
                         string key = Store.Key(j.Source);
@@ -485,6 +517,88 @@ namespace UniversalRimTranslator
         }
 
         private static readonly ConcurrentDictionary<string, int> giveUp = new ConcurrentDictionary<string, int>();
+
+        // 1.1.0
+        private static bool recheckDone;
+        public static int LocalFilled;
+
+        private static readonly System.Text.RegularExpressions.Regex AsciiWord = new System.Text.RegularExpressions.Regex(@"[A-Za-z][A-Za-z'\-]*", System.Text.RegularExpressions.RegexOptions.Compiled);
+
+        private static string KnownPiece(string piece)
+        {
+            if (Store.TryGet(piece, out Rec r) && r.Usable && r.Text != piece) return r.Text;
+            string cap = char.ToUpperInvariant(piece[0]) + piece.Substring(1);
+            if (cap != piece && Store.TryGet(cap, out r) && r.Usable && r.Text != cap) return r.Text;
+            string low = char.ToLowerInvariant(piece[0]) + piece.Substring(1);
+            if (low != piece && Store.TryGet(low, out r) && r.Usable && r.Text != low) return r.Text;
+            return null;
+        }
+
+        // A text in the target language with English pieces inside: every English piece that the
+        // memory knows is put in its place. Only when no ordinary English word is left.
+        public static string LocalFill(string text)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(text) || text.Length > 300 || Protect.IsRule(text) || text.IndexOf('\n') >= 0) return null;
+                bool foreign = false;
+                foreach (char c in text) if (c > 127 && char.IsLetter(c)) { foreign = true; break; }
+                if (!foreign) return null;
+                var ws = AsciiWord.Matches(text);
+                if (ws.Count == 0) return null;
+                var sb = new System.Text.StringBuilder();
+                int pos = 0, i = 0, replaced = 0;
+                while (i < ws.Count)
+                {
+                    int best = 0;
+                    string tr = null;
+                    for (int n = Math.Min(6, ws.Count - i); n >= 1; n--)
+                    {
+                        var a = ws[i];
+                        var b = ws[i + n - 1];
+                        string between = text.Substring(a.Index, b.Index + b.Length - a.Index);
+                        // only plain word sequences (spaces between), not across brackets or commas
+                        bool plain = true;
+                        for (int k = 0; k < between.Length && plain; k++) { char c = between[k]; if (!(char.IsLetter(c) || c == ' ' || c == '\'' || c == '-')) plain = false; }
+                        if (!plain) continue;
+                        tr = KnownPiece(between);
+                        if (tr != null) { best = n; break; }
+                    }
+                    if (best == 0)
+                    {
+                        if (Live.IsEnglishWord(ws[i].Value) && ws[i].Value.Length > 2) return null;   // an English word nobody knows
+                        i++;
+                        continue;
+                    }
+                    var first = ws[i];
+                    var last = ws[i + best - 1];
+                    if (char.IsLower(first.Value[0]) && tr.Length > 0 && char.IsUpper(tr[0]) && !(tr.Length > 1 && char.IsUpper(tr[1])))
+                        tr = char.ToLowerInvariant(tr[0]) + tr.Substring(1);
+                    sb.Append(text, pos, first.Index - pos).Append(tr);
+                    pos = last.Index + last.Length;
+                    i += best;
+                    replaced++;
+                }
+                if (replaced == 0) return null;
+                sb.Append(text, pos, text.Length - pos);
+                return sb.ToString();
+            }
+            catch { return null; }
+        }
+
+        private static void RecheckEnglish()
+        {
+            recheckDone = true;
+            try
+            {
+                string marker = Path.Combine(Folder, "recheck110_" + Target + ".done");
+                if (File.Exists(marker)) return;
+                int n = Store.FlagStillEnglish((k, t) => Urt2.Chain.StillEnglish(k, t, Target));
+                File.WriteAllText(marker, DateTime.Now.ToString("s") + " " + n);
+                MLog.Info("[URT] " + n + " translations were still in English – they go to the other services again");
+            }
+            catch (Exception e) { MLog.Warn("[URT] English recheck: " + e.Message); }
+        }
 
         private static IEnumerable<string> PendingSources()
         {

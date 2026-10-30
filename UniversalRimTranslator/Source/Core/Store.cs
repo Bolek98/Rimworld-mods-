@@ -212,6 +212,27 @@ namespace Urt2
             return n;
         }
 
+        // 1.1.0: machine translations that are still English (the first service gave the text back)
+        // go back into the queue – now the other services get a chance too. Returns how many.
+        public int FlagStillEnglish(Func<string, string, bool> stillEnglish)
+        {
+            var hit = new List<KeyValuePair<string, Rec>>();
+            lock (gate)
+                foreach (var kv in map)
+                {
+                    Rec r = kv.Value;
+                    if (r == null || r.Manual || r.Verdict != Verdict.Ok || string.IsNullOrEmpty(r.Text) || (r.Flags & RecFlags.Retranslate) != 0) continue;
+                    bool bad;
+                    try { bad = stillEnglish(kv.Key, r.Text); } catch { bad = false; }
+                    if (!bad) continue;
+                    r.Flags |= RecFlags.Retranslate;
+                    hit.Add(kv);
+                }
+            foreach (var kv in hit) Append(kv.Key, kv.Value);
+            if (hit.Count > 0) Version++;
+            return hit.Count;
+        }
+
         // texts that need a (new) machine translation
         public bool NeedsTranslation(string source)
         {

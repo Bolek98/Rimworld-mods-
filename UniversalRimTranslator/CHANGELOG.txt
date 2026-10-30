@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+1.1.0
+- Translates more: when a service gives a text back in English, the next service gets a chance (before, the first answer was final and many names and labels stayed English). Translations already in memory that stayed English are sent again once. Texts the game glued together from already translated parts ("carpet (blue) (blueprint)", "resistance to tobacco") are finished from the memory at once, without any service. Faster: up to three services translate at the same time, each starting with a different one.
+- Překládá víc: když služba vrátí text v angličtině, dostane šanci další služba (dřív byla první odpověď konečná a spousta názvů zůstala anglicky). Překlady v paměti, které zůstaly anglicky, se jednou pošlou znovu. Texty, které hra slepí z už přeložených částí („koberec (modrá) (plán)“, „vzdornost vůči tabáku“), se doplní hned z paměti bez služby. Rychlejší: až tři služby překládají najednou, každá začíná jinou.
+
 1.0.1
 - Bills, blueprints, corpses and meat of mod items are no longer half English ("Vyrobit plasteel sword"). The game builds these names once while loading, from the English item name; URT now builds them again from your language's template and the translated name, and keeps them up to date when a name gets translated.
 - Settlements called "ERR 5": some mods ship their name lists only in their own language (e.g. only in Chinese), so the game found none in your language or in English. URT now takes the list from any language the mod has; settlements already named ERR get a real name when the save loads.
