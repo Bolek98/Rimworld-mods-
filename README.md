@@ -10,7 +10,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Mod | Version | Folder |
 |---|---|---|
 | Auto Pharmacy – Doctors Give the Right Drug | 1.4.4 | [AutoPharmacy](AutoPharmacy) |
-| Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.4.1 | [AutoTurrets](AutoTurrets) |
+| Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.4.2 | [AutoTurrets](AutoTurrets) |
 | Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.5.3 | [BodyFit](BodyFit) |
 | Call for Backup – Summon Your Allies | 0.1.0 | [CallForBackup](CallForBackup) |
 | Caravan Helper | 1.1.0 | [CaravanHelper](CaravanHelper) |

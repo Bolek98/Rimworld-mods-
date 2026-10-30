@@ -228,6 +228,17 @@ namespace AutoTurrets
 						Messages.Message("AT_ShellStart".Translate(s.Label, SettlementShelling.Needed(s) - SettlementShellingComp.Get().HitsOn(s)), turret, MessageTypeDefOf.TaskCompletion, false);
 						return true;
 					}
+					// 1.4.2: a clear reason instead of VFE's "needs a visible, explored map"
+					MapParent mp0 = Find.WorldObjects.MapParentAt(t.Tile);
+					if (mp0?.Map == null && SettlementShelling.On)
+					{
+						Settlement other = Find.WorldObjects.SettlementAt(t.Tile);
+						if (other != null && other.Faction != null && !other.Faction.IsPlayer && !other.HasMap && !other.Faction.HostileTo(Faction.OfPlayer))
+							Messages.Message("AT_ShellNotHostile".Translate(other.Label, other.Faction.Name), MessageTypeDefOf.RejectInput, false);
+						else
+							Messages.Message("AT_ShellNoTarget".Translate(), MessageTypeDefOf.RejectInput, false);
+						return false;
+					}
 					object[] b = { t, null };
 					if (!(bool)isValidMode.Invoke(comp, b))
 					{
