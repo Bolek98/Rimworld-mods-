@@ -276,3 +276,44 @@ namespace MisakTabs
         }
     }
 }
+
+namespace MisakTabs
+{
+    // ---------------------------------------------------------------------------
+    // 0.12.0: inside our windows the game's own buttons, drop-downs ("Any worker") and boxes
+    // (the ingredient filter) are drawn in our look too – only the look, they work as before.
+    // ---------------------------------------------------------------------------
+    public static class OurLookScope
+    {
+        public static int depth;
+
+        public static void Patch(Harmony h)
+        {
+            try
+            {
+                h.Patch(AccessTools.Method(typeof(Widgets), nameof(Widgets.DrawButtonGraphic)), prefix: new HarmonyMethod(typeof(OurLookScope), nameof(ButtonPrefix)));
+                h.Patch(AccessTools.Method(typeof(Widgets), nameof(Widgets.DrawMenuSection)), prefix: new HarmonyMethod(typeof(OurLookScope), nameof(SectionPrefix)));
+            }
+            catch (Exception e) { Log.Warning("[Mišák Tabs] our look in windows: " + e.Message); }
+        }
+
+        public static bool ButtonPrefix(Rect rect)
+        {
+            if (depth <= 0) return true;
+            bool over = Mouse.IsOver(rect);
+            bool down = over && Input.GetMouseButton(0);
+            MUI.Fill(rect, down ? Look.GreenBg : over ? Look.Line : Look.Card2);
+            MUI.Frame(rect, over ? Look.Green : Look.Line);
+            return false;
+        }
+
+        public static bool SectionPrefix(Rect rect)
+        {
+            if (depth <= 0) return true;
+            MUI.Fill(rect, Look.Bg);
+            MUI.Frame(rect, Look.Line);
+            GUI.color = Color.white;
+            return false;
+        }
+    }
+}

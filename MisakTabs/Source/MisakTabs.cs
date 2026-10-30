@@ -80,6 +80,7 @@ namespace MisakTabs
             BillDialogSwap.Patch(H); // 0.11.0
             InspectPaneLook.Patch(H); // 0.12.0
             PlantPickerPatch.Patch(H); // 0.12.0
+            OurLookScope.Patch(H);     // 0.12.0
             LongEventHandler.ExecuteWhenFinished(BillsTab.TakeOver);
             LongEventHandler.ExecuteWhenFinished(HealthTab.TakeOver);
             Log.Message("[Mišák Tabs] v" + Version + " loaded.");

@@ -43,6 +43,7 @@ namespace MisakTabs
 
         public override void DoWindowContents(Rect inRect)
         {
+            OurLookScope.depth++;
             try { Draw(inRect); }
             catch (Exception e)
             {
@@ -51,6 +52,7 @@ namespace MisakTabs
                 Close();
                 BillDialogSwap.OpenOriginal(bill, pos);
             }
+            finally { OurLookScope.depth--; }
         }
 
         private Building_WorkTable Table => bill.billStack?.billGiver as Building_WorkTable;
