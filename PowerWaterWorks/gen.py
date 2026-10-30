@@ -27,6 +27,25 @@ def real_tex(final, d):
         return (final, 'Graphic_Single', ds, '(1,1,1)')
     return (d['ph'], d['cls'], ds, d['color'])
 
+def item_tex(name, ph, cls, color):
+    final = f"Things/Item/PowerWaterWorks/{name}"
+    if os.path.exists(f"Textures/{final}.png"):
+        ph, cls, color = final, 'Graphic_Single', '(1,1,1)'
+    return f"""      <texPath>{ph}</texPath>
+      <graphicClass>{cls}</graphicClass>
+      <color>{color}</color>"""
+
+def dbh_tex(dn, ph, cls, ds, size):
+    final = f"Things/Building/PowerWaterWorks/{dn[4:]}"
+    if os.path.exists(f"Textures/{final}.png"):
+        ph, cls, color, ds = final, 'Graphic_Single', '(1,1,1)', f"({size[0]},{size[1]})"
+    else:
+        color = '(0.8,0.9,1.0)'
+    return f"""      <texPath>{ph}</texPath>
+      <graphicClass>{cls}</graphicClass>
+      <color>{color}</color>
+      <drawSize>{ds}</drawSize>"""
+
 def building(d):
     dn = d['defName']; sx, sz = d['size']
     final = f"Things/Building/PowerWaterWorks/{dn[4:]}"
@@ -281,9 +300,7 @@ ITEMS = f"""
     <label>fuel rod</label>
     <description>A sealed rod of enriched uranium. Fuel for the fission reactor; one lasts about a day.</description>
     <graphicData>
-      <texPath>Things/Item/Resource/Wastepack</texPath>
-      <graphicClass>Graphic_StackCount</graphicClass>
-      <color>(0.55,1.0,0.5)</color>
+{item_tex('FuelRod','Things/Item/Resource/Wastepack','Graphic_StackCount','(0.55,1.0,0.5)')}
     </graphicData>
     <stackLimit>10</stackLimit>
     <statBases>
@@ -302,9 +319,7 @@ ITEMS = f"""
     <label>fusion cell</label>
     <description>A magnetic fuel cell for the fusion reactor. One lasts about five days.</description>
     <graphicData>
-      <texPath>Things/Item/Resource/SignalChip</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <color>(0.5,0.9,1.0)</color>
+{item_tex('FusionCell','Things/Item/Resource/SignalChip','Graphic_Single','(0.5,0.9,1.0)')}
     </graphicData>
     <stackLimit>5</stackLimit>
     <statBases>
@@ -323,9 +338,7 @@ ITEMS = f"""
     <label>canned food</label>
     <description>Raw food cooked and sealed in a tin. It never rots and keeps well even outside.</description>
     <graphicData>
-      <texPath>Things/Item/Meal/SurvivalPack</texPath>
-      <graphicClass>Graphic_MealVariants</graphicClass>
-      <color>(0.9,0.85,0.75)</color>
+{item_tex('CannedFood','Things/Item/Meal/SurvivalPack','Graphic_MealVariants','(0.9,0.85,0.75)')}
     </graphicData>
     <statBases>
       <DeteriorationRate>0.2</DeteriorationRate>
@@ -400,10 +413,7 @@ def dbh(dn, parent, label, cz, desc, czd, ph, cls, ds, size, cost, comps, power=
     <label>{E(label)}</label>
     <description>{E(desc)}</description>
     <graphicData>
-      <texPath>{ph}</texPath>
-      <graphicClass>{cls}</graphicClass>
-      <drawSize>{ds}</drawSize>
-      <color>(0.8,0.9,1.0)</color>
+{dbh_tex(dn, ph, cls, ds, size)}
     </graphicData>
     <size>({size[0]},{size[1]})</size>
     <costList>{cost_s}</costList>

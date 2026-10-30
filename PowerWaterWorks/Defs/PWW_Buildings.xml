@@ -54,10 +54,10 @@
     <description>Ferments raw food, meat, plant matter and (with Dubs Bad Hygiene) fecal sludge into gas that drives a generator.</description>
     <thingClass>Building</thingClass>
     <graphicData>
-      <texPath>Things/Building/Misc/GeneProcessor</texPath>
+      <texPath>Things/Building/PowerWaterWorks/BiogasPlant</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(3,3)</drawSize>
-      <color>(0.6,0.9,0.5)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(3,3)</size>
@@ -106,10 +106,10 @@
     <description>Drills kilometres down to hot rock – no steam geyser needed. Very expensive, but gives strong power forever.</description>
     <thingClass>Building</thingClass>
     <graphicData>
-      <texPath>Things/Building/Misc/LongRangeMineralScanner</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
+      <texPath>Things/Building/PowerWaterWorks/DeepGeothermal</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(4,4)</drawSize>
-      <color>(1.0,0.6,0.45)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(4,4)</size>
@@ -152,10 +152,10 @@
     <description>Burns stone chunks and steel slag at very high temperature and turns the heat into power. Also tidies up the base.</description>
     <thingClass>Building</thingClass>
     <graphicData>
-      <texPath>Things/Building/Power/ToxifierGenerator</texPath>
+      <texPath>Things/Building/PowerWaterWorks/Incinerator</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2,2)</drawSize>
-      <color>(0.55,0.55,0.55)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(2,2)</size>
@@ -258,10 +258,10 @@
     <description>A compact fission reactor burning fuel rods. Huge steady power, but it heats up: it needs working cooling towers within 10 cells. At 100 % heat it shuts itself down (or melts down, if that is switched on in the settings). The SCRAM button stops it at once.</description>
     <thingClass>Building</thingClass>
     <graphicData>
-      <texPath>Things/Building/Misc/MultiAnalyzer</texPath>
+      <texPath>Things/Building/PowerWaterWorks/FissionReactor</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(4,4)</drawSize>
-      <color>(0.7,1.0,0.7)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(4,4)</size>
@@ -311,10 +311,10 @@
     <description>Cools a fission reactor within 10 cells. One working tower is enough for one reactor.</description>
     <thingClass>Building</thingClass>
     <graphicData>
-      <texPath>Things/Building/Misc/GroundPenetratingScanner</texPath>
+      <texPath>Things/Building/PowerWaterWorks/CoolingTower</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(3,3)</drawSize>
-      <color>(0.85,0.9,0.95)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(3,3)</size>
@@ -358,10 +358,10 @@
     <description>A spacer-age fusion reactor. Enormous power from a fusion cell that lasts many days. Safe – it cannot melt down.</description>
     <thingClass>Building</thingClass>
     <graphicData>
-      <texPath>Things/Building/Misc/BandNode</texPath>
+      <texPath>Things/Building/PowerWaterWorks/FusionReactor</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(5,5)</drawSize>
-      <color>(0.5,0.9,1.0)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(5,5)</size>
@@ -410,10 +410,10 @@
     <description>A bank of industrial cells: stores 6000 Wd and loses less energy than small batteries.</description>
     <thingClass>Building</thingClass>
     <graphicData>
-      <texPath>Things/Building/Misc/WastepackAtomizer</texPath>
+      <texPath>Things/Building/PowerWaterWorks/BigBattery</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(3,2)</drawSize>
-      <color>(0.6,0.7,0.9)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(3,2)</size>
@@ -456,10 +456,10 @@
     <description>A cheap mechanical store for 300 Wd. Good for short gaps, but it loses 10 % of its energy every day.</description>
     <thingClass>Building</thingClass>
     <graphicData>
-      <texPath>Things/Building/Production/PollutionPump</texPath>
+      <texPath>Things/Building/PowerWaterWorks/Flywheel</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(1,1)</drawSize>
-      <color>(0.75,0.75,0.75)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(1,1)</size>
@@ -502,10 +502,10 @@
     <description>Works like a power switch. When a short circuit happens anywhere on its grid, the breaker trips instead – no explosion, no fire. Switch it back on by hand.</description>
     <thingClass>Building_PowerSwitch</thingClass>
     <graphicData>
-      <texPath>Things/Building/Misc/FirefoamPopper</texPath>
+      <texPath>Things/Building/PowerWaterWorks/CircuitBreaker</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(1,1)</drawSize>
-      <color>(1.0,0.45,0.4)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(1,1)</size>
@@ -546,10 +546,10 @@
     <description>Takes stone chunks lying next to it and cuts them into blocks on its own – no colonist needed. One chunk per in-game hour.</description>
     <thingClass>Building</thingClass>
     <graphicData>
-      <texPath>Things/Building/Misc/GeneProcessor</texPath>
+      <texPath>Things/Building/PowerWaterWorks/AutoStonecutter</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2,2)</drawSize>
-      <color>(0.8,0.7,0.55)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(2,2)</size>
@@ -593,10 +593,10 @@
     <description>An electric furnace: gets more steel from slag and makes fuel rods and fusion cells.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
-      <texPath>Things/Building/Misc/GeneAssembler/GeneAssembler</texPath>
+      <texPath>Things/Building/PowerWaterWorks/InductionFurnace</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(3,2)</drawSize>
-      <color>(1.0,0.65,0.4)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(3,2)</size>
@@ -644,10 +644,10 @@
     <description>An automated line that makes components five at a time, a bit cheaper than by hand.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
-      <texPath>Things/Building/Misc/WastepackAtomizer</texPath>
+      <texPath>Things/Building/PowerWaterWorks/ComponentLine</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(3,2)</drawSize>
-      <color>(1.0,0.9,0.5)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(3,2)</size>
@@ -695,10 +695,10 @@
     <description>Shreds worn-out clothes back into cloth.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
-      <texPath>Things/Building/Misc/GeneAssembler/GeneAssembler</texPath>
+      <texPath>Things/Building/PowerWaterWorks/TextileMill</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(3,2)</drawSize>
-      <color>(0.85,0.6,0.95)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(3,2)</size>
@@ -746,10 +746,10 @@
     <description>Cans raw food. Canned food never rots.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
-      <texPath>Things/Building/Misc/GeneProcessor</texPath>
+      <texPath>Things/Building/PowerWaterWorks/Cannery</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2,2)</drawSize>
-      <color>(0.95,0.95,0.85)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(2,2)</size>
@@ -797,10 +797,10 @@
     <description>Waters the plants around it: they grow 15 % faster. Needs power.</description>
     <thingClass>Building</thingClass>
     <graphicData>
-      <texPath>Things/Building/Production/PollutionPump</texPath>
+      <texPath>Things/Building/PowerWaterWorks/Sprinkler</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(1,1)</drawSize>
-      <color>(0.5,0.7,1.0)</color>
+      <color>(1,1,1)</color>
       <damageData><rect>(0.1,0.1,0.8,0.8)</rect></damageData>
     </graphicData>
     <size>(1,1)</size>

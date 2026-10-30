@@ -9,8 +9,8 @@
     <graphicData>
       <texPath>DBH/Things/Building/Water/DeepWaterWell</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1,1)</drawSize>
       <color>(0.8,0.9,1.0)</color>
+      <drawSize>(1,1)</drawSize>
     </graphicData>
     <size>(1,1)</size>
     <costList><Steel>250</Steel><ComponentIndustrial>5</ComponentIndustrial></costList>
@@ -32,10 +32,10 @@
     <label>high-capacity pump</label>
     <description>Pumps water from wells to water towers: 30,000 L per day.</description>
     <graphicData>
-      <texPath>DBH/Things/Building/Water/waterPumpingStation</texPath>
+      <texPath>Things/Building/PowerWaterWorks/DeepWellPump</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <color>(1,1,1)</color>
       <drawSize>(3,3)</drawSize>
-      <color>(0.8,0.9,1.0)</color>
     </graphicData>
     <size>(3,3)</size>
     <costList><Steel>300</Steel><ComponentIndustrial>8</ComponentIndustrial></costList>
@@ -60,10 +60,10 @@
     <label>compact water treatment</label>
     <description>Cleans the water in towers and the water used by fixtures, like the standard treatment plant, but needs only half the power.</description>
     <graphicData>
-      <texPath>DBH/Things/Building/Water/waterFiltration</texPath>
+      <texPath>Things/Building/PowerWaterWorks/WaterTreatment</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <color>(1,1,1)</color>
       <drawSize>(2,2)</drawSize>
-      <color>(0.8,0.9,1.0)</color>
     </graphicData>
     <size>(2,2)</size>
     <costList><Steel>200</Steel><ComponentIndustrial>4</ComponentIndustrial><Silver>50</Silver></costList>
@@ -88,10 +88,10 @@
     <label>desalination plant</label>
     <description>Makes fresh water from sea water and fills its own tank (about 15,000 L per day while powered). Must stand within 3 cells of the sea.</description>
     <graphicData>
-      <texPath>DBH/Things/Building/Spacer/WRS</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
+      <texPath>Things/Building/PowerWaterWorks/Desalination</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(1,1,1)</color>
       <drawSize>(3,3)</drawSize>
-      <color>(0.8,0.9,1.0)</color>
     </graphicData>
     <size>(3,3)</size>
     <costList><Steel>350</Steel><ComponentIndustrial>6</ComponentIndustrial></costList>
@@ -116,10 +116,10 @@
     <label>giant water tower</label>
     <description>Stores 150,000 L of water. When the power fails, it still keeps the taps running for a long time.</description>
     <graphicData>
-      <texPath>DBH/Things/Building/Water/WaterTower</texPath>
+      <texPath>Things/Building/PowerWaterWorks/WaterTower</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(4,5)</drawSize>
-      <color>(0.8,0.9,1.0)</color>
+      <color>(1,1,1)</color>
+      <drawSize>(4,4)</drawSize>
     </graphicData>
     <size>(4,4)</size>
     <costList><Steel>400</Steel><ComponentIndustrial>2</ComponentIndustrial></costList>
