@@ -543,7 +543,19 @@ public static class SafeArea
 	{
 		CS st = CS.Of(comp);
 		CrisesSettings s = CrisesMod.S;
-		bool threat = !stewardOff && s != null && s.raidSafeArea && (comp.crisis & ThreatMask) != 0 && map.IsPlayerHome;
+		bool threat = !stewardOff && s != null && s.raidSafeArea && map.IsPlayerHome
+			&& ((comp.crisis & ThreatMask) != 0 || AnimalDanger(map));
+		// 1.1.1: a short grace after the danger, so the area does not flicker on and off
+		int now = Find.TickManager.TicksGame;
+		if (threat)
+			lastThreat[map] = now;
+		else if (!stewardOff && st.safeActive && lastThreat.TryGetValue(map, out int last) && now - last < 1250)
+			threat = true;
+		if (threat && st.safeActive)
+		{
+			Keep(st, map);
+			return;
+		}
 		if (threat && !st.safeActive)
 		{
 			Area_Allowed area = Build(map, true);
@@ -602,6 +614,67 @@ public static class SafeArea
 				MLog.Info("[Steward] safe area: " + n + " pawns still had it after the danger – freed.");
 				Messages.Message("CF_SafeOff".Translate(n), MessageTypeDefOf.PositiveEvent, historical: false);
 			}
+		}
+	}
+
+	private static readonly Dictionary<Map, int> lastThreat = new Dictionary<Map, int>();
+
+	// 1.1.1: manhunters and other mad animals count even alone and even while they sleep
+	// (vanilla stops seeing a sleeping manhunter as a threat – the raid ended, the area was
+	// lifted and the colonists walked out among the resting pack)
+	public static bool AnimalDanger(Map map)
+	{
+		IReadOnlyList<Pawn> pawns = map.mapPawns.AllPawnsSpawned;
+		for (int i = 0; i < pawns.Count; i++)
+		{
+			Pawn p = pawns[i];
+			if (p.Dead || p.Downed || p.Faction == Faction.OfPlayer || !p.RaceProps.Animal || !p.InMentalState)
+				continue;
+			MentalStateDef m = p.MentalStateDef;
+			if (m == null || !m.IsAggro || p.Fogged())
+				continue;
+			if (m == MentalStateDefOf.Manhunter || m == MentalStateDefOf.ManhunterPermanent || p.BodySize >= 0.6f)
+				return true;
+		}
+		return false;
+	}
+
+	// 1.1.1: while the danger lasts – whoever becomes free later (undrafted, left a lord, arrived)
+	// gets the safe area too, and whoever is outside drops the job and goes in
+	private static void Keep(CS st, Map map)
+	{
+		Area_Allowed area = Build(map, false);
+		if (area == null)
+			return;
+		foreach (Pawn p in Sheltered(map))
+		{
+			if (p.playerSettings == null || p.Drafted || p.GetLord() != null || !p.playerSettings.SupportsAllowedAreas)
+				continue;
+			if (!st.safePawns.Contains(p))
+			{
+				Area old = p.playerSettings.AreaRestrictionInPawnCurrentMap;
+				if (old == area)
+					continue;   // the player gave it himself
+				st.safePawns.Add(p);
+				st.safeOldArea.Add(old == null ? -1 : old.ID);
+				p.playerSettings.AreaRestrictionInPawnCurrentMap = area;
+			}
+			else if (p.playerSettings.AreaRestrictionInPawnCurrentMap != area)
+				continue;   // the player changed it during the attack – his choice
+			try
+			{
+				if (area[p.Position] || p.Downed || p.InMentalState || p.jobs?.curJob == null)
+					continue;
+				Verse.AI.Job j = p.jobs.curJob;
+				if (j.playerForced)
+					continue;
+				if (j.def == JobDefOf.Goto && j.targetA.IsValid && area[j.targetA.Cell])
+					continue;   // already on the way in
+				if (j.def == JobDefOf.Rescue || j.def == JobDefOf.Capture || j.def == JobDefOf.Flee || j.def == JobDefOf.FleeAndCower)
+					continue;
+				p.jobs.EndCurrentJob(Verse.AI.JobCondition.InterruptForced);
+			}
+			catch { }
 		}
 	}
 
