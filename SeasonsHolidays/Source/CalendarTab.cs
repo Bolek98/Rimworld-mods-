@@ -17,6 +17,8 @@ namespace SeasonsHolidays
         private static readonly Color Blue = new Color32(110, 165, 225, 255);
         private static readonly Color Muted = new Color32(160, 167, 174, 255);
 
+        private static readonly Dictionary<Holiday, (int m, int d)> dates = new Dictionary<Holiday, (int m, int d)>();
+
         public override Vector2 RequestedTabSize => new Vector2(Mathf.Min(1180f, UI.screenWidth - 20f), Mathf.Min(760f, UI.screenHeight - 120f));
 
         public override void DoWindowContents(Rect r)
@@ -34,11 +36,16 @@ namespace SeasonsHolidays
             Widgets.Label(new Rect(r.x + 10f, r.y + 6f, r.width - 20f, 34f),
                 "SH_TabToday".Translate(day, Months.NameOf(month), Months.YearText(Months.YearShown(abs, lon)), GenLocalDate.Season(map).LabelCap()));
             Text.Font = GameFont.Small;
-            Holiday next = null; int inDays = 99;
+            Holiday next = null; int inDays = 9999;
+            int yearDays = YearClock.Days, gy = GenDate.Year(abs, lon);
+            int todayDoy = YearClock.ToDayOfYear(month, day);
+            dates.Clear();
             foreach (Holiday h in Holidays.All)
             {
+                Holidays.DateOf(h, gy, out int hm, out int hd);
+                dates[h] = (hm, hd);
                 if (!Holidays.On(h)) continue;
-                int d = ((h.month * 5 + h.day - 1) - (month * 5 + day - 1) + 60) % 60;
+                int d = (YearClock.ToDayOfYear(hm, hd) - todayDoy + yearDays) % yearDays;
                 if (d < inDays) { inDays = d; next = h; }
             }
             string sub = next == null ? "" : inDays == 0 ? "SH_TabHolidayToday".Translate(next.Label).ToString() : "SH_TabNext".Translate(next.Label, inDays).ToString();
@@ -50,7 +57,7 @@ namespace SeasonsHolidays
             // 4 × 3 month cards, starting with January
             float top = r.y + 72f;
             float gw = (r.width - 20f - 3 * 10f) / 4f, gh = (r.yMax - top - 10f - 2 * 10f) / 3f;
-            var births = BirthdaysByMonth(map);
+            var births = BirthdaysByMonth(map, lon);
             for (int m = 0; m < 12; m++)
             {
                 Rect c = new Rect(r.x + 10f + (m % 4) * (gw + 10f), top + (m / 4) * (gh + 10f), gw, gh);
@@ -58,16 +65,15 @@ namespace SeasonsHolidays
             }
         }
 
-        private static Dictionary<int, List<(int day, Pawn p)>> BirthdaysByMonth(Map map)
+        private static Dictionary<int, List<(int day, Pawn p)>> BirthdaysByMonth(Map map, float lon)
         {
             var d = new Dictionary<int, List<(int, Pawn)>>();
             foreach (Pawn p in map.mapPawns.FreeColonistsSpawned)
             {
                 if (p.ageTracker == null) continue;
-                int doy = p.ageTracker.BirthDayOfYear;   // 0–59 from Aprimay 1
-                int m = Months.MonthOf((Twelfth)(doy / 5));
+                YearClock.FromDayOfYear(YearClock.DayOfYear(p.ageTracker.BirthAbsTicks, lon), out int m, out int day);
                 if (!d.TryGetValue(m, out var l)) d[m] = l = new List<(int, Pawn)>();
-                l.Add((doy % 5 + 1, p));
+                l.Add((day, p));
             }
             return d;
         }
@@ -91,12 +97,18 @@ namespace SeasonsHolidays
             GUI.color = temp >= 6f ? Green : temp > 0f ? Gold : Blue;
             Text.Font = GameFont.Tiny;
             Widgets.Label(new Rect(c.x + 10f, c.y + 36f, c.width - 20f, 18f), grow);
-            // five days
-            float dx = c.x + 10f, dw = (c.width - 20f - 4 * 4f) / 5f;
-            for (int d = 1; d <= 5; d++)
+            // the days of the month (0.2.0: 5 to 31, in rows)
+            int len = YearClock.MonthLen(m);
+            int perRow = len <= 10 ? len : len <= 15 ? 8 : 8;
+            float gap = len > 10 ? 2f : 4f;
+            float dx = c.x + 10f, dw = (c.width - 20f - (perRow - 1) * gap) / perRow, dh = len > 10 ? 15f : 22f;
+            int rows = (len + perRow - 1) / perRow;
+            if (len > 10) Text.Font = GameFont.Tiny;
+            for (int d = 1; d <= len; d++)
             {
-                Rect dr = new Rect(dx + (d - 1) * (dw + 4f), c.y + 56f, dw, 22f);
-                bool hol = Holidays.All.Any(h => h.month == m && h.day == d && Holidays.On(h));
+                int ri = (d - 1) / perRow, ci = (d - 1) % perRow;
+                Rect dr = new Rect(dx + ci * (dw + gap), c.y + 56f + ri * (dh + gap), dw, dh);
+                bool hol = Holidays.All.Any(h => Holidays.On(h) && dates.TryGetValue(h, out var hd) && hd.m == m && hd.d == d);
                 bool bday = births != null && births.Any(b => b.day == d);
                 Widgets.DrawBoxSolid(dr, d == today ? Green : hol ? new Color(0.45f, 0.36f, 0.12f) : bday ? new Color(0.18f, 0.30f, 0.45f) : new Color(1f, 1f, 1f, 0.06f));
                 GUI.color = d == today ? Color.black : Color.white;
@@ -104,15 +116,16 @@ namespace SeasonsHolidays
                 Widgets.Label(dr, d.ToString());
                 Text.Anchor = TextAnchor.UpperLeft;
             }
+            Text.Font = GameFont.Tiny;
             // holidays and birthdays of this month
-            float y = c.y + 84f;
-            foreach (Holiday h in Holidays.All.Where(h => h.month == m).OrderBy(h => h.day))
+            float y = c.y + 56f + rows * (dh + gap) + 6f;
+            foreach (Holiday h in Holidays.All.Where(h => dates.TryGetValue(h, out var hd0) && hd0.m == m).OrderBy(h => dates[h].d))
             {
                 if (y > c.yMax - 16f) break;
                 bool on = Holidays.On(h);
                 GUI.color = on ? Gold : Muted;
                 Rect lr = new Rect(c.x + 10f, y, c.width - 20f, 18f);
-                Widgets.Label(lr, h.day + ".  " + h.Label + (on ? "" : " (" + "SH_TabOff".Translate() + ")"));
+                Widgets.Label(lr, dates[h].d + ".  " + h.Label + (on ? "" : " (" + "SH_TabOff".Translate() + ")"));
                 TooltipHandler.TipRegion(lr, h.Desc);
                 y += 17f;
             }

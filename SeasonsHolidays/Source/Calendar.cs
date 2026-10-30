@@ -34,6 +34,8 @@ namespace SeasonsHolidays
         public bool seasonTips = true;        // "winter is coming" / "the growing season starts"
         public bool realDate = false;         // holidays by the real date of your computer
         public List<string> off = new List<string>();   // holidays switched off
+        public int yearDays = 60;             // 0.2.0: length of the year – 60 (game), 120, 180, 365
+        public bool ageWithYear = true;       // colonists age with the calendar year
 
         public override void ExposeData()
         {
@@ -55,13 +57,15 @@ namespace SeasonsHolidays
             Scribe_Values.Look(ref seasonTips, "seasonTips", true);
             Scribe_Values.Look(ref realDate, "realDate", false);
             Scribe_Collections.Look(ref off, "off", LookMode.Value);
+            Scribe_Values.Look(ref yearDays, "yearDays", 60);
+            Scribe_Values.Look(ref ageWithYear, "ageWithYear", true);
             if (off == null) off = new List<string>();
         }
     }
 
     public class SHMod : Mod
     {
-        public const string Version = "0.1.0";
+        public const string Version = "0.2.0";
         public static SHSettings S;
         private static List<string> recBullets;
         private static Vector2 scroll;
@@ -69,13 +73,14 @@ namespace SeasonsHolidays
         public SHMod(ModContentPack content) : base(content)
         {
             S = GetSettings<SHSettings>();
-            MUI.Init(new SHSettings(), null, "recommended", "yearMode", "off", "realDate");
+            MUI.Init(new SHSettings(), null, "recommended", "yearMode", "off", "realDate", "yearDays", "ageWithYear");
             if (S.recommended) MUI.ApplyAll(S);
             MNews.Register(content, Version);
             var h = new Harmony("misak.seasonsholidays");
             try { MUI.PatchWindow(h, typeof(SHMod)); } catch { }
             DatePatches.Patch(h);
             WeatherMonths.Patch(h);
+            YearClock.Patch(h);   // 0.2.0
             Log.Message("[Seasons & Holidays] v" + Version + " loaded.");
         }
 
@@ -103,6 +108,30 @@ namespace SeasonsHolidays
             }
             TooltipHandler.TipRegion(new Rect(yr.x, yr.y, 220f, 30f), "SH_YearMode_Desc".Translate());
             y += 36f;
+            // 0.2.0: the length of the year – always yours too
+            Rect yl = new Rect(r.x, y, r.width, 30f);
+            Widgets.Label(new Rect(yl.x, yl.y + 4f, 220f, 26f), "SH_YearDays".Translate());
+            TooltipHandler.TipRegion(new Rect(yl.x, yl.y, 220f, 30f), "SH_YearDays_Desc".Translate());
+            bx = yl.x + 220f;
+            foreach (int len in YearClock.Lengths)
+            {
+                string lbl = "SH_YearDaysN".Translate(len);
+                float w = Text.CalcSize(lbl).x + 24f;
+                Rect b = new Rect(bx, yl.y, w, 28f);
+                if (S.yearDays == len) Widgets.DrawHighlightSelected(b);
+                if (Widgets.ButtonText(b, lbl, true, true, S.yearDays != len)) { S.yearDays = len; YearClock.Invalidate(); DatePatches.Reset(); }
+                bx += w + 6f;
+            }
+            y += 34f;
+            if (S.yearDays != 60)
+            {
+                Rect ar = new Rect(r.x, y, Mathf.Min(r.width, 640f), 28f);
+                bool ag = S.ageWithYear;
+                Widgets.CheckboxLabeled(ar, "SH_AgeWithYear".Translate(), ref ag);
+                TooltipHandler.TipRegion(ar, "SH_AgeWithYear_Desc".Translate());
+                S.ageWithYear = ag;
+                y += 30f;
+            }
             if (S.recommended) y += MUI.LockNote(new Rect(r.x, y, r.width, 0f)) + 4f;
             Rect rest = new Rect(r.x, y, r.width, r.yMax - y);
             Rect view = new Rect(0f, 0f, rest.width - 16f, 1000f + Holidays.All.Count * 26f);
@@ -137,7 +166,8 @@ namespace SeasonsHolidays
                 foreach (Holiday hd in Holidays.All)
                 {
                     bool on = !S.off.Contains(hd.id);
-                    l.CheckboxLabeled(hd.Label + "  –  " + Months.DayLabel(hd.month, hd.day), ref on, hd.Desc);
+                    Holidays.DateOf(hd, Holidays.YearNow(), out int hm, out int hdd);
+                    l.CheckboxLabeled(hd.Label + "  –  " + Months.DayLabel(hm, hdd), ref on, hd.Desc);
                     if (on) S.off.Remove(hd.id);
                     else if (!S.off.Contains(hd.id)) S.off.Add(hd.id);
                 }
@@ -173,13 +203,18 @@ namespace SeasonsHolidays
         {
             long t = Find.TickManager.TicksAbs;
             float lon = map != null ? Find.WorldGrid.LongLatOf(map.Tile).x : 0f;
-            month = MonthOf(GenDate.Twelfth(t, lon));
-            day = GenDate.DayOfTwelfth(t, lon) + 1;
+            At(t, lon, out month, out day);
+        }
+
+        // 0.2.0: the calendar date of a moment for any length of the year
+        public static void At(long absTicks, float lon, out int month, out int day)
+        {
+            YearClock.FromDayOfYear(YearClock.DayOfYear(absTicks, lon), out month, out day);
         }
 
         public static int YearShown(long absTicks, float lon)
         {
-            int m = MonthOf(GenDate.Twelfth(absTicks, lon));
+            At(absTicks, lon, out int m, out _);
             int y = GenDate.Year(absTicks, lon) + (m <= 1 ? 1 : 0);   // January and February start the new year
             int mode = SHMod.S?.yearMode ?? 0;
             if (mode == 0) return y;
@@ -225,8 +260,7 @@ namespace SeasonsHolidays
             if (!On) return true;
             try
             {
-                int m = Months.MonthOf(GenDate.Twelfth(absTicks, location.x));
-                int d = GenDate.DayOfTwelfth(absTicks, location.x) + 1;
+                Months.At(absTicks, location.x, out int m, out int d);
                 __result = "SH_Date".Translate(d, Months.NameOf(m), Months.YearText(Months.YearShown(absTicks, location.x)), Months.Name(m));
                 return false;
             }
@@ -238,8 +272,7 @@ namespace SeasonsHolidays
             if (!On) return true;
             try
             {
-                int m = Months.MonthOf(GenDate.Twelfth(absTicks, location.x));
-                int d = GenDate.DayOfTwelfth(absTicks, location.x) + 1;
+                Months.At(absTicks, location.x, out int m, out int d);
                 Season s = GenDate.Season(absTicks, location);
                 __result = "SH_Date".Translate(d, Months.NameOf(m), Months.YearText(Months.YearShown(absTicks, location.x)), Months.Name(m)) + " (" + s.Label() + ")";
                 return false;
@@ -252,7 +285,7 @@ namespace SeasonsHolidays
             if (!On) return true;
             try
             {
-                int m = Months.MonthOf(GenDate.Twelfth(absTicks, location.x));
+                Months.At(absTicks, location.x, out int m, out _);
                 __result = Months.Name(m) + " " + Months.YearText(Months.YearShown(absTicks, location.x));
                 return false;
             }

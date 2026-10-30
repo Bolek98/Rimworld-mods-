@@ -45,7 +45,11 @@ namespace SeasonsHolidays
                     if (!Holidays.On(h)) continue;
                     bool today; string when;
                     if (SHMod.S.realDate) { today = Holidays.IsRealToday(h, now); when = "R" + now.ToString("yyyyMMdd"); }
-                    else { today = h.month == month && h.day == day; when = absDay.ToString(); }
+                    else
+                    {
+                        Holidays.DateOf(h, GenDate.Year(abs, Find.WorldGrid.LongLatOf(map.Tile).x), out int hm, out int hd);
+                        today = hm == month && hd == day; when = absDay.ToString();
+                    }
                     if (!today) continue;
                     if (hour >= 8 && Once("M|" + h.id + "|" + when)) Morning(h, when);
                     if (h.partyHour >= 0 && hour >= h.partyHour && hour < h.partyHour + 3 && SHMod.S.parties && Once("P|" + h.id + "|" + when)) Party(null);
@@ -56,10 +60,11 @@ namespace SeasonsHolidays
             // ---- birthdays ----
             if (SHMod.S.birthdays && hour >= 9)
             {
-                int doy = GenLocalDate.DayOfYear(map);
+                float lon0 = Find.WorldGrid.LongLatOf(map.Tile).x;
+                int doy = YearClock.DayOfYear(abs, lon0);
                 foreach (Pawn p in Holidays.Colonists(map))
                 {
-                    if (p.ageTracker == null || p.ageTracker.BirthDayOfYear != doy) continue;
+                    if (p.ageTracker == null || YearClock.DayOfYear(p.ageTracker.BirthAbsTicks, lon0) != doy) continue;
                     if (!Once("B|" + p.thingIDNumber + "|" + absDay)) continue;
                     Holidays.GiveThought(p, "SH_Birthday", 0);
                     Messages.Message("SH_BirthdayMsg".Translate(p.LabelShort, p.ageTracker.AgeBiologicalYears), p, MessageTypeDefOf.PositiveEvent);

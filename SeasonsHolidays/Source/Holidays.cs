@@ -63,7 +63,41 @@ namespace SeasonsHolidays
         public static Holiday Today(Map map)
         {
             Months.Now(map, out int m, out int d);
-            return All.FirstOrDefault(h => h.month == m && h.day == d);
+            int y = YearNow();
+            return All.FirstOrDefault(h => { DateOf(h, y, out int hm, out int hd); return hm == m && hd == d; });
+        }
+
+        // 0.2.0: the game year now (for Easter)
+        public static int YearNow()
+        {
+            if (Find.TickManager == null || Current.ProgramState != ProgramState.Playing) return 5500;
+            Map map = Find.CurrentMap ?? Find.AnyPlayerHomeMap;
+            float lon = map != null ? Find.WorldGrid.LongLatOf(map.Tile).x : 0f;
+            return GenDate.Year(Find.TickManager.TicksAbs, lon);
+        }
+
+        private static readonly int[] RealLen = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+        // 0.2.0: the date of a holiday in the calendar of the chosen year length – the game's 5-day
+        // months as before, the real date in a 365-day year, the real date scaled in between
+        public static void DateOf(Holiday h, int gameYear, out int month, out int day)
+        {
+            int days = YearClock.Days;
+            if (days == 60) { month = h.month; day = h.day; return; }
+            if (h.realMonth == 0)
+            {
+                if (days == 365)
+                {
+                    DateTime e = Easter(Mathf.Clamp(gameYear, 1, 9999));
+                    month = e.Month - 1; day = e.Day; return;
+                }
+                month = h.month;
+                day = Mathf.Clamp(Mathf.CeilToInt(h.day * YearClock.MonthLen(month) / 5f), 1, YearClock.MonthLen(month));
+                return;
+            }
+            month = h.realMonth - 1;
+            if (days == 365) { day = Mathf.Min(h.realDay, YearClock.MonthLen(month)); return; }
+            day = Mathf.Clamp(Mathf.CeilToInt(h.realDay * (float)YearClock.MonthLen(month) / RealLen[month]), 1, YearClock.MonthLen(month));
         }
 
         // Easter Sunday (Gregorian, Meeus/Jones/Butcher)
