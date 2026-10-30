@@ -20,9 +20,11 @@ namespace ResearchedLoadout
 		private static readonly Dictionary<int, int> nextTry = new Dictionary<int, int>();
 		private static bool restoring;
 
-		public static bool LodgersOn => ResearchedLoadoutMod.Settings != null && ResearchedLoadoutMod.Settings.guestLodgers;
+		// 2.19.1: both options removed – visitors could get stuck in a loop of changing clothes and did
+		// nothing else. Gear they still carry from before is given back when they leave.
+		public static bool LodgersOn => false;
 
-		public static bool VisitorsOn => ResearchedLoadoutMod.Settings != null && ResearchedLoadoutMod.Settings.guestVisitors;
+		public static bool VisitorsOn => false;
 
 		public static bool IsLodger(Pawn p) => p != null && p.IsQuestLodger();
 

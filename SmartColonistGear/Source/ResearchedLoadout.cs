@@ -424,9 +424,6 @@ namespace ResearchedLoadout
 				}
 			}
 			listing_Standard.GapLine();
-			Check(listing_Standard, "RL_GuestLodgers", ref Settings.guestLodgers, "guestLodgers");
-			Check(listing_Standard, "RL_GuestVisitors", ref Settings.guestVisitors, "guestVisitors");
-			listing_Standard.GapLine();
 			Check(listing_Standard, "RL_ThreatApparel", ref Settings.threatApparel, "threatApparel");
 			if (Settings.threatApparel)
 			{
