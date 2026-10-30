@@ -5,15 +5,24 @@
 # Navíc: když zavřeš RimWorld, projde Player.log a když v něm jsou chyby z TVÝCH modů,
 # dá vědět (kolik a jaká poslední) a uloží je do složky 'chyby' vedle skriptu.
 
+param([string]$rezim = '')
 $ErrorActionPreference = 'Stop'
-
-# jen jedna kopie: starší běžící hlídač se ukončí (po aktualizaci skriptu)
-try {
-    Get-CimInstance Win32_Process -Filter "Name='powershell.exe' OR Name='pwsh.exe'" |
-        Where-Object { $_.ProcessId -ne $PID -and $_.CommandLine -like '*WorkshopHlidac.ps1*' } |
-        ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
-} catch { }
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
+$beatFile = Join-Path $here 'tep.txt'
+
+# jen jedna kopie. Spuštění ručně (nebo po aktualizaci skriptu) starší kopii ukončí.
+# Kontrola z Plánovače úloh (rezim 'kontrola', každých 15 minut): když běží zdravá kopie
+# (tep.txt je čerstvý), nic nedělá; když kopie zamrzla nebo neběží, spustí novou.
+try {
+    $others = @(Get-CimInstance Win32_Process -Filter "Name='powershell.exe' OR Name='pwsh.exe'" |
+        Where-Object { $_.ProcessId -ne $PID -and $_.CommandLine -like '*WorkshopHlidac.ps1*' })
+    if ($others.Count -gt 0) {
+        $fresh = (Test-Path $beatFile) -and (((Get-Date) - (Get-Item $beatFile).LastWriteTime).TotalMinutes -lt 10)
+        if ($rezim -eq 'kontrola' -and $fresh) { exit }
+        $others | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
+        if ($rezim -eq 'kontrola') { $script:restarted = $true }
+    }
+} catch { }
 $cfgFile = Join-Path $here 'nastaveni.json'
 $stateFile = Join-Path $here 'stav.json'
 $logFile = Join-Path $here 'hlidac.log'
@@ -65,11 +74,39 @@ function Get-ModIds {
     return @($ids.Keys)
 }
 
+# ---------- internet s opravdovým časovým limitem ----------
+# Invoke-RestMethod ve Windows PowerShell 5 umí zůstat viset navždy (limit -TimeoutSec nehlídá
+# všechno) – pak se hlídač zastaví a už nic nehlásí. HttpClient má limit na celý požadavek.
+try { [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12 } catch { }
+Add-Type -AssemblyName System.Net.Http
+$script:http = New-Object System.Net.Http.HttpClient
+$script:http.Timeout = [TimeSpan]::FromSeconds(45)
+$script:http.DefaultRequestHeaders.UserAgent.ParseAdd('WorkshopHlidac/1.1')
+
+function Http-Send($req) {
+    $resp = $script:http.SendAsync($req).GetAwaiter().GetResult()
+    try {
+        $txt = $resp.Content.ReadAsStringAsync().GetAwaiter().GetResult()
+        if (-not $resp.IsSuccessStatusCode) { throw ('HTTP ' + [int]$resp.StatusCode) }
+        return $txt
+    } finally { $resp.Dispose() }
+}
+
+function Http-Json($method, $url, $form) {
+    $req = New-Object System.Net.Http.HttpRequestMessage ([System.Net.Http.HttpMethod]::new($method)), $url
+    if ($form) {
+        $d = New-Object 'System.Collections.Generic.Dictionary[string,string]'
+        foreach ($k in $form.Keys) { $d[[string]$k] = [string]$form[$k] }
+        $req.Content = New-Object System.Net.Http.FormUrlEncodedContent -ArgumentList (,$d)
+    }
+    return (Http-Send $req | ConvertFrom-Json)
+}
+
 # ---------- Steam ----------
 function Get-Details($ids) {
     $body = @{ itemcount = $ids.Count }
     for ($i = 0; $i -lt $ids.Count; $i++) { $body["publishedfileids[$i]"] = $ids[$i] }
-    $r = Invoke-RestMethod -Method Post -Uri 'https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v1/' -Body $body -TimeoutSec 30
+    $r = Http-Json 'POST' 'https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v1/' $body
     return @($r.response.publishedfiledetails | Where-Object { $_.result -eq 1 })
 }
 
@@ -106,7 +143,7 @@ function Sign($n) { if ($n -gt 0) { return '+' + $n } else { return "$n" } }
 # ---------- komentáře ----------
 function Get-NewComments($creator, $id, $lastId) {
     $u = "https://steamcommunity.com/comment/PublishedFile_Public/render/$creator/$id/?start=0&count=10"
-    $r = Invoke-RestMethod -Uri $u -TimeoutSec 30
+    $r = Http-Json 'GET' $u $null
     $list = @()
     $rx = 'id="comment_(\d+)".*?commentthread_author_link"[^>]*>\s*<bdi>(.*?)</bdi>.*?commentthread_comment_text"[^>]*>(.*?)</div>'
     foreach ($m in [regex]::Matches([string]$r.comments_html, $rx, 'Singleline')) {
@@ -123,11 +160,12 @@ function Get-NewComments($creator, $id, $lastId) {
 function Send-Phone($text, $click) {
     if (-not $cfg.ntfyTema) { return }
     try {
-        $h = @{ Title = 'RimWorld Workshop'; Tags = 'video_game' }
-        if ($click) { $h['Click'] = $click }
-        $bytes = [System.Text.Encoding]::UTF8.GetBytes($text)
-        Invoke-RestMethod -Method Post -Uri ($cfg.ntfyServer.TrimEnd('/') + '/' + $cfg.ntfyTema) -Body $bytes `
-            -ContentType 'text/plain; charset=utf-8' -Headers $h -TimeoutSec 20 | Out-Null
+        $req = New-Object System.Net.Http.HttpRequestMessage ([System.Net.Http.HttpMethod]::Post), ($cfg.ntfyServer.TrimEnd('/') + '/' + $cfg.ntfyTema)
+        $req.Content = New-Object System.Net.Http.StringContent -ArgumentList $text, ([System.Text.Encoding]::UTF8), 'text/plain'
+        [void]$req.Headers.TryAddWithoutValidation('Title', 'RimWorld Workshop')
+        [void]$req.Headers.TryAddWithoutValidation('Tags', 'video_game')
+        if ($click) { [void]$req.Headers.TryAddWithoutValidation('Click', $click) }
+        [void](Http-Send $req)
     } catch { Log ('ntfy: ' + $_.Exception.Message) }
 }
 
@@ -157,6 +195,7 @@ $myNamespaces = [ordered]@{
     'SecularColony' = 'Secular Colony'; 'ResearchedLoadout' = 'Smart Colonist Gear'; 'GraphicsTuner' = 'Smooth FPS'
     'ColonyForeman' = 'Steward'; 'StorytellerTuner' = 'Storyteller Tuner'; 'UniversalRimTranslator' = 'URT'; 'Urt2' = 'URT'
     'UnofficialPatch' = 'Unofficial Patch'; 'WildSpawnZone' = 'Wild Spawn Zone'; 'ResearchLockedRaidGear' = 'World at Your Level'
+    'ColonyAdvisor' = 'Colony Advisor'; 'PensForAll' = 'Pens For All'; 'SeasonsHolidays' = 'Seasons & Holidays'; 'SmoothFPS' = 'Smooth FPS'; 'QoLFW' = 'QoL'
     'ModFixes' = 'Mod Fixes'; 'IntimateLife' = 'Intimate Life'; 'RychlaBolest' = 'Rychlá bolest'; 'RychlaBolezst' = 'Rychlá bolest'
 }
 $nsAlt = ($myNamespaces.Keys | ForEach-Object { [regex]::Escape($_) }) -join '|'
@@ -387,7 +426,9 @@ function Check {
 }
 
 # ---------- hlavní smyčka ----------
-Log 'start'
+Log ($(if ($script:restarted) { 'start (předchozí kopie zamrzla – spuštěna znovu)' } else { 'start' }))
+function Beat { try { Set-Content -Path $beatFile -Value (Get-Date -Format 'yyyy-MM-dd HH:mm:ss') -Encoding ASCII } catch { } }
+$nextBeat = Get-Date
 $next = Get-Date
 $nextGame = Get-Date
 $gameWasRunning = $false
@@ -395,6 +436,8 @@ $gameWasRunning = $false
 $seenLog = $null
 if (Test-Path $stateFile) { try { $seenLog = (Get-Content $stateFile -Raw -Encoding UTF8 | ConvertFrom-Json).logSeen } catch { } }
 while (-not $script:quit) {
+  try {
+    if ((Get-Date) -ge $nextBeat) { $nextBeat = (Get-Date).AddSeconds(60); Beat }
     if ($cfg.hlidatChyby -and (Get-Date) -ge $nextGame) {
         $nextGame = (Get-Date).AddSeconds(15)
         try {
@@ -418,9 +461,12 @@ while (-not $script:quit) {
         $script:checkNow = $false
         try { Check } catch { Log ('chyba: ' + $_.Exception.Message) }
         $next = (Get-Date).AddMinutes([Math]::Max(5, [int]$cfg.intervalMinut))
+        Beat
+        try { $tray.Text = 'Workshop hlídač – kontrola ' + (Get-Date -Format 'HH:mm') + ', další ' + $next.ToString('HH:mm') } catch { }
     }
     if ($script:checkGame) { $script:checkGame = $false; try { Check-GameLog } catch { Log ('chyby ze hry: ' + $_.Exception.Message) } }
     [System.Windows.Forms.Application]::DoEvents()
+  } catch { try { Log ('smyčka: ' + $_.Exception.Message) } catch { } }
     Start-Sleep -Milliseconds 300
 }
 $tray.Visible = $false

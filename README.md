@@ -49,7 +49,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Universal RimTranslator – Auto-Translate All Your Mods | 1.0.1 | [UniversalRimTranslator](UniversalRimTranslator) |
 | Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.2 | [UnofficialPatch](UnofficialPatch) |
 | Wild Spawn Zone | 1.1.3 | [WildSpawnZone](WildSpawnZone) |
-| World at Your Level – Raiders Match Your Tech | 2.15.0 | [WorldAtYourLevel](WorldAtYourLevel) |
+| World at Your Level – Raiders, Factions & Threats Match Your Tech | 2.15.0 | [WorldAtYourLevel](WorldAtYourLevel) |
 
 Each folder is a complete mod (About, Assemblies, Defs, Languages, Source), most with a `CHANGELOG.txt`.
 All mods need [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077).
