@@ -4601,6 +4601,7 @@ namespace ResearchedLoadout
 			lastWear.Clear();
 			putOn.Clear();
 			removed.Clear();
+			ours.Clear();
 		}
 
 		private static int Now
@@ -4631,8 +4632,18 @@ namespace ResearchedLoadout
 			return lastWear.TryGetValue(pawn.thingIDNumber, out value) && now - value < CalmTicks;
 		}
 
+		// 2.18.1: pieces Smart Colonist Gear itself chose – the game's own dresser does not swap them back
+		private static readonly Dictionary<string, int> ours = new Dictionary<string, int>();
+
+		public static bool OursRecently(Pawn pawn, ThingDef def)
+		{
+			int value;
+			return ours.TryGetValue(Key(pawn, def), out value) && Now - value >= 0 && Now - value < 120000;
+		}
+
 		public static void NoteWear(Pawn pawn, Apparel apparel, int now)
 		{
+			ours[Key(pawn, apparel.def)] = now;
 			lastWear[pawn.thingIDNumber] = now;
 			putOn[Key(pawn, apparel.def)] = now;
 			if (pawn.apparel == null)
@@ -6664,6 +6675,7 @@ namespace ResearchedLoadout
 			_pawnCooldown.Remove(pawn.thingIDNumber);
 			_weaponCalmUntil[pawn.thingIDNumber] = now - 1;
 			EquipRush.Start(pawn, now);
+			ApparelFlip.ClearFor(pawn);   // 2.18.1: the player asked – old "left off for two days" blocks go
 			try { ProcessPawn(pawn, now, settings); } catch (Exception e) { MLog.Warn("[Smart Colonist Gear] gear up now: " + e.Message); }
 		}
 
@@ -6700,9 +6712,14 @@ namespace ResearchedLoadout
 		private void ProcessPawn(Pawn pawn, int now, ResearchedLoadoutSettings settings)
 		{
 			int value;
-			if (LoadoutFilter.IsPlayerColonist(pawn) && !pawn.Downed && !pawn.InMentalState && pawn.jobs != null && (!pawn.IsQuestLodger() || GuestWardrobe.LodgersOn) && !ExemptPawns.IsExempt(pawn) && !pawn.Drafted && !IsBusyWithWeaponJob(pawn) && (!_pawnCooldown.TryGetValue(pawn.thingIDNumber, out value) || now >= value) && (pawn.CurJob == null || !pawn.CurJob.playerForced) && !TryAct(pawn, now, settings))
+			if (LoadoutFilter.IsPlayerColonist(pawn) && !pawn.Downed && !pawn.InMentalState && pawn.jobs != null && (!pawn.IsQuestLodger() || GuestWardrobe.LodgersOn) && !ExemptPawns.IsExempt(pawn) && !pawn.Drafted && !IsBusyWithWeaponJob(pawn) && (!_pawnCooldown.TryGetValue(pawn.thingIDNumber, out value) || now >= value) && (pawn.CurJob == null || !pawn.CurJob.playerForced))
 			{
-				_pawnCooldown[pawn.thingIDNumber] = now + 2500;
+				if (!TryAct(pawn, now, settings))
+					_pawnCooldown[pawn.thingIDNumber] = now + 2500;
+				// 2.18.1: "Gear up now" goes on while there is something to change – before it ended
+				// after an hour, often when only the first piece (the weapon) was done
+				else if (EquipRush.Active(pawn))
+					EquipRush.Extend(pawn, now);
 			}
 		}
 
@@ -7691,6 +7708,13 @@ namespace ResearchedLoadout
 				return false;
 			}
 			GearWhy.TagJob(pawn, job);
+			// 2.18.1: "Gear up now" – the change starts right away and the work goes on afterwards; before,
+			// it waited at the end of the queue and the rest of the gear was never looked at
+			if (EquipRush.Active(pawn) && !IsIdleEnough(pawn) && EquipRush.MayInterrupt(pawn))
+			{
+				pawn.jobs.StartJob(job, JobCondition.InterruptForced, null, true, true, null, JobTag.Misc);
+				return true;
+			}
 			if (IsIdleEnough(pawn) || pawn.jobs.jobQueue == null)
 			{
 				pawn.jobs.StartJob(job, JobCondition.InterruptForced, null, false, true, null, JobTag.Misc);
@@ -8388,7 +8412,7 @@ namespace ResearchedLoadout
 			return num * Specialization.WeaponFactor(pawn, thing);
 		}
 
-		private static bool IsBroken(Thing thing)
+		internal static bool IsBroken(Thing thing)
 		{
 			return LoadoutFilter.IsBelowMinHp(thing);
 		}
@@ -9615,9 +9639,30 @@ namespace ResearchedLoadout
 			}
 		}
 
+		private static readonly Dictionary<int, int> started = new Dictionary<int, int>();
+
 		public static void Start(Pawn pawn, int now)
 		{
 			until[pawn.thingIDNumber] = now + 2500;
+			started[pawn.thingIDNumber] = now;
+		}
+
+		// 2.18.1: one more hour after each change, at most six hours from the button
+		public static void Extend(Pawn pawn, int now)
+		{
+			int s;
+			if (!started.TryGetValue(pawn.thingIDNumber, out s)) s = now;
+			until[pawn.thingIDNumber] = Mathf.Min(now + 2500, s + 15000);
+		}
+
+		// not out of bed, from a meal, a ritual or a party
+		public static bool MayInterrupt(Pawn pawn)
+		{
+			Job j = pawn.CurJob;
+			if (j == null) return true;
+			if (j.def == JobDefOf.LayDown || j.def == JobDefOf.Ingest || j.def == JobDefOf.LayDownResting) return false;
+			if (pawn.GetLord() != null) return false;
+			return j.def.suspendable;
 		}
 
 		public static bool Active(Pawn pawn)
@@ -11895,6 +11940,22 @@ namespace ResearchedLoadout
 			{
 				__result = null;
 			}
+			// 2.18.1: the game's dresser would take off a piece Smart Colonist Gear put on less than two days
+			// ago (flak jacket ↔ lamellar armour) – the two swapped back and forth until the piece was
+			// blocked for two days, so "Gear up now" seemed to change nothing
+			if (settings != null && settings.enabled && __result != null && __result.def == JobDefOf.Wear && __result.targetA.Thing is Apparel ap && pawn.apparel != null && LoadoutFilter.IsPlayerColonist(pawn) && !ExemptPawns.IsExempt(pawn))
+			{
+				List<Apparel> worn = pawn.apparel.WornApparel;
+				for (int i = 0; i < worn.Count; i++)
+				{
+					Apparel w = worn[i];
+					if (w != null && w.def != ap.def && !ResearchedLoadoutMapComponent.IsBroken(w) && ApparelMemory.OursRecently(pawn, w.def) && !ApparelUtility.CanWearTogether(ap.def, w.def, pawn.RaceProps.body))
+					{
+						__result = null;
+						break;
+					}
+				}
+			}
 		}
 	}
 	[HarmonyPatch]
@@ -12134,6 +12195,17 @@ namespace ResearchedLoadout
 				blockUntil[k] = now + 120000;
 				MLog.Info("[Smart Colonist Gear] " + p.LabelShort + " kept putting on and taking off " + d.defName + " – left off for two days.");
 			}
+		}
+
+		// 2.18.1: "Gear up now" lifts the blocks of that colonist
+		public static void ClearFor(Verse.Pawn p)
+		{
+			if (p == null) return;
+			string pre = p.thingIDNumber + "|";
+			foreach (string k in new System.Collections.Generic.List<string>(blockUntil.Keys))
+				if (k.StartsWith(pre)) blockUntil.Remove(k);
+			foreach (string k in new System.Collections.Generic.List<string>(removed.Keys))
+				if (k.StartsWith(pre)) removed.Remove(k);
 		}
 
 		public static bool Blocked(Verse.Pawn p, Verse.ThingDef d)
