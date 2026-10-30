@@ -590,4 +590,35 @@
   <RL_GP_Auto_Desc>Uma vez por dia o planejador adiciona ordens "até ter X" para tudo o que falta e ainda não tem ordem.</RL_GP_Auto_Desc>
   <RL_GP_Added>Ordem adicionada: {0} em {1} ({2}).</RL_GP_Added>
   <RL_GP_AutoAdded>O planejador de equipamento adicionou ordens: {0}</RL_GP_AutoAdded>
+  <!-- 2.19.0: why not -->
+  <RL_WN_Prefix>Equipamento inteligente:</RL_WN_Prefix>
+  <RL_WN_Worn>{0} já está usando</RL_WN_Worn>
+  <RL_WN_Queued>já a caminho de {0}</RL_WN_Queued>
+  <RL_WN_Body>{0} não pode vestir (corpo)</RL_WN_Body>
+  <RL_WN_CantEquip>{0} não pode usar</RL_WN_CantEquip>
+  <RL_WN_Gender>feito para o outro gênero</RL_WN_Gender>
+  <RL_WN_WorkClothing>roupa de trabalho para outro ofício que o de {0}</RL_WN_WorkClothing>
+  <RL_WN_Stockpile>não está num estoque (só equipamento estocado é pego)</RL_WN_Stockpile>
+  <RL_WN_Forbidden>proibido</RL_WN_Forbidden>
+  <RL_WN_Damaged>danificado demais</RL_WN_Damaged>
+  <RL_WN_Policy>não permitido pela política de roupas de {0}</RL_WN_Policy>
+  <RL_WN_Protected>substituiria algo que {0} deve manter</RL_WN_Protected>
+  <RL_WN_NotBetter>não é melhor do que o que {0} tem</RL_WN_NotBetter>
+  <RL_WN_ArmorDown>pioraria a armadura de {0}</RL_WN_ArmorDown>
+  <RL_WN_Reach>{0} não consegue alcançar ou reservar</RL_WN_Reach>
+  <RL_WN_Candidate>{0} pode pegar na próxima verificação</RL_WN_Candidate>
+  <RL_WN_NotManaged>não é uma arma gerida pelo equipamento inteligente</RL_WN_NotManaged>
+  <RL_WN_Tool>uma ferramenta, não uma arma</RL_WN_Tool>
+  <RL_WN_Ammo>sem munição</RL_WN_Ammo>
+  <RL_WN_Flip>{0} vestia e tirava sem parar – dois dias sem usar</RL_WN_Flip>
+  <RL_WN_Recent>{0} tirou recentemente – espera um dia</RL_WN_Recent>
+  <RL_WN_LockBanned>proibido por você nas configurações</RL_WN_LockBanned>
+  <RL_WN_LockNotMade>bloqueado – ainda não fabricado na colônia</RL_WN_LockNotMade>
+  <RL_WN_LockResearch>bloqueado – falta pesquisa</RL_WN_LockResearch>
+  <RL_WN_LockOther>bloqueado pelo filtro</RL_WN_LockOther>
+  <RL_WN_Exempt>O equipamento inteligente está desligado para {0}</RL_WN_Exempt>
+  <RL_WN_WeaponsOff>troca de armas desligada</RL_WN_WeaponsOff>
+  <RL_WN_ApparelOff>troca de roupas desligada</RL_WN_ApparelOff>
+  <RL_WhyNotMenu>Linha «por que não» no clique direito</RL_WhyNotMenu>
+  <RL_WhyNotMenu_Desc>Com um colono selecionado, clique direito numa arma ou roupa mostra por que o Smart Colonist Gear não a dá a ele.</RL_WhyNotMenu_Desc>
 </LanguageData>

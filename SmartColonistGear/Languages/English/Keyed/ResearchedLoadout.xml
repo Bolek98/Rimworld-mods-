@@ -590,4 +590,35 @@
   <RL_GP_Auto_Desc>Once a day the planner adds "until you have X" bills for everything missing that has no bill yet.</RL_GP_Auto_Desc>
   <RL_GP_Added>Bill added: {0} at {1} ({2}).</RL_GP_Added>
   <RL_GP_AutoAdded>Gear planner added bills: {0}</RL_GP_AutoAdded>
+  <!-- 2.19.0: why not -->
+  <RL_WN_Prefix>Smart Gear:</RL_WN_Prefix>
+  <RL_WN_Worn>{0} already wears it</RL_WN_Worn>
+  <RL_WN_Queued>already on its way to {0}</RL_WN_Queued>
+  <RL_WN_Body>{0} can't wear it (body)</RL_WN_Body>
+  <RL_WN_CantEquip>{0} can't use it</RL_WN_CantEquip>
+  <RL_WN_Gender>made for the other gender</RL_WN_Gender>
+  <RL_WN_WorkClothing>work clothing for another job than {0}'s</RL_WN_WorkClothing>
+  <RL_WN_Stockpile>not in a stockpile (only stockpiled gear is taken)</RL_WN_Stockpile>
+  <RL_WN_Forbidden>forbidden</RL_WN_Forbidden>
+  <RL_WN_Damaged>too damaged</RL_WN_Damaged>
+  <RL_WN_Policy>not allowed by {0}'s outfit policy</RL_WN_Policy>
+  <RL_WN_Protected>would replace something {0} must keep (forced or required)</RL_WN_Protected>
+  <RL_WN_NotBetter>not better than what {0} has</RL_WN_NotBetter>
+  <RL_WN_ArmorDown>would lower {0}'s armor</RL_WN_ArmorDown>
+  <RL_WN_Reach>{0} can't reach or reserve it</RL_WN_Reach>
+  <RL_WN_Candidate>{0} may take it at the next check</RL_WN_Candidate>
+  <RL_WN_NotManaged>not a weapon Smart Gear handles</RL_WN_NotManaged>
+  <RL_WN_Tool>a tool, not a weapon</RL_WN_Tool>
+  <RL_WN_Ammo>no ammo for it</RL_WN_Ammo>
+  <RL_WN_Flip>{0} kept putting it on and off – left off for two days</RL_WN_Flip>
+  <RL_WN_Recent>{0} took it off recently – waits a day</RL_WN_Recent>
+  <RL_WN_LockBanned>banned by you in the settings</RL_WN_LockBanned>
+  <RL_WN_LockNotMade>locked – not crafted in the colony yet</RL_WN_LockNotMade>
+  <RL_WN_LockResearch>locked – research missing</RL_WN_LockResearch>
+  <RL_WN_LockOther>locked by the filter</RL_WN_LockOther>
+  <RL_WN_Exempt>Smart Gear is off for {0}</RL_WN_Exempt>
+  <RL_WN_WeaponsOff>weapon changes are off in the settings</RL_WN_WeaponsOff>
+  <RL_WN_ApparelOff>apparel changes are off in the settings</RL_WN_ApparelOff>
+  <RL_WhyNotMenu>Right-click line 'why not'</RL_WhyNotMenu>
+  <RL_WhyNotMenu_Desc>With a colonist selected, right-clicking a weapon or a piece of clothing shows why Smart Colonist Gear does not give it to him.</RL_WhyNotMenu_Desc>
 </LanguageData>

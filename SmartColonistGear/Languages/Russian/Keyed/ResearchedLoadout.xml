@@ -590,4 +590,35 @@
   <RL_GP_Auto_Desc>Раз в день планировщик добавляет задания «пока не будет X» на всё, чего не хватает и на что ещё нет задания.</RL_GP_Auto_Desc>
   <RL_GP_Added>Задание добавлено: {0} на {1} ({2}).</RL_GP_Added>
   <RL_GP_AutoAdded>Планировщик снаряжения добавил задания: {0}</RL_GP_AutoAdded>
+  <!-- 2.19.0: why not -->
+  <RL_WN_Prefix>Умное снаряжение:</RL_WN_Prefix>
+  <RL_WN_Worn>{0} уже носит это</RL_WN_Worn>
+  <RL_WN_Queued>уже несут для {0}</RL_WN_Queued>
+  <RL_WN_Body>{0} не может это надеть (тело)</RL_WN_Body>
+  <RL_WN_CantEquip>{0} не может это использовать</RL_WN_CantEquip>
+  <RL_WN_Gender>для другого пола</RL_WN_Gender>
+  <RL_WN_WorkClothing>рабочая одежда для другой работы, не для {0}</RL_WN_WorkClothing>
+  <RL_WN_Stockpile>не на складе (берётся только снаряжение со складов)</RL_WN_Stockpile>
+  <RL_WN_Forbidden>запрещено</RL_WN_Forbidden>
+  <RL_WN_Damaged>слишком повреждено</RL_WN_Damaged>
+  <RL_WN_Policy>не разрешено политикой одежды ({0})</RL_WN_Policy>
+  <RL_WN_Protected>заменило бы вещь, которую {0} должен носить</RL_WN_Protected>
+  <RL_WN_NotBetter>не лучше того, что есть у {0}</RL_WN_NotBetter>
+  <RL_WN_ArmorDown>ухудшило бы броню ({0})</RL_WN_ArmorDown>
+  <RL_WN_Reach>{0} не может дойти или зарезервировать</RL_WN_Reach>
+  <RL_WN_Candidate>{0} может взять при следующей проверке</RL_WN_Candidate>
+  <RL_WN_NotManaged>это оружие не управляется умным снаряжением</RL_WN_NotManaged>
+  <RL_WN_Tool>это инструмент, а не оружие</RL_WN_Tool>
+  <RL_WN_Ammo>нет боеприпасов</RL_WN_Ammo>
+  <RL_WN_Flip>{0} постоянно надевал и снимал – пропущено на два дня</RL_WN_Flip>
+  <RL_WN_Recent>{0} недавно снял – ждём день</RL_WN_Recent>
+  <RL_WN_LockBanned>запрещено вами в настройках</RL_WN_LockBanned>
+  <RL_WN_LockNotMade>заблокировано – ещё не изготовлено в колонии</RL_WN_LockNotMade>
+  <RL_WN_LockResearch>заблокировано – нет исследования</RL_WN_LockResearch>
+  <RL_WN_LockOther>заблокировано фильтром</RL_WN_LockOther>
+  <RL_WN_Exempt>Умное снаряжение отключено для {0}</RL_WN_Exempt>
+  <RL_WN_WeaponsOff>смена оружия отключена в настройках</RL_WN_WeaponsOff>
+  <RL_WN_ApparelOff>смена одежды отключена в настройках</RL_WN_ApparelOff>
+  <RL_WhyNotMenu>Строка «почему нет» по правому клику</RL_WhyNotMenu>
+  <RL_WhyNotMenu_Desc>Когда выбран колонист, правый клик по оружию или одежде показывает, почему Smart Colonist Gear её не выдаёт.</RL_WhyNotMenu_Desc>
 </LanguageData>

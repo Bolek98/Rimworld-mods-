@@ -590,4 +590,35 @@
   <RL_GP_Auto_Desc>1日1回、プランナーが不足していてまだ作業指示がない物すべてに「X個になるまで」の作業指示を追加します。</RL_GP_Auto_Desc>
   <RL_GP_Added>作業指示を追加：{0}（{1}、{2}）。</RL_GP_Added>
   <RL_GP_AutoAdded>装備プランナーが作業指示を追加：{0}</RL_GP_AutoAdded>
+  <!-- 2.19.0: why not -->
+  <RL_WN_Prefix>スマート装備:</RL_WN_Prefix>
+  <RL_WN_Worn>{0}はすでに着ている</RL_WN_Worn>
+  <RL_WN_Queued>すでに{0}が取りに向かっている</RL_WN_Queued>
+  <RL_WN_Body>{0}は着られない（体）</RL_WN_Body>
+  <RL_WN_CantEquip>{0}は使えない</RL_WN_CantEquip>
+  <RL_WN_Gender>別の性別用</RL_WN_Gender>
+  <RL_WN_WorkClothing>{0}とは別の仕事用の作業着</RL_WN_WorkClothing>
+  <RL_WN_Stockpile>備蓄庫にない（備蓄された装備のみ使う）</RL_WN_Stockpile>
+  <RL_WN_Forbidden>禁止</RL_WN_Forbidden>
+  <RL_WN_Damaged>損傷がひどい</RL_WN_Damaged>
+  <RL_WN_Policy>{0}の服装ポリシーで許可されていない</RL_WN_Policy>
+  <RL_WN_Protected>{0}が残すべき物と入れ替わる</RL_WN_Protected>
+  <RL_WN_NotBetter>{0}の今の物より良くない</RL_WN_NotBetter>
+  <RL_WN_ArmorDown>{0}の防具が弱くなる</RL_WN_ArmorDown>
+  <RL_WN_Reach>{0}が到達または予約できない</RL_WN_Reach>
+  <RL_WN_Candidate>次の確認で{0}が取るかもしれない</RL_WN_Candidate>
+  <RL_WN_NotManaged>スマート装備が扱う武器ではない</RL_WN_NotManaged>
+  <RL_WN_Tool>武器ではなく道具</RL_WN_Tool>
+  <RL_WN_Ammo>弾薬がない</RL_WN_Ammo>
+  <RL_WN_Flip>{0}が着脱を繰り返した – 2日間見送り</RL_WN_Flip>
+  <RL_WN_Recent>{0}が最近脱いだ – 1日待つ</RL_WN_Recent>
+  <RL_WN_LockBanned>設定であなたが禁止した</RL_WN_LockBanned>
+  <RL_WN_LockNotMade>ロック – まだコロニーで作られていない</RL_WN_LockNotMade>
+  <RL_WN_LockResearch>ロック – 研究が足りない</RL_WN_LockResearch>
+  <RL_WN_LockOther>フィルターでロック</RL_WN_LockOther>
+  <RL_WN_Exempt>{0}のスマート装備はオフ</RL_WN_Exempt>
+  <RL_WN_WeaponsOff>武器の変更は設定でオフ</RL_WN_WeaponsOff>
+  <RL_WN_ApparelOff>服の変更は設定でオフ</RL_WN_ApparelOff>
+  <RL_WhyNotMenu>右クリックに「なぜ取らない」の行</RL_WhyNotMenu>
+  <RL_WhyNotMenu_Desc>入植者を選択中に武器や服を右クリックすると、Smart Colonist Gear が渡さない理由を表示します。</RL_WhyNotMenu_Desc>
 </LanguageData>

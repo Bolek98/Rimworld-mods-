@@ -590,4 +590,35 @@
   <RL_GP_Auto_Desc>Une fois par jour, le planificateur ajoute des ordres « jusqu'à avoir X » pour tout ce qui manque et n'a pas encore d'ordre.</RL_GP_Auto_Desc>
   <RL_GP_Added>Ordre ajouté : {0} à {1} ({2}).</RL_GP_Added>
   <RL_GP_AutoAdded>Le planificateur d'équipement a ajouté des ordres : {0}</RL_GP_AutoAdded>
+  <!-- 2.19.0: why not -->
+  <RL_WN_Prefix>Équipement malin :</RL_WN_Prefix>
+  <RL_WN_Worn>{0} le porte déjà</RL_WN_Worn>
+  <RL_WN_Queued>déjà en route vers {0}</RL_WN_Queued>
+  <RL_WN_Body>{0} ne peut pas le porter (corps)</RL_WN_Body>
+  <RL_WN_CantEquip>{0} ne peut pas l'utiliser</RL_WN_CantEquip>
+  <RL_WN_Gender>fait pour l'autre genre</RL_WN_Gender>
+  <RL_WN_WorkClothing>vêtement de travail pour un autre métier que celui de {0}</RL_WN_WorkClothing>
+  <RL_WN_Stockpile>pas dans un stock (seul l'équipement stocké est pris)</RL_WN_Stockpile>
+  <RL_WN_Forbidden>interdit</RL_WN_Forbidden>
+  <RL_WN_Damaged>trop abîmé</RL_WN_Damaged>
+  <RL_WN_Policy>non autorisé par la tenue de {0}</RL_WN_Policy>
+  <RL_WN_Protected>remplacerait quelque chose que {0} doit garder</RL_WN_Protected>
+  <RL_WN_NotBetter>pas meilleur que ce que {0} a</RL_WN_NotBetter>
+  <RL_WN_ArmorDown>réduirait l'armure de {0}</RL_WN_ArmorDown>
+  <RL_WN_Reach>{0} ne peut pas l'atteindre ou le réserver</RL_WN_Reach>
+  <RL_WN_Candidate>{0} le prendra peut-être au prochain contrôle</RL_WN_Candidate>
+  <RL_WN_NotManaged>pas une arme gérée par l'équipement malin</RL_WN_NotManaged>
+  <RL_WN_Tool>un outil, pas une arme</RL_WN_Tool>
+  <RL_WN_Ammo>pas de munitions</RL_WN_Ammo>
+  <RL_WN_Flip>{0} le mettait et l'enlevait sans cesse – laissé deux jours</RL_WN_Flip>
+  <RL_WN_Recent>{0} l'a retiré récemment – attend un jour</RL_WN_Recent>
+  <RL_WN_LockBanned>interdit par vous dans les réglages</RL_WN_LockBanned>
+  <RL_WN_LockNotMade>verrouillé – pas encore fabriqué dans la colonie</RL_WN_LockNotMade>
+  <RL_WN_LockResearch>verrouillé – recherche manquante</RL_WN_LockResearch>
+  <RL_WN_LockOther>verrouillé par le filtre</RL_WN_LockOther>
+  <RL_WN_Exempt>L'équipement malin est désactivé pour {0}</RL_WN_Exempt>
+  <RL_WN_WeaponsOff>le changement d'armes est désactivé</RL_WN_WeaponsOff>
+  <RL_WN_ApparelOff>le changement de vêtements est désactivé</RL_WN_ApparelOff>
+  <RL_WhyNotMenu>Ligne « pourquoi pas » au clic droit</RL_WhyNotMenu>
+  <RL_WhyNotMenu_Desc>Avec un colon sélectionné, un clic droit sur une arme ou un vêtement indique pourquoi Smart Colonist Gear ne le lui donne pas.</RL_WhyNotMenu_Desc>
 </LanguageData>

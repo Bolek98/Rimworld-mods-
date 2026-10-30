@@ -346,6 +346,7 @@ namespace ResearchedLoadout
 		{
 			Listing_Standard listing_Standard = Begin(r);
 			Check(listing_Standard, "RL_OwnDresser", ref Settings.useOwnDresser, "useOwnDresser");
+			Check(listing_Standard, "RL_WhyNotMenu", ref Settings.whyNotMenu, "whyNotMenu");
 			Check(listing_Standard, "RL_AutoApparel", ref Settings.autoEquipApparel, "autoEquipApparel");
 			Check(listing_Standard, "RL_OnlyStockpile", ref Settings.onlyFromStockpile, "onlyFromStockpile");
 			Check(listing_Standard, "RL_EnemyLoot", ref Settings.enemyLootFromStorage, "enemyLootFromStorage");
@@ -4865,6 +4866,7 @@ namespace ResearchedLoadout
 
 		public bool autoEquipApparel = true;
 
+		public bool whyNotMenu = true;   // 2.19.0: right-click line 'why not'
 		public bool useOwnDresser;
 
 		public bool onlyFromStockpile;
@@ -5013,6 +5015,7 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref ownMaxMass, "ownMaxMass", 0f);
 			Scribe_Values.Look(ref autoEquipApparel, "autoEquipApparel", true);
 			Scribe_Values.Look(ref useOwnDresser, "useOwnDresser", false);
+			Scribe_Values.Look(ref whyNotMenu, "whyNotMenu", true);
 			Scribe_Values.Look(ref onlyFromStockpile, "onlyFromStockpile", false);
 			Scribe_Values.Look(ref blockLockedEquip, "blockLockedEquip", true);
 			Scribe_Values.Look(ref blockLockedApparel, "blockLockedApparel", true);
@@ -6557,7 +6560,7 @@ namespace ResearchedLoadout
 			catch (Exception ex) { MLog.Warn("[Smart Colonist Gear] report: " + ex); }
 		}
 
-		private string ApparelSkip(Pawn pawn, Apparel apparel)
+		internal string ApparelSkip(Pawn pawn, Apparel apparel)
 		{
 			if (apparel.Destroyed || !apparel.Spawned) return "gone";
 			if (pawn.apparel.WornApparel.Contains(apparel)) return "worn";
@@ -6576,12 +6579,14 @@ namespace ResearchedLoadout
 			if (WouldReplaceProtected(pawn, apparel)) return "would replace protected";
 			if (SameKindNotBetter(pawn, apparel)) return "same kind not better";
 			if (LoadoutFilter.WouldDowngradeArmor(pawn, apparel)) return "armor downgrade";
+			if (ApparelFlip.Blocked(pawn, apparel.def)) return "flip blocked";
+			if (!gap && ApparelMemory.RecentlyRemoved(pawn, apparel.def) && !LoadoutFilter.FreezingOrOverheating(pawn) && !GearSense.MayWearAgain(pawn, apparel)) return "recently removed";
 			if (!CanWearWithCurrent(pawn, apparel) && !WorthReplacing(pawn, apparel)) return "not worth replacing";
 			if (!pawn.CanReserveAndReach(apparel, PathEndMode.ClosestTouch, Danger.Some)) return "can't reach/reserve";
 			return "candidate";
 		}
 
-		private string WeaponSkip(Pawn pawn, Thing thing)
+		internal string WeaponSkip(Pawn pawn, Thing thing)
 		{
 			if (thing == null || thing.Destroyed || !thing.Spawned || thing.def == null) return "gone";
 			if (!LoadoutFilter.IsManagedWeapon(thing.def)) return "not managed";
