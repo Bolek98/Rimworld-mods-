@@ -33,6 +33,7 @@ namespace AutoTurrets
 		public bool specialOnlyPicked = false;   // 1.5.0: haulers bring special shells (EMP, incendiary, firefoam) only to a mortar set to them
 		public bool shellsFromMaterial = true;  // 1.6.0: mortars and artillery are loaded with material instead of shells
 		public int shellCost = 10;              // 1.6.0: material for one shell
+		public bool stunRunaways = true;        // 1.2.0: stun turrets shoot at escaping or rebelling prisoners and slaves
 
 		public override void ExposeData()
 		{
@@ -58,6 +59,7 @@ namespace AutoTurrets
 			Scribe_Values.Look(ref freeAmmo, "freeAmmo", false);
 			Scribe_Values.Look(ref shellsFromMaterial, "shellsFromMaterial", true);
 			Scribe_Values.Look(ref shellCost, "shellCost", 10);
+			Scribe_Values.Look(ref stunRunaways, "stunRunaways", true);
 			if (autoPick == null) autoPick = new Dictionary<string, bool>();
 			if (fuelExtra == null) fuelExtra = new List<string>();
 			if (Scribe.mode == LoadSaveMode.PostLoadInit && wallPick == null)
@@ -122,6 +124,7 @@ namespace AutoTurrets
 					l.CheckboxLabeled("AT_SpecialOnlyPicked".Translate(), ref S.specialOnlyPicked, "AT_SpecialOnlyPicked_Desc".Translate());
 					l.CheckboxLabeled("AT_FriendlyFire".Translate(), ref S.friendlyFire, "AT_FriendlyFire_Desc".Translate());
 					l.CheckboxLabeled("AT_NoHitBuildings".Translate(), ref S.noHitBuildings, "AT_NoHitBuildings_Desc".Translate());
+					l.CheckboxLabeled("AT_StunRunaways".Translate(), ref S.stunRunaways, "AT_StunRunaways_Desc".Translate());
 				}
 				else
 				{
@@ -494,6 +497,9 @@ namespace AutoTurrets
 		public static bool Friendly(Thing t)
 		{
 			if (!(t is Pawn p) || p.Dead)
+				return false;
+			// 1.2.0: a prisoner or slave breaking out is no friend
+			if (StunTurrets.Runaway(p))
 				return false;
 			if (p.Faction == Faction.OfPlayer || p.HostFaction == Faction.OfPlayer)
 				return true;
