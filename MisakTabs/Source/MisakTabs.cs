@@ -26,6 +26,7 @@ namespace MisakTabs
         public float charW = 820f, charH = 560f, socialW = 800f, socialH = 540f;      // 0.9.0
         public bool needs = true, billDialog = true;                                  // 0.11.0
         public float needsW = 640f, needsH = 520f;                                    // 0.11.0
+        public bool paneLook = true;                                                  // 0.12.0
 
         public override void ExposeData()
         {
@@ -47,6 +48,7 @@ namespace MisakTabs
             Scribe_Values.Look(ref socialH, "socialH", 540f);
             Scribe_Values.Look(ref needs, "needs", true);
             Scribe_Values.Look(ref billDialog, "billDialog", true);
+            Scribe_Values.Look(ref paneLook, "paneLook", true);
             Scribe_Values.Look(ref needsW, "needsW", 640f);
             Scribe_Values.Look(ref needsH, "needsH", 520f);
         }
@@ -54,7 +56,7 @@ namespace MisakTabs
 
     public class MTMod : Mod
     {
-        public const string Version = "0.11.0";
+        public const string Version = "0.12.0";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0
@@ -75,6 +77,7 @@ namespace MisakTabs
             PawnTabs.Patch(H);   // 0.9.0
             NeedsTab.Patch(H);   // 0.11.0
             BillDialogSwap.Patch(H); // 0.11.0
+            InspectPaneLook.Patch(H); // 0.12.0
             LongEventHandler.ExecuteWhenFinished(BillsTab.TakeOver);
             LongEventHandler.ExecuteWhenFinished(HealthTab.TakeOver);
             Log.Message("[Mišák Tabs] v" + Version + " loaded.");
@@ -107,6 +110,7 @@ namespace MisakTabs
                 Check(l, "MT_Social", ref S.social, "social");
                 Check(l, "MT_Needs", ref S.needs, "needs");
                 Check(l, "MT_BillDialog", ref S.billDialog, "billDialog");
+                Check(l, "MT_PaneLook", ref S.paneLook, "paneLook");
                 l.End();
             }
             finally { MUI.EndLock(rest); }

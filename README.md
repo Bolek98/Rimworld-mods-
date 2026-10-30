@@ -26,7 +26,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Matchmaker | 0.1.1 | [Matchmaker](Matchmaker) |
 | Mech Commander | 0.1.3 | [MechCommander](MechCommander) |
 | Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
-| Mišák Tabs – Clear Bills, Health & Info | 0.11.0 | [MisakTabs](MisakTabs) |
+| Mišák Tabs – Clear Bills, Health & Info | 0.12.0 | [MisakTabs](MisakTabs) |
 | Mod Sort Manager – Load Order, Conflicts & Profiles | 0.3.4 | [ModSortManager](ModSortManager) |
 | Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
