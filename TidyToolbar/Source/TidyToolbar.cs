@@ -41,6 +41,9 @@ namespace TidyToolbar
         public bool clockCompact;
         public bool clockFree;
         public float clockX = -1f, clockY = -1f;
+        public bool clockFreeWorld;                         // 1.2.0: floats on the world map too (own place)
+        public float clockWX = -1f, clockWY = -1f;
+        public bool raidTimer = true;                       // 1.2.0: attack stopwatch
         public bool clockWeather = true;
         public bool clockHoliday = true;
         public bool clockColony;
@@ -73,6 +76,10 @@ namespace TidyToolbar
             Scribe_Values.Look(ref clockFree, "clockFree", false);
             Scribe_Values.Look(ref clockX, "clockX", -1f);
             Scribe_Values.Look(ref clockY, "clockY", -1f);
+            Scribe_Values.Look(ref clockFreeWorld, "clockFreeWorld", false);
+            Scribe_Values.Look(ref clockWX, "clockWX", -1f);
+            Scribe_Values.Look(ref clockWY, "clockWY", -1f);
+            Scribe_Values.Look(ref raidTimer, "raidTimer", true);
             Scribe_Values.Look(ref clockWeather, "clockWeather", true);
             Scribe_Values.Look(ref clockHoliday, "clockHoliday", true);
             Scribe_Values.Look(ref clockColony, "clockColony", false);
@@ -93,7 +100,7 @@ namespace TidyToolbar
 
     public sealed class TidyToolbarMod : Mod
     {
-        public const string Version = "1.1.0";
+        public const string Version = "1.2.0";
         public static TTSettings S;
         private Vector2 scroll;
 
@@ -127,6 +134,9 @@ namespace TidyToolbar
                 S.clockSize = (S.clockSize + 1) % 3;
             l.CheckboxLabeled("TT_ClockCompactL".Translate(), ref S.clockCompact, "TT_ClockCompactTip".Translate());
             l.CheckboxLabeled("TT_ClockFreeL".Translate(), ref S.clockFree, "TT_ClockFreeTip".Translate());
+            if (S.clockFree)
+                l.CheckboxLabeled("    " + "TT_ClockFreeWorldL".Translate(), ref S.clockFreeWorld, "TT_ClockFreeWorldTip".Translate());
+            l.CheckboxLabeled("TT_RaidTimerL".Translate(), ref S.raidTimer, "TT_RaidTimerTip".Translate());
             l.CheckboxLabeled("TT_ClockWeatherL".Translate(), ref S.clockWeather);
             l.CheckboxLabeled("TT_ClockHolidayL".Translate(), ref S.clockHoliday, "TT_ClockHolidayTip".Translate());
             l.CheckboxLabeled("TT_ClockColonyL".Translate(), ref S.clockColony, "TT_ClockColonyTip".Translate());

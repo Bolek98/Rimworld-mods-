@@ -59,6 +59,7 @@ namespace TidyToolbar
                 h.Patch(AccessTools.PropertyGetter(typeof(DateReadout), nameof(DateReadout.Height)), postfix: new HarmonyMethod(typeof(Clock), nameof(HeightPostfix)));
                 h.Patch(AccessTools.Method(typeof(DateReadout), nameof(DateReadout.DateOnGUI)), prefix: new HarmonyMethod(typeof(Clock), nameof(DatePrefix)) { priority = Priority.First });
                 h.Patch(AccessTools.Method(typeof(MapInterface), nameof(MapInterface.MapInterfaceOnGUI_AfterMainTabs)), postfix: new HarmonyMethod(typeof(Clock), nameof(FreeOnGUI)));
+                h.Patch(AccessTools.Method(typeof(WorldInterface), nameof(WorldInterface.WorldInterfaceOnGUI)), postfix: new HarmonyMethod(typeof(Clock), nameof(FreeOnGUIWorld)));
             }
             catch (Exception e) { Log.Warning("[Tidy Toolbar] clock: " + e.Message); }
             try
@@ -71,7 +72,11 @@ namespace TidyToolbar
         }
 
         private static bool Active => S != null && S.clockOn && !failed;
-        private static bool FreeNow => S.clockFree && !WorldRendererUtility.WorldSelected;
+        private static bool World => WorldRendererUtility.WorldSelected;
+        // 1.2.0: on the world map it floats too when chosen, with its own place
+        private static bool FreeNow => S.clockFree && (!World || S.clockFreeWorld);
+        private static float PosX { get => World ? S.clockWX : S.clockX; set { if (World) S.clockWX = value; else S.clockX = value; } }
+        private static float PosY { get => World ? S.clockWY : S.clockY; set { if (World) S.clockWY = value; else S.clockY = value; } }
 
         // ---------------- where it is drawn ----------------
         public static void HeightPostfix(ref float __result)
@@ -102,16 +107,26 @@ namespace TidyToolbar
         private static bool dragging, dragMoved;
         private static Vector2 dragOffset, dragStart;
 
+        public static void FreeOnGUIWorld()
+        {
+            if (World) FreeDraw();
+        }
+
         public static void FreeOnGUI()
         {
-            if (!Active || !FreeNow || Find.CurrentMap == null) return;
+            if (!World && Find.CurrentMap != null) FreeDraw();
+        }
+
+        private static void FreeDraw()
+        {
+            if (!Active || !FreeNow) return;
             try
             {
                 Vector2 sz = Size();
-                if (S.clockX < 0f || S.clockY < 0f) { S.clockX = UI.screenWidth - sz.x - 160f; S.clockY = UI.screenHeight - sz.y - 120f; }
-                S.clockX = Mathf.Clamp(S.clockX, 0f, UI.screenWidth - sz.x);
-                S.clockY = Mathf.Clamp(S.clockY, 0f, UI.screenHeight - sz.y);
-                Rect r = new Rect(S.clockX, S.clockY, sz.x, sz.y);
+                if (PosX < 0f || PosY < 0f) { PosX = UI.screenWidth - sz.x - 160f; PosY = UI.screenHeight - sz.y - 120f; }
+                PosX = Mathf.Clamp(PosX, 0f, UI.screenWidth - sz.x);
+                PosY = Mathf.Clamp(PosY, 0f, UI.screenHeight - sz.y);
+                Rect r = new Rect(PosX, PosY, sz.x, sz.y);
                 Widgets.DrawWindowBackground(r);
                 Draw(r.ContractedBy(2f), true);
             }
@@ -137,6 +152,7 @@ namespace TidyToolbar
                     h += 22f;             // season, weather, temperature
                     if (S.clockHoliday && HolidayToday() != null) h += 20f;
                     if (S.clockColony) h += 20f;
+                    if (S.raidTimer && RaidWatch.Active(Find.CurrentMap)) h += 20f;
                 }
             }
             float w = S.clockCompact ? (S.clockSize == 2 ? 150f : 120f) : (S.clockSize == 0 ? 190f : S.clockSize == 1 ? 220f : 240f);
@@ -246,6 +262,12 @@ namespace TidyToolbar
                         Widgets.Label(new Rect(r.x, y, r.width - 7f, 20f), ColonyLine(map));
                         y += 20f;
                     }
+                    if (S.raidTimer && RaidWatch.Active(map))
+                    {
+                        GUI.color = new Color(1f, 0.45f, 0.4f);
+                        Widgets.Label(new Rect(r.x, y, r.width - 7f, 20f), "TT_RaidNow".Translate(RaidWatch.Duration(map)));
+                        y += 20f;
+                    }
                     GUI.color = Color.white;
                     Text.Font = GameFont.Small;
                 }
@@ -261,13 +283,13 @@ namespace TidyToolbar
                     dragging = true;
                     dragMoved = false;
                     dragStart = ev.mousePosition;
-                    dragOffset = ev.mousePosition - new Vector2(S.clockX, S.clockY);
+                    dragOffset = ev.mousePosition - new Vector2(PosX, PosY);
                     ev.Use();
                 }
                 else if (dragging && ev.type == EventType.MouseDrag)
                 {
                     if ((ev.mousePosition - dragStart).sqrMagnitude > 16f) dragMoved = true;
-                    if (dragMoved) { S.clockX = ev.mousePosition.x - dragOffset.x; S.clockY = ev.mousePosition.y - dragOffset.y; }
+                    if (dragMoved) { PosX = ev.mousePosition.x - dragOffset.x; PosY = ev.mousePosition.y - dragOffset.y; }
                     ev.Use();
                 }
                 else if (dragging && (ev.rawType == EventType.MouseUp || ev.type == EventType.MouseUp))
@@ -523,6 +545,11 @@ namespace TidyToolbar
         {
             TTSettings S = TidyToolbarMod.S;
             if (S == null || Find.TickManager.TicksGame % 30 != 0) return;
+            if (S.raidTimer && Find.TickManager.TicksGame % 120 == 0)
+            {
+                try { RaidWatch.Tick(); }
+                catch (Exception e) { Log.WarningOnce("[Tidy Toolbar] raid timer: " + e.Message, 0x7d1ea2); }
+            }
             if (!S.alarmOn && !S.duskWarn) return;
             try
             {
@@ -609,6 +636,46 @@ namespace TidyToolbar
                 Clock.Save();
                 Close();
             }
+        }
+    }
+
+    // 1.2.0: how long an attack takes – from the first hostile on a home map until none is left
+    public static class RaidWatch
+    {
+        private static readonly Dictionary<int, int> started = new Dictionary<int, int>();
+
+        public static bool Active(Map map) => map != null && started.ContainsKey(map.uniqueID);
+
+        public static string Duration(Map map)
+        {
+            if (map == null || !started.TryGetValue(map.uniqueID, out int t)) return "";
+            return Span(Find.TickManager.TicksGame - t);
+        }
+
+        public static string Span(int ticks)
+        {
+            int min = Mathf.Max(0, ticks) * 24 * 60 / 60000;
+            return (min / 60) + ":" + (min % 60).ToString("00") + " h";
+        }
+
+        public static void Tick()
+        {
+            int now = Find.TickManager.TicksGame;
+            foreach (Map map in Find.Maps)
+            {
+                if (!map.IsPlayerHome) continue;
+                bool threat = GenHostility.AnyHostileActiveThreatToPlayer(map);
+                bool was = started.TryGetValue(map.uniqueID, out int t);
+                if (threat && !was) started[map.uniqueID] = now;
+                else if (!threat && was)
+                {
+                    started.Remove(map.uniqueID);
+                    if (now - t > 600)
+                        Messages.Message("TT_RaidOver".Translate(Span(now - t)), MessageTypeDefOf.NeutralEvent, false);
+                }
+            }
+            foreach (int id in new List<int>(started.Keys))
+                if (Find.Maps.All(m => m.uniqueID != id)) started.Remove(id);
         }
     }
 }
