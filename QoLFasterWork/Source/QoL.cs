@@ -89,7 +89,7 @@ namespace QoLFW
 
     public class QoLMod : Mod
     {
-        public const string Version = "1.0.1";
+        public const string Version = "1.0.0";
         public static QSettings S;
         public static string StacksAtStart;   // what the stack size was set to when the game started
         private static List<string> recBullets;

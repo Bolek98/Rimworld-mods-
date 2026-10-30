@@ -3,7 +3,7 @@
   <name>Auto Turrets – No Crew, No Shells, No Friendly Fire</name>
   <author>Bolek98</author>
   <packageId>bolek98.autoturrets</packageId>
-  <modVersion>1.6.2</modVersion>
+  <modVersion>1.1.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -18,52 +18,62 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>No more colonists stuck behind a mortar or a manned gun: every turret, mortar and gun emplacement – vanilla and from any mod – fires on its own, gets its shells brought by haulers and never hits your own people.
+  <description>Your turrets fight on their own – no crew, no shells, no friendly fire.
 
-- Manned turrets shoot on their own: turrets that normally need a colonist fire automatically, like a mini-turret. You can still pick a target by hand.
-- Mortars fire on their own while a shell is loaded.
-- Haulers bring shells to empty mortars (Hauling work); the mortar's own shell filter is respected.
-- Mortar safety: an automatic mortar skips targets where the shell could land on your colonists, animals or guests (extra safety distance adjustable).
-- Turrets that rearm with steel (or another single metal) accept any metal: plasteel, gold, uranium and metals from mods (silver optional) – and optionally wood or stone blocks.
-- Friendly fire switch: turn it off and your turrets never hit your colonists, guests or allies – neither bullets nor shell blasts.
-- Smart shell choice: automatic mortars fire EMP only at mechanoids and shielded enemies, firefoam only at fires in your home area, and haulers bring the shell that suits the current enemies.
-- Optional: your turrets don't hit your own buildings (walls, sandbags…) – bullets fly past them and shell blasts spare them.
-- Turrets in walls (optional, off by default): pick turrets in the settings and they get a version that is built straight over a wall and works as a wall itself – blocks the way, holds the roof, keeps the room sealed. Small turrets are recommended.
-- Turrets in walls shoot only outward – at targets on the outer side of their wall (option, on by default).
-- Pick which turrets fire on their own – keep the big guns you want to aim yourself manned.
-- Materials for every turret: tick what each turret may be rearmed with – also modded turrets that need their own ammo or fuel.
+Stop wasting colonists behind mortars and manned guns. Every turret, mortar and artillery piece – vanilla and from any mod – fires by itself, reloads from the materials you already have, and never shoots your own people.
 
-Only your own turrets change – enemy siege mortars still need their crew. Every part can be switched in the mod settings. Safe to add to an existing save. Requires Harmony. 12 languages.
+WHAT YOU GET
+- No crew needed – manned turrets and mortars fire on their own like a mini-turret. You can still pick targets by hand.
+- No shells needed – mortars, artillery and field guns are loaded with steel or any other metal (10 per shot, adjustable). Or switch on "no ammo" and they never run out.
+- Haulers do the reloading – empty guns are loaded automatically, also the manned ones.
+- No friendly fire – optionally your turrets never hit colonists, guests, allies or your own walls, neither bullets nor shell blasts.
+- Safe mortars – an automatic mortar skips targets where the shell could land on your people.
+- Smart shells – EMP only at mechanoids and shields, firefoam only at fires in your home area.
+- Works with modded turrets – Vanilla Factions Expanded Security artillery (also world-map artillery and the automated mortar), Pirates field guns and turrets from other mods.
+- Turrets in walls (optional) – small turrets built straight into your walls, shooting only outward.
+- Turrets tab – pick which turrets fire alone and what each one may be reloaded with.
 
-
-简体中文：所有需要人操作的炮塔和迫击炮（原版和模组）都能自动开火，搬运工会送炮弹，可关闭友军误伤，每个炮塔可选择补给材料。
-
-Русский: все турели и миномёты, которым нужен колонист (ванильные и из модов), стреляют сами, снаряды подносят носильщики, огонь по своим можно отключить, для каждой турели можно выбрать материалы перезарядки.
-
-한국어: 정착민이 필요한 모든 포탑과 박격포(바닐라와 모드)가 스스로 사격하고, 운반꾼이 포탄을 가져다주며, 아군 오사를 끌 수 있고, 포탑마다 보급 재료를 고를 수 있습니다.
-
-日本語：人手が必要なタレットと迫撃砲（バニラもMODも）がすべて自動で射撃し、運搬係が砲弾を運び、味方への誤射をオフにでき、タレットごとに補給素材を選べます。
-
-Deutsch: Alle bemannten Geschütze und Mörser (Vanilla und aus Mods) feuern von selbst, Träger bringen Granaten, Eigenbeschuss lässt sich abschalten, und für jedes Geschütz wählst du die Nachlade-Materialien.
-
-Español: todas las torretas y morteros que necesitan un colono (vanilla y de mods) disparan solos, los porteadores traen proyectiles, el fuego amigo se puede desactivar y eliges los materiales de recarga de cada torreta.
+Only your own turrets change – enemy siege mortars still need their crew. Every part can be switched off. Safe to add to an existing save. Requires Harmony. RimWorld 1.6 and 1.7. 12 languages.
+Found a bug? Use "Report a bug" (bottom left in the settings) and post it in the comments.
 
 ---
 
-Každá věž, minomet a dělo – z vanilly i z jakéhokoli modu – funguje bez kolonisty.
+Tvoje věže bojují samy – bez obsluhy, bez granátů, bez palby do vlastních.
 
-- Obsluhované věže střílí samy: věže, které normálně potřebují kolonistu, střílí automaticky jako minivěž. Cíl můžeš dál vybrat ručně.
-- Minomety střílí samy, dokud mají nabitý granát.
-- Nosiči nosí granáty k prázdným minometům (práce Nošení); filtr granátů minometu se dodrží.
-- Bezpečnost minometů: automatický minomet vynechá cíle, kde by granát mohl dopadnout na tvé kolonisty, zvířata nebo hosty (bezpečnou vzdálenost lze nastavit).
-- Věže, které se dobíjí ocelí (nebo jiným jedním kovem), vezmou jakýkoli kov: plastocel, zlato, uran i kovy z modů (stříbro volitelně) – a volitelně i dřevo nebo kamenné bloky.
-- Přepínač palby do vlastních: vypni ho a tvoje věže nikdy nezasáhnou tvé kolonisty, hosty ani spojence – ani střelou, ani výbuchem granátu.
-- Chytrá volba granátů: automatické minomety střílí EMP jen na mechanoidy a nepřátele se štítem, hasicí pěnu jen na požáry v domovské oblasti a nosiči přinesou granát, který se hodí na aktuální nepřátele.
-- Volitelně: tvoje věže nezasáhnou tvé vlastní budovy (zdi, pytle s pískem…) – střely je minou a výbuchy granátů je ušetří.
-- Věže ve zdi (volitelné, ve výchozím stavu vypnuto): vyber věže v nastavení a dostanou verzi, která se staví rovnou přes zeď a sama funguje jako zeď – nedá se jí projít, drží střechu a místnost zůstane uzavřená. Doporučené jsou malé věže.
-- Věže ve zdi střílí jen ven – na cíle na vnější straně své zdi (volba, ve výchozím stavu zapnutá).
-- Vyber, které věže střílí samy – velká děla, která chceš mířit sám, můžou dál potřebovat kolonistu.
-- Materiály pro každou věž: zaškrtni, čím se která věž smí dobíjet – i věže z modů, které potřebují vlastní náboje nebo palivo.
+Už žádní kolonisté zavření u minometů a obsluhovaných děl. Každá věž, minomet i dělo – z vanilly i z jakéhokoli modu – střílí sama, nabíjí se z materiálu, který už máš, a nikdy nezasáhne tvoje lidi.
 
-Mění se jen tvoje věže – nepřátelské obléhací minomety dál potřebují obsluhu. Každou část lze přepnout v nastavení modu. Lze bezpečně přidat do rozehrané hry. Vyžaduje Harmony. 12 jazyků.</description>
+CO UMÍ
+- Bez obsluhy – obsluhované věže a minomety střílí samy jako minivěž. Cíl můžeš dál vybrat ručně.
+- Bez granátů – minomety, děla a polní zbraně se nabíjí ocelí nebo jiným kovem (10 na výstřel, nastavitelné). Nebo zapni „bez munice“ a nikdy jim nedojde.
+- Nabíjí nosiči – prázdná děla se nabijí sama, i ta obsluhovaná.
+- Žádná palba do vlastních – volitelně tvoje věže nezasáhnou kolonisty, hosty, spojence ani tvoje zdi, ani střelou, ani výbuchem.
+- Bezpečné minomety – automatický minomet vynechá cíle, kde by granát mohl dopadnout na tvoje lidi.
+- Chytré granáty – EMP jen na mechanoidy a štíty, hasicí pěna jen na požáry v domovské oblasti.
+- Funguje s věžemi z modů – dělostřelectvo z Vanilla Factions Expanded Security (i střelba na mapu světa a automatický minomet), polní zbraně z Pirates a věže z dalších modů.
+- Věže ve zdi (volitelné) – malé věže postavené rovnou do zdi, střílí jen ven.
+- Záložka Věže – vybereš, které věže střílí samy a čím se která smí nabíjet.
+
+Mění se jen tvoje věže – nepřátelské obléhací minomety dál potřebují obsluhu. Každou část lze vypnout. Lze přidat do rozehrané hry. Vyžaduje Harmony. RimWorld 1.6 a 1.7. 12 jazyků.
+Našel jsi chybu? Použij „Nahlásit chybu“ (vlevo dole v nastavení) a napiš ji do komentářů.
+
+═══════════════════════
+IDEAS AND SUGGESTIONS
+Want something changed or added? Write it in the comments – I read every idea and take it into account.
+
+WHAT'S NEW IN 1.1.0
+- Mortars and artillery load with plain metal instead of shells
+- Optional: guns never run out of ammo
+- Turrets tab and per-turret ammo choice
+- Turrets in walls, safe mortars, smart shells
+- Works with VFE Security and Pirates guns
+
+NÁPADY A NÁVRHY
+Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
+
+CO JE NOVÉHO VE VERZI 1.1.0
+- Minomety a děla se nabíjí obyčejným kovem místo granátů
+- Volitelně: děla nikdy nedojde munice
+- Záložka Věže a volba munice pro každou věž
+- Věže ve zdi, bezpečné minomety, chytré granáty
+- Funguje s děly z VFE Security a Pirates</description>
 </ModMetaData>

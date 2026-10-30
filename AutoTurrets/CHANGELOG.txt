@@ -1,4 +1,30 @@
 === Not on the Workshop yet (test versions) ===
+1.1.0
+NEW
+- Mortars, artillery and field guns are loaded with plain metal instead of shells (10 per shell, adjustable). The VFE automated mortar refills its shell gauge from metal too.
+- "No ammo" option now covers mortars, artillery and field guns: a shell is always loaded and never used up (your own guns only).
+- Turrets tab: every turret, mortar and gun in one list – pick which fire on their own; "Materials…" and "Ammo" per turret.
+- Turrets in walls: built into your walls, drawn as part of the wall, shooting only outward.
+- Smart shells, "Turrets don't hit our buildings", safe mortars, a nicer settings page in tabs.
+- Vanilla Factions Expanded Security and Pirates guns work with automatic fire (also world-map artillery).
+
+FIXES
+- A turret or gun that kept calling itself (VFE Pirates field gun with a forced target) no longer crashes the game.
+- Turret buttons stay even when another mod's button on the same turret fails.
+
+NOVÉ
+- Minomety, děla a polní zbraně se nabíjí obyčejným kovem místo granátů (10 na granát, nastavitelné). Automatický minomet z VFE si z kovu doplňuje i zásobník.
+- Volba „Bez munice“ teď platí i pro minomety, děla a polní zbraně: granát je vždy nabitý a nikdy se nespotřebuje (jen tvoje děla).
+- Záložka Věže: všechny věže, minomety a děla v jednom seznamu – vyber, které střílí samy; „Materiály…“ a „Munice“ u každé věže.
+- Věže ve zdi: postavené do zdi, vypadají jako její část a střílí jen ven.
+- Chytré granáty, „Věže nezasahují naše budovy“, bezpečné minomety, hezčí nastavení v záložkách.
+- Děla z Vanilla Factions Expanded Security a Pirates fungují s automatickou palbou (i dělostřelectvo na mapu světa).
+
+OPRAVY
+- Věž nebo dělo, které volalo samo sebe (polní dělo z VFE Pirates s vynuceným cílem), už neshodí hru.
+- Tlačítka věže zůstanou, i když tlačítko jiného modu na stejné věži selže.
+
+=== Development history since the last Workshop release (test versions) ===
 1.6.2
 - 'Turrets need no ammo' now covers mortars, artillery and field guns too: a shell is always loaded and never used up, also the VFE automated mortar's shell gauge – nobody has to bring anything. Only your own guns.
 

@@ -33,7 +33,7 @@ namespace ResearchLockedRaidGear
 			Evolution
 		}
 
-		public const string Version = "2.18.0";
+		public const string Version = "2.15.0";
 
 		public static ResearchLockedRaidGearSettings Settings;
 
