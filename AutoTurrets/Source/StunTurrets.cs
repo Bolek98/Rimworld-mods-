@@ -126,3 +126,38 @@ namespace AutoTurrets
 		}
 	}
 }
+
+namespace AutoTurrets
+{
+	// 1.3.0: a prisoner breaking out or a slave rebelling who is stunned or downed by one of your
+	// turrets gives up – he leaves the break-out / rebellion group, and your wardens take him back
+	// to his cell as with any prisoner outside it (a slave goes back to work).
+	[HarmonyLib.HarmonyPatch(typeof(Pawn), nameof(Pawn.PostApplyDamage))]
+	public static class Patch_StunGiveUp
+	{
+		public static void Postfix(Pawn __instance, DamageInfo dinfo)
+		{
+			try
+			{
+				if (ATMod.S == null || !ATMod.S.stunRunaways || !ATMod.S.stunGiveUp || __instance == null || __instance.Dead)
+					return;
+				if (!FriendlyFire.OurTurret(dinfo.Instigator))
+					return;
+				Pawn p = __instance;
+				bool breaking = p.IsPrisonerOfColony && PrisonBreakUtility.IsPrisonBreaking(p);
+				bool rebel = p.IsSlaveOfColony && ModsConfig.IdeologyActive && SlaveRebellionUtility.IsRebelling(p);
+				if (!breaking && !rebel)
+					return;
+				if (!p.Downed && p.stances?.stunner?.Stunned != true)
+					return;
+				Verse.AI.Group.Lord lord = Verse.AI.Group.LordUtility.GetLord(p);
+				if (lord == null)
+					return;
+				lord.Notify_PawnLost(p, Verse.AI.Group.PawnLostCondition.ForcedByPlayerAction);
+				p.jobs?.EndCurrentJob(Verse.AI.JobCondition.InterruptForced, true);
+				Messages.Message((breaking ? "AT_GaveUpPrisoner" : "AT_GaveUpSlave").Translate(p.LabelShort), p, MessageTypeDefOf.PositiveEvent, false);
+			}
+			catch (Exception e) { Log.WarningOnce("[Auto Turrets] stun give up: " + e.Message, 0x5a71b1); }
+		}
+	}
+}

@@ -34,6 +34,7 @@ namespace AutoTurrets
 		public bool shellsFromMaterial = true;  // 1.6.0: mortars and artillery are loaded with material instead of shells
 		public int shellCost = 10;              // 1.6.0: material for one shell
 		public bool stunRunaways = true;        // 1.2.0: stun turrets shoot at escaping or rebelling prisoners and slaves
+		public bool stunGiveUp = true;          // 1.3.0: … and those stunned give up (wardens take them back)
 
 		public override void ExposeData()
 		{
@@ -60,6 +61,7 @@ namespace AutoTurrets
 			Scribe_Values.Look(ref shellsFromMaterial, "shellsFromMaterial", true);
 			Scribe_Values.Look(ref shellCost, "shellCost", 10);
 			Scribe_Values.Look(ref stunRunaways, "stunRunaways", true);
+			Scribe_Values.Look(ref stunGiveUp, "stunGiveUp", true);
 			if (autoPick == null) autoPick = new Dictionary<string, bool>();
 			if (fuelExtra == null) fuelExtra = new List<string>();
 			if (Scribe.mode == LoadSaveMode.PostLoadInit && wallPick == null)
@@ -125,6 +127,8 @@ namespace AutoTurrets
 					l.CheckboxLabeled("AT_FriendlyFire".Translate(), ref S.friendlyFire, "AT_FriendlyFire_Desc".Translate());
 					l.CheckboxLabeled("AT_NoHitBuildings".Translate(), ref S.noHitBuildings, "AT_NoHitBuildings_Desc".Translate());
 					l.CheckboxLabeled("AT_StunRunaways".Translate(), ref S.stunRunaways, "AT_StunRunaways_Desc".Translate());
+					if (S.stunRunaways)
+						l.CheckboxLabeled("    " + "AT_StunGiveUp".Translate(), ref S.stunGiveUp, "AT_StunGiveUp_Desc".Translate());
 				}
 				else
 				{
