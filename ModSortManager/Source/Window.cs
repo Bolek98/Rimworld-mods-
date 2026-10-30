@@ -177,7 +177,7 @@ namespace ModSortManager
                 {
                     string state = c.meta == null ? "MSM_DupIgnored".Translate().ToString()
                         : (active.Contains(c.meta) ? "MSM_DupActive".Translate().ToString() : "MSM_DupInstalled".Translate().ToString());
-                    lines.Add("• " + Path.GetFileName(c.path) + " · v" + (c.version.NullOrEmpty() ? "?" : c.version) + " · "
+                    lines.Add("• " + Path.GetFileName(c.path) + " · v" + (c.version.NullOrEmpty() ? "?" : c.version) + (c.versions.Count > 0 ? " · " + "MSM_DupFor".Translate(string.Join(", ", c.versions.ToArray())) : "") + " · "
                         + (c.steam ? "MSM_SrcSteam".Translate().ToString() : "MSM_SrcLocal".Translate().ToString()) + " · " + state + (c == newest ? " · " + "MSM_DupNewest".Translate() : ""));
                     if (c.meta != null)
                     {
@@ -189,6 +189,16 @@ namespace ModSortManager
                 List<DupCopy> gg = g;
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_KeepNewest".Translate(), () => KeepOnly(gg, Duplicates.Newest(gg))));
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_OpenFolders".Translate(), () => { foreach (DupCopy c in gg) MSM.OpenFolder(c.path); }));
+                // 0.3.4: the older copy – its folder and its Workshop page (to unsubscribe it by hand)
+                foreach (DupCopy c in g)
+                {
+                    if (c == newest) continue;
+                    DupCopy cc = c;
+                    string folder = Path.GetFileName(c.path);
+                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_OpenOldFolder".Translate(folder), () => MSM.OpenFolder(cc.path)));
+                    if (c.steam && System.Text.RegularExpressions.Regex.IsMatch(folder, @"^\d{6,}$"))
+                        iss.actions.Add(new KeyValuePair<string, Action>("MSM_OpenOldSteam".Translate(folder), () => Application.OpenURL("steam://url/CommunityFilePage/" + folder)));
+                }
                 issues.Add(iss);
             }
 
