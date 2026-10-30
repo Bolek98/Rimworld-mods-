@@ -34,7 +34,7 @@ namespace ColonyAdvisor
 
     public class AdvisorMod : Mod
     {
-        public const string Version = "0.1.0";
+        public const string Version = "0.2.0";
         public static AdvisorSettings S;
         private static List<string> recBullets;
 
@@ -44,7 +44,9 @@ namespace ColonyAdvisor
             MUI.Init(new AdvisorSettings(), null, "recommended", "goal");
             if (S.recommended) MUI.ApplyAll(S);
             MNews.Register(content, Version);
-            try { MUI.PatchWindow(new Harmony("bolek98.colonyadvisor"), typeof(AdvisorMod)); } catch { }
+            var harmony = new Harmony("bolek98.colonyadvisor");
+            try { MUI.PatchWindow(harmony, typeof(AdvisorMod)); } catch { }
+            try { harmony.PatchAll(typeof(AdvisorMod).Assembly); } catch (Exception e) { Log.Warning("[Colony Advisor] " + e.Message); }   // 0.2.0
             Log.Message("[Colony Advisor] v" + Version + " loaded.");
         }
 
@@ -216,7 +218,7 @@ namespace ColonyAdvisor
             float y = inRect.y;
             y = Header(new Rect(inRect.x, y, inRect.width, 0f), r) + 6f;
 
-            string[] names = { T("CA_Tab_Now"), T("CA_Tab_Make"), T("CA_Tab_Research"), T("CA_Tab_Goal"), T("CA_Tab_Quests") };
+            string[] names = { T("CA_Tab_Now"), T("CA_Tab_Make"), T("CA_Tab_Research"), T("CA_Tab_Goal"), T("CA_Tab_Quests"), T("CA_Tab_Supplies") };
             float tw = Mathf.Min(170f, (inRect.width - 8f * (names.Length - 1)) / names.Length);
             for (int i = 0; i < names.Length; i++)
             {
@@ -248,6 +250,7 @@ namespace ColonyAdvisor
                     case 2: h = DrawResearch(view, r); break;
                     case 3: h = DrawGoal(view, r); break;
                     case 4: h = DrawQuests(view, r); break;
+                    case 5: h = SuppliesTab.Draw(view, r, (yy, ww, tt, ss) => Title(yy, ww, tt, ss)); break;   // 0.2.0
                 }
             }
             catch (Exception e) { Log.WarningOnce("[Colony Advisor] drawing failed: " + e, 0x5A41E2); }

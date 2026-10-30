@@ -14,7 +14,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.5.3 | [BodyFit](BodyFit) |
 | Call for Backup – Summon Your Allies | 0.1.0 | [CallForBackup](CallForBackup) |
 | Caravan Helper | 1.1.0 | [CaravanHelper](CaravanHelper) |
-| Colony Advisor – What To Do Next | 0.1.0 | [ColonyAdvisor](ColonyAdvisor) |
+| Colony Advisor – What To Do Next | 0.2.0 | [ColonyAdvisor](ColonyAdvisor) |
 | Evergrowth – Plant Growth Control | 1.9.2 | [Evergrowth](Evergrowth) |
 | Evergrowth – Wild Plant Spawns per Biome (Choose What Grows) | 1.1.4 | [EvergrowthWildPlants](EvergrowthWildPlants) |
 | Fewer Freezes – Smart Memory Cleanup | 1.1.1 | [FewerFreezes](FewerFreezes) |

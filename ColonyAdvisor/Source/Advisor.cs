@@ -446,6 +446,12 @@ namespace ColonyAdvisor
         private static void AddNeed(Map map, Report r, ThingDef product, int have, int want, string reason, bool urgent)
         {
             if (product == null || want <= 0) return;
+            r.needs.Add(MakeNeed(map, product, have, want, reason, urgent));
+        }
+
+        // 0.2.0: also used by the goal supplies
+        public static Need MakeNeed(Map map, ThingDef product, int have, int want, string reason, bool urgent)
+        {
             var nd = new Need { product = product, have = have, want = want, reason = reason, urgent = urgent };
             nd.recipe = Recipe(map, product);
             if (nd.recipe != null)
@@ -459,7 +465,7 @@ namespace ColonyAdvisor
                 if (nd.bench == null)
                     nd.benchToBuild = nd.recipe.recipeUsers.FirstOrDefault(u => u.BuildableByPlayer && u.IsResearchFinished) ?? nd.recipe.recipeUsers.FirstOrDefault();
             }
-            r.needs.Add(nd);
+            return nd;
         }
 
         public static void AddBill(Need nd)
