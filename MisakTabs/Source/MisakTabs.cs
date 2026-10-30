@@ -48,7 +48,7 @@ namespace MisakTabs
 
     public class MTMod : Mod
     {
-        public const string Version = "0.10.2";
+        public const string Version = "0.10.3";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0
@@ -655,6 +655,45 @@ namespace MisakTabs
             SoundDefOf.Tick_High.PlayOneShotOnCamera();
         }
 
+        // 0.10.3: a recipe made later in the game (Mines 2.0 custom resources) may still read
+        // "Mine for …" in English – the product's name is put into our own sentence
+        private static string BillLabel(Bill b)
+        {
+            string l = b.LabelCap.ToString();
+            try
+            {
+                if (l.StartsWith("Mine for ", StringComparison.Ordinal) && b.recipe?.ProducedThingDef != null && "MT_MineFor".CanTranslate())
+                    return "MT_MineFor".Translate(b.recipe.ProducedThingDef.label).CapitalizeFirst();
+            }
+            catch { }
+            return l;
+        }
+
+        // 0.10.3: repeat mode at a click – × N times, ≥ until you have X, ∞ forever
+        private static void ModeButtons(Rect r, Bill_Production bp)
+        {
+            float w = (r.width - 4f) / 3f;
+            BillRepeatModeDef[] defs = { BillRepeatModeDefOf.RepeatCount, BillRepeatModeDefOf.TargetCount, BillRepeatModeDefOf.Forever };
+            string[] lab = { "×", "≥", "∞" };
+            string[] tip = { "MT_ModeRepeatTip", "MT_ModeTargetTip", "MT_ModeForeverTip" };
+            for (int i = 0; i < 3; i++)
+            {
+                Rect br = new Rect(r.x + i * (w + 2f), r.y, w, r.height);
+                bool on = bp.repeatMode == defs[i];
+                bool can = i != 1 || (bp.recipe?.WorkerCounter != null && bp.recipe.WorkerCounter.CanCountProducts(bp));
+                if (on) Look.Box(br, Look.GreenBg, Look.Green);
+                if (Look.Button(br, lab[i], false, can && !on))
+                {
+                    bp.repeatMode = defs[i];
+                    if (i == 0 && bp.repeatCount < 1) bp.repeatCount = 1;
+                    if (i == 1 && bp.targetCount < 1) bp.targetCount = 10;
+                    if (bp.paused && i != 1) bp.paused = false;
+                    SoundDefOf.Tick_High.PlayOneShotOnCamera();
+                }
+                TooltipHandler.TipRegion(br, tip[i].Translate());
+            }
+        }
+
         private static Pawn Doer(Bill b, Map map)
         {
             if (map == null) return null;
@@ -689,8 +728,12 @@ namespace MisakTabs
                     float tx = c.x + 52f, tw = c.width - 52f - 200f;   // 0.5.1: leave room for the P / … column (the − / + were hidden under it)
                     // 0.5.0: linked bills are marked; the tooltip says where the others are
                     List<Bill> linked = BillLinks.GroupOf(b) != 0 ? BillLinks.Others(b) : null;
-                    Rect title = new Rect(tx, c.y + 6f, tw, 22f);
-                    Look.Text(title, b.LabelCap.ToString().Truncate(tw), b.suspended ? Muted : Color.white);
+                    // 0.10.3: room on the right for the repeat-mode buttons (× / ≥ / ∞)
+                    bool modes = b is Bill_Production;
+                    float tw2 = modes ? tw - 66f : tw;
+                    Rect title = new Rect(tx, c.y + 6f, tw2, 22f);
+                    Look.Text(title, BillLabel(b).Truncate(tw2), b.suspended ? Muted : Color.white);
+                    if (modes) ModeButtons(new Rect(tx + tw2 + 4f, c.y + 14f, 62f, 22f), (Bill_Production)b);
                     if (linked != null && linked.Count > 0)
                         TooltipHandler.TipRegion(title, "MT_LinkedTip".Translate() + "\n" + string.Join("\n", linked.Select(o => "- " + ((o.billStack?.billGiver as Thing)?.LabelCap ?? "?") + ": " + o.LabelCap).ToArray()));
                     string status;
@@ -716,7 +759,7 @@ namespace MisakTabs
                         }
                     }
                     if (linked != null && linked.Count > 0) repeat += " · " + "MT_LinkedN".Translate(linked.Count);
-                    Look.Text(new Rect(tx, c.y + 28f, tw, 18f), status, sc, GameFont.Tiny);
+                    Look.Text(new Rect(tx, c.y + 28f, tw2, 18f), status.Truncate(tw2), sc, GameFont.Tiny);
                     // 0.5.0: − / + buttons right after the count line
                     bool hasCount = b is Bill_Production bpc && bpc.repeatMode != BillRepeatModeDefOf.Forever;
                     float rw = hasCount ? tw - 62f : tw;
