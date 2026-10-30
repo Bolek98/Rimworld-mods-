@@ -98,6 +98,7 @@
   <AT_ShellSettlements>Artillery shells hostile bases without a map</AT_ShellSettlements>
   <AT_ShellSettlements_Desc>VFE Security world artillery can fire at a hostile base you have not visited. Each hit is counted: when you attack the base, the hits fall on it first (fewer defenders), and enough hits destroy it.</AT_ShellSettlements_Desc>
   <AT_ShellHitsN>Hits that destroy a base: {0} (fewer for tribes, more for spacers)</AT_ShellHitsN>
-  <AT_ShellNotHostile>{0} ({1}) is not hostile – artillery shells only hostile bases (or a map you have open).</AT_ShellNotHostile>
-  <AT_ShellNoTarget>Here is nothing to shell. Pick a hostile base (it does not need to be explored) or a map you have open.</AT_ShellNoTarget>
+  <AT_ShellNotHostile>{0} ({1}) is not hostile – artillery shells only hostile bases and camps (or a map you have open).</AT_ShellNotHostile>
+  <AT_ShellNoTarget>Here is nothing to shell. Pick a hostile base or camp (it does not need to be explored) or a map you have open.</AT_ShellNoTarget>
+  <AT_ShellSiteDestroyed>{0} ({1}) was destroyed by artillery fire.</AT_ShellSiteDestroyed>
 </LanguageData>
