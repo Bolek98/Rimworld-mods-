@@ -37,7 +37,7 @@
   <SH_WeatherStrength>Síla počasí podle měsíců: {0} %</SH_WeatherStrength>
   <SH_WeatherStrength_Desc>0 % = jako ve hře, 100 % = normální, 200 % = silné.</SH_WeatherStrength_Desc>
   <SH_NewWeathers>Nová počasí</SH_NewWeathers>
-  <SH_NewWeathers_Desc>Jinovatka v zimě, babí léto na podzim a jarní přeháňky – tam, kde to biomu sedí.</SH_NewWeathers_Desc>
+  <SH_NewWeathers_Desc>Jinovatka, babí léto, jarní přeháňky a tam, kde to podnebí sedí, polární záře, vánice, mrznoucí déšť, krupobití, parno, písečná bouře a monzunový liják.</SH_NewWeathers_Desc>
   <SH_SecMoods>Sezónní nálady</SH_SecMoods>
   <SH_SeasonalMoods>Sezónní nálady</SH_SeasonalMoods>
   <SH_SeasonalMoods_Desc>První sníh, jarní nálada, teplé letní večery.</SH_SeasonalMoods_Desc>
@@ -140,4 +140,67 @@
   <SH_YearDaysN>{0} dní</SH_YearDaysN>
   <SH_AgeWithYear>Kolonisté stárnou podle kalendářního roku</SH_AgeWithYear>
   <SH_AgeWithYear_Desc>Zapnuto: kolonista zestárne o rok za jeden kalendářní rok, takže s rokem o 365 dnech lidé (i děti) stárnou asi šestkrát pomaleji než ve hře. Vypnuto: všichni stárnou jako ve hře (rok za 60 dní) – víc narozenin za kalendářní rok.</SH_AgeWithYear_Desc>
+  <!-- 0.3.0 -->
+  <SH_PackAsia>Svátky: Asie</SH_PackAsia>
+  <SH_PackAsia_Desc>Lunární Nový rok, Holi, Diválí a svátek středu podzimu – nálada, oslava a ohňostroj.</SH_PackAsia_Desc>
+  <SH_PackAmericas>Svátky: Amerika</SH_PackAmericas>
+  <SH_PackAmericas_Desc>Den mrtvých a Den založení (s ohňostrojem).</SH_PackAmericas_Desc>
+  <SH_PackEurope>Svátky: další Evropa</SH_PackEurope>
+  <SH_PackEurope_Desc>Den sv. Patrika, Oktoberfest (oba s trochou piva) a svatý Martin.</SH_PackEurope_Desc>
+  <SH_PackDays>Malé dny</SH_PackDays>
+  <SH_PackDays_Desc>Den pí, Den Země, Den knihy, Den ručníků, Den čokolády, Den koček, Mluv jako pirát, Den úsměvu – jen krátká zpráva, bez nálady.</SH_PackDays_Desc>
+  <SH_PlantColors>Rostliny se barví podle ročního období</SH_PlantColors>
+  <SH_PlantColors_Desc>Jen vzhled: listnaté stromy na podzim žloutnou, oranžoví a rudnou a v zimě jsou holé, jehličnany zůstávají zelené, divoká tráva zesláme. Růst, teploty, nájezdy ani obchodníci se nemění. V tropech se nic nemění.</SH_PlantColors_Desc>
+  <SH_GiftBeer>Na večer dorazilo pár lahví piva.</SH_GiftBeer>
+  <SH_H_LunarNewYear>Lunární Nový rok</SH_H_LunarNewYear>
+  <SH_HD_LunarNewYear>Červené lucerny, hostina a ohňostroj pro šťastný rok.</SH_HD_LunarNewYear>
+  <SH_HL_LunarNewYear>Šťastný lunární Nový rok! Všude visí červené lucerny a večer bude ohňostroj.</SH_HL_LunarNewYear>
+  <SH_H_Holi>Holi</SH_H_Holi>
+  <SH_HD_Holi>Svátek barev: všichni po sobě házejí barevný prášek.</SH_HD_Holi>
+  <SH_HL_Holi>Holi! Svátek barev – odpoledne kolonie slaví a nikdo nezůstane čistý.</SH_HL_Holi>
+  <SH_H_Diwali>Diválí</SH_H_Diwali>
+  <SH_HD_Diwali>Svátek světel: lampičky v oknech a ohňostroj.</SH_HD_Diwali>
+  <SH_HL_Diwali>Šťastné Diválí! V každém okně svítí lampička a večer oblohu rozzáří ohňostroj.</SH_HL_Diwali>
+  <SH_H_MidAutumn>Svátek středu podzimu</SH_H_MidAutumn>
+  <SH_HD_MidAutumn>Měsíční koláčky pod úplňkem.</SH_HD_MidAutumn>
+  <SH_HL_MidAutumn>Svátek středu podzimu – večer se všichni sejdou a dívají se na měsíc.</SH_HL_MidAutumn>
+  <SH_H_DayOfDead>Den mrtvých</SH_H_DayOfDead>
+  <SH_HD_DayOfDead>Svíčky, aksamitníky a příběhy o mrtvých; smutek za ně se zmírní.</SH_HD_DayOfDead>
+  <SH_HL_DayOfDead>Día de Muertos – kolonie vzpomíná na své mrtvé se svíčkami a květinami. Je to den vzpomínek, ne smutku.</SH_HL_DayOfDead>
+  <SH_H_FoundersDay>Den založení</SH_H_FoundersDay>
+  <SH_HD_FoundersDay>Oslava toho, jak to všechno začalo, večer s ohňostrojem.</SH_HD_FoundersDay>
+  <SH_HL_FoundersDay>Den založení! Odpoledne oslava a v noci ohňostroj.</SH_HL_FoundersDay>
+  <SH_H_StPatrick>Den sv. Patrika</SH_H_StPatrick>
+  <SH_HD_StPatrick>Všechno zelené, písničky a pivo nebo dvě.</SH_HD_StPatrick>
+  <SH_HL_StPatrick>Veselého svatého Patrika! Obleč si něco zeleného – na večer je pivo.</SH_HL_StPatrick>
+  <SH_H_Oktoberfest>Oktoberfest</SH_H_Oktoberfest>
+  <SH_HD_Oktoberfest>Pivo, preclíky a dechovka.</SH_HD_Oktoberfest>
+  <SH_HL_Oktoberfest>O'zapft is! Začíná Oktoberfest – dorazilo pivo a odpoledne začíná zábava.</SH_HL_Oktoberfest>
+  <SH_H_StMartin>Svatý Martin</SH_H_StMartin>
+  <SH_HD_StMartin>Pečená husa a svatomartinské víno.</SH_HD_StMartin>
+  <SH_HL_StMartin>Martin přijel na bílém koni! K večeři pečená husa.</SH_HL_StMartin>
+  <SH_H_PiDay>Den pí</SH_H_PiDay>
+  <SH_HD_PiDay>3,14 – jen zpráva.</SH_HD_PiDay>
+  <SH_HL_PiDay>3,14159… někdo na počest upekl koláč.</SH_HL_PiDay>
+  <SH_H_EarthDay>Den Země</SH_H_EarthDay>
+  <SH_HD_EarthDay>Jen zpráva.</SH_HD_EarthDay>
+  <SH_HL_EarthDay>Den Země – dobrý den zasadit strom.</SH_HL_EarthDay>
+  <SH_H_BookDay>Den knihy</SH_H_BookDay>
+  <SH_HD_BookDay>Jen zpráva.</SH_HD_BookDay>
+  <SH_HL_BookDay>Den knihy – dnes večer někdo oprášil starou knihu.</SH_HL_BookDay>
+  <SH_H_TowelDay>Den ručníků</SH_H_TowelDay>
+  <SH_HD_TowelDay>Nepanikařte. Jen zpráva.</SH_HD_TowelDay>
+  <SH_HL_TowelDay>Den ručníků – nepanikařte a vězte, kde máte ručník.</SH_HL_TowelDay>
+  <SH_H_ChocolateDay>Den čokolády</SH_H_ChocolateDay>
+  <SH_HD_ChocolateDay>Jen zpráva.</SH_HD_ChocolateDay>
+  <SH_HL_ChocolateDay>Den čokolády – jestli ještě nějaká zbyla, dnes je ten den.</SH_HL_ChocolateDay>
+  <SH_H_CatDay>Den koček</SH_H_CatDay>
+  <SH_HD_CatDay>Jen zpráva.</SH_HD_CatDay>
+  <SH_HL_CatDay>Mezinárodní den koček – kočky se stejně tváří, že každý den je jejich.</SH_HL_CatDay>
+  <SH_H_PirateDay>Den mluv jako pirát</SH_H_PirateDay>
+  <SH_HD_PirateDay>Arr! Jen zpráva.</SH_HD_PirateDay>
+  <SH_HL_PirateDay>Arr, kamaráde! Dnes všichni mluví jako piráti.</SH_HL_PirateDay>
+  <SH_H_SmileDay>Den úsměvu</SH_H_SmileDay>
+  <SH_HD_SmileDay>Jen zpráva.</SH_HD_SmileDay>
+  <SH_HL_SmileDay>Den úsměvu – úsměv nic nestojí.</SH_HL_SmileDay>
 </LanguageData>

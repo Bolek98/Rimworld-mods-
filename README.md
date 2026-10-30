@@ -31,20 +31,20 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
 | QoL – Faster Work, Prisoners & Pipette | 1.0.0 | [QoLFasterWork](QoLFasterWork) |
-| Randy's Table – Chaos Storytellers | 0.3.0 | [RandysTable](RandysTable) |
+| Randy's Table – Chaos Storytellers | 0.4.0 | [RandysTable](RandysTable) |
 | Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
 | Ride & Drive – Mounts and Vehicles Together | 0.1.1 | [RideAndDrive](RideAndDrive) |
-| Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.2.2 | [SeasonsHolidays](SeasonsHolidays) |
+| Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.3.0 | [SeasonsHolidays](SeasonsHolidays) |
 | Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |
-| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.18.1 | [SmartColonistGear](SmartColonistGear) |
-| Smooth FPS – Performance & Graphics | 1.6.5 | [SmoothFPS](SmoothFPS) |
+| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.19.0 | [SmartColonistGear](SmartColonistGear) |
+| Smooth FPS – Performance & Graphics | 1.6.6 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 1.0.0 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.0.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
-| Steward – Supplies | 1.1.1 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
+| Steward – Supplies | 1.2.0 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
-| Tidy Toolbar – No More Cut-Off Tabs | 1.1.0 | [TidyToolbar](TidyToolbar) |
+| Tidy Toolbar – No More Cut-Off Tabs | 1.2.0 | [TidyToolbar](TidyToolbar) |
 | Trader Hotline – Call the Trader You Want | 0.3.1 | [TraderHotline](TraderHotline) |
 | Universal RimTranslator – Auto-Translate All Your Mods | 1.0.1 | [UniversalRimTranslator](UniversalRimTranslator) |
 | Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.2 | [UnofficialPatch](UnofficialPatch) |

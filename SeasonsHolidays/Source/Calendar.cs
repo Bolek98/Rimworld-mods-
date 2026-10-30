@@ -36,6 +36,11 @@ namespace SeasonsHolidays
         public List<string> off = new List<string>();   // holidays switched off
         public int yearDays = 60;             // 0.2.0: length of the year – 60 (game), 120, 180, 365
         public bool ageWithYear = true;       // colonists age with the calendar year
+        public bool plantColors = true;       // 0.3.0: trees and grass change colour with the seasons (looks only)
+        public bool packAsia = true;          // 0.3.0: world holiday packs
+        public bool packAmericas = true;
+        public bool packEurope = true;
+        public bool packDays = true;          // small days, a message only
 
         public override void ExposeData()
         {
@@ -59,13 +64,18 @@ namespace SeasonsHolidays
             Scribe_Collections.Look(ref off, "off", LookMode.Value);
             Scribe_Values.Look(ref yearDays, "yearDays", 60);
             Scribe_Values.Look(ref ageWithYear, "ageWithYear", true);
+            Scribe_Values.Look(ref plantColors, "plantColors", true);
+            Scribe_Values.Look(ref packAsia, "packAsia", true);
+            Scribe_Values.Look(ref packAmericas, "packAmericas", true);
+            Scribe_Values.Look(ref packEurope, "packEurope", true);
+            Scribe_Values.Look(ref packDays, "packDays", true);
             if (off == null) off = new List<string>();
         }
     }
 
     public class SHMod : Mod
     {
-        public const string Version = "0.2.2";
+        public const string Version = "0.3.0";
         public static SHSettings S;
         private static List<string> recBullets;
         private static Vector2 scroll;
@@ -81,6 +91,7 @@ namespace SeasonsHolidays
             DatePatches.Patch(h);
             WeatherMonths.Patch(h);
             YearClock.Patch(h);   // 0.2.0
+            PlantColors.Patch(h); // 0.3.0
             Log.Message("[Seasons & Holidays] v" + Version + " loaded.");
         }
 
@@ -134,7 +145,7 @@ namespace SeasonsHolidays
             }
             if (S.recommended) y += MUI.LockNote(new Rect(r.x, y, r.width, 0f)) + 4f;
             Rect rest = new Rect(r.x, y, r.width, r.yMax - y);
-            Rect view = new Rect(0f, 0f, rest.width - 16f, 1000f + Holidays.All.Count * 26f);
+            Rect view = new Rect(0f, 0f, rest.width - 16f, 1200f + Holidays.All.Count * 26f);
             MUI.BeginLock(S.recommended);
             Widgets.BeginScrollView(rest, ref scroll, view);
             try
@@ -152,6 +163,10 @@ namespace SeasonsHolidays
                 Check(l, "SH_Letters", ref S.letters, "letters");
                 Check(l, "SH_Birthdays", ref S.birthdays, "birthdays");
                 Check(l, "SH_Traditions", ref S.traditions, "traditions");
+                Check(l, "SH_PackAsia", ref S.packAsia, "packAsia");
+                Check(l, "SH_PackAmericas", ref S.packAmericas, "packAmericas");
+                Check(l, "SH_PackEurope", ref S.packEurope, "packEurope");
+                Check(l, "SH_PackDays", ref S.packDays, "packDays");
                 bool rd = S.realDate;
                 l.CheckboxLabeled("SH_RealDate".Translate(), ref rd, "SH_RealDate_Desc".Translate());
                 S.realDate = rd;
@@ -159,6 +174,9 @@ namespace SeasonsHolidays
                 Check(l, "SH_MonthWeather", ref S.monthWeather, "monthWeather");
                 S.weatherStrength = MUI.Slider(l, "SH_WeatherStrength".Translate(Mathf.RoundToInt(S.weatherStrength * 100f)), S.weatherStrength, 0f, 2f, "SH_WeatherStrength_Desc".Translate(), S, "weatherStrength");
                 Check(l, "SH_NewWeathers", ref S.newWeathers, "newWeathers");
+                bool pc = S.plantColors;
+                Check(l, "SH_PlantColors", ref S.plantColors, "plantColors");
+                if (pc != S.plantColors) PlantColors.RefreshAll();
                 MUI.Section(l, "SH_SecMoods".Translate());
                 Check(l, "SH_SeasonalMoods", ref S.seasonalMoods, "seasonalMoods");
                 Check(l, "SH_WinterBlues", ref S.winterBlues, "winterBlues");

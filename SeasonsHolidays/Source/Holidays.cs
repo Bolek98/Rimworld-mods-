@@ -18,12 +18,15 @@ namespace SeasonsHolidays
         public Func<Pawn, bool> who;        // who gets the thought (null = all)
         public Action<Map> morning, evening;
         public int eveningHour = 20;
+        // 0.3.0: world packs – the pack it belongs to ("" = the base set) and small days (a message only)
+        public string pack = "";
+        public bool small;
 
         public string Label => ("SH_H_" + id).Translate();
         public string Desc => ("SH_HD_" + id).Translate();
     }
 
-    public static class Holidays
+    public static partial class Holidays
     {
         private static List<Holiday> all;
 
@@ -36,6 +39,7 @@ namespace SeasonsHolidays
             get
             {
                 if (all == null)
+                {
                     all = new List<Holiday>
                     {
                         new Holiday { id = "NewYear", month = 0, day = 1, realMonth = 1, realDay = 1, thought = "SH_H_NewYear", partyHour = 17, morning = Resolutions },
@@ -54,11 +58,13 @@ namespace SeasonsHolidays
                         new Holiday { id = "Christmas", month = 11, day = 4, realMonth = 12, realDay = 24, thought = "SH_H_Christmas", partyHour = 17, morning = ChristmasGifts },
                         new Holiday { id = "NewYearsEve", month = 11, day = 5, realMonth = 12, realDay = 31, thought = "SH_H_NewYearsEve", partyHour = 20, eveningHour = 23, evening = Fireworks },
                     };
+                    AddPacks(all);
+                }
                 return all;
             }
         }
 
-        public static bool On(Holiday h) => SHMod.S.holidays && !SHMod.S.off.Contains(h.id);
+        public static bool On(Holiday h) => SHMod.S.holidays && !SHMod.S.off.Contains(h.id) && PackOn(h.pack);
 
         public static Holiday Today(Map map)
         {

@@ -18,6 +18,7 @@ namespace SeasonsHolidays
         public override void MapComponentTick()
         {
             try { fireworks.Tick(map); } catch { }
+            PlantColors.Tick(map);   // 0.3.0
             if (Find.TickManager.TicksGame % 250 != 17 || !map.IsPlayerHome || SHMod.S == null) return;
             try { Run(); }
             catch (Exception e) { Log.WarningOnce("[Seasons & Holidays] " + e, 0x5E4501); }
@@ -109,6 +110,12 @@ namespace SeasonsHolidays
 
         private void Morning(Holiday h, string when)
         {
+            // 0.3.0: a small day is only a short message
+            if (h.small)
+            {
+                Messages.Message(h.Label + ": " + ("SH_HL_" + h.id).Translate(), MessageTypeDefOf.NeutralEvent, false);
+                return;
+            }
             var w = W;
             if (w != null && w.Mark("C|" + h.id + "|" + when))
                 w.celebrated[h.id] = w.Count(h.id) + 1;

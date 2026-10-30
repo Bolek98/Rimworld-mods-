@@ -37,7 +37,7 @@
   <SH_WeatherStrength>Strength of the monthly weather: {0} %</SH_WeatherStrength>
   <SH_WeatherStrength_Desc>0 % = like the game, 100 % = normal, 200 % = strong.</SH_WeatherStrength_Desc>
   <SH_NewWeathers>New weathers</SH_NewWeathers>
-  <SH_NewWeathers_Desc>Hoarfrost in winter, Indian summer in autumn and spring showers – where the biome fits.</SH_NewWeathers_Desc>
+  <SH_NewWeathers_Desc>Hoarfrost, Indian summer, spring showers and, where the climate fits, aurora, blizzard, freezing rain, hailstorm, heat haze, sandstorm and monsoon rain.</SH_NewWeathers_Desc>
   <SH_SecMoods>Seasonal moods</SH_SecMoods>
   <SH_SeasonalMoods>Seasonal moods</SH_SeasonalMoods>
   <SH_SeasonalMoods_Desc>First snow, spring in the air, warm summer evenings.</SH_SeasonalMoods_Desc>
@@ -140,4 +140,67 @@
   <SH_YearDaysN>{0} days</SH_YearDaysN>
   <SH_AgeWithYear>Colonists age with the calendar year</SH_AgeWithYear>
   <SH_AgeWithYear_Desc>On: a colonist grows one year older per calendar year, so with a 365-day year people (and children) age about six times slower than in the game. Off: everybody ages as in the game (one year per 60 days) – several birthdays a calendar year.</SH_AgeWithYear_Desc>
+  <!-- 0.3.0 -->
+  <SH_PackAsia>Holidays: Asia</SH_PackAsia>
+  <SH_PackAsia_Desc>Lunar New Year, Holi, Diwali and the Mid-Autumn Festival – mood, a party and fireworks.</SH_PackAsia_Desc>
+  <SH_PackAmericas>Holidays: the Americas</SH_PackAmericas>
+  <SH_PackAmericas_Desc>Day of the Dead and Founders' Day (with fireworks).</SH_PackAmericas_Desc>
+  <SH_PackEurope>Holidays: more of Europe</SH_PackEurope>
+  <SH_PackEurope_Desc>St. Patrick's Day, Oktoberfest (both with a little beer) and St. Martin's Day.</SH_PackEurope_Desc>
+  <SH_PackDays>Small days</SH_PackDays>
+  <SH_PackDays_Desc>Pi Day, Earth Day, Book Day, Towel Day, Chocolate Day, Cat Day, Talk Like a Pirate Day, Smile Day – only a short message, no mood.</SH_PackDays_Desc>
+  <SH_PlantColors>Plants change colour with the seasons</SH_PlantColors>
+  <SH_PlantColors_Desc>Looks only: leafy trees turn yellow, orange and red in autumn and bare in winter, conifers stay green, wild grass turns straw-coloured. Growth, temperatures, raids and traders are not affected. In the tropics nothing changes.</SH_PlantColors_Desc>
+  <SH_GiftBeer>A few bottles of beer arrived for the evening.</SH_GiftBeer>
+  <SH_H_LunarNewYear>Lunar New Year</SH_H_LunarNewYear>
+  <SH_HD_LunarNewYear>Red lanterns, a feast and fireworks for a lucky year.</SH_HD_LunarNewYear>
+  <SH_HL_LunarNewYear>Happy Lunar New Year! Red lanterns hang everywhere and tonight there will be fireworks.</SH_HL_LunarNewYear>
+  <SH_H_Holi>Holi</SH_H_Holi>
+  <SH_HD_Holi>The festival of colours: everyone throws coloured powder at everyone.</SH_HD_Holi>
+  <SH_HL_Holi>Holi! The festival of colours – in the afternoon the colony celebrates and nobody stays clean.</SH_HL_Holi>
+  <SH_H_Diwali>Diwali</SH_H_Diwali>
+  <SH_HD_Diwali>The festival of lights: lamps in the windows and fireworks.</SH_HD_Diwali>
+  <SH_HL_Diwali>Happy Diwali! Lamps are lit in every window, and tonight fireworks light the sky.</SH_HL_Diwali>
+  <SH_H_MidAutumn>Mid-Autumn Festival</SH_H_MidAutumn>
+  <SH_HD_MidAutumn>Mooncakes under the full moon.</SH_HD_MidAutumn>
+  <SH_HL_MidAutumn>The Mid-Autumn Festival – in the evening everyone gathers to look at the moon.</SH_HL_MidAutumn>
+  <SH_H_DayOfDead>Day of the Dead</SH_H_DayOfDead>
+  <SH_HD_DayOfDead>Candles, marigolds and stories of the dead; the grief for them eases.</SH_HD_DayOfDead>
+  <SH_HL_DayOfDead>Día de Muertos – the colony remembers its dead with candles and flowers. It is a day of memories, not of sorrow.</SH_HL_DayOfDead>
+  <SH_H_FoundersDay>Founders' Day</SH_H_FoundersDay>
+  <SH_HD_FoundersDay>A celebration of how it all began, with fireworks in the evening.</SH_HD_FoundersDay>
+  <SH_HL_FoundersDay>Founders' Day! A party in the afternoon and fireworks at night.</SH_HL_FoundersDay>
+  <SH_H_StPatrick>St. Patrick's Day</SH_H_StPatrick>
+  <SH_HD_StPatrick>Everything green, songs and a pint or two.</SH_HD_StPatrick>
+  <SH_HL_StPatrick>Happy St. Patrick's Day! Wear something green – there is beer for the evening.</SH_HL_StPatrick>
+  <SH_H_Oktoberfest>Oktoberfest</SH_H_Oktoberfest>
+  <SH_HD_Oktoberfest>Beer, pretzels and brass music.</SH_HD_Oktoberfest>
+  <SH_HL_Oktoberfest>O'zapft is! Oktoberfest starts – beer has arrived and the party starts in the afternoon.</SH_HL_Oktoberfest>
+  <SH_H_StMartin>St. Martin's Day</SH_H_StMartin>
+  <SH_HD_StMartin>Roast goose and young wine.</SH_HD_StMartin>
+  <SH_HL_StMartin>St. Martin came on a white horse! Roast goose for dinner.</SH_HL_StMartin>
+  <SH_H_PiDay>Pi Day</SH_H_PiDay>
+  <SH_HD_PiDay>3.14 – a message only.</SH_HD_PiDay>
+  <SH_HL_PiDay>3.14159… someone baked a pie in honour of the occasion.</SH_HL_PiDay>
+  <SH_H_EarthDay>Earth Day</SH_H_EarthDay>
+  <SH_HD_EarthDay>A message only.</SH_HD_EarthDay>
+  <SH_HL_EarthDay>Earth Day – a good day to plant a tree.</SH_HL_EarthDay>
+  <SH_H_BookDay>World Book Day</SH_H_BookDay>
+  <SH_HD_BookDay>A message only.</SH_HD_BookDay>
+  <SH_HL_BookDay>World Book Day – someone dusted off an old book tonight.</SH_HL_BookDay>
+  <SH_H_TowelDay>Towel Day</SH_H_TowelDay>
+  <SH_HD_TowelDay>Don't panic. A message only.</SH_HD_TowelDay>
+  <SH_HL_TowelDay>Towel Day – don't panic, and know where your towel is.</SH_HL_TowelDay>
+  <SH_H_ChocolateDay>Chocolate Day</SH_H_ChocolateDay>
+  <SH_HD_ChocolateDay>A message only.</SH_HD_ChocolateDay>
+  <SH_HL_ChocolateDay>Chocolate Day – if there is any chocolate left, today is the day.</SH_HL_ChocolateDay>
+  <SH_H_CatDay>Cat Day</SH_H_CatDay>
+  <SH_HD_CatDay>A message only.</SH_HD_CatDay>
+  <SH_HL_CatDay>International Cat Day – the cats act as if every day was theirs anyway.</SH_HL_CatDay>
+  <SH_H_PirateDay>Talk Like a Pirate Day</SH_H_PirateDay>
+  <SH_HD_PirateDay>Arr! A message only.</SH_HD_PirateDay>
+  <SH_HL_PirateDay>Arr, matey! Today everyone talks like a pirate.</SH_HL_PirateDay>
+  <SH_H_SmileDay>World Smile Day</SH_H_SmileDay>
+  <SH_HD_SmileDay>A message only.</SH_HD_SmileDay>
+  <SH_HL_SmileDay>World Smile Day – a smile costs nothing.</SH_HL_SmileDay>
 </LanguageData>

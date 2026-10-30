@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
 using RimWorld;
 using UnityEngine;
@@ -83,6 +84,32 @@ namespace SeasonsHolidays
                     return (c == 8 || c == 9) && BiomeHas(map, "Clear") ? 4f * s : 0f;
                 case "SH_SpringShowers":
                     return (c == 3 || c == 4) && BiomeHas(map, "Rain") && GenDate.DaysPassedSinceSettle >= 8 ? 4f * s : 0f;
+            }
+            // 0.3.0: the new weathers – after the first week, in the right climate and months
+            if (GenDate.DaysPassedSinceSettle < 8 && w.favorability < Favorability.Neutral) return 0f;
+            if (w.rainRate > 0.1f && map.gameConditionManager.ActiveConditions.Any(x => x.def.preventRain)) return 0f;
+            float lat = Mathf.Abs(Find.WorldGrid.LongLatOf(map.Tile).y);
+            float rain = map.TileInfo.rainfall;
+            string biome = map.Biome.defName ?? "";
+            bool winter = c == 11 || c == 0 || c == 1, summer = c >= 5 && c <= 7;
+            bool dry = rain < 600f || biome.Contains("Desert") || biome.Contains("Arid");
+            bool tropic = biome.Contains("Tropical") || (rain > 1800f && lat < 25f);
+            switch (w.defName)
+            {
+                case "SH_Aurora":
+                    return lat >= 52f && (winter || c == 2 || c == 10) ? 2.5f * s : 0f;
+                case "SH_Blizzard":
+                    return BiomeHas(map, "SnowHard") && (winter || c == 2) ? 1.5f * s : 0f;
+                case "SH_FreezingRain":
+                    return BiomeHas(map, "Rain") && BiomeHas(map, "SnowGentle") && (winter || c == 2 || c == 10) ? 2f * s : 0f;
+                case "SH_Hail":
+                    return BiomeHas(map, "RainyThunderstorm") && (c >= 4 && c <= 7) ? 1.2f * s : 0f;
+                case "SH_Heatwave":
+                    return summer || dry ? 2f * s : 0f;
+                case "SH_Sandstorm":
+                    return dry && !BiomeHas(map, "SnowHard") ? (summer ? 3f : 1.5f) * s : 0f;
+                case "SH_Monsoon":
+                    return tropic && (c >= 5 && c <= 8) ? 4f * s : 0f;
             }
             return 0f;
         }

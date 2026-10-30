@@ -23,6 +23,16 @@ HOL = [
  ("StNicholasChild", "St. Nicholas", "Mikuláš", 10, 3, "St. Nicholas brought me sweets! I was good this year. Mostly.", "Mikuláš mi přinesl sladkosti! Letos jsem byl hodný. Většinou."),
  ("Christmas", "Christmas", "Vánoce", 12, 5, "Christmas Eve, gifts, a feast and everyone together. The best night of the year.", "Štědrý večer, dárky, hostina a všichni spolu. Nejkrásnější večer v roce."),
  ("NewYearsEve", "New Year's Eve", "Silvestr", 6, 2, "Fireworks lit up the sky. Goodbye, old year!", "Ohňostroj rozzářil oblohu. Sbohem, starý roku!"),
+ # 0.3.0: world holiday packs
+ ("LunarNewYear", "Lunar New Year", "Lunární Nový rok", 6, 3, "Red lanterns, dumplings and dragons – a lucky new year!", "Červené lucerny, knedlíčky a draci – šťastný nový rok!"),
+ ("Holi", "Holi", "Holi", 6, 2, "Everyone covered in colours from head to toe. What a mess, what a joy!", "Všichni od hlavy k patě v barvách. Ten nepořádek, ta radost!"),
+ ("Diwali", "Diwali", "Diválí", 6, 3, "Lamps in every window – light wins over darkness.", "Lampičky v každém okně – světlo vítězí nad tmou."),
+ ("MidAutumn", "Mid-Autumn Festival", "Svátek středu podzimu", 5, 2, "Mooncakes under the full moon with the whole family.", "Měsíční koláčky pod úplňkem s celou rodinou."),
+ ("DayOfDead", "Day of the Dead", "Den mrtvých", 4, 3, "Marigolds, candles and stories of those we lost. They are with us today.", "Aksamitníky, svíčky a příběhy o těch, které jsme ztratili. Dnes jsou s námi."),
+ ("FoundersDay", "Founders' Day", "Den založení", 6, 2, "We remembered how it all began. Look how far we've come!", "Vzpomněli jsme, jak to všechno začalo. Kam jsme to dotáhli!"),
+ ("StPatrick", "St. Patrick's Day", "Den sv. Patrika", 5, 2, "Everything green, a pint in hand and a song on the lips.", "Všechno zelené, pivo v ruce a písnička na rtech."),
+ ("Oktoberfest", "Oktoberfest", "Oktoberfest", 6, 2, "Beer, pretzels and brass music – prost!", "Pivo, preclíky a dechovka – na zdraví!"),
+ ("StMartin", "St. Martin's Day", "Svatý Martin", 5, 2, "Roast goose and young wine – Martin came on a white horse.", "Pečená husa a svatomartinské víno – Martin přijel na bílém koni."),
 ]
 TRAD = [("", ""), (" (tradition)", " (tradice)"), (" (our tradition)", " (naše tradice)"), (" (old tradition)", " (stará tradice)")]
 
@@ -131,6 +141,72 @@ WEATHER = [
   "Krátké slabé přeháňky a mezi nimi slunce. Polím to prospívá.",
   "    <temperatureRange>2~100</temperatureRange>\n    <windSpeedFactor>1.1</windSpeedFactor>\n    <accuracyMultiplier>0.9</accuracyMultiplier>\n    <favorability>Neutral</favorability>\n    <perceivePriority>1</perceivePriority>\n    <rainRate>0.4</rainRate>\n    <moveSpeedMultiplier>0.95</moveSpeedMultiplier>\n    <ambientSounds>\n      <li>Ambient_Rain</li>\n    </ambientSounds>\n    <overlayClasses>\n      <li>WeatherOverlay_Rain</li>\n    </overlayClasses>\n"
   + SKY_GREY),
+]
+
+def sky(day, dusk, night, sat, nightMid=None):
+    nm = nightMid or night
+    return f"""    <skyColorsDay>
+      <sky>{day}</sky>
+      <shadow>(0.85,0.85,0.85)</shadow>
+      <overlay>(0.85,0.85,0.85)</overlay>
+      <saturation>{sat}</saturation>
+    </skyColorsDay>
+    <skyColorsDusk>
+      <sky>{dusk}</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.7,0.7,0.7)</overlay>
+      <saturation>{sat}</saturation>
+    </skyColorsDusk>
+    <skyColorsNightEdge>
+      <sky>{night}</sky>
+      <shadow>(0.92,0.92,0.92)</shadow>
+      <overlay>(0.55,0.55,0.55)</overlay>
+      <saturation>{sat}</saturation>
+    </skyColorsNightEdge>
+    <skyColorsNightMid>
+      <sky>{nm}</sky>
+      <shadow>(0.88,0.88,0.88)</shadow>
+      <overlay>(0.55,0.55,0.55)</overlay>
+      <saturation>{sat}</saturation>
+    </skyColorsNightMid>"""
+
+def body(temp, fav, prio, wind, extra="", sounds=("Ambient_Wind_Clear",), overlays=(), events=""):
+    o = f"    <temperatureRange>{temp}</temperatureRange>\n    <favorability>{fav}</favorability>\n    <perceivePriority>{prio}</perceivePriority>\n    <windSpeedFactor>{wind}</windSpeedFactor>\n" + extra
+    o += "    <ambientSounds>\n" + "".join(f"      <li>{x}</li>\n" for x in sounds) + "    </ambientSounds>\n"
+    if overlays:
+        o += "    <overlayClasses>\n" + "".join(f"      <li>{x}</li>\n" for x in overlays) + "    </overlayClasses>\n"
+    return o + events
+
+LIGHTNING = "    <eventMakers>\n      <li>\n        <averageInterval>2400</averageInterval>\n        <eventClass>WeatherEvent_LightningFlash</eventClass>\n      </li>\n    </eventMakers>\n"
+
+WEATHER += [
+ ("SH_Aurora", "aurora", "polární záře", "A cold, clear night lit by dancing green and violet lights.",
+  "Studená jasná noc, kterou rozsvěcují tančící zelená a fialová světla.",
+  body("-999~5", "Good", "0", "0.4") + sky("(0.95,1.0,1.05)", "(0.70,0.80,0.95)", "(0.42,0.70,0.60)", "1.3", "(0.50,0.62,0.78)")),
+ ("SH_Blizzard", "blizzard", "vánice", "A howling wind full of snow. You can barely see your own hand; best stay inside.",
+  "Kvílející vítr plný sněhu. Není vidět na krok; nejlíp zůstat uvnitř.",
+  body("-999~-4", "VeryBad", "2", "2.6", "    <isBad>true</isBad>\n    <snowRate>2</snowRate>\n    <rainRate>1</rainRate>\n    <accuracyMultiplier>0.55</accuracyMultiplier>\n    <moveSpeedMultiplier>0.65</moveSpeedMultiplier>\n    <durationRange>8000~20000</durationRange>\n",
+       ("Ambient_Wind_Storm",), ("WeatherOverlay_SnowHard", "WeatherOverlay_Fog"))
+  + sky("(0.88,0.90,0.94)", "(0.80,0.80,0.86)", "(0.40,0.44,0.50)", "0.6")),
+ ("SH_FreezingRain", "freezing rain", "mrznoucí déšť", "Rain that freezes on everything it touches. Slippery paths and icy coats.",
+  "Déšť, který namrzá na všem, čeho se dotkne. Kluzké cesty a zledovatělé kabáty.",
+  body("-3~2", "Bad", "1", "1.3", "    <isBad>true</isBad>\n    <rainRate>1</rainRate>\n    <snowRate>0.2</snowRate>\n    <weatherThought>SoakingWet</weatherThought>\n    <accuracyMultiplier>0.8</accuracyMultiplier>\n    <moveSpeedMultiplier>0.75</moveSpeedMultiplier>\n    <durationRange>6000~15000</durationRange>\n",
+       ("Ambient_Rain",), ("WeatherOverlay_Rain",)) + SKY_GREY),
+ ("SH_Hail", "hailstorm", "krupobití", "A short, violent storm of ice balls. It drums on the roofs and stings outside.",
+  "Krátká prudká bouře ledových kroupů. Bubnuje na střechy a venku to štípe.",
+  body("2~35", "Bad", "2", "1.8", "    <isBad>true</isBad>\n    <rainRate>1</rainRate>\n    <accuracyMultiplier>0.75</accuracyMultiplier>\n    <moveSpeedMultiplier>0.85</moveSpeedMultiplier>\n    <durationRange>2500~6000</durationRange>\n",
+       ("Ambient_Rain", "Ambient_Wind_Storm"), ("WeatherOverlay_Rain", "WeatherOverlay_SnowHard"), LIGHTNING) + SKY_GREY),
+ ("SH_Heatwave", "heat haze", "parno", "The air shimmers above the ground. Not a breath of wind; the sun burns.",
+  "Vzduch se nad zemí tetelí. Ani větřík; slunce pálí.",
+  body("28~999", "Neutral", "0", "0.2") + sky("(1.10,1.02,0.86)", "(1.0,0.66,0.40)", "(0.50,0.56,0.62)", "1.35")),
+ ("SH_Sandstorm", "sandstorm", "písečná bouře", "A wall of sand and dust. It gets into everything and you can't see far.",
+  "Stěna písku a prachu. Dostane se všude a není vidět daleko.",
+  body("5~999", "Bad", "2", "2.6", "    <isBad>true</isBad>\n    <accuracyMultiplier>0.5</accuracyMultiplier>\n    <moveSpeedMultiplier>0.85</moveSpeedMultiplier>\n    <durationRange>6000~18000</durationRange>\n",
+       ("Ambient_Wind_Storm",), ("WeatherOverlay_Fog",)) + sky("(1.02,0.84,0.58)", "(0.92,0.62,0.38)", "(0.48,0.42,0.36)", "0.7")),
+ ("SH_Monsoon", "monsoon rain", "monzunový liják", "Warm rain pours down for hours. Everything is soaked and the ground turns to mud.",
+  "Hodiny leje teplý déšť. Všechno je promočené a zem se mění v bláto.",
+  body("15~999", "Bad", "2", "1.6", "    <isBad>true</isBad>\n    <rainRate>1</rainRate>\n    <weatherThought>SoakingWet</weatherThought>\n    <accuracyMultiplier>0.6</accuracyMultiplier>\n    <moveSpeedMultiplier>0.75</moveSpeedMultiplier>\n    <durationRange>20000~50000</durationRange>\n",
+       ("Ambient_Rain", "Ambient_Wind_Storm"), ("WeatherOverlay_Rain", "WeatherOverlay_Fog"), LIGHTNING) + SKY_GREY),
 ]
 
 def weathers():
