@@ -449,4 +449,8 @@
   <GT_KeepTex>尽量让贴图留在显卡中</GT_KeepTex>
   <GT_KeepTex_Desc>在 1.7 中，显存约 80% 满时游戏就开始把贴图移到普通内存——图像可能显得模糊或加载延迟。开启后，贴图会以完整画质留在显卡中，直到只剩约 200 MB。显存真正满时游戏仍会自行腾出空间（否则会崩溃）——关闭大型模组效果更好。</GT_KeepTex_Desc>
   <GT_Crash_ModsUnknown>模组：日志无法看出是哪个模组导致的（只有整局游戏一直重复的错误，这些不计入）。</GT_Crash_ModsUnknown>
+  <GT_BrightNights>更亮的夜晚</GT_BrightNights>
+  <GT_BrightNights_Desc>夜晚在屏幕上看起来更亮。仅影响画面——黑暗对植物、心情和工作的影响不变。</GT_BrightNights_Desc>
+  <GT_NightLift>夜晚亮度：+{0} %</GT_NightLift>
+  <GT_NightLift_Desc>最暗的夜晚看起来亮多少。</GT_NightLift_Desc>
 </LanguageData>

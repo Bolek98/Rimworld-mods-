@@ -780,6 +780,7 @@ namespace RandysTable
 				}
 			});
 			AddBatch2(L);   // 0.3.0
+			AddBatch3(L);   // 0.4.0
 			return L;
 		}
 

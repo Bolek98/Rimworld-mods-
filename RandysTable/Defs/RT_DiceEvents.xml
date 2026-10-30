@@ -367,4 +367,57 @@
     <flashInterval>90</flashInterval>
     <arriveSound>LetterArrive_Good</arriveSound>
   </LetterDef>
+  <!-- 0.4.0 -->
+  <ThoughtDef>
+    <defName>RT_Thought_Aurora</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>lights in the sky</label>
+        <description>Max hung coloured lights across the sky. Beautiful.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>RT_Thought_Fog</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>0.5</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>quiet fog</label>
+        <description>A soft, quiet morning in the fog.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>RT_Thought_Snowfall</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>first snow</label>
+        <description>Snowflakes falling slowly. Peaceful.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>RT_Thought_Rainbow</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>rainbow</label>
+        <description>Max painted a rainbow just for us.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
 </Defs>

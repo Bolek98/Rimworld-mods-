@@ -35,6 +35,8 @@ namespace GraphicsTuner
         public float cullZoom = 40f;
         public bool noWeather;
         public bool plantSway = true;
+        public bool brighterNights;            // 1.6.6: nights look lighter (picture only)
+        public float nightLift = 0.25f;        // 1.6.6: how much (0–0.5)
         public bool fastLog = true;
         public bool autoSpeedEffects = true;    // 1.1: fewer effects at speed 3 and more
         public bool adaptiveEffects = true;     // 1.1: fewer effects while FPS is under the target
@@ -65,7 +67,7 @@ namespace GraphicsTuner
         public int gameSize = -1;      // -1 automatic, 0 small, 1 normal, 2 huge
         public bool smartTick = true;
         public bool worldClean = true;
-        public bool fastCull = true;   // 1.7.0
+        public bool fastCull = true;   // 1.6.6
         public int hitchMs = 250;
         public bool gcHold;
         public int tab;
@@ -206,6 +208,8 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref cullZoom, "cullZoom", 40f);
             Scribe_Values.Look(ref noWeather, "noWeather", false);
             Scribe_Values.Look(ref plantSway, "plantSway", true);
+            Scribe_Values.Look(ref brighterNights, "brighterNights", false);
+            Scribe_Values.Look(ref nightLift, "nightLift", 0.25f);
             Scribe_Values.Look(ref fastLog, "fastLog", true);
             Scribe_Values.Look(ref vsync, "vsync", -1);
             Scribe_Values.Look(ref fpsLimit, "fpsLimit", -2);
@@ -752,7 +756,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.6.5";
+        public const string Version = "1.6.6";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -778,9 +782,9 @@ namespace GraphicsTuner
             LocationGeneratorFast.Patch(harmony);   // 1.3.2
             Sim.Patch(harmony);                     // 1.6.0
             WorldSleep.Patch(harmony);              // 1.4.6: sleeping world pawns
-            FastCull.Patch(harmony);                // 1.7.0
+            FastCull.Patch(harmony);                // 1.6.6
             KeepTextures.Patch(harmony);            // 1.6.3
-            WorldPathSpread.Patch(harmony);         // 1.7.0
+            WorldPathSpread.Patch(harmony);         // 1.6.6
             SaveTiming.Patch(harmony);              // 1.7.4
             SaveBuffer.Patch(harmony);              // 1.5.0
             ModEffects.Patch(harmony);              // 1.3.2: effects from mods too
@@ -792,6 +796,7 @@ namespace GraphicsTuner
             FastNight.Patch(harmony);               // 1.4.0: fast nights
             SpeedControls.Patch(harmony);           // 1.5.3: speed 4, speed during danger, hidden resource list
             RainWash.Patch(harmony);                // 1.6.0: rain washes the filth away
+            BrightNights.Patch(harmony);            // 1.6.6: lighter nights, picture only
             // 1.6.0: opt-out rules of other mods (SmoothFPS.ExclusionDef, Extras/SmoothFPSRules.xml)
             LongEventHandler.ExecuteWhenFinished(SmoothFPS.ExclusionRules.Load);
             // 1.3.4: no more swapping textures that were loaded before Smooth FPS started – icons and
@@ -935,6 +940,9 @@ namespace GraphicsTuner
             s.cullZoom = Mathf.Round(MUI.Slider(l, "GT_CullZoom".Translate(s.cullZoom.ToString("0")), s.cullZoom, 15f, 80f, "GT_CullZoom_Desc".Translate(), s, "cullZoom"));
             Check(l, "GT_NoWeather", ref s.noWeather, "noWeather");
             Check(l, "GT_PlantSway", ref s.plantSway, "plantSway");
+            Check(l, "GT_BrightNights", ref s.brighterNights, "brighterNights");   // 1.6.6
+            if (s.brighterNights)
+                s.nightLift = Mathf.Round(MUI.Slider(l, "GT_NightLift".Translate((s.nightLift * 100f).ToString("0")), s.nightLift, 0.05f, 0.5f, "GT_NightLift_Desc".Translate(), s, "nightLift") * 20f) / 20f;
             Check(l, "GT_AutoSpeed", ref s.autoSpeedEffects, "autoSpeedEffects");
             Check(l, "GT_Adaptive", ref s.adaptiveEffects, "adaptiveEffects");
             MUI.Section(l, "GT_SecSmooth".Translate());
