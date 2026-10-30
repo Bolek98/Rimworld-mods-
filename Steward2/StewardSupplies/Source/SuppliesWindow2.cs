@@ -214,11 +214,13 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 			TooltipHandler.TipRegion(r, t);
 	}
 
-	private static int SmallNumber(Rect r, string label, int value, int min, int max)
+	private static int SmallNumber(Rect r, string label, int value, int min, int max, string shortLabel = null)
 	{
 		// 1.0.6: the label never runs under the buttons
 		Rect lr = new Rect(r.x, r.y + 3f, Mathf.Max(0f, r.width - 98f), 24f);
-		string shown = label.Truncate(lr.width);
+		// 1.1.1: a short label (♀ / ♂ …) when the long one does not fit
+		string use = shortLabel != null && Text.CalcSize(label).x > lr.width ? shortLabel : label;
+		string shown = use.Truncate(lr.width);
 		Widgets.Label(lr, shown);
 		if (shown != label)
 			TooltipHandler.TipRegion(lr, label);
@@ -875,36 +877,45 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 			TooltipHandler.TipRegion(wr, "CF_J_WatchTip".Translate());
 			Widgets.DefIcon(new Rect(row.x + 36f, row.y + 4f, 32f, 32f), d);
 			Text.Font = GameFont.Medium;
-			Widgets.Label(new Rect(row.x + 74f, row.y + 4f, 240f, 30f), d.LabelCap.ToString().Truncate(240f));
+			float lw = Mathf.Clamp(row.width * 0.36f, 230f, 330f) - 80f;   // 1.1.1: left column ends where the numbers start
+			Widgets.Label(new Rect(row.x + 74f, row.y + 4f, lw, 30f), d.LabelCap.ToString().Truncate(lw));
 			Text.Font = GameFont.Small;
 			GUI.color = Dim;
-			Widgets.Label(new Rect(row.x + 74f, row.y + 36f, 240f, 24f), "CF_J_HerdNow".Translate(f, m, yg));
-			Widgets.Label(new Rect(row.x + 74f, row.y + 60f, 240f, 24f), rule.enabled ? "CF_J_Watched".Translate() : "CF_J_NotWatched".Translate());
+			Widgets.Label(new Rect(row.x + 74f, row.y + 36f, lw, 24f), "CF_J_HerdNow".Translate(f, m, yg).ToString().Truncate(lw));
+			string watch = rule.enabled ? "CF_J_Watched".Translate() : "CF_J_NotWatched".Translate();
+			Widgets.Label(new Rect(row.x + 74f, row.y + 60f, lw, 24f), watch.Truncate(lw));
 			GUI.color = Color.white;
 			if (f + m + yg == 0)
 			{
 				GUI.color = new Color(1f, 0.75f, 0.5f);
 				Widgets.Label(new Rect(row.x + 74f, row.y + 86f, 128f, 24f), "CF_J_NoneLeft".Translate().ToString().Truncate(128f));
 				GUI.color = Color.white;
-				if (Widgets.ButtonText(new Rect(row.x + 210f, row.y + 82f, 100f, 26f), "CF_J_RemoveRule".Translate()))
+				if (Widgets.ButtonText(new Rect(row.x + Mathf.Min(210f, lw - 26f), row.y + 82f, 100f, 26f), "CF_J_RemoveRule".Translate()))
 					remove = d;
 			}
 			if (!rule.enabled)
 				GUI.color = new Color(1f, 1f, 1f, 0.55f);
 			// middle: how many to keep
-			float rw = Mathf.Clamp(row.width - 330f - 230f - 20f, 200f, 270f);
-			float cx = row.x + 330f;
-			float cw = Mathf.Clamp(row.xMax - rw - 20f - cx, 180f, 260f);
-			rule.females = SmallNumber(new Rect(cx, row.y + 6f, cw, 26f), "CF_J_KeepFemales".Translate(), rule.females, 0, 500);
-			rule.males = SmallNumber(new Rect(cx, row.y + 36f, cw, 26f), "CF_J_KeepMales".Translate(), rule.males, 0, 500);
+			// 1.1.1: the three columns share the width – before, a narrow window left the
+			// numbers' labels no room at all
+			float rw = Mathf.Clamp(row.width * 0.36f, 190f, 300f);
+			float cx = row.x + Mathf.Clamp(row.width * 0.36f, 230f, 330f);
+			float cw = Mathf.Max(110f, row.xMax - rw - 18f - cx);
+			rule.females = SmallNumber(new Rect(cx, row.y + 6f, cw, 26f), "CF_J_KeepFemales".Translate(), rule.females, 0, 500, "♀");
+			rule.males = SmallNumber(new Rect(cx, row.y + 36f, cw, 26f), "CF_J_KeepMales".Translate(), rule.males, 0, 500, "♂");
 			if (rule.spareYoung)
 			{
 				GUI.color = Dim;
-				Widgets.Label(new Rect(cx, row.y + 69f, cw, 24f), ("CF_J_KeepYoung".Translate() + ": " + "CF_J_AllYoung".Translate()).Truncate(cw));
+				string all = "CF_J_KeepYoung".Translate() + ": " + "CF_J_AllYoung".Translate();
+				if (Text.CalcSize(all).x > cw)
+					all = "CF_J_YoungShort".Translate() + ": " + "CF_J_AllYoung".Translate();
+				Rect yr = new Rect(cx, row.y + 69f, cw, 24f);
+				Widgets.Label(yr, all.Truncate(cw));
+				TooltipHandler.TipRegion(yr, "CF_J_SpareYoungTip".Translate());
 				GUI.color = rule.enabled ? Color.white : new Color(1f, 1f, 1f, 0.55f);
 			}
 			else
-				rule.young = SmallNumber(new Rect(cx, row.y + 66f, cw, 26f), "CF_J_KeepYoung".Translate(), rule.young, 0, 500);
+				rule.young = SmallNumber(new Rect(cx, row.y + 66f, cw, 26f), "CF_J_KeepYoung".Translate(), rule.young, 0, 500, "CF_J_YoungShort".Translate());
 			// right: switches and the herd area
 			float rx = row.xMax - rw - 6f;
 			Rect kp = new Rect(rx, row.y + 6f, rw, 26f);
