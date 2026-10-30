@@ -10,7 +10,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Mod | Version | Folder |
 |---|---|---|
 | Auto Pharmacy – Doctors Give the Right Drug | 1.4.4 | [AutoPharmacy](AutoPharmacy) |
-| Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.4.0 | [AutoTurrets](AutoTurrets) |
+| Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.4.1 | [AutoTurrets](AutoTurrets) |
 | Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.5.3 | [BodyFit](BodyFit) |
 | Call for Backup – Summon Your Allies | 0.1.0 | [CallForBackup](CallForBackup) |
 | Caravan Helper | 1.1.0 | [CaravanHelper](CaravanHelper) |
@@ -40,7 +40,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Smooth FPS – Performance & Graphics | 1.6.6 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 1.0.0 | [Steward2/Steward](Steward2/Steward) |
-| Steward – Crises & Situations | 1.0.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| Steward – Crises & Situations | 1.1.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
 | Steward – Supplies | 1.2.0 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |

@@ -161,3 +161,35 @@ namespace AutoTurrets
 		}
 	}
 }
+
+namespace AutoTurrets
+{
+	// 1.4.1: with friendly fire off, a blast of your turret (incendiary shells, flamers, mortars) does
+	// nothing at all in cells next to your people – before, the people themselves were spared, but the
+	// fire it started right beside them still burned them
+	[HarmonyLib.HarmonyPatch(typeof(DamageWorker), nameof(DamageWorker.ExplosionAffectCell))]
+	public static class Patch_ExplosionNoFireNearFriends
+	{
+		[HarmonyLib.HarmonyPriority(HarmonyLib.Priority.First)]
+		public static bool Prefix(Explosion explosion, IntVec3 c)
+		{
+			try
+			{
+				if (!FriendlyFire.Off || explosion?.Map == null || !FriendlyFire.OurTurret(explosion.instigator))
+					return true;
+				Map map = explosion.Map;
+				for (int i = 0; i < 9; i++)
+				{
+					IntVec3 n = c + GenAdj.AdjacentCellsAndInside[i];
+					if (!n.InBounds(map)) continue;
+					List<Thing> here = n.GetThingList(map);
+					for (int j = 0; j < here.Count; j++)
+						if (FriendlyFire.Friendly(here[j]))
+							return false;
+				}
+			}
+			catch { }
+			return true;
+		}
+	}
+}

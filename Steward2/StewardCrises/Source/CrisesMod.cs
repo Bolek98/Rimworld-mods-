@@ -30,6 +30,7 @@ public sealed class CrisesSettings : ModSettings
 	public bool fireResponse = true;
 	public bool butcherFirst = true;
 	public bool raidSafeArea = false;
+	public bool raidSafeAnimals = true;   // 1.1.0: tame animals go into the safe area too
 
 	public override void ExposeData()
 	{
@@ -43,6 +44,7 @@ public sealed class CrisesSettings : ModSettings
 		Scribe_Values.Look(ref fireResponse, "fireResponse", true);
 		Scribe_Values.Look(ref butcherFirst, "butcherFirst", true);
 		Scribe_Values.Look(ref raidSafeArea, "raidSafeArea", false);
+		Scribe_Values.Look(ref raidSafeAnimals, "raidSafeAnimals", true);
 		situationOff ??= new List<string>();
 	}
 }
@@ -119,6 +121,8 @@ public sealed class CrisesMod : Mod
 		l.CheckboxLabeled("CF2C_Fire".Translate(), ref S.fireResponse, "CF2C_FireTip".Translate());
 		l.CheckboxLabeled("CF2C_Butcher".Translate(), ref S.butcherFirst, "CF2C_ButcherTip".Translate());
 		l.CheckboxLabeled("CF2C_SafeArea".Translate(), ref S.raidSafeArea, "CF2C_SafeAreaTip".Translate());
+		if (S.raidSafeArea)
+			l.CheckboxLabeled("    " + "CF2C_SafeAnimals".Translate(), ref S.raidSafeAnimals, "CF2C_SafeAnimalsTip".Translate());
 		l.GapLine();
 		if (S.useCrisis)
 		{
@@ -198,6 +202,7 @@ public static class Migrate
 		s.fireResponse = B("fireResponse", s.fireResponse);
 		s.butcherFirst = B("butcherFirst", s.butcherFirst);
 		s.raidSafeArea = B("raidSafeArea", s.raidSafeArea);
+		s.raidSafeAnimals = B("raidSafeAnimals", s.raidSafeAnimals);
 		if (d.TryGetValue("crisisOff", out string co) && long.TryParse(co, out long l))
 			s.crisisOff = l;
 		if (d.TryGetValue("situationOff", out string so) && !so.NullOrEmpty())
@@ -615,13 +620,27 @@ public static class SafeArea
 		return n;
 	}
 
-	// 1.0.8: colonists and the colony's work mechs, robots and droids (not fighting mechs, not animals)
+	private static bool FollowsDraftedMaster(Pawn p)
+	{
+		Pawn m = p.playerSettings?.Master;
+		return m != null && m.Drafted && p.playerSettings.followDrafted;
+	}
+
+	// 1.0.8: colonists and the colony's work mechs, robots and droids (not fighting mechs); 1.1.0: tame animals
 	private static IEnumerable<Pawn> Sheltered(Map map)
 	{
 		foreach (Pawn p in map.mapPawns.FreeColonistsSpawned.ToList())
 			yield return p;
+		bool animals = CrisesMod.S == null || CrisesMod.S.raidSafeAnimals;
 		foreach (Pawn p in map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer).ToList())
 		{
+			// 1.1.0: tame animals too (before, only colonists and work mechs went in and the animals
+			// wandered outside during an attack) – except those that follow a drafted master into battle
+			if (p.RaceProps.Animal && animals && !p.Dead && !p.Downed && !p.Drafted && !FollowsDraftedMaster(p))
+			{
+				yield return p;
+				continue;
+			}
 			if (p.Dead || p.IsColonist || p.RaceProps.Humanlike || p.RaceProps.Animal)
 				continue;
 			if (p.RaceProps.IsMechanoid && !p.RaceProps.IsWorkMech)
