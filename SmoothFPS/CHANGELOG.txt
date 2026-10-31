@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+1.6.2
+- Speed 3 and 4 never run slower than speed 2: in a heavy colony they now get at least the same time for the game per frame (before, speed 2 could be faster than speed 4).
+- Rychlost 3 a 4 už nikdy neběží pomaleji než rychlost 2: v těžké kolonii teď dostanou na hru aspoň stejně času za snímek (dřív mohla být rychlost 2 rychlejší než 4).
+
 1.6.1
 - Draw guard: one pawn or corpse that cannot be drawn (e.g. a modded race corpse with a broken body part) no longer stops the whole map from drawing – before, other colonists and passers-by were invisible and only their names showed. The broken one is left out, written to the log once and tried again after 10 seconds.
 - Ochrana kreslení: jedna postava nebo mrtvola, kterou nejde nakreslit (např. mrtvola modové rasy s rozbitou částí těla), už nezastaví kreslení celé mapy – dřív byli ostatní kolonisté a kolemjdoucí neviditelní a vidět byla jen jejich jména. Ta rozbitá se vynechá, jednou zapíše do logu a za 10 sekund se zkusí znovu.
