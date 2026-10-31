@@ -756,7 +756,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.6.0";
+        public const string Version = "1.6.1";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -788,6 +788,7 @@ namespace GraphicsTuner
             SaveTiming.Patch(harmony);              // 1.7.4
             SaveBuffer.Patch(harmony);              // 1.5.0
             ModEffects.Patch(harmony);              // 1.3.2: effects from mods too
+            DrawGuard.Patch(harmony);               // 1.6.1: one broken pawn no longer hides the rest
             TextureCap.Patch(harmony);              // 1.3.3: oversized mod textures
             MLog.Info("[Smooth FPS] game " + RimWorld.VersionControl.CurrentVersionStringWithoutBuild + (Env.Is17 ? ": 1.7 mode – no texture limit, no forced memory clean-ups." : ": 1.6 mode."));
             SmartWork.Patch(harmony);               // 1.4.0: smart work search

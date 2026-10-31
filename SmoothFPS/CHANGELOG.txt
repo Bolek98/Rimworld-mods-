@@ -1,3 +1,8 @@
+=== Not on the Workshop yet (test versions) ===
+1.6.1
+- Draw guard: one pawn or corpse that cannot be drawn (e.g. a modded race corpse with a broken body part) no longer stops the whole map from drawing – before, other colonists and passers-by were invisible and only their names showed. The broken one is left out, written to the log once and tried again after 10 seconds.
+- Ochrana kreslení: jedna postava nebo mrtvola, kterou nejde nakreslit (např. mrtvola modové rasy s rozbitou částí těla), už nezastaví kreslení celé mapy – dřív byli ostatní kolonisté a kolemjdoucí neviditelní a vidět byla jen jejich jména. Ta rozbitá se vynechá, jednou zapíše do logu a za 10 sekund se zkusí znovu.
+
 === Workshop release 1.6.0 (31 Oct 2026) ===
 1.6.0
 New

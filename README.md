@@ -38,7 +38,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.3.0 | [SeasonsHolidays](SeasonsHolidays) |
 | Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |
 | Smart Colonist Gear – Auto Equip Weapons & Armor | 2.16.0 | [SmartColonistGear](SmartColonistGear) |
-| Smooth FPS – Performance & Graphics | 1.6.0 | [SmoothFPS](SmoothFPS) |
+| Smooth FPS – Performance & Graphics | 1.6.1 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 1.0.0 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.1.1 | [Steward2/StewardCrises](Steward2/StewardCrises) |
