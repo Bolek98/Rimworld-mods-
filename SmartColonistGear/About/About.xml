@@ -3,7 +3,7 @@
   <name>Smart Colonist Gear – Auto Equip Weapons &amp; Armor</name>
   <author>Bolek98</author>
   <packageId>misak.researchedloadout</packageId>
-  <modVersion>2.19.1</modVersion>
+  <modVersion>2.16.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -16,13 +16,15 @@ WHAT YOU GET
 - Dressed for the moment: warm clothes in the cold, gas masks in toxic air, armor from storage before a fight or a hunt – and back after.
 - Gear by traits and skills: doctors get medical gear, wimps more armor; shooters and brawlers get the right weapons.
 - "Gear" button: who wears what and what is wrong (no weapon, bare torso, worn out, too cold) – plus "Equip everyone now".
+- Battle outfits: drafted colonists – and everyone during a raid – switch to their battle gear and back to work clothes afterwards.
+- "Gear up now" on any colonist, and a gear planner that shows what the colony is missing with one-click bills.
 - "Why" for every change: what changed, the reason and who did it (this mod, the game, you or another mod).
 
 ALSO
 - Work tools are never used as weapons; no back-and-forth swapping – only for clearly better gear.
 - Sidearms built in or with Simple Sidearms (how many ranged and melee weapons is adjustable).
-- Respects forced and locked apparel, ideology apparel and weapons you equip by hand. Quest guests you control are equipped too.
-- Weapons per outfit: choose which weapon kinds colonists with each outfit may take. Combat Extended: only guns with ammo on the map.
+- Respects forced and locked apparel, ideology apparel and weapons you equip by hand.
+- Ranged weapons for everyone (optional), weapons by role, spare guns in storage. Weapons per outfit: choose which weapon kinds colonists with each outfit may take. Combat Extended: only guns with ammo on the map.
 - Ban list, per-colonist toggle, optional "Only crafted" mode. Big colonies are checked one pawn at a time – no stutter.
 - Recommended settings switch (on by default) – install and play.
 
@@ -39,13 +41,15 @@ CO DOSTANEŠ
 - Oblečení podle situace: v zimě teplé věci, v jedovatém vzduchu plynové masky, před bojem nebo lovem brnění ze skladu – a pak zase zpátky.
 - Výbava podle vlastností a dovedností: doktoři lékařské oblečení, zbabělci víc brnění; střelci a rváči správné zbraně.
 - Tlačítko „Výbava“: kdo co nosí a co je špatně (bez zbraně, holý trup, opotřebované, zima) – a „Vybavit všechny hned“.
+- Bojové oblečení: odvedení kolonisté – a při nájezdu všichni – se převléknou do bojové výbavy a pak zpět do pracovního.
+- „Převléct a přezbrojit“ u každého kolonisty a plánovač výbavy, který ukáže, co kolonii chybí, s objednávkou na jedno kliknutí.
 - „Proč“ u každé změny: co se změnilo, důvod a kdo to udělal (tento mod, hra, ty nebo jiný mod).
 
 DALŠÍ
 - Pracovní nástroje nikdy jako zbraň; žádné přehazování – mění jen za jasně lepší.
 - Vedlejší zbraně vestavěné nebo se Simple Sidearms (počet zbraní na dálku a na blízko se dá nastavit).
-- Respektuje vynucené a zamčené oblečení, oblečení ideologie a zbraně, které dáš ručně. Vybaví i hosty z úkolů, které ovládáš.
-- Zbraně podle předpisu oblečení: vyber, jaké druhy zbraní si smějí brát kolonisté s daným oblečením. Combat Extended: jen zbraně, ke kterým je na mapě munice.
+- Respektuje vynucené a zamčené oblečení, oblečení ideologie a zbraně, které dáš ručně.
+- Zbraně na dálku pro všechny (volitelné), zbraně podle role, záložní pušky ve skladu. Zbraně podle předpisu oblečení: vyber, jaké druhy zbraní si smějí brát kolonisté s daným oblečením. Combat Extended: jen zbraně, ke kterým je na mapě munice.
 - Seznam zakázaných věcí, vypnutí pro jednotlivé kolonisty, volitelný režim „Jen vyrobené“. Velké kolonie se kontrolují po jednom – bez sekání.
 - Přepínač Doporučené nastavení (zapnutý) – nainstaluj a hraj.
 
@@ -56,20 +60,22 @@ Vyžaduje Harmony. RimWorld 1.6 a 1.7. Lze bezpečně přidat do rozehrané hry.
 IDEAS AND SUGGESTIONS
 Want something changed or added? Write it in the comments – I read every idea and take it into account.
 
-WHAT'S NEW IN 2.15.1
-- "Gear up now" button and "Takes next" in the gear overview
-- "Allow this kind" for locked gear
-- Enemy gear only from storage (option)
-- 12 languages, clearer description and pictures
+WHAT'S NEW IN 2.16.0
+- Battle outfits for drafted colonists and raids
+- "Gear up now" button and gear planner
+- Ranged weapons for everyone (option), weapons by role
+- Dress for the coming weather
+- Fix: visitors no longer get stuck changing clothes
 
 NÁPADY A NÁVRHY
 Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
 
-CO JE NOVÉHO VE VERZI 2.15.1
-- Tlačítko „Převléct a přezbrojit“ a „Vezme si příště“ v přehledu výbavy
-- „Povolit tento druh“ u zamčené výbavy
-- Výbava nepřátel jen ze skladu (volba)
-- 12 jazyků, jasnější popis a obrázky</description>
+CO JE NOVÉHO VE VERZI 2.16.0
+- Bojové oblečení pro odvedené kolonisty a nájezdy
+- Tlačítko „Převléct a přezbrojit“ a plánovač výbavy
+- Zbraně na dálku pro všechny (volba), zbraně podle role
+- Oblékání podle počasí, které přijde
+- Oprava: návštěvníci se už nezacyklí v převlékání</description>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>

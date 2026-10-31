@@ -1,4 +1,26 @@
 === Not on the Workshop yet (test versions) ===
+1.2.0
+New
+- World artillery (VFE Security) can shell hostile bases you have not visited yet. Hits are counted: when you attack, they fall on the base first (fewer defenders and buildings), and enough hits destroy it. Option and number of hits in the settings.
+- World artillery can also shell hostile camps and sites without a map (e.g. the Wolfein drone factory) – half the hits of a base destroy them and their quest ends.
+- Stun turrets also shoot at your own prisoners and slaves who break out, rebel, flee or go berserk (lethal turrets leave them alone). Option, on by default.
+- A runaway prisoner or rebelling slave downed or stunned by your turret gives up: back to the cell or back to work. Option, on by default.
+
+Fixes
+- With friendly fire off, a turret blast does nothing in cells right next to your people (its fire could burn them before).
+- Clear message when the world artillery target is not a hostile base.
+
+Nové
+- Světové dělostřelectvo (VFE Security) může ostřelovat nepřátelské základny, kde jsi ještě nebyl. Zásahy se počítají: při útoku na základnu nejdřív dopadnou (méně obránců a budov) a po dost zásazích se zničí. Volba a počet zásahů v nastavení.
+- Světové dělostřelectvo umí ostřelovat i nepřátelské tábory a místa bez mapy (např. továrnu na drony Wolfeinů) – zničí je polovina zásahů co základnu a jejich úkol skončí.
+- Omračující věže střílí i po tvých vězních a otrocích, kteří utíkají, bouří se, prchají nebo zuří (smrtící věže je nechají být). Volba, zapnutá.
+- Uprchlý vězeň nebo vzbouřený otrok, kterého věž srazí nebo omráčí, se vzdá: zpátky do cely nebo k práci. Volba, zapnutá.
+
+Opravy
+- S vypnutou palbou do vlastních výbuch věže nic nedělá na políčkách těsně vedle tvých lidí (dřív je mohl popálit oheň).
+- Jasná hláška, když cíl světového dělostřelectva není nepřátelská základna.
+
+=== Development history since the last Workshop release (test versions) ===
 1.4.2
 - World artillery: a clear message when the target is not a hostile base (instead of 'needs a visible, explored map').
 - Světové dělostřelectvo: jasná hláška, když cíl není nepřátelská základna (místo „musí cílit na viditelnou, prozkoumanou mapu“).
