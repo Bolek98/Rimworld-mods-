@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SR_Name>Role</SR_Name>
+  <SR_Role_None>Bez role</SR_Role_None>
+  <SR_RoleNone>Bez role</SR_RoleNone>
+  <SR_Role_Doctor>Doktor</SR_Role_Doctor>
+  <SR_Role_Warden>Dozorce</SR_Role_Warden>
+  <SR_Role_Cook>Kuchař</SR_Role_Cook>
+  <SR_Role_Hunter>Lovec</SR_Role_Hunter>
+  <SR_Role_Farmer>Farmář</SR_Role_Farmer>
+  <SR_Role_Builder>Stavitel</SR_Role_Builder>
+  <SR_Role_Miner>Horník</SR_Role_Miner>
+  <SR_Role_Crafter>Řemeslník</SR_Role_Crafter>
+  <SR_Role_Researcher>Výzkumník</SR_Role_Researcher>
+  <SR_Role_Handler>Chovatel</SR_Role_Handler>
+  <SR_Role_Hauler>Nosič</SR_Role_Hauler>
+  <SR_Role_Soldier>Voják</SR_Role_Soldier>
+  <SR_RoleDesc_None>Steward plánuje tohoto kolonistu jako dosud.</SR_RoleDesc_None>
+  <SR_RoleDesc_Doctor>Ošetřování vždy na prioritě 1.</SR_RoleDesc_Doctor>
+  <SR_RoleDesc_Warden>Vězni a otroci vždy na prioritě 1.</SR_RoleDesc_Warden>
+  <SR_RoleDesc_Cook>Vaření a porcování vždy na prioritě 1.</SR_RoleDesc_Cook>
+  <SR_RoleDesc_Hunter>Lov vždy na prioritě 1.</SR_RoleDesc_Hunter>
+  <SR_RoleDesc_Farmer>Pěstování a sklizeň vždy na prioritě 1.</SR_RoleDesc_Farmer>
+  <SR_RoleDesc_Builder>Stavění vždy na prioritě 1.</SR_RoleDesc_Builder>
+  <SR_RoleDesc_Miner>Těžba vždy na prioritě 1.</SR_RoleDesc_Miner>
+  <SR_RoleDesc_Crafter>Výroba, kovářství, krejčovství a umění vždy na prioritě 1.</SR_RoleDesc_Crafter>
+  <SR_RoleDesc_Researcher>Výzkum vždy na prioritě 1.</SR_RoleDesc_Researcher>
+  <SR_RoleDesc_Handler>Ochočování, výcvik a péče o zvířata vždy na prioritě 1.</SR_RoleDesc_Handler>
+  <SR_RoleDesc_Hauler>Nošení a úklid vždy na prioritě 1 – ostatní to dělat nemusí.</SR_RoleDesc_Hauler>
+  <SR_RoleDesc_Soldier>Volný pro boj: jen lehká práce (hašení, nošení, úklid), všechno ostatní na nejnižší úrovni. Při útoku nepřátel se sám povolá do zbraně a potom se vrátí k práci.</SR_RoleDesc_Soldier>
+  <SR_GizmoNone>Role…</SR_GizmoNone>
+  <SR_GizmoDesc>Dej kolonistovi roli. Práce jeho role zůstane v každém plánu Stewarda na prioritě 1; zbytek jeho práce Steward plánuje jako dosud. Políčka, která si zamkneš sám (prostřední tlačítko), se nikdy nemění.</SR_GizmoDesc>
+  <SR_GizmoNoneDesc>Zatím bez role – číslo u každé role říká, jak se na ni hodí (dovednost + vášeň).</SR_GizmoNoneDesc>
+  <SR_CannotDo>neumí</SR_CannotDo>
+  <SR_Reason>Role: {0}</SR_Reason>
+  <SR_ReasonSoldier>Role: {0} – volný pro boj</SR_ReasonSoldier>
+  <SR_Inspect>Role: {0}</SR_Inspect>
+  <SR_TabLine>Role: {0}</SR_TabLine>
+  <SR_SoldiersDrafted>Vojáků, kteří se chopili zbraní: {0}.</SR_SoldiersDrafted>
+  <SR_SoldiersBack>Nebezpečí skončilo – vojáků zpět u práce: {0}.</SR_SoldiersBack>
+  <SR_Enabled>Role jsou zapnuté</SR_Enabled>
+  <SR_EnabledTip>Vypnuto: role zůstanou uložené, ale nic se s nimi nedělá.</SR_EnabledTip>
+  <SR_SoldierDraft>Vojáci se při útoku sami povolají</SR_SoldierDraft>
+  <SR_SoldierDraftTip>Voják, který není vážně zraněný, se sám povolá, když na domovskou mapu přijde nájezd nebo jiná hrozba, a asi půl hodiny po jejím konci se zase uvolní. Když ho povoláš nebo uvolníš sám, je do konce útoku tvůj.</SR_SoldierDraftTip>
+  <SR_SoldierLight>Vojáci dělají jen lehkou práci</SR_SoldierLight>
+  <SR_SoldierLightTip>Hašení, nošení a úklid na prioritě 2, všechna ostatní práce na nejnižší úrovni – vojáci zůstanou volní a nablízku.</SR_SoldierLightTip>
+  <SR_Messages>Zprávy, když se vojáci chopí zbraní nebo vrátí k práci</SR_Messages>
+  <SR_NoGame>Načti hru, abys mohl kolonistům dát role.</SR_NoGame>
+  <SR_SuggestFree>Navrhnout role ostatním</SR_SuggestFree>
+  <SR_SuggestFreeTip>Kolonisté bez role dostanou tu, na kterou se nejvíc hodí (dovednosti a vášně). Důležité role (doktor, kuchař, stavitel, farmář …) dostane nejdřív ten nejlepší. Role, které jsi nastavil, zůstanou.</SR_SuggestFreeTip>
+  <SR_SuggestAll>Navrhnout role všem</SR_SuggestAll>
+  <SR_SuggestAllTip>Všechny role se navrhnou znovu podle dovedností a vášní (i vojáci o roli přijdou).</SR_SuggestAllTip>
+  <SR_ClearAll>Zrušit všechny role</SR_ClearAll>
+  <SR_Suggested>Role navrženy pro {0} kolonistů.</SR_Suggested>
+  <SR_SoldierShort>jen lehká práce, v boji se sám povolá</SR_SoldierShort>
+</LanguageData>

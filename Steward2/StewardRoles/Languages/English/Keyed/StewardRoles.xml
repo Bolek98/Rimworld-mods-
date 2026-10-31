@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SR_Name>Roles</SR_Name>
+  <SR_Role_None>No role</SR_Role_None>
+  <SR_RoleNone>No role</SR_RoleNone>
+  <SR_Role_Doctor>Doctor</SR_Role_Doctor>
+  <SR_Role_Warden>Warden</SR_Role_Warden>
+  <SR_Role_Cook>Cook</SR_Role_Cook>
+  <SR_Role_Hunter>Hunter</SR_Role_Hunter>
+  <SR_Role_Farmer>Farmer</SR_Role_Farmer>
+  <SR_Role_Builder>Builder</SR_Role_Builder>
+  <SR_Role_Miner>Miner</SR_Role_Miner>
+  <SR_Role_Crafter>Crafter</SR_Role_Crafter>
+  <SR_Role_Researcher>Researcher</SR_Role_Researcher>
+  <SR_Role_Handler>Animal handler</SR_Role_Handler>
+  <SR_Role_Hauler>Hauler</SR_Role_Hauler>
+  <SR_Role_Soldier>Soldier</SR_Role_Soldier>
+  <SR_RoleDesc_None>Steward plans this colonist as before.</SR_RoleDesc_None>
+  <SR_RoleDesc_Doctor>Doctoring always on priority 1.</SR_RoleDesc_Doctor>
+  <SR_RoleDesc_Warden>Prisoners and slaves always on priority 1.</SR_RoleDesc_Warden>
+  <SR_RoleDesc_Cook>Cooking and butchering always on priority 1.</SR_RoleDesc_Cook>
+  <SR_RoleDesc_Hunter>Hunting always on priority 1.</SR_RoleDesc_Hunter>
+  <SR_RoleDesc_Farmer>Growing and plant cutting always on priority 1.</SR_RoleDesc_Farmer>
+  <SR_RoleDesc_Builder>Construction always on priority 1.</SR_RoleDesc_Builder>
+  <SR_RoleDesc_Miner>Mining always on priority 1.</SR_RoleDesc_Miner>
+  <SR_RoleDesc_Crafter>Crafting, smithing, tailoring and art always on priority 1.</SR_RoleDesc_Crafter>
+  <SR_RoleDesc_Researcher>Research always on priority 1.</SR_RoleDesc_Researcher>
+  <SR_RoleDesc_Handler>Taming, training and animal care always on priority 1.</SR_RoleDesc_Handler>
+  <SR_RoleDesc_Hauler>Hauling and cleaning always on priority 1 – the others don't have to.</SR_RoleDesc_Hauler>
+  <SR_RoleDesc_Soldier>Kept free for fights: only light work (firefighting, hauling, cleaning), everything else on the lowest level. Drafts himself when enemies attack and goes back to work afterwards.</SR_RoleDesc_Soldier>
+  <SR_GizmoNone>Role…</SR_GizmoNone>
+  <SR_GizmoDesc>Give this colonist a role. The role's work stays on priority 1 in every Steward plan; the rest of his work Steward plans as before. Cells you lock yourself (middle-click) are never changed.</SR_GizmoDesc>
+  <SR_GizmoNoneDesc>No role yet – the number next to each role is how well he fits it (skill + passion).</SR_GizmoNoneDesc>
+  <SR_CannotDo>cannot do it</SR_CannotDo>
+  <SR_Reason>Role: {0}</SR_Reason>
+  <SR_ReasonSoldier>Role: {0} – kept free for fights</SR_ReasonSoldier>
+  <SR_Inspect>Role: {0}</SR_Inspect>
+  <SR_TabLine>Roles: {0}</SR_TabLine>
+  <SR_SoldiersDrafted>{0} soldiers took up arms.</SR_SoldiersDrafted>
+  <SR_SoldiersBack>The danger is over – {0} soldiers went back to work.</SR_SoldiersBack>
+  <SR_Enabled>Roles are on</SR_Enabled>
+  <SR_EnabledTip>Off: roles are kept but nothing is done with them.</SR_EnabledTip>
+  <SR_SoldierDraft>Soldiers draft themselves when enemies attack</SR_SoldierDraft>
+  <SR_SoldierDraftTip>A soldier who is not hurt badly drafts himself when a raid or another threat reaches the home map, and is undrafted about half an hour after it is over. Draft or undraft him yourself and he is yours until the attack ends.</SR_SoldierDraftTip>
+  <SR_SoldierLight>Soldiers do only light work</SR_SoldierLight>
+  <SR_SoldierLightTip>Firefighting, hauling and cleaning on priority 2, all other work on the lowest level – soldiers stay free and close.</SR_SoldierLightTip>
+  <SR_Messages>Messages when soldiers take up arms or go back</SR_Messages>
+  <SR_NoGame>Load a game to give roles to your colonists.</SR_NoGame>
+  <SR_SuggestFree>Suggest roles for the others</SR_SuggestFree>
+  <SR_SuggestFreeTip>Colonists without a role get the one they fit best (skills and passions). The important roles (doctor, cook, builder, farmer …) go first to the best colonist. Roles you set stay.</SR_SuggestFreeTip>
+  <SR_SuggestAll>Suggest roles for everyone</SR_SuggestAll>
+  <SR_SuggestAllTip>All roles are suggested again from skills and passions (soldiers too lose their role).</SR_SuggestAllTip>
+  <SR_ClearAll>Clear all roles</SR_ClearAll>
+  <SR_Suggested>Roles suggested for {0} colonists.</SR_Suggested>
+  <SR_SoldierShort>light work only, drafts himself in fights</SR_SoldierShort>
+</LanguageData>

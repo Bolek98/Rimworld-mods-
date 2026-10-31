@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Steward – Roles</name>
+  <author>Bolek98</author>
+  <packageId>misak.steward.roles</packageId>
+  <modVersion>0.1.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>misak.colonyforeman</packageId>
+      <displayName>Steward – Work Priorities</displayName>
+      <downloadUrl>https://github.com/Bolek98/Rimworld-mods-</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>misak.colonyforeman</li>
+  </loadAfter>
+  <description>Optional add-on for Steward – Work Priorities (needs the Steward core; Steward works without it).
+
+Give your colonists roles: doctor, warden, cook, hunter, farmer, builder, miner, crafter, researcher, animal handler, hauler or soldier.
+- The role's work stays on priority 1 in every Steward plan; the rest of his work Steward plans as before. Cells you lock yourself are never changed.
+- Suggest roles from skills and passions for the whole colony in one click – the important roles go to the best colonist first.
+- Soldiers stay free for fights (light work only) and draft themselves when enemies attack, then go back to work.
+- Role button on every colonist, the role in the inspect pane and a list of all roles in the settings.
+
+---
+
+Volitelný doplněk pro Steward – Work Priorities (potřebuje jádro Stewarda; Steward funguje i bez něj).
+
+Dej kolonistům role: doktor, dozorce, kuchař, lovec, farmář, stavitel, horník, řemeslník, výzkumník, chovatel, nosič nebo voják.
+- Práce role zůstane v každém plánu Stewarda na prioritě 1; zbytek práce Steward plánuje jako dosud. Políčka, která si zamkneš sám, se nikdy nemění.
+- Návrh rolí podle dovedností a vášní pro celou kolonii jedním klikem – důležité role dostane nejdřív ten nejlepší.
+- Vojáci zůstanou volní pro boj (jen lehká práce), při útoku se sami povolají a pak se vrátí k práci.
+- Tlačítko Role u každého kolonisty, role v informačním panelu a seznam všech rolí v nastavení.</description>
+</ModMetaData>
