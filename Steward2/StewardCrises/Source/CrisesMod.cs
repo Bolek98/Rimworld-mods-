@@ -227,6 +227,8 @@ public sealed class CS
 	public bool safeActive;
 	public List<Pawn> safePawns = new List<Pawn>();
 	public List<int> safeOldArea = new List<int>();
+	public long safeSig;          // 1.1.2: what the safe area looked like when Steward last drew it
+	public bool safePlayerOwned;  // 1.1.2: the player changed it – Steward keeps it as it is
 	// runtime
 	public Crisis? crisisSeen;
 	public int crisisSeenTick;
@@ -257,6 +259,8 @@ public sealed class CS
 		Scribe_Values.Look(ref s.safeActive, "cfSafeActive", false);
 		Scribe_Collections.Look(ref s.safePawns, "cfSafePawns", LookMode.Reference);
 		Scribe_Collections.Look(ref s.safeOldArea, "cfSafeOldArea", LookMode.Value);
+		Scribe_Values.Look(ref s.safeSig, "cfSafeSig", 0L);
+		Scribe_Values.Look(ref s.safePlayerOwned, "cfSafePlayerOwned", false);
 		if (Scribe.mode == LoadSaveMode.PostLoadInit)
 		{
 			s.situationNames ??= new List<string>();
@@ -558,7 +562,7 @@ public static class SafeArea
 		}
 		if (threat && !st.safeActive)
 		{
-			Area_Allowed area = Build(map, true);
+			Area_Allowed area = Build(map, true, st);
 			if (area == null || area.TrueCount < 10)
 				return;
 			st.safePawns.Clear();
@@ -722,15 +726,40 @@ public static class SafeArea
 		}
 	}
 
-	private static Area_Allowed Build(Map map, bool rebuild)
+	// 1.1.2: a cheap fingerprint of the area's cells – a different one means the player painted it
+	private static long Sig(Area a)
+	{
+		long sum = 17;
+		foreach (IntVec3 c in a.ActiveCells)
+			sum = sum * 31 + c.x * 1000 + c.z;
+		return sum ^ ((long)a.TrueCount << 40);
+	}
+
+	private static Area_Allowed Build(Map map, bool rebuild, CS st = null)
 	{
 		string label = "CF_SafeAreaName".Translate();
 		Area_Allowed a = map.areaManager.AllAreas.OfType<Area_Allowed>().FirstOrDefault(x => x.Label == label);
+		bool fresh = false;
 		if (a == null)
 		{
 			if (!rebuild || !map.areaManager.TryMakeNewAllowed(out a))
 				return null;
 			a.RenamableLabel = label;
+			fresh = true;
+		}
+		// 1.1.2: Steward draws the safe area once; when the player edits it, his version is kept and only used
+		// (delete the area and Steward draws a new one at the next danger)
+		if (rebuild && st != null)
+		{
+			if (fresh)
+				st.safePlayerOwned = false;
+			else if (!st.safePlayerOwned && (st.safeSig == 0 || Sig(a) != st.safeSig))   // an area from before 1.1.2 is kept too
+			{
+				st.safePlayerOwned = true;
+				MLog.Info("[Steward] safe area: edited by the player – kept as it is from now on.");
+			}
+			if (st.safePlayerOwned && a.TrueCount > 0)
+				return a;
 		}
 		if (rebuild)
 		{
@@ -744,6 +773,8 @@ public static class SafeArea
 				if (r != null && !r.PsychologicallyOutdoors && !r.TouchesMapEdge)
 					a[c] = true;
 			}
+			if (st != null)
+				st.safeSig = Sig(a);
 		}
 		return a;
 	}

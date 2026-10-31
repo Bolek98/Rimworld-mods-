@@ -41,7 +41,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Smooth FPS – Performance & Graphics | 1.6.1 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 1.0.0 | [Steward2/Steward](Steward2/Steward) |
-| Steward – Crises & Situations | 1.1.1 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| Steward – Crises & Situations | 1.1.2 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
 | Steward – Supplies | 1.2.0 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
