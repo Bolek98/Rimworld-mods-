@@ -35,6 +35,8 @@ namespace GraphicsTuner
         public float cullZoom = 40f;
         public bool noWeather;
         public bool plantSway = true;
+        public bool brighterNights;            // 1.6.6: nights look lighter (picture only)
+        public float nightLift = 0.25f;        // 1.6.6: how much (0–0.5)
         public bool fastLog = true;
         public bool autoSpeedEffects = true;    // 1.1: fewer effects at speed 3 and more
         public bool adaptiveEffects = true;     // 1.1: fewer effects while FPS is under the target
@@ -65,7 +67,7 @@ namespace GraphicsTuner
         public int gameSize = -1;      // -1 automatic, 0 small, 1 normal, 2 huge
         public bool smartTick = true;
         public bool worldClean = true;
-        public bool fastCull = true;   // 1.7.0
+        public bool fastCull = true;   // 1.6.6
         public int hitchMs = 250;
         public bool gcHold;
         public int tab;
@@ -116,6 +118,7 @@ namespace GraphicsTuner
         public bool memUnload;
         public bool memRamWarn = true;
         public bool vramWarn = true;   // 1.3.0
+        public bool keepTexInCard;     // 1.6.3: 1.7 – textures stay in the card until it is really full
         public bool memLowLatency = true;       // 1.7: no blocking full clean-ups during play
         public bool memCompact;                 // 1.7: compact memory during long pauses
         public int texCap = 2048;               // 1.3.3: oversized mod pictures start smaller (0 = off)
@@ -205,6 +208,8 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref cullZoom, "cullZoom", 40f);
             Scribe_Values.Look(ref noWeather, "noWeather", false);
             Scribe_Values.Look(ref plantSway, "plantSway", true);
+            Scribe_Values.Look(ref brighterNights, "brighterNights", false);
+            Scribe_Values.Look(ref nightLift, "nightLift", 0.25f);
             Scribe_Values.Look(ref fastLog, "fastLog", true);
             Scribe_Values.Look(ref vsync, "vsync", -1);
             Scribe_Values.Look(ref fpsLimit, "fpsLimit", -2);
@@ -260,6 +265,7 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref memUnload, "memUnload", false);
             Scribe_Values.Look(ref memRamWarn, "memRamWarn", true);
             Scribe_Values.Look(ref vramWarn, "vramWarn", true);
+            Scribe_Values.Look(ref keepTexInCard, "keepTexInCard", false);
             Scribe_Values.Look(ref memLowLatency, "memLowLatency", true);
             Scribe_Values.Look(ref memCompact, "memCompact", false);
             Scribe_Values.Look(ref texCap, "texCap", 2048);
@@ -750,7 +756,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.5.0";
+        public const string Version = "1.6.0";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -776,18 +782,21 @@ namespace GraphicsTuner
             LocationGeneratorFast.Patch(harmony);   // 1.3.2
             Sim.Patch(harmony);                     // 1.6.0
             WorldSleep.Patch(harmony);              // 1.4.6: sleeping world pawns
-            FastCull.Patch(harmony);                // 1.7.0
-            WorldPathSpread.Patch(harmony);         // 1.7.0
+            FastCull.Patch(harmony);                // 1.6.6
+            KeepTextures.Patch(harmony);            // 1.6.3
+            WorldPathSpread.Patch(harmony);         // 1.6.6
             SaveTiming.Patch(harmony);              // 1.7.4
             SaveBuffer.Patch(harmony);              // 1.5.0
             ModEffects.Patch(harmony);              // 1.3.2: effects from mods too
             TextureCap.Patch(harmony);              // 1.3.3: oversized mod textures
+            MLog.Info("[Smooth FPS] game " + RimWorld.VersionControl.CurrentVersionStringWithoutBuild + (Env.Is17 ? ": 1.7 mode – no texture limit, no forced memory clean-ups." : ": 1.6 mode."));
             SmartWork.Patch(harmony);               // 1.4.0: smart work search
             SmartWork.PatchSpread(harmony);         // 1.4.0: job searches spread over ticks
             TempSpread.Patch(harmony);              // 1.4.0: room temperatures in parts
             FastNight.Patch(harmony);               // 1.4.0: fast nights
             SpeedControls.Patch(harmony);           // 1.5.3: speed 4, speed during danger, hidden resource list
             RainWash.Patch(harmony);                // 1.6.0: rain washes the filth away
+            BrightNights.Patch(harmony);            // 1.6.6: lighter nights, picture only
             // 1.6.0: opt-out rules of other mods (SmoothFPS.ExclusionDef, Extras/SmoothFPSRules.xml)
             LongEventHandler.ExecuteWhenFinished(SmoothFPS.ExclusionRules.Load);
             // 1.3.4: no more swapping textures that were loaded before Smooth FPS started – icons and
@@ -931,6 +940,9 @@ namespace GraphicsTuner
             s.cullZoom = Mathf.Round(MUI.Slider(l, "GT_CullZoom".Translate(s.cullZoom.ToString("0")), s.cullZoom, 15f, 80f, "GT_CullZoom_Desc".Translate(), s, "cullZoom"));
             Check(l, "GT_NoWeather", ref s.noWeather, "noWeather");
             Check(l, "GT_PlantSway", ref s.plantSway, "plantSway");
+            Check(l, "GT_BrightNights", ref s.brighterNights, "brighterNights");   // 1.6.6
+            if (s.brighterNights)
+                s.nightLift = Mathf.Round(MUI.Slider(l, "GT_NightLift".Translate((s.nightLift * 100f).ToString("0")), s.nightLift, 0.05f, 0.5f, "GT_NightLift_Desc".Translate(), s, "nightLift") * 20f) / 20f;
             Check(l, "GT_AutoSpeed", ref s.autoSpeedEffects, "autoSpeedEffects");
             Check(l, "GT_Adaptive", ref s.adaptiveEffects, "adaptiveEffects");
             MUI.Section(l, "GT_SecSmooth".Translate());
@@ -1342,6 +1354,7 @@ namespace GraphicsTuner
             if (!Freezer.Net) Plain(l, "GT_MemUnload", ref s.memUnload);
             Plain(l, "GT_MemRamWarn", ref s.memRamWarn);
             if (Vram.Available) Plain(l, "GT_VramWarnSet", ref s.vramWarn);
+            if (KeepTextures.Possible) Plain(l, "GT_KeepTex", ref s.keepTexInCard);
             // 1.3.3: oversized mod textures
             string capText = TextureCap.Blocked ? "GT_TexCapWaylith".Translate().ToString() : s.texCap <= 0 ? "GT_TexCapOff".Translate().ToString() : s.texCap + " px";
             if (l.ButtonTextLabeled("GT_TexCap".Translate(), capText) && !TextureCap.Blocked)
@@ -1371,9 +1384,10 @@ namespace GraphicsTuner
             {
                 o.Gap(4f);
                 o.Label(vl);
-                if (o.ButtonText("GT_VramWho".Translate()))
-                    Find.WindowStack.Add(new Dialog_MessageBox(Vram.Report(), title: "GT_VramTitle".Translate()));
             }
+            // 1.6.3: the per-mod list works in every game version (it counts the mods' own pictures)
+            if (o.ButtonText("GT_VramWho".Translate()))
+                Find.WindowStack.Add(new Dialog_VramMods());
             o.Gap(6f);
             if (!Freezer.ForcedGcBlocked && o.ButtonText("GT_MemCollectNow".Translate()))
                 Freezer.Collect(true);

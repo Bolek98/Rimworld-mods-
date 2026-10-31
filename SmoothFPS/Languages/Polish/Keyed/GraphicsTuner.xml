@@ -437,4 +437,20 @@
   <GT_RainWashAll_Desc>Gra pozwala deszczowi zmywać tylko niektóre rodzaje brudu. Z tym deszcz zmniejsza każdy brud na zewnątrz (bez dachu) z tą samą szansą. Brud w środku nigdy nie jest ruszany. Wyłączone = jak w grze.</GT_RainWashAll_Desc>
   <GT_RainNow>Brud na zewnątrz na twoich mapach bazy teraz: {0}</GT_RainNow>
   <GT_RainStarted>Zaczęło padać – deszcz zmywa brud (Smooth FPS).</GT_RainStarted>
+  <GT_VramRefresh>Odśwież</GT_VramRefresh>
+  <GT_VramTargetsTop>Największe powierzchnie rysowania: {0}</GT_VramTargetsTop>
+  <GT_VramModsHead>Tekstury według modów ({0} modów, razem około {1} GB) – od największych:</GT_VramModsHead>
+  <GT_VramColMod>Mod</GT_VramColMod>
+  <GT_VramColSize>Rozmiar</GT_VramColSize>
+  <GT_VramColCount>Tekstury (duże)</GT_VramColCount>
+  <GT_VramCount>{0} tekstur ({1} dużych)</GT_VramCount>
+  <GT_VramRowTip>{0}\n\nTekstury: około {1} MB\nLiczba: {2}, duże (ponad 4 MB): {3}\nNajwiększa: {4} ({5} MB)</GT_VramRowTip>
+  <GT_VramModsNote>Rozmiar to szacunek z wymiarów obrazów (wszystkie tekstury moda, także wyniesione z karty). Mody na górze zwolnią najwięcej pamięci po wyłączeniu. Atlasy i powierzchnie rysowania należą do gry i zmniejszą się tylko przy niższej rozdzielczości lub mniejszej liczbie modów.</GT_VramModsNote>
+  <GT_KeepTex>Trzymaj tekstury w karcie graficznej jak najdłużej</GT_KeepTex>
+  <GT_KeepTex_Desc>W 1.7 gra zaczyna przenosić tekstury z karty graficznej do zwykłej pamięci już przy około 80 % – obrazy mogą wtedy wyglądać na rozmyte lub pojawiać się z opóźnieniem. Po włączeniu zostają w karcie w pełnej jakości, aż zostanie tylko około 200 MB. Gdy karta jest naprawdę pełna, gra i tak sama zrobi miejsce (inaczej by się wysypała) – wyłączenie dużych modów pomoże bardziej.</GT_KeepTex_Desc>
+  <GT_Crash_ModsUnknown>Mody: z logu nie da się poznać, który mod to spowodował (były tylko błędy powtarzające się przez całą grę – nie są liczone).</GT_Crash_ModsUnknown>
+  <GT_BrightNights>Jaśniejsze noce</GT_BrightNights>
+  <GT_BrightNights_Desc>Noce wyglądają na ekranie jaśniej. Tylko obraz – ciemność nadal liczy się dla roślin, nastroju i pracy.</GT_BrightNights_Desc>
+  <GT_NightLift>Jasność nocy: +{0} %</GT_NightLift>
+  <GT_NightLift_Desc>O ile jaśniejsza wygląda najciemniejsza noc.</GT_NightLift_Desc>
 </LanguageData>

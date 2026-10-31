@@ -437,4 +437,20 @@
   <GT_RainWashAll_Desc>Das Spiel lässt den Regen nur manche Schmutzarten wegwaschen. Damit dünnt der Regen jeden Schmutz im Freien (ohne Dach) mit derselben Chance aus. Schmutz drinnen wird nie berührt. Aus = wie im Spiel.</GT_RainWashAll_Desc>
   <GT_RainNow>Schmutz draußen auf deinen Heimatkarten jetzt: {0}</GT_RainNow>
   <GT_RainStarted>Es hat angefangen zu regnen – der Regen wäscht den Schmutz weg (Smooth FPS).</GT_RainStarted>
+  <GT_VramRefresh>Aktualisieren</GT_VramRefresh>
+  <GT_VramTargetsTop>Größte Zeichenflächen: {0}</GT_VramTargetsTop>
+  <GT_VramModsHead>Texturen nach Mod ({0} Mods, insgesamt etwa {1} GB) – größte zuerst:</GT_VramModsHead>
+  <GT_VramColMod>Mod</GT_VramColMod>
+  <GT_VramColSize>Größe</GT_VramColSize>
+  <GT_VramColCount>Texturen (große)</GT_VramColCount>
+  <GT_VramCount>{0} Texturen ({1} groß)</GT_VramCount>
+  <GT_VramRowTip>{0}\n\nTexturen: etwa {1} MB\nAnzahl: {2}, große (über 4 MB): {3}\nGrößte: {4} ({5} MB)</GT_VramRowTip>
+  <GT_VramModsNote>Die Größe ist eine Schätzung aus den Bildgrößen (alle Texturen des Mods, auch ausgelagerte). Mods oben geben beim Abschalten am meisten frei. Atlanten und Zeichenflächen gehören zum Spiel und schrumpfen nur mit niedrigerer Auflösung oder weniger Mods.</GT_VramModsNote>
+  <GT_KeepTex>Texturen so lange wie möglich auf der Grafikkarte lassen</GT_KeepTex>
+  <GT_KeepTex_Desc>In 1.7 lagert das Spiel Texturen schon bei etwa 80 % Füllung in den normalen Speicher aus – Bilder wirken dann verwaschen oder kommen spät. Eingeschaltet bleiben sie in voller Qualität auf der Karte, bis nur noch etwa 200 MB frei sind. Ist die Karte wirklich voll, schafft das Spiel trotzdem selbst Platz (sonst stürzt es ab) – große Mods abzuschalten hilft mehr.</GT_KeepTex_Desc>
+  <GT_Crash_ModsUnknown>Mods: Das Log zeigt nicht, welcher Mod es verursacht hat (nur Fehler, die sich das ganze Spiel über wiederholten – die werden nicht gezählt).</GT_Crash_ModsUnknown>
+  <GT_BrightNights>Hellere Nächte</GT_BrightNights>
+  <GT_BrightNights_Desc>Nächte sehen auf dem Bildschirm heller aus. Nur das Bild – die Dunkelheit zählt für Pflanzen, Stimmung und Arbeit wie gewohnt.</GT_BrightNights_Desc>
+  <GT_NightLift>Nachthelligkeit: +{0} %</GT_NightLift>
+  <GT_NightLift_Desc>Wie viel heller die dunkelste Nacht aussieht.</GT_NightLift_Desc>
 </LanguageData>

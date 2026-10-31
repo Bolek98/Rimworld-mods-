@@ -437,4 +437,20 @@
   <GT_RainWashAll_Desc>Le jeu ne laisse la pluie laver que certains types de saleté. Avec ceci, la pluie réduit toute saleté dehors (sans toit) avec la même chance. La saleté à l'intérieur n'est jamais touchée. Désactivé = comme le jeu.</GT_RainWashAll_Desc>
   <GT_RainNow>Saleté dehors sur vos cartes de base maintenant : {0}</GT_RainNow>
   <GT_RainStarted>Il s'est mis à pleuvoir – la pluie lave la saleté (Smooth FPS).</GT_RainStarted>
+  <GT_VramRefresh>Actualiser</GT_VramRefresh>
+  <GT_VramTargetsTop>Plus grandes surfaces de rendu : {0}</GT_VramTargetsTop>
+  <GT_VramModsHead>Textures par mod ({0} mods, environ {1} Go au total) – les plus grosses d'abord :</GT_VramModsHead>
+  <GT_VramColMod>Mod</GT_VramColMod>
+  <GT_VramColSize>Taille</GT_VramColSize>
+  <GT_VramColCount>Textures (grandes)</GT_VramColCount>
+  <GT_VramCount>{0} textures ({1} grandes)</GT_VramCount>
+  <GT_VramRowTip>{0}\n\nTextures : environ {1} Mo\nNombre : {2}, grandes (plus de 4 Mo) : {3}\nLa plus grande : {4} ({5} Mo)</GT_VramRowTip>
+  <GT_VramModsNote>La taille est une estimation d'après les dimensions des images (toutes les textures du mod, même celles sorties de la carte). Les mods en haut libèrent le plus de mémoire une fois désactivés. Atlas et surfaces de rendu appartiennent au jeu et ne diminuent qu'avec une résolution plus basse ou moins de mods.</GT_VramModsNote>
+  <GT_KeepTex>Garder les textures dans la carte graphique le plus longtemps possible</GT_KeepTex>
+  <GT_KeepTex_Desc>En 1.7, le jeu commence à sortir les textures de la carte graphique vers la mémoire normale vers 80 % – les images peuvent alors paraître floues ou arriver en retard. Activé, elles restent en pleine qualité dans la carte jusqu'à ce qu'il ne reste qu'environ 200 Mo. Quand la carte est vraiment pleine, le jeu fait quand même de la place (sinon il planterait) – désactiver de gros mods aide davantage.</GT_KeepTex_Desc>
+  <GT_Crash_ModsUnknown>Mods : le journal ne montre pas quel mod l'a causé (seulement des erreurs répétées pendant toute la partie, qui ne sont pas comptées).</GT_Crash_ModsUnknown>
+  <GT_BrightNights>Nuits plus claires</GT_BrightNights>
+  <GT_BrightNights_Desc>Les nuits paraissent plus claires à l'écran. Seulement l'image – l'obscurité compte toujours pour les plantes, l'humeur et le travail.</GT_BrightNights_Desc>
+  <GT_NightLift>Luminosité de nuit : +{0} %</GT_NightLift>
+  <GT_NightLift_Desc>À quel point la nuit la plus sombre paraît plus claire.</GT_NightLift_Desc>
 </LanguageData>

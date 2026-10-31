@@ -491,4 +491,134 @@
   <RL_GO_Cold>too cold outside</RL_GO_Cold>
   <RL_GO_Hot>too hot outside</RL_GO_Hot>
   <RL_GO_Footer>{0} colonists · {1} with a problem · click a row to select the colonist · hover for the full apparel list</RL_GO_Footer>
+  <RL_GizmoEquipNow>Gear up now</RL_GizmoEquipNow>
+  <RL_GizmoEquipNow_Desc>Check this colonist's weapons, armor and clothes right away and keep checking for an hour. Worn pieces of an older era (or clearly worse ones) are taken off and replaced with the newest and best gear you have – the old things are left for haulers to store. Weapons and clothes you set by hand stay. Works for several selected colonists at once.</RL_GizmoEquipNow_Desc>
+  <RL_GO_Next>Takes next</RL_GO_Next>
+  <RL_GO_NextNone>nothing better</RL_GO_NextNone>
+  <RL_GO_NextStorage>{0} from storage</RL_GO_NextStorage>
+  <RL_GO_NextMap>{0} from the map</RL_GO_NextMap>
+  <RL_AllowKind>Allow this kind</RL_AllowKind>
+  <RL_AllowKind_Desc>{0} is locked for your colony. Allow it anyway – colonists may use this kind from now on. You can remove the exception in the settings (Bans tab).</RL_AllowKind_Desc>
+  <RL_AllowKind_Done>{0} is allowed for your colonists.</RL_AllowKind_Done>
+  <RL_LockKind>Lock this kind again</RL_LockKind>
+  <RL_LockKind_Desc>{0} is allowed as an exception. Lock it again – the normal rules apply.</RL_LockKind_Desc>
+  <RL_LockKind_Done>{0} is locked again.</RL_LockKind_Done>
+  <RL_Exceptions>Allowed exceptions:</RL_Exceptions>
+  <RL_ExceptionRemove>Click to remove the exception – the normal rules apply again.</RL_ExceptionRemove>
+  <RL_EnemyLoot>Enemy gear only from storage</RL_EnemyLoot>
+  <RL_EnemyLoot_Desc>Weapons and apparel dropped by enemies (or stripped from them) are not taken straight from the battlefield – only once they are hauled to storage.</RL_EnemyLoot_Desc>
+  <RL_CEAmmo>Combat Extended: only guns with ammo</RL_CEAmmo>
+  <RL_CEAmmo_Desc>With Combat Extended, colonists only pick up ranged weapons whose ammo is on the map (in storage, lying around or in their pockets). A gun with no ammo anywhere is swapped for one that has ammo.</RL_CEAmmo_Desc>
+  <RL_OW_Button>Weapons per outfit</RL_OW_Button>
+  <RL_OW_Title>Weapons allowed per outfit</RL_OW_Title>
+  <RL_OW_Desc>Colonists with this outfit only take the ticked weapons by themselves. Weapons you equip by hand are not affected. Everything is allowed by default.</RL_OW_Desc>
+  <RL_OW_Outfit>Outfit: {0}</RL_OW_Outfit>
+  <RL_OW_Banned>{0} weapon kinds not allowed</RL_OW_Banned>
+  <RL_OW_AllAllowed>All weapons allowed</RL_OW_AllAllowed>
+  <RL_OW_AllowAll>Allow all</RL_OW_AllowAll>
+  <RL_OW_OnlyRanged>Only ranged</RL_OW_OnlyRanged>
+  <RL_OW_OnlyMelee>Only melee</RL_OW_OnlyMelee>
+  <RL_OW_Melee>melee</RL_OW_Melee>
+  <RL_RangedForAll>Ranged weapons for everyone</RL_RangedForAll>
+  <RL_RangedForAll_Desc>Every colonist who can shoot takes a gun as the main weapon – a melee weapon in hand is swapped for the best gun you have. Brawlers and colonists who cannot shoot keep melee. Melee weapons can still be carried as sidearms.</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>Gun from the pockets into the hand</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>With "Ranged weapons for everyone": a colonist who carries a gun in the pockets and holds a melee weapon swaps them by himself (not in the middle of a fight).</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>Weapons by role</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>Long-range guns (sniper rifles) go to the best shooters (Shooting 12+), short-range ones (shotguns, SMGs) to the weaker shooters.</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>Alert: unarmed colonists</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>During a threat an alert shows colonists with no weapon – and with "Ranged weapons for everyone" also those with only a melee weapon.</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>Spare guns in storage: {0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>This many guns stay in storage for new colonists and broken weapons. An armed shooter does not take them; an unarmed colonist still may. 0 = off.</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>Explosive weapons: for everyone</RL_ExplosivesOff>
+  <RL_ExplosivesMin>Explosive weapons from Shooting {0}</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>Grenades, rocket and grenade launchers are taken only by colonists with at least this Shooting skill, so they don't hit their own. 0 = anyone.</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>only melee</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>Click to choose a weapon from storage</RL_GO_PickWeapon>
+  <RL_GO_Ranged>ranged</RL_GO_Ranged>
+  <RL_GO_Melee>melee</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>No weapon in storage that this colonist can use.</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>Unarmed colonists</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>Enemies are on the map and these colonists have no weapon (or only a melee weapon):\n\n{0}\n\nGive them a weapon in the Gear overview (click the weapon).</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>Battle &amp; work</RL_TabBattle>
+  <RL_BG_Outfits>Battle outfits</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>Every outfit can have a battle outfit (set it up in "Weapons per outfit"). Drafted colonists use the battle outfit and go back to their work outfit when undrafted – the battle pieces come off and the work clothes go back on.</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>Battle outfit also during raids</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>While enemies are on the map, everyone switches to the battle outfit (and puts on armor with "Put on armor when attacked"); after the raid they go back to work clothes.</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>Set up battle outfits…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>Fetch armor when drafted</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>A drafted colonist with no enemy nearby fetches the best allowed armor lying close by (storage or pockets of the base) before you give him an order. Any order of yours stops it.</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>Armor within: {0} cells</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>How far a drafted colonist walks for armor.</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>Walk back after dressing</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>After fetching the armor the colonist walks back to where you drafted him.</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>Dress for the coming weather</RL_BG_Season>
+  <RL_BG_Season_Desc>Clothes follow the temperature of the coming hours too (cold night, coming winter, summer heat), not only the temperature right now.</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>Look ahead: {0} h</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>How many hours ahead the forecast counts.</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>Dress for caravans</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>Colonists who are forming a caravan dress for the next four days of weather.</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>Swap worn gear in time</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>A piece below the limit is swapped for a good one (80 %+) of the same kind or the same body parts from storage – at least as much armor, about as warm.</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>Swap below: {0} %</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>Durability at which a worn piece is swapped.</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – battle</RL_BG_NewLabel>
+  <RL_BG_BattleIs>Battle outfit: {0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>Battle outfit: none</RL_BG_BattleNone>
+  <RL_BG_None>None (keep this outfit in battle)</RL_BG_None>
+  <RL_BG_Create>Create a battle outfit from this one</RL_BG_Create>
+  <RL_BG_Battle_Desc>Drafted colonists with this outfit (and everyone during a raid, if set) use the battle outfit; afterwards they go back to this one. "Create" copies this outfit and allows all armor and helmets.</RL_BG_Battle_Desc>
+  <RL_BG_Edit>Edit battle outfit</RL_BG_Edit>
+  <RL_Why_BattleDraft>drafted – battle gear</RL_Why_BattleDraft>
+  <RL_Why_Worn>worn out – swapped for a better piece</RL_Why_Worn>
+  <RL_GP_Open>Gear planner</RL_GP_Open>
+  <RL_GP_Title>Gear planner</RL_GP_Title>
+  <RL_GP_Desc>What your colonists are missing and the best thing you can make for it right now. A bill makes only the missing count ("until you have X").</RL_GP_Desc>
+  <RL_GP_AllGood>Everyone has a helmet, body armor and a gun, and nothing is worn out.</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>Helmets</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>Body armor</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>Guns</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>Worn out</RL_GP_Slot_Worn>
+  <RL_GP_Worn>Worn out: {0}</RL_GP_Worn>
+  <RL_GP_Line>{0} colonists without · {1} in storage · {2} to make</RL_GP_Line>
+  <RL_GP_Best>Best: {0} ({1})</RL_GP_Best>
+  <RL_GP_NoRecipe>nothing you can make yet</RL_GP_NoRecipe>
+  <RL_GP_InStock>enough in storage</RL_GP_InStock>
+  <RL_GP_HasBill>bill already queued</RL_GP_HasBill>
+  <RL_GP_Add>Add bill ({0})</RL_GP_Add>
+  <RL_GP_Auto>Add the bills by itself (once a day)</RL_GP_Auto>
+  <RL_GP_Auto_Desc>Once a day the planner adds "until you have X" bills for everything missing that has no bill yet.</RL_GP_Auto_Desc>
+  <RL_GP_Added>Bill added: {0} at {1} ({2}).</RL_GP_Added>
+  <RL_GP_AutoAdded>Gear planner added bills: {0}</RL_GP_AutoAdded>
+  <!-- 2.19.0: why not -->
+  <RL_WN_Prefix>Smart Gear:</RL_WN_Prefix>
+  <RL_WN_Worn>{0} already wears it</RL_WN_Worn>
+  <RL_WN_Queued>already on its way to {0}</RL_WN_Queued>
+  <RL_WN_Body>{0} can't wear it (body)</RL_WN_Body>
+  <RL_WN_CantEquip>{0} can't use it</RL_WN_CantEquip>
+  <RL_WN_Gender>made for the other gender</RL_WN_Gender>
+  <RL_WN_WorkClothing>work clothing for another job than {0}'s</RL_WN_WorkClothing>
+  <RL_WN_Stockpile>not in a stockpile (only stockpiled gear is taken)</RL_WN_Stockpile>
+  <RL_WN_Forbidden>forbidden</RL_WN_Forbidden>
+  <RL_WN_Damaged>too damaged</RL_WN_Damaged>
+  <RL_WN_Policy>not allowed by {0}'s outfit policy</RL_WN_Policy>
+  <RL_WN_Protected>would replace something {0} must keep (forced or required)</RL_WN_Protected>
+  <RL_WN_NotBetter>not better than what {0} has</RL_WN_NotBetter>
+  <RL_WN_ArmorDown>would lower {0}'s armor</RL_WN_ArmorDown>
+  <RL_WN_Reach>{0} can't reach or reserve it</RL_WN_Reach>
+  <RL_WN_Candidate>{0} may take it at the next check</RL_WN_Candidate>
+  <RL_WN_NotManaged>not a weapon Smart Gear handles</RL_WN_NotManaged>
+  <RL_WN_Tool>a tool, not a weapon</RL_WN_Tool>
+  <RL_WN_Ammo>no ammo for it</RL_WN_Ammo>
+  <RL_WN_Flip>{0} kept putting it on and off – left off for two days</RL_WN_Flip>
+  <RL_WN_Recent>{0} took it off recently – waits a day</RL_WN_Recent>
+  <RL_WN_LockBanned>banned by you in the settings</RL_WN_LockBanned>
+  <RL_WN_LockNotMade>locked – not crafted in the colony yet</RL_WN_LockNotMade>
+  <RL_WN_LockResearch>locked – research missing</RL_WN_LockResearch>
+  <RL_WN_LockOther>locked by the filter</RL_WN_LockOther>
+  <RL_WN_Exempt>Smart Gear is off for {0}</RL_WN_Exempt>
+  <RL_WN_WeaponsOff>weapon changes are off in the settings</RL_WN_WeaponsOff>
+  <RL_WN_ApparelOff>apparel changes are off in the settings</RL_WN_ApparelOff>
+  <RL_WhyNotMenu>Right-click line 'why not'</RL_WhyNotMenu>
+  <RL_WhyNotMenu_Desc>With a colonist selected, right-clicking a weapon or a piece of clothing shows why Smart Colonist Gear does not give it to him.</RL_WhyNotMenu_Desc>
 </LanguageData>

@@ -35,6 +35,8 @@ namespace ModSortManager
         public List<string> noWarn = new List<string>();
         // 0.3.0: smart sort also follows Data/rules.xml and RimSort's community rules
         public bool sharedRules = true;
+        // 0.3.1: replacements the player hid ("oldWorkshopId>newWorkshopId")
+        public List<string> replaceHidden = new List<string>();
 
         public override void ExposeData()
         {
@@ -53,12 +55,14 @@ namespace ModSortManager
             Scribe_Collections.Look(ref noWarn, "noWarn", LookMode.Value);
             if (noWarn == null) noWarn = new List<string>();
             Scribe_Values.Look(ref sharedRules, "sharedRules", true);
+            Scribe_Collections.Look(ref replaceHidden, "replaceHidden", LookMode.Value);
+            if (replaceHidden == null) replaceHidden = new List<string>();
         }
     }
 
     public class MSMMod : Mod
     {
-        public const string Version = "0.3.0";
+        public const string Version = "0.4.0";
         public static MSMSettings Settings;
 
         public MSMMod(ModContentPack content) : base(content)
@@ -588,6 +592,8 @@ namespace ModSortManager
     {
         public string id, name, version, path;
         public bool steam;
+        public List<string> versions = new List<string>();   // 0.3.4: supported game versions
+        public bool FitsGame => versions.Count == 0 || versions.Contains(VersionControl.CurrentMajor + "." + VersionControl.CurrentMinor);
         public ModMetaData meta;   // as the game knows it (null = ignored by the game)
         public DateTime time;
     }
@@ -621,8 +627,17 @@ namespace ModSortManager
             catch { }
             foreach (ModMetaData m in ModLister.AllInstalledMods)
                 if (m.OnSteamWorkshop) steamDirs.Add(m.RootDir.FullName);
+            // 0.3.4: the game shows only one copy of the same mod – the other subscribed copy may be missing
+            // from both lists above, so the whole workshop folder (…\294100) is read as well
+            var parents = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             foreach (string s in steamDirs)
-                try { Read(new DirectoryInfo(s), true, all); } catch { }
+                try { string par = Directory.GetParent(s)?.FullName; if (par != null) parents.Add(par); } catch { }
+            foreach (string par in parents)
+                try { foreach (DirectoryInfo d in new DirectoryInfo(par).GetDirectories()) steamDirs.Add(d.FullName); } catch { }
+            var seenPath = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (DupCopy c in all) seenPath.Add(c.path);
+            foreach (string s in steamDirs)
+                try { if (seenPath.Add(new DirectoryInfo(s).FullName)) Read(new DirectoryInfo(s), true, all); } catch { }
 
             var byPath = new Dictionary<string, ModMetaData>(StringComparer.OrdinalIgnoreCase);
             foreach (ModMetaData m in ModLister.AllInstalledMods)
@@ -646,8 +661,12 @@ namespace ModSortManager
                 doc.Load(about);
                 string id = doc.SelectSingleNode("/ModMetaData/packageId")?.InnerText?.Trim();
                 if (id.NullOrEmpty()) return;
+                var vers = new List<string>();
+                XmlNodeList vl = doc.SelectNodes("/ModMetaData/supportedVersions/li");
+                if (vl != null) foreach (XmlNode n in vl) if (!n.InnerText.NullOrEmpty()) vers.Add(n.InnerText.Trim());
                 all.Add(new DupCopy
                 {
+                    versions = vers,
                     id = id.ToLowerInvariant(),
                     name = doc.SelectSingleNode("/ModMetaData/name")?.InnerText?.Trim() ?? d.Name,
                     version = doc.SelectSingleNode("/ModMetaData/modVersion")?.InnerText?.Trim() ?? "",
@@ -666,6 +685,8 @@ namespace ModSortManager
             foreach (DupCopy c in g)
             {
                 if (best == null) { best = c; continue; }
+                // 0.3.4: the copy made for this game version wins (e.g. an old 1.5 copy and a new 1.7 copy)
+                if (c.FitsGame != best.FitsGame) { if (c.FitsGame) best = c; continue; }
                 Version a, b;
                 bool pa = Version.TryParse(c.version, out a), pb = Version.TryParse(best.version, out b);
                 if (pa && pb && a != b) { if (a > b) best = c; continue; }

@@ -1,3 +1,56 @@
+=== Workshop release 1.6.0 (31 Oct 2026) ===
+1.6.0
+New
+- Brighter nights (Graphics, off by default): nights look lighter on screen, with a slider. Only the picture – darkness still counts for plants, moods and work.
+- Keep textures in the graphics card as long as possible (1.7): textures are moved out of the card only when it is really full, so pictures stay sharp longer.
+- "What uses video memory": a list of all mods sorted by the size of their textures, with the biggest ones in the tooltip.
+
+Performance
+- Speed 1–2: catching up is spread over several frames – no more stutter at speed 2 in big colonies.
+
+Fixes
+- The hitch finder no longer reports the main menu or save loading as one huge hitch.
+- Error doctor: errors that repeat all game long and mods that only add code to the game's own namespaces are no longer named as suspects.
+- 1.7: the video memory list and warning ask the engine directly.
+
+Nové
+- Světlejší noci (Grafika, ve výchozím stavu vypnuto): noci vypadají na obrazovce světlejší, s posuvníkem. Jen obraz – tma dál platí pro rostliny, náladu i práci.
+- Držet textury v grafické kartě co nejdéle (1.7): textury se z karty přesouvají až když je opravdu plná, takže obraz zůstává déle ostrý.
+- „Co zabírá video paměť“: seznam všech modů seřazený podle velikosti textur, největší v bublině.
+
+Výkon
+- Rychlost 1–2: dohánění času se rozkládá do více snímků – už se neseká na 2× rychlosti ve velkých koloniích.
+
+Opravy
+- Hledač sekání už nehlásí hlavní menu ani načítání uložené hry jako jedno obří seknutí.
+- Doktor chyb: chyby opakované celou hru a mody, které jen přidávají kód do jmenných prostorů hry, už nejsou označené jako podezřelé.
+- 1.7: seznam video paměti a varování se ptají přímo enginu.
+
+=== Development history since the last Workshop release (test versions) ===
+1.6.7
+- Speed 1–2: catching up is spread over several frames (no more stutter at speed 2 in big colonies).
+- Rychlost 1–2: dohánění času se rozkládá do více snímků (už se neseká na 2× rychlosti ve velkých koloniích).
+
+1.6.6
+- New option 'Brighter nights' (Graphics, off by default): nights look lighter on screen, with a slider for how much. Only the picture – darkness still counts for plants, moods and work.
+- Nová volba „Světlejší noci“ (Grafika, ve výchozím stavu vypnutá): noci vypadají na obrazovce světlejší, posuvník říká o kolik. Jen obraz – tma dál platí pro rostliny, náladu i práci.
+
+1.6.5
+- Crash report: errors that kept repeating all game long no longer count – such a mod was wrongly named as a suspect – and mods that only add a class to the game's own namespaces (or Harmony itself) are not blamed. When nothing points at a mod, the report says so.
+
+1.6.4
+- Memory (1.7): new switch "Keep textures in the graphics card as long as possible" – the game no longer moves textures out of the card at about 80 % but only when it is really full, so pictures stay sharp longer.
+
+1.6.3
+- Memory: "What uses video memory" now opens a list of all mods sorted by the size of their textures (an estimate, also for textures the game has moved out of the card), with the number of big textures and the largest one in the tooltip, plus the biggest drawing surfaces. Works in every game version.
+
+1.6.2
+- Fix: the hitch finder no longer reports the time spent in the main menu or loading a save as one huge hitch ("hitch 8256321 ms").
+
+1.6.1
+- Fix (1.7): "What takes video memory" and the video memory warning found the engine's memory report only by a search that skips the engine – they now ask the engine directly.
+- Safer 1.7 check: one shared check (game version, engine, runtime) is used by the texture limit and the memory clean-ups, and the log says at start which mode is on.
+
 === Workshop release 1.5.0 (28 Oct 2026) ===
 1.5.0
 New

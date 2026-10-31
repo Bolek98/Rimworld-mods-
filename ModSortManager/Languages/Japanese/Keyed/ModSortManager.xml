@@ -112,7 +112,7 @@
   <MSM_SearchActiveHint>有効なModを検索…</MSM_SearchActiveHint>
   <MSM_SearchHint>Mod名、作者、ID で検索…</MSM_SearchHint>
   <MSM_SecWhere>場所</MSM_SecWhere>
-  <MSM_SelectHint>左側でModを選択してください。</MSM_SelectHint>
+  <MSM_SelectHint>左でModを選んでください。Ctrl+クリックやShift+クリックで複数選択。</MSM_SelectHint>
   <MSM_SetEsc>ゲーム中の Esc メニューに項目を追加</MSM_SetEsc>
   <MSM_SetEscTip>プレイ中でも Mod Sort Manager を開けます。保存するとゲームがセーブされ、再起動後にそのゲームへ戻ります。</MSM_SetEscTip>
   <MSM_SetReplace>「Mod」ボタンで Mod Sort Manager を開く</MSM_SetReplace>
@@ -339,4 +339,45 @@ Mod Sort Manager は {0} 個の疑わしいModの半分を無効化し、ゲー�
   <MSM_NoWarn>動作する――警告しない</MSM_NoWarn>
   <MSM_NoWarnUndo>バージョン警告を再表示</MSM_NoWarnUndo>
   <MSM_NoWarnTip>このModは現在のゲームバージョン向けではありませんが動作します。Data/noVersionWarning.xml や No Version Warning Mod に載っているModも警告されません。</MSM_NoWarnTip>
+  <MSM_TabReplace>代替</MSM_TabReplace>
+  <MSM_RepTitle>より良い代替があるMod：{0}</MSM_RepTitle>
+  <MSM_RepReload>再読み込み</MSM_RepReload>
+  <MSM_RepHint>他の作者が継続・更新・修正した版がある古いMod。「置き換え」は新しいModをロード順の同じ位置に置きます。</MSM_RepHint>
+  <MSM_RepSource>リスト：{0}</MSM_RepSource>
+  <MSM_RepNoUti>大きな代替リストはMod "Use This Instead"（Mlie作）から来ます。購読するとこのタブでずっと多く見つかります。</MSM_RepNoUti>
+  <MSM_RepGetUti>Use This Instead を購読</MSM_RepGetUti>
+  <MSM_RepSubscribed>{0} を購読しました – Steamがダウンロード中。</MSM_RepSubscribed>
+  <MSM_RepInactive>無効</MSM_RepInactive>
+  <MSM_RepVersion>{0} 用、古い方は非対応</MSM_RepVersion>
+  <MSM_RepBoth>両方 {0} 対応</MSM_RepBoth>
+  <MSM_RepErrors>ログに {0} 件のエラー</MSM_RepErrors>
+  <MSM_RepHave>代替はインストール済み</MSM_RepHave>
+  <MSM_RepNotHave>代替は未インストール</MSM_RepNotHave>
+  <MSM_RepFrom>提案元：{0}</MSM_RepFrom>
+  <MSM_RepHide>非表示</MSM_RepHide>
+  <MSM_RepSwap>置き換え</MSM_RepSwap>
+  <MSM_RepSubscribe>購読</MSM_RepSubscribe>
+  <MSM_RepNoList>代替リストがまだ見つかりません。</MSM_RepNoList>
+  <MSM_RepNone>置き換えるものはありません – 問題なし。</MSM_RepNone>
+  <MSM_RepDone>{0} を同じ位置で {1} に置き換えました。</MSM_RepDone>
+  <MSM_GroupTitle>{0} 個のModを選択中</MSM_GroupTitle>
+  <MSM_GroupMore>… ほか {0} 個</MSM_GroupMore>
+  <MSM_GroupOn>有効化（{0}）</MSM_GroupOn>
+  <MSM_GroupOff>無効化（{0}）</MSM_GroupOff>
+  <MSM_GroupClear>選択解除</MSM_GroupClear>
+  <MSM_KeysHelp>キー：W/S または ↑/↓ 移動 · Shift+W/S 選択を移動 · A/D または ←/→ 無効/有効 · Ctrl+クリック、Shift+クリック、Ctrl+A 選択 · Esc 解除</MSM_KeysHelp>
+  <MSM_GroupRemove>{0}個のMODを削除…</MSM_GroupRemove>
+  <MSM_GroupUnsub>{0}個のワークショップMODの購読を解除</MSM_GroupUnsub>
+  <MSM_GroupPark>{0}個のローカルMODをModsフォルダの外へ移動</MSM_GroupPark>
+  <MSM_GroupDelete>{0}個のローカルMODを完全に削除</MSM_GroupDelete>
+  <MSM_GroupUnsubConfirm>この{0}個のMODの購読を解除しますか？Steamがファイルを削除し、MODは無効になります。\n\n{1}</MSM_GroupUnsubConfirm>
+  <MSM_GroupParkConfirm>この{0}個のMODをModsフォルダから次へ移動します：\n{1}\n\n{2}\n\nいつでも元に戻せます。</MSM_GroupParkConfirm>
+  <MSM_GroupDeleteConfirm>この{0}個のMODを完全に削除しますか？\n\n{1}\n\n元に戻せません。</MSM_GroupDeleteConfirm>
+  <MSM_GroupRemoved>{0}個のMODを削除しました（失敗：{1}）。ゲームを再起動して完了してください。</MSM_GroupRemoved>
+  <MSM_SaveContinue>保存してプレイを続ける</MSM_SaveContinue>
+  <MSM_SavedNextStart>Modリストを保存しました。次回ゲーム起動時に反映されます。</MSM_SavedNextStart>
+  <MSM_SaveQuit>保存して終了</MSM_SaveQuit>
+  <MSM_DupFor>対応 {0}</MSM_DupFor>
+  <MSM_OpenOldFolder>古いコピー：フォルダ（{0}）</MSM_OpenOldFolder>
+  <MSM_OpenOldSteam>古いコピー：ワークショップページ（{0}）</MSM_OpenOldSteam>
 </LanguageData>

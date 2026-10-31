@@ -31,12 +31,40 @@ namespace ResearchedLoadout
 			catch { return 0f; }
 		}
 
+		// 2.15.1: what each colonist takes next – the real search is not cheap, so it is cached and
+		// at most two colonists are refreshed per frame, each again after 3 seconds
+		private static readonly Dictionary<int, KeyValuePair<float, string>> nextCache = new Dictionary<int, KeyValuePair<float, string>>();
+		private static int refreshedThisFrame, frame = -1;
+
+		public static string Next(Pawn p, Map map)
+		{
+			float now = Time.realtimeSinceStartup;
+			if (nextCache.TryGetValue(p.thingIDNumber, out KeyValuePair<float, string> c) && now - c.Key < 3f)
+				return c.Value;
+			if (frame != Time.frameCount) { frame = Time.frameCount; refreshedThisFrame = 0; }
+			if (refreshedThisFrame >= 2 && nextCache.ContainsKey(p.thingIDNumber))
+				return c.Value;
+			refreshedThisFrame++;
+			string text;
+			try
+			{
+				ResearchedLoadoutMapComponent comp = map.GetComponent<ResearchedLoadoutMapComponent>();
+				Thing t = comp?.PeekNext(p, out bool _);
+				if (t == null) text = "RL_GO_NextNone".Translate();
+				else text = (t.GetSlotGroup() != null ? "RL_GO_NextStorage" : "RL_GO_NextMap").Translate(t.LabelShortCap);
+			}
+			catch { text = "–"; }
+			nextCache[p.thingIDNumber] = new KeyValuePair<float, string>(now, text);
+			return text;
+		}
+
 		public static List<string> Problems(Pawn p)
 		{
 			var l = new List<string>();
 			try
 			{
 				if (p.equipment?.Primary == null && !p.WorkTagIsDisabled(WorkTags.Violent)) l.Add("RL_GO_NoWeapon".Translate());
+				else if (p.equipment?.Primary != null && !p.equipment.Primary.def.IsRangedWeapon && ResearchedLoadoutMapComponent.RangedForAll(p)) l.Add("RL_GO_OnlyMelee".Translate());
 				BodyPartRecord torso = p.RaceProps.body.corePart;
 				if (p.apparel != null && !p.apparel.WornApparel.Any(a => a.def.apparel.CoversBodyPart(torso))) l.Add("RL_GO_NoTorso".Translate());
 				if (p.apparel != null)
@@ -67,7 +95,7 @@ namespace ResearchedLoadout
 			Map map = Find.CurrentMap;
 			if (map == null) return;
 			Text.Font = GameFont.Medium;
-			Widgets.Label(new Rect(r.x, r.y, 500f, 32f), "RL_GO_Title".Translate());
+			Widgets.Label(new Rect(r.x, r.y, Mathf.Max(160f, r.width - 690f), 32f), "RL_GO_Title".Translate().Truncate(Mathf.Max(160f, r.width - 690f)));
 			Text.Font = GameFont.Small;
 			Rect all = new Rect(r.xMax - 230f, r.y, 230f, 32f);
 			if (Widgets.ButtonText(all, "RL_GO_EquipAll".Translate()))
@@ -76,10 +104,22 @@ namespace ResearchedLoadout
 				Messages.Message("RL_GO_EquipAllDone".Translate(n), MessageTypeDefOf.TaskCompletion, false);
 			}
 			TooltipHandler.TipRegion(all, "RL_GO_EquipAll_Desc".Translate());
+			// 2.16.0: which weapons each outfit allows
+			Rect ow = new Rect(all.x - 238f, r.y, 230f, 32f);
+			if (Widgets.ButtonText(ow, "RL_OW_Button".Translate()))
+			{
+				Find.WindowStack.Add(new Dialog_OutfitWeapons());
+			}
+			Rect gp = new Rect(ow.x - 208f, r.y, 200f, 32f);
+			if (Widgets.ButtonText(gp, "RL_GP_Open".Translate()))
+			{
+				Find.WindowStack.Add(new Dialog_GearPlanner());
+			}
+			TooltipHandler.TipRegion(ow, "RL_OW_Desc".Translate());
 			List<Pawn> pawns = map.mapPawns.FreeColonistsSpawned.OrderBy(p => p.LabelShort).ToList();
 			float y = r.y + 40f;
-			float[] cx = { 0f, 0.20f, 0.46f, 0.58f, 0.70f };
-			string[] heads = { "RL_GO_Colonist", "RL_GO_Weapon", "RL_GO_ArmorSharp", "RL_GO_ArmorBlunt", "RL_GO_Problems" };
+			float[] cx = { 0f, 0.18f, 0.40f, 0.48f, 0.56f, 0.78f };
+			string[] heads = { "RL_GO_Colonist", "RL_GO_Weapon", "RL_GO_ArmorSharp", "RL_GO_ArmorBlunt", "RL_GO_Next", "RL_GO_Problems" };
 			GUI.color = MUI.Muted;
 			Text.Font = GameFont.Tiny;
 			for (int i = 0; i < heads.Length; i++) Widgets.Label(new Rect(r.x + r.width * cx[i], y, 200f, 20f), heads[i].Translate());
@@ -102,11 +142,21 @@ namespace ResearchedLoadout
 				Text.Anchor = TextAnchor.MiddleLeft;
 				Widgets.Label(new Rect(row.x + 36f, row.y, w * cx[1] - 40f, row.height), p.LabelShortCap);
 				ThingWithComps wpn = p.equipment?.Primary;
+				// 2.17.0: click the weapon to choose another one from storage
+				Rect wcell = new Rect(w * cx[1], row.y, w * (cx[2] - cx[1]) - 4f, row.height);
+				if (Mouse.IsOver(wcell)) Widgets.DrawHighlight(wcell);
+				TooltipHandler.TipRegion(wcell, "RL_GO_PickWeapon".Translate());
+				if (Widgets.ButtonInvisible(wcell))
+				{
+					Find.WindowStack.Add(new FloatMenu(WeaponPlus.PickMenu(p)));
+					Event.current.Use();
+				}
 				if (wpn != null)
 				{
 					Widgets.ThingIcon(new Rect(w * cx[1], row.y + 3f, 26f, 26f), wpn);
 					string hp = wpn.def.useHitPoints ? "  " + ((float)wpn.HitPoints / wpn.MaxHitPoints).ToStringPercent() : "";
-					Widgets.Label(new Rect(w * cx[1] + 30f, row.y, w * (cx[2] - cx[1]) - 34f, row.height), (wpn.LabelShortCap + hp).Truncate(w * (cx[2] - cx[1]) - 34f));
+					string kind = "  <color=" + (wpn.def.IsRangedWeapon ? "#8fc6e8" : "#e0b070") + ">" + (wpn.def.IsRangedWeapon ? "RL_GO_Ranged" : "RL_GO_Melee").Translate() + "</color>";
+					Widgets.Label(new Rect(w * cx[1] + 30f, row.y, w * (cx[2] - cx[1]) - 34f, row.height), (wpn.LabelShortCap + hp).Truncate(w * (cx[2] - cx[1]) - 110f) + kind);
 				}
 				else
 				{
@@ -116,10 +166,14 @@ namespace ResearchedLoadout
 				}
 				Widgets.Label(new Rect(w * cx[2], row.y, 100f, row.height), GearOverview.Armor(p, StatDefOf.ArmorRating_Sharp).ToStringPercent());
 				Widgets.Label(new Rect(w * cx[3], row.y, 100f, row.height), GearOverview.Armor(p, StatDefOf.ArmorRating_Blunt).ToStringPercent());
+				string next = GearOverview.Next(p, map);
+				Rect nr = new Rect(w * cx[4], row.y, w * (cx[5] - cx[4]) - 6f, row.height);
+				GUI.color = next == (string)"RL_GO_NextNone".Translate() ? MUI.Muted : Color.white;
+				Widgets.Label(nr, next.Truncate(nr.width));
 				List<string> probs = GearOverview.Problems(p);
 				GUI.color = probs.Count > 0 ? MUI.Warn : MUI.Accent;
 				string pt = probs.Count > 0 ? string.Join(", ", probs.ToArray()) : (string)"RL_GO_Ok".Translate();
-				Widgets.Label(new Rect(w * cx[4], row.y, w * (1f - cx[4]), row.height), pt.Truncate(w * (1f - cx[4])));
+				Widgets.Label(new Rect(w * cx[5], row.y, w * (1f - cx[5]), row.height), pt.Truncate(w * (1f - cx[5])));
 				GUI.color = Color.white;
 				Text.Anchor = TextAnchor.UpperLeft;
 				if (Widgets.ButtonInvisible(row)) CameraJumper.TryJumpAndSelect(p);

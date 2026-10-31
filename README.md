@@ -9,14 +9,14 @@ Source code of my RimWorld mods (RimWorld 1.7).
 ## Mods (dev)
 | Mod | Version | Folder |
 |---|---|---|
-| Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.1.0 | [AutoTurrets](AutoTurrets) |
+| Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.2.0 | [AutoTurrets](AutoTurrets) |
 | Evergrowth – Plant Growth Control | 1.8.0 | [Evergrowth](Evergrowth) |
 | Evergrowth – Wild Plants | 1.1.2 | [EvergrowthWildPlants](EvergrowthWildPlants) |
-| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.3.0 | [ModSortManager](ModSortManager) |
+| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.4.0 | [ModSortManager](ModSortManager) |
 | QoL – Faster Work, Prisoners & Pipette | 1.0.0 | [QoLFasterWork](QoLFasterWork) |
 | Secular Colony – Ideology Off & Tweaks | 1.5.0 | [SecularColony](SecularColony) |
-| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.15.0 | [SmartColonistGear](SmartColonistGear) |
-| Smooth FPS – Performance & Graphics | 1.5.0 | [SmoothFPS](SmoothFPS) |
+| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.16.0 | [SmartColonistGear](SmartColonistGear) |
+| Smooth FPS – Performance & Graphics | 1.6.0 | [SmoothFPS](SmoothFPS) |
 | Steward – Work Priorities | 1.0.0 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.0.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |

@@ -437,4 +437,20 @@
   <GT_RainWashAll_Desc>游戏只让雨水冲走部分种类的污物。开启后，雨水会以相同几率减少室外（无屋顶）的所有污物。室内污物永远不会被改动。关闭 = 与游戏相同。</GT_RainWashAll_Desc>
   <GT_RainNow>你家园地图上当前的室外污物：{0}</GT_RainNow>
   <GT_RainStarted>开始下雨了 – 雨水会冲走污物（Smooth FPS）。</GT_RainStarted>
+  <GT_VramRefresh>刷新</GT_VramRefresh>
+  <GT_VramTargetsTop>最大的绘制表面：{0}</GT_VramTargetsTop>
+  <GT_VramModsHead>按模组统计贴图（{0} 个模组，共约 {1} GB）——从大到小：</GT_VramModsHead>
+  <GT_VramColMod>模组</GT_VramColMod>
+  <GT_VramColSize>大小</GT_VramColSize>
+  <GT_VramColCount>贴图（大贴图）</GT_VramColCount>
+  <GT_VramCount>{0} 张贴图（{1} 张大图）</GT_VramCount>
+  <GT_VramRowTip>{0}\n\n贴图：约 {1} MB\n数量：{2}，大图（超过 4 MB）：{3}\n最大：{4}（{5} MB）</GT_VramRowTip>
+  <GT_VramModsNote>大小是根据图片尺寸估算的（模组的全部贴图，包括已移出显卡的）。排在上面的模组关闭后能释放最多显存。图集和绘制表面属于游戏本身，只有降低分辨率或减少模组才会变小。</GT_VramModsNote>
+  <GT_KeepTex>尽量让贴图留在显卡中</GT_KeepTex>
+  <GT_KeepTex_Desc>在 1.7 中，显存约 80% 满时游戏就开始把贴图移到普通内存——图像可能显得模糊或加载延迟。开启后，贴图会以完整画质留在显卡中，直到只剩约 200 MB。显存真正满时游戏仍会自行腾出空间（否则会崩溃）——关闭大型模组效果更好。</GT_KeepTex_Desc>
+  <GT_Crash_ModsUnknown>模组：日志无法看出是哪个模组导致的（只有整局游戏一直重复的错误，这些不计入）。</GT_Crash_ModsUnknown>
+  <GT_BrightNights>更亮的夜晚</GT_BrightNights>
+  <GT_BrightNights_Desc>夜晚在屏幕上看起来更亮。仅影响画面——黑暗对植物、心情和工作的影响不变。</GT_BrightNights_Desc>
+  <GT_NightLift>夜晚亮度：+{0} %</GT_NightLift>
+  <GT_NightLift_Desc>最暗的夜晚看起来亮多少。</GT_NightLift_Desc>
 </LanguageData>

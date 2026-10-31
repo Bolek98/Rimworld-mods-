@@ -82,4 +82,23 @@
   <AT_ShellsFromMaterial_Desc>Nosiči nosí do minometů, děl a polních zbraní ocel (nebo jiný kov) a dělo se nabije granátem, který jsi mu vybral, jinak tříštivotrhavým. Granáty vůbec nepotřebuješ. Automatický minomet z VFE si granáty doplňuje z materiálu taky.</AT_ShellsFromMaterial_Desc>
   <AT_ShellCost>Materiálu na jeden granát: {0}</AT_ShellCost>
   <AT_NoMaterial>Málo materiálu ({0} kovu na granát)</AT_NoMaterial>
+  <AT_StunRunaways>Omračující věže zastaví utíkající vězně a otroky</AT_StunRunaways>
+  <AT_StunRunaways_Desc>Tvoje omračující (nesmrtící) věže střílí i po vězních a otrocích, kteří utíkají, bouří se, prchají nebo zuří. Smrtící věže je dál nechávají být.</AT_StunRunaways_Desc>
+  <AT_StunGiveUp>Omráčení uprchlíci se vzdají</AT_StunGiveUp>
+  <AT_StunGiveUp_Desc>Vězeň na útěku nebo vzbouřený otrok, kterého tvoje věž omráčí nebo srazí k zemi, se vzdá: dozorci ho odvedou zpět do cely, otrok se vrátí k práci.</AT_StunGiveUp_Desc>
+  <AT_GaveUpPrisoner>{0} byl omráčen a vzdal útěk.</AT_GaveUpPrisoner>
+  <AT_GaveUpSlave>{0} byl omráčen a vzdal vzpouru.</AT_GaveUpSlave>
+  <AT_ShellHit>Zásah {0}: {1} / {2}</AT_ShellHit>
+  <AT_ShellDestroyed>Tvé dělostřelectvo zničilo {0}. Lidé z frakce {1} trosky opustili.</AT_ShellDestroyed>
+  <AT_ShellDestroyedLabel>Základna zničena dělostřelectvem</AT_ShellDestroyedLabel>
+  <AT_ShellAppliedLabel>Ostřelovaná základna</AT_ShellAppliedLabel>
+  <AT_ShellApplied>Tvé dělostřelectvo zasáhlo {0} celkem {1}× před tvým příchodem – granáty na ni teď dopadly.</AT_ShellApplied>
+  <AT_ShellStart>Dělostřelectvo ostřeluje {0} – ke zničení zbývá asi {1} zásahů.</AT_ShellStart>
+  <AT_ShellLabel>Ostřelováno: {0} / {1} zásahů</AT_ShellLabel>
+  <AT_ShellSettlements>Dělostřelectvo ostřeluje nepřátelské základny bez mapy</AT_ShellSettlements>
+  <AT_ShellSettlements_Desc>Dělostřelectvo z VFE Security může střílet i na nepřátelskou základnu, kde jsi ještě nebyl. Každý zásah se počítá: když na základnu zaútočíš, zásahy na ni nejdřív dopadnou (méně obránců), a po dost zásazích se základna zničí.</AT_ShellSettlements_Desc>
+  <AT_ShellHitsN>Zásahů ke zničení základny: {0} (u kmenů méně, u vesmírných frakcí víc)</AT_ShellHitsN>
+  <AT_ShellNotHostile>{0} ({1}) není nepřátelské – dělostřelectvo ostřeluje jen nepřátelské základny a tábory (nebo mapu, kterou máš otevřenou).</AT_ShellNotHostile>
+  <AT_ShellNoTarget>Tady není co ostřelovat. Vyber nepřátelskou základnu nebo tábor (nemusí být prozkoumané) nebo mapu, kterou máš otevřenou.</AT_ShellNoTarget>
+  <AT_ShellSiteDestroyed>{0} ({1}) bylo zničeno dělostřelbou.</AT_ShellSiteDestroyed>
 </LanguageData>

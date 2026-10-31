@@ -112,7 +112,7 @@
   <MSM_SearchActiveHint>搜索已启用……</MSM_SearchActiveHint>
   <MSM_SearchHint>搜索模组、作者、ID……</MSM_SearchHint>
   <MSM_SecWhere>安装位置</MSM_SecWhere>
-  <MSM_SelectHint>请在左侧选择一个模组。</MSM_SelectHint>
+  <MSM_SelectHint>在左侧选择一个模组。Ctrl+点击或 Shift+点击可多选。</MSM_SelectHint>
   <MSM_SetEsc>在游戏内 Esc 菜单添加入口</MSM_SetEsc>
   <MSM_SetEscTip>游戏中也可以打开 Mod Sort Manager。保存时会先存档、重启游戏,然后返回该存档。</MSM_SetEscTip>
   <MSM_SetReplace>「模组」按钮打开 Mod Sort Manager</MSM_SetReplace>
@@ -339,4 +339,45 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_NoWarn>可用——不再警告</MSM_NoWarn>
   <MSM_NoWarnUndo>重新警告版本</MSM_NoWarnUndo>
   <MSM_NoWarnTip>此模组并非为当前游戏版本制作，但可以使用。Data/noVersionWarning.xml 或 No Version Warning 模组中列出的模组同样不会警告。</MSM_NoWarnTip>
+  <MSM_TabReplace>替代</MSM_TabReplace>
+  <MSM_RepTitle>有更好替代的模组：{0}</MSM_RepTitle>
+  <MSM_RepReload>重新加载</MSM_RepReload>
+  <MSM_RepHint>有其他作者继续维护、更新或修复版本的旧模组。“替换”会把新模组放在加载顺序中的同一位置。</MSM_RepHint>
+  <MSM_RepSource>列表：{0}</MSM_RepSource>
+  <MSM_RepNoUti>大型替代列表来自模组 "Use This Instead"（作者 Mlie）。订阅后此页能找到更多替代。</MSM_RepNoUti>
+  <MSM_RepGetUti>订阅 Use This Instead</MSM_RepGetUti>
+  <MSM_RepSubscribed>已订阅 {0} – Steam 正在下载。</MSM_RepSubscribed>
+  <MSM_RepInactive>未启用</MSM_RepInactive>
+  <MSM_RepVersion>为 {0} 制作，旧模组不是</MSM_RepVersion>
+  <MSM_RepBoth>两者都支持 {0}</MSM_RepBoth>
+  <MSM_RepErrors>日志中 {0} 个错误</MSM_RepErrors>
+  <MSM_RepHave>替代已安装</MSM_RepHave>
+  <MSM_RepNotHave>替代尚未安装</MSM_RepNotHave>
+  <MSM_RepFrom>推荐来源：{0}</MSM_RepFrom>
+  <MSM_RepHide>隐藏</MSM_RepHide>
+  <MSM_RepSwap>替换</MSM_RepSwap>
+  <MSM_RepSubscribe>订阅</MSM_RepSubscribe>
+  <MSM_RepNoList>尚未找到替代列表。</MSM_RepNoList>
+  <MSM_RepNone>无需替换 – 一切正常。</MSM_RepNone>
+  <MSM_RepDone>{0} 已在同一位置被 {1} 替换。</MSM_RepDone>
+  <MSM_GroupTitle>已选择 {0} 个模组</MSM_GroupTitle>
+  <MSM_GroupMore>… 以及另外 {0} 个</MSM_GroupMore>
+  <MSM_GroupOn>启用（{0}）</MSM_GroupOn>
+  <MSM_GroupOff>停用（{0}）</MSM_GroupOff>
+  <MSM_GroupClear>清除选择</MSM_GroupClear>
+  <MSM_KeysHelp>按键：W/S 或 ↑/↓ 移动 · Shift+W/S 移动所选 · A/D 或 ←/→ 停用/启用 · Ctrl+点击、Shift+点击、Ctrl+A 选择 · Esc 清除</MSM_KeysHelp>
+  <MSM_GroupRemove>移除 {0} 个模组…</MSM_GroupRemove>
+  <MSM_GroupUnsub>取消订阅 {0} 个创意工坊模组</MSM_GroupUnsub>
+  <MSM_GroupPark>将 {0} 个本地模组移出 Mods 文件夹</MSM_GroupPark>
+  <MSM_GroupDelete>永久删除 {0} 个本地模组</MSM_GroupDelete>
+  <MSM_GroupUnsubConfirm>取消订阅这 {0} 个模组？Steam 会删除其文件，模组将被停用。\n\n{1}</MSM_GroupUnsubConfirm>
+  <MSM_GroupParkConfirm>将这 {0} 个模组移出 Mods 文件夹到：\n{1}\n\n{2}\n\n随时可以放回。</MSM_GroupParkConfirm>
+  <MSM_GroupDeleteConfirm>永久删除这 {0} 个模组？\n\n{1}\n\n此操作无法撤销。</MSM_GroupDeleteConfirm>
+  <MSM_GroupRemoved>已移除 {0} 个模组（失败：{1}）。重启游戏以完成。</MSM_GroupRemoved>
+  <MSM_SaveContinue>保存并继续游戏</MSM_SaveContinue>
+  <MSM_SavedNextStart>模组列表已保存，将在下次启动游戏时生效。</MSM_SavedNextStart>
+  <MSM_SaveQuit>保存并退出</MSM_SaveQuit>
+  <MSM_DupFor>适用于 {0}</MSM_DupFor>
+  <MSM_OpenOldFolder>旧副本：文件夹（{0}）</MSM_OpenOldFolder>
+  <MSM_OpenOldSteam>旧副本：创意工坊页面（{0}）</MSM_OpenOldSteam>
 </LanguageData>

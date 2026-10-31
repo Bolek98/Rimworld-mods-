@@ -112,7 +112,7 @@
   <MSM_SearchActiveHint>Поиск среди активных…</MSM_SearchActiveHint>
   <MSM_SearchHint>Поиск: мод, автор, ID…</MSM_SearchHint>
   <MSM_SecWhere>Где найти</MSM_SecWhere>
-  <MSM_SelectHint>Выберите мод слева.</MSM_SelectHint>
+  <MSM_SelectHint>Выберите мод слева. Ctrl+клик или Shift+клик выбирает несколько.</MSM_SelectHint>
   <MSM_SetEsc>Пункт в игровом меню Esc</MSM_SetEsc>
   <MSM_SetEscTip>Mod Sort Manager можно открыть и во время игры. При сохранении игра сохраняется, перезапускается, и вы возвращаетесь в неё.</MSM_SetEscTip>
   <MSM_SetReplace>Кнопка «Моды» открывает Mod Sort Manager</MSM_SetReplace>
@@ -339,4 +339,45 @@ Mod Sort Manager выключит половину подозреваемых м
   <MSM_NoWarn>Работает – не предупреждать</MSM_NoWarn>
   <MSM_NoWarnUndo>Снова предупреждать о версии</MSM_NoWarnUndo>
   <MSM_NoWarnTip>Мод не сделан для этой версии игры, но работает. Моды из Data/noVersionWarning.xml или из мода No Version Warning тоже не вызывают предупреждения.</MSM_NoWarnTip>
+  <MSM_TabReplace>Замены</MSM_TabReplace>
+  <MSM_RepTitle>Моды с лучшей заменой: {0}</MSM_RepTitle>
+  <MSM_RepReload>Обновить список</MSM_RepReload>
+  <MSM_RepHint>Старые моды, у которых есть продолжение, обновление или исправленная версия от другого моддера. «Заменить» ставит новый мод на то же место в порядке.</MSM_RepHint>
+  <MSM_RepSource>Списки: {0}</MSM_RepSource>
+  <MSM_RepNoUti>Большой список берётся из мода "Use This Instead" (автор Mlie). Подпишитесь, и эта вкладка найдёт гораздо больше.</MSM_RepNoUti>
+  <MSM_RepGetUti>Подписаться на Use This Instead</MSM_RepGetUti>
+  <MSM_RepSubscribed>Подписка на {0} – Steam загружает.</MSM_RepSubscribed>
+  <MSM_RepInactive>не активен</MSM_RepInactive>
+  <MSM_RepVersion>сделан для {0}, старый нет</MSM_RepVersion>
+  <MSM_RepBoth>оба для {0}</MSM_RepBoth>
+  <MSM_RepErrors>{0} ошибок в логе</MSM_RepErrors>
+  <MSM_RepHave>замена установлена</MSM_RepHave>
+  <MSM_RepNotHave>замена ещё не установлена</MSM_RepNotHave>
+  <MSM_RepFrom>Предлагает: {0}</MSM_RepFrom>
+  <MSM_RepHide>Скрыть</MSM_RepHide>
+  <MSM_RepSwap>Заменить</MSM_RepSwap>
+  <MSM_RepSubscribe>Подписаться</MSM_RepSubscribe>
+  <MSM_RepNoList>Список замен пока не найден.</MSM_RepNoList>
+  <MSM_RepNone>Нечего заменять – всё в порядке.</MSM_RepNone>
+  <MSM_RepDone>{0} заменён на {1} на том же месте.</MSM_RepDone>
+  <MSM_GroupTitle>Выбрано модов: {0}</MSM_GroupTitle>
+  <MSM_GroupMore>… и ещё {0}</MSM_GroupMore>
+  <MSM_GroupOn>Включить ({0})</MSM_GroupOn>
+  <MSM_GroupOff>Выключить ({0})</MSM_GroupOff>
+  <MSM_GroupClear>Снять выбор</MSM_GroupClear>
+  <MSM_KeysHelp>Клавиши: W/S или ↑/↓ – перемещение · Shift+W/S двигает выбранные · A/D или ←/→ выкл/вкл · Ctrl+клик, Shift+клик, Ctrl+A – выбор · Esc снимает</MSM_KeysHelp>
+  <MSM_GroupRemove>Удалить модов: {0}…</MSM_GroupRemove>
+  <MSM_GroupUnsub>Отписаться от модов Мастерской: {0}</MSM_GroupUnsub>
+  <MSM_GroupPark>Перенести локальные моды из папки Mods: {0}</MSM_GroupPark>
+  <MSM_GroupDelete>Удалить локальные моды навсегда: {0}</MSM_GroupDelete>
+  <MSM_GroupUnsubConfirm>Отписаться от этих модов ({0})? Steam удалит их файлы; они будут выключены.\n\n{1}</MSM_GroupUnsubConfirm>
+  <MSM_GroupParkConfirm>Перенести эти моды ({0}) из папки Mods в:\n{1}\n\n{2}\n\nИх можно вернуть в любой момент.</MSM_GroupParkConfirm>
+  <MSM_GroupDeleteConfirm>Удалить эти моды ({0}) навсегда?\n\n{1}\n\nЭто нельзя отменить.</MSM_GroupDeleteConfirm>
+  <MSM_GroupRemoved>Удалено модов: {0} (не удалось: {1}). Перезапустите игру, чтобы завершить.</MSM_GroupRemoved>
+  <MSM_SaveContinue>Сохранить и продолжить</MSM_SaveContinue>
+  <MSM_SavedNextStart>Список модов сохранён. Он вступит в силу при следующем запуске игры.</MSM_SavedNextStart>
+  <MSM_SaveQuit>Сохранить и выйти</MSM_SaveQuit>
+  <MSM_DupFor>для {0}</MSM_DupFor>
+  <MSM_OpenOldFolder>Старая копия: папка ({0})</MSM_OpenOldFolder>
+  <MSM_OpenOldSteam>Старая копия: страница в Мастерской ({0})</MSM_OpenOldSteam>
 </LanguageData>

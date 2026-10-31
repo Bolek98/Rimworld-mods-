@@ -222,8 +222,13 @@ namespace GraphicsTuner
                 {
                     float due = rt / perTick;
                     float avg = Math.Max(0.05f, rawAvg(tm).GetAverage());
-                    budgetMs = Math.Max(budgetMs, Math.Min(due * avg + 1f, 66f));
-                    maxTicks = Math.Max(maxTicks, Math.Min(Mathf.Ceil(due), mult * 8f));
+                    // 1.6.7: the debt is paid in small steps – before, one slow frame left a big debt and
+                    // the next frame ran up to 66 ms of ticks at once, the next was slow again… At speed 2
+                    // (×3) with a heavy colony that was a steady stutter. Now at most twice the normal
+                    // number of ticks for one frame and at most 30 ms (a frame never falls below ~30 FPS
+                    // because of catching up).
+                    budgetMs = Math.Max(budgetMs, Math.Min(due * avg + 1f, 30f));
+                    maxTicks = Math.Max(maxTicks, Math.Min(Mathf.Ceil(due), Mathf.Ceil(mult * 60f / Math.Max(20f, Math.Min(fps, want)) * 2f)));
                 }
 
                 Stopwatch c = clock(tm);
@@ -277,7 +282,7 @@ namespace GraphicsTuner
                 // ticks that did not fit: vanilla throws them away (the game slows down);
                 // "keep speed" does up to 0.3 s of them in the next frames
                 if (rt > 0f)
-                    rt = s.sfSlowdown && !realSpeed && !turbo ? 0f : Mathf.Min(rt, turbo ? 1f : 0.3f);
+                    rt = s.sfSlowdown && !realSpeed && !turbo ? 0f : Mathf.Min(rt, turbo ? 1f : realSpeed ? 0.15f : 0.3f);   // 1.6.7: smaller debt at speed 1–2
                 return false;
             }
             catch (Exception e)
@@ -898,7 +903,9 @@ namespace GraphicsTuner
                 return;
             GfxSettings s = GraphicsTunerMod.Settings;
             int gc = GC.CollectionCount(GC.MaxGeneration);
-            bool log = s != null && frameMs >= s.hitchMs && Time.realtimeSinceStartup - lastLog > 1f;
+            // 1.6.2: the first frame after the main menu or loading a save measured the whole time
+            // since the last game frame (hours) – that is no hitch; a gap over a minute is skipped
+            bool log = s != null && frameMs >= s.hitchMs && frameMs < 60000.0 && Time.realtimeSinceStartup - lastLog > 1f;
             lock (gate)
             {
             if (DeepHitch.On)

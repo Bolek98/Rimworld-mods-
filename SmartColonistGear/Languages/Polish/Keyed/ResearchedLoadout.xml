@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RL_Enable>Włącz moda</RL_Enable>
+  <RL_UseRecipes>Receptury liczą się jako badania</RL_UseRecipes>
+  <RL_UseRecipes_Desc>Przedmiot zostaje odblokowany, gdy ukończono badanie dla co najmniej jednej receptury, która go wytwarza. Wyłącz, jeśli surowce (drewno, stal) zostaną zablokowane.</RL_UseRecipes_Desc>
+  <RL_BlockHigherTech>Blokuj przedmioty powyżej poziomu technologicznego kolonii</RL_BlockHigherTech>
+  <RL_BlockHigherTech_Desc>Przedmioty bez badań, bardziej zaawansowane niż zbadany poziom technologiczny kolonii, nie są używane.</RL_BlockHigherTech_Desc>
+  <RL_BlockUntagged>Blokuj przedmioty z modów bez badań</RL_BlockUntagged>
+  <RL_BlockUntagged_Desc>Przedmioty z innych modów, które nie mają badań, są traktowane jako zablokowane.</RL_BlockUntagged_Desc>
+  <RL_BlockLockedEquip>Blokuj niezbadaną broń</RL_BlockLockedEquip>
+  <RL_BlockLockedEquip_Desc>Koloniści nie podniosą niezbadanej broni, nawet na rozkaz.</RL_BlockLockedEquip_Desc>
+  <RL_BlockLockedApparel>Blokuj niezbadaną odzież</RL_BlockLockedApparel>
+  <RL_BlockLockedApparel_Desc>Ubieranie z gry podstawowej nie wybiera niezbadanej odzieży.</RL_BlockLockedApparel_Desc>
+  <RL_StripLocked>Zdejmuj niezbadane wyposażenie</RL_StripLocked>
+  <RL_StripLocked_Desc>Koloniści odkładają broń i odzież, których kolonia jeszcze nie zbadała.</RL_StripLocked_Desc>
+  <RL_AutoPrimary>Automatycznie ulepszaj główną broń</RL_AutoPrimary>
+  <RL_AutoPrimary_Desc>Koloniści sami biorą silniejszą broń i odkładają słabszą.</RL_AutoPrimary_Desc>
+  <RL_UseSkills>Wybieraj broń według umiejętności</RL_UseSkills>
+  <RL_UseSkills_Desc>Strzelcy dostają broń dystansową, wojownicy broń do walki wręcz.</RL_UseSkills_Desc>
+  <RL_AutoSidearm>Automatyczna broń zapasowa</RL_AutoSidearm>
+  <RL_AutoSidearm_Desc>Koloniści noszą też broń zapasową drugiego typu. Z Simple Sidearms obowiązują jego limity i zasady.</RL_AutoSidearm_Desc>
+  <RL_PrioritizeFighters>Najlepsza broń dla najlepszych wojowników</RL_PrioritizeFighters>
+  <RL_PrioritizeFighters_Desc>Kolonista z najwyższą umiejętnością Strzelania lub Walki wręcz wybiera pierwszy. Inni nie wezmą broni, dopóki byłaby ulepszeniem dla lepszego wojownika.</RL_PrioritizeFighters_Desc>
+  <RL_ArmSlaves>Uzbrajaj niewolników</RL_ArmSlaves>
+  <RL_ArmSlaves_Desc>Uzbrojeni niewolnicy znacznie zwiększają szansę na bunt. Domyślnie wyłączone.</RL_ArmSlaves_Desc>
+  <RL_ConsiderDistance>Uwzględniaj odległość</RL_ConsiderDistance>
+  <RL_ConsiderDistance_Desc>Im dalej leży przedmiot, tym większą poprawę musi dać (do +25 %), by kolonista po niego poszedł.</RL_ConsiderDistance_Desc>
+  <RL_PauseThreat>Wstrzymaj podczas ataków</RL_PauseThreat>
+  <RL_PauseThreat_Desc>Gdy aktywny wróg jest w strefie domowej lub w promieniu 40 pól od kolonisty, nikt nie chodzi po wyposażenie. Dalecy wrogowie na skraju mapy, powaleni lub uciekający się nie liczą.</RL_PauseThreat_Desc>
+  <RL_OwnDresser>Własne ubieranie zamiast podstawowego</RL_OwnDresser>
+  <RL_OwnDresser_Desc>Ten mod zajmuje się ubieraniem zamiast gry. Zalecane tylko, gdy ubieranie z gry podstawowej powoduje błędy.</RL_OwnDresser_Desc>
+  <RL_AutoApparel>Automatyczne ubieranie (własne)</RL_AutoApparel>
+  <RL_AutoApparel_Desc>Działa tylko razem z własnym ubieraniem.</RL_AutoApparel_Desc>
+  <RL_OnlyStockpile>Tylko ze stref składowania i regałów</RL_OnlyStockpile>
+  <RL_OnlyStockpile_Desc>Koloniści biorą przedmioty tylko ze stref składowania i regałów, a nie leżące gdziekolwiek na mapie.</RL_OnlyStockpile_Desc>
+  <RL_ReplaceBroken>Zdejmuj zniszczone i zabronione przez politykę</RL_ReplaceBroken>
+  <RL_ReplaceBroken_Desc>Odzież poniżej progu wytrzymałości lub zabroniona przez politykę ubioru zostaje zdjęta.</RL_ReplaceBroken_Desc>
+  <RL_StoreDropped>Odnoś zdjęte wyposażenie do magazynu</RL_StoreDropped>
+  <RL_StoreDropped_Desc>Koloniści zanoszą zdjęte wyposażenie w najlepsze wolne miejsce składowania. Jeśli nie ma miejsca, zostaje na ziemi.</RL_StoreDropped_Desc>
+  <RL_Notify>Powiadomienia w grze</RL_Notify>
+  <RL_Notify_Desc>Wiadomość w lewym górnym rogu, gdy kolonista weźmie inną broń lub odzież.</RL_Notify_Desc>
+  <RL_DebugLog>Dziennik debugowania</RL_DebugLog>
+  <RL_DebugLog_Desc>Zapisuje każdą zamianę w logu. Tylko do rozwiązywania problemów.</RL_DebugLog_Desc>
+  <RL_MinHp>Min. wytrzymałość: {0}%</RL_MinHp>
+  <RL_MinHp_Desc>Wyposażenie poniżej tego progu uznaje się za zepsute. Gra podstawowa daje karę do nastroju za zniszczoną odzież poniżej 50 %.</RL_MinHp_Desc>
+  <RL_Search>Szukaj:</RL_Search>
+  <RL_BanModWeapons>Zabroń broni z modów</RL_BanModWeapons>
+  <RL_AllowWeapons>Zezwól na broń</RL_AllowWeapons>
+  <RL_BanModApparel>Zabroń odzieży z modów</RL_BanModApparel>
+  <RL_AllowApparel>Zezwól na odzież</RL_AllowApparel>
+  <RL_BanWeaponsTitle>Broń (zaznaczone = ZABRONIONE)</RL_BanWeaponsTitle>
+  <RL_BanApparelTitle>Odzież i pancerze (zaznaczone = ZABRONIONE)</RL_BanApparelTitle>
+  <RL_GizmoLabel>Auto wyposażenie</RL_GizmoLabel>
+  <RL_GizmoDesc>Gdy włączone, mod wybiera broń i odzież dla tego kolonisty. Wyłącz dla kolonisty, którego wyposażeniem chcesz zarządzać ręcznie.</RL_GizmoDesc>
+  <RL_MsgWeapon>{0} bierze {1} zamiast {2}.</RL_MsgWeapon>
+  <RL_MsgWeaponNew>{0} bierze {1}.</RL_MsgWeaponNew>
+  <RL_MsgSidearm>{0} bierze {1} jako broń zapasową.</RL_MsgSidearm>
+  <RL_MsgApparel>{0} zakłada {1}.</RL_MsgApparel>
+  <RL_WeaponCalm>Spokój po zmianie broni: {0} h</RL_WeaponCalm>
+  <RL_WeaponCalm_Desc>Po zmianie broni kolonista trzyma ją przez ten czas, chyba że się zepsuje. 24 h = jeden dzień w grze, 0 = bez limitu.</RL_WeaponCalm_Desc>
+  <RL_Ex_Allowed>Dozwolone</RL_Ex_Allowed>
+  <RL_Ex_Locked>Zablokowane</RL_Ex_Locked>
+  <RL_Ex_Banned>Zabronione ręcznie</RL_Ex_Banned>
+  <RL_Ex_Always>Zawsze wymaga: {0}</RL_Ex_Always>
+  <RL_Ex_Option>Wytwarzanie: {0}</RL_Ex_Option>
+  <RL_Ex_Free>Można wytworzyć bez badań</RL_Ex_Free>
+  <RL_Ex_NoResearch>Brak badań (decyduje poziom technologiczny i zasada przedmiotów z modów)</RL_Ex_NoResearch>
+  <RL_Ex_Tech>Poziom technologiczny: {0} (limit: {1})</RL_Ex_Tech>
+  <RL_Ex_Mod>Mod: {0}</RL_Ex_Mod>
+  <RL_Ex_Done>ukończone</RL_Ex_Done>
+  <RL_Ex_Missing>brak</RL_Ex_Missing>
+  <RL_TechMismatch>Sprawdzaj przedmioty bardziej zaawansowane niż ich badanie</RL_TechMismatch>
+  <RL_TechMismatch_Desc>Gdy mod umieszcza zaawansowany przedmiot pod niższym badaniem (karabin kosmiczny pod badaniem przemysłowym), kolonia musi też osiągnąć poziom technologiczny tego przedmiotu.</RL_TechMismatch_Desc>
+  <RL_PowerEstimate>Szacuj poziom technologiczny przedmiotów z modów po sile</RL_PowerEstimate>
+  <RL_PowerEstimate_Desc>Broń lub pancerz z moda wyraźnie silniejsze od najlepszych przemysłowych z gry podstawowej liczą się jako kosmiczne, nawet jeśli autor moda ustawił niższy poziom. To tylko szacunek.</RL_PowerEstimate_Desc>
+  <RL_Ex_Power>Siła odpowiada poziomowi technologicznemu: {0}</RL_Ex_Power>
+  <RL_Ex_NeedColony>Kolonia musi osiągnąć poziom technologiczny: {0}</RL_Ex_NeedColony>
+  <RL_LevelByProgress>Poziom kolonii według postępu badań</RL_LevelByProgress>
+  <RL_LevelByProgress_Desc>Kolonia osiąga poziom technologiczny, gdy ukończy ustawioną część badań tego poziomu. Wyłączone = decyduje najwyższe ukończone badanie (wystarczy jedno). Poziom scenariusza zawsze liczy się jako minimum.</RL_LevelByProgress_Desc>
+  <RL_LevelProgress>Wymagana część badań poziomu: {0}%</RL_LevelProgress>
+  <RL_LevelProgress_Desc>Jaka część badań poziomu musi być ukończona, by kolonia liczyła się jako ten poziom.</RL_LevelProgress_Desc>
+  <RL_CurrentLevel>Obecny poziom kolonii: {0} (scenariusz: {1}, badania: {2})</RL_CurrentLevel>
+  <RL_SyncWorld>Poziom kolonii z World at Your Level</RL_SyncWorld>
+  <RL_SyncWorld_Desc>Koloniści i cały świat mają ten sam poziom, łącznie z ręcznym poziomem i udziałami na poziom ustawionymi w modzie najazdów.</RL_SyncWorld_Desc>
+  <RL_SurvivalApparel>Wyjątek przetrwania (tylko krytyczny)</RL_SurvivalApparel>
+  <RL_SurvivalApparel_Desc>Temperatura liczy się tylko w nagłym przypadku: gdy wykracza poza poniższe limity lub kolonista ma hipotermię albo udar cieplny (obowiązuje zawsze). Wtedy może nosić niezbadaną ciepłą odzież lub zdjąć części pogarszające upał (nigdy pancerz). W przeciwnym razie odzież nie jest zmieniana z powodu temperatury.</RL_SurvivalApparel_Desc>
+  <RL_ApparelCalm>Spokój po zmianie odzieży: {0} h</RL_ApparelCalm>
+  <RL_ApparelCalm_Desc>Po zmianie odzieży kolonista nie przebiera się ponownie przez ten czas, chyba że ma hipotermię lub udar cieplny. Zdjęte przedmioty lub zastąpione nową częścią nie są brane z powrotem przez dzień. 0 = bez okresu spokoju.</RL_ApparelCalm_Desc>
+  <RL_KeepArmor>Zawsze zachowuj pancerz</RL_KeepArmor>
+  <RL_KeepArmor_Desc>Część pancerza nigdy nie jest zamieniana na słabiej chroniącą i nigdy nie jest zdejmowana z powodu temperatury. Nie dotyczy zepsutego ani zablokowanego pancerza.</RL_KeepArmor_Desc>
+  <RL_TempByThresholds>Własne limity temperatury</RL_TempByThresholds>
+  <RL_TempByThresholds_Desc>Wł.: decydują suwaki. Wył.: automatycznie, według bezpiecznego zakresu każdego kolonisty (z uwzględnieniem tego, co nosi).</RL_TempByThresholds_Desc>
+  <RL_ColdThreshold>Zakładaj ciepłą odzież poniżej: {0}</RL_ColdThreshold>
+  <RL_ColdThreshold_Desc>Gdy na zewnątrz jest zimniej, koloniści zakładają ciepłą odzież (nawet niezbadaną). Noszą ją, dopóki nie będzie co najmniej 3 stopnie cieplej niż ten limit.</RL_ColdThreshold_Desc>
+  <RL_HeatThreshold>Zdejmuj odzież z powodu upału powyżej: {0}</RL_HeatThreshold>
+  <RL_HeatThreshold_Desc>Gdy na zewnątrz jest goręcej, koloniści zdejmują części pogarszające upał (nigdy pancerz) i noszą odzież chroniącą przed upałem.</RL_HeatThreshold_Desc>
+  <RL_GenderClothing>Odzież według płci</RL_GenderClothing>
+  <RL_GenderClothing_Desc>Mężczyźni biorą tylko odzież męską i unisex, kobiety tylko damską i unisex. Noszona już część dla drugiej płci zostaje zastąpiona, gdy tylko znajdzie się odpowiedni zamiennik.</RL_GenderClothing_Desc>
+  <RL_GenderGuess>Zgaduj płeć z nazwy i opisu</RL_GenderGuess>
+  <RL_GenderGuess_Desc>Jeśli definicja odzieży nie ma płci, jest ona zgadywana z nazwy, tagów, tekstury i opisu (sukienka, spódnica, pokojówka… = damska; smoking, dżentelmen… = męska). W razie wątpliwości część jest unisex. Wynik widać w podpowiedzi listy odzieży.</RL_GenderGuess_Desc>
+  <RL_GenderFemale>damska</RL_GenderFemale>
+  <RL_GenderMale>męska</RL_GenderMale>
+  <RL_GenderUnisex>unisex</RL_GenderUnisex>
+  <RL_Ex_Gender>Płeć: {0}</RL_Ex_Gender>
+  <RL_TabGeneral>Badania i poziom</RL_TabGeneral>
+  <RL_TabWeapons>Broń</RL_TabWeapons>
+  <RL_TabApparel>Odzież</RL_TabApparel>
+  <RL_TabTemperature>Temperatura i zagrożenia</RL_TabTemperature>
+  <RL_TabBans>Zakazy</RL_TabBans>
+  <RL_TabOther>Inne</RL_TabOther>
+  <RL_TempInfo>Temperatura zmienia odzież tylko w nagłym przypadku: gdy wykracza poza ustawione limity lub kolonista ma hipotermię albo udar cieplny (obowiązuje zawsze).\n\nW mrozie zakładają ciepłą odzież, nawet niezbadaną. W upale zdejmują części, które go pogarszają.\n\nPancerz nigdy nie jest zdejmowany ani zamieniany na słabszy z powodu temperatury.</RL_TempInfo>
+  <RL_ConfirmBanWeapons>Naprawdę zabronić CAŁEJ broni z modów? Koloniści nie wezmą żadnej broni z modów. Pojedyncze bronie możesz później odznaczyć na liście.</RL_ConfirmBanWeapons>
+  <RL_ConfirmBanApparel>Naprawdę zabronić CAŁEJ odzieży z modów? Koloniści nie wezmą żadnej odzieży z modów. Pojedyncze części możesz później odznaczyć na liście.</RL_ConfirmBanApparel>
+  <RL_RoleGear>Wyposażenie według specjalizacji</RL_RoleGear>
+  <RL_RoleGear_Desc>Na podstawie umiejętności każdy kolonista ma rolę: strzelec, wojownik wręcz, wszechstronny lub robotnik. Wojownicy wręcz wolą cięższy pancerz, robotnicy lżejsze wyposażenie bez spowolnień. Dobrzy strzelcy cenią broń dalekiego zasięgu, słabi szybszą broń krótkiego zasięgu. Rola jest widoczna w opisie przycisku „Auto wyposażenie”.</RL_RoleGear_Desc>
+  <RL_SpecialEffects>Uwzględniaj specjalne efekty broni</RL_SpecialEffects>
+  <RL_SpecialEffects_Desc>Broń wybuchowa, zapalająca, EMP, ogłuszająca, toksyczna i dymna ma niższą ocenę jako główna broń kolonisty (ryzyko trafienia sojuszników, skuteczna tylko przeciw niektórym celom).</RL_SpecialEffects_Desc>
+  <RL_StatOffsets>Premie i kary wyposażenia</RL_StatOffsets>
+  <RL_StatOffsets_Desc>Uwzględnia, co zmienia wyposażenie: szybkość ruchu i pracy, celowanie, trafienie i unik, a według najlepszej umiejętności kolonisty także statystyki pracy (opatrywanie u lekarza, praca z roślinami u rolnika, gotowanie u kucharza…).</RL_StatOffsets_Desc>
+  <RL_Role_Shooter>strzelec</RL_Role_Shooter>
+  <RL_Role_Melee>wojownik wręcz</RL_Role_Melee>
+  <RL_Role_Balanced>wszechstronny</RL_Role_Balanced>
+  <RL_Role_Worker>robotnik</RL_Role_Worker>
+  <RL_GizmoRole>Rola: {0}, specjalizacja: {1}</RL_GizmoRole>
+  <RL_CoverageFirst>Najpierw zakryj ciało (tułów, nogi)</RL_CoverageFirst>
+  <RL_CoverageFirst_Desc>Część zakrywająca odsłonięte miejsce ma pierwszeństwo (najbardziej tułów, potem nogi, głowa, reszta). Część, która by coś odsłoniła, dostaje karę. Dopóki tułów lub nogi są nagie, kolonista ubiera się od razu, bez okresu spokoju.</RL_CoverageFirst_Desc>
+  <RL_ThreatApparel>Ochrona przed zagrożeniami</RL_ThreatApparel>
+  <RL_ThreatApparel_Desc>Podczas krytycznego zimna lub upału (limity powyżej), toksyn, opadu, zanieczyszczenia, próżni lub walki na mapie odzież z potrzebną ochroną dostaje dużą premię, aby koloniści ją założyli. Pancerz nigdy nie jest z tego powodu zamieniany na słabszy.</RL_ThreatApparel_Desc>
+  <RL_ThreatBills>Twórz zlecenia na ochronę</RL_ThreatBills>
+  <RL_ThreatBills_Desc>Gdy brakuje odzieży ochronnej, a receptura jest zbadana, do stołu roboczego dodawane jest zlecenie „aż będziesz mieć X”, a produkty trafiają do magazynu. Twoje zlecenia nie są usuwane. Jeśli brakuje badań, pojawi się wiadomość.</RL_ThreatBills_Desc>
+  <RL_ThreatBill>Koloniści zaczęli wytwarzać ochronę: {0}.</RL_ThreatBill>
+  <RL_ThreatNoRecipe>Ochrony przed tym zagrożeniem nie można jeszcze wytworzyć. Brakuje badań.</RL_ThreatNoRecipe>
+  <RL_OnlyCrafted>Bierz tylko to, co kolonia wytworzyła</RL_OnlyCrafted>
+  <RL_OnlyCrafted_Desc>Koloniści biorą tylko nową broń i odzież, które kolonia już co najmniej raz wytworzyła przy stole roboczym (i zbadała). Łupy i kupione przedmioty innych rodzajów są ignorowane, dopóki sami nie wytworzycie tego rodzaju. To, co już noszą, nie jest z tego powodu zdejmowane. W trwającej grze wyposażenie kolonistów i składowane przedmioty, które możecie wytworzyć, są przejmowane jednorazowo.</RL_OnlyCrafted_Desc>
+  <RL_CraftedCount>Wytworzone rodzaje broni i odzieży: {0}</RL_CraftedCount>
+  <RL_CraftedReset>Wyczyść listę wytworzonych</RL_CraftedReset>
+  <RL_CraftedReset_Desc>Zapomina każdy dotąd przejęty lub wytworzony rodzaj broni i odzieży. Od teraz liczy się tylko to, co kolonia naprawdę wytworzy. To, co noszą koloniści, zostaje.</RL_CraftedReset_Desc>
+  <RL_CraftedResetConfirm>Naprawdę wyczyścić listę wytworzonych? Koloniści wezmą nową broń i odzież dopiero po wytworzeniu tego rodzaju.</RL_CraftedResetConfirm>
+  <RL_Ex_NotCrafted>Zbadane, ale kolonia jeszcze tego nie wytworzyła.</RL_Ex_NotCrafted>
+  <RL_SidearmLocked>Smart Colonist Gear: kolonia jeszcze nie zbadała ani nie wytworzyła tej broni</RL_SidearmLocked>
+  <RL_WorkClothing>Odzież robocza tylko dla specjalistów</RL_WorkClothing>
+  <RL_WorkClothing_Desc>Odzież przyspieszającą konkretną pracę (fartuch do gotowania, kitel do badań, rękawice dla lekarzy, kask górniczy…) bierze tylko specjalista w tej pracy – jeśli jest dostępny, ma silne pierwszeństwo. Inni jej nie biorą. Specjalista = to jego najlepsza umiejętność robocza lub ma tę pracę z priorytetem 1, a umiejętność ma co najmniej ustawiony poziom.</RL_WorkClothing_Desc>
+  <RL_WorkClothingSkill>Specjalista od umiejętności: {0}</RL_WorkClothingSkill>
+  <RL_WorkClothingSkill_Desc>Minimalny poziom umiejętności, by kolonista liczył się jako specjalista dla odzieży roboczej.</RL_WorkClothingSkill_Desc>
+  <RL_DressByTraits>Ubieraj według cech i umiejętności</RL_DressByTraits>
+  <RL_DressByTraits_Desc>Spośród dozwolonej odzieży każdy kolonista woli to, co mu pasuje: wyposażenie wspierające pracę, którą faktycznie wykonuje i w której jest dobry (lekarz – opatrywanie, górnik – górnictwo, naukowiec – badania…), wyposażenie strzeleckie lub do walki wręcz według umiejętności bojowej, wyposażenie psychiczne dla psykasterów i kolonistów wrażliwych psychicznie. Liczą się też cechy: mięczaki bardziej cenią pancerz, biegacze i zwinni unikają spowolnień, chciwi i zazdrośni chcą lepszej jakości, asceci nie dbają o luksus, zabijaki pomijają wyposażenie do celowania. To tylko niewielka preferencja (ok. -25 % do +35 %) – nigdy nie dopuszcza wyposażenia zablokowanego lub niezbadanego.</RL_DressByTraits_Desc>
+  <RL_GearStability>Stabilność wyposażenia: zamieniaj tylko, gdy o {0} % lepsze</RL_GearStability>
+  <RL_GearStability_Desc>O ile lepsza musi być nowa broń, odzież, pancerz lub dodatek od tego, co ma kolonista, zanim nastąpi zamiana. Wyżej = mniej przebierania i przezbrajania. Ten sam przedmiot na ten sam (np. napierśnik na napierśnik) jest zamieniany tylko na lepszą jakość. Zepsute przedmioty są zawsze zastępowane.</RL_GearStability_Desc>
+  <RL_TabSidearms>Broń zapasowa</RL_TabSidearms>
+  <RL_SS_Missing>Simple Sidearms nie jest zainstalowany – używany jest wbudowany system tego moda: koloniści noszą broń drugiego typu i sami wyciągają ją w walce.</RL_SS_Missing>
+  <RL_SS_Preset>Ustawienie wstępne Simple Sidearms: {0}</RL_SS_Preset>
+  <RL_SS_P_Custom>Własne</RL_SS_P_Custom>
+  <RL_SS_P_NoneApplied>Brak</RL_SS_P_NoneApplied>
+  <RL_SS_P_Disabled>Wyłączone</RL_SS_P_Disabled>
+  <RL_SS_P_LoadoutOnly>Tylko wyposażenie (ten mod wybiera broń zapasową)</RL_SS_P_LoadoutOnly>
+  <RL_SS_P_Lite>Lekkie</RL_SS_P_Lite>
+  <RL_SS_P_Basic>Podstawowe</RL_SS_P_Basic>
+  <RL_SS_P_Advanced>Zaawansowane</RL_SS_P_Advanced>
+  <RL_SS_P_Excessive>Nadmierne</RL_SS_P_Excessive>
+  <RL_SS_P_Brawler>Zabijaka</RL_SS_P_Brawler>
+  <RL_SS_Slots>Maks. broni zapasowych: {0}</RL_SS_Slots>
+  <RL_SS_Slots_Desc>Ile broni kolonista może nosić oprócz tej w ręku.</RL_SS_Slots_Desc>
+  <RL_SS_Mass>Maks. masa jednej broni zapasowej: {0} kg</RL_SS_Mass>
+  <RL_SS_MassNone>Maks. masa jednej broni zapasowej: bez limitu</RL_SS_MassNone>
+  <RL_SS_Mass_Desc>Cięższa broń nie jest noszona jako zapasowa. 0 = bez limitu.</RL_SS_Mass_Desc>
+  <RL_SS_ToolSwitch>Używaj narzędzi do pracy (siekiera, kilof…)</RL_SS_ToolSwitch>
+  <RL_SS_ToolSwitch_Desc>Kolonista przełącza się na noszoną broń, która przyspiesza bieżącą pracę.</RL_SS_ToolSwitch_Desc>
+  <RL_SS_OptimalMelee>Najlepsza broń do walki wręcz na cel</RL_SS_OptimalMelee>
+  <RL_SS_CQC>Przełączaj na walkę wręcz w bliskim starciu</RL_SS_CQC>
+  <RL_SS_RangedSwitch>Przełączaj na broń dystansową na odległość</RL_SS_RangedSwitch>
+  <RL_SS_ReEquip>Wróć do głównej broni po walce</RL_SS_ReEquip>
+  <RL_SS_ReEquipBest>Weź najlepszą broń po walce</RL_SS_ReEquipBest>
+  <RL_SS_ReEquipCombat>Wracaj także podczas walki</RL_SS_ReEquipCombat>
+  <RL_SS_SkipDangerous>Nie używaj automatycznie niebezpiecznej broni (granaty, materiały wybuchowe)</RL_SS_SkipDangerous>
+  <RL_SS_SkipEMP>Nie używaj automatycznie broni EMP</RL_SS_SkipEMP>
+  <RL_SS_Caravans>Zachowuj broń zapasową w karawanach</RL_SS_Caravans>
+  <RL_SS_Alerts>Alert o brakującej broni zapasowej</RL_SS_Alerts>
+  <RL_SS_Sounds>Dźwięki zmiany broni</RL_SS_Sounds>
+  <RL_SS_Spawn>Inni przybywają z bronią zapasową: {0} %</RL_SS_Spawn>
+  <RL_SS_Spawn_Desc>Szansa, że najeźdźca lub gość dostanie broń zapasową (wyposażenie nadal filtruje World at Your Level).</RL_SS_Spawn_Desc>
+  <RL_SS_HidePage>Ukryj oryginalne ustawienia Simple Sidearms</RL_SS_HidePage>
+  <RL_SS_HidePage_Desc>Oryginalna strona Simple Sidearms jest ukryta na liście ustawień modów – wszystko ustawia się tutaj. Działa po ponownym otwarciu ustawień.</RL_SS_HidePage_Desc>
+  <RL_EmergencyGear>Wyposażenie awaryjne w niebezpiecznych sytuacjach</RL_EmergencyGear>
+  <RL_EmergencyGear_Desc>Gdy dzieje się coś niebezpiecznego, a kolonia nie zbadała jeszcze odpowiedniego wyposażenia, koloniści mogą użyć zastępczego wyposażenia, które już jest na mapie (magazyny, ziemia, ekwipunek) – nawet niezbadanego lub niewytworzonego. Toksyczne powietrze: maski gazowe i kombinezony ochronne; ekstremalne zimno lub upał: odzież izolująca; atak: pancerze i własna broń kolonii. Nic nie jest tworzone. Gdy niebezpieczeństwo minie, znów obowiązują zwykłe zasady; już noszone części są zachowywane przez około dwie godziny, by nikt nie rozbierał się w trakcie. Ręcznie zabronione przedmioty nigdy nie są dozwolone.</RL_EmergencyGear_Desc>
+  <RL_EmergencyToxic>Toksyczne powietrze (gaz, opad, zanieczyszczenie)</RL_EmergencyToxic>
+  <RL_EmergencyToxic_Desc>Toksyczny gaz w pobliżu kolonistów lub w strefie domowej (np. generator gazu z zadania), toksyczny opad, szkodliwa mgła, zanieczyszczony grunt lub rosnące nagromadzenie toksyn. Dopuszcza odzież z ochroną przed toksycznym środowiskiem lub odpornością na toksyny (maski gazowe, kombinezony ochronne…) z dowolnego moda.</RL_EmergencyToxic_Desc>
+  <RL_EmergencyTemperature>Ekstremalne zimno lub upał</RL_EmergencyTemperature>
+  <RL_EmergencyTemperature_Desc>Temperatura na zewnątrz daleko poza tym, co koloniści wytrzymają bez odzieży (lub fala mrozu / fala upałów), albo hipotermia / udar cieplny. Dopuszcza dobrze izolującą odzież.</RL_EmergencyTemperature_Desc>
+  <RL_EmergencyRaid>Atak</RL_EmergencyRaid>
+  <RL_EmergencyRaid_Desc>Gdy na mapie są aktywni wrogowie. Dopuszcza pancerze i broń, która już należy do kolonii (w magazynie, w ekwipunku lub leżąca w strefie domowej).</RL_EmergencyRaid_Desc>
+  <RL_EmKind_Toxic>Toksyczne powietrze</RL_EmKind_Toxic>
+  <RL_EmKind_Cold>Ekstremalne zimno</RL_EmKind_Cold>
+  <RL_EmKind_Heat>Ekstremalny upał</RL_EmKind_Heat>
+  <RL_EmKind_Raid>Atak</RL_EmKind_Raid>
+  <RL_EmGear_Toxic>maski gazowe i wyposażenie ochronne</RL_EmGear_Toxic>
+  <RL_EmGear_Cold>ciepła odzież</RL_EmGear_Cold>
+  <RL_EmGear_Heat>chłodząca odzież</RL_EmGear_Heat>
+  <RL_EmGear_Raid>pancerze i broń kolonii</RL_EmGear_Raid>
+  <RL_EmergencyOn>{0}: koloniści mogą użyć {1} nawet bez badań.</RL_EmergencyOn>
+  <RL_EmergencyOff>Niebezpieczeństwo minęło ({0}): wyposażenie awaryjne nie jest już dozwolone. Już noszone części są jeszcze przez chwilę zachowywane.</RL_EmergencyOff>
+  <RL_Ex_Emergency>Teraz dozwolone jako wyposażenie awaryjne ({0})</RL_Ex_Emergency>
+  <RL_Ex_EmergencyFor>Wyposażenie awaryjne na: {0}</RL_Ex_EmergencyFor>
+  <RL_EmergencyProvide>Znajdź i wytwórz wyposażenie awaryjne</RL_EmergencyProvide>
+  <RL_EmergencyProvide_Desc>Gdy kolonistom brakuje ochrony podczas zagrożenia: zakazane przedmioty ochronne w dowolnym miejscu mapy zostają odblokowane (tylko tyle, ile trzeba, nie w ogniu, nie w pobliżu wrogów), a jeśli wciąż brakuje, dodawane jest zlecenie na najlepszą ochronę, jaką kolonia potrafi wytworzyć. Jeśli odpowiedniej ochrony nie da się jeszcze wytworzyć (brak badań), zamiast tego znajdowany lub wytwarzany jest najbliższy zamiennik – słabsza ochrona przed toksynami lub osłona twarzy, najcieplejsza/najchłodniejsza odzież, najlepszy pancerz. Tak dodane zlecenia są usuwane po ustaniu zagrożenia, chyba że praca nad nimi już się zaczęła.</RL_EmergencyProvide_Desc>
+  <RL_EmProv_Msg>{0}: brakuje ({1}) – {2}.</RL_EmProv_Msg>
+  <RL_EmProv_Unforbade>odblokowano {0} ({1})</RL_EmProv_Unforbade>
+  <RL_EmProv_Bill>dodano zlecenie na {0}× {1} przy {2}</RL_EmProv_Bill>
+  <RL_EmProv_Substitute>brak receptury na odpowiednią ochronę, wytwarzanie zamiennika: {0}× {1} przy {2}</RL_EmProv_Substitute>
+  <RL_EmProv_BillExists>zlecenie na {0} już istnieje</RL_EmProv_BillExists>
+  <RL_EmProv_Nothing>nic nie znaleziono i brak dostępnej receptury</RL_EmProv_Nothing>
+  <RL_CraftedRestore>Przywróć listę z kolonii</RL_CraftedRestore>
+  <RL_CraftedRestore_Desc>Dodaje do listy wytworzonych każdy rodzaj broni i odzieży, który kolonia teraz ma: noszony, w ekwipunku i składowany. Przydatne, gdy lista została wyczyszczona przez pomyłkę lub za wcześnie.</RL_CraftedRestore_Desc>
+  <RL_CraftedRestored>Lista wytworzonych przywrócona z kolonii, dodane rodzaje: {0}.</RL_CraftedRestored>
+  <RL_SS_OwnHeader>Smart Colonist Gear – broń zapasowa</RL_SS_OwnHeader>
+  <RL_SS_Filter>Broń zapasowa tylko zbadana i dozwolona</RL_SS_Filter>
+  <RL_SS_Filter_Desc>Simple Sidearms może dawać kolonistom tylko broń, na którą pozwala ten mod (badania, poziom technologiczny, zakazy, tylko wytworzone).</RL_SS_Filter_Desc>
+  <RL_SS_Upgrade>Zamieniaj broń zapasową na lepszą</RL_SS_Upgrade>
+  <RL_SS_Upgrade_Desc>Gdy kolonia ma lepszą broń tego samego typu, kolonista zamienia noszoną broń zapasową i odnosi starą do magazynu.</RL_SS_Upgrade_Desc>
+  <RL_SS_Notify>Wiadomość przy wzięciu broni zapasowej</RL_SS_Notify>
+  <RL_SS_Notify_Desc>Pokazuje wiadomość, gdy kolonista podnosi nową broń zapasową (tylko gdy wiadomości tego moda są włączone).</RL_SS_Notify_Desc>
+  <RL_SS_OriginalUi>Pełne ustawienia Simple Sidearms</RL_SS_OriginalUi>
+  <RL_SS_OriginalUi_Desc>Pod tymi opcjami wyświetlane są kompletne oryginalne ustawienia Simple Sidearms ze wszystkimi zakładkami (ustawienia wstępne, automatyzacja, limity, pojawianie się, różne). Wył. = wersja skrócona.</RL_SS_OriginalUi_Desc>
+  <RL_CraftedPick>Wybierz z tego, co mam…</RL_CraftedPick>
+  <RL_CraftedPick_Desc>Otwiera listę wszystkich rodzajów broni i odzieży, które ma kolonia. Zaznaczone można nosić od razu, reszta odblokuje się sama, gdy kolonia je wytworzy.</RL_CraftedPick_Desc>
+  <RL_PickTitle>Co koloniści mogą nosić</RL_PickTitle>
+  <RL_PickHelp>Zaznaczone = dozwolone teraz. Niezaznaczone nie jest zakazane na stałe – odblokuje się, gdy kolonia to wytworzy. Badania i zakazy nadal obowiązują.</RL_PickHelp>
+  <RL_PickAll>Wszystko</RL_PickAll>
+  <RL_PickWeapons>Broń</RL_PickWeapons>
+  <RL_PickApparel>Odzież</RL_PickApparel>
+  <RL_PickOnAll>Zaznacz widoczne</RL_PickOnAll>
+  <RL_PickOffAll>Odznacz widoczne</RL_PickOffAll>
+  <RL_PickCount>Dozwolone {0} z {1}</RL_PickCount>
+  <RL_PickNoResearch>niezbadane</RL_PickNoResearch>
+  <RL_PickWeapon>broń</RL_PickWeapon>
+  <RL_PickApparel1>odzież</RL_PickApparel1>
+  <RL_SS_Tab_Presets>Ustawienia wstępne</RL_SS_Tab_Presets>
+  <RL_SS_Tab_Automation>Wyzwalacze</RL_SS_Tab_Automation>
+  <RL_SS_Tab_Allowances>Limity</RL_SS_Tab_Allowances>
+  <RL_SS_Tab_Spawning>Pojawianie się</RL_SS_Tab_Spawning>
+  <RL_SS_Tab_Misc>Różne</RL_SS_Tab_Misc>
+  <RL_FullBody>Ubierz całe ciało</RL_FullBody>
+  <RL_FullBody_Desc>Kolonista zakłada każdą dostępną część, która tylko coś dodaje (niczego nie zdejmuje) – kapelusz, rękawice, buty, kamizelkę, płaszcz… – nawet z niską oceną. Musi być dozwolona, pasować do polityki ubioru, nie być zdjęta ze zwłok i nie działać wbrew temperaturze (żadnych ciepłych płaszczy w upale). Pasy i przedmioty użytkowe nadal wymagają zwykłej oceny. Kolonista w pancerzu uzupełnia komplet (hełm, rękawice, buty) i nigdy nie zamienia jego części na słabszą. Dodatkowe ciepłe części tylko wtedy, gdy nie jest gorąco.</RL_FullBody_Desc>
+  <RL_SP_Tab_Overview>Przegląd</RL_SP_Tab_Overview>
+  <RL_SP_Tab_Presets>Ustawienia wstępne</RL_SP_Tab_Presets>
+  <RL_SP_Tab_Automation>Automatyzacja</RL_SP_Tab_Automation>
+  <RL_SP_Tab_Limits>Limity</RL_SP_Tab_Limits>
+  <RL_SP_Tab_Spawning>Wyposażenie innych</RL_SP_Tab_Spawning>
+  <RL_SP_Tab_Misc>Różne</RL_SP_Tab_Misc>
+  <RL_SP_Tab_Own>Zasady moda</RL_SP_Tab_Own>
+  <RL_SP_On>wł.</RL_SP_On>
+  <RL_SP_Off>wył.</RL_SP_Off>
+  <RL_SP_NowPreset>Ustawienie wstępne: {0}</RL_SP_NowPreset>
+  <RL_SP_NowAuto>Automatyczne przełączanie: włączone {0} z {1} funkcji</RL_SP_NowAuto>
+  <RL_SP_NowOwn>Ten mod: auto broń zapasowa {0}, tylko zbadane {1}, zamiana na lepszą {2}</RL_SP_NowOwn>
+  <RL_SP_Use>Użyj: {0}</RL_SP_Use>
+  <RL_SP_NoGame>Koloniści i ich broń zapasowa są wyświetlani w trwającej grze.</RL_SP_NoGame>
+  <RL_SP_Colonists>Koloniści i ich broń</RL_SP_Colonists>
+  <RL_SP_ColName>Kolonista</RL_SP_ColName>
+  <RL_SP_ColPrimary>W ręku</RL_SP_ColPrimary>
+  <RL_SP_ColSide>Broń zapasowa</RL_SP_ColSide>
+  <RL_SP_ColMass>Masa</RL_SP_ColMass>
+  <RL_SP_NonViolent>pacyfista – nie nosi broni</RL_SP_NonViolent>
+  <RL_SP_SumSingleKg>jedna broń do {0} kg</RL_SP_SumSingleKg>
+  <RL_SP_SumSingleSel>tylko wybrana broń</RL_SP_SumSingleSel>
+  <RL_SP_SumSingleAny>jedna broń bez limitu</RL_SP_SumSingleAny>
+  <RL_SP_SumAmountKg>wszystkie razem do {0} kg</RL_SP_SumAmountKg>
+  <RL_SP_SumAmountN>najwyżej {0}</RL_SP_SumAmountN>
+  <RL_SP_SumAmountAny>dowolna liczba</RL_SP_SumAmountAny>
+  <RL_SP_SumCommon>Limity: {0}.</RL_SP_SumCommon>
+  <RL_SP_SumSeparate>Wręcz: {0}. Dystansowa: {1}.</RL_SP_SumSeparate>
+  <RL_SP_PresetsHint>Kliknij kartę. Każda zmiana w innych zakładkach przełącza ustawienie wstępne na „Własne”.</RL_SP_PresetsHint>
+  <RL_SP_CustomNow>Masz teraz własne ustawienia (nie wybrano karty).</RL_SP_CustomNow>
+  <RL_SS_PD_Basic>Zalecane. Wręcz do 1,9 kg, dystansowa do 2,7 kg, najwyżej 2 każdego typu, 3 łącznie. Automatyczne przełączanie włączone.</RL_SS_PD_Basic>
+  <RL_SS_PD_Lite>Tylko mała lekka broń: wręcz do 0,6 kg (noże), dystansowa do 1,6 kg (pistolety), najwyżej 2.</RL_SS_PD_Lite>
+  <RL_SS_PD_Advanced>Cięższa broń: wręcz do 2,25 kg, dystansowa do 5 kg (także karabiny), łącznie do 10 kg.</RL_SS_PD_Advanced>
+  <RL_SS_PD_Excessive>Bez limitów – koloniści noszą, ile dadzą radę. Inni częściej przybywają z bronią zapasową.</RL_SS_PD_Excessive>
+  <RL_SS_PD_Brawler>Tylko wręcz: każda do 4 kg, razem do 10 kg, bez dystansowej.</RL_SS_PD_Brawler>
+  <RL_SS_PD_LoadoutOnly>Simple Sidearms zachowuje tylko limity (3 bronie, każda do 4,75 kg), ten mod wybiera, co nosić. Bez automatycznego przełączania w walce.</RL_SS_PD_LoadoutOnly>
+  <RL_SS_PD_Disabled>Broń zapasowa wyłączona: nic się nie przełącza, najwyżej 1 dodatkowa broń, inni nie noszą żadnej.</RL_SS_PD_Disabled>
+  <RL_SP_ToolAutoSwitch>Używaj narzędzi do pracy</RL_SP_ToolAutoSwitch>
+  <RL_SP_ToolAutoSwitch_Desc>Kolonista bierze noszoną broń, która przyspiesza pracę (siekiera do wycinki, kilof do kopania…), a potem przełącza się z powrotem.</RL_SP_ToolAutoSwitch_Desc>
+  <RL_SP_OptimalMelee>Najlepsza broń do walki wręcz na cel</RL_SP_OptimalMelee>
+  <RL_SP_OptimalMelee_Desc>W walce wręcz wybiera noszoną broń, która działa najlepiej przeciw temu wrogowi.</RL_SP_OptimalMelee_Desc>
+  <RL_SP_CQCAutoSwitch>Wyciągnij broń do walki wręcz przy ataku z bliska</RL_SP_CQCAutoSwitch>
+  <RL_SP_CQCAutoSwitch_Desc>Gdy wróg znajdzie się w zasięgu, kolonista przełącza się z broni palnej na broń do walki wręcz.</RL_SP_CQCAutoSwitch_Desc>
+  <RL_SP_CQCTargetOnly>…tylko przy bezpośrednim ataku</RL_SP_CQCTargetOnly>
+  <RL_SP_CQCTargetOnly_Desc>Przełącza tylko wtedy, gdy wróg w walce wręcz atakuje właśnie tego kolonistę.</RL_SP_CQCTargetOnly_Desc>
+  <RL_SP_RangedCombatAutoSwitch>Wybierz najlepszą broń palną na odległość</RL_SP_RangedCombatAutoSwitch>
+  <RL_SP_RangedCombatAutoSwitch_Desc>Wybiera spośród noszonej broni palnej według odległości od celu (strzelba z bliska, karabin z daleka).</RL_SP_RangedCombatAutoSwitch_Desc>
+  <RL_SP_MaxWarmup>Przełączaj tylko na broń z przygotowaniem do {0} %</RL_SP_MaxWarmup>
+  <RL_SP_MaxWarmup_Desc>Jak długie może być przygotowanie nowej broni w porównaniu z obecną. Więcej = częstsze przełączanie.</RL_SP_MaxWarmup_Desc>
+  <RL_SP_BiasHint>Szybkość kontra siła: powyżej 100 % koloniści wolą szybką broń, poniżej 100 % silną i wolną.</RL_SP_BiasHint>
+  <RL_SP_BiasMelee>Wręcz – waga szybkości: {0} %</RL_SP_BiasMelee>
+  <RL_SP_BiasRanged>Dystansowa – waga szybkości: {0} %</RL_SP_BiasRanged>
+  <RL_SP_ReEquipOutOfCombat>Weź główną broń z powrotem po walce</RL_SP_ReEquipOutOfCombat>
+  <RL_SP_ReEquipOutOfCombat_Desc>Gdy walka się kończy, kolonista bierze z powrotem broń trzymaną wcześniej.</RL_SP_ReEquipOutOfCombat_Desc>
+  <RL_SP_ReEquipBest>…albo od razu najlepszą</RL_SP_ReEquipBest>
+  <RL_SP_ReEquipBest_Desc>Bierze najlepszą noszoną broń zamiast pierwotnej.</RL_SP_ReEquipBest_Desc>
+  <RL_SP_ReEquipInCombat>Przełączaj z powrotem także podczas walki</RL_SP_ReEquipInCombat>
+  <RL_SP_ReEquipInCombat_Desc>Gdy w pobliżu nie ma wroga, wraca do broni palnej nawet w środku walki.</RL_SP_ReEquipInCombat_Desc>
+  <RL_SP_SkipDangerousWeapons>Granaty i wyrzutnie tylko na rozkaz</RL_SP_SkipDangerousWeapons>
+  <RL_SP_SkipDangerousWeapons_Desc>Koloniści nie używają sami broni wybuchowej (ryzyko ostrzału sojuszników).</RL_SP_SkipDangerousWeapons_Desc>
+  <RL_SP_SkipEMPWeapons>Broń EMP tylko na rozkaz</RL_SP_SkipEMPWeapons>
+  <RL_SP_SkipEMPWeapons_Desc>Koloniści nie używają sami broni EMP.</RL_SP_SkipEMPWeapons_Desc>
+  <RL_SP_AllowBlockedWeaponUse>Zezwól na broń, której kolonista inaczej nie mógłby używać</RL_SP_AllowBlockedWeaponUse>
+  <RL_SP_AllowBlockedWeaponUse_Desc>Kolonista może nosić broń zablokowaną przez polityki lub inne mody.</RL_SP_AllowBlockedWeaponUse_Desc>
+  <RL_SP_SeparateModes>Osobne limity dla walki wręcz i dystansowej</RL_SP_SeparateModes>
+  <RL_SP_SeparateModes_Desc>Wł.: walka wręcz i dystansowa mają własne limity plus limit łączny. Wył.: jeden wspólny limit.</RL_SP_SeparateModes_Desc>
+  <RL_SP_Melee>Broń do walki wręcz</RL_SP_Melee>
+  <RL_SP_Ranged>Broń dystansowa</RL_SP_Ranged>
+  <RL_SP_SingleLimit>Limit na broń</RL_SP_SingleLimit>
+  <RL_SP_SingleLimit_Desc>Ile może ważyć jedna broń zapasowa.</RL_SP_SingleLimit_Desc>
+  <RL_SP_AmountLimit>Limit dla całej broni zapasowej</RL_SP_AmountLimit>
+  <RL_SP_AmountLimit_Desc>Ile broni zapasowej może nosić kolonista.</RL_SP_AmountLimit_Desc>
+  <RL_SP_TotalLimit>Limit łączny (wręcz + dystansowa)</RL_SP_TotalLimit>
+  <RL_SP_ES_None>Bez limitu</RL_SP_ES_None>
+  <RL_SP_ES_RelativeWeight>Według udźwigu</RL_SP_ES_RelativeWeight>
+  <RL_SP_ES_RelativeWeight_Desc>Limit rośnie wraz z udźwigiem kolonisty. Liczby podano dla udźwigu 35 kg.</RL_SP_ES_RelativeWeight_Desc>
+  <RL_SP_ES_AbsoluteWeight>Stała masa</RL_SP_ES_AbsoluteWeight>
+  <RL_SP_ES_Selection>Tylko wybrane</RL_SP_ES_Selection>
+  <RL_SP_ES_Selection_Desc>Jako broń zapasową można nosić tylko broń zaznaczoną na liście.</RL_SP_ES_Selection_Desc>
+  <RL_SP_EA_None>Bez limitu</RL_SP_EA_None>
+  <RL_SP_EA_RelativeWeight>Według udźwigu</RL_SP_EA_RelativeWeight>
+  <RL_SP_EA_RelativeWeight_Desc>Limit rośnie wraz z udźwigiem kolonisty. Liczby podano dla udźwigu 35 kg.</RL_SP_EA_RelativeWeight_Desc>
+  <RL_SP_EA_AbsoluteWeight>Stała masa</RL_SP_EA_AbsoluteWeight>
+  <RL_SP_EA_Slots>Liczba</RL_SP_EA_Slots>
+  <RL_SP_SingleKgRel>Jedna broń do {0} kg (przy udźwigu 35 kg)</RL_SP_SingleKgRel>
+  <RL_SP_SingleKg>Jedna broń do {0} kg</RL_SP_SingleKg>
+  <RL_SP_AmountKgRel>Razem do {0} kg (przy udźwigu 35 kg)</RL_SP_AmountKgRel>
+  <RL_SP_AmountKg>Razem do {0} kg</RL_SP_AmountKg>
+  <RL_SP_SlotsN>Najwyżej {0}</RL_SP_SlotsN>
+  <RL_SP_LimitsHint>Limity dotyczą broni noszonej dodatkowo, nie tej w ręku. Dla porównania: nóż 0,5 kg, pistolet 1,2 kg, miecz 2 kg, karabin 3,5 kg, karabin maszynowy 9 kg.</RL_SP_LimitsHint>
+  <RL_SP_PickLight>Wszystkie do {0} kg</RL_SP_PickLight>
+  <RL_SP_PickNone>Żadna</RL_SP_PickNone>
+  <RL_SP_PickMore>… znajdź więcej broni wyszukiwarką.</RL_SP_PickMore>
+  <RL_SP_PickCount>Wybrana broń: {0}</RL_SP_PickCount>
+  <RL_SP_RangedShort>dystansowa</RL_SP_RangedShort>
+  <RL_SP_MeleeShort>wręcz</RL_SP_MeleeShort>
+  <RL_SP_SpawnHint>Jak często inni (najeźdźcy, goście, handlarze) przybywają z bronią zapasową.</RL_SP_SpawnHint>
+  <RL_SP_SpawnChance>Szansa na pierwszą broń zapasową: {0} %</RL_SP_SpawnChance>
+  <RL_SP_SpawnChance_Desc>Prawdopodobieństwo, że inna postać dostanie co najmniej jedną broń zapasową.</RL_SP_SpawnChance_Desc>
+  <RL_SP_SpawnDropoff>Szansa na każdą kolejną: × {0} %</RL_SP_SpawnDropoff>
+  <RL_SP_SpawnDropoff_Desc>Każda kolejna broń zapasowa jest o tyle mniej prawdopodobna.</RL_SP_SpawnDropoff_Desc>
+  <RL_SP_Budget>Budżet: {0} % pieniędzy na wyposażenie</RL_SP_Budget>
+  <RL_SP_Budget_Desc>Jaka część pieniędzy postaci na wyposażenie może pójść na broń zapasową (droga broń = rzadziej).</RL_SP_Budget_Desc>
+  <RL_SP_BudgetDropoff>Budżet każdej kolejnej: × {0} %</RL_SP_BudgetDropoff>
+  <RL_SP_SpawnExample>Przykład: ok. {0} % innych nosi 1 broń zapasową, {1} % nosi 2, {2} % nosi 3.</RL_SP_SpawnExample>
+  <RL_SP_SpawnWorld>World at Your Level następnie dalej filtruje wyposażenie innych (badania, „nie lepsze niż kolonia”).</RL_SP_SpawnWorld>
+  <RL_SP_ColonistMode>Główna broń kolonistów</RL_SP_ColonistMode>
+  <RL_SP_ColonistMode_Desc>Którą noszoną broń kolonista trzyma, gdy nie walczy.</RL_SP_ColonistMode_Desc>
+  <RL_SP_NpcMode>Główna broń innych</RL_SP_NpcMode>
+  <RL_SP_EW_BySkill>Według umiejętności</RL_SP_EW_BySkill>
+  <RL_SP_EW_BySkill_Desc>Lepsi strzelcy trzymają broń palną, lepsi wojownicy broń do walki wręcz.</RL_SP_EW_BySkill_Desc>
+  <RL_SP_EW_Ranged>Dystansowa</RL_SP_EW_Ranged>
+  <RL_SP_EW_Melee>Wręcz</RL_SP_EW_Melee>
+  <RL_SP_EW_ByGenerated>Jak przybył</RL_SP_EW_ByGenerated>
+  <RL_SP_EW_ByGenerated_Desc>Broń, z którą postać została stworzona lub przybyła.</RL_SP_EW_ByGenerated_Desc>
+  <RL_SP_Fumble>Upuszczaj broń po powaleniu</RL_SP_Fumble>
+  <RL_SP_Fumble_Desc>Kiedy powalona postać upuszcza noszoną broń zapasową.</RL_SP_Fumble_Desc>
+  <RL_SP_EF_Never>Nigdy</RL_SP_EF_Never>
+  <RL_SP_EF_InDistress>W tarapatach</RL_SP_EF_InDistress>
+  <RL_SP_EF_InCombat>W walce</RL_SP_EF_InCombat>
+  <RL_SP_EF_Always>Zawsze</RL_SP_EF_Always>
+  <RL_SP_PreserveInventoryInCaravans>Broń zapasowa zostaje przy koloniście w karawanach</RL_SP_PreserveInventoryInCaravans>
+  <RL_SP_PreserveInventoryInCaravans_Desc>Przy tworzeniu karawany broń zapasowa nie jest przenoszona do wspólnego ładunku.</RL_SP_PreserveInventoryInCaravans_Desc>
+  <RL_SP_HideSidearmsInCaravanDialogs>Ukryj broń zapasową w oknie karawany</RL_SP_HideSidearmsInCaravanDialogs>
+  <RL_SP_ShowAlertsMissingSidearm>Alert o brakującej broni zapasowej</RL_SP_ShowAlertsMissingSidearm>
+  <RL_SP_ShowAlertsMissingSidearm_Desc>Alert, gdy kolonista straci broń, którą powinien pamiętać.</RL_SP_ShowAlertsMissingSidearm_Desc>
+  <RL_SP_PlaySounds>Dźwięki przy zmianie broni</RL_SP_PlaySounds>
+  <RL_SP_ShowBrainscope>Debugowanie: pokaż decyzje o broni</RL_SP_ShowBrainscope>
+  <RL_SP_BrawlerNoRanged>Zabijaki nie noszą zapasowej broni dystansowej</RL_SP_BrawlerNoRanged>
+  <RL_SP_BrawlerNoRanged_Desc>Kolonista z cechą zabijaka nie bierze broni palnej nawet jako zapasowej (pogarsza mu to nastrój).</RL_SP_BrawlerNoRanged_Desc>
+  <RL_SP_MaxTotal>Maks. broni na kolonistę: {0}</RL_SP_MaxTotal>
+  <RL_SP_MaxTotalOff>Maks. broni na kolonistę: bez własnego limitu</RL_SP_MaxTotalOff>
+  <RL_SP_MaxTotal_Desc>Ile broni kolonista może nosić łącznie, wliczając tę w ręku (granaty się liczą). Dotyczy tego moda i Simple Sidearms. Nadmiarowe, najgorsze najpierw, są odkładane i odnoszone do magazynu. 0 = tylko limity Simple Sidearms.</RL_SP_MaxTotal_Desc>
+  <RL_SP_StripUncrafted>Odkładaj broń, której kolonia nigdy nie wytworzyła</RL_SP_StripUncrafted>
+  <RL_SP_StripUncrafted_Desc>Przy „tylko wytworzone” koloniści odkładają też broń zbadaną, ale jeszcze niewytworzoną przez kolonię (np. podniesioną po najeździe). Podczas najazdu mogą jej używać, potem ją oddają. Broń, którą sam dałeś koloniście, zostaje.</RL_SP_StripUncrafted_Desc>
+  <RL_SP_ArmorHunt>Zakładaj pancerz na polowanie</RL_SP_ArmorHunt>
+  <RL_SP_ArmorHunt_Desc>Przed polowaniem kolonista zakłada najlepszy dozwolony pancerz z magazynu (w promieniu 70 pól), jeśli jest lepszy niż noszony, a potem poluje.</RL_SP_ArmorHunt_Desc>
+  <RL_SP_ArmorThreat>Zakładaj pancerz przy ataku</RL_SP_ArmorThreat>
+  <RL_SP_ArmorThreat_Desc>Gdy na mapie są wrogowie (najazd, oszalałe zwierzęta, mechanoidy…), koloniści przerywają zwykłą pracę i zakładają najlepszy dozwolony pancerz z magazynu. Gaszenie pożarów, opatrywanie, ucieczka i walka nie są przerywane. Musi na to pozwalać także ich polityka ubioru.</RL_SP_ArmorThreat_Desc>
+  <RL_SP_ArmorDrafted>Pancerz także dla zmobilizowanych kolonistów</RL_SP_ArmorDrafted>
+  <RL_SP_ArmorDrafted_Desc>Zmobilizowany kolonista, który tylko stoi i nie ma wroga w promieniu 22 pól, idzie po pancerz w promieniu 28 pól. Potem zostaje przy magazynie – przesuń go z powrotem.</RL_SP_ArmorDrafted_Desc>
+  <RL_SidearmTooMany>nosi już {0} broni (limit)</RL_SidearmTooMany>
+  <RL_SP_MinShoot>Zapasowa broń dystansowa od Strzelania {0}</RL_SP_MinShoot>
+  <RL_SP_MinShoot_Desc>Kolonista bierze dodatkową broń palną dopiero od tego poziomu Strzelania. 0 = zawsze.</RL_SP_MinShoot_Desc>
+  <RL_SP_MinMelee>Zapasowa broń do walki wręcz od Walki wręcz {0}</RL_SP_MinMelee>
+  <RL_SP_MinMelee_Desc>Kolonista bierze dodatkową broń do walki wręcz dopiero od tego poziomu Walki wręcz. 0 = zawsze.</RL_SP_MinMelee_Desc>
+  <RL_SP_OpenOriginal>Otwórz oryginalne okno Simple Sidearms</RL_SP_OpenOriginal>
+  <RL_OS_Header>Wbudowana broń zapasowa</RL_OS_Header>
+  <RL_OS_SwitchMelee>Przełączaj na walkę wręcz w starciu</RL_OS_SwitchMelee>
+  <RL_OS_SwitchMelee_Desc>Gdy wróg podejdzie blisko, kolonista z bronią palną w ręku bierze broń do walki wręcz z plecaka (jeśli ją nosi).</RL_OS_SwitchMelee_Desc>
+  <RL_OS_MeleeRange>Przełącz, gdy wróg jest bliżej niż {0} pól</RL_OS_MeleeRange>
+  <RL_OS_MeleeRange_Desc>Odległość najbliższego wroga, przy której kolonista wyciąga broń do walki wręcz.</RL_OS_MeleeRange_Desc>
+  <RL_OS_SwitchBack>Wróć do poprzedniej broni po walce</RL_OS_SwitchBack>
+  <RL_OS_SwitchBack_Desc>Gdy wróg odejdzie lub padnie, kolonista bierze broń, którą miał wcześniej.</RL_OS_SwitchBack_Desc>
+  <RL_OS_Gizmo>Przyciski zmiany broni</RL_OS_Gizmo>
+  <RL_OS_Gizmo_Desc>Zmobilizowany kolonista dostaje przycisk „Weź do ręki” dla każdej noszonej broni. Ręcznie wybrana broń zostaje do demobilizacji.</RL_OS_Gizmo_Desc>
+  <RL_OS_MaxMass>Maks. waga noszonej broni: {0} kg</RL_OS_MaxMass>
+  <RL_OS_MaxMassOff>Maks. waga noszonej broni: bez limitu</RL_OS_MaxMassOff>
+  <RL_OS_MaxMass_Desc>Ile kg broni kolonista może nosić w plecaku oprócz tej w ręku. 0 = bez limitu.</RL_OS_MaxMass_Desc>
+  <RL_OS_Take>Weź do ręki: {0}</RL_OS_Take>
+  <RL_OS_Take_Desc>Kolonista wyjmuje {0} z plecaka i chowa do niego broń z ręki. Zostaje do demobilizacji.</RL_OS_Take_Desc>
+  <MUI_Title>Zalecane ustawienia</MUI_Title>
+  <MUI_TitleOff>Zalecane ustawienia · wył.</MUI_TitleOff>
+  <MUI_DescOn>Mod konfiguruje się sam i działa od razu. Idealny dla nowych graczy i każdego, kto nie chce niczego zmieniać.</MUI_DescOn>
+  <MUI_DescOff>Własne ustawienia. Zmienione względem zalecanych: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Własne ustawienia. Nadal takie same jak zalecane.</MUI_DescOffSame>
+  <MUI_On>WŁ.</MUI_On>
+  <MUI_Off>WYŁ.</MUI_Off>
+  <MUI_ResetAll>Przywróć wszystko do zalecanych</MUI_ResetAll>
+  <MUI_ConfirmOn>Włączyć zalecane ustawienia? Twoje zmiany ({0}) zostaną zastąpione zalecanymi wartościami.</MUI_ConfirmOn>
+  <MUI_Locked>Szczegółowe ustawienia są zablokowane. Chcesz je zmienić? Wyłącz przełącznik powyżej – Twoje wartości zaczną od zalecanych.</MUI_Locked>
+  <MUI_Changed>ZMIENIONO</MUI_Changed>
+  <MUI_ChangedTip>Różni się od zalecanego ustawienia ({0}). Kliknij, aby przywrócić zalecaną wartość.</MUI_ChangedTip>
+  <MUI_Yes>wł.</MUI_Yes>
+  <MUI_No>wył.</MUI_No>
+  <RL_Rec1>Koloniści biorą najlepszą zbadaną broń i odzież</RL_Rec1>
+  <RL_Rec2>Pełny komplet pancerza przy zagrożeniu</RL_Rec2>
+  <RL_Rec3>Lekka odzież w upale, ciepła w zimnie</RL_Rec3>
+  <RL_Rec4>Wyposażenie awaryjne przeciw toksynom i ekstremalnym temperaturom</RL_Rec4>
+  <RL_Rec5>Broń zapasowa według umiejętności</RL_Rec5>
+  <RL_Rec6>Zużyte wyposażenie jest wymieniane i składowane</RL_Rec6>
+  <MUI_RecTag>ZALECANE</MUI_RecTag>
+  <RL_Why_Title>Ostatnie zmiany wyposażenia:</RL_Why_Title>
+  <RL_Why_None>W tej sesji nie było jeszcze zmian wyposażenia.</RL_Why_None>
+  <RL_Why_Now>przed chwilą</RL_Why_Now>
+  <RL_Why_HoursAgo>{0} h temu</RL_Why_HoursAgo>
+  <RL_WhyAct_Wear>założył</RL_WhyAct_Wear>
+  <RL_WhyAct_Remove>zdjął</RL_WhyAct_Remove>
+  <RL_WhyAct_Take>zabrał</RL_WhyAct_Take>
+  <RL_WhyAct_Drop>upuścił</RL_WhyAct_Drop>
+  <RL_WhyAct_Equip>wziął do ręki</RL_WhyAct_Equip>
+  <RL_WhyAct_Change>zmienił wyposażenie</RL_WhyAct_Change>
+  <RL_Why_Tattered>zużyte, do wymiany</RL_Why_Tattered>
+  <RL_Why_Heat>za gorąco</RL_Why_Heat>
+  <RL_Why_Policy>niedozwolone przez politykę ubioru</RL_Why_Policy>
+  <RL_Why_TooMany>za dużo noszonej broni</RL_Why_TooMany>
+  <RL_Why_Locked>niezbadane lub zabronione</RL_Why_Locked>
+  <RL_Why_Unneeded>już niepotrzebne</RL_Why_Unneeded>
+  <RL_Why_Weapon>lepsza broń</RL_Why_Weapon>
+  <RL_Why_Instead>zamiast {0}</RL_Why_Instead>
+  <RL_Why_Sidearm>broń zapasowa</RL_Why_Sidearm>
+  <RL_Why_Temperature>zimno lub upał</RL_Why_Temperature>
+  <RL_Why_Basics>brak podstawowej odzieży</RL_Why_Basics>
+  <RL_Why_Emergency>ochrona awaryjna</RL_Why_Emergency>
+  <RL_Why_Apparel>lepsza odzież</RL_Why_Apparel>
+  <RL_Why_Armor>atak – pancerz założony</RL_Why_Armor>
+  <RL_Why_ArmorHunt>polowanie – pancerz założony</RL_Why_ArmorHunt>
+  <RL_Why_Player>ręcznie (ty)</RL_Why_Player>
+  <RL_Why_Outfit>gra (polityka ubioru, oceniona przez ten mod)</RL_Why_Outfit>
+  <RL_Why_Game>gra</RL_Why_Game>
+  <RL_Why_OtherMod>mod {0}</RL_Why_OtherMod>
+  <RL_OthersTitle>Inne mody zmieniające wyposażenie kolonistów</RL_OthersTitle>
+  <RL_OthersNone>Żaden inny mod nie zmienia sposobu wyboru wyposażenia.</RL_OthersNone>
+  <RL_OthersPatch>Także zmieniają sposób wyboru wyposażenia: {0}</RL_OthersPatch>
+  <RL_OthersSeenNone>W tej grze żaden inny mod nie zmienił jeszcze wyposażenia kolonistów.</RL_OthersSeenNone>
+  <RL_OthersSeen>Zmieniły wyposażenie kolonistów w tej grze: {0}</RL_OthersSeen>
+  <RL_OthersHint>Jeśli koloniści w kółko zamieniają wyposażenie, niech decyduje tylko jeden mod – wyłącz pokrywającą się część w jednym z nich. Przycisk kolonisty w tym modzie pokazuje, kto co zmienił i dlaczego.</RL_OthersHint>
+  <RL_GuestLodgers>Goście z zadań używają wyposażenia kolonii</RL_GuestLodgers>
+  <RL_GuestLodgers_Desc>Goście z zadań, których kontrolujesz, dostają broń i odzież jak koloniści. Ich własne rzeczy trafiają do plecaka, a przy odejściu zakładają je z powrotem – wyposażenie kolonii zostaje tutaj.</RL_GuestLodgers_Desc>
+  <RL_GuestVisitors>Goście pożyczają odzież na zimno i upał</RL_GuestVisitors>
+  <RL_GuestVisitors_Desc>Odwiedzający i goście zakładają ciepłą odzież kolonii, gdy jest zimno, i chowają własną ciepłą odzież do plecaka, gdy jest gorąco. Gdy pogoda znów jest dobra lub gdy odchodzą, oddają odzież kolonii i zakładają swoją.</RL_GuestVisitors_Desc>
+  <RL_PreferNewer>Preferuj nowszą technologię</RL_PreferNewer>
+  <RL_PreferNewer_Desc>Spośród podobnej broni i pancerzy wygrywa nowsza technologia – broń palna przed łukami, pancerz przeciwodłamkowy lub wspomagany przed płytowym.</RL_PreferNewer_Desc>
+  <RL_ToolsNotWeapons>Narzędzia robocze to nie broń</RL_ToolsNotWeapons>
+  <RL_ToolsNotWeapons_Desc>Kilofy, sierpy, łopaty i inne narzędzia przyspieszające pracę nigdy nie są wybierane jako broń, a narzędzie w ręku zostaje zamienione na prawdziwą broń.</RL_ToolsNotWeapons_Desc>
+  <RL_Why_ToolNotWeapon>narzędzie to nie broń</RL_Why_ToolNotWeapon>
+  <RL_PreferNewEra>Najpierw najnowsza epoka</RL_PreferNewEra>
+  <RL_PreferNewEra_Desc>Wyposażenie najnowszej epoki kolonii (przemysłowa, kosmiczna …) ma pierwszeństwo. Broń: broń nowszej epoki zawsze zastępuje starszą tego samego rodzaju, nawet jeśli jest słabsza (karabin zamiast łuku); starsza nigdy nie zastępuje nowszej. Pancerze i odzież nowej epoki dostają dużą premię i mogą chronić nieco słabiej. Przedmioty z modów bez poziomu technologicznego są oceniane według badań i siły.</RL_PreferNewEra_Desc>
+  <RL_SP_MaxRanged>Broń dystansowa na kolonistę: {0}</RL_SP_MaxRanged>
+  <RL_SP_MaxRanged_Desc>Ile broni dystansowej kolonista nosi najwyżej – wliczając tę w ręku. 2 = na przykład karabin i pistolet. 0 = bez zapasowej broni dystansowej (główna broń strzelca zostaje).</RL_SP_MaxRanged_Desc>
+  <RL_SP_MaxMelee>Broń do walki wręcz na kolonistę: {0}</RL_SP_MaxMelee>
+  <RL_SP_MaxMelee_Desc>Ile broni do walki wręcz kolonista nosi najwyżej – wliczając tę w ręku. 1 = strzelec nosi nóż lub miecz do walki z bliska. 0 = bez zapasowej broni do walki wręcz.</RL_SP_MaxMelee_Desc>
+  <RL_GearButton>Przycisk „Wyposażenie” na dole</RL_GearButton>
+  <RL_GearButton_Desc>Przegląd, kto co nosi, i przycisk „Wyposaż wszystkich teraz”.</RL_GearButton_Desc>
+  <RL_GO_Title>Wyposażenie kolonistów</RL_GO_Title>
+  <RL_GO_EquipAll>Wyposaż wszystkich teraz</RL_GO_EquipAll>
+  <RL_GO_EquipAll_Desc>Każdy niezmobilizowany kolonista od razu sprawdza wyposażenie i bierze najlepszą broń i pancerz z magazynu – przydatne przed najazdem. Zmobilizowani koloniści są pomijani.</RL_GO_EquipAll_Desc>
+  <RL_GO_EquipAllDone>{0} kolonistów zmienia wyposażenie.</RL_GO_EquipAllDone>
+  <RL_GO_Colonist>Kolonista</RL_GO_Colonist>
+  <RL_GO_Weapon>Broń</RL_GO_Weapon>
+  <RL_GO_ArmorSharp>Pancerz ostry</RL_GO_ArmorSharp>
+  <RL_GO_ArmorBlunt>Pancerz obuchowy</RL_GO_ArmorBlunt>
+  <RL_GO_Problems>Co jest nie tak</RL_GO_Problems>
+  <RL_GO_Ok>wszystko w porządku</RL_GO_Ok>
+  <RL_GO_NoWeapon>brak broni</RL_GO_NoWeapon>
+  <RL_GO_NoTorso>nic na tułowiu</RL_GO_NoTorso>
+  <RL_GO_Tattered>zużyte: {0}</RL_GO_Tattered>
+  <RL_GO_WeaponWorn>zużyta broń</RL_GO_WeaponWorn>
+  <RL_GO_Cold>za zimno na zewnątrz</RL_GO_Cold>
+  <RL_GO_Hot>za gorąco na zewnątrz</RL_GO_Hot>
+  <RL_GO_Footer>Kolonistów: {0} · z problemem: {1} · kliknij wiersz, aby zaznaczyć kolonistę · najedź kursorem, aby zobaczyć pełną listę odzieży</RL_GO_Footer>
+  <RL_GizmoEquipNow>Wyposaż teraz</RL_GizmoEquipNow>
+  <RL_GizmoEquipNow_Desc>Od razu sprawdza broń, pancerz i ubranie tego kolonisty i sprawdza dalej przez godzinę – po kolei bierze wszystko z najnowszej ery i najlepszy sprzęt, jaki masz. Broń założona ręcznie zostaje. Działa też dla kilku zaznaczonych kolonistów naraz.</RL_GizmoEquipNow_Desc>
+  <RL_GO_Next>Weźmie następnie</RL_GO_Next>
+  <RL_GO_NextNone>nic lepszego</RL_GO_NextNone>
+  <RL_GO_NextStorage>{0} z magazynu</RL_GO_NextStorage>
+  <RL_GO_NextMap>{0} z mapy</RL_GO_NextMap>
+  <RL_AllowKind>Zezwól na ten rodzaj</RL_AllowKind>
+  <RL_AllowKind_Desc>{0} jest zablokowane dla twojej kolonii. Zezwól mimo to – koloniści mogą odtąd używać tego rodzaju. Wyjątek usuniesz w ustawieniach (karta Zakazy).</RL_AllowKind_Desc>
+  <RL_AllowKind_Done>{0} jest dozwolone dla twoich kolonistów.</RL_AllowKind_Done>
+  <RL_LockKind>Zablokuj ten rodzaj ponownie</RL_LockKind>
+  <RL_LockKind_Desc>{0} jest dozwolone jako wyjątek. Zablokuj ponownie – obowiązują zwykłe zasady.</RL_LockKind_Desc>
+  <RL_LockKind_Done>{0} jest znowu zablokowane.</RL_LockKind_Done>
+  <RL_Exceptions>Dozwolone wyjątki:</RL_Exceptions>
+  <RL_ExceptionRemove>Kliknij, by usunąć wyjątek – znów obowiązują zwykłe zasady.</RL_ExceptionRemove>
+  <RL_EnemyLoot>Sprzęt wrogów tylko z magazynu</RL_EnemyLoot>
+  <RL_EnemyLoot_Desc>Broń i ubrania upuszczone przez wrogów (albo z nich zdjęte) nie są brane prosto z pola bitwy – dopiero gdy trafią do magazynu.</RL_EnemyLoot_Desc>
+  <RL_CEAmmo>Combat Extended: tylko broń z amunicją</RL_CEAmmo>
+  <RL_CEAmmo_Desc>Z Combat Extended koloniści biorą tylko broń dystansową, do której jest amunicja na mapie (w magazynie, na ziemi lub w ekwipunku). Broń bez żadnej amunicji zostaje wymieniona na taką, do której amunicja jest.</RL_CEAmmo_Desc>
+  <RL_OW_Button>Broń wg stroju</RL_OW_Button>
+  <RL_OW_Title>Dozwolona broń wg stroju</RL_OW_Title>
+  <RL_OW_Desc>Koloniści z tym strojem sami biorą tylko zaznaczoną broń. Nie dotyczy broni wyposażonej ręcznie. Domyślnie wszystko jest dozwolone.</RL_OW_Desc>
+  <RL_OW_Outfit>Strój: {0}</RL_OW_Outfit>
+  <RL_OW_Banned>Niedozwolone rodzaje broni: {0}</RL_OW_Banned>
+  <RL_OW_AllAllowed>Cała broń dozwolona</RL_OW_AllAllowed>
+  <RL_OW_AllowAll>Zezwól na wszystko</RL_OW_AllowAll>
+  <RL_OW_OnlyRanged>Tylko dystansowa</RL_OW_OnlyRanged>
+  <RL_OW_OnlyMelee>Tylko biała</RL_OW_OnlyMelee>
+  <RL_OW_Melee>biała</RL_OW_Melee>
+  <RL_RangedForAll>Broń dystansowa dla wszystkich</RL_RangedForAll>
+  <RL_RangedForAll_Desc>Każdy kolonista, który umie strzelać, bierze broń palną jako główną – broń białą w ręce wymienia na najlepszą broń palną, jaką masz. Zabijaki i ci, którzy nie mogą strzelać, zostają przy broni białej. Broń białą można dalej nosić jako zapasową.</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>Broń palna z kieszeni do ręki</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>Z „Broń dystansowa dla wszystkich”: kolonista z bronią palną w kieszeni i bronią białą w ręce sam je zamieni (nie w trakcie walki).</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>Broń według roli</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>Broń dalekiego zasięgu (snajperki) trafia do najlepszych strzelców (strzelanie 12+), broń krótkiego zasięgu (strzelby, pistolety maszynowe) do słabszych.</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>Ostrzeżenie: nieuzbrojeni koloniści</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>W czasie zagrożenia ostrzeżenie pokazuje kolonistów bez broni – a z „Broń dystansowa dla wszystkich” także tych tylko z bronią białą.</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>Zapasowa broń palna w magazynie: {0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>Tyle broni palnej zostaje w magazynie dla nowych kolonistów i zepsutej broni. Uzbrojony strzelec jej nie weźmie, nieuzbrojony kolonista tak. 0 = wyłączone.</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>Broń wybuchowa: dla wszystkich</RL_ExplosivesOff>
+  <RL_ExplosivesMin>Broń wybuchowa od strzelania {0}</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>Granaty, wyrzutnie rakiet i granatniki biorą tylko koloniści z co najmniej tym poziomem strzelania, żeby nie trafiali swoich. 0 = każdy.</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>tylko biała</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>Kliknij, aby wybrać broń z magazynu</RL_GO_PickWeapon>
+  <RL_GO_Ranged>dystansowa</RL_GO_Ranged>
+  <RL_GO_Melee>biała</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>W magazynie nie ma broni, której ten kolonista mógłby użyć.</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>Nieuzbrojeni koloniści</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>Na mapie są wrogowie, a ci koloniści nie mają broni (albo tylko białą):\n\n{0}\n\nDaj im broń w przeglądzie wyposażenia (kliknij broń).</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>Walka i praca</RL_TabBattle>
+  <RL_BG_Outfits>Stroje bojowe</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>Każdy strój może mieć strój bojowy (ustawisz go w „Broń wg stroju”). Zmobilizowani koloniści używają stroju bojowego, a po demobilizacji wracają do stroju roboczego – części bojowe zdejmują, a ubrania robocze zakładają z powrotem.</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>Strój bojowy także podczas najazdu</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>Dopóki na mapie są wrogowie, wszyscy przełączają się na strój bojowy (a z „Zakładaj pancerz przy ataku” zakładają pancerz); po najeździe wracają do ubrań roboczych.</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>Ustaw stroje bojowe…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>Po mobilizacji idź po pancerz</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>Zmobilizowany kolonista bez wroga w pobliżu idzie po najlepszy dozwolony pancerz leżący blisko (magazyn lub zakamarki bazy), zanim wydasz mu rozkaz. Każdy twój rozkaz to przerywa.</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>Pancerz w promieniu: {0} pól</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>Jak daleko zmobilizowany kolonista idzie po pancerz.</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>Wróć po ubraniu się</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>Po zabraniu pancerza kolonista wraca na miejsce, w którym go zmobilizowałeś.</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>Ubieraj się według prognozy</RL_BG_Season>
+  <RL_BG_Season_Desc>Ubranie zależy też od temperatury w najbliższych godzinach (zimna noc, nadchodząca zima, letni upał), nie tylko od obecnej temperatury.</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>Patrz do przodu: {0} h</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>Ile godzin naprzód liczy się prognoza.</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>Ubieraj się na karawanę</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>Koloniści formujący karawanę ubierają się na pogodę na najbliższe cztery dni.</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>Wymieniaj zużyte wyposażenie na czas</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>Część poniżej limitu jest wymieniana na dobrą (80 %+) tego samego rodzaju lub na te same części ciała z magazynu – co najmniej tak samo opancerzoną i mniej więcej tak samo ciepłą.</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>Wymieniaj poniżej: {0} %</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>Wytrzymałość, poniżej której zużyta część jest wymieniana.</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – walka</RL_BG_NewLabel>
+  <RL_BG_BattleIs>Strój bojowy: {0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>Strój bojowy: brak</RL_BG_BattleNone>
+  <RL_BG_None>Brak (w walce zostaw ten strój)</RL_BG_None>
+  <RL_BG_Create>Utwórz strój bojowy z tego</RL_BG_Create>
+  <RL_BG_Battle_Desc>Zmobilizowani koloniści z tym strojem (a podczas najazdu wszyscy, jeśli włączone) używają stroju bojowego; potem wracają do tego. „Utwórz” kopiuje ten strój i zezwala na każdy pancerz i hełm.</RL_BG_Battle_Desc>
+  <RL_BG_Edit>Edytuj strój bojowy</RL_BG_Edit>
+  <RL_Why_BattleDraft>zmobilizowany – wyposażenie bojowe</RL_Why_BattleDraft>
+  <RL_Why_Worn>zużyte – wymiana na lepszą część</RL_Why_Worn>
+  <RL_GP_Open>Planer wyposażenia</RL_GP_Open>
+  <RL_GP_Title>Planer wyposażenia</RL_GP_Title>
+  <RL_GP_Desc>Czego brakuje twoim kolonistom i najlepsza rzecz, jaką możesz na to teraz wytworzyć. Zlecenie wytwarza tylko brakującą liczbę („aż będziesz mieć X”).</RL_GP_Desc>
+  <RL_GP_AllGood>Wszyscy mają hełm, pancerz i broń palną, i nic nie jest zużyte.</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>Hełmy</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>Pancerz na tułów</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>Broń palna</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>Zużyte</RL_GP_Slot_Worn>
+  <RL_GP_Worn>Zużyte: {0}</RL_GP_Worn>
+  <RL_GP_Line>{0} kolonistów bez · {1} w magazynie · {2} do wytworzenia</RL_GP_Line>
+  <RL_GP_Best>Najlepsze: {0} ({1})</RL_GP_Best>
+  <RL_GP_NoRecipe>na razie nic, co możesz wytworzyć</RL_GP_NoRecipe>
+  <RL_GP_InStock>wystarczająco w magazynie</RL_GP_InStock>
+  <RL_GP_HasBill>zlecenie już dodane</RL_GP_HasBill>
+  <RL_GP_Add>Dodaj zlecenie ({0})</RL_GP_Add>
+  <RL_GP_Auto>Dodawaj zlecenia samo (raz dziennie)</RL_GP_Auto>
+  <RL_GP_Auto_Desc>Raz dziennie planer dodaje zlecenia „aż będziesz mieć X” na wszystko, czego brakuje i co nie ma jeszcze zlecenia.</RL_GP_Auto_Desc>
+  <RL_GP_Added>Dodano zlecenie: {0} przy {1} ({2}).</RL_GP_Added>
+  <RL_GP_AutoAdded>Planer wyposażenia dodał zlecenia: {0}</RL_GP_AutoAdded>
+  <!-- 2.19.0: why not -->
+  <RL_WN_Prefix>Mądry ekwipunek:</RL_WN_Prefix>
+  <RL_WN_Worn>{0} już to nosi</RL_WN_Worn>
+  <RL_WN_Queued>już w drodze do {0}</RL_WN_Queued>
+  <RL_WN_Body>{0} nie może tego nosić (ciało)</RL_WN_Body>
+  <RL_WN_CantEquip>{0} nie może tego użyć</RL_WN_CantEquip>
+  <RL_WN_Gender>dla innej płci</RL_WN_Gender>
+  <RL_WN_WorkClothing>ubranie robocze do innej pracy niż {0}</RL_WN_WorkClothing>
+  <RL_WN_Stockpile>nie w magazynie (bierze się tylko ekwipunek z magazynów)</RL_WN_Stockpile>
+  <RL_WN_Forbidden>zakazane</RL_WN_Forbidden>
+  <RL_WN_Damaged>zbyt uszkodzone</RL_WN_Damaged>
+  <RL_WN_Policy>nie pozwala na to polityka ubioru ({0})</RL_WN_Policy>
+  <RL_WN_Protected>zastąpiłoby coś, co {0} musi mieć</RL_WN_Protected>
+  <RL_WN_NotBetter>nie lepsze niż to, co ma {0}</RL_WN_NotBetter>
+  <RL_WN_ArmorDown>pogorszyłoby pancerz ({0})</RL_WN_ArmorDown>
+  <RL_WN_Reach>{0} nie może tam dojść lub tego zarezerwować</RL_WN_Reach>
+  <RL_WN_Candidate>{0} może to wziąć przy następnym sprawdzeniu</RL_WN_Candidate>
+  <RL_WN_NotManaged>to nie broń obsługiwana przez mądry ekwipunek</RL_WN_NotManaged>
+  <RL_WN_Tool>to narzędzie, nie broń</RL_WN_Tool>
+  <RL_WN_Ammo>brak amunicji</RL_WN_Ammo>
+  <RL_WN_Flip>{0} ciągle to zakładał i zdejmował – pominięte na dwa dni</RL_WN_Flip>
+  <RL_WN_Recent>{0} niedawno to zdjął – czeka dzień</RL_WN_Recent>
+  <RL_WN_LockBanned>zakazałaś tego w ustawieniach</RL_WN_LockBanned>
+  <RL_WN_LockNotMade>zablokowane – jeszcze nie wyprodukowane w kolonii</RL_WN_LockNotMade>
+  <RL_WN_LockResearch>zablokowane – brak badań</RL_WN_LockResearch>
+  <RL_WN_LockOther>zablokowane przez filtr</RL_WN_LockOther>
+  <RL_WN_Exempt>Mądry ekwipunek jest wyłączony dla {0}</RL_WN_Exempt>
+  <RL_WN_WeaponsOff>zmiana broni wyłączona w ustawieniach</RL_WN_WeaponsOff>
+  <RL_WN_ApparelOff>zmiana ubrań wyłączona w ustawieniach</RL_WN_ApparelOff>
+  <RL_WhyNotMenu>Wiersz „dlaczego nie” pod prawym kliknięciem</RL_WhyNotMenu>
+  <RL_WhyNotMenu_Desc>Gdy kolonista jest zaznaczony, prawy klik na broń lub ubranie pokazuje, dlaczego Smart Colonist Gear mu go nie daje.</RL_WhyNotMenu_Desc>
+</LanguageData>

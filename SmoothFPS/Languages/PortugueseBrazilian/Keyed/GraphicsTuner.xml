@@ -437,4 +437,20 @@
   <GT_RainWashAll_Desc>O jogo só deixa a chuva lavar alguns tipos de sujeira. Com isto, a chuva reduz toda sujeira ao ar livre (sem teto) com a mesma chance. A sujeira dentro de casa nunca é tocada. Desligado = como o jogo.</GT_RainWashAll_Desc>
   <GT_RainNow>Sujeira lá fora nos seus mapas de base agora: {0}</GT_RainNow>
   <GT_RainStarted>Começou a chover – a chuva lava a sujeira (Smooth FPS).</GT_RainStarted>
+  <GT_VramRefresh>Atualizar</GT_VramRefresh>
+  <GT_VramTargetsTop>Maiores superfícies de desenho: {0}</GT_VramTargetsTop>
+  <GT_VramModsHead>Texturas por mod ({0} mods, cerca de {1} GB no total) – maiores primeiro:</GT_VramModsHead>
+  <GT_VramColMod>Mod</GT_VramColMod>
+  <GT_VramColSize>Tamanho</GT_VramColSize>
+  <GT_VramColCount>Texturas (grandes)</GT_VramColCount>
+  <GT_VramCount>{0} texturas ({1} grandes)</GT_VramCount>
+  <GT_VramRowTip>{0}\n\nTexturas: cerca de {1} MB\nQuantidade: {2}, grandes (acima de 4 MB): {3}\nMaior: {4} ({5} MB)</GT_VramRowTip>
+  <GT_VramModsNote>O tamanho é uma estimativa pelas dimensões das imagens (todas as texturas do mod, inclusive as tiradas da placa). Os mods do topo liberam mais memória ao serem desligados. Atlas e superfícies de desenho são do jogo e só diminuem com resolução menor ou menos mods.</GT_VramModsNote>
+  <GT_KeepTex>Manter as texturas na placa de vídeo o máximo possível</GT_KeepTex>
+  <GT_KeepTex_Desc>Na 1.7 o jogo começa a tirar texturas da placa de vídeo para a memória normal por volta de 80 % – as imagens podem parecer borradas ou chegar atrasadas. Ligado, elas ficam na placa em qualidade total até sobrarem só uns 200 MB. Quando a placa está realmente cheia, o jogo ainda abre espaço sozinho (senão travaria) – desligar mods grandes ajuda mais.</GT_KeepTex_Desc>
+  <GT_Crash_ModsUnknown>Mods: o log não mostra qual mod causou (só erros que se repetiram o jogo todo, que não são contados).</GT_Crash_ModsUnknown>
+  <GT_BrightNights>Noites mais claras</GT_BrightNights>
+  <GT_BrightNights_Desc>As noites parecem mais claras na tela. Só a imagem – a escuridão continua valendo para plantas, humor e trabalho.</GT_BrightNights_Desc>
+  <GT_NightLift>Brilho noturno: +{0} %</GT_NightLift>
+  <GT_NightLift_Desc>Quanto mais clara parece a noite mais escura.</GT_NightLift_Desc>
 </LanguageData>

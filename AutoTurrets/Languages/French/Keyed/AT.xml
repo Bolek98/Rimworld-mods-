@@ -82,4 +82,23 @@
   <AT_ShellsFromMaterial_Desc>Les porteurs apportent de l'acier (ou un autre métal) aux mortiers, à l'artillerie et aux canons de campagne, et la pièce est chargée avec l'obus choisi, sinon un obus explosif. Les obus ne sont plus nécessaires. Le mortier automatique de VFE recharge aussi ses obus avec du matériau.</AT_ShellsFromMaterial_Desc>
   <AT_ShellCost>Matériau par obus : {0}</AT_ShellCost>
   <AT_NoMaterial>Pas assez de matériau ({0} métal par obus)</AT_NoMaterial>
+  <AT_StunRunaways>Les tourelles paralysantes arrêtent prisonniers et esclaves en fuite</AT_StunRunaways>
+  <AT_StunRunaways_Desc>Vos tourelles paralysantes (non létales) tirent aussi sur vos prisonniers et esclaves qui s'évadent, se rebellent, fuient ou deviennent fous furieux. Les tourelles létales les laissent toujours tranquilles.</AT_StunRunaways_Desc>
+  <AT_StunGiveUp>Les fugitifs paralysés abandonnent</AT_StunGiveUp>
+  <AT_StunGiveUp_Desc>Un prisonnier en évasion ou un esclave rebelle paralysé ou mis à terre par votre tourelle abandonne : les gardiens le ramènent en cellule, un esclave retourne au travail.</AT_StunGiveUp_Desc>
+  <AT_GaveUpPrisoner>{0} a été paralysé et a abandonné l'évasion.</AT_GaveUpPrisoner>
+  <AT_GaveUpSlave>{0} a été paralysé et a abandonné la révolte.</AT_GaveUpSlave>
+  <AT_ShellHit>Impact sur {0} : {1} / {2}</AT_ShellHit>
+  <AT_ShellDestroyed>Votre artillerie a détruit {0}. Les gens de {1} ont quitté les ruines.</AT_ShellDestroyed>
+  <AT_ShellDestroyedLabel>Base détruite par l'artillerie</AT_ShellDestroyedLabel>
+  <AT_ShellAppliedLabel>Base bombardée</AT_ShellAppliedLabel>
+  <AT_ShellApplied>Votre artillerie a touché {0} {1} fois avant votre arrivée – les obus sont tombés maintenant.</AT_ShellApplied>
+  <AT_ShellStart>L'artillerie bombarde {0} – encore environ {1} impacts pour la détruire.</AT_ShellStart>
+  <AT_ShellLabel>Bombardée : {0} / {1} impacts</AT_ShellLabel>
+  <AT_ShellSettlements>L'artillerie bombarde les bases hostiles sans carte</AT_ShellSettlements>
+  <AT_ShellSettlements_Desc>L'artillerie mondiale de VFE Security peut tirer sur une base hostile jamais visitée. Chaque impact compte : en attaquant, les impacts tombent d'abord (moins de défenseurs), et assez d'impacts détruisent la base.</AT_ShellSettlements_Desc>
+  <AT_ShellHitsN>Impacts pour détruire une base : {0} (moins pour les tribus, plus pour les spatiaux)</AT_ShellHitsN>
+  <AT_ShellNotHostile>{0} ({1}) n'est pas hostile – l'artillerie ne bombarde que les bases et camps hostiles (ou une carte ouverte).</AT_ShellNotHostile>
+  <AT_ShellNoTarget>Rien à bombarder ici. Choisissez une base ou un camp hostile (pas besoin de l'explorer) ou une carte ouverte.</AT_ShellNoTarget>
+  <AT_ShellSiteDestroyed>{0} ({1}) a été détruit par l'artillerie.</AT_ShellSiteDestroyed>
 </LanguageData>

@@ -112,7 +112,7 @@ Zavři hru a přesuň je ručně. Záložní složka: {1}</MSM_KeepFailed>
   <MSM_SearchActiveHint>Hledat v aktivních…</MSM_SearchActiveHint>
   <MSM_SearchHint>Hledat mod, autora, ID…</MSM_SearchHint>
   <MSM_SecWhere>Kde ho najdeš</MSM_SecWhere>
-  <MSM_SelectHint>Vyber mod vlevo.</MSM_SelectHint>
+  <MSM_SelectHint>Vyber mod vlevo. Ctrl+klik nebo Shift+klik vybere víc.</MSM_SelectHint>
   <MSM_SetEsc>Položka v Esc menu ve hře</MSM_SetEsc>
   <MSM_SetEscTip>Mod Sort Manager půjde otevřít i během hraní. Po uložení se hra uloží, restartuje a vrátí tě zpátky.</MSM_SetEscTip>
   <MSM_SetReplace>Tlačítko Modifikace otevře Mod Sort Manager</MSM_SetReplace>
@@ -339,4 +339,45 @@ Začít?</MSM_BisectConfirm>
   <MSM_NoWarn>Funguje – nevarovat</MSM_NoWarn>
   <MSM_NoWarnUndo>Zase varovat kvůli verzi</MSM_NoWarnUndo>
   <MSM_NoWarnTip>Mod není dělaný pro tuto verzi hry, ale funguje. Bez varování jsou i mody uvedené v Data/noVersionWarning.xml nebo v modu No Version Warning.</MSM_NoWarnTip>
+  <MSM_TabReplace>Náhrady</MSM_TabReplace>
+  <MSM_RepTitle>Mody s lepší náhradou: {0}</MSM_RepTitle>
+  <MSM_RepReload>Načíst znovu</MSM_RepReload>
+  <MSM_RepHint>Staré mody, které mají pokračování, aktualizaci nebo opravenou verzi od jiného moddera. Nahradit dá nový mod na stejné místo v pořadí.</MSM_RepHint>
+  <MSM_RepSource>Seznamy: {0}</MSM_RepSource>
+  <MSM_RepNoUti>Velký seznam náhrad pochází z modu „Use This Instead“ (od Mlieho). Odebírej ho a tahle záložka najde mnohem víc náhrad.</MSM_RepNoUti>
+  <MSM_RepGetUti>Odebírat Use This Instead</MSM_RepGetUti>
+  <MSM_RepSubscribed>Odebíráš {0} – Steam ho stahuje.</MSM_RepSubscribed>
+  <MSM_RepInactive>není zapnutý</MSM_RepInactive>
+  <MSM_RepVersion>dělaný pro {0}, starý ne</MSM_RepVersion>
+  <MSM_RepBoth>oba pro {0}</MSM_RepBoth>
+  <MSM_RepErrors>{0} chyb v logu</MSM_RepErrors>
+  <MSM_RepHave>náhrada je nainstalovaná</MSM_RepHave>
+  <MSM_RepNotHave>náhrada ještě není nainstalovaná</MSM_RepNotHave>
+  <MSM_RepFrom>Doporučuje: {0}</MSM_RepFrom>
+  <MSM_RepHide>Skrýt</MSM_RepHide>
+  <MSM_RepSwap>Nahradit</MSM_RepSwap>
+  <MSM_RepSubscribe>Odebírat</MSM_RepSubscribe>
+  <MSM_RepNoList>Seznam náhrad zatím není.</MSM_RepNoList>
+  <MSM_RepNone>Není co nahrazovat – mody jsou v pořádku.</MSM_RepNone>
+  <MSM_RepDone>{0} nahrazen modem {1} na stejném místě.</MSM_RepDone>
+  <MSM_GroupTitle>Vybráno modů: {0}</MSM_GroupTitle>
+  <MSM_GroupMore>… a dalších {0}</MSM_GroupMore>
+  <MSM_GroupOn>Zapnout ({0})</MSM_GroupOn>
+  <MSM_GroupOff>Vypnout ({0})</MSM_GroupOff>
+  <MSM_GroupClear>Zrušit výběr</MSM_GroupClear>
+  <MSM_KeysHelp>Klávesy: W/S nebo ↑/↓ pohyb · Shift+W/S přesune vybrané mody · A/D nebo ←/→ vypnout/zapnout · Ctrl+klik, Shift+klik, Ctrl+A výběr · Esc zruší výběr</MSM_KeysHelp>
+  <MSM_GroupRemove>Odstranit {0} modů…</MSM_GroupRemove>
+  <MSM_GroupUnsub>Zrušit odběr {0} modů z Workshopu</MSM_GroupUnsub>
+  <MSM_GroupPark>Přesunout {0} místních modů pryč ze složky Mods</MSM_GroupPark>
+  <MSM_GroupDelete>Smazat {0} místních modů nadobro</MSM_GroupDelete>
+  <MSM_GroupUnsubConfirm>Zrušit odběr těchto {0} modů? Steam smaže jejich soubory; mody se vypnou.\n\n{1}</MSM_GroupUnsubConfirm>
+  <MSM_GroupParkConfirm>Přesunout těchto {0} modů ze složky Mods do:\n{1}\n\n{2}\n\nKdykoli je můžeš vrátit.</MSM_GroupParkConfirm>
+  <MSM_GroupDeleteConfirm>Smazat těchto {0} modů nadobro?\n\n{1}\n\nNejde to vrátit.</MSM_GroupDeleteConfirm>
+  <MSM_GroupRemoved>Odstraněno modů: {0} (nepovedlo se: {1}). Dokonči to restartem hry.</MSM_GroupRemoved>
+  <MSM_SaveContinue>Uložit a pokračovat</MSM_SaveContinue>
+  <MSM_SavedNextStart>Seznam modů uložen. Projeví se při příštím spuštění hry.</MSM_SavedNextStart>
+  <MSM_SaveQuit>Uložit a vypnout</MSM_SaveQuit>
+  <MSM_DupFor>pro {0}</MSM_DupFor>
+  <MSM_OpenOldFolder>Starší kopie: složka ({0})</MSM_OpenOldFolder>
+  <MSM_OpenOldSteam>Starší kopie: stránka na Workshopu ({0})</MSM_OpenOldSteam>
 </LanguageData>

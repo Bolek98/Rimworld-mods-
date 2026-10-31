@@ -82,4 +82,23 @@
   <AT_ShellsFromMaterial_Desc>Los porteadores llevan acero (u otro metal) a morteros, artillería y cañones de campaña, y la pieza se carga con el proyectil elegido o, si no, con uno explosivo. No hacen falta proyectiles. El mortero automático de VFE también recarga sus proyectiles con material.</AT_ShellsFromMaterial_Desc>
   <AT_ShellCost>Material por proyectil: {0}</AT_ShellCost>
   <AT_NoMaterial>Falta material ({0} de metal por proyectil)</AT_NoMaterial>
+  <AT_StunRunaways>Las torretas aturdidoras detienen a prisioneros y esclavos que huyen</AT_StunRunaways>
+  <AT_StunRunaways_Desc>Tus torretas aturdidoras (no letales) también disparan a tus prisioneros y esclavos que se fugan, se rebelan, huyen o enloquecen. Las torretas letales siguen dejándolos en paz.</AT_StunRunaways_Desc>
+  <AT_StunGiveUp>Los fugitivos aturdidos se rinden</AT_StunGiveUp>
+  <AT_StunGiveUp_Desc>Un prisionero que se fuga o un esclavo rebelde aturdido o derribado por tu torreta se rinde: los carceleros lo devuelven a la celda, un esclavo vuelve al trabajo.</AT_StunGiveUp_Desc>
+  <AT_GaveUpPrisoner>{0} fue aturdido y abandonó la fuga.</AT_GaveUpPrisoner>
+  <AT_GaveUpSlave>{0} fue aturdido y abandonó la rebelión.</AT_GaveUpSlave>
+  <AT_ShellHit>Impacto en {0}: {1} / {2}</AT_ShellHit>
+  <AT_ShellDestroyed>Tu artillería destruyó {0}. La gente de {1} abandonó las ruinas.</AT_ShellDestroyed>
+  <AT_ShellDestroyedLabel>Base destruida por la artillería</AT_ShellDestroyedLabel>
+  <AT_ShellAppliedLabel>Base bombardeada</AT_ShellAppliedLabel>
+  <AT_ShellApplied>Tu artillería alcanzó {0} {1} veces antes de llegar – los proyectiles cayeron ahora.</AT_ShellApplied>
+  <AT_ShellStart>La artillería bombardea {0} – faltan unos {1} impactos para destruirla.</AT_ShellStart>
+  <AT_ShellLabel>Bombardeada: {0} / {1} impactos</AT_ShellLabel>
+  <AT_ShellSettlements>La artillería bombardea bases hostiles sin mapa</AT_ShellSettlements>
+  <AT_ShellSettlements_Desc>La artillería mundial de VFE Security puede disparar a una base hostil que no has visitado. Cada impacto cuenta: al atacar, caen primero (menos defensores), y suficientes impactos la destruyen.</AT_ShellSettlements_Desc>
+  <AT_ShellHitsN>Impactos para destruir una base: {0} (menos para tribus, más para espaciales)</AT_ShellHitsN>
+  <AT_ShellNotHostile>{0} ({1}) no es hostil – la artillería solo bombardea bases y campamentos hostiles (o un mapa abierto).</AT_ShellNotHostile>
+  <AT_ShellNoTarget>Aquí no hay nada que bombardear. Elige una base o campamento hostil (no hace falta explorarlo) o un mapa abierto.</AT_ShellNoTarget>
+  <AT_ShellSiteDestroyed>{0} ({1}) fue destruido por la artillería.</AT_ShellSiteDestroyed>
 </LanguageData>

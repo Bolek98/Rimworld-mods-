@@ -437,4 +437,20 @@
   <GT_RainWashAll_Desc>ゲームでは雨が一部の種類の汚れしか洗い流しません。これをオンにすると、雨が屋外（屋根なし）のあらゆる汚れを同じ確率で薄くします。屋内の汚れには決して触れません。オフ = ゲームと同じ。</GT_RainWashAll_Desc>
   <GT_RainNow>現在のホームマップの屋外の汚れ：{0}</GT_RainNow>
   <GT_RainStarted>雨が降り始めました – 雨が汚れを洗い流します（Smooth FPS）。</GT_RainStarted>
+  <GT_VramRefresh>更新</GT_VramRefresh>
+  <GT_VramTargetsTop>最大の描画サーフェス：{0}</GT_VramTargetsTop>
+  <GT_VramModsHead>MOD別テクスチャ（{0} 個、合計約 {1} GB）– 大きい順：</GT_VramModsHead>
+  <GT_VramColMod>MOD</GT_VramColMod>
+  <GT_VramColSize>サイズ</GT_VramColSize>
+  <GT_VramColCount>テクスチャ（大）</GT_VramColCount>
+  <GT_VramCount>{0} 枚（大 {1} 枚）</GT_VramCount>
+  <GT_VramRowTip>{0}\n\nテクスチャ：約 {1} MB\n枚数：{2}、大きいもの（4 MB超）：{3}\n最大：{4}（{5} MB）</GT_VramRowTip>
+  <GT_VramModsNote>サイズは画像の寸法からの推定です（MODの全テクスチャ、グラフィックから退避されたものも含む）。上位のMODを無効にすると最も多くのメモリが空きます。アトラスと描画サーフェスはゲーム本体のもので、解像度を下げるかMODを減らすと小さくなります。</GT_VramModsNote>
+  <GT_KeepTex>テクスチャをできるだけ長くグラフィックカードに残す</GT_KeepTex>
+  <GT_KeepTex_Desc>1.7 ではカードが約 80% 埋まるとテクスチャを通常メモリへ移し始めるため、画像がぼやけたり遅れて表示されたりします。オンにすると残り約 200 MB になるまで最高画質でカードに残ります。本当に満杯になればゲームは自分で空きを作ります（そうしないと落ちます）– 大きなMODを外す方が効果的です。</GT_KeepTex_Desc>
+  <GT_Crash_ModsUnknown>MOD：ログからはどのMODが原因か分かりません（ゲーム中ずっと繰り返されていたエラーのみで、それらは数えません）。</GT_Crash_ModsUnknown>
+  <GT_BrightNights>明るい夜</GT_BrightNights>
+  <GT_BrightNights_Desc>夜が画面上で明るく見えます。見た目だけで、暗さは植物・気分・作業に通常どおり影響します。</GT_BrightNights_Desc>
+  <GT_NightLift>夜の明るさ：+{0} %</GT_NightLift>
+  <GT_NightLift_Desc>最も暗い夜をどれだけ明るく見せるか。</GT_NightLift_Desc>
 </LanguageData>

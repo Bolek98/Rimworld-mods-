@@ -1,3 +1,48 @@
+=== Workshop release 1.2.0 (31 Oct 2026) ===
+1.2.0
+New
+- World artillery (VFE Security) can shell hostile bases you have not visited yet. Hits are counted: when you attack, they fall on the base first (fewer defenders and buildings), and enough hits destroy it. Option and number of hits in the settings.
+- World artillery can also shell hostile camps and sites without a map (e.g. the Wolfein drone factory) – half the hits of a base destroy them and their quest ends.
+- Stun turrets also shoot at your own prisoners and slaves who break out, rebel, flee or go berserk (lethal turrets leave them alone). Option, on by default.
+- A runaway prisoner or rebelling slave downed or stunned by your turret gives up: back to the cell or back to work. Option, on by default.
+
+Fixes
+- With friendly fire off, a turret blast does nothing in cells right next to your people (its fire could burn them before).
+- Clear message when the world artillery target is not a hostile base.
+
+Nové
+- Světové dělostřelectvo (VFE Security) může ostřelovat nepřátelské základny, kde jsi ještě nebyl. Zásahy se počítají: při útoku na základnu nejdřív dopadnou (méně obránců a budov) a po dost zásazích se zničí. Volba a počet zásahů v nastavení.
+- Světové dělostřelectvo umí ostřelovat i nepřátelské tábory a místa bez mapy (např. továrnu na drony Wolfeinů) – zničí je polovina zásahů co základnu a jejich úkol skončí.
+- Omračující věže střílí i po tvých vězních a otrocích, kteří utíkají, bouří se, prchají nebo zuří (smrtící věže je nechají být). Volba, zapnutá.
+- Uprchlý vězeň nebo vzbouřený otrok, kterého věž srazí nebo omráčí, se vzdá: zpátky do cely nebo k práci. Volba, zapnutá.
+
+Opravy
+- S vypnutou palbou do vlastních výbuch věže nic nedělá na políčkách těsně vedle tvých lidí (dřív je mohl popálit oheň).
+- Jasná hláška, když cíl světového dělostřelectva není nepřátelská základna.
+
+=== Development history since the last Workshop release (test versions) ===
+1.4.2
+- World artillery: a clear message when the target is not a hostile base (instead of 'needs a visible, explored map').
+- Světové dělostřelectvo: jasná hláška, když cíl není nepřátelská základna (místo „musí cílit na viditelnou, prozkoumanou mapu“).
+- World artillery can also shell hostile camps and sites without a map (e.g. the Wolfein drone factory) – half the hits of a base destroy them and their quest ends.
+- Světové dělostřelectvo umí ostřelovat i nepřátelské tábory a místa bez mapy (např. továrnu na drony Wolfeinů) – zničí je polovina zásahů co základnu a jejich úkol skončí.
+
+1.4.1
+- With friendly fire off, a blast of your turret does nothing in cells right next to your people – the fire it started beside them could still burn them before.
+- S vypnutou palbou do vlastních výbuch tvé věže nic nedělá na políčkách těsně vedle tvých lidí – dřív je mohl popálit oheň, který vedle nich založil.
+
+1.4.0
+- VFE Security world artillery can shell a hostile base that has no map yet (one you have not visited). Each hit is counted on the base: when you attack it, the hits fall on it first (fewer defenders and buildings), and enough hits destroy it like a won assault. Option and number of hits in the settings.
+- Dělostřelectvo VFE Security může ostřelovat nepřátelskou základnu, která ještě nemá mapu (kde jsi nebyl). Každý zásah se na základně počítá: když na ni zaútočíš, zásahy na ni nejdřív dopadnou (méně obránců a budov), a po dost zásazích se zničí jako po vyhraném útoku. Volba a počet zásahů v nastavení.
+
+1.3.0
+- A prisoner breaking out or a slave rebelling who is stunned or downed by your turret gives up: wardens take him back to his cell, a slave goes back to work (option, on by default).
+- Vězeň na útěku nebo vzbouřený otrok, kterého tvoje věž omráčí nebo srazí k zemi, se vzdá: dozorci ho odvedou do cely, otrok se vrátí k práci (volba, zapnutá).
+
+1.2.0
+- Stun (non-lethal) turrets also shoot at your own prisoners and slaves who break out, rebel, flee or go berserk – before, the game never let a turret aim at them. Lethal turrets still leave them alone. Option in the settings (on by default); with friendly fire off, such runaways are no longer spared either.
+- Omračující (nesmrtící) věže střílí i po tvých vězních a otrocích, kteří utíkají, bouří se, prchají nebo zuří – dřív na ně hra věži vůbec nedovolila mířit. Smrtící věže je dál nechávají být. Volba v nastavení (zapnutá); s vypnutou střelbou do vlastních už nejsou takoví uprchlíci chránění.
+
 === Workshop release 1.1.0 (30 Oct 2026) ===
 1.1.0
 NEW

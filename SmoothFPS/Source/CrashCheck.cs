@@ -44,10 +44,14 @@ namespace GraphicsTuner
                 sb.AppendLine(kind != null ? (string)("GT_Crash_Kind_" + kind).Translate() : (string)"GT_Crash_KindUnknown".Translate());
                 if (place != null)
                     sb.AppendLine("GT_Crash_Place".Translate(place));
-                List<string> mods = BusyMods(lines);
+                HashSet<string> spam = Spam(lines);
+                List<string> mods = BusyMods(lines, spam);
                 if (mods.Count > 0)
                     sb.AppendLine("GT_Crash_Mods".Translate(string.Join(", ", mods.Take(5).ToArray())));
-                string lastError = lines.Reverse().Take(400).FirstOrDefault(l => l.Contains(" ERROR ") || l.Contains("Exception"));
+                else
+                    sb.AppendLine("GT_Crash_ModsUnknown".Translate());
+                // 1.6.5: an error that kept repeating the whole game long is not news – the last new one is
+                string lastError = lines.Reverse().Take(400).FirstOrDefault(l => (l.Contains(" ERROR ") || l.Contains("Exception")) && !spam.Contains(Sig(l)));
                 if (lastError != null)
                     sb.AppendLine("GT_Crash_LastError".Translate(Trim(lastError, 220)));
                 sb.AppendLine();
@@ -192,9 +196,54 @@ namespace GraphicsTuner
             }
         }
 
-        // mods whose code or log tag appears in the last part of the log
-        private static List<string> BusyMods(string[] lines)
+        // 1.6.5: an error or warning that appears again and again (many times at the end, or already long
+        // before the end) is ongoing noise and says nothing about the crash – its lines are left out
+        private static readonly Regex stamp = new Regex(@"^\d{4}-\d\d-\d\d \d\d:\d\d:\d\d\.\d+\s+");
+        private static readonly Regex digits = new Regex(@"\d+");
+
+        private static string Sig(string l)
         {
+            string t = stamp.Replace(l, "");
+            t = digits.Replace(t, "#");
+            return t.Length > 160 ? t.Substring(0, 160) : t;
+        }
+
+        private static bool IsEntryStart(string l) => stamp.IsMatch(l);
+
+        private static HashSet<string> Spam(string[] lines)
+        {
+            var tail = new Dictionary<string, int>();
+            var early = new HashSet<string>();
+            int cut = Math.Max(0, lines.Length - 300);
+            int earlyEnd = (int)(lines.Length * 0.8);
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string l = lines[i];
+                if (!IsEntryStart(l) || !(l.Contains(" ERROR ") || l.Contains(" WARN ")))
+                    continue;
+                string sg = Sig(l);
+                if (i < earlyEnd && i < cut) early.Add(sg);
+                if (i >= cut) { tail.TryGetValue(sg, out int c); tail[sg] = c + 1; }
+            }
+            var spam = new HashSet<string>();
+            foreach (var kv in tail)
+                if (kv.Value >= 3 || early.Contains(kv.Key))
+                    spam.Add(kv.Key);
+            return spam;
+        }
+
+        // mods whose code or log tag appears in the last part of the log
+        private static List<string> BusyMods(string[] lines, HashSet<string> spam)
+        {
+            // 1.6.5: namespaces of the game, Unity, .NET and Harmony itself never point at a mod, even when
+            // some mod also puts a class into them (that wrongly blamed whichever mod did it)
+            var baseNs = new HashSet<string> { "System", "Mono", "MonoMod", "HarmonyLib", "Harmony", "UnityEngine", "Unity", "Verse", "RimWorld", "Microsoft", "Waylith" };
+            try
+            {
+                foreach (Type t in typeof(Pawn).Assembly.GetTypes())
+                    if (!t.Namespace.NullOrEmpty()) baseNs.Add(t.Namespace);
+            }
+            catch { }
             var nsToMod = new Dictionary<string, string>();
             foreach (ModContentPack m in LoadedModManager.RunningModsListForReading)
             {
@@ -205,7 +254,7 @@ namespace GraphicsTuner
                     try
                     {
                         foreach (Type t in a.GetTypes())
-                            if (!t.Namespace.NullOrEmpty() && !nsToMod.ContainsKey(t.Namespace) && t.Namespace != "HarmonyLib")
+                            if (!t.Namespace.NullOrEmpty() && !nsToMod.ContainsKey(t.Namespace) && !baseNs.Contains(t.Namespace) && !baseNs.Contains(t.Namespace.Split('.')[0]))
                                 nsToMod[t.Namespace] = m.Name;
                     }
                     catch { }
@@ -214,8 +263,13 @@ namespace GraphicsTuner
             var count = new Dictionary<string, int>();
             var rx = new Regex(@"at ([A-Za-z0-9_\.]+)\.[A-Za-z0-9_<>]+[\.:]");
             var tag = new Regex(@"\] \[([^\]]{2,40})\]");
+            bool skip = false;
             foreach (string l in lines.Skip(Math.Max(0, lines.Length - 300)))
             {
+                if (IsEntryStart(l))
+                    skip = spam.Contains(Sig(l));
+                if (skip)
+                    continue;
                 foreach (Match mt in rx.Matches(l))
                 {
                     string ns = mt.Groups[1].Value;

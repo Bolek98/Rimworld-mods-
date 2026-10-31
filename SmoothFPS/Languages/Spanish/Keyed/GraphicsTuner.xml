@@ -437,4 +437,20 @@
   <GT_RainWashAll_Desc>El juego solo deja que la lluvia limpie algunos tipos de suciedad. Con esto, la lluvia reduce toda la suciedad al aire libre (sin techo) con la misma probabilidad. La suciedad interior nunca se toca. Desactivado = como el juego.</GT_RainWashAll_Desc>
   <GT_RainNow>Suciedad fuera en tus mapas base ahora: {0}</GT_RainNow>
   <GT_RainStarted>Ha empezado a llover – la lluvia limpia la suciedad (Smooth FPS).</GT_RainStarted>
+  <GT_VramRefresh>Actualizar</GT_VramRefresh>
+  <GT_VramTargetsTop>Superficies de dibujo más grandes: {0}</GT_VramTargetsTop>
+  <GT_VramModsHead>Texturas por mod ({0} mods, unos {1} GB en total) – de mayor a menor:</GT_VramModsHead>
+  <GT_VramColMod>Mod</GT_VramColMod>
+  <GT_VramColSize>Tamaño</GT_VramColSize>
+  <GT_VramColCount>Texturas (grandes)</GT_VramColCount>
+  <GT_VramCount>{0} texturas ({1} grandes)</GT_VramCount>
+  <GT_VramRowTip>{0}\n\nTexturas: unos {1} MB\nCantidad: {2}, grandes (más de 4 MB): {3}\nLa mayor: {4} ({5} MB)</GT_VramRowTip>
+  <GT_VramModsNote>El tamaño es una estimación según las dimensiones de las imágenes (todas las texturas del mod, también las que el juego sacó de la tarjeta). Los mods de arriba liberan más memoria al desactivarlos. Atlas y superficies de dibujo son del juego y solo bajan con menos resolución o menos mods.</GT_VramModsNote>
+  <GT_KeepTex>Mantener las texturas en la tarjeta gráfica el mayor tiempo posible</GT_KeepTex>
+  <GT_KeepTex_Desc>En 1.7 el juego empieza a sacar texturas de la tarjeta gráfica a la memoria normal hacia el 80 % – las imágenes pueden verse borrosas o llegar tarde. Activado, se quedan en la tarjeta con calidad completa hasta que solo quedan unos 200 MB. Cuando la tarjeta está realmente llena, el juego aún hace sitio por sí mismo (si no, se cerraría) – desactivar mods grandes ayuda más.</GT_KeepTex_Desc>
+  <GT_Crash_ModsUnknown>Mods: el registro no muestra qué mod lo causó (solo errores que se repitieron toda la partida, que no se cuentan).</GT_Crash_ModsUnknown>
+  <GT_BrightNights>Noches más claras</GT_BrightNights>
+  <GT_BrightNights_Desc>Las noches se ven más claras en pantalla. Solo la imagen: la oscuridad sigue contando para plantas, ánimo y trabajo.</GT_BrightNights_Desc>
+  <GT_NightLift>Brillo nocturno: +{0} %</GT_NightLift>
+  <GT_NightLift_Desc>Cuánto más clara se ve la noche más oscura.</GT_NightLift_Desc>
 </LanguageData>

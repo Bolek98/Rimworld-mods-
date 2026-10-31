@@ -202,7 +202,7 @@
   <RL_Ex_EmergencyFor>Náhradní výbava pro: {0}</RL_Ex_EmergencyFor>
   <RL_EmergencyProvide>Hledat a vyrábět náhradní výbavu</RL_EmergencyProvide>
   <RL_EmergencyProvide_Desc>Když kolonistům v nebezpečí chybí ochrana: zakázané ochranné věci kdekoli na mapě se povolí (jen kolik je potřeba, ne v ohni a ne u nepřátel), a když to pořád nestačí, přidá se účet na nejlepší ochranu, kterou kolonie umí vyrobit. Když správnou ochranu vyrobit ještě nejde (chybí výzkum), najde nebo vyrobí se nejbližší náhrada – slabší ochrana proti jedu nebo něco přes obličej, nejteplejší/nejchladivější oblečení, nejlepší brnění. Takto přidané účty se po skončení nebezpečí smažou, pokud se na nich ještě nezačalo pracovat.</RL_EmergencyProvide_Desc>
-  <RL_EmProv_Msg>{0}: kolonistům chybí ochrana – {2}.</RL_EmProv_Msg>
+  <RL_EmProv_Msg>{0}: nedostatek – {1} – {2}.</RL_EmProv_Msg>
   <RL_EmProv_Unforbade>povoleno {0} ({1})</RL_EmProv_Unforbade>
   <RL_EmProv_Bill>přidán účet na {0}× {1} ({2})</RL_EmProv_Bill>
   <RL_EmProv_Substitute>na správnou ochranu chybí recept, vyrábí se náhrada: {0}× {1} ({2})</RL_EmProv_Substitute>
@@ -491,4 +491,134 @@
   <RL_GO_Cold>venku je mu zima</RL_GO_Cold>
   <RL_GO_Hot>venku je mu horko</RL_GO_Hot>
   <RL_GO_Footer>{0} kolonistů · {1} s problémem · kliknutím vybereš kolonistu · najetím uvidíš všechno oblečení</RL_GO_Footer>
+  <RL_GizmoEquipNow>Převléct a přezbrojit</RL_GizmoEquipNow>
+  <RL_GizmoEquipNow_Desc>Hned zkontroluje zbraně, brnění a oblečení tohoto kolonisty a hodinu kontroluje dál. Věci ze starší éry (nebo jasně horší) si sundá a nahradí je nejnovější a nejlepší výbavou, kterou máš – staré věci nechá ležet a nosiči je uklidí. Zbraně a oblečení, které jsi dal ručně, zůstanou. Funguje i pro víc označených kolonistů najednou.</RL_GizmoEquipNow_Desc>
+  <RL_GO_Next>Vezme si příště</RL_GO_Next>
+  <RL_GO_NextNone>nic lepšího</RL_GO_NextNone>
+  <RL_GO_NextStorage>{0} ze skladu</RL_GO_NextStorage>
+  <RL_GO_NextMap>{0} z mapy</RL_GO_NextMap>
+  <RL_AllowKind>Povolit tento druh</RL_AllowKind>
+  <RL_AllowKind_Desc>{0} je pro tvou kolonii zamčené. Povol to i tak – kolonisté můžou tento druh od teď používat. Výjimku zrušíš v nastavení (záložka Zákazy).</RL_AllowKind_Desc>
+  <RL_AllowKind_Done>{0} je pro tvé kolonisty povolené.</RL_AllowKind_Done>
+  <RL_LockKind>Znovu zamknout tento druh</RL_LockKind>
+  <RL_LockKind_Desc>{0} je povolené jako výjimka. Zamkni to znovu – platí běžná pravidla.</RL_LockKind_Desc>
+  <RL_LockKind_Done>{0} je znovu zamčené.</RL_LockKind_Done>
+  <RL_Exceptions>Povolené výjimky:</RL_Exceptions>
+  <RL_ExceptionRemove>Kliknutím výjimku zrušíš – zase platí běžná pravidla.</RL_ExceptionRemove>
+  <RL_EnemyLoot>Výbava nepřátel jen ze skladu</RL_EnemyLoot>
+  <RL_EnemyLoot_Desc>Zbraně a oblečení, které upustili nepřátelé (nebo jsi je z nich svlékl), si kolonisté neberou přímo z bojiště – až když je někdo odnese do skladu.</RL_EnemyLoot_Desc>
+  <RL_CEAmmo>Combat Extended: jen zbraně s municí</RL_CEAmmo>
+  <RL_CEAmmo_Desc>S Combat Extended si kolonisté berou jen střelné zbraně, pro které je na mapě munice (ve skladu, na zemi nebo v kapsách). Zbraň, ke které nikde není munice, vymění za takovou, ke které munice je.</RL_CEAmmo_Desc>
+  <RL_OW_Button>Zbraně podle oblečení</RL_OW_Button>
+  <RL_OW_Title>Povolené zbraně podle předpisu oblečení</RL_OW_Title>
+  <RL_OW_Desc>Kolonisté s tímto předpisem oblečení si sami berou jen zaškrtnuté zbraně. Zbraní, které jim dáš ručně, se to netýká. Ve výchozím stavu je povoleno všechno.</RL_OW_Desc>
+  <RL_OW_Outfit>Oblečení: {0}</RL_OW_Outfit>
+  <RL_OW_Banned>Zakázaných druhů zbraní: {0}</RL_OW_Banned>
+  <RL_OW_AllAllowed>Všechny zbraně povoleny</RL_OW_AllAllowed>
+  <RL_OW_AllowAll>Povolit vše</RL_OW_AllowAll>
+  <RL_OW_OnlyRanged>Jen střelné</RL_OW_OnlyRanged>
+  <RL_OW_OnlyMelee>Jen chladné</RL_OW_OnlyMelee>
+  <RL_OW_Melee>chladná</RL_OW_Melee>
+  <RL_RangedForAll>Střelné zbraně pro všechny</RL_RangedForAll>
+  <RL_RangedForAll_Desc>Každý kolonista, který umí střílet, si vezme jako hlavní zbraň střelnou – zbraň na blízko v ruce vymění za nejlepší střelnou, jakou máš. Rváči a kdo střílet nemůže, zůstanou u zbraní na blízko. Zbraň na blízko může dál nosit jako záložní.</RL_RangedForAll_Desc>
+  <RL_SwapCarriedGun>Střelná zbraň z kapsy do ruky</RL_SwapCarriedGun>
+  <RL_SwapCarriedGun_Desc>Se „Střelné zbraně pro všechny“: kolonista, který má střelnou zbraň v kapse a v ruce zbraň na blízko, si je sám prohodí (ne uprostřed boje).</RL_SwapCarriedGun_Desc>
+  <RL_RoleWeapons>Zbraně podle role</RL_RoleWeapons>
+  <RL_RoleWeapons_Desc>Zbraně na dálku (odstřelovačky) dostanou nejlepší střelci (střelba 12+), zbraně na krátko (brokovnice, samopaly) slabší střelci.</RL_RoleWeapons_Desc>
+  <RL_UnarmedAlert>Upozornění: neozbrojení kolonisté</RL_UnarmedAlert>
+  <RL_UnarmedAlert_Desc>Při nebezpečí upozorní na kolonisty bez zbraně – a se „Střelné zbraně pro všechny“ i na ty, kdo mají jen zbraň na blízko.</RL_UnarmedAlert_Desc>
+  <RL_ReserveRanged>Náhradní střelné zbraně ve skladu: {0}</RL_ReserveRanged>
+  <RL_ReserveRanged_Desc>Tolik střelných zbraní zůstane ve skladu pro nové kolonisty a rozbité zbraně. Ozbrojený střelec si je nevezme, neozbrojený ano. 0 = vypnuto.</RL_ReserveRanged_Desc>
+  <RL_ExplosivesOff>Výbušné zbraně: pro všechny</RL_ExplosivesOff>
+  <RL_ExplosivesMin>Výbušné zbraně od střelby {0}</RL_ExplosivesMin>
+  <RL_ExplosivesMin_Desc>Granáty, raketomety a granátomety si vezmou jen kolonisté s aspoň touto úrovní střelby, ať nezasahují vlastní. 0 = kdokoli.</RL_ExplosivesMin_Desc>
+  <RL_GO_OnlyMelee>jen na blízko</RL_GO_OnlyMelee>
+  <RL_GO_PickWeapon>Klikni a vyber zbraň ze skladu</RL_GO_PickWeapon>
+  <RL_GO_Ranged>střelná</RL_GO_Ranged>
+  <RL_GO_Melee>na blízko</RL_GO_Melee>
+  <RL_GO_NoWeaponsStored>Ve skladu není zbraň, kterou by tento kolonista mohl použít.</RL_GO_NoWeaponsStored>
+  <RL_AlertUnarmed>Neozbrojení kolonisté</RL_AlertUnarmed>
+  <RL_AlertUnarmed_Desc>Na mapě jsou nepřátelé a tito kolonisté nemají zbraň (nebo jen na blízko):\n\n{0}\n\nZbraň jim dáš v přehledu výbavy (klikni na zbraň).</RL_AlertUnarmed_Desc>
+  <!-- 2.18.0 battle & work, gear planner -->
+  <RL_TabBattle>Boj a práce</RL_TabBattle>
+  <RL_BG_Outfits>Bojové oblečení</RL_BG_Outfits>
+  <RL_BG_Outfits_Desc>Každé oblečení (zásady) může mít bojové oblečení (nastavíš ho ve „Zbraně podle oblečení“). Odvedení kolonisti používají bojové oblečení a po propuštění se vrátí k pracovnímu – bojové kusy si sundají a obléknou zase pracovní.</RL_BG_Outfits_Desc>
+  <RL_BG_OnThreat>Bojové oblečení i při nájezdu</RL_BG_OnThreat>
+  <RL_BG_OnThreat_Desc>Dokud jsou na mapě nepřátelé, všichni přepnou na bojové oblečení (a se „Zbroj při útoku“ si obléknou zbroj); po nájezdu se vrátí k pracovnímu.</RL_BG_OnThreat_Desc>
+  <RL_BG_SetUp>Nastavit bojová oblečení…</RL_BG_SetUp>
+  <RL_BG_ArmDraft>Při odvedení si dojít pro zbroj</RL_BG_ArmDraft>
+  <RL_BG_ArmDraft_Desc>Odvedený kolonista bez nepřítele poblíž si dojde pro nejlepší povolenou zbroj ležící blízko, než mu dáš rozkaz. Jakýkoli tvůj rozkaz to přeruší.</RL_BG_ArmDraft_Desc>
+  <RL_BG_ArmRange>Zbroj do vzdálenosti: {0} políček</RL_BG_ArmRange>
+  <RL_BG_ArmRange_Desc>Jak daleko odvedený kolonista dojde pro zbroj.</RL_BG_ArmRange_Desc>
+  <RL_BG_ArmReturn>Po oblečení se vrátit zpět</RL_BG_ArmReturn>
+  <RL_BG_ArmReturn_Desc>Po oblečení zbroje se kolonista vrátí na místo, kde jsi ho odvedla.</RL_BG_ArmReturn_Desc>
+  <RL_BG_Season>Oblékat se podle předpovědi</RL_BG_Season>
+  <RL_BG_Season_Desc>Oblečení se řídí i teplotou v příštích hodinách (studená noc, blížící se zima, letní vedro), ne jen teplotou teď.</RL_BG_Season_Desc>
+  <RL_BG_SeasonHours>Dívat se dopředu: {0} h</RL_BG_SeasonHours>
+  <RL_BG_SeasonHours_Desc>Kolik hodin dopředu se předpověď počítá.</RL_BG_SeasonHours_Desc>
+  <RL_BG_Caravan>Oblékat se na karavanu</RL_BG_Caravan>
+  <RL_BG_Caravan_Desc>Kolonisti, kteří se chystají do karavany, se obléknou na počasí příštích čtyř dnů.</RL_BG_Caravan_Desc>
+  <RL_BG_WornSwap>Včas vyměnit opotřebenou výbavu</RL_BG_WornSwap>
+  <RL_BG_WornSwap_Desc>Kus pod limitem se vymění za dobrý (80 %+) stejného druhu nebo na stejné části těla ze skladu – aspoň stejná zbroj, zhruba stejně teplý.</RL_BG_WornSwap_Desc>
+  <RL_BG_WornPct>Vyměnit pod: {0} %</RL_BG_WornPct>
+  <RL_BG_WornPct_Desc>Výdrž, pod kterou se kus vymění.</RL_BG_WornPct_Desc>
+  <RL_BG_NewLabel>{0} – boj</RL_BG_NewLabel>
+  <RL_BG_BattleIs>Bojové oblečení: {0}</RL_BG_BattleIs>
+  <RL_BG_BattleNone>Bojové oblečení: žádné</RL_BG_BattleNone>
+  <RL_BG_None>Žádné (v boji nechat toto oblečení)</RL_BG_None>
+  <RL_BG_Create>Vytvořit bojové oblečení z tohoto</RL_BG_Create>
+  <RL_BG_Battle_Desc>Odvedení kolonisti s tímto oblečením (a při nájezdu všichni, pokud je to zapnuté) používají bojové oblečení; potom se vrátí k tomuto. „Vytvořit“ zkopíruje toto oblečení a povolí všechnu zbroj a helmy.</RL_BG_Battle_Desc>
+  <RL_BG_Edit>Upravit bojové oblečení</RL_BG_Edit>
+  <RL_Why_BattleDraft>odveden – bojová výbava</RL_Why_BattleDraft>
+  <RL_Why_Worn>opotřebené – výměna za lepší kus</RL_Why_Worn>
+  <RL_GP_Open>Plánovač výbavy</RL_GP_Open>
+  <RL_GP_Title>Plánovač výbavy</RL_GP_Title>
+  <RL_GP_Desc>Co kolonistům chybí a nejlepší věc, kterou na to teď umíš vyrobit. Zakázka vyrobí jen chybějící počet („dokud nemáš X“).</RL_GP_Desc>
+  <RL_GP_AllGood>Všichni mají helmu, zbroj i střelnou zbraň a nic není opotřebené.</RL_GP_AllGood>
+  <RL_GP_Slot_Helmet>Helmy</RL_GP_Slot_Helmet>
+  <RL_GP_Slot_Body>Zbroj na tělo</RL_GP_Slot_Body>
+  <RL_GP_Slot_Gun>Střelné zbraně</RL_GP_Slot_Gun>
+  <RL_GP_Slot_Worn>Opotřebené</RL_GP_Slot_Worn>
+  <RL_GP_Worn>Opotřebené: {0}</RL_GP_Worn>
+  <RL_GP_Line>{0} kolonistů bez · {1} ve skladu · vyrobit {2}</RL_GP_Line>
+  <RL_GP_Best>Nejlepší: {0} ({1})</RL_GP_Best>
+  <RL_GP_NoRecipe>zatím nic, co umíš vyrobit</RL_GP_NoRecipe>
+  <RL_GP_InStock>ve skladu je dost</RL_GP_InStock>
+  <RL_GP_HasBill>zakázka už je zadaná</RL_GP_HasBill>
+  <RL_GP_Add>Přidat zakázku ({0})</RL_GP_Add>
+  <RL_GP_Auto>Přidávat zakázky samo (jednou denně)</RL_GP_Auto>
+  <RL_GP_Auto_Desc>Jednou denně plánovač přidá zakázky „dokud nemáš X“ na všechno, co chybí a ještě nemá zakázku.</RL_GP_Auto_Desc>
+  <RL_GP_Added>Zakázka přidána: {0} u {1} ({2}).</RL_GP_Added>
+  <RL_GP_AutoAdded>Plánovač výbavy přidal zakázky: {0}</RL_GP_AutoAdded>
+  <!-- 2.19.0: why not -->
+  <RL_WN_Prefix>Chytrá výbava:</RL_WN_Prefix>
+  <RL_WN_Worn>{0} to už má na sobě</RL_WN_Worn>
+  <RL_WN_Queued>už to {0} jde vzít</RL_WN_Queued>
+  <RL_WN_Body>{0} si to nemůže obléct (tělo)</RL_WN_Body>
+  <RL_WN_CantEquip>{0} to nemůže použít</RL_WN_CantEquip>
+  <RL_WN_Gender>je to pro druhé pohlaví</RL_WN_Gender>
+  <RL_WN_WorkClothing>pracovní oblečení pro jinou práci, než dělá {0}</RL_WN_WorkClothing>
+  <RL_WN_Stockpile>není ve skladu (bere se jen výbava ze skladů)</RL_WN_Stockpile>
+  <RL_WN_Forbidden>zakázáno</RL_WN_Forbidden>
+  <RL_WN_Damaged>moc poškozené</RL_WN_Damaged>
+  <RL_WN_Policy>nepovoluje to politika oblékání ({0})</RL_WN_Policy>
+  <RL_WN_Protected>nahradilo by věc, kterou {0} musí mít (vynucenou nebo požadovanou)</RL_WN_Protected>
+  <RL_WN_NotBetter>není lepší, než co má {0}</RL_WN_NotBetter>
+  <RL_WN_ArmorDown>{0} by měl horší zbroj</RL_WN_ArmorDown>
+  <RL_WN_Reach>{0} se k tomu nedostane nebo to nemůže zarezervovat</RL_WN_Reach>
+  <RL_WN_Candidate>{0} si to může vzít při příští kontrole</RL_WN_Candidate>
+  <RL_WN_NotManaged>tuhle zbraň Chytrá výbava neřeší</RL_WN_NotManaged>
+  <RL_WN_Tool>je to nástroj, ne zbraň</RL_WN_Tool>
+  <RL_WN_Ammo>nejsou k tomu náboje</RL_WN_Ammo>
+  <RL_WN_Flip>{0} si to pořád oblékal a svlékal – vynecháno na dva dny</RL_WN_Flip>
+  <RL_WN_Recent>{0} si to nedávno sundal – čeká se den</RL_WN_Recent>
+  <RL_WN_LockBanned>zakázala jsi to v nastavení</RL_WN_LockBanned>
+  <RL_WN_LockNotMade>zamčeno – v kolonii se to ještě nevyrobilo</RL_WN_LockNotMade>
+  <RL_WN_LockResearch>zamčeno – chybí výzkum</RL_WN_LockResearch>
+  <RL_WN_LockOther>zamčeno filtrem</RL_WN_LockOther>
+  <RL_WN_Exempt>Chytrá výbava je u {0} vypnutá</RL_WN_Exempt>
+  <RL_WN_WeaponsOff>výměna zbraní je v nastavení vypnutá</RL_WN_WeaponsOff>
+  <RL_WN_ApparelOff>výměna oblečení je v nastavení vypnutá</RL_WN_ApparelOff>
+  <RL_WhyNotMenu>Řádek „proč ne“ v menu na pravé tlačítko</RL_WhyNotMenu>
+  <RL_WhyNotMenu_Desc>Když máš vybraného kolonistu, pravý klik na zbraň nebo kus oblečení ukáže, proč mu ho Smart Colonist Gear nedá.</RL_WhyNotMenu_Desc>
 </LanguageData>

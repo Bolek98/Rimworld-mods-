@@ -82,4 +82,23 @@
   <AT_ShellsFromMaterial_Desc>Träger bringen Stahl (oder ein anderes Metall) zu Mörsern, Artillerie und Feldgeschützen, und das Geschütz wird mit der gewählten Granate geladen, sonst mit einer Sprenggranate. Granaten werden gar nicht gebraucht. Der automatische VFE-Mörser füllt seine Granaten ebenfalls aus Material auf.</AT_ShellsFromMaterial_Desc>
   <AT_ShellCost>Material pro Granate: {0}</AT_ShellCost>
   <AT_NoMaterial>Zu wenig Material ({0} Metall pro Granate)</AT_NoMaterial>
+  <AT_StunRunaways>Betäubungstürme stoppen fliehende Gefangene und Sklaven</AT_StunRunaways>
+  <AT_StunRunaways_Desc>Deine betäubenden (nicht tödlichen) Geschütztürme schießen auch auf deine Gefangenen und Sklaven, die ausbrechen, rebellieren, fliehen oder durchdrehen. Tödliche Türme lassen sie weiter in Ruhe.</AT_StunRunaways_Desc>
+  <AT_StunGiveUp>Betäubte Flüchtige geben auf</AT_StunGiveUp>
+  <AT_StunGiveUp_Desc>Ein ausbrechender Gefangener oder rebellierender Sklave, den dein Turm betäubt oder niederstreckt, gibt auf: Wärter bringen ihn zurück in die Zelle, ein Sklave geht zurück an die Arbeit.</AT_StunGiveUp_Desc>
+  <AT_GaveUpPrisoner>{0} wurde betäubt und gab die Flucht auf.</AT_GaveUpPrisoner>
+  <AT_GaveUpSlave>{0} wurde betäubt und gab die Rebellion auf.</AT_GaveUpSlave>
+  <AT_ShellHit>Treffer {0}: {1} / {2}</AT_ShellHit>
+  <AT_ShellDestroyed>Deine Artillerie hat {0} zerstört. Die Leute von {1} haben die Ruinen verlassen.</AT_ShellDestroyed>
+  <AT_ShellDestroyedLabel>Basis durch Artillerie zerstört</AT_ShellDestroyedLabel>
+  <AT_ShellAppliedLabel>Beschossene Basis</AT_ShellAppliedLabel>
+  <AT_ShellApplied>Deine Artillerie traf {0} {1}-mal vor deiner Ankunft – die Granaten schlugen jetzt ein.</AT_ShellApplied>
+  <AT_ShellStart>Artillerie beschießt {0} – noch etwa {1} Treffer bis zur Zerstörung.</AT_ShellStart>
+  <AT_ShellLabel>Beschossen: {0} / {1} Treffer</AT_ShellLabel>
+  <AT_ShellSettlements>Artillerie beschießt feindliche Basen ohne Karte</AT_ShellSettlements>
+  <AT_ShellSettlements_Desc>VFE-Security-Weltartillerie kann eine feindliche Basis beschießen, die du nicht besucht hast. Jeder Treffer zählt: Greifst du an, schlagen die Treffer zuerst ein (weniger Verteidiger), genug Treffer zerstören die Basis.</AT_ShellSettlements_Desc>
+  <AT_ShellHitsN>Treffer zur Zerstörung: {0} (weniger bei Stämmen, mehr bei Raumfahrern)</AT_ShellHitsN>
+  <AT_ShellNotHostile>{0} ({1}) ist nicht feindlich – die Artillerie beschießt nur feindliche Basen und Lager (oder eine offene Karte).</AT_ShellNotHostile>
+  <AT_ShellNoTarget>Hier gibt es nichts zu beschießen. Wähle eine feindliche Basis oder ein Lager (muss nicht erkundet sein) oder eine offene Karte.</AT_ShellNoTarget>
+  <AT_ShellSiteDestroyed>{0} ({1}) wurde durch Artilleriefeuer zerstört.</AT_ShellSiteDestroyed>
 </LanguageData>

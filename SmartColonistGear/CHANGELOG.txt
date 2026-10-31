@@ -1,3 +1,99 @@
+=== Workshop release 2.16.0 (31 Oct 2026) ===
+2.16.0
+New
+- Battle outfits: every outfit can have a battle outfit. Drafted colonists – and everyone during a raid – wear it and go back to work clothes afterwards.
+- "Gear up now" button on every colonist: changes the whole outfit and weapon to the best you have, right away.
+- Gear overview: "Takes next" column, and "Weapons per outfit" – which weapon kinds each outfit may take.
+- Ranged weapons for everyone (option): every colonist who can shoot carries a gun; weapons by role, spare guns in storage, explosives only for good shooters.
+- Gear planner: what the colony is missing (helmets, armor, guns, worn pieces) with one-click bills.
+- Dress for the coming weather, fetch armor when drafted, worn gear swapped in time.
+- Right-click gear with a colonist selected: one line says why he does not take it.
+- "Allow this kind" for locked gear; enemy gear only from storage (option).
+- Combat Extended: colonists pick only guns whose ammo is on the map.
+- 12 languages.
+
+Fixes
+- Removed the two guest options: visitors could get stuck changing clothes in a loop.
+- Only real weapons count: beer, food, wood and work items from mods are no longer treated as weapons.
+- The game's own dresser no longer swaps back a piece put on less than two days ago.
+- Simple Sidearms: correct weapon put away, no endless "forced weapon" block, limit checked before picking up.
+
+Nové
+- Bojové oblečení: každá politika oblékání může mít bojovou. Odvedení kolonisté – a při nájezdu všichni – ji nosí a pak se vrátí k pracovnímu oblečení.
+- Tlačítko „Převléct a přezbrojit“ u každého kolonisty: hned vymění celou výbavu a zbraň za to nejlepší, co máš.
+- Přehled výbavy: sloupec „Vezme si příště“ a „Zbraně podle oblečení“ – jaké zbraně si které oblečení smí brát.
+- Zbraně na dálku pro všechny (volba): každý, kdo umí střílet, nosí pušku; zbraně podle role, záložní pušky ve skladu, výbušniny jen pro dobré střelce.
+- Plánovač výbavy: co kolonii chybí (helmy, zbroj, pušky, opotřebované kusy) s objednávkou na jedno kliknutí.
+- Oblékání podle počasí, které přijde, dobrání zbroje při odvedení, včasná výměna opotřebované výbavy.
+- Pravý klik na výbavu s vybraným kolonistou: jeden řádek řekne, proč si ji nevezme.
+- „Povolit tento druh“ u zamčené výbavy; výbava nepřátel jen ze skladu (volba).
+- Combat Extended: kolonisté berou jen pušky, ke kterým je na mapě munice.
+- 12 jazyků.
+
+Opravy
+- Odstraněny dvě volby pro hosty: návštěvníci se mohli zacyklit v převlékání.
+- Za zbraně se počítají jen skutečné zbraně: pivo, jídlo, dřevo a pracovní předměty z modů už ne.
+- Hra už sama nesvléká kus, který byl oblečen před méně než dvěma dny.
+- Simple Sidearms: odloží se správná zbraň, žádná věčná blokace „vynucené zbraně“, limit se kontroluje před sebráním.
+
+=== Development history since the last Workshop release (test versions) ===
+2.19.1
+- Removed the two guest options (quest guests use colony gear, visitors borrow clothes against cold and heat): visitors could get stuck changing clothes in a loop. Gear they still carry is given back when they leave.
+- Odstraněny dvě volby pro hosty (hosté z úkolů používají vybavení kolonie, návštěvníci si půjčují oblečení proti zimě a horku): návštěvníci se mohli zacyklit v převlékání. Vybavení, které ještě mají, vrátí při odchodu.
+
+2.19.0
+- With a colonist selected, right-click a weapon or a piece of clothing: one line says why Smart Colonist Gear does not give it to him (locked by research or not crafted yet, outfit policy, not in a stockpile, not better, blocked for two days …). Can be switched off.
+- Když máš vybraného kolonistu, pravý klik na zbraň nebo oblečení ukáže jedním řádkem, proč mu ho Smart Colonist Gear nedá (chybí výzkum nebo ještě nevyrobeno, politika oblékání, není ve skladu, není lepší, blokace na dva dny …). Dá se vypnout.
+
+2.18.1
+- Gear up now: changes the whole outfit, not just the first piece. The change starts right away (work goes on afterwards, sleep and meals are not interrupted) and the button keeps going while there is something better – before, the first change waited at the end of the job queue and the hour ran out before anything else was looked at.
+- Gear up now lifts the colonist's 'left off for two days' blocks.
+- The game's own dresser no longer swaps back a piece Smart Colonist Gear put on less than two days ago (e.g. flak jacket ↔ lamellar armour) – that tug of war ended with the piece blocked for two days.
+- Převléct a přezbrojit: vymění celou výbavu, ne jen první kus. Výměna začne hned (práce pak pokračuje, spánek a jídlo se nepřeruší) a tlačítko běží, dokud je co zlepšit – dřív první výměna čekala na konci fronty a hodina vypršela dřív, než se došlo na zbytek.
+- Převléct a přezbrojit zruší kolonistovi blokace „vynecháno na dva dny“.
+- Hra už sama nesvléká kus, který Smart Colonist Gear oblékl před méně než dvěma dny (např. neprůstřelná vesta ↔ lamelová zbroj) – tahle přetahovaná končila zablokováním kusu na dva dny.
+
+2.18.0
+- Battle outfits: every outfit can have a battle outfit ("Weapons per outfit" window, or "Create a battle outfit" in one click). Drafted colonists – and everyone during a raid – wear it and go back to work clothes afterwards.
+- Fetch armor when drafted: a drafted colonist with no enemy nearby fetches armor lying close by and walks back to where you drafted him. Any order of yours stops it.
+- Dress for the coming weather: clothes follow the temperature of the next hours (cold night, coming winter, heat), and colonists forming a caravan dress for the next four days.
+- Worn gear is swapped in time for a good piece of the same kind from storage (below 60 % by default).
+- Gear planner (Gear overview and settings): what the colony is missing – helmets, body armor, guns, worn-out pieces – with the best thing you can make and a one-click "until you have X" bill; it can also add the bills by itself once a day.
+
+2.17.0
+- Gun from the pockets into the hand: with "Ranged weapons for everyone" a colonist who carries a gun and holds a melee weapon swaps them by himself (not in the middle of a fight). On by default.
+- Weapons by role (setting, off by default): sniper rifles and other long guns go to the best shooters, shotguns and SMGs to the weaker ones.
+- Spare guns in storage (setting, 0 = off): this many guns stay in storage for new colonists and broken weapons; armed shooters leave them alone.
+- Explosive weapons only from a Shooting level (setting, 0 = anyone): grenades and launchers only for good shooters.
+- Alert "Unarmed colonists" during a threat (no weapon, or only melee with "Ranged weapons for everyone").
+- Gear overview: the weapon shows whether it is ranged or melee, "only melee" is listed as a problem with "Ranged weapons for everyone", and clicking the weapon lets you pick another one from storage.
+
+2.16.1
+- New setting "Ranged weapons for everyone" (Weapons tab, off by default): every colonist who can shoot takes a gun as the main weapon and swaps a melee weapon in hand for the best gun you have. Brawlers and colonists who cannot shoot keep melee.
+- "Gear up now" takes any clearly better weapon (5 % better, or one quality level for the same weapon) instead of waiting for the usual margin.
+- No going back and forth: a weapon kind a colonist just put away is not taken again for two days, unless the one in hand is falling apart.
+
+2.16.0
+- Weapons per outfit: a new "Weapons per outfit" button in the Gear overview – for every outfit (apparel policy) tick which weapon kinds colonists wearing it may take by themselves (buttons "Only ranged" / "Only melee"). Everything is allowed by default; weapons you equip by hand are not affected.
+- Combat Extended: colonists only pick up ranged weapons whose ammo is on the map (in storage, lying around or in their pockets), and a gun with no ammo anywhere is swapped for one that has ammo (setting, on by default; shown only with Combat Extended).
+
+2.15.3
+- Only real weapons count as weapons: beer, food, medicine, wood and other resources or work items from mods (Expanded Woodworking, Brewing and similar) that have an attack are no longer picked, compared, locked or listed as sidearms – and taking such items into the inventory is never blocked by weapon locks (research, "only crafted").
+- Simple Sidearms: when a colonist gets a better main weapon and the old one goes into his pockets, the old one is put away if he now has too many – not the sidearm of the other kind he already carried.
+- Simple Sidearms: a "forced weapon" mark that stayed after the forced weapon itself was lost no longer blocks better weapons for ever (a weapon you equip yourself is still kept).
+
+2.15.2
+- "Gear up now" really swaps the gear: worn clothes and armor of an older era are taken off and replaced with newer ones (before, a calm colonist only added missing pieces), any better piece is taken without the usual margin, and it works even when the game's own dresser is used.
+- With Simple Sidearms the limit "At most weapons per colonist" is now also checked before a new sidearm is picked up (before, only the extra trimming kept it), and a second copy of a weapon the colonist already carries (two stun batons) is put away.
+
+2.15.1
+- "Gear up now" button on every colonist (and on several selected at once): checks weapons, armor and clothes right away and keeps checking for an hour, so everything of the newest era and the best gear is taken one after another. Weapons you equipped by hand stay.
+- Gear overview: a new "Takes next" column – what each colonist would take next and where it lies (storage or map), or "nothing better".
+- "Allow this kind": select a locked weapon or piece of apparel and allow its kind anyway (or lock it again). Exceptions are listed in the settings (Bans tab) and removed with one click.
+- New option "Enemy gear only from storage" (on by default): weapons and apparel dropped by enemies or stripped from them are not taken straight from the battlefield, only once they are in storage.
+- Faster: the debug summary asks for the lock reason once per kind of item (was a 100+ ms stop on big maps), and the lock reasons are written to the log only when they change.
+- Translations: German, French, Spanish, Brazilian Portuguese, Polish, Russian, Ukrainian, Simplified Chinese, Japanese, Korean.
+
 === Workshop release 2.15.0 (26 Oct 2026) ===
 2.15.0
 New

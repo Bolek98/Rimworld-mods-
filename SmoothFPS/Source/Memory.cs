@@ -308,7 +308,7 @@ namespace GraphicsTuner
         // a moment after our full clean-up right after loading (17:24 and 18:20, also without compaction):
         // the Waylith engine lets go of pictures it still needs when a full clean-up is forced. The .NET
         // runtime of 1.7 cleans up on its own in the background, so nothing is lost by leaving it alone.
-        public static bool ForcedGcBlocked => Net;
+        public static bool ForcedGcBlocked => Net || Env.Is17;   // 1.5.3: also by game version
         private static bool blockedLogged;
 
         private static bool Blocked()

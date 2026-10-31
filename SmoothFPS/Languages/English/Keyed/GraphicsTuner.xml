@@ -437,4 +437,20 @@
   <GT_RainWashAll_Desc>The game lets rain wash away only some kinds of filth. With this, rain thins every kind of filth outdoors (no roof) with the same chance. Filth indoors is never touched. Off = like the game.</GT_RainWashAll_Desc>
   <GT_RainNow>Outdoor filth on your home maps now: {0}</GT_RainNow>
   <GT_RainStarted>It started to rain – it washes away the filth (Smooth FPS).</GT_RainStarted>
+  <GT_VramRefresh>Refresh</GT_VramRefresh>
+  <GT_VramTargetsTop>Biggest drawing surfaces: {0}</GT_VramTargetsTop>
+  <GT_VramModsHead>Textures by mod ({0} mods, about {1} GB in all) – biggest first:</GT_VramModsHead>
+  <GT_VramColMod>Mod</GT_VramColMod>
+  <GT_VramColSize>Size</GT_VramColSize>
+  <GT_VramColCount>Textures (big ones)</GT_VramColCount>
+  <GT_VramCount>{0} textures ({1} big)</GT_VramCount>
+  <GT_VramRowTip>{0}\n\nTextures: about {1} MB\nCount: {2}, big ones (over 4 MB): {3}\nLargest: {4} ({5} MB)</GT_VramRowTip>
+  <GT_VramModsNote>The size is an estimate from the picture sizes (all of the mod's textures, also those the game has moved out of the card). Mods at the top free the most memory when switched off. Atlases and drawing surfaces belong to the game and only shrink with a lower resolution or fewer mods.</GT_VramModsNote>
+  <GT_KeepTex>Keep textures in the graphics card as long as possible</GT_KeepTex>
+  <GT_KeepTex_Desc>On 1.7 the game starts moving textures out of the graphics card into normal memory at about 80 % – pictures can then look washed out or arrive late. With this on they stay in the card in full quality until only about 200 MB are left. When the card is really full the game still makes room itself (otherwise it would crash) – switching off big mods helps more.</GT_KeepTex_Desc>
+  <GT_Crash_ModsUnknown>Mods: the log doesn't show which mod caused it (only errors that kept repeating all game long, which are left out).</GT_Crash_ModsUnknown>
+  <GT_BrightNights>Brighter nights</GT_BrightNights>
+  <GT_BrightNights_Desc>Nights look lighter on screen. Only the picture – darkness still counts for plants, moods and work as usual.</GT_BrightNights_Desc>
+  <GT_NightLift>Night brightness: +{0} %</GT_NightLift>
+  <GT_NightLift_Desc>How much lighter the darkest night looks.</GT_NightLift_Desc>
 </LanguageData>

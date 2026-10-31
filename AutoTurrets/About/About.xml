@@ -3,7 +3,7 @@
   <name>Auto Turrets – No Crew, No Shells, No Friendly Fire</name>
   <author>Bolek98</author>
   <packageId>bolek98.autoturrets</packageId>
-  <modVersion>1.1.0</modVersion>
+  <modVersion>1.2.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -30,6 +30,8 @@ WHAT YOU GET
 - Safe mortars – an automatic mortar skips targets where the shell could land on your people.
 - Smart shells – EMP only at mechanoids and shields, firefoam only at fires in your home area.
 - Works with modded turrets – Vanilla Factions Expanded Security artillery (also world-map artillery and the automated mortar), Pirates field guns and turrets from other mods.
+- World artillery (VFE Security) can shell hostile bases you have not visited yet and enemy sites like drone factories – enough hits destroy them.
+- Stun turrets stop runaway prisoners and rebelling slaves; downed runaways give up and go back.
 - Turrets in walls (optional) – small turrets built straight into your walls, shooting only outward.
 - Turrets tab – pick which turrets fire alone and what each one may be reloaded with.
 
@@ -50,6 +52,8 @@ CO UMÍ
 - Bezpečné minomety – automatický minomet vynechá cíle, kde by granát mohl dopadnout na tvoje lidi.
 - Chytré granáty – EMP jen na mechanoidy a štíty, hasicí pěna jen na požáry v domovské oblasti.
 - Funguje s věžemi z modů – dělostřelectvo z Vanilla Factions Expanded Security (i střelba na mapu světa a automatický minomet), polní zbraně z Pirates a věže z dalších modů.
+- Světové dělostřelectvo (VFE Security) může ostřelovat nenavštívené nepřátelské základny i místa jako továrny na drony – po dost zásazích je zničí.
+- Omračující věže zastaví uprchlé vězně a vzbouřené otroky; sražení uprchlíci se vzdají a vrátí se.
 - Věže ve zdi (volitelné) – malé věže postavené rovnou do zdi, střílí jen ven.
 - Záložka Věže – vybereš, které věže střílí samy a čím se která smí nabíjet.
 
@@ -60,20 +64,18 @@ Našel jsi chybu? Použij „Nahlásit chybu“ (vlevo dole v nastavení) a napi
 IDEAS AND SUGGESTIONS
 Want something changed or added? Write it in the comments – I read every idea and take it into account.
 
-WHAT'S NEW IN 1.1.0
-- Mortars and artillery load with plain metal instead of shells
-- Optional: guns never run out of ammo
-- Turrets tab and per-turret ammo choice
-- Turrets in walls, safe mortars, smart shells
-- Works with VFE Security and Pirates guns
+WHAT'S NEW IN 1.2.0
+- World artillery shells unvisited hostile bases and sites (e.g. drone factories)
+- Stun turrets stop runaway prisoners and rebelling slaves
+- Downed runaways give up and go back
+- Friendly fire off: turret blasts never burn your people
 
 NÁPADY A NÁVRHY
 Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
 
-CO JE NOVÉHO VE VERZI 1.1.0
-- Minomety a děla se nabíjí obyčejným kovem místo granátů
-- Volitelně: děla nikdy nedojde munice
-- Záložka Věže a volba munice pro každou věž
-- Věže ve zdi, bezpečné minomety, chytré granáty
-- Funguje s děly z VFE Security a Pirates</description>
+CO JE NOVÉHO VE VERZI 1.2.0
+- Světové dělostřelectvo ostřeluje nenavštívené základny a místa (např. továrny na drony)
+- Omračující věže zastaví uprchlé vězně a vzbouřené otroky
+- Sražení uprchlíci se vzdají a vrátí se
+- Vypnutá palba do vlastních: výbuch věže tvé lidi nepopálí</description>
 </ModMetaData>

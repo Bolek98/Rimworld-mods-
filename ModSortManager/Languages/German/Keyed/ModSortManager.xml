@@ -112,7 +112,7 @@ Schließe das Spiel und verschiebe sie von Hand. Sicherungsordner: {1}</MSM_Keep
   <MSM_SearchActiveHint>Aktive durchsuchen…</MSM_SearchActiveHint>
   <MSM_SearchHint>Mod, Autor, ID suchen…</MSM_SearchHint>
   <MSM_SecWhere>Wo zu finden</MSM_SecWhere>
-  <MSM_SelectHint>Wähle links eine Mod aus.</MSM_SelectHint>
+  <MSM_SelectHint>Wähle links einen Mod. Strg+Klick oder Shift+Klick wählt mehrere.</MSM_SelectHint>
   <MSM_SetEsc>Eintrag im Esc-Menü im Spiel</MSM_SetEsc>
   <MSM_SetEscTip>Mod Sort Manager lässt sich auch während des Spielens öffnen. Beim Speichern wird das Spiel gespeichert, neu gestartet und du kehrst dorthin zurück.</MSM_SetEscTip>
   <MSM_SetReplace>Der Mods-Button öffnet Mod Sort Manager</MSM_SetReplace>
@@ -339,4 +339,45 @@ Starten?</MSM_BisectConfirm>
   <MSM_NoWarn>Funktioniert – nicht warnen</MSM_NoWarn>
   <MSM_NoWarnUndo>Wieder wegen der Version warnen</MSM_NoWarnUndo>
   <MSM_NoWarnTip>Die Mod ist nicht für diese Spielversion gemacht, funktioniert aber. Mods aus Data/noVersionWarning.xml oder aus der Mod No Version Warning werden ebenfalls nicht gemeldet.</MSM_NoWarnTip>
+  <MSM_TabReplace>Ersatz</MSM_TabReplace>
+  <MSM_RepTitle>Mods mit besserem Ersatz: {0}</MSM_RepTitle>
+  <MSM_RepReload>Liste neu laden</MSM_RepReload>
+  <MSM_RepHint>Alte Mods mit einer fortgeführten, aktualisierten oder reparierten Version eines anderen Modders. Ersetzen setzt den neuen Mod an dieselbe Stelle der Ladereihenfolge.</MSM_RepHint>
+  <MSM_RepSource>Listen: {0}</MSM_RepSource>
+  <MSM_RepNoUti>Die große Ersatzliste stammt aus der Mod "Use This Instead" (von Mlie). Abonniere sie und dieser Tab findet viel mehr.</MSM_RepNoUti>
+  <MSM_RepGetUti>Use This Instead abonnieren</MSM_RepGetUti>
+  <MSM_RepSubscribed>{0} abonniert – Steam lädt herunter.</MSM_RepSubscribed>
+  <MSM_RepInactive>nicht aktiv</MSM_RepInactive>
+  <MSM_RepVersion>für {0} gemacht, die alte nicht</MSM_RepVersion>
+  <MSM_RepBoth>beide für {0}</MSM_RepBoth>
+  <MSM_RepErrors>{0} Fehler im Log</MSM_RepErrors>
+  <MSM_RepHave>Ersatz installiert</MSM_RepHave>
+  <MSM_RepNotHave>Ersatz noch nicht installiert</MSM_RepNotHave>
+  <MSM_RepFrom>Vorgeschlagen von: {0}</MSM_RepFrom>
+  <MSM_RepHide>Ausblenden</MSM_RepHide>
+  <MSM_RepSwap>Ersetzen</MSM_RepSwap>
+  <MSM_RepSubscribe>Abonnieren</MSM_RepSubscribe>
+  <MSM_RepNoList>Noch keine Ersatzliste gefunden.</MSM_RepNoList>
+  <MSM_RepNone>Nichts zu ersetzen – alles gut.</MSM_RepNone>
+  <MSM_RepDone>{0} wurde an derselben Stelle durch {1} ersetzt.</MSM_RepDone>
+  <MSM_GroupTitle>{0} Mods ausgewählt</MSM_GroupTitle>
+  <MSM_GroupMore>… und {0} weitere</MSM_GroupMore>
+  <MSM_GroupOn>Aktivieren ({0})</MSM_GroupOn>
+  <MSM_GroupOff>Deaktivieren ({0})</MSM_GroupOff>
+  <MSM_GroupClear>Auswahl aufheben</MSM_GroupClear>
+  <MSM_KeysHelp>Tasten: W/S oder ↑/↓ bewegen · Shift+W/S verschiebt die Auswahl · A/D oder ←/→ aus/an · Strg+Klick, Shift+Klick, Strg+A auswählen · Esc hebt auf</MSM_KeysHelp>
+  <MSM_GroupRemove>{0} Mods entfernen…</MSM_GroupRemove>
+  <MSM_GroupUnsub>{0} Workshop-Mods deabonnieren</MSM_GroupUnsub>
+  <MSM_GroupPark>{0} lokale Mods aus dem Mods-Ordner verschieben</MSM_GroupPark>
+  <MSM_GroupDelete>{0} lokale Mods endgültig löschen</MSM_GroupDelete>
+  <MSM_GroupUnsubConfirm>Diese {0} Mods deabonnieren? Steam löscht ihre Dateien; sie werden deaktiviert.\n\n{1}</MSM_GroupUnsubConfirm>
+  <MSM_GroupParkConfirm>Diese {0} Mods aus dem Mods-Ordner verschieben nach:\n{1}\n\n{2}\n\nDu kannst sie jederzeit zurücklegen.</MSM_GroupParkConfirm>
+  <MSM_GroupDeleteConfirm>Diese {0} Mods endgültig löschen?\n\n{1}\n\nDas kann nicht rückgängig gemacht werden.</MSM_GroupDeleteConfirm>
+  <MSM_GroupRemoved>{0} Mods entfernt (fehlgeschlagen: {1}). Starte das Spiel neu, um abzuschließen.</MSM_GroupRemoved>
+  <MSM_SaveContinue>Speichern und weiterspielen</MSM_SaveContinue>
+  <MSM_SavedNextStart>Mod-Liste gespeichert. Sie gilt ab dem nächsten Spielstart.</MSM_SavedNextStart>
+  <MSM_SaveQuit>Speichern und beenden</MSM_SaveQuit>
+  <MSM_DupFor>für {0}</MSM_DupFor>
+  <MSM_OpenOldFolder>Ältere Kopie: Ordner ({0})</MSM_OpenOldFolder>
+  <MSM_OpenOldSteam>Ältere Kopie: Workshop-Seite ({0})</MSM_OpenOldSteam>
 </LanguageData>

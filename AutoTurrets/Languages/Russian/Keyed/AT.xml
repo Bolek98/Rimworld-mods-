@@ -82,4 +82,23 @@
   <AT_ShellsFromMaterial_Desc>Носильщики приносят сталь (или другой металл) к миномётам, артиллерии и полевым орудиям, и орудие заряжается выбранным снарядом, а если он не выбран — фугасным. Снаряды вообще не нужны. Автоматический миномёт VFE тоже пополняет снаряды из материала.</AT_ShellsFromMaterial_Desc>
   <AT_ShellCost>Материала на один снаряд: {0}</AT_ShellCost>
   <AT_NoMaterial>Мало материала ({0} металла на снаряд)</AT_NoMaterial>
+  <AT_StunRunaways>Оглушающие турели останавливают беглых заключённых и рабов</AT_StunRunaways>
+  <AT_StunRunaways_Desc>Ваши оглушающие (несмертельные) турели стреляют и по вашим заключённым и рабам, которые сбегают, бунтуют, бегут или впадают в ярость. Смертельные турели их по-прежнему не трогают.</AT_StunRunaways_Desc>
+  <AT_StunGiveUp>Оглушённые беглецы сдаются</AT_StunGiveUp>
+  <AT_StunGiveUp_Desc>Сбегающий заключённый или бунтующий раб, оглушённый или сбитый вашей турелью, сдаётся: надзиратели вернут его в камеру, раб вернётся к работе.</AT_StunGiveUp_Desc>
+  <AT_GaveUpPrisoner>{0} оглушён и прекратил побег.</AT_GaveUpPrisoner>
+  <AT_GaveUpSlave>{0} оглушён и прекратил бунт.</AT_GaveUpSlave>
+  <AT_ShellHit>Попадание по {0}: {1} / {2}</AT_ShellHit>
+  <AT_ShellDestroyed>Ваша артиллерия уничтожила {0}. Люди {1} покинули руины.</AT_ShellDestroyed>
+  <AT_ShellDestroyedLabel>База уничтожена артиллерией</AT_ShellDestroyedLabel>
+  <AT_ShellAppliedLabel>Обстрелянная база</AT_ShellAppliedLabel>
+  <AT_ShellApplied>Ваша артиллерия попала по {0} {1} раз до вашего прихода – снаряды упали сейчас.</AT_ShellApplied>
+  <AT_ShellStart>Артиллерия обстреливает {0} – до уничтожения ещё около {1} попаданий.</AT_ShellStart>
+  <AT_ShellLabel>Обстреляно: {0} / {1} попаданий</AT_ShellLabel>
+  <AT_ShellSettlements>Артиллерия обстреливает вражеские базы без карты</AT_ShellSettlements>
+  <AT_ShellSettlements_Desc>Мировая артиллерия VFE Security может стрелять по вражеской базе, где вы не были. Каждое попадание считается: при атаке они сначала падают на базу (меньше защитников), а достаточное число уничтожает её.</AT_ShellSettlements_Desc>
+  <AT_ShellHitsN>Попаданий для уничтожения базы: {0} (меньше для племён, больше для космитов)</AT_ShellHitsN>
+  <AT_ShellNotHostile>{0} ({1}) не враждебно – артиллерия обстреливает только враждебные базы и лагеря (или открытую карту).</AT_ShellNotHostile>
+  <AT_ShellNoTarget>Здесь нечего обстреливать. Выберите враждебную базу или лагерь (разведка не нужна) или открытую карту.</AT_ShellNoTarget>
+  <AT_ShellSiteDestroyed>{0} ({1}) уничтожено артиллерийским огнём.</AT_ShellSiteDestroyed>
 </LanguageData>
