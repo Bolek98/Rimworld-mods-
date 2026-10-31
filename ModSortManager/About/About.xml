@@ -3,7 +3,7 @@
   <name>Mod Sort Manager – Load Order, Conflicts &amp; Profiles</name>
   <author>Bolek98</author>
   <packageId>misak.modsortmanager</packageId>
-  <modVersion>0.3.4</modVersion>
+  <modVersion>0.4.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -22,13 +22,14 @@
   <description>Mod Sort Manager replaces the game's Mods window with a clear manager that finds problems for you – before they break your save. Built for RimWorld 1.7, works on 1.6 too. The game's own Mods button opens it; the original window is one click away.
 
 LOAD ORDER
-- Inactive and active mods side by side, search, drag and drop, double-click to switch on or off.
+- Inactive and active mods side by side, search, drag and drop, double-click to switch on or off. Multi-select (Ctrl / Shift / Ctrl+A) and keyboard control.
 - Smart sort by every mod's own rules (load before / after, dependencies) – your own order is kept wherever the rules allow.
 - Your own load order rules per mod (top, bottom, after / before a mod), shared rules and RimSort's community rules; the details show which rule moved a mod.
 - NEW tag for recently added mods, "Problems only" filter, details with picture, requirements and Workshop page.
 
 PROBLEMS – found for you
-- Duplicates (local + Workshop copy): keep the newer one with one click.
+- Duplicates (also a second Workshop copy the game hides): keep the newer one with one click, open the older copy's folder or Workshop page.
+- Replacements: mods that have a continued or fixed version – swapped in at the same place with one click.
 - Missing dependencies, incompatible mods, wrong order, mods for an older game version.
 - Find the faulty mod: halves the suspects and restarts until the culprit is found (about 8 restarts for 200 mods); your list comes back at the end.
 - Mods that change the same game code, and log errors traced to the mod that caused them.
@@ -44,7 +45,7 @@ WORKSHOP AND SHARING
 - Remove a mod: unsubscribe, put aside or delete.
 
 CHANGES WITHOUT QUITTING
-- Save → the game restarts by itself and can load your last save. Optional Esc menu entry.
+- Save → the game restarts by itself and can load your last save, or save and keep playing. Optional Esc menu entry.
 
 Found a bug? "Report a bug" at the bottom left of the mod settings.
 Steps aside when Fluffy's Mod Manager is active. Changes only the mod list (ModsConfig.xml). Requires Harmony.
@@ -57,13 +58,14 @@ Languages: English, Czech, Simplified Chinese, Russian, Ukrainian, German, Frenc
 Mod Sort Manager nahrazuje herní okno Mody přehledným správcem, který za tebe najde problémy – dřív, než ti rozbijí hru. Pro RimWorld 1.7, funguje i na 1.6. Otevře ho herní tlačítko Mody; původní okno je na jedno kliknutí.
 
 POŘADÍ NAČÍTÁNÍ
-- Neaktivní a aktivní mody vedle sebe, hledání, přetahování, dvojklik pro zapnutí a vypnutí.
+- Neaktivní a aktivní mody vedle sebe, hledání, přetahování, dvojklik pro zapnutí a vypnutí. Výběr více modů (Ctrl / Shift / Ctrl+A) a ovládání klávesnicí.
 - Chytré řazení podle pravidel každého modu (před / po, závislosti) – tvoje pořadí zůstane všude, kde to jde.
 - Vlastní pravidla pořadí pro každý mod (nahoře, dole, za / před modem), sdílená pravidla i komunitní pravidla RimSortu; v detailu uvidíš, které pravidlo mod posunulo.
 - Štítek NOVÝ, filtr „Jen problémové“, detail s obrázkem, požadavky a stránkou na Workshopu.
 
 PROBLÉMY – najde je za tebe
-- Duplikáty (místní + Workshop): ponechat novější jedním klikem.
+- Duplikáty (i druhá kopie z Workshopu, kterou hra skrývá): ponechat novější jedním klikem, otevřít složku nebo stránku starší kopie.
+- Náhrady: mody, které mají pokračování nebo opravenou verzi – jedním klikem vyměněné na stejné místo.
 - Chybějící závislosti, nekompatibilní mody, špatné pořadí, mody pro starší verzi hry.
 - Najít vadný mod: půlí podezřelé a restartuje, dokud viníka nenajde (asi 8 restartů na 200 modů); seznam se na konci vrátí.
 - Mody, které mění stejný kód hry, a chyby v logu přiřazené modu, který je způsobil.
@@ -79,7 +81,7 @@ WORKSHOP A SDÍLENÍ
 - Odebrání modu: zrušit odběr, odložit nebo smazat.
 
 ZMĚNY BEZ VYPÍNÁNÍ
-- Uložit → hra se sama restartuje a může načíst poslední uloženou hru. Volitelně i v menu Esc.
+- Uložit → hra se sama restartuje a může načíst poslední uloženou hru, nebo ulož a hraj dál. Volitelně i v menu Esc.
 
 Našel jsi chybu? „Nahlásit chybu“ vlevo dole v nastavení modu.
 Ustoupí, když je zapnutý Fluffy's Mod Manager. Mění jen seznam modů (ModsConfig.xml). Vyžaduje Harmony.
@@ -89,18 +91,20 @@ Jazyky: 12 jazyků včetně češtiny. Čínský překlad: 洛阳花落 (luoyang
 IDEAS AND SUGGESTIONS
 Want something changed or added? Write it in the comments – I read every idea and take it into account.
 
-WHAT'S NEW IN 0.3.0
-- Your own load order rules + shared and RimSort rules
-- Mod list from a save
-- Possible conflicts: all pairs, explained, hide what works
-- Safe start after a crash
+WHAT'S NEW IN 0.4.0
+- Replacements tab: find and swap in continued or fixed versions of your mods
+- Keyboard control and multi-select (Ctrl / Shift / Ctrl+A)
+- Remove several mods at once
+- "Save and keep playing" and "Save and quit"
+- Better duplicate finder with buttons for the older copy
 
 NÁPADY A NÁVRHY
 Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
 
-CO JE NOVÉHO VE VERZI 0.3.0
-- Vlastní pravidla pořadí + sdílená a RimSort pravidla
-- Seznam modů z uložené hry
-- Možné konflikty: všechny páry, s vysvětlením, skrýt co funguje
-- Bezpečný start po pádu</description>
+CO JE NOVÉHO VE VERZI 0.4.0
+- Záložka Náhrady: najde a vymění pokračování nebo opravené verze modů
+- Ovládání klávesnicí a výběr více modů (Ctrl / Shift / Ctrl+A)
+- Odebrání více modů naráz
+- „Uložit a hrát dál“ a „Uložit a ukončit“
+- Lepší hledání duplikátů s tlačítky pro starší kopii</description>
 </ModMetaData>

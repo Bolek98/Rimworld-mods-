@@ -1,4 +1,26 @@
 === Not on the Workshop yet (test versions) ===
+0.4.0
+New
+- Replacements tab: finds installed mods that have a continued, updated or fixed version (Use This Instead list by Mlie + own list), shows why and swaps it in at the same place in the load order with one click.
+- Keyboard control: W/S or arrows move the cursor, Shift+W/S moves the selected mods, A/D turn them off/on, Esc clears.
+- Multi-select: Ctrl+click, Shift+click, Ctrl+A – turn on/off, move and drag several mods at once.
+- "Remove N mods…": unsubscribe or move away several selected mods at once.
+- Unsaved changes: new "Save and keep playing" (used the next time you start the game, no restart) and "Save and quit" buttons.
+
+Fixes
+- Duplicates: the whole Workshop folder is checked, so a second subscribed copy is found even when the game hides it. Each copy shows its game versions, the one for your game counts as newer, and buttons open the older copy's folder and Workshop page.
+
+Nové
+- Záložka Náhrady: najde nainstalované mody, které mají pokračování, aktualizovanou nebo opravenou verzi (seznam Use This Instead od Mlie + vlastní), řekne proč a jedním klikem ji vymění na stejné místo v pořadí.
+- Ovládání klávesnicí: W/S nebo šipky posouvají kurzor, Shift+W/S přesouvá vybrané mody, A/D je vypínají/zapínají, Esc zruší výběr.
+- Výběr více modů: Ctrl+klik, Shift+klik, Ctrl+A – zapínání, vypínání, posouvání i přetahování více modů naráz.
+- „Odebrat N modů…“: zrušit odběr nebo odložit více vybraných modů najednou.
+- Neuložené změny: nová tlačítka „Uložit a hrát dál“ (použije se při příštím spuštění, bez restartu) a „Uložit a ukončit“.
+
+Opravy
+- Duplikáty: prohledá se celá složka Workshopu, takže se najde i druhá odebíraná kopie, kterou hra skrývá. U každé kopie jsou vidět verze hry, kopie pro tvou hru se bere jako novější a tlačítka otevřou složku a stránku starší kopie na Workshopu.
+
+=== Development history since the last Workshop release (test versions) ===
 0.3.4
 - Duplicates: the whole Workshop folder is checked, so a second subscribed copy of the same mod is found even when the game hides it. Each copy shows the game versions it is for; the copy for your game version counts as the newer one. New buttons open the older copy's folder and its Workshop page (to unsubscribe it).
 - Duplicity: kontroluje se celá složka Workshopu, takže se najde i druhá odebíraná kopie stejného modu, kterou hra skryje. U každé kopie je vidět, pro jaké verze hry je; za novější se bere ta pro tvou verzi hry. Nová tlačítka otevřou složku starší kopie a její stránku na Workshopu (kde ji odhlásíš).
