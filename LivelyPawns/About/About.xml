@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Lively Pawns – Animations &amp; Effects</name>
+  <author>Bolek98</author>
+  <packageId>misak.livelypawns</packageId>
+  <modVersion>0.1.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>Pawns that move like they are alive – and guns that flash. A lighter, richer replacement for Yayo's Animation. Do not run both: when Yayo's Animation is active, Lively Pawns leaves pawn movement to it and only adds its effects.
+
+MOVEMENT
+- Walking bobs with speed; limping on a hurt leg, shuffling when exhausted, leaning forward when drafted, heavier steps when carrying
+- Own motion for each kind of work: hammering, mining swing, stirring a pot, bending over plants, nodding over research and books, sweeping, eating
+- Combat: recoil after every shot, wind-up and lunge in melee, a flinch when hit
+- Breathing, turning in bed, shifting weight while waiting, gestures while chatting
+- Animals bob while walking and dip their heads while grazing
+
+EFFECTS
+- Muzzle glow and flare at the barrel: warm for bullets, blue for charge and energy weapons, big and orange for launchers
+- Gun smoke and ejected brass shell casings
+- Dust under the feet on soil and sand, snow puffs on snow
+
+LIGHT ON YOUR PC
+- One small transform per visible pawn – no work per body part, nothing for pawns outside the camera view, nothing when zoomed far out
+- Performance level Low / Medium / High, a cap on effects per frame, every part can be switched off
+- A pawn that cannot be animated is simply drawn without animation; drawing never breaks
+
+Recommended settings switch. Settings only – safe to add to or remove from an existing save. Czech and English. Requires Harmony.
+
+---
+
+Postavy, které se hýbou jako živé – a zbraně, které blýskají. Lehčí a bohatší náhrada za Yayo's Animation. Nespouštěj oba: když je zapnutý Yayo's Animation, Lively Pawns mu nechá pohyb postav a přidá jen své efekty.
+
+POHYB
+- Chůze se pohupuje podle rychlosti; kulhání na zraněnou nohu, šourání při vyčerpání, předklon při povolání do zbraně, těžší krok s nákladem
+- Vlastní pohyb pro každou práci: zatloukání, máchání krumpáčem, míchání v hrnci, sklánění nad rostlinami, kývání nad výzkumem a knihou, zametání, jídlo
+- Boj: zpětný ráz po každém výstřelu, nápřah a výpad na blízko, cuknutí při zásahu
+- Dýchání, převalení v posteli, přešlapování při čekání, gesta při hovoru
+- Zvířata se pohupují při chůzi a sklánějí hlavu při pastvě
+
+EFEKTY
+- Záře a záblesk u hlavně: teplý u kulových zbraní, modrý u nabíjecích a energetických, velký oranžový u raketometů
+- Kouř ze zbraně a vyhozené mosazné nábojnice
+- Prach pod nohama na hlíně a písku, sníh na sněhu
+
+ŠETRNÉ K PC
+- Jedna malá transformace na viditelnou postavu – nic pro jednotlivé části těla, nic mimo záběr kamery, nic při velkém oddálení
+- Úroveň výkonu Nízký / Střední / Vysoký, limit efektů za snímek, každá část jde vypnout
+- Postava, kterou nejde animovat, se prostě nakreslí bez animace; kreslení se nikdy nerozbije
+
+Přepínač doporučeného nastavení. Jen nastavení – bezpečné přidat i odebrat z rozehrané hry. Čeština a angličtina. Vyžaduje Harmony.</description>
+</ModMetaData>

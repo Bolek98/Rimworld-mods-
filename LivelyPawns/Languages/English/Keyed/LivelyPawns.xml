@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <LP_Rec1>All animations and effects on, normal strength.</LP_Rec1>
+  <LP_Rec2>Performance: Medium – animals animated, dust only when running.</LP_Rec2>
+  <LP_Rec3>Nothing is animated outside the camera view or when zoomed far out.</LP_Rec3>
+  <LP_YayoWarn>Yayo's Animation is active. Lively Pawns leaves pawn movement to it and only adds its effects (muzzle flash, smoke, shells, dust). For Lively Pawns' movement, switch Yayo's Animation off – don't run both.</LP_YayoWarn>
+  <LP_SecMotion>Movement</LP_SecMotion>
+  <LP_SecEffects>Effects</LP_SecEffects>
+  <LP_SecPerf>Performance</LP_SecPerf>
+  <LP_Motion>Animate pawns</LP_Motion>
+  <LP_Motion_Desc>Master switch for all pawn movement.</LP_Motion_Desc>
+  <LP_Walk>Walking</LP_Walk>
+  <LP_Walk_Desc>Steps bob with speed; limping on a hurt leg, shuffling when exhausted, leaning forward when drafted; carrying makes steps heavier.</LP_Walk_Desc>
+  <LP_Work>Working</LP_Work>
+  <LP_Work_Desc>Own motion for each kind of work: hammering (building, smithing, crafting), mining swing, stirring a pot, bending over plants, nodding over research and books, sweeping, eating.</LP_Work_Desc>
+  <LP_Combat>Combat</LP_Combat>
+  <LP_Combat_Desc>Recoil after each shot (pawn and weapon), wind-up and lunge in melee, a flinch when hit.</LP_Combat_Desc>
+  <LP_Rest>Rest and breathing</LP_Rest>
+  <LP_Rest_Desc>Breathing while standing and sleeping, now and then turning in bed.</LP_Rest_Desc>
+  <LP_Idle>Idle and social</LP_Idle>
+  <LP_Idle_Desc>Shifting weight and glancing aside while waiting; small gestures while chatting.</LP_Idle_Desc>
+  <LP_Animals>Animals</LP_Animals>
+  <LP_Animals_Desc>Animals bob while walking and dip their heads while grazing (not on Low performance).</LP_Animals_Desc>
+  <LP_Strength>Movement strength: {0} %</LP_Strength>
+  <LP_Strength_Desc>How big the movements are.</LP_Strength_Desc>
+  <LP_Effects>Effects</LP_Effects>
+  <LP_Effects_Desc>Master switch for all effects.</LP_Effects_Desc>
+  <LP_Muzzle>Muzzle flash</LP_Muzzle>
+  <LP_Muzzle_Desc>A glow and a short flare at the barrel on every shot – warm for bullets, blue for charge and energy weapons, big and orange for launchers. Bows and thrown weapons have none.</LP_Muzzle_Desc>
+  <LP_Smoke>Gun smoke</LP_Smoke>
+  <LP_Smoke_Desc>A small puff of smoke drifting from the barrel.</LP_Smoke_Desc>
+  <LP_Shells>Shell casings</LP_Shells>
+  <LP_Shells_Desc>Bullet guns throw out a spinning brass casing (not on Low performance).</LP_Shells_Desc>
+  <LP_Footsteps>Dust and snow under the feet</LP_Footsteps>
+  <LP_Footsteps_Desc>Running on soil or sand raises dust, on snow a puff of snow. Medium: only running pawns; High: everyone walking.</LP_Footsteps_Desc>
+  <LP_EffectSize>Effect size: {0} %</LP_EffectSize>
+  <LP_EffectSize_Desc>How big the flashes and puffs are.</LP_EffectSize_Desc>
+  <LP_Perf>Performance level: {0}</LP_Perf>
+  <LP_Perf_Desc>Low: colonists only, fewer effects, effects stop sooner when zooming out. Medium: animals too, dust only when running. High: everything, more effects per frame. Pawns outside the camera view are never animated, and nothing is animated when zoomed far out (the game draws pawns as cached pictures there).</LP_Perf_Desc>
+  <LP_Perf0>Low</LP_Perf0>
+  <LP_Perf1>Medium</LP_Perf1>
+  <LP_Perf2>High</LP_Perf2>
+</LanguageData>
