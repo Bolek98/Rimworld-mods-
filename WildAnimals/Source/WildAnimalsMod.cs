@@ -42,7 +42,13 @@ namespace WildAnimals
                 if (v) { MUI.ApplyAll(s); s.recommended = true; edit = null; }
             }, new List<string> { "WA_Bullet1".Translate(), "WA_Bullet2".Translate(), "WA_Bullet3".Translate(), "WA_Bullet4".Translate() }) + 6f;
             if (s.recommended)
-                y += MUI.LockNote(new Rect(inRect.x, y, inRect.width, 0f)) + 4f;
+            {
+                // 0.1.1: nothing is locked – changing anything switches the recommended settings off
+                Rect note = new Rect(inRect.x, y, inRect.width, 24f);
+                MUI.Fill(note, MUI.CardBg2);
+                U.Label(note.ContractedBy(8f, 0f), "WA_EditNote".Translate(), MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft);
+                y += 28f;
+            }
             var tabs = new List<TabRecord>
             {
                 new TabRecord("WA_TabBiomes".Translate(), () => tab = 0, tab == 0),
@@ -149,32 +155,29 @@ namespace WildAnimals
             }
             float y = r.y;
             U.Label(new Rect(r.x, y, r.width - 330f, 30f), WA.Label(sel), MUI.Text1, GameFont.Medium);
-            MUI.BeginLock(s.recommended);
             Rect bCopy = new Rect(r.xMax - 324f, y, 158f, 28f);
             if (Widgets.ButtonText(bCopy, "WA_CopyFrom".Translate()))
             {
                 var opts = DefDatabase<BiomeDef>.AllDefsListForReading.Where(b => b != sel && WA.List(b).Count > 0).OrderBy(b => WA.Label(b))
-                    .Select(b => new FloatMenuOption(WA.Label(b), () => { if (!s.recommended) { WA.Store(sel, new Dictionary<PawnKindDef, float>(WA.List(b))); edit = null; } })).ToList();
+                    .Select(b => new FloatMenuOption(WA.Label(b), () => { Unlock(); WA.Store(sel, new Dictionary<PawnKindDef, float>(WA.List(b))); edit = null; })).ToList();
                 if (opts.Count > 0) Find.WindowStack.Add(new FloatMenu(opts));
             }
             Rect bReset = new Rect(r.xMax - 160f, y, 160f, 28f);
-            if (Widgets.ButtonText(bReset, "WA_ResetBiome".Translate()) && !s.recommended)
+            if (Widgets.ButtonText(bReset, "WA_ResetBiome".Translate()))
             {
+                Unlock();
                 s.lists.Remove(sel.defName);
                 s.target.Remove(sel.defName);
                 edit = null;
             }
-            MUI.EndLock();
             y += 36f;
             // how many
             float def = WA.DefaultTarget(sel);
             float t = WA.TargetBase(sel);
             U.Label(new Rect(r.x, y, r.width, 22f), "WA_Target".Translate(Mathf.RoundToInt(t), Mathf.RoundToInt(def)), MUI.Text1);
             y += 22f;
-            MUI.BeginLock(s.recommended);
             float nt = U.Slider(new Rect(r.x, y, r.width, 22f), t, 0f, Mathf.Max(120f, def * 3f), 1f);
-            if (!s.recommended && Mathf.Abs(nt - t) > 0.01f) s.target[sel.defName] = nt;
-            MUI.EndLock();
+            if (Mathf.Abs(nt - t) > 0.01f) { Unlock(); s.target[sel.defName] = nt; }
             y += 24f;
             Map map = Current.ProgramState == ProgramState.Playing ? Find.CurrentMap : null;
             string sizes = "WA_Sizes".Translate(Mathf.RoundToInt(t * 40000f / WA.BaseCells), Mathf.RoundToInt(t * 90000f / WA.BaseCells));
@@ -205,7 +208,7 @@ namespace WildAnimals
                 .OrderByDescending(k => edit.TryGetValue(k, out float w) && w > 0f).ThenBy(k => WA.Label(k)).ToList();
             float total = edit.Values.Where(v => v > 0f).Sum();
             Rect outR = new Rect(r.x, y, r.width, r.yMax - y);
-            const float rowH = 34f;
+            const float rowH = 46f;
             Rect view = new Rect(0f, 0f, outR.width - 16f, Mathf.Max(rows.Count * rowH, 30f));
             Widgets.BeginScrollView(outR, ref rightScroll, view);
             if (rows.Count == 0)
@@ -217,24 +220,28 @@ namespace WildAnimals
                 Rect row = new Rect(0f, i * rowH, view.width, rowH - 2f);
                 if (i % 2 == 0) MUI.Fill(row, MUI.CardBg2);
                 bool inList = edit.TryGetValue(k, out float v);
-                Widgets.DefIcon(new Rect(row.x + 2f, row.y + 3f, 26f, 26f), k.race);
+                Widgets.DefIcon(new Rect(row.x + 2f, row.y + 8f, 28f, 28f), k.race);
                 string tag = k.RaceProps.predator ? "  · " + "WA_Predator".Translate() : "";
                 if (WA.Coastal(sel, k)) tag += "  · " + "WA_Coastal".Translate();
                 if (!WA.Native(sel, k)) tag += "  · " + "WA_NotNative".Translate();
                 string tw = WA.TempWarning(sel, k);
                 if (tw != null) tag += "  · ⚠ " + tw;
-                U.Label(new Rect(row.x + 32f, row.y, nameW, 18f), WA.Label(k), inList && v > 0f ? MUI.Text1 : MUI.Muted);
-                U.Label(new Rect(row.x + 32f, row.y + 16f, nameW, 16f), WA.ModName(k) + tag, k.RaceProps.predator || tw != null ? MUI.Warn : MUI.Muted, GameFont.Tiny);
+                Text.Font = GameFont.Small;
+                U.Label(new Rect(row.x + 34f, row.y + 1f, nameW - 8f, 24f), WA.Label(k).Truncate(nameW - 8f), inList && v > 0f ? MUI.Text1 : MUI.Muted);
+                Text.Font = GameFont.Tiny;
+                string sub = WA.ModName(k) + tag;
+                Rect subR = new Rect(row.x + 34f, row.y + 24f, nameW - 8f, 20f);
+                U.Label(subR, sub.Truncate(nameW - 8f), k.RaceProps.predator || tw != null ? MUI.Warn : MUI.Muted, GameFont.Tiny);
+                if (Mouse.IsOver(subR)) TooltipHandler.TipRegion(subR, sub);
+                Text.Font = GameFont.Small;
                 float sx = row.x + 32f + nameW;
-                MUI.BeginLock(s.recommended);
-                float nv = U.Slider(new Rect(sx, row.y + 8f, 160f, 18f), v, 0f, 1f, 0.001f);
-                if (!s.recommended && Mathf.Abs(nv - v) > 0.00001f) { edit[k] = nv; WA.Store(sel, edit); }
-                MUI.EndLock();
-                float pct = total > 0f && v > 0f ? v / total * 100f : 0f;
+                    float nv = U.Slider(new Rect(sx, row.y + 14f, 160f, 18f), v, 0f, 1f, 0.001f);
+                if (Mathf.Abs(nv - v) > 0.00001f) { Unlock(); edit[k] = nv; WA.Store(sel, edit); }
+                    float pct = total > 0f && v > 0f ? v / total * 100f : 0f;
                 U.Label(new Rect(sx + 164f, row.y, 68f, rowH), v.ToString("0.###") + " (" + pct.ToString("0.#") + "%)", MUI.Muted, GameFont.Tiny);
                 // per animal (all biomes): cap, seasons, rare
                 AnimalCfg c = WA.Cfg(k);
-                Rect cap = new Rect(sx + 234f, row.y + 5f, 64f, 22f);
+                Rect cap = new Rect(sx + 234f, row.y + 11f, 64f, 24f);
                 if (Widgets.ButtonText(cap, c.cap == 0 ? "∞" : c.cap.ToString()))
                 {
                     var opts = new List<FloatMenuOption>();
@@ -249,7 +256,7 @@ namespace WildAnimals
                 for (int b = 0; b < 4; b++)
                 {
                     int bit = 1 << b;
-                    Rect sr = new Rect(sx + 304f + b * 27f, row.y + 5f, 25f, 22f);
+                    Rect sr = new Rect(sx + 304f + b * 27f, row.y + 11f, 25f, 24f);
                     bool on = (c.seasons & bit) != 0;
                     MUI.Fill(sr, on ? MUI.OnBg : MUI.CardBg);
                     MUI.Frame(sr, on ? MUI.Accent : MUI.Border);
@@ -263,11 +270,11 @@ namespace WildAnimals
                     }
                 }
                 bool rare = c.rare;
-                Widgets.Checkbox(new Vector2(sx + 416f, row.y + 5f), ref rare, 22f);
+                Widgets.Checkbox(new Vector2(sx + 416f, row.y + 12f), ref rare, 22f);
                 if (rare != c.rare) WA.SetCfg(k, new AnimalCfg { cap = c.cap, seasons = c.seasons, rare = rare, temp = c.temp });
                 // only when the outdoor temperature suits it
                 bool tOn = WA.TempOnly(sel, k);
-                Rect tr = new Rect(sx + 444f, row.y + 5f, 26f, 22f);
+                Rect tr = new Rect(sx + 444f, row.y + 11f, 26f, 24f);
                 MUI.Fill(tr, tOn ? MUI.OnBg : MUI.CardBg);
                 MUI.Frame(tr, tOn ? MUI.Accent : MUI.Border);
                 U.Label(tr, "°", tOn ? MUI.Accent : MUI.Muted, GameFont.Small, TextAnchor.MiddleCenter);
@@ -279,33 +286,46 @@ namespace WildAnimals
         }
 
         // ---------------- rules ----------------
+        // 0.1.1: the first change switches the recommended settings off (values start from them)
+        private static void Unlock()
+        {
+            WASettings s = Settings;
+            if (s == null || !s.recommended) return;
+            s.recommended = false;
+        }
+
         private void DrawRules(Rect r)
         {
             WASettings s = Settings;
             var l = new Listing_Standard();
             l.Begin(r);
-            MUI.BeginLock(s.recommended);
+            bool en0 = s.enabled, rl0 = s.rareLetters, pa0 = s.pressureAlert;
             MUI.Section(l, "WA_SecSpawn".Translate());
             MUI.Check(l, "WA_Enabled".Translate(), "WA_EnabledTip".Translate(), ref s.enabled, s, "enabled");
             MUI.RowLabel(l, "WA_Respawn".Translate(Hours(s.respawnHours)), "WA_RespawnTip".Translate(), s, "respawnHours");
             float nh = U.Slider(l.GetRect(22f), s.respawnHours, 1f, 120f, 1f);
-            if (!s.recommended) s.respawnHours = nh;
+            if (Mathf.Abs(nh - s.respawnHours) > 0.01f) { Unlock(); s.respawnHours = nh; }
             MUI.RowLabel(l, "WA_Group".Translate(s.groupFactor.ToString("0.##")), "WA_GroupTip".Translate(), s, "groupFactor");
             float ng = U.Slider(l.GetRect(22f), s.groupFactor, 0.25f, 3f, 0.05f);
-            if (!s.recommended) s.groupFactor = ng;
+            if (Mathf.Abs(ng - s.groupFactor) > 0.001f) { Unlock(); s.groupFactor = ng; }
             l.Gap(8f);
             MUI.Section(l, "WA_SecPredators".Translate());
             MUI.RowLabel(l, s.predatorMaxPct >= 100 ? "WA_PredMaxOff".Translate().ToString() : "WA_PredMax".Translate(s.predatorMaxPct).ToString(), "WA_PredMaxTip".Translate(), s, "predatorMaxPct");
             float np = U.Slider(l.GetRect(22f), s.predatorMaxPct, 0f, 100f, 5f);
-            if (!s.recommended) s.predatorMaxPct = Mathf.RoundToInt(np);
+            if (Mathf.RoundToInt(np) != s.predatorMaxPct) { Unlock(); s.predatorMaxPct = Mathf.RoundToInt(np); }
             MUI.RowLabel(l, s.predatorHomeRadius <= 0 ? "WA_PredHomeOff".Translate().ToString() : "WA_PredHome".Translate(s.predatorHomeRadius).ToString(), "WA_PredHomeTip".Translate(), s, "predatorHomeRadius");
             float nr = U.Slider(l.GetRect(22f), s.predatorHomeRadius, 0f, 100f, 5f);
-            if (!s.recommended) s.predatorHomeRadius = Mathf.RoundToInt(nr);
+            if (Mathf.RoundToInt(nr) != s.predatorHomeRadius) { Unlock(); s.predatorHomeRadius = Mathf.RoundToInt(nr); }
             l.Gap(8f);
             MUI.Section(l, "WA_SecInfo".Translate());
             MUI.Check(l, "WA_RareLetters".Translate(), "WA_RareLettersTip".Translate(), ref s.rareLetters, s, "rareLetters");
             MUI.Check(l, "WA_Pressure".Translate(), "WA_PressureTip".Translate(), ref s.pressureAlert, s, "pressureAlert");
-            MUI.EndLock();
+            if (en0 != s.enabled || rl0 != s.rareLetters || pa0 != s.pressureAlert)
+            {
+                bool e = s.enabled, rl = s.rareLetters, pa = s.pressureAlert;
+                Unlock();
+                s.enabled = e; s.rareLetters = rl; s.pressureAlert = pa;
+            }
             l.Gap(10f);
             l.Label("WA_EventsNote".Translate());
             l.End();
