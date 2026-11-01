@@ -34,6 +34,7 @@ namespace Urt2
     public sealed class Store
     {
         public readonly string Target;     // ISO code
+        public int Rechecked;              // 1.1.1: stored translations accepted again by the fixed check
         private readonly string folder;
         private readonly Dictionary<string, Rec> map = new Dictionary<string, Rec>(StringComparer.Ordinal);
         private readonly object gate = new object();
@@ -256,6 +257,8 @@ namespace Urt2
                     journalCount = ReadFile(JournalPath, journal: true);
                 Version++;
             }
+            if (Rechecked > 0)
+                Log(Rechecked + " translations rejected by the old length check are accepted now");
         }
 
         private int ReadFile(string path, bool journal)
@@ -289,6 +292,17 @@ namespace Urt2
                                 Verdict = (Verdict)br.ReadByte(),
                                 Time = br.ReadInt64()
                             };
+                            // 1.1.1: translations rejected only by the old length/script check get checked again
+                            // (the check was too strict for Chinese, Japanese and Korean)
+                            if (!r.Manual && r.Auto != null && (r.Verdict == Verdict.OddLength || r.Verdict == Verdict.WrongScript))
+                            {
+                                try
+                                {
+                                    Verdict v2 = Validate.Check(k, r.Auto, Target);
+                                    if (v2 == Verdict.Ok) { r.Verdict = Verdict.Ok; if (string.IsNullOrEmpty(r.Text)) r.Text = r.Auto; Rechecked++; }
+                                }
+                                catch { }
+                            }
                             map[k] = r;
                             n++;
                         }

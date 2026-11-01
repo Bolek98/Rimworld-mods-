@@ -47,7 +47,11 @@ namespace Urt2
                 return Verdict.ServiceError;
 
             Lang.Script want = Lang.ScriptOf(targetIso);
-            Lang.Script got = Lang.Dominant(trText);
+            // 1.1.1: Chinese/Japanese/Korean letters carry a whole syllable or word – one counts as 3 Latin
+            // letters, so a Chinese text with an English mod name in it is not "wrong script"
+            Lang.Script got = WideTarget(want) ? Lang.Dominant(trText, true) : Lang.Dominant(trText);
+            // a Chinese label that keeps an English name ("Neural Racks 存储") is still Chinese
+            if (WideTarget(want) && got == Lang.Script.Latin && HasWide(trText)) got = want;
             bool cjkMix = (want == Lang.Script.Kana && got == Lang.Script.Cjk) || (want == Lang.Script.Cjk && got == Lang.Script.Kana);
             if (got != Lang.Script.None && got != want && !cjkMix)
                 return Verdict.WrongScript;
@@ -60,13 +64,38 @@ namespace Urt2
                     return Verdict.Untranslated;
             }
 
-            int ls = srcText.Trim().Length, lt = trText.Trim().Length;
+            // 1.1.1: the length compares weighted letters – a Chinese translation is about a third of the
+            // English character count and was rejected as "cut off" (most Chinese translations failed)
+            int ls = Weighted(srcText.Trim()), lt = Weighted(trText.Trim());
             if (ls >= 40 && (lt < ls * 0.3 || lt > ls * 4))
                 return Verdict.OddLength;
             return Verdict.Ok;
         }
 
         public static bool IsGood(Verdict v) => v == Verdict.Ok;
+
+        private static bool WideTarget(Lang.Script s) => s == Lang.Script.Cjk || s == Lang.Script.Kana || s == Lang.Script.Hangul;
+
+        private static bool HasWide(string s)
+        {
+            foreach (char c in s)
+            {
+                Lang.Script k = Lang.Of(c);
+                if (k == Lang.Script.Cjk || k == Lang.Script.Kana || k == Lang.Script.Hangul) return true;
+            }
+            return false;
+        }
+
+        private static int Weighted(string s)
+        {
+            int n = 0;
+            foreach (char c in s)
+            {
+                Lang.Script k = Lang.Of(c);
+                n += k == Lang.Script.Cjk || k == Lang.Script.Kana || k == Lang.Script.Hangul ? 3 : 1;
+            }
+            return n;
+        }
 
         private static Dictionary<string, int> Tokens(string s)
         {
