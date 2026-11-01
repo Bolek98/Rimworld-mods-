@@ -72,7 +72,7 @@ namespace MisakTabs
 
     public class MTMod : Mod
     {
-        public const string Version = "0.13.1";
+        public const string Version = "0.13.2";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0
@@ -300,6 +300,21 @@ namespace MisakTabs
         public static bool showOriginal;
         private static string search = "";
         private static int filter;            // 0 all, 1 available, 2 locked, 3 not in the queue yet (0.6.0)
+        // 0.13.2: categories in the bills tab too (food, drugs, medicine, weapons, armor, clothes, …),
+        // the same as in the "Add bill" picker
+        private static Dialog_RecipePicker.Group billGroup = Dialog_RecipePicker.Group.All;
+        private static Building_WorkTable billGroupTable;
+        private static readonly Dictionary<RecipeDef, Dialog_RecipePicker.Group> groupCache = new Dictionary<RecipeDef, Dialog_RecipePicker.Group>();
+
+        private static Dialog_RecipePicker.Group GroupOfRecipe(RecipeDef rec)
+        {
+            if (!groupCache.TryGetValue(rec, out var g))
+            {
+                try { g = Dialog_RecipePicker.GroupOf(rec, rec.ProducedThingDef); } catch { g = Dialog_RecipePicker.Group.Other; }
+                groupCache[rec] = g;
+            }
+            return g;
+        }
         private static bool splitDrag;
         private static Vector2 recipeScroll, queueScroll;
         private static readonly Color Muted = new Color32(160, 167, 174, 255);
@@ -582,6 +597,33 @@ namespace MisakTabs
             var inQueue = new HashSet<RecipeDef>(table.billStack.Bills.Select(b => b.recipe));
             string q = (search ?? "").Trim();
             var list = table.def.AllRecipes.Where(rec => rec.AvailableOnNow(table) && (q.Length == 0 || rec.LabelCap.ToString().IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0)).ToList();
+            // 0.13.2: category chips – only when this bench makes things of at least two kinds
+            if (billGroupTable != table) { billGroupTable = table; billGroup = Dialog_RecipePicker.Group.All; }
+            var counts = new Dictionary<Dialog_RecipePicker.Group, int>();
+            foreach (RecipeDef rec in list)
+            {
+                var g = GroupOfRecipe(rec);
+                counts.TryGetValue(g, out int c);
+                counts[g] = c + 1;
+            }
+            if (counts.Count >= 2)
+            {
+                cx = r.x;
+                foreach (Dialog_RecipePicker.Group g in Enum.GetValues(typeof(Dialog_RecipePicker.Group)))
+                {
+                    int n = g == Dialog_RecipePicker.Group.All ? list.Count : (counts.TryGetValue(g, out int c) ? c : 0);
+                    if (n == 0 && g != Dialog_RecipePicker.Group.All) continue;
+                    string lab = ("MT_PA_G" + g).Translate() + " " + n;
+                    float w = Verse.Text.CalcSize(lab).x + 18f;
+                    if (cx + w > r.xMax && cx > r.x) { cx = r.x; y += 28f; }
+                    if (Look.Chip(new Rect(cx, y, w, 22f), lab, billGroup == g)) { billGroup = g; recipeScroll = Vector2.zero; }
+                    cx += w + 6f;
+                }
+                y += 30f;
+                if (billGroup != Dialog_RecipePicker.Group.All)
+                    list = list.Where(rec => GroupOfRecipe(rec) == billGroup).ToList();
+            }
+            else billGroup = Dialog_RecipePicker.Group.All;
             var rows = new List<(RecipeDef rec, bool locked, string why)>();
             foreach (RecipeDef rec in list)
             {

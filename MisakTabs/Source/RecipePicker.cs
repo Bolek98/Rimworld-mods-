@@ -160,7 +160,7 @@ namespace MisakTabs
 
     public class Dialog_RecipePicker : Window
     {
-        private enum Group { All, Meals, Drugs, Medicine, Weapons, Armor, Apparel, Resources, Buildings, Other }
+        public enum Group { All, Meals, Drugs, Medicine, Weapons, Armor, Apparel, Resources, Buildings, Other }
         private enum Sort { Name, Work, Value, Skill }
 
         private class Entry
@@ -267,7 +267,7 @@ namespace MisakTabs
             catch { return false; }
         }
 
-        private static Group GroupOf(RecipeDef rec, ThingDef p)
+        public static Group GroupOf(RecipeDef rec, ThingDef p)
         {
             if (p == null) return Group.Other;
             try
