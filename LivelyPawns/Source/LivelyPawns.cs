@@ -53,7 +53,7 @@ namespace LivelyPawns
 
     public class LivelyPawnsMod : Mod
     {
-        public const string Version = "0.1.0";
+        public const string Version = "0.1.1";
         public static LPSettings S;
         public static bool Yayo;            // Yayo's Animation is active: our pawn movement stays off
         private static List<string> recBullets;
@@ -320,21 +320,21 @@ namespace LivelyPawns
             {
                 if (!s.walk) goto combat;
                 float f = 1.7f * (a.moveSpeed / 4.6f);
-                float amp = human ? 0.032f : 0.022f;
+                float amp = human ? 0.065f : 0.04f;   // 0.1.1: about twice as visible
                 if (a.tired) { f *= 0.75f; amp *= 0.6f; }
                 if (p.carryTracker?.CarriedThing != null) { f *= 0.85f; amp *= 1.4f; }
                 float ph = t * f * Mathf.PI;
                 float step = Mathf.Abs(Mathf.Sin(ph));
                 if (a.limp) step *= Mathf.Sin(ph) > 0f ? 1.8f : 0.5f;
                 off.z += step * amp * k;
-                if (side) angle += Mathf.Sin(ph) * (a.limp ? 5f : 2.5f) * k;
-                else off.x += Mathf.Sin(ph) * 0.015f * k;
-                if (human && p.Drafted && side) angle += 6f * fwd * k;
+                if (side) angle += Mathf.Sin(ph) * (a.limp ? 9f : 5f) * k;
+                else { off.x += Mathf.Sin(ph) * 0.03f * k; angle += Mathf.Sin(ph) * 3f * k; }
+                if (human && p.Drafted && side) angle += 8f * fwd * k;
                 if (a.limp && side) angle += 3f * fwd * k;
             }
             else if (human && s.work && a.motion != Motion.None && a.motion != Motion.Idle)
             {
-                Work(a.motion, t, side, fwd, k, ref off, ref angle);
+                Work(a.motion, t, side, fwd, k * 1.7f, ref off, ref angle);   // 0.1.1: stronger
             }
             else if (!human && s.animals && a.motion == Motion.Eat)
             {
@@ -345,9 +345,9 @@ namespace LivelyPawns
             else if (human && s.idle)
             {
                 // shift weight, now and then a glance aside
-                off.x += Mathf.Sin(t * 0.35f) * 0.008f * k;
+                off.x += Mathf.Sin(t * 0.35f) * 0.014f * k;
                 float c = (t * 1.3f) % 9f;
-                if (c < 1.2f) angle += Mathf.Sin(c / 1.2f * Mathf.PI) * 2.5f * k;
+                if (c < 1.2f) angle += Mathf.Sin(c / 1.2f * Mathf.PI) * 4f * k;
             }
             if (human && !moving && s.rest) scaleZ = 1f + Mathf.Sin(t * 1.6f) * 0.006f * k;   // breathing
 
@@ -442,6 +442,12 @@ namespace LivelyPawns
         {
             h.Patch(AccessTools.Method(typeof(PawnRenderer), "GetDrawParms"),
                 postfix: new HarmonyMethod(typeof(Hooks), nameof(DrawParmsPostfix)));
+            // 0.1.1: at normal zoom (above 18) the game draws people from a cached picture and ignores the
+            // draw matrix – the motion is added to the cached picture's position and angle instead (cheap)
+            CachedMotion.Init();
+            if (CachedMotion.ok)
+                h.Patch(AccessTools.Method(typeof(PawnRenderer), "ParallelPreRenderPawnAt"),
+                    postfix: new HarmonyMethod(typeof(CachedMotion), nameof(CachedMotion.Postfix)));
             h.Patch(AccessTools.Method(typeof(Map), nameof(Map.MapUpdate)),
                 postfix: new HarmonyMethod(typeof(Hooks), nameof(MapUpdatePostfix)));
             h.Patch(AccessTools.Method(typeof(PawnRenderUtility), nameof(PawnRenderUtility.DrawEquipmentAiming)),
@@ -644,6 +650,58 @@ namespace LivelyPawns
             d.velocitySpeed = Rand.Range(0.1f, 0.25f);
             d.rotationRate = Rand.Range(-30f, 30f);
             map.flecks.CreateFleck(d);
+        }
+    }
+}
+
+
+namespace LivelyPawns
+{
+    using System.Reflection;
+
+    public static class CachedMotion
+    {
+        public static bool ok;
+        private static FieldInfo resultsF, useCachedF, bodyPosF, bodyAngleF, facingF, postureF, parmsF, pawnF;
+
+        public static void Init()
+        {
+            try
+            {
+                resultsF = AccessTools.Field(typeof(PawnRenderer), "results");
+                pawnF = AccessTools.Field(typeof(PawnRenderer), "pawn");
+                System.Type t = resultsF.FieldType;
+                useCachedF = AccessTools.Field(t, "useCached");
+                bodyPosF = AccessTools.Field(t, "bodyPos");
+                bodyAngleF = AccessTools.Field(t, "bodyAngle");
+                postureF = AccessTools.Field(t, "posture");
+                parmsF = AccessTools.Field(t, "parms");
+                ok = resultsF != null && pawnF != null && useCachedF != null && bodyPosF != null && bodyAngleF != null && postureF != null && parmsF != null;
+            }
+            catch { ok = false; }
+            if (!ok) Log.Warning("[Lively Pawns] motion at normal zoom not available (game code changed).");
+        }
+
+        public static void Postfix(PawnRenderer __instance)
+        {
+            Pawn p = null;
+            try
+            {
+                if (!Anim.active) return;
+                object r = resultsF.GetValue(__instance);
+                if (!(bool)useCachedF.GetValue(r)) return;
+                p = (Pawn)pawnF.GetValue(__instance);
+                if (p == null || p.Dead || !Anim.InView(p)) return;
+                PawnDrawParms parms = (PawnDrawParms)parmsF.GetValue(r);
+                PawnPosture posture = (PawnPosture)postureF.GetValue(r);
+                if (!Anim.Compute(p, parms.facing, posture, out Vector3 off, out float ang, out float sz)) return;
+                float angle = (float)bodyAngleF.GetValue(r);
+                Vector3 pos = (Vector3)bodyPosF.GetValue(r);
+                bodyPosF.SetValue(r, pos + Quaternion.AngleAxis(angle, Vector3.up) * off);
+                bodyAngleF.SetValue(r, angle + ang);
+                resultsF.SetValue(__instance, r);
+            }
+            catch (Exception e) { if (p != null) Anim.Skip(p, e); }
         }
     }
 }
