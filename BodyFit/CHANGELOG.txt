@@ -1,0 +1,5 @@
+=== Not on the Workshop yet (test versions) ===
+2.5.4
+- HAR races: clothing with no picture for the pawn's body type (e.g. '…_Thin') no longer logs 'Failed to find any textures' – the closest body type's picture is used quietly and named once in BodyFit.log.
+- Rasy HAR: oblečení bez obrázku pro typ těla postavy (např. „…_Thin“) už nehlásí „Failed to find any textures“ – potichu se použije obrázek nejbližšího typu těla a jednou se zapíše do BodyFit.log.
+

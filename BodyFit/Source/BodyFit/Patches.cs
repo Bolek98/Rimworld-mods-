@@ -93,6 +93,11 @@ public static class HeadFix
 public static class Patch_Apparel
 {
 	[ThreadStatic] private static bool inside;
+	// 2.5.4: set while the game builds the clothing picture of a HAR race pawn – a missing body-type
+	// picture (e.g. "…_Thin") is then left empty quietly (no "Failed to find any textures" error)
+	// and the postfix below puts in the closest body type that has one
+	[ThreadStatic] internal static bool harLookup;
+	private static readonly HashSet<string> told = new HashSet<string>();
 	// 1.2.3: keyed by the picture path (styles change it), guarded by BF.Gate
 	private static readonly Dictionary<(string, BodyTypeDef), BodyTypeDef> chosen = new Dictionary<(string, BodyTypeDef), BodyTypeDef>();
 
@@ -135,7 +140,10 @@ public static class Patch_Apparel
 		{
 			Pawn wearer = apparel.Wearer;
 			if (wearer != null && Bodies.IsHar(wearer.def))
+			{
+				harLookup = BF.Main && UsesBodySuffix(apparel);
 				return;   // handled after HAR, in the postfix
+			}
 			if (apparel.WornGraphicPath.NullOrEmpty() || !UsesBodySuffix(apparel))
 				return;
 			var key = (apparel.WornGraphicPath, bodyType);
@@ -175,6 +183,9 @@ public static class Patch_Apparel
 
 	public static void Postfix(Apparel apparel, BodyTypeDef bodyType, bool forStatue, ref ApparelGraphicRecord rec, ref bool __result)
 	{
+		bool wasHar = harLookup;
+		if (!inside)
+			harLookup = false;
 		if (inside || !BodyFitMod.Settings.fixApparel || !__result || apparel == null || bodyType == null || (apparel.Wearer != null && !BF.Handles(apparel.Wearer)))
 			return;
 		// 1.2.3: building graphics is main-thread work
@@ -185,6 +196,7 @@ public static class Patch_Apparel
 			if (!(rec.graphic is Graphic_Multi g) || g.MatSouth != BaseContent.BadMat)
 				return;
 			inside = true;
+			harLookup = wasHar;
 			// 1.2.3: only try bodies that have a picture – no "Failed to find any textures" errors
 			string suf = "_" + bodyType.defName;
 			string stem = g.path != null && g.path.EndsWith(suf) ? g.path.Substring(0, g.path.Length - bodyType.defName.Length) : null;
@@ -199,6 +211,8 @@ public static class Patch_Apparel
 					if (apparel.WornGraphicPath != null)
 						lock (BF.Gate)
 							harChosen[(apparel.WornGraphicPath, bodyType)] = alt;
+					if (g.path != null && told.Add(g.path))
+						MLog.Info("[Body Fit] no clothing picture " + g.path + " (" + apparel.def.defName + ") – the " + alt.defName + " picture is used.");
 					break;
 				}
 			}
@@ -209,6 +223,46 @@ public static class Patch_Apparel
 		finally
 		{
 			inside = false;
+			harLookup = false;
+		}
+	}
+}
+
+// 2.5.4: the quiet half of the HAR fallback above – a clothing picture for a body type that does not
+// exist is not loaded (no error, no pink square); Patch_Apparel then uses the closest body type.
+[HarmonyPatch(typeof(Graphic_Multi), nameof(Graphic_Multi.Init))]
+public static class Patch_QuietMissingBody
+{
+	private static readonly AccessTools.FieldRef<Graphic_Multi, Material[]> mats = AccessTools.FieldRefAccess<Graphic_Multi, Material[]>("mats");
+
+	private static bool HasBodySuffix(string path)
+	{
+		int i = path.LastIndexOf('_');
+		return i > 0 && DefDatabase<BodyTypeDef>.GetNamedSilentFail(path.Substring(i + 1)) != null;
+	}
+
+	public static bool Prefix(Graphic_Multi __instance, GraphicRequest req)
+	{
+		if (!Patch_Apparel.harLookup || !BF.Main || req.path.NullOrEmpty())
+			return true;
+		try
+		{
+			if (!HasBodySuffix(req.path) || Bodies.TextureExists(req.path))
+				return true;
+			__instance.data = req.graphicData;
+			__instance.path = req.path;
+			__instance.maskPath = req.maskPath;
+			__instance.color = req.color;
+			__instance.colorTwo = req.colorTwo;
+			__instance.drawSize = req.drawSize;
+			Material[] m = mats(__instance);
+			for (int i = 0; i < m.Length; i++)
+				m[i] = BaseContent.BadMat;
+			return false;
+		}
+		catch
+		{
+			return true;
 		}
 	}
 }
