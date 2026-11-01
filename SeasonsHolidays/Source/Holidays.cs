@@ -136,6 +136,7 @@ namespace SeasonsHolidays
         // ---------- holiday extras ----------
         private static void Resolutions(Map map)
         {
+            if (Activities.On("NewYear")) return;   // 0.4.0: the activity gives one skill instead
             HediffDef d = DefDatabase<HediffDef>.GetNamedSilentFail("SH_Resolution");
             if (d == null) return;
             foreach (Pawn p in Colonists(map))
@@ -176,7 +177,14 @@ namespace SeasonsHolidays
             things.AddRange(Make("Silver", 25 * Mathf.Clamp(n, 1, 12)));
             things.AddRange(Make("MedicineHerbal", Mathf.Clamp(n / 2, 2, 6)));
             things.AddRange(Make("Beer", Mathf.Clamp(n, 2, 10)));
-            Drop(map, "SH_GiftChristmas", things);
+            // 0.4.0: with a Christmas tree the presents lie under it
+            Thing tree = Activities.ChristmasTree(map);
+            if (tree != null)
+            {
+                foreach (Thing t in things) GenPlace.TryPlaceThing(t, tree.Position, map, ThingPlaceMode.Near);
+                Messages.Message("SH_GiftUnderTree".Translate(), tree, MessageTypeDefOf.PositiveEvent);
+            }
+            else Drop(map, "SH_GiftChristmas", things);
             // white Christmas: snow when it is cold enough
             if (SHMod.S.events && map.mapTemperature.OutdoorTemp < 0f && Rand.Chance(0.6f))
             {
@@ -205,6 +213,7 @@ namespace SeasonsHolidays
         private static void HalloweenFog(Map map)
         {
             if (!SHMod.S.events) return;
+            Activities.HalloweenNight(map);   // 0.4.0
             WeatherDef fog = DefDatabase<WeatherDef>.GetNamedSilentFail("Fog");
             if (fog != null && map.weatherManager.curWeather != fog && map.weatherManager.curWeather.rainRate < 0.1f) map.weatherManager.TransitionTo(fog);
         }
@@ -253,6 +262,15 @@ namespace SeasonsHolidays
     {
         public Dictionary<string, int> celebrated = new Dictionary<string, int>();
         public List<string> done = new List<string>();   // "<holiday>|<year>|<map>" already done
+        // 0.4.0: activities – things to do later ("tick|map|what|arg") and short holiday bonuses
+        public List<string> pending = new List<string>();
+        public int romanceUntil = -1, herbUntil = -1, cropUntil = -1;
+
+        public void Schedule(Map map, int tick, string what, string arg)
+        {
+            pending.Add(tick + "|" + map.uniqueID + "|" + what + "|" + (arg ?? ""));
+            if (pending.Count > 60) pending.RemoveAt(0);
+        }
 
         public SHWorldComponent(World world) : base(world) { }
 
@@ -270,6 +288,11 @@ namespace SeasonsHolidays
         {
             Scribe_Collections.Look(ref celebrated, "celebrated", LookMode.Value, LookMode.Value);
             Scribe_Collections.Look(ref done, "done", LookMode.Value);
+            Scribe_Collections.Look(ref pending, "pending", LookMode.Value);
+            Scribe_Values.Look(ref romanceUntil, "romanceUntil", -1);
+            Scribe_Values.Look(ref herbUntil, "herbUntil", -1);
+            Scribe_Values.Look(ref cropUntil, "cropUntil", -1);
+            if (pending == null) pending = new List<string>();
             if (celebrated == null) celebrated = new Dictionary<string, int>();
             if (done == null) done = new List<string>();
         }

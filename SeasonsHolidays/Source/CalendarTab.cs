@@ -125,8 +125,23 @@ namespace SeasonsHolidays
                 bool on = Holidays.On(h);
                 GUI.color = on ? Gold : Muted;
                 Rect lr = new Rect(c.x + 10f, y, c.width - 20f, 18f);
-                Widgets.Label(lr, dates[h].d + ".  " + h.Label + (on ? "" : " (" + "SH_TabOff".Translate() + ")"));
-                TooltipHandler.TipRegion(lr, h.Desc);
+                // 0.4.0: a "Celebrate" button for holidays with an activity
+                bool can = on && Activities.On(h.id);
+                Rect cel = new Rect(lr.xMax - 18f, lr.y, 18f, 18f);
+                Widgets.Label(can ? new Rect(lr.x, lr.y, lr.width - 20f, lr.height) : lr, dates[h].d + ".  " + h.Label + (on ? "" : " (" + "SH_TabOff".Translate() + ")"));
+                TooltipHandler.TipRegion(lr, h.Desc + (can ? "\n\n" + "SH_ActTabTip".Translate(Activities.Label(h.id)) : ""));
+                if (can)
+                {
+                    GUI.color = Mouse.IsOver(cel) ? Color.white : Green;
+                    Widgets.Label(cel, "▶");
+                    GUI.color = on ? Gold : Muted;
+                    if (Widgets.ButtonInvisible(cel))
+                    {
+                        Holiday hh = h;
+                        Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("SH_ActConfirm".Translate(hh.Label, Activities.Label(hh.id)),
+                            () => Activities.Run(map, hh.id, true)));
+                    }
+                }
                 y += 17f;
             }
             if (births != null && SHMod.S.birthdays)

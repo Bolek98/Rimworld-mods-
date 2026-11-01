@@ -36,6 +36,7 @@ namespace SeasonsHolidays
             // changes – with a longer year that is every few days, so it is refreshed every day here
             if (absDay != lastDay) { lastDay = absDay; if (YearClock.Days != 60) DatePatches.Reset(); }
             if (Holidays.Colonists(map).Count == 0) return;
+            Activities.Tick(map);   // 0.4.0
             int hour = GenLocalDate.HourOfDay(map);
             Months.Now(map, out int month, out int day);
             float lat = Find.WorldGrid.LongLatOf(map.Tile).y;
@@ -124,6 +125,7 @@ namespace SeasonsHolidays
                 foreach (Pawn p in Holidays.Colonists(map))
                     if (h.who == null || h.who(p)) Holidays.GiveThought(p, h.thought, stage);
             try { h.morning?.Invoke(map); } catch (Exception e) { Log.Warning("[Seasons & Holidays] " + h.id + ": " + e.Message); }
+            try { Activities.Morning(map, h); } catch (Exception e) { Log.Warning("[Seasons & Holidays] activity " + h.id + ": " + e.Message); }   // 0.4.0
             string text = ("SH_HL_" + h.id).Translate();
             int n = Tradition.Count(h.id);
             if (SHMod.S.traditions && n >= 2) text += "\n\n" + "SH_TraditionNote".Translate(n);
@@ -133,6 +135,7 @@ namespace SeasonsHolidays
 
         private void Party(Pawn organizer)
         {
+            if (Activities.GatheringRunning(map)) return;   // 0.4.0: an activity's gathering is already on
             try
             {
                 GatheringDef party = GatheringDefOf.Party;

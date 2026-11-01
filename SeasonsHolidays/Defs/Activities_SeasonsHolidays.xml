@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 0.4.0: holiday activities -->
+
+  <LetterDef>
+    <defName>SH_ActivityLetter</defName>
+    <letterClass>SeasonsHolidays.ChoiceLetter_SHActivity</letterClass>
+    <color>(240, 190, 70)</color>
+    <flashColor>(250, 215, 120)</flashColor>
+    <flashInterval>90</flashInterval>
+    <arriveSound>LetterArrive_Good</arriveSound>
+  </LetterDef>
+
+  <HediffDef>
+    <defName>SH_ResolutionSkill</defName>
+    <label>New Year's resolution</label>
+    <description>This year I'm going to get better at one thing! Learns that skill faster for a season.</description>
+    <hediffClass>SeasonsHolidays.Hediff_SHResolution</hediffClass>
+    <isBad>false</isBad>
+    <defaultLabelColor>(0.6, 0.9, 0.6)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>900000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- ===== items ===== -->
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>SH_EasterEgg</defName>
+    <label>painted egg</label>
+    <description>A hard-boiled egg painted in bright colours for Easter. Finding one is half the fun, eating it the other half.</description>
+    <graphicData>
+      <texPath>Things/SH/Egg</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.7</drawSize>
+    </graphicData>
+    <stackLimit>25</stackLimit>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <statBases>
+      <MarketValue>3</MarketValue>
+      <Mass>0.05</Mass>
+      <Nutrition>0.05</Nutrition>
+      <DeteriorationRate>2</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Foods</li>
+    </thingCategories>
+    <ingestible>
+      <foodType>Processed</foodType>
+      <preferability>DesperateOnly</preferability>
+      <joy>0.10</joy>
+      <joyKind>Gluttonous</joyKind>
+      <tasteThought>SH_EasterEggTaste</tasteThought>
+      <ingestSound>Meal_Eat</ingestSound>
+    </ingestible>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>SH_Coal</defName>
+    <label>lump of coal</label>
+    <description>A lump of coal from the devil who came with St. Nicholas. Somebody was naughty this year.</description>
+    <graphicData>
+      <texPath>Things/SH/Coal</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.7</drawSize>
+    </graphicData>
+    <stackLimit>75</stackLimit>
+    <statBases>
+      <MarketValue>0.5</MarketValue>
+      <Mass>0.4</Mass>
+    </statBases>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>SH_Toy</defName>
+    <label>toy blocks</label>
+    <description>A set of painted wooden blocks. Children love them; adults secretly too.</description>
+    <graphicData>
+      <texPath>Things/SH/Toy</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.8</drawSize>
+    </graphicData>
+    <stackLimit>10</stackLimit>
+    <statBases>
+      <MarketValue>15</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+  </ThingDef>
+
+  <!-- ===== decorations ===== -->
+
+  <ThingDef Name="SH_DecoBase" ParentName="BuildingBase" Abstract="True">
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>30</pathCost>
+    <fillPercent>0.2</fillPercent>
+    <rotatable>false</rotatable>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+    <tickerType>Rare</tickerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <building>
+      <ai_chillDestination>true</ai_chillDestination>
+      <wakeDormantPawnsOnConstruction>false</wakeDormantPawnsOnConstruction>
+      <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+    </building>
+  </ThingDef>
+
+  <ThingDef ParentName="SH_DecoBase">
+    <defName>SH_WitchPyre</defName>
+    <label>witch bonfire</label>
+    <description>A pile of logs with a straw witch on top. On Witches' Night she burns and takes the winter with her.</description>
+    <graphicData>
+      <texPath>Things/SH/WitchPyre</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.6</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Beauty>6</Beauty>
+      <Flammability>0</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_FireOverlay">
+        <fireSize>1.4</fireSize>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>10</glowRadius>
+        <glowColor>(252,187,113,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <heatPerSecond>18</heatPerSecond>
+        <heatPushMaxTemperature>30</heatPushMaxTemperature>
+      </li>
+      <li Class="CompProperties_Lifespan">
+        <lifespanTicks>15000</lifespanTicks>
+      </li>
+      <li><compClass>CompGatherSpot</compClass></li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="SH_DecoBase">
+    <defName>SH_SolsticeFire</defName>
+    <label>midsummer fire</label>
+    <description>A bonfire lit on the shortest night of the year. People sit around it, sing and jump over the embers.</description>
+    <graphicData>
+      <texPath>Things/SH/WitchPyre</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.2</drawSize>
+      <color>(150,110,70)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Beauty>4</Beauty>
+      <Flammability>0</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_FireOverlay">
+        <fireSize>1.2</fireSize>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>9</glowRadius>
+        <glowColor>(252,187,113,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Lifespan">
+        <lifespanTicks>15000</lifespanTicks>
+      </li>
+      <li><compClass>CompGatherSpot</compClass></li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="SH_DecoBase">
+    <defName>SH_Maypole</defName>
+    <label>maypole</label>
+    <description>A tall pole with a green crown and colourful ribbons, raised on the first of May. Guard it at night – the neighbours like to steal it.</description>
+    <graphicData>
+      <texPath>Things/SH/Maypole</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.2,2.4)</drawSize>
+      <drawOffset>(0,0,0.6)</drawOffset>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Beauty>12</Beauty>
+      <Flammability>1</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Lifespan">
+        <lifespanTicks>600000</lifespanTicks>
+      </li>
+      <li><compClass>CompGatherSpot</compClass></li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="SH_DecoBase">
+    <defName>SH_HarvestWreath</defName>
+    <label>harvest wreath</label>
+    <description>A wreath woven from the last ears of grain, a thanks for this year's harvest.</description>
+    <graphicData>
+      <texPath>Things/SH/Wreath</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <Beauty>10</Beauty>
+      <Flammability>1</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Lifespan">
+        <lifespanTicks>900000</lifespanTicks>
+      </li>
+      <li><compClass>CompGatherSpot</compClass></li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="SH_DecoBase">
+    <defName>SH_PumpkinLantern</defName>
+    <label>pumpkin lantern</label>
+    <description>A carved pumpkin with a candle inside. It grins into the Halloween night.</description>
+    <graphicData>
+      <texPath>Things/SH/Pumpkin</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.9</drawSize>
+    </graphicData>
+    <passability>Standable</passability>
+    <pathCost>10</pathCost>
+    <statBases>
+      <MaxHitPoints>30</MaxHitPoints>
+      <Beauty>5</Beauty>
+      <Flammability>1</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(255,160,60,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Lifespan">
+        <lifespanTicks>180000</lifespanTicks>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="SH_DecoBase">
+    <defName>SH_GraveCandle</defName>
+    <label>grave candle</label>
+    <description>A small candle in red glass, lit on All Souls' Day for those who are no longer with us.</description>
+    <graphicData>
+      <texPath>Things/SH/Candle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.6</drawSize>
+    </graphicData>
+    <passability>Standable</passability>
+    <pathCost>0</pathCost>
+    <statBases>
+      <MaxHitPoints>20</MaxHitPoints>
+      <Beauty>3</Beauty>
+      <Flammability>0</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(255,120,80,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Lifespan">
+        <lifespanTicks>120000</lifespanTicks>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>SH_ChristmasTree</defName>
+    <label>Christmas tree</label>
+    <description>A decorated tree with baubles and a star. Colonists like to gather around it, and on Christmas morning the presents lie underneath.</description>
+    <graphicData>
+      <texPath>Things/SH/ChristmasTree</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.4,1.75)</drawSize>
+      <drawOffset>(0,0,0.3)</drawOffset>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>40</pathCost>
+    <fillPercent>0.4</fillPercent>
+    <rotatable>false</rotatable>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+    <designationCategory>Misc</designationCategory>
+    <uiOrder>2100</uiOrder>
+    <costList>
+      <WoodLog>40</WoodLog>
+    </costList>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>1200</WorkToBuild>
+      <Beauty>22</Beauty>
+      <Flammability>1</Flammability>
+    </statBases>
+    <building>
+      <ai_chillDestination>true</ai_chillDestination>
+      <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+    </building>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(255,220,150,0)</glowColor>
+      </li>
+      <li><compClass>CompGatherSpot</compClass></li>
+    </comps>
+  </ThingDef>
+
+  <!-- ===== the holiday trader ===== -->
+
+  <TraderKindDef>
+    <defName>SH_HolidayTrader</defName>
+    <label>holiday trader</label>
+    <commonality>0</commonality>
+    <requestable>false</requestable>
+    <stockGenerators>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Silver</thingDef>
+        <countRange>600~1200</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>SH_ChristmasCookies</thingDef>
+        <countRange>10~25</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Chocolate</thingDef>
+        <countRange>20~45</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Beer</thingDef>
+        <countRange>15~35</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>SH_EasterEgg</thingDef>
+        <countRange>10~25</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>SH_Toy</thingDef>
+        <countRange>2~6</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>MealFine</thingDef>
+        <countRange>10~20</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Cloth</thingDef>
+        <countRange>60~150</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>MedicineHerbal</thingDef>
+        <countRange>5~12</countRange>
+      </li>
+      <li Class="StockGenerator_BuyExpensiveSimple" />
+    </stockGenerators>
+  </TraderKindDef>
+
+  <!-- ===== thoughts ===== -->
+
+  <ThoughtDef>
+    <defName>SH_EasterEggTaste</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>5</stackLimit>
+    <stackedEffectMultiplier>0.6</stackedEffectMultiplier>
+    <stages>
+      <li>
+        <label>found an Easter egg</label>
+        <description>I found a painted egg! Childish? Maybe. Fun? Definitely.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_RomanticDinner</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>romantic dinner</label>
+        <description>A candlelit dinner just for the two of us on Valentine's Day.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_CarnivalParade</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>carnival parade</label>
+        <description>Masks, music and doughnuts – the whole colony in a costume parade!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_Fasting</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>after the carnival</label>
+        <description>Yesterday a feast, today a fast. My stomach and my head are both protesting a little.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_WitchBurning</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>burned the witch</label>
+        <description>We burned the witch on a big bonfire and chased the winter away. What a night!</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_MayKiss</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>kiss under a blooming tree</label>
+        <description>A kiss under a blooming tree on the first of May – so I won't wither this year.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_MaypoleKept</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>we kept our maypole</label>
+        <description>Nobody stole our maypole! It stands proud in the middle of the colony.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_MaypoleStolen</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>our maypole was stolen</label>
+        <description>The neighbours stole our maypole in the night! Embarrassing – next year we guard it better.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_GotToys</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>new toys</label>
+        <description>New toys for Children's Day! Best day ever.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_DayOff</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>a day off</label>
+        <description>No children to celebrate with, so we gave ourselves the day off instead.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_MidsummerFire</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>midsummer fire</label>
+        <description>Herbs gathered at midsummer and a fire on the shortest night – magic is in the air.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_HarvestFeast</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>harvest feast</label>
+        <description>The wreath is hung and the harvest is in. Time to eat, drink and be thankful.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_GhostSighting</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>saw a ghost!</label>
+        <description>Something white floated past the window on Halloween night… Spooky, but a great story!</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_ThanksFeast</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>Thanksgiving feast</label>
+        <description>A long table, too much food and good company. I'm thankful for this colony.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_NicholasGift</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>a gift from St. Nicholas</label>
+        <description>St. Nicholas said I was good this year and left me a gift.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_GotCoal</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>got coal from the devil</label>
+        <description>The devil gave me a lump of coal. Fine, I wasn't an angel this year.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_Carols</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>Christmas carols</label>
+        <description>We sang carols around the tree. Off-key, but from the heart.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>SH_Hangover</defName>
+    <durationDays>0.5</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>New Year hangover</label>
+        <description>Ugh. Happy New Year… could everyone please speak more quietly?</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

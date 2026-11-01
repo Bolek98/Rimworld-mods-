@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
 using RimWorld;
 using UnityEngine;
@@ -41,6 +42,9 @@ namespace SeasonsHolidays
         public bool packAmericas = true;
         public bool packEurope = true;
         public bool packDays = true;          // small days, a message only
+        public bool activities = true;        // 0.4.0: holiday activities (egg hunt, witch bonfire, maypole …)
+        public bool holidayTrader = true;     // 0.4.0: a trader with seasonal goods at Christmas and Easter
+        public List<string> actOff = new List<string>();   // 0.4.0: activities switched off one by one
 
         public override void ExposeData()
         {
@@ -69,13 +73,17 @@ namespace SeasonsHolidays
             Scribe_Values.Look(ref packAmericas, "packAmericas", true);
             Scribe_Values.Look(ref packEurope, "packEurope", true);
             Scribe_Values.Look(ref packDays, "packDays", true);
+            Scribe_Values.Look(ref activities, "activities", true);
+            Scribe_Values.Look(ref holidayTrader, "holidayTrader", true);
+            Scribe_Collections.Look(ref actOff, "actOff", LookMode.Value);
+            if (actOff == null) actOff = new List<string>();
             if (off == null) off = new List<string>();
         }
     }
 
     public class SHMod : Mod
     {
-        public const string Version = "0.3.0";
+        public const string Version = "0.4.0";
         public static SHSettings S;
         private static List<string> recBullets;
         private static Vector2 scroll;
@@ -83,7 +91,7 @@ namespace SeasonsHolidays
         public SHMod(ModContentPack content) : base(content)
         {
             S = GetSettings<SHSettings>();
-            MUI.Init(new SHSettings(), null, "recommended", "yearMode", "off", "realDate", "yearDays", "ageWithYear");
+            MUI.Init(new SHSettings(), null, "recommended", "yearMode", "off", "realDate", "yearDays", "ageWithYear", "actOff");
             if (S.recommended) MUI.ApplyAll(S);
             MNews.Register(content, Version);
             var h = new Harmony("misak.seasonsholidays");
@@ -92,6 +100,7 @@ namespace SeasonsHolidays
             WeatherMonths.Patch(h);
             YearClock.Patch(h);   // 0.2.0
             PlantColors.Patch(h); // 0.3.0
+            Activities.Patch(h);  // 0.4.0
             Log.Message("[Seasons & Holidays] v" + Version + " loaded.");
         }
 
@@ -145,7 +154,7 @@ namespace SeasonsHolidays
             }
             if (S.recommended) y += MUI.LockNote(new Rect(r.x, y, r.width, 0f)) + 4f;
             Rect rest = new Rect(r.x, y, r.width, r.yMax - y);
-            Rect view = new Rect(0f, 0f, rest.width - 16f, 1200f + Holidays.All.Count * 26f);
+            Rect view = new Rect(0f, 0f, rest.width - 16f, 1500f + Holidays.All.Count * 26f);
             MUI.BeginLock(S.recommended);
             Widgets.BeginScrollView(rest, ref scroll, view);
             try
@@ -163,6 +172,8 @@ namespace SeasonsHolidays
                 Check(l, "SH_Letters", ref S.letters, "letters");
                 Check(l, "SH_Birthdays", ref S.birthdays, "birthdays");
                 Check(l, "SH_Traditions", ref S.traditions, "traditions");
+                Check(l, "SH_Activities", ref S.activities, "activities");
+                Check(l, "SH_HolidayTrader", ref S.holidayTrader, "holidayTrader");
                 Check(l, "SH_PackAsia", ref S.packAsia, "packAsia");
                 Check(l, "SH_PackAmericas", ref S.packAmericas, "packAmericas");
                 Check(l, "SH_PackEurope", ref S.packEurope, "packEurope");
@@ -180,6 +191,15 @@ namespace SeasonsHolidays
                 MUI.Section(l, "SH_SecMoods".Translate());
                 Check(l, "SH_SeasonalMoods", ref S.seasonalMoods, "seasonalMoods");
                 Check(l, "SH_WinterBlues", ref S.winterBlues, "winterBlues");
+                // 0.4.0: every activity on its own
+                MUI.Section(l, "SH_SecActivities".Translate());
+                foreach (Holiday ha in Holidays.All.Where(x => Activities.Has(x.id)))
+                {
+                    bool aon = !S.actOff.Contains(ha.id);
+                    l.CheckboxLabeled(ha.Label + ": " + Activities.Label(ha.id), ref aon, ("SH_ActDesc_" + ha.id).Translate());
+                    if (aon) S.actOff.Remove(ha.id);
+                    else if (!S.actOff.Contains(ha.id)) S.actOff.Add(ha.id);
+                }
                 MUI.Section(l, "SH_SecList".Translate());
                 foreach (Holiday hd in Holidays.All)
                 {
