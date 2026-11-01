@@ -27,6 +27,7 @@ namespace MisakTabs
         public bool needs = true, billDialog = true;                                  // 0.11.0
         public float needsW = 640f, needsH = 520f;                                    // 0.11.0
         public bool paneLook = true, plantPicker = true;                                                  // 0.12.0
+        public bool recipePicker = true, surgeryPicker = true, ownerPicker = true, policyPicker = true, researchPicker = true, mechPicker = true, animalPicker = true, tradeWindow = true;   // 0.13.0: pickers everywhere
 
         public override void ExposeData()
         {
@@ -50,6 +51,14 @@ namespace MisakTabs
             Scribe_Values.Look(ref billDialog, "billDialog", true);
             Scribe_Values.Look(ref paneLook, "paneLook", true);
             Scribe_Values.Look(ref plantPicker, "plantPicker", true);
+            Scribe_Values.Look(ref recipePicker, "recipePicker", true);
+            Scribe_Values.Look(ref surgeryPicker, "surgeryPicker", true);
+            Scribe_Values.Look(ref ownerPicker, "ownerPicker", true);
+            Scribe_Values.Look(ref policyPicker, "policyPicker", true);
+            Scribe_Values.Look(ref researchPicker, "researchPicker", true);
+            Scribe_Values.Look(ref mechPicker, "mechPicker", true);
+            Scribe_Values.Look(ref animalPicker, "animalPicker", true);
+            Scribe_Values.Look(ref tradeWindow, "tradeWindow", true);
             Scribe_Values.Look(ref needsW, "needsW", 640f);
             Scribe_Values.Look(ref needsH, "needsH", 520f);
         }
@@ -115,6 +124,14 @@ namespace MisakTabs
                 Check(l, "MT_BillDialog", ref S.billDialog, "billDialog");
                 Check(l, "MT_PaneLook", ref S.paneLook, "paneLook");
                 Check(l, "MT_PlantPicker", ref S.plantPicker, "plantPicker");
+                Check(l, "MT_RecipePicker", ref S.recipePicker, "recipePicker");
+                Check(l, "MT_SurgeryPicker", ref S.surgeryPicker, "surgeryPicker");
+                Check(l, "MT_OwnerPicker", ref S.ownerPicker, "ownerPicker");
+                Check(l, "MT_PolicyPicker", ref S.policyPicker, "policyPicker");
+                Check(l, "MT_ResearchPicker", ref S.researchPicker, "researchPicker");
+                Check(l, "MT_MechPicker", ref S.mechPicker, "mechPicker");
+                Check(l, "MT_AnimalPicker", ref S.animalPicker, "animalPicker");
+                Check(l, "MT_TradeWindow", ref S.tradeWindow, "tradeWindow");
                 l.End();
             }
             finally { MUI.EndLock(rest); }
