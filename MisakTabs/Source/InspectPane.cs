@@ -1,3 +1,4 @@
+using System.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace MisakTabs
     {
         private static MethodInfo toggleTab;
         private static Vector2 textScroll;
+        private static Texture2D vanillaFill;
+        private static Texture2D VanillaFill => vanillaFill ?? (vanillaFill = SolidColorMaterials.NewSolidColorTexture(new Color(0.07450981f, 0.08627451f, 9f / 85f, 1f)));
 
         public static bool On => MTMod.S != null && MTMod.S.paneLook;
 
@@ -55,46 +58,92 @@ namespace MisakTabs
         }
 
         // ---------------- tab buttons ----------------
+        // 0.12.1: too many tabs for one row (many race mods add their own) – the ones that do not fit
+        // go behind a "More ▾" button at the left end; the open tab always stays visible.
+        // Without our look the vanilla buttons are kept and only an overflow is handled here.
         public static bool TabsPrefix(IInspectPane pane)
         {
-            if (!On) return true;
             try
             {
-                float top = pane.PaneTopY - 30f;
-                float x = InspectPaneUtility.PaneWidthFor(pane) - 72f;
-                float leftEdge = 0f;
-                bool drewOpen = false;
                 IEnumerable tabs = pane.CurTabs;
-                if (tabs == null) return false;
-                var list = new List<InspectTabBase>();
-                foreach (object o in tabs) if (o is InspectTabBase t) list.Add(t);
-                foreach (InspectTabBase tab in list)
+                if (tabs == null) return On ? false : true;
+                var all = new List<InspectTabBase>();
+                foreach (object o in tabs) if (o is InspectTabBase t && t.IsVisible) all.Add(t);
+                var shown = all.Where(t => !t.Hidden).ToList();
+                float paneW = InspectPaneUtility.PaneWidthFor(pane);
+                int capacity = Math.Max(2, (int)(paneW / 72f));
+                bool overflow = shown.Count > capacity;
+                if (!On && !overflow) return true;   // vanilla draws as usual
+
+                var row = shown;
+                var rest = new List<InspectTabBase>();
+                if (overflow)
                 {
-                    if (!tab.IsVisible) continue;
+                    // keep capacity-1 buttons, the last slot is "More"; the open tab is always among the kept ones
+                    row = shown.Take(capacity - 1).ToList();
+                    InspectTabBase open = shown.FirstOrDefault(t => t.GetType() == pane.OpenTabType);
+                    if (open != null && !row.Contains(open))
+                        row[row.Count - 1] = open;
+                    rest = shown.Where(t => !row.Contains(t)).ToList();
+                }
+
+                float top = pane.PaneTopY - 30f;
+                float x = paneW - 72f;
+                float leftEdge = 0f;
+                foreach (InspectTabBase tab in row)
+                {
                     bool open = tab.GetType() == pane.OpenTabType;
-                    if (!tab.Hidden)
+                    Rect r = new Rect(x, top, 72f, 30f);
+                    leftEdge = x;
+                    bool clicked;
+                    if (On) clicked = TabButton(r, tab.labelKey.Translate(), open);
+                    else { Text.Font = GameFont.Small; clicked = Widgets.ButtonText(r, tab.labelKey.Translate()); }
+                    if (clicked)
+                        toggleTab.Invoke(null, new object[] { tab, pane });
+                    if (!open && !tab.TutorHighlightTagClosed.NullOrEmpty())
+                        UIHighlighter.HighlightOpportunity(r, tab.TutorHighlightTagClosed);
+                    x -= 72f;
+                }
+                if (rest.Count > 0)
+                {
+                    Rect r = new Rect(x, top, 72f, 30f);
+                    leftEdge = x;
+                    string label = "MT_TabsMore".Translate();
+                    bool clicked;
+                    if (On) clicked = TabButton(r, label, false);
+                    else { Text.Font = GameFont.Small; clicked = Widgets.ButtonText(r, label); }
+                    TooltipHandler.TipRegion(r, "MT_TabsMoreTip".Translate(rest.Count));
+                    if (clicked)
                     {
-                        Rect r = new Rect(x, top, 72f, 30f);
-                        leftEdge = x;
-                        if (TabButton(r, tab.labelKey.Translate(), open))
-                            toggleTab.Invoke(null, new object[] { tab, pane });
-                        if (!open && !tab.TutorHighlightTagClosed.NullOrEmpty())
-                            UIHighlighter.HighlightOpportunity(r, tab.TutorHighlightTagClosed);
-                        x -= 72f;
-                    }
-                    if (open)
-                    {
-                        tab.DoTabGUI();
-                        pane.RecentHeight = 700f;
-                        drewOpen = true;
+                        var opts = new List<FloatMenuOption>();
+                        foreach (InspectTabBase t in rest)
+                        {
+                            InspectTabBase tab = t;
+                            opts.Add(new FloatMenuOption(tab.labelKey.Translate(), () => toggleTab.Invoke(null, new object[] { tab, pane })));
+                        }
+                        Find.WindowStack.Add(new FloatMenu(opts));
                     }
                 }
+
+                bool drewOpen = false;
+                foreach (InspectTabBase tab in all)
+                {
+                    if (tab.GetType() != pane.OpenTabType) continue;
+                    tab.DoTabGUI();
+                    pane.RecentHeight = 700f;
+                    drewOpen = true;
+                    break;
+                }
                 if (drewOpen)
-                    MUI.Fill(new Rect(0f, top, leftEdge, 30f), Look.Bg);
+                {
+                    if (On) MUI.Fill(new Rect(0f, top, leftEdge, 30f), Look.Bg);
+                    else GUI.DrawTexture(new Rect(0f, top, leftEdge, 30f), VanillaFill);
+                }
             }
             catch (Exception e)
             {
                 Log.ErrorOnce("[Mišák Tabs] tab buttons: " + e, 0x4d5401);
+                return !On;
             }
             return false;
         }
