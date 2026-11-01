@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--a:#f2789a}
+body{width:1280px;height:720px;overflow:hidden;font-family:Inter,"Noto Color Emoji",sans-serif;color:#f1eaee;
+background:radial-gradient(900px 600px at 105% 110%,rgba(242,120,154,.26),transparent 60%),#141013}
+.left{position:absolute;left:72px;top:72px;width:520px}
+.tag{font-weight:700;letter-spacing:.18em;font-size:16px;color:var(--a)}
+h1{font-family:"Inter Display";font-weight:800;font-size:76px;line-height:.98;margin-top:14px;letter-spacing:-.03em}
+.hook{font-size:32px;font-weight:700;line-height:1.18;margin-top:22px}
+.hook em{font-style:normal;color:var(--a)}
+.sub{font-size:20px;color:#b8a9b0;margin-top:14px;line-height:1.4}
+.chips{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.chip{padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-size:18px;font-weight:600}
+.chip.hot{background:var(--a);color:#24101a;border-color:var(--a)}
+.by{position:absolute;left:72px;bottom:40px;color:#867880;font-size:18px}
+.note{position:absolute;right:60px;bottom:40px;color:#6f636a;font-size:14px}
+.panel{position:absolute;right:56px;top:84px;width:590px;background:#1d171b;border:1px solid #45363e;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.55);overflow:hidden}
+.bar{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid #35292f}
+.bar b{font-size:20px;margin-right:auto}
+.btn{font-size:14px;font-weight:600;padding:7px 12px;border-radius:8px;background:#2c2228;border:1px solid #4e3c46}
+.btn.on{background:var(--a);color:#24101a;border-color:var(--a)}
+.alert{margin:16px 20px 4px;padding:12px 16px;border-radius:12px;background:linear-gradient(90deg,rgba(242,120,154,.24),rgba(242,120,154,.08));border:1px solid rgba(242,120,154,.6);font-size:16px;line-height:1.35}
+.alert b{color:#ffb3c6}
+.row{display:grid;grid-template-columns:96px 1fr 1fr 74px;gap:10px;align-items:center;margin:0 20px;padding:10px 0;border-top:1px solid #2e2429;font-size:15px}
+.row.h{border-top:none;color:#9d8e95;font-size:12px;font-weight:600;letter-spacing:.06em;padding:12px 0 4px}
+.row .n{font-weight:600;font-size:16px}
+.new{color:#f6d6df;font-weight:600}
+.old{color:#8a7a82;text-decoration:line-through;font-size:12px;display:block}
+.ok{color:#7fd38e;font-weight:700;font-size:13px}
+.why{margin:8px 20px 18px;padding:12px 14px;border-radius:10px;background:#251d22;border:1px solid #3c2f36;font-size:14px;color:#c9bbc2;line-height:1.4}
+.why b{color:var(--a)}
+</style></head><body>
+<div class="left">
+ <div class="tag">RIMWORLD 1.7 · 1.6 · GEAR</div>
+ <h1>Smart Colonist<br>Gear</h1>
+ <div class="hook">Raid incoming? Everyone is <em>already geared up.</em></div>
+ <div class="sub">Colonists take the best weapons and armor your colony has researched – by themselves, and back to work clothes after the fight.</div>
+ <div class="chips">
+  <div class="chip hot">⚔️ Best guns to best fighters</div>
+  <div class="chip">❄️ Dressed for cold &amp; toxic air</div>
+  <div class="chip">🎒 Sidearms built in</div>
+  <div class="chip">❓ "Why" for every change</div>
+ </div>
+</div>
+<div class="by">by Bolek98 · pairs with World at Your Level · safe for existing saves</div>
+<div class="note">illustration · names and gear are an example</div>
+<div class="panel">
+ <div class="bar"><b>Gear</b><span class="btn on">Equip everyone now</span><span class="btn">Planner</span></div>
+ <div class="alert">⚔️ <b>Raid!</b> 4 colonists switched to battle gear from storage.</div>
+ <div class="row h"><span>COLONIST</span><span>WEAPON</span><span>ARMOR</span><span></span></div>
+ <div class="row"><span class="n">Mara</span><span class="new">Assault rifle<span class="old">Bolt-action rifle</span></span><span class="new">Flak vest<span class="old">Parka</span></span><span class="ok">✔ ready</span></div>
+ <div class="row"><span class="n">Okafor</span><span class="new">Longsword<span class="old">Knife</span></span><span class="new">Flak vest<span class="old">Button-down shirt</span></span><span class="ok">✔ ready</span></div>
+ <div class="row"><span class="n">Jun</span><span class="new">Sniper rifle<span class="old">Revolver</span></span><span class="new">Flak jacket<span class="old">Duster</span></span><span class="ok">✔ ready</span></div>
+ <div class="row"><span class="n">Vesna</span><span class="new">Autopistol<span class="old">no weapon</span></span><span class="new">Flak vest<span class="old">Jacket</span></span><span class="ok">✔ ready</span></div>
+ <div class="why"><b>Why?</b> Jun: Revolver → Sniper rifle – best shooter gets the best ranged weapon (Smart Colonist Gear).</div>
+</div>
+</body></html>

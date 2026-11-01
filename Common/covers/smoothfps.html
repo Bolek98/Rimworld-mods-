@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="common.css"><style>.left{top:110px}
+:root{--a:#5cb8ff}
+body{background:radial-gradient(900px 600px at 105% 110%,rgba(60,140,255,.32),transparent 60%),#0e1218}
+h1{font-size:96px;white-space:nowrap}
+.chip.hot{color:#071220}
+.panel{top:88px;background:#161c25;border:1px solid #2c3a4f}
+.bar{border-bottom:1px solid #263244}
+.sec{padding:14px 20px;border-bottom:1px solid #222c3b}
+.lbl{font-size:13px;letter-spacing:.12em;color:#8a9ab0;font-weight:700;margin-bottom:10px}
+.speeds{display:flex;gap:10px}
+.sp{flex:1;padding:10px;border-radius:10px;background:#1d2533;border:1px solid #2f3d52;text-align:center}
+.sp b{display:block;font-size:22px}
+.sp small{font-size:13px;color:#8a9ab0}
+.sp.on{border-color:var(--a);background:rgba(92,184,255,.12)}
+.tog{display:flex;justify-content:space-between;align-items:center;font-size:17px;padding:6px 0}
+.sw{width:44px;height:24px;border-radius:12px;background:var(--a);position:relative}
+.sw:after{content:"";position:absolute;right:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#0e1218}
+.sw.off{background:#3a475a}.sw.off:after{left:3px;right:auto;background:#8a9ab0}
+.doc{font-size:16px;line-height:1.45;color:#d4dce8}
+.doc b{color:#ff8080}.doc i{font-style:normal;color:var(--a);font-weight:600}
+.ovl{position:absolute;right:76px;top:46px;padding:8px 14px;border-radius:10px;background:rgba(0,0,0,.6);border:1px solid #2c3a4f;font:600 15px Inter;color:#9fe0a0;letter-spacing:.02em;z-index:2}
+</style></head><body>
+<div class="left">
+ <div class="tag">RIMWORLD 1.7 · 1.6 · PERFORMANCE</div>
+ <h1>Smooth<span style="color:var(--a)"> FPS</span></h1>
+ <div class="hook">Smooth at <em>every game speed</em> – even in big colonies.</div>
+ <div class="sub">The game no longer spends the whole frame on ticks: you pick the FPS, the rest goes to game speed. Built for 1.7.</div>
+ <div class="chips">
+  <div class="chip hot">⏩ FPS target per speed</div>
+  <div class="chip">🚀 Turbo at speed 3 & 4</div>
+  <div class="chip">🩺 Error doctor</div>
+  <div class="chip">🔍 What slows the game</div>
+ </div>
+</div>
+<div class="by">by Bolek98 · safe to add to an existing save</div>
+<div class="ovl">FPS 60 · speed ×3 · smooth ✔</div>
+<div class="panel">
+ <div class="bar"><b>Smooth FPS</b><span class="btn">Balanced</span><span class="btn">Benchmark</span></div>
+ <div class="sec"><div class="lbl">FPS TARGET PER SPEED</div>
+  <div class="speeds"><div class="sp"><b>60</b><small>speed 1</small></div><div class="sp"><b>60</b><small>speed 2</small></div><div class="sp on"><b>45</b><small>speed 3</small></div><div class="sp on"><b>30</b><small>speed 4</small></div></div></div>
+ <div class="sec">
+  <div class="tog"><span>Smart target (steps down when the PC can't keep up)</span><span class="sw"></span></div>
+  <div class="tog"><span>Turbo at speed 3 and 4 while you don't touch anything</span><span class="sw"></span></div>
+  <div class="tog"><span>Brighter nights</span><span class="sw off"></span></div>
+ </div>
+ <div class="sec" style="border:0"><div class="lbl">ERROR DOCTOR</div>
+  <div class="doc"><b>Red error</b> in the log → really caused by <i>Some Mod</i>, explained in plain words.</div></div>
+</div>
+<div class="note">illustration · settings values are an example</div>
+</body></html>
