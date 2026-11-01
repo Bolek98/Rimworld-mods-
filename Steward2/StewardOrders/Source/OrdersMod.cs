@@ -23,6 +23,7 @@ namespace ColonyForeman;
 public sealed class OrdersSettings : ModSettings
 {
 	public bool work = true, research = true, sleep = true, relax = true;
+	public bool oneClick = true;   // 0.2.0: right-click on a bed / bench / joy building does it at once
 
 	public override void ExposeData()
 	{
@@ -30,6 +31,7 @@ public sealed class OrdersSettings : ModSettings
 		Scribe_Values.Look(ref research, "research", true);
 		Scribe_Values.Look(ref sleep, "sleep", true);
 		Scribe_Values.Look(ref relax, "relax", true);
+		Scribe_Values.Look(ref oneClick, "oneClick", true);
 	}
 }
 
@@ -41,6 +43,7 @@ public sealed class OrdersMod : Mod
 	public OrdersMod(ModContentPack content) : base(content)
 	{
 		S = GetSettings<OrdersSettings>();
+		try { OneClick.Patch(new Harmony("misak.steward.orders")); } catch (Exception e) { Log.Warning("[Steward Orders] one click: " + e.Message); }
 		try { StewardApi.AddSettingsPage(new SettingsPage { label = "SO_Name".Translate(), draw = Draw, write = () => S.Write() }); } catch { }
 		MLog.Info("[Steward] Orders v" + Version + " loaded.");
 	}
@@ -55,6 +58,7 @@ public sealed class OrdersMod : Mod
 		l.Begin(r);
 		l.Label("SO_Intro".Translate());
 		l.Gap(6f);
+		l.CheckboxLabeled("SO_SetOneClick".Translate(), ref S.oneClick, "SO_SetOneClickTip".Translate());
 		l.CheckboxLabeled("SO_SetWork".Translate(), ref S.work, "SO_SetWorkTip".Translate());
 		l.CheckboxLabeled("SO_SetResearch".Translate(), ref S.research, "SO_SetResearchTip".Translate());
 		l.CheckboxLabeled("SO_SetSleep".Translate(), ref S.sleep, "SO_SetSleepTip".Translate());
@@ -86,12 +90,73 @@ public class FloatMenuOptionProvider_StewardOrders : FloatMenuOptionProvider
 		var list = new List<FloatMenuOption>();
 		try
 		{
+			if (OrdersMod.S.oneClick && OneClick.primary == null) OneClick.primary = Primary(pawn, clickedThing);
 			if (OrdersMod.S.work || OrdersMod.S.research) WorkOrders(pawn, clickedThing, context, list);
 			if (OrdersMod.S.sleep && clickedThing is Building_Bed bed) BedOrder(pawn, bed, list);
 			if (OrdersMod.S.relax) RelaxOrder(pawn, clickedThing, list);
 		}
 		catch (Exception e) { Log.ErrorOnce("[Steward Orders] menu: " + e, 0x50D3E1); }
 		foreach (FloatMenuOption o in list) yield return o;
+	}
+
+	// ---------- 0.2.0: the one thing a right-click on this does at once ----------
+	private static FloatMenuOption Primary(Pawn pawn, Thing t)
+	{
+		if (t is Building_Bed bed)
+		{
+			if (!OrdersMod.S.sleep) return null;
+			var tmp = new List<FloatMenuOption>();
+			BedOrder(pawn, bed, tmp);
+			return tmp.FirstOrDefault(o => !o.Disabled);
+		}
+		if (t is Building_ResearchBench || t is IBillGiver && t is Building)
+		{
+			FloatMenuOption o = WorkHere(pawn, t);
+			if (o != null) return o;
+		}
+		if (OrdersMod.S.relax && t is Building)
+		{
+			var tmp = new List<FloatMenuOption>();
+			RelaxOrder(pawn, t, tmp);
+			return tmp.FirstOrDefault(o => !o.Disabled);
+		}
+		return null;
+	}
+
+	// the first work the colonist can do right here (bills at a bench, research at a research bench) –
+	// assigned or not, as long as he is capable of it
+	private static FloatMenuOption WorkHere(Pawn pawn, Thing t)
+	{
+		if (pawn.thinker?.TryGetMainTreeThinkNode<JobGiver_Work>() == null) return null;
+		foreach (WorkTypeDef wt in DefDatabase<WorkTypeDef>.AllDefsListForReading.OrderBy(w => pawn.workSettings != null && pawn.workSettings.GetPriority(w) == 0 ? 1 : 0))
+		{
+			if (pawn.WorkTypeIsDisabled(wt)) continue;
+			bool notAssigned = pawn.workSettings != null && pawn.workSettings.GetPriority(wt) == 0;
+			if (notAssigned && !(t is Building_ResearchBench ? OrdersMod.S.research : OrdersMod.S.work)) continue;
+			foreach (WorkGiverDef wg in wt.workGiversByPriority)
+			{
+				if (!(wg.Worker is WorkGiver_Scanner sc) || !wg.directOrderable) continue;
+				if (pawn.WorkTagIsDisabled(wg.workTags) || sc.MissingRequiredCapacity(pawn) != null) continue;
+				if (!sc.PotentialWorkThingRequest.Accepts(t)) continue;
+				Job job = null;
+				try
+				{
+					if (!sc.ShouldSkip(pawn, forced: true) && sc.HasJobOnThing(pawn, t, forced: true))
+						job = sc.JobOnThing(pawn, t, forced: true);
+				}
+				catch { job = null; }
+				if (job == null || !pawn.CanReach(t, sc.PathEndMode, Danger.Deadly)) continue;
+				job.workGiverDef = wg;
+				Job local = job;
+				WorkGiver_Scanner localSc = sc;
+				return new FloatMenuOption("SO_WorkHere".Translate(t.LabelShort), () =>
+				{
+					local.playerForced = true;
+					pawn.jobs.TryTakeOrderedJobPrioritizedWork(local, localSc, t.Position);
+				});
+			}
+		}
+		return null;
 	}
 
 	// ---------- work the game does not let you prioritize ----------
@@ -206,5 +271,31 @@ public class FloatMenuOptionProvider_StewardOrders : FloatMenuOptionProvider
 			list.Add(new FloatMenuOption(lab, () => pawn.jobs.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds), MenuOptionPriority.High));
 			return;
 		}
+	}
+}
+
+// 0.2.0: a right-click on a bed, a work bench, a research bench or a joy building does the obvious thing
+// at once (sleep, work, research, relax) instead of opening the menu. Ctrl + right-click opens the menu.
+public static class OneClick
+{
+	public static FloatMenuOption primary;
+
+	public static void Patch(Harmony h)
+	{
+		h.Patch(AccessTools.Method(typeof(FloatMenuMakerMap), nameof(FloatMenuMakerMap.GetOptions)),
+			prefix: new HarmonyMethod(typeof(OneClick), nameof(Clear)));
+		h.Patch(AccessTools.Method(typeof(FloatMenuMakerMap), nameof(FloatMenuMakerMap.GetAutoTakeOption)),
+			postfix: new HarmonyMethod(typeof(OneClick), nameof(Take)));
+	}
+
+	public static void Clear() => primary = null;
+
+	public static void Take(ref FloatMenuOption __result)
+	{
+		FloatMenuOption p = primary;
+		primary = null;
+		if (__result != null || p == null || p.Disabled || OrdersMod.S == null || !OrdersMod.S.oneClick) return;
+		if (Event.current != null && (Event.current.control || Event.current.command)) return;
+		__result = p;
 	}
 }
