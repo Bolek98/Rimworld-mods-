@@ -23,6 +23,7 @@ namespace Urt2
         private static readonly Regex ErrorLike = new Regex(@"\b(error|exception|rate.?limit|too many requests|quota|unauthorized|forbidden|invalid api|service unavailable|bad request)\b|<html|<!doctype|<body", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex AnyToken = new Regex(@"\{[^{}\r\n]*\}|\[[^\[\]\r\n]*\]|</?[A-Za-z][^<>\r\n]*>|\(\*[A-Za-z_][^)\r\n]*\)|\(/[A-Za-z_][A-Za-z0-9_]*\)|\\[nrt]|%(?:\d+\$)?[-+#0]*(?:\d+|\*)?(?:\.(?:\d+|\*))?[diuoxXfFeEgGsc%]", RegexOptions.Compiled);
         private static readonly Regex Word = new Regex(@"\p{L}{3,}", RegexOptions.Compiled);
+        private static readonly Regex AnyWord = new Regex(@"[\p{L}\p{M}]+", RegexOptions.Compiled);
 
         public static Verdict Check(string source, string translation, string targetIso)
         {
@@ -51,7 +52,9 @@ namespace Urt2
             // letters, so a Chinese text with an English mod name in it is not "wrong script"
             Lang.Script got = WideTarget(want) ? Lang.Dominant(trText, true) : Lang.Dominant(trText);
             // a Chinese label that keeps an English name ("Neural Racks 存储") is still Chinese
-            if (WideTarget(want) && got == Lang.Script.Latin && HasWide(trText)) got = want;
+            // 1.1.1: the same for every non-Latin target (Arabic, Thai, Russian…); the "untranslated" check
+            // below still catches an English answer with only a letter or two of the target script
+            if (want != Lang.Script.Latin && got == Lang.Script.Latin && HasScript(trText, want)) got = want;
             bool cjkMix = (want == Lang.Script.Kana && got == Lang.Script.Cjk) || (want == Lang.Script.Cjk && got == Lang.Script.Kana);
             if (got != Lang.Script.None && got != want && !cjkMix)
                 return Verdict.WrongScript;
@@ -76,12 +79,12 @@ namespace Urt2
 
         private static bool WideTarget(Lang.Script s) => s == Lang.Script.Cjk || s == Lang.Script.Kana || s == Lang.Script.Hangul;
 
-        private static bool HasWide(string s)
+        private static bool HasScript(string s, Lang.Script want)
         {
             foreach (char c in s)
             {
                 Lang.Script k = Lang.Of(c);
-                if (k == Lang.Script.Cjk || k == Lang.Script.Kana || k == Lang.Script.Hangul) return true;
+                if (k == want || (want == Lang.Script.Kana && k == Lang.Script.Cjk) || (want == Lang.Script.Cjk && k == Lang.Script.Kana)) return true;
             }
             return false;
         }
@@ -125,11 +128,19 @@ namespace Urt2
             foreach (Match m in Word.Matches(src)) if (m.Value.Length >= 4) s.Add(m.Value);
             if (s.Count < 4) return false;
             int same = 0, all = 0;
-            foreach (Match m in Word.Matches(tr))
+            foreach (Match m in AnyWord.Matches(tr))
             {
-                if (m.Value.Length < 4) continue;
+                string w = m.Value;
+                if (Lang.Dominant(w) != Lang.Script.Latin)
+                {
+                    // 1.1.1: words of other scripts count too (a Chinese word is short but carries a lot);
+                    // before, "Neural Racks 储物架" counted only the two English words = "untranslated"
+                    all += Math.Max(1, Weighted(w) / 4);
+                    continue;
+                }
+                if (w.Length < 4) continue;
                 all++;
-                if (s.Contains(m.Value)) same++;
+                if (s.Contains(w)) same++;
             }
             return all > 0 && same >= all * 0.7;
         }

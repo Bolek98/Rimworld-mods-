@@ -1,7 +1,7 @@
 === Not on the Workshop yet (test versions) ===
 1.1.1
-- Chinese, Japanese and Korean translations are no longer rejected as "too short" (one character counts as three letters now) – most Chinese translations failed this check. A Chinese text that keeps an English name is not "wrong script" any more. Translations already rejected this way are accepted on the next start.
-- Čínské, japonské a korejské překlady už nejsou odmítány jako „moc krátké“ (jeden znak se počítá jako tři písmena) – většina čínských překladů touto kontrolou neprošla. Čínský text, který ponechá anglický název, už není „špatné písmo“. Takto odmítnuté překlady se přijmou při dalším spuštění.
+- Chinese, Japanese and Korean translations are no longer rejected as "too short" (one character counts as three letters now) – most Chinese translations failed this check. A translation that keeps an English name (Chinese, Japanese, Korean, Arabic, Thai, Russian…) is no longer rejected as "wrong script" or "untranslated". Translations already rejected this way are accepted on the next start.
+- Čínské, japonské a korejské překlady už nejsou odmítány jako „moc krátké“ (jeden znak se počítá jako tři písmena) – většina čínských překladů touto kontrolou neprošla. Překlad, který ponechá anglický název (čínština, japonština, korejština, arabština, thajština, ruština…), už není odmítnut jako „špatné písmo“ nebo „nepřeloženo“. Takto odmítnuté překlady se přijmou při dalším spuštění.
 
 1.1.0
 - Translates more: when a service gives a text back in English, the next service gets a chance (before, the first answer was final and many names and labels stayed English). Translations already in memory that stayed English are sent again once. Texts the game glued together from already translated parts ("carpet (blue) (blueprint)", "resistance to tobacco") are finished from the memory at once, without any service. Faster: up to three services translate at the same time, each starting with a different one.

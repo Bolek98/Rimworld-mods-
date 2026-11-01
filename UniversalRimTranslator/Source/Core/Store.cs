@@ -258,7 +258,7 @@ namespace Urt2
                 Version++;
             }
             if (Rechecked > 0)
-                Log(Rechecked + " translations rejected by the old length check are accepted now");
+                Log(Rechecked + " translations rejected by the old length/script check are accepted now");
         }
 
         private int ReadFile(string path, bool journal)
@@ -294,7 +294,7 @@ namespace Urt2
                             };
                             // 1.1.1: translations rejected only by the old length/script check get checked again
                             // (the check was too strict for Chinese, Japanese and Korean)
-                            if (!r.Manual && r.Auto != null && (r.Verdict == Verdict.OddLength || r.Verdict == Verdict.WrongScript))
+                            if (!r.Manual && r.Auto != null && (r.Verdict == Verdict.OddLength || r.Verdict == Verdict.WrongScript || r.Verdict == Verdict.Untranslated))
                             {
                                 try
                                 {

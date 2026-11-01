@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Checks of the URT translation quality check (Validate) in many languages. Run: bash run.sh -->
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net8.0</TargetFramework><EnableDefaultCompileItems>false</EnableDefaultCompileItems><LangVersion>latest</LangVersion><Nullable>disable</Nullable></PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ValidateTests.cs"/>
+    <Compile Include="../../UniversalRimTranslator/Source/Core/Validate.cs"/>
+    <Compile Include="../../UniversalRimTranslator/Source/Core/Lang.cs"/>
+    <Compile Include="../../UniversalRimTranslator/Source/Core/Protect.cs"/>
+  </ItemGroup>
+</Project>
