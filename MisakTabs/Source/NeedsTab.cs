@@ -60,7 +60,7 @@ namespace MisakTabs
             Pawn pawn = SelPawn;
             if (!Ours(pawn)) return true;
             sizeRef(__instance) = Size;
-            try { Draw(new Rect(0f, 0f, Size.x, Size.y), pawn); }
+            try { Draw(new Rect(0f, 0f, Size.x, Size.y), pawn); TabSize.Overlay("needs"); }
             catch (Exception e)
             {
                 Look.ResetGui();

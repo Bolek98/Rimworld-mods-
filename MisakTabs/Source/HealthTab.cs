@@ -74,7 +74,7 @@ namespace MisakTabs
             Pawn pawn = SelPawn;
             if (pawn == null) return true;
             sizeRef(__instance) = Size;
-            try { Draw(new Rect(0f, 0f, Size.x, Size.y), pawn); }
+            try { Draw(new Rect(0f, 0f, Size.x, Size.y), pawn); TabSize.Overlay("health"); }
             catch (Exception e)
             {
                 Look.ResetGui();   // 0.4.2
@@ -329,7 +329,7 @@ namespace MisakTabs
             Look.Text(new Rect(r.x + 12f, r.y + 6f, 360f, 24f), pawn.LabelCap, Color.white, GameFont.Medium);
             State(pawn, out string state, out Color sc);
             bool ops = CanOperate(pawn);
-            Rect op = new Rect(r.xMax - 262f, r.y + 13f, 120f, 28f);
+            Rect op = new Rect(r.xMax - 292f, r.y + 13f, 120f, 28f);
             bool inOps = opsMode && ops && OpsTab.Available;
             // 0.4.2: planned operations as a chip – a click opens the operations view
             float stateW = 420f;
@@ -375,7 +375,7 @@ namespace MisakTabs
                 }
             }
             TooltipHandler.TipRegion(op, ops ? "MT_OperationsTip".Translate() : "MT_OperationsNo".Translate());
-            Rect orig = new Rect(r.xMax - 132f, r.y + 13f, 120f, 28f);
+            Rect orig = new Rect(r.xMax - 162f, r.y + 13f, 120f, 28f);
             if (Look.Button(orig, "MT_Original".Translate()))
             {
                 showOriginal = true;

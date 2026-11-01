@@ -74,7 +74,7 @@ namespace MisakTabs
             Pawn pawn = SelPawn;
             if (pawn?.story == null) return true;
             sizeRef(__instance) = CharSize;
-            try { CharacterTab.Draw(new Rect(0f, 0f, CharSize.x, CharSize.y), pawn); }
+            try { CharacterTab.Draw(new Rect(0f, 0f, CharSize.x, CharSize.y), pawn); TabSize.Overlay("char"); }
             catch (Exception e)
             {
                 Look.ResetGui();
@@ -97,7 +97,7 @@ namespace MisakTabs
             Pawn pawn = SelPawn;
             if (pawn?.relations == null || !pawn.RaceProps.Humanlike) return true;
             sizeRef(__instance) = SocialSize;
-            try { SocialTab.Draw(new Rect(0f, 0f, SocialSize.x, SocialSize.y), pawn); }
+            try { SocialTab.Draw(new Rect(0f, 0f, SocialSize.x, SocialSize.y), pawn); TabSize.Overlay("social"); }
             catch (Exception e)
             {
                 Look.ResetGui();
@@ -134,7 +134,7 @@ namespace MisakTabs
             }
             catch { }
             Look.Text(new Rect(r.x + 12f, r.y + 32f, r.width - 170f, 18f), string.Join(" · ", bits).Truncate(r.width - 170f), Muted, GameFont.Tiny);
-            Rect orig = new Rect(r.xMax - 140f, r.y + 13f, 120f, 28f);
+            Rect orig = new Rect(r.xMax - 170f, r.y + 13f, 120f, 28f);
             if (Look.Button(orig, "MT_Original".Translate())) original = true;
             // 0.13.2: the grip gets the whole panel (the right edge runs down the full height)
             TabSize.Grip(new Rect(r.x, r.y, r.width, TabSize.Fit(w, h, minW, minH).y), gripId, ref w, ref h, minW, minH);

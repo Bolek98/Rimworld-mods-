@@ -257,47 +257,134 @@ namespace MisakTabs
             return new Vector2(Mathf.Clamp(w, minW, maxW), Mathf.Clamp(h, minH, maxH));
         }
 
-        // 0.13.2: the panels could not really be resized (a tiny grip whose click was often taken by the
-        // panel or the game). Now: drag the top edge (height), the right edge (width) or the top right
-        // corner (both). The press is read straight from the mouse, so nothing in the panel can swallow it.
+        // 0.13.2: the panels are resized by visible handles: a pill in the middle of the top edge
+        // (height), a pill in the middle of the right edge (width) and a button in the top right corner
+        // (drag = both, click = size menu). The edges themselves work too. The press is read straight
+        // from the mouse, so nothing in the panel can swallow it.
         private static int dragMode;   // 1 height, 2 width, 3 both
+        private static bool moved;
 
         public static bool Grip(Rect r, string id, ref float w, ref float h, float minW, float minH)
         {
-            const float edge = 7f, corner = 24f;
-            Rect cornerR = new Rect(r.xMax - corner, r.y, corner, corner);
-            Rect topR = new Rect(r.x, r.y, r.width - corner, edge);
-            Rect rightR = new Rect(r.xMax - edge, r.y + corner, edge, r.height - corner);
+            const float edge = 12f, cs = 30f;
+            Rect cornerR = new Rect(r.xMax - cs - 2f, r.y + 2f, cs, cs);
+            Rect topPill = new Rect(r.center.x - 40f, r.y, 80f, 14f);
+            Rect rightPill = new Rect(r.xMax - 14f, r.center.y - 40f, 14f, 80f);
+            Rect topR = new Rect(r.x, r.y, r.width - cs - 4f, edge);
+            Rect rightR = new Rect(r.xMax - edge, r.y + cs + 4f, edge, r.height - cs - 4f);
             bool on = dragId == id;
-            int hover = Mouse.IsOver(cornerR) ? 3 : Mouse.IsOver(topR) ? 1 : Mouse.IsOver(rightR) ? 2 : 0;
+            int hover = Hover(r);
             int show = on ? dragMode : hover;
-
-            // the corner sign (always visible), the edges light up when the mouse is on them
-            Color c = show == 3 ? Look.Green : new Color(1f, 1f, 1f, 0.45f);
-            for (int i = 0; i < 3; i++)
-            {
-                float len = 14f - i * 5f;
-                Widgets.DrawBoxSolid(new Rect(cornerR.xMax - 4f - len, cornerR.y + 4f + i * 4f, len, 2f), c);
-            }
-            if (show == 1 || show == 3) Widgets.DrawBoxSolid(new Rect(r.x, r.y, r.width, 3f), Look.Green);
-            if (show == 2 || show == 3) Widgets.DrawBoxSolid(new Rect(r.xMax - 3f, r.y, 3f, r.height), Look.Green);
-            if (hover != 0 && !on) TooltipHandler.TipRegion(hover == 3 ? cornerR : hover == 1 ? topR : rightR, "MT_GripTip".Translate());
+            Handles(r, show, hover, on);
+            lastRect[id] = r;
 
             Vector2 m = UI.MousePositionOnUIInverted;
             if (!on && dragId == null && hover != 0 && Input.GetMouseButtonDown(0))
             {
-                dragId = id; dragMode = hover; startMouse = m; startSize = new Vector2(r.width, r.height);
+                dragId = id; dragMode = hover; startMouse = m; startSize = new Vector2(r.width, r.height); moved = false;
                 if (Event.current.type == EventType.MouseDown) Event.current.Use();
                 return false;
             }
             if (!on) return false;
             if (Event.current.type == EventType.MouseDown || Event.current.type == EventType.MouseDrag) Event.current.Use();
-            if (!Input.GetMouseButton(0)) { dragId = null; dragMode = 0; MTMod.S.Write(); return true; }
+            if ((m - startMouse).sqrMagnitude > 16f) moved = true;
+            if (!Input.GetMouseButton(0))
+            {
+                bool click = !moved && dragMode == 3;
+                dragId = null; dragMode = 0;
+                if (click)
+                {
+                    float fMinW = minW, fMinH = minH;
+                    string sid = id;
+                    Menu(v => SetSize(sid, v, fMinW, fMinH), new Vector2(minW * 1.25f, minH * 1.3f), 0f, null);
+                }
+                else MTMod.S.Write();
+                return true;
+            }
+            if (!moved) return false;
             float nw = dragMode == 1 ? startSize.x : startSize.x + (m.x - startMouse.x);
             float nh = dragMode == 2 ? startSize.y : startSize.y + (startMouse.y - m.y);
             Vector2 sz = Fit(nw, nh, minW, minH);
             w = sz.x; h = sz.y;
             return false;
+        }
+
+        // raw position check (Mouse.IsOver can say "blocked" near other UI), same zones as Grip
+        private static int Hover(Rect r)
+        {
+            const float edge = 12f, cs = 30f;
+            Vector2 p = Event.current.mousePosition;
+            Rect cornerR = new Rect(r.xMax - cs - 2f, r.y, cs + 2f, cs + 2f);
+            Rect topR = new Rect(r.x, r.y, r.width, edge);
+            Rect rightR = new Rect(r.xMax - edge, r.y, edge, r.height);
+            Rect topPill = new Rect(r.center.x - 40f, r.y, 80f, 16f);
+            Rect rightPill = new Rect(r.xMax - 16f, r.center.y - 40f, 16f, 80f);
+            if (cornerR.Contains(p)) return 3;
+            if (topR.Contains(p) || topPill.Contains(p)) return 1;
+            if (rightR.Contains(p) || rightPill.Contains(p)) return 2;
+            return 0;
+        }
+
+        private static readonly Dictionary<string, Rect> lastRect = new Dictionary<string, Rect>();
+
+        // 0.13.2: drawn again at the end of a panel, so its content never covers the handles
+        public static void Overlay(string id)
+        {
+            if (!lastRect.TryGetValue(id, out Rect r)) return;
+            bool on = dragId == id;
+            int hover = Hover(r);
+            Handles(r, on ? dragMode : hover, hover, on);
+        }
+
+        private static void Handles(Rect r, int show, int hover, bool on)
+        {
+            const float cs = 30f;
+            Rect cornerR = new Rect(r.xMax - cs - 2f, r.y + 2f, cs, cs);
+            Rect topPill = new Rect(r.center.x - 40f, r.y, 80f, 14f);
+            Rect rightPill = new Rect(r.xMax - 14f, r.center.y - 40f, 14f, 80f);
+            Color idle = new Color(1f, 1f, 1f, 0.40f);
+
+            // top pill
+            Color ct = show == 1 || show == 3 ? Look.Green : idle;
+            Widgets.DrawBoxSolid(new Rect(topPill.center.x - 22f, r.y + 4f, 44f, 3f), ct);
+            Widgets.DrawBoxSolid(new Rect(topPill.center.x - 14f, r.y + 9f, 28f, 2f), ct);
+            // right pill
+            Color cr = show == 2 || show == 3 ? Look.Green : idle;
+            Widgets.DrawBoxSolid(new Rect(r.xMax - 7f, rightPill.center.y - 22f, 3f, 44f), cr);
+            Widgets.DrawBoxSolid(new Rect(r.xMax - 12f, rightPill.center.y - 14f, 2f, 28f), cr);
+            // corner button
+            bool cOn = show == 3;
+            Widgets.DrawBoxSolid(cornerR, cOn ? Look.GreenBg : new Color(1f, 1f, 1f, 0.06f));
+            Widgets.DrawBox(cornerR, 1, cOn ? BaseContent.WhiteTex : null);
+            Color cc = cOn ? Look.Green : new Color(1f, 1f, 1f, 0.7f);
+            // arrow up-right: a diagonal of small squares and the arrow head
+            for (int i = 0; i < 5; i++)
+                Widgets.DrawBoxSolid(new Rect(cornerR.x + 8f + i * 3f, cornerR.yMax - 11f - i * 3f, 3f, 3f), cc);
+            Widgets.DrawBoxSolid(new Rect(cornerR.xMax - 13f, cornerR.y + 7f, 7f, 2f), cc);
+            Widgets.DrawBoxSolid(new Rect(cornerR.xMax - 8f, cornerR.y + 7f, 2f, 7f), cc);
+            // edges light up
+            if (show == 1 || show == 3) Widgets.DrawBoxSolid(new Rect(r.x, r.y, r.width, 2f), Look.Green);
+            if (show == 2 || show == 3) Widgets.DrawBoxSolid(new Rect(r.xMax - 2f, r.y, 2f, r.height), Look.Green);
+            if (hover != 0 && !on)
+                TooltipHandler.TipRegion(hover == 3 ? cornerR : hover == 1 ? new Rect(r.x, r.y, r.width, 14f) : new Rect(r.xMax - 14f, r.y, 14f, r.height),
+                    hover == 3 ? "MT_GripCornerTip".Translate() : "MT_GripTip".Translate());
+
+        }
+
+        // the size menu sets the right settings by the grip id
+        private static void SetSize(string id, Vector2 v, float minW, float minH)
+        {
+            v = Fit(v.x, v.y, minW, minH);
+            var S = MTMod.S;
+            switch (id)
+            {
+                case "bills": S.billsW = v.x; S.billsH = v.y; break;
+                case "health": S.healthW = v.x; S.healthH = v.y; break;
+                case "gear": S.gearW = v.x; S.gearH = v.y; break;
+                case "needs": S.needsW = v.x; S.needsH = v.y; break;
+                case "char": S.charW = v.x; S.charH = v.y; break;
+                case "social": S.socialW = v.x; S.socialH = v.y; break;
+            }
         }
 
         public static void Menu(Action<Vector2> set, Vector2 normal, float normalLeft, Action<float> setLeft)
@@ -394,7 +481,7 @@ namespace MisakTabs
             Building_WorkTable t = Table;
             if (t == null) return true;
             sizeRef(__instance) = Size;
-            try { Draw(new Rect(0f, 0f, Size.x, Size.y), t); }
+            try { Draw(new Rect(0f, 0f, Size.x, Size.y), t); TabSize.Overlay("bills"); }
             catch (Exception e)
             {
                 Look.ResetGui();
@@ -461,7 +548,7 @@ namespace MisakTabs
             // paste (the game's own clipboard), original look
             Bill clip = BillUtility.Clipboard;
             bool canPaste = clip != null && table.def.AllRecipes.Contains(clip.recipe) && clip.recipe.AvailableNow && clip.recipe.AvailableOnNow(table) && table.billStack.Count < BillStack.MaxCount;
-            Rect pr = new Rect(r.xMax - 250f, r.y + 13f, 110f, 28f);
+            Rect pr = new Rect(r.xMax - 280f, r.y + 13f, 110f, 28f);
             if (Look.Button(pr, "MT_Paste".Translate(), false, canPaste))
             {
                 Bill b = clip.Clone();
@@ -471,13 +558,13 @@ namespace MisakTabs
             }
             if (clip != null) TooltipHandler.TipRegion(pr, "MT_PasteTip".Translate(clip.LabelCap));
             // 0.5.0: the workbench menu – copy all bills, paste them here or into several workbenches
-            Rect sz = new Rect(r.xMax - 318f, r.y + 13f, 28f, 28f);
+            Rect sz = new Rect(r.xMax - 348f, r.y + 13f, 28f, 28f);
             if (Look.Button(sz, "□")) TabSize.Menu(v => { MTMod.S.billsW = v.x; MTMod.S.billsH = v.y; }, new Vector2(820f, 580f), 300f, w => MTMod.S.billsLeft = w);
             TooltipHandler.TipRegion(sz, "MT_SizeTip".Translate());
-            Rect bm = new Rect(r.xMax - 284f, r.y + 13f, 28f, 28f);
+            Rect bm = new Rect(r.xMax - 314f, r.y + 13f, 28f, 28f);
             if (Look.Button(bm, "…")) BenchMenu(table);
             TooltipHandler.TipRegion(bm, "MT_BenchMenuTip".Translate());
-            Rect orig = new Rect(r.xMax - 132f, r.y + 13f, 120f, 28f);
+            Rect orig = new Rect(r.xMax - 162f, r.y + 13f, 120f, 28f);
             if (Look.Button(orig, "MT_Original".Translate())) showOriginal = true;
             TooltipHandler.TipRegion(orig, "MT_OriginalTip".Translate());
         }
