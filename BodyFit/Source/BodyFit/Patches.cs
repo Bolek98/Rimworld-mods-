@@ -314,6 +314,10 @@ public static class BodyRepair
 			if (b != null && Bodies.BodyUsable(p, b) && !DrawnBodyBroken(p))
 				return false;
 			BodyTypeDef use = Bodies.BestUsable(p, b ?? Bodies.Vanilla(Bodies.KindOf(null, p.gender)));
+			// 2.5.5: the body looks usable but is drawn as the red X (e.g. a HAR race child whose race has no
+			// child picture the way HAR looks for it) – take the next similar body type instead of the same one
+			if ((use == null || use == b) && b != null && DrawnBodyBroken(p))
+				use = Bodies.NextUsable(p, b);
 			if (use == null || use == b || !Bodies.BodyUsable(p, use))
 				return false;
 			p.story.bodyType = use;

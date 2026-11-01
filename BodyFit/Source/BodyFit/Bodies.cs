@@ -188,6 +188,21 @@ public static class Bodies
 		}
 	}
 
+	// 2.5.5: the most similar usable body type other than b
+	public static BodyTypeDef NextUsable(Pawn p, BodyTypeDef b)
+	{
+		foreach (BodyTypeDef v in Similar(b, p.gender))
+			if (v != null && v != b && BodyUsable(p, v))
+				return v;
+		foreach (Kind k in new[] { Kind.Thin, Kind.Female, Kind.Male })
+		{
+			BodyTypeDef v = Vanilla(k);
+			if (v != null && v != b && BodyUsable(p, v))
+				return v;
+		}
+		return null;
+	}
+
 	public static BodyTypeDef BestUsable(Pawn p, BodyTypeDef b)
 	{
 		if (IsHar(p.def))
