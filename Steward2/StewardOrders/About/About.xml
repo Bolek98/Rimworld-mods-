@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Steward – Orders</name>
+  <author>Bolek98</author>
+  <packageId>misak.steward.orders</packageId>
+  <modVersion>0.1.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>misak.colonyforeman</packageId>
+      <displayName>Steward – Work Priorities</displayName>
+      <downloadUrl>https://github.com/Bolek98/Rimworld-mods-</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>misak.colonyforeman</li>
+  </loadAfter>
+  <description>Optional add-on for Steward – Work Priorities (needs the Steward core; Steward works without it).
+
+Right-click with a colonist selected and give orders the game normally refuses:
+- Order any work on the clicked thing even when the colonist is not assigned to that work (he must be able to do it).
+- Research at a research bench right now.
+- Sleep in a bed now, even when not tired; rest in a hospital bed.
+- Relax at a TV, chess table, horseshoes and other joy buildings, even outside free time.
+The game's own options stay – ours appear only where the game's option is missing or greyed out. Each kind of order can be switched off.
+
+---
+
+Volitelný doplněk pro Steward – Work Priorities (potřebuje jádro Stewarda; Steward funguje i bez něj).
+
+Pravým klikem s vybraným kolonistou dáš rozkazy, které hra normálně odmítne:
+- Jakákoli práce na kliknuté věci, i když kolonista na tu práci není přiřazený (musí ji umět).
+- Výzkum u výzkumného stolu hned teď.
+- Spánek v posteli hned, i když není unavený; odpočinek na nemocniční posteli.
+- Zábava u televize, šachů, podkov a dalších – i mimo volný čas.
+Herní volby zůstávají – naše se objeví jen tam, kde herní chybí nebo je šedá. Každý druh rozkazu jde vypnout.</description>
+</ModMetaData>
