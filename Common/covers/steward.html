@@ -1,0 +1,59 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1280px;height:720px;overflow:hidden;font-family:Inter,"Noto Color Emoji",sans-serif;color:#f3ead8;
+background:radial-gradient(900px 600px at 105% 110%,rgba(255,110,30,.38),transparent 60%),radial-gradient(700px 500px at 80% -20%,rgba(255,170,60,.10),transparent 60%),#17120d}
+.left{position:absolute;left:72px;top:92px;width:520px}
+.tag{font-weight:700;letter-spacing:.18em;font-size:16px;color:#e9b04f}
+h1{font-family:"Inter Display";font-weight:800;font-size:132px;line-height:1;margin-top:14px;letter-spacing:-.03em}
+.hook{font-size:34px;font-weight:700;line-height:1.18;margin-top:18px}
+.hook em{font-style:normal;color:#ff9a3c}
+.sub{font-size:20px;color:#bfb29b;margin-top:16px;line-height:1.4}
+.chips{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+.chip{padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-size:18px;font-weight:600}
+.chip.hot{background:#ff8a2a;color:#1d1107;border-color:#ff8a2a}
+.by{position:absolute;left:72px;bottom:40px;color:#8d826f;font-size:18px}
+.panel{position:absolute;right:56px;top:96px;width:600px;background:#1f1a14;border:1px solid #4a3e30;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 6px rgba(255,138,42,.06);overflow:hidden}
+.bar{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid #3a3027}
+.bar b{font-size:20px;margin-right:auto}
+.btn{font-size:14px;font-weight:600;padding:7px 12px;border-radius:8px;background:#2e271f;border:1px solid #4f4334}
+.btn.on{background:#3b5a2c;border-color:#5f8d47}
+.alert{margin:16px 20px 6px;padding:14px 16px;border-radius:12px;background:linear-gradient(90deg,rgba(255,110,30,.28),rgba(255,110,30,.10));border:1px solid rgba(255,138,42,.7);font-size:17px;line-height:1.35}
+.alert b{color:#ffb066}
+table{width:calc(100% - 40px);margin:10px 20px 20px;border-collapse:collapse}
+th{font-size:13px;font-weight:600;color:#a89a83;padding:8px 0;text-align:center}
+th:first-child{text-align:left}
+td{padding:7px 0;text-align:center;border-top:1px solid #2f281f;font-size:19px;font-weight:700}
+td:first-child{text-align:left;font-size:17px;font-weight:600;color:#e6dcc8}
+.n1{color:#7fd36a}.n2{color:#d6c86a}.n3{color:#c9a46a}.n4{color:#8b8170}
+.fire{position:relative}
+.fire span{display:inline-block;min-width:38px;padding:3px 0;border-radius:8px;background:#ff8a2a;color:#1d1107}
+.fire small{position:absolute;left:calc(50% + 24px);top:50%;transform:translateY(-50%);font-size:12px;color:#ffb066;font-weight:600;text-decoration:line-through}
+col.f{background:rgba(255,138,42,.08)}
+</style></head><body>
+<div class="left">
+ <div class="tag">RIMWORLD 1.7 · 1.6 · WORK PRIORITIES</div>
+ <h1>Steward</h1>
+ <div class="hook">Your colony reacts <em>before</em> the fire spreads.</div>
+ <div class="sub">Smart work priorities that set themselves. With the Crises add-on they switch the moment something goes wrong.</div>
+ <div class="chips">
+  <div class="chip hot">🔥 Fire → firefighters first</div>
+  <div class="chip">⚔️ Raid → doctors ready</div>
+  <div class="chip">🩹 Wounded → best doctor</div>
+  <div class="chip">🧩 Works with any mod</div>
+ </div>
+</div>
+<div class="by">by Bolek98 · optional add-ons: Crises · Schedules · Supplies</div>
+<div class="panel">
+ <div class="bar"><b>Work</b><span class="btn on">✔ Steward auto</span><span class="btn">Plan now</span><span class="btn">Style: Balanced</span></div>
+ <div class="alert">🔥 <b>Fire in the kitchen!</b> Steward moved 3 colonists to firefighting – no clicks needed.</div>
+ <table>
+  <colgroup><col><col class="f"><col><col><col><col><col><col></colgroup>
+  <tr><th></th><th>Firefight</th><th>Doctor</th><th>Cook</th><th>Hunt</th><th>Build</th><th>Grow</th><th>Haul</th></tr>
+  <tr><td>Mara</td><td class="fire"><small>4</small><span>1</span></td><td class="n2">2</td><td class="n1">1</td><td class="n4">4</td><td class="n3">3</td><td class="n2">2</td><td class="n4">4</td></tr>
+  <tr><td>Okafor</td><td class="fire"><small>3</small><span>1</span></td><td class="n1">1</td><td class="n4">4</td><td class="n3">3</td><td class="n2">2</td><td class="n4">4</td><td class="n3">3</td></tr>
+  <tr><td>Jun</td><td class="fire"><small>4</small><span>1</span></td><td class="n4">4</td><td class="n3">3</td><td class="n1">1</td><td class="n4">4</td><td class="n2">2</td><td class="n3">3</td></tr>
+  <tr><td>Vesna</td><td class="n2">2</td><td class="n3">3</td><td class="n2">2</td><td class="n4">4</td><td class="n1">1</td><td class="n3">3</td><td class="n2">2</td></tr>
+  <tr><td>Bram</td><td class="n2">2</td><td class="n4">4</td><td class="n4">4</td><td class="n2">2</td><td class="n3">3</td><td class="n1">1</td><td class="n1">1</td></tr>
+ </table>
+</div>
+</body></html>
