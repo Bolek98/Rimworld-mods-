@@ -40,7 +40,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Smart Colonist Gear – Auto Equip Weapons & Armor | 2.16.0 | [SmartColonistGear](SmartColonistGear) |
 | Smooth FPS – Performance & Graphics | 1.6.3 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
-| Steward – Work Priorities | 1.0.0 | [Steward2/Steward](Steward2/Steward) |
+| Steward – Work Priorities | 1.0.1 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.1.2 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | Steward – Roles | 0.1.0 | [Steward2/StewardRoles](Steward2/StewardRoles) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
