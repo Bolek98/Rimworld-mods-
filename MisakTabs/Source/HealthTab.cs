@@ -985,6 +985,9 @@ namespace MisakTabs
             {
                 bool can = OpsTab.Available && CanOperate(pawn);
                 List<FloatMenuOption> opts = can ? OpsTab.OptionsFor(pawn, parts) : new List<FloatMenuOption>();
+                // 0.13.0: the operations of this body part in the operation picker
+                if (opts.Count > 0 && SurgeryPicker.Open(pawn, opts, "MT_PA_OpPartTitle".Translate(parts[0].LabelCap, pawn.LabelShortCap)))
+                    return;
                 if (opts.Count == 0)
                     opts.Add(new FloatMenuOption(can ? "MT_H_NoOpsHere".Translate() : "MT_OperationsNo".Translate(), null));
                 if (can)
