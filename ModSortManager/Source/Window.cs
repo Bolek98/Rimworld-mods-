@@ -1335,7 +1335,7 @@ namespace ModSortManager
                         ev.Use();
                         break;
                     }
-                    if (!(multi.Count > 1 && multi.Contains(mod) && canDrag)) multi.Clear();
+                    if (!(multi.Count > 1 && multi.Contains(mod) && (canDrag || !isActive))) multi.Clear();   // 0.4.1: a selection in the inactive list can be dragged too
                     selected = mod;
                     if (ev.clickCount == 2)
                     {
@@ -1373,7 +1373,7 @@ namespace ModSortManager
                 {
                     MUI.Fill(new Rect(0f, target * RowH - 1f, view.width, 3f), MUI.Accent);
                     if (dragFrom < list.Count)
-                        Label(new Rect(view.width * 0.35f, ev.mousePosition.y - 12f, view.width * 0.65f, 24f), list[dragFrom].Name, MUI.Accent, GameFont.Tiny, TextAnchor.MiddleLeft, false);
+                        Label(new Rect(view.width * 0.35f, ev.mousePosition.y - 12f, view.width * 0.65f, 24f), DragLabel(list[dragFrom]), MUI.Accent, GameFont.Tiny, TextAnchor.MiddleLeft, false);
                 }
                 if (ev.rawType == EventType.MouseUp)
                 {
@@ -1394,6 +1394,12 @@ namespace ModSortManager
                 }
             }
             Widgets.EndScrollView();
+        }
+
+        // the dragged mod's name, or "N mods" when a selection of several is dragged
+        private string DragLabel(ModMetaData m)
+        {
+            return multi.Count > 1 && multi.Contains(m) ? "MSM_DragMany".Translate(multi.Count).ToString() : m.Name;
         }
 
         // 0.4.1: a mod dragged from the inactive list and dropped on the active one is switched on at that place
@@ -1421,7 +1427,7 @@ namespace ModSortManager
                         float ly = rAct.y + target * RowH - sActive.y;
                         if (ly >= rAct.y - 2f && ly <= rAct.yMax + 2f) MUI.Fill(new Rect(rAct.x, ly - 1f, rAct.width - 16f, 3f), MUI.Accent);
                     }
-                    Label(new Rect(ev.mousePosition.x + 12f, ev.mousePosition.y - 10f, 320f, 22f), "+ " + xMod.Name, MUI.Accent, GameFont.Tiny, TextAnchor.MiddleLeft, false);
+                    Label(new Rect(ev.mousePosition.x + 12f, ev.mousePosition.y - 10f, 320f, 22f), "+ " + DragLabel(xMod), MUI.Accent, GameFont.Tiny, TextAnchor.MiddleLeft, false);
                 }
             }
             if (ev.rawType == EventType.MouseUp)
