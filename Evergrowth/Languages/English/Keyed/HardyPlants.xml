@@ -129,4 +129,52 @@
   <HardyPlants_AutoAddedCold>No biome lists it – added to the wild plants group and, as it grows in the cold, to the cold biomes group.</HardyPlants_AutoAddedCold>
   <HardyPlants_CropSync>Crops in a zone ripen together</HardyPlants_CropSync>
   <HardyPlants_CropSyncDesc>Crops in one grow zone that were sown within about a day of each other catch up with the fastest one, so the whole field is ready to harvest at once. A later sowing is left alone. Trees are not affected.</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>Greenhouse temperature</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0}: {1} – too cold for {2} (needs above {3})</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>Indoor crops whose room is too cold or too hot to grow – the heating or cooling may have failed:\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0}: {1} – too hot for {2} (stops above {3})</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>Too cold to grow outdoors all year.</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>Too cold to grow outdoors now – warm enough again in about {0} days.</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>What to sow now</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>nothing planted yet</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>Next frost (below 0 °C) in about {0} days.</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>Harvest forecast</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>will not ripen – the cold stops it in {0} days</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>Load a game to open the sowing calendar.</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>needs {0} d</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>No frost in the next {0} days.</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>too cold or hot to grow now (grows from {0})</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>No grow zones on this map.</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>Sown today outdoors on normal soil, with your growth settings and the season's average temperatures (weather events are not counted).</HardyPlants_CalNote>
+  <HardyPlants_CalNow>Today: {0} · outside {1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>ripens in about {0} days</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>Open the sowing calendar</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>Refresh</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>Search crops…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>ripens in about {0} days (slowed by cold or heat)</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>Grows between {0} and {1}.</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>Sowing calendar – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>does not ripen within {0} days</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>Expected in total: {0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>It stays cold for about {0} days.</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>Sowing calendar</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>What can still ripen before the cold on this map, and a harvest forecast for every grow zone.</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>Greenhouse watch</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>An alert when a roofed grow zone or a hydroponics room gets too cold or too hot for what grows there – for example when the heating fails.</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>Orchard</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>Young trees in this zone are never cut – not even when you choose another tree for the zone or a wild tree grows inside. Only fully grown trees are harvested, and the cell is planted again as usual.</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0}: the warm season is back – switched back to {1}.</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0}: the cold is coming – switched to {1}.</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>Planning</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>Winter crop rotation</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>Grow zones get a "Winter crop" button. When the cold would stop the summer crop, the zone switches to the winter crop you chose, and back when the warm season returns. Plants that are well on their way are waited for.</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>grows from {0}</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>Winter crop…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>Choose a cold-hardy crop this zone switches to when the cold comes; it goes back to the summer crop in spring. The list is sorted by the lowest growing temperature.</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>Winter: {0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>No winter crop</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>Harvest: ripens in about {0} days, about {1} {2}.</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>Harvest: {0} plants ripe – about {1} {2}.</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>({0} already ripe)</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>Harvest: {0} plants are not growing right now (too cold, too hot or too dark).</HardyPlants_ZoneStalled>
 </LanguageData>

@@ -129,4 +129,52 @@
   <HardyPlants_AutoAddedCold>Aucun biome ne la liste – ajoutée aux plantes sauvages et, comme elle pousse au froid, au groupe des biomes froids.</HardyPlants_AutoAddedCold>
   <HardyPlants_CropSync>Les cultures d'une zone mûrissent ensemble</HardyPlants_CropSync>
   <HardyPlants_CropSyncDesc>Les cultures d'une même zone semées à environ un jour d'intervalle rattrapent la plus avancée, pour que tout le champ soit prêt à récolter en même temps. Un semis plus tardif n'est pas touché. Les arbres ne sont pas concernés.</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>Température de la serre</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0} : {1} – trop froid pour {2} (il faut plus de {3})</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>Cultures en intérieur dont la pièce est trop froide ou trop chaude pour pousser – le chauffage ou la climatisation a peut-être lâché :\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0} : {1} – trop chaud pour {2} (ne pousse plus au-dessus de {3})</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>Trop froid pour cultiver dehors toute l'année.</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>Trop froid pour cultiver dehors en ce moment – assez chaud de nouveau dans environ {0} jours.</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>Que semer maintenant</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>rien de planté</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>Prochain gel (sous 0 °C) dans environ {0} jours.</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>Prévision de récolte</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>ne mûrira pas – le froid l'arrête dans {0} jours</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>Charge une partie pour ouvrir le calendrier des semis.</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>il faut {0} j</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>Pas de gel dans les {0} prochains jours.</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>trop froid ou trop chaud pour pousser maintenant (pousse dès {0})</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>Aucune zone de culture sur cette carte.</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>Semé aujourd'hui dehors sur un sol normal, avec tes réglages de croissance et les températures moyennes de la saison (météo et événements non comptés).</HardyPlants_CalNote>
+  <HardyPlants_CalNow>Aujourd'hui : {0} · dehors {1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>mûrit dans environ {0} jours</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>Ouvrir le calendrier des semis</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>Actualiser</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>Chercher une culture…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>mûrit dans environ {0} jours (ralenti par le froid ou la chaleur)</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>Pousse entre {0} et {1}.</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>Calendrier des semis – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>ne mûrit pas en {0} jours</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>Attendu au total : {0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>Le froid dure environ {0} jours.</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>Calendrier des semis</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>Ce qui peut encore mûrir avant le froid sur cette carte, et une prévision de récolte pour chaque zone de culture.</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>Surveillance de la serre</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>Une alerte quand une zone de culture couverte ou une pièce d'hydroponie devient trop froide ou trop chaude pour ce qui y pousse – par exemple si le chauffage tombe en panne.</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>Verger</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>Les jeunes arbres de cette zone ne sont jamais coupés – même si tu choisis un autre arbre pour la zone ou si un arbre sauvage y pousse. Seuls les arbres adultes sont récoltés, puis la case est replantée normalement.</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0} : la saison chaude est revenue – retour à {1}.</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0} : le froid arrive – passage à {1}.</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>Planification</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>Rotation des cultures d'hiver</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>Les zones de culture reçoivent un bouton « Culture d'hiver ». Quand le froid arrêterait la culture d'été, la zone passe à la culture d'hiver choisie, et revient quand la saison chaude revient. On attend les plantes déjà bien avancées.</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>pousse dès {0}</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>Culture d'hiver…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>Choisis une culture résistante au froid vers laquelle cette zone bascule quand le froid arrive ; au printemps elle revient à la culture d'été. Liste triée par température de croissance la plus basse.</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>Hiver : {0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>Pas de culture d'hiver</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>Récolte : mûrit dans environ {0} jours, environ {1} {2}.</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>Récolte : {0} plantes mûres – environ {1} {2}.</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>({0} déjà mûres)</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>Récolte : {0} plantes ne poussent pas en ce moment (trop froid, trop chaud ou trop sombre).</HardyPlants_ZoneStalled>
 </LanguageData>

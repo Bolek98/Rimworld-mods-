@@ -129,4 +129,52 @@
   <HardyPlants_AutoAddedCold>Жоден біом її не містить – додано до диких рослин і, оскільки росте в холоді, до групи холодних біомів.</HardyPlants_AutoAddedCold>
   <HardyPlants_CropSync>Посіви в зоні дозрівають разом</HardyPlants_CropSync>
   <HardyPlants_CropSyncDesc>Рослини в одній зоні вирощування, посіяні приблизно протягом одного дня, наздоганяють найшвидшу, тож усе поле готове до збору одночасно. Пізніший посів не змінюється. На дерева не діє.</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>Температура в теплиці</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0}: {1} – надто холодно для {2} (потрібно вище {3})</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>Культури в приміщеннях, де надто холодно або спекотно для росту – можливо, відмовило опалення чи охолодження:\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0}: {1} – надто спекотно для {2} (не росте вище {3})</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>Надворі цілий рік надто холодно для росту.</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>Зараз надворі надто холодно для росту – знову тепло приблизно через {0} дн.</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>Що сіяти зараз</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>ще нічого не посаджено</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>Наступний мороз (нижче 0 °C) приблизно через {0} дн.</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>Прогноз урожаю</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>не достигне – холод зупинить через {0} дн.</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>Завантажте гру, щоб відкрити календар посіву.</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>потрібно {0} дн.</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>Морозів у найближчі {0} дн. немає.</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>зараз надто холодно або спекотно для росту (росте від {0})</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>На цій мапі немає зон вирощування.</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>Посіяно сьогодні надворі у звичайний ґрунт, з вашими налаштуваннями росту й середніми температурами сезону (погода та події не враховуються).</HardyPlants_CalNote>
+  <HardyPlants_CalNow>Сьогодні: {0} · надворі {1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>достигне приблизно через {0} дн.</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>Відкрити календар посіву</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>Оновити</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>Пошук культур…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>достигне приблизно через {0} дн. (сповільнено холодом чи спекою)</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>Росте від {0} до {1}.</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>Календар посіву – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>не достигає за {0} дн.</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>Усього очікується: {0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>Холод триватиме близько {0} дн.</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>Календар посіву</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>Що ще встигне достигнути до холодів на цій мапі та прогноз урожаю для кожної зони вирощування.</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>Нагляд за теплицею</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>Попередження, коли в критій зоні вирощування чи кімнаті з гідропонікою стає надто холодно або спекотно для того, що там росте – наприклад, коли відмовляє опалення.</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>Сад</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>Молоді дерева в цій зоні ніколи не рубають – навіть якщо обрати для зони інше дерево або всередині росте дике дерево. Збирають лише дорослі дерева, потім клітинку засаджують як зазвичай.</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0}: повернувся теплий сезон – знову {1}.</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0}: наближаються холоди – перемкнено на {1}.</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>Планування</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>Зимова сівозміна</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>Зони вирощування отримують кнопку «Зимова культура». Коли холод зупинив би літню культуру, зона перемикається на обрану зимову й назад, коли повертається теплий сезон. На майже достиглі рослини чекають.</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>росте від {0}</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>Зимова культура…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>Оберіть холодостійку культуру, на яку перемкнеться зона з приходом холоду; навесні повернеться літня. Список за найнижчою температурою росту.</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>Зима: {0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>Без зимової культури</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>Урожай: достигне приблизно через {0} дн., близько {1} {2}.</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>Урожай: {0} рослин достигло – близько {1} {2}.</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>({0} вже достигли)</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>Урожай: {0} рослин зараз не ростуть (надто холодно, спекотно чи темно).</HardyPlants_ZoneStalled>
 </LanguageData>

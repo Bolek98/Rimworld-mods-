@@ -129,4 +129,52 @@
   <HardyPlants_AutoAddedCold>Nenhum bioma a lista – adicionada às plantas silvestres e, como cresce no frio, ao grupo de biomas frios.</HardyPlants_AutoAddedCold>
   <HardyPlants_CropSync>Plantações de uma zona amadurecem juntas</HardyPlants_CropSync>
   <HardyPlants_CropSyncDesc>Plantações de uma mesma zona semeadas com cerca de um dia de diferença alcançam a mais adiantada, então o campo inteiro fica pronto para colher de uma vez. Uma semeadura posterior não é alterada. Não afeta árvores.</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>Temperatura da estufa</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0}: {1} – frio demais para {2} (precisa de mais de {3})</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>Cultivos internos cujo cômodo está frio ou quente demais para crescer – talvez o aquecimento ou a refrigeração tenha falhado:\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0}: {1} – quente demais para {2} (para de crescer acima de {3})</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>Frio demais para cultivar ao ar livre o ano todo.</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>Frio demais para cultivar ao ar livre agora – quente o bastante de novo em cerca de {0} dias.</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>O que plantar agora</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>nada plantado ainda</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>Próxima geada (abaixo de 0 °C) em cerca de {0} dias.</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>Previsão de colheita</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>não vai amadurecer – o frio o para em {0} dias</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>Carregue um jogo para abrir o calendário de plantio.</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>precisa de {0} d</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>Sem geada nos próximos {0} dias.</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>frio ou quente demais para crescer agora (cresce a partir de {0})</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>Nenhuma zona de cultivo neste mapa.</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>Plantado hoje ao ar livre em solo normal, com suas configurações de crescimento e as temperaturas médias da estação (clima e eventos não contam).</HardyPlants_CalNote>
+  <HardyPlants_CalNow>Hoje: {0} · lá fora {1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>amadurece em cerca de {0} dias</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>Abrir o calendário de plantio</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>Atualizar</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>Buscar cultivos…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>amadurece em cerca de {0} dias (atrasado pelo frio ou calor)</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>Cresce entre {0} e {1}.</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>Calendário de plantio – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>não amadurece em {0} dias</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>Esperado no total: {0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>O frio dura cerca de {0} dias.</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>Calendário de plantio</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>O que ainda pode amadurecer antes do frio neste mapa e uma previsão de colheita para cada zona de cultivo.</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>Vigia da estufa</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>Um alerta quando uma zona de cultivo coberta ou uma sala de hidroponia fica fria ou quente demais para o que cresce ali – por exemplo, quando o aquecimento falha.</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>Pomar</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>Árvores jovens nesta zona nunca são cortadas – nem quando você escolhe outra árvore para a zona ou uma árvore selvagem cresce dentro. Só árvores adultas são colhidas, e a célula é replantada como de costume.</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0}: a estação quente voltou – de volta para {1}.</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0}: o frio está chegando – trocado para {1}.</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>Planejamento</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>Rotação de cultivos de inverno</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>As zonas de cultivo ganham um botão "Cultivo de inverno". Quando o frio pararia o cultivo de verão, a zona troca para o cultivo de inverno escolhido e volta quando a estação quente retorna. Plantas já avançadas são esperadas.</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>cresce a partir de {0}</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>Cultivo de inverno…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>Escolha um cultivo resistente ao frio para o qual esta zona troca quando o frio chega; na primavera ela volta ao cultivo de verão. Lista ordenada pela menor temperatura de crescimento.</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>Inverno: {0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>Sem cultivo de inverno</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>Colheita: amadurece em cerca de {0} dias, cerca de {1} {2}.</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>Colheita: {0} plantas maduras – cerca de {1} {2}.</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>({0} já maduras)</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>Colheita: {0} plantas não estão crescendo agora (frio, calor ou escuro demais).</HardyPlants_ZoneStalled>
 </LanguageData>

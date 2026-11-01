@@ -129,4 +129,52 @@
   <HardyPlants_AutoAddedCold>没有生物群系列出它——已加入野生植物组，并因耐寒加入寒冷生物群系组。</HardyPlants_AutoAddedCold>
   <HardyPlants_CropSync>同一区域的作物一起成熟</HardyPlants_CropSync>
   <HardyPlants_CropSyncDesc>同一种植区中播种时间相差约一天以内的作物会追上长得最快的那株，使整片田地同时可以收获。较晚的播种不受影响。不影响树木。</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>温室温度</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0}：{1} – 对{2}来说太冷（需要高于{3}）</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>以下室内作物所在房间太冷或太热，无法生长 – 可能是供暖或制冷坏了：\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0}：{1} – 对{2}来说太热（高于{3}停止生长）</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>室外全年都太冷，无法生长。</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>室外现在太冷，无法生长 – 大约{0}天后会再次变暖。</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>现在种什么</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>尚未种植</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>下一次霜冻（低于0 °C）大约在{0}天后。</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>收成预测</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>不会成熟 – {0}天后寒冷会使其停止生长</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>请先载入游戏再打开播种日历。</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>需要{0}天</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>未来{0}天内没有霜冻。</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>现在太冷或太热，无法生长（{0}起生长）</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>此地图上没有种植区。</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>按今天在室外普通土壤播种计算，使用你的生长设置和本季平均温度（不计天气和事件）。</HardyPlants_CalNote>
+  <HardyPlants_CalNow>今天：{0} · 室外{1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>约{0}天后成熟</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>打开播种日历</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>刷新</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>搜索作物…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>约{0}天后成熟（受寒冷或炎热减慢）</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>生长温度：{0}至{1}。</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>播种日历 – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>{0}天内不会成熟</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>预计总计：{0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>寒冷约持续{0}天。</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>播种日历</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>此地图上入冬前还能成熟的作物，以及每个种植区的收成预测。</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>温室监控</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>当有屋顶的种植区或水培室对所种植物来说太冷或太热时发出警报 – 例如供暖失灵时。</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>果园</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>此区域内的幼树永远不会被砍 – 即使你为该区域换了别的树，或区域内长着野生树木。只收获完全长成的树，之后照常重新种植。</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0}：温暖季节回来了 – 已换回{1}。</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0}：寒冷将至 – 已换成{1}。</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>规划</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>冬季轮作</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>种植区会多一个「冬季作物」按钮。当寒冷会让夏季作物停止生长时，该区域换成你选的冬季作物，温暖季节回来后再换回。已长到一半的植物会等它们成熟。</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>{0}起生长</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>冬季作物…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>选择一种耐寒作物，寒冷到来时此区域会换成它；春天再换回夏季作物。按最低生长温度排序。</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>冬季：{0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>无冬季作物</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>收成：约{0}天后成熟，约{1}个{2}。</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>收成：{0}株已成熟 – 约{1}个{2}。</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>（{0}株已成熟）</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>收成：{0}株现在没有生长（太冷、太热或太暗）。</HardyPlants_ZoneStalled>
 </LanguageData>

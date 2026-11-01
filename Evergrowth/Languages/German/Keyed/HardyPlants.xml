@@ -129,4 +129,52 @@
   <HardyPlants_AutoAddedCold>Kein Biom listet sie – zu den Wildpflanzen und, da sie in der Kälte wächst, zu den kalten Biomen hinzugefügt.</HardyPlants_AutoAddedCold>
   <HardyPlants_CropSync>Pflanzen einer Zone reifen gemeinsam</HardyPlants_CropSync>
   <HardyPlants_CropSyncDesc>Pflanzen in einer Anbauzone, die innerhalb von etwa einem Tag gesät wurden, holen die schnellste ein, sodass das ganze Feld auf einmal erntereif ist. Eine spätere Aussaat bleibt unberührt. Bäume sind nicht betroffen.</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>Gewächshaustemperatur</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0}: {1} – zu kalt für {2} (braucht über {3})</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>Pflanzen drinnen, deren Raum zum Wachsen zu kalt oder zu heiß ist – vielleicht ist die Heizung oder Kühlung ausgefallen:\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0}: {1} – zu heiß für {2} (wächst nicht über {3})</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>Draußen ist es das ganze Jahr zu kalt zum Wachsen.</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>Draußen ist es jetzt zu kalt zum Wachsen – in etwa {0} Tagen wieder warm genug.</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>Was jetzt säen</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>noch nichts gepflanzt</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>Nächster Frost (unter 0 °C) in etwa {0} Tagen.</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>Ernteprognose</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>reift nicht – die Kälte stoppt es in {0} Tagen</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>Lade ein Spiel, um den Aussaatkalender zu öffnen.</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>braucht {0} T</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>Kein Frost in den nächsten {0} Tagen.</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>jetzt zu kalt oder heiß zum Wachsen (wächst ab {0})</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>Keine Anbauzonen auf dieser Karte.</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>Heute draußen auf normalem Boden gesät, mit deinen Wachstumseinstellungen und den Durchschnittstemperaturen der Jahreszeit (Wetter und Ereignisse nicht mitgerechnet).</HardyPlants_CalNote>
+  <HardyPlants_CalNow>Heute: {0} · draußen {1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>reift in etwa {0} Tagen</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>Aussaatkalender öffnen</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>Aktualisieren</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>Pflanzen suchen…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>reift in etwa {0} Tagen (durch Kälte oder Hitze gebremst)</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>Wächst zwischen {0} und {1}.</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>Aussaatkalender – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>reift nicht innerhalb von {0} Tagen</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>Insgesamt erwartet: {0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>Es bleibt etwa {0} Tage kalt.</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>Aussaatkalender</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>Was auf dieser Karte vor der Kälte noch reift, und eine Ernteprognose für jede Anbauzone.</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>Gewächshaus-Wächter</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>Eine Warnung, wenn es in einer überdachten Anbauzone oder einem Hydrokulturraum zu kalt oder zu heiß für die Pflanzen wird – z. B. wenn die Heizung ausfällt.</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>Obstgarten</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>Junge Bäume in dieser Zone werden nie gefällt – auch nicht, wenn du einen anderen Baum für die Zone wählst oder ein wilder Baum darin wächst. Nur ausgewachsene Bäume werden geerntet, danach wird wie gewohnt neu gepflanzt.</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0}: die warme Zeit ist zurück – wieder auf {1} umgestellt.</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0}: die Kälte kommt – auf {1} umgestellt.</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>Planung</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>Wintersaat-Wechsel</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>Anbauzonen bekommen einen Knopf „Winterpflanze“. Wenn die Kälte die Sommerpflanze stoppen würde, wechselt die Zone zur gewählten Winterpflanze und zurück, wenn die warme Zeit wiederkommt. Auf weit gewachsene Pflanzen wird gewartet.</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>wächst ab {0}</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>Winterpflanze…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>Wähle eine kältefeste Pflanze, zu der diese Zone wechselt, wenn die Kälte kommt; im Frühling geht es zurück zur Sommerpflanze. Sortiert nach der niedrigsten Wachstumstemperatur.</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>Winter: {0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>Keine Winterpflanze</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>Ernte: reift in etwa {0} Tagen, etwa {1} {2}.</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>Ernte: {0} Pflanzen reif – etwa {1} {2}.</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>({0} schon reif)</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>Ernte: {0} Pflanzen wachsen gerade nicht (zu kalt, zu heiß oder zu dunkel).</HardyPlants_ZoneStalled>
 </LanguageData>

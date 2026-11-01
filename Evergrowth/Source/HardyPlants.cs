@@ -76,6 +76,9 @@ namespace HardyPlants
 
         // 1.9.1: crops of one grow zone sown within about a day ripen together
         public bool cropSync = false;
+        // 1.9.0: winter crop rotation per zone (off) and the greenhouse temperature alert (on)
+        public bool winterRotation = false;
+        public bool greenhouseWatch = true;
 
         // 1.7.0: chosen profile. 0 Vanilla, 1 Recommended, 2 Lush, 3 Custom.
         // A new install starts on Recommended; settings from an older version
@@ -158,6 +161,8 @@ namespace HardyPlants
             Scribe_Values.Look(ref fruitRepeat, "fruitRepeat", false);
             Scribe_Values.Look(ref autoGuess, "autoGuess", true);
             Scribe_Values.Look(ref cropSync, "cropSync", false);
+            Scribe_Values.Look(ref winterRotation, "winterRotation", false);
+            Scribe_Values.Look(ref greenhouseWatch, "greenhouseWatch", true);
             Scribe_Values.Look(ref profile, "profile", 3);
             if (Scribe.mode == LoadSaveMode.LoadingVars)
             {
@@ -357,6 +362,20 @@ namespace HardyPlants
             MUI.Check(l, "HardyPlants_Greenhouse".Translate(), "HardyPlants_GreenhouseDesc".Translate(), ref s.greenhouse, s, "greenhouse");
             // 1.9.1
             MUI.Check(l, "HardyPlants_CropSync".Translate(), "HardyPlants_CropSyncDesc".Translate(), ref s.cropSync, s, null);
+            // 1.9.0
+            MUI.Section(l, "HardyPlants_SecPlanning".Translate());
+            MUI.Check(l, "HardyPlants_Winter".Translate(), "HardyPlants_WinterDesc".Translate(), ref s.winterRotation, s, null);
+            MUI.Check(l, "HardyPlants_GreenhouseWatch".Translate(), "HardyPlants_GreenhouseWatchDesc".Translate(), ref s.greenhouseWatch, s, null);
+            Map cur = Current.ProgramState == ProgramState.Playing ? Find.CurrentMap : null;
+            Rect br = l.GetRect(30f);
+            if (cur == null)
+            {
+                GUI.color = MUI.Muted;
+                Widgets.Label(br, "HardyPlants_CalNeedGame".Translate());
+                GUI.color = Color.white;
+            }
+            else if (Widgets.ButtonText(new Rect(br.x, br.y, Mathf.Min(260f, br.width), 28f), "HardyPlants_CalOpen".Translate()))
+                Find.WindowStack.Add(new Dialog_SowingCalendar(cur));
             Note(l);
         }
 

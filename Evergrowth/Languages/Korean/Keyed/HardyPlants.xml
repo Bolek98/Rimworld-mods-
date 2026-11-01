@@ -129,4 +129,52 @@
   <HardyPlants_AutoAddedCold>어떤 생물군계에도 없음 – 야생 식물에 추가했고, 추위에 강해서 추운 생물군계 그룹에도 추가했습니다.</HardyPlants_AutoAddedCold>
   <HardyPlants_CropSync>구역 작물 동시 성숙</HardyPlants_CropSync>
   <HardyPlants_CropSyncDesc>같은 재배 구역에서 약 하루 이내에 심은 작물은 가장 빠른 작물을 따라잡아 밭 전체를 한 번에 수확할 수 있습니다. 나중에 심은 작물은 그대로 둡니다. 나무에는 적용되지 않습니다.</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>온실 온도</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0}: {1} – {2}에게 너무 추움 ({3} 이상 필요)</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>다음 실내 작물의 방이 자라기에 너무 춥거나 덥습니다 – 난방이나 냉방이 고장 났을 수 있습니다:\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0}: {1} – {2}에게 너무 더움 ({3} 이상에서 성장 중단)</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>실외는 일 년 내내 너무 추워 자랄 수 없습니다.</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>지금은 실외가 너무 추워 자랄 수 없습니다 – 약 {0}일 후 다시 따뜻해집니다.</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>지금 심을 작물</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>아직 아무것도 심지 않음</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>다음 서리(0 °C 미만)는 약 {0}일 후.</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>수확 예측</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>익지 못함 – {0}일 후 추위로 멈춤</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>파종 달력을 열려면 게임을 불러오세요.</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>{0}일 필요</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>앞으로 {0}일 동안 서리 없음.</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>지금은 너무 춥거나 더워 자랄 수 없음 ({0}부터 자람)</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>이 지도에 재배 구역이 없습니다.</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>오늘 실외의 보통 흙에 심었을 때 기준이며, 당신의 성장 설정과 계절 평균 기온을 사용합니다 (날씨와 이벤트는 제외).</HardyPlants_CalNote>
+  <HardyPlants_CalNow>오늘: {0} · 실외 {1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>약 {0}일 후 수확</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>파종 달력 열기</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>새로고침</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>작물 검색…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>약 {0}일 후 수확 (추위나 더위로 느려짐)</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>{0}~{1}에서 자랍니다.</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>파종 달력 – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>{0}일 안에 익지 않음</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>총 예상: {0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>추위가 약 {0}일 계속됩니다.</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>파종 달력</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>이 지도에서 추워지기 전에 아직 익을 수 있는 작물과 각 재배 구역의 수확 예측.</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>온실 감시</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>지붕이 있는 재배 구역이나 수경 재배실이 그곳의 식물에게 너무 춥거나 더워지면 경고합니다 – 예를 들어 난방이 고장 났을 때.</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>과수원</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>이 구역의 어린 나무는 절대 베지 않습니다 – 구역에 다른 나무를 골라도, 안에 야생 나무가 자라도 마찬가지입니다. 다 자란 나무만 수확하고 그 칸은 평소처럼 다시 심습니다.</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0}: 따뜻한 계절이 돌아옴 – {1}(으)로 되돌림.</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0}: 추위가 다가옴 – {1}(으)로 전환.</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>계획</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>겨울 작물 교대</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>재배 구역에 "겨울 작물" 버튼이 생깁니다. 추위로 여름 작물이 멈출 것 같으면 선택한 겨울 작물로 바꾸고, 따뜻한 계절이 돌아오면 되돌립니다. 많이 자란 식물은 기다립니다.</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>{0}부터 자람</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>겨울 작물…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>추위가 오면 이 구역이 바꿀 내한성 작물을 고르세요. 봄에는 여름 작물로 돌아갑니다. 최저 생육 온도 순으로 정렬됩니다.</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>겨울: {0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>겨울 작물 없음</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>수확: 약 {0}일 후, 약 {1}개의 {2}.</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>수확: {0}포기 익음 – 약 {1}개의 {2}.</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>({0}포기 이미 익음)</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>수확: {0}포기가 지금 자라지 않음 (너무 춥거나, 덥거나, 어두움).</HardyPlants_ZoneStalled>
 </LanguageData>

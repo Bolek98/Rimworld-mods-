@@ -129,4 +129,52 @@
   <HardyPlants_AutoAddedCold>Żaden biom jej nie ma – dodana do dzikich roślin i, ponieważ rośnie w zimnie, do grupy zimnych biomów.</HardyPlants_AutoAddedCold>
   <HardyPlants_CropSync>Uprawy w strefie dojrzewają razem</HardyPlants_CropSync>
   <HardyPlants_CropSyncDesc>Uprawy w jednej strefie uprawy zasiane w odstępie około jednego dnia doganiają najszybszą, więc całe pole jest gotowe do zbioru naraz. Późniejszy wysiew pozostaje bez zmian. Nie dotyczy drzew.</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>Temperatura w szklarni</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0}: {1} – za zimno dla {2} (potrzebuje powyżej {3})</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>Uprawy w pomieszczeniach, w których jest za zimno lub za gorąco, by rosły – może zawiodło ogrzewanie lub chłodzenie:\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0}: {1} – za gorąco dla {2} (przestaje rosnąć powyżej {3})</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>Na zewnątrz przez cały rok jest za zimno na uprawy.</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>Na zewnątrz jest teraz za zimno na uprawy – znów wystarczająco ciepło za około {0} dni.</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>Co siać teraz</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>jeszcze nic nie posadzono</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>Następny mróz (poniżej 0 °C) za około {0} dni.</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>Prognoza zbiorów</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>nie dojrzeje – zimno zatrzyma go za {0} dni</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>Wczytaj grę, aby otworzyć kalendarz siewu.</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>potrzebuje {0} d</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>Brak mrozu w najbliższych {0} dniach.</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>teraz za zimno lub za gorąco na wzrost (rośnie od {0})</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>Brak stref upraw na tej mapie.</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>Posiane dziś na zewnątrz w zwykłej glebie, z twoimi ustawieniami wzrostu i średnimi temperaturami pory roku (pogoda i wydarzenia nie są liczone).</HardyPlants_CalNote>
+  <HardyPlants_CalNow>Dziś: {0} · na zewnątrz {1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>dojrzeje za około {0} dni</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>Otwórz kalendarz siewu</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>Odśwież</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>Szukaj upraw…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>dojrzeje za około {0} dni (spowolnione przez zimno lub upał)</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>Rośnie między {0} a {1}.</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>Kalendarz siewu – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>nie dojrzewa w ciągu {0} dni</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>Łącznie oczekiwane: {0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>Zimno potrwa około {0} dni.</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>Kalendarz siewu</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>Co jeszcze zdąży dojrzeć przed zimnem na tej mapie oraz prognoza zbiorów dla każdej strefy upraw.</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>Pilnowanie szklarni</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>Alert, gdy w zadaszonej strefie upraw lub pomieszczeniu z hydroponiką robi się za zimno lub za gorąco dla tego, co tam rośnie – np. gdy zawiedzie ogrzewanie.</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>Sad</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>Młode drzewa w tej strefie nigdy nie są ścinane – nawet gdy wybierzesz dla strefy inne drzewo lub rośnie w niej dzikie drzewo. Zbierane są tylko dorosłe drzewa, a pole jest potem normalnie obsadzane.</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0}: wróciła ciepła pora – z powrotem {1}.</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0}: nadchodzi zimno – przełączono na {1}.</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>Planowanie</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>Zimowy płodozmian</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>Strefy upraw dostają przycisk „Uprawa zimowa”. Gdy zimno zatrzymałoby uprawę letnią, strefa przełącza się na wybraną uprawę zimową i z powrotem, gdy wróci ciepła pora. Na rośliny już zaawansowane się czeka.</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>rośnie od {0}</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>Uprawa zimowa…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>Wybierz odporną na zimno uprawę, na którą ta strefa przełączy się, gdy przyjdzie zimno; wiosną wróci uprawa letnia. Lista według najniższej temperatury wzrostu.</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>Zima: {0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>Bez uprawy zimowej</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>Zbiory: dojrzeje za około {0} dni, około {1} {2}.</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>Zbiory: {0} roślin dojrzałych – około {1} {2}.</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>({0} już dojrzałych)</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>Zbiory: {0} roślin teraz nie rośnie (za zimno, za gorąco lub za ciemno).</HardyPlants_ZoneStalled>
 </LanguageData>

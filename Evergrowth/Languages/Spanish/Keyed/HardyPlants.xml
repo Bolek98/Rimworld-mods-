@@ -129,4 +129,52 @@
   <HardyPlants_AutoAddedCold>Ningún bioma la incluye – añadida a las plantas silvestres y, como crece con frío, al grupo de biomas fríos.</HardyPlants_AutoAddedCold>
   <HardyPlants_CropSync>Los cultivos de una zona maduran juntos</HardyPlants_CropSync>
   <HardyPlants_CropSyncDesc>Los cultivos de una misma zona sembrados con alrededor de un día de diferencia alcanzan al más avanzado, así todo el campo está listo para cosechar a la vez. Una siembra posterior no se toca. No afecta a los árboles.</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>Temperatura del invernadero</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0}: {1} – demasiado frío para {2} (necesita más de {3})</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>Cultivos de interior cuya habitación está demasiado fría o caliente para crecer – puede que haya fallado la calefacción o la refrigeración:\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0}: {1} – demasiado calor para {2} (deja de crecer por encima de {3})</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>Hace demasiado frío para cultivar fuera todo el año.</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>Ahora hace demasiado frío para cultivar fuera – volverá a hacer calor en unos {0} días.</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>Qué sembrar ahora</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>aún no hay nada plantado</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>Próxima helada (bajo 0 °C) en unos {0} días.</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>Previsión de cosecha</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>no madurará – el frío lo detiene en {0} días</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>Carga una partida para abrir el calendario de siembra.</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>necesita {0} d</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>Sin heladas en los próximos {0} días.</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>ahora hace demasiado frío o calor para crecer (crece desde {0})</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>No hay zonas de cultivo en este mapa.</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>Sembrado hoy fuera en suelo normal, con tus ajustes de crecimiento y las temperaturas medias de la estación (no cuenta el tiempo ni los eventos).</HardyPlants_CalNote>
+  <HardyPlants_CalNow>Hoy: {0} · fuera {1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>madura en unos {0} días</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>Abrir el calendario de siembra</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>Actualizar</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>Buscar cultivos…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>madura en unos {0} días (frenado por frío o calor)</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>Crece entre {0} y {1}.</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>Calendario de siembra – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>no madura en {0} días</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>Esperado en total: {0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>El frío dura unos {0} días.</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>Calendario de siembra</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>Lo que aún puede madurar antes del frío en este mapa y una previsión de cosecha para cada zona de cultivo.</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>Vigilancia del invernadero</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>Un aviso cuando una zona de cultivo techada o una sala de hidroponía se enfría o calienta demasiado para lo que crece allí – por ejemplo si falla la calefacción.</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>Huerto</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>Los árboles jóvenes de esta zona nunca se talan – ni aunque elijas otro árbol para la zona o crezca dentro un árbol silvestre. Solo se cosechan los árboles adultos y la casilla se vuelve a plantar como siempre.</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0}: vuelve la estación cálida – de nuevo {1}.</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0}: llega el frío – cambiado a {1}.</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>Planificación</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>Rotación de cultivos de invierno</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>Las zonas de cultivo reciben un botón «Cultivo de invierno». Cuando el frío detendría el cultivo de verano, la zona cambia al cultivo de invierno elegido y vuelve cuando regresa la estación cálida. Se espera a las plantas ya avanzadas.</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>crece desde {0}</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>Cultivo de invierno…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>Elige un cultivo resistente al frío al que cambia esta zona cuando llega el frío; en primavera vuelve al cultivo de verano. Lista ordenada por la temperatura de crecimiento más baja.</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>Invierno: {0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>Sin cultivo de invierno</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>Cosecha: madura en unos {0} días, unos {1} {2}.</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>Cosecha: {0} plantas maduras – unos {1} {2}.</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>({0} ya maduras)</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>Cosecha: {0} plantas no crecen ahora (demasiado frío, calor u oscuridad).</HardyPlants_ZoneStalled>
 </LanguageData>
