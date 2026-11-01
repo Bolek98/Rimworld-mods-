@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WA_Title>Divoká zvířata – spawn podle biomu</WA_Title>
+  <WA_Bullet1>Seznamy zvířat podle hry v každém biomu</WA_Bullet1>
+  <WA_Bullet2>Nové zvíře nebo skupina nejvýš každých 8 hodin</WA_Bullet2>
+  <WA_Bullet3>Predátoři nejvýš 30 %, žádný do 30 polí od domova</WA_Bullet3>
+  <WA_Bullet4>Dopisy o vzácných zvířatech, varování před přelovením</WA_Bullet4>
+  <WA_TabBiomes>Biomy</WA_TabBiomes>
+  <WA_TabRules>Pravidla</WA_TabRules>
+  <WA_TabMap>Tato mapa</WA_TabMap>
+  <WA_Presets>Předvolby</WA_Presets>
+  <WA_PresetsTip>Hotová nastavení pro všechny biomy.</WA_PresetsTip>
+  <WA_Preset0>Seznamy hry, bez limitů</WA_Preset0>
+  <WA_Preset1>Víc zvířat (×2, rychleji)</WA_Preset1>
+  <WA_Preset2>Méně zvířat (×0,5, pomaleji)</WA_Preset2>
+  <WA_Preset3>Klidné (málo predátorů, žádní u domova)</WA_Preset3>
+  <WA_PresetConfirm>Použít předvolbu „{0}“? Tvoje vlastní seznamy a počty se nahradí.</WA_PresetConfirm>
+  <WA_PresetDone>Použita předvolba: {0}</WA_PresetDone>
+  <WA_Share>Kód nastavení</WA_Share>
+  <WA_ShareTip>Zkopíruj nastavení jako textový kód nebo vlož kód od kamaráda.</WA_ShareTip>
+  <WA_ShareCopy>Zkopírovat moje nastavení</WA_ShareCopy>
+  <WA_SharePaste>Vložit kód ze schránky</WA_SharePaste>
+  <WA_SharePasteConfirm>Nahradit tvoje nastavení kódem ze schránky?</WA_SharePasteConfirm>
+  <WA_ShareCopied>Kód nastavení je ve schránce.</WA_ShareCopied>
+  <WA_ShareBad>Ve schránce není kód Divokých zvířat.</WA_ShareBad>
+  <WA_ShareRead>Kód načten: {0} položek.</WA_ShareRead>
+  <WA_SearchBiome>Hledat biom…</WA_SearchBiome>
+  <WA_NAnimals>{0} zvířat · ~{1} na mapě</WA_NAnimals>
+  <WA_PickBiome>Vyber biom vlevo.</WA_PickBiome>
+  <WA_CopyFrom>Zkopírovat seznam z…</WA_CopyFrom>
+  <WA_ResetBiome>Vrátit tento biom</WA_ResetBiome>
+  <WA_Target>Kolik divokých zvířat: asi {0} na mapě 250×250 (hra: {1})</WA_Target>
+  <WA_Sizes>asi {0} na 200×200 · asi {1} na 300×300</WA_Sizes>
+  <WA_ThisMap>tvoje mapa teď: {0}</WA_ThisMap>
+  <WA_SearchAnimal>Hledat zvíře nebo mod…</WA_SearchAnimal>
+  <WA_ShowAll>Ukázat všechna zvířata</WA_ShowAll>
+  <WA_ShowAllTip>Všechna divoká zvířata ze hry, DLC a všech modů – i ta, co v tomto biomu nikdy nežijí. Dej jim hodnotu nad 0 a přidáš je.</WA_ShowAllTip>
+  <WA_HCommon>Jak častá (podíl příchodů)</WA_HCommon>
+  <WA_HCap>Max. na mapě</WA_HCap>
+  <WA_HSeasons>Roční období</WA_HSeasons>
+  <WA_RareTip>Vzácné: dopis, když přijde.</WA_RareTip>
+  <WA_NoAnimals>Žádné zvíře neodpovídá.</WA_NoAnimals>
+  <WA_Predator>predátor</WA_Predator>
+  <WA_Coastal>jen na pobřeží</WA_Coastal>
+  <WA_NotNative>tady nežije</WA_NotNative>
+  <WA_MayFreeze>může zmrznout</WA_MayFreeze>
+  <WA_MayOverheat>může se přehřát</WA_MayOverheat>
+  <WA_NoCap>Bez limitu</WA_NoCap>
+  <WA_CapTip>Nejvýš tolik (divokých) {0} na mapě najednou. Platí ve všech biomech.</WA_CapTip>
+  <WA_S0>Ja</WA_S0>
+  <WA_S1>Lé</WA_S1>
+  <WA_S2>Po</WA_S2>
+  <WA_S3>Zi</WA_S3>
+  <WA_Season0>jaro</WA_Season0>
+  <WA_Season1>léto</WA_Season1>
+  <WA_Season2>podzim</WA_Season2>
+  <WA_Season3>zima</WA_Season3>
+  <WA_SeasonTip>Přichází v období {0}: kliknutím přepneš. Zvířata, která už na mapě jsou, zůstanou.</WA_SeasonTip>
+  <WA_TempTip>Přijde jen tehdy, když je venkovní teplota v jeho příjemném rozsahu ({0} až {1}). U zvířat, která v biomu normálně nežijí, je zapnuté samo.</WA_TempTip>
+  <WA_SecSpawn>Příchody</WA_SecSpawn>
+  <WA_Enabled>Řídit příchody divokých zvířat</WA_Enabled>
+  <WA_EnabledTip>Vypnuto = spawn podle hry (tvoje seznamy zůstanou uložené na později).</WA_EnabledTip>
+  <WA_Respawn>Nové zvíře nebo skupina nejvýš každých {0} (dokud má mapa míň, než je počet)</WA_Respawn>
+  <WA_RespawnTip>Hra používá skrytou šanci; tady nastavíš čas mezi příchody.</WA_RespawnTip>
+  <WA_Group>Velikost skupin ×{0}</WA_Group>
+  <WA_GroupTip>Stáda a smečky budou větší nebo menší.</WA_GroupTip>
+  <WA_SecPredators>Predátoři</WA_SecPredators>
+  <WA_PredMax>Predátoři nejvýš {0} % divokých zvířat</WA_PredMax>
+  <WA_PredMaxOff>Predátoři: bez limitu</WA_PredMaxOff>
+  <WA_PredMaxTip>Když je jich víc, přicházejí jen nepredátoři.</WA_PredMaxTip>
+  <WA_PredHome>Žádný predátor nepřijde do {0} polí od domovské oblasti</WA_PredHome>
+  <WA_PredHomeOff>Predátoři smí přijít kamkoli</WA_PredHomeOff>
+  <WA_PredHomeTip>Kontroluje se místo, kde zvíře vstoupí na mapu.</WA_PredHomeTip>
+  <WA_SecInfo>Informace</WA_SecInfo>
+  <WA_RareLetters>Dopis, když přijde vzácné zvíře</WA_RareLetters>
+  <WA_RareLettersTip>Vzácná zvířata mají v seznamu biomu ★ (thrumbo a další velmi vzácná jsou označená samy).</WA_RareLettersTip>
+  <WA_Pressure>Varování před přelovením</WA_Pressure>
+  <WA_PressureTip>Upozorní, když kolonie zabíjí divoká zvířata rychleji, než přicházejí nová, a mapa se vylidňuje.</WA_PressureTip>
+  <WA_EventsNote>Události se nemění: šílená zvířata, migrace stád, návštěvy thrumbů a další fungují jako ve hře.</WA_EventsNote>
+  <WA_Hours>{0} h</WA_Hours>
+  <WA_Days>{0} dní</WA_Days>
+  <WA_NoMap>Načti hru a uvidíš zvířata na své mapě.</WA_NoMap>
+  <WA_MapHead>{0}: {1} divokých zvířat / cíl {2}</WA_MapHead>
+  <WA_MapOff>Příchody: podle hry</WA_MapOff>
+  <WA_MapFull>Mapa je plná – teď nikdo nepřijde</WA_MapFull>
+  <WA_MapNext>Další příchod nejpozději za {0}</WA_MapNext>
+  <WA_MapSeason>Období: {0}</WA_MapSeason>
+  <WA_MapStats>Posledních 5 dní: kolonie zabila {0} · přišlo {1} · predátoři {2} ({3} %)</WA_MapStats>
+  <WA_HAnimal>Zvíře</WA_HAnimal>
+  <WA_HNow>Teď</WA_HNow>
+  <WA_HExpected>Očekáváno</WA_HExpected>
+  <WA_HState>Přichází?</WA_HState>
+  <WA_StNotInList>není v seznamu biomu</WA_StNotInList>
+  <WA_StSeason>není jeho období / moc zima nebo horko</WA_StSeason>
+  <WA_StCap>dosažen limit</WA_StCap>
+  <WA_StOk>ano</WA_StOk>
+  <WA_AlertLabel>Přelovení</WA_AlertLabel>
+  <WA_AlertText>Kolonie za posledních 5 dní zabila {0} divokých zvířat, přišlo jen {1}. Mapa se vylidňuje – lov méně, nebo nastav rychlejší příchody v Divokých zvířatech.</WA_AlertText>
+  <WA_RareTitle>Vzácné zvíře: {0}</WA_RareTitle>
+  <WA_RareText>Přišlo vzácné zvíře: {0}. Podívej se na něj, než odejde – nebo než ho někdo uloví.</WA_RareText>
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+</LanguageData>
