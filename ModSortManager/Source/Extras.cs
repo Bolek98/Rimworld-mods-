@@ -197,6 +197,9 @@ namespace ModSortManager
         public const int Days = 7;
         private static readonly Dictionary<string, DateTime> added = new Dictionary<string, DateTime>(StringComparer.OrdinalIgnoreCase);
         private static string FilePath => Path.Combine(MSM.DataDir, "known_mods.txt");
+        // 0.4.1: NEW marks you hid (click the mark or "Hide NEW marks"); on the first start every installed mod counts as seen
+        private static readonly HashSet<string> seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        private static string SeenPath => Path.Combine(MSM.DataDir, "known_mods_seen.txt");
 
         private static string Key(ModMetaData m) => m.RootDir.FullName;
 
@@ -214,14 +217,47 @@ namespace ModSortManager
         public static bool IsNew(ModMetaData m)
         {
             DateTime? t = AddedAt(m);
-            return t.HasValue && (DateTime.Now - t.Value).TotalDays < Days;
+            return t.HasValue && (DateTime.Now - t.Value).TotalDays < Days && !seen.Contains(Key(m));
+        }
+
+        public static void Dismiss(ModMetaData m)
+        {
+            if (m == null) return;
+            seen.Add(Key(m));
+            SaveSeen();
+        }
+
+        public static int DismissAll()
+        {
+            int n = 0;
+            foreach (ModMetaData m in ModLister.AllInstalledMods)
+                if (IsNew(m)) { seen.Add(Key(m)); n++; }
+            SaveSeen();
+            return n;
+        }
+
+        public static bool AnyNew()
+        {
+            foreach (ModMetaData m in ModLister.AllInstalledMods)
+                if (IsNew(m)) return true;
+            return false;
+        }
+
+        private static void SaveSeen()
+        {
+            try { File.WriteAllLines(SeenPath, seen.ToArray()); }
+            catch (Exception e) { Log.Warning("[Mod Sort Manager] new mods: " + e.Message); }
         }
 
         public static void Refresh()
         {
             try
             {
-                if (File.Exists(FilePath))
+                bool first = !File.Exists(FilePath);
+                if (seen.Count == 0 && File.Exists(SeenPath))
+                    foreach (string line in File.ReadAllLines(SeenPath))
+                        if (line.Length > 0) seen.Add(line);
+                if (!first)
                     foreach (string line in File.ReadAllLines(FilePath))
                     {
                         string[] p = line.Split('\t');
@@ -237,6 +273,12 @@ namespace ModSortManager
                     if (!added.ContainsKey(k)) added[k] = Created(k, DateTime.Now);
                 }
                 File.WriteAllLines(FilePath, added.Select(kv => kv.Key + "\t" + kv.Value.Ticks).ToArray());
+                if (first)
+                {
+                    // the very first start: mods you already had are not "new" (Workshop folders often carry a recent date)
+                    foreach (string k in added.Keys) seen.Add(k);
+                    SaveSeen();
+                }
             }
             catch (Exception e)
             {

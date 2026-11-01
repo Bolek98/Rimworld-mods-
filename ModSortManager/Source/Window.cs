@@ -34,6 +34,11 @@ namespace ModSortManager
         private bool cProb;
         private bool ActiveFiltered => !fActive.NullOrEmpty() || onlyProblems;
         private Vector2 sInactive, sActive, sDetail, sProblems, sProfiles, sBackups;
+        // 0.4.1: drag between the lists – inactive → active at a position, active → inactive to switch off
+        private ModMetaData xMod;
+        private bool xDragging;
+        private Vector2 xStart;
+        private Rect rAct, rInactScreen;
 
         private bool dirty = true;
         private List<Issue> issues = new List<Issue>();
@@ -1180,6 +1185,19 @@ namespace ModSortManager
             // inactive
             Rect l = left.ContractedBy(Pad, 10f);
             Label(new Rect(l.x, l.y, l.width, 22f), "MSM_Inactive".Translate(inactiveCache.Count), MUI.Muted, GameFont.Tiny);
+            // 0.4.1: hide every NEW mark at once
+            if (NewMods.AnyNew())
+            {
+                string hl = "MSM_ClearNew".Translate();
+                float hw = Text.CalcSize(hl).x * 0.8f + 16f;
+                Rect hr = new Rect(l.xMax - hw, l.y + 1f, hw, 20f);
+                if (Button(hr, hl, false, true))
+                {
+                    NewMods.DismissAll();
+                    ver++;
+                }
+                TooltipHandler.TipRegion(hr, "MSM_ClearNewTip".Translate());
+            }
             string nf = SearchField(new Rect(l.x, l.y + 24f, l.width, 30f), fInactive, "MSM_SearchHint".Translate());
             if (nf != fInactive) fInactive = nf;
             if (cVer != ver || cInactF != fInactive || cActF != fActive || cProb != onlyProblems)
@@ -1216,6 +1234,7 @@ namespace ModSortManager
             if (onlyProblems && nProb == 0) onlyProblems = false;
             List<ModMetaData> act = ActiveFiltered ? cAct : active;
             DrawList(new Rect(m.x, m.y + 62f, m.width, m.height - 62f), act, ref sActive, true);
+            CrossDrag();
 
             DrawDetail(right.ContractedBy(Pad, 10f));
         }
@@ -1230,6 +1249,8 @@ namespace ModSortManager
         private void DrawList(Rect outRect, List<ModMetaData> list, ref Vector2 scroll, bool isActive)
         {
             bool canDrag = isActive && !ActiveFiltered;
+            if (isActive) rAct = outRect;
+            else rInactScreen = new Rect(GUIUtility.GUIToScreenPoint(outRect.position), outRect.size);
             Rect view = new Rect(0f, 0f, outRect.width - 16f, Mathf.Max(list.Count * RowH, outRect.height - 2f));
             Widgets.BeginScrollView(outRect, ref scroll, view);
             int first = Mathf.Max(0, (int)(scroll.y / RowH) - 1);
@@ -1258,8 +1279,18 @@ namespace ModSortManager
                 {
                     string nl = "MSM_New".Translate();
                     float nw = Text.CalcSize(nl).x * 0.8f + 14f;
-                    Pill(new Rect(row.xMax - 30f - nw, row.y + 4f, nw, 18f), nl, MUI.Accent);
+                    Rect pill = new Rect(row.xMax - 30f - nw, row.y + 4f, nw, 18f);
+                    Pill(pill, nl, MUI.Accent);
+                    TooltipHandler.TipRegion(pill, "MSM_NewHideTip".Translate());
                     nameW -= nw + 6f;
+                    // 0.4.1: click the mark to hide it
+                    if (ev.type == EventType.MouseDown && ev.button == 0 && Mouse.IsOver(pill))
+                    {
+                        NewMods.Dismiss(mod);
+                        ver++;
+                        ev.Use();
+                        break;
+                    }
                 }
                 string side = isActive ? ShortNote(mod) : (Rules.VersionOk(mod) ? "" : "MSM_OldShort".Translate(MSM.Versions(mod)).ToString());
                 float sideW = side.NullOrEmpty() ? 0f : Mathf.Min(nameW * 0.45f, Text.CalcSize(side).x * 0.85f + 6f);
@@ -1318,6 +1349,12 @@ namespace ModSortManager
                         dragStartY = ev.mousePosition.y;
                         dragging = false;
                     }
+                    else if (!isActive && ev.clickCount == 1)
+                    {
+                        xMod = mod;
+                        xStart = GUIUtility.GUIToScreenPoint(ev.mousePosition);
+                        xDragging = false;
+                    }
                     ev.Use();
                 }
             }
@@ -1340,7 +1377,14 @@ namespace ModSortManager
                 }
                 if (ev.rawType == EventType.MouseUp)
                 {
-                    if (dragging)
+                    if (dragging && dragFrom < list.Count && rInactScreen.Contains(GUIUtility.GUIToScreenPoint(ev.mousePosition)))
+                    {
+                        // 0.4.1: dropped on the inactive list – switch off
+                        if (multi.Count > 1 && multi.Contains(list[dragFrom])) DeactivateMany(Selection().Where(active.Contains).ToList());
+                        else Deactivate(list[dragFrom]);
+                        multi.Clear();
+                    }
+                    else if (dragging)
                     {
                         if (multi.Count > 1 && dragFrom < list.Count && multi.Contains(list[dragFrom])) MoveGroupTo(target);   // 0.3.1
                         else Move(dragFrom, target > dragFrom ? target - 1 : target);
@@ -1350,6 +1394,62 @@ namespace ModSortManager
                 }
             }
             Widgets.EndScrollView();
+        }
+
+        // 0.4.1: a mod dragged from the inactive list and dropped on the active one is switched on at that place
+        private void CrossDrag()
+        {
+            Event ev = Event.current;
+            if (xMod == null) return;
+            if (!xDragging && ev.type == EventType.MouseDrag && (GUIUtility.GUIToScreenPoint(ev.mousePosition) - xStart).magnitude > 6f)
+                xDragging = true;
+            bool over = rAct.Contains(ev.mousePosition);
+            bool place = over && !ActiveFiltered;
+            int target = place ? Mathf.Clamp(Mathf.RoundToInt((ev.mousePosition.y - rAct.y + sActive.y) / RowH), 0, active.Count) : active.Count;
+            if (xDragging)
+            {
+                if (ev.type == EventType.MouseDrag)
+                {
+                    if (over && ev.mousePosition.y < rAct.y + 24f) sActive.y = Mathf.Max(0f, sActive.y - 12f);
+                    else if (over && ev.mousePosition.y > rAct.yMax - 24f) sActive.y += 12f;
+                    ev.Use();
+                }
+                if (ev.type == EventType.Repaint)
+                {
+                    if (place)
+                    {
+                        float ly = rAct.y + target * RowH - sActive.y;
+                        if (ly >= rAct.y - 2f && ly <= rAct.yMax + 2f) MUI.Fill(new Rect(rAct.x, ly - 1f, rAct.width - 16f, 3f), MUI.Accent);
+                    }
+                    Label(new Rect(ev.mousePosition.x + 12f, ev.mousePosition.y - 10f, 320f, 22f), "+ " + xMod.Name, MUI.Accent, GameFont.Tiny, TextAnchor.MiddleLeft, false);
+                }
+            }
+            if (ev.rawType == EventType.MouseUp)
+            {
+                if (xDragging && over)
+                {
+                    List<ModMetaData> mods = multi.Count > 1 && multi.Contains(xMod)
+                        ? inactiveCache.Where(x => multi.Contains(x)).ToList()
+                        : new List<ModMetaData> { xMod };
+                    foreach (ModMetaData x in mods) Activate(x);
+                    if (place)
+                    {
+                        List<ModMetaData> added = mods.Where(active.Contains).ToList();
+                        int before = active.Take(Mathf.Clamp(target, 0, active.Count)).Count(added.Contains);
+                        foreach (ModMetaData x in added) active.Remove(x);
+                        int at = Mathf.Clamp(target - before, 0, active.Count);
+                        int firstFree = 0;
+                        while (firstFree < active.Count && (active[firstFree].IsCoreMod || active[firstFree].Official)) firstFree++;
+                        active.InsertRange(Mathf.Max(at, firstFree), added);
+                    }
+                    selected = xMod;
+                    multi.Clear();
+                    dirty = true;
+                    SoundDefOf.Click.PlayOneShotOnCamera();
+                }
+                xMod = null;
+                xDragging = false;
+            }
         }
 
         private string ShortNote(ModMetaData m)
