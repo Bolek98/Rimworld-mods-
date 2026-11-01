@@ -1,4 +1,24 @@
 === Not on the Workshop yet (test versions) ===
+1.9.0
+New
+- "Where it grows": a button on every grow zone, hydroponics basin and planter shows on the map where that plant grows – green well, yellow slower, red not at all – with the reason under the mouse (too cold or hot, poor soil, too dark, needs a roof …). Right-click the button to check another plant.
+- Crop growth sync (optional, off): crops in one grow zone sown within about a day of each other ripen together.
+- Plants from other mods: wild plants no biome lists join the hardy plant groups, and plants that give wood count as trees. Marked "auto" in the Plants tab; one switch turns it off.
+- "Report a bug" and "Bolek98's mods" buttons in the settings.
+
+Fixes
+- Plants from other mods with a missing icon (red square) show the picture they use on the map; plants with no picture at all are named in the log with their mod.
+
+Nové
+- „Kde roste“: tlačítko u každé pěstební zóny, hydroponie a květináče ukáže na mapě, kde daná rostlina roste – zeleně dobře, žlutě pomaleji, červeně vůbec – a pod myší důvod (moc zima nebo horko, chudá půda, tma, potřebuje střechu …). Pravým klikem na tlačítko zkontroluješ jinou rostlinu.
+- Souběžné dozrávání (volitelné, vypnuté): plodiny v jedné zóně zaseté zhruba v jeden den dozrají spolu.
+- Rostliny z jiných modů: divoké rostliny, které žádný biom neuvádí, se přidají do skupin odolných rostlin, a rostliny, které dávají dřevo, se počítají jako stromy. V záložce Rostliny označené „auto“; jeden přepínač to vypne.
+- Tlačítka „Nahlásit chybu“ a „Bolek98's mods“ v nastavení.
+
+Opravy
+- Rostliny z jiných modů s chybějící ikonou (červený čtverec) ukážou obrázek, který používají na mapě; rostliny úplně bez obrázku se zapíšou do logu i s modem.
+
+=== Development history since the last Workshop release (test versions) ===
 1.9.2
 - Plants from other mods whose icon is the red "missing texture" square (wrong icon path in that mod) get the picture they are drawn with on the map, so buttons such as "Where it grows" and "Copy" show the plant. Plants with no picture at all are named in the log with their mod.
 
