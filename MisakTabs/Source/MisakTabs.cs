@@ -257,25 +257,46 @@ namespace MisakTabs
             return new Vector2(Mathf.Clamp(w, minW, maxW), Mathf.Clamp(h, minH, maxH));
         }
 
+        // 0.13.2: the panels could not really be resized (a tiny grip whose click was often taken by the
+        // panel or the game). Now: drag the top edge (height), the right edge (width) or the top right
+        // corner (both). The press is read straight from the mouse, so nothing in the panel can swallow it.
+        private static int dragMode;   // 1 height, 2 width, 3 both
+
         public static bool Grip(Rect r, string id, ref float w, ref float h, float minW, float minH)
         {
-            Rect g = new Rect(r.xMax - 18f, r.y, 18f, 12f);
-            bool over = Mouse.IsOver(g), on = dragId == id;
-            Color c = over || on ? Look.Green : new Color(1f, 1f, 1f, 0.35f);
+            const float edge = 7f, corner = 24f;
+            Rect cornerR = new Rect(r.xMax - corner, r.y, corner, corner);
+            Rect topR = new Rect(r.x, r.y, r.width - corner, edge);
+            Rect rightR = new Rect(r.xMax - edge, r.y + corner, edge, r.height - corner);
+            bool on = dragId == id;
+            int hover = Mouse.IsOver(cornerR) ? 3 : Mouse.IsOver(topR) ? 1 : Mouse.IsOver(rightR) ? 2 : 0;
+            int show = on ? dragMode : hover;
+
+            // the corner sign (always visible), the edges light up when the mouse is on them
+            Color c = show == 3 ? Look.Green : new Color(1f, 1f, 1f, 0.45f);
             for (int i = 0; i < 3; i++)
-                Widgets.DrawBoxSolid(new Rect(g.x + 4f + i * 4f, g.y + 2f + (2 - i) * 3f, 10f - i * 4f + (i == 0 ? 2f : 0f), 1.5f), c);
-            if (over) TooltipHandler.TipRegion(g, "MT_GripTip".Translate());
-            Vector2 m = UI.MousePositionOnUIInverted;
-            if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && over)
             {
-                dragId = id; startMouse = m; startSize = new Vector2(r.width, r.height);
-                Event.current.Use();
+                float len = 14f - i * 5f;
+                Widgets.DrawBoxSolid(new Rect(cornerR.xMax - 4f - len, cornerR.y + 4f + i * 4f, len, 2f), c);
+            }
+            if (show == 1 || show == 3) Widgets.DrawBoxSolid(new Rect(r.x, r.y, r.width, 3f), Look.Green);
+            if (show == 2 || show == 3) Widgets.DrawBoxSolid(new Rect(r.xMax - 3f, r.y, 3f, r.height), Look.Green);
+            if (hover != 0 && !on) TooltipHandler.TipRegion(hover == 3 ? cornerR : hover == 1 ? topR : rightR, "MT_GripTip".Translate());
+
+            Vector2 m = UI.MousePositionOnUIInverted;
+            if (!on && dragId == null && hover != 0 && Input.GetMouseButtonDown(0))
+            {
+                dragId = id; dragMode = hover; startMouse = m; startSize = new Vector2(r.width, r.height);
+                if (Event.current.type == EventType.MouseDown) Event.current.Use();
                 return false;
             }
             if (!on) return false;
-            if (!Input.GetMouseButton(0)) { dragId = null; MTMod.S.Write(); return true; }
-            Vector2 s = Fit(startSize.x + (m.x - startMouse.x), startSize.y + (startMouse.y - m.y), minW, minH);
-            w = s.x; h = s.y;
+            if (Event.current.type == EventType.MouseDown || Event.current.type == EventType.MouseDrag) Event.current.Use();
+            if (!Input.GetMouseButton(0)) { dragId = null; dragMode = 0; MTMod.S.Write(); return true; }
+            float nw = dragMode == 1 ? startSize.x : startSize.x + (m.x - startMouse.x);
+            float nh = dragMode == 2 ? startSize.y : startSize.y + (startMouse.y - m.y);
+            Vector2 sz = Fit(nw, nh, minW, minH);
+            w = sz.x; h = sz.y;
             return false;
         }
 

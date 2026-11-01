@@ -136,7 +136,8 @@ namespace MisakTabs
             Look.Text(new Rect(r.x + 12f, r.y + 32f, r.width - 170f, 18f), string.Join(" · ", bits).Truncate(r.width - 170f), Muted, GameFont.Tiny);
             Rect orig = new Rect(r.xMax - 140f, r.y + 13f, 120f, 28f);
             if (Look.Button(orig, "MT_Original".Translate())) original = true;
-            TabSize.Grip(new Rect(r.x, r.y, r.width, r.height), gripId, ref w, ref h, minW, minH);
+            // 0.13.2: the grip gets the whole panel (the right edge runs down the full height)
+            TabSize.Grip(new Rect(r.x, r.y, r.width, TabSize.Fit(w, h, minW, minH).y), gripId, ref w, ref h, minW, minH);
         }
 
         public static float Chips(Rect r, IEnumerable<(string text, Color c, string tip)> chips)
