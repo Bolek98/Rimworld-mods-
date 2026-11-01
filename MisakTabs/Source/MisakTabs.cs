@@ -26,6 +26,8 @@ namespace MisakTabs
         public float charW = 820f, charH = 560f, socialW = 800f, socialH = 540f;      // 0.9.0
         public bool needs = true, billDialog = true;                                  // 0.11.0
         public float needsW = 640f, needsH = 520f;                                    // 0.11.0
+        public bool gear = true;                                                      // 0.13.1
+        public float gearW = 880f, gearH = 580f;                                      // 0.13.1
         public bool paneLook = true, plantPicker = true;                                                  // 0.12.0
         public bool recipePicker = true, surgeryPicker = true, ownerPicker = true, policyPicker = true, researchPicker = true, mechPicker = true, animalPicker = true, tradeWindow = true;   // 0.13.0: pickers everywhere
 
@@ -61,13 +63,16 @@ namespace MisakTabs
             Scribe_Values.Look(ref tradeWindow, "tradeWindow", true);
             Scribe_Values.Look(ref needsW, "needsW", 640f);
             Scribe_Values.Look(ref needsH, "needsH", 520f);
+            Scribe_Values.Look(ref gear, "gear", true);
+            Scribe_Values.Look(ref gearW, "gearW", 880f);
+            Scribe_Values.Look(ref gearH, "gearH", 580f);
             WindowSizes.Expose();   // 0.13.0
         }
     }
 
     public class MTMod : Mod
     {
-        public const string Version = "0.13.0";
+        public const string Version = "0.13.1";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0
@@ -77,7 +82,7 @@ namespace MisakTabs
         {
             S = GetSettings<MTSettings>();
             Pack = content;
-            MUI.Init(new MTSettings(), null, "recommended", "billsW", "billsH", "billsLeft", "healthW", "healthH", "charW", "charH", "socialW", "socialH", "needsW", "needsH");
+            MUI.Init(new MTSettings(), null, "recommended", "billsW", "billsH", "billsLeft", "healthW", "healthH", "charW", "charH", "socialW", "socialH", "needsW", "needsH", "gearW", "gearH");
             if (S.recommended) MUI.ApplyAll(S);
             MNews.Register(content, Version);
             H = new Harmony("bolek98.misaktabs");
@@ -87,6 +92,7 @@ namespace MisakTabs
             HealthTab.Patch(H);
             PawnTabs.Patch(H);   // 0.9.0
             NeedsTab.Patch(H);   // 0.11.0
+            GearTab.Patch(H);    // 0.13.1
             BillDialogSwap.Patch(H); // 0.11.0
             InspectPaneLook.Patch(H); // 0.12.0
             PlantPickerPatch.Patch(H); // 0.12.0
@@ -122,6 +128,7 @@ namespace MisakTabs
                 Check(l, "MT_Character", ref S.character, "character");
                 Check(l, "MT_Social", ref S.social, "social");
                 Check(l, "MT_Needs", ref S.needs, "needs");
+                Check(l, "MT_Gear", ref S.gear, "gear");
                 Check(l, "MT_BillDialog", ref S.billDialog, "billDialog");
                 Check(l, "MT_PaneLook", ref S.paneLook, "paneLook");
                 Check(l, "MT_PlantPicker", ref S.plantPicker, "plantPicker");
