@@ -107,4 +107,57 @@
   <EWP_Unlock>Bearbeitung entsperren</EWP_Unlock>
   <EWP_ShowAll>Alle Pflanzen ({0})</EWP_ShowAll>
   <EWP_ShowAllTip>Zeigt jede Pflanze aus dem Spiel, den DLCs und Mods, auch solche, die hier normalerweise nicht wachsen. Schiebe einen Regler über 0 und die Pflanze beginnt hier zu wachsen.</EWP_ShowAllTip>
+  <!-- 1.2.0 extras -->
+  <EWP_TabExtras>Extras</EWP_TabExtras>
+  <EWP_SecForage>Beeren und Kräuter</EWP_SecForage>
+  <EWP_ForageIntro>Wildpflanzen, die bei der Ernte Nahrung oder Medizin geben ({0} gefunden, z. B. {1}).</EWP_ForageIntro>
+  <EWP_ForageCommon>Häufigkeit: x{0}</EWP_ForageCommon>
+  <EWP_ForageCommonTip>Wie oft Beeren, Agave, wilde Heilwurzel und ähnliche Pflanzen unter den Wildpflanzen jedes Bioms vorkommen (auch aus Mods). 1 = wie in der Biomliste, 0 = nie.</EWP_ForageCommonTip>
+  <EWP_ForageRegrow>Nachwachsen nach der Ernte: x{0}</EWP_ForageRegrow>
+  <EWP_ForageRegrowTip>Wie schnell wilde Beeren und Kräuter nach Ernte oder Fraß nachwachsen. Gesäte Pflanzen in deinen Zonen bleiben unverändert.</EWP_ForageRegrowTip>
+  <EWP_SecGrass>Weidegras</EWP_SecGrass>
+  <EWP_GrassIntro>Gras und andere Pflanzen, die Tiere abgrasen ({0} gefunden).</EWP_GrassIntro>
+  <EWP_GrassRegrow>Nachwachsen von Gras: x{0}</EWP_GrassRegrow>
+  <EWP_GrassRegrowTip>Wie schnell abgegrastes Gras nachwächst – Tiere in Gehegen bleiben länger satt.</EWP_GrassRegrowTip>
+  <EWP_GrassPens>Nur in Tiergehegen</EWP_GrassPens>
+  <EWP_GrassPensTip>Die Graswachstumsrate gilt nur in geschlossenen Gehegen; Gras auf dem Rest der Karte wächst normal.</EWP_GrassPensTip>
+  <EWP_SecProtect>Geschützte Pflanzen</EWP_SecProtect>
+  <EWP_ProtectIntro>Wildpflanzen dieser Arten werden nie gefällt, wenn du einen Schneide- oder Fällbefehl über ein Gebiet ziehst, eine Zone besäst oder darüber baust. Markierst du eine einzelne Pflanze, wird sie trotzdem gefällt.</EWP_ProtectIntro>
+  <EWP_ProtectAdd>Pflanze hinzufügen…</EWP_ProtectAdd>
+  <EWP_ProtectClear>Alle entfernen</EWP_ProtectClear>
+  <EWP_ProtectNone>Noch keine geschützten Pflanzen.</EWP_ProtectNone>
+  <EWP_ProtectedSkip>{0} ist geschützt (Evergrowth – Wild Plants). Klicke sie einzeln an, um sie zu fällen.</EWP_ProtectedSkip>
+  <EWP_Presets>Vorlagen…</EWP_Presets>
+  <EWP_PresetsTip>Alle Biome auf einmal ändern: dichter und schneller, spärlicher und langsamer oder zurück zu den Spielwerten.</EWP_PresetsTip>
+  <EWP_Preset0>Vanilla</EWP_Preset0>
+  <EWP_Preset1>Dichter Dschungel</EWP_Preset1>
+  <EWP_Preset2>Karge Steppe</EWP_Preset2>
+  <EWP_PresetConfirm>Vorlage „{0}“ auf alle Biome anwenden? Deine eigenen Werte für Dichte und Nachwachsen werden ersetzt.</EWP_PresetConfirm>
+  <EWP_PresetDone>Vorlage „{0}“ auf alle Biome angewendet.</EWP_PresetDone>
+  <EWP_Share>Code teilen…</EWP_Share>
+  <EWP_ShareTip>Alle Einstellungen dieser Mod als einen Textcode kopieren oder einen Code eines Freundes einfügen.</EWP_ShareTip>
+  <EWP_ShareCopy>Meine Einstellungen als Code kopieren</EWP_ShareCopy>
+  <EWP_ShareCopied>Der Code ist in der Zwischenablage.</EWP_ShareCopied>
+  <EWP_SharePaste>Code aus der Zwischenablage einfügen</EWP_SharePaste>
+  <EWP_SharePasteConfirm>Alle Einstellungen dieser Mod durch den Code aus der Zwischenablage ersetzen?</EWP_SharePasteConfirm>
+  <EWP_ShareBad>Die Zwischenablage enthält keinen Code von Evergrowth – Wild Plants.</EWP_ShareBad>
+  <EWP_ShareRead>Einstellungen aus dem Code geladen ({0} Werte).</EWP_ShareRead>
+  <EWP_WG_Button>Wo wächst eine Pflanze hier?</EWP_WG_Button>
+  <EWP_WG_ButtonTip>Wähle eine Wildpflanze: Die Karte zeigt, wo sie gut wächst (grün), langsamer oder gerade nicht (gelb) und gar nicht (rot), mit dem Grund unter der Maus.</EWP_WG_ButtonTip>
+  <EWP_WG_AnyPlant>Andere Pflanze…</EWP_WG_AnyPlant>
+  <EWP_WG_Showing>Wo {0} wächst</EWP_WG_Showing>
+  <EWP_WG_InBiome>Steht in der Liste dieses Bioms – erscheint von selbst.</EWP_WG_InBiome>
+  <EWP_WG_NotInBiome>Nicht in der Liste dieses Bioms – erscheint hier nicht von selbst.</EWP_WG_NotInBiome>
+  <EWP_WG_Other>Andere Pflanze</EWP_WG_Other>
+  <EWP_WG_Close>Schließen</EWP_WG_Close>
+  <EWP_WG_NeedsRoof>Braucht ein natürliches Felsdach (Höhlenpflanze).</EWP_WG_NeedsRoof>
+  <EWP_WG_BuiltRoof>Unter einem gebauten Dach – hier wachsen keine Wildpflanzen.</EWP_WG_BuiltRoof>
+  <EWP_WG_Built>Überbaut.</EWP_WG_Built>
+  <EWP_WG_Terrain>{0} kann diese Pflanze nicht tragen.</EWP_WG_Terrain>
+  <EWP_WG_Soil>Boden zu karg: Fruchtbarkeit {0}, braucht {1}.</EWP_WG_Soil>
+  <EWP_WG_Dark>Unter dem Dach zu dunkel.</EWP_WG_Dark>
+  <EWP_WG_Cold>Gerade zu kalt ({0}) – wächst in einer wärmeren Jahreszeit.</EWP_WG_Cold>
+  <EWP_WG_Hot>Gerade zu heiß ({0}).</EWP_WG_Hot>
+  <EWP_WG_Slow>Wächst langsamer: {0} (Boden {1}, Licht {2}, Temperatur {3}).</EWP_WG_Slow>
+  <EWP_WG_Good>Wächst gut ({0}).</EWP_WG_Good>
 </LanguageData>

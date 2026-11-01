@@ -107,4 +107,57 @@
   <EWP_Unlock>편집 잠금 해제</EWP_Unlock>
   <EWP_ShowAll>모든 식물({0})</EWP_ShowAll>
   <EWP_ShowAllTip>게임, DLC, 모드의 모든 식물을 보여 줍니다. 보통 여기서 자라지 않는 것도 포함됩니다. 슬라이더를 0보다 높이면 그 식물이 여기서 자라기 시작합니다.</EWP_ShowAllTip>
+  <!-- 1.2.0 extras -->
+  <EWP_TabExtras>추가</EWP_TabExtras>
+  <EWP_SecForage>베리와 약초</EWP_SecForage>
+  <EWP_ForageIntro>수확하면 음식이나 약을 주는 야생 식물 ({0}종 발견, 예: {1}).</EWP_ForageIntro>
+  <EWP_ForageCommon>출현 빈도: x{0}</EWP_ForageCommon>
+  <EWP_ForageCommonTip>베리, 용설란, 야생 치료뿌리 같은 식물이 각 바이옴의 야생 식물 중에 얼마나 자주 나타나는지 (모드 식물 포함). 1 = 바이옴 목록대로, 0 = 나타나지 않음.</EWP_ForageCommonTip>
+  <EWP_ForageRegrow>수확 후 재성장: x{0}</EWP_ForageRegrow>
+  <EWP_ForageRegrowTip>야생 베리와 약초가 수확되거나 먹힌 뒤 다시 자라는 속도. 구역에 심은 작물은 바뀌지 않습니다.</EWP_ForageRegrowTip>
+  <EWP_SecGrass>목초</EWP_SecGrass>
+  <EWP_GrassIntro>동물이 뜯어 먹는 풀과 다른 식물 ({0}종 발견).</EWP_GrassIntro>
+  <EWP_GrassRegrow>풀 재성장: x{0}</EWP_GrassRegrow>
+  <EWP_GrassRegrowTip>뜯어 먹힌 풀이 다시 자라는 속도 – 우리 안의 동물이 더 오래 배부릅니다.</EWP_GrassRegrowTip>
+  <EWP_GrassPens>동물 우리 안에서만</EWP_GrassPens>
+  <EWP_GrassPensTip>풀 속도는 닫힌 우리 안에서만 적용되고, 지도의 나머지 풀은 평소대로 자랍니다.</EWP_GrassPensTip>
+  <EWP_SecProtect>보호 식물</EWP_SecProtect>
+  <EWP_ProtectIntro>이 종류의 야생 식물은 구역에 베기·벌목 명령을 끌어 지정하거나, 구역에 씨를 뿌리거나, 그 위에 건설할 때 절대 베이지 않습니다. 한 그루만 따로 지정하면 벨 수 있습니다.</EWP_ProtectIntro>
+  <EWP_ProtectAdd>식물 추가…</EWP_ProtectAdd>
+  <EWP_ProtectClear>모두 제거</EWP_ProtectClear>
+  <EWP_ProtectNone>아직 보호 식물이 없습니다.</EWP_ProtectNone>
+  <EWP_ProtectedSkip>{0}은(는) 보호 중입니다 (Evergrowth – Wild Plants). 베려면 그것만 클릭하세요.</EWP_ProtectedSkip>
+  <EWP_Presets>프리셋…</EWP_Presets>
+  <EWP_PresetsTip>모든 바이옴을 한 번에 변경: 더 빽빽하고 빠르게, 더 듬성하고 느리게, 또는 게임 값으로.</EWP_PresetsTip>
+  <EWP_Preset0>바닐라</EWP_Preset0>
+  <EWP_Preset1>빽빽한 정글</EWP_Preset1>
+  <EWP_Preset2>듬성한 초원</EWP_Preset2>
+  <EWP_PresetConfirm>프리셋 "{0}"을(를) 모든 바이옴에 적용할까요? 직접 정한 밀도와 재성장 값이 바뀝니다.</EWP_PresetConfirm>
+  <EWP_PresetDone>프리셋 "{0}"을(를) 모든 바이옴에 적용했습니다.</EWP_PresetDone>
+  <EWP_Share>코드 공유…</EWP_Share>
+  <EWP_ShareTip>이 모드의 모든 설정을 하나의 텍스트 코드로 복사하거나 친구의 코드를 붙여 넣습니다.</EWP_ShareTip>
+  <EWP_ShareCopy>내 설정을 코드로 복사</EWP_ShareCopy>
+  <EWP_ShareCopied>코드가 클립보드에 있습니다.</EWP_ShareCopied>
+  <EWP_SharePaste>클립보드에서 코드 붙여 넣기</EWP_SharePaste>
+  <EWP_SharePasteConfirm>이 모드의 모든 설정을 클립보드의 코드로 바꿀까요?</EWP_SharePasteConfirm>
+  <EWP_ShareBad>클립보드에 Evergrowth – Wild Plants 코드가 없습니다.</EWP_ShareBad>
+  <EWP_ShareRead>코드에서 설정을 불러왔습니다 ({0}개 값).</EWP_ShareRead>
+  <EWP_WG_Button>이 식물은 여기 어디서 자랄까?</EWP_WG_Button>
+  <EWP_WG_ButtonTip>야생 식물을 고르면 잘 자라는 곳(초록), 느리거나 지금은 안 자라는 곳(노랑), 전혀 안 자라는 곳(빨강)을 지도에 표시하고 마우스 아래에 이유를 보여 줍니다.</EWP_WG_ButtonTip>
+  <EWP_WG_AnyPlant>다른 식물…</EWP_WG_AnyPlant>
+  <EWP_WG_Showing>{0}이(가) 자라는 곳</EWP_WG_Showing>
+  <EWP_WG_InBiome>이 바이옴 목록에 있습니다 – 저절로 나타납니다.</EWP_WG_InBiome>
+  <EWP_WG_NotInBiome>이 바이옴 목록에 없습니다 – 여기서는 저절로 나타나지 않습니다.</EWP_WG_NotInBiome>
+  <EWP_WG_Other>다른 식물</EWP_WG_Other>
+  <EWP_WG_Close>닫기</EWP_WG_Close>
+  <EWP_WG_NeedsRoof>천연 암석 지붕이 필요합니다 (동굴 식물).</EWP_WG_NeedsRoof>
+  <EWP_WG_BuiltRoof>지은 지붕 아래 – 야생 식물은 여기서 자라지 않습니다.</EWP_WG_BuiltRoof>
+  <EWP_WG_Built>건물이 있습니다.</EWP_WG_Built>
+  <EWP_WG_Terrain>{0}은(는) 이 식물을 지탱할 수 없습니다.</EWP_WG_Terrain>
+  <EWP_WG_Soil>흙이 너무 척박함: 비옥도 {0}, 필요 {1}.</EWP_WG_Soil>
+  <EWP_WG_Dark>지붕 아래가 너무 어둡습니다.</EWP_WG_Dark>
+  <EWP_WG_Cold>지금은 너무 춥습니다 ({0}) – 더 따뜻한 계절에 자랍니다.</EWP_WG_Cold>
+  <EWP_WG_Hot>지금은 너무 덥습니다 ({0}).</EWP_WG_Hot>
+  <EWP_WG_Slow>느리게 자람: {0} (흙 {1}, 빛 {2}, 온도 {3}).</EWP_WG_Slow>
+  <EWP_WG_Good>잘 자랍니다 ({0}).</EWP_WG_Good>
 </LanguageData>

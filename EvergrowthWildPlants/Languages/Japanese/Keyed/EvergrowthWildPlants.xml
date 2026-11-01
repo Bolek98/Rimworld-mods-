@@ -107,4 +107,57 @@
   <EWP_Unlock>編集のロックを解除</EWP_Unlock>
   <EWP_ShowAll>すべての植物（{0}）</EWP_ShowAll>
   <EWP_ShowAllTip>ゲーム、DLC、MODのすべての植物を表示します。通常ここでは育たないものも含みます。スライダーを 0 より上に動かすと、その植物がここで育ち始めます。</EWP_ShowAllTip>
+  <!-- 1.2.0 extras -->
+  <EWP_TabExtras>その他</EWP_TabExtras>
+  <EWP_SecForage>ベリーと薬草</EWP_SecForage>
+  <EWP_ForageIntro>収穫すると食料や薬になる野生植物（{0} 種見つかりました。例：{1}）。</EWP_ForageIntro>
+  <EWP_ForageCommon>出現頻度：x{0}</EWP_ForageCommon>
+  <EWP_ForageCommonTip>ベリー、アガベ、野生のヒールルートなどが各バイオームの野生植物の中にどれだけ出現するか（MODの植物も）。1 = バイオームのリスト通り、0 = 出現しない。</EWP_ForageCommonTip>
+  <EWP_ForageRegrow>収穫後の再生：x{0}</EWP_ForageRegrow>
+  <EWP_ForageRegrowTip>野生のベリーや薬草が収穫・食べられた後に再び育つ速さ。ゾーンに植えた作物は変わりません。</EWP_ForageRegrowTip>
+  <EWP_SecGrass>牧草</EWP_SecGrass>
+  <EWP_GrassIntro>動物が食べる草などの植物（{0} 種見つかりました）。</EWP_GrassIntro>
+  <EWP_GrassRegrow>草の再生：x{0}</EWP_GrassRegrow>
+  <EWP_GrassRegrowTip>食べられた草が再び育つ速さ――囲いの動物が長くお腹を満たせます。</EWP_GrassRegrowTip>
+  <EWP_GrassPens>動物の囲いの中だけ</EWP_GrassPens>
+  <EWP_GrassPensTip>草の速さは閉じた囲いの中だけに適用され、マップの他の場所の草は通常通り育ちます。</EWP_GrassPensTip>
+  <EWP_SecProtect>保護する植物</EWP_SecProtect>
+  <EWP_ProtectIntro>これらの種類の野生植物は、範囲に刈り取り・伐採の指示をドラッグしたとき、ゾーンに種をまくとき、上に建設するときに刈られません。1本だけ指定すれば刈り取れます。</EWP_ProtectIntro>
+  <EWP_ProtectAdd>植物を追加…</EWP_ProtectAdd>
+  <EWP_ProtectClear>すべて削除</EWP_ProtectClear>
+  <EWP_ProtectNone>保護する植物はまだありません。</EWP_ProtectNone>
+  <EWP_ProtectedSkip>{0} は保護されています（Evergrowth – Wild Plants）。刈るにはそれだけをクリックしてください。</EWP_ProtectedSkip>
+  <EWP_Presets>プリセット…</EWP_Presets>
+  <EWP_PresetsTip>すべてのバイオームを一度に変更：より密で速く、よりまばらで遅く、またはゲームの値に戻す。</EWP_PresetsTip>
+  <EWP_Preset0>バニラ</EWP_Preset0>
+  <EWP_Preset1>密林</EWP_Preset1>
+  <EWP_Preset2>まばらな草原</EWP_Preset2>
+  <EWP_PresetConfirm>プリセット「{0}」をすべてのバイオームに適用しますか？密度と再生の設定は置き換えられます。</EWP_PresetConfirm>
+  <EWP_PresetDone>プリセット「{0}」をすべてのバイオームに適用しました。</EWP_PresetDone>
+  <EWP_Share>コードを共有…</EWP_Share>
+  <EWP_ShareTip>このMODの全設定を1つのテキストコードとしてコピー、または友達のコードを貼り付けます。</EWP_ShareTip>
+  <EWP_ShareCopy>自分の設定をコードとしてコピー</EWP_ShareCopy>
+  <EWP_ShareCopied>コードをクリップボードにコピーしました。</EWP_ShareCopied>
+  <EWP_SharePaste>クリップボードからコードを貼り付け</EWP_SharePaste>
+  <EWP_SharePasteConfirm>このMODの全設定をクリップボードのコードで置き換えますか？</EWP_SharePasteConfirm>
+  <EWP_ShareBad>クリップボードに Evergrowth – Wild Plants のコードがありません。</EWP_ShareBad>
+  <EWP_ShareRead>コードから設定を読み込みました（{0} 項目）。</EWP_ShareRead>
+  <EWP_WG_Button>この植物はここのどこで育つ？</EWP_WG_Button>
+  <EWP_WG_ButtonTip>野生植物を選ぶと、よく育つ場所（緑）、遅い・今は育たない場所（黄）、まったく育たない場所（赤）をマップに表示し、マウスの下に理由を出します。</EWP_WG_ButtonTip>
+  <EWP_WG_AnyPlant>他の植物…</EWP_WG_AnyPlant>
+  <EWP_WG_Showing>{0} が育つ場所</EWP_WG_Showing>
+  <EWP_WG_InBiome>このバイオームのリストにあります――自然に生えます。</EWP_WG_InBiome>
+  <EWP_WG_NotInBiome>このバイオームのリストにありません――ここでは自然に生えません。</EWP_WG_NotInBiome>
+  <EWP_WG_Other>他の植物</EWP_WG_Other>
+  <EWP_WG_Close>閉じる</EWP_WG_Close>
+  <EWP_WG_NeedsRoof>天然の岩の天井が必要です（洞窟植物）。</EWP_WG_NeedsRoof>
+  <EWP_WG_BuiltRoof>建てた屋根の下――野生植物はここでは育ちません。</EWP_WG_BuiltRoof>
+  <EWP_WG_Built>建物があります。</EWP_WG_Built>
+  <EWP_WG_Terrain>{0} はこの植物を支えられません。</EWP_WG_Terrain>
+  <EWP_WG_Soil>土が痩せすぎ：肥沃度 {0}、必要 {1}。</EWP_WG_Soil>
+  <EWP_WG_Dark>屋根の下が暗すぎます。</EWP_WG_Dark>
+  <EWP_WG_Cold>今は寒すぎます（{0}）――暖かい季節に育ちます。</EWP_WG_Cold>
+  <EWP_WG_Hot>今は暑すぎます（{0}）。</EWP_WG_Hot>
+  <EWP_WG_Slow>成長が遅い：{0}（土 {1}、光 {2}、温度 {3}）。</EWP_WG_Slow>
+  <EWP_WG_Good>よく育ちます（{0}）。</EWP_WG_Good>
 </LanguageData>

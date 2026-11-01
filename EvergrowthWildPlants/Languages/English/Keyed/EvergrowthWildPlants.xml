@@ -107,4 +107,57 @@
   <EWP_Unlock>Unlock editing</EWP_Unlock>
   <EWP_ShowAll>All plants ({0})</EWP_ShowAll>
   <EWP_ShowAllTip>Shows every plant from the game, DLCs and mods, also ones that normally do not grow here. Move a slider above 0 and the plant starts growing here.</EWP_ShowAllTip>
+  <!-- 1.2.0 extras -->
+  <EWP_TabExtras>Extras</EWP_TabExtras>
+  <EWP_SecForage>Berries and herbs</EWP_SecForage>
+  <EWP_ForageIntro>Wild plants that give food or medicine when harvested ({0} found, e.g. {1}).</EWP_ForageIntro>
+  <EWP_ForageCommon>How common: x{0}</EWP_ForageCommon>
+  <EWP_ForageCommonTip>How often berries, agave, wild healroot and similar plants appear among the wild plants of every biome (also plants from mods). 1 = as set in the biome list, 0 = never.</EWP_ForageCommonTip>
+  <EWP_ForageRegrow>Regrowth after harvest: x{0}</EWP_ForageRegrow>
+  <EWP_ForageRegrowTip>How fast wild berries and herbs grow back after they were harvested or eaten. Sown plants in your zones are not affected.</EWP_ForageRegrowTip>
+  <EWP_SecGrass>Pasture grass</EWP_SecGrass>
+  <EWP_GrassIntro>Grass and other plants animals graze ({0} found).</EWP_GrassIntro>
+  <EWP_GrassRegrow>Grass regrowth: x{0}</EWP_GrassRegrow>
+  <EWP_GrassRegrowTip>How fast grazed grass grows back – keeps animal pens fed longer.</EWP_GrassRegrowTip>
+  <EWP_GrassPens>Only inside animal pens</EWP_GrassPens>
+  <EWP_GrassPensTip>The grass speed applies only to enclosed animal pens; grass on the rest of the map grows normally.</EWP_GrassPensTip>
+  <EWP_SecProtect>Protected plants</EWP_SecProtect>
+  <EWP_ProtectIntro>Wild plants of these kinds are never cut when you drag a cut or chop order over an area, sow a zone or build over them. Click a single plant with the cut order to cut it anyway.</EWP_ProtectIntro>
+  <EWP_ProtectAdd>Add a plant…</EWP_ProtectAdd>
+  <EWP_ProtectClear>Remove all</EWP_ProtectClear>
+  <EWP_ProtectNone>No protected plants yet.</EWP_ProtectNone>
+  <EWP_ProtectedSkip>{0} is protected (Evergrowth – Wild Plants). Click it alone to cut it.</EWP_ProtectedSkip>
+  <EWP_Presets>Presets…</EWP_Presets>
+  <EWP_PresetsTip>Change all biomes at once: denser and faster, sparser and slower, or back to the game's own values.</EWP_PresetsTip>
+  <EWP_Preset0>Vanilla</EWP_Preset0>
+  <EWP_Preset1>Dense jungle</EWP_Preset1>
+  <EWP_Preset2>Sparse steppe</EWP_Preset2>
+  <EWP_PresetConfirm>Apply the preset "{0}" to all biomes? Your own density and regrowth values are replaced.</EWP_PresetConfirm>
+  <EWP_PresetDone>Preset "{0}" applied to all biomes.</EWP_PresetDone>
+  <EWP_Share>Share code…</EWP_Share>
+  <EWP_ShareTip>Copy all settings of this mod as one text code, or paste a code from a friend.</EWP_ShareTip>
+  <EWP_ShareCopy>Copy my settings as a code</EWP_ShareCopy>
+  <EWP_ShareCopied>The code is in the clipboard.</EWP_ShareCopied>
+  <EWP_SharePaste>Paste a code from the clipboard</EWP_SharePaste>
+  <EWP_SharePasteConfirm>Replace all settings of this mod with the code from the clipboard?</EWP_SharePasteConfirm>
+  <EWP_ShareBad>The clipboard does not hold a code of Evergrowth – Wild Plants.</EWP_ShareBad>
+  <EWP_ShareRead>Settings loaded from the code ({0} values).</EWP_ShareRead>
+  <EWP_WG_Button>Where does a plant grow here?</EWP_WG_Button>
+  <EWP_WG_ButtonTip>Pick a wild plant: the map shows where it grows well (green), slower or not right now (yellow) and not at all (red), with the reason under the mouse.</EWP_WG_ButtonTip>
+  <EWP_WG_AnyPlant>Another plant…</EWP_WG_AnyPlant>
+  <EWP_WG_Showing>Where {0} grows</EWP_WG_Showing>
+  <EWP_WG_InBiome>It is in this biome's list – it spawns by itself.</EWP_WG_InBiome>
+  <EWP_WG_NotInBiome>Not in this biome's list – it will not spawn by itself here.</EWP_WG_NotInBiome>
+  <EWP_WG_Other>Other plant</EWP_WG_Other>
+  <EWP_WG_Close>Close</EWP_WG_Close>
+  <EWP_WG_NeedsRoof>Needs a natural rock roof (cave plant).</EWP_WG_NeedsRoof>
+  <EWP_WG_BuiltRoof>Under a built roof – wild plants do not grow here.</EWP_WG_BuiltRoof>
+  <EWP_WG_Built>Built over.</EWP_WG_Built>
+  <EWP_WG_Terrain>{0} cannot hold this plant.</EWP_WG_Terrain>
+  <EWP_WG_Soil>Soil too poor: fertility {0}, needs {1}.</EWP_WG_Soil>
+  <EWP_WG_Dark>Too dark under the roof.</EWP_WG_Dark>
+  <EWP_WG_Cold>Too cold right now ({0}) – grows in a warmer season.</EWP_WG_Cold>
+  <EWP_WG_Hot>Too hot right now ({0}).</EWP_WG_Hot>
+  <EWP_WG_Slow>Grows slower: {0} (soil {1}, light {2}, temperature {3}).</EWP_WG_Slow>
+  <EWP_WG_Good>Grows well ({0}).</EWP_WG_Good>
 </LanguageData>

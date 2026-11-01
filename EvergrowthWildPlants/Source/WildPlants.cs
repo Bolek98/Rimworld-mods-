@@ -27,6 +27,12 @@ namespace EvergrowthWild
         public Dictionary<string, float> density = new Dictionary<string, float>();
         public Dictionary<string, float> regrow = new Dictionary<string, float>();
         public Dictionary<string, float> cave = new Dictionary<string, float>();      // cave plant -> weight
+        // 1.2.0 extras (not locked by Recommended – neutral by default)
+        public float forageCommon = 1f;       // berries and herbs: how common among wild plants
+        public float forageRegrow = 1f;       // berries and herbs: regrowth speed after harvest
+        public float grassRegrow = 1f;        // grass animals graze: regrowth speed
+        public bool grassPensOnly = false;    // the grass speed only inside animal pens
+        public List<string> protectedPlants = new List<string>();
 
         public static WPSettings Recommended()
         {
@@ -43,6 +49,12 @@ namespace EvergrowthWild
             Scribe_Collections.Look(ref density, "density", LookMode.Value, LookMode.Value);
             Scribe_Collections.Look(ref regrow, "regrow", LookMode.Value, LookMode.Value);
             Scribe_Collections.Look(ref cave, "cave", LookMode.Value, LookMode.Value);
+            Scribe_Values.Look(ref forageCommon, "forageCommon", 1f);
+            Scribe_Values.Look(ref forageRegrow, "forageRegrow", 1f);
+            Scribe_Values.Look(ref grassRegrow, "grassRegrow", 1f);
+            Scribe_Values.Look(ref grassPensOnly, "grassPensOnly", false);
+            Scribe_Collections.Look(ref protectedPlants, "protectedPlants", LookMode.Value);
+            if (protectedPlants == null) protectedPlants = new List<string>();
             if (lists == null) lists = new Dictionary<string, string>();
             if (density == null) density = new Dictionary<string, float>();
             if (regrow == null) regrow = new Dictionary<string, float>();
@@ -55,7 +67,7 @@ namespace EvergrowthWild
     // ------------------------------------------------------------------
     public static class WP
     {
-        public const string Version = "1.1.3";
+        public const string Version = "1.2.0";
         public static WPSettings S => WildPlantsMod.Settings;
 
         private class Orig
@@ -300,17 +312,18 @@ namespace EvergrowthWild
                         kv.Key.plant.wildBiomes = null;
                         continue;
                     }
+                    float fm = ForageApply.Mult(kv.Key);
                     kv.Key.plant.wildBiomes = kv.Value.Where(r => !customBiomes.Contains(r.biome))
-                        .Select(r => new PlantBiomeRecord { biome = r.biome, commonality = r.commonality }).ToList();
+                        .Select(r => new PlantBiomeRecord { biome = r.biome, commonality = r.commonality * fm }).ToList();
                 }
 
                 foreach (BiomeDef b in Biomes)
                 {
                     if (customBiomes.Contains(b))
                         b.wildPlants = ActiveList(b).Where(kv => kv.Value > 0f)
-                            .Select(kv => new BiomePlantRecord { plant = kv.Key, commonality = kv.Value }).ToList();
+                            .Select(kv => new BiomePlantRecord { plant = kv.Key, commonality = kv.Value * ForageApply.Mult(kv.Key) }).ToList();
                     else
-                        b.wildPlants = orig[b].plants.Select(r => new BiomePlantRecord { plant = r.plant, commonality = r.commonality }).ToList();
+                        b.wildPlants = orig[b].plants.Select(r => new BiomePlantRecord { plant = r.plant, commonality = r.commonality * ForageApply.Mult(r.plant) }).ToList();
                     b.plantDensity = Density(b);
                     b.wildPlantRegrowDays = Mathf.Max(0.1f, Regrow(b));
                     bCachedWild(b) = null;
@@ -520,7 +533,23 @@ namespace EvergrowthWild
         private readonly Dictionary<int, float> want = new Dictionary<int, float>();
         private readonly Dictionary<int, int> countedAt = new Dictionary<int, int>();
 
-        public WPGameComp(Game g) { }
+        public WPGameComp(Game g)
+        {
+            WhereGrows.Stop();
+            Extras.ForgetMaps();
+        }
+
+        public override void GameComponentUpdate()
+        {
+            try { WhereGrows.Update(); }
+            catch (Exception e) { Log.Warning("[Evergrowth – Wild Plants] where it grows: " + e.Message); WhereGrows.Stop(); }
+        }
+
+        public override void GameComponentOnGUI()
+        {
+            try { WhereGrows.OnGUI(); }
+            catch (Exception e) { Log.Warning("[Evergrowth – Wild Plants] where it grows: " + e.Message); WhereGrows.Stop(); }
+        }
 
         public static WPGameComp I => Current.Game?.GetComponent<WPGameComp>();
 
@@ -715,14 +744,16 @@ namespace EvergrowthWild
             {
                 new TabRecord("EWP_TabBiomes".Translate(), () => tab = 0, tab == 0),
                 new TabRecord("EWP_TabCave".Translate(), () => tab = 1, tab == 1),
-                new TabRecord("EWP_TabMap".Translate(), () => tab = 2, tab == 2)
+                new TabRecord("EWP_TabMap".Translate(), () => tab = 2, tab == 2),
+                new TabRecord("EWP_TabExtras".Translate(), () => tab = 3, tab == 3)
             };
             Rect body = new Rect(inRect.x, y + 32f, inRect.width, inRect.yMax - y - 32f);
-            TabDrawer.DrawTabs(body, tabs, 1, 220f);
+            TabDrawer.DrawTabs(body, tabs, 1, 200f);
             body = body.ContractedBy(10f);
             if (tab == 0) DrawBiomes(body);
             else if (tab == 1) DrawCave(body);
-            else DrawMap(body);
+            else if (tab == 2) DrawMap(body);
+            else DrawExtras(body);
         }
 
         // ---------------- biomes ----------------
@@ -753,6 +784,49 @@ namespace EvergrowthWild
             }
             ly += 34f;
             MUI.EndLock();
+            float hw = (left.width - 6f) / 2f;
+            if (Widgets.ButtonText(new Rect(left.x, ly, hw, 28f), "EWP_Presets".Translate()))
+            {
+                var opts = new List<FloatMenuOption>();
+                for (int i = 0; i < 3; i++)
+                {
+                    int which = i;
+                    opts.Add(new FloatMenuOption(("EWP_Preset" + which).Translate(), () =>
+                        Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("EWP_PresetConfirm".Translate(("EWP_Preset" + which).Translate()), delegate
+                        {
+                            Extras.Preset(which);
+                            edit = null;
+                            rowInfo.Clear();
+                            Messages.Message("EWP_PresetDone".Translate(("EWP_Preset" + which).Translate()), MessageTypeDefOf.NeutralEvent, false);
+                        }, true))));
+                }
+                Find.WindowStack.Add(new FloatMenu(opts));
+            }
+            TooltipHandler.TipRegion(new Rect(left.x, ly, hw, 28f), "EWP_PresetsTip".Translate());
+            if (Widgets.ButtonText(new Rect(left.x + hw + 6f, ly, hw, 28f), "EWP_Share".Translate()))
+            {
+                Find.WindowStack.Add(new FloatMenu(new List<FloatMenuOption>
+                {
+                    new FloatMenuOption("EWP_ShareCopy".Translate(), () =>
+                    {
+                        GUIUtility.systemCopyBuffer = Extras.Export();
+                        Messages.Message("EWP_ShareCopied".Translate(), MessageTypeDefOf.NeutralEvent, false);
+                    }),
+                    new FloatMenuOption("EWP_SharePaste".Translate(), () =>
+                    {
+                        string code = GUIUtility.systemCopyBuffer;
+                        Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("EWP_SharePasteConfirm".Translate(), delegate
+                        {
+                            int n = Extras.Import(code);
+                            edit = null;
+                            rowInfo.Clear();
+                            Messages.Message(n < 0 ? "EWP_ShareBad".Translate() : "EWP_ShareRead".Translate(n), n < 0 ? MessageTypeDefOf.RejectInput : MessageTypeDefOf.NeutralEvent, false);
+                        }, true));
+                    })
+                }));
+            }
+            TooltipHandler.TipRegion(new Rect(left.x + hw + 6f, ly, hw, 28f), "EWP_ShareTip".Translate());
+            ly += 34f;
             biomeSearch = Widgets.TextField(new Rect(left.x, ly, left.width, 28f), biomeSearch);
             if (biomeSearch.NullOrEmpty())
                 U.Label(new Rect(left.x + 6f, ly, left.width, 28f), "EWP_SearchBiome".Translate(), MUI.Muted, GameFont.Tiny);
@@ -1014,6 +1088,80 @@ namespace EvergrowthWild
             Widgets.EndScrollView();
         }
 
+        // ---------------- extras (1.2.0) ----------------
+        private Vector2 extrasScroll;
+        private List<ThingDef> forageCache, grassCache;
+
+        private void DrawExtras(Rect r)
+        {
+            WPSettings s = Settings;
+            if (forageCache == null) forageCache = Extras.ForagePlants();
+            if (grassCache == null) grassCache = Extras.GrassPlants();
+            var prot = s.protectedPlants.Select(n => DefDatabase<ThingDef>.GetNamedSilentFail(n)).Where(d => d != null).ToList();
+            Rect view = new Rect(0f, 0f, r.width - 16f, 560f + prot.Count * 30f);
+            Widgets.BeginScrollView(r, ref extrasScroll, view);
+            var l = new Listing_Standard();
+            l.Begin(view);
+
+            // berries and herbs
+            MUI.Section(l, "EWP_SecForage".Translate());
+            l.Label("EWP_ForageIntro".Translate(forageCache.Count, string.Join(", ", forageCache.Take(6).Select(WP.Label)) + (forageCache.Count > 6 ? "…" : "")));
+            MUI.RowLabel(l, "EWP_ForageCommon".Translate(s.forageCommon.ToString("0.##")), "EWP_ForageCommonTip".Translate(), null, null);
+            s.forageCommon = U.Slider(l.GetRect(22f), s.forageCommon, 0f, 5f, 0.05f);
+            MUI.RowLabel(l, "EWP_ForageRegrow".Translate(s.forageRegrow.ToString("0.##")), "EWP_ForageRegrowTip".Translate(), null, null);
+            s.forageRegrow = U.Slider(l.GetRect(22f), s.forageRegrow, 0.25f, 5f, 0.05f);
+            l.Gap(10f);
+
+            // pasture grass
+            MUI.Section(l, "EWP_SecGrass".Translate());
+            l.Label("EWP_GrassIntro".Translate(grassCache.Count));
+            MUI.RowLabel(l, "EWP_GrassRegrow".Translate(s.grassRegrow.ToString("0.##")), "EWP_GrassRegrowTip".Translate(), null, null);
+            s.grassRegrow = U.Slider(l.GetRect(22f), s.grassRegrow, 0.25f, 5f, 0.05f);
+            l.CheckboxLabeled("EWP_GrassPens".Translate(), ref s.grassPensOnly, "EWP_GrassPensTip".Translate());
+            l.Gap(10f);
+
+            // protected plants
+            MUI.Section(l, "EWP_SecProtect".Translate());
+            l.Label("EWP_ProtectIntro".Translate());
+            Rect ab = l.GetRect(28f);
+            if (Widgets.ButtonText(new Rect(ab.x, ab.y, 240f, 28f), "EWP_ProtectAdd".Translate()))
+            {
+                var cur = prot.ToDictionary(d => d, d => 1f);
+                Find.WindowStack.Add(new Dialog_PickPlant(cur, d =>
+                {
+                    if (!s.protectedPlants.Contains(d.defName)) s.protectedPlants.Add(d.defName);
+                    cur[d] = 1f;
+                    Extras.ProtectedChanged();
+                }));
+            }
+            if (prot.Count > 0 && Widgets.ButtonText(new Rect(ab.x + 250f, ab.y, 160f, 28f), "EWP_ProtectClear".Translate()))
+            {
+                s.protectedPlants.Clear();
+                Extras.ProtectedChanged();
+            }
+            l.Gap(4f);
+            if (prot.Count == 0)
+                l.Label("EWP_ProtectNone".Translate());
+            ThingDef drop = null;
+            foreach (ThingDef d in prot)
+            {
+                Rect row = l.GetRect(28f);
+                Widgets.DrawHighlightIfMouseover(row);
+                Widgets.DefIcon(new Rect(row.x + 2f, row.y + 2f, 24f, 24f), d);
+                U.Label(new Rect(row.x + 32f, row.y, row.width - 80f, 28f), WP.Label(d) + "  ·  " + WP.ModName(d), MUI.Text1);
+                if (Widgets.ButtonText(new Rect(row.xMax - 30f, row.y + 2f, 26f, 24f), "×"))
+                    drop = d;
+                l.Gap(2f);
+            }
+            if (drop != null)
+            {
+                s.protectedPlants.Remove(drop.defName);
+                Extras.ProtectedChanged();
+            }
+            l.End();
+            Widgets.EndScrollView();
+        }
+
         // ---------------- this map ----------------
         private void DrawMap(Rect r)
         {
@@ -1041,6 +1189,25 @@ namespace EvergrowthWild
             }
             Text.Font = GameFont.Small;
             l.Label(mapInfo);
+            l.Gap(4f);
+            Rect wg = l.GetRect(30f);
+            if (Widgets.ButtonText(new Rect(wg.x, wg.y, 300f, 30f), "EWP_WG_Button".Translate()))
+            {
+                Map mm = map;
+                var opts = WhereGrows.PlantOptions(mm);
+                foreach (FloatMenuOption o in opts)
+                {
+                    Action a = o.action;
+                    o.action = () =>
+                    {
+                        a?.Invoke();
+                        Find.WindowStack.TryRemove(typeof(Dialog_ModSettings));
+                        Find.WindowStack.TryRemove(typeof(Dialog_Options));
+                    };
+                }
+                Find.WindowStack.Add(new FloatMenu(opts));
+            }
+            U.Label(new Rect(wg.x + 310f, wg.y, wg.width - 310f, 30f), "EWP_WG_ButtonTip".Translate(), MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft);
 
             // how overgrown this map should be
             WPGameComp gc = WPGameComp.I;

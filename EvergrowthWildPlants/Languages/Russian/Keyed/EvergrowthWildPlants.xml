@@ -107,4 +107,57 @@
   <EWP_Unlock>Разблокировать редактирование</EWP_Unlock>
   <EWP_ShowAll>Все растения ({0})</EWP_ShowAll>
   <EWP_ShowAllTip>Показывает все растения из игры, DLC и модов, в том числе те, что обычно здесь не растут. Сдвиньте ползунок выше 0, и растение начнёт здесь расти.</EWP_ShowAllTip>
+  <!-- 1.2.0 extras -->
+  <EWP_TabExtras>Дополнительно</EWP_TabExtras>
+  <EWP_SecForage>Ягоды и травы</EWP_SecForage>
+  <EWP_ForageIntro>Дикие растения, дающие при сборе еду или лекарство (найдено: {0}, напр. {1}).</EWP_ForageIntro>
+  <EWP_ForageCommon>Частота: x{0}</EWP_ForageCommon>
+  <EWP_ForageCommonTip>Как часто ягоды, агава, дикий целебный корень и похожие растения встречаются среди диких растений каждого биома (и из модов). 1 = как в списке биома, 0 = никогда.</EWP_ForageCommonTip>
+  <EWP_ForageRegrow>Отрастание после сбора: x{0}</EWP_ForageRegrow>
+  <EWP_ForageRegrowTip>Как быстро дикие ягоды и травы отрастают после сбора или поедания. Посевы в ваших зонах не меняются.</EWP_ForageRegrowTip>
+  <EWP_SecGrass>Пастбищная трава</EWP_SecGrass>
+  <EWP_GrassIntro>Трава и другие растения, которые едят животные (найдено: {0}).</EWP_GrassIntro>
+  <EWP_GrassRegrow>Отрастание травы: x{0}</EWP_GrassRegrow>
+  <EWP_GrassRegrowTip>Как быстро отрастает съеденная трава – животные в загонах дольше сыты.</EWP_GrassRegrowTip>
+  <EWP_GrassPens>Только в загонах для животных</EWP_GrassPens>
+  <EWP_GrassPensTip>Скорость травы действует только в закрытых загонах; на остальной карте трава растёт как обычно.</EWP_GrassPensTip>
+  <EWP_SecProtect>Защищённые растения</EWP_SecProtect>
+  <EWP_ProtectIntro>Дикие растения этих видов никогда не срезаются, когда вы растягиваете приказ срезать или рубить по области, засеиваете зону или строите поверх них. Отметьте одно растение отдельно, чтобы всё же срезать его.</EWP_ProtectIntro>
+  <EWP_ProtectAdd>Добавить растение…</EWP_ProtectAdd>
+  <EWP_ProtectClear>Убрать все</EWP_ProtectClear>
+  <EWP_ProtectNone>Защищённых растений пока нет.</EWP_ProtectNone>
+  <EWP_ProtectedSkip>{0} защищено (Evergrowth – Wild Plants). Нажмите только на него, чтобы срезать.</EWP_ProtectedSkip>
+  <EWP_Presets>Шаблоны…</EWP_Presets>
+  <EWP_PresetsTip>Изменить все биомы сразу: гуще и быстрее, реже и медленнее или значения игры.</EWP_PresetsTip>
+  <EWP_Preset0>Ванилла</EWP_Preset0>
+  <EWP_Preset1>Густые джунгли</EWP_Preset1>
+  <EWP_Preset2>Редкая степь</EWP_Preset2>
+  <EWP_PresetConfirm>Применить шаблон «{0}» ко всем биомам? Ваши значения плотности и отрастания будут заменены.</EWP_PresetConfirm>
+  <EWP_PresetDone>Шаблон «{0}» применён ко всем биомам.</EWP_PresetDone>
+  <EWP_Share>Поделиться кодом…</EWP_Share>
+  <EWP_ShareTip>Скопировать все настройки этого мода одним текстовым кодом или вставить код друга.</EWP_ShareTip>
+  <EWP_ShareCopy>Скопировать мои настройки как код</EWP_ShareCopy>
+  <EWP_ShareCopied>Код в буфере обмена.</EWP_ShareCopied>
+  <EWP_SharePaste>Вставить код из буфера обмена</EWP_SharePaste>
+  <EWP_SharePasteConfirm>Заменить все настройки этого мода кодом из буфера обмена?</EWP_SharePasteConfirm>
+  <EWP_ShareBad>В буфере обмена нет кода Evergrowth – Wild Plants.</EWP_ShareBad>
+  <EWP_ShareRead>Настройки загружены из кода ({0} значений).</EWP_ShareRead>
+  <EWP_WG_Button>Где здесь растёт растение?</EWP_WG_Button>
+  <EWP_WG_ButtonTip>Выберите дикое растение: карта покажет, где оно растёт хорошо (зелёный), медленнее или не сейчас (жёлтый) и совсем нет (красный), с причиной под курсором.</EWP_WG_ButtonTip>
+  <EWP_WG_AnyPlant>Другое растение…</EWP_WG_AnyPlant>
+  <EWP_WG_Showing>Где растёт: {0}</EWP_WG_Showing>
+  <EWP_WG_InBiome>Есть в списке этого биома – появляется само.</EWP_WG_InBiome>
+  <EWP_WG_NotInBiome>Нет в списке этого биома – само здесь не появится.</EWP_WG_NotInBiome>
+  <EWP_WG_Other>Другое растение</EWP_WG_Other>
+  <EWP_WG_Close>Закрыть</EWP_WG_Close>
+  <EWP_WG_NeedsRoof>Нужна естественная каменная крыша (пещерное растение).</EWP_WG_NeedsRoof>
+  <EWP_WG_BuiltRoof>Под построенной крышей – дикие растения здесь не растут.</EWP_WG_BuiltRoof>
+  <EWP_WG_Built>Застроено.</EWP_WG_Built>
+  <EWP_WG_Terrain>{0} не выдержит это растение.</EWP_WG_Terrain>
+  <EWP_WG_Soil>Слишком бедная почва: плодородие {0}, нужно {1}.</EWP_WG_Soil>
+  <EWP_WG_Dark>Под крышей слишком темно.</EWP_WG_Dark>
+  <EWP_WG_Cold>Сейчас слишком холодно ({0}) – вырастет в тёплый сезон.</EWP_WG_Cold>
+  <EWP_WG_Hot>Сейчас слишком жарко ({0}).</EWP_WG_Hot>
+  <EWP_WG_Slow>Растёт медленнее: {0} (почва {1}, свет {2}, температура {3}).</EWP_WG_Slow>
+  <EWP_WG_Good>Растёт хорошо ({0}).</EWP_WG_Good>
 </LanguageData>

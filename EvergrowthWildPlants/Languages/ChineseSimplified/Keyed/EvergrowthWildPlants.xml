@@ -107,4 +107,57 @@
   <EWP_Unlock>解锁编辑</EWP_Unlock>
   <EWP_ShowAll>所有植物（{0}）</EWP_ShowAll>
   <EWP_ShowAllTip>显示游戏、DLC 和模组中的所有植物，包括通常不在此生长的。将滑块移到 0 以上，该植物就会开始在此生长。</EWP_ShowAllTip>
+  <!-- 1.2.0 extras -->
+  <EWP_TabExtras>额外</EWP_TabExtras>
+  <EWP_SecForage>浆果与草药</EWP_SecForage>
+  <EWP_ForageIntro>收获时提供食物或药品的野生植物（找到 {0} 种，例如 {1}）。</EWP_ForageIntro>
+  <EWP_ForageCommon>常见程度：x{0}</EWP_ForageCommon>
+  <EWP_ForageCommonTip>浆果、龙舌兰、野生药草等植物在每个生物群系野生植物中出现的频率（包括模组植物）。1 = 按群系列表，0 = 从不出现。</EWP_ForageCommonTip>
+  <EWP_ForageRegrow>收获后再生：x{0}</EWP_ForageRegrow>
+  <EWP_ForageRegrowTip>野生浆果和草药被收获或吃掉后重新长出的速度。你区域里播种的植物不受影响。</EWP_ForageRegrowTip>
+  <EWP_SecGrass>牧草</EWP_SecGrass>
+  <EWP_GrassIntro>动物啃食的草和其他植物（找到 {0} 种）。</EWP_GrassIntro>
+  <EWP_GrassRegrow>草的再生：x{0}</EWP_GrassRegrow>
+  <EWP_GrassRegrowTip>被啃食的草重新长出的速度——让围栏里的动物吃得更久。</EWP_GrassRegrowTip>
+  <EWP_GrassPens>仅在动物围栏内</EWP_GrassPens>
+  <EWP_GrassPensTip>草的速度只在封闭的围栏内生效；地图其他地方的草正常生长。</EWP_GrassPensTip>
+  <EWP_SecProtect>受保护的植物</EWP_SecProtect>
+  <EWP_ProtectIntro>当你在区域上拖动割除或砍伐命令、在区域播种或在其上建造时，这些种类的野生植物永远不会被割掉。单独标记某一株植物仍可割除。</EWP_ProtectIntro>
+  <EWP_ProtectAdd>添加植物…</EWP_ProtectAdd>
+  <EWP_ProtectClear>全部移除</EWP_ProtectClear>
+  <EWP_ProtectNone>还没有受保护的植物。</EWP_ProtectNone>
+  <EWP_ProtectedSkip>{0} 受保护（Evergrowth – Wild Plants）。单独点击它才能割除。</EWP_ProtectedSkip>
+  <EWP_Presets>预设…</EWP_Presets>
+  <EWP_PresetsTip>一次修改所有生物群系：更密更快、更稀更慢，或恢复游戏数值。</EWP_PresetsTip>
+  <EWP_Preset0>原版</EWP_Preset0>
+  <EWP_Preset1>茂密丛林</EWP_Preset1>
+  <EWP_Preset2>稀疏草原</EWP_Preset2>
+  <EWP_PresetConfirm>将预设“{0}”应用到所有生物群系？你自己的密度和再生数值将被替换。</EWP_PresetConfirm>
+  <EWP_PresetDone>已将预设“{0}”应用到所有生物群系。</EWP_PresetDone>
+  <EWP_Share>分享代码…</EWP_Share>
+  <EWP_ShareTip>把本模组的全部设置复制为一段文本代码，或粘贴朋友的代码。</EWP_ShareTip>
+  <EWP_ShareCopy>把我的设置复制为代码</EWP_ShareCopy>
+  <EWP_ShareCopied>代码已复制到剪贴板。</EWP_ShareCopied>
+  <EWP_SharePaste>从剪贴板粘贴代码</EWP_SharePaste>
+  <EWP_SharePasteConfirm>用剪贴板中的代码替换本模组的全部设置？</EWP_SharePasteConfirm>
+  <EWP_ShareBad>剪贴板中没有 Evergrowth – Wild Plants 的代码。</EWP_ShareBad>
+  <EWP_ShareRead>已从代码载入设置（{0} 项）。</EWP_ShareRead>
+  <EWP_WG_Button>某种植物在这里哪里能长？</EWP_WG_Button>
+  <EWP_WG_ButtonTip>选择一种野生植物：地图显示它长得好（绿）、较慢或现在不长（黄）、完全不长（红）的地方，鼠标下显示原因。</EWP_WG_ButtonTip>
+  <EWP_WG_AnyPlant>其他植物…</EWP_WG_AnyPlant>
+  <EWP_WG_Showing>{0} 的生长位置</EWP_WG_Showing>
+  <EWP_WG_InBiome>在此生物群系列表中——会自行出现。</EWP_WG_InBiome>
+  <EWP_WG_NotInBiome>不在此生物群系列表中——不会在这里自行出现。</EWP_WG_NotInBiome>
+  <EWP_WG_Other>其他植物</EWP_WG_Other>
+  <EWP_WG_Close>关闭</EWP_WG_Close>
+  <EWP_WG_NeedsRoof>需要天然岩石顶（洞穴植物）。</EWP_WG_NeedsRoof>
+  <EWP_WG_BuiltRoof>在建造的屋顶下——野生植物不在这里生长。</EWP_WG_BuiltRoof>
+  <EWP_WG_Built>已被建筑占用。</EWP_WG_Built>
+  <EWP_WG_Terrain>{0} 无法承载这种植物。</EWP_WG_Terrain>
+  <EWP_WG_Soil>土壤太贫瘠：肥沃度 {0}，需要 {1}。</EWP_WG_Soil>
+  <EWP_WG_Dark>屋顶下太暗。</EWP_WG_Dark>
+  <EWP_WG_Cold>现在太冷（{0}）——会在更暖的季节生长。</EWP_WG_Cold>
+  <EWP_WG_Hot>现在太热（{0}）。</EWP_WG_Hot>
+  <EWP_WG_Slow>生长较慢：{0}（土壤 {1}，光照 {2}，温度 {3}）。</EWP_WG_Slow>
+  <EWP_WG_Good>生长良好（{0}）。</EWP_WG_Good>
 </LanguageData>

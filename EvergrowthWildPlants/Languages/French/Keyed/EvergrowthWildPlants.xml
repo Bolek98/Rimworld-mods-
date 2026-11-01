@@ -107,4 +107,57 @@
   <EWP_Unlock>Déverrouiller la modification</EWP_Unlock>
   <EWP_ShowAll>Toutes les plantes ({0})</EWP_ShowAll>
   <EWP_ShowAllTip>Affiche chaque plante du jeu, des DLC et des mods, y compris celles qui ne poussent normalement pas ici. Placez un curseur au-dessus de 0 et la plante commence à pousser ici.</EWP_ShowAllTip>
+  <!-- 1.2.0 extras -->
+  <EWP_TabExtras>Extras</EWP_TabExtras>
+  <EWP_SecForage>Baies et herbes</EWP_SecForage>
+  <EWP_ForageIntro>Plantes sauvages qui donnent de la nourriture ou des médicaments à la récolte ({0} trouvées, ex. {1}).</EWP_ForageIntro>
+  <EWP_ForageCommon>Fréquence : x{0}</EWP_ForageCommon>
+  <EWP_ForageCommonTip>À quelle fréquence les baies, l'agave, la racine de soin sauvage et plantes semblables apparaissent parmi les plantes sauvages de chaque biome (aussi celles des mods). 1 = selon la liste du biome, 0 = jamais.</EWP_ForageCommonTip>
+  <EWP_ForageRegrow>Repousse après récolte : x{0}</EWP_ForageRegrow>
+  <EWP_ForageRegrowTip>Vitesse à laquelle les baies et herbes sauvages repoussent après récolte ou broutage. Les plantes semées dans tes zones ne changent pas.</EWP_ForageRegrowTip>
+  <EWP_SecGrass>Herbe de pâturage</EWP_SecGrass>
+  <EWP_GrassIntro>Herbe et autres plantes broutées par les animaux ({0} trouvées).</EWP_GrassIntro>
+  <EWP_GrassRegrow>Repousse de l'herbe : x{0}</EWP_GrassRegrow>
+  <EWP_GrassRegrowTip>Vitesse de repousse de l'herbe broutée – les animaux des enclos restent nourris plus longtemps.</EWP_GrassRegrowTip>
+  <EWP_GrassPens>Seulement dans les enclos</EWP_GrassPens>
+  <EWP_GrassPensTip>La vitesse de l'herbe ne s'applique qu'aux enclos fermés ; ailleurs sur la carte l'herbe pousse normalement.</EWP_GrassPensTip>
+  <EWP_SecProtect>Plantes protégées</EWP_SecProtect>
+  <EWP_ProtectIntro>Les plantes sauvages de ces types ne sont jamais coupées quand tu traces un ordre de coupe ou d'abattage sur une zone, sèmes une zone ou construis dessus. Désigne une seule plante pour la couper quand même.</EWP_ProtectIntro>
+  <EWP_ProtectAdd>Ajouter une plante…</EWP_ProtectAdd>
+  <EWP_ProtectClear>Tout retirer</EWP_ProtectClear>
+  <EWP_ProtectNone>Aucune plante protégée pour l'instant.</EWP_ProtectNone>
+  <EWP_ProtectedSkip>{0} est protégée (Evergrowth – Wild Plants). Clique-la seule pour la couper.</EWP_ProtectedSkip>
+  <EWP_Presets>Préréglages…</EWP_Presets>
+  <EWP_PresetsTip>Modifie tous les biomes à la fois : plus dense et rapide, plus clairsemé et lent, ou valeurs du jeu.</EWP_PresetsTip>
+  <EWP_Preset0>Vanilla</EWP_Preset0>
+  <EWP_Preset1>Jungle dense</EWP_Preset1>
+  <EWP_Preset2>Steppe clairsemée</EWP_Preset2>
+  <EWP_PresetConfirm>Appliquer le préréglage « {0} » à tous les biomes ? Tes valeurs de densité et de repousse seront remplacées.</EWP_PresetConfirm>
+  <EWP_PresetDone>Préréglage « {0} » appliqué à tous les biomes.</EWP_PresetDone>
+  <EWP_Share>Partager un code…</EWP_Share>
+  <EWP_ShareTip>Copie tous les réglages de ce mod en un code texte, ou colle le code d'un ami.</EWP_ShareTip>
+  <EWP_ShareCopy>Copier mes réglages comme code</EWP_ShareCopy>
+  <EWP_ShareCopied>Le code est dans le presse-papiers.</EWP_ShareCopied>
+  <EWP_SharePaste>Coller un code du presse-papiers</EWP_SharePaste>
+  <EWP_SharePasteConfirm>Remplacer tous les réglages de ce mod par le code du presse-papiers ?</EWP_SharePasteConfirm>
+  <EWP_ShareBad>Le presse-papiers ne contient pas de code d'Evergrowth – Wild Plants.</EWP_ShareBad>
+  <EWP_ShareRead>Réglages chargés depuis le code ({0} valeurs).</EWP_ShareRead>
+  <EWP_WG_Button>Où pousse une plante ici ?</EWP_WG_Button>
+  <EWP_WG_ButtonTip>Choisis une plante sauvage : la carte montre où elle pousse bien (vert), plus lentement ou pas maintenant (jaune) et pas du tout (rouge), avec la raison sous la souris.</EWP_WG_ButtonTip>
+  <EWP_WG_AnyPlant>Autre plante…</EWP_WG_AnyPlant>
+  <EWP_WG_Showing>Où pousse : {0}</EWP_WG_Showing>
+  <EWP_WG_InBiome>Dans la liste de ce biome – apparaît d'elle-même.</EWP_WG_InBiome>
+  <EWP_WG_NotInBiome>Pas dans la liste de ce biome – n'apparaîtra pas d'elle-même ici.</EWP_WG_NotInBiome>
+  <EWP_WG_Other>Autre plante</EWP_WG_Other>
+  <EWP_WG_Close>Fermer</EWP_WG_Close>
+  <EWP_WG_NeedsRoof>A besoin d'un toit de roche naturel (plante de grotte).</EWP_WG_NeedsRoof>
+  <EWP_WG_BuiltRoof>Sous un toit construit – les plantes sauvages n'y poussent pas.</EWP_WG_BuiltRoof>
+  <EWP_WG_Built>Construit dessus.</EWP_WG_Built>
+  <EWP_WG_Terrain>{0} ne peut pas porter cette plante.</EWP_WG_Terrain>
+  <EWP_WG_Soil>Sol trop pauvre : fertilité {0}, il faut {1}.</EWP_WG_Soil>
+  <EWP_WG_Dark>Trop sombre sous le toit.</EWP_WG_Dark>
+  <EWP_WG_Cold>Trop froid pour l'instant ({0}) – poussera à une saison plus chaude.</EWP_WG_Cold>
+  <EWP_WG_Hot>Trop chaud pour l'instant ({0}).</EWP_WG_Hot>
+  <EWP_WG_Slow>Pousse plus lentement : {0} (sol {1}, lumière {2}, température {3}).</EWP_WG_Slow>
+  <EWP_WG_Good>Pousse bien ({0}).</EWP_WG_Good>
 </LanguageData>

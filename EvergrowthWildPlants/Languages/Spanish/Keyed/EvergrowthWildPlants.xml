@@ -107,4 +107,57 @@
   <EWP_Unlock>Desbloquear la edición</EWP_Unlock>
   <EWP_ShowAll>Todas las plantas ({0})</EWP_ShowAll>
   <EWP_ShowAllTip>Muestra todas las plantas del juego, los DLC y los mods, también las que normalmente no crecen aquí. Sube un deslizador por encima de 0 y la planta empieza a crecer aquí.</EWP_ShowAllTip>
+  <!-- 1.2.0 extras -->
+  <EWP_TabExtras>Extras</EWP_TabExtras>
+  <EWP_SecForage>Bayas y hierbas</EWP_SecForage>
+  <EWP_ForageIntro>Plantas silvestres que dan comida o medicina al cosecharlas ({0} encontradas, p. ej. {1}).</EWP_ForageIntro>
+  <EWP_ForageCommon>Frecuencia: x{0}</EWP_ForageCommon>
+  <EWP_ForageCommonTip>Con qué frecuencia aparecen bayas, agave, raíz curativa silvestre y plantas similares entre las plantas silvestres de cada bioma (también de mods). 1 = según la lista del bioma, 0 = nunca.</EWP_ForageCommonTip>
+  <EWP_ForageRegrow>Rebrote tras la cosecha: x{0}</EWP_ForageRegrow>
+  <EWP_ForageRegrowTip>Qué tan rápido vuelven a crecer las bayas y hierbas silvestres tras cosecharlas o comerlas. Las plantas sembradas en tus zonas no cambian.</EWP_ForageRegrowTip>
+  <EWP_SecGrass>Pasto</EWP_SecGrass>
+  <EWP_GrassIntro>Hierba y otras plantas que pastan los animales ({0} encontradas).</EWP_GrassIntro>
+  <EWP_GrassRegrow>Rebrote de la hierba: x{0}</EWP_GrassRegrow>
+  <EWP_GrassRegrowTip>Qué tan rápido vuelve a crecer la hierba pastada – los animales de los corrales se mantienen alimentados más tiempo.</EWP_GrassRegrowTip>
+  <EWP_GrassPens>Solo dentro de corrales</EWP_GrassPens>
+  <EWP_GrassPensTip>La velocidad de la hierba solo se aplica en corrales cerrados; en el resto del mapa crece normal.</EWP_GrassPensTip>
+  <EWP_SecProtect>Plantas protegidas</EWP_SecProtect>
+  <EWP_ProtectIntro>Las plantas silvestres de estos tipos nunca se cortan al arrastrar una orden de cortar o talar sobre un área, sembrar una zona o construir encima. Marca una sola planta para cortarla igualmente.</EWP_ProtectIntro>
+  <EWP_ProtectAdd>Añadir planta…</EWP_ProtectAdd>
+  <EWP_ProtectClear>Quitar todas</EWP_ProtectClear>
+  <EWP_ProtectNone>Aún no hay plantas protegidas.</EWP_ProtectNone>
+  <EWP_ProtectedSkip>{0} está protegida (Evergrowth – Wild Plants). Haz clic solo en ella para cortarla.</EWP_ProtectedSkip>
+  <EWP_Presets>Preajustes…</EWP_Presets>
+  <EWP_PresetsTip>Cambia todos los biomas a la vez: más denso y rápido, más escaso y lento, o los valores del juego.</EWP_PresetsTip>
+  <EWP_Preset0>Vanilla</EWP_Preset0>
+  <EWP_Preset1>Selva densa</EWP_Preset1>
+  <EWP_Preset2>Estepa escasa</EWP_Preset2>
+  <EWP_PresetConfirm>¿Aplicar el preajuste «{0}» a todos los biomas? Se reemplazarán tus valores de densidad y rebrote.</EWP_PresetConfirm>
+  <EWP_PresetDone>Preajuste «{0}» aplicado a todos los biomas.</EWP_PresetDone>
+  <EWP_Share>Compartir código…</EWP_Share>
+  <EWP_ShareTip>Copia todos los ajustes de este mod como un código de texto, o pega el código de un amigo.</EWP_ShareTip>
+  <EWP_ShareCopy>Copiar mis ajustes como código</EWP_ShareCopy>
+  <EWP_ShareCopied>El código está en el portapapeles.</EWP_ShareCopied>
+  <EWP_SharePaste>Pegar un código del portapapeles</EWP_SharePaste>
+  <EWP_SharePasteConfirm>¿Reemplazar todos los ajustes de este mod con el código del portapapeles?</EWP_SharePasteConfirm>
+  <EWP_ShareBad>El portapapeles no contiene un código de Evergrowth – Wild Plants.</EWP_ShareBad>
+  <EWP_ShareRead>Ajustes cargados del código ({0} valores).</EWP_ShareRead>
+  <EWP_WG_Button>¿Dónde crece una planta aquí?</EWP_WG_Button>
+  <EWP_WG_ButtonTip>Elige una planta silvestre: el mapa muestra dónde crece bien (verde), más lento o no ahora (amarillo) y nada (rojo), con el motivo bajo el ratón.</EWP_WG_ButtonTip>
+  <EWP_WG_AnyPlant>Otra planta…</EWP_WG_AnyPlant>
+  <EWP_WG_Showing>Dónde crece {0}</EWP_WG_Showing>
+  <EWP_WG_InBiome>Está en la lista de este bioma – aparece sola.</EWP_WG_InBiome>
+  <EWP_WG_NotInBiome>No está en la lista de este bioma – aquí no aparecerá sola.</EWP_WG_NotInBiome>
+  <EWP_WG_Other>Otra planta</EWP_WG_Other>
+  <EWP_WG_Close>Cerrar</EWP_WG_Close>
+  <EWP_WG_NeedsRoof>Necesita un techo de roca natural (planta de cueva).</EWP_WG_NeedsRoof>
+  <EWP_WG_BuiltRoof>Bajo un techo construido – aquí no crecen plantas silvestres.</EWP_WG_BuiltRoof>
+  <EWP_WG_Built>Construido encima.</EWP_WG_Built>
+  <EWP_WG_Terrain>{0} no puede sostener esta planta.</EWP_WG_Terrain>
+  <EWP_WG_Soil>Suelo demasiado pobre: fertilidad {0}, necesita {1}.</EWP_WG_Soil>
+  <EWP_WG_Dark>Demasiado oscuro bajo el techo.</EWP_WG_Dark>
+  <EWP_WG_Cold>Demasiado frío ahora ({0}) – crecerá en una estación más cálida.</EWP_WG_Cold>
+  <EWP_WG_Hot>Demasiado calor ahora ({0}).</EWP_WG_Hot>
+  <EWP_WG_Slow>Crece más lento: {0} (suelo {1}, luz {2}, temperatura {3}).</EWP_WG_Slow>
+  <EWP_WG_Good>Crece bien ({0}).</EWP_WG_Good>
 </LanguageData>

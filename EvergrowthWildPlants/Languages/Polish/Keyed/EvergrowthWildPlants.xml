@@ -107,4 +107,57 @@
   <EWP_Unlock>Odblokuj edycję</EWP_Unlock>
   <EWP_ShowAll>Wszystkie rośliny ({0})</EWP_ShowAll>
   <EWP_ShowAllTip>Pokazuje każdą roślinę z gry, DLC i modów, także te, które zwykle tu nie rosną. Przesuń suwak powyżej 0, a roślina zacznie tu rosnąć.</EWP_ShowAllTip>
+  <!-- 1.2.0 extras -->
+  <EWP_TabExtras>Dodatki</EWP_TabExtras>
+  <EWP_SecForage>Owoce i zioła</EWP_SecForage>
+  <EWP_ForageIntro>Dzikie rośliny, które przy zbiorze dają jedzenie lub lek (znaleziono {0}, np. {1}).</EWP_ForageIntro>
+  <EWP_ForageCommon>Częstość: x{0}</EWP_ForageCommon>
+  <EWP_ForageCommonTip>Jak często jagody, agawa, dziki leczniczy korzeń i podobne rośliny pojawiają się wśród dzikich roślin każdego biomu (także z modów). 1 = według listy biomu, 0 = nigdy.</EWP_ForageCommonTip>
+  <EWP_ForageRegrow>Odrastanie po zbiorze: x{0}</EWP_ForageRegrow>
+  <EWP_ForageRegrowTip>Jak szybko dzikie owoce i zioła odrastają po zbiorze lub zjedzeniu. Zasiane rośliny w twoich strefach się nie zmieniają.</EWP_ForageRegrowTip>
+  <EWP_SecGrass>Trawa na pastwiskach</EWP_SecGrass>
+  <EWP_GrassIntro>Trawa i inne rośliny, które zwierzęta skubią ({0} znaleziono).</EWP_GrassIntro>
+  <EWP_GrassRegrow>Odrastanie trawy: x{0}</EWP_GrassRegrow>
+  <EWP_GrassRegrowTip>Jak szybko zjedzona trawa odrasta – zwierzęta w zagrodach dłużej są najedzone.</EWP_GrassRegrowTip>
+  <EWP_GrassPens>Tylko w zagrodach dla zwierząt</EWP_GrassPens>
+  <EWP_GrassPensTip>Szybkość trawy dotyczy tylko zamkniętych zagród; na reszcie mapy trawa rośnie normalnie.</EWP_GrassPensTip>
+  <EWP_SecProtect>Chronione rośliny</EWP_SecProtect>
+  <EWP_ProtectIntro>Dzikie rośliny tych gatunków nigdy nie są ścinane, gdy przeciągasz polecenie ścinania lub wyrębu po obszarze, obsiewasz strefę albo budujesz na nich. Oznacz pojedynczą roślinę, aby mimo to ją ściąć.</EWP_ProtectIntro>
+  <EWP_ProtectAdd>Dodaj roślinę…</EWP_ProtectAdd>
+  <EWP_ProtectClear>Usuń wszystkie</EWP_ProtectClear>
+  <EWP_ProtectNone>Brak chronionych roślin.</EWP_ProtectNone>
+  <EWP_ProtectedSkip>{0} jest chroniona (Evergrowth – Wild Plants). Kliknij tylko ją, aby ją ściąć.</EWP_ProtectedSkip>
+  <EWP_Presets>Ustawienia gotowe…</EWP_Presets>
+  <EWP_PresetsTip>Zmienia wszystkie biomy naraz: gęściej i szybciej, rzadziej i wolniej albo wartości gry.</EWP_PresetsTip>
+  <EWP_Preset0>Vanilla</EWP_Preset0>
+  <EWP_Preset1>Gęsta dżungla</EWP_Preset1>
+  <EWP_Preset2>Rzadki step</EWP_Preset2>
+  <EWP_PresetConfirm>Zastosować „{0}” do wszystkich biomów? Twoje wartości gęstości i odrastania zostaną zastąpione.</EWP_PresetConfirm>
+  <EWP_PresetDone>„{0}” zastosowano do wszystkich biomów.</EWP_PresetDone>
+  <EWP_Share>Udostępnij kod…</EWP_Share>
+  <EWP_ShareTip>Skopiuj wszystkie ustawienia tego moda jako jeden kod tekstowy albo wklej kod od znajomego.</EWP_ShareTip>
+  <EWP_ShareCopy>Skopiuj moje ustawienia jako kod</EWP_ShareCopy>
+  <EWP_ShareCopied>Kod jest w schowku.</EWP_ShareCopied>
+  <EWP_SharePaste>Wklej kod ze schowka</EWP_SharePaste>
+  <EWP_SharePasteConfirm>Zastąpić wszystkie ustawienia tego moda kodem ze schowka?</EWP_SharePasteConfirm>
+  <EWP_ShareBad>W schowku nie ma kodu Evergrowth – Wild Plants.</EWP_ShareBad>
+  <EWP_ShareRead>Ustawienia wczytane z kodu ({0} wartości).</EWP_ShareRead>
+  <EWP_WG_Button>Gdzie tu rośnie roślina?</EWP_WG_Button>
+  <EWP_WG_ButtonTip>Wybierz dziką roślinę: mapa pokaże, gdzie rośnie dobrze (zielony), wolniej lub nie teraz (żółty) i wcale (czerwony), z powodem pod myszką.</EWP_WG_ButtonTip>
+  <EWP_WG_AnyPlant>Inna roślina…</EWP_WG_AnyPlant>
+  <EWP_WG_Showing>Gdzie rośnie: {0}</EWP_WG_Showing>
+  <EWP_WG_InBiome>Jest na liście tego biomu – pojawia się sama.</EWP_WG_InBiome>
+  <EWP_WG_NotInBiome>Nie ma jej na liście tego biomu – sama się tu nie pojawi.</EWP_WG_NotInBiome>
+  <EWP_WG_Other>Inna roślina</EWP_WG_Other>
+  <EWP_WG_Close>Zamknij</EWP_WG_Close>
+  <EWP_WG_NeedsRoof>Potrzebuje naturalnego skalnego stropu (roślina jaskiniowa).</EWP_WG_NeedsRoof>
+  <EWP_WG_BuiltRoof>Pod zbudowanym dachem – dzikie rośliny tu nie rosną.</EWP_WG_BuiltRoof>
+  <EWP_WG_Built>Zabudowane.</EWP_WG_Built>
+  <EWP_WG_Terrain>{0} nie utrzyma tej rośliny.</EWP_WG_Terrain>
+  <EWP_WG_Soil>Za uboga gleba: żyzność {0}, potrzeba {1}.</EWP_WG_Soil>
+  <EWP_WG_Dark>Pod dachem jest za ciemno.</EWP_WG_Dark>
+  <EWP_WG_Cold>Teraz za zimno ({0}) – urośnie w cieplejszej porze.</EWP_WG_Cold>
+  <EWP_WG_Hot>Teraz za gorąco ({0}).</EWP_WG_Hot>
+  <EWP_WG_Slow>Rośnie wolniej: {0} (gleba {1}, światło {2}, temperatura {3}).</EWP_WG_Slow>
+  <EWP_WG_Good>Rośnie dobrze ({0}).</EWP_WG_Good>
 </LanguageData>
