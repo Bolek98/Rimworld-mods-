@@ -61,12 +61,13 @@ namespace MisakTabs
             Scribe_Values.Look(ref tradeWindow, "tradeWindow", true);
             Scribe_Values.Look(ref needsW, "needsW", 640f);
             Scribe_Values.Look(ref needsH, "needsH", 520f);
+            WindowSizes.Expose();   // 0.13.0
         }
     }
 
     public class MTMod : Mod
     {
-        public const string Version = "0.12.1";
+        public const string Version = "0.13.0";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0
@@ -132,6 +133,7 @@ namespace MisakTabs
                 Check(l, "MT_MechPicker", ref S.mechPicker, "mechPicker");
                 Check(l, "MT_AnimalPicker", ref S.animalPicker, "animalPicker");
                 Check(l, "MT_TradeWindow", ref S.tradeWindow, "tradeWindow");
+                if (l.ButtonText("MT_ResetSizes".Translate())) { WindowSizes.Reset(); S.Write(); }   // 0.13.0
                 l.End();
             }
             finally { MUI.EndLock(rest); }
