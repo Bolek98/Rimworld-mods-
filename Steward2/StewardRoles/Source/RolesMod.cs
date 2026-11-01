@@ -39,6 +39,7 @@ public sealed class RolesSettings : ModSettings
 	public bool soldierDraft = true;
 	public bool soldierLightWork = true;
 	public bool messages = true;
+	public bool ranks = true;     // 0.2.0
 
 	public override void ExposeData()
 	{
@@ -46,16 +47,19 @@ public sealed class RolesSettings : ModSettings
 		Scribe_Values.Look(ref soldierDraft, "soldierDraft", true);
 		Scribe_Values.Look(ref soldierLightWork, "soldierLightWork", true);
 		Scribe_Values.Look(ref messages, "messages", true);
+		Scribe_Values.Look(ref ranks, "ranks", true);
 	}
 }
 
 public sealed class RolesMod : Mod
 {
-	public const string Version = "0.1.0";
+	public const string Version = "0.2.0";
 	public static RolesSettings S;
+	public static ModContentPack Pack;
 
 	public RolesMod(ModContentPack content) : base(content)
 	{
+		Pack = content;
 		S = GetSettings<RolesSettings>();
 		new Harmony("misak.steward.roles").PatchAll(typeof(RolesMod).Assembly);
 		StewardApi.Register(new RolesStep());
@@ -177,6 +181,48 @@ public sealed class RolesGame : GameComponent
 {
 	public static RolesGame Instance;
 	public Dictionary<int, ColonyRole> roles = new Dictionary<int, ColonyRole>();
+	// 0.2.0: experience in each role ("thingID:Role" → ticks of real role work)
+	public Dictionary<string, int> xp = new Dictionary<string, int>();
+
+	public static int Xp(Pawn p, ColonyRole r)
+	{
+		if (p == null || Instance == null || r == ColonyRole.None) return 0;
+		return Instance.xp.TryGetValue(p.thingIDNumber + ":" + r, out int v) ? v : 0;
+	}
+
+	public override void GameComponentTick()
+	{
+		if (Find.TickManager.TicksGame % Ranks.TickEvery != 0 || RolesMod.S == null || !RolesMod.S.enabled)
+			return;
+		try
+		{
+			foreach (Map map in Find.Maps)
+				foreach (Pawn p in map.mapPawns.FreeColonistsSpawned)
+				{
+					ColonyRole r = Of(p);
+					if (!RolesMod.S.ranks) { if (r != ColonyRole.None) Ranks.Sync(p, ColonyRole.None, 0); continue; }
+					if (r == ColonyRole.None) continue;
+					int before = Xp(p, r);
+					int now = before;
+					if (Ranks.DoingRole(p, r))
+					{
+						now = before + Ranks.TickEvery;
+						xp[p.thingIDNumber + ":" + r] = now;
+					}
+					int rb = Ranks.RankOf(before), rn = Ranks.RankOf(now);
+					Ranks.Sync(p, r, now);
+					if (rn > rb)
+					{
+						string role = RoleWork.Label(r);
+						Find.LetterStack.ReceiveLetter("SR_PromoTitle".Translate(p.LabelShort, Ranks.RankLabel(rn), role),
+							(string)"SR_PromoText".Translate(p.LabelShort, Ranks.RankLabel(rn).ToLower(), role.ToLower(), Ranks.BonusText(r, rn))
+							+ (rn == 1 ? "\n\n" + (string)"SR_PromoNext".Translate() : ""),
+							LetterDefOf.PositiveEvent, p);
+					}
+				}
+		}
+		catch (Exception e) { Log.ErrorOnce("[Steward Roles] ranks: " + e.Message, 0x5A11E7); }
+	}
 
 	public RolesGame(Game game)
 	{
@@ -198,6 +244,7 @@ public sealed class RolesGame : GameComponent
 			Instance.roles.Remove(p.thingIDNumber);
 		else
 			Instance.roles[p.thingIDNumber] = r;
+		try { Ranks.Sync(p, RolesMod.S != null && RolesMod.S.ranks ? r : ColonyRole.None, Xp(p, r)); } catch { }
 		if (p.MapHeld != null)
 			ForemanMapComponent.For(p.MapHeld)?.RequestPlan(true);
 	}
@@ -205,8 +252,12 @@ public sealed class RolesGame : GameComponent
 	public override void ExposeData()
 	{
 		Scribe_Collections.Look(ref roles, "roles", LookMode.Value, LookMode.Value);
+		Scribe_Collections.Look(ref xp, "xp", LookMode.Value, LookMode.Value);
 		if (Scribe.mode == LoadSaveMode.PostLoadInit)
+		{
 			roles ??= new Dictionary<int, ColonyRole>();
+			xp ??= new Dictionary<string, int>();
+		}
 	}
 
 	// suggest roles for the colonists of a map: the important roles first to the best fitting free colonist,
@@ -398,7 +449,7 @@ public static class RoleGizmo
 		ColonyRole r = RolesGame.Of(p);
 		yield return new Command_Action
 		{
-			defaultLabel = r == ColonyRole.None ? "SR_GizmoNone".Translate().ToString() : RoleWork.Label(r),
+			defaultLabel = r == ColonyRole.None ? "SR_GizmoNone".Translate().ToString() : RolesUI.LabelWithRank(p, r),
 			defaultDesc = "SR_GizmoDesc".Translate() + "\n\n" + (r == ColonyRole.None ? "SR_GizmoNoneDesc".Translate().ToString() : RoleWork.Label(r) + ": " + RoleWork.Desc(r)),
 			icon = RolesUI.Icon(r),
 			defaultIconColor = r == ColonyRole.None ? new Color(1f, 1f, 1f, 0.45f) : Color.white,
@@ -411,6 +462,14 @@ public static class RolesUI
 {
 	private static readonly Dictionary<ColonyRole, Texture2D> icons = new Dictionary<ColonyRole, Texture2D>();
 	private static Vector2 scroll;
+
+	// "Doctor ★★" – the stars show the rank (0.2.0)
+	public static string LabelWithRank(Pawn p, ColonyRole r)
+	{
+		if (RolesMod.S == null || !RolesMod.S.ranks) return RoleWork.Label(r);
+		int rank = Ranks.RankOf(RolesGame.Xp(p, r));
+		return RoleWork.Label(r) + " " + new string('★', rank + 1);
+	}
 
 	public static Texture2D Icon(ColonyRole r)
 	{
@@ -489,6 +548,7 @@ public static class RolesUI
 		l.CheckboxLabeled("SR_SoldierDraft".Translate(), ref s.soldierDraft, "SR_SoldierDraftTip".Translate());
 		l.CheckboxLabeled("SR_SoldierLight".Translate(), ref s.soldierLightWork, "SR_SoldierLightTip".Translate());
 		l.CheckboxLabeled("SR_Messages".Translate(), ref s.messages);
+		l.CheckboxLabeled("SR_Ranks".Translate(), ref s.ranks, "SR_RanksTip".Translate());
 		l.End();
 		if ((was != s.enabled || wasLight != s.soldierLightWork) && Find.CurrentMap != null)
 			ForemanMapComponent.For(Find.CurrentMap)?.RequestPlan(true);
@@ -553,6 +613,22 @@ public static class RoleInspect
 		if (r == ColonyRole.None)
 			return;
 		string line = "SR_Inspect".Translate(RoleWork.Label(r));
+		if (RolesMod.S.ranks)
+		{
+			int xp = RolesGame.Xp(__instance, r), rank = Ranks.RankOf(xp);
+			line += " – " + Ranks.RankLabel(rank).ToLower();
+			if (rank < 2) line += " (" + "SR_InspectNext".Translate(Ranks.RankLabel(rank + 1).ToLower(), Mathf.FloorToInt(Ranks.Progress(xp) * 100f)) + ")";
+		}
 		__result = string.IsNullOrEmpty(__result) ? line : __result + "\n" + line;
+	}
+}
+
+[StaticConstructorOnStartup]
+public static class RanksStartup
+{
+	static RanksStartup()
+	{
+		try { Ranks.MakeDefs(); }
+		catch (Exception e) { Log.Warning("[Steward Roles] ranks not active: " + e.Message); }
 	}
 }
