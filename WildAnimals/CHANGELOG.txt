@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+0.1.3
+- Animal list fixes: dragging a slider to 0 no longer zeroes the next rows (the list stays in place while you drag); the biome's own animals always stay in the list, marked "belongs here", and one click brings back the ones at 0 (also for every biome); a mod filter and search by mod; columns fit the window width.
+- Opravy seznamu zvířat: stažení posuvníku na 0 už nestáhne na 0 i další řádky (seznam se při tažení nehýbe); zvířata, která do biomu patří, v seznamu zůstávají vždy, označená „patří sem“, a jedním klikem se vrátí ta na nule (i ve všech biomech najednou); filtr a hledání podle modu; sloupce se přizpůsobí šířce okna.
+
 0.1.2
 - Everything in the animal rows fits now (the temperature button on the right was cut off, it shows °C); long names in the map table are shortened with a tooltip.
 - V řádcích zvířat se teď vše vejde (tlačítko teploty vpravo bylo useknuté, ukazuje °C); dlouhé názvy v tabulce mapy jsou zkrácené s bublinou.

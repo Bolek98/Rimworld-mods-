@@ -68,7 +68,7 @@ namespace WildAnimals
     // ------------------------------------------------------------------
     public static class WA
     {
-        public const string Version = "0.1.2";
+        public const string Version = "0.1.3";
         public const float BaseCells = 62500f;   // 250 × 250
         public static WASettings S => WildAnimalsMod.Settings;
 
@@ -208,6 +208,39 @@ namespace WildAnimals
         }
 
         public static bool Custom(BiomeDef b) => !S.recommended && (S.lists.ContainsKey(b.defName) || S.target.ContainsKey(b.defName));
+
+        // 0.1.3: the animals the game itself puts into this biome
+        private static readonly Dictionary<BiomeDef, HashSet<PawnKindDef>> natives = new Dictionary<BiomeDef, HashSet<PawnKindDef>>();
+        public static HashSet<PawnKindDef> Natives(BiomeDef b)
+        {
+            if (!natives.TryGetValue(b, out var h)) natives[b] = h = new HashSet<PawnKindDef>(DefaultList(b).Keys);
+            return h;
+        }
+
+        // how many of the biome's own animals the player's list has at 0 (or lost)
+        public static int NativesOff(BiomeDef b)
+        {
+            if (S.recommended || !S.lists.ContainsKey(b.defName)) return 0;
+            var list = List(b);
+            int n = 0;
+            foreach (PawnKindDef k in Natives(b))
+                if (!list.TryGetValue(k, out float w) || w <= 0f) n++;
+            return n;
+        }
+
+        // 0.1.3: brings the biome's own animals that are at 0 back to the game's value; everything else stays
+        public static int RestoreNatives(BiomeDef b)
+        {
+            if (S.recommended || !S.lists.ContainsKey(b.defName)) return 0;
+            var list = new Dictionary<PawnKindDef, float>(List(b));
+            int n = 0;
+            foreach (var kv in DefaultList(b))
+                if (!list.TryGetValue(kv.Key, out float w) || w <= 0f) { list[kv.Key] = kv.Value; n++; }
+            if (n > 0) Store(b, list);
+            return n;
+        }
+
+        public static string PackageOf(Def d) => d?.modContentPack?.PackageIdPlayerFacing ?? "";
 
         // how many animals the game would keep on a 250×250 map of this biome
         public static float DefaultTarget(BiomeDef b)
