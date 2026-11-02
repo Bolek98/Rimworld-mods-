@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_Name>Droidi</SD_Name>
+  <SD_Intro>Tvoje stroje – mechanoidi (z vanilly, DLC i modů), androidi (Vanilla Races Expanded – Android) a další robotické rasy. Bojoví mechové střeží základnu i celou mapu, o každý stroj je postaráno.</SD_Intro>
+  <SD_SetGuard>Stráž</SD_SetGuard>
+  <SD_SetGuardTip>Stroje v režimu „Stráž“ hlídkují po okraji domovské oblasti, u venkovních dveří a v nejcennějších místnostech, část z nich prochází celou mapu. Když se přiblíží nepřátelé, nejbližší jim vyrazí naproti a ostatní drží stranu základny, odkud útočí. Potom se vrátí na svá stanoviště. Povolané stroje vždy poslouchají tebe.</SD_SetGuardTip>
+  <SD_SetAutoGuard>Bojoví mechové v režimu „Automaticky“ hlídají</SD_SetAutoGuard>
+  <SD_SetAutoGuardTip>Mechové bez práce (militoři, scytheři, stonožky …) drží stráž sami. Pracovní mechové dál pracují. Každý stroj se dá přepnout tlačítkem režimu.</SD_SetAutoGuardTip>
+  <SD_SetSweep>Strážní, kteří procházejí celou mapu: {0} %</SD_SetSweep>
+  <SD_SetRadius>Nepřátelé takhle blízko základny vzbudí stráž: {0} polí</SD_SetRadius>
+  <SD_SetRooms>Hlídat i dvě nejcennější místnosti</SD_SetRooms>
+  <SD_SetRoomsTip>Stanoviště uvnitř nejbohatších místností domovské oblasti (sklady, trůnní sál …).</SD_SetRoomsTip>
+  <SD_SetStagger>Strážní se nabíjejí po jednom</SD_SetStagger>
+  <SD_SetStaggerTip>Zatímco se jeden strážný nabíjí, ostatní počkají (pokud některý není skoro vybitý), takže základna nikdy nezůstane bez stráže.</SD_SetStaggerTip>
+  <SD_SetRecharge>Strážný jde nabíjet pod: {0} % energie</SD_SetRecharge>
+  <SD_SetRetreat>Těžce poškozené stroje opustí boj</SD_SetRetreat>
+  <SD_SetRetreatTip>Strážný pod tímhle zdravím odejde na odvrácenou stranu základny místo boje.</SD_SetRetreatTip>
+  <SD_SetRetreatAt>Opustit boj pod: {0} % zdraví</SD_SetRetreatAt>
+  <SD_SetRepair>Poškození mechové: zapnout „opravovat automaticky“</SD_SetRepair>
+  <SD_SetRepairTip>Mechanitor je pak opraví sám. Na mechovi to můžeš zase vypnout.</SD_SetRepairTip>
+  <SD_SetSchedule>Droidi, kteří nespí, pracují nonstop</SD_SetSchedule>
+  <SD_SetScheduleTip>Androidi a roboti bez potřeby spánku dostanou „práci“ na všech 24 hodin – jednou; tvoje pozdější změny zůstanou.</SD_SetScheduleTip>
+  <SD_SetFire>Droidi hasí jako první</SD_SetFire>
+  <SD_SetFireTip>V každém plánu Stewarda dostanou droidi hašení na prioritu 1. Když jsou aspoň dva, lidé jsou na hašení o stupeň níž.</SD_SetFireTip>
+  <SD_SetWarn>Upozornění</SD_SetWarn>
+  <SD_SetWarnTip>Upozornění, když je mech skoro vybitý a žádná nabíječka není volná, když androidovi dochází reaktor, nebo když dochází neutroamin.</SD_SetWarnTip>
+  <SD_Mode_Auto>Automaticky</SD_Mode_Auto>
+  <SD_Mode_Guard>Stráž</SD_Mode_Guard>
+  <SD_Mode_Work>Práce</SD_Mode_Work>
+  <SD_Mode_Rest>Odpočinek</SD_Mode_Rest>
+  <SD_ModeDesc_Auto>bojoví mechové hlídají, ostatní pracují</SD_ModeDesc_Auto>
+  <SD_ModeDesc_Guard>hlídkuje po základně i mapě, bojuje s vetřelci</SD_ModeDesc_Guard>
+  <SD_ModeDesc_Work>nechá se pracovat jako obvykle</SD_ModeDesc_Work>
+  <SD_ModeDesc_Rest>mechové jdou hned k nabíječce</SD_ModeDesc_Rest>
+  <SD_GizmoLabel>Služba: {0}</SD_GizmoLabel>
+  <SD_GizmoDesc>Co tenhle stroj dělá: {0}.\nTeď: {1}\n\nKliknutím změníš (pro všechny vybrané stroje).</SD_GizmoDesc>
+  <SD_StDrafted>povolaný – tvoje rozkazy</SD_StDrafted>
+  <SD_StBusy>zaneprázdněný</SD_StBusy>
+  <SD_StPausedMode>stráž pozastavena – mech je v režimu „{0}“</SD_StPausedMode>
+  <SD_StCharging>nabíjí se</SD_StCharging>
+  <SD_StHold>drží stranu základny pod útokem</SD_StHold>
+  <SD_StIntercept>jde naproti: {0}</SD_StIntercept>
+  <SD_StRetreat>těžce poškozený – opouští boj</SD_StRetreat>
+  <SD_StSweep>prochází mapu</SD_StSweep>
+  <SD_StPatrol>hlídka – stanoviště {0} z {1}</SD_StPatrol>
+  <SD_StRest>odpočívá</SD_StRest>
+  <SD_WarnMechEnergy>{0} je skoro vybitý a žádná nabíječka není volná.</SD_WarnMechEnergy>
+  <SD_WarnReactor>{0}: reaktor je skoro vyčerpaný – potřebuje vyměnit.</SD_WarnReactor>
+  <SD_WarnNeutro>Dochází neutroamin: {0} pro androidy ({1}).</SD_WarnNeutro>
+  <SD_AlertLabel>Droidi potřebují péči</SD_AlertLabel>
+  <SD_AlertIntro>Tvoje stroje něco potřebují:</SD_AlertIntro>
+  <SD_ReasonFire>droid – hasí jako první</SD_ReasonFire>
+  <SD_ReasonFireHuman>hasí nejdřív droidi ({0})</SD_ReasonFireHuman>
+  <SD_TabTitle>Droidi ({0})</SD_TabTitle>
+  <SD_TabInfo>Strážních stanovišť na téhle mapě: {0}. Kliknutím na jméno stroj najdeš, kliknutím na službu ji změníš.</SD_TabInfo>
+  <SD_AllMechs>Bojoví mechové: {0}</SD_AllMechs>
+  <SD_ColName>Jméno</SD_ColName>
+  <SD_ColKind>Druh</SD_ColKind>
+  <SD_ColMode>Služba</SD_ColMode>
+  <SD_ColEnergy>Energie</SD_ColEnergy>
+  <SD_ColUpkeep>Údržba</SD_ColUpkeep>
+  <SD_ColHealth>Zdraví</SD_ColHealth>
+  <SD_ColNow>Teď</SD_ColNow>
+  <SD_Kind_None>–</SD_Kind_None>
+  <SD_Kind_Mech>mech</SD_Kind_Mech>
+  <SD_Kind_Android>android</SD_Kind_Android>
+  <SD_Kind_Robot>robot</SD_Kind_Robot>
+  <SD_KindCombat>bojový mech</SD_KindCombat>
+  <SD_KindWorker>pracovní mech</SD_KindWorker>
+  <SD_Memory>paměť {0}</SD_Memory>
+  <SD_Neutro>ztráta neutroaminu {0}</SD_Neutro>
+  <SD_Awakened>probuzený</SD_Awakened>
+  <SD_MayAwaken>nešťastný – může se probudit</SD_MayAwaken>
+  <SD_OutOfRange>mimo dosah mechanitora</SD_OutOfRange>
+  <SD_Advice>V kolonii nikdo neumí dobře: {0}. Pomohl by android s podprogramem na to.</SD_Advice>
+  <SD_AllGood>Všechny stroje jsou v pořádku.</SD_AllGood>
+</LanguageData>

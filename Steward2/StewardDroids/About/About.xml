@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Steward – Droids</name>
+  <author>Bolek98</author>
+  <packageId>misak.steward.droids</packageId>
+  <modVersion>0.1.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>misak.colonyforeman</packageId>
+      <displayName>Steward – Work Priorities</displayName>
+      <downloadUrl>https://github.com/Bolek98/Rimworld-mods-</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>misak.colonyforeman</li>
+    <li>Ludeon.RimWorld.Biotech</li>
+    <li>vanillaracesexpanded.android</li>
+    <li>misak.mechcommander</li>
+  </loadAfter>
+  <description>Optional add-on for Steward – Work Priorities (needs the Steward core; Steward works without it).
+
+All your machines in one place: mechanoids (vanilla, DLC and modded), androids (Vanilla Races Expanded – Android) and other robot races.
+
+GUARD DUTY
+- Combat mechs guard the base on their own: they patrol the edge of the home area, the outer doors and the two most valuable rooms, and a share of them sweeps the whole map.
+- When enemies come close, the nearest guards intercept them and the rest hold the side of the base under attack. Afterwards everyone goes back to their posts.
+- Guards recharge one at a time, so the base is never left without a guard. Badly damaged machines leave the fight.
+- A "Duty" button on every machine: Auto, Guard, Work or Rest. Drafted machines always obey you.
+
+CARE
+- Damaged mechs get "repair automatically", so the mechanitor repairs them.
+- Androids and robots that never sleep work around the clock; droids take the firefighting first.
+- Warnings before a mech runs out of energy with no free charger, an android's reactor is spent, or neutroamine runs low.
+
+"DROIDS" TAB
+- Every machine with its duty, energy, upkeep (memory, neutroamine), health and what it is doing; awakened and unhappy androids; skills the colony lacks, as ideas for android subroutines.
+
+Works without Biotech or VRE Android – whatever is not there is simply skipped. With Mech Commander the two work side by side. English and Czech.
+
+---
+
+Volitelný doplněk pro Steward – Work Priorities (potřebuje jádro Stewarda; Steward funguje i bez něj).
+
+Všechny tvoje stroje na jednom místě: mechanoidi (z vanilly, DLC i modů), androidi (Vanilla Races Expanded – Android) a další robotické rasy.
+
+STRÁŽ
+- Bojoví mechové sami hlídají základnu: hlídkují po okraji domovské oblasti, u venkovních dveří a ve dvou nejcennějších místnostech a část z nich prochází celou mapu.
+- Když se přiblíží nepřátelé, nejbližší strážní jim vyrazí naproti a ostatní drží stranu základny pod útokem. Potom se všichni vrátí na svá stanoviště.
+- Strážní se nabíjejí po jednom, takže základna nikdy nezůstane bez stráže. Těžce poškozené stroje opustí boj.
+- Na každém stroji tlačítko „Služba“: Automaticky, Stráž, Práce nebo Odpočinek. Povolané stroje vždy poslouchají tebe.
+
+PÉČE
+- Poškození mechové dostanou „opravovat automaticky“, takže je mechanitor opraví.
+- Androidi a roboti, kteří nespí, pracují nonstop; droidi hasí jako první.
+- Upozornění, než mechovi dojde energie a žádná nabíječka není volná, než se androidovi vyčerpá reaktor, nebo když dochází neutroamin.
+
+ZÁLOŽKA „DROIDI“
+- Každý stroj se službou, energií, údržbou (paměť, neutroamin), zdravím a tím, co právě dělá; probuzení a nešťastní androidi; dovednosti, které kolonii chybí, jako tipy na podprogramy androidů.
+
+Funguje i bez Biotechu a VRE Android – co chybí, se prostě přeskočí. S Mech Commanderem fungují vedle sebe. Anglicky a česky.</description>
+</ModMetaData>

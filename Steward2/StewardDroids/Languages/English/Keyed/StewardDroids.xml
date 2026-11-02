@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_Name>Droids</SD_Name>
+  <SD_Intro>Your machines – mechanoids (vanilla, DLC and modded), androids (Vanilla Races Expanded – Android) and other robot races. Combat mechs guard the base and the whole map, every machine gets looked after.</SD_Intro>
+  <SD_SetGuard>Guard duty</SD_SetGuard>
+  <SD_SetGuardTip>Machines in "Guard" mode patrol the edge of the home area, its outer doors and the most valuable rooms, a share of them sweeps the whole map. When enemies come close, the nearest ones intercept them and the rest hold the side of the base the enemies come from. Afterwards they go back to their posts. Drafted machines always obey you.</SD_SetGuardTip>
+  <SD_SetAutoGuard>Combat mechs in "Auto" mode guard</SD_SetAutoGuard>
+  <SD_SetAutoGuardTip>Mechs without any work (militors, scythers, centipedes …) stand guard on their own. Work mechs keep working. Each machine can be switched with its mode button.</SD_SetAutoGuardTip>
+  <SD_SetSweep>Guards that sweep the whole map: {0} %</SD_SetSweep>
+  <SD_SetRadius>Enemies this close to the base wake the guard: {0} cells</SD_SetRadius>
+  <SD_SetRooms>Guard the two most valuable rooms too</SD_SetRooms>
+  <SD_SetRoomsTip>A post inside the richest rooms of the home area (storerooms, throne room …).</SD_SetRoomsTip>
+  <SD_SetStagger>Guards recharge one at a time</SD_SetStagger>
+  <SD_SetStaggerTip>While one guard is charging, the others wait (unless one is nearly empty), so the base is never left without its guard.</SD_SetStaggerTip>
+  <SD_SetRecharge>A guard goes to recharge below: {0} % energy</SD_SetRecharge>
+  <SD_SetRetreat>Badly damaged machines leave the fight</SD_SetRetreat>
+  <SD_SetRetreatTip>A guard below this health goes to the far side of the base instead of fighting.</SD_SetRetreatTip>
+  <SD_SetRetreatAt>Leave the fight below: {0} % health</SD_SetRetreatAt>
+  <SD_SetRepair>Damaged mechs: turn on "repair automatically"</SD_SetRepair>
+  <SD_SetRepairTip>The mechanitor then repairs them on his own. You can switch it off again on the mech.</SD_SetRepairTip>
+  <SD_SetSchedule>Droids that never sleep work around the clock</SD_SetSchedule>
+  <SD_SetScheduleTip>Androids and robots without a need for sleep get "work" for all 24 hours – once; your own later changes stay.</SD_SetScheduleTip>
+  <SD_SetFire>Droids take the firefighting first</SD_SetFire>
+  <SD_SetFireTip>In every Steward plan droids get firefighting on priority 1. With two or more of them, people are one step lower for fires.</SD_SetFireTip>
+  <SD_SetWarn>Warnings</SD_SetWarn>
+  <SD_SetWarnTip>A warning when a mech is nearly empty and no charger is free, an android's reactor is nearly spent, or neutroamine runs low.</SD_SetWarnTip>
+  <SD_Mode_Auto>Auto</SD_Mode_Auto>
+  <SD_Mode_Guard>Guard</SD_Mode_Guard>
+  <SD_Mode_Work>Work</SD_Mode_Work>
+  <SD_Mode_Rest>Rest</SD_Mode_Rest>
+  <SD_ModeDesc_Auto>combat mechs guard, the rest work</SD_ModeDesc_Auto>
+  <SD_ModeDesc_Guard>patrol the base and the map, fight intruders</SD_ModeDesc_Guard>
+  <SD_ModeDesc_Work>left to its work as usual</SD_ModeDesc_Work>
+  <SD_ModeDesc_Rest>mechs go to a charger now</SD_ModeDesc_Rest>
+  <SD_GizmoLabel>Duty: {0}</SD_GizmoLabel>
+  <SD_GizmoDesc>What this machine does: {0}.\nNow: {1}\n\nClick to change (for all selected machines).</SD_GizmoDesc>
+  <SD_StDrafted>drafted – your orders</SD_StDrafted>
+  <SD_StBusy>busy</SD_StBusy>
+  <SD_StPausedMode>guard paused – the mech is in mode "{0}"</SD_StPausedMode>
+  <SD_StCharging>recharging</SD_StCharging>
+  <SD_StHold>holding the side of the base under attack</SD_StHold>
+  <SD_StIntercept>intercepting {0}</SD_StIntercept>
+  <SD_StRetreat>badly damaged – leaving the fight</SD_StRetreat>
+  <SD_StSweep>sweeping the map</SD_StSweep>
+  <SD_StPatrol>patrol – post {0} of {1}</SD_StPatrol>
+  <SD_StRest>resting</SD_StRest>
+  <SD_WarnMechEnergy>{0} is nearly out of energy and no charger is free.</SD_WarnMechEnergy>
+  <SD_WarnReactor>{0}: the reactor is nearly spent – it needs replacing.</SD_WarnReactor>
+  <SD_WarnNeutro>Low on neutroamine: {0} for {1} android(s).</SD_WarnNeutro>
+  <SD_AlertLabel>Droids need care</SD_AlertLabel>
+  <SD_AlertIntro>Your machines need something:</SD_AlertIntro>
+  <SD_ReasonFire>droid – takes the firefighting first</SD_ReasonFire>
+  <SD_ReasonFireHuman>{0} droids take the fires first</SD_ReasonFireHuman>
+  <SD_TabTitle>Droids ({0})</SD_TabTitle>
+  <SD_TabInfo>Guard posts on this map: {0}. Click a name to find the machine, click the mode to change it.</SD_TabInfo>
+  <SD_AllMechs>Combat mechs: {0}</SD_AllMechs>
+  <SD_ColName>Name</SD_ColName>
+  <SD_ColKind>Kind</SD_ColKind>
+  <SD_ColMode>Duty</SD_ColMode>
+  <SD_ColEnergy>Energy</SD_ColEnergy>
+  <SD_ColUpkeep>Upkeep</SD_ColUpkeep>
+  <SD_ColHealth>Health</SD_ColHealth>
+  <SD_ColNow>Now</SD_ColNow>
+  <SD_Kind_None>–</SD_Kind_None>
+  <SD_Kind_Mech>mech</SD_Kind_Mech>
+  <SD_Kind_Android>android</SD_Kind_Android>
+  <SD_Kind_Robot>robot</SD_Kind_Robot>
+  <SD_KindCombat>combat mech</SD_KindCombat>
+  <SD_KindWorker>work mech</SD_KindWorker>
+  <SD_Memory>memory {0}</SD_Memory>
+  <SD_Neutro>neutro loss {0}</SD_Neutro>
+  <SD_Awakened>awakened</SD_Awakened>
+  <SD_MayAwaken>unhappy – may awaken</SD_MayAwaken>
+  <SD_OutOfRange>out of the mechanitor's range</SD_OutOfRange>
+  <SD_Advice>Nobody in the colony is good at: {0}. An android with a subroutine for it would help.</SD_Advice>
+  <SD_AllGood>All machines are fine.</SD_AllGood>
+</LanguageData>

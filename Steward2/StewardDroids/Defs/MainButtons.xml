@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MainButtonDef>
+    <defName>SD_Droids</defName>
+    <label>droids</label>
+    <description>All your machines – mechanoids, androids and robots: mode (guard, work, rest), energy, upkeep, health and what they are doing.</description>
+    <workerClass>ColonyForeman.MainButtonWorker_Droids</workerClass>
+    <tabWindowClass>ColonyForeman.MainTabWindow_Droids</tabWindowClass>
+    <order>58</order>
+  </MainButtonDef>
+</Defs>
