@@ -436,4 +436,22 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_SetNickTip>你重命名的模组（右键模组 → 重命名…）会在 Mod Sort Manager 和游戏的模组列表中显示你的名称。存档、模组列表和其他模组仍使用真实名称。</MSM_SetNickTip>
   <MSM_SetNickOrig>同时显示原名</MSM_SetNickOrig>
   <MSM_SetNickOrigTip>重命名的模组在详情和提示中也会显示原名。</MSM_SetNickOrigTip>
+  <!-- 0.8.0 folders -->
+  <MSM_FolderFav>收藏</MSM_FolderFav>
+  <MSM_FolderOn>全部启用</MSM_FolderOn>
+  <MSM_FolderOff>全部禁用</MSM_FolderOff>
+  <MSM_FolderCountTip>此文件夹中已启用 {0}/{1} 个模组</MSM_FolderCountTip>
+  <MSM_FolderTip>点击：展开或收起文件夹 · 右键：重命名、移动、删除、新建文件夹 · 将模组拖到这里即可放入</MSM_FolderTip>
+  <MSM_FolderEnabled>已启用“{1}”中的 {0} 个模组。</MSM_FolderEnabled>
+  <MSM_FolderMissingDeps>其中 {0} 个需要未启用的模组 – 请查看“问题”。</MSM_FolderMissingDeps>
+  <MSM_FolderDisabled>已禁用“{1}”中的 {0} 个模组。</MSM_FolderDisabled>
+  <MSM_FolderRename>重命名…</MSM_FolderRename>
+  <MSM_FolderRenameTitle>文件夹的新名称：</MSM_FolderRenameTitle>
+  <MSM_FolderUp>上移</MSM_FolderUp>
+  <MSM_FolderDown>下移</MSM_FolderDown>
+  <MSM_FolderDelete>删除文件夹（模组保留）</MSM_FolderDelete>
+  <MSM_FolderNew>新建文件夹…</MSM_FolderNew>
+  <MSM_FolderNewTitle>新文件夹的名称：</MSM_FolderNewTitle>
+  <MSM_FolderMove>移到文件夹…</MSM_FolderMove>
+  <MSM_FolderNone>移出文件夹</MSM_FolderNone>
 </LanguageData>

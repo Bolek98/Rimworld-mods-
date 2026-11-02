@@ -1041,7 +1041,7 @@ namespace ModSortManager
         //   Up/Down (W/S)          move the cursor          Shift+Up/Down  move the selected mods
         //   Left/A, Delete         switch the selected off   Right/D        switch the selected on
         //   Ctrl+A                 select the whole list     Esc            only the cursor stays selected
-        private List<ModMetaData> ListOf(ModMetaData m) => m == null ? null : active.Contains(m) ? (ActiveFiltered ? cAct : active) : cInact;
+        private List<ModMetaData> ListOf(ModMetaData m) => m == null ? null : active.Contains(m) ? (ActiveFiltered ? cAct : active) : (vInact ?? cInact);
 
         public List<ModMetaData> Selection()
         {
@@ -1071,7 +1071,7 @@ namespace ModSortManager
             if (all)
             {
                 multi.Clear();
-                foreach (ModMetaData m in list) multi.Add(m);
+                foreach (ModMetaData m in list) if (m != null) multi.Add(m);
                 ev.Use();
                 return;
             }
@@ -1080,7 +1080,7 @@ namespace ModSortManager
                 List<ModMetaData> sel = Selection().Where(m => active.Contains(m) == off).ToList();
                 if (sel.Count == 0) { ev.Use(); return; }
                 // the cursor goes to the next mod that stays in this list
-                ModMetaData next = list.Skip(i + 1).FirstOrDefault(m => !sel.Contains(m)) ?? list.Take(i).LastOrDefault(m => !sel.Contains(m));
+                ModMetaData next = list.Skip(i + 1).FirstOrDefault(m => m != null && !sel.Contains(m)) ?? list.Take(i).LastOrDefault(m => m != null && !sel.Contains(m));
                 if (off) DeactivateMany(sel); else ActivateMany(sel);
                 multi.Clear();
                 selected = next ?? selected;
@@ -1099,6 +1099,8 @@ namespace ModSortManager
             else
             {
                 int to = Mathf.Clamp(i + dir, 0, list.Count - 1);
+                while (list[to] == null && to + dir >= 0 && to + dir < list.Count) to += dir;   // 0.8.0: over folder headers
+                if (list[to] == null) to = i;
                 multi.Clear();
                 if (to == i) { ev.Use(); return; }
                 selected = list[to];
@@ -1207,10 +1209,11 @@ namespace ModSortManager
             if (nf != fInactive) fInactive = nf;
             CatFilterButton(new Rect(l.xMax - cfw, l.y + 24f, cfw, 30f));
             int catStamp = catMain == null ? 0 : ModCats.Version;
-            if (cVer != ver || cInactF != fInactive || cActF != fActive || cProb != onlyProblems || cCatStamp != catStamp)
+            if (cVer != ver || cInactF != fInactive || cActF != fActive || cProb != onlyProblems || cCatStamp != catStamp || cFolderStamp != ModFolders.Version)
             {
                 cCatStamp = catStamp;
                 cInact = Filter(CatFilterInactive(inactiveCache), fInactive);
+                BuildFolderView(cInact, !fInactive.NullOrEmpty() || catMain != null);   // 0.8.0
                 cAct = Filter(active, fActive);
                 if (onlyProblems) cAct = cAct.Where(x => marks.ContainsKey(x)).ToList();
                 cProb = onlyProblems;
@@ -1218,7 +1221,7 @@ namespace ModSortManager
                 cActF = fActive;
                 cVer = ver;
             }
-            List<ModMetaData> inact = cInact;
+            List<ModMetaData> inact = vInact ?? cInact;
             KeyNav();   // 0.2.2
             hInactive = l.height - 62f;
             hActive = mid.ContractedBy(Pad, 10f).height - 62f;
@@ -1264,10 +1267,17 @@ namespace ModSortManager
             int first = Mathf.Max(0, (int)(scroll.y / RowH) - 1);
             int last = Mathf.Min(list.Count - 1, (int)((scroll.y + outRect.height) / RowH) + 1);
             Event ev = Event.current;
+            if (!isActive) headRects.Clear();
             for (int i = first; i <= last; i++)
             {
                 ModMetaData mod = list[i];
                 Rect row = new Rect(0f, i * RowH, view.width, RowH);
+                // 0.8.0: a folder header
+                if (mod == null)
+                {
+                    if (!isActive && vHeads.TryGetValue(i, out string fh) && DrawFolderHeader(row, fh)) break;
+                    continue;
+                }
                 bool sel = mod == selected || multi.Contains(mod);   // 0.3.1
                 if (sel) { MUI.Fill(row, MUI.OnBg); MUI.Frame(row, mod == selected ? MUI.Accent : MUI.Border); }
                 else if (Mouse.IsOver(row)) MUI.Fill(row, Hover);
@@ -1346,7 +1356,7 @@ namespace ModSortManager
                     {
                         int a0 = list.IndexOf(selected);
                         multi.Clear();
-                        for (int q = Mathf.Min(a0, i); q <= Mathf.Max(a0, i); q++) multi.Add(list[q]);
+                        for (int q = Mathf.Min(a0, i); q <= Mathf.Max(a0, i); q++) if (list[q] != null) multi.Add(list[q]);
                         ev.Use();
                         break;
                     }
@@ -1394,6 +1404,9 @@ namespace ModSortManager
                 {
                     if (dragging && dragFrom < list.Count && rInactScreen.Contains(GUIUtility.GUIToScreenPoint(ev.mousePosition)))
                     {
+                        // 0.8.0: dropped on a folder header – into that folder too
+                        string df = FolderAt(GUIUtility.GUIToScreenPoint(ev.mousePosition));
+                        if (df != null) ModFolders.Put(multi.Count > 1 && multi.Contains(list[dragFrom]) ? Selection() : new List<ModMetaData> { list[dragFrom] }, df);
                         // 0.4.1: dropped on the inactive list – switch off
                         if (multi.Count > 1 && multi.Contains(list[dragFrom])) DeactivateMany(Selection().Where(active.Contains).ToList());
                         else Deactivate(list[dragFrom]);
@@ -1447,7 +1460,15 @@ namespace ModSortManager
             }
             if (ev.rawType == EventType.MouseUp)
             {
-                if (xDragging && over)
+                string toFolder = xDragging ? FolderAt(GUIUtility.GUIToScreenPoint(ev.mousePosition)) : null;
+                if (toFolder != null)
+                {
+                    // 0.8.0: an inactive mod (or the selection) dropped on a folder header
+                    ModFolders.Put(multi.Count > 1 && multi.Contains(xMod) ? Selection() : new List<ModMetaData> { xMod }, toFolder);
+                    multi.Clear();
+                    SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+                }
+                else if (xDragging && over)
                 {
                     List<ModMetaData> mods = multi.Count > 1 && multi.Contains(xMod)
                         ? inactiveCache.Where(x => multi.Contains(x)).ToList()
@@ -1706,6 +1727,7 @@ namespace ModSortManager
             if (Nicknames.Has(m))
                 opts.Add(new FloatMenuOption("MSM_NickReset".Translate(), () => { Nicknames.Set(m, null); ver++; }));
             opts.Add(new FloatMenuOption("MSM_CatMove".Translate(), () => MoveMenu(m)));
+            opts.Add(new FloatMenuOption("MSM_FolderMove".Translate(), () => FolderMoveMenu(m)));   // 0.8.0
             if (active.Contains(m) && !m.IsCoreMod)
                 opts.Add(new FloatMenuOption("MSM_RuleAdd".Translate(), () => RuleMenu(m)));
             Find.WindowStack.Add(new FloatMenu(opts, Nicknames.Show(m)));
