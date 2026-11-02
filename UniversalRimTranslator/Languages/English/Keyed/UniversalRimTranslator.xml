@@ -207,4 +207,36 @@ Choose your language in Options → Language and restart the game – URT then t
   <URT_Pack_OpenFolder>Open packs folder</URT_Pack_OpenFolder>
   <URT_ModGenerated>Made while loading</URT_ModGenerated>
   <URT_ModGeneratedTip>Texts of things the game or a mod creates in code while loading, with no mod of their own.</URT_ModGeneratedTip>
+  <URT_Tab_Sources>Sources</URT_Tab_Sources>
+  <URT_Src_Intro>Translation mods you have installed but not enabled, packs in the URT library and packs from a URL are used for your language – no need to enable them. A mod's own translation and enabled translation mods always win; URT translates only what is still missing.</URT_Src_Intro>
+  <URT_Src_Use>Use translations from other mods (without enabling them)</URT_Src_Use>
+  <URT_Src_Rescan>Search again</URT_Src_Rescan>
+  <URT_Src_OpenLibrary>Open library folder</URT_Src_OpenLibrary>
+  <URT_Src_LibraryTip>Put unzipped translation mods or Languages folders here:\n{0}</URT_Src_LibraryTip>
+  <URT_Src_Sum>{0} sources ({1} on) · {2} texts used for {3} mods</URT_Src_Sum>
+  <URT_Src_Restart>– changes apply after a restart</URT_Src_Restart>
+  <URT_Src_None>No translation mods for your language found. Subscribe to translation mods (you don't have to enable them) or put packs into the library.</URT_Src_None>
+  <URT_Src_OrderTip>Higher in the list wins when two sources translate the same text.</URT_Src_OrderTip>
+  <URT_Src_CoversNone>nothing used yet</URT_Src_CoversNone>
+  <URT_Src_Counts>{0} used of {1}</URT_Src_Counts>
+  <URT_Src_Kind_Workshop>Workshop</URT_Src_Kind_Workshop>
+  <URT_Src_Kind_Local>Mods folder</URT_Src_Kind_Local>
+  <URT_Src_Kind_Library>Library</URT_Src_Kind_Library>
+  <URT_Src_Kind_URL>URL</URT_Src_Kind_URL>
+  <URT_Src_TipCounts>Used: {0} keyed texts, {1} def texts, {2} name lists · {3} files read</URT_Src_TipCounts>
+  <URT_Src_Urls>Translation packs from a URL (zip or GitHub repository)</URT_Src_Urls>
+  <URT_Src_UrlAuto>Check once a day</URT_Src_UrlAuto>
+  <URT_Src_UrlAutoTip>At the start, packs are checked for updates at most once a day. New versions are used after the next restart.</URT_Src_UrlAutoTip>
+  <URT_Src_UrlHint>https://github.com/… or a link to a .zip</URT_Src_UrlHint>
+  <URT_Src_UrlAdd>Add</URT_Src_UrlAdd>
+  <URT_Src_UrlBusy>Downloading…</URT_Src_UrlBusy>
+  <URT_Src_UrlUpdate>Update now</URT_Src_UrlUpdate>
+  <URT_Src_UrlChecked>checked today ({0})</URT_Src_UrlChecked>
+  <URT_Src_UrlSame>up to date</URT_Src_UrlSame>
+  <URT_Src_TooBig>too big ({0} MB)</URT_Src_TooBig>
+  <URT_Src_NoLanguages>no Languages folder in the zip</URT_Src_NoLanguages>
+  <URT_Src_UrlDone>downloaded {0} files – used after a restart</URT_Src_UrlDone>
+  <URT_Src_UrlHave>{0} · {1} files</URT_Src_UrlHave>
+  <URT_Src_UrlNotYet>not downloaded yet</URT_Src_UrlNotYet>
+  <URT_Mods_Imported>{0} texts of this mod come from translation mods (Sources tab)</URT_Mods_Imported>
 </LanguageData>

@@ -206,4 +206,36 @@
   <URT_Pack_OpenFolder>Відкрити теку пакетів</URT_Pack_OpenFolder>
   <URT_ModGenerated>Створено під час завантаження</URT_ModGenerated>
   <URT_ModGeneratedTip>Тексти речей, які гра або мод створює в коді під час завантаження, без власного мода.</URT_ModGeneratedTip>
+  <URT_Tab_Sources>Джерела</URT_Tab_Sources>
+  <URT_Src_Intro>Моди-переклади, які встановлені, але не ввімкнені, пакети в бібліотеці URT і пакети за посиланням використовуються для вашої мови – вмикати їх не потрібно. Власний переклад мода та ввімкнені моди-переклади завжди мають перевагу; URT перекладає лише те, чого ще бракує.</URT_Src_Intro>
+  <URT_Src_Use>Використовувати переклади з інших модів (не вмикаючи їх)</URT_Src_Use>
+  <URT_Src_Rescan>Шукати знову</URT_Src_Rescan>
+  <URT_Src_OpenLibrary>Відкрити теку бібліотеки</URT_Src_OpenLibrary>
+  <URT_Src_LibraryTip>Покладіть сюди розпаковані моди-переклади або теки Languages:\n{0}</URT_Src_LibraryTip>
+  <URT_Src_Sum>{0} джерел ({1} увімк.) · {2} текстів для {3} модів</URT_Src_Sum>
+  <URT_Src_Restart>– зміни діють після перезапуску</URT_Src_Restart>
+  <URT_Src_None>Модів-перекладів для вашої мови не знайдено. Підпишіться на моди-переклади (вмикати не потрібно) або покладіть пакети в бібліотеку.</URT_Src_None>
+  <URT_Src_OrderTip>Якщо два джерела перекладають один текст, перемагає те, що вище в списку.</URT_Src_OrderTip>
+  <URT_Src_CoversNone>поки нічого не використано</URT_Src_CoversNone>
+  <URT_Src_Counts>використано {0} з {1}</URT_Src_Counts>
+  <URT_Src_Kind_Workshop>Майстерня</URT_Src_Kind_Workshop>
+  <URT_Src_Kind_Local>Тека Mods</URT_Src_Kind_Local>
+  <URT_Src_Kind_Library>Бібліотека</URT_Src_Kind_Library>
+  <URT_Src_Kind_URL>Посилання</URT_Src_Kind_URL>
+  <URT_Src_TipCounts>Використано: {0} текстів Keyed, {1} текстів дефів, {2} списків імен · прочитано файлів: {3}</URT_Src_TipCounts>
+  <URT_Src_Urls>Пакети перекладів за посиланням (zip або репозиторій GitHub)</URT_Src_Urls>
+  <URT_Src_UrlAuto>Перевіряти раз на день</URT_Src_UrlAuto>
+  <URT_Src_UrlAutoTip>Під час запуску пакети перевіряються на оновлення не частіше разу на день. Нові версії застосовуються після наступного перезапуску.</URT_Src_UrlAutoTip>
+  <URT_Src_UrlHint>https://github.com/… або посилання на .zip</URT_Src_UrlHint>
+  <URT_Src_UrlAdd>Додати</URT_Src_UrlAdd>
+  <URT_Src_UrlBusy>Завантаження…</URT_Src_UrlBusy>
+  <URT_Src_UrlUpdate>Оновити зараз</URT_Src_UrlUpdate>
+  <URT_Src_UrlChecked>перевірено сьогодні ({0})</URT_Src_UrlChecked>
+  <URT_Src_UrlSame>актуально</URT_Src_UrlSame>
+  <URT_Src_TooBig>завеликий ({0} МБ)</URT_Src_TooBig>
+  <URT_Src_NoLanguages>у zip немає теки Languages</URT_Src_NoLanguages>
+  <URT_Src_UrlDone>завантажено файлів: {0} – застосується після перезапуску</URT_Src_UrlDone>
+  <URT_Src_UrlHave>{0} · файлів: {1}</URT_Src_UrlHave>
+  <URT_Src_UrlNotYet>ще не завантажено</URT_Src_UrlNotYet>
+  <URT_Mods_Imported>{0} текстів цього мода взято з модів-перекладів (вкладка Джерела)</URT_Mods_Imported>
 </LanguageData>

@@ -206,4 +206,36 @@
   <URT_Pack_OpenFolder>Открыть папку пакетов</URT_Pack_OpenFolder>
   <URT_ModGenerated>Создано при загрузке</URT_ModGenerated>
   <URT_ModGeneratedTip>Тексты вещей, которые игра или мод создаёт в коде при загрузке, без собственного мода.</URT_ModGeneratedTip>
+  <URT_Tab_Sources>Источники</URT_Tab_Sources>
+  <URT_Src_Intro>Моды-переводы, которые установлены, но не включены, пакеты в библиотеке URT и пакеты по ссылке используются для вашего языка – включать их не нужно. Собственный перевод мода и включённые моды-переводы всегда важнее; URT переводит только то, чего ещё нет.</URT_Src_Intro>
+  <URT_Src_Use>Использовать переводы из других модов (не включая их)</URT_Src_Use>
+  <URT_Src_Rescan>Искать снова</URT_Src_Rescan>
+  <URT_Src_OpenLibrary>Открыть папку библиотеки</URT_Src_OpenLibrary>
+  <URT_Src_LibraryTip>Положите сюда распакованные моды-переводы или папки Languages:\n{0}</URT_Src_LibraryTip>
+  <URT_Src_Sum>{0} источников ({1} вкл.) · {2} текстов для {3} модов</URT_Src_Sum>
+  <URT_Src_Restart>– изменения вступят в силу после перезапуска</URT_Src_Restart>
+  <URT_Src_None>Моды-переводы для вашего языка не найдены. Подпишитесь на моды-переводы (включать не нужно) или положите пакеты в библиотеку.</URT_Src_None>
+  <URT_Src_OrderTip>Если два источника переводят один текст, побеждает тот, что выше в списке.</URT_Src_OrderTip>
+  <URT_Src_CoversNone>пока ничего не использовано</URT_Src_CoversNone>
+  <URT_Src_Counts>использовано {0} из {1}</URT_Src_Counts>
+  <URT_Src_Kind_Workshop>Мастерская</URT_Src_Kind_Workshop>
+  <URT_Src_Kind_Local>Папка Mods</URT_Src_Kind_Local>
+  <URT_Src_Kind_Library>Библиотека</URT_Src_Kind_Library>
+  <URT_Src_Kind_URL>Ссылка</URT_Src_Kind_URL>
+  <URT_Src_TipCounts>Использовано: {0} текстов Keyed, {1} текстов дефов, {2} списков имён · прочитано файлов: {3}</URT_Src_TipCounts>
+  <URT_Src_Urls>Пакеты переводов по ссылке (zip или репозиторий GitHub)</URT_Src_Urls>
+  <URT_Src_UrlAuto>Проверять раз в день</URT_Src_UrlAuto>
+  <URT_Src_UrlAutoTip>При запуске пакеты проверяются на обновления не чаще раза в день. Новые версии применяются после следующего перезапуска.</URT_Src_UrlAutoTip>
+  <URT_Src_UrlHint>https://github.com/… или ссылка на .zip</URT_Src_UrlHint>
+  <URT_Src_UrlAdd>Добавить</URT_Src_UrlAdd>
+  <URT_Src_UrlBusy>Загрузка…</URT_Src_UrlBusy>
+  <URT_Src_UrlUpdate>Обновить сейчас</URT_Src_UrlUpdate>
+  <URT_Src_UrlChecked>проверено сегодня ({0})</URT_Src_UrlChecked>
+  <URT_Src_UrlSame>актуально</URT_Src_UrlSame>
+  <URT_Src_TooBig>слишком большой ({0} МБ)</URT_Src_TooBig>
+  <URT_Src_NoLanguages>в zip нет папки Languages</URT_Src_NoLanguages>
+  <URT_Src_UrlDone>загружено файлов: {0} – применится после перезапуска</URT_Src_UrlDone>
+  <URT_Src_UrlHave>{0} · файлов: {1}</URT_Src_UrlHave>
+  <URT_Src_UrlNotYet>ещё не загружено</URT_Src_UrlNotYet>
+  <URT_Mods_Imported>{0} текстов этого мода взяты из модов-переводов (вкладка Источники)</URT_Mods_Imported>
 </LanguageData>

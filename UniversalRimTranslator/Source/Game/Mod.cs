@@ -11,7 +11,7 @@ namespace UniversalRimTranslator
 {
     public static class UrtVersion
     {
-        public const string Number = "1.1.1";
+        public const string Number = "1.2.0";
         public static string Display => Number;
     }
 
@@ -40,6 +40,10 @@ namespace UniversalRimTranslator
         public bool translateRaceNames;     // 2.5.2: race and xenotype names of mods are translated too (off = kept)
         public bool holdNewMods;            // 2.5.2: texts of newly added mods wait until the player lets them in
         public bool offlineOnly;            // 2.5.2: no services, only the translation memory
+        // 1.2.0: translations from other mods (installed but not enabled), the library and URL packs
+        public bool importOn = true;
+        public string importOff = "", importOrder = "", importUrls = "";
+        public bool importUrlAuto = true;
 
         public override void ExposeData()
         {
@@ -72,6 +76,11 @@ namespace UniversalRimTranslator
             Scribe_Values.Look(ref translateRaceNames, "urt2_translateRaceNames", false);
             Scribe_Values.Look(ref holdNewMods, "urt2_holdNewMods", false);
             Scribe_Values.Look(ref offlineOnly, "urt2_offlineOnly", false);
+            Scribe_Values.Look(ref importOn, "urt2_importOn", true);
+            Scribe_Values.Look(ref importOff, "urt2_importOff", "");
+            Scribe_Values.Look(ref importOrder, "urt2_importOrder", "");
+            Scribe_Values.Look(ref importUrls, "urt2_importUrls", "");
+            Scribe_Values.Look(ref importUrlAuto, "urt2_importUrlAuto", true);
             if (Scribe.mode == LoadSaveMode.PostLoadInit) Normalize();
         }
 
@@ -161,6 +170,8 @@ namespace UniversalRimTranslator
             MNews.Register(content, UrtVersion.Number);
             if (Settings.recommended) MUI.ApplyAll(Settings);
             try { MUI.PatchWindow(new Harmony("bolek98.urt2.ui"), typeof(UniversalRimTranslatorMod)); } catch { }
+            // 1.2.0: must be in place before the game loads the language data
+            try { Sources.Patch(new Harmony("bolek98.urt2.sources")); } catch (Exception e) { MLog.Error("[URT] translations from other mods: " + e.Message); }
             MLog.Game("[Universal RimTranslator] v" + UrtVersion.Display + " loaded (messages: Logs\\URT.log).");
         }
 
@@ -199,7 +210,7 @@ namespace UniversalRimTranslator
         private void DrawWindow(Rect r)
         {
             MUI.Version(r, "v" + UrtVersion.Display + " · Bolek98");
-            string[] tabs = { "URT_Tab_Overview".Translate(), "URT_Tab_Services".Translate(), "URT_Tab_Mods".Translate(), "URT_Tab_Editor".Translate(), QualityTab.TabLabel() };
+            string[] tabs = { "URT_Tab_Overview".Translate(), "URT_Tab_Services".Translate(), "URT_Tab_Mods".Translate(), "URT_Tab_Editor".Translate(), QualityTab.TabLabel(), "URT_Tab_Sources".Translate() };
             float tw = Mathf.Min(180f, (r.width - 6f * (tabs.Length - 1)) / tabs.Length);
             for (int i = 0; i < tabs.Length; i++)
             {
@@ -216,6 +227,7 @@ namespace UniversalRimTranslator
             else if (tab == 1) Services(body);
             else if (tab == 2) ModsTab.Draw(body);
             else if (tab == 3) EditorTab.Draw(body);
+            else if (tab == 5) SourcesTab.Draw(body);
             else QualityTab.Draw(body);
         }
 

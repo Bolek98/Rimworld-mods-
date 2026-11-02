@@ -206,4 +206,36 @@ Choisissez votre langue dans Options → Langue et redémarrez le jeu – URT tr
   <URT_Pack_OpenFolder>Ouvrir le dossier des packs</URT_Pack_OpenFolder>
   <URT_ModGenerated>Créé au chargement</URT_ModGenerated>
   <URT_ModGeneratedTip>Textes de choses que le jeu ou un mod crée par code au chargement, sans mod propre.</URT_ModGeneratedTip>
+  <URT_Tab_Sources>Sources</URT_Tab_Sources>
+  <URT_Src_Intro>Les mods de traduction installés mais non activés, les paquets de la bibliothèque URT et ceux venant d'une URL sont utilisés pour ta langue – inutile de les activer. La traduction propre d'un mod et les mods de traduction activés passent toujours avant ; URT ne traduit que ce qui manque encore.</URT_Src_Intro>
+  <URT_Src_Use>Utiliser les traductions d'autres mods (sans les activer)</URT_Src_Use>
+  <URT_Src_Rescan>Rechercher à nouveau</URT_Src_Rescan>
+  <URT_Src_OpenLibrary>Ouvrir le dossier de la bibliothèque</URT_Src_OpenLibrary>
+  <URT_Src_LibraryTip>Mets ici des mods de traduction décompressés ou des dossiers Languages :\n{0}</URT_Src_LibraryTip>
+  <URT_Src_Sum>{0} sources ({1} actives) · {2} textes utilisés pour {3} mods</URT_Src_Sum>
+  <URT_Src_Restart>– les changements s'appliquent après un redémarrage</URT_Src_Restart>
+  <URT_Src_None>Aucun mod de traduction trouvé pour ta langue. Abonne-toi à des mods de traduction (pas besoin de les activer) ou mets des paquets dans la bibliothèque.</URT_Src_None>
+  <URT_Src_OrderTip>Plus haut dans la liste gagne quand deux sources traduisent le même texte.</URT_Src_OrderTip>
+  <URT_Src_CoversNone>rien d'utilisé pour l'instant</URT_Src_CoversNone>
+  <URT_Src_Counts>{0} utilisés sur {1}</URT_Src_Counts>
+  <URT_Src_Kind_Workshop>Workshop</URT_Src_Kind_Workshop>
+  <URT_Src_Kind_Local>Dossier Mods</URT_Src_Kind_Local>
+  <URT_Src_Kind_Library>Bibliothèque</URT_Src_Kind_Library>
+  <URT_Src_Kind_URL>URL</URT_Src_Kind_URL>
+  <URT_Src_TipCounts>Utilisés : {0} textes Keyed, {1} textes de defs, {2} listes de noms · {3} fichiers lus</URT_Src_TipCounts>
+  <URT_Src_Urls>Paquets de traduction depuis une URL (zip ou dépôt GitHub)</URT_Src_Urls>
+  <URT_Src_UrlAuto>Vérifier une fois par jour</URT_Src_UrlAuto>
+  <URT_Src_UrlAutoTip>Au démarrage, les paquets sont vérifiés au plus une fois par jour. Les nouvelles versions s'appliquent après le prochain redémarrage.</URT_Src_UrlAutoTip>
+  <URT_Src_UrlHint>https://github.com/… ou lien vers un .zip</URT_Src_UrlHint>
+  <URT_Src_UrlAdd>Ajouter</URT_Src_UrlAdd>
+  <URT_Src_UrlBusy>Téléchargement…</URT_Src_UrlBusy>
+  <URT_Src_UrlUpdate>Mettre à jour</URT_Src_UrlUpdate>
+  <URT_Src_UrlChecked>vérifié aujourd'hui ({0})</URT_Src_UrlChecked>
+  <URT_Src_UrlSame>à jour</URT_Src_UrlSame>
+  <URT_Src_TooBig>trop gros ({0} Mo)</URT_Src_TooBig>
+  <URT_Src_NoLanguages>pas de dossier Languages dans le zip</URT_Src_NoLanguages>
+  <URT_Src_UrlDone>{0} fichiers téléchargés – utilisés après un redémarrage</URT_Src_UrlDone>
+  <URT_Src_UrlHave>{0} · {1} fichiers</URT_Src_UrlHave>
+  <URT_Src_UrlNotYet>pas encore téléchargé</URT_Src_UrlNotYet>
+  <URT_Mods_Imported>{0} textes de ce mod viennent de mods de traduction (onglet Sources)</URT_Mods_Imported>
 </LanguageData>

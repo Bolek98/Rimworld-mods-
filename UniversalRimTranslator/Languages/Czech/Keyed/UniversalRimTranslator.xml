@@ -207,4 +207,36 @@ Vyber svůj jazyk v Možnosti → Jazyk a restartuj hru – URT pak do něj pře
   <URT_Pack_OpenFolder>Otevřít složku s balíčky</URT_Pack_OpenFolder>
   <URT_ModGenerated>Vytvořené při načítání</URT_ModGenerated>
   <URT_ModGeneratedTip>Texty věcí, které hra nebo mod vytvoří v kódu při načítání a nepatří k žádnému modu.</URT_ModGeneratedTip>
+  <URT_Tab_Sources>Zdroje</URT_Tab_Sources>
+  <URT_Src_Intro>Překladové mody, které máš nainstalované, ale nezapnuté, balíčky v knihovně URT a balíčky z odkazu se použijí pro tvůj jazyk – nemusíš je zapínat. Vlastní překlad modu a zapnuté překladové mody mají vždy přednost; URT překládá jen to, co ještě chybí.</URT_Src_Intro>
+  <URT_Src_Use>Používat překlady z jiných modů (bez zapínání)</URT_Src_Use>
+  <URT_Src_Rescan>Hledat znovu</URT_Src_Rescan>
+  <URT_Src_OpenLibrary>Otevřít složku knihovny</URT_Src_OpenLibrary>
+  <URT_Src_LibraryTip>Sem dej rozbalené překladové mody nebo složky Languages:\n{0}</URT_Src_LibraryTip>
+  <URT_Src_Sum>{0} zdrojů ({1} zapnuto) · {2} textů použito pro {3} modů</URT_Src_Sum>
+  <URT_Src_Restart>– změny platí po restartu</URT_Src_Restart>
+  <URT_Src_None>Pro tvůj jazyk se nenašly žádné překladové mody. Odebírej překladové mody (nemusíš je zapínat) nebo dej balíčky do knihovny.</URT_Src_None>
+  <URT_Src_OrderTip>Výš v seznamu vyhrává, když dva zdroje překládají stejný text.</URT_Src_OrderTip>
+  <URT_Src_CoversNone>zatím nic použito</URT_Src_CoversNone>
+  <URT_Src_Counts>použito {0} z {1}</URT_Src_Counts>
+  <URT_Src_Kind_Workshop>Workshop</URT_Src_Kind_Workshop>
+  <URT_Src_Kind_Local>Složka Mods</URT_Src_Kind_Local>
+  <URT_Src_Kind_Library>Knihovna</URT_Src_Kind_Library>
+  <URT_Src_Kind_URL>Odkaz</URT_Src_Kind_URL>
+  <URT_Src_TipCounts>Použito: {0} textů Keyed, {1} textů defů, {2} seznamů jmen · přečteno {3} souborů</URT_Src_TipCounts>
+  <URT_Src_Urls>Překladové balíčky z odkazu (zip nebo repozitář na GitHubu)</URT_Src_Urls>
+  <URT_Src_UrlAuto>Kontrolovat jednou denně</URT_Src_UrlAuto>
+  <URT_Src_UrlAutoTip>Při startu se balíčky zkontrolují nejvýš jednou denně. Nové verze se použijí po dalším restartu.</URT_Src_UrlAutoTip>
+  <URT_Src_UrlHint>https://github.com/… nebo odkaz na .zip</URT_Src_UrlHint>
+  <URT_Src_UrlAdd>Přidat</URT_Src_UrlAdd>
+  <URT_Src_UrlBusy>Stahuji…</URT_Src_UrlBusy>
+  <URT_Src_UrlUpdate>Aktualizovat</URT_Src_UrlUpdate>
+  <URT_Src_UrlChecked>zkontrolováno dnes ({0})</URT_Src_UrlChecked>
+  <URT_Src_UrlSame>aktuální</URT_Src_UrlSame>
+  <URT_Src_TooBig>moc velké ({0} MB)</URT_Src_TooBig>
+  <URT_Src_NoLanguages>v zipu není složka Languages</URT_Src_NoLanguages>
+  <URT_Src_UrlDone>staženo {0} souborů – použije se po restartu</URT_Src_UrlDone>
+  <URT_Src_UrlHave>{0} · {1} souborů</URT_Src_UrlHave>
+  <URT_Src_UrlNotYet>zatím nestaženo</URT_Src_UrlNotYet>
+  <URT_Mods_Imported>{0} textů tohoto modu pochází z překladových modů (záložka Zdroje)</URT_Mods_Imported>
 </LanguageData>

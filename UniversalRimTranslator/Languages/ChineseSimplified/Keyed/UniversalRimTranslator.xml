@@ -206,4 +206,36 @@
   <URT_Pack_OpenFolder>打开翻译包文件夹</URT_Pack_OpenFolder>
   <URT_ModGenerated>加载时生成</URT_ModGenerated>
   <URT_ModGeneratedTip>游戏或模组在加载时用代码生成的物品文本，不属于任何模组。</URT_ModGeneratedTip>
+  <URT_Tab_Sources>来源</URT_Tab_Sources>
+  <URT_Src_Intro>已安装但未启用的汉化模组、URT 资料库中的翻译包以及从网址下载的翻译包都会用于你的语言——无需启用它们。模组自带的翻译和已启用的汉化模组始终优先；URT 只翻译仍然缺少的内容。</URT_Src_Intro>
+  <URT_Src_Use>使用其他模组的翻译（无需启用）</URT_Src_Use>
+  <URT_Src_Rescan>重新搜索</URT_Src_Rescan>
+  <URT_Src_OpenLibrary>打开资料库文件夹</URT_Src_OpenLibrary>
+  <URT_Src_LibraryTip>将解压后的汉化模组或 Languages 文件夹放到这里：\n{0}</URT_Src_LibraryTip>
+  <URT_Src_Sum>{0} 个来源（{1} 个已开启）· 为 {3} 个模组使用了 {2} 条文本</URT_Src_Sum>
+  <URT_Src_Restart>——更改在重启后生效</URT_Src_Restart>
+  <URT_Src_None>没有找到你语言的汉化模组。订阅汉化模组（无需启用）或将翻译包放入资料库。</URT_Src_None>
+  <URT_Src_OrderTip>两个来源翻译同一文本时，列表中靠上的优先。</URT_Src_OrderTip>
+  <URT_Src_CoversNone>尚未使用</URT_Src_CoversNone>
+  <URT_Src_Counts>已使用 {0} / {1}</URT_Src_Counts>
+  <URT_Src_Kind_Workshop>创意工坊</URT_Src_Kind_Workshop>
+  <URT_Src_Kind_Local>Mods 文件夹</URT_Src_Kind_Local>
+  <URT_Src_Kind_Library>资料库</URT_Src_Kind_Library>
+  <URT_Src_Kind_URL>网址</URT_Src_Kind_URL>
+  <URT_Src_TipCounts>已使用：{0} 条 Keyed 文本，{1} 条 Def 文本，{2} 个名称列表 · 读取了 {3} 个文件</URT_Src_TipCounts>
+  <URT_Src_Urls>来自网址的翻译包（zip 或 GitHub 仓库）</URT_Src_Urls>
+  <URT_Src_UrlAuto>每天检查一次</URT_Src_UrlAuto>
+  <URT_Src_UrlAutoTip>启动时最多每天检查一次翻译包更新。新版本在下次重启后生效。</URT_Src_UrlAutoTip>
+  <URT_Src_UrlHint>https://github.com/… 或 .zip 链接</URT_Src_UrlHint>
+  <URT_Src_UrlAdd>添加</URT_Src_UrlAdd>
+  <URT_Src_UrlBusy>下载中…</URT_Src_UrlBusy>
+  <URT_Src_UrlUpdate>立即更新</URT_Src_UrlUpdate>
+  <URT_Src_UrlChecked>今天已检查（{0}）</URT_Src_UrlChecked>
+  <URT_Src_UrlSame>已是最新</URT_Src_UrlSame>
+  <URT_Src_TooBig>太大（{0} MB）</URT_Src_TooBig>
+  <URT_Src_NoLanguages>zip 中没有 Languages 文件夹</URT_Src_NoLanguages>
+  <URT_Src_UrlDone>已下载 {0} 个文件——重启后生效</URT_Src_UrlDone>
+  <URT_Src_UrlHave>{0} · {1} 个文件</URT_Src_UrlHave>
+  <URT_Src_UrlNotYet>尚未下载</URT_Src_UrlNotYet>
+  <URT_Mods_Imported>此模组有 {0} 条文本来自汉化模组（来源页）</URT_Mods_Imported>
 </LanguageData>

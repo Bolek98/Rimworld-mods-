@@ -159,7 +159,10 @@ namespace UniversalRimTranslator
                 MUI.Fill(new Rect(bar.x, bar.y, bar.width * s.Pct, bar.height), on ? MUI.Accent : MUI.Border);
                 Text.Font = GameFont.Tiny;
                 Text.Anchor = TextAnchor.MiddleCenter;
-                Widgets.Label(bar, s.Done + " / " + s.Total + " · " + Percent(s.Pct));
+                // 1.2.0: texts this mod got from translation mods (Sources tab)
+                int imp = Sources.ImportedFor(s.Mod);
+                Widgets.Label(bar, s.Done + " / " + s.Total + " · " + Percent(s.Pct) + (imp > 0 ? " · +" + imp : ""));
+                if (imp > 0) TooltipHandler.TipRegion(bar, "URT_Mods_Imported".Translate(imp));
                 Text.Anchor = TextAnchor.UpperLeft;
                 Text.Font = GameFont.Small;
 
