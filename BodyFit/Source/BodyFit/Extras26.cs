@@ -666,3 +666,37 @@ public static class AuthorReport
 		return sb.ToString();
 	}
 }
+
+// 2.6.1: HAR decides at startup which body pictures a race has, before Body Fit makes the child body –
+// so it builds the body path without a name ("HAR_LL/Bodies/") and draws a red X. For a child of a race
+// with a made child body, the body node gets the made picture instead.
+[HarmonyPatch(typeof(PawnRenderNode_Body), nameof(PawnRenderNode_Body.GraphicFor))]
+public static class Patch_ChildBodyGraphic
+{
+	public static void Postfix(Pawn pawn, ref Graphic __result)
+	{
+		try
+		{
+			if (pawn?.story == null || pawn.story.bodyType != BodyTypeDefOf.Child || !ChildBody.CanUse(pawn.def))
+				return;
+			bool broken = __result == null || __result.path == null || __result.path.EndsWith("/") || __result.MatSouth == BaseContent.BadMat;
+			if (!broken)
+				return;
+			string basePath = ChildBody.RaceBase(pawn.def);
+			if (basePath.NullOrEmpty())
+				return;
+			string pre = pawn.gender == Gender.Female ? "Female_" : pawn.gender == Gender.Male ? "Male_" : "";
+			string path = null;
+			foreach (string p in new[] { basePath + pre + "Naked_Child", basePath + "Naked_Child" })
+				if (ContentFinder<Texture2D>.Get(p + "_south", false) != null) { path = p; break; }
+			if (path == null)
+				return;
+			Shader sh = __result?.Shader ?? ShaderDatabase.CutoutSkin;
+			Color c = __result != null ? __result.color : pawn.story.SkinColor;
+			Color c2 = __result != null ? __result.colorTwo : Color.white;
+			Vector2 size = __result != null ? __result.drawSize : Vector2.one;
+			__result = GraphicDatabase.Get<Graphic_Multi>(path, sh, size, c, c2);
+		}
+		catch (Exception ex) { MLog.WarnOnce("[Body Fit] child body picture: " + ex.Message, 0x0c41db0d); }
+	}
+}
