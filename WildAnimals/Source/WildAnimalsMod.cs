@@ -192,13 +192,15 @@ namespace WildAnimals
             TooltipHandler.TipRegion(new Rect(r.x + 276f, y, 230f, 26f), "WA_ShowAllTip".Translate());
             y += 30f;
             // header
-            float nameW = Mathf.Max(160f, r.width - 16f - 32f - 170f - 64f - 70f - 112f - 60f);
+            // 0.1.2: the controls take 500 px from the right (slider, value, limit, seasons, ★, °) – they all fit now
+            float nameW = Mathf.Max(150f, r.width - 16f - 32f - 508f);
             float xs = r.x + 32f + nameW;
             U.Label(new Rect(xs, y, 230f, 18f), "WA_HCommon".Translate(), MUI.Muted, GameFont.Tiny);
             U.Label(new Rect(xs + 234f, y, 70f, 18f), "WA_HCap".Translate(), MUI.Muted, GameFont.Tiny);
             U.Label(new Rect(xs + 304f, y, 112f, 18f), "WA_HSeasons".Translate(), MUI.Muted, GameFont.Tiny);
             U.Label(new Rect(xs + 416f, y, 30f, 18f), "★", MUI.Muted, GameFont.Tiny);
-            U.Label(new Rect(xs + 448f, y, 30f, 18f), "°", MUI.Muted, GameFont.Tiny);
+            U.Label(new Rect(xs + 448f, y, 34f, 18f), "°C", MUI.Muted, GameFont.Tiny);
+            TooltipHandler.TipRegion(new Rect(xs + 444f, y, 34f, 18f), "WA_TempHeadTip".Translate());
             TooltipHandler.TipRegion(new Rect(xs + 416f, y, 30f, 18f), "WA_RareTip".Translate());
             y += 20f;
 
@@ -274,10 +276,10 @@ namespace WildAnimals
                 if (rare != c.rare) WA.SetCfg(k, new AnimalCfg { cap = c.cap, seasons = c.seasons, rare = rare, temp = c.temp });
                 // only when the outdoor temperature suits it
                 bool tOn = WA.TempOnly(sel, k);
-                Rect tr = new Rect(sx + 444f, row.y + 11f, 26f, 24f);
+                Rect tr = new Rect(sx + 444f, row.y + 11f, 34f, 24f);
                 MUI.Fill(tr, tOn ? MUI.OnBg : MUI.CardBg);
                 MUI.Frame(tr, tOn ? MUI.Accent : MUI.Border);
-                U.Label(tr, "°", tOn ? MUI.Accent : MUI.Muted, GameFont.Small, TextAnchor.MiddleCenter);
+                U.Label(tr, "°C", tOn ? MUI.Accent : MUI.Muted, GameFont.Tiny, TextAnchor.MiddleCenter);
                 TooltipHandler.TipRegion(tr, "WA_TempTip".Translate(WA.ComfyMin(k).ToStringTemperature("F0"), WA.ComfyMax(k).ToStringTemperature("F0")));
                 if (Widgets.ButtonInvisible(tr))
                     WA.SetCfg(k, new AnimalCfg { cap = c.cap, seasons = c.seasons, rare = c.rare, temp = tOn ? 0 : 1 });
@@ -400,7 +402,11 @@ namespace WildAnimals
                 int expect = total > 0f && w > 0f ? Mathf.RoundToInt(target * w / total) : 0;
                 AnimalCfg c = WA.Cfg(k);
                 Widgets.DefIcon(new Rect(row.x + 2f, row.y + 2f, 24f, 24f), k.race);
-                U.Label(new Rect(row.x + 32f, row.y, 220f, 28f), WA.Label(k) + (k.RaceProps.predator ? " (" + "WA_Predator".Translate() + ")" : ""), k.RaceProps.predator ? MUI.Warn : MUI.Text1);
+                string nm = WA.Label(k) + (k.RaceProps.predator ? " (" + "WA_Predator".Translate() + ")" : "");
+                Text.Font = GameFont.Small;
+                Rect nr = new Rect(row.x + 32f, row.y, 220f, 28f);
+                U.Label(nr, nm.Truncate(218f), k.RaceProps.predator ? MUI.Warn : MUI.Text1);
+                if (Mouse.IsOver(nr)) TooltipHandler.TipRegion(nr, nm);
                 U.Label(new Rect(row.x + 256f, row.y, 80f, 28f), have.ToString(), MUI.Text1);
                 U.Label(new Rect(row.x + 336f, row.y, 90f, 28f), w > 0f ? "~" + expect : "–", MUI.Muted);
                 U.Label(new Rect(row.x + 426f, row.y, 80f, 28f), c.cap == 0 ? "∞" : c.cap.ToString(), c.cap > 0 && have >= c.cap ? MUI.Warn : MUI.Muted);
@@ -409,7 +415,9 @@ namespace WildAnimals
                 else if (!WA.InSeason(map, k, bit)) state = "WA_StSeason".Translate();
                 else if (c.cap > 0 && have >= c.cap) state = "WA_StCap".Translate();
                 else state = "WA_StOk".Translate();
-                U.Label(new Rect(row.x + 506f, row.y, row.width - 506f, 28f), state, MUI.Muted, GameFont.Tiny);
+                Text.Font = GameFont.Tiny;
+                U.Label(new Rect(row.x + 506f, row.y, row.width - 506f, 28f), state.Truncate(row.width - 510f), MUI.Muted, GameFont.Tiny);
+                Text.Font = GameFont.Small;
             }
             Widgets.EndScrollView();
         }
