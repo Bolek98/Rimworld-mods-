@@ -29,18 +29,31 @@ public static class WorkTabControlsPatch
 		// a narrow window: under the vanilla text instead of over it
 		if (x < 420f)
 			x = Math.Max(rect.x, x);
-		// 1.0.1: the game's "<= Higher priority / Lower priority =>" texts sit at x 370–790; in a narrower
-		// window our buttons were drawn over them. Cover them under our buttons and show the hint
-		// once more, left of the buttons, when there is room.
+		// 1.0.1: the game's "<= Higher priority" (x 370–530) and "Lower priority =>" (x 630–790) texts; in a
+		// narrower window our buttons were drawn over them.
+		// 1.0.2: both game texts are covered completely (a cut "low" stayed visible left of the buttons,
+		// mostly with Chinese and other long texts) and drawn again in the room that is left, measured with
+		// the real text width; what does not fit is left out.
 		if (x < 790f)
 		{
-			Widgets.DrawBoxSolid(new Rect(x - 6f, rect.y + 2f, rect.xMax - x + 6f, 32f), Widgets.WindowBGFillColor);
-			if (x - 160f >= 150f && x < 530f)
+			float from = x > 371f ? 365f : x - 6f;
+			Widgets.DrawBoxSolid(new Rect(from, rect.y + 2f, rect.xMax - from, 32f), Widgets.WindowBGFillColor);
+			float left = 370f, right = x - 12f;
+			if (right - left > 40f)
 			{
-				GUI.color = new Color(1f, 1f, 1f, 0.5f);
-				Text.Anchor = TextAnchor.UpperRight;
 				Text.Font = GameFont.Tiny;
-				Widgets.Label(new Rect(x - 166f, rect.y + 5f, 156f, 30f), "<= " + "HigherPriority".Translate());
+				GUI.color = new Color(1f, 1f, 1f, 0.5f);
+				string hi = "<= " + "HigherPriority".Translate();
+				string lo = "LowerPriority".Translate() + " =>";
+				float whi = Text.CalcSize(hi).x, wlo = Text.CalcSize(lo).x;
+				if (whi + wlo + 24f <= right - left)
+				{
+					Widgets.Label(new Rect(left, rect.y + 5f, whi + 4f, 30f), hi);
+					Text.Anchor = TextAnchor.UpperRight;
+					Widgets.Label(new Rect(right - wlo - 4f, rect.y + 5f, wlo + 4f, 30f), lo);
+				}
+				else if (whi <= right - left)
+					Widgets.Label(new Rect(left, rect.y + 5f, whi + 4f, 30f), hi);
 				Text.Anchor = TextAnchor.UpperLeft;
 				GUI.color = Color.white;
 			}

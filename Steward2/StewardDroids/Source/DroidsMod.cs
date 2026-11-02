@@ -78,7 +78,7 @@ public sealed class DroidsSettings : ModSettings
 
 public sealed class DroidsMod : Mod
 {
-	public const string Version = "0.1.0";
+	public const string Version = "0.1.1";
 	public static DroidsSettings S;
 
 	public DroidsMod(ModContentPack content) : base(content)
@@ -96,7 +96,8 @@ public sealed class DroidsMod : Mod
 		try
 		{
 			StewardApi.Register(new DroidsStep());
-			StewardApi.AddSettingsPage(new SettingsPage { label = "SD_Name".Translate(), draw = DrawSettings, write = () => S.Write() });
+			// 0.1.1: translated after loading – no languages in the constructor yet
+			LongEventHandler.ExecuteWhenFinished(() => { try { StewardApi.AddSettingsPage(new SettingsPage { label = "SD_Name".Translate(), draw = DrawSettings, write = () => S.Write() }); } catch { } });
 		}
 		catch (Exception e) { Log.Warning("[Steward Droids] steward hooks: " + e.Message); }
 		MLog.Info("[Steward] Droids v" + Version + " loaded.");

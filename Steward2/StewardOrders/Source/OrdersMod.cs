@@ -37,14 +37,15 @@ public sealed class OrdersSettings : ModSettings
 
 public sealed class OrdersMod : Mod
 {
-	public const string Version = "0.3.1";
+	public const string Version = "0.3.2";
 	public static OrdersSettings S;
 
 	public OrdersMod(ModContentPack content) : base(content)
 	{
 		S = GetSettings<OrdersSettings>();
 		try { OneClick.Patch(new Harmony("misak.steward.orders")); } catch (Exception e) { Log.Warning("[Steward Orders] one click: " + e.Message); }
-		try { StewardApi.AddSettingsPage(new SettingsPage { label = "SO_Name".Translate(), draw = Draw, write = () => S.Write() }); } catch { }
+		// 0.3.2: the page name is translated after loading – the languages are not loaded yet in the constructor
+		LongEventHandler.ExecuteWhenFinished(() => { try { StewardApi.AddSettingsPage(new SettingsPage { label = "SO_Name".Translate(), draw = Draw, write = () => S.Write() }); } catch { } });
 		MLog.Info("[Steward] Orders v" + Version + " loaded.");
 	}
 

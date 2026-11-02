@@ -53,7 +53,7 @@ public sealed class RolesSettings : ModSettings
 
 public sealed class RolesMod : Mod
 {
-	public const string Version = "0.2.0";
+	public const string Version = "0.2.1";
 	public static RolesSettings S;
 	public static ModContentPack Pack;
 
@@ -66,7 +66,8 @@ public sealed class RolesMod : Mod
 		StewardApi.MapTick += SoldierDuty.Tick;
 		StewardApi.GameStarted += SoldierDuty.Reset;
 		StewardApi.WorkTabLine += RolesUI.WorkTabLine;
-		StewardApi.AddSettingsPage(new SettingsPage { label = "SR_Name".Translate(), draw = r => RolesUI.DrawPage(r, false), write = () => S.Write() });
+		// 0.2.1: the page name is translated after loading – the languages are not loaded yet in the constructor
+		LongEventHandler.ExecuteWhenFinished(() => StewardApi.AddSettingsPage(new SettingsPage { label = "SR_Name".Translate(), draw = r => RolesUI.DrawPage(r, false), write = () => S.Write() }));
 		MLog.Info("[Steward] Roles v" + Version + " loaded.");
 	}
 
