@@ -1222,6 +1222,32 @@ public sealed partial class SupplyManager : MapComponent
 		return MarkNearest(options, missing, out covered, job);
 	}
 
+	// 1.2.1: rock that a planned building needs is never mined for supplies – a wall light or vent planned
+	// into the rock wall (or next to it, attached to it) lost its plan when the wall was dug out
+	private bool HoldsPlannedBuilding(IntVec3 c)
+	{
+		try
+		{
+			for (int i = -1; i < 4; i++)
+			{
+				IntVec3 n = i < 0 ? c : c + GenAdj.CardinalDirections[i];
+				if (!n.InBounds(map)) continue;
+				List<Thing> things = n.GetThingList(map);
+				for (int k = 0; k < things.Count; k++)
+				{
+					Thing t = things[k];
+					if (!(t is Blueprint) && !(t is Frame)) continue;
+					if (n == c) return true;                       // a plan on this very rock
+					ThingDef d = t.def.entityDefToBuild as ThingDef;
+					if (d?.placeWorkers != null && d.placeWorkers.Any(w => w.Name.IndexOf("Wall", StringComparison.OrdinalIgnoreCase) >= 0))
+						return true;                               // a plan next to it that hangs on a wall
+				}
+			}
+		}
+		catch { }
+		return false;
+	}
+
 	private int MarkMining(SupplyJob job, int missing)
 	{
 		var options = new List<(Thing t, IntVec3 c, int y, DesignationDef d)>();
@@ -1234,7 +1260,7 @@ public sealed partial class SupplyManager : MapComponent
 			if (y <= 0)
 				continue;
 			foreach (Thing b in map.listerThings.ThingsOfDef(md))
-				if (Allowed(job, b.Position) && dm.DesignationAt(b.Position, DesignationDefOf.Mine) == null)
+				if (Allowed(job, b.Position) && dm.DesignationAt(b.Position, DesignationDefOf.Mine) == null && !HoldsPlannedBuilding(b.Position))
 					options.Add((b, b.Position, y, DesignationDefOf.Mine));
 		}
 		return MarkNearest(options, missing, out _, job);
