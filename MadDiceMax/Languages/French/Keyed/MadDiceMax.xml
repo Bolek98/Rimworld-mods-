@@ -427,4 +427,20 @@
   <RT_EV_ChaosRound_Text>« Trois dés à la fois ! Voyons ce qui sort. »\n\nTrois événements de Max se produisent tout de suite.</RT_EV_ChaosRound_Text>
   <RT_EV_StoneDice>Dés de pierre</RT_EV_StoneDice>
   <RT_EV_StoneDice_Text>« Aujourd'hui je lance des gros. Attention à vos têtes. »\n\nDeux météorites tombent près de la colonie.</RT_EV_StoneDice_Text>
+  <RT_SecMods>Événements d'autres mods</RT_SecMods>
+  <RT_ModEvents>Les événements d'autres mods suivent le dé</RT_ModEvents>
+  <RT_ModEvents_Desc>Les événements ajoutés par tes autres mods reçoivent un type – calme, bon, ordinaire, menace ou fou. Le lancer du jour rend chaque type plus ou moins probable : les bons viennent plus souvent un jour généreux, les menaces un jour difficile, les plus étranges un jour fou, et les jours calmes et généreux les menaces des mods ne viennent pas du tout.</RT_ModEvents_Desc>
+  <RT_ModEventList>Événements des mods : {0} sur {1} actifs</RT_ModEventList>
+  <RT_ModEventListTitle>Événements de tes autres mods</RT_ModEventListTitle>
+  <RT_ModEventListDesc>Max range chaque événement de tes autres mods sur les faces du dé. ★ = trié à la main, le reste automatiquement selon son type et son nom. Clique sur le type pour le changer ; un événement décoché ne vient pas tant que Max est ton conteur.</RT_ModEventListDesc>
+  <RT_ModEventSearch>Rechercher…</RT_ModEventSearch>
+  <RT_ModEventsNone>Aucun événement d'autres mods trouvé.</RT_ModEventsNone>
+  <RT_MK_Calm>calme</RT_MK_Calm>
+  <RT_MK_Good>bon</RT_MK_Good>
+  <RT_MK_Ordinary>ordinaire</RT_MK_Ordinary>
+  <RT_MK_Threat>menace</RT_MK_Threat>
+  <RT_MK_Mad>fou</RT_MK_Mad>
+  <RT_MK_Auto>Automatique ({0})</RT_MK_Auto>
+  <RT_MK_NoFace>aucune</RT_MK_NoFace>
+  <RT_MK_Tip>{0}\nPlus souvent sur : {1}\nJamais sur : {2}</RT_MK_Tip>
 </LanguageData>

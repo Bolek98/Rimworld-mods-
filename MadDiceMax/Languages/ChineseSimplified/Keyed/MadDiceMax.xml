@@ -427,4 +427,20 @@
   <RT_EV_ChaosRound_Text>"一次三颗骰子！看看会掷出什么。"\n\nMax 的三个事件立刻发生。</RT_EV_ChaosRound_Text>
   <RT_EV_StoneDice>石头骰子</RT_EV_StoneDice>
   <RT_EV_StoneDice_Text>"今天我扔大的。小心脑袋。"\n\n两颗陨石落在殖民地附近。</RT_EV_StoneDice_Text>
+  <RT_SecMods>其他模组的事件</RT_SecMods>
+  <RT_ModEvents>其他模组的事件跟随骰子</RT_ModEvents>
+  <RT_ModEvents_Desc>你的其他模组添加的事件会被分为一种类型——平静、好事、普通、威胁或疯狂。今天的掷骰让每种类型更容易或更难出现：好事在慷慨日更常见，威胁在艰难日更常见，最奇怪的在疯狂日出现，而在平静日和慷慨日，模组的威胁完全不会出现。</RT_ModEvents_Desc>
+  <RT_ModEventList>模组事件：已开启 {0} / {1}</RT_ModEventList>
+  <RT_ModEventListTitle>你的其他模组的事件</RT_ModEventListTitle>
+  <RT_ModEventListDesc>Max 会把你其他模组的每个事件分配到骰子的各个面。★ = 手动分类，其余按类型和名称自动分类。点击类型可更改；取消勾选的事件在 Max 担任叙事者时不会出现。</RT_ModEventListDesc>
+  <RT_ModEventSearch>搜索…</RT_ModEventSearch>
+  <RT_ModEventsNone>未找到其他模组的事件。</RT_ModEventsNone>
+  <RT_MK_Calm>平静</RT_MK_Calm>
+  <RT_MK_Good>好事</RT_MK_Good>
+  <RT_MK_Ordinary>普通</RT_MK_Ordinary>
+  <RT_MK_Threat>威胁</RT_MK_Threat>
+  <RT_MK_Mad>疯狂</RT_MK_Mad>
+  <RT_MK_Auto>自动（{0}）</RT_MK_Auto>
+  <RT_MK_NoFace>无</RT_MK_NoFace>
+  <RT_MK_Tip>{0}\n更常出现于：{1}\n从不出现于：{2}</RT_MK_Tip>
 </LanguageData>

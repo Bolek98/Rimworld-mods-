@@ -26,6 +26,9 @@ namespace RandysTable
         public bool diceEvents = true;       // 0.2.0: the Gambler's own events
         public int eventChance = 60;         // % of days that bring one
         public List<string> disabledEvents = new List<string>();
+        public bool modEvents = true;        // 0.6.0: events of other mods follow the die
+        public List<string> modEventsOff = new List<string>();
+        public Dictionary<string, int> modKinds = new Dictionary<string, int>();
 
         public override void ExposeData()
         {
@@ -40,12 +43,17 @@ namespace RandysTable
             Scribe_Values.Look(ref eventChance, "eventChance", 60);
             Scribe_Collections.Look(ref disabledEvents, "disabledEvents", LookMode.Value);
             if (disabledEvents == null) disabledEvents = new List<string>();
+            Scribe_Values.Look(ref modEvents, "modEvents", true);
+            Scribe_Collections.Look(ref modEventsOff, "modEventsOff", LookMode.Value);
+            Scribe_Collections.Look(ref modKinds, "modKinds", LookMode.Value, LookMode.Value);
+            if (modEventsOff == null) modEventsOff = new List<string>();
+            if (modKinds == null) modKinds = new Dictionary<string, int>();
         }
     }
 
     public class RTMod : Mod
     {
-        public const string Version = "0.5.0";
+        public const string Version = "0.6.0";
         public static RTSettings S;
         private static List<string> recBullets;
 
@@ -88,6 +96,8 @@ namespace RandysTable
                 MUI.Section(l, "RT_SecEvents".Translate());
                 Check(l, "RT_Events", ref S.diceEvents, "diceEvents");
                 S.eventChance = Mathf.RoundToInt(MUI.Slider(l, "RT_EventChance".Translate(S.eventChance), S.eventChance, 0f, 100f, "RT_EventChance_Desc".Translate(), S, "eventChance"));
+                MUI.Section(l, "RT_SecMods".Translate());
+                Check(l, "RT_ModEvents", ref S.modEvents, "modEvents");
                 MUI.Section(l, "RT_SecDiary".Translate());
                 Check(l, "RT_Diary", ref S.diary, "diary");
                 Check(l, "RT_DiaryAll", ref S.diaryAll, "diaryAll");
@@ -98,6 +108,10 @@ namespace RandysTable
             // 0.2.0: the list of events (not locked – it's your choice which ones you want)
             if (Widgets.ButtonText(new Rect(r.xMax - 260f, r.yMax - 34f, 260f, 32f), "RT_EventList".Translate(DiceEvents.All.Count - S.disabledEvents.Count, DiceEvents.All.Count)))
                 Find.WindowStack.Add(new Dialog_DiceEvents());
+            // 0.6.0: events of other mods and their kinds
+            if (Widgets.ButtonText(new Rect(r.xMax - 530f, r.yMax - 34f, 260f, 32f),
+                "RT_ModEventList".Translate(ModEvents.All.Count(d => !S.modEventsOff.Contains(d.defName)), ModEvents.All.Count)))
+                Find.WindowStack.Add(new Dialog_ModEvents());
         }
     }
 
@@ -291,7 +305,7 @@ namespace RandysTable
                     .Where(d => d.category == cat && d.baseChance > 0f && d.TargetAllowed(map) && Find.Storyteller.def != null)
                     .ToList();
                 IncidentDef pick = null;
-                foreach (IncidentDef d in defs.InRandomOrder())
+                foreach (IncidentDef d in ModEvents.WeightedOrder(defs, roll))
                 {
                     try { if (d.Worker.CanFireNow(StorytellerUtility.DefaultParmsNow(cat, map))) { pick = d; break; } }
                     catch { }
@@ -315,6 +329,8 @@ namespace RandysTable
             if (map == null)
                 return;
             var defs = Gifts.Select(n => DefDatabase<IncidentDef>.GetNamedSilentFail(n)).Where(d => d != null).ToList();
+            // 0.6.0: good things from your event mods can be the gift too
+            defs.AddRange(ModEvents.Gifts());
             foreach (IncidentDef def in defs.InRandomOrder())
             {
                 IncidentParms parms = StorytellerUtility.DefaultParmsNow(def.category, map);
@@ -457,7 +473,7 @@ namespace RandysTable
                 if (cat == null)
                     yield break;
                 IncidentParms parms = GenerateParms(cat, target);
-                if (TrySelectRandomIncident(UsableIncidentsInCategory(cat, parms), out IncidentDef found, target))
+                if (SelectToday(UsableIncidentsInCategory(cat, parms), out IncidentDef found, target))
                 {
                     if (!(Props.skipThreatBigIfRaidBeacon && beacon) || found.category != IncidentCategoryDefOf.ThreatBig)
                         yield return new FiringIncident(found, this, parms);
@@ -466,6 +482,24 @@ namespace RandysTable
                 skip.Add(cat);
             }
             while (skip.Count < Props.categoryWeights.Count);
+        }
+
+        // 0.6.0: the usual pick, but events of other mods weighted by today's roll
+        private bool SelectToday(IEnumerable<IncidentDef> incidents, out IncidentDef found, IIncidentTarget target)
+        {
+            if (!ModEvents.On)
+                return TrySelectRandomIncident(incidents, out found, target);
+            int roll = ModEvents.Today;
+            var list = incidents.Where(d => ModEvents.Factor(d, roll) > 0f).ToList();
+            float W(IncidentDef d) => IncidentChanceFinal(d, target) * ModEvents.Factor(d, roll);
+            found = null;
+            if (Rand.Chance(IncreasesPopChanceByPopIntentCurve.Evaluate(StorytellerUtilityPopulation.PopulationIntent)))
+                found = list.Where(i => i.populationEffect != IncidentPopulationEffect.None).RandomElementByWeightWithFallback(W);
+            else
+                found = list.Where(i => i.populationEffect == IncidentPopulationEffect.None).RandomElementByWeightWithFallback(W);
+            if (found == null)
+                found = list.RandomElementByWeightWithFallback(W);
+            return found != null;
         }
 
         private IncidentCategoryDef Choose(IIncidentTarget target, List<IncidentCategoryDef> skip, Mood m)

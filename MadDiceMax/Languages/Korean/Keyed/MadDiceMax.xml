@@ -427,4 +427,20 @@
   <RT_EV_ChaosRound_Text>"주사위 세 개를 한꺼번에! 뭐가 나오나 보자."\n\nMax의 사건 세 개가 지금 바로 일어납니다.</RT_EV_ChaosRound_Text>
   <RT_EV_StoneDice>돌 주사위</RT_EV_StoneDice>
   <RT_EV_StoneDice_Text>"오늘은 큰 걸 던진다. 머리 조심해."\n\n정착지 근처에 운석 두 개가 떨어집니다.</RT_EV_StoneDice_Text>
+  <RT_SecMods>다른 모드의 이벤트</RT_SecMods>
+  <RT_ModEvents>다른 모드의 이벤트도 주사위를 따름</RT_ModEvents>
+  <RT_ModEvents_Desc>다른 모드가 추가한 이벤트는 종류를 받습니다 – 평온, 좋음, 보통, 위협, 광기. 오늘의 주사위가 각 종류가 나올 확률을 바꿉니다: 좋은 이벤트는 넉넉한 날에, 위협은 힘든 날에, 가장 이상한 이벤트는 광기의 날에 더 자주 오며, 평온한 날과 넉넉한 날에는 모드의 위협이 전혀 오지 않습니다.</RT_ModEvents_Desc>
+  <RT_ModEventList>모드 이벤트: {1}개 중 {0}개 켜짐</RT_ModEventList>
+  <RT_ModEventListTitle>다른 모드의 이벤트</RT_ModEventListTitle>
+  <RT_ModEventListDesc>Max는 다른 모드의 모든 이벤트를 주사위 면에 나눠 배치합니다. ★ = 직접 분류, 나머지는 종류와 이름으로 자동 분류. 종류를 클릭하면 바꿀 수 있고, 체크를 해제한 이벤트는 Max가 스토리텔러인 동안 오지 않습니다.</RT_ModEventListDesc>
+  <RT_ModEventSearch>검색…</RT_ModEventSearch>
+  <RT_ModEventsNone>다른 모드의 이벤트를 찾지 못했습니다.</RT_ModEventsNone>
+  <RT_MK_Calm>평온</RT_MK_Calm>
+  <RT_MK_Good>좋음</RT_MK_Good>
+  <RT_MK_Ordinary>보통</RT_MK_Ordinary>
+  <RT_MK_Threat>위협</RT_MK_Threat>
+  <RT_MK_Mad>광기</RT_MK_Mad>
+  <RT_MK_Auto>자동 ({0})</RT_MK_Auto>
+  <RT_MK_NoFace>없음</RT_MK_NoFace>
+  <RT_MK_Tip>{0}\n더 자주: {1}\n절대 안 옴: {2}</RT_MK_Tip>
 </LanguageData>

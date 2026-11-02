@@ -427,4 +427,20 @@
   <RT_EV_ChaosRound_Text>「サイコロ3つ同時だ！何が出るかな」\n\nMaxのイベントが3つ、今すぐ起こります。</RT_EV_ChaosRound_Text>
   <RT_EV_StoneDice>石のサイコロ</RT_EV_StoneDice>
   <RT_EV_StoneDice_Text>「今日はでかいのを投げる。頭に気をつけろ」\n\nコロニーの近くに隕石が2つ落ちます。</RT_EV_StoneDice_Text>
+  <RT_SecMods>他のModのイベント</RT_SecMods>
+  <RT_ModEvents>他のModのイベントもサイコロに従う</RT_ModEvents>
+  <RT_ModEvents_Desc>他のModが追加したイベントには種類が付きます――穏やか、良い、普通、脅威、狂気。今日の出目で各種類の起こりやすさが変わります：良いものは気前の良い日に、脅威は厳しい日に、最も奇妙なものは狂気の日に多くなり、穏やかな日と気前の良い日にはModの脅威はまったく来ません。</RT_ModEvents_Desc>
+  <RT_ModEventList>Modのイベント：{1}件中{0}件オン</RT_ModEventList>
+  <RT_ModEventListTitle>他のModのイベント</RT_ModEventListTitle>
+  <RT_ModEventListDesc>Maxは他のModのすべてのイベントをサイコロの目に振り分けます。★ = 手動で分類、それ以外は種類と名前から自動で分類。種類をクリックすると変更できます。チェックを外したイベントはMaxが語り手の間は来ません。</RT_ModEventListDesc>
+  <RT_ModEventSearch>検索…</RT_ModEventSearch>
+  <RT_ModEventsNone>他のModのイベントは見つかりませんでした。</RT_ModEventsNone>
+  <RT_MK_Calm>穏やか</RT_MK_Calm>
+  <RT_MK_Good>良い</RT_MK_Good>
+  <RT_MK_Ordinary>普通</RT_MK_Ordinary>
+  <RT_MK_Threat>脅威</RT_MK_Threat>
+  <RT_MK_Mad>狂気</RT_MK_Mad>
+  <RT_MK_Auto>自動（{0}）</RT_MK_Auto>
+  <RT_MK_NoFace>なし</RT_MK_NoFace>
+  <RT_MK_Tip>{0}\nよく出る目：{1}\n出ない目：{2}</RT_MK_Tip>
 </LanguageData>

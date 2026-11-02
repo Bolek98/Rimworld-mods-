@@ -427,4 +427,20 @@
   <RT_EV_ChaosRound_Text>«Три кости разом! Посмотрим, что выпадет».\n\nПрямо сейчас происходят три события Макса.</RT_EV_ChaosRound_Text>
   <RT_EV_StoneDice>Каменные кости</RT_EV_StoneDice>
   <RT_EV_StoneDice_Text>«Сегодня бросаю крупные. Берегите головы».\n\nДва метеорита падают возле колонии.</RT_EV_StoneDice_Text>
+  <RT_SecMods>События других модов</RT_SecMods>
+  <RT_ModEvents>События других модов следуют за кубиком</RT_ModEvents>
+  <RT_ModEvents_Desc>События, которые добавляют другие моды, получают вид – спокойное, хорошее, обычное, угроза или безумное. Сегодняшний бросок делает каждый вид более или менее вероятным: хорошие чаще приходят в щедрый день, угрозы – в тяжёлый, самые странные – в безумный, а в спокойные и щедрые дни угрозы из модов не приходят вовсе.</RT_ModEvents_Desc>
+  <RT_ModEventList>События модов: включено {0} из {1}</RT_ModEventList>
+  <RT_ModEventListTitle>События твоих других модов</RT_ModEventListTitle>
+  <RT_ModEventListDesc>Макс распределяет каждое событие твоих других модов по граням кубика. ★ = распределено вручную, остальные автоматически по виду и названию. Нажми на вид, чтобы изменить его; событие без галочки не придёт, пока Макс твой рассказчик.</RT_ModEventListDesc>
+  <RT_ModEventSearch>Поиск…</RT_ModEventSearch>
+  <RT_ModEventsNone>События других модов не найдены.</RT_ModEventsNone>
+  <RT_MK_Calm>спокойное</RT_MK_Calm>
+  <RT_MK_Good>хорошее</RT_MK_Good>
+  <RT_MK_Ordinary>обычное</RT_MK_Ordinary>
+  <RT_MK_Threat>угроза</RT_MK_Threat>
+  <RT_MK_Mad>безумное</RT_MK_Mad>
+  <RT_MK_Auto>Автоматически ({0})</RT_MK_Auto>
+  <RT_MK_NoFace>нет</RT_MK_NoFace>
+  <RT_MK_Tip>{0}\nЧаще при: {1}\nНикогда при: {2}</RT_MK_Tip>
 </LanguageData>

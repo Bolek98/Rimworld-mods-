@@ -429,4 +429,20 @@
   <RT_EV_ChaosRound_Text>"Three dice at once! Let's see what falls out."\n\nThree of Max's events happen right now.</RT_EV_ChaosRound_Text>
   <RT_EV_StoneDice>Stone dice</RT_EV_StoneDice>
   <RT_EV_StoneDice_Text>"I'm throwing big ones today. Mind your heads."\n\nTwo meteorites fall near the colony.</RT_EV_StoneDice_Text>
+  <RT_SecMods>Events from other mods</RT_SecMods>
+  <RT_ModEvents>Events from other mods follow the die</RT_ModEvents>
+  <RT_ModEvents_Desc>Events added by your other mods get a kind – calm, good, ordinary, threat or mad. Today's roll makes each kind more or less likely: good ones come more often on a generous day, threats on a hard day, the strangest ones on a mad day, and on calm and generous days modded threats don't come at all.</RT_ModEvents_Desc>
+  <RT_ModEventList>Events from mods: {0} of {1} on</RT_ModEventList>
+  <RT_ModEventListTitle>Events from your other mods</RT_ModEventListTitle>
+  <RT_ModEventListDesc>Max sorts every event of your other mods to the faces of the die. ★ = sorted by hand, the rest automatically by its kind and name. Click the kind to change it; an unticked event doesn't come while Max is your storyteller.</RT_ModEventListDesc>
+  <RT_ModEventSearch>Search…</RT_ModEventSearch>
+  <RT_ModEventsNone>No events from other mods found.</RT_ModEventsNone>
+  <RT_MK_Calm>calm</RT_MK_Calm>
+  <RT_MK_Good>good</RT_MK_Good>
+  <RT_MK_Ordinary>ordinary</RT_MK_Ordinary>
+  <RT_MK_Threat>threat</RT_MK_Threat>
+  <RT_MK_Mad>mad</RT_MK_Mad>
+  <RT_MK_Auto>Automatic ({0})</RT_MK_Auto>
+  <RT_MK_NoFace>none</RT_MK_NoFace>
+  <RT_MK_Tip>{0}\nMore often on: {1}\nNever on: {2}</RT_MK_Tip>
 </LanguageData>
