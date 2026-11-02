@@ -45,6 +45,7 @@ namespace MisakTabs
             public byte[] organA, boneA;              // alpha
             public Color32[] basePx, linePx;
             public byte[] lineRegion;                 // the body part a pixel of the outline belongs to
+            public byte[] partFill;                   // 0.13.2: every figure pixel → its part, or the nearest part (tails, ears, wings drawn in the race figure)
             public Texture2D featTex;                   // 0.8.0: all race features in one atlas
             public Dictionary<string, (Rect uv, Rect at)> feats = new Dictionary<string, (Rect, Rect)>();   // at: 0…1 of the frame
             public Vector2[] partC = new Vector2[NParts], organC = new Vector2[NOrgans], boneC = new Vector2[NBones];   // centres 0…1 from the top
@@ -134,6 +135,24 @@ namespace MisakTabs
                                     }
                             k.lineRegion[i] = best;
                         }
+                    // 0.13.2: figure pixels outside every part (a race's tail, ears, wings) take the nearest part, so they
+                    // are coloured like the body instead of plain grey
+                    k.partFill = (byte[])k.part.Clone();
+                    var q = new Queue<int>();
+                    for (int i = 0; i < n; i++) if (k.part[i] != 0) q.Enqueue(i);
+                    while (q.Count > 0)
+                    {
+                        int i = q.Dequeue(), x0 = i % k.w, y0 = i / k.w;
+                        for (int dd = 0; dd < 4; dd++)
+                        {
+                            int nx = x0 + (dd == 0 ? 1 : dd == 1 ? -1 : 0), ny = y0 + (dd == 2 ? 1 : dd == 3 ? -1 : 0);
+                            if (nx < 0 || ny < 0 || nx >= k.w || ny >= k.h) continue;
+                            int j = ny * k.w + nx;
+                            if (k.partFill[j] != 0 || k.basePx[j].a < 20) continue;
+                            k.partFill[j] = k.partFill[i];
+                            q.Enqueue(j);
+                        }
+                    }
                     k.featTex = LoadPng(Path.Combine(d, "features.png"));
                     string idx = Path.Combine(d, "features.txt");
                     if (k.featTex != null && File.Exists(idx))
@@ -517,6 +536,7 @@ namespace MisakTabs
                     Color c = k.basePx[i];
                     c.r *= dim; c.g *= dim; c.b *= dim;
                     int pid = k.part[i];
+                    if (pid == 0 && k.partFill != null && view == View.Parts) pid = k.partFill[i];
                     bool hatch = ((x + y) % 7) < 1;
                     bool circuit = (x % 9 == 0 && y % 18 < 12) || (y % 9 == 0 && x % 18 < 11);
                     if (view == View.Parts && pid > 0)
@@ -734,10 +754,11 @@ namespace MisakTabs
             string kind = KindOf(pawn);
             Kit fk = IsRaceKit(kind) ? null : kind.StartsWith("Clovek_") ? KitFor(StdKind(pawn)) : k;
             List<string> feats = fk == null ? new List<string>() : Features(pawn);
-            Color dimF = view == View.Parts ? Color.white : new Color(0.75f, 0.75f, 0.78f, 0.8f);
+            Pic pic = Picture(pawn, k);
+            // 0.13.2: ears, tails and wings in the colour of the body (they were plain grey)
+            Color dimF = view == View.Parts ? FeatColor(k, pic.state) : new Color(0.75f, 0.75f, 0.78f, 0.8f);
             foreach (string t in feats) DrawFeat(fk, fr, t + "_back", dimF);
             GUI.color = Color.white;
-            Pic pic = Picture(pawn, k);
             GUI.DrawTexture(fr, pic.tex);
             foreach (string t in feats) DrawFeat(fk, fr, t + "_front", dimF);
             GUI.color = Color.white;
@@ -753,6 +774,22 @@ namespace MisakTabs
                 if (hover == null && k.part[i] > 0) state.partsOf.TryGetValue(k.part[i], out hover);
             }
             return fr;
+        }
+
+        // the colour of the torso (the part with the most pixels) – features follow the body's state
+        private static Color FeatColor(Kit k, State st)
+        {
+            try
+            {
+                if (k == null || st == null) return Color.white;
+                int best = 0, bestN = 0;
+                var cnt = new int[256];
+                for (int i = 0; i < k.part.Length; i += 7) { int v = k.part[i]; if (v > 0 && ++cnt[v] > bestN) { bestN = cnt[v]; best = v; } }
+                if (best <= 0 || best >= st.parts.Length) return Color.white;
+                Color c = StColor(st.parts[best], Ok);
+                return Color.Lerp(Color.white, c, 0.7f);
+            }
+            catch { return Color.white; }
         }
 
         private static void DrawFeat(Kit k, Rect fr, string name, Color c)
