@@ -1,4 +1,20 @@
 === Not on the Workshop yet (test versions) ===
+1.1.0
+New
+- Safe area during attacks: tame animals go inside too (except those following a drafted master). Option, on by default.
+- Safe area also during animal attacks: one manhunter is enough, sleeping manhunters count; colonists who come free later get the area too and anyone outside goes back in.
+
+Fixes
+- Safe area: Steward draws it once – when you change it, your version is kept and used at the next danger, never redrawn. Delete the area and Steward draws a new one.
+
+Nové
+- Bezpečná zóna při útoku: dovnitř jdou i ochočená zvířata (kromě těch, co následují povolaného pána). Volba, zapnutá.
+- Bezpečná zóna i při útoku zvířat: stačí jedno šílené zvíře, počítají se i spící; kdo se uvolní později, dostane zónu taky, a kdo je venku, jde dovnitř.
+
+Opravy
+- Bezpečná zóna: Steward ji nakreslí jednou – když ji upravíš, nechá tvoji verzi a při dalším nebezpečí ji použije, už ji nepřekresluje. Když zónu smažeš, nakreslí novou.
+
+=== Development history since the last Workshop release (test versions) ===
 1.1.2
 - Safe area: Steward draws it once – when you change it, your version is kept and only used at the next danger, never redrawn. Delete the area and Steward draws a new one.
 - Bezpečná zóna: Steward ji nakreslí jednou – když ji upravíš, nechá tvoji verzi a při dalším nebezpečí ji jen použije, už ji nepřekresluje. Když zónu smažeš, Steward nakreslí novou.

@@ -21,6 +21,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Gender Balance | 1.3.4 | [GenderBalance](GenderBalance) |
 | Haul Master – Pockets, Routes & Storage | 3.5.0 | [HaulSmarter](HaulSmarter) |
 | Legacy – Your Old Colonies Live On | 0.1.1 | [Legacy](Legacy) |
+| Lively Pawns – Animations & Effects | 0.1.1 | [LivelyPawns](LivelyPawns) |
 | Map Architect | 0.4.3 | [MapArchitect](MapArchitect) |
 | Masks & Headgear Together | 1.0.1 | [MasksAndHeadgear](MasksAndHeadgear) |
 | Matchmaker | 0.1.1 | [Matchmaker](Matchmaker) |
@@ -42,6 +43,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 1.0.1 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.1.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| Steward – Orders | 0.2.0 | [Steward2/StewardOrders](Steward2/StewardOrders) |
 | Steward – Roles | 0.2.0 | [Steward2/StewardRoles](Steward2/StewardRoles) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
 | Steward – Supplies | 1.1.0 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
@@ -50,6 +52,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Trader Hotline – Call the Trader You Want | 0.3.1 | [TraderHotline](TraderHotline) |
 | Universal RimTranslator – Auto-Translate All Your Mods | 1.1.0 | [UniversalRimTranslator](UniversalRimTranslator) |
 | Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.2 | [UnofficialPatch](UnofficialPatch) |
+| Wild Animals – Biome Spawn Control | 0.1.2 | [WildAnimals](WildAnimals) |
 | Wild Spawn Zone | 1.1.3 | [WildSpawnZone](WildSpawnZone) |
 | World at Your Level – Raiders, Factions & Threats Match Your Tech | 2.15.0 | [WorldAtYourLevel](WorldAtYourLevel) |
 
