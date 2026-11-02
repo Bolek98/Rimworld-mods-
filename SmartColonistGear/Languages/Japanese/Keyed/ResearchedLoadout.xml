@@ -623,6 +623,11 @@
   <RL_WhyNotMenu_Desc>入植者を選択中に武器や服を右クリックすると、Smart Colonist Gear が渡さない理由を表示します。</RL_WhyNotMenu_Desc>
   <RL_WorkOnlyWorking>作業着は作業中だけ</RL_WorkOnlyWorking>
   <RL_WorkOnlyWorking_Desc>専門家はその作業を始めるときに作業着（エプロン、白衣、鉱山用ヘルメット…）を着て、最後に作業してから約2時間後に脱ぎ、普段の服に戻ります。徴兵中や襲撃中は替えず、寒さの中で裸にしません。強制・イデオロギーの服はそのままです。</RL_WorkOnlyWorking_Desc>
+  <RL_GearBeforeWork>作業前に着替えて道具を持つ</RL_GearBeforeWork>
+  <RL_GearBeforeWork_Desc>入植者が作業を始めるとき、まず作業着を着て道具（つるはし、鎌…）を持ってから作業します——途中ではなく。緊急時、徴兵中、襲撃中は行いません。手にした武器を道具に替えることはありません。</RL_GearBeforeWork_Desc>
+  <RL_GearBeforeWorkDist>作業装備は最大 {0} マス先まで</RL_GearBeforeWorkDist>
+  <RL_GearBeforeWorkDist_Desc>これより遠い作業着や道具は作業前に取りに行きません。</RL_GearBeforeWorkDist_Desc>
+  <RL_WhyToolOn>作業用の道具</RL_WhyToolOn>
   <RL_WhyWorkOn>作業のための作業着</RL_WhyWorkOn>
   <RL_WhyWorkOff>作業終了 – 作業着を脱ぐ</RL_WhyWorkOff>
   <RL_WhyWorkBack>作業後に普段の服へ</RL_WhyWorkBack>

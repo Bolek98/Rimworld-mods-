@@ -107,6 +107,7 @@ namespace ResearchedLoadout
 				}
 			}
 			BattleGear.Patch(harmony);
+			GearBeforeWork.Patch(harmony);   // 2.17.0
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
 			MLog.Game("[Smart Colonist Gear] v" + MUIVersion.Version + " loaded (messages: Logs\\SmartColonistGear.log).");
@@ -362,6 +363,9 @@ namespace ResearchedLoadout
 			{
 				Settings.workClothingMinSkill = (int)Sl(listing_Standard, "workClothingMinSkill", "RL_WorkClothingSkill".Translate(Settings.workClothingMinSkill), Settings.workClothingMinSkill, 0f, 15f, 0.5f, "RL_WorkClothingSkill_Desc".Translate());
 				Check(listing_Standard, "RL_WorkOnlyWorking", ref Settings.workClothesOnlyWorking, "workClothesOnlyWorking");
+				Check(listing_Standard, "RL_GearBeforeWork", ref Settings.gearBeforeWork, "gearBeforeWork");
+				if (Settings.gearBeforeWork)
+					Settings.gearBeforeWorkDistance = (int)Sl(listing_Standard, "gearBeforeWorkDistance", "RL_GearBeforeWorkDist".Translate(Settings.gearBeforeWorkDistance), Settings.gearBeforeWorkDistance, 15f, 150f, 0.5f, "RL_GearBeforeWorkDist_Desc".Translate());
 			}
 			Check(listing_Standard, "RL_CoverageFirst", ref Settings.coverageFirst, "coverageFirst");
 			Check(listing_Standard, "RL_FullBody", ref Settings.dressFullBody, "dressFullBody");
@@ -3600,6 +3604,15 @@ namespace ResearchedLoadout
 			}
 		}
 
+		// 2.17.0: how much an item's equipped offsets help this skill's work (tools before work)
+		public static float SkillGain(ThingDef def, SkillDef sk)
+		{
+			if (def == null || sk == null || def.equippedStatOffsets == null) return 0f;
+			Build();
+			Dictionary<StatDef, float> w;
+			return bySkill.TryGetValue(sk.defName, out w) ? Sum(def.equippedStatOffsets, w) : 0f;
+		}
+
 		private static float Sum(List<StatModifier> offsets, Dictionary<StatDef, float> weights)
 		{
 			float num = 0f;
@@ -4763,6 +4776,8 @@ namespace ResearchedLoadout
 
 		public bool workClothing = true;
 		public bool workClothesOnlyWorking = true;   // 2.16.1
+		public bool gearBeforeWork = true;   // 2.17.0
+		public int gearBeforeWorkDistance = 60;   // 2.17.0
 
 		// 2.7.0: apparel choice by the wearer's traits and skills
 		public bool dressByTraits = true;
@@ -4974,6 +4989,8 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref statOffsets, "statOffsets", true);
 			Scribe_Values.Look(ref workClothing, "workClothing", true);
 			Scribe_Values.Look(ref workClothesOnlyWorking, "workClothesOnlyWorking", true);
+			Scribe_Values.Look(ref gearBeforeWork, "gearBeforeWork", true);
+			Scribe_Values.Look(ref gearBeforeWorkDistance, "gearBeforeWorkDistance", 60);
 			Scribe_Values.Look(ref dressByTraits, "dressByTraits", true);
 			Scribe_Values.Look(ref hideSidearmsPage, "hideSidearmsPage", true);
 			Scribe_Values.Look(ref emergencyGear, "emergencyGear", true);

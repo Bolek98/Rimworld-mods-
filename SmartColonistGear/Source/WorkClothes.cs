@@ -41,6 +41,7 @@ namespace ResearchedLoadout
 			lastWork.Clear();
 			nextAct.Clear();
 			replaced.Clear();
+			GearBeforeWork.ResetGameState();
 		}
 
 		private static int Now => Find.TickManager?.TicksGame ?? 0;
@@ -93,6 +94,24 @@ namespace ResearchedLoadout
 			}
 		}
 
+		// 2.17.0: he is about to do this work (dressing before the work job starts)
+		internal static void NoteWork(Pawn p, SkillDef sk, int now)
+		{
+			if (p == null || sk == null) return;
+			Dictionary<string, int> d;
+			if (!lastWork.TryGetValue(p.thingIDNumber, out d)) lastWork[p.thingIDNumber] = d = new Dictionary<string, int>();
+			d[sk.defName] = now;
+		}
+
+		// 2.17.0: what the work garment replaces, to be put back after the work
+		internal static void NoteReplaced(Pawn p, Apparel garment, List<Apparel> gone)
+		{
+			if (p == null || garment == null) return;
+			Dictionary<int, List<Apparel>> r;
+			if (!replaced.TryGetValue(p.thingIDNumber, out r)) replaced[p.thingIDNumber] = r = new Dictionary<int, List<Apparel>>();
+			r[garment.thingIDNumber] = gone ?? new List<Apparel>();
+		}
+
 		// remember which work he is doing now
 		private static void Note(Pawn p, int now)
 		{
@@ -112,7 +131,7 @@ namespace ResearchedLoadout
 			return true;
 		}
 
-		private static bool Untouchable(Pawn p, Apparel a)
+		internal static bool Untouchable(Pawn p, Apparel a)
 		{
 			if (a == null) return true;
 			if (p.apparel.IsLocked(a)) return true;
@@ -142,7 +161,7 @@ namespace ResearchedLoadout
 			{
 				if (sk == null || !Specialization.IsSpecialist(p, sk)) continue;
 				if (p.apparel.WornApparel.Any(w => Specialization.WorkSkillOf(w.def) == sk)) continue;
-				Apparel best = FindGarment(p, map, sk);
+				Apparel best = FindGarment(p, map, sk, MaxDistance);
 				if (best == null) continue;
 				var gone = p.apparel.WornApparel.Where(w => !ApparelUtility.CanWearTogether(best.def, w.def, p.RaceProps.body)).ToList();
 				if (gone.Any(w => Untouchable(p, w))) continue;
@@ -158,7 +177,7 @@ namespace ResearchedLoadout
 			return false;
 		}
 
-		private static Apparel FindGarment(Pawn p, Map map, SkillDef sk)
+		internal static Apparel FindGarment(Pawn p, Map map, SkillDef sk, float maxDistance)
 		{
 			ApparelPolicy policy = p.outfits?.CurrentApparelPolicy;
 			Apparel best = null;
@@ -175,7 +194,7 @@ namespace ResearchedLoadout
 				if (ApparelGender.Mismatch(p, a.def)) continue;
 				if (a.WornByCorpse && ThoughtUtility.CanGetThought(p, ThoughtDefOf.DeadMansApparel, true)) continue;
 				float dist = (a.Position - p.Position).LengthHorizontal;
-				if (dist > MaxDistance) continue;
+				if (dist > maxDistance) continue;
 				float score = Specialization.WorkClothingBonus(p, a.def) * 10f + a.GetStatValue(StatDefOf.Insulation_Cold) * 0.05f - dist * 0.02f;
 				if (score <= bestScore) continue;
 				if (!p.CanReserveAndReach(a, PathEndMode.ClosestTouch, Danger.Some)) continue;
