@@ -504,7 +504,7 @@ namespace ModSortManager
             }
             IEnumerable<ModMetaData> l = catSel == ModCats.All ? all : all.Where(m => ModCats.Of(m) == catSel);
             if (catOnlyActive) l = l.Where(act.Contains);
-            catList = Filter(l.OrderByDescending(act.Contains).ThenBy(m => m.Name).ToList(), catSearch);
+            catList = Filter(l.OrderByDescending(act.Contains).ThenBy(m => Nicknames.Show(m)).ToList(), catSearch);
         }
 
         private void DrawCats(Rect body)
@@ -621,12 +621,12 @@ namespace ModSortManager
                 }
                 if (on) DrawDot(new Rect(x, row.y, 8f, CatRowH), Dot(mod));
                 float tx = x + (on ? 14f : 0f);
-                Label(new Rect(tx, row.y + 2f, nameW - (tx - x), 18f), mod.Name.Truncate(nameW - (tx - x)), on ? MUI.Text1 : (Color)new Color32(196, 200, 204, 255), GameFont.Small, TextAnchor.MiddleLeft, false);
+                Label(new Rect(tx, row.y + 2f, nameW - (tx - x), 18f), (Nicknames.Mark(mod) + Nicknames.Show(mod)).Truncate(nameW - (tx - x)), Nicknames.Shown(mod) ? NickCol : on ? MUI.Text1 : (Color)new Color32(196, 200, 204, 255), GameFont.Small, TextAnchor.MiddleLeft, false);
                 string sub = mod.AuthorsString ?? "";
                 string note = on ? ShortNote(mod) : (Rules.VersionOk(mod) ? "" : "MSM_OldShort".Translate(MSM.Versions(mod)).ToString());
                 if (!note.NullOrEmpty()) sub = note + (sub.NullOrEmpty() ? "" : " · " + sub);
                 Label(new Rect(tx, row.y + 17f, nameW - (tx - x), 16f), sub.Truncate(nameW - (tx - x)), note.NullOrEmpty() ? MUI.Muted : (on ? Dot(mod) : MUI.Warn), GameFont.Tiny, TextAnchor.MiddleLeft, false);
-                TooltipHandler.TipRegion(row, mod.Name + "\n" + mod.PackageIdPlayerFacing + (mod.AuthorsString.NullOrEmpty() ? "" : "\n" + mod.AuthorsString)
+                TooltipHandler.TipRegion(row, Nicknames.Show(mod) + (Nicknames.OriginalLine(mod).NullOrEmpty() ? "" : "\n" + Nicknames.OriginalLine(mod)) + "\n" + mod.PackageIdPlayerFacing + (mod.AuthorsString.NullOrEmpty() ? "" : "\n" + mod.AuthorsString)
                     + "\n" + "MSM_CatOf".Translate(ModCats.Label(ModCats.Of(mod))).ToString() + (ModCats.IsManual(mod) ? " (" + "MSM_CatManual".Translate().ToString() + ")" : ""));
 
                 bool core = mod.IsCoreMod;
@@ -644,7 +644,7 @@ namespace ModSortManager
                 {
                     multi.Clear();
                     selected = mod;
-                    if (ev.button == 1) MoveMenu(mod);
+                    if (ev.button == 1) ModMenu(mod);
                     else if (ev.clickCount == 2)
                     {
                         // to the load order, with the mod in view
