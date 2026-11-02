@@ -20,6 +20,16 @@ public static class Bodies
 	private static readonly Dictionary<string, bool> texCache = new Dictionary<string, bool>();
 
 	// any of the four directions exists
+	// 2.6.0: after pictures were added at runtime (child bodies) – look again
+	public static void ForgetTextures()
+	{
+		lock (BF.Gate)
+		{
+			texCache.Clear();
+			raceBody.Clear();
+		}
+	}
+
 	public static bool TextureExists(string path)
 	{
 		if (path.NullOrEmpty())

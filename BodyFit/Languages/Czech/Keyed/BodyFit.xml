@@ -94,4 +94,33 @@ Celý seznam je v Player.log.</BF_ReportDone>
   <BF_SimpleIntro>Body Fit funguje sám – nic se nenastavuje. Přetvaruje oblečení, brnění, čepice a masky pro tělo a hlavu, na kterých jsou (lidé, tělové mody jako FemaleBB i cizí rasy, oběma směry), najde obrázek pro těla, na která oblečení nebylo namalované, a hotové obrázky si ukládá, aby hra nezasekávala. Nikdy neposouvá hlavy, vlasy, ocasy ani jiné části cizích ras – kam patří, rozhoduje jejich vlastní mod.</BF_SimpleIntro>
   <BF_SimpleStats>V této hře přizpůsobeno: {0} kusů · načteno z dřívějška: {1} · uloženo na příště: {2}</BF_SimpleStats>
   <BF_SimpleRaces>Přizpůsobované rasy (odškrtni rasu, na které něco nesedí – naplno se projeví po restartu):</BF_SimpleRaces>
+  <BF_ChildBody>Dětské tělo pro rasy, které ho nemají</BF_ChildBody>
+  <BF_ChildBody_Desc>Některé mimozemské rasy nemají obrázek dětského těla – jejich děti jsou červený křížek nebo dostanou dospělé tělo a dětské oblečení nesedí. Body Fit při spuštění hry vyrobí dětské tělo z dospělého těla rasy (teď vyrobeno: {0} ras). Projeví se po restartu.</BF_ChildBody_Desc>
+  <BF_WeaponScale>Zbraně podle velikosti rasy</BF_WeaponScale>
+  <BF_WeaponScale_Desc>Rasy kreslené menší nebo větší než lidé drží menší nebo větší zbraně, blíž u těla.</BF_WeaponScale_Desc>
+  <BF_HeadgearAlign>Pokrývka hlavy podle velikosti hlavy (zkušební)</BF_HeadgearAlign>
+  <BF_HeadgearAlign_Desc>U mimozemských ras, kterým čepice vypadají moc velké nebo malé: čepice dostane velikost hlavy, na které sedí. Zkušební – vypni, pokud čepice vypadají hůř.</BF_HeadgearAlign_Desc>
+  <BF_HairUnderHelmet>Vlasy pod helmou</BF_HairUnderHelmet>
+  <BF_HairMode0>Vždy vidět</BF_HairMode0>
+  <BF_HairMode1>Schované pod uzavřenou helmou</BF_HairMode1>
+  <BF_HairMode2>Schované pod každou pokrývkou hlavy</BF_HairMode2>
+  <BF_DocOpen>Doktor oblečení…</BF_DocOpen>
+  <BF_DocNoGame>Nejdřív načti hru – doktor se dívá na tvé kolonisty.</BF_DocNoGame>
+  <BF_AuthorReport>Zpráva pro autory modů</BF_AuthorReport>
+  <BF_AuthorDone>Uloženo do {0} a zkopírováno do schránky – vlož to do komentáře autorům modů.</BF_AuthorDone>
+  <BF_DocTitle>Doktor oblečení</BF_DocTitle>
+  <BF_DocIntro>Červená = chybí obrázek (červený křížek nebo nic), žlutá = půjčený od jiného typu těla. Oprav kolonistovi typ těla, schovej kus oblečení všude, nebo vyber, obrázek kterého těla má kus použít.</BF_DocIntro>
+  <BF_DocOnlyProblems>Jen problémy</BF_DocOnlyProblems>
+  <BF_DocNothing>Všechno na tvých kolonistech má svůj obrázek.</BF_DocNothing>
+  <BF_DocBody>tělo</BF_DocBody>
+  <BF_DocHead>hlava</BF_DocHead>
+  <BF_DocHair>vlasy</BF_DocHair>
+  <BF_DocMissing>chybí obrázek</BF_DocMissing>
+  <BF_DocBorrowed>půjčený od {0}</BF_DocBorrowed>
+  <BF_DocOk>v pořádku</BF_DocOk>
+  <BF_DocBodyBtn>Typ těla…</BF_DocBodyBtn>
+  <BF_DocShow>Ukázat</BF_DocShow>
+  <BF_DocHide>Schovat</BF_DocHide>
+  <BF_DocPicture>Obrázek pro…</BF_DocPicture>
+  <BF_DocAuto>Automaticky (rozhodne Body Fit)</BF_DocAuto>
 </LanguageData>

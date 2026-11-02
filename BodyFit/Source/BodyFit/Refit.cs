@@ -787,7 +787,7 @@ public static class Patch_Refit
 			return;
 		// 2.1: your own setting for this piece of clothing
 		ItemTweak tw = s.Tweak(apparel.def);
-		if (tw != null && tw.hide && apparel.Wearer != null && !forStatue)
+		if ((tw != null && tw.hide || s.doctorHide.Contains(apparel.def.defName)) && apparel.Wearer != null && !forStatue)
 		{
 			__result = false;
 			rec = new ApparelGraphicRecord(null, null);

@@ -134,6 +134,12 @@ public static class Patch_Apparel
 		try { kid = w != null && w.DevelopmentalStage.Child() || a?.def?.apparel?.developmentalStageFilter == DevelopmentalStage.Child; } catch { }
 		BodyTypeDef child = BodyTypeDefOf.Child, baby = BodyTypeDefOf.Baby;
 		var done = new HashSet<BodyTypeDef> { body };
+		// 2.6.0: your choice in the clothing doctor comes first
+		if (a?.def != null && BodyFitMod.Settings.apparelBody.TryGetValue(a.def.defName, out string own))
+		{
+			BodyTypeDef o = DefDatabase<BodyTypeDef>.GetNamedSilentFail(own);
+			if (o != null && done.Add(o)) yield return o;
+		}
 		if (kid && child != null && done.Add(child)) yield return child;
 		foreach (BodyTypeDef b in Bodies.Similar(body, w?.gender ?? Gender.None))
 			if (b != null && done.Add(b)) yield return b;
@@ -163,6 +169,16 @@ public static class Patch_Apparel
 			}
 			if (apparel.WornGraphicPath.NullOrEmpty() || !UsesBodySuffix(apparel))
 				return;
+			// 2.6.0: the picture you chose in the clothing doctor
+			if (BodyFitMod.Settings.apparelBody.TryGetValue(apparel.def.defName, out string mine))
+			{
+				BodyTypeDef m = DefDatabase<BodyTypeDef>.GetNamedSilentFail(mine);
+				if (m != null && BF.Main && Bodies.TextureExists(apparel.WornGraphicPath + "_" + m.defName))
+				{
+					bodyType = m;
+					return;
+				}
+			}
 			var key = (apparel.WornGraphicPath, bodyType);
 			BodyTypeDef use;
 			bool known;
@@ -321,6 +337,20 @@ public static class BodyRepair
 			// mutants and creepjoiners draw their own bodies
 			if (p.IsMutant || p.IsCreepJoiner)
 				return false;
+			// 2.6.0: a child of a race that got a child body made by Body Fit keeps (or gets back) the Child
+			// body type – the 2.5.5 swap to an adult body is undone
+			if (ChildBody.CanUse(p.def) && p.DevelopmentalStage.Child())
+			{
+				BodyTypeDef cb = BodyTypeDefOf.Child;
+				if (p.story.bodyType == cb)
+					return false;
+				BodyTypeDef was = p.story.bodyType;
+				p.story.bodyType = cb;
+				p.Drawer?.renderer?.SetAllGraphicsDirty();
+				repaired++;
+				MLog.Info("[Body Fit] " + p.LabelShortCap + " (" + p.def.defName + "): body " + (was?.defName ?? "none") + " → Child (child body made by Body Fit)");
+				return true;
+			}
 			// 2.3.0: a race Body Fit does not change keeps its body – unless the body really cannot be drawn
 			if (!BF.Handles(p) && !DrawnBodyBroken(p))
 				return false;

@@ -26,6 +26,14 @@ public class BodyFitSettings : ModSettings
 	public bool fitAll = true;
 	public bool fitHeadgear = true;
 	public bool fitWeapons = true;
+	// 2.6.0
+	public bool childBody = true;           // a child body made for races without one
+	public bool weaponScale = true;         // weapons sized by the race's body size
+	public bool headgearAlign = false;      // (experimental) headgear takes the size of the head
+	public int hairUnderHelmet = 1;         // 0 off, 1 under full helmets, 2 under all headgear
+	public HashSet<string> doctorHide = new HashSet<string>();                    // clothing doctor: hidden pieces
+	public Dictionary<string, string> apparelBody = new Dictionary<string, string>();   // clothing doctor: picture of which body
+	private List<string> k11; private List<string> v11;
 	// 2.0: refitting clothes row by row
 	public bool refit = true;          // 2.2: humans and body mods (FemaleBB, Beautiful Bodies …) – on
 	public bool refitAliens = true;    // 2.3.6: alien races – on
@@ -120,6 +128,14 @@ public class BodyFitSettings : ModSettings
 		if (hairSize == null) hairSize = new Dictionary<string, float>();
 		if (headOverride == null) headOverride = new Dictionary<string, Vector2>();
 		if (raceHeight == null) raceHeight = new Dictionary<string, float>();
+		Scribe_Values.Look(ref childBody, "childBody26", true);
+		Scribe_Values.Look(ref weaponScale, "weaponScale26", true);
+		Scribe_Values.Look(ref headgearAlign, "headgearAlign26", false);
+		Scribe_Values.Look(ref hairUnderHelmet, "hairUnderHelmet26", 1);
+		Scribe_Collections.Look(ref doctorHide, "doctorHide", LookMode.Value);
+		Scribe_Collections.Look(ref apparelBody, "apparelBody", LookMode.Value, LookMode.Value, ref k11, ref v11);
+		if (doctorHide == null) doctorHide = new HashSet<string>();
+		if (apparelBody == null) apparelBody = new Dictionary<string, string>();
 		if (BodyFitMod.Simple)
 			ApplySimple();
 	}
@@ -170,7 +186,7 @@ public partial class BodyFitMod : Mod
 		try
 		{
 			new Harmony("bolek98.bodyfit").PatchAll();
-			MLog.Game("[Body Fit] v2.5.6 loaded (messages: Logs\\BodyFit.log).");
+			MLog.Game("[Body Fit] v2.6.0 loaded (messages: Logs\\BodyFit.log).");
 		}
 		catch (Exception ex)
 		{
@@ -234,6 +250,39 @@ public partial class BodyFitMod : Mod
 		l.Label("BF_SimpleStats".Translate(Refit.made, RefitCache.Hits, RefitCache.Saved));
 		GUI.color = Color.white;
 		l.End();
+		// 2.6.0: the new options and tools
+		var o = new Listing_Standard();
+		Rect opt = new Rect(r.x, r.y + 150f, Mathf.Min(r.width, 760f), 196f);
+		o.Begin(opt);
+		bool c0 = Settings.childBody, w0 = Settings.weaponScale, h0 = Settings.headgearAlign;
+		o.CheckboxLabeled("BF_ChildBody".Translate(), ref Settings.childBody, "BF_ChildBody_Desc".Translate(ChildBody.Made.Count));
+		o.CheckboxLabeled("BF_WeaponScale".Translate(), ref Settings.weaponScale, "BF_WeaponScale_Desc".Translate());
+		o.CheckboxLabeled("BF_HeadgearAlign".Translate(), ref Settings.headgearAlign, "BF_HeadgearAlign_Desc".Translate());
+		if (o.ButtonTextLabeled("BF_HairUnderHelmet".Translate(), ("BF_HairMode" + Settings.hairUnderHelmet).Translate()))
+		{
+			var opts = new List<FloatMenuOption>();
+			for (int i = 0; i < 3; i++)
+			{
+				int ii = i;
+				opts.Add(new FloatMenuOption(("BF_HairMode" + i).Translate(), () => { Settings.hairUnderHelmet = ii; WriteSettings(); Changed(); }));
+			}
+			Find.WindowStack.Add(new FloatMenu(opts));
+		}
+		if (c0 != Settings.childBody || w0 != Settings.weaponScale || h0 != Settings.headgearAlign)
+		{
+			WriteSettings();
+			Changed();
+		}
+		Rect bRow = o.GetRect(30f);
+		if (Widgets.ButtonText(new Rect(bRow.x, bRow.y, bRow.width / 2f - 4f, 30f), "BF_DocOpen".Translate()))
+		{
+			if (Current.ProgramState == ProgramState.Playing) Find.WindowStack.Add(new Dialog_ClothingDoctor());
+			else Messages.Message("BF_DocNoGame".Translate(), MessageTypeDefOf.RejectInput, false);
+		}
+		if (Widgets.ButtonText(new Rect(bRow.x + bRow.width / 2f + 4f, bRow.y, bRow.width / 2f - 4f, 30f), "BF_AuthorReport".Translate()))
+			AuthorReport.Run();
+		o.End();
+		r.yMin += 196f;
 		var races = DefDatabase<ThingDef>.AllDefsListForReading.Where(d => d.race != null && d.race.Humanlike && d != ThingDefOf.Human).OrderBy(d => d.label ?? d.defName).ToList();
 		Rect head = new Rect(r.x, r.y + 156f, Mathf.Min(r.width, 760f), 28f);
 		Widgets.Label(head, "BF_SimpleRaces".Translate());
