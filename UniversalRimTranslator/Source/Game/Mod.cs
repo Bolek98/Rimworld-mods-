@@ -243,6 +243,7 @@ namespace UniversalRimTranslator
                 lines.Add("URT_Status_Phase".Translate(PhaseText()));
                 lines.Add("URT_Status_Counts".Translate(Runtime.Items.Count, Runtime.Store?.Count ?? 0, Runtime.Applied, Runtime.PendingCached));
                 lines.Add("URT_Status_Session".Translate(Runtime.Translated, Runtime.Rejected, Runtime.Failed, GrammarFallback.Used));
+                if (Runtime.Translated > 0) lines.Add("URT_Status_SessionParts".Translate(Runtime.TranslatedMods, Runtime.TranslatedLive, Runtime.TranslatedEarlier));
                 if (Live.On) lines.Add("URT_Status_Live".Translate(Live.Shown, Live.Queued, Live.Pending.Count, Live.Arrived));
                 if (!string.IsNullOrEmpty(Runtime.MigrationReport)) lines.Add("URT_Status_Migrated".Translate(Runtime.MigrationReport));
             }

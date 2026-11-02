@@ -27,6 +27,8 @@ namespace UniversalRimTranslator
         public static string ScanReport = "", MigrationReport = "";
         public static volatile string Phase = "starting";
         public static int Applied, Translated, Failed, Rejected;
+        // 1.1.1: the session count split – mod texts, texts seen while playing, texts left from earlier sessions
+        public static int TranslatedMods, TranslatedLive, TranslatedEarlier;
         public static volatile bool Paused;
         public static bool Active;
 
@@ -495,6 +497,9 @@ namespace UniversalRimTranslator
                         Store.PutAuto(j.Source, j.Result, j.Provider, j.Verdict);
                         if (j.Verdict != Verdict.Ok) { Rejected++; giveUp[key] = 99; if (live) Live.Done(key, false); continue; }
                         Translated++;
+                        if (!live) TranslatedMods++;
+                        else if (Live.FromEarlier.TryRemove(key, out _)) TranslatedEarlier++;
+                        else TranslatedLive++;
                         got++;
                         if (live) Live.Done(key, true);
                         if (bySource.TryGetValue(key, out var targets))

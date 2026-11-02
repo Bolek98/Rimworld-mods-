@@ -27,6 +27,8 @@ namespace UniversalRimTranslator
         public static int Shown, Queued, Arrived;
 
         public static readonly ConcurrentDictionary<string, byte> Pending = new ConcurrentDictionary<string, byte>();
+        // 1.1.1: texts waiting from earlier sessions (for the split session counter)
+        public static readonly ConcurrentDictionary<string, byte> FromEarlier = new ConcurrentDictionary<string, byte>();
 
         private struct Entry { public string Out; public int Ver; public bool Collected; }
         private static readonly Dictionary<string, Entry> cache = new Dictionary<string, Entry>();
@@ -125,7 +127,7 @@ namespace UniversalRimTranslator
                         if (Pending.Count >= MaxPending) break;
                         string t = line.Replace("\\n", "\n");
                         // 2.2.0: texts the newer checks do not accept (cut, versions, the target language) are dropped
-                        if (t.Length > 0 && Candidate(t) && Runtime.Store.NeedsTranslation(t) && tried.Add(Store.Key(t)) && Pending.TryAdd(Store.Key(t), 0)) back++;
+                        if (t.Length > 0 && Candidate(t) && Runtime.Store.NeedsTranslation(t) && tried.Add(Store.Key(t)) && Pending.TryAdd(Store.Key(t), 0)) { back++; FromEarlier.TryAdd(Store.Key(t), 0); }
                     }
                 // the file keeps only what still waits
                 File.WriteAllLines(collectorPath, Pending.Keys.Select(k => k.Replace("\r", "").Replace("\n", "\\n")).ToArray());
