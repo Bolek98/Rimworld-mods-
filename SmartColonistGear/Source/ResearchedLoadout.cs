@@ -361,6 +361,7 @@ namespace ResearchedLoadout
 			if (Settings.workClothing)
 			{
 				Settings.workClothingMinSkill = (int)Sl(listing_Standard, "workClothingMinSkill", "RL_WorkClothingSkill".Translate(Settings.workClothingMinSkill), Settings.workClothingMinSkill, 0f, 15f, 0.5f, "RL_WorkClothingSkill_Desc".Translate());
+				Check(listing_Standard, "RL_WorkOnlyWorking", ref Settings.workClothesOnlyWorking, "workClothesOnlyWorking");
 			}
 			Check(listing_Standard, "RL_CoverageFirst", ref Settings.coverageFirst, "coverageFirst");
 			Check(listing_Standard, "RL_FullBody", ref Settings.dressFullBody, "dressFullBody");
@@ -3725,7 +3726,10 @@ namespace ResearchedLoadout
 				return false;
 			}
 			SkillDef skillDef = WorkSkillOf(def);
-			return skillDef != null && !IsSpecialist(p, skillDef);
+			if (skillDef == null) return false;
+			if (!IsSpecialist(p, skillDef)) return true;
+			// 2.16.1: work clothes only while he does that work
+			return settings.workClothesOnlyWorking && !WorkClothes.Active(p, skillDef);
 		}
 
 		public static float WorkClothingBonus(Pawn p, ThingDef def)
@@ -3737,6 +3741,10 @@ namespace ResearchedLoadout
 			}
 			SkillDef skillDef = WorkSkillOf(def);
 			if (skillDef == null || !IsSpecialist(p, skillDef))
+			{
+				return 0f;
+			}
+			if (settings.workClothesOnlyWorking && !WorkClothes.Active(p, skillDef))
 			{
 				return 0f;
 			}
@@ -4754,6 +4762,7 @@ namespace ResearchedLoadout
 		public bool statOffsets = true;
 
 		public bool workClothing = true;
+		public bool workClothesOnlyWorking = true;   // 2.16.1
 
 		// 2.7.0: apparel choice by the wearer's traits and skills
 		public bool dressByTraits = true;
@@ -4964,6 +4973,7 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref roleGear, "roleGear", true);
 			Scribe_Values.Look(ref statOffsets, "statOffsets", true);
 			Scribe_Values.Look(ref workClothing, "workClothing", true);
+			Scribe_Values.Look(ref workClothesOnlyWorking, "workClothesOnlyWorking", true);
 			Scribe_Values.Look(ref dressByTraits, "dressByTraits", true);
 			Scribe_Values.Look(ref hideSidearmsPage, "hideSidearmsPage", true);
 			Scribe_Values.Look(ref emergencyGear, "emergencyGear", true);

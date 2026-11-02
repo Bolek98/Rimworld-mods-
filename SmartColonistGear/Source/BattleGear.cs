@@ -46,12 +46,14 @@ namespace ResearchedLoadout
 		{
 			base.FinalizeInit();
 			BattleGear.ResetGameState();
+			WorkClothes.ResetGameState();
 		}
 
 		public override void GameComponentTick()
 		{
 			int now = Find.TickManager.TicksGame;
 			if (now % 60 == 23) BattleGear.Tick(now);
+			if (now % 60 == 41) WorkClothes.Tick(now);   // 2.16.1
 			if (now % 2500 == 1234) WornSwap.Tick(now);
 			if (now % 30000 == 4321) GearPlanner.AutoTick();
 		}
