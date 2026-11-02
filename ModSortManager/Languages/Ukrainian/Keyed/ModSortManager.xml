@@ -384,4 +384,47 @@ Mod Sort Manager вимкне половину підозрілих модів (
   <MSM_ClearNew>Сховати НОВІ</MSM_ClearNew>
   <MSM_ClearNewTip>Приховує позначку НОВИЙ у всіх модів. Моди, додані пізніше, знову її отримають.</MSM_ClearNewTip>
   <MSM_DragMany>Модів: {0}</MSM_DragMany>
+  <!-- 0.6.0: categories -->
+  <MSM_TabCats>Категорії</MSM_TabCats>
+  <MSM_CatHead>КАТЕГОРІЇ · УВІМКНЕНО / ВСТАНОВЛЕНО</MSM_CatHead>
+  <MSM_Cat_all>Усі моди</MSM_Cat_all>
+  <MSM_Cat_game>Гра та DLC</MSM_Cat_game>
+  <MSM_Cat_frameworks>Фреймворки та бібліотеки</MSM_Cat_frameworks>
+  <MSM_Cat_races>Раси та ксенотипи</MSM_Cat_races>
+  <MSM_Cat_apparel>Одяг і броня</MSM_Cat_apparel>
+  <MSM_Cat_weapons>Зброя</MSM_Cat_weapons>
+  <MSM_Cat_buildings>Будівлі та меблі</MSM_Cat_buildings>
+  <MSM_Cat_production>Виробництво та ремесла</MSM_Cat_production>
+  <MSM_Cat_food>Їжа та фермерство</MSM_Cat_food>
+  <MSM_Cat_animals>Тварини</MSM_Cat_animals>
+  <MSM_Cat_medical>Медицина та здоров'я</MSM_Cat_medical>
+  <MSM_Cat_events>Оповідачі та події</MSM_Cat_events>
+  <MSM_Cat_factions>Фракції та світ</MSM_Cat_factions>
+  <MSM_Cat_ui>Інтерфейс і зручність</MSM_Cat_ui>
+  <MSM_Cat_performance>Продуктивність</MSM_Cat_performance>
+  <MSM_Cat_textures>Текстури та графіка</MSM_Cat_textures>
+  <MSM_Cat_translations>Переклади</MSM_Cat_translations>
+  <MSM_Cat_adult>18+</MSM_Cat_adult>
+  <MSM_Cat_other>Інше</MSM_Cat_other>
+  <MSM_CatCountTip>{0} увімкнено з {1} встановлених</MSM_CatCountTip>
+  <MSM_CatCustomTip>Ваша категорія – правий клік, щоб перейменувати або видалити.</MSM_CatCustomTip>
+  <MSM_CatScanning>Сортування модів за категоріями… {0} / {1}</MSM_CatScanning>
+  <MSM_CatNew>+ Нова категорія</MSM_CatNew>
+  <MSM_CatNewTitle>Назва нової категорії</MSM_CatNewTitle>
+  <MSM_CatNameBad>Введіть ще не зайняту назву (до 40 символів).</MSM_CatNameBad>
+  <MSM_CatRescan>Відсортувати знову</MSM_CatRescan>
+  <MSM_CatRescanTip>Знову переглянути файли всіх модів і заново визначити автоматичні категорії (ваші перенесення збережуться).</MSM_CatRescanTip>
+  <MSM_CatOnlyActive>Лише увімкнені</MSM_CatOnlyActive>
+  <MSM_CatSearch>Пошук у цій категорії…</MSM_CatSearch>
+  <MSM_CatHint>Правий клік по моду: перенести в іншу категорію · подвійний клік: відкрити порядок завантаження</MSM_CatHint>
+  <MSM_CatEmpty>Тут немає модів.</MSM_CatEmpty>
+  <MSM_CatOf>Категорія: {0}</MSM_CatOf>
+  <MSM_CatManual>перенесено вами</MSM_CatManual>
+  <MSM_CatAuto>Автоматично ({0})</MSM_CatAuto>
+  <MSM_CatMove>Перенести в категорію</MSM_CatMove>
+  <MSM_CatRename>Перейменувати</MSM_CatRename>
+  <MSM_CatDelete>Видалити категорію</MSM_CatDelete>
+  <MSM_CatDeleteConfirm>Видалити категорію «{0}»? Її моди повернуться до своїх автоматичних категорій.</MSM_CatDeleteConfirm>
+  <MSM_CatFilter>Категорія: {0}</MSM_CatFilter>
+  <MSM_CatFilterTip>Показати лише вимкнені моди однієї категорії.</MSM_CatFilterTip>
 </LanguageData>

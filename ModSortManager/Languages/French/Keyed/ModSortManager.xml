@@ -384,4 +384,47 @@ Commencer ?</MSM_BisectConfirm>
   <MSM_ClearNew>Masquer NOUVEAU</MSM_ClearNew>
   <MSM_ClearNewTip>Masque la marque NOUVEAU de tous les mods. Les mods ajoutés plus tard seront de nouveau marqués.</MSM_ClearNewTip>
   <MSM_DragMany>{0} mods</MSM_DragMany>
+  <!-- 0.6.0: categories -->
+  <MSM_TabCats>Catégories</MSM_TabCats>
+  <MSM_CatHead>CATÉGORIES · ACTIFS / INSTALLÉS</MSM_CatHead>
+  <MSM_Cat_all>Tous les mods</MSM_Cat_all>
+  <MSM_Cat_game>Jeu et DLC</MSM_Cat_game>
+  <MSM_Cat_frameworks>Frameworks et bibliothèques</MSM_Cat_frameworks>
+  <MSM_Cat_races>Races et xénotypes</MSM_Cat_races>
+  <MSM_Cat_apparel>Vêtements et armures</MSM_Cat_apparel>
+  <MSM_Cat_weapons>Armes</MSM_Cat_weapons>
+  <MSM_Cat_buildings>Bâtiments et meubles</MSM_Cat_buildings>
+  <MSM_Cat_production>Production et artisanat</MSM_Cat_production>
+  <MSM_Cat_food>Nourriture et agriculture</MSM_Cat_food>
+  <MSM_Cat_animals>Animaux</MSM_Cat_animals>
+  <MSM_Cat_medical>Médecine et santé</MSM_Cat_medical>
+  <MSM_Cat_events>Narrateurs et événements</MSM_Cat_events>
+  <MSM_Cat_factions>Factions et monde</MSM_Cat_factions>
+  <MSM_Cat_ui>Interface et confort</MSM_Cat_ui>
+  <MSM_Cat_performance>Performances</MSM_Cat_performance>
+  <MSM_Cat_textures>Textures et visuels</MSM_Cat_textures>
+  <MSM_Cat_translations>Traductions</MSM_Cat_translations>
+  <MSM_Cat_adult>18+</MSM_Cat_adult>
+  <MSM_Cat_other>Autres</MSM_Cat_other>
+  <MSM_CatCountTip>{0} actifs sur {1} installés</MSM_CatCountTip>
+  <MSM_CatCustomTip>Votre propre catégorie – clic droit pour la renommer ou la supprimer.</MSM_CatCustomTip>
+  <MSM_CatScanning>Tri des mods en catégories… {0} / {1}</MSM_CatScanning>
+  <MSM_CatNew>+ Nouvelle catégorie</MSM_CatNew>
+  <MSM_CatNewTitle>Nom de la nouvelle catégorie</MSM_CatNewTitle>
+  <MSM_CatNameBad>Entrez un nom pas encore utilisé (40 caractères max).</MSM_CatNameBad>
+  <MSM_CatRescan>Trier à nouveau</MSM_CatRescan>
+  <MSM_CatRescanTip>Réexaminer les fichiers de tous les mods et refaire les catégories automatiques (vos déplacements sont conservés).</MSM_CatRescanTip>
+  <MSM_CatOnlyActive>Actifs seulement</MSM_CatOnlyActive>
+  <MSM_CatSearch>Rechercher dans cette catégorie…</MSM_CatSearch>
+  <MSM_CatHint>Clic droit sur un mod : déplacer vers une autre catégorie · double-clic : ouvrir l'ordre de chargement</MSM_CatHint>
+  <MSM_CatEmpty>Aucun mod ici.</MSM_CatEmpty>
+  <MSM_CatOf>Catégorie : {0}</MSM_CatOf>
+  <MSM_CatManual>déplacé par vous</MSM_CatManual>
+  <MSM_CatAuto>Automatique ({0})</MSM_CatAuto>
+  <MSM_CatMove>Déplacer vers la catégorie</MSM_CatMove>
+  <MSM_CatRename>Renommer</MSM_CatRename>
+  <MSM_CatDelete>Supprimer la catégorie</MSM_CatDelete>
+  <MSM_CatDeleteConfirm>Supprimer la catégorie « {0} » ? Ses mods retournent dans leurs catégories automatiques.</MSM_CatDeleteConfirm>
+  <MSM_CatFilter>Catégorie : {0}</MSM_CatFilter>
+  <MSM_CatFilterTip>N'afficher que les mods inactifs d'une catégorie.</MSM_CatFilterTip>
 </LanguageData>

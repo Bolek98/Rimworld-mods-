@@ -384,4 +384,47 @@ Mod Sort Manager は {0} 個の疑わしいModの半分を無効化し、ゲー�
   <MSM_ClearNew>NEWを消す</MSM_ClearNew>
   <MSM_ClearNewTip>すべてのMODのNEW表示を消します。後で追加したMODには再び表示されます。</MSM_ClearNewTip>
   <MSM_DragMany>{0} 個のMOD</MSM_DragMany>
+  <!-- 0.6.0: categories -->
+  <MSM_TabCats>カテゴリ</MSM_TabCats>
+  <MSM_CatHead>カテゴリ · 有効 / インストール済み</MSM_CatHead>
+  <MSM_Cat_all>すべてのMod</MSM_Cat_all>
+  <MSM_Cat_game>ゲームとDLC</MSM_Cat_game>
+  <MSM_Cat_frameworks>フレームワーク・ライブラリ</MSM_Cat_frameworks>
+  <MSM_Cat_races>種族・ゼノタイプ</MSM_Cat_races>
+  <MSM_Cat_apparel>衣服・防具</MSM_Cat_apparel>
+  <MSM_Cat_weapons>武器</MSM_Cat_weapons>
+  <MSM_Cat_buildings>建物・家具</MSM_Cat_buildings>
+  <MSM_Cat_production>生産・クラフト</MSM_Cat_production>
+  <MSM_Cat_food>食料・農業</MSM_Cat_food>
+  <MSM_Cat_animals>動物</MSM_Cat_animals>
+  <MSM_Cat_medical>医療・健康</MSM_Cat_medical>
+  <MSM_Cat_events>ストーリーテラー・イベント</MSM_Cat_events>
+  <MSM_Cat_factions>勢力・ワールド</MSM_Cat_factions>
+  <MSM_Cat_ui>UI・快適性</MSM_Cat_ui>
+  <MSM_Cat_performance>パフォーマンス</MSM_Cat_performance>
+  <MSM_Cat_textures>テクスチャ・見た目</MSM_Cat_textures>
+  <MSM_Cat_translations>翻訳</MSM_Cat_translations>
+  <MSM_Cat_adult>18+</MSM_Cat_adult>
+  <MSM_Cat_other>その他</MSM_Cat_other>
+  <MSM_CatCountTip>{1} 個中 {0} 個が有効</MSM_CatCountTip>
+  <MSM_CatCustomTip>自分のカテゴリ – 右クリックで名前変更・削除。</MSM_CatCustomTip>
+  <MSM_CatScanning>Modをカテゴリに分類中… {0} / {1}</MSM_CatScanning>
+  <MSM_CatNew>+ 新しいカテゴリ</MSM_CatNew>
+  <MSM_CatNewTitle>新しいカテゴリの名前</MSM_CatNewTitle>
+  <MSM_CatNameBad>まだ使われていない名前を入力してください（40文字まで）。</MSM_CatNameBad>
+  <MSM_CatRescan>再分類</MSM_CatRescan>
+  <MSM_CatRescanTip>すべてのModのファイルを見直して自動カテゴリを作り直します（手動で移動したものはそのまま）。</MSM_CatRescanTip>
+  <MSM_CatOnlyActive>有効のみ</MSM_CatOnlyActive>
+  <MSM_CatSearch>このカテゴリ内を検索…</MSM_CatSearch>
+  <MSM_CatHint>Modを右クリック：別のカテゴリへ移動 · ダブルクリック：ロード順を開く</MSM_CatHint>
+  <MSM_CatEmpty>ここにModはありません。</MSM_CatEmpty>
+  <MSM_CatOf>カテゴリ：{0}</MSM_CatOf>
+  <MSM_CatManual>手動で移動</MSM_CatManual>
+  <MSM_CatAuto>自動（{0}）</MSM_CatAuto>
+  <MSM_CatMove>カテゴリへ移動</MSM_CatMove>
+  <MSM_CatRename>名前を変更</MSM_CatRename>
+  <MSM_CatDelete>カテゴリを削除</MSM_CatDelete>
+  <MSM_CatDeleteConfirm>カテゴリ「{0}」を削除しますか？ そのModは自動カテゴリに戻ります。</MSM_CatDeleteConfirm>
+  <MSM_CatFilter>カテゴリ：{0}</MSM_CatFilter>
+  <MSM_CatFilterTip>あるカテゴリの無効なModだけを表示します。</MSM_CatFilterTip>
 </LanguageData>

@@ -10,7 +10,7 @@ using Verse.Sound;
 
 namespace ModSortManager
 {
-    public class Dialog_ModSortManager : Window
+    public partial class Dialog_ModSortManager : Window
     {
         // ---- colors (dark MUI look) ----
         private static readonly Color Bg = new Color32(24, 27, 31, 255);
@@ -104,6 +104,7 @@ namespace ModSortManager
             same = SameThing.Analyze();
             blames = LogErrors.Analyze();
             dirty = true;
+            ModCats.Start();   // 0.6.0: categories are worked out in the background
             if (initialIds != null) ApplyIds(initialIds, null);
             else if (!Bisect.Active) OfferNextGroup();
         }
@@ -150,6 +151,7 @@ namespace ModSortManager
         private int ver;
         private int cVer = -1;
         private string cInactF, cActF;
+        private int cCatStamp;
         private List<ModMetaData> cInact, cAct;
         private readonly Dictionary<Issue, float> heights = new Dictionary<Issue, float>();
         private float heightsW;
@@ -924,7 +926,7 @@ namespace ModSortManager
             // tabs
             Rect tabs = new Rect(inRect.x + Pad, head.yMax + 1f, inRect.width - 2 * Pad, 36f);
             int nErr = issues.Count(i => i.sev == Sev.Error), nWarn = issues.Count(i => i.sev == Sev.Warn), nInfo = issues.Count(i => i.sev == Sev.Info);
-            string[] names = { "MSM_TabOrder".Translate(), "MSM_TabProblems".Translate(), "MSM_TabProfiles".Translate(), "MSM_TabUpdates".Translate(), "MSM_TabReplace".Translate() };
+            string[] names = { "MSM_TabOrder".Translate(), "MSM_TabProblems".Translate(), "MSM_TabProfiles".Translate(), "MSM_TabUpdates".Translate(), "MSM_TabReplace".Translate(), "MSM_TabCats".Translate() };
             int nRep = ReplaceCount();
             int nUpd = Updates.Pending;
             float tx = tabs.x;
@@ -968,7 +970,8 @@ namespace ModSortManager
             else if (tab == 1) DrawProblems(body);
             else if (tab == 2) DrawProfiles(body);
             else if (tab == 3) DrawUpdates(body);
-            else DrawReplace(body);
+            else if (tab == 4) DrawReplace(body);
+            else DrawCats(body);   // 0.6.0
         }
 
         private static void Pill(Rect r, string text, Color c)
@@ -1198,11 +1201,16 @@ namespace ModSortManager
                 }
                 TooltipHandler.TipRegion(hr, "MSM_ClearNewTip".Translate());
             }
-            string nf = SearchField(new Rect(l.x, l.y + 24f, l.width, 30f), fInactive, "MSM_SearchHint".Translate());
+            // 0.6.0: category filter next to the search
+            float cfw = Mathf.Min(170f, l.width * 0.42f);
+            string nf = SearchField(new Rect(l.x, l.y + 24f, l.width - cfw - 6f, 30f), fInactive, "MSM_SearchHint".Translate());
             if (nf != fInactive) fInactive = nf;
-            if (cVer != ver || cInactF != fInactive || cActF != fActive || cProb != onlyProblems)
+            CatFilterButton(new Rect(l.xMax - cfw, l.y + 24f, cfw, 30f));
+            int catStamp = catMain == null ? 0 : ModCats.Version;
+            if (cVer != ver || cInactF != fInactive || cActF != fActive || cProb != onlyProblems || cCatStamp != catStamp)
             {
-                cInact = Filter(inactiveCache, fInactive);
+                cCatStamp = catStamp;
+                cInact = Filter(CatFilterInactive(inactiveCache), fInactive);
                 cAct = Filter(active, fActive);
                 if (onlyProblems) cAct = cAct.Where(x => marks.ContainsKey(x)).ToList();
                 cProb = onlyProblems;

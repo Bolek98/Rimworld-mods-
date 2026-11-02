@@ -37,6 +37,9 @@ namespace ModSortManager
         public bool sharedRules = true;
         // 0.3.1: replacements the player hid ("oldWorkshopId>newWorkshopId")
         public List<string> replaceHidden = new List<string>();
+        // 0.6.0: mods the player moved to another category ("packageid|category") and own categories
+        public List<string> catOverrides = new List<string>();
+        public List<string> customCats = new List<string>();
 
         public override void ExposeData()
         {
@@ -57,12 +60,16 @@ namespace ModSortManager
             Scribe_Values.Look(ref sharedRules, "sharedRules", true);
             Scribe_Collections.Look(ref replaceHidden, "replaceHidden", LookMode.Value);
             if (replaceHidden == null) replaceHidden = new List<string>();
+            Scribe_Collections.Look(ref catOverrides, "catOverrides", LookMode.Value);
+            if (catOverrides == null) catOverrides = new List<string>();
+            Scribe_Collections.Look(ref customCats, "customCats", LookMode.Value);
+            if (customCats == null) customCats = new List<string>();
         }
     }
 
     public class MSMMod : Mod
     {
-        public const string Version = "0.5.0";
+        public const string Version = "0.6.0";
         public static MSMSettings Settings;
 
         public MSMMod(ModContentPack content) : base(content)
