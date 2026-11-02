@@ -71,6 +71,15 @@ namespace HardyPlants
         public bool fewerFires = false;       // grass and trees catch fire less easily
         public bool fruitRepeat = false;      // fruit trees bear fruit again after harvest
 
+        // 1.9.0: plants from other mods – kind and group guessed from their own values
+        public bool autoGuess = true;
+
+        // 1.9.1: crops of one grow zone sown within about a day ripen together
+        public bool cropSync = false;
+        // 1.9.0: winter crop rotation per zone (off) and the greenhouse temperature alert (on)
+        public bool winterRotation = false;
+        public bool greenhouseWatch = true;
+
         // 1.7.0: chosen profile. 0 Vanilla, 1 Recommended, 2 Lush, 3 Custom.
         // A new install starts on Recommended; settings from an older version
         // stay Custom (missing key). Profiles 0-2 are applied again on every
@@ -150,6 +159,10 @@ namespace HardyPlants
             Scribe_Values.Look(ref greenhouse, "greenhouse", false);
             Scribe_Values.Look(ref fewerFires, "fewerFires", false);
             Scribe_Values.Look(ref fruitRepeat, "fruitRepeat", false);
+            Scribe_Values.Look(ref autoGuess, "autoGuess", true);
+            Scribe_Values.Look(ref cropSync, "cropSync", false);
+            Scribe_Values.Look(ref winterRotation, "winterRotation", false);
+            Scribe_Values.Look(ref greenhouseWatch, "greenhouseWatch", true);
             Scribe_Values.Look(ref profile, "profile", 3);
             if (Scribe.mode == LoadSaveMode.LoadingVars)
             {
@@ -221,7 +234,7 @@ namespace HardyPlants
     // ------------------------------------------------------------------
     public class HardyPlantsMod : Mod
     {
-        public const string Version = "1.8.0";
+        public const string Version = "1.9.0";
         public static HardyPlantsSettings Settings;
         private Vector2 scroll;
         private Vector2 leftScroll;
@@ -231,6 +244,7 @@ namespace HardyPlants
         public HardyPlantsMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<HardyPlantsSettings>();
+            MNews.Register(content, HardyPlantsMod.Version);   // what's new + Bolek98 overview
             if (Settings.profile >= 0 && Settings.profile <= 2)
                 Settings.Preset(Settings.profile);
             MUI.Init(HardyPlantsSettings.PresetValues(1), HardyPlantsSettings.ProfileFields);
@@ -346,6 +360,22 @@ namespace HardyPlants
             MUI.Section(l, "HardyPlants_SecSeason".Translate());
             MUI.Check(l, "HardyPlants_AnySeason".Translate(), "HardyPlants_AnySeasonDesc".Translate(), ref s.anySeason, s, "anySeason");
             MUI.Check(l, "HardyPlants_Greenhouse".Translate(), "HardyPlants_GreenhouseDesc".Translate(), ref s.greenhouse, s, "greenhouse");
+            // 1.9.1
+            MUI.Check(l, "HardyPlants_CropSync".Translate(), "HardyPlants_CropSyncDesc".Translate(), ref s.cropSync, s, null);
+            // 1.9.0
+            MUI.Section(l, "HardyPlants_SecPlanning".Translate());
+            MUI.Check(l, "HardyPlants_Winter".Translate(), "HardyPlants_WinterDesc".Translate(), ref s.winterRotation, s, null);
+            MUI.Check(l, "HardyPlants_GreenhouseWatch".Translate(), "HardyPlants_GreenhouseWatchDesc".Translate(), ref s.greenhouseWatch, s, null);
+            Map cur = Current.ProgramState == ProgramState.Playing ? Find.CurrentMap : null;
+            Rect br = l.GetRect(30f);
+            if (cur == null)
+            {
+                GUI.color = MUI.Muted;
+                Widgets.Label(br, "HardyPlants_CalNeedGame".Translate());
+                GUI.color = Color.white;
+            }
+            else if (Widgets.ButtonText(new Rect(br.x, br.y, Mathf.Min(260f, br.width), 28f), "HardyPlants_CalOpen".Translate()))
+                Find.WindowStack.Add(new Dialog_SowingCalendar(cur));
             Note(l);
         }
 
@@ -454,6 +484,11 @@ namespace HardyPlants
             if (g.RadioButton("HardyPlants_GroupAll".Translate(), s.chosen == null && s.group == PlantGroup.AllPlants))
                 { s.chosen = null; s.group = PlantGroup.AllPlants; }
             g.RadioButton("HardyPlants_GroupCustom".Translate(), s.chosen != null);
+            g.Gap();
+            bool wasAuto = s.autoGuess;
+            MUI.Check(g, "HardyPlants_AutoGuess".Translate(), "HardyPlants_AutoGuessDesc".Translate(), ref s.autoGuess, s, null);
+            if (wasAuto != s.autoGuess)
+                HardyPlantsCore.GuessChanged();
             g.End();
 
             HashSet<string> chosen = HardyPlantsCore.ChosenSet();
@@ -477,8 +512,23 @@ namespace HardyPlants
                     bool was = on;
                     Widgets.DrawHighlightIfMouseover(row);
                     Widgets.DefIcon(new Rect(row.x, row.y + 1f, 24f, 24f), p);
-                    Widgets.CheckboxLabeled(new Rect(row.x + 30f, row.y, row.width - 30f, row.height),
+                    string tag = AutoGuess.Tag(p);
+                    float tagW = tag == null ? 0f : 54f;
+                    Widgets.CheckboxLabeled(new Rect(row.x + 30f, row.y, row.width - 30f - tagW, row.height),
                         p.LabelCap + "  (" + HardyPlantsCore.OriginalRange(p) + ")", ref on);
+                    if (tag != null)
+                    {
+                        Rect tr = new Rect(row.xMax - tagW, row.y + 3f, tagW - 4f, 20f);
+                        GUI.color = MUI.Muted;
+                        Text.Font = GameFont.Tiny;
+                        Text.Anchor = TextAnchor.MiddleCenter;
+                        Widgets.DrawBox(tr);
+                        Widgets.Label(tr, tag);
+                        Text.Anchor = TextAnchor.UpperLeft;
+                        Text.Font = GameFont.Small;
+                        GUI.color = Color.white;
+                        TooltipHandler.TipRegion(tr, AutoGuess.Tip(p));
+                    }
                     if (on != was)
                         HardyPlantsCore.SetChosen(p, on);
                 }
@@ -602,6 +652,8 @@ namespace HardyPlants
             hardy.Clear();
             originalDays.Clear();
             appliedDays.Clear();
+            AutoGuess.Reset();
+            Kind.Reset();
         }
 
         // Called after the game has reloaded all its data (language change).
@@ -655,6 +707,10 @@ namespace HardyPlants
                         if (p != null && p.plant != null)
                             set.Add(p.defName);
                 }
+                // 1.9.0: wild plants of other mods that no biome lists
+                foreach (ThingDef p in AllPlants())
+                    if (g == PlantGroup.AllWild ? AutoGuess.ExtraWild(p) : AutoGuess.ExtraCold(p))
+                        set.Add(p.defName);
             }
             groups[g] = set;
             return set;
@@ -669,6 +725,14 @@ namespace HardyPlants
         {
             var s = HardyPlantsMod.Settings;
             return s.chosen == null ? new HashSet<string>(DefaultChoice()) : new HashSet<string>(s.chosen);
+        }
+
+        // 1.9.0: the auto-guess switch changes the groups and the kinds
+        public static void GuessChanged()
+        {
+            groups.Clear();
+            Kind.Reset();
+            AutoGuess.Reset();
         }
 
         public static void SetChosen(ThingDef plant, bool on)
@@ -728,6 +792,7 @@ namespace HardyPlants
 
         public static void Apply()
         {
+            FixPlantIcons();
             HardyPlantsSettings s = HardyPlantsMod.Settings;
             if (s == null)
                 return;
@@ -774,6 +839,36 @@ namespace HardyPlants
                 (days > 0 ? ", " + days + " grow times set" : "") + ".");
         }
 
+        // 1.9.2: plants whose icon is the red "missing texture" square (a mod gave a wrong icon
+        // path or the icon could not be made from the graphic) get the picture they are drawn with
+        // on the map, so buttons such as "Where it grows" or "Copy" show the plant.
+        private static bool iconsFixed;
+        private static void FixPlantIcons()
+        {
+            if (iconsFixed) return;
+            iconsFixed = true;
+            int fixedN = 0;
+            var broken = new List<string>();
+            foreach (ThingDef d in DefDatabase<ThingDef>.AllDefsListForReading)
+            {
+                if (d.plant == null) continue;
+                if (d.uiIcon != null && d.uiIcon != BaseContent.BadTex) continue;
+                Texture2D t = null;
+                try
+                {
+                    Graphic g = d.graphic ?? d.graphicData?.Graphic;
+                    t = g?.MatSingle?.mainTexture as Texture2D;
+                    if (t == null || t == BaseContent.BadTex) t = g?.MatSouth?.mainTexture as Texture2D;
+                }
+                catch { t = null; }
+                if (t != null && t != BaseContent.BadTex) { d.uiIcon = t; fixedN++; }
+                else broken.Add(d.label + " (" + d.defName + ", " + (d.modContentPack?.Name ?? "?") + ")");
+            }
+            if (fixedN > 0 || broken.Count > 0)
+                Log.Message("[Evergrowth " + HardyPlantsMod.Version + "] plant icons: " + fixedN + " missing icons replaced by the map picture" +
+                    (broken.Count > 0 ? "; no picture at all (the mod's textures are missing): " + string.Join(", ", broken.Take(20).ToArray()) : "") + ".");
+        }
+
         // 1.4.0: grow days for crops (sowable, not trees) and trees (no stumps).
         // Only defs that still have the value this mod gave them are put back,
         // so other mods that change grow days keep their changes.
@@ -788,8 +883,9 @@ namespace HardyPlants
                 PlantProperties pp = p.plant;
                 if (pp == null || pp.isStump)
                     continue;
-                bool tree = pp.IsTree;
-                bool crop = !tree && pp.Sowable;
+                int kind = Kind.Of(p);
+                bool tree = kind == 1;
+                bool crop = kind == 2;
                 float wanted = -1f;
                 if (tree && s.treeDaysOn) wanted = s.treeDays;
                 else if (crop && s.cropDaysOn) wanted = s.cropDays;
@@ -920,10 +1016,12 @@ namespace HardyPlants
                 return 0;
             if (cache.TryGetValue(def, out k))
                 return k;
-            k = def.plant.IsTree ? 1 : def.plant.Sowable ? 2 : 0;
+            k = AutoGuess.KindOf(def);   // 1.9.0: guessed for plants from other mods
             cache[def] = k;
             return k;
         }
+
+        public static void Reset() => cache.Clear();
     }
 
     // harvest yield: crops and wild plants / wood from trees

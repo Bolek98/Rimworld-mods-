@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef>
+    <defName>SC_ColonySpeaker</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>colony speaker</label>
+    <description>Speaks for the colony with traders, guests and other factions. Chosen by the colony, not by any belief.</description>
+    <defaultLabelColor>(0.95,0.8,0.4)</defaultLabelColor>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <stages>
+      <li>
+        <statOffsets>
+          <SocialImpact>0.10</SocialImpact>
+          <NegotiationAbility>0.10</NegotiationAbility>
+          <TradePriceImprovement>0.02</TradePriceImprovement>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

@@ -102,4 +102,79 @@
   <HardyPlants_SecEvents>Události</HardyPlants_SecEvents>
   <HardyPlants_ImmuneEvents>Rostliny ignorují špatné události</HardyPlants_ImmuneEvents>
   <HardyPlants_ImmuneEventsDesc>Sucho (i období sucha z modů), jedovatý opar, toxický spad a znečištění už rostliny nezpomalí ani neshodí listí. Zima a horko platí dál.</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>Kde roste</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>Skrýt mapu růstu</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>Ukáže na mapě, kde roste {0}: zeleně – dobře, žlutě – pomaleji, červeně – vůbec. Najeď na políčko pro důvod. Pravé tlačítko: jiná rostlina.</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>Kde roste {0} – zelená: dobře, žlutá: pomaleji, červená: ne. Najeď na políčko pro důvod.</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>Tady roste dobře.</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>Roste pomaleji: teď {0}, nejlépe mezi {1}.</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>Roste pomaleji: pod střechou je málo světla – přidej lampu.</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>Roste pomaleji: chudá půda (úrodnost {0}).</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>Teď moc zima: {0}, roste mezi {1}.</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>Teď moc horko: {0}, roste mezi {1}.</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>Tady neroste: moc chudá půda ({0}, potřebuje {1}).</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>Potřebuje střechu (jeskynní rostlina).</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>Pod střechou je moc tma – potřebuje lampu.</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>Je tu něco postavené.</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>Jen v hydroponii nebo truhlíku – tady do země ne.</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>Odhadnout u rostlin z jiných modů</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>Rostliny z jiných modů, které nemá žádný biom, nebo dávají dřevo a nejsou označené jako strom, se zařadí podle vlastních hodnot (druh, odolnost proti zimě). V seznamu mají značku „auto“.</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>Z modu {0}. Evergrowth ji bere jako: {1}, roste od {2}, roste {3} dní.</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>divoká rostlina</HardyPlants_Kind0>
+  <HardyPlants_Kind1>strom</HardyPlants_Kind1>
+  <HardyPlants_Kind2>plodina</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>Bere se jako {0}: dává dřevo, ale její mod ji neoznačil jako strom.</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>Nemá ji žádný biom – přidaná do skupiny divokých rostlin.</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>Nemá ji žádný biom – přidaná do divokých rostlin a protože roste v zimě, i do skupiny chladných biomů.</HardyPlants_AutoAddedCold>
+  <HardyPlants_CropSync>Plodiny v poli dozrají společně</HardyPlants_CropSync>
+  <HardyPlants_CropSyncDesc>Plodiny v jednom poli zasazené zhruba v jeden den doženou tu nejrychlejší, takže se celé pole dá sklidit najednou. Pozdější výsev zůstane, jak je. Na stromy to nepůsobí.</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>Teplota ve skleníku</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0}: {1} – moc zima pro {2} (potřebuje víc než {3})</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>Plodiny uvnitř, jejichž místnost je na růst moc studená nebo horká – možná selhalo topení nebo chlazení:\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0}: {1} – moc horko pro {2} (přestává růst nad {3})</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>Venku je na růst zima celý rok.</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>Venku je teď na růst zima – dost teplo bude zase asi za {0} dní.</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>Co zasít teď</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>zatím nic nezaseto</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>Další mráz (pod 0 °C) asi za {0} dní.</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>Předpověď sklizně</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>nedozraje – zima ho zastaví za {0} dní</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>Načti hru, abys mohl otevřít kalendář setí.</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>potřebuje {0} d</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>V příštích {0} dnech žádný mráz.</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>teď na růst moc zima nebo horko (roste od {0})</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>Na této mapě nejsou žádné pěstební zóny.</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>Zaseto dnes venku do běžné půdy, s tvým nastavením růstu a průměrnými teplotami ročního období (počasí a události se nepočítají).</HardyPlants_CalNote>
+  <HardyPlants_CalNow>Dnes: {0} · venku {1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>dozraje asi za {0} dní</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>Otevřít kalendář setí</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>Obnovit</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>Hledat plodiny…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>dozraje asi za {0} dní (zpomalí ho zima nebo horko)</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>Roste mezi {0} a {1}.</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>Kalendář setí – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>nedozraje do {0} dní</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>Celkem se čeká: {0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>Zima potrvá asi {0} dní.</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>Kalendář setí</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>Co ještě na této mapě dozraje do zimy, a předpověď sklizně pro každou pěstební zónu.</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>Hlídání skleníku</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>Upozornění, když je v zastřešené pěstební zóně nebo místnosti s hydroponií moc zima nebo horko pro to, co tam roste – třeba když selže topení.</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>Sad</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>Mladé stromy v této zóně se nikdy nekácí – ani když pro zónu vybereš jiný strom nebo v ní roste divoký strom. Sklízí se jen plně vzrostlé stromy a políčko se pak normálně znovu osází.</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0}: teplé období je zpět – přepnuto zpět na {1}.</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0}: blíží se zima – přepnuto na {1}.</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>Plánování</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>Zimní střídání plodin</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>Pěstební zóny dostanou tlačítko „Zimní plodina“. Když by zima zastavila letní plodinu, zóna se přepne na zimní plodinu, kterou vybereš, a zpět, až se vrátí teplé období. Na rostliny, které už jsou v půli, se počká.</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>roste od {0}</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>Zimní plodina…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>Vyber mrazuvzdornou plodinu, na kterou se zóna přepne, když přijde zima; na jaře se vrátí letní plodina. Seznam je seřazený podle nejnižší teploty růstu.</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>Zima: {0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>Bez zimní plodiny</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>Sklizeň: dozraje asi za {0} dní, asi {1} {2}.</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>Sklizeň: {0} rostlin zralých – asi {1} {2}.</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>({0} už zralých)</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>Sklizeň: {0} rostlin teď neroste (moc zima, horko nebo tma).</HardyPlants_ZoneStalled>
 </LanguageData>

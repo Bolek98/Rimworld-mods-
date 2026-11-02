@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HardyPlants_Title>Evergrowth – Controle do crescimento das plantas</HardyPlants_Title>
+  <HardyPlants_Temperatures>Temperaturas para plantas resistentes</HardyPlants_Temperatures>
+  <HardyPlants_TemperaturesDesc>Abaixo do mínimo, uma planta para de crescer. Uma planta resistente recebe estes valores apenas onde eles são melhores que os dela.</HardyPlants_TemperaturesDesc>
+  <HardyPlants_MinGrowth>Temperatura mínima de crescimento: {0} (vanilla {1})</HardyPlants_MinGrowth>
+  <HardyPlants_MinOptimal>Crescimento em velocidade total a partir de: {0} (vanilla {1})</HardyPlants_MinOptimal>
+  <HardyPlants_MaxOptimal>Crescimento em velocidade total até: {0} (vanilla {1})</HardyPlants_MaxOptimal>
+  <HardyPlants_MaxGrowth>Temperatura máxima de crescimento: {0} (vanilla {1})</HardyPlants_MaxGrowth>
+  <HardyPlants_Frost>Tolerância à geada: {0} mais frio</HardyPlants_Frost>
+  <HardyPlants_FrostDesc>Plantas vanilla perdem as folhas 10–18 °C abaixo da sua temperatura mínima de crescimento. Plantas resistentes aguentam isto a mais.</HardyPlants_FrostDesc>
+  <HardyPlants_ResetValues>Redefinir temperaturas</HardyPlants_ResetValues>
+  <HardyPlants_Group>Quais plantas:</HardyPlants_Group>
+  <HardyPlants_GroupCold>Plantas selvagens de biomas frios</HardyPlants_GroupCold>
+  <HardyPlants_GroupWild>Todas as plantas selvagens e árvores (padrão)</HardyPlants_GroupWild>
+  <HardyPlants_GroupAll>Todas as plantas, incluindo cultivos</HardyPlants_GroupAll>
+  <HardyPlants_GroupCustom>Minha própria seleção (lista à direita)</HardyPlants_GroupCustom>
+  <HardyPlants_Plants>Plantas resistentes ao frio</HardyPlants_Plants>
+  <HardyPlants_Chosen>{0} plantas selecionadas. Buscar:</HardyPlants_Chosen>
+  <HardyPlants_Growth>Crescimento</HardyPlants_Growth>
+  <HardyPlants_FasterGrowth>Plantas crescem mais rápido</HardyPlants_FasterGrowth>
+  <HardyPlants_FasterGrowthDesc>Cultivos, árvores e plantas selvagens – cada um com sua própria velocidade. Funciona na hora para todas as plantas do mapa, também para as que surgirem depois. Sem reiniciar. Desligado por padrão.</HardyPlants_FasterGrowthDesc>
+  <HardyPlants_GrowthSpeed>Velocidade de crescimento: ×{0}</HardyPlants_GrowthSpeed>
+  <HardyPlants_GrowAllDay>Plantas crescem dia e noite (24/7)</HardyPlants_GrowAllDay>
+  <HardyPlants_GrowAllDayDesc>As plantas não descansam à noite, e plantas a céu aberto também crescem no escuro. Plantas sob um teto ainda precisam de lâmpadas. Desligado por padrão.</HardyPlants_GrowAllDayDesc>
+  <HardyPlants_CropDays>Definir quanto tempo os cultivos levam para crescer</HardyPlants_CropDays>
+  <HardyPlants_TreeDays>Definir quanto tempo as árvores levam para crescer</HardyPlants_TreeDays>
+  <HardyPlants_DaysValue>Cresce em: {0} dias</HardyPlants_DaysValue>
+  <HardyPlants_DaysDesc>Dias a 100 % de taxa de crescimento. As plantas descansam à noite (a menos que 24/7 esteja ligado) e crescem mais devagar com luz, solo ou temperatura ruins, então em um jogo real leva mais tempo. Aplicado ao fechar esta janela – sem reiniciar. Desligado por padrão.</HardyPlants_DaysDesc>
+  <HardyPlants_Presets>Configuração rápida (seção Crescimento):</HardyPlants_Presets>
+  <HardyPlants_PresetVanilla>Vanilla</HardyPlants_PresetVanilla>
+  <HardyPlants_PresetEasy>Agricultura fácil</HardyPlants_PresetEasy>
+  <HardyPlants_PresetLush>Mundo exuberante</HardyPlants_PresetLush>
+  <HardyPlants_SpeedCrops>Cultivos: ×{0}</HardyPlants_SpeedCrops>
+  <HardyPlants_SpeedTrees>Árvores: ×{0}</HardyPlants_SpeedTrees>
+  <HardyPlants_SpeedWild>Plantas selvagens: ×{0}</HardyPlants_SpeedWild>
+  <HardyPlants_Yield>Colheitas maiores</HardyPlants_Yield>
+  <HardyPlants_YieldDesc>Quanto os cultivos e as plantas selvagens rendem na colheita e quanta madeira uma árvore dá. Funciona na hora. Desligado por padrão.</HardyPlants_YieldDesc>
+  <HardyPlants_YieldCrops>Cultivos e plantas selvagens: ×{0}</HardyPlants_YieldCrops>
+  <HardyPlants_YieldWood>Madeira de árvores: ×{0}</HardyPlants_YieldWood>
+  <HardyPlants_Regrow>Plantas selvagens rebrotam mais rápido</HardyPlants_Regrow>
+  <HardyPlants_RegrowDesc>Com que rapidez plantas selvagens e árvores voltam ao mapa após corte, pastagem ou fogo. A densidade de plantas continua seguindo o bioma. Desligado por padrão.</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowValue>Rebrota: ×{0}</HardyPlants_RegrowValue>
+  <HardyPlants_IgnoreSoil>Solo pobre não atrasa o crescimento</HardyPlants_IgnoreSoil>
+  <HardyPlants_IgnoreSoilDesc>Em areia, cascalho e solo pobre as plantas crescem em velocidade total. Solo rico ainda ajuda. Onde nada cresce, nada muda. Desligado por padrão.</HardyPlants_IgnoreSoilDesc>
+  <HardyPlants_NoBlight>Sem praga nas plantações</HardyPlants_NoBlight>
+  <HardyPlants_NoBlightDesc>O evento de praga não acontece mais e a praga não se espalha. Desligado por padrão.</HardyPlants_NoBlightDesc>
+  <HardyPlants_GrowthNote>Velocidade, rendimento, rebrota, solo, praga e 24/7 funcionam na hora; os tempos de crescimento, após fechar esta janela.</HardyPlants_GrowthNote>
+  <MUI_Title>Configurações recomendadas</MUI_Title>
+  <MUI_TitleOff>Configurações recomendadas · desligadas</MUI_TitleOff>
+  <MUI_DescOn>O mod se configura sozinho e funciona na hora. Ideal para novos jogadores e para quem não quer ajustar nada.</MUI_DescOn>
+  <MUI_DescOff>Configurações personalizadas. Alteradas em relação às recomendadas: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Configurações personalizadas. Ainda iguais às recomendadas.</MUI_DescOffSame>
+  <MUI_On>LIGADO</MUI_On>
+  <MUI_Off>DESLIGADO</MUI_Off>
+  <MUI_ResetAll>Redefinir tudo para o recomendado</MUI_ResetAll>
+  <MUI_ConfirmOn>Ativar as configurações recomendadas? Suas alterações ({0}) serão substituídas pelos valores recomendados.</MUI_ConfirmOn>
+  <MUI_Locked>As configurações detalhadas estão bloqueadas. Quer alterá-las? Desligue a chave acima – seus valores partirão dos recomendados.</MUI_Locked>
+  <MUI_Changed>ALTERADO</MUI_Changed>
+  <MUI_ChangedTip>Difere da configuração recomendada ({0}). Clique para restaurar o valor recomendado.</MUI_ChangedTip>
+  <MUI_Yes>ligado</MUI_Yes>
+  <MUI_No>desligado</MUI_No>
+  <MUI_RecTag>RECOMENDADO</MUI_RecTag>
+  <HardyPlants_Profile>PERFIL</HardyPlants_Profile>
+  <HardyPlants_ProfRec>Recomendado</HardyPlants_ProfRec>
+  <HardyPlants_ProfCustom>Personalizado</HardyPlants_ProfCustom>
+  <HardyPlants_PresetVanilla_Card>Crescimento e rendimento como no jogo base.</HardyPlants_PresetVanilla_Card>
+  <HardyPlants_ProfRec_Card>Crescimento mais rápido, colheitas maiores, sem praga, estufas e plantas selvagens sob a neve. Ainda equilibrado.</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>Plantas por toda parte, crescendo rápido dia e noite, em qualquer estação e sem danos por eventos.</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfCustom_Card>Seus próprios valores.</HardyPlants_ProfCustom_Card>
+  <HardyPlants_ProfileHint>Altere qualquer coisa em Crescimento ou Rendimento e o perfil muda para Personalizado. ALTERADO em laranja = difere do recomendado, clique para restaurar.</HardyPlants_ProfileHint>
+  <HardyPlants_SecYield>Rendimento e doenças</HardyPlants_SecYield>
+  <HardyPlants_SecGroup>Quais plantas são resistentes</HardyPlants_SecGroup>
+  <HardyPlants_TabGrowth>Crescimento</HardyPlants_TabGrowth>
+  <HardyPlants_TabYield>Rendimento</HardyPlants_TabYield>
+  <HardyPlants_TabWild>Natureza selvagem</HardyPlants_TabWild>
+  <HardyPlants_TabWinter>Inverno e clima</HardyPlants_TabWinter>
+  <HardyPlants_TabPlants>Plantas resistentes</HardyPlants_TabPlants>
+  <HardyPlants_SecSeason>Estações</HardyPlants_SecSeason>
+  <HardyPlants_AnySeason>Semear e crescer em qualquer estação</HardyPlants_AnySeason>
+  <HardyPlants_AnySeasonDesc>Cultivos podem ser semeados e crescem sempre que a temperatura permitir – sem limite de "estação de cultivo". As plantas ainda precisam de calor para crescer rápido.</HardyPlants_AnySeasonDesc>
+  <HardyPlants_Greenhouse>Estufas</HardyPlants_Greenhouse>
+  <HardyPlants_GreenhouseDesc>Plantas sob um teto construído em um cômodo fechado crescem em velocidade total independentemente da temperatura (a partir de −10 °C), em qualquer estação, e nunca congelam. Use lâmpadas para a luz.</HardyPlants_GreenhouseDesc>
+  <HardyPlants_FruitRepeat>Árvores frutíferas dão frutos novamente</HardyPlants_FruitRepeat>
+  <HardyPlants_FruitRepeatDesc>Colher frutos de uma árvore (de mods) não a derruba – ela produz frutos de novo. Cortá-la para madeira ainda funciona.</HardyPlants_FruitRepeatDesc>
+  <HardyPlants_WildDensity>Natureza selvagem mais densa</HardyPlants_WildDensity>
+  <HardyPlants_WildDensityDesc>Mais (ou menos) plantas selvagens e árvores no mapa do que o bioma normalmente tem.</HardyPlants_WildDensityDesc>
+  <HardyPlants_WildDensityValue>Densidade de plantas selvagens: ×{0}</HardyPlants_WildDensityValue>
+  <HardyPlants_SnowGrowth>Plantas selvagens rebrotam sob a neve</HardyPlants_SnowGrowth>
+  <HardyPlants_SnowGrowthDesc>Normalmente nada novo brota em solo coberto de neve durante todo o inverno. Com isto ligado, plantas selvagens e árvores voltam a crescer sob a neve onde estiver quente o suficiente.</HardyPlants_SnowGrowthDesc>
+  <HardyPlants_SnowMinTemp>Sob a neve a partir de: {0} (vanilla: nunca; sugerido {1})</HardyPlants_SnowMinTemp>
+  <HardyPlants_FewerFires>Menos incêndios florestais</HardyPlants_FewerFires>
+  <HardyPlants_FewerFiresDesc>Grama, arbustos e árvores pegam fogo cerca de três vezes menos facilmente, para que um incêndio não devore a floresta inteira.</HardyPlants_FewerFiresDesc>
+  <HardyPlants_Overview>Natureza selvagem neste mapa</HardyPlants_Overview>
+  <HardyPlants_OverviewNoGame>Carregue um jogo para ver o que cresce no seu mapa.</HardyPlants_OverviewNoGame>
+  <HardyPlants_OverviewDay>Último dia de jogo ({0}):</HardyPlants_OverviewDay>
+  <HardyPlants_OverviewSoFar>Hoje até agora ({0}):</HardyPlants_OverviewSoFar>
+  <HardyPlants_OverviewNums>Tentou crescer {0} plantas selvagens, {1} cresceram ({2} árvores).</HardyPlants_OverviewNums>
+  <HardyPlants_OverviewSnow>A neve impediu {0} de {1} tentativas.</HardyPlants_OverviewSnow>
+  <HardyPlants_OverviewNoneSnow>Nada cresce – provavelmente neve. Ligue "Plantas selvagens rebrotam sob a neve".</HardyPlants_OverviewNoneSnow>
+  <HardyPlants_OverviewNoneCold>Nada cresce – está frio demais ou o solo está cheio. Tente uma temperatura menor em "Sob a neve a partir de".</HardyPlants_OverviewNoneCold>
+  <HardyPlants_SecEvents>Eventos</HardyPlants_SecEvents>
+  <HardyPlants_ImmuneEvents>Plantas ignoram eventos ruins</HardyPlants_ImmuneEvents>
+  <HardyPlants_ImmuneEventsDesc>Seca (também períodos secos de mods), névoa nociva, precipitação tóxica e poluição não atrasam mais as plantas nem as deixam sem folhas. Frio e calor ainda contam.</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>Onde cresce</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>Ocultar mapa de crescimento</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>Mostra no mapa onde {0} cresce: verde – bem, amarelo – mais devagar, vermelho – nada. Passe o mouse numa célula para ver o motivo. Clique direito: outra planta.</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>Onde {0} cresce – verde: bem, amarelo: mais devagar, vermelho: não. Passe o mouse numa célula para ver o motivo.</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>Cresce bem aqui.</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>Cresce mais devagar: {0} agora, ideal entre {1}.</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>Cresce mais devagar: pouca luz sob o teto – coloque uma lâmpada.</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>Cresce mais devagar: solo pobre (fertilidade {0}).</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>Frio demais agora: {0}, cresce entre {1}.</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>Quente demais agora: {0}, cresce entre {1}.</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>Não cresce aqui: solo pobre demais ({0}, precisa de {1}).</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>Precisa de teto (planta de caverna).</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>Escuro demais sob o teto – precisa de lâmpada.</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>Há algo construído aqui.</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>Só em hidroponia ou vaso – não no chão aqui.</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>Adivinhar para plantas de outros mods</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>Plantas de outros mods que nenhum bioma lista, ou que dão madeira sem serem marcadas como árvore, são classificadas pelos próprios valores (tipo, resistência ao frio). Marcadas "auto" na lista.</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>De {0}. O Evergrowth a vê como: {1}, cresce a partir de {2}, {3} dias para crescer.</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>planta silvestre</HardyPlants_Kind0>
+  <HardyPlants_Kind1>árvore</HardyPlants_Kind1>
+  <HardyPlants_Kind2>cultivo</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>Tratada como {0}: dá madeira, mas o mod não a marcou como árvore.</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>Nenhum bioma a lista – adicionada ao grupo de plantas silvestres.</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>Nenhum bioma a lista – adicionada às plantas silvestres e, como cresce no frio, ao grupo de biomas frios.</HardyPlants_AutoAddedCold>
+  <HardyPlants_CropSync>Plantações de uma zona amadurecem juntas</HardyPlants_CropSync>
+  <HardyPlants_CropSyncDesc>Plantações de uma mesma zona semeadas com cerca de um dia de diferença alcançam a mais adiantada, então o campo inteiro fica pronto para colher de uma vez. Uma semeadura posterior não é alterada. Não afeta árvores.</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>Temperatura da estufa</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0}: {1} – frio demais para {2} (precisa de mais de {3})</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>Cultivos internos cujo cômodo está frio ou quente demais para crescer – talvez o aquecimento ou a refrigeração tenha falhado:\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0}: {1} – quente demais para {2} (para de crescer acima de {3})</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>Frio demais para cultivar ao ar livre o ano todo.</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>Frio demais para cultivar ao ar livre agora – quente o bastante de novo em cerca de {0} dias.</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>O que plantar agora</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>nada plantado ainda</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>Próxima geada (abaixo de 0 °C) em cerca de {0} dias.</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>Previsão de colheita</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>não vai amadurecer – o frio o para em {0} dias</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>Carregue um jogo para abrir o calendário de plantio.</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>precisa de {0} d</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>Sem geada nos próximos {0} dias.</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>frio ou quente demais para crescer agora (cresce a partir de {0})</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>Nenhuma zona de cultivo neste mapa.</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>Plantado hoje ao ar livre em solo normal, com suas configurações de crescimento e as temperaturas médias da estação (clima e eventos não contam).</HardyPlants_CalNote>
+  <HardyPlants_CalNow>Hoje: {0} · lá fora {1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>amadurece em cerca de {0} dias</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>Abrir o calendário de plantio</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>Atualizar</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>Buscar cultivos…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>amadurece em cerca de {0} dias (atrasado pelo frio ou calor)</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>Cresce entre {0} e {1}.</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>Calendário de plantio – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>não amadurece em {0} dias</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>Esperado no total: {0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>O frio dura cerca de {0} dias.</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>Calendário de plantio</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>O que ainda pode amadurecer antes do frio neste mapa e uma previsão de colheita para cada zona de cultivo.</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>Vigia da estufa</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>Um alerta quando uma zona de cultivo coberta ou uma sala de hidroponia fica fria ou quente demais para o que cresce ali – por exemplo, quando o aquecimento falha.</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>Pomar</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>Árvores jovens nesta zona nunca são cortadas – nem quando você escolhe outra árvore para a zona ou uma árvore selvagem cresce dentro. Só árvores adultas são colhidas, e a célula é replantada como de costume.</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0}: a estação quente voltou – de volta para {1}.</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0}: o frio está chegando – trocado para {1}.</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>Planejamento</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>Rotação de cultivos de inverno</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>As zonas de cultivo ganham um botão "Cultivo de inverno". Quando o frio pararia o cultivo de verão, a zona troca para o cultivo de inverno escolhido e volta quando a estação quente retorna. Plantas já avançadas são esperadas.</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>cresce a partir de {0}</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>Cultivo de inverno…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>Escolha um cultivo resistente ao frio para o qual esta zona troca quando o frio chega; na primavera ela volta ao cultivo de verão. Lista ordenada pela menor temperatura de crescimento.</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>Inverno: {0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>Sem cultivo de inverno</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>Colheita: amadurece em cerca de {0} dias, cerca de {1} {2}.</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>Colheita: {0} plantas maduras – cerca de {1} {2}.</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>({0} já maduras)</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>Colheita: {0} plantas não estão crescendo agora (frio, calor ou escuro demais).</HardyPlants_ZoneStalled>
+</LanguageData>

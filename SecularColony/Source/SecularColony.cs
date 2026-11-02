@@ -43,6 +43,11 @@ namespace SecularColony
 		public bool keepBuildings;
 		public bool keepApparel;
 		public bool recommended = true;
+		// 1.6.0: colony life without belief
+		public bool ceremonyHelper = true;
+		public bool secularMoods = false;
+		public int slaveryView = 1;   // 0 accepted, 1 neutral, 2 rejected
+		public bool colonySpeaker = false;
 
 		public override void ExposeData()
 		{
@@ -72,6 +77,11 @@ namespace SecularColony
 			Scribe_Values.Look(ref keepBuildings, "keepBuildings", false);
 			Scribe_Values.Look(ref keepApparel, "keepApparel", false);
 			Scribe_Values.Look(ref recommended, "recommended", false);
+			Scribe_Values.Look(ref ceremonyHelper, "ceremonyHelper", true);
+			Scribe_Values.Look(ref secularMoods, "secularMoods", false);
+			Scribe_Values.Look(ref slaveryView, "slaveryView", 1);
+			Scribe_Values.Look(ref colonySpeaker, "colonySpeaker", false);
+			slaveryView = Mathf.Clamp(slaveryView, 0, 2);
 			relationRule = Mathf.Clamp(relationRule, 0, 2);
 			maxPartners = Mathf.Clamp(maxPartners, 2, 8);
 			polyChance = Mathf.Clamp(polyChance, 0f, 3f);
@@ -81,7 +91,7 @@ namespace SecularColony
 
 	public class SecularMod : Mod
 	{
-		public const string Version = "1.5.0";
+		public const string Version = "1.6.0";
 		public static SecularSettings Settings;
 		private Vector2 scroll;
 		private float viewH = 1200f;
@@ -90,6 +100,7 @@ namespace SecularColony
 		public SecularMod(ModContentPack content) : base(content)
 		{
 			Settings = GetSettings<SecularSettings>();
+			MNews.Register(content, SecularMod.Version);   // what's new + Bolek98 overview
 			MUI.Init(new SecularSettings(), null, "recommended");
 			if (Settings.recommended)
 				MUI.ApplyAll(Settings);
@@ -99,6 +110,7 @@ namespace SecularColony
 				MUI.PatchWindow(h, typeof(SecularMod));
 				Patches.Apply(h);
 				SalonPatches.Apply(h);
+				ColonyLife.Apply(h);
 			}
 			catch (Exception ex)
 			{
@@ -198,6 +210,17 @@ namespace SecularColony
 				S.polyChance = Mathf.Round(MUI.Slider(r, "SC_PolyChance".Translate(pct), S.polyChance, 0f, 3f, "SC_PolyChance_Desc".Translate(), S, "polyChance") * 10f) / 10f;
 				Check(r, "SC_PolyNoJealousy", ref S.polyNoJealousy, "polyNoJealousy");
 				Check(r, "SC_PolygamyMood", ref S.polygamyMood, "polygamyMood");
+				// 1.6.0: colony life without belief
+				MUI.Section(r, "SC_H_Colony".Translate());
+				Check(r, "SC_CeremonyHelper", ref S.ceremonyHelper, "ceremonyHelper");
+				Check(r, "SC_SecularMoods", ref S.secularMoods, "secularMoods");
+				Check(r, "SC_ColonySpeaker", ref S.colonySpeaker, "colonySpeaker");
+				r.Label("SC_Slavery".Translate());
+				for (int i = 0; i < 3; i++)
+				{
+					if (r.RadioButton(("SC_Slavery" + i).Translate(), S.slaveryView == i, 0f, ("SC_Slavery" + i + "_Desc").Translate()))
+						S.slaveryView = i;
+				}
 				hR = r.CurHeight;
 				r.End();
 			}
@@ -652,6 +675,15 @@ namespace SecularColony
 
 		private Dictionary<Pawn, int> lookWishes = new Dictionary<Pawn, int>();
 
+		// 1.6.0: the colony speaker (thingIDNumber, 0 = none)
+		public int speakerId;
+
+		public void SetSpeaker(Pawn p)
+		{
+			speakerId = p == null ? 0 : p.thingIDNumber;
+			ColonyLife.SyncSpeaker(this);
+		}
+
 		private List<Pawn> tmpWishPawns;
 
 		private List<int> tmpWishTicks;
@@ -672,6 +704,7 @@ namespace SecularColony
 				lookWishes.RemoveAll(kv => kv.Key == null || kv.Key.Destroyed);
 			}
 			Scribe_Collections.Look(ref lookWishes, "lookWishes", LookMode.Reference, LookMode.Value, ref tmpWishPawns, ref tmpWishTicks);
+			Scribe_Values.Look(ref speakerId, "speakerId", 0);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				if (lookWishes == null)
@@ -709,6 +742,19 @@ namespace SecularColony
 				catch (Exception ex)
 				{
 					Log.Warning("[Secular Colony] look change check failed: " + ex.Message);
+				}
+			}
+			// 1.6.0: colony speaker and ceremony reminders
+			if (Find.TickManager.TicksGame % 2500 == 600)
+			{
+				try
+				{
+					ColonyLife.SyncSpeaker(this);
+					ColonyLife.CheckExpiry();
+				}
+				catch (Exception ex)
+				{
+					Log.Warning("[Secular Colony] colony life check failed: " + ex.Message);
 				}
 			}
 			if (!cleanupRequested && Find.TickManager.TicksGame % 2500 != 0)

@@ -3,7 +3,7 @@
   <name>Universal RimTranslator – Auto-Translate All Your Mods</name>
   <author>Bolek98</author>
   <packageId>misak.universalrimtranslator</packageId>
-  <modVersion>1.0.0</modVersion>
+  <modVersion>1.1.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -55,10 +55,10 @@ YOUR CONTROL
 
 FAST
 - Everything is remembered – each text is translated only once.
-- The scan of all texts is cached and runs in the background; no long wait at start.
+- The text scan runs in the background; no long wait at start.
 
-Note: machine translation sends the texts of your mods to the chosen online services. Your keys stay in your settings and are never shown in the log.
-Found a bug? Write to me in the comments, or use the "Report a bug" button (bottom left in the mod settings) – a short report for a Workshop comment, a full one for GitHub Issues. Would you like something added? Just say so and I'll think it over.
+Note: the chosen online services receive your mods' texts. Your keys are never shown in the log.
+Found a bug? Write in the comments or use the "Report a bug" button (bottom left in the mod settings).
 
 —————————————————————
 ČESKY
@@ -86,15 +86,27 @@ MÁŠ TO POD KONTROLOU
 
 RYCHLÝ
 - Vše se pamatuje – každý text se překládá jen jednou.
-- Prohledání textů se ukládá a běží na pozadí; žádné dlouhé čekání při startu.
+- Prohledání textů běží na pozadí; žádné čekání při startu.
 
-Pozor: strojový překlad posílá texty tvých modů zvoleným online službám. Tvoje klíče zůstávají v nastavení a v logu se nikdy neukazují.
-Našli jste chybu? Napište mi do komentářů, nebo použijte tlačítko „Nahlásit chybu“ (vlevo dole v nastavení modu) – krátké hlášení do komentáře na Workshopu, celé na GitHub Issues. Chtěli byste něco přidat? Stačí říct a promyslím to.
+Pozor: zvolené online služby dostávají texty tvých modů. Tvoje klíče se v logu nikdy neukazují.
+Našli jste chybu? Napište do komentářů nebo použijte tlačítko „Nahlásit chybu“ (vlevo dole v nastavení modu).
 
 ═══════════════════════
 IDEAS AND SUGGESTIONS
 Want something changed or added? Write it in the comments – I read every idea and take it into account.
 
+WHAT'S NEW IN 1.1.0
+- Translates more: if a service answers in English, the next one tries
+- Chinese, Japanese and Korean translations are no longer rejected as "too short"
+- Mod item bills, blueprints and meat fully translated; no more "ERR" settlements
+- Up to three services translate at once
+
 NÁPADY A NÁVRHY
-Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.</description>
+Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
+
+CO JE NOVÉHO VE VERZI 1.1.0
+- Překládá víc: když služba odpoví anglicky, zkusí to další
+- Čínské, japonské a korejské překlady už nejsou odmítány jako „moc krátké“
+- Zakázky, plány a maso z modových věcí plně přeložené; žádné osady „ERR“
+- Až tři služby překládají najednou</description>
 </ModMetaData>

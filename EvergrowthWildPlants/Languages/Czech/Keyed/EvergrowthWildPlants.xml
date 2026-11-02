@@ -107,4 +107,57 @@
   <EWP_Unlock>Odemknout úpravy</EWP_Unlock>
   <EWP_ShowAll>Všechny rostliny ({0})</EWP_ShowAll>
   <EWP_ShowAllTip>Ukáže všechny rostliny ze hry, DLC i modů, i ty, které tu normálně nerostou. Stačí posunout posuvník nad 0 a rostlina tu začne růst.</EWP_ShowAllTip>
+  <!-- 1.2.0 extras -->
+  <EWP_TabExtras>Navíc</EWP_TabExtras>
+  <EWP_SecForage>Plody a byliny</EWP_SecForage>
+  <EWP_ForageIntro>Divoké rostliny, které při sklizni dávají jídlo nebo lék (nalezeno {0}, např. {1}).</EWP_ForageIntro>
+  <EWP_ForageCommon>Jak často: x{0}</EWP_ForageCommon>
+  <EWP_ForageCommonTip>Jak často se mezi divokými rostlinami každého biomu objevují bobule, agáve, divoký léčivý kořen a podobné rostliny (i z modů). 1 = podle seznamu biomu, 0 = nikdy.</EWP_ForageCommonTip>
+  <EWP_ForageRegrow>Dorůstání po sklizni: x{0}</EWP_ForageRegrow>
+  <EWP_ForageRegrowTip>Jak rychle divoké plody a byliny dorostou po sklizni nebo spasení. Zaseté rostliny v tvých zónách se nemění.</EWP_ForageRegrowTip>
+  <EWP_SecGrass>Tráva na pastvinách</EWP_SecGrass>
+  <EWP_GrassIntro>Tráva a další rostliny, které zvířata spásají (nalezeno {0}).</EWP_GrassIntro>
+  <EWP_GrassRegrow>Dorůstání trávy: x{0}</EWP_GrassRegrow>
+  <EWP_GrassRegrowTip>Jak rychle spasená tráva doroste – zvířata v ohradách vydrží déle nasycená.</EWP_GrassRegrowTip>
+  <EWP_GrassPens>Jen v ohradách pro zvířata</EWP_GrassPens>
+  <EWP_GrassPensTip>Rychlost trávy platí jen v uzavřených ohradách; tráva na zbytku mapy roste normálně.</EWP_GrassPensTip>
+  <EWP_SecProtect>Chráněné rostliny</EWP_SecProtect>
+  <EWP_ProtectIntro>Divoké rostliny těchto druhů se nikdy nepokácí, když táhneš příkaz kácení nebo sekání přes oblast, oséváš zónu nebo přes ně stavíš. Když jednu rostlinu označíš ke kácení samostatně, pokácí se.</EWP_ProtectIntro>
+  <EWP_ProtectAdd>Přidat rostlinu…</EWP_ProtectAdd>
+  <EWP_ProtectClear>Odebrat všechny</EWP_ProtectClear>
+  <EWP_ProtectNone>Zatím žádné chráněné rostliny.</EWP_ProtectNone>
+  <EWP_ProtectedSkip>{0} je chráněná (Evergrowth – Wild Plants). Klikni jen na ni, pokud ji chceš pokácet.</EWP_ProtectedSkip>
+  <EWP_Presets>Předvolby…</EWP_Presets>
+  <EWP_PresetsTip>Změní všechny biomy najednou: hustší a rychlejší, řidší a pomalejší, nebo zpět na hodnoty hry.</EWP_PresetsTip>
+  <EWP_Preset0>Vanilla</EWP_Preset0>
+  <EWP_Preset1>Hustý prales</EWP_Preset1>
+  <EWP_Preset2>Řídká step</EWP_Preset2>
+  <EWP_PresetConfirm>Použít předvolbu „{0}“ na všechny biomy? Tvoje vlastní hodnoty hustoty a dorůstání se přepíšou.</EWP_PresetConfirm>
+  <EWP_PresetDone>Předvolba „{0}“ použita na všechny biomy.</EWP_PresetDone>
+  <EWP_Share>Sdílet kód…</EWP_Share>
+  <EWP_ShareTip>Zkopíruj celé nastavení tohoto modu jako jeden textový kód, nebo vlož kód od kamaráda.</EWP_ShareTip>
+  <EWP_ShareCopy>Zkopírovat moje nastavení jako kód</EWP_ShareCopy>
+  <EWP_ShareCopied>Kód je ve schránce.</EWP_ShareCopied>
+  <EWP_SharePaste>Vložit kód ze schránky</EWP_SharePaste>
+  <EWP_SharePasteConfirm>Nahradit celé nastavení tohoto modu kódem ze schránky?</EWP_SharePasteConfirm>
+  <EWP_ShareBad>Ve schránce není kód z Evergrowth – Wild Plants.</EWP_ShareBad>
+  <EWP_ShareRead>Nastavení načteno z kódu ({0} hodnot).</EWP_ShareRead>
+  <EWP_WG_Button>Kde tu roste rostlina?</EWP_WG_Button>
+  <EWP_WG_ButtonTip>Vyber divokou rostlinu: mapa ukáže, kde roste dobře (zeleně), pomaleji nebo teď ne (žlutě) a vůbec (červeně), s důvodem pod myší.</EWP_WG_ButtonTip>
+  <EWP_WG_AnyPlant>Jiná rostlina…</EWP_WG_AnyPlant>
+  <EWP_WG_Showing>Kde roste {0}</EWP_WG_Showing>
+  <EWP_WG_InBiome>Je v seznamu tohoto biomu – objeví se sama.</EWP_WG_InBiome>
+  <EWP_WG_NotInBiome>Není v seznamu tohoto biomu – sama se tu neobjeví.</EWP_WG_NotInBiome>
+  <EWP_WG_Other>Jiná rostlina</EWP_WG_Other>
+  <EWP_WG_Close>Zavřít</EWP_WG_Close>
+  <EWP_WG_NeedsRoof>Potřebuje přírodní skalní strop (jeskynní rostlina).</EWP_WG_NeedsRoof>
+  <EWP_WG_BuiltRoof>Pod postavenou střechou – divoké rostliny tu nerostou.</EWP_WG_BuiltRoof>
+  <EWP_WG_Built>Zastavěno.</EWP_WG_Built>
+  <EWP_WG_Terrain>{0} tuto rostlinu neunese.</EWP_WG_Terrain>
+  <EWP_WG_Soil>Příliš chudá půda: úrodnost {0}, potřebuje {1}.</EWP_WG_Soil>
+  <EWP_WG_Dark>Pod střechou je moc tma.</EWP_WG_Dark>
+  <EWP_WG_Cold>Teď je moc zima ({0}) – poroste v teplejším období.</EWP_WG_Cold>
+  <EWP_WG_Hot>Teď je moc horko ({0}).</EWP_WG_Hot>
+  <EWP_WG_Slow>Roste pomaleji: {0} (půda {1}, světlo {2}, teplota {3}).</EWP_WG_Slow>
+  <EWP_WG_Good>Roste dobře ({0}).</EWP_WG_Good>
 </LanguageData>

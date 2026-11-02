@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HardyPlants_Title>Evergrowth – керування ростом рослин</HardyPlants_Title>
+  <HardyPlants_Temperatures>Температури для витривалих рослин</HardyPlants_Temperatures>
+  <HardyPlants_TemperaturesDesc>Нижче мінімуму рослина перестає рости. Витривала рослина отримує ці значення лише там, де вони кращі за її власні.</HardyPlants_TemperaturesDesc>
+  <HardyPlants_MinGrowth>Мінімальна температура росту: {0} (в оригіналі {1})</HardyPlants_MinGrowth>
+  <HardyPlants_MinOptimal>Повна швидкість росту від: {0} (в оригіналі {1})</HardyPlants_MinOptimal>
+  <HardyPlants_MaxOptimal>Повна швидкість росту до: {0} (в оригіналі {1})</HardyPlants_MaxOptimal>
+  <HardyPlants_MaxGrowth>Максимальна температура росту: {0} (в оригіналі {1})</HardyPlants_MaxGrowth>
+  <HardyPlants_Frost>Морозостійкість: на {0} холодніше</HardyPlants_Frost>
+  <HardyPlants_FrostDesc>Звичайні рослини втрачають листя на 10–18 °C нижче своєї мінімальної температури росту. Витривалі рослини витримують настільки більше.</HardyPlants_FrostDesc>
+  <HardyPlants_ResetValues>Скинути температури</HardyPlants_ResetValues>
+  <HardyPlants_Group>Які рослини:</HardyPlants_Group>
+  <HardyPlants_GroupCold>Дикі рослини холодних біомів</HardyPlants_GroupCold>
+  <HardyPlants_GroupWild>Усі дикі рослини й дерева (за замовчуванням)</HardyPlants_GroupWild>
+  <HardyPlants_GroupAll>Усі рослини, включно з культурами</HardyPlants_GroupAll>
+  <HardyPlants_GroupCustom>Мій власний вибір (список праворуч)</HardyPlants_GroupCustom>
+  <HardyPlants_Plants>Холодостійкі рослини</HardyPlants_Plants>
+  <HardyPlants_Chosen>Вибрано рослин: {0}. Пошук:</HardyPlants_Chosen>
+  <HardyPlants_Growth>Ріст</HardyPlants_Growth>
+  <HardyPlants_FasterGrowth>Рослини ростуть швидше</HardyPlants_FasterGrowth>
+  <HardyPlants_FasterGrowthDesc>Культури, дерева й дикі рослини – кожні з власною швидкістю. Діє одразу на всі рослини на мапі, зокрема ті, що з'являться пізніше. Без перезапуску. За замовчуванням вимк.</HardyPlants_FasterGrowthDesc>
+  <HardyPlants_GrowthSpeed>Швидкість росту: ×{0}</HardyPlants_GrowthSpeed>
+  <HardyPlants_GrowAllDay>Рослини ростуть удень і вночі (24/7)</HardyPlants_GrowAllDay>
+  <HardyPlants_GrowAllDayDesc>Рослини не відпочивають уночі, а рослини просто неба ростуть і в темряві. Рослинам під дахом і далі потрібні лампи. За замовчуванням вимк.</HardyPlants_GrowAllDayDesc>
+  <HardyPlants_CropDays>Задати час росту культур</HardyPlants_CropDays>
+  <HardyPlants_TreeDays>Задати час росту дерев</HardyPlants_TreeDays>
+  <HardyPlants_DaysValue>Виростає за: {0} дн.</HardyPlants_DaysValue>
+  <HardyPlants_DaysDesc>Дні за швидкості росту 100 %. Рослини відпочивають уночі (якщо не ввімкнено 24/7) і ростуть повільніше за поганого світла, ґрунту чи температури, тож у справжній грі це довше. Застосовується після закриття цього вікна – без перезапуску. За замовчуванням вимк.</HardyPlants_DaysDesc>
+  <HardyPlants_Presets>Швидке налаштування (розділ «Ріст»):</HardyPlants_Presets>
+  <HardyPlants_PresetVanilla>Оригінал</HardyPlants_PresetVanilla>
+  <HardyPlants_PresetEasy>Легке землеробство</HardyPlants_PresetEasy>
+  <HardyPlants_PresetLush>Пишний світ</HardyPlants_PresetLush>
+  <HardyPlants_SpeedCrops>Культури: ×{0}</HardyPlants_SpeedCrops>
+  <HardyPlants_SpeedTrees>Дерева: ×{0}</HardyPlants_SpeedTrees>
+  <HardyPlants_SpeedWild>Дикі рослини: ×{0}</HardyPlants_SpeedWild>
+  <HardyPlants_Yield>Більший урожай</HardyPlants_Yield>
+  <HardyPlants_YieldDesc>Скільки дають культури й дикі рослини під час збору і скільки деревини дає дерево. Діє одразу. За замовчуванням вимк.</HardyPlants_YieldDesc>
+  <HardyPlants_YieldCrops>Культури й дикі рослини: ×{0}</HardyPlants_YieldCrops>
+  <HardyPlants_YieldWood>Деревина з дерев: ×{0}</HardyPlants_YieldWood>
+  <HardyPlants_Regrow>Дикі рослини відростають швидше</HardyPlants_Regrow>
+  <HardyPlants_RegrowDesc>Як швидко дикі рослини й дерева повертаються на мапу після вирубки, випасу чи пожежі. Щільність рослин і далі залежить від біому. За замовчуванням вимк.</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowValue>Відростання: ×{0}</HardyPlants_RegrowValue>
+  <HardyPlants_IgnoreSoil>Бідний ґрунт не сповільнює ріст</HardyPlants_IgnoreSoil>
+  <HardyPlants_IgnoreSoilDesc>На піску, гравії та бідному ґрунті рослини ростуть з повною швидкістю. Родючий ґрунт однаково допомагає. Де нічого не росте, нічого не змінюється. За замовчуванням вимк.</HardyPlants_IgnoreSoilDesc>
+  <HardyPlants_NoBlight>Без хвороби рослин</HardyPlants_NoBlight>
+  <HardyPlants_NoBlightDesc>Подія «хвороба рослин» більше не стається, і хвороба не поширюється. За замовчуванням вимк.</HardyPlants_NoBlightDesc>
+  <HardyPlants_GrowthNote>Швидкість, урожай, відростання, ґрунт, хвороба й 24/7 діють одразу, час росту – після закриття цього вікна.</HardyPlants_GrowthNote>
+  <MUI_Title>Рекомендовані налаштування</MUI_Title>
+  <MUI_TitleOff>Рекомендовані налаштування · вимк.</MUI_TitleOff>
+  <MUI_DescOn>Мод налаштовується сам і одразу працює. Ідеально для новачків і всіх, хто не хоче нічого налаштовувати.</MUI_DescOn>
+  <MUI_DescOff>Власні налаштування. Змінено порівняно з рекомендованими: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Власні налаштування. Поки збігаються з рекомендованими.</MUI_DescOffSame>
+  <MUI_On>УВІМК.</MUI_On>
+  <MUI_Off>ВИМК.</MUI_Off>
+  <MUI_ResetAll>Скинути все до рекомендованих</MUI_ResetAll>
+  <MUI_ConfirmOn>Увімкнути рекомендовані налаштування? Ваші зміни ({0}) буде замінено рекомендованими значеннями.</MUI_ConfirmOn>
+  <MUI_Locked>Детальні налаштування заблоковано. Хочете їх змінити? Вимкніть перемикач вище – ваші значення почнуться з рекомендованих.</MUI_Locked>
+  <MUI_Changed>ЗМІНЕНО</MUI_Changed>
+  <MUI_ChangedTip>Відрізняється від рекомендованого значення ({0}). Натисніть, щоб відновити рекомендоване значення.</MUI_ChangedTip>
+  <MUI_Yes>увімк.</MUI_Yes>
+  <MUI_No>вимк.</MUI_No>
+  <MUI_RecTag>РЕКОМЕНДОВАНО</MUI_RecTag>
+  <HardyPlants_Profile>ПРОФІЛЬ</HardyPlants_Profile>
+  <HardyPlants_ProfRec>Рекомендований</HardyPlants_ProfRec>
+  <HardyPlants_ProfCustom>Власний</HardyPlants_ProfCustom>
+  <HardyPlants_PresetVanilla_Card>Ріст і врожай як у базовій грі.</HardyPlants_PresetVanilla_Card>
+  <HardyPlants_ProfRec_Card>Швидший ріст, більший урожай, без хвороби рослин, теплиці та дикі рослини під снігом. Усе ще чесно.</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>Рослини всюди, ростуть швидко вдень і вночі, будь-якої пори року й не страждають від подій.</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfCustom_Card>Ваші власні значення.</HardyPlants_ProfCustom_Card>
+  <HardyPlants_ProfileHint>Змініть будь-що в «Рості» чи «Урожаї», і профіль перемкнеться на «Власний». Помаранчеве ЗМІНЕНО = відрізняється від рекомендованого, натисніть, щоб відновити.</HardyPlants_ProfileHint>
+  <HardyPlants_SecYield>Урожай і хвороби</HardyPlants_SecYield>
+  <HardyPlants_SecGroup>Які рослини витривалі</HardyPlants_SecGroup>
+  <HardyPlants_TabGrowth>Ріст</HardyPlants_TabGrowth>
+  <HardyPlants_TabYield>Урожай</HardyPlants_TabYield>
+  <HardyPlants_TabWild>Дика природа</HardyPlants_TabWild>
+  <HardyPlants_TabWinter>Зима й погода</HardyPlants_TabWinter>
+  <HardyPlants_TabPlants>Витривалі рослини</HardyPlants_TabPlants>
+  <HardyPlants_SecSeason>Пори року</HardyPlants_SecSeason>
+  <HardyPlants_AnySeason>Сіяти й вирощувати будь-якої пори року</HardyPlants_AnySeason>
+  <HardyPlants_AnySeasonDesc>Культури можна сіяти й вирощувати, коли дозволяє температура, – без обмеження «сезону росту». Для швидкого росту рослинам однаково потрібне тепло.</HardyPlants_AnySeasonDesc>
+  <HardyPlants_Greenhouse>Теплиці</HardyPlants_Greenhouse>
+  <HardyPlants_GreenhouseDesc>Рослини під збудованим дахом у закритій кімнаті ростуть з повною швидкістю за будь-якої температури (від −10 °C), будь-якої пори року й ніколи не замерзають. Для світла використовуйте лампи.</HardyPlants_GreenhouseDesc>
+  <HardyPlants_FruitRepeat>Фруктові дерева плодоносять знову</HardyPlants_FruitRepeat>
+  <HardyPlants_FruitRepeatDesc>Збір плодів з дерева (з модів) не зрубує його – плоди виростають знову. Рубати його на деревину й далі можна.</HardyPlants_FruitRepeatDesc>
+  <HardyPlants_WildDensity>Густіша дика природа</HardyPlants_WildDensity>
+  <HardyPlants_WildDensityDesc>Більше (або менше) диких рослин і дерев на мапі, ніж зазвичай має біом.</HardyPlants_WildDensityDesc>
+  <HardyPlants_WildDensityValue>Щільність диких рослин: ×{0}</HardyPlants_WildDensityValue>
+  <HardyPlants_SnowGrowth>Дикі рослини відростають під снігом</HardyPlants_SnowGrowth>
+  <HardyPlants_SnowGrowthDesc>Зазвичай на вкритій снігом землі всю зиму нічого нового не проростає. З цією опцією дикі рослини й дерева повертаються під снігом там, де досить тепло.</HardyPlants_SnowGrowthDesc>
+  <HardyPlants_SnowMinTemp>Під снігом від: {0} (в оригіналі: ніколи; рекомендовано {1})</HardyPlants_SnowMinTemp>
+  <HardyPlants_FewerFires>Менше лісових пожеж</HardyPlants_FewerFires>
+  <HardyPlants_FewerFiresDesc>Трава, кущі й дерева займаються приблизно втричі рідше, тож пожежа не з'їдає весь ліс.</HardyPlants_FewerFiresDesc>
+  <HardyPlants_Overview>Дика природа на цій мапі</HardyPlants_Overview>
+  <HardyPlants_OverviewNoGame>Завантажте гру, щоб побачити, що росте на вашій мапі.</HardyPlants_OverviewNoGame>
+  <HardyPlants_OverviewDay>Останній ігровий день ({0}):</HardyPlants_OverviewDay>
+  <HardyPlants_OverviewSoFar>Сьогодні наразі ({0}):</HardyPlants_OverviewSoFar>
+  <HardyPlants_OverviewNums>Спроб виростити дикі рослини: {0}, виросло {1} (дерев: {2}).</HardyPlants_OverviewNums>
+  <HardyPlants_OverviewSnow>Сніг зупинив {0} з {1} спроб.</HardyPlants_OverviewSnow>
+  <HardyPlants_OverviewNoneSnow>Нічого не росте – імовірно, через сніг. Увімкніть «Дикі рослини відростають під снігом».</HardyPlants_OverviewNoneSnow>
+  <HardyPlants_OverviewNoneCold>Нічого не росте – надто холодно або земля заповнена. Спробуйте нижчу температуру «Під снігом від».</HardyPlants_OverviewNoneCold>
+  <HardyPlants_SecEvents>Події</HardyPlants_SecEvents>
+  <HardyPlants_ImmuneEvents>Рослини ігнорують погані події</HardyPlants_ImmuneEvents>
+  <HardyPlants_ImmuneEventsDesc>Посуха (а також посушливі періоди з модів), отруйний серпанок, токсичні опади й забруднення більше не сповільнюють рослини й не позбавляють їх листя. Холод і спека й далі враховуються.</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>Де росте</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>Сховати карту росту</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>Показує на карті, де росте {0}: зелений – добре, жовтий – повільніше, червоний – зовсім ні. Наведи на клітинку, щоб побачити причину. Правий клік: інша рослина.</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>Де росте {0} – зелений: добре, жовтий: повільніше, червоний: ні. Наведи на клітинку, щоб побачити причину.</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>Тут росте добре.</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>Росте повільніше: зараз {0}, найкраще {1}.</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>Росте повільніше: мало світла під дахом – постав лампу.</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>Росте повільніше: бідний ґрунт (родючість {0}).</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>Зараз надто холодно: {0}, росте при {1}.</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>Зараз надто жарко: {0}, росте при {1}.</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>Тут не росте: надто бідний ґрунт ({0}, потрібно {1}).</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>Потрібен дах (печерна рослина).</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>Під дахом надто темно – потрібна лампа.</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>Тут щось збудовано.</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>Лише в гідропоніці чи вазоні – тут не в землю.</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>Вгадувати для рослин з інших модів</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>Рослини з інших модів, яких немає в жодному біомі або які дають деревину, не будучи позначеними як дерева, розподіляються за власними значеннями (тип, морозостійкість). У списку позначені «auto».</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>З {0}. Evergrowth вважає її: {1}, росте від {2}, росте {3} дн.</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>дика рослина</HardyPlants_Kind0>
+  <HardyPlants_Kind1>дерево</HardyPlants_Kind1>
+  <HardyPlants_Kind2>культура</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>Вважається {0}: дає деревину, але мод не позначив її як дерево.</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>Жоден біом її не містить – додано до групи диких рослин.</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>Жоден біом її не містить – додано до диких рослин і, оскільки росте в холоді, до групи холодних біомів.</HardyPlants_AutoAddedCold>
+  <HardyPlants_CropSync>Посіви в зоні дозрівають разом</HardyPlants_CropSync>
+  <HardyPlants_CropSyncDesc>Рослини в одній зоні вирощування, посіяні приблизно протягом одного дня, наздоганяють найшвидшу, тож усе поле готове до збору одночасно. Пізніший посів не змінюється. На дерева не діє.</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>Температура в теплиці</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0}: {1} – надто холодно для {2} (потрібно вище {3})</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>Культури в приміщеннях, де надто холодно або спекотно для росту – можливо, відмовило опалення чи охолодження:\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0}: {1} – надто спекотно для {2} (не росте вище {3})</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>Надворі цілий рік надто холодно для росту.</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>Зараз надворі надто холодно для росту – знову тепло приблизно через {0} дн.</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>Що сіяти зараз</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>ще нічого не посаджено</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>Наступний мороз (нижче 0 °C) приблизно через {0} дн.</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>Прогноз урожаю</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>не достигне – холод зупинить через {0} дн.</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>Завантажте гру, щоб відкрити календар посіву.</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>потрібно {0} дн.</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>Морозів у найближчі {0} дн. немає.</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>зараз надто холодно або спекотно для росту (росте від {0})</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>На цій мапі немає зон вирощування.</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>Посіяно сьогодні надворі у звичайний ґрунт, з вашими налаштуваннями росту й середніми температурами сезону (погода та події не враховуються).</HardyPlants_CalNote>
+  <HardyPlants_CalNow>Сьогодні: {0} · надворі {1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>достигне приблизно через {0} дн.</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>Відкрити календар посіву</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>Оновити</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>Пошук культур…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>достигне приблизно через {0} дн. (сповільнено холодом чи спекою)</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>Росте від {0} до {1}.</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>Календар посіву – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>не достигає за {0} дн.</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>Усього очікується: {0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>Холод триватиме близько {0} дн.</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>Календар посіву</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>Що ще встигне достигнути до холодів на цій мапі та прогноз урожаю для кожної зони вирощування.</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>Нагляд за теплицею</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>Попередження, коли в критій зоні вирощування чи кімнаті з гідропонікою стає надто холодно або спекотно для того, що там росте – наприклад, коли відмовляє опалення.</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>Сад</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>Молоді дерева в цій зоні ніколи не рубають – навіть якщо обрати для зони інше дерево або всередині росте дике дерево. Збирають лише дорослі дерева, потім клітинку засаджують як зазвичай.</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0}: повернувся теплий сезон – знову {1}.</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0}: наближаються холоди – перемкнено на {1}.</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>Планування</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>Зимова сівозміна</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>Зони вирощування отримують кнопку «Зимова культура». Коли холод зупинив би літню культуру, зона перемикається на обрану зимову й назад, коли повертається теплий сезон. На майже достиглі рослини чекають.</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>росте від {0}</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>Зимова культура…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>Оберіть холодостійку культуру, на яку перемкнеться зона з приходом холоду; навесні повернеться літня. Список за найнижчою температурою росту.</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>Зима: {0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>Без зимової культури</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>Урожай: достигне приблизно через {0} дн., близько {1} {2}.</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>Урожай: {0} рослин достигло – близько {1} {2}.</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>({0} вже достигли)</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>Урожай: {0} рослин зараз не ростуть (надто холодно, спекотно чи темно).</HardyPlants_ZoneStalled>
+</LanguageData>

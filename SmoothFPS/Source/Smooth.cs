@@ -230,6 +230,16 @@ namespace GraphicsTuner
                     budgetMs = Math.Max(budgetMs, Math.Min(due * avg + 1f, 30f));
                     maxTicks = Math.Max(maxTicks, Math.Min(Mathf.Ceil(due), Mathf.Ceil(mult * 60f / Math.Max(20f, Math.Min(fps, want)) * 2f)));
                 }
+                // 1.6.2: speed 3 and 4 never run slower than speed 2. Since 1.6.7 speed 2 may spend up to
+                // 30 ms of a frame on ticks, while speed 3 and 4 only got the time of drawing (often 10–15 ms) –
+                // in a heavy colony speed 2 was faster than speed 4. Now they get at least the same time.
+                else if (mult > 3.01f && !background && !turbo)
+                {
+                    float avg = Math.Max(0.05f, rawAvg(tm).GetAverage());
+                    float due = rt / perTick;
+                    budgetMs = Math.Max(budgetMs, Math.Min(due * avg + 1f, 30f));
+                    maxTicks = Math.Max(maxTicks, Mathf.Ceil(mult * 60f / Math.Max(20f, Math.Min(fps, want)) * 2f));
+                }
 
                 Stopwatch c = clock(tm);
                 c.Reset();

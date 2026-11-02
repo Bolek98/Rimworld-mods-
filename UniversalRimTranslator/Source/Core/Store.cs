@@ -34,6 +34,7 @@ namespace Urt2
     public sealed class Store
     {
         public readonly string Target;     // ISO code
+        public int Rechecked;              // 1.1.1: stored translations accepted again by the fixed check
         private readonly string folder;
         private readonly Dictionary<string, Rec> map = new Dictionary<string, Rec>(StringComparer.Ordinal);
         private readonly object gate = new object();
@@ -212,6 +213,27 @@ namespace Urt2
             return n;
         }
 
+        // 1.1.0: machine translations that are still English (the first service gave the text back)
+        // go back into the queue – now the other services get a chance too. Returns how many.
+        public int FlagStillEnglish(Func<string, string, bool> stillEnglish)
+        {
+            var hit = new List<KeyValuePair<string, Rec>>();
+            lock (gate)
+                foreach (var kv in map)
+                {
+                    Rec r = kv.Value;
+                    if (r == null || r.Manual || r.Verdict != Verdict.Ok || string.IsNullOrEmpty(r.Text) || (r.Flags & RecFlags.Retranslate) != 0) continue;
+                    bool bad;
+                    try { bad = stillEnglish(kv.Key, r.Text); } catch { bad = false; }
+                    if (!bad) continue;
+                    r.Flags |= RecFlags.Retranslate;
+                    hit.Add(kv);
+                }
+            foreach (var kv in hit) Append(kv.Key, kv.Value);
+            if (hit.Count > 0) Version++;
+            return hit.Count;
+        }
+
         // texts that need a (new) machine translation
         public bool NeedsTranslation(string source)
         {
@@ -235,6 +257,8 @@ namespace Urt2
                     journalCount = ReadFile(JournalPath, journal: true);
                 Version++;
             }
+            if (Rechecked > 0)
+                Log(Rechecked + " translations rejected by the old length/script check are accepted now");
         }
 
         private int ReadFile(string path, bool journal)
@@ -268,6 +292,17 @@ namespace Urt2
                                 Verdict = (Verdict)br.ReadByte(),
                                 Time = br.ReadInt64()
                             };
+                            // 1.1.1: translations rejected only by the old length/script check get checked again
+                            // (the check was too strict for Chinese, Japanese and Korean)
+                            if (!r.Manual && r.Auto != null && (r.Verdict == Verdict.OddLength || r.Verdict == Verdict.WrongScript || r.Verdict == Verdict.Untranslated))
+                            {
+                                try
+                                {
+                                    Verdict v2 = Validate.Check(k, r.Auto, Target);
+                                    if (v2 == Verdict.Ok) { r.Verdict = Verdict.Ok; if (string.IsNullOrEmpty(r.Text)) r.Text = r.Auto; Rechecked++; }
+                                }
+                                catch { }
+                            }
                             map[k] = r;
                             n++;
                         }

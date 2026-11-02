@@ -1,3 +1,48 @@
+=== Workshop release 1.9.0 (2 Nov 2026) ===
+1.9.0
+New
+- Sowing calendar: what still ripens before the cold on this map (green / yellow / red), with days needed under your settings, plus a harvest forecast for every grow zone (also in the zone's info).
+- Winter crop rotation (optional): a zone switches to a cold-hardy crop you choose when the cold comes, and back in spring.
+- Greenhouse watch: an alert when a roofed grow zone or hydroponics room gets too cold or hot for its crop (e.g. failed heating).
+- Orchard zones: young trees in the zone are never cut by sowing; only fully grown trees are harvested.
+- "Where it grows": a button on every grow zone, hydroponics basin and planter shows on the map where that plant grows – green well, yellow slower, red not at all – with the reason under the mouse (too cold or hot, poor soil, too dark, needs a roof …). Right-click the button to check another plant.
+- Crop growth sync (optional, off): crops in one grow zone sown within about a day of each other ripen together.
+- Plants from other mods: wild plants no biome lists join the hardy plant groups, and plants that give wood count as trees. Marked "auto" in the Plants tab; one switch turns it off.
+- "Report a bug" and "Bolek98's mods" buttons in the settings.
+
+Fixes
+- Plants from other mods with a missing icon (red square) show the picture they use on the map; plants with no picture at all are named in the log with their mod.
+
+Nové
+- Kalendář setí: co na této mapě ještě dozraje do zimy (zeleně / žlutě / červeně) a kolik dní potřebuje při tvém nastavení, plus předpověď sklizně pro každou pěstební zónu (i v informacích o zóně).
+- Zimní střídání plodin (volitelné): zóna se s příchodem zimy přepne na mrazuvzdornou plodinu, kterou vybereš, a na jaře zpět.
+- Hlídání skleníku: upozornění, když je v zastřešené zóně nebo místnosti s hydroponií pro plodinu moc zima nebo horko (např. selhalo topení).
+- Sady: mladé stromy v zóně se při setí nikdy nekácí; sklízí se jen plně vzrostlé stromy.
+- „Kde roste“: tlačítko u každé pěstební zóny, hydroponie a květináče ukáže na mapě, kde daná rostlina roste – zeleně dobře, žlutě pomaleji, červeně vůbec – a pod myší důvod (moc zima nebo horko, chudá půda, tma, potřebuje střechu …). Pravým klikem na tlačítko zkontroluješ jinou rostlinu.
+- Souběžné dozrávání (volitelné, vypnuté): plodiny v jedné zóně zaseté zhruba v jeden den dozrají spolu.
+- Rostliny z jiných modů: divoké rostliny, které žádný biom neuvádí, se přidají do skupin odolných rostlin, a rostliny, které dávají dřevo, se počítají jako stromy. V záložce Rostliny označené „auto“; jeden přepínač to vypne.
+- Tlačítka „Nahlásit chybu“ a „Bolek98's mods“ v nastavení.
+
+Opravy
+- Rostliny z jiných modů s chybějící ikonou (červený čtverec) ukážou obrázek, který používají na mapě; rostliny úplně bez obrázku se zapíšou do logu i s modem.
+
+=== Development history since the last Workshop release (test versions) ===
+1.9.2
+- Plants from other mods whose icon is the red "missing texture" square (wrong icon path in that mod) get the picture they are drawn with on the map, so buttons such as "Where it grows" and "Copy" show the plant. Plants with no picture at all are named in the log with their mod.
+
+1.9.1
+- Crop growth sync (setting, off): crops in one grow zone that were sown within about a day of each other ripen together – the slower ones catch up a little every hour. A later sowing is left alone.
+
+1.9.0
+- "Where it grows": a button on every grow zone, hydroponics basin and planter shows on the map where that plant grows – green well, yellow slower, red not at all – and the reason under the mouse (too cold or hot now, poor soil, too dark under a roof, needs a roof, built over, only in hydroponics). Right click the button to check another plant. Checked a few thousand cells per frame, refreshed every few seconds.
+- Plants from other mods: wild plants that no biome lists are added to the wild plant (and, when they grow in the cold, cold biome) groups of Hardy plants, and plants that give wood but are not marked as trees count as trees for speed, yield and grow days. Marked "auto" in the Plants tab with the reason; one switch to turn it off.
+
+1.8.2
+- Settings: a new "Bolek98's mods" button (next to "Report a bug") – all of Bolek98's mods you run in one list with their versions and settings, and saving or loading all their settings at once (for another PC or a reinstall).
+
+1.8.1
+- Settings: new "Report a bug" button (bottom left) – a short report for a Workshop comment and a full one for GitHub Issues, with this mod's errors, the mod list and other mods that change the same game code. Nothing is sent anywhere by itself.
+
 === Workshop release 1.8.0 (23 Oct 2026) – everything since the previous Workshop version ===
 1.8.0
 - Settings are now in tabs: Growth, Yield, Wild nature, Winter & weather, Hardy plants.

@@ -537,6 +537,8 @@ namespace UniversalRimTranslator
 
         // 2.4.0: for the quality check
         private static readonly HashSet<string> commonSet = new HashSet<string>(Common);
+        public static int VocabCount => vocab.Count;   // 1.1.0
+
         public static bool IsEnglishWord(string w)
         {
             string l = w.ToLowerInvariant();

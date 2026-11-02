@@ -38,6 +38,34 @@ namespace Urt2
         // session – until its settings change (the value is a fingerprint of the settings)
         private readonly Dictionary<string, string> authFailed = new Dictionary<string, string>();
         private readonly object gate = new object();
+        // 1.1.0: is this an ordinary English word? (set by the game part – its English word list)
+        public static Func<string, bool> EnglishWord;
+        // 1.1.0: one call at a time per service, also when several workers translate at once
+        private readonly Dictionary<string, object> callLocks = new Dictionary<string, object>();
+        private object CallLock(string id) { lock (gate) { if (!callLocks.TryGetValue(id, out object o)) callLocks[id] = o = new object(); return o; } }
+
+        private static readonly System.Text.RegularExpressions.Regex EnWord = new System.Text.RegularExpressions.Regex(@"[A-Za-z][A-Za-z']{2,}", System.Text.RegularExpressions.RegexOptions.Compiled);
+        private static readonly System.Text.RegularExpressions.Regex TagLike = new System.Text.RegularExpressions.Regex(@"\{[^{}]*\}|\[[^\[\]]*\]|</?[A-Za-z][^<>]*>", System.Text.RegularExpressions.RegexOptions.Compiled);
+
+        // 1.1.0: the service gave the text back (almost) in English – ordinary English words of the
+        // source are still there. Then the next service gets a chance; the answer is kept only as a
+        // last resort. Names (words that are not ordinary English words) do not count.
+        public static bool StillEnglish(string source, string result, string targetIso)
+        {
+            if (EnglishWord == null || string.IsNullOrEmpty(source) || string.IsNullOrEmpty(result)) return false;
+            if (targetIso != null && targetIso.StartsWith("en", StringComparison.OrdinalIgnoreCase)) return false;
+            var words = new List<string>();
+            foreach (System.Text.RegularExpressions.Match m in EnWord.Matches(TagLike.Replace(source, " ")))
+            {
+                string w = m.Value.ToLowerInvariant();
+                if (EnglishWord(w)) words.Add(w);
+            }
+            if (words.Count == 0) return false;
+            var left = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (System.Text.RegularExpressions.Match m in EnWord.Matches(TagLike.Replace(result, " "))) left.Add(m.Value);
+            int stay = words.Count(w => left.Contains(w));
+            return stay >= Math.Max(1, (int)Math.Ceiling(words.Count * 0.6));
+        }
         public volatile string LastProvider;    // 2.6.0: the service that answered last (for the progress line)
 
         private string Fingerprint()
@@ -143,6 +171,18 @@ namespace Urt2
             }
         }
 
+        // 1.1.0: services that can work right now
+        public int ReadyCount()
+        {
+            int n = 0;
+            foreach (string id in Order)
+            {
+                Provider p = Providers.Get(id);
+                if (p != null && p.Configured(Config) && !AuthSkipped(id) && !Paused(id)) n++;
+            }
+            return n;
+        }
+
         public void ClearPauses() { lock (gate) { pausedUntil.Clear(); strikes.Clear(); } }
 
         private void Throttle(Provider p)
@@ -156,7 +196,10 @@ namespace Urt2
 
         // Translates all jobs into the target language. Returns when every job has a result or
         // every service was tried.
-        public void Run(List<Job> jobs, string targetIso, CancellationToken ct)
+        public void Run(List<Job> jobs, string targetIso, CancellationToken ct) => Run(jobs, targetIso, ct, 0);
+
+        // 1.1.0: rotate = which service starts (several workers start with different services at once)
+        public void Run(List<Job> jobs, string targetIso, CancellationToken ct, int rotate)
         {
             // split every job into lines; lines are the units sent to the services
             var units = new List<Unit>();
@@ -186,7 +229,18 @@ namespace Urt2
                 units.AddRange(parts.Where(x => x.Done == null));
             }
 
-            foreach (string id in Order)
+            List<string> order = Order.ToList();
+            if (rotate > 0)
+            {
+                var ready = order.Where(i => { Provider q = Providers.Get(i); return q != null && q.Configured(Config) && !AuthSkipped(i) && !Paused(i); }).ToList();
+                if (ready.Count > 1)
+                {
+                    string first = ready[rotate % ready.Count];
+                    order.Remove(first);
+                    order.Insert(0, first);
+                }
+            }
+            foreach (string id in order)
             {
                 if (ct.IsCancellationRequested) break;
                 Provider p = Providers.Get(id);
@@ -204,10 +258,13 @@ namespace Urt2
                         List<string> got;
                         try
                         {
-                            Throttle(p);
-                            // 2.5.2: AI services get the context of every text (other services ignore it)
-                            var ctx = p.IsAi ? new TranslateContext { Hints = batch.Select(u => u.Job.Hint).ToList(), Notes = Notes } : null;
-                            got = p.Translate(batch.Select(u => u.Masked.Text).ToList(), src, targetIso, Config, ct, ctx);
+                            lock (CallLock(id))
+                            {
+                                Throttle(p);
+                                // 2.5.2: AI services get the context of every text (other services ignore it)
+                                var ctx = p.IsAi ? new TranslateContext { Hints = batch.Select(u => u.Job.Hint).ToList(), Notes = Notes } : null;
+                                got = p.Translate(batch.Select(u => u.Masked.Text).ToList(), src, targetIso, Config, ct, ctx);
+                            }
                         }
                         catch (ProviderError e)
                         {
@@ -240,6 +297,13 @@ namespace Urt2
                             string text = back == null ? null : Protect.Unmask(batch[i].Masked, back);
                             if (text == null) { batch[i].LastError = p.Name + ": placeholders broken"; continue; }
                             if (Validate.Check(batch[i].Original, text, targetIso) == Verdict.ServiceError) { batch[i].LastError = p.Name + ": error text"; continue; }
+                            // 1.1.0: given back in English – keep it in reserve and let the next service try
+                            if (StillEnglish(batch[i].Original, text, targetIso))
+                            {
+                                if (batch[i].Fallback == null) { batch[i].Fallback = text; batch[i].FallbackBy = p.Id; }
+                                batch[i].LastError = p.Name + ": left in English";
+                                continue;
+                            }
                             batch[i].Done = text;
                             batch[i].By = p.Id;
                             ok++;
@@ -249,6 +313,14 @@ namespace Urt2
                 }
             }
 
+            // 1.1.0: no service did better – the first answer is used after all
+            foreach (Unit u in units)
+                if (u.Done == null && u.Fallback != null && u.Owner == null && u.Options.All(o => o.Done != null))
+                {
+                    FillChoices(u);
+                    u.Done = u.Fallback;
+                    u.By = u.FallbackBy;
+                }
             FinishPending(units, targetIso);
             foreach (Job j in jobs) j.Finish(targetIso);
         }
@@ -305,6 +377,7 @@ namespace Urt2
         public int ChoiceToken, ChoiceIndex;
         public readonly List<Unit> Options = new List<Unit>();
         public string Pending, PendingBy;  // answer kept until the options are done
+        public string Fallback, FallbackBy; // 1.1.0: an answer still in English, used if no service does better
     }
 
     internal static class JobExt

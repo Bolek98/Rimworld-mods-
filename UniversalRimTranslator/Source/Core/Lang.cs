@@ -57,14 +57,17 @@ namespace Urt2
         public enum Script { None, Latin, Cyrillic, Greek, Cjk, Kana, Hangul, Arabic, Hebrew, Thai, Devanagari, Other }
 
         // the writing system most letters of the text use (tokens and markup should be removed first)
-        public static Script Dominant(string text)
+        public static Script Dominant(string text) => Dominant(text, false);
+
+        // wide = Chinese/Japanese/Korean letters count 3x (one of them is a syllable or word)
+        public static Script Dominant(string text, bool wide)
         {
             if (string.IsNullOrEmpty(text)) return Script.None;
             var counts = new int[(int)Script.Other + 1];
             foreach (char c in text)
             {
                 Script s = Of(c);
-                if (s != Script.None) counts[(int)s]++;
+                if (s != Script.None) counts[(int)s] += wide && (s == Script.Cjk || s == Script.Kana || s == Script.Hangul) ? 3 : 1;
             }
             // Japanese text is kana + kanji: kana decides
             if (counts[(int)Script.Kana] > 0) counts[(int)Script.Kana] += counts[(int)Script.Cjk];

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HardyPlants_Title>Evergrowth – 植物の成長コントロール</HardyPlants_Title>
+  <HardyPlants_Temperatures>耐寒植物の温度</HardyPlants_Temperatures>
+  <HardyPlants_TemperaturesDesc>最低温度を下回ると植物は成長を止めます。耐寒植物は、これらの値が自身の値より良い場合にのみ適用されます。</HardyPlants_TemperaturesDesc>
+  <HardyPlants_MinGrowth>最低成長温度：{0}（バニラ {1}）</HardyPlants_MinGrowth>
+  <HardyPlants_MinOptimal>最大速度での成長開始：{0}（バニラ {1}）</HardyPlants_MinOptimal>
+  <HardyPlants_MaxOptimal>最大速度での成長上限：{0}（バニラ {1}）</HardyPlants_MaxOptimal>
+  <HardyPlants_MaxGrowth>最高成長温度：{0}（バニラ {1}）</HardyPlants_MaxGrowth>
+  <HardyPlants_Frost>耐霜性：{0} 低くても耐える</HardyPlants_Frost>
+  <HardyPlants_FrostDesc>バニラの植物は最低成長温度より 10–18 °C 低くなると葉を落とします。耐寒植物はさらにこれだけ耐えます。</HardyPlants_FrostDesc>
+  <HardyPlants_ResetValues>温度をリセット</HardyPlants_ResetValues>
+  <HardyPlants_Group>対象の植物：</HardyPlants_Group>
+  <HardyPlants_GroupCold>寒冷バイオームの野生植物</HardyPlants_GroupCold>
+  <HardyPlants_GroupWild>すべての野生植物と木（デフォルト）</HardyPlants_GroupWild>
+  <HardyPlants_GroupAll>作物を含むすべての植物</HardyPlants_GroupAll>
+  <HardyPlants_GroupCustom>自分で選択（右のリスト）</HardyPlants_GroupCustom>
+  <HardyPlants_Plants>耐寒植物</HardyPlants_Plants>
+  <HardyPlants_Chosen>{0} 種類の植物を選択中。検索：</HardyPlants_Chosen>
+  <HardyPlants_Growth>成長</HardyPlants_Growth>
+  <HardyPlants_FasterGrowth>植物の成長が速くなる</HardyPlants_FasterGrowth>
+  <HardyPlants_FasterGrowthDesc>作物、木、野生植物 – それぞれ個別の速度。マップ上のすべての植物に即座に適用され、後から現れる植物にも適用されます。再起動不要。デフォルトはオフ。</HardyPlants_FasterGrowthDesc>
+  <HardyPlants_GrowthSpeed>成長速度：×{0}</HardyPlants_GrowthSpeed>
+  <HardyPlants_GrowAllDay>植物が昼夜成長する（24時間）</HardyPlants_GrowAllDay>
+  <HardyPlants_GrowAllDayDesc>植物は夜に休まず、屋外の植物は暗闇でも成長します。屋根の下の植物には引き続き照明が必要です。デフォルトはオフ。</HardyPlants_GrowAllDayDesc>
+  <HardyPlants_CropDays>作物の成長日数を設定</HardyPlants_CropDays>
+  <HardyPlants_TreeDays>木の成長日数を設定</HardyPlants_TreeDays>
+  <HardyPlants_DaysValue>成長日数：{0} 日</HardyPlants_DaysValue>
+  <HardyPlants_DaysDesc>成長率 100 % での日数。植物は夜に休み（24時間がオンでない限り）、光、土壌、温度が悪いと成長が遅くなるため、実際のゲームではもっと長くかかります。このウィンドウを閉じたときに適用 – 再起動不要。デフォルトはオフ。</HardyPlants_DaysDesc>
+  <HardyPlants_Presets>クイック設定（成長セクション）：</HardyPlants_Presets>
+  <HardyPlants_PresetVanilla>バニラ</HardyPlants_PresetVanilla>
+  <HardyPlants_PresetEasy>楽な農業</HardyPlants_PresetEasy>
+  <HardyPlants_PresetLush>緑豊かな世界</HardyPlants_PresetLush>
+  <HardyPlants_SpeedCrops>作物：×{0}</HardyPlants_SpeedCrops>
+  <HardyPlants_SpeedTrees>木：×{0}</HardyPlants_SpeedTrees>
+  <HardyPlants_SpeedWild>野生植物：×{0}</HardyPlants_SpeedWild>
+  <HardyPlants_Yield>収穫量アップ</HardyPlants_Yield>
+  <HardyPlants_YieldDesc>作物と野生植物の収穫量と、木から得られる木材の量。即座に適用。デフォルトはオフ。</HardyPlants_YieldDesc>
+  <HardyPlants_YieldCrops>作物と野生植物：×{0}</HardyPlants_YieldCrops>
+  <HardyPlants_YieldWood>木からの木材：×{0}</HardyPlants_YieldWood>
+  <HardyPlants_Regrow>野生植物の再生が速くなる</HardyPlants_Regrow>
+  <HardyPlants_RegrowDesc>伐採、放牧、火事の後に野生植物や木がマップに戻ってくる速さ。植物の密度は引き続きバイオームに従います。デフォルトはオフ。</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowValue>再生：×{0}</HardyPlants_RegrowValue>
+  <HardyPlants_IgnoreSoil>やせた土壌でも成長が遅くならない</HardyPlants_IgnoreSoil>
+  <HardyPlants_IgnoreSoilDesc>砂、砂利、やせた土壌でも植物は最大速度で成長します。肥沃な土壌は引き続き効果があります。何も育たない場所は変わりません。デフォルトはオフ。</HardyPlants_IgnoreSoilDesc>
+  <HardyPlants_NoBlight>胴枯れ病なし</HardyPlants_NoBlight>
+  <HardyPlants_NoBlightDesc>胴枯れ病のイベントが発生しなくなり、胴枯れ病も広がりません。デフォルトはオフ。</HardyPlants_NoBlightDesc>
+  <HardyPlants_GrowthNote>速度、収穫量、再生、土壌、胴枯れ病、24時間は即座に、成長日数はこのウィンドウを閉じた後に適用されます。</HardyPlants_GrowthNote>
+  <MUI_Title>推奨設定</MUI_Title>
+  <MUI_TitleOff>推奨設定 · オフ</MUI_TitleOff>
+  <MUI_DescOn>Modが自動で設定され、すぐに使えます。初心者や何も調整したくない方に最適です。</MUI_DescOn>
+  <MUI_DescOff>カスタム設定。推奨から変更した項目：{0}。</MUI_DescOff>
+  <MUI_DescOffSame>カスタム設定。まだ推奨と同じです。</MUI_DescOffSame>
+  <MUI_On>オン</MUI_On>
+  <MUI_Off>オフ</MUI_Off>
+  <MUI_ResetAll>すべて推奨にリセット</MUI_ResetAll>
+  <MUI_ConfirmOn>推奨設定をオンにしますか？あなたの変更（{0}）は推奨値に置き換えられます。</MUI_ConfirmOn>
+  <MUI_Locked>詳細設定はロックされています。変更したい場合は上のスイッチをオフにしてください – 値は推奨値から始まります。</MUI_Locked>
+  <MUI_Changed>変更済み</MUI_Changed>
+  <MUI_ChangedTip>推奨設定（{0}）と異なります。クリックで推奨値に戻します。</MUI_ChangedTip>
+  <MUI_Yes>オン</MUI_Yes>
+  <MUI_No>オフ</MUI_No>
+  <MUI_RecTag>推奨</MUI_RecTag>
+  <HardyPlants_Profile>プロファイル</HardyPlants_Profile>
+  <HardyPlants_ProfRec>推奨</HardyPlants_ProfRec>
+  <HardyPlants_ProfCustom>カスタム</HardyPlants_ProfCustom>
+  <HardyPlants_PresetVanilla_Card>成長と収穫量はベースゲームと同じ。</HardyPlants_PresetVanilla_Card>
+  <HardyPlants_ProfRec_Card>速い成長、多い収穫、胴枯れ病なし、温室、雪の下の野生植物。それでも公平。</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>どこにでも植物があり、昼夜を問わず、どの季節でも速く成長し、イベントの影響を受けません。</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfCustom_Card>自分で決めた値。</HardyPlants_ProfCustom_Card>
+  <HardyPlants_ProfileHint>「成長」や「収穫量」の何かを変更すると、プロファイルが「カスタム」に切り替わります。オレンジの「変更済み」= 推奨と異なる値。クリックすると元に戻ります。</HardyPlants_ProfileHint>
+  <HardyPlants_SecYield>収穫量と病気</HardyPlants_SecYield>
+  <HardyPlants_SecGroup>耐寒性にする植物</HardyPlants_SecGroup>
+  <HardyPlants_TabGrowth>成長</HardyPlants_TabGrowth>
+  <HardyPlants_TabYield>収穫量</HardyPlants_TabYield>
+  <HardyPlants_TabWild>野生の自然</HardyPlants_TabWild>
+  <HardyPlants_TabWinter>冬と天候</HardyPlants_TabWinter>
+  <HardyPlants_TabPlants>耐寒植物</HardyPlants_TabPlants>
+  <HardyPlants_SecSeason>季節</HardyPlants_SecSeason>
+  <HardyPlants_AnySeason>どの季節でも種まき・成長できる</HardyPlants_AnySeason>
+  <HardyPlants_AnySeasonDesc>温度が許す限り、いつでも作物の種をまいて育てられます – 「成長期」の制限はありません。速く成長するには引き続き暖かさが必要です。</HardyPlants_AnySeasonDesc>
+  <HardyPlants_Greenhouse>温室</HardyPlants_Greenhouse>
+  <HardyPlants_GreenhouseDesc>閉じた部屋の建設された屋根の下にある植物は、温度に関係なく（−10 °C 以上）、どの季節でも最大速度で成長し、決して凍りません。光には照明を使ってください。</HardyPlants_GreenhouseDesc>
+  <HardyPlants_FruitRepeat>果樹が再び実をつける</HardyPlants_FruitRepeat>
+  <HardyPlants_FruitRepeatDesc>（MODの）木から果実を収穫しても木は切り倒されず、再び実をつけます。木材のために伐採することも引き続き可能です。</HardyPlants_FruitRepeatDesc>
+  <HardyPlants_WildDensity>より濃い野生の自然</HardyPlants_WildDensity>
+  <HardyPlants_WildDensityDesc>マップ上の野生植物や木を、バイオームの通常より多く（または少なく）します。</HardyPlants_WildDensityDesc>
+  <HardyPlants_WildDensityValue>野生植物の密度：×{0}</HardyPlants_WildDensityValue>
+  <HardyPlants_SnowGrowth>雪の下でも野生植物が再生する</HardyPlants_SnowGrowth>
+  <HardyPlants_SnowGrowthDesc>通常、雪に覆われた地面には冬の間ずっと新しいものが芽吹きません。これをオンにすると、十分に暖かい場所では雪の下でも野生植物や木が戻ってきます。</HardyPlants_SnowGrowthDesc>
+  <HardyPlants_SnowMinTemp>雪の下での成長開始：{0}（バニラ：なし、推奨 {1}）</HardyPlants_SnowMinTemp>
+  <HardyPlants_FewerFires>山火事の減少</HardyPlants_FewerFires>
+  <HardyPlants_FewerFiresDesc>草、茂み、木が約3倍燃えにくくなるため、火事が森全体を焼き尽くすことはありません。</HardyPlants_FewerFiresDesc>
+  <HardyPlants_Overview>このマップの野生の自然</HardyPlants_Overview>
+  <HardyPlants_OverviewNoGame>ゲームをロードすると、マップで何が育っているか確認できます。</HardyPlants_OverviewNoGame>
+  <HardyPlants_OverviewDay>直近のゲーム内の1日（{0}）：</HardyPlants_OverviewDay>
+  <HardyPlants_OverviewSoFar>今日これまで（{0}）：</HardyPlants_OverviewSoFar>
+  <HardyPlants_OverviewNums>野生植物の成長を {0} 回試行、{1} 本が成長（木 {2} 本）。</HardyPlants_OverviewNums>
+  <HardyPlants_OverviewSnow>雪により {1} 回中 {0} 回の試行が止まりました。</HardyPlants_OverviewSnow>
+  <HardyPlants_OverviewNoneSnow>何も育っていません – おそらく雪のせいです。「雪の下でも野生植物が再生する」をオンにしてください。</HardyPlants_OverviewNoneSnow>
+  <HardyPlants_OverviewNoneCold>何も育っていません – 寒すぎるか、地面が埋まっています。「雪の下での成長開始」の温度を下げてみてください。</HardyPlants_OverviewNoneCold>
+  <HardyPlants_SecEvents>イベント</HardyPlants_SecEvents>
+  <HardyPlants_ImmuneEvents>植物が悪いイベントを無視する</HardyPlants_ImmuneEvents>
+  <HardyPlants_ImmuneEventsDesc>干ばつ（MODの乾期も含む）、有毒な煙霧、毒性降下物、汚染によって植物の成長が遅くなったり葉を落としたりしなくなります。寒さと暑さは引き続き影響します。</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>どこで育つか</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>生育マップを隠す</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>{0}がどこで育つかをマップに表示します：緑――よく育つ、黄――遅い、赤――育たない。マスにカーソルを合わせると理由が出ます。右クリック：別の植物。</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>{0}の生育――緑：よく育つ、黄：遅い、赤：育たない。マスにカーソルを合わせると理由が出ます。</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>ここではよく育ちます。</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>成長が遅い：現在{0}、最適は{1}。</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>成長が遅い：屋根の下で光が足りない――ランプを置こう。</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>成長が遅い：やせた土（肥沃度{0}）。</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>今は寒すぎる：{0}、生育範囲は{1}。</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>今は暑すぎる：{0}、生育範囲は{1}。</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>ここでは育たない：土がやせすぎ（{0}、必要{1}）。</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>屋根が必要（洞窟植物）。</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>屋根の下が暗すぎる――ランプが必要。</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>ここには何か建っています。</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>水耕栽培やプランターのみ――ここの地面には植えられません。</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>他MODの植物を自動判定</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>どのバイオームにも載っていない、または木材が取れるのに木として登録されていない他MODの植物を、自身の数値（種類・耐寒性）で分類します。リストでは「auto」と表示されます。</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>{0}より。Evergrowthの判定：{1}、{2}から成長、成長に{3}日。</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>野生植物</HardyPlants_Kind0>
+  <HardyPlants_Kind1>木</HardyPlants_Kind1>
+  <HardyPlants_Kind2>作物</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>{0}として扱います：木材が取れるのに、MODが木として登録していません。</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>どのバイオームにもないため、野生植物グループに追加。</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>どのバイオームにもないため野生植物に追加し、寒さに強いので寒冷バイオームのグループにも追加。</HardyPlants_AutoAddedCold>
+  <HardyPlants_CropSync>区画の作物を一斉に実らせる</HardyPlants_CropSync>
+  <HardyPlants_CropSyncDesc>同じ栽培区画でおよそ1日以内に植えられた作物は最も早いものに追いつき、畑全体が同時に収穫できるようになります。後から植えたものはそのままです。木には影響しません。</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>温室の温度</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0}：{1} – {2}には寒すぎます（{3}より上が必要）</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>次の屋内作物は部屋が寒すぎるか暑すぎて育ちません – 暖房や冷房が止まったのかもしれません：\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0}：{1} – {2}には暑すぎます（{3}を超えると育たない）</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>屋外は一年中寒すぎて育ちません。</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>今は屋外が寒すぎて育ちません – 約{0}日後にまた暖かくなります。</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>今まくもの</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>まだ何も植えていない</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>次の霜（0 °C未満）は約{0}日後。</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>収穫予測</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>実りません – {0}日後に寒さで止まります</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>種まきカレンダーを開くにはゲームをロードしてください。</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>{0}日必要</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>今後{0}日間は霜なし。</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>今は寒すぎるか暑すぎて育たない（{0}から育つ）</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>このマップに栽培ゾーンがありません。</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>今日、屋外の普通の土にまいた場合。あなたの成長設定と季節の平均気温で計算（天候とイベントは含まない）。</HardyPlants_CalNote>
+  <HardyPlants_CalNow>今日：{0} · 屋外{1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>約{0}日で実る</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>種まきカレンダーを開く</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>更新</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>作物を検索…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>約{0}日で実る（寒さや暑さで遅れる）</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>{0}から{1}の間で育ちます。</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>種まきカレンダー – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>{0}日以内に実らない</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>合計予想：{0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>寒さは約{0}日続きます。</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>種まきカレンダー</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>このマップで寒くなる前にまだ実るものと、各栽培ゾーンの収穫予測。</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>温室の見張り</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>屋根のある栽培ゾーンや水耕栽培の部屋が、育てている植物にとって寒すぎる・暑すぎるときに警告します – 暖房が故障したときなど。</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>果樹園</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>このゾーンの若木は決して伐採されません – ゾーンに別の木を選んでも、野生の木が生えていても同じです。成木だけを収穫し、その後はいつも通り植え直します。</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0}：暖かい季節が戻りました – {1}に戻しました。</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0}：寒さが近づいています – {1}に切り替えました。</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>計画</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>冬作への切り替え</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>栽培ゾーンに「冬の作物」ボタンが付きます。寒さで夏の作物が止まりそうなとき、ゾーンは選んだ冬の作物に切り替わり、暖かい季節が戻ると元に戻ります。ある程度育った植物は待ちます。</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>{0}から育つ</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>冬の作物…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>寒さが来たときにこのゾーンが切り替える耐寒性の作物を選びます。春には夏の作物に戻ります。最低生育温度順に並んでいます。</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>冬：{0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>冬の作物なし</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>収穫：約{0}日で実る、約{1}個の{2}。</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>収穫：{0}株が実っている – 約{1}個の{2}。</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>（{0}株は実り済み）</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>収穫：{0}株が今は育っていません（寒すぎ・暑すぎ・暗すぎ）。</HardyPlants_ZoneStalled>
+</LanguageData>

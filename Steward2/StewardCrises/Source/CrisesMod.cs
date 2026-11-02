@@ -30,6 +30,7 @@ public sealed class CrisesSettings : ModSettings
 	public bool fireResponse = true;
 	public bool butcherFirst = true;
 	public bool raidSafeArea = false;
+	public bool raidSafeAnimals = true;   // 1.1.0: tame animals go into the safe area too
 
 	public override void ExposeData()
 	{
@@ -43,6 +44,7 @@ public sealed class CrisesSettings : ModSettings
 		Scribe_Values.Look(ref fireResponse, "fireResponse", true);
 		Scribe_Values.Look(ref butcherFirst, "butcherFirst", true);
 		Scribe_Values.Look(ref raidSafeArea, "raidSafeArea", false);
+		Scribe_Values.Look(ref raidSafeAnimals, "raidSafeAnimals", true);
 		situationOff ??= new List<string>();
 	}
 }
@@ -119,6 +121,8 @@ public sealed class CrisesMod : Mod
 		l.CheckboxLabeled("CF2C_Fire".Translate(), ref S.fireResponse, "CF2C_FireTip".Translate());
 		l.CheckboxLabeled("CF2C_Butcher".Translate(), ref S.butcherFirst, "CF2C_ButcherTip".Translate());
 		l.CheckboxLabeled("CF2C_SafeArea".Translate(), ref S.raidSafeArea, "CF2C_SafeAreaTip".Translate());
+		if (S.raidSafeArea)
+			l.CheckboxLabeled("    " + "CF2C_SafeAnimals".Translate(), ref S.raidSafeAnimals, "CF2C_SafeAnimalsTip".Translate());
 		l.GapLine();
 		if (S.useCrisis)
 		{
@@ -198,6 +202,7 @@ public static class Migrate
 		s.fireResponse = B("fireResponse", s.fireResponse);
 		s.butcherFirst = B("butcherFirst", s.butcherFirst);
 		s.raidSafeArea = B("raidSafeArea", s.raidSafeArea);
+		s.raidSafeAnimals = B("raidSafeAnimals", s.raidSafeAnimals);
 		if (d.TryGetValue("crisisOff", out string co) && long.TryParse(co, out long l))
 			s.crisisOff = l;
 		if (d.TryGetValue("situationOff", out string so) && !so.NullOrEmpty())
@@ -222,6 +227,8 @@ public sealed class CS
 	public bool safeActive;
 	public List<Pawn> safePawns = new List<Pawn>();
 	public List<int> safeOldArea = new List<int>();
+	public long safeSig;          // 1.1.2: what the safe area looked like when Steward last drew it
+	public bool safePlayerOwned;  // 1.1.2: the player changed it – Steward keeps it as it is
 	// runtime
 	public Crisis? crisisSeen;
 	public int crisisSeenTick;
@@ -252,6 +259,8 @@ public sealed class CS
 		Scribe_Values.Look(ref s.safeActive, "cfSafeActive", false);
 		Scribe_Collections.Look(ref s.safePawns, "cfSafePawns", LookMode.Reference);
 		Scribe_Collections.Look(ref s.safeOldArea, "cfSafeOldArea", LookMode.Value);
+		Scribe_Values.Look(ref s.safeSig, "cfSafeSig", 0L);
+		Scribe_Values.Look(ref s.safePlayerOwned, "cfSafePlayerOwned", false);
 		if (Scribe.mode == LoadSaveMode.PostLoadInit)
 		{
 			s.situationNames ??= new List<string>();
@@ -538,10 +547,22 @@ public static class SafeArea
 	{
 		CS st = CS.Of(comp);
 		CrisesSettings s = CrisesMod.S;
-		bool threat = !stewardOff && s != null && s.raidSafeArea && (comp.crisis & ThreatMask) != 0 && map.IsPlayerHome;
+		bool threat = !stewardOff && s != null && s.raidSafeArea && map.IsPlayerHome
+			&& ((comp.crisis & ThreatMask) != 0 || AnimalDanger(map));
+		// 1.1.1: a short grace after the danger, so the area does not flicker on and off
+		int now = Find.TickManager.TicksGame;
+		if (threat)
+			lastThreat[map] = now;
+		else if (!stewardOff && st.safeActive && lastThreat.TryGetValue(map, out int last) && now - last < 1250)
+			threat = true;
+		if (threat && st.safeActive)
+		{
+			Keep(st, map);
+			return;
+		}
 		if (threat && !st.safeActive)
 		{
-			Area_Allowed area = Build(map, true);
+			Area_Allowed area = Build(map, true, st);
 			if (area == null || area.TrueCount < 10)
 				return;
 			st.safePawns.Clear();
@@ -600,6 +621,67 @@ public static class SafeArea
 		}
 	}
 
+	private static readonly Dictionary<Map, int> lastThreat = new Dictionary<Map, int>();
+
+	// 1.1.1: manhunters and other mad animals count even alone and even while they sleep
+	// (vanilla stops seeing a sleeping manhunter as a threat – the raid ended, the area was
+	// lifted and the colonists walked out among the resting pack)
+	public static bool AnimalDanger(Map map)
+	{
+		IReadOnlyList<Pawn> pawns = map.mapPawns.AllPawnsSpawned;
+		for (int i = 0; i < pawns.Count; i++)
+		{
+			Pawn p = pawns[i];
+			if (p.Dead || p.Downed || p.Faction == Faction.OfPlayer || !p.RaceProps.Animal || !p.InMentalState)
+				continue;
+			MentalStateDef m = p.MentalStateDef;
+			if (m == null || !m.IsAggro || p.Fogged())
+				continue;
+			if (m == MentalStateDefOf.Manhunter || m == MentalStateDefOf.ManhunterPermanent || p.BodySize >= 0.6f)
+				return true;
+		}
+		return false;
+	}
+
+	// 1.1.1: while the danger lasts – whoever becomes free later (undrafted, left a lord, arrived)
+	// gets the safe area too, and whoever is outside drops the job and goes in
+	private static void Keep(CS st, Map map)
+	{
+		Area_Allowed area = Build(map, false);
+		if (area == null)
+			return;
+		foreach (Pawn p in Sheltered(map))
+		{
+			if (p.playerSettings == null || p.Drafted || p.GetLord() != null || !p.playerSettings.SupportsAllowedAreas)
+				continue;
+			if (!st.safePawns.Contains(p))
+			{
+				Area old = p.playerSettings.AreaRestrictionInPawnCurrentMap;
+				if (old == area)
+					continue;   // the player gave it himself
+				st.safePawns.Add(p);
+				st.safeOldArea.Add(old == null ? -1 : old.ID);
+				p.playerSettings.AreaRestrictionInPawnCurrentMap = area;
+			}
+			else if (p.playerSettings.AreaRestrictionInPawnCurrentMap != area)
+				continue;   // the player changed it during the attack – his choice
+			try
+			{
+				if (area[p.Position] || p.Downed || p.InMentalState || p.jobs?.curJob == null)
+					continue;
+				Verse.AI.Job j = p.jobs.curJob;
+				if (j.playerForced)
+					continue;
+				if (j.def == JobDefOf.Goto && j.targetA.IsValid && area[j.targetA.Cell])
+					continue;   // already on the way in
+				if (j.def == JobDefOf.Rescue || j.def == JobDefOf.Capture || j.def == JobDefOf.Flee || j.def == JobDefOf.FleeAndCower)
+					continue;
+				p.jobs.EndCurrentJob(Verse.AI.JobCondition.InterruptForced);
+			}
+			catch { }
+		}
+	}
+
 	private static int Heal(Map map, Area_Allowed area)
 	{
 		if (area == null)
@@ -615,13 +697,27 @@ public static class SafeArea
 		return n;
 	}
 
-	// 1.0.8: colonists and the colony's work mechs, robots and droids (not fighting mechs, not animals)
+	private static bool FollowsDraftedMaster(Pawn p)
+	{
+		Pawn m = p.playerSettings?.Master;
+		return m != null && m.Drafted && p.playerSettings.followDrafted;
+	}
+
+	// 1.0.8: colonists and the colony's work mechs, robots and droids (not fighting mechs); 1.1.0: tame animals
 	private static IEnumerable<Pawn> Sheltered(Map map)
 	{
 		foreach (Pawn p in map.mapPawns.FreeColonistsSpawned.ToList())
 			yield return p;
+		bool animals = CrisesMod.S == null || CrisesMod.S.raidSafeAnimals;
 		foreach (Pawn p in map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer).ToList())
 		{
+			// 1.1.0: tame animals too (before, only colonists and work mechs went in and the animals
+			// wandered outside during an attack) – except those that follow a drafted master into battle
+			if (p.RaceProps.Animal && animals && !p.Dead && !p.Downed && !p.Drafted && !FollowsDraftedMaster(p))
+			{
+				yield return p;
+				continue;
+			}
 			if (p.Dead || p.IsColonist || p.RaceProps.Humanlike || p.RaceProps.Animal)
 				continue;
 			if (p.RaceProps.IsMechanoid && !p.RaceProps.IsWorkMech)
@@ -630,15 +726,40 @@ public static class SafeArea
 		}
 	}
 
-	private static Area_Allowed Build(Map map, bool rebuild)
+	// 1.1.2: a cheap fingerprint of the area's cells – a different one means the player painted it
+	private static long Sig(Area a)
+	{
+		long sum = 17;
+		foreach (IntVec3 c in a.ActiveCells)
+			sum = sum * 31 + c.x * 1000 + c.z;
+		return sum ^ ((long)a.TrueCount << 40);
+	}
+
+	private static Area_Allowed Build(Map map, bool rebuild, CS st = null)
 	{
 		string label = "CF_SafeAreaName".Translate();
 		Area_Allowed a = map.areaManager.AllAreas.OfType<Area_Allowed>().FirstOrDefault(x => x.Label == label);
+		bool fresh = false;
 		if (a == null)
 		{
 			if (!rebuild || !map.areaManager.TryMakeNewAllowed(out a))
 				return null;
 			a.RenamableLabel = label;
+			fresh = true;
+		}
+		// 1.1.2: Steward draws the safe area once; when the player edits it, his version is kept and only used
+		// (delete the area and Steward draws a new one at the next danger)
+		if (rebuild && st != null)
+		{
+			if (fresh)
+				st.safePlayerOwned = false;
+			else if (!st.safePlayerOwned && (st.safeSig == 0 || Sig(a) != st.safeSig))   // an area from before 1.1.2 is kept too
+			{
+				st.safePlayerOwned = true;
+				MLog.Info("[Steward] safe area: edited by the player – kept as it is from now on.");
+			}
+			if (st.safePlayerOwned && a.TrueCount > 0)
+				return a;
 		}
 		if (rebuild)
 		{
@@ -652,6 +773,8 @@ public static class SafeArea
 				if (r != null && !r.PsychologicallyOutdoors && !r.TouchesMapEdge)
 					a[c] = true;
 			}
+			if (st != null)
+				st.safeSig = Sig(a);
 		}
 		return a;
 	}

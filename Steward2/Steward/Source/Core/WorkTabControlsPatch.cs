@@ -29,6 +29,22 @@ public static class WorkTabControlsPatch
 		// a narrow window: under the vanilla text instead of over it
 		if (x < 420f)
 			x = Math.Max(rect.x, x);
+		// 1.0.1: the game's "<= Higher priority / Lower priority =>" texts sit at x 370–790; in a narrower
+		// window our buttons were drawn over them. Cover them under our buttons and show the hint
+		// once more, left of the buttons, when there is room.
+		if (x < 790f)
+		{
+			Widgets.DrawBoxSolid(new Rect(x - 6f, rect.y + 2f, rect.xMax - x + 6f, 32f), Widgets.WindowBGFillColor);
+			if (x - 160f >= 150f && x < 530f)
+			{
+				GUI.color = new Color(1f, 1f, 1f, 0.5f);
+				Text.Anchor = TextAnchor.UpperRight;
+				Text.Font = GameFont.Tiny;
+				Widgets.Label(new Rect(x - 166f, rect.y + 5f, 156f, 30f), "<= " + "HigherPriority".Translate());
+				Text.Anchor = TextAnchor.UpperLeft;
+				GUI.color = Color.white;
+			}
+		}
 		Text.Font = GameFont.Small;
 		int now = Find.TickManager.TicksGame;
 

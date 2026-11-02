@@ -1,3 +1,28 @@
+=== Workshop release 1.6.1 (2 Nov 2026) ===
+1.6.1
+Fixes
+- Invisible colonists: one pawn or corpse that cannot be drawn (e.g. a modded race corpse with a broken body part) no longer hides everyone else on the map – it is left out, written to the log once and tried again later.
+- Speed 3 and 4 never run slower than speed 2 in a heavy colony.
+- High refresh monitors (above 120 Hz): with the FPS limit "Like the game", loading and dragging with the mouse no longer stutter or freeze on 1.7 (held at 60 FPS just then). Option in Display, on by default.
+
+Opravy
+- Neviditelní kolonisté: jedna postava nebo mrtvola, kterou nejde nakreslit (např. mrtvola modové rasy s rozbitou částí těla), už neschová všechny ostatní na mapě – vynechá se, jednou se zapíše do logu a později se zkusí znovu.
+- Rychlost 3 a 4 už v těžké kolonii nikdy neběží pomaleji než rychlost 2.
+- Monitory nad 120 Hz: s limitem FPS „Jako ve hře“ se na 1.7 už nesekne načítání ani tažení myší (v tu chvíli drženo na 60 FPS). Volba v části Obraz, zapnutá.
+
+=== Development history since the last Workshop release (test versions) ===
+1.6.3
+- High refresh monitors (above 120 Hz): with the FPS limit 'Like the game', the game is held at 60 FPS while it loads and while a mouse button is held – no more stutter when dragging or a frozen loading screen on 1.7. Option in Display, on by default; your own FPS limit is never touched.
+- Monitory s vysokou frekvencí (nad 120 Hz): s limitem FPS „Jako ve hře“ se hra při načítání a při stisknutém tlačítku myši drží na 60 FPS – na 1.7 se už nesekne tažení ani nezamrzne načítací obrazovka. Volba v části Obraz, zapnutá; tvůj vlastní limit FPS se nikdy nemění.
+
+1.6.2
+- Speed 3 and 4 never run slower than speed 2: in a heavy colony they now get at least the same time for the game per frame (before, speed 2 could be faster than speed 4).
+- Rychlost 3 a 4 už nikdy neběží pomaleji než rychlost 2: v těžké kolonii teď dostanou na hru aspoň stejně času za snímek (dřív mohla být rychlost 2 rychlejší než 4).
+
+1.6.1
+- Draw guard: one pawn or corpse that cannot be drawn (e.g. a modded race corpse with a broken body part) no longer stops the whole map from drawing – before, other colonists and passers-by were invisible and only their names showed. The broken one is left out, written to the log once and tried again after 10 seconds.
+- Ochrana kreslení: jedna postava nebo mrtvola, kterou nejde nakreslit (např. mrtvola modové rasy s rozbitou částí těla), už nezastaví kreslení celé mapy – dřív byli ostatní kolonisté a kolemjdoucí neviditelní a vidět byla jen jejich jména. Ta rozbitá se vynechá, jednou zapíše do logu a za 10 sekund se zkusí znovu.
+
 === Workshop release 1.6.0 (31 Oct 2026) ===
 1.6.0
 New

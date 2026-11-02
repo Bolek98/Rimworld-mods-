@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HardyPlants_Title>Evergrowth – Kontrola wzrostu roślin</HardyPlants_Title>
+  <HardyPlants_Temperatures>Temperatury dla odpornych roślin</HardyPlants_Temperatures>
+  <HardyPlants_TemperaturesDesc>Poniżej minimum roślina przestaje rosnąć. Odporna roślina dostaje te wartości tylko tam, gdzie są lepsze od jej własnych.</HardyPlants_TemperaturesDesc>
+  <HardyPlants_MinGrowth>Minimalna temperatura wzrostu: {0} (vanilla {1})</HardyPlants_MinGrowth>
+  <HardyPlants_MinOptimal>Pełna prędkość wzrostu od: {0} (vanilla {1})</HardyPlants_MinOptimal>
+  <HardyPlants_MaxOptimal>Pełna prędkość wzrostu do: {0} (vanilla {1})</HardyPlants_MaxOptimal>
+  <HardyPlants_MaxGrowth>Maksymalna temperatura wzrostu: {0} (vanilla {1})</HardyPlants_MaxGrowth>
+  <HardyPlants_Frost>Odporność na mróz: o {0} zimniej</HardyPlants_Frost>
+  <HardyPlants_FrostDesc>Rośliny vanilla tracą liście 10–18 °C poniżej swojej minimalnej temperatury wzrostu. Odporne rośliny wytrzymują o tyle więcej.</HardyPlants_FrostDesc>
+  <HardyPlants_ResetValues>Przywróć temperatury</HardyPlants_ResetValues>
+  <HardyPlants_Group>Które rośliny:</HardyPlants_Group>
+  <HardyPlants_GroupCold>Dzikie rośliny zimnych biomów</HardyPlants_GroupCold>
+  <HardyPlants_GroupWild>Wszystkie dzikie rośliny i drzewa (domyślnie)</HardyPlants_GroupWild>
+  <HardyPlants_GroupAll>Wszystkie rośliny łącznie z uprawami</HardyPlants_GroupAll>
+  <HardyPlants_GroupCustom>Mój własny wybór (lista po prawej)</HardyPlants_GroupCustom>
+  <HardyPlants_Plants>Rośliny odporne na zimno</HardyPlants_Plants>
+  <HardyPlants_Chosen>Wybrano roślin: {0}. Szukaj:</HardyPlants_Chosen>
+  <HardyPlants_Growth>Wzrost</HardyPlants_Growth>
+  <HardyPlants_FasterGrowth>Rośliny rosną szybciej</HardyPlants_FasterGrowth>
+  <HardyPlants_FasterGrowthDesc>Uprawy, drzewa i dzikie rośliny – każde z własną prędkością. Działa od razu dla każdej rośliny na mapie, także tych, które pojawią się później. Bez restartu. Domyślnie wyłączone.</HardyPlants_FasterGrowthDesc>
+  <HardyPlants_GrowthSpeed>Prędkość wzrostu: ×{0}</HardyPlants_GrowthSpeed>
+  <HardyPlants_GrowAllDay>Rośliny rosną dzień i noc (24/7)</HardyPlants_GrowAllDay>
+  <HardyPlants_GrowAllDayDesc>Rośliny nie odpoczywają w nocy, a rośliny pod gołym niebem rosną też w ciemności. Rośliny pod dachem nadal potrzebują lamp. Domyślnie wyłączone.</HardyPlants_GrowAllDayDesc>
+  <HardyPlants_CropDays>Ustaw czas wzrostu upraw</HardyPlants_CropDays>
+  <HardyPlants_TreeDays>Ustaw czas wzrostu drzew</HardyPlants_TreeDays>
+  <HardyPlants_DaysValue>Rośnie w: {0} dni</HardyPlants_DaysValue>
+  <HardyPlants_DaysDesc>Dni przy 100 % tempa wzrostu. Rośliny odpoczywają w nocy (chyba że włączone jest 24/7) i rosną wolniej przy słabym świetle, glebie lub temperaturze, więc w prawdziwej grze trwa to dłużej. Stosowane po zamknięciu tego okna – bez restartu. Domyślnie wyłączone.</HardyPlants_DaysDesc>
+  <HardyPlants_Presets>Szybka konfiguracja (sekcja Wzrost):</HardyPlants_Presets>
+  <HardyPlants_PresetVanilla>Vanilla</HardyPlants_PresetVanilla>
+  <HardyPlants_PresetEasy>Łatwe rolnictwo</HardyPlants_PresetEasy>
+  <HardyPlants_PresetLush>Bujny świat</HardyPlants_PresetLush>
+  <HardyPlants_SpeedCrops>Uprawy: ×{0}</HardyPlants_SpeedCrops>
+  <HardyPlants_SpeedTrees>Drzewa: ×{0}</HardyPlants_SpeedTrees>
+  <HardyPlants_SpeedWild>Dzikie rośliny: ×{0}</HardyPlants_SpeedWild>
+  <HardyPlants_Yield>Większe plony</HardyPlants_Yield>
+  <HardyPlants_YieldDesc>Ile dają uprawy i dzikie rośliny przy zbiorze i ile drewna daje drzewo. Działa od razu. Domyślnie wyłączone.</HardyPlants_YieldDesc>
+  <HardyPlants_YieldCrops>Uprawy i dzikie rośliny: ×{0}</HardyPlants_YieldCrops>
+  <HardyPlants_YieldWood>Drewno z drzew: ×{0}</HardyPlants_YieldWood>
+  <HardyPlants_Regrow>Dzikie rośliny szybciej odrastają</HardyPlants_Regrow>
+  <HardyPlants_RegrowDesc>Jak szybko dzikie rośliny i drzewa wracają na mapę po wycince, wypasie lub pożarze. Gęstość roślin nadal zależy od biomu. Domyślnie wyłączone.</HardyPlants_RegrowDesc>
+  <HardyPlants_RegrowValue>Odrastanie: ×{0}</HardyPlants_RegrowValue>
+  <HardyPlants_IgnoreSoil>Słaba gleba nie spowalnia wzrostu</HardyPlants_IgnoreSoil>
+  <HardyPlants_IgnoreSoilDesc>Na piasku, żwirze i słabej glebie rośliny rosną z pełną prędkością. Żyzna gleba nadal pomaga. Tam, gdzie nic nie rośnie, nic się nie zmienia. Domyślnie wyłączone.</HardyPlants_IgnoreSoilDesc>
+  <HardyPlants_NoBlight>Brak zarazy upraw</HardyPlants_NoBlight>
+  <HardyPlants_NoBlightDesc>Zdarzenie zarazy już nie występuje, a zaraza się nie rozprzestrzenia. Domyślnie wyłączone.</HardyPlants_NoBlightDesc>
+  <HardyPlants_GrowthNote>Prędkość, plony, odrastanie, gleba, zaraza i 24/7 działają od razu, czasy wzrostu po zamknięciu tego okna.</HardyPlants_GrowthNote>
+  <MUI_Title>Zalecane ustawienia</MUI_Title>
+  <MUI_TitleOff>Zalecane ustawienia · wył.</MUI_TitleOff>
+  <MUI_DescOn>Mod konfiguruje się sam i działa od razu. Idealny dla nowych graczy i każdego, kto nie chce niczego zmieniać.</MUI_DescOn>
+  <MUI_DescOff>Własne ustawienia. Zmienione względem zalecanych: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Własne ustawienia. Nadal takie same jak zalecane.</MUI_DescOffSame>
+  <MUI_On>WŁ.</MUI_On>
+  <MUI_Off>WYŁ.</MUI_Off>
+  <MUI_ResetAll>Przywróć wszystko do zalecanych</MUI_ResetAll>
+  <MUI_ConfirmOn>Włączyć zalecane ustawienia? Twoje zmiany ({0}) zostaną zastąpione zalecanymi wartościami.</MUI_ConfirmOn>
+  <MUI_Locked>Szczegółowe ustawienia są zablokowane. Chcesz je zmienić? Wyłącz przełącznik powyżej – Twoje wartości zaczną od zalecanych.</MUI_Locked>
+  <MUI_Changed>ZMIENIONO</MUI_Changed>
+  <MUI_ChangedTip>Różni się od zalecanego ustawienia ({0}). Kliknij, aby przywrócić zalecaną wartość.</MUI_ChangedTip>
+  <MUI_Yes>wł.</MUI_Yes>
+  <MUI_No>wył.</MUI_No>
+  <MUI_RecTag>ZALECANE</MUI_RecTag>
+  <HardyPlants_Profile>PROFIL</HardyPlants_Profile>
+  <HardyPlants_ProfRec>Zalecany</HardyPlants_ProfRec>
+  <HardyPlants_ProfCustom>Własny</HardyPlants_ProfCustom>
+  <HardyPlants_PresetVanilla_Card>Wzrost i plony jak w podstawowej grze.</HardyPlants_PresetVanilla_Card>
+  <HardyPlants_ProfRec_Card>Szybszy wzrost, większe plony, brak zarazy, szklarnie i dzikie rośliny pod śniegiem. Nadal uczciwie.</HardyPlants_ProfRec_Card>
+  <HardyPlants_PresetLush_Card>Rośliny wszędzie, rosną szybko dzień i noc, w każdej porze roku i bez szkód od zdarzeń.</HardyPlants_PresetLush_Card>
+  <HardyPlants_ProfCustom_Card>Twoje własne wartości.</HardyPlants_ProfCustom_Card>
+  <HardyPlants_ProfileHint>Zmień cokolwiek w sekcji Wzrost lub Plony, a profil przełączy się na Własny. Pomarańczowe ZMIENIONO = różni się od zalecanego, kliknij, aby przywrócić.</HardyPlants_ProfileHint>
+  <HardyPlants_SecYield>Plony i choroby</HardyPlants_SecYield>
+  <HardyPlants_SecGroup>Które rośliny są odporne</HardyPlants_SecGroup>
+  <HardyPlants_TabGrowth>Wzrost</HardyPlants_TabGrowth>
+  <HardyPlants_TabYield>Plony</HardyPlants_TabYield>
+  <HardyPlants_TabWild>Dzika przyroda</HardyPlants_TabWild>
+  <HardyPlants_TabWinter>Zima i pogoda</HardyPlants_TabWinter>
+  <HardyPlants_TabPlants>Odporne rośliny</HardyPlants_TabPlants>
+  <HardyPlants_SecSeason>Pory roku</HardyPlants_SecSeason>
+  <HardyPlants_AnySeason>Siew i wzrost w każdej porze roku</HardyPlants_AnySeason>
+  <HardyPlants_AnySeasonDesc>Uprawy można siać i rosną zawsze, gdy pozwala na to temperatura – bez ograniczenia „sezonu wegetacyjnego”. Rośliny nadal potrzebują ciepła, by rosnąć szybko.</HardyPlants_AnySeasonDesc>
+  <HardyPlants_Greenhouse>Szklarnie</HardyPlants_Greenhouse>
+  <HardyPlants_GreenhouseDesc>Rośliny pod zbudowanym dachem w zamkniętym pomieszczeniu rosną z pełną prędkością niezależnie od temperatury (od −10 °C), w każdej porze roku, i nigdy nie zamarzają. Używaj lamp jako źródła światła.</HardyPlants_GreenhouseDesc>
+  <HardyPlants_FruitRepeat>Drzewa owocowe znów owocują</HardyPlants_FruitRepeat>
+  <HardyPlants_FruitRepeatDesc>Zbiór owoców z drzewa (z modów) go nie ścina – drzewo znów wydaje owoce. Ścinanie na drewno nadal działa.</HardyPlants_FruitRepeatDesc>
+  <HardyPlants_WildDensity>Gęstsza dzika przyroda</HardyPlants_WildDensity>
+  <HardyPlants_WildDensityDesc>Więcej (lub mniej) dzikich roślin i drzew na mapie, niż zwykle ma biom.</HardyPlants_WildDensityDesc>
+  <HardyPlants_WildDensityValue>Gęstość dzikich roślin: ×{0}</HardyPlants_WildDensityValue>
+  <HardyPlants_SnowGrowth>Dzikie rośliny odrastają pod śniegiem</HardyPlants_SnowGrowth>
+  <HardyPlants_SnowGrowthDesc>Zwykle przez całą zimę na zaśnieżonej ziemi nic nowego nie wyrasta. Po włączeniu dzikie rośliny i drzewa odrastają pod śniegiem tam, gdzie jest wystarczająco ciepło.</HardyPlants_SnowGrowthDesc>
+  <HardyPlants_SnowMinTemp>Pod śniegiem od: {0} (vanilla: nigdy; zalecane {1})</HardyPlants_SnowMinTemp>
+  <HardyPlants_FewerFires>Mniej pożarów</HardyPlants_FewerFires>
+  <HardyPlants_FewerFiresDesc>Trawa, krzewy i drzewa zapalają się około trzy razy trudniej, więc pożar nie pochłania całego lasu.</HardyPlants_FewerFiresDesc>
+  <HardyPlants_Overview>Dzika przyroda na tej mapie</HardyPlants_Overview>
+  <HardyPlants_OverviewNoGame>Wczytaj grę, aby zobaczyć, co rośnie na Twojej mapie.</HardyPlants_OverviewNoGame>
+  <HardyPlants_OverviewDay>Ostatni dzień gry ({0}):</HardyPlants_OverviewDay>
+  <HardyPlants_OverviewSoFar>Dziś do tej pory ({0}):</HardyPlants_OverviewSoFar>
+  <HardyPlants_OverviewNums>Próbowało wyrosnąć {0} dzikich roślin, wyrosło {1} ({2} drzew).</HardyPlants_OverviewNums>
+  <HardyPlants_OverviewSnow>Śnieg zatrzymał {0} z {1} prób.</HardyPlants_OverviewSnow>
+  <HardyPlants_OverviewNoneSnow>Nic nie rośnie – prawdopodobnie przez śnieg. Włącz „Dzikie rośliny odrastają pod śniegiem”.</HardyPlants_OverviewNoneSnow>
+  <HardyPlants_OverviewNoneCold>Nic nie rośnie – jest za zimno albo ziemia jest pełna. Spróbuj niższej temperatury „Pod śniegiem od”.</HardyPlants_OverviewNoneCold>
+  <HardyPlants_SecEvents>Zdarzenia</HardyPlants_SecEvents>
+  <HardyPlants_ImmuneEvents>Rośliny ignorują złe zdarzenia</HardyPlants_ImmuneEvents>
+  <HardyPlants_ImmuneEventsDesc>Susza (także suche okresy z modów), szkodliwa mgła, toksyczny opad i zanieczyszczenie nie spowalniają już roślin ani nie pozbawiają ich liści. Zimno i upał nadal się liczą.</HardyPlants_ImmuneEventsDesc>
+  <HardyPlants_GrowMap>Gdzie rośnie</HardyPlants_GrowMap>
+  <HardyPlants_GrowMapHide>Ukryj mapę wzrostu</HardyPlants_GrowMapHide>
+  <HardyPlants_GrowMapDesc>Pokazuje na mapie, gdzie rośnie {0}: zielony – dobrze, żółty – wolniej, czerwony – wcale. Najedź na pole, by zobaczyć powód. Prawy przycisk: inna roślina.</HardyPlants_GrowMapDesc>
+  <HardyPlants_GrowMapBanner>Gdzie rośnie {0} – zielony: dobrze, żółty: wolniej, czerwony: nie. Najedź na pole, by zobaczyć powód.</HardyPlants_GrowMapBanner>
+  <HardyPlants_GM_Ok>Rośnie tu dobrze.</HardyPlants_GM_Ok>
+  <HardyPlants_GM_TempSlow>Rośnie wolniej: teraz {0}, najlepiej między {1}.</HardyPlants_GM_TempSlow>
+  <HardyPlants_GM_DarkSlow>Rośnie wolniej: za mało światła pod dachem – dodaj lampę.</HardyPlants_GM_DarkSlow>
+  <HardyPlants_GM_SoilSlow>Rośnie wolniej: uboga gleba (żyzność {0}).</HardyPlants_GM_SoilSlow>
+  <HardyPlants_GM_TooCold>Teraz za zimno: {0}, rośnie między {1}.</HardyPlants_GM_TooCold>
+  <HardyPlants_GM_TooHot>Teraz za gorąco: {0}, rośnie między {1}.</HardyPlants_GM_TooHot>
+  <HardyPlants_GM_NoSoil>Tu nie rośnie: gleba za uboga ({0}, potrzebuje {1}).</HardyPlants_GM_NoSoil>
+  <HardyPlants_GM_NeedsRoof>Potrzebuje dachu (roślina jaskiniowa).</HardyPlants_GM_NeedsRoof>
+  <HardyPlants_GM_TooDark>Pod dachem za ciemno – potrzebuje lampy.</HardyPlants_GM_TooDark>
+  <HardyPlants_GM_Blocked>Coś tu jest zbudowane.</HardyPlants_GM_Blocked>
+  <HardyPlants_GM_OnlyGrower>Tylko w hydroponice lub donicy – tu nie w ziemi.</HardyPlants_GM_OnlyGrower>
+  <HardyPlants_AutoGuess>Zgaduj dla roślin z innych modów</HardyPlants_AutoGuess>
+  <HardyPlants_AutoGuessDesc>Rośliny z innych modów, których nie ma w żadnym biomie lub które dają drewno, choć nie są oznaczone jako drzewo, są przypisane według własnych wartości (rodzaj, odporność na zimno). Na liście mają znak „auto”.</HardyPlants_AutoGuessDesc>
+  <HardyPlants_AutoTag>auto</HardyPlants_AutoTag>
+  <HardyPlants_AutoTip>Z modu {0}. Evergrowth traktuje ją jako: {1}, rośnie od {2}, rośnie {3} dni.</HardyPlants_AutoTip>
+  <HardyPlants_Kind0>dzika roślina</HardyPlants_Kind0>
+  <HardyPlants_Kind1>drzewo</HardyPlants_Kind1>
+  <HardyPlants_Kind2>uprawa</HardyPlants_Kind2>
+  <HardyPlants_AutoKindGuessed>Traktowana jako {0}: daje drewno, ale jej mod nie oznaczył jej jako drzewa.</HardyPlants_AutoKindGuessed>
+  <HardyPlants_AutoAddedWild>Żaden biom jej nie ma – dodana do grupy dzikich roślin.</HardyPlants_AutoAddedWild>
+  <HardyPlants_AutoAddedCold>Żaden biom jej nie ma – dodana do dzikich roślin i, ponieważ rośnie w zimnie, do grupy zimnych biomów.</HardyPlants_AutoAddedCold>
+  <HardyPlants_CropSync>Uprawy w strefie dojrzewają razem</HardyPlants_CropSync>
+  <HardyPlants_CropSyncDesc>Uprawy w jednej strefie uprawy zasiane w odstępie około jednego dnia doganiają najszybszą, więc całe pole jest gotowe do zbioru naraz. Późniejszy wysiew pozostaje bez zmian. Nie dotyczy drzew.</HardyPlants_CropSyncDesc>
+  <HardyPlants_AlertGH>Temperatura w szklarni</HardyPlants_AlertGH>
+  <HardyPlants_AlertGHCold>{0}: {1} – za zimno dla {2} (potrzebuje powyżej {3})</HardyPlants_AlertGHCold>
+  <HardyPlants_AlertGHDesc>Uprawy w pomieszczeniach, w których jest za zimno lub za gorąco, by rosły – może zawiodło ogrzewanie lub chłodzenie:\n\n{0}</HardyPlants_AlertGHDesc>
+  <HardyPlants_AlertGHHot>{0}: {1} – za gorąco dla {2} (przestaje rosnąć powyżej {3})</HardyPlants_AlertGHHot>
+  <HardyPlants_CalColdAlways>Na zewnątrz przez cały rok jest za zimno na uprawy.</HardyPlants_CalColdAlways>
+  <HardyPlants_CalColdNow>Na zewnątrz jest teraz za zimno na uprawy – znów wystarczająco ciepło za około {0} dni.</HardyPlants_CalColdNow>
+  <HardyPlants_CalCrops>Co siać teraz</HardyPlants_CalCrops>
+  <HardyPlants_CalEmptyZone>jeszcze nic nie posadzono</HardyPlants_CalEmptyZone>
+  <HardyPlants_CalFrost>Następny mróz (poniżej 0 °C) za około {0} dni.</HardyPlants_CalFrost>
+  <HardyPlants_CalHarvest>Prognoza zbiorów</HardyPlants_CalHarvest>
+  <HardyPlants_CalLate>nie dojrzeje – zimno zatrzyma go za {0} dni</HardyPlants_CalLate>
+  <HardyPlants_CalNeedGame>Wczytaj grę, aby otworzyć kalendarz siewu.</HardyPlants_CalNeedGame>
+  <HardyPlants_CalNeeds>potrzebuje {0} d</HardyPlants_CalNeeds>
+  <HardyPlants_CalNoFrost>Brak mrozu w najbliższych {0} dniach.</HardyPlants_CalNoFrost>
+  <HardyPlants_CalNoGrow>teraz za zimno lub za gorąco na wzrost (rośnie od {0})</HardyPlants_CalNoGrow>
+  <HardyPlants_CalNoZones>Brak stref upraw na tej mapie.</HardyPlants_CalNoZones>
+  <HardyPlants_CalNote>Posiane dziś na zewnątrz w zwykłej glebie, z twoimi ustawieniami wzrostu i średnimi temperaturami pory roku (pogoda i wydarzenia nie są liczone).</HardyPlants_CalNote>
+  <HardyPlants_CalNow>Dziś: {0} · na zewnątrz {1}</HardyPlants_CalNow>
+  <HardyPlants_CalOk>dojrzeje za około {0} dni</HardyPlants_CalOk>
+  <HardyPlants_CalOpen>Otwórz kalendarz siewu</HardyPlants_CalOpen>
+  <HardyPlants_CalRefresh>Odśwież</HardyPlants_CalRefresh>
+  <HardyPlants_CalSearch>Szukaj upraw…</HardyPlants_CalSearch>
+  <HardyPlants_CalSlow>dojrzeje za około {0} dni (spowolnione przez zimno lub upał)</HardyPlants_CalSlow>
+  <HardyPlants_CalTip>Rośnie między {0} a {1}.</HardyPlants_CalTip>
+  <HardyPlants_CalTitle>Kalendarz siewu – {0}</HardyPlants_CalTitle>
+  <HardyPlants_CalTooLong>nie dojrzewa w ciągu {0} dni</HardyPlants_CalTooLong>
+  <HardyPlants_CalTotal>Łącznie oczekiwane: {0}</HardyPlants_CalTotal>
+  <HardyPlants_CalWarm>Zimno potrwa około {0} dni.</HardyPlants_CalWarm>
+  <HardyPlants_Calendar>Kalendarz siewu</HardyPlants_Calendar>
+  <HardyPlants_CalendarDesc>Co jeszcze zdąży dojrzeć przed zimnem na tej mapie oraz prognoza zbiorów dla każdej strefy upraw.</HardyPlants_CalendarDesc>
+  <HardyPlants_GreenhouseWatch>Pilnowanie szklarni</HardyPlants_GreenhouseWatch>
+  <HardyPlants_GreenhouseWatchDesc>Alert, gdy w zadaszonej strefie upraw lub pomieszczeniu z hydroponiką robi się za zimno lub za gorąco dla tego, co tam rośnie – np. gdy zawiedzie ogrzewanie.</HardyPlants_GreenhouseWatchDesc>
+  <HardyPlants_Orchard>Sad</HardyPlants_Orchard>
+  <HardyPlants_OrchardDesc>Młode drzewa w tej strefie nigdy nie są ścinane – nawet gdy wybierzesz dla strefy inne drzewo lub rośnie w niej dzikie drzewo. Zbierane są tylko dorosłe drzewa, a pole jest potem normalnie obsadzane.</HardyPlants_OrchardDesc>
+  <HardyPlants_RotToSummer>{0}: wróciła ciepła pora – z powrotem {1}.</HardyPlants_RotToSummer>
+  <HardyPlants_RotToWinter>{0}: nadchodzi zimno – przełączono na {1}.</HardyPlants_RotToWinter>
+  <HardyPlants_SecPlanning>Planowanie</HardyPlants_SecPlanning>
+  <HardyPlants_Winter>Zimowy płodozmian</HardyPlants_Winter>
+  <HardyPlants_WinterDesc>Strefy upraw dostają przycisk „Uprawa zimowa”. Gdy zimno zatrzymałoby uprawę letnią, strefa przełącza się na wybraną uprawę zimową i z powrotem, gdy wróci ciepła pora. Na rośliny już zaawansowane się czeka.</HardyPlants_WinterDesc>
+  <HardyPlants_WinterFrom>rośnie od {0}</HardyPlants_WinterFrom>
+  <HardyPlants_WinterGizmo>Uprawa zimowa…</HardyPlants_WinterGizmo>
+  <HardyPlants_WinterGizmoDesc>Wybierz odporną na zimno uprawę, na którą ta strefa przełączy się, gdy przyjdzie zimno; wiosną wróci uprawa letnia. Lista według najniższej temperatury wzrostu.</HardyPlants_WinterGizmoDesc>
+  <HardyPlants_WinterGizmoSet>Zima: {0}</HardyPlants_WinterGizmoSet>
+  <HardyPlants_WinterOff>Bez uprawy zimowej</HardyPlants_WinterOff>
+  <HardyPlants_ZoneForecast>Zbiory: dojrzeje za około {0} dni, około {1} {2}.</HardyPlants_ZoneForecast>
+  <HardyPlants_ZoneReady>Zbiory: {0} roślin dojrzałych – około {1} {2}.</HardyPlants_ZoneReady>
+  <HardyPlants_ZoneReadyToo>({0} już dojrzałych)</HardyPlants_ZoneReadyToo>
+  <HardyPlants_ZoneStalled>Zbiory: {0} roślin teraz nie rośnie (za zimno, za gorąco lub za ciemno).</HardyPlants_ZoneStalled>
+</LanguageData>

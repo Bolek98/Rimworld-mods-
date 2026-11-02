@@ -49,10 +49,15 @@ namespace UniversalRimTranslator
             var lists = new Dictionary<string, List<(Item, string)>>();
             var touchedTypes = new HashSet<Type>();
             var directTypes = new HashSet<Type>();
+            bool namesChanged = false;
             foreach (var (it, text) in work)
             {
                 try
                 {
+                    // 1.0.1: texts the game built from names (bills, blueprints …) are rebuilt by Derived
+                    if (it.Kind != ItemKind.Keyed && Derived.Owns(ItemKey(it))) continue;
+                    if (it.Kind == ItemKind.Def && (it.DefType == typeof(ThingDef) || it.DefType == typeof(TerrainDef)) && it.Path.EndsWith(".label"))
+                        namesChanged = true;
                     if (it.Kind == ItemKind.Keyed)
                     {
                         if (Keyed(it, text)) n++;
@@ -119,6 +124,7 @@ namespace UniversalRimTranslator
                 catch (Exception e) { MLog.WarnOnce("[URT] cache of " + t.Name + ": " + e.Message, t.Name.GetHashCode()); }
             }
             if (rulesTouched) FlushRules();
+            if (namesChanged) Derived.MarkDirty();
             return n;
         }
 

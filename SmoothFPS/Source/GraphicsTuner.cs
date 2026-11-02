@@ -144,6 +144,8 @@ namespace GraphicsTuner
         // display – your own choice, never changed by a profile
         public int vsync = -1;                  // -1 = like the game, else index into the engine's modes
         public int fpsLimit = -2;               // -2 = like the game, -1 = unlimited, else FPS
+        public bool highRefreshCap = true;      // 1.6.3: monitors above 120 Hz – 60 FPS while loading and while a mouse button is held
+        public bool highRefreshTold;
         public int bgFps;                       // 0 = no change
         public int laptop;                      // 1.4.0: 0 off, 1 always, 2 only on battery
         public int laptopFps = 45;
@@ -213,6 +215,8 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref fastLog, "fastLog", true);
             Scribe_Values.Look(ref vsync, "vsync", -1);
             Scribe_Values.Look(ref fpsLimit, "fpsLimit", -2);
+            Scribe_Values.Look(ref highRefreshCap, "highRefreshCap", true);
+            Scribe_Values.Look(ref highRefreshTold, "highRefreshTold", false);
             Scribe_Values.Look(ref bgFps, "bgFps", 0);
             Scribe_Values.Look(ref laptop, "laptop", 0);
             Scribe_Values.Look(ref laptopFps, "laptopFps", 45);
@@ -516,6 +520,7 @@ namespace GraphicsTuner
                 ticksAt = t;
                 tpsStart = now;
             }
+            try { HighRefresh.Update(s); } catch { }   // 1.6.3
             Benchmark.Update();
             Profiler.Update();
             Freezer.Update();
@@ -756,7 +761,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.6.0";
+        public const string Version = "1.6.1";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -788,6 +793,7 @@ namespace GraphicsTuner
             SaveTiming.Patch(harmony);              // 1.7.4
             SaveBuffer.Patch(harmony);              // 1.5.0
             ModEffects.Patch(harmony);              // 1.3.2: effects from mods too
+            DrawGuard.Patch(harmony);               // 1.6.1: one broken pawn no longer hides the rest
             TextureCap.Patch(harmony);              // 1.3.3: oversized mod textures
             MLog.Info("[Smooth FPS] game " + RimWorld.VersionControl.CurrentVersionStringWithoutBuild + (Env.Is17 ? ": 1.7 mode – no texture limit, no forced memory clean-ups." : ": 1.6 mode."));
             SmartWork.Patch(harmony);               // 1.4.0: smart work search
@@ -974,6 +980,8 @@ namespace GraphicsTuner
             }
             Dropdown(r, "GT_Fps".Translate(), "GT_Fps_Desc".Translate(), FpsText(s.fpsLimit), () =>
                 FpsChoices.Select(v => new FloatMenuOption(FpsText(v), () => s.fpsLimit = v)).ToList());
+            if (HighRefresh.Hz > 120)
+                MUI.Check(r, "GT_HighRefresh".Translate(HighRefresh.Hz), "GT_HighRefresh_Desc".Translate(HighRefresh.Hz), ref s.highRefreshCap, Settings, "highRefreshCap");   // 1.6.3
             Dropdown(r, "GT_BgFps".Translate(), "GT_BgFps_Desc".Translate(), s.bgFps == 0 ? "GT_NoChange".Translate().ToString() : s.bgFps.ToString(), () =>
                 BgChoices.Select(v => new FloatMenuOption(v == 0 ? "GT_NoChange".Translate().ToString() : v.ToString(), () => s.bgFps = v)).ToList());
             if (Engine.IsWaylith && Engine.DisplayNames.Length > 0)
