@@ -124,6 +124,23 @@ public static class Patch_Apparel
 		return null;
 	}
 
+	// 2.5.5: children's clothes (kid shirt, kid parka, race child tops) often have only a "_Child" picture.
+	// A child whose body type was changed (e.g. a race without a child body) and anyone wearing kids' clothes
+	// try Child first; Child and Baby are always the last resort.
+	private static IEnumerable<BodyTypeDef> Candidates(Apparel a, BodyTypeDef body)
+	{
+		Pawn w = a?.Wearer;
+		bool kid = false;
+		try { kid = w != null && w.DevelopmentalStage.Child() || a?.def?.apparel?.developmentalStageFilter == DevelopmentalStage.Child; } catch { }
+		BodyTypeDef child = BodyTypeDefOf.Child, baby = BodyTypeDefOf.Baby;
+		var done = new HashSet<BodyTypeDef> { body };
+		if (kid && child != null && done.Add(child)) yield return child;
+		foreach (BodyTypeDef b in Bodies.Similar(body, w?.gender ?? Gender.None))
+			if (b != null && done.Add(b)) yield return b;
+		if (child != null && done.Add(child)) yield return child;
+		if (baby != null && done.Add(baby)) yield return baby;
+	}
+
 	private static bool UsesBodySuffix(Apparel a)
 	{
 		ApparelLayerDef last = a.def.apparel.LastLayer;
@@ -158,7 +175,7 @@ public static class Patch_Apparel
 				use = bodyType;
 				if (!Bodies.TextureExists(apparel.WornGraphicPath + "_" + bodyType.defName))
 				{
-					foreach (BodyTypeDef alt in Bodies.Similar(bodyType, wearer?.gender ?? Gender.None))
+					foreach (BodyTypeDef alt in Candidates(apparel, bodyType))
 					{
 						if (Bodies.TextureExists(apparel.WornGraphicPath + "_" + alt.defName))
 						{
@@ -200,7 +217,7 @@ public static class Patch_Apparel
 			// 1.2.3: only try bodies that have a picture – no "Failed to find any textures" errors
 			string suf = "_" + bodyType.defName;
 			string stem = g.path != null && g.path.EndsWith(suf) ? g.path.Substring(0, g.path.Length - bodyType.defName.Length) : null;
-			foreach (BodyTypeDef alt in Bodies.Similar(bodyType, apparel.Wearer?.gender ?? Gender.None))
+			foreach (BodyTypeDef alt in Candidates(apparel, bodyType))
 			{
 				if (stem != null && !Bodies.TextureExists(stem + alt.defName))
 					continue;
