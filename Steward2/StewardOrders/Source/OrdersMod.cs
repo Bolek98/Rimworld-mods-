@@ -37,7 +37,7 @@ public sealed class OrdersSettings : ModSettings
 
 public sealed class OrdersMod : Mod
 {
-	public const string Version = "0.2.0";
+	public const string Version = "0.3.0";
 	public static OrdersSettings S;
 
 	public OrdersMod(ModContentPack content) : base(content)
@@ -111,7 +111,18 @@ public class FloatMenuOptionProvider_StewardOrders : FloatMenuOptionProvider
 		}
 		// 0.3.0: anything – joy buildings, then weapons/clothes to put on, then any work on the thing
 		// (bills, research, build, repair, harvest, mine, haul, clean, tend, feed, tame …)
-		if (OrdersMod.S.relax && t is Building && t.def.building != null && t.def.building.joyKind != null)
+		// 0.3.0: a book – read it
+		if (OrdersMod.S.relax && t is Book book && pawn.needs?.joy != null && !t.IsForbidden(pawn) && pawn.CanReserveAndReach(t, PathEndMode.ClosestTouch, Danger.Deadly))
+		{
+			return new FloatMenuOption("SO_ReadNow".Translate(t.LabelShort), () =>
+			{
+				Job j = JobMaker.MakeJob(JobDefOf.Reading, book);
+				j.count = 1;
+				j.ignoreJoyTimeAssignment = true;
+				pawn.jobs.TryTakeOrderedJob(j, JobTag.SatisfyingNeeds);
+			});
+		}
+		if (OrdersMod.S.relax && t is Building && IsJoyBuilding(t.def))
 		{
 			var tmp = new List<FloatMenuOption>();
 			RelaxOrder(pawn, t, tmp);
@@ -132,6 +143,17 @@ public class FloatMenuOptionProvider_StewardOrders : FloatMenuOptionProvider
 			return tmp.FirstOrDefault(o => !o.Disabled);
 		}
 		return null;
+	}
+
+	private static readonly Dictionary<ThingDef, bool> joyCache = new Dictionary<ThingDef, bool>();
+
+	// any building some joy giver uses (vanilla and mods: TV, chess, spa, casino, arcade …)
+	private static bool IsJoyBuilding(ThingDef d)
+	{
+		if (joyCache.TryGetValue(d, out bool v)) return v;
+		v = (d.building != null && d.building.joyKind != null) || DefDatabase<JoyGiverDef>.AllDefsListForReading.Any(j => j.thingDefs != null && j.thingDefs.Contains(d));
+		joyCache[d] = v;
+		return v;
 	}
 
 	// a clicked colonist, prisoner or animal: tend, feed, chat, tame, train … whatever work there is
@@ -310,10 +332,24 @@ public class FloatMenuOptionProvider_StewardOrders : FloatMenuOptionProvider
 		foreach (JoyGiverDef jg in DefDatabase<JoyGiverDef>.AllDefsListForReading)
 		{
 			if (jg.thingDefs == null || !jg.thingDefs.Contains(t.def)) continue;
-			if (!(jg.Worker is JoyGiver_InteractBuilding ib)) continue;
 			string lab = "SO_RelaxHere".Translate(t.LabelShort);
 			Job job = null;
-			try { job = (Job)playJob.Invoke(ib, new object[] { pawn, t }); } catch { job = null; }
+			if (jg.Worker is JoyGiver_InteractBuilding ib)
+			{
+				try { job = (Job)playJob.Invoke(ib, new object[] { pawn, t }); } catch { job = null; }
+			}
+			else
+			{
+				// 0.3.0: joy buildings of other mods (spa, casino, arcade …) with their own joy giver – take the
+				// job it would give when it is for this very building
+				try
+				{
+					Job j = jg.Worker.TryGiveJob(pawn);
+					if (j != null && (j.targetA.Thing == t || j.targetB.Thing == t || j.targetC.Thing == t)) job = j;
+				}
+				catch { job = null; }
+				if (job == null) continue;
+			}
 			if (job == null)
 			{
 				list.Add(new FloatMenuOption(lab + ": " + "SO_RelaxNo".Translate(), null));

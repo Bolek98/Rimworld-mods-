@@ -3,7 +3,7 @@
   <name>Steward – Orders</name>
   <author>Bolek98</author>
   <packageId>misak.steward.orders</packageId>
-  <modVersion>0.2.0</modVersion>
+  <modVersion>0.3.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -35,6 +35,13 @@ The menu also gets orders the game normally refuses:
 - Relax at a TV, chess table, horseshoes and other joy buildings, even outside free time.
 The game's own options stay – ours appear only where the game's option is missing or greyed out. Each kind of order can be switched off.
 
+WORKS WITH OTHER MODS
+Orders use the game's own work, beds and joy, so buildings from other mods work automatically – no patches needed:
+- Work benches, research benches, beds and work of any mod (bills, building, harvesting, mining, hauling, cleaning, tending, taming).
+- Joy buildings with their own joy logic, e.g. Hospitality: Spa and Casino, Vanilla Furniture Expanded arcades and games.
+- Books (vanilla and Vanilla Books Expanded): right-click a book and the colonist reads it.
+- Made with these in mind: Vanilla Expanded (Furniture, Cooking, Brewing, Fishing, Books, Medical), Hospitality (Spa, Casino, Vending machines), Hospital, RimFridge, Biotech, Ideology, Anomaly.
+
 ---
 
 Volitelný doplněk pro Steward – Work Priorities (potřebuje jádro Stewarda; Steward funguje i bez něj).
@@ -46,5 +53,12 @@ Nabídka navíc dostane rozkazy, které hra normálně odmítne:
 - Výzkum u výzkumného stolu hned teď.
 - Spánek v posteli hned, i když není unavený; odpočinek na nemocniční posteli.
 - Zábava u televize, šachů, podkov a dalších – i mimo volný čas.
-Herní volby zůstávají – naše se objeví jen tam, kde herní chybí nebo je šedá. Každý druh rozkazu jde vypnout.</description>
+Herní volby zůstávají – naše se objeví jen tam, kde herní chybí nebo je šedá. Každý druh rozkazu jde vypnout.
+
+FUNGUJE S DALŠÍMI MODY
+Rozkazy používají práci, postele a zábavu ze hry, takže budovy z jiných modů fungují samy – bez úprav:
+- Pracovní a výzkumné stoly, postele a práce jakéhokoli modu (zakázky, stavba, sklizeň, těžba, nošení, úklid, ošetření, ochočení).
+- Zábavní budovy s vlastní logikou zábavy, např. Hospitality: Spa a Casino, automaty a hry z Vanilla Furniture Expanded.
+- Knihy (ze hry i z Vanilla Books Expanded): pravý klik na knihu a kolonista si ji přečte.
+- Dělané s ohledem na: Vanilla Expanded (Furniture, Cooking, Brewing, Fishing, Books, Medical), Hospitality (Spa, Casino, Vending machines), Hospital, RimFridge, Biotech, Ideology, Anomaly.</description>
 </ModMetaData>
