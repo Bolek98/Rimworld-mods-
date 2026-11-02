@@ -37,7 +37,7 @@ public sealed class OrdersSettings : ModSettings
 
 public sealed class OrdersMod : Mod
 {
-	public const string Version = "0.1.0";
+	public const string Version = "0.2.0";
 	public static OrdersSettings S;
 
 	public OrdersMod(ModContentPack content) : base(content)
@@ -109,16 +109,65 @@ public class FloatMenuOptionProvider_StewardOrders : FloatMenuOptionProvider
 			BedOrder(pawn, bed, tmp);
 			return tmp.FirstOrDefault(o => !o.Disabled);
 		}
-		if (t is Building_ResearchBench || t is IBillGiver && t is Building)
+		// 0.3.0: anything – joy buildings, then weapons/clothes to put on, then any work on the thing
+		// (bills, research, build, repair, harvest, mine, haul, clean, tend, feed, tame …)
+		if (OrdersMod.S.relax && t is Building && t.def.building != null && t.def.building.joyKind != null)
 		{
-			FloatMenuOption o = WorkHere(pawn, t);
-			if (o != null) return o;
+			var tmp = new List<FloatMenuOption>();
+			RelaxOrder(pawn, t, tmp);
+			FloatMenuOption r = tmp.FirstOrDefault(o => !o.Disabled);
+			if (r != null) return r;
 		}
+		if (t.def.category == ThingCategory.Item && t.Spawned && !t.IsForbidden(pawn))
+		{
+			FloatMenuOption gear = GearOrder(pawn, t);
+			if (gear != null) return gear;
+		}
+		FloatMenuOption w = WorkHere(pawn, t);
+		if (w != null) return w;
 		if (OrdersMod.S.relax && t is Building)
 		{
 			var tmp = new List<FloatMenuOption>();
 			RelaxOrder(pawn, t, tmp);
 			return tmp.FirstOrDefault(o => !o.Disabled);
+		}
+		return null;
+	}
+
+	// a clicked colonist, prisoner or animal: tend, feed, chat, tame, train … whatever work there is
+	public override IEnumerable<FloatMenuOption> GetOptionsFor(Pawn clickedPawn, FloatMenuContext context)
+	{
+		try
+		{
+			Pawn pawn = context.FirstSelectedPawn;
+			if (OrdersMod.S != null && OrdersMod.S.oneClick && OneClick.primary == null && pawn != null && clickedPawn != null && clickedPawn != pawn
+				&& !clickedPawn.HostileTo(Faction.OfPlayer))
+				OneClick.primary = WorkHere(pawn, clickedPawn);
+		}
+		catch (Exception e) { Log.ErrorOnce("[Steward Orders] pawn: " + e.Message, 0x50D3E2); }
+		yield break;
+	}
+
+	// weapon → equip, clothes → wear (only when he can and it is not the same he has)
+	private static FloatMenuOption GearOrder(Pawn pawn, Thing t)
+	{
+		if (!pawn.CanReserveAndReach(t, PathEndMode.ClosestTouch, Danger.Deadly)) return null;
+		if (t.def.IsWeapon && pawn.equipment != null && !pawn.WorkTagIsDisabled(WorkTags.Violent) && pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation)
+			&& EquipmentUtility.CanEquip(t, pawn))
+		{
+			return new FloatMenuOption("SO_EquipNow".Translate(t.LabelShort), () =>
+			{
+				Job j = JobMaker.MakeJob(JobDefOf.Equip, t);
+				pawn.jobs.TryTakeOrderedJob(j, JobTag.Misc);
+			});
+		}
+		if (t is Apparel ap && pawn.apparel != null && ApparelUtility.HasPartsToWear(pawn, ap.def) && ap.PawnCanWear(pawn, ignoreGender: false))
+		{
+			return new FloatMenuOption("SO_WearNow".Translate(t.LabelShort), () =>
+			{
+				Job j = JobMaker.MakeJob(JobDefOf.Wear, t);
+				pawn.jobs.TryTakeOrderedJob(j, JobTag.Misc);
+			});
 		}
 		return null;
 	}
@@ -133,11 +182,17 @@ public class FloatMenuOptionProvider_StewardOrders : FloatMenuOptionProvider
 			if (pawn.WorkTypeIsDisabled(wt)) continue;
 			bool notAssigned = pawn.workSettings != null && pawn.workSettings.GetPriority(wt) == 0;
 			if (notAssigned && !(t is Building_ResearchBench ? OrdersMod.S.research : OrdersMod.S.work)) continue;
+			if (t is Pawn && wt == WorkTypeDefOf.Hauling) continue;   // no carrying people around by a click
 			foreach (WorkGiverDef wg in wt.workGiversByPriority)
 			{
 				if (!(wg.Worker is WorkGiver_Scanner sc) || !wg.directOrderable) continue;
 				if (pawn.WorkTagIsDisabled(wg.workTags) || sc.MissingRequiredCapacity(pawn) != null) continue;
-				if (!sc.PotentialWorkThingRequest.Accepts(t)) continue;
+				if (!sc.PotentialWorkThingRequest.Accepts(t))
+				{
+					IEnumerable<Thing> glob = null;
+					try { glob = sc.PotentialWorkThingsGlobal(pawn); } catch { }
+					if (glob == null || !glob.Contains(t)) continue;
+				}
 				Job job = null;
 				try
 				{
@@ -149,7 +204,9 @@ public class FloatMenuOptionProvider_StewardOrders : FloatMenuOptionProvider
 				job.workGiverDef = wg;
 				Job local = job;
 				WorkGiver_Scanner localSc = sc;
-				return new FloatMenuOption("SO_WorkHere".Translate(t.LabelShort), () =>
+				string ger;
+				try { ger = sc.PostProcessedGerund(job); } catch { ger = wg.label; }
+				return new FloatMenuOption("SO_Order".Translate(ger, t.LabelShort), () =>
 				{
 					local.playerForced = true;
 					pawn.jobs.TryTakeOrderedJobPrioritizedWork(local, localSc, t.Position);
