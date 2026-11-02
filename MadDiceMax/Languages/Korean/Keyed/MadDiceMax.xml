@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RT_Rec1>주사위 스토리텔러가 매번 굴린 결과를 알리고 오늘의 확률을 보여줍니다.</RT_Rec1>
+  <RT_Rec2>스토리텔러가 가끔 사건에 한마디 합니다(대략 세 번에 한 번).</RT_Rec2>
+  <RT_Rec3>어떤 스토리텔러와도 작동하며, 저장 파일은 아무것도 바뀌지 않습니다.</RT_Rec3>
+  <RT_SecDice>Mad Dice Max</RT_SecDice>
+  <RT_DiceAlert>오늘의 주사위와 확률 표시</RT_DiceAlert>
+  <RT_DiceAlert_Desc>오른쪽 알림: 오늘의 주사위, 어떤 날인지, 습격·작은 위협·상인이나 방문객의 확률, 다음 굴림까지 남은 시간.</RT_DiceAlert_Desc>
+  <RT_DiceLetter>주사위를 편지로</RT_DiceLetter>
+  <RT_DiceLetter_Desc>매일의 주사위가 짧은 메시지 대신 전체 예보가 담긴 편지로 옵니다.</RT_DiceLetter_Desc>
+  <RT_SecDiary>일기</RT_SecDiary>
+  <RT_Diary>스토리텔러 코멘트</RT_Diary>
+  <RT_Diary_Desc>스토리텔러가 가끔 화면 위쪽에 짧은 한 줄로 사건에 코멘트합니다.</RT_Diary_Desc>
+  <RT_DiaryAll>다른 스토리텔러에서도</RT_DiaryAll>
+  <RT_DiaryAll_Desc>다른 스토리텔러(바닐라와 모드)에서도 코멘트합니다 – Max만이 아닙니다.</RT_DiaryAll_Desc>
+  <RT_DiaryChance>사건의 {0} %에 코멘트</RT_DiaryChance>
+  <RT_DiaryChance_Desc>코멘트가 나오는 빈도. 두 코멘트 사이에는 항상 최소 몇 시간이 있습니다.</RT_DiaryChance_Desc>
+  <RT_RollTitle>주사위 {0}: {1}</RT_RollTitle>
+  <RT_RollLetter>주사위 {0}</RT_RollLetter>
+  <RT_AlertLabel>주사위 {0}: {1}</RT_AlertLabel>
+  <RT_Mood1>평온한 날</RT_Mood1>
+  <RT_Mood2>조용한 날</RT_Mood2>
+  <RT_Mood3>평범한 날</RT_Mood3>
+  <RT_Mood4>너그러운 날</RT_Mood4>
+  <RT_Mood5>힘든 날</RT_Mood5>
+  <RT_Mood6>미친 날</RT_Mood6>
+  <RT_MoodDesc1>1 – 평온한 날. 오늘은 큰 위협이 없고, 사건이 적으며, 작은 위협도 약합니다. 하늘이 갭니다.</RT_MoodDesc1>
+  <RT_MoodDesc2>2 – 쉬운 날. 큰 위협은 드물고, 방문객과 무해한 사건이 많습니다. 종종 좋은 일이 생기고 날씨가 바뀔 수 있습니다.</RT_MoodDesc2>
+  <RT_MoodDesc3>3 – 평범한 날. 게임의 평소 사건들. 가끔 사건이 하나 더 있거나 날씨가 바뀝니다.</RT_MoodDesc3>
+  <RT_MoodDesc4>4 – 너그러운 날. 상인과 방문객이 더 자주 오고, 위협은 적으며, 낮 동안 선물 하나와 좋은 날씨.</RT_MoodDesc4>
+  <RT_MoodDesc5>5 – 힘든 날. 크고 작은 위협이 훨씬 잦고 강합니다 – 낮 동안 최소 하나는 반드시 옵니다. 이곳에서 가장 나쁜 날씨.</RT_MoodDesc5>
+  <RT_MoodDesc6>6 – 미친 날. 사건이 두 배로 자주 오고 종류마다 자체 확률이 있습니다 – 최소 두 개의 무작위 사건(바닐라와 모드)이 반드시 오고 어떤 날씨든 나타날 수 있습니다.</RT_MoodDesc6>
+  <RT_FcEvents>오늘 예상 사건: 약 {0}개</RT_FcEvents>
+  <RT_FcBig>습격 또는 다른 큰 위협: {0}</RT_FcBig>
+  <RT_FcSmall>작은 위협: {0}</RT_FcSmall>
+  <RT_FcGood>상인 또는 방문객: {0}</RT_FcGood>
+  <RT_FcStrength>위협 강도: 평소의 {0}–{1} %</RT_FcStrength>
+  <RT_FcNoForced>밀린 습격도 다른 날까지 기다립니다.</RT_FcNoForced>
+  <RT_FcGift>오늘 선물이 오고 있습니다.</RT_FcGift>
+  <RT_FcNext>다음 굴림까지 {0}.</RT_FcNext>
+  <RT_LvlVeryLow>매우 낮음</RT_LvlVeryLow>
+  <RT_LvlLow>낮음</RT_LvlLow>
+  <RT_LvlMid>보통</RT_LvlMid>
+  <RT_LvlHigh>높음</RT_LvlHigh>
+  <RT_LvlVeryHigh>매우 높음</RT_LvlVeryHigh>
+  <RT_RollSay1_1>스네이크 아이즈. 낮잠이나 자, 내일 다시 올게.</RT_RollSay1_1>
+  <RT_RollSay1_2>1. 나도 쉬는 날이 필요해.</RT_RollSay1_2>
+  <RT_RollSay1_3>1이다. 즐겨, 오래 안 가.</RT_RollSay1_3>
+  <RT_RollSay2_1>2. 기분이 좋아. 망치지 마.</RT_RollSay2_1>
+  <RT_RollSay2_2>2 – 차, 비스킷, 폭발 없음.</RT_RollSay2_2>
+  <RT_RollSay2_3>2. 가서 뭐라도 심어.</RT_RollSay2_3>
+  <RT_RollSay3_1>3. 늘 하던 대로.</RT_RollSay3_1>
+  <RT_RollSay3_2>3이다. 오늘 뭐가 올지 보자… 나도 몰라.</RT_RollSay3_2>
+  <RT_RollSay3_3>3. 완벽하게 평범해. 수상할 만큼 평범해.</RT_RollSay3_3>
+  <RT_RollSay4_1>4! 저 위에 누가 널 좋아하나 봐.</RT_RollSay4_1>
+  <RT_RollSay4_2>4다. 문 열어, 손님 온다.</RT_RollSay4_2>
+  <RT_RollSay4_3>4. 너그러운 기분이야. 익숙해지진 마.</RT_RollSay4_3>
+  <RT_RollSay5_1>5. 총 장전해.</RT_RollSay5_1>
+  <RT_RollSay5_2>5다. 벽이 두껍길 바라.</RT_RollSay5_2>
+  <RT_RollSay5_3>5. 오늘 주사위는 피를 원해.</RT_RollSay5_3>
+  <RT_RollSay6_1>6! 뭐라도 꽉 잡아.</RT_RollSay6_1>
+  <RT_RollSay6_2>6이다. 다음에 뭐가 일어날지 나도 몰라.</RT_RollSay6_2>
+  <RT_RollSay6_3>6. 혼돈은 사다리야. 아니면 구덩이거나. 두고 보자.</RT_RollSay6_3>
+  <RT_D_Raid_1>손님이다. 착한 쪽은 아니고.</RT_D_Raid_1>
+  <RT_D_Raid_2>네 기지가 멋지다고 들었대. 갖고 싶대.</RT_D_Raid_2>
+  <RT_D_Raid_3>습격자다! 내가 보낸 거 아니야. 아마도.</RT_D_Raid_3>
+  <RT_D_Raid_4>누가 문제를 주문했나? 배달 왔다.</RT_D_Raid_4>
+  <RT_D_Manhunter_1>동물들이 너한테 질렸어.</RT_D_Manhunter_1>
+  <RT_D_Manhunter_2>자연이 전화했어. 화났대.</RT_D_Manhunter_2>
+  <RT_D_Manhunter_3>쓰다듬어 봐. 할 수 있으면.</RT_D_Manhunter_3>
+  <RT_D_Infestation_1>벽 속에서 뭔가 기어 다녀. 잘 자.</RT_D_Infestation_1>
+  <RT_D_Infestation_2>벌레. 벌레가 잔뜩.</RT_D_Infestation_2>
+  <RT_D_Infestation_3>너무 깊이 팠어. 걔들이 눈치챘어.</RT_D_Infestation_3>
+  <RT_D_Pod_1>하늘에서 뭔가 떨어졌어. 줍는 사람이 임자.</RT_D_Pod_1>
+  <RT_D_Pod_2>공짜 물건! 어디서 왔는지 묻지 마.</RT_D_Pod_2>
+  <RT_D_Wanderer_1>새 친구! 아니면 미래의 골칫거리.</RT_D_Wanderer_1>
+  <RT_D_Wanderer_2>누가 합류하고 싶대. 잘해 줘.</RT_D_Wanderer_2>
+  <RT_D_Dark_1>불 끈다. 촛불 좋아하길 바라.</RT_D_Dark_1>
+  <RT_D_Dark_2>태양이 쉬는 중이야. 네 전기도.</RT_D_Dark_2>
+  <RT_D_Weather_1>오늘 날씨는 할 말이 많아.</RT_D_Weather_1>
+  <RT_D_Weather_2>상황에 맞게 입어. 오늘의 상황은 고통이야.</RT_D_Weather_2>
+  <RT_D_Big_1>시작이다.</RT_D_Big_1>
+  <RT_D_Big_2>이번 건 아플 거야.</RT_D_Big_2>
+  <RT_D_Big_3>경고했잖아. 안 했나? 하려고 했어.</RT_D_Big_3>
+  <RT_D_Small_1>잠 깨라고 주는 작은 거야.</RT_D_Small_1>
+  <RT_D_Small_2>작은 문제야. 아직은 작아.</RT_D_Small_2>
+  <RT_D_Trade_1>쇼핑 시간!</RT_D_Trade_1>
+  <RT_D_Trade_2>궤도에 상인이 있어. 은 챙겨.</RT_D_Trade_2>
+  <RT_D_Visitors_1>방문객이다. 좋은 물건 숨겨.</RT_D_Visitors_1>
+  <RT_D_Visitors_2>손님이다! 평소처럼 굴어.</RT_D_Visitors_2>
+  <RT_D_Chunk_1>우주 쓰레기. 누군가의 쓰레기는…</RT_D_Chunk_1>
+  <RT_D_Chunk_2>뭔가 추락했어. 나 아니야.</RT_D_Chunk_2>
+  <RT_D_Disease_1>에취. 몸조심해.</RT_D_Disease_1>
+  <RT_D_Disease_2>손 씻어. 이미 늦었어.</RT_D_Disease_2>
+  <RT_D_Misc_1>흥미롭군…</RT_D_Misc_1>
+  <RT_D_Misc_2>뭐, 일어났네.</RT_D_Misc_2>
+  <RT_D_Misc_3>이건 예상 못 했어. 너도 그렇지.</RT_D_Misc_3>
+  <RT_D_Misc_4>적어 둬.</RT_D_Misc_4>
+  <RT_Mood7>다시 굴림</RT_Mood7>
+  <RT_MoodDesc7>7 – 주사위가 탁자에서 떨어졌다! 몇 시간 뒤에 다시 굴립니다. 그때까지는 평범한 날입니다.</RT_MoodDesc7>
+  <RT_RollSay7_1>7? 이 주사위엔 7이 없는데… 다시 굴린다.</RT_RollSay7_1>
+  <RT_RollSay7_2>탁자 밑으로 떨어졌어. 잠깐만.</RT_RollSay7_2>
+  <RT_RollSay7_3>7. 무효야. 조금 있다가 한 번 더.</RT_RollSay7_3>
+  <RT_HeavySix>가장 무거운 위협은 미친 날(6)에만</RT_HeavySix>
+  <RT_HeavySix_Desc>Mad Dice Max에서는 벌레 군락, 기계체 클러스터, 추락한 함선 부품이 주사위가 6일 때만 옵니다. 퀘스트에는 영향이 없습니다.</RT_HeavySix_Desc>
+  <RT_SecEvents>Max의 사건</RT_SecEvents>
+  <RT_Events>Max만의 사건</RT_Events>
+  <RT_Events_Desc>굴린 뒤 Mad Dice Max가 그날에 맞는 자신만의 사건을 가져올 수 있습니다: 내기, 기한이 있는 도전, 며칠 동안의 상황, 뒤틀린 게임 사건.</RT_Events_Desc>
+  <RT_EventChance>굴린 뒤 사건 확률: {0} %</RT_EventChance>
+  <RT_EventChance_Desc>하루에 Max의 사건이 오는 빈도.</RT_EventChance_Desc>
+  <RT_EventList>사건: {1}개 중 {0}개 켜짐…</RT_EventList>
+  <RT_EventListTitle>Max의 사건</RT_EventListTitle>
+  <RT_EventListDesc>원하지 않는 사건의 체크를 해제하세요. 각 사건은 주사위의 한 면에 속합니다. 마우스를 올리면 설명이 보입니다.</RT_EventListDesc>
+  <RT_EventTry>시험</RT_EventTry>
+  <RT_EV_Prefix>Max: {0}</RT_EV_Prefix>
+  <RT_EV_ChallengeGoal>목표: {0}\n기간: {1}일.</RT_EV_ChallengeGoal>
+  <RT_EV_Won>도전 성공: {0}</RT_EV_Won>
+  <RT_EV_Lost>도전 실패: {0}</RT_EV_Lost>
+  <RT_EV_Dropped>{0}: {1}</RT_EV_Dropped>
+  <RT_EV_InspiredBy>Max의 호의</RT_EV_InspiredBy>
+  <RT_EV_NoSilver>걸 은 {0}이(가) 없습니다.</RT_EV_NoSilver>
+  <RT_EV_AlertLabel>Max의 도전</RT_EV_AlertLabel>
+  <RT_EV_Festival>축제일</RT_EV_Festival>
+  <RT_EV_Festival_Text>"일은 잠깐 내려놔. 오늘은 축하하자 – 주사위가 그러라고 했으니까."\n\n이틀 동안 모두가 축제 분위기입니다.</RT_EV_Festival_Text>
+  <RT_EV_Dreams>주사위 꿈</RT_EV_Dreams>
+  <RT_EV_Dreams_Text>"오늘 밤 푹 자. 주사위는 내가 지킬게."\n\n이틀 동안 수면으로 정착민이 더 잘 회복합니다.</RT_EV_Dreams_Text>
+  <RT_EV_LostDie>잃어버린 주사위</RT_EV_LostDie>
+  <RT_EV_LostDie_Text>"이 근처 어딘가에 주사위를 떨어뜨렸어. 찾는 사람이 같이 있는 걸 가져도 돼."\n\n정착지 근처에 투하 포드가 떨어집니다.</RT_EV_LostDie_Text>
+  <RT_EV_QuietDays>조용한 날들</RT_EV_QuietDays>
+  <RT_EV_QuietDays_Text>"사흘 동안 아무도 폭발하지 않기. 할 수 있겠어?"</RT_EV_QuietDays_Text>
+  <RT_EV_QuietDays_Goal>사흘 동안 정신 붕괴 없음</RT_EV_QuietDays_Goal>
+  <RT_EV_QuietDays_Won>"안 믿었는데. 잘했어."\n\n모두가 팀을 자랑스러워하고 정착민 두 명이 영감을 얻습니다.</RT_EV_QuietDays_Won>
+  <RT_EV_QuietDays_Lost>"누가 무너졌군. 예상대로야."</RT_EV_QuietDays_Lost>
+  <RT_EV_Lesson>Max의 수업</RT_EV_Lesson>
+  <RT_EV_Lesson_Text>"요령 한두 개 알려 줄게."\n\n정착민 세 명이 가장 뛰어난 기술을 향상합니다.</RT_EV_Lesson_Text>
+  <RT_EV_Crafter>장인</RT_EV_Crafter>
+  <RT_EV_Crafter_Text>"너희 손이 주사위 잡는 것보다 쓸모 있다는 걸 보여 줘."</RT_EV_Crafter_Text>
+  <RT_EV_Crafter_Goal>물건 {0}개 제작</RT_EV_Crafter_Goal>
+  <RT_EV_Crafter_Won>"훌륭해. 다음 걸 위한 선물이야."\n\n부품과 플라스틸이 오고 있습니다.</RT_EV_Crafter_Won>
+  <RT_EV_Crafter_Lost>"게으른 손이군. 아쉽다."</RT_EV_Crafter_Lost>
+  <RT_EV_Hunter>사냥꾼</RT_EV_Hunter>
+  <RT_EV_Hunter_Text>"멋진 사냥 이야기가 듣고 싶어."</RT_EV_Hunter_Text>
+  <RT_EV_Hunter_Goal>동물 {0}마리 사냥</RT_EV_Hunter_Goal>
+  <RT_EV_Hunter_Won>"그게 바로 이야기지!"\n\n사냥꾼들이 뿌듯해하고 하늘에서 은 주머니가 떨어집니다.</RT_EV_Hunter_Won>
+  <RT_EV_Hunter_Lost>"이번엔 동물들이 이겼네."</RT_EV_Hunter_Lost>
+  <RT_EV_Cleaning>대청소</RT_EV_Cleaning>
+  <RT_EV_Cleaning_Text>"여기 엉망이야. 내일까지 치우면 섭섭하지 않게 해 줄게."</RT_EV_Cleaning_Text>
+  <RT_EV_Cleaning_Goal>오물 {0}곳 청소</RT_EV_Cleaning_Goal>
+  <RT_EV_Cleaning_Won>"반짝반짝하네. 나도 여기 살고 싶다."</RT_EV_Cleaning_Won>
+  <RT_EV_Cleaning_Lost>"아직 더러워. 뭐, 됐어."</RT_EV_Cleaning_Lost>
+  <RT_EV_Focus>예리한 머리</RT_EV_Focus>
+  <RT_EV_Focus_Text>"오늘은 뭐든 머리에 쏙쏙 들어와. 할 수 있을 때 배워."\n\n이틀 동안 정착민의 학습 속도가 50 % 빨라집니다.</RT_EV_Focus_Text>
+  <RT_EV_OddEven>홀이냐 짝이냐</RT_EV_OddEven>
+  <RT_EV_OddEven_Text>"작은 내기 어때? 짝수면 네가 이기고, 홀수면 네 은은 내 거야."</RT_EV_OddEven_Text>
+  <RT_EV_OddEven_O1>은 100 걸기 (250 획득)</RT_EV_OddEven_O1>
+  <RT_EV_OddEven_O2>은 300 걸기 (750 획득)</RT_EV_OddEven_O2>
+  <RT_EV_OddEven_O3>됐어요</RT_EV_OddEven_O3>
+  <RT_EV_OddEven_Lose>주사위는 {0}. 은 {1}을(를) 잃었습니다.</RT_EV_OddEven_Lose>
+  <RT_EV_Miner>금광꾼</RT_EV_Miner>
+  <RT_EV_Miner_Text>"너희 발밑에 보물이 있어. 파!"</RT_EV_Miner_Text>
+  <RT_EV_Miner_Goal>{0}칸 채굴</RT_EV_Miner_Goal>
+  <RT_EV_Miner_Won>"내가 말했지."\n\n금과 은이 오고 있습니다.</RT_EV_Miner_Won>
+  <RT_EV_Miner_Lost>"보물은 바위 속에 그대로야."</RT_EV_Miner_Lost>
+  <RT_EV_Builder>건축가</RT_EV_Builder>
+  <RT_EV_Builder_Text>"뭐라도 지어 줘. 아무거나. 빨리."</RT_EV_Builder_Text>
+  <RT_EV_Builder_Goal>{0}개 건설</RT_EV_Builder_Goal>
+  <RT_EV_Builder_Won>"이거면 한동안 버티겠네."\n\n강철과 부품이 오고 있습니다.</RT_EV_Builder_Won>
+  <RT_EV_Builder_Lost>"아무것도 안 지었네. 아쉽다."</RT_EV_Builder_Lost>
+  <RT_EV_GoldFever>골드러시</RT_EV_GoldFever>
+  <RT_EV_GoldFever_Text>"바위마다 보물이 숨어 있을지도…"\n\n이틀 동안 채굴량이 50 % 늘지만 신경이 곤두섭니다.</RT_EV_GoldFever_Text>
+  <RT_EV_Reroll>Max가 대신 굴린다</RT_EV_Reroll>
+  <RT_EV_Reroll_Text>"오늘 숫자가 마음에 안 들어. 다시 굴릴게."</RT_EV_Reroll_Text>
+  <RT_EV_Roulette>룰렛</RT_EV_Roulette>
+  <RT_EV_Roulette_Text>"네 사람 하나, 한 번 굴림. 앞면이면 천재적인 영감. 뒷면이면 멍 하나."</RT_EV_Roulette_Text>
+  <RT_EV_Roulette_O1>굴리기</RT_EV_Roulette_O1>
+  <RT_EV_Roulette_O2>오늘은 안 해</RT_EV_Roulette_O2>
+  <RT_EV_Roulette_Win>{0}에게 행운이 – 영감이다!</RT_EV_Roulette_Win>
+  <RT_EV_Roulette_Lose>{0}에게 불운이 – 아야.</RT_EV_Roulette_Lose>
+  <RT_EV_Gift3>선물을 골라</RT_EV_Gift3>
+  <RT_EV_Gift3_Text>"오늘은 기분이 너그러워. 하나 골라."</RT_EV_Gift3_Text>
+  <RT_EV_Gift3_O1>은 500</RT_EV_Gift3_O1>
+  <RT_EV_Gift3_O2>약 10개</RT_EV_Gift3_O2>
+  <RT_EV_Gift3_O3>깜짝 선물</RT_EV_Gift3_O3>
+  <RT_EV_LuckyHand>행운의 손</RT_EV_LuckyHand>
+  <RT_EV_LuckyHand_Text>"주사위가 너한테 웃고 있어."\n\n사흘 동안 수술이 더 자주 성공하고 말의 설득력이 높아집니다(영입, 거래).</RT_EV_LuckyHand_Text>
+  <RT_EV_Pilgrim>사연 있는 순례자</RT_EV_Pilgrim>
+  <RT_EV_Pilgrim_Text>"너희와 함께하고 싶은 사람이 오고 있어. 다른 누군가가 그를 찾으러 올 수도 있지."</RT_EV_Pilgrim_Text>
+  <RT_EV_Pilgrim_O1>받아들이기</RT_EV_Pilgrim_O1>
+  <RT_EV_Pilgrim_O2>돌려보내기</RT_EV_Pilgrim_O2>
+  <RT_EV_Blessing>Max의 축복</RT_EV_Blessing>
+  <RT_EV_Blessing_Text>"오늘은 일이 알아서 돼."\n\n하루 동안 모두 25 % 빨리 일합니다.</RT_EV_Blessing_Text>
+  <RT_EV_Supplies>보급품</RT_EV_Supplies>
+  <RT_EV_Supplies_Text>"먹어. 너무 말랐어."\n\n식사가 든 포드가 근처에 떨어집니다.</RT_EV_Supplies_Text>
+  <RT_EV_TwoSides>양쪽에서</RT_EV_TwoSides>
+  <RT_EV_TwoSides_Text>"습격 한 번은 지루해. 두 번은 어때?"\n\n작은 습격 두 개가 동시에 옵니다.</RT_EV_TwoSides_Text>
+  <RT_EV_BadLuck>운 나쁜 날</RT_EV_BadLuck>
+  <RT_EV_BadLuck_Text>"오늘은 다 꼬일 거야. 적어도 뭔가는 배우겠지."\n\n하루 동안 모두 10 % 느리게 움직이지만 두 배로 빨리 배웁니다.</RT_EV_BadLuck_Text>
+  <RT_EV_Fortress>요새</RT_EV_Fortress>
+  <RT_EV_Fortress_Text>"온다. 벽을 지키고 아무도 잃지 마."\n\n지금 바로 습격이 옵니다.</RT_EV_Fortress_Text>
+  <RT_EV_Fortress_Goal>이틀 동안 아무도 죽지 않기</RT_EV_Fortress_Goal>
+  <RT_EV_Fortress_Won>"진짜 요새로군."\n\n미니 포탑과 강철이 오고 있습니다.</RT_EV_Fortress_Won>
+  <RT_EV_Fortress_Lost>"벽은 버텼지만 사람은 못 버텼어."</RT_EV_Fortress_Lost>
+  <RT_EV_Tax>Max의 세금</RT_EV_Tax>
+  <RT_EV_Tax_Text>"네 은의 5분의 1은 내 거야 – 아니면 가지러 사람을 보낼게."</RT_EV_Tax_Text>
+  <RT_EV_Tax_O1>낸다</RT_EV_Tax_O1>
+  <RT_EV_Tax_O2>거절한다</RT_EV_Tax_O2>
+  <RT_EV_ColdShower>찬물 샤워</RT_EV_ColdShower>
+  <RT_EV_ColdShower_Text>"너무 편해? 날씨를 바꿔 보자."\n\n이틀 동안 매우 춥습니다(여름엔 매우 덥습니다).</RT_EV_ColdShower_Text>
+  <RT_EV_AllIn>올인</RT_EV_AllIn>
+  <RT_EV_AllIn_Text>"한 번 굴린다. 4~6이면 하늘에서 재물이 떨어지고, 1~3이면 강한 습격이 너를 노린다."</RT_EV_AllIn_Text>
+  <RT_EV_AllIn_O1>굴리기</RT_EV_AllIn_O1>
+  <RT_EV_AllIn_O2>됐어요</RT_EV_AllIn_O2>
+  <RT_EV_AllIn_Lose>주사위는 {0}. 놈들이 온다…</RT_EV_AllIn_Lose>
+  <RT_EV_MadPack>미친 무리</RT_EV_MadPack>
+  <RT_EV_MadPack_Text>"동물들이 미쳤어. 아주 많이."</RT_EV_MadPack_Text>
+  <RT_EV_Eclipse>어둠의 주사위</RT_EV_Eclipse>
+  <RT_EV_Eclipse_Text>"잠깐 어둠 속에서 놀아 보자."\n\n일식이 오고, 무언가가 숫자를 속삭입니다.</RT_EV_Eclipse_Text>
+  <RT_EV_Revenge>Max의 복수</RT_EV_Revenge>
+  <RT_EV_Revenge_Text>"요즘 운이 좋았지. 너무 좋았어."\n\n강한 습격이 다가옵니다.</RT_EV_Revenge_Text>
+  <RT_EV_Double>이중 굴림</RT_EV_Double>
+  <RT_EV_Double_Text>"오늘은 주사위 두 개: 하나는 네 편, 하나는 네 적."</RT_EV_Double_Text>
+  <RT_EV_Difficulty>난이도 {0}: 보상 ×{1}, 목표 ×{2}, {3}.</RT_EV_Difficulty>
+  <RT_EV_RaidsYes>습격 허용</RT_EV_RaidsYes>
+  <RT_EV_RaidsNo>습격 없음</RT_EV_RaidsNo>
+  <RT_EV_NoRaid>Max가 손을 젓는다 – 이 난이도에서는 아무도 보내지 않는다.</RT_EV_NoRaid>
+  <RT_EV_Stargazing>별의 밤</RT_EV_Stargazing>
+  <RT_EV_Stargazing_Text>"오늘 밤 하늘을 봐. 너희를 위해 몇 개 더 켜 뒀어."\n\n모두가 별빛 아래의 밤을 즐깁니다.</RT_EV_Stargazing_Text>
+  <RT_EV_GreenThumb>초록 손가락</RT_EV_GreenThumb>
+  <RT_EV_GreenThumb_Text>"오늘은 식물들이 말을 잘 들어."\n\n이틀 동안 파종과 수확이 50 % 빨라집니다.</RT_EV_GreenThumb_Text>
+  <RT_EV_Guests>식탁의 손님</RT_EV_Guests>
+  <RT_EV_Guests_Text>"친구 몇 명을 초대했어. 잘해 줘."\n\n방문객이 오고 있습니다.</RT_EV_Guests_Text>
+  <RT_EV_Balm>Max의 연고</RT_EV_Balm>
+  <RT_EV_Balm_Text>"그 긁힌 데 좀 보자… 나아졌네."\n\n정착민의 상처가 조금 낫습니다.</RT_EV_Balm_Text>
+  <RT_EV_Cook>요리사</RT_EV_Cook>
+  <RT_EV_Cook_Text>"배고파. 나를 위해 요리해 – 많이."</RT_EV_Cook_Text>
+  <RT_EV_Cook_Goal>식사 {0}개 요리</RT_EV_Cook_Goal>
+  <RT_EV_Cook_Won>"맛있다. 모두를 위한 잔치다!"\n\n모두가 잔치를 즐기고 하늘에서 은 주머니가 떨어집니다.</RT_EV_Cook_Won>
+  <RT_EV_Cook_Lost>"아직 배고파. 아쉽다."</RT_EV_Cook_Lost>
+  <RT_EV_Scholar>학자</RT_EV_Scholar>
+  <RT_EV_Scholar_Text>"머리 하나에 얼마나 들어가는지 보여 줘."</RT_EV_Scholar_Text>
+  <RT_EV_Scholar_Goal>연구 {0}포인트</RT_EV_Scholar_Goal>
+  <RT_EV_Scholar_Won>"똑똑한 사람들이군. 생각할 거리를 주지."\n\n정착민 두 명이 영감을 얻고 물품이 든 포드가 오고 있습니다.</RT_EV_Scholar_Won>
+  <RT_EV_Scholar_Lost>"책은 덮인 채였어."</RT_EV_Scholar_Lost>
+  <RT_EV_Gardener>정원사</RT_EV_Gardener>
+  <RT_EV_Gardener_Text>"수확해 – 바구니가 가득 찬 걸 보고 싶어."</RT_EV_Gardener_Text>
+  <RT_EV_Gardener_Goal>식물 {0}개 수확</RT_EV_Gardener_Goal>
+  <RT_EV_Gardener_Won>"바구니가 가득! 잘했어."\n\n은이 오고 있습니다.</RT_EV_Gardener_Won>
+  <RT_EV_Gardener_Lost>"밭이 그대로 가득하네."</RT_EV_Gardener_Lost>
+  <RT_EV_HighLow>높게냐 낮게냐</RT_EV_HighLow>
+  <RT_EV_HighLow_Text>"주사위 하나. 높게 – 4~6 – 아니면 낮게 – 1~3 – 에 걸어. 은 150, 맞히면 두 배."</RT_EV_HighLow_Text>
+  <RT_EV_HighLow_O1>높게 (150 걸고 300 획득)</RT_EV_HighLow_O1>
+  <RT_EV_HighLow_O2>낮게 (150 걸고 300 획득)</RT_EV_HighLow_O2>
+  <RT_EV_HighLow_O3>됐어요</RT_EV_HighLow_O3>
+  <RT_EV_HighLow_Lose>주사위는 {0}. 은 {1}을(를) 잃었습니다.</RT_EV_HighLow_Lose>
+  <RT_EV_SteadyHands>흔들림 없는 손</RT_EV_SteadyHands>
+  <RT_EV_SteadyHands_Text>"오늘은 손이 떨리지 않을 거야."\n\n이틀 동안 건설과 운반이 30 % 빨라집니다.</RT_EV_SteadyHands_Text>
+  <RT_EV_Market>장날</RT_EV_Market>
+  <RT_EV_Market_Text>"상인들한테 너희 있는 곳을 알려 줬어."\n\n무역 캐러밴이 오고 있습니다.</RT_EV_Market_Text>
+  <RT_EV_Sower>씨 뿌리는 사람</RT_EV_Sower>
+  <RT_EV_Sower_Text>"뭐라도 심어. 잔뜩."</RT_EV_Sower_Text>
+  <RT_EV_Sower_Goal>식물 {0}개 파종</RT_EV_Sower_Goal>
+  <RT_EV_Sower_Won>"이제 자라게 둬."\n\n은이 오고 있습니다.</RT_EV_Sower_Won>
+  <RT_EV_Sower_Lost>"텅 빈 밭이네. 아쉽다."</RT_EV_Sower_Lost>
+  <RT_EV_Swap>Max의 교환</RT_EV_Swap>
+  <RT_EV_Swap_Text>"은 100을 주면 이 자루 속 물건을 줄게. 더 값질 수도, 덜 값질 수도 있어."</RT_EV_Swap_Text>
+  <RT_EV_Swap_O1>은 100 지불</RT_EV_Swap_O1>
+  <RT_EV_Swap_O2>됐어요</RT_EV_Swap_O2>
+  <RT_EV_Tales>이야기의 밤</RT_EV_Tales>
+  <RT_EV_Tales_Text>"모여 봐. 내가 주사위로 행성 하나를 통째로 날린 이야기를 해 줄게…"\n\n모두가 이야기를 즐깁니다.</RT_EV_Tales_Text>
+  <RT_EV_RainDance>기우제 춤</RT_EV_RainDance>
+  <RT_EV_RainDance_Text>"너무 건조해. 비가 오게 굴려 볼게."\n\n비가 내리기 시작합니다.</RT_EV_RainDance_Text>
+  <RT_EV_Tamer>조련사</RT_EV_Tamer>
+  <RT_EV_Tamer_Text>"야생 친구를 사귀어 봐."</RT_EV_Tamer_Text>
+  <RT_EV_Tamer_Goal>동물 {0}마리 길들이기</RT_EV_Tamer_Goal>
+  <RT_EV_Tamer_Won>"봐, 벌써 단짝이네."\n\n은이 오고 있습니다.</RT_EV_Tamer_Won>
+  <RT_EV_Tamer_Lost>"동물들은 야생 그대로야."</RT_EV_Tamer_Lost>
+  <RT_EV_Windfall>횡재</RT_EV_Windfall>
+  <RT_EV_Windfall_Text>"다른 주머니에서 은을 좀 찾았어. 네 거야."\n\n은이 든 포드가 정착지 근처에 떨어집니다.</RT_EV_Windfall_Text>
+  <RT_EV_Medkit>약 가방</RT_EV_Medkit>
+  <RT_EV_Medkit_Text>"뭐 부러뜨릴 때를 대비해서. 분명 부러뜨릴 거야."\n\n약이 든 포드가 정착지 근처에 떨어집니다.</RT_EV_Medkit_Text>
+  <RT_EV_MysteryBox>수수께끼 상자</RT_EV_MysteryBox>
+  <RT_EV_MysteryBox_Text>"닫힌 상자야. 안에 좋은 게 있어 – 아마도. 아니면 내가 그냥 다시 사 줄 수도 있고."</RT_EV_MysteryBox_Text>
+  <RT_EV_MysteryBox_O1>연다</RT_EV_MysteryBox_O1>
+  <RT_EV_MysteryBox_O2>Max에게 은 300에 판다</RT_EV_MysteryBox_O2>
+  <RT_EV_MysteryBox_Lose>상자 안은 성난 동물로 가득했다!</RT_EV_MysteryBox_Lose>
+  <RT_EV_Muse>뮤즈</RT_EV_Muse>
+  <RT_EV_Muse_Text>"몇몇 귀에 아이디어를 속삭여 뒀어."\n\n정착민 세 명이 영감을 얻습니다.</RT_EV_Muse_Text>
+  <RT_EV_StrayHerd>길 잃은 무리</RT_EV_StrayHerd>
+  <RT_EV_StrayHerd_Text>"동물 몇 마리가 내 주사위를 따라왔어. 키워."\n\n온순한 동물 몇 마리가 들어옵니다.</RT_EV_StrayHerd_Text>
+  <RT_EV_Blight>썩은 운</RT_EV_Blight>
+  <RT_EV_Blight_Text>"이런. 네 밭에 주사위를 떨어뜨렸어."\n\n마름병이 작물을 덮칩니다.</RT_EV_Blight_Text>
+  <RT_EV_Sickness>열병 주사위</RT_EV_Sickness>
+  <RT_EV_Sickness_Text>"누가 내 주사위에 재채기를 했어."\n\n질병이 발생합니다.</RT_EV_Sickness_Text>
+  <RT_EV_Fallout>독비</RT_EV_Fallout>
+  <RT_EV_Fallout_Text>"오늘은 하늘이 아파. 안에 있어."</RT_EV_Fallout_Text>
+  <RT_EV_Toll>통행료</RT_EV_Toll>
+  <RT_EV_Toll_Text>"습격자들이 너희 소문을 들었어. 돈으로 돌려보내 – 정착민 한 명당 은 80 정도 – 아니면 싸워. 싸우면 수고비로 뭔가 남겨 줄게."</RT_EV_Toll_Text>
+  <RT_EV_Toll_O1>낸다</RT_EV_Toll_O1>
+  <RT_EV_Toll_O2>싸운다</RT_EV_Toll_O2>
+  <RT_EV_Flare>눈부신 태양</RT_EV_Flare>
+  <RT_EV_Flare_Text>"태양을 닦아 놨어. 너희 기계는 싫어할 거야."</RT_EV_Flare_Text>
+  <RT_EV_Swarm>무리</RT_EV_Swarm>
+  <RT_EV_Swarm_Text>"바닥 밑에서 기어 다니는 소리 들려?"</RT_EV_Swarm_Text>
+  <RT_EV_Drone>웅웅거림</RT_EV_Drone>
+  <RT_EV_Drone_Text>"어둠 속에서 뭔가 웅웅거려. Max는 웃지 않는다."</RT_EV_Drone_Text>
+  <RT_EV_Jackpot>잭팟</RT_EV_Jackpot>
+  <RT_EV_Jackpot_Text>"주사위 두 개. 더블이면 크게 이기고, 그 외엔 수금하러 사람을 보낼 거야."</RT_EV_Jackpot_Text>
+  <RT_EV_Jackpot_O1>굴리기</RT_EV_Jackpot_O1>
+  <RT_EV_Jackpot_O2>안 해</RT_EV_Jackpot_O2>
+  <RT_EV_Jackpot_Lose>주사위는 {0}과(와) {1}. 누가 수금하러 온다!</RT_EV_Jackpot_Lose>
+  <RT_EV_LongNight>긴 밤</RT_EV_LongNight>
+  <RT_EV_LongNight_Text>"손으로 태양을 가렸어. 며칠 동안."</RT_EV_LongNight_Text>
+  <RT_EV_IronDice>강철 주사위</RT_EV_IronDice>
+  <RT_EV_IronDice_Text>"하늘에서 금속 주사위가 떨어져. 계속 굴러."</RT_EV_IronDice_Text>
+  <RT_EV_ClearSky>맑은 하늘</RT_EV_ClearSky>
+  <RT_EV_ClearSky_Text>"구름? 오늘은 안 돼. 불어서 날려 버렸어."\n\n하늘이 갭니다.</RT_EV_ClearSky_Text>
+  <RT_EV_Aurora>오로라</RT_EV_Aurora>
+  <RT_EV_Aurora_Text>"저 위에 불빛 좀 걸어 놨어. 가서 봐."</RT_EV_Aurora_Text>
+  <RT_EV_MorningFog>아침 안개</RT_EV_MorningFog>
+  <RT_EV_MorningFog_Text>"쉿. 세상을 조금 더 자게 둬."\n\n부드러운 안개가 정착지를 덮습니다.</RT_EV_MorningFog_Text>
+  <RT_EV_Snowfall>첫눈</RT_EV_Snowfall>
+  <RT_EV_Snowfall_Text>"눈이다. 천천히, 조용히. 즐겨."</RT_EV_Snowfall_Text>
+  <RT_EV_SkyBet>해냐 비냐</RT_EV_SkyBet>
+  <RT_EV_SkyBet_Text>"날씨에 걸어. 은 120 – 맞히면 두 배로 줄게. 어느 쪽이든 날씨는 온다."</RT_EV_SkyBet_Text>
+  <RT_EV_Rainbow>무지개</RT_EV_Rainbow>
+  <RT_EV_Rainbow_Text>"물감이 좀 남았거든."\n\n모두가 무지개를 감상합니다.</RT_EV_Rainbow_Text>
+  <RT_EV_Thunder>천둥</RT_EV_Thunder>
+  <RT_EV_Thunder_Text>"들려? 내가 저 위에서 주사위를 굴리는 소리야."\n\n뇌우가 몰려옵니다.</RT_EV_Thunder_Text>
+  <RT_EV_OddWeather>이상한 날씨</RT_EV_OddWeather>
+  <RT_EV_OddWeather_Text>"온도 조절기에 음료를 쏟았어. 미안."</RT_EV_OddWeather_Text>
+  <RT_EV_StrangeSky>이상한 하늘</RT_EV_StrangeSky>
+  <RT_EV_StrangeSky_Text>"오늘은 뭔가 달라. 하늘을 봐."</RT_EV_StrangeSky_Text>
+  <RT_EV_Lights>영감의 빛</RT_EV_Lights>
+  <RT_EV_Lights_Text>"올려다봐. 뭔가 느껴져? 좋아 – 써먹어."\n\n하늘에 빛이 춤추고 정착민 두 명이 영감을 얻습니다.</RT_EV_Lights_Text>
+  <RT_EV_SkyScrap>하늘의 고철</RT_EV_SkyScrap>
+  <RT_EV_SkyScrap_Text>"저 위 배에서 뭔가 떨어졌어. 줍는 사람이 임자."\n\n강철과 부품이 든 포드가 정착지 근처에 착륙합니다.</RT_EV_SkyScrap_Text>
+  <RT_EV_GoodHarvestRain>따뜻한 비</RT_EV_GoodHarvestRain>
+  <RT_EV_GoodHarvestRain_Text>"밭이 목말라 보이는군."\n\n따뜻한 비가 내리고 자라는 작물이 조금 앞당겨집니다.</RT_EV_GoodHarvestRain_Text>
+  <RT_EV_Flashstorm>번개</RT_EV_Flashstorm>
+  <RT_EV_Flashstorm_Text>"누가 바깥에 서 있나 보자."</RT_EV_Flashstorm_Text>
+  <RT_EV_MadAnimal>나쁜 기분</RT_EV_MadAnimal>
+  <RT_EV_MadAnimal_Text>"저 동물이 날 째려봤어. 이제 너한테 화났어."</RT_EV_MadAnimal_Text>
+  <RT_EV_Blizzard>눈보라</RT_EV_Blizzard>
+  <RT_EV_Blizzard_Text>"추워? 더 춥게 해 줄게."\n\n눈보라와 한파가 정착지를 덮칩니다.</RT_EV_Blizzard_Text>
+  <RT_EV_BlackSun>일식</RT_EV_BlackSun>
+  <RT_EV_BlackSun_Text>"태양 앞에 손을 댔어. 잠깐만."</RT_EV_BlackSun_Text>
+  <RT_EV_Hail>우박</RT_EV_Hail>
+  <RT_EV_Hail_Text>"얼음 주사위다. 쏟아진다. 안에 있어."</RT_EV_Hail_Text>
+  <RT_EV_Stampede>폭주</RT_EV_Stampede>
+  <RT_EV_Stampede_Text>"무리를 굴려 냈어. 화난 놈들로."</RT_EV_Stampede_Text>
+  <RT_EV_StormRaid>폭풍 습격자</RT_EV_StormRaid>
+  <RT_EV_StormRaid_Text>"걔들은 궂은 날씨를 좋아해. 나도 그래."\n\n폭풍이 몰려오고 – 습격자도 함께 옵니다.</RT_EV_StormRaid_Text>
+  <RT_EV_DoubleOrNothing>두 배 아니면 꽝</RT_EV_DoubleOrNothing>
+  <RT_EV_DoubleOrNothing_Text>"네 은의 절반 – 최대 천 – 을 한 번에. 짝수면 두 배, 홀수면 꽝."</RT_EV_DoubleOrNothing_Text>
+  <RT_EV_SkyBet_O1>해 (120 걸고 240 획득)</RT_EV_SkyBet_O1>
+  <RT_EV_SkyBet_O2>비 (120 걸고 240 획득)</RT_EV_SkyBet_O2>
+  <RT_EV_SkyBet_O3>됐어요</RT_EV_SkyBet_O3>
+  <RT_EV_SkyBet_Lose>틀렸습니다. 은 {0}을(를) 잃었습니다.</RT_EV_SkyBet_Lose>
+  <RT_EV_DoubleOrNothing_O1>굴리기</RT_EV_DoubleOrNothing_O1>
+  <RT_EV_DoubleOrNothing_O2>안 해</RT_EV_DoubleOrNothing_O2>
+  <RT_EV_DoubleOrNothing_Lose>홀수. 은 {0}을(를) 잃었습니다.</RT_EV_DoubleOrNothing_Lose>
+  <RT_EV_CardNight>카드의 밤</RT_EV_CardNight>
+  <RT_EV_CardNight_Text>"오늘 밤엔 아무도 일 안 해. 오늘 밤엔 카드다 – 패는 내가 돌린다."\n\n모두가 즐기고 기분이 좋아집니다.</RT_EV_CardNight_Text>
+  <RT_EV_LuckyCharm>행운의 부적</RT_EV_LuckyCharm>
+  <RT_EV_LuckyCharm_Text>"자, 이거 가져. 뭔지는 묻지 마."\n\n정착민 한 명이 사흘 동안 Max의 부적을 받습니다: 더 빠른 작업과 더 단단한 신경.</RT_EV_LuckyCharm_Text>
+  <RT_EV_LuckyCharm_Who>{0}이(가) Max의 부적을 지니고 있습니다.</RT_EV_LuckyCharm_Who>
+  <RT_EV_Siesta>시에스타</RT_EV_Siesta>
+  <RT_EV_Siesta_Text>"다들 피곤해 보여. 눈 감아, 내가 망볼게."\n\n모두가 푹 쉰 기분입니다.</RT_EV_Siesta_Text>
+  <RT_EV_Lottery>Max의 복권</RT_EV_Lottery>
+  <RT_EV_Lottery_Text>"복권이요! 한 장에 은 50! 모든 복권이 6분의 1 확률로 400에 당첨!"</RT_EV_Lottery_Text>
+  <RT_EV_Lottery_O1>한 장 산다 (은 50)</RT_EV_Lottery_O1>
+  <RT_EV_Lottery_O2>세 장 산다 (은 150)</RT_EV_Lottery_O2>
+  <RT_EV_Lottery_O3>됐어요</RT_EV_Lottery_O3>
+  <RT_EV_Lottery_Lose>당첨된 복권이 없습니다. 은 {0}을(를) 잃었습니다.</RT_EV_Lottery_Lose>
+  <RT_EV_CardDuel>카드 대결</RT_EV_CardDuel>
+  <RT_EV_CardDuel_Text>"너희 둘. 카드. 지금. 진 사람이 설거지야."\n\n정착민 두 명이 긴 판을 벌이고 – 둘 다 사람에 대해 무언가를 배웁니다.</RT_EV_CardDuel_Text>
+  <RT_EV_CardDuel_Who>{0}이(가) 카드로 {1}을(를) 이겼습니다.</RT_EV_CardDuel_Who>
+  <RT_EV_Hauler>짐꾼</RT_EV_Hauler>
+  <RT_EV_Hauler_Text>"사방에 물건이야! 전부 제자리에 갖다 놔."</RT_EV_Hauler_Text>
+  <RT_EV_Hauler_Goal>물건 {0}개 운반</RT_EV_Hauler_Goal>
+  <RT_EV_Hauler_Won>"깔끔하네. 깔끔한 게 좋아."\n\n하늘에서 은 주머니가 떨어집니다.</RT_EV_Hauler_Won>
+  <RT_EV_Hauler_Lost>"아직 엉망이야. 아쉽다."</RT_EV_Hauler_Lost>
+  <RT_EV_Debt>도박 빚</RT_EV_Debt>
+  <RT_EV_Debt_Text>"네 정착지의 누군가가 내 테이블에서 졌어 – 이긴 사람들이 돈을 원해. 갚든지, 아니면 가지러 올 거야."</RT_EV_Debt_Text>
+  <RT_EV_Debt_O1>빚을 갚는다</RT_EV_Debt_O1>
+  <RT_EV_Debt_O2>거절한다</RT_EV_Debt_O2>
+  <RT_EV_Debt_Lucky>빚쟁이들이 오는 길에 길을 잃었다. 운이 좋네.</RT_EV_Debt_Lucky>
+  <RT_EV_CursedDie>저주받은 주사위</RT_EV_CursedDie>
+  <RT_EV_CursedDie_Text>"항상 좋은 수가 나오는 주사위를 찾았어. 음 – 들고 있는 사람한테는. 다른 사람들은 운이 나빠져. 가질래?"</RT_EV_CursedDie_Text>
+  <RT_EV_CursedDie_O1>받는다 (보상, 하지만 누군가 운이 나빠짐)</RT_EV_CursedDie_O1>
+  <RT_EV_CursedDie_O2>버린다</RT_EV_CursedDie_O2>
+  <RT_EV_CursedDie_Who>저주가 {0}을(를) 찾아냈습니다.</RT_EV_CursedDie_Who>
+  <RT_EV_TableRound>모두가 굴린다</RT_EV_TableRound>
+  <RT_EV_TableRound_Text>"각자 주사위 하나씩 굴려. 6이면 영감을 얻고, 1이면 넘어져서 다쳐. 할래?"</RT_EV_TableRound_Text>
+  <RT_EV_TableRound_O1>모두 굴린다</RT_EV_TableRound_O1>
+  <RT_EV_TableRound_O2>오늘은 안 해</RT_EV_TableRound_O2>
+  <RT_EV_TableRound_Result>6: {0}명 영감. 1: {1}명 부상.</RT_EV_TableRound_Result>
+  <RT_EV_Pickpocket>소매치기</RT_EV_Pickpocket>
+  <RT_EV_Pickpocket_Text>"요즘 은 세어 봤어? 안 했어? 다행이네."</RT_EV_Pickpocket_Text>
+  <RT_EV_Pickpocket_Lose>창고에서 은 {0}이(가) 사라졌습니다.</RT_EV_Pickpocket_Lose>
+  <RT_EV_DoubleCaravan>이중 캐러밴</RT_EV_DoubleCaravan>
+  <RT_EV_DoubleCaravan_Text>"상인들한테 네가 부자라고 했어. 캐러밴 두 개가 오고 있어 – 두 번째는 조금 늦게."</RT_EV_DoubleCaravan_Text>
+  <RT_EV_PrizeAnimal>상품 동물</RT_EV_PrizeAnimal>
+  <RT_EV_PrizeAnimal_Text>"카드로 땄어. 난 필요 없어. 네가 가져."\n\n길들여진 동물이 투하 포드로 도착합니다.</RT_EV_PrizeAnimal_Text>
+  <RT_EV_PrizeAnimal_Who>새 동물: {0}.</RT_EV_PrizeAnimal_Who>
+  <RT_EV_OnTheHouse>가게가 쏜다</RT_EV_OnTheHouse>
+  <RT_EV_OnTheHouse_Text>"이번 판은 내가 쏜다!"\n\n고급 식사와 맥주가 하늘에서 떨어집니다.</RT_EV_OnTheHouse_Text>
+  <RT_EV_GoodWord>좋은 말 한마디</RT_EV_GoodWord>
+  <RT_EV_GoodWord_Text>"네 이웃 한 명이랑 카드를 치면서 네 칭찬을 잔뜩 했어."\n\n우호적인 세력과의 관계가 좋아집니다.</RT_EV_GoodWord_Text>
+  <RT_EV_SoreLoser>지는 걸 못 참는 사람</RT_EV_SoreLoser>
+  <RT_EV_SoreLoser_Text>"어젯밤 누가 내 테이블에서 다 잃었어. 잘 받아들이지 못하고 있지."\n\n정착민 한 명이 기분이 상해 돌아다닙니다.</RT_EV_SoreLoser_Text>
+  <RT_EV_LoadedDice>조작된 주사위</RT_EV_LoadedDice>
+  <RT_EV_LoadedDice_Text>"오늘 주사위는 조작됐어. 너한테 불리하게."\n\n이틀 동안 모든 작업이 15 % 느려집니다.</RT_EV_LoadedDice_Text>
+  <RT_EV_Zzzt>불꽃</RT_EV_Zzzt>
+  <RT_EV_Zzzt_Text>"네 전선에 음료를 쏟았어. 이런."</RT_EV_Zzzt_Text>
+  <RT_EV_Wheel>행운의 바퀴</RT_EV_Wheel>
+  <RT_EV_Wheel_Text>"바퀴를 돌려! 여섯 칸: 큰 선물, 모두에게 영감, 모두에게 치료, 꽝, 야생 동물, 또는 습격."</RT_EV_Wheel_Text>
+  <RT_EV_Wheel_O1>돌린다</RT_EV_Wheel_O1>
+  <RT_EV_Wheel_O2>떠난다</RT_EV_Wheel_O2>
+  <RT_EV_Wheel_F1>바퀴가 멈췄다: 큰 선물!</RT_EV_Wheel_F1>
+  <RT_EV_Wheel_F2>바퀴가 멈췄다: 모두에게 영감!</RT_EV_Wheel_F2>
+  <RT_EV_Wheel_F3>바퀴가 멈췄다: 모두에게 치료!</RT_EV_Wheel_F3>
+  <RT_EV_Wheel_F4>바퀴가 멈췄다: 꽝. Max가 웃는다.</RT_EV_Wheel_F4>
+  <RT_EV_Wheel_F5>바퀴가 멈췄다: 야생 동물!</RT_EV_Wheel_F5>
+  <RT_EV_Wheel_F6>바퀴가 멈췄다: 습격!</RT_EV_Wheel_F6>
+  <RT_EV_ChaosRound>혼돈의 판</RT_EV_ChaosRound>
+  <RT_EV_ChaosRound_Text>"주사위 세 개를 한꺼번에! 뭐가 나오나 보자."\n\nMax의 사건 세 개가 지금 바로 일어납니다.</RT_EV_ChaosRound_Text>
+  <RT_EV_StoneDice>돌 주사위</RT_EV_StoneDice>
+  <RT_EV_StoneDice_Text>"오늘은 큰 걸 던진다. 머리 조심해."\n\n정착지 근처에 운석 두 개가 떨어집니다.</RT_EV_StoneDice_Text>
+</LanguageData>

@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RT_Rec1>サイコロの語り手が毎回の出目を告げ、今日の確率を表示します。</RT_Rec1>
+  <RT_Rec2>語り手が時々イベントにコメントします（およそ3回に1回）。</RT_Rec2>
+  <RT_Rec3>どの語り手でも使えます。セーブデータは何も変わりません。</RT_Rec3>
+  <RT_SecDice>Mad Dice Max</RT_SecDice>
+  <RT_DiceAlert>今日の出目と確率を表示</RT_DiceAlert>
+  <RT_DiceAlert_Desc>右側の通知：今日の出目、どんな日か、襲撃・小さな脅威・商人や訪問者の確率、次の出目までの時間。</RT_DiceAlert_Desc>
+  <RT_DiceLetter>出目を手紙で受け取る</RT_DiceLetter>
+  <RT_DiceLetter_Desc>毎日の出目が短いメッセージではなく、完全な予報付きの手紙で届きます。</RT_DiceLetter_Desc>
+  <RT_SecDiary>日記</RT_SecDiary>
+  <RT_Diary>語り手のコメント</RT_Diary>
+  <RT_Diary_Desc>時々、語り手が画面上部に短い一言でイベントにコメントします。</RT_Diary_Desc>
+  <RT_DiaryAll>他の語り手でも</RT_DiaryAll>
+  <RT_DiaryAll_Desc>他の語り手（バニラとMOD）でもコメントします。Maxだけではありません。</RT_DiaryAll_Desc>
+  <RT_DiaryChance>イベントの {0} % にコメント</RT_DiaryChance>
+  <RT_DiaryChance_Desc>コメントの頻度。2つのコメントの間は必ず数時間以上空きます。</RT_DiaryChance_Desc>
+  <RT_RollTitle>出目は {0}：{1}</RT_RollTitle>
+  <RT_RollLetter>出目は {0}</RT_RollLetter>
+  <RT_AlertLabel>サイコロ {0}：{1}</RT_AlertLabel>
+  <RT_Mood1>穏やかな日</RT_Mood1>
+  <RT_Mood2>静かな日</RT_Mood2>
+  <RT_Mood3>普通の日</RT_Mood3>
+  <RT_Mood4>気前のいい日</RT_Mood4>
+  <RT_Mood5>厳しい日</RT_Mood5>
+  <RT_Mood6>狂った日</RT_Mood6>
+  <RT_MoodDesc1>1 – 穏やかな日。今日は大きな脅威なし、イベントは少なく、小さな脅威も弱め。空が晴れます。</RT_MoodDesc1>
+  <RT_MoodDesc2>2 – 楽な日。大きな脅威はまれで、訪問者と無害なイベントが多め。よく良いことが起こり、天気が変わることも。</RT_MoodDesc2>
+  <RT_MoodDesc3>3 – 普通の日。ゲームのいつものイベント。時々イベントが1つ増えたり天気が変わったりします。</RT_MoodDesc3>
+  <RT_MoodDesc4>4 – 気前のいい日。商人と訪問者がよく来て、脅威は少なく、日中に贈り物が1つ、天気は良好。</RT_MoodDesc4>
+  <RT_MoodDesc5>5 – 厳しい日。大小の脅威がずっと起こりやすく強くなり、日中に少なくとも1つは必ず来ます。この土地で最悪の天気。</RT_MoodDesc5>
+  <RT_MoodDesc6>6 – 狂った日。イベントが2倍の頻度で起こり、種類ごとに独自のランダムな確率があります。少なくとも2つのランダムなイベント（バニラとMOD）が必ず起こり、どんな天気も現れ得ます。</RT_MoodDesc6>
+  <RT_FcEvents>今日の予想イベント数：約 {0}</RT_FcEvents>
+  <RT_FcBig>襲撃などの大きな脅威：{0}</RT_FcBig>
+  <RT_FcSmall>小さな脅威：{0}</RT_FcSmall>
+  <RT_FcGood>商人や訪問者：{0}</RT_FcGood>
+  <RT_FcStrength>脅威の強さ：通常の {0}–{1} %</RT_FcStrength>
+  <RT_FcNoForced>遅れている襲撃も別の日まで待ちます。</RT_FcNoForced>
+  <RT_FcGift>今日は贈り物が向かっています。</RT_FcGift>
+  <RT_FcNext>次の出目まで {0}。</RT_FcNext>
+  <RT_LvlVeryLow>とても低い</RT_LvlVeryLow>
+  <RT_LvlLow>低い</RT_LvlLow>
+  <RT_LvlMid>中くらい</RT_LvlMid>
+  <RT_LvlHigh>高い</RT_LvlHigh>
+  <RT_LvlVeryHigh>とても高い</RT_LvlVeryHigh>
+  <RT_RollSay1_1>ピンゾロ。昼寝でもしてな、また明日来る。</RT_RollSay1_1>
+  <RT_RollSay1_2>1。俺だって休みが要る。</RT_RollSay1_2>
+  <RT_RollSay1_3>1だ。楽しめよ、長くは続かない。</RT_RollSay1_3>
+  <RT_RollSay2_1>2。機嫌がいいんだ。台無しにするなよ。</RT_RollSay2_1>
+  <RT_RollSay2_2>2だ――お茶、ビスケット、爆発なし。</RT_RollSay2_2>
+  <RT_RollSay2_3>2。何か植えてこい。</RT_RollSay2_3>
+  <RT_RollSay3_1>3。いつも通り。</RT_RollSay3_1>
+  <RT_RollSay3_2>3だ。今日は何が来るかな……俺にも分からん。</RT_RollSay3_2>
+  <RT_RollSay3_3>3。完璧に平凡。怪しいほど平凡。</RT_RollSay3_3>
+  <RT_RollSay4_1>4！上にいる誰かがお前を気に入ってる。</RT_RollSay4_1>
+  <RT_RollSay4_2>4だ。扉を開けろ、客が来るぞ。</RT_RollSay4_2>
+  <RT_RollSay4_3>4。気前がいい気分だ。慣れるなよ。</RT_RollSay4_3>
+  <RT_RollSay5_1>5。銃に弾を込めろ。</RT_RollSay5_1>
+  <RT_RollSay5_2>5だ。壁が厚いといいな。</RT_RollSay5_2>
+  <RT_RollSay5_3>5。今日のサイコロは血を求めてる。</RT_RollSay5_3>
+  <RT_RollSay6_1>6！何かにつかまれ。</RT_RollSay6_1>
+  <RT_RollSay6_2>6だ。次に何が起こるか俺にも分からん。</RT_RollSay6_2>
+  <RT_RollSay6_3>6。混沌ははしごだ。それとも穴か。見てのお楽しみ。</RT_RollSay6_3>
+  <RT_D_Raid_1>お客さんだ。感じのいい方じゃない。</RT_D_Raid_1>
+  <RT_D_Raid_2>いい基地があると聞いたらしい。欲しいってさ。</RT_D_Raid_2>
+  <RT_D_Raid_3>襲撃者だ！俺が送ったんじゃない。たぶん。</RT_D_Raid_3>
+  <RT_D_Raid_4>トラブルのご注文は？お届けにあがりました。</RT_D_Raid_4>
+  <RT_D_Manhunter_1>動物たちはお前にうんざりだ。</RT_D_Manhunter_1>
+  <RT_D_Manhunter_2>自然から電話だ。怒ってるぞ。</RT_D_Manhunter_2>
+  <RT_D_Manhunter_3>撫でてみろよ。できるもんならな。</RT_D_Manhunter_3>
+  <RT_D_Infestation_1>壁の中で何かが這ってる。おやすみ。</RT_D_Infestation_1>
+  <RT_D_Infestation_2>虫だ。たくさんの虫だ。</RT_D_Infestation_2>
+  <RT_D_Infestation_3>深く掘りすぎたな。気づかれたぞ。</RT_D_Infestation_3>
+  <RT_D_Pod_1>空から何か落ちてきた。拾った者勝ちだ。</RT_D_Pod_1>
+  <RT_D_Pod_2>タダの品だ！出どころは聞くな。</RT_D_Pod_2>
+  <RT_D_Wanderer_1>新しい仲間だ！それとも未来の厄介ごとか。</RT_D_Wanderer_1>
+  <RT_D_Wanderer_2>誰かが加わりたいってさ。優しくしてやれ。</RT_D_Wanderer_2>
+  <RT_D_Dark_1>消灯だ。ろうそくが好きだといいな。</RT_D_Dark_1>
+  <RT_D_Dark_2>太陽が休憩中。お前の電気もな。</RT_D_Dark_2>
+  <RT_D_Weather_1>今日の天気には主張がある。</RT_D_Weather_1>
+  <RT_D_Weather_2>場に合った服装をしろ。今日の場は苦しみだ。</RT_D_Weather_2>
+  <RT_D_Big_1>さあ来たぞ。</RT_D_Big_1>
+  <RT_D_Big_2>こいつは痛いぞ。</RT_D_Big_2>
+  <RT_D_Big_3>警告したよな？するつもりだった。</RT_D_Big_3>
+  <RT_D_Small_1>眠気覚ましのちょっとしたやつだ。</RT_D_Small_1>
+  <RT_D_Small_2>小さな問題だ。今のところはな。</RT_D_Small_2>
+  <RT_D_Trade_1>買い物の時間だ！</RT_D_Trade_1>
+  <RT_D_Trade_2>軌道上に商人がいる。銀を持ってこい。</RT_D_Trade_2>
+  <RT_D_Visitors_1>訪問者だ。いい物は隠しとけ。</RT_D_Visitors_1>
+  <RT_D_Visitors_2>お客さんだ！普通にしてろ。</RT_D_Visitors_2>
+  <RT_D_Chunk_1>宇宙ゴミだ。誰かのガラクタは……</RT_D_Chunk_1>
+  <RT_D_Chunk_2>何かが墜落した。俺じゃないぞ。</RT_D_Chunk_2>
+  <RT_D_Disease_1>ハクション。お大事に。</RT_D_Disease_1>
+  <RT_D_Disease_2>手を洗え。もう遅い。</RT_D_Disease_2>
+  <RT_D_Misc_1>面白い……</RT_D_Misc_1>
+  <RT_D_Misc_2>まあ、そういうこともある。</RT_D_Misc_2>
+  <RT_D_Misc_3>こいつは予想外だ。お前もだろ。</RT_D_Misc_3>
+  <RT_D_Misc_4>メモしとけ。</RT_D_Misc_4>
+  <RT_Mood7>振り直し</RT_Mood7>
+  <RT_MoodDesc7>7 – サイコロがテーブルから落ちた！数時間後に振り直します。それまでは普通の日です。</RT_MoodDesc7>
+  <RT_RollSay7_1>7？このサイコロに7はない……振り直しだ。</RT_RollSay7_1>
+  <RT_RollSay7_2>テーブルの下に落ちた。ちょっと待て。</RT_RollSay7_2>
+  <RT_RollSay7_3>7。ノーカウントだ。しばらくしてもう一回。</RT_RollSay7_3>
+  <RT_HeavySix>最悪の脅威は狂った日（6）だけ</RT_HeavySix>
+  <RT_HeavySix_Desc>Mad Dice Max では、虫の巣、メカノイドクラスター、墜落した宇宙船の部品はサイコロが6のときだけ来ます。クエストには影響しません。</RT_HeavySix_Desc>
+  <RT_SecEvents>Maxのイベント</RT_SecEvents>
+  <RT_Events>Max独自のイベント</RT_Events>
+  <RT_Events_Desc>出目の後、Mad Dice Max がその日に合った独自のイベントを持ってくることがあります：賭け、期限付きの挑戦、数日続く状況、ひねったゲームイベント。</RT_Events_Desc>
+  <RT_EventChance>出目の後にイベントが起こる確率：{0} %</RT_EventChance>
+  <RT_EventChance_Desc>1日にMaxのイベントが起こる頻度。</RT_EventChance_Desc>
+  <RT_EventList>イベント：{1} 中 {0} が有効…</RT_EventList>
+  <RT_EventListTitle>Maxのイベント</RT_EventListTitle>
+  <RT_EventListDesc>不要なイベントのチェックを外してください。各イベントはサイコロの1つの面に属します。カーソルを合わせると説明が見られます。</RT_EventListDesc>
+  <RT_EventTry>試す</RT_EventTry>
+  <RT_EV_Prefix>Max：{0}</RT_EV_Prefix>
+  <RT_EV_ChallengeGoal>目標：{0}\n期間：{1} 日。</RT_EV_ChallengeGoal>
+  <RT_EV_Won>挑戦成功：{0}</RT_EV_Won>
+  <RT_EV_Lost>挑戦失敗：{0}</RT_EV_Lost>
+  <RT_EV_Dropped>{0}：{1}</RT_EV_Dropped>
+  <RT_EV_InspiredBy>Maxの恩恵</RT_EV_InspiredBy>
+  <RT_EV_NoSilver>賭けるための銀 {0} がありません。</RT_EV_NoSilver>
+  <RT_EV_AlertLabel>Maxの挑戦</RT_EV_AlertLabel>
+  <RT_EV_Festival>お祭りの日</RT_EV_Festival>
+  <RT_EV_Festival_Text>「ちょっと仕事は置いとけ。今日は祝うぞ――サイコロがそう言ったからな」\n\n2日間、みんながお祭り気分になります。</RT_EV_Festival_Text>
+  <RT_EV_Dreams>サイコロの夢</RT_EV_Dreams>
+  <RT_EV_Dreams_Text>「今夜はぐっすり眠れ。サイコロは俺が見張っとく」\n\n2日間、睡眠で入植者がよりよく回復します。</RT_EV_Dreams_Text>
+  <RT_EV_LostDie>なくしたサイコロ</RT_EV_LostDie>
+  <RT_EV_LostDie_Text>「この辺でサイコロを落とした。見つけた奴は、一緒にある物をもらっていいぞ」\n\nコロニーの近くにポッドが落ちてきます。</RT_EV_LostDie_Text>
+  <RT_EV_QuietDays>静かな日々</RT_EV_QuietDays>
+  <RT_EV_QuietDays_Text>「3日間、誰もキレずにいられるか？」</RT_EV_QuietDays_Text>
+  <RT_EV_QuietDays_Goal>3日間精神崩壊なし</RT_EV_QuietDays_Goal>
+  <RT_EV_QuietDays_Won>「信じてなかったぜ。よくやった」\n\nみんながチームを誇りに思い、入植者2人がひらめきを得ます。</RT_EV_QuietDays_Won>
+  <RT_EV_QuietDays_Lost>「誰かが折れた。予想通りだ」</RT_EV_QuietDays_Lost>
+  <RT_EV_Lesson>Maxの授業</RT_EV_Lesson>
+  <RT_EV_Lesson_Text>「コツを一つ二つ教えてやろう」\n\n入植者3人が最も得意なスキルを伸ばします。</RT_EV_Lesson_Text>
+  <RT_EV_Crafter>職人</RT_EV_Crafter>
+  <RT_EV_Crafter_Text>「その手がサイコロを握る以外にも使えるって見せてみろ」</RT_EV_Crafter_Text>
+  <RT_EV_Crafter_Goal>物を {0} 個作る</RT_EV_Crafter_Goal>
+  <RT_EV_Crafter_Won>「いい仕事だ。次の分にこれを使え」\n\n部品とプラスチールが向かっています。</RT_EV_Crafter_Won>
+  <RT_EV_Crafter_Lost>「怠け者の手だな。残念」</RT_EV_Crafter_Lost>
+  <RT_EV_Hunter>狩人</RT_EV_Hunter>
+  <RT_EV_Hunter_Text>「いい狩りの話が聞きたいんだ」</RT_EV_Hunter_Text>
+  <RT_EV_Hunter_Goal>動物を {0} 頭狩る</RT_EV_Hunter_Goal>
+  <RT_EV_Hunter_Won>「そいつは大した話だ！」\n\n狩人たちは誇らしげで、空から銀の袋が落ちてきます。</RT_EV_Hunter_Won>
+  <RT_EV_Hunter_Lost>「今回は動物の勝ちだ」</RT_EV_Hunter_Lost>
+  <RT_EV_Cleaning>大掃除</RT_EV_Cleaning>
+  <RT_EV_Cleaning_Text>「ここは散らかってる。明日までに片付けたら、損はさせない」</RT_EV_Cleaning_Text>
+  <RT_EV_Cleaning_Goal>汚れを {0} か所掃除する</RT_EV_Cleaning_Goal>
+  <RT_EV_Cleaning_Won>「ピカピカだ。俺も住みたくなる」</RT_EV_Cleaning_Won>
+  <RT_EV_Cleaning_Lost>「まだ汚い。まあいい」</RT_EV_Cleaning_Lost>
+  <RT_EV_Focus>冴えた頭</RT_EV_Focus>
+  <RT_EV_Focus_Text>「今日は何でも頭に入る。今のうちに学べ」\n\n2日間、入植者の学習が 50 % 速くなります。</RT_EV_Focus_Text>
+  <RT_EV_OddEven>丁か半か</RT_EV_OddEven>
+  <RT_EV_OddEven_Text>「ちょっと賭けるか？偶数ならお前の勝ち。奇数なら銀はいただく」</RT_EV_OddEven_Text>
+  <RT_EV_OddEven_O1>銀 100 を賭ける（勝てば 250）</RT_EV_OddEven_O1>
+  <RT_EV_OddEven_O2>銀 300 を賭ける（勝てば 750）</RT_EV_OddEven_O2>
+  <RT_EV_OddEven_O3>やめておく</RT_EV_OddEven_O3>
+  <RT_EV_OddEven_Lose>出目は {0}。銀 {1} は消えた。</RT_EV_OddEven_Lose>
+  <RT_EV_Miner>金鉱掘り</RT_EV_Miner>
+  <RT_EV_Miner_Text>「足元にお宝があるぞ。掘れ！」</RT_EV_Miner_Text>
+  <RT_EV_Miner_Goal>{0} マス採掘する</RT_EV_Miner_Goal>
+  <RT_EV_Miner_Won>「言っただろ」\n\n金と銀が向かっています。</RT_EV_Miner_Won>
+  <RT_EV_Miner_Lost>「お宝は岩の中のままだ」</RT_EV_Miner_Lost>
+  <RT_EV_Builder>建築家</RT_EV_Builder>
+  <RT_EV_Builder_Text>「何か建ててくれ。何でもいい。早く」</RT_EV_Builder_Text>
+  <RT_EV_Builder_Goal>{0} 個建てる</RT_EV_Builder_Goal>
+  <RT_EV_Builder_Won>「しばらくはもつな」\n\n鋼鉄と部品が向かっています。</RT_EV_Builder_Won>
+  <RT_EV_Builder_Lost>「何も建たなかった。残念」</RT_EV_Builder_Lost>
+  <RT_EV_GoldFever>ゴールドラッシュ</RT_EV_GoldFever>
+  <RT_EV_GoldFever_Text>「どの岩にも財宝が隠れてるかもしれない……」\n\n2日間、採掘の収量が 50 % 増えますが、神経が張り詰めます。</RT_EV_GoldFever_Text>
+  <RT_EV_Reroll>Maxが代わりに振る</RT_EV_Reroll>
+  <RT_EV_Reroll_Text>「今日の数字は気に入らない。振り直すぞ」</RT_EV_Reroll_Text>
+  <RT_EV_Roulette>ルーレット</RT_EV_Roulette>
+  <RT_EV_Roulette_Text>「お前の仲間を1人、1回振る。表なら天才のひらめき。裏ならあざ1つ」</RT_EV_Roulette_Text>
+  <RT_EV_Roulette_O1>振る</RT_EV_Roulette_O1>
+  <RT_EV_Roulette_O2>今日はやめる</RT_EV_Roulette_O2>
+  <RT_EV_Roulette_Win>{0} はツイてた――ひらめきだ！</RT_EV_Roulette_Win>
+  <RT_EV_Roulette_Lose>{0} はツイてなかった――いてっ。</RT_EV_Roulette_Lose>
+  <RT_EV_Gift3>贈り物を選べ</RT_EV_Gift3>
+  <RT_EV_Gift3_Text>「今日は気前がいいんだ。1つ選べ」</RT_EV_Gift3_Text>
+  <RT_EV_Gift3_O1>銀 500</RT_EV_Gift3_O1>
+  <RT_EV_Gift3_O2>医薬品 10</RT_EV_Gift3_O2>
+  <RT_EV_Gift3_O3>サプライズ</RT_EV_Gift3_O3>
+  <RT_EV_LuckyHand>幸運の手</RT_EV_LuckyHand>
+  <RT_EV_LuckyHand_Text>「サイコロがお前に微笑んでる」\n\n3日間、手術が成功しやすくなり、言葉の説得力が増します（勧誘、交易）。</RT_EV_LuckyHand_Text>
+  <RT_EV_Pilgrim>物語を持つ巡礼者</RT_EV_Pilgrim>
+  <RT_EV_Pilgrim_Text>「仲間になりたい奴が来る。そいつを探しに別の誰かが来るかもしれないがな」</RT_EV_Pilgrim_Text>
+  <RT_EV_Pilgrim_O1>受け入れる</RT_EV_Pilgrim_O1>
+  <RT_EV_Pilgrim_O2>追い返す</RT_EV_Pilgrim_O2>
+  <RT_EV_Blessing>Maxの祝福</RT_EV_Blessing>
+  <RT_EV_Blessing_Text>「今日は仕事が勝手に片付く」\n\n1日間、全員の作業が 25 % 速くなります。</RT_EV_Blessing_Text>
+  <RT_EV_Supplies>補給品</RT_EV_Supplies>
+  <RT_EV_Supplies_Text>「食え。痩せすぎだぞ」\n\n食事の入ったポッドが近くに落ちてきます。</RT_EV_Supplies_Text>
+  <RT_EV_TwoSides>両側から</RT_EV_TwoSides>
+  <RT_EV_TwoSides_Text>「襲撃1回じゃ退屈だ。2回ならどうだ？」\n\n小規模な襲撃が2つ同時にやって来ます。</RT_EV_TwoSides_Text>
+  <RT_EV_BadLuck>ツイてない日</RT_EV_BadLuck>
+  <RT_EV_BadLuck_Text>「今日は何もかもうまくいかない。せめて何か学べ」\n\n1日間、全員の移動が 10 % 遅くなりますが、学習は2倍速くなります。</RT_EV_BadLuck_Text>
+  <RT_EV_Fortress>要塞</RT_EV_Fortress>
+  <RT_EV_Fortress_Text>「来たぞ。壁を守れ、誰も失うな」\n\n今すぐ襲撃が来ます。</RT_EV_Fortress_Text>
+  <RT_EV_Fortress_Goal>2日間誰も死なない</RT_EV_Fortress_Goal>
+  <RT_EV_Fortress_Won>「本物の要塞だな」\n\nミニタレットと鋼鉄が向かっています。</RT_EV_Fortress_Won>
+  <RT_EV_Fortress_Lost>「壁はもったが、人はもたなかった」</RT_EV_Fortress_Lost>
+  <RT_EV_Tax>Maxの税</RT_EV_Tax>
+  <RT_EV_Tax_Text>「銀の5分の1をよこせ――さもなきゃ取り立てを送るぞ」</RT_EV_Tax_Text>
+  <RT_EV_Tax_O1>払う</RT_EV_Tax_O1>
+  <RT_EV_Tax_O2>断る</RT_EV_Tax_O2>
+  <RT_EV_ColdShower>冷水シャワー</RT_EV_ColdShower>
+  <RT_EV_ColdShower_Text>「快適すぎるか？天気を変えてやろう」\n\n2日間とても寒くなります（夏ならとても暑くなります）。</RT_EV_ColdShower_Text>
+  <RT_EV_AllIn>オールイン</RT_EV_AllIn>
+  <RT_EV_AllIn_Text>「1回振る。4〜6なら空から財宝。1〜3なら強力な襲撃がお前を狙う」</RT_EV_AllIn_Text>
+  <RT_EV_AllIn_O1>振る</RT_EV_AllIn_O1>
+  <RT_EV_AllIn_O2>やめておく</RT_EV_AllIn_O2>
+  <RT_EV_AllIn_Lose>出目は {0}。奴らが来る……</RT_EV_AllIn_Lose>
+  <RT_EV_MadPack>狂った群れ</RT_EV_MadPack>
+  <RT_EV_MadPack_Text>「動物たちが狂った。たくさんな」</RT_EV_MadPack_Text>
+  <RT_EV_Eclipse>闇のサイコロ</RT_EV_Eclipse>
+  <RT_EV_Eclipse_Text>「しばらく暗闇で遊ぼうか」\n\n日食が起こり、何かが数字をささやきます。</RT_EV_Eclipse_Text>
+  <RT_EV_Revenge>Maxの復讐</RT_EV_Revenge>
+  <RT_EV_Revenge_Text>「最近ツイてたな。ツキすぎだ」\n\n強力な襲撃が近づいています。</RT_EV_Revenge_Text>
+  <RT_EV_Double>ダブルスロー</RT_EV_Double>
+  <RT_EV_Double_Text>「今日はサイコロ2つ：1つはお前の味方、1つは敵だ」</RT_EV_Double_Text>
+  <RT_EV_Difficulty>難易度 {0}：報酬 ×{1}、目標 ×{2}、{3}。</RT_EV_Difficulty>
+  <RT_EV_RaidsYes>襲撃あり</RT_EV_RaidsYes>
+  <RT_EV_RaidsNo>襲撃なし</RT_EV_RaidsNo>
+  <RT_EV_NoRaid>Maxは手を振る――この難易度では誰も送らない。</RT_EV_NoRaid>
+  <RT_EV_Stargazing>星の夜</RT_EV_Stargazing>
+  <RT_EV_Stargazing_Text>「今夜は空を見上げろ。お前らのために少し多めに灯しといた」\n\nみんなが星空の下の夜を楽しみます。</RT_EV_Stargazing_Text>
+  <RT_EV_GreenThumb>緑の指</RT_EV_GreenThumb>
+  <RT_EV_GreenThumb_Text>「今日は植物が話を聞いてくれる」\n\n2日間、種まきと収穫が 50 % 速くなります。</RT_EV_GreenThumb_Text>
+  <RT_EV_Guests>食卓の客</RT_EV_Guests>
+  <RT_EV_Guests_Text>「友達を何人か招いた。親切にしてやれ」\n\n訪問者が向かっています。</RT_EV_Guests_Text>
+  <RT_EV_Balm>Maxの軟膏</RT_EV_Balm>
+  <RT_EV_Balm_Text>「その擦り傷を見せてみろ……ほら、良くなった」\n\n入植者の傷が少し治ります。</RT_EV_Balm_Text>
+  <RT_EV_Cook>料理人</RT_EV_Cook>
+  <RT_EV_Cook_Text>「腹が減った。俺のために料理しろ――たくさんな」</RT_EV_Cook_Text>
+  <RT_EV_Cook_Goal>食事を {0} 食作る</RT_EV_Cook_Goal>
+  <RT_EV_Cook_Won>「うまい。みんなでごちそうだ！」\n\nみんながごちそうを楽しみ、空から銀の袋が落ちてきます。</RT_EV_Cook_Won>
+  <RT_EV_Cook_Lost>「まだ腹ぺこだ。残念」</RT_EV_Cook_Lost>
+  <RT_EV_Scholar>学者</RT_EV_Scholar>
+  <RT_EV_Scholar_Text>「頭にどれだけ入るか見せてみろ」</RT_EV_Scholar_Text>
+  <RT_EV_Scholar_Goal>{0} ポイント研究する</RT_EV_Scholar_Goal>
+  <RT_EV_Scholar_Won>「賢い連中だ。考える材料をやろう」\n\n入植者2人がひらめきを得て、品物の入ったポッドが向かっています。</RT_EV_Scholar_Won>
+  <RT_EV_Scholar_Lost>「本は閉じられたままだ」</RT_EV_Scholar_Lost>
+  <RT_EV_Gardener>庭師</RT_EV_Gardener>
+  <RT_EV_Gardener_Text>「収穫しろ――かごいっぱいが見たい」</RT_EV_Gardener_Text>
+  <RT_EV_Gardener_Goal>植物を {0} 株収穫する</RT_EV_Gardener_Goal>
+  <RT_EV_Gardener_Won>「かごいっぱいだ！よくやった」\n\n銀が向かっています。</RT_EV_Gardener_Won>
+  <RT_EV_Gardener_Lost>「畑はいっぱいのままだ」</RT_EV_Gardener_Lost>
+  <RT_EV_HighLow>大か小か</RT_EV_HighLow>
+  <RT_EV_HighLow_Text>「サイコロ1つ。大――4〜6――か小――1〜3――に賭けろ。銀 150、当たれば倍返し」</RT_EV_HighLow_Text>
+  <RT_EV_HighLow_O1>大（賭け 150、勝ち 300）</RT_EV_HighLow_O1>
+  <RT_EV_HighLow_O2>小（賭け 150、勝ち 300）</RT_EV_HighLow_O2>
+  <RT_EV_HighLow_O3>やめておく</RT_EV_HighLow_O3>
+  <RT_EV_HighLow_Lose>出目は {0}。銀 {1} は消えた。</RT_EV_HighLow_Lose>
+  <RT_EV_SteadyHands>安定した手</RT_EV_SteadyHands>
+  <RT_EV_SteadyHands_Text>「今日はお前らの手は震えない」\n\n2日間、建設と運搬が 30 % 速くなります。</RT_EV_SteadyHands_Text>
+  <RT_EV_Market>市の日</RT_EV_Market>
+  <RT_EV_Market_Text>「商人たちにお前らの居場所を教えといた」\n\n交易キャラバンが向かっています。</RT_EV_Market_Text>
+  <RT_EV_Sower>種まき人</RT_EV_Sower>
+  <RT_EV_Sower_Text>「何か植えろ。たくさんな」</RT_EV_Sower_Text>
+  <RT_EV_Sower_Goal>植物を {0} 株植える</RT_EV_Sower_Goal>
+  <RT_EV_Sower_Won>「あとは育つのを待て」\n\n銀が向かっています。</RT_EV_Sower_Won>
+  <RT_EV_Sower_Lost>「空っぽの畑。残念」</RT_EV_Sower_Lost>
+  <RT_EV_Swap>Maxの交換</RT_EV_Swap>
+  <RT_EV_Swap_Text>「銀 100 くれたら、この袋の中身をやる。もっと価値があるかも。ないかも」</RT_EV_Swap_Text>
+  <RT_EV_Swap_O1>銀 100 を払う</RT_EV_Swap_O1>
+  <RT_EV_Swap_O2>やめておく</RT_EV_Swap_O2>
+  <RT_EV_Tales>物語の夕べ</RT_EV_Tales>
+  <RT_EV_Tales_Text>「集まれ。サイコロで惑星を丸ごとすった話をしてやろう……」\n\nみんなが物語を楽しみます。</RT_EV_Tales_Text>
+  <RT_EV_RainDance>雨乞いの踊り</RT_EV_RainDance>
+  <RT_EV_RainDance_Text>「乾きすぎだ。雨を振り出してやる」\n\n雨が降り始めます。</RT_EV_RainDance_Text>
+  <RT_EV_Tamer>調教師</RT_EV_Tamer>
+  <RT_EV_Tamer_Text>「野生の友達を作れ」</RT_EV_Tamer_Text>
+  <RT_EV_Tamer_Goal>動物を {0} 頭手なずける</RT_EV_Tamer_Goal>
+  <RT_EV_Tamer_Won>「見ろよ、もう親友だ」\n\n銀が向かっています。</RT_EV_Tamer_Won>
+  <RT_EV_Tamer_Lost>「動物は野生のままだ」</RT_EV_Tamer_Lost>
+  <RT_EV_Windfall>棚からぼた餅</RT_EV_Windfall>
+  <RT_EV_Windfall_Text>「反対のポケットに銀があった。お前にやる」\n\n銀の入ったポッドがコロニーの近くに落ちてきます。</RT_EV_Windfall_Text>
+  <RT_EV_Medkit>薬袋</RT_EV_Medkit>
+  <RT_EV_Medkit_Text>「何か折ったときのためだ。どうせ折るだろ」\n\n医薬品の入ったポッドがコロニーの近くに落ちてきます。</RT_EV_Medkit_Text>
+  <RT_EV_MysteryBox>謎の箱</RT_EV_MysteryBox>
+  <RT_EV_MysteryBox_Text>「閉じた箱だ。中身はいい物――たぶんな。それか、俺が買い戻してやってもいい」</RT_EV_MysteryBox_Text>
+  <RT_EV_MysteryBox_O1>開ける</RT_EV_MysteryBox_O1>
+  <RT_EV_MysteryBox_O2>Maxに銀 300 で売る</RT_EV_MysteryBox_O2>
+  <RT_EV_MysteryBox_Lose>箱の中は怒った動物でいっぱいだった！</RT_EV_MysteryBox_Lose>
+  <RT_EV_Muse>ミューズ</RT_EV_Muse>
+  <RT_EV_Muse_Text>「何人かの耳にアイデアをささやいといた」\n\n入植者3人がひらめきを得ます。</RT_EV_Muse_Text>
+  <RT_EV_StrayHerd>迷い込んだ群れ</RT_EV_StrayHerd>
+  <RT_EV_StrayHerd_Text>「サイコロについて来た動物がいる。飼ってやれ」\n\nおとなしい動物が何頭かやって来ます。</RT_EV_StrayHerd_Text>
+  <RT_EV_Blight>腐った運</RT_EV_Blight>
+  <RT_EV_Blight_Text>「おっと。お前の畑にサイコロを落とした」\n\n胴枯れ病が作物を襲います。</RT_EV_Blight_Text>
+  <RT_EV_Sickness>熱病のサイコロ</RT_EV_Sickness>
+  <RT_EV_Sickness_Text>「誰かが俺のサイコロにくしゃみした」\n\n病気が発生します。</RT_EV_Sickness_Text>
+  <RT_EV_Fallout>毒の雨</RT_EV_Fallout>
+  <RT_EV_Fallout_Text>「今日は空が病んでる。中にいろ」</RT_EV_Fallout_Text>
+  <RT_EV_Toll>通行料</RT_EV_Toll>
+  <RT_EV_Toll_Text>「襲撃者がお前らの噂を聞いた。金で追い払うか――入植者1人あたり銀 80 ほど――戦え。戦うなら、手間賃に何か置いてってやる」</RT_EV_Toll_Text>
+  <RT_EV_Toll_O1>払う</RT_EV_Toll_O1>
+  <RT_EV_Toll_O2>戦う</RT_EV_Toll_O2>
+  <RT_EV_Flare>まぶしい太陽</RT_EV_Flare>
+  <RT_EV_Flare_Text>「太陽を磨いといた。お前らの機械は嫌がるだろうな」</RT_EV_Flare_Text>
+  <RT_EV_Swarm>群れ</RT_EV_Swarm>
+  <RT_EV_Swarm_Text>「床下で何かが這う音が聞こえるか？」</RT_EV_Swarm_Text>
+  <RT_EV_Drone>うなり</RT_EV_Drone>
+  <RT_EV_Drone_Text>「暗闇で何かがうなってる。Maxは笑っていない」</RT_EV_Drone_Text>
+  <RT_EV_Jackpot>大当たり</RT_EV_Jackpot>
+  <RT_EV_Jackpot_Text>「サイコロ2つ。ゾロ目なら大勝ち。それ以外なら取り立てを送る」</RT_EV_Jackpot_Text>
+  <RT_EV_Jackpot_O1>振る</RT_EV_Jackpot_O1>
+  <RT_EV_Jackpot_O2>やめる</RT_EV_Jackpot_O2>
+  <RT_EV_Jackpot_Lose>出目は {0} と {1}。取り立てが来るぞ！</RT_EV_Jackpot_Lose>
+  <RT_EV_LongNight>長い夜</RT_EV_LongNight>
+  <RT_EV_LongNight_Text>「手で太陽を隠した。数日間な」</RT_EV_LongNight_Text>
+  <RT_EV_IronDice>鉄のサイコロ</RT_EV_IronDice>
+  <RT_EV_IronDice_Text>「空から金属のサイコロが降ってくる。転がるのをやめない」</RT_EV_IronDice_Text>
+  <RT_EV_ClearSky>快晴</RT_EV_ClearSky>
+  <RT_EV_ClearSky_Text>「雲？今日はなしだ。吹き飛ばしてやった」\n\n空が晴れます。</RT_EV_ClearSky_Text>
+  <RT_EV_Aurora>オーロラ</RT_EV_Aurora>
+  <RT_EV_Aurora_Text>「上に明かりを吊るしといた。見てこい」</RT_EV_Aurora_Text>
+  <RT_EV_MorningFog>朝霧</RT_EV_MorningFog>
+  <RT_EV_MorningFog_Text>「しーっ。世界をもう少し寝かせてやれ」\n\nやわらかな霧がコロニーを包みます。</RT_EV_MorningFog_Text>
+  <RT_EV_Snowfall>初雪</RT_EV_Snowfall>
+  <RT_EV_Snowfall_Text>「雪だ。ゆっくりと静かに。楽しめ」</RT_EV_Snowfall_Text>
+  <RT_EV_SkyBet>晴れか雨か</RT_EV_SkyBet>
+  <RT_EV_SkyBet_Text>「天気に賭けろ。銀 120――当たれば倍払う。どっちにしろ天気は来る」</RT_EV_SkyBet_Text>
+  <RT_EV_Rainbow>虹</RT_EV_Rainbow>
+  <RT_EV_Rainbow_Text>「絵の具が余ってたんだ」\n\nみんなが虹に見とれます。</RT_EV_Rainbow_Text>
+  <RT_EV_Thunder>雷鳴</RT_EV_Thunder>
+  <RT_EV_Thunder_Text>「聞こえるか？上でサイコロを振ってるんだ」\n\n雷雨がやって来ます。</RT_EV_Thunder_Text>
+  <RT_EV_OddWeather>変な天気</RT_EV_OddWeather>
+  <RT_EV_OddWeather_Text>「サーモスタットに飲み物をこぼした。悪いな」</RT_EV_OddWeather_Text>
+  <RT_EV_StrangeSky>奇妙な空</RT_EV_StrangeSky>
+  <RT_EV_StrangeSky_Text>「今日はいつもと違う。空を見てろ」</RT_EV_StrangeSky_Text>
+  <RT_EV_Lights>ひらめきの光</RT_EV_Lights>
+  <RT_EV_Lights_Text>「見上げろ。何か感じるか？よし――それを使え」\n\n空に光が舞い、入植者2人がひらめきを得ます。</RT_EV_Lights_Text>
+  <RT_EV_SkyScrap>空からのスクラップ</RT_EV_SkyScrap>
+  <RT_EV_SkyScrap_Text>「上で船から何か落ちた。拾った者勝ちだ」\n\n鋼鉄と部品の入ったポッドがコロニーの近くに着地します。</RT_EV_SkyScrap_Text>
+  <RT_EV_GoodHarvestRain>暖かい雨</RT_EV_GoodHarvestRain>
+  <RT_EV_GoodHarvestRain_Text>「畑が喉を乾かしてるようだな」\n\n暖かい雨が降り、育っている作物が少し早く育ちます。</RT_EV_GoodHarvestRain_Text>
+  <RT_EV_Flashstorm>稲妻</RT_EV_Flashstorm>
+  <RT_EV_Flashstorm_Text>「さて、外に突っ立ってるのは誰かな」</RT_EV_Flashstorm_Text>
+  <RT_EV_MadAnimal>不機嫌</RT_EV_MadAnimal>
+  <RT_EV_MadAnimal_Text>「あの動物が俺をにらんだ。今度はお前に怒ってる」</RT_EV_MadAnimal_Text>
+  <RT_EV_Blizzard>猛吹雪</RT_EV_Blizzard>
+  <RT_EV_Blizzard_Text>「寒い？もっと寒くしてやる」\n\n猛吹雪と寒波がコロニーを襲います。</RT_EV_Blizzard_Text>
+  <RT_EV_BlackSun>日食</RT_EV_BlackSun>
+  <RT_EV_BlackSun_Text>「太陽の前に手をかざした。ちょっとだけな」</RT_EV_BlackSun_Text>
+  <RT_EV_Hail>ひょう</RT_EV_Hail>
+  <RT_EV_Hail_Text>「氷のサイコロだ。降ってくるぞ。中にいろ」</RT_EV_Hail_Text>
+  <RT_EV_Stampede>暴走</RT_EV_Stampede>
+  <RT_EV_Stampede_Text>「群れを出した。怒ってるやつをな」</RT_EV_Stampede_Text>
+  <RT_EV_StormRaid>嵐の襲撃者</RT_EV_StormRaid>
+  <RT_EV_StormRaid_Text>「奴らは悪天候が好きだ。俺もだ」\n\n嵐がやって来て――襲撃者も一緒に来ます。</RT_EV_StormRaid_Text>
+  <RT_EV_DoubleOrNothing>倍か無か</RT_EV_DoubleOrNothing>
+  <RT_EV_DoubleOrNothing_Text>「銀の半分――最大千――を一振りに。偶数なら倍。奇数ならなし」</RT_EV_DoubleOrNothing_Text>
+  <RT_EV_SkyBet_O1>晴れ（賭け 120、勝ち 240）</RT_EV_SkyBet_O1>
+  <RT_EV_SkyBet_O2>雨（賭け 120、勝ち 240）</RT_EV_SkyBet_O2>
+  <RT_EV_SkyBet_O3>やめておく</RT_EV_SkyBet_O3>
+  <RT_EV_SkyBet_Lose>外れ。銀 {0} は消えた。</RT_EV_SkyBet_Lose>
+  <RT_EV_DoubleOrNothing_O1>振る</RT_EV_DoubleOrNothing_O1>
+  <RT_EV_DoubleOrNothing_O2>やめる</RT_EV_DoubleOrNothing_O2>
+  <RT_EV_DoubleOrNothing_Lose>奇数。銀 {0} は消えた。</RT_EV_DoubleOrNothing_Lose>
+  <RT_EV_CardNight>カードの夜</RT_EV_CardNight>
+  <RT_EV_CardNight_Text>「今夜は誰も働かない。今夜はカードだ――配るのは俺だ」\n\nみんなが楽しんで気分が良くなります。</RT_EV_CardNight_Text>
+  <RT_EV_LuckyCharm>お守り</RT_EV_LuckyCharm>
+  <RT_EV_LuckyCharm_Text>「ほら、これを持っとけ。何かは聞くな」\n\n入植者1人が3日間Maxのお守りを持ちます：作業が速くなり、神経が強くなります。</RT_EV_LuckyCharm_Text>
+  <RT_EV_LuckyCharm_Who>{0} がMaxのお守りを持っています。</RT_EV_LuckyCharm_Who>
+  <RT_EV_Siesta>シエスタ</RT_EV_Siesta>
+  <RT_EV_Siesta_Text>「みんな疲れた顔してるな。目を閉じろ、見張りは俺がやる」\n\nみんながしっかり休めます。</RT_EV_Siesta_Text>
+  <RT_EV_Lottery>Maxの宝くじ</RT_EV_Lottery>
+  <RT_EV_Lottery_Text>「くじだ！1枚銀 50！どのくじも6分の1の確率で 400 が当たる！」</RT_EV_Lottery_Text>
+  <RT_EV_Lottery_O1>1枚買う（銀 50）</RT_EV_Lottery_O1>
+  <RT_EV_Lottery_O2>3枚買う（銀 150）</RT_EV_Lottery_O2>
+  <RT_EV_Lottery_O3>やめておく</RT_EV_Lottery_O3>
+  <RT_EV_Lottery_Lose>当たりなし。銀 {0} は消えた。</RT_EV_Lottery_Lose>
+  <RT_EV_CardDuel>カード対決</RT_EV_CardDuel>
+  <RT_EV_CardDuel_Text>「お前ら2人。カード。今すぐ。負けた方が皿洗いだ」\n\n入植者2人が長い勝負をし、2人とも人について何かを学びます。</RT_EV_CardDuel_Text>
+  <RT_EV_CardDuel_Who>{0} がカードで {1} に勝った。</RT_EV_CardDuel_Who>
+  <RT_EV_Hauler>運び屋</RT_EV_Hauler>
+  <RT_EV_Hauler_Text>「そこら中に物がある！全部あるべき場所に戻せ」</RT_EV_Hauler_Text>
+  <RT_EV_Hauler_Goal>物を {0} 個運ぶ</RT_EV_Hauler_Goal>
+  <RT_EV_Hauler_Won>「片付いた。片付いてるのは好きだ」\n\n空から銀の袋が落ちてきます。</RT_EV_Hauler_Won>
+  <RT_EV_Hauler_Lost>「まだ散らかってる。残念」</RT_EV_Hauler_Lost>
+  <RT_EV_Debt>賭けの借金</RT_EV_Debt>
+  <RT_EV_Debt_Text>「お前のコロニーの誰かが俺の卓で負けた――勝った連中は金を欲しがってる。払うか、取りに来させるかだ」</RT_EV_Debt_Text>
+  <RT_EV_Debt_O1>借金を払う</RT_EV_Debt_O1>
+  <RT_EV_Debt_O2>断る</RT_EV_Debt_O2>
+  <RT_EV_Debt_Lucky>取り立て屋は途中で道に迷った。ツイてたな。</RT_EV_Debt_Lucky>
+  <RT_EV_CursedDie>呪われたサイコロ</RT_EV_CursedDie>
+  <RT_EV_CursedDie_Text>「いつもいい目が出るサイコロを見つけた。まあ――持ってる奴にとってはな。他の奴はツキに見放される。いるか？」</RT_EV_CursedDie_Text>
+  <RT_EV_CursedDie_O1>受け取る（報酬あり、ただし誰かが不運に）</RT_EV_CursedDie_O1>
+  <RT_EV_CursedDie_O2>捨てる</RT_EV_CursedDie_O2>
+  <RT_EV_CursedDie_Who>呪いが {0} を見つけた。</RT_EV_CursedDie_Who>
+  <RT_EV_TableRound>全員で振る</RT_EV_TableRound>
+  <RT_EV_TableRound_Text>「全員サイコロを1つずつ振れ。6ならひらめき。1ならつまずいて怪我だ。やるか？」</RT_EV_TableRound_Text>
+  <RT_EV_TableRound_O1>全員で振る</RT_EV_TableRound_O1>
+  <RT_EV_TableRound_O2>今日はやめる</RT_EV_TableRound_O2>
+  <RT_EV_TableRound_Result>6：{0} 人がひらめき。1：{1} 人が怪我。</RT_EV_TableRound_Result>
+  <RT_EV_Pickpocket>スリ</RT_EV_Pickpocket>
+  <RT_EV_Pickpocket_Text>「最近、銀を数えたか？まだ？そりゃよかった」</RT_EV_Pickpocket_Text>
+  <RT_EV_Pickpocket_Lose>倉庫から銀 {0} が消えた。</RT_EV_Pickpocket_Lose>
+  <RT_EV_DoubleCaravan>ダブルキャラバン</RT_EV_DoubleCaravan>
+  <RT_EV_DoubleCaravan_Text>「商人たちにお前は金持ちだと言っといた。キャラバンが2つ向かってる――2つ目は少し後だ」</RT_EV_DoubleCaravan_Text>
+  <RT_EV_PrizeAnimal>賞品の動物</RT_EV_PrizeAnimal>
+  <RT_EV_PrizeAnimal_Text>「カードで勝ち取った。俺はいらない。お前が持っとけ」\n\n飼いならされた動物が投下ポッドで到着します。</RT_EV_PrizeAnimal_Text>
+  <RT_EV_PrizeAnimal_Who>新しい動物：{0}。</RT_EV_PrizeAnimal_Who>
+  <RT_EV_OnTheHouse>店のおごり</RT_EV_OnTheHouse>
+  <RT_EV_OnTheHouse_Text>「この一杯は俺のおごりだ！」\n\n上等な食事とビールが空から降ってきます。</RT_EV_OnTheHouse_Text>
+  <RT_EV_GoodWord>いい評判</RT_EV_GoodWord>
+  <RT_EV_GoodWord_Text>「お前の隣人の1人とカードをして、お前のことをよく言っといた」\n\n友好的な勢力との関係が良くなります。</RT_EV_GoodWord_Text>
+  <RT_EV_SoreLoser>負けず嫌い</RT_EV_SoreLoser>
+  <RT_EV_SoreLoser_Text>「昨夜、誰かが俺の卓で全部すった。うまく受け止められてない」\n\n入植者1人が不機嫌にうろつきます。</RT_EV_SoreLoser_Text>
+  <RT_EV_LoadedDice>イカサマサイコロ</RT_EV_LoadedDice>
+  <RT_EV_LoadedDice_Text>「今日のサイコロはイカサマだ。お前に不利なやつな」\n\n2日間、すべての作業が 15 % 遅くなります。</RT_EV_LoadedDice_Text>
+  <RT_EV_Zzzt>火花</RT_EV_Zzzt>
+  <RT_EV_Zzzt_Text>「お前の配線に飲み物をこぼした。おっと」</RT_EV_Zzzt_Text>
+  <RT_EV_Wheel>運命の輪</RT_EV_Wheel>
+  <RT_EV_Wheel_Text>「ルーレットを回せ！6つのマス：大きな贈り物、全員にひらめき、全員に治療、何もなし、野生動物、または襲撃」</RT_EV_Wheel_Text>
+  <RT_EV_Wheel_O1>回す</RT_EV_Wheel_O1>
+  <RT_EV_Wheel_O2>立ち去る</RT_EV_Wheel_O2>
+  <RT_EV_Wheel_F1>輪が止まった：大きな贈り物！</RT_EV_Wheel_F1>
+  <RT_EV_Wheel_F2>輪が止まった：全員にひらめき！</RT_EV_Wheel_F2>
+  <RT_EV_Wheel_F3>輪が止まった：全員に治療！</RT_EV_Wheel_F3>
+  <RT_EV_Wheel_F4>輪が止まった：何もなし。Maxが笑う。</RT_EV_Wheel_F4>
+  <RT_EV_Wheel_F5>輪が止まった：野生動物！</RT_EV_Wheel_F5>
+  <RT_EV_Wheel_F6>輪が止まった：襲撃！</RT_EV_Wheel_F6>
+  <RT_EV_ChaosRound>カオスラウンド</RT_EV_ChaosRound>
+  <RT_EV_ChaosRound_Text>「サイコロ3つ同時だ！何が出るかな」\n\nMaxのイベントが3つ、今すぐ起こります。</RT_EV_ChaosRound_Text>
+  <RT_EV_StoneDice>石のサイコロ</RT_EV_StoneDice>
+  <RT_EV_StoneDice_Text>「今日はでかいのを投げる。頭に気をつけろ」\n\nコロニーの近くに隕石が2つ落ちます。</RT_EV_StoneDice_Text>
+</LanguageData>

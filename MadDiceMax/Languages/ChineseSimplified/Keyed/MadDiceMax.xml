@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RT_Rec1>骰子叙事者会公布每次掷骰，并显示今天的概率。</RT_Rec1>
+  <RT_Rec2>叙事者有时会评论事件（大约每三个一次）。</RT_Rec2>
+  <RT_Rec3>适用于任何叙事者；你的存档不会有任何改变。</RT_Rec3>
+  <RT_SecDice>Mad Dice Max</RT_SecDice>
+  <RT_DiceAlert>显示今天的点数和概率</RT_DiceAlert>
+  <RT_DiceAlert_Desc>右侧的提醒：今天的点数、今天是什么样的日子、袭击、小威胁以及商人或访客的概率，还有距下次掷骰的时间。</RT_DiceAlert_Desc>
+  <RT_DiceLetter>以信件形式掷骰</RT_DiceLetter>
+  <RT_DiceLetter_Desc>每日掷骰以带有完整预报的信件送达，而不是简短消息。</RT_DiceLetter_Desc>
+  <RT_SecDiary>日记</RT_SecDiary>
+  <RT_Diary>叙事者评论</RT_Diary>
+  <RT_Diary_Desc>叙事者不时会在屏幕顶部用一句短话评论某个事件。</RT_Diary_Desc>
+  <RT_DiaryAll>其他叙事者也评论</RT_DiaryAll>
+  <RT_DiaryAll_Desc>其他叙事者（原版和模组）也会评论——不只是 Max。</RT_DiaryAll_Desc>
+  <RT_DiaryChance>评论 {0} % 的事件</RT_DiaryChance>
+  <RT_DiaryChance_Desc>评论出现的频率。两次评论之间总会相隔至少几个小时。</RT_DiaryChance_Desc>
+  <RT_RollTitle>骰子掷出 {0}：{1}</RT_RollTitle>
+  <RT_RollLetter>骰子掷出 {0}</RT_RollLetter>
+  <RT_AlertLabel>骰子 {0}：{1}</RT_AlertLabel>
+  <RT_Mood1>平静的一天</RT_Mood1>
+  <RT_Mood2>安稳的一天</RT_Mood2>
+  <RT_Mood3>普通的一天</RT_Mood3>
+  <RT_Mood4>慷慨的一天</RT_Mood4>
+  <RT_Mood5>艰难的一天</RT_Mood5>
+  <RT_Mood6>疯狂的一天</RT_Mood6>
+  <RT_MoodDesc1>1 – 平静的一天。今天没有大威胁，事件很少，小威胁也很弱。天空放晴。</RT_MoodDesc1>
+  <RT_MoodDesc2>2 – 轻松的一天。大威胁很少见，访客和无害事件更多；常有好事发生，天气也可能变化。</RT_MoodDesc2>
+  <RT_MoodDesc3>3 – 普通的一天。游戏的常规事件；偶尔多一个事件或天气变化。</RT_MoodDesc3>
+  <RT_MoodDesc4>4 – 慷慨的一天。商人和访客来得更频繁，威胁更少，白天会有一份礼物，天气晴好。</RT_MoodDesc4>
+  <RT_MoodDesc5>5 – 艰难的一天。大小威胁都更可能出现且更强——白天肯定至少来一个。这里最恶劣的天气。</RT_MoodDesc5>
+  <RT_MoodDesc6>6 – 疯狂的一天。事件频率翻倍，每类事件都有自己的随机概率——肯定会来至少两个随机事件（原版和模组），任何天气都可能出现。</RT_MoodDesc6>
+  <RT_FcEvents>今天预计事件：约 {0} 个</RT_FcEvents>
+  <RT_FcBig>袭击或其他大威胁：{0}</RT_FcBig>
+  <RT_FcSmall>小威胁：{0}</RT_FcSmall>
+  <RT_FcGood>商人或访客：{0}</RT_FcGood>
+  <RT_FcStrength>威胁强度：正常的 {0}–{1} %</RT_FcStrength>
+  <RT_FcNoForced>即使是逾期的袭击也会等到别的日子。</RT_FcNoForced>
+  <RT_FcGift>今天有一份礼物正在路上。</RT_FcGift>
+  <RT_FcNext>距下次掷骰：{0}。</RT_FcNext>
+  <RT_LvlVeryLow>很低</RT_LvlVeryLow>
+  <RT_LvlLow>低</RT_LvlLow>
+  <RT_LvlMid>中等</RT_LvlMid>
+  <RT_LvlHigh>高</RT_LvlHigh>
+  <RT_LvlVeryHigh>很高</RT_LvlVeryHigh>
+  <RT_RollSay1_1>两个一点。睡个午觉吧，我明天再来。</RT_RollSay1_1>
+  <RT_RollSay1_2>一点。连我都需要休息一天。</RT_RollSay1_2>
+  <RT_RollSay1_3>一点。好好享受，不会持久的。</RT_RollSay1_3>
+  <RT_RollSay2_1>二点。我心情不错。别搞砸了。</RT_RollSay2_1>
+  <RT_RollSay2_2>二点——茶、饼干，没有爆炸。</RT_RollSay2_2>
+  <RT_RollSay2_3>二点。去种点什么吧。</RT_RollSay2_3>
+  <RT_RollSay3_1>三点。一切照旧。</RT_RollSay3_1>
+  <RT_RollSay3_2>三点。看看今天会带来什么……我也不知道。</RT_RollSay3_2>
+  <RT_RollSay3_3>三点。完美的平均。可疑的平均。</RT_RollSay3_3>
+  <RT_RollSay4_1>四点！上面有人喜欢你。</RT_RollSay4_1>
+  <RT_RollSay4_2>四点。开门吧，客人要来了。</RT_RollSay4_2>
+  <RT_RollSay4_3>四点。我很慷慨。别习惯了。</RT_RollSay4_3>
+  <RT_RollSay5_1>五点。给枪上膛。</RT_RollSay5_1>
+  <RT_RollSay5_2>五点。希望你们的墙够厚。</RT_RollSay5_2>
+  <RT_RollSay5_3>五点。今天骰子想要见血。</RT_RollSay5_3>
+  <RT_RollSay6_1>六点！抓紧点什么。</RT_RollSay6_1>
+  <RT_RollSay6_2>六点。我自己都不知道接下来会发生什么。</RT_RollSay6_2>
+  <RT_RollSay6_3>六点。混乱是阶梯。也可能是深坑。走着瞧。</RT_RollSay6_3>
+  <RT_D_Raid_1>客人来了。不是友好的那种。</RT_D_Raid_1>
+  <RT_D_Raid_2>他们听说你有个漂亮的基地。他们想要。</RT_D_Raid_2>
+  <RT_D_Raid_3>袭击者！不是我派来的。大概。</RT_D_Raid_3>
+  <RT_D_Raid_4>有人订了麻烦吗？送货上门了。</RT_D_Raid_4>
+  <RT_D_Manhunter_1>动物们受够你了。</RT_D_Manhunter_1>
+  <RT_D_Manhunter_2>大自然打来电话。它很生气。</RT_D_Manhunter_2>
+  <RT_D_Manhunter_3>去摸摸它们。你敢吗？</RT_D_Manhunter_3>
+  <RT_D_Infestation_1>墙里有东西在爬。晚安。</RT_D_Infestation_1>
+  <RT_D_Infestation_2>虫子。好多虫子。</RT_D_Infestation_2>
+  <RT_D_Infestation_3>你挖得太深了。它们发现了。</RT_D_Infestation_3>
+  <RT_D_Pod_1>天上掉下来个东西。谁捡到归谁。</RT_D_Pod_1>
+  <RT_D_Pod_2>免费的东西！别问从哪来的。</RT_D_Pod_2>
+  <RT_D_Wanderer_1>新朋友！或者是未来的麻烦。</RT_D_Wanderer_1>
+  <RT_D_Wanderer_2>有人想加入。友善点。</RT_D_Wanderer_2>
+  <RT_D_Dark_1>熄灯了。希望你喜欢蜡烛。</RT_D_Dark_1>
+  <RT_D_Dark_2>太阳休息了。你的电也是。</RT_D_Dark_2>
+  <RT_D_Weather_1>今天的天气有自己的想法。</RT_D_Weather_1>
+  <RT_D_Weather_2>按场合着装。今天的场合是受苦。</RT_D_Weather_2>
+  <RT_D_Big_1>来了。</RT_D_Big_1>
+  <RT_D_Big_2>这次会很疼。</RT_D_Big_2>
+  <RT_D_Big_3>我警告过你。不是吗？我本来想的。</RT_D_Big_3>
+  <RT_D_Small_1>一点小东西，让你保持清醒。</RT_D_Small_1>
+  <RT_D_Small_2>一个小问题。目前还小。</RT_D_Small_2>
+  <RT_D_Trade_1>购物时间！</RT_D_Trade_1>
+  <RT_D_Trade_2>轨道上有商人。带上你的白银。</RT_D_Trade_2>
+  <RT_D_Visitors_1>访客来了。把好东西藏起来。</RT_D_Visitors_1>
+  <RT_D_Visitors_2>有客人！表现正常点。</RT_D_Visitors_2>
+  <RT_D_Chunk_1>太空垃圾。一个人的废物……</RT_D_Chunk_1>
+  <RT_D_Chunk_2>有东西坠毁了。不是我干的。</RT_D_Chunk_2>
+  <RT_D_Disease_1>阿嚏。保重。</RT_D_Disease_1>
+  <RT_D_Disease_2>洗手。太晚了。</RT_D_Disease_2>
+  <RT_D_Misc_1>有意思……</RT_D_Misc_1>
+  <RT_D_Misc_2>嗯，这事发生了。</RT_D_Misc_2>
+  <RT_D_Misc_3>我没料到。你也没有。</RT_D_Misc_3>
+  <RT_D_Misc_4>记下来。</RT_D_Misc_4>
+  <RT_Mood7>重掷</RT_Mood7>
+  <RT_MoodDesc7>7 – 骰子滚下了桌子！几小时后他会重掷；在那之前是普通的一天。</RT_MoodDesc7>
+  <RT_RollSay7_1>七？这颗骰子没有七……重掷。</RT_RollSay7_1>
+  <RT_RollSay7_2>掉到桌子底下了。等我一下。</RT_RollSay7_2>
+  <RT_RollSay7_3>七。这不算。过一会儿再来一次。</RT_RollSay7_3>
+  <RT_HeavySix>最严重的威胁只在疯狂的一天（6）出现</RT_HeavySix>
+  <RT_HeavySix_Desc>使用 Mad Dice Max 时，虫巢、机械族集群和坠毁的飞船部件只会在骰子显示 6 时出现。任务不受影响。</RT_HeavySix_Desc>
+  <RT_SecEvents>Max 的事件</RT_SecEvents>
+  <RT_Events>Max 的专属事件</RT_Events>
+  <RT_Events_Desc>掷骰后，Mad Dice Max 可能会带来一个与当天相符的专属事件：赌局、限时挑战、持续几天的状况、被扭曲的游戏事件。</RT_Events_Desc>
+  <RT_EventChance>掷骰后发生事件的概率：{0} %</RT_EventChance>
+  <RT_EventChance_Desc>一天带来 Max 事件的频率。</RT_EventChance_Desc>
+  <RT_EventList>事件：已开启 {0}/{1}……</RT_EventList>
+  <RT_EventListTitle>Max 的事件</RT_EventListTitle>
+  <RT_EventListDesc>取消勾选你不想要的事件。每个事件属于骰子的一个面。悬停查看说明。</RT_EventListDesc>
+  <RT_EventTry>试一下</RT_EventTry>
+  <RT_EV_Prefix>Max：{0}</RT_EV_Prefix>
+  <RT_EV_ChallengeGoal>目标：{0}\n时间：{1} 天。</RT_EV_ChallengeGoal>
+  <RT_EV_Won>挑战成功：{0}</RT_EV_Won>
+  <RT_EV_Lost>挑战失败：{0}</RT_EV_Lost>
+  <RT_EV_Dropped>{0}：{1}</RT_EV_Dropped>
+  <RT_EV_InspiredBy>Max 的眷顾</RT_EV_InspiredBy>
+  <RT_EV_NoSilver>你没有 {0} 白银可以下注。</RT_EV_NoSilver>
+  <RT_EV_AlertLabel>Max 的挑战</RT_EV_AlertLabel>
+  <RT_EV_Festival>节日</RT_EV_Festival>
+  <RT_EV_Festival_Text>"先把工作放一放。今天我们庆祝——就因为骰子这么说。"\n\n所有人两天内都沉浸在节日气氛中。</RT_EV_Festival_Text>
+  <RT_EV_Dreams>骰子之梦</RT_EV_Dreams>
+  <RT_EV_Dreams_Text>"今晚好好睡。我来看着骰子。"\n\n两天内，睡眠让你的殖民者恢复得更好。</RT_EV_Dreams_Text>
+  <RT_EV_LostDie>丢失的骰子</RT_EV_LostDie>
+  <RT_EV_LostDie_Text>"我在这附近掉了一颗骰子。谁找到，就能留下和它在一起的东西。"\n\n一个空投舱落在你的殖民地附近。</RT_EV_LostDie_Text>
+  <RT_EV_QuietDays>安静的日子</RT_EV_QuietDays>
+  <RT_EV_QuietDays_Text>"三天没人发脾气。你们做得到吗？"</RT_EV_QuietDays_Text>
+  <RT_EV_QuietDays_Goal>三天内没有精神崩溃</RT_EV_QuietDays_Goal>
+  <RT_EV_QuietDays_Won>"我本来不信。干得好。"\n\n所有人都为团队骄傲，两名殖民者获得灵感。</RT_EV_QuietDays_Won>
+  <RT_EV_QuietDays_Lost>"有人崩溃了。不出所料。"</RT_EV_QuietDays_Lost>
+  <RT_EV_Lesson>Max 的一课</RT_EV_Lesson>
+  <RT_EV_Lesson_Text>"让我教你们一两招。"\n\n三名殖民者提升了他们最好的技能。</RT_EV_Lesson_Text>
+  <RT_EV_Crafter>工匠</RT_EV_Crafter>
+  <RT_EV_Crafter_Text>"让我看看你们的手除了拿骰子还能干什么。"</RT_EV_Crafter_Text>
+  <RT_EV_Crafter_Goal>制作 {0} 件物品</RT_EV_Crafter_Goal>
+  <RT_EV_Crafter_Won>"干得漂亮。这些拿去做下一批。"\n\n零部件和玻璃钢正在路上。</RT_EV_Crafter_Won>
+  <RT_EV_Crafter_Lost>"懒惰的手。可惜。"</RT_EV_Crafter_Lost>
+  <RT_EV_Hunter>猎人</RT_EV_Hunter>
+  <RT_EV_Hunter_Text>"我想听一个精彩的狩猎故事。"</RT_EV_Hunter_Text>
+  <RT_EV_Hunter_Goal>猎杀 {0} 只动物</RT_EV_Hunter_Goal>
+  <RT_EV_Hunter_Won>"这才叫故事！"\n\n猎人们很自豪，一袋白银从天而降。</RT_EV_Hunter_Won>
+  <RT_EV_Hunter_Lost>"这次动物赢了。"</RT_EV_Hunter_Lost>
+  <RT_EV_Cleaning>大扫除</RT_EV_Cleaning>
+  <RT_EV_Cleaning_Text>"这里一团糟。明天之前打扫干净，我不会亏待你们。"</RT_EV_Cleaning_Text>
+  <RT_EV_Cleaning_Goal>清理 {0} 处污渍</RT_EV_Cleaning_Goal>
+  <RT_EV_Cleaning_Won>"闪闪发亮。连我都想住这儿了。"</RT_EV_Cleaning_Won>
+  <RT_EV_Cleaning_Lost>"还是脏。算了。"</RT_EV_Cleaning_Lost>
+  <RT_EV_Focus>头脑敏锐</RT_EV_Focus>
+  <RT_EV_Focus_Text>"今天学什么都记得住。趁现在多学点。"\n\n两天内，你的殖民者学习速度提高 50 %。</RT_EV_Focus_Text>
+  <RT_EV_OddEven>单还是双</RT_EV_OddEven>
+  <RT_EV_OddEven_Text>"小赌一把？双数——你赢。单数——你的白银归我。"</RT_EV_OddEven_Text>
+  <RT_EV_OddEven_O1>下注 100 白银（赢 250）</RT_EV_OddEven_O1>
+  <RT_EV_OddEven_O2>下注 300 白银（赢 750）</RT_EV_OddEven_O2>
+  <RT_EV_OddEven_O3>不了，谢谢</RT_EV_OddEven_O3>
+  <RT_EV_OddEven_Lose>骰子掷出 {0}。你的 {1} 白银没了。</RT_EV_OddEven_Lose>
+  <RT_EV_Miner>淘金者</RT_EV_Miner>
+  <RT_EV_Miner_Text>"你们脚下有宝藏。挖！"</RT_EV_Miner_Text>
+  <RT_EV_Miner_Goal>开采 {0} 格</RT_EV_Miner_Goal>
+  <RT_EV_Miner_Won>"我早说过。"\n\n黄金和白银正在路上。</RT_EV_Miner_Won>
+  <RT_EV_Miner_Lost>"宝藏还留在岩石里。"</RT_EV_Miner_Lost>
+  <RT_EV_Builder>建筑师</RT_EV_Builder>
+  <RT_EV_Builder_Text>"给我建点东西。什么都行。快。"</RT_EV_Builder_Text>
+  <RT_EV_Builder_Goal>建造 {0} 个东西</RT_EV_Builder_Goal>
+  <RT_EV_Builder_Won>"这能撑一阵子。"\n\n钢铁和零部件正在路上。</RT_EV_Builder_Won>
+  <RT_EV_Builder_Lost>"什么也没建。可惜。"</RT_EV_Builder_Lost>
+  <RT_EV_GoldFever>淘金热</RT_EV_GoldFever>
+  <RT_EV_GoldFever_Text>"每块石头都可能藏着财富……"\n\n两天内采矿产量提高 50 %，但神经很紧绷。</RT_EV_GoldFever_Text>
+  <RT_EV_Reroll>Max 替你玩</RT_EV_Reroll>
+  <RT_EV_Reroll_Text>"我不喜欢今天的数字。让我重掷。"</RT_EV_Reroll_Text>
+  <RT_EV_Roulette>轮盘赌</RT_EV_Roulette>
+  <RT_EV_Roulette_Text>"你的一个人，掷一次。正面——灵光一闪。反面——一块淤青。"</RT_EV_Roulette_Text>
+  <RT_EV_Roulette_O1>掷</RT_EV_Roulette_O1>
+  <RT_EV_Roulette_O2>今天不了</RT_EV_Roulette_O2>
+  <RT_EV_Roulette_Win>{0} 运气好——获得灵感！</RT_EV_Roulette_Win>
+  <RT_EV_Roulette_Lose>{0} 运气差——哎哟。</RT_EV_Roulette_Lose>
+  <RT_EV_Gift3>挑一份礼物</RT_EV_Gift3>
+  <RT_EV_Gift3_Text>"今天我很大方。挑一个吧。"</RT_EV_Gift3_Text>
+  <RT_EV_Gift3_O1>500 白银</RT_EV_Gift3_O1>
+  <RT_EV_Gift3_O2>10 份药品</RT_EV_Gift3_O2>
+  <RT_EV_Gift3_O3>一个惊喜</RT_EV_Gift3_O3>
+  <RT_EV_LuckyHand>幸运之手</RT_EV_LuckyHand>
+  <RT_EV_LuckyHand_Text>"骰子在对你微笑。"\n\n三天内手术更容易成功，你的话也更有说服力（招募、交易）。</RT_EV_LuckyHand_Text>
+  <RT_EV_Pilgrim>有故事的朝圣者</RT_EV_Pilgrim>
+  <RT_EV_Pilgrim_Text>"有个人想加入你们。可能还会有别人来找他。"</RT_EV_Pilgrim_Text>
+  <RT_EV_Pilgrim_O1>收留他</RT_EV_Pilgrim_O1>
+  <RT_EV_Pilgrim_O2>赶他走</RT_EV_Pilgrim_O2>
+  <RT_EV_Blessing>Max 的祝福</RT_EV_Blessing>
+  <RT_EV_Blessing_Text>"今天的活儿自己就干完了。"\n\n一天内所有人工作速度提高 25 %。</RT_EV_Blessing_Text>
+  <RT_EV_Supplies>补给</RT_EV_Supplies>
+  <RT_EV_Supplies_Text>"吃吧。你们看起来太瘦了。"\n\n一个装着食物的空投舱落在附近。</RT_EV_Supplies_Text>
+  <RT_EV_TwoSides>两面夹击</RT_EV_TwoSides>
+  <RT_EV_TwoSides_Text>"一次袭击太无聊。来两次怎么样？"\n\n两次较小的袭击同时到来。</RT_EV_TwoSides_Text>
+  <RT_EV_BadLuck>倒霉的一天</RT_EV_BadLuck>
+  <RT_EV_BadLuck_Text>"今天什么都会出错。至少你们能学到点东西。"\n\n一天内所有人移动速度降低 10 %，但学习速度翻倍。</RT_EV_BadLuck_Text>
+  <RT_EV_Fortress>堡垒</RT_EV_Fortress>
+  <RT_EV_Fortress_Text>"他们来了。守住城墙，别失去任何人。"\n\n袭击马上就到。</RT_EV_Fortress_Text>
+  <RT_EV_Fortress_Goal>两天内无人死亡</RT_EV_Fortress_Goal>
+  <RT_EV_Fortress_Won>"真正的堡垒。"\n\n一座迷你炮塔和钢铁正在路上。</RT_EV_Fortress_Won>
+  <RT_EV_Fortress_Lost>"墙守住了，人没有。"</RT_EV_Fortress_Lost>
+  <RT_EV_Tax>Max 的税</RT_EV_Tax>
+  <RT_EV_Tax_Text>"你五分之一的白银归我——否则我派人来拿。"</RT_EV_Tax_Text>
+  <RT_EV_Tax_O1>支付</RT_EV_Tax_O1>
+  <RT_EV_Tax_O2>拒绝</RT_EV_Tax_O2>
+  <RT_EV_ColdShower>冷水澡</RT_EV_ColdShower>
+  <RT_EV_ColdShower_Text>"太舒服了？换个天气吧。"\n\n两天内会非常冷（夏天则非常热）。</RT_EV_ColdShower_Text>
+  <RT_EV_AllIn>全押</RT_EV_AllIn>
+  <RT_EV_AllIn_Text>"掷一次。4 到 6——财富从天而降。1 到 3——一场强大的袭击冲你而来。"</RT_EV_AllIn_Text>
+  <RT_EV_AllIn_O1>掷</RT_EV_AllIn_O1>
+  <RT_EV_AllIn_O2>不了，谢谢</RT_EV_AllIn_O2>
+  <RT_EV_AllIn_Lose>骰子掷出 {0}。他们来了……</RT_EV_AllIn_Lose>
+  <RT_EV_MadPack>疯狂兽群</RT_EV_MadPack>
+  <RT_EV_MadPack_Text>"动物们疯了。很多很多。"</RT_EV_MadPack_Text>
+  <RT_EV_Eclipse>黑暗之骰</RT_EV_Eclipse>
+  <RT_EV_Eclipse_Text>"我们在黑暗中玩一会儿吧。"\n\n日食降临，有什么东西在低语数字。</RT_EV_Eclipse_Text>
+  <RT_EV_Revenge>Max 的复仇</RT_EV_Revenge>
+  <RT_EV_Revenge_Text>"你最近运气不错。太好了。"\n\n一场强大的袭击即将到来。</RT_EV_Revenge_Text>
+  <RT_EV_Double>双重掷骰</RT_EV_Double>
+  <RT_EV_Double_Text>"今天两颗骰子：一颗帮你，一颗害你。"</RT_EV_Double_Text>
+  <RT_EV_Difficulty>难度 {0}：奖励 ×{1}，目标 ×{2}，{3}。</RT_EV_Difficulty>
+  <RT_EV_RaidsYes>允许袭击</RT_EV_RaidsYes>
+  <RT_EV_RaidsNo>无袭击</RT_EV_RaidsNo>
+  <RT_EV_NoRaid>Max 摆摆手——在这个难度下他不派任何人。</RT_EV_NoRaid>
+  <RT_EV_Stargazing>星空之夜</RT_EV_Stargazing>
+  <RT_EV_Stargazing_Text>"今晚抬头看看。我专门为你们多点亮了几颗。"\n\n所有人都享受了星空下的夜晚。</RT_EV_Stargazing_Text>
+  <RT_EV_GreenThumb>绿手指</RT_EV_GreenThumb>
+  <RT_EV_GreenThumb_Text>"今天你们的植物很听话。"\n\n两天内播种和收获速度提高 50 %。</RT_EV_GreenThumb_Text>
+  <RT_EV_Guests>餐桌上的客人</RT_EV_Guests>
+  <RT_EV_Guests_Text>"我请了几个朋友。对他们好点。"\n\n访客正在路上。</RT_EV_Guests_Text>
+  <RT_EV_Balm>Max 的药膏</RT_EV_Balm>
+  <RT_EV_Balm_Text>"让我看看这些擦伤……好多了。"\n\n你的殖民者的伤口愈合了一些。</RT_EV_Balm_Text>
+  <RT_EV_Cook>厨师</RT_EV_Cook>
+  <RT_EV_Cook_Text>"我饿了。给我做饭——多做点。"</RT_EV_Cook_Text>
+  <RT_EV_Cook_Goal>烹饪 {0} 份餐食</RT_EV_Cook_Goal>
+  <RT_EV_Cook_Won>"美味。大家一起享用盛宴！"\n\n所有人享用了盛宴，一袋白银从天而降。</RT_EV_Cook_Won>
+  <RT_EV_Cook_Lost>"还饿着。可惜。"</RT_EV_Cook_Lost>
+  <RT_EV_Scholar>学者</RT_EV_Scholar>
+  <RT_EV_Scholar_Text>"让我看看一个脑袋能装下多少东西。"</RT_EV_Scholar_Text>
+  <RT_EV_Scholar_Goal>研究 {0} 点</RT_EV_Scholar_Goal>
+  <RT_EV_Scholar_Won>"聪明人。给你们点东西想想。"\n\n两名殖民者获得灵感，一个装满货物的空投舱正在路上。</RT_EV_Scholar_Won>
+  <RT_EV_Scholar_Lost>"书都没翻开。"</RT_EV_Scholar_Lost>
+  <RT_EV_Gardener>园丁</RT_EV_Gardener>
+  <RT_EV_Gardener_Text>"把庄稼收了——我要看到满满的篮子。"</RT_EV_Gardener_Text>
+  <RT_EV_Gardener_Goal>收获 {0} 株植物</RT_EV_Gardener_Goal>
+  <RT_EV_Gardener_Won>"篮子满满！干得好。"\n\n白银正在路上。</RT_EV_Gardener_Won>
+  <RT_EV_Gardener_Lost>"田里还是满的。"</RT_EV_Gardener_Lost>
+  <RT_EV_HighLow>大还是小</RT_EV_HighLow>
+  <RT_EV_HighLow_Text>"一颗骰子。押大——四到六——或押小——一到三。150 白银，赢了翻倍。"</RT_EV_HighLow_Text>
+  <RT_EV_HighLow_O1>押大（下注 150，赢 300）</RT_EV_HighLow_O1>
+  <RT_EV_HighLow_O2>押小（下注 150，赢 300）</RT_EV_HighLow_O2>
+  <RT_EV_HighLow_O3>不了，谢谢</RT_EV_HighLow_O3>
+  <RT_EV_HighLow_Lose>骰子掷出 {0}。你的 {1} 白银没了。</RT_EV_HighLow_Lose>
+  <RT_EV_SteadyHands>稳健之手</RT_EV_SteadyHands>
+  <RT_EV_SteadyHands_Text>"今天你们的手不会发抖。"\n\n两天内建造和搬运速度提高 30 %。</RT_EV_SteadyHands_Text>
+  <RT_EV_Market>集市日</RT_EV_Market>
+  <RT_EV_Market_Text>"我告诉商人们去哪儿找你们了。"\n\n一支商队正在路上。</RT_EV_Market_Text>
+  <RT_EV_Sower>播种者</RT_EV_Sower>
+  <RT_EV_Sower_Text>"种点东西。种很多。"</RT_EV_Sower_Text>
+  <RT_EV_Sower_Goal>播种 {0} 株植物</RT_EV_Sower_Goal>
+  <RT_EV_Sower_Won>"现在让它们长吧。"\n\n白银正在路上。</RT_EV_Sower_Won>
+  <RT_EV_Sower_Lost>"空空的田地。可惜。"</RT_EV_Sower_Lost>
+  <RT_EV_Swap>Max 的交换</RT_EV_Swap>
+  <RT_EV_Swap_Text>"给我 100 白银，我就把这个袋子里的东西给你。可能更多。也可能更少。"</RT_EV_Swap_Text>
+  <RT_EV_Swap_O1>支付 100 白银</RT_EV_Swap_O1>
+  <RT_EV_Swap_O2>不了，谢谢</RT_EV_Swap_O2>
+  <RT_EV_Tales>故事之夜</RT_EV_Tales>
+  <RT_EV_Tales_Text>"围过来。我给你们讲讲我掷骰子输掉一整颗星球的事……"\n\n所有人都很喜欢这些故事。</RT_EV_Tales_Text>
+  <RT_EV_RainDance>求雨舞</RT_EV_RainDance>
+  <RT_EV_RainDance_Text>"太干了。我来掷一把求雨。"\n\n开始下雨了。</RT_EV_RainDance_Text>
+  <RT_EV_Tamer>驯兽师</RT_EV_Tamer>
+  <RT_EV_Tamer_Text>"交个野生的朋友吧。"</RT_EV_Tamer_Text>
+  <RT_EV_Tamer_Goal>驯服 {0} 只动物</RT_EV_Tamer_Goal>
+  <RT_EV_Tamer_Won>"看看它们，已经是好朋友了。"\n\n白银正在路上。</RT_EV_Tamer_Won>
+  <RT_EV_Tamer_Lost>"动物们还是野的。"</RT_EV_Tamer_Lost>
+  <RT_EV_Windfall>意外之财</RT_EV_Windfall>
+  <RT_EV_Windfall_Text>"在我另一个口袋里找到点白银。给你了。"\n\n一个装着白银的空投舱落在你的殖民地附近。</RT_EV_Windfall_Text>
+  <RT_EV_Medkit>药包</RT_EV_Medkit>
+  <RT_EV_Medkit_Text>"以防你们摔断什么。你们会的。"\n\n一个装着药品的空投舱落在你的殖民地附近。</RT_EV_Medkit_Text>
+  <RT_EV_MysteryBox>神秘盒子</RT_EV_MysteryBox>
+  <RT_EV_MysteryBox_Text>"一个封着的盒子。里面有好东西——大概。或者我直接从你这儿买回来。"</RT_EV_MysteryBox_Text>
+  <RT_EV_MysteryBox_O1>打开</RT_EV_MysteryBox_O1>
+  <RT_EV_MysteryBox_O2>以 300 白银卖给 Max</RT_EV_MysteryBox_O2>
+  <RT_EV_MysteryBox_Lose>盒子里全是愤怒的动物！</RT_EV_MysteryBox_Lose>
+  <RT_EV_Muse>缪斯</RT_EV_Muse>
+  <RT_EV_Muse_Text>"我在几个人耳边低语了些点子。"\n\n三名殖民者获得灵感。</RT_EV_Muse_Text>
+  <RT_EV_StrayHerd>迷途的兽群</RT_EV_StrayHerd>
+  <RT_EV_StrayHerd_Text>"有些动物跟着我的骰子来了。留下它们吧。"\n\n几只温顺的动物走了进来。</RT_EV_StrayHerd_Text>
+  <RT_EV_Blight>烂运气</RT_EV_Blight>
+  <RT_EV_Blight_Text>"哎呀。我把骰子掉进你的田里了。"\n\n枯萎病袭击了你的庄稼。</RT_EV_Blight_Text>
+  <RT_EV_Sickness>发烧骰子</RT_EV_Sickness>
+  <RT_EV_Sickness_Text>"有人对着我的骰子打了个喷嚏。"\n\n疾病爆发了。</RT_EV_Sickness_Text>
+  <RT_EV_Fallout>毒雨</RT_EV_Fallout>
+  <RT_EV_Fallout_Text>"今天天空病了。待在室内。"</RT_EV_Fallout_Text>
+  <RT_EV_Toll>过路费</RT_EV_Toll>
+  <RT_EV_Toll_Text>"袭击者听说了你们。花钱打发他们——每个殖民者约 80 白银——或者战斗。如果你们战斗，我会留点东西作为补偿。"</RT_EV_Toll_Text>
+  <RT_EV_Toll_O1>支付</RT_EV_Toll_O1>
+  <RT_EV_Toll_O2>战斗</RT_EV_Toll_O2>
+  <RT_EV_Flare>刺眼的太阳</RT_EV_Flare>
+  <RT_EV_Flare_Text>"我把太阳擦亮了。你们的机器不会喜欢的。"</RT_EV_Flare_Text>
+  <RT_EV_Swarm>虫群</RT_EV_Swarm>
+  <RT_EV_Swarm_Text>"你听到地板下面在爬的声音了吗？"</RT_EV_Swarm_Text>
+  <RT_EV_Drone>嗡鸣</RT_EV_Drone>
+  <RT_EV_Drone_Text>"黑暗中有东西在嗡嗡作响。Max 没有笑。"</RT_EV_Drone_Text>
+  <RT_EV_Jackpot>头奖</RT_EV_Jackpot>
+  <RT_EV_Jackpot_Text>"两颗骰子。掷出对子你就大赢。其他点数我就派人来收账。"</RT_EV_Jackpot_Text>
+  <RT_EV_Jackpot_O1>掷</RT_EV_Jackpot_O1>
+  <RT_EV_Jackpot_O2>不</RT_EV_Jackpot_O2>
+  <RT_EV_Jackpot_Lose>骰子掷出 {0} 和 {1}。有人来收账了！</RT_EV_Jackpot_Lose>
+  <RT_EV_LongNight>漫漫长夜</RT_EV_LongNight>
+  <RT_EV_LongNight_Text>"我用手遮住了太阳。遮几天。"</RT_EV_LongNight_Text>
+  <RT_EV_IronDice>钢铁骰子</RT_EV_IronDice>
+  <RT_EV_IronDice_Text>"金属骰子从天而降。它们一直滚个不停。"</RT_EV_IronDice_Text>
+  <RT_EV_ClearSky>晴空</RT_EV_ClearSky>
+  <RT_EV_ClearSky_Text>"云？今天不行。我把它们吹走了。"\n\n天空放晴了。</RT_EV_ClearSky_Text>
+  <RT_EV_Aurora>北极光</RT_EV_Aurora>
+  <RT_EV_Aurora_Text>"我在上面挂了些灯。去看看吧。"</RT_EV_Aurora_Text>
+  <RT_EV_MorningFog>晨雾</RT_EV_MorningFog>
+  <RT_EV_MorningFog_Text>"嘘。让世界再多睡一会儿。"\n\n一层轻柔的雾笼罩了殖民地。</RT_EV_MorningFog_Text>
+  <RT_EV_Snowfall>初雪</RT_EV_Snowfall>
+  <RT_EV_Snowfall_Text>"下雪了。慢慢的，静静的。好好享受吧。"</RT_EV_Snowfall_Text>
+  <RT_EV_SkyBet>晴还是雨</RT_EV_SkyBet>
+  <RT_EV_SkyBet_Text>"赌天气。120 白银——猜对了我付双倍。不管怎样，天气都会来。"</RT_EV_SkyBet_Text>
+  <RT_EV_Rainbow>彩虹</RT_EV_Rainbow>
+  <RT_EV_Rainbow_Text>"我还剩了点颜料。"\n\n所有人都在欣赏彩虹。</RT_EV_Rainbow_Text>
+  <RT_EV_Thunder>雷声</RT_EV_Thunder>
+  <RT_EV_Thunder_Text>"听到了吗？我在上面掷骰子。"\n\n雷暴来了。</RT_EV_Thunder_Text>
+  <RT_EV_OddWeather>怪天气</RT_EV_OddWeather>
+  <RT_EV_OddWeather_Text>"我把饮料洒在恒温器上了。抱歉。"</RT_EV_OddWeather_Text>
+  <RT_EV_StrangeSky>奇异的天空</RT_EV_StrangeSky>
+  <RT_EV_StrangeSky_Text>"今天来点不一样的。看看天空。"</RT_EV_StrangeSky_Text>
+  <RT_EV_Lights>灵感之光</RT_EV_Lights>
+  <RT_EV_Lights_Text>"抬头看。感觉到什么了吗？很好——好好利用。"\n\n光芒在天空中舞动，两名殖民者获得灵感。</RT_EV_Lights_Text>
+  <RT_EV_SkyScrap>天降废料</RT_EV_SkyScrap>
+  <RT_EV_SkyScrap_Text>"上面有艘船掉了点东西。谁捡到归谁。"\n\n一个装着钢铁和零部件的空投舱落在你的殖民地附近。</RT_EV_SkyScrap_Text>
+  <RT_EV_GoodHarvestRain>暖雨</RT_EV_GoodHarvestRain>
+  <RT_EV_GoodHarvestRain_Text>"你们的田看起来很渴。"\n\n一场暖雨落下，正在生长的作物长快了一点。</RT_EV_GoodHarvestRain_Text>
+  <RT_EV_Flashstorm>闪电</RT_EV_Flashstorm>
+  <RT_EV_Flashstorm_Text>"看看谁站在露天。"</RT_EV_Flashstorm_Text>
+  <RT_EV_MadAnimal>坏脾气</RT_EV_MadAnimal>
+  <RT_EV_MadAnimal_Text>"那只动物瞪了我一眼。现在它冲你发火了。"</RT_EV_MadAnimal_Text>
+  <RT_EV_Blizzard>暴风雪</RT_EV_Blizzard>
+  <RT_EV_Blizzard_Text>"冷？我让它更冷。"\n\n暴风雪和寒潮袭击了殖民地。</RT_EV_Blizzard_Text>
+  <RT_EV_BlackSun>日食</RT_EV_BlackSun>
+  <RT_EV_BlackSun_Text>"我把手挡在太阳前面。就一会儿。"</RT_EV_BlackSun_Text>
+  <RT_EV_Hail>冰雹</RT_EV_Hail>
+  <RT_EV_Hail_Text>"冰骰子。正往下砸。待在室内。"</RT_EV_Hail_Text>
+  <RT_EV_Stampede>兽群狂奔</RT_EV_Stampede>
+  <RT_EV_Stampede_Text>"我掷出了一群动物。愤怒的那种。"</RT_EV_Stampede_Text>
+  <RT_EV_StormRaid>风暴袭击者</RT_EV_StormRaid>
+  <RT_EV_StormRaid_Text>"他们喜欢坏天气。我也是。"\n\n风暴来临——袭击者也随之而来。</RT_EV_StormRaid_Text>
+  <RT_EV_DoubleOrNothing>加倍或清零</RT_EV_DoubleOrNothing>
+  <RT_EV_DoubleOrNothing_Text>"你一半的白银——最多一千——押在一次掷骰上。双数：翻倍。单数：没了。"</RT_EV_DoubleOrNothing_Text>
+  <RT_EV_SkyBet_O1>晴（下注 120，赢 240）</RT_EV_SkyBet_O1>
+  <RT_EV_SkyBet_O2>雨（下注 120，赢 240）</RT_EV_SkyBet_O2>
+  <RT_EV_SkyBet_O3>不了，谢谢</RT_EV_SkyBet_O3>
+  <RT_EV_SkyBet_Lose>猜错了。你的 {0} 白银没了。</RT_EV_SkyBet_Lose>
+  <RT_EV_DoubleOrNothing_O1>掷</RT_EV_DoubleOrNothing_O1>
+  <RT_EV_DoubleOrNothing_O2>不</RT_EV_DoubleOrNothing_O2>
+  <RT_EV_DoubleOrNothing_Lose>单数。你的 {0} 白银没了。</RT_EV_DoubleOrNothing_Lose>
+  <RT_EV_CardNight>牌局之夜</RT_EV_CardNight>
+  <RT_EV_CardNight_Text>"今晚没人干活。今晚我们打牌——我来发牌。"\n\n所有人都玩得很开心，心情更好了。</RT_EV_CardNight_Text>
+  <RT_EV_LuckyCharm>幸运符</RT_EV_LuckyCharm>
+  <RT_EV_LuckyCharm_Text>"拿着这个。别问是什么。"\n\n一名殖民者获得 Max 的幸运符三天：工作更快，神经更稳。</RT_EV_LuckyCharm_Text>
+  <RT_EV_LuckyCharm_Who>{0} 带着 Max 的幸运符。</RT_EV_LuckyCharm_Who>
+  <RT_EV_Siesta>午睡</RT_EV_Siesta>
+  <RT_EV_Siesta_Text>"你们看起来都累了。闭上眼睛，我来守着。"\n\n所有人都休息得很好。</RT_EV_Siesta_Text>
+  <RT_EV_Lottery>Max 的彩票</RT_EV_Lottery>
+  <RT_EV_Lottery_Text>"彩票！每张五十白银！每张都有六分之一的机会赢四百！"</RT_EV_Lottery_Text>
+  <RT_EV_Lottery_O1>买一张（50 白银）</RT_EV_Lottery_O1>
+  <RT_EV_Lottery_O2>买三张（150 白银）</RT_EV_Lottery_O2>
+  <RT_EV_Lottery_O3>不了，谢谢</RT_EV_Lottery_O3>
+  <RT_EV_Lottery_Lose>没有中奖。你的 {0} 白银没了。</RT_EV_Lottery_Lose>
+  <RT_EV_CardDuel>牌局对决</RT_EV_CardDuel>
+  <RT_EV_CardDuel_Text>"你们俩。打牌。现在。输的人洗碗。"\n\n两名殖民者打了很久的牌——两人都更懂人心了。</RT_EV_CardDuel_Text>
+  <RT_EV_CardDuel_Who>{0} 打牌赢了 {1}。</RT_EV_CardDuel_Who>
+  <RT_EV_Hauler>搬运工</RT_EV_Hauler>
+  <RT_EV_Hauler_Text>"到处都是东西！把它们都放回原处。"</RT_EV_Hauler_Text>
+  <RT_EV_Hauler_Goal>搬运 {0} 件物品</RT_EV_Hauler_Goal>
+  <RT_EV_Hauler_Won>"整整齐齐。我喜欢整齐。"\n\n一袋白银从天而降。</RT_EV_Hauler_Won>
+  <RT_EV_Hauler_Lost>"还是一团乱。可惜。"</RT_EV_Hauler_Lost>
+  <RT_EV_Debt>赌债</RT_EV_Debt>
+  <RT_EV_Debt_Text>"你们殖民地有人在我的牌桌上输了——赢家想要他们的钱。付钱，不然他们会来拿。"</RT_EV_Debt_Text>
+  <RT_EV_Debt_O1>还债</RT_EV_Debt_O1>
+  <RT_EV_Debt_O2>拒绝</RT_EV_Debt_O2>
+  <RT_EV_Debt_Lucky>讨债人在路上迷路了。算你走运。</RT_EV_Debt_Lucky>
+  <RT_EV_CursedDie>被诅咒的骰子</RT_EV_CursedDie>
+  <RT_EV_CursedDie_Text>"我找到一颗总能掷出好点数的骰子。嗯——对拿着它的人来说。其他人会倒霉。要吗？"</RT_EV_CursedDie_Text>
+  <RT_EV_CursedDie_O1>收下（有奖励，但有人会倒霉）</RT_EV_CursedDie_O1>
+  <RT_EV_CursedDie_O2>扔掉</RT_EV_CursedDie_O2>
+  <RT_EV_CursedDie_Who>诅咒找上了 {0}。</RT_EV_CursedDie_Who>
+  <RT_EV_TableRound>人人都掷</RT_EV_TableRound>
+  <RT_EV_TableRound_Text>"你们每人掷一颗骰子。六点——你会获得灵感。一点——你会绊倒受伤。玩吗？"</RT_EV_TableRound_Text>
+  <RT_EV_TableRound_O1>所有人都掷</RT_EV_TableRound_O1>
+  <RT_EV_TableRound_O2>今天不了</RT_EV_TableRound_O2>
+  <RT_EV_TableRound_Result>六点：{0} 人获得灵感。一点：{1} 人受伤。</RT_EV_TableRound_Result>
+  <RT_EV_Pickpocket>扒手</RT_EV_Pickpocket>
+  <RT_EV_Pickpocket_Text>"你最近数过你的白银吗？没有？那就好。"</RT_EV_Pickpocket_Text>
+  <RT_EV_Pickpocket_Lose>你的仓库里少了 {0} 白银。</RT_EV_Pickpocket_Lose>
+  <RT_EV_DoubleCaravan>双商队</RT_EV_DoubleCaravan>
+  <RT_EV_DoubleCaravan_Text>"我告诉商人们你很有钱。两支商队正在路上——第二支稍晚一些。"</RT_EV_DoubleCaravan_Text>
+  <RT_EV_PrizeAnimal>赢来的动物</RT_EV_PrizeAnimal>
+  <RT_EV_PrizeAnimal_Text>"我打牌赢来的。我不想要。你拿去吧。"\n\n一只驯服的动物乘空投舱抵达。</RT_EV_PrizeAnimal_Text>
+  <RT_EV_PrizeAnimal_Who>新动物：{0}。</RT_EV_PrizeAnimal_Who>
+  <RT_EV_OnTheHouse>店家请客</RT_EV_OnTheHouse>
+  <RT_EV_OnTheHouse_Text>"这一轮我请！"\n\n精致的饭菜和啤酒从天而降。</RT_EV_OnTheHouse_Text>
+  <RT_EV_GoodWord>美言几句</RT_EV_GoodWord>
+  <RT_EV_GoodWord_Text>"我和你的一个邻居打了牌，说了你很多好话。"\n\n与一个友好派系的关系改善了。</RT_EV_GoodWord_Text>
+  <RT_EV_SoreLoser>输不起的人</RT_EV_SoreLoser>
+  <RT_EV_SoreLoser_Text>"昨晚有人在我的牌桌上输光了一切。他接受不了。"\n\n一名殖民者心情不好地四处游荡。</RT_EV_SoreLoser_Text>
+  <RT_EV_LoadedDice>灌铅骰子</RT_EV_LoadedDice>
+  <RT_EV_LoadedDice_Text>"今天的骰子灌了铅。对你不利。"\n\n两天内所有工作速度降低 15 %。</RT_EV_LoadedDice_Text>
+  <RT_EV_Zzzt>火花</RT_EV_Zzzt>
+  <RT_EV_Zzzt_Text>"我把饮料洒在你的电线上了。哎呀。"</RT_EV_Zzzt_Text>
+  <RT_EV_Wheel>幸运转盘</RT_EV_Wheel>
+  <RT_EV_Wheel_Text>"转动转盘！六个格子：大礼物、全员灵感、全员治疗、什么都没有、野兽或袭击。"</RT_EV_Wheel_Text>
+  <RT_EV_Wheel_O1>转</RT_EV_Wheel_O1>
+  <RT_EV_Wheel_O2>走开</RT_EV_Wheel_O2>
+  <RT_EV_Wheel_F1>转盘停下：大礼物！</RT_EV_Wheel_F1>
+  <RT_EV_Wheel_F2>转盘停下：全员灵感！</RT_EV_Wheel_F2>
+  <RT_EV_Wheel_F3>转盘停下：全员治疗！</RT_EV_Wheel_F3>
+  <RT_EV_Wheel_F4>转盘停下：什么都没有。Max 笑了。</RT_EV_Wheel_F4>
+  <RT_EV_Wheel_F5>转盘停下：野兽！</RT_EV_Wheel_F5>
+  <RT_EV_Wheel_F6>转盘停下：袭击！</RT_EV_Wheel_F6>
+  <RT_EV_ChaosRound>混沌回合</RT_EV_ChaosRound>
+  <RT_EV_ChaosRound_Text>"一次三颗骰子！看看会掷出什么。"\n\nMax 的三个事件立刻发生。</RT_EV_ChaosRound_Text>
+  <RT_EV_StoneDice>石头骰子</RT_EV_StoneDice>
+  <RT_EV_StoneDice_Text>"今天我扔大的。小心脑袋。"\n\n两颗陨石落在殖民地附近。</RT_EV_StoneDice_Text>
+</LanguageData>
