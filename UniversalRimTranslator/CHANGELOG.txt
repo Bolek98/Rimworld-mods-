@@ -1,4 +1,32 @@
 === Not on the Workshop yet (test versions) ===
+1.1.0
+NEW
+- Translates more: when a translation service gives a text back still in English, the next service gets a chance (before, the first answer was final and many names stayed English). Texts already in memory that stayed English are sent once more.
+- Faster: up to three services translate at the same time.
+- Names the game glues together from translated parts ("carpet (blue) (blueprint)") are finished from memory at once.
+
+FIXES
+- Chinese, Japanese and Korean: translations are no longer rejected as "too short" – most Chinese translations failed this check. Translations rejected this way are accepted automatically on the next start.
+- A translation that keeps an English name (Chinese, Japanese, Korean, Arabic, Thai, Russian …) is no longer rejected as "wrong script" or "untranslated".
+- Bills, blueprints, corpses and meat of mod items are no longer half English ("Make plasteel sword" in your language now).
+- Settlements called "ERR 5" get a real name: name lists are taken from any language the mod has.
+- More Faction Interaction: no stray English "items" after a category.
+
+---
+
+NOVÉ
+- Překládá víc: když služba vrátí text pořád anglicky, dostane šanci další služba (dřív byla první odpověď konečná a spousta názvů zůstala anglicky). Texty v paměti, které zůstaly anglicky, se jednou pošlou znovu.
+- Rychlejší: až tři služby překládají najednou.
+- Názvy, které hra slepí z přeložených částí („koberec (modrá) (plán)“), se doplní hned z paměti.
+
+OPRAVY
+- Čínština, japonština a korejština: překlady už nejsou odmítány jako „moc krátké“ – většina čínských překladů touto kontrolou neprošla. Takto odmítnuté překlady se při dalším spuštění samy přijmou.
+- Překlad, který ponechá anglický název (čínština, japonština, korejština, arabština, thajština, ruština…), už není odmítnut jako „špatné písmo“ nebo „nepřeloženo“.
+- Zakázky, plány, mrtvoly a maso z modových věcí už nejsou napůl anglicky.
+- Osady pojmenované „ERR 5“ dostanou skutečné jméno: seznamy jmen se vezmou z jakéhokoli jazyka, který mod má.
+- More Faction Interaction: za kategorií už nevisí anglické „items“.
+
+=== Development history since the last Workshop release (test versions) ===
 1.1.1
 - Chinese, Japanese and Korean translations are no longer rejected as "too short" (one character counts as three letters now) – most Chinese translations failed this check. A translation that keeps an English name (Chinese, Japanese, Korean, Arabic, Thai, Russian…) is no longer rejected as "wrong script" or "untranslated". Translations already rejected this way are accepted on the next start.
 - Čínské, japonské a korejské překlady už nejsou odmítány jako „moc krátké“ (jeden znak se počítá jako tři písmena) – většina čínských překladů touto kontrolou neprošla. Překlad, který ponechá anglický název (čínština, japonština, korejština, arabština, thajština, ruština…), už není odmítnut jako „špatné písmo“ nebo „nepřeloženo“. Takto odmítnuté překlady se přijmou při dalším spuštění.
