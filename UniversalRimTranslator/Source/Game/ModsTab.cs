@@ -149,7 +149,9 @@ namespace UniversalRimTranslator
                 float exW = 120f, barW = Mathf.Min(260f, row.width * 0.3f);
                 Rect name = new Rect(row.x + 36f, row.y + 6f, row.width - 36f - barW - exW - 24f, 24f);
                 GUI.color = on ? Color.white : MUI.Muted;
-                Widgets.Label(name, s.Mod.Truncate(name.width));
+                string shown = s.Mod == "?" ? (string)"URT_ModGenerated".Translate() : s.Mod;
+                Widgets.Label(name, shown.Truncate(name.width));
+                if (s.Mod == "?") TooltipHandler.TipRegion(name, "URT_ModGeneratedTip".Translate());
                 GUI.color = Color.white;
 
                 Rect bar = new Rect(name.xMax + 8f, row.y + 7f, barW, 18f);

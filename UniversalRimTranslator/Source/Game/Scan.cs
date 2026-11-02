@@ -13,6 +13,40 @@ namespace UniversalRimTranslator
     // One piece of text of the game or a mod that the active language does not translate yet.
     public sealed class Item
     {
+        // 1.1.1: defs the game makes while loading (blueprints, frames, corpses, meat …) have no mod of their own –
+        // they are counted to the mod of the thing they come from; anything else made in code is "?"
+        // (shown as "Made while loading" in the Mods tab)
+        private static volatile Dictionary<ThingDef, string> raceParts;
+
+        internal static string ModOf(Def def)
+        {
+            if (def == null) return "?";
+            if (def.modContentPack != null) return def.modContentPack.Name;
+            try
+            {
+                if (def is ThingDef td)
+                {
+                    if (td.entityDefToBuild?.modContentPack != null) return td.entityDefToBuild.modContentPack.Name;
+                    if (td.ingestible?.sourceDef?.modContentPack != null) return td.ingestible.sourceDef.modContentPack.Name;
+                    var map = raceParts;
+                    if (map == null)
+                    {
+                        map = new Dictionary<ThingDef, string>();
+                        foreach (ThingDef r in DefDatabase<ThingDef>.AllDefsListForReading)
+                        {
+                            if (r.race == null || r.modContentPack == null) continue;
+                            foreach (ThingDef p in new[] { r.race.corpseDef, r.race.meatDef, r.race.leatherDef })
+                                if (p != null && !map.ContainsKey(p)) map[p] = r.modContentPack.Name;
+                        }
+                        raceParts = map;
+                    }
+                    if (map.TryGetValue(td, out string m)) return m;
+                }
+            }
+            catch { }
+            return "?";
+        }
+
         public ItemKind Kind;
         public Type DefType;
         public string Path;            // def injection path (suggested), or the Keyed key
@@ -85,7 +119,7 @@ namespace UniversalRimTranslator
                                 skippedInjected++;
                                 return;
                             }
-                            string mod = def?.modContentPack?.Name ?? "?";
+                            string mod = Item.ModOf(def);
                             if (!isCollection)
                             {
                                 // 2.5.1: a field we already translated this session – take its original
