@@ -37,7 +37,7 @@ public sealed class OrdersSettings : ModSettings
 
 public sealed class OrdersMod : Mod
 {
-	public const string Version = "0.3.0";
+	public const string Version = "0.3.1";
 	public static OrdersSettings S;
 
 	public OrdersMod(ModContentPack content) : base(content)
@@ -134,8 +134,29 @@ public class FloatMenuOptionProvider_StewardOrders : FloatMenuOptionProvider
 			FloatMenuOption gear = GearOrder(pawn, t);
 			if (gear != null) return gear;
 		}
+		JobFailReason.Clear();
 		FloatMenuOption w = WorkHere(pawn, t);
 		if (w != null) return w;
+		// 0.3.1: a work bench or work spot (of any mod) with nothing to do right now – say why and open its
+		// bills, instead of doing nothing
+		if (t is IBillGiver && t is Building && OrdersMod.S.work)
+		{
+			string why = JobFailReason.HaveReason ? JobFailReason.Reason : (((IBillGiver)t).BillStack.Count == 0 ? (string)"SO_NoBills".Translate() : (string)"SO_NothingToDo".Translate());
+			Thing bench = t;
+			return new FloatMenuOption("SO_WorkHere".Translate(t.LabelShort), () =>
+			{
+				Messages.Message("SO_CannotWork".Translate(pawn.LabelShort, bench.LabelShort, why.CapitalizeFirst()), bench, MessageTypeDefOf.RejectInput, false);
+				try
+				{
+					Find.Selector.ClearSelection();
+					Find.Selector.Select(bench);
+					var tab = bench.GetInspectTabs()?.OfType<ITab_Bills>().FirstOrDefault();
+					if (tab != null) Find.MainTabsRoot.EscapeCurrentTab(false);
+					if (tab != null) InspectPaneUtility.OpenTab(typeof(ITab_Bills));
+				}
+				catch { }
+			});
+		}
 		if (OrdersMod.S.relax && t is Building)
 		{
 			var tmp = new List<FloatMenuOption>();
