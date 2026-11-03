@@ -175,6 +175,12 @@
   <CF2_OneTopTip>Každý kolonista má na jedničce jen tu nejdůležitější práci, ostatní hlavní práce dostanou 2.</CF2_OneTopTip>
   <CF2_Backup>Záložní práce na nejnižší prioritě</CF2_Backup>
   <CF2_BackupTip>Kdo práci nemá jako hlavní, má ji aspoň na nejnižší prioritě, aby nikdo nestál.</CF2_BackupTip>
+  <CF2_BackupMinSkill>Odborná práce jako záloha až od dovednosti {0} (0 = všichni)</CF2_BackupMinSkill>
+  <CF2_BackupMinSkillTip>Doktořinu, výzkum, výrobu, umění, vaření a další odborné práce mají jako zálohu jen kolonisté s aspoň touto dovedností. Jednoduché práce jako nošení a úklid zůstávají všem. Když ji nikdo nemá, práci dostane aspoň ten nejlepší.</CF2_BackupMinSkillTip>
+  <CF2_SurgeryMin>Operace jen lékaři od Medicíny {0} (0 = vypnuto)</CF2_SurgeryMin>
+  <CF2_SurgeryMinTip>Když je na mapě lékař s aspoň touto Medicínou a má doktořinu zapnutou, slabší lékaři jen ošetřují a operace nechají jemu. Když takový lékař není, operovat může kdokoli. Tvoje přímé rozkazy platí vždy.</CF2_SurgeryMinTip>
+  <CF2_TipBackupLowSkill>Není záloha: dovednost {0} je pod {1}.</CF2_TipBackupLowSkill>
+  <CF2_SurgeryLeft>Operace přenechána lepšímu lékaři</CF2_SurgeryLeft>
   <CF2_Opposed>Dávat i práci, kterou ideologie odmítá</CF2_Opposed>
   <CF2_OpposedTip>Vypnuto: práce, kterou ideologie kolonisty považuje za nebezpečnou, mu Steward nedá.</CF2_OpposedTip>
   <CF2_Injured>Zranění a nemocní dostanou lehčí práci</CF2_Injured>

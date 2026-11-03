@@ -175,6 +175,12 @@
   <CF2_OneTopTip>Cada colono tem só o seu trabalho mais importante em 1, os outros trabalhos principais em 2.</CF2_OneTopTip>
   <CF2_Backup>Trabalho reserva na prioridade mais baixa</CF2_Backup>
   <CF2_BackupTip>Quem não tem um trabalho como principal o mantém no nível mais baixo, para ninguém ficar parado.</CF2_BackupTip>
+  <CF2_BackupMinSkill>Trabalho especializado como reserva só a partir da habilidade {0} (0 = todos)</CF2_BackupMinSkill>
+  <CF2_BackupMinSkillTip>Medicina, pesquisa, artesanato, arte, culinária e outros trabalhos especializados ficam como reserva só com colonos que têm pelo menos esta habilidade. Trabalho simples como carregar e limpar continua com todos. Se ninguém alcança, o melhor colono recebe o trabalho mesmo assim.</CF2_BackupMinSkillTip>
+  <CF2_SurgeryMin>Cirurgia só por médicos a partir de Medicina {0} (0 = desligado)</CF2_SurgeryMin>
+  <CF2_SurgeryMinTip>Quando há no mapa um médico com pelo menos esta Medicina e designado para medicina, médicos mais fracos só tratam e deixam as cirurgias para ele. Se não houver, qualquer um pode operar. Suas ordens diretas sempre funcionam.</CF2_SurgeryMinTip>
+  <CF2_TipBackupLowSkill>Não é reserva: habilidade {0} abaixo de {1}.</CF2_TipBackupLowSkill>
+  <CF2_SurgeryLeft>Cirurgia deixada para um médico melhor</CF2_SurgeryLeft>
   <CF2_Opposed>Dar também trabalhos que a ideologia rejeita</CF2_Opposed>
   <CF2_OpposedTip>Desligado: trabalho que a ideologia do colono considera perigoso nunca é dado a ele.</CF2_OpposedTip>
   <CF2_Injured>Colonos feridos e doentes recebem trabalho mais leve</CF2_Injured>

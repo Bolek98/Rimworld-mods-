@@ -30,6 +30,32 @@ public static class Planner
 		StewardApi.Register(new NobodyIdleStep());
 	}
 
+	// 1.1.0: average level of the work's own skills (what Fitness uses too)
+	public static int SkillLevel(Pawn p, WorkTypeDef w)
+	{
+		if (p?.skills == null || w?.relevantSkills == null || w.relevantSkills.Count == 0)
+			return 20;
+		float sum = 0f;
+		int n = 0;
+		foreach (SkillDef sd in w.relevantSkills)
+		{
+			SkillRecord r = p.skills.GetSkill(sd);
+			if (r == null || r.TotallyDisabled)
+				continue;
+			sum += r.Level;
+			n++;
+		}
+		return n == 0 ? 0 : Mathf.FloorToInt(sum / n);
+	}
+
+	// 1.1.0: may this pawn keep a skilled work as backup? (general work: always)
+	public static bool BackupSkillOk(Pawn p, WorkTypeDef w, ForemanSettings s)
+	{
+		if (s == null || s.backupMinSkill <= 0 || WorkCatalog.Kind(w) != WorkKind.Skilled)
+			return true;
+		return SkillLevel(p, w) >= s.backupMinSkill;
+	}
+
 	public static bool IsStyleWork(ForemanStyle style, WorkTypeDef w) => Styles.Delta(style, w) > 0f;
 
 	// work a colony always needs somebody for, whatever the style (patients, prisoners, babies …)
@@ -315,6 +341,8 @@ public static class Planner
 						ctx.Set(p, w, Math.Min(3, L), "CF2_TipOnCall");
 					else if (othersOff && d <= 0f && kind == WorkKind.Skilled && !Planner.AlwaysSomeone(w))
 						ctx.Set(p, w, 0, "CF2_TipStyleOff", Styles.Label(ctx.style));
+					else if (kind == WorkKind.Skilled && s.backupWorkers && !Planner.BackupSkillOk(p, w, s))
+						ctx.Set(p, w, 0, "CF2_TipBackupLowSkill", Planner.SkillLevel(p, w), s.backupMinSkill);
 					else if (kind == WorkKind.General || s.backupWorkers)
 						ctx.Set(p, w, L, "CF2_TipBackup");
 					else
@@ -375,7 +403,7 @@ public static class Planner
 						Pawn p = on[i];
 						if (ctx.Pinned(p, w) || ctx.Locked(p, w))
 							continue;
-						if (ctx.Set(p, w, s.backupWorkers ? ctx.Levels : 0, "CF2_TipYourMax", max))
+						if (ctx.Set(p, w, s.backupWorkers && Planner.BackupSkillOk(p, w, s) ? ctx.Levels : 0, "CF2_TipYourMax", max))
 							on.RemoveAt(i);
 					}
 				}
@@ -454,7 +482,7 @@ public static class Planner
 				if (ctx.noRaise.Contains(p))
 					continue;
 				foreach (WorkTypeDef pick in jobs.Keys
-					.Where(w => WorkCatalog.Kind(w) != WorkKind.Emergency && ctx.CanDo(p, w) && !ctx.Locked(p, w) && (ctx.demand?.Jobs(w) ?? 0) > 0)
+					.Where(w => WorkCatalog.Kind(w) != WorkKind.Emergency && ctx.CanDo(p, w) && !ctx.Locked(p, w) && (ctx.demand?.Jobs(w) ?? 0) > 0 && Planner.BackupSkillOk(p, w, ctx.settings))
 					.OrderByDescending(w => ctx.Fit(p, w)).ToList())
 					if (ctx.Set(p, pick, 2, "CF2_TipNobodyIdle"))
 						break;

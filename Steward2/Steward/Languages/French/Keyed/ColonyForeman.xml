@@ -175,6 +175,12 @@
   <CF2_OneTopTip>Chaque colon n'a que son travail le plus important en 1, ses autres travaux principaux en 2.</CF2_OneTopTip>
   <CF2_Backup>Travail de secours à la priorité la plus basse</CF2_Backup>
   <CF2_BackupTip>Celui qui n'a pas un travail comme travail principal le garde au niveau le plus bas, pour que personne ne reste inactif.</CF2_BackupTip>
+  <CF2_BackupMinSkill>Travail qualifié en renfort seulement dès la compétence {0} (0 = tout le monde)</CF2_BackupMinSkill>
+  <CF2_BackupMinSkillTip>Médecine, recherche, artisanat, art, cuisine et autres travaux qualifiés ne restent en renfort qu'aux colons ayant au moins cette compétence. Les tâches simples comme le transport et le ménage restent à tout le monde. Si personne ne l'atteint, le meilleur colon garde quand même le travail.</CF2_BackupMinSkillTip>
+  <CF2_SurgeryMin>Chirurgie seulement par les médecins dès Médecine {0} (0 = désactivé)</CF2_SurgeryMin>
+  <CF2_SurgeryMinTip>Quand un médecin avec au moins cette Médecine est sur la carte et affecté aux soins, les médecins plus faibles ne font que soigner et lui laissent la chirurgie. S'il n'y en a pas, tout le monde peut opérer. Tes ordres directs fonctionnent toujours.</CF2_SurgeryMinTip>
+  <CF2_TipBackupLowSkill>Pas en renfort : compétence {0} inférieure à {1}.</CF2_TipBackupLowSkill>
+  <CF2_SurgeryLeft>Chirurgie laissée à un meilleur médecin</CF2_SurgeryLeft>
   <CF2_Opposed>Donner aussi le travail que l'idéologie rejette</CF2_Opposed>
   <CF2_OpposedTip>Désactivé : le travail que l'idéologie du colon juge dangereux ne lui est jamais donné.</CF2_OpposedTip>
   <CF2_Injured>Les colons blessés et malades reçoivent un travail plus léger</CF2_Injured>

@@ -175,6 +175,12 @@
   <CF2_OneTopTip>各入植者は最も重要な仕事だけを1に、その他の主な仕事を2にします。</CF2_OneTopTip>
   <CF2_Backup>予備の仕事を最低優先度に</CF2_Backup>
   <CF2_BackupTip>ある仕事を主な仕事にしていない者も、それを最低レベルで持ち続けるので、誰も手持ち無沙汰になりません。</CF2_BackupTip>
+  <CF2_BackupMinSkill>技能仕事の予備は技能 {0} 以上のみ（0 = 全員）</CF2_BackupMinSkill>
+  <CF2_BackupMinSkillTip>医療、研究、制作、芸術、料理などの技能仕事は、この技能以上の入植者にだけ予備として残ります。運搬や掃除などの簡単な仕事は全員に残ります。誰も達しない場合でも、最も優れた入植者が仕事を受け持ちます。</CF2_BackupMinSkillTip>
+  <CF2_SurgeryMin>手術は医療 {0} 以上の医師のみ（0 = オフ）</CF2_SurgeryMin>
+  <CF2_SurgeryMinTip>この医療技能以上で医療に割り当てられた医師がマップにいる場合、弱い医師は治療だけを行い手術はその医師に任せます。いなければ誰でも手術できます。強制命令は常に有効です。</CF2_SurgeryMinTip>
+  <CF2_TipBackupLowSkill>予備にしない：技能 {0} が {1} 未満です。</CF2_TipBackupLowSkill>
+  <CF2_SurgeryLeft>手術はより良い医師に任せました</CF2_SurgeryLeft>
   <CF2_Opposed>イデオロギーが拒む仕事も与える</CF2_Opposed>
   <CF2_OpposedTip>オフ：入植者のイデオロギーが危険とみなす仕事は決して与えられません。</CF2_OpposedTip>
   <CF2_Injured>負傷者と病人には軽い仕事を</CF2_Injured>

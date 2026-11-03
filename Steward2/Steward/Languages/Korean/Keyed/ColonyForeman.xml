@@ -175,6 +175,12 @@
   <CF2_OneTopTip>각 정착민은 가장 중요한 작업만 1에, 나머지 주 작업은 2에 둡니다.</CF2_OneTopTip>
   <CF2_Backup>예비 작업을 가장 낮은 우선순위로</CF2_Backup>
   <CF2_BackupTip>어떤 작업을 주 작업으로 하지 않는 사람도 가장 낮은 단계로 유지해서 아무도 놀지 않게 합니다.</CF2_BackupTip>
+  <CF2_BackupMinSkill>숙련 작업은 기술 {0} 이상만 예비로 (0 = 모두)</CF2_BackupMinSkill>
+  <CF2_BackupMinSkillTip>의료, 연구, 제작, 예술, 요리 등 숙련 작업은 이 기술 이상인 정착민에게만 예비로 남습니다. 운반과 청소 같은 단순 작업은 모두에게 남습니다. 아무도 도달하지 못하면 가장 뛰어난 정착민이 그래도 작업을 맡습니다.</CF2_BackupMinSkillTip>
+  <CF2_SurgeryMin>수술은 의학 {0} 이상의 의사만 (0 = 끔)</CF2_SurgeryMin>
+  <CF2_SurgeryMinTip>이 의학 이상이고 의료에 배정된 의사가 맵에 있으면, 약한 의사는 치료만 하고 수술은 그에게 맡깁니다. 그런 의사가 없으면 누구나 수술할 수 있습니다. 직접 명령은 항상 작동합니다.</CF2_SurgeryMinTip>
+  <CF2_TipBackupLowSkill>예비 아님: 기술 {0}이(가) {1} 미만입니다.</CF2_TipBackupLowSkill>
+  <CF2_SurgeryLeft>더 나은 의사에게 수술을 맡김</CF2_SurgeryLeft>
   <CF2_Opposed>이념이 거부하는 작업도 배정</CF2_Opposed>
   <CF2_OpposedTip>꺼짐: 정착민의 이념이 위험하다고 보는 작업은 절대 배정되지 않습니다.</CF2_OpposedTip>
   <CF2_Injured>다치거나 아픈 정착민은 가벼운 작업</CF2_Injured>
