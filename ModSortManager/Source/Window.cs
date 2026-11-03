@@ -55,6 +55,8 @@ namespace ModSortManager
         private bool dragging;
         // 0.3.1: several mods selected at once (Ctrl+click, Shift+click, Ctrl+A); 'selected' is the last one clicked
         private readonly HashSet<ModMetaData> multi = new HashSet<ModMetaData>();
+        // 0.8.1: a plain click on a mod inside a multi-selection keeps it for dragging; released without a drag it selects only that mod
+        private bool collapseOnUp;
         private float dragStartY;
 
         private string profileName = "";
@@ -1360,7 +1362,9 @@ namespace ModSortManager
                         ev.Use();
                         break;
                     }
+                    collapseOnUp = false;
                     if (!(multi.Count > 1 && multi.Contains(mod) && (canDrag || !isActive))) multi.Clear();   // 0.4.1: a selection in the inactive list can be dragged too
+                    else if (ev.clickCount == 1) collapseOnUp = true;
                     selected = mod;
                     if (ev.clickCount == 2)
                     {
@@ -1417,6 +1421,8 @@ namespace ModSortManager
                         if (multi.Count > 1 && dragFrom < list.Count && multi.Contains(list[dragFrom])) MoveGroupTo(target);   // 0.3.1
                         else Move(dragFrom, target > dragFrom ? target - 1 : target);
                     }
+                    if (!dragging && collapseOnUp) multi.Clear();
+                    collapseOnUp = false;
                     dragFrom = -1;
                     dragging = false;
                 }
@@ -1489,6 +1495,8 @@ namespace ModSortManager
                     dirty = true;
                     SoundDefOf.Click.PlayOneShotOnCamera();
                 }
+                if (!xDragging && collapseOnUp) multi.Clear();
+                collapseOnUp = false;
                 xMod = null;
                 xDragging = false;
             }
