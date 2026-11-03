@@ -163,4 +163,84 @@
   <MUI_Yes>开</MUI_Yes>
   <MUI_No>关</MUI_No>
   <MUI_RecTag>推荐</MUI_RecTag>
+
+  <!-- 1.1.0 -->
+  <QFW_MapActions>QoL 窗口中的全地图操作</QFW_MapActions>
+  <QFW_MapActions_Desc>QoL 窗口（殖民地页）中的按钮：允许地图上所有被禁止的物品，认领所有废弃建筑。</QFW_MapActions_Desc>
+  <QFW_SecCopy>复制设置</QFW_SecCopy>
+  <QFW_BillCopy>复制/粘贴清单和清单模板</QFW_BillCopy>
+  <QFW_BillCopy_Desc>工作台上的按钮：复制所有清单，粘贴到其他工作台（替换或追加），并保存为可在所有存档中使用的命名模板。</QFW_BillCopy_Desc>
+  <QFW_StoragePasteAll>存储设置应用到同类全部</QFW_StoragePasteAll>
+  <QFW_StoragePasteAll_Desc>储存区和货架上的按钮：让地图上所有储存区（或所有同类货架）使用相同的筛选和优先级。复制/粘贴到选中的游戏已自带。</QFW_StoragePasteAll_Desc>
+  <QFW_AnimalCopy>复制/粘贴动物设置</QFW_AnimalCopy>
+  <QFW_AnimalCopy_Desc>你的动物上的按钮：主人、征召/工作时跟随、允许区域、训练、食物和医疗——粘贴到所有选中的动物。</QFW_AnimalCopy_Desc>
+  <QFW_PipetteSettings>吸管复制清单和存储设置</QFW_PipetteSettings>
+  <QFW_PipetteSettings_Desc>用吸管选取工作台或货架时，新建成的会获得相同的清单和存储设置。</QFW_PipetteSettings_Desc>
+  <QFW_SecRebuild>自动重建</QFW_SecRebuild>
+  <QFW_AutoRebuild>重建被摧毁的建筑</QFW_AutoRebuild>
+  <QFW_AutoRebuild_Desc>你的建筑被摧毁（非拆除）时，会在原位放置相同建筑、材料和朝向的蓝图。游戏自带的自动重建（家园区）优先。</QFW_AutoRebuild_Desc>
+  <QFW_RbOutsideHome>家园区以外也重建</QFW_RbOutsideHome>
+  <QFW_RbOutsideHome_Desc>关闭：只重建家园区内的建筑。</QFW_RbOutsideHome_Desc>
+  <QFW_RbWaitPeace>等敌人离开后再放置</QFW_RbWaitPeace>
+  <QFW_RbWaitPeace_Desc>战斗中被摧毁的物品在战斗结束后才放置蓝图，避免建造者冲进战场。</QFW_RbWaitPeace_Desc>
+  <QFW_RbSettings>保留清单和存储设置</QFW_RbSettings>
+  <QFW_RbSettings_Desc>重建的工作台或货架会获得被摧毁者的清单和存储设置。</QFW_RbSettings_Desc>
+  <QFW_RbWalls>墙和门</QFW_RbWalls>
+  <QFW_RbWalls_Desc>重建墙和门。</QFW_RbWalls_Desc>
+  <QFW_RbFurniture>家具和娱乐</QFW_RbFurniture>
+  <QFW_RbFurniture_Desc>重建床、桌、椅、娱乐设施和其他家具。</QFW_RbFurniture_Desc>
+  <QFW_RbPower>电力和管道</QFW_RbPower>
+  <QFW_RbPower_Desc>重建电线、发电机、电池和管道（含模组）。</QFW_RbPower_Desc>
+  <QFW_RbProduction>工作台</QFW_RbProduction>
+  <QFW_RbProduction_Desc>重建工作台和其他有清单的建筑。</QFW_RbProduction_Desc>
+  <QFW_RbSecurity>防御</QFW_RbSecurity>
+  <QFW_RbSecurity_Desc>重建炮塔、陷阱和其他防御建筑。</QFW_RbSecurity_Desc>
+  <QFW_RbOther>其他全部</QFW_RbOther>
+  <QFW_RbOther_Desc>重建其他建筑（灯、冷却器、雕塑……）。</QFW_RbOther_Desc>
+  <QFW_CopyBills>复制清单</QFW_CopyBills>
+  <QFW_CopyBills_Desc>复制此工作台的所有清单。</QFW_CopyBills_Desc>
+  <QFW_BillsCopied>已从{1}复制 {0} 个清单。</QFW_BillsCopied>
+  <QFW_PasteBills>粘贴清单</QFW_PasteBills>
+  <QFW_PasteBills_Desc>将从{0}复制的清单粘贴到所有选中的工作台。无法制作的配方会被跳过。</QFW_PasteBills_Desc>
+  <QFW_BillsNothing>请先复制某个工作台的清单。</QFW_BillsNothing>
+  <QFW_BillTemplates>清单模板</QFW_BillTemplates>
+  <QFW_BillTemplates_Desc>将此工作台的清单保存为命名模板，或把已保存的模板加到选中的工作台。模板可用于所有存档。</QFW_BillTemplates_Desc>
+  <QFW_PasteAppend>追加到现有清单</QFW_PasteAppend>
+  <QFW_PasteReplace>替换现有清单</QFW_PasteReplace>
+  <QFW_BillsPasted>已添加 {0} 个清单，跳过 {1} 个（工作台无法制作）。</QFW_BillsPasted>
+  <QFW_TplSave>将这些清单保存为模板…</QFW_TplSave>
+  <QFW_TplName>模板名称</QFW_TplName>
+  <QFW_TplSaved>模板“{0}”已保存（{1} 个清单）。</QFW_TplSaved>
+  <QFW_TplApply>添加模板“{0}”（{2} 个中有 {1} 个适用）</QFW_TplApply>
+  <QFW_TplDelete>删除模板…</QFW_TplDelete>
+  <QFW_StorageAll>全部相同</QFW_StorageAll>
+  <QFW_StorageAll_Desc>让地图上所有储存区（或所有同类储存）使用这些存储设置。</QFW_StorageAll_Desc>
+  <QFW_StorageAllDone>已应用到另外 {0} 个。</QFW_StorageAllDone>
+  <QFW_CopyAnimal>复制动物设置</QFW_CopyAnimal>
+  <QFW_CopyAnimal_Desc>复制此动物的主人、跟随设置、允许区域、训练、食物和医疗。</QFW_CopyAnimal_Desc>
+  <QFW_PasteAnimal>粘贴动物设置（{0}）</QFW_PasteAnimal>
+  <QFW_PasteAnimal_Desc>将从{0}复制的设置粘贴到所有选中的动物（训练仅限该物种可学的）。</QFW_PasteAnimal_Desc>
+  <QFW_SettingsTaken>{0} 已获得旧建筑的清单和存储设置。</QFW_SettingsTaken>
+  <QFW_SecDismiss>自动关闭的信件</QFW_SecDismiss>
+  <QFW_DismissNote>此类信件会在下方时间后关闭，仍保留在历史中。需要选择的信件永远不会自动关闭。</QFW_DismissNote>
+  <QFW_DismissPositive>好消息</QFW_DismissPositive>
+  <QFW_DismissNeutral>中性（商人、访客……）</QFW_DismissNeutral>
+  <QFW_DismissNegative>坏消息和死亡</QFW_DismissNegative>
+  <QFW_DismissThreat>威胁（袭击……）</QFW_DismissThreat>
+  <QFW_DismissNever>从不</QFW_DismissNever>
+  <QFW_DismissSecs>{0} 秒后</QFW_DismissSecs>
+  <QFW_SkAll>全部</QFW_SkAll>
+  <QFW_SkItems>物品</QFW_SkItems>
+  <QFW_SkColonists>殖民者</QFW_SkColonists>
+  <QFW_SkAnimals>动物</QFW_SkAnimals>
+  <QFW_SkPlants>植物</QFW_SkPlants>
+  <QFW_SkBuildings>建筑</QFW_SkBuildings>
+  <QFW_SkForbidden>仅禁止的</QFW_SkForbidden>
+  <QFW_SkOutside>仅在储存区外</QFW_SkOutside>
+  <QFW_UnforbidAll>允许所有物品</QFW_UnforbidAll>
+  <QFW_UnforbidAll_Desc>地图上所有可见的被禁止物品重新允许（敌人附近的除外）。</QFW_UnforbidAll_Desc>
+  <QFW_UnforbidDone>已允许 {0} 个物品。</QFW_UnforbidDone>
+  <QFW_ClaimAll>认领所有废弃建筑</QFW_ClaimAll>
+  <QFW_ClaimAll_Desc>所有可见且可认领的建筑都归你（敌对派系的除外）。</QFW_ClaimAll_Desc>
+  <QFW_ClaimDone>已认领 {0} 座建筑。</QFW_ClaimDone>
 </LanguageData>

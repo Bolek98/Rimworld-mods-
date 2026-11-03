@@ -175,4 +175,84 @@
   <MUI_Yes>ligado</MUI_Yes>
   <MUI_No>desligado</MUI_No>
   <MUI_RecTag>RECOMENDADO</MUI_RecTag>
+
+  <!-- 1.1.0 -->
+  <QFW_MapActions>Ações no mapa inteiro na janela QoL</QFW_MapActions>
+  <QFW_MapActions_Desc>Botões na janela QoL (aba Colônia): permitir todos os itens proibidos do mapa, reivindicar todos os edifícios abandonados.</QFW_MapActions_Desc>
+  <QFW_SecCopy>Copiar configurações</QFW_SecCopy>
+  <QFW_BillCopy>Copiar / colar ordens e modelos de ordens</QFW_BillCopy>
+  <QFW_BillCopy_Desc>Botões nas bancadas: copiar todas as ordens, colar em outras bancadas (substituir ou adicionar) e salvar como modelo com nome para todos os jogos.</QFW_BillCopy_Desc>
+  <QFW_StoragePasteAll>Configurações de estoque para todos do mesmo tipo</QFW_StoragePasteAll>
+  <QFW_StoragePasteAll_Desc>Um botão em zonas de estoque e prateleiras: dá a todas as zonas (ou todas as prateleiras do mesmo tipo) do mapa o mesmo filtro e prioridade. Copiar / colar nos selecionados o jogo já tem.</QFW_StoragePasteAll_Desc>
+  <QFW_AnimalCopy>Copiar / colar configurações de animais</QFW_AnimalCopy>
+  <QFW_AnimalCopy_Desc>Botões nos seus animais: mestre, seguir convocado / no trabalho, área permitida, treino, comida e cuidados médicos – colar em todos os selecionados.</QFW_AnimalCopy_Desc>
+  <QFW_PipetteSettings>A pipeta copia ordens e configurações de estoque</QFW_PipetteSettings>
+  <QFW_PipetteSettings_Desc>Ao pegar uma bancada ou prateleira com a pipeta, a nova recebe as mesmas ordens e configurações quando for construída.</QFW_PipetteSettings_Desc>
+  <QFW_SecRebuild>Reconstrução automática</QFW_SecRebuild>
+  <QFW_AutoRebuild>Reconstruir edifícios destruídos</QFW_AutoRebuild>
+  <QFW_AutoRebuild_Desc>Quando um edifício seu é destruído (não desmontado), uma planta do mesmo edifício, material e rotação é colocada no lugar. A reconstrução do próprio jogo (área de casa) vem primeiro.</QFW_AutoRebuild_Desc>
+  <QFW_RbOutsideHome>Também fora da área de casa</QFW_RbOutsideHome>
+  <QFW_RbOutsideHome_Desc>Desligado: só edifícios dentro da área de casa são reconstruídos.</QFW_RbOutsideHome_Desc>
+  <QFW_RbWaitPeace>Esperar os inimigos irem embora</QFW_RbWaitPeace>
+  <QFW_RbWaitPeace_Desc>Plantas de coisas destruídas na luta são colocadas depois, para os construtores não correrem para a batalha.</QFW_RbWaitPeace_Desc>
+  <QFW_RbSettings>Manter ordens e configurações de estoque</QFW_RbSettings>
+  <QFW_RbSettings_Desc>Uma bancada ou prateleira reconstruída recebe as ordens e configurações da destruída.</QFW_RbSettings_Desc>
+  <QFW_RbWalls>Paredes e portas</QFW_RbWalls>
+  <QFW_RbWalls_Desc>Reconstruir paredes e portas.</QFW_RbWalls_Desc>
+  <QFW_RbFurniture>Móveis e lazer</QFW_RbFurniture>
+  <QFW_RbFurniture_Desc>Reconstruir camas, mesas, cadeiras, lazer e outros móveis.</QFW_RbFurniture_Desc>
+  <QFW_RbPower>Energia e canos</QFW_RbPower>
+  <QFW_RbPower_Desc>Reconstruir condutores, geradores, baterias e canos (também de mods).</QFW_RbPower_Desc>
+  <QFW_RbProduction>Bancadas</QFW_RbProduction>
+  <QFW_RbProduction_Desc>Reconstruir bancadas e outros edifícios com ordens.</QFW_RbProduction_Desc>
+  <QFW_RbSecurity>Segurança</QFW_RbSecurity>
+  <QFW_RbSecurity_Desc>Reconstruir torres, armadilhas e outras defesas.</QFW_RbSecurity_Desc>
+  <QFW_RbOther>Todo o resto</QFW_RbOther>
+  <QFW_RbOther_Desc>Reconstruir outros edifícios (luzes, resfriadores, esculturas …).</QFW_RbOther_Desc>
+  <QFW_CopyBills>Copiar ordens</QFW_CopyBills>
+  <QFW_CopyBills_Desc>Copia todas as ordens desta bancada.</QFW_CopyBills_Desc>
+  <QFW_BillsCopied>{0} ordens copiadas de {1}.</QFW_BillsCopied>
+  <QFW_PasteBills>Colar ordens</QFW_PasteBills>
+  <QFW_PasteBills_Desc>Cola as ordens copiadas de {0} em todas as bancadas selecionadas. Receitas que a bancada não faz são puladas.</QFW_PasteBills_Desc>
+  <QFW_BillsNothing>Primeiro copie as ordens de uma bancada.</QFW_BillsNothing>
+  <QFW_BillTemplates>Modelos de ordens</QFW_BillTemplates>
+  <QFW_BillTemplates_Desc>Salva as ordens desta bancada como modelo com nome, ou adiciona um modelo salvo às bancadas selecionadas. Modelos funcionam em todos os jogos.</QFW_BillTemplates_Desc>
+  <QFW_PasteAppend>Adicionar às ordens atuais</QFW_PasteAppend>
+  <QFW_PasteReplace>Substituir as ordens atuais</QFW_PasteReplace>
+  <QFW_BillsPasted>{0} ordens adicionadas, {1} puladas (a bancada não faz).</QFW_BillsPasted>
+  <QFW_TplSave>Salvar estas ordens como modelo…</QFW_TplSave>
+  <QFW_TplName>Nome do modelo</QFW_TplName>
+  <QFW_TplSaved>Modelo "{0}" salvo ({1} ordens).</QFW_TplSaved>
+  <QFW_TplApply>Adicionar modelo "{0}" ({1} de {2} ordens servem)</QFW_TplApply>
+  <QFW_TplDelete>Excluir um modelo…</QFW_TplDelete>
+  <QFW_StorageAll>Igual para todos</QFW_StorageAll>
+  <QFW_StorageAll_Desc>Dá a todas as zonas de estoque (ou a todos os estoques deste tipo) do mapa estas configurações.</QFW_StorageAll_Desc>
+  <QFW_StorageAllDone>Configurações aplicadas a mais {0}.</QFW_StorageAllDone>
+  <QFW_CopyAnimal>Copiar configurações do animal</QFW_CopyAnimal>
+  <QFW_CopyAnimal_Desc>Copia mestre, seguir, área permitida, treino, comida e cuidados médicos deste animal.</QFW_CopyAnimal_Desc>
+  <QFW_PasteAnimal>Colar configurações ({0})</QFW_PasteAnimal>
+  <QFW_PasteAnimal_Desc>Cola as configurações copiadas de {0} em todos os animais selecionados (treino só o que a espécie pode aprender).</QFW_PasteAnimal_Desc>
+  <QFW_SettingsTaken>{0} recebeu as ordens e configurações do antigo.</QFW_SettingsTaken>
+  <QFW_SecDismiss>Cartas que fecham sozinhas</QFW_SecDismiss>
+  <QFW_DismissNote>Uma carta desse tipo fecha após o tempo abaixo. Fica no histórico. Cartas com escolha nunca fecham sozinhas.</QFW_DismissNote>
+  <QFW_DismissPositive>Boas notícias</QFW_DismissPositive>
+  <QFW_DismissNeutral>Neutro (comerciantes, visitantes …)</QFW_DismissNeutral>
+  <QFW_DismissNegative>Más notícias e mortes</QFW_DismissNegative>
+  <QFW_DismissThreat>Ameaças (ataques …)</QFW_DismissThreat>
+  <QFW_DismissNever>nunca</QFW_DismissNever>
+  <QFW_DismissSecs>após {0} s</QFW_DismissSecs>
+  <QFW_SkAll>Tudo</QFW_SkAll>
+  <QFW_SkItems>Itens</QFW_SkItems>
+  <QFW_SkColonists>Colonos</QFW_SkColonists>
+  <QFW_SkAnimals>Animais</QFW_SkAnimals>
+  <QFW_SkPlants>Plantas</QFW_SkPlants>
+  <QFW_SkBuildings>Edifícios</QFW_SkBuildings>
+  <QFW_SkForbidden>Só proibidos</QFW_SkForbidden>
+  <QFW_SkOutside>Só fora do estoque</QFW_SkOutside>
+  <QFW_UnforbidAll>Permitir todos os itens</QFW_UnforbidAll>
+  <QFW_UnforbidAll_Desc>Todos os itens proibidos visíveis no mapa voltam a ser permitidos (não os perto de inimigos).</QFW_UnforbidAll_Desc>
+  <QFW_UnforbidDone>{0} itens permitidos.</QFW_UnforbidDone>
+  <QFW_ClaimAll>Reivindicar todos os edifícios abandonados</QFW_ClaimAll>
+  <QFW_ClaimAll_Desc>Todo edifício visível que você pode reivindicar passa a ser seu (não os de facções hostis).</QFW_ClaimAll_Desc>
+  <QFW_ClaimDone>{0} edifícios reivindicados.</QFW_ClaimDone>
 </LanguageData>

@@ -32,7 +32,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
 | Power & Water Works | 0.1.1 | [PowerWaterWorks](PowerWaterWorks) |
-| QoL – Faster Work, Prisoners & Pipette | 1.0.0 | [QoLFasterWork](QoLFasterWork) |
+| QoL – Faster Work, Prisoners & Pipette | 1.1.0 | [QoLFasterWork](QoLFasterWork) |
 | Randy's Table – Chaos Storytellers | 0.4.0 | [RandysTable](RandysTable) |
 | Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
 | Ride & Drive – Mounts and Vehicles Together | 0.1.1 | [RideAndDrive](RideAndDrive) |

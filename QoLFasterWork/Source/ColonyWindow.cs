@@ -19,6 +19,9 @@ namespace QoLFW
         private int lastBuild = -9999;
         private List<Hit> hits = new List<Hit>();
         private Vector2 scroll;
+        // 1.1.0: search filters
+        private static int kind;            // 0 all, 1 items, 2 colonists, 3 animals, 4 plants, 5 buildings
+        private static bool onlyForbidden, onlyOutside;
 
         private class Hit
         {
@@ -86,7 +89,35 @@ namespace QoLFW
             Widgets.Label(new Rect(r.x + 312f, r.y + 4f, r.width - 312f, 22f), "QFW_SearchHint".Translate());
             Text.Font = GameFont.Small;
             GUI.color = Color.white;
+            // 1.1.0: what to look for
+            string[] kinds = { "QFW_SkAll", "QFW_SkItems", "QFW_SkColonists", "QFW_SkAnimals", "QFW_SkPlants", "QFW_SkBuildings" };
+            float x = r.x;
+            bool changed = false;
+            for (int i = 0; i < kinds.Length; i++)
+            {
+                string lab = kinds[i].Translate();
+                float w = Mathf.Max(60f, Text.CalcSize(lab).x + 16f);
+                Rect b = new Rect(x, r.y + 30f, w, 24f);
+                MUI.Fill(b, kind == i ? MUI.OnBg : MUI.CardBg);
+                MUI.Frame(b, kind == i ? MUI.Accent : MUI.Border);
+                Text.Anchor = TextAnchor.MiddleCenter;
+                Widgets.Label(b, lab);
+                Text.Anchor = TextAnchor.UpperLeft;
+                if (Widgets.ButtonInvisible(b) && kind != i) { kind = i; changed = true; }
+                x += w + 4f;
+            }
+            bool f1 = onlyForbidden, f2 = onlyOutside;
+            float cw = (r.xMax - x - 8f) / 2f;
+            if (cw > 90f)
+            {
+                Widgets.CheckboxLabeled(new Rect(x + 8f, r.y + 30f, cw - 6f, 24f), "QFW_SkForbidden".Translate(), ref onlyForbidden);
+                Widgets.CheckboxLabeled(new Rect(x + 8f + cw, r.y + 30f, cw - 6f, 24f), "QFW_SkOutside".Translate(), ref onlyOutside);
+            }
+            if (f1 != onlyForbidden || f2 != onlyOutside) changed = true;
+            r = new Rect(r.x, r.y + 30f, r.width, r.height - 30f);
             string q = Q.Norm(search.filter.Text ?? "").Trim();
+            bool filtered = kind != 0 || onlyForbidden || onlyOutside;
+            if (changed) lastQuery = null;
             if (q != lastQuery || Find.TickManager.TicksGame - lastBuild > 250)
             {
                 Build(map, q);
@@ -94,7 +125,7 @@ namespace QoLFW
                 lastBuild = Find.TickManager.TicksGame;
             }
             Rect list = new Rect(r.x, r.y + 32f, r.width, r.height - 32f);
-            if (q.Length < 2)
+            if (q.Length < 2 && !filtered)
             {
                 GUI.color = MUI.Muted;
                 Widgets.Label(list, "QFW_SearchType".Translate());
@@ -145,11 +176,29 @@ namespace QoLFW
             CameraJumper.TryJumpAndSelect(t);
         }
 
+        private static bool Wanted(Thing t)
+        {
+            ThingCategory c = t.def.category;
+            Pawn p = t as Pawn;
+            switch (kind)
+            {
+                case 1: if (c != ThingCategory.Item) return false; break;
+                case 2: if (p == null || !p.RaceProps.Humanlike || p.Faction != Faction.OfPlayer) return false; break;
+                case 3: if (p == null || !p.RaceProps.Animal) return false; break;
+                case 4: if (c != ThingCategory.Plant) return false; break;
+                case 5: if (c != ThingCategory.Building) return false; break;
+            }
+            if (onlyForbidden && (c != ThingCategory.Item || !t.IsForbidden(Faction.OfPlayer))) return false;
+            if (onlyOutside && (c != ThingCategory.Item || t.IsInValidStorage())) return false;
+            return true;
+        }
+
         private void Build(Map map, string q)
         {
             var old = hits.ToDictionary(x => x.label, x => x.next);
             hits.Clear();
-            if (q.Length < 2) return;
+            bool filtered = kind != 0 || onlyForbidden || onlyOutside;
+            if (q.Length < 2 && !filtered) return;
             var byKey = new Dictionary<string, Hit>();
             List<Thing> all = map.listerThings.AllThings;
             for (int i = 0; i < all.Count; i++)
@@ -161,7 +210,8 @@ namespace QoLFW
                 if (t.Position.Fogged(map)) continue;
                 string label = t is Pawn p ? p.LabelShortCap : t.def.LabelCap.ToString();
                 if (t.Stuff != null && c == ThingCategory.Building) label = t.LabelNoCount.CapitalizeFirst();
-                if (!Q.Norm(label).Contains(q) && !Q.Norm(t.def.defName).Contains(q)) continue;
+                if (!Wanted(t)) continue;
+                if (q.Length >= 1 && !Q.Norm(label).Contains(q) && !Q.Norm(t.def.defName).Contains(q)) continue;
                 Hit h;
                 if (!byKey.TryGetValue(label, out h))
                 {
@@ -337,6 +387,38 @@ namespace QoLFW
         }
 
         // ---------------- colony actions ----------------
+        // 1.1.0: every forbidden item you can see on the map is allowed again (not near enemies)
+        private static void UnforbidAll(Map map)
+        {
+            int n = 0;
+            var hostiles = map.attackTargetsCache.TargetsHostileToColony.Where(t => t.Thing != null && t.Thing.Spawned && !t.ThreatDisabled(null)).Select(t => t.Thing.Position).ToList();
+            foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver).ToList())
+            {
+                if (!t.Spawned || t.def.category != ThingCategory.Item || t.Position.Fogged(map) || !t.IsForbidden(Faction.OfPlayer)) continue;
+                if (hostiles.Any(h => h.InHorDistOf(t.Position, 12f))) continue;
+                t.SetForbidden(false, false);
+                n++;
+            }
+            SoundDefOf.Tick_High.PlayOneShotOnCamera();
+            Q.Msg("QFW_UnforbidDone".Translate(n));
+        }
+
+        // 1.1.0: every abandoned building you can see that you may claim
+        private static void ClaimAll(Map map)
+        {
+            int n = 0;
+            foreach (Building b in map.listerThings.ThingsInGroup(ThingRequestGroup.BuildingArtificial).OfType<Building>().ToList())
+            {
+                if (!b.Spawned || b.Faction == Faction.OfPlayer || b.Position.Fogged(map)) continue;
+                if (b.Faction != null && b.Faction.HostileTo(Faction.OfPlayer)) continue;
+                if (!b.ClaimableBy(Faction.OfPlayer).Accepted) continue;
+                b.SetFaction(Faction.OfPlayer);
+                n++;
+            }
+            SoundDefOf.Tick_High.PlayOneShotOnCamera();
+            Q.Msg("QFW_ClaimDone".Translate(n));
+        }
+
         private void ColonyTab(Rect r, Map map)
         {
             float y = r.y;
@@ -356,6 +438,11 @@ namespace QoLFW
             button("QFW_AllWake", "QFW_AllWake_Desc", () => AllWake(map));
             if (QoLMod.S.pipette)
                 button("QFW_PipetteBtn", "QFW_PipetteBtn_Desc", () => { Close(); Pipette.Start(); });
+            if (QoLMod.S.mapActions)
+            {
+                button("QFW_UnforbidAll", "QFW_UnforbidAll_Desc", () => UnforbidAll(map));
+                button("QFW_ClaimAll", "QFW_ClaimAll_Desc", () => ClaimAll(map));
+            }
         }
 
         private static IEnumerable<Pawn> Free(Map map) =>

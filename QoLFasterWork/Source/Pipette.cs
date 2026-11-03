@@ -130,7 +130,9 @@ namespace QoLFW
                     Q.Msg("QFW_PipCantBuild".Translate(t.LabelNoCount), t, true);
                     return true;
                 }
-                return TryBuildDef(t.def, t.Stuff, t.StyleSourcePrecept as Precept_Building, t.StyleDef, t.Rotation);
+                bool ok = TryBuildDef(t.def, t.Stuff, t.StyleSourcePrecept as Precept_Building, t.StyleDef, t.Rotation);
+                if (ok) { try { PipetteSource.Set(t); } catch { } }
+                return ok;
             }
             return false;
         }

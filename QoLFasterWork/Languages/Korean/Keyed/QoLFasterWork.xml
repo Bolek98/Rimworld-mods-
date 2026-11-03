@@ -163,4 +163,84 @@
   <MUI_Yes>켜짐</MUI_Yes>
   <MUI_No>꺼짐</MUI_No>
   <MUI_RecTag>권장</MUI_RecTag>
+
+  <!-- 1.1.0 -->
+  <QFW_MapActions>QoL 창의 맵 전체 작업</QFW_MapActions>
+  <QFW_MapActions_Desc>QoL 창(정착지 탭)의 버튼: 맵의 금지된 아이템을 모두 허용, 버려진 건물을 모두 점유.</QFW_MapActions_Desc>
+  <QFW_SecCopy>설정 복사</QFW_SecCopy>
+  <QFW_BillCopy>작업 지시 복사/붙여넣기 및 템플릿</QFW_BillCopy>
+  <QFW_BillCopy_Desc>작업대 버튼: 모든 작업 지시를 복사해 다른 작업대에 붙여넣기(교체/추가)하고, 모든 게임에서 쓰는 이름 있는 템플릿으로 저장.</QFW_BillCopy_Desc>
+  <QFW_StoragePasteAll>저장 설정을 같은 종류 전체에</QFW_StoragePasteAll>
+  <QFW_StoragePasteAll_Desc>비축소와 선반 버튼: 맵의 모든 비축소(또는 같은 종류의 모든 선반)에 같은 필터와 우선순위를 줍니다. 선택한 곳에 복사/붙여넣기는 게임에 이미 있습니다.</QFW_StoragePasteAll_Desc>
+  <QFW_AnimalCopy>동물 설정 복사/붙여넣기</QFW_AnimalCopy>
+  <QFW_AnimalCopy_Desc>내 동물 버튼: 주인, 소집/작업 시 따라가기, 허용 구역, 훈련, 음식, 치료 – 선택한 모든 동물에 붙여넣기.</QFW_AnimalCopy_Desc>
+  <QFW_PipetteSettings>스포이트가 작업 지시와 저장 설정도 복사</QFW_PipetteSettings>
+  <QFW_PipetteSettings_Desc>스포이트로 작업대나 선반을 고르면 새로 지은 것이 같은 작업 지시와 저장 설정을 받습니다.</QFW_PipetteSettings_Desc>
+  <QFW_SecRebuild>자동 재건</QFW_SecRebuild>
+  <QFW_AutoRebuild>파괴된 건물 재건</QFW_AutoRebuild>
+  <QFW_AutoRebuild_Desc>내 건물이 파괴되면(해체가 아닌) 그 자리에 같은 건물·재료·방향의 청사진이 놓입니다. 게임 자체 자동 재건(거주 구역)이 먼저입니다.</QFW_AutoRebuild_Desc>
+  <QFW_RbOutsideHome>거주 구역 밖에서도</QFW_RbOutsideHome>
+  <QFW_RbOutsideHome_Desc>끄기: 거주 구역 안의 건물만 재건합니다.</QFW_RbOutsideHome_Desc>
+  <QFW_RbWaitPeace>적이 사라질 때까지 대기</QFW_RbWaitPeace>
+  <QFW_RbWaitPeace_Desc>전투 중 파괴된 것의 청사진은 전투 후에 놓아 건설자가 전투에 뛰어들지 않습니다.</QFW_RbWaitPeace_Desc>
+  <QFW_RbSettings>작업 지시와 저장 설정 유지</QFW_RbSettings>
+  <QFW_RbSettings_Desc>재건된 작업대나 선반은 파괴된 것의 작업 지시와 저장 설정을 받습니다.</QFW_RbSettings_Desc>
+  <QFW_RbWalls>벽과 문</QFW_RbWalls>
+  <QFW_RbWalls_Desc>벽과 문 재건.</QFW_RbWalls_Desc>
+  <QFW_RbFurniture>가구와 오락</QFW_RbFurniture>
+  <QFW_RbFurniture_Desc>침대, 탁자, 의자, 오락 등 가구 재건.</QFW_RbFurniture_Desc>
+  <QFW_RbPower>전력과 파이프</QFW_RbPower>
+  <QFW_RbPower_Desc>전선, 발전기, 배터리, 파이프(모드 포함) 재건.</QFW_RbPower_Desc>
+  <QFW_RbProduction>작업대</QFW_RbProduction>
+  <QFW_RbProduction_Desc>작업대 등 작업 지시가 있는 건물 재건.</QFW_RbProduction_Desc>
+  <QFW_RbSecurity>방어</QFW_RbSecurity>
+  <QFW_RbSecurity_Desc>포탑, 함정 등 방어 건물 재건.</QFW_RbSecurity_Desc>
+  <QFW_RbOther>그 외 전부</QFW_RbOther>
+  <QFW_RbOther_Desc>그 외 건물(조명, 냉각기, 조각상 …) 재건.</QFW_RbOther_Desc>
+  <QFW_CopyBills>작업 지시 복사</QFW_CopyBills>
+  <QFW_CopyBills_Desc>이 작업대의 모든 작업 지시를 복사합니다.</QFW_CopyBills_Desc>
+  <QFW_BillsCopied>{1}에서 작업 지시 {0}개를 복사했습니다.</QFW_BillsCopied>
+  <QFW_PasteBills>작업 지시 붙여넣기</QFW_PasteBills>
+  <QFW_PasteBills_Desc>{0}에서 복사한 작업 지시를 선택한 모든 작업대에 붙여넣습니다. 할 수 없는 레시피는 건너뜁니다.</QFW_PasteBills_Desc>
+  <QFW_BillsNothing>먼저 작업대의 작업 지시를 복사하세요.</QFW_BillsNothing>
+  <QFW_BillTemplates>작업 지시 템플릿</QFW_BillTemplates>
+  <QFW_BillTemplates_Desc>이 작업대의 작업 지시를 이름 있는 템플릿으로 저장하거나 저장된 템플릿을 선택한 작업대에 추가합니다. 모든 게임에서 쓸 수 있습니다.</QFW_BillTemplates_Desc>
+  <QFW_PasteAppend>기존 작업 지시에 추가</QFW_PasteAppend>
+  <QFW_PasteReplace>기존 작업 지시 교체</QFW_PasteReplace>
+  <QFW_BillsPasted>작업 지시 {0}개 추가, {1}개 건너뜀(작업대가 할 수 없음).</QFW_BillsPasted>
+  <QFW_TplSave>이 작업 지시를 템플릿으로 저장…</QFW_TplSave>
+  <QFW_TplName>템플릿 이름</QFW_TplName>
+  <QFW_TplSaved>템플릿 "{0}" 저장됨(작업 지시 {1}개).</QFW_TplSaved>
+  <QFW_TplApply>템플릿 "{0}" 추가({2}개 중 {1}개 사용 가능)</QFW_TplApply>
+  <QFW_TplDelete>템플릿 삭제…</QFW_TplDelete>
+  <QFW_StorageAll>모두 똑같이</QFW_StorageAll>
+  <QFW_StorageAll_Desc>맵의 모든 비축소(또는 이 종류의 모든 저장소)에 이 저장 설정을 적용합니다.</QFW_StorageAll_Desc>
+  <QFW_StorageAllDone>{0}곳에 더 적용했습니다.</QFW_StorageAllDone>
+  <QFW_CopyAnimal>동물 설정 복사</QFW_CopyAnimal>
+  <QFW_CopyAnimal_Desc>이 동물의 주인, 따라가기, 허용 구역, 훈련, 음식, 치료를 복사합니다.</QFW_CopyAnimal_Desc>
+  <QFW_PasteAnimal>동물 설정 붙여넣기({0})</QFW_PasteAnimal>
+  <QFW_PasteAnimal_Desc>{0}에서 복사한 설정을 선택한 모든 동물에 붙여넣습니다(훈련은 그 종이 배울 수 있는 것만).</QFW_PasteAnimal_Desc>
+  <QFW_SettingsTaken>{0}이(가) 이전 것의 작업 지시와 저장 설정을 받았습니다.</QFW_SettingsTaken>
+  <QFW_SecDismiss>자동으로 닫히는 편지</QFW_SecDismiss>
+  <QFW_DismissNote>해당 종류의 편지는 아래 시간 후 닫힙니다. 기록에는 남습니다. 선택이 필요한 편지는 절대 자동으로 닫히지 않습니다.</QFW_DismissNote>
+  <QFW_DismissPositive>좋은 소식</QFW_DismissPositive>
+  <QFW_DismissNeutral>중립(상인, 방문자 …)</QFW_DismissNeutral>
+  <QFW_DismissNegative>나쁜 소식과 죽음</QFW_DismissNegative>
+  <QFW_DismissThreat>위협(습격 …)</QFW_DismissThreat>
+  <QFW_DismissNever>안 함</QFW_DismissNever>
+  <QFW_DismissSecs>{0}초 후</QFW_DismissSecs>
+  <QFW_SkAll>전체</QFW_SkAll>
+  <QFW_SkItems>아이템</QFW_SkItems>
+  <QFW_SkColonists>정착민</QFW_SkColonists>
+  <QFW_SkAnimals>동물</QFW_SkAnimals>
+  <QFW_SkPlants>식물</QFW_SkPlants>
+  <QFW_SkBuildings>건물</QFW_SkBuildings>
+  <QFW_SkForbidden>금지된 것만</QFW_SkForbidden>
+  <QFW_SkOutside>저장소 밖만</QFW_SkOutside>
+  <QFW_UnforbidAll>모든 아이템 허용</QFW_UnforbidAll>
+  <QFW_UnforbidAll_Desc>맵에 보이는 금지된 아이템을 모두 다시 허용합니다(적 근처 제외).</QFW_UnforbidAll_Desc>
+  <QFW_UnforbidDone>아이템 {0}개를 허용했습니다.</QFW_UnforbidDone>
+  <QFW_ClaimAll>버려진 건물 모두 점유</QFW_ClaimAll>
+  <QFW_ClaimAll_Desc>보이는 건물 중 점유할 수 있는 것은 모두 내 것이 됩니다(적대 세력 건물 제외).</QFW_ClaimAll_Desc>
+  <QFW_ClaimDone>건물 {0}개를 점유했습니다.</QFW_ClaimDone>
 </LanguageData>

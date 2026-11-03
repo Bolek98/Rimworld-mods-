@@ -36,6 +36,16 @@ namespace QoLFW
             GUI.color = Color.white;
             if (!s.notifications) return;
 
+            MUI.Section(l, "QFW_SecDismiss".Translate());
+            GUI.color = MUI.Muted;
+            Text.Font = GameFont.Tiny;
+            l.Label("QFW_DismissNote".Translate());
+            Text.Font = GameFont.Small;
+            GUI.color = Color.white;
+            s.dismissPositive = Secs(l, "QFW_DismissPositive", s.dismissPositive);
+            s.dismissNeutral = Secs(l, "QFW_DismissNeutral", s.dismissNeutral);
+            s.dismissNegative = Secs(l, "QFW_DismissNegative", s.dismissNegative);
+            s.dismissThreat = Secs(l, "QFW_DismissThreat", s.dismissThreat);
             MUI.Section(l, "QFW_SecLetters".Translate());
             Header(l);
             foreach (LetterDef d in DefDatabase<LetterDef>.AllDefsListForReading.OrderBy(x => x.defName))
@@ -44,6 +54,50 @@ namespace QoLFW
             Header(l);
             foreach (MessageTypeDef d in DefDatabase<MessageTypeDef>.AllDefsListForReading.OrderBy(x => x.defName))
                 Row(l, d, s.mutedMessages, s.hiddenMessages, true);
+        }
+
+        private static int Secs(Listing_Standard l, string key, int v)
+        {
+            string val = v <= 0 ? "QFW_DismissNever".Translate().ToString() : "QFW_DismissSecs".Translate(v).ToString();
+            Rect r = l.GetRect(28f);
+            Widgets.Label(new Rect(r.x, r.y + 3f, r.width * 0.45f, 24f), key.Translate() + ": " + val);
+            float nv = MUI.SliderBar(new Rect(r.x + r.width * 0.47f, r.y + 6f, r.width * 0.5f, 18f), v, 0f, 120f, 5f);
+            l.Gap(2f);
+            return Mathf.RoundToInt(nv);
+        }
+
+        // 0 = keep, otherwise seconds until the letter closes by itself
+        public static int DismissAfter(Letter let)
+        {
+            QSettings s = QoLMod.S;
+            if (!s.notifications || let?.def == null || let is ChoiceLetter) return 0;
+            LetterDef d = let.def;
+            if (d == LetterDefOf.ThreatBig || d == LetterDefOf.ThreatSmall) return s.dismissThreat;
+            if (d == LetterDefOf.NegativeEvent || d == LetterDefOf.Death) return s.dismissNegative;
+            if (d == LetterDefOf.PositiveEvent) return s.dismissPositive;
+            return s.dismissNeutral;
+        }
+
+        private static readonly Dictionary<Letter, float> seen = new Dictionary<Letter, float>();
+
+        public static void AutoDismiss()
+        {
+            QSettings s = QoLMod.S;
+            if (!s.notifications || (s.dismissPositive <= 0 && s.dismissNeutral <= 0 && s.dismissNegative <= 0 && s.dismissThreat <= 0)) { seen.Clear(); return; }
+            List<Letter> list = Find.LetterStack?.LettersListForReading;
+            if (list == null) return;
+            float now = Time.realtimeSinceStartup;
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                Letter let = list[i];
+                int secs = DismissAfter(let);
+                if (secs <= 0) continue;
+                float t;
+                if (!seen.TryGetValue(let, out t)) { seen[let] = now; continue; }
+                if (now - t >= secs) { seen.Remove(let); Find.LetterStack.RemoveLetter(let); }
+            }
+            if (seen.Count > 200)
+                foreach (Letter k in seen.Keys.ToList()) if (!list.Contains(k)) seen.Remove(k);
         }
 
         private static void Header(Listing_Standard l)
@@ -78,6 +132,16 @@ namespace QoLFW
             Widgets.Checkbox(r.xMax - 50f - 12f, r.y + 1f, ref h2, 24f);
             if (m2 != m) { if (m2) muted.Add(d.defName); else muted.Remove(d.defName); }
             if (h2 != h) { if (h2) hidden.Add(d.defName); else hidden.Remove(d.defName); }
+        }
+    }
+
+    [HarmonyPatch(typeof(LetterStack), "LettersOnGUI")]
+    public static class Patch_LettersOnGUI
+    {
+        public static void Prefix()
+        {
+            if (Event.current.type != EventType.Repaint) return;
+            try { Notify.AutoDismiss(); } catch (Exception e) { Log.WarningOnce("[QoL Faster Work] auto dismiss: " + e.Message, 81723416); }
         }
     }
 

@@ -175,4 +175,84 @@
   <MUI_Yes>on</MUI_Yes>
   <MUI_No>off</MUI_No>
   <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+
+  <!-- 1.1.0 -->
+  <QFW_MapActions>Map-wide actions in the QoL window</QFW_MapActions>
+  <QFW_MapActions_Desc>Buttons in the QoL window (Colony tab): allow all forbidden items on the map, claim all abandoned buildings.</QFW_MapActions_Desc>
+  <QFW_SecCopy>Copy settings</QFW_SecCopy>
+  <QFW_BillCopy>Copy / paste bills and bill templates</QFW_BillCopy>
+  <QFW_BillCopy_Desc>Buttons on workbenches: copy all bills, paste them to other benches (replace or add), and save bills as a named template that works in every game.</QFW_BillCopy_Desc>
+  <QFW_StoragePasteAll>Storage settings to all of the same kind</QFW_StoragePasteAll>
+  <QFW_StoragePasteAll_Desc>A button on stockpiles and shelves: give every stockpile (or every shelf of the same kind) on the map the same filter and priority. Copy / paste to selected ones is in the game already.</QFW_StoragePasteAll_Desc>
+  <QFW_AnimalCopy>Copy / paste animal settings</QFW_AnimalCopy>
+  <QFW_AnimalCopy_Desc>Buttons on your animals: master, follow when drafted / at work, allowed area, training, food and medical care – paste to all selected animals.</QFW_AnimalCopy_Desc>
+  <QFW_PipetteSettings>Pipette copies bills and storage settings</QFW_PipetteSettings>
+  <QFW_PipetteSettings_Desc>When you pick a workbench or shelf with the pipette, the new one gets the same bills and storage settings once it is built.</QFW_PipetteSettings_Desc>
+  <QFW_SecRebuild>Auto rebuild</QFW_SecRebuild>
+  <QFW_AutoRebuild>Rebuild destroyed buildings</QFW_AutoRebuild>
+  <QFW_AutoRebuild_Desc>When a building of yours is destroyed (not deconstructed), a blueprint of the same building, material and rotation is placed on its spot. The game's own auto rebuild (home area) goes first.</QFW_AutoRebuild_Desc>
+  <QFW_RbOutsideHome>Also outside the home area</QFW_RbOutsideHome>
+  <QFW_RbOutsideHome_Desc>Off: only buildings inside the home area are rebuilt.</QFW_RbOutsideHome_Desc>
+  <QFW_RbWaitPeace>Wait until the enemies are gone</QFW_RbWaitPeace>
+  <QFW_RbWaitPeace_Desc>Blueprints of things destroyed during a fight are placed after it, so builders don't run into the battle.</QFW_RbWaitPeace_Desc>
+  <QFW_RbSettings>Keep bills and storage settings</QFW_RbSettings>
+  <QFW_RbSettings_Desc>A rebuilt workbench or shelf gets the bills and storage settings of the destroyed one.</QFW_RbSettings_Desc>
+  <QFW_RbWalls>Walls and doors</QFW_RbWalls>
+  <QFW_RbWalls_Desc>Rebuild walls and doors.</QFW_RbWalls_Desc>
+  <QFW_RbFurniture>Furniture and recreation</QFW_RbFurniture>
+  <QFW_RbFurniture_Desc>Rebuild beds, tables, chairs, joy buildings and other furniture.</QFW_RbFurniture_Desc>
+  <QFW_RbPower>Power and pipes</QFW_RbPower>
+  <QFW_RbPower_Desc>Rebuild conduits, generators, batteries and pipes (also from mods).</QFW_RbPower_Desc>
+  <QFW_RbProduction>Workbenches</QFW_RbProduction>
+  <QFW_RbProduction_Desc>Rebuild workbenches and other buildings with bills.</QFW_RbProduction_Desc>
+  <QFW_RbSecurity>Security</QFW_RbSecurity>
+  <QFW_RbSecurity_Desc>Rebuild turrets, traps and other security buildings.</QFW_RbSecurity_Desc>
+  <QFW_RbOther>Everything else</QFW_RbOther>
+  <QFW_RbOther_Desc>Rebuild other buildings (lights, coolers, sculptures …).</QFW_RbOther_Desc>
+  <QFW_CopyBills>Copy bills</QFW_CopyBills>
+  <QFW_CopyBills_Desc>Copy all bills of this workbench.</QFW_CopyBills_Desc>
+  <QFW_BillsCopied>{0} bills copied from {1}.</QFW_BillsCopied>
+  <QFW_PasteBills>Paste bills</QFW_PasteBills>
+  <QFW_PasteBills_Desc>Paste the bills copied from {0} into all selected workbenches. Recipes a bench cannot do are skipped.</QFW_PasteBills_Desc>
+  <QFW_BillsNothing>Copy the bills of a workbench first.</QFW_BillsNothing>
+  <QFW_BillTemplates>Bill templates</QFW_BillTemplates>
+  <QFW_BillTemplates_Desc>Save the bills of this bench as a named template, or add a saved template to the selected benches. Templates work in every game.</QFW_BillTemplates_Desc>
+  <QFW_PasteAppend>Add to the existing bills</QFW_PasteAppend>
+  <QFW_PasteReplace>Replace the existing bills</QFW_PasteReplace>
+  <QFW_BillsPasted>{0} bills added, {1} skipped (the bench cannot do them).</QFW_BillsPasted>
+  <QFW_TplSave>Save these bills as a template…</QFW_TplSave>
+  <QFW_TplName>Template name</QFW_TplName>
+  <QFW_TplSaved>Template "{0}" saved ({1} bills).</QFW_TplSaved>
+  <QFW_TplApply>Add template "{0}" ({1} of {2} bills fit)</QFW_TplApply>
+  <QFW_TplDelete>Delete a template…</QFW_TplDelete>
+  <QFW_StorageAll>Same for all</QFW_StorageAll>
+  <QFW_StorageAll_Desc>Give every stockpile (or every storage of this kind) on the map these storage settings.</QFW_StorageAll_Desc>
+  <QFW_StorageAllDone>Storage settings given to {0} more.</QFW_StorageAllDone>
+  <QFW_CopyAnimal>Copy animal settings</QFW_CopyAnimal>
+  <QFW_CopyAnimal_Desc>Copy master, follow settings, allowed area, training, food and medical care of this animal.</QFW_CopyAnimal_Desc>
+  <QFW_PasteAnimal>Paste animal settings ({0})</QFW_PasteAnimal>
+  <QFW_PasteAnimal_Desc>Paste the settings copied from {0} to all selected animals (training only what each species can learn).</QFW_PasteAnimal_Desc>
+  <QFW_SettingsTaken>{0} got the bills and storage settings of the old one.</QFW_SettingsTaken>
+  <QFW_SecDismiss>Letters that close by themselves</QFW_SecDismiss>
+  <QFW_DismissNote>A letter of that kind closes after the time below. It stays in History. Letters that need a choice never close by themselves.</QFW_DismissNote>
+  <QFW_DismissPositive>Good news</QFW_DismissPositive>
+  <QFW_DismissNeutral>Neutral (traders, visitors …)</QFW_DismissNeutral>
+  <QFW_DismissNegative>Bad news and deaths</QFW_DismissNegative>
+  <QFW_DismissThreat>Threats (raids …)</QFW_DismissThreat>
+  <QFW_DismissNever>never</QFW_DismissNever>
+  <QFW_DismissSecs>after {0} s</QFW_DismissSecs>
+  <QFW_SkAll>All</QFW_SkAll>
+  <QFW_SkItems>Items</QFW_SkItems>
+  <QFW_SkColonists>Colonists</QFW_SkColonists>
+  <QFW_SkAnimals>Animals</QFW_SkAnimals>
+  <QFW_SkPlants>Plants</QFW_SkPlants>
+  <QFW_SkBuildings>Buildings</QFW_SkBuildings>
+  <QFW_SkForbidden>Only forbidden</QFW_SkForbidden>
+  <QFW_SkOutside>Only outside storage</QFW_SkOutside>
+  <QFW_UnforbidAll>Allow all items</QFW_UnforbidAll>
+  <QFW_UnforbidAll_Desc>Every forbidden item you can see on the map is allowed again (not those near enemies).</QFW_UnforbidAll_Desc>
+  <QFW_UnforbidDone>{0} items allowed.</QFW_UnforbidDone>
+  <QFW_ClaimAll>Claim all abandoned buildings</QFW_ClaimAll>
+  <QFW_ClaimAll_Desc>Every building you can see that you are allowed to claim becomes yours (not buildings of hostile factions).</QFW_ClaimAll_Desc>
+  <QFW_ClaimDone>{0} buildings claimed.</QFW_ClaimDone>
 </LanguageData>

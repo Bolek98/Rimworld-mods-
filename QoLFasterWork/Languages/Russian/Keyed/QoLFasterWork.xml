@@ -163,4 +163,84 @@
   <MUI_Yes>вкл.</MUI_Yes>
   <MUI_No>выкл.</MUI_No>
   <MUI_RecTag>РЕКОМЕНДУЕТСЯ</MUI_RecTag>
+
+  <!-- 1.1.0 -->
+  <QFW_MapActions>Действия для всей карты в окне QoL</QFW_MapActions>
+  <QFW_MapActions_Desc>Кнопки в окне QoL (вкладка «Колония»): разрешить все запрещённые предметы на карте, присвоить все заброшенные постройки.</QFW_MapActions_Desc>
+  <QFW_SecCopy>Копирование настроек</QFW_SecCopy>
+  <QFW_BillCopy>Копирование / вставка заказов и шаблоны заказов</QFW_BillCopy>
+  <QFW_BillCopy_Desc>Кнопки у верстаков: скопировать все заказы, вставить в другие верстаки (заменить или добавить) и сохранить как именованный шаблон для всех игр.</QFW_BillCopy_Desc>
+  <QFW_StoragePasteAll>Настройки склада на все такого же вида</QFW_StoragePasteAll>
+  <QFW_StoragePasteAll_Desc>Кнопка у зон склада и стеллажей: даёт всем зонам (или всем стеллажам того же вида) на карте тот же фильтр и приоритет. Копирование на выбранные уже есть в игре.</QFW_StoragePasteAll_Desc>
+  <QFW_AnimalCopy>Копирование / вставка настроек животных</QFW_AnimalCopy>
+  <QFW_AnimalCopy_Desc>Кнопки у ваших животных: хозяин, следование при призыве / в работе, разрешённая зона, дрессировка, еда и лечение – вставить всем выбранным.</QFW_AnimalCopy_Desc>
+  <QFW_PipetteSettings>Пипетка копирует заказы и настройки склада</QFW_PipetteSettings>
+  <QFW_PipetteSettings_Desc>Если взять пипеткой верстак или стеллаж, новый после постройки получит те же заказы и настройки склада.</QFW_PipetteSettings_Desc>
+  <QFW_SecRebuild>Автовосстановление</QFW_SecRebuild>
+  <QFW_AutoRebuild>Восстанавливать разрушенные постройки</QFW_AutoRebuild>
+  <QFW_AutoRebuild_Desc>Когда ваша постройка разрушена (не разобрана), на её месте ставится чертёж той же постройки, материала и поворота. Собственное автовосстановление игры (домашняя зона) идёт первым.</QFW_AutoRebuild_Desc>
+  <QFW_RbOutsideHome>Также вне домашней зоны</QFW_RbOutsideHome>
+  <QFW_RbOutsideHome_Desc>Выкл.: восстанавливаются только постройки в домашней зоне.</QFW_RbOutsideHome_Desc>
+  <QFW_RbWaitPeace>Ждать, пока уйдут враги</QFW_RbWaitPeace>
+  <QFW_RbWaitPeace_Desc>Чертежи разрушенного в бою ставятся после него, чтобы строители не бежали в битву.</QFW_RbWaitPeace_Desc>
+  <QFW_RbSettings>Сохранять заказы и настройки склада</QFW_RbSettings>
+  <QFW_RbSettings_Desc>Восстановленный верстак или стеллаж получает заказы и настройки разрушенного.</QFW_RbSettings_Desc>
+  <QFW_RbWalls>Стены и двери</QFW_RbWalls>
+  <QFW_RbWalls_Desc>Восстанавливать стены и двери.</QFW_RbWalls_Desc>
+  <QFW_RbFurniture>Мебель и отдых</QFW_RbFurniture>
+  <QFW_RbFurniture_Desc>Восстанавливать кровати, столы, стулья, развлечения и другую мебель.</QFW_RbFurniture_Desc>
+  <QFW_RbPower>Энергия и трубы</QFW_RbPower>
+  <QFW_RbPower_Desc>Восстанавливать провода, генераторы, батареи и трубы (и из модов).</QFW_RbPower_Desc>
+  <QFW_RbProduction>Верстаки</QFW_RbProduction>
+  <QFW_RbProduction_Desc>Восстанавливать верстаки и другие постройки с заказами.</QFW_RbProduction_Desc>
+  <QFW_RbSecurity>Оборона</QFW_RbSecurity>
+  <QFW_RbSecurity_Desc>Восстанавливать турели, ловушки и другую оборону.</QFW_RbSecurity_Desc>
+  <QFW_RbOther>Всё остальное</QFW_RbOther>
+  <QFW_RbOther_Desc>Восстанавливать прочие постройки (лампы, охладители, скульптуры …).</QFW_RbOther_Desc>
+  <QFW_CopyBills>Копировать заказы</QFW_CopyBills>
+  <QFW_CopyBills_Desc>Копирует все заказы этого верстака.</QFW_CopyBills_Desc>
+  <QFW_BillsCopied>Скопировано заказов: {0} ({1}).</QFW_BillsCopied>
+  <QFW_PasteBills>Вставить заказы</QFW_PasteBills>
+  <QFW_PasteBills_Desc>Вставляет заказы, скопированные из «{0}», во все выбранные верстаки. Рецепты, которые верстак не умеет, пропускаются.</QFW_PasteBills_Desc>
+  <QFW_BillsNothing>Сначала скопируйте заказы какого-нибудь верстака.</QFW_BillsNothing>
+  <QFW_BillTemplates>Шаблоны заказов</QFW_BillTemplates>
+  <QFW_BillTemplates_Desc>Сохраняет заказы этого верстака как именованный шаблон или добавляет сохранённый шаблон в выбранные верстаки. Шаблоны работают во всех играх.</QFW_BillTemplates_Desc>
+  <QFW_PasteAppend>Добавить к имеющимся заказам</QFW_PasteAppend>
+  <QFW_PasteReplace>Заменить имеющиеся заказы</QFW_PasteReplace>
+  <QFW_BillsPasted>Добавлено заказов: {0}, пропущено: {1} (верстак не умеет).</QFW_BillsPasted>
+  <QFW_TplSave>Сохранить эти заказы как шаблон…</QFW_TplSave>
+  <QFW_TplName>Название шаблона</QFW_TplName>
+  <QFW_TplSaved>Шаблон «{0}» сохранён (заказов: {1}).</QFW_TplSaved>
+  <QFW_TplApply>Добавить шаблон «{0}» (подходит {1} из {2})</QFW_TplApply>
+  <QFW_TplDelete>Удалить шаблон…</QFW_TplDelete>
+  <QFW_StorageAll>Так же для всех</QFW_StorageAll>
+  <QFW_StorageAll_Desc>Даёт всем зонам склада (или всем хранилищам этого вида) на карте эти настройки.</QFW_StorageAll_Desc>
+  <QFW_StorageAllDone>Настройки даны ещё {0}.</QFW_StorageAllDone>
+  <QFW_CopyAnimal>Копировать настройки животного</QFW_CopyAnimal>
+  <QFW_CopyAnimal_Desc>Копирует хозяина, следование, зону, дрессировку, еду и лечение этого животного.</QFW_CopyAnimal_Desc>
+  <QFW_PasteAnimal>Вставить настройки ({0})</QFW_PasteAnimal>
+  <QFW_PasteAnimal_Desc>Вставляет настройки из «{0}» всем выбранным животным (дрессировка только доступная виду).</QFW_PasteAnimal_Desc>
+  <QFW_SettingsTaken>{0}: получены заказы и настройки прежнего.</QFW_SettingsTaken>
+  <QFW_SecDismiss>Письма, которые закрываются сами</QFW_SecDismiss>
+  <QFW_DismissNote>Письмо такого вида закроется через указанное время. Оно останется в истории. Письма с выбором сами не закрываются никогда.</QFW_DismissNote>
+  <QFW_DismissPositive>Хорошие новости</QFW_DismissPositive>
+  <QFW_DismissNeutral>Нейтральные (торговцы, гости …)</QFW_DismissNeutral>
+  <QFW_DismissNegative>Плохие новости и смерти</QFW_DismissNegative>
+  <QFW_DismissThreat>Угрозы (набеги …)</QFW_DismissThreat>
+  <QFW_DismissNever>никогда</QFW_DismissNever>
+  <QFW_DismissSecs>через {0} с</QFW_DismissSecs>
+  <QFW_SkAll>Всё</QFW_SkAll>
+  <QFW_SkItems>Предметы</QFW_SkItems>
+  <QFW_SkColonists>Колонисты</QFW_SkColonists>
+  <QFW_SkAnimals>Животные</QFW_SkAnimals>
+  <QFW_SkPlants>Растения</QFW_SkPlants>
+  <QFW_SkBuildings>Постройки</QFW_SkBuildings>
+  <QFW_SkForbidden>Только запрещённые</QFW_SkForbidden>
+  <QFW_SkOutside>Только вне склада</QFW_SkOutside>
+  <QFW_UnforbidAll>Разрешить все предметы</QFW_UnforbidAll>
+  <QFW_UnforbidAll_Desc>Все видимые запрещённые предметы на карте снова разрешаются (кроме тех, что рядом с врагами).</QFW_UnforbidAll_Desc>
+  <QFW_UnforbidDone>Разрешено предметов: {0}.</QFW_UnforbidDone>
+  <QFW_ClaimAll>Присвоить все заброшенные постройки</QFW_ClaimAll>
+  <QFW_ClaimAll_Desc>Каждая видимая постройка, которую можно присвоить, становится вашей (кроме построек враждебных фракций).</QFW_ClaimAll_Desc>
+  <QFW_ClaimDone>Присвоено построек: {0}.</QFW_ClaimDone>
 </LanguageData>

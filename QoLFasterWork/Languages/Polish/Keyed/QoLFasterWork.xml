@@ -175,4 +175,84 @@
   <MUI_Yes>wł.</MUI_Yes>
   <MUI_No>wył.</MUI_No>
   <MUI_RecTag>ZALECANE</MUI_RecTag>
+
+  <!-- 1.1.0 -->
+  <QFW_MapActions>Akcje na całą mapę w oknie QoL</QFW_MapActions>
+  <QFW_MapActions_Desc>Przyciski w oknie QoL (karta Kolonia): zezwól na wszystkie zakazane przedmioty na mapie, przejmij wszystkie opuszczone budynki.</QFW_MapActions_Desc>
+  <QFW_SecCopy>Kopiowanie ustawień</QFW_SecCopy>
+  <QFW_BillCopy>Kopiuj / wklej zlecenia i szablony zleceń</QFW_BillCopy>
+  <QFW_BillCopy_Desc>Przyciski przy stołach roboczych: skopiuj wszystkie zlecenia, wklej je do innych stołów (zastąp lub dodaj) i zapisz jako nazwany szablon do każdej gry.</QFW_BillCopy_Desc>
+  <QFW_StoragePasteAll>Ustawienia magazynu na wszystkie tego samego rodzaju</QFW_StoragePasteAll>
+  <QFW_StoragePasteAll_Desc>Przycisk przy strefach i półkach: daje wszystkim strefom (lub wszystkim półkom tego rodzaju) na mapie ten sam filtr i priorytet. Kopiuj / wklej do zaznaczonych gra już ma.</QFW_StoragePasteAll_Desc>
+  <QFW_AnimalCopy>Kopiuj / wklej ustawienia zwierząt</QFW_AnimalCopy>
+  <QFW_AnimalCopy_Desc>Przyciski przy twoich zwierzętach: pan, podążanie przy powołaniu / w pracy, dozwolony obszar, szkolenie, jedzenie i opieka – wklej wszystkim zaznaczonym.</QFW_AnimalCopy_Desc>
+  <QFW_PipetteSettings>Pipeta kopiuje zlecenia i ustawienia magazynu</QFW_PipetteSettings>
+  <QFW_PipetteSettings_Desc>Gdy weźmiesz pipetą stół lub półkę, nowy po zbudowaniu dostanie te same zlecenia i ustawienia magazynu.</QFW_PipetteSettings_Desc>
+  <QFW_SecRebuild>Automatyczna odbudowa</QFW_SecRebuild>
+  <QFW_AutoRebuild>Odbudowuj zniszczone budynki</QFW_AutoRebuild>
+  <QFW_AutoRebuild_Desc>Gdy twój budynek zostanie zniszczony (nie rozebrany), w jego miejscu pojawi się plan tego samego budynku, materiału i obrotu. Własna odbudowa gry (obszar domowy) ma pierwszeństwo.</QFW_AutoRebuild_Desc>
+  <QFW_RbOutsideHome>Także poza obszarem domowym</QFW_RbOutsideHome>
+  <QFW_RbOutsideHome_Desc>Wyłączone: odbudowywane są tylko budynki w obszarze domowym.</QFW_RbOutsideHome_Desc>
+  <QFW_RbWaitPeace>Czekaj, aż wrogowie odejdą</QFW_RbWaitPeace>
+  <QFW_RbWaitPeace_Desc>Plany rzeczy zniszczonych w walce są stawiane po niej, by budowniczowie nie biegli w bitwę.</QFW_RbWaitPeace_Desc>
+  <QFW_RbSettings>Zachowaj zlecenia i ustawienia magazynu</QFW_RbSettings>
+  <QFW_RbSettings_Desc>Odbudowany stół lub półka dostaje zlecenia i ustawienia zniszczonego.</QFW_RbSettings_Desc>
+  <QFW_RbWalls>Ściany i drzwi</QFW_RbWalls>
+  <QFW_RbWalls_Desc>Odbudowuj ściany i drzwi.</QFW_RbWalls_Desc>
+  <QFW_RbFurniture>Meble i rozrywka</QFW_RbFurniture>
+  <QFW_RbFurniture_Desc>Odbudowuj łóżka, stoły, krzesła, rozrywkę i inne meble.</QFW_RbFurniture_Desc>
+  <QFW_RbPower>Energia i rury</QFW_RbPower>
+  <QFW_RbPower_Desc>Odbudowuj przewody, generatory, baterie i rury (też z modów).</QFW_RbPower_Desc>
+  <QFW_RbProduction>Stoły robocze</QFW_RbProduction>
+  <QFW_RbProduction_Desc>Odbudowuj stoły robocze i inne budynki ze zleceniami.</QFW_RbProduction_Desc>
+  <QFW_RbSecurity>Obrona</QFW_RbSecurity>
+  <QFW_RbSecurity_Desc>Odbudowuj wieżyczki, pułapki i inne obrony.</QFW_RbSecurity_Desc>
+  <QFW_RbOther>Wszystko inne</QFW_RbOther>
+  <QFW_RbOther_Desc>Odbudowuj inne budynki (lampy, chłodnice, rzeźby …).</QFW_RbOther_Desc>
+  <QFW_CopyBills>Kopiuj zlecenia</QFW_CopyBills>
+  <QFW_CopyBills_Desc>Kopiuje wszystkie zlecenia tego stołu.</QFW_CopyBills_Desc>
+  <QFW_BillsCopied>Skopiowano {0} zleceń z: {1}.</QFW_BillsCopied>
+  <QFW_PasteBills>Wklej zlecenia</QFW_PasteBills>
+  <QFW_PasteBills_Desc>Wkleja zlecenia skopiowane z: {0} do wszystkich zaznaczonych stołów. Receptury, których stół nie umie, są pomijane.</QFW_PasteBills_Desc>
+  <QFW_BillsNothing>Najpierw skopiuj zlecenia jakiegoś stołu.</QFW_BillsNothing>
+  <QFW_BillTemplates>Szablony zleceń</QFW_BillTemplates>
+  <QFW_BillTemplates_Desc>Zapisuje zlecenia tego stołu jako nazwany szablon albo dodaje zapisany szablon do zaznaczonych stołów. Szablony działają w każdej grze.</QFW_BillTemplates_Desc>
+  <QFW_PasteAppend>Dodaj do obecnych zleceń</QFW_PasteAppend>
+  <QFW_PasteReplace>Zastąp obecne zlecenia</QFW_PasteReplace>
+  <QFW_BillsPasted>Dodano {0} zleceń, pominięto {1} (stół ich nie umie).</QFW_BillsPasted>
+  <QFW_TplSave>Zapisz te zlecenia jako szablon…</QFW_TplSave>
+  <QFW_TplName>Nazwa szablonu</QFW_TplName>
+  <QFW_TplSaved>Szablon „{0}” zapisany ({1} zleceń).</QFW_TplSaved>
+  <QFW_TplApply>Dodaj szablon „{0}” (pasuje {1} z {2} zleceń)</QFW_TplApply>
+  <QFW_TplDelete>Usuń szablon…</QFW_TplDelete>
+  <QFW_StorageAll>Tak samo dla wszystkich</QFW_StorageAll>
+  <QFW_StorageAll_Desc>Daje wszystkim strefom (lub wszystkim magazynom tego rodzaju) na mapie te ustawienia.</QFW_StorageAll_Desc>
+  <QFW_StorageAllDone>Ustawienia dane kolejnym: {0}.</QFW_StorageAllDone>
+  <QFW_CopyAnimal>Kopiuj ustawienia zwierzęcia</QFW_CopyAnimal>
+  <QFW_CopyAnimal_Desc>Kopiuje pana, podążanie, dozwolony obszar, szkolenie, jedzenie i opiekę tego zwierzęcia.</QFW_CopyAnimal_Desc>
+  <QFW_PasteAnimal>Wklej ustawienia ({0})</QFW_PasteAnimal>
+  <QFW_PasteAnimal_Desc>Wkleja ustawienia skopiowane z: {0} wszystkim zaznaczonym zwierzętom (szkolenie tylko tego, czego gatunek może się nauczyć).</QFW_PasteAnimal_Desc>
+  <QFW_SettingsTaken>{0} dostał(a) zlecenia i ustawienia poprzedniego.</QFW_SettingsTaken>
+  <QFW_SecDismiss>Listy, które same się zamykają</QFW_SecDismiss>
+  <QFW_DismissNote>List tego rodzaju zamyka się po czasie poniżej. Zostaje w historii. Listy wymagające wyboru nigdy nie zamykają się same.</QFW_DismissNote>
+  <QFW_DismissPositive>Dobre wieści</QFW_DismissPositive>
+  <QFW_DismissNeutral>Neutralne (kupcy, goście …)</QFW_DismissNeutral>
+  <QFW_DismissNegative>Złe wieści i śmierci</QFW_DismissNegative>
+  <QFW_DismissThreat>Zagrożenia (najazdy …)</QFW_DismissThreat>
+  <QFW_DismissNever>nigdy</QFW_DismissNever>
+  <QFW_DismissSecs>po {0} s</QFW_DismissSecs>
+  <QFW_SkAll>Wszystko</QFW_SkAll>
+  <QFW_SkItems>Przedmioty</QFW_SkItems>
+  <QFW_SkColonists>Koloniści</QFW_SkColonists>
+  <QFW_SkAnimals>Zwierzęta</QFW_SkAnimals>
+  <QFW_SkPlants>Rośliny</QFW_SkPlants>
+  <QFW_SkBuildings>Budynki</QFW_SkBuildings>
+  <QFW_SkForbidden>Tylko zakazane</QFW_SkForbidden>
+  <QFW_SkOutside>Tylko poza magazynem</QFW_SkOutside>
+  <QFW_UnforbidAll>Zezwól na wszystkie przedmioty</QFW_UnforbidAll>
+  <QFW_UnforbidAll_Desc>Wszystkie widoczne zakazane przedmioty na mapie zostają znów dozwolone (nie te przy wrogach).</QFW_UnforbidAll_Desc>
+  <QFW_UnforbidDone>Dozwolono przedmiotów: {0}.</QFW_UnforbidDone>
+  <QFW_ClaimAll>Przejmij wszystkie opuszczone budynki</QFW_ClaimAll>
+  <QFW_ClaimAll_Desc>Każdy widoczny budynek, który możesz przejąć, staje się twój (nie budynki wrogich frakcji).</QFW_ClaimAll_Desc>
+  <QFW_ClaimDone>Przejęto budynków: {0}.</QFW_ClaimDone>
 </LanguageData>

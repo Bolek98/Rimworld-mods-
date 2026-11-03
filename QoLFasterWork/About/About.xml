@@ -3,7 +3,7 @@
   <name>QoL – Faster Work, Prisoners &amp; Pipette</name>
   <author>Bolek98</author>
   <packageId>bolek98.qolfasterwork</packageId>
-  <modVersion>1.0.0</modVersion>
+  <modVersion>1.1.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -40,10 +40,19 @@ TOOLS
 - Haul now: selected items go to storage right away, carried by the nearest free colonists.
 - Deconstruct everything: ancient walls, ruins and wrecks that could only be destroyed by attacking.
 - Grow or shrink a stockpile or growing zone by one cell on every side.
-- Map search: type "steel" and see where all of it lies, click to jump there.
+- Map search: type "steel" and see where all of it lies, click to jump there. Filters for items, colonists, animals, plants, buildings, forbidden and outside storage.
 - Everyone eat now / everyone go to sleep / wake everyone up.
+- Map actions: allow all forbidden items, claim all abandoned buildings.
+
+COPY &amp; REBUILD
+- Copy / paste all bills of a workbench to other benches, and save bills as named templates for every game.
+- Storage settings of one stockpile or shelf to all of the same kind with one click.
+- Copy / paste animal settings: master, follow, area, training, food, medical care.
+- Paste pawn settings to all selected colonists at once.
+- The pipette also copies bills and storage settings of the picked building.
+- Auto rebuild: destroyed buildings get a blueprint again (optionally also outside the home area, after the fight, keeping bills and storage settings; per kind of building).
 - Stack size multiplier (off by default, needs a restart; don't use together with OgreStack).
-- Notifications: make letters and messages of any kind silent, or hide them (they still go to History).
+- Notifications: make letters and messages of any kind silent, or hide them (they still go to History); letters of a kind can close by themselves after N seconds.
 
 Safe to add to an existing save. Removing it: the game only loses the remembered prisoner days.
 Requires Harmony. RimWorld 1.6 and 1.7. 12 languages.
@@ -73,10 +82,19 @@ NÁSTROJE
 - Odnést hned: vybrané věci hned odnesou nejbližší volní kolonisté.
 - Rozebrat všechno: prastaré zdi, ruiny a vraky, které šlo dřív jen zničit útokem.
 - Zvětšit nebo zmenšit sklad či pole o jedno políčko na každou stranu.
-- Hledání na mapě: napiš „ocel“ a uvidíš, kde všude leží; kliknutím tam skočíš.
+- Hledání na mapě: napiš „ocel“ a uvidíš, kde všude leží; kliknutím tam skočíš. Filtry pro věci, kolonisty, zvířata, rostliny, budovy, zakázané a mimo sklad.
 - Všichni jíst / všichni spát / všechny vzbudit.
+- Akce pro mapu: povolit všechny zakázané věci, převzít všechny opuštěné budovy.
+
+KOPÍROVÁNÍ A OBNOVA
+- Kopírovat / vložit všechny zakázky stolu do jiných stolů a uložit zakázky jako pojmenované šablony pro všechny hry.
+- Nastavení jedné skládky nebo police na všechny stejného druhu jedním klikem.
+- Kopírovat / vložit nastavení zvířat: pán, následování, oblast, výcvik, jídlo, péče.
+- Nastavení postavy vložíš všem vybraným kolonistům naráz.
+- Pipeta kopíruje i zakázky a nastavení skladu vybrané budovy.
+- Automatická obnova: zničené budovy dostanou znovu plán (volitelně i mimo domovskou oblast, až po boji, se zachováním zakázek a nastavení skladu; podle druhu budovy).
 - Násobič velikosti hromádek (vypnutý, potřebuje restart; nepoužívej s OgreStack).
-- Oznámení: dopisy a zprávy jakéhokoli druhu ztiš nebo skryj (zůstanou v Historii).
+- Oznámení: dopisy a zprávy jakéhokoli druhu ztiš nebo skryj (zůstanou v Historii); dopisy daného druhu se můžou samy zavřít po N sekundách.
 
 Lze přidat do rozehrané hry. Při odebrání se ztratí jen zapamatované dny vězňů. Vyžaduje Harmony. RimWorld 1.6 a 1.7. 12 jazyků.
 Našel jsi chybu? Použij „Nahlásit chybu“ (vlevo dole v nastavení) a napiš ji do komentářů – nápady jsou taky vítané.

@@ -113,7 +113,7 @@ namespace QoLFW
             {
                 yield return new Command_Action
                 {
-                    defaultLabel = "QFW_PastePawn_Btn".Translate(),
+                    defaultLabel = sel.Count > 1 ? "QFW_PastePawn_Btn".Translate() + " (" + sel.Count + ")" : "QFW_PastePawn_Btn".Translate(),
                     defaultDesc = "QFW_PastePawn_BtnDesc".Translate(clip.name),
                     icon = Tex.Paste,
                     Order = 2001f,
