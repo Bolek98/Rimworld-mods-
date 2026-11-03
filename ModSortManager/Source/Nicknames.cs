@@ -92,6 +92,32 @@ namespace ModSortManager
         }
 
         public static string Mark(ModMetaData m) => Shown(m) ? "✎ " : "";
+
+        // 0.8.2: the name of a mod's entry in Options → Mod settings (and the title of its settings window)
+        private static readonly Dictionary<Mod, string> catCache = new Dictionary<Mod, string>();
+        private static bool catFailed;
+
+        public static string Category(Mod mod)
+        {
+            string orig = mod?.SettingsCategory();
+            try
+            {
+                if (orig.NullOrEmpty() || MSMMod.Settings == null || !MSMMod.Settings.showNicknames) return orig;
+                ModMetaData meta = mod.Content?.ModMetaData;
+                string nick = Of(meta);
+                if (nick == null) return orig;
+                // a mod with several settings pages: each keeps its own name in brackets
+                int pages = 0;
+                foreach (Mod h in LoadedModManager.ModHandles)
+                    if (h.Content == mod.Content && !h.SettingsCategory().NullOrEmpty()) pages++;
+                return pages > 1 && orig != nick ? nick + " (" + orig + ")" : nick;
+            }
+            catch (Exception e)
+            {
+                if (!catFailed) { catFailed = true; Log.Warning("[Mod Sort Manager] nickname in mod settings: " + e.Message); }
+                return orig;
+            }
+        }
     }
 
     public class Dialog_ModNick : Window
@@ -182,6 +208,36 @@ namespace ModSortManager
             foreach (CodeInstruction ci in code)
             {
                 if ((ci.opcode == OpCodes.Callvirt || ci.opcode == OpCodes.Call) && ci.operand as MethodInfo == getName)
+                {
+                    ci.opcode = OpCodes.Call;
+                    ci.operand = show;
+                }
+                yield return ci;
+            }
+        }
+    }
+
+    // 0.8.2: Options → Mod settings list and the mod settings window title show the nickname;
+    // SettingsCategory itself is not touched (other mods use it as a key)
+    [HarmonyPatch]
+    public static class Patch_ModSettingsNames
+    {
+        private static readonly MethodInfo cat = AccessTools.Method(typeof(Mod), nameof(Mod.SettingsCategory));
+        private static readonly MethodInfo show = AccessTools.Method(typeof(Nicknames), nameof(Nicknames.Category));
+
+        public static IEnumerable<MethodBase> TargetMethods()
+        {
+            MethodInfo a = AccessTools.Method(typeof(Dialog_Options), "DoModOptions");
+            if (a != null) yield return a;
+            MethodInfo b = AccessTools.Method(typeof(Dialog_ModSettings), nameof(Dialog_ModSettings.DoWindowContents));
+            if (b != null) yield return b;
+        }
+
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> code)
+        {
+            foreach (CodeInstruction ci in code)
+            {
+                if ((ci.opcode == OpCodes.Callvirt || ci.opcode == OpCodes.Call) && ci.operand as MethodInfo == cat)
                 {
                     ci.opcode = OpCodes.Call;
                     ci.operand = show;
