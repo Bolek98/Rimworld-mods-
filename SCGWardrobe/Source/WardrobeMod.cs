@@ -11,7 +11,7 @@ namespace SCGWardrobe;
 
 public sealed class WardrobeMod : Mod
 {
-	public const string Version = "0.1.0";
+	public const string Version = "0.1.1";
 	public static WardrobeSettings Settings;
 	private static readonly WardrobeSettings rec = new WardrobeSettings();
 

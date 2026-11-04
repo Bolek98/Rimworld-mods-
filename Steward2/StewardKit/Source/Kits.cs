@@ -354,7 +354,11 @@ public static class Kits
 		float cap = MassUtility.Capacity(p);
 		float limit = cap * Mathf.Clamp(KitMod.Settings.weightLimit, 0.05f, 1f);
 		float used = MassUtility.InventoryMass(p);
-		return Mathf.Min(limit - used, MassUtility.FreeSpace(p));
+		// 0.2.1: clothes in the inventory (Wardrobe keeps the day outfit / sleepwear there) don't count against the kit
+		float clothes = 0f;
+		foreach (Thing t in p.inventory.innerContainer)
+			if (t is Apparel) clothes += t.GetStatValue(StatDefOf.Mass) * t.stackCount;
+		return Mathf.Min(limit - (used - clothes), MassUtility.FreeSpace(p) + clothes);
 	}
 
 	public static bool Eligible(Pawn p)

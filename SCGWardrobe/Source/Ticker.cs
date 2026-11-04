@@ -60,26 +60,52 @@ public static class Ticker
 		if (g == null || g.Exempt(p) || !LoadoutFilter.IsPlayerColonist(p) || ExemptPawns.IsExempt(p)) return;
 		bool danger = p.Drafted || SteadyThreat.Active(p.Map) || p.Downed || p.InMentalState;
 		string hold = WardrobeProvider.HoldOf(p);
-		string want = danger ? null : WantedHold(p);
-		bool started = false;
-		if (want != null && !Wears(p, want == "sleep"))
+		if (danger)
 		{
-			// hold only while he really wears (or is putting on) the occasion clothes – otherwise SCG keeps dressing him
-			if (want != hold && Free(p, want == "sleep") && FindPiece(p, want == "sleep") is Apparel piece)
+			// 0.1.1: no time to change – day clothes back on at once, SCG takes over (battle gear)
+			if (Outfit.WearsOccasion(p) || Outfit.HasDay(p)) { Outfit.InstantRestore(p); Log2(p, "back in day clothes (danger)"); }
+			if (hold != null) SetHold(p, g, hold, null);
+			return;
+		}
+		if (Outfit.Changing(p)) return;   // a change is on its way
+		string want = WantedHold(p);
+		bool started = false;
+		if (want != null)
+		{
+			bool sleep = want == "sleep";
+			if (Wears(p, sleep)) { if (hold != want) SetHold(p, g, hold, want); }
+			else if (hold != null && hold != want && Outfit.WearsOccasion(p))
+			{
+				// festive → sleep (or back): first the day clothes, the next slice changes again
+				if (Free(p, sleep)) { Outfit.StartRestore(p); started = true; }
+			}
+			else if (Free(p, sleep) && Outfit.FindPiece(p, sleep, FindPiece) is Apparel piece && Outfit.CanChange(p, piece))
 			{
 				SetHold(p, g, hold, want);
-				hold = want;
-				Wear(p, piece, want == "sleep");
+				Outfit.StartChange(p, piece);
+				Log2(p, "changes into " + piece.LabelShort + (sleep ? " for the night" : " for the occasion"));
 				started = true;
 			}
-			else if (want != hold || !(p.CurJob?.def == JobDefOf.Wear)) want = null;
-			else want = hold;   // the wear job is still on its way
+			else if (hold != null && !Outfit.WearsOccasion(p)) SetHold(p, g, hold, null);
 		}
-		if (want != hold) SetHold(p, g, hold, want);
-		if (danger || started) return;
+		else if (Outfit.WearsOccasion(p) || Outfit.HasDay(p))
+		{
+			// the night / occasion is over: day clothes back on (the hold stays until then, so SCG doesn't re-dress meanwhile)
+			if (CanRestoreNow(p)) { Outfit.StartRestore(p); Log2(p, "back into his day clothes"); started = true; }
+		}
+		else if (hold != null) SetHold(p, g, hold, null);
+		if (started) return;
 		if (!Idle(p)) return;
 		if (S.uniforms) Recolor(p);
 		if (S.favorites && S.favoritesToBedroom && HaulFavorite(p, g)) return;
+	}
+
+	private static bool CanRestoreNow(Pawn p)
+	{
+		Job j = p.CurJob;
+		if (j == null) return true;
+		if (p.jobs.curDriver != null && p.jobs.curDriver.asleep) return false;
+		return !j.playerForced;
 	}
 
 	// ---------------- occasions ----------------
@@ -149,7 +175,7 @@ public static class Ticker
 		return p.apparel.WornApparel.Any(a => isOcc(a.def));
 	}
 
-	private static Apparel FindPiece(Pawn p, bool sleep)
+	public static Apparel FindPiece(Pawn p, bool sleep)
 	{
 		Func<ThingDef, bool> isOcc = sleep ? (Func<ThingDef, bool>)WardrobeProvider.IsSleepwear : WardrobeProvider.IsFestive;
 		Apparel best = null;

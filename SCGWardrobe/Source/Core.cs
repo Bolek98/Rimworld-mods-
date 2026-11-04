@@ -386,6 +386,9 @@ public sealed class WardrobeGame : GameComponent
 	public Dictionary<int, string> roleOverride = new Dictionary<int, string>();
 	public List<int> exempt = new List<int>();
 	public List<int> retireBillMaps = new List<int>();
+	// 0.1.1: day outfit pieces kept in the pawn's inventory while he wears sleep/festive clothes, and all clothes Wardrobe keeps there
+	public Dictionary<int, List<int>> dayOf = new Dictionary<int, List<int>>();
+	public HashSet<int> carried = new HashSet<int>();
 	// runtime only
 	public readonly Dictionary<int, string> hold = new Dictionary<int, string>();
 	public readonly Dictionary<int, int> occasionItem = new Dictionary<int, int>();
@@ -448,6 +451,12 @@ public sealed class WardrobeGame : GameComponent
 		Scribe_Collections.Look(ref roleOverride, "roleOverride", LookMode.Value, LookMode.Value);
 		Scribe_Collections.Look(ref exempt, "exempt", LookMode.Value);
 		Scribe_Collections.Look(ref retireBillMaps, "retireBillMaps", LookMode.Value);
+		var dayKeys = dayOf.Keys.ToList();
+		var dayVals = dayOf.Values.Select(v => string.Join(",", v ?? new List<int>())).ToList();
+		var carriedList = carried.ToList();
+		Scribe_Collections.Look(ref dayKeys, "dayKeys", LookMode.Value);
+		Scribe_Collections.Look(ref dayVals, "dayVals", LookMode.Value);
+		Scribe_Collections.Look(ref carriedList, "carried", LookMode.Value);
 		if (Scribe.mode == LoadSaveMode.PostLoadInit)
 		{
 			favorites = new Dictionary<int, List<int>>();
@@ -457,6 +466,11 @@ public sealed class WardrobeGame : GameComponent
 			roleOverride ??= new Dictionary<int, string>();
 			exempt ??= new List<int>();
 			retireBillMaps ??= new List<int>();
+			dayOf = new Dictionary<int, List<int>>();
+			if (dayKeys != null && dayVals != null)
+				for (int i = 0; i < dayKeys.Count && i < dayVals.Count; i++)
+					dayOf[dayKeys[i]] = (dayVals[i] ?? "").Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => int.TryParse(x, out int n) ? n : -1).Where(n => n >= 0).ToList();
+			carried = carriedList != null ? new HashSet<int>(carriedList) : new HashSet<int>();
 			ownerOf = null;
 		}
 	}
