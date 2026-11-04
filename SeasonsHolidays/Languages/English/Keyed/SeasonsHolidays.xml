@@ -299,6 +299,137 @@
   <SH_ActTabTip>▶ Celebrate now: {0}</SH_ActTabTip>
   <SH_ActConfirm>Celebrate {0} now ({1})?</SH_ActConfirm>
   <SH_ActTonight>{0}: we start tonight at 7 pm.</SH_ActTonight>
+  <!-- 0.5.0 -->
+  <SH_Rec4>Holiday food and decorations, seasonal events, holidays by your colony's culture</SH_Rec4>
+  <SH_H_SpringEquinox>Spring Equinox</SH_H_SpringEquinox>
+  <SH_HD_SpringEquinox>Day and night are equal: the old festival of sowing. Celebrated by tribal colonies.</SH_HD_SpringEquinox>
+  <SH_HL_SpringEquinox>Day and night are equal today. The tribe blesses the fields for a good year.</SH_HL_SpringEquinox>
+  <SH_H_WinterSolstice>Yule</SH_H_WinterSolstice>
+  <SH_HD_WinterSolstice>The longest night of the year: a big fire to call the sun back. Celebrated by tribal colonies.</SH_HD_WinterSolstice>
+  <SH_HL_WinterSolstice>The longest night of the year. Tonight the tribe keeps a big fire burning – from tomorrow the sun comes back.</SH_HL_WinterSolstice>
+  <SH_Act_LunarNewYear>red lanterns and envelopes</SH_Act_LunarNewYear>
+  <SH_Act_Holi>colour fight</SH_Act_Holi>
+  <SH_Act_Diwali>lamps and sweets</SH_Act_Diwali>
+  <SH_Act_MidAutumn>mooncakes under the moon</SH_Act_MidAutumn>
+  <SH_Act_DayOfDead>altar of the dead</SH_Act_DayOfDead>
+  <SH_Act_FoundersDay>speech and feast</SH_Act_FoundersDay>
+  <SH_Act_StPatrick>green party</SH_Act_StPatrick>
+  <SH_Act_Oktoberfest>beer contest</SH_Act_Oktoberfest>
+  <SH_Act_StMartin>lantern walk and goose</SH_Act_StMartin>
+  <SH_Act_SpringEquinox>blessing the fields</SH_Act_SpringEquinox>
+  <SH_Act_WinterSolstice>yule fire</SH_Act_WinterSolstice>
+  <SH_ActOffer_LunarNewYear>Happy Lunar New Year! Shall we hang red lanterns and give each other red envelopes with a little silver?</SH_ActOffer_LunarNewYear>
+  <SH_ActOffer_Holi>Happy Holi! A colour fight? Everyone will be colourful for half a day – and the clothes a little stained.</SH_ActOffer_Holi>
+  <SH_ActOffer_Diwali>Happy Diwali! Shall we light little lamps around the colony tonight and share sweets?</SH_ActOffer_Diwali>
+  <SH_ActOffer_MidAutumn>The Mid-Autumn Festival! Tonight mooncakes and watching the full moon together?</SH_ActOffer_MidAutumn>
+  <SH_ActOffer_DayOfDead>The Day of the Dead. Shall we build an altar and remember those we lost?</SH_ActOffer_DayOfDead>
+  <SH_ActOffer_FoundersDay>Founders' Day! Our best speaker gives a speech, then a feast?</SH_ActOffer_FoundersDay>
+  <SH_ActOffer_StPatrick>St. Patrick's Day! A green party with songs and dancing?</SH_ActOffer_StPatrick>
+  <SH_ActOffer_Oktoberfest>Oktoberfest! A beer contest? Every contestant needs one beer from our storage.</SH_ActOffer_Oktoberfest>
+  <SH_ActOffer_StMartin>St. Martin's Day! A lantern walk tonight and a goose dinner? The goose takes some raw meat from the storage.</SH_ActOffer_StMartin>
+  <SH_ActOffer_SpringEquinox>The spring equinox. Shall the tribe bless the fields with a wreath and a dance?</SH_ActOffer_SpringEquinox>
+  <SH_ActOffer_WinterSolstice>Yule, the longest night. Shall we light a big fire tonight and keep it burning?</SH_ActOffer_WinterSolstice>
+  <SH_ActDesc_LunarNewYear>Red lanterns around the colony; every colonist gives a red envelope with a little silver to another one.</SH_ActDesc_LunarNewYear>
+  <SH_ActDesc_Holi>A colour fight: everyone is colourful for half a day, the clothes get a little stained.</SH_ActDesc_Holi>
+  <SH_ActDesc_Diwali>Little oil lamps around the colony and sweets for everybody (in the evening).</SH_ActDesc_Diwali>
+  <SH_ActDesc_MidAutumn>Mooncakes and watching the moon together outside (in the evening).</SH_ActDesc_MidAutumn>
+  <SH_ActDesc_DayOfDead>An altar of the dead; every colonist remembers one of the colony's dead by name.</SH_ActDesc_DayOfDead>
+  <SH_ActDesc_FoundersDay>The colonist with the best Social skill gives a speech – the better the speaker, the better the mood. Then a feast.</SH_ActDesc_FoundersDay>
+  <SH_ActDesc_StPatrick>A green party with songs and dancing.</SH_ActDesc_StPatrick>
+  <SH_ActDesc_Oktoberfest>A beer contest – one beer from the storage per contestant; the winner is proud for days.</SH_ActDesc_Oktoberfest>
+  <SH_ActDesc_StMartin>A lantern walk in the evening; with raw meat in the storage also a goose dinner.</SH_ActDesc_StMartin>
+  <SH_ActDesc_SpringEquinox>A wreath and a dance to bless the fields (tribal colonies).</SH_ActDesc_SpringEquinox>
+  <SH_ActDesc_WinterSolstice>A big fire through the longest night (tribal colonies, in the evening).</SH_ActDesc_WinterSolstice>
+  <SH_ActDoneTitle_LunarNewYear>Lunar New Year</SH_ActDoneTitle_LunarNewYear>
+  <SH_ActDone_LunarNewYear>Red lanterns glow around the colony and the red envelopes go round:\n\n{LIST}</SH_ActDone_LunarNewYear>
+  <SH_EnvelopePair>{0} → {1}</SH_EnvelopePair>
+  <SH_ActDoneTitle_Holi>Holi colour fight</SH_ActDoneTitle_Holi>
+  <SH_ActDone_Holi>Pink, green, yellow, blue – nobody stays clean! Everyone is colourful until tomorrow, and the clothes got a little stained.</SH_ActDone_Holi>
+  <SH_ActDoneTitle_Diwali>Diwali lights</SH_ActDoneTitle_Diwali>
+  <SH_ActDone_Diwali>{N} little lamps are burning around the colony, and there are sweets for everybody.</SH_ActDone_Diwali>
+  <SH_ActDoneTitle_MidAutumn>Under the full moon</SH_ActDoneTitle_MidAutumn>
+  <SH_ActDone_MidAutumn>Mooncakes for everybody, and the colony gathers outside to watch the moon.</SH_ActDone_MidAutumn>
+  <SH_ActDoneTitle_DayOfDead>Day of the Dead</SH_ActDoneTitle_DayOfDead>
+  <SH_ActDone_DayOfDead>Marigolds, candles and photos on the altar. Today we remember: {LIST}.</SH_ActDone_DayOfDead>
+  <SH_ActDoneTitle_DayOfDeadNone>Day of the Dead</SH_ActDoneTitle_DayOfDeadNone>
+  <SH_ActDone_DayOfDeadNone>The altar stands with marigolds and candles. Luckily, our colony has not lost anyone yet.</SH_ActDone_DayOfDeadNone>
+  <SH_ActDoneTitle_FoundersDay>Founders' Day</SH_ActDoneTitle_FoundersDay>
+  <SH_ActDone_FoundersDay>{PAWN} gave a speech about our {DAYS} days here. {HOW} Then the feast began.</SH_ActDone_FoundersDay>
+  <SH_SpeechQ0>It was a bit long, to be honest.</SH_SpeechQ0>
+  <SH_SpeechQ1>A good speech – everybody clapped.</SH_SpeechQ1>
+  <SH_SpeechQ2>A moving speech – there were tears.</SH_SpeechQ2>
+  <SH_ActDoneTitle_StPatrick>St. Patrick's Day</SH_ActDoneTitle_StPatrick>
+  <SH_ActDone_StPatrick>Everything is green today – songs, dancing and a pint in hand.</SH_ActDone_StPatrick>
+  <SH_ActDoneTitle_Oktoberfest>Oktoberfest beer contest</SH_ActDoneTitle_Oktoberfest>
+  <SH_ActDone_Oktoberfest>{N} contestants, {N} beers, brass music – and the winner is {PAWN}! Prost!</SH_ActDone_Oktoberfest>
+  <SH_ActDoneTitle_OktoberfestNoBeer>Oktoberfest</SH_ActDoneTitle_OktoberfestNoBeer>
+  <SH_ActDone_OktoberfestNoBeer>No beer contest this year – we need at least two contestants and one beer each in the storage ({N} contestants).</SH_ActDone_OktoberfestNoBeer>
+  <SH_ActDoneTitle_StMartin>St. Martin's Day</SH_ActDoneTitle_StMartin>
+  <SH_ActDone_StMartin>A lantern walk in the dark, then roast goose for everybody. Martin came on a white horse!</SH_ActDone_StMartin>
+  <SH_ActDoneTitle_StMartinNoGoose>St. Martin's Day</SH_ActDoneTitle_StMartinNoGoose>
+  <SH_ActDone_StMartinNoGoose>A lantern walk in the dark. There was not enough raw meat in the storage for a goose – maybe next year.</SH_ActDone_StMartinNoGoose>
+  <SH_ActDoneTitle_SpringEquinox>Spring equinox</SH_ActDoneTitle_SpringEquinox>
+  <SH_ActDone_SpringEquinox>The tribe hangs a wreath and dances around the fields for a good harvest.</SH_ActDone_SpringEquinox>
+  <SH_ActDoneTitle_WinterSolstice>Yule fire</SH_ActDoneTitle_WinterSolstice>
+  <SH_ActDone_WinterSolstice>The big fire is lit. Tonight we keep it burning – the sun will come back.</SH_ActDone_WinterSolstice>
+  <SH_ActQuiet>{0}: {1} – start it in the calendar (▶) if you want.</SH_ActQuiet>
+  <SH_SeasonFoodInspect>Extra mood when eaten in: {0}</SH_SeasonFoodInspect>
+  <SH_Remind>{0} is in {1} days.</SH_Remind>
+  <SH_LookingForwardMsg>{0} colonists are looking forward to {1} – they enjoyed it last year.</SH_LookingForwardMsg>
+  <SH_VisitorsTitle>Holiday visitors</SH_VisitorsTitle>
+  <SH_Visitors>Friends from {0} came to celebrate {1} with us and brought gifts.</SH_Visitors>
+  <SH_PackAwayHint>The season is over: {0} holiday decorations could be packed away (uninstall them).</SH_PackAwayHint>
+  <SH_PackAwayMarked>The season is over: {0} holiday decorations are marked to be packed away.</SH_PackAwayMarked>
+  <SH_ThawTitle>Spring thaw</SH_ThawTitle>
+  <SH_Thaw>The snow is melting. For the next two days the ground by the water is soft mud – colonists walk slower near water.</SH_Thaw>
+  <SH_MarketMsg>A harvest market caravan from {0} is coming with lots of food.</SH_MarketMsg>
+  <SH_Off>off</SH_Off>
+  <SH_RemindDays>Reminder before a holiday (days)</SH_RemindDays>
+  <SH_RemindDays_Desc>A short message this many days before a holiday.</SH_RemindDays_Desc>
+  <SH_QuietMode>Quiet mode</SH_QuietMode>
+  <SH_QuietMode_Desc>Holidays and activities only as short messages, no letters. Activities can still be started in the calendar (▶).</SH_QuietMode_Desc>
+  <SH_HolidayVisitors>Holiday visitors</SH_HolidayVisitors>
+  <SH_HolidayVisitors_Desc>Now and then friendly neighbours come to celebrate a holiday with you and bring gifts (at most every 15 days).</SH_HolidayVisitors_Desc>
+  <SH_CultureMode>Holidays by culture</SH_CultureMode>
+  <SH_CultureMode_Desc>Auto: a tribal colony keeps the old festivals (equinox, Yule) and skips the modern ones (Founders' Day, Oktoberfest …); other colonies the other way round. All: every holiday, the list below is ignored. My list: only the list below.</SH_CultureMode_Desc>
+  <SH_Culture0>Auto</SH_Culture0>
+  <SH_Culture1>All</SH_Culture1>
+  <SH_Culture2>My list</SH_Culture2>
+  <SH_CultureTribal>tribal</SH_CultureTribal>
+  <SH_LookForward>Looking forward</SH_LookForward>
+  <SH_LookForward_Desc>Colonists who enjoyed a holiday last year look forward to it a few days before.</SH_LookForward_Desc>
+  <SH_FamilyTradition>Family tradition</SH_FamilyTradition>
+  <SH_FamilyTradition_Desc>More mood when a holiday is celebrated together with a partner, a parent or a child – more every year.</SH_FamilyTradition_Desc>
+  <SH_SecFood>Holiday food and decorations</SH_SecFood>
+  <SH_SeasonalFood>Seasonal food bonus</SH_SeasonalFood>
+  <SH_SeasonalFood_Desc>Holiday food (Easter eggs, cookies, mulled wine, pumpkin pie, punch, mooncakes, Diwali sweets) gives extra mood when eaten in its season. The recipes are always available at the stove.</SH_SeasonalFood_Desc>
+  <SH_PackAway>Decorations after their season</SH_PackAway>
+  <SH_PackAway_Desc>Christmas tree, wreath, light garland, carved pumpkin and maypole (Misc tab) belong to a season. After it: nothing, a reminder, or mark them to be packed away (uninstalled).</SH_PackAway_Desc>
+  <SH_PackAway0>Nothing</SH_PackAway0>
+  <SH_PackAway1>Remind me</SH_PackAway1>
+  <SH_PackAway2>Pack away</SH_PackAway2>
+  <SH_SecEvents>Seasonal events</SH_SecEvents>
+  <SH_SeasonalEvents>Seasonal events</SH_SeasonalEvents>
+  <SH_SeasonalEvents_Desc>Small events of the year: spring thaw, autumn harvest market, cozy winter evenings, summer insects.</SH_SeasonalEvents_Desc>
+  <SH_SpringThaw>Spring thaw</SH_SpringThaw>
+  <SH_SpringThaw_Desc>After a frosty winter the first days of spring can be wet: two days of mud by the water (colonists walk a bit slower there).</SH_SpringThaw_Desc>
+  <SH_HarvestMarket>Harvest market</SH_HarvestMarket>
+  <SH_HarvestMarket_Desc>In autumn a friendly caravan often comes with lots of food to sell.</SH_HarvestMarket_Desc>
+  <SH_CozyEvenings>Cozy evenings</SH_CozyEvenings>
+  <SH_CozyEvenings_Desc>In winter evenings colonists near a lit fireplace or campfire in the same room get a small mood bonus.</SH_CozyEvenings_Desc>
+  <SH_SummerInsects>Summer insects</SH_SummerInsects>
+  <SH_SummerInsects_Desc>In hot humid places colonists outdoors in summer are annoyed by mosquitoes (small bad mood).</SH_SummerInsects_Desc>
+  <SH_MoodN>Mood {0} %</SH_MoodN>
+  <SH_MoodN_Desc>How strong the holiday mood is. Click to change: 0 %, 50 %, 100 %, 150 %, 200 %.</SH_MoodN_Desc>
+  <SH_TabUpcoming>Then: {0}</SH_TabUpcoming>
+  <SH_TabInDays>{0} ({1} d)</SH_TabInDays>
+  <SH_DayToday>today</SH_DayToday>
+  <SH_DayTemp>Average temperature: {0}</SH_DayTemp>
+  <SH_DayNothing>Nothing special on this day.</SH_DayNothing>
+  <SH_DayCelebrate>▶ Celebrate</SH_DayCelebrate>
+  <SH_DayActivity>Activity: {0}</SH_DayActivity>
+  <SH_DayParty>Throw a party</SH_DayParty>
+  <SH_DayPartyNo>Not possible right now (the colonist is away, busy, or a party is already on).</SH_DayPartyNo>
   <!-- recommended settings card -->
   <MUI_Title>Recommended settings</MUI_Title>
   <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>

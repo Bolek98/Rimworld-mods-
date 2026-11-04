@@ -40,17 +40,20 @@ namespace SeasonsHolidays
             l.Add(new Holiday { pack = "Asia", id = "MidAutumn", month = 8, day = 3, realMonth = 9, realDay = 17, thought = "SH_H_MidAutumn", partyHour = 19 });
             // the Americas
             l.Add(new Holiday { pack = "Americas", id = "DayOfDead", month = 10, day = 2, realMonth = 11, realDay = 1, thought = "SH_H_DayOfDead", partyHour = 18, morning = Remember });
-            l.Add(new Holiday { pack = "Americas", id = "FoundersDay", month = 6, day = 1, realMonth = 7, realDay = 4, thought = "SH_H_FoundersDay", partyHour = 17, eveningHour = 22, evening = Fireworks });
+            l.Add(new Holiday { pack = "Americas", culture = "modern", id = "FoundersDay", month = 6, day = 1, realMonth = 7, realDay = 4, thought = "SH_H_FoundersDay", partyHour = 17, eveningHour = 22, evening = Fireworks });
             // Europe (more)
-            l.Add(new Holiday { pack = "Europe", id = "StPatrick", month = 2, day = 3, realMonth = 3, realDay = 17, thought = "SH_H_StPatrick", partyHour = 18, morning = BeerGift });
-            l.Add(new Holiday { pack = "Europe", id = "Oktoberfest", month = 8, day = 5, realMonth = 9, realDay = 20, thought = "SH_H_Oktoberfest", partyHour = 16, morning = BeerGift });
+            l.Add(new Holiday { pack = "Europe", culture = "modern", id = "StPatrick", month = 2, day = 3, realMonth = 3, realDay = 17, thought = "SH_H_StPatrick", partyHour = 18, morning = BeerGift });
+            l.Add(new Holiday { pack = "Europe", culture = "modern", id = "Oktoberfest", month = 8, day = 5, realMonth = 9, realDay = 20, thought = "SH_H_Oktoberfest", partyHour = 16, morning = BeerGift });
             l.Add(new Holiday { pack = "Europe", id = "StMartin", month = 10, day = 3, realMonth = 11, realDay = 11, thought = "SH_H_StMartin", partyHour = 17 });
+            // 0.5.0: the old festivals of tribal colonies (with the culture setting on "auto" only for them)
+            l.Add(new Holiday { culture = "tribal", id = "SpringEquinox", month = 2, day = 1, realMonth = 3, realDay = 20, thought = "SH_H_SpringEquinox", partyHour = 17 });
+            l.Add(new Holiday { culture = "tribal", id = "WinterSolstice", month = 11, day = 3, realMonth = 12, realDay = 21, thought = "SH_H_WinterSolstice", partyHour = 18 });
             // small days – a message only
-            l.Add(new Holiday { pack = "Days", small = true, id = "PiDay", month = 2, day = 2, realMonth = 3, realDay = 14 });
+            l.Add(new Holiday { pack = "Days", small = true, culture = "modern", id = "PiDay", month = 2, day = 2, realMonth = 3, realDay = 14 });
             l.Add(new Holiday { pack = "Days", small = true, id = "EarthDay", month = 3, day = 4, realMonth = 4, realDay = 22 });
-            l.Add(new Holiday { pack = "Days", small = true, id = "BookDay", month = 3, day = 3, realMonth = 4, realDay = 23 });
-            l.Add(new Holiday { pack = "Days", small = true, id = "TowelDay", month = 4, day = 4, realMonth = 5, realDay = 25 });
-            l.Add(new Holiday { pack = "Days", small = true, id = "ChocolateDay", month = 6, day = 3, realMonth = 7, realDay = 7 });
+            l.Add(new Holiday { pack = "Days", small = true, culture = "modern", id = "BookDay", month = 3, day = 3, realMonth = 4, realDay = 23 });
+            l.Add(new Holiday { pack = "Days", small = true, culture = "modern", id = "TowelDay", month = 4, day = 4, realMonth = 5, realDay = 25 });
+            l.Add(new Holiday { pack = "Days", small = true, culture = "modern", id = "ChocolateDay", month = 6, day = 3, realMonth = 7, realDay = 7 });
             l.Add(new Holiday { pack = "Days", small = true, id = "CatDay", month = 7, day = 2, realMonth = 8, realDay = 8 });
             l.Add(new Holiday { pack = "Days", small = true, id = "PirateDay", month = 8, day = 2, realMonth = 9, realDay = 19 });
             l.Add(new Holiday { pack = "Days", small = true, id = "SmileDay", month = 9, day = 1, realMonth = 10, realDay = 2 });

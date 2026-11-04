@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using RimWorld.Planet;
@@ -98,13 +99,17 @@ namespace SeasonsHolidays
                 }
             }
 
+            // ---- 0.5.0: reminders, looking forward, seasonal events, decorations ----
+            try { SeasonEvents.Tick(map, month, day, hour, climate, absDay, Once); }
+            catch (Exception e) { Log.WarningOnce("[Seasons & Holidays] season events: " + e, 0x5E4508); }
+
             // ---- tips: winter is coming / the growing season starts ----
             if (SHMod.S.seasonTips && day == 3 && hour >= 10)
             {
                 if (climate == 10 && Avg(month + 1) < 5f && Avg(month + 2) < 5f && Once("TW|" + absDay))
-                    Find.LetterStack.ReceiveLetter("SH_TipWinterTitle".Translate(), "SH_TipWinter".Translate(Months.Name((month + 1) % 12), Avg(month + 2).ToStringTemperature("F0")), LetterDefOf.NeutralEvent);
+                    Notify.Send("SH_TipWinterTitle".Translate(), "SH_TipWinter".Translate(Months.Name((month + 1) % 12), Avg(month + 2).ToStringTemperature("F0")), LetterDefOf.NeutralEvent);
                 if (climate == 2 && Avg(month + 1) > 6f && Once("TS|" + absDay))
-                    Find.LetterStack.ReceiveLetter("SH_TipSpringTitle".Translate(), "SH_TipSpring".Translate(Months.Name((month + 1) % 12)), LetterDefOf.NeutralEvent);
+                    Notify.Send("SH_TipSpringTitle".Translate(), "SH_TipSpring".Translate(Months.Name((month + 1) % 12)), LetterDefOf.NeutralEvent);
             }
         }
 
@@ -123,15 +128,40 @@ namespace SeasonsHolidays
                 w.celebrated[h.id] = w.Count(h.id) + 1;
             int stage = Tradition.Stage(h.id);
             if (h.thought != null)
-                foreach (Pawn p in Holidays.Colonists(map))
-                    if (h.who == null || h.who(p)) Holidays.GiveThought(p, h.thought, stage);
+            {
+                var ps = Holidays.Colonists(map);
+                float factor = SHMod.Mood(h.id);
+                foreach (Pawn p in ps)
+                {
+                    if (h.who != null && !h.who(p)) continue;
+                    Holidays.GiveThought(p, h.thought, stage, factor);
+                    if (w != null && factor > 0f) w.Enjoy(p, h.id);   // 0.5.0: remembered for next year
+                    // 0.5.0: family tradition – celebrated together with a partner, a parent or a child
+                    if (SHMod.S.traditions && SHMod.S.familyTradition && Family(p, ps))
+                        Holidays.GiveThought(p, "SH_FamilyTogether", Mathf.Clamp(Tradition.Count(h.id) - 1, 0, 2), factor);
+                }
+            }
             try { h.morning?.Invoke(map); } catch (Exception e) { Log.Warning("[Seasons & Holidays] " + h.id + ": " + e.Message); }
             try { Activities.Morning(map, h); } catch (Exception e) { Log.Warning("[Seasons & Holidays] activity " + h.id + ": " + e.Message); }   // 0.4.0
+            try { SeasonEvents.Visitors(map, h); } catch (Exception e) { Log.Warning("[Seasons & Holidays] visitors " + h.id + ": " + e.Message); }   // 0.5.0
             string text = ("SH_HL_" + h.id).Translate();
             int n = Tradition.Count(h.id);
             if (SHMod.S.traditions && n >= 2) text += "\n\n" + "SH_TraditionNote".Translate(n);
-            if (SHMod.S.letters) Find.LetterStack.ReceiveLetter(h.Label, text, LetterDefOf.PositiveEvent);
+            if (SHMod.S.letters) Notify.Send(h.Label, text, LetterDefOf.PositiveEvent);
             else Messages.Message(h.Label + ": " + text, MessageTypeDefOf.PositiveEvent);
+        }
+
+        private static bool Family(Pawn p, List<Pawn> ps)
+        {
+            if (p.relations == null) return false;
+            Pawn lover = LovePartnerRelationUtility.ExistingMostLikedLovePartner(p, false);
+            if (lover != null && ps.Contains(lover)) return true;
+            foreach (Pawn o in ps)
+            {
+                if (o == p) continue;
+                if (p.relations.DirectRelationExists(PawnRelationDefOf.Parent, o) || o.relations != null && o.relations.DirectRelationExists(PawnRelationDefOf.Parent, p)) return true;
+            }
+            return false;
         }
 
         private void Party(Pawn organizer)

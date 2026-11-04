@@ -3,7 +3,7 @@
   <name>Seasons &amp; Holidays – 12 Months, Real Holidays &amp; Weather</name>
   <author>Bolek98</author>
   <packageId>misak.seasonsholidays</packageId>
-  <modVersion>0.4.1</modVersion>
+  <modVersion>0.5.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -18,15 +18,83 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>The RimWorld year as 12 real months, with real holidays, weather by month and a calendar.
+  <description>The RimWorld year as 12 real months – with real holidays from around the world, things to do on them, holiday food, decorations, weather by month and a calendar. Every part can be switched off, and "Recommended settings" set everything up for you.
 
-- 12 months of 5 days (Aprimay = March–May …), the date shows "December 4". Play from the game year 5500, from year 0 or year 1.
-- 15 holidays, Czech and international: New Year, Valentine's Day, Carnival, Easter, Witches' Night, May Day, Children's Day, Midsummer, Harvest Festival, Halloween, All Souls' Day, Thanksgiving, St. Nicholas, Christmas, New Year's Eve – moods, parties, gifts, fireworks, a white Christmas.
-- Traditions: a holiday celebrated again next year gives more mood.
+CALENDAR
+- 12 months (Aprimay = March–May …), the date shows "December 4". Play from the game year 5500, from year 0 or year 1.
+- Year length 60 (game), 120, 180 or 365 days – holidays on their real dates, colonists can age with the year.
+- Calendar tab: the whole year with temperatures, growing season, holidays and birthdays. Click a day for details – celebrate a holiday or throw a birthday party right there.
+- Upcoming holidays and birthdays in the header, and a reminder a few days before a holiday.
+
+HOLIDAYS
+- 15 base holidays: New Year, Valentine's Day, Carnival, Easter, Witches' Night, May Day, Children's Day, Midsummer, Harvest Festival, Halloween, All Souls' Day, Thanksgiving, St. Nicholas, Christmas, New Year's Eve.
+- World packs: Lunar New Year, Holi, Diwali, Mid-Autumn Festival, Day of the Dead, Founders' Day, St. Patrick's Day, Oktoberfest, St. Martin's Day, plus small fun days (Pi Day, Towel Day …).
+- Holidays by culture: tribal colonies keep the old festivals (spring equinox, Yule) and skip the modern ones – or choose all / your own list.
+- Traditions: a holiday celebrated again gives more mood, colonists look forward to holidays they enjoyed, and families celebrating together feel it even more.
+- Friendly neighbours sometimes come to celebrate with you and bring gifts.
+
+ACTIVITIES
+- On the morning of a holiday a letter offers something to do: egg hunt, witch bonfire, maypole (guard it at night!), carols at the Christmas tree, trick-or-treaters, St. Nicholas with the angel and the devil …
+- New in the world packs: red lanterns and envelopes, a Holi colour fight, Diwali lamps and sweets, mooncakes under the moon, an altar where colonists remember the colony's dead by name, a Founders' Day speech (the better the speaker, the better the mood), a green party, an Oktoberfest beer contest, a St. Martin's lantern walk with a goose dinner, a Yule fire.
+
+FOOD &amp; DECORATIONS
+- Holiday recipes at the stove: dyed Easter eggs, Christmas cookies, mulled wine, pumpkin pie (from pumpkins if a mod adds them), New Year's punch, mooncakes, Diwali sweets – extra mood when eaten in their season.
+- Decorations to build (Misc): Christmas tree, Christmas wreath, light garland, carved pumpkin, maypole. After their season you get a reminder – or they are marked to be packed away.
+
+WEATHER &amp; PLANTS
+- Weather by month and new weathers: hoarfrost, Indian summer, spring showers and more.
+- Trees and grass change colour with the seasons (looks only – growth is unchanged).
+
+EVENTS
 - Birthdays, first snow, spring and summer moods, winter blues.
-- Weather by month and three new weathers: hoarfrost, Indian summer, spring showers.
-- Calendar tab: the whole year, temperatures, growing season, holidays and birthdays.
+- Spring thaw (mud by the water), the autumn harvest market, cozy winter evenings by the fire, summer mosquitoes in hot humid places.
+
+SETTINGS
+- Every holiday on/off with its own mood strength (0–200 %), every activity on/off.
+- Quiet mode: only short messages instead of letters.
 - Optional: holidays by the real date of your computer.
 
-Safe to add to an existing save. Requires Harmony. English and Czech.</description>
+Safe to add to an existing save. Requires Harmony. RimWorld 1.6 and 1.7. English and Czech.
+Found a bug? Use "Report a bug" (bottom left in the settings) and post it in the comments – ideas are welcome too.
+
+---
+
+Rok v RimWorldu jako 12 skutečných měsíců – se skutečnými svátky z celého světa, sváteční zábavou, jídlem, dekoracemi, počasím podle měsíců a kalendářem. Každou část lze vypnout a „Doporučené nastavení“ vše připraví za tebe.
+
+KALENDÁŘ
+- 12 měsíců (Aprimay = březen–květen …), datum ukazuje „4. prosince“. Hraj od herního roku 5500, od roku 0 nebo od roku 1.
+- Délka roku 60 (hra), 120, 180 nebo 365 dní – svátky ve skutečných dnech, kolonisté můžou stárnout s rokem.
+- Záložka Kalendář: celý rok s teplotami, vegetačním obdobím, svátky a narozeninami. Klikni na den a uvidíš podrobnosti – rovnou odtud oslavíš svátek nebo uspořádáš narozeninovou oslavu.
+- Nadcházející svátky a narozeniny nahoře a připomenutí pár dní před svátkem.
+
+SVÁTKY
+- 15 základních svátků: Nový rok, Valentýn, Masopust, Velikonoce, Pálení čarodějnic, První máj, Den dětí, Slunovrat, Dožínky, Halloween, Dušičky, Díkůvzdání, Mikuláš, Vánoce, Silvestr.
+- Svátky světa: Lunární Nový rok, Holi, Diválí, Svátek středu podzimu, Den mrtvých, Den založení, Den sv. Patrika, Oktoberfest, Svatý Martin a malé zábavné dny (Den pí, Den ručníků …).
+- Svátky podle kultury: kmenové kolonie slaví staré svátky (jarní rovnodennost, zimní slunovrat) a moderní vynechají – nebo si vyber vše / vlastní seznam.
+- Tradice: svátek slavený znovu dá víc nálady, kolonisté se těší na svátky, které si loni užili, a rodiny slavící spolu to cítí ještě víc.
+- Přátelští sousedé občas přijdou slavit s vámi a přinesou dárky.
+
+SVÁTEČNÍ ZÁBAVA
+- Ráno ve svátek přijde dopis s nabídkou: hledání vajíček, pálení čarodějnice, májka (v noci ji hlídej!), koledy u stromečku, koledníci o Halloweenu, Mikuláš s andělem a čertem …
+- Nově ve svátcích světa: červené lucerny a obálky, bitva barev o Holi, lampičky a sladkosti o Diválí, měsíční koláčky pod měsícem, oltář, kde kolonisté jménem vzpomínají na mrtvé kolonie, proslov ke Dni založení (čím lepší řečník, tím lepší nálada), zelená oslava, pivní soutěž na Oktoberfestu, svatomartinský lampionový průvod s husou, slunovratový oheň.
+
+JÍDLO A DEKORACE
+- Sváteční recepty u sporáku: velikonoční vajíčka, vánoční cukroví, svařák, dýňový koláč (z dýní, když je přidá nějaký mod), silvestrovský punč, měsíční koláčky, diválí sladkosti – navíc nálada, když se snědí v sezóně.
+- Dekorace ke stavění (Různé): vánoční stromek, adventní věnec, světelný řetěz, vyřezaná dýně, májka. Po sezóně přijde připomenutí – nebo se samy označí k uklizení.
+
+POČASÍ A ROSTLINY
+- Počasí podle měsíců a nová počasí: jinovatka, babí léto, jarní přeháňky a další.
+- Stromy a tráva mění barvu podle ročních období (jen vzhled – růst se nemění).
+
+UDÁLOSTI
+- Narozeniny, první sníh, jarní a letní nálady, zimní splín.
+- Jarní tání (bláto u vody), podzimní dožínkový trh, útulné zimní večery u ohně, letní komáři v horkých vlhkých krajích.
+
+NASTAVENÍ
+- Každý svátek zapnout/vypnout s vlastní silou nálady (0–200 %), každou zábavu zapnout/vypnout.
+- Tichý režim: jen krátké zprávy místo dopisů.
+- Volitelně: svátky podle skutečného data tvého počítače.
+
+Lze přidat do rozehrané hry. Vyžaduje Harmony. RimWorld 1.6 a 1.7. Angličtina a čeština.
+Našel jsi chybu? Použij „Nahlásit chybu“ (vlevo dole v nastavení) a napiš ji do komentářů – nápady jsou taky vítané.</description>
 </ModMetaData>

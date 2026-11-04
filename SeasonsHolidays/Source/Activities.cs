@@ -17,7 +17,7 @@ namespace SeasonsHolidays
     // the New Year hangover). Every activity can be switched off in the settings, and the calendar
     // has a "Celebrate" button to start one by hand.
     // ---------------------------------------------------------------------------
-    public static class Activities
+    public static partial class Activities
     {
         // holidays that offer an activity in a letter
         private static readonly HashSet<string> Offered = new HashSet<string>
@@ -29,7 +29,7 @@ namespace SeasonsHolidays
         // holidays whose activity runs by itself on the morning
         private static readonly HashSet<string> Quiet = new HashSet<string> { "NewYear", "AllSouls", "StNicholas", "NewYearsEve" };
 
-        public static bool Has(string id) => Offered.Contains(id) || Quiet.Contains(id);
+        public static bool Has(string id) => Offered.Contains(id) || Quiet.Contains(id) || PackIds.Contains(id);   // 0.5.0: + world packs
 
         public static bool On(string id) =>
             SHMod.S != null && SHMod.S.activities && Has(id) && !SHMod.S.actOff.Contains(id);
@@ -46,6 +46,8 @@ namespace SeasonsHolidays
             if (SHMod.S.holidayTrader && (h.id == "Christmas" || h.id == "Easter")) Trader(map);
             if (!On(h.id)) return;
             if (Quiet.Contains(h.id)) { Run(map, h.id, false); return; }
+            // 0.5.0: quiet mode – no letter, the activity waits in the calendar (▶)
+            if (Notify.Quiet) { Messages.Message("SH_ActQuiet".Translate(h.Label, Label(h.id)), MessageTypeDefOf.NeutralEvent, false); return; }
             ChoiceLetter_SHActivity l = (ChoiceLetter_SHActivity)LetterMaker.MakeLetter(
                 "SH_ActTitle".Translate(h.Label), ("SH_ActOffer_" + h.id).Translate(), DefDatabase<LetterDef>.GetNamed("SH_ActivityLetter"), (LookTargets)null);
             l.map = map;
@@ -59,7 +61,7 @@ namespace SeasonsHolidays
         {
             if (map == null || Holidays.Colonists(map).Count == 0) return;
             // the bonfires burn in the evening: accepted in the morning, they are lit at 7 pm
-            if (!manual && (id == "Witches" || id == "Solstice") && GenLocalDate.HourOfDay(map) < 18)
+            if (!manual && Evening.Contains(id) && GenLocalDate.HourOfDay(map) < 18)
             {
                 int hour = GenLocalDate.HourOfDay(map);
                 W.Schedule(map, Now + (19 - hour) * 2500, "Run", id);
@@ -85,6 +87,7 @@ namespace SeasonsHolidays
                     case "StNicholas": Nicholas(map); break;
                     case "Christmas": Carols(map); break;
                     case "NewYearsEve": NewYearsEve(map, manual); break;
+                    default: RunPack(map, id); break;   // 0.5.0
                 }
             }
             catch (Exception e) { Log.Warning("[Seasons & Holidays] activity " + id + ": " + e.Message); }
@@ -165,7 +168,7 @@ namespace SeasonsHolidays
 
         private static void Letter(string key, LookTargets look, params NamedArgument[] args)
         {
-            Find.LetterStack.ReceiveLetter(("SH_ActDoneTitle_" + key).Translate(), ("SH_ActDone_" + key).Translate(args), LetterDefOf.PositiveEvent, look);
+            Notify.Send(("SH_ActDoneTitle_" + key).Translate(), ("SH_ActDone_" + key).Translate(args), LetterDefOf.PositiveEvent, look);
         }
 
         private static List<Pawn> Couples(Map map)
@@ -280,7 +283,7 @@ namespace SeasonsHolidays
             {
                 pole.Destroy(DestroyMode.Vanish);
                 Thought(ps, "SH_MaypoleStolen");
-                Find.LetterStack.ReceiveLetter("SH_ActDoneTitle_MaypoleStolen".Translate(), "SH_ActDone_MaypoleStolen".Translate(thief.Name.Named("FACTION")), LetterDefOf.NeutralEvent);
+                Notify.Send("SH_ActDoneTitle_MaypoleStolen".Translate(), "SH_ActDone_MaypoleStolen".Translate(thief.Name.Named("FACTION")), LetterDefOf.NeutralEvent);
             }
             else
             {
@@ -396,7 +399,7 @@ namespace SeasonsHolidays
                 }
                 catch (Exception e) { Log.Warning("[Seasons & Holidays] trick-or-treat: " + e.Message); }
             }
-            Find.LetterStack.ReceiveLetter("SH_ActDoneTitle_Halloween".Translate(), "SH_ActDone_Halloween".Translate(lit) + (extra.NullOrEmpty() ? "" : "\n\n" + extra), LetterDefOf.PositiveEvent, new LookTargets(mid, map));
+            Notify.Send("SH_ActDoneTitle_Halloween".Translate(), "SH_ActDone_Halloween".Translate(lit) + (extra.NullOrEmpty() ? "" : "\n\n" + extra), LetterDefOf.PositiveEvent, new LookTargets(mid, map));
         }
 
         // sweets from the colony's storage for the trick-or-treaters
@@ -425,7 +428,7 @@ namespace SeasonsHolidays
             Pawn p = Holidays.Colonists(map).RandomElementWithFallback();
             if (p == null) return;
             Holidays.GiveThought(p, "SH_GhostSighting", 0);
-            Find.LetterStack.ReceiveLetter("SH_GhostTitle".Translate(), "SH_Ghost".Translate(p.LabelShort), LetterDefOf.NeutralEvent, p);
+            Notify.Send("SH_GhostTitle".Translate(), "SH_Ghost".Translate(p.LabelShort), LetterDefOf.NeutralEvent, p);
         }
 
         // All Souls' Day: a candle beside every grave with somebody in it

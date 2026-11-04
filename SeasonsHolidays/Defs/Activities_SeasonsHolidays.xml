@@ -57,6 +57,11 @@
       <tasteThought>SH_EasterEggTaste</tasteThought>
       <ingestSound>Meal_Eat</ingestSound>
     </ingestible>
+    <comps>
+      <li Class="SeasonsHolidays.CompProperties_SHSeasonalFood">
+        <months><li>2</li><li>3</li></months>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
@@ -295,6 +300,10 @@
     <scatterableOnMapGen>false</scatterableOnMapGen>
     <designationCategory>Misc</designationCategory>
     <uiOrder>2100</uiOrder>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsFurniture</li>
+    </thingCategories>
     <costList>
       <WoodLog>40</WoodLog>
     </costList>
@@ -302,6 +311,7 @@
       <MaxHitPoints>100</MaxHitPoints>
       <WorkToBuild>1200</WorkToBuild>
       <Beauty>22</Beauty>
+      <Mass>10</Mass>
       <Flammability>1</Flammability>
     </statBases>
     <building>
@@ -315,6 +325,11 @@
       </li>
       <li><compClass>CompGatherSpot</compClass></li>
     </comps>
+    <modExtensions>
+      <li Class="SeasonsHolidays.SHSeasonDeco">
+        <months><li>11</li><li>0</li></months>
+      </li>
+    </modExtensions>
   </ThingDef>
 
   <!-- ===== the holiday trader ===== -->

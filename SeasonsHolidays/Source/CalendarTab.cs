@@ -49,6 +49,9 @@ namespace SeasonsHolidays
                 if (d < inDays) { inDays = d; next = h; }
             }
             string sub = next == null ? "" : inDays == 0 ? "SH_TabHolidayToday".Translate(next.Label).ToString() : "SH_TabNext".Translate(next.Label, inDays).ToString();
+            // 0.5.0: what comes after it (holidays and birthdays)
+            string later = Upcoming(map, todayDoy, yearDays, lon, next);
+            if (!later.NullOrEmpty()) sub += "   ·   " + "SH_TabUpcoming".Translate(later);
             if (SHMod.S.realDate) sub += "   " + "SH_TabRealDate".Translate();
             GUI.color = Gold;
             Widgets.Label(new Rect(r.x + 10f, r.y + 40f, r.width - 20f, 24f), sub);
@@ -63,6 +66,26 @@ namespace SeasonsHolidays
                 Rect c = new Rect(r.x + 10f + (m % 4) * (gw + 10f), top + (m / 4) * (gh + 10f), gw, gh);
                 DrawMonth(c, map, m, m == month ? day : 0, lat, births.TryGetValue(m, out var b) ? b : null);
             }
+        }
+
+        private static string Upcoming(Map map, int todayDoy, int yearDays, float lon, Holiday skip)
+        {
+            var ev = new List<(int d, string t)>();
+            foreach (var kv in dates)
+            {
+                Holiday h = kv.Key;
+                if (h == skip || h.small || !Holidays.On(h)) continue;
+                int d = (YearClock.ToDayOfYear(kv.Value.m, kv.Value.d) - todayDoy + yearDays) % yearDays;
+                if (d > 0) ev.Add((d, h.Label));
+            }
+            if (SHMod.S.birthdays)
+                foreach (Pawn p in map.mapPawns.FreeColonistsSpawned)
+                {
+                    if (p.ageTracker == null) continue;
+                    int d = (YearClock.DayOfYear(p.ageTracker.BirthAbsTicks, lon) - todayDoy + yearDays) % yearDays;
+                    if (d > 0) ev.Add((d, "SH_TabBirthday".Translate(p.LabelShort).ToString()));
+                }
+            return string.Join(", ", ev.OrderBy(e => e.d).Take(3).Select(e => "SH_TabInDays".Translate(e.t, e.d).ToString()));
         }
 
         private static Dictionary<int, List<(int day, Pawn p)>> BirthdaysByMonth(Map map, float lon)
@@ -111,6 +134,14 @@ namespace SeasonsHolidays
                 bool hol = Holidays.All.Any(h => Holidays.On(h) && dates.TryGetValue(h, out var hd) && hd.m == m && hd.d == d);
                 bool bday = births != null && births.Any(b => b.day == d);
                 Widgets.DrawBoxSolid(dr, d == today ? Green : hol ? new Color(0.45f, 0.36f, 0.12f) : bday ? new Color(0.18f, 0.30f, 0.45f) : new Color(1f, 1f, 1f, 0.06f));
+                // 0.5.0: click a day for its details
+                if (Mouse.IsOver(dr)) Widgets.DrawHighlight(dr);
+                if (Widgets.ButtonInvisible(dr))
+                {
+                    var hs = Holidays.All.Where(h => dates.TryGetValue(h, out var hd1) && hd1.m == m && hd1.d == d).ToList();
+                    var bs = births == null ? new List<Pawn>() : births.Where(b => b.day == d).Select(b => b.p).ToList();
+                    Find.WindowStack.Add(new Dialog_SHDay(map, m, d, hs, bs, d == today));
+                }
                 GUI.color = d == today ? Color.black : Color.white;
                 Text.Anchor = TextAnchor.MiddleCenter;
                 Widgets.Label(dr, d.ToString());
@@ -154,6 +185,82 @@ namespace SeasonsHolidays
                 }
             GUI.color = Color.white;
             Text.Font = GameFont.Small;
+        }
+    }
+
+    // 0.5.0: one day of the calendar – its holidays (with ▶ celebrate) and birthdays (throw a party)
+    public class Dialog_SHDay : Window
+    {
+        private readonly Map map;
+        private readonly int month, day;
+        private readonly List<Holiday> hols;
+        private readonly List<Pawn> births;
+        private readonly bool today;
+        private Vector2 scroll;
+
+        public Dialog_SHDay(Map map, int month, int day, List<Holiday> hols, List<Pawn> births, bool today)
+        {
+            this.map = map; this.month = month; this.day = day; this.hols = hols; this.births = births; this.today = today;
+            doCloseX = true;
+            closeOnClickedOutside = true;
+            absorbInputAroundWindow = true;
+        }
+
+        public override Vector2 InitialSize => new Vector2(520f, 420f);
+
+        public override void DoWindowContents(Rect r)
+        {
+            Text.Font = GameFont.Medium;
+            Widgets.Label(new Rect(r.x, r.y, r.width - 30f, 34f), Months.DayLabel(month, day).CapitalizeFirst() + (today ? "  (" + "SH_DayToday".Translate() + ")" : ""));
+            Text.Font = GameFont.Small;
+            float temp = GenTemperature.AverageTemperatureAtTileForTwelfth(map.Tile, Months.TwelfthOf(month));
+            GUI.color = new Color(0.63f, 0.65f, 0.68f);
+            Widgets.Label(new Rect(r.x, r.y + 34f, r.width, 24f), "SH_DayTemp".Translate(temp.ToStringTemperature("F0")));
+            GUI.color = Color.white;
+            Rect outR = new Rect(r.x, r.y + 64f, r.width, r.height - 64f);
+            Rect view = new Rect(0f, 0f, outR.width - 16f, 40f + hols.Count * 96f + births.Count * 40f);
+            Widgets.BeginScrollView(outR, ref scroll, view);
+            float y = 0f;
+            if (hols.Count == 0 && births.Count == 0) { Widgets.Label(new Rect(0f, 0f, view.width, 26f), "SH_DayNothing".Translate()); }
+            foreach (Holiday h in hols)
+            {
+                bool on = Holidays.On(h);
+                GUI.color = on ? new Color32(240, 190, 70, 255) : new Color(0.63f, 0.65f, 0.68f);
+                Widgets.Label(new Rect(0f, y, view.width - 130f, 24f), h.Label + (on ? "" : " (" + "SH_TabOff".Translate() + ")"));
+                GUI.color = Color.white;
+                if (on && Activities.On(h.id))
+                {
+                    Holiday hh = h;
+                    if (Widgets.ButtonText(new Rect(view.width - 126f, y, 126f, 26f), "SH_DayCelebrate".Translate()))
+                        Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("SH_ActConfirm".Translate(hh.Label, Activities.Label(hh.id)), () => Activities.Run(map, hh.id, true)));
+                }
+                Text.Font = GameFont.Tiny;
+                string desc = h.Desc + (Activities.Has(h.id) ? "\n" + "SH_DayActivity".Translate(Activities.Label(h.id)) : "");
+                float dh = Text.CalcHeight(desc, view.width);
+                Widgets.Label(new Rect(0f, y + 26f, view.width, dh), desc);
+                Text.Font = GameFont.Small;
+                y += 30f + dh + 10f;
+            }
+            foreach (Pawn p in births)
+            {
+                GUI.color = new Color32(110, 165, 225, 255);
+                Widgets.Label(new Rect(0f, y + 3f, view.width - 160f, 24f), "SH_TabBirthday".Translate(p.LabelShort) + " (" + (p.ageTracker.AgeBiologicalYears + (today ? 0 : 1)) + ")");
+                GUI.color = Color.white;
+                bool can = p.Spawned && p.Map == map && !p.Downed && !p.InMentalState && GatheringDefOf.Party?.Worker != null
+                    && GatheringDefOf.Party.Worker.CanExecute(map, p) && !Activities.GatheringRunning(map);
+                Rect b = new Rect(view.width - 156f, y, 156f, 28f);
+                if (Widgets.ButtonText(b, "SH_DayParty".Translate(), true, true, can))
+                {
+                    try
+                    {
+                        if (GatheringDefOf.Party.Worker.TryExecute(map, p)) Close();
+                    }
+                    catch (System.Exception e) { Log.Warning("[Seasons & Holidays] birthday party: " + e.Message); }
+                }
+                if (!can) TooltipHandler.TipRegion(b, "SH_DayPartyNo".Translate());
+                y += 36f;
+            }
+            Widgets.EndScrollView();
         }
     }
 }

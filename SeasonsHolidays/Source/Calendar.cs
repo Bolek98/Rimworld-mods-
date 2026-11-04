@@ -45,6 +45,21 @@ namespace SeasonsHolidays
         public bool activities = true;        // 0.4.0: holiday activities (egg hunt, witch bonfire, maypole …)
         public bool holidayTrader = true;     // 0.4.0: a trader with seasonal goods at Christmas and Easter
         public List<string> actOff = new List<string>();   // 0.4.0: activities switched off one by one
+        // 0.5.0
+        public bool seasonalFood = true;      // holiday food gives a mood bonus in its season
+        public int packAway = 1;              // decorations after their season: 0 nothing, 1 a reminder, 2 mark them to uninstall
+        public int remindDays = 1;            // a message this many days before a holiday (0 off)
+        public int cultureMode = 0;           // 0 auto by the colony's culture, 1 all holidays, 2 only my list
+        public bool holidayVisitors = true;   // friendly neighbours sometimes visit with gifts
+        public bool seasonalEvents = true;
+        public bool springThaw = true;
+        public bool harvestMarket = true;
+        public bool cozyEvenings = true;
+        public bool summerInsects = true;
+        public bool lookForward = true;       // "looking forward to …" before a holiday enjoyed last year
+        public bool familyTradition = true;   // more mood when celebrated with family
+        public bool quietMode = false;        // messages instead of letters
+        public Dictionary<string, float> moodMul = new Dictionary<string, float>();   // mood strength per holiday
 
         public override void ExposeData()
         {
@@ -76,6 +91,21 @@ namespace SeasonsHolidays
             Scribe_Values.Look(ref activities, "activities", true);
             Scribe_Values.Look(ref holidayTrader, "holidayTrader", true);
             Scribe_Collections.Look(ref actOff, "actOff", LookMode.Value);
+            Scribe_Values.Look(ref seasonalFood, "seasonalFood", true);
+            Scribe_Values.Look(ref packAway, "packAway", 1);
+            Scribe_Values.Look(ref remindDays, "remindDays", 1);
+            Scribe_Values.Look(ref cultureMode, "cultureMode", 0);
+            Scribe_Values.Look(ref holidayVisitors, "holidayVisitors", true);
+            Scribe_Values.Look(ref seasonalEvents, "seasonalEvents", true);
+            Scribe_Values.Look(ref springThaw, "springThaw", true);
+            Scribe_Values.Look(ref harvestMarket, "harvestMarket", true);
+            Scribe_Values.Look(ref cozyEvenings, "cozyEvenings", true);
+            Scribe_Values.Look(ref summerInsects, "summerInsects", true);
+            Scribe_Values.Look(ref lookForward, "lookForward", true);
+            Scribe_Values.Look(ref familyTradition, "familyTradition", true);
+            Scribe_Values.Look(ref quietMode, "quietMode", false);
+            Scribe_Collections.Look(ref moodMul, "moodMul", LookMode.Value, LookMode.Value);
+            if (moodMul == null) moodMul = new Dictionary<string, float>();
             if (actOff == null) actOff = new List<string>();
             if (off == null) off = new List<string>();
         }
@@ -83,7 +113,10 @@ namespace SeasonsHolidays
 
     public class SHMod : Mod
     {
-        public const string Version = "0.4.1";
+        public const string Version = "0.5.0";
+
+        public static float Mood(string id) => S?.moodMul != null && S.moodMul.TryGetValue(id, out float f) ? f : 1f;
+        private static readonly float[] MoodSteps = { 0f, 0.5f, 1f, 1.5f, 2f };
         public static SHSettings S;
         private static List<string> recBullets;
         private static Vector2 scroll;
@@ -91,7 +124,7 @@ namespace SeasonsHolidays
         public SHMod(ModContentPack content) : base(content)
         {
             S = GetSettings<SHSettings>();
-            MUI.Init(new SHSettings(), null, "recommended", "yearMode", "off", "realDate", "yearDays", "ageWithYear", "actOff");
+            MUI.Init(new SHSettings(), null, "recommended", "yearMode", "off", "realDate", "yearDays", "ageWithYear", "actOff", "moodMul");
             if (S.recommended) MUI.ApplyAll(S);
             MNews.Register(content, Version);
             var h = new Harmony("misak.seasonsholidays");
@@ -110,7 +143,7 @@ namespace SeasonsHolidays
         {
             MUI.Version(r, "v" + Version + " · Bolek98");
             if (recBullets == null)
-                recBullets = new List<string> { "SH_Rec1".Translate(), "SH_Rec2".Translate(), "SH_Rec3".Translate() };
+                recBullets = new List<string> { "SH_Rec1".Translate(), "SH_Rec2".Translate(), "SH_Rec3".Translate(), "SH_Rec4".Translate() };
             float y = r.y;
             y += MUI.RecommendedCard(new Rect(r.x, y, r.width, 0f), S, S.recommended, v => { S.recommended = v; if (v) MUI.ApplyAll(S); }, recBullets) + 6f;
             // the year numbering is always yours
@@ -154,7 +187,7 @@ namespace SeasonsHolidays
             }
             if (S.recommended) y += MUI.LockNote(new Rect(r.x, y, r.width, 0f)) + 4f;
             Rect rest = new Rect(r.x, y, r.width, r.yMax - y);
-            Rect view = new Rect(0f, 0f, rest.width - 16f, 1500f + Holidays.All.Count * 26f);
+            Rect view = new Rect(0f, 0f, rest.width - 16f, 2300f + Holidays.All.Count * 54f);
             MUI.BeginLock(S.recommended);
             Widgets.BeginScrollView(rest, ref scroll, view);
             try
@@ -164,14 +197,20 @@ namespace SeasonsHolidays
                 MUI.Section(l, "SH_SecCalendar".Translate());
                 Check(l, "SH_CalendarDate", ref S.calendarDate, "calendarDate");
                 Check(l, "SH_SeasonTips", ref S.seasonTips, "seasonTips");
+                S.remindDays = IntRow(l, "SH_RemindDays", S.remindDays, new[] { 0, 1, 2, 3, 5 }, v => v == 0 ? "SH_Off".Translate().ToString() : v.ToString());
                 MUI.Section(l, "SH_SecHolidays".Translate());
                 Check(l, "SH_Holidays", ref S.holidays, "holidays");
                 Check(l, "SH_Parties", ref S.parties, "parties");
                 Check(l, "SH_Gifts", ref S.gifts, "gifts");
                 Check(l, "SH_Events", ref S.events, "events");
                 Check(l, "SH_Letters", ref S.letters, "letters");
+                Check(l, "SH_QuietMode", ref S.quietMode, "quietMode");
+                Check(l, "SH_HolidayVisitors", ref S.holidayVisitors, "holidayVisitors");
+                S.cultureMode = IntRow(l, "SH_CultureMode", S.cultureMode, new[] { 0, 1, 2 }, v => ("SH_Culture" + v).Translate().ToString());
                 Check(l, "SH_Birthdays", ref S.birthdays, "birthdays");
                 Check(l, "SH_Traditions", ref S.traditions, "traditions");
+                Check(l, "SH_LookForward", ref S.lookForward, "lookForward");
+                Check(l, "SH_FamilyTradition", ref S.familyTradition, "familyTradition");
                 Check(l, "SH_Activities", ref S.activities, "activities");
                 Check(l, "SH_HolidayTrader", ref S.holidayTrader, "holidayTrader");
                 Check(l, "SH_PackAsia", ref S.packAsia, "packAsia");
@@ -188,6 +227,19 @@ namespace SeasonsHolidays
                 bool pc = S.plantColors;
                 Check(l, "SH_PlantColors", ref S.plantColors, "plantColors");
                 if (pc != S.plantColors) PlantColors.RefreshAll();
+                // 0.5.0: food, decorations and seasonal events
+                MUI.Section(l, "SH_SecFood".Translate());
+                Check(l, "SH_SeasonalFood", ref S.seasonalFood, "seasonalFood");
+                S.packAway = IntRow(l, "SH_PackAway", S.packAway, new[] { 0, 1, 2 }, v => ("SH_PackAway" + v).Translate().ToString());
+                MUI.Section(l, "SH_SecEvents".Translate());
+                Check(l, "SH_SeasonalEvents", ref S.seasonalEvents, "seasonalEvents");
+                if (S.seasonalEvents)
+                {
+                    Check(l, "SH_SpringThaw", ref S.springThaw, "springThaw");
+                    Check(l, "SH_HarvestMarket", ref S.harvestMarket, "harvestMarket");
+                    Check(l, "SH_CozyEvenings", ref S.cozyEvenings, "cozyEvenings");
+                    Check(l, "SH_SummerInsects", ref S.summerInsects, "summerInsects");
+                }
                 MUI.Section(l, "SH_SecMoods".Translate());
                 Check(l, "SH_SeasonalMoods", ref S.seasonalMoods, "seasonalMoods");
                 Check(l, "SH_WinterBlues", ref S.winterBlues, "winterBlues");
@@ -205,7 +257,25 @@ namespace SeasonsHolidays
                 {
                     bool on = !S.off.Contains(hd.id);
                     Holidays.DateOf(hd, Holidays.YearNow(), out int hm, out int hdd);
-                    l.CheckboxLabeled(hd.Label + "  –  " + Months.DayLabel(hm, hdd), ref on, hd.Desc);
+                    // 0.5.0: the mood strength on the right (small days have no mood)
+                    Rect row = l.GetRect(26f);
+                    Rect cb = hd.small ? row : new Rect(row.x, row.y, row.width - 130f, row.height);
+                    string tag = hd.culture == "tribal" ? "  (" + "SH_CultureTribal".Translate() + ")" : "";
+                    Widgets.CheckboxLabeled(cb, hd.Label + "  –  " + Months.DayLabel(hm, hdd) + tag, ref on);
+                    TooltipHandler.TipRegion(cb, hd.Desc);
+                    if (!hd.small)
+                    {
+                        float cur = Mood(hd.id);
+                        Rect mb = new Rect(row.xMax - 120f, row.y + 1f, 120f, 24f);
+                        if (Widgets.ButtonText(mb, "SH_MoodN".Translate(Mathf.RoundToInt(cur * 100f))))
+                        {
+                            int i = Array.IndexOf(MoodSteps, cur);
+                            float next = MoodSteps[(i < 0 ? 2 : i + 1) % MoodSteps.Length];
+                            if (Mathf.Approximately(next, 1f)) S.moodMul.Remove(hd.id); else S.moodMul[hd.id] = next;
+                        }
+                        TooltipHandler.TipRegion(mb, "SH_MoodN_Desc".Translate());
+                    }
+                    l.Gap(2f);
                     if (on) S.off.Remove(hd.id);
                     else if (!S.off.Contains(hd.id)) S.off.Add(hd.id);
                 }
@@ -216,6 +286,26 @@ namespace SeasonsHolidays
                 Widgets.EndScrollView();
                 MUI.EndLock(rest);
             }
+        }
+
+        // a row of choice buttons for a number setting
+        private static int IntRow(Listing_Standard l, string key, int value, int[] options, Func<int, string> label)
+        {
+            Rect row = l.GetRect(30f);
+            Widgets.Label(new Rect(row.x, row.y + 4f, 260f, 26f), key.Translate());
+            TooltipHandler.TipRegion(new Rect(row.x, row.y, 260f, 30f), (key + "_Desc").Translate());
+            float bx = row.x + 260f;
+            foreach (int o in options)
+            {
+                string t = label(o);
+                float w = Text.CalcSize(t).x + 24f;
+                Rect b = new Rect(bx, row.y, w, 28f);
+                if (value == o) Widgets.DrawHighlightSelected(b);
+                if (Widgets.ButtonText(b, t, true, true, value != o)) value = o;
+                bx += w + 6f;
+            }
+            l.Gap(4f);
+            return value;
         }
 
         private static void Check(Listing_Standard l, string key, ref bool v, string field) =>

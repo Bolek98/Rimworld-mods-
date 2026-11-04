@@ -21,6 +21,8 @@ namespace SeasonsHolidays
         // 0.3.0: world packs – the pack it belongs to ("" = the base set) and small days (a message only)
         public string pack = "";
         public bool small;
+        // 0.5.0: culture – "" every colony, "tribal" only tribal colonies, "modern" only the others
+        public string culture = "";
 
         public string Label => ("SH_H_" + id).Translate();
         public string Desc => ("SH_HD_" + id).Translate();
@@ -43,7 +45,7 @@ namespace SeasonsHolidays
                     all = new List<Holiday>
                     {
                         new Holiday { id = "NewYear", month = 0, day = 1, realMonth = 1, realDay = 1, thought = "SH_H_NewYear", partyHour = 17, morning = Resolutions },
-                        new Holiday { id = "Valentine", month = 1, day = 3, realMonth = 2, realDay = 14, thought = "SH_H_Valentine", who = Lover },
+                        new Holiday { culture = "modern", id = "Valentine", month = 1, day = 3, realMonth = 2, realDay = 14, thought = "SH_H_Valentine", who = Lover },
                         new Holiday { id = "Carnival", month = 1, day = 5, realMonth = 2, realDay = 25, thought = "SH_H_Carnival", partyHour = 16 },
                         new Holiday { id = "Easter", month = 3, day = 2, realMonth = 0, realDay = 0, thought = "SH_H_Easter" },
                         new Holiday { id = "Witches", month = 3, day = 5, realMonth = 4, realDay = 30, thought = "SH_H_Witches", partyHour = 19 },
@@ -53,7 +55,7 @@ namespace SeasonsHolidays
                         new Holiday { id = "Harvest", month = 8, day = 4, realMonth = 9, realDay = 22, thought = null, partyHour = 17, morning = HarvestMoods },
                         new Holiday { id = "Halloween", month = 9, day = 5, realMonth = 10, realDay = 31, thought = "SH_H_Halloween", eveningHour = 19, evening = HalloweenFog },
                         new Holiday { id = "AllSouls", month = 10, day = 1, realMonth = 11, realDay = 2, thought = "SH_H_AllSouls", morning = Remember },
-                        new Holiday { id = "Thanksgiving", month = 10, day = 4, realMonth = 11, realDay = 26, thought = "SH_H_Thanksgiving", partyHour = 17 },
+                        new Holiday { culture = "modern", id = "Thanksgiving", month = 10, day = 4, realMonth = 11, realDay = 26, thought = "SH_H_Thanksgiving", partyHour = 17 },
                         new Holiday { id = "StNicholas", month = 11, day = 2, realMonth = 12, realDay = 5, thought = "SH_H_StNicholas", who = p => !Child(p), morning = NicholasGifts },
                         new Holiday { id = "Christmas", month = 11, day = 4, realMonth = 12, realDay = 24, thought = "SH_H_Christmas", partyHour = 17, morning = ChristmasGifts },
                         new Holiday { id = "NewYearsEve", month = 11, day = 5, realMonth = 12, realDay = 31, thought = "SH_H_NewYearsEve", partyHour = 20, eveningHour = 23, evening = Fireworks },
@@ -64,7 +66,10 @@ namespace SeasonsHolidays
             }
         }
 
-        public static bool On(Holiday h) => SHMod.S.holidays && !SHMod.S.off.Contains(h.id) && PackOn(h.pack);
+        // 0.5.0: cultureMode 0 auto (by the colony's culture + your list), 1 all holidays, 2 only your list
+        public static bool On(Holiday h) => SHMod.S.holidays && PackOn(h.pack)
+            && (SHMod.S.cultureMode == 1 || !SHMod.S.off.Contains(h.id))
+            && (SHMod.S.cultureMode != 0 || Culture.Allows(h));
 
         public static Holiday Today(Map map)
         {
@@ -126,12 +131,16 @@ namespace SeasonsHolidays
         public static List<Pawn> Colonists(Map map) =>
             map.mapPawns.FreeColonistsSpawned.Where(p => p.needs?.mood != null && !p.Dead).ToList();
 
-        public static void GiveThought(Pawn p, string defName, int stage)
+        public static void GiveThought(Pawn p, string defName, int stage) => GiveThought(p, defName, stage, 1f);
+
+        // 0.5.0: with the mood strength of the holiday
+        public static void GiveThought(Pawn p, string defName, int stage, float factor)
         {
             ThoughtDef def = DefDatabase<ThoughtDef>.GetNamedSilentFail(defName);
             if (def == null || p.needs?.mood?.thoughts?.memories == null) return;
             stage = Mathf.Clamp(stage, 0, def.stages.Count - 1);
             Thought_Memory t = ThoughtMaker.MakeThought(def, stage);
+            if (factor != 1f) t.moodPowerFactor = Mathf.Max(0f, factor);
             p.needs.mood.thoughts.memories.TryGainMemory(t);
         }
 
@@ -267,6 +276,19 @@ namespace SeasonsHolidays
         // 0.4.0: activities – things to do later ("tick|map|what|arg") and short holiday bonuses
         public List<string> pending = new List<string>();
         public int romanceUntil = -1, herbUntil = -1, cropUntil = -1;
+        // 0.5.0: who enjoyed which holiday ("pawn|holiday"), the last holiday visitors
+        public List<string> enjoyed = new List<string>();
+        public int lastVisitors = -1;
+
+        public bool Enjoyed(Pawn p, string id) => enjoyed.Contains(p.thingIDNumber + "|" + id);
+
+        public void Enjoy(Pawn p, string id)
+        {
+            string k = p.thingIDNumber + "|" + id;
+            if (enjoyed.Contains(k)) return;
+            enjoyed.Add(k);
+            if (enjoyed.Count > 800) enjoyed.RemoveRange(0, enjoyed.Count - 800);
+        }
 
         public void Schedule(Map map, int tick, string what, string arg)
         {
@@ -294,6 +316,9 @@ namespace SeasonsHolidays
             Scribe_Values.Look(ref romanceUntil, "romanceUntil", -1);
             Scribe_Values.Look(ref herbUntil, "herbUntil", -1);
             Scribe_Values.Look(ref cropUntil, "cropUntil", -1);
+            Scribe_Collections.Look(ref enjoyed, "enjoyed", LookMode.Value);
+            Scribe_Values.Look(ref lastVisitors, "lastVisitors", -1);
+            if (enjoyed == null) enjoyed = new List<string>();
             if (pending == null) pending = new List<string>();
             if (celebrated == null) celebrated = new Dictionary<string, int>();
             if (done == null) done = new List<string>();
