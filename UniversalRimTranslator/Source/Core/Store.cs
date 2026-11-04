@@ -215,6 +215,29 @@ namespace Urt2
 
         // 1.1.0: machine translations that are still English (the first service gave the text back)
         // go back into the queue – now the other services get a chance too. Returns how many.
+        // 1.2.1: machine translations the check rejected ("still English", "[..] invented") are checked again with
+        // the current check once the game knows its English words; accepted ones are used at once
+        public int RecheckRejected(Func<string, string, Verdict> check)
+        {
+            var hit = new List<KeyValuePair<string, Rec>>();
+            lock (gate)
+                foreach (var kv in map)
+                {
+                    Rec r = kv.Value;
+                    if (r == null || r.Manual || r.Verdict == Verdict.Ok || string.IsNullOrEmpty(r.Auto)) continue;
+                    if (r.Verdict != Verdict.Untranslated && r.Verdict != Verdict.BrokenTokens && r.Verdict != Verdict.OddLength && r.Verdict != Verdict.WrongScript) continue;
+                    Verdict v;
+                    try { v = check(kv.Key, r.Auto); } catch { continue; }
+                    if (v != Verdict.Ok) continue;
+                    r.Verdict = Verdict.Ok;
+                    r.Text = r.Auto;
+                    hit.Add(kv);
+                }
+            foreach (var kv in hit) Append(kv.Key, kv.Value);
+            if (hit.Count > 0) Version++;
+            return hit.Count;
+        }
+
         public int FlagStillEnglish(Func<string, string, bool> stillEnglish)
         {
             var hit = new List<KeyValuePair<string, Rec>>();
@@ -294,7 +317,7 @@ namespace Urt2
                             };
                             // 1.1.1: translations rejected only by the old length/script check get checked again
                             // (the check was too strict for Chinese, Japanese and Korean)
-                            if (!r.Manual && r.Auto != null && (r.Verdict == Verdict.OddLength || r.Verdict == Verdict.WrongScript || r.Verdict == Verdict.Untranslated))
+                            if (!r.Manual && r.Auto != null && (r.Verdict == Verdict.OddLength || r.Verdict == Verdict.WrongScript || r.Verdict == Verdict.Untranslated || r.Verdict == Verdict.BrokenTokens))
                             {
                                 try
                                 {

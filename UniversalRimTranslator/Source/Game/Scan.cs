@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using HarmonyLib;
 using RimWorld;
 using Urt2;
 using Verse;
@@ -106,9 +107,7 @@ namespace UniversalRimTranslator
 
             foreach (Type defType in GenDefDatabase.AllDefTypesWithDatabases())
             {
-                try
-                {
-                    DefInjectionUtility.ForEachPossibleDefInjection(defType,
+                DefInjectionUtility.PossibleDefInjectionTraverser act =
                         (string suggestedPath, string normalizedPath, bool isCollection, string currentValue, IEnumerable<string> currentValueCollection,
                          bool translationAllowed, bool fullListTranslationAllowed, FieldInfo fieldInfo, Def def) =>
                         {
@@ -156,12 +155,28 @@ namespace UniversalRimTranslator
                                     i++;
                                 }
                             }
-                        });
+                        };
+                try
+                {
+                    DefInjectionUtility.ForEachPossibleDefInjection(defType, act);
                 }
                 catch (Exception e)
                 {
-                    MLog.Warn("[URT] scan of " + defType.Name + " failed: " + e.Message);
-                    Failures++;
+                    // 1.2.1: one def of a mod can break the game's walk for the whole type ("Ambiguous match …
+                    // ThingOwner Item[Int32]" in a MainButtonDef) – walk the defs one by one, skip only the broken one
+                    int bad = 0;
+                    var one = AccessTools.Method(typeof(DefInjectionUtility), "ForEachPossibleDefInjectionInDef");
+                    if (one != null)
+                    {
+                        foreach (Def d in GenDefDatabase.GetAllDefsInDatabaseForDef(defType))
+                        {
+                            try { one.Invoke(null, new object[] { d, act }); }
+                            catch { bad++; }
+                        }
+                        MLog.Info("[URT] scan of " + defType.Name + ": walked def by def after \"" + e.Message + "\" – " + bad + " def(s) skipped");
+                    }
+                    else MLog.Warn("[URT] scan of " + defType.Name + " failed: " + e.Message);
+                    if (one == null || bad > 0) Failures++;
                 }
             }
 

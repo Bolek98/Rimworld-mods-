@@ -39,7 +39,21 @@ namespace Urt2
                 if (!SameCounts(Protect.RuleTokens(src), Protect.RuleTokens(tr)))
                     return Verdict.BrokenRule;
             }
-            if (!SameCounts(Tokens(src), Tokens(tr)))
+            var ts = Tokens(src);
+            var tt = Tokens(tr);
+            // 1.2.1: Chinese/Japanese brackets 【试炼】 are no tokens – services write them as [soud] in the
+            // translation; that many extra [..] (not in the source) are allowed
+            int wide = WideBrackets(src);
+            if (wide > 0)
+                foreach (string k in new List<string>(tt.Keys))
+                {
+                    if (wide <= 0) break;
+                    if (k.Length < 2 || k[0] != '[' || ts.ContainsKey(k)) continue;
+                    int take = Math.Min(wide, tt[k]);
+                    tt[k] -= take; wide -= take;
+                    if (tt[k] == 0) tt.Remove(k);
+                }
+            if (!SameCounts(ts, tt))
                 return Verdict.BrokenTokens;
 
             string srcText = AnyToken.Replace(src, " ");
@@ -61,8 +75,19 @@ namespace Urt2
 
             if (!Lang.Same(targetIso, "en") || Lang.Dominant(srcText) != Lang.Script.Latin)
             {
-                if (string.Equals(src, tr, StringComparison.Ordinal) && Word.Matches(srcText).Count >= 3)
-                    return Verdict.Untranslated;
+                if (string.Equals(src, tr, StringComparison.Ordinal))
+                {
+                    // 1.2.1: only words that still need translating count – a text that is already in the target
+                    // language ("oblak toxického prachu") or keeps only names stays as it is
+                    int all = 0, foreign = 0;
+                    foreach (Match m in Word.Matches(srcText)) { all++; if (Foreign(m.Value)) foreign++; }
+                    if (foreign >= 3)
+                        return Verdict.Untranslated;
+                    // a target-language text with an English word left in it ("Replicate Zdravotní péče") – only
+                    // when the game told us which words are English (Czech words without accents look the same)
+                    if (foreign >= 1 && foreign < all && EnglishWord != null)
+                        return Verdict.Untranslated;
+                }
                 if (MostlySameWords(srcText, trText))
                     return Verdict.Untranslated;
             }
@@ -76,6 +101,28 @@ namespace Urt2
         }
 
         public static bool IsGood(Verdict v) => v == Verdict.Ok;
+
+        // 1.2.1: set by the game – is this an English word (from the English texts of all mods, without names and
+        // words the target language uses too). Null = unknown: every plain ASCII word counts as English.
+        public static Func<string, bool> EnglishWord;
+
+        // a word that still needs translating: ASCII letters only (accented letters belong to the target language)
+        // and, when known, one of the English words
+        private static bool Foreign(string w)
+        {
+            foreach (char c in w) if (c > 127) return false;
+            Func<string, bool> f = EnglishWord;
+            if (f == null) return true;
+            try { return f(w); } catch { return true; }
+        }
+
+        // opening Chinese/Japanese brackets in the text: 【 〔 ［ 「 『 〖
+        private static int WideBrackets(string s)
+        {
+            int n = 0;
+            foreach (char c in s) if (c == '\u3010' || c == '\u3014' || c == '\uFF3B' || c == '\u300C' || c == '\u300E' || c == '\u3016') n++;
+            return n;
+        }
 
         private static bool WideTarget(Lang.Script s) => s == Lang.Script.Cjk || s == Lang.Script.Kana || s == Lang.Script.Hangul;
 
@@ -125,7 +172,8 @@ namespace Urt2
         private static bool MostlySameWords(string src, string tr)
         {
             var s = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-            foreach (Match m in Word.Matches(src)) if (m.Value.Length >= 4) s.Add(m.Value);
+            // 1.2.1: words of the source that are already in the target language do not count
+            foreach (Match m in Word.Matches(src)) if (m.Value.Length >= 4 && Foreign(m.Value)) s.Add(m.Value);
             if (s.Count < 4) return false;
             int same = 0, all = 0;
             foreach (Match m in AnyWord.Matches(tr))

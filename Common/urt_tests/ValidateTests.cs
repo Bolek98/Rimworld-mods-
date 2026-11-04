@@ -81,6 +81,7 @@ public static class ValidateTests
         }
         Console.WriteLine($"URT check tests: {pass} passed, {fail} failed ({Langs.Length} languages)");
         int sf = SourcesTests.Run();
-        return fail == 0 && sf == 0 ? 0 : 1;
+        int mf = MixedTests.Run();
+        return fail == 0 && sf == 0 && mf == 0 ? 0 : 1;
     }
 }
