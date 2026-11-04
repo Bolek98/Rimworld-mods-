@@ -20,6 +20,7 @@ namespace AutoTurrets
 	{
 		public HashSet<int> off = new HashSet<int>();
 		public HashSet<int> stun = new HashSet<int>();
+		public Dictionary<int, int> kind = new Dictionary<int, int>();   // 1.4.0 ammo type per turret
 
 		public QuickControlComp(Game g) { }
 
@@ -31,6 +32,13 @@ namespace AutoTurrets
 			Scribe_Collections.Look(ref stun, "atStun", LookMode.Value);
 			if (off == null) off = new HashSet<int>();
 			if (stun == null) stun = new HashSet<int>();
+			Scribe_Collections.Look(ref kind, "atAmmoKind", LookMode.Value, LookMode.Value);
+			if (kind == null) kind = new Dictionary<int, int>();
+			if (Scribe.mode == LoadSaveMode.PostLoadInit && stun.Count > 0)
+			{
+				foreach (int id in stun) if (!kind.ContainsKey(id)) kind[id] = (int)AmmoKind.Stun;   // 1.3.0 saves
+				stun.Clear();
+			}
 		}
 	}
 
@@ -53,7 +61,7 @@ namespace AutoTurrets
 		public static bool IsStun(Thing t)
 		{
 			var c = QuickControlComp.Get;
-			return c != null && t != null && c.stun.Contains(t.thingIDNumber) && t is Building_TurretGun g && !Explosive(g);
+			return c != null && t is Building_TurretGun g && c.kind.TryGetValue(t.thingIDNumber, out int k) && k == (int)AmmoKind.Stun && !Explosive(g);
 		}
 
 		public static bool Explosive(Building_TurretGun t)
@@ -103,8 +111,8 @@ namespace AutoTurrets
 		{
 			var c = QuickControlComp.Get;
 			if (c == null || t == null) return;
-			if (value && !Explosive(t)) c.stun.Add(t.thingIDNumber);
-			else c.stun.Remove(t.thingIDNumber);
+			if (value && Explosive(t)) return;
+			Ammo.Set(t, value ? AmmoKind.Stun : AmmoKind.Normal);
 		}
 
 		public static void AllOff(Map map, bool value)
@@ -153,6 +161,7 @@ namespace AutoTurrets
 				icon = OffTex,
 				action = () => Find.WindowStack.Add(new FloatMenu(GlobalOptions(map)))
 			};
+			if (Ammo.On) { yield return Ammo.Gizmo(t); yield break; }
 			bool expl = Explosive(t);
 			var mode = new Command_Action
 			{
@@ -175,13 +184,18 @@ namespace AutoTurrets
 			yield return mode;
 		}
 
-		public static List<FloatMenuOption> GlobalOptions(Map map) => new List<FloatMenuOption>
+		public static List<FloatMenuOption> GlobalOptions(Map map)
 		{
-			new FloatMenuOption("AT_QC_AllOff".Translate(), () => AllOff(map, true)),
-			new FloatMenuOption("AT_QC_AllOn".Translate(), () => AllOff(map, false)),
-			new FloatMenuOption("AT_QC_AllStun".Translate(), () => AllStun(map, true)),
-			new FloatMenuOption("AT_QC_AllLethal".Translate(), () => AllStun(map, false))
-		};
+			var l = new List<FloatMenuOption>
+			{
+				new FloatMenuOption("AT_QC_AllOff".Translate(), () => AllOff(map, true)),
+				new FloatMenuOption("AT_QC_AllOn".Translate(), () => AllOff(map, false)),
+				new FloatMenuOption("AT_QC_AllStun".Translate(), () => AllStun(map, true)),
+				new FloatMenuOption("AT_QC_AllLethal".Translate(), () => AllStun(map, false))
+			};
+			if (Ammo.On) l.Add(new FloatMenuOption("AT_AM_AllMenu".Translate(), () => Find.WindowStack.Add(new FloatMenu(Ammo.AllOptions(map)))));
+			return l;
+		}
 	}
 
 	// off turrets do not start shooting at all (also not at a forced target)
@@ -213,26 +227,7 @@ namespace AutoTurrets
 		}
 	}
 
-	// stun mode: every damage from that turret becomes a stun (no wounds)
-	[HarmonyPatch(typeof(Thing), nameof(Thing.TakeDamage))]
-	public static class Patch_QC_StunDamage
-	{
-		public static void Prefix(Thing __instance, ref DamageInfo dinfo)
-		{
-			try
-			{
-				if (!(dinfo.Instigator is Building_TurretGun t) || dinfo.Def == DamageDefOf.Stun || !QuickControl.IsStun(t)) return;
-				if (!(__instance is Pawn))
-				{
-					dinfo.SetAmount(0f);
-					return;
-				}
-				float amount = Mathf.Clamp(dinfo.Amount, 8f, 25f);
-				dinfo = new DamageInfo(DamageDefOf.Stun, amount, 0f, dinfo.Angle, dinfo.Instigator, null, dinfo.Weapon, dinfo.Category, dinfo.IntendedTarget, dinfo.InstigatorGuilty);
-			}
-			catch (Exception e) { Log.WarningOnce("[Auto Turrets] stun mode: " + e.Message, 0x41545143); }
-		}
-	}
+	// stun mode damage: see Patch_AmmoDamage (AmmoTypes.cs)
 
 	// small button bottom right (next to the play settings)
 	[HarmonyPatch(typeof(PlaySettings), nameof(PlaySettings.DoPlaySettingsGlobalControls))]

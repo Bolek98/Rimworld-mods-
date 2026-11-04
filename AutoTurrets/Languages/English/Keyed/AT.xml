@@ -125,4 +125,48 @@
   <AT_QC_SetGizmos_Desc>On/off and lethal/stun buttons on every turret of yours.</AT_QC_SetGizmos_Desc>
   <AT_QC_SetGlobal>Turret button bottom right</AT_QC_SetGlobal>
   <AT_QC_SetGlobal_Desc>A small button next to the play settings (bottom right) to switch all turrets off/on or lethal/stun.</AT_QC_SetGlobal_Desc>
+  <!-- 1.4.0 ammo types -->
+  <AT_AM_Tab>Ammo types</AT_AM_Tab>
+  <AT_AM_Enable>Ammo types for turrets</AT_AM_Enable>
+  <AT_AM_Enable_Desc>Every turret of yours (also modded ones and mortars) gets an ammo type button: armor-piercing, hollow-point, incendiary, EMP, stun, toxic; mortars also smoke and firefoam. A turret may use a kind it normally has no ammo for.</AT_AM_Enable_Desc>
+  <AT_AM_FromStorage>Special ammo from storage</AT_AM_FromStorage>
+  <AT_AM_FromStorage_Desc>Off (default): special ammo needs no crafting or hauling – the turret refills itself. On: mortars need the real shells from storage like before.</AT_AM_FromStorage_Desc>
+  <AT_AM_ApPen>Armor penetration ×{0}</AT_AM_ApPen>
+  <AT_AM_HpDmg>Damage ×{0}</AT_AM_HpDmg>
+  <AT_AM_IncIgnite>Chance to set on fire: {0}</AT_AM_IncIgnite>
+  <AT_AM_EmpPow>EMP strength ×{0}</AT_AM_EmpPow>
+  <AT_AM_ToxSev>Toxic buildup per hit: {0}</AT_AM_ToxSev>
+  <AT_AM_KShells>Smoke and firefoam shells (mortars)</AT_AM_KShells>
+  <AT_AM_KShells_Desc>Mortars and artillery may also be set to smoke or firefoam.</AT_AM_KShells_Desc>
+  <AT_AM_Gizmo>Ammo: {0}</AT_AM_Gizmo>
+  <AT_AM_Gizmo_Desc>Pick the ammo this turret fires. Bullet turrets change what a hit does; mortars and artillery load the matching shell. Special ammo is free unless 'Special ammo from storage' is on.</AT_AM_Gizmo_Desc>
+  <AT_AM_K_Normal>Normal</AT_AM_K_Normal>
+  <AT_AM_K_Normal_Desc>Default ammo of the gun, nothing changes.</AT_AM_K_Normal_Desc>
+  <AT_AM_K_ArmorPiercing>Armor-piercing</AT_AM_K_ArmorPiercing>
+  <AT_AM_K_ArmorPiercing_Desc>Armor penetration much higher, damage ×0.8. Good against armored pawns and mechanoids.</AT_AM_K_ArmorPiercing_Desc>
+  <AT_AM_K_HollowPoint>Hollow-point</AT_AM_K_HollowPoint>
+  <AT_AM_K_HollowPoint_Desc>Higher damage, half armor penetration. Good against unarmored pawns and animals.</AT_AM_K_HollowPoint_Desc>
+  <AT_AM_K_Incendiary>Incendiary</AT_AM_K_Incendiary>
+  <AT_AM_K_Incendiary_Desc>Adds burn damage and a chance to set the target on fire. Mortars: incendiary shell.</AT_AM_K_Incendiary_Desc>
+  <AT_AM_K_EMP>EMP</AT_AM_K_EMP>
+  <AT_AM_K_EMP_Desc>Small normal damage plus EMP: stuns mechanoids and turrets, breaks shields. Mortars: EMP shell.</AT_AM_K_EMP_Desc>
+  <AT_AM_K_Stun>Stun</AT_AM_K_Stun>
+  <AT_AM_K_Stun_Desc>No wounds – hits only stun. Skips pawns that are already down or stunned. Bullet turrets only.</AT_AM_K_Stun_Desc>
+  <AT_AM_K_Toxic>Toxic</AT_AM_K_Toxic>
+  <AT_AM_K_Toxic_Desc>Less damage, adds toxic buildup to flesh targets. Mortars: toxic shell (Biotech).</AT_AM_K_Toxic_Desc>
+  <AT_AM_K_Smoke>Smoke</AT_AM_K_Smoke>
+  <AT_AM_K_Smoke_Desc>Mortars only: smoke shell that blocks enemy fire.</AT_AM_K_Smoke_Desc>
+  <AT_AM_K_Firefoam>Firefoam</AT_AM_K_Firefoam>
+  <AT_AM_K_Firefoam_Desc>Mortars only: firefoam shell that puts out fires.</AT_AM_K_Firefoam_Desc>
+  <AT_AM_ApplySame>Same for all: {0}</AT_AM_ApplySame>
+  <AT_AM_ApplyAll>Same for all turrets</AT_AM_ApplyAll>
+  <AT_AM_AllMenu>Ammo type for all turrets…</AT_AM_AllMenu>
+  <AT_AM_AllKind>All turrets: {0}</AT_AM_AllKind>
+  <AT_AM_SetMsg>Ammo set for {0} turrets: {1}.</AT_AM_SetMsg>
+  <AT_AM_Skipped>{0} turrets cannot use it and were left as they were.</AT_AM_Skipped>
+  <AT_AM_OffInSettings>off in the settings</AT_AM_OffInSettings>
+  <AT_AM_NotForShells>not for shells</AT_AM_NotForShells>
+  <AT_AM_NotForRockets>rockets cannot change ammo</AT_AM_NotForRockets>
+  <AT_AM_NoShellDef>shell not available</AT_AM_NoShellDef>
+  <AT_AM_OnlyShells>mortars only</AT_AM_OnlyShells>
 </LanguageData>

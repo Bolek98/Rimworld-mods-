@@ -125,4 +125,48 @@
   <AT_QC_SetGizmos_Desc>Przyciski wł./wył. i zabójczy/ogłuszanie na każdej twojej wieżyczce.</AT_QC_SetGizmos_Desc>
   <AT_QC_SetGlobal>Przycisk wieżyczek w prawym dolnym rogu</AT_QC_SetGlobal>
   <AT_QC_SetGlobal_Desc>Mały przycisk obok ustawień gry (prawy dolny róg) do wyłączania/włączania wszystkich wieżyczek lub przełączania zabójczy/ogłuszanie.</AT_QC_SetGlobal_Desc>
+  <!-- 1.4.0 ammo types -->
+  <AT_AM_Tab>Rodzaje amunicji</AT_AM_Tab>
+  <AT_AM_Enable>Rodzaje amunicji dla wieżyczek</AT_AM_Enable>
+  <AT_AM_Enable_Desc>Każda twoja wieżyczka (także z modów i moździerze) dostaje przycisk rodzaju amunicji: przeciwpancerna, z pustym czubkiem, zapalająca, EMP, ogłuszająca, toksyczna; moździerze też dymna i piana gaśnicza. Wieżyczka może używać rodzaju, do którego normalnie nie ma amunicji.</AT_AM_Enable_Desc>
+  <AT_AM_FromStorage>Amunicja specjalna z magazynu</AT_AM_FromStorage>
+  <AT_AM_FromStorage_Desc>Wył. (domyślnie): amunicji specjalnej nie trzeba wytwarzać ani nosić – wieżyczka ładuje się sama. Wł.: moździerze potrzebują prawdziwych pocisków z magazynu jak dawniej.</AT_AM_FromStorage_Desc>
+  <AT_AM_ApPen>Przebicie pancerza ×{0}</AT_AM_ApPen>
+  <AT_AM_HpDmg>Obrażenia ×{0}</AT_AM_HpDmg>
+  <AT_AM_IncIgnite>Szansa podpalenia: {0}</AT_AM_IncIgnite>
+  <AT_AM_EmpPow>Siła EMP ×{0}</AT_AM_EmpPow>
+  <AT_AM_ToxSev>Zatrucie na trafienie: {0}</AT_AM_ToxSev>
+  <AT_AM_KShells>Pociski dymne i gaśnicze (moździerze)</AT_AM_KShells>
+  <AT_AM_KShells_Desc>Moździerze i artyleria mogą też strzelać dymem lub pianą gaśniczą.</AT_AM_KShells_Desc>
+  <AT_AM_Gizmo>Amunicja: {0}</AT_AM_Gizmo>
+  <AT_AM_Gizmo_Desc>Wybierz amunicję tej wieżyczki. Wieżyczki na kule zmieniają efekt trafienia; moździerze i artyleria ładują pasujący pocisk. Amunicja specjalna jest darmowa, chyba że włączono 'Amunicja specjalna z magazynu'.</AT_AM_Gizmo_Desc>
+  <AT_AM_K_Normal>Zwykła</AT_AM_K_Normal>
+  <AT_AM_K_Normal_Desc>Domyślna amunicja broni, nic się nie zmienia.</AT_AM_K_Normal_Desc>
+  <AT_AM_K_ArmorPiercing>Przeciwpancerna</AT_AM_K_ArmorPiercing>
+  <AT_AM_K_ArmorPiercing_Desc>Dużo większe przebicie, obrażenia ×0,8. Dobra na opancerzonych i mechanoidy.</AT_AM_K_ArmorPiercing_Desc>
+  <AT_AM_K_HollowPoint>Z pustym czubkiem</AT_AM_K_HollowPoint>
+  <AT_AM_K_HollowPoint_Desc>Większe obrażenia, połowa przebicia. Dobra na nieopancerzonych i zwierzęta.</AT_AM_K_HollowPoint_Desc>
+  <AT_AM_K_Incendiary>Zapalająca</AT_AM_K_Incendiary>
+  <AT_AM_K_Incendiary_Desc>Dodaje oparzenia i szansę podpalenia. Moździerze: pocisk zapalający.</AT_AM_K_Incendiary_Desc>
+  <AT_AM_K_EMP>EMP</AT_AM_K_EMP>
+  <AT_AM_K_EMP_Desc>Małe zwykłe obrażenia plus EMP: ogłusza mechanoidy i wieżyczki, niszczy tarcze. Moździerze: pocisk EMP.</AT_AM_K_EMP_Desc>
+  <AT_AM_K_Stun>Ogłuszająca</AT_AM_K_Stun>
+  <AT_AM_K_Stun_Desc>Bez ran – trafienia tylko ogłuszają. Pomija leżących i ogłuszonych. Tylko wieżyczki na kule.</AT_AM_K_Stun_Desc>
+  <AT_AM_K_Toxic>Toksyczna</AT_AM_K_Toxic>
+  <AT_AM_K_Toxic_Desc>Mniej obrażeń, dodaje zatrucie żywym celom. Moździerze: pocisk toksyczny (Biotech).</AT_AM_K_Toxic_Desc>
+  <AT_AM_K_Smoke>Dymna</AT_AM_K_Smoke>
+  <AT_AM_K_Smoke_Desc>Tylko moździerze: pocisk dymny blokujący ostrzał wroga.</AT_AM_K_Smoke_Desc>
+  <AT_AM_K_Firefoam>Piana gaśnicza</AT_AM_K_Firefoam>
+  <AT_AM_K_Firefoam_Desc>Tylko moździerze: pocisk z pianą, gasi pożary.</AT_AM_K_Firefoam_Desc>
+  <AT_AM_ApplySame>Tak samo dla wszystkich: {0}</AT_AM_ApplySame>
+  <AT_AM_ApplyAll>Tak samo dla wszystkich wieżyczek</AT_AM_ApplyAll>
+  <AT_AM_AllMenu>Rodzaj amunicji dla wszystkich wieżyczek…</AT_AM_AllMenu>
+  <AT_AM_AllKind>Wszystkie wieżyczki: {0}</AT_AM_AllKind>
+  <AT_AM_SetMsg>Amunicja ustawiona w {0} wieżyczkach: {1}.</AT_AM_SetMsg>
+  <AT_AM_Skipped>{0} wieżyczek nie może jej użyć i pozostały bez zmian.</AT_AM_Skipped>
+  <AT_AM_OffInSettings>wyłączone w ustawieniach</AT_AM_OffInSettings>
+  <AT_AM_NotForShells>nie dla pocisków</AT_AM_NotForShells>
+  <AT_AM_NotForRockets>rakiet nie można zmienić</AT_AM_NotForRockets>
+  <AT_AM_NoShellDef>pocisk niedostępny</AT_AM_NoShellDef>
+  <AT_AM_OnlyShells>tylko moździerze</AT_AM_OnlyShells>
 </LanguageData>

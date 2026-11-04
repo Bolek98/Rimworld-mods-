@@ -39,6 +39,11 @@ namespace AutoTurrets
 		public int shellHitsToDestroy = 40;     // 1.4.0: hits that destroy an industrial base
 		public bool quickGizmos = true;          // 1.3.0: quick on/off and stun buttons on turrets
 		public bool quickGlobalButton = true;    // 1.3.0: the same as a small button bottom right
+		// 1.4.0 (AutoTurrets) ammo types
+		public bool ammoTypes = true;
+		public bool specialAmmoFromStorage = false;   // false = special ammo is free (no crafting, no hauling)
+		public bool kAP = true, kHP = true, kInc = true, kEmp = true, kTox = true, kShells = true;
+		public float apPen = 1.6f, hpDmg = 1.25f, incIgnite = 0.25f, empPow = 1f, toxSev = 0.04f;
 
 		public override void ExposeData()
 		{
@@ -70,6 +75,19 @@ namespace AutoTurrets
 			Scribe_Values.Look(ref shellHitsToDestroy, "shellHitsToDestroy", 40);
 			Scribe_Values.Look(ref quickGizmos, "quickGizmos", true);
 			Scribe_Values.Look(ref quickGlobalButton, "quickGlobalButton", true);
+			Scribe_Values.Look(ref ammoTypes, "ammoTypes", true);
+			Scribe_Values.Look(ref specialAmmoFromStorage, "specialAmmoFromStorage", false);
+			Scribe_Values.Look(ref kAP, "amKAP", true);
+			Scribe_Values.Look(ref kHP, "amKHP", true);
+			Scribe_Values.Look(ref kInc, "amKInc", true);
+			Scribe_Values.Look(ref kEmp, "amKEmp", true);
+			Scribe_Values.Look(ref kTox, "amKTox", true);
+			Scribe_Values.Look(ref kShells, "amKShells", true);
+			Scribe_Values.Look(ref apPen, "amApPen", 1.6f);
+			Scribe_Values.Look(ref hpDmg, "amHpDmg", 1.25f);
+			Scribe_Values.Look(ref incIgnite, "amIncIgnite", 0.25f);
+			Scribe_Values.Look(ref empPow, "amEmpPow", 1f);
+			Scribe_Values.Look(ref toxSev, "amToxSev", 0.04f);
 			if (autoPick == null) autoPick = new Dictionary<string, bool>();
 			if (fuelExtra == null) fuelExtra = new List<string>();
 			if (Scribe.mode == LoadSaveMode.PostLoadInit && wallPick == null)
@@ -103,6 +121,7 @@ namespace AutoTurrets
 			{
 				new TabRecord("AT_SecShooting".Translate(), () => tab = 0, tab == 0),
 				new TabRecord("AT_SecMaterials".Translate(), () => tab = 1, tab == 1),
+				new TabRecord("AT_AM_Tab".Translate(), () => tab = 4, tab == 4),
 				new TabRecord("AT_TabTurrets".Translate(), () => tab = 3, tab == 3),
 				new TabRecord("AT_WallTurrets".Translate(), () => tab = 2, tab == 2),
 			};
@@ -120,7 +139,27 @@ namespace AutoTurrets
 			{
 				var l = new Listing_Standard { maxOneColumn = true };
 				l.Begin(inner);
-				if (tab == 0)
+				if (tab == 4)
+				{
+					l.CheckboxLabeled("AT_AM_Enable".Translate(), ref S.ammoTypes, "AT_AM_Enable_Desc".Translate());
+					if (S.ammoTypes)
+					{
+						l.CheckboxLabeled("AT_AM_FromStorage".Translate(), ref S.specialAmmoFromStorage, "AT_AM_FromStorage_Desc".Translate());
+						l.GapLine();
+						l.CheckboxLabeled(Ammo.Label(AmmoKind.ArmorPiercing), ref S.kAP, Ammo.Desc(AmmoKind.ArmorPiercing));
+						if (S.kAP) { l.Label("    " + "AT_AM_ApPen".Translate(S.apPen.ToString("0.00"))); S.apPen = Mathf.Round(l.Slider(S.apPen, 1f, 3f) * 20f) / 20f; }
+						l.CheckboxLabeled(Ammo.Label(AmmoKind.HollowPoint), ref S.kHP, Ammo.Desc(AmmoKind.HollowPoint));
+						if (S.kHP) { l.Label("    " + "AT_AM_HpDmg".Translate(S.hpDmg.ToString("0.00"))); S.hpDmg = Mathf.Round(l.Slider(S.hpDmg, 1f, 2f) * 20f) / 20f; }
+						l.CheckboxLabeled(Ammo.Label(AmmoKind.Incendiary), ref S.kInc, Ammo.Desc(AmmoKind.Incendiary));
+						if (S.kInc) { l.Label("    " + "AT_AM_IncIgnite".Translate(S.incIgnite.ToStringPercent())); S.incIgnite = Mathf.Round(l.Slider(S.incIgnite, 0f, 1f) * 20f) / 20f; }
+						l.CheckboxLabeled(Ammo.Label(AmmoKind.EMP), ref S.kEmp, Ammo.Desc(AmmoKind.EMP));
+						if (S.kEmp) { l.Label("    " + "AT_AM_EmpPow".Translate(S.empPow.ToString("0.00"))); S.empPow = Mathf.Round(l.Slider(S.empPow, 0.25f, 3f) * 20f) / 20f; }
+						l.CheckboxLabeled(Ammo.Label(AmmoKind.Toxic), ref S.kTox, Ammo.Desc(AmmoKind.Toxic));
+						if (S.kTox) { l.Label("    " + "AT_AM_ToxSev".Translate(S.toxSev.ToStringPercent())); S.toxSev = Mathf.Round(l.Slider(S.toxSev, 0.01f, 0.2f) * 100f) / 100f; }
+						l.CheckboxLabeled("AT_AM_KShells".Translate(), ref S.kShells, "AT_AM_KShells_Desc".Translate());
+					}
+				}
+				else if (tab == 0)
 				{
 					l.CheckboxLabeled("AT_AutoManned".Translate(), ref S.autoManned, "AT_AutoManned_Desc".Translate());
 					l.CheckboxLabeled("AT_AutoMortars".Translate(), ref S.autoMortars, "AT_AutoMortars_Desc".Translate());
@@ -339,7 +378,7 @@ namespace AutoTurrets
 		public static bool Needs(Building_TurretGun t)
 		{
 			// 1.5.3: every shell turret of yours, also the manned ones (the crew can fire right away)
-			if (t.Faction != Faction.OfPlayer || !TurretControlsComp.AutoLoad(t))
+			if (t.Faction != Faction.OfPlayer || !TurretControlsComp.AutoLoad(t) || Ammo.FreeSpecial(t))
 				return false;
 			CompChangeableProjectile c = t.gun?.TryGetComp<CompChangeableProjectile>();
 			return c != null && !c.Loaded;

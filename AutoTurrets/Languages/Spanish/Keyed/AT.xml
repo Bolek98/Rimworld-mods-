@@ -125,4 +125,48 @@
   <AT_QC_SetGizmos_Desc>Botones on/off y letal/aturdir en cada una de tus torretas.</AT_QC_SetGizmos_Desc>
   <AT_QC_SetGlobal>Botón de torretas abajo a la derecha</AT_QC_SetGlobal>
   <AT_QC_SetGlobal_Desc>Un botón pequeño junto a los ajustes de juego (abajo a la derecha) para apagar/encender todas las torretas o cambiar letal/aturdir.</AT_QC_SetGlobal_Desc>
+  <!-- 1.4.0 ammo types -->
+  <AT_AM_Tab>Tipos de munición</AT_AM_Tab>
+  <AT_AM_Enable>Tipos de munición para torretas</AT_AM_Enable>
+  <AT_AM_Enable_Desc>Cada torreta tuya (también de mods y morteros) tiene un botón de tipo de munición: perforante, punta hueca, incendiaria, EMP, aturdidora, tóxica; los morteros también humo y espuma ignífuga. Una torreta puede usar un tipo para el que normalmente no tiene munición.</AT_AM_Enable_Desc>
+  <AT_AM_FromStorage>Munición especial del almacén</AT_AM_FromStorage>
+  <AT_AM_FromStorage_Desc>Desactivado (por defecto): la munición especial no se fabrica ni se transporta – la torreta se recarga sola. Activado: los morteros necesitan proyectiles reales del almacén como antes.</AT_AM_FromStorage_Desc>
+  <AT_AM_ApPen>Penetración ×{0}</AT_AM_ApPen>
+  <AT_AM_HpDmg>Daño ×{0}</AT_AM_HpDmg>
+  <AT_AM_IncIgnite>Probabilidad de incendiar: {0}</AT_AM_IncIgnite>
+  <AT_AM_EmpPow>Potencia EMP ×{0}</AT_AM_EmpPow>
+  <AT_AM_ToxSev>Toxicidad por impacto: {0}</AT_AM_ToxSev>
+  <AT_AM_KShells>Proyectiles de humo y espuma (morteros)</AT_AM_KShells>
+  <AT_AM_KShells_Desc>Los morteros y la artillería también pueden usar humo o espuma ignífuga.</AT_AM_KShells_Desc>
+  <AT_AM_Gizmo>Munición: {0}</AT_AM_Gizmo>
+  <AT_AM_Gizmo_Desc>Elige la munición de esta torreta. Las torretas de balas cambian el efecto del impacto; morteros y artillería cargan el proyectil correspondiente. La munición especial es gratis salvo que 'Munición especial del almacén' esté activado.</AT_AM_Gizmo_Desc>
+  <AT_AM_K_Normal>Normal</AT_AM_K_Normal>
+  <AT_AM_K_Normal_Desc>Munición por defecto del arma, nada cambia.</AT_AM_K_Normal_Desc>
+  <AT_AM_K_ArmorPiercing>Perforante</AT_AM_K_ArmorPiercing>
+  <AT_AM_K_ArmorPiercing_Desc>Penetración mucho mayor, daño ×0,8. Buena contra blindados y mecanoides.</AT_AM_K_ArmorPiercing_Desc>
+  <AT_AM_K_HollowPoint>Punta hueca</AT_AM_K_HollowPoint>
+  <AT_AM_K_HollowPoint_Desc>Más daño, mitad de penetración. Buena contra objetivos sin armadura y animales.</AT_AM_K_HollowPoint_Desc>
+  <AT_AM_K_Incendiary>Incendiaria</AT_AM_K_Incendiary>
+  <AT_AM_K_Incendiary_Desc>Añade quemaduras y probabilidad de incendiar. Morteros: proyectil incendiario.</AT_AM_K_Incendiary_Desc>
+  <AT_AM_K_EMP>EMP</AT_AM_K_EMP>
+  <AT_AM_K_EMP_Desc>Poco daño normal más EMP: aturde mecanoides y torretas, rompe escudos. Morteros: proyectil EMP.</AT_AM_K_EMP_Desc>
+  <AT_AM_K_Stun>Aturdidora</AT_AM_K_Stun>
+  <AT_AM_K_Stun_Desc>Sin heridas – los impactos solo aturden. Ignora a los caídos o aturdidos. Solo torretas de balas.</AT_AM_K_Stun_Desc>
+  <AT_AM_K_Toxic>Tóxica</AT_AM_K_Toxic>
+  <AT_AM_K_Toxic_Desc>Menos daño, añade toxicidad a objetivos vivos. Morteros: proyectil tóxico (Biotech).</AT_AM_K_Toxic_Desc>
+  <AT_AM_K_Smoke>Humo</AT_AM_K_Smoke>
+  <AT_AM_K_Smoke_Desc>Solo morteros: proyectil de humo que bloquea el fuego enemigo.</AT_AM_K_Smoke_Desc>
+  <AT_AM_K_Firefoam>Espuma ignífuga</AT_AM_K_Firefoam>
+  <AT_AM_K_Firefoam_Desc>Solo morteros: proyectil de espuma que apaga incendios.</AT_AM_K_Firefoam_Desc>
+  <AT_AM_ApplySame>Igual para todas: {0}</AT_AM_ApplySame>
+  <AT_AM_ApplyAll>Igual para todas las torretas</AT_AM_ApplyAll>
+  <AT_AM_AllMenu>Tipo de munición para todas las torretas…</AT_AM_AllMenu>
+  <AT_AM_AllKind>Todas las torretas: {0}</AT_AM_AllKind>
+  <AT_AM_SetMsg>Munición fijada en {0} torretas: {1}.</AT_AM_SetMsg>
+  <AT_AM_Skipped>{0} torretas no pueden usarla y se quedaron igual.</AT_AM_Skipped>
+  <AT_AM_OffInSettings>desactivado en ajustes</AT_AM_OffInSettings>
+  <AT_AM_NotForShells>no para proyectiles</AT_AM_NotForShells>
+  <AT_AM_NotForRockets>los cohetes no cambian</AT_AM_NotForRockets>
+  <AT_AM_NoShellDef>proyectil no disponible</AT_AM_NoShellDef>
+  <AT_AM_OnlyShells>solo morteros</AT_AM_OnlyShells>
 </LanguageData>
