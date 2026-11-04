@@ -14,6 +14,8 @@ namespace ResearchAtlas
         public bool minimap = true;
         public bool autoStart = true;
         public bool compactFilters = true;     // filters re-arrange the tree instead of only dimming
+        public bool groupByMod = false;        // 0.2.0: projects of one mod stay together in a column
+        public bool semiRandom = false;        // 0.2.0: offer three random available projects to pick from
         public Fixes.RFSettings fixes;           // Research Fixer, built in
 
         public override void ExposeData()
@@ -22,6 +24,8 @@ namespace ResearchAtlas
             Scribe_Values.Look(ref minimap, "minimap", true);
             Scribe_Values.Look(ref autoStart, "autoStart", true);
             Scribe_Values.Look(ref compactFilters, "compactFilters", true);
+            Scribe_Values.Look(ref groupByMod, "groupByMod", false);
+            Scribe_Values.Look(ref semiRandom, "semiRandom", false);
             Scribe_Deep.Look(ref fixes, "fixes");
         }
     }
@@ -54,18 +58,20 @@ namespace ResearchAtlas
         public override void DoSettingsWindowContents(Rect r)
         {
             var l = new Listing_Standard();
-            l.Begin(new Rect(r.x, r.y, r.width * 0.6f, 190f));
+            l.Begin(new Rect(r.x, r.y, r.width * 0.6f, 250f));
             bool before = S.replaceTab;
             l.CheckboxLabeled("RA_SetReplace".Translate(), ref S.replaceTab, "RA_SetReplaceTip".Translate());
             l.CheckboxLabeled("RA_SetAutoStart".Translate(), ref S.autoStart, "RA_SetAutoStartTip".Translate());
             l.CheckboxLabeled("RA_SetCompact".Translate(), ref S.compactFilters, "RA_SetCompactTip".Translate());
-            l.CheckboxLabeled("RA_SetMinimap".Translate(), ref S.minimap);
+            l.CheckboxLabeled("RA_SetMinimap".Translate(), ref S.minimap, "RA_SetMinimapTip".Translate());
+            l.CheckboxLabeled("RA_GroupByMod".Translate(), ref S.groupByMod, "RA_GroupByModTip".Translate());
+            l.CheckboxLabeled("RA_SetRandom".Translate(), ref S.semiRandom, "RA_SetRandomTip".Translate());
             l.Gap();
             if (l.ButtonText("RA_SetClearCache".Translate())) { AtlasView.ClearCache(); Messages.Message("RA_CacheCleared".Translate(), MessageTypeDefOf.NeutralEvent, false); }
             l.End();
             if (before != S.replaceTab) Startup.ApplyTab();
             // the fixes (Research Fixer) below
-            Rect fx = new Rect(r.x, r.y + 196f, r.width, r.height - 196f);
+            Rect fx = new Rect(r.x, r.y + 256f, r.width, r.height - 256f);
             Widgets.DrawLineHorizontal(fx.x, fx.y - 4f, fx.width);
             Text.Font = GameFont.Medium;
             Widgets.Label(new Rect(fx.x, fx.y, fx.width, 32f), "RA_FixesTitle".Translate());
@@ -104,6 +110,9 @@ namespace ResearchAtlas
     public class ResearchQueue : GameComponent
     {
         public List<ResearchProjectDef> queue = new List<ResearchProjectDef>();
+        // 0.2.0 semi-random mode: three projects offered to choose from, new ones when one is picked/finished
+        public List<ResearchProjectDef> offers = new List<ResearchProjectDef>();
+        public int rerolls = 2;
         public static ResearchQueue Get => Current.Game?.GetComponent<ResearchQueue>();
 
         public ResearchQueue(Game game) { }
@@ -111,7 +120,13 @@ namespace ResearchAtlas
         public override void ExposeData()
         {
             Scribe_Collections.Look(ref queue, "queue", LookMode.Def);
-            if (Scribe.mode == LoadSaveMode.PostLoadInit) { if (queue == null) queue = new List<ResearchProjectDef>(); queue.RemoveAll(q => q == null); }
+            Scribe_Collections.Look(ref offers, "offers", LookMode.Def);
+            Scribe_Values.Look(ref rerolls, "rerolls", 2);
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                if (queue == null) queue = new List<ResearchProjectDef>(); queue.RemoveAll(q => q == null);
+                if (offers == null) offers = new List<ResearchProjectDef>(); offers.RemoveAll(q => q == null);
+            }
         }
 
         public override void GameComponentTick()
@@ -121,6 +136,47 @@ namespace ResearchAtlas
         }
 
         public int IndexOf(ResearchProjectDef d) => queue.IndexOf(d);
+
+        // offers stay until one of them is finished; finished or no longer possible ones are replaced
+        public List<ResearchProjectDef> Offers()
+        {
+            offers.RemoveAll(o => o == null || o.IsFinished || (!o.CanStartNow && !Find.ResearchManager.IsCurrentProject(o)));
+            bool picked = offers.Any(o => Find.ResearchManager.IsCurrentProject(o));
+            if (!picked && offers.Count < 3) Fill();
+            return offers;
+        }
+
+        private void Fill()
+        {
+            try
+            {
+                var pool = DefDatabase<ResearchProjectDef>.AllDefsListForReading
+                    .Where(d => d != null && d.knowledgeCategory == null && !d.IsFinished && d.CanStartNow && !offers.Contains(d)).ToList();
+                while (offers.Count < 3 && pool.Count > 0)
+                {
+                    var d = pool.RandomElement();
+                    pool.Remove(d);
+                    offers.Add(d);
+                }
+            }
+            catch { }
+        }
+
+        public void Pick(ResearchProjectDef d) { offers.RemoveAll(o => o != d); }
+
+        public void Reroll()
+        {
+            if (rerolls <= 0) { Messages.Message("RA_RandomNoRerolls".Translate(), MessageTypeDefOf.RejectInput, false); return; }
+            rerolls--;
+            offers.Clear();
+            Fill();
+        }
+
+        public void Notify_Finished()
+        {
+            if (offers.Count > 0 && offers.All(o => o.IsFinished || !Find.ResearchManager.IsCurrentProject(o))) { offers.RemoveAll(o => o.IsFinished); }
+            if (rerolls < 3) rerolls++;
+        }
 
         // the missing prerequisites (also hidden ones) in an order that can be researched, then the project
         public void QueuePath(ResearchProjectDef target)
@@ -199,6 +255,7 @@ namespace ResearchAtlas
         public static void Postfix()
         {
             try { ResearchQueue.Get?.Advance(); } catch { }
+            try { if (RAMod.S.semiRandom) ResearchQueue.Get?.Notify_Finished(); } catch { }
         }
     }
 }

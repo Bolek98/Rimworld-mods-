@@ -3,7 +3,7 @@
   <name>Research Atlas – Research Tree for Big Modpacks</name>
   <author>Bolek98</author>
   <packageId>bolek98.researchatlas</packageId>
-  <modVersion>0.1.0</modVersion>
+  <modVersion>0.2.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -30,20 +30,21 @@
   <description>A research window made for big mod packs – thousands of research projects from hundreds of mods stay readable. Includes Research Fixer.
 
 THE TREE
-- Arranged by itself: eras from left to right, inside an era by what needs what, as few crossing lines as possible. Very long columns wrap, so a pack with hundreds of root projects stays on screen.
-- Arranged once and remembered – again only when your mod list changes. Big trees are arranged in the background, the game does not freeze.
-- Only what you see is drawn. Zoom out for coloured tiles, zoom in for full cards with the icons of everything a research unlocks. Minimap for the whole tree.
-- Every mod has its own colour stripe.
+- A real tree from left to right, like Research Tree: eras one after another, inside an era by what needs what. Nothing wraps; as few crossing lines as possible, chains run straight.
+- Lines run in free lanes between the cards and never through them, with small arrows; lines of one research run together.
+- Readable cards: icon, full name on two lines, cost, the icons of what it unlocks (click one for its info card) and a progress bar. The colour shows the state – finished, available, locked, being researched, queued. A red "!" says what is missing (bench, techprints, study).
+- Era names stay on top while you move. Zoom out for coloured tiles, zoom in for full cards.
+- Arranged once in the background and remembered – again only when your mod list changes. Only what you see is drawn.
 
 FINDING THINGS
-- Search over names, descriptions, mods and unlocked things – matches and the way to them light up, Enter jumps to the next one.
-- Filters: available now, hide finished, one mod (with search), type (weapons, apparel, medical, production, buildings, food, power), era. Filters re-arrange the tree from what is left.
-- Tabs of all research tabs plus "All". Focus: one research with only its way there and what follows.
+- Search over names, descriptions, mods and unlocked things – matches and the way to them light up, gold dots on the minimap, Enter jumps to the next one.
+- Hold Ctrl over a research: its whole way there and everything that follows light up.
+- Filters: available now, hide finished, group by mod, one mod (with search), type, era. Tabs: All, the main tab, every DLC tab and one tab for all mod tabs.
+- Side panel: who researches and how fast, minimap. Optional random mode: pick from three offered projects (like Semi Random Research).
 
 QUEUE
 - Click a research: it is queued with everything it still needs, in the right order. Shift-click: only this one. Drag to reorder, right click to remove.
-- The next research starts by itself. Time estimates from your researchers.
-- Kept in the save.
+- The next research starts by itself. Time estimates from your researchers. Kept in the save.
 
 RESEARCH FIXER INSIDE
 - The fixes of Research Fixer are part of Research Atlas: mod items without research get their own research, items on a research far below their era get the right one, optional NEW marks. Same settings, taken over from Research Fixer. Turn Research Fixer off – with both on, Research Atlas leaves its fixes off.
@@ -55,20 +56,21 @@ Settings: Mod settings → Research Atlas. "Vanilla view" switches to the game's
 Okno výzkumu dělané pro velké balíky modů – tisíce výzkumů ze stovek modů zůstanou přehledné. Obsahuje Research Fixer.
 
 STROM
-- Rozloží se sám: epochy zleva doprava, uvnitř epochy podle toho, co co potřebuje, s co nejméně křížícími se čarami. Příliš dlouhé sloupce se zalomí, takže i balík se stovkami výzkumů bez předpokladů zůstane na obrazovce.
-- Rozloží se jednou a zapamatuje se – znovu jen při změně seznamu modů. Velké stromy se rozkládají na pozadí, hra nezamrzne.
-- Kreslí se jen to, co je vidět. Oddálení ukáže barevné dlaždice, přiblížení celé karty s ikonami všeho, co výzkum odemkne. Minimapa celého stromu.
-- Každý mod má svůj barevný proužek.
+- Skutečný strom zleva doprava, jako Research Tree: epochy za sebou, uvnitř epochy podle toho, co co potřebuje. Nic se nezalamuje, co nejméně křížících se čar, řetězy vedou rovně.
+- Čáry vedou volnými pruhy mezi kartami, nikdy přes ně, s malými šipkami; čáry jednoho výzkumu vedou spolu.
+- Čitelné karty: ikona, celý název na dva řádky, cena, ikony toho, co odemkne (klik na ikonu otevře informace), a ukazatel postupu. Barva ukazuje stav – hotové, dostupné, zamčené, zkoumá se, ve frontě. Červený „!“ řekne, co chybí (stůl, techprinty, zkoumání).
+- Názvy epoch zůstávají nahoře, když se posouváš. Oddálení ukáže barevné dlaždice, přiblížení celé karty.
+- Rozloží se jednou na pozadí a zapamatuje se – znovu jen při změně seznamu modů. Kreslí se jen to, co je vidět.
 
 HLEDÁNÍ
-- Hledání v názvech, popisech, modech i odemčených věcech – výsledky a cesta k nim se rozsvítí, Enter skočí na další.
-- Filtry: jen dostupné, skrýt hotové, jeden mod (s hledáním), druh (zbraně, oblečení, medicína, výroba, stavby, jídlo, energie), epocha. Filtry strom rozloží znovu jen z toho, co zbylo.
-- Záložky všech záložek výzkumu a „Vše“. Zaměření: jeden výzkum jen s cestou k němu a s tím, co z něj vede.
+- Hledání v názvech, popisech, modech i odemčených věcech – výsledky a cesta k nim se rozsvítí, zlaté tečky na minimapě, Enter skočí na další.
+- Drž Ctrl nad výzkumem: rozsvítí se celá cesta k němu i vše, co z něj vychází.
+- Filtry: jen dostupné, skrýt hotové, seskupit podle modu, jeden mod (s hledáním), druh, epocha. Záložky: Vše, hlavní záložka, každá záložka DLC a jedna záložka pro všechny záložky modů.
+- Boční panel: kdo zkoumá a jak rychle, minimapa. Volitelný náhodný režim: výběr ze tří nabídnutých výzkumů (jako Semi Random Research).
 
 FRONTA
 - Klik na výzkum: zařadí se i se vším, co ještě potřebuje, ve správném pořadí. Shift+klik: jen tenhle. Přetažením se mění pořadí, pravým klikem se odebírá.
-- Další výzkum začne sám. Odhad času podle tvých výzkumníků.
-- Ukládá se do hry.
+- Další výzkum začne sám. Odhad času podle tvých výzkumníků. Ukládá se do hry.
 
 RESEARCH FIXER UVNITŘ
 - Opravy z Research Fixeru jsou součástí Research Atlasu: věci z modů bez výzkumu dostanou vlastní výzkum, věci na výzkumu hluboko pod jejich epochou dostanou ten správný, volitelně značky NOVÉ. Stejné nastavení, převzaté z Research Fixeru. Research Fixer vypni – když jsou zapnuté oba, Research Atlas své opravy nechá vypnuté.

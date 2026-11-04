@@ -192,15 +192,34 @@ namespace ResearchAtlas
         }
     }
 
+
     // ---------------------------------------------------------------- layout ----
-    // Layered layout of a set of projects, pure data (runs on a worker thread):
-    // tech level bands left to right, inside a band the depth by prerequisites, crossing reduction by
-    // barycenters, tall columns wrapped so a band with 400 root projects stays on screen.
+    // 0.2.0: a real left-to-right tree (like Research Tree / ResearchPal):
+    //  - eras (tech levels) are consecutive column ranges, inside an era the column is the prerequisite depth,
+    //    nothing wraps;
+    //  - long edges get "dummy" points in the columns they pass, so lines run in free lanes and never cross cards;
+    //  - row order by barycenter sweeps (crossing reduction), then y positions by an order-keeping least-squares
+    //    fit to the neighbours (isotonic regression), so chains run straight.
+    // Pure data, runs on a worker thread.
+    public static class Geo
+    {
+        public const float CardW = 200f, CardH = 72f, GapX = 76f, GapY = 12f, DummyH = 12f, Left = 24f, Top = 12f;
+        public static float X(float layer) => Left + layer * (CardW + GapX);
+    }
+
+    public class EdgeRoute
+    {
+        public int from, to;        // node ids
+        public float[] ys;          // y (lane centre) in every column between them
+        public bool back;           // prerequisite drawn to the right of its project (eras mixed up by a mod)
+    }
+
     public class LayoutResult
     {
-        public Dictionary<int, Vector2> pos = new Dictionary<int, Vector2>();   // node id → (column, row)
-        public List<(int band, float x0, float x1)> bands = new List<(int, float, float)>();
-        public float width, height;
+        public Dictionary<int, Vector2> pos = new Dictionary<int, Vector2>();   // node id → (column, top y in px)
+        public List<EdgeRoute> edges = new List<EdgeRoute>();
+        public List<(int band, float x0, float x1)> bands = new List<(int, float, float)>();   // column ranges
+        public float width, height;     // columns, px
     }
 
     public class LayoutJob
@@ -213,28 +232,29 @@ namespace ResearchAtlas
         private readonly int[] ids;
         private readonly int[][] pre;
         private readonly int[] band;
-        private readonly int[] order;
+        private readonly int[] modRank;
+        private readonly int[] nameRank;
+        private readonly bool groupByMod;
 
-        public LayoutJob(string key, List<Node> viewNodes)
+        public LayoutJob(string key, List<Node> viewNodes, bool groupByMod)
         {
             this.key = key;
+            this.groupByMod = groupByMod;
             int n = viewNodes.Count;
-            ids = new int[n];
-            pre = new int[n][];
-            band = new int[n];
-            order = new int[n];
+            ids = new int[n]; pre = new int[n][]; band = new int[n]; modRank = new int[n]; nameRank = new int[n];
             var local = new Dictionary<int, int>();
             for (int i = 0; i < n; i++) local[viewNodes[i].id] = i;
-            // initial order: mod, then name – projects of one mod stay together
-            var sorted = Enumerable.Range(0, n).OrderBy(i => viewNodes[i].mod).ThenBy(i => viewNodes[i].label).ToList();
-            for (int k = 0; k < n; k++) order[sorted[k]] = k;
+            var mods = viewNodes.Select(v => v.mod).Distinct().OrderBy(m => m, StringComparer.OrdinalIgnoreCase).ToList();
+            var mi = new Dictionary<string, int>();
+            for (int k = 0; k < mods.Count; k++) mi[mods[k]] = k;
+            var byName = Enumerable.Range(0, n).OrderBy(i => viewNodes[i].mod, StringComparer.OrdinalIgnoreCase).ThenBy(i => viewNodes[i].label, StringComparer.OrdinalIgnoreCase).ToList();
+            for (int k = 0; k < n; k++) nameRank[byName[k]] = k;
             for (int i = 0; i < n; i++)
             {
                 Node v = viewNodes[i];
-                ids[i] = v.id;
-                band[i] = v.band;
+                ids[i] = v.id; band[i] = v.band; modRank[i] = mi[v.mod];
                 var l = new List<int>();
-                foreach (int p in v.pre) if (local.TryGetValue(p, out int li)) l.Add(li);
+                foreach (int p in v.pre) if (local.TryGetValue(p, out int li) && li != i && !l.Contains(li)) l.Add(li);
                 pre[i] = l.ToArray();
             }
         }
@@ -244,7 +264,7 @@ namespace ResearchAtlas
             var th = new Thread(() =>
             {
                 try { result = Compute(); }
-                catch (Exception e) { error = e.Message; result = new LayoutResult(); }
+                catch (Exception e) { error = e.ToString(); result = new LayoutResult(); }
                 done = true;
             }) { IsBackground = true, Name = "ResearchAtlasLayout" };
             th.Start();
@@ -252,141 +272,241 @@ namespace ResearchAtlas
 
         public void RunNow()
         {
-            try { result = Compute(); } catch (Exception e) { error = e.Message; result = new LayoutResult(); }
+            try { result = Compute(); } catch (Exception e) { error = e.ToString(); result = new LayoutResult(); }
             done = true;
         }
+
+        // one item per column: a project or a point of a long edge
+        private class Item { public int real = -1; public int layer; public float h; public float vis; public List<int> up = new List<int>(); public List<int> down = new List<int>(); public float y; public float rank; public float w = 1f; public int mod; }
 
         private LayoutResult Compute()
         {
             int n = ids.Length;
             var res = new LayoutResult();
             if (n == 0) return res;
-            // depth inside the band; a prerequisite from a lower band starts a new chain; cycles ignored
-            var depth = new int[n];
-            var state = new byte[n];   // 0 new, 1 on stack, 2 done
-            for (int s = 0; s < n; s++)
-            {
-                if (state[s] != 0) continue;
-                var stack = new Stack<(int node, int idx)>();
-                stack.Push((s, 0)); state[s] = 1;
-                while (stack.Count > 0)
-                {
-                    var (v, idx) = stack.Pop();
-                    if (idx < pre[v].Length)
-                    {
-                        stack.Push((v, idx + 1));
-                        int p = pre[v][idx];
-                        if (state[p] == 0) { state[p] = 1; stack.Push((p, 0)); }
-                        continue;
-                    }
-                    int d = 0;
-                    foreach (int p in pre[v])
-                        if (state[p] == 2 && band[p] == band[v]) d = Math.Max(d, depth[p] + 1);
-                    depth[v] = d; state[v] = 2;
-                }
-            }
+
+            // edges used for the columns: prerequisite in the same or an earlier era
             var post = new List<int>[n];
             for (int i = 0; i < n; i++) post[i] = new List<int>();
-            for (int i = 0; i < n; i++) foreach (int p in pre[i]) post[p].Add(i);
+            var fwd = new List<(int p, int v)>();
+            var back = new List<(int p, int v)>();
+            for (int v = 0; v < n; v++)
+                foreach (int p in pre[v])
+                {
+                    if (band[p] <= band[v]) { fwd.Add((p, v)); post[p].Add(v); }
+                    else back.Add((p, v));
+                }
+            var preF = new List<int>[n];
+            for (int i = 0; i < n; i++) preF[i] = new List<int>();
+            foreach (var (p, v) in fwd) preF[v].Add(p);
 
-            // logical columns: (band, depth)
+            // topological order (Kahn); what is left in a cycle goes last with its edges ignored
+            var indeg = new int[n];
+            foreach (var (p, v) in fwd) indeg[v]++;
+            var topo = new List<int>(n);
+            var q = new Queue<int>();
+            for (int i = 0; i < n; i++) if (indeg[i] == 0) q.Enqueue(i);
+            var inTopo = new bool[n];
+            while (q.Count > 0) { int v = q.Dequeue(); topo.Add(v); inTopo[v] = true; foreach (int w in post[v]) if (--indeg[w] == 0) q.Enqueue(w); }
+            for (int i = 0; i < n; i++) if (!inTopo[i]) topo.Add(i);
+            var topoPos = new int[n];
+            for (int k = 0; k < n; k++) topoPos[topo[k]] = k;
+
+            // columns: eras one after another, depth inside the era
+            var layer = new int[n];
             var bandsUsed = band.Distinct().OrderBy(b => b).ToList();
-            var cols = new List<List<int>>();
-            var colBand = new List<int>();
-            var colOf = new int[n];
+            int start = 0;
+            var bandRange = new Dictionary<int, (int s, int e)>();
             foreach (int b in bandsUsed)
             {
-                int maxD = 0;
-                for (int i = 0; i < n; i++) if (band[i] == b) maxD = Math.Max(maxD, depth[i]);
-                int first = cols.Count;
-                for (int d = 0; d <= maxD; d++) { cols.Add(new List<int>()); colBand.Add(b); }
-                for (int i = 0; i < n; i++) if (band[i] == b) { colOf[i] = first + depth[i]; cols[first + depth[i]].Add(i); }
-            }
-            var rank = new float[n];
-            foreach (var c in cols) { c.Sort((a, b2) => order[a].CompareTo(order[b2])); for (int k = 0; k < c.Count; k++) rank[c[k]] = k; }
-            // barycenter sweeps, normalised by column size so columns of different heights line up
-            float Norm(int i) { int cnt = cols[colOf[i]].Count; return cnt <= 1 ? 0.5f : rank[i] / (cnt - 1); }
-            for (int sweep = 0; sweep < 6; sweep++)
-            {
-                bool forward = sweep % 2 == 0;
-                for (int ci = forward ? 0 : cols.Count - 1; forward ? ci < cols.Count : ci >= 0; ci += forward ? 1 : -1)
+                int end = start;
+                foreach (int v in topo)
                 {
-                    var c = cols[ci];
+                    if (band[v] != b) continue;
+                    int l = start;
+                    foreach (int p in preF[v]) if (topoPos[p] < topoPos[v]) l = Math.Max(l, layer[p] + 1);
+                    layer[v] = l;
+                    end = Math.Max(end, l);
+                }
+                // a project with nothing before it in its era moves right, next to what it opens
+                for (int k = topo.Count - 1; k >= 0; k--)
+                {
+                    int v = topo[k];
+                    if (band[v] != b) continue;
+                    bool hasPre = false;
+                    foreach (int p in preF[v]) if (band[p] == b) { hasPre = true; break; }
+                    if (hasPre) continue;
+                    int lim = int.MaxValue;
+                    foreach (int w in post[v]) if (band[w] == b && topoPos[w] > topoPos[v]) lim = Math.Min(lim, layer[w] - 1);
+                    if (lim != int.MaxValue && lim > layer[v]) layer[v] = lim;
+                }
+                bandRange[b] = (start, end);
+                start = end + 1;
+            }
+            int layers = start;
+
+            // projects without a line inside their era (none at all, or only from an earlier era): spread over
+            // the columns of their era, so the first column of an era doesn't become a tower
+            var count = new int[layers];
+            var lone = new List<int>();
+            for (int i = 0; i < n; i++)
+            {
+                bool inBand = false;
+                foreach (int p in preF[i]) if (band[p] == band[i]) { inBand = true; break; }
+                if (!inBand) foreach (int w in post[i]) if (band[w] == band[i]) { inBand = true; break; }
+                if (!inBand) lone.Add(i);
+                else count[layer[i]]++;
+            }
+            lone.Sort((a, b2) => band[a] != band[b2] ? band[a].CompareTo(band[b2]) : nameRank[a].CompareTo(nameRank[b2]));
+            foreach (int v in lone)
+            {
+                var (s0, e0) = bandRange[band[v]];
+                int best = s0;
+                for (int l = s0; l <= e0; l++) if (count[l] < count[best]) best = l;
+                layer[v] = best; count[best]++;
+            }
+
+            // items: projects + one point per column for long edges
+            var items = new List<Item>(n * 2);
+            for (int i = 0; i < n; i++) items.Add(new Item { real = i, layer = layer[i], h = Geo.CardH + Geo.GapY, vis = Geo.CardH, w = 1f, mod = modRank[i] });
+            var chains = new List<(int p, int v, List<int> pts)>();
+            foreach (var (p, v) in fwd)
+            {
+                if (layer[v] <= layer[p]) continue;       // a cycle left over
+                var pts = new List<int>();
+                int prev = p;
+                for (int l = layer[p] + 1; l < layer[v]; l++)
+                {
+                    var d = new Item { layer = l, h = Geo.DummyH, vis = 0f, w = 0.35f, mod = modRank[p] };
+                    items.Add(d);
+                    int di = items.Count - 1;
+                    items[prev].down.Add(di); d.up.Add(prev);
+                    pts.Add(di); prev = di;
+                }
+                items[prev].down.Add(v); items[v].up.Add(prev);
+                chains.Add((p, v, pts));
+            }
+            var cols = new List<int>[layers];
+            for (int l = 0; l < layers; l++) cols[l] = new List<int>();
+            for (int k = 0; k < items.Count; k++) cols[items[k].layer].Add(k);
+
+            // order: first by mod/name, then barycenter sweeps
+            float Key(int k) => items[k].real >= 0 ? nameRank[items[k].real] : 1e7f;
+            for (int l = 0; l < layers; l++)
+            {
+                var c = cols[l];
+                if (l > 0)
+                {
+                    foreach (int k in c) { var it = items[k]; it.rank = it.up.Count > 0 ? (float)it.up.Average(u => items[u].rank) : Key(k) / 1e3f; }
+                    c.Sort((a, b2) => Cmp(a, b2));
+                }
+                else c.Sort((a, b2) => { int r = Key(a).CompareTo(Key(b2)); return r != 0 ? r : a.CompareTo(b2); });
+                for (int k = 0; k < c.Count; k++) items[c[k]].rank = k;
+            }
+            int Cmp(int a, int b2)
+            {
+                if (groupByMod)
+                {
+                    int ma = items[a].mod, mb = items[b2].mod;
+                    if (ma != mb) return ma.CompareTo(mb);
+                }
+                int r = items[a].rank.CompareTo(items[b2].rank);
+                if (r != 0) return r;
+                r = Key(a).CompareTo(Key(b2));
+                return r != 0 ? r : a.CompareTo(b2);
+            }
+            var bary = new float[items.Count];
+            for (int sweep = 0; sweep < 10; sweep++)
+            {
+                bool down = sweep % 2 == 0;
+                for (int s = 0; s < layers; s++)
+                {
+                    int l = down ? s : layers - 1 - s;
+                    var c = cols[l];
                     if (c.Count < 2) continue;
-                    var bary = new Dictionary<int, float>();
-                    foreach (int v in c)
+                    foreach (int k in c)
                     {
-                        float sum = 0; int cnt = 0;
-                        foreach (int w in forward ? (IEnumerable<int>)pre[v] : post[v])
-                            if (forward ? colOf[w] < ci : colOf[w] > ci) { sum += Norm(w); cnt++; }
-                        bary[v] = cnt > 0 ? sum / cnt : Norm(v);
+                        var nb = down ? items[k].up : items[k].down;
+                        bary[k] = nb.Count > 0 ? (float)nb.Average(u => items[u].rank) : items[k].rank;
                     }
-                    var sorted = c.OrderBy(v => bary[v]).ThenBy(v => rank[v]).ToList();
-                    c.Clear(); c.AddRange(sorted);
-                    for (int k = 0; k < c.Count; k++) rank[c[k]] = k;
+                    foreach (int k in c) items[k].rank = bary[k];
+                    c.Sort((a, b2) => Cmp(a, b2));
+                    for (int k = 0; k < c.Count; k++) items[c[k]].rank = k;
                 }
             }
-            // physical columns: a column taller than the limit wraps into several
-            int limit = Mathf.Clamp(Mathf.RoundToInt(Mathf.Sqrt(n) * 1.2f), 14, 60);
-            float x = 0;
-            int curBand = int.MinValue;
-            float bandStart = 0;
-            float maxRow = 0;
-            for (int ci = 0; ci < cols.Count; ci++)
+
+            // y: stack, then pull every item to the middle of its neighbours without changing the order
+            for (int l = 0; l < layers; l++) { float y = 0; foreach (int k in cols[l]) { items[k].y = y; y += items[k].h; } }
+            var desired = new float[items.Count];
+            for (int it = 0; it < 12; it++)
             {
-                if (colBand[ci] != curBand)
+                int mode = it % 3;   // 0: from the left, 1: from the right, 2: both
+                for (int s = 0; s < layers; s++)
                 {
-                    if (curBand != int.MinValue) { res.bands.Add((curBand, bandStart, x)); x += 0.5f; }
-                    curBand = colBand[ci]; bandStart = x;
-                }
-                var c = cols[ci];
-                if (c.Count == 0) continue;
-                if (c.Count <= limit)
-                {
-                    // try to sit next to the prerequisites, keep the order, never past the limit
-                    float last = -1;
-                    for (int k = 0; k < c.Count; k++)
+                    int l = mode == 1 ? layers - 1 - s : s;
+                    var c = cols[l];
+                    foreach (int k in c)
                     {
-                        int v = c[k];
-                        float want = last + 1;
+                        var me = items[k];
                         float sum = 0; int cnt = 0;
-                        foreach (int p in pre[v]) if (res.pos.TryGetValue(ids[p], out Vector2 pp) && pp.x < x) { sum += pp.y; cnt++; }
-                        if (cnt > 0) want = Mathf.Max(last + 1, Mathf.Round(sum / cnt));
-                        float room = limit - (c.Count - k);
-                        want = Mathf.Min(want, Mathf.Max(last + 1, room));
-                        res.pos[ids[v]] = new Vector2(x, want);
-                        last = want;
-                        maxRow = Mathf.Max(maxRow, want);
+                        if (mode != 1) foreach (int u in me.up) { sum += items[u].y + items[u].vis / 2f; cnt++; }
+                        if (mode != 0) foreach (int u in me.down) { sum += items[u].y + items[u].vis / 2f; cnt++; }
+                        desired[k] = cnt > 0 ? sum / cnt - me.vis / 2f : me.y;
                     }
-                    x += 1;
-                }
-                else
-                {
-                    for (int k = 0; k < c.Count; k++)
-                    {
-                        res.pos[ids[c[k]]] = new Vector2(x + k / limit, k % limit);
-                        maxRow = Mathf.Max(maxRow, k % limit);
-                    }
-                    x += (c.Count + limit - 1) / limit;
+                    Fit(c, desired);
                 }
             }
-            res.bands.Add((curBand, bandStart, x));
-            res.width = x;
-            res.height = maxRow + 1;
+            float minY = float.MaxValue, maxY = 0;
+            foreach (var it in items) { minY = Mathf.Min(minY, it.y); maxY = Mathf.Max(maxY, it.y + it.h); }
+            foreach (var it in items) it.y -= minY;
+
+            for (int i = 0; i < n; i++) res.pos[ids[i]] = new Vector2(layer[i], items[i].y);
+            foreach (var (p, v, pts) in chains)
+                res.edges.Add(new EdgeRoute { from = ids[p], to = ids[v], ys = pts.Select(d => items[d].y).ToArray() });
+            foreach (var (p, v) in back) res.edges.Add(new EdgeRoute { from = ids[p], to = ids[v], ys = new float[0], back = true });
+            foreach (int b in bandsUsed) res.bands.Add((b, bandRange[b].s, bandRange[b].e + 1));
+            res.width = layers;
+            res.height = maxY - minY;
             return res;
+
+            // least squares positions that keep the order and the spacing (pool adjacent violators)
+            void Fit(List<int> c, float[] want)
+            {
+                int m = c.Count;
+                if (m == 0) return;
+                var off = new float[m];
+                for (int k = 1; k < m; k++) off[k] = off[k - 1] + items[c[k - 1]].h;
+                var val = new List<float>(); var wt = new List<float>(); var len = new List<int>();
+                for (int k = 0; k < m; k++)
+                {
+                    float t = want[c[k]] - off[k], w = items[c[k]].w;
+                    val.Add(t); wt.Add(w); len.Add(1);
+                    while (val.Count > 1 && val[val.Count - 2] > val[val.Count - 1])
+                    {
+                        int a = val.Count - 2, b2 = val.Count - 1;
+                        float nw = wt[a] + wt[b2];
+                        val[a] = (val[a] * wt[a] + val[b2] * wt[b2]) / nw; wt[a] = nw; len[a] += len[b2];
+                        val.RemoveAt(b2); wt.RemoveAt(b2); len.RemoveAt(b2);
+                    }
+                }
+                int idx = 0;
+                for (int g = 0; g < val.Count; g++)
+                    for (int r = 0; r < len[g]; r++, idx++) items[c[idx]].y = val[g] + off[idx];
+            }
         }
     }
 
-    // finished layouts of whole tabs are kept on disk, so a 3000-project tree is arranged once per mod list
+    // finished layouts are kept on disk, so a 3000-project tree is arranged once per mod list
     public static class LayoutCache
     {
         private static string Folder => Path.Combine(GenFilePaths.ConfigFolderPath, "ResearchAtlas");
+        private static readonly System.Globalization.CultureInfo CI = System.Globalization.CultureInfo.InvariantCulture;
 
-        public static string Hash(List<Node> view)
+        public static string Hash(List<Node> view, bool groupByMod)
         {
             ulong h = 1469598103934665603;
             void Mix(string s) { foreach (char c in s) { h ^= c; h *= 1099511628211; } h ^= 0xFF; h *= 1099511628211; }
-            Mix("v1");
+            Mix("v2"); Mix(groupByMod ? "g" : "n");
             foreach (Node n in view.OrderBy(v => v.def.defName, StringComparer.Ordinal))
             {
                 Mix(n.def.defName); Mix(n.band.ToString());
@@ -402,18 +522,25 @@ namespace ResearchAtlas
                 string f = Path.Combine(Folder, hash + ".txt");
                 if (!File.Exists(f)) return null;
                 var r = new LayoutResult();
+                Node N(string defName) { var d = DefDatabase<ResearchProjectDef>.GetNamedSilentFail(defName); return d != null && Atlas.byDef.TryGetValue(d, out Node n) ? n : null; }
                 foreach (string line in File.ReadAllLines(f))
                 {
                     string[] p = line.Split('|');
                     if (p.Length < 4) continue;
-                    float a = float.Parse(p[1], System.Globalization.CultureInfo.InvariantCulture);
-                    float b = float.Parse(p[2], System.Globalization.CultureInfo.InvariantCulture);
-                    float c = float.Parse(p[3], System.Globalization.CultureInfo.InvariantCulture);
-                    if (p[0] == "#size") { r.width = a; r.height = b; continue; }
-                    if (p[0] == "#band") { r.bands.Add(((int)a, b, c)); continue; }
-                    ResearchProjectDef d = DefDatabase<ResearchProjectDef>.GetNamedSilentFail(p[0]);
-                    if (d == null || !Atlas.byDef.TryGetValue(d, out Node n)) return null;   // stale → arrange again
-                    r.pos[n.id] = new Vector2(a, b);
+                    if (p[0] == "#edge")
+                    {
+                        Node a = N(p[1]), b = N(p[2]);
+                        if (a == null || b == null) return null;
+                        var ys = p[3].Length == 0 ? new float[0] : p[3].Split(';').Select(s => float.Parse(s, CI)).ToArray();
+                        r.edges.Add(new EdgeRoute { from = a.id, to = b.id, ys = ys, back = p.Length > 4 && p[4] == "b" });
+                        continue;
+                    }
+                    float x = float.Parse(p[1], CI), y = float.Parse(p[2], CI), z = float.Parse(p[3], CI);
+                    if (p[0] == "#size") { r.width = x; r.height = y; continue; }
+                    if (p[0] == "#band") { r.bands.Add(((int)x, y, z)); continue; }
+                    Node nd = N(p[0]);
+                    if (nd == null) return null;   // stale → arrange again
+                    r.pos[nd.id] = new Vector2(x, y);
                 }
                 return r.pos.Count > 0 ? r : null;
             }
@@ -425,14 +552,15 @@ namespace ResearchAtlas
             try
             {
                 Directory.CreateDirectory(Folder);
-                var ci = System.Globalization.CultureInfo.InvariantCulture;
                 var sb = new StringBuilder();
-                sb.Append("#size|").Append(r.width.ToString(ci)).Append('|').Append(r.height.ToString(ci)).Append("|0\n");
-                foreach (var b in r.bands) sb.Append("#band|").Append(b.band).Append('|').Append(b.x0.ToString(ci)).Append('|').Append(b.x1.ToString(ci)).Append('\n');
+                sb.Append("#size|").Append(r.width.ToString(CI)).Append('|').Append(r.height.ToString(CI)).Append("|0\n");
+                foreach (var b in r.bands) sb.Append("#band|").Append(b.band).Append('|').Append(b.x0.ToString(CI)).Append('|').Append(b.x1.ToString(CI)).Append('\n');
                 foreach (var kv in r.pos)
-                    sb.Append(Atlas.nodes[kv.Key].def.defName).Append('|').Append(kv.Value.x.ToString(ci)).Append('|').Append(kv.Value.y.ToString(ci)).Append("|0\n");
+                    sb.Append(Atlas.nodes[kv.Key].def.defName).Append('|').Append(kv.Value.x.ToString(CI)).Append('|').Append(kv.Value.y.ToString(CI)).Append("|0\n");
+                foreach (var e in r.edges)
+                    sb.Append("#edge|").Append(Atlas.nodes[e.from].def.defName).Append('|').Append(Atlas.nodes[e.to].def.defName).Append('|')
+                      .Append(string.Join(";", e.ys.Select(y => y.ToString("0.#", CI)))).Append('|').Append(e.back ? "b" : "f").Append('\n');
                 File.WriteAllText(Path.Combine(Folder, hash + ".txt"), sb.ToString());
-                // keep the folder small: only the newest 40 layouts
                 var files = new DirectoryInfo(Folder).GetFiles("*.txt").OrderByDescending(f => f.LastWriteTimeUtc).Skip(40);
                 foreach (var f in files) f.Delete();
             }

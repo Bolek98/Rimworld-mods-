@@ -20,7 +20,7 @@
   <RA_More>More</RA_More>
   <RA_Arranging>Arranging {0} research projects…</RA_Arranging>
   <RA_Empty>No research here with these filters.</RA_Empty>
-  <RA_Help>Click: research it with everything it needs · Shift+click: only this · Ctrl+click: focus · Right click: menu · Wheel: zoom · Drag: move</RA_Help>
+  <RA_Help>Click: research it with everything it needs · Shift+click: only this · Ctrl+hover: show the whole way there and everything that follows · Ctrl+click: focus · Right click: menu · Click an icon on a card: its info · Wheel: zoom · Drag: move · Home: back to what is researched now</RA_Help>
   <RA_AlreadyDone>{0} is already researched.</RA_AlreadyDone>
   <RA_ResearchNow>Research now</RA_ResearchNow>
   <RA_QueuePath>Queue with everything it needs</RA_QueuePath>
@@ -37,7 +37,7 @@
   <RA_TipTechprints>Techprints: {0} / {1}</RA_TipTechprints>
   <RA_TipStudy>Study: {0}</RA_TipStudy>
   <RA_TipMechanitor>Needs a mechanitor</RA_TipMechanitor>
-  <RA_TipClick>Click: queue with everything it needs · Shift: only this · Ctrl: focus · Right click: more</RA_TipClick>
+  <RA_TipClick>Click: queue with everything it needs · Shift: only this · Ctrl+hover: whole way · Ctrl+click: focus · Right click: more</RA_TipClick>
   <RA_EtaNever>nobody researches</RA_EtaNever>
   <RA_EtaHours>~{0} h</RA_EtaHours>
   <RA_EtaDays>~{0} days</RA_EtaDays>
@@ -66,9 +66,27 @@
   <RA_SetAutoStartTip>When a research is finished, the first one in the queue that can start begins.</RA_SetAutoStartTip>
   <RA_SetCompact>Filters hide research (off: they only dim it)</RA_SetCompact>
   <RA_SetCompactTip>With filters on, the tree is arranged again only from what is left – much shorter with big mod packs.</RA_SetCompactTip>
-  <RA_SetMinimap>Show the minimap</RA_SetMinimap>
+  <RA_SetMinimap>Show the side panel (researchers, minimap, random picks)</RA_SetMinimap>
   <RA_SetClearCache>Arrange all research trees again</RA_SetClearCache>
   <RA_CacheCleared>The research trees will be arranged again the next time they open.</RA_CacheCleared>
   <RA_FixesTitle>Fixes (formerly Research Fixer)</RA_FixesTitle>
   <RA_FixesOff>The separate Research Fixer mod is active, so these fixes are off here. Turn Research Fixer off – Research Atlas does the same, and takes over its settings.</RA_FixesOff>
+  <RA_SetMinimapTip>A panel on the right with who researches and how fast, the minimap of the whole tree (with search hits) and, in random mode, the projects to pick from.</RA_SetMinimapTip>
+  <RA_Panel>Panel</RA_Panel>
+  <RA_Home>Home</RA_Home>
+  <RA_GroupByMod>Group by mod</RA_GroupByMod>
+  <RA_GroupByModTip>Projects of one mod stay together in every column (the tree gets a little more lines).</RA_GroupByModTip>
+  <RA_OtherTabs>Other mods</RA_OtherTabs>
+  <RA_IconClick>Click: info card</RA_IconClick>
+  <RA_Researchers>Researchers</RA_Researchers>
+  <RA_ResearchingNow>Researching right now</RA_ResearchingNow>
+  <RA_ResearchSpeedTip>Research speed (not researching at the moment)</RA_ResearchSpeedTip>
+  <RA_RandomTitle>Pick the next research</RA_RandomTitle>
+  <RA_RandomNone>Nothing can be researched right now.</RA_RandomNone>
+  <RA_RandomReroll>New choice ({0} left)</RA_RandomReroll>
+  <RA_RandomNoRerolls>No new choice left – one comes back with every finished research.</RA_RandomNoRerolls>
+  <RA_MinimapTip>The whole tree. Click or drag to move there. Gold dots: search hits.</RA_MinimapTip>
+  <RA_TipCannotStart>Can't start yet:</RA_TipCannotStart>
+  <RA_SetRandom>Random mode: pick from three offered projects</RA_SetRandom>
+  <RA_SetRandomTip>Like Semi Random Research: the side panel offers three random projects you can research now. Pick one; new ones come when it is finished. You can still pick anything in the tree.</RA_SetRandomTip>
 </LanguageData>

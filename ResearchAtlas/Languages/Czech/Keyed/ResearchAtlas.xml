@@ -20,7 +20,7 @@
   <RA_More>Další</RA_More>
   <RA_Arranging>Rozkládám {0} výzkumů…</RA_Arranging>
   <RA_Empty>S těmito filtry tu žádný výzkum není.</RA_Empty>
-  <RA_Help>Klik: vyzkoumat i se vším, co potřebuje · Shift+klik: jen tohle · Ctrl+klik: zaměřit · Pravý klik: nabídka · Kolečko: přiblížit · Tažení: posun</RA_Help>
+  <RA_Help>Klik: vyzkoumat i se vším, co potřebuje · Shift+klik: jen tohle · Ctrl+najetí: celá cesta k výzkumu i vše, co z něj vychází · Ctrl+klik: zaměřit · Pravý klik: nabídka · Klik na ikonu na kartě: její informace · Kolečko: přiblížit · Tažení: posun · Home: zpět na to, co se zkoumá</RA_Help>
   <RA_AlreadyDone>{0} už je vyzkoumané.</RA_AlreadyDone>
   <RA_ResearchNow>Zkoumat teď</RA_ResearchNow>
   <RA_QueuePath>Do fronty i se vším, co potřebuje</RA_QueuePath>
@@ -37,7 +37,7 @@
   <RA_TipTechprints>Techplány: {0} / {1}</RA_TipTechprints>
   <RA_TipStudy>Prozkoumat: {0}</RA_TipStudy>
   <RA_TipMechanitor>Potřebuje mechanitora</RA_TipMechanitor>
-  <RA_TipClick>Klik: do fronty se vším, co potřebuje · Shift: jen tohle · Ctrl: zaměřit · Pravý klik: další</RA_TipClick>
+  <RA_TipClick>Klik: do fronty i se vším, co potřebuje · Shift: jen tohle · Ctrl+najetí: celá cesta · Ctrl+klik: zaměřit · Pravý klik: víc</RA_TipClick>
   <RA_EtaNever>nikdo nezkoumá</RA_EtaNever>
   <RA_EtaHours>~{0} h</RA_EtaHours>
   <RA_EtaDays>~{0} dne</RA_EtaDays>
@@ -66,9 +66,27 @@
   <RA_SetAutoStartTip>Když se výzkum dokončí, začne první výzkum z fronty, který jde začít.</RA_SetAutoStartTip>
   <RA_SetCompact>Filtry výzkum skryjí (vypnuto: jen ztmaví)</RA_SetCompact>
   <RA_SetCompactTip>Se zapnutými filtry se strom rozloží znovu jen z toho, co zbylo – u velkých balíků modů je pak mnohem kratší.</RA_SetCompactTip>
-  <RA_SetMinimap>Ukazovat minimapu</RA_SetMinimap>
+  <RA_SetMinimap>Ukazovat boční panel (výzkumníci, minimapa, náhodný výběr)</RA_SetMinimap>
   <RA_SetClearCache>Rozložit všechny stromy výzkumu znovu</RA_SetClearCache>
   <RA_CacheCleared>Stromy výzkumu se při dalším otevření rozloží znovu.</RA_CacheCleared>
   <RA_FixesTitle>Opravy (dříve Research Fixer)</RA_FixesTitle>
   <RA_FixesOff>Je zapnutý samostatný mod Research Fixer, proto jsou tyto opravy tady vypnuté. Vypni Research Fixer – Research Atlas umí totéž a převezme jeho nastavení.</RA_FixesOff>
+  <RA_SetMinimapTip>Panel vpravo: kdo zkoumá a jak rychle, minimapa celého stromu (i s výsledky hledání) a v náhodném režimu výzkumy na výběr.</RA_SetMinimapTip>
+  <RA_Panel>Panel</RA_Panel>
+  <RA_Home>Domů</RA_Home>
+  <RA_GroupByMod>Seskupit podle modu</RA_GroupByMod>
+  <RA_GroupByModTip>Výzkumy jednoho modu zůstanou v každém sloupci pohromadě (strom má trochu víc čar).</RA_GroupByModTip>
+  <RA_OtherTabs>Ostatní mody</RA_OtherTabs>
+  <RA_IconClick>Klik: informace</RA_IconClick>
+  <RA_Researchers>Výzkumníci</RA_Researchers>
+  <RA_ResearchingNow>Právě zkoumá</RA_ResearchingNow>
+  <RA_ResearchSpeedTip>Rychlost výzkumu (teď nezkoumá)</RA_ResearchSpeedTip>
+  <RA_RandomTitle>Vyber další výzkum</RA_RandomTitle>
+  <RA_RandomNone>Teď se nedá nic zkoumat.</RA_RandomNone>
+  <RA_RandomReroll>Nový výběr (zbývá {0})</RA_RandomReroll>
+  <RA_RandomNoRerolls>Nový výběr už nezbývá – jeden se vrátí s každým dokončeným výzkumem.</RA_RandomNoRerolls>
+  <RA_MinimapTip>Celý strom. Klikni nebo táhni a přesuneš se tam. Zlaté tečky: výsledky hledání.</RA_MinimapTip>
+  <RA_TipCannotStart>Zatím nejde začít:</RA_TipCannotStart>
+  <RA_SetRandom>Náhodný režim: výběr ze tří nabídnutých výzkumů</RA_SetRandom>
+  <RA_SetRandomTip>Jako Semi Random Research: boční panel nabídne tři náhodné výzkumy, které jdou zkoumat hned. Jeden vyber, nové přijdou, až bude hotový. Ve stromu můžeš dál vybrat cokoli.</RA_SetRandomTip>
 </LanguageData>
