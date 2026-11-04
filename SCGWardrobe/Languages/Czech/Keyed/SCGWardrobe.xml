@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WR_Name>Smart Colonist Gear – Šatník</WR_Name>
+  <WR_Tab_Overview>Přehled</WR_Tab_Overview>
+  <WR_Tab_Weapons>Zbraně</WR_Tab_Weapons>
+  <WR_Tab_Armor>Brnění</WR_Tab_Armor>
+  <WR_Tab_Work>Pracovní oblečení</WR_Tab_Work>
+  <WR_Tab_Care>Péče</WR_Tab_Care>
+  <WR_Tab_Occasions>Příležitosti</WR_Tab_Occasions>
+  <WR_Tab_Uniforms>Uniformy a barvy</WR_Tab_Uniforms>
+  <WR_Tab_Wardrobe>Šatník</WR_Tab_Wardrobe>
+  <WR_Tab_Tailor>Krejčí</WR_Tab_Tailor>
+  <WR_Tab_Colonists>Kolonisté</WR_Tab_Colonists>
+  <WR_Tab_Advanced>Pokročilé</WR_Tab_Advanced>
+  <WR_Rec1>Zbraně a brnění podle role a situace</WR_Rec1>
+  <WR_Rec2>Pracovní oblečení z editoru (vyplněný automaticky)</WR_Rec2>
+  <WR_Rec3>Obnošené kusy vymění, nikdy nenosí šaty z mrtvol</WR_Rec3>
+  <WR_Rec4>Pyžamo v noci, sváteční šaty o svátcích a oslavách</WR_Rec4>
+  <WR_Rec5>Oblíbené oblečení uložené v ložnici kolonisty</WR_Rec5>
+  <WR_Rec6>Plánovač krejčího – zakázky jen po potvrzení</WR_Rec6>
+  <WR_Enabled>Šatník rozhoduje, co kolonisté nosí</WR_Enabled>
+  <WR_Enabled_Desc>Zapnuto: Smart Colonist Gear se u každého rozhodnutí o oblékání ptá Šatníku. Vypnuto: Smart Colonist Gear rozhoduje sám, přesně jako bez tohoto doplňku.</WR_Enabled_Desc>
+  <WR_TakesOver>Oblékání řídí Šatník. Smart Colonist Gear dál hledá výbavu, poslední slovo má Šatník.</WR_TakesOver>
+  <WR_ScgDecides>Šatník je vypnutý – Smart Colonist Gear rozhoduje sám.</WR_ScgDecides>
+  <WR_OverviewText>Každé pravidlo vychází z vlastní volby Smart Colonist Gear, takže s nezměněnými tabulkami se kolonisté oblékají jako dřív – záložky jen přidávají tvá přání navíc.</WR_OverviewText>
+  <WR_RolesSource>Role se berou z: {0}</WR_RolesSource>
+  <WR_RolesSteward>Steward – Role</WR_RolesSteward>
+  <WR_RolesSkills>dovedností (nejsilnější dovednost, jejíž práci kolonista dělá)</WR_RolesSkills>
+  <WR_SidearmsNote>Simple Sidearms je aktivní: tabulka rolí vybírá hlavní zbraň, vedlejší zbraně drží Simple Sidearms.</WR_SidearmsNote>
+  <WR_RoleWeapons>Zbraně podle role</WR_RoleWeapons>
+  <WR_RoleWeapons_Desc>Zbraň žádaného druhu má přednost (×1,35), ostatní druhy jsou méně žádané (×0,75).</WR_RoleWeapons_Desc>
+  <WR_DamagedWeapon>Vyměnit zbraně poškozené pod</WR_DamagedWeapon>
+  <WR_DamagedWeapon_Desc>Zbraň pod tímto stavem má mnohem menší hodnotu, takže si vezme lepší, pokud nějaká je.</WR_DamagedWeapon_Desc>
+  <WR_WeaponsText>Tabulka jen upravuje hodnocení zbraní ze Smart Colonist Gear – výzkum, éra a dovednost rozhodují pořád první.</WR_WeaponsText>
+  <WR_ResetTable>Obnovit tabulku</WR_ResetTable>
+  <WR_WP_Any>Libovolná (jako Smart Colonist Gear)</WR_WP_Any>
+  <WR_WP_Ranged>Na dálku</WR_WP_Ranged>
+  <WR_WP_Melee>Na blízko</WR_WP_Melee>
+  <WR_WP_LongRange>Dlouhý dostřel</WR_WP_LongRange>
+  <WR_WP_ShortRange>Krátký dostřel</WR_WP_ShortRange>
+  <WR_WP_Light>Lehká</WR_WP_Light>
+  <WR_ArmorSets>Brnění podle situace a role</WR_ArmorSets>
+  <WR_ArmorSets_Desc>Kusy žádané váhy mají přednost; těžším se mimo boj vyhýbá.</WR_ArmorSets_Desc>
+  <WR_ArmorText>Situace: obrana = nájezd nebo povolán, lov = jde lovit, karavana = na cestě. Jinak rozhoduje role.</WR_ArmorText>
+  <WR_Sit_Defense>Obrana</WR_Sit_Defense>
+  <WR_Sit_Hunt>Lov</WR_Sit_Hunt>
+  <WR_Sit_Caravan>Karavana / výprava</WR_Sit_Caravan>
+  <WR_ArmorRoles>V práci, podle role:</WR_ArmorRoles>
+  <WR_AW_Any>Libovolné (jako Smart Colonist Gear)</WR_AW_Any>
+  <WR_AW_None>Žádné</WR_AW_None>
+  <WR_AW_Light>Lehké</WR_AW_Light>
+  <WR_AW_Medium>Střední</WR_AW_Medium>
+  <WR_AW_Heavy>Těžké</WR_AW_Heavy>
+  <WR_WorkEditor>Editor pracovního oblečení</WR_WorkEditor>
+  <WR_WorkEditor_Desc>Které oblečení je pracovní pro kterou práci. Vypnuto: vlastní rozpoznání Smart Colonist Gear.</WR_WorkEditor_Desc>
+  <WR_WorkText>Vyplněno automaticky tím, co rozpozná Smart Colonist Gear. Přidej nebo odeber kusy – kolonisté si je obléknou na tu práci a potom svléknou.</WR_WorkText>
+  <WR_WorkReset>Vyplnit znovu podle Smart Colonist Gear</WR_WorkReset>
+  <WR_AddPiece>+ Přidat kus</WR_AddPiece>
+  <WR_NoPieces>(nic)</WR_NoPieces>
+  <WR_Care>Péče o oblečení</WR_Care>
+  <WR_Care_Desc>Obnošené kusy se vyměňují, poškozené zbraně taky.</WR_Care_Desc>
+  <WR_ReplaceBelow>Vyměnit oblečení pod</WR_ReplaceBelow>
+  <WR_ReplaceBelow_Desc>Hra dává špatnou náladu za 'otrhané oblečení' pod 50 %. S hodnotou nad tím se kus vymění dřív, než postih přijde.</WR_ReplaceBelow_Desc>
+  <WR_NoCorpse>Nikdy nenosit šaty z mrtvol</WR_NoCorpse>
+  <WR_RetireBills>Vyřadit otrhané kusy (zakázka tavení / pálení)</WR_RetireBills>
+  <WR_RetireBills_Desc>Jednou na mapu jedna zakázka 'navždy' u tavicí pece nebo krematoria pro oblečení pod hranicí. Když ji smažeš, znovu se nevytvoří.</WR_RetireBills_Desc>
+  <WR_RetireBelow>Vyřadit pod</WR_RetireBelow>
+  <WR_RetireBill>Šatník: přidal zakázku u {0} pro otrhané oblečení.</WR_RetireBill>
+  <WR_CareText>Opravy: s modem na opravu oblečení (např. Mending) se kusy opraví – Šatník je jen přestane nosit pod hranicí.</WR_CareText>
+  <WR_Sleepwear>Pyžamo v noci</WR_Sleepwear>
+  <WR_Sleepwear_Desc>Před spaním v noci si kolonisté obléknou pyžamo, ráno se zase obléknou do práce.</WR_Sleepwear_Desc>
+  <WR_SleepFrom>Noc od</WR_SleepFrom>
+  <WR_SleepTo>Noc do</WR_SleepTo>
+  <WR_SleepList>Pyžama (nalezená podle názvu, uprav libovolně):</WR_SleepList>
+  <WR_Festive>Sváteční šaty o příležitostech</WR_Festive>
+  <WR_Festive_Desc>Během oslav, rituálů a svátků si volní kolonisté obléknou sváteční šaty.</WR_Festive_Desc>
+  <WR_FestiveOnly>Sváteční šaty jen na příležitosti</WR_FestiveOnly>
+  <WR_FestiveOnly_Desc>Mimo příležitosti je nikdo nenosí, takže zůstanou čisté.</WR_FestiveOnly_Desc>
+  <WR_HolidaysOn>Seasons &amp; Holidays je aktivní: jeho svátky se počítají jako příležitosti.</WR_HolidaysOn>
+  <WR_HolidaysOff>Příležitosti: oslavy a rituály (se Seasons &amp; Holidays i jeho svátky).</WR_HolidaysOff>
+  <WR_FestiveList>Sváteční šaty (nalezené podle názvu, uprav libovolně):</WR_FestiveList>
+  <WR_OccasionsReset>Znovu najít pyžama a sváteční šaty</WR_OccasionsReset>
+  <WR_Hold_sleep>v pyžamu</WR_Hold_sleep>
+  <WR_Hold_festive>ve svátečním</WR_Hold_festive>
+  <WR_Uniforms>Barvy uniforem podle role</WR_Uniforms>
+  <WR_Uniforms_Desc>Volní kolonisté si u stylingové stanice obarví oblečení barvou své role.</WR_Uniforms_Desc>
+  <WR_UniformsText>Zaškrtni roli a vyber její barvu. Potřebuje stylingovou stanici a barvivo.</WR_UniformsText>
+  <WR_NeedIdeology>Barvení oblečení potřebuje DLC Ideology.</WR_NeedIdeology>
+  <WR_Favorites>Osobní šatník (oblíbené)</WR_Favorites>
+  <WR_Favorites_Desc>Oblíbené kusy nosí jen jejich majitel a dává jim přednost.</WR_Favorites_Desc>
+  <WR_ToBedroom>Ukládat oblíbené v ložnici kolonisty</WR_ToBedroom>
+  <WR_ToBedroom_Desc>Volní kolonisté odnesou nenošené oblíbené kusy do police nebo komody ve své ložnici.</WR_ToBedroom_Desc>
+  <WR_FavoritesText>Vyber kolonistu a stiskni 'Uložit oblečení jako oblíbené'. Úložiště (police, komoda) v jeho ložnici je uschová.</WR_FavoritesText>
+  <WR_SetFavorites>Uložit oblečení jako oblíbené</WR_SetFavorites>
+  <WR_SetFavorites_Desc>Vše, co teď nosí (i zbraň), bude jeho: nosí to jen on a dává tomu přednost.</WR_SetFavorites_Desc>
+  <WR_FavoritesNow>Oblíbených kusů: {0}</WR_FavoritesNow>
+  <WR_FavoritesSaved>{0}: {1} kusů uloženo jako oblíbené.</WR_FavoritesSaved>
+  <WR_ClearFavorites>Smazat oblíbené</WR_ClearFavorites>
+  <WR_ClearFavorites_Desc>Jeho kusy jsou zase volné pro všechny.</WR_ClearFavorites_Desc>
+  <WR_NoFavorites>žádné oblíbené</WR_NoFavorites>
+  <WR_Tailor>Plánovač krejčího</WR_Tailor>
+  <WR_Tailor_Desc>Navrhuje, co vyrobit. Nic se nezadá, dokud nepotvrdíš.</WR_Tailor_Desc>
+  <WR_TailorText>Holý trup nebo nohy, obnošené kusy bez náhrady, špatná kvalita, chybějící pyžama nebo sváteční šaty.</WR_TailorText>
+  <WR_Refresh>Obnovit</WR_Refresh>
+  <WR_NothingToMake>Není co vyrábět – všichni jsou dobře oblečení.</WR_NothingToMake>
+  <WR_AddBill>Přidat zakázku</WR_AddBill>
+  <WR_ConfirmBill>Přidat zakázku '{0}' ×{1}?</WR_ConfirmBill>
+  <WR_BillAdded>Zakázka '{0}' ×{2} přidána u {1}.</WR_BillAdded>
+  <WR_SugBareTorso>holý trup</WR_SugBareTorso>
+  <WR_SugBareLegs>holé nohy</WR_SugBareLegs>
+  <WR_SugTattered>obnošené, bez náhrady</WR_SugTattered>
+  <WR_SugPoor>špatná kvalita</WR_SugPoor>
+  <WR_SugSleep>žádné pyžamo</WR_SugSleep>
+  <WR_SugFestive>žádné sváteční šaty</WR_SugFestive>
+  <WR_NoMap>Otevři hru, abys to viděla/viděl.</WR_NoMap>
+  <WR_ColonistsText>Zaškrtnuto = Šatník kolonistu obléká. Tlačítko nastaví jeho roli (* = nastavila/nastavil jsi ty).</WR_ColonistsText>
+  <WR_RoleAuto>Automaticky</WR_RoleAuto>
+  <WR_MaxDistance>Max. vzdálenost pro oblečení</WR_MaxDistance>
+  <WR_MaxDistance_Desc>Jak daleko kolonisté dojdou pro pyžamo nebo sváteční šaty.</WR_MaxDistance_Desc>
+  <WR_Verbose>Zapisovat rozhodnutí do logu (pro hlášení chyb)</WR_Verbose>
+  <WR_ResetAll>Obnovit vše</WR_ResetAll>
+  <WR_ResetAll_Confirm>Obnovit všechna nastavení a tabulky Šatníku na výchozí?</WR_ResetAll_Confirm>
+  <WR_AdvancedText>Šatník kontroluje jednoho kolonistu každé 1,5 sekundy – žádné sekání ani ve velkých koloniích.</WR_AdvancedText>
+  <WR_Role_Everyone>Všichni</WR_Role_Everyone>
+  <WR_Role_Soldier>Voják</WR_Role_Soldier>
+  <WR_Role_Hunter>Lovec</WR_Role_Hunter>
+  <WR_Role_Doctor>Lékař</WR_Role_Doctor>
+  <WR_Role_Builder>Stavitel</WR_Role_Builder>
+  <WR_Role_Miner>Horník</WR_Role_Miner>
+  <WR_Role_Crafter>Řemeslník</WR_Role_Crafter>
+  <WR_Role_Cook>Kuchař</WR_Role_Cook>
+  <WR_Role_Farmer>Farmář</WR_Role_Farmer>
+  <WR_Role_Researcher>Výzkumník</WR_Role_Researcher>
+  <WR_Role_Handler>Chovatel</WR_Role_Handler>
+  <WR_Role_Warden>Dozorce</WR_Role_Warden>
+  <WR_Role_Hauler>Nosič</WR_Role_Hauler>
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+</LanguageData>

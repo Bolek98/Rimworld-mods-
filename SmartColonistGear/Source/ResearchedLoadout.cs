@@ -134,6 +134,14 @@ namespace ResearchedLoadout
 				}
 			}
 			float top = inRect.y;
+			// 2.18.0: an add-on (Wardrobe) makes the dressing decisions
+			if (Dressing.External != null)
+			{
+				GUI.color = MUI.Accent;
+				Widgets.Label(new Rect(inRect.x, top, inRect.width, 24f), "RL_DressingManaged".Translate(Dressing.External.Name));
+				GUI.color = Color.white;
+				top += 26f;
+			}
 			top += MUI.RecommendedCard(new Rect(inRect.x, top, inRect.width, 0f), Settings, Settings.recommended, delegate(bool v)
 			{
 				Settings.recommended = v;
@@ -3668,7 +3676,16 @@ namespace ResearchedLoadout
 			return num;
 		}
 
+		// 2.18.0: asks the dressing provider (Wardrobe work outfit editor); SCG's own detection is AutoWorkSkillOf
 		public static SkillDef WorkSkillOf(ThingDef def)
+		{
+			if (def == null || !def.IsApparel) return null;
+			return Dressing.WorkSkill(def, () => AutoWorkSkillOf(def));
+		}
+
+		public static void ClearWorkSkillCache() => workSkillCache.Clear();
+
+		public static SkillDef AutoWorkSkillOf(ThingDef def)
 		{
 			if (def == null || !def.IsApparel || def.equippedStatOffsets == null)
 			{
@@ -6876,7 +6893,7 @@ namespace ResearchedLoadout
 			}
 			// 2.15.2: "Gear up now" always uses our dresser and may replace what is worn (not only add)
 			bool rush = EquipRush.Active(pawn);
-			if ((settings.useOwnDresser || rush) && settings.autoEquipApparel)
+			if ((settings.useOwnDresser || rush) && settings.autoEquipApparel && !Dressing.Held(pawn))
 			{
 				bool onlyAdditions = !rush && ApparelMemory.Calm(pawn, now) && !LoadoutFilter.FreezingOrOverheating(pawn) && !TempRush.Active(pawn) && !Coverage.NeedsBasicsAny(pawn) && !EmergencyGear.AnyActive(map);
 				Thing thing4 = FindBestApparel(pawn, onlyAdditions);
@@ -7501,6 +7518,7 @@ namespace ResearchedLoadout
 
 		private static bool RemoveApparelAndStore(Pawn pawn, Apparel apparel)
 		{
+			if (!Dressing.MayRemove(pawn, apparel)) return false;
 			// 2.15.0: a guest's own clothes go into the backpack, not into the colony's storage
 			if (GuestWardrobe.IsGuest(pawn) && !GuestWardrobe.IsBorrowed(apparel))
 			{
@@ -8447,7 +8465,7 @@ namespace ResearchedLoadout
 			}
 			num *= LoadoutFilter.TechMul(thing.def);
 			num *= WeaponPlus.RoleFactor(pawn, thing);
-			return num * Specialization.WeaponFactor(pawn, thing);
+			return Dressing.Weapon(pawn, thing, num * Specialization.WeaponFactor(pawn, thing));
 		}
 
 		internal static bool IsBroken(Thing thing)
@@ -8477,7 +8495,7 @@ namespace ResearchedLoadout
 					continue;
 				}
 				bool flag = Coverage.FillsBasicGap(pawn, apparel.def);
-				if ((!flag && ApparelGender.Mismatch(pawn, apparel.def)) || (!flag && Specialization.WorkClothingBlocked(pawn, apparel.def)) || (!flag && ApparelMemory.RecentlyRemoved(pawn, apparel.def) && !LoadoutFilter.FreezingOrOverheating(pawn) && !TempRush.Active(pawn) && !GearSense.MayWearAgain(pawn, apparel)) || !InAllowedStorage(apparel) || apparel.IsForbidden(pawn) || IsBroken(apparel) || PolicyForbidsThing(pawn, apparel) || apparel.def.apparel == null || !apparel.def.apparel.PawnCanWear(pawn) || !LoadoutFilter.StageOk(pawn, apparel.def) || (IsRangedBlockingShield(apparel) && PrefersRanged(pawn, (pawn.equipment == null) ? null : pawn.equipment.Primary)) || !ApparelUtility.HasPartsToWear(pawn, apparel.def) || !EquipmentUtility.CanEquip(apparel, pawn) || WouldReplaceProtected(pawn, apparel) || SameKindNotBetter(pawn, apparel) || LoadoutFilter.WouldDowngradeArmor(pawn, apparel))
+				if ((!flag && ApparelGender.Mismatch(pawn, apparel.def)) || (!flag && Specialization.WorkClothingBlocked(pawn, apparel.def)) || (!flag && ApparelMemory.RecentlyRemoved(pawn, apparel.def) && !LoadoutFilter.FreezingOrOverheating(pawn) && !TempRush.Active(pawn) && !GearSense.MayWearAgain(pawn, apparel)) || !InAllowedStorage(apparel) || apparel.IsForbidden(pawn) || IsBroken(apparel) || PolicyForbidsThing(pawn, apparel) || apparel.def.apparel == null || !apparel.def.apparel.PawnCanWear(pawn) || !LoadoutFilter.StageOk(pawn, apparel.def) || (IsRangedBlockingShield(apparel) && PrefersRanged(pawn, (pawn.equipment == null) ? null : pawn.equipment.Primary)) || !ApparelUtility.HasPartsToWear(pawn, apparel.def) || !EquipmentUtility.CanEquip(apparel, pawn) || WouldReplaceProtected(pawn, apparel) || SameKindNotBetter(pawn, apparel) || LoadoutFilter.WouldDowngradeArmor(pawn, apparel) || !Dressing.Allow(pawn, apparel))
 				{
 					continue;
 				}
@@ -8516,6 +8534,8 @@ namespace ResearchedLoadout
 						continue;
 					}
 				}
+				num2 = Dressing.Score(pawn, apparel, num2, false, list != null ? 1f : 15f);
+				if (float.IsNegativeInfinity(num2)) continue;
 				if (num2 > num && pawn.CanReserveAndReach(apparel, PathEndMode.ClosestTouch, Danger.Some))
 				{
 					num = num2;
@@ -11235,7 +11255,14 @@ namespace ResearchedLoadout
 			return false;
 		}
 
+		// 2.18.0: through the dressing provider; SCG's own choice is FindArmorDefault
 		public static Apparel FindArmor(Pawn p, float maxDist, bool threat)
+		{
+			if (Dressing.Held(p) && !threat) return null;
+			return Dressing.Armor(p, maxDist, threat, () => FindArmorDefault(p, maxDist, threat));
+		}
+
+		public static Apparel FindArmorDefault(Pawn p, float maxDist, bool threat)
 		{
 			List<Thing> list = p.Map.listerThings.ThingsInGroup(ThingRequestGroup.Apparel);
 			float d2 = maxDist * maxDist;
@@ -11953,6 +11980,12 @@ namespace ResearchedLoadout
 		[HarmonyPrefix]
 		public static bool Prefix(Pawn pawn, ref Job __result)
 		{
+			// 2.18.0: the dressing provider dresses this pawn right now (occasion, sleepwear …)
+			if (Dressing.Held(pawn) && LoadoutFilter.IsPlayerColonist(pawn))
+			{
+				__result = null;
+				return false;
+			}
 			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
 			if (settings == null || !settings.enabled || !settings.useOwnDresser || !settings.autoEquipApparel)
 			{
@@ -12107,6 +12140,12 @@ namespace ResearchedLoadout
 			{
 				__result *= LoadoutFilter.EraMul(apparel.def);
 			}
+			// 2.18.0: the dressing provider has the last word
+			bool wornNow = pawn.apparel != null && pawn.apparel.WornApparel.Contains(apparel);
+			if (!wornNow && !Dressing.Allow(pawn, apparel)) { __result = -1000f; return; }
+			if (wornNow && __result > 0f && !Dressing.KeepWorn(pawn, apparel)) __result *= 0.05f;
+			__result = Dressing.Score(pawn, apparel, __result, wornNow, 1f);
+			if (float.IsNegativeInfinity(__result)) __result = -1000f;
 		}
 	}
 }

@@ -128,6 +128,7 @@ namespace ResearchedLoadout
 			if (p.IsPrisoner || p.IsSlave || p.HostFaction != null || !LoadoutFilter.IsPlayerColonist(p) || ExemptPawns.IsExempt(p)) return false;
 			SCGBattleComponent c = SCGBattleComponent.Get();
 			if (c != null && c.restoreTo.ContainsKey(p.thingIDNumber)) return false;   // battle gear wins
+			if (Dressing.Held(p)) return false;   // 2.18.0: the dressing provider dresses him right now
 			return true;
 		}
 
@@ -177,7 +178,13 @@ namespace ResearchedLoadout
 			return false;
 		}
 
+		// 2.18.0: through the dressing provider; SCG's own choice is FindGarmentDefault
 		internal static Apparel FindGarment(Pawn p, Map map, SkillDef sk, float maxDistance)
+		{
+			return Dressing.Garment(p, map, sk, maxDistance, () => FindGarmentDefault(p, map, sk, maxDistance));
+		}
+
+		public static Apparel FindGarmentDefault(Pawn p, Map map, SkillDef sk, float maxDistance)
 		{
 			ApparelPolicy policy = p.outfits?.CurrentApparelPolicy;
 			Apparel best = null;
@@ -211,7 +218,7 @@ namespace ResearchedLoadout
 			{
 				SkillDef sk = Specialization.WorkSkillOf(a.def);
 				if (sk == null || Active(p, sk) || Untouchable(p, a)) continue;
-				if (!SafeToRemove(p, map, a)) continue;
+				if (!SafeToRemove(p, map, a) || !Dressing.MayRemove(p, a)) continue;
 				List<Apparel> back = null;
 				Dictionary<int, List<Apparel>> r;
 				if (replaced.TryGetValue(p.thingIDNumber, out r) && r.TryGetValue(a.thingIDNumber, out back)) r.Remove(a.thingIDNumber);

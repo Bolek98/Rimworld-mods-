@@ -157,6 +157,7 @@ namespace ResearchedLoadout
 			if (p.mindState != null && p.mindState.anyCloseHostilesRecently) return false;
 			SCGBattleComponent c = SCGBattleComponent.Get();
 			if (c != null && c.restoreTo.ContainsKey(p.thingIDNumber)) return false;
+			if (Dressing.Held(p)) return false;
 			return true;
 		}
 
