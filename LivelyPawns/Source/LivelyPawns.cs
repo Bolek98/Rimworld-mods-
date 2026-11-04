@@ -53,7 +53,7 @@ namespace LivelyPawns
 
     public class LivelyPawnsMod : Mod
     {
-        public const string Version = "0.1.1";
+        public const string Version = "0.1.2";
         public static LPSettings S;
         public static bool Yayo;            // Yayo's Animation is active: our pawn movement stays off
         private static List<string> recBullets;
@@ -289,6 +289,8 @@ namespace LivelyPawns
             off = Vector3.zero; angle = 0f; scaleZ = 1f;
             LPSettings s = LivelyPawnsMod.S;
             if (!data.TryGetValue(p.thingIDNumber, out PawnAnim a)) return false;
+            // 0.1.2: a pawn another animation mod is moving right now (RJW Animations …) is left to it
+            if (OtherAnimator.Busy(p)) return false;
             if (skip.TryGetValue(p.thingIDNumber, out int until))
             {
                 if (Environment.TickCount < until) return false;
@@ -702,6 +704,68 @@ namespace LivelyPawns
                 resultsF.SetValue(__instance, r);
             }
             catch (Exception e) { if (p != null) Anim.Skip(p, e); }
+        }
+    }
+}
+
+namespace LivelyPawns
+{
+    // 0.1.2: RJW Animations (and similar mods) move the whole pawn themselves – two mods moving the
+    // same body fight and the pawn jumps. Such a pawn is skipped while the other mod animates it.
+    public static class OtherAnimator
+    {
+        private struct Entry { public bool busy; public int tick; }
+        private static readonly ConcurrentDictionary<int, Entry> cache = new ConcurrentDictionary<int, Entry>();
+        private static readonly ConcurrentDictionary<System.Type, System.Reflection.MemberInfo> flags = new ConcurrentDictionary<System.Type, System.Reflection.MemberInfo>();
+
+        public static bool Busy(Pawn p)
+        {
+            try
+            {
+                int now = Find.TickManager?.TicksGame ?? 0;
+                if (cache.TryGetValue(p.thingIDNumber, out Entry e) && now - e.tick < 30 && now >= e.tick) return e.busy;
+                bool b = Check(p);
+                cache[p.thingIDNumber] = new Entry { busy = b, tick = now };
+                return b;
+            }
+            catch { return false; }
+        }
+
+        private static bool Check(Pawn p)
+        {
+            object d = p.jobs?.curDriver;
+            if (d != null)
+            {
+                string ns = d.GetType().Namespace ?? "";
+                if (ns.StartsWith("rjw", StringComparison.OrdinalIgnoreCase) || ns.IndexOf("Animation", StringComparison.OrdinalIgnoreCase) >= 0) return true;
+            }
+            List<ThingComp> comps = p.AllComps;
+            if (comps == null) return false;
+            for (int i = 0; i < comps.Count; i++)
+            {
+                ThingComp c = comps[i];
+                if (c == null) continue;
+                System.Type t = c.GetType();
+                if (t.Name.IndexOf("Animat", StringComparison.OrdinalIgnoreCase) < 0) continue;
+                System.Reflection.MemberInfo m = flags.GetOrAdd(t, FindFlag);
+                if (m == null) continue;
+                object v = m is System.Reflection.PropertyInfo pi ? pi.GetValue(c, null) : ((System.Reflection.FieldInfo)m).GetValue(c);
+                if (v is bool bv && bv) return true;
+            }
+            return false;
+        }
+
+        private static System.Reflection.MemberInfo FindFlag(System.Type t)
+        {
+            const System.Reflection.BindingFlags bf = System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic;
+            foreach (string n in new[] { "IsAnimating", "isAnimating", "Animating", "animating", "hasAnimPlaying", "AnimationPlaying" })
+            {
+                var pi = t.GetProperty(n, bf);
+                if (pi != null && pi.PropertyType == typeof(bool) && pi.GetIndexParameters().Length == 0) return pi;
+                var fi = t.GetField(n, bf);
+                if (fi != null && fi.FieldType == typeof(bool)) return fi;
+            }
+            return null;
         }
     }
 }

@@ -21,7 +21,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Gender Balance | 1.3.4 | [GenderBalance](GenderBalance) |
 | Haul Master – Pockets, Routes & Storage | 3.5.0 | [HaulSmarter](HaulSmarter) |
 | Legacy – Your Old Colonies Live On | 0.1.1 | [Legacy](Legacy) |
-| Lively Pawns – Animations & Effects | 0.1.1 | [LivelyPawns](LivelyPawns) |
+| Lively Pawns – Animations & Effects | 0.1.2 | [LivelyPawns](LivelyPawns) |
 | Mad Dice Max – Dice Storyteller | 1.0.0 | [MadDiceMax](MadDiceMax) |
 | Map Architect | 0.4.3 | [MapArchitect](MapArchitect) |
 | Masks & Headgear Together | 1.0.1 | [MasksAndHeadgear](MasksAndHeadgear) |
