@@ -175,4 +175,84 @@
   <MUI_Yes>activé</MUI_Yes>
   <MUI_No>désactivé</MUI_No>
   <MUI_RecTag>RECOMMANDÉ</MUI_RecTag>
+
+  <!-- 1.1.0 -->
+  <QFW_MapActions>Actions sur toute la carte dans la fenêtre QoL</QFW_MapActions>
+  <QFW_MapActions_Desc>Boutons dans la fenêtre QoL (onglet Colonie) : autoriser tous les objets interdits de la carte, revendiquer tous les bâtiments abandonnés.</QFW_MapActions_Desc>
+  <QFW_SecCopy>Copier les réglages</QFW_SecCopy>
+  <QFW_BillCopy>Copier / coller les commandes et modèles de commandes</QFW_BillCopy>
+  <QFW_BillCopy_Desc>Boutons sur les établis : copier toutes les commandes, les coller sur d'autres établis (remplacer ou ajouter) et les enregistrer comme modèle nommé pour toutes les parties.</QFW_BillCopy_Desc>
+  <QFW_StoragePasteAll>Réglages de stockage vers tous ceux du même type</QFW_StoragePasteAll>
+  <QFW_StoragePasteAll_Desc>Un bouton sur les zones de stockage et étagères : donne le même filtre et la même priorité à toutes les zones (ou à toutes les étagères du même type) de la carte. Copier / coller vers la sélection existe déjà dans le jeu.</QFW_StoragePasteAll_Desc>
+  <QFW_AnimalCopy>Copier / coller les réglages des animaux</QFW_AnimalCopy>
+  <QFW_AnimalCopy_Desc>Boutons sur vos animaux : maître, suivre en mobilisation / au travail, zone autorisée, dressage, nourriture et soins – coller à tous les animaux sélectionnés.</QFW_AnimalCopy_Desc>
+  <QFW_PipetteSettings>La pipette copie commandes et réglages de stockage</QFW_PipetteSettings>
+  <QFW_PipetteSettings_Desc>Si vous prenez un établi ou une étagère avec la pipette, le nouveau reçoit les mêmes commandes et réglages une fois construit.</QFW_PipetteSettings_Desc>
+  <QFW_SecRebuild>Reconstruction automatique</QFW_SecRebuild>
+  <QFW_AutoRebuild>Reconstruire les bâtiments détruits</QFW_AutoRebuild>
+  <QFW_AutoRebuild_Desc>Quand un de vos bâtiments est détruit (pas déconstruit), un plan du même bâtiment, matériau et orientation est posé à sa place. La reconstruction du jeu (zone de base) passe en premier.</QFW_AutoRebuild_Desc>
+  <QFW_RbOutsideHome>Aussi hors de la zone de base</QFW_RbOutsideHome>
+  <QFW_RbOutsideHome_Desc>Désactivé : seuls les bâtiments de la zone de base sont reconstruits.</QFW_RbOutsideHome_Desc>
+  <QFW_RbWaitPeace>Attendre le départ des ennemis</QFW_RbWaitPeace>
+  <QFW_RbWaitPeace_Desc>Les plans des choses détruites pendant un combat sont posés après, pour que les bâtisseurs ne courent pas dans la bataille.</QFW_RbWaitPeace_Desc>
+  <QFW_RbSettings>Garder commandes et réglages de stockage</QFW_RbSettings>
+  <QFW_RbSettings_Desc>Un établi ou une étagère reconstruit reçoit les commandes et réglages de celui détruit.</QFW_RbSettings_Desc>
+  <QFW_RbWalls>Murs et portes</QFW_RbWalls>
+  <QFW_RbWalls_Desc>Reconstruire murs et portes.</QFW_RbWalls_Desc>
+  <QFW_RbFurniture>Meubles et loisirs</QFW_RbFurniture>
+  <QFW_RbFurniture_Desc>Reconstruire lits, tables, chaises, loisirs et autres meubles.</QFW_RbFurniture_Desc>
+  <QFW_RbPower>Énergie et tuyaux</QFW_RbPower>
+  <QFW_RbPower_Desc>Reconstruire câbles, générateurs, batteries et tuyaux (aussi des mods).</QFW_RbPower_Desc>
+  <QFW_RbProduction>Établis</QFW_RbProduction>
+  <QFW_RbProduction_Desc>Reconstruire établis et autres bâtiments à commandes.</QFW_RbProduction_Desc>
+  <QFW_RbSecurity>Sécurité</QFW_RbSecurity>
+  <QFW_RbSecurity_Desc>Reconstruire tourelles, pièges et autres défenses.</QFW_RbSecurity_Desc>
+  <QFW_RbOther>Tout le reste</QFW_RbOther>
+  <QFW_RbOther_Desc>Reconstruire les autres bâtiments (lampes, refroidisseurs, sculptures …).</QFW_RbOther_Desc>
+  <QFW_CopyBills>Copier commandes</QFW_CopyBills>
+  <QFW_CopyBills_Desc>Copie toutes les commandes de cet établi.</QFW_CopyBills_Desc>
+  <QFW_BillsCopied>{0} commandes copiées depuis {1}.</QFW_BillsCopied>
+  <QFW_PasteBills>Coller commandes</QFW_PasteBills>
+  <QFW_PasteBills_Desc>Colle les commandes copiées depuis {0} dans tous les établis sélectionnés. Les recettes impossibles sont ignorées.</QFW_PasteBills_Desc>
+  <QFW_BillsNothing>Copiez d'abord les commandes d'un établi.</QFW_BillsNothing>
+  <QFW_BillTemplates>Modèles de commandes</QFW_BillTemplates>
+  <QFW_BillTemplates_Desc>Enregistre les commandes de cet établi comme modèle nommé, ou ajoute un modèle aux établis sélectionnés. Les modèles marchent dans toutes les parties.</QFW_BillTemplates_Desc>
+  <QFW_PasteAppend>Ajouter aux commandes existantes</QFW_PasteAppend>
+  <QFW_PasteReplace>Remplacer les commandes existantes</QFW_PasteReplace>
+  <QFW_BillsPasted>{0} commandes ajoutées, {1} ignorées (l'établi ne peut pas).</QFW_BillsPasted>
+  <QFW_TplSave>Enregistrer ces commandes comme modèle…</QFW_TplSave>
+  <QFW_TplName>Nom du modèle</QFW_TplName>
+  <QFW_TplSaved>Modèle « {0} » enregistré ({1} commandes).</QFW_TplSaved>
+  <QFW_TplApply>Ajouter le modèle « {0} » ({1} sur {2} commandes conviennent)</QFW_TplApply>
+  <QFW_TplDelete>Supprimer un modèle…</QFW_TplDelete>
+  <QFW_StorageAll>Pareil pour tous</QFW_StorageAll>
+  <QFW_StorageAll_Desc>Applique ces réglages à toutes les zones de stockage (ou à tous les stockages de ce type) de la carte.</QFW_StorageAll_Desc>
+  <QFW_StorageAllDone>Réglages appliqués à {0} autres.</QFW_StorageAllDone>
+  <QFW_CopyAnimal>Copier les réglages de l'animal</QFW_CopyAnimal>
+  <QFW_CopyAnimal_Desc>Copie maître, suivi, zone autorisée, dressage, nourriture et soins de cet animal.</QFW_CopyAnimal_Desc>
+  <QFW_PasteAnimal>Coller les réglages ({0})</QFW_PasteAnimal>
+  <QFW_PasteAnimal_Desc>Colle les réglages copiés de {0} à tous les animaux sélectionnés (dressage seulement ce que l'espèce peut apprendre).</QFW_PasteAnimal_Desc>
+  <QFW_SettingsTaken>{0} a reçu les commandes et réglages de l'ancien.</QFW_SettingsTaken>
+  <QFW_SecDismiss>Lettres qui se ferment seules</QFW_SecDismiss>
+  <QFW_DismissNote>Une lettre de ce type se ferme après le délai ci-dessous. Elle reste dans l'historique. Les lettres à choix ne se ferment jamais seules.</QFW_DismissNote>
+  <QFW_DismissPositive>Bonnes nouvelles</QFW_DismissPositive>
+  <QFW_DismissNeutral>Neutre (marchands, visiteurs …)</QFW_DismissNeutral>
+  <QFW_DismissNegative>Mauvaises nouvelles et décès</QFW_DismissNegative>
+  <QFW_DismissThreat>Menaces (raids …)</QFW_DismissThreat>
+  <QFW_DismissNever>jamais</QFW_DismissNever>
+  <QFW_DismissSecs>après {0} s</QFW_DismissSecs>
+  <QFW_SkAll>Tout</QFW_SkAll>
+  <QFW_SkItems>Objets</QFW_SkItems>
+  <QFW_SkColonists>Colons</QFW_SkColonists>
+  <QFW_SkAnimals>Animaux</QFW_SkAnimals>
+  <QFW_SkPlants>Plantes</QFW_SkPlants>
+  <QFW_SkBuildings>Bâtiments</QFW_SkBuildings>
+  <QFW_SkForbidden>Seulement interdits</QFW_SkForbidden>
+  <QFW_SkOutside>Seulement hors stockage</QFW_SkOutside>
+  <QFW_UnforbidAll>Autoriser tous les objets</QFW_UnforbidAll>
+  <QFW_UnforbidAll_Desc>Tous les objets interdits visibles sur la carte sont autorisés (pas ceux près des ennemis).</QFW_UnforbidAll_Desc>
+  <QFW_UnforbidDone>{0} objets autorisés.</QFW_UnforbidDone>
+  <QFW_ClaimAll>Revendiquer tous les bâtiments abandonnés</QFW_ClaimAll>
+  <QFW_ClaimAll_Desc>Chaque bâtiment visible que vous pouvez revendiquer devient le vôtre (pas ceux des factions hostiles).</QFW_ClaimAll_Desc>
+  <QFW_ClaimDone>{0} bâtiments revendiqués.</QFW_ClaimDone>
 </LanguageData>

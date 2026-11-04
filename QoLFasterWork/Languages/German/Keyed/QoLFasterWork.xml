@@ -175,4 +175,84 @@
   <MUI_Yes>an</MUI_Yes>
   <MUI_No>aus</MUI_No>
   <MUI_RecTag>EMPFOHLEN</MUI_RecTag>
+
+  <!-- 1.1.0 -->
+  <QFW_MapActions>Kartenweite Aktionen im QoL-Fenster</QFW_MapActions>
+  <QFW_MapActions_Desc>Knöpfe im QoL-Fenster (Reiter Kolonie): alle verbotenen Gegenstände auf der Karte erlauben, alle verlassenen Gebäude beanspruchen.</QFW_MapActions_Desc>
+  <QFW_SecCopy>Einstellungen kopieren</QFW_SecCopy>
+  <QFW_BillCopy>Aufträge kopieren / einfügen und Auftragsvorlagen</QFW_BillCopy>
+  <QFW_BillCopy_Desc>Knöpfe an Werkbänken: alle Aufträge kopieren, in andere Werkbänke einfügen (ersetzen oder hinzufügen) und als benannte Vorlage für alle Spiele speichern.</QFW_BillCopy_Desc>
+  <QFW_StoragePasteAll>Lagereinstellungen auf alle gleicher Art</QFW_StoragePasteAll>
+  <QFW_StoragePasteAll_Desc>Ein Knopf an Lagerzonen und Regalen: gibt allen Lagerzonen (oder allen Regalen gleicher Art) der Karte denselben Filter und dieselbe Priorität. Kopieren / Einfügen auf ausgewählte kann das Spiel schon.</QFW_StoragePasteAll_Desc>
+  <QFW_AnimalCopy>Tiereinstellungen kopieren / einfügen</QFW_AnimalCopy>
+  <QFW_AnimalCopy_Desc>Knöpfe an deinen Tieren: Meister, Folgen bei Einberufung / Arbeit, erlaubter Bereich, Training, Futter und Pflege – in alle ausgewählten Tiere einfügen.</QFW_AnimalCopy_Desc>
+  <QFW_PipetteSettings>Pipette kopiert Aufträge und Lagereinstellungen</QFW_PipetteSettings>
+  <QFW_PipetteSettings_Desc>Nimmst du eine Werkbank oder ein Regal mit der Pipette, bekommt das neue nach dem Bau dieselben Aufträge und Lagereinstellungen.</QFW_PipetteSettings_Desc>
+  <QFW_SecRebuild>Automatischer Wiederaufbau</QFW_SecRebuild>
+  <QFW_AutoRebuild>Zerstörte Gebäude wieder aufbauen</QFW_AutoRebuild>
+  <QFW_AutoRebuild_Desc>Wird ein Gebäude von dir zerstört (nicht abgebaut), wird an seiner Stelle ein Bauplan desselben Gebäudes mit Material und Drehung gesetzt. Der eigene Wiederaufbau des Spiels (Heimbereich) geht vor.</QFW_AutoRebuild_Desc>
+  <QFW_RbOutsideHome>Auch außerhalb des Heimbereichs</QFW_RbOutsideHome>
+  <QFW_RbOutsideHome_Desc>Aus: nur Gebäude im Heimbereich werden wieder aufgebaut.</QFW_RbOutsideHome_Desc>
+  <QFW_RbWaitPeace>Warten, bis die Feinde weg sind</QFW_RbWaitPeace>
+  <QFW_RbWaitPeace_Desc>Baupläne von im Kampf zerstörten Dingen werden danach gesetzt, damit Bauarbeiter nicht in die Schlacht laufen.</QFW_RbWaitPeace_Desc>
+  <QFW_RbSettings>Aufträge und Lagereinstellungen behalten</QFW_RbSettings>
+  <QFW_RbSettings_Desc>Eine wieder aufgebaute Werkbank oder ein Regal bekommt die Aufträge und Lagereinstellungen des zerstörten.</QFW_RbSettings_Desc>
+  <QFW_RbWalls>Wände und Türen</QFW_RbWalls>
+  <QFW_RbWalls_Desc>Wände und Türen wieder aufbauen.</QFW_RbWalls_Desc>
+  <QFW_RbFurniture>Möbel und Freizeit</QFW_RbFurniture>
+  <QFW_RbFurniture_Desc>Betten, Tische, Stühle, Freizeitgebäude und andere Möbel wieder aufbauen.</QFW_RbFurniture_Desc>
+  <QFW_RbPower>Strom und Rohre</QFW_RbPower>
+  <QFW_RbPower_Desc>Leitungen, Generatoren, Batterien und Rohre wieder aufbauen (auch aus Mods).</QFW_RbPower_Desc>
+  <QFW_RbProduction>Werkbänke</QFW_RbProduction>
+  <QFW_RbProduction_Desc>Werkbänke und andere Gebäude mit Aufträgen wieder aufbauen.</QFW_RbProduction_Desc>
+  <QFW_RbSecurity>Sicherheit</QFW_RbSecurity>
+  <QFW_RbSecurity_Desc>Geschütze, Fallen und andere Sicherheitsgebäude wieder aufbauen.</QFW_RbSecurity_Desc>
+  <QFW_RbOther>Alles andere</QFW_RbOther>
+  <QFW_RbOther_Desc>Andere Gebäude wieder aufbauen (Lampen, Kühler, Skulpturen …).</QFW_RbOther_Desc>
+  <QFW_CopyBills>Aufträge kopieren</QFW_CopyBills>
+  <QFW_CopyBills_Desc>Kopiert alle Aufträge dieser Werkbank.</QFW_CopyBills_Desc>
+  <QFW_BillsCopied>{0} Aufträge von {1} kopiert.</QFW_BillsCopied>
+  <QFW_PasteBills>Aufträge einfügen</QFW_PasteBills>
+  <QFW_PasteBills_Desc>Fügt die von {0} kopierten Aufträge in alle ausgewählten Werkbänke ein. Rezepte, die eine Werkbank nicht kann, werden übersprungen.</QFW_PasteBills_Desc>
+  <QFW_BillsNothing>Kopiere zuerst die Aufträge einer Werkbank.</QFW_BillsNothing>
+  <QFW_BillTemplates>Auftragsvorlagen</QFW_BillTemplates>
+  <QFW_BillTemplates_Desc>Speichert die Aufträge dieser Werkbank als benannte Vorlage oder fügt eine gespeicherte Vorlage den ausgewählten hinzu. Vorlagen gelten in jedem Spiel.</QFW_BillTemplates_Desc>
+  <QFW_PasteAppend>Zu den vorhandenen Aufträgen hinzufügen</QFW_PasteAppend>
+  <QFW_PasteReplace>Vorhandene Aufträge ersetzen</QFW_PasteReplace>
+  <QFW_BillsPasted>{0} Aufträge hinzugefügt, {1} übersprungen (die Werkbank kann sie nicht).</QFW_BillsPasted>
+  <QFW_TplSave>Diese Aufträge als Vorlage speichern…</QFW_TplSave>
+  <QFW_TplName>Name der Vorlage</QFW_TplName>
+  <QFW_TplSaved>Vorlage „{0}“ gespeichert ({1} Aufträge).</QFW_TplSaved>
+  <QFW_TplApply>Vorlage „{0}“ hinzufügen ({1} von {2} Aufträgen passen)</QFW_TplApply>
+  <QFW_TplDelete>Eine Vorlage löschen…</QFW_TplDelete>
+  <QFW_StorageAll>Gleich für alle</QFW_StorageAll>
+  <QFW_StorageAll_Desc>Gibt allen Lagerzonen (oder allen Lagern dieser Art) der Karte diese Lagereinstellungen.</QFW_StorageAll_Desc>
+  <QFW_StorageAllDone>Lagereinstellungen an {0} weitere gegeben.</QFW_StorageAllDone>
+  <QFW_CopyAnimal>Tiereinstellungen kopieren</QFW_CopyAnimal>
+  <QFW_CopyAnimal_Desc>Kopiert Meister, Folgen, erlaubten Bereich, Training, Futter und Pflege dieses Tieres.</QFW_CopyAnimal_Desc>
+  <QFW_PasteAnimal>Tiereinstellungen einfügen ({0})</QFW_PasteAnimal>
+  <QFW_PasteAnimal_Desc>Fügt die von {0} kopierten Einstellungen allen ausgewählten Tieren ein (Training nur, was die Art lernen kann).</QFW_PasteAnimal_Desc>
+  <QFW_SettingsTaken>{0} hat die Aufträge und Lagereinstellungen des alten bekommen.</QFW_SettingsTaken>
+  <QFW_SecDismiss>Briefe, die sich selbst schließen</QFW_SecDismiss>
+  <QFW_DismissNote>Ein Brief dieser Art schließt sich nach der Zeit unten. Er bleibt im Verlauf. Briefe mit einer Wahl schließen sich nie selbst.</QFW_DismissNote>
+  <QFW_DismissPositive>Gute Nachrichten</QFW_DismissPositive>
+  <QFW_DismissNeutral>Neutral (Händler, Besucher …)</QFW_DismissNeutral>
+  <QFW_DismissNegative>Schlechte Nachrichten und Tode</QFW_DismissNegative>
+  <QFW_DismissThreat>Bedrohungen (Überfälle …)</QFW_DismissThreat>
+  <QFW_DismissNever>nie</QFW_DismissNever>
+  <QFW_DismissSecs>nach {0} s</QFW_DismissSecs>
+  <QFW_SkAll>Alles</QFW_SkAll>
+  <QFW_SkItems>Gegenstände</QFW_SkItems>
+  <QFW_SkColonists>Kolonisten</QFW_SkColonists>
+  <QFW_SkAnimals>Tiere</QFW_SkAnimals>
+  <QFW_SkPlants>Pflanzen</QFW_SkPlants>
+  <QFW_SkBuildings>Gebäude</QFW_SkBuildings>
+  <QFW_SkForbidden>Nur verbotene</QFW_SkForbidden>
+  <QFW_SkOutside>Nur außerhalb des Lagers</QFW_SkOutside>
+  <QFW_UnforbidAll>Alle Gegenstände erlauben</QFW_UnforbidAll>
+  <QFW_UnforbidAll_Desc>Alle sichtbaren verbotenen Gegenstände der Karte werden wieder erlaubt (nicht die nahe bei Feinden).</QFW_UnforbidAll_Desc>
+  <QFW_UnforbidDone>{0} Gegenstände erlaubt.</QFW_UnforbidDone>
+  <QFW_ClaimAll>Alle verlassenen Gebäude beanspruchen</QFW_ClaimAll>
+  <QFW_ClaimAll_Desc>Jedes sichtbare Gebäude, das du beanspruchen darfst, wird deins (nicht die feindlicher Fraktionen).</QFW_ClaimAll_Desc>
+  <QFW_ClaimDone>{0} Gebäude beansprucht.</QFW_ClaimDone>
 </LanguageData>

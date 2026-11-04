@@ -175,4 +175,84 @@
   <MUI_Yes>zapnuto</MUI_Yes>
   <MUI_No>vypnuto</MUI_No>
   <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+
+  <!-- 1.1.0 -->
+  <QFW_MapActions>Akce pro celou mapu v okně QoL</QFW_MapActions>
+  <QFW_MapActions_Desc>Tlačítka v okně QoL (záložka Kolonie): povolit všechny zakázané věci na mapě, převzít všechny opuštěné budovy.</QFW_MapActions_Desc>
+  <QFW_SecCopy>Kopírování nastavení</QFW_SecCopy>
+  <QFW_BillCopy>Kopírovat a vložit zakázky, šablony zakázek</QFW_BillCopy>
+  <QFW_BillCopy_Desc>Tlačítka u pracovních stolů: zkopírovat všechny zakázky, vložit je do jiných stolů (nahradit nebo přidat) a uložit je jako pojmenovanou šablonu pro všechny hry.</QFW_BillCopy_Desc>
+  <QFW_StoragePasteAll>Nastavení skladu na všechny stejného druhu</QFW_StoragePasteAll>
+  <QFW_StoragePasteAll_Desc>Tlačítko u skládek a polic: dá všem skládkám (nebo všem policím stejného druhu) na mapě stejný filtr a prioritu. Kopírování na vybrané už hra umí.</QFW_StoragePasteAll_Desc>
+  <QFW_AnimalCopy>Kopírovat a vložit nastavení zvířat</QFW_AnimalCopy>
+  <QFW_AnimalCopy_Desc>Tlačítka u tvých zvířat: pán, následování při povolání / při práci, povolená oblast, výcvik, jídlo a péče – vložit všem vybraným zvířatům.</QFW_AnimalCopy_Desc>
+  <QFW_PipetteSettings>Pipeta kopíruje zakázky a nastavení skladu</QFW_PipetteSettings>
+  <QFW_PipetteSettings_Desc>Když pipetou vezmeš pracovní stůl nebo polici, nový dostane po postavení stejné zakázky a nastavení skladu.</QFW_PipetteSettings_Desc>
+  <QFW_SecRebuild>Automatická obnova</QFW_SecRebuild>
+  <QFW_AutoRebuild>Obnovovat zničené budovy</QFW_AutoRebuild>
+  <QFW_AutoRebuild_Desc>Když se tvoje budova zničí (ne rozebere), na jejím místě se objeví plán stejné budovy se stejným materiálem a otočením. Vlastní automatická obnova hry (domovská oblast) má přednost.</QFW_AutoRebuild_Desc>
+  <QFW_RbOutsideHome>I mimo domovskou oblast</QFW_RbOutsideHome>
+  <QFW_RbOutsideHome_Desc>Vypnuto: obnovují se jen budovy v domovské oblasti.</QFW_RbOutsideHome_Desc>
+  <QFW_RbWaitPeace>Počkat, až odejdou nepřátelé</QFW_RbWaitPeace>
+  <QFW_RbWaitPeace_Desc>Plány věcí zničených během boje se položí až po něm, aby stavitelé nebíhali do bitvy.</QFW_RbWaitPeace_Desc>
+  <QFW_RbSettings>Zachovat zakázky a nastavení skladu</QFW_RbSettings>
+  <QFW_RbSettings_Desc>Obnovený pracovní stůl nebo police dostane zakázky a nastavení skladu toho zničeného.</QFW_RbSettings_Desc>
+  <QFW_RbWalls>Zdi a dveře</QFW_RbWalls>
+  <QFW_RbWalls_Desc>Obnovovat zdi a dveře.</QFW_RbWalls_Desc>
+  <QFW_RbFurniture>Nábytek a zábava</QFW_RbFurniture>
+  <QFW_RbFurniture_Desc>Obnovovat postele, stoly, židle, zábavu a jiný nábytek.</QFW_RbFurniture_Desc>
+  <QFW_RbPower>Energie a potrubí</QFW_RbPower>
+  <QFW_RbPower_Desc>Obnovovat vedení, generátory, baterie a potrubí (i z modů).</QFW_RbPower_Desc>
+  <QFW_RbProduction>Pracovní stoly</QFW_RbProduction>
+  <QFW_RbProduction_Desc>Obnovovat pracovní stoly a jiné budovy se zakázkami.</QFW_RbProduction_Desc>
+  <QFW_RbSecurity>Obrana</QFW_RbSecurity>
+  <QFW_RbSecurity_Desc>Obnovovat věže, pasti a jiné obranné budovy.</QFW_RbSecurity_Desc>
+  <QFW_RbOther>Všechno ostatní</QFW_RbOther>
+  <QFW_RbOther_Desc>Obnovovat ostatní budovy (světla, chladiče, sochy …).</QFW_RbOther_Desc>
+  <QFW_CopyBills>Kopírovat zakázky</QFW_CopyBills>
+  <QFW_CopyBills_Desc>Zkopíruje všechny zakázky tohoto stolu.</QFW_CopyBills_Desc>
+  <QFW_BillsCopied>Zkopírováno {0} zakázek z: {1}.</QFW_BillsCopied>
+  <QFW_PasteBills>Vložit zakázky</QFW_PasteBills>
+  <QFW_PasteBills_Desc>Vloží zakázky zkopírované z: {0} do všech vybraných stolů. Recepty, které stůl neumí, se přeskočí.</QFW_PasteBills_Desc>
+  <QFW_BillsNothing>Nejdřív zkopíruj zakázky nějakého stolu.</QFW_BillsNothing>
+  <QFW_BillTemplates>Šablony zakázek</QFW_BillTemplates>
+  <QFW_BillTemplates_Desc>Uloží zakázky tohoto stolu jako pojmenovanou šablonu, nebo přidá uloženou šablonu do vybraných stolů. Šablony fungují ve všech hrách.</QFW_BillTemplates_Desc>
+  <QFW_PasteAppend>Přidat k současným zakázkám</QFW_PasteAppend>
+  <QFW_PasteReplace>Nahradit současné zakázky</QFW_PasteReplace>
+  <QFW_BillsPasted>Přidáno {0} zakázek, {1} přeskočeno (stůl je neumí).</QFW_BillsPasted>
+  <QFW_TplSave>Uložit tyto zakázky jako šablonu…</QFW_TplSave>
+  <QFW_TplName>Název šablony</QFW_TplName>
+  <QFW_TplSaved>Šablona „{0}“ uložena ({1} zakázek).</QFW_TplSaved>
+  <QFW_TplApply>Přidat šablonu „{0}“ (hodí se {1} z {2} zakázek)</QFW_TplApply>
+  <QFW_TplDelete>Smazat šablonu…</QFW_TplDelete>
+  <QFW_StorageAll>Stejně pro všechny</QFW_StorageAll>
+  <QFW_StorageAll_Desc>Dá všem skládkám (nebo všem skladům tohoto druhu) na mapě toto nastavení skladu.</QFW_StorageAll_Desc>
+  <QFW_StorageAllDone>Nastavení skladu dáno dalším: {0}.</QFW_StorageAllDone>
+  <QFW_CopyAnimal>Kopírovat nastavení zvířete</QFW_CopyAnimal>
+  <QFW_CopyAnimal_Desc>Zkopíruje pána, následování, povolenou oblast, výcvik, jídlo a péči tohoto zvířete.</QFW_CopyAnimal_Desc>
+  <QFW_PasteAnimal>Vložit nastavení zvířete ({0})</QFW_PasteAnimal>
+  <QFW_PasteAnimal_Desc>Vloží nastavení zkopírované z: {0} všem vybraným zvířatům (výcvik jen to, co se daný druh může naučit).</QFW_PasteAnimal_Desc>
+  <QFW_SettingsTaken>{0} dostal(a) zakázky a nastavení skladu toho starého.</QFW_SettingsTaken>
+  <QFW_SecDismiss>Dopisy, které se samy zavřou</QFW_SecDismiss>
+  <QFW_DismissNote>Dopis daného druhu se zavře po uvedené době. Zůstane v Historii. Dopisy, které čekají na volbu, se samy nezavřou nikdy.</QFW_DismissNote>
+  <QFW_DismissPositive>Dobré zprávy</QFW_DismissPositive>
+  <QFW_DismissNeutral>Neutrální (obchodníci, návštěvy …)</QFW_DismissNeutral>
+  <QFW_DismissNegative>Špatné zprávy a úmrtí</QFW_DismissNegative>
+  <QFW_DismissThreat>Hrozby (nájezdy …)</QFW_DismissThreat>
+  <QFW_DismissNever>nikdy</QFW_DismissNever>
+  <QFW_DismissSecs>po {0} s</QFW_DismissSecs>
+  <QFW_SkAll>Vše</QFW_SkAll>
+  <QFW_SkItems>Věci</QFW_SkItems>
+  <QFW_SkColonists>Kolonisté</QFW_SkColonists>
+  <QFW_SkAnimals>Zvířata</QFW_SkAnimals>
+  <QFW_SkPlants>Rostliny</QFW_SkPlants>
+  <QFW_SkBuildings>Budovy</QFW_SkBuildings>
+  <QFW_SkForbidden>Jen zakázané</QFW_SkForbidden>
+  <QFW_SkOutside>Jen mimo sklad</QFW_SkOutside>
+  <QFW_UnforbidAll>Povolit všechny věci</QFW_UnforbidAll>
+  <QFW_UnforbidAll_Desc>Všechny zakázané věci, které na mapě vidíš, se zase povolí (ne ty u nepřátel).</QFW_UnforbidAll_Desc>
+  <QFW_UnforbidDone>Povoleno věcí: {0}.</QFW_UnforbidDone>
+  <QFW_ClaimAll>Převzít všechny opuštěné budovy</QFW_ClaimAll>
+  <QFW_ClaimAll_Desc>Všechny viditelné budovy, které smíš převzít, budou tvoje (ne budovy nepřátelských frakcí).</QFW_ClaimAll_Desc>
+  <QFW_ClaimDone>Převzato budov: {0}.</QFW_ClaimDone>
 </LanguageData>

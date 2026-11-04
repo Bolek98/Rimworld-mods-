@@ -163,4 +163,84 @@
   <MUI_Yes>オン</MUI_Yes>
   <MUI_No>オフ</MUI_No>
   <MUI_RecTag>推奨</MUI_RecTag>
+
+  <!-- 1.1.0 -->
+  <QFW_MapActions>QoLウィンドウのマップ全体アクション</QFW_MapActions>
+  <QFW_MapActions_Desc>QoLウィンドウ（コロニー）のボタン：マップ上の禁止アイテムをすべて許可、放棄された建物をすべて所有。</QFW_MapActions_Desc>
+  <QFW_SecCopy>設定のコピー</QFW_SecCopy>
+  <QFW_BillCopy>作業指示のコピー／貼り付けとテンプレート</QFW_BillCopy>
+  <QFW_BillCopy_Desc>作業台のボタン：すべての作業指示をコピーし、他の作業台に貼り付け（置き換え／追加）、名前付きテンプレートとして全ゲームで使えるよう保存。</QFW_BillCopy_Desc>
+  <QFW_StoragePasteAll>保管設定を同じ種類すべてへ</QFW_StoragePasteAll>
+  <QFW_StoragePasteAll_Desc>保管区域と棚のボタン：マップ上のすべての保管区域（または同じ種類の棚すべて）に同じフィルターと優先度を設定。選択中へのコピー／貼り付けはゲームに既にあります。</QFW_StoragePasteAll_Desc>
+  <QFW_AnimalCopy>動物設定のコピー／貼り付け</QFW_AnimalCopy>
+  <QFW_AnimalCopy_Desc>あなたの動物のボタン：主人、徴兵時／作業時の追従、許可エリア、訓練、食事、医療 – 選択中の動物すべてに貼り付け。</QFW_AnimalCopy_Desc>
+  <QFW_PipetteSettings>スポイトで作業指示と保管設定もコピー</QFW_PipetteSettings>
+  <QFW_PipetteSettings_Desc>スポイトで作業台や棚を選ぶと、新しいものは完成時に同じ作業指示と保管設定になります。</QFW_PipetteSettings_Desc>
+  <QFW_SecRebuild>自動再建</QFW_SecRebuild>
+  <QFW_AutoRebuild>破壊された建物を再建</QFW_AutoRebuild>
+  <QFW_AutoRebuild_Desc>あなたの建物が破壊されると（解体ではなく）、同じ建物・素材・向きの設計図がその場所に置かれます。ゲーム本体の自動再建（ホームエリア）が優先されます。</QFW_AutoRebuild_Desc>
+  <QFW_RbOutsideHome>ホームエリアの外でも</QFW_RbOutsideHome>
+  <QFW_RbOutsideHome_Desc>オフ：ホームエリア内の建物だけ再建します。</QFW_RbOutsideHome_Desc>
+  <QFW_RbWaitPeace>敵がいなくなるまで待つ</QFW_RbWaitPeace>
+  <QFW_RbWaitPeace_Desc>戦闘中に壊れた物の設計図は戦闘後に置くので、建築者が戦闘に飛び込みません。</QFW_RbWaitPeace_Desc>
+  <QFW_RbSettings>作業指示と保管設定を引き継ぐ</QFW_RbSettings>
+  <QFW_RbSettings_Desc>再建した作業台や棚は、壊れたものの作業指示と保管設定を受け継ぎます。</QFW_RbSettings_Desc>
+  <QFW_RbWalls>壁とドア</QFW_RbWalls>
+  <QFW_RbWalls_Desc>壁とドアを再建。</QFW_RbWalls_Desc>
+  <QFW_RbFurniture>家具と娯楽</QFW_RbFurniture>
+  <QFW_RbFurniture_Desc>ベッド、テーブル、椅子、娯楽などの家具を再建。</QFW_RbFurniture_Desc>
+  <QFW_RbPower>電力とパイプ</QFW_RbPower>
+  <QFW_RbPower_Desc>電線、発電機、バッテリー、パイプ（MODも）を再建。</QFW_RbPower_Desc>
+  <QFW_RbProduction>作業台</QFW_RbProduction>
+  <QFW_RbProduction_Desc>作業台など作業指示のある建物を再建。</QFW_RbProduction_Desc>
+  <QFW_RbSecurity>防衛</QFW_RbSecurity>
+  <QFW_RbSecurity_Desc>タレット、罠などの防衛建物を再建。</QFW_RbSecurity_Desc>
+  <QFW_RbOther>その他すべて</QFW_RbOther>
+  <QFW_RbOther_Desc>その他の建物（照明、冷却機、彫刻 …）を再建。</QFW_RbOther_Desc>
+  <QFW_CopyBills>作業指示をコピー</QFW_CopyBills>
+  <QFW_CopyBills_Desc>この作業台の作業指示をすべてコピー。</QFW_CopyBills_Desc>
+  <QFW_BillsCopied>{1}から作業指示を{0}件コピーしました。</QFW_BillsCopied>
+  <QFW_PasteBills>作業指示を貼り付け</QFW_PasteBills>
+  <QFW_PasteBills_Desc>{0}からコピーした作業指示を選択中の作業台すべてに貼り付けます。作れないレシピは飛ばします。</QFW_PasteBills_Desc>
+  <QFW_BillsNothing>先に作業台の作業指示をコピーしてください。</QFW_BillsNothing>
+  <QFW_BillTemplates>作業指示テンプレート</QFW_BillTemplates>
+  <QFW_BillTemplates_Desc>この作業台の作業指示を名前付きテンプレートとして保存、または保存したテンプレートを選択中の作業台に追加。全ゲームで使えます。</QFW_BillTemplates_Desc>
+  <QFW_PasteAppend>既存の作業指示に追加</QFW_PasteAppend>
+  <QFW_PasteReplace>既存の作業指示を置き換え</QFW_PasteReplace>
+  <QFW_BillsPasted>作業指示を{0}件追加、{1}件スキップ（作業台で作れません）。</QFW_BillsPasted>
+  <QFW_TplSave>この作業指示をテンプレートとして保存…</QFW_TplSave>
+  <QFW_TplName>テンプレート名</QFW_TplName>
+  <QFW_TplSaved>テンプレート「{0}」を保存しました（{1}件）。</QFW_TplSaved>
+  <QFW_TplApply>テンプレート「{0}」を追加（{2}件中{1}件が使えます）</QFW_TplApply>
+  <QFW_TplDelete>テンプレートを削除…</QFW_TplDelete>
+  <QFW_StorageAll>すべて同じに</QFW_StorageAll>
+  <QFW_StorageAll_Desc>マップ上のすべての保管区域（またはこの種類の保管すべて）にこの保管設定を適用。</QFW_StorageAll_Desc>
+  <QFW_StorageAllDone>さらに{0}か所に適用しました。</QFW_StorageAllDone>
+  <QFW_CopyAnimal>動物の設定をコピー</QFW_CopyAnimal>
+  <QFW_CopyAnimal_Desc>この動物の主人、追従、許可エリア、訓練、食事、医療をコピー。</QFW_CopyAnimal_Desc>
+  <QFW_PasteAnimal>動物の設定を貼り付け（{0}）</QFW_PasteAnimal>
+  <QFW_PasteAnimal_Desc>{0}からコピーした設定を選択中の動物すべてに貼り付け（訓練はその種が覚えられるものだけ）。</QFW_PasteAnimal_Desc>
+  <QFW_SettingsTaken>{0}は以前のものの作業指示と保管設定を受け継ぎました。</QFW_SettingsTaken>
+  <QFW_SecDismiss>自動で閉じる手紙</QFW_SecDismiss>
+  <QFW_DismissNote>その種類の手紙は下の時間後に閉じます。履歴には残ります。選択が必要な手紙は自動で閉じません。</QFW_DismissNote>
+  <QFW_DismissPositive>良い知らせ</QFW_DismissPositive>
+  <QFW_DismissNeutral>中立（商人、訪問者 …）</QFW_DismissNeutral>
+  <QFW_DismissNegative>悪い知らせと死亡</QFW_DismissNegative>
+  <QFW_DismissThreat>脅威（襲撃 …）</QFW_DismissThreat>
+  <QFW_DismissNever>しない</QFW_DismissNever>
+  <QFW_DismissSecs>{0}秒後</QFW_DismissSecs>
+  <QFW_SkAll>すべて</QFW_SkAll>
+  <QFW_SkItems>アイテム</QFW_SkItems>
+  <QFW_SkColonists>入植者</QFW_SkColonists>
+  <QFW_SkAnimals>動物</QFW_SkAnimals>
+  <QFW_SkPlants>植物</QFW_SkPlants>
+  <QFW_SkBuildings>建物</QFW_SkBuildings>
+  <QFW_SkForbidden>禁止のみ</QFW_SkForbidden>
+  <QFW_SkOutside>保管外のみ</QFW_SkOutside>
+  <QFW_UnforbidAll>すべてのアイテムを許可</QFW_UnforbidAll>
+  <QFW_UnforbidAll_Desc>マップ上で見えている禁止アイテムをすべて再び許可（敵の近くは除く）。</QFW_UnforbidAll_Desc>
+  <QFW_UnforbidDone>{0}個のアイテムを許可しました。</QFW_UnforbidDone>
+  <QFW_ClaimAll>放棄された建物をすべて所有</QFW_ClaimAll>
+  <QFW_ClaimAll_Desc>見えていて所有できる建物はすべてあなたのものに（敵対勢力のものは除く）。</QFW_ClaimAll_Desc>
+  <QFW_ClaimDone>{0}棟の建物を所有しました。</QFW_ClaimDone>
 </LanguageData>

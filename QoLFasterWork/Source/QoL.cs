@@ -38,12 +38,26 @@ namespace QoLFW
         public bool stacks = false;
         public float stackMult = 2f;
 
+        // 1.1.0
+        public bool billCopy = true;
+        public bool storagePasteAll = true;
+        public bool animalCopy = true;
+        public bool pipetteSettings = true;
+        public bool mapActions = true;
+        public bool autoRebuild = true;
+        public bool rbOutsideHome = false;
+        public bool rbWaitPeace = true;
+        public bool rbSettings = true;
+        public bool rbWalls = true, rbFurniture = true, rbPower = true, rbProduction = true, rbSecurity = true, rbOther = true;
+
         // notifications (not part of the recommended set – they are personal)
         public bool notifications = true;
         public List<string> hiddenLetters = new List<string>();
         public List<string> mutedLetters = new List<string>();
         public List<string> hiddenMessages = new List<string>();
         public List<string> mutedMessages = new List<string>();
+        // 1.1.0: letters close by themselves after N seconds (0 = never); they stay in History
+        public int dismissPositive = 0, dismissNeutral = 0, dismissNegative = 0, dismissThreat = 0;
 
         public override void ExposeData()
         {
@@ -75,6 +89,25 @@ namespace QoLFW
             Scribe_Values.Look(ref colonyTab, "colonyTab", true);
             Scribe_Values.Look(ref stacks, "stacks", false);
             Scribe_Values.Look(ref stackMult, "stackMult", 2f);
+            Scribe_Values.Look(ref billCopy, "billCopy", true);
+            Scribe_Values.Look(ref storagePasteAll, "storagePasteAll", true);
+            Scribe_Values.Look(ref animalCopy, "animalCopy", true);
+            Scribe_Values.Look(ref pipetteSettings, "pipetteSettings", true);
+            Scribe_Values.Look(ref mapActions, "mapActions", true);
+            Scribe_Values.Look(ref autoRebuild, "autoRebuild", true);
+            Scribe_Values.Look(ref rbOutsideHome, "rbOutsideHome", false);
+            Scribe_Values.Look(ref rbWaitPeace, "rbWaitPeace", true);
+            Scribe_Values.Look(ref rbSettings, "rbSettings", true);
+            Scribe_Values.Look(ref rbWalls, "rbWalls", true);
+            Scribe_Values.Look(ref rbFurniture, "rbFurniture", true);
+            Scribe_Values.Look(ref rbPower, "rbPower", true);
+            Scribe_Values.Look(ref rbProduction, "rbProduction", true);
+            Scribe_Values.Look(ref rbSecurity, "rbSecurity", true);
+            Scribe_Values.Look(ref rbOther, "rbOther", true);
+            Scribe_Values.Look(ref dismissPositive, "dismissPositive", 0);
+            Scribe_Values.Look(ref dismissNeutral, "dismissNeutral", 0);
+            Scribe_Values.Look(ref dismissNegative, "dismissNegative", 0);
+            Scribe_Values.Look(ref dismissThreat, "dismissThreat", 0);
             Scribe_Values.Look(ref notifications, "notifications", true);
             Scribe_Collections.Look(ref hiddenLetters, "hiddenLetters", LookMode.Value);
             Scribe_Collections.Look(ref mutedLetters, "mutedLetters", LookMode.Value);
@@ -89,7 +122,7 @@ namespace QoLFW
 
     public class QoLMod : Mod
     {
-        public const string Version = "1.0.0";
+        public const string Version = "1.1.0";
         public static QSettings S;
         public static string StacksAtStart;   // what the stack size was set to when the game started
         private static List<string> recBullets;
@@ -100,7 +133,7 @@ namespace QoLFW
         public QoLMod(ModContentPack content) : base(content)
         {
             S = GetSettings<QSettings>();
-            MUI.Init(new QSettings(), null, "recommended", "notifications");
+            MUI.Init(new QSettings(), null, "recommended", "notifications", "dismissPositive", "dismissNeutral", "dismissNegative", "dismissThreat");
             if (S.recommended) MUI.ApplyAll(S);
             MNews.Register(content, Version);
             var h = new Harmony("bolek98.qolfasterwork");
@@ -247,6 +280,26 @@ namespace QoLFW
             Check(l, "QFW_ZoneTools", ref S.zoneTools, "zoneTools");
             Check(l, "QFW_DeconAll", ref S.deconstructAll, "deconstructAll");
             Check(l, "QFW_ColonyTab", ref S.colonyTab, "colonyTab");
+            Check(l, "QFW_MapActions", ref S.mapActions, "mapActions");
+            MUI.Section(l, "QFW_SecCopy".Translate());
+            Check(l, "QFW_BillCopy", ref S.billCopy, "billCopy");
+            Check(l, "QFW_StoragePasteAll", ref S.storagePasteAll, "storagePasteAll");
+            Check(l, "QFW_AnimalCopy", ref S.animalCopy, "animalCopy");
+            Check(l, "QFW_PipetteSettings", ref S.pipetteSettings, "pipetteSettings");
+            MUI.Section(l, "QFW_SecRebuild".Translate());
+            Check(l, "QFW_AutoRebuild", ref S.autoRebuild, "autoRebuild");
+            if (S.autoRebuild)
+            {
+                Check(l, "QFW_RbOutsideHome", ref S.rbOutsideHome, "rbOutsideHome");
+                Check(l, "QFW_RbWaitPeace", ref S.rbWaitPeace, "rbWaitPeace");
+                Check(l, "QFW_RbSettings", ref S.rbSettings, "rbSettings");
+                Check(l, "QFW_RbWalls", ref S.rbWalls, "rbWalls");
+                Check(l, "QFW_RbFurniture", ref S.rbFurniture, "rbFurniture");
+                Check(l, "QFW_RbPower", ref S.rbPower, "rbPower");
+                Check(l, "QFW_RbProduction", ref S.rbProduction, "rbProduction");
+                Check(l, "QFW_RbSecurity", ref S.rbSecurity, "rbSecurity");
+                Check(l, "QFW_RbOther", ref S.rbOther, "rbOther");
+            }
             MUI.Section(l, "QFW_SecStacks".Translate());
             Check(l, "QFW_Stacks", ref S.stacks, "stacks");
             S.stackMult = Mult(l, "QFW_StackMult", S.stackMult, 1f, 20f, "stackMult");
