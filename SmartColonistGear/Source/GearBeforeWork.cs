@@ -135,6 +135,10 @@ namespace ResearchedLoadout
 			string n = wt.defName;
 			if (n == "Patient" || n == "PatientBedRest" || n == "BasicWorker" || n == "Hauling" || n == "Cleaning") return true;
 			JobDef j = work.def;
+			// 2.17.1: pharmacy and kit jobs (Auto Pharmacy, Steward – Kit) are short and often urgent –
+			// a doctor with a drug in hand must not first go for his work clothes
+			if (j.defName.StartsWith("AP_") || j == JobDefOf.TakeInventory || j == JobDefOf.TendPatient && work.targetA.Thing is Pawn tp && tp.Downed)
+				return true;
 			if (j == JobDefOf.Rescue || j == JobDefOf.BeatFire || j == JobDefOf.ExtinguishSelf || j == JobDefOf.Wear || j == JobDefOf.Equip || j == JobDefOf.RemoveApparel)
 				return true;
 			if (j == JobDefOf.TendPatient)

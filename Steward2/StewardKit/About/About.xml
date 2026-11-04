@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Steward – Kit</name>
+  <author>Bolek98</author>
+  <packageId>misak.steward.kit</packageId>
+  <modVersion>0.1.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>misak.colonyforeman</packageId>
+      <displayName>Steward – Work Priorities</displayName>
+      <downloadUrl>https://github.com/Bolek98/Rimworld-mods-</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>misak.colonyforeman</li>
+    <li>misak.steward.roles</li>
+  </loadAfter>
+  <incompatibleWith>
+    <li>misak.autopharmacy</li>
+  </incompatibleWith>
+  <description>Optional add-on for Steward – Work Priorities (needs the Steward core; Steward works without it).
+
+What every colonist carries – and a pharmacy that gives the right drug to whoever needs it.
+
+KITS BY ROLE
+- Every colonist carries a small kit for his role: doctors medicine (the kind their skill should use), hunters food and a medicine, builders components, soldiers medicine and a combat drug, cooks and haulers meals. Optional emergency pack for everyone.
+- Roles come from Steward – Roles; without it from each colonist's best skill.
+- The kit table is filled in automatically – change any line, add items, or go back to automatic. Per colonist: another kit or none.
+- Missing items are picked up from storage nearby, never over the weight limit; extras are dropped at home. Caravans pack the kits of their members.
+
+PHARMACY (the whole Auto Pharmacy is built in)
+- Every drug of the game and of mods is read once; doctors give the right one by how serious the problem is – pain, illness, bleeding, failing organs, low mood.
+- Colonists take their own medicine too, without waiting for a doctor.
+- Combat drugs once per fight, prevention drugs on time, family plan, long-term troubles, medical care level by the injuries. History of what was given.
+
+Many settings tabs; recommended settings switch (on by default). Replaces Auto Pharmacy – switch that one off, its settings are taken over. Requires Harmony and Steward. English and Czech.
+
+---
+
+Volitelný doplněk pro Steward – Work Priorities (potřebuje jádro Stewarda; Steward funguje i bez něj).
+
+Co každý kolonista nosí u sebe – a lékárna, která podá správný lék tomu, kdo ho potřebuje.
+
+VÝBAVA PODLE ROLÍ
+- Každý kolonista nosí malou výbavu pro svou roli: doktor léky (takové, jaké má podle dovednosti používat), lovec jídlo a lék, stavitel komponenty, voják lék a bojovou drogu, kuchař a nosič jídlo. Volitelně nouzový balíček pro všechny.
+- Role jsou ze Steward – Role; bez něj podle nejlepší dovednosti kolonisty.
+- Tabulka výbavy se vyplní sama – změň kterýkoli řádek, přidej věci nebo se vrať k automatické. U kolonisty: jiná výbava nebo žádná.
+- Chybějící věci si vezme ze skladu poblíž, nikdy přes limit váhy; přebytky odloží doma. Karavany si sbalí výbavu svých členů.
+
+LÉKÁRNA (celá Auto Pharmacy je uvnitř)
+- Každý lék a droga ze hry i z modů se jednou přečte; doktoři podají ten správný podle závažnosti – bolest, nemoc, krvácení, selhávající orgány, špatná nálada.
+- Kolonisté si léky berou i sami, nemusí čekat na doktora.
+- Bojové drogy jednou za boj, prevence včas, plánování rodiny, dlouhodobé potíže, úroveň péče podle zranění. Historie, co kdo dostal.
+
+Hodně záložek nastavení; přepínač doporučeného nastavení (zapnutý). Nahrazuje Auto Pharmacy – ten vypni, jeho nastavení se převezme. Vyžaduje Harmony a Steward. Anglicky a česky.</description>
+</ModMetaData>

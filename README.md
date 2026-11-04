@@ -40,12 +40,13 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Ride & Drive – Mounts and Vehicles Together | 0.1.1 | [RideAndDrive](RideAndDrive) |
 | Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.4.1 | [SeasonsHolidays](SeasonsHolidays) |
 | Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |
-| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.0 | [SmartColonistGear](SmartColonistGear) |
+| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.1 | [SmartColonistGear](SmartColonistGear) |
 | Smooth FPS – Performance & Graphics | 1.6.1 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 1.1.0 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.1.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | Steward – Droids | 0.1.1 | [Steward2/StewardDroids](Steward2/StewardDroids) |
+| Steward – Kit | 0.1.0 | [Steward2/StewardKit](Steward2/StewardKit) |
 | Steward – Orders | 0.3.2 | [Steward2/StewardOrders](Steward2/StewardOrders) |
 | Steward – Roles | 0.2.1 | [Steward2/StewardRoles](Steward2/StewardRoles) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |

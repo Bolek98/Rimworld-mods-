@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SK_Name>Steward – Kit</SK_Name>
+  <SK_Tab_Overview>Overview</SK_Tab_Overview>
+  <SK_Tab_Kits>Kits by role</SK_Tab_Kits>
+  <SK_Tab_Pharmacy>Pharmacy</SK_Tab_Pharmacy>
+  <SK_Tab_Drugs>Drugs</SK_Tab_Drugs>
+  <SK_Tab_Combat>Combat drugs</SK_Tab_Combat>
+  <SK_Tab_Regular>Regular use</SK_Tab_Regular>
+  <SK_Tab_Caravans>Caravans</SK_Tab_Caravans>
+  <SK_Tab_Weight>Weight &amp; limits</SK_Tab_Weight>
+  <SK_Tab_Colonists>Colonists</SK_Tab_Colonists>
+  <SK_Tab_Advanced>Advanced</SK_Tab_Advanced>
+  <SK_Rec1>Every colonist carries a small kit for his role</SK_Rec1>
+  <SK_Rec2>Missing items are picked up from storage nearby</SK_Rec2>
+  <SK_Rec3>Doctors give the right drug by how serious it is</SK_Rec3>
+  <SK_Rec4>Caravans pack the kits of their members</SK_Rec4>
+  <SK_KitsOn>Colonists carry kits</SK_KitsOn>
+  <SK_KitsOn_Desc>Every colonist carries the items of his role's kit in his inventory (medicine for doctors, food for hunters, components for builders …).</SK_KitsOn_Desc>
+  <SK_Refill>Refill kits from storage</SK_Refill>
+  <SK_Refill_Desc>When something from the kit is missing, the colonist picks it up from a stockpile or shelf nearby (Basic work, short walks only).</SK_Refill_Desc>
+  <SK_WhoCarries>Who carries what (carried / kit):</SK_WhoCarries>
+  <SK_NoGame>Load a game to see your colonists here.</SK_NoGame>
+  <SK_RoleOff>No kit</SK_RoleOff>
+  <SK_Role_Doctor>Doctor</SK_Role_Doctor>
+  <SK_Role_Hunter>Hunter</SK_Role_Hunter>
+  <SK_Role_Builder>Builder</SK_Role_Builder>
+  <SK_Role_Soldier>Soldier</SK_Role_Soldier>
+  <SK_Role_Cook>Cook</SK_Role_Cook>
+  <SK_Role_Hauler>Hauler</SK_Role_Hauler>
+  <SK_Role_Everyone>Everyone (emergency pack)</SK_Role_Everyone>
+  <SK_Item_Medicine>Medicine (by the doctor's skill)</SK_Item_Medicine>
+  <SK_Item_Meal>Meal (simple or better, packaged first)</SK_Item_Meal>
+  <SK_Item_Component>Components</SK_Item_Component>
+  <SK_Item_CombatDrug>Combat drug</SK_Item_CombatDrug>
+  <SK_KitsHelp>The table was filled in automatically – change it as you like. A colonist's role comes from Steward – Roles, otherwise from his best skills. "Medicine" means the best medicine his skill should use.</SK_KitsHelp>
+  <SK_ResetKits>Back to automatic</SK_ResetKits>
+  <SK_AddItem>+ Add item</SK_AddItem>
+  <SK_Remove>Remove</SK_Remove>
+  <SK_CaravanKits>Caravans pack the kits</SK_CaravanKits>
+  <SK_CaravanKits_Desc>When a caravan is formed, the kit items its members don't carry yet are added to the packing list (if there are some in storage).</SK_CaravanKits_Desc>
+  <SK_CaravanHelp>You can still change the packing list yourself – the kits are only added at the start.</SK_CaravanHelp>
+  <SK_Weight>Kit may use up to {0} % of carrying capacity</SK_Weight>
+  <SK_Weight_Desc>A colonist never takes more kit than this share of what he can carry, so he is never slowed down.</SK_Weight_Desc>
+  <SK_Distance>Walk at most {0} cells for a refill</SK_Distance>
+  <SK_Distance_Desc>Kit items farther away are left for later.</SK_Distance_Desc>
+  <SK_CheckHours>Check a full kit again every {0} h</SK_CheckHours>
+  <SK_CheckHours_Desc>Lower = kits refilled sooner, a little more work for the game.</SK_CheckHours_Desc>
+  <SK_DropExtras>Drop extras at home</SK_DropExtras>
+  <SK_DropExtras_Desc>A colonist with more kit items than his kit wants (e.g. after a role change) drops the rest at home; they get hauled to storage.</SK_DropExtras_Desc>
+  <SK_Spare>Spare items that may stay: {0}</SK_Spare>
+  <SK_Spare_Desc>How many items above the kit are still fine (no back-and-forth).</SK_Spare_Desc>
+  <SK_ColonistsHelp>Each colonist carries the kit of his role automatically. Here you can give a colonist another kit or none.</SK_ColonistsHelp>
+  <SK_Mode_Auto>Automatic: {0}</SK_Mode_Auto>
+  <SK_Mode_AutoPlain>Automatic</SK_Mode_AutoPlain>
+  <SK_EveryonePack>Emergency pack for everyone</SK_EveryonePack>
+  <SK_EveryonePack_Desc>The "Everyone" lines (a meal and a medicine by default) are carried by every colonist on top of his role kit.</SK_EveryonePack_Desc>
+  <SK_CombatDrugKit>Soldiers carry a combat drug</SK_CombatDrugKit>
+  <SK_CombatDrugKit_Desc>Used by the pharmacy's combat drug rule: once per fight, never with a chance of addiction.</SK_CombatDrugKit_Desc>
+  <SK_Slaves>Slaves carry kits too</SK_Slaves>
+  <SK_RolesOn>Steward – Roles is on: the kits follow the roles you gave your colonists.</SK_RolesOn>
+  <SK_RolesOff>Steward – Roles is off: a colonist's kit follows his best skill (doctor, hunter, builder, cook). Soldier kits need Steward – Roles or a choice in the Colonists tab.</SK_RolesOff>
+  <SK_OldPharmacy>The old Auto Pharmacy mod is still on – its own pharmacy works and the one inside Steward – Kit stays off. Switch Auto Pharmacy off in the mod list (your settings are taken over).</SK_OldPharmacy>
+  <SK_SelfDose>Colonists take their own medicine</SK_SelfDose>
+  <SK_SelfDose_Desc>A colonist who needs a drug takes it himself under Basic work – he does not have to wait for a doctor or have the Doctor work on.</SK_SelfDose_Desc>
+  <SK_CombatHelp>A drafted fighter with enemies close takes one combat drug from his inventory – once per fight, never with a chance of addiction. Switch it off per colonist with his gizmo.</SK_CombatHelp>
+  <SK_FamilyHelp>Family plan: a button on every adult colonist – no children (contraception given regularly) or children wanted (fertility drug).</SK_FamilyHelp>
+  <SK_FamilyNone>Family plan appears when a mod adds contraceptive or fertility drugs.</SK_FamilyNone>
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+</LanguageData>
