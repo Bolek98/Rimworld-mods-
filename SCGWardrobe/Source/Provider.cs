@@ -17,7 +17,8 @@ public sealed class WardrobeProvider : IDressingProvider
 	public static readonly WardrobeProvider Instance = new WardrobeProvider();
 	private static WardrobeSettings S => WardrobeMod.Settings;
 
-	public string Name => "WR_Name".CanTranslate() ? (string)"WR_Name".Translate() : "Smart Colonist Gear – Wardrobe";
+	// 0.1.2: no translation before the game has loaded its languages (the provider registers in the mod constructor)
+	public string Name => LanguageDatabase.activeLanguage != null && "WR_Name".CanTranslate() ? (string)"WR_Name".Translate() : "Smart Colonist Gear – Wardrobe";
 
 	private static bool On(Pawn p)
 	{
