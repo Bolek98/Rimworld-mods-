@@ -190,7 +190,7 @@ namespace ResearchedLoadout
 				if (a.def.useHitPoints && (float)a.HitPoints / a.MaxHitPoints < 0.5f) continue;
 				if (LoadoutFilter.IsManuallyBanned(a.def) || !LoadoutFilter.IsAllowed(a.def)) continue;
 				if (policy?.filter != null && !policy.filter.Allows(a)) continue;
-				if (!ApparelUtility.HasPartsToWear(p, a.def) || !a.def.apparel.PawnCanWear(p, false)) continue;
+				if (!ApparelUtility.HasPartsToWear(p, a.def) || !a.def.apparel.PawnCanWear(p, false) || !LoadoutFilter.StageOk(p, a.def) || ApparelFlip.Blocked(p, a.def)) continue;
 				if (ApparelGender.Mismatch(p, a.def)) continue;
 				if (a.WornByCorpse && ThoughtUtility.CanGetThought(p, ThoughtDefOf.DeadMansApparel, true)) continue;
 				float dist = (a.Position - p.Position).LengthHorizontal;

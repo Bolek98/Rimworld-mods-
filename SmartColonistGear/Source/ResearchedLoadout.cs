@@ -5126,6 +5126,14 @@ namespace ResearchedLoadout
 	}
 	public static class LoadoutFilter
 	{
+		// 2.17.2: apparel made for another age group (kid pants on an adult, adult armor on a child) is never chosen,
+		// even when another mod (body fixes) lets the game put it on – it made colonists swap it on and off
+		public static bool StageOk(Pawn p, ThingDef d)
+		{
+			if (p == null || d?.apparel == null) return true;
+			try { return d.apparel.developmentalStageFilter.Has(p.DevelopmentalStage); } catch { return true; }
+		}
+
 		private sealed class ResearchReq
 		{
 			public readonly List<ResearchProjectDef> always = new List<ResearchProjectDef>();
@@ -6591,6 +6599,7 @@ namespace ResearchedLoadout
 			if (_reservedThings.Contains(apparel.thingIDNumber)) return "reserved by queue";
 			if (!LoadoutFilter.AllowedFor(pawn, apparel)) return "locked: " + (LoadoutFilter.LockReason(apparel.def) ?? "filter");
 			if (apparel.def.apparel == null || !apparel.def.apparel.PawnCanWear(pawn)) return "race/body can't wear";
+			if (!LoadoutFilter.StageOk(pawn, apparel.def)) return "made for another age (child/adult)";
 			if (!ApparelUtility.HasPartsToWear(pawn, apparel.def)) return "no body parts";
 			if (!EquipmentUtility.CanEquip(apparel, pawn)) return "CanEquip false";
 			bool gap = Coverage.FillsBasicGap(pawn, apparel.def);
@@ -8468,7 +8477,7 @@ namespace ResearchedLoadout
 					continue;
 				}
 				bool flag = Coverage.FillsBasicGap(pawn, apparel.def);
-				if ((!flag && ApparelGender.Mismatch(pawn, apparel.def)) || (!flag && Specialization.WorkClothingBlocked(pawn, apparel.def)) || (!flag && ApparelMemory.RecentlyRemoved(pawn, apparel.def) && !LoadoutFilter.FreezingOrOverheating(pawn) && !TempRush.Active(pawn) && !GearSense.MayWearAgain(pawn, apparel)) || !InAllowedStorage(apparel) || apparel.IsForbidden(pawn) || IsBroken(apparel) || PolicyForbidsThing(pawn, apparel) || apparel.def.apparel == null || !apparel.def.apparel.PawnCanWear(pawn) || (IsRangedBlockingShield(apparel) && PrefersRanged(pawn, (pawn.equipment == null) ? null : pawn.equipment.Primary)) || !ApparelUtility.HasPartsToWear(pawn, apparel.def) || !EquipmentUtility.CanEquip(apparel, pawn) || WouldReplaceProtected(pawn, apparel) || SameKindNotBetter(pawn, apparel) || LoadoutFilter.WouldDowngradeArmor(pawn, apparel))
+				if ((!flag && ApparelGender.Mismatch(pawn, apparel.def)) || (!flag && Specialization.WorkClothingBlocked(pawn, apparel.def)) || (!flag && ApparelMemory.RecentlyRemoved(pawn, apparel.def) && !LoadoutFilter.FreezingOrOverheating(pawn) && !TempRush.Active(pawn) && !GearSense.MayWearAgain(pawn, apparel)) || !InAllowedStorage(apparel) || apparel.IsForbidden(pawn) || IsBroken(apparel) || PolicyForbidsThing(pawn, apparel) || apparel.def.apparel == null || !apparel.def.apparel.PawnCanWear(pawn) || !LoadoutFilter.StageOk(pawn, apparel.def) || (IsRangedBlockingShield(apparel) && PrefersRanged(pawn, (pawn.equipment == null) ? null : pawn.equipment.Primary)) || !ApparelUtility.HasPartsToWear(pawn, apparel.def) || !EquipmentUtility.CanEquip(apparel, pawn) || WouldReplaceProtected(pawn, apparel) || SameKindNotBetter(pawn, apparel) || LoadoutFilter.WouldDowngradeArmor(pawn, apparel))
 				{
 					continue;
 				}
@@ -11256,7 +11265,7 @@ namespace ResearchedLoadout
 				{
 					continue;
 				}
-				if (!ApparelUtility.HasPartsToWear(p, a.def) || !a.def.apparel.PawnCanWear(p, false))
+				if (!ApparelUtility.HasPartsToWear(p, a.def) || !a.def.apparel.PawnCanWear(p, false) || !LoadoutFilter.StageOk(p, a.def) || ApparelFlip.Blocked(p, a.def))
 				{
 					continue;
 				}

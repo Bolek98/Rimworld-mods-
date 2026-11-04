@@ -29,7 +29,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Mech Commander | 0.1.3 | [MechCommander](MechCommander) |
 | Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
 | Mišák Tabs – Clear Bills, Health & Info | 0.13.2 | [MisakTabs](MisakTabs) |
-| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.6.0 | [ModSortManager](ModSortManager) |
+| Mod Sort Manager – Load Order, Conflicts & Profiles | 0.6.1 | [ModSortManager](ModSortManager) |
 | Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
 | Power & Water Works | 0.1.1 | [PowerWaterWorks](PowerWaterWorks) |
@@ -40,7 +40,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Ride & Drive – Mounts and Vehicles Together | 0.1.1 | [RideAndDrive](RideAndDrive) |
 | Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.4.1 | [SeasonsHolidays](SeasonsHolidays) |
 | Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |
-| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.1 | [SmartColonistGear](SmartColonistGear) |
+| Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.2 | [SmartColonistGear](SmartColonistGear) |
 | Smooth FPS – Performance & Graphics | 1.6.1 | [SmoothFPS](SmoothFPS) |
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 1.1.0 | [Steward2/Steward](Steward2/Steward) |
