@@ -12,6 +12,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.2.0 | [AutoTurrets](AutoTurrets) |
 | Evergrowth – Plant Growth Control | 1.9.0 | [Evergrowth](Evergrowth) |
 | Evergrowth – Wild Plant Spawns per Biome (Choose What Grows) | 1.2.0 | [EvergrowthWildPlants](EvergrowthWildPlants) |
+| Mad Dice Max – Dice Storyteller | 1.0.0 | [MadDiceMax](MadDiceMax) |
 | Mod Sort Manager – Load Order, Conflicts & Profiles | 0.6.0 | [ModSortManager](ModSortManager) |
 | QoL – Faster Work, Prisoners & Pipette | 1.0.0 | [QoLFasterWork](QoLFasterWork) |
 | Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |

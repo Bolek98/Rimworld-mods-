@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RT_Rec1>Рассказчик с костями объявляет каждый бросок и показывает шансы на сегодня.</RT_Rec1>
+  <RT_Rec2>Рассказчик иногда комментирует события (примерно каждое третье).</RT_Rec2>
+  <RT_Rec3>Работает с любым рассказчиком; в вашем сохранении ничего не меняется.</RT_Rec3>
+  <RT_SecDice>Mad Dice Max</RT_SecDice>
+  <RT_DiceAlert>Показывать сегодняшний бросок и шансы</RT_DiceAlert>
+  <RT_DiceAlert_Desc>Оповещение справа: сегодняшний бросок, какой это день, шансы на налёт, на мелкие угрозы и на торговцев или гостей, а также время до следующего броска.</RT_DiceAlert_Desc>
+  <RT_DiceLetter>Бросок письмом</RT_DiceLetter>
+  <RT_DiceLetter_Desc>Ежедневный бросок приходит письмом с полным прогнозом вместо короткого сообщения.</RT_DiceLetter_Desc>
+  <RT_SecDiary>Дневник</RT_SecDiary>
+  <RT_Diary>Комментарии рассказчика</RT_Diary>
+  <RT_Diary_Desc>Время от времени рассказчик комментирует событие короткой фразой вверху экрана.</RT_Diary_Desc>
+  <RT_DiaryAll>Также у других рассказчиков</RT_DiaryAll>
+  <RT_DiaryAll_Desc>Комментарии также у других рассказчиков, из игры и из модов – не только у Макса.</RT_DiaryAll_Desc>
+  <RT_DiaryChance>Комментировать {0} % событий</RT_DiaryChance>
+  <RT_DiaryChance_Desc>Как часто появляется комментарий. Между двумя комментариями всегда проходит хотя бы несколько часов.</RT_DiaryChance_Desc>
+  <RT_RollTitle>Выпало {0}: {1}</RT_RollTitle>
+  <RT_RollLetter>Выпало {0}</RT_RollLetter>
+  <RT_AlertLabel>Кость {0}: {1}</RT_AlertLabel>
+  <RT_Mood1>спокойный день</RT_Mood1>
+  <RT_Mood2>тихий день</RT_Mood2>
+  <RT_Mood3>обычный день</RT_Mood3>
+  <RT_Mood4>щедрый день</RT_Mood4>
+  <RT_Mood5>тяжёлый день</RT_Mood5>
+  <RT_Mood6>безумный день</RT_Mood6>
+  <RT_MoodDesc1>1 – Спокойный день. Сегодня никаких больших угроз, мало событий, слабые мелкие угрозы. Небо проясняется.</RT_MoodDesc1>
+  <RT_MoodDesc2>2 – Лёгкий день. Большие угрозы редки, больше гостей и безобидных событий; часто приходит что-то приятное, и погода может смениться.</RT_MoodDesc2>
+  <RT_MoodDesc3>3 – Обычный день. Обычные события игры; время от времени одно событие сверху или смена погоды.</RT_MoodDesc3>
+  <RT_MoodDesc4>4 – Щедрый день. Торговцы и гости приходят чаще, меньше угроз, один подарок за день и хорошая погода.</RT_MoodDesc4>
+  <RT_MoodDesc5>5 – Тяжёлый день. Большие и мелкие угрозы гораздо вероятнее и сильнее – хотя бы одна точно придёт за день. Худшая погода, какую знает это место.</RT_MoodDesc5>
+  <RT_MoodDesc6>6 – Безумный день. События приходят вдвое чаще, и у каждого вида свой случайный шанс – минимум два случайных события (из игры и модов) точно придут, и может быть любая погода.</RT_MoodDesc6>
+  <RT_FcEvents>Ожидаемых событий сегодня: около {0}</RT_FcEvents>
+  <RT_FcBig>Налёт или другая большая угроза: {0}</RT_FcBig>
+  <RT_FcSmall>Мелкая угроза: {0}</RT_FcSmall>
+  <RT_FcGood>Торговцы или гости: {0}</RT_FcGood>
+  <RT_FcStrength>Сила угроз: {0}–{1} % от обычной</RT_FcStrength>
+  <RT_FcNoForced>Даже просроченный налёт подождёт другого дня.</RT_FcNoForced>
+  <RT_FcGift>Сегодня в пути подарок.</RT_FcGift>
+  <RT_FcNext>Следующий бросок через {0}.</RT_FcNext>
+  <RT_LvlVeryLow>очень низкий</RT_LvlVeryLow>
+  <RT_LvlLow>низкий</RT_LvlLow>
+  <RT_LvlMid>средний</RT_LvlMid>
+  <RT_LvlHigh>высокий</RT_LvlHigh>
+  <RT_LvlVeryHigh>очень высокий</RT_LvlVeryHigh>
+  <RT_RollSay1_1>Две единицы. Вздремни, я вернусь завтра.</RT_RollSay1_1>
+  <RT_RollSay1_2>Один. Даже мне нужен выходной.</RT_RollSay1_2>
+  <RT_RollSay1_3>Единица. Наслаждайся, это ненадолго.</RT_RollSay1_3>
+  <RT_RollSay2_1>Два. У меня хорошее настроение. Не испорти.</RT_RollSay2_1>
+  <RT_RollSay2_2>Двойка – чай, печенье, никаких взрывов.</RT_RollSay2_2>
+  <RT_RollSay2_3>Два. Иди посади что-нибудь.</RT_RollSay2_3>
+  <RT_RollSay3_1>Три. Всё как обычно.</RT_RollSay3_1>
+  <RT_RollSay3_2>Тройка. Посмотрим, что принесёт день… я тоже не знаю.</RT_RollSay3_2>
+  <RT_RollSay3_3>Три. Совершенно средне. Подозрительно средне.</RT_RollSay3_3>
+  <RT_RollSay4_1>Четыре! Кто-то там наверху тебя любит.</RT_RollSay4_1>
+  <RT_RollSay4_2>Четвёрка. Открывайте двери, идут гости.</RT_RollSay4_2>
+  <RT_RollSay4_3>Четыре. Я щедр. Не привыкай.</RT_RollSay4_3>
+  <RT_RollSay5_1>Пять. Заряжайте оружие.</RT_RollSay5_1>
+  <RT_RollSay5_2>Пятёрка. Надеюсь, стены у вас толстые.</RT_RollSay5_2>
+  <RT_RollSay5_3>Пять. Сегодня кости хотят крови.</RT_RollSay5_3>
+  <RT_RollSay6_1>ШЕСТЬ! Держись за что-нибудь.</RT_RollSay6_1>
+  <RT_RollSay6_2>Шестёрка. Я и сам не знаю, что будет дальше.</RT_RollSay6_2>
+  <RT_RollSay6_3>Шесть. Хаос – это лестница. Или яма. Посмотрим.</RT_RollSay6_3>
+  <RT_D_Raid_1>Гости. Не из приятных.</RT_D_Raid_1>
+  <RT_D_Raid_2>Они слышали, что у тебя хорошая база. Они её хотят.</RT_D_Raid_2>
+  <RT_D_Raid_3>Налётчики! Это не я их послал. Наверное.</RT_D_Raid_3>
+  <RT_D_Raid_4>Кто-то заказывал неприятности? Доставка прибыла.</RT_D_Raid_4>
+  <RT_D_Manhunter_1>Животные тобой сыты по горло.</RT_D_Manhunter_1>
+  <RT_D_Manhunter_2>Природа звонила. Она в ярости.</RT_D_Manhunter_2>
+  <RT_D_Manhunter_3>Погладь их. Слабо?</RT_D_Manhunter_3>
+  <RT_D_Infestation_1>Что-то ползает в стенах. Спокойной ночи.</RT_D_Infestation_1>
+  <RT_D_Infestation_2>Жуки. Много жуков.</RT_D_Infestation_2>
+  <RT_D_Infestation_3>Ты копал слишком глубоко. Они заметили.</RT_D_Infestation_3>
+  <RT_D_Pod_1>Что-то упало с неба. Кто нашёл, того и добро.</RT_D_Pod_1>
+  <RT_D_Pod_2>Бесплатные вещи! Не спрашивай, откуда.</RT_D_Pod_2>
+  <RT_D_Wanderer_1>Новый друг! Или будущая проблема.</RT_D_Wanderer_1>
+  <RT_D_Wanderer_2>Кто-то хочет присоединиться. Будь вежлив.</RT_D_Wanderer_2>
+  <RT_D_Dark_1>Свет гаснет. Надеюсь, ты любишь свечи.</RT_D_Dark_1>
+  <RT_D_Dark_2>Солнце взяло перерыв. Твоё электричество тоже.</RT_D_Dark_2>
+  <RT_D_Weather_1>У погоды сегодня своё мнение.</RT_D_Weather_1>
+  <RT_D_Weather_2>Оденься по случаю. Случай – страдание.</RT_D_Weather_2>
+  <RT_D_Big_1>Поехали.</RT_D_Big_1>
+  <RT_D_Big_2>Это будет больно.</RT_D_Big_2>
+  <RT_D_Big_3>Я же предупреждал. Нет? Собирался.</RT_D_Big_3>
+  <RT_D_Small_1>Так, мелочь, чтобы ты не заснул.</RT_D_Small_1>
+  <RT_D_Small_2>Небольшая проблема. Пока небольшая.</RT_D_Small_2>
+  <RT_D_Trade_1>Время покупок!</RT_D_Trade_1>
+  <RT_D_Trade_2>Торговец на орбите. Неси серебро.</RT_D_Trade_2>
+  <RT_D_Visitors_1>Гости. Спрячьте хорошие вещи.</RT_D_Visitors_1>
+  <RT_D_Visitors_2>Компания! Ведите себя нормально.</RT_D_Visitors_2>
+  <RT_D_Chunk_1>Космический мусор. Чей-то хлам…</RT_D_Chunk_1>
+  <RT_D_Chunk_2>Что-то разбилось. Это не я.</RT_D_Chunk_2>
+  <RT_D_Disease_1>Апчхи. Будь здоров.</RT_D_Disease_1>
+  <RT_D_Disease_2>Помой руки. Поздно.</RT_D_Disease_2>
+  <RT_D_Misc_1>Интересно…</RT_D_Misc_1>
+  <RT_D_Misc_2>Ну, это случилось.</RT_D_Misc_2>
+  <RT_D_Misc_3>Я этого не ожидал. Ты тоже.</RT_D_Misc_3>
+  <RT_D_Misc_4>Запиши это.</RT_D_Misc_4>
+  <RT_Mood7>бросает снова</RT_Mood7>
+  <RT_MoodDesc7>7 – Кость упала со стола! Через несколько часов он бросит снова; до тех пор обычный день.</RT_MoodDesc7>
+  <RT_RollSay7_1>Семь? У этой кости нет семёрки… бросаю снова.</RT_RollSay7_1>
+  <RT_RollSay7_2>Она упала под стол. Секунду.</RT_RollSay7_2>
+  <RT_RollSay7_3>Семь. Не считается. Ещё раз, чуть позже.</RT_RollSay7_3>
+  <RT_HeavySix>Самые тяжёлые угрозы только в безумный день (6)</RT_HeavySix>
+  <RT_HeavySix_Desc>С Mad Dice Max нашествия насекомых, кластеры механоидов и упавшие части кораблей приходят, только когда на кости 6. На задания это не влияет.</RT_HeavySix_Desc>
+  <RT_SecEvents>События Макса</RT_SecEvents>
+  <RT_Events>Собственные события Макса</RT_Events>
+  <RT_Events_Desc>После броска Mad Dice Max может принести одно из своих событий, подходящее к дню: пари, испытания со сроком, ситуации на несколько дней, переиначенные события игры.</RT_Events_Desc>
+  <RT_EventChance>Шанс события после броска: {0} %</RT_EventChance>
+  <RT_EventChance_Desc>Как часто день приносит одно из событий Макса.</RT_EventChance_Desc>
+  <RT_EventList>События: включено {0} из {1}…</RT_EventList>
+  <RT_EventListTitle>События Макса</RT_EventListTitle>
+  <RT_EventListDesc>Снимите галочки с событий, которые вам не нужны. Каждое относится к одной грани кости. Наведите курсор для описания.</RT_EventListDesc>
+  <RT_EventTry>Проверить</RT_EventTry>
+  <RT_EV_Prefix>Макс: {0}</RT_EV_Prefix>
+  <RT_EV_ChallengeGoal>Цель: {0}\nВремя: {1} дн.</RT_EV_ChallengeGoal>
+  <RT_EV_Won>Испытание пройдено: {0}</RT_EV_Won>
+  <RT_EV_Lost>Испытание провалено: {0}</RT_EV_Lost>
+  <RT_EV_Dropped>{0}: {1}</RT_EV_Dropped>
+  <RT_EV_InspiredBy>милость Макса</RT_EV_InspiredBy>
+  <RT_EV_NoSilver>У вас нет {0} серебра для ставки.</RT_EV_NoSilver>
+  <RT_EV_AlertLabel>Испытание Макса</RT_EV_AlertLabel>
+  <RT_EV_Festival>Праздник</RT_EV_Festival>
+  <RT_EV_Festival_Text>«Отложите работу ненадолго. Сегодня празднуем – просто потому, что так сказали кости».\n\nВсе в праздничном настроении два дня.</RT_EV_Festival_Text>
+  <RT_EV_Dreams>Сны о костях</RT_EV_Dreams>
+  <RT_EV_Dreams_Text>«Спите крепко сегодня. Я присмотрю за костями».\n\nДва дня сон лучше восстанавливает ваших колонистов.</RT_EV_Dreams_Text>
+  <RT_EV_LostDie>Потерянная кость</RT_EV_LostDie>
+  <RT_EV_LostDie_Text>«Я где-то тут уронил кость. Кто найдёт – может оставить себе то, что при ней».\n\nКапсула падает возле вашей колонии.</RT_EV_LostDie_Text>
+  <RT_EV_QuietDays>Тихие дни</RT_EV_QuietDays>
+  <RT_EV_QuietDays_Text>«Три дня без того, чтобы кто-то сорвался. Сможете?»</RT_EV_QuietDays_Text>
+  <RT_EV_QuietDays_Goal>три дня без срывов</RT_EV_QuietDays_Goal>
+  <RT_EV_QuietDays_Won>«Не верил. Молодцы».\n\nВсе гордятся командой, а двое колонистов получают вдохновение.</RT_EV_QuietDays_Won>
+  <RT_EV_QuietDays_Lost>«Кто-то сломался. Как я и думал».</RT_EV_QuietDays_Lost>
+  <RT_EV_Lesson>Урок от Макса</RT_EV_Lesson>
+  <RT_EV_Lesson_Text>«Покажу вам пару фокусов».\n\nТрое колонистов улучшают свой лучший навык.</RT_EV_Lesson_Text>
+  <RT_EV_Crafter>Мастер</RT_EV_Crafter>
+  <RT_EV_Crafter_Text>«Покажите, что ваши руки годятся не только кости держать».</RT_EV_Crafter_Text>
+  <RT_EV_Crafter_Goal>изготовить предметов: {0}</RT_EV_Crafter_Goal>
+  <RT_EV_Crafter_Won>«Отличная работа. Вот кое-что для следующих».\n\nКомпоненты и пластсталь в пути.</RT_EV_Crafter_Won>
+  <RT_EV_Crafter_Lost>«Ленивые руки. Жаль».</RT_EV_Crafter_Lost>
+  <RT_EV_Hunter>Охотник</RT_EV_Hunter>
+  <RT_EV_Hunter_Text>«Хочу хорошую охотничью историю».</RT_EV_Hunter_Text>
+  <RT_EV_Hunter_Goal>добыть животных: {0}</RT_EV_Hunter_Goal>
+  <RT_EV_Hunter_Won>«Вот это история!»\n\nОхотники гордятся, а с неба падает мешочек серебра.</RT_EV_Hunter_Won>
+  <RT_EV_Hunter_Lost>«В этот раз победили звери».</RT_EV_Hunter_Lost>
+  <RT_EV_Cleaning>Генеральная уборка</RT_EV_Cleaning>
+  <RT_EV_Cleaning_Text>«Тут беспорядок. Уберите до завтра – и не пожалеете».</RT_EV_Cleaning_Text>
+  <RT_EV_Cleaning_Goal>убрать пятен грязи: {0}</RT_EV_Cleaning_Goal>
+  <RT_EV_Cleaning_Won>«Блестит. Даже я хочу тут жить».</RT_EV_Cleaning_Won>
+  <RT_EV_Cleaning_Lost>«Всё ещё грязно. Ну и ладно».</RT_EV_Cleaning_Lost>
+  <RT_EV_Focus>Острые умы</RT_EV_Focus>
+  <RT_EV_Focus_Text>«Сегодня всё запоминается. Учитесь, пока можете».\n\nДва дня ваши колонисты учатся на 50 % быстрее.</RT_EV_Focus_Text>
+  <RT_EV_OddEven>Чёт или нечет</RT_EV_OddEven>
+  <RT_EV_OddEven_Text>«Небольшое пари? Чёт – ты выиграл. Нечет – я забираю твоё серебро».</RT_EV_OddEven_Text>
+  <RT_EV_OddEven_O1>Поставить 100 серебра (выигрыш 250)</RT_EV_OddEven_O1>
+  <RT_EV_OddEven_O2>Поставить 300 серебра (выигрыш 750)</RT_EV_OddEven_O2>
+  <RT_EV_OddEven_O3>Нет, спасибо</RT_EV_OddEven_O3>
+  <RT_EV_OddEven_Lose>Выпало {0}. Ваши {1} серебра пропали.</RT_EV_OddEven_Lose>
+  <RT_EV_Miner>Золотоискатель</RT_EV_Miner>
+  <RT_EV_Miner_Text>«Под вашими ногами сокровище. Копайте!»</RT_EV_Miner_Text>
+  <RT_EV_Miner_Goal>выкопать клеток: {0}</RT_EV_Miner_Goal>
+  <RT_EV_Miner_Won>«Я же говорил».\n\nЗолото и серебро в пути.</RT_EV_Miner_Won>
+  <RT_EV_Miner_Lost>«Сокровище остаётся в скале».</RT_EV_Miner_Lost>
+  <RT_EV_Builder>Строитель</RT_EV_Builder>
+  <RT_EV_Builder_Text>«Постройте мне что-нибудь. Что угодно. Быстро».</RT_EV_Builder_Text>
+  <RT_EV_Builder_Goal>построить объектов: {0}</RT_EV_Builder_Goal>
+  <RT_EV_Builder_Won>«Это простоит какое-то время».\n\nСталь и компоненты в пути.</RT_EV_Builder_Won>
+  <RT_EV_Builder_Lost>«Ничего не построено. Жаль».</RT_EV_Builder_Lost>
+  <RT_EV_GoldFever>Золотая лихорадка</RT_EV_GoldFever>
+  <RT_EV_GoldFever_Text>«Любой камень может скрывать состояние…»\n\nДва дня добыча приносит на 50 % больше, но нервы на пределе.</RT_EV_GoldFever_Text>
+  <RT_EV_Reroll>Макс играет за тебя</RT_EV_Reroll>
+  <RT_EV_Reroll_Text>«Мне не нравится сегодняшнее число. Переброшу».</RT_EV_Reroll_Text>
+  <RT_EV_Roulette>Рулетка</RT_EV_Roulette>
+  <RT_EV_Roulette_Text>«Один из твоих людей, один бросок. Орёл – озарение. Решка – синяк».</RT_EV_Roulette_Text>
+  <RT_EV_Roulette_O1>Бросить</RT_EV_Roulette_O1>
+  <RT_EV_Roulette_O2>Не сегодня</RT_EV_Roulette_O2>
+  <RT_EV_Roulette_Win>{0} повезло – вдохновение!</RT_EV_Roulette_Win>
+  <RT_EV_Roulette_Lose>{0} не повезло – ой.</RT_EV_Roulette_Lose>
+  <RT_EV_Gift3>Выбери подарок</RT_EV_Gift3>
+  <RT_EV_Gift3_Text>«Сегодня я щедр. Выбирай».</RT_EV_Gift3_Text>
+  <RT_EV_Gift3_O1>500 серебра</RT_EV_Gift3_O1>
+  <RT_EV_Gift3_O2>10 лекарств</RT_EV_Gift3_O2>
+  <RT_EV_Gift3_O3>Сюрприз</RT_EV_Gift3_O3>
+  <RT_EV_LuckyHand>Лёгкая рука</RT_EV_LuckyHand>
+  <RT_EV_LuckyHand_Text>«Кости тебе улыбаются».\n\nТри дня операции удаются чаще, а ваши слова убеждают лучше (вербовка, торговля).</RT_EV_LuckyHand_Text>
+  <RT_EV_Pilgrim>Паломник с историей</RT_EV_Pilgrim>
+  <RT_EV_Pilgrim_Text>«Идёт кое-кто, кто хочет к вам присоединиться. Кто-то другой может прийти его искать».</RT_EV_Pilgrim_Text>
+  <RT_EV_Pilgrim_O1>Принять</RT_EV_Pilgrim_O1>
+  <RT_EV_Pilgrim_O2>Прогнать</RT_EV_Pilgrim_O2>
+  <RT_EV_Blessing>Благословение Макса</RT_EV_Blessing>
+  <RT_EV_Blessing_Text>«Сегодня работа идёт сама».\n\nОдин день все работают на 25 % быстрее.</RT_EV_Blessing_Text>
+  <RT_EV_Supplies>Припасы</RT_EV_Supplies>
+  <RT_EV_Supplies_Text>«Ешьте. Вы какие-то худые».\n\nПоблизости падает капсула с едой.</RT_EV_Supplies_Text>
+  <RT_EV_TwoSides>С двух сторон</RT_EV_TwoSides>
+  <RT_EV_TwoSides_Text>«Один налёт – скучно. Как насчёт двух?»\n\nДва налёта поменьше приходят одновременно.</RT_EV_TwoSides_Text>
+  <RT_EV_BadLuck>Невезучий день</RT_EV_BadLuck>
+  <RT_EV_BadLuck_Text>«Сегодня всё пойдёт не так. Зато чему-нибудь научитесь».\n\nОдин день все двигаются на 10 % медленнее, но учатся вдвое быстрее.</RT_EV_BadLuck_Text>
+  <RT_EV_Fortress>Крепость</RT_EV_Fortress>
+  <RT_EV_Fortress_Text>«Вот они. Держите стены и никого не теряйте».\n\nНалёт начинается прямо сейчас.</RT_EV_Fortress_Text>
+  <RT_EV_Fortress_Goal>два дня никто не умирает</RT_EV_Fortress_Goal>
+  <RT_EV_Fortress_Won>«Настоящая крепость».\n\nМини-турель и сталь в пути.</RT_EV_Fortress_Won>
+  <RT_EV_Fortress_Lost>«Стены выстояли, люди – нет».</RT_EV_Fortress_Lost>
+  <RT_EV_Tax>Налог Макса</RT_EV_Tax>
+  <RT_EV_Tax_Text>«Пятая часть твоего серебра – мне. Или я пришлю кого-нибудь забрать её».</RT_EV_Tax_Text>
+  <RT_EV_Tax_O1>Заплатить</RT_EV_Tax_O1>
+  <RT_EV_Tax_O2>Отказаться</RT_EV_Tax_O2>
+  <RT_EV_ColdShower>Холодный душ</RT_EV_ColdShower>
+  <RT_EV_ColdShower_Text>«Слишком уютно? Поменяем погоду».\n\nДва дня будет очень холодно (или очень жарко летом).</RT_EV_ColdShower_Text>
+  <RT_EV_AllIn>Ва-банк</RT_EV_AllIn>
+  <RT_EV_AllIn_Text>«Один бросок. 4–6 – с неба падает состояние. 1–3 – за тобой приходит сильный налёт».</RT_EV_AllIn_Text>
+  <RT_EV_AllIn_O1>Бросить</RT_EV_AllIn_O1>
+  <RT_EV_AllIn_O2>Нет, спасибо</RT_EV_AllIn_O2>
+  <RT_EV_AllIn_Lose>Выпало {0}. Они идут…</RT_EV_AllIn_Lose>
+  <RT_EV_MadPack>Бешеная стая</RT_EV_MadPack>
+  <RT_EV_MadPack_Text>«Звери взбесились. Много зверей».</RT_EV_MadPack_Text>
+  <RT_EV_Eclipse>Тёмная кость</RT_EV_Eclipse>
+  <RT_EV_Eclipse_Text>«Поиграем немного в темноте».\n\nЗатмение, и что-то шепчет числа.</RT_EV_Eclipse_Text>
+  <RT_EV_Revenge>Месть Макса</RT_EV_Revenge>
+  <RT_EV_Revenge_Text>«Тебе в последнее время везло. Слишком везло».\n\nПриближается сильный налёт.</RT_EV_Revenge_Text>
+  <RT_EV_Double>Двойной бросок</RT_EV_Double>
+  <RT_EV_Double_Text>«Сегодня две кости: одна за тебя, одна против».</RT_EV_Double_Text>
+  <RT_EV_Difficulty>Сложность {0}: награды ×{1}, цели ×{2}, {3}.</RT_EV_Difficulty>
+  <RT_EV_RaidsYes>налёты разрешены</RT_EV_RaidsYes>
+  <RT_EV_RaidsNo>без налётов</RT_EV_RaidsNo>
+  <RT_EV_NoRaid>Макс машет рукой – на этой сложности он никого не посылает.</RT_EV_NoRaid>
+  <RT_EV_Stargazing>Звёздная ночь</RT_EV_Stargazing>
+  <RT_EV_Stargazing_Text>«Посмотрите сегодня наверх. Я зажёг парочку лишних специально для вас».\n\nВсе наслаждаются ночью под звёздами.</RT_EV_Stargazing_Text>
+  <RT_EV_GreenThumb>Зелёные руки</RT_EV_GreenThumb>
+  <RT_EV_GreenThumb_Text>«Ваши растения сегодня слушают».\n\nДва дня посев и сбор урожая идут на 50 % быстрее.</RT_EV_GreenThumb_Text>
+  <RT_EV_Guests>Гости за столом</RT_EV_Guests>
+  <RT_EV_Guests_Text>«Я пригласил друзей. Будьте с ними вежливы».\n\nГости уже в пути.</RT_EV_Guests_Text>
+  <RT_EV_Balm>Бальзам Макса</RT_EV_Balm>
+  <RT_EV_Balm_Text>«Покажи-ка эти царапины… так-то лучше».\n\nРаны ваших колонистов немного заживают.</RT_EV_Balm_Text>
+  <RT_EV_Cook>Повар</RT_EV_Cook>
+  <RT_EV_Cook_Text>«Я голоден. Готовьте для меня – побольше».</RT_EV_Cook_Text>
+  <RT_EV_Cook_Goal>приготовить блюд: {0}</RT_EV_Cook_Goal>
+  <RT_EV_Cook_Won>«Вкусно. Пир для всех!»\n\nВсе наслаждаются пиром, а с неба падает мешочек серебра.</RT_EV_Cook_Won>
+  <RT_EV_Cook_Lost>«Всё ещё голоден. Жаль».</RT_EV_Cook_Lost>
+  <RT_EV_Scholar>Учёный</RT_EV_Scholar>
+  <RT_EV_Scholar_Text>«Покажите, сколько помещается в голове».</RT_EV_Scholar_Text>
+  <RT_EV_Scholar_Goal>исследовать очков: {0}</RT_EV_Scholar_Goal>
+  <RT_EV_Scholar_Won>«Умные люди. Вот вам пища для размышлений».\n\nДвое колонистов получают вдохновение, а капсула с товарами в пути.</RT_EV_Scholar_Won>
+  <RT_EV_Scholar_Lost>«Книги остались закрытыми».</RT_EV_Scholar_Lost>
+  <RT_EV_Gardener>Садовник</RT_EV_Gardener>
+  <RT_EV_Gardener_Text>«Соберите урожай – хочу видеть полные корзины».</RT_EV_Gardener_Text>
+  <RT_EV_Gardener_Goal>собрать растений: {0}</RT_EV_Gardener_Goal>
+  <RT_EV_Gardener_Won>«Полные корзины! Молодцы».\n\nСеребро в пути.</RT_EV_Gardener_Won>
+  <RT_EV_Gardener_Lost>«Поля остались полными».</RT_EV_Gardener_Lost>
+  <RT_EV_HighLow>Больше или меньше</RT_EV_HighLow>
+  <RT_EV_HighLow_Text>«Одна кость. Ставь на больше – от четырёх до шести – или на меньше – от одного до трёх. 150 серебра, вернётся вдвое».</RT_EV_HighLow_Text>
+  <RT_EV_HighLow_O1>Больше (ставка 150, выигрыш 300)</RT_EV_HighLow_O1>
+  <RT_EV_HighLow_O2>Меньше (ставка 150, выигрыш 300)</RT_EV_HighLow_O2>
+  <RT_EV_HighLow_O3>Нет, спасибо</RT_EV_HighLow_O3>
+  <RT_EV_HighLow_Lose>Выпало {0}. Ваши {1} серебра пропали.</RT_EV_HighLow_Lose>
+  <RT_EV_SteadyHands>Твёрдые руки</RT_EV_SteadyHands>
+  <RT_EV_SteadyHands_Text>«Сегодня ваши руки не дрогнут».\n\nДва дня строительство и переноска идут на 30 % быстрее.</RT_EV_SteadyHands_Text>
+  <RT_EV_Market>Базарный день</RT_EV_Market>
+  <RT_EV_Market_Text>«Я сказал торговцам, где вас найти».\n\nТорговый караван уже в пути.</RT_EV_Market_Text>
+  <RT_EV_Sower>Сеятель</RT_EV_Sower>
+  <RT_EV_Sower_Text>«Посадите что-нибудь. Много чего-нибудь».</RT_EV_Sower_Text>
+  <RT_EV_Sower_Goal>посеять растений: {0}</RT_EV_Sower_Goal>
+  <RT_EV_Sower_Won>«Теперь пусть растёт».\n\nСеребро в пути.</RT_EV_Sower_Won>
+  <RT_EV_Sower_Lost>«Пустые поля. Жаль».</RT_EV_Sower_Lost>
+  <RT_EV_Swap>Обмен Макса</RT_EV_Swap>
+  <RT_EV_Swap_Text>«Дай мне 100 серебра, и я отдам тебе то, что в этом мешке. Может, больше. Может, меньше».</RT_EV_Swap_Text>
+  <RT_EV_Swap_O1>Заплатить 100 серебра</RT_EV_Swap_O1>
+  <RT_EV_Swap_O2>Нет, спасибо</RT_EV_Swap_O2>
+  <RT_EV_Tales>Вечер историй</RT_EV_Tales>
+  <RT_EV_Tales_Text>«Садитесь ближе. Расскажу, как я однажды проиграл в кости целую планету…»\n\nВсе наслаждаются историями.</RT_EV_Tales_Text>
+  <RT_EV_RainDance>Танец дождя</RT_EV_RainDance>
+  <RT_EV_RainDance_Text>«Слишком сухо. Брошу кости на дождь».\n\nНачинается дождь.</RT_EV_RainDance_Text>
+  <RT_EV_Tamer>Укротитель</RT_EV_Tamer>
+  <RT_EV_Tamer_Text>«Заведите дикого друга».</RT_EV_Tamer_Text>
+  <RT_EV_Tamer_Goal>приручить животных: {0}</RT_EV_Tamer_Goal>
+  <RT_EV_Tamer_Won>«Посмотрите на них, уже лучшие друзья».\n\nСеребро в пути.</RT_EV_Tamer_Won>
+  <RT_EV_Tamer_Lost>«Звери остались дикими».</RT_EV_Tamer_Lost>
+  <RT_EV_Windfall>Нежданная удача</RT_EV_Windfall>
+  <RT_EV_Windfall_Text>«Нашёл немного серебра в другом кармане. Оно твоё».\n\nКапсула с серебром падает возле вашей колонии.</RT_EV_Windfall_Text>
+  <RT_EV_Medkit>Аптечка</RT_EV_Medkit>
+  <RT_EV_Medkit_Text>«На случай, если что-нибудь сломаете. А вы сломаете».\n\nКапсула с лекарствами падает возле вашей колонии.</RT_EV_Medkit_Text>
+  <RT_EV_MysteryBox>Таинственная коробка</RT_EV_MysteryBox>
+  <RT_EV_MysteryBox_Text>«Закрытая коробка. Внутри что-то хорошее – наверное. Или я могу просто выкупить её обратно».</RT_EV_MysteryBox_Text>
+  <RT_EV_MysteryBox_O1>Открыть</RT_EV_MysteryBox_O1>
+  <RT_EV_MysteryBox_O2>Продать Максу за 300 серебра</RT_EV_MysteryBox_O2>
+  <RT_EV_MysteryBox_Lose>Коробка была полна разъярённых зверей!</RT_EV_MysteryBox_Lose>
+  <RT_EV_Muse>Муза</RT_EV_Muse>
+  <RT_EV_Muse_Text>«Я нашептал идеи в несколько ушей».\n\nТрое колонистов получают вдохновение.</RT_EV_Muse_Text>
+  <RT_EV_StrayHerd>Заблудшее стадо</RT_EV_StrayHerd>
+  <RT_EV_StrayHerd_Text>«Пара зверей пошла за моими костями. Оставьте их себе».\n\nПриходят несколько ручных животных.</RT_EV_StrayHerd_Text>
+  <RT_EV_Blight>Гнилая удача</RT_EV_Blight>
+  <RT_EV_Blight_Text>«Ой. Я уронил кость на твоё поле».\n\nВаши посевы поражает болезнь.</RT_EV_Blight_Text>
+  <RT_EV_Sickness>Лихорадочные кости</RT_EV_Sickness>
+  <RT_EV_Sickness_Text>«Кто-то чихнул на мои кости».\n\nВспыхивает болезнь.</RT_EV_Sickness_Text>
+  <RT_EV_Fallout>Ядовитый дождь</RT_EV_Fallout>
+  <RT_EV_Fallout_Text>«Небо сегодня больно. Сидите дома».</RT_EV_Fallout_Text>
+  <RT_EV_Toll>Пошлина</RT_EV_Toll>
+  <RT_EV_Toll_Text>«Налётчики о вас прослышали. Откупитесь – около 80 серебра за колониста – или деритесь. Если будете драться, я оставлю вам кое-что за труды».</RT_EV_Toll_Text>
+  <RT_EV_Toll_O1>Заплатить</RT_EV_Toll_O1>
+  <RT_EV_Toll_O2>Драться</RT_EV_Toll_O2>
+  <RT_EV_Flare>Слепящее солнце</RT_EV_Flare>
+  <RT_EV_Flare_Text>«Я начистил солнце. Вашим машинам это не понравится».</RT_EV_Flare_Text>
+  <RT_EV_Swarm>Рой</RT_EV_Swarm>
+  <RT_EV_Swarm_Text>«Слышишь, как что-то ползает под полом?»</RT_EV_Swarm_Text>
+  <RT_EV_Drone>Гул</RT_EV_Drone>
+  <RT_EV_Drone_Text>«Что-то гудит в темноте. Макс не смеётся».</RT_EV_Drone_Text>
+  <RT_EV_Jackpot>Джекпот</RT_EV_Jackpot>
+  <RT_EV_Jackpot_Text>«Две кости. Дубль – и ты выигрываешь по-крупному. Что-то другое – и я пришлю кого-нибудь за долгом».</RT_EV_Jackpot_Text>
+  <RT_EV_Jackpot_O1>Бросить</RT_EV_Jackpot_O1>
+  <RT_EV_Jackpot_O2>Нет</RT_EV_Jackpot_O2>
+  <RT_EV_Jackpot_Lose>Выпало {0} и {1}. Кто-то идёт за долгом!</RT_EV_Jackpot_Lose>
+  <RT_EV_LongNight>Долгая ночь</RT_EV_LongNight>
+  <RT_EV_LongNight_Text>«Я закрыл солнце рукой. На несколько дней».</RT_EV_LongNight_Text>
+  <RT_EV_IronDice>Железные кости</RT_EV_IronDice>
+  <RT_EV_IronDice_Text>«С неба падают металлические кости. Они не перестают катиться».</RT_EV_IronDice_Text>
+  <RT_EV_ClearSky>Ясное небо</RT_EV_ClearSky>
+  <RT_EV_ClearSky_Text>«Облака? Не сегодня. Я их сдул».\n\nНебо проясняется.</RT_EV_ClearSky_Text>
+  <RT_EV_Aurora>Северное сияние</RT_EV_Aurora>
+  <RT_EV_Aurora_Text>«Я развесил там наверху огоньки. Идите посмотрите».</RT_EV_Aurora_Text>
+  <RT_EV_MorningFog>Утренний туман</RT_EV_MorningFog>
+  <RT_EV_MorningFog_Text>«Тсс. Пусть мир поспит ещё немного».\n\nНад колонией ложится мягкий туман.</RT_EV_MorningFog_Text>
+  <RT_EV_Snowfall>Первый снег</RT_EV_Snowfall>
+  <RT_EV_Snowfall_Text>«Снег. Медленный и тихий. Наслаждайтесь».</RT_EV_Snowfall_Text>
+  <RT_EV_SkyBet>Солнце или дождь</RT_EV_SkyBet>
+  <RT_EV_SkyBet_Text>«Ставка на погоду. 120 серебра – угадаешь, заплачу вдвое. Так или иначе, погода придёт».</RT_EV_SkyBet_Text>
+  <RT_EV_Rainbow>Радуга</RT_EV_Rainbow>
+  <RT_EV_Rainbow_Text>«У меня осталось немного краски».\n\nВсе любуются радугой.</RT_EV_Rainbow_Text>
+  <RT_EV_Thunder>Гром</RT_EV_Thunder>
+  <RT_EV_Thunder_Text>«Слышишь? Это я там наверху бросаю кости».\n\nНачинается гроза.</RT_EV_Thunder_Text>
+  <RT_EV_OddWeather>Странная погода</RT_EV_OddWeather>
+  <RT_EV_OddWeather_Text>«Я пролил напиток на термостат. Извините».</RT_EV_OddWeather_Text>
+  <RT_EV_StrangeSky>Странное небо</RT_EV_StrangeSky>
+  <RT_EV_StrangeSky_Text>«Сегодня что-то необычное. Смотрите на небо».</RT_EV_StrangeSky_Text>
+  <RT_EV_Lights>Огни вдохновения</RT_EV_Lights>
+  <RT_EV_Lights_Text>«Посмотрите вверх. Чувствуете что-то? Хорошо – используйте это».\n\nПо небу пляшут огни, и двое колонистов получают вдохновение.</RT_EV_Lights_Text>
+  <RT_EV_SkyScrap>Небесный лом</RT_EV_SkyScrap>
+  <RT_EV_SkyScrap_Text>«Там наверху что-то отвалилось от корабля. Кто нашёл, того и добро».\n\nКапсула со сталью и компонентами приземляется возле вашей колонии.</RT_EV_SkyScrap_Text>
+  <RT_EV_GoodHarvestRain>Тёплый дождь</RT_EV_GoodHarvestRain>
+  <RT_EV_GoodHarvestRain_Text>«Ваши поля выглядят так, будто хотят пить».\n\nИдёт тёплый дождь, и растущие посевы немного опережают время.</RT_EV_GoodHarvestRain_Text>
+  <RT_EV_Flashstorm>Молнии</RT_EV_Flashstorm>
+  <RT_EV_Flashstorm_Text>«Посмотрим, кто стоит на открытом месте».</RT_EV_Flashstorm_Text>
+  <RT_EV_MadAnimal>Плохое настроение</RT_EV_MadAnimal>
+  <RT_EV_MadAnimal_Text>«Этот зверь косо на меня посмотрел. Теперь он злится на тебя».</RT_EV_MadAnimal_Text>
+  <RT_EV_Blizzard>Метель</RT_EV_Blizzard>
+  <RT_EV_Blizzard_Text>«Холодно? Сделаю холоднее».\n\nМетель и похолодание обрушиваются на колонию.</RT_EV_Blizzard_Text>
+  <RT_EV_BlackSun>Затмение</RT_EV_BlackSun>
+  <RT_EV_BlackSun_Text>«Я заслонил солнце рукой. Совсем ненадолго».</RT_EV_BlackSun_Text>
+  <RT_EV_Hail>Град</RT_EV_Hail>
+  <RT_EV_Hail_Text>«Ледяные кости. Сыплются с неба. Сидите дома».</RT_EV_Hail_Text>
+  <RT_EV_Stampede>Паническое бегство</RT_EV_Stampede>
+  <RT_EV_Stampede_Text>«Я выбросил стадо. Злое».</RT_EV_Stampede_Text>
+  <RT_EV_StormRaid>Штормовые налётчики</RT_EV_StormRaid>
+  <RT_EV_StormRaid_Text>«Они любят плохую погоду. Я тоже».\n\nНадвигается буря – а с ней налётчики.</RT_EV_StormRaid_Text>
+  <RT_EV_DoubleOrNothing>Всё или ничего</RT_EV_DoubleOrNothing>
+  <RT_EV_DoubleOrNothing_Text>«Половина твоего серебра – до тысячи – на один бросок. Чёт: вдвое. Нечет: пропало».</RT_EV_DoubleOrNothing_Text>
+  <RT_EV_SkyBet_O1>Солнце (ставка 120, выигрыш 240)</RT_EV_SkyBet_O1>
+  <RT_EV_SkyBet_O2>Дождь (ставка 120, выигрыш 240)</RT_EV_SkyBet_O2>
+  <RT_EV_SkyBet_O3>Нет, спасибо</RT_EV_SkyBet_O3>
+  <RT_EV_SkyBet_Lose>Не угадали. Ваши {0} серебра пропали.</RT_EV_SkyBet_Lose>
+  <RT_EV_DoubleOrNothing_O1>Бросить</RT_EV_DoubleOrNothing_O1>
+  <RT_EV_DoubleOrNothing_O2>Нет</RT_EV_DoubleOrNothing_O2>
+  <RT_EV_DoubleOrNothing_Lose>Нечет. Ваши {0} серебра пропали.</RT_EV_DoubleOrNothing_Lose>
+  <RT_EV_CardNight>Карточный вечер</RT_EV_CardNight>
+  <RT_EV_CardNight_Text>«Сегодня никто не работает. Сегодня играем в карты – и сдаю я».\n\nВсе веселятся, и им становится лучше.</RT_EV_CardNight_Text>
+  <RT_EV_LuckyCharm>Талисман</RT_EV_LuckyCharm>
+  <RT_EV_LuckyCharm_Text>«Держи. Не спрашивай, что это».\n\nОдин колонист получает талисман Макса на три дня: работа быстрее и нервы крепче.</RT_EV_LuckyCharm_Text>
+  <RT_EV_LuckyCharm_Who>{0} носит талисман Макса.</RT_EV_LuckyCharm_Who>
+  <RT_EV_Siesta>Сиеста</RT_EV_Siesta>
+  <RT_EV_Siesta_Text>«Вы все выглядите усталыми. Закройте глаза, я покараулю».\n\nВсе чувствуют себя отдохнувшими.</RT_EV_Siesta_Text>
+  <RT_EV_Lottery>Лотерея Макса</RT_EV_Lottery>
+  <RT_EV_Lottery_Text>«Билеты! Пятьдесят серебра за штуку! Каждый билет с шансом один к шести выигрывает четыреста!»</RT_EV_Lottery_Text>
+  <RT_EV_Lottery_O1>Купить один билет (50 серебра)</RT_EV_Lottery_O1>
+  <RT_EV_Lottery_O2>Купить три билета (150 серебра)</RT_EV_Lottery_O2>
+  <RT_EV_Lottery_O3>Нет, спасибо</RT_EV_Lottery_O3>
+  <RT_EV_Lottery_Lose>Ни одного выигрышного билета. Ваши {0} серебра пропали.</RT_EV_Lottery_Lose>
+  <RT_EV_CardDuel>Карточная дуэль</RT_EV_CardDuel>
+  <RT_EV_CardDuel_Text>«Вы двое. Карты. Сейчас же. Проигравший моет посуду».\n\nДва колониста играют долгую партию – оба узнают что-то о людях.</RT_EV_CardDuel_Text>
+  <RT_EV_CardDuel_Who>{0} обыграл в карты: {1}.</RT_EV_CardDuel_Who>
+  <RT_EV_Hauler>Грузчик</RT_EV_Hauler>
+  <RT_EV_Hauler_Text>«Везде валяются вещи! Разложите всё по местам».</RT_EV_Hauler_Text>
+  <RT_EV_Hauler_Goal>перенести вещей: {0}</RT_EV_Hauler_Goal>
+  <RT_EV_Hauler_Won>«Порядок. Люблю порядок».\n\nС неба падает мешочек серебра.</RT_EV_Hauler_Won>
+  <RT_EV_Hauler_Lost>«Всё ещё бардак. Жаль».</RT_EV_Hauler_Lost>
+  <RT_EV_Debt>Карточный долг</RT_EV_Debt>
+  <RT_EV_Debt_Text>«Кто-то из твоей колонии проиграл за моим столом – и победители хотят свои деньги. Плати, или они придут и заберут».</RT_EV_Debt_Text>
+  <RT_EV_Debt_O1>Заплатить долг</RT_EV_Debt_O1>
+  <RT_EV_Debt_O2>Отказаться</RT_EV_Debt_O2>
+  <RT_EV_Debt_Lucky>Сборщики долгов заблудились по дороге. Повезло.</RT_EV_Debt_Lucky>
+  <RT_EV_CursedDie>Проклятая кость</RT_EV_CursedDie>
+  <RT_EV_CursedDie_Text>«Я нашёл кость, которая всегда выпадает удачно. Ну – для того, кто её держит. Остальным не везёт. Хочешь?»</RT_EV_CursedDie_Text>
+  <RT_EV_CursedDie_O1>Взять (награда, но кому-то не повезёт)</RT_EV_CursedDie_O1>
+  <RT_EV_CursedDie_O2>Выбросить</RT_EV_CursedDie_O2>
+  <RT_EV_CursedDie_Who>Проклятие настигло: {0}.</RT_EV_CursedDie_Who>
+  <RT_EV_TableRound>Бросают все</RT_EV_TableRound>
+  <RT_EV_TableRound_Text>«Каждый из вас бросает одну кость. Шестёрка – получишь вдохновение. Единица – споткнёшься и ушибёшься. Играете?»</RT_EV_TableRound_Text>
+  <RT_EV_TableRound_O1>Бросают все</RT_EV_TableRound_O1>
+  <RT_EV_TableRound_O2>Не сегодня</RT_EV_TableRound_O2>
+  <RT_EV_TableRound_Result>Шестёрки: вдохновлено {0}. Единицы: ранено {1}.</RT_EV_TableRound_Result>
+  <RT_EV_Pickpocket>Карманник</RT_EV_Pickpocket>
+  <RT_EV_Pickpocket_Text>«Ты давно пересчитывал своё серебро? Нет? Вот и хорошо».</RT_EV_Pickpocket_Text>
+  <RT_EV_Pickpocket_Lose>Со склада пропало {0} серебра.</RT_EV_Pickpocket_Lose>
+  <RT_EV_DoubleCaravan>Двойной караван</RT_EV_DoubleCaravan>
+  <RT_EV_DoubleCaravan_Text>«Я сказал торговцам, что ты богат. Едут два каравана – второй чуть позже».</RT_EV_DoubleCaravan_Text>
+  <RT_EV_PrizeAnimal>Выигранный зверь</RT_EV_PrizeAnimal>
+  <RT_EV_PrizeAnimal_Text>«Выиграл его в карты. Мне он не нужен. Забирай».\n\nВ капсуле прибывает ручное животное.</RT_EV_PrizeAnimal_Text>
+  <RT_EV_PrizeAnimal_Who>Новое животное: {0}.</RT_EV_PrizeAnimal_Who>
+  <RT_EV_OnTheHouse>За счёт заведения</RT_EV_OnTheHouse>
+  <RT_EV_OnTheHouse_Text>«Этот круг за мой счёт!»\n\nС неба падают изысканные блюда и пиво.</RT_EV_OnTheHouse_Text>
+  <RT_EV_GoodWord>Доброе слово</RT_EV_GoodWord>
+  <RT_EV_GoodWord_Text>«Я сыграл в карты с одним из твоих соседей и рассказал о тебе только хорошее».\n\nОтношения с дружественной фракцией улучшаются.</RT_EV_GoodWord_Text>
+  <RT_EV_SoreLoser>Плохой проигравший</RT_EV_SoreLoser>
+  <RT_EV_SoreLoser_Text>«Кто-то вчера проиграл за моим столом всё. Переживает плохо».\n\nОдин колонист бродит вокруг в дурном настроении.</RT_EV_SoreLoser_Text>
+  <RT_EV_LoadedDice>Шулерские кости</RT_EV_LoadedDice>
+  <RT_EV_LoadedDice_Text>«Сегодня кости шулерские. Против тебя».\n\nДва дня вся работа идёт на 15 % медленнее.</RT_EV_LoadedDice_Text>
+  <RT_EV_Zzzt>Искры</RT_EV_Zzzt>
+  <RT_EV_Zzzt_Text>«Я пролил напиток на твои провода. Упс».</RT_EV_Zzzt_Text>
+  <RT_EV_Wheel>Колесо фортуны</RT_EV_Wheel>
+  <RT_EV_Wheel_Text>«Крути колесо! Шесть секторов: большой подарок, вдохновение для всех, лечение для всех, ничего, дикие звери или налёт».</RT_EV_Wheel_Text>
+  <RT_EV_Wheel_O1>Крутить</RT_EV_Wheel_O1>
+  <RT_EV_Wheel_O2>Уйти</RT_EV_Wheel_O2>
+  <RT_EV_Wheel_F1>Колесо остановилось: большой подарок!</RT_EV_Wheel_F1>
+  <RT_EV_Wheel_F2>Колесо остановилось: вдохновение для всех!</RT_EV_Wheel_F2>
+  <RT_EV_Wheel_F3>Колесо остановилось: лечение для всех!</RT_EV_Wheel_F3>
+  <RT_EV_Wheel_F4>Колесо остановилось: ничего. Макс смеётся.</RT_EV_Wheel_F4>
+  <RT_EV_Wheel_F5>Колесо остановилось: дикие звери!</RT_EV_Wheel_F5>
+  <RT_EV_Wheel_F6>Колесо остановилось: налёт!</RT_EV_Wheel_F6>
+  <RT_EV_ChaosRound>Раунд хаоса</RT_EV_ChaosRound>
+  <RT_EV_ChaosRound_Text>«Три кости разом! Посмотрим, что выпадет».\n\nПрямо сейчас происходят три события Макса.</RT_EV_ChaosRound_Text>
+  <RT_EV_StoneDice>Каменные кости</RT_EV_StoneDice>
+  <RT_EV_StoneDice_Text>«Сегодня бросаю крупные. Берегите головы».\n\nДва метеорита падают возле колонии.</RT_EV_StoneDice_Text>
+  <RT_SecMods>События других модов</RT_SecMods>
+  <RT_ModEvents>События других модов следуют за кубиком</RT_ModEvents>
+  <RT_ModEvents_Desc>События, которые добавляют другие моды, получают вид – спокойное, хорошее, обычное, угроза или безумное. Сегодняшний бросок делает каждый вид более или менее вероятным: хорошие чаще приходят в щедрый день, угрозы – в тяжёлый, самые странные – в безумный, а в спокойные и щедрые дни угрозы из модов не приходят вовсе.</RT_ModEvents_Desc>
+  <RT_ModEventList>События модов: включено {0} из {1}</RT_ModEventList>
+  <RT_ModEventListTitle>События твоих других модов</RT_ModEventListTitle>
+  <RT_ModEventListDesc>Макс распределяет каждое событие твоих других модов по граням кубика. ★ = распределено вручную, остальные автоматически по виду и названию. Нажми на вид, чтобы изменить его; событие без галочки не придёт, пока Макс твой рассказчик.</RT_ModEventListDesc>
+  <RT_ModEventSearch>Поиск…</RT_ModEventSearch>
+  <RT_ModEventsNone>События других модов не найдены.</RT_ModEventsNone>
+  <RT_MK_Calm>спокойное</RT_MK_Calm>
+  <RT_MK_Good>хорошее</RT_MK_Good>
+  <RT_MK_Ordinary>обычное</RT_MK_Ordinary>
+  <RT_MK_Threat>угроза</RT_MK_Threat>
+  <RT_MK_Mad>безумное</RT_MK_Mad>
+  <RT_MK_Auto>Автоматически ({0})</RT_MK_Auto>
+  <RT_MK_NoFace>нет</RT_MK_NoFace>
+  <RT_MK_Tip>{0}\nЧаще при: {1}\nНикогда при: {2}</RT_MK_Tip>
+</LanguageData>

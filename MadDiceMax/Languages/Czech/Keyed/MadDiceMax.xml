@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RT_Rec1>Vypravěč Max oznámí každý hod a ukáže dnešní šance.</RT_Rec1>
+  <RT_Rec2>Vypravěč občas okomentuje událost (zhruba každou třetí).</RT_Rec2>
+  <RT_Rec3>Funguje s každým vypravěčem; v savu se nic nemění.</RT_Rec3>
+  <RT_SecDice>Šílený kostkař Max</RT_SecDice>
+  <RT_DiceAlert>Ukazovat dnešní hod a šance</RT_DiceAlert>
+  <RT_DiceAlert_Desc>Upozornění vpravo: dnešní hod, jaký je to den, šance na nájezd, na malé hrozby a na obchodníky či návštěvy a čas do dalšího hodu.</RT_DiceAlert_Desc>
+  <RT_DiceLetter>Hod jako dopis</RT_DiceLetter>
+  <RT_DiceLetter_Desc>Denní hod přijde jako dopis s celou předpovědí místo krátké zprávy.</RT_DiceLetter_Desc>
+  <RT_SecDiary>Deník</RT_SecDiary>
+  <RT_Diary>Komentáře vypravěče</RT_Diary>
+  <RT_Diary_Desc>Vypravěč občas okomentuje událost krátkou větou nahoře na obrazovce.</RT_Diary_Desc>
+  <RT_DiaryAll>I u jiných vypravěčů</RT_DiaryAll>
+  <RT_DiaryAll_Desc>Komentáře i u ostatních vypravěčů, ze hry i z modů – nejen u Maxe.</RT_DiaryAll_Desc>
+  <RT_DiaryChance>Komentovat {0} % událostí</RT_DiaryChance>
+  <RT_DiaryChance_Desc>Jak často přijde komentář. Mezi dvěma komentáři je vždy aspoň pár hodin.</RT_DiaryChance_Desc>
+  <RT_RollTitle>Max hodil {0}: {1}</RT_RollTitle>
+  <RT_RollLetter>Max hodil {0}</RT_RollLetter>
+  <RT_AlertLabel>Kostka {0}: {1}</RT_AlertLabel>
+  <RT_Mood1>klidný den</RT_Mood1>
+  <RT_Mood2>pohodový den</RT_Mood2>
+  <RT_Mood3>obyčejný den</RT_Mood3>
+  <RT_Mood4>štědrý den</RT_Mood4>
+  <RT_Mood5>tvrdý den</RT_Mood5>
+  <RT_Mood6>šílený den</RT_Mood6>
+  <RT_MoodDesc1>1 – Klidný den. Dnes žádné velké hrozby, málo událostí, slabé malé hrozby. Vyjasní se.</RT_MoodDesc1>
+  <RT_MoodDesc2>2 – Pohodový den. Velké hrozby jsou vzácné, víc návštěv a neškodných událostí; často přijde něco pěkného a občas se změní počasí.</RT_MoodDesc2>
+  <RT_MoodDesc3>3 – Obyčejný den. Obvyklé události hry; občas jedna událost navíc nebo změna počasí.</RT_MoodDesc3>
+  <RT_MoodDesc4>4 – Štědrý den. Obchodníci a návštěvy chodí častěji, hrozby méně, během dne přijde jeden dárek a bude hezky.</RT_MoodDesc4>
+  <RT_MoodDesc5>5 – Tvrdý den. Velké i malé hrozby jsou mnohem pravděpodobnější a silnější – aspoň jedna během dne určitě přijde. Přijde nejhorší počasí, jaké tu bývá.</RT_MoodDesc5>
+  <RT_MoodDesc6>6 – Šílený den. Události chodí dvakrát častěji a každý druh má vlastní náhodnou šanci – aspoň dvě náhodné události (z vanilly i z modů) určitě přijdou a počasí může být jakékoliv.</RT_MoodDesc6>
+  <RT_FcEvents>Čekané události dnes: asi {0}</RT_FcEvents>
+  <RT_FcBig>Nájezd nebo jiná velká hrozba: {0}</RT_FcBig>
+  <RT_FcSmall>Malá hrozba: {0}</RT_FcSmall>
+  <RT_FcGood>Obchodníci nebo návštěvy: {0}</RT_FcGood>
+  <RT_FcStrength>Síla hrozeb: {0}–{1} % běžné</RT_FcStrength>
+  <RT_FcNoForced>Ani nájezd, který už dlouho nebyl, dnes nepřijde.</RT_FcNoForced>
+  <RT_FcGift>Dnes je na cestě dárek.</RT_FcGift>
+  <RT_FcNext>Další hod za {0}.</RT_FcNext>
+  <RT_LvlVeryLow>velmi nízká</RT_LvlVeryLow>
+  <RT_LvlLow>nízká</RT_LvlLow>
+  <RT_LvlMid>střední</RT_LvlMid>
+  <RT_LvlHigh>vysoká</RT_LvlHigh>
+  <RT_LvlVeryHigh>velmi vysoká</RT_LvlVeryHigh>
+  <RT_RollSay1_1>Jednička. Dej si šlofíka, zítra jsem zpátky.</RT_RollSay1_1>
+  <RT_RollSay1_2>Jedna. I já potřebuju volno.</RT_RollSay1_2>
+  <RT_RollSay1_3>Jednička. Užij si to, dlouho to nevydrží.</RT_RollSay1_3>
+  <RT_RollSay2_1>Dvojka. Mám dobrou náladu. Nekaz mi ji.</RT_RollSay2_1>
+  <RT_RollSay2_2>Dvojka – čaj, sušenky, žádné výbuchy.</RT_RollSay2_2>
+  <RT_RollSay2_3>Dvojka. Běž něco zasadit.</RT_RollSay2_3>
+  <RT_RollSay3_1>Trojka. Nic zvláštního.</RT_RollSay3_1>
+  <RT_RollSay3_2>Trojka. Uvidíme, co den přinese… ani já to nevím.</RT_RollSay3_2>
+  <RT_RollSay3_3>Trojka. Dokonale průměrná. Podezřele průměrná.</RT_RollSay3_3>
+  <RT_RollSay4_1>Čtyřka! Někdo nahoře tě má rád.</RT_RollSay4_1>
+  <RT_RollSay4_2>Čtyřka. Otevři dveře, jdou hosti.</RT_RollSay4_2>
+  <RT_RollSay4_3>Čtyřka. Jsem štědrý. Nezvykej si.</RT_RollSay4_3>
+  <RT_RollSay5_1>Pětka. Nabij zbraně.</RT_RollSay5_1>
+  <RT_RollSay5_2>Pětka. Doufám, že máš silné zdi.</RT_RollSay5_2>
+  <RT_RollSay5_3>Pětka. Kostky dnes chtějí krev.</RT_RollSay5_3>
+  <RT_RollSay6_1>ŠESTKA! Drž se něčeho.</RT_RollSay6_1>
+  <RT_RollSay6_2>Šestka. Ani já nevím, co bude dál.</RT_RollSay6_2>
+  <RT_RollSay6_3>Šestka. Chaos je žebřík. Nebo jáma. Uvidíme.</RT_RollSay6_3>
+  <RT_D_Raid_1>Návštěva. Ne ta milá.</RT_D_Raid_1>
+  <RT_D_Raid_2>Slyšeli, že máš pěknou základnu. Chtějí ji.</RT_D_Raid_2>
+  <RT_D_Raid_3>Nájezdníci! Neposlal jsem je. Asi.</RT_D_Raid_3>
+  <RT_D_Raid_4>Objednal si někdo potíže? Doručeno.</RT_D_Raid_4>
+  <RT_D_Manhunter_1>Zvířata tě mají plné zuby.</RT_D_Manhunter_1>
+  <RT_D_Manhunter_2>Příroda volá. A zlobí se.</RT_D_Manhunter_2>
+  <RT_D_Manhunter_3>Pohlaď je. Schválně.</RT_D_Manhunter_3>
+  <RT_D_Infestation_1>Něco leze ve zdech. Dobrou noc.</RT_D_Infestation_1>
+  <RT_D_Infestation_2>Brouci. Hodně brouků.</RT_D_Infestation_2>
+  <RT_D_Infestation_3>Kopal jsi moc hluboko. Všimli si.</RT_D_Infestation_3>
+  <RT_D_Pod_1>Něco spadlo z nebe. Kdo najde, má.</RT_D_Pod_1>
+  <RT_D_Pod_2>Věci zadarmo! Neptej se odkud.</RT_D_Pod_2>
+  <RT_D_Wanderer_1>Nový kamarád! Nebo budoucí problém.</RT_D_Wanderer_1>
+  <RT_D_Wanderer_2>Někdo se chce přidat. Buď milý.</RT_D_Wanderer_2>
+  <RT_D_Dark_1>Zhasnuto. Doufám, že máš rád svíčky.</RT_D_Dark_1>
+  <RT_D_Dark_2>Slunce si dalo pauzu. Tvůj proud taky.</RT_D_Dark_2>
+  <RT_D_Weather_1>Počasí má dnes názor.</RT_D_Weather_1>
+  <RT_D_Weather_2>Obleč se podle příležitosti. Příležitost je utrpení.</RT_D_Weather_2>
+  <RT_D_Big_1>A je to tady.</RT_D_Big_1>
+  <RT_D_Big_2>Tohle bude bolet.</RT_D_Big_2>
+  <RT_D_Big_3>Varoval jsem tě. Ne? Chtěl jsem.</RT_D_Big_3>
+  <RT_D_Small_1>Jen drobnost, ať neusneš.</RT_D_Small_1>
+  <RT_D_Small_2>Malý problém. Zatím malý.</RT_D_Small_2>
+  <RT_D_Trade_1>Čas nakupovat!</RT_D_Trade_1>
+  <RT_D_Trade_2>Obchodník na oběžné dráze. Připrav stříbro.</RT_D_Trade_2>
+  <RT_D_Visitors_1>Návštěva. Schovej to dobré.</RT_D_Visitors_1>
+  <RT_D_Visitors_2>Hosti! Chovej se normálně.</RT_D_Visitors_2>
+  <RT_D_Chunk_1>Vesmírný šrot. Co jeden vyhodí…</RT_D_Chunk_1>
+  <RT_D_Chunk_2>Něco spadlo. Já to nebyl.</RT_D_Chunk_2>
+  <RT_D_Disease_1>Hepčí. Na zdraví.</RT_D_Disease_1>
+  <RT_D_Disease_2>Umyj si ruce. Pozdě.</RT_D_Disease_2>
+  <RT_D_Misc_1>Zajímavé…</RT_D_Misc_1>
+  <RT_D_Misc_2>No, tak to se stalo.</RT_D_Misc_2>
+  <RT_D_Misc_3>Tohle jsem nečekal. Ty taky ne.</RT_D_Misc_3>
+  <RT_D_Misc_4>Zapiš si to.</RT_D_Misc_4>
+  <RT_Mood7>hází znovu</RT_Mood7>
+  <RT_MoodDesc7>7 – Kostka se skutálela ze stolu! Za pár hodin hází znovu; do té doby obyčejný den.</RT_MoodDesc7>
+  <RT_RollSay7_1>Sedmička? Tahle kostka žádnou sedmičku nemá… házím znovu.</RT_RollSay7_1>
+  <RT_RollSay7_2>Spadla mi pod stůl. Chvilku strpení.</RT_RollSay7_2>
+  <RT_RollSay7_3>Sedm. To se nepočítá. Ještě jednou, za chvíli.</RT_RollSay7_3>
+  <RT_HeavySix>Nejtěžší hrozby jen v šílený den (6)</RT_HeavySix>
+  <RT_HeavySix_Desc>S Maxem přijde zamoření hmyzem, shluk mechanoidů nebo spadlá část lodi jen tehdy, když padne šestka. Úkoly se to netýká.</RT_HeavySix_Desc>
+  <!-- 0.2.0 the Gambler's events -->
+  <RT_SecEvents>Maxovy události</RT_SecEvents>
+  <RT_Events>Maxovy vlastní události</RT_Events>
+  <RT_Events_Desc>Po hodu může Max přinést jednu svou událost, která sedí k danému dni: sázky, výzvy s termínem, situace na pár dní nebo překroucené události ze hry.</RT_Events_Desc>
+  <RT_EventChance>Šance na událost po hodu: {0} %</RT_EventChance>
+  <RT_EventChance_Desc>Jak často den přinese jednu z Maxových událostí.</RT_EventChance_Desc>
+  <RT_EventList>Události: zapnuto {0} z {1}…</RT_EventList>
+  <RT_EventListTitle>Maxovy události</RT_EventListTitle>
+  <RT_EventListDesc>Odškrtni události, které nechceš. Každá patří k jednomu číslu kostky. Popis uvidíš po najetí myší.</RT_EventListDesc>
+  <RT_EventTry>Zkusit</RT_EventTry>
+  <RT_EV_Prefix>Max: {0}</RT_EV_Prefix>
+  <RT_EV_ChallengeGoal>Cíl: {0}\nČas: {1} dny.</RT_EV_ChallengeGoal>
+  <RT_EV_Won>Výzva splněna: {0}</RT_EV_Won>
+  <RT_EV_Lost>Výzva nesplněna: {0}</RT_EV_Lost>
+  <RT_EV_Dropped>{0}: {1}</RT_EV_Dropped>
+  <RT_EV_InspiredBy>Maxova přízeň</RT_EV_InspiredBy>
+  <RT_EV_NoSilver>Nemáš {0} stříbra na sázku.</RT_EV_NoSilver>
+  <RT_EV_AlertLabel>Maxova výzva</RT_EV_AlertLabel>
+  <RT_EV_Festival>Sváteční den</RT_EV_Festival>
+  <RT_EV_Festival_Text>„Odložte na chvíli práci. Dnes se slaví – prostě proto, že to kostky řekly.“\n\nVšichni mají dva dny sváteční náladu.</RT_EV_Festival_Text>
+  <RT_EV_Dreams>Maxovy sny</RT_EV_Dreams>
+  <RT_EV_Dreams_Text>„Dnes se dobře vyspěte. Já pohlídám kostky.“\n\nDva dny kolonisty spánek osvěží víc.</RT_EV_Dreams_Text>
+  <RT_EV_LostDie>Ztracená kostka</RT_EV_LostDie>
+  <RT_EV_LostDie_Text>„Někde tady mi upadla kostka. Kdo ji najde, ať si nechá, co je u ní.“\n\nPoblíž kolonie dopadl modul.</RT_EV_LostDie_Text>
+  <RT_EV_QuietDays>Klidné dny</RT_EV_QuietDays>
+  <RT_EV_QuietDays_Text>„Tři dny, aniž by kdokoli vybouchl. Zvládnete to?“</RT_EV_QuietDays_Text>
+  <RT_EV_QuietDays_Goal>tři dny žádné zhroucení</RT_EV_QuietDays_Goal>
+  <RT_EV_QuietDays_Won>„Nevěřil jsem tomu. Dobrá práce.“\n\nVšichni jsou na tým hrdí a dva kolonisti dostanou inspiraci.</RT_EV_QuietDays_Won>
+  <RT_EV_QuietDays_Lost>„Někdo to nevydržel. Jak jsem čekal.“</RT_EV_QuietDays_Lost>
+  <RT_EV_Lesson>Lekce od Maxe</RT_EV_Lesson>
+  <RT_EV_Lesson_Text>„Ukážu vám pár triků.“\n\nTři kolonisti se zlepší ve své nejlepší dovednosti.</RT_EV_Lesson_Text>
+  <RT_EV_Crafter>Řemeslník</RT_EV_Crafter>
+  <RT_EV_Crafter_Text>„Ukažte mi, že vaše ruce umí víc než držet kostky.“</RT_EV_Crafter_Text>
+  <RT_EV_Crafter_Goal>vyrobit {0} věcí</RT_EV_Crafter_Goal>
+  <RT_EV_Crafter_Won>„Pěkná práce. Tady máte něco na další.“\n\nKomponenty a plastocel jsou na cestě.</RT_EV_Crafter_Won>
+  <RT_EV_Crafter_Lost>„Líné ruce. Škoda.“</RT_EV_Crafter_Lost>
+  <RT_EV_Hunter>Lovec</RT_EV_Hunter>
+  <RT_EV_Hunter_Text>„Mám chuť na pořádnou loveckou historku.“</RT_EV_Hunter_Text>
+  <RT_EV_Hunter_Goal>ulovit {0} zvířat</RT_EV_Hunter_Goal>
+  <RT_EV_Hunter_Won>„To je historka!“\n\nLovci jsou hrdí a z nebe padá pytel stříbra.</RT_EV_Hunter_Won>
+  <RT_EV_Hunter_Lost>„Tentokrát vyhrála zvířata.“</RT_EV_Hunter_Lost>
+  <RT_EV_Cleaning>Velký úklid</RT_EV_Cleaning>
+  <RT_EV_Cleaning_Text>„Tady je bordel. Ukliďte to do zítřka a stát se to bude vyplatit.“</RT_EV_Cleaning_Text>
+  <RT_EV_Cleaning_Goal>uklidit {0} míst se špínou</RT_EV_Cleaning_Goal>
+  <RT_EV_Cleaning_Won>„Blyští se to. I já bych tu chtěl bydlet.“</RT_EV_Cleaning_Won>
+  <RT_EV_Cleaning_Lost>„Pořád špína. Nevadí.“</RT_EV_Cleaning_Lost>
+  <RT_EV_Focus>Bystré hlavy</RT_EV_Focus>
+  <RT_EV_Focus_Text>„Dnes se všechno lepí. Učte se, dokud to jde.“\n\nDva dny se kolonisti učí o 50 % rychleji.</RT_EV_Focus_Text>
+  <RT_EV_OddEven>Sudá, nebo lichá</RT_EV_OddEven>
+  <RT_EV_OddEven_Text>„Malá sázka? Sudá – vyhráváš. Lichá – stříbro si nechám.“</RT_EV_OddEven_Text>
+  <RT_EV_OddEven_O1>Vsadit 100 stříbra (výhra 250)</RT_EV_OddEven_O1>
+  <RT_EV_OddEven_O2>Vsadit 300 stříbra (výhra 750)</RT_EV_OddEven_O2>
+  <RT_EV_OddEven_O3>Ne, díky</RT_EV_OddEven_O3>
+  <RT_EV_OddEven_Lose>Padla {0}. Tvých {1} stříbra je pryč.</RT_EV_OddEven_Lose>
+  <RT_EV_Miner>Zlatokop</RT_EV_Miner>
+  <RT_EV_Miner_Text>„Pod nohama máte poklad. Kopejte!“</RT_EV_Miner_Text>
+  <RT_EV_Miner_Goal>vytěžit {0} políček</RT_EV_Miner_Goal>
+  <RT_EV_Miner_Won>„Říkal jsem to.“\n\nZlato a stříbro jsou na cestě.</RT_EV_Miner_Won>
+  <RT_EV_Miner_Lost>„Poklad zůstane ve skále.“</RT_EV_Miner_Lost>
+  <RT_EV_Builder>Stavitel</RT_EV_Builder>
+  <RT_EV_Builder_Text>„Postavte mi něco. Cokoli. Rychle.“</RT_EV_Builder_Text>
+  <RT_EV_Builder_Goal>postavit {0} věcí</RT_EV_Builder_Goal>
+  <RT_EV_Builder_Won>„To chvíli vydrží.“\n\nOcel a komponenty jsou na cestě.</RT_EV_Builder_Won>
+  <RT_EV_Builder_Lost>„Nic nepostaveno. Škoda.“</RT_EV_Builder_Lost>
+  <RT_EV_GoldFever>Zlatá horečka</RT_EV_GoldFever>
+  <RT_EV_GoldFever_Text>„Každý kámen může skrývat poklad…“\n\nDva dny vynáší těžba o 50 % víc, ale nervy jsou napjaté.</RT_EV_GoldFever_Text>
+  <RT_EV_Reroll>Max hraje za tebe</RT_EV_Reroll>
+  <RT_EV_Reroll_Text>„Dnešní číslo se mi nelíbí. Hodím znovu.“</RT_EV_Reroll_Text>
+  <RT_EV_Roulette>Ruleta</RT_EV_Roulette>
+  <RT_EV_Roulette_Text>„Jeden z tvých lidí, jeden hod. Panna – geniální nápad. Orel – modřina.“</RT_EV_Roulette_Text>
+  <RT_EV_Roulette_O1>Hodit</RT_EV_Roulette_O1>
+  <RT_EV_Roulette_O2>Dnes ne</RT_EV_Roulette_O2>
+  <RT_EV_Roulette_Win>{0} měl štěstí – inspirace!</RT_EV_Roulette_Win>
+  <RT_EV_Roulette_Lose>{0} měl smůlu – au.</RT_EV_Roulette_Lose>
+  <RT_EV_Gift3>Vyber si dárek</RT_EV_Gift3>
+  <RT_EV_Gift3_Text>„Dnes jsem štědrý. Vyber si jeden.“</RT_EV_Gift3_Text>
+  <RT_EV_Gift3_O1>500 stříbra</RT_EV_Gift3_O1>
+  <RT_EV_Gift3_O2>10 léků</RT_EV_Gift3_O2>
+  <RT_EV_Gift3_O3>Překvapení</RT_EV_Gift3_O3>
+  <RT_EV_LuckyHand>Šťastná ruka</RT_EV_LuckyHand>
+  <RT_EV_LuckyHand_Text>„Kostky se na vás usmívají.“\n\nTři dny se operace daří častěji a vaše slova víc přesvědčují (verbování, obchod).</RT_EV_LuckyHand_Text>
+  <RT_EV_Pilgrim>Poutník s příběhem</RT_EV_Pilgrim>
+  <RT_EV_Pilgrim_Text>„Přichází někdo, kdo se k vám chce přidat. Někdo jiný ho možná bude hledat.“</RT_EV_Pilgrim_Text>
+  <RT_EV_Pilgrim_O1>Přijmout ho</RT_EV_Pilgrim_O1>
+  <RT_EV_Pilgrim_O2>Poslat ho pryč</RT_EV_Pilgrim_O2>
+  <RT_EV_Blessing>Maxovo požehnání</RT_EV_Blessing>
+  <RT_EV_Blessing_Text>„Dnes jde práce sama.“\n\nCelý den všichni pracují o 25 % rychleji.</RT_EV_Blessing_Text>
+  <RT_EV_Supplies>Zásoby</RT_EV_Supplies>
+  <RT_EV_Supplies_Text>„Najezte se. Vypadáte pohuble.“\n\nPoblíž dopadl modul s jídlem.</RT_EV_Supplies_Text>
+  <RT_EV_TwoSides>Ze dvou stran</RT_EV_TwoSides>
+  <RT_EV_TwoSides_Text>„Jeden nájezd je nuda. Co takhle dva?“\n\nPřicházejí dva menší nájezdy najednou.</RT_EV_TwoSides_Text>
+  <RT_EV_BadLuck>Smolný den</RT_EV_BadLuck>
+  <RT_EV_BadLuck_Text>„Dnes se všechno pokazí. Aspoň se něco naučíte.“\n\nCelý den se všichni hýbou o 10 % pomaleji, ale učí se dvakrát rychleji.</RT_EV_BadLuck_Text>
+  <RT_EV_Fortress>Pevnost</RT_EV_Fortress>
+  <RT_EV_Fortress_Text>„Už jdou. Udržte hradby a nikoho neztraťte.“\n\nPrávě přichází nájezd.</RT_EV_Fortress_Text>
+  <RT_EV_Fortress_Goal>dva dny nikdo nezemře</RT_EV_Fortress_Goal>
+  <RT_EV_Fortress_Won>„Opravdová pevnost.“\n\nMini věž a ocel jsou na cestě.</RT_EV_Fortress_Won>
+  <RT_EV_Fortress_Lost>„Hradby vydržely, lidi ne.“</RT_EV_Fortress_Lost>
+  <RT_EV_Tax>Maxova daň</RT_EV_Tax>
+  <RT_EV_Tax_Text>„Pětina tvého stříbra pro mě – nebo pošlu někoho, kdo si ji vezme.“</RT_EV_Tax_Text>
+  <RT_EV_Tax_O1>Zaplatit</RT_EV_Tax_O1>
+  <RT_EV_Tax_O2>Odmítnout</RT_EV_Tax_O2>
+  <RT_EV_ColdShower>Studená sprcha</RT_EV_ColdShower>
+  <RT_EV_ColdShower_Text>„Moc pohodlí? Změníme počasí.“\n\nDva dny bude velká zima (v létě velké vedro).</RT_EV_ColdShower_Text>
+  <RT_EV_AllIn>Vabank</RT_EV_AllIn>
+  <RT_EV_AllIn_Text>„Jeden hod. 4 až 6 – z nebe spadne jmění. 1 až 3 – přijde silný nájezd.“</RT_EV_AllIn_Text>
+  <RT_EV_AllIn_O1>Hodit</RT_EV_AllIn_O1>
+  <RT_EV_AllIn_O2>Ne, děkuji</RT_EV_AllIn_O2>
+  <RT_EV_AllIn_Lose>Padla {0}. Už jdou…</RT_EV_AllIn_Lose>
+  <RT_EV_MadPack>Šílená smečka</RT_EV_MadPack>
+  <RT_EV_MadPack_Text>„Zvířata se zbláznila. Hodně zvířat.“</RT_EV_MadPack_Text>
+  <RT_EV_Eclipse>Temná kostka</RT_EV_Eclipse>
+  <RT_EV_Eclipse_Text>„Chvíli si zahrajeme potmě.“\n\nZatmění a něco šeptá čísla.</RT_EV_Eclipse_Text>
+  <RT_EV_Revenge>Maxova pomsta</RT_EV_Revenge>
+  <RT_EV_Revenge_Text>„Poslední dobou máte štěstí. Moc štěstí.“\n\nPřichází silný nájezd.</RT_EV_Revenge_Text>
+  <RT_EV_Double>Dvojitý hod</RT_EV_Double>
+  <RT_EV_Double_Text>„Dnes dvě kostky: jedna pro vás, jedna proti vám.“</RT_EV_Double_Text>
+  <RT_EV_Difficulty>Obtížnost {0}: odměny ×{1}, cíle ×{2}, {3}.</RT_EV_Difficulty>
+  <RT_EV_RaidsYes>nájezdy povolené</RT_EV_RaidsYes>
+  <RT_EV_RaidsNo>bez nájezdů</RT_EV_RaidsNo>
+  <RT_EV_NoRaid>Max mávne rukou – na téhle obtížnosti nikoho neposílá.</RT_EV_NoRaid>
+  <RT_EV_Stargazing>Noc hvězd</RT_EV_Stargazing>
+  <RT_EV_Stargazing_Text>„Dnes v noci se podívejte nahoru. Pár hvězd jsem rozsvítil jen pro vás.“\n\nVšichni si užijí noc pod hvězdami.</RT_EV_Stargazing_Text>
+  <RT_EV_GreenThumb>Zelený palec</RT_EV_GreenThumb>
+  <RT_EV_GreenThumb_Text>„Vaše rostliny dnes poslouchají.“\n\nDva dny jde setí a sklizeň o 50 % rychleji.</RT_EV_GreenThumb_Text>
+  <RT_EV_Guests>Hosté u stolu</RT_EV_Guests>
+  <RT_EV_Guests_Text>„Pozval jsem pár přátel. Buďte na ně hodní.“\n\nNa cestě jsou návštěvníci.</RT_EV_Guests_Text>
+  <RT_EV_Balm>Maxův balzám</RT_EV_Balm>
+  <RT_EV_Balm_Text>„Ukaž ty škrábance… lepší.“\n\nRány tvých kolonistů se trochu zahojí.</RT_EV_Balm_Text>
+  <RT_EV_Cook>Kuchař</RT_EV_Cook>
+  <RT_EV_Cook_Text>„Mám hlad. Vařte pro mě – hodně.“</RT_EV_Cook_Text>
+  <RT_EV_Cook_Goal>uvařit {0} jídel</RT_EV_Cook_Goal>
+  <RT_EV_Cook_Won>„Výborné. Hostina pro všechny!“\n\nVšichni si užijí hostinu a z nebe spadne měšec stříbra.</RT_EV_Cook_Won>
+  <RT_EV_Cook_Lost>„Pořád mám hlad. Škoda.“</RT_EV_Cook_Lost>
+  <RT_EV_Scholar>Učenec</RT_EV_Scholar>
+  <RT_EV_Scholar_Text>„Ukažte mi, kolik se vejde do hlavy.“</RT_EV_Scholar_Text>
+  <RT_EV_Scholar_Goal>vyzkoumat {0} bodů</RT_EV_Scholar_Goal>
+  <RT_EV_Scholar_Won>„Chytré hlavy. Tady máte něco k přemýšlení.“\n\nDva kolonisté dostanou inspiraci a na cestě je modul se zbožím.</RT_EV_Scholar_Won>
+  <RT_EV_Scholar_Lost>„Knihy zůstaly zavřené.“</RT_EV_Scholar_Lost>
+  <RT_EV_Gardener>Zahradník</RT_EV_Gardener>
+  <RT_EV_Gardener_Text>„Sklízejte – chci vidět plné koše.“</RT_EV_Gardener_Text>
+  <RT_EV_Gardener_Goal>sklidit {0} rostlin</RT_EV_Gardener_Goal>
+  <RT_EV_Gardener_Won>„Plné koše! Dobrá práce.“\n\nNa cestě je stříbro.</RT_EV_Gardener_Won>
+  <RT_EV_Gardener_Lost>„Pole zůstala plná.“</RT_EV_Gardener_Lost>
+  <RT_EV_HighLow>Vysoko, nebo nízko</RT_EV_HighLow>
+  <RT_EV_HighLow_Text>„Jedna kostka. Hádej vysoko – čtyři až šest – nebo nízko – jedna až tři. 150 stříbra, vracím dvojnásobek.“</RT_EV_HighLow_Text>
+  <RT_EV_HighLow_O1>Vysoko (sázka 150, výhra 300)</RT_EV_HighLow_O1>
+  <RT_EV_HighLow_O2>Nízko (sázka 150, výhra 300)</RT_EV_HighLow_O2>
+  <RT_EV_HighLow_O3>Ne, díky</RT_EV_HighLow_O3>
+  <RT_EV_HighLow_Lose>Padla {0}. Tvých {1} stříbra je pryč.</RT_EV_HighLow_Lose>
+  <RT_EV_SteadyHands>Jisté ruce</RT_EV_SteadyHands>
+  <RT_EV_SteadyHands_Text>„Dnes se vám ruce nebudou třást.“\n\nDva dny jde stavění a přenášení o 30 % rychleji.</RT_EV_SteadyHands_Text>
+  <RT_EV_Market>Trhový den</RT_EV_Market>
+  <RT_EV_Market_Text>„Řekl jsem obchodníkům, kde vás najdou.“\n\nNa cestě je obchodní karavana.</RT_EV_Market_Text>
+  <RT_EV_Sower>Rozsévač</RT_EV_Sower>
+  <RT_EV_Sower_Text>„Zasaďte něco. Hodně něčeho.“</RT_EV_Sower_Text>
+  <RT_EV_Sower_Goal>zasadit {0} rostlin</RT_EV_Sower_Goal>
+  <RT_EV_Sower_Won>„Teď ať to roste.“\n\nNa cestě je stříbro.</RT_EV_Sower_Won>
+  <RT_EV_Sower_Lost>„Prázdná pole. Škoda.“</RT_EV_Sower_Lost>
+  <RT_EV_Swap>Maxova výměna</RT_EV_Swap>
+  <RT_EV_Swap_Text>„Dej mi 100 stříbra a dám ti, co je v tomhle pytli. Může to být víc. Může to být míň.“</RT_EV_Swap_Text>
+  <RT_EV_Swap_O1>Zaplatit 100 stříbra</RT_EV_Swap_O1>
+  <RT_EV_Swap_O2>Ne, díky</RT_EV_Swap_O2>
+  <RT_EV_Tales>Večer vyprávění</RT_EV_Tales>
+  <RT_EV_Tales_Text>„Sedněte si. Povím vám, jak jsem jednou v kostkách prohrál celou planetu…“\n\nVšichni si užijí vyprávění.</RT_EV_Tales_Text>
+  <RT_EV_RainDance>Tanec deště</RT_EV_RainDance>
+  <RT_EV_RainDance_Text>„Moc sucho. Hodím si o déšť.“\n\nZačne pršet.</RT_EV_RainDance_Text>
+  <RT_EV_Tamer>Krotitel</RT_EV_Tamer>
+  <RT_EV_Tamer_Text>„Najděte si divokého přítele.“</RT_EV_Tamer_Text>
+  <RT_EV_Tamer_Goal>ochočit {0} zvířat</RT_EV_Tamer_Goal>
+  <RT_EV_Tamer_Won>„Podívejte, už jsou nejlepší přátelé.“\n\nNa cestě je stříbro.</RT_EV_Tamer_Won>
+  <RT_EV_Tamer_Lost>„Zvířata zůstala divoká.“</RT_EV_Tamer_Lost>
+  <RT_EV_Windfall>Nečekaný nález</RT_EV_Windfall>
+  <RT_EV_Windfall_Text>„Našel jsem stříbro v druhé kapse. Je vaše.“\n\nPoblíž kolonie dopadne modul se stříbrem.</RT_EV_Windfall_Text>
+  <RT_EV_Medkit>Brašna s léky</RT_EV_Medkit>
+  <RT_EV_Medkit_Text>„Pro případ, že si něco zlomíte. Zlomíte.“\n\nPoblíž kolonie dopadne modul s léky.</RT_EV_Medkit_Text>
+  <RT_EV_MysteryBox>Tajemná krabice</RT_EV_MysteryBox>
+  <RT_EV_MysteryBox_Text>„Zavřená krabice. Uvnitř něco dobrého – asi. Nebo ji od vás prostě koupím zpátky.“</RT_EV_MysteryBox_Text>
+  <RT_EV_MysteryBox_O1>Otevřít</RT_EV_MysteryBox_O1>
+  <RT_EV_MysteryBox_O2>Prodat Maxovi za 300 stříbra</RT_EV_MysteryBox_O2>
+  <RT_EV_MysteryBox_Lose>V krabici byla rozzuřená zvířata!</RT_EV_MysteryBox_Lose>
+  <RT_EV_Muse>Múza</RT_EV_Muse>
+  <RT_EV_Muse_Text>„Pošeptal jsem pár nápadů do pár uší.“\n\nTři kolonisté dostanou inspiraci.</RT_EV_Muse_Text>
+  <RT_EV_StrayHerd>Zatoulané stádo</RT_EV_StrayHerd>
+  <RT_EV_StrayHerd_Text>„Pár zvířat šlo za mými kostkami. Nechte si je.“\n\nPřijde několik krotkých zvířat.</RT_EV_StrayHerd_Text>
+  <RT_EV_Blight>Shnilé štěstí</RT_EV_Blight>
+  <RT_EV_Blight_Text>„Jejda. Upustil jsem kostku do vašeho pole.“\n\nÚrodu napadne plíseň.</RT_EV_Blight_Text>
+  <RT_EV_Sickness>Horečnaté kostky</RT_EV_Sickness>
+  <RT_EV_Sickness_Text>„Někdo mi kýchl na kostky.“\n\nPropukne nemoc.</RT_EV_Sickness_Text>
+  <RT_EV_Fallout>Jedovatý déšť</RT_EV_Fallout>
+  <RT_EV_Fallout_Text>„Nebe je dnes nemocné. Zůstaňte uvnitř.“</RT_EV_Fallout_Text>
+  <RT_EV_Toll>Mýtné</RT_EV_Toll>
+  <RT_EV_Toll_Text>„Nájezdníci o vás slyšeli. Zaplaťte jim – asi 80 stříbra za kolonistu – nebo bojujte. Když budete bojovat, nechám vám něco za tu námahu.“</RT_EV_Toll_Text>
+  <RT_EV_Toll_O1>Zaplatit</RT_EV_Toll_O1>
+  <RT_EV_Toll_O2>Bojovat</RT_EV_Toll_O2>
+  <RT_EV_Flare>Oslepující slunce</RT_EV_Flare>
+  <RT_EV_Flare_Text>„Vyleštil jsem slunce. Vašim strojům se to líbit nebude.“</RT_EV_Flare_Text>
+  <RT_EV_Swarm>Roj</RT_EV_Swarm>
+  <RT_EV_Swarm_Text>„Slyšíte to lezení pod podlahou?“</RT_EV_Swarm_Text>
+  <RT_EV_Drone>Hučení</RT_EV_Drone>
+  <RT_EV_Drone_Text>„Něco hučí ve tmě. Max se nesměje.“</RT_EV_Drone_Text>
+  <RT_EV_Jackpot>Jackpot</RT_EV_Jackpot>
+  <RT_EV_Jackpot_Text>„Dvě kostky. Dvojice a vyhráváte hodně. Cokoli jiného a pošlu někoho vybírat.“</RT_EV_Jackpot_Text>
+  <RT_EV_Jackpot_O1>Hodit</RT_EV_Jackpot_O1>
+  <RT_EV_Jackpot_O2>Ne</RT_EV_Jackpot_O2>
+  <RT_EV_Jackpot_Lose>Padla {0} a {1}. Někdo si jde pro výběr!</RT_EV_Jackpot_Lose>
+  <RT_EV_LongNight>Dlouhá noc</RT_EV_LongNight>
+  <RT_EV_LongNight_Text>„Zakryl jsem slunce dlaní. Na pár dní.“</RT_EV_LongNight_Text>
+  <RT_EV_IronDice>Železné kostky</RT_EV_IronDice>
+  <RT_EV_IronDice_Text>„Z nebe padají kovové kostky. A nepřestávají se kutálet.“</RT_EV_IronDice_Text>
+  <!-- 0.4.0 -->
+  <RT_EV_ClearSky>Jasná obloha</RT_EV_ClearSky>
+  <RT_EV_ClearSky_Text>„Mraky? Dnes ne. Odfoukl jsem je.“\n\nObloha se vyjasní.</RT_EV_ClearSky_Text>
+  <RT_EV_Aurora>Polární záře</RT_EV_Aurora>
+  <RT_EV_Aurora_Text>„Pověsil jsem tam nahoru pár světýlek. Jděte se podívat.“</RT_EV_Aurora_Text>
+  <RT_EV_MorningFog>Ranní mlha</RT_EV_MorningFog>
+  <RT_EV_MorningFog_Text>„Pst. Ať svět ještě chvíli spí.“\n\nNad kolonií se usadí jemná mlha.</RT_EV_MorningFog_Text>
+  <RT_EV_Snowfall>První sníh</RT_EV_Snowfall>
+  <RT_EV_Snowfall_Text>„Sníh. Pomalý a tichý. Užijte si ho.“</RT_EV_Snowfall_Text>
+  <RT_EV_SkyBet>Slunce, nebo déšť</RT_EV_SkyBet>
+  <RT_EV_SkyBet_Text>„Vsaďte se o počasí. 120 stříbra – uhodnete a vyplatím dvojnásobek. Počasí přijde tak jako tak.“</RT_EV_SkyBet_Text>
+  <RT_EV_Rainbow>Duha</RT_EV_Rainbow>
+  <RT_EV_Rainbow_Text>„Zbyla mi barva.“\n\nVšichni obdivují duhu.</RT_EV_Rainbow_Text>
+  <RT_EV_Thunder>Hromy</RT_EV_Thunder>
+  <RT_EV_Thunder_Text>„Slyšíte? To tam nahoře hážu kostkami.“\n\nPřichází bouřka.</RT_EV_Thunder_Text>
+  <RT_EV_OddWeather>Divné počasí</RT_EV_OddWeather>
+  <RT_EV_OddWeather_Text>„Vylil jsem pití na termostat. Promiňte.“</RT_EV_OddWeather_Text>
+  <RT_EV_StrangeSky>Zvláštní obloha</RT_EV_StrangeSky>
+  <RT_EV_StrangeSky_Text>„Dnes něco jiného. Sledujte oblohu.“</RT_EV_StrangeSky_Text>
+  <RT_EV_Lights>Světla inspirace</RT_EV_Lights>
+  <RT_EV_Lights_Text>„Podívejte se nahoru. Cítíte něco? Dobře – využijte to.“\n\nPo obloze tančí světla a dva kolonisté dostanou inspiraci.</RT_EV_Lights_Text>
+  <RT_EV_SkyScrap>Šrot z nebe</RT_EV_SkyScrap>
+  <RT_EV_SkyScrap_Text>„Něco tam nahoře upadlo z lodi. Kdo najde, ten má.“\n\nU kolonie přistane kapsle s ocelí a součástkami.</RT_EV_SkyScrap_Text>
+  <RT_EV_GoodHarvestRain>Teplý déšť</RT_EV_GoodHarvestRain>
+  <RT_EV_GoodHarvestRain_Text>„Vaše pole vypadají žíznivě.“\n\nPrší teplý déšť a rostoucí plodiny trochu poskočí.</RT_EV_GoodHarvestRain_Text>
+  <RT_EV_Flashstorm>Blesky</RT_EV_Flashstorm>
+  <RT_EV_Flashstorm_Text>„Uvidíme, kdo stojí venku.“</RT_EV_Flashstorm_Text>
+  <RT_EV_MadAnimal>Špatná nálada</RT_EV_MadAnimal>
+  <RT_EV_MadAnimal_Text>„To zvíře se na mě divně podívalo. Teď se zlobí na vás.“</RT_EV_MadAnimal_Text>
+  <RT_EV_Blizzard>Vánice</RT_EV_Blizzard>
+  <RT_EV_Blizzard_Text>„Je vám zima? Udělám větší.“\n\nKolonii zasáhne vánice a mrazivá vlna.</RT_EV_Blizzard_Text>
+  <RT_EV_BlackSun>Zatmění</RT_EV_BlackSun>
+  <RT_EV_BlackSun_Text>„Dal jsem ruku před slunce. Jen na chvilku.“</RT_EV_BlackSun_Text>
+  <RT_EV_Hail>Krupobití</RT_EV_Hail>
+  <RT_EV_Hail_Text>„Ledové kostky. Padají z nebe. Zůstaňte uvnitř.“</RT_EV_Hail_Text>
+  <RT_EV_Stampede>Splašené stádo</RT_EV_Stampede>
+  <RT_EV_Stampede_Text>„Hodil jsem stádo. Rozzuřené.“</RT_EV_Stampede_Text>
+  <RT_EV_StormRaid>Nájezdníci v bouři</RT_EV_StormRaid>
+  <RT_EV_StormRaid_Text>„Mají rádi špatné počasí. Já taky.“\n\nPřichází bouře – a s ní nájezdníci.</RT_EV_StormRaid_Text>
+  <RT_EV_DoubleOrNothing>Všechno, nebo nic</RT_EV_DoubleOrNothing>
+  <RT_EV_DoubleOrNothing_Text>„Polovina vašeho stříbra – nejvýš tisíc – na jeden hod. Sudé: dvojnásobek. Liché: pryč.“</RT_EV_DoubleOrNothing_Text>
+  <RT_EV_SkyBet_O1>Slunce (vsadit 120, výhra 240)</RT_EV_SkyBet_O1>
+  <RT_EV_SkyBet_O2>Déšť (vsadit 120, výhra 240)</RT_EV_SkyBet_O2>
+  <RT_EV_SkyBet_O3>Ne, díky</RT_EV_SkyBet_O3>
+  <RT_EV_SkyBet_Lose>Netrefili jste. Vašich {0} stříbra je pryč.</RT_EV_SkyBet_Lose>
+  <RT_EV_DoubleOrNothing_O1>Hodit</RT_EV_DoubleOrNothing_O1>
+  <RT_EV_DoubleOrNothing_O2>Ne</RT_EV_DoubleOrNothing_O2>
+  <RT_EV_DoubleOrNothing_Lose>Liché. Vašich {0} stříbra je pryč.</RT_EV_DoubleOrNothing_Lose>
+  <RT_EV_CardNight>Karetní večer</RT_EV_CardNight>
+  <RT_EV_CardNight_Text>„Dnes nikdo nepracuje. Dnes se hrají karty – a já rozdávám.“\n\nVšichni se pobaví a je jim líp.</RT_EV_CardNight_Text>
+  <RT_EV_LuckyCharm>Talisman pro štěstí</RT_EV_LuckyCharm>
+  <RT_EV_LuckyCharm_Text>„Na, vezmi si to. Neptej se, co to je.“\n\nJeden kolonista dostane na tři dny Maxův talisman: rychlejší práce a pevnější nervy.</RT_EV_LuckyCharm_Text>
+  <RT_EV_LuckyCharm_Who>{0} nosí Maxův talisman.</RT_EV_LuckyCharm_Who>
+  <RT_EV_Siesta>Siesta</RT_EV_Siesta>
+  <RT_EV_Siesta_Text>„Vypadáte unaveně. Zavřete oči, já budu hlídat.“\n\nVšichni jsou pěkně odpočatí.</RT_EV_Siesta_Text>
+  <RT_EV_Lottery>Maxova loterie</RT_EV_Lottery>
+  <RT_EV_Lottery_Text>„Losy! Padesát stříbra za kus! Každý los má šanci jedna ku šesti, že vyhraje čtyři sta!“</RT_EV_Lottery_Text>
+  <RT_EV_Lottery_O1>Koupit jeden los (50 stříbra)</RT_EV_Lottery_O1>
+  <RT_EV_Lottery_O2>Koupit tři losy (150 stříbra)</RT_EV_Lottery_O2>
+  <RT_EV_Lottery_O3>Ne, díky</RT_EV_Lottery_O3>
+  <RT_EV_Lottery_Lose>Žádný výherní los. Tvých {0} stříbra je pryč.</RT_EV_Lottery_Lose>
+  <RT_EV_CardDuel>Karetní souboj</RT_EV_CardDuel>
+  <RT_EV_CardDuel_Text>„Vy dva. Karty. Hned. Kdo prohraje, myje nádobí.“\n\nDva kolonisté hrají dlouhou partii – oba se naučí něco o lidech.</RT_EV_CardDuel_Text>
+  <RT_EV_CardDuel_Who>{0} porazil v kartách {1}.</RT_EV_CardDuel_Who>
+  <RT_EV_Hauler>Stěhovák</RT_EV_Hauler>
+  <RT_EV_Hauler_Text>„Všude se něco válí! Uklidit všechno na své místo.“</RT_EV_Hauler_Text>
+  <RT_EV_Hauler_Goal>přenést {0} věcí</RT_EV_Hauler_Goal>
+  <RT_EV_Hauler_Won>„Uklizeno. To mám rád.“\n\nZ nebe spadne měšec stříbra.</RT_EV_Hauler_Won>
+  <RT_EV_Hauler_Lost>„Pořád nepořádek. Škoda.“</RT_EV_Hauler_Lost>
+  <RT_EV_Debt>Karetní dluh</RT_EV_Debt>
+  <RT_EV_Debt_Text>„Někdo z tvé kolonie prohrál u mého stolu – a výherci chtějí své peníze. Zaplať, nebo si pro ně přijdou.“</RT_EV_Debt_Text>
+  <RT_EV_Debt_O1>Zaplatit dluh</RT_EV_Debt_O1>
+  <RT_EV_Debt_O2>Odmítnout</RT_EV_Debt_O2>
+  <RT_EV_Debt_Lucky>Vymahači cestou zabloudili. Máš štěstí.</RT_EV_Debt_Lucky>
+  <RT_EV_CursedDie>Prokletá kostka</RT_EV_CursedDie>
+  <RT_EV_CursedDie_Text>„Našel jsem kostku, které vždycky padne dobře. Tedy – tomu, kdo ji drží. Ostatní mají smůlu. Chceš ji?“</RT_EV_CursedDie_Text>
+  <RT_EV_CursedDie_O1>Vzít si ji (odměna, ale někdo bude mít smůlu)</RT_EV_CursedDie_O1>
+  <RT_EV_CursedDie_O2>Zahodit ji</RT_EV_CursedDie_O2>
+  <RT_EV_CursedDie_Who>Kletba si našla: {0}.</RT_EV_CursedDie_Who>
+  <RT_EV_TableRound>Hází každý</RT_EV_TableRound>
+  <RT_EV_TableRound_Text>„Každý z vás hodí jednou kostkou. Šestka – dostaneš inspiraci. Jednička – zakopneš a zraníš se. Hrajete?“</RT_EV_TableRound_Text>
+  <RT_EV_TableRound_O1>Hází všichni</RT_EV_TableRound_O1>
+  <RT_EV_TableRound_O2>Dnes ne</RT_EV_TableRound_O2>
+  <RT_EV_TableRound_Result>Šestky: {0} inspirovaných. Jedničky: {1} zraněných.</RT_EV_TableRound_Result>
+  <RT_EV_Pickpocket>Kapsář</RT_EV_Pickpocket>
+  <RT_EV_Pickpocket_Text>„Počítal jsi poslední dobou stříbro? Ne? To je dobře.“</RT_EV_Pickpocket_Text>
+  <RT_EV_Pickpocket_Lose>Ze skladu zmizelo {0} stříbra.</RT_EV_Pickpocket_Lose>
+  <RT_EV_DoubleCaravan>Dvojitá karavana</RT_EV_DoubleCaravan>
+  <RT_EV_DoubleCaravan_Text>„Řekl jsem obchodníkům, že jsi boháč. Jedou dvě karavany – ta druhá o něco později.“</RT_EV_DoubleCaravan_Text>
+  <RT_EV_PrizeAnimal>Vyhrané zvíře</RT_EV_PrizeAnimal>
+  <RT_EV_PrizeAnimal_Text>„Vyhrál jsem ho v kartách. Nechci ho. Vezmi si ho ty.“\n\nV kapsli přiletí ochočené zvíře.</RT_EV_PrizeAnimal_Text>
+  <RT_EV_PrizeAnimal_Who>Nové zvíře: {0}.</RT_EV_PrizeAnimal_Who>
+  <RT_EV_OnTheHouse>Na účet podniku</RT_EV_OnTheHouse>
+  <RT_EV_OnTheHouse_Text>„Tohle kolo platím já!“\n\nZ nebe spadnou vybraná jídla a pivo.</RT_EV_OnTheHouse_Text>
+  <RT_EV_GoodWord>Dobré slovo</RT_EV_GoodWord>
+  <RT_EV_GoodWord_Text>„Hrál jsem karty s jedním z tvých sousedů a řekl jsem mu o tobě jen to dobré.“\n\nVztahy s přátelskou frakcí se zlepší.</RT_EV_GoodWord_Text>
+  <RT_EV_SoreLoser>Špatný hráč</RT_EV_SoreLoser>
+  <RT_EV_SoreLoser_Text>„Někdo včera u mého stolu prohrál všechno. Nenese to dobře.“\n\nJeden kolonista se zle naladěný potuluje kolem.</RT_EV_SoreLoser_Text>
+  <RT_EV_LoadedDice>Falešné kostky</RT_EV_LoadedDice>
+  <RT_EV_LoadedDice_Text>„Dnes jsou kostky falešné. Proti tobě.“\n\nDva dny jde všechna práce o 15 % pomaleji.</RT_EV_LoadedDice_Text>
+  <RT_EV_Zzzt>Jiskry</RT_EV_Zzzt>
+  <RT_EV_Zzzt_Text>„Vylil jsem ti pití na dráty. Jejda.“</RT_EV_Zzzt_Text>
+  <RT_EV_Wheel>Kolo štěstí</RT_EV_Wheel>
+  <RT_EV_Wheel_Text>„Roztoč kolo! Šest polí: velký dárek, inspirace pro všechny, léčení pro všechny, nic, divoká zvířata nebo nájezd.“</RT_EV_Wheel_Text>
+  <RT_EV_Wheel_O1>Roztočit</RT_EV_Wheel_O1>
+  <RT_EV_Wheel_O2>Odejít</RT_EV_Wheel_O2>
+  <RT_EV_Wheel_F1>Kolo se zastaví: velký dárek!</RT_EV_Wheel_F1>
+  <RT_EV_Wheel_F2>Kolo se zastaví: inspirace pro všechny!</RT_EV_Wheel_F2>
+  <RT_EV_Wheel_F3>Kolo se zastaví: léčení pro všechny!</RT_EV_Wheel_F3>
+  <RT_EV_Wheel_F4>Kolo se zastaví: nic. Max se směje.</RT_EV_Wheel_F4>
+  <RT_EV_Wheel_F5>Kolo se zastaví: divoká zvířata!</RT_EV_Wheel_F5>
+  <RT_EV_Wheel_F6>Kolo se zastaví: nájezd!</RT_EV_Wheel_F6>
+  <RT_EV_ChaosRound>Kolo chaosu</RT_EV_ChaosRound>
+  <RT_EV_ChaosRound_Text>„Tři kostky naráz! Uvidíme, co padne.“\n\nHned teď se stanou tři Maxovy události.</RT_EV_ChaosRound_Text>
+  <RT_EV_StoneDice>Kamenné kostky</RT_EV_StoneDice>
+  <RT_EV_StoneDice_Text>„Dnes házím velkými. Pozor na hlavy.“\n\nU kolonie dopadnou dva meteority.</RT_EV_StoneDice_Text>
+  <RT_SecMods>Události z jiných modů</RT_SecMods>
+  <RT_ModEvents>Události z jiných modů se řídí kostkou</RT_ModEvents>
+  <RT_ModEvents_Desc>Události, které přidávají tvoje další mody, dostanou druh – klidná, dobrá, obyčejná, hrozba nebo šílená. Dnešní hod mění, jak často který druh přijde: dobré častěji ve štědrý den, hrozby v tvrdý den, ty nejdivnější v šílený den a v klidný a štědrý den hrozby z modů nepřijdou vůbec.</RT_ModEvents_Desc>
+  <RT_ModEventList>Události z modů: zapnuto {0} z {1}</RT_ModEventList>
+  <RT_ModEventListTitle>Události z tvých dalších modů</RT_ModEventListTitle>
+  <RT_ModEventListDesc>Max rozdělí každou událost tvých dalších modů ke stěnám kostky. ★ = rozděleno ručně, ostatní automaticky podle druhu a názvu. Kliknutím na druh ho změníš; nezaškrtnutá událost nepřijde, dokud je Max tvůj vypravěč.</RT_ModEventListDesc>
+  <RT_ModEventSearch>Hledat…</RT_ModEventSearch>
+  <RT_ModEventsNone>Žádné události z jiných modů nenalezeny.</RT_ModEventsNone>
+  <RT_MK_Calm>klidná</RT_MK_Calm>
+  <RT_MK_Good>dobrá</RT_MK_Good>
+  <RT_MK_Ordinary>obyčejná</RT_MK_Ordinary>
+  <RT_MK_Threat>hrozba</RT_MK_Threat>
+  <RT_MK_Mad>šílená</RT_MK_Mad>
+  <RT_MK_Auto>Automaticky ({0})</RT_MK_Auto>
+  <RT_MK_NoFace>žádné</RT_MK_NoFace>
+  <RT_MK_Tip>{0}\nČastěji při hodu: {1}\nNikdy při hodu: {2}</RT_MK_Tip>
+</LanguageData>

@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RT_Rec1>O narrador dos dados anuncia cada rolagem e mostra as chances do dia.</RT_Rec1>
+  <RT_Rec2>O narrador às vezes comenta eventos (mais ou menos um a cada três).</RT_Rec2>
+  <RT_Rec3>Funciona com qualquer narrador; nada muda no seu save.</RT_Rec3>
+  <RT_SecDice>Mad Dice Max</RT_SecDice>
+  <RT_DiceAlert>Mostrar a rolagem e as chances de hoje</RT_DiceAlert>
+  <RT_DiceAlert_Desc>Um alerta à direita: a rolagem de hoje, que tipo de dia é, as chances de uma invasão, de pequenas ameaças e de comerciantes ou visitantes, e o tempo até a próxima rolagem.</RT_DiceAlert_Desc>
+  <RT_DiceLetter>Rolagem como carta</RT_DiceLetter>
+  <RT_DiceLetter_Desc>A rolagem diária chega como uma carta com a previsão completa em vez de uma mensagem curta.</RT_DiceLetter_Desc>
+  <RT_SecDiary>Diário</RT_SecDiary>
+  <RT_Diary>Comentários do narrador</RT_Diary>
+  <RT_Diary_Desc>De vez em quando o narrador comenta um evento com uma frase curta no topo da tela.</RT_Diary_Desc>
+  <RT_DiaryAll>Também com outros narradores</RT_DiaryAll>
+  <RT_DiaryAll_Desc>Comentários também com outros narradores, do jogo e de mods – não só com o Max.</RT_DiaryAll_Desc>
+  <RT_DiaryChance>Comentar {0} % dos eventos</RT_DiaryChance>
+  <RT_DiaryChance_Desc>Com que frequência vem um comentário. Sempre há pelo menos algumas horas entre dois comentários.</RT_DiaryChance_Desc>
+  <RT_RollTitle>Os dados deram {0}: {1}</RT_RollTitle>
+  <RT_RollLetter>Os dados deram {0}</RT_RollLetter>
+  <RT_AlertLabel>Dado {0}: {1}</RT_AlertLabel>
+  <RT_Mood1>dia calmo</RT_Mood1>
+  <RT_Mood2>dia tranquilo</RT_Mood2>
+  <RT_Mood3>dia comum</RT_Mood3>
+  <RT_Mood4>dia generoso</RT_Mood4>
+  <RT_Mood5>dia difícil</RT_Mood5>
+  <RT_Mood6>dia louco</RT_Mood6>
+  <RT_MoodDesc1>1 – Dia calmo. Nenhuma grande ameaça hoje, poucos eventos, pequenas ameaças fracas. O céu limpa.</RT_MoodDesc1>
+  <RT_MoodDesc2>2 – Dia fácil. Grandes ameaças são raras, mais visitantes e eventos inofensivos; muitas vezes vem algo bom e o tempo pode mudar.</RT_MoodDesc2>
+  <RT_MoodDesc3>3 – Dia comum. Os eventos habituais do jogo; de vez em quando um evento a mais ou uma mudança de tempo.</RT_MoodDesc3>
+  <RT_MoodDesc4>4 – Dia generoso. Comerciantes e visitantes vêm com mais frequência, menos ameaças, um presente durante o dia e tempo bom.</RT_MoodDesc4>
+  <RT_MoodDesc5>5 – Dia difícil. Ameaças grandes e pequenas são muito mais prováveis e mais fortes – pelo menos uma vem com certeza durante o dia. O pior tempo que este lugar conhece.</RT_MoodDesc5>
+  <RT_MoodDesc6>6 – Dia louco. Eventos vêm duas vezes mais e cada tipo tem sua própria chance – pelo menos dois eventos aleatórios (do jogo e de mods) vêm com certeza e qualquer tempo pode aparecer.</RT_MoodDesc6>
+  <RT_FcEvents>Eventos esperados hoje: cerca de {0}</RT_FcEvents>
+  <RT_FcBig>Invasão ou outra grande ameaça: {0}</RT_FcBig>
+  <RT_FcSmall>Pequena ameaça: {0}</RT_FcSmall>
+  <RT_FcGood>Comerciantes ou visitantes: {0}</RT_FcGood>
+  <RT_FcStrength>Força das ameaças: {0}–{1} % do normal</RT_FcStrength>
+  <RT_FcNoForced>Até uma invasão atrasada espera outro dia.</RT_FcNoForced>
+  <RT_FcGift>Um presente está a caminho hoje.</RT_FcGift>
+  <RT_FcNext>Próxima rolagem em {0}.</RT_FcNext>
+  <RT_LvlVeryLow>muito baixa</RT_LvlVeryLow>
+  <RT_LvlLow>baixa</RT_LvlLow>
+  <RT_LvlMid>média</RT_LvlMid>
+  <RT_LvlHigh>alta</RT_LvlHigh>
+  <RT_LvlVeryHigh>muito alta</RT_LvlVeryHigh>
+  <RT_RollSay1_1>Olhos de cobra. Tire uma soneca, eu volto amanhã.</RT_RollSay1_1>
+  <RT_RollSay1_2>Um. Até eu preciso de um dia de folga.</RT_RollSay1_2>
+  <RT_RollSay1_3>Um um. Aproveite, não vai durar.</RT_RollSay1_3>
+  <RT_RollSay2_1>Dois. Estou de bom humor. Não estrague.</RT_RollSay2_1>
+  <RT_RollSay2_2>Um dois – chá, biscoitos, nada de explosões.</RT_RollSay2_2>
+  <RT_RollSay2_3>Dois. Vá plantar alguma coisa.</RT_RollSay2_3>
+  <RT_RollSay3_1>Três. Tudo como sempre.</RT_RollSay3_1>
+  <RT_RollSay3_2>Um três. Vamos ver o que o dia traz… eu também não sei.</RT_RollSay3_2>
+  <RT_RollSay3_3>Três. Perfeitamente comum. Suspeitamente comum.</RT_RollSay3_3>
+  <RT_RollSay4_1>Quatro! Alguém lá em cima gosta de você.</RT_RollSay4_1>
+  <RT_RollSay4_2>Um quatro. Abram as portas, vêm visitas.</RT_RollSay4_2>
+  <RT_RollSay4_3>Quatro. Estou generoso. Não se acostume.</RT_RollSay4_3>
+  <RT_RollSay5_1>Cinco. Carreguem as armas.</RT_RollSay5_1>
+  <RT_RollSay5_2>Um cinco. Espero que seus muros sejam grossos.</RT_RollSay5_2>
+  <RT_RollSay5_3>Cinco. Hoje os dados querem sangue.</RT_RollSay5_3>
+  <RT_RollSay6_1>SEIS! Segure-se em alguma coisa.</RT_RollSay6_1>
+  <RT_RollSay6_2>Um seis. Nem eu sei o que vem agora.</RT_RollSay6_2>
+  <RT_RollSay6_3>Seis. O caos é uma escada. Ou um poço. Veremos.</RT_RollSay6_3>
+  <RT_D_Raid_1>Visitas. Não das legais.</RT_D_Raid_1>
+  <RT_D_Raid_2>Ouviram dizer que você tem uma base bonita. Eles a querem.</RT_D_Raid_2>
+  <RT_D_Raid_3>Invasores! Não fui eu que mandei. Provavelmente.</RT_D_Raid_3>
+  <RT_D_Raid_4>Alguém pediu encrenca? A entrega chegou.</RT_D_Raid_4>
+  <RT_D_Manhunter_1>Os animais cansaram de você.</RT_D_Manhunter_1>
+  <RT_D_Manhunter_2>A natureza ligou. Está furiosa.</RT_D_Manhunter_2>
+  <RT_D_Manhunter_3>Faça carinho neles. Duvido.</RT_D_Manhunter_3>
+  <RT_D_Infestation_1>Algo rasteja nas paredes. Durma bem.</RT_D_Infestation_1>
+  <RT_D_Infestation_2>Insetos. Muitos insetos.</RT_D_Infestation_2>
+  <RT_D_Infestation_3>Você cavou fundo demais. Eles perceberam.</RT_D_Infestation_3>
+  <RT_D_Pod_1>Algo caiu do céu. Achado não é roubado.</RT_D_Pod_1>
+  <RT_D_Pod_2>Coisas de graça! Não pergunte de onde vieram.</RT_D_Pod_2>
+  <RT_D_Wanderer_1>Um novo amigo! Ou um problema futuro.</RT_D_Wanderer_1>
+  <RT_D_Wanderer_2>Alguém quer se juntar. Seja gentil.</RT_D_Wanderer_2>
+  <RT_D_Dark_1>Luzes apagadas. Espero que goste de velas.</RT_D_Dark_1>
+  <RT_D_Dark_2>O sol tirou uma folga. Sua energia também.</RT_D_Dark_2>
+  <RT_D_Weather_1>O tempo tem opiniões hoje.</RT_D_Weather_1>
+  <RT_D_Weather_2>Vista-se para a ocasião. A ocasião é sofrimento.</RT_D_Weather_2>
+  <RT_D_Big_1>Lá vamos nós.</RT_D_Big_1>
+  <RT_D_Big_2>Esse vai doer.</RT_D_Big_2>
+  <RT_D_Big_3>Eu avisei. Não? Era minha intenção.</RT_D_Big_3>
+  <RT_D_Small_1>Só uma coisinha para te manter acordado.</RT_D_Small_1>
+  <RT_D_Small_2>Um pequeno problema. Pequeno por enquanto.</RT_D_Small_2>
+  <RT_D_Trade_1>Hora das compras!</RT_D_Trade_1>
+  <RT_D_Trade_2>Um comerciante em órbita. Traga sua prata.</RT_D_Trade_2>
+  <RT_D_Visitors_1>Visitantes. Escondam as coisas boas.</RT_D_Visitors_1>
+  <RT_D_Visitors_2>Visita! Ajam normalmente.</RT_D_Visitors_2>
+  <RT_D_Chunk_1>Lixo espacial. O lixo de um…</RT_D_Chunk_1>
+  <RT_D_Chunk_2>Algo caiu. Não fui eu.</RT_D_Chunk_2>
+  <RT_D_Disease_1>Atchim. Saúde.</RT_D_Disease_1>
+  <RT_D_Disease_2>Lave as mãos. Tarde demais.</RT_D_Disease_2>
+  <RT_D_Misc_1>Interessante…</RT_D_Misc_1>
+  <RT_D_Misc_2>Bem, isso aconteceu.</RT_D_Misc_2>
+  <RT_D_Misc_3>Eu não vi isso chegando. Nem você.</RT_D_Misc_3>
+  <RT_D_Misc_4>Anote isso.</RT_D_Misc_4>
+  <RT_Mood7>rola de novo</RT_Mood7>
+  <RT_MoodDesc7>7 – O dado caiu da mesa! Ele rola de novo em algumas horas; até lá, um dia comum.</RT_MoodDesc7>
+  <RT_RollSay7_1>Sete? Este dado não tem sete… rolando de novo.</RT_RollSay7_1>
+  <RT_RollSay7_2>Caiu embaixo da mesa. Um momento.</RT_RollSay7_2>
+  <RT_RollSay7_3>Sete. Não conta. Mais uma vez, daqui a pouco.</RT_RollSay7_3>
+  <RT_HeavySix>Piores ameaças só num dia louco (6)</RT_HeavySix>
+  <RT_HeavySix_Desc>Com Mad Dice Max, infestações, grupos de mecanoides e partes de nave caídas só vêm quando o dado mostra 6. Missões não são afetadas.</RT_HeavySix_Desc>
+  <RT_SecEvents>Eventos do Max</RT_SecEvents>
+  <RT_Events>Eventos próprios do Max</RT_Events>
+  <RT_Events_Desc>Depois de uma rolagem, Mad Dice Max pode trazer um dos seus próprios eventos que combine com o dia: apostas, desafios com prazo, situações de alguns dias, eventos do jogo distorcidos.</RT_Events_Desc>
+  <RT_EventChance>Chance de um evento após uma rolagem: {0} %</RT_EventChance>
+  <RT_EventChance_Desc>Com que frequência um dia traz um dos eventos do Max.</RT_EventChance_Desc>
+  <RT_EventList>Eventos: {0} de {1} ligados…</RT_EventList>
+  <RT_EventListTitle>Eventos do Max</RT_EventListTitle>
+  <RT_EventListDesc>Desmarque os eventos que você não quer. Cada um pertence a uma face do dado. Passe o mouse para ver a descrição.</RT_EventListDesc>
+  <RT_EventTry>Testar</RT_EventTry>
+  <RT_EV_Prefix>Max: {0}</RT_EV_Prefix>
+  <RT_EV_ChallengeGoal>Meta: {0}\nTempo: {1} dias.</RT_EV_ChallengeGoal>
+  <RT_EV_Won>Desafio vencido: {0}</RT_EV_Won>
+  <RT_EV_Lost>Desafio perdido: {0}</RT_EV_Lost>
+  <RT_EV_Dropped>{0}: {1}</RT_EV_Dropped>
+  <RT_EV_InspiredBy>o favor do Max</RT_EV_InspiredBy>
+  <RT_EV_NoSilver>Você não tem {0} de prata para apostar.</RT_EV_NoSilver>
+  <RT_EV_AlertLabel>Desafio do Max</RT_EV_AlertLabel>
+  <RT_EV_Festival>Dia de festa</RT_EV_Festival>
+  <RT_EV_Festival_Text>"Deixem o trabalho de lado um pouco. Hoje a gente comemora – só porque os dados mandaram."\n\nTodos ficam em clima de festa por dois dias.</RT_EV_Festival_Text>
+  <RT_EV_Dreams>Sonhos de dados</RT_EV_Dreams>
+  <RT_EV_Dreams_Text>"Durmam bem esta noite. Eu cuido dos dados."\n\nPor dois dias o sono descansa mais os seus colonos.</RT_EV_Dreams_Text>
+  <RT_EV_LostDie>O dado perdido</RT_EV_LostDie>
+  <RT_EV_LostDie_Text>"Deixei cair um dado por aqui. Quem achar pode ficar com o que vem junto."\n\nUma cápsula cai perto da sua colônia.</RT_EV_LostDie_Text>
+  <RT_EV_QuietDays>Dias tranquilos</RT_EV_QuietDays>
+  <RT_EV_QuietDays_Text>"Três dias sem ninguém perder a cabeça. Conseguem?"</RT_EV_QuietDays_Text>
+  <RT_EV_QuietDays_Goal>nenhum colapso mental por três dias</RT_EV_QuietDays_Goal>
+  <RT_EV_QuietDays_Won>"Eu não acreditava. Muito bem."\n\nTodos têm orgulho da equipe e dois colonos ficam inspirados.</RT_EV_QuietDays_Won>
+  <RT_EV_QuietDays_Lost>"Alguém surtou. Como eu esperava."</RT_EV_QuietDays_Lost>
+  <RT_EV_Lesson>Uma lição do Max</RT_EV_Lesson>
+  <RT_EV_Lesson_Text>"Deixem eu mostrar um ou dois truques."\n\nTrês colonos melhoram sua melhor habilidade.</RT_EV_Lesson_Text>
+  <RT_EV_Crafter>O artesão</RT_EV_Crafter>
+  <RT_EV_Crafter_Text>"Mostrem que suas mãos servem para mais do que segurar dados."</RT_EV_Crafter_Text>
+  <RT_EV_Crafter_Goal>fabricar {0} coisas</RT_EV_Crafter_Goal>
+  <RT_EV_Crafter_Won>"Belo trabalho. Aqui vai algo para os próximos."\n\nComponentes e plastaço estão a caminho.</RT_EV_Crafter_Won>
+  <RT_EV_Crafter_Lost>"Mãos preguiçosas. Pena."</RT_EV_Crafter_Lost>
+  <RT_EV_Hunter>O caçador</RT_EV_Hunter>
+  <RT_EV_Hunter_Text>"Estou com fome de uma boa história de caçada."</RT_EV_Hunter_Text>
+  <RT_EV_Hunter_Goal>caçar {0} animais</RT_EV_Hunter_Goal>
+  <RT_EV_Hunter_Won>"Isso sim é uma história!"\n\nOs caçadores estão orgulhosos e um saco de prata cai do céu.</RT_EV_Hunter_Won>
+  <RT_EV_Hunter_Lost>"Desta vez os animais venceram."</RT_EV_Hunter_Lost>
+  <RT_EV_Cleaning>Faxina geral</RT_EV_Cleaning>
+  <RT_EV_Cleaning_Text>"Isto aqui está uma bagunça. Limpem até amanhã e vai valer a pena."</RT_EV_Cleaning_Text>
+  <RT_EV_Cleaning_Goal>limpar {0} manchas de sujeira</RT_EV_Cleaning_Goal>
+  <RT_EV_Cleaning_Won>"Brilhando. Até eu quero morar aqui."</RT_EV_Cleaning_Won>
+  <RT_EV_Cleaning_Lost>"Ainda sujo. Deixa pra lá."</RT_EV_Cleaning_Lost>
+  <RT_EV_Focus>Mentes afiadas</RT_EV_Focus>
+  <RT_EV_Focus_Text>"Hoje tudo fica na cabeça. Aprendam enquanto podem."\n\nPor dois dias seus colonos aprendem 50 % mais rápido.</RT_EV_Focus_Text>
+  <RT_EV_OddEven>Par ou ímpar</RT_EV_OddEven>
+  <RT_EV_OddEven_Text>"Uma apostinha? Par – você ganha. Ímpar – eu fico com sua prata."</RT_EV_OddEven_Text>
+  <RT_EV_OddEven_O1>Apostar 100 de prata (ganha 250)</RT_EV_OddEven_O1>
+  <RT_EV_OddEven_O2>Apostar 300 de prata (ganha 750)</RT_EV_OddEven_O2>
+  <RT_EV_OddEven_O3>Não, obrigado</RT_EV_OddEven_O3>
+  <RT_EV_OddEven_Lose>O dado mostra {0}. Seus {1} de prata se foram.</RT_EV_OddEven_Lose>
+  <RT_EV_Miner>Garimpeiro</RT_EV_Miner>
+  <RT_EV_Miner_Text>"Tem um tesouro debaixo dos seus pés. Cavem!"</RT_EV_Miner_Text>
+  <RT_EV_Miner_Goal>minerar {0} células</RT_EV_Miner_Goal>
+  <RT_EV_Miner_Won>"Eu disse."\n\nOuro e prata estão a caminho.</RT_EV_Miner_Won>
+  <RT_EV_Miner_Lost>"O tesouro fica na rocha."</RT_EV_Miner_Lost>
+  <RT_EV_Builder>O construtor</RT_EV_Builder>
+  <RT_EV_Builder_Text>"Construam alguma coisa para mim. Qualquer coisa. Rápido."</RT_EV_Builder_Text>
+  <RT_EV_Builder_Goal>construir {0} coisas</RT_EV_Builder_Goal>
+  <RT_EV_Builder_Won>"Isso vai durar um tempo."\n\nAço e componentes estão a caminho.</RT_EV_Builder_Won>
+  <RT_EV_Builder_Lost>"Nada construído. Pena."</RT_EV_Builder_Lost>
+  <RT_EV_GoldFever>Febre do ouro</RT_EV_GoldFever>
+  <RT_EV_GoldFever_Text>"Cada pedra pode esconder uma fortuna…"\n\nPor dois dias a mineração rende 50 % mais, mas os nervos estão à flor da pele.</RT_EV_GoldFever_Text>
+  <RT_EV_Reroll>Max joga por você</RT_EV_Reroll>
+  <RT_EV_Reroll_Text>"Não gostei do número de hoje. Deixa eu rolar de novo."</RT_EV_Reroll_Text>
+  <RT_EV_Roulette>Roleta</RT_EV_Roulette>
+  <RT_EV_Roulette_Text>"Um dos seus, uma rolagem. Cara – um lampejo de gênio. Coroa – um hematoma."</RT_EV_Roulette_Text>
+  <RT_EV_Roulette_O1>Rolar</RT_EV_Roulette_O1>
+  <RT_EV_Roulette_O2>Hoje não</RT_EV_Roulette_O2>
+  <RT_EV_Roulette_Win>{0} teve sorte – uma inspiração!</RT_EV_Roulette_Win>
+  <RT_EV_Roulette_Lose>{0} teve azar – ai.</RT_EV_Roulette_Lose>
+  <RT_EV_Gift3>Escolha um presente</RT_EV_Gift3>
+  <RT_EV_Gift3_Text>"Hoje estou generoso. Escolha um."</RT_EV_Gift3_Text>
+  <RT_EV_Gift3_O1>500 de prata</RT_EV_Gift3_O1>
+  <RT_EV_Gift3_O2>10 remédios</RT_EV_Gift3_O2>
+  <RT_EV_Gift3_O3>Uma surpresa</RT_EV_Gift3_O3>
+  <RT_EV_LuckyHand>Mão de sorte</RT_EV_LuckyHand>
+  <RT_EV_LuckyHand_Text>"Os dados sorriem para você."\n\nPor três dias as cirurgias dão certo com mais frequência e suas palavras convencem melhor (recrutamento, comércio).</RT_EV_LuckyHand_Text>
+  <RT_EV_Pilgrim>Um peregrino com uma história</RT_EV_Pilgrim>
+  <RT_EV_Pilgrim_Text>"Vem chegando alguém que quer se juntar a vocês. Outra pessoa pode vir procurá-lo."</RT_EV_Pilgrim_Text>
+  <RT_EV_Pilgrim_O1>Acolhê-lo</RT_EV_Pilgrim_O1>
+  <RT_EV_Pilgrim_O2>Mandá-lo embora</RT_EV_Pilgrim_O2>
+  <RT_EV_Blessing>A bênção do Max</RT_EV_Blessing>
+  <RT_EV_Blessing_Text>"Hoje o trabalho anda sozinho."\n\nPor um dia todos trabalham 25 % mais rápido.</RT_EV_Blessing_Text>
+  <RT_EV_Supplies>Suprimentos</RT_EV_Supplies>
+  <RT_EV_Supplies_Text>"Comam. Vocês estão magros."\n\nUma cápsula com refeições cai por perto.</RT_EV_Supplies_Text>
+  <RT_EV_TwoSides>Pelos dois lados</RT_EV_TwoSides>
+  <RT_EV_TwoSides_Text>"Uma invasão é chato. Que tal duas?"\n\nDuas invasões menores chegam ao mesmo tempo.</RT_EV_TwoSides_Text>
+  <RT_EV_BadLuck>Dia de azar</RT_EV_BadLuck>
+  <RT_EV_BadLuck_Text>"Tudo vai dar errado hoje. Pelo menos vocês vão aprender algo."\n\nPor um dia todos se movem 10 % mais devagar, mas aprendem o dobro.</RT_EV_BadLuck_Text>
+  <RT_EV_Fortress>A fortaleza</RT_EV_Fortress>
+  <RT_EV_Fortress_Text>"Lá vêm eles. Segurem os muros e não percam ninguém."\n\nUma invasão está chegando agora mesmo.</RT_EV_Fortress_Text>
+  <RT_EV_Fortress_Goal>ninguém morre por dois dias</RT_EV_Fortress_Goal>
+  <RT_EV_Fortress_Won>"Uma verdadeira fortaleza."\n\nUma minitorreta e aço estão a caminho.</RT_EV_Fortress_Won>
+  <RT_EV_Fortress_Lost>"Os muros aguentaram, as pessoas não."</RT_EV_Fortress_Lost>
+  <RT_EV_Tax>O imposto do Max</RT_EV_Tax>
+  <RT_EV_Tax_Text>"Um quinto da sua prata para mim – ou mando alguém buscar."</RT_EV_Tax_Text>
+  <RT_EV_Tax_O1>Pagar</RT_EV_Tax_O1>
+  <RT_EV_Tax_O2>Recusar</RT_EV_Tax_O2>
+  <RT_EV_ColdShower>Banho frio</RT_EV_ColdShower>
+  <RT_EV_ColdShower_Text>"Confortáveis demais? Vamos mudar o tempo."\n\nPor dois dias faz muito frio (ou muito calor no verão).</RT_EV_ColdShower_Text>
+  <RT_EV_AllIn>Tudo ou nada</RT_EV_AllIn>
+  <RT_EV_AllIn_Text>"Uma rolagem. De 4 a 6 – uma fortuna cai do céu. De 1 a 3 – uma invasão forte vem atrás de você."</RT_EV_AllIn_Text>
+  <RT_EV_AllIn_O1>Rolar</RT_EV_AllIn_O1>
+  <RT_EV_AllIn_O2>Não, obrigado</RT_EV_AllIn_O2>
+  <RT_EV_AllIn_Lose>O dado mostra {0}. Eles estão vindo…</RT_EV_AllIn_Lose>
+  <RT_EV_MadPack>A matilha louca</RT_EV_MadPack>
+  <RT_EV_MadPack_Text>"Os animais enlouqueceram. Muitos deles."</RT_EV_MadPack_Text>
+  <RT_EV_Eclipse>O dado sombrio</RT_EV_Eclipse>
+  <RT_EV_Eclipse_Text>"Vamos jogar no escuro um pouco."\n\nUm eclipse, e algo sussurra números.</RT_EV_Eclipse_Text>
+  <RT_EV_Revenge>A vingança do Max</RT_EV_Revenge>
+  <RT_EV_Revenge_Text>"Você tem tido sorte ultimamente. Sorte demais."\n\nUma invasão forte está chegando.</RT_EV_Revenge_Text>
+  <RT_EV_Double>Rolagem dupla</RT_EV_Double>
+  <RT_EV_Double_Text>"Dois dados hoje: um a seu favor, um contra você."</RT_EV_Double_Text>
+  <RT_EV_Difficulty>Dificuldade {0}: recompensas ×{1}, metas ×{2}, {3}.</RT_EV_Difficulty>
+  <RT_EV_RaidsYes>invasões permitidas</RT_EV_RaidsYes>
+  <RT_EV_RaidsNo>sem invasões</RT_EV_RaidsNo>
+  <RT_EV_NoRaid>Max acena com a mão – nesta dificuldade ele não manda ninguém.</RT_EV_NoRaid>
+  <RT_EV_Stargazing>Noite de estrelas</RT_EV_Stargazing>
+  <RT_EV_Stargazing_Text>"Olhem para cima esta noite. Acendi algumas a mais só para vocês."\n\nTodos aproveitam uma noite sob as estrelas.</RT_EV_Stargazing_Text>
+  <RT_EV_GreenThumb>Dedo verde</RT_EV_GreenThumb>
+  <RT_EV_GreenThumb_Text>"Suas plantas estão ouvindo hoje."\n\nPor dois dias plantar e colher ficam 50 % mais rápidos.</RT_EV_GreenThumb_Text>
+  <RT_EV_Guests>Convidados à mesa</RT_EV_Guests>
+  <RT_EV_Guests_Text>"Convidei uns amigos. Sejam gentis com eles."\n\nVisitantes estão a caminho.</RT_EV_Guests_Text>
+  <RT_EV_Balm>O bálsamo do Max</RT_EV_Balm>
+  <RT_EV_Balm_Text>"Deixa eu ver esses arranhões… melhor."\n\nOs ferimentos dos seus colonos saram um pouco.</RT_EV_Balm_Text>
+  <RT_EV_Cook>O cozinheiro</RT_EV_Cook>
+  <RT_EV_Cook_Text>"Estou com fome. Cozinhem para mim – bastante."</RT_EV_Cook_Text>
+  <RT_EV_Cook_Goal>cozinhar {0} refeições</RT_EV_Cook_Goal>
+  <RT_EV_Cook_Won>"Delicioso. Um banquete para todos!"\n\nTodos aproveitam o banquete e um saco de prata cai do céu.</RT_EV_Cook_Won>
+  <RT_EV_Cook_Lost>"Ainda com fome. Pena."</RT_EV_Cook_Lost>
+  <RT_EV_Scholar>O estudioso</RT_EV_Scholar>
+  <RT_EV_Scholar_Text>"Mostrem quanto cabe numa cabeça."</RT_EV_Scholar_Text>
+  <RT_EV_Scholar_Goal>pesquisar {0} pontos</RT_EV_Scholar_Goal>
+  <RT_EV_Scholar_Won>"Gente esperta. Aqui vai algo para pensar."\n\nDois colonos ficam inspirados e uma cápsula com mercadorias está a caminho.</RT_EV_Scholar_Won>
+  <RT_EV_Scholar_Lost>"Os livros ficaram fechados."</RT_EV_Scholar_Lost>
+  <RT_EV_Gardener>O jardineiro</RT_EV_Gardener>
+  <RT_EV_Gardener_Text>"Tragam a colheita – quero ver cestos cheios."</RT_EV_Gardener_Text>
+  <RT_EV_Gardener_Goal>colher {0} plantas</RT_EV_Gardener_Goal>
+  <RT_EV_Gardener_Won>"Cestos cheios! Muito bem."\n\nPrata a caminho.</RT_EV_Gardener_Won>
+  <RT_EV_Gardener_Lost>"Os campos continuaram cheios."</RT_EV_Gardener_Lost>
+  <RT_EV_HighLow>Alto ou baixo</RT_EV_HighLow>
+  <RT_EV_HighLow_Text>"Um dado. Aposte alto – de quatro a seis – ou baixo – de um a três. 150 de prata, o dobro de volta."</RT_EV_HighLow_Text>
+  <RT_EV_HighLow_O1>Alto (aposta 150, ganha 300)</RT_EV_HighLow_O1>
+  <RT_EV_HighLow_O2>Baixo (aposta 150, ganha 300)</RT_EV_HighLow_O2>
+  <RT_EV_HighLow_O3>Não, obrigado</RT_EV_HighLow_O3>
+  <RT_EV_HighLow_Lose>O dado mostra {0}. Seus {1} de prata se foram.</RT_EV_HighLow_Lose>
+  <RT_EV_SteadyHands>Mãos firmes</RT_EV_SteadyHands>
+  <RT_EV_SteadyHands_Text>"Hoje suas mãos não vão tremer."\n\nPor dois dias construir e carregar ficam 30 % mais rápidos.</RT_EV_SteadyHands_Text>
+  <RT_EV_Market>Dia de feira</RT_EV_Market>
+  <RT_EV_Market_Text>"Contei aos comerciantes onde encontrar vocês."\n\nUma caravana comercial está a caminho.</RT_EV_Market_Text>
+  <RT_EV_Sower>O semeador</RT_EV_Sower>
+  <RT_EV_Sower_Text>"Plantem alguma coisa. Muita coisa."</RT_EV_Sower_Text>
+  <RT_EV_Sower_Goal>semear {0} plantas</RT_EV_Sower_Goal>
+  <RT_EV_Sower_Won>"Agora deixem crescer."\n\nPrata a caminho.</RT_EV_Sower_Won>
+  <RT_EV_Sower_Lost>"Campos vazios. Pena."</RT_EV_Sower_Lost>
+  <RT_EV_Swap>A troca do Max</RT_EV_Swap>
+  <RT_EV_Swap_Text>"Me dê 100 de prata e eu te dou o que estiver neste saco. Pode ser mais. Pode ser menos."</RT_EV_Swap_Text>
+  <RT_EV_Swap_O1>Pagar 100 de prata</RT_EV_Swap_O1>
+  <RT_EV_Swap_O2>Não, obrigado</RT_EV_Swap_O2>
+  <RT_EV_Tales>Noite de histórias</RT_EV_Tales>
+  <RT_EV_Tales_Text>"Cheguem mais. Vou contar de quando perdi um planeta inteiro nos dados…"\n\nTodos aproveitam as histórias.</RT_EV_Tales_Text>
+  <RT_EV_RainDance>Dança da chuva</RT_EV_RainDance>
+  <RT_EV_RainDance_Text>"Seco demais. Vou rolar pela chuva."\n\nComeça a chover.</RT_EV_RainDance_Text>
+  <RT_EV_Tamer>O domador</RT_EV_Tamer>
+  <RT_EV_Tamer_Text>"Façam um amigo selvagem."</RT_EV_Tamer_Text>
+  <RT_EV_Tamer_Goal>domar {0} animais</RT_EV_Tamer_Goal>
+  <RT_EV_Tamer_Won>"Olhem só, já são melhores amigos."\n\nPrata a caminho.</RT_EV_Tamer_Won>
+  <RT_EV_Tamer_Lost>"Os animais continuaram selvagens."</RT_EV_Tamer_Lost>
+  <RT_EV_Windfall>Sorte grande</RT_EV_Windfall>
+  <RT_EV_Windfall_Text>"Achei um pouco de prata no meu outro bolso. É sua."\n\nUma cápsula com prata cai perto da sua colônia.</RT_EV_Windfall_Text>
+  <RT_EV_Medkit>Bolsa de remédios</RT_EV_Medkit>
+  <RT_EV_Medkit_Text>"Caso vocês quebrem alguma coisa. Vão quebrar."\n\nUma cápsula com remédios cai perto da sua colônia.</RT_EV_Medkit_Text>
+  <RT_EV_MysteryBox>Caixa misteriosa</RT_EV_MysteryBox>
+  <RT_EV_MysteryBox_Text>"Uma caixa fechada. Algo bom dentro – provavelmente. Ou eu posso simplesmente comprá-la de volta."</RT_EV_MysteryBox_Text>
+  <RT_EV_MysteryBox_O1>Abrir</RT_EV_MysteryBox_O1>
+  <RT_EV_MysteryBox_O2>Vender ao Max por 300 de prata</RT_EV_MysteryBox_O2>
+  <RT_EV_MysteryBox_Lose>A caixa estava cheia de animais furiosos!</RT_EV_MysteryBox_Lose>
+  <RT_EV_Muse>A musa</RT_EV_Muse>
+  <RT_EV_Muse_Text>"Sussurrei ideias em alguns ouvidos."\n\nTrês colonos ficam inspirados.</RT_EV_Muse_Text>
+  <RT_EV_StrayHerd>Rebanho perdido</RT_EV_StrayHerd>
+  <RT_EV_StrayHerd_Text>"Uns animais seguiram meus dados. Fiquem com eles."\n\nAlguns animais mansos aparecem.</RT_EV_StrayHerd_Text>
+  <RT_EV_Blight>Sorte podre</RT_EV_Blight>
+  <RT_EV_Blight_Text>"Ops. Deixei cair um dado na sua plantação."\n\nUma praga atinge suas plantações.</RT_EV_Blight_Text>
+  <RT_EV_Sickness>Dados da febre</RT_EV_Sickness>
+  <RT_EV_Sickness_Text>"Alguém espirrou nos meus dados."\n\nUma doença se espalha.</RT_EV_Sickness_Text>
+  <RT_EV_Fallout>Chuva venenosa</RT_EV_Fallout>
+  <RT_EV_Fallout_Text>"O céu está doente hoje. Fiquem dentro de casa."</RT_EV_Fallout_Text>
+  <RT_EV_Toll>O pedágio</RT_EV_Toll>
+  <RT_EV_Toll_Text>"Invasores ouviram falar de vocês. Paguem – cerca de 80 de prata por colono – ou lutem. Se lutarem, deixo algo pelo incômodo."</RT_EV_Toll_Text>
+  <RT_EV_Toll_O1>Pagar</RT_EV_Toll_O1>
+  <RT_EV_Toll_O2>Lutar</RT_EV_Toll_O2>
+  <RT_EV_Flare>Sol ofuscante</RT_EV_Flare>
+  <RT_EV_Flare_Text>"Eu poli o sol. Suas máquinas não vão gostar."</RT_EV_Flare_Text>
+  <RT_EV_Swarm>O enxame</RT_EV_Swarm>
+  <RT_EV_Swarm_Text>"Está ouvindo algo rastejando debaixo do chão?"</RT_EV_Swarm_Text>
+  <RT_EV_Drone>O zumbido</RT_EV_Drone>
+  <RT_EV_Drone_Text>"Algo zumbe no escuro. Max não está rindo."</RT_EV_Drone_Text>
+  <RT_EV_Jackpot>Bolada</RT_EV_Jackpot>
+  <RT_EV_Jackpot_Text>"Dois dados. Uma dupla e você ganha muito. Qualquer outra coisa e mando alguém cobrar."</RT_EV_Jackpot_Text>
+  <RT_EV_Jackpot_O1>Rolar</RT_EV_Jackpot_O1>
+  <RT_EV_Jackpot_O2>Não</RT_EV_Jackpot_O2>
+  <RT_EV_Jackpot_Lose>Os dados mostram {0} e {1}. Alguém vem cobrar!</RT_EV_Jackpot_Lose>
+  <RT_EV_LongNight>Noite longa</RT_EV_LongNight>
+  <RT_EV_LongNight_Text>"Tapei o sol com a mão. Por alguns dias."</RT_EV_LongNight_Text>
+  <RT_EV_IronDice>Dados de ferro</RT_EV_IronDice>
+  <RT_EV_IronDice_Text>"Dados de metal caem do céu. Eles não param de rolar."</RT_EV_IronDice_Text>
+  <RT_EV_ClearSky>Céu limpo</RT_EV_ClearSky>
+  <RT_EV_ClearSky_Text>"Nuvens? Hoje não. Soprei todas para longe."\n\nO céu limpa.</RT_EV_ClearSky_Text>
+  <RT_EV_Aurora>Aurora boreal</RT_EV_Aurora>
+  <RT_EV_Aurora_Text>"Pendurei umas luzes lá em cima. Vão ver."</RT_EV_Aurora_Text>
+  <RT_EV_MorningFog>Névoa da manhã</RT_EV_MorningFog>
+  <RT_EV_MorningFog_Text>"Shh. Deixe o mundo dormir mais um pouco."\n\nUma névoa suave cobre a colônia.</RT_EV_MorningFog_Text>
+  <RT_EV_Snowfall>Primeira neve</RT_EV_Snowfall>
+  <RT_EV_Snowfall_Text>"Neve. Lenta e silenciosa. Aproveitem."</RT_EV_Snowfall_Text>
+  <RT_EV_SkyBet>Sol ou chuva</RT_EV_SkyBet>
+  <RT_EV_SkyBet_Text>"Aposte no tempo. 120 de prata – acerte e eu pago o dobro. De qualquer jeito, o tempo vem."</RT_EV_SkyBet_Text>
+  <RT_EV_Rainbow>Arco-íris</RT_EV_Rainbow>
+  <RT_EV_Rainbow_Text>"Sobrou um pouco de tinta."\n\nTodos admiram o arco-íris.</RT_EV_Rainbow_Text>
+  <RT_EV_Thunder>Trovão</RT_EV_Thunder>
+  <RT_EV_Thunder_Text>"Ouviu isso? Estou rolando dados lá em cima."\n\nChega uma tempestade.</RT_EV_Thunder_Text>
+  <RT_EV_OddWeather>Tempo estranho</RT_EV_OddWeather>
+  <RT_EV_OddWeather_Text>"Derrubei minha bebida no termostato. Desculpa."</RT_EV_OddWeather_Text>
+  <RT_EV_StrangeSky>Céu estranho</RT_EV_StrangeSky>
+  <RT_EV_StrangeSky_Text>"Algo diferente hoje. Olhem o céu."</RT_EV_StrangeSky_Text>
+  <RT_EV_Lights>Luzes da inspiração</RT_EV_Lights>
+  <RT_EV_Lights_Text>"Olhem para cima. Sentem algo? Ótimo – usem isso."\n\nLuzes dançam no céu e dois colonos ficam inspirados.</RT_EV_Lights_Text>
+  <RT_EV_SkyScrap>Sucata do céu</RT_EV_SkyScrap>
+  <RT_EV_SkyScrap_Text>"Algo caiu de uma nave lá em cima. Achado não é roubado."\n\nUma cápsula com aço e componentes pousa perto da sua colônia.</RT_EV_SkyScrap_Text>
+  <RT_EV_GoodHarvestRain>Chuva morna</RT_EV_GoodHarvestRain>
+  <RT_EV_GoodHarvestRain_Text>"Seus campos parecem com sede."\n\nCai uma chuva morna e suas plantações em crescimento se adiantam um pouco.</RT_EV_GoodHarvestRain_Text>
+  <RT_EV_Flashstorm>Relâmpagos</RT_EV_Flashstorm>
+  <RT_EV_Flashstorm_Text>"Vamos ver quem está a céu aberto."</RT_EV_Flashstorm_Text>
+  <RT_EV_MadAnimal>Mau humor</RT_EV_MadAnimal>
+  <RT_EV_MadAnimal_Text>"Aquele animal me olhou torto. Agora está bravo com você."</RT_EV_MadAnimal_Text>
+  <RT_EV_Blizzard>Nevasca</RT_EV_Blizzard>
+  <RT_EV_Blizzard_Text>"Frio? Vou deixar mais frio."\n\nUma nevasca e uma onda de frio atingem a colônia.</RT_EV_Blizzard_Text>
+  <RT_EV_BlackSun>Eclipse</RT_EV_BlackSun>
+  <RT_EV_BlackSun_Text>"Pus a mão na frente do sol. Só um pouquinho."</RT_EV_BlackSun_Text>
+  <RT_EV_Hail>Granizo</RT_EV_Hail>
+  <RT_EV_Hail_Text>"Dados de gelo. Chovendo. Fiquem dentro de casa."</RT_EV_Hail_Text>
+  <RT_EV_Stampede>Debandada</RT_EV_Stampede>
+  <RT_EV_Stampede_Text>"Tirei um rebanho. Um furioso."</RT_EV_Stampede_Text>
+  <RT_EV_StormRaid>Invasores da tempestade</RT_EV_StormRaid>
+  <RT_EV_StormRaid_Text>"Eles gostam de tempo ruim. Eu também."\n\nChega uma tempestade – e com ela, invasores.</RT_EV_StormRaid_Text>
+  <RT_EV_DoubleOrNothing>Dobro ou nada</RT_EV_DoubleOrNothing>
+  <RT_EV_DoubleOrNothing_Text>"Metade da sua prata – até mil – numa rolagem. Par: o dobro. Ímpar: perdida."</RT_EV_DoubleOrNothing_Text>
+  <RT_EV_SkyBet_O1>Sol (aposta 120, ganha 240)</RT_EV_SkyBet_O1>
+  <RT_EV_SkyBet_O2>Chuva (aposta 120, ganha 240)</RT_EV_SkyBet_O2>
+  <RT_EV_SkyBet_O3>Não, obrigado</RT_EV_SkyBet_O3>
+  <RT_EV_SkyBet_Lose>Errou. Seus {0} de prata se foram.</RT_EV_SkyBet_Lose>
+  <RT_EV_DoubleOrNothing_O1>Rolar</RT_EV_DoubleOrNothing_O1>
+  <RT_EV_DoubleOrNothing_O2>Não</RT_EV_DoubleOrNothing_O2>
+  <RT_EV_DoubleOrNothing_Lose>Ímpar. Seus {0} de prata se foram.</RT_EV_DoubleOrNothing_Lose>
+  <RT_EV_CardNight>Noite de cartas</RT_EV_CardNight>
+  <RT_EV_CardNight_Text>"Esta noite ninguém trabalha. Esta noite a gente joga cartas – e eu dou as cartas."\n\nTodos se divertem e se sentem melhor.</RT_EV_CardNight_Text>
+  <RT_EV_LuckyCharm>Amuleto da sorte</RT_EV_LuckyCharm>
+  <RT_EV_LuckyCharm_Text>"Toma, pega isso. Não pergunte o que é."\n\nUm colono ganha o amuleto do Max por três dias: trabalho mais rápido e nervos mais firmes.</RT_EV_LuckyCharm_Text>
+  <RT_EV_LuckyCharm_Who>{0} carrega o amuleto do Max.</RT_EV_LuckyCharm_Who>
+  <RT_EV_Siesta>Sesta</RT_EV_Siesta>
+  <RT_EV_Siesta_Text>"Vocês parecem cansados. Fechem os olhos, eu vigio."\n\nTodos se sentem bem descansados.</RT_EV_Siesta_Text>
+  <RT_EV_Lottery>A loteria do Max</RT_EV_Lottery>
+  <RT_EV_Lottery_Text>"Bilhetes! Cinquenta de prata cada! Cada bilhete tem uma chance em seis de ganhar quatrocentos!"</RT_EV_Lottery_Text>
+  <RT_EV_Lottery_O1>Comprar um bilhete (50 de prata)</RT_EV_Lottery_O1>
+  <RT_EV_Lottery_O2>Comprar três bilhetes (150 de prata)</RT_EV_Lottery_O2>
+  <RT_EV_Lottery_O3>Não, obrigado</RT_EV_Lottery_O3>
+  <RT_EV_Lottery_Lose>Nenhum bilhete premiado. Seus {0} de prata se foram.</RT_EV_Lottery_Lose>
+  <RT_EV_CardDuel>Duelo de cartas</RT_EV_CardDuel>
+  <RT_EV_CardDuel_Text>"Vocês dois. Cartas. Agora. Quem perder lava a louça."\n\nDois colonos jogam uma longa partida – os dois aprendem algo sobre as pessoas.</RT_EV_CardDuel_Text>
+  <RT_EV_CardDuel_Who>{0} venceu {1} nas cartas.</RT_EV_CardDuel_Who>
+  <RT_EV_Hauler>O carregador</RT_EV_Hauler>
+  <RT_EV_Hauler_Text>"Coisas por toda parte! Coloquem tudo no lugar."</RT_EV_Hauler_Text>
+  <RT_EV_Hauler_Goal>carregar {0} coisas</RT_EV_Hauler_Goal>
+  <RT_EV_Hauler_Won>"Arrumado. Eu gosto de arrumado."\n\nUm saco de prata cai do céu.</RT_EV_Hauler_Won>
+  <RT_EV_Hauler_Lost>"Ainda uma bagunça. Pena."</RT_EV_Hauler_Lost>
+  <RT_EV_Debt>Dívida de jogo</RT_EV_Debt>
+  <RT_EV_Debt_Text>"Alguém da sua colônia perdeu na minha mesa – e os vencedores querem o dinheiro. Pague, ou eles vêm buscar."</RT_EV_Debt_Text>
+  <RT_EV_Debt_O1>Pagar a dívida</RT_EV_Debt_O1>
+  <RT_EV_Debt_O2>Recusar</RT_EV_Debt_O2>
+  <RT_EV_Debt_Lucky>Os cobradores se perderam no caminho. Que sorte.</RT_EV_Debt_Lucky>
+  <RT_EV_CursedDie>O dado amaldiçoado</RT_EV_CursedDie>
+  <RT_EV_CursedDie_Text>"Achei um dado que sempre cai bem. Bom – para quem segura. Os outros têm azar. Quer?"</RT_EV_CursedDie_Text>
+  <RT_EV_CursedDie_O1>Pegar (uma recompensa, mas alguém terá azar)</RT_EV_CursedDie_O1>
+  <RT_EV_CursedDie_O2>Jogar fora</RT_EV_CursedDie_O2>
+  <RT_EV_CursedDie_Who>A maldição encontrou {0}.</RT_EV_CursedDie_Who>
+  <RT_EV_TableRound>Todos rolam</RT_EV_TableRound>
+  <RT_EV_TableRound_Text>"Cada um de vocês rola um dado. Um seis – você fica inspirado. Um um – você tropeça e se machuca. Vão jogar?"</RT_EV_TableRound_Text>
+  <RT_EV_TableRound_O1>Todos rolam</RT_EV_TableRound_O1>
+  <RT_EV_TableRound_O2>Hoje não</RT_EV_TableRound_O2>
+  <RT_EV_TableRound_Result>Seis: {0} inspirados. Um: {1} feridos.</RT_EV_TableRound_Result>
+  <RT_EV_Pickpocket>Batedor de carteira</RT_EV_Pickpocket>
+  <RT_EV_Pickpocket_Text>"Contou sua prata ultimamente? Não? Ótimo."</RT_EV_Pickpocket_Text>
+  <RT_EV_Pickpocket_Lose>{0} de prata sumiram dos seus estoques.</RT_EV_Pickpocket_Lose>
+  <RT_EV_DoubleCaravan>Caravana dupla</RT_EV_DoubleCaravan>
+  <RT_EV_DoubleCaravan_Text>"Contei aos comerciantes que você é rico. Duas caravanas estão a caminho – a segunda um pouco depois."</RT_EV_DoubleCaravan_Text>
+  <RT_EV_PrizeAnimal>Animal premiado</RT_EV_PrizeAnimal>
+  <RT_EV_PrizeAnimal_Text>"Ganhei nas cartas. Não quero. Fique você com ele."\n\nUm animal domesticado chega em cápsula.</RT_EV_PrizeAnimal_Text>
+  <RT_EV_PrizeAnimal_Who>Novo animal: {0}.</RT_EV_PrizeAnimal_Who>
+  <RT_EV_OnTheHouse>Por conta da casa</RT_EV_OnTheHouse>
+  <RT_EV_OnTheHouse_Text>"Esta rodada é por minha conta!"\n\nRefeições finas e cerveja caem do céu.</RT_EV_OnTheHouse_Text>
+  <RT_EV_GoodWord>Uma boa palavra</RT_EV_GoodWord>
+  <RT_EV_GoodWord_Text>"Joguei cartas com um dos seus vizinhos e só falei bem de você."\n\nAs relações com uma facção amigável melhoram.</RT_EV_GoodWord_Text>
+  <RT_EV_SoreLoser>Mau perdedor</RT_EV_SoreLoser>
+  <RT_EV_SoreLoser_Text>"Alguém perdeu tudo na minha mesa ontem à noite. Não está aceitando bem."\n\nUm colono vaga por aí de mau humor.</RT_EV_SoreLoser_Text>
+  <RT_EV_LoadedDice>Dados viciados</RT_EV_LoadedDice>
+  <RT_EV_LoadedDice_Text>"Hoje os dados estão viciados. Contra você."\n\nPor dois dias todo o trabalho fica 15 % mais lento.</RT_EV_LoadedDice_Text>
+  <RT_EV_Zzzt>Faíscas</RT_EV_Zzzt>
+  <RT_EV_Zzzt_Text>"Derrubei minha bebida nos seus fios. Ops."</RT_EV_Zzzt_Text>
+  <RT_EV_Wheel>Roda da fortuna</RT_EV_Wheel>
+  <RT_EV_Wheel_Text>"Gire a roda! Seis casas: um grande presente, inspiração para todos, cura para todos, nada, animais selvagens ou uma invasão."</RT_EV_Wheel_Text>
+  <RT_EV_Wheel_O1>Girar</RT_EV_Wheel_O1>
+  <RT_EV_Wheel_O2>Ir embora</RT_EV_Wheel_O2>
+  <RT_EV_Wheel_F1>A roda para: um grande presente!</RT_EV_Wheel_F1>
+  <RT_EV_Wheel_F2>A roda para: inspiração para todos!</RT_EV_Wheel_F2>
+  <RT_EV_Wheel_F3>A roda para: cura para todos!</RT_EV_Wheel_F3>
+  <RT_EV_Wheel_F4>A roda para: nada. Max ri.</RT_EV_Wheel_F4>
+  <RT_EV_Wheel_F5>A roda para: animais selvagens!</RT_EV_Wheel_F5>
+  <RT_EV_Wheel_F6>A roda para: uma invasão!</RT_EV_Wheel_F6>
+  <RT_EV_ChaosRound>Rodada do caos</RT_EV_ChaosRound>
+  <RT_EV_ChaosRound_Text>"Três dados de uma vez! Vamos ver o que sai."\n\nTrês eventos do Max acontecem agora mesmo.</RT_EV_ChaosRound_Text>
+  <RT_EV_StoneDice>Dados de pedra</RT_EV_StoneDice>
+  <RT_EV_StoneDice_Text>"Hoje estou jogando dos grandes. Cuidado com a cabeça."\n\nDois meteoritos caem perto da colônia.</RT_EV_StoneDice_Text>
+  <RT_SecMods>Eventos de outros mods</RT_SecMods>
+  <RT_ModEvents>Eventos de outros mods seguem o dado</RT_ModEvents>
+  <RT_ModEvents_Desc>Os eventos adicionados pelos seus outros mods recebem um tipo – calmo, bom, comum, ameaça ou louco. A rolagem do dia torna cada tipo mais ou menos provável: os bons vêm com mais frequência num dia generoso, as ameaças num dia difícil, os mais estranhos num dia louco, e em dias calmos e generosos as ameaças de mods não vêm.</RT_ModEvents_Desc>
+  <RT_ModEventList>Eventos de mods: {0} de {1} ativos</RT_ModEventList>
+  <RT_ModEventListTitle>Eventos dos seus outros mods</RT_ModEventListTitle>
+  <RT_ModEventListDesc>Max distribui cada evento dos seus outros mods pelas faces do dado. ★ = classificado à mão, o resto automaticamente pelo tipo e nome. Clique no tipo para mudá-lo; um evento desmarcado não vem enquanto Max for seu narrador.</RT_ModEventListDesc>
+  <RT_ModEventSearch>Buscar…</RT_ModEventSearch>
+  <RT_ModEventsNone>Nenhum evento de outros mods encontrado.</RT_ModEventsNone>
+  <RT_MK_Calm>calmo</RT_MK_Calm>
+  <RT_MK_Good>bom</RT_MK_Good>
+  <RT_MK_Ordinary>comum</RT_MK_Ordinary>
+  <RT_MK_Threat>ameaça</RT_MK_Threat>
+  <RT_MK_Mad>louco</RT_MK_Mad>
+  <RT_MK_Auto>Automático ({0})</RT_MK_Auto>
+  <RT_MK_NoFace>nenhuma</RT_MK_NoFace>
+  <RT_MK_Tip>{0}\nMais vezes em: {1}\nNunca em: {2}</RT_MK_Tip>
+</LanguageData>
