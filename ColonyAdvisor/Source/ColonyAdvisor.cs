@@ -20,6 +20,20 @@ namespace ColonyAdvisor
         public bool morningPlan = true;        // every morning: the three most important things today
         public bool morningAsLetter = false;   // as a letter instead of a short message
         public string goal = "";               // chosen way to finish the game ("" = the one closest to done)
+        // 0.3.0 story compass
+        public int journalHours = 4;           // the journal is worked out again every few in-game hours (or when opened)
+        public bool journalShowInactive = true;
+        public bool questAlerts = true;        // letter 1 day and 6 hours before a quest offer runs out
+        public bool questAlertsGoodOnly = false;
+        public int expTeamMin = 5, expTeamMax = 8;
+        public bool expKeepDoctor = true, expKeepCook = true, expKeepBuilder = false;
+        public bool cabinFever = true;         // "restless" after many days in one place
+        public int cabinDays = 20;
+        public bool sawNewPlaces = true;       // good thought when the colonists see a new place
+        public bool newPlaceXp = true;         // a little XP for a new place
+        public bool rumors = true;             // a rumor of treasure every 7–15 days
+        public int rumorMinDays = 7, rumorMaxDays = 15;
+        public bool gentlePush = false;        // a nudge letter when the colony sits at home too long
 
         public override void ExposeData()
         {
@@ -29,12 +43,29 @@ namespace ColonyAdvisor
             Scribe_Values.Look(ref morningPlan, "morningPlan", true);
             Scribe_Values.Look(ref morningAsLetter, "morningAsLetter", false);
             Scribe_Values.Look(ref goal, "goal", "");
+            Scribe_Values.Look(ref journalHours, "journalHours", 4);
+            Scribe_Values.Look(ref journalShowInactive, "journalShowInactive", true);
+            Scribe_Values.Look(ref questAlerts, "questAlerts", true);
+            Scribe_Values.Look(ref questAlertsGoodOnly, "questAlertsGoodOnly", false);
+            Scribe_Values.Look(ref expTeamMin, "expTeamMin", 5);
+            Scribe_Values.Look(ref expTeamMax, "expTeamMax", 8);
+            Scribe_Values.Look(ref expKeepDoctor, "expKeepDoctor", true);
+            Scribe_Values.Look(ref expKeepCook, "expKeepCook", true);
+            Scribe_Values.Look(ref expKeepBuilder, "expKeepBuilder", false);
+            Scribe_Values.Look(ref cabinFever, "cabinFever", true);
+            Scribe_Values.Look(ref cabinDays, "cabinDays", 20);
+            Scribe_Values.Look(ref sawNewPlaces, "sawNewPlaces", true);
+            Scribe_Values.Look(ref newPlaceXp, "newPlaceXp", true);
+            Scribe_Values.Look(ref rumors, "rumors", true);
+            Scribe_Values.Look(ref rumorMinDays, "rumorMinDays", 7);
+            Scribe_Values.Look(ref rumorMaxDays, "rumorMaxDays", 15);
+            Scribe_Values.Look(ref gentlePush, "gentlePush", false);
         }
     }
 
     public class AdvisorMod : Mod
     {
-        public const string Version = "0.2.0";
+        public const string Version = "0.3.0";
         public static AdvisorSettings S;
         private static List<string> recBullets;
 
@@ -55,29 +86,96 @@ namespace ColonyAdvisor
         private static void Check(Listing_Standard l, string key, ref bool v, string field) =>
             MUI.Check(l, key.Translate(), (key + "_Desc").Translate(), ref v, S, field);
 
+        private static int setTab;
+        private static Vector2 setScroll;
+        private static float setH = 600f;
+
+        private static int IntSlider(Listing_Standard l, string key, int v, int min, int max, string field, string unit = "") =>
+            Mathf.RoundToInt(MUI.Slider(l, key.Translate() + ": " + v + unit, v, min, max, (key + "_Desc").Translate(), S, field));
+
         public override void DoSettingsWindowContents(Rect r)
         {
             MUI.Version(r, "v" + Version + " · Bolek98");
             if (recBullets == null)
-                recBullets = new List<string> { "CA_Rec1".Translate(), "CA_Rec2".Translate(), "CA_Rec3".Translate() };
+                recBullets = new List<string> { "CA_Rec1".Translate(), "CA_Rec2".Translate(), "CA_Rec3".Translate(), "CA_Rec4".Translate(), "CA_Rec5".Translate() };
             float y = r.y;
             y += MUI.RecommendedCard(new Rect(r.x, y, r.width, 0f), S, S.recommended, v => { S.recommended = v; if (v) MUI.ApplyAll(S); }, recBullets) + 6f;
             if (S.recommended) y += MUI.LockNote(new Rect(r.x, y, r.width, 0f)) + 4f;
+            // 0.3.0: tabs
+            string[] names = { "CA_ST_General".Translate(), "CA_ST_Journal".Translate(), "CA_ST_Quests".Translate(), "CA_ST_Exp".Translate(), "CA_ST_Mood".Translate(), "CA_ST_Rumors".Translate(), "CA_ST_Adv".Translate() };
+            float tw = (r.width - 6f * (names.Length - 1)) / names.Length;
+            for (int i = 0; i < names.Length; i++)
+            {
+                Rect b = new Rect(r.x + i * (tw + 6f), y, tw, 28f);
+                MUI.Fill(b, setTab == i ? MUI.OnBg : MUI.CardBg2, 4f);
+                if (setTab == i) MUI.Frame(b, MUI.Accent, 1f, 4f);
+                Text.Anchor = TextAnchor.MiddleCenter;
+                GUI.color = setTab == i ? MUI.Text1 : MUI.Muted;
+                Widgets.Label(b, names[i]);
+                GUI.color = Color.white;
+                Text.Anchor = TextAnchor.UpperLeft;
+                if (Widgets.ButtonInvisible(b)) { setTab = i; setScroll = Vector2.zero; }
+            }
+            y += 34f;
             Rect rest = new Rect(r.x, y, r.width, r.yMax - y);
+            Rect view = new Rect(0f, 0f, rest.width - 18f, setH);
+            Widgets.BeginScrollView(rest, ref setScroll, view);
             var l = new Listing_Standard { maxOneColumn = true };
             MUI.BeginLock(S.recommended);
             try
             {
-                l.Begin(rest);
-                MUI.Section(l, "CA_SecAlert".Translate());
-                Check(l, "CA_ShowAlert", ref S.showAlert, "showAlert");
-                Check(l, "CA_AlertTips", ref S.alertTipsToo, "alertTipsToo");
-                MUI.Section(l, "CA_SecMorning".Translate());
-                Check(l, "CA_Morning", ref S.morningPlan, "morningPlan");
-                Check(l, "CA_MorningLetter", ref S.morningAsLetter, "morningAsLetter");
+                l.Begin(new Rect(0f, 0f, view.width, 99999f));
+                switch (setTab)
+                {
+                    case 0:
+                        MUI.Section(l, "CA_SecAlert".Translate());
+                        Check(l, "CA_ShowAlert", ref S.showAlert, "showAlert");
+                        Check(l, "CA_AlertTips", ref S.alertTipsToo, "alertTipsToo");
+                        MUI.Section(l, "CA_SecMorning".Translate());
+                        Check(l, "CA_Morning", ref S.morningPlan, "morningPlan");
+                        Check(l, "CA_MorningLetter", ref S.morningAsLetter, "morningAsLetter");
+                        break;
+                    case 1:
+                        MUI.Section(l, "CA_ST_Journal".Translate());
+                        Check(l, "CA_SJ_Inactive", ref S.journalShowInactive, "journalShowInactive");
+                        break;
+                    case 2:
+                        MUI.Section(l, "CA_ST_Quests".Translate());
+                        Check(l, "CA_SQ_Alerts", ref S.questAlerts, "questAlerts");
+                        Check(l, "CA_SQ_Good", ref S.questAlertsGoodOnly, "questAlertsGoodOnly");
+                        break;
+                    case 3:
+                        MUI.Section(l, "CA_ST_Exp".Translate());
+                        S.expTeamMin = IntSlider(l, "CA_SX_Min", S.expTeamMin, 1, 12, "expTeamMin");
+                        S.expTeamMax = Math.Max(S.expTeamMin, IntSlider(l, "CA_SX_Max", S.expTeamMax, 1, 16, "expTeamMax"));
+                        Check(l, "CA_SX_Doctor", ref S.expKeepDoctor, "expKeepDoctor");
+                        Check(l, "CA_SX_Cook", ref S.expKeepCook, "expKeepCook");
+                        Check(l, "CA_SX_Builder", ref S.expKeepBuilder, "expKeepBuilder");
+                        break;
+                    case 4:
+                        MUI.Section(l, "CA_ST_Mood".Translate());
+                        Check(l, "CA_SM_Cabin", ref S.cabinFever, "cabinFever");
+                        S.cabinDays = IntSlider(l, "CA_SM_Days", S.cabinDays, 5, 60, "cabinDays", " d");
+                        Check(l, "CA_SM_Saw", ref S.sawNewPlaces, "sawNewPlaces");
+                        Check(l, "CA_SM_Xp", ref S.newPlaceXp, "newPlaceXp");
+                        break;
+                    case 5:
+                        MUI.Section(l, "CA_ST_Rumors".Translate());
+                        Check(l, "CA_SR_On", ref S.rumors, "rumors");
+                        S.rumorMinDays = IntSlider(l, "CA_SR_Min", S.rumorMinDays, 2, 30, "rumorMinDays", " d");
+                        S.rumorMaxDays = Math.Max(S.rumorMinDays, IntSlider(l, "CA_SR_Max", S.rumorMaxDays, 2, 45, "rumorMaxDays", " d"));
+                        Check(l, "CA_SR_Push", ref S.gentlePush, "gentlePush");
+                        break;
+                    case 6:
+                        MUI.Section(l, "CA_ST_Adv".Translate());
+                        S.journalHours = IntSlider(l, "CA_SA_Hours", S.journalHours, 1, 24, "journalHours", " h");
+                        break;
+                }
+                setH = l.CurHeight + 20f;
                 l.End();
             }
-            finally { MUI.EndLock(rest); }
+            finally { MUI.EndLock(new Rect(0f, 0f, view.width, setH)); }
+            Widgets.EndScrollView();
         }
     }
 
@@ -207,7 +305,12 @@ namespace ColonyAdvisor
         {
             base.PreOpen();
             Advisor.Invalidate();
+            Compass.Invalidate();
+            CompassTabs.Reset();
         }
+
+        // 0.3.0: tab ids stay the same (0 = now ... 5 = supplies, 6 = journal, 7 = expeditions); this is the order shown
+        private static readonly int[] order = { 0, 6, 4, 7, 3, 1, 2, 5 };
 
         private static string T(string key, params NamedArgument[] a) => key.Translate(a).Resolve();
 
@@ -218,11 +321,12 @@ namespace ColonyAdvisor
             float y = inRect.y;
             y = Header(new Rect(inRect.x, y, inRect.width, 0f), r) + 6f;
 
-            string[] names = { T("CA_Tab_Now"), T("CA_Tab_Make"), T("CA_Tab_Research"), T("CA_Tab_Goal"), T("CA_Tab_Quests"), T("CA_Tab_Supplies") };
-            float tw = Mathf.Min(170f, (inRect.width - 8f * (names.Length - 1)) / names.Length);
-            for (int i = 0; i < names.Length; i++)
+            string[] names = { T("CA_Tab_Now"), T("CA_Tab_Make"), T("CA_Tab_Research"), T("CA_Tab_Goal"), T("CA_Tab_Quests"), T("CA_Tab_Supplies"), T("CA_Tab_Journal"), T("CA_Tab_Exp") };
+            float tw = Mathf.Min(170f, (inRect.width - 6f * (names.Length - 1)) / names.Length);
+            for (int k = 0; k < order.Length; k++)
             {
-                Rect b = new Rect(inRect.x + i * (tw + 8f), y, tw, 30f);
+                int i = order[k];
+                Rect b = new Rect(inRect.x + k * (tw + 6f), y, tw, 30f);
                 string label = names[i];
                 if (i == 0 && r.UrgentCount + r.ImportantCount > 0) label += " (" + (r.UrgentCount + r.ImportantCount) + ")";
                 if (i == 4 && r.quests.Count > 0) label += " (" + r.quests.Count + ")";
@@ -251,6 +355,8 @@ namespace ColonyAdvisor
                     case 3: h = DrawGoal(view, r); break;
                     case 4: h = DrawQuests(view, r); break;
                     case 5: h = SuppliesTab.Draw(view, r, (yy, ww, tt, ss) => Title(yy, ww, tt, ss)); break;   // 0.2.0
+                    case 6: h = CompassTabs.DrawJournal(view, r, (yy, ww, tt, ss) => Title(yy, ww, tt, ss)); break;   // 0.3.0
+                    case 7: h = CompassTabs.DrawExpeditions(view, r, (yy, ww, tt, ss) => Title(yy, ww, tt, ss)); break;
                 }
             }
             catch (Exception e) { Log.WarningOnce("[Colony Advisor] drawing failed: " + e, 0x5A41E2); }
@@ -481,9 +587,12 @@ namespace ColonyAdvisor
         {
             float y = Title(0f, view.width, T("CA_Q_Title"), T("CA_Q_Sub", r.strength));
             if (r.quests.Count == 0) { Widgets.Label(new Rect(0f, y, view.width, 30f), T("CA_Q_None")); return y + 30f; }
+            QuestRating rec = CompassTabs.Recommended(r);   // 0.3.0
             foreach (QuestRating q in r.quests)
             {
-                float dh = Text.CalcHeight(q.why, view.width - 220f);
+                string extra = CompassTabs.QuestExtra(q);
+                string why = q.why + (extra.NullOrEmpty() ? "" : "\n" + extra);
+                float dh = Text.CalcHeight(why, view.width - 220f);
                 Rect card = new Rect(0f, y, view.width, Mathf.Max(58f, 32f + dh));
                 MUI.Card(card, q.verdict == 0);
                 Color c = q.verdict == 0 ? MUI.Accent : q.verdict == 1 ? MUI.Warn : new Color(0.9f, 0.35f, 0.3f);
@@ -491,9 +600,10 @@ namespace ColonyAdvisor
                 GUI.color = c;
                 string stars = q.stars > 0 ? new string('★', q.stars) + " " : "";
                 string left = q.hoursLeft >= 0f ? "  · " + T("CA_Q_Left", q.hoursLeft < 48f ? q.hoursLeft.ToString("0") + " h" : (q.hoursLeft / 24f).ToString("0.#") + " d") : "";
-                Widgets.Label(new Rect(card.x + 14f, card.y + 6f, card.width - 220f, 24f), stars + q.quest.name + "  – " + T("CA_Q_V" + q.verdict) + left);
+                if (q.hoursLeft >= 0f && q.hoursLeft < 24f) GUI.color = q.hoursLeft < 6f ? new Color(0.9f, 0.35f, 0.3f) : MUI.Warn;
+                Widgets.Label(new Rect(card.x + 14f, card.y + 6f, card.width - 220f, 24f), (q == rec ? T("CA_Q_Rec") + " " : "") + stars + q.quest.name + "  – " + T("CA_Q_V" + q.verdict) + left);
                 GUI.color = MUI.Muted;
-                Widgets.Label(new Rect(card.x + 14f, card.y + 30f, card.width - 220f, dh), q.why);
+                Widgets.Label(new Rect(card.x + 14f, card.y + 30f, card.width - 220f, dh), why);
                 GUI.color = Color.white;
                 Quest qq = q.quest;
                 if (Widgets.ButtonText(new Rect(card.xMax - 190f, card.y + (card.height - 30f) / 2f, 180f, 30f), T("CA_Btn_OpenQuest"))) Advisor.OpenQuest(qq);

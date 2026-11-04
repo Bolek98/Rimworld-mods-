@@ -320,4 +320,175 @@
   <CA_Sup_Reserve_Tip>Colonists, prisoners and your animals won't eat or pocket it at home (only someone starving). Guests can still eat it.</CA_Sup_Reserve_Tip>
   <CA_Sup_Raise>Raise the bill</CA_Sup_Raise>
   <CA_Sup_PickTitle>Add an item to the goal supplies</CA_Sup_PickTitle>
+  <!-- 0.3.0 story compass -->
+  <CA_Rec4>A story journal, quest expiry letters and an expedition planner</CA_Rec4>
+  <CA_Rec5>Restless colonists after long stays at home, joy from new places, rumors of treasure</CA_Rec5>
+  <CA_Tab_Journal>Journal</CA_Tab_Journal>
+  <CA_Tab_Exp>Expeditions</CA_Tab_Exp>
+  <CA_Btn_ResearchTab>Open research</CA_Btn_ResearchTab>
+  <CA_J_Title>Story journal</CA_J_Title>
+  <CA_J_Sub>Every story line and the next concrete step. Active lines come first.</CA_J_Sub>
+  <CA_J_None>No story line is available with the active DLCs.</CA_J_None>
+  <CA_J_Later>Not started yet:</CA_J_Later>
+  <CA_J_Active>(in progress)</CA_J_Active>
+  <CA_J_NowLabel>Now:</CA_J_NowLabel>
+  <CA_J_AllDone>All steps are done.</CA_J_AllDone>
+  <CA_J_Mech_Title>Mechanitor and the mech bosses</CA_J_Mech_Title>
+  <CA_J_Void_Ended>The void story is over. Well done.</CA_J_Void_Ended>
+  <CA_J_Void_NoMono>No void monolith yet. It usually appears on the map early; with the Anomaly story it may come later.</CA_J_Void_NoMono>
+  <CA_J_Void_Now0>Send a colonist to investigate the void monolith (select a colonist, right-click the monolith).</CA_J_Void_Now0>
+  <CA_J_Void_NowDisc>Discover {0} more {1} entities: capture them, keep them on holding platforms and study them.</CA_J_Void_NowDisc>
+  <CA_J_Void_NowActivate>The monolith is ready: select it and activate it to level {0}. Expect a hard fight right after.</CA_J_Void_NowActivate>
+  <CA_J_Void_NowFinal>Final choice: follow the void quest to the void node and decide – embrace or disrupt the void.</CA_J_Void_NowFinal>
+  <CA_J_Void_Disc>Discovered {2} entities: {0} / {1}</CA_J_Void_Disc>
+  <CA_J_Void_Held>Held and studied now: {0}</CA_J_Void_Held>
+  <CA_J_Void_NoHeld>Nobody is on a holding platform – nothing is being studied.</CA_J_Void_NoHeld>
+  <CA_J_Void_Study>Anomaly research: {0}</CA_J_Void_Study>
+  <CA_J_Void_NoStudy>No anomaly research is chosen – study gives no progress.</CA_J_Void_NoStudy>
+  <CA_J_Mono>Find the void monolith</CA_J_Mono>
+  <CA_J_Mono_H>The monolith is the start of the Anomaly story.</CA_J_Mono_H>
+  <CA_J_Activate>Wake the monolith (level 1)</CA_J_Activate>
+  <CA_J_Activate_H>Investigate it with a colonist.</CA_J_Activate_H>
+  <CA_J_Level2>Monolith level 2</CA_J_Level2>
+  <CA_J_Level2_H>Discover enough entities, then activate the monolith.</CA_J_Level2_H>
+  <CA_J_Level3>Monolith level 3 (the final level)</CA_J_Level3>
+  <CA_J_Level3_H>Discover the advanced entities, then activate again.</CA_J_Level3_H>
+  <CA_J_VoidEnd>The end: embrace or disrupt the void</CA_J_VoidEnd>
+  <CA_J_VoidEnd_H>At the void node, deep below. One of the endings of the game.</CA_J_VoidEnd_H>
+  <CA_J_Grav_NowQuest>Follow the quest "{0}" to recover the grav engine.</CA_J_Grav_NowQuest>
+  <CA_J_Grav_NowFind>Find a grav engine: watch for the grav engine quest or a signal; a comms console helps.</CA_J_Grav_NowFind>
+  <CA_J_Grav_NowResearch>Research basic gravtech.</CA_J_Grav_NowResearch>
+  <CA_J_Grav_NowConsole>Build a pilot console on the gravship floor.</CA_J_Grav_NowConsole>
+  <CA_J_Grav_NowThrust>Build thrusters and chemfuel tanks on the gravship.</CA_J_Grav_NowThrust>
+  <CA_J_Grav_NowFly>Fill the tanks and make the first flight – pick a destination at the pilot console.</CA_J_Grav_NowFly>
+  <CA_J_Grav_NowCore>Look for a gravcore: it comes from the mechhive quest line.</CA_J_Grav_NowCore>
+  <CA_J_Grav_NowCoreQuest>Follow the quest "{0}".</CA_J_Grav_NowCoreQuest>
+  <CA_J_Grav_NowHive>Fly to the mechhive and finish it – the Odyssey ending.</CA_J_Grav_NowHive>
+  <CA_J_Grav_Parts>Built: {0} pilot consoles, {1} thrusters, {2} fuel tanks</CA_J_Grav_Parts>
+  <CA_J_GravEngine>Get a grav engine</CA_J_GravEngine>
+  <CA_J_GravEngine_H>The heart of a gravship.</CA_J_GravEngine_H>
+  <CA_J_Gravtech>Research basic gravtech</CA_J_Gravtech>
+  <CA_J_Gravtech_H>Unlocks the gravship parts.</CA_J_Gravtech_H>
+  <CA_J_Console>Pilot console</CA_J_Console>
+  <CA_J_Console_H>Needed to launch.</CA_J_Console_H>
+  <CA_J_Thrusters>Thrusters ({0})</CA_J_Thrusters>
+  <CA_J_Thrusters_H>More thrusters, longer jumps.</CA_J_Thrusters_H>
+  <CA_J_Tanks>Chemfuel tanks ({0})</CA_J_Tanks>
+  <CA_J_Tanks_H>Fuel for the flights.</CA_J_Tanks_H>
+  <CA_J_Fly>First flight</CA_J_Fly>
+  <CA_J_Fly_H>Pick a place on the world map from the pilot console.</CA_J_Fly_H>
+  <CA_J_Gravcore>Gravcore</CA_J_Gravcore>
+  <CA_J_Gravcore_H>From the mechhive quests.</CA_J_Gravcore_H>
+  <CA_J_Mechhive>Finish the mechhive</CA_J_Mechhive>
+  <CA_J_Mechhive_H>The Odyssey ending.</CA_J_Mechhive_H>
+  <CA_J_Mechanitor>Have a mechanitor</CA_J_Mechanitor>
+  <CA_J_Mechanitor_H>Install a mechlink (from a crashed mech ship or a trader) into a colonist.</CA_J_Mechanitor_H>
+  <CA_J_BasicMech>Research basic mechtech</CA_J_BasicMech>
+  <CA_J_BasicMech_H>First mechs: build a mech gestator and gestate them.</CA_J_BasicMech_H>
+  <CA_J_StandardMech>Standard mechtech</CA_J_StandardMech>
+  <CA_J_StandardMech_H>Needs signal chips: call and kill the Diabolus boss.</CA_J_StandardMech_H>
+  <CA_J_HighMech>High mechtech</CA_J_HighMech>
+  <CA_J_HighMech_H>Needs powerfocus chips: defeat the War Queen.</CA_J_HighMech_H>
+  <CA_J_UltraMech>Ultra mechtech</CA_J_UltraMech>
+  <CA_J_UltraMech_H>Needs nano structuring chips: defeat the Apocriton.</CA_J_UltraMech_H>
+  <CA_Q_Rec>★ RECOMMENDED</CA_Q_Rec>
+  <CA_Q_Dist>{0} tiles · there ~{1}, there and back ~{2}</CA_Q_Dist>
+  <CA_Q_Here>on your map or no place to go</CA_Q_Here>
+  <CA_Q_Threat>threat {0}/3</CA_Q_Threat>
+  <CA_QA_Label>Quest runs out: {0}</CA_QA_Label>
+  <CA_QA_Text>The quest offer "{0}" runs out in {1}. Accept it or let it go – after that it is gone.</CA_QA_Text>
+  <CA_QA_Travel>It is {0} tiles away, about {1} on foot.</CA_QA_Travel>
+  <CA_X_Title>Expedition planner</CA_X_Title>
+  <CA_X_Sub>Pick a place, check the team and supplies, then open the caravan window with the team already picked.</CA_X_Sub>
+  <CA_X_Home>Your colonists have been in one place for {0} days on average. Restless now: {1}.</CA_X_Home>
+  <CA_X_Where>Where to</CA_X_Where>
+  <CA_X_NoDest>No quest site, place or friendly settlement found nearby.</CA_X_NoDest>
+  <CA_X_K_quest>Quest</CA_X_K_quest>
+  <CA_X_K_site>Place</CA_X_K_site>
+  <CA_X_K_settlement>Settlement</CA_X_K_settlement>
+  <CA_X_Eta>{0} tiles · ~{1} one way</CA_X_Eta>
+  <CA_X_Team>Team ({0})</CA_X_Team>
+  <CA_X_NoWeapon>no weapon</CA_X_NoWeapon>
+  <CA_X_Skills>shooting {0}, medicine {1}, social {2}</CA_X_Skills>
+  <CA_X_Drop>Leave home</CA_X_Drop>
+  <CA_X_Stay>Stay home: {0}</CA_X_Stay>
+  <CA_X_Unfit>{0} more are hurt, sick, children or not fit to go.</CA_X_Unfit>
+  <CA_X_KeepDoctor>best doctor</CA_X_KeepDoctor>
+  <CA_X_KeepCook>best cook</CA_X_KeepCook>
+  <CA_X_KeepBuilder>best builder</CA_X_KeepBuilder>
+  <CA_X_KeepUnfit>not fit</CA_X_KeepUnfit>
+  <CA_X_Rebuild>Suggest the team again</CA_X_Rebuild>
+  <CA_X_Plan>Supplies and time</CA_X_Plan>
+  <CA_X_Times>There ~{0}, whole trip with a short stay ~{1} – back around day {2}</CA_X_Times>
+  <CA_X_NoTimes>No place picked – the supplies are counted for 6 days.</CA_X_NoTimes>
+  <CA_X_Food>Food: about {0} meals that keep (packaged or similar), you have {1}</CA_X_Food>
+  <CA_X_Med>Medicine: {0}, you have {1}</CA_X_Med>
+  <CA_X_KitOk>Steward Kit: everyone's kit is full</CA_X_KitOk>
+  <CA_X_KitMissing>Steward Kit: the team still misses {0} kit items</CA_X_KitMissing>
+  <CA_X_Expiry>The quest offer runs out in {0} – accept it before you leave.</CA_X_Expiry>
+  <CA_X_Form>Form a caravan with this team</CA_X_Form>
+  <CA_X_PickRoute>The team is picked – choose the destination on the world map.</CA_X_PickRoute>
+  <CA_G_Title>Gravship checklist</CA_G_Title>
+  <CA_G_Research>Basic gravtech researched</CA_G_Research>
+  <CA_G_Research_H>Research tab.</CA_G_Research_H>
+  <CA_G_Engine>Grav engine</CA_G_Engine>
+  <CA_G_Engine_H>The heart of the gravship.</CA_G_Engine_H>
+  <CA_G_Console>Pilot console</CA_G_Console>
+  <CA_G_Console_H>Must stand on the gravship floor.</CA_G_Console_H>
+  <CA_G_Thrusters>Thrusters: {0}</CA_G_Thrusters>
+  <CA_G_Thrusters_H>They must face out of the ship.</CA_G_Thrusters_H>
+  <CA_G_Tanks>Chemfuel tanks: {0}</CA_G_Tanks>
+  <CA_G_Tanks_H>Fill them before the flight.</CA_G_Tanks_H>
+  <CA_G_Chem>Chemfuel in storage: {0} (100+ is a good start)</CA_G_Chem>
+  <CA_G_Chem_H>Make it at a refinery or a biofuel refinery.</CA_G_Chem_H>
+  <CA_G_Field>Grav field covers the ship</CA_G_Field>
+  <CA_G_Field_H>Field extenders make the ship bigger. If the game shows an unusable beacon or no storage connected, look at those parts on the ship.</CA_G_Field_H>
+  <CA_Rumor_How>Travellers passing by told your colonists about it.</CA_Rumor_How>
+  <CA_Rumor_Label>Rumor</CA_Rumor_Label>
+  <CA_Rumor_Text>Travellers talk about {0}. It is about {1} away on foot – worth a look, a trade or a bit of adventure.</CA_Rumor_Text>
+  <CA_Rumor_Friends>Your world mods ({0}) can make places like this harder and richer – plan the team well.</CA_Rumor_Friends>
+  <CA_Push_Label>Time for a trip?</CA_Push_Label>
+  <CA_Push_Quest>{0} colonists are restless from staying home. The quest "{1}" looks good – the Expeditions tab of the advisor can plan the trip.</CA_Push_Quest>
+  <CA_Push_Any>{0} colonists are restless from staying home. The Expeditions tab of the advisor can plan a trip.</CA_Push_Any>
+  <CA_ST_General>General</CA_ST_General>
+  <CA_ST_Journal>Journal</CA_ST_Journal>
+  <CA_ST_Quests>Quests</CA_ST_Quests>
+  <CA_ST_Exp>Expeditions</CA_ST_Exp>
+  <CA_ST_Mood>Mood</CA_ST_Mood>
+  <CA_ST_Rumors>Rumors</CA_ST_Rumors>
+  <CA_ST_Adv>Advanced</CA_ST_Adv>
+  <CA_SJ_Inactive>Show story lines that have not started</CA_SJ_Inactive>
+  <CA_SJ_Inactive_Desc>Off: the journal shows only the lines you are already on.</CA_SJ_Inactive_Desc>
+  <CA_SQ_Alerts>Letter before a quest offer runs out</CA_SQ_Alerts>
+  <CA_SQ_Alerts_Desc>One letter 1 day before and one 6 hours before (with the letter sound).</CA_SQ_Alerts_Desc>
+  <CA_SQ_Good>Only for quests worth taking</CA_SQ_Good>
+  <CA_SQ_Good_Desc>Skip the letters for quests the advisor says to leave.</CA_SQ_Good_Desc>
+  <CA_SX_Min>Smallest team</CA_SX_Min>
+  <CA_SX_Min_Desc>The planner suggests at least this many (if the colony has them).</CA_SX_Min_Desc>
+  <CA_SX_Max>Biggest team</CA_SX_Max>
+  <CA_SX_Max_Desc>Never more than this. At least half of the colony stays home.</CA_SX_Max_Desc>
+  <CA_SX_Doctor>Keep the best doctor home</CA_SX_Doctor>
+  <CA_SX_Doctor_Desc>The team still gets a second medic if there is one.</CA_SX_Doctor_Desc>
+  <CA_SX_Cook>Keep the best cook home</CA_SX_Cook>
+  <CA_SX_Cook_Desc>So the colony keeps eating well.</CA_SX_Cook_Desc>
+  <CA_SX_Builder>Keep the best builder home</CA_SX_Builder>
+  <CA_SX_Builder_Desc>For repairs after raids.</CA_SX_Builder_Desc>
+  <CA_SM_Cabin>Cabin fever</CA_SM_Cabin>
+  <CA_SM_Cabin_Desc>Adults who stay in one place too long get a "restless" thought (-3, later -6). Any trip or a gravship flight resets it.</CA_SM_Cabin_Desc>
+  <CA_SM_Days>Restless after</CA_SM_Days>
+  <CA_SM_Days_Desc>Days in one place before the thought starts; twice as long for the stronger one. Counting starts when the mod is first loaded.</CA_SM_Days_Desc>
+  <CA_SM_Saw>"Saw new places" thought</CA_SM_Saw>
+  <CA_SM_Saw_Desc>+5 for 8 days when colonists reach a place the colony has not seen (stacks twice).</CA_SM_Saw_Desc>
+  <CA_SM_Xp>A little XP for a new place</CA_SM_Xp>
+  <CA_SM_Xp_Desc>400 XP into the skill the colonist is most passionate about.</CA_SM_Xp_Desc>
+  <CA_SR_On>Rumors of treasure</CA_SR_On>
+  <CA_SR_On_Desc>Now and then a letter with a place worth a trip: the vanilla item stash quest when the game allows it, otherwise a marked place on the world map.</CA_SR_On_Desc>
+  <CA_SR_Min>Shortest gap</CA_SR_Min>
+  <CA_SR_Min_Desc>Days between rumors at least.</CA_SR_Min_Desc>
+  <CA_SR_Max>Longest gap</CA_SR_Max>
+  <CA_SR_Max_Desc>Days between rumors at most.</CA_SR_Max_Desc>
+  <CA_SR_Push>Gentle push</CA_SR_Push>
+  <CA_SR_Push_Desc>Every 10 days without a trip and with restless colonists: a letter suggesting a quest or a trip.</CA_SR_Push_Desc>
+  <CA_SA_Hours>Work out the journal again every</CA_SA_Hours>
+  <CA_SA_Hours_Desc>In-game hours. The journal is also worked out when you open the advisor.</CA_SA_Hours_Desc>
 </LanguageData>

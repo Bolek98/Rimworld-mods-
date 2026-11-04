@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 0.3.0: restless after many days in the same place -->
+  <ThoughtDef>
+    <defName>CA_CabinFever</defName>
+    <workerClass>ColonyAdvisor.ThoughtWorker_CabinFever</workerClass>
+    <validWhileDespawned>false</validWhileDespawned>
+    <stages>
+      <li>
+        <label>restless</label>
+        <description>Same walls, same faces, day after day. I want to see something new.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>cabin fever</label>
+        <description>I have not left this place for ages. I need to get out and see the world.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- 0.3.0: good memory after seeing a new place -->
+  <ThoughtDef>
+    <defName>CA_SawNewPlaces</defName>
+    <durationDays>8</durationDays>
+    <stackLimit>2</stackLimit>
+    <stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+    <stages>
+      <li>
+        <label>saw new places</label>
+        <description>I travelled and saw a place I had never been to. The world is bigger than our walls.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

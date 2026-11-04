@@ -320,4 +320,175 @@
   <CA_Sup_Reserve_Tip>Kolonisté, vězni ani tvoje zvířata to doma nesnědí ani si to nevezmou do kapsy (jen kdo hladoví). Hosté to jíst můžou.</CA_Sup_Reserve_Tip>
   <CA_Sup_Raise>Navýšit zakázku</CA_Sup_Raise>
   <CA_Sup_PickTitle>Přidat věc do zásob pro cíl</CA_Sup_PickTitle>
+  <!-- 0.3.0 story compass -->
+  <CA_Rec4>Deník příběhu, dopisy před vypršením úkolů a plánovač výprav</CA_Rec4>
+  <CA_Rec5>Neklid po dlouhém sezení doma, radost z nových míst, zvěsti o pokladech</CA_Rec5>
+  <CA_Tab_Journal>Deník</CA_Tab_Journal>
+  <CA_Tab_Exp>Výpravy</CA_Tab_Exp>
+  <CA_Btn_ResearchTab>Otevřít výzkum</CA_Btn_ResearchTab>
+  <CA_J_Title>Deník příběhu</CA_J_Title>
+  <CA_J_Sub>Všechny příběhové linie a další konkrétní krok. Rozběhnuté linie jsou nahoře.</CA_J_Sub>
+  <CA_J_None>S aktivními DLC není dostupná žádná příběhová linie.</CA_J_None>
+  <CA_J_Later>Zatím nezačaté:</CA_J_Later>
+  <CA_J_Active>(rozběhnuté)</CA_J_Active>
+  <CA_J_NowLabel>Teď:</CA_J_NowLabel>
+  <CA_J_AllDone>Všechny kroky jsou hotové.</CA_J_AllDone>
+  <CA_J_Mech_Title>Mechanitor a mechaničtí bossové</CA_J_Mech_Title>
+  <CA_J_Void_Ended>Příběh prázdnoty je u konce. Dobrá práce.</CA_J_Void_Ended>
+  <CA_J_Void_NoMono>Zatím žádný monolit prázdnoty. Obvykle je na mapě od začátku, v příběhu Anomaly může přijít později.</CA_J_Void_NoMono>
+  <CA_J_Void_Now0>Pošli kolonistu prozkoumat monolit prázdnoty (vyber kolonistu, pravý klik na monolit).</CA_J_Void_Now0>
+  <CA_J_Void_NowDisc>Objev ještě {0} entit typu {1}: chyť je, drž na zadržovacích platformách a zkoumej je.</CA_J_Void_NowDisc>
+  <CA_J_Void_NowActivate>Monolit je připravený: vyber ho a aktivuj na úroveň {0}. Hned potom čekej těžký boj.</CA_J_Void_NowActivate>
+  <CA_J_Void_NowFinal>Poslední volba: jdi úkolem prázdnoty až k uzlu prázdnoty a rozhodni – přijmout, nebo rozbít prázdnotu.</CA_J_Void_NowFinal>
+  <CA_J_Void_Disc>Objevené entity ({2}): {0} / {1}</CA_J_Void_Disc>
+  <CA_J_Void_Held>Teď zadržené a zkoumané: {0}</CA_J_Void_Held>
+  <CA_J_Void_NoHeld>Nikdo není na zadržovací platformě – nic se nezkoumá.</CA_J_Void_NoHeld>
+  <CA_J_Void_Study>Výzkum anomálií: {0}</CA_J_Void_Study>
+  <CA_J_Void_NoStudy>Není vybraný žádný výzkum anomálií – studium nic nepřináší.</CA_J_Void_NoStudy>
+  <CA_J_Mono>Najít monolit prázdnoty</CA_J_Mono>
+  <CA_J_Mono_H>Monolit je začátek příběhu Anomaly.</CA_J_Mono_H>
+  <CA_J_Activate>Probudit monolit (úroveň 1)</CA_J_Activate>
+  <CA_J_Activate_H>Prozkoumej ho kolonistou.</CA_J_Activate_H>
+  <CA_J_Level2>Monolit úroveň 2</CA_J_Level2>
+  <CA_J_Level2_H>Objev dost entit a pak aktivuj monolit.</CA_J_Level2_H>
+  <CA_J_Level3>Monolit úroveň 3 (poslední)</CA_J_Level3>
+  <CA_J_Level3_H>Objev pokročilé entity a aktivuj znovu.</CA_J_Level3_H>
+  <CA_J_VoidEnd>Konec: přijmout, nebo rozbít prázdnotu</CA_J_VoidEnd>
+  <CA_J_VoidEnd_H>U uzlu prázdnoty hluboko dole. Jeden z konců hry.</CA_J_VoidEnd_H>
+  <CA_J_Grav_NowQuest>Splň úkol „{0}“ a získej gravitační motor.</CA_J_Grav_NowQuest>
+  <CA_J_Grav_NowFind>Najdi gravitační motor: hlídej úkol s gravitačním motorem nebo signál; pomůže komunikační konzole.</CA_J_Grav_NowFind>
+  <CA_J_Grav_NowResearch>Vyzkoumej základní gravtechnologii.</CA_J_Grav_NowResearch>
+  <CA_J_Grav_NowConsole>Postav pilotní konzoli na podlahu gravilodi.</CA_J_Grav_NowConsole>
+  <CA_J_Grav_NowThrust>Postav na gravilodi trysky a nádrže na chemopalivo.</CA_J_Grav_NowThrust>
+  <CA_J_Grav_NowFly>Natankuj a udělej první let – cíl vyber u pilotní konzole.</CA_J_Grav_NowFly>
+  <CA_J_Grav_NowCore>Hledej gravjádro: přijde z úkolů kolem mechaúlu.</CA_J_Grav_NowCore>
+  <CA_J_Grav_NowCoreQuest>Splň úkol „{0}“.</CA_J_Grav_NowCoreQuest>
+  <CA_J_Grav_NowHive>Doleť k mechaúlu a dokonči ho – konec Odyssey.</CA_J_Grav_NowHive>
+  <CA_J_Grav_Parts>Postaveno: pilotní konzole {0}, trysky {1}, nádrže {2}</CA_J_Grav_Parts>
+  <CA_J_GravEngine>Získat gravitační motor</CA_J_GravEngine>
+  <CA_J_GravEngine_H>Srdce gravilodi.</CA_J_GravEngine_H>
+  <CA_J_Gravtech>Vyzkoumat základní gravtechnologii</CA_J_Gravtech>
+  <CA_J_Gravtech_H>Odemkne díly gravilodi.</CA_J_Gravtech_H>
+  <CA_J_Console>Pilotní konzole</CA_J_Console>
+  <CA_J_Console_H>Bez ní se neodstartuje.</CA_J_Console_H>
+  <CA_J_Thrusters>Trysky ({0})</CA_J_Thrusters>
+  <CA_J_Thrusters_H>Víc trysek, delší skoky.</CA_J_Thrusters_H>
+  <CA_J_Tanks>Nádrže na chemopalivo ({0})</CA_J_Tanks>
+  <CA_J_Tanks_H>Palivo na lety.</CA_J_Tanks_H>
+  <CA_J_Fly>První let</CA_J_Fly>
+  <CA_J_Fly_H>Vyber místo na mapě světa z pilotní konzole.</CA_J_Fly_H>
+  <CA_J_Gravcore>Gravjádro</CA_J_Gravcore>
+  <CA_J_Gravcore_H>Z úkolů kolem mechaúlu.</CA_J_Gravcore_H>
+  <CA_J_Mechhive>Dokončit mechaúl</CA_J_Mechhive>
+  <CA_J_Mechhive_H>Konec Odyssey.</CA_J_Mechhive_H>
+  <CA_J_Mechanitor>Mít mechanitora</CA_J_Mechanitor>
+  <CA_J_Mechanitor_H>Vlož mechlink (z havarované mechalodě nebo od obchodníka) do kolonisty.</CA_J_Mechanitor_H>
+  <CA_J_BasicMech>Vyzkoumat základní mechatechnologii</CA_J_BasicMech>
+  <CA_J_BasicMech_H>První mechy: postav mechagestátor a vypěstuj je.</CA_J_BasicMech_H>
+  <CA_J_StandardMech>Standardní mechatechnologie</CA_J_StandardMech>
+  <CA_J_StandardMech_H>Chce signální čipy: přivolej a zabij bosse Diabolus.</CA_J_StandardMech_H>
+  <CA_J_HighMech>Vysoká mechatechnologie</CA_J_HighMech>
+  <CA_J_HighMech_H>Chce čipy powerfocus: poraz Válečnou královnu.</CA_J_HighMech_H>
+  <CA_J_UltraMech>Ultra mechatechnologie</CA_J_UltraMech>
+  <CA_J_UltraMech_H>Chce nanostrukturní čipy: poraz Apokritona.</CA_J_UltraMech_H>
+  <CA_Q_Rec>★ DOPORUČENO</CA_Q_Rec>
+  <CA_Q_Dist>{0} políček · tam ~{1}, tam a zpět ~{2}</CA_Q_Dist>
+  <CA_Q_Here>na tvé mapě nebo bez cesty</CA_Q_Here>
+  <CA_Q_Threat>hrozba {0}/3</CA_Q_Threat>
+  <CA_QA_Label>Úkol vyprší: {0}</CA_QA_Label>
+  <CA_QA_Text>Nabídka úkolu „{0}“ vyprší za {1}. Přijmi ji, nebo ji nech být – potom zmizí.</CA_QA_Text>
+  <CA_QA_Travel>Je to {0} políček daleko, pěšky zhruba {1}.</CA_QA_Travel>
+  <CA_X_Title>Plánovač výprav</CA_X_Title>
+  <CA_X_Sub>Vyber místo, zkontroluj tým a zásoby a pak otevři okno karavany s už vybraným týmem.</CA_X_Sub>
+  <CA_X_Home>Kolonisté jsou na jednom místě v průměru {0} dní. Neklidných teď: {1}.</CA_X_Home>
+  <CA_X_Where>Kam</CA_X_Where>
+  <CA_X_NoDest>Poblíž není žádné místo úkolu, lokace ani přátelská osada.</CA_X_NoDest>
+  <CA_X_K_quest>Úkol</CA_X_K_quest>
+  <CA_X_K_site>Místo</CA_X_K_site>
+  <CA_X_K_settlement>Osada</CA_X_K_settlement>
+  <CA_X_Eta>{0} políček · ~{1} tam</CA_X_Eta>
+  <CA_X_Team>Tým ({0})</CA_X_Team>
+  <CA_X_NoWeapon>bez zbraně</CA_X_NoWeapon>
+  <CA_X_Skills>střelba {0}, medicína {1}, sociální {2}</CA_X_Skills>
+  <CA_X_Drop>Nechat doma</CA_X_Drop>
+  <CA_X_Stay>Zůstávají doma: {0}</CA_X_Stay>
+  <CA_X_Unfit>Dalších {0} je zraněných, nemocných, dětí nebo nejsou schopní jít.</CA_X_Unfit>
+  <CA_X_KeepDoctor>nejlepší doktor</CA_X_KeepDoctor>
+  <CA_X_KeepCook>nejlepší kuchař</CA_X_KeepCook>
+  <CA_X_KeepBuilder>nejlepší stavitel</CA_X_KeepBuilder>
+  <CA_X_KeepUnfit>není schopný</CA_X_KeepUnfit>
+  <CA_X_Rebuild>Navrhnout tým znovu</CA_X_Rebuild>
+  <CA_X_Plan>Zásoby a čas</CA_X_Plan>
+  <CA_X_Times>Tam ~{0}, celá cesta s krátkým pobytem ~{1} – zpátky kolem dne {2}</CA_X_Times>
+  <CA_X_NoTimes>Není vybrané místo – zásoby jsou spočítané na 6 dní.</CA_X_NoTimes>
+  <CA_X_Food>Jídlo: zhruba {0} trvanlivých jídel (balená a podobná), máš {1}</CA_X_Food>
+  <CA_X_Med>Léky: {0}, máš {1}</CA_X_Med>
+  <CA_X_KitOk>Steward Kit: všichni mají plnou výbavu</CA_X_KitOk>
+  <CA_X_KitMissing>Steward Kit: týmu chybí ještě {0} kusů výbavy</CA_X_KitMissing>
+  <CA_X_Expiry>Nabídka úkolu vyprší za {0} – přijmi ji před odchodem.</CA_X_Expiry>
+  <CA_X_Form>Sestavit karavanu s tímto týmem</CA_X_Form>
+  <CA_X_PickRoute>Tým je vybraný – vyber cíl na mapě světa.</CA_X_PickRoute>
+  <CA_G_Title>Kontrolní seznam gravilodi</CA_G_Title>
+  <CA_G_Research>Základní gravtechnologie vyzkoumaná</CA_G_Research>
+  <CA_G_Research_H>Záložka výzkumu.</CA_G_Research_H>
+  <CA_G_Engine>Gravitační motor</CA_G_Engine>
+  <CA_G_Engine_H>Srdce gravilodi.</CA_G_Engine_H>
+  <CA_G_Console>Pilotní konzole</CA_G_Console>
+  <CA_G_Console_H>Musí stát na podlaze gravilodi.</CA_G_Console_H>
+  <CA_G_Thrusters>Trysky: {0}</CA_G_Thrusters>
+  <CA_G_Thrusters_H>Musí mířit ven z lodi.</CA_G_Thrusters_H>
+  <CA_G_Tanks>Nádrže na chemopalivo: {0}</CA_G_Tanks>
+  <CA_G_Tanks_H>Před letem je natankuj.</CA_G_Tanks_H>
+  <CA_G_Chem>Chemopalivo ve skladu: {0} (100+ je dobrý začátek)</CA_G_Chem>
+  <CA_G_Chem_H>Vyrábí se v rafinerii.</CA_G_Chem_H>
+  <CA_G_Field>Gravitační pole pokrývá loď</CA_G_Field>
+  <CA_G_Field_H>Rozšiřovače pole loď zvětší. Když hra hlásí nepoužitelný maják nebo nepřipojený sklad, podívej se na ty díly na lodi.</CA_G_Field_H>
+  <CA_Rumor_How>Řekli o tom tvým kolonistům pocestní, kteří šli kolem.</CA_Rumor_How>
+  <CA_Rumor_Label>Zvěst</CA_Rumor_Label>
+  <CA_Rumor_Text>Pocestní mluví o místě {0}. Je to pěšky zhruba {1} – stojí za pohled, obchod nebo trochu dobrodružství.</CA_Rumor_Text>
+  <CA_Rumor_Friends>Tvoje světové mody ({0}) mohou taková místa udělat těžší a bohatší – naplánuj tým dobře.</CA_Rumor_Friends>
+  <CA_Push_Label>Čas na výlet?</CA_Push_Label>
+  <CA_Push_Quest>{0} kolonistů je neklidných z dlouhého sezení doma. Úkol „{1}“ vypadá dobře – výpravu naplánuje záložka Výpravy v rádci.</CA_Push_Quest>
+  <CA_Push_Any>{0} kolonistů je neklidných z dlouhého sezení doma. Výpravu naplánuje záložka Výpravy v rádci.</CA_Push_Any>
+  <CA_ST_General>Obecné</CA_ST_General>
+  <CA_ST_Journal>Deník</CA_ST_Journal>
+  <CA_ST_Quests>Úkoly</CA_ST_Quests>
+  <CA_ST_Exp>Výpravy</CA_ST_Exp>
+  <CA_ST_Mood>Nálada</CA_ST_Mood>
+  <CA_ST_Rumors>Zvěsti</CA_ST_Rumors>
+  <CA_ST_Adv>Pokročilé</CA_ST_Adv>
+  <CA_SJ_Inactive>Ukazovat nezačaté příběhové linie</CA_SJ_Inactive>
+  <CA_SJ_Inactive_Desc>Vypnuto: deník ukáže jen linie, na kterých už jsi.</CA_SJ_Inactive_Desc>
+  <CA_SQ_Alerts>Dopis před vypršením nabídky úkolu</CA_SQ_Alerts>
+  <CA_SQ_Alerts_Desc>Jeden dopis den předem a jeden 6 hodin předem (se zvukem dopisu).</CA_SQ_Alerts_Desc>
+  <CA_SQ_Good>Jen u úkolů, které se vyplatí</CA_SQ_Good>
+  <CA_SQ_Good_Desc>Bez dopisů u úkolů, které rádce radí nechat být.</CA_SQ_Good_Desc>
+  <CA_SX_Min>Nejmenší tým</CA_SX_Min>
+  <CA_SX_Min_Desc>Plánovač navrhne aspoň tolik lidí (pokud je kolonie má).</CA_SX_Min_Desc>
+  <CA_SX_Max>Největší tým</CA_SX_Max>
+  <CA_SX_Max_Desc>Nikdy víc. Aspoň polovina kolonie zůstane doma.</CA_SX_Max_Desc>
+  <CA_SX_Doctor>Nejlepší doktor zůstane doma</CA_SX_Doctor>
+  <CA_SX_Doctor_Desc>Tým i tak dostane druhého zdravotníka, pokud je.</CA_SX_Doctor_Desc>
+  <CA_SX_Cook>Nejlepší kuchař zůstane doma</CA_SX_Cook>
+  <CA_SX_Cook_Desc>Aby kolonie dál dobře jedla.</CA_SX_Cook_Desc>
+  <CA_SX_Builder>Nejlepší stavitel zůstane doma</CA_SX_Builder>
+  <CA_SX_Builder_Desc>Na opravy po nájezdech.</CA_SX_Builder_Desc>
+  <CA_SM_Cabin>Ponorková nemoc</CA_SM_Cabin>
+  <CA_SM_Cabin_Desc>Dospělí, kteří jsou dlouho na jednom místě, dostanou myšlenku „neklid“ (-3, později -6). Každá cesta nebo let gravilodí to vynuluje.</CA_SM_Cabin_Desc>
+  <CA_SM_Days>Neklid po</CA_SM_Days>
+  <CA_SM_Days_Desc>Dní na jednom místě, než myšlenka začne; dvojnásobek pro silnější. Počítá se od prvního načtení modu.</CA_SM_Days_Desc>
+  <CA_SM_Saw>Myšlenka „viděl nová místa“</CA_SM_Saw>
+  <CA_SM_Saw_Desc>+5 na 8 dní, když kolonisté dorazí na místo, kde kolonie ještě nebyla (nejvýš dvakrát).</CA_SM_Saw_Desc>
+  <CA_SM_Xp>Trochu zkušeností za nové místo</CA_SM_Xp>
+  <CA_SM_Xp_Desc>400 XP do dovednosti, kterou kolonista miluje nejvíc.</CA_SM_Xp_Desc>
+  <CA_SR_On>Zvěsti o pokladech</CA_SR_On>
+  <CA_SR_On_Desc>Občas dopis s místem, kam stojí za to jít: vanilla úkol se skrýší věcí, když to hra dovolí, jinak označené místo na mapě světa.</CA_SR_On_Desc>
+  <CA_SR_Min>Nejkratší odstup</CA_SR_Min>
+  <CA_SR_Min_Desc>Nejméně dní mezi zvěstmi.</CA_SR_Min_Desc>
+  <CA_SR_Max>Nejdelší odstup</CA_SR_Max>
+  <CA_SR_Max_Desc>Nejvíc dní mezi zvěstmi.</CA_SR_Max_Desc>
+  <CA_SR_Push>Jemné postrčení</CA_SR_Push>
+  <CA_SR_Push_Desc>Každých 10 dní bez cesty a s neklidnými kolonisty: dopis s návrhem úkolu nebo výpravy.</CA_SR_Push_Desc>
+  <CA_SA_Hours>Přepočítat deník každých</CA_SA_Hours>
+  <CA_SA_Hours_Desc>Herních hodin. Deník se přepočítá i při otevření rádce.</CA_SA_Hours_Desc>
 </LanguageData>
