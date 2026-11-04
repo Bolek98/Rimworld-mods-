@@ -38,6 +38,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Research Atlas – Research Tree for Big Modpacks | 0.3.0 | [ResearchAtlas](ResearchAtlas) |
 | Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
 | Ride & Drive – Mounts and Vehicles Together | 0.1.1 | [RideAndDrive](RideAndDrive) |
+| Smart Colonist Gear – Wardrobe | 0.1.2 | [SCGWardrobe](SCGWardrobe) |
 | Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.5.0 | [SeasonsHolidays](SeasonsHolidays) |
 | Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |
 | Smart Colonist Gear – Auto Equip Weapons & Armor | 2.18.0 | [SmartColonistGear](SmartColonistGear) |
