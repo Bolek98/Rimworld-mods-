@@ -39,7 +39,7 @@ namespace ResearchAtlas.Fixes
     // separate Research Fixer mod is still active (both would add the same research twice).
     public static class RFMod
     {
-        public const string Version = "0.2.0";
+        public const string Version = "0.2.1";
         public static RFSettings Settings;
         public static bool Active;
         public static ModContentPack Content;

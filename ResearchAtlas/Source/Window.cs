@@ -12,11 +12,11 @@ namespace ResearchAtlas
     {
         public static readonly Color Bg = new Color32(21, 24, 28, 255);
         public static readonly Color Canvas = new Color32(16, 19, 23, 255);
-        public static readonly Color Card = new Color32(31, 36, 42, 255);
-        public static readonly Color Card2 = new Color32(40, 46, 53, 255);
+        public static readonly Color Card = new Color32(44, 50, 58, 255);
+        public static readonly Color Card2 = new Color32(56, 63, 72, 255);
         public static readonly Color Line = new Color32(58, 65, 72, 255);
         public static readonly Color Fg = new Color32(216, 221, 227, 255);
-        public static readonly Color Dim = new Color32(140, 151, 163, 255);
+        public static readonly Color Dim = new Color32(165, 175, 188, 255);
         public static readonly Color Green = new Color32(124, 191, 94, 255);
         public static readonly Color GreenBg = new Color32(31, 42, 34, 255);
         public static readonly Color Gold = new Color32(242, 193, 78, 255);
@@ -24,10 +24,10 @@ namespace ResearchAtlas
         public static readonly Color Red = new Color32(224, 100, 90, 255);
 
         // card states
-        public static readonly Color DoneBg = new Color32(29, 38, 33, 255), DoneBorder = new Color32(72, 110, 82, 255), DoneText = new Color32(150, 180, 155, 255);
-        public static readonly Color AvailBg = new Color32(38, 46, 56, 255), AvailBorder = new Color32(150, 172, 196, 255);
-        public static readonly Color LockBg = new Color32(25, 28, 33, 255), LockBorder = new Color32(52, 58, 66, 255), LockText = new Color32(128, 136, 146, 255);
-        public static readonly Color ProgBg = new Color32(48, 43, 28, 255);
+        public static readonly Color DoneBg = new Color32(42, 64, 50, 255), DoneBorder = new Color32(96, 150, 112, 255), DoneText = new Color32(196, 222, 200, 255);
+        public static readonly Color AvailBg = new Color32(56, 70, 88, 255), AvailBorder = new Color32(178, 202, 230, 255);
+        public static readonly Color LockBg = new Color32(42, 46, 54, 255), LockBorder = new Color32(82, 90, 102, 255), LockText = new Color32(170, 177, 188, 255);
+        public static readonly Color ProgBg = new Color32(82, 70, 34, 255);
 
         public static void Box(Rect r, Color bg, Color? border = null, int thick = 1)
         {
@@ -814,9 +814,9 @@ namespace ResearchAtlas
             bool searching = matchSet.Count > 0;
             bool match = matchSet.Contains(n.id);
             float alpha = 1f;
-            if (dimmed.Contains(n.id)) alpha = 0.3f;
-            if (searching && !match && !pathSet.Contains(n.id)) alpha = 0.28f;
-            if (rel != null && !rel.Contains(n.id)) alpha = 0.25f;
+            if (dimmed.Contains(n.id)) alpha = 0.45f;
+            if (searching && !match && !pathSet.Contains(n.id)) alpha = 0.4f;
+            if (rel != null && !rel.Contains(n.id)) alpha = 0.35f;
             Color bg, border, text;
             switch (s)
             {
@@ -854,7 +854,7 @@ namespace ResearchAtlas
             Rect ic = new Rect(r.x + 8f * z, r.y + (z >= 0.75f ? 7f : (Geo.CardH - 30f) / 2f) * z, isz, isz);
             Widgets.DrawBoxSolid(ic, new Color(0.13f, 0.15f, 0.18f, alpha));
             Texture2D tex = Atlas.IconOf(n);
-            GUI.color = new Color(1, 1, 1, alpha * (s == St.Locked ? 0.6f : 1f));
+            GUI.color = new Color(1, 1, 1, alpha * (s == St.Locked ? 0.8f : 1f));
             if (tex != null) Widgets.DrawTextureFitted(ic.ContractedBy(2f), tex, 1f);
             else Look.Label(ic, ((TechLevel)n.band).ToStringHuman().Substring(0, 1).ToUpper(), new Color(1, 1, 1, alpha * 0.5f), GameFont.Small, TextAnchor.MiddleCenter);
             GUI.color = Color.white;
