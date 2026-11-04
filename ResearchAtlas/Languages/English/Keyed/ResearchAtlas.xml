@@ -20,7 +20,7 @@
   <RA_More>More</RA_More>
   <RA_Arranging>Arranging {0} research projects…</RA_Arranging>
   <RA_Empty>No research here with these filters.</RA_Empty>
-  <RA_Help>Click: research it with everything it needs · Shift+click: only this · Ctrl+hover: show the whole way there and everything that follows · Ctrl+click: focus · Right click: menu · Click an icon on a card: its info · Wheel: zoom · Drag: move · Home: back to what is researched now</RA_Help>
+  <RA_Help>Click: select – details on the right · Shift+click: queue with everything it needs · Ctrl+click: queue only this · Double click: research now (or queue) · Ctrl+hover: show the whole way there and everything that follows · Right click: menu · Click an icon on a card: its info · Wheel: zoom · Drag: move · Home: back to what is researched now</RA_Help>
   <RA_AlreadyDone>{0} is already researched.</RA_AlreadyDone>
   <RA_ResearchNow>Research now</RA_ResearchNow>
   <RA_QueuePath>Queue with everything it needs</RA_QueuePath>
@@ -37,7 +37,7 @@
   <RA_TipTechprints>Techprints: {0} / {1}</RA_TipTechprints>
   <RA_TipStudy>Study: {0}</RA_TipStudy>
   <RA_TipMechanitor>Needs a mechanitor</RA_TipMechanitor>
-  <RA_TipClick>Click: queue with everything it needs · Shift: only this · Ctrl+hover: whole way · Ctrl+click: focus · Right click: more</RA_TipClick>
+  <RA_TipClick>Click: details · Shift: queue the way · Ctrl+click: only this · Double click: research now · Ctrl+hover: whole way · Right click: more</RA_TipClick>
   <RA_EtaNever>nobody researches</RA_EtaNever>
   <RA_EtaHours>~{0} h</RA_EtaHours>
   <RA_EtaDays>~{0} days</RA_EtaDays>
@@ -89,4 +89,14 @@
   <RA_TipCannotStart>Can't start yet:</RA_TipCannotStart>
   <RA_SetRandom>Random mode: pick from three offered projects</RA_SetRandom>
   <RA_SetRandomTip>Like Semi Random Research: the side panel offers three random projects you can research now. Pick one; new ones come when it is finished. You can still pick anything in the tree.</RA_SetRandomTip>
+  <RA_DetailClose>Close the details</RA_DetailClose>
+  <RA_DetailNeeds>Requirements</RA_DetailNeeds>
+  <RA_DetailLeadsTo>Leads to</RA_DetailLeadsTo>
+  <RA_DetailAbout>Description</RA_DetailAbout>
+  <RA_DetailJump>Click: show this research</RA_DetailJump>
+  <RA_DetailCostDone>Finished · {0} research points</RA_DetailCostDone>
+  <RA_State_Done>Finished</RA_State_Done>
+  <RA_State_Progress>Being researched</RA_State_Progress>
+  <RA_State_Available>Can be researched now</RA_State_Available>
+  <RA_State_Locked>Locked – something before it is missing</RA_State_Locked>
 </LanguageData>

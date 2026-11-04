@@ -20,7 +20,7 @@
   <RA_More>Další</RA_More>
   <RA_Arranging>Rozkládám {0} výzkumů…</RA_Arranging>
   <RA_Empty>S těmito filtry tu žádný výzkum není.</RA_Empty>
-  <RA_Help>Klik: vyzkoumat i se vším, co potřebuje · Shift+klik: jen tohle · Ctrl+najetí: celá cesta k výzkumu i vše, co z něj vychází · Ctrl+klik: zaměřit · Pravý klik: nabídka · Klik na ikonu na kartě: její informace · Kolečko: přiblížit · Tažení: posun · Home: zpět na to, co se zkoumá</RA_Help>
+  <RA_Help>Klik: vybrat – podrobnosti vpravo · Shift+klik: do fronty i se vším, co potřebuje · Ctrl+klik: do fronty jen tohle · Dvojklik: zkoumat hned (nebo do fronty) · Ctrl+najetí: celá cesta k výzkumu i vše, co z něj vychází · Pravý klik: nabídka · Klik na ikonu na kartě: její informace · Kolečko: přiblížit · Tažení: posun · Home: zpět na to, co se zkoumá</RA_Help>
   <RA_AlreadyDone>{0} už je vyzkoumané.</RA_AlreadyDone>
   <RA_ResearchNow>Zkoumat teď</RA_ResearchNow>
   <RA_QueuePath>Do fronty i se vším, co potřebuje</RA_QueuePath>
@@ -37,7 +37,7 @@
   <RA_TipTechprints>Techplány: {0} / {1}</RA_TipTechprints>
   <RA_TipStudy>Prozkoumat: {0}</RA_TipStudy>
   <RA_TipMechanitor>Potřebuje mechanitora</RA_TipMechanitor>
-  <RA_TipClick>Klik: do fronty i se vším, co potřebuje · Shift: jen tohle · Ctrl+najetí: celá cesta · Ctrl+klik: zaměřit · Pravý klik: víc</RA_TipClick>
+  <RA_TipClick>Klik: podrobnosti · Shift: cestu do fronty · Ctrl+klik: jen tohle · Dvojklik: zkoumat hned · Ctrl+najetí: celá cesta · Pravý klik: víc</RA_TipClick>
   <RA_EtaNever>nikdo nezkoumá</RA_EtaNever>
   <RA_EtaHours>~{0} h</RA_EtaHours>
   <RA_EtaDays>~{0} dne</RA_EtaDays>
@@ -89,4 +89,14 @@
   <RA_TipCannotStart>Zatím nejde začít:</RA_TipCannotStart>
   <RA_SetRandom>Náhodný režim: výběr ze tří nabídnutých výzkumů</RA_SetRandom>
   <RA_SetRandomTip>Jako Semi Random Research: boční panel nabídne tři náhodné výzkumy, které jdou zkoumat hned. Jeden vyber, nové přijdou, až bude hotový. Ve stromu můžeš dál vybrat cokoli.</RA_SetRandomTip>
+  <RA_DetailClose>Zavřít podrobnosti</RA_DetailClose>
+  <RA_DetailNeeds>Požadavky</RA_DetailNeeds>
+  <RA_DetailLeadsTo>Vede k</RA_DetailLeadsTo>
+  <RA_DetailAbout>Popis</RA_DetailAbout>
+  <RA_DetailJump>Klik: ukázat tento výzkum</RA_DetailJump>
+  <RA_DetailCostDone>Hotovo · {0} bodů výzkumu</RA_DetailCostDone>
+  <RA_State_Done>Hotovo</RA_State_Done>
+  <RA_State_Progress>Právě se zkoumá</RA_State_Progress>
+  <RA_State_Available>Dá se zkoumat hned</RA_State_Available>
+  <RA_State_Locked>Zamčeno – chybí něco před ním</RA_State_Locked>
 </LanguageData>

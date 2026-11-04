@@ -1,4 +1,12 @@
 === Not on the Workshop yet (test versions) ===
+0.3.0
+- Fixed the dark cards: every card was drawn faded because of a highlight bug – colours, text and icons are now clear; bigger icons drawn the game's way.
+- Tmavé karty opraveny: kvůli chybě se zvýrazněním byla každá karta vybledlá – barvy, text i ikony jsou teď jasné; větší ikony kreslené jako ve hře.
+- A click now selects a project and opens a detail panel on the right: big picture of what it unlocks, state, cost and time, buttons (research now, queue with everything it needs, queue only this, remove), requirements, prerequisites and what it leads to (click to jump), a picture grid of everything it unlocks (click: info card) and the description.
+- Klik teď výzkum vybere a otevře vpravo panel s podrobnostmi: velký obrázek toho, co odemkne, stav, cena a čas, tlačítka (zkoumat hned, do fronty i se vším, co potřebuje, jen tohle, odebrat), požadavky, předchozí výzkumy a kam vede (klik: přeskočit), mřížka obrázků všeho, co odemkne (klik: informace) a popis.
+- Queueing: Shift+click (with everything it needs), Ctrl+click (only this), double click (research now); right-click menu as before.
+- Fronta: Shift+klik (i se vším, co potřebuje), Ctrl+klik (jen tohle), dvojklik (zkoumat hned); nabídka na pravé tlačítko jako dřív.
+
 0.2.1
 - Brighter cards: finished, available and locked research is easier to see; dimmed cards (search, filters, Ctrl highlight) are less dark.
 - Světlejší karty: hotové, dostupné i zamčené výzkumy jsou lépe vidět; ztlumené karty (hledání, filtry, zvýraznění s Ctrl) nejsou tak tmavé.

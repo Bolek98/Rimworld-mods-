@@ -11,7 +11,7 @@ namespace ResearchAtlas
     static class Look
     {
         public static readonly Color Bg = new Color32(21, 24, 28, 255);
-        public static readonly Color Canvas = new Color32(16, 19, 23, 255);
+        public static readonly Color Canvas = new Color32(20, 24, 29, 255);
         public static readonly Color Card = new Color32(44, 50, 58, 255);
         public static readonly Color Card2 = new Color32(56, 63, 72, 255);
         public static readonly Color Line = new Color32(58, 65, 72, 255);
@@ -24,9 +24,9 @@ namespace ResearchAtlas
         public static readonly Color Red = new Color32(224, 100, 90, 255);
 
         // card states
-        public static readonly Color DoneBg = new Color32(42, 64, 50, 255), DoneBorder = new Color32(96, 150, 112, 255), DoneText = new Color32(196, 222, 200, 255);
+        public static readonly Color DoneBg = new Color32(42, 64, 50, 255), DoneBorder = new Color32(96, 150, 112, 255), DoneText = new Color32(206, 228, 210, 255);
         public static readonly Color AvailBg = new Color32(56, 70, 88, 255), AvailBorder = new Color32(178, 202, 230, 255);
-        public static readonly Color LockBg = new Color32(42, 46, 54, 255), LockBorder = new Color32(82, 90, 102, 255), LockText = new Color32(170, 177, 188, 255);
+        public static readonly Color LockBg = new Color32(44, 48, 56, 255), LockBorder = new Color32(92, 100, 112, 255), LockText = new Color32(186, 192, 202, 255);
         public static readonly Color ProgBg = new Color32(82, 70, 34, 255);
 
         public static void Box(Rect r, Color bg, Color? border = null, int thick = 1)
@@ -75,7 +75,7 @@ namespace ResearchAtlas
 
     public class MainTabWindow_Atlas : MainTabWindow_Research
     {
-        const float TopH = 40f, TabsH = 30f, QueueH = 72f, HeadH = 24f, SideW = 260f;
+        const float TopH = 40f, TabsH = 30f, QueueH = 72f, HeadH = 24f, SideW = 260f, DetailW = 340f;
         const float MinZoom = 0.2f, MaxZoom = 1.6f;
 
         static bool vanillaMode;
@@ -123,9 +123,13 @@ namespace ResearchAtlas
         Vector2 downPos;
         int downNode = -1;
         int downButton;
+        int downClicks;
         int hover = -1;
         int relFor = -2;
-        HashSet<int> rel = new HashSet<int>();
+        HashSet<int> rel;      // 0.3.0: null when nothing is Ctrl-highlighted (an empty set dimmed every card)
+        int selId = -1;        // 0.3.0: the selected project (detail panel)
+        Vector2 detailScroll;
+        float detailH = 600f;
         readonly List<(Rect r, Def d)> iconHits = new List<(Rect, Def)>();
         int iconHitsFor = -1;
         ResearchProjectDef lastSelected;
@@ -440,9 +444,11 @@ namespace ResearchAtlas
             Rect tabsR = new Rect(inRect.x, top.yMax, inRect.width, TabsH);
             Rect queueR = new Rect(inRect.x, inRect.yMax - QueueH, inRect.width, QueueH);
             float bodyY = tabsR.yMax + 4f, bodyH = queueR.y - bodyY - 4f;
-            bool side = RAMod.S.minimap;
-            Rect sideR = side ? new Rect(inRect.xMax - SideW, bodyY, SideW, bodyH) : Rect.zero;
-            Rect area = new Rect(inRect.x, bodyY, inRect.width - (side ? SideW + 6f : 0f), bodyH);
+            if (selId >= 0 && (Atlas.nodes == null || selId >= Atlas.nodes.Count)) selId = -1;
+            bool side = RAMod.S.minimap || selId >= 0;
+            float sw = selId >= 0 ? DetailW : SideW;
+            Rect sideR = side ? new Rect(inRect.xMax - sw, bodyY, sw, bodyH) : Rect.zero;
+            Rect area = new Rect(inRect.x, bodyY, inRect.width - (side ? sw + 6f : 0f), bodyH);
             Rect head = new Rect(area.x, area.y, area.width, HeadH);
             Rect canvas = new Rect(area.x, head.yMax, area.width, area.height - HeadH);
             DrawTop(top);
@@ -659,7 +665,7 @@ namespace ResearchAtlas
         void DrawEdges(Rect local, Rect viewW)
         {
             bool searching = matchSet.Count > 0;
-            float t = Mathf.Max(1f, 2f * zoom);
+            float t = Mathf.Max(1f, 1.4f * zoom);
             bool fine = zoom >= 0.5f;
             int drawn = 0;
             for (int pass = 0; pass < 2; pass++)
@@ -677,12 +683,12 @@ namespace ResearchAtlas
                     else
                     {
                         St sa = State(Atlas.nodes[p.from]), sb = State(Atlas.nodes[p.to]);
-                        if (sb == St.Done) c = new Color(0.33f, 0.47f, 0.37f, 0.55f);
-                        else if (sa == St.Done) c = new Color(0.62f, 0.68f, 0.76f, 0.75f);
-                        else c = new Color(0.42f, 0.46f, 0.52f, 0.55f);
+                        if (sb == St.Done) c = new Color(0.40f, 0.56f, 0.45f, 0.5f);
+                        else if (sa == St.Done) c = new Color(0.70f, 0.76f, 0.84f, 0.7f);
+                        else c = new Color(0.50f, 0.55f, 0.62f, 0.45f);
                         if (dimmed.Contains(p.to) || (searching && !pathSet.Contains(p.to)) || (rel != null)) c.a *= 0.3f;
                     }
-                    float w = hi ? Mathf.Max(2f, 3f * zoom) : t;
+                    float w = hi ? Mathf.Max(2f, 2.6f * zoom) : t;
                     DrawPoly(p, c, w, fine);
                     if (++drawn > 5000) return;
                 }
@@ -828,9 +834,9 @@ namespace ResearchAtlas
             int qi = q?.IndexOf(n.def) ?? -1;
             if (qi >= 0 && s != St.Progress) border = Look.Gold * 0.85f;
             bool flashing = flash == n.id && Time.realtimeSinceStartup < flashUntil;
-            if (match || flashing || (rel != null && n.id == relFor)) border = Look.Gold;
+            if (match || flashing || (rel != null && n.id == relFor) || n.id == selId) border = Look.Gold;
             if (hover == n.id) bg = Color.Lerp(bg, Color.white, 0.07f);
-            int thick = match || flashing || s == St.Progress || n.id == focusId ? 2 : 1;
+            int thick = match || flashing || s == St.Progress || n.id == focusId || n.id == selId ? 2 : 1;
             bg.a = alpha; border.a = alpha; text.a = alpha;
             Look.Box(r, bg, border, thick);
             float z = zoom;
@@ -850,14 +856,10 @@ namespace ResearchAtlas
                 return;   // far out: coloured tiles
             }
             // icon
-            float isz = (z >= 0.75f ? 38f : 30f) * z;
-            Rect ic = new Rect(r.x + 8f * z, r.y + (z >= 0.75f ? 7f : (Geo.CardH - 30f) / 2f) * z, isz, isz);
-            Widgets.DrawBoxSolid(ic, new Color(0.13f, 0.15f, 0.18f, alpha));
-            Texture2D tex = Atlas.IconOf(n);
-            GUI.color = new Color(1, 1, 1, alpha * (s == St.Locked ? 0.8f : 1f));
-            if (tex != null) Widgets.DrawTextureFitted(ic.ContractedBy(2f), tex, 1f);
-            else Look.Label(ic, ((TechLevel)n.band).ToStringHuman().Substring(0, 1).ToUpper(), new Color(1, 1, 1, alpha * 0.5f), GameFont.Small, TextAnchor.MiddleCenter);
-            GUI.color = Color.white;
+            float isz = (z >= 0.75f ? 40f : 32f) * z;
+            Rect ic = new Rect(r.x + 7f * z, r.y + (z >= 0.75f ? 6f : (Geo.CardH - 32f) / 2f) * z, isz, isz);
+            Widgets.DrawBoxSolid(ic, new Color(0.22f, 0.25f, 0.29f, alpha));
+            DrawDefIcon(ic.ContractedBy(Mathf.Max(1f, 2f * z)), Atlas.MainDef(n), alpha * (s == St.Locked ? 0.85f : 1f), n);
             float tx = ic.xMax + 6f * z;
             float badgeW = (qi >= 0 || s == St.Locked || s == St.Done) ? 20f * z + 4f : 0f;
             float tw = r.xMax - tx - 6f * z - badgeW;
@@ -891,13 +893,10 @@ namespace ResearchAtlas
             foreach (Def u in n.unlocks)
             {
                 if (shown >= 6 || ux + us > maxX - 22f * z) break;
-                Texture2D ut = Atlas.UnlockIcon(u);
-                if (ut == null) continue;
+                if (Atlas.UnlockIcon(u) == null) continue;
                 Rect ur = new Rect(ux, uy, us, us);
-                Widgets.DrawBoxSolid(ur, new Color(0.14f, 0.17f, 0.2f, alpha));
-                GUI.color = new Color(1, 1, 1, alpha);
-                Widgets.DrawTextureFitted(ur.ContractedBy(1f), ut, 1f);
-                GUI.color = Color.white;
+                Widgets.DrawBoxSolid(ur, new Color(0.2f, 0.23f, 0.27f, alpha));
+                DrawDefIcon(ur.ContractedBy(1f), u, alpha, null);
                 if (rec) iconHits.Add((ur, u));
                 ux += us + 3f * z; shown++;
             }
@@ -917,6 +916,19 @@ namespace ResearchAtlas
         // --------------------------------------------------------------- side panel ----
         void DrawSide(Rect r, Rect canvas)
         {
+            if (selId >= 0)
+            {
+                float mmH = RAMod.S.minimap ? Mathf.Min(170f, r.height * 0.25f) : 0f;
+                Rect dr = new Rect(r.x, r.y, r.width, r.height - (mmH > 0 ? mmH + 6f : 0f));
+                DrawDetail(dr, canvas);
+                if (mmH > 60f)
+                {
+                    Rect mb = new Rect(r.x, dr.yMax + 6f, r.width, mmH);
+                    Look.Box(mb, new Color32(18, 22, 27, 255), Look.Line);
+                    DrawMinimap(mb.ContractedBy(6f), canvas);
+                }
+                return;
+            }
             Look.Box(r, new Color32(18, 22, 27, 255), Look.Line);
             float y = r.y + 6f;
             // researchers
@@ -1037,7 +1049,7 @@ namespace ResearchAtlas
             }
             if (ev.type == EventType.MouseDown && inside)
             {
-                dragging = true; moved = false; downPos = m; downButton = ev.button;
+                dragging = true; moved = false; downPos = m; downButton = ev.button; downClicks = ev.clickCount;
                 downNode = NodeAt(canvas, m);
                 ev.Use();
             }
@@ -1056,8 +1068,9 @@ namespace ResearchAtlas
                     if (downButton == 0 && iconHitsFor == downNode)
                         foreach (var ih in iconHits)
                             if (ih.r.Contains(local)) { Find.WindowStack.Add(new Dialog_InfoCard(ih.d)); ev.Use(); return; }
-                    Click(Atlas.nodes[downNode], downButton, ev.shift, ev.control);
+                    Click(Atlas.nodes[downNode], downButton, ev.shift, ev.control, downClicks >= 2);
                 }
+                else if (!moved && downNode < 0 && downButton == 0 && NodeAt(canvas, m) < 0) selId = -1;
                 ev.Use();
             }
             else if (ev.type == EventType.KeyDown && ev.keyCode == KeyCode.Home && GUI.GetNameOfFocusedControl() != "RA_Search") { needHome = true; savedFor = null; ev.Use(); }
@@ -1075,21 +1088,239 @@ namespace ResearchAtlas
             return -1;
         }
 
-        void Click(Node n, int button, bool shift, bool ctrl)
+        // 0.3.0: a click selects (detail panel on the right); queueing is done with the buttons there,
+        // Shift+click (with everything it needs), Ctrl+click (only this) or a double click (research now / queue)
+        void Click(Node n, int button, bool shift, bool ctrl, bool dbl = false)
         {
             ResearchQueue q = ResearchQueue.Get;
             if (button == 1) { Menu(n); return; }
-            if (ctrl) { focusId = focusId == n.id ? -1 : n.id; dirty = true; return; }
+            if (!shift && !ctrl && !dbl)
+            {
+                if (selId != n.id) { selId = n.id; detailScroll = Vector2.zero; SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(); }
+                return;
+            }
+            selId = n.id;
             if (n.knowledge || q == null)
             {
                 if (n.def.CanStartNow) Begin(n.def);
                 return;
             }
             if (n.def.IsFinished) { Messages.Message("RA_AlreadyDone".Translate(n.label), MessageTypeDefOf.RejectInput, false); return; }
-            if (shift) q.Add(n.def); else q.QueuePath(n.def);
+            if (dbl && !shift && !ctrl)
+            {
+                if (n.def.CanStartNow) Begin(n.def); else q.QueuePath(n.def);
+            }
+            else if (ctrl) { if (q.IndexOf(n.def) < 0) q.Add(n.def); }
+            else q.QueuePath(n.def);
             SoundDefOf.Tick_High.PlayOneShotOnCamera();
             st.Clear();
         }
+
+
+        // ------------------------------------------------------------ icons ----
+        // the game's own icon drawing (right colour, stuff and size); a letter of the era when nothing has a picture
+        static void DrawDefIcon(Rect r, Def d, float alpha, Node fallbackFor)
+        {
+            GUI.color = new Color(1, 1, 1, alpha);
+            try
+            {
+                if (d is RecipeDef rd) d = rd.ProducedThingDef ?? (Def)rd;
+                if (d is BuildableDef bd && Atlas.UnlockIcon(d) != null) Widgets.DefIcon(r, bd, bd.MadeFromStuff ? GenStuff.DefaultStuffFor(bd) : null, 1f, null, false, null, null, null, alpha);
+                else
+                {
+                    Texture2D t = d != null ? Atlas.UnlockIcon(d) : null;
+                    if (t != null) Widgets.DrawTextureFitted(r, t, 1f);
+                    else if (fallbackFor != null) Look.Label(r, ((TechLevel)fallbackFor.band).ToStringHuman().Substring(0, 1).ToUpper(), new Color(1, 1, 1, alpha * 0.6f), GameFont.Medium, TextAnchor.MiddleCenter);
+                }
+            }
+            catch
+            {
+                Texture2D t = d != null ? Atlas.UnlockIcon(d) : null;
+                if (t != null) { GUI.color = new Color(1, 1, 1, alpha); Widgets.DrawTextureFitted(r, t, 1f); }
+            }
+            finally { GUI.color = Color.white; }
+        }
+
+        // ------------------------------------------------------- detail panel ----
+        void DrawDetail(Rect r, Rect canvas)
+        {
+            Node n = Atlas.nodes[selId];
+            ResearchProjectDef d = n.def;
+            ResearchQueue q = ResearchQueue.Get;
+            Look.Box(r, new Color32(22, 26, 32, 255), Look.Line);
+            Rect close = new Rect(r.xMax - 26f, r.y + 4f, 22f, 22f);
+            if (Widgets.ButtonImage(close, TexButton.CloseXSmall)) { selId = -1; return; }
+            TooltipHandler.TipRegion(close, "RA_DetailClose".Translate());
+            Rect outR = new Rect(r.x + 4f, r.y + 28f, r.width - 8f, r.height - 32f);
+            Rect view = new Rect(0, 0, outR.width - 16f, detailH);
+            Widgets.BeginScrollView(outR, ref detailScroll, view);
+            float w = view.width, x = 6f, y = 0f, iw = w - 12f;
+            try
+            {
+                // header picture of the main unlocked thing
+                Def main = Atlas.MainDef(n);
+                Rect hero = new Rect(x, y, iw, 110f);
+                Widgets.DrawBoxSolid(hero, new Color32(30, 35, 42, 255));
+                Widgets.DrawBoxSolid(new Rect(hero.x, hero.y, 4f, hero.height), n.modColor);
+                DrawDefIcon(new Rect(hero.center.x - 48f, hero.y + 7f, 96f, 96f), main, 1f, n);
+                if (main != null)
+                {
+                    TooltipHandler.TipRegion(hero, main.LabelCap + "\n" + "RA_IconClick".Translate().Colorize(ColoredText.SubtleGrayColor));
+                    if (Widgets.ButtonInvisible(hero)) Find.WindowStack.Add(new Dialog_InfoCard(main));
+                }
+                y += 116f;
+                // name, mod, era, kind
+                Text.Font = GameFont.Medium;
+                float nh = Text.CalcHeight(n.label, iw);
+                Look.Label(new Rect(x, y, iw, nh), n.label, Color.white, GameFont.Medium, TextAnchor.UpperLeft);
+                y += nh + 2f;
+                string meta = n.mod + " · " + ((TechLevel)n.band).ToStringHuman().CapitalizeFirst() + " · " + CatLabel(n.cat);
+                Text.Font = GameFont.Tiny; float mh = Text.CalcHeight(meta, iw);
+                Look.Label(new Rect(x, y, iw, mh), meta, Look.Dim, GameFont.Tiny, TextAnchor.UpperLeft);
+                y += mh + 6f;
+                // state, cost, time, progress
+                St s = State(n);
+                string state = ("RA_State_" + s).Translate();
+                Color sc = s == St.Done ? Look.Green : s == St.Progress ? Look.Gold : s == St.Available ? Look.Blue : Look.Dim;
+                Look.Label(new Rect(x, y, iw, 20f), state, sc, GameFont.Small);
+                y += 22f;
+                if (!n.knowledge)
+                {
+                    float left = d.CostApparent - d.ProgressApparent;
+                    string cost = d.IsFinished ? "RA_DetailCostDone".Translate(d.CostApparent.ToString("F0")).ToString() : "RA_TipCost".Translate(d.ProgressApparent.ToString("F0"), d.CostApparent.ToString("F0"), Eta(left)).ToString();
+                    Text.Font = GameFont.Small; float ch = Text.CalcHeight(cost, iw);
+                    Look.Label(new Rect(x, y, iw, ch), cost, Look.Fg, GameFont.Small, TextAnchor.UpperLeft);
+                    y += ch + 2f;
+                    Rect pb = new Rect(x, y, iw, 8f);
+                    Widgets.DrawBoxSolid(pb, new Color32(40, 46, 54, 255));
+                    Widgets.DrawBoxSolid(new Rect(pb.x, pb.y, pb.width * Mathf.Clamp01(d.ProgressPercent), pb.height), d.IsFinished ? Look.Green : Look.Gold);
+                    y += 14f;
+                }
+                // buttons
+                if (!d.IsFinished)
+                {
+                    float bw = (iw - 6f) / 2f, bh = 28f;
+                    var buttons = new List<(string label, Action act, bool on)>();
+                    if (d.CanStartNow && !Find.ResearchManager.IsCurrentProject(d)) buttons.Add(("RA_ResearchNow".Translate(), () => Begin(d), true));
+                    if (q != null && !n.knowledge)
+                    {
+                        buttons.Add(("RA_QueuePath".Translate(), () => { q.QueuePath(d); st.Clear(); SoundDefOf.Tick_High.PlayOneShotOnCamera(); }, true));
+                        if (q.IndexOf(d) < 0) buttons.Add(("RA_QueueOne".Translate(), () => { q.Add(d); st.Clear(); SoundDefOf.Tick_High.PlayOneShotOnCamera(); }, true));
+                        else buttons.Add(("RA_Unqueue".Translate(), () => { q.Remove(d); st.Clear(); }, false));
+                    }
+                    for (int i = 0; i < buttons.Count; i++)
+                    {
+                        Rect br = new Rect(x + (i % 2) * (bw + 6f), y + (i / 2) * (bh + 6f), bw, bh);
+                        bool over = Mouse.IsOver(br);
+                        Look.Box(br, buttons[i].on ? (over ? new Color32(62, 92, 64, 255) : new Color32(46, 72, 50, 255)) : (over ? Look.Card2 : Look.Card), buttons[i].on ? Look.Green : Look.Line);
+                        Look.Label(br.ContractedBy(4f, 0f), buttons[i].label.Truncate(br.width - 8f), Color.white, GameFont.Tiny, TextAnchor.MiddleCenter);
+                        if (Widgets.ButtonInvisible(br)) buttons[i].act();
+                    }
+                    y += ((buttons.Count + 1) / 2) * (bh + 6f) + 4f;
+                }
+                // requirements
+                var req = new List<(string t, bool ok)>();
+                if (d.requiredResearchBuilding != null) req.Add(("RA_TipBench".Translate(d.requiredResearchBuilding.LabelCap), d.PlayerHasAnyAppropriateResearchBench));
+                if (d.requiredResearchFacilities != null) foreach (var f in d.requiredResearchFacilities) req.Add(("RA_TipBench".Translate(f.LabelCap), d.PlayerHasAnyAppropriateResearchBench));
+                if (d.TechprintCount > 0) req.Add(("RA_TipTechprints".Translate(d.TechprintsApplied, d.TechprintCount), d.TechprintRequirementMet));
+                if (d.requiredAnalyzed != null) foreach (var a in d.requiredAnalyzed) req.Add(("RA_TipStudy".Translate(a.LabelCap), d.AnalyzedThingsRequirementsMet));
+                if (d.requiresMechanitor) req.Add(("RA_TipMechanitor".Translate(), d.PlayerMechanitorRequirementMet));
+                if (req.Count > 0)
+                {
+                    y = Section(x, y, iw, "RA_DetailNeeds".Translate());
+                    foreach (var (t, ok) in req)
+                    {
+                        Look.Label(new Rect(x, y, 18f, 20f), ok ? "✓" : "✗", ok ? Look.Green : Look.Red, GameFont.Small, TextAnchor.MiddleCenter);
+                        Look.Label(new Rect(x + 20f, y, iw - 20f, 20f), t.Truncate(iw - 22f), Look.Fg, GameFont.Tiny);
+                        y += 20f;
+                    }
+                }
+                // prerequisites (click: select and show)
+                if (n.pre.Count > 0)
+                {
+                    y = Section(x, y, iw, "RA_TipNeeds".Translate());
+                    foreach (int pid in n.pre.ToList())
+                    {
+                        Node pn = Atlas.nodes[pid];
+                        y = LinkRow(x, y, iw, pn, canvas);
+                    }
+                }
+                // what it unlocks: pictures in a grid with the name under them
+                if (n.unlocks.Count > 0)
+                {
+                    y = Section(x, y, iw, "RA_TipUnlocks".Translate() + " (" + n.unlocks.Count + ")");
+                    int cols = Mathf.Max(2, (int)((iw + 6f) / 98f));
+                    float tw = (iw - (cols - 1) * 6f) / cols, th = tw + 30f;
+                    int i = 0;
+                    foreach (Def u in n.unlocks)
+                    {
+                        Rect tr = new Rect(x + (i % cols) * (tw + 6f), y + (i / cols) * (th + 6f), tw, th);
+                        bool over = Mouse.IsOver(tr);
+                        Look.Box(tr, over ? new Color32(44, 52, 62, 255) : new Color32(32, 38, 46, 255), Look.Line);
+                        Rect pic = new Rect(tr.x + 8f, tr.y + 6f, tw - 16f, tw - 16f);
+                        DrawDefIcon(pic, u, 1f, null);
+                        if (Atlas.UnlockIcon(u) == null) Look.Label(pic, KindLetter(u), Look.Dim, GameFont.Medium, TextAnchor.MiddleCenter);
+                        Look.Label(new Rect(tr.x + 3f, pic.yMax, tw - 6f, th - (pic.yMax - tr.y) - 2f), ((string)u.LabelCap).Truncate(tw - 6f), Color.white, GameFont.Tiny, TextAnchor.MiddleCenter);
+                        TooltipHandler.TipRegion(tr, u.LabelCap + (u.description.NullOrEmpty() ? "" : "\n\n" + u.description.Truncate(400f * 3)) + "\n\n" + "RA_IconClick".Translate().Colorize(ColoredText.SubtleGrayColor));
+                        if (Widgets.ButtonInvisible(tr)) Find.WindowStack.Add(new Dialog_InfoCard(u));
+                        i++;
+                    }
+                    y += ((n.unlocks.Count + cols - 1) / cols) * (th + 6f);
+                }
+                // research that follows
+                if (n.post.Count > 0)
+                {
+                    y = Section(x, y, iw, "RA_DetailLeadsTo".Translate());
+                    foreach (int pid in n.post.ToList()) y = LinkRow(x, y, iw, Atlas.nodes[pid], canvas);
+                }
+                // description
+                if (!d.description.NullOrEmpty())
+                {
+                    y = Section(x, y, iw, "RA_DetailAbout".Translate());
+                    Text.Font = GameFont.Small;
+                    float dh = Text.CalcHeight(d.description, iw);
+                    Look.Label(new Rect(x, y, iw, dh), d.description, Look.Fg, GameFont.Small, TextAnchor.UpperLeft);
+                    y += dh + 6f;
+                }
+                y += 10f;
+            }
+            finally
+            {
+                Widgets.EndScrollView();
+                Text.Font = GameFont.Small;
+            }
+            if (Event.current.type == EventType.Layout || Event.current.type == EventType.Repaint) detailH = Mathf.Max(y, outR.height - 2f);
+        }
+
+        float Section(float x, float y, float w, string title)
+        {
+            y += 6f;
+            Widgets.DrawBoxSolid(new Rect(x, y, w, 1f), Look.Line);
+            y += 4f;
+            Look.Label(new Rect(x, y, w, 22f), title, Look.Gold, GameFont.Small);
+            return y + 24f;
+        }
+
+        float LinkRow(float x, float y, float w, Node pn, Rect canvas)
+        {
+            Rect row = new Rect(x, y, w, 24f);
+            bool over = Mouse.IsOver(row);
+            if (over) Widgets.DrawBoxSolid(row, new Color32(40, 47, 56, 255));
+            St ps = State(pn);
+            Look.Label(new Rect(x, y, 18f, 24f), ps == St.Done ? "✓" : ps == St.Locked ? "✗" : "•", ps == St.Done ? Look.Green : ps == St.Locked ? Look.Red : Look.Blue, GameFont.Small, TextAnchor.MiddleCenter);
+            DrawDefIcon(new Rect(x + 20f, y + 2f, 20f, 20f), Atlas.MainDef(pn), 1f, pn);
+            Look.Label(new Rect(x + 44f, y, w - 46f, 24f), pn.label.Truncate(w - 48f), Color.white, GameFont.Tiny);
+            TooltipHandler.TipRegion(row, "RA_DetailJump".Translate());
+            if (Widgets.ButtonInvisible(row))
+            {
+                selId = pn.id; detailScroll = Vector2.zero;
+                if (!viewSet.Contains(pn.id)) { tabMode = TabMode.All; focusId = -1; ResetFilters(); RebuildView(); }
+                pendingCenter = pn.id;
+            }
+            return y + 26f;
+        }
+
+        static string KindLetter(Def u) => u is RecipeDef ? "R" : u is TerrainDef ? "T" : u is ThingDef td && td.plant != null ? "P" : "?";
 
         void Begin(ResearchProjectDef d)
         {

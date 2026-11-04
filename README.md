@@ -35,7 +35,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Power & Water Works | 0.1.1 | [PowerWaterWorks](PowerWaterWorks) |
 | QoL – Faster Work, Prisoners & Pipette | 1.1.0 | [QoLFasterWork](QoLFasterWork) |
 | Randy's Table – Chaos Storytellers | 0.4.0 | [RandysTable](RandysTable) |
-| Research Atlas – Research Tree for Big Modpacks | 0.2.1 | [ResearchAtlas](ResearchAtlas) |
+| Research Atlas – Research Tree for Big Modpacks | 0.3.0 | [ResearchAtlas](ResearchAtlas) |
 | Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
 | Ride & Drive – Mounts and Vehicles Together | 0.1.1 | [RideAndDrive](RideAndDrive) |
 | Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.4.1 | [SeasonsHolidays](SeasonsHolidays) |

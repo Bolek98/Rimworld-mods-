@@ -29,6 +29,8 @@ namespace ResearchAtlas
         public string label;
         public Texture2D icon;              // resolved on the main thread when first drawn
         public bool iconDone;
+        public Def main;                    // 0.3.0: main unlocked thing
+        public bool mainDone;
         public bool knowledge;              // Anomaly knowledge project – handled the vanilla way
     }
 
@@ -164,6 +166,16 @@ namespace ResearchAtlas
             foreach (char ch in id ?? "") { h ^= ch; h *= 16777619; }
             float hue = (h % 360) / 360f;
             return Color.HSVToRGB(hue, 0.55f, 0.85f);
+        }
+
+        // 0.3.0: the first unlocked thing that has a picture (for the card and the detail header)
+        public static Def MainDef(Node n)
+        {
+            if (n.mainDone) return n.main;
+            n.mainDone = true;
+            try { foreach (Def d in n.unlocks) if (UnlockIcon(d) != null) { n.main = d; break; } }
+            catch { }
+            return n.main;
         }
 
         public static Texture2D IconOf(Node n)
