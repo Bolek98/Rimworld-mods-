@@ -15,7 +15,7 @@ public sealed class KitSettings : ModSettings
 	public bool recommended = true;
 	public bool kitsOn = true;
 	public bool refill = true;
-	public bool everyonePack;            // the "Everyone" lines (emergency pack) for colonists of any role
+	public bool everyonePack = true;     // the "Everyone" lines (emergency pack) for colonists of any role (0.2.0: on by default)
 	public bool combatDrugKit = true;    // soldiers carry a combat drug
 	public float weightLimit = 0.35f;    // share of carrying capacity the kit may use
 	public int maxDistance = 60;         // cells to walk for a refill
@@ -25,6 +25,7 @@ public sealed class KitSettings : ModSettings
 	public bool caravanKits = true;
 	public bool slaves;
 	public bool customized;              // the player changed the kit table
+	public int kitsVersion;              // 0.2.0: version of the automatic table this one came from
 	public bool pharmacyMigrated;
 	public List<KitLine> lines;
 	public AutoPharmacySettings pharmacy = new AutoPharmacySettings();
@@ -33,8 +34,12 @@ public sealed class KitSettings : ModSettings
 	{
 		get
 		{
-			if (lines == null || (lines.Count == 0 && !customized))
+			// 0.2.0: an untouched table follows the newer, bigger defaults
+			if (lines == null || (lines.Count == 0 && !customized) || (!customized && kitsVersion < Kits.DefaultsVersion))
+			{
 				lines = Kits.Defaults();
+				kitsVersion = Kits.DefaultsVersion;
+			}
 			return lines;
 		}
 	}
@@ -44,7 +49,7 @@ public sealed class KitSettings : ModSettings
 		Scribe_Values.Look(ref recommended, "recommended", true);
 		Scribe_Values.Look(ref kitsOn, "kitsOn", true);
 		Scribe_Values.Look(ref refill, "refill", true);
-		Scribe_Values.Look(ref everyonePack, "everyonePack", false);
+		Scribe_Values.Look(ref everyonePack, "everyonePack", true);
 		Scribe_Values.Look(ref combatDrugKit, "combatDrugKit", true);
 		Scribe_Values.Look(ref weightLimit, "weightLimit", 0.35f);
 		Scribe_Values.Look(ref maxDistance, "maxDistance", 60);
@@ -54,6 +59,7 @@ public sealed class KitSettings : ModSettings
 		Scribe_Values.Look(ref caravanKits, "caravanKits", true);
 		Scribe_Values.Look(ref slaves, "slaves", false);
 		Scribe_Values.Look(ref customized, "customized", false);
+		Scribe_Values.Look(ref kitsVersion, "kitsVersion", 0);
 		Scribe_Values.Look(ref pharmacyMigrated, "pharmacyMigrated", false);
 		Scribe_Collections.Look(ref lines, "kitLines", LookMode.Deep);
 		Scribe_Deep.Look(ref pharmacy, "pharmacy");
@@ -64,7 +70,7 @@ public sealed class KitSettings : ModSettings
 public sealed class KitMod : Mod
 {
 	public static KitSettings Settings;
-	public const string Version = "0.1.0";
+	public const string Version = "0.2.0";
 	private static readonly KitSettings recKit = new KitSettings();
 	private static readonly AutoPharmacySettings recAP = new AutoPharmacySettings();
 
@@ -228,6 +234,35 @@ public sealed class KitMod : Mod
 			return;
 		}
 		List<Pawn> pawns = map.mapPawns.FreeColonistsSpawned.OrderBy(p => p.LabelShort).ToList();
+		// 0.2.0: what the whole colony carries
+		var tot = new Dictionary<string, int[]>();
+		foreach (Pawn pp in pawns)
+			foreach (KitLine w in Kits.Wanted(pp))
+			{
+				if (!tot.TryGetValue(w.item, out int[] v)) tot[w.item] = v = new int[2];
+				v[0] += Math.Min(Kits.Have(pp, w.item), w.count);
+				v[1] += w.count;
+			}
+		if (tot.Count > 0)
+		{
+			float tx = outR.x;
+			Widgets.Label(new Rect(tx, outR.y, 150f, 26f), "SK_Totals".Translate());
+			tx += 150f;
+			foreach (var kv in tot)
+			{
+				string ttxt = kv.Value[0] + "/" + kv.Value[1];
+				float tw = Text.CalcSize(ttxt).x + 30f;
+				if (tx + tw > outR.xMax) break;
+				Texture2D tic = Kits.ItemIcon(kv.Key);
+				if (tic != null) GUI.DrawTexture(new Rect(tx, outR.y + 1f, 24f, 24f), tic);
+				GUI.color = kv.Value[0] >= kv.Value[1] ? MUI.Accent : MUI.Warn;
+				Widgets.Label(new Rect(tx + 26f, outR.y + 2f, tw - 26f, 24f), ttxt);
+				GUI.color = Color.white;
+				TooltipHandler.TipRegion(new Rect(tx, outR.y, tw, 26f), Kits.ItemLabel(kv.Key) + ": " + ttxt);
+				tx += tw + 8f;
+			}
+			outR.yMin += 30f;
+		}
 		float rowH = 32f;
 		Rect view = new Rect(0f, 0f, outR.width - 18f, Mathf.Max(outR.height, pawns.Count * rowH));
 		Widgets.BeginScrollView(outR, ref scroll, view);
@@ -290,6 +325,14 @@ public sealed class KitMod : Mod
 		{
 			Settings.lines = Kits.Defaults();
 			Settings.customized = false;
+			Settings.kitsVersion = Kits.DefaultsVersion;
+		}
+		// 0.2.0: an edited table keeps the player's numbers – a note says newer defaults exist
+		if (Settings.customized && Settings.kitsVersion < Kits.DefaultsVersion)
+		{
+			GUI.color = MUI.Warn;
+			Widgets.Label(new Rect(r.xMax - 220f, y + 32f, 220f, 40f), "SK_NewDefaults".Translate());
+			GUI.color = Color.white;
 		}
 		y += Mathf.Max(hh, 34f) + 6f;
 		Rect outR = new Rect(r.x, y, r.width, r.yMax - y);

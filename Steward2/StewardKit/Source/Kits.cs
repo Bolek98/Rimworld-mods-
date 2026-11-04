@@ -43,11 +43,15 @@ public sealed class KitLine : IExposable
 public static class Kits
 {
 	// roles of the kit table (Steward – Roles names where they exist)
-	public static readonly string[] Roles = { "Doctor", "Hunter", "Builder", "Soldier", "Cook", "Hauler", "Everyone" };
+	public static readonly string[] Roles = { "Doctor", "Hunter", "Builder", "Soldier", "Cook", "Hauler", "Miner", "Farmer", "Crafter", "Researcher", "Handler", "Warden", "Everyone" };
 
 	// item keys: a category or a ThingDef defName
 	public const string Medicine = "@Medicine", Meal = "@Meal", Component = "@Component", CombatDrug = "@CombatDrug";
-	public static readonly string[] Categories = { Medicine, Meal, Component, CombatDrug };
+	// 0.2.0: more kinds
+	public const string FirstAid = "@FirstAid", PainDrug = "@PainDrug", Kibble = "@Kibble";
+	public static readonly string[] Categories = { Medicine, Meal, Component, CombatDrug, FirstAid, PainDrug, Kibble };
+	// version of the automatic table; an unchanged table is rebuilt when it grows
+	public const int DefaultsVersion = 2;
 
 	public static string RoleLabel(string role) => ("SK_Role_" + role).Translate();
 
@@ -67,6 +71,9 @@ public static class Kits
 			case Meal: return Def("MealSurvivalPack")?.uiIcon ?? Def("MealSimple")?.uiIcon;
 			case Component: return Def("ComponentIndustrial")?.uiIcon;
 			case CombatDrug: return Def("GoJuice")?.uiIcon ?? Def("Yayo")?.uiIcon;
+			case FirstAid: return FirstAidDefs().FirstOrDefault()?.uiIcon ?? Def("MedicineHerbal")?.uiIcon;
+			case PainDrug: return PainDefs().FirstOrDefault()?.uiIcon ?? Def("Penoxycyline")?.uiIcon;
+			case Kibble: return Def("Kibble")?.uiIcon;
 		}
 		return Def(item)?.uiIcon;
 	}
@@ -76,20 +83,93 @@ public static class Kits
 	// the automatic kit table
 	public static List<KitLine> Defaults()
 	{
+		// 0.2.0: bigger kits; the weight limit still caps what is really carried
 		var l = new List<KitLine>
 		{
-			new KitLine("Doctor", Medicine, 5),
-			new KitLine("Hunter", Meal, 2),
-			new KitLine("Hunter", Medicine, 1),
-			new KitLine("Builder", Component, 3),
-			new KitLine("Soldier", Medicine, 2),
-			new KitLine("Soldier", CombatDrug, 1),
-			new KitLine("Cook", Meal, 1),
-			new KitLine("Hauler", Meal, 2),
-			new KitLine("Everyone", Meal, 1),
-			new KitLine("Everyone", Medicine, 1)
+			new KitLine("Doctor", Medicine, 8),
+			new KitLine("Doctor", FirstAid, 2),
+			new KitLine("Doctor", PainDrug, 2),
+			new KitLine("Doctor", Meal, 1),
+			new KitLine("Hunter", Meal, 4),
+			new KitLine("Hunter", Medicine, 2),
+			new KitLine("Builder", Component, 4),
+			new KitLine("Builder", Medicine, 1),
+			new KitLine("Builder", Meal, 1),
+			new KitLine("Soldier", Medicine, 3),
+			new KitLine("Soldier", CombatDrug, 2),
+			new KitLine("Soldier", Meal, 2),
+			new KitLine("Cook", Meal, 4),
+			new KitLine("Hauler", Meal, 4),
+			new KitLine("Miner", Meal, 2),
+			new KitLine("Miner", Medicine, 1),
+			new KitLine("Farmer", Meal, 2),
+			new KitLine("Farmer", Medicine, 1),
+			new KitLine("Crafter", Meal, 2),
+			new KitLine("Crafter", Medicine, 1),
+			new KitLine("Researcher", Meal, 2),
+			new KitLine("Researcher", Medicine, 1),
+			new KitLine("Handler", Meal, 2),
+			new KitLine("Handler", Medicine, 1),
+			new KitLine("Handler", Kibble, 10),
+			new KitLine("Warden", Meal, 3),
+			new KitLine("Warden", Medicine, 1),
+			new KitLine("Everyone", Meal, 2),
+			new KitLine("Everyone", Medicine, 2)
 		};
+		// kinds this game has nothing for are left out (no empty lines in the table)
+		l.RemoveAll(x => (x.item == Kibble && Def("Kibble") == null) || (x.item == FirstAid && !FirstAidDefs().Any()) || (x.item == PainDrug && !PainDefs().Any()));
 		return l;
+	}
+
+	// first-aid items from mods (bandages, first-aid kits, tourniquets …)
+	private static List<ThingDef> firstAid;
+	public static List<ThingDef> FirstAidDefs()
+	{
+		if (firstAid != null) return firstAid;
+		firstAid = new List<ThingDef>();
+		foreach (ThingDef d in DefDatabase<ThingDef>.AllDefsListForReading)
+		{
+			if (d.category != ThingCategory.Item || d.IsCorpse) continue;
+			string n = d.defName.ToLowerInvariant();
+			if (!(n.Contains("bandage") || n.Contains("firstaid") || n.Contains("medkit") || n.Contains("tourniquet") || n.Contains("gauze"))) continue;
+			if (d.GetStatValueAbstract(StatDefOf.Mass) > 1.5f) continue;
+			firstAid.Add(d);
+		}
+		return firstAid;
+	}
+
+	// drugs of the pharmacy list that help against pain or blood loss / bleeding (not addictive)
+	private static List<ThingDef> pain;
+	public static List<ThingDef> PainDefs()
+	{
+		if (pain != null) return pain;
+		pain = new List<ThingDef>();
+		try
+		{
+			foreach (AutoPharmacy.DrugInfo i in AutoPharmacy.Pharmacy.Drugs)
+			{
+				if (i?.def == null || i.addictiveness > 0f || i.Combat) continue;
+				if (i.effects.ContainsKey(AutoPharmacy.Need.Pain) || i.effects.ContainsKey(AutoPharmacy.Need.BloodLoss) || i.effects.ContainsKey(AutoPharmacy.Need.Bleeding))
+					pain.Add(i.def);
+			}
+		}
+		catch { }
+		return pain;
+	}
+
+	// which candidate a colonist should rather take (higher = better)
+	public static float Preference(string item, ThingDef d)
+	{
+		if (d == null) return 0f;
+		switch (item)
+		{
+			case Meal:
+				if (d.defName == "Pemmican") return 3f;
+				if (d.defName.Contains("Survival") || d.defName.Contains("Packaged")) return 2.5f;
+				return 1f + (int)d.ingestible.preferability * 0.01f;
+			case Medicine: return d.GetStatValueAbstract(StatDefOf.MedicalPotency);
+		}
+		return 1f;
 	}
 
 	// ---------------- roles ----------------
@@ -112,8 +192,8 @@ public static class Kits
 			if (string.IsNullOrEmpty(n) || n == "None") return null;
 			switch (n)
 			{
-				case "Doctor": case "Hunter": case "Builder": case "Soldier": case "Cook": case "Hauler": return n;
-				case "Miner": return "Builder";
+				case "Doctor": case "Hunter": case "Builder": case "Soldier": case "Cook": case "Hauler":
+				case "Miner": case "Farmer": case "Crafter": case "Researcher": case "Handler": case "Warden": return n;
 				default: return "Everyone";
 			}
 		}
@@ -186,6 +266,9 @@ public static class Kits
 			case Meal: return IsKitMeal(d);
 			case Component: return d == ThingDefOf.ComponentIndustrial;
 			case CombatDrug: return IsCombatDrug(d);
+			case FirstAid: return FirstAidDefs().Contains(d);
+			case PainDrug: return PainDefs().Contains(d) && !AutoPharmacy.AutoPharmacyMod.Settings.blocked.Contains(d.defName);
+			case Kibble: return d.defName == "Kibble";
 		}
 		return d.defName == item;
 	}
@@ -236,6 +319,9 @@ public static class Kits
 			case Meal: return map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree);
 			case Component: return map.listerThings.ThingsOfDef(ThingDefOf.ComponentIndustrial);
 			case CombatDrug: return map.listerThings.ThingsInGroup(ThingRequestGroup.Drug);
+			case PainDrug: return map.listerThings.ThingsInGroup(ThingRequestGroup.Drug).Concat(map.listerThings.ThingsInGroup(ThingRequestGroup.Medicine));
+			case FirstAid: return FirstAidDefs().SelectMany(x => map.listerThings.ThingsOfDef(x));
+			case Kibble: { ThingDef k = Def("Kibble"); return k == null ? Enumerable.Empty<Thing>() : (IEnumerable<Thing>)map.listerThings.ThingsOfDef(k); }
 		}
 		ThingDef d = DefDatabase<ThingDef>.GetNamedSilentFail(item);
 		return d == null ? Enumerable.Empty<Thing>() : (IEnumerable<Thing>)map.listerThings.ThingsOfDef(d);
@@ -312,6 +398,19 @@ public class WorkGiver_KitRefill : WorkGiver_Scanner
 	private static readonly Dictionary<int, int> nextCheck = new Dictionary<int, int>();
 
 	public override PathEndMode PathEndMode => PathEndMode.ClosestTouch;
+
+	// 0.2.0: pemmican and packaged meals before cooked ones, better medicine first
+	public override bool Prioritized => true;
+
+	public override float GetPriority(Pawn pawn, TargetInfo t)
+	{
+		Thing th = t.Thing;
+		if (th == null) return 0f;
+		float best = 0f;
+		foreach (KitLine w in Kits.Wanted(pawn))
+			if (Kits.Matches(pawn, w.item, th.def)) best = Math.Max(best, Kits.Preference(w.item, th.def));
+		return best;
+	}
 
 	public override bool ShouldSkip(Pawn pawn, bool forced = false)
 	{

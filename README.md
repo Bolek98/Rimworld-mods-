@@ -46,7 +46,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Steward – Work Priorities | 1.1.0 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.1.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | Steward – Droids | 0.1.1 | [Steward2/StewardDroids](Steward2/StewardDroids) |
-| Steward – Kit | 0.1.0 | [Steward2/StewardKit](Steward2/StewardKit) |
+| Steward – Kit | 0.2.0 | [Steward2/StewardKit](Steward2/StewardKit) |
 | Steward – Orders | 0.3.2 | [Steward2/StewardOrders](Steward2/StewardOrders) |
 | Steward – Roles | 0.2.1 | [Steward2/StewardRoles](Steward2/StewardRoles) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
