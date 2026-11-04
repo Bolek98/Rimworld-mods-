@@ -101,4 +101,28 @@
   <AT_ShellNotHostile>{0}({1})은(는) 적대적이지 않습니다 – 포격은 적대 기지와 야영지(또는 열린 지도)에만 가능합니다.</AT_ShellNotHostile>
   <AT_ShellNoTarget>여기에는 포격할 대상이 없습니다. 적대 기지나 야영지(탐사 불필요) 또는 열린 지도를 선택하세요.</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0}({1})이(가) 포격으로 파괴되었습니다.</AT_ShellSiteDestroyed>
+  <AT_QC_This>포탑 켜기/끄기</AT_QC_This>
+  <AT_QC_This_Desc>이 포탑을 끕니다(강제 목표에도 사격하지 않음) 또는 다시 켭니다.</AT_QC_This_Desc>
+  <AT_QC_All>모든 포탑…</AT_QC_All>
+  <AT_QC_All_Desc>이 지도의 모든 포탑을 끄거나 켜고, 모두 치명 또는 기절만으로 설정합니다.</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>사격: 치명</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>사격: 기절만</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>치명: 일반 사격. 기절만: 모든 명중은 기절만 시키며(부상 없음) 이미 기절하거나 쓰러진 대상은 건너뜁니다. 폭발 무기(박격포, 로켓)에는 사용할 수 없습니다.</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>이 포탑: 치명</AT_QC_SetLethal>
+  <AT_QC_SetStun>이 포탑: 기절만</AT_QC_SetStun>
+  <AT_QC_AllLethal>모든 포탑: 치명</AT_QC_AllLethal>
+  <AT_QC_AllStun>모든 포탑: 기절만</AT_QC_AllStun>
+  <AT_QC_Explosive>폭발 무기(박격포, 로켓, 포탄)는 기절만으로 설정할 수 없습니다.</AT_QC_Explosive>
+  <AT_QC_AllOff>모든 포탑 끄기</AT_QC_AllOff>
+  <AT_QC_AllOn>모든 포탑 켜기</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>포탑 {0}개를 껐습니다.</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>포탑 {0}개를 켰습니다.</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>포탑 {0}개를 기절만으로 설정했습니다.</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>포탑 {0}개를 치명으로 설정했습니다.</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>폭발 포탑 {0}개는 치명으로 남았습니다.</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>내 포탑: 모두 끄기/켜기, 치명 또는 기절만.</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>포탑 빠른 버튼</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>모든 내 포탑에 켜기/끄기 및 치명/기절 버튼을 표시합니다.</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>오른쪽 아래 포탑 버튼</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>게임 설정 옆(오른쪽 아래)의 작은 버튼으로 모든 포탑을 끄거나 켜고 치명/기절을 전환합니다.</AT_QC_SetGlobal_Desc>
 </LanguageData>

@@ -101,4 +101,28 @@
   <AT_ShellNotHostile>{0} ({1}) no es hostil – la artillería solo bombardea bases y campamentos hostiles (o un mapa abierto).</AT_ShellNotHostile>
   <AT_ShellNoTarget>Aquí no hay nada que bombardear. Elige una base o campamento hostil (no hace falta explorarlo) o un mapa abierto.</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0} ({1}) fue destruido por la artillería.</AT_ShellSiteDestroyed>
+  <AT_QC_This>Torreta on/off</AT_QC_This>
+  <AT_QC_This_Desc>Apaga esta torreta (no dispara, ni a un objetivo forzado) o la vuelve a encender.</AT_QC_This_Desc>
+  <AT_QC_All>Todas las torretas…</AT_QC_All>
+  <AT_QC_All_Desc>Apaga o enciende todas tus torretas de este mapa, o ponlas todas en letal o solo aturdir.</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>Fuego: letal</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>Fuego: solo aturdir</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>Letal: disparos normales. Solo aturdir: cada impacto solo aturde (sin heridas) y la torreta salta objetivos ya aturdidos o caídos. No para armas explosivas (morteros, cohetes).</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>Esta torreta: letal</AT_QC_SetLethal>
+  <AT_QC_SetStun>Esta torreta: solo aturdir</AT_QC_SetStun>
+  <AT_QC_AllLethal>Todas las torretas: letal</AT_QC_AllLethal>
+  <AT_QC_AllStun>Todas las torretas: solo aturdir</AT_QC_AllStun>
+  <AT_QC_Explosive>Las armas explosivas (morteros, cohetes, proyectiles) no pueden solo aturdir.</AT_QC_Explosive>
+  <AT_QC_AllOff>Apagar todas las torretas</AT_QC_AllOff>
+  <AT_QC_AllOn>Encender todas las torretas</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>{0} torretas apagadas.</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>{0} torretas encendidas.</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>{0} torretas en solo aturdir.</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>{0} torretas en letal.</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>{0} torretas explosivas siguen letales.</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>Tus torretas: apagar o encender todas, letal o solo aturdir.</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>Botones rápidos de torretas</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>Botones on/off y letal/aturdir en cada una de tus torretas.</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>Botón de torretas abajo a la derecha</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>Un botón pequeño junto a los ajustes de juego (abajo a la derecha) para apagar/encender todas las torretas o cambiar letal/aturdir.</AT_QC_SetGlobal_Desc>
 </LanguageData>

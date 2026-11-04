@@ -101,4 +101,28 @@
   <AT_ShellNotHostile>{0}（{1}）并非敌对——火炮只能炮击敌对基地和营地（或已打开的地图）。</AT_ShellNotHostile>
   <AT_ShellNoTarget>这里没有可炮击的目标。请选择敌对基地或营地（无需探索）或已打开的地图。</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0}（{1}）已被炮火摧毁。</AT_ShellSiteDestroyed>
+  <AT_QC_This>炮塔开/关</AT_QC_This>
+  <AT_QC_This_Desc>关闭此炮塔（停止射击，包括强制目标）或重新开启。</AT_QC_This_Desc>
+  <AT_QC_All>所有炮塔…</AT_QC_All>
+  <AT_QC_All_Desc>关闭或开启本地图上你的所有炮塔，或将它们全部设为致命或仅眩晕。</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>射击：致命</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>射击：仅眩晕</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>致命：正常射击。仅眩晕：每次命中只造成眩晕（无伤口），炮塔会跳过已眩晕或倒地的目标。不适用于爆炸武器（迫击炮、火箭）。</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>此炮塔：致命</AT_QC_SetLethal>
+  <AT_QC_SetStun>此炮塔：仅眩晕</AT_QC_SetStun>
+  <AT_QC_AllLethal>所有炮塔：致命</AT_QC_AllLethal>
+  <AT_QC_AllStun>所有炮塔：仅眩晕</AT_QC_AllStun>
+  <AT_QC_Explosive>爆炸武器（迫击炮、火箭、炮弹）不能设为仅眩晕。</AT_QC_Explosive>
+  <AT_QC_AllOff>关闭所有炮塔</AT_QC_AllOff>
+  <AT_QC_AllOn>开启所有炮塔</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>已关闭 {0} 座炮塔。</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>已开启 {0} 座炮塔。</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>已将 {0} 座炮塔设为仅眩晕。</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>已将 {0} 座炮塔设为致命。</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>{0} 座爆炸炮塔保持致命。</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>你的炮塔：全部关闭或开启，致命或仅眩晕。</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>炮塔快捷按钮</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>在你的每座炮塔上显示开/关和致命/眩晕按钮。</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>右下角炮塔按钮</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>在游戏设置旁（右下角）的小按钮，用于全部关闭/开启炮塔或切换致命/眩晕。</AT_QC_SetGlobal_Desc>
 </LanguageData>

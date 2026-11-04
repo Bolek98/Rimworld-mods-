@@ -37,6 +37,8 @@ namespace AutoTurrets
 		public bool stunGiveUp = true;          // 1.3.0: … and those stunned give up (wardens take them back)
 		public bool shellSettlements = true;    // 1.4.0: VFE Security artillery shells hostile bases without a map
 		public int shellHitsToDestroy = 40;     // 1.4.0: hits that destroy an industrial base
+		public bool quickGizmos = true;          // 1.3.0: quick on/off and stun buttons on turrets
+		public bool quickGlobalButton = true;    // 1.3.0: the same as a small button bottom right
 
 		public override void ExposeData()
 		{
@@ -66,6 +68,8 @@ namespace AutoTurrets
 			Scribe_Values.Look(ref stunGiveUp, "stunGiveUp", true);
 			Scribe_Values.Look(ref shellSettlements, "shellSettlements", true);
 			Scribe_Values.Look(ref shellHitsToDestroy, "shellHitsToDestroy", 40);
+			Scribe_Values.Look(ref quickGizmos, "quickGizmos", true);
+			Scribe_Values.Look(ref quickGlobalButton, "quickGlobalButton", true);
 			if (autoPick == null) autoPick = new Dictionary<string, bool>();
 			if (fuelExtra == null) fuelExtra = new List<string>();
 			if (Scribe.mode == LoadSaveMode.PostLoadInit && wallPick == null)
@@ -131,6 +135,8 @@ namespace AutoTurrets
 					l.CheckboxLabeled("AT_SpecialOnlyPicked".Translate(), ref S.specialOnlyPicked, "AT_SpecialOnlyPicked_Desc".Translate());
 					l.CheckboxLabeled("AT_FriendlyFire".Translate(), ref S.friendlyFire, "AT_FriendlyFire_Desc".Translate());
 					l.CheckboxLabeled("AT_NoHitBuildings".Translate(), ref S.noHitBuildings, "AT_NoHitBuildings_Desc".Translate());
+					l.CheckboxLabeled("AT_QC_SetGizmos".Translate(), ref S.quickGizmos, "AT_QC_SetGizmos_Desc".Translate());
+					l.CheckboxLabeled("AT_QC_SetGlobal".Translate(), ref S.quickGlobalButton, "AT_QC_SetGlobal_Desc".Translate());
 					l.CheckboxLabeled("AT_StunRunaways".Translate(), ref S.stunRunaways, "AT_StunRunaways_Desc".Translate());
 					if (S.stunRunaways)
 						l.CheckboxLabeled("    " + "AT_StunGiveUp".Translate(), ref S.stunGiveUp, "AT_StunGiveUp_Desc".Translate());

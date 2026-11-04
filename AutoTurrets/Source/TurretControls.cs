@@ -73,6 +73,7 @@ namespace AutoTurrets
 		public static IEnumerable<Gizmo> Extra(Building_TurretGun t)
 		{
 			if (t.Faction != Faction.OfPlayer) yield break;
+			foreach (Gizmo q in QuickControl.Gizmo(t)) yield return q;   // 1.3.0 quick control
 			bool shells = IsShellTurret(t);
 			CompRefuelable fuel = t.GetComp<CompRefuelable>();
 			if (shells && Auto.IsAuto(t))

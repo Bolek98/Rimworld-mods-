@@ -101,4 +101,28 @@
   <AT_ShellNotHostile>{0}（{1}）は敵対していません – 砲撃できるのは敵対拠点とキャンプ（または開いているマップ）だけです。</AT_ShellNotHostile>
   <AT_ShellNoTarget>ここには砲撃対象がありません。敵対拠点やキャンプ（未探索でも可）か開いているマップを選んでください。</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0}（{1}）は砲撃で破壊されました。</AT_ShellSiteDestroyed>
+  <AT_QC_This>タレット オン/オフ</AT_QC_This>
+  <AT_QC_This_Desc>このタレットをオフ（強制目標にも撃たない）またはオンに戻す。</AT_QC_This_Desc>
+  <AT_QC_All>すべてのタレット…</AT_QC_All>
+  <AT_QC_All_Desc>このマップのすべてのタレットをオフ/オンにする、またはすべてを致死か気絶のみに設定する。</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>射撃：致死</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>射撃：気絶のみ</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>致死：通常の射撃。気絶のみ：命中は気絶だけ（負傷なし）で、すでに気絶・ダウンした目標は飛ばす。爆発武器（迫撃砲、ロケット）には使えない。</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>このタレット：致死</AT_QC_SetLethal>
+  <AT_QC_SetStun>このタレット：気絶のみ</AT_QC_SetStun>
+  <AT_QC_AllLethal>すべてのタレット：致死</AT_QC_AllLethal>
+  <AT_QC_AllStun>すべてのタレット：気絶のみ</AT_QC_AllStun>
+  <AT_QC_Explosive>爆発武器（迫撃砲、ロケット、砲弾）は気絶のみにできません。</AT_QC_Explosive>
+  <AT_QC_AllOff>すべてのタレットをオフ</AT_QC_AllOff>
+  <AT_QC_AllOn>すべてのタレットをオン</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>{0} 基のタレットをオフにしました。</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>{0} 基のタレットをオンにしました。</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>{0} 基のタレットを気絶のみにしました。</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>{0} 基のタレットを致死にしました。</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>爆発タレット {0} 基は致死のままです。</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>あなたのタレット：すべてオフ/オン、致死または気絶のみ。</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>タレットのクイックボタン</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>あなたのすべてのタレットにオン/オフと致死/気絶のボタンを表示。</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>右下のタレットボタン</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>ゲーム設定の横（右下）の小さなボタンで、すべてのタレットをオフ/オンまたは致死/気絶に切り替え。</AT_QC_SetGlobal_Desc>
 </LanguageData>

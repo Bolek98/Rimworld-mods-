@@ -101,4 +101,28 @@
   <AT_ShellNotHostile>{0} ({1}) není nepřátelské – dělostřelectvo ostřeluje jen nepřátelské základny a tábory (nebo mapu, kterou máš otevřenou).</AT_ShellNotHostile>
   <AT_ShellNoTarget>Tady není co ostřelovat. Vyber nepřátelskou základnu nebo tábor (nemusí být prozkoumané) nebo mapu, kterou máš otevřenou.</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0} ({1}) bylo zničeno dělostřelbou.</AT_ShellSiteDestroyed>
+  <AT_QC_This>Věž zap/vyp</AT_QC_This>
+  <AT_QC_This_Desc>Vypne tuto věž (nestřílí, ani na vynucený cíl), nebo ji znovu zapne.</AT_QC_This_Desc>
+  <AT_QC_All>Všechny věže…</AT_QC_All>
+  <AT_QC_All_Desc>Vypne nebo zapne všechny tvoje věže na této mapě, nebo je všechny nastaví na smrtící či jen omračující.</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>Střelba: smrtící</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>Střelba: jen omračovat</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>Smrtící: normální střelba. Jen omračovat: každý zásah jen omráčí (žádná zranění) a věž přeskakuje cíle, které už jsou omráčené nebo leží. Ne pro výbušné zbraně (minomety, rakety).</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>Tato věž: smrtící</AT_QC_SetLethal>
+  <AT_QC_SetStun>Tato věž: jen omračovat</AT_QC_SetStun>
+  <AT_QC_AllLethal>Všechny věže: smrtící</AT_QC_AllLethal>
+  <AT_QC_AllStun>Všechny věže: jen omračovat</AT_QC_AllStun>
+  <AT_QC_Explosive>Výbušné zbraně (minomety, rakety, granáty) nejdou přepnout na omračování.</AT_QC_Explosive>
+  <AT_QC_AllOff>Vypnout všechny věže</AT_QC_AllOff>
+  <AT_QC_AllOn>Zapnout všechny věže</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>Vypnuto věží: {0}.</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>Zapnuto věží: {0}.</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>Na omračování přepnuto věží: {0}.</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>Na smrtící přepnuto věží: {0}.</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>Výbušných věží ponecháno smrtících: {0}.</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>Tvoje věže: vypnout nebo zapnout všechny, smrtící nebo jen omračovat.</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>Rychlá tlačítka věží</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>Tlačítka zap/vyp a smrtící/omračovat na každé tvé věži.</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>Tlačítko věží vpravo dole</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>Malé tlačítko vedle nastavení hry (vpravo dole) pro vypnutí/zapnutí všech věží nebo přepnutí smrtící/omračovat.</AT_QC_SetGlobal_Desc>
 </LanguageData>

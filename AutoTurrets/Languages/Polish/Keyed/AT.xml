@@ -101,4 +101,28 @@
   <AT_ShellNotHostile>{0} ({1}) nie jest wrogie – artyleria ostrzeliwuje tylko wrogie bazy i obozy (lub otwartą mapę).</AT_ShellNotHostile>
   <AT_ShellNoTarget>Tu nie ma czego ostrzeliwać. Wybierz wrogą bazę lub obóz (nie muszą być zbadane) lub otwartą mapę.</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0} ({1}) zostało zniszczone ostrzałem artyleryjskim.</AT_ShellSiteDestroyed>
+  <AT_QC_This>Wieżyczka wł./wył.</AT_QC_This>
+  <AT_QC_This_Desc>Wyłącza tę wieżyczkę (nie strzela, nawet do wymuszonego celu) albo włącza ją z powrotem.</AT_QC_This_Desc>
+  <AT_QC_All>Wszystkie wieżyczki…</AT_QC_All>
+  <AT_QC_All_Desc>Wyłącz lub włącz wszystkie swoje wieżyczki na tej mapie albo ustaw je wszystkie na zabójczy lub tylko ogłuszanie.</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>Ogień: zabójczy</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>Ogień: tylko ogłuszanie</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>Zabójczy: zwykłe strzały. Tylko ogłuszanie: każde trafienie tylko ogłusza (bez ran), a wieżyczka pomija cele już ogłuszone lub leżące. Nie dla broni wybuchowej (moździerze, rakiety).</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>Ta wieżyczka: zabójczy</AT_QC_SetLethal>
+  <AT_QC_SetStun>Ta wieżyczka: tylko ogłuszanie</AT_QC_SetStun>
+  <AT_QC_AllLethal>Wszystkie wieżyczki: zabójczy</AT_QC_AllLethal>
+  <AT_QC_AllStun>Wszystkie wieżyczki: tylko ogłuszanie</AT_QC_AllStun>
+  <AT_QC_Explosive>Broń wybuchowa (moździerze, rakiety, pociski) nie może tylko ogłuszać.</AT_QC_Explosive>
+  <AT_QC_AllOff>Wyłącz wszystkie wieżyczki</AT_QC_AllOff>
+  <AT_QC_AllOn>Włącz wszystkie wieżyczki</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>Wyłączono wieżyczek: {0}.</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>Włączono wieżyczek: {0}.</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>Na ogłuszanie ustawiono wieżyczek: {0}.</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>Na zabójczy ustawiono wieżyczek: {0}.</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>Wieżyczek wybuchowych pozostawiono zabójczych: {0}.</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>Twoje wieżyczki: wyłącz lub włącz wszystkie, zabójczy lub tylko ogłuszanie.</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>Szybkie przyciski wieżyczek</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>Przyciski wł./wył. i zabójczy/ogłuszanie na każdej twojej wieżyczce.</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>Przycisk wieżyczek w prawym dolnym rogu</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>Mały przycisk obok ustawień gry (prawy dolny róg) do wyłączania/włączania wszystkich wieżyczek lub przełączania zabójczy/ogłuszanie.</AT_QC_SetGlobal_Desc>
 </LanguageData>

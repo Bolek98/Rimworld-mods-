@@ -101,4 +101,28 @@
   <AT_ShellNotHostile>{0} ({1}) не враждебно – артиллерия обстреливает только враждебные базы и лагеря (или открытую карту).</AT_ShellNotHostile>
   <AT_ShellNoTarget>Здесь нечего обстреливать. Выберите враждебную базу или лагерь (разведка не нужна) или открытую карту.</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0} ({1}) уничтожено артиллерийским огнём.</AT_ShellSiteDestroyed>
+  <AT_QC_This>Турель вкл/выкл</AT_QC_This>
+  <AT_QC_This_Desc>Выключает эту турель (не стреляет, даже по принудительной цели) или снова включает.</AT_QC_This_Desc>
+  <AT_QC_All>Все турели…</AT_QC_All>
+  <AT_QC_All_Desc>Выключить или включить все твои турели на этой карте или поставить всем смертельный огонь или только оглушение.</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>Огонь: смертельный</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>Огонь: только оглушение</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>Смертельный: обычные выстрелы. Только оглушение: каждое попадание только оглушает (без ран), и турель пропускает уже оглушённые или упавшие цели. Не для взрывного оружия (миномёты, ракеты).</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>Эта турель: смертельный</AT_QC_SetLethal>
+  <AT_QC_SetStun>Эта турель: только оглушение</AT_QC_SetStun>
+  <AT_QC_AllLethal>Все турели: смертельный</AT_QC_AllLethal>
+  <AT_QC_AllStun>Все турели: только оглушение</AT_QC_AllStun>
+  <AT_QC_Explosive>Взрывное оружие (миномёты, ракеты, снаряды) не может только оглушать.</AT_QC_Explosive>
+  <AT_QC_AllOff>Выключить все турели</AT_QC_AllOff>
+  <AT_QC_AllOn>Включить все турели</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>Выключено турелей: {0}.</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>Включено турелей: {0}.</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>Переведено на оглушение турелей: {0}.</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>Переведено на смертельный огонь турелей: {0}.</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>Взрывных турелей оставлено смертельными: {0}.</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>Твои турели: выключить или включить все, смертельный огонь или только оглушение.</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>Быстрые кнопки турелей</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>Кнопки вкл/выкл и смертельный/оглушение на каждой твоей турели.</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>Кнопка турелей справа внизу</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>Маленькая кнопка рядом с игровыми настройками (справа внизу), чтобы выключить/включить все турели или переключить смертельный/оглушение.</AT_QC_SetGlobal_Desc>
 </LanguageData>
