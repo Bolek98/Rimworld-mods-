@@ -203,9 +203,46 @@ public sealed partial class SupplyManager : MapComponent
 	// Pick Up And Haul has time to unload it itself.
 	private readonly Dictionary<int, int> strayFirstSeen = new Dictionary<int, int>();
 
+	private static readonly Dictionary<ThingDef, bool> ammoCache = new Dictionary<ThingDef, bool>();
+	private static bool IsAmmo(ThingDef d)
+	{
+		if (d == null) return false;
+		if (ammoCache.TryGetValue(d, out bool v)) return v;
+		v = false;
+		for (Type ty = d.GetType(); ty != null && ty != typeof(ThingDef); ty = ty.BaseType)
+			if (ty.Name.IndexOf("Ammo", StringComparison.OrdinalIgnoreCase) >= 0) { v = true; break; }
+		if (!v && d.thingClass != null && d.thingClass.Name.IndexOf("Ammo", StringComparison.OrdinalIgnoreCase) >= 0) v = true;
+		if (!v && d.thingCategories != null)
+			foreach (ThingCategoryDef c in d.thingCategories)
+				if (c != null && c.defName.IndexOf("Ammo", StringComparison.OrdinalIgnoreCase) >= 0) { v = true; break; }
+		ammoCache[d] = v;
+		return v;
+	}
+
+	private static System.Reflection.MethodInfo kitInKit;
+	private static bool kitLooked;
+	private static bool OtherModKeeps(Pawn p, Thing t)
+	{
+		try
+		{
+			if (!kitLooked)
+			{
+				kitLooked = true;
+				Type k = GenTypes.GetTypeInAnyAssembly("StewardKit.Kits");
+				kitInKit = k?.GetMethod("InKit", new[] { typeof(Pawn), typeof(Thing) });
+			}
+			if (kitInKit != null && (bool)kitInKit.Invoke(null, new object[] { p, t })) return true;
+		}
+		catch { kitInKit = null; }
+		return false;
+	}
+
 	private static bool KeepInInventory(Pawn p, Thing t)
 	{
 		if (t.def.IsWeapon || t is Apparel)
+			return true;
+		// 1.1.2: ammo (Combat Extended and other ammo mods) and Steward – Kit items stay in the pockets
+		if (IsAmmo(t.def) || OtherModKeeps(p, t))
 			return true;
 		if (p.drugs?.CurrentPolicy != null)
 		{

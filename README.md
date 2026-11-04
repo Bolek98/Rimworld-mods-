@@ -50,7 +50,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Steward – Orders | 0.3.2 | [Steward2/StewardOrders](Steward2/StewardOrders) |
 | Steward – Roles | 0.2.1 | [Steward2/StewardRoles](Steward2/StewardRoles) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
-| Steward – Supplies | 1.1.1 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
+| Steward – Supplies | 1.1.2 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
 | Tidy Toolbar – No More Cut-Off Tabs | 1.2.0 | [TidyToolbar](TidyToolbar) |
 | Trader Hotline – Call the Trader You Want | 0.3.1 | [TraderHotline](TraderHotline) |
