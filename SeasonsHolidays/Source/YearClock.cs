@@ -160,11 +160,19 @@ namespace SeasonsHolidays
             catch (Exception e) { Log.Warning("[Seasons & Holidays] year length " + m.Name + ": " + e.Message); }
         }
 
+        // 0.4.1: only GenDate's calendar functions are patched (DayOfTwelfth, DayOfYear, Twelfth, YearPercent,
+        // Year) – quest, expiry and other timers count ticks (TicksGame differences, GenDate.TicksPerDay …) and are
+        // never rescaled. Outside a running game (world generation, menus, scenario start dates) and for
+        // negative or absurd moments the game's own value is kept, so other mods' setup maths stays untouched.
         public static void LongPrefix(ref long absTicks)
         {
-            if (SHMod.S == null) return;
+            if (SHMod.S == null || Current.ProgramState != ProgramState.Playing) return;
+            if (absTicks < 0L || absTicks > MaxAbs) return;
             absTicks = Scaled(absTicks);
         }
+
+        // about 600 in-game years – beyond that a moment is not a real date of this colony
+        private const long MaxAbs = 600L * 3600000L;
 
         // only real moments (now and the near future): the game also asks for sample days of a
         // made-up year (average of a twelfth, min / max of the year) – those stay as they are
@@ -173,7 +181,8 @@ namespace SeasonsHolidays
             if (SHMod.S == null || Find.TickManager == null || Current.ProgramState != ProgramState.Playing) return;
             long now = Find.TickManager.TicksAbs;
             if (absTick < now - 60000L || absTick > now + 3600000L) return;
-            absTick = (int)Scaled(absTick);
+            long sc = Scaled(absTick);
+            absTick = sc > int.MaxValue ? int.MaxValue : sc < int.MinValue ? int.MinValue : (int)sc;   // 0.4.1: clamped
         }
 
         public static void AgePostfix(ref float __result)

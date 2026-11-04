@@ -564,14 +564,21 @@ namespace SeasonsHolidays
         // ---------- patches: romance in the air, herbs and crops give more ----------
         public static void Patch(Harmony h)
         {
+            // 0.4.1: each patch on its own – one changed method no longer switches the others off
+            One(h, "romance", AccessTools.Method(typeof(InteractionWorker_RomanceAttempt), nameof(InteractionWorker_RomanceAttempt.RandomSelectionWeight)), null, nameof(RomancePostfix));
+            One(h, "harvest", AccessTools.Method(typeof(Plant), nameof(Plant.YieldNow)), null, nameof(YieldPostfix));
+            One(h, "resolution", AccessTools.Method(typeof(SkillRecord), nameof(SkillRecord.Learn)), nameof(LearnPrefix), null);
+        }
+
+        private static void One(Harmony h, string what, System.Reflection.MethodBase m, string prefix, string postfix)
+        {
             try
             {
-                h.Patch(AccessTools.Method(typeof(InteractionWorker_RomanceAttempt), nameof(InteractionWorker_RomanceAttempt.RandomSelectionWeight)),
-                    postfix: new HarmonyMethod(typeof(Activities), nameof(RomancePostfix)));
-                h.Patch(AccessTools.Method(typeof(Plant), nameof(Plant.YieldNow)), postfix: new HarmonyMethod(typeof(Activities), nameof(YieldPostfix)));
-                h.Patch(AccessTools.Method(typeof(SkillRecord), nameof(SkillRecord.Learn)), prefix: new HarmonyMethod(typeof(Activities), nameof(LearnPrefix)));
+                if (m == null) { Log.Warning("[Seasons & Holidays] activities (" + what + "): game method not found – this part is off."); return; }
+                h.Patch(m, prefix: prefix == null ? null : new HarmonyMethod(typeof(Activities), prefix),
+                    postfix: postfix == null ? null : new HarmonyMethod(typeof(Activities), postfix));
             }
-            catch (Exception e) { Log.Warning("[Seasons & Holidays] activities patch: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Seasons & Holidays] activities patch (" + what + "): " + e.Message); }
         }
 
         public static void RomancePostfix(ref float __result)
@@ -593,11 +600,26 @@ namespace SeasonsHolidays
                 __result = Mathf.RoundToInt(__result * 1.25f);
         }
 
+        // 0.4.1: SkillRecord.Learn runs very often – the resolution skill of a pawn is looked up at most every
+        // 250 ticks instead of walking all his health conditions every time
+        private static readonly Dictionary<int, KeyValuePair<int, SkillDef>> resolutionCache = new Dictionary<int, KeyValuePair<int, SkillDef>>();
+
         public static void LearnPrefix(SkillRecord __instance, Pawn ___pawn, ref float xp)
         {
-            if (xp <= 0f || ___pawn?.health?.hediffSet == null) return;
-            foreach (Hediff h in ___pawn.health.hediffSet.hediffs)
-                if (h is Hediff_SHResolution r && r.skill == __instance.def) { xp *= 1.5f; return; }
+            if (xp <= 0f || ___pawn?.health?.hediffSet == null || Find.TickManager == null) return;
+            int now = Find.TickManager.TicksGame;
+            SkillDef skill;
+            if (resolutionCache.TryGetValue(___pawn.thingIDNumber, out var c) && now - c.Key < 250 && now >= c.Key)
+                skill = c.Value;
+            else
+            {
+                skill = null;
+                foreach (Hediff h in ___pawn.health.hediffSet.hediffs)
+                    if (h is Hediff_SHResolution r) { skill = r.skill; break; }
+                if (resolutionCache.Count > 2000) resolutionCache.Clear();
+                resolutionCache[___pawn.thingIDNumber] = new KeyValuePair<int, SkillDef>(now, skill);
+            }
+            if (skill != null && skill == __instance.def) xp *= 1.5f;
         }
     }
 

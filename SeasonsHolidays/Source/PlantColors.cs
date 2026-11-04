@@ -29,6 +29,9 @@ namespace SeasonsHolidays
             public int sig = int.MinValue;
         }
 
+        // 0.4.1: the plant graphic is also asked for from the game's drawing threads – all tables below are
+        // guarded by this lock, and new tinted graphics (materials) are only made on the main thread
+        private static readonly object gate = new object();
         private static readonly Dictionary<ThingDef, Kind> kinds = new Dictionary<ThingDef, Kind>();
         private static readonly Dictionary<int, State> states = new Dictionary<int, State>();
         private static readonly Dictionary<int, float> climate = new Dictionary<int, float>();   // tile -> strength
@@ -138,15 +141,19 @@ namespace SeasonsHolidays
                 return;
             try
             {
-                State st = StateOf(map);
-                var fresh = new State();
-                Compute(map, fresh);
-                int sig = Sig(fresh);
-                if (sig == st.sig) return;
-                st.autumn = fresh.autumn;
-                st.winter = fresh.winter;
-                st.strength = fresh.strength;
-                st.sig = sig;
+                State st;
+                lock (gate)
+                {
+                    st = StateOf(map);
+                    var fresh = new State();
+                    Compute(map, fresh);
+                    int sig = Sig(fresh);
+                    if (sig == st.sig) return;
+                    st.autumn = fresh.autumn;
+                    st.winter = fresh.winter;
+                    st.strength = fresh.strength;
+                    st.sig = sig;
+                }
                 if (st.strength > 0f) map.mapDrawer.WholeMapChanged(MapMeshFlagDefOf.Things);
             }
             catch (Exception e) { Log.WarningOnce("[Seasons & Holidays] plant colours: " + e.Message, 0x5E4503); }
@@ -155,7 +162,7 @@ namespace SeasonsHolidays
         // the setting was switched – every map is drawn again
         public static void RefreshAll()
         {
-            states.Clear();
+            lock (gate) states.Clear();
             if (Current.ProgramState != ProgramState.Playing || Find.Maps == null) return;
             foreach (Map m in Find.Maps)
                 try { m.mapDrawer.WholeMapChanged(MapMeshFlagDefOf.Things); } catch { }
@@ -211,6 +218,7 @@ namespace SeasonsHolidays
         public static void GraphicPostfix(Plant __instance, ref Graphic __result)
         {
             if (!On || __result == null) return;
+            lock (gate)
             try
             {
                 Map map = __instance.Map;
@@ -239,6 +247,9 @@ namespace SeasonsHolidays
             int key = (Mathf.RoundToInt(col.r * 40f) << 16) | (Mathf.RoundToInt(col.g * 40f) << 8) | Mathf.RoundToInt(col.b * 40f);
             long full = ((long)gid << 32) | (uint)key;
             if (colored.TryGetValue(full, out Graphic c)) return c;
+            // off the main thread no new material may be made – the plant keeps its normal look this time
+            // and gets its colour the next time the main thread draws it
+            if (!UnityData.IsInMainThread) return g;
             Color baseCol = g.color;
             Color mixed = new Color(baseCol.r * col.r, baseCol.g * col.g, baseCol.b * col.b, baseCol.a);
             try { c = g.GetColoredVersion(g.Shader, mixed, g.colorTwo); }

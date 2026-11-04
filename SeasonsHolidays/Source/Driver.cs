@@ -17,7 +17,8 @@ namespace SeasonsHolidays
 
         public override void MapComponentTick()
         {
-            try { fireworks.Tick(map); } catch { }
+            try { fireworks.Tick(map); }
+            catch (Exception e) { Log.WarningOnce("[Seasons & Holidays] fireworks: " + e.Message, 0x5E4507); }   // 0.4.1: no longer silent
             PlantColors.Tick(map);   // 0.3.0
             if (Find.TickManager.TicksGame % 250 != 17 || !map.IsPlayerHome || SHMod.S == null) return;
             try { Run(); }

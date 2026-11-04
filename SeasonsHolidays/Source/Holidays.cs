@@ -78,6 +78,8 @@ namespace SeasonsHolidays
         {
             if (Find.TickManager == null || Current.ProgramState != ProgramState.Playing) return 5500;
             Map map = Find.CurrentMap ?? Find.AnyPlayerHomeMap;
+            // note: the year follows the longitude of the map in view – with colonies far apart east-west
+            // the new year can come a few hours apart on each map (same as the game's own date line)
             float lon = map != null ? Find.WorldGrid.LongLatOf(map.Tile).x : 0f;
             return GenDate.Year(Find.TickManager.TicksAbs, lon);
         }

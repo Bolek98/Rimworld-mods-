@@ -83,7 +83,7 @@ namespace SeasonsHolidays
 
     public class SHMod : Mod
     {
-        public const string Version = "0.4.0";
+        public const string Version = "0.4.1";
         public static SHSettings S;
         private static List<string> recBullets;
         private static Vector2 scroll;
