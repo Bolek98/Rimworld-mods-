@@ -22,6 +22,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Haul Master – Pockets, Routes & Storage | 3.5.0 | [HaulSmarter](HaulSmarter) |
 | Legacy – Your Old Colonies Live On | 0.1.1 | [Legacy](Legacy) |
 | Lively Pawns – Animations & Effects | 0.1.1 | [LivelyPawns](LivelyPawns) |
+| Mad Dice Max – Dice Storyteller | 1.0.0 | [MadDiceMax](MadDiceMax) |
 | Map Architect | 0.4.3 | [MapArchitect](MapArchitect) |
 | Masks & Headgear Together | 1.0.1 | [MasksAndHeadgear](MasksAndHeadgear) |
 | Matchmaker | 0.1.1 | [Matchmaker](Matchmaker) |
@@ -34,6 +35,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Power & Water Works | 0.1.1 | [PowerWaterWorks](PowerWaterWorks) |
 | QoL – Faster Work, Prisoners & Pipette | 1.1.0 | [QoLFasterWork](QoLFasterWork) |
 | Randy's Table – Chaos Storytellers | 0.4.0 | [RandysTable](RandysTable) |
+| Research Atlas – Research Tree for Big Modpacks | 0.2.0 | [ResearchAtlas](ResearchAtlas) |
 | Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
 | Ride & Drive – Mounts and Vehicles Together | 0.1.1 | [RideAndDrive](RideAndDrive) |
 | Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.4.1 | [SeasonsHolidays](SeasonsHolidays) |
@@ -43,6 +45,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | Steward – Work Priorities | 1.1.0 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.1.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| Steward – Droids | 0.1.1 | [Steward2/StewardDroids](Steward2/StewardDroids) |
 | Steward – Orders | 0.3.2 | [Steward2/StewardOrders](Steward2/StewardOrders) |
 | Steward – Roles | 0.2.1 | [Steward2/StewardRoles](Steward2/StewardRoles) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
