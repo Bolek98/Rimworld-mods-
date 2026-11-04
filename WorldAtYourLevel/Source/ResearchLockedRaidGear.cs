@@ -33,7 +33,7 @@ namespace ResearchLockedRaidGear
 			Evolution
 		}
 
-		public const string Version = "2.15.0";
+		public const string Version = "2.16.0";
 
 		public static ResearchLockedRaidGearSettings Settings;
 
@@ -517,6 +517,17 @@ namespace ResearchLockedRaidGear
 			Check(l, "RLRG_EV_RaidDefense", ref Settings.raidByDefense, "raidByDefense");
 			if (Settings.raidByDefense)
 				Settings.defenseWeight = (int)Sl(l, "defenseWeight", "RLRG_EV_DefenseWeight".Translate(Settings.defenseWeight), Settings.defenseWeight, 10f, 100f, 0.55f, "RLRG_EV_DefenseWeight_Desc".Translate());
+			// 2.16.0
+			l.GapLine();
+			string mode = (Settings.newsMode <= 0 ? "RLRG_NW_Off" : Settings.newsMode == 1 ? "RLRG_NW_Message" : "RLRG_NW_Letter").Translate().ToString();
+			Settings.newsMode = Mathf.Clamp(Mathf.RoundToInt(Sl(l, "newsMode", "RLRG_NW_Mode".Translate(mode), Settings.newsMode, 0f, 2f, 0.55f, "RLRG_NW_Mode_Desc".Translate())), 0, 2);
+			if (Settings.factionTech)
+			{
+				Check(l, "RLRG_EV_Relations", ref Settings.factionRelations, "factionRelations");
+				if (Settings.factionRelations)
+					Settings.relationStrength = Mathf.Clamp(Mathf.RoundToInt(Sl(l, "relationStrength", "RLRG_EV_RelStrength".Translate(Settings.relationStrength), Settings.relationStrength, 1f, 10f, 0.55f, "RLRG_EV_RelStrength_Desc".Translate())), 1, 10);
+				Check(l, "RLRG_EV_SellData", ref Settings.sellData, "sellData");
+			}
 			l.End();
 		}
 
@@ -877,6 +888,12 @@ namespace ResearchLockedRaidGear
 		public bool studyTech = true;
 		public bool eraEvents = true;
 
+		// 2.16.0: world news (0 off, 1 message, 2 letter), relations by level, selling research data
+		public int newsMode = 1;
+		public bool factionRelations = true;
+		public int relationStrength = 2;
+		public bool sellData = true;
+
 		public bool exemptAncients = true;
 
 		public List<string> exemptFactions = new List<string>();
@@ -1011,6 +1028,10 @@ namespace ResearchLockedRaidGear
 			Scribe_Values.Look(ref defenseWeight, "defenseWeight", 50);
 			Scribe_Values.Look(ref studyTech, "studyTech", true);
 			Scribe_Values.Look(ref eraEvents, "eraEvents", true);
+			Scribe_Values.Look(ref newsMode, "newsMode", 1);
+			Scribe_Values.Look(ref factionRelations, "factionRelations", true);
+			Scribe_Values.Look(ref relationStrength, "relationStrength", 2);
+			Scribe_Values.Look(ref sellData, "sellData", true);
 			Scribe_Values.Look(ref exemptAncients, "exemptAncients", true);
 			Scribe_Collections.Look(ref exemptFactions, "exemptFactions", LookMode.Value);
 			if (exemptFactions == null)

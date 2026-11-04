@@ -376,4 +376,40 @@
   <RLRG_RemKeepAll>Tout garder</RLRG_RemKeepAll>
   <RLRG_RemKeepAll_Desc>Garder tout ce qui est affiché ici – ce ne sera plus retiré.</RLRG_RemKeepAll_Desc>
   <RLRG_RemTip>Coché = reste. Décoché = les règles du mod décident (mécanoïdes et drones non recherchés, machines météo/conditions au-dessus du niveau du monde, tourelles meilleures que les vôtres). Cochez pour le garder quand même.</RLRG_RemTip>
+  <RLRG_NW_Mode>Nouvelles du monde : {0}</RLRG_NW_Mode>
+  <RLRG_NW_Mode_Desc>Quand une faction gagne ou perd un niveau technologique, une courte nouvelle te prévient – en message, en lettre ou pas du tout. L'onglet Monde garde toujours l'historique.</RLRG_NW_Mode_Desc>
+  <RLRG_NW_Off>désactivé</RLRG_NW_Off>
+  <RLRG_NW_Message>message</RLRG_NW_Message>
+  <RLRG_NW_Letter>lettre</RLRG_NW_Letter>
+  <RLRG_NW_Title>Nouvelles du monde</RLRG_NW_Title>
+  <RLRG_NW_Up_2>{0} ont laissé les anciennes coutumes derrière eux et travaillent désormais la pierre et le bois comme de vrais artisans.</RLRG_NW_Up_2>
+  <RLRG_NW_Up_3>{0} ont appris à forger l'acier – leurs guerriers arrivent désormais en armure, avec épées et arcs.</RLRG_NW_Up_3>
+  <RLRG_NW_Up_4>{0} ont découvert la poudre à canon – leurs gens portent désormais des armes à feu.</RLRG_NW_Up_4>
+  <RLRG_NW_Up_5>{0} ont construit leurs premiers fabricateurs – la technologie spatiale atteint leurs colonies.</RLRG_NW_Up_5>
+  <RLRG_NW_Up_6>{0} maîtrisent l'ultra-technologie – leurs colonies brillent d'une technique que peu ont jamais vue.</RLRG_NW_Up_6>
+  <RLRG_NW_Up_7>{0} ont touché au savoir archotech – le monde ne sera plus jamais le même.</RLRG_NW_Up_7>
+  <RLRG_NW_Down>{0} ont perdu une grande partie de leur savoir{1} et sont retombés au niveau {2}.</RLRG_NW_Down>
+  <RLRG_NW_CauseRaid> après que tu as détruit l'une de leurs colonies</RLRG_NW_CauseRaid>
+  <RLRG_NW_CauseTrade> Le commerce avec toi les a aidés.</RLRG_NW_CauseTrade>
+  <RLRG_NW_CauseData> Les données de recherche qu'ils t'ont achetées les ont aidés.</RLRG_NW_CauseData>
+  <RLRG_NW_History>Nouvelles du monde</RLRG_NW_History>
+  <RLRG_NW_HistoryEmpty>Pas encore de nouvelles.</RLRG_NW_HistoryEmpty>
+  <RLRG_EV_Relations>Les relations suivent le niveau technologique</RLRG_EV_Relations>
+  <RLRG_EV_Relations_Desc>Les factions très éloignées en technologie (2 niveaux ou plus) deviennent lentement hostiles – les arriérés envient les avancés. Les factions de même niveau commercent et deviennent lentement amicales. Seules les relations entre les autres factions changent, jamais les tiennes.</RLRG_EV_Relations_Desc>
+  <RLRG_EV_RelStrength>Changement : {0} de bonne volonté tous les 3 jours</RLRG_EV_RelStrength>
+  <RLRG_EV_RelStrength_Desc>À quelle vitesse les relations entre factions évoluent vers l'amitié ou l'hostilité.</RLRG_EV_RelStrength_Desc>
+  <RLRG_EV_RelTitle>Relations entre factions</RLRG_EV_RelTitle>
+  <RLRG_EV_RelEnvy>{0} envient {1} ({2} niveaux d'avance, bonne volonté {3})</RLRG_EV_RelEnvy>
+  <RLRG_EV_RelFriends>{0} et {1} commercent d'égal à égal (bonne volonté {2})</RLRG_EV_RelFriends>
+  <RLRG_EV_RelNone>Aucune relation façonnée par la technologie pour l'instant.</RLRG_EV_RelNone>
+  <RLRG_EV_SellData>Vente de données de recherche</RLRG_EV_SellData>
+  <RLRG_EV_SellData_Desc>À la console de communication, les factions en retard sur toi peuvent acheter des données de tes recherches terminées : argent et bonne volonté pour toi, progrès vers le niveau suivant pour elles – elles deviennent plus fortes. Une fois tous les 7 jours par faction.</RLRG_EV_SellData_Desc>
+  <RLRG_EV_NoteData>recherche achetée</RLRG_EV_NoteData>
+  <RLRG_SD_Option>Vendre des données de recherche</RLRG_SD_Option>
+  <RLRG_SD_Cooldown>Ils étudient encore ce que tu leur as vendu la dernière fois ({0} jours).</RLRG_SD_Cooldown>
+  <RLRG_SD_Nothing>Tu n'as aucune recherche terminée qui leur manque.</RLRG_SD_Nothing>
+  <RLRG_SD_Intro>{0} (niveau {1}) paieraient pour une recherche qu'ils n'ont pas encore.\n\nAttention : ce que tu vends les rend plus forts – leurs pillards et visiteurs porteront plus tôt un meilleur équipement.</RLRG_SD_Intro>
+  <RLRG_SD_Item>{0} – {1} argent, +{2} bonne volonté</RLRG_SD_Item>
+  <RLRG_SD_Done>{0} ont payé {1} argent pour les données sur {2}. L'argent arrive par capsule de largage.</RLRG_SD_Done>
+  <RLRG_SD_Back>Retour</RLRG_SD_Back>
 </LanguageData>
