@@ -384,4 +384,74 @@ Mod Sort Manager は {0} 個の疑わしいModの半分を無効化し、ゲー�
   <MSM_ClearNew>NEWを消す</MSM_ClearNew>
   <MSM_ClearNewTip>すべてのMODのNEW表示を消します。後で追加したMODには再び表示されます。</MSM_ClearNewTip>
   <MSM_DragMany>{0} 個のMOD</MSM_DragMany>
+  <!-- 0.6.0: categories -->
+  <MSM_TabCats>カテゴリ</MSM_TabCats>
+  <MSM_CatHead>カテゴリ · 有効 / インストール済み</MSM_CatHead>
+  <MSM_Cat_all>すべてのMod</MSM_Cat_all>
+  <MSM_Cat_game>ゲームとDLC</MSM_Cat_game>
+  <MSM_Cat_frameworks>フレームワーク・ライブラリ</MSM_Cat_frameworks>
+  <MSM_Cat_races>種族・ゼノタイプ</MSM_Cat_races>
+  <MSM_Cat_apparel>衣服・防具</MSM_Cat_apparel>
+  <MSM_Cat_weapons>武器</MSM_Cat_weapons>
+  <MSM_Cat_buildings>建物・家具</MSM_Cat_buildings>
+  <MSM_Cat_production>生産・クラフト</MSM_Cat_production>
+  <MSM_Cat_food>食料・農業</MSM_Cat_food>
+  <MSM_Cat_animals>動物</MSM_Cat_animals>
+  <MSM_Cat_medical>医療・健康</MSM_Cat_medical>
+  <MSM_Cat_events>ストーリーテラー・イベント</MSM_Cat_events>
+  <MSM_Cat_factions>勢力・ワールド</MSM_Cat_factions>
+  <MSM_Cat_ui>UI・快適性</MSM_Cat_ui>
+  <MSM_Cat_performance>パフォーマンス</MSM_Cat_performance>
+  <MSM_Cat_textures>テクスチャ・見た目</MSM_Cat_textures>
+  <MSM_Cat_translations>翻訳</MSM_Cat_translations>
+  <MSM_Cat_adult>18+</MSM_Cat_adult>
+  <MSM_Cat_other>その他</MSM_Cat_other>
+  <MSM_CatCountTip>{1} 個中 {0} 個が有効</MSM_CatCountTip>
+  <MSM_CatCustomTip>自分のカテゴリ – 右クリックで名前変更・削除。</MSM_CatCustomTip>
+  <MSM_CatScanning>Modをカテゴリに分類中… {0} / {1}</MSM_CatScanning>
+  <MSM_CatNew>+ 新しいカテゴリ</MSM_CatNew>
+  <MSM_CatNewTitle>新しいカテゴリの名前</MSM_CatNewTitle>
+  <MSM_CatNameBad>まだ使われていない名前を入力してください（40文字まで）。</MSM_CatNameBad>
+  <MSM_CatRescan>再分類</MSM_CatRescan>
+  <MSM_CatRescanTip>すべてのModのファイルを見直して自動カテゴリを作り直します（手動で移動したものはそのまま）。</MSM_CatRescanTip>
+  <MSM_CatOnlyActive>有効のみ</MSM_CatOnlyActive>
+  <MSM_CatSearch>このカテゴリ内を検索…</MSM_CatSearch>
+  <MSM_CatHint>Modを右クリック：別のカテゴリへ移動 · ダブルクリック：ロード順を開く</MSM_CatHint>
+  <MSM_CatEmpty>ここにModはありません。</MSM_CatEmpty>
+  <MSM_CatOf>カテゴリ：{0}</MSM_CatOf>
+  <MSM_CatManual>手動で移動</MSM_CatManual>
+  <MSM_CatAuto>自動（{0}）</MSM_CatAuto>
+  <MSM_CatMove>カテゴリへ移動</MSM_CatMove>
+  <MSM_CatRename>名前を変更</MSM_CatRename>
+  <MSM_CatDelete>カテゴリを削除</MSM_CatDelete>
+  <MSM_CatDeleteConfirm>カテゴリ「{0}」を削除しますか？ そのModは自動カテゴリに戻ります。</MSM_CatDeleteConfirm>
+  <MSM_CatFilter>カテゴリ：{0}</MSM_CatFilter>
+  <MSM_CatFilterTip>あるカテゴリの無効なModだけを表示します。</MSM_CatFilterTip>
+  <!-- 0.7.0 nicknames -->
+  <MSM_NickRename>名前を変更…</MSM_NickRename>
+  <MSM_NickTitle>このModの自分用の名前（自分にだけ表示）：</MSM_NickTitle>
+  <MSM_NickOriginal>元の名前：{0}</MSM_NickOriginal>
+  <MSM_NickReset>元の名前に戻す</MSM_NickReset>
+  <MSM_SetNick>自分で付けたMod名を表示</MSM_SetNick>
+  <MSM_SetNickTip>名前を変更したMod（Modを右クリック → 名前を変更…）は、Mod Sort Managerとゲームのモッドリストにあなたの名前で表示されます。セーブ、Modリスト、他のModでは本当の名前のままです。「オプション → Mod設定」にも表示されます。</MSM_SetNickTip>
+  <MSM_SetNickOrig>元の名前も表示</MSM_SetNickOrig>
+  <MSM_SetNickOrigTip>名前を変更したModの詳細とツールチップに元の名前も表示します。</MSM_SetNickOrigTip>
+  <!-- 0.8.0 folders -->
+  <MSM_FolderFav>お気に入り</MSM_FolderFav>
+  <MSM_FolderOn>すべて有効化</MSM_FolderOn>
+  <MSM_FolderOff>すべて無効化</MSM_FolderOff>
+  <MSM_FolderCountTip>このフォルダーのMOD {1} 個中 {0} 個が有効</MSM_FolderCountTip>
+  <MSM_FolderTip>クリック：フォルダーを開閉 · 右クリック：名前変更、移動、削除、新規フォルダー · MODをここへドラッグして追加</MSM_FolderTip>
+  <MSM_FolderEnabled>「{1}」のMODを {0} 個有効化しました。</MSM_FolderEnabled>
+  <MSM_FolderMissingDeps>そのうち {0} 個は有効でないMODが必要です – 「問題」を参照。</MSM_FolderMissingDeps>
+  <MSM_FolderDisabled>「{1}」のMODを {0} 個無効化しました。</MSM_FolderDisabled>
+  <MSM_FolderRename>名前を変更…</MSM_FolderRename>
+  <MSM_FolderRenameTitle>フォルダーの新しい名前：</MSM_FolderRenameTitle>
+  <MSM_FolderUp>上へ</MSM_FolderUp>
+  <MSM_FolderDown>下へ</MSM_FolderDown>
+  <MSM_FolderDelete>フォルダーを削除（MODは残ります）</MSM_FolderDelete>
+  <MSM_FolderNew>新しいフォルダー…</MSM_FolderNew>
+  <MSM_FolderNewTitle>新しいフォルダーの名前：</MSM_FolderNewTitle>
+  <MSM_FolderMove>フォルダーへ移動…</MSM_FolderMove>
+  <MSM_FolderNone>フォルダーから出す</MSM_FolderNone>
 </LanguageData>

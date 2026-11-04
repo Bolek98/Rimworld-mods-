@@ -384,4 +384,74 @@ Starten?</MSM_BisectConfirm>
   <MSM_ClearNew>NEU ausblenden</MSM_ClearNew>
   <MSM_ClearNewTip>Blendet die NEU-Markierung aller Mods aus. Später hinzugefügte Mods werden wieder markiert.</MSM_ClearNewTip>
   <MSM_DragMany>{0} Mods</MSM_DragMany>
+  <!-- 0.6.0: categories -->
+  <MSM_TabCats>Kategorien</MSM_TabCats>
+  <MSM_CatHead>KATEGORIEN · AKTIV / INSTALLIERT</MSM_CatHead>
+  <MSM_Cat_all>Alle Mods</MSM_Cat_all>
+  <MSM_Cat_game>Spiel &amp; DLC</MSM_Cat_game>
+  <MSM_Cat_frameworks>Frameworks &amp; Bibliotheken</MSM_Cat_frameworks>
+  <MSM_Cat_races>Rassen &amp; Xenotypen</MSM_Cat_races>
+  <MSM_Cat_apparel>Kleidung &amp; Rüstung</MSM_Cat_apparel>
+  <MSM_Cat_weapons>Waffen</MSM_Cat_weapons>
+  <MSM_Cat_buildings>Gebäude &amp; Möbel</MSM_Cat_buildings>
+  <MSM_Cat_production>Produktion &amp; Handwerk</MSM_Cat_production>
+  <MSM_Cat_food>Nahrung &amp; Landwirtschaft</MSM_Cat_food>
+  <MSM_Cat_animals>Tiere</MSM_Cat_animals>
+  <MSM_Cat_medical>Medizin &amp; Gesundheit</MSM_Cat_medical>
+  <MSM_Cat_events>Erzähler &amp; Ereignisse</MSM_Cat_events>
+  <MSM_Cat_factions>Fraktionen &amp; Welt</MSM_Cat_factions>
+  <MSM_Cat_ui>Oberfläche &amp; Komfort</MSM_Cat_ui>
+  <MSM_Cat_performance>Leistung</MSM_Cat_performance>
+  <MSM_Cat_textures>Texturen &amp; Optik</MSM_Cat_textures>
+  <MSM_Cat_translations>Übersetzungen</MSM_Cat_translations>
+  <MSM_Cat_adult>18+</MSM_Cat_adult>
+  <MSM_Cat_other>Sonstiges</MSM_Cat_other>
+  <MSM_CatCountTip>{0} aktiv von {1} installiert</MSM_CatCountTip>
+  <MSM_CatCustomTip>Deine eigene Kategorie – Rechtsklick zum Umbenennen oder Löschen.</MSM_CatCustomTip>
+  <MSM_CatScanning>Mods werden in Kategorien sortiert… {0} / {1}</MSM_CatScanning>
+  <MSM_CatNew>+ Neue Kategorie</MSM_CatNew>
+  <MSM_CatNewTitle>Name der neuen Kategorie</MSM_CatNewTitle>
+  <MSM_CatNameBad>Gib einen noch nicht benutzten Namen ein (bis 40 Zeichen).</MSM_CatNameBad>
+  <MSM_CatRescan>Neu sortieren</MSM_CatRescan>
+  <MSM_CatRescanTip>Die Dateien aller Mods erneut ansehen und die automatischen Kategorien neu bestimmen (deine Verschiebungen bleiben).</MSM_CatRescanTip>
+  <MSM_CatOnlyActive>Nur aktive</MSM_CatOnlyActive>
+  <MSM_CatSearch>In dieser Kategorie suchen…</MSM_CatSearch>
+  <MSM_CatHint>Rechtsklick auf einen Mod: in andere Kategorie verschieben · Doppelklick: Ladereihenfolge öffnen</MSM_CatHint>
+  <MSM_CatEmpty>Hier gibt es keine Mods.</MSM_CatEmpty>
+  <MSM_CatOf>Kategorie: {0}</MSM_CatOf>
+  <MSM_CatManual>von dir verschoben</MSM_CatManual>
+  <MSM_CatAuto>Automatisch ({0})</MSM_CatAuto>
+  <MSM_CatMove>In Kategorie verschieben</MSM_CatMove>
+  <MSM_CatRename>Umbenennen</MSM_CatRename>
+  <MSM_CatDelete>Kategorie löschen</MSM_CatDelete>
+  <MSM_CatDeleteConfirm>Kategorie „{0}“ löschen? Ihre Mods kehren in ihre automatischen Kategorien zurück.</MSM_CatDeleteConfirm>
+  <MSM_CatFilter>Kategorie: {0}</MSM_CatFilter>
+  <MSM_CatFilterTip>Nur die inaktiven Mods einer Kategorie zeigen.</MSM_CatFilterTip>
+  <!-- 0.7.0 nicknames -->
+  <MSM_NickRename>Umbenennen…</MSM_NickRename>
+  <MSM_NickTitle>Dein eigener Name für diese Mod (nur du siehst ihn):</MSM_NickTitle>
+  <MSM_NickOriginal>Original: {0}</MSM_NickOriginal>
+  <MSM_NickReset>Originalname</MSM_NickReset>
+  <MSM_SetNick>Meine eigenen Mod-Namen anzeigen</MSM_SetNick>
+  <MSM_SetNickTip>Umbenannte Mods (Rechtsklick auf eine Mod → Umbenennen…) zeigen deinen Namen im Mod Sort Manager und in der Mod-Liste des Spiels. Der echte Name bleibt in Spielständen, Mod-Listen und für andere Mods. Sie erscheinen auch unter Optionen → Mod-Einstellungen.</MSM_SetNickTip>
+  <MSM_SetNickOrig>Auch den Originalnamen anzeigen</MSM_SetNickOrig>
+  <MSM_SetNickOrigTip>Bei einer umbenannten Mod zeigen Details und Tooltip auch den Originalnamen.</MSM_SetNickOrigTip>
+  <!-- 0.8.0 folders -->
+  <MSM_FolderFav>Favoriten</MSM_FolderFav>
+  <MSM_FolderOn>Alle aktivieren</MSM_FolderOn>
+  <MSM_FolderOff>Alle deaktivieren</MSM_FolderOff>
+  <MSM_FolderCountTip>{0} von {1} Mods in diesem Ordner sind aktiv</MSM_FolderCountTip>
+  <MSM_FolderTip>Klick: Ordner öffnen oder schließen · Rechtsklick: umbenennen, verschieben, löschen, neuer Ordner · Mods hierher ziehen, um sie einzuordnen</MSM_FolderTip>
+  <MSM_FolderEnabled>{0} Mods aus „{1}“ aktiviert.</MSM_FolderEnabled>
+  <MSM_FolderMissingDeps>{0} davon brauchen einen Mod, der nicht aktiv ist – siehe Probleme.</MSM_FolderMissingDeps>
+  <MSM_FolderDisabled>{0} Mods aus „{1}“ deaktiviert.</MSM_FolderDisabled>
+  <MSM_FolderRename>Umbenennen…</MSM_FolderRename>
+  <MSM_FolderRenameTitle>Neuer Name des Ordners:</MSM_FolderRenameTitle>
+  <MSM_FolderUp>Nach oben</MSM_FolderUp>
+  <MSM_FolderDown>Nach unten</MSM_FolderDown>
+  <MSM_FolderDelete>Ordner löschen (Mods bleiben)</MSM_FolderDelete>
+  <MSM_FolderNew>Neuer Ordner…</MSM_FolderNew>
+  <MSM_FolderNewTitle>Name des neuen Ordners:</MSM_FolderNewTitle>
+  <MSM_FolderMove>In Ordner verschieben…</MSM_FolderMove>
+  <MSM_FolderNone>Aus dem Ordner nehmen</MSM_FolderNone>
 </LanguageData>

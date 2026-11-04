@@ -384,4 +384,74 @@ Mod Sort Manager выключит половину подозреваемых м
   <MSM_ClearNew>Скрыть НОВЫЕ</MSM_ClearNew>
   <MSM_ClearNewTip>Скрывает метку НОВЫЙ у всех модов. Моды, добавленные позже, снова получат её.</MSM_ClearNewTip>
   <MSM_DragMany>Модов: {0}</MSM_DragMany>
+  <!-- 0.6.0: categories -->
+  <MSM_TabCats>Категории</MSM_TabCats>
+  <MSM_CatHead>КАТЕГОРИИ · ВКЛЮЧЕНО / УСТАНОВЛЕНО</MSM_CatHead>
+  <MSM_Cat_all>Все моды</MSM_Cat_all>
+  <MSM_Cat_game>Игра и DLC</MSM_Cat_game>
+  <MSM_Cat_frameworks>Фреймворки и библиотеки</MSM_Cat_frameworks>
+  <MSM_Cat_races>Расы и ксенотипы</MSM_Cat_races>
+  <MSM_Cat_apparel>Одежда и броня</MSM_Cat_apparel>
+  <MSM_Cat_weapons>Оружие</MSM_Cat_weapons>
+  <MSM_Cat_buildings>Постройки и мебель</MSM_Cat_buildings>
+  <MSM_Cat_production>Производство и ремёсла</MSM_Cat_production>
+  <MSM_Cat_food>Еда и фермерство</MSM_Cat_food>
+  <MSM_Cat_animals>Животные</MSM_Cat_animals>
+  <MSM_Cat_medical>Медицина и здоровье</MSM_Cat_medical>
+  <MSM_Cat_events>Рассказчики и события</MSM_Cat_events>
+  <MSM_Cat_factions>Фракции и мир</MSM_Cat_factions>
+  <MSM_Cat_ui>Интерфейс и удобство</MSM_Cat_ui>
+  <MSM_Cat_performance>Производительность</MSM_Cat_performance>
+  <MSM_Cat_textures>Текстуры и графика</MSM_Cat_textures>
+  <MSM_Cat_translations>Переводы</MSM_Cat_translations>
+  <MSM_Cat_adult>18+</MSM_Cat_adult>
+  <MSM_Cat_other>Прочее</MSM_Cat_other>
+  <MSM_CatCountTip>{0} включено из {1} установленных</MSM_CatCountTip>
+  <MSM_CatCustomTip>Ваша категория – правый клик, чтобы переименовать или удалить.</MSM_CatCustomTip>
+  <MSM_CatScanning>Сортировка модов по категориям… {0} / {1}</MSM_CatScanning>
+  <MSM_CatNew>+ Новая категория</MSM_CatNew>
+  <MSM_CatNewTitle>Название новой категории</MSM_CatNewTitle>
+  <MSM_CatNameBad>Введите ещё не занятое название (до 40 символов).</MSM_CatNameBad>
+  <MSM_CatRescan>Отсортировать заново</MSM_CatRescan>
+  <MSM_CatRescanTip>Снова просмотреть файлы всех модов и заново определить автоматические категории (ваши переносы сохранятся).</MSM_CatRescanTip>
+  <MSM_CatOnlyActive>Только включённые</MSM_CatOnlyActive>
+  <MSM_CatSearch>Поиск в этой категории…</MSM_CatSearch>
+  <MSM_CatHint>Правый клик по моду: перенести в другую категорию · двойной клик: открыть порядок загрузки</MSM_CatHint>
+  <MSM_CatEmpty>Здесь нет модов.</MSM_CatEmpty>
+  <MSM_CatOf>Категория: {0}</MSM_CatOf>
+  <MSM_CatManual>перенесено вами</MSM_CatManual>
+  <MSM_CatAuto>Автоматически ({0})</MSM_CatAuto>
+  <MSM_CatMove>Перенести в категорию</MSM_CatMove>
+  <MSM_CatRename>Переименовать</MSM_CatRename>
+  <MSM_CatDelete>Удалить категорию</MSM_CatDelete>
+  <MSM_CatDeleteConfirm>Удалить категорию «{0}»? Её моды вернутся в свои автоматические категории.</MSM_CatDeleteConfirm>
+  <MSM_CatFilter>Категория: {0}</MSM_CatFilter>
+  <MSM_CatFilterTip>Показать только выключенные моды одной категории.</MSM_CatFilterTip>
+  <!-- 0.7.0 nicknames -->
+  <MSM_NickRename>Переименовать…</MSM_NickRename>
+  <MSM_NickTitle>Своё название для этого мода (видно только вам):</MSM_NickTitle>
+  <MSM_NickOriginal>Исходное: {0}</MSM_NickOriginal>
+  <MSM_NickReset>Исходное название</MSM_NickReset>
+  <MSM_SetNick>Показывать мои названия модов</MSM_SetNick>
+  <MSM_SetNickTip>Переименованные моды (ПКМ по моду → Переименовать…) показываются под вашим названием в Mod Sort Manager и в списке модов игры. Настоящее название остаётся в сохранениях, списках модов и для других модов. Они также видны в Настройки → Настройки модов.</MSM_SetNickTip>
+  <MSM_SetNickOrig>Показывать и исходное название</MSM_SetNickOrig>
+  <MSM_SetNickOrigTip>У переименованного мода подробности и подсказка показывают и исходное название.</MSM_SetNickOrigTip>
+  <!-- 0.8.0 folders -->
+  <MSM_FolderFav>Избранное</MSM_FolderFav>
+  <MSM_FolderOn>Включить все</MSM_FolderOn>
+  <MSM_FolderOff>Отключить все</MSM_FolderOff>
+  <MSM_FolderCountTip>Включено {0} из {1} модов в этой папке</MSM_FolderCountTip>
+  <MSM_FolderTip>Клик: открыть или закрыть папку · Правый клик: переименовать, переместить, удалить, новая папка · Перетащите сюда моды, чтобы добавить их</MSM_FolderTip>
+  <MSM_FolderEnabled>Включено модов из «{1}»: {0}.</MSM_FolderEnabled>
+  <MSM_FolderMissingDeps>{0} из них нужен мод, который не включён – см. Проблемы.</MSM_FolderMissingDeps>
+  <MSM_FolderDisabled>Отключено модов из «{1}»: {0}.</MSM_FolderDisabled>
+  <MSM_FolderRename>Переименовать…</MSM_FolderRename>
+  <MSM_FolderRenameTitle>Новое имя папки:</MSM_FolderRenameTitle>
+  <MSM_FolderUp>Выше</MSM_FolderUp>
+  <MSM_FolderDown>Ниже</MSM_FolderDown>
+  <MSM_FolderDelete>Удалить папку (моды останутся)</MSM_FolderDelete>
+  <MSM_FolderNew>Новая папка…</MSM_FolderNew>
+  <MSM_FolderNewTitle>Имя новой папки:</MSM_FolderNewTitle>
+  <MSM_FolderMove>Переместить в папку…</MSM_FolderMove>
+  <MSM_FolderNone>Убрать из папки</MSM_FolderNone>
 </LanguageData>

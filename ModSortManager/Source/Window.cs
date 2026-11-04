@@ -10,7 +10,7 @@ using Verse.Sound;
 
 namespace ModSortManager
 {
-    public class Dialog_ModSortManager : Window
+    public partial class Dialog_ModSortManager : Window
     {
         // ---- colors (dark MUI look) ----
         private static readonly Color Bg = new Color32(24, 27, 31, 255);
@@ -55,6 +55,8 @@ namespace ModSortManager
         private bool dragging;
         // 0.3.1: several mods selected at once (Ctrl+click, Shift+click, Ctrl+A); 'selected' is the last one clicked
         private readonly HashSet<ModMetaData> multi = new HashSet<ModMetaData>();
+        // 0.8.1: a plain click on a mod inside a multi-selection keeps it for dragging; released without a drag it selects only that mod
+        private bool collapseOnUp;
         private float dragStartY;
 
         private string profileName = "";
@@ -104,6 +106,7 @@ namespace ModSortManager
             same = SameThing.Analyze();
             blames = LogErrors.Analyze();
             dirty = true;
+            ModCats.Start();   // 0.6.0: categories are worked out in the background
             if (initialIds != null) ApplyIds(initialIds, null);
             else if (!Bisect.Active) OfferNextGroup();
         }
@@ -150,6 +153,7 @@ namespace ModSortManager
         private int ver;
         private int cVer = -1;
         private string cInactF, cActF;
+        private int cCatStamp;
         private List<ModMetaData> cInact, cAct;
         private readonly Dictionary<Issue, float> heights = new Dictionary<Issue, float>();
         private float heightsW;
@@ -166,7 +170,7 @@ namespace ModSortManager
             marks.Clear();
             notes.Clear();
             var set = new HashSet<ModMetaData>(active);
-            inactiveCache = ModLister.AllInstalledMods.Where(m => !set.Contains(m) && !Removal.IsGone(m)).OrderByDescending(m => NewMods.IsNew(m) ? NewMods.AddedAt(m).Value.Ticks : 0L).ThenByDescending(m => m.Official).ThenBy(m => m.Name).ToList();
+            inactiveCache = ModLister.AllInstalledMods.Where(m => !set.Contains(m) && !Removal.IsGone(m)).OrderByDescending(m => NewMods.IsNew(m) ? NewMods.AddedAt(m).Value.Ticks : 0L).ThenByDescending(m => m.Official).ThenBy(m => Nicknames.Show(m)).ToList();
 
             // duplicates
             foreach (List<DupCopy> g in dups)
@@ -218,11 +222,11 @@ namespace ModSortManager
                     if (d.alternativePackageIds != null) ids.AddRange(d.alternativePackageIds);
                     if (ids.Any(id => Sorter.Present(active, id, out j))) continue;
                     ModMetaData inst = ids.Select(id => ModLister.GetModWithIdentifier(id, true)).FirstOrDefault(x => x != null);
-                    var iss = new Issue { group = 1, sev = Sev.Error, title = "MSM_DepTitle".Translate(m.Name, d.displayName ?? d.packageId) };
+                    var iss = new Issue { group = 1, sev = Sev.Error, title = "MSM_DepTitle".Translate(Nicknames.Show(m), d.displayName ?? d.packageId) };
                     iss.text = inst != null ? "MSM_DepInstalled".Translate().ToString() : "MSM_DepMissing".Translate().ToString();
                     ModMetaData mm = m;
                     if (inst != null)
-                        iss.actions.Add(new KeyValuePair<string, Action>("MSM_Activate".Translate(inst.Name.Truncate(120f)), () => Activate(inst)));
+                        iss.actions.Add(new KeyValuePair<string, Action>("MSM_Activate".Translate(Nicknames.Show(inst).Truncate(120f)), () => Activate(inst)));
                     else if (!d.Url.NullOrEmpty())
                     {
                         string url = d.Url;
@@ -257,30 +261,30 @@ namespace ModSortManager
                     ModMetaData b = active[j];
                     string key = i < j ? i + "|" + j : j + "|" + i;
                     if (!seen.Add(key)) continue;
-                    var iss = new Issue { group = 1, sev = Sev.Error, title = "MSM_IncTitle".Translate(a.Name, b.Name), text = "MSM_IncText".Translate(a.Name) };
-                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateX".Translate(a.Name.Truncate(120f)), () => Deactivate(a)));
-                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateX".Translate(b.Name.Truncate(120f)), () => Deactivate(b)));
+                    var iss = new Issue { group = 1, sev = Sev.Error, title = "MSM_IncTitle".Translate(Nicknames.Show(a), Nicknames.Show(b)), text = "MSM_IncText".Translate(Nicknames.Show(a)) };
+                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateX".Translate(Nicknames.Show(a).Truncate(120f)), () => Deactivate(a)));
+                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateX".Translate(Nicknames.Show(b).Truncate(120f)), () => Deactivate(b)));
                     issues.Add(iss);
                     Sorter.Mark(marks, a, Sev.Error);
                     Sorter.Mark(marks, b, Sev.Error);
-                    Note(a, Sev.Error, "MSM_NoteInc".Translate(b.Name));
-                    Note(b, Sev.Error, "MSM_NoteInc".Translate(a.Name));
+                    Note(a, Sev.Error, "MSM_NoteInc".Translate(Nicknames.Show(b)));
+                    Note(b, Sev.Error, "MSM_NoteInc".Translate(Nicknames.Show(a)));
                 }
             }
 
             // 0.2.1: known mods that do the same job (one switches itself off, or they fight)
             foreach (Rivals.Hit h in Rivals.Find(active))
             {
-                var iss = new Issue { group = 1, sev = h.rule.sev, title = "MSM_RivalTitle".Translate(h.a.Name, h.b.Name) };
-                iss.text = ("MSM_Rival_" + h.rule.key).Translate(h.a.Name, h.b.Name).ToString() + "\n" + "MSM_RivalHint".Translate();
+                var iss = new Issue { group = 1, sev = h.rule.sev, title = "MSM_RivalTitle".Translate(Nicknames.Show(h.a), Nicknames.Show(h.b)) };
+                iss.text = ("MSM_Rival_" + h.rule.key).Translate(Nicknames.Show(h.a), Nicknames.Show(h.b)).ToString() + "\n" + "MSM_RivalHint".Translate();
                 ModMetaData ra = h.a, rb = h.b;
-                iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateX".Translate(ra.Name.Truncate(120f)), () => Deactivate(ra)));
-                iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateX".Translate(rb.Name.Truncate(120f)), () => Deactivate(rb)));
+                iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateX".Translate(Nicknames.Show(ra).Truncate(120f)), () => Deactivate(ra)));
+                iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateX".Translate(Nicknames.Show(rb).Truncate(120f)), () => Deactivate(rb)));
                 issues.Add(iss);
                 Sorter.Mark(marks, ra, h.rule.sev);
                 Sorter.Mark(marks, rb, h.rule.sev);
-                Note(ra, h.rule.sev, "MSM_NoteRival".Translate(rb.Name));
-                Note(rb, h.rule.sev, "MSM_NoteRival".Translate(ra.Name));
+                Note(ra, h.rule.sev, "MSM_NoteRival".Translate(Nicknames.Show(rb)));
+                Note(rb, h.rule.sev, "MSM_NoteRival".Translate(Nicknames.Show(ra)));
             }
 
             // load order rules
@@ -301,7 +305,7 @@ namespace ModSortManager
             {
                 string cur = VersionControl.CurrentMajor + "." + VersionControl.CurrentMinor;
                 var iss = new Issue { group = 1, sev = Sev.Warn, title = "MSM_OldTitle".Translate(old.Count, cur) };
-                iss.text = "MSM_OldText".Translate() + "\n" + string.Join(", ", old.Select(m => m.Name + " (" + MSM.Versions(m) + ")").ToArray());
+                iss.text = "MSM_OldText".Translate() + "\n" + string.Join(", ", old.Select(m => Nicknames.Show(m) + " (" + MSM.Versions(m) + ")").ToArray());
                 issues.Add(iss);
                 foreach (ModMetaData m in old)
                 {
@@ -320,21 +324,21 @@ namespace ModSortManager
                 bool hidden = MSMMod.Settings.hiddenSame.Contains(hk);
                 if (hidden) hiddenSameCount++;
                 if (hidden && !showHiddenSame) continue;
-                var iss = new Issue { group = 2, sev = Sev.Info, title = sp.a.Name + " × " + sp.b.Name + (hidden ? "  · " + "MSM_SameHiddenTag".Translate() : "") };
+                var iss = new Issue { group = 2, sev = Sev.Info, title = Nicknames.Show(sp.a) + " × " + Nicknames.Show(sp.b) + (hidden ? "  · " + "MSM_SameHiddenTag".Translate() : "") };
                 iss.text = (sp.hot ? "MSM_SameHot".Translate() : "MSM_SameText".Translate()).ToString() + " (" + sp.methods.Count + "): " + string.Join(", ", sp.methods.Take(4).ToArray()) + (sp.methods.Count > 4 ? "…" : "");
                 // 0.1.7: how they change it – first two methods, the rest in the details window
                 foreach (SameMethod d in sp.detail.Take(2))
-                    iss.text += "\n• " + d.method + ": " + sp.a.Name.Truncate(160f) + " – " + d.kindsA + " · " + sp.b.Name.Truncate(160f) + " – " + d.kindsB;
+                    iss.text += "\n• " + d.method + ": " + Nicknames.Show(sp.a).Truncate(160f) + " – " + d.kindsA + " · " + Nicknames.Show(sp.b).Truncate(160f) + " – " + d.kindsB;
                 iss.text += "\n" + (sp.blocking ? "MSM_SameBlocking" : "MSM_SameAdditive").Translate();
                 SamePair p = sp;
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_SameDetails".Translate(), () => Find.WindowStack.Add(new Dialog_SameDetail(p))));
                 if (sp.blocking)
                 {
-                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateNamed".Translate(sp.a.Name.Truncate(120f)), () => Deactivate(p.a)));
-                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateNamed".Translate(sp.b.Name.Truncate(120f)), () => Deactivate(p.b)));
+                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateNamed".Translate(Nicknames.Show(sp.a).Truncate(120f)), () => Deactivate(p.a)));
+                    iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateNamed".Translate(Nicknames.Show(sp.b).Truncate(120f)), () => Deactivate(p.b)));
                 }
-                iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(sp.a.Name.Truncate(120f)), () => { selected = p.a; tab = 0; }));
-                iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(sp.b.Name.Truncate(120f)), () => { selected = p.b; tab = 0; }));
+                iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(Nicknames.Show(sp.a).Truncate(120f)), () => { selected = p.a; tab = 0; }));
+                iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(Nicknames.Show(sp.b).Truncate(120f)), () => { selected = p.b; tab = 0; }));
                 if (hidden)
                     iss.actions.Add(new KeyValuePair<string, Action>("MSM_SameUnhide".Translate(), () => { MSMMod.Settings.hiddenSame.Remove(hk); MSMMod.Settings.Write(); dirty = true; }));
                 else
@@ -343,18 +347,18 @@ namespace ModSortManager
                 if (hidden) continue;
                 Sorter.Mark(marks, sp.a, Sev.Info);
                 Sorter.Mark(marks, sp.b, Sev.Info);
-                Note(sp.a, Sev.Info, "MSM_NoteSame".Translate(sp.b.Name));
-                Note(sp.b, Sev.Info, "MSM_NoteSame".Translate(sp.a.Name));
+                Note(sp.a, Sev.Info, "MSM_NoteSame".Translate(Nicknames.Show(sp.b)));
+                Note(sp.b, Sev.Info, "MSM_NoteSame".Translate(Nicknames.Show(sp.a)));
             }
 
             // 0.1.8: errors in this session's log, by the mod that caused them
             foreach (LogBlame b in blames)
             {
                 if (!active.Contains(b.mod)) continue;
-                var iss = new Issue { group = 3, sev = Sev.Warn, title = "MSM_LogTitle".Translate(b.mod.Name, b.count) };
+                var iss = new Issue { group = 3, sev = Sev.Warn, title = "MSM_LogTitle".Translate(Nicknames.Show(b.mod), b.count) };
                 iss.text = "MSM_LogText".Translate() + "\n“" + b.sample + "”";
                 LogBlame bb = b;
-                iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(b.mod.Name.Truncate(120f)), () => { selected = bb.mod; tab = 0; }));
+                iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(Nicknames.Show(b.mod).Truncate(120f)), () => { selected = bb.mod; tab = 0; }));
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_Deactivate".Translate(), () => Deactivate(bb.mod)));
                 issues.Add(iss);
                 Sorter.Mark(marks, b.mod, Sev.Warn);
@@ -442,22 +446,22 @@ namespace ModSortManager
                 dirty = true;
                 needsRestart = true;
                 if (selected == m) selected = active.FirstOrDefault();
-                Messages.Message((now ? "MSM_RemovedNow" : "MSM_RemovedLater").Translate(m.Name), MessageTypeDefOf.TaskCompletion, false);
+                Messages.Message((now ? "MSM_RemovedNow" : "MSM_RemovedLater").Translate(Nicknames.Show(m)), MessageTypeDefOf.TaskCompletion, false);
             }
             if (m.OnSteamWorkshop)
                 opts.Add(new FloatMenuOption("MSM_RemoveUnsub".Translate(), () =>
-                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_RemoveUnsubConfirm".Translate(m.Name), () =>
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_RemoveUnsubConfirm".Translate(Nicknames.Show(m)), () =>
                     {
                         if (MSM.Unsubscribe(m)) { Removal.Gone.Add(m.RootDir.FullName); Done(true); }
-                        else Messages.Message("MSM_RemoveFailed".Translate(m.Name), MessageTypeDefOf.RejectInput, false);
+                        else Messages.Message("MSM_RemoveFailed".Translate(Nicknames.Show(m)), MessageTypeDefOf.RejectInput, false);
                     }, true))));
             else
             {
                 opts.Add(new FloatMenuOption("MSM_RemovePark".Translate(), () =>
-                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_RemoveParkConfirm".Translate(m.Name, MSM.ParkDir), () =>
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_RemoveParkConfirm".Translate(Nicknames.Show(m), MSM.ParkDir), () =>
                         Done(Removal.RemoveFolder(m, false)), false))));
                 opts.Add(new FloatMenuOption("MSM_RemoveDelete".Translate(), () =>
-                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_RemoveDeleteConfirm".Translate(m.Name, m.RootDir.FullName), () =>
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("MSM_RemoveDeleteConfirm".Translate(Nicknames.Show(m), m.RootDir.FullName), () =>
                         Done(Removal.RemoveFolder(m, true)), true))));
             }
             Find.WindowStack.Add(new FloatMenu(opts));
@@ -468,7 +472,7 @@ namespace ModSortManager
         {
             List<ModMetaData> steam = mods.Where(x => x.OnSteamWorkshop).ToList();
             List<ModMetaData> local = mods.Where(x => !x.OnSteamWorkshop).ToList();
-            string Names(List<ModMetaData> l) => string.Join("\n", l.Take(15).Select(x => "• " + x.Name).ToArray()) + (l.Count > 15 ? "\n…" : "");
+            string Names(List<ModMetaData> l) => string.Join("\n", l.Take(15).Select(x => "• " + Nicknames.Show(x)).ToArray()) + (l.Count > 15 ? "\n…" : "");
             void Finish(List<ModMetaData> done, int failed)
             {
                 foreach (ModMetaData m in done)
@@ -594,7 +598,7 @@ namespace ModSortManager
             groups = groups.Select(g => g.Where(x => byId.ContainsKey(x) && !ids.Contains(x)).ToList()).Where(g => g.Count > 0).ToList();
             if (groups.Count == 0) { PreSave.DropQueue(); return; }
             List<ModMetaData> next = groups[0].Select(x => byId[x]).ToList();
-            var dlg = new Dialog_MessageBox("MSM_PS_NextGroup".Translate(next.Count, string.Join("\n", next.Select(m => "• " + m.Name).ToArray())),
+            var dlg = new Dialog_MessageBox("MSM_PS_NextGroup".Translate(next.Count, string.Join("\n", next.Select(m => "• " + Nicknames.Show(m)).ToArray())),
                 "MSM_PS_AddGroup".Translate(), delegate
                 {
                     foreach (ModMetaData m in next) PreSave.Insert(active, m, order);
@@ -924,7 +928,7 @@ namespace ModSortManager
             // tabs
             Rect tabs = new Rect(inRect.x + Pad, head.yMax + 1f, inRect.width - 2 * Pad, 36f);
             int nErr = issues.Count(i => i.sev == Sev.Error), nWarn = issues.Count(i => i.sev == Sev.Warn), nInfo = issues.Count(i => i.sev == Sev.Info);
-            string[] names = { "MSM_TabOrder".Translate(), "MSM_TabProblems".Translate(), "MSM_TabProfiles".Translate(), "MSM_TabUpdates".Translate(), "MSM_TabReplace".Translate() };
+            string[] names = { "MSM_TabOrder".Translate(), "MSM_TabProblems".Translate(), "MSM_TabProfiles".Translate(), "MSM_TabUpdates".Translate(), "MSM_TabReplace".Translate(), "MSM_TabCats".Translate() };
             int nRep = ReplaceCount();
             int nUpd = Updates.Pending;
             float tx = tabs.x;
@@ -968,7 +972,8 @@ namespace ModSortManager
             else if (tab == 1) DrawProblems(body);
             else if (tab == 2) DrawProfiles(body);
             else if (tab == 3) DrawUpdates(body);
-            else DrawReplace(body);
+            else if (tab == 4) DrawReplace(body);
+            else DrawCats(body);   // 0.6.0
         }
 
         private static void Pill(Rect r, string text, Color c)
@@ -1038,7 +1043,7 @@ namespace ModSortManager
         //   Up/Down (W/S)          move the cursor          Shift+Up/Down  move the selected mods
         //   Left/A, Delete         switch the selected off   Right/D        switch the selected on
         //   Ctrl+A                 select the whole list     Esc            only the cursor stays selected
-        private List<ModMetaData> ListOf(ModMetaData m) => m == null ? null : active.Contains(m) ? (ActiveFiltered ? cAct : active) : cInact;
+        private List<ModMetaData> ListOf(ModMetaData m) => m == null ? null : active.Contains(m) ? (ActiveFiltered ? cAct : active) : (vInact ?? cInact);
 
         public List<ModMetaData> Selection()
         {
@@ -1068,7 +1073,7 @@ namespace ModSortManager
             if (all)
             {
                 multi.Clear();
-                foreach (ModMetaData m in list) multi.Add(m);
+                foreach (ModMetaData m in list) if (m != null) multi.Add(m);
                 ev.Use();
                 return;
             }
@@ -1077,7 +1082,7 @@ namespace ModSortManager
                 List<ModMetaData> sel = Selection().Where(m => active.Contains(m) == off).ToList();
                 if (sel.Count == 0) { ev.Use(); return; }
                 // the cursor goes to the next mod that stays in this list
-                ModMetaData next = list.Skip(i + 1).FirstOrDefault(m => !sel.Contains(m)) ?? list.Take(i).LastOrDefault(m => !sel.Contains(m));
+                ModMetaData next = list.Skip(i + 1).FirstOrDefault(m => m != null && !sel.Contains(m)) ?? list.Take(i).LastOrDefault(m => m != null && !sel.Contains(m));
                 if (off) DeactivateMany(sel); else ActivateMany(sel);
                 multi.Clear();
                 selected = next ?? selected;
@@ -1096,6 +1101,8 @@ namespace ModSortManager
             else
             {
                 int to = Mathf.Clamp(i + dir, 0, list.Count - 1);
+                while (list[to] == null && to + dir >= 0 && to + dir < list.Count) to += dir;   // 0.8.0: over folder headers
+                if (list[to] == null) to = i;
                 multi.Clear();
                 if (to == i) { ev.Use(); return; }
                 selected = list[to];
@@ -1198,11 +1205,17 @@ namespace ModSortManager
                 }
                 TooltipHandler.TipRegion(hr, "MSM_ClearNewTip".Translate());
             }
-            string nf = SearchField(new Rect(l.x, l.y + 24f, l.width, 30f), fInactive, "MSM_SearchHint".Translate());
+            // 0.6.0: category filter next to the search
+            float cfw = Mathf.Min(170f, l.width * 0.42f);
+            string nf = SearchField(new Rect(l.x, l.y + 24f, l.width - cfw - 6f, 30f), fInactive, "MSM_SearchHint".Translate());
             if (nf != fInactive) fInactive = nf;
-            if (cVer != ver || cInactF != fInactive || cActF != fActive || cProb != onlyProblems)
+            CatFilterButton(new Rect(l.xMax - cfw, l.y + 24f, cfw, 30f));
+            int catStamp = catMain == null ? 0 : ModCats.Version;
+            if (cVer != ver || cInactF != fInactive || cActF != fActive || cProb != onlyProblems || cCatStamp != catStamp || cFolderStamp != ModFolders.Version)
             {
-                cInact = Filter(inactiveCache, fInactive);
+                cCatStamp = catStamp;
+                cInact = Filter(CatFilterInactive(inactiveCache), fInactive);
+                BuildFolderView(cInact, !fInactive.NullOrEmpty() || catMain != null);   // 0.8.0
                 cAct = Filter(active, fActive);
                 if (onlyProblems) cAct = cAct.Where(x => marks.ContainsKey(x)).ToList();
                 cProb = onlyProblems;
@@ -1210,7 +1223,7 @@ namespace ModSortManager
                 cActF = fActive;
                 cVer = ver;
             }
-            List<ModMetaData> inact = cInact;
+            List<ModMetaData> inact = vInact ?? cInact;
             KeyNav();   // 0.2.2
             hInactive = l.height - 62f;
             hActive = mid.ContractedBy(Pad, 10f).height - 62f;
@@ -1243,7 +1256,7 @@ namespace ModSortManager
         {
             if (f.NullOrEmpty()) return list;
             string q = f.ToLowerInvariant();
-            return list.Where(m => (m.Name ?? "").ToLowerInvariant().Contains(q) || (m.AuthorsString ?? "").ToLowerInvariant().Contains(q) || m.PackageIdPlayerFacing.ToLowerInvariant().Contains(q)).ToList();
+            return list.Where(m => Nicknames.Matches(m, q) || (m.AuthorsString ?? "").ToLowerInvariant().Contains(q) || m.PackageIdPlayerFacing.ToLowerInvariant().Contains(q)).ToList();
         }
 
         private void DrawList(Rect outRect, List<ModMetaData> list, ref Vector2 scroll, bool isActive)
@@ -1256,10 +1269,17 @@ namespace ModSortManager
             int first = Mathf.Max(0, (int)(scroll.y / RowH) - 1);
             int last = Mathf.Min(list.Count - 1, (int)((scroll.y + outRect.height) / RowH) + 1);
             Event ev = Event.current;
+            if (!isActive) headRects.Clear();
             for (int i = first; i <= last; i++)
             {
                 ModMetaData mod = list[i];
                 Rect row = new Rect(0f, i * RowH, view.width, RowH);
+                // 0.8.0: a folder header
+                if (mod == null)
+                {
+                    if (!isActive && vHeads.TryGetValue(i, out string fh) && DrawFolderHeader(row, fh)) break;
+                    continue;
+                }
                 bool sel = mod == selected || multi.Contains(mod);   // 0.3.1
                 if (sel) { MUI.Fill(row, MUI.OnBg); MUI.Frame(row, mod == selected ? MUI.Accent : MUI.Border); }
                 else if (Mouse.IsOver(row)) MUI.Fill(row, Hover);
@@ -1294,11 +1314,11 @@ namespace ModSortManager
                 }
                 string side = isActive ? ShortNote(mod) : (Rules.VersionOk(mod) ? "" : "MSM_OldShort".Translate(MSM.Versions(mod)).ToString());
                 float sideW = side.NullOrEmpty() ? 0f : Mathf.Min(nameW * 0.45f, Text.CalcSize(side).x * 0.85f + 6f);
-                Label(new Rect(x, row.y, nameW - sideW, RowH), mod.Name.Truncate(nameW - sideW), MUI.Text1, GameFont.Small, TextAnchor.MiddleLeft, false);
+                Label(new Rect(x, row.y, nameW - sideW, RowH), (Nicknames.Mark(mod) + Nicknames.Show(mod)).Truncate(nameW - sideW), Nicknames.Shown(mod) ? NickCol : MUI.Text1, GameFont.Small, TextAnchor.MiddleLeft, false);
                 if (sideW > 0f)
                     Label(new Rect(x + nameW - sideW, row.y, sideW, RowH), side.Truncate(sideW), isActive ? Dot(mod) : MUI.Warn, GameFont.Tiny, TextAnchor.MiddleRight, false);
                 DateTime? addedAt = NewMods.AddedAt(mod);
-                TooltipHandler.TipRegion(row, mod.Name + "\n" + mod.PackageIdPlayerFacing + (mod.AuthorsString.NullOrEmpty() ? "" : "\n" + mod.AuthorsString)
+                TooltipHandler.TipRegion(row, Nicknames.Show(mod) + (Nicknames.OriginalLine(mod).NullOrEmpty() ? "" : "\n" + Nicknames.OriginalLine(mod)) + "\n" + mod.PackageIdPlayerFacing + (mod.AuthorsString.NullOrEmpty() ? "" : "\n" + mod.AuthorsString)
                     + (addedAt.HasValue ? "\n" + "MSM_Added".Translate(addedAt.Value.ToString("d.M.yyyy HH:mm")) : ""));
 
                 // add / remove
@@ -1316,6 +1336,13 @@ namespace ModSortManager
                     }
                 }
 
+                // 0.7.0: right-click a mod – rename, move to a category, load order rule
+                if (ev.type == EventType.MouseDown && ev.button == 1 && Mouse.IsOver(row))
+                {
+                    ModMenu(mod);
+                    ev.Use();
+                    break;
+                }
                 if (ev.type == EventType.MouseDown && ev.button == 0 && Mouse.IsOver(row))
                 {
                     // 0.3.1: Ctrl+click adds or removes a mod, Shift+click selects everything between
@@ -1331,11 +1358,13 @@ namespace ModSortManager
                     {
                         int a0 = list.IndexOf(selected);
                         multi.Clear();
-                        for (int q = Mathf.Min(a0, i); q <= Mathf.Max(a0, i); q++) multi.Add(list[q]);
+                        for (int q = Mathf.Min(a0, i); q <= Mathf.Max(a0, i); q++) if (list[q] != null) multi.Add(list[q]);
                         ev.Use();
                         break;
                     }
+                    collapseOnUp = false;
                     if (!(multi.Count > 1 && multi.Contains(mod) && (canDrag || !isActive))) multi.Clear();   // 0.4.1: a selection in the inactive list can be dragged too
+                    else if (ev.clickCount == 1) collapseOnUp = true;
                     selected = mod;
                     if (ev.clickCount == 2)
                     {
@@ -1379,6 +1408,9 @@ namespace ModSortManager
                 {
                     if (dragging && dragFrom < list.Count && rInactScreen.Contains(GUIUtility.GUIToScreenPoint(ev.mousePosition)))
                     {
+                        // 0.8.0: dropped on a folder header – into that folder too
+                        string df = FolderAt(GUIUtility.GUIToScreenPoint(ev.mousePosition));
+                        if (df != null) ModFolders.Put(multi.Count > 1 && multi.Contains(list[dragFrom]) ? Selection() : new List<ModMetaData> { list[dragFrom] }, df);
                         // 0.4.1: dropped on the inactive list – switch off
                         if (multi.Count > 1 && multi.Contains(list[dragFrom])) DeactivateMany(Selection().Where(active.Contains).ToList());
                         else Deactivate(list[dragFrom]);
@@ -1389,6 +1421,8 @@ namespace ModSortManager
                         if (multi.Count > 1 && dragFrom < list.Count && multi.Contains(list[dragFrom])) MoveGroupTo(target);   // 0.3.1
                         else Move(dragFrom, target > dragFrom ? target - 1 : target);
                     }
+                    if (!dragging && collapseOnUp) multi.Clear();
+                    collapseOnUp = false;
                     dragFrom = -1;
                     dragging = false;
                 }
@@ -1399,7 +1433,7 @@ namespace ModSortManager
         // the dragged mod's name, or "N mods" when a selection of several is dragged
         private string DragLabel(ModMetaData m)
         {
-            return multi.Count > 1 && multi.Contains(m) ? "MSM_DragMany".Translate(multi.Count).ToString() : m.Name;
+            return multi.Count > 1 && multi.Contains(m) ? "MSM_DragMany".Translate(multi.Count).ToString() : Nicknames.Show(m);
         }
 
         // 0.4.1: a mod dragged from the inactive list and dropped on the active one is switched on at that place
@@ -1432,7 +1466,15 @@ namespace ModSortManager
             }
             if (ev.rawType == EventType.MouseUp)
             {
-                if (xDragging && over)
+                string toFolder = xDragging ? FolderAt(GUIUtility.GUIToScreenPoint(ev.mousePosition)) : null;
+                if (toFolder != null)
+                {
+                    // 0.8.0: an inactive mod (or the selection) dropped on a folder header
+                    ModFolders.Put(multi.Count > 1 && multi.Contains(xMod) ? Selection() : new List<ModMetaData> { xMod }, toFolder);
+                    multi.Clear();
+                    SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+                }
+                else if (xDragging && over)
                 {
                     List<ModMetaData> mods = multi.Count > 1 && multi.Contains(xMod)
                         ? inactiveCache.Where(x => multi.Contains(x)).ToList()
@@ -1453,6 +1495,8 @@ namespace ModSortManager
                     dirty = true;
                     SoundDefOf.Click.PlayOneShotOnCamera();
                 }
+                if (!xDragging && collapseOnUp) multi.Clear();
+                collapseOnUp = false;
                 xMod = null;
                 xDragging = false;
             }
@@ -1474,7 +1518,7 @@ namespace ModSortManager
             int nAct = sel.Count(x => active.Contains(x)), nIn = sel.Count - nAct;
             foreach (ModMetaData x in sel.OrderBy(x => active.Contains(x) ? active.IndexOf(x) : 100000).Take(8))
             {
-                Label(new Rect(r.x, y, r.width, 20f), "• " + x.Name.Truncate(r.width - 14f), active.Contains(x) ? MUI.Text1 : MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false);
+                Label(new Rect(r.x, y, r.width, 20f), "• " + Nicknames.Show(x).Truncate(r.width - 14f), active.Contains(x) ? MUI.Text1 : MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false);
                 y += 20f;
             }
             if (sel.Count > 8) { Label(new Rect(r.x, y, r.width, 20f), "MSM_GroupMore".Translate(sel.Count - 8), MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false); y += 20f; }
@@ -1518,8 +1562,22 @@ namespace ModSortManager
                 return;
             }
             float y = r.y;
-            Label(new Rect(r.x, y, r.width, 30f), m.Name, MUI.Text1, GameFont.Medium, TextAnchor.MiddleLeft, false);
+            // 0.7.0: the nickname, a button to rename and the real name under it
+            Rect nameR = new Rect(r.x, y, r.width - 30f, 30f);
+            Label(nameR, Nicknames.Show(m), Nicknames.Shown(m) ? NickCol : MUI.Text1, GameFont.Medium, TextAnchor.MiddleLeft, false);
+            Rect pen = new Rect(r.xMax - 26f, y + 4f, 24f, 22f);
+            if (Mouse.IsOver(pen)) MUI.Fill(pen, Hover, 4f);
+            Label(pen, "✎", MUI.Muted, GameFont.Small, TextAnchor.MiddleCenter, false);
+            TooltipHandler.TipRegion(pen, "MSM_NickRename".Translate());
+            if (Widgets.ButtonInvisible(pen)) Nicknames.Rename(m, () => ver++);
+            if (Event.current.type == EventType.MouseDown && Event.current.button == 1 && Mouse.IsOver(nameR)) { ModMenu(m); Event.current.Use(); }
             y += 30f;
+            string orig = Nicknames.OriginalLine(m);
+            if (!orig.NullOrEmpty())
+            {
+                Label(new Rect(r.x, y, r.width, 20f), orig, MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false);
+                y += 20f;
+            }
             Label(new Rect(r.x, y, r.width, 20f), m.AuthorsString, MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false);
             y += 22f;
             string info = "MSM_Info".Translate(m.ModVersion.NullOrEmpty() ? "?" : m.ModVersion, MSM.Versions(m), MSM.SourceLabel(m));
@@ -1665,6 +1723,24 @@ namespace ModSortManager
             return y + 34f;
         }
 
+        private static readonly Color NickCol = new Color(0.78f, 0.86f, 1f);
+
+        // 0.7.0: right-click menu of a mod in every list
+        private void ModMenu(ModMetaData m)
+        {
+            var opts = new List<FloatMenuOption>
+            {
+                new FloatMenuOption("MSM_NickRename".Translate(), () => Nicknames.Rename(m, () => ver++))
+            };
+            if (Nicknames.Has(m))
+                opts.Add(new FloatMenuOption("MSM_NickReset".Translate(), () => { Nicknames.Set(m, null); ver++; }));
+            opts.Add(new FloatMenuOption("MSM_CatMove".Translate(), () => MoveMenu(m)));
+            opts.Add(new FloatMenuOption("MSM_FolderMove".Translate(), () => FolderMoveMenu(m)));   // 0.8.0
+            if (active.Contains(m) && !m.IsCoreMod)
+                opts.Add(new FloatMenuOption("MSM_RuleAdd".Translate(), () => RuleMenu(m)));
+            Find.WindowStack.Add(new FloatMenu(opts, Nicknames.Show(m)));
+        }
+
         private void RuleMenu(ModMetaData m)
         {
             string id = Rules.Id(m);
@@ -1679,10 +1755,10 @@ namespace ModSortManager
                 opts.Add(new FloatMenuOption((k == "after" ? "MSM_RuleAfter" : "MSM_RuleBefore").Translate("…").CapitalizeFirst(), () =>
                 {
                     var sub = new List<FloatMenuOption>();
-                    foreach (ModMetaData o in active.Where(x => x != m).OrderBy(x => x.Name))
+                    foreach (ModMetaData o in active.Where(x => x != m).OrderBy(x => Nicknames.Show(x)))
                     {
                         string oid = Rules.Id(o);
-                        sub.Add(new FloatMenuOption(o.Name, () => Rules.AddUser(new OrderRule { mod = id, kind = k, other = oid })));
+                        sub.Add(new FloatMenuOption(Nicknames.Show(o), () => Rules.AddUser(new OrderRule { mod = id, kind = k, other = oid })));
                     }
                     if (sub.Count > 0) Find.WindowStack.Add(new FloatMenu(sub));
                 }));
@@ -1703,12 +1779,12 @@ namespace ModSortManager
                 foreach (ModDependency d in deps)
                 {
                     ModMetaData dm = MSM.FindMod(d.packageId);
-                    string name = dm?.Name ?? d.displayName ?? d.packageId;
+                    string name = (dm != null ? Nicknames.Show(dm) : null) ?? d.displayName ?? d.packageId;
                     if (dm != null && active.Contains(dm)) sb.Append("<color=#7CBF5E>✓</color> " + name + "\n");
                     else if (dm != null) sb.Append("<color=#E0A24A>○</color> " + name + " – " + "MSM_ReqInactive".Translate() + "\n");
                     else sb.Append("<color=#E06A5A>✗</color> " + name + " – " + "MSM_ReqMissing".Translate() + "\n");
                 }
-                var by = active.Where(x => x != m && x.Dependencies.Any(d => d != null && m.SamePackageId(d.packageId, true))).Select(x => x.Name).ToList();
+                var by = active.Where(x => x != m && x.Dependencies.Any(d => d != null && m.SamePackageId(d.packageId, true))).Select(x => Nicknames.Show(x)).ToList();
                 if (by.Count > 0)
                     sb.Append("<b>" + "MSM_RequiredBy".Translate(by.Count) + "</b> " + string.Join(", ", by.Take(12).ToArray()) + (by.Count > 12 ? " …" : "") + "\n");
                 return sb.Append("\n").ToString();
@@ -1940,7 +2016,7 @@ namespace ModSortManager
             multi.Clear();
             dirty = true;
             repRows = null;
-            Messages.Message("MSM_RepDone".Translate(r.oldMod.Name, nm.Name), MessageTypeDefOf.PositiveEvent, false);
+            Messages.Message("MSM_RepDone".Translate(Nicknames.Show(r.oldMod), Nicknames.Show(nm)), MessageTypeDefOf.PositiveEvent, false);
         }
 
         private void DrawReplace(Rect body)
@@ -1989,7 +2065,7 @@ namespace ModSortManager
                 float tw = row.width - 24f - 420f;
                 string newName = rr.rule.newName.NullOrEmpty() ? rr.rule.newId : rr.rule.newName;
                 if (!rr.rule.newAuthor.NullOrEmpty()) newName += " (" + rr.rule.newAuthor + ")";
-                Label(new Rect(row.x + 24f, row.y + 4f, tw, 24f), (rr.oldMod.Name + "  →  " + newName).Truncate(tw), MUI.Text1, GameFont.Small, TextAnchor.MiddleLeft, false);
+                Label(new Rect(row.x + 24f, row.y + 4f, tw, 24f), (Nicknames.Show(rr.oldMod) + "  →  " + newName).Truncate(tw), MUI.Text1, GameFont.Small, TextAnchor.MiddleLeft, false);
                 var why = new List<string>();
                 if (!rr.oldActive) why.Add("MSM_RepInactive".Translate());
                 if (!rr.oldForThisVersion && rr.newForThisVersion) why.Add("MSM_RepVersion".Translate(Replacements.Cur));
@@ -1998,7 +2074,7 @@ namespace ModSortManager
                 if (!rr.rule.why.NullOrEmpty()) why.Add(rr.rule.why);
                 why.Add(FindInstalled(rr) != null ? "MSM_RepHave".Translate().ToString() : "MSM_RepNotHave".Translate().ToString());
                 Label(new Rect(row.x + 24f, row.y + 28f, tw, 24f), string.Join(" · ", why).Truncate(tw), MUI.Muted, GameFont.Tiny, TextAnchor.MiddleLeft, false);
-                TooltipHandler.TipRegion(new Rect(row.x, row.y, tw + 24f, row.height), rr.oldMod.Name + "\n→ " + newName + "\n\n" + string.Join("\n", why) + "\n\n" + "MSM_RepFrom".Translate(rr.rule.source));
+                TooltipHandler.TipRegion(new Rect(row.x, row.y, tw + 24f, row.height), Nicknames.Show(rr.oldMod) + "\n→ " + newName + "\n\n" + string.Join("\n", why) + "\n\n" + "MSM_RepFrom".Translate(rr.rule.source));
                 float bx = row.xMax - 8f;
                 Rect bHide = new Rect(bx - 90f, row.y + 14f, 86f, 30f); bx -= 94f;
                 Rect bPage = new Rect(bx - 110f, row.y + 14f, 106f, 30f); bx -= 114f;
@@ -2073,7 +2149,7 @@ namespace ModSortManager
                 MUI.Fill(row, i % 2 == 0 ? Row1 : Bg, 4f);
                 Color c = u.state == UpdState.Needs ? Info : (u.state == UpdState.Busy ? MUI.Warn : (u.state == UpdState.Done ? MUI.Accent : MUI.Muted));
                 DrawDot(new Rect(row.x + 8f, row.y, 8f, row.height), c);
-                Label(new Rect(row.x + 24f, row.y, row.width * 0.5f, row.height), u.mod.Name.Truncate(row.width * 0.5f), MUI.Text1, GameFont.Small, TextAnchor.MiddleLeft, false);
+                Label(new Rect(row.x + 24f, row.y, row.width * 0.5f, row.height), Nicknames.Show(u.mod).Truncate(row.width * 0.5f), MUI.Text1, GameFont.Small, TextAnchor.MiddleLeft, false);
                 string st = u.state == UpdState.Needs ? "MSM_UpdNeeds".Translate().ToString()
                     : u.state == UpdState.Busy ? "MSM_UpdBusy".Translate(Mathf.RoundToInt(u.progress * 100f)).ToString()
                     : u.state == UpdState.Done ? "MSM_UpdDone".Translate().ToString()
@@ -2293,7 +2369,7 @@ namespace ModSortManager
         public override void DoWindowContents(UnityEngine.Rect r)
         {
             Verse.Text.Font = Verse.GameFont.Medium;
-            Verse.Widgets.Label(new UnityEngine.Rect(r.x, r.y, r.width, 32f), pair.a.Name + " × " + pair.b.Name);
+            Verse.Widgets.Label(new UnityEngine.Rect(r.x, r.y, r.width, 32f), Nicknames.Show(pair.a) + " × " + Nicknames.Show(pair.b));
             Verse.Text.Font = Verse.GameFont.Small;
             string legend = "MSM_SameLegend".Translate();
             float lh = Verse.Text.CalcHeight(legend, r.width);
@@ -2311,8 +2387,8 @@ namespace ModSortManager
                 var row = new UnityEngine.Rect(0f, i * rowH, view.width, rowH - 4f);
                 if (i % 2 == 1) Verse.Widgets.DrawLightHighlight(row);
                 Verse.Widgets.Label(new UnityEngine.Rect(row.x + 6f, row.y + 2f, row.width - 12f, 22f), "<b>" + d.method + "</b>" + (d.runsFirst != null ? "   " + "MSM_RunsFirst".Translate(d.runsFirst) : ""));
-                Verse.Widgets.Label(new UnityEngine.Rect(row.x + 18f, row.y + 22f, row.width - 24f, 20f), pair.a.Name + ": " + d.kindsA);
-                Verse.Widgets.Label(new UnityEngine.Rect(row.x + 18f, row.y + 41f, row.width - 24f, 20f), pair.b.Name + ": " + d.kindsB);
+                Verse.Widgets.Label(new UnityEngine.Rect(row.x + 18f, row.y + 22f, row.width - 24f, 20f), Nicknames.Show(pair.a) + ": " + d.kindsA);
+                Verse.Widgets.Label(new UnityEngine.Rect(row.x + 18f, row.y + 41f, row.width - 24f, 20f), Nicknames.Show(pair.b) + ": " + d.kindsB);
             }
             Verse.Widgets.EndScrollView();
         }

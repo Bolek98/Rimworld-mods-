@@ -384,4 +384,74 @@ Začít?</MSM_BisectConfirm>
   <MSM_ClearNew>Skrýt NOVÉ</MSM_ClearNew>
   <MSM_ClearNewTip>Skryje značku NOVÝ u všech modů. Mody, které přidáš později, ji dostanou znovu.</MSM_ClearNewTip>
   <MSM_DragMany>{0} modů</MSM_DragMany>
+  <!-- 0.6.0: categories -->
+  <MSM_TabCats>Kategorie</MSM_TabCats>
+  <MSM_CatHead>KATEGORIE · ZAPNUTÉ / NAINSTALOVANÉ</MSM_CatHead>
+  <MSM_Cat_all>Všechny mody</MSM_Cat_all>
+  <MSM_Cat_game>Hra a DLC</MSM_Cat_game>
+  <MSM_Cat_frameworks>Frameworky a knihovny</MSM_Cat_frameworks>
+  <MSM_Cat_races>Rasy a xenotypy</MSM_Cat_races>
+  <MSM_Cat_apparel>Oblečení a zbroj</MSM_Cat_apparel>
+  <MSM_Cat_weapons>Zbraně</MSM_Cat_weapons>
+  <MSM_Cat_buildings>Stavby a nábytek</MSM_Cat_buildings>
+  <MSM_Cat_production>Výroba a řemesla</MSM_Cat_production>
+  <MSM_Cat_food>Jídlo a zemědělství</MSM_Cat_food>
+  <MSM_Cat_animals>Zvířata</MSM_Cat_animals>
+  <MSM_Cat_medical>Medicína a zdraví</MSM_Cat_medical>
+  <MSM_Cat_events>Vypravěči a události</MSM_Cat_events>
+  <MSM_Cat_factions>Frakce a svět</MSM_Cat_factions>
+  <MSM_Cat_ui>Rozhraní a pohodlí</MSM_Cat_ui>
+  <MSM_Cat_performance>Výkon</MSM_Cat_performance>
+  <MSM_Cat_textures>Textury a vzhled</MSM_Cat_textures>
+  <MSM_Cat_translations>Překlady</MSM_Cat_translations>
+  <MSM_Cat_adult>18+</MSM_Cat_adult>
+  <MSM_Cat_other>Ostatní</MSM_Cat_other>
+  <MSM_CatCountTip>{0} zapnutých z {1} nainstalovaných</MSM_CatCountTip>
+  <MSM_CatCustomTip>Tvoje vlastní kategorie – pravým tlačítkem ji přejmenuješ nebo smažeš.</MSM_CatCustomTip>
+  <MSM_CatScanning>Třídím mody do kategorií… {0} / {1}</MSM_CatScanning>
+  <MSM_CatNew>+ Nová kategorie</MSM_CatNew>
+  <MSM_CatNewTitle>Název nové kategorie</MSM_CatNewTitle>
+  <MSM_CatNameBad>Zadej název (nejvýš 40 znaků), který ještě není použitý.</MSM_CatNameBad>
+  <MSM_CatRescan>Roztřídit znovu</MSM_CatRescan>
+  <MSM_CatRescanTip>Znovu projde soubory všech modů a udělá automatické kategorie znovu (tvoje přesuny zůstanou).</MSM_CatRescanTip>
+  <MSM_CatOnlyActive>Jen zapnuté</MSM_CatOnlyActive>
+  <MSM_CatSearch>Hledat v této kategorii…</MSM_CatSearch>
+  <MSM_CatHint>Pravé tlačítko na mod: přesunout do jiné kategorie · dvojklik: otevřít pořadí</MSM_CatHint>
+  <MSM_CatEmpty>Tady nejsou žádné mody.</MSM_CatEmpty>
+  <MSM_CatOf>Kategorie: {0}</MSM_CatOf>
+  <MSM_CatManual>přesunuto tebou</MSM_CatManual>
+  <MSM_CatAuto>Automaticky ({0})</MSM_CatAuto>
+  <MSM_CatMove>Přesunout do kategorie</MSM_CatMove>
+  <MSM_CatRename>Přejmenovat</MSM_CatRename>
+  <MSM_CatDelete>Smazat kategorii</MSM_CatDelete>
+  <MSM_CatDeleteConfirm>Smazat kategorii „{0}“? Její mody se vrátí do svých automatických kategorií.</MSM_CatDeleteConfirm>
+  <MSM_CatFilter>Kategorie: {0}</MSM_CatFilter>
+  <MSM_CatFilterTip>Ukázat jen vypnuté mody jedné kategorie.</MSM_CatFilterTip>
+  <!-- 0.7.0 nicknames -->
+  <MSM_NickRename>Přejmenovat…</MSM_NickRename>
+  <MSM_NickTitle>Vlastní jméno pro tento mod (vidíš ho jen ty):</MSM_NickTitle>
+  <MSM_NickOriginal>Původně: {0}</MSM_NickOriginal>
+  <MSM_NickReset>Původní jméno</MSM_NickReset>
+  <MSM_SetNick>Ukazovat moje vlastní jména modů</MSM_SetNick>
+  <MSM_SetNickTip>Mody, které přejmenuješ (pravý klik na mod → Přejmenovat…), ukazují tvoje jméno v Mod Sort Manageru i v herním seznamu modů. Skutečné jméno zůstává v uložených hrách, seznamech modů i pro ostatní mody. Ukazují se i v Možnosti → Nastavení modů.</MSM_SetNickTip>
+  <MSM_SetNickOrig>Ukazovat i původní jméno</MSM_SetNickOrig>
+  <MSM_SetNickOrigTip>U přejmenovaného modu ukáže detail a nápověda i jeho původní jméno.</MSM_SetNickOrigTip>
+  <!-- 0.8.0 folders -->
+  <MSM_FolderFav>Oblíbené</MSM_FolderFav>
+  <MSM_FolderOn>Zapnout vše</MSM_FolderOn>
+  <MSM_FolderOff>Vypnout vše</MSM_FolderOff>
+  <MSM_FolderCountTip>Zapnuto {0} z {1} modů v této složce</MSM_FolderCountTip>
+  <MSM_FolderTip>Klik: otevřít nebo zavřít složku · Pravý klik: přejmenovat, posunout, smazat, nová složka · Přetáhni sem mody, aby se do ní přesunuly</MSM_FolderTip>
+  <MSM_FolderEnabled>Zapnuto {0} modů ze složky „{1}“.</MSM_FolderEnabled>
+  <MSM_FolderMissingDeps>{0} z nich potřebuje mod, který není zapnutý – viz Problémy.</MSM_FolderMissingDeps>
+  <MSM_FolderDisabled>Vypnuto {0} modů ze složky „{1}“.</MSM_FolderDisabled>
+  <MSM_FolderRename>Přejmenovat…</MSM_FolderRename>
+  <MSM_FolderRenameTitle>Nový název složky:</MSM_FolderRenameTitle>
+  <MSM_FolderUp>Posunout nahoru</MSM_FolderUp>
+  <MSM_FolderDown>Posunout dolů</MSM_FolderDown>
+  <MSM_FolderDelete>Smazat složku (mody zůstanou)</MSM_FolderDelete>
+  <MSM_FolderNew>Nová složka…</MSM_FolderNew>
+  <MSM_FolderNewTitle>Název nové složky:</MSM_FolderNewTitle>
+  <MSM_FolderMove>Přesunout do složky…</MSM_FolderMove>
+  <MSM_FolderNone>Vyndat ze složky</MSM_FolderNone>
 </LanguageData>

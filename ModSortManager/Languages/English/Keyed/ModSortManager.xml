@@ -384,4 +384,74 @@ Start?</MSM_BisectConfirm>
   <MSM_ClearNew>Hide NEW</MSM_ClearNew>
   <MSM_ClearNewTip>Hide the NEW mark of every mod. New mods you add later are marked again.</MSM_ClearNewTip>
   <MSM_DragMany>{0} mods</MSM_DragMany>
+  <!-- 0.6.0: categories -->
+  <MSM_TabCats>Categories</MSM_TabCats>
+  <MSM_CatHead>CATEGORIES · ACTIVE / INSTALLED</MSM_CatHead>
+  <MSM_Cat_all>All mods</MSM_Cat_all>
+  <MSM_Cat_game>Game &amp; DLC</MSM_Cat_game>
+  <MSM_Cat_frameworks>Frameworks &amp; libraries</MSM_Cat_frameworks>
+  <MSM_Cat_races>Races &amp; xenotypes</MSM_Cat_races>
+  <MSM_Cat_apparel>Apparel &amp; armor</MSM_Cat_apparel>
+  <MSM_Cat_weapons>Weapons</MSM_Cat_weapons>
+  <MSM_Cat_buildings>Buildings &amp; furniture</MSM_Cat_buildings>
+  <MSM_Cat_production>Production &amp; crafting</MSM_Cat_production>
+  <MSM_Cat_food>Food &amp; farming</MSM_Cat_food>
+  <MSM_Cat_animals>Animals</MSM_Cat_animals>
+  <MSM_Cat_medical>Medical &amp; health</MSM_Cat_medical>
+  <MSM_Cat_events>Storytellers &amp; events</MSM_Cat_events>
+  <MSM_Cat_factions>Factions &amp; world</MSM_Cat_factions>
+  <MSM_Cat_ui>Interface &amp; quality of life</MSM_Cat_ui>
+  <MSM_Cat_performance>Performance</MSM_Cat_performance>
+  <MSM_Cat_textures>Textures &amp; visuals</MSM_Cat_textures>
+  <MSM_Cat_translations>Translations</MSM_Cat_translations>
+  <MSM_Cat_adult>18+</MSM_Cat_adult>
+  <MSM_Cat_other>Other</MSM_Cat_other>
+  <MSM_CatCountTip>{0} active of {1} installed</MSM_CatCountTip>
+  <MSM_CatCustomTip>Your own category – right-click to rename or delete it.</MSM_CatCustomTip>
+  <MSM_CatScanning>Sorting mods into categories… {0} / {1}</MSM_CatScanning>
+  <MSM_CatNew>+ New category</MSM_CatNew>
+  <MSM_CatNewTitle>Name of the new category</MSM_CatNewTitle>
+  <MSM_CatNameBad>Enter a name (up to 40 letters) that is not used yet.</MSM_CatNameBad>
+  <MSM_CatRescan>Sort again</MSM_CatRescan>
+  <MSM_CatRescanTip>Look at the files of all mods again and redo the automatic categories (your own moves stay).</MSM_CatRescanTip>
+  <MSM_CatOnlyActive>Only active</MSM_CatOnlyActive>
+  <MSM_CatSearch>Search in this category…</MSM_CatSearch>
+  <MSM_CatHint>Right-click a mod: move to another category · double-click: open the load order</MSM_CatHint>
+  <MSM_CatEmpty>No mods here.</MSM_CatEmpty>
+  <MSM_CatOf>Category: {0}</MSM_CatOf>
+  <MSM_CatManual>moved by you</MSM_CatManual>
+  <MSM_CatAuto>Automatic ({0})</MSM_CatAuto>
+  <MSM_CatMove>Move to category</MSM_CatMove>
+  <MSM_CatRename>Rename</MSM_CatRename>
+  <MSM_CatDelete>Delete category</MSM_CatDelete>
+  <MSM_CatDeleteConfirm>Delete the category "{0}"? Its mods go back to their automatic categories.</MSM_CatDeleteConfirm>
+  <MSM_CatFilter>Category: {0}</MSM_CatFilter>
+  <MSM_CatFilterTip>Show only the inactive mods of one category.</MSM_CatFilterTip>
+  <!-- 0.7.0 nicknames -->
+  <MSM_NickRename>Rename…</MSM_NickRename>
+  <MSM_NickTitle>Your own name for this mod (only you see it):</MSM_NickTitle>
+  <MSM_NickOriginal>Original: {0}</MSM_NickOriginal>
+  <MSM_NickReset>Original name</MSM_NickReset>
+  <MSM_SetNick>Show my own mod names</MSM_SetNick>
+  <MSM_SetNickTip>Mods you renamed (right-click a mod → Rename…) show your name in Mod Sort Manager and in the game's mod list. The real name stays in saves, mod lists and for other mods. They also show in Options → Mod settings.</MSM_SetNickTip>
+  <MSM_SetNickOrig>Show the original name too</MSM_SetNickOrig>
+  <MSM_SetNickOrigTip>Under a renamed mod the details and the tooltip also show its original name.</MSM_SetNickOrigTip>
+  <!-- 0.8.0 folders -->
+  <MSM_FolderFav>Favorites</MSM_FolderFav>
+  <MSM_FolderOn>Enable all</MSM_FolderOn>
+  <MSM_FolderOff>Disable all</MSM_FolderOff>
+  <MSM_FolderCountTip>{0} of {1} mods in this folder are enabled</MSM_FolderCountTip>
+  <MSM_FolderTip>Click: open or close the folder · Right-click: rename, move, delete, new folder · Drag mods here to put them in</MSM_FolderTip>
+  <MSM_FolderEnabled>Enabled {0} mods from "{1}".</MSM_FolderEnabled>
+  <MSM_FolderMissingDeps>{0} of them need a mod that is not enabled – see Problems.</MSM_FolderMissingDeps>
+  <MSM_FolderDisabled>Disabled {0} mods from "{1}".</MSM_FolderDisabled>
+  <MSM_FolderRename>Rename…</MSM_FolderRename>
+  <MSM_FolderRenameTitle>New name of the folder:</MSM_FolderRenameTitle>
+  <MSM_FolderUp>Move up</MSM_FolderUp>
+  <MSM_FolderDown>Move down</MSM_FolderDown>
+  <MSM_FolderDelete>Delete folder (mods stay)</MSM_FolderDelete>
+  <MSM_FolderNew>New folder…</MSM_FolderNew>
+  <MSM_FolderNewTitle>Name of the new folder:</MSM_FolderNewTitle>
+  <MSM_FolderMove>Move to folder…</MSM_FolderMove>
+  <MSM_FolderNone>Out of the folder</MSM_FolderNone>
 </LanguageData>

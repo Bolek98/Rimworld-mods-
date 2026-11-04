@@ -384,4 +384,74 @@ Mod Sort Manager가 의심 모드 {0}개 중 절반을 비활성화하고 게임
   <MSM_ClearNew>신규 숨기기</MSM_ClearNew>
   <MSM_ClearNewTip>모든 모드의 신규 표시를 숨깁니다. 나중에 추가한 모드에는 다시 표시됩니다.</MSM_ClearNewTip>
   <MSM_DragMany>모드 {0}개</MSM_DragMany>
+  <!-- 0.6.0: categories -->
+  <MSM_TabCats>카테고리</MSM_TabCats>
+  <MSM_CatHead>카테고리 · 활성 / 설치됨</MSM_CatHead>
+  <MSM_Cat_all>모든 모드</MSM_Cat_all>
+  <MSM_Cat_game>게임 및 DLC</MSM_Cat_game>
+  <MSM_Cat_frameworks>프레임워크 및 라이브러리</MSM_Cat_frameworks>
+  <MSM_Cat_races>종족 및 제노타입</MSM_Cat_races>
+  <MSM_Cat_apparel>의류 및 방어구</MSM_Cat_apparel>
+  <MSM_Cat_weapons>무기</MSM_Cat_weapons>
+  <MSM_Cat_buildings>건물 및 가구</MSM_Cat_buildings>
+  <MSM_Cat_production>생산 및 제작</MSM_Cat_production>
+  <MSM_Cat_food>음식 및 농업</MSM_Cat_food>
+  <MSM_Cat_animals>동물</MSM_Cat_animals>
+  <MSM_Cat_medical>의료 및 건강</MSM_Cat_medical>
+  <MSM_Cat_events>스토리텔러 및 이벤트</MSM_Cat_events>
+  <MSM_Cat_factions>세력 및 세계</MSM_Cat_factions>
+  <MSM_Cat_ui>인터페이스 및 편의</MSM_Cat_ui>
+  <MSM_Cat_performance>성능</MSM_Cat_performance>
+  <MSM_Cat_textures>텍스처 및 비주얼</MSM_Cat_textures>
+  <MSM_Cat_translations>번역</MSM_Cat_translations>
+  <MSM_Cat_adult>18+</MSM_Cat_adult>
+  <MSM_Cat_other>기타</MSM_Cat_other>
+  <MSM_CatCountTip>설치된 {1}개 중 {0}개 활성</MSM_CatCountTip>
+  <MSM_CatCustomTip>나만의 카테고리 – 우클릭으로 이름 변경 또는 삭제.</MSM_CatCustomTip>
+  <MSM_CatScanning>모드를 카테고리로 분류 중… {0} / {1}</MSM_CatScanning>
+  <MSM_CatNew>+ 새 카테고리</MSM_CatNew>
+  <MSM_CatNewTitle>새 카테고리 이름</MSM_CatNewTitle>
+  <MSM_CatNameBad>아직 사용하지 않은 이름을 입력하세요(최대 40자).</MSM_CatNameBad>
+  <MSM_CatRescan>다시 분류</MSM_CatRescan>
+  <MSM_CatRescanTip>모든 모드의 파일을 다시 살펴보고 자동 카테고리를 새로 만듭니다(직접 옮긴 것은 유지).</MSM_CatRescanTip>
+  <MSM_CatOnlyActive>활성만</MSM_CatOnlyActive>
+  <MSM_CatSearch>이 카테고리에서 검색…</MSM_CatSearch>
+  <MSM_CatHint>모드 우클릭: 다른 카테고리로 이동 · 더블클릭: 로드 순서 열기</MSM_CatHint>
+  <MSM_CatEmpty>여기에는 모드가 없습니다.</MSM_CatEmpty>
+  <MSM_CatOf>카테고리: {0}</MSM_CatOf>
+  <MSM_CatManual>직접 옮김</MSM_CatManual>
+  <MSM_CatAuto>자동 ({0})</MSM_CatAuto>
+  <MSM_CatMove>카테고리로 이동</MSM_CatMove>
+  <MSM_CatRename>이름 변경</MSM_CatRename>
+  <MSM_CatDelete>카테고리 삭제</MSM_CatDelete>
+  <MSM_CatDeleteConfirm>카테고리 "{0}"을(를) 삭제할까요? 해당 모드는 자동 카테고리로 돌아갑니다.</MSM_CatDeleteConfirm>
+  <MSM_CatFilter>카테고리: {0}</MSM_CatFilter>
+  <MSM_CatFilterTip>한 카테고리의 비활성 모드만 표시합니다.</MSM_CatFilterTip>
+  <!-- 0.7.0 nicknames -->
+  <MSM_NickRename>이름 바꾸기…</MSM_NickRename>
+  <MSM_NickTitle>이 모드의 내 이름(나만 볼 수 있음):</MSM_NickTitle>
+  <MSM_NickOriginal>원래 이름: {0}</MSM_NickOriginal>
+  <MSM_NickReset>원래 이름</MSM_NickReset>
+  <MSM_SetNick>내가 붙인 모드 이름 표시</MSM_SetNick>
+  <MSM_SetNickTip>이름을 바꾼 모드(모드 우클릭 → 이름 바꾸기…)는 Mod Sort Manager와 게임의 모드 목록에 내 이름으로 표시됩니다. 실제 이름은 저장 파일, 모드 목록, 다른 모드에서 그대로 유지됩니다. 옵션 → 모드 설정에도 표시됩니다.</MSM_SetNickTip>
+  <MSM_SetNickOrig>원래 이름도 표시</MSM_SetNickOrig>
+  <MSM_SetNickOrigTip>이름을 바꾼 모드의 상세 정보와 툴팁에 원래 이름도 표시합니다.</MSM_SetNickOrigTip>
+  <!-- 0.8.0 folders -->
+  <MSM_FolderFav>즐겨찾기</MSM_FolderFav>
+  <MSM_FolderOn>모두 활성화</MSM_FolderOn>
+  <MSM_FolderOff>모두 비활성화</MSM_FolderOff>
+  <MSM_FolderCountTip>이 폴더의 모드 {1}개 중 {0}개 활성화됨</MSM_FolderCountTip>
+  <MSM_FolderTip>클릭: 폴더 열기/닫기 · 우클릭: 이름 변경, 이동, 삭제, 새 폴더 · 모드를 여기로 끌어 넣기</MSM_FolderTip>
+  <MSM_FolderEnabled>"{1}"의 모드 {0}개를 활성화했습니다.</MSM_FolderEnabled>
+  <MSM_FolderMissingDeps>그중 {0}개는 활성화되지 않은 모드가 필요합니다 – 문제 탭을 확인하세요.</MSM_FolderMissingDeps>
+  <MSM_FolderDisabled>"{1}"의 모드 {0}개를 비활성화했습니다.</MSM_FolderDisabled>
+  <MSM_FolderRename>이름 변경…</MSM_FolderRename>
+  <MSM_FolderRenameTitle>폴더의 새 이름:</MSM_FolderRenameTitle>
+  <MSM_FolderUp>위로</MSM_FolderUp>
+  <MSM_FolderDown>아래로</MSM_FolderDown>
+  <MSM_FolderDelete>폴더 삭제 (모드는 유지)</MSM_FolderDelete>
+  <MSM_FolderNew>새 폴더…</MSM_FolderNew>
+  <MSM_FolderNewTitle>새 폴더 이름:</MSM_FolderNewTitle>
+  <MSM_FolderMove>폴더로 이동…</MSM_FolderMove>
+  <MSM_FolderNone>폴더에서 빼기</MSM_FolderNone>
 </LanguageData>

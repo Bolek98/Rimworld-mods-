@@ -384,4 +384,74 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_ClearNew>隐藏“新”</MSM_ClearNew>
   <MSM_ClearNewTip>隐藏所有模组的“新”标记。之后添加的模组会再次标记。</MSM_ClearNewTip>
   <MSM_DragMany>{0} 个模组</MSM_DragMany>
+  <!-- 0.6.0: categories -->
+  <MSM_TabCats>分类</MSM_TabCats>
+  <MSM_CatHead>分类 · 已启用 / 已安装</MSM_CatHead>
+  <MSM_Cat_all>全部模组</MSM_Cat_all>
+  <MSM_Cat_game>游戏与DLC</MSM_Cat_game>
+  <MSM_Cat_frameworks>框架与前置库</MSM_Cat_frameworks>
+  <MSM_Cat_races>种族与异种</MSM_Cat_races>
+  <MSM_Cat_apparel>服装与护甲</MSM_Cat_apparel>
+  <MSM_Cat_weapons>武器</MSM_Cat_weapons>
+  <MSM_Cat_buildings>建筑与家具</MSM_Cat_buildings>
+  <MSM_Cat_production>生产与制作</MSM_Cat_production>
+  <MSM_Cat_food>食物与农业</MSM_Cat_food>
+  <MSM_Cat_animals>动物</MSM_Cat_animals>
+  <MSM_Cat_medical>医疗与健康</MSM_Cat_medical>
+  <MSM_Cat_events>叙事者与事件</MSM_Cat_events>
+  <MSM_Cat_factions>派系与世界</MSM_Cat_factions>
+  <MSM_Cat_ui>界面与便利</MSM_Cat_ui>
+  <MSM_Cat_performance>性能</MSM_Cat_performance>
+  <MSM_Cat_textures>材质与画面</MSM_Cat_textures>
+  <MSM_Cat_translations>翻译</MSM_Cat_translations>
+  <MSM_Cat_adult>18+</MSM_Cat_adult>
+  <MSM_Cat_other>其他</MSM_Cat_other>
+  <MSM_CatCountTip>已安装 {1} 个，启用 {0} 个</MSM_CatCountTip>
+  <MSM_CatCustomTip>你自己的分类——右键可重命名或删除。</MSM_CatCustomTip>
+  <MSM_CatScanning>正在将模组分类… {0} / {1}</MSM_CatScanning>
+  <MSM_CatNew>+ 新建分类</MSM_CatNew>
+  <MSM_CatNewTitle>新分类的名称</MSM_CatNewTitle>
+  <MSM_CatNameBad>请输入一个尚未使用的名称（最多40个字符）。</MSM_CatNameBad>
+  <MSM_CatRescan>重新分类</MSM_CatRescan>
+  <MSM_CatRescanTip>重新查看所有模组的文件并重新生成自动分类（你手动移动的保持不变）。</MSM_CatRescanTip>
+  <MSM_CatOnlyActive>仅已启用</MSM_CatOnlyActive>
+  <MSM_CatSearch>在此分类中搜索…</MSM_CatSearch>
+  <MSM_CatHint>右键模组：移到其他分类 · 双击：打开加载顺序</MSM_CatHint>
+  <MSM_CatEmpty>这里没有模组。</MSM_CatEmpty>
+  <MSM_CatOf>分类：{0}</MSM_CatOf>
+  <MSM_CatManual>由你移动</MSM_CatManual>
+  <MSM_CatAuto>自动（{0}）</MSM_CatAuto>
+  <MSM_CatMove>移到分类</MSM_CatMove>
+  <MSM_CatRename>重命名</MSM_CatRename>
+  <MSM_CatDelete>删除分类</MSM_CatDelete>
+  <MSM_CatDeleteConfirm>删除分类“{0}”？其中的模组将回到各自的自动分类。</MSM_CatDeleteConfirm>
+  <MSM_CatFilter>分类：{0}</MSM_CatFilter>
+  <MSM_CatFilterTip>只显示某一分类中未启用的模组。</MSM_CatFilterTip>
+  <!-- 0.7.0 nicknames -->
+  <MSM_NickRename>重命名…</MSM_NickRename>
+  <MSM_NickTitle>此模组的自定义名称（仅你可见）：</MSM_NickTitle>
+  <MSM_NickOriginal>原名：{0}</MSM_NickOriginal>
+  <MSM_NickReset>恢复原名</MSM_NickReset>
+  <MSM_SetNick>显示我自定义的模组名称</MSM_SetNick>
+  <MSM_SetNickTip>你重命名的模组（右键模组 → 重命名…）会在 Mod Sort Manager 和游戏的模组列表中显示你的名称。存档、模组列表和其他模组仍使用真实名称。这些名字也会显示在“选项 → 模组设置”中。</MSM_SetNickTip>
+  <MSM_SetNickOrig>同时显示原名</MSM_SetNickOrig>
+  <MSM_SetNickOrigTip>重命名的模组在详情和提示中也会显示原名。</MSM_SetNickOrigTip>
+  <!-- 0.8.0 folders -->
+  <MSM_FolderFav>收藏</MSM_FolderFav>
+  <MSM_FolderOn>全部启用</MSM_FolderOn>
+  <MSM_FolderOff>全部禁用</MSM_FolderOff>
+  <MSM_FolderCountTip>此文件夹中已启用 {0}/{1} 个模组</MSM_FolderCountTip>
+  <MSM_FolderTip>点击：展开或收起文件夹 · 右键：重命名、移动、删除、新建文件夹 · 将模组拖到这里即可放入</MSM_FolderTip>
+  <MSM_FolderEnabled>已启用“{1}”中的 {0} 个模组。</MSM_FolderEnabled>
+  <MSM_FolderMissingDeps>其中 {0} 个需要未启用的模组 – 请查看“问题”。</MSM_FolderMissingDeps>
+  <MSM_FolderDisabled>已禁用“{1}”中的 {0} 个模组。</MSM_FolderDisabled>
+  <MSM_FolderRename>重命名…</MSM_FolderRename>
+  <MSM_FolderRenameTitle>文件夹的新名称：</MSM_FolderRenameTitle>
+  <MSM_FolderUp>上移</MSM_FolderUp>
+  <MSM_FolderDown>下移</MSM_FolderDown>
+  <MSM_FolderDelete>删除文件夹（模组保留）</MSM_FolderDelete>
+  <MSM_FolderNew>新建文件夹…</MSM_FolderNew>
+  <MSM_FolderNewTitle>新文件夹的名称：</MSM_FolderNewTitle>
+  <MSM_FolderMove>移到文件夹…</MSM_FolderMove>
+  <MSM_FolderNone>移出文件夹</MSM_FolderNone>
 </LanguageData>

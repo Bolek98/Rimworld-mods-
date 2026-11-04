@@ -384,4 +384,74 @@ Rozpocząć?</MSM_BisectConfirm>
   <MSM_ClearNew>Ukryj NOWE</MSM_ClearNew>
   <MSM_ClearNewTip>Ukrywa oznaczenie NOWY wszystkich modów. Mody dodane później zostaną znowu oznaczone.</MSM_ClearNewTip>
   <MSM_DragMany>Modów: {0}</MSM_DragMany>
+  <!-- 0.6.0: categories -->
+  <MSM_TabCats>Kategorie</MSM_TabCats>
+  <MSM_CatHead>KATEGORIE · AKTYWNE / ZAINSTALOWANE</MSM_CatHead>
+  <MSM_Cat_all>Wszystkie mody</MSM_Cat_all>
+  <MSM_Cat_game>Gra i DLC</MSM_Cat_game>
+  <MSM_Cat_frameworks>Frameworki i biblioteki</MSM_Cat_frameworks>
+  <MSM_Cat_races>Rasy i ksenotypy</MSM_Cat_races>
+  <MSM_Cat_apparel>Ubrania i pancerze</MSM_Cat_apparel>
+  <MSM_Cat_weapons>Broń</MSM_Cat_weapons>
+  <MSM_Cat_buildings>Budynki i meble</MSM_Cat_buildings>
+  <MSM_Cat_production>Produkcja i rzemiosło</MSM_Cat_production>
+  <MSM_Cat_food>Jedzenie i rolnictwo</MSM_Cat_food>
+  <MSM_Cat_animals>Zwierzęta</MSM_Cat_animals>
+  <MSM_Cat_medical>Medycyna i zdrowie</MSM_Cat_medical>
+  <MSM_Cat_events>Narratorzy i wydarzenia</MSM_Cat_events>
+  <MSM_Cat_factions>Frakcje i świat</MSM_Cat_factions>
+  <MSM_Cat_ui>Interfejs i wygoda</MSM_Cat_ui>
+  <MSM_Cat_performance>Wydajność</MSM_Cat_performance>
+  <MSM_Cat_textures>Tekstury i wygląd</MSM_Cat_textures>
+  <MSM_Cat_translations>Tłumaczenia</MSM_Cat_translations>
+  <MSM_Cat_adult>18+</MSM_Cat_adult>
+  <MSM_Cat_other>Inne</MSM_Cat_other>
+  <MSM_CatCountTip>{0} aktywnych z {1} zainstalowanych</MSM_CatCountTip>
+  <MSM_CatCustomTip>Twoja własna kategoria – prawy przycisk, aby zmienić nazwę lub usunąć.</MSM_CatCustomTip>
+  <MSM_CatScanning>Sortowanie modów w kategorie… {0} / {1}</MSM_CatScanning>
+  <MSM_CatNew>+ Nowa kategoria</MSM_CatNew>
+  <MSM_CatNewTitle>Nazwa nowej kategorii</MSM_CatNewTitle>
+  <MSM_CatNameBad>Wpisz nazwę, która nie jest jeszcze użyta (do 40 znaków).</MSM_CatNameBad>
+  <MSM_CatRescan>Posortuj ponownie</MSM_CatRescan>
+  <MSM_CatRescanTip>Ponownie przejrzyj pliki wszystkich modów i przelicz kategorie automatyczne (twoje przeniesienia zostają).</MSM_CatRescanTip>
+  <MSM_CatOnlyActive>Tylko aktywne</MSM_CatOnlyActive>
+  <MSM_CatSearch>Szukaj w tej kategorii…</MSM_CatSearch>
+  <MSM_CatHint>Prawy przycisk na modzie: przenieś do innej kategorii · dwuklik: otwórz kolejność ładowania</MSM_CatHint>
+  <MSM_CatEmpty>Brak modów.</MSM_CatEmpty>
+  <MSM_CatOf>Kategoria: {0}</MSM_CatOf>
+  <MSM_CatManual>przeniesione przez ciebie</MSM_CatManual>
+  <MSM_CatAuto>Automatycznie ({0})</MSM_CatAuto>
+  <MSM_CatMove>Przenieś do kategorii</MSM_CatMove>
+  <MSM_CatRename>Zmień nazwę</MSM_CatRename>
+  <MSM_CatDelete>Usuń kategorię</MSM_CatDelete>
+  <MSM_CatDeleteConfirm>Usunąć kategorię „{0}”? Jej mody wrócą do swoich automatycznych kategorii.</MSM_CatDeleteConfirm>
+  <MSM_CatFilter>Kategoria: {0}</MSM_CatFilter>
+  <MSM_CatFilterTip>Pokaż tylko nieaktywne mody jednej kategorii.</MSM_CatFilterTip>
+  <!-- 0.7.0 nicknames -->
+  <MSM_NickRename>Zmień nazwę…</MSM_NickRename>
+  <MSM_NickTitle>Twoja własna nazwa tego moda (widzisz ją tylko ty):</MSM_NickTitle>
+  <MSM_NickOriginal>Oryginalnie: {0}</MSM_NickOriginal>
+  <MSM_NickReset>Oryginalna nazwa</MSM_NickReset>
+  <MSM_SetNick>Pokazuj moje własne nazwy modów</MSM_SetNick>
+  <MSM_SetNickTip>Mody, którym zmienisz nazwę (prawy klik na mod → Zmień nazwę…), pokazują twoją nazwę w Mod Sort Managerze i na liście modów gry. Prawdziwa nazwa zostaje w zapisach, listach modów i dla innych modów. Widać je też w Opcje → Ustawienia modów.</MSM_SetNickTip>
+  <MSM_SetNickOrig>Pokazuj też oryginalną nazwę</MSM_SetNickOrig>
+  <MSM_SetNickOrigTip>Przy modzie ze zmienioną nazwą szczegóły i podpowiedź pokazują też jego oryginalną nazwę.</MSM_SetNickOrigTip>
+  <!-- 0.8.0 folders -->
+  <MSM_FolderFav>Ulubione</MSM_FolderFav>
+  <MSM_FolderOn>Włącz wszystkie</MSM_FolderOn>
+  <MSM_FolderOff>Wyłącz wszystkie</MSM_FolderOff>
+  <MSM_FolderCountTip>Włączono {0} z {1} modów w tym folderze</MSM_FolderCountTip>
+  <MSM_FolderTip>Klik: otwórz lub zamknij folder · Prawy klik: zmień nazwę, przesuń, usuń, nowy folder · Przeciągnij tu mody, aby je dodać</MSM_FolderTip>
+  <MSM_FolderEnabled>Włączono {0} modów z „{1}”.</MSM_FolderEnabled>
+  <MSM_FolderMissingDeps>{0} z nich potrzebuje moda, który nie jest włączony – zobacz Problemy.</MSM_FolderMissingDeps>
+  <MSM_FolderDisabled>Wyłączono {0} modów z „{1}”.</MSM_FolderDisabled>
+  <MSM_FolderRename>Zmień nazwę…</MSM_FolderRename>
+  <MSM_FolderRenameTitle>Nowa nazwa folderu:</MSM_FolderRenameTitle>
+  <MSM_FolderUp>W górę</MSM_FolderUp>
+  <MSM_FolderDown>W dół</MSM_FolderDown>
+  <MSM_FolderDelete>Usuń folder (mody zostają)</MSM_FolderDelete>
+  <MSM_FolderNew>Nowy folder…</MSM_FolderNew>
+  <MSM_FolderNewTitle>Nazwa nowego folderu:</MSM_FolderNewTitle>
+  <MSM_FolderMove>Przenieś do folderu…</MSM_FolderMove>
+  <MSM_FolderNone>Wyjmij z folderu</MSM_FolderNone>
 </LanguageData>

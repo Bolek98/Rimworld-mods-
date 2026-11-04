@@ -37,6 +37,17 @@ namespace ModSortManager
         public bool sharedRules = true;
         // 0.3.1: replacements the player hid ("oldWorkshopId>newWorkshopId")
         public List<string> replaceHidden = new List<string>();
+        // 0.6.0: mods the player moved to another category ("packageid|category") and own categories
+        public List<string> catOverrides = new List<string>();
+        public List<string> customCats = new List<string>();
+        // 0.7.0: own names for mods ("packageid|nickname") – shown in Mod Sort Manager and the game's mod list
+        public List<string> nicknames = new List<string>();
+        public bool showNicknames = true;
+        public bool showOriginalName = true;
+        // 0.8.0: folders of the inactive list – names in order, "packageid|folder", collapsed folders
+        public List<string> folders = new List<string>();
+        public List<string> folderMembers = new List<string>();
+        public List<string> folderCollapsed = new List<string>();
 
         public override void ExposeData()
         {
@@ -57,12 +68,26 @@ namespace ModSortManager
             Scribe_Values.Look(ref sharedRules, "sharedRules", true);
             Scribe_Collections.Look(ref replaceHidden, "replaceHidden", LookMode.Value);
             if (replaceHidden == null) replaceHidden = new List<string>();
+            Scribe_Collections.Look(ref catOverrides, "catOverrides", LookMode.Value);
+            if (catOverrides == null) catOverrides = new List<string>();
+            Scribe_Collections.Look(ref customCats, "customCats", LookMode.Value);
+            if (customCats == null) customCats = new List<string>();
+            Scribe_Collections.Look(ref nicknames, "nicknames", LookMode.Value);
+            if (nicknames == null) nicknames = new List<string>();
+            Scribe_Values.Look(ref showNicknames, "showNicknames", true);
+            Scribe_Values.Look(ref showOriginalName, "showOriginalName", true);
+            Scribe_Collections.Look(ref folders, "folders", LookMode.Value);
+            if (folders == null) folders = new List<string>();
+            Scribe_Collections.Look(ref folderMembers, "folderMembers", LookMode.Value);
+            if (folderMembers == null) folderMembers = new List<string>();
+            Scribe_Collections.Look(ref folderCollapsed, "folderCollapsed", LookMode.Value);
+            if (folderCollapsed == null) folderCollapsed = new List<string>();
         }
     }
 
     public class MSMMod : Mod
     {
-        public const string Version = "0.5.0";
+        public const string Version = "0.6.0";
         public static MSMSettings Settings;
 
         public MSMMod(ModContentPack content) : base(content)
@@ -108,6 +133,8 @@ namespace ModSortManager
             MUI.Check(l, "MSM_SetGuard".Translate(), "MSM_SetGuardTip".Translate(), ref Settings.orderGuard, Settings, "orderGuard");
             MUI.Check(l, "MSM_SetPreSave".Translate(), "MSM_SetPreSaveTip".Translate(), ref Settings.preSaveCheck, Settings, "preSaveCheck");
             MUI.Check(l, "MSM_SetRules".Translate(), "MSM_SetRulesTip".Translate(), ref Settings.sharedRules, Settings, "sharedRules");
+            MUI.Check(l, "MSM_SetNick".Translate(), "MSM_SetNickTip".Translate(), ref Settings.showNicknames, Settings, "showNicknames");
+            MUI.Check(l, "MSM_SetNickOrig".Translate(), "MSM_SetNickOrigTip".Translate(), ref Settings.showOriginalName, Settings, "showOriginalName");
             l.End();
             MUI.EndLock(body);
             if (Widgets.ButtonText(new Rect(inRect.x, inRect.yMax - 40f, 280f, 36f), "MSM_OpenNow".Translate()))
