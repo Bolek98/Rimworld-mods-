@@ -53,7 +53,7 @@ namespace RandysTable
 
     public class RTMod : Mod
     {
-        public const string Version = "0.6.0";
+        public const string Version = "1.0.0";
         public static RTSettings S;
         private static List<string> recBullets;
 
