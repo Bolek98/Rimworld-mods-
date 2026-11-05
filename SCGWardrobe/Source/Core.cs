@@ -200,12 +200,21 @@ public static class Roles
 
 	public static bool StewardRolesOn => ModsConfig.IsActive("misak.steward.roles");
 
+	// 0.1.3: asked for every piece of clothing the game compares – kept for an in-game hour per colonist
+	private static readonly Dictionary<int, (int tick, string role)> cache = new Dictionary<int, (int, string)>();
+	public static void ClearCache() => cache.Clear();
+
 	public static string Of(Pawn p)
 	{
 		if (p == null) return "Everyone";
 		WardrobeGame g = WardrobeGame.Get();
 		if (g != null && g.roleOverride.TryGetValue(p.thingIDNumber, out string o) && !string.IsNullOrEmpty(o)) return o;
-		return StewardRole(p) ?? SkillRole(p);
+		int now = Find.TickManager?.TicksGame ?? 0;
+		if (cache.TryGetValue(p.thingIDNumber, out var c) && now >= c.tick && now - c.tick < 2500) return c.role;
+		string r = StewardRole(p) ?? SkillRole(p);
+		if (cache.Count > 2000) cache.Clear();
+		cache[p.thingIDNumber] = (now, r);
+		return r;
 	}
 
 	private static int Lv(Pawn p, SkillDef s)
@@ -360,7 +369,20 @@ public static class Classify
 	}
 
 	// None (clothes) < Light < Medium < Heavy
+	// 0.1.3: the armour of a piece doesn't change – worked out once per piece, not at every comparison
+	private static readonly Dictionary<int, ArmorWeight> weights = new Dictionary<int, ArmorWeight>();
+
 	public static ArmorWeight WeightOf(Apparel a)
+	{
+		if (a == null) return ArmorWeight.None;
+		if (weights.TryGetValue(a.thingIDNumber, out ArmorWeight w)) return w;
+		w = Weigh(a);
+		if (weights.Count > 20000) weights.Clear();
+		weights[a.thingIDNumber] = w;
+		return w;
+	}
+
+	private static ArmorWeight Weigh(Apparel a)
 	{
 		float v = ArmorOf(a);
 		if (v < 0.2f) return ArmorWeight.None;

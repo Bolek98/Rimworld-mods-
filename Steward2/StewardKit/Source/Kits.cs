@@ -233,7 +233,25 @@ public static class Kits
 	}
 
 	// ---------------- what a colonist should carry ----------------
+	// 0.2.2: the wanted list is asked for very often (every job search, every item the game
+	// thinks of dropping) – it is kept for a few seconds per colonist instead of rebuilt each time
+	private static readonly Dictionary<int, (int tick, List<KitLine> list)> wantedCache = new Dictionary<int, (int, List<KitLine>)>();
+	private static int settingsStamp;
+	public static void ClearCache() { wantedCache.Clear(); settingsStamp++; }
+
 	public static List<KitLine> Wanted(Pawn p)
+	{
+		if (p == null) return new List<KitLine>();
+		int now = Find.TickManager?.TicksGame ?? 0;
+		if (wantedCache.TryGetValue(p.thingIDNumber, out var c) && now - c.tick < 250 && now >= c.tick)
+			return c.list;
+		List<KitLine> list = BuildWanted(p);
+		if (wantedCache.Count > 2000) wantedCache.Clear();
+		wantedCache[p.thingIDNumber] = (now, list);
+		return list;
+	}
+
+	private static List<KitLine> BuildWanted(Pawn p)
 	{
 		var res = new List<KitLine>();
 		KitSettings s = KitMod.Settings;
@@ -423,8 +441,17 @@ public class WorkGiver_KitRefill : WorkGiver_Scanner
 		int now = Find.TickManager.TicksGame;
 		if (!forced && nextCheck.TryGetValue(pawn.thingIDNumber, out int n) && now < n) return true;
 		bool missing = Kits.Wanted(pawn).Any(w => Kits.Missing(pawn, w) > 0);
-		if (!missing) nextCheck[pawn.thingIDNumber] = now + Mathf.Max(1, s.checkHours) * GenDate.TicksPerHour;
-		return !missing;
+		if (!missing)
+		{
+			nextCheck[pawn.thingIDNumber] = now + Mathf.Max(1, s.checkHours) * GenDate.TicksPerHour;
+			return true;
+		}
+		// 0.2.2: something is missing – look once now, then not again for an in-game hour unless a
+		// pick-up was found (JobOnThing clears this). Before, a colonist whose missing item was not
+		// in storage (or who had no room for it) searched the whole map at every job search.
+		if (!forced)
+			nextCheck[pawn.thingIDNumber] = now + GenDate.TicksPerHour;
+		return Kits.FreeKitMass(pawn) <= 0.05f;
 	}
 
 	public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
@@ -432,13 +459,23 @@ public class WorkGiver_KitRefill : WorkGiver_Scanner
 		var wanted = Kits.Wanted(pawn).Where(w => Kits.Missing(pawn, w) > 0).ToList();
 		if (wanted.Count == 0) yield break;
 		float maxD = KitMod.Settings.maxDistance;
+		float maxD2 = maxD * maxD;
 		var seen = new HashSet<Thing>();
+		// 0.2.2: cheap checks first, and only the nearest few per item (each candidate costs a reach check)
+		var found = new List<Thing>();
 		foreach (KitLine w in wanted)
-			foreach (Thing t in Kits.Candidates(pawn.Map, w.item).ToList())
+		{
+			found.Clear();
+			foreach (Thing t in Kits.Candidates(pawn.Map, w.item))
 			{
-				if (!t.Spawned || (t.Position - pawn.Position).LengthHorizontalSquared > maxD * maxD) continue;
-				if (Kits.Matches(pawn, w.item, t.def) && seen.Add(t)) yield return t;
+				if (t == null || !t.Spawned || (t.Position - pawn.Position).LengthHorizontalSquared > maxD2) continue;
+				if (seen.Contains(t) || !t.IsInAnyStorage() || t.IsForbidden(pawn) || !Kits.Matches(pawn, w.item, t.def)) continue;
+				found.Add(t);
 			}
+			found.Sort((a, b) => (a.Position - pawn.Position).LengthHorizontalSquared.CompareTo((b.Position - pawn.Position).LengthHorizontalSquared));
+			for (int i = 0; i < found.Count && i < 8; i++)
+				if (seen.Add(found[i])) yield return found[i];
+		}
 	}
 
 	public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)

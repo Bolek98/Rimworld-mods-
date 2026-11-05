@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+0.1.3
+- Performance: role and armour weight are no longer worked out again for every piece of clothing the game compares; the search for sleep / festive clothes checks the way only for the nearest pieces.
+- Výkon: role a váha zbroje se už nepočítají znovu pro každý kus oblečení, který hra porovnává; hledání pyžama / svátečního oblečení kontroluje cestu jen k nejbližším kusům.
+
 0.1.2
 - Fix: Wardrobe failed to start (it asked for a translation before the game had loaded its languages), so there was no settings window.
 - Oprava: Šatník se nespustil (chtěl překlad dřív, než hra načetla jazyky), takže chybělo i okno nastavení.

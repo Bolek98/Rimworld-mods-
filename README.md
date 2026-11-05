@@ -38,7 +38,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Research Atlas – Research Tree for Big Modpacks | 0.3.0 | [ResearchAtlas](ResearchAtlas) |
 | Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
 | Ride & Drive – Mounts and Vehicles Together | 0.1.1 | [RideAndDrive](RideAndDrive) |
-| Smart Colonist Gear – Wardrobe | 0.1.2 | [SCGWardrobe](SCGWardrobe) |
+| Smart Colonist Gear – Wardrobe | 0.1.3 | [SCGWardrobe](SCGWardrobe) |
 | Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.5.0 | [SeasonsHolidays](SeasonsHolidays) |
 | Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |
 | Smart Colonist Gear – Auto Equip Weapons & Armor | 2.18.0 | [SmartColonistGear](SmartColonistGear) |
@@ -47,7 +47,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Steward – Work Priorities | 1.1.1 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.1.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | Steward – Droids | 0.1.1 | [Steward2/StewardDroids](Steward2/StewardDroids) |
-| Steward – Kit | 0.2.1 | [Steward2/StewardKit](Steward2/StewardKit) |
+| Steward – Kit | 0.2.2 | [Steward2/StewardKit](Steward2/StewardKit) |
 | Steward – Orders | 0.3.2 | [Steward2/StewardOrders](Steward2/StewardOrders) |
 | Steward – Roles | 0.2.1 | [Steward2/StewardRoles](Steward2/StewardRoles) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |

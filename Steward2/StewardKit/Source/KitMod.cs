@@ -70,7 +70,7 @@ public sealed class KitSettings : ModSettings
 public sealed class KitMod : Mod
 {
 	public static KitSettings Settings;
-	public const string Version = "0.2.1";
+	public const string Version = "0.2.2";
 	private static readonly KitSettings recKit = new KitSettings();
 	private static readonly AutoPharmacySettings recAP = new AutoPharmacySettings();
 
@@ -159,6 +159,7 @@ public sealed class KitMod : Mod
 
 	public override void DoSettingsWindowContents(Rect r)
 	{
+		Kits.ClearCache();   // 0.2.2: changes in this window count at once
 		MUI.Version(r, "v" + Version + " · Bolek98");
 		// two rows of tabs (ten tabs do not fit in one)
 		var all = (Tab[])Enum.GetValues(typeof(Tab));
@@ -455,13 +456,13 @@ public sealed class KitMod : Mod
 				Pawn pp = p;
 				var menu = new List<FloatMenuOption>
 				{
-					new FloatMenuOption("SK_Mode_AutoPlain".Translate(), () => g.overrides.Remove(pp.thingIDNumber)),
-					new FloatMenuOption("SK_RoleOff".Translate(), () => g.overrides[pp.thingIDNumber] = "Off")
+					new FloatMenuOption("SK_Mode_AutoPlain".Translate(), () => { g.overrides.Remove(pp.thingIDNumber); Kits.ClearCache(); }),
+					new FloatMenuOption("SK_RoleOff".Translate(), () => { g.overrides[pp.thingIDNumber] = "Off"; Kits.ClearCache(); })
 				};
 				foreach (string role in Kits.Roles)
 				{
 					string rl = role;
-					menu.Add(new FloatMenuOption(Kits.RoleLabel(rl), () => g.overrides[pp.thingIDNumber] = rl));
+					menu.Add(new FloatMenuOption(Kits.RoleLabel(rl), () => { g.overrides[pp.thingIDNumber] = rl; Kits.ClearCache(); }));
 				}
 				Find.WindowStack.Add(new FloatMenu(menu));
 			}

@@ -178,9 +178,9 @@ public static class Ticker
 	public static Apparel FindPiece(Pawn p, bool sleep)
 	{
 		Func<ThingDef, bool> isOcc = sleep ? (Func<ThingDef, bool>)WardrobeProvider.IsSleepwear : WardrobeProvider.IsFestive;
-		Apparel best = null;
-		float bestD = float.MaxValue;
 		WardrobeGame g = WardrobeGame.Get();
+		// 0.1.3: the reach check (path search) only for the nearest pieces, nearest first
+		var cand = new List<(Apparel a, float d)>();
 		foreach (Thing t in p.Map.listerThings.ThingsInGroup(ThingRequestGroup.Apparel))
 		{
 			if (!(t is Apparel a) || !isOcc(a.def) || a.IsForbidden(p) || !t.Spawned) continue;
@@ -189,11 +189,13 @@ public static class Ticker
 			if (!Classify.Fits(p, a) || ApparelFlip.Blocked(p, a.def)) continue;
 			if (p.outfits?.CurrentApparelPolicy != null && !p.outfits.CurrentApparelPolicy.filter.Allows(a)) continue;
 			float d = (t.Position - p.Position).LengthHorizontalSquared;
-			if (d > S.maxDistance * S.maxDistance || d >= bestD) continue;
-			if (!p.CanReserveAndReach(a, PathEndMode.ClosestTouch, Danger.Some)) continue;
-			best = a; bestD = d;
+			if (d > S.maxDistance * S.maxDistance) continue;
+			cand.Add((a, d));
 		}
-		return best;
+		cand.Sort((x, y) => x.d.CompareTo(y.d));
+		for (int i = 0; i < cand.Count && i < 6; i++)
+			if (p.CanReserveAndReach(cand[i].a, PathEndMode.ClosestTouch, Danger.Some)) return cand[i].a;
+		return null;
 	}
 
 	private static void Wear(Pawn p, Apparel a, bool sleep)
