@@ -35,7 +35,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Power & Water Works | 0.1.1 | [PowerWaterWorks](PowerWaterWorks) |
 | [B98] QoL – Faster Work, Prisoners & Pipette | 1.1.0 | [QoLFasterWork](QoLFasterWork) |
 | [B98] Randy's Table – Chaos Storytellers | 0.4.0 | [RandysTable](RandysTable) |
-| [B98] Research Atlas – Research Tree for Big Modpacks | 0.4.0 | [ResearchAtlas](ResearchAtlas) |
+| [B98] Research Atlas – Research Tree for Big Modpacks | 1.0.0 | [ResearchAtlas](ResearchAtlas) |
 | [B98] Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
 | [B98] Ride & Drive – Mounts and Vehicles Together | 0.1.1 | [RideAndDrive](RideAndDrive) |
 | [B98] Smart Colonist Gear – Wardrobe | 0.1.3 | [SCGWardrobe](SCGWardrobe) |

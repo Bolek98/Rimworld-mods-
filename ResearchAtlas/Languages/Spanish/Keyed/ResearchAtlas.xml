@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RA_Title>Investigación</RA_Title>
+  <RA_SearchHint>Buscar investigación, mods, lo que desbloquea o permite…</RA_SearchHint>
+  <RA_NoMatch>nada</RA_NoMatch>
+  <RA_NextMatchTip>Siguiente resultado (Intro en la búsqueda)</RA_NextMatchTip>
+  <RA_OnlyAvailable>Disponible ahora</RA_OnlyAvailable>
+  <RA_HideFinished>Ocultar terminadas</RA_HideFinished>
+  <RA_Mod>Mod</RA_Mod>
+  <RA_ModAll>todos los mods</RA_ModAll>
+  <RA_All>todo</RA_All>
+  <RA_Cat>Tipo</RA_Cat>
+  <RA_Era>Era</RA_Era>
+  <RA_Focus>Enfoque: {0}</RA_Focus>
+  <RA_Reset>Restablecer</RA_Reset>
+  <RA_Vanilla>Ventana original</RA_Vanilla>
+  <RA_Fit>Ajustar</RA_Fit>
+  <RA_FixesButton>Correcciones</RA_FixesButton>
+  <RA_AllTabs>Todo</RA_AllTabs>
+  <RA_More>Más</RA_More>
+  <RA_Arranging>Ordenando {0} proyectos de investigación…</RA_Arranging>
+  <RA_Empty>No hay investigación aquí con estos filtros.</RA_Empty>
+  <RA_Help>Clic: seleccionar – detalles a la derecha · Mayús+clic: poner en cola con todo lo necesario · Ctrl+clic: poner en cola solo esta · Doble clic: investigar ahora (o poner en cola) · Ctrl+pasar el ratón: mostrar todo el camino y todo lo que sigue · Clic derecho: menú · Clic en un icono de una tarjeta: su información · Rueda: zoom · Arrastrar: mover · Inicio: volver a lo que se investiga ahora</RA_Help>
+  <RA_AlreadyDone>{0} ya está investigada.</RA_AlreadyDone>
+  <RA_ResearchNow>Investigar ahora</RA_ResearchNow>
+  <RA_QueuePath>Poner en cola con todo lo necesario</RA_QueuePath>
+  <RA_QueueOne>Poner en cola solo esta</RA_QueueOne>
+  <RA_Unqueue>Quitar de la cola</RA_Unqueue>
+  <RA_FocusOn>Enfoque: mostrar solo su camino y lo que sigue</RA_FocusOn>
+  <RA_Unfocus>Salir del enfoque</RA_Unfocus>
+  <RA_InfoCard>Ficha de información</RA_InfoCard>
+  <RA_OpenVanilla>Mostrar en la ventana original</RA_OpenVanilla>
+  <RA_TipCost>{0} / {1} puntos · {2}</RA_TipCost>
+  <RA_TipUnlocks>Desbloquea:</RA_TipUnlocks>
+  <RA_TipNeeds>Necesita:</RA_TipNeeds>
+  <RA_TipBench>Necesita: {0}</RA_TipBench>
+  <RA_TipTechprints>Planos técnicos: {0} / {1}</RA_TipTechprints>
+  <RA_TipStudy>Estudio: {0}</RA_TipStudy>
+  <RA_TipMechanitor>Necesita un mecanitor</RA_TipMechanitor>
+  <RA_TipClick>Clic: detalles · Mayús: poner el camino en cola · Ctrl+clic: solo esta · Doble clic: investigar ahora · Ctrl+pasar el ratón: todo el camino · Clic derecho: más</RA_TipClick>
+  <RA_EtaNever>nadie investiga</RA_EtaNever>
+  <RA_EtaHours>~{0} h</RA_EtaHours>
+  <RA_EtaDays>~{0} días</RA_EtaDays>
+  <RA_Now>Ahora</RA_Now>
+  <RA_NothingNow>No se investiga nada</RA_NothingNow>
+  <RA_Queue>Cola</RA_Queue>
+  <RA_QueueEmpty>La cola está vacía – haz clic en un proyecto de investigación para añadirlo con todo lo necesario.</RA_QueueEmpty>
+  <RA_Blocked>esperando (mesa, plano técnico …)</RA_Blocked>
+  <RA_AdvNoBench>Aún no hay mesa de investigación – construye una primero.</RA_AdvNoBench>
+  <RA_AdvNoResearchers>Nadie investiga – activa Investigar en la pestaña de trabajo.</RA_AdvNoResearchers>
+  <RA_AdvPick>No se investiga nada – haz clic en un proyecto para empezar.</RA_AdvPick>
+  <RA_AdvBlocked>Nada de la cola puede empezar ahora – mira los elementos rojos (mesa, planos técnicos, estudio).</RA_AdvBlocked>
+  <RA_AdvRate>{0} investigadores · unos {1} puntos por hora de trabajo de investigación</RA_AdvRate>
+  <RA_PickMod>Mostrar la investigación de un mod</RA_PickMod>
+  <RA_Cat_Weapons>Armas</RA_Cat_Weapons>
+  <RA_Cat_Apparel>Ropa y armadura</RA_Cat_Apparel>
+  <RA_Cat_Medical>Medicina</RA_Cat_Medical>
+  <RA_Cat_Production>Producción</RA_Cat_Production>
+  <RA_Cat_Buildings>Edificios</RA_Cat_Buildings>
+  <RA_Cat_Food>Comida y cultivo</RA_Cat_Food>
+  <RA_Cat_Power>Electricidad</RA_Cat_Power>
+  <RA_Cat_Other>Otros</RA_Cat_Other>
+  <RA_SetReplace>Usar Research Atlas como ventana de investigación</RA_SetReplace>
+  <RA_SetReplaceTip>Desactivado: se usa la ventana de investigación del juego (u otro mod de investigación). El botón «Ventana original» cambia por un momento.</RA_SetReplaceTip>
+  <RA_SetAutoStart>Empezar sola la siguiente investigación de la cola</RA_SetAutoStart>
+  <RA_SetAutoStartTip>Cuando termina una investigación, empieza la primera de la cola que pueda empezar.</RA_SetAutoStartTip>
+  <RA_SetCompact>Los filtros ocultan investigación (desactivado: solo la oscurecen)</RA_SetCompact>
+  <RA_SetCompactTip>Con filtros, el árbol se ordena de nuevo solo con lo que queda – mucho más corto con modpacks grandes.</RA_SetCompactTip>
+  <RA_SetMinimap>Mostrar el panel lateral (investigadores, minimapa, elecciones aleatorias)</RA_SetMinimap>
+  <RA_SetClearCache>Ordenar de nuevo todos los árboles de investigación</RA_SetClearCache>
+  <RA_CacheCleared>Los árboles de investigación se ordenarán de nuevo la próxima vez que se abran.</RA_CacheCleared>
+  <RA_FixesTitle>Correcciones (antes Research Fixer)</RA_FixesTitle>
+  <RA_FixesOff>El mod separado Research Fixer está activo, así que estas correcciones están desactivadas aquí. Desactiva Research Fixer – Research Atlas hace lo mismo y toma sus ajustes.</RA_FixesOff>
+  <RA_SetMinimapTip>Un panel a la derecha con quién investiga y a qué velocidad, el minimapa de todo el árbol (con resultados de búsqueda) y, en modo aleatorio, los proyectos para elegir.</RA_SetMinimapTip>
+  <RA_Panel>Panel</RA_Panel>
+  <RA_Home>Inicio</RA_Home>
+  <RA_GroupByMod>Agrupar por mod</RA_GroupByMod>
+  <RA_GroupByModTip>Los proyectos de un mod quedan juntos en cada columna (el árbol tiene algunas líneas más).</RA_GroupByModTip>
+  <RA_OtherTabs>Otros mods</RA_OtherTabs>
+  <RA_IconClick>Clic: ficha de información</RA_IconClick>
+  <RA_Researchers>Investigadores</RA_Researchers>
+  <RA_ResearchingNow>Investigando ahora</RA_ResearchingNow>
+  <RA_ResearchSpeedTip>Velocidad de investigación (no investiga en este momento)</RA_ResearchSpeedTip>
+  <RA_RandomTitle>Elegir la siguiente investigación</RA_RandomTitle>
+  <RA_RandomNone>Ahora no se puede investigar nada.</RA_RandomNone>
+  <RA_RandomReroll>Nueva elección ({0} restantes)</RA_RandomReroll>
+  <RA_RandomNoRerolls>No quedan nuevas elecciones – vuelve una con cada investigación terminada.</RA_RandomNoRerolls>
+  <RA_MinimapTip>Todo el árbol. Haz clic o arrastra para ir allí. Puntos dorados: resultados de búsqueda.</RA_MinimapTip>
+  <RA_TipCannotStart>Aún no puede empezar:</RA_TipCannotStart>
+  <RA_SetRandom>Modo aleatorio: elegir entre tres proyectos ofrecidos</RA_SetRandom>
+  <RA_SetRandomTip>Como Semi Random Research: el panel lateral ofrece tres proyectos aleatorios que puedes investigar ahora. Elige uno; llegan nuevos cuando termina. Aun así puedes elegir cualquier cosa del árbol.</RA_SetRandomTip>
+  <RA_DetailClose>Cerrar los detalles</RA_DetailClose>
+  <RA_DetailNeeds>Requisitos</RA_DetailNeeds>
+  <RA_DetailLeadsTo>Lleva a</RA_DetailLeadsTo>
+  <RA_DetailAbout>Descripción</RA_DetailAbout>
+  <RA_DetailJump>Clic: mostrar esta investigación</RA_DetailJump>
+  <RA_DetailCostDone>Terminada · {0} puntos de investigación</RA_DetailCostDone>
+  <RA_State_Done>Terminada</RA_State_Done>
+  <RA_State_Progress>En investigación</RA_State_Progress>
+  <RA_State_Available>Se puede investigar ahora</RA_State_Available>
+  <RA_State_Locked>Bloqueada – falta algo antes</RA_State_Locked>
+  <RA_DeepSearch>Búsqueda profunda</RA_DeepSearch>
+  <RA_DeepSearchTip>Buscar también en las descripciones de lo desbloqueado y en lo que las mesas desbloqueadas pueden fabricar sin más investigación (comidas en la cocina eléctrica, cosas en una mesa nueva…).</RA_DeepSearchTip>
+  <RA_DetailFound>Encontrado por la búsqueda:</RA_DetailFound>
+  <RA_DetailAlso>Sus mesas también fabrican:</RA_DetailAlso>
+</LanguageData>
