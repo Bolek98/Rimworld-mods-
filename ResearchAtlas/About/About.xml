@@ -37,19 +37,25 @@ THE TREE
 - Arranged once in the background and remembered – again only when your mod list changes. Only what you see is drawn.
 
 FINDING THINGS
-- Search over names, descriptions, mods and unlocked things – matches and the way to them light up, gold dots on the minimap, Enter jumps to the next one.
+- Search over names, descriptions, mods and everything a research unlocks – every product of its recipes, bills, rituals. Matches and the way to them light up, gold dots on the minimap, Enter jumps to the next one.
+- Deep search: also the descriptions of unlocked things and what the unlocked workbenches can make without more research – type "simple meal" and it finds Electricity (electric stove).
 - Hold Ctrl over a research: its whole way there and everything that follows light up.
 - Filters: available now, hide finished, group by mod, one mod (with search), type, era. Tabs: All, the main tab, every DLC tab and one tab for all mod tabs.
 - Side panel: who researches and how fast, minimap. Optional random mode: pick from three offered projects (like Semi Random Research).
 
+DETAIL PANEL
+- Click a research: a panel on the right shows a big picture of what it unlocks, state, cost and time, what it needs and where it leads (click to jump), pictures of everything it unlocks and what its workbenches can make, and why the search found it.
+
 QUEUE
-- Click a research: it is queued with everything it still needs, in the right order. Shift-click: only this one. Drag to reorder, right click to remove.
+- Buttons in the panel: research now, queue with everything it still needs (in the right order), queue only this. Shortcuts: Shift+click (with everything), Ctrl+click (only this), double click (research now). Drag to reorder, right click to remove.
 - The next research starts by itself. Time estimates from your researchers. Kept in the save.
 
 RESEARCH FIXER INSIDE
 - The fixes of Research Fixer are part of Research Atlas: mod items without research get their own research, items on a research far below their era get the right one, optional NEW marks. Same settings, taken over from Research Fixer. Turn Research Fixer off – with both on, Research Atlas leaves its fixes off.
 
-Settings: Mod settings → Research Atlas. "Vanilla view" switches to the game's window at any time; turning the mod off changes nothing in your save but the queue. Requires Harmony. English and Czech.
+Settings: Mod settings → Research Atlas. "Vanilla view" switches to the game's window at any time; turning the mod off changes nothing in your save but the queue. Requires Harmony.
+
+Found a bug? "Report a bug" (bottom left in the mod settings): a short report for the comments, a full one for GitHub Issues. Ideas for additions are welcome – I read every one and think it over.
 
 ---
 
@@ -63,17 +69,23 @@ STROM
 - Rozloží se jednou na pozadí a zapamatuje se – znovu jen při změně seznamu modů. Kreslí se jen to, co je vidět.
 
 HLEDÁNÍ
-- Hledání v názvech, popisech, modech i odemčených věcech – výsledky a cesta k nim se rozsvítí, zlaté tečky na minimapě, Enter skočí na další.
+- Hledání v názvech, popisech, modech i ve všem, co výzkum odemkne – všechny výrobky jeho receptů, zakázky, rituály. Výsledky a cesta k nim se rozsvítí, zlaté tečky na minimapě, Enter skočí na další.
+- Hledat hlouběji: i popisy odemčených věcí a co odemčené pracovní stoly vyrobí bez dalšího výzkumu – napiš „jednoduché jídlo“ a najde Elektřinu (elektrický sporák).
 - Drž Ctrl nad výzkumem: rozsvítí se celá cesta k němu i vše, co z něj vychází.
 - Filtry: jen dostupné, skrýt hotové, seskupit podle modu, jeden mod (s hledáním), druh, epocha. Záložky: Vše, hlavní záložka, každá záložka DLC a jedna záložka pro všechny záložky modů.
 - Boční panel: kdo zkoumá a jak rychle, minimapa. Volitelný náhodný režim: výběr ze tří nabídnutých výzkumů (jako Semi Random Research).
 
+PANEL S DETAILEM
+- Klik na výzkum: vpravo se ukáže velký obrázek toho, co odemkne, stav, cena a čas, co potřebuje a kam vede (klik: přeskočit), obrázky všeho, co odemkne, i co vyrobí jeho stoly, a proč ho hledání našlo.
+
 FRONTA
-- Klik na výzkum: zařadí se i se vším, co ještě potřebuje, ve správném pořadí. Shift+klik: jen tenhle. Přetažením se mění pořadí, pravým klikem se odebírá.
+- Tlačítka v panelu: zkoumat hned, do fronty i se vším, co ještě potřebuje (ve správném pořadí), jen tenhle. Zkratky: Shift+klik (i se vším), Ctrl+klik (jen tenhle), dvojklik (zkoumat hned). Přetažením se mění pořadí, pravým klikem se odebírá.
 - Další výzkum začne sám. Odhad času podle tvých výzkumníků. Ukládá se do hry.
 
 RESEARCH FIXER UVNITŘ
 - Opravy z Research Fixeru jsou součástí Research Atlasu: věci z modů bez výzkumu dostanou vlastní výzkum, věci na výzkumu hluboko pod jejich epochou dostanou ten správný, volitelně značky NOVÉ. Stejné nastavení, převzaté z Research Fixeru. Research Fixer vypni – když jsou zapnuté oba, Research Atlas své opravy nechá vypnuté.
 
-Nastavení: Nastavení modů → Research Atlas. „Původní okno“ kdykoli přepne na okno hry; vypnutí modu v uložené hře nic nezmění kromě fronty. Vyžaduje Harmony. Anglicky a česky.</description>
+Nastavení: Nastavení modů → Research Atlas. „Původní okno“ kdykoli přepne na okno hry; vypnutí modu v uložené hře nic nezmění kromě fronty. Vyžaduje Harmony.
+
+Našel jsi chybu? „Nahlásit chybu“ (vlevo dole v nastavení modu): krátké hlášení do komentářů, celé na GitHub Issues. Nápady na doplnění jsou vítané – každý si přečtu a promyslím.</description>
 </ModMetaData>
