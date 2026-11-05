@@ -363,6 +363,9 @@ public static class Kits
 		if (p == null || t == null) return false;
 		foreach (KitLine w in Wanted(p))
 			if (Matches(p, w.item, t.def)) return true;
+		// 0.2.3: the doctor's pharmacy stock counts too – Steward – Supplies asks here and used to
+		// unload those drugs, the pharmacy took them back, again and again
+		try { if (AutoPharmacy.PharmacyCarry.Keeps(p, t.def)) return true; } catch { }
 		return false;
 	}
 
@@ -545,6 +548,8 @@ public static class KitTidy
 			{
 				Thing t = inv[i];
 				if (!Kits.Matches(p, cat, t.def)) continue;
+				// 0.2.3: the doctor's pharmacy stock stays (it was dropped here and taken back by the pharmacy)
+				if (AutoPharmacy.PharmacyCarry.Keeps(p, t.def)) continue;
 				int n = Math.Min(extra, t.stackCount);
 				if (inv.TryDrop(t, p.Position, m, ThingPlaceMode.Near, n, out Thing _))
 					extra -= n;

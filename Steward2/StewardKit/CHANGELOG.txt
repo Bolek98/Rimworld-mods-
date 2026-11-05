@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+0.2.3
+- Fix: doctors no longer pick up and put away their pharmacy drugs again and again (Steward – Supplies and the kit tidy-up now leave the doctor's pharmacy stock in the pockets); the doctor's stock is looked at once an hour, not at every job search.
+- Oprava: doktoři už dokola nebrali a neodkládali léky z lékárny (Steward – Zásoby a úklid kitu teď nechávají doktorovi jeho zásobu léků v kapsách); doktorova zásoba se kontroluje jednou za hodinu, ne při každém hledání práce.
+
 0.2.2
 - Performance: a colonist whose missing kit item isn't in storage (or who has no room for it) no longer searches the map at every job search – once an hour; the kit list is kept for a few seconds; only the nearest few items are checked.
 - Výkon: kolonista, jehož chybějící věc z kitu není ve skladu (nebo na ni nemá místo), už neprohledává mapu při každém hledání práce – jen jednou za hodinu; seznam kitu se drží pár sekund; kontroluje se jen pár nejbližších věcí.

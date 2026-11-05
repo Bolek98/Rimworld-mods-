@@ -1613,10 +1613,17 @@ public class WorkGiver_StockDrugs : WorkGiver_Scanner
 
 	public override PathEndMode PathEndMode => PathEndMode.ClosestTouch;
 
+	// 0.2.3 (Kit): looked at once an in-game hour per doctor, not at every job search
+	private static readonly Dictionary<int, int> nextLook = new Dictionary<int, int>();
+
 	public override bool ShouldSkip(Pawn pawn, bool forced = false)
 	{
 		var s = AutoPharmacyMod.Settings;
-		return !s.enabled || !s.doctorCarry || pawn.inventory == null || !pawn.IsColonist || Wanted(pawn).Count == 0;
+		if (!s.enabled || !s.doctorCarry || pawn.inventory == null || !pawn.IsColonist) return true;
+		int now = Find.TickManager.TicksGame;
+		if (!forced && nextLook.TryGetValue(pawn.thingIDNumber, out int n) && now < n && n - now <= 2500) return true;
+		if (!forced) nextLook[pawn.thingIDNumber] = now + 2500;
+		return Wanted(pawn).Count == 0;
 	}
 
 	private static List<ThingDef> Wanted(Pawn pawn)
@@ -1639,7 +1646,8 @@ public class WorkGiver_StockDrugs : WorkGiver_Scanner
 	{
 		foreach (ThingDef d in Wanted(pawn))
 			foreach (Thing t in pawn.Map.listerThings.ThingsOfDef(d))
-				yield return t;
+				if (t.Spawned && t.IsInAnyStorage() && !t.IsForbidden(pawn))
+					yield return t;
 	}
 
 	public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
