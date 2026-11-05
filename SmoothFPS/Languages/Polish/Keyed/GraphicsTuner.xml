@@ -130,8 +130,8 @@
   <GT_Regen>Przebudowy mapy na klatkę: {0}</GT_Regen>
   <GT_Regen_Desc>Gdy rośnie trawa, coś jest budowane lub pada śnieg, gra przebudowuje każdą zmienioną część mapy w jednej klatce – na 3x to powoduje przycięcia. To ogranicza liczbę na klatkę, reszta jest wykonywana w kolejnych klatkach (kilka setnych sekundy później). Eksperymentalne – domyślnie wyłączone. Zalecane 4–8.</GT_Regen_Desc>
   <GT_Off>wył.</GT_Off>
-  <GT_SlowAlerts>Rzadziej sprawdzaj alerty po prawej na 3x</GT_SlowAlerts>
-  <GT_SlowAlerts_Desc>Gra w każdej klatce ponownie sprawdza część alertów (z modami są ich setki). Na wysokiej prędkości wystarczy co druga klatka.</GT_SlowAlerts_Desc>
+  <GT_SlowAlerts>Rzadziej sprawdzaj alerty</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>Gra co klatkę sprawdza część alertów (z modami są ich setki). Na prędkości 3 i 4 oraz przy każdej prędkości poniżej 40 FPS wystarczy co druga klatka.</GT_SlowAlerts_Desc>
   <GT_SecDiag>Diagnostyka</GT_SecDiag>
   <GT_OverlayBar>Wykres klatki: symulacja vs rysowanie</GT_OverlayBar>
   <GT_OverlayBar_Desc>Pasek w okienku w prawym górnym rogu: zielony = symulacja (ticki), niebieski = rysowanie, szary = zapas do docelowego FPS. Od razu widzisz, co spowalnia grę.</GT_OverlayBar_Desc>
@@ -462,4 +462,8 @@
   <GT_LazySleepers>Także śpiący koloniści</GT_LazySleepers>
   <GT_LazySleepers_Desc>Kolonista śpiący poza ekranem też jest aktualizowany rzadziej. Sen i potrzeby działają jak dotąd.</GT_LazySleepers_Desc>
   <GT_LazyNow>Teraz leniwych: {0} postaci</GT_LazyNow>
+  <GT_BarCache>Lżejszy pasek kolonistów</GT_BarCache>
+  <GT_BarCache_Desc>Przy wielu kolonistach pasek u góry co klatkę liczy ikony aktywności, nastrój i ryzyko załamania każdego kolonisty. Teraz są trzymane przez ćwierć sekundy. Kliknięcia, wybór i portrety działają na żywo. Wyłącza się sam, gdy te ikony rysuje inny mod.</GT_BarCache_Desc>
+  <GT_OffscreenFx>Bez efektów postaci poza ekranem</GT_OffscreenFx>
+  <GT_OffscreenFx_Desc>Efekty wizualne na postaciach, których nie widzisz (iskry, dym, poświata stanów), nie są aktualizowane. Tylko obraz, w grze nic się nie zmienia.</GT_OffscreenFx_Desc>
 </LanguageData>

@@ -130,8 +130,8 @@
   <GT_Regen>Reconstructions de la carte par image : {0}</GT_Regen>
   <GT_Regen_Desc>Quand l'herbe pousse, qu'on construit ou qu'il neige, le jeu reconstruit chaque partie modifiée de la carte en une seule image – en 3x, cela saccade. Ceci limite le nombre par image, le reste est fait dans les images suivantes (quelques centièmes de seconde plus tard). Expérimental – désactivé par défaut. 4–8 recommandé.</GT_Regen_Desc>
   <GT_Off>désactivé</GT_Off>
-  <GT_SlowAlerts>Vérifier les alertes à droite moins souvent en 3x</GT_SlowAlerts>
-  <GT_SlowAlerts_Desc>Le jeu revérifie une partie des alertes à chaque image (avec des mods, il y en a des centaines). À vitesse élevée, une image sur deux suffit.</GT_SlowAlerts_Desc>
+  <GT_SlowAlerts>Vérifier les alertes moins souvent</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>Le jeu revérifie une partie des alertes à chaque image (avec des mods, il y en a des centaines). En vitesse 3 et 4, et à toute vitesse sous 40 FPS, une image sur deux suffit.</GT_SlowAlerts_Desc>
   <GT_SecDiag>Diagnostic</GT_SecDiag>
   <GT_OverlayBar>Graphique d'image : simulation vs dessin</GT_OverlayBar>
   <GT_OverlayBar_Desc>Une barre dans l'affichage en haut à droite : vert = simulation (ticks), bleu = dessin, gris = réserve jusqu'à l'objectif de FPS. Vous voyez immédiatement ce qui ralentit le jeu.</GT_OverlayBar_Desc>
@@ -462,4 +462,8 @@
   <GT_LazySleepers>Aussi les colons endormis</GT_LazySleepers>
   <GT_LazySleepers_Desc>Un colon qui dort hors écran est aussi mis à jour moins souvent. Le sommeil et les besoins fonctionnent comme avant.</GT_LazySleepers_Desc>
   <GT_LazyNow>Paresseux maintenant : {0} pions</GT_LazyNow>
+  <GT_BarCache>Barre des colons plus légère</GT_BarCache>
+  <GT_BarCache_Desc>Avec beaucoup de colons, la barre du haut calcule à chaque image les icônes d'activité, l'humeur et le risque de crise de chaque colon. Ils sont gardés un quart de seconde. Clics, sélection et portraits restent en direct. Désactivé si un autre mod dessine ces icônes.</GT_BarCache_Desc>
+  <GT_OffscreenFx>Pas d'effets de pions hors écran</GT_OffscreenFx>
+  <GT_OffscreenFx_Desc>Les effets visuels des pions que vous ne voyez pas (étincelles, fumée, lueurs d'états) ne sont pas mis à jour. Seulement l'image, rien ne change dans le jeu.</GT_OffscreenFx_Desc>
 </LanguageData>

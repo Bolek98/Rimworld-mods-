@@ -130,8 +130,8 @@
   <GT_Regen>Map rebuilds per frame: {0}</GT_Regen>
   <GT_Regen_Desc>When grass grows, things are built or snow falls, the game rebuilds every changed part of the map in one frame – at 3x that hitches. This limits the number per frame, the rest is done in the next frames (a few hundredths of a second later). Experimental – off by default. 4–8 recommended.</GT_Regen_Desc>
   <GT_Off>off</GT_Off>
-  <GT_SlowAlerts>Check alerts on the right less often at 3x</GT_SlowAlerts>
-  <GT_SlowAlerts_Desc>The game re-checks a part of the alerts every frame (with mods there are hundreds). At high speed every other frame is enough.</GT_SlowAlerts_Desc>
+  <GT_SlowAlerts>Check alerts on the right less often</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>The game re-checks a part of the alerts every frame (with mods there are hundreds). At speed 3 and 4, and at any speed while the picture runs under 40 FPS, every other frame is enough.</GT_SlowAlerts_Desc>
   <GT_SecDiag>Diagnostics</GT_SecDiag>
   <GT_OverlayBar>Frame graph: simulation vs. drawing</GT_OverlayBar>
   <GT_OverlayBar_Desc>A bar in the top-right display: green = simulation (ticks), blue = drawing, grey = reserve to the target FPS. You see at once what slows the game.</GT_OverlayBar_Desc>
@@ -462,4 +462,8 @@
   <GT_LazySleepers>Sleeping colonists too</GT_LazySleepers>
   <GT_LazySleepers_Desc>A colonist who is asleep off screen is updated less often too. Sleep and needs work as before.</GT_LazySleepers_Desc>
   <GT_LazyNow>Lazy now: {0} pawns</GT_LazyNow>
+  <GT_BarCache>Lighter colonist bar</GT_BarCache>
+  <GT_BarCache_Desc>With many colonists the bar on top works out every colonist's activity icons, mood level and break risk every frame. They are kept for a quarter of a second. Clicks, selection and portraits stay live. Off by itself when another mod draws those icons.</GT_BarCache_Desc>
+  <GT_OffscreenFx>No pawn effects off screen</GT_OffscreenFx>
+  <GT_OffscreenFx_Desc>Visual effects on pawns you cannot see (sparks, smoke, glow of conditions) are not updated. Only the picture, nothing in the game changes.</GT_OffscreenFx_Desc>
 </LanguageData>

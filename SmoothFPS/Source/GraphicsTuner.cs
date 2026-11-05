@@ -132,6 +132,8 @@ namespace GraphicsTuner
         public bool lazyTick = true;            // 1.7.0: pawns off screen that do nothing important tick every 2nd–4th tick
         public int lazyEvery = 3;
         public bool lazySleepers = true;
+        public bool barCache = true;            // 1.7.1: colonist bar icons / mood answers kept for a quarter second
+        public bool offscreenFx = true;         // 1.7.1: pawn effects not updated off screen
         public bool turbo;                      // 1.4.3: speed 3/4 untouched – few frames, all time to the game
         public int turboFps = 12;
         // 1.5.3: speed 4 without dev mode, speed while the game slows down for danger, hidden resource list
@@ -286,6 +288,8 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref lazyTick, "lazyTick", true);
             Scribe_Values.Look(ref lazyEvery, "lazyEvery", 3);
             Scribe_Values.Look(ref lazySleepers, "lazySleepers", true);
+            Scribe_Values.Look(ref barCache, "barCache", true);
+            Scribe_Values.Look(ref offscreenFx, "offscreenFx", true);
             Scribe_Values.Look(ref turboFps, "turboFps", 12);
             Scribe_Values.Look(ref ultraSpeed, "ultraSpeed", false);
             Scribe_Values.Look(ref dangerSpeed, "dangerSpeed", 0);
@@ -767,7 +771,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.7.0";
+        public const string Version = "1.7.1";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -810,6 +814,8 @@ namespace GraphicsTuner
             RainWash.Patch(harmony);                // 1.6.0: rain washes the filth away
             BrightNights.Patch(harmony);            // 1.6.6: lighter nights, picture only
             LazyTick.Patch(harmony);                // 1.7.0: lazy pawns off screen
+            BarCache.Patch(harmony);                // 1.7.1: colonist bar
+            OffscreenEffecters.Patch(harmony);      // 1.7.1: pawn effects off screen
             // 1.6.0: opt-out rules of other mods (SmoothFPS.ExclusionDef, Extras/SmoothFPSRules.xml)
             LongEventHandler.ExecuteWhenFinished(SmoothFPS.ExclusionRules.Load);
             // 1.3.4: no more swapping textures that were loaded before Smooth FPS started – icons and
@@ -1162,6 +1168,8 @@ namespace GraphicsTuner
             MUI.Section(l, "GT_SecHidden".Translate());
             s.regenCap = Mathf.RoundToInt(MUI.Slider(l, "GT_Regen".Translate(s.regenCap == 0 ? "GT_Off".Translate().ToString() : s.regenCap.ToString()), s.regenCap, 0f, 16f, "GT_Regen_Desc".Translate(), s, null));
             Plain(l, "GT_SlowAlerts", ref s.slowAlerts);
+            Plain(l, "GT_BarCache", ref s.barCache);      // 1.7.1
+            Plain(l, "GT_OffscreenFx", ref s.offscreenFx); // 1.7.1
             float leftH = l.CurHeight;
             l.End();
 

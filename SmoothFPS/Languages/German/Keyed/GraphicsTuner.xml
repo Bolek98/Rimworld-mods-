@@ -130,8 +130,8 @@
   <GT_Regen>Kartenneuaufbauten pro Frame: {0}</GT_Regen>
   <GT_Regen_Desc>Wenn Gras wächst, gebaut wird oder Schnee fällt, baut das Spiel jeden geänderten Kartenteil in einem Frame neu auf – bei 3x ruckelt das. Dies begrenzt die Anzahl pro Frame, der Rest wird in den nächsten Frames erledigt (einige Hundertstelsekunden später). Experimentell – standardmäßig aus. 4–8 empfohlen.</GT_Regen_Desc>
   <GT_Off>aus</GT_Off>
-  <GT_SlowAlerts>Warnungen rechts bei 3x seltener prüfen</GT_SlowAlerts>
-  <GT_SlowAlerts_Desc>Das Spiel prüft in jedem Frame einen Teil der Warnungen neu (mit Mods sind es Hunderte). Bei hoher Geschwindigkeit reicht jeder zweite Frame.</GT_SlowAlerts_Desc>
+  <GT_SlowAlerts>Hinweise rechts seltener prüfen</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>Das Spiel prüft jedes Bild einen Teil der Hinweise neu (mit Mods sind es Hunderte). Bei Stufe 3 und 4 und bei jeder Geschwindigkeit unter 40 FPS reicht jedes zweite Bild.</GT_SlowAlerts_Desc>
   <GT_SecDiag>Diagnose</GT_SecDiag>
   <GT_OverlayBar>Frame-Grafik: Simulation vs. Zeichnen</GT_OverlayBar>
   <GT_OverlayBar_Desc>Ein Balken in der Anzeige oben rechts: grün = Simulation (Ticks), blau = Zeichnen, grau = Reserve bis zu den Ziel-FPS. Du siehst sofort, was das Spiel bremst.</GT_OverlayBar_Desc>
@@ -462,4 +462,8 @@
   <GT_LazySleepers>Auch schlafende Kolonisten</GT_LazySleepers>
   <GT_LazySleepers_Desc>Ein Kolonist, der außerhalb des Bildes schläft, wird ebenfalls seltener aktualisiert. Schlaf und Bedürfnisse funktionieren wie zuvor.</GT_LazySleepers_Desc>
   <GT_LazyNow>Gerade träge: {0} Figuren</GT_LazyNow>
+  <GT_BarCache>Leichtere Kolonistenleiste</GT_BarCache>
+  <GT_BarCache_Desc>Mit vielen Kolonisten berechnet die Leiste oben jedes Bild Aktivitätssymbole, Stimmung und Zusammenbruchsrisiko jedes Kolonisten. Sie werden eine Viertelsekunde behalten. Klicks, Auswahl und Porträts bleiben live. Aus, wenn ein anderer Mod diese Symbole zeichnet.</GT_BarCache_Desc>
+  <GT_OffscreenFx>Keine Figureneffekte außerhalb des Bildes</GT_OffscreenFx>
+  <GT_OffscreenFx_Desc>Visuelle Effekte an Figuren, die du nicht siehst (Funken, Rauch, Leuchten von Zuständen), werden nicht aktualisiert. Nur das Bild, im Spiel ändert sich nichts.</GT_OffscreenFx_Desc>
 </LanguageData>

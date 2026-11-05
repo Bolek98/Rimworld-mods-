@@ -130,8 +130,8 @@
   <GT_Regen>프레임당 지도 재구성 수: {0}</GT_Regen>
   <GT_Regen_Desc>풀이 자라거나 무언가가 건설되거나 눈이 내리면, 게임은 바뀐 지도의 모든 부분을 한 프레임에 재구성합니다 – 3x에서는 끊김이 생깁니다. 프레임당 수를 제한하고 나머지는 다음 프레임에서 처리합니다(수백분의 1초 뒤). 실험적 – 기본값은 끄기. 4–8 권장.</GT_Regen_Desc>
   <GT_Off>끄기</GT_Off>
-  <GT_SlowAlerts>3x에서 오른쪽 경고를 덜 자주 확인</GT_SlowAlerts>
-  <GT_SlowAlerts_Desc>게임은 매 프레임 경고의 일부를 다시 확인합니다(모드가 있으면 수백 개). 높은 속도에서는 한 프레임 걸러 확인해도 충분합니다.</GT_SlowAlerts_Desc>
+  <GT_SlowAlerts>오른쪽 알림을 덜 자주 확인</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>게임은 매 프레임 알림의 일부를 다시 확인합니다(모드가 있으면 수백 개). 3배·4배 속도, 그리고 어떤 속도든 40 FPS 미만일 때는 두 프레임에 한 번이면 충분합니다.</GT_SlowAlerts_Desc>
   <GT_SecDiag>진단</GT_SecDiag>
   <GT_OverlayBar>프레임 그래프: 시뮬레이션 대 그리기</GT_OverlayBar>
   <GT_OverlayBar_Desc>오른쪽 위 표시에 막대 추가: 초록 = 시뮬레이션(틱), 파랑 = 그리기, 회색 = 목표 FPS까지의 여유. 무엇이 게임을 느리게 하는지 한눈에 보입니다.</GT_OverlayBar_Desc>
@@ -462,4 +462,8 @@
   <GT_LazySleepers>자는 정착민도</GT_LazySleepers>
   <GT_LazySleepers_Desc>화면 밖에서 자는 정착민도 덜 자주 업데이트됩니다. 수면과 욕구는 전과 같이 작동합니다.</GT_LazySleepers_Desc>
   <GT_LazyNow>현재 게으름: {0}명</GT_LazyNow>
+  <GT_BarCache>가벼운 정착민 바</GT_BarCache>
+  <GT_BarCache_Desc>정착민이 많으면 상단 바가 매 프레임 모든 정착민의 활동 아이콘, 기분, 정신붕괴 위험을 계산합니다. 이를 0.25초 동안 유지합니다. 클릭, 선택, 초상화는 실시간 그대로입니다. 다른 모드가 그 아이콘을 그리면 자동으로 꺼집니다.</GT_BarCache_Desc>
+  <GT_OffscreenFx>화면 밖 폰 효과 생략</GT_OffscreenFx>
+  <GT_OffscreenFx_Desc>보이지 않는 폰의 시각 효과(불꽃, 연기, 상태 빛)를 업데이트하지 않습니다. 화면만 해당되며 게임 내용은 바뀌지 않습니다.</GT_OffscreenFx_Desc>
 </LanguageData>

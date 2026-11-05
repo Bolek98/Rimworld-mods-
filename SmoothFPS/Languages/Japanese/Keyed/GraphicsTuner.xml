@@ -130,8 +130,8 @@
   <GT_Regen>1フレームあたりのマップ再構築数：{0}</GT_Regen>
   <GT_Regen_Desc>草が伸びたり、何かが建設されたり、雪が降ったりすると、ゲームは変更されたマップの各部分を1フレームで再構築します – 3xではこれがカクつきになります。1フレームあたりの数を制限し、残りは次のフレームで処理します（数百分の1秒遅れ）。実験的 – デフォルトはオフ。推奨は4–8。</GT_Regen_Desc>
   <GT_Off>オフ</GT_Off>
-  <GT_SlowAlerts>3xでは右側のアラートの確認を減らす</GT_SlowAlerts>
-  <GT_SlowAlerts_Desc>ゲームは毎フレーム一部のアラートを再確認します（Modがあると数百個）。高速時は1フレームおきで十分です。</GT_SlowAlerts_Desc>
+  <GT_SlowAlerts>右側のアラートの確認を減らす</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>ゲームは毎フレーム一部のアラートを再確認します（Modがあると数百）。速度3と4、またはどの速度でも40 FPS未満のときは2フレームに1回で十分です。</GT_SlowAlerts_Desc>
   <GT_SecDiag>診断</GT_SecDiag>
   <GT_OverlayBar>フレームグラフ：シミュレーションと描画</GT_OverlayBar>
   <GT_OverlayBar_Desc>右上の表示にバーを追加：緑 = シミュレーション（ティック）、青 = 描画、灰色 = 目標FPSまでの余裕。何がゲームを遅くしているか一目でわかります。</GT_OverlayBar_Desc>
@@ -462,4 +462,8 @@
   <GT_LazySleepers>眠っている入植者も</GT_LazySleepers>
   <GT_LazySleepers_Desc>画面外で眠っている入植者も更新頻度が下がります。睡眠と欲求はこれまで通りです。</GT_LazySleepers_Desc>
   <GT_LazyNow>現在省エネ中：{0}体</GT_LazyNow>
+  <GT_BarCache>入植者バーを軽く</GT_BarCache>
+  <GT_BarCache_Desc>入植者が多いと、上部バーは毎フレーム全員の活動アイコン・気分・発狂リスクを計算します。これを0.25秒保持します。クリック・選択・肖像はリアルタイムのまま。他のModがアイコンを描く場合は自動でオフ。</GT_BarCache_Desc>
+  <GT_OffscreenFx>画面外のポーンのエフェクトを省略</GT_OffscreenFx>
+  <GT_OffscreenFx_Desc>見えないポーンの視覚エフェクト（火花・煙・状態の光）を更新しません。見た目だけで、ゲーム内容は変わりません。</GT_OffscreenFx_Desc>
 </LanguageData>

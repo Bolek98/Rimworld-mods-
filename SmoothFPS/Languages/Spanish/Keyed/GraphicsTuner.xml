@@ -130,8 +130,8 @@
   <GT_Regen>Reconstrucciones del mapa por fotograma: {0}</GT_Regen>
   <GT_Regen_Desc>Cuando crece la hierba, se construye algo o nieva, el juego reconstruye cada parte cambiada del mapa en un solo fotograma: a 3x eso da tirones. Esto limita el número por fotograma; el resto se hace en los fotogramas siguientes (unas centésimas de segundo después). Experimental, desactivado por defecto. Se recomienda 4–8.</GT_Regen_Desc>
   <GT_Off>no</GT_Off>
-  <GT_SlowAlerts>Comprobar las alertas de la derecha con menos frecuencia a 3x</GT_SlowAlerts>
-  <GT_SlowAlerts_Desc>El juego vuelve a comprobar parte de las alertas en cada fotograma (con mods hay cientos). A alta velocidad basta con uno de cada dos fotogramas.</GT_SlowAlerts_Desc>
+  <GT_SlowAlerts>Comprobar alertas con menos frecuencia</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>El juego revisa parte de las alertas cada fotograma (con mods hay cientos). A velocidad 3 y 4, y a cualquier velocidad bajo 40 FPS, basta con uno de cada dos fotogramas.</GT_SlowAlerts_Desc>
   <GT_SecDiag>Diagnóstico</GT_SecDiag>
   <GT_OverlayBar>Gráfico de fotograma: simulación vs. dibujado</GT_OverlayBar>
   <GT_OverlayBar_Desc>Una barra en el recuadro de arriba a la derecha: verde = simulación (ticks), azul = dibujado, gris = margen hasta los FPS objetivo. Ves al instante qué ralentiza el juego.</GT_OverlayBar_Desc>
@@ -462,4 +462,8 @@
   <GT_LazySleepers>También colonos dormidos</GT_LazySleepers>
   <GT_LazySleepers_Desc>Un colono que duerme fuera de pantalla también se actualiza con menos frecuencia. El sueño y las necesidades funcionan como antes.</GT_LazySleepers_Desc>
   <GT_LazyNow>Perezosos ahora: {0} peones</GT_LazyNow>
+  <GT_BarCache>Barra de colonos más ligera</GT_BarCache>
+  <GT_BarCache_Desc>Con muchos colonos, la barra superior calcula cada fotograma los iconos de actividad, el ánimo y el riesgo de crisis de cada colono. Se guardan un cuarto de segundo. Clics, selección y retratos siguen en vivo. Se desactiva si otro mod dibuja esos iconos.</GT_BarCache_Desc>
+  <GT_OffscreenFx>Sin efectos de peones fuera de pantalla</GT_OffscreenFx>
+  <GT_OffscreenFx_Desc>Los efectos visuales de peones que no ves (chispas, humo, brillos de estados) no se actualizan. Solo la imagen, nada cambia en el juego.</GT_OffscreenFx_Desc>
 </LanguageData>

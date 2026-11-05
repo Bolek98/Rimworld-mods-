@@ -130,8 +130,8 @@
   <GT_Regen>每帧地图重建次数：{0}</GT_Regen>
   <GT_Regen_Desc>当草生长、建造物品或下雪时，游戏会在一帧内重建地图的每个改动部分——在 3x 时会造成卡顿。此项限制每帧的数量，其余在后续帧中完成（晚几百分之一秒）。实验性——默认关闭。推荐 4–8。</GT_Regen_Desc>
   <GT_Off>关闭</GT_Off>
-  <GT_SlowAlerts>3x 时降低右侧警报的检查频率</GT_SlowAlerts>
-  <GT_SlowAlerts_Desc>游戏每帧都会重新检查一部分警报（有模组时多达数百个）。高速下每隔一帧检查就足够了。</GT_SlowAlerts_Desc>
+  <GT_SlowAlerts>降低右侧警报的检查频率</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>游戏每帧都会重新检查一部分警报（装了模组会有几百个）。在3速和4速，以及任何速度下画面低于40 FPS时，每两帧检查一次就够了。</GT_SlowAlerts_Desc>
   <GT_SecDiag>诊断</GT_SecDiag>
   <GT_OverlayBar>帧图表：模拟与绘制</GT_OverlayBar>
   <GT_OverlayBar_Desc>右上角显示中的一个条形：绿色 = 模拟（tick），蓝色 = 绘制，灰色 = 距目标 FPS 的余量。一眼就能看出是什么拖慢了游戏。</GT_OverlayBar_Desc>
@@ -462,4 +462,8 @@
   <GT_LazySleepers>睡觉的殖民者也算</GT_LazySleepers>
   <GT_LazySleepers_Desc>在屏幕外睡觉的殖民者也会更少更新。睡眠和需求照常运作。</GT_LazySleepers_Desc>
   <GT_LazyNow>当前偷懒：{0} 个小人</GT_LazyNow>
+  <GT_BarCache>更轻的殖民者栏</GT_BarCache>
+  <GT_BarCache_Desc>殖民者很多时，顶部栏每帧都要计算每个殖民者的活动图标、心情和崩溃风险。现在会保留四分之一秒。点击、选择和头像仍实时。若其他模组绘制这些图标则自动关闭。</GT_BarCache_Desc>
+  <GT_OffscreenFx>屏幕外不更新小人特效</GT_OffscreenFx>
+  <GT_OffscreenFx_Desc>你看不到的小人身上的视觉特效（火花、烟雾、状态光效）不再更新。只影响画面，游戏本身不变。</GT_OffscreenFx_Desc>
 </LanguageData>
