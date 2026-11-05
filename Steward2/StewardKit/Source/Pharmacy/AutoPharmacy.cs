@@ -1008,7 +1008,6 @@ public class WorkGiver_GiveDrug : WorkGiver_Scanner
 	}
 }
 
-[DefOf]
 // Steward – Kit: a colonist takes his own drug under Basic work, so it does not depend on
 // the Doctor work (Steward gives Doctor only to colonists good at medicine)
 public class WorkGiver_TakeDrugSelf : WorkGiver_GiveDrug
@@ -1037,6 +1036,9 @@ public static class PharmacyCarry
 	}
 }
 
+// 0.2.4 (Kit): the [DefOf] mark had slipped onto the class above when the pharmacy was merged in – AP_GiveDrug
+// stayed empty, every 'give a drug' job had no JobDef and the colonist stood still until it was reset
+[DefOf]
 public static class AP_DefOf
 {
 	public static JobDef AP_GiveDrug;

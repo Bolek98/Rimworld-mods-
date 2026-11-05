@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+0.2.4
+- Fix: colonists no longer freeze for a while out of the blue – the pharmacy's 'give a drug' job had lost its definition when the pharmacy was merged into the kit, so every such job was empty and the colonist stood still until it was reset.
+- Oprava: kolonisté už najednou nezamrzají na místě – úkol lékárny „podat lék“ při sloučení lékárny do kitu ztratil svoji definici, každý takový úkol byl prázdný a kolonista stál, dokud se nevynuloval.
+
 0.2.3
 - Fix: doctors no longer pick up and put away their pharmacy drugs again and again (Steward – Supplies and the kit tidy-up now leave the doctor's pharmacy stock in the pockets); the doctor's stock is looked at once an hour, not at every job search.
 - Oprava: doktoři už dokola nebrali a neodkládali léky z lékárny (Steward – Zásoby a úklid kitu teď nechávají doktorovi jeho zásobu léků v kapsách); doktorova zásoba se kontroluje jednou za hodinu, ne při každém hledání práce.

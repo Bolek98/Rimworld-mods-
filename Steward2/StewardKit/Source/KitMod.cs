@@ -70,7 +70,7 @@ public sealed class KitSettings : ModSettings
 public sealed class KitMod : Mod
 {
 	public static KitSettings Settings;
-	public const string Version = "0.2.3";
+	public const string Version = "0.2.4";
 	private static readonly KitSettings recKit = new KitSettings();
 	private static readonly AutoPharmacySettings recAP = new AutoPharmacySettings();
 
