@@ -456,4 +456,10 @@
   <GT_HighRefresh>Écran à haute fréquence ({0} Hz) : 60 FPS pendant le chargement et le glisser</GT_HighRefresh>
   <GT_HighRefresh_Desc>Votre écran tourne à {0} Hz. Avec la limite FPS « Comme le jeu », RimWorld 1.7 peut saccader quand vous faites glisser la souris et l'écran de chargement peut se figer. Pendant le chargement et tant qu'un bouton de la souris est enfoncé, la fréquence est tenue à 60, puis elle revient. Une limite choisie par vous n'est jamais modifiée.</GT_HighRefresh_Desc>
   <GT_HighRefreshMsg>Smooth FPS : votre écran tourne à {0} Hz – pendant le chargement et le glisser, le jeu est tenu à 60 FPS pour éviter saccades et blocages. Modifiable dans les réglages de Smooth FPS (Affichage).</GT_HighRefreshMsg>
+  <GT_Lazy>Pions paresseux hors écran</GT_Lazy>
+  <GT_Lazy_Desc>Les pions que vous ne voyez pas et qui ne font rien d'important ne sont mis à jour que tous les quelques ticks : animaux sauvages loin de vos colons, animaux domestiques au repos ou qui flânent, visiteurs qui attendent, colons endormis. Ils marchent toujours à pleine vitesse. Retour immédiat à la normale à l'écran, mobilisés, à terre, blessés, désignés (chasse, dressage …), près d'un colon ou en cas de danger sur la carte.</GT_Lazy_Desc>
+  <GT_LazyEvery>Tous les {0} ticks</GT_LazyEvery>
+  <GT_LazySleepers>Aussi les colons endormis</GT_LazySleepers>
+  <GT_LazySleepers_Desc>Un colon qui dort hors écran est aussi mis à jour moins souvent. Le sommeil et les besoins fonctionnent comme avant.</GT_LazySleepers_Desc>
+  <GT_LazyNow>Paresseux maintenant : {0} pions</GT_LazyNow>
 </LanguageData>

@@ -456,4 +456,10 @@
   <GT_HighRefresh>Monitor s vysokou frekvencí ({0} Hz): 60 FPS při načítání a tažení</GT_HighRefresh>
   <GT_HighRefresh_Desc>Tvůj monitor běží na {0} Hz. S limitem FPS „Jako ve hře“ se RimWorld 1.7 může při tažení myší sekat a načítací obrazovka zamrznout. Během načítání a při stisknutém tlačítku myši se snímky drží na 60, pak se vrátí. Limit, který si nastavíš sám, se nikdy nemění.</GT_HighRefresh_Desc>
   <GT_HighRefreshMsg>Smooth FPS: tvůj monitor běží na {0} Hz – při načítání a tažení myší se hra drží na 60 FPS, aby se nesekala a nezamrzala. Změníš to v nastavení Smooth FPS (Obraz).</GT_HighRefreshMsg>
+  <GT_Lazy>Líné postavy mimo obrazovku</GT_Lazy>
+  <GT_Lazy_Desc>Postavy, které nevidíš a nedělají nic důležitého, se počítají jen každých pár ticků: divoká zvířata daleko od kolonistů, domácí zvířata, která odpočívají nebo bloumají, čekající návštěvníci a spící kolonisté. Chodí dál plnou rychlostí. Hned zpátky naplno, když jsou na obrazovce, povolaní, na zemi, zranění, označení (lov, ochočení …), blízko kolonisty nebo když je na mapě nebezpečí.</GT_Lazy_Desc>
+  <GT_LazyEvery>Každý {0}. tick</GT_LazyEvery>
+  <GT_LazySleepers>I spící kolonisté</GT_LazySleepers>
+  <GT_LazySleepers_Desc>Kolonista, který mimo obrazovku spí, se taky počítá méně často. Spánek a potřeby fungují jako dřív.</GT_LazySleepers_Desc>
+  <GT_LazyNow>Teď líných: {0} postav</GT_LazyNow>
 </LanguageData>

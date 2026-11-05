@@ -456,4 +456,10 @@
   <GT_HighRefresh>高リフレッシュレートのモニター（{0} Hz）：読み込み中とドラッグ中は 60 FPS</GT_HighRefresh>
   <GT_HighRefresh_Desc>モニターは {0} Hz です。FPS 上限が「ゲーム通り」だと、RimWorld 1.7 ではマウスのドラッグ中にカクつき、読み込み画面が固まることがあります。読み込み中とマウスボタンを押している間は 60 に抑え、その後は元に戻します。自分で設定した上限は変更しません。</GT_HighRefresh_Desc>
   <GT_HighRefreshMsg>Smooth FPS：モニターは {0} Hz です。読み込み中とドラッグ中はカクつきや固まりを防ぐため 60 FPS に抑えます。Smooth FPS の設定（表示）で変更できます。</GT_HighRefreshMsg>
+  <GT_Lazy>画面外のポーンを省エネ</GT_Lazy>
+  <GT_Lazy_Desc>見えておらず重要なことをしていないポーンは数ティックごとにだけ更新されます：入植者から遠い野生動物、休憩中や徘徊中の家畜、待機中の訪問者、眠っている入植者。歩行は全速のままです。画面内、徴兵、ダウン、負傷、指定（狩猟・調教など）、入植者の近く、マップに危険があるときはすぐ通常に戻ります。</GT_Lazy_Desc>
+  <GT_LazyEvery>{0}ティックごと</GT_LazyEvery>
+  <GT_LazySleepers>眠っている入植者も</GT_LazySleepers>
+  <GT_LazySleepers_Desc>画面外で眠っている入植者も更新頻度が下がります。睡眠と欲求はこれまで通りです。</GT_LazySleepers_Desc>
+  <GT_LazyNow>現在省エネ中：{0}体</GT_LazyNow>
 </LanguageData>

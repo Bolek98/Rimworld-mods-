@@ -456,4 +456,10 @@
   <GT_HighRefresh>Monitor mit hoher Bildrate ({0} Hz): 60 FPS beim Laden und Ziehen</GT_HighRefresh>
   <GT_HighRefresh_Desc>Dein Monitor läuft mit {0} Hz. Mit dem FPS-Limit „Wie im Spiel“ kann RimWorld 1.7 beim Ziehen mit der Maus ruckeln und der Ladebildschirm einfrieren. Während des Ladens und solange eine Maustaste gedrückt ist, wird die Bildrate auf 60 gehalten, danach wieder freigegeben. Ein selbst gewähltes Limit wird nie verändert.</GT_HighRefresh_Desc>
   <GT_HighRefreshMsg>Smooth FPS: Dein Monitor läuft mit {0} Hz – beim Laden und Ziehen wird das Spiel auf 60 FPS gehalten, damit es nicht ruckelt oder einfriert. Änderbar in den Smooth-FPS-Einstellungen (Anzeige).</GT_HighRefreshMsg>
+  <GT_Lazy>Träge Figuren außerhalb des Bildes</GT_Lazy>
+  <GT_Lazy_Desc>Figuren, die du nicht siehst und die nichts Wichtiges tun, werden nur alle paar Ticks aktualisiert: wilde Tiere fern deiner Kolonisten, ruhende oder umherstreifende Haustiere, wartende Besucher, schlafende Kolonisten. Sie laufen weiter mit voller Geschwindigkeit. Sofort wieder normal, wenn sichtbar, eingezogen, am Boden, verletzt, markiert (Jagd, Zähmen …), nahe einem Kolonisten oder bei Gefahr auf der Karte.</GT_Lazy_Desc>
+  <GT_LazyEvery>Jeder {0}. Tick</GT_LazyEvery>
+  <GT_LazySleepers>Auch schlafende Kolonisten</GT_LazySleepers>
+  <GT_LazySleepers_Desc>Ein Kolonist, der außerhalb des Bildes schläft, wird ebenfalls seltener aktualisiert. Schlaf und Bedürfnisse funktionieren wie zuvor.</GT_LazySleepers_Desc>
+  <GT_LazyNow>Gerade träge: {0} Figuren</GT_LazyNow>
 </LanguageData>

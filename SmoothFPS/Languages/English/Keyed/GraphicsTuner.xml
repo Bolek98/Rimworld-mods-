@@ -456,4 +456,10 @@
   <GT_HighRefresh>High refresh monitor ({0} Hz): 60 FPS while loading and dragging</GT_HighRefresh>
   <GT_HighRefresh_Desc>Your monitor runs at {0} Hz. With the FPS limit "Like the game", RimWorld 1.7 can stutter while you drag with the mouse and the loading screen can freeze. While the game loads and while a mouse button is held, the frame rate is held at 60, then it goes back. A limit you choose yourself is never touched.</GT_HighRefresh_Desc>
   <GT_HighRefreshMsg>Smooth FPS: your monitor runs at {0} Hz – while loading and dragging the game is held at 60 FPS so it does not stutter or freeze. You can change it in the Smooth FPS settings (Display).</GT_HighRefreshMsg>
+  <GT_Lazy>Lazy pawns off screen</GT_Lazy>
+  <GT_Lazy_Desc>Pawns you cannot see that do nothing important are updated only every few ticks: wild animals far from your colonists, tame animals resting or wandering, visitors waiting around, sleeping colonists. They still walk at full speed. Back to normal at once when on screen, drafted, downed, hurt, designated (hunt, tame …), near a colonist, or when there is danger on the map.</GT_Lazy_Desc>
+  <GT_LazyEvery>Every {0}. tick</GT_LazyEvery>
+  <GT_LazySleepers>Sleeping colonists too</GT_LazySleepers>
+  <GT_LazySleepers_Desc>A colonist who is asleep off screen is updated less often too. Sleep and needs work as before.</GT_LazySleepers_Desc>
+  <GT_LazyNow>Lazy now: {0} pawns</GT_LazyNow>
 </LanguageData>

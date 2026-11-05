@@ -456,4 +456,10 @@
   <GT_HighRefresh>Monitor de alta frecuencia ({0} Hz): 60 FPS al cargar y arrastrar</GT_HighRefresh>
   <GT_HighRefresh_Desc>Tu monitor funciona a {0} Hz. Con el límite de FPS «Como el juego», RimWorld 1.7 puede dar tirones al arrastrar con el ratón y la pantalla de carga puede congelarse. Durante la carga y mientras se mantiene pulsado un botón del ratón, la tasa se mantiene en 60 y luego vuelve. Un límite que elijas tú nunca se toca.</GT_HighRefresh_Desc>
   <GT_HighRefreshMsg>Smooth FPS: tu monitor funciona a {0} Hz – al cargar y arrastrar el juego se mantiene en 60 FPS para que no dé tirones ni se congele. Puedes cambiarlo en los ajustes de Smooth FPS (Pantalla).</GT_HighRefreshMsg>
+  <GT_Lazy>Peones perezosos fuera de pantalla</GT_Lazy>
+  <GT_Lazy_Desc>Los peones que no ves y que no hacen nada importante se actualizan solo cada pocos ticks: animales salvajes lejos de tus colonos, animales domésticos descansando o deambulando, visitantes esperando, colonos dormidos. Siguen caminando a toda velocidad. Vuelven a la normalidad al instante en pantalla, reclutados, derribados, heridos, designados (caza, doma …), cerca de un colono o si hay peligro en el mapa.</GT_Lazy_Desc>
+  <GT_LazyEvery>Cada {0} ticks</GT_LazyEvery>
+  <GT_LazySleepers>También colonos dormidos</GT_LazySleepers>
+  <GT_LazySleepers_Desc>Un colono que duerme fuera de pantalla también se actualiza con menos frecuencia. El sueño y las necesidades funcionan como antes.</GT_LazySleepers_Desc>
+  <GT_LazyNow>Perezosos ahora: {0} peones</GT_LazyNow>
 </LanguageData>

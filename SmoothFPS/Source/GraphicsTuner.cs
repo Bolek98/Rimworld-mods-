@@ -129,6 +129,9 @@ namespace GraphicsTuner
         public bool tempSpread = true;
         public bool nightFast = true;
         public bool worldSleep = true;          // 1.4.6: mod conditions do not keep world pawns awake
+        public bool lazyTick = true;            // 1.7.0: pawns off screen that do nothing important tick every 2nd–4th tick
+        public int lazyEvery = 3;
+        public bool lazySleepers = true;
         public bool turbo;                      // 1.4.3: speed 3/4 untouched – few frames, all time to the game
         public int turboFps = 12;
         // 1.5.3: speed 4 without dev mode, speed while the game slows down for danger, hidden resource list
@@ -280,6 +283,9 @@ namespace GraphicsTuner
             Scribe_Values.Look(ref nightFast, "nightFast", true);
             Scribe_Values.Look(ref turbo, "turbo", false);
             Scribe_Values.Look(ref worldSleep, "worldSleep", true);
+            Scribe_Values.Look(ref lazyTick, "lazyTick", true);
+            Scribe_Values.Look(ref lazyEvery, "lazyEvery", 3);
+            Scribe_Values.Look(ref lazySleepers, "lazySleepers", true);
             Scribe_Values.Look(ref turboFps, "turboFps", 12);
             Scribe_Values.Look(ref ultraSpeed, "ultraSpeed", false);
             Scribe_Values.Look(ref dangerSpeed, "dangerSpeed", 0);
@@ -761,7 +767,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.6.1";
+        public const string Version = "1.7.0";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
@@ -803,6 +809,7 @@ namespace GraphicsTuner
             SpeedControls.Patch(harmony);           // 1.5.3: speed 4, speed during danger, hidden resource list
             RainWash.Patch(harmony);                // 1.6.0: rain washes the filth away
             BrightNights.Patch(harmony);            // 1.6.6: lighter nights, picture only
+            LazyTick.Patch(harmony);                // 1.7.0: lazy pawns off screen
             // 1.6.0: opt-out rules of other mods (SmoothFPS.ExclusionDef, Extras/SmoothFPSRules.xml)
             LongEventHandler.ExecuteWhenFinished(SmoothFPS.ExclusionRules.Load);
             // 1.3.4: no more swapping textures that were loaded before Smooth FPS started – icons and
@@ -1271,6 +1278,17 @@ namespace GraphicsTuner
             MUI.Check(l, "GT_SimSmartTick".Translate(), "GT_SimSmartTick_Desc".Translate(), ref s.smartTick, s, null);
             Muted(l.GetRect(48f), "GT_SimRates".Translate(Sim.WorldRate, Sim.OtherMapRate, Sim.OffscreenRate));
             MUI.Check(l, "GT_FastCull".Translate(), "GT_FastCull_Desc".Translate(), ref s.fastCull, s, null);
+            // 1.7.0: lazy pawns off screen
+            MUI.Check(l, "GT_Lazy".Translate(), "GT_Lazy_Desc".Translate(), ref s.lazyTick, s, null);
+            if (s.lazyTick)
+            {
+                Rect lr = l.GetRect(28f);
+                Widgets.Label(new Rect(lr.x + 24f, lr.y + 3f, lr.width * 0.55f, 24f), "GT_LazyEvery".Translate(s.lazyEvery));
+                s.lazyEvery = Mathf.RoundToInt(Widgets.HorizontalSlider(new Rect(lr.x + lr.width * 0.55f + 30f, lr.y + 8f, lr.width * 0.45f - 34f, 16f), s.lazyEvery, 2f, 4f, true));
+                MUI.Check(l, "    " + "GT_LazySleepers".Translate(), "GT_LazySleepers_Desc".Translate(), ref s.lazySleepers, s, null);
+                if (Verse.Current.ProgramState == ProgramState.Playing)
+                    Muted(l.GetRect(24f), "GT_LazyNow".Translate(LazyTick.LazyNow));
+            }
             MUI.Section(l, "GT_SpeedSec".Translate());
             MUI.Check(l, "GT_SmartWork".Translate(), "GT_SmartWork_Desc".Translate(), ref s.smartWork, s, null);
             MUI.Check(l, "GT_SpreadJobs".Translate(), "GT_SpreadJobs_Desc".Translate(), ref s.spreadJobs, s, null);
