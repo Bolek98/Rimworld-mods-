@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+2.19.1
+- Fix: colonists no longer keep swapping hats, masks and helmets instead of working – the 'left off for two days' block for pieces swapped too often applies to headgear again (only clothes on the torso and legs may skip it, so nobody stands around undressed).
+- Oprava: kolonisté už místo práce dokola nestřídají čepice, masky a helmy – blokace „nechat dva dny sundané“ u kusů střídaných moc často zase platí pro pokrývky hlavy (přeskočit ji smí jen oblečení na trup a nohy, aby nikdo nestál svlečený).
+
 2.19.0
 - New: tools in the pockets – a colonist keeps the tool for his work (pickaxe, sickle, axe …) in his inventory, fetched once before the first work that wants it; when the work starts he swaps it into his hands at once, the weapon goes into the pockets; drafted, in a fight or at other work (or an hour without tool work) the weapon is back in his hands. At most 2 tools, mass limit in the settings (6 kg). Carried tools do not count as sidearms.
 - Nové: nástroje v kapsách – kolonista nosí nástroj pro svoji práci (krumpáč, srp, sekeru …) v inventáři, dojde si pro něj jednou před první prací, která ho chce; když práce začne, vezme ho hned do ruky a zbraň dá do kapsy; při povolání, v boji, u jiné práce (nebo po hodině bez práce s nástrojem) má zbraň zase v ruce. Nejvýš 2 nástroje, limit váhy v nastavení (6 kg). Nástroje v kapse se nepočítají jako vedlejší zbraně.

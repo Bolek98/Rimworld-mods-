@@ -12307,7 +12307,10 @@ namespace ResearchedLoadout
 			// the way of this piece (he stands there without clothes on that part), he may put it on
 			try
 			{
-				if (p.apparel != null && d.apparel != null)
+				// 2.19.1: only for clothes that keep him dressed (torso / legs) – hats, masks and helmets keep the block,
+				// with Wardrobe they were swapped round and round (winter hat → gas mask → helmet …)
+				bool body = d.apparel != null && d.apparel.bodyPartGroups != null && (d.apparel.bodyPartGroups.Contains(BodyPartGroupDefOf.Torso) || d.apparel.bodyPartGroups.Contains(BodyPartGroupDefOf.Legs));
+				if (body && p.apparel != null && d.apparel != null)
 				{
 					var worn = p.apparel.WornApparel;
 					bool inTheWay = false;
