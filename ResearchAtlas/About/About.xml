@@ -27,7 +27,7 @@
   <incompatibleWith>
     <li>misak.researchfixer</li>
   </incompatibleWith>
-  <description>A research window made mainly for huge mod packs – thousands of research projects from hundreds of mods stay readable. It handles small mod lists and the plain game just as easily. Includes Research Fixer.
+  <description>A research window made mainly for huge mod packs – thousands of research projects from hundreds of mods stay readable. It handles small mod lists and the plain game just as easily. With a built-in research fixer for mod items.
 
 THE TREE
 - A real tree from left to right, like Research Tree: eras one after another, inside an era by what needs what. Nothing wraps; as few crossing lines as possible, chains run straight.
@@ -50,8 +50,10 @@ QUEUE
 - Buttons in the panel: research now, queue with everything it still needs (in the right order), queue only this. Shortcuts: Shift+click (with everything), Ctrl+click (only this), double click (research now). Drag to reorder, right click to remove.
 - The next research starts by itself. Time estimates from your researchers. Kept in the save.
 
-RESEARCH FIXER INSIDE
-- The fixes of Research Fixer are part of Research Atlas: mod items without research get their own research, items on a research far below their era get the right one, optional NEW marks. Same settings, taken over from Research Fixer. Turn Research Fixer off – with both on, Research Atlas leaves its fixes off.
+RESEARCH FIXER (BUILT IN)
+Many mods add weapons, armour and buildings that need no research – a fresh tribe builds a charge rifle on day one – or put spacer gear behind smithing.
+- The "Fixes" button finds them (mods only, industrial era and up; the game and DLCs are never touched) and lists them by mod and era. Skip any group and press Apply: they get a new research in the "Mod research" tab, linked to the right vanilla research.
+- Mod files are never changed; turn it off and all is as before. Works after a restart ("Restart now" saves and reloads). Optional green NEW marks on newly researched things.
 
 Settings: Mod settings → Research Atlas. "Vanilla view" switches to the game's window at any time; turning the mod off changes nothing in your save but the queue. Requires Harmony.
 
@@ -59,7 +61,7 @@ Found a bug? "Report a bug" (bottom left in the mod settings): a short report fo
 
 ---
 
-Okno výzkumu dělané hlavně pro obří balíky modů – tisíce výzkumů ze stovek modů zůstanou přehledné. S malým seznamem modů i se samotnou hrou si poradí stejně hravě. Obsahuje Research Fixer.
+Okno výzkumu dělané hlavně pro obří balíky modů – tisíce výzkumů ze stovek modů zůstanou přehledné. S malým seznamem modů i se samotnou hrou si poradí stejně hravě. S vestavěnou opravou výzkumu pro věci z modů.
 
 STROM
 - Skutečný strom zleva doprava, jako Research Tree: epochy za sebou, uvnitř epochy podle toho, co co potřebuje. Nic se nezalamuje, co nejméně křížících se čar, řetězy vedou rovně.
@@ -82,8 +84,10 @@ FRONTA
 - Tlačítka v panelu: zkoumat hned, do fronty i se vším, co ještě potřebuje (ve správném pořadí), jen tenhle. Zkratky: Shift+klik (i se vším), Ctrl+klik (jen tenhle), dvojklik (zkoumat hned). Přetažením se mění pořadí, pravým klikem se odebírá.
 - Další výzkum začne sám. Odhad času podle tvých výzkumníků. Ukládá se do hry.
 
-RESEARCH FIXER UVNITŘ
-- Opravy z Research Fixeru jsou součástí Research Atlasu: věci z modů bez výzkumu dostanou vlastní výzkum, věci na výzkumu hluboko pod jejich epochou dostanou ten správný, volitelně značky NOVÉ. Stejné nastavení, převzaté z Research Fixeru. Research Fixer vypni – když jsou zapnuté oba, Research Atlas své opravy nechá vypnuté.
+OPRAVA VÝZKUMU (UVNITŘ)
+Spousta modů přidává zbraně, zbroje a budovy bez výzkumu – čerstvý kmen si první den postaví nábojovou pušku – nebo dává vesmírnou výbavu za kovářství.
+- Tlačítko „Opravy“ je najde (jen mody, od průmyslové epochy; hry a DLC se nedotkne) a vypíše podle modu a epochy. Přeskoč, co nechceš, a dej Použít: dostanou nový výzkum v záložce „Výzkum modů“, napojený na správný původní výzkum.
+- Soubory modů se nikdy nemění; vypneš to a vše je jako dřív. Platí po restartu („Restartovat teď“ uloží a znovu načte). Volitelně zelené značky NOVÉ u nově vyzkoumaných věcí.
 
 Nastavení: Nastavení modů → Research Atlas. „Původní okno“ kdykoli přepne na okno hry; vypnutí modu v uložené hře nic nezmění kromě fronty. Vyžaduje Harmony.
 
