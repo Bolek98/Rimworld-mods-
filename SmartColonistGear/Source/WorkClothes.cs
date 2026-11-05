@@ -42,6 +42,7 @@ namespace ResearchedLoadout
 			nextAct.Clear();
 			replaced.Clear();
 			GearBeforeWork.ResetGameState();
+			ToolBelt.ResetGameState();
 		}
 
 		private static int Now => Find.TickManager?.TicksGame ?? 0;

@@ -108,6 +108,7 @@ namespace ResearchedLoadout
 			}
 			BattleGear.Patch(harmony);
 			GearBeforeWork.Patch(harmony);   // 2.17.0
+			ToolBelt.Patch(harmony);         // 2.19.0
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
 			MLog.Game("[Smart Colonist Gear] v" + MUIVersion.Version + " loaded (messages: Logs\\SmartColonistGear.log).");
@@ -374,6 +375,12 @@ namespace ResearchedLoadout
 				Check(listing_Standard, "RL_GearBeforeWork", ref Settings.gearBeforeWork, "gearBeforeWork");
 				if (Settings.gearBeforeWork)
 					Settings.gearBeforeWorkDistance = (int)Sl(listing_Standard, "gearBeforeWorkDistance", "RL_GearBeforeWorkDist".Translate(Settings.gearBeforeWorkDistance), Settings.gearBeforeWorkDistance, 15f, 150f, 0.5f, "RL_GearBeforeWorkDist_Desc".Translate());
+				if (Settings.gearBeforeWork)
+				{
+					Check(listing_Standard, "RL_ToolBelt", ref Settings.toolBelt, "toolBelt");
+					if (Settings.toolBelt)
+						Settings.toolBeltMass = Mathf.Round(Sl(listing_Standard, "toolBeltMass", "RL_ToolBeltMass".Translate(Settings.toolBeltMass.ToString("0.#")), Settings.toolBeltMass, 1f, 20f, 0.5f, "RL_ToolBeltMass_Desc".Translate()) * 2f) / 2f;
+				}
 			}
 			Check(listing_Standard, "RL_CoverageFirst", ref Settings.coverageFirst, "coverageFirst");
 			Check(listing_Standard, "RL_FullBody", ref Settings.dressFullBody, "dressFullBody");
@@ -4794,6 +4801,8 @@ namespace ResearchedLoadout
 		public bool workClothing = true;
 		public bool workClothesOnlyWorking = true;   // 2.16.1
 		public bool gearBeforeWork = true;   // 2.17.0
+		public bool toolBelt = true;         // 2.19.0: tools in the pockets
+		public float toolBeltMass = 6f;
 		public int gearBeforeWorkDistance = 60;   // 2.17.0
 
 		// 2.7.0: apparel choice by the wearer's traits and skills
@@ -5007,6 +5016,8 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref workClothing, "workClothing", true);
 			Scribe_Values.Look(ref workClothesOnlyWorking, "workClothesOnlyWorking", true);
 			Scribe_Values.Look(ref gearBeforeWork, "gearBeforeWork", true);
+			Scribe_Values.Look(ref toolBelt, "toolBelt", true);
+			Scribe_Values.Look(ref toolBeltMass, "toolBeltMass", 6f);
 			Scribe_Values.Look(ref gearBeforeWorkDistance, "gearBeforeWorkDistance", 60);
 			Scribe_Values.Look(ref dressByTraits, "dressByTraits", true);
 			Scribe_Values.Look(ref hideSidearmsPage, "hideSidearmsPage", true);
@@ -6843,7 +6854,7 @@ namespace ResearchedLoadout
 					return true;
 				}
 			}
-			else if (settings.autoEquipPrimary && flag && pawn.equipment != null && !LoadoutFilter.IsPersonaWeapon(thing))
+			else if (settings.autoEquipPrimary && flag && pawn.equipment != null && !LoadoutFilter.IsPersonaWeapon(thing) && !ToolBelt.Working(pawn))
 			{
 				// 2.16.1: with "Ranged weapons for everyone" only guns are looked for (anything else only if there is no gun)
 				bool gunsOnly = RangedForAll(pawn);
@@ -6866,7 +6877,7 @@ namespace ResearchedLoadout
 				}
 			}
 			CarryRule rule = CarryRuleFor(pawn);
-			if (!SidearmsCompat.Present && settings.autoEquipSidearm && flag && thing != null && pawn.inventory != null && CountWeapons(pawn) < rule.maxWeapons)
+			if (!SidearmsCompat.Present && settings.autoEquipSidearm && flag && thing != null && pawn.inventory != null && !ToolBelt.Working(pawn) && CountWeapons(pawn) < rule.maxWeapons)
 			{
 				bool? wantRanged = OppositeIsRanged(thing.def);
 				if ((wantRanged.HasValue ? CountKind(pawn, wantRanged.Value) < MaxKind(wantRanged.Value) : !HasInventoryWeapon(pawn, wantRanged)) && (!wantRanged.HasValue || SidearmSkillOk(pawn, wantRanged.Value)) && (wantRanged != true || !IsBrawler(pawn) || !settings.sidearmBrawlerNoRanged))
@@ -6954,7 +6965,7 @@ namespace ResearchedLoadout
 				for (int i = 0; i < innerListForReading.Count; i++)
 				{
 					Thing thing2 = innerListForReading[i];
-					if (thing2 != null && thing2.def != null && LoadoutFilter.IsManagedWeapon(thing2.def) && thing2.def.IsRangedWeapon == ranged)
+					if (thing2 != null && thing2.def != null && (LoadoutFilter.IsManagedWeapon(thing2.def) && !ToolBelt.IgnoreInInventory(thing2.def)) && thing2.def.IsRangedWeapon == ranged)
 					{
 						float num2 = ScoreWeaponPower(thing2) + (LoadoutFilter.NewEraFirst ? LoadoutFilter.EraRank(thing2.def) * 1000000f : 0f);
 						if (num2 > num)
@@ -7084,7 +7095,7 @@ namespace ResearchedLoadout
 		{
 			int n = 0;
 			Thing p = pawn.equipment?.Primary;
-			if (p != null && p.def.IsRangedWeapon == ranged && LoadoutFilter.IsRealWeapon(p.def))
+			if (p != null && p.def.IsRangedWeapon == ranged && LoadoutFilter.IsRealWeapon(p.def) && !ToolBelt.IgnoreInInventory(p.def))
 			{
 				n++;
 			}
@@ -7092,7 +7103,7 @@ namespace ResearchedLoadout
 			{
 				foreach (Thing t in pawn.inventory.innerContainer.InnerListForReading)
 				{
-					if (t != null && t.def != null && LoadoutFilter.IsRealWeapon(t.def) && t.def.IsRangedWeapon == ranged)
+					if (t != null && t.def != null && LoadoutFilter.IsRealWeapon(t.def) && !ToolBelt.IgnoreInInventory(t.def) && t.def.IsRangedWeapon == ranged)
 					{
 						n += t.stackCount;
 					}
@@ -7283,7 +7294,7 @@ namespace ResearchedLoadout
 			for (int i = 0; i < innerListForReading.Count; i++)
 			{
 				Thing thing = innerListForReading[i];
-				if (thing != null && thing.def != null && LoadoutFilter.IsManagedWeapon(thing.def))
+				if (thing != null && thing.def != null && (LoadoutFilter.IsManagedWeapon(thing.def) && !ToolBelt.IgnoreInInventory(thing.def)))
 				{
 					num += thing.stackCount;
 				}
@@ -7302,7 +7313,7 @@ namespace ResearchedLoadout
 			for (int i = 0; i < innerListForReading.Count; i++)
 			{
 				Thing thing = innerListForReading[i];
-				if (thing != null && thing.def != null && LoadoutFilter.IsManagedWeapon(thing.def))
+				if (thing != null && thing.def != null && (LoadoutFilter.IsManagedWeapon(thing.def) && !ToolBelt.IgnoreInInventory(thing.def)))
 				{
 					num += thing.GetStatValue(StatDefOf.Mass) * (float)thing.stackCount;
 				}
@@ -7375,7 +7386,7 @@ namespace ResearchedLoadout
 				if (prim != null) seen[prim.def] = prim;
 				foreach (Thing t in pawn.inventory.innerContainer.InnerListForReading)
 				{
-					if (t?.def == null || !LoadoutFilter.IsManagedWeapon(t.def)) continue;
+					if (t?.def == null || !LoadoutFilter.IsManagedWeapon(t.def) || ToolBelt.IgnoreInInventory(t.def)) continue;
 					if (seen.TryGetValue(t.def, out Thing other))
 					{
 						// keep the one in hand / the better one; never drop something the player chose
@@ -7415,7 +7426,7 @@ namespace ResearchedLoadout
 					float best = float.MaxValue;
 					foreach (Thing t in pawn.inventory.innerContainer.InnerListForReading)
 					{
-						if (t != null && t.def != null && LoadoutFilter.IsManagedWeapon(t.def) && !IsPlayerChosen(t) && t.def.IsRangedWeapon == rangedOver)
+						if (t != null && t.def != null && LoadoutFilter.IsManagedWeapon(t.def) && !ToolBelt.IgnoreInInventory(t.def) && !IsPlayerChosen(t) && t.def.IsRangedWeapon == rangedOver)
 						{
 							float sc = ScoreWeapon(pawn, t);
 							if (sc < best)
@@ -7441,7 +7452,7 @@ namespace ResearchedLoadout
 			for (int i = 0; i < innerListForReading.Count; i++)
 			{
 				Thing thing = innerListForReading[i];
-				if (thing != null && thing.def != null && LoadoutFilter.IsManagedWeapon(thing.def) && !IsPlayerChosen(thing))
+				if (thing != null && thing.def != null && (LoadoutFilter.IsManagedWeapon(thing.def) && !ToolBelt.IgnoreInInventory(thing.def)) && !IsPlayerChosen(thing))
 				{
 					float num2 = ScoreWeapon(pawn, thing);
 					if (num2 < num)
@@ -7672,7 +7683,7 @@ namespace ResearchedLoadout
 				for (int num3 = innerListForReading.Count - 1; num3 >= 0; num3--)
 				{
 					Thing thing = innerListForReading[num3];
-					if (thing != null && thing.def != null && LoadoutFilter.IsRealWeapon(thing.def) && WeaponLocked(thing) && !LoadoutFilter.IsPersonaWeapon(thing) && !EmergencyGear.KeepWorn(pawn, thing.def))
+					if (thing != null && thing.def != null && LoadoutFilter.IsRealWeapon(thing.def) && !ToolBelt.IgnoreInInventory(thing.def) && WeaponLocked(thing) && !LoadoutFilter.IsPersonaWeapon(thing) && !EmergencyGear.KeepWorn(pawn, thing.def))
 					{
 						SidearmsCompat.Forget(pawn, thing);
 						Thing lastResultingThing;
@@ -7809,7 +7820,7 @@ namespace ResearchedLoadout
 			for (int i = 0; i < innerListForReading.Count; i++)
 			{
 				Thing thing = innerListForReading[i];
-				if (thing != null && thing.def != null && LoadoutFilter.IsRealWeapon(thing.def))
+				if (thing != null && thing.def != null && LoadoutFilter.IsRealWeapon(thing.def) && !ToolBelt.IgnoreInInventory(thing.def))
 				{
 					if (!wantRanged.HasValue)
 					{
@@ -10919,7 +10930,7 @@ namespace ResearchedLoadout
 			List<Thing> inv = p.inventory.innerContainer.InnerListForReading;
 			for (int i = 0; i < inv.Count; i++)
 			{
-				if (inv[i] != null && inv[i].def != null && LoadoutFilter.IsManagedWeapon(inv[i].def))
+				if (inv[i] != null && inv[i].def != null && (LoadoutFilter.IsManagedWeapon(inv[i].def) && !ToolBelt.IgnoreInInventory(inv[i].def)))
 				{
 					return true;
 				}

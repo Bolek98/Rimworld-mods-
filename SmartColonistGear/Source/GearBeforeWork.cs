@@ -86,6 +86,7 @@ namespace ResearchedLoadout
 			try
 			{
 				if (newJob == null) return;
+				ToolBelt.OnStart(___pawn, newJob);   // 2.19.0
 				Waiting w;
 				if (!pending.TryGetValue(newJob, out w)) return;
 				pending.Remove(newJob);
@@ -181,6 +182,13 @@ namespace ResearchedLoadout
 		{
 			if (p.equipment == null) return null;
 			ThingWithComps held = p.equipment.Primary;
+			// 2.19.0: tools in the pockets – fetched once, swapped into the hands when the work starts
+			if (ToolBelt.On)
+			{
+				if (ToolBelt.PocketTool(p, sk) != null) return null;
+				Job fetch = ToolBelt.FetchJob(p, map, sk, maxDist);
+				if (fetch != null) return fetch;
+			}
 			float have = 0f;
 			if (held != null)
 			{
