@@ -59,7 +59,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.2 | [UnofficialPatch](UnofficialPatch) |
 | [B98] Wild Animals – Biome Spawn Control | 0.1.3 | [WildAnimals](WildAnimals) |
 | [B98] Wild Spawn Zone | 1.1.3 | [WildSpawnZone](WildSpawnZone) |
-| [B98] World at Your Level – Raiders, Factions & Threats Match Your Tech | 2.16.0 | [WorldAtYourLevel](WorldAtYourLevel) |
+| [B98] World at Your Level – Raiders, Factions & Threats Match Your Tech | 2.17.0 | [WorldAtYourLevel](WorldAtYourLevel) |
 
 Each folder is a complete mod (About, Assemblies, Defs, Languages, Source), most with a `CHANGELOG.txt`.
 All mods need [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077).

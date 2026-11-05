@@ -33,7 +33,7 @@ namespace ResearchLockedRaidGear
 			Evolution
 		}
 
-		public const string Version = "2.16.0";
+		public const string Version = "2.17.0";
 
 		public static ResearchLockedRaidGearSettings Settings;
 
@@ -69,6 +69,7 @@ namespace ResearchLockedRaidGear
 			TryPatchLast(h, AccessTools.Method(typeof(PawnGenerator), "GeneratePawn", new Type[1] { typeof(PawnGenerationRequest) }), "Postfix", typeof(GeneratePawnPatch));
 			TryPatchLast(h, AccessTools.Method(typeof(Pawn), "SpawnSetup"), "Postfix", typeof(PawnSpawnSetupPatch));
 			TryPatch(h, AccessTools.Method(typeof(Pawn_EquipmentTracker), "AddEquipment"), "Prefix", null, typeof(AddEquipmentPatch));
+			try { h.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.GetGizmos)), postfix: new HarmonyMethod(typeof(RerollButton), nameof(RerollButton.Postfix))); } catch (Exception e) { MLog.Warn("[World at Your Level] reroll button: " + e.Message); }
 			TryPatch(h, AccessTools.Method(typeof(Pawn_ApparelTracker), "Wear"), "Prefix", null, typeof(WearApparelPatch));
 			TryPatch(h, AccessTools.Method(typeof(JobDriver_Equip), "TryMakePreToilReservations"), "Prefix", null, typeof(JobDriverEquipPatch));
 			TryPatch(h, AccessTools.Method(typeof(JobGiver_PickUpOpportunisticWeapon), "ShouldEquipWeapon"), null, "Postfix", typeof(ShouldEquipWeaponPatch));
@@ -379,6 +380,7 @@ namespace ResearchLockedRaidGear
 			Check(listing_Standard, "RLRG_FilterAll", ref Settings.filterAllArrivals, "filterAllArrivals");
 			Check(listing_Standard, "RLRG_SkipTraders", ref Settings.skipTraders, "skipTraders");
 			Check(listing_Standard, "RLRG_ExemptAncients", ref Settings.exemptAncients, "exemptAncients");
+			Check(listing_Standard, "RLRG_RerollButton", ref Settings.rerollButton, "rerollButton");
 			Check(listing_Standard, "RLRG_KeepTitleApparel", ref Settings.keepTitleApparel, "keepTitleApparel");
 			Check(listing_Standard, "RLRG_FilterApparel", ref Settings.filterApparel, "filterApparel");
 			Check(listing_Standard, "RLRG_FilterInventory", ref Settings.filterInventory, "filterInventory");
@@ -895,6 +897,7 @@ namespace ResearchLockedRaidGear
 		public bool sellData = true;
 
 		public bool exemptAncients = true;
+		public bool rerollButton = true;   // 2.17.0
 
 		public List<string> exemptFactions = new List<string>();
 
@@ -1033,6 +1036,7 @@ namespace ResearchLockedRaidGear
 			Scribe_Values.Look(ref relationStrength, "relationStrength", 2);
 			Scribe_Values.Look(ref sellData, "sellData", true);
 			Scribe_Values.Look(ref exemptAncients, "exemptAncients", true);
+			Scribe_Values.Look(ref rerollButton, "rerollButton", true);
 			Scribe_Collections.Look(ref exemptFactions, "exemptFactions", LookMode.Value);
 			if (exemptFactions == null)
 			{
@@ -1972,12 +1976,24 @@ namespace ResearchLockedRaidGear
 				&& (int)EffectiveTech(def) <= LeadCap && (!IsExplosive(def) || ExplosiveTierOpen(def));
 		}
 
+		// 2.17.0: the reroll button – the same as on arrival, without the exemptions (ancients, traders, factions …)
+		public static void ForceFilter(Pawn pawn)
+		{
+			if (pawn == null || pawn.Dead || Applying > 0) return;
+			FilterCore(pawn);
+		}
+
 		public static void FilterPawn(Pawn pawn)
 		{
 			if (Applying > 0 || !ShouldFilter(pawn))
 			{
 				return;
 			}
+			FilterCore(pawn);
+		}
+
+		private static void FilterCore(Pawn pawn)
+		{
 			Applying++;
 			LagCap = EraTransition.CapFor(pawn);
 			// 2.17.0: a lagging faction carries gear of its own level, a leading one a level more
