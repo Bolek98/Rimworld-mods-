@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+1.2.1
+- Performance: the clock's date, season, weather, holiday and colony lines are made once every few in-game minutes instead of every frame (it cost almost 1 ms per frame with a big modpack).
+- Výkon: datum, roční období, počasí, svátek a řádek kolonie v hodinách se počítají jednou za pár herních minut místo v každém snímku (s velkým modpackem to stálo skoro 1 ms na snímek).
+
 1.2.0
 - The clock can float on the world map too, with its own place there.
 - Attack stopwatch: while enemies are on a home map the clock shows how long the attack lasts, and a message says how long it took when it is over.

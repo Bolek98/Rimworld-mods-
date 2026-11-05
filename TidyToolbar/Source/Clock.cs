@@ -183,6 +183,33 @@ namespace TidyToolbar
             return hh + ":" + m.ToString("00") + " " + (h >= 12 ? "PM".Translate() : "AM".Translate());
         }
 
+        // 1.2.1: cached texts (the date, the season line, the holiday and the colony line cost ~0.9 ms
+        // every frame with a big modpack – they change only every few in-game minutes)
+        private static long cKey = long.MinValue;
+        private static Map cMap;
+        private static bool cWorld;
+        private static string cDate = "", cLine = "", cHoliday, cColony = "";
+
+        private static void Texts(long abs, Vector2 ll, Map map)
+        {
+            bool world = WorldRendererUtility.WorldSelected;
+            long key = abs / 125L;
+            if (key == cKey && map == cMap && world == cWorld) return;
+            cKey = key; cMap = map; cWorld = world;
+            cDate = GenDate.DateReadoutStringAt(abs, ll);
+            cLine = ""; cHoliday = null; cColony = "";
+            if (map != null && !world)
+            {
+                cLine = GenDate.Season(abs, ll).LabelCap();
+                if (S.clockWeather)
+                    cLine += " · " + map.weatherManager.curWeather.LabelCap + " · " + map.mapTemperature.OutdoorTemp.ToStringTemperature("F0");
+                if (S.clockHoliday) cHoliday = HolidayToday();
+                if (S.clockColony) cColony = ColonyLine(map);
+            }
+        }
+
+        public static void ResetTexts() => cKey = long.MinValue;
+
         private static void Draw(Rect r, bool free)
         {
             if (Find.TickManager == null) return;
@@ -234,21 +261,19 @@ namespace TidyToolbar
                 y += 12f;
                 // date
                 Text.Anchor = TextAnchor.UpperRight;
-                Widgets.Label(new Rect(r.x, y, r.width - 7f, 24f), GenDate.DateReadoutStringAt(abs, ll));
+                Texts(abs, ll, map);   // 1.2.1: the texts are made once per in-game few minutes, not every frame
+                Widgets.Label(new Rect(r.x, y, r.width - 7f, 24f), cDate);
                 y += 24f;
                 if (map != null && !WorldRendererUtility.WorldSelected)
                 {
                     Text.Font = GameFont.Tiny;
                     GUI.color = Dim;
-                    string season = GenDate.Season(abs, ll).LabelCap();
-                    string line = season;
-                    if (S.clockWeather)
-                        line += " · " + map.weatherManager.curWeather.LabelCap + " · " + map.mapTemperature.OutdoorTemp.ToStringTemperature("F0");
+                    string line = cLine;
                     Widgets.Label(new Rect(r.x, y + 2f, r.width - 7f, 22f), line);
                     y += 22f;
                     if (S.clockHoliday)
                     {
-                        string hol = HolidayToday();
+                        string hol = cHoliday;
                         if (hol != null)
                         {
                             GUI.color = Gold;
@@ -259,7 +284,7 @@ namespace TidyToolbar
                     if (S.clockColony)
                     {
                         GUI.color = Dim;
-                        Widgets.Label(new Rect(r.x, y, r.width - 7f, 20f), ColonyLine(map));
+                        Widgets.Label(new Rect(r.x, y, r.width - 7f, 20f), cColony);
                         y += 20f;
                     }
                     if (S.raidTimer && RaidWatch.Active(map))

@@ -53,7 +53,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
 | [B98] Steward – Supplies | 1.1.2 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | [B98] Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
-| [B98] Tidy Toolbar – No More Cut-Off Tabs | 1.2.0 | [TidyToolbar](TidyToolbar) |
+| [B98] Tidy Toolbar – No More Cut-Off Tabs | 1.2.1 | [TidyToolbar](TidyToolbar) |
 | [B98] Trader Hotline – Call the Trader You Want | 0.3.1 | [TraderHotline](TraderHotline) |
 | [B98] Universal RimTranslator – Auto-Translate All Your Mods | 1.2.2 | [UniversalRimTranslator](UniversalRimTranslator) |
 | [B98] Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.2 | [UnofficialPatch](UnofficialPatch) |

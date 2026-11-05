@@ -100,7 +100,7 @@ namespace TidyToolbar
 
     public sealed class TidyToolbarMod : Mod
     {
-        public const string Version = "1.2.0";
+        public const string Version = "1.2.1";
         public static TTSettings S;
         private Vector2 scroll;
 
@@ -140,6 +140,7 @@ namespace TidyToolbar
             l.CheckboxLabeled("TT_ClockWeatherL".Translate(), ref S.clockWeather);
             l.CheckboxLabeled("TT_ClockHolidayL".Translate(), ref S.clockHoliday, "TT_ClockHolidayTip".Translate());
             l.CheckboxLabeled("TT_ClockColonyL".Translate(), ref S.clockColony, "TT_ClockColonyTip".Translate());
+            Clock.ResetTexts();
             l.GapLine();
             l.CheckboxLabeled("TT_AlarmOnL".Translate(Clock.TimeText(S.alarmHour + S.alarmMin / 60f)), ref S.alarmOn, "TT_AlarmOnTip".Translate());
             if (l.ButtonTextLabeled("TT_AlarmTime".Translate(), Clock.TimeText(S.alarmHour + S.alarmMin / 60f)))
