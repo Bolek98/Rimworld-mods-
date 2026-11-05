@@ -12290,7 +12290,23 @@ namespace ResearchedLoadout
 			if (p == null || d == null || blockUntil.Count == 0)
 				return false;
 			int now = Now;
-			return blockUntil.TryGetValue(Key(p, d), out int t) && now < t && now >= t - 120000;
+			if (!(blockUntil.TryGetValue(Key(p, d), out int t) && now < t && now >= t - 120000))
+				return false;
+			// 2.18.1: the block only stops swapping one piece for another – when nothing he wears is in
+			// the way of this piece (he stands there without clothes on that part), he may put it on
+			try
+			{
+				if (p.apparel != null && d.apparel != null)
+				{
+					var worn = p.apparel.WornApparel;
+					bool inTheWay = false;
+					for (int i = 0; i < worn.Count; i++)
+						if (worn[i] != null && !RimWorld.ApparelUtility.CanWearTogether(d, worn[i].def, p.RaceProps.body)) { inTheWay = true; break; }
+					if (!inTheWay) return false;
+				}
+			}
+			catch { }
+			return true;
 		}
 	}
 
