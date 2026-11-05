@@ -213,6 +213,7 @@ public static class MoodCare
 			// the hour was not changed (you set it by hand, or it is a sleep-anything mix) – change it now
 			bool tired = (p.needs.rest?.CurLevel ?? 1f) < 0.35f;
 			TimeAssignmentDef want = tired ? TimeAssignmentDefOf.Sleep : TimeAssignmentDefOf.Joy;
+			if (want == TimeAssignmentDefOf.Joy && p.needs.joy == null) return;   // 1.0.1: androids etc.
 			int hour = GenLocalDate.HourOfDay(p);
 			SchedState.Of(comp).schedHold.TryGetValue(p.thingIDNumber, out string held);
 			string orig = cur?.defName ?? "Work";

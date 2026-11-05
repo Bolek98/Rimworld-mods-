@@ -88,7 +88,7 @@ public static class AutoSchedules
 				if (joy >= JoyMax && Bored(p) >= 2)
 					BoredHint(p);
 			}
-			string want = child ? ChildPattern() : Pattern(night, joy);
+			string want = Fit(p, child ? ChildPattern() : Pattern(night, joy));
 			if (want != lastPattern || st.Length < 4)
 			{
 				if (!SchedState.Of(comp).schedHold.ContainsKey(id))
@@ -197,6 +197,18 @@ public static class AutoSchedules
 		var c = new char[24];
 		for (int h = 0; h < 24; h++)
 			c[h] = Ch(p.timetable.GetAssignment(h));
+		return new string(c);
+	}
+
+	// 1.0.1: pawns without sleep or recreation (androids, mechanoid-like races …) get work in those hours –
+	// they do not need them and only stood around
+	public static string Fit(Pawn p, string pattern)
+	{
+		bool noRest = p.needs?.rest == null, noJoy = p.needs?.joy == null;
+		if (!noRest && !noJoy) return pattern;
+		var c = pattern.ToCharArray();
+		for (int i = 0; i < c.Length; i++)
+			if ((c[i] == 'S' && noRest) || (c[i] == 'J' && noJoy)) c[i] = 'W';
 		return new string(c);
 	}
 
