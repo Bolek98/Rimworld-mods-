@@ -51,9 +51,26 @@ public static class Planner
 	// 1.1.0: may this pawn keep a skilled work as backup? (general work: always)
 	public static bool BackupSkillOk(Pawn p, WorkTypeDef w, ForemanSettings s)
 	{
-		if (s == null || s.backupMinSkill <= 0 || WorkCatalog.Kind(w) != WorkKind.Skilled)
+		if (s == null || s.backupMinSkill <= 0 || !QualityWork(w))
 			return true;
 		return SkillLevel(p, w) >= s.backupMinSkill;
+	}
+
+	// 1.1.1: the minimum skill only matters where a weak worker spoils the result (quality
+	// items, buildings, research). Doctoring, wardens, childcare, cooking, plants, mining and
+	// animals stay with every backup – 1.1.0 left those empty and colonists stood around.
+	private static Dictionary<WorkTypeDef, bool> qualityWork;
+	public static bool QualityWork(WorkTypeDef w)
+	{
+		if (w == null || WorkCatalog.Kind(w) != WorkKind.Skilled || AlwaysSomeone(w))
+			return false;
+		qualityWork ??= new Dictionary<WorkTypeDef, bool>();
+		if (!qualityWork.TryGetValue(w, out bool q))
+		{
+			q = w.relevantSkills.Any(sd => sd == SkillDefOf.Crafting || sd == SkillDefOf.Artistic || sd == SkillDefOf.Construction || sd == SkillDefOf.Intellectual);
+			qualityWork[w] = q;
+		}
+		return q;
 	}
 
 	public static bool IsStyleWork(ForemanStyle style, WorkTypeDef w) => Styles.Delta(style, w) > 0f;
@@ -481,9 +498,11 @@ public static class Planner
 					continue;
 				if (ctx.noRaise.Contains(p))
 					continue;
+				// 1.1.1: works he is skilled enough for first, then anything waiting (nobody idles)
 				foreach (WorkTypeDef pick in jobs.Keys
-					.Where(w => WorkCatalog.Kind(w) != WorkKind.Emergency && ctx.CanDo(p, w) && !ctx.Locked(p, w) && (ctx.demand?.Jobs(w) ?? 0) > 0 && Planner.BackupSkillOk(p, w, ctx.settings))
-					.OrderByDescending(w => ctx.Fit(p, w)).ToList())
+					.Where(w => WorkCatalog.Kind(w) != WorkKind.Emergency && ctx.CanDo(p, w) && !ctx.Locked(p, w) && (ctx.demand?.Jobs(w) ?? 0) > 0)
+					.OrderByDescending(w => Planner.BackupSkillOk(p, w, ctx.settings) ? 1 : 0)
+					.ThenByDescending(w => ctx.Fit(p, w)).ToList())
 					if (ctx.Set(p, pick, 2, "CF2_TipNobodyIdle"))
 						break;
 			}
