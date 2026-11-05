@@ -90,6 +90,8 @@ namespace ResearchAtlas
         static int catFilter = -1, techFilter = -1;
         static int focusId = -1;
         static string searchText = "";
+        static bool deepSearch = true;
+        string hitsFor; List<Def> hitsCache = new List<Def>();      // 0.4.0: also descriptions of unlocked things and what unlocked benches make
         static Vector2 savedPan = new Vector2(float.NaN, 0);
         static float savedZoom = 1f;
         static string savedFor;
@@ -506,6 +508,15 @@ namespace ResearchAtlas
                 if (Look.Chip(cr, cnt, false)) NextMatch();
                 TooltipHandler.TipRegion(cr, "RA_NextMatchTip".Translate());
                 x = cr.xMax + 6f;
+            }
+            {
+                float dw = Look.ChipW("RA_DeepSearch".Translate());
+                if (x + dw <= stop)
+                {
+                    Rect dr = new Rect(x, r.y + 6f, dw, 28f); x += dw + 6f;
+                    if (Look.Chip(dr, "RA_DeepSearch".Translate(), deepSearch)) { deepSearch = !deepSearch; searchFor = null; }
+                    TooltipHandler.TipRegion(dr, "RA_DeepSearchTip".Translate());
+                }
             }
             if (Chip("RA_OnlyAvailable".Translate(), onlyAvailable)) { onlyAvailable = !onlyAvailable; dirty = true; }
             if (Chip("RA_HideFinished".Translate(), hideFinished)) { hideFinished = !hideFinished; dirty = true; }
@@ -1246,26 +1257,34 @@ namespace ResearchAtlas
                     }
                 }
                 // what it unlocks: pictures in a grid with the name under them
+                // 0.4.0: why the search found this project
+                string want = (searchText ?? "").Trim().ToLowerInvariant();
+                if (want.Length >= 2 && matchSet.Contains(n.id))
+                {
+                    string hk = n.id + "|" + want + "|" + deepSearch;
+                    if (hk != hitsFor)
+                    {
+                        hitsFor = hk;
+                        hitsCache = n.unlocks.Concat(n.also).Where(u => (u.label ?? "").ToLowerInvariant().Contains(want) || u.defName.ToLowerInvariant().Contains(want)
+                            || (deepSearch && !u.description.NullOrEmpty() && u.description.ToLowerInvariant().Contains(want))).Distinct().ToList();
+                    }
+                    var hits = hitsCache;
+                    if (hits.Count > 0)
+                    {
+                        y = Section(x, y, iw, "RA_DetailFound".Translate() + " (" + hits.Count + ")");
+                        y = DefGrid(x, y, iw, hits);
+                    }
+                }
                 if (n.unlocks.Count > 0)
                 {
                     y = Section(x, y, iw, "RA_TipUnlocks".Translate() + " (" + n.unlocks.Count + ")");
-                    int cols = Mathf.Max(2, (int)((iw + 6f) / 98f));
-                    float tw = (iw - (cols - 1) * 6f) / cols, th = tw + 30f;
-                    int i = 0;
-                    foreach (Def u in n.unlocks)
-                    {
-                        Rect tr = new Rect(x + (i % cols) * (tw + 6f), y + (i / cols) * (th + 6f), tw, th);
-                        bool over = Mouse.IsOver(tr);
-                        Look.Box(tr, over ? new Color32(44, 52, 62, 255) : new Color32(32, 38, 46, 255), Look.Line);
-                        Rect pic = new Rect(tr.x + 8f, tr.y + 6f, tw - 16f, tw - 16f);
-                        DrawDefIcon(pic, u, 1f, null);
-                        if (Atlas.UnlockIcon(u) == null) Look.Label(pic, KindLetter(u), Look.Dim, GameFont.Medium, TextAnchor.MiddleCenter);
-                        Look.Label(new Rect(tr.x + 3f, pic.yMax, tw - 6f, th - (pic.yMax - tr.y) - 2f), ((string)u.LabelCap).Truncate(tw - 6f), Color.white, GameFont.Tiny, TextAnchor.MiddleCenter);
-                        TooltipHandler.TipRegion(tr, u.LabelCap + (u.description.NullOrEmpty() ? "" : "\n\n" + u.description.Truncate(400f * 3)) + "\n\n" + "RA_IconClick".Translate().Colorize(ColoredText.SubtleGrayColor));
-                        if (Widgets.ButtonInvisible(tr)) Find.WindowStack.Add(new Dialog_InfoCard(u));
-                        i++;
-                    }
-                    y += ((n.unlocks.Count + cols - 1) / cols) * (th + 6f);
+                    y = DefGrid(x, y, iw, n.unlocks);
+                }
+                // 0.4.0: what its workbenches can make without more research
+                if (n.also.Count > 0)
+                {
+                    y = Section(x, y, iw, "RA_DetailAlso".Translate() + " (" + n.also.Count + ")");
+                    y = DefGrid(x, y, iw, n.also);
                 }
                 // research that follows
                 if (n.post.Count > 0)
@@ -1290,6 +1309,28 @@ namespace ResearchAtlas
                 Text.Font = GameFont.Small;
             }
             if (Event.current.type == EventType.Layout || Event.current.type == EventType.Repaint) detailH = Mathf.Max(y, outR.height - 2f);
+        }
+
+        // pictures in a grid with the name under them, click opens the info card
+        float DefGrid(float x, float y, float iw, List<Def> defs)
+        {
+            int cols = Mathf.Max(2, (int)((iw + 6f) / 98f));
+            float tw = (iw - (cols - 1) * 6f) / cols, th = tw + 30f;
+            int i = 0;
+            foreach (Def u in defs)
+            {
+                Rect tr = new Rect(x + (i % cols) * (tw + 6f), y + (i / cols) * (th + 6f), tw, th);
+                bool over = Mouse.IsOver(tr);
+                Look.Box(tr, over ? new Color32(44, 52, 62, 255) : new Color32(32, 38, 46, 255), Look.Line);
+                Rect pic = new Rect(tr.x + 8f, tr.y + 6f, tw - 16f, tw - 16f);
+                DrawDefIcon(pic, u, 1f, null);
+                if (Atlas.UnlockIcon(u) == null) Look.Label(pic, KindLetter(u), Look.Dim, GameFont.Medium, TextAnchor.MiddleCenter);
+                Look.Label(new Rect(tr.x + 3f, pic.yMax, tw - 6f, th - (pic.yMax - tr.y) - 2f), ((string)u.LabelCap).Truncate(tw - 6f), Color.white, GameFont.Tiny, TextAnchor.MiddleCenter);
+                TooltipHandler.TipRegion(tr, u.LabelCap + (u.description.NullOrEmpty() ? "" : "\n\n" + u.description.Truncate(400f * 3)) + "\n\n" + "RA_IconClick".Translate().Colorize(ColoredText.SubtleGrayColor));
+                if (Widgets.ButtonInvisible(tr)) Find.WindowStack.Add(new Dialog_InfoCard(u));
+                i++;
+            }
+            return y + ((defs.Count + cols - 1) / cols) * (th + 6f);
         }
 
         float Section(float x, float y, float w, string title)
@@ -1350,12 +1391,12 @@ namespace ResearchAtlas
         void UpdateSearch()
         {
             string want = (searchText ?? "").Trim().ToLowerInvariant();
-            string key = want + "|" + viewHash;
+            string key = want + "|" + deepSearch + "|" + viewHash;
             if (key == searchFor) return;
             searchFor = key;
             matches.Clear(); matchSet.Clear(); pathSet.Clear(); matchCursor = -1;
             if (want.Length < 2) return;
-            foreach (Node n in view) if (n.search.Contains(want)) { matches.Add(n.id); matchSet.Add(n.id); }
+            foreach (Node n in view) if (n.search.Contains(want) || (deepSearch && n.searchDeep.Contains(want))) { matches.Add(n.id); matchSet.Add(n.id); }
             matches.Sort((a, b) =>
             {
                 Vector2 pa = layout != null && layout.pos.TryGetValue(a, out var x) ? x : Vector2.zero, pb = layout != null && layout.pos.TryGetValue(b, out var y) ? y : Vector2.zero;

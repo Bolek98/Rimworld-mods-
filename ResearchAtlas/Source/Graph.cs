@@ -24,6 +24,8 @@ namespace ResearchAtlas
         public Cat cat = Cat.Other;
         public string search = "";          // lower-case label, description, mod, unlocked things
         public List<Def> unlocks = new List<Def>();
+        public List<Def> also = new List<Def>();    // 0.4.0: made possible indirectly (things made at unlocked benches)
+        public string searchDeep = "";      // 0.4.0: descriptions of unlocked things + indirect things
         public List<int> pre = new List<int>();     // shown prerequisites (no self, no duplicates)
         public List<int> post = new List<int>();
         public string label;
@@ -75,10 +77,15 @@ namespace ResearchAtlas
             {
                 foreach (RecipeDef rd in DefDatabase<RecipeDef>.AllDefsListForReading)
                 {
-                    Def prod = rd.IsSurgery ? (Def)rd : (rd.products != null && rd.products.Count > 0 ? rd.products[0].thingDef : null);
-                    if (prod == null) continue;
-                    Add(rd.researchPrerequisite, prod);
-                    if (rd.researchPrerequisites != null) foreach (ResearchProjectDef r in rd.researchPrerequisites) Add(r, prod);
+                    // 0.4.0: every product, not only the first; recipes without products (bills) count as themselves
+                    var prods = new List<Def>();
+                    if (rd.IsSurgery || rd.products == null || rd.products.Count == 0) prods.Add(rd);
+                    else foreach (ThingDefCountClass pc in rd.products) if (pc?.thingDef != null) prods.Add(pc.thingDef);
+                    foreach (Def prod in prods)
+                    {
+                        Add(rd.researchPrerequisite, prod);
+                        if (rd.researchPrerequisites != null) foreach (ResearchProjectDef r in rd.researchPrerequisites) Add(r, prod);
+                    }
                 }
                 foreach (ThingDef td in DefDatabase<ThingDef>.AllDefsListForReading)
                 {
@@ -87,8 +94,48 @@ namespace ResearchAtlas
                 }
                 foreach (TerrainDef td in DefDatabase<TerrainDef>.AllDefsListForReading)
                     if (td.researchPrerequisites != null) foreach (ResearchProjectDef r in td.researchPrerequisites) Add(r, td);
+                // 0.4.0: psychic rituals and what the project itself links in its description (mods use that a lot)
+                foreach (Def pr in DefDatabase<PsychicRitualDef>.AllDefsListForReading)
+                    if (pr is PsychicRitualDef prd) Add(prd.researchPrerequisite, prd);
+                foreach (Node n in list)
+                    if (n.def.descriptionHyperlinks != null)
+                        foreach (DefHyperlink h in n.def.descriptionHyperlinks) if (h.def != null && !(h.def is ResearchProjectDef)) Add(n.def, h.def);
             }
             catch (Exception e) { Log.Warning("[Research Atlas] unlock index: " + e.Message); }
+
+            // 0.4.0: what a project makes possible indirectly – things made at a workbench it unlocks
+            // (the recipe itself needs no research, e.g. meals at an electric stove). Bench → recipes built
+            // in one linear pass instead of RecipeDef.AllRecipeUsers (that scans every ThingDef per recipe).
+            try
+            {
+                var benchRecipes = new Dictionary<ThingDef, List<RecipeDef>>();
+                void Bench(ThingDef b, RecipeDef rd)
+                {
+                    if (b == null || rd == null) return;
+                    if (!benchRecipes.TryGetValue(b, out var l)) benchRecipes[b] = l = new List<RecipeDef>();
+                    if (!l.Contains(rd)) l.Add(rd);
+                }
+                foreach (RecipeDef rd in DefDatabase<RecipeDef>.AllDefsListForReading)
+                    if (rd.recipeUsers != null) foreach (ThingDef b in rd.recipeUsers) Bench(b, rd);
+                foreach (ThingDef td in DefDatabase<ThingDef>.AllDefsListForReading)
+                    if (td.recipes != null) foreach (RecipeDef rd in td.recipes) Bench(td, rd);
+                foreach (Node n in list)
+                {
+                    var seen = new HashSet<Def>(n.unlocks);
+                    foreach (Def u in n.unlocks)
+                    {
+                        if (!(u is ThingDef b) || !benchRecipes.TryGetValue(b, out var recs)) continue;
+                        foreach (RecipeDef rd in recs)
+                        {
+                            bool own = rd.researchPrerequisite != null || (rd.researchPrerequisites != null && rd.researchPrerequisites.Count > 0);
+                            if (own || rd.IsSurgery || rd.products == null) continue;
+                            foreach (ThingDefCountClass pc in rd.products)
+                                if (pc?.thingDef != null && seen.Add(pc.thingDef)) n.also.Add(pc.thingDef);
+                        }
+                    }
+                }
+            }
+            catch (Exception e) { Log.Warning("[Research Atlas] indirect index: " + e.Message); }
 
             var mc = new Dictionary<string, int>();
             foreach (Node n in list)
@@ -97,8 +144,13 @@ namespace ResearchAtlas
                 n.cat = Guess(n);
                 var sb = new StringBuilder();
                 sb.Append(n.label).Append(' ').Append(n.def.description).Append(' ').Append(n.mod).Append(' ').Append(n.def.defName);
-                foreach (Def u in n.unlocks) sb.Append(' ').Append(u.label);
+                foreach (Def u in n.unlocks) sb.Append(' ').Append(u.label).Append(' ').Append(u.defName);
                 n.search = sb.ToString().ToLowerInvariant();
+                n.also.Sort((a, b) => string.Compare(a.label, b.label, StringComparison.OrdinalIgnoreCase));
+                var deep = new StringBuilder();
+                foreach (Def u in n.unlocks) if (!u.description.NullOrEmpty()) deep.Append(' ').Append(u.description);
+                foreach (Def u in n.also) deep.Append(' ').Append(u.label).Append(' ').Append(u.defName);
+                n.searchDeep = deep.ToString().ToLowerInvariant();
                 mc.TryGetValue(n.mod, out int c); mc[n.mod] = c + 1;
             }
             modCount = mc;
