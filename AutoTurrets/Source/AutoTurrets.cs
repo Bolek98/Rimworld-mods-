@@ -24,6 +24,7 @@ namespace AutoTurrets
 		public bool wallTurrets = false;     // 1.2.0: picked turrets get a version built over walls
 		public Dictionary<string, bool> wallPick = new Dictionary<string, bool>();   // only choices that differ from the recommendation
 		public bool smartShells = true;      // 1.3.1: auto mortars pick targets that suit the loaded shell, haulers pick shells that suit the enemy
+		public bool spareGround = true;      // 1.4.1: your turrets' bullets and blasts spare items and corpses lying on the ground
 		public bool noHitBuildings = false;  // 1.3.1: true = your turrets' bullets and shell blasts spare your own buildings
 		public bool wallTurretsOutward = true; // 1.4.0: turrets in walls only shoot at targets on the outer side of the wall
 		public Dictionary<string, bool> autoPick = new Dictionary<string, bool>();   // 1.5.0: turrets that should NOT fire alone (false); missing = yes
@@ -60,6 +61,7 @@ namespace AutoTurrets
 			Scribe_Values.Look(ref wallTurrets, "wallTurrets", false);
 			Scribe_Values.Look(ref smartShells, "smartShells", true);
 			Scribe_Values.Look(ref noHitBuildings, "noHitBuildings", false);
+			Scribe_Values.Look(ref spareGround, "spareGround", true);
 			Scribe_Values.Look(ref wallTurretsOutward, "wallTurretsOutward", true);
 			Scribe_Collections.Look(ref wallPick, "wallPick", LookMode.Value, LookMode.Value);
 			Scribe_Collections.Look(ref autoPick, "autoPick", LookMode.Value, LookMode.Value);
@@ -174,6 +176,7 @@ namespace AutoTurrets
 					l.CheckboxLabeled("AT_SpecialOnlyPicked".Translate(), ref S.specialOnlyPicked, "AT_SpecialOnlyPicked_Desc".Translate());
 					l.CheckboxLabeled("AT_FriendlyFire".Translate(), ref S.friendlyFire, "AT_FriendlyFire_Desc".Translate());
 					l.CheckboxLabeled("AT_NoHitBuildings".Translate(), ref S.noHitBuildings, "AT_NoHitBuildings_Desc".Translate());
+					l.CheckboxLabeled("AT_SpareGround".Translate(), ref S.spareGround, "AT_SpareGround_Desc".Translate());
 					l.CheckboxLabeled("AT_QC_SetGizmos".Translate(), ref S.quickGizmos, "AT_QC_SetGizmos_Desc".Translate());
 					l.CheckboxLabeled("AT_QC_SetGlobal".Translate(), ref S.quickGlobalButton, "AT_QC_SetGlobal_Desc".Translate());
 					l.CheckboxLabeled("AT_StunRunaways".Translate(), ref S.stunRunaways, "AT_StunRunaways_Desc".Translate());
@@ -557,6 +560,11 @@ namespace AutoTurrets
 
 		public static bool OurBuilding(Thing t) => t is Building b && b.Faction == Faction.OfPlayer;
 
+		// 1.4.1: "turrets don't destroy items and corpses on the ground"
+		public static bool SpareGround => ATMod.S != null && ATMod.S.spareGround;
+
+		public static bool OnGround(Thing t) => t != null && t.def != null && t.def.category == ThingCategory.Item;
+
 		public static bool Friendly(Thing t)
 		{
 			if (!(t is Pawn p) || p.Dead)
@@ -582,6 +590,31 @@ namespace AutoTurrets
 			// 1.3.1: bullets fly past our own buildings unless the building itself was aimed at
 			else if (FriendlyFire.SpareBuildings && FriendlyFire.OurBuilding(thing) && thing != __instance.intendedTarget.Thing)
 				__result = false;
+			// 1.4.1: … and past items and corpses on the ground
+			else if (FriendlyFire.SpareGround && FriendlyFire.OnGround(thing) && thing != __instance.intendedTarget.Thing)
+				__result = false;
+		}
+	}
+
+	// 1.4.1: whatever still reaches an item or corpse from our turret (a stray bullet, splash, a follow-up burn)
+	// does nothing – loot is not shot to pieces and bodies are not mashed until they vanish.
+	[HarmonyPatch(typeof(Thing), nameof(Thing.TakeDamage))]
+	public static class Patch_SpareGround
+	{
+		[HarmonyPriority(Priority.First)]
+		public static bool Prefix(Thing __instance, DamageInfo dinfo, ref DamageWorker.DamageResult __result)
+		{
+			try
+			{
+				if (!FriendlyFire.SpareGround || !FriendlyFire.OnGround(__instance) || !FriendlyFire.OurTurret(dinfo.Instigator))
+					return true;
+				__result = new DamageWorker.DamageResult();
+				return false;
+			}
+			catch
+			{
+				return true;
+			}
 		}
 	}
 
@@ -593,13 +626,13 @@ namespace AutoTurrets
 			try
 			{
 					// 1.3.1: also our buildings, when that option is on
-				bool people = FriendlyFire.Off, buildings = FriendlyFire.SpareBuildings;
-				if ((!people && !buildings) || explosion?.Map == null || !FriendlyFire.OurTurret(explosion.instigator))
+				bool people = FriendlyFire.Off, buildings = FriendlyFire.SpareBuildings, ground = FriendlyFire.SpareGround;
+				if ((!people && !buildings && !ground) || explosion?.Map == null || !FriendlyFire.OurTurret(explosion.instigator))
 					return;
 				List<Thing> here = c.GetThingList(explosion.Map);
 				for (int i = 0; i < here.Count; i++)
 				{
-					if (!(people && FriendlyFire.Friendly(here[i])) && !(buildings && FriendlyFire.OurBuilding(here[i])))
+					if (!(people && FriendlyFire.Friendly(here[i])) && !(buildings && FriendlyFire.OurBuilding(here[i])) && !(ground && FriendlyFire.OnGround(here[i])))
 						continue;
 					if (ignoredThings == null)
 						ignoredThings = new List<Thing>();
