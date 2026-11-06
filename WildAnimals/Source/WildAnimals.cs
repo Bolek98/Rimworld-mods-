@@ -70,7 +70,7 @@ namespace WildAnimals
     // ------------------------------------------------------------------
     public static class WA
     {
-        public const string Version = "0.2.0";
+        public const string Version = "0.2.1";
         public const float BaseCells = 62500f;   // 250 × 250
         public static WASettings S => WildAnimalsMod.Settings;
 
@@ -736,6 +736,56 @@ namespace WildAnimals
             GUI.color = g;
             Text.Anchor = a;
             Text.Font = f;
+        }
+    }
+}
+
+namespace WildAnimals
+{
+    // 0.2.1: a biome that lists an animal twice (its own list + the animal's wildBiomes, or one list twice – e.g. a mod
+    // adding RG_Dodo to a biome that already has it) makes the game's commonality cache throw "same key" every time.
+    // Then BiomeDef.AllWildAnimals breaks and NO animal of that biome can arrive – also with the game's own spawning.
+    // Build the cache ourselves without the crash (first entry wins); the game then just reads it.
+    [HarmonyPatch(typeof(BiomeDef), nameof(BiomeDef.CommonalityOfAnimal))]
+    public static class Patch_BiomeCache
+    {
+        static readonly AccessTools.FieldRef<BiomeDef, Dictionary<PawnKindDef, float>> cache =
+            AccessTools.FieldRefAccess<BiomeDef, Dictionary<PawnKindDef, float>>("cachedAnimalCommonalities");
+        static readonly AccessTools.FieldRef<BiomeDef, List<BiomeAnimalRecord>> wild =
+            AccessTools.FieldRefAccess<BiomeDef, List<BiomeAnimalRecord>>("wildAnimals");
+        static readonly HashSet<BiomeDef> told = new HashSet<BiomeDef>();
+
+        public static void Prefix(BiomeDef __instance)
+        {
+            try
+            {
+                if (cache(__instance) != null) return;
+                var d = new Dictionary<PawnKindDef, float>();
+                var dupes = new List<string>();
+                List<BiomeAnimalRecord> own = wild(__instance);
+                if (own != null)
+                    foreach (BiomeAnimalRecord r in own)
+                    {
+                        if (r?.animal == null) continue;
+                        if (d.ContainsKey(r.animal)) { dupes.Add(r.animal.defName); continue; }
+                        d[r.animal] = r.commonality;
+                    }
+                foreach (PawnKindDef k in DefDatabase<PawnKindDef>.AllDefsListForReading)
+                {
+                    List<AnimalBiomeRecord> wb = k?.race?.race?.wildBiomes;
+                    if (wb == null) continue;
+                    foreach (AnimalBiomeRecord r in wb)
+                    {
+                        if (r == null || r.biome != __instance) continue;
+                        if (d.ContainsKey(k)) { dupes.Add(k.defName); continue; }
+                        d[k] = r.commonality;
+                    }
+                }
+                cache(__instance) = d;
+                if (dupes.Count > 0 && told.Add(__instance))
+                    Log.Message("[Wild Animals] " + __instance.defName + " lists these animals twice (a mod conflict) – kept the first, so the biome's animals can arrive again: " + string.Join(", ", dupes.Distinct().ToArray()));
+            }
+            catch (Exception e) { Log.WarningOnce("[Wild Animals] biome cache: " + e.Message, 0x3A1D12); }
         }
     }
 }

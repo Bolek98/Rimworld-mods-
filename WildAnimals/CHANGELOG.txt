@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+0.2.1
+- Fix: when a mod lists an animal twice in a biome (e.g. RG_Dodo), the game could not pick any animal there any more – no wild animals arrived at all, also with the game's own spawning. The biome list is now read without the crash (written once to the log).
+- Oprava: když mod uvede v biomu jedno zvíře dvakrát (např. RG_Dodo), hra tam už nedokázala vybrat žádné zvíře – nepřišla vůbec žádná divoká zvířata, ani při spawnu podle hry. Seznam biomu se teď načte bez pádu (jednou se zapíše do logu).
+
 0.2.0
 - New option: domestic animals too (dogs, cats and other pets from any mod) – off by default. On, they show up in the biome lists and can be given a share like any other animal; they then arrive as stray wild animals.
 - Nová volba: i domácí zvířata (psi, kočky a další mazlíčci z jakéhokoli modu) – ve výchozím stavu vypnutá. Zapnutá: ukážou se v seznamech biomů a dá se jim nastavit podíl jako jiným zvířatům; pak přicházejí jako toulavá divoká zvířata.
