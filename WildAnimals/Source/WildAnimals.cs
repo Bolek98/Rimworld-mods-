@@ -30,6 +30,7 @@ namespace WildAnimals
         public int predatorHomeRadius = 30;   // no predator arrives within … cells of the home area (0 = off)
         public bool rareLetters = true;
         public bool pressureAlert = true;
+        public bool includePets = false;      // 0.2.0: domestic animals (dogs, cats … – wildness 0) can be put in the biome lists too
         public Dictionary<string, string> lists = new Dictionary<string, string>();   // biome -> "kind:w|kind:w"
         public Dictionary<string, float> target = new Dictionary<string, float>();    // biome -> animals on a 250×250 map
         public Dictionary<string, string> animals = new Dictionary<string, string>(); // kind -> "cap;seasons;rare"
@@ -46,6 +47,7 @@ namespace WildAnimals
             Scribe_Values.Look(ref predatorHomeRadius, "predatorHomeRadius", 30);
             Scribe_Values.Look(ref rareLetters, "rareLetters", true);
             Scribe_Values.Look(ref pressureAlert, "pressureAlert", true);
+            Scribe_Values.Look(ref includePets, "includePets", false);
             Scribe_Collections.Look(ref lists, "lists", LookMode.Value, LookMode.Value);
             Scribe_Collections.Look(ref target, "target", LookMode.Value, LookMode.Value);
             Scribe_Collections.Look(ref animals, "animals", LookMode.Value, LookMode.Value);
@@ -68,7 +70,7 @@ namespace WildAnimals
     // ------------------------------------------------------------------
     public static class WA
     {
-        public const string Version = "0.1.3";
+        public const string Version = "0.2.0";
         public const float BaseCells = 62500f;   // 250 × 250
         public static WASettings S => WildAnimalsMod.Settings;
 
@@ -85,19 +87,28 @@ namespace WildAnimals
 
         // every wild-capable animal in the game (vanilla, DLCs, mods)
         private static List<PawnKindDef> allAnimals;
+        private static bool allPets;
         public static List<PawnKindDef> AllAnimals
         {
             get
             {
+                if (allAnimals != null && allPets != PetsOn) allAnimals = null;   // 0.2.0
+                allPets = PetsOn;
                 if (allAnimals == null)
                     allAnimals = DefDatabase<PawnKindDef>.AllDefsListForReading
                         .Where(k => k.race?.race != null && k.RaceProps.Animal && !k.RaceProps.Humanlike && !k.RaceProps.IsMechanoid
-                            && !k.RaceProps.Dryad && Wildness(k) > 0f && !Bad.Contains(k))
+                            && !k.RaceProps.Dryad && (Wildness(k) > 0f || (PetsOn && IsPet(k))) && !Bad.Contains(k))
                         .GroupBy(k => k.race).Select(g => g.OrderBy(k => k.defName == g.Key.defName ? 0 : 1).First())
                         .OrderBy(k => Label(k)).ToList();
                 return allAnimals;
             }
         }
+
+        // 0.2.0: domestic animals (dogs, cats and other pets from any mod) – the game gives them wildness 0, so they
+        // never live in the wild; with the option on they can be added to a biome like any other animal.
+        public static bool PetsOn => WildAnimalsMod.Settings != null && WildAnimalsMod.Settings.includePets;
+        public static bool IsPet(PawnKindDef k) => k?.race?.race != null && k.RaceProps.Animal && Wildness(k) <= 0f;
+        public static void ResetAnimals() { allAnimals = null; }
 
         public static float Wildness(PawnKindDef k) { try { return k.race.GetStatValueAbstract(StatDefOf.Wildness); } catch { return 1f; } }
 
@@ -385,6 +396,7 @@ namespace WildAnimals
                 if (w <= 0f) continue;
                 if (!coastal && Coastal(b, k) && !S.lists.ContainsKey(b.defName)) continue;
                 if (Bad.Contains(k)) continue;
+                if (!PetsOn && IsPet(k)) continue;      // 0.2.0: pets only while the option is on
                 if (k.RaceProps.waterSeeker && !water) continue;
                 if (TempOnly(b, k))
                 {

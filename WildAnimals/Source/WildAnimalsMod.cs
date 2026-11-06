@@ -23,7 +23,7 @@ namespace WildAnimals
         {
             Settings = GetSettings<WASettings>();
             MNews.Register(content, WA.Version);
-            MUI.Init(WASettings.Recommended(), new[] { "enabled", "respawnHours", "groupFactor", "predatorMaxPct", "predatorHomeRadius", "rareLetters", "pressureAlert" });
+            MUI.Init(WASettings.Recommended(), new[] { "enabled", "includePets", "respawnHours", "groupFactor", "predatorMaxPct", "predatorHomeRadius", "rareLetters", "pressureAlert" });
             var h = new Harmony("bolek98.wildanimals");
             h.PatchAll();
             MUI.PatchWindow(h, typeof(WildAnimalsMod));
@@ -163,7 +163,7 @@ namespace WildAnimals
 
         private List<PawnKindDef> Rows()
         {
-            string key = sel.defName + "|" + animalSearch + "|" + modFilter + "|" + showAll;
+            string key = sel.defName + "|" + animalSearch + "|" + modFilter + "|" + showAll + "|" + WA.PetsOn;
             if (Time.frameCount - lastFrame > 5) frozen = null;      // the window was closed and opened again
             lastFrame = Time.frameCount;
             if (frozen != null && frozenKey == key) return frozen;
@@ -441,6 +441,9 @@ namespace WildAnimals
             bool en0 = s.enabled, rl0 = s.rareLetters, pa0 = s.pressureAlert;
             MUI.Section(l, "WA_SecSpawn".Translate());
             MUI.Check(l, "WA_Enabled".Translate(), "WA_EnabledTip".Translate(), ref s.enabled, s, "enabled");
+            bool pets0 = s.includePets;
+            MUI.Check(l, "WA_Pets".Translate(), "WA_PetsTip".Translate(), ref s.includePets, s, "includePets");
+            if (pets0 != s.includePets) { bool pv = s.includePets; Unlock(); s.includePets = pv; WA.ResetAnimals(); frozen = null; }
             MUI.RowLabel(l, "WA_Respawn".Translate(Hours(s.respawnHours)), "WA_RespawnTip".Translate(), s, "respawnHours");
             float nh = U.Slider(l.GetRect(22f), s.respawnHours, 1f, 120f, 1f);
             if (Mathf.Abs(nh - s.respawnHours) > 0.01f) { Unlock(); s.respawnHours = nh; }
