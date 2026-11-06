@@ -423,7 +423,7 @@ public static class PriorityAreaWork
 			return list;
 		var names = new HashSet<string>(Types[m]);
 		list = DefDatabase<WorkGiverDef>.AllDefsListForReading
-			.Where(g => g.workType != null && names.Contains(g.workType.defName) && g.Worker is WorkGiver_Scanner && (!emergencyOnly || g.emergency))
+			.Where(g => g.workType != null && names.Contains(WorkMatch.Base(g.workType)) && g.Worker is WorkGiver_Scanner && (!emergencyOnly || g.emergency))
 			.OrderByDescending(g => g.emergency)
 			.ThenByDescending(g => g.workType.naturalPriority)
 			.ThenByDescending(g => g.priorityInType)

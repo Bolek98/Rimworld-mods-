@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Steward – Work Split: always loaded, hidden unless switched on (the mod copies skills and work tags from the parent at start) -->
+  <WorkTypeDef>
+    <defName>SW_Surgery</defName>
+    <labelShort>surgery</labelShort>
+    <pawnLabel>Surgeon</pawnLabel>
+    <gerundLabel>performing surgery</gerundLabel>
+    <verb>Operate on</verb>
+    <description>Operations on colonists, prisoners and animals (split from doctor).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Rescue</defName>
+    <labelShort>rescue</labelShort>
+    <pawnLabel>Rescuer</pawnLabel>
+    <gerundLabel>rescuing</gerundLabel>
+    <verb>Rescue</verb>
+    <description>Carrying the downed to bed (split from doctor).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_FeedPatients</defName>
+    <labelShort>feed patients</labelShort>
+    <pawnLabel>Nurse</pawnLabel>
+    <gerundLabel>feeding patients</gerundLabel>
+    <verb>Feed</verb>
+    <description>Bringing food to patients who cannot eat on their own (split from doctor).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_AnimalDoctor</defName>
+    <labelShort>vet</labelShort>
+    <pawnLabel>Vet</pawnLabel>
+    <gerundLabel>treating animals</gerundLabel>
+    <verb>Treat</verb>
+    <description>Tending and feeding sick animals (split from doctor).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Butchering</defName>
+    <labelShort>butcher</labelShort>
+    <pawnLabel>Butcher</pawnLabel>
+    <gerundLabel>butchering</gerundLabel>
+    <verb>Butcher</verb>
+    <description>Butchering corpses at the butcher table (split from cooking).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Brewing</defName>
+    <labelShort>brew</labelShort>
+    <pawnLabel>Brewer</pawnLabel>
+    <gerundLabel>brewing</gerundLabel>
+    <verb>Brew</verb>
+    <description>Brewing wort at the brewery (split from cooking).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Repair</defName>
+    <labelShort>repair</labelShort>
+    <pawnLabel>Repairer</pawnLabel>
+    <gerundLabel>repairing</gerundLabel>
+    <verb>Repair</verb>
+    <description>Repairing damaged buildings and fixing broken-down machines (split from construction).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Deconstruct</defName>
+    <labelShort>deconstruct</labelShort>
+    <pawnLabel>Demolisher</pawnLabel>
+    <gerundLabel>deconstructing</gerundLabel>
+    <verb>Deconstruct</verb>
+    <description>Deconstructing and uninstalling buildings you marked (split from construction).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Smoothing</defName>
+    <labelShort>smooth</labelShort>
+    <pawnLabel>Smoother</pawnLabel>
+    <gerundLabel>smoothing</gerundLabel>
+    <verb>Smooth</verb>
+    <description>Smoothing stone floors and walls (split from construction).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Roofing</defName>
+    <labelShort>roof</labelShort>
+    <pawnLabel>Roofer</pawnLabel>
+    <gerundLabel>roofing</gerundLabel>
+    <verb>Roof</verb>
+    <description>Building and removing roofs (split from construction).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_FloorRemoval</defName>
+    <labelShort>remove floors</labelShort>
+    <pawnLabel>Floor remover</pawnLabel>
+    <gerundLabel>removing floors</gerundLabel>
+    <verb>Remove floors</verb>
+    <description>Removing floors and foundations (split from construction).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Harvesting</defName>
+    <labelShort>harvest</labelShort>
+    <pawnLabel>Harvester</pawnLabel>
+    <gerundLabel>harvesting</gerundLabel>
+    <verb>Harvest</verb>
+    <description>Harvesting grown plants – also in hydroponics (split from growing; sowing stays there).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_TreeCare</defName>
+    <labelShort>tree care</labelShort>
+    <pawnLabel>Arborist</pawnLabel>
+    <gerundLabel>tree care</gerundLabel>
+    <verb>Care for</verb>
+    <description>Extracting trees for replanting and pruning a Gauranlen tree (split from plant cutting).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Drilling</defName>
+    <labelShort>drill</labelShort>
+    <pawnLabel>Driller</pawnLabel>
+    <gerundLabel>drilling</gerundLabel>
+    <verb>Drill</verb>
+    <description>Working at deep drills (split from mining).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Drugs</defName>
+    <labelShort>drugs</labelShort>
+    <pawnLabel>Drug maker</pawnLabel>
+    <gerundLabel>making drugs</gerundLabel>
+    <verb>Make drugs</verb>
+    <description>Making drugs at the drug lab (split from crafting).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Stonecutting</defName>
+    <labelShort>stonecut</labelShort>
+    <pawnLabel>Stonecutter</pawnLabel>
+    <gerundLabel>stonecutting</gerundLabel>
+    <verb>Cut stone</verb>
+    <description>Cutting stone blocks (split from crafting).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Smelting</defName>
+    <labelShort>smelt</labelShort>
+    <pawnLabel>Smelter</pawnLabel>
+    <gerundLabel>smelting</gerundLabel>
+    <verb>Smelt</verb>
+    <description>Smelting at the smelter (split from crafting).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Refining</defName>
+    <labelShort>refine</labelShort>
+    <pawnLabel>Refiner</pawnLabel>
+    <gerundLabel>refining</gerundLabel>
+    <verb>Refine</verb>
+    <description>Making chemfuel at the refinery (split from crafting).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Machining</defName>
+    <labelShort>machining</labelShort>
+    <pawnLabel>Machinist</pawnLabel>
+    <gerundLabel>machining</gerundLabel>
+    <verb>Machine</verb>
+    <description>Work at the machining table (split from smithing).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Fabrication</defName>
+    <labelShort>fabricate</labelShort>
+    <pawnLabel>Fabricator</pawnLabel>
+    <gerundLabel>fabricating</gerundLabel>
+    <verb>Fabricate</verb>
+    <description>Work at the fabrication bench (split from smithing).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Scanning</defName>
+    <labelShort>scan</labelShort>
+    <pawnLabel>Scanner</pawnLabel>
+    <gerundLabel>scanning</gerundLabel>
+    <verb>Scan</verb>
+    <description>Using long-range and ground-penetrating scanners (split from research).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Study</defName>
+    <labelShort>study</labelShort>
+    <pawnLabel>Scholar</pawnLabel>
+    <gerundLabel>studying</gerundLabel>
+    <verb>Study</verb>
+    <description>Studying archotech structures and hacking (split from research).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Taming</defName>
+    <labelShort>tame</labelShort>
+    <pawnLabel>Tamer</pawnLabel>
+    <gerundLabel>taming</gerundLabel>
+    <verb>Tame</verb>
+    <description>Taming wild animals (split from handling).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Training</defName>
+    <labelShort>train</labelShort>
+    <pawnLabel>Trainer</pawnLabel>
+    <gerundLabel>training</gerundLabel>
+    <verb>Train</verb>
+    <description>Training tame animals (split from handling).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_AnimalProducts</defName>
+    <labelShort>milk &amp; shear</labelShort>
+    <pawnLabel>Milker</pawnLabel>
+    <gerundLabel>milking and shearing</gerundLabel>
+    <verb>Milk</verb>
+    <description>Milking and shearing animals (split from handling).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Slaughter</defName>
+    <labelShort>slaughter</labelShort>
+    <pawnLabel>Slaughterer</pawnLabel>
+    <gerundLabel>slaughtering</gerundLabel>
+    <verb>Slaughter</verb>
+    <description>Slaughtering animals you marked (split from handling).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Recruiting</defName>
+    <labelShort>recruit</labelShort>
+    <pawnLabel>Recruiter</pawnLabel>
+    <gerundLabel>recruiting</gerundLabel>
+    <verb>Recruit</verb>
+    <description>Talking to prisoners – recruiting, converting, enslaving (split from warden).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_FeedPrisoners</defName>
+    <labelShort>feed prisoners</labelShort>
+    <pawnLabel>Prisoner feeder</pawnLabel>
+    <gerundLabel>feeding prisoners</gerundLabel>
+    <verb>Feed</verb>
+    <description>Feeding prisoners and bringing them food (split from warden).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Executions</defName>
+    <labelShort>execute</labelShort>
+    <pawnLabel>Executioner</pawnLabel>
+    <gerundLabel>executing</gerundLabel>
+    <verb>Execute</verb>
+    <description>Executing prisoners, slaves and guilty colonists (split from warden).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Slaves</defName>
+    <labelShort>slaves</labelShort>
+    <pawnLabel>Slave overseer</pawnLabel>
+    <gerundLabel>overseeing slaves</gerundLabel>
+    <verb>Oversee</verb>
+    <description>Suppressing, imprisoning and freeing slaves (split from warden).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Refuel</defName>
+    <labelShort>refuel</labelShort>
+    <pawnLabel>Refueler</pawnLabel>
+    <gerundLabel>refueling</gerundLabel>
+    <verb>Refuel</verb>
+    <description>Refueling generators, torches, stoves and other buildings (split from hauling).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Rearm</defName>
+    <labelShort>rearm</labelShort>
+    <pawnLabel>Armorer</pawnLabel>
+    <gerundLabel>rearming</gerundLabel>
+    <verb>Rearm</verb>
+    <description>Rearming turrets that need shells (split from hauling).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Caravans</defName>
+    <labelShort>caravans</labelShort>
+    <pawnLabel>Loader</pawnLabel>
+    <gerundLabel>loading caravans</gerundLabel>
+    <verb>Load</verb>
+    <description>Packing caravans, loading transport pods and portals, unloading carriers (split from hauling).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Corpses</defName>
+    <labelShort>corpses</labelShort>
+    <pawnLabel>Undertaker</pawnLabel>
+    <gerundLabel>handling corpses</gerundLabel>
+    <verb>Haul corpses</verb>
+    <description>Hauling corpses and cremating them (split from hauling).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Beer</defName>
+    <labelShort>beer</labelShort>
+    <pawnLabel>Cellarer</pawnLabel>
+    <gerundLabel>beer cellar work</gerundLabel>
+    <verb>Tend barrels</verb>
+    <description>Filling fermenting barrels with wort and taking out the beer (split from hauling).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Snow</defName>
+    <labelShort>snow</labelShort>
+    <pawnLabel>Snow clearer</pawnLabel>
+    <gerundLabel>clearing snow</gerundLabel>
+    <verb>Clear snow</verb>
+    <description>Clearing snow from the areas you marked (split from cleaning).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>SW_Painting</defName>
+    <labelShort>paint</labelShort>
+    <pawnLabel>Painter</pawnLabel>
+    <gerundLabel>painting</gerundLabel>
+    <verb>Paint</verb>
+    <description>Painting buildings and floors and removing paint (split from art).</description>
+    <naturalPriority>1</naturalPriority>
+    <visible>false</visible>
+  </WorkTypeDef>
+</Defs>

@@ -76,7 +76,7 @@ public static class Planner
 	public static bool IsStyleWork(ForemanStyle style, WorkTypeDef w) => Styles.Delta(style, w) > 0f;
 
 	// work a colony always needs somebody for, whatever the style (patients, prisoners, babies …)
-	public static bool AlwaysSomeone(WorkTypeDef w) => w.defName == "Doctor" || w.defName == "Warden" || w.defName == "Childcare" || w.defName == "Cooking";
+	public static bool AlwaysSomeone(WorkTypeDef w) { string n = WorkMatch.Base(w); return n == "Doctor" || n == "Warden" || n == "Childcare" || n == "Cooking"; }
 
 	public static bool StrictStyle(ForemanStyle style, ForemanSettings s)
 		=> s != null && s.styleStrict && style != ForemanStyle.Balanced && style != ForemanStyle.Custom;
