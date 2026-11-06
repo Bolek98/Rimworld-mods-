@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>[B98] Research Atlas – Research Tree for Big Modpacks</name>
+  <author>Bolek98</author>
+  <packageId>bolek98.researchatlas</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>seohyeon.yart</li>
+  </loadAfter>
+  <loadBefore>
+    <li>misak.researchedloadout</li>
+    <li>misak.researchlockedraidgear</li>
+  </loadBefore>
+  <incompatibleWith>
+    <li>misak.researchfixer</li>
+  </incompatibleWith>
+  <description>A research window made mainly for huge mod packs – thousands of research projects from hundreds of mods stay readable. It handles small mod lists and the plain game just as easily. With a built-in research fixer for mod items.
+
+THE TREE
+- A real tree from left to right, like Research Tree: eras one after another, inside an era by what needs what. Nothing wraps; as few crossing lines as possible, chains run straight.
+- Lines run in free lanes between the cards and never through them, with small arrows; lines of one research run together.
+- Readable cards: icon, full name on two lines, cost, the icons of what it unlocks (click one for its info card) and a progress bar. The colour shows the state – finished, available, locked, being researched, queued. A red "!" says what is missing (bench, techprints, study).
+- Era names stay on top while you move. Zoom out for coloured tiles, zoom in for full cards.
+- Arranged once in the background and remembered – again only when your mod list changes. Only what you see is drawn.
+
+FINDING THINGS
+- Search over names, descriptions, mods and everything a research unlocks – every product of its recipes, bills, rituals. Matches and the way to them light up, gold dots on the minimap, Enter jumps to the next one.
+- Deep search: also the descriptions of unlocked things and what the unlocked workbenches can make without more research – type "simple meal" and it finds Electricity (electric stove).
+- Hold Ctrl over a research: its whole way there and everything that follows light up.
+- Filters: available now, hide finished, group by mod, one mod (with search), type, era. Tabs: All, the main tab, every DLC tab and one tab for all mod tabs.
+- Side panel: who researches and how fast, minimap. Optional random mode: pick from three offered projects (like Semi Random Research).
+
+DETAIL PANEL
+- Click a research: a panel on the right shows a big picture of what it unlocks, state, cost and time, what it needs and where it leads (click to jump), pictures of everything it unlocks and what its workbenches can make, and why the search found it.
+
+QUEUE
+- Buttons in the panel: research now, queue with everything it still needs (in the right order), queue only this. Shortcuts: Shift+click (with everything), Ctrl+click (only this), double click (research now). Drag to reorder, right click to remove.
+- The next research starts by itself. Time estimates from your researchers. Kept in the save.
+
+RESEARCH FIXER (BUILT IN)
+Many mods add weapons, armour and buildings that need no research – a fresh tribe builds a charge rifle on day one – or put spacer gear behind smithing.
+- The "Fixes" button finds them (mods only, industrial era and up; the game and DLCs are never touched) and lists them by mod and era. Skip any group and press Apply: they get a new research in the "Mod research" tab, linked to the right vanilla research.
+- Mod files are never changed; turn it off and all is as before. Works after a restart ("Restart now" saves and reloads). Optional green NEW marks on newly researched things.
+
+Settings: Mod settings → Research Atlas. "Vanilla view" switches to the game's window at any time; turning the mod off changes nothing in your save but the queue. Requires Harmony.
+
+Found a bug? "Report a bug" (bottom left in the mod settings): a short report for the comments, a full one for GitHub Issues. Ideas for additions are welcome – I read every one and think it over.
+
+---
+
+Okno výzkumu dělané hlavně pro obří balíky modů – tisíce výzkumů ze stovek modů zůstanou přehledné. S malým seznamem modů i se samotnou hrou si poradí stejně hravě. S vestavěnou opravou výzkumu pro věci z modů.
+
+STROM
+- Skutečný strom zleva doprava, jako Research Tree: epochy za sebou, uvnitř epochy podle toho, co co potřebuje. Nic se nezalamuje, co nejméně křížících se čar, řetězy vedou rovně.
+- Čáry vedou volnými pruhy mezi kartami, nikdy přes ně, s malými šipkami; čáry jednoho výzkumu vedou spolu.
+- Čitelné karty: ikona, celý název na dva řádky, cena, ikony toho, co odemkne (klik na ikonu otevře informace), a ukazatel postupu. Barva ukazuje stav – hotové, dostupné, zamčené, zkoumá se, ve frontě. Červený „!“ řekne, co chybí (stůl, techprinty, zkoumání).
+- Názvy epoch zůstávají nahoře, když se posouváš. Oddálení ukáže barevné dlaždice, přiblížení celé karty.
+- Rozloží se jednou na pozadí a zapamatuje se – znovu jen při změně seznamu modů. Kreslí se jen to, co je vidět.
+
+HLEDÁNÍ
+- Hledání v názvech, popisech, modech i ve všem, co výzkum odemkne – všechny výrobky jeho receptů, zakázky, rituály. Výsledky a cesta k nim se rozsvítí, zlaté tečky na minimapě, Enter skočí na další.
+- Hledat hlouběji: i popisy odemčených věcí a co odemčené pracovní stoly vyrobí bez dalšího výzkumu – napiš „jednoduché jídlo“ a najde Elektřinu (elektrický sporák).
+- Drž Ctrl nad výzkumem: rozsvítí se celá cesta k němu i vše, co z něj vychází.
+- Filtry: jen dostupné, skrýt hotové, seskupit podle modu, jeden mod (s hledáním), druh, epocha. Záložky: Vše, hlavní záložka, každá záložka DLC a jedna záložka pro všechny záložky modů.
+- Boční panel: kdo zkoumá a jak rychle, minimapa. Volitelný náhodný režim: výběr ze tří nabídnutých výzkumů (jako Semi Random Research).
+
+PANEL S DETAILEM
+- Klik na výzkum: vpravo se ukáže velký obrázek toho, co odemkne, stav, cena a čas, co potřebuje a kam vede (klik: přeskočit), obrázky všeho, co odemkne, i co vyrobí jeho stoly, a proč ho hledání našlo.
+
+FRONTA
+- Tlačítka v panelu: zkoumat hned, do fronty i se vším, co ještě potřebuje (ve správném pořadí), jen tenhle. Zkratky: Shift+klik (i se vším), Ctrl+klik (jen tenhle), dvojklik (zkoumat hned). Přetažením se mění pořadí, pravým klikem se odebírá.
+- Další výzkum začne sám. Odhad času podle tvých výzkumníků. Ukládá se do hry.
+
+OPRAVA VÝZKUMU (UVNITŘ)
+Spousta modů přidává zbraně, zbroje a budovy bez výzkumu – čerstvý kmen si první den postaví nábojovou pušku – nebo dává vesmírnou výbavu za kovářství.
+- Tlačítko „Opravy“ je najde (jen mody, od průmyslové epochy; hry a DLC se nedotkne) a vypíše podle modu a epochy. Přeskoč, co nechceš, a dej Použít: dostanou nový výzkum v záložce „Výzkum modů“, napojený na správný původní výzkum.
+- Soubory modů se nikdy nemění; vypneš to a vše je jako dřív. Platí po restartu („Restartovat teď“ uloží a znovu načte). Volitelně zelené značky NOVÉ u nově vyzkoumaných věcí.
+
+Nastavení: Nastavení modů → Research Atlas. „Původní okno“ kdykoli přepne na okno hry; vypnutí modu v uložené hře nic nezmění kromě fronty. Vyžaduje Harmony.
+
+Našel jsi chybu? „Nahlásit chybu“ (vlevo dole v nastavení modu): krátké hlášení do komentářů, celé na GitHub Issues. Nápady na doplnění jsou vítané – každý si přečtu a promyslím.
+
+═══════════════════════
+IDEAS AND SUGGESTIONS
+Want something changed or added? Write it in the comments – I read every idea and take it into account.
+
+NÁPADY A NÁVRHY
+Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.</description>
+</ModMetaData>

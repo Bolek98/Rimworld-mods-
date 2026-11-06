@@ -1,0 +1,36 @@
+=== Workshop release 1.0.0 (6 Nov 2026) ===
+1.0.0
+- First Workshop release: a research window for huge mod packs – the tree arranges itself by era and prerequisites in the background and is remembered, only what you see is drawn, zoom levels, minimap, mod colours.
+- První vydání na Workshopu: okno výzkumu pro obří balíky modů – strom se sám rozloží podle epoch a předpokladů na pozadí a zapamatuje se, kreslí se jen to, co je vidět, úrovně přiblížení, minimapa, barvy modů.
+- Search over names, mods and everything a research unlocks or makes possible (Deep search: descriptions and what unlocked workbenches can make), filters, tabs, Ctrl+hover for the whole way.
+- Hledání v názvech, modech a ve všem, co výzkum odemkne nebo umožní (Hledat hlouběji: popisy a co odemčené stoly vyrobí), filtry, záložky, Ctrl+najetí pro celou cestu.
+- Detail panel with pictures, queue with whole paths, shortcuts, auto start and time estimates, optional random mode.
+- Panel s detailem a obrázky, fronta i s celou cestou, zkratky, automatický start a odhad času, volitelný náhodný režim.
+- Research Fixer built in. 12 languages.
+- Research Fixer uvnitř. 12 jazyků.
+
+=== Development history before the first Workshop release ===
+0.4.0
+- Search finds more: every product of a recipe, bills, psychic rituals, things linked in the description. New Deep search (on by default): also descriptions of unlocked things and what the unlocked workbenches can make without more research. The detail panel shows what the search found and what the workbenches can make.
+- Hledání najde víc: všechny výrobky receptu, zakázky, psychické rituály, věci odkázané v popisu. Nové Hledat hlouběji (zapnuté): i popisy odemčených věcí a co odemčené stoly vyrobí bez dalšího výzkumu. Panel s detailem ukáže, co hledání našlo a co stoly vyrobí.
+
+0.3.0
+- Fixed the dark cards: every card was drawn faded because of a highlight bug – colours, text and icons are now clear; bigger icons drawn the game's way.
+- Tmavé karty opraveny: kvůli chybě se zvýrazněním byla každá karta vybledlá – barvy, text i ikony jsou teď jasné; větší ikony kreslené jako ve hře.
+- A click now selects a project and opens a detail panel on the right: big picture of what it unlocks, state, cost and time, buttons (research now, queue with everything it needs, queue only this, remove), requirements, prerequisites and what it leads to (click to jump), a picture grid of everything it unlocks (click: info card) and the description.
+- Klik teď výzkum vybere a otevře vpravo panel s podrobnostmi: velký obrázek toho, co odemkne, stav, cena a čas, tlačítka (zkoumat hned, do fronty i se vším, co potřebuje, jen tohle, odebrat), požadavky, předchozí výzkumy a kam vede (klik: přeskočit), mřížka obrázků všeho, co odemkne (klik: informace) a popis.
+- Queueing: Shift+click (with everything it needs), Ctrl+click (only this), double click (research now); right-click menu as before.
+- Fronta: Shift+klik (i se vším, co potřebuje), Ctrl+klik (jen tohle), dvojklik (zkoumat hned); nabídka na pravé tlačítko jako dřív.
+
+0.2.1
+- Brighter cards: finished, available and locked research is easier to see; dimmed cards (search, filters, Ctrl highlight) are less dark.
+- Světlejší karty: hotové, dostupné i zamčené výzkumy jsou lépe vidět; ztlumené karty (hledání, filtry, zvýraznění s Ctrl) nejsou tak tmavé.
+
+0.2.0
+- Rebuilt research tree: a real left-to-right tree by era and prerequisites (no wrapped columns), lines in free lanes between the cards with arrows, readable cards (icon, full name, unlock icons you can click, cost, state colours, red ! for what is missing), era names on top, side panel with researchers and minimap (search dots), Ctrl+hover shows the whole way, group by mod, tabs All / Main / DLC / Other mods, optional random mode with three projects to pick from, faster drawing.
+- Přestavěný strom výzkumu: skutečný strom zleva doprava podle epoch a předpokladů (žádné zalomené sloupce), čáry volnými pruhy mezi kartami se šipkami, čitelné karty (ikona, celý název, ikony odemčených věcí s klikem na informace, cena, barvy podle stavu, červený ! pro to, co chybí), názvy epoch nahoře, boční panel s výzkumníky a minimapou (tečky hledání), Ctrl+najetí ukáže celou cestu, seskupení podle modu, záložky Vše / Hlavní / DLC / Ostatní mody, volitelný náhodný režim se třemi výzkumy na výběr, rychlejší kreslení.
+
+0.1.0
+- First version: research tree for big mod packs (automatic layout by era and prerequisites, arranged in the background and remembered, only visible cards drawn, zoom levels, minimap, mod colours), search with highlighted paths, filters (available, finished, mod, type, era), focus mode, research queue with whole paths, auto start and time estimates. Research Fixer is built in (its fixes and settings, taken over from Research Fixer).
+- První verze: strom výzkumu pro velké balíky modů (automatické rozložení podle epoch a předpokladů, na pozadí a zapamatované, kreslí se jen viditelné karty, úrovně přiblížení, minimapa, barvy modů), hledání se zvýrazněnou cestou, filtry (dostupné, hotové, mod, druh, epocha), zaměření, fronta výzkumu i s celou cestou, automatický start a odhad času. Research Fixer je uvnitř (jeho opravy a nastavení, převzaté z Research Fixeru).
+

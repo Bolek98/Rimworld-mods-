@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RA_Title>Recherche</RA_Title>
+  <RA_SearchHint>Chercher une recherche, un mod, ce qu'elle débloque ou permet…</RA_SearchHint>
+  <RA_NoMatch>rien</RA_NoMatch>
+  <RA_NextMatchTip>Résultat suivant (Entrée dans le champ de recherche)</RA_NextMatchTip>
+  <RA_OnlyAvailable>Disponible maintenant</RA_OnlyAvailable>
+  <RA_HideFinished>Masquer les terminées</RA_HideFinished>
+  <RA_Mod>Mod</RA_Mod>
+  <RA_ModAll>tous les mods</RA_ModAll>
+  <RA_All>tout</RA_All>
+  <RA_Cat>Type</RA_Cat>
+  <RA_Era>Ère</RA_Era>
+  <RA_Focus>Focus : {0}</RA_Focus>
+  <RA_Reset>Réinitialiser</RA_Reset>
+  <RA_Vanilla>Fenêtre d'origine</RA_Vanilla>
+  <RA_Fit>Ajuster</RA_Fit>
+  <RA_FixesButton>Corrections</RA_FixesButton>
+  <RA_AllTabs>Tout</RA_AllTabs>
+  <RA_More>Plus</RA_More>
+  <RA_Arranging>Organisation de {0} projets de recherche…</RA_Arranging>
+  <RA_Empty>Aucune recherche ici avec ces filtres.</RA_Empty>
+  <RA_Help>Clic : sélectionner – détails à droite · Maj+clic : mettre en file avec tout ce qu'il faut · Ctrl+clic : mettre seulement celle-ci en file · Double clic : rechercher maintenant (ou mettre en file) · Ctrl+survol : montrer tout le chemin et tout ce qui suit · Clic droit : menu · Clic sur une icône de carte : ses infos · Molette : zoom · Glisser : déplacer · Début : revenir à la recherche en cours</RA_Help>
+  <RA_AlreadyDone>{0} est déjà recherché.</RA_AlreadyDone>
+  <RA_ResearchNow>Rechercher maintenant</RA_ResearchNow>
+  <RA_QueuePath>Mettre en file avec tout ce qu'il faut</RA_QueuePath>
+  <RA_QueueOne>Mettre seulement celle-ci en file</RA_QueueOne>
+  <RA_Unqueue>Retirer de la file</RA_Unqueue>
+  <RA_FocusOn>Focus : montrer seulement le chemin et ce qui suit</RA_FocusOn>
+  <RA_Unfocus>Quitter le focus</RA_Unfocus>
+  <RA_InfoCard>Fiche d'info</RA_InfoCard>
+  <RA_OpenVanilla>Afficher dans la fenêtre d'origine</RA_OpenVanilla>
+  <RA_TipCost>{0} / {1} points · {2}</RA_TipCost>
+  <RA_TipUnlocks>Débloque :</RA_TipUnlocks>
+  <RA_TipNeeds>Nécessite :</RA_TipNeeds>
+  <RA_TipBench>Nécessite : {0}</RA_TipBench>
+  <RA_TipTechprints>Plans techniques : {0} / {1}</RA_TipTechprints>
+  <RA_TipStudy>Étude : {0}</RA_TipStudy>
+  <RA_TipMechanitor>Nécessite un mécanitor</RA_TipMechanitor>
+  <RA_TipClick>Clic : détails · Maj : mettre le chemin en file · Ctrl+clic : seulement celle-ci · Double clic : rechercher maintenant · Ctrl+survol : tout le chemin · Clic droit : plus</RA_TipClick>
+  <RA_EtaNever>personne ne recherche</RA_EtaNever>
+  <RA_EtaHours>~{0} h</RA_EtaHours>
+  <RA_EtaDays>~{0} jours</RA_EtaDays>
+  <RA_Now>Maintenant</RA_Now>
+  <RA_NothingNow>Rien n'est en recherche</RA_NothingNow>
+  <RA_Queue>File</RA_Queue>
+  <RA_QueueEmpty>La file est vide – clique sur un projet de recherche pour l'ajouter avec tout ce qu'il faut.</RA_QueueEmpty>
+  <RA_Blocked>en attente (établi, plan technique …)</RA_Blocked>
+  <RA_AdvNoBench>Pas encore d'établi de recherche – construis-en un d'abord.</RA_AdvNoBench>
+  <RA_AdvNoResearchers>Personne ne fait de recherche – active Recherche dans l'onglet Travail.</RA_AdvNoResearchers>
+  <RA_AdvPick>Rien n'est en recherche – clique sur un projet pour commencer.</RA_AdvPick>
+  <RA_AdvBlocked>Rien dans la file ne peut commencer maintenant – vois les éléments rouges (établi, plans techniques, étude).</RA_AdvBlocked>
+  <RA_AdvRate>{0} chercheurs · environ {1} points par heure de travail de recherche</RA_AdvRate>
+  <RA_PickMod>Afficher les recherches d'un mod</RA_PickMod>
+  <RA_Cat_Weapons>Armes</RA_Cat_Weapons>
+  <RA_Cat_Apparel>Vêtements et armures</RA_Cat_Apparel>
+  <RA_Cat_Medical>Médical</RA_Cat_Medical>
+  <RA_Cat_Production>Production</RA_Cat_Production>
+  <RA_Cat_Buildings>Bâtiments</RA_Cat_Buildings>
+  <RA_Cat_Food>Nourriture et agriculture</RA_Cat_Food>
+  <RA_Cat_Power>Électricité</RA_Cat_Power>
+  <RA_Cat_Other>Autre</RA_Cat_Other>
+  <RA_SetReplace>Utiliser Research Atlas comme fenêtre de recherche</RA_SetReplace>
+  <RA_SetReplaceTip>Désactivé : la fenêtre de recherche du jeu (ou d'un autre mod de recherche) est utilisée. Le bouton « Fenêtre d'origine » bascule un instant.</RA_SetReplaceTip>
+  <RA_SetAutoStart>Lancer seul la recherche suivante de la file</RA_SetAutoStart>
+  <RA_SetAutoStartTip>Quand une recherche est terminée, la première de la file qui peut commencer démarre.</RA_SetAutoStartTip>
+  <RA_SetCompact>Les filtres masquent les recherches (désactivé : ils les assombrissent seulement)</RA_SetCompact>
+  <RA_SetCompactTip>Avec des filtres, l'arbre est réorganisé seulement avec ce qui reste – bien plus court avec de gros modpacks.</RA_SetCompactTip>
+  <RA_SetMinimap>Afficher le panneau latéral (chercheurs, minicarte, choix aléatoires)</RA_SetMinimap>
+  <RA_SetClearCache>Réorganiser tous les arbres de recherche</RA_SetClearCache>
+  <RA_CacheCleared>Les arbres de recherche seront réorganisés à la prochaine ouverture.</RA_CacheCleared>
+  <RA_FixesTitle>Corrections (anciennement Research Fixer)</RA_FixesTitle>
+  <RA_FixesOff>Le mod séparé Research Fixer est actif, donc ces corrections sont désactivées ici. Désactive Research Fixer – Research Atlas fait la même chose et reprend ses réglages.</RA_FixesOff>
+  <RA_SetMinimapTip>Un panneau à droite avec qui recherche et à quelle vitesse, la minicarte de tout l'arbre (avec les résultats de recherche) et, en mode aléatoire, les projets à choisir.</RA_SetMinimapTip>
+  <RA_Panel>Panneau</RA_Panel>
+  <RA_Home>Accueil</RA_Home>
+  <RA_GroupByMod>Grouper par mod</RA_GroupByMod>
+  <RA_GroupByModTip>Les projets d'un même mod restent ensemble dans chaque colonne (l'arbre a un peu plus de lignes).</RA_GroupByModTip>
+  <RA_OtherTabs>Autres mods</RA_OtherTabs>
+  <RA_IconClick>Clic : fiche d'info</RA_IconClick>
+  <RA_Researchers>Chercheurs</RA_Researchers>
+  <RA_ResearchingNow>En train de rechercher</RA_ResearchingNow>
+  <RA_ResearchSpeedTip>Vitesse de recherche (ne recherche pas en ce moment)</RA_ResearchSpeedTip>
+  <RA_RandomTitle>Choisir la prochaine recherche</RA_RandomTitle>
+  <RA_RandomNone>Rien ne peut être recherché pour l'instant.</RA_RandomNone>
+  <RA_RandomReroll>Nouveau choix ({0} restant)</RA_RandomReroll>
+  <RA_RandomNoRerolls>Plus de nouveau choix – un revient à chaque recherche terminée.</RA_RandomNoRerolls>
+  <RA_MinimapTip>Tout l'arbre. Clique ou glisse pour y aller. Points dorés : résultats de recherche.</RA_MinimapTip>
+  <RA_TipCannotStart>Ne peut pas encore commencer :</RA_TipCannotStart>
+  <RA_SetRandom>Mode aléatoire : choisir parmi trois projets proposés</RA_SetRandom>
+  <RA_SetRandomTip>Comme Semi Random Research : le panneau latéral propose trois projets aléatoires que tu peux rechercher maintenant. Choisis-en un ; de nouveaux arrivent quand il est terminé. Tu peux toujours choisir n'importe quoi dans l'arbre.</RA_SetRandomTip>
+  <RA_DetailClose>Fermer les détails</RA_DetailClose>
+  <RA_DetailNeeds>Conditions</RA_DetailNeeds>
+  <RA_DetailLeadsTo>Mène à</RA_DetailLeadsTo>
+  <RA_DetailAbout>Description</RA_DetailAbout>
+  <RA_DetailJump>Clic : afficher cette recherche</RA_DetailJump>
+  <RA_DetailCostDone>Terminée · {0} points de recherche</RA_DetailCostDone>
+  <RA_State_Done>Terminée</RA_State_Done>
+  <RA_State_Progress>En cours de recherche</RA_State_Progress>
+  <RA_State_Available>Peut être recherchée maintenant</RA_State_Available>
+  <RA_State_Locked>Verrouillée – il manque quelque chose avant</RA_State_Locked>
+  <RA_DeepSearch>Recherche approfondie</RA_DeepSearch>
+  <RA_DeepSearchTip>Chercher aussi dans les descriptions des choses débloquées et dans ce que les établis débloqués peuvent fabriquer sans autre recherche (repas sur la cuisinière électrique, objets sur un nouvel établi…).</RA_DeepSearchTip>
+  <RA_DetailFound>Trouvé par la recherche :</RA_DetailFound>
+  <RA_DetailAlso>Ses établis fabriquent aussi :</RA_DetailAlso>
+</LanguageData>

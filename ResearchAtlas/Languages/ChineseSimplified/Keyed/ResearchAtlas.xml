@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RA_Title>研究</RA_Title>
+  <RA_SearchHint>搜索研究、模组、它解锁或使之可能的东西…</RA_SearchHint>
+  <RA_NoMatch>无</RA_NoMatch>
+  <RA_NextMatchTip>下一个结果（在搜索框按 Enter）</RA_NextMatchTip>
+  <RA_OnlyAvailable>现在可研究</RA_OnlyAvailable>
+  <RA_HideFinished>隐藏已完成</RA_HideFinished>
+  <RA_Mod>模组</RA_Mod>
+  <RA_ModAll>全部模组</RA_ModAll>
+  <RA_All>全部</RA_All>
+  <RA_Cat>类型</RA_Cat>
+  <RA_Era>时代</RA_Era>
+  <RA_Focus>聚焦：{0}</RA_Focus>
+  <RA_Reset>重置</RA_Reset>
+  <RA_Vanilla>原版窗口</RA_Vanilla>
+  <RA_Fit>适应</RA_Fit>
+  <RA_FixesButton>修正</RA_FixesButton>
+  <RA_AllTabs>全部</RA_AllTabs>
+  <RA_More>更多</RA_More>
+  <RA_Arranging>正在排列 {0} 个研究项目…</RA_Arranging>
+  <RA_Empty>在这些筛选条件下这里没有研究。</RA_Empty>
+  <RA_Help>单击：选中 – 右侧显示详情 · Shift+单击：连同所需的一切加入队列 · Ctrl+单击：只把它加入队列 · 双击：立即研究（或加入队列） · Ctrl+悬停：显示通往它的整条路径及之后的一切 · 右键：菜单 · 单击卡片上的图标：查看信息 · 滚轮：缩放 · 拖动：移动 · Home：回到当前研究</RA_Help>
+  <RA_AlreadyDone>{0} 已经研究完成。</RA_AlreadyDone>
+  <RA_ResearchNow>立即研究</RA_ResearchNow>
+  <RA_QueuePath>连同所需的一切加入队列</RA_QueuePath>
+  <RA_QueueOne>只把它加入队列</RA_QueueOne>
+  <RA_Unqueue>从队列中移除</RA_Unqueue>
+  <RA_FocusOn>聚焦：只显示通往它的路径和之后的内容</RA_FocusOn>
+  <RA_Unfocus>退出聚焦</RA_Unfocus>
+  <RA_InfoCard>信息卡</RA_InfoCard>
+  <RA_OpenVanilla>在原版窗口中显示</RA_OpenVanilla>
+  <RA_TipCost>{0} / {1} 点 · {2}</RA_TipCost>
+  <RA_TipUnlocks>解锁：</RA_TipUnlocks>
+  <RA_TipNeeds>需要：</RA_TipNeeds>
+  <RA_TipBench>需要：{0}</RA_TipBench>
+  <RA_TipTechprints>技术蓝图：{0} / {1}</RA_TipTechprints>
+  <RA_TipStudy>研究对象：{0}</RA_TipStudy>
+  <RA_TipMechanitor>需要机械师</RA_TipMechanitor>
+  <RA_TipClick>单击：详情 · Shift：路径加入队列 · Ctrl+单击：只此一项 · 双击：立即研究 · Ctrl+悬停：整条路径 · 右键：更多</RA_TipClick>
+  <RA_EtaNever>无人研究</RA_EtaNever>
+  <RA_EtaHours>约 {0} 小时</RA_EtaHours>
+  <RA_EtaDays>约 {0} 天</RA_EtaDays>
+  <RA_Now>当前</RA_Now>
+  <RA_NothingNow>没有正在进行的研究</RA_NothingNow>
+  <RA_Queue>队列</RA_Queue>
+  <RA_QueueEmpty>队列为空 – 单击一个研究项目，即可连同所需的一切加入。</RA_QueueEmpty>
+  <RA_Blocked>等待中（工作台、技术蓝图 …）</RA_Blocked>
+  <RA_AdvNoBench>还没有研究台 – 先建造一个。</RA_AdvNoBench>
+  <RA_AdvNoResearchers>没人做研究 – 在工作标签中启用研究。</RA_AdvNoResearchers>
+  <RA_AdvPick>没有正在进行的研究 – 单击一个项目开始。</RA_AdvPick>
+  <RA_AdvBlocked>队列中目前没有能开始的项目 – 查看红色项（工作台、技术蓝图、研究对象）。</RA_AdvBlocked>
+  <RA_AdvRate>{0} 名研究者 · 每小时研究工作约 {1} 点</RA_AdvRate>
+  <RA_PickMod>显示一个模组的研究</RA_PickMod>
+  <RA_Cat_Weapons>武器</RA_Cat_Weapons>
+  <RA_Cat_Apparel>服装和护甲</RA_Cat_Apparel>
+  <RA_Cat_Medical>医疗</RA_Cat_Medical>
+  <RA_Cat_Production>生产</RA_Cat_Production>
+  <RA_Cat_Buildings>建筑</RA_Cat_Buildings>
+  <RA_Cat_Food>食物和农业</RA_Cat_Food>
+  <RA_Cat_Power>电力</RA_Cat_Power>
+  <RA_Cat_Other>其他</RA_Cat_Other>
+  <RA_SetReplace>使用 Research Atlas 作为研究窗口</RA_SetReplace>
+  <RA_SetReplaceTip>关闭：使用游戏自带的研究窗口（或其他研究模组）。“原版窗口”按钮可临时切换。</RA_SetReplaceTip>
+  <RA_SetAutoStart>自动开始队列中的下一项研究</RA_SetAutoStart>
+  <RA_SetAutoStartTip>一项研究完成后，队列中第一个可以开始的研究会开始。</RA_SetAutoStartTip>
+  <RA_SetCompact>筛选会隐藏研究（关闭：只变暗）</RA_SetCompact>
+  <RA_SetCompactTip>启用筛选时，树只用剩下的项目重新排列 – 大型模组包会短得多。</RA_SetCompactTip>
+  <RA_SetMinimap>显示侧边栏（研究者、小地图、随机选择）</RA_SetMinimap>
+  <RA_SetClearCache>重新排列所有研究树</RA_SetClearCache>
+  <RA_CacheCleared>下次打开时将重新排列研究树。</RA_CacheCleared>
+  <RA_FixesTitle>修正（原 Research Fixer）</RA_FixesTitle>
+  <RA_FixesOff>独立的 Research Fixer 模组已启用，因此这里的修正已关闭。请关闭 Research Fixer – Research Atlas 做同样的事，并接管它的设置。</RA_FixesOff>
+  <RA_SetMinimapTip>右侧面板：谁在研究、速度多快，整棵树的小地图（含搜索结果），以及随机模式下可选的项目。</RA_SetMinimapTip>
+  <RA_Panel>面板</RA_Panel>
+  <RA_Home>主页</RA_Home>
+  <RA_GroupByMod>按模组分组</RA_GroupByMod>
+  <RA_GroupByModTip>同一模组的项目在每一列中保持在一起（树会多一些连线）。</RA_GroupByModTip>
+  <RA_OtherTabs>其他模组</RA_OtherTabs>
+  <RA_IconClick>单击：信息卡</RA_IconClick>
+  <RA_Researchers>研究者</RA_Researchers>
+  <RA_ResearchingNow>正在研究</RA_ResearchingNow>
+  <RA_ResearchSpeedTip>研究速度（目前未在研究）</RA_ResearchSpeedTip>
+  <RA_RandomTitle>选择下一项研究</RA_RandomTitle>
+  <RA_RandomNone>现在没有可研究的项目。</RA_RandomNone>
+  <RA_RandomReroll>重新选择（剩余 {0} 次）</RA_RandomReroll>
+  <RA_RandomNoRerolls>没有重新选择次数了 – 每完成一项研究恢复一次。</RA_RandomNoRerolls>
+  <RA_MinimapTip>整棵树。单击或拖动前往该处。金色圆点：搜索结果。</RA_MinimapTip>
+  <RA_TipCannotStart>暂时无法开始：</RA_TipCannotStart>
+  <RA_SetRandom>随机模式：从三个提供的项目中选择</RA_SetRandom>
+  <RA_SetRandomTip>类似 Semi Random Research：侧边栏提供三个现在可以研究的随机项目。选一个；完成后会出现新的。你仍然可以在树中选择任何项目。</RA_SetRandomTip>
+  <RA_DetailClose>关闭详情</RA_DetailClose>
+  <RA_DetailNeeds>条件</RA_DetailNeeds>
+  <RA_DetailLeadsTo>通往</RA_DetailLeadsTo>
+  <RA_DetailAbout>描述</RA_DetailAbout>
+  <RA_DetailJump>单击：显示此研究</RA_DetailJump>
+  <RA_DetailCostDone>已完成 · {0} 研究点</RA_DetailCostDone>
+  <RA_State_Done>已完成</RA_State_Done>
+  <RA_State_Progress>研究中</RA_State_Progress>
+  <RA_State_Available>现在可研究</RA_State_Available>
+  <RA_State_Locked>已锁定 – 之前缺少某些东西</RA_State_Locked>
+  <RA_DeepSearch>深度搜索</RA_DeepSearch>
+  <RA_DeepSearchTip>同时搜索已解锁物品的描述，以及已解锁的工作台无需更多研究就能制作的东西（电炉上的饭菜、新工作台上的物品…）。</RA_DeepSearchTip>
+  <RA_DetailFound>搜索找到：</RA_DetailFound>
+  <RA_DetailAlso>它的工作台还能制作：</RA_DetailAlso>
+</LanguageData>
