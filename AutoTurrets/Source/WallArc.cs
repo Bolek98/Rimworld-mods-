@@ -55,8 +55,10 @@ namespace AutoTurrets
             if (ed != null && ed.def.passability == Traversability.Impassable) return 0;
             Room room = c.GetRoom(map);
             if (room == null) return 0;
-            if (room.PsychologicallyOutdoors || room.UsesOutdoorTemperature || !c.Roofed(map)) return 1;
-            return -1;
+            // 1.4.2: only the roof decides. A long roofed corridor network can count as "outdoors" for the game
+            // (huge room, touches the map edge), so turrets in corridor walls turned towards the corridor and
+            // ignored enemies in the rooms – or the other way round.
+            return c.Roofed(map) ? -1 : 1;
         }
 
         private static int Score(Building b, IntVec3 dir)

@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+1.4.2
+- Fix: turrets in walls inside the base (between a roofed corridor and rooms) could think the corridor was outdoors and shoot only one way. Now only an unroofed side counts as outside – a wall between two roofed areas shoots in every direction.
+- Oprava: věže ve zdech uvnitř základny (mezi zastřešenou chodbou a pokoji) mohly chodbu brát jako venek a střílet jen jedním směrem. Teď se za venek počítá jen nezastřešená strana – zeď mezi dvěma zastřešenými prostory střílí všemi směry.
+
 1.4.1
 - New option 'Turrets don't destroy items and bodies' (on): bullets and shell blasts from your turrets leave items and corpses on the ground alone – loot is not shot to pieces and bodies are not mashed until they vanish.
 - Nová volba 'Věže neničí věci a těla na zemi' (zapnutá): střely a výbuchy granátů z tvých věží nechají věci a mrtvoly na zemi být – kořist se nerozstřílí a těla se nerozmašírují, až zmizí.
