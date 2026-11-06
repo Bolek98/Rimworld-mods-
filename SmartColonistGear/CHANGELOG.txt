@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+2.19.2
+- Fix: colonists whose weapon you picked yourself (or with a remembered player choice) never took a sidearm – the 'player chose this weapon' calm blocked sidearms too. Now it only keeps the weapon in hand; sidearms are added as usual (still not right after a weapon change).
+- Oprava: kolonisté se zbraní, kterou jsi jim vybral sám, si nikdy nevzali vedlejší zbraň – klid „hráč vybral tuto zbraň“ blokoval i vedlejší zbraně. Teď drží jen zbraň v ruce; vedlejší zbraně se přidávají normálně (pořád ne hned po výměně zbraně).
+
 2.19.1
 - Fix: colonists no longer keep swapping hats, masks and helmets instead of working – the 'left off for two days' block for pieces swapped too often applies to headgear again (only clothes on the torso and legs may skip it, so nobody stands around undressed).
 - Oprava: kolonisté už místo práce dokola nestřídají čepice, masky a helmy – blokace „nechat dva dny sundané“ u kusů střídaných moc často zase platí pro pokrývky hlavy (přeskočit ji smí jen oblečení na trup a nohy, aby nikdo nestál svlečený).

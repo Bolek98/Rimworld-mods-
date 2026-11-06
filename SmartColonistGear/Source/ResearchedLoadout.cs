@@ -6835,6 +6835,9 @@ namespace ResearchedLoadout
 			}
 			bool flag = !pawn.WorkTagIsDisabled(WorkTags.Violent) && (!pawn.IsSlave || settings.armSlaves);
 			Thing thing = ((pawn.equipment == null) ? null : pawn.equipment.Primary);
+			// 2.19.2: a weapon you picked yourself keeps the hand calm, but it no longer stops sidearms – before,
+			// every colonist whose gun you had chosen never took a sidearm at all
+			bool sidearmsOk = flag && !WeaponCalmTimer(pawn, thing, now);
 			if (WeaponCalm(pawn, thing, now))
 			{
 				flag = false;
@@ -6849,6 +6852,11 @@ namespace ResearchedLoadout
 			{
 				GearWhy.Pending(pawn, GearWhy.Reason("RL_Why_Weapon"));
 				if (flag && TrySidearmsWeapons(pawn, thing, now, settings))
+				{
+					GearWhy.Done(pawn);
+					return true;
+				}
+				if (!flag && sidearmsOk && TrySidearmsOnly(pawn, thing, now, settings))
 				{
 					GearWhy.Done(pawn);
 					return true;
@@ -6877,7 +6885,7 @@ namespace ResearchedLoadout
 				}
 			}
 			CarryRule rule = CarryRuleFor(pawn);
-			if (!SidearmsCompat.Present && settings.autoEquipSidearm && flag && thing != null && pawn.inventory != null && !ToolBelt.Working(pawn) && CountWeapons(pawn) < rule.maxWeapons)
+			if (!SidearmsCompat.Present && settings.autoEquipSidearm && (flag || sidearmsOk) && thing != null && pawn.inventory != null && !ToolBelt.Working(pawn) && CountWeapons(pawn) < rule.maxWeapons)
 			{
 				bool? wantRanged = OppositeIsRanged(thing.def);
 				if ((wantRanged.HasValue ? CountKind(pawn, wantRanged.Value) < MaxKind(wantRanged.Value) : !HasInventoryWeapon(pawn, wantRanged)) && (!wantRanged.HasValue || SidearmSkillOk(pawn, wantRanged.Value)) && (wantRanged != true || !IsBrawler(pawn) || !settings.sidearmBrawlerNoRanged))
@@ -7125,6 +7133,17 @@ namespace ResearchedLoadout
 		{
 			ResearchedLoadoutSettings s = ResearchedLoadoutMod.Settings;
 			return s == null ? 1 : (ranged ? s.sidearmMaxRanged : s.sidearmMaxMelee);
+		}
+
+		// 2.19.2: only the sidearm part, for a colonist whose weapon in hand is player-chosen
+		private bool TrySidearmsOnly(Pawn pawn, Thing primary, int now, ResearchedLoadoutSettings settings)
+		{
+			if (!settings.autoEquipSidearm || primary == null || SidearmsCompat.IsUsingAutotool(pawn) || LoadoutFilter.IsPersonaWeapon(primary))
+			{
+				return false;
+			}
+			bool flag = PrefersRanged(pawn, primary);
+			return TrySidearmsUpgradeType(pawn, !flag, false, now) || TryExtraOfKind(pawn, flag, now);
 		}
 
 		private bool TrySidearmsUpgradeType(Pawn pawn, bool ranged, bool mainType, int now)
@@ -7701,6 +7720,16 @@ namespace ResearchedLoadout
 		private void RememberOrder(Pawn pawn, Thing thing, int now)
 		{
 			RememberOrder(pawn, thing, now, 2500);
+		}
+
+		// 2.19.2: only the "changed a weapon a moment ago" part of the calm (not the player's own choice)
+		private bool WeaponCalmTimer(Pawn pawn, Thing primary, int now)
+		{
+			if (!_weaponCalmUntil.TryGetValue(pawn.thingIDNumber, out int value))
+			{
+				return primary != null;      // just loaded: WeaponCalm below starts the hour of calm
+			}
+			return now < value && primary != null && !IsBroken(primary);
 		}
 
 		private bool WeaponCalm(Pawn pawn, Thing primary, int now)
