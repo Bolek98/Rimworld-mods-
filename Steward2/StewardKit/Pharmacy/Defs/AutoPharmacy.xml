@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>AP_GiveDrug</defName>
+    <driverClass>AutoPharmacy.JobDriver_GiveDrug</driverClass>
+    <reportString>giving medicine to TargetA.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
+  <WorkGiverDef>
+    <defName>AP_GiveDrug</defName>
+    <label>give drugs to patients</label>
+    <giverClass>AutoPharmacy.WorkGiver_GiveDrug</giverClass>
+    <workType>Doctor</workType>
+    <priorityInType>95</priorityInType>
+    <verb>give medicine</verb>
+    <gerund>giving medicine to</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+  <WorkGiverDef>
+    <defName>AP_StockDrugs</defName>
+    <label>carry common drugs</label>
+    <giverClass>AutoPharmacy.WorkGiver_StockDrugs</giverClass>
+    <workType>Doctor</workType>
+    <priorityInType>3</priorityInType>
+    <verb>take</verb>
+    <gerund>taking drugs along</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+  <!-- Steward – Kit: a colonist takes his own drug under Basic work (does not need Doctor work) -->
+  <WorkGiverDef>
+    <defName>AP_TakeDrugSelf</defName>
+    <label>take own medicine</label>
+    <giverClass>AutoPharmacy.WorkGiver_TakeDrugSelf</giverClass>
+    <workType>BasicWorker</workType>
+    <priorityInType>90</priorityInType>
+    <verb>take medicine</verb>
+    <gerund>taking medicine</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+</Defs>

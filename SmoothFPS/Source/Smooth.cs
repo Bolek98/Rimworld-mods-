@@ -342,7 +342,11 @@ namespace GraphicsTuner
         public static bool Prefix(AlertsReadout __instance)
         {
             GfxSettings s = GraphicsTunerMod.Settings;
-            if (s == null || !s.slowAlerts || Find.TickManager == null || Find.TickManager.TickRateMultiplier < 5.5f)   // speed 3 = ×6
+            if (s == null || !s.slowAlerts || Find.TickManager == null)
+                return true;
+            // 1.7.1: at speed 1 and 2 too, but only while frames are slow (under 40 FPS) – then the alert
+            // checks of that frame wait one frame; with a fast picture nothing changes
+            if (Find.TickManager.TickRateMultiplier < 5.5f && Time.unscaledDeltaTime < 1f / 40f)   // speed 3 = ×6
                 return true;
             int every = Runtime.FastNow(s) ? 4 : 2;
             if (Time.frameCount % every == 0)

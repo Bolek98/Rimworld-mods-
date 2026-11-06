@@ -130,8 +130,8 @@
   <GT_Regen>每帧地图重建次数：{0}</GT_Regen>
   <GT_Regen_Desc>当草生长、建造物品或下雪时，游戏会在一帧内重建地图的每个改动部分——在 3x 时会造成卡顿。此项限制每帧的数量，其余在后续帧中完成（晚几百分之一秒）。实验性——默认关闭。推荐 4–8。</GT_Regen_Desc>
   <GT_Off>关闭</GT_Off>
-  <GT_SlowAlerts>3x 时降低右侧警报的检查频率</GT_SlowAlerts>
-  <GT_SlowAlerts_Desc>游戏每帧都会重新检查一部分警报（有模组时多达数百个）。高速下每隔一帧检查就足够了。</GT_SlowAlerts_Desc>
+  <GT_SlowAlerts>降低右侧警报的检查频率</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>游戏每帧都会重新检查一部分警报（装了模组会有几百个）。在3速和4速，以及任何速度下画面低于40 FPS时，每两帧检查一次就够了。</GT_SlowAlerts_Desc>
   <GT_SecDiag>诊断</GT_SecDiag>
   <GT_OverlayBar>帧图表：模拟与绘制</GT_OverlayBar>
   <GT_OverlayBar_Desc>右上角显示中的一个条形：绿色 = 模拟（tick），蓝色 = 绘制，灰色 = 距目标 FPS 的余量。一眼就能看出是什么拖慢了游戏。</GT_OverlayBar_Desc>
@@ -456,4 +456,14 @@
   <GT_HighRefresh>高刷新率显示器（{0} Hz）：加载和拖动时 60 FPS</GT_HighRefresh>
   <GT_HighRefresh_Desc>你的显示器为 {0} Hz。FPS 限制为“同游戏”时，RimWorld 1.7 在鼠标拖动时可能卡顿，加载画面可能冻结。加载期间以及按住鼠标键时帧率保持在 60，之后恢复。你自己设置的限制不会被改动。</GT_HighRefresh_Desc>
   <GT_HighRefreshMsg>Smooth FPS：你的显示器为 {0} Hz——加载和拖动时游戏保持 60 FPS，避免卡顿或冻结。可在 Smooth FPS 设置（显示）中更改。</GT_HighRefreshMsg>
+  <GT_Lazy>屏幕外的小人偷懒</GT_Lazy>
+  <GT_Lazy_Desc>你看不到且没在做重要事情的小人只每隔几个刻更新一次：远离殖民者的野生动物、休息或闲逛的驯养动物、等待中的访客、睡觉的殖民者。它们仍以全速行走。在屏幕上、被征召、倒地、受伤、被标记（狩猎、驯服…）、靠近殖民者或地图上有危险时立即恢复正常。</GT_Lazy_Desc>
+  <GT_LazyEvery>每 {0} 刻</GT_LazyEvery>
+  <GT_LazySleepers>睡觉的殖民者也算</GT_LazySleepers>
+  <GT_LazySleepers_Desc>在屏幕外睡觉的殖民者也会更少更新。睡眠和需求照常运作。</GT_LazySleepers_Desc>
+  <GT_LazyNow>当前偷懒：{0} 个小人</GT_LazyNow>
+  <GT_BarCache>更轻的殖民者栏</GT_BarCache>
+  <GT_BarCache_Desc>殖民者很多时，顶部栏每帧都要计算每个殖民者的活动图标、心情和崩溃风险。现在会保留四分之一秒。点击、选择和头像仍实时。若其他模组绘制这些图标则自动关闭。</GT_BarCache_Desc>
+  <GT_OffscreenFx>屏幕外不更新小人特效</GT_OffscreenFx>
+  <GT_OffscreenFx_Desc>你看不到的小人身上的视觉特效（火花、烟雾、状态光效）不再更新。只影响画面，游戏本身不变。</GT_OffscreenFx_Desc>
 </LanguageData>

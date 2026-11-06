@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AP_Enabled>의사가 스스로 약을 줌</AP_Enabled>
+  <AP_Enabled_Desc>의사 (의사 작업)는 문제의 심각도에 따라 정착민에게 도움이 되는 약을 줍니다.</AP_Enabled_Desc>
+  <AP_Notify>약을 줄 때 메시지</AP_Notify>
+  <AP_Notify_Desc>짧은 메시지: 누가 누구에게 무엇을 왜 줬는지.</AP_Notify_Desc>
+  <AP_Prisoners>죄수에게도</AP_Prisoners>
+  <AP_Prisoners_Desc>죄수에게도 약을 줍니다.</AP_Prisoners_Desc>
+  <AP_UseMood>정신 붕괴 전에 기분 약</AP_UseMood>
+  <AP_UseMood_Desc>심각한 정신 붕괴에 가까운 정착민은 기분 약을 받습니다. 한 번에 한 명만 가지고 다니고 나머지는 계속 일합니다.</AP_UseMood_Desc>
+  <AP_UseRest>탈진 시 각성제</AP_UseRest>
+  <AP_UseRest_Desc>탈진 직전이고 자고 있지 않은 정착민은 각성제를 받습니다.</AP_UseRest_Desc>
+  <AP_PainFrom>통증 {0} %부터 진통제</AP_PainFrom>
+  <AP_PainFrom_Desc>얼마나 아프면 진통제를 주는지. 통증이 클수록 강한 약.</AP_PainFrom_Desc>
+  <AP_MinHours>같은 약을 다시 주기까지: {0}시간</AP_MinHours>
+  <AP_MinHours_Desc>지속 효과가 없는 약: 같은 약을 다시 주기 전에 기다리는 시간. 지속 효과가 있는 약은 효과가 있는 동안 주지 않습니다.</AP_MinHours_Desc>
+  <AP_Addictive_Label>중독성 약</AP_Addictive_Label>
+  <AP_AddictiveMode0>절대 안 함</AP_AddictiveMode0>
+  <AP_AddictiveMode1>생명이 위험할 때만</AP_AddictiveMode1>
+  <AP_AddictiveMode2>심각도에 따라</AP_AddictiveMode2>
+  <AP_AddictiveHelp>약은 심각도로 고릅니다: 작은 문제엔 순하고 싼 약, 심각한 문제엔 가장 강한 약. 효과가 아직 남은 약은 다시 주지 않습니다.</AP_AddictiveHelp>
+  <AP_ListHead>게임의 약과 효과 ({0}). 의사가 쓰지 말아야 할 약은 체크를 해제하세요:</AP_ListHead>
+  <AP_Cures>치료: {0}</AP_Cures>
+  <AP_Addictive>중독성 {0} %</AP_Addictive>
+  <AP_Given>{0}이(가) {1} → {2} ({3})</AP_Given>
+  <AP_Need_Pain>통증</AP_Need_Pain>
+  <AP_Need_Immunity>면역</AP_Need_Immunity>
+  <AP_Need_Cure>치료</AP_Need_Cure>
+  <AP_Need_Bleeding>출혈</AP_Need_Bleeding>
+  <AP_Need_BloodLoss>혈액 손실</AP_Need_BloodLoss>
+  <AP_Need_Consciousness>의식</AP_Need_Consciousness>
+  <AP_Need_Breathing>호흡</AP_Need_Breathing>
+  <AP_Need_BloodPumping>혈액 순환</AP_Need_BloodPumping>
+  <AP_Need_BloodFiltration>혈액 여과</AP_Need_BloodFiltration>
+  <AP_Need_Moving>이동</AP_Need_Moving>
+  <AP_Need_Rest>피로</AP_Need_Rest>
+  <AP_Need_Mood>기분</AP_Need_Mood>
+  <AP_Need_Critical>생명 위험</AP_Need_Critical>
+  <AP_AutoCare>심각도에 따른 의료 수준</AP_AutoCare>
+  <AP_AutoCare_Desc>치료용 붕대와 약: 작은 상처엔 약초, 질병과 큰 상처엔 산업 의약품, 생명이 위험할 땐 가장 좋은 것. "치료 안 함"으로 설정된 정착민은 그대로 둡니다.</AP_AutoCare_Desc>
+  <AP_CarePharmacist>의료 수준 (붕대, 치료 약)은 Pharmacist가 관리합니다.</AP_CarePharmacist>
+  <AP_CombatDrugs>전투원을 위한 전투 약물</AP_CombatDrugs>
+  <AP_CombatDrugs_Desc>소집되고 적이 가까운 정착민은 전투 약물 (고주스, 웨이크업…)을 하나 씁니다 – 소지품에서, 또는 적이 가깝지 않으면 몇 걸음 떨어진 더미에서. 중독 가능성이 있으면 절대 안 쓰고, 정한 시간 안에 두 번 쓰지 않으며, 금주자, 아이, 이념에 반하면 쓰지 않습니다. 정착민마다 버튼으로 끌 수 있습니다.</AP_CombatDrugs_Desc>
+  <AP_CombatHours>{0}시간마다 최대 한 번</AP_CombatHours>
+  <AP_CombatHours_Desc>정착민이 다음 전투 약물을 쓰기 전에 기다리는 시간.</AP_CombatHours_Desc>
+  <AP_CombatTaken>{0}이(가) 전투 전에 {1}을(를) 썼습니다.</AP_CombatTaken>
+  <AP_CombatGizmo>전투 약물</AP_CombatGizmo>
+  <AP_CombatGizmo_Desc>켜기: 이 정착민은 안전할 때 (중독 가능성 없음) 전투에서 전투 약물을 씁니다.\n끄기: 이 정착민은 절대 쓰지 않습니다.</AP_CombatGizmo_Desc>
+  <AP_Rec1>의사가 심각도에 따라 알맞은 약을 줌</AP_Rec1>
+  <AP_Rec2>중독성 약은 생명이 위험할 때만</AP_Rec2>
+  <AP_Rec3>전투원이 전투 약물을 현명하게 씀</AP_Rec3>
+  <AP_Rec4>부상에 따른 의료 수준</AP_Rec4>
+  <AP_Need_Manipulation>손</AP_Need_Manipulation>
+  <AP_Need_Sight>시력</AP_Need_Sight>
+  <AP_Need_Prevention>예방</AP_Need_Prevention>
+  <AP_Need_Contraception>피임</AP_Need_Contraception>
+  <AP_Need_Fertility>임신</AP_Need_Fertility>
+  <AP_UsePrevention>모두에게 예방</AP_UsePrevention>
+  <AP_UsePrevention_Desc>질병을 막는 약 (페녹시사이클린 등)을 지난번 효과가 끝나기 조금 전에 정기적으로 줍니다.</AP_UsePrevention_Desc>
+  <AP_UseChronic>오래가는 문제 돕기</AP_UseChronic>
+  <AP_UseChronic_Desc>허리 통증, 백내장, 허약, 오래된 상처에: 이동, 손, 시력을 돕는 약.</AP_UseChronic_Desc>
+  <AP_Plan0>아이: 계획 없음</AP_Plan0>
+  <AP_Plan1>아이: 없음 (피임)</AP_Plan1>
+  <AP_Plan2>아이: 원함 (임신)</AP_Plan2>
+  <AP_Plan_Desc>클릭해서 바꾸기. 없음: 의사가 정기적으로 피임약을 줍니다. 원함: 임신 촉진제가 있으면 줍니다. 성인 (18세 이상)만, 임신 중에는 절대 안 함.</AP_Plan_Desc>
+  <AP_Need_Addiction>중독 복용</AP_Need_Addiction>
+  <AP_Need_Hemogen>헤모젠</AP_Need_Hemogen>
+  <AP_Addictions>중독 유지</AP_Addictions>
+  <AP_Addictions_Desc>중독된 정착민은 금단 증상이 시작되기 전에 약을 받습니다 – 루시페륨은 일찍 그리고 항상 (한 번 빠뜨리면 죽거나 미침). 게임 자체가 의존에 허용하듯, 금주자나 이념에 반해도 적용됩니다.</AP_Addictions_Desc>
+  <AP_MoodEarly>기분: 정신 붕괴 전에 돕기</AP_MoodEarly>
+  <AP_MoodEarly_Desc>기분이 가벼운 정신 붕괴 선에 가까워지면 벌써 순하고 중독성 없는 것 (차, 맥주 …)을 줍니다 – 더 나빠진 뒤가 아니라.</AP_MoodEarly_Desc>
+  <AP_DoctorCarry>의사가 자주 쓰는 약을 가짐</AP_DoctorCarry>
+  <AP_DoctorCarry_Desc>의사는 가장 자주 주는 약 (안전한 것만: 중독성 없음, 과다 복용 없음) 두 회분을 창고에서 가져가서 매번 창고에 가지 않습니다.</AP_DoctorCarry_Desc>
+  <AP_WarnMissing>약이 없을 때 메시지</AP_WarnMissing>
+  <AP_WarnMissing_Desc>정착민에게 정착지에 없는 (또는 아무도 닿지 못하는) 약이 필요하면 짧은 메시지 – 약마다 하루에 최대 한 번. 자동으로 주문하지 않습니다.</AP_WarnMissing_Desc>
+  <AP_Missing>Auto Pharmacy: {0}이(가) 필요하지만 ({1}) 닿을 수 있는 것이 없습니다.</AP_Missing>
+  <AP_Search>약 검색…</AP_Search>
+  <AP_HistoryButton>기록 ({0})</AP_HistoryButton>
+  <AP_HistoryTitle>준 약 – 최근 60개</AP_HistoryTitle>
+  <AP_HistoryEmpty>이 게임에서는 아직 아무것도 주지 않았습니다.</AP_HistoryEmpty>
+  <AP_Need_Healing>더 빠른 회복</AP_Need_Healing>
+  <AP_CareGroups>그룹별 최고 약:</AP_CareGroups>
+  <AP_CareGroups_Desc>위의 의료 수준은 그 그룹에서 이보다 높아지지 않습니다. "관리 안 함"은 그룹의 의료 수준을 설정한 대로 둡니다.</AP_CareGroups_Desc>
+  <AP_CareColonists>정착민</AP_CareColonists>
+  <AP_CareSlaves>노예</AP_CareSlaves>
+  <AP_CarePrisoners>죄수</AP_CarePrisoners>
+  <AP_CareGuests>손님</AP_CareGuests>
+  <AP_CareAnimals>동물</AP_CareAnimals>
+  <AP_CareOff>관리 안 함</AP_CareOff>
+</LanguageData>

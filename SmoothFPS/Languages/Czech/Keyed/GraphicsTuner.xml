@@ -130,8 +130,8 @@
   <GT_Regen>Překreslení mapy za snímek: {0}</GT_Regen>
   <GT_Regen_Desc>Když roste tráva, staví se nebo sněží, hra přestaví všechny změněné části mapy v jednom snímku – při 3× to dělá zaseknutí. Tohle omezí počet na snímek, zbytek se udělá v dalších snímcích (o pár setin sekundy později). Zkušební funkce – výchozí vypnuto. Doporučeno 4–8.</GT_Regen_Desc>
   <GT_Off>vypnuto</GT_Off>
-  <GT_SlowAlerts>Upozornění vpravo kontrolovat méně často při 3×</GT_SlowAlerts>
-  <GT_SlowAlerts_Desc>Hra každý snímek přepočítává část upozornění (s mody jich je stovky). Při vysoké rychlosti to stačí každý druhý snímek.</GT_SlowAlerts_Desc>
+  <GT_SlowAlerts>Kontrolovat upozornění vpravo méně často</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>Hra v každém snímku znovu kontroluje část upozornění (s mody jich jsou stovky). Na 3. a 4. rychlosti, a na jakékoli rychlosti, když obraz běží pod 40 FPS, stačí každý druhý snímek.</GT_SlowAlerts_Desc>
   <GT_SecDiag>Diagnostika</GT_SecDiag>
   <GT_OverlayBar>Graf snímku: simulace vs. vykreslení</GT_OverlayBar>
   <GT_OverlayBar_Desc>V ukazateli nahoře vpravo je pruh: zelená = simulace (tiky), modrá = kreslení, šedá = rezerva do cílových FPS. Hned vidíš, co brzdí.</GT_OverlayBar_Desc>
@@ -456,4 +456,14 @@
   <GT_HighRefresh>Monitor s vysokou frekvencí ({0} Hz): 60 FPS při načítání a tažení</GT_HighRefresh>
   <GT_HighRefresh_Desc>Tvůj monitor běží na {0} Hz. S limitem FPS „Jako ve hře“ se RimWorld 1.7 může při tažení myší sekat a načítací obrazovka zamrznout. Během načítání a při stisknutém tlačítku myši se snímky drží na 60, pak se vrátí. Limit, který si nastavíš sám, se nikdy nemění.</GT_HighRefresh_Desc>
   <GT_HighRefreshMsg>Smooth FPS: tvůj monitor běží na {0} Hz – při načítání a tažení myší se hra drží na 60 FPS, aby se nesekala a nezamrzala. Změníš to v nastavení Smooth FPS (Obraz).</GT_HighRefreshMsg>
+  <GT_Lazy>Líné postavy mimo obrazovku</GT_Lazy>
+  <GT_Lazy_Desc>Postavy, které nevidíš a nedělají nic důležitého, se počítají jen každých pár ticků: divoká zvířata daleko od kolonistů, domácí zvířata, která odpočívají nebo bloumají, čekající návštěvníci a spící kolonisté. Chodí dál plnou rychlostí. Hned zpátky naplno, když jsou na obrazovce, povolaní, na zemi, zranění, označení (lov, ochočení …), blízko kolonisty nebo když je na mapě nebezpečí.</GT_Lazy_Desc>
+  <GT_LazyEvery>Každý {0}. tick</GT_LazyEvery>
+  <GT_LazySleepers>I spící kolonisté</GT_LazySleepers>
+  <GT_LazySleepers_Desc>Kolonista, který mimo obrazovku spí, se taky počítá méně často. Spánek a potřeby fungují jako dřív.</GT_LazySleepers_Desc>
+  <GT_LazyNow>Teď líných: {0} postav</GT_LazyNow>
+  <GT_BarCache>Lehčí lišta kolonistů</GT_BarCache>
+  <GT_BarCache_Desc>S hodně kolonisty lišta nahoře v každém snímku zjišťuje každému ikonky činnosti, úroveň nálady a riziko zhroucení. Teď se drží čtvrt sekundy. Kliknutí, výběr a portréty zůstávají živé. Samo se vypne, když ty ikonky kreslí jiný mod.</GT_BarCache_Desc>
+  <GT_OffscreenFx>Žádné efekty postav mimo obrazovku</GT_OffscreenFx>
+  <GT_OffscreenFx_Desc>Vizuální efekty na postavách, které nevidíš (jiskry, kouř, záře stavů), se nepočítají. Jen obraz, ve hře se nic nemění.</GT_OffscreenFx_Desc>
 </LanguageData>

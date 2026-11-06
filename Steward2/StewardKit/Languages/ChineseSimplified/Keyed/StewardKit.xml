@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SK_Name>Steward – Kit</SK_Name>
+  <SK_Tab_Overview>概览</SK_Tab_Overview>
+  <SK_Tab_Kits>按角色的装备</SK_Tab_Kits>
+  <SK_Tab_Pharmacy>药房</SK_Tab_Pharmacy>
+  <SK_Tab_Drugs>药物</SK_Tab_Drugs>
+  <SK_Tab_Combat>战斗药物</SK_Tab_Combat>
+  <SK_Tab_Regular>定期使用</SK_Tab_Regular>
+  <SK_Tab_Caravans>商队</SK_Tab_Caravans>
+  <SK_Tab_Weight>重量与限制</SK_Tab_Weight>
+  <SK_Tab_Colonists>殖民者</SK_Tab_Colonists>
+  <SK_Tab_Advanced>高级</SK_Tab_Advanced>
+  <SK_Rec1>每个殖民者随身携带适合其角色的小套装备</SK_Rec1>
+  <SK_Rec2>缺少的物品从附近仓库取用</SK_Rec2>
+  <SK_Rec3>医生按严重程度给出合适的药</SK_Rec3>
+  <SK_Rec4>商队会打包成员的装备</SK_Rec4>
+  <SK_KitsOn>殖民者携带装备</SK_KitsOn>
+  <SK_KitsOn_Desc>每个殖民者在物品栏中携带其角色装备中的物品（医生带药，猎人带食物，建造者带零部件 …）。</SK_KitsOn_Desc>
+  <SK_Refill>从仓库补充装备</SK_Refill>
+  <SK_Refill_Desc>装备中缺少东西时，殖民者会从附近的储存区或货架取用（基础工作，只走短路）。</SK_Refill_Desc>
+  <SK_WhoCarries>谁带了什么（已携带 / 装备）：</SK_WhoCarries>
+  <SK_NoGame>载入游戏后可在此看到殖民者。</SK_NoGame>
+  <SK_RoleOff>无装备</SK_RoleOff>
+  <SK_Role_Doctor>医生</SK_Role_Doctor>
+  <SK_Role_Hunter>猎人</SK_Role_Hunter>
+  <SK_Role_Builder>建造者</SK_Role_Builder>
+  <SK_Role_Soldier>士兵</SK_Role_Soldier>
+  <SK_Role_Cook>厨师</SK_Role_Cook>
+  <SK_Role_Hauler>搬运工</SK_Role_Hauler>
+  <SK_Role_Everyone>所有人（应急包）</SK_Role_Everyone>
+  <SK_Item_Medicine>药品（按医生技能）</SK_Item_Medicine>
+  <SK_Item_Meal>饭菜（简单或更好，优先包装食品）</SK_Item_Meal>
+  <SK_Item_Component>零部件</SK_Item_Component>
+  <SK_Item_CombatDrug>战斗药物</SK_Item_CombatDrug>
+  <SK_KitsHelp>表格已自动填好 – 可随意修改。殖民者的角色来自 Steward – Roles，否则取其最佳技能。“药品”指其技能应使用的最好药品。</SK_KitsHelp>
+  <SK_ResetKits>恢复自动</SK_ResetKits>
+  <SK_AddItem>+ 添加物品</SK_AddItem>
+  <SK_Remove>移除</SK_Remove>
+  <SK_CaravanKits>商队打包装备</SK_CaravanKits>
+  <SK_CaravanKits_Desc>组建商队时，成员尚未携带的装备物品会加入装载清单（如果仓库里有）。</SK_CaravanKits_Desc>
+  <SK_CaravanHelp>你仍可自行修改装载清单 – 装备只在开始时加入。</SK_CaravanHelp>
+  <SK_Weight>装备最多占负重能力的 {0} %</SK_Weight>
+  <SK_Weight_Desc>殖民者携带的装备永远不超过其负重的这一比例，因此不会变慢。</SK_Weight_Desc>
+  <SK_Distance>补充时最多走 {0} 格</SK_Distance>
+  <SK_Distance_Desc>更远的物品留待以后。</SK_Distance_Desc>
+  <SK_CheckHours>每 {0} 小时重新检查满装备</SK_CheckHours>
+  <SK_CheckHours_Desc>越低 = 装备补充越快，游戏负担稍大。</SK_CheckHours_Desc>
+  <SK_DropExtras>多余物品放回家中</SK_DropExtras>
+  <SK_DropExtras_Desc>装备物品超出需要的殖民者（例如换了角色）会把多余的放在家中，之后被搬回仓库。</SK_DropExtras_Desc>
+  <SK_Spare>允许保留的多余物品：{0}</SK_Spare>
+  <SK_Spare_Desc>超出装备多少件仍然可以（避免来回搬）。</SK_Spare_Desc>
+  <SK_ColonistsHelp>每个殖民者会自动携带其角色的装备。在这里可以给殖民者换一套装备或不带装备。</SK_ColonistsHelp>
+  <SK_Mode_Auto>自动：{0}</SK_Mode_Auto>
+  <SK_Mode_AutoPlain>自动</SK_Mode_AutoPlain>
+  <SK_EveryonePack>所有人的应急包</SK_EveryonePack>
+  <SK_EveryonePack_Desc>“所有人”一行（默认一份饭菜和一份药品）由每个殖民者在角色装备之外额外携带。</SK_EveryonePack_Desc>
+  <SK_CombatDrugKit>士兵携带战斗药物</SK_CombatDrugKit>
+  <SK_CombatDrugKit_Desc>供药房的战斗药物规则使用：每场战斗一次，绝不在有成瘾风险时使用。</SK_CombatDrugKit_Desc>
+  <SK_Slaves>奴隶也携带装备</SK_Slaves>
+  <SK_RolesOn>Steward – Roles 已启用：装备跟随你给殖民者设定的角色。</SK_RolesOn>
+  <SK_RolesOff>Steward – Roles 未启用：殖民者的装备跟随其最佳技能（医生、猎人、建造者、厨师）。士兵装备需要 Steward – Roles 或在殖民者标签中选择。</SK_RolesOff>
+  <SK_OldPharmacy>旧的 Auto Pharmacy 模组仍在启用 – 它自己的药房在工作，Steward – Kit 内的药房保持关闭。请在模组列表中关闭 Auto Pharmacy（设置会被接管）。</SK_OldPharmacy>
+  <SK_SelfDose>殖民者自己服药</SK_SelfDose>
+  <SK_SelfDose_Desc>需要药物的殖民者会在基础工作中自己服用 – 不必等医生，也不需要开启医生工作。</SK_SelfDose_Desc>
+  <SK_CombatHelp>被征召且附近有敌人的战士会从物品栏中服用一份战斗药物 – 每场战斗一次，绝不在有成瘾风险时。可用其按钮为单个殖民者关闭。</SK_CombatHelp>
+  <SK_FamilyHelp>家庭计划：每个成年殖民者身上有一个按钮 – 不要孩子（定期避孕）或想要孩子（助孕药）。</SK_FamilyHelp>
+  <SK_FamilyNone>当有模组加入避孕药或助孕药时会出现家庭计划。</SK_FamilyNone>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <MUI_RecTag>推荐</MUI_RecTag>
+  <SK_Role_Miner>矿工</SK_Role_Miner>
+  <SK_Role_Farmer>农夫</SK_Role_Farmer>
+  <SK_Role_Crafter>工匠</SK_Role_Crafter>
+  <SK_Role_Researcher>研究员</SK_Role_Researcher>
+  <SK_Role_Handler>驯兽师</SK_Role_Handler>
+  <SK_Role_Warden>看守</SK_Role_Warden>
+  <SK_Item_FirstAid>急救（绷带、模组急救包）</SK_Item_FirstAid>
+  <SK_Item_PainDrug>止痛 / 失血药物（不成瘾）</SK_Item_PainDrug>
+  <SK_Item_Kibble>饲料（给动物）</SK_Item_Kibble>
+  <SK_Totals>整个殖民地：</SK_Totals>
+  <SK_NewDefaults>有更新、更大的自动装备 – 按下按钮即可使用。</SK_NewDefaults>
+</LanguageData>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SK_Name>Steward – Kit</SK_Name>
+  <SK_Tab_Overview>Übersicht</SK_Tab_Overview>
+  <SK_Tab_Kits>Ausrüstung nach Rolle</SK_Tab_Kits>
+  <SK_Tab_Pharmacy>Apotheke</SK_Tab_Pharmacy>
+  <SK_Tab_Drugs>Medikamente</SK_Tab_Drugs>
+  <SK_Tab_Combat>Kampfdrogen</SK_Tab_Combat>
+  <SK_Tab_Regular>Regelmäßig</SK_Tab_Regular>
+  <SK_Tab_Caravans>Karawanen</SK_Tab_Caravans>
+  <SK_Tab_Weight>Gewicht &amp; Grenzen</SK_Tab_Weight>
+  <SK_Tab_Colonists>Kolonisten</SK_Tab_Colonists>
+  <SK_Tab_Advanced>Erweitert</SK_Tab_Advanced>
+  <SK_Rec1>Jeder Kolonist trägt eine kleine Ausrüstung für seine Rolle</SK_Rec1>
+  <SK_Rec2>Fehlendes wird aus einem nahen Lager geholt</SK_Rec2>
+  <SK_Rec3>Ärzte geben das richtige Mittel je nach Schwere</SK_Rec3>
+  <SK_Rec4>Karawanen packen die Ausrüstung ihrer Mitglieder</SK_Rec4>
+  <SK_KitsOn>Kolonisten tragen Ausrüstung</SK_KitsOn>
+  <SK_KitsOn_Desc>Jeder Kolonist trägt die Dinge der Ausrüstung seiner Rolle im Inventar (Medizin für Ärzte, Essen für Jäger, Komponenten für Bauarbeiter …).</SK_KitsOn_Desc>
+  <SK_Refill>Ausrüstung aus dem Lager auffüllen</SK_Refill>
+  <SK_Refill_Desc>Fehlt etwas aus der Ausrüstung, holt der Kolonist es aus einer Lagerzone oder einem Regal in der Nähe (Grundarbeit, nur kurze Wege).</SK_Refill_Desc>
+  <SK_WhoCarries>Wer trägt was (getragen / Ausrüstung):</SK_WhoCarries>
+  <SK_NoGame>Lade ein Spiel, um hier deine Kolonisten zu sehen.</SK_NoGame>
+  <SK_RoleOff>Keine Ausrüstung</SK_RoleOff>
+  <SK_Role_Doctor>Arzt</SK_Role_Doctor>
+  <SK_Role_Hunter>Jäger</SK_Role_Hunter>
+  <SK_Role_Builder>Bauarbeiter</SK_Role_Builder>
+  <SK_Role_Soldier>Soldat</SK_Role_Soldier>
+  <SK_Role_Cook>Koch</SK_Role_Cook>
+  <SK_Role_Hauler>Träger</SK_Role_Hauler>
+  <SK_Role_Everyone>Alle (Notfallpaket)</SK_Role_Everyone>
+  <SK_Item_Medicine>Medizin (nach Fähigkeit des Arztes)</SK_Item_Medicine>
+  <SK_Item_Meal>Mahlzeit (einfach oder besser, verpackte zuerst)</SK_Item_Meal>
+  <SK_Item_Component>Komponenten</SK_Item_Component>
+  <SK_Item_CombatDrug>Kampfdroge</SK_Item_CombatDrug>
+  <SK_KitsHelp>Die Tabelle wurde automatisch ausgefüllt – ändere sie, wie du willst. Die Rolle eines Kolonisten kommt aus Steward – Roles, sonst aus seinen besten Fähigkeiten. „Medizin“ heißt die beste Medizin, die er mit seiner Fähigkeit verwenden sollte.</SK_KitsHelp>
+  <SK_ResetKits>Zurück zu automatisch</SK_ResetKits>
+  <SK_AddItem>+ Ding hinzufügen</SK_AddItem>
+  <SK_Remove>Entfernen</SK_Remove>
+  <SK_CaravanKits>Karawanen packen die Ausrüstung</SK_CaravanKits>
+  <SK_CaravanKits_Desc>Wenn eine Karawane gebildet wird, kommen die Ausrüstungsdinge, die ihre Mitglieder noch nicht tragen, auf die Packliste (wenn welche im Lager sind).</SK_CaravanKits_Desc>
+  <SK_CaravanHelp>Du kannst die Packliste weiter selbst ändern – die Ausrüstung wird nur am Anfang hinzugefügt.</SK_CaravanHelp>
+  <SK_Weight>Ausrüstung darf bis zu {0} % der Tragkraft nutzen</SK_Weight>
+  <SK_Weight_Desc>Ein Kolonist nimmt nie mehr Ausrüstung als diesen Anteil dessen, was er tragen kann – so wird er nie langsamer.</SK_Weight_Desc>
+  <SK_Distance>Höchstens {0} Felder für ein Auffüllen laufen</SK_Distance>
+  <SK_Distance_Desc>Weiter entfernte Ausrüstungsdinge bleiben für später.</SK_Distance_Desc>
+  <SK_CheckHours>Volle Ausrüstung alle {0} Std. erneut prüfen</SK_CheckHours>
+  <SK_CheckHours_Desc>Niedriger = Ausrüstung schneller aufgefüllt, etwas mehr Arbeit für das Spiel.</SK_CheckHours_Desc>
+  <SK_DropExtras>Überschuss zu Hause ablegen</SK_DropExtras>
+  <SK_DropExtras_Desc>Ein Kolonist mit mehr Ausrüstungsdingen als nötig (z. B. nach einem Rollenwechsel) legt den Rest zu Hause ab; er wird ins Lager getragen.</SK_DropExtras_Desc>
+  <SK_Spare>Ersatzdinge, die bleiben dürfen: {0}</SK_Spare>
+  <SK_Spare_Desc>Wie viele Dinge über der Ausrüstung noch in Ordnung sind (kein Hin und Her).</SK_Spare_Desc>
+  <SK_ColonistsHelp>Jeder Kolonist trägt automatisch die Ausrüstung seiner Rolle. Hier kannst du einem Kolonisten eine andere oder keine Ausrüstung geben.</SK_ColonistsHelp>
+  <SK_Mode_Auto>Automatisch: {0}</SK_Mode_Auto>
+  <SK_Mode_AutoPlain>Automatisch</SK_Mode_AutoPlain>
+  <SK_EveryonePack>Notfallpaket für alle</SK_EveryonePack>
+  <SK_EveryonePack_Desc>Die Zeilen „Alle“ (standardmäßig eine Mahlzeit und eine Medizin) trägt jeder Kolonist zusätzlich zur Ausrüstung seiner Rolle.</SK_EveryonePack_Desc>
+  <SK_CombatDrugKit>Soldaten tragen eine Kampfdroge</SK_CombatDrugKit>
+  <SK_CombatDrugKit_Desc>Wird von der Kampfdrogen-Regel der Apotheke genutzt: einmal pro Kampf, nie mit Suchtgefahr.</SK_CombatDrugKit_Desc>
+  <SK_Slaves>Sklaven tragen auch Ausrüstung</SK_Slaves>
+  <SK_RolesOn>Steward – Roles ist an: Die Ausrüstung folgt den Rollen, die du deinen Kolonisten gegeben hast.</SK_RolesOn>
+  <SK_RolesOff>Steward – Roles ist aus: Die Ausrüstung eines Kolonisten folgt seiner besten Fähigkeit (Arzt, Jäger, Bauarbeiter, Koch). Soldatenausrüstung braucht Steward – Roles oder eine Wahl im Reiter Kolonisten.</SK_RolesOff>
+  <SK_OldPharmacy>Der alte Mod Auto Pharmacy ist noch an – seine eigene Apotheke arbeitet und die in Steward – Kit bleibt aus. Schalte Auto Pharmacy in der Modliste aus (deine Einstellungen werden übernommen).</SK_OldPharmacy>
+  <SK_SelfDose>Kolonisten nehmen ihre Medizin selbst</SK_SelfDose>
+  <SK_SelfDose_Desc>Ein Kolonist, der ein Mittel braucht, nimmt es selbst bei der Grundarbeit – er muss nicht auf einen Arzt warten und braucht die Arbeit Arzt nicht.</SK_SelfDose_Desc>
+  <SK_CombatHelp>Ein eingezogener Kämpfer mit Feinden in der Nähe nimmt eine Kampfdroge aus seinem Inventar – einmal pro Kampf, nie mit Suchtgefahr. Pro Kolonist mit seinem Knopf ausschaltbar.</SK_CombatHelp>
+  <SK_FamilyHelp>Familienplan: ein Knopf an jedem erwachsenen Kolonisten – keine Kinder (regelmäßige Verhütung) oder Kinderwunsch (Fruchtbarkeitsmittel).</SK_FamilyHelp>
+  <SK_FamilyNone>Der Familienplan erscheint, wenn ein Mod Verhütungs- oder Fruchtbarkeitsmittel hinzufügt.</SK_FamilyNone>
+  <MUI_Title>Empfohlene Einstellungen</MUI_Title>
+  <MUI_TitleOff>Empfohlene Einstellungen · aus</MUI_TitleOff>
+  <MUI_DescOn>Die Mod richtet sich selbst ein und funktioniert sofort. Ideal für neue Spieler und alle, die nichts anpassen wollen.</MUI_DescOn>
+  <MUI_DescOff>Eigene Einstellungen. Geändert gegenüber Empfehlung: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Eigene Einstellungen. Noch identisch mit der Empfehlung.</MUI_DescOffSame>
+  <MUI_On>AN</MUI_On>
+  <MUI_Off>AUS</MUI_Off>
+  <MUI_ResetAll>Alles auf Empfehlung zurücksetzen</MUI_ResetAll>
+  <MUI_ConfirmOn>Empfohlene Einstellungen einschalten? Deine Änderungen ({0}) werden durch die empfohlenen Werte ersetzt.</MUI_ConfirmOn>
+  <MUI_Locked>Detaillierte Einstellungen sind gesperrt. Willst du sie ändern? Schalte den Schalter oben aus – deine Werte starten bei den empfohlenen.</MUI_Locked>
+  <MUI_Changed>GEÄNDERT</MUI_Changed>
+  <MUI_ChangedTip>Weicht von der Empfehlung ab ({0}). Klicken, um den empfohlenen Wert wiederherzustellen.</MUI_ChangedTip>
+  <MUI_Yes>an</MUI_Yes>
+  <MUI_No>aus</MUI_No>
+  <MUI_RecTag>EMPFOHLEN</MUI_RecTag>
+  <SK_Role_Miner>Bergarbeiter</SK_Role_Miner>
+  <SK_Role_Farmer>Bauer</SK_Role_Farmer>
+  <SK_Role_Crafter>Handwerker</SK_Role_Crafter>
+  <SK_Role_Researcher>Forscher</SK_Role_Researcher>
+  <SK_Role_Handler>Tierpfleger</SK_Role_Handler>
+  <SK_Role_Warden>Wärter</SK_Role_Warden>
+  <SK_Item_FirstAid>Erste Hilfe (Verbände, Sets aus Mods)</SK_Item_FirstAid>
+  <SK_Item_PainDrug>Mittel gegen Schmerz / Blutverlust (nicht süchtig machend)</SK_Item_PainDrug>
+  <SK_Item_Kibble>Trockenfutter (für Tiere)</SK_Item_Kibble>
+  <SK_Totals>Ganze Kolonie:</SK_Totals>
+  <SK_NewDefaults>Es gibt neuere, größere automatische Ausrüstungen – drücke den Knopf, um sie zu nutzen.</SK_NewDefaults>
+</LanguageData>

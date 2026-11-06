@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SK_Name>Steward – Kit</SK_Name>
+  <SK_Tab_Overview>Resumen</SK_Tab_Overview>
+  <SK_Tab_Kits>Equipo por rol</SK_Tab_Kits>
+  <SK_Tab_Pharmacy>Farmacia</SK_Tab_Pharmacy>
+  <SK_Tab_Drugs>Medicamentos</SK_Tab_Drugs>
+  <SK_Tab_Combat>Drogas de combate</SK_Tab_Combat>
+  <SK_Tab_Regular>Uso regular</SK_Tab_Regular>
+  <SK_Tab_Caravans>Caravanas</SK_Tab_Caravans>
+  <SK_Tab_Weight>Peso y límites</SK_Tab_Weight>
+  <SK_Tab_Colonists>Colonos</SK_Tab_Colonists>
+  <SK_Tab_Advanced>Avanzado</SK_Tab_Advanced>
+  <SK_Rec1>Cada colono lleva un pequeño equipo para su rol</SK_Rec1>
+  <SK_Rec2>Lo que falta se recoge de un almacén cercano</SK_Rec2>
+  <SK_Rec3>Los médicos dan el remedio adecuado según la gravedad</SK_Rec3>
+  <SK_Rec4>Las caravanas empacan el equipo de sus miembros</SK_Rec4>
+  <SK_KitsOn>Los colonos llevan equipo</SK_KitsOn>
+  <SK_KitsOn_Desc>Cada colono lleva en su inventario los objetos del equipo de su rol (medicina para los médicos, comida para los cazadores, componentes para los constructores …).</SK_KitsOn_Desc>
+  <SK_Refill>Rellenar el equipo desde el almacén</SK_Refill>
+  <SK_Refill_Desc>Cuando falta algo del equipo, el colono lo recoge de una zona de almacén o estantería cercana (trabajo básico, solo caminos cortos).</SK_Refill_Desc>
+  <SK_WhoCarries>Quién lleva qué (llevado / equipo):</SK_WhoCarries>
+  <SK_NoGame>Carga una partida para ver aquí a tus colonos.</SK_NoGame>
+  <SK_RoleOff>Sin equipo</SK_RoleOff>
+  <SK_Role_Doctor>Médico</SK_Role_Doctor>
+  <SK_Role_Hunter>Cazador</SK_Role_Hunter>
+  <SK_Role_Builder>Constructor</SK_Role_Builder>
+  <SK_Role_Soldier>Soldado</SK_Role_Soldier>
+  <SK_Role_Cook>Cocinero</SK_Role_Cook>
+  <SK_Role_Hauler>Transportista</SK_Role_Hauler>
+  <SK_Role_Everyone>Todos (paquete de emergencia)</SK_Role_Everyone>
+  <SK_Item_Medicine>Medicina (según la habilidad del médico)</SK_Item_Medicine>
+  <SK_Item_Meal>Comida (sencilla o mejor, empaquetada primero)</SK_Item_Meal>
+  <SK_Item_Component>Componentes</SK_Item_Component>
+  <SK_Item_CombatDrug>Droga de combate</SK_Item_CombatDrug>
+  <SK_KitsHelp>La tabla se rellenó sola – cámbiala como quieras. El rol de un colono viene de Steward – Roles; si no, de sus mejores habilidades. «Medicina» significa la mejor medicina que su habilidad debería usar.</SK_KitsHelp>
+  <SK_ResetKits>Volver a automático</SK_ResetKits>
+  <SK_AddItem>+ Añadir objeto</SK_AddItem>
+  <SK_Remove>Quitar</SK_Remove>
+  <SK_CaravanKits>Las caravanas empacan el equipo</SK_CaravanKits>
+  <SK_CaravanKits_Desc>Al formar una caravana, los objetos del equipo que sus miembros aún no llevan se añaden a la lista de carga (si hay en el almacén).</SK_CaravanKits_Desc>
+  <SK_CaravanHelp>Aun así puedes cambiar la lista tú mismo – el equipo solo se añade al principio.</SK_CaravanHelp>
+  <SK_Weight>El equipo puede usar hasta el {0} % de la capacidad de carga</SK_Weight>
+  <SK_Weight_Desc>Un colono nunca lleva más equipo que esta parte de lo que puede cargar, así nunca va más lento.</SK_Weight_Desc>
+  <SK_Distance>Caminar como máximo {0} casillas para rellenar</SK_Distance>
+  <SK_Distance_Desc>Los objetos más lejanos se dejan para después.</SK_Distance_Desc>
+  <SK_CheckHours>Volver a revisar un equipo completo cada {0} h</SK_CheckHours>
+  <SK_CheckHours_Desc>Menos = equipo rellenado antes, un poco más de trabajo para el juego.</SK_CheckHours_Desc>
+  <SK_DropExtras>Dejar lo sobrante en casa</SK_DropExtras>
+  <SK_DropExtras_Desc>Un colono con más objetos de los que pide su equipo (p. ej. tras cambiar de rol) deja el resto en casa; se lleva al almacén.</SK_DropExtras_Desc>
+  <SK_Spare>Objetos de sobra permitidos: {0}</SK_Spare>
+  <SK_Spare_Desc>Cuántos objetos por encima del equipo siguen bien (sin idas y vueltas).</SK_Spare_Desc>
+  <SK_ColonistsHelp>Cada colono lleva automáticamente el equipo de su rol. Aquí puedes darle a un colono otro equipo o ninguno.</SK_ColonistsHelp>
+  <SK_Mode_Auto>Automático: {0}</SK_Mode_Auto>
+  <SK_Mode_AutoPlain>Automático</SK_Mode_AutoPlain>
+  <SK_EveryonePack>Paquete de emergencia para todos</SK_EveryonePack>
+  <SK_EveryonePack_Desc>Las líneas «Todos» (una comida y una medicina por defecto) las lleva cada colono además del equipo de su rol.</SK_EveryonePack_Desc>
+  <SK_CombatDrugKit>Los soldados llevan una droga de combate</SK_CombatDrugKit>
+  <SK_CombatDrugKit_Desc>La usa la regla de drogas de combate de la farmacia: una vez por combate, nunca con riesgo de adicción.</SK_CombatDrugKit_Desc>
+  <SK_Slaves>Los esclavos también llevan equipo</SK_Slaves>
+  <SK_RolesOn>Steward – Roles está activo: el equipo sigue los roles que diste a tus colonos.</SK_RolesOn>
+  <SK_RolesOff>Steward – Roles está desactivado: el equipo de un colono sigue su mejor habilidad (médico, cazador, constructor, cocinero). El equipo de soldado necesita Steward – Roles o una elección en la pestaña Colonos.</SK_RolesOff>
+  <SK_OldPharmacy>El antiguo mod Auto Pharmacy sigue activo – su propia farmacia funciona y la de Steward – Kit queda apagada. Desactiva Auto Pharmacy en la lista de mods (se toman tus ajustes).</SK_OldPharmacy>
+  <SK_SelfDose>Los colonos toman sus medicinas solos</SK_SelfDose>
+  <SK_SelfDose_Desc>Un colono que necesita un remedio lo toma él mismo con trabajo básico – no tiene que esperar a un médico ni tener activado el trabajo de Médico.</SK_SelfDose_Desc>
+  <SK_CombatHelp>Un combatiente reclutado con enemigos cerca toma una droga de combate de su inventario – una vez por combate, nunca con riesgo de adicción. Se apaga por colono con su botón.</SK_CombatHelp>
+  <SK_FamilyHelp>Planificación familiar: un botón en cada colono adulto – sin hijos (anticonceptivo regular) o hijos deseados (remedio de fertilidad).</SK_FamilyHelp>
+  <SK_FamilyNone>La planificación familiar aparece cuando un mod añade anticonceptivos o remedios de fertilidad.</SK_FamilyNone>
+  <MUI_Title>Configuración recomendada</MUI_Title>
+  <MUI_TitleOff>Configuración recomendada · desactivada</MUI_TitleOff>
+  <MUI_DescOn>El mod se configura solo y funciona al instante. Ideal para jugadores nuevos y para quien no quiera ajustar nada.</MUI_DescOn>
+  <MUI_DescOff>Configuración personalizada. Cambios respecto a la recomendada: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Configuración personalizada. Sigue igual que la recomendada.</MUI_DescOffSame>
+  <MUI_On>SÍ</MUI_On>
+  <MUI_Off>NO</MUI_Off>
+  <MUI_ResetAll>Restablecer todo a lo recomendado</MUI_ResetAll>
+  <MUI_ConfirmOn>¿Activar la configuración recomendada? Tus cambios ({0}) se sustituirán por los valores recomendados.</MUI_ConfirmOn>
+  <MUI_Locked>La configuración detallada está bloqueada. ¿Quieres cambiarla? Desactiva el interruptor de arriba: tus valores partirán de los recomendados.</MUI_Locked>
+  <MUI_Changed>CAMBIADO</MUI_Changed>
+  <MUI_ChangedTip>Difiere del valor recomendado ({0}). Haz clic para restaurar el valor recomendado.</MUI_ChangedTip>
+  <MUI_Yes>sí</MUI_Yes>
+  <MUI_No>no</MUI_No>
+  <MUI_RecTag>RECOMENDADO</MUI_RecTag>
+  <SK_Role_Miner>Minero</SK_Role_Miner>
+  <SK_Role_Farmer>Granjero</SK_Role_Farmer>
+  <SK_Role_Crafter>Artesano</SK_Role_Crafter>
+  <SK_Role_Researcher>Investigador</SK_Role_Researcher>
+  <SK_Role_Handler>Cuidador de animales</SK_Role_Handler>
+  <SK_Role_Warden>Guardián</SK_Role_Warden>
+  <SK_Item_FirstAid>Primeros auxilios (vendas, botiquines de mods)</SK_Item_FirstAid>
+  <SK_Item_PainDrug>Remedio para dolor / pérdida de sangre (no adictivo)</SK_Item_PainDrug>
+  <SK_Item_Kibble>Pienso (para animales)</SK_Item_Kibble>
+  <SK_Totals>Toda la colonia:</SK_Totals>
+  <SK_NewDefaults>Hay equipos automáticos más nuevos y grandes – pulsa el botón para usarlos.</SK_NewDefaults>
+</LanguageData>

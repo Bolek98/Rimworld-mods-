@@ -1,0 +1,36 @@
+=== Workshop release 1.0.0 (6 Nov 2026) ===
+1.0.0
+- First Workshop release: kits by role for every colonist (doctors, hunters, builders, soldiers, cooks, haulers, miners, farmers, crafters, researchers, handlers, wardens, emergency pack), refilled from storage nearby within a weight limit, packed by caravans.
+- První vydání na Workshopu: výbava podle rolí pro každého kolonistu (doktoři, lovci, stavitelé, vojáci, kuchaři, nosiči, horníci, farmáři, řemeslníci, výzkumníci, chovatelé, dozorci, nouzový balíček), doplňovaná ze skladu poblíž v limitu váhy, karavany si ji sbalí.
+- The whole Auto Pharmacy built in: doctors give the right drug by how serious it is, colonists take their own medicine, combat drugs once per fight, prevention, family plan, care level by injuries.
+- Celá Auto Pharmacy uvnitř: doktoři podají správný lék podle závažnosti, kolonisté si léky berou sami, bojové drogy jednou za boj, prevence, plánování rodiny, úroveň péče podle zranění.
+- 12 languages.
+- 12 jazyků.
+
+=== Development history before the first Workshop release ===
+0.2.4
+- Fix: colonists no longer freeze for a while out of the blue – the pharmacy's 'give a drug' job had lost its definition when the pharmacy was merged into the kit, so every such job was empty and the colonist stood still until it was reset.
+- Oprava: kolonisté už najednou nezamrzají na místě – úkol lékárny „podat lék“ při sloučení lékárny do kitu ztratil svoji definici, každý takový úkol byl prázdný a kolonista stál, dokud se nevynuloval.
+
+0.2.3
+- Fix: doctors no longer pick up and put away their pharmacy drugs again and again (Steward – Supplies and the kit tidy-up now leave the doctor's pharmacy stock in the pockets); the doctor's stock is looked at once an hour, not at every job search.
+- Oprava: doktoři už dokola nebrali a neodkládali léky z lékárny (Steward – Zásoby a úklid kitu teď nechávají doktorovi jeho zásobu léků v kapsách); doktorova zásoba se kontroluje jednou za hodinu, ne při každém hledání práce.
+
+0.2.2
+- Performance: a colonist whose missing kit item isn't in storage (or who has no room for it) no longer searches the map at every job search – once an hour; the kit list is kept for a few seconds; only the nearest few items are checked.
+- Výkon: kolonista, jehož chybějící věc z kitu není ve skladu (nebo na ni nemá místo), už neprohledává mapu při každém hledání práce – jen jednou za hodinu; seznam kitu se drží pár sekund; kontroluje se jen pár nejbližších věcí.
+
+0.2.1
+- Clothes in the inventory (Wardrobe keeps the day outfit and sleepwear there) no longer count against the kit weight.
+- Oblečení v inventáři (Šatník tam drží denní oblečení a pyžamo) se už nepočítá do váhy výbavy.
+
+0.2.0
+- Bigger kits: more medicine for doctors (plus first aid and pain drugs when your mods have them), more food for hunters, haulers and cooks, components and medicine for builders, combat drugs and meals for soldiers, and own kits for miners, farmers, crafters, researchers, handlers (with kibble) and wardens. The emergency pack (2 meals, 2 medicine) is on for everyone. The weight limit still caps it.
+- Větší výbavy: víc léků pro lékaře (a k tomu první pomoc a léky na bolest, když je tvoje mody mají), víc jídla pro lovce, nosiče a kuchaře, komponenty a léky pro stavitele, bojové drogy a jídlo pro vojáky a vlastní výbava pro horníky, farmáře, řemeslníky, výzkumníky, chovatele (s granulemi) a dozorce. Nouzový balíček (2 jídla, 2 léky) má každý. Limit váhy dál hlídá, kolik toho unesou.
+- Untouched kit tables switch to the new defaults by themselves; an edited table stays and shows a note with the reset button. Travel food: pemmican and packaged meals first. Overview shows what the whole colony carries.
+- Neupravená tabulka výbav se sama přepne na nové výchozí hodnoty; upravená zůstane a ukáže poznámku s tlačítkem pro reset. Jídlo na cesty: nejdřív pemmikan a balené jídlo. Přehled ukazuje, co nese celá kolonie.
+
+0.1.0
+- First version: kits by role (doctor, hunter, builder, soldier, cook, hauler, emergency pack) filled in automatically and editable; refill from storage nearby with a weight limit; extras dropped at home; caravans pack the kits; per-colonist kit or none; the whole Auto Pharmacy 1.4.4 built in (its settings taken over), colonists also take their own medicine without Doctor work; settings in ten tabs.
+- První verze: výbava podle rolí (doktor, lovec, stavitel, voják, kuchař, nosič, nouzový balíček) vyplněná automaticky a upravitelná; doplňování ze skladu poblíž s limitem váhy; přebytky se odloží doma; karavany si sbalí výbavu; u kolonisty jiná výbava nebo žádná; celá Auto Pharmacy 1.4.4 uvnitř (nastavení se převezme), kolonisté si léky berou i sami bez práce Lékař; nastavení v deseti záložkách.
+

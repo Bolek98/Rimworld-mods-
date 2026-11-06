@@ -130,8 +130,8 @@
   <GT_Regen>Reconstruções do mapa por quadro: {0}</GT_Regen>
   <GT_Regen_Desc>Quando a grama cresce, algo é construído ou neva, o jogo reconstrói cada parte alterada do mapa em um quadro – em 3x isso trava. Isto limita a quantidade por quadro, o resto é feito nos quadros seguintes (alguns centésimos de segundo depois). Experimental – desligado por padrão. Recomendado 4–8.</GT_Regen_Desc>
   <GT_Off>desligado</GT_Off>
-  <GT_SlowAlerts>Verificar os alertas à direita com menos frequência em 3x</GT_SlowAlerts>
-  <GT_SlowAlerts_Desc>O jogo reverifica parte dos alertas a cada quadro (com mods são centenas). Em alta velocidade, um quadro sim, um não, basta.</GT_SlowAlerts_Desc>
+  <GT_SlowAlerts>Verificar alertas com menos frequência</GT_SlowAlerts>
+  <GT_SlowAlerts_Desc>O jogo reverifica parte dos alertas a cada quadro (com mods são centenas). Na velocidade 3 e 4, e em qualquer velocidade abaixo de 40 FPS, um quadro sim, outro não basta.</GT_SlowAlerts_Desc>
   <GT_SecDiag>Diagnóstico</GT_SecDiag>
   <GT_OverlayBar>Gráfico de quadro: simulação vs. desenho</GT_OverlayBar>
   <GT_OverlayBar_Desc>Uma barra na exibição do canto superior direito: verde = simulação (ticks), azul = desenho, cinza = reserva até a meta de FPS. Você vê na hora o que deixa o jogo lento.</GT_OverlayBar_Desc>
@@ -456,4 +456,14 @@
   <GT_HighRefresh>Monitor de alta frequência ({0} Hz): 60 FPS ao carregar e arrastar</GT_HighRefresh>
   <GT_HighRefresh_Desc>Seu monitor roda a {0} Hz. Com o limite de FPS "Como o jogo", o RimWorld 1.7 pode travar ao arrastar com o mouse e a tela de carregamento pode congelar. Durante o carregamento e enquanto um botão do mouse está pressionado, a taxa fica em 60 e depois volta. Um limite escolhido por você nunca é alterado.</GT_HighRefresh_Desc>
   <GT_HighRefreshMsg>Smooth FPS: seu monitor roda a {0} Hz – ao carregar e arrastar o jogo fica em 60 FPS para não travar nem congelar. Dá para mudar nas configurações do Smooth FPS (Tela).</GT_HighRefreshMsg>
+  <GT_Lazy>Peões preguiçosos fora da tela</GT_Lazy>
+  <GT_Lazy_Desc>Peões que você não vê e que não fazem nada importante são atualizados só a cada poucos ticks: animais selvagens longe dos colonos, animais domésticos descansando ou vagando, visitantes esperando, colonos dormindo. Continuam andando na velocidade total. Voltam ao normal na hora na tela, convocados, caídos, feridos, designados (caça, domar …), perto de um colono ou com perigo no mapa.</GT_Lazy_Desc>
+  <GT_LazyEvery>A cada {0} ticks</GT_LazyEvery>
+  <GT_LazySleepers>Também colonos dormindo</GT_LazySleepers>
+  <GT_LazySleepers_Desc>Um colono que dorme fora da tela também é atualizado com menos frequência. Sono e necessidades funcionam como antes.</GT_LazySleepers_Desc>
+  <GT_LazyNow>Preguiçosos agora: {0} peões</GT_LazyNow>
+  <GT_BarCache>Barra de colonos mais leve</GT_BarCache>
+  <GT_BarCache_Desc>Com muitos colonos, a barra no topo calcula a cada quadro os ícones de atividade, o humor e o risco de surto de cada colono. Eles são guardados por um quarto de segundo. Cliques, seleção e retratos continuam ao vivo. Desliga sozinho se outro mod desenhar esses ícones.</GT_BarCache_Desc>
+  <GT_OffscreenFx>Sem efeitos de peões fora da tela</GT_OffscreenFx>
+  <GT_OffscreenFx_Desc>Efeitos visuais em peões que você não vê (faíscas, fumaça, brilho de condições) não são atualizados. Só a imagem, nada muda no jogo.</GT_OffscreenFx_Desc>
 </LanguageData>

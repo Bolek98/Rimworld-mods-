@@ -18,9 +18,10 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Research Atlas – Research Tree for Big Modpacks | 1.0.0 | [ResearchAtlas](ResearchAtlas) |
 | Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |
 | Smart Colonist Gear – Auto Equip Weapons & Armor | 2.16.0 | [SmartColonistGear](SmartColonistGear) |
-| Smooth FPS – Performance & Graphics | 1.6.1 | [SmoothFPS](SmoothFPS) |
+| [B98] Smooth FPS – Performance & Graphics | 1.7.0 | [SmoothFPS](SmoothFPS) |
 | Steward – Work Priorities | 1.0.1 | [Steward2/Steward](Steward2/Steward) |
 | Steward – Crises & Situations | 1.1.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| [B98] Steward – Kit | 1.0.0 | [Steward2/StewardKit](Steward2/StewardKit) |
 | Steward – Schedules | 1.0.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
 | Steward – Supplies | 1.1.0 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | Universal RimTranslator – Auto-Translate All Your Mods | 1.1.0 | [UniversalRimTranslator](UniversalRimTranslator) |

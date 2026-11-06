@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SK_Name>Steward – Kit</SK_Name>
+  <SK_Tab_Overview>Огляд</SK_Tab_Overview>
+  <SK_Tab_Kits>Спорядження за ролями</SK_Tab_Kits>
+  <SK_Tab_Pharmacy>Аптека</SK_Tab_Pharmacy>
+  <SK_Tab_Drugs>Ліки</SK_Tab_Drugs>
+  <SK_Tab_Combat>Бойові препарати</SK_Tab_Combat>
+  <SK_Tab_Regular>Регулярно</SK_Tab_Regular>
+  <SK_Tab_Caravans>Каравани</SK_Tab_Caravans>
+  <SK_Tab_Weight>Вага й ліміти</SK_Tab_Weight>
+  <SK_Tab_Colonists>Колоністи</SK_Tab_Colonists>
+  <SK_Tab_Advanced>Додатково</SK_Tab_Advanced>
+  <SK_Rec1>Кожен колоніст носить невелике спорядження для своєї ролі</SK_Rec1>
+  <SK_Rec2>Те, чого бракує, береться з найближчого складу</SK_Rec2>
+  <SK_Rec3>Лікарі дають потрібний засіб за тяжкістю</SK_Rec3>
+  <SK_Rec4>Каравани збирають спорядження своїх учасників</SK_Rec4>
+  <SK_KitsOn>Колоністи носять спорядження</SK_KitsOn>
+  <SK_KitsOn_Desc>Кожен колоніст носить в інвентарі речі спорядження своєї ролі (ліки для лікарів, їжу для мисливців, компоненти для будівельників …).</SK_KitsOn_Desc>
+  <SK_Refill>Поповнювати спорядження зі складу</SK_Refill>
+  <SK_Refill_Desc>Якщо чогось бракує, колоніст бере це з найближчої зони складу або полиці (базова робота, лише короткі шляхи).</SK_Refill_Desc>
+  <SK_WhoCarries>Хто що носить (несе / спорядження):</SK_WhoCarries>
+  <SK_NoGame>Завантаж гру, щоб побачити тут колоністів.</SK_NoGame>
+  <SK_RoleOff>Без спорядження</SK_RoleOff>
+  <SK_Role_Doctor>Лікар</SK_Role_Doctor>
+  <SK_Role_Hunter>Мисливець</SK_Role_Hunter>
+  <SK_Role_Builder>Будівельник</SK_Role_Builder>
+  <SK_Role_Soldier>Солдат</SK_Role_Soldier>
+  <SK_Role_Cook>Кухар</SK_Role_Cook>
+  <SK_Role_Hauler>Носій</SK_Role_Hauler>
+  <SK_Role_Everyone>Усі (аварійний набір)</SK_Role_Everyone>
+  <SK_Item_Medicine>Ліки (за навичкою лікаря)</SK_Item_Medicine>
+  <SK_Item_Meal>Їжа (проста або краща, спершу упакована)</SK_Item_Meal>
+  <SK_Item_Component>Компоненти</SK_Item_Component>
+  <SK_Item_CombatDrug>Бойовий препарат</SK_Item_CombatDrug>
+  <SK_KitsHelp>Таблиця заповнилася сама – змінюй як хочеш. Роль колоніста береться зі Steward – Roles, інакше з його найкращих навичок. «Ліки» – найкращі ліки, які йому годиться використовувати за навичкою.</SK_KitsHelp>
+  <SK_ResetKits>Повернути автоматичне</SK_ResetKits>
+  <SK_AddItem>+ Додати річ</SK_AddItem>
+  <SK_Remove>Прибрати</SK_Remove>
+  <SK_CaravanKits>Каравани збирають спорядження</SK_CaravanKits>
+  <SK_CaravanKits_Desc>Коли збирається караван, речі спорядження, яких у учасників ще немає, додаються до списку вантажу (якщо вони є на складі).</SK_CaravanKits_Desc>
+  <SK_CaravanHelp>Список вантажу можна змінювати самому – спорядження додається лише на початку.</SK_CaravanHelp>
+  <SK_Weight>Спорядження може займати до {0} % вантажопідйомності</SK_Weight>
+  <SK_Weight_Desc>Колоніст ніколи не бере більше спорядження, ніж ця частка того, що він може нести, – тож він не сповільнюється.</SK_Weight_Desc>
+  <SK_Distance>Іти по поповнення не далі {0} клітинок</SK_Distance>
+  <SK_Distance_Desc>Дальші речі лишаються на потім.</SK_Distance_Desc>
+  <SK_CheckHours>Перевіряти повне спорядження кожні {0} год</SK_CheckHours>
+  <SK_CheckHours_Desc>Менше = спорядження поповнюється швидше, трохи більше роботи для гри.</SK_CheckHours_Desc>
+  <SK_DropExtras>Лишати зайве вдома</SK_DropExtras>
+  <SK_DropExtras_Desc>Колоніст із речами понад спорядження (наприклад, після зміни ролі) лишає решту вдома; її відносять на склад.</SK_DropExtras_Desc>
+  <SK_Spare>Зайвих речей можна лишити: {0}</SK_Spare>
+  <SK_Spare_Desc>Скільки речей понад спорядження ще нормально (без ходіння туди-сюди).</SK_Spare_Desc>
+  <SK_ColonistsHelp>Кожен колоніст автоматично носить спорядження своєї ролі. Тут можна дати колоністу інше спорядження або ніякого.</SK_ColonistsHelp>
+  <SK_Mode_Auto>Автоматично: {0}</SK_Mode_Auto>
+  <SK_Mode_AutoPlain>Автоматично</SK_Mode_AutoPlain>
+  <SK_EveryonePack>Аварійний набір для всіх</SK_EveryonePack>
+  <SK_EveryonePack_Desc>Рядки «Усі» (типово їжа й ліки) носить кожен колоніст на додачу до спорядження своєї ролі.</SK_EveryonePack_Desc>
+  <SK_CombatDrugKit>Солдати носять бойовий препарат</SK_CombatDrugKit>
+  <SK_CombatDrugKit_Desc>Використовується правилом бойових препаратів аптеки: раз за бій, ніколи з ризиком залежності.</SK_CombatDrugKit_Desc>
+  <SK_Slaves>Раби теж носять спорядження</SK_Slaves>
+  <SK_RolesOn>Steward – Roles увімкнено: спорядження слідує ролям, які ти дав колоністам.</SK_RolesOn>
+  <SK_RolesOff>Steward – Roles вимкнено: спорядження колоніста слідує його найкращій навичці (лікар, мисливець, будівельник, кухар). Спорядженню солдата потрібен Steward – Roles або вибір на вкладці Колоністи.</SK_RolesOff>
+  <SK_OldPharmacy>Старий мод Auto Pharmacy ще ввімкнений – працює його власна аптека, а аптека в Steward – Kit лишається вимкненою. Вимкни Auto Pharmacy у списку модів (налаштування перейдуть).</SK_OldPharmacy>
+  <SK_SelfDose>Колоністи самі приймають ліки</SK_SelfDose>
+  <SK_SelfDose_Desc>Колоніст, якому потрібен засіб, приймає його сам у межах базової роботи – не треба чекати лікаря чи вмикати роботу Лікар.</SK_SelfDose_Desc>
+  <SK_CombatHelp>Призваний боєць із ворогами поруч приймає бойовий препарат з інвентаря – раз за бій, ніколи з ризиком залежності. Вимикається для колоніста його кнопкою.</SK_CombatHelp>
+  <SK_FamilyHelp>Планування сім'ї: кнопка в кожного дорослого колоніста – без дітей (регулярна контрацепція) або діти бажані (засіб для фертильності).</SK_FamilyHelp>
+  <SK_FamilyNone>Планування сім'ї з'явиться, коли мод додасть контрацептиви або засоби для фертильності.</SK_FamilyNone>
+  <MUI_Title>Рекомендовані налаштування</MUI_Title>
+  <MUI_TitleOff>Рекомендовані налаштування · вимк.</MUI_TitleOff>
+  <MUI_DescOn>Мод налаштовується сам і одразу працює. Ідеально для новачків і всіх, хто не хоче нічого налаштовувати.</MUI_DescOn>
+  <MUI_DescOff>Власні налаштування. Змінено порівняно з рекомендованими: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Власні налаштування. Поки збігаються з рекомендованими.</MUI_DescOffSame>
+  <MUI_On>УВІМК.</MUI_On>
+  <MUI_Off>ВИМК.</MUI_Off>
+  <MUI_ResetAll>Скинути все до рекомендованих</MUI_ResetAll>
+  <MUI_ConfirmOn>Увімкнути рекомендовані налаштування? Ваші зміни ({0}) буде замінено рекомендованими значеннями.</MUI_ConfirmOn>
+  <MUI_Locked>Детальні налаштування заблоковано. Хочете їх змінити? Вимкніть перемикач вище – ваші значення почнуться з рекомендованих.</MUI_Locked>
+  <MUI_Changed>ЗМІНЕНО</MUI_Changed>
+  <MUI_ChangedTip>Відрізняється від рекомендованого значення ({0}). Натисніть, щоб відновити рекомендоване значення.</MUI_ChangedTip>
+  <MUI_Yes>увімк.</MUI_Yes>
+  <MUI_No>вимк.</MUI_No>
+  <MUI_RecTag>РЕКОМЕНДОВАНО</MUI_RecTag>
+  <SK_Role_Miner>Шахтар</SK_Role_Miner>
+  <SK_Role_Farmer>Фермер</SK_Role_Farmer>
+  <SK_Role_Crafter>Ремісник</SK_Role_Crafter>
+  <SK_Role_Researcher>Дослідник</SK_Role_Researcher>
+  <SK_Role_Handler>Дресирувальник</SK_Role_Handler>
+  <SK_Role_Warden>Наглядач</SK_Role_Warden>
+  <SK_Item_FirstAid>Перша допомога (бинти, аптечки з модів)</SK_Item_FirstAid>
+  <SK_Item_PainDrug>Засіб від болю / втрати крові (без залежності)</SK_Item_PainDrug>
+  <SK_Item_Kibble>Корм (для тварин)</SK_Item_Kibble>
+  <SK_Totals>Уся колонія:</SK_Totals>
+  <SK_NewDefaults>Є новіше й більше автоматичне спорядження – натисни кнопку, щоб ним користуватися.</SK_NewDefaults>
+</LanguageData>

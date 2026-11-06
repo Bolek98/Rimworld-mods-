@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- picks missing kit items from storage nearby (Basic work, short walks only) -->
+  <WorkGiverDef>
+    <defName>SK_RefillKit</defName>
+    <label>refill own kit</label>
+    <giverClass>StewardKit.WorkGiver_KitRefill</giverClass>
+    <workType>BasicWorker</workType>
+    <priorityInType>5</priorityInType>
+    <verb>take</verb>
+    <gerund>refilling kit with</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+</Defs>

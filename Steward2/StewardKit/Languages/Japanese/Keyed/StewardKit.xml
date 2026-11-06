@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SK_Name>Steward – Kit</SK_Name>
+  <SK_Tab_Overview>概要</SK_Tab_Overview>
+  <SK_Tab_Kits>役割ごとの携帯品</SK_Tab_Kits>
+  <SK_Tab_Pharmacy>薬局</SK_Tab_Pharmacy>
+  <SK_Tab_Drugs>薬</SK_Tab_Drugs>
+  <SK_Tab_Combat>戦闘薬</SK_Tab_Combat>
+  <SK_Tab_Regular>定期使用</SK_Tab_Regular>
+  <SK_Tab_Caravans>キャラバン</SK_Tab_Caravans>
+  <SK_Tab_Weight>重さと上限</SK_Tab_Weight>
+  <SK_Tab_Colonists>入植者</SK_Tab_Colonists>
+  <SK_Tab_Advanced>詳細</SK_Tab_Advanced>
+  <SK_Rec1>入植者は役割に合った小さな携帯品を持つ</SK_Rec1>
+  <SK_Rec2>足りないものは近くの倉庫から取る</SK_Rec2>
+  <SK_Rec3>医者は重さに応じて適切な薬を与える</SK_Rec3>
+  <SK_Rec4>キャラバンはメンバーの携帯品を詰める</SK_Rec4>
+  <SK_KitsOn>入植者が携帯品を持つ</SK_KitsOn>
+  <SK_KitsOn_Desc>入植者は役割の携帯品を所持品に入れて持ち歩きます（医者は薬、狩人は食料、建築者は部品 …）。</SK_KitsOn_Desc>
+  <SK_Refill>倉庫から携帯品を補充</SK_Refill>
+  <SK_Refill_Desc>携帯品に足りないものがあると、入植者は近くの保管区域や棚から取ってきます（基本作業、短い距離のみ）。</SK_Refill_Desc>
+  <SK_WhoCarries>誰が何を持っているか（所持 / 携帯品）：</SK_WhoCarries>
+  <SK_NoGame>ゲームを読み込むと、ここに入植者が表示されます。</SK_NoGame>
+  <SK_RoleOff>携帯品なし</SK_RoleOff>
+  <SK_Role_Doctor>医者</SK_Role_Doctor>
+  <SK_Role_Hunter>狩人</SK_Role_Hunter>
+  <SK_Role_Builder>建築者</SK_Role_Builder>
+  <SK_Role_Soldier>兵士</SK_Role_Soldier>
+  <SK_Role_Cook>料理人</SK_Role_Cook>
+  <SK_Role_Hauler>運搬人</SK_Role_Hauler>
+  <SK_Role_Everyone>全員（緊急パック）</SK_Role_Everyone>
+  <SK_Item_Medicine>薬（医者の技能による）</SK_Item_Medicine>
+  <SK_Item_Meal>食事（シンプル以上、包装済みを優先）</SK_Item_Meal>
+  <SK_Item_Component>部品</SK_Item_Component>
+  <SK_Item_CombatDrug>戦闘薬</SK_Item_CombatDrug>
+  <SK_KitsHelp>表は自動で埋められました – 自由に変更できます。入植者の役割は Steward – Roles から、なければ最も高い技能から決まります。「薬」はその技能で使うべき最良の薬です。</SK_KitsHelp>
+  <SK_ResetKits>自動に戻す</SK_ResetKits>
+  <SK_AddItem>+ 品物を追加</SK_AddItem>
+  <SK_Remove>削除</SK_Remove>
+  <SK_CaravanKits>キャラバンが携帯品を詰める</SK_CaravanKits>
+  <SK_CaravanKits_Desc>キャラバン編成時、メンバーがまだ持っていない携帯品が積み込みリストに追加されます（倉庫にあれば）。</SK_CaravanKits_Desc>
+  <SK_CaravanHelp>積み込みリストは自分で変更できます – 携帯品が追加されるのは最初だけです。</SK_CaravanHelp>
+  <SK_Weight>携帯品は運搬能力の {0} % まで</SK_Weight>
+  <SK_Weight_Desc>入植者は運べる量のこの割合を超えて携帯品を持たないので、遅くなりません。</SK_Weight_Desc>
+  <SK_Distance>補充のために歩くのは最大 {0} マス</SK_Distance>
+  <SK_Distance_Desc>それより遠い品物は後回しにします。</SK_Distance_Desc>
+  <SK_CheckHours>満タンの携帯品を {0} 時間ごとに再確認</SK_CheckHours>
+  <SK_CheckHours_Desc>低いほど早く補充されますが、ゲームの負担が少し増えます。</SK_CheckHours_Desc>
+  <SK_DropExtras>余分は拠点に置く</SK_DropExtras>
+  <SK_DropExtras_Desc>携帯品より多く持っている入植者（役割変更後など）は、残りを拠点に置きます。倉庫へ運ばれます。</SK_DropExtras_Desc>
+  <SK_Spare>残してよい予備：{0}</SK_Spare>
+  <SK_Spare_Desc>携帯品より何個多くても問題ないか（行ったり来たりしない）。</SK_Spare_Desc>
+  <SK_ColonistsHelp>入植者は自動で役割の携帯品を持ちます。ここで別の携帯品や、なしを指定できます。</SK_ColonistsHelp>
+  <SK_Mode_Auto>自動：{0}</SK_Mode_Auto>
+  <SK_Mode_AutoPlain>自動</SK_Mode_AutoPlain>
+  <SK_EveryonePack>全員の緊急パック</SK_EveryonePack>
+  <SK_EveryonePack_Desc>「全員」の行（標準で食事 1 つと薬 1 つ）は、役割の携帯品に加えて全員が持ちます。</SK_EveryonePack_Desc>
+  <SK_CombatDrugKit>兵士は戦闘薬を持つ</SK_CombatDrugKit>
+  <SK_CombatDrugKit_Desc>薬局の戦闘薬ルールで使われます：戦闘ごとに 1 回、依存の可能性があるときは使いません。</SK_CombatDrugKit_Desc>
+  <SK_Slaves>奴隷も携帯品を持つ</SK_Slaves>
+  <SK_RolesOn>Steward – Roles が有効：携帯品は入植者に割り当てた役割に従います。</SK_RolesOn>
+  <SK_RolesOff>Steward – Roles が無効：入植者の携帯品は最も高い技能に従います（医者、狩人、建築者、料理人）。兵士の携帯品には Steward – Roles か入植者タブでの選択が必要です。</SK_RolesOff>
+  <SK_OldPharmacy>古い Auto Pharmacy MOD がまだ有効です – その薬局が動き、Steward – Kit 内の薬局はオフのままです。MOD リストで Auto Pharmacy をオフにしてください（設定は引き継がれます）。</SK_OldPharmacy>
+  <SK_SelfDose>入植者が自分で薬を飲む</SK_SelfDose>
+  <SK_SelfDose_Desc>薬が必要な入植者は基本作業で自分で飲みます – 医者を待つ必要も、医療作業をオンにする必要もありません。</SK_SelfDose_Desc>
+  <SK_CombatHelp>徴兵中で敵が近い戦闘員は、所持品から戦闘薬を 1 つ使います – 戦闘ごとに 1 回、依存の可能性があるときは使いません。入植者ごとにボタンでオフにできます。</SK_CombatHelp>
+  <SK_FamilyHelp>家族計画：成人の入植者それぞれにボタン – 子どもなし（定期的な避妊）または子どもが欲しい（妊娠薬）。</SK_FamilyHelp>
+  <SK_FamilyNone>MOD が避妊薬や妊娠薬を追加すると家族計画が表示されます。</SK_FamilyNone>
+  <MUI_Title>推奨設定</MUI_Title>
+  <MUI_TitleOff>推奨設定 · オフ</MUI_TitleOff>
+  <MUI_DescOn>Modが自動で設定され、すぐに使えます。初心者や何も調整したくない方に最適です。</MUI_DescOn>
+  <MUI_DescOff>カスタム設定。推奨から変更した項目：{0}。</MUI_DescOff>
+  <MUI_DescOffSame>カスタム設定。まだ推奨と同じです。</MUI_DescOffSame>
+  <MUI_On>オン</MUI_On>
+  <MUI_Off>オフ</MUI_Off>
+  <MUI_ResetAll>すべて推奨にリセット</MUI_ResetAll>
+  <MUI_ConfirmOn>推奨設定をオンにしますか？あなたの変更（{0}）は推奨値に置き換えられます。</MUI_ConfirmOn>
+  <MUI_Locked>詳細設定はロックされています。変更したい場合は上のスイッチをオフにしてください – 値は推奨値から始まります。</MUI_Locked>
+  <MUI_Changed>変更済み</MUI_Changed>
+  <MUI_ChangedTip>推奨設定（{0}）と異なります。クリックで推奨値に戻します。</MUI_ChangedTip>
+  <MUI_Yes>オン</MUI_Yes>
+  <MUI_No>オフ</MUI_No>
+  <MUI_RecTag>推奨</MUI_RecTag>
+  <SK_Role_Miner>採掘者</SK_Role_Miner>
+  <SK_Role_Farmer>農夫</SK_Role_Farmer>
+  <SK_Role_Crafter>職人</SK_Role_Crafter>
+  <SK_Role_Researcher>研究者</SK_Role_Researcher>
+  <SK_Role_Handler>調教師</SK_Role_Handler>
+  <SK_Role_Warden>看守</SK_Role_Warden>
+  <SK_Item_FirstAid>応急手当（包帯、MOD の救急キット）</SK_Item_FirstAid>
+  <SK_Item_PainDrug>痛み / 失血の薬（依存なし）</SK_Item_PainDrug>
+  <SK_Item_Kibble>キブル（動物用）</SK_Item_Kibble>
+  <SK_Totals>コロニー全体：</SK_Totals>
+  <SK_NewDefaults>より新しく大きい自動の携帯品があります – ボタンを押すと使えます。</SK_NewDefaults>
+</LanguageData>

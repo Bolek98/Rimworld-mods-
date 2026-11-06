@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AP_Enabled>Лікарі самі дають ліки</AP_Enabled>
+  <AP_Enabled_Desc>Лікарі (робота Лікар) дають колоністам засіб, що допоможе, за тяжкістю проблеми.</AP_Enabled_Desc>
+  <AP_Notify>Повідомлення, коли дано засіб</AP_Notify>
+  <AP_Notify_Desc>Коротке повідомлення: хто що кому дав і чому.</AP_Notify_Desc>
+  <AP_Prisoners>Також в'язням</AP_Prisoners>
+  <AP_Prisoners_Desc>Давати ліки і в'язням.</AP_Prisoners_Desc>
+  <AP_UseMood>Засоби для настрою перед зривом</AP_UseMood>
+  <AP_UseMood_Desc>Колоніст близько до серйозного зриву отримує засіб для настрою. Носить їх лише один колоніст, решта працює далі.</AP_UseMood_Desc>
+  <AP_UseRest>Стимулятори при виснаженні</AP_UseRest>
+  <AP_UseRest_Desc>Колоніст на межі виснаження, який не спить, отримує стимулятор.</AP_UseRest_Desc>
+  <AP_PainFrom>Знеболювальні від болю: {0} %</AP_PainFrom>
+  <AP_PainFrom_Desc>З якого болю дають знеболювальне. Більше болю = сильніший засіб.</AP_PainFrom_Desc>
+  <AP_MinHours>Той самий засіб знову через: {0} год</AP_MinHours>
+  <AP_MinHours_Desc>Для засобів без тривалої дії: скільки чекати, перш ніж дати той самий знову. Засоби з тривалою дією не дають, поки вона триває.</AP_MinHours_Desc>
+  <AP_Addictive_Label>Засоби, що викликають залежність</AP_Addictive_Label>
+  <AP_AddictiveMode0>ніколи</AP_AddictiveMode0>
+  <AP_AddictiveMode1>лише при загрозі життю</AP_AddictiveMode1>
+  <AP_AddictiveMode2>за тяжкістю</AP_AddictiveMode2>
+  <AP_AddictiveHelp>Засіб обирається за тяжкістю: м'який і дешевий для дрібниць, найсильніший для серйозного. Засіб, чия дія ще триває, повторно не дають.</AP_AddictiveHelp>
+  <AP_ListHead>Ліки в грі та що вони роблять ({0}). Зніми позначку з тих, що лікарям не використовувати:</AP_ListHead>
+  <AP_Cures>лікує: {0}</AP_Cures>
+  <AP_Addictive>залежність {0} %</AP_Addictive>
+  <AP_Given>{0} дав {1} → {2} ({3})</AP_Given>
+  <AP_Need_Pain>біль</AP_Need_Pain>
+  <AP_Need_Immunity>імунітет</AP_Need_Immunity>
+  <AP_Need_Cure>одужання</AP_Need_Cure>
+  <AP_Need_Bleeding>кровотеча</AP_Need_Bleeding>
+  <AP_Need_BloodLoss>втрата крові</AP_Need_BloodLoss>
+  <AP_Need_Consciousness>свідомість</AP_Need_Consciousness>
+  <AP_Need_Breathing>дихання</AP_Need_Breathing>
+  <AP_Need_BloodPumping>кровообіг</AP_Need_BloodPumping>
+  <AP_Need_BloodFiltration>фільтрація крові</AP_Need_BloodFiltration>
+  <AP_Need_Moving>рух</AP_Need_Moving>
+  <AP_Need_Rest>втома</AP_Need_Rest>
+  <AP_Need_Mood>настрій</AP_Need_Mood>
+  <AP_Need_Critical>загроза життю</AP_Need_Critical>
+  <AP_AutoCare>Рівень медичної допомоги за тяжкістю</AP_AutoCare>
+  <AP_AutoCare_Desc>Бинти й ліки для лікування: трави при дрібних ранах, промислові ліки при хворобах і більших ранах, найкращі при загрозі життю. Колоністів із «без допомоги» не чіпають.</AP_AutoCare_Desc>
+  <AP_CarePharmacist>Рівнем медичної допомоги (бинти, ліки) керує Pharmacist.</AP_CarePharmacist>
+  <AP_CombatDrugs>Бойові препарати для бійців</AP_CombatDrugs>
+  <AP_CombatDrugs_Desc>Призваний колоніст із ворогами поруч приймає бойовий препарат (Go-juice, Wake-up…) – з інвентаря або зі стосу за кілька кроків, коли ворогів поруч немає. Ніколи з ризиком залежності, ніколи двічі за заданий час, не для тверезників, дітей і не проти їхньої ідеології. Вимикається для колоніста кнопкою.</AP_CombatDrugs_Desc>
+  <AP_CombatHours>Не більше однієї дози за {0} год</AP_CombatHours>
+  <AP_CombatHours_Desc>Скільки колоніст чекає, перш ніж прийняти новий бойовий препарат.</AP_CombatHours_Desc>
+  <AP_CombatTaken>{0} прийняв {1} перед боєм.</AP_CombatTaken>
+  <AP_CombatGizmo>Бойові препарати</AP_CombatGizmo>
+  <AP_CombatGizmo_Desc>Увімк.: цей колоніст приймає бойовий препарат у бою, коли це безпечно (без ризику залежності).\nВимк.: цей колоніст ніколи цього не робить.</AP_CombatGizmo_Desc>
+  <AP_Rec1>Лікарі дають потрібний засіб за тяжкістю</AP_Rec1>
+  <AP_Rec2>Засоби із залежністю лише при загрозі життю</AP_Rec2>
+  <AP_Rec3>Бійці розумно використовують бойові препарати</AP_Rec3>
+  <AP_Rec4>Рівень допомоги за ранами</AP_Rec4>
+  <AP_Need_Manipulation>руки</AP_Need_Manipulation>
+  <AP_Need_Sight>зір</AP_Need_Sight>
+  <AP_Need_Prevention>профілактика</AP_Need_Prevention>
+  <AP_Need_Contraception>контрацепція</AP_Need_Contraception>
+  <AP_Need_Fertility>фертильність</AP_Need_Fertility>
+  <AP_UsePrevention>Профілактика для всіх</AP_UsePrevention>
+  <AP_UsePrevention_Desc>Засоби, що захищають від хвороб (пеноксициклін і подібні), дають регулярно, трохи до кінця дії останньої дози.</AP_UsePrevention_Desc>
+  <AP_UseChronic>Допомога при тривалих недугах</AP_UseChronic>
+  <AP_UseChronic_Desc>При хворій спині, катаракті, кволості чи старих ранах: засіб, що допомагає руху, рукам або зору.</AP_UseChronic_Desc>
+  <AP_Plan0>Діти: без плану</AP_Plan0>
+  <AP_Plan1>Діти: ні (контрацепція)</AP_Plan1>
+  <AP_Plan2>Діти: бажані (фертильність)</AP_Plan2>
+  <AP_Plan_Desc>Натисни, щоб змінити. Ні: лікар регулярно дає контрацепцію. Бажані: засіб для фертильності, якщо є. Лише дорослі (18+), ніколи під час вагітності.</AP_Plan_Desc>
+  <AP_Need_Addiction>доза залежності</AP_Need_Addiction>
+  <AP_Need_Hemogen>гемоген</AP_Need_Hemogen>
+  <AP_Addictions>Підтримувати залежності</AP_Addictions>
+  <AP_Addictions_Desc>Залежний колоніст отримує свою речовину до початку ломки – люциферій рано й завжди (пропущена доза вбиває або зводить з розуму). Діє і для тверезників, і проти ідеології, як сама гра дозволяє при залежності.</AP_Addictions_Desc>
+  <AP_MoodEarly>Настрій: допомогти до зриву</AP_MoodEarly>
+  <AP_MoodEarly_Desc>М'який засіб без залежності (чай, пиво …) уже тоді, коли настрій наближається до межі дрібного зриву, – а не лише коли стане гірше.</AP_MoodEarly_Desc>
+  <AP_DoctorCarry>Лікарі носять часті засоби</AP_DoctorCarry>
+  <AP_DoctorCarry_Desc>Лікар бере зі складу дві дози найчастіших засобів (лише безпечних: без залежності й передозування), щоб не ходити на склад щоразу.</AP_DoctorCarry_Desc>
+  <AP_WarnMissing>Повідомлення, коли засобу немає</AP_WarnMissing>
+  <AP_WarnMissing_Desc>Коли колоністу потрібен засіб, якого колонія не має (або до якого ніхто не дійде), коротке повідомлення – не частіше разу на день на засіб. Нічого не замовляється само.</AP_WarnMissing_Desc>
+  <AP_Missing>Auto Pharmacy: потрібно {0} ({1}), але дістати ніде.</AP_Missing>
+  <AP_Search>Шукати ліки…</AP_Search>
+  <AP_HistoryButton>Історія ({0})</AP_HistoryButton>
+  <AP_HistoryTitle>Видані засоби – останні 60</AP_HistoryTitle>
+  <AP_HistoryEmpty>У цій грі ще нічого не видано.</AP_HistoryEmpty>
+  <AP_Need_Healing>швидше загоєння</AP_Need_Healing>
+  <AP_CareGroups>Найвищі ліки за групами:</AP_CareGroups>
+  <AP_CareGroups_Desc>Рівень допомоги вище ніколи не піднімається для групи вище за цей. «Не керується» лишає рівень групи, як ти його поставив.</AP_CareGroups_Desc>
+  <AP_CareColonists>Колоністи</AP_CareColonists>
+  <AP_CareSlaves>Раби</AP_CareSlaves>
+  <AP_CarePrisoners>В'язні</AP_CarePrisoners>
+  <AP_CareGuests>Гості</AP_CareGuests>
+  <AP_CareAnimals>Тварини</AP_CareAnimals>
+  <AP_CareOff>Не керується</AP_CareOff>
+</LanguageData>
