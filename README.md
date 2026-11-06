@@ -22,7 +22,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Haul Master – Pockets, Routes & Storage | 3.5.0 | [HaulSmarter](HaulSmarter) |
 | [B98] Legacy – Your Old Colonies Live On | 0.1.1 | [Legacy](Legacy) |
 | [B98] Lively Pawns – Animations & Effects | 0.1.2 | [LivelyPawns](LivelyPawns) |
-| [B98] Mad Dice Max – Dice Storyteller | 1.0.0 | [MadDiceMax](MadDiceMax) |
+| [B98] Mad Dice Max – Dice Storyteller | 1.0.1 | [MadDiceMax](MadDiceMax) |
 | [B98] Map Architect | 0.4.3 | [MapArchitect](MapArchitect) |
 | [B98] Masks & Headgear Together | 1.0.1 | [MasksAndHeadgear](MasksAndHeadgear) |
 | [B98] Matchmaker | 0.1.1 | [Matchmaker](Matchmaker) |
