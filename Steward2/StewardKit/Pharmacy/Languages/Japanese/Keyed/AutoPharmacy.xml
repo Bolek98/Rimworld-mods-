@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AP_Enabled>医者が自分の判断で薬を与える</AP_Enabled>
+  <AP_Enabled_Desc>医者（医療作業）は問題の重さに応じて、入植者に役立つ薬を与えます。</AP_Enabled_Desc>
+  <AP_Notify>薬を与えたときにメッセージ</AP_Notify>
+  <AP_Notify_Desc>短いメッセージ：誰が誰に何をなぜ与えたか。</AP_Notify_Desc>
+  <AP_Prisoners>囚人にも</AP_Prisoners>
+  <AP_Prisoners_Desc>囚人にも薬を与えます。</AP_Prisoners_Desc>
+  <AP_UseMood>精神崩壊の前に気分の薬</AP_UseMood>
+  <AP_UseMood_Desc>重度の精神崩壊が近い入植者に気分の薬を与えます。持つのは一度に 1 人だけで、他の人は仕事を続けます。</AP_UseMood_Desc>
+  <AP_UseRest>疲労困憊時に覚醒剤</AP_UseRest>
+  <AP_UseRest_Desc>疲労困憊寸前で眠っていない入植者に覚醒剤を与えます。</AP_UseRest_Desc>
+  <AP_PainFrom>痛み {0} % から鎮痛剤</AP_PainFrom>
+  <AP_PainFrom_Desc>どのくらいの痛みから鎮痛剤を与えるか。痛みが強いほど強い薬。</AP_PainFrom_Desc>
+  <AP_MinHours>同じ薬を再び与えるまで：{0} 時間</AP_MinHours>
+  <AP_MinHours_Desc>持続効果のない薬について、同じ薬を再び与えるまで待つ時間。持続効果のある薬は効果中は与えません。</AP_MinHours_Desc>
+  <AP_Addictive_Label>依存性のある薬</AP_Addictive_Label>
+  <AP_AddictiveMode0>使わない</AP_AddictiveMode0>
+  <AP_AddictiveMode1>命の危険があるときだけ</AP_AddictiveMode1>
+  <AP_AddictiveMode2>重さに応じて</AP_AddictiveMode2>
+  <AP_AddictiveHelp>薬は重さで選ばれます：軽い問題には穏やかで安い薬、重い問題には最も強い薬。まだ効果が続いている薬は再び与えません。</AP_AddictiveHelp>
+  <AP_ListHead>ゲーム内の薬とその効果（{0}）。医者に使わせたくないものはチェックを外してください：</AP_ListHead>
+  <AP_Cures>治す：{0}</AP_Cures>
+  <AP_Addictive>依存性 {0} %</AP_Addictive>
+  <AP_Given>{0} が {1} → {2}（{3}）</AP_Given>
+  <AP_Need_Pain>痛み</AP_Need_Pain>
+  <AP_Need_Immunity>免疫</AP_Need_Immunity>
+  <AP_Need_Cure>治療</AP_Need_Cure>
+  <AP_Need_Bleeding>出血</AP_Need_Bleeding>
+  <AP_Need_BloodLoss>失血</AP_Need_BloodLoss>
+  <AP_Need_Consciousness>意識</AP_Need_Consciousness>
+  <AP_Need_Breathing>呼吸</AP_Need_Breathing>
+  <AP_Need_BloodPumping>血液循環</AP_Need_BloodPumping>
+  <AP_Need_BloodFiltration>血液ろ過</AP_Need_BloodFiltration>
+  <AP_Need_Moving>移動</AP_Need_Moving>
+  <AP_Need_Rest>疲れ</AP_Need_Rest>
+  <AP_Need_Mood>気分</AP_Need_Mood>
+  <AP_Need_Critical>命の危険</AP_Need_Critical>
+  <AP_AutoCare>重さに応じた医療レベル</AP_AutoCare>
+  <AP_AutoCare_Desc>治療用の包帯と薬：小さな傷には薬草、病気や大きな傷には工業薬、命の危険には最良の薬。「治療しない」の入植者はそのままです。</AP_AutoCare_Desc>
+  <AP_CarePharmacist>医療レベル（包帯、治療薬）は Pharmacist が管理しています。</AP_CarePharmacist>
+  <AP_CombatDrugs>戦闘員の戦闘薬</AP_CombatDrugs>
+  <AP_CombatDrugs_Desc>徴兵中で敵が近い入植者は戦闘薬（ゴージュース、ウェイクアップ…）を 1 つ使います – 所持品から、または敵が近くにいないときは数歩先の山から。依存の可能性があるときは使わず、設定時間内に 2 回使わず、禁酒主義者や子ども、イデオロギーに反する場合も使いません。入植者ごとにボタンでオフにできます。</AP_CombatDrugs_Desc>
+  <AP_CombatHours>{0} 時間に最大 1 回</AP_CombatHours>
+  <AP_CombatHours_Desc>入植者が次の戦闘薬を使うまで待つ時間。</AP_CombatHours_Desc>
+  <AP_CombatTaken>{0} が戦闘の前に {1} を使いました。</AP_CombatTaken>
+  <AP_CombatGizmo>戦闘薬</AP_CombatGizmo>
+  <AP_CombatGizmo_Desc>オン：この入植者は安全なとき（依存の可能性なし）戦闘で戦闘薬を使います。\nオフ：この入植者は使いません。</AP_CombatGizmo_Desc>
+  <AP_Rec1>医者は重さに応じて適切な薬を与える</AP_Rec1>
+  <AP_Rec2>依存性のある薬は命の危険があるときだけ</AP_Rec2>
+  <AP_Rec3>戦闘員は戦闘で戦闘薬を賢く使う</AP_Rec3>
+  <AP_Rec4>傷に応じた医療レベル</AP_Rec4>
+  <AP_Need_Manipulation>手</AP_Need_Manipulation>
+  <AP_Need_Sight>視力</AP_Need_Sight>
+  <AP_Need_Prevention>予防</AP_Need_Prevention>
+  <AP_Need_Contraception>避妊</AP_Need_Contraception>
+  <AP_Need_Fertility>妊娠</AP_Need_Fertility>
+  <AP_UsePrevention>全員に予防</AP_UsePrevention>
+  <AP_UsePrevention_Desc>病気を防ぐ薬（ペノキシサイクリンなど）を、前回の効果が切れる少し前に定期的に与えます。</AP_UsePrevention_Desc>
+  <AP_UseChronic>長引く不調の手助け</AP_UseChronic>
+  <AP_UseChronic_Desc>腰痛、白内障、虚弱、古傷に：移動、手、視力を助ける薬。</AP_UseChronic_Desc>
+  <AP_Plan0>子ども：計画なし</AP_Plan0>
+  <AP_Plan1>子ども：いらない（避妊）</AP_Plan1>
+  <AP_Plan2>子ども：欲しい（妊娠）</AP_Plan2>
+  <AP_Plan_Desc>クリックで変更。いらない：医者が定期的に避妊薬を与えます。欲しい：妊娠薬があれば与えます。成人（18 歳以上）のみ、妊娠中は使いません。</AP_Plan_Desc>
+  <AP_Need_Addiction>依存の投与</AP_Need_Addiction>
+  <AP_Need_Hemogen>ヘモジェン</AP_Need_Hemogen>
+  <AP_Addictions>依存を満たし続ける</AP_Addictions>
+  <AP_Addictions_Desc>依存している入植者には離脱症状が始まる前に薬を与えます – ルシフェリウムは早めに必ず（飲み忘れは死か発狂）。禁酒主義者やイデオロギーに反していても、ゲーム自体が依存に認めているように有効です。</AP_Addictions_Desc>
+  <AP_MoodEarly>気分：精神崩壊の前に助ける</AP_MoodEarly>
+  <AP_MoodEarly_Desc>気分が軽い精神崩壊のラインに近づいた時点で、穏やかで依存のないもの（お茶、ビール …）を与えます – 悪化してからではなく。</AP_MoodEarly_Desc>
+  <AP_DoctorCarry>医者がよく使う薬を持つ</AP_DoctorCarry>
+  <AP_DoctorCarry_Desc>医者はよく使われる薬（安全なものだけ：依存なし、過剰摂取なし）を倉庫から 2 回分持ち、毎回倉庫まで行かずに済みます。</AP_DoctorCarry_Desc>
+  <AP_WarnMissing>薬がないときにメッセージ</AP_WarnMissing>
+  <AP_WarnMissing_Desc>入植者が、コロニーにない（または誰も届かない）薬を必要とするとき、短いメッセージ – 薬ごとに 1 日 1 回まで。自動で注文はしません。</AP_WarnMissing_Desc>
+  <AP_Missing>Auto Pharmacy：{0} が必要です（{1}）が、届く場所にありません。</AP_Missing>
+  <AP_Search>薬を検索…</AP_Search>
+  <AP_HistoryButton>履歴（{0}）</AP_HistoryButton>
+  <AP_HistoryTitle>与えた薬 – 最新 60 件</AP_HistoryTitle>
+  <AP_HistoryEmpty>このゲームではまだ何も与えていません。</AP_HistoryEmpty>
+  <AP_Need_Healing>治りを早める</AP_Need_Healing>
+  <AP_CareGroups>グループごとの最高の薬：</AP_CareGroups>
+  <AP_CareGroups_Desc>上の医療レベルは、そのグループではこれより上になりません。「管理しない」はグループの医療レベルを設定どおりにします。</AP_CareGroups_Desc>
+  <AP_CareColonists>入植者</AP_CareColonists>
+  <AP_CareSlaves>奴隷</AP_CareSlaves>
+  <AP_CarePrisoners>囚人</AP_CarePrisoners>
+  <AP_CareGuests>客</AP_CareGuests>
+  <AP_CareAnimals>動物</AP_CareAnimals>
+  <AP_CareOff>管理しない</AP_CareOff>
+</LanguageData>

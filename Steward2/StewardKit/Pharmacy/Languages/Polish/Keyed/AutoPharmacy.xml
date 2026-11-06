@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AP_Enabled>Lekarze sami podają leki</AP_Enabled>
+  <AP_Enabled_Desc>Lekarze (praca Lekarz) podają kolonistom lek, który im pomoże, według powagi problemu.</AP_Enabled_Desc>
+  <AP_Notify>Wiadomość, gdy podano lek</AP_Notify>
+  <AP_Notify_Desc>Krótka wiadomość: kto co komu podał i dlaczego.</AP_Notify_Desc>
+  <AP_Prisoners>Także więźniom</AP_Prisoners>
+  <AP_Prisoners_Desc>Podawaj leki także więźniom.</AP_Prisoners_Desc>
+  <AP_UseMood>Leki na nastrój przed załamaniem</AP_UseMood>
+  <AP_UseMood_Desc>Kolonista blisko poważnego załamania dostaje lek na nastrój. Nosi je tylko jeden kolonista naraz, reszta dalej pracuje.</AP_UseMood_Desc>
+  <AP_UseRest>Stymulanty przy wyczerpaniu</AP_UseRest>
+  <AP_UseRest_Desc>Kolonista na granicy wyczerpania, który nie śpi, dostaje stymulant.</AP_UseRest_Desc>
+  <AP_PainFrom>Środki przeciwbólowe od bólu: {0} %</AP_PainFrom>
+  <AP_PainFrom_Desc>Od jakiego bólu podaje się środek przeciwbólowy. Więcej bólu = mocniejszy lek.</AP_PainFrom_Desc>
+  <AP_MinHours>Ten sam lek ponownie po: {0} godz.</AP_MinHours>
+  <AP_MinHours_Desc>Dla leków bez trwałego działania: ile czekać przed podaniem tego samego ponownie. Leków z trwałym działaniem nie podaje się, póki działają.</AP_MinHours_Desc>
+  <AP_Addictive_Label>Leki uzależniające</AP_Addictive_Label>
+  <AP_AddictiveMode0>nigdy</AP_AddictiveMode0>
+  <AP_AddictiveMode1>tylko przy zagrożeniu życia</AP_AddictiveMode1>
+  <AP_AddictiveMode2>według powagi</AP_AddictiveMode2>
+  <AP_AddictiveHelp>Lek wybiera się według powagi: łagodny, tani na drobne kłopoty, najmocniejszy na poważne. Leku, którego działanie trwa, nie podaje się ponownie.</AP_AddictiveHelp>
+  <AP_ListHead>Leki w grze i ich działanie ({0}). Odznacz te, których lekarze nie mają używać:</AP_ListHead>
+  <AP_Cures>leczy: {0}</AP_Cures>
+  <AP_Addictive>uzależnia {0} %</AP_Addictive>
+  <AP_Given>{0} podał {1} → {2} ({3})</AP_Given>
+  <AP_Need_Pain>ból</AP_Need_Pain>
+  <AP_Need_Immunity>odporność</AP_Need_Immunity>
+  <AP_Need_Cure>wyleczenie</AP_Need_Cure>
+  <AP_Need_Bleeding>krwawienie</AP_Need_Bleeding>
+  <AP_Need_BloodLoss>utrata krwi</AP_Need_BloodLoss>
+  <AP_Need_Consciousness>świadomość</AP_Need_Consciousness>
+  <AP_Need_Breathing>oddychanie</AP_Need_Breathing>
+  <AP_Need_BloodPumping>krążenie krwi</AP_Need_BloodPumping>
+  <AP_Need_BloodFiltration>filtracja krwi</AP_Need_BloodFiltration>
+  <AP_Need_Moving>ruch</AP_Need_Moving>
+  <AP_Need_Rest>zmęczenie</AP_Need_Rest>
+  <AP_Need_Mood>nastrój</AP_Need_Mood>
+  <AP_Need_Critical>zagrożenie życia</AP_Need_Critical>
+  <AP_AutoCare>Poziom opieki medycznej według powagi</AP_AutoCare>
+  <AP_AutoCare_Desc>Bandaże i leki do opatrywania: zioła przy drobnych ranach, lek przemysłowy przy chorobach i większych ranach, najlepszy przy zagrożeniu życia. Koloniści ustawieni na „bez opieki” zostają w spokoju.</AP_AutoCare_Desc>
+  <AP_CarePharmacist>Poziomem opieki (bandaże, leki) zarządza Pharmacist.</AP_CarePharmacist>
+  <AP_CombatDrugs>Środki bojowe dla wojowników</AP_CombatDrugs>
+  <AP_CombatDrugs_Desc>Zmobilizowany kolonista z wrogami w pobliżu bierze środek bojowy (Go-juice, Wake-up…) – ze swojego ekwipunku albo ze stosu kilka kroków dalej, gdy żaden wróg nie jest blisko. Nigdy z ryzykiem uzależnienia, nigdy dwa razy w ustawionym czasie, nie dla abstynentów, dzieci ani wbrew ich ideologii. Można wyłączyć dla kolonisty przyciskiem.</AP_CombatDrugs_Desc>
+  <AP_CombatHours>Najwyżej jedna dawka na {0} godz.</AP_CombatHours>
+  <AP_CombatHours_Desc>Ile kolonista czeka, zanim weźmie kolejny środek bojowy.</AP_CombatHours_Desc>
+  <AP_CombatTaken>{0} wziął {1} przed walką.</AP_CombatTaken>
+  <AP_CombatGizmo>Środki bojowe</AP_CombatGizmo>
+  <AP_CombatGizmo_Desc>Wł.: ten kolonista bierze środek bojowy w walce, gdy jest to bezpieczne (bez ryzyka uzależnienia).\nWył.: ten kolonista nigdy tego nie robi.</AP_CombatGizmo_Desc>
+  <AP_Rec1>Lekarze podają właściwy lek według powagi</AP_Rec1>
+  <AP_Rec2>Leki uzależniające tylko przy zagrożeniu życia</AP_Rec2>
+  <AP_Rec3>Wojownicy rozsądnie używają środków bojowych</AP_Rec3>
+  <AP_Rec4>Poziom opieki według ran</AP_Rec4>
+  <AP_Need_Manipulation>ręce</AP_Need_Manipulation>
+  <AP_Need_Sight>wzrok</AP_Need_Sight>
+  <AP_Need_Prevention>profilaktyka</AP_Need_Prevention>
+  <AP_Need_Contraception>antykoncepcja</AP_Need_Contraception>
+  <AP_Need_Fertility>płodność</AP_Need_Fertility>
+  <AP_UsePrevention>Profilaktyka dla wszystkich</AP_UsePrevention>
+  <AP_UsePrevention_Desc>Leki chroniące przed chorobami (penoksycylina i podobne) podaje się regularnie, trochę przed końcem działania ostatniej dawki.</AP_UsePrevention_Desc>
+  <AP_UseChronic>Pomoc przy długotrwałych dolegliwościach</AP_UseChronic>
+  <AP_UseChronic_Desc>Na chory kręgosłup, zaćmę, słabość lub stare rany: lek, który pomaga w ruchu, rękom lub wzrokowi.</AP_UseChronic_Desc>
+  <AP_Plan0>Dzieci: bez planu</AP_Plan0>
+  <AP_Plan1>Dzieci: nie (antykoncepcja)</AP_Plan1>
+  <AP_Plan2>Dzieci: chcą (płodność)</AP_Plan2>
+  <AP_Plan_Desc>Kliknij, aby zmienić. Nie: lekarz regularnie podaje antykoncepcję. Chcą: lek na płodność, jeśli jest. Tylko dorośli (18+), nigdy w ciąży.</AP_Plan_Desc>
+  <AP_Need_Addiction>dawka nałogu</AP_Need_Addiction>
+  <AP_Need_Hemogen>hemogen</AP_Need_Hemogen>
+  <AP_Addictions>Zaspokajaj nałogi</AP_Addictions>
+  <AP_Addictions_Desc>Uzależniony kolonista dostaje swoją substancję, zanim zacznie się głód – lucyferium wcześnie i zawsze (pominięta dawka zabija lub doprowadza do szaleństwa). Działa też dla abstynentów i wbrew ideologii, jak sama gra pozwala przy uzależnieniu.</AP_Addictions_Desc>
+  <AP_MoodEarly>Nastrój: pomoc przed załamaniem</AP_MoodEarly>
+  <AP_MoodEarly_Desc>Łagodny, nieuzależniający środek (herbata, piwo …) już wtedy, gdy nastrój zbliża się do progu drobnego załamania – nie dopiero, gdy jest gorzej.</AP_MoodEarly_Desc>
+  <AP_DoctorCarry>Lekarze noszą popularne leki</AP_DoctorCarry>
+  <AP_DoctorCarry_Desc>Lekarz bierze z magazynu dwie dawki najczęściej podawanych leków (tylko bezpiecznych: nieuzależniających, bez przedawkowania), żeby nie chodzić za każdym razem do magazynu.</AP_DoctorCarry_Desc>
+  <AP_WarnMissing>Wiadomość, gdy brakuje leku</AP_WarnMissing>
+  <AP_WarnMissing_Desc>Gdy kolonista potrzebuje leku, którego kolonia nie ma (albo nikt nie może dosięgnąć), krótka wiadomość – najwyżej raz dziennie na lek. Nic nie jest zamawiane samo.</AP_WarnMissing_Desc>
+  <AP_Missing>Auto Pharmacy: potrzeba {0} ({1}), ale nie ma żadnego w zasięgu.</AP_Missing>
+  <AP_Search>Szukaj leków…</AP_Search>
+  <AP_HistoryButton>Historia ({0})</AP_HistoryButton>
+  <AP_HistoryTitle>Podane leki – ostatnie 60</AP_HistoryTitle>
+  <AP_HistoryEmpty>W tej grze nic jeszcze nie podano.</AP_HistoryEmpty>
+  <AP_Need_Healing>szybsze gojenie</AP_Need_Healing>
+  <AP_CareGroups>Najwyższy lek według grupy:</AP_CareGroups>
+  <AP_CareGroups_Desc>Poziom opieki powyżej nigdy nie jest dla grupy wyższy niż ten. „Bez zarządzania” zostawia poziom opieki grupy tak, jak go ustawiłeś.</AP_CareGroups_Desc>
+  <AP_CareColonists>Koloniści</AP_CareColonists>
+  <AP_CareSlaves>Niewolnicy</AP_CareSlaves>
+  <AP_CarePrisoners>Więźniowie</AP_CarePrisoners>
+  <AP_CareGuests>Goście</AP_CareGuests>
+  <AP_CareAnimals>Zwierzęta</AP_CareAnimals>
+  <AP_CareOff>Bez zarządzania</AP_CareOff>
+</LanguageData>

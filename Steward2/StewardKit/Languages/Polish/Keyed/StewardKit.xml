@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SK_Name>Steward – Kit</SK_Name>
+  <SK_Tab_Overview>Przegląd</SK_Tab_Overview>
+  <SK_Tab_Kits>Ekwipunek według roli</SK_Tab_Kits>
+  <SK_Tab_Pharmacy>Apteka</SK_Tab_Pharmacy>
+  <SK_Tab_Drugs>Leki</SK_Tab_Drugs>
+  <SK_Tab_Combat>Środki bojowe</SK_Tab_Combat>
+  <SK_Tab_Regular>Regularnie</SK_Tab_Regular>
+  <SK_Tab_Caravans>Karawany</SK_Tab_Caravans>
+  <SK_Tab_Weight>Waga i limity</SK_Tab_Weight>
+  <SK_Tab_Colonists>Koloniści</SK_Tab_Colonists>
+  <SK_Tab_Advanced>Zaawansowane</SK_Tab_Advanced>
+  <SK_Rec1>Każdy kolonista nosi mały ekwipunek dla swojej roli</SK_Rec1>
+  <SK_Rec2>Brakujące rzeczy bierze z pobliskiego magazynu</SK_Rec2>
+  <SK_Rec3>Lekarze podają właściwy lek według powagi</SK_Rec3>
+  <SK_Rec4>Karawany pakują ekwipunek swoich członków</SK_Rec4>
+  <SK_KitsOn>Koloniści noszą ekwipunek</SK_KitsOn>
+  <SK_KitsOn_Desc>Każdy kolonista nosi w ekwipunku rzeczy dla swojej roli (leki dla lekarzy, jedzenie dla myśliwych, komponenty dla budowniczych …).</SK_KitsOn_Desc>
+  <SK_Refill>Uzupełniaj ekwipunek z magazynu</SK_Refill>
+  <SK_Refill_Desc>Gdy czegoś brakuje, kolonista bierze to z pobliskiej strefy magazynu lub półki (praca podstawowa, tylko krótkie drogi).</SK_Refill_Desc>
+  <SK_WhoCarries>Kto nosi co (niesione / ekwipunek):</SK_WhoCarries>
+  <SK_NoGame>Wczytaj grę, aby zobaczyć tu kolonistów.</SK_NoGame>
+  <SK_RoleOff>Bez ekwipunku</SK_RoleOff>
+  <SK_Role_Doctor>Lekarz</SK_Role_Doctor>
+  <SK_Role_Hunter>Myśliwy</SK_Role_Hunter>
+  <SK_Role_Builder>Budowniczy</SK_Role_Builder>
+  <SK_Role_Soldier>Żołnierz</SK_Role_Soldier>
+  <SK_Role_Cook>Kucharz</SK_Role_Cook>
+  <SK_Role_Hauler>Tragarz</SK_Role_Hauler>
+  <SK_Role_Everyone>Wszyscy (pakiet ratunkowy)</SK_Role_Everyone>
+  <SK_Item_Medicine>Lek (według umiejętności lekarza)</SK_Item_Medicine>
+  <SK_Item_Meal>Posiłek (prosty lub lepszy, najpierw paczkowane)</SK_Item_Meal>
+  <SK_Item_Component>Komponenty</SK_Item_Component>
+  <SK_Item_CombatDrug>Środek bojowy</SK_Item_CombatDrug>
+  <SK_KitsHelp>Tabela wypełniła się sama – zmień ją, jak chcesz. Rola kolonisty pochodzi z Steward – Roles, w przeciwnym razie z jego najlepszych umiejętności. „Lek” oznacza najlepszy lek, którego powinien używać przy swojej umiejętności.</SK_KitsHelp>
+  <SK_ResetKits>Wróć do automatycznego</SK_ResetKits>
+  <SK_AddItem>+ Dodaj rzecz</SK_AddItem>
+  <SK_Remove>Usuń</SK_Remove>
+  <SK_CaravanKits>Karawany pakują ekwipunek</SK_CaravanKits>
+  <SK_CaravanKits_Desc>Przy tworzeniu karawany rzeczy z ekwipunku, których jej członkowie jeszcze nie mają, trafiają na listę pakowania (jeśli są w magazynie).</SK_CaravanKits_Desc>
+  <SK_CaravanHelp>Nadal możesz sam zmienić listę pakowania – ekwipunek dodaje się tylko na początku.</SK_CaravanHelp>
+  <SK_Weight>Ekwipunek może zająć do {0} % udźwigu</SK_Weight>
+  <SK_Weight_Desc>Kolonista nigdy nie bierze więcej ekwipunku niż ta część tego, co może unieść, więc nigdy nie zwalnia.</SK_Weight_Desc>
+  <SK_Distance>Iść najwyżej {0} pól po uzupełnienie</SK_Distance>
+  <SK_Distance_Desc>Dalsze rzeczy zostają na później.</SK_Distance_Desc>
+  <SK_CheckHours>Sprawdzaj pełny ekwipunek co {0} godz.</SK_CheckHours>
+  <SK_CheckHours_Desc>Mniej = szybsze uzupełnianie, trochę więcej pracy dla gry.</SK_CheckHours_Desc>
+  <SK_DropExtras>Odkładaj nadmiar w domu</SK_DropExtras>
+  <SK_DropExtras_Desc>Kolonista z większą liczbą rzeczy, niż wymaga ekwipunek (np. po zmianie roli), odkłada resztę w domu; trafia ona do magazynu.</SK_DropExtras_Desc>
+  <SK_Spare>Zapasowe rzeczy, które mogą zostać: {0}</SK_Spare>
+  <SK_Spare_Desc>Ile rzeczy ponad ekwipunek jest jeszcze w porządku (bez chodzenia tam i z powrotem).</SK_Spare_Desc>
+  <SK_ColonistsHelp>Każdy kolonista automatycznie nosi ekwipunek swojej roli. Tu możesz dać koloniście inny ekwipunek albo żaden.</SK_ColonistsHelp>
+  <SK_Mode_Auto>Automatycznie: {0}</SK_Mode_Auto>
+  <SK_Mode_AutoPlain>Automatycznie</SK_Mode_AutoPlain>
+  <SK_EveryonePack>Pakiet ratunkowy dla wszystkich</SK_EveryonePack>
+  <SK_EveryonePack_Desc>Wiersze „Wszyscy” (domyślnie posiłek i lek) nosi każdy kolonista oprócz ekwipunku swojej roli.</SK_EveryonePack_Desc>
+  <SK_CombatDrugKit>Żołnierze noszą środek bojowy</SK_CombatDrugKit>
+  <SK_CombatDrugKit_Desc>Używany przez regułę środków bojowych apteki: raz na walkę, nigdy z ryzykiem uzależnienia.</SK_CombatDrugKit_Desc>
+  <SK_Slaves>Niewolnicy też noszą ekwipunek</SK_Slaves>
+  <SK_RolesOn>Steward – Roles jest włączony: ekwipunek idzie za rolami, które dałeś kolonistom.</SK_RolesOn>
+  <SK_RolesOff>Steward – Roles jest wyłączony: ekwipunek kolonisty idzie za jego najlepszą umiejętnością (lekarz, myśliwy, budowniczy, kucharz). Ekwipunek żołnierza wymaga Steward – Roles lub wyboru w zakładce Koloniści.</SK_RolesOff>
+  <SK_OldPharmacy>Stary mod Auto Pharmacy jest wciąż włączony – działa jego apteka, a ta w Steward – Kit zostaje wyłączona. Wyłącz Auto Pharmacy na liście modów (ustawienia zostaną przejęte).</SK_OldPharmacy>
+  <SK_SelfDose>Koloniści sami biorą leki</SK_SelfDose>
+  <SK_SelfDose_Desc>Kolonista, który potrzebuje leku, bierze go sam w ramach pracy podstawowej – nie musi czekać na lekarza ani mieć włączonej pracy Lekarz.</SK_SelfDose_Desc>
+  <SK_CombatHelp>Zmobilizowany wojownik z wrogami w pobliżu bierze środek bojowy ze swojego ekwipunku – raz na walkę, nigdy z ryzykiem uzależnienia. Można wyłączyć dla kolonisty jego przyciskiem.</SK_CombatHelp>
+  <SK_FamilyHelp>Planowanie rodziny: przycisk na każdym dorosłym koloniście – bez dzieci (regularna antykoncepcja) lub chcą dzieci (lek na płodność).</SK_FamilyHelp>
+  <SK_FamilyNone>Planowanie rodziny pojawi się, gdy mod doda środki antykoncepcyjne lub leki na płodność.</SK_FamilyNone>
+  <MUI_Title>Zalecane ustawienia</MUI_Title>
+  <MUI_TitleOff>Zalecane ustawienia · wył.</MUI_TitleOff>
+  <MUI_DescOn>Mod konfiguruje się sam i działa od razu. Idealny dla nowych graczy i każdego, kto nie chce niczego zmieniać.</MUI_DescOn>
+  <MUI_DescOff>Własne ustawienia. Zmienione względem zalecanych: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Własne ustawienia. Nadal takie same jak zalecane.</MUI_DescOffSame>
+  <MUI_On>WŁ.</MUI_On>
+  <MUI_Off>WYŁ.</MUI_Off>
+  <MUI_ResetAll>Przywróć wszystko do zalecanych</MUI_ResetAll>
+  <MUI_ConfirmOn>Włączyć zalecane ustawienia? Twoje zmiany ({0}) zostaną zastąpione zalecanymi wartościami.</MUI_ConfirmOn>
+  <MUI_Locked>Szczegółowe ustawienia są zablokowane. Chcesz je zmienić? Wyłącz przełącznik powyżej – Twoje wartości zaczną od zalecanych.</MUI_Locked>
+  <MUI_Changed>ZMIENIONO</MUI_Changed>
+  <MUI_ChangedTip>Różni się od zalecanego ustawienia ({0}). Kliknij, aby przywrócić zalecaną wartość.</MUI_ChangedTip>
+  <MUI_Yes>wł.</MUI_Yes>
+  <MUI_No>wył.</MUI_No>
+  <MUI_RecTag>ZALECANE</MUI_RecTag>
+  <SK_Role_Miner>Górnik</SK_Role_Miner>
+  <SK_Role_Farmer>Rolnik</SK_Role_Farmer>
+  <SK_Role_Crafter>Rzemieślnik</SK_Role_Crafter>
+  <SK_Role_Researcher>Badacz</SK_Role_Researcher>
+  <SK_Role_Handler>Opiekun zwierząt</SK_Role_Handler>
+  <SK_Role_Warden>Strażnik</SK_Role_Warden>
+  <SK_Item_FirstAid>Pierwsza pomoc (bandaże, apteczki z modów)</SK_Item_FirstAid>
+  <SK_Item_PainDrug>Lek na ból / utratę krwi (nieuzależniający)</SK_Item_PainDrug>
+  <SK_Item_Kibble>Karma (dla zwierząt)</SK_Item_Kibble>
+  <SK_Totals>Cała kolonia:</SK_Totals>
+  <SK_NewDefaults>Istnieje nowszy, większy automatyczny ekwipunek – naciśnij przycisk, aby go użyć.</SK_NewDefaults>
+</LanguageData>

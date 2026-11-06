@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AP_Enabled>Los médicos dan remedios por su cuenta</AP_Enabled>
+  <AP_Enabled_Desc>Los médicos (trabajo de Médico) dan a los colonos el remedio que les ayuda, según la gravedad del problema.</AP_Enabled_Desc>
+  <AP_Notify>Mensaje al dar un remedio</AP_Notify>
+  <AP_Notify_Desc>Un mensaje corto: quién dio qué a quién y por qué.</AP_Notify_Desc>
+  <AP_Prisoners>También a prisioneros</AP_Prisoners>
+  <AP_Prisoners_Desc>Dar remedios también a los prisioneros.</AP_Prisoners_Desc>
+  <AP_UseMood>Remedios de ánimo antes de una crisis</AP_UseMood>
+  <AP_UseMood_Desc>Un colono cerca de una crisis mayor recibe un remedio de ánimo. Solo un colono los lleva a la vez, los demás siguen trabajando.</AP_UseMood_Desc>
+  <AP_UseRest>Estimulantes cuando está agotado</AP_UseRest>
+  <AP_UseRest_Desc>Un colono al borde del agotamiento que no duerme recibe un estimulante.</AP_UseRest_Desc>
+  <AP_PainFrom>Analgésicos desde un dolor de: {0} %</AP_PainFrom>
+  <AP_PainFrom_Desc>Desde cuánto dolor se da un analgésico. Más dolor = remedio más fuerte.</AP_PainFrom_Desc>
+  <AP_MinHours>Mismo remedio otra vez tras: {0} h</AP_MinHours>
+  <AP_MinHours_Desc>Para remedios sin efecto duradero: cuánto esperar antes de dar el mismo otra vez. Los remedios con efecto duradero no se dan mientras dura.</AP_MinHours_Desc>
+  <AP_Addictive_Label>Remedios adictivos</AP_Addictive_Label>
+  <AP_AddictiveMode0>nunca</AP_AddictiveMode0>
+  <AP_AddictiveMode1>solo con la vida en peligro</AP_AddictiveMode1>
+  <AP_AddictiveMode2>según la gravedad</AP_AddictiveMode2>
+  <AP_AddictiveHelp>El remedio se elige según la gravedad: uno suave y barato para problemas pequeños, el más fuerte para los graves. Un remedio cuyo efecto aún dura no se vuelve a dar.</AP_AddictiveHelp>
+  <AP_ListHead>Remedios del juego y lo que hacen ({0}). Desmarca los que los médicos no deben usar:</AP_ListHead>
+  <AP_Cures>cura: {0}</AP_Cures>
+  <AP_Addictive>adictivo {0} %</AP_Addictive>
+  <AP_Given>{0} dio {1} → {2} ({3})</AP_Given>
+  <AP_Need_Pain>dolor</AP_Need_Pain>
+  <AP_Need_Immunity>inmunidad</AP_Need_Immunity>
+  <AP_Need_Cure>curación</AP_Need_Cure>
+  <AP_Need_Bleeding>sangrado</AP_Need_Bleeding>
+  <AP_Need_BloodLoss>pérdida de sangre</AP_Need_BloodLoss>
+  <AP_Need_Consciousness>consciencia</AP_Need_Consciousness>
+  <AP_Need_Breathing>respiración</AP_Need_Breathing>
+  <AP_Need_BloodPumping>bombeo de sangre</AP_Need_BloodPumping>
+  <AP_Need_BloodFiltration>filtración de sangre</AP_Need_BloodFiltration>
+  <AP_Need_Moving>movimiento</AP_Need_Moving>
+  <AP_Need_Rest>cansancio</AP_Need_Rest>
+  <AP_Need_Mood>ánimo</AP_Need_Mood>
+  <AP_Need_Critical>vida en peligro</AP_Need_Critical>
+  <AP_AutoCare>Nivel de atención médica según la gravedad</AP_AutoCare>
+  <AP_AutoCare_Desc>Vendas y medicina para tratar: hierbas para heridas pequeñas, medicina industrial para enfermedades y heridas mayores, la mejor con la vida en peligro. Los colonos en «sin atención» no se tocan.</AP_AutoCare_Desc>
+  <AP_CarePharmacist>El nivel de atención médica (vendas, medicina) lo gestiona Pharmacist.</AP_CarePharmacist>
+  <AP_CombatDrugs>Drogas de combate para combatientes</AP_CombatDrugs>
+  <AP_CombatDrugs_Desc>Un colono reclutado con enemigos cerca toma una droga de combate (Go-juice, Wake-up…) – de su inventario, o de un montón a pocos pasos si no hay enemigos cerca. Nunca con riesgo de adicción, nunca dos veces en el tiempo fijado, no para abstemios, niños ni contra su ideología. Se apaga por colono con un botón.</AP_CombatDrugs_Desc>
+  <AP_CombatHours>Como mucho una dosis cada {0} h</AP_CombatHours>
+  <AP_CombatHours_Desc>Cuánto espera un colono antes de tomar otra droga de combate.</AP_CombatHours_Desc>
+  <AP_CombatTaken>{0} tomó {1} antes del combate.</AP_CombatTaken>
+  <AP_CombatGizmo>Drogas de combate</AP_CombatGizmo>
+  <AP_CombatGizmo_Desc>Activado: este colono toma una droga de combate en combate cuando es seguro (sin riesgo de adicción).\nDesactivado: este colono nunca lo hace.</AP_CombatGizmo_Desc>
+  <AP_Rec1>Los médicos dan el remedio adecuado según la gravedad</AP_Rec1>
+  <AP_Rec2>Remedios adictivos solo con la vida en peligro</AP_Rec2>
+  <AP_Rec3>Los combatientes usan drogas de combate con sensatez</AP_Rec3>
+  <AP_Rec4>Nivel de atención según las heridas</AP_Rec4>
+  <AP_Need_Manipulation>manos</AP_Need_Manipulation>
+  <AP_Need_Sight>vista</AP_Need_Sight>
+  <AP_Need_Prevention>prevención</AP_Need_Prevention>
+  <AP_Need_Contraception>anticoncepción</AP_Need_Contraception>
+  <AP_Need_Fertility>fertilidad</AP_Need_Fertility>
+  <AP_UsePrevention>Prevención para todos</AP_UsePrevention>
+  <AP_UsePrevention_Desc>Los remedios que protegen de enfermedades (penoxiciclina y similares) se dan con regularidad, un poco antes de que se acabe la última dosis.</AP_UsePrevention_Desc>
+  <AP_UseChronic>Ayuda con problemas duraderos</AP_UseChronic>
+  <AP_UseChronic_Desc>Para una espalda mala, cataratas, fragilidad o heridas viejas: un remedio que ayuda al movimiento, las manos o la vista.</AP_UseChronic_Desc>
+  <AP_Plan0>Hijos: sin plan</AP_Plan0>
+  <AP_Plan1>Hijos: no (anticoncepción)</AP_Plan1>
+  <AP_Plan2>Hijos: deseados (fertilidad)</AP_Plan2>
+  <AP_Plan_Desc>Haz clic para cambiar. No: un médico da anticonceptivo con regularidad. Deseados: un remedio de fertilidad si existe. Solo adultos (18+), nunca durante el embarazo.</AP_Plan_Desc>
+  <AP_Need_Addiction>dosis de adicción</AP_Need_Addiction>
+  <AP_Need_Hemogen>hemógeno</AP_Need_Hemogen>
+  <AP_Addictions>Mantener las adicciones cubiertas</AP_Addictions>
+  <AP_Addictions_Desc>Un colono adicto recibe su droga antes de que empiece la abstinencia – el luciferio pronto y siempre (una dosis perdida mata o vuelve loco). Vale incluso para abstemios y contra la ideología, como el propio juego permite en una dependencia.</AP_Addictions_Desc>
+  <AP_MoodEarly>Ánimo: ayudar antes de una crisis</AP_MoodEarly>
+  <AP_MoodEarly_Desc>Un remedio suave y no adictivo (té, cerveza …) ya cuando el ánimo se acerca al umbral de crisis menor – no solo cuando empeora.</AP_MoodEarly_Desc>
+  <AP_DoctorCarry>Los médicos llevan remedios comunes</AP_DoctorCarry>
+  <AP_DoctorCarry_Desc>Un médico toma de un almacén dos dosis de los remedios que más se dan (solo seguros: no adictivos, sin sobredosis), para no ir al almacén cada vez.</AP_DoctorCarry_Desc>
+  <AP_WarnMissing>Mensaje cuando falta un remedio</AP_WarnMissing>
+  <AP_WarnMissing_Desc>Cuando un colono necesita un remedio que la colonia no tiene (o que nadie alcanza), un mensaje corto – como mucho una vez al día por remedio. No se pide nada solo.</AP_WarnMissing_Desc>
+  <AP_Missing>Auto Pharmacy: se necesita {0} ({1}) pero no hay ninguno al alcance.</AP_Missing>
+  <AP_Search>Buscar remedios…</AP_Search>
+  <AP_HistoryButton>Historial ({0})</AP_HistoryButton>
+  <AP_HistoryTitle>Remedios dados – los últimos 60</AP_HistoryTitle>
+  <AP_HistoryEmpty>Aún no se ha dado nada en esta partida.</AP_HistoryEmpty>
+  <AP_Need_Healing>curación más rápida</AP_Need_Healing>
+  <AP_CareGroups>Medicina máxima por grupo:</AP_CareGroups>
+  <AP_CareGroups_Desc>El nivel de atención de arriba nunca sube de esto para el grupo. «Sin gestionar» deja el nivel del grupo como lo pusiste.</AP_CareGroups_Desc>
+  <AP_CareColonists>Colonos</AP_CareColonists>
+  <AP_CareSlaves>Esclavos</AP_CareSlaves>
+  <AP_CarePrisoners>Prisioneros</AP_CarePrisoners>
+  <AP_CareGuests>Invitados</AP_CareGuests>
+  <AP_CareAnimals>Animales</AP_CareAnimals>
+  <AP_CareOff>Sin gestionar</AP_CareOff>
+</LanguageData>

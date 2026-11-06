@@ -1,4 +1,13 @@
 === Not on the Workshop yet (test versions) ===
+1.0.0
+- First Workshop release: kits by role for every colonist (doctors, hunters, builders, soldiers, cooks, haulers, miners, farmers, crafters, researchers, handlers, wardens, emergency pack), refilled from storage nearby within a weight limit, packed by caravans.
+- První vydání na Workshopu: výbava podle rolí pro každého kolonistu (doktoři, lovci, stavitelé, vojáci, kuchaři, nosiči, horníci, farmáři, řemeslníci, výzkumníci, chovatelé, dozorci, nouzový balíček), doplňovaná ze skladu poblíž v limitu váhy, karavany si ji sbalí.
+- The whole Auto Pharmacy built in: doctors give the right drug by how serious it is, colonists take their own medicine, combat drugs once per fight, prevention, family plan, care level by injuries.
+- Celá Auto Pharmacy uvnitř: doktoři podají správný lék podle závažnosti, kolonisté si léky berou sami, bojové drogy jednou za boj, prevence, plánování rodiny, úroveň péče podle zranění.
+- 12 languages.
+- 12 jazyků.
+
+=== Development history before the first Workshop release ===
 0.2.4
 - Fix: colonists no longer freeze for a while out of the blue – the pharmacy's 'give a drug' job had lost its definition when the pharmacy was merged into the kit, so every such job was empty and the colonist stood still until it was reset.
 - Oprava: kolonisté už najednou nezamrzají na místě – úkol lékárny „podat lék“ při sloučení lékárny do kitu ztratil svoji definici, každý takový úkol byl prázdný a kolonista stál, dokud se nevynuloval.
@@ -24,3 +33,4 @@
 0.1.0
 - First version: kits by role (doctor, hunter, builder, soldier, cook, hauler, emergency pack) filled in automatically and editable; refill from storage nearby with a weight limit; extras dropped at home; caravans pack the kits; per-colonist kit or none; the whole Auto Pharmacy 1.4.4 built in (its settings taken over), colonists also take their own medicine without Doctor work; settings in ten tabs.
 - První verze: výbava podle rolí (doktor, lovec, stavitel, voják, kuchař, nosič, nouzový balíček) vyplněná automaticky a upravitelná; doplňování ze skladu poblíž s limitem váhy; přebytky se odloží doma; karavany si sbalí výbavu; u kolonisty jiná výbava nebo žádná; celá Auto Pharmacy 1.4.4 uvnitř (nastavení se převezme), kolonisté si léky berou i sami bez práce Lékař; nastavení v deseti záložkách.
+
