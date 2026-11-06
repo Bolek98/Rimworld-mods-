@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+0.2.2
+- Fix: duplicate animal entries in biomes are cleaned once at startup. A stale arrival time can no longer block new arrivals. When no animal comes, the reason is written to the log (Player.log, '[Wild Animals]': map full, no animal fits now, no free map edge).
+- Oprava: dvojitá zvířata v biomech se při startu jednou vyčistí. Starý čas posledního příchodu už nemůže zablokovat další příchody. Když žádné zvíře nepřijde, důvod se zapíše do logu (Player.log, '[Wild Animals]': mapa plná, teď se nehodí žádné zvíře, není volný okraj mapy).
+
 0.2.1
 - Fix: when a mod lists an animal twice in a biome (e.g. RG_Dodo), the game could not pick any animal there any more – no wild animals arrived at all, also with the game's own spawning. The biome list is now read without the crash (written once to the log).
 - Oprava: když mod uvede v biomu jedno zvíře dvakrát (např. RG_Dodo), hra tam už nedokázala vybrat žádné zvíře – nepřišla vůbec žádná divoká zvířata, ani při spawnu podle hry. Seznam biomu se teď načte bez pádu (jednou se zapíše do logu).

@@ -57,7 +57,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Trader Hotline – Call the Trader You Want | 0.3.1 | [TraderHotline](TraderHotline) |
 | [B98] Universal RimTranslator – Auto-Translate All Your Mods | 1.2.2 | [UniversalRimTranslator](UniversalRimTranslator) |
 | [B98] Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.2 | [UnofficialPatch](UnofficialPatch) |
-| [B98] Wild Animals – Biome Spawn Control | 0.2.1 | [WildAnimals](WildAnimals) |
+| [B98] Wild Animals – Biome Spawn Control | 0.2.2 | [WildAnimals](WildAnimals) |
 | [B98] Wild Spawn Zone | 1.1.3 | [WildSpawnZone](WildSpawnZone) |
 | [B98] World at Your Level – Raiders, Factions & Threats Match Your Tech | 2.17.0 | [WorldAtYourLevel](WorldAtYourLevel) |
 

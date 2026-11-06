@@ -70,7 +70,7 @@ namespace WildAnimals
     // ------------------------------------------------------------------
     public static class WA
     {
-        public const string Version = "0.2.1";
+        public const string Version = "0.2.2";
         public const float BaseCells = 62500f;   // 250 × 250
         public static WASettings S => WildAnimalsMod.Settings;
 
@@ -109,6 +109,21 @@ namespace WildAnimals
         public static bool PetsOn => WildAnimalsMod.Settings != null && WildAnimalsMod.Settings.includePets;
         public static bool IsPet(PawnKindDef k) => k?.race?.race != null && k.RaceProps.Animal && Wildness(k) <= 0f;
         public static void ResetAnimals() { allAnimals = null; }
+
+        // 0.2.2: why no animal came – one line per map and reason, at most every 6 in-game hours, in Player.log
+        private static readonly Dictionary<string, int> whyAt = new Dictionary<string, int>();
+        public static void Why(Map map, string text)
+        {
+            try
+            {
+                string key = map.uniqueID + "|" + text.Split(':')[0];
+                int now = Find.TickManager.TicksGame;
+                if (whyAt.TryGetValue(key, out int t) && now - t < 15000) return;
+                whyAt[key] = now;
+                Verse.Log.Message("[Wild Animals] " + map.Biome.defName + " (map " + map.uniqueID + "): " + text);
+            }
+            catch { }
+        }
 
         public static float Wildness(PawnKindDef k) { try { return k.race.GetStatValueAbstract(StatDefOf.Wildness); } catch { return 1f; } }
 
@@ -563,15 +578,22 @@ namespace WildAnimals
             try
             {
                 WA.MapLog log = WA.Log(___map);
+                if (log.lastArrival > now) log.lastArrival = 0;      // 0.2.2: a stamp from another save/game must not block for ever
                 if (now - log.lastArrival < WA.Ticks) return false;
-                if (WA.WildOn(___map).Count >= WA.Target(___map)) return false;
+                int have = WA.WildOn(___map).Count, want = WA.Target(___map);
+                if (have >= want) { WA.Why(___map, "full: " + have + " wild animals, target " + want); return false; }
                 Map map = ___map;
                 if (RCellFinder.TryFindRandomPawnEntryCell(out IntVec3 cell, map, CellFinder.EdgeRoadChance_Animal, true,
                     c => map.reachability.CanReachMapEdge(c, TraverseParms.For(TraverseMode.NoPassClosedDoors).WithFenceblocked(true))))
                 {
                     if (__instance.SpawnRandomWildAnimalAt(cell, true))
+                    {
                         log.lastArrival = now;
+                        WA.Why(___map, "arrived (" + have + " → target " + want + ")");
+                    }
+                    else WA.Why(___map, "no animal fits now (season, temperature, caps, list) – " + have + " wild, target " + want);
                 }
+                else WA.Why(___map, "no free map edge to enter from");
             }
             catch (Exception e) { Log.ErrorOnce("[Wild Animals] tick: " + e, 0x3A1D11); }
             return false;
@@ -746,6 +768,38 @@ namespace WildAnimals
     // adding RG_Dodo to a biome that already has it) makes the game's commonality cache throw "same key" every time.
     // Then BiomeDef.AllWildAnimals breaks and NO animal of that biome can arrive – also with the game's own spawning.
     // Build the cache ourselves without the crash (first entry wins); the game then just reads it.
+    // 0.2.2: also clean the data itself once at startup (like Choose Wild Animal Spawns does): every animal at most
+    // once per biome – the game's own lists (AllWildAnimals, coastal, pollution) then never meet a duplicate.
+    [StaticConstructorOnStartup]
+    public static class BiomeDedupe
+    {
+        static BiomeDedupe()
+        {
+            try
+            {
+                int removed = 0;
+                foreach (BiomeDef b in DefDatabase<BiomeDef>.AllDefsListForReading)
+                {
+                    var seen = new HashSet<PawnKindDef>();
+                    var l = Traverse.Create(b).Field("wildAnimals").GetValue<List<BiomeAnimalRecord>>();
+                    if (l != null) removed += l.RemoveAll(r => r == null || r.animal == null || !seen.Add(r.animal));
+                }
+                foreach (PawnKindDef k in DefDatabase<PawnKindDef>.AllDefsListForReading)
+                {
+                    List<AnimalBiomeRecord> wb = k?.race?.race?.wildBiomes;
+                    if (wb == null) continue;
+                    var seenB = new HashSet<BiomeDef>();
+                    // the same biome twice in one race's list (an overlap with the biome's own list is handled by the cache patch)
+                    removed += wb.RemoveAll(r => r == null || r.biome == null || !seenB.Add(r.biome));
+                }
+                foreach (BiomeDef b in DefDatabase<BiomeDef>.AllDefsListForReading)
+                    Traverse.Create(b).Field("cachedAnimalCommonalities").SetValue(null);
+                if (removed > 0) Verse.Log.Message("[Wild Animals] removed " + removed + " duplicate animal entries from biomes (a mod listed them twice).");
+            }
+            catch (Exception e) { Verse.Log.Warning("[Wild Animals] biome dedupe: " + e.Message); }
+        }
+    }
+
     [HarmonyPatch(typeof(BiomeDef), nameof(BiomeDef.CommonalityOfAnimal))]
     public static class Patch_BiomeCache
     {
