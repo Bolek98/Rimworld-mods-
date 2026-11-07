@@ -189,7 +189,9 @@ public sealed partial class SupplyManager
 			{
 				if (ours)
 				{
-					if (!isOn && !power)
+					// 1.1.3: also when power management takes the drill over – it never switched it off,
+					// so it would treat it as off by the player and leave it off for good
+					if (!isOn)
 						SetSwitch(b, true);
 					drillsOffByUs.Remove(b.ThingID);
 					changed++;

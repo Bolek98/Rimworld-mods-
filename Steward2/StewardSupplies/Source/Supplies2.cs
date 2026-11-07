@@ -170,11 +170,14 @@ public sealed partial class SupplyManager : MapComponent
 		IntVec3 center = ColonyStats.BaseCenter(map);
 		int n = 0;
 		var items = map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver)
-			.Where(t => t.Spawned && t.def.category == ThingCategory.Item && home[t.Position] && !ColonyStats.IsChunk(t))
+			.Where(t => t.Spawned && t.def.category == ThingCategory.Item && home[t.Position] && !ColonyStats.IsChunk(t) && !t.IsInAnyStorage())   // 1.1.3: shelves first out (cheaper)
 			.OrderBy(t => t.Position.DistanceToSquared(center)).ToList();
 		Pawn carrier = map.mapPawns.FreeColonistsSpawned.FirstOrDefault();
+		int searches = 0;
 		foreach (Thing t in items)
 		{
+			if (++searches > 300)
+				break;   // 1.1.3: big colonies – at most 300 looked at per round
 			if (t.IsInAnyStorage() || map.fogGrid.IsFogged(t.Position) || t.IsBurning())
 				continue;
 			if (dm.DesignationOn(t, DesignationDefOf.Haul) != null || ModCompat.NoHaul(t))
@@ -724,6 +727,7 @@ public sealed partial class SupplyManager : MapComponent
 		if (job != null && !job.enabled && job.kind == JobKind.Mining)
 		{
 			job.noSources = false;
+			WithdrawOwnMarks(job);   // 1.1.3: a mining target switched off takes back its marks too
 			return 0;
 		}
 		HashSet<ThingDef> products = Products(job);
@@ -732,6 +736,9 @@ public sealed partial class SupplyManager : MapComponent
 		job.lastMarked = 0;
 		job.noSources = false;
 		bool foodJob = job.kind == JobKind.Hunting || job.kind == JobKind.Foraging;
+		// 1.1.3: "nobody can hunt" is only true while hunting is wanted (it was left on after the target was met)
+		if (job.kind == JobKind.Hunting)
+			huntNoRanged = false;
 		if (!mark)
 		{
 			// 2.52.3: a job switched off takes back its own marks (before the trees were still cut)

@@ -108,6 +108,10 @@ public sealed partial class SupplyManager
 		foreach (AutoBill a in autoBills)
 			if (a?.billId != null)
 				mine.Add(a.billId);
+		// 1.1.3: the steward's own mine bills (Mines 2.0) are not adoptable either
+		foreach (string id in mineBills.Values)
+			if (id != null)
+				mine.Add(id);
 		var result = new List<(Bill_Production, Building)>();
 		foreach (Building b in Benches())
 		{

@@ -49,7 +49,12 @@ public sealed class SuppliesMod : Mod
 		StewardApi.MapExpose += SupState.Expose;
 		StewardApi.MapTick += c =>
 		{
-			if (!c.auto || Find.TickManager.TicksGame % 2500 >= 250)
+			if (Find.TickManager.TicksGame % 2500 >= 250)
+				return;
+			// 1.1.3: the "nothing can store this" alert lost its hourly call in the 2.0 split
+			try { NoStorage.Check(c.map); }
+			catch (Exception ex) { MLog.WarnOnce("[Steward] no-storage check failed: " + ex.Message, 0x5e0002); }
+			if (!c.auto)
 				return;
 			try { MasterBillsRule.MasterBills(c, c.map); }
 			catch (Exception ex) { MLog.WarnOnce("[Steward] master bills failed: " + ex.Message, 0x5e0001); }
