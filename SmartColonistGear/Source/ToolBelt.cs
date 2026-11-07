@@ -34,6 +34,18 @@ namespace ResearchedLoadout
 			}
 		}
 
+		// 2.19.3: tools are carried also with Simple Sidearms – fetched as its sidearms, it switches them itself
+		public static bool CarryTools
+		{
+			get
+			{
+				ResearchedLoadoutSettings s = S;
+				return s != null && s.enabled && s.toolBelt && s.toolsNotWeapons && s.workClothing && s.gearBeforeWork;
+			}
+		}
+
+		public static int PocketToolCount(Pawn p) => PocketTools(p).Count();
+
 		private static int Now => Find.TickManager?.TicksGame ?? 0;
 
 		public static void ResetGameState() { holds.Clear(); lastSwap.Clear(); }
@@ -52,7 +64,7 @@ namespace ResearchedLoadout
 		public static bool IsTool(Thing t) => t?.def != null && LoadoutFilter.ToolNotWeapon(t.def);
 
 		// carried tools do not count as weapons for the sidearm limits (they would be dropped as extra weapons)
-		public static bool IgnoreInInventory(ThingDef d) => d != null && On && LoadoutFilter.ToolNotWeapon(d);
+		public static bool IgnoreInInventory(ThingDef d) => d != null && CarryTools && LoadoutFilter.ToolNotWeapon(d);
 
 		// he works with a tool from the pockets right now (the real weapon waits in the inventory)
 		public static bool Working(Pawn p) => p != null && holds.TryGetValue(p.thingIDNumber, out Hold h) && h.weapon >= 0 && IsTool(p.equipment?.Primary);

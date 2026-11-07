@@ -189,6 +189,38 @@ namespace ResearchedLoadout
 				Job fetch = ToolBelt.FetchJob(p, map, sk, maxDist);
 				if (fetch != null) return fetch;
 			}
+			if (SidearmsCompat.Present && held != null)
+			{
+				// 2.19.3: with Simple Sidearms the tool goes into the pockets as its sidearm – Simple Sidearms
+				// switches to it for the work itself. Before, colonists with a weapon never got any tool.
+				if (!ToolBelt.CarryTools || ToolBelt.PocketTool(p, sk) != null || ToolBelt.PocketToolCount(p) >= 2) return null;
+				if (LoadoutFilter.ToolNotWeapon(held.def) && Specialization.SkillGain(held.def, sk) > 0.02f) return null;   // the right tool is in hand already
+				JobDef second = SidearmsCompat.EquipSecondaryJob;
+				if (second == null) return null;
+				Thing pick = null;
+				float pickScore = 0.03f;
+				foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.Weapon))
+				{
+					if (t == null || !t.Spawned || t.def == null || !LoadoutFilter.ToolNotWeapon(t.def)) continue;
+					float gain = Specialization.SkillGain(t.def, sk);
+					if (gain <= 0.02f) continue;
+					float dist = (t.Position - p.Position).LengthHorizontal;
+					if (dist > maxDist) continue;
+					float score = gain - dist * 0.0005f;
+					if (score <= pickScore) continue;
+					if (t.IsForbidden(p) || t.IsBurning()) continue;
+					if (t.def.useHitPoints && (float)t.HitPoints / t.MaxHitPoints < 0.4f) continue;
+					if (!EquipmentUtility.CanEquip(t, p) || !SidearmsCompat.CanPickup(p, t)) continue;
+					if (!p.CanReserveAndReach(t, PathEndMode.ClosestTouch, Danger.Some)) continue;
+					pick = t;
+					pickScore = score;
+				}
+				if (pick == null) return null;
+				Job take = JobMaker.MakeJob(second, pick);
+				take.count = 1;
+				GearWhy.TagJob(take, GearWhy.Reason("RL_WhyToolPocket", sk.label));
+				return take;
+			}
 			float have = 0f;
 			if (held != null)
 			{
@@ -196,7 +228,6 @@ namespace ResearchedLoadout
 				if (!LoadoutFilter.ToolNotWeapon(held.def)) return null;
 				have = Specialization.SkillGain(held.def, sk);
 			}
-			if (SidearmsCompat.Present && held != null) return null;
 			Thing best = null;
 			float bestScore = have + 0.01f;
 			foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.Weapon))

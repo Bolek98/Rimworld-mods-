@@ -6575,6 +6575,9 @@ namespace ResearchedLoadout
 						sb.AppendLine("  best weapon: " + (bw?.def?.defName ?? "none") + (bw != null ? " upgrade=" + IsUpgrade(p, prim, bw, true) : ""));
 					}
 					catch (Exception ex) { sb.AppendLine("  best weapon: error " + ex.Message); }
+					// 2.19.3: why no sidearm (and no tool)
+					try { sb.AppendLine("  sidearms: " + SidearmReport(p, prim, now, settings)); }
+					catch (Exception ex) { sb.AppendLine("  sidearms: error " + ex.Message); }
 					sb.AppendLine("  wearing: " + string.Join(", ", p.apparel?.WornApparel?.ConvertAll(a => a.def.defName).ToArray() ?? new string[0]));
 					try
 					{
@@ -7288,6 +7291,30 @@ namespace ResearchedLoadout
 			RL.NotifySidearm(pawn, thing);
 			RememberOrder(pawn, thing, now);
 			return true;
+		}
+
+		private string SidearmReport(Pawn p, Thing prim, int now, ResearchedLoadoutSettings s)
+		{
+			var b = new System.Text.StringBuilder();
+			var carried = System.Linq.Enumerable.ToList(System.Linq.Enumerable.Select(System.Linq.Enumerable.Where(p.inventory?.innerContainer?.InnerListForReading ?? new List<Thing>(), t => t?.def != null && t.def.IsWeapon), t => t.def.defName + (ToolBelt.IgnoreInInventory(t.def) ? "(tool)" : "")));
+			b.Append("carried=[" + string.Join(",", carried) + "]");
+			b.Append(" autoSidearm=" + s.autoEquipSidearm + " SS=" + SidearmsCompat.Present + (SidearmsCompat.Present ? " SSactive=" + SidearmsCompat.Active : ""));
+			bool violent = !p.WorkTagIsDisabled(WorkTags.Violent) && (!p.IsSlave || s.armSlaves);
+			b.Append(" violent=" + violent + " calmTimer=" + WeaponCalmTimer(p, prim, now) + " chosen=" + (prim != null && IsPlayerChosen(prim)));
+			if (prim == null)
+				return b.Append(" | no weapon in hand -> no sidearm").ToString();
+			bool pref = PrefersRanged(p, prim);
+			bool other = !pref;
+			b.Append(" | other kind=" + (other ? "ranged" : "melee") + " skillOk=" + SidearmSkillOk(p, other) + " brawler=" + IsBrawler(p));
+			b.Append(" count ranged " + CountKind(p, true) + "/" + MaxKind(true) + " melee " + CountKind(p, false) + "/" + MaxKind(false) + " total " + CountWeapons(p) + "/" + CarryRuleFor(p).maxWeapons);
+			Thing best = FindBestWeapon(p, other, false);
+			b.Append(" | best " + (other ? "ranged" : "melee") + ": " + (best?.def?.defName ?? "none"));
+			if (best != null && SidearmsCompat.Present)
+				b.Append(" SS says: " + (SidearmsCompat.CanPickupWhy(p, best) ?? "ok"));
+			if (best != null && !SidearmsCompat.Present)
+				b.Append(" fitsMass=" + FitsCarryMass(p, best, CarryRuleFor(p)));
+			b.Append(" | tools in pockets " + ToolBelt.PocketToolCount(p) + " carryTools=" + ToolBelt.CarryTools);
+			return b.ToString();
 		}
 
 		private static bool SidearmSkillOk(Pawn pawn, bool ranged)
@@ -11611,6 +11638,23 @@ namespace ResearchedLoadout
 			catch
 			{
 				return null;
+			}
+		}
+
+		// 2.19.3: Simple Sidearms' own reason why a weapon can't be taken (for the report)
+		public static string CanPickupWhy(Pawn pawn, Thing weapon)
+		{
+			Init();
+			if (_canPickup == null || !(weapon is ThingWithComps twc) || pawn == null)
+				return "n/a";
+			try
+			{
+				object[] parameters = new object[3] { twc, pawn, null };
+				return (bool)_canPickup.Invoke(null, parameters) ? null : (parameters[2] as string ?? "no");
+			}
+			catch (Exception e)
+			{
+				return "error " + e.Message;
 			}
 		}
 
