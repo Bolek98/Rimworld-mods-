@@ -53,4 +53,46 @@
   <CF2S_Messages>Zprávy o rozvrhu a náladě</CF2S_Messages>
   <CF2S_Quiet>Méně zpráv vlevo nahoře</CF2S_Quiet>
   <CF2S_QuietTip>Běžná oznámení (i jiných modů) se neukazují, jen se uloží do historie zpráv. Hrozby a důležité zprávy zůstávají.</CF2S_QuietTip>
+  <CF2S_Kind_W>Pracovní den</CF2S_Kind_W>
+  <CF2S_Kind_N>Noční směna</CF2S_Kind_N>
+  <CF2S_Kind_O>Volno</CF2S_Kind_O>
+  <CF2S_Kind_H>Svátek</CF2S_Kind_H>
+  <CF2S_Kind_R>Zotavení</CF2S_Kind_R>
+  <CF2S_KindShort_W>P</CF2S_KindShort_W>
+  <CF2S_KindShort_N>N</CF2S_KindShort_N>
+  <CF2S_KindShort_O>V</CF2S_KindShort_O>
+  <CF2S_KindShort_H>S</CF2S_KindShort_H>
+  <CF2S_KindShort_R>Z</CF2S_KindShort_R>
+  <CF2S_CycleDefault>Podle kolonie</CF2S_CycleDefault>
+  <CF2S_Cycle_Classic>Klasika – práce každý den</CF2S_Cycle_Classic>
+  <CF2S_Cycle_5_2>5 práce + 2 volno</CF2S_Cycle_5_2>
+  <CF2S_Cycle_6_1>6 práce + 1 volno</CF2S_Cycle_6_1>
+  <CF2S_Cycle_2_2>2 práce + 2 volno</CF2S_Cycle_2_2>
+  <CF2S_Cycle_Shifts>Směny: 2 denní, 2 noční, 4 volno</CF2S_Cycle_Shifts>
+  <CF2S_Cycle_Custom>Vlastní cyklus</CF2S_Cycle_Custom>
+  <CF2S_SrcManual>Nastaveno tebou v kalendáři.</CF2S_SrcManual>
+  <CF2S_SrcHoliday>Svátek kolonie.</CF2S_SrcHoliday>
+  <CF2S_SrcRecovery>Zotavení po útoku.</CF2S_SrcRecovery>
+  <CF2S_SrcClassic>Klasický plán (práce každý den, noční směna podle nastavení).</CF2S_SrcClassic>
+  <CF2S_SrcCycle>Podle cyklu: {0}.</CF2S_SrcCycle>
+  <CF2S_RecoveryMsg>Po útoku mají tito kolonisté zítra volno na zotavenou: {0}.</CF2S_RecoveryMsg>
+  <CF2S_CalNoMap>Nejdřív otevři mapu.</CF2S_CalNoMap>
+  <CF2S_CalTitle>Kalendář</CF2S_CalTitle>
+  <CF2S_CalButton>Kalendář</CF2S_CalButton>
+  <CF2S_CalColony>Cyklus kolonie:</CF2S_CalColony>
+  <CF2S_CalAutoHoliday>Svátek 1. den každého čtvrtletí</CF2S_CalAutoHoliday>
+  <CF2S_CalAutoHolidayTip>Celá kolonie má první den každého čtvrtletí volno (nouzové práce se dělají dál).</CF2S_CalAutoHolidayTip>
+  <CF2S_CalRecovery>Den na zotavenou po útoku</CF2S_CalRecovery>
+  <CF2S_CalRecoveryTip>Po útoku, který trval aspoň hodinu, mají kolonisté, kteří bojovali nebo byli zranění, další den na odpočinek.</CF2S_CalRecoveryTip>
+  <CF2S_CalCustom>Vlastní cyklus:</CF2S_CalCustom>
+  <CF2S_CalCustomHint>Písmena P (práce), N (noc) a V (volno), až 28 dní – třeba PPPPNNVV.</CF2S_CalCustomHint>
+  <CF2S_CalOff>Automatický rozvrh nebo Steward jsou na této mapě vypnuté – kalendář se ukazuje, ale nepoužívá.</CF2S_CalOff>
+  <CF2S_CalHolidayOn>Klik: svátek pro celou kolonii v tento den.</CF2S_CalHolidayOn>
+  <CF2S_CalHolidayOff>Klik: zrušit svátek v tento den.</CF2S_CalHolidayOff>
+  <CF2S_CalManualSched>Tomuto kolonistovi jsi rozvrh namaloval sám – Steward ho nechává být, kalendář ho nemění.</CF2S_CalManualSched>
+  <CF2S_CalShift>Posunout cyklus o den</CF2S_CalShift>
+  <CF2S_CalByPlan>Zpátky podle plánu</CF2S_CalByPlan>
+  <CF2S_CalFoot>Klik na den ho změní, na datum udělá svátek pro všechny, tlačítko vedle jména dá kolonistovi jiný cyklus. Nouzové práce (oheň, ošetřování, záchrana) se dělají každý den.</CF2S_CalFoot>
+  <CF2S_MealHours>Hodiny jídla v automatickém rozvrhu</CF2S_MealHours>
+  <CF2S_MealHoursTip>Oranžové hodiny „jídlo“: snídaně po probuzení, oběd v poledne a večeře před zábavou. Kolonisté se v nich najedí, když nejsou sytí, jinak pokračují jako v „cokoli“. Hodiny jídla si můžeš namalovat i sám v záložce Rozvrh.</CF2S_MealHoursTip>
 </LanguageData>
