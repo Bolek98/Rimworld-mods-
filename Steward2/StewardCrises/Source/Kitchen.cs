@@ -49,7 +49,7 @@ public static class ButcherFirstPatch
 				int f = i;
 				for (int j = i - 1; j >= 0; j--)
 				{
-					if (src[j].def.workType != src[i].def.workType)
+					if (src[j].def.workType != src[i].def.workType && WorkMatch.Base(src[j].def.workType) != WorkMatch.Base(src[i].def.workType))   // 1.1.1: Work Split butchering
 						break;
 					f = j;
 				}

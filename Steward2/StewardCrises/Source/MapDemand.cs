@@ -39,6 +39,17 @@ public sealed class MapDemand
 		return mapDemand;
 	}
 
+	// 1.1.1: auto focus needs ripe fields and waiting bills too (it got no demand at all, so Farming and
+	// Production could never win)
+	public static MapDemand ForFocus(Map map)
+	{
+		MapDemand d = Quick(map, 0);
+		d.harvestable = CountGrowing(map, out _);
+		foreach (var kv in CountBills(map))
+			d.byType[kv.Key] = new DemandInfo { factor = kv.Value / 6f };
+		return d;
+	}
+
 	private static List<DesignationDef> constructionMarkDefs;
 
 	public static int ConstructionMarks(Map map)

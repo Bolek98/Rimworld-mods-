@@ -70,9 +70,11 @@ public sealed class CrisesMod : Mod
 		StewardApi.MapExpose += CS.Expose;
 		StewardApi.MapTick += CS.Tick;
 		StewardApi.MapRemoved += CrisisRules.Forget;
+		StewardApi.MapRemoved += SafeArea.Forget;
 		StewardApi.GameStarted += () =>
 		{
 			CrisisRules.Reset();
+			SafeArea.Reset();
 			MedicalResponse.ResetGame();
 			ButcherFirstPatch.Reset();
 			Kitchen.ResetFood();
@@ -336,7 +338,7 @@ public sealed class CS
 		// Balanced picks a focus by itself
 		try
 		{
-			if (now - st.autoFocusEval >= AutoFocus.EvalInterval && AutoFocus.Update(map, comp, null, force: false))
+			if (now - st.autoFocusEval >= AutoFocus.EvalInterval && AutoFocus.Update(map, comp, MapDemand.ForFocus(map), force: false))
 				comp.RequestPlan(urgent: false);
 		}
 		catch (Exception ex)
@@ -462,6 +464,9 @@ public sealed class CrisisStep : IPlanStep
 					// re-planned by a crisis – it stays on 1 for everybody
 					WorkKind kind = WorkCatalog.Kind(w);
 					if (kind == WorkKind.Emergency || kind == WorkKind.Hidden)
+						continue;
+					// 1.1.1: rearming turrets and refuelling (Work Split parts of hauling) never wait in a crisis
+					if (kv.Value.urgency < 0f && (w.defName == "SW_Rearm" || w.defName == "SW_Refuel"))
 						continue;
 					if (kv.Value.urgency < 0f)
 					{
@@ -622,6 +627,10 @@ public static class SafeArea
 	}
 
 	private static readonly Dictionary<Map, int> lastThreat = new Dictionary<Map, int>();
+
+	public static void Forget(Map m) { if (m != null) lastThreat.Remove(m); }
+
+	public static void Reset() => lastThreat.Clear();
 
 	// 1.1.1: manhunters and other mad animals count even alone and even while they sleep
 	// (vanilla stops seeing a sleeping manhunter as a threat – the raid ended, the area was

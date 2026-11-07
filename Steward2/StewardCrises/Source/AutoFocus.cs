@@ -241,7 +241,7 @@ public static class AutoFocus
 			float over = 0f;
 			foreach (var kv in demand.byType)
 			{
-				string d = kv.Key.defName;
+				string d = WorkMatch.Base(kv.Key);
 				if (d == "Crafting" || d == "Smithing" || d == "Tailoring")
 					over += Mathf.Max(0f, kv.Value.factor - 1f);
 			}
