@@ -17,7 +17,7 @@ public static class SurgeryGuard
 	private static int cacheMin = -1;
 	private static bool cacheHasGood;
 
-	public static void Postfix(Pawn pawn, bool forced, ref Job __result)
+	public static void Postfix(WorkGiver_DoBill __instance, Pawn pawn, bool forced, ref Job __result)
 	{
 		try
 		{
@@ -32,7 +32,7 @@ public static class SurgeryGuard
 				return;
 			if (pawn.skills.GetSkill(SkillDefOf.Medicine)?.Level >= min)
 				return;
-			if (!BetterDoctorThere(pawn.Map, min))
+			if (!BetterDoctorThere(pawn.Map, min, __instance?.def?.workType ?? WorkTypeDefOf.Doctor))
 				return;
 			__result = null;
 			JobFailReason.Is("CF2_SurgeryLeft".Translate());
@@ -43,13 +43,15 @@ public static class SurgeryGuard
 		}
 	}
 
-	private static bool BetterDoctorThere(Map map, int min)
+	private static WorkTypeDef cacheWork;
+
+	// 1.1.3: the work type that really does this surgery (Work Split: its own "surgery" work)
+	private static bool BetterDoctorThere(Map map, int min, WorkTypeDef doctor)
 	{
 		int now = Find.TickManager.TicksGame;
-		if (map == cacheMap && min == cacheMin && now - cacheTick < 250)
+		if (map == cacheMap && min == cacheMin && doctor == cacheWork && now - cacheTick < 250)
 			return cacheHasGood;
 		bool good = false;
-		WorkTypeDef doctor = WorkTypeDefOf.Doctor;
 		foreach (Pawn p in map.mapPawns.FreeColonistsSpawned)
 		{
 			if (p.Downed || p.InMentalState || p.skills == null || p.workSettings == null || !p.workSettings.EverWork)
@@ -64,6 +66,7 @@ public static class SurgeryGuard
 		}
 		cacheMap = map;
 		cacheMin = min;
+		cacheWork = doctor;
 		cacheTick = now;
 		cacheHasGood = good;
 		return good;

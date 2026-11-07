@@ -11,7 +11,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "1.1.2";
+	public const string Version = "1.1.3";
 	public static ForemanSettings Settings;
 
 	private int tab;

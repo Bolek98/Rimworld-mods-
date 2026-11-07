@@ -52,6 +52,8 @@ public static class WorkMatch
 					list.Add(w);
 					continue;
 				}
+				if (Base(w) != w.defName)
+					continue;   // 1.1.3: a split part belongs only to its own parent
 				if (w.modContentPack == null || w.modContentPack.IsOfficialMod)
 					continue;
 				// 3.0.5: the shared kind of work must be a real one – "manual dumb" alone made every
