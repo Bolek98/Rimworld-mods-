@@ -1,7 +1,7 @@
 === Not on the Workshop yet (test versions) ===
 2.19.3
-- With Simple Sidearms colonists who hold a weapon now also fetch tools for their work (as Simple Sidearms sidearms – it switches to them itself); before, they never got any tool. Carried tools no longer count as extra weapons. The gear report (Report button) shows per colonist why no sidearm is taken, including Simple Sidearms' own reason.
-- Se Simple Sidearms si teď kolonisté se zbraní v ruce berou i nástroje pro svou práci (jako sidearmy Simple Sidearms – ten na ně přepíná sám); dřív nedostali žádný nástroj. Nošené nástroje se už nepočítají jako zbraně navíc. Report výbavy (tlačítko Report) ukazuje u každého kolonisty, proč si nebere vedlejší zbraň, včetně důvodu od Simple Sidearms.
+- With Simple Sidearms colonists who hold a weapon now also fetch tools for their work (as Simple Sidearms sidearms – it switches to them itself); before, they never got any tool. Carried tools no longer count as extra weapons. The gear report (Report button) shows per colonist why no sidearm is taken, including Simple Sidearms' own reason. Simple Sidearms' messages why a weapon can't be picked up ("all slots full", "too heavy" …) are no longer lost.
+- Se Simple Sidearms si teď kolonisté se zbraní v ruce berou i nástroje pro svou práci (jako sidearmy Simple Sidearms – ten na ně přepíná sám); dřív nedostali žádný nástroj. Nošené nástroje se už nepočítají jako zbraně navíc. Report výbavy (tlačítko Report) ukazuje u každého kolonisty, proč si nebere vedlejší zbraň, včetně důvodu od Simple Sidearms. Hlášky Simple Sidearms, proč zbraň nejde vzít („všechny sloty plné“, „moc těžká“ …), se už neztrácejí.
 
 2.19.2
 - Fix: colonists whose weapon you picked yourself (or with a remembered player choice) never took a sidearm – the 'player chose this weapon' calm blocked sidearms too. Now it only keeps the weapon in hand; sidearms are added as usual (still not right after a weapon change).

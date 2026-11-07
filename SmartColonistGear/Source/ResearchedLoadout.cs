@@ -11564,9 +11564,11 @@ namespace ResearchedLoadout
 			}
 		}
 
-		public static void CanPickupPostfix(object[] __args, ref bool __result)
+		// 2.19.3: named parameters instead of __args – Harmony wrote the stale __args value back into the out
+		// string, so every reason Simple Sidearms gave ("all slots full", "too heavy" …) was lost (null)
+		public static void CanPickupPostfix(ThingWithComps sidearmThing, Pawn pawn, ref string errString, ref bool __result)
 		{
-			if (!__result || __args == null)
+			if (!__result)
 			{
 				return;
 			}
@@ -11577,36 +11579,18 @@ namespace ResearchedLoadout
 				{
 					return;
 				}
-				ThingWithComps thingWithComps = null;
-				Pawn pawn = null;
-				for (int i = 0; i < __args.Length; i++)
-				{
-					if (thingWithComps == null)
-					{
-						thingWithComps = __args[i] as ThingWithComps;
-					}
-					if (pawn == null)
-					{
-						pawn = __args[i] as Pawn;
-					}
-				}
+				ThingWithComps thingWithComps = sidearmThing;
 				// 2.9.1: own limit of weapons per colonist
 				if (thingWithComps != null && pawn != null && settings.sidearmMaxTotal > 0 && LoadoutFilter.IsPlayerColonist(pawn) && !ExemptPawns.IsExempt(pawn) && !HeldBy(thingWithComps, pawn) && ResearchedLoadoutMapComponent.CountWeapons(pawn) >= settings.sidearmMaxTotal)
 				{
 					__result = false;
-					if (__args.Length > 2 && __args[2] == null)
-					{
-						__args[2] = "RL_SidearmTooMany".Translate(settings.sidearmMaxTotal).ToString();
-					}
+					errString = "RL_SidearmTooMany".Translate(settings.sidearmMaxTotal).ToString();
 					return;
 				}
-				if (thingWithComps != null && pawn != null && thingWithComps != pawn && thingWithComps.def != null && LoadoutFilter.IsPlayerColonist(pawn) && !ExemptPawns.IsExempt(pawn) && !LoadoutFilter.IsPersonaWeapon(thingWithComps) && !LoadoutFilter.IsAllowed(thingWithComps.def) && !EmergencyGear.AllowsThing(pawn, thingWithComps))
+				if (thingWithComps != null && pawn != null && thingWithComps.def != null && LoadoutFilter.IsPlayerColonist(pawn) && !ExemptPawns.IsExempt(pawn) && !LoadoutFilter.IsPersonaWeapon(thingWithComps) && !LoadoutFilter.IsAllowed(thingWithComps.def) && !EmergencyGear.AllowsThing(pawn, thingWithComps))
 				{
 					__result = false;
-					if (__args.Length > 2 && __args[2] == null)
-					{
-						__args[2] = "RL_SidearmLocked".Translate().ToString();
-					}
+					errString = "RL_SidearmLocked".Translate().ToString();
 				}
 			}
 			catch
