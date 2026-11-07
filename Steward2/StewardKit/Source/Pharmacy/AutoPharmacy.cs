@@ -795,6 +795,8 @@ public class Comp : GameComponent
 	// – only when Pharmacist is not installed, which does the same
 	public override void GameComponentTick()
 	{
+		if (!AutoPharmacyMod.Active)
+			return;   // 1.0.1: the old Auto Pharmacy mod is on – it does this itself
 		var s = AutoPharmacyMod.Settings;
 		if (s.enabled && s.warnMissing && Find.TickManager.TicksGame % 2500 == 1250)
 		{

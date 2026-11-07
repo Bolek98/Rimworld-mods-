@@ -565,6 +565,14 @@ public static class KitPatches
 	{
 		Try(h, AccessTools.Method(typeof(JobGiver_DropUnusedInventory), nameof(JobGiver_DropUnusedInventory.ShouldKeepDrugInInventory)), postfix: nameof(KeepDrug));
 		Try(h, AccessTools.Method(typeof(CaravanFormingUtility), nameof(CaravanFormingUtility.StartFormingCaravan)), prefix: nameof(CaravanPrefix));
+		// 1.0.1: the game drops raw food (pemmican, kibble) from pockets at home – kit food stays
+		Try(h, AccessTools.Method(typeof(JobGiver_DropUnusedInventory), "Drop", new[] { typeof(Pawn), typeof(Thing) }), prefix: nameof(KeepKitThing));
+	}
+
+	private static bool KeepKitThing(Pawn pawn, Thing thing)
+	{
+		try { return !(pawn != null && thing != null && Kits.InKit(pawn, thing)); }
+		catch { return true; }
 	}
 
 	private static void Try(Harmony h, MethodBase m, string prefix = null, string postfix = null)

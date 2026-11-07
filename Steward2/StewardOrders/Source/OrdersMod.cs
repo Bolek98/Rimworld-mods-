@@ -37,7 +37,7 @@ public sealed class OrdersSettings : ModSettings
 
 public sealed class OrdersMod : Mod
 {
-	public const string Version = "0.3.2";
+	public const string Version = "0.3.3";
 	public static OrdersSettings S;
 
 	public OrdersMod(ModContentPack content) : base(content)
@@ -226,7 +226,7 @@ public class FloatMenuOptionProvider_StewardOrders : FloatMenuOptionProvider
 			if (pawn.WorkTypeIsDisabled(wt)) continue;
 			bool notAssigned = pawn.workSettings != null && pawn.workSettings.GetPriority(wt) == 0;
 			if (notAssigned && !(t is Building_ResearchBench ? OrdersMod.S.research : OrdersMod.S.work)) continue;
-			if (t is Pawn && wt == WorkTypeDefOf.Hauling) continue;   // no carrying people around by a click
+			if (t is Pawn && wt != null && WorkMatch.Base(wt) == "Hauling") continue;   // no carrying people around by a click
 			foreach (WorkGiverDef wg in wt.workGiversByPriority)
 			{
 				if (!(wg.Worker is WorkGiver_Scanner sc) || !wg.directOrderable) continue;
@@ -272,7 +272,7 @@ public class FloatMenuOptionProvider_StewardOrders : FloatMenuOptionProvider
 			foreach (WorkGiverDef wg in wt.workGiversByPriority)
 			{
 				if (!(wg.Worker is WorkGiver_Scanner sc) || !wg.directOrderable) continue;
-				bool research = t is Building_ResearchBench && wg.workType == WorkTypeDefOf.Research;
+				bool research = t is Building_ResearchBench && wg.workType != null && WorkMatch.Base(wg.workType) == "Research";
 				// ours only where the game's own option is greyed out: not assigned, or research
 				if (!notAssigned && !research) continue;
 				if (research ? !OrdersMod.S.research : !OrdersMod.S.work) continue;

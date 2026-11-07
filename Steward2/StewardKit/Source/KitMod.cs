@@ -70,7 +70,7 @@ public sealed class KitSettings : ModSettings
 public sealed class KitMod : Mod
 {
 	public static KitSettings Settings;
-	public const string Version = "1.0.0";
+	public const string Version = "1.0.1";
 	private static readonly KitSettings recKit = new KitSettings();
 	private static readonly AutoPharmacySettings recAP = new AutoPharmacySettings();
 
@@ -129,7 +129,7 @@ public sealed class KitMod : Mod
 		}
 	}
 
-	private static void UseKitRec() => MUI.Init(recKit, null, "recommended", "customized", "pharmacyMigrated");
+	private static void UseKitRec() => MUI.Init(recKit, null, "recommended", "customized", "pharmacyMigrated", "kitsVersion");
 	private static void UseApRec() => MUI.Init(recAP, null, "recommended");
 
 	private static void ApplyRecommended()
