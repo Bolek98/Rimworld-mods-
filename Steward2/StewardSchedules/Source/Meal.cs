@@ -23,17 +23,6 @@ public static class MealHour
 	}
 }
 
-// for the game a meal hour is "anything" (work, recreation and sleep rules stay as they are)
-[HarmonyPatch(typeof(Pawn_TimetableTracker), nameof(Pawn_TimetableTracker.CurrentAssignment), MethodType.Getter)]
-public static class MealAsAnything
-{
-	public static void Postfix(ref TimeAssignmentDef __result)
-	{
-		if (__result != null && __result == MealHour.Def)
-			__result = TimeAssignmentDefOf.Anything;
-	}
-}
-
 // in a meal hour the colonist goes to eat already when a bit hungry (below 85 %)
 [HarmonyPatch(typeof(JobGiver_GetFood), nameof(JobGiver_GetFood.GetPriority))]
 public static class MealEatEarly
@@ -69,31 +58,4 @@ public static class MealEatEarlyJob
 	}
 
 	public static void Finalizer(JobGiver_GetFood __instance, HungerCategory __state) => minCat(__instance) = __state;
-}
-
-// the orange meal box next to the game's four in the Schedule tab, and the calendar button under them
-[HarmonyPatch(typeof(MainTabWindow_Schedule), nameof(MainTabWindow_Schedule.DoWindowContents))]
-public static class ScheduleTabExtras
-{
-	private static readonly Action<Rect, TimeAssignmentDef> drawFor =
-		AccessTools.MethodDelegate<Action<Rect, TimeAssignmentDef>>(AccessTools.Method(typeof(TimeAssignmentSelector), "DrawTimeAssignmentSelectorFor"));
-
-	public static void Postfix()
-	{
-		try
-		{
-			Rect grid = new Rect(0f, 0f, 191f, 63f);
-			float w = grid.width / 2f, h = grid.height / 2f;
-			int n = ModsConfig.RoyaltyActive ? 5 : 4;
-			if (MealHour.Def != null && drawFor != null)
-				drawFor(new Rect(n * w, 0f, w, h), MealHour.Def);
-			Map map = Find.CurrentMap;
-			if (map != null && SchedulesMod.S != null && Widgets.ButtonText(new Rect(2f, h + 2f, 186f, h - 2f), "CF2S_CalButton".Translate()))
-				Find.WindowStack.Add(new Window_StewardCalendar(map));
-		}
-		catch (Exception e)
-		{
-			MLog.WarnOnce("[Steward] schedule tab extras: " + e.Message, 0x5d0011);
-		}
-	}
 }

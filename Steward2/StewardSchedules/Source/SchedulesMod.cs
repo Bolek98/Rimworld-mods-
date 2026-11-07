@@ -67,6 +67,7 @@ public sealed class SchedulesMod : Mod
 			Comfort.ResetGame();
 			ScheduleTabWatch.EditedByYou.Clear();
 			DayPlan.ResetGame();
+			WorkHourFirst.Reset();
 		};
 		MLog.Info("[Steward] Schedules loaded.");
 	}
