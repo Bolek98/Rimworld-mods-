@@ -176,8 +176,13 @@ public static class Split
 		{
 			WorkGiverDef g = DefDatabase<WorkGiverDef>.GetNamedSilentFail(kv.Key);
 			WorkTypeDef t = DefDatabase<WorkTypeDef>.GetNamedSilentFail(kv.Value);
-			if (g == null || t == null || g.workType == t)
+			if (g == null || t == null)
 				continue;
+			if (g.workType == t)
+			{
+				AppliedMoves[kv.Key] = kv.Value;   // 0.1.1: already there – nothing to wait for
+				continue;
+			}
 			Part p = PartOf(t.defName);
 			if (p != null && !Active.ContainsKey(t.defName))
 			{
@@ -214,6 +219,13 @@ public static class Split
 					continue;
 				if (r.mechEnabledWorkTypes != null && r.mechEnabledWorkTypes.Contains(parent) && !r.mechEnabledWorkTypes.Contains(c))
 					r.mechEnabledWorkTypes.Add(c);
+				// 0.1.1: the same minimum age as the parent (children must not operate or execute)
+				if (r.lifeStageWorkSettings != null)
+				{
+					LifeStageWorkSettings ls = r.lifeStageWorkSettings.FirstOrDefault(x => x.workType == parent);
+					if (ls != null && !r.lifeStageWorkSettings.Any(x => x.workType == c))
+						r.lifeStageWorkSettings.Add(new LifeStageWorkSettings { workType = c, minAge = ls.minAge });
+				}
 				if (r.mechWorkTypePriorities != null)
 				{
 					MechWorkTypePriority mp = r.mechWorkTypePriorities.FirstOrDefault(x => x.def == parent);

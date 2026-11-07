@@ -78,7 +78,7 @@ public sealed class DroidsSettings : ModSettings
 
 public sealed class DroidsMod : Mod
 {
-	public const string Version = "0.1.1";
+	public const string Version = "0.1.2";
 	public static DroidsSettings S;
 
 	public DroidsMod(ModContentPack content) : base(content)
@@ -150,6 +150,8 @@ public static class DroidUtil
 	private static ThingDef neutroamine;
 	private static readonly Dictionary<ThingDef, bool> robotRace = new Dictionary<ThingDef, bool>();
 	private static readonly Dictionary<int, bool> androidCache = new Dictionary<int, bool>();
+
+	public static void ClearCache() => androidCache.Clear();
 
 	private static void LookVre()
 	{
@@ -320,6 +322,10 @@ public sealed class DroidsGame : GameComponent
 	public DroidsGame(Game game)
 	{
 		Instance = this;
+		// 0.1.2: caches keyed by pawn ID or map came over from the save loaded before
+		DroidUtil.ClearCache();
+		GuardBrain.Clear();
+		DroidCare.Clear();
 	}
 
 	public static DroidMode Raw(Pawn p) => Instance != null && p != null && Instance.modes.TryGetValue(p.thingIDNumber, out DroidMode m) ? m : DroidMode.Auto;
@@ -458,6 +464,8 @@ public static class GuardBrain
 
 	private static readonly Dictionary<Map, MapPosts> posts = new Dictionary<Map, MapPosts>();
 	private static readonly Dictionary<int, State> states = new Dictionary<int, State>();
+
+	public static void Clear() { posts.Clear(); states.Clear(); }
 	private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<Job, object> ours = new System.Runtime.CompilerServices.ConditionalWeakTable<Job, object>();
 	private static readonly object mark = new object();
 	private static readonly HashSet<JobDef> idleJobs = new HashSet<JobDef>();
@@ -967,6 +975,8 @@ public static class DroidCare
 {
 	public static readonly Dictionary<Map, List<string>> Problems = new Dictionary<Map, List<string>>();
 	public static readonly Dictionary<Map, List<Pawn>> Culprits = new Dictionary<Map, List<Pawn>>();
+
+	public static void Clear() { Problems.Clear(); Culprits.Clear(); }
 
 	public static void Tick(Map map)
 	{

@@ -53,7 +53,7 @@ public sealed class RolesSettings : ModSettings
 
 public sealed class RolesMod : Mod
 {
-	public const string Version = "0.2.1";
+	public const string Version = "0.2.2";
 	public static RolesSettings S;
 	public static ModContentPack Pack;
 
@@ -131,13 +131,14 @@ public static class RoleWork
 		{
 			var named = Named(r).ToList();
 			if (named.Count > 0)
-				list.AddRange(named.Select(n => DefDatabase<WorkTypeDef>.GetNamedSilentFail(n)).Where(w => w != null));
+				// 0.2.2: with Work Split also its smaller parts (surgery for the doctor …)
+				list.AddRange(DefDatabase<WorkTypeDef>.AllDefsListForReading.Where(w => w.visible && named.Contains(WorkMatch.Base(w))));
 			else
 			{
 				var skills = Skills(r).Where(s => s != null).ToList();
 				list.AddRange(DefDatabase<WorkTypeDef>.AllDefsListForReading.Where(w =>
-					w.relevantSkills != null && w.relevantSkills.Count > 0 && w.relevantSkills.All(s => skills.Contains(s))
-					&& w.defName != "Hunting" && w.defName != "Warden" && w.defName != "Doctor"));
+					w.visible && w.relevantSkills != null && w.relevantSkills.Count > 0 && w.relevantSkills.All(s => skills.Contains(s))
+					&& WorkMatch.Base(w) != "Hunting" && WorkMatch.Base(w) != "Warden" && WorkMatch.Base(w) != "Doctor"));
 			}
 		}
 		cache[r] = list;

@@ -231,7 +231,12 @@ public static class ScheduleTabWatch
 
 	public static void Prefix() => Inside = true;
 
-	public static void Postfix() => Inside = false;
+	// 1.0.2: a finalizer – also when the window throws, later changes are not counted as yours
+	public static System.Exception Finalizer(System.Exception __exception)
+	{
+		Inside = false;
+		return __exception;
+	}
 }
 
 [HarmonyLib.HarmonyPatch(typeof(Pawn_TimetableTracker), nameof(Pawn_TimetableTracker.SetAssignment))]

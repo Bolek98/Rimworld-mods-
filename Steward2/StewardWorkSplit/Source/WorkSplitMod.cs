@@ -35,7 +35,7 @@ public sealed class WorkSplitSettings : ModSettings
 public sealed class WorkSplitMod : Mod
 {
 	public static WorkSplitSettings Settings;
-	public const string Version = "0.1.0";
+	public const string Version = "0.1.1";
 
 	private enum Tab { Parts, Advanced }
 	private static Tab tab = Tab.Parts;
@@ -53,7 +53,9 @@ public sealed class WorkSplitMod : Mod
 				prefix: new HarmonyMethod(typeof(Split), nameof(Split.Prefix)),
 				postfix: new HarmonyMethod(typeof(Split), nameof(Split.Postfix)));
 			h.Patch(AccessTools.Method(typeof(Pawn_WorkSettings), nameof(Pawn_WorkSettings.EnableAndInitialize)),
-				postfix: new HarmonyMethod(typeof(Seed), nameof(Seed.InitPostfix)));
+				prefix: new HarmonyMethod(typeof(Seed), nameof(Seed.InitPrefix)),
+				postfix: new HarmonyMethod(typeof(Seed), nameof(Seed.InitPostfix)),
+				finalizer: new HarmonyMethod(typeof(Seed), nameof(Seed.InitFinalizer)));
 		}
 		catch (Exception e)
 		{

@@ -13,14 +13,62 @@ public static class Seed
 {
 	private static readonly AccessTools.FieldRef<Pawn_WorkSettings, Pawn> pawnRef = AccessTools.FieldRefAccess<Pawn_WorkSettings, Pawn>("pawn");
 
-	// Pawn_WorkSettings.EnableAndInitialize postfix
+	private static List<WorkTypeDef> ours;
+
+	private static List<WorkTypeDef> Ours()
+	{
+		if (ours == null)
+		{
+			ours = new List<WorkTypeDef>();
+			foreach (Part part in Split.Parts)
+			{
+				WorkTypeDef w = DefDatabase<WorkTypeDef>.GetNamedSilentFail(part.def);
+				if (w != null)
+					ours.Add(w);
+			}
+		}
+		return ours;
+	}
+
+	// 0.1.1: Pawn_WorkSettings.EnableAndInitialize prefix – the game gives a new pawn the 6 work types
+	// he is best at; our parts (same skills as the parent) took those slots. Marked "always start
+	// active" for this one call they stay out of the ranking, the postfix then sets them properly.
+	public static void InitPrefix(out bool __state)
+	{
+		__state = true;
+		foreach (WorkTypeDef w in Ours())
+			w.alwaysStartActive = true;
+	}
+
+	public static Exception InitFinalizer(Exception __exception, bool __state)
+	{
+		if (__state)
+			foreach (WorkTypeDef w in Ours())
+				w.alwaysStartActive = false;
+		return __exception;
+	}
+
+	// Pawn_WorkSettings.EnableAndInitialize postfix: off parts 0, on parts = their parent
 	public static void InitPostfix(Pawn_WorkSettings __instance)
 	{
 		try
 		{
 			Pawn p = pawnRef(__instance);
-			foreach (var kv in Split.Active)
-				Copy(p, kv.Key, kv.Value);
+			if (p == null || !__instance.EverWork)
+				return;
+			foreach (Part part in Split.Parts)
+			{
+				WorkTypeDef c = DefDatabase<WorkTypeDef>.GetNamedSilentFail(part.def);
+				if (c == null)
+					continue;
+				if (!Split.Active.TryGetValue(part.def, out string parent) || !Copy(p, __instance, part.def, parent))
+				{
+					WorkTypeDef par = parent != null ? DefDatabase<WorkTypeDef>.GetNamedSilentFail(parent) : null;
+					bool keep = par != null && !p.WorkTypeIsDisabled(par) && !p.WorkTypeIsDisabled(c) && __instance.GetPriority(c) == __instance.GetPriority(par);
+					if (!keep && __instance.GetPriority(c) != 0)
+						__instance.SetPriority(c, 0);
+				}
+			}
 		}
 		catch (Exception e)
 		{
@@ -28,18 +76,20 @@ public static class Seed
 		}
 	}
 
-	public static bool Copy(Pawn p, string partName, string parentName)
+	public static bool Copy(Pawn p, string partName, string parentName) => Copy(p, p?.workSettings, partName, parentName);
+
+	public static bool Copy(Pawn p, Pawn_WorkSettings ws, string partName, string parentName)
 	{
-		if (p?.workSettings == null || !p.workSettings.EverWork)
+		if (p == null || ws == null || !ws.EverWork)
 			return false;
 		WorkTypeDef c = DefDatabase<WorkTypeDef>.GetNamedSilentFail(partName);
 		WorkTypeDef parent = DefDatabase<WorkTypeDef>.GetNamedSilentFail(parentName);
 		if (c == null || parent == null || p.WorkTypeIsDisabled(c) || p.WorkTypeIsDisabled(parent))
 			return false;
-		int v = p.workSettings.GetPriority(parent);
-		if (p.workSettings.GetPriority(c) == v)
+		int v = ws.GetPriority(parent);
+		if (ws.GetPriority(c) == v)
 			return false;
-		p.workSettings.SetPriority(c, v);
+		ws.SetPriority(c, v);
 		return true;
 	}
 }
