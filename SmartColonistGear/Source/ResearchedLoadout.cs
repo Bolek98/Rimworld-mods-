@@ -7560,6 +7560,11 @@ namespace ResearchedLoadout
 			for (int i = 0; i < wornApparel.Count; i++)
 			{
 				Apparel apparel2 = wornApparel[i];
+				// 2.19.3: clothes on the skin and underwear (UnderWhere and other underwear mods) stay on in heat
+				if (OnSkinOnly(apparel2))
+				{
+					continue;
+				}
 				if (!LoadoutFilter.IsArmor(apparel2) && !LoadoutFilter.IsProtectedApparel(pawn, apparel2) && !pawn.apparel.IsLocked(apparel2) && (EmergencyGear.CounterMask(apparel2.def) & EmergencyGear.Toxic & EmergencyGear.ActiveMask(pawn.MapHeld)) == 0)
 				{
 					float statValue = apparel2.GetStatValue(StatDefOf.Insulation_Heat);
@@ -7571,6 +7576,24 @@ namespace ResearchedLoadout
 				}
 			}
 			return apparel != null && RemoveApparelAndStore(pawn, apparel);
+		}
+
+		// worn right on the skin or under it (underwear layers of mods sit below OnSkin)
+		private static bool OnSkinOnly(Apparel a)
+		{
+			List<ApparelLayerDef> layers = a?.def?.apparel?.layers;
+			if (layers == null || layers.Count == 0)
+			{
+				return false;
+			}
+			for (int i = 0; i < layers.Count; i++)
+			{
+				if (layers[i] != ApparelLayerDefOf.OnSkin && layers[i].drawOrder > ApparelLayerDefOf.OnSkin.drawOrder)
+				{
+					return false;
+				}
+			}
+			return true;
 		}
 
 		private static bool RemoveApparelAndStore(Pawn pawn, Apparel apparel)

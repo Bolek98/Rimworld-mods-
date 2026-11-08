@@ -28,6 +28,7 @@ public sealed class KitSettings : ModSettings
 	public int kitsVersion;              // 0.2.0: version of the automatic table this one came from
 	public bool pharmacyMigrated;
 	public List<KitLine> lines;
+	public List<ItemRule> itemRules = new List<ItemRule>();   // 1.1.0: what may / may not be carried
 	public AutoPharmacySettings pharmacy = new AutoPharmacySettings();
 
 	public List<KitLine> Lines
@@ -62,6 +63,10 @@ public sealed class KitSettings : ModSettings
 		Scribe_Values.Look(ref kitsVersion, "kitsVersion", 0);
 		Scribe_Values.Look(ref pharmacyMigrated, "pharmacyMigrated", false);
 		Scribe_Collections.Look(ref lines, "kitLines", LookMode.Deep);
+		Scribe_Collections.Look(ref itemRules, "itemRules", LookMode.Deep);
+		if (itemRules == null) itemRules = new List<ItemRule>();
+		itemRules.RemoveAll(x => x?.def == null);
+		ItemRules.Changed();
 		Scribe_Deep.Look(ref pharmacy, "pharmacy");
 		if (pharmacy == null) pharmacy = new AutoPharmacySettings();
 	}
@@ -70,11 +75,11 @@ public sealed class KitSettings : ModSettings
 public sealed class KitMod : Mod
 {
 	public static KitSettings Settings;
-	public const string Version = "1.0.1";
+	public const string Version = "1.1.0";
 	private static readonly KitSettings recKit = new KitSettings();
 	private static readonly AutoPharmacySettings recAP = new AutoPharmacySettings();
 
-	private enum Tab { Overview, Kits, Pharmacy, Drugs, Combat, Regular, Caravans, Weight, Colonists, Advanced }
+	private enum Tab { Overview, Kits, Items, Pharmacy, Drugs, Combat, Regular, Caravans, Weight, Colonists, Advanced }
 	private static Tab tab = Tab.Overview;
 	private static Vector2 scroll;
 	private static float viewH = 600f;
@@ -184,6 +189,7 @@ public sealed class KitMod : Mod
 			{
 				case Tab.Overview: Overview(body); break;
 				case Tab.Kits: KitTable(body); break;
+				case Tab.Items: ItemRules.Draw(body); break;
 				case Tab.Pharmacy: UseApRec(); AutoPharmacyMod.DrawGeneral(body, Settings.recommended); break;
 				case Tab.Drugs: UseApRec(); AutoPharmacyMod.DrawDrugs(body); break;
 				case Tab.Combat: UseApRec(); AutoPharmacyMod.DrawCombat(body, Settings.recommended); break;

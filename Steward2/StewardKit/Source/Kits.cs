@@ -361,6 +361,11 @@ public static class Kits
 	public static bool InKit(Pawn p, Thing t)
 	{
 		if (p == null || t == null) return false;
+		// 1.1.0: items the player marked "always carry", and things other mods keep in pockets on purpose
+		// (Dubs Bad Hygiene water bottles – they were unloaded and refilled again and again)
+		int rule = ItemRules.ModeFor(p, t.def);
+		if (rule == ItemRules.Never) return false;
+		if (rule == ItemRules.Always || ItemRules.OtherModCarries(t.def)) return true;
 		foreach (KitLine w in Wanted(p))
 			if (Matches(p, w.item, t.def)) return true;
 		// 0.2.3: the doctor's pharmacy stock counts too – Steward – Supplies asks here and used to
@@ -535,6 +540,7 @@ public static class KitTidy
 	{
 		if (!Kits.Eligible(p) || !m.areaManager.Home[p.Position] || p.CurJob?.def == JobDefOf.TakeInventory) return;
 		if (p.GetLord() != null) return;   // caravan forming, rituals …
+		ItemRules.DropBanned(p, m);   // 1.1.0
 		List<KitLine> want = Kits.Wanted(p);
 		ThingOwner<Thing> inv = p.inventory.innerContainer;
 		foreach (string cat in Kits.Categories)
