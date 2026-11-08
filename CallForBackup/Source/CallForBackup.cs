@@ -39,7 +39,7 @@ namespace CallForBackup
 
     public class CFBMod : Mod
     {
-        public const string Version = "0.1.0";
+        public const string Version = "0.1.1";
         public static CFBSettings S;
         private static List<string> recBullets;
 
@@ -155,6 +155,24 @@ namespace CallForBackup
             return sum;
         }
 
+        // 0.1.1: the factions attacking on this map (null = no faction: mechanoids, insects, manhunters –
+        // everybody fights those). Allies only fight factions they are hostile to themselves: a faction
+        // on good terms with the attackers came, stood around and watched.
+        public static List<Faction> EnemyFactions(Map map)
+        {
+            var list = new List<Faction>();
+            foreach (Pawn p in map.mapPawns.AllPawnsSpawned)
+                if (!p.Dead && !p.Downed && !p.IsPrisoner && p.HostileTo(Faction.OfPlayer) && !list.Contains(p.Faction))
+                    list.Add(p.Faction);
+            return list;
+        }
+
+        public static bool WillFight(Faction helper, Faction enemy) => enemy == null || helper.HostileTo(enemy);
+
+        // the attackers this faction would NOT fight
+        public static List<Faction> Friends(Faction helper, List<Faction> enemies) =>
+            enemies.Where(e => !WillFight(helper, e)).ToList();
+
         public static float Points(Map map, Faction f, Size s)
         {
             float enemies = EnemyPoints(map);
@@ -232,8 +250,16 @@ namespace CallForBackup
             base.ProcessInput(ev);
             var opts = new List<FloatMenuOption>();
             float enemies = Backup.EnemyPoints(map);
+            List<Faction> attackers = Backup.EnemyFactions(map);
             foreach (Faction f in Backup.Candidates())
             {
+                List<Faction> friends = Backup.Friends(f, attackers);
+                if (attackers.Count > 0 && friends.Count == attackers.Count)
+                {
+                    opts.Add(new FloatMenuOption("CFB_WontFight".Translate(f.Name, string.Join(", ", friends.Select(e => e.Name))), null, f.def.FactionIcon, f.Color));
+                    continue;
+                }
+                string partly = friends.Count > 0 ? " — " + "CFB_PartlyFight".Translate(string.Join(", ", friends.Select(e => e.Name))) : "";
                 int left = Backup.CooldownLeft(f);
                 string how = Backup.Drops(f) ? "CFB_ByPods".Translate() : "CFB_OnFoot".Translate();
                 foreach (Size s in new[] { Size.Small, Size.Medium, Size.Large })
@@ -246,7 +272,7 @@ namespace CallForBackup
                         break;
                     }
                     Faction ff = f; Size ss = s;
-                    opts.Add(new FloatMenuOption(label, () => Target(ff, ss), f.def.FactionIcon, f.Color));
+                    opts.Add(new FloatMenuOption(label + partly, () => Target(ff, ss), f.def.FactionIcon, f.Color));
                 }
             }
             if (opts.Count == 0) opts.Add(new FloatMenuOption("CFB_NoAllies".Translate(), null));

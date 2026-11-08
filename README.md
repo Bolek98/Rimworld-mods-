@@ -12,7 +12,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Auto Pharmacy – Doctors Give the Right Drug | 1.4.4 | [AutoPharmacy](AutoPharmacy) |
 | [B98] Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.4.2 | [AutoTurrets](AutoTurrets) |
 | [B98] Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.6.1 | [BodyFit](BodyFit) |
-| [B98] Call for Backup – Summon Your Allies | 0.1.0 | [CallForBackup](CallForBackup) |
+| [B98] Call for Backup – Summon Your Allies | 0.1.1 | [CallForBackup](CallForBackup) |
 | [B98] Caravan Helper | 1.1.0 | [CaravanHelper](CaravanHelper) |
 | [B98] Colony Advisor – What To Do Next | 0.3.1 | [ColonyAdvisor](ColonyAdvisor) |
 | [B98] Evergrowth – Plant Growth Control | 1.9.0 | [Evergrowth](Evergrowth) |
