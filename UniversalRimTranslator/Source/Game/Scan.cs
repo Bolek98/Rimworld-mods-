@@ -215,6 +215,13 @@ namespace UniversalRimTranslator
                 n.EndsWith("texname") || n.EndsWith("key") || n.EndsWith("id") || n.EndsWith("ids") || n.EndsWith("tag") || n.EndsWith("tags") ||
                 n.EndsWith("name") && n != "labelnoun" || n.Contains("shader") || n.Contains("sound") || n.Contains("graphic") || n.Contains("icon"))
                 return false;
+            // 1.2.3: identifiers that only look like text – defNames in lists (targetThoughtDefs, targetJobs),
+            // texture name parts (Facial Animation's altShapeDef = "normal") and body part labels a mod
+            // looks up by the English name (Facial Animation's RightEyeLabel = "right eye": translated, the
+            // eye was not found and the whole face stopped drawing)
+            if (n.StartsWith("untranslated") || n.EndsWith("def") || n.EndsWith("defs") || n.EndsWith("jobs") || n.EndsWith("job") ||
+                n.EndsWith("eyelabel") || n.EndsWith("partlabel") || n.EndsWith("partlabels") || n.Contains("shape"))
+                return false;
             switch (n)
             {
                 case "label": case "labelshort": case "labelplural": case "description": case "text": case "message": case "reportstring":
