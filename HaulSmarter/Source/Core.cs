@@ -53,7 +53,8 @@ namespace HaulSmarter
         public float pocketHours = 1f;          // 3.3: carried things go to storage at the latest after this (in-game hours)
         public bool smartPickup = true;         // 3.4: a builder takes all materials for the site (and sites next to it) in one trip
         public int foodMinutes = 15;            // 3.3: food, medicine and drugs at the latest after this (in-game minutes)
-        public bool stepAside = true;           // 3.4.1: no extra hauling while bleeding or while a downed colonist needs tending
+        public bool stepAside = true;
+        public bool unloadRightAway = true;     // 3.5.1: carried things go to storage right after the current job (off = wait until full or the time below)           // 3.4.1: no extra hauling while bleeding or while a downed colonist needs tending
 
         public static readonly string[] ProfileFields =
         {
@@ -138,6 +139,7 @@ namespace HaulSmarter
             Scribe_Values.Look(ref mechHaul, "mechHaul", true);
             Scribe_Values.Look(ref animalHaul, "animalHaul", true);
             Scribe_Values.Look(ref pocketHours, "pocketHours", 1f);
+            Scribe_Values.Look(ref unloadRightAway, "unloadRightAway", true);
             Scribe_Values.Look(ref foodMinutes, "foodMinutes", 15);
             Scribe_Values.Look(ref smartPickup, "smartPickup", true);
             Scribe_Values.Look(ref stepAside, "stepAside", true);
@@ -148,7 +150,7 @@ namespace HaulSmarter
 
     public sealed class HSMod : Mod
     {
-        public const string Version = "3.5.0";
+        public const string Version = "3.5.1";
         public static HSSettings S;
         private Vector2 scroll;
         private float height = 900f;
@@ -266,6 +268,7 @@ namespace HaulSmarter
             Check(l, "HS_TraderCarry", ref s.traderCarry, "traderCarry");
             Check(l, "HS_MechHaul", ref s.mechHaul, "mechHaul");
             Check(l, "HS_AnimalHaul", ref s.animalHaul, "animalHaul");
+            Check(l, "HS_UnloadRightAway", ref s.unloadRightAway, null);
             s.unloadAt = Mathf.Round(MUI.Slider(l, "HS_UnloadAt".Translate(s.unloadAt.ToStringPercent()), s.unloadAt, 0.2f, 1f, "HS_UnloadAt_Desc".Translate(), s, "unloadAt") * 20f) / 20f;
             s.pocketHours = Mathf.Round(MUI.Slider(l, "HS_PocketTime".Translate(s.pocketHours.ToString("0.##") + " h"), s.pocketHours, 0.25f, 8f,
                 "HS_PocketTime_Desc".Translate(), s, "pocketHours") * 4f) / 4f;

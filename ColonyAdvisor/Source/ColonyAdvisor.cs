@@ -65,7 +65,7 @@ namespace ColonyAdvisor
 
     public class AdvisorMod : Mod
     {
-        public const string Version = "0.3.1";
+        public const string Version = "0.4.0";
         public static AdvisorSettings S;
         private static List<string> recBullets;
 

@@ -648,6 +648,20 @@ namespace ColonyAdvisor
             Stage S(string key) { var s = new Stage { title = T("CA_S_" + key), goal = T("CA_S_" + key + "_Goal") }; r.stages.Add(s); return s; }
             void C(Stage s, bool done, string key, params NamedArgument[] a) => s.checks.Add(new Check { done = done, label = T("CA_C_" + key, a), hint = T("CA_C_" + key + "_H") });
 
+            // 0.4.0: the first week of a new colony – a short checklist that ticks itself off
+            if (Find.TickManager.TicksGame < 15 * 60000)
+            {
+                Stage s0 = S("Week");
+                C(s0, map.zoneManager.AllZones.Any(z => z is Zone_Stockpile) || all.Any(b => b is Building_Storage), "Stockpile");
+                C(s0, cols.Count > 0 && cols.All(p => p.ownership?.OwnedBed != null), "Beds");
+                C(s0, all.Any(b => b.def.surfaceType == SurfaceType.Eat) && all.Any(b => b.def.building != null && b.def.building.isSittable), "Table");
+                C(s0, all.Any(b => b.def.AllRecipes != null && b.def.AllRecipes.Any(rd => rd.products.Any(pr => pr.thingDef == ThingDefOf.MealSimple))), "Stove");
+                C(s0, map.zoneManager.AllZones.Any(z => z is Zone_Growing), "Fields");
+                C(s0, map.resourceCounter.GetCount(ThingDefOf.WoodLog) >= 150, "Wood");
+                int lying = map.listerHaulables.ThingsPotentiallyNeedingHauling().Count(t => t.def.category == ThingCategory.Item && !t.IsForbidden(Faction.OfPlayer) && !t.Position.Fogged(map) && map.areaManager.Home[t.Position]);
+                C(s0, lying <= 5, "Tidy", lying);
+            }
+
             Stage s1 = S("Survive");
             C(s1, n > 0 && cols.All(p => p.ownership?.OwnedBed != null), "Beds");
             C(s1, n > 0 && cols.All(p => p.ownership?.OwnedBed == null || p.ownership.OwnedBed.Position.Roofed(map)), "Roof");

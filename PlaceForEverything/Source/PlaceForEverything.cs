@@ -18,6 +18,7 @@ namespace PlaceForEverything
         public bool onlyHome = true;         // only items inside the home area
         public bool includeChunks = false;   // rock and slag chunks usually stay where they are
         public bool stackLimits = true;      // 0.1.2: stack limit / refill per storage (gizmo)
+        public bool startTidy = true;        // 0.2.0: new colony – the starting items get a place by themselves once the first storage exists
 
         public override void ExposeData()
         {
@@ -29,12 +30,13 @@ namespace PlaceForEverything
             Scribe_Values.Look(ref onlyHome, "onlyHome", true);
             Scribe_Values.Look(ref includeChunks, "includeChunks", false);
             Scribe_Values.Look(ref stackLimits, "stackLimits", true);
+            Scribe_Values.Look(ref startTidy, "startTidy", true);
         }
     }
 
     public class PFEMod : Mod
     {
-        public const string Version = "0.1.2";
+        public const string Version = "0.2.0";
         public static PFESettings S;
         private static List<string> recBullets;
 
@@ -69,6 +71,7 @@ namespace PlaceForEverything
             {
                 l.Begin(rest);
                 Check(l, "PFE_Alert", ref S.alert, "alert");
+                Check(l, "PFE_StartTidy", ref S.startTidy, "startTidy");
                 Check(l, "PFE_WholeCategory", ref S.wholeCategory, "wholeCategory");
                 Check(l, "PFE_Rename", ref S.rename, "rename");
                 Check(l, "PFE_Forbidden", ref S.includeForbidden, "includeForbidden");
@@ -268,10 +271,40 @@ namespace PlaceForEverything
 
         public PFEMap(Map map) : base(map) { }
 
+        private bool startDone;
+
         public override void ExposeData()
         {
             Scribe_Collections.Look(ref ours, "ours", LookMode.Value);
+            Scribe_Values.Look(ref startDone, "startDone", false);
             if (ours == null) ours = new HashSet<string>();
+        }
+
+        // 0.2.0: tidy after landing – in the first three days of a new colony, as soon as there is a
+        // storage, the starting items no storage takes get a place by themselves (once, can be undone)
+        public override void MapComponentTick()
+        {
+            if (startDone || Find.TickManager.TicksGame % 600 != 311)
+                return;
+            try
+            {
+                if (!PFEMod.S.startTidy || Find.TickManager.TicksGame > 3 * 60000 || !map.IsPlayerHome)
+                {
+                    startDone = Find.TickManager.TicksGame > 3 * 60000;
+                    return;
+                }
+                if (map.haulDestinationManager.AllGroupsListForReading.Count == 0)
+                    return;
+                List<Proposal> list = Finder.Find(map, true);
+                startDone = true;
+                if (list.Any(x => x.target != null))
+                    Apply(list);
+            }
+            catch (Exception e)
+            {
+                startDone = true;
+                Log.Warning("[Place for Everything] start tidy: " + e.Message);
+            }
         }
 
         public int Homeless()

@@ -31,7 +31,8 @@ public static partial class CrisisRules
 		Crisis.NoFirefighters, Crisis.DangerousBreak, Crisis.PrisonBreak, Crisis.EntityEscape, Crisis.Manhunters,
 		Crisis.Siege, Crisis.Infestation, Crisis.VacuumBreach, Crisis.ToxGas, Crisis.Labor, Crisis.Epidemic,
 		Crisis.NoBeds, Crisis.AnimalSick, Crisis.Death, Crisis.IndoorTemp, Crisis.FreezerThaw, Crisis.RoofCollapse,
-		Crisis.Darkness, Crisis.QuestDeadline, Crisis.LowAmmo, Crisis.WaterShortage, Crisis.Hygiene
+		Crisis.Darkness, Crisis.QuestDeadline, Crisis.LowAmmo, Crisis.WaterShortage, Crisis.Hygiene,
+		Crisis.NewColony
 	};
 
 	private static readonly Dictionary<Map, bool> raidOn = new Dictionary<Map, bool>();
@@ -67,6 +68,12 @@ public static partial class CrisisRules
 			["Cooking"] = new Effect(0.2f, 1.5f), ["Hunting"] = new Effect(0.25f, 1.5f, 1), ["Fishing"] = new Effect(0.25f, 1.5f, 1),
 			["Growing"] = new Effect(0.15f, 1.3f), ["PlantCutting"] = new Effect(0.1f),
 			["Art"] = new Effect(-0.2f), ["DarkStudy"] = new Effect(-0.2f), ["Research"] = new Effect(-0.15f)
+		},
+		// 1.1.2: the start plan – the first days of a new colony: build shelter, cut wood, hunt and sow
+		[Crisis.NewColony] = new Dictionary<string, Effect>
+		{
+			["Construction"] = new Effect(0.25f, 1.5f, 1), ["PlantCutting"] = new Effect(0.15f, 1.2f), ["Hunting"] = new Effect(0.15f, 1.2f),
+			["Growing"] = new Effect(0.15f, 1.2f), ["Art"] = new Effect(-0.3f), ["Research"] = new Effect(-0.15f), ["DarkStudy"] = new Effect(-0.3f)
 		},
 		[Crisis.Winter] = new Dictionary<string, Effect>
 		{
@@ -274,11 +281,17 @@ public static partial class CrisisRules
 		int colonists = map.mapPawns.FreeColonistsSpawnedCount;
 		if (Allowed(Crisis.Medical) && (d.urgentPatients >= 2 || (d.urgentPatients >= 1 && colonists <= 3)))
 			c |= Crisis.Medical;
-		if (Allowed(Crisis.Food) && colonists > 0 && d.foodDays < 2f)
+		// 1.1.2: a small colony (1–3 colonists) is not in a food crisis every few hours – only when food
+		// really runs out (under a day); the "few meals" rule is for bigger colonies with a cook
+		bool small = colonists <= 3;
+		if (Allowed(Crisis.Food) && colonists > 0 && d.foodDays < (small ? 1f : 2f))
 			c |= Crisis.Food;
 		// 1.0.8: plenty of raw food but almost no meals – cooks and hunters are needed just the same
-		else if (Allowed(Crisis.Food) && colonists > 0 && MapDemand.MealDays(map) < 0.75f)
+		else if (Allowed(Crisis.Food) && colonists > 3 && MapDemand.MealDays(map) < 0.75f)
 			c |= Crisis.Food;
+		// 1.1.2: the start plan for the first two days of a new colony (no other crisis needed)
+		if (Allowed(Crisis.NewColony) && colonists > 0 && map.IsPlayerHome && Find.TickManager.TicksGame < 2 * 60000 && (c & UrgentMask) == 0)
+			c |= Crisis.NewColony;
 		if (Allowed(Crisis.Winter) && WinterComing(map, d))
 			c |= Crisis.Winter;
 		Try(ref c, Crisis.Weather, () => ExtremeWeather(map));

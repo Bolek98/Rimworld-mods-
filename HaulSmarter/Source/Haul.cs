@@ -141,6 +141,11 @@ namespace HaulSmarter
 
         public static bool MustUnloadSoon(Pawn pawn)
         {
+            // 3.5.1: "unload right away" – everything carried goes to storage after the current job
+            bool now = HSMod.S?.unloadRightAway ?? true;
+            foreach (Thing t in TrackedItems(pawn))
+                if (now && !HSData.ForBuild(t))
+                    return true;
             foreach (Thing t in TrackedItems(pawn))
                 if (!HSData.ForBuild(t) && HSData.AgeTicks(t) > (NeededByOthers(t) ? FoodTicks : PocketTicks))
                     return true;

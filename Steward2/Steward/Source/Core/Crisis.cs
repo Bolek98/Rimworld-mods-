@@ -43,7 +43,9 @@ public enum Crisis : long
 	LowAmmo = 1L << 30,
 	WaterShortage = 1L << 31,
 	Hygiene = 1L << 32,
-	NoFirefighters = 1L << 33
+	NoFirefighters = 1L << 33,
+	// Steward 1.1.4: the first days of a new colony – shelter, wood, food first
+	NewColony = 1L << 34
 }
 
 public static class CrisisText

@@ -14,12 +14,12 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.6.1 | [BodyFit](BodyFit) |
 | [B98] Call for Backup – Summon Your Allies | 0.1.1 | [CallForBackup](CallForBackup) |
 | [B98] Caravan Helper | 1.1.0 | [CaravanHelper](CaravanHelper) |
-| [B98] Colony Advisor – What To Do Next | 0.3.1 | [ColonyAdvisor](ColonyAdvisor) |
+| [B98] Colony Advisor – What To Do Next | 0.4.0 | [ColonyAdvisor](ColonyAdvisor) |
 | [B98] Evergrowth – Plant Growth Control | 1.9.0 | [Evergrowth](Evergrowth) |
 | [B98] Evergrowth – Wild Plant Spawns per Biome (Choose What Grows) | 1.2.0 | [EvergrowthWildPlants](EvergrowthWildPlants) |
 | [B98] Fewer Freezes – Smart Memory Cleanup | 1.1.1 | [FewerFreezes](FewerFreezes) |
 | [B98] Gender Balance | 1.3.4 | [GenderBalance](GenderBalance) |
-| [B98] Haul Master – Pockets, Routes & Storage | 3.5.0 | [HaulSmarter](HaulSmarter) |
+| [B98] Haul Master – Pockets, Routes & Storage | 3.5.1 | [HaulSmarter](HaulSmarter) |
 | [B98] Legacy – Your Old Colonies Live On | 0.1.1 | [Legacy](Legacy) |
 | [B98] Lively Pawns – Animations & Effects | 0.1.2 | [LivelyPawns](LivelyPawns) |
 | [B98] Mad Dice Max – Dice Storyteller | 1.0.1 | [MadDiceMax](MadDiceMax) |
@@ -31,7 +31,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Mišák Tabs – Clear Bills, Health & Info | 0.13.2 | [MisakTabs](MisakTabs) |
 | [B98] Mod Sort Manager – Load Order, Conflicts & Profiles | 0.6.1 | [ModSortManager](ModSortManager) |
 | [B98] Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
-| [B98] Place for Everything – Smart Storage for Homeless Items | 0.1.2 | [PlaceForEverything](PlaceForEverything) |
+| [B98] Place for Everything – Smart Storage for Homeless Items | 0.2.0 | [PlaceForEverything](PlaceForEverything) |
 | [B98] Power & Water Works | 0.1.1 | [PowerWaterWorks](PowerWaterWorks) |
 | [B98] QoL – Faster Work, Prisoners & Pipette | 1.1.0 | [QoLFasterWork](QoLFasterWork) |
 | [B98] Randy's Table – Chaos Storytellers | 0.4.0 | [RandysTable](RandysTable) |
@@ -41,13 +41,13 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Smart Colonist Gear – Wardrobe | 0.1.3 | [SCGWardrobe](SCGWardrobe) |
 | [B98] Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.5.0 | [SeasonsHolidays](SeasonsHolidays) |
 | [B98] Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |
-| [B98] Smart Colonist Gear – Auto Equip Weapons & Armor | 2.19.4 | [SmartColonistGear](SmartColonistGear) |
+| [B98] Smart Colonist Gear – Auto Equip Weapons & Armor | 2.20.0 | [SmartColonistGear](SmartColonistGear) |
 | [B98] Smooth FPS – Performance & Graphics | 1.7.2 | [SmoothFPS](SmoothFPS) |
 | [B98] Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
-| [B98] Steward – Work Priorities | 1.1.3 | [Steward2/Steward](Steward2/Steward) |
-| [B98] Steward – Crises & Situations | 1.1.1 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| [B98] Steward – Work Priorities | 1.1.4 | [Steward2/Steward](Steward2/Steward) |
+| [B98] Steward – Crises & Situations | 1.1.2 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | [B98] Steward – Droids | 0.1.2 | [Steward2/StewardDroids](Steward2/StewardDroids) |
-| [B98] Steward – Kit | 1.1.0 | [Steward2/StewardKit](Steward2/StewardKit) |
+| [B98] Steward – Kit | 1.2.0 | [Steward2/StewardKit](Steward2/StewardKit) |
 | [B98] Steward – Orders | 0.3.3 | [Steward2/StewardOrders](Steward2/StewardOrders) |
 | [B98] Steward – Roles | 0.2.2 | [Steward2/StewardRoles](Steward2/StewardRoles) |
 | [B98] Steward – Schedules | 1.1.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |

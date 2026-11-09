@@ -1,4 +1,4 @@
-// ResearchedLoadout – zdrojový kód obnovený dekompilací z ResearchedLoadout.dll (10. 10. 2026), původní zdroják se ztratil.
+﻿// ResearchedLoadout – zdrojový kód obnovený dekompilací z ResearchedLoadout.dll (10. 10. 2026), původní zdroják se ztratil.
 // Přeložitelné: Source\build.bat  nebo  dotnet build -c Release
 
 using System;
@@ -268,6 +268,12 @@ namespace ResearchedLoadout
 			Check(listing_Standard, "RL_BlockLockedApparel", ref Settings.blockLockedApparel, "blockLockedApparel");
 			Check(listing_Standard, "RL_StripLocked", ref Settings.stripLockedGear, "stripLockedGear");
 			Check(listing_Standard, "RL_OnlyCrafted", ref Settings.onlyCrafted, "onlyCrafted");
+			{
+				Rect gr = listing_Standard.GetRect(24f);
+				Settings.startGraceDays = (int)Widgets.HorizontalSlider(gr, Settings.startGraceDays, 0f, 10f, false, Settings.startGraceDays > 0 ? "RL_StartGrace".Translate(Settings.startGraceDays).ToString() : "RL_StartGraceOff".Translate().ToString(), null, null, 1f);
+				TooltipHandler.TipRegion(gr, "RL_StartGrace_Desc".Translate());
+				listing_Standard.Gap(4f);
+			}
 			if (Settings.onlyCrafted && Current.Game != null)
 			{
 				ResearchedLoadoutGameComponent researchedLoadoutGameComponent = ResearchedLoadoutGameComponent.Get();
@@ -4925,6 +4931,7 @@ namespace ResearchedLoadout
 		public bool stripLockedGear = true;
 
 		public bool onlyCrafted;
+		public int startGraceDays = 3;   // 2.20.0: a new colony takes whatever is at hand for this many days (0 = off)
 
 		public bool replaceBrokenGear = true;
 
@@ -5073,6 +5080,7 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref blockLockedApparel, "blockLockedApparel", true);
 			Scribe_Values.Look(ref stripLockedGear, "stripLockedGear", true);
 			Scribe_Values.Look(ref onlyCrafted, "onlyCrafted", false);
+			Scribe_Values.Look(ref startGraceDays, "startGraceDays", 3);
 			Scribe_Values.Look(ref replaceBrokenGear, "replaceBrokenGear", true);
 			Scribe_Values.Look(ref stripWornLowHp, "stripWornLowHp", false);
 			Scribe_Values.Look(ref storeDroppedGear, "storeDroppedGear", true);
@@ -5342,11 +5350,26 @@ namespace ResearchedLoadout
 			{
 				return true;
 			}
+			// 2.20.0: the first days of a new colony – take whatever is at hand, the rules start later
+			if (InStartGrace())
+			{
+				return true;
+			}
 			if (!IsResearchAllowed(def))
 			{
 				return false;
 			}
 			return CraftedOk(def);
+		}
+
+		public static bool InStartGrace()
+		{
+			ResearchedLoadoutSettings s = ResearchedLoadoutMod.Settings;
+			if (s == null || !s.enabled || s.startGraceDays <= 0 || Current.ProgramState != ProgramState.Playing || Find.TickManager == null)
+			{
+				return false;
+			}
+			return Find.TickManager.TicksGame < s.startGraceDays * 60000;
 		}
 
 		public static bool CraftedOk(ThingDef def)
@@ -12056,6 +12079,22 @@ namespace ResearchedLoadout
 	[HarmonyPatch(typeof(JobDriver_Equip), "TryMakePreToilReservations")]
 	public static class JobDriverEquipPatch
 	{
+		private static int lastNote = -1;
+
+		private static string WhyLabel(string code)
+		{
+			if (code == null) return null;
+			if (code.StartsWith("jeste nevyrobeno")) return "RL_Why_NotCrafted".Translate();
+			if (code.StartsWith("chybi vyzkum")) return "RL_Why_Research".Translate();
+			if (code.StartsWith("rucne zakazano")) return "RL_Why_Banned".Translate();
+			if (code.StartsWith("vyspelejsi nez kolonie"))
+			{
+				int i = code.IndexOf('('), j = code.LastIndexOf(')');
+				return "RL_Why_HigherTech".Translate(i > 0 && j > i ? code.Substring(i + 1, j - i - 1) : "?");
+			}
+			return code;
+		}
+
 		[HarmonyPrefix]
 		public static bool Prefix(JobDriver_Equip __instance, ref bool __result)
 		{
@@ -12072,6 +12111,20 @@ namespace ResearchedLoadout
 			// 2.19.4: what the player orders by hand is never blocked (the order silently did nothing)
 			if (job.playerForced)
 			{
+				// 2.20.0: say once that the lock was overridden by the order and why it was locked
+				try
+				{
+					Thing t = job.targetA.Thing;
+					string why = WhyLabel(LoadoutFilter.LockReason(t.def));
+					if (why != null && t.thingIDNumber != lastNote)
+					{
+						lastNote = t.thingIDNumber;
+						Messages.Message("RL_OrderOverride".Translate(__instance.pawn.LabelShort, t.LabelShort, why), t, MessageTypeDefOf.NeutralEvent, false);
+					}
+				}
+				catch
+				{
+				}
 				return true;
 			}
 			Pawn pawn = __instance.pawn;

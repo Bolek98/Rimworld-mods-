@@ -8,7 +8,9 @@
   <HS_BonusKg>Capacité de transport supplémentaire : +{0} kg</HS_BonusKg>
   <HS_PocketHarvest>Récolte et bois directement dans les poches</HS_PocketHarvest>
   <HS_PocketMine>Ressources extraites directement dans les poches</HS_PocketMine>
-  <HS_UnloadAt>Décharger quand les poches sont remplies à : {0}</HS_UnloadAt>
+<HS_UnloadRightAway>Décharger tout de suite</HS_UnloadRightAway>
+  <HS_UnloadRightAway_Desc>Ce qu'un colon porte dans ses poches va au stockage juste après sa tâche actuelle. Désactivé : il les garde jusqu'à ce que ses poches soient pleines ou que le temps ci-dessous soit écoulé. La récolte et le minage remplissent toujours les poches d'abord.</HS_UnloadRightAway_Desc>
+    <HS_UnloadAt>Décharger quand les poches sont remplies à : {0}</HS_UnloadAt>
   <HS_ReportUnload>décharge {0}.</HS_ReportUnload>
   <HS_Profile>PROFIL DE TRANSPORT</HS_Profile>
   <HS_ProfileHint>Cliquez sur un profil – il règle tout d'un coup. Modifiez quoi que ce soit et il passe à Personnalisé.</HS_ProfileHint>
