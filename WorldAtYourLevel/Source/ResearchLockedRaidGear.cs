@@ -33,7 +33,7 @@ namespace ResearchLockedRaidGear
 			Evolution
 		}
 
-		public const string Version = "2.17.0";
+		public const string Version = "2.18.0";
 
 		public static ResearchLockedRaidGearSettings Settings;
 
@@ -535,8 +535,21 @@ namespace ResearchLockedRaidGear
 
 		private void DrawFactionsTab(Rect r)
 		{
-			Widgets.Label(new Rect(r.x, r.y, r.width, 26f), "RLRG_ExemptFactions".Translate());
-			float num = r.y + 30f;
+			Widgets.CheckboxLabeled(new Rect(r.x, r.y, r.width, 26f), "RLRG_AutoExempt".Translate(), ref Settings.autoExempt);
+			TooltipHandler.TipRegion(new Rect(r.x, r.y, r.width, 26f), "RLRG_AutoExempt_Desc".Translate());
+			if (Settings.autoExempt)
+			{
+				GUI.color = new Color(0.7f, 0.7f, 0.7f);
+				Widgets.Label(new Rect(r.x, r.y + 30f, r.width, 60f), "RLRG_AutoExemptOn".Translate());
+				GUI.color = Color.white;
+				return;
+			}
+			Widgets.Label(new Rect(r.x, r.y + 30f, r.width, 26f), "RLRG_ExemptFactions".Translate());
+			if (Settings.exemptFactions.Count > 0 && Widgets.ButtonText(new Rect(r.xMax - 200f, r.y + 28f, 200f, 26f), "RLRG_ExemptClear".Translate()))
+			{
+				Settings.exemptFactions.Clear();
+			}
+			float num = r.y + 60f;
 			List<FactionDef> list = SelectableFactions();
 			Rect outRect = new Rect(r.x, num, r.width, r.yMax - num);
 			float num2 = 26f;
@@ -900,6 +913,28 @@ namespace ResearchLockedRaidGear
 		public bool rerollButton = true;   // 2.17.0
 
 		public List<string> exemptFactions = new List<string>();
+		public bool autoExempt = true;   // 2.18.0: automatic – hostile factions always match your level, friendly ones keep their gear (the list is used only when this is off)
+
+		public static bool Exempt(Faction f)
+		{
+			ResearchLockedRaidGearSettings s = ResearchLockedRaidGearMod.Settings;
+			if (s == null || f == null || f.def == null || f.IsPlayer)
+			{
+				return false;
+			}
+			if (s.autoExempt)
+			{
+				try
+				{
+					return Faction.OfPlayer != null && !f.HostileTo(Faction.OfPlayer);
+				}
+				catch
+				{
+					return false;
+				}
+			}
+			return s.exemptFactions != null && s.exemptFactions.Contains(f.def.defName);
+		}
 
 		public List<string> bannedDefs = new List<string>();
 
@@ -1038,6 +1073,7 @@ namespace ResearchLockedRaidGear
 			Scribe_Values.Look(ref exemptAncients, "exemptAncients", true);
 			Scribe_Values.Look(ref rerollButton, "rerollButton", true);
 			Scribe_Collections.Look(ref exemptFactions, "exemptFactions", LookMode.Value);
+			Scribe_Values.Look(ref autoExempt, "autoExempt", true);
 			if (exemptFactions == null)
 			{
 				exemptFactions = new List<string>();
@@ -1888,7 +1924,7 @@ namespace ResearchLockedRaidGear
 			}
 			if (pawn.Faction != null)
 			{
-				if (settings.exemptFactions != null && settings.exemptFactions.Contains(pawn.Faction.def.defName))
+				if (ResearchLockedRaidGearSettings.Exempt(pawn.Faction))
 				{
 					return false;
 				}
@@ -4973,7 +5009,7 @@ namespace ResearchLockedRaidGear
 			{
 				return true;
 			}
-			if (settings.exemptFactions != null && settings.exemptFactions.Contains(f.def.defName))
+			if (ResearchLockedRaidGearSettings.Exempt(f))
 			{
 				return true;
 			}
@@ -5000,7 +5036,7 @@ namespace ResearchLockedRaidGear
 			{
 				return true;
 			}
-			if (settings.exemptFactions != null && settings.exemptFactions.Contains(f.def.defName))
+			if (ResearchLockedRaidGearSettings.Exempt(f))
 			{
 				return true;
 			}
@@ -6413,7 +6449,7 @@ namespace ResearchLockedRaidGear
 			{
 				return false;
 			}
-			if (settings.exemptFactions != null && settings.exemptFactions.Contains(parms.faction.def.defName))
+			if (ResearchLockedRaidGearSettings.Exempt(parms.faction))
 			{
 				return false;
 			}
@@ -6645,7 +6681,7 @@ namespace ResearchLockedRaidGear
 			{
 				return original;
 			}
-			if (settings.exemptFactions != null && settings.exemptFactions.Contains(parms.faction.def.defName))
+			if (ResearchLockedRaidGearSettings.Exempt(parms.faction))
 			{
 				return original;
 			}

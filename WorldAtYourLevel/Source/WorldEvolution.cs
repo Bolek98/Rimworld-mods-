@@ -90,7 +90,7 @@ namespace ResearchLockedRaidGear
 			ResearchLockedRaidGearSettings s = St;
 			if (s == null || !s.enabled || !s.factionTech || f == null || f.def == null || f.IsPlayer || f.Hidden || f.temporary || !f.def.humanlikeFaction) return false;
 			if (s.useManualLevel) return false;
-			if (s.exemptFactions != null && s.exemptFactions.Contains(f.def.defName)) return false;
+			if (!s.autoExempt && s.exemptFactions != null && s.exemptFactions.Contains(f.def.defName)) return false;   // 2.18.0: automatic mode – every faction grows with the world
 			if (f == Faction.OfAncients || f == Faction.OfAncientsHostile) return false;
 			return true;
 		}
