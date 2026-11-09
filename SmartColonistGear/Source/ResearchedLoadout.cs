@@ -9586,8 +9586,15 @@ namespace ResearchedLoadout
 							}
 						}
 					}
+					// 2.19.4: a new game – the scenario's starting gear lies on the ground, not in storage
+					bool fresh = Find.TickManager != null && Find.TickManager.TicksGame < 2500 * 6;
 					foreach (Thing item5 in map.listerThings.ThingsInGroup(ThingRequestGroup.Weapon))
 					{
+						if (item5 != null && fresh && !item5.IsForbidden(Faction.OfPlayer) && !item5.Position.Fogged(map))
+						{
+							crafted.Add(item5.def.defName);
+							continue;
+						}
 						if (item5 != null && item5.IsInAnyStorage() && hashSet.Contains(item5.def))
 						{
 							crafted.Add(item5.def.defName);
@@ -9595,6 +9602,11 @@ namespace ResearchedLoadout
 					}
 					foreach (Thing item6 in map.listerThings.ThingsInGroup(ThingRequestGroup.Apparel))
 					{
+						if (item6 != null && fresh && !item6.IsForbidden(Faction.OfPlayer) && !item6.Position.Fogged(map))
+						{
+							crafted.Add(item6.def.defName);
+							continue;
+						}
 						if (item6 != null && item6.IsInAnyStorage() && hashSet.Contains(item6.def))
 						{
 							crafted.Add(item6.def.defName);
@@ -11991,6 +12003,11 @@ namespace ResearchedLoadout
 			{
 				return true;
 			}
+			// 2.19.4: what the player orders by hand is never blocked (the order silently did nothing)
+			if (job.playerForced)
+			{
+				return true;
+			}
 			Pawn pawn = __instance.pawn;
 			if (!LoadoutFilter.IsPlayerColonist(pawn))
 			{
@@ -12049,6 +12066,11 @@ namespace ResearchedLoadout
 			}
 			Job job = __instance.job;
 			if (job == null || job.targetA.Thing == null)
+			{
+				return true;
+			}
+			// 2.19.4: what the player orders by hand is never blocked (the order silently did nothing)
+			if (job.playerForced)
 			{
 				return true;
 			}
