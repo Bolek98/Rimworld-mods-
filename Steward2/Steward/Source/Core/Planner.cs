@@ -27,6 +27,7 @@ public static class Planner
 		StewardApi.Register(new MyRulesStep());
 		StewardApi.Register(new ApprenticeStep());
 		StewardApi.Register(new TopJobStep());
+		StewardApi.Register(new SmallColonyStep());
 		StewardApi.Register(new NobodyIdleStep());
 	}
 
@@ -479,6 +480,50 @@ public static class Planner
 						ctx.Set(p, w, 2);
 				if (best != null && !pinnedTop)
 					ctx.Set(p, best, 1, "CF2_TipTop");
+			}
+		}
+	}
+
+	// 920: 1.1.4 a small colony (up to 4 colonists) – everybody had almost every work on 2, so the
+	// game's own column order decided (cutting wood came after everything else). Now the 2s get an
+	// order: the few that matter most now stay on 2, the next ones go to 3, the rest to the last level.
+	private sealed class SmallColonyStep : IPlanStep
+	{
+		public int Order => 920;
+		public string Id => "core.small";
+
+		private static bool CoreReason(string k) => k != null && k.StartsWith("CF2_Tip", StringComparison.Ordinal);
+
+		public void Apply(PlanContext ctx)
+		{
+			int n = ctx.pawns.Count;
+			if (n == 0 || n > 4 || ctx.Levels < 3)
+				return;
+			foreach (Pawn p in ctx.pawns)
+			{
+				var jobs = ctx.plan[p];
+				var twos = new List<(WorkTypeDef w, float score)>();
+				foreach (var j in jobs)
+				{
+					WorkTypeDef w = j.Key;
+					if (j.Value != 2 || WorkCatalog.Kind(w) == WorkKind.Emergency || ctx.Pinned(p, w) || ctx.Locked(p, w))
+						continue;
+					float pressure = ctx.demand == null ? 0f : Mathf.Min(1f, ctx.demand.Need(ctx.map, w, n) / (float)n);
+					float score = ctx.settings.Importance(w) + 0.6f * pressure + 0.4f * ctx.Fit(p, w);
+					// raised by a crisis, situation, role or your rule: that is why it matters now
+					if (ctx.reasons.TryGetValue(PlanContext.Key(p, w), out var rs) && rs.Any(r => !CoreReason(r.key)))
+						score += 1f;
+					if (Planner.AlwaysSomeone(w))
+						score += 0.3f;
+					if (WorkCatalog.Kind(w) == WorkKind.General)
+						score -= 0.2f;
+					twos.Add((w, score));
+				}
+				if (twos.Count <= 3)
+					continue;
+				twos.Sort((x, y) => y.score.CompareTo(x.score));
+				for (int i = 3; i < twos.Count; i++)
+					ctx.Set(p, twos[i].w, i < 6 ? 3 : ctx.Levels, "CF2_TipSmallColony");
 			}
 		}
 	}
