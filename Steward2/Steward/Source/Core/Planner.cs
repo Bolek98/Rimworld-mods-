@@ -484,7 +484,7 @@ public static class Planner
 		}
 	}
 
-	// 920: 1.1.4 a small colony (up to 4 colonists) – everybody had almost every work on 2, so the
+	// 920: 1.1.4 a small colony (up to 6 colonists) – everybody had almost every work on 2, so the
 	// game's own column order decided (cutting wood came after everything else). Now the 2s get an
 	// order: the few that matter most now stay on 2, the next ones go to 3, the rest to the last level.
 	private sealed class SmallColonyStep : IPlanStep
@@ -497,7 +497,7 @@ public static class Planner
 		public void Apply(PlanContext ctx)
 		{
 			int n = ctx.pawns.Count;
-			if (n == 0 || n > 4 || ctx.Levels < 3)
+			if (n == 0 || n > 6 || ctx.Levels < 3)
 				return;
 			foreach (Pawn p in ctx.pawns)
 			{
@@ -519,11 +519,12 @@ public static class Planner
 						score -= 0.2f;
 					twos.Add((w, score));
 				}
-				if (twos.Count <= 3)
+				int keep = n <= 3 ? 3 : 4;   // 1.1.4: up to 6 colonists (5–6 had the same mess)
+				if (twos.Count <= keep)
 					continue;
 				twos.Sort((x, y) => y.score.CompareTo(x.score));
-				for (int i = 3; i < twos.Count; i++)
-					ctx.Set(p, twos[i].w, i < 6 ? 3 : ctx.Levels, "CF2_TipSmallColony");
+				for (int i = keep; i < twos.Count; i++)
+					ctx.Set(p, twos[i].w, i < keep + 3 ? 3 : ctx.Levels, "CF2_TipSmallColony");
 			}
 		}
 	}
