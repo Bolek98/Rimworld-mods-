@@ -317,7 +317,11 @@ public sealed class CS
 					st.crisisSeen = found;
 					st.crisisSeenTick = now;
 				}
-				if ((diff & Instant & found) != 0 || now - st.crisisSeenTick >= 2500)
+				// 1.1.2: a crisis starts after an hour, but ends only after it has been gone for 6 hours
+				// (food, hygiene, medicine went on and off every few minutes and every time the plan changed)
+				bool starts = (found & ~comp.crisis) != 0;
+				int wait = starts ? 2500 : ((comp.crisis & ~found & Instant) != 0 ? 2500 : 15000);
+				if ((diff & Instant & found) != 0 || now - st.crisisSeenTick >= wait)
 				{
 					Crisis before = comp.crisis;
 					comp.crisis = found;

@@ -121,6 +121,33 @@ public sealed class ActiveSituation
 
 public static partial class SituationRules
 {
+	// 1.1.2: wood still missing on blueprints and frames (cached for a game hour)
+	private static readonly System.Collections.Generic.Dictionary<Map, (int tick, int wood)> woodNeed = new System.Collections.Generic.Dictionary<Map, (int, int)>();
+
+	public static int WoodForBuilding(Map map)
+	{
+		int now = Find.TickManager.TicksGame;
+		if (woodNeed.TryGetValue(map, out var c) && now - c.tick < 2500)
+			return c.wood;
+		int need = 0;
+		try
+		{
+			foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.Blueprint))
+				if (t.Faction == Faction.OfPlayer && t is IConstructible ic)
+					foreach (ThingDefCountClass tc in ic.TotalMaterialCost())
+						if (tc.thingDef == ThingDefOf.WoodLog) need += tc.count;
+			foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.BuildingFrame))
+				if (t.Faction == Faction.OfPlayer && t is Frame f)
+					need += f.ThingCountNeeded(ThingDefOf.WoodLog);
+		}
+		catch
+		{
+		}
+		need = Math.Min(need, 2000);
+		woodNeed[map] = (now, need);
+		return need;
+	}
+
 	public const int EvalInterval = 2500;
 
 	// Context for one evaluation – the counts several situations share are
@@ -359,7 +386,8 @@ public static partial class SituationRules
 			id = Situation.LowWood, outdoor = true, preview = new[] { "PlantCutting:2" },
 			measure = c =>
 			{
-				int want = 75 + 25 * c.n;
+				// 1.1.2: plus the wood the blueprints and frames still need
+				int want = 75 + 25 * c.n + WoodForBuilding(c.map);
 				int wood = c.map.resourceCounter.GetCount(ThingDefOf.WoodLog);
 				return wood < want && c.Designations("CutPlant") > 0 ? want - wood : 0;
 			},

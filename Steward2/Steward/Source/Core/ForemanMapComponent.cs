@@ -68,6 +68,8 @@ public sealed class ForemanMapComponent : MapComponent
 		ParentCare.ResetGame();
 	}
 
+	public const int CalmGap = 15000;
+
 	// an add-on (or you) wants a new plan; urgent = at the next check, else after the calm gap
 	public void RequestPlan(bool urgent)
 	{
@@ -192,12 +194,13 @@ public sealed class ForemanMapComponent : MapComponent
 		if (ws.Count > 0 && ws.Count(p => p.Drafted) * 2 > ws.Count)
 			return;
 		// 3.0.1: calm – only an urgent request (a crisis) plans at once; other reasons wait at least 2 in-game hours
+		// 1.1.4: 6 in-game hours – at 4× speed a re-plan every 2 hours looked like constant reshuffling
 		string why = null;
 		if (requestedUrgent)
 			why = "urgent request";
 		else if (now >= nextRun)
 			why = "regular plan";
-		else if (now - lastRun >= 5000)
+		else if (now - lastRun >= CalmGap)
 		{
 			if (requested)
 				why = "add-on request";
