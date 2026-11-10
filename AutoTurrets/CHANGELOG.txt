@@ -1,4 +1,24 @@
 === Not on the Workshop yet (test versions) ===
+1.3.0
+New
+- Ammo types: every turret of yours (modded ones and mortars too) gets an Ammo button – normal, armor-piercing, hollow-point, incendiary, EMP, stun, toxic; mortars also smoke and firefoam. For one turret, all of the same kind or all at once. Special ammo is free unless 'Special ammo from storage' is on. New settings tab with balance sliders.
+- Quick turret control: switch one turret or all turrets off/on, and Lethal / Stun only fire mode – on every turret and as a small button bottom right.
+- Stun only: hits just stun, no wounds; targets already stunned or down are skipped. Explosive guns stay lethal.
+- 'Turrets don't destroy items and bodies' (on): your turrets no longer shoot loot to pieces or mash corpses.
+
+Fixes
+- Turrets in walls between a roofed corridor and rooms no longer think the corridor is outdoors and shoot only one way.
+
+Nové
+- Druhy munice: každá tvoje věž (i z modů a minomety) má tlačítko Munice – normální, průbojná, expanzní, zápalná, EMP, omračující, toxická; minomety i kouř a hasicí pěna. Pro jednu věž, všechny stejného druhu nebo všechny naráz. Speciální munice je zdarma, pokud nezapneš „Speciální munice ze skladu“. Nová záložka nastavení s posuvníky vyvážení.
+- Rychlé ovládání věží: vypnout/zapnout jednu nebo všechny věže a režim Smrtící / Jen omráčit – na každé věži a jako malé tlačítko vpravo dole.
+- Jen omráčit: zásahy jen omráčí, žádná zranění; omráčené a ležící cíle věž přeskočí. Výbušné zbraně zůstávají smrtící.
+- „Věže neničí věci a těla“ (zapnuto): tvoje věže už nerozstřílí kořist ani nerozmašírují mrtvoly.
+
+Opravy
+- Věže ve zdi mezi zastřešenou chodbou a místnostmi si už nemyslí, že chodba je venku, a nestřílí jen jedním směrem.
+
+=== Development history since the last Workshop release (test versions) ===
 1.4.2
 - Fix: turrets in walls inside the base (between a roofed corridor and rooms) could think the corridor was outdoors and shoot only one way. Now only an unroofed side counts as outside – a wall between two roofed areas shoots in every direction.
 - Oprava: věže ve zdech uvnitř základny (mezi zastřešenou chodbou a pokoji) mohly chodbu brát jako venek a střílet jen jedním směrem. Teď se za venek počítá jen nezastřešená strana – zeď mezi dvěma zastřešenými prostory střílí všemi směry.

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AP_Enabled>Лікарі самі дають ліки</AP_Enabled>
+  <AP_Enabled_Desc>Лікарі (робота «Лікар») дають колоністам ліки, які їм допоможуть, – залежно від серйозності проблеми.</AP_Enabled_Desc>
+  <AP_Notify>Повідомлення під час видачі ліків</AP_Notify>
+  <AP_Notify_Desc>Коротке повідомлення: хто, що, кому і навіщо дав.</AP_Notify_Desc>
+  <AP_Prisoners>В'язням теж</AP_Prisoners>
+  <AP_Prisoners_Desc>Давати ліки і в'язням.</AP_Prisoners_Desc>
+  <AP_UseMood>Засоби для настрою перед зривом</AP_UseMood>
+  <AP_UseMood_Desc>Колоніст близько до серйозного зриву отримує засіб для настрою. Носить їх лише один колоніст, решта працює далі.</AP_UseMood_Desc>
+  <AP_UseRest>Стимулятори при виснаженні</AP_UseRest>
+  <AP_UseRest_Desc>Колоніст на межі виснаження, який не спить, отримує стимулятор.</AP_UseRest_Desc>
+  <AP_PainFrom>Знеболювальне від болю: {0} %</AP_PainFrom>
+  <AP_PainFrom_Desc>З якого болю дається знеболювальне. Більше болю = сильніший засіб.</AP_PainFrom_Desc>
+  <AP_MinHours>Той самий засіб знову через: {0} год</AP_MinHours>
+  <AP_MinHours_Desc>Для засобів без тривалої дії: скільки чекати до повторної видачі. Засоби з тривалою дією не дають, поки вона триває.</AP_MinHours_Desc>
+  <AP_Addictive_Label>Засоби, що викликають залежність</AP_Addictive_Label>
+  <AP_AddictiveMode0>ніколи</AP_AddictiveMode0>
+  <AP_AddictiveMode1>лише при загрозі життю</AP_AddictiveMode1>
+  <AP_AddictiveMode2>за серйозністю</AP_AddictiveMode2>
+  <AP_AddictiveHelp>Засіб обирається за серйозністю: м'який і дешевий при дрібних бідах, найсильніший при серйозних. Засіб, дія якого ще триває, повторно не дають.</AP_AddictiveHelp>
+  <AP_ListHead>Ліки в грі та їхня дія ({0}). Зніміть позначку з тих, які лікарям не можна використовувати:</AP_ListHead>
+  <AP_Cures>лікує: {0}</AP_Cures>
+  <AP_Addictive>залежність {0} %</AP_Addictive>
+  <AP_Given>{0} дав(ла) {1} → {2} ({3})</AP_Given>
+  <AP_Need_Pain>біль</AP_Need_Pain>
+  <AP_Need_Immunity>імунітет</AP_Need_Immunity>
+  <AP_Need_Cure>вилікування</AP_Need_Cure>
+  <AP_Need_Bleeding>кровотеча</AP_Need_Bleeding>
+  <AP_Need_BloodLoss>крововтрата</AP_Need_BloodLoss>
+  <AP_Need_Consciousness>свідомість</AP_Need_Consciousness>
+  <AP_Need_Breathing>дихання</AP_Need_Breathing>
+  <AP_Need_BloodPumping>кровообіг</AP_Need_BloodPumping>
+  <AP_Need_BloodFiltration>фільтрація крові</AP_Need_BloodFiltration>
+  <AP_Need_Moving>рух</AP_Need_Moving>
+  <AP_Need_Rest>втома</AP_Need_Rest>
+  <AP_Need_Mood>настрій</AP_Need_Mood>
+  <AP_Need_Critical>загроза життю</AP_Need_Critical>
+  <AP_AutoCare>Рівень лікування за серйозністю</AP_AutoCare>
+  <AP_AutoCare_Desc>Бинти й ліки для лікування: трави при дрібних ранах, промислові при хворобах і серйозних ранах, найкращі при загрозі життю. Колоністів із налаштуванням «без лікування» не чіпають.</AP_AutoCare_Desc>
+  <AP_CarePharmacist>Рівнем лікування (бинти, ліки) керує Pharmacist.</AP_CarePharmacist>
+  <AP_CombatDrugs>Бойові препарати для бійців</AP_CombatDrugs>
+  <AP_CombatDrugs_Desc>Призваний колоніст поруч із ворогами приймає один бойовий препарат (Go-juice, Wake-up…) – з інвентарю або зі стосу за кілька кроків, якщо ворогів поруч немає. Ніколи з ризиком залежності, ніколи двічі за заданий час, не для тверезників, дітей і не проти їхньої ідеології. Вимикається для кожного колоніста кнопкою.</AP_CombatDrugs_Desc>
+  <AP_CombatHours>Не частіше однієї дози за {0} год</AP_CombatHours>
+  <AP_CombatHours_Desc>Скільки колоніст чекає до наступного бойового препарату.</AP_CombatHours_Desc>
+  <AP_CombatTaken>{0} прийняв(ла) {1} перед боєм.</AP_CombatTaken>
+  <AP_CombatGizmo>Бойові препарати</AP_CombatGizmo>
+  <AP_CombatGizmo_Desc>Увімк.: колоніст приймає бойовий препарат у бою, коли це безпечно (без ризику залежності).\nВимк.: ніколи.</AP_CombatGizmo_Desc>
+  <AP_Rec1>Лікарі дають потрібний засіб за серйозністю</AP_Rec1>
+  <AP_Rec2>Засоби із залежністю – лише при загрозі життю</AP_Rec2>
+  <AP_Rec3>Бійці розумно використовують бойові препарати</AP_Rec3>
+  <AP_Rec4>Рівень лікування за пораненнями</AP_Rec4>
+  <AP_Need_Manipulation>руки</AP_Need_Manipulation>
+  <AP_Need_Sight>зір</AP_Need_Sight>
+  <AP_Need_Prevention>профілактика</AP_Need_Prevention>
+  <AP_Need_Contraception>контрацепція</AP_Need_Contraception>
+  <AP_Need_Fertility>фертильність</AP_Need_Fertility>
+  <AP_UsePrevention>Профілактика для всіх</AP_UsePrevention>
+  <AP_UsePrevention_Desc>Засоби від хвороб (пеноксициклін і подібні) даються регулярно, незадовго до кінця попередньої дози.</AP_UsePrevention_Desc>
+  <AP_UseChronic>Допомога при хронічних бідах</AP_UseChronic>
+  <AP_UseChronic_Desc>При хворій спині, катаракті, кволості чи старих ранах: засіб, що допомагає руху, рукам чи зору.</AP_UseChronic_Desc>
+  <AP_Plan0>Діти: без плану</AP_Plan0>
+  <AP_Plan1>Діти: ні (контрацепція)</AP_Plan1>
+  <AP_Plan2>Діти: бажані (фертильність)</AP_Plan2>
+  <AP_Plan_Desc>Натисніть, щоб змінити. Ні: лікар регулярно дає контрацепцію. Бажані: засіб для фертильності, якщо він є. Лише дорослі (18+), ніколи під час вагітності.</AP_Plan_Desc>
+  <AP_Need_Addiction>доза залежності</AP_Need_Addiction>
+  <AP_Need_Hemogen>гемоген</AP_Need_Hemogen>
+  <AP_Addictions>Підтримувати залежності</AP_Addictions>
+  <AP_Addictions_Desc>Залежний колоніст отримує свій засіб до ломки – люциферій рано й завжди (пропущена доза вбиває або зводить з розуму). Навіть для тверезників і проти ідеології, як сама гра дозволяє при залежності.</AP_Addictions_Desc>
+  <AP_MoodEarly>Настрій: допомога до зриву</AP_MoodEarly>
+  <AP_MoodEarly_Desc>М'який засіб без залежності (чай, пиво…) уже тоді, коли настрій наближається до межі малого зриву, – не лише після.</AP_MoodEarly_Desc>
+  <AP_DoctorCarry>Лікарі носять поширені ліки</AP_DoctorCarry>
+  <AP_DoctorCarry_Desc>Лікар бере зі складу дві дози найчастіших засобів (лише безпечних: без залежності й передозування), щоб не ходити на склад щоразу.</AP_DoctorCarry_Desc>
+  <AP_WarnMissing>Повідомлення, якщо ліків немає</AP_WarnMissing>
+  <AP_WarnMissing_Desc>Коли колоністу потрібен засіб, якого в колонії немає (або до якого ніхто не дістанеться), – коротке повідомлення, не частіше разу на день на засіб. Саме нічого не замовляється.</AP_WarnMissing_Desc>
+  <AP_Missing>Auto Pharmacy: потрібен {0} ({1}), але його немає в доступі.</AP_Missing>
+  <AP_Search>Пошук ліків…</AP_Search>
+  <AP_HistoryButton>Історія ({0})</AP_HistoryButton>
+  <AP_HistoryTitle>Видані ліки – останні 60</AP_HistoryTitle>
+  <AP_HistoryEmpty>У цій грі ще нічого не видано.</AP_HistoryEmpty>
+  <AP_Need_Healing>швидше загоєння</AP_Need_Healing>
+  <AP_CareGroups>Найкращі ліки за групами:</AP_CareGroups>
+  <AP_CareGroups_Desc>Рівень лікування вище для групи ніколи не перевищить цей. «Не керувати» залишає рівень групи, як ви його задали.</AP_CareGroups_Desc>
+  <AP_CareColonists>Колоністи</AP_CareColonists>
+  <AP_CareSlaves>Раби</AP_CareSlaves>
+  <AP_CarePrisoners>В'язні</AP_CarePrisoners>
+  <AP_CareGuests>Гості</AP_CareGuests>
+  <AP_CareAnimals>Тварини</AP_CareAnimals>
+  <AP_CareOff>Не керувати</AP_CareOff>
+  <MUI_Title>Рекомендовані налаштування</MUI_Title>
+  <MUI_TitleOff>Рекомендовані налаштування · вимк.</MUI_TitleOff>
+  <MUI_DescOn>Мод налаштовується сам і одразу працює. Ідеально для новачків і всіх, хто не хоче нічого налаштовувати.</MUI_DescOn>
+  <MUI_DescOff>Власні налаштування. Змінено порівняно з рекомендованими: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Власні налаштування. Поки збігаються з рекомендованими.</MUI_DescOffSame>
+  <MUI_On>УВІМК.</MUI_On>
+  <MUI_Off>ВИМК.</MUI_Off>
+  <MUI_ResetAll>Скинути все до рекомендованих</MUI_ResetAll>
+  <MUI_ConfirmOn>Увімкнути рекомендовані налаштування? Ваші зміни ({0}) буде замінено рекомендованими значеннями.</MUI_ConfirmOn>
+  <MUI_Locked>Детальні налаштування заблоковано. Хочете їх змінити? Вимкніть перемикач вище – ваші значення почнуться з рекомендованих.</MUI_Locked>
+  <MUI_Changed>ЗМІНЕНО</MUI_Changed>
+  <MUI_ChangedTip>Відрізняється від рекомендованого значення ({0}). Натисніть, щоб відновити рекомендоване значення.</MUI_ChangedTip>
+  <MUI_Yes>увімк.</MUI_Yes>
+  <MUI_No>вимк.</MUI_No>
+  <MUI_RecTag>РЕКОМЕНДОВАНО</MUI_RecTag>
+</LanguageData>

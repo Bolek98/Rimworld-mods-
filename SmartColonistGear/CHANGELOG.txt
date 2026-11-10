@@ -1,4 +1,36 @@
 === Not on the Workshop yet (test versions) ===
+2.17.0
+New
+- Tools in the pockets: a colonist keeps the tool for his work (pickaxe, sickle, axe …) in his inventory and swaps it into his hands when the work starts; drafted or in a fight the weapon is back. Works with Simple Sidearms too.
+- Work clothes only while working (on): an apron, lab coat or mining helmet goes on for that work and comes off about two hours later.
+- Dress and take tools before work, not halfway through. Never in emergencies, drafted or during a raid.
+- New colony: for the first 3 days (slider, 0 = off) colonists take whatever gear is at hand; the starting gear counts as the colony's own.
+- Orders you give by hand (equip, pick up) are never blocked; a message says why something was locked.
+- Support for the Wardrobe add-on.
+
+Fixes
+- No more swapping hats, masks and helmets instead of working, and nobody stands around undressed.
+- Colonists with a weapon you picked yourself take sidearms again.
+- Clothes made for another age group are no longer put on and taken off.
+- Doctors giving a drug or tending a downed colonist don't change clothes first.
+- In heat, underwear and skin layers stay on.
+
+Nové
+- Nástroje v kapse: kolonista nosí nástroj ke své práci (krumpáč, srp, sekeru …) v inventáři a při práci ho vezme do rukou; když je povolán nebo bojuje, má zase zbraň. Funguje i se Simple Sidearms.
+- Pracovní oblečení jen při práci (zapnuto): zástěra, laboratorní plášť nebo hornická helma se obléknou na tu práci a asi za dvě hodiny se zase sundají.
+- Oblékne se a vezme nástroj před prací, ne v půlce. Nikdy při nouzi, povolání ani přepadení.
+- Nová kolonie: první 3 dny (posuvník, 0 = vypnuto) si kolonisté berou výbavu, co je po ruce; startovní výbava se počítá jako vlastní.
+- Tvoje ruční příkazy (vybavit, sebrat) se nikdy neblokují; zpráva řekne, proč byla věc zamčená.
+- Podpora doplňku Wardrobe.
+
+Opravy
+- Už žádné přehazování čepic, masek a helem místo práce a nikdo nestojí svlečený.
+- Kolonisté se zbraní, kterou jsi vybral ty, si zase berou záložní zbraně.
+- Oblečení pro jinou věkovou skupinu se už neobléká a nesvléká.
+- Lékaři, kteří podávají lék nebo ošetřují ležícího, se nejdřív nepřevlékají.
+- V horku zůstává spodní prádlo a vrstvy na kůži.
+
+=== Development history since the last Workshop release (test versions) ===
 2.20.0
 - New: start of a new colony – for the first 3 days (slider, 0 = off) colonists take whatever gear is at hand, the rules start afterwards. When your order overrides a lock, a message says why it was locked.
 - Nové: začátek nové kolonie – první 3 dny (posuvník, 0 = vypnuto) si kolonisté vezmou výbavu, co je po ruce, pravidla platí až potom. Když tvůj rozkaz obejde zámek, zpráva řekne, proč bylo zamčeno.

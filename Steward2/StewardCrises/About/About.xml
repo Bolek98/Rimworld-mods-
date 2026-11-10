@@ -3,7 +3,7 @@
   <name>[B98] Steward – Crises &amp; Situations</name>
   <author>Bolek98</author>
   <packageId>misak.steward.crises</packageId>
-  <modVersion>1.2.1</modVersion>
+  <modVersion>1.2.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -26,36 +26,42 @@
   </loadAfter>
   <description>Optional add-on for Steward – Work Priorities (needs the Steward core; Steward works without it).
 
-Crises (fire, raids, wounded, hunger, winter, blight, power outage, infestations and more – 34 in all): the best-suited colonists are raised for the work the crisis needs at once, and what can wait goes to the lowest level until it is over.
-Situations (a big harvest, a building backlog, carcasses to butcher, things rotting outside, patients, animals to tame … – over 40): the work gets more people while the situation lasts.
-Balanced can pick a focus by itself (Survival when food runs out, Building with many blueprints …).
-Also: a doctor goes to urgent cases at once, free colonists fight fires in the base, cooks butcher first when there is enough food, and an optional safe area during raids.
-Every crisis and situation can be switched off. Work types from mods that do the same thing (a separate butchering or fishing work type) are covered too.
+Crises (fire, raids, wounded, hunger, winter, blight, power outage, infestations and more – 35 in all) and situations (a big harvest, a building backlog, carcasses to butcher, patients, animals to tame … – over 60): the best-suited colonists get the work that is needed.
+- Four groups with a clear order: Life &gt; your priority areas &gt; Shortage &gt; Work &gt; Comfort. Your own orders come before everything except lives.
+- Each group takes only part of the colony (slider for each) – the whole colony never drops everything for crafting.
+- A crisis starts gently with one colonist and grows only when things do not get better. Lives are always at full force.
+- Crises window (button in the Work tab): a card for every crisis with progress and who is on it – Ignore, Put off a day or Do it now – and a journal of what happened.
+- Start plan for a new colony, auto focus for the Balanced style, a doctor at urgent cases at once, firefighting, butchering first, optional safe area during raids.
+Every crisis and situation can be switched off. Work types from mods that do the same thing are covered too.
 
 ---
 
 Volitelný doplněk pro Steward – Work Priorities (potřebuje jádro Stewarda; Steward funguje i bez něj).
 
-Krize (požár, přepadení, zranění, hlad, zima, plíseň, výpadek proudu, zamoření a další – celkem 34): nejvhodnější kolonisté se hned zvednou na práci, kterou krize potřebuje, a co počká, jde na nejnižší prioritu, dokud krize neskončí.
-Situace (velká sklizeň, hodně stavění, těla k porcování, věci hnijící venku, pacienti, zvířata k ochočení … – přes 40): práce dostane víc lidí, dokud situace trvá.
-Vyvážený styl si umí sám vybrat zaměření (Přežití, když dochází jídlo, Stavění při hodně plánech …).
-K tomu: lékař jde hned k naléhavým případům, volní kolonisté hasí oheň v základně, kuchaři porcují napřed, když je dost jídla, a volitelná bezpečná zóna při přepadení.
-Každou krizi i situaci jde vypnout. Práce z modů, které dělají totéž (samostatné porcování nebo rybaření), se počítají taky.
+Krize (požár, přepadení, zranění, hlad, zima, plíseň, výpadek proudu, zamoření a další – celkem 35) a situace (velká sklizeň, hodně stavění, těla k porcování, pacienti, zvířata k ochočení … – přes 60): práci, která je potřeba, dostanou nejvhodnější kolonisté.
+- Čtyři skupiny s jasným pořadím: Život &gt; tvoje prioritní oblasti &gt; Nedostatek &gt; Výroba a práce &gt; Pohodlí. Tvoje příkazy mají přednost před vším kromě života.
+- Každá skupina smí vzít jen část kolonie (posuvník pro každou) – celá kolonie nikdy nenechá všeho kvůli výrobě.
+- Krize začne mírně s jedním kolonistou a sílí, jen když se situace nelepší. O život jde vždy naplno.
+- Okno Krize (tlačítko na kartě Práce): karta pro každou krizi s postupem a kdo na ní dělá – Ignorovat, Odložit o den nebo Vyřešit hned – a deník, co se dělo.
+- Startovní plán pro novou kolonii, automatické zaměření pro Vyvážený styl, lékař hned u naléhavých případů, hašení, porcování napřed, volitelná bezpečná zóna při přepadení.
+Každou krizi i situaci jde vypnout. Práce z modů, které dělají totéž, se počítají taky.
 
 ═══════════════════════
 IDEAS AND SUGGESTIONS
 Want something changed or added? Write it in the comments – I read every idea and take it into account.
 
-WHAT'S NEW IN 1.1.0
-- Tame animals go into the safe area during attacks too
-- Safe area also during manhunter attacks
-- Your edited safe area is kept, never redrawn
+WHAT'S NEW IN 1.2.0
+- Four crisis groups: Life &gt; your orders &gt; Shortage &gt; Work &gt; Comfort
+- A crisis starts gently and grows only when needed
+- New Crises window: cards, Ignore / Put off / Do it now, journal
+- Start plan for a new colony
 
 NÁPADY A NÁVRHY
 Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
 
-CO JE NOVÉHO VE VERZI 1.1.0
-- Při útoku jdou do bezpečné zóny i ochočená zvířata
-- Bezpečná zóna i při útoku šílených zvířat
-- Tvoje upravená bezpečná zóna zůstane, už se nepřekresluje</description>
+CO JE NOVÉHO VE VERZI 1.2.0
+- Čtyři skupiny krizí: Život &gt; tvoje příkazy &gt; Nedostatek &gt; Výroba &gt; Pohodlí
+- Krize začne mírně a sílí, jen když je potřeba
+- Nové okno Krize: karty, Ignorovat / Odložit / Vyřešit hned, deník
+- Startovní plán pro novou kolonii</description>
 </ModMetaData>

@@ -9,8 +9,8 @@ Source code of my RimWorld mods (RimWorld 1.7).
 ## Mods (dev)
 | Mod | Version | Folder |
 |---|---|---|
-| [B98] Auto Pharmacy – Doctors Give the Right Drug | 1.4.4 | [AutoPharmacy](AutoPharmacy) |
-| [B98] Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.4.2 | [AutoTurrets](AutoTurrets) |
+| [B98] Auto Pharmacy – Doctors Give the Right Drug | 1.0.0 | [AutoPharmacy](AutoPharmacy) |
+| [B98] Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.3.0 | [AutoTurrets](AutoTurrets) |
 | [B98] Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.6.1 | [BodyFit](BodyFit) |
 | [B98] Call for Backup – Summon Your Allies | 0.1.1 | [CallForBackup](CallForBackup) |
 | [B98] Caravan Helper | 1.1.0 | [CaravanHelper](CaravanHelper) |
@@ -19,7 +19,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Evergrowth – Wild Plant Spawns per Biome (Choose What Grows) | 1.2.0 | [EvergrowthWildPlants](EvergrowthWildPlants) |
 | [B98] Fewer Freezes – Smart Memory Cleanup | 1.1.1 | [FewerFreezes](FewerFreezes) |
 | [B98] Gender Balance | 1.3.4 | [GenderBalance](GenderBalance) |
-| [B98] Haul Master – Pockets, Routes & Storage | 3.5.1 | [HaulSmarter](HaulSmarter) |
+| [B98] Haul Master – Pockets, Routes & Storage | 1.0.0 | [HaulSmarter](HaulSmarter) |
 | [B98] Legacy – Your Old Colonies Live On | 0.1.1 | [Legacy](Legacy) |
 | [B98] Lively Pawns – Animations & Effects | 0.1.2 | [LivelyPawns](LivelyPawns) |
 | [B98] Mad Dice Max – Dice Storyteller | 1.0.1 | [MadDiceMax](MadDiceMax) |
@@ -29,7 +29,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Mech Commander | 0.1.3 | [MechCommander](MechCommander) |
 | [B98] Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
 | [B98] Mišák Tabs – Clear Bills, Health & Info | 0.13.2 | [MisakTabs](MisakTabs) |
-| [B98] Mod Sort Manager – Load Order, Conflicts & Profiles | 0.6.1 | [ModSortManager](ModSortManager) |
+| [B98] Mod Sort Manager – Load Order, Conflicts & Profiles | 0.7.0 | [ModSortManager](ModSortManager) |
 | [B98] Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | [B98] Place for Everything – Smart Storage for Homeless Items | 0.2.0 | [PlaceForEverything](PlaceForEverything) |
 | [B98] Power & Water Works | 0.1.1 | [PowerWaterWorks](PowerWaterWorks) |
@@ -41,13 +41,13 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Smart Colonist Gear – Wardrobe | 0.1.3 | [SCGWardrobe](SCGWardrobe) |
 | [B98] Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.5.0 | [SeasonsHolidays](SeasonsHolidays) |
 | [B98] Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |
-| [B98] Smart Colonist Gear – Auto Equip Weapons & Armor | 2.20.0 | [SmartColonistGear](SmartColonistGear) |
-| [B98] Smooth FPS – Performance & Graphics | 1.7.2 | [SmoothFPS](SmoothFPS) |
+| [B98] Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.0 | [SmartColonistGear](SmartColonistGear) |
+| [B98] Smooth FPS – Performance & Graphics | 1.7.1 | [SmoothFPS](SmoothFPS) |
 | [B98] Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
-| [B98] Steward – Work Priorities | 1.1.5 | [Steward2/Steward](Steward2/Steward) |
-| [B98] Steward – Crises & Situations | 1.2.1 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| [B98] Steward – Work Priorities | 1.1.0 | [Steward2/Steward](Steward2/Steward) |
+| [B98] Steward – Crises & Situations | 1.2.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | [B98] Steward – Droids | 0.1.2 | [Steward2/StewardDroids](Steward2/StewardDroids) |
-| [B98] Steward – Kit | 1.2.0 | [Steward2/StewardKit](Steward2/StewardKit) |
+| [B98] Steward – Kit | 1.1.0 | [Steward2/StewardKit](Steward2/StewardKit) |
 | [B98] Steward – Orders | 0.3.3 | [Steward2/StewardOrders](Steward2/StewardOrders) |
 | [B98] Steward – Roles | 0.2.2 | [Steward2/StewardRoles](Steward2/StewardRoles) |
 | [B98] Steward – Schedules | 1.1.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
@@ -56,11 +56,11 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
 | [B98] Tidy Toolbar – No More Cut-Off Tabs | 1.2.1 | [TidyToolbar](TidyToolbar) |
 | [B98] Trader Hotline – Call the Trader You Want | 0.3.1 | [TraderHotline](TraderHotline) |
-| [B98] Universal RimTranslator – Auto-Translate All Your Mods | 1.2.3 | [UniversalRimTranslator](UniversalRimTranslator) |
+| [B98] Universal RimTranslator – Auto-Translate All Your Mods | 1.2.0 | [UniversalRimTranslator](UniversalRimTranslator) |
 | [B98] Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.2 | [UnofficialPatch](UnofficialPatch) |
 | [B98] Wild Animals – Biome Spawn Control | 0.2.2 | [WildAnimals](WildAnimals) |
 | [B98] Wild Spawn Zone | 1.1.3 | [WildSpawnZone](WildSpawnZone) |
-| [B98] World at Your Level – Raiders, Factions & Threats Match Your Tech | 2.18.0 | [WorldAtYourLevel](WorldAtYourLevel) |
+| [B98] World at Your Level – Raiders, Factions & Threats Match Your Tech | 2.16.0 | [WorldAtYourLevel](WorldAtYourLevel) |
 
 Each folder is a complete mod (About, Assemblies, Defs, Languages, Source), most with a `CHANGELOG.txt`.
 All mods need [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077).

@@ -1,5 +1,13 @@
 === Not on the Workshop yet (test versions) ===
 1.0.1
+Fixes
+- A threat Max adds on a 5 or 6 that can't start at that moment now tries again for up to half a day instead of being dropped.
+
+Opravy
+- Hrozba, kterou Max přidá na 5 nebo 6 a která zrovna nemůže začít, to teď zkouší znovu až půl dne, místo aby propadla.
+
+=== Development history since the last Workshop release (test versions) ===
+1.0.1
 - Fix: a threat Max adds on a 5 or 6 that can't start at that very moment now tries again for up to half a day instead of being dropped. Threats that were chosen but did not start are written to the log (Player.log, '[Mad Dice Max]') to find what stops them.
 - Oprava: hrozba, kterou Max přidá na 5 nebo 6 a která zrovna nemůže začít, to teď zkouší znovu až půl dne místo toho, aby propadla. Hrozby, které byly vybrané, ale nezačaly, se zapíšou do logu (Player.log, '[Mad Dice Max]'), aby šlo zjistit, co je zastavuje.
 

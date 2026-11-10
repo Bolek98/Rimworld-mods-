@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AP_Enabled>Les médecins donnent les médicaments d'eux-mêmes</AP_Enabled>
+  <AP_Enabled_Desc>Les médecins (travail Médecin) donnent aux colons le médicament qui les aide, selon la gravité du problème.</AP_Enabled_Desc>
+  <AP_Notify>Message à chaque prise</AP_Notify>
+  <AP_Notify_Desc>Un court message : qui a donné quoi à qui et pourquoi.</AP_Notify_Desc>
+  <AP_Prisoners>Les prisonniers aussi</AP_Prisoners>
+  <AP_Prisoners_Desc>Donner aussi des médicaments aux prisonniers.</AP_Prisoners_Desc>
+  <AP_UseMood>Médicaments d'humeur avant une crise</AP_UseMood>
+  <AP_UseMood_Desc>Un colon proche d'une crise majeure reçoit un médicament d'humeur. Un seul colon en porte à la fois, les autres continuent de travailler.</AP_UseMood_Desc>
+  <AP_UseRest>Stimulants en cas d'épuisement</AP_UseRest>
+  <AP_UseRest_Desc>Un colon au bord de l'épuisement qui ne dort pas reçoit un stimulant.</AP_UseRest_Desc>
+  <AP_PainFrom>Antidouleurs à partir de : {0} %</AP_PainFrom>
+  <AP_PainFrom_Desc>À partir de quelle douleur un antidouleur est donné. Plus de douleur = médicament plus fort.</AP_PainFrom_Desc>
+  <AP_MinHours>Même médicament à nouveau après : {0} h</AP_MinHours>
+  <AP_MinHours_Desc>Pour les médicaments sans effet durable : combien attendre avant de redonner le même. Les médicaments à effet durable ne sont pas redonnés tant qu'il dure.</AP_MinHours_Desc>
+  <AP_Addictive_Label>Médicaments addictifs</AP_Addictive_Label>
+  <AP_AddictiveMode0>jamais</AP_AddictiveMode0>
+  <AP_AddictiveMode1>seulement si la vie est en danger</AP_AddictiveMode1>
+  <AP_AddictiveMode2>selon la gravité</AP_AddictiveMode2>
+  <AP_AddictiveHelp>Le médicament est choisi selon la gravité : un léger et bon marché pour les petits soucis, le plus fort pour les graves. Un médicament dont l'effet dure encore n'est pas redonné.</AP_AddictiveHelp>
+  <AP_ListHead>Médicaments du jeu et leurs effets ({0}). Décochez ceux que les médecins ne doivent pas utiliser :</AP_ListHead>
+  <AP_Cures>soigne : {0}</AP_Cures>
+  <AP_Addictive>addictif {0} %</AP_Addictive>
+  <AP_Given>{0} a donné {1} → {2} ({3})</AP_Given>
+  <AP_Need_Pain>douleur</AP_Need_Pain>
+  <AP_Need_Immunity>immunité</AP_Need_Immunity>
+  <AP_Need_Cure>guérison</AP_Need_Cure>
+  <AP_Need_Bleeding>saignement</AP_Need_Bleeding>
+  <AP_Need_BloodLoss>perte de sang</AP_Need_BloodLoss>
+  <AP_Need_Consciousness>conscience</AP_Need_Consciousness>
+  <AP_Need_Breathing>respiration</AP_Need_Breathing>
+  <AP_Need_BloodPumping>circulation sanguine</AP_Need_BloodPumping>
+  <AP_Need_BloodFiltration>filtration du sang</AP_Need_BloodFiltration>
+  <AP_Need_Moving>mouvement</AP_Need_Moving>
+  <AP_Need_Rest>fatigue</AP_Need_Rest>
+  <AP_Need_Mood>humeur</AP_Need_Mood>
+  <AP_Need_Critical>vie en danger</AP_Need_Critical>
+  <AP_AutoCare>Niveau de soins selon la gravité</AP_AutoCare>
+  <AP_AutoCare_Desc>Bandages et médicaments pour les soins : herbes pour les petites blessures, industriels pour les maladies et blessures plus graves, les meilleurs quand la vie est en danger. Les colons réglés sur « aucun soin » ne sont pas touchés.</AP_AutoCare_Desc>
+  <AP_CarePharmacist>Le niveau de soins (bandages, médicaments) est géré par Pharmacist.</AP_CarePharmacist>
+  <AP_CombatDrugs>Drogues de combat pour les combattants</AP_CombatDrugs>
+  <AP_CombatDrugs_Desc>Un colon mobilisé avec des ennemis proches prend une drogue de combat (Go-juice, Wake-up…) – de son inventaire, ou d'une pile à quelques pas quand aucun ennemi n'est proche. Jamais avec un risque d'addiction, jamais deux fois dans le délai réglé, pas pour les abstinents, les enfants ou contre leur idéologie. Désactivable par colon avec un bouton.</AP_CombatDrugs_Desc>
+  <AP_CombatHours>Au plus une dose toutes les {0} h</AP_CombatHours>
+  <AP_CombatHours_Desc>Combien de temps un colon attend avant de reprendre une drogue de combat.</AP_CombatHours_Desc>
+  <AP_CombatTaken>{0} a pris {1} avant le combat.</AP_CombatTaken>
+  <AP_CombatGizmo>Drogues de combat</AP_CombatGizmo>
+  <AP_CombatGizmo_Desc>Activé : ce colon prend une drogue de combat au combat si c'est sans risque (pas d'addiction).\nDésactivé : jamais.</AP_CombatGizmo_Desc>
+  <AP_Rec1>Les médecins donnent le bon médicament selon la gravité</AP_Rec1>
+  <AP_Rec2>Médicaments addictifs seulement si la vie est en danger</AP_Rec2>
+  <AP_Rec3>Les combattants utilisent les drogues de combat avec bon sens</AP_Rec3>
+  <AP_Rec4>Niveau de soins selon les blessures</AP_Rec4>
+  <AP_Need_Manipulation>mains</AP_Need_Manipulation>
+  <AP_Need_Sight>vue</AP_Need_Sight>
+  <AP_Need_Prevention>prévention</AP_Need_Prevention>
+  <AP_Need_Contraception>contraception</AP_Need_Contraception>
+  <AP_Need_Fertility>fertilité</AP_Need_Fertility>
+  <AP_UsePrevention>Prévention pour tous</AP_UsePrevention>
+  <AP_UsePrevention_Desc>Les médicaments qui protègent des maladies (pénoxycyline, etc.) sont donnés régulièrement, un peu avant la fin de la dernière dose.</AP_UsePrevention_Desc>
+  <AP_UseChronic>Aide pour les troubles durables</AP_UseChronic>
+  <AP_UseChronic_Desc>Pour un mal de dos, une cataracte, la fragilité ou de vieilles blessures : un médicament qui aide le mouvement, les mains ou la vue.</AP_UseChronic_Desc>
+  <AP_Plan0>Enfants : pas de plan</AP_Plan0>
+  <AP_Plan1>Enfants : non (contraception)</AP_Plan1>
+  <AP_Plan2>Enfants : souhaités (fertilité)</AP_Plan2>
+  <AP_Plan_Desc>Cliquez pour changer. Non : un médecin donne régulièrement une contraception. Souhaités : un médicament de fertilité s'il y en a. Adultes (18+) seulement, jamais pendant une grossesse.</AP_Plan_Desc>
+  <AP_Need_Addiction>dose d'addiction</AP_Need_Addiction>
+  <AP_Need_Hemogen>hémogène</AP_Need_Hemogen>
+  <AP_Addictions>Entretenir les addictions</AP_Addictions>
+  <AP_Addictions_Desc>Un colon dépendant reçoit sa drogue avant le manque – la lucifériume tôt et toujours (une dose manquée tue ou rend fou). Même pour les abstinents et contre l'idéologie, comme le jeu le permet pour une dépendance.</AP_Addictions_Desc>
+  <AP_MoodEarly>Humeur : aider avant une crise</AP_MoodEarly>
+  <AP_MoodEarly_Desc>Un médicament léger et non addictif (thé, bière…) dès que l'humeur approche du seuil de crise mineure – pas seulement après.</AP_MoodEarly_Desc>
+  <AP_DoctorCarry>Les médecins portent les médicaments courants</AP_DoctorCarry>
+  <AP_DoctorCarry_Desc>Un médecin prend dans le stock deux doses des médicaments les plus donnés (seulement sûrs : non addictifs, sans surdose), pour ne pas aller au stock à chaque fois.</AP_DoctorCarry_Desc>
+  <AP_WarnMissing>Message quand un médicament manque</AP_WarnMissing>
+  <AP_WarnMissing_Desc>Quand un colon a besoin d'un médicament que la colonie n'a pas (ou que personne n'atteint), un court message – au plus une fois par jour et par médicament. Rien n'est commandé tout seul.</AP_WarnMissing_Desc>
+  <AP_Missing>Auto Pharmacy : {0} est nécessaire ({1}) mais introuvable.</AP_Missing>
+  <AP_Search>Rechercher un médicament…</AP_Search>
+  <AP_HistoryButton>Historique ({0})</AP_HistoryButton>
+  <AP_HistoryTitle>Médicaments donnés – les 60 derniers</AP_HistoryTitle>
+  <AP_HistoryEmpty>Rien de donné dans cette partie.</AP_HistoryEmpty>
+  <AP_Need_Healing>guérison plus rapide</AP_Need_Healing>
+  <AP_CareGroups>Médicament maximal par groupe :</AP_CareGroups>
+  <AP_CareGroups_Desc>Le niveau de soins ci-dessus ne dépasse jamais celui-ci pour le groupe. « Non géré » laisse le niveau du groupe tel que vous l'avez réglé.</AP_CareGroups_Desc>
+  <AP_CareColonists>Colons</AP_CareColonists>
+  <AP_CareSlaves>Esclaves</AP_CareSlaves>
+  <AP_CarePrisoners>Prisonniers</AP_CarePrisoners>
+  <AP_CareGuests>Invités</AP_CareGuests>
+  <AP_CareAnimals>Animaux</AP_CareAnimals>
+  <AP_CareOff>Non géré</AP_CareOff>
+  <MUI_Title>Réglages recommandés</MUI_Title>
+  <MUI_TitleOff>Réglages recommandés · désactivés</MUI_TitleOff>
+  <MUI_DescOn>Le mod se configure tout seul et fonctionne immédiatement. Idéal pour les nouveaux joueurs et tous ceux qui ne veulent rien ajuster.</MUI_DescOn>
+  <MUI_DescOff>Réglages personnalisés. Modifiés par rapport aux recommandations : {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Réglages personnalisés. Toujours identiques aux recommandations.</MUI_DescOffSame>
+  <MUI_On>ACTIVÉ</MUI_On>
+  <MUI_Off>DÉSACTIVÉ</MUI_Off>
+  <MUI_ResetAll>Tout réinitialiser aux valeurs recommandées</MUI_ResetAll>
+  <MUI_ConfirmOn>Activer les réglages recommandés ? Vos modifications ({0}) seront remplacées par les valeurs recommandées.</MUI_ConfirmOn>
+  <MUI_Locked>Les réglages détaillés sont verrouillés. Vous voulez les modifier ? Désactivez l'interrupteur ci-dessus – vos valeurs partiront des valeurs recommandées.</MUI_Locked>
+  <MUI_Changed>MODIFIÉ</MUI_Changed>
+  <MUI_ChangedTip>Diffère du réglage recommandé ({0}). Cliquez pour rétablir la valeur recommandée.</MUI_ChangedTip>
+  <MUI_Yes>activé</MUI_Yes>
+  <MUI_No>désactivé</MUI_No>
+  <MUI_RecTag>RECOMMANDÉ</MUI_RecTag>
+</LanguageData>

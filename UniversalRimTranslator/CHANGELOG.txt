@@ -1,4 +1,24 @@
 === Not on the Workshop yet (test versions) ===
+1.2.0
+New
+- Translations from other mods without enabling them: installed but disabled translation mods, packs in the new URT library and packs from a URL (zip or GitHub) are used for your language. A mod's own translation still wins; URT translates only what is missing. New Sources tab.
+- Quest letters kept in older saves are shown translated; single-word grammar rules (quest name parts) are translated too.
+
+Fixes
+- Facial Animation faces no longer disappear (identifier fields are not translated any more).
+- Fewer false rejections of good translations; Chinese/Japanese brackets handled.
+- Clearer counts in the settings and the Mods tab.
+
+Nové
+- Překlady z jiných modů bez jejich zapnutí: nainstalované, ale vypnuté překladové mody, balíčky v nové knihovně URT a balíčky z URL (zip nebo GitHub) se použijí pro tvůj jazyk. Vlastní překlad modu má dál přednost; URT přeloží jen to, co chybí. Nová záložka Zdroje.
+- Dopisy úkolů uložené ve starších savech se ukážou přeložené; přeloží se i jednoslovná gramatická pravidla (části názvů úkolů).
+
+Opravy
+- Obličeje z Facial Animation už nemizí (pole s identifikátory se už nepřekládají).
+- Méně falešně odmítnutých dobrých překladů; čínské a japonské závorky v pořádku.
+- Přehlednější počty v nastavení a na záložce Mody.
+
+=== Development history since the last Workshop release (test versions) ===
 1.2.3
 - Facial Animation faces no longer disappear: fields that hold identifiers (eye part labels, shape names, defName lists) are not translated any more.
 - Obličeje z Facial Animation už nemizí: pole s identifikátory (názvy částí oka, tvarů, seznamy defName) se už nepřekládají.

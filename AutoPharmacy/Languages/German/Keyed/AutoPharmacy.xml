@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AP_Enabled>Ärzte geben Medikamente selbstständig</AP_Enabled>
+  <AP_Enabled_Desc>Ärzte (Arbeit Arzt) geben Kolonisten das Medikament, das ihnen hilft – je nachdem, wie ernst das Problem ist.</AP_Enabled_Desc>
+  <AP_Notify>Nachricht bei jeder Gabe</AP_Notify>
+  <AP_Notify_Desc>Eine kurze Nachricht: wer wem was gegeben hat und warum.</AP_Notify_Desc>
+  <AP_Prisoners>Auch Gefangene</AP_Prisoners>
+  <AP_Prisoners_Desc>Auch Gefangenen Medikamente geben.</AP_Prisoners_Desc>
+  <AP_UseMood>Stimmungsmittel vor einem Zusammenbruch</AP_UseMood>
+  <AP_UseMood_Desc>Ein Kolonist kurz vor einem schweren Zusammenbruch bekommt ein Stimmungsmittel. Immer nur einer trägt sie, die anderen arbeiten weiter.</AP_UseMood_Desc>
+  <AP_UseRest>Aufputschmittel bei Erschöpfung</AP_UseRest>
+  <AP_UseRest_Desc>Ein Kolonist kurz vor der Erschöpfung, der nicht schläft, bekommt ein Aufputschmittel.</AP_UseRest_Desc>
+  <AP_PainFrom>Schmerzmittel ab Schmerz: {0} %</AP_PainFrom>
+  <AP_PainFrom_Desc>Ab wie viel Schmerz ein Schmerzmittel gegeben wird. Mehr Schmerz = stärkeres Mittel.</AP_PainFrom_Desc>
+  <AP_MinHours>Dasselbe Mittel wieder nach: {0} h</AP_MinHours>
+  <AP_MinHours_Desc>Für Mittel ohne anhaltende Wirkung: wie lange bis zur nächsten Gabe desselben Mittels. Mittel mit anhaltender Wirkung werden nicht gegeben, solange sie wirken.</AP_MinHours_Desc>
+  <AP_Addictive_Label>Suchtmittel</AP_Addictive_Label>
+  <AP_AddictiveMode0>nie</AP_AddictiveMode0>
+  <AP_AddictiveMode1>nur bei Lebensgefahr</AP_AddictiveMode1>
+  <AP_AddictiveMode2>je nach Ernst</AP_AddictiveMode2>
+  <AP_AddictiveHelp>Das Mittel wird nach dem Ernst gewählt: ein mildes, billiges für kleine Probleme, das stärkste für ernste. Ein Mittel, dessen Wirkung noch anhält, wird nicht erneut gegeben.</AP_AddictiveHelp>
+  <AP_ListHead>Medikamente im Spiel und ihre Wirkung ({0}). Abwählen, was Ärzte nicht verwenden sollen:</AP_ListHead>
+  <AP_Cures>heilt: {0}</AP_Cures>
+  <AP_Addictive>süchtig machend {0} %</AP_Addictive>
+  <AP_Given>{0} gab {1} → {2} ({3})</AP_Given>
+  <AP_Need_Pain>Schmerz</AP_Need_Pain>
+  <AP_Need_Immunity>Immunität</AP_Need_Immunity>
+  <AP_Need_Cure>Heilung</AP_Need_Cure>
+  <AP_Need_Bleeding>Blutung</AP_Need_Bleeding>
+  <AP_Need_BloodLoss>Blutverlust</AP_Need_BloodLoss>
+  <AP_Need_Consciousness>Bewusstsein</AP_Need_Consciousness>
+  <AP_Need_Breathing>Atmung</AP_Need_Breathing>
+  <AP_Need_BloodPumping>Blutkreislauf</AP_Need_BloodPumping>
+  <AP_Need_BloodFiltration>Blutfiltration</AP_Need_BloodFiltration>
+  <AP_Need_Moving>Bewegung</AP_Need_Moving>
+  <AP_Need_Rest>Müdigkeit</AP_Need_Rest>
+  <AP_Need_Mood>Stimmung</AP_Need_Mood>
+  <AP_Need_Critical>Lebensgefahr</AP_Need_Critical>
+  <AP_AutoCare>Behandlungsstufe nach Ernst</AP_AutoCare>
+  <AP_AutoCare_Desc>Verbände und Medizin zur Behandlung: Kräuter für kleine Verletzungen, Industrie für Krankheiten und größere Verletzungen, die beste bei Lebensgefahr. Kolonisten auf „keine Behandlung“ bleiben unberührt.</AP_AutoCare_Desc>
+  <AP_CarePharmacist>Die Behandlungsstufe (Verbände, Medizin) übernimmt Pharmacist.</AP_CarePharmacist>
+  <AP_CombatDrugs>Kampfdrogen für Kämpfer</AP_CombatDrugs>
+  <AP_CombatDrugs_Desc>Ein eingezogener Kolonist mit Feinden in der Nähe nimmt eine Kampfdroge (Go-Juice, Wach-auf …) – aus dem Inventar oder von einem Stapel ein paar Schritte weg, wenn kein Feind nah ist. Nie mit Suchtgefahr, nie zweimal in der eingestellten Zeit, nicht für Abstinenzler, Kinder oder gegen ihre Ideologie. Pro Kolonist per Knopf abschaltbar.</AP_CombatDrugs_Desc>
+  <AP_CombatHours>Höchstens eine Dosis pro {0} h</AP_CombatHours>
+  <AP_CombatHours_Desc>Wie lange ein Kolonist bis zur nächsten Kampfdroge wartet.</AP_CombatHours_Desc>
+  <AP_CombatTaken>{0} nahm {1} vor dem Kampf.</AP_CombatTaken>
+  <AP_CombatGizmo>Kampfdrogen</AP_CombatGizmo>
+  <AP_CombatGizmo_Desc>An: dieser Kolonist nimmt im Kampf eine Kampfdroge, wenn es sicher ist (keine Suchtgefahr).\nAus: nie.</AP_CombatGizmo_Desc>
+  <AP_Rec1>Ärzte geben das richtige Mittel je nach Ernst</AP_Rec1>
+  <AP_Rec2>Suchtmittel nur bei Lebensgefahr</AP_Rec2>
+  <AP_Rec3>Kämpfer nutzen Kampfdrogen vernünftig</AP_Rec3>
+  <AP_Rec4>Behandlungsstufe nach den Verletzungen</AP_Rec4>
+  <AP_Need_Manipulation>Hände</AP_Need_Manipulation>
+  <AP_Need_Sight>Sehen</AP_Need_Sight>
+  <AP_Need_Prevention>Vorbeugung</AP_Need_Prevention>
+  <AP_Need_Contraception>Verhütung</AP_Need_Contraception>
+  <AP_Need_Fertility>Fruchtbarkeit</AP_Need_Fertility>
+  <AP_UsePrevention>Vorbeugung für alle</AP_UsePrevention>
+  <AP_UsePrevention_Desc>Mittel, die vor Krankheiten schützen (Penoxycyline u. Ä.), werden regelmäßig gegeben, kurz bevor die letzte Dosis endet.</AP_UsePrevention_Desc>
+  <AP_UseChronic>Hilfe bei Dauerbeschwerden</AP_UseChronic>
+  <AP_UseChronic_Desc>Bei schlechtem Rücken, grauem Star, Gebrechlichkeit oder alten Wunden: ein Mittel, das Bewegung, Hände oder Sehen verbessert.</AP_UseChronic_Desc>
+  <AP_Plan0>Kinder: kein Plan</AP_Plan0>
+  <AP_Plan1>Kinder: nein (Verhütung)</AP_Plan1>
+  <AP_Plan2>Kinder: erwünscht (Fruchtbarkeit)</AP_Plan2>
+  <AP_Plan_Desc>Klicken zum Ändern. Nein: ein Arzt gibt regelmäßig Verhütung. Erwünscht: ein Fruchtbarkeitsmittel, wenn es eins gibt. Nur Erwachsene (18+), nie in der Schwangerschaft.</AP_Plan_Desc>
+  <AP_Need_Addiction>Suchtdosis</AP_Need_Addiction>
+  <AP_Need_Hemogen>Hämogen</AP_Need_Hemogen>
+  <AP_Addictions>Süchte versorgen</AP_Addictions>
+  <AP_Addictions_Desc>Ein süchtiger Kolonist bekommt sein Mittel vor dem Entzug – Luciferium früh und immer (eine verpasste Dosis tötet oder macht wahnsinnig). Auch für Abstinenzler und gegen die Ideologie, wie es das Spiel bei Abhängigkeit erlaubt.</AP_Addictions_Desc>
+  <AP_MoodEarly>Stimmung: Hilfe vor dem Zusammenbruch</AP_MoodEarly>
+  <AP_MoodEarly_Desc>Ein mildes, nicht süchtig machendes Mittel (Tee, Bier …) schon, wenn die Stimmung nahe an die Grenze für einen leichten Zusammenbruch kommt – nicht erst danach.</AP_MoodEarly_Desc>
+  <AP_DoctorCarry>Ärzte tragen häufige Mittel</AP_DoctorCarry>
+  <AP_DoctorCarry_Desc>Ein Arzt nimmt zwei Dosen der am häufigsten gegebenen Mittel (nur sichere: nicht süchtig machend, keine Überdosis) aus dem Lager mit, damit er nicht jedes Mal hingehen muss.</AP_DoctorCarry_Desc>
+  <AP_WarnMissing>Nachricht, wenn ein Mittel fehlt</AP_WarnMissing>
+  <AP_WarnMissing_Desc>Wenn ein Kolonist ein Mittel braucht, das die Kolonie nicht hat (oder das niemand erreicht), eine kurze Nachricht – höchstens einmal am Tag pro Mittel. Nichts wird selbst bestellt.</AP_WarnMissing_Desc>
+  <AP_Missing>Auto Pharmacy: {0} wird gebraucht ({1}), ist aber nicht erreichbar.</AP_Missing>
+  <AP_Search>Medikamente suchen…</AP_Search>
+  <AP_HistoryButton>Verlauf ({0})</AP_HistoryButton>
+  <AP_HistoryTitle>Gegebene Mittel – die letzten 60</AP_HistoryTitle>
+  <AP_HistoryEmpty>In diesem Spiel noch nichts gegeben.</AP_HistoryEmpty>
+  <AP_Need_Healing>schnellere Heilung</AP_Need_Healing>
+  <AP_CareGroups>Höchste Medizin je Gruppe:</AP_CareGroups>
+  <AP_CareGroups_Desc>Die Behandlungsstufe oben geht für die Gruppe nie höher. „Nicht verwaltet“ lässt die Stufe der Gruppe, wie du sie eingestellt hast.</AP_CareGroups_Desc>
+  <AP_CareColonists>Kolonisten</AP_CareColonists>
+  <AP_CareSlaves>Sklaven</AP_CareSlaves>
+  <AP_CarePrisoners>Gefangene</AP_CarePrisoners>
+  <AP_CareGuests>Gäste</AP_CareGuests>
+  <AP_CareAnimals>Tiere</AP_CareAnimals>
+  <AP_CareOff>Nicht verwaltet</AP_CareOff>
+  <MUI_Title>Empfohlene Einstellungen</MUI_Title>
+  <MUI_TitleOff>Empfohlene Einstellungen · aus</MUI_TitleOff>
+  <MUI_DescOn>Die Mod richtet sich selbst ein und funktioniert sofort. Ideal für neue Spieler und alle, die nichts anpassen wollen.</MUI_DescOn>
+  <MUI_DescOff>Eigene Einstellungen. Geändert gegenüber Empfehlung: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Eigene Einstellungen. Noch identisch mit der Empfehlung.</MUI_DescOffSame>
+  <MUI_On>AN</MUI_On>
+  <MUI_Off>AUS</MUI_Off>
+  <MUI_ResetAll>Alles auf Empfehlung zurücksetzen</MUI_ResetAll>
+  <MUI_ConfirmOn>Empfohlene Einstellungen einschalten? Deine Änderungen ({0}) werden durch die empfohlenen Werte ersetzt.</MUI_ConfirmOn>
+  <MUI_Locked>Detaillierte Einstellungen sind gesperrt. Willst du sie ändern? Schalte den Schalter oben aus – deine Werte starten bei den empfohlenen.</MUI_Locked>
+  <MUI_Changed>GEÄNDERT</MUI_Changed>
+  <MUI_ChangedTip>Weicht von der Empfehlung ab ({0}). Klicken, um den empfohlenen Wert wiederherzustellen.</MUI_ChangedTip>
+  <MUI_Yes>an</MUI_Yes>
+  <MUI_No>aus</MUI_No>
+  <MUI_RecTag>EMPFOHLEN</MUI_RecTag>
+</LanguageData>

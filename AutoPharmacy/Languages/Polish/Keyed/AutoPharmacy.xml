@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AP_Enabled>Lekarze sami podają leki</AP_Enabled>
+  <AP_Enabled_Desc>Lekarze (praca Lekarz) podają kolonistom lek, który im pomaga – zależnie od tego, jak poważny jest problem.</AP_Enabled_Desc>
+  <AP_Notify>Wiadomość przy podaniu leku</AP_Notify>
+  <AP_Notify_Desc>Krótka wiadomość: kto, co, komu i dlaczego podał.</AP_Notify_Desc>
+  <AP_Prisoners>Także więźniowie</AP_Prisoners>
+  <AP_Prisoners_Desc>Podawaj leki także więźniom.</AP_Prisoners_Desc>
+  <AP_UseMood>Leki na nastrój przed załamaniem</AP_UseMood>
+  <AP_UseMood_Desc>Kolonista bliski poważnego załamania dostaje lek na nastrój. Nosi je tylko jeden kolonista naraz, reszta pracuje dalej.</AP_UseMood_Desc>
+  <AP_UseRest>Stymulanty przy wyczerpaniu</AP_UseRest>
+  <AP_UseRest_Desc>Kolonista na skraju wyczerpania, który nie śpi, dostaje stymulant.</AP_UseRest_Desc>
+  <AP_PainFrom>Leki przeciwbólowe od bólu: {0} %</AP_PainFrom>
+  <AP_PainFrom_Desc>Od jakiego bólu podawany jest lek przeciwbólowy. Więcej bólu = mocniejszy lek.</AP_PainFrom_Desc>
+  <AP_MinHours>Ten sam lek znowu po: {0} h</AP_MinHours>
+  <AP_MinHours_Desc>Dla leków bez trwałego działania: ile czekać przed ponownym podaniem tego samego. Leki z trwałym działaniem nie są podawane, dopóki ono trwa.</AP_MinHours_Desc>
+  <AP_Addictive_Label>Leki uzależniające</AP_Addictive_Label>
+  <AP_AddictiveMode0>nigdy</AP_AddictiveMode0>
+  <AP_AddictiveMode1>tylko gdy życie jest zagrożone</AP_AddictiveMode1>
+  <AP_AddictiveMode2>zależnie od powagi</AP_AddictiveMode2>
+  <AP_AddictiveHelp>Lek dobierany jest według powagi: łagodny i tani na drobne problemy, najsilniejszy na poważne. Lek, którego działanie jeszcze trwa, nie jest podawany ponownie.</AP_AddictiveHelp>
+  <AP_ListHead>Leki w grze i ich działanie ({0}). Odznacz te, których lekarze mają nie używać:</AP_ListHead>
+  <AP_Cures>leczy: {0}</AP_Cures>
+  <AP_Addictive>uzależnia {0} %</AP_Addictive>
+  <AP_Given>{0} podał(a) {1} → {2} ({3})</AP_Given>
+  <AP_Need_Pain>ból</AP_Need_Pain>
+  <AP_Need_Immunity>odporność</AP_Need_Immunity>
+  <AP_Need_Cure>wyleczenie</AP_Need_Cure>
+  <AP_Need_Bleeding>krwawienie</AP_Need_Bleeding>
+  <AP_Need_BloodLoss>utrata krwi</AP_Need_BloodLoss>
+  <AP_Need_Consciousness>świadomość</AP_Need_Consciousness>
+  <AP_Need_Breathing>oddychanie</AP_Need_Breathing>
+  <AP_Need_BloodPumping>krążenie</AP_Need_BloodPumping>
+  <AP_Need_BloodFiltration>filtracja krwi</AP_Need_BloodFiltration>
+  <AP_Need_Moving>ruch</AP_Need_Moving>
+  <AP_Need_Rest>zmęczenie</AP_Need_Rest>
+  <AP_Need_Mood>nastrój</AP_Need_Mood>
+  <AP_Need_Critical>zagrożenie życia</AP_Need_Critical>
+  <AP_AutoCare>Poziom opieki według powagi</AP_AutoCare>
+  <AP_AutoCare_Desc>Bandaże i leki do opatrywania: zioła na drobne rany, przemysłowe na choroby i większe rany, najlepsze przy zagrożeniu życia. Koloniści ustawieni na „bez opieki” zostają bez zmian.</AP_AutoCare_Desc>
+  <AP_CarePharmacist>Poziomem opieki (bandaże, leki) zajmuje się Pharmacist.</AP_CarePharmacist>
+  <AP_CombatDrugs>Narkotyki bojowe dla walczących</AP_CombatDrugs>
+  <AP_CombatDrugs_Desc>Powołany kolonista z wrogami w pobliżu bierze jeden narkotyk bojowy (Go-juice, Wake-up…) – z ekwipunku albo ze stosu kilka kroków dalej, gdy wroga nie ma blisko. Nigdy z ryzykiem uzależnienia, nigdy dwa razy w ustawionym czasie, nie dla abstynentów, dzieci ani wbrew ideologii. Można wyłączyć dla każdego kolonisty przyciskiem.</AP_CombatDrugs_Desc>
+  <AP_CombatHours>Najwyżej jedna dawka na {0} h</AP_CombatHours>
+  <AP_CombatHours_Desc>Ile kolonista czeka przed kolejnym narkotykiem bojowym.</AP_CombatHours_Desc>
+  <AP_CombatTaken>{0} wziął(a) {1} przed walką.</AP_CombatTaken>
+  <AP_CombatGizmo>Narkotyki bojowe</AP_CombatGizmo>
+  <AP_CombatGizmo_Desc>Wł.: ten kolonista bierze narkotyk bojowy w walce, gdy jest to bezpieczne (bez ryzyka uzależnienia).\nWył.: nigdy.</AP_CombatGizmo_Desc>
+  <AP_Rec1>Lekarze podają właściwy lek według powagi</AP_Rec1>
+  <AP_Rec2>Leki uzależniające tylko przy zagrożeniu życia</AP_Rec2>
+  <AP_Rec3>Walczący rozsądnie używają narkotyków bojowych</AP_Rec3>
+  <AP_Rec4>Poziom opieki według ran</AP_Rec4>
+  <AP_Need_Manipulation>ręce</AP_Need_Manipulation>
+  <AP_Need_Sight>wzrok</AP_Need_Sight>
+  <AP_Need_Prevention>profilaktyka</AP_Need_Prevention>
+  <AP_Need_Contraception>antykoncepcja</AP_Need_Contraception>
+  <AP_Need_Fertility>płodność</AP_Need_Fertility>
+  <AP_UsePrevention>Profilaktyka dla wszystkich</AP_UsePrevention>
+  <AP_UsePrevention_Desc>Leki chroniące przed chorobami (penoksycylina i podobne) są podawane regularnie, trochę przed końcem ostatniej dawki.</AP_UsePrevention_Desc>
+  <AP_UseChronic>Pomoc przy przewlekłych dolegliwościach</AP_UseChronic>
+  <AP_UseChronic_Desc>Na chory kręgosłup, zaćmę, kruchość lub stare rany: lek, który pomaga w ruchu, rękom lub wzrokowi.</AP_UseChronic_Desc>
+  <AP_Plan0>Dzieci: bez planu</AP_Plan0>
+  <AP_Plan1>Dzieci: nie (antykoncepcja)</AP_Plan1>
+  <AP_Plan2>Dzieci: chciane (płodność)</AP_Plan2>
+  <AP_Plan_Desc>Kliknij, aby zmienić. Nie: lekarz regularnie podaje antykoncepcję. Chciane: lek na płodność, jeśli jest. Tylko dorośli (18+), nigdy w ciąży.</AP_Plan_Desc>
+  <AP_Need_Addiction>dawka uzależnienia</AP_Need_Addiction>
+  <AP_Need_Hemogen>hemogen</AP_Need_Hemogen>
+  <AP_Addictions>Podtrzymuj uzależnienia</AP_Addictions>
+  <AP_Addictions_Desc>Uzależniony kolonista dostaje swój środek przed głodem – lucyferium wcześnie i zawsze (pominięta dawka zabija lub doprowadza do szaleństwa). Także dla abstynentów i wbrew ideologii, jak sama gra pozwala przy zależności.</AP_Addictions_Desc>
+  <AP_MoodEarly>Nastrój: pomoc przed załamaniem</AP_MoodEarly>
+  <AP_MoodEarly_Desc>Łagodny, nieuzależniający środek (herbata, piwo…) już wtedy, gdy nastrój zbliża się do progu małego załamania – nie dopiero potem.</AP_MoodEarly_Desc>
+  <AP_DoctorCarry>Lekarze noszą częste leki</AP_DoctorCarry>
+  <AP_DoctorCarry_Desc>Lekarz bierze z magazynu dwie dawki najczęściej podawanych leków (tylko bezpiecznych: nieuzależniających, bez przedawkowania), żeby nie chodzić do magazynu za każdym razem.</AP_DoctorCarry_Desc>
+  <AP_WarnMissing>Wiadomość, gdy brakuje leku</AP_WarnMissing>
+  <AP_WarnMissing_Desc>Gdy kolonista potrzebuje leku, którego kolonia nie ma (albo nikt go nie dosięga), krótka wiadomość – najwyżej raz dziennie na lek. Nic nie jest zamawiane samo.</AP_WarnMissing_Desc>
+  <AP_Missing>Auto Pharmacy: potrzebny jest {0} ({1}), ale nie ma go w zasięgu.</AP_Missing>
+  <AP_Search>Szukaj leków…</AP_Search>
+  <AP_HistoryButton>Historia ({0})</AP_HistoryButton>
+  <AP_HistoryTitle>Podane leki – ostatnie 60</AP_HistoryTitle>
+  <AP_HistoryEmpty>W tej grze jeszcze nic nie podano.</AP_HistoryEmpty>
+  <AP_Need_Healing>szybsze gojenie</AP_Need_Healing>
+  <AP_CareGroups>Najlepszy lek według grupy:</AP_CareGroups>
+  <AP_CareGroups_Desc>Powyższy poziom opieki nigdy nie przekracza tego dla grupy. „Bez zarządzania” zostawia poziom grupy tak, jak go ustawisz.</AP_CareGroups_Desc>
+  <AP_CareColonists>Koloniści</AP_CareColonists>
+  <AP_CareSlaves>Niewolnicy</AP_CareSlaves>
+  <AP_CarePrisoners>Więźniowie</AP_CarePrisoners>
+  <AP_CareGuests>Goście</AP_CareGuests>
+  <AP_CareAnimals>Zwierzęta</AP_CareAnimals>
+  <AP_CareOff>Bez zarządzania</AP_CareOff>
+  <MUI_Title>Zalecane ustawienia</MUI_Title>
+  <MUI_TitleOff>Zalecane ustawienia · wył.</MUI_TitleOff>
+  <MUI_DescOn>Mod konfiguruje się sam i działa od razu. Idealny dla nowych graczy i każdego, kto nie chce niczego zmieniać.</MUI_DescOn>
+  <MUI_DescOff>Własne ustawienia. Zmienione względem zalecanych: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Własne ustawienia. Nadal takie same jak zalecane.</MUI_DescOffSame>
+  <MUI_On>WŁ.</MUI_On>
+  <MUI_Off>WYŁ.</MUI_Off>
+  <MUI_ResetAll>Przywróć wszystko do zalecanych</MUI_ResetAll>
+  <MUI_ConfirmOn>Włączyć zalecane ustawienia? Twoje zmiany ({0}) zostaną zastąpione zalecanymi wartościami.</MUI_ConfirmOn>
+  <MUI_Locked>Szczegółowe ustawienia są zablokowane. Chcesz je zmienić? Wyłącz przełącznik powyżej – Twoje wartości zaczną od zalecanych.</MUI_Locked>
+  <MUI_Changed>ZMIENIONO</MUI_Changed>
+  <MUI_ChangedTip>Różni się od zalecanego ustawienia ({0}). Kliknij, aby przywrócić zalecaną wartość.</MUI_ChangedTip>
+  <MUI_Yes>wł.</MUI_Yes>
+  <MUI_No>wył.</MUI_No>
+  <MUI_RecTag>ZALECANE</MUI_RecTag>
+</LanguageData>
