@@ -632,13 +632,21 @@ public static class SafeArea
 	{
 		CS st = CS.Of(comp);
 		CrisesSettings s = CrisesMod.S;
+		// 1.2.2: only enemies that are really close (near a colonist or in the home area) count – enemies
+		// wandering at the map edge or camping far away no longer send everybody in and out again
 		bool threat = !stewardOff && s != null && s.raidSafeArea && map.IsPlayerHome
-			&& ((comp.crisis & ThreatMask) != 0 || AnimalDanger(map));
-		// 1.1.1: a short grace after the danger, so the area does not flicker on and off
+			&& ((comp.crisis & ThreatMask) != 0 || AnimalDanger(map)) && EnemyNear(map);
+		// 1.1.1 / 1.2.2: a grace of two hours after the danger, and once inside at least an hour,
+		// so the area does not flicker on and off (colonists walking in and out)
 		int now = Find.TickManager.TicksGame;
 		if (threat)
 			lastThreat[map] = now;
-		else if (!stewardOff && st.safeActive && lastThreat.TryGetValue(map, out int last) && now - last < 1250)
+		else if (!stewardOff && st.safeActive && lastThreat.TryGetValue(map, out int last) && now - last < 5000)
+			threat = true;
+		if (threat && !st.safeActive)
+			safeSince[map] = now;
+		else if (!threat && st.safeActive && !stewardOff && s != null && s.raidSafeArea
+		         && safeSince.TryGetValue(map, out int since) && now - since < 2500)
 			threat = true;
 		if (threat && st.safeActive)
 		{
@@ -707,6 +715,36 @@ public static class SafeArea
 	}
 
 	private static readonly Dictionary<Map, int> lastThreat = new Dictionary<Map, int>();
+	private static readonly Dictionary<Map, int> safeSince = new Dictionary<Map, int>();
+
+	// 1.2.2: a hostile, not fleeing, not downed, visible pawn within 40 cells of a colonist or inside the home area
+	public static bool EnemyNear(Map map)
+	{
+		try
+		{
+			var colonists = map.mapPawns.FreeColonistsSpawned;
+			Area home = map.areaManager.Home;
+			foreach (Verse.AI.IAttackTarget at in map.attackTargetsCache.TargetsHostileToColony)
+			{
+				if (!(at.Thing is Pawn e) || !e.Spawned || e.Dead || e.Downed || e.Fogged())
+					continue;
+				if (e.InMentalState && e.MentalStateDef == MentalStateDefOf.PanicFlee)
+					continue;
+				if (!GenHostility.IsActiveThreatToPlayer(e))
+					continue;
+				if (home != null && home[e.Position])
+					return true;
+				for (int i = 0; i < colonists.Count; i++)
+					if (colonists[i].Position.DistanceToSquared(e.Position) <= 40 * 40)
+						return true;
+			}
+			return false;
+		}
+		catch
+		{
+			return true;
+		}
+	}
 
 	public static void Forget(Map m) { if (m != null) lastThreat.Remove(m); }
 
