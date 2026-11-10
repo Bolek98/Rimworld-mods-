@@ -255,4 +255,55 @@
   <CF2C_TipSituation>Ситуация: {0}</CF2C_TipSituation>
   <CF2C_SafeAnimals>Ручные животные тоже заходят</CF2C_SafeAnimals>
   <CF2C_SafeAnimalsTip>Ручные животные, которых можно ограничить зоной, тоже идут в безопасную зону (кроме тех, что следуют за призванным хозяином).</CF2C_SafeAnimalsTip>
+  <CF3C_Group_Life>Жизнь</CF3C_Group_Life>
+  <CF3C_Group_Shortage>Нехватка</CF3C_Group_Shortage>
+  <CF3C_Group_Work>Работа</CF3C_Group_Work>
+  <CF3C_Group_Comfort>Комфорт</CF3C_Group_Comfort>
+  <CF3C_Escalate>{0} не становится лучше – управляющий добавляет людей.</CF3C_Escalate>
+  <CF3C_Button>Кризисы ({0})</CF3C_Button>
+  <CF3C_ButtonNone>Кризисы</CF3C_ButtonNone>
+  <CF3C_ButtonTip>Каждый кризис и ситуация в виде карточки: как идут дела, кто этим занят, и кнопки: игнорировать, отложить на день или решить сейчас. Плюс журнал событий.</CF3C_ButtonTip>
+  <CF3C_Title>Кризисы и ситуации</CF3C_Title>
+  <CF3C_TabActive>Сейчас</CF3C_TabActive>
+  <CF3C_TabJournal>Журнал</CF3C_TabJournal>
+  <CF3C_Nothing>Сейчас нет ни кризисов, ни ситуаций. Всё спокойно.</CF3C_Nothing>
+  <CF3C_For>уже {0}</CF3C_For>
+  <CF3C_Stage>Сила {0}/3</CF3C_Stage>
+  <CF3C_StageTip>1 = мягко (один колонист), 2 = обычно, 3 = в полную силу. Кризис сам усиливается, если лучше не становится; когда речь о жизни – всегда в полную силу.</CF3C_StageTip>
+  <CF3C_Ignored>игнорируется до конца</CF3C_Ignored>
+  <CF3C_Snoozed>отложено – вернётся через {0}</CF3C_Snoozed>
+  <CF3C_Left>осталось {0}, готово при {1}</CF3C_Left>
+  <CF3C_Eta>готово примерно через {0}</CF3C_Eta>
+  <CF3C_Who>Заняты: {0}</CF3C_Who>
+  <CF3C_WhoNone>Пока никого дополнительно</CF3C_WhoNone>
+  <CF3C_LifeLocked>Речь о жизни – это нельзя отложить.</CF3C_LifeLocked>
+  <CF3C_Resume>Возобновить</CF3C_Resume>
+  <CF3C_Ignore>Игнорировать</CF3C_Ignore>
+  <CF3C_IgnoreTip>Управляющий ничего не делает, пока это не закончится (остаётся видно здесь).</CF3C_IgnoreTip>
+  <CF3C_Snooze>Отложить на день</CF3C_Snooze>
+  <CF3C_SnoozeTip>Управляющий оставит это на день, потом снова начнёт мягко.</CF3C_SnoozeTip>
+  <CF3C_Push>Решить сейчас</CF3C_Push>
+  <CF3C_PushTip>Сразу в полную силу: больше колонистов, высший приоритет.</CF3C_PushTip>
+  <CF3C_Unpush>Как обычно</CF3C_Unpush>
+  <CF3C_JournalEmpty>Пока ничего не произошло.</CF3C_JournalEmpty>
+  <CF3C_J_Start>{0}: началось</CF3C_J_Start>
+  <CF3C_J_End>{0}: закончилось через {1}</CF3C_J_End>
+  <CF3C_J_Ignore>{0}: игнорируется</CF3C_J_Ignore>
+  <CF3C_J_Snooze>{0}: отложено на день</CF3C_J_Snooze>
+  <CF3C_J_Push>{0}: решить сейчас</CF3C_J_Push>
+  <CF3C_J_Escalate>{0}: усилилось (не лучше)</CF3C_J_Escalate>
+  <CF3C_J_Resume>{0}: возобновлено</CF3C_J_Resume>
+  <CF3C_StrLife>Жизнь: всегда в полную силу</CF3C_StrLife>
+  <CF3C_Orders>Твои приказы важнее</CF3C_Orders>
+  <CF3C_OrdersTip>Колонистов в приоритетной зоне не берут на кризисы – кроме случаев, когда речь о жизни.</CF3C_OrdersTip>
+  <CF3C_Escalation>Постепенное усиление</CF3C_Escalation>
+  <CF3C_EscalationTip>Кризис начинается мягко с одним колонистом и добавляет людей, только если лучше не становится. Выкл.: всегда обычная сила.</CF3C_EscalationTip>
+  <CF3C_Str>{0}: {1}</CF3C_Str>
+  <CF3C_Off>выкл.</CF3C_Off>
+  <CF3C_StrTip>Сколько колонистов может взять эта группа. 100% = нехватка половину колонии, работа треть, комфорт четверть. 0% = группа выключена.</CF3C_StrTip>
+  <CF3C_ButtonSit>Ситуации ({0})</CF3C_ButtonSit>
+  <CF3C_HeadCrises>Кризисы ({0})</CF3C_HeadCrises>
+  <CF3C_HeadSits>Ситуации ({0})</CF3C_HeadSits>
+  <CF3C_PushedMsg>{0}: решить сейчас – управляющий ставит больше колонистов с высшим приоритетом.</CF3C_PushedMsg>
+  <CF_SafeReady>На карте враги – безопасная зона включится, когда они подойдут близко.</CF_SafeReady>
 </LanguageData>

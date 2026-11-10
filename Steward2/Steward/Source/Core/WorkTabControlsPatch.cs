@@ -24,23 +24,39 @@ public static class WorkTabControlsPatch
 		// 3.1.0: the locks are shown as soon as there are any (easy to forget a middle click)
 		int locks = StewardStatus.LockCount(ForemanGameComponent.Get());
 		float wLocks = locks > 0 ? 110f : 0f;
-		float x = rect.xMax - (wAuto + wPlan + wStyle + wHist + wSets + 4 * gap + (locks > 0 ? wLocks + gap : 0f)) - 4f;
+		float wExtra = 0f;
+		foreach (WorkTabButton b in StewardApi.Buttons)
+			wExtra += b.width + gap;
+		float x = rect.xMax - (wAuto + wPlan + wStyle + wHist + wSets + 4 * gap + (locks > 0 ? wLocks + gap : 0f) + wExtra) - 4f;
 		float y = rect.y + 5f;
 		// a narrow window: under the vanilla text instead of over it
 		if (x < 420f)
 			x = Math.Max(rect.x, x);
-		// 1.0.1: the game's "<= Higher priority / Lower priority =>" texts sit at x 370–790; in a narrower
-		// window our buttons were drawn over them. Cover them under our buttons and show the hint
-		// once more, left of the buttons, when there is room.
+		// 1.0.1: the game's "<= Higher priority" (x 370–530) and "Lower priority =>" (x 630–790) texts; in a
+		// narrower window our buttons were drawn over them.
+		// 1.0.2: both game texts are covered completely (a cut "low" stayed visible left of the buttons,
+		// mostly with Chinese and other long texts) and drawn again in the room that is left, measured with
+		// the real text width; what does not fit is left out.
 		if (x < 790f)
 		{
-			Widgets.DrawBoxSolid(new Rect(x - 6f, rect.y + 2f, rect.xMax - x + 6f, 32f), Widgets.WindowBGFillColor);
-			if (x - 160f >= 150f && x < 530f)
+			float from = x > 371f ? 365f : x - 6f;
+			Widgets.DrawBoxSolid(new Rect(from, rect.y + 2f, rect.xMax - from, 32f), Widgets.WindowBGFillColor);
+			float left = 370f, right = x - 12f;
+			if (right - left > 40f)
 			{
-				GUI.color = new Color(1f, 1f, 1f, 0.5f);
-				Text.Anchor = TextAnchor.UpperRight;
 				Text.Font = GameFont.Tiny;
-				Widgets.Label(new Rect(x - 166f, rect.y + 5f, 156f, 30f), "<= " + "HigherPriority".Translate());
+				GUI.color = new Color(1f, 1f, 1f, 0.5f);
+				string hi = "<= " + "HigherPriority".Translate();
+				string lo = "LowerPriority".Translate() + " =>";
+				float whi = Text.CalcSize(hi).x, wlo = Text.CalcSize(lo).x;
+				if (whi + wlo + 24f <= right - left)
+				{
+					Widgets.Label(new Rect(left, rect.y + 5f, whi + 4f, 30f), hi);
+					Text.Anchor = TextAnchor.UpperRight;
+					Widgets.Label(new Rect(right - wlo - 4f, rect.y + 5f, wlo + 4f, 30f), lo);
+				}
+				else if (whi <= right - left)
+					Widgets.Label(new Rect(left, rect.y + 5f, whi + 4f, 30f), hi);
 				Text.Anchor = TextAnchor.UpperLeft;
 				GUI.color = Color.white;
 			}
@@ -57,6 +73,26 @@ public static class WorkTabControlsPatch
 			GUI.color = Color.white;
 			TooltipHandler.TipRegion(rLocks, "CF31_LocksTip".Translate());
 			x += wLocks + gap;
+		}
+
+		foreach (WorkTabButton b in StewardApi.Buttons)
+		{
+			Rect rb = new Rect(x, y, b.width, h);
+			try
+			{
+				GUI.color = b.color?.Invoke(comp) ?? Color.white;
+				if (Widgets.ButtonText(rb, (b.label?.Invoke(comp) ?? b.id).Truncate(b.width - 6f)))
+					b.click?.Invoke(comp);
+				string bt = b.tip?.Invoke(comp);
+				if (!bt.NullOrEmpty())
+					TooltipHandler.TipRegion(rb, bt);
+			}
+			catch (Exception ex)
+			{
+				MLog.WarnOnce("[Steward] add-on button " + b.id + " failed: " + ex.Message, b.id.GetHashCode());
+			}
+			GUI.color = Color.white;
+			x += b.width + gap;
 		}
 
 		Rect rAuto = new Rect(x, y, wAuto, h);

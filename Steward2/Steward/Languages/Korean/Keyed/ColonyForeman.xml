@@ -175,6 +175,12 @@
   <CF2_OneTopTip>각 정착민은 가장 중요한 작업만 1에, 나머지 주 작업은 2에 둡니다.</CF2_OneTopTip>
   <CF2_Backup>예비 작업을 가장 낮은 우선순위로</CF2_Backup>
   <CF2_BackupTip>어떤 작업을 주 작업으로 하지 않는 사람도 가장 낮은 단계로 유지해서 아무도 놀지 않게 합니다.</CF2_BackupTip>
+  <CF2_BackupMinSkill>숙련 작업은 기술 {0} 이상만 예비로 (0 = 모두)</CF2_BackupMinSkill>
+  <CF2_BackupMinSkillTip>제작, 예술, 건설, 연구는 이 기술 이상인 정착민에게만 예비 작업으로 남습니다. 의료, 간수, 육아, 요리, 식물, 채굴, 동물과 운반 같은 간단한 작업은 모두에게 남습니다. 아무도 도달하지 못하면 가장 뛰어난 정착민이 여전히 작업을 받습니다.</CF2_BackupMinSkillTip>
+  <CF2_SurgeryMin>수술은 의학 {0} 이상의 의사만 (0 = 끔)</CF2_SurgeryMin>
+  <CF2_SurgeryMinTip>이 의학 이상이고 의료에 배정된 의사가 맵에 있으면, 약한 의사는 치료만 하고 수술은 그에게 맡깁니다. 그런 의사가 없으면 누구나 수술할 수 있습니다. 직접 명령은 항상 작동합니다.</CF2_SurgeryMinTip>
+  <CF2_TipBackupLowSkill>예비 아님: 기술 {0}이(가) {1} 미만입니다.</CF2_TipBackupLowSkill>
+  <CF2_SurgeryLeft>더 나은 의사에게 수술을 맡김</CF2_SurgeryLeft>
   <CF2_Opposed>이념이 거부하는 작업도 배정</CF2_Opposed>
   <CF2_OpposedTip>꺼짐: 정착민의 이념이 위험하다고 보는 작업은 절대 배정되지 않습니다.</CF2_OpposedTip>
   <CF2_Injured>다치거나 아픈 정착민은 가벼운 작업</CF2_Injured>
@@ -311,4 +317,7 @@
   <CF_Keep_NowStarted>정착민 {0}명이 보관 구역으로 물건을 나르고 있습니다.</CF_Keep_NowStarted>
   <CF_Keep_NowNobody>지금은 아무도 가져올 수 없습니다 (한가한 정착민이 없거나, 구역 밖에 닿을 수 있는 물건이 남아 있지 않음).</CF_Keep_NowNobody>
   <CF_Keep_NowFull>구역에 필요한 것이 이미 다 있습니다.</CF_Keep_NowFull>
+  <CF_Crisis_NewColony>새 정착지 (시작 계획)</CF_Crisis_NewColony>
+  <CF2_TipSmallColony>작은 정착지: 지금 가장 중요한 일부터</CF2_TipSmallColony>
+  <CF2_TipArea>우선 구역: 그곳 작업에 필요</CF2_TipArea>
 </LanguageData>

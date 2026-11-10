@@ -101,4 +101,74 @@
   <AT_ShellNotHostile>{0}（{1}）并非敌对——火炮只能炮击敌对基地和营地（或已打开的地图）。</AT_ShellNotHostile>
   <AT_ShellNoTarget>这里没有可炮击的目标。请选择敌对基地或营地（无需探索）或已打开的地图。</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0}（{1}）已被炮火摧毁。</AT_ShellSiteDestroyed>
+  <AT_QC_This>炮塔开/关</AT_QC_This>
+  <AT_QC_This_Desc>关闭此炮塔（停止射击，包括强制目标）或重新开启。</AT_QC_This_Desc>
+  <AT_QC_All>所有炮塔…</AT_QC_All>
+  <AT_QC_All_Desc>关闭或开启本地图上你的所有炮塔，或将它们全部设为致命或仅眩晕。</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>射击：致命</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>射击：仅眩晕</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>致命：正常射击。仅眩晕：每次命中只造成眩晕（无伤口），炮塔会跳过已眩晕或倒地的目标。不适用于爆炸武器（迫击炮、火箭）。</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>此炮塔：致命</AT_QC_SetLethal>
+  <AT_QC_SetStun>此炮塔：仅眩晕</AT_QC_SetStun>
+  <AT_QC_AllLethal>所有炮塔：致命</AT_QC_AllLethal>
+  <AT_QC_AllStun>所有炮塔：仅眩晕</AT_QC_AllStun>
+  <AT_QC_Explosive>爆炸武器（迫击炮、火箭、炮弹）不能设为仅眩晕。</AT_QC_Explosive>
+  <AT_QC_AllOff>关闭所有炮塔</AT_QC_AllOff>
+  <AT_QC_AllOn>开启所有炮塔</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>已关闭 {0} 座炮塔。</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>已开启 {0} 座炮塔。</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>已将 {0} 座炮塔设为仅眩晕。</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>已将 {0} 座炮塔设为致命。</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>{0} 座爆炸炮塔保持致命。</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>你的炮塔：全部关闭或开启，致命或仅眩晕。</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>炮塔快捷按钮</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>在你的每座炮塔上显示开/关和致命/眩晕按钮。</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>右下角炮塔按钮</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>在游戏设置旁（右下角）的小按钮，用于全部关闭/开启炮塔或切换致命/眩晕。</AT_QC_SetGlobal_Desc>
+  <!-- 1.4.0 ammo types -->
+  <AT_AM_Tab>弹药类型</AT_AM_Tab>
+  <AT_AM_Enable>炮塔弹药类型</AT_AM_Enable>
+  <AT_AM_Enable_Desc>你的每座炮塔（包括模组炮塔和迫击炮）都有弹药类型按钮：穿甲、空尖、燃烧、EMP、眩晕、毒素；迫击炮还有烟雾和灭火泡沫。炮塔可以使用本来没有弹药的类型。</AT_AM_Enable_Desc>
+  <AT_AM_FromStorage>特种弹药取自仓库</AT_AM_FromStorage>
+  <AT_AM_FromStorage_Desc>关闭（默认）：特种弹药无需制作或搬运——炮塔自动装填。开启：迫击炮像以前一样需要仓库里的真实炮弹。</AT_AM_FromStorage_Desc>
+  <AT_AM_ApPen>穿甲 ×{0}</AT_AM_ApPen>
+  <AT_AM_HpDmg>伤害 ×{0}</AT_AM_HpDmg>
+  <AT_AM_IncIgnite>点燃几率：{0}</AT_AM_IncIgnite>
+  <AT_AM_EmpPow>EMP强度 ×{0}</AT_AM_EmpPow>
+  <AT_AM_ToxSev>每次命中毒素积累：{0}</AT_AM_ToxSev>
+  <AT_AM_KShells>烟雾和灭火泡沫炮弹（迫击炮）</AT_AM_KShells>
+  <AT_AM_KShells_Desc>迫击炮和火炮也可以设为烟雾或灭火泡沫。</AT_AM_KShells_Desc>
+  <AT_AM_Gizmo>弹药：{0}</AT_AM_Gizmo>
+  <AT_AM_Gizmo_Desc>选择这座炮塔发射的弹药。子弹炮塔改变命中效果；迫击炮和火炮装填对应炮弹。除非开启“特种弹药取自仓库”，特种弹药免费。</AT_AM_Gizmo_Desc>
+  <AT_AM_K_Normal>普通</AT_AM_K_Normal>
+  <AT_AM_K_Normal_Desc>武器默认弹药，不做改变。</AT_AM_K_Normal_Desc>
+  <AT_AM_K_ArmorPiercing>穿甲</AT_AM_K_ArmorPiercing>
+  <AT_AM_K_ArmorPiercing_Desc>穿甲大幅提高，伤害×0.8。适合对付装甲目标和机械体。</AT_AM_K_ArmorPiercing_Desc>
+  <AT_AM_K_HollowPoint>空尖</AT_AM_K_HollowPoint>
+  <AT_AM_K_HollowPoint_Desc>伤害更高，穿甲减半。适合对付无甲目标和动物。</AT_AM_K_HollowPoint_Desc>
+  <AT_AM_K_Incendiary>燃烧</AT_AM_K_Incendiary>
+  <AT_AM_K_Incendiary_Desc>附加烧伤并有几率点燃目标。迫击炮：燃烧弹。</AT_AM_K_Incendiary_Desc>
+  <AT_AM_K_EMP>EMP</AT_AM_K_EMP>
+  <AT_AM_K_EMP_Desc>少量普通伤害加EMP：眩晕机械体和炮塔，击破护盾。迫击炮：EMP弹。</AT_AM_K_EMP_Desc>
+  <AT_AM_K_Stun>眩晕</AT_AM_K_Stun>
+  <AT_AM_K_Stun_Desc>不造成伤口——命中只会眩晕。跳过已倒地或已眩晕的目标。仅限子弹炮塔。</AT_AM_K_Stun_Desc>
+  <AT_AM_K_Toxic>毒素</AT_AM_K_Toxic>
+  <AT_AM_K_Toxic_Desc>伤害较低，对血肉目标附加毒素积累。迫击炮：毒素弹（Biotech）。</AT_AM_K_Toxic_Desc>
+  <AT_AM_K_Smoke>烟雾</AT_AM_K_Smoke>
+  <AT_AM_K_Smoke_Desc>仅迫击炮：阻挡敌方射击的烟雾弹。</AT_AM_K_Smoke_Desc>
+  <AT_AM_K_Firefoam>灭火泡沫</AT_AM_K_Firefoam>
+  <AT_AM_K_Firefoam_Desc>仅迫击炮：扑灭火焰的泡沫弹。</AT_AM_K_Firefoam_Desc>
+  <AT_AM_ApplySame>全部相同：{0}</AT_AM_ApplySame>
+  <AT_AM_ApplyAll>所有炮塔相同</AT_AM_ApplyAll>
+  <AT_AM_AllMenu>所有炮塔的弹药类型…</AT_AM_AllMenu>
+  <AT_AM_AllKind>所有炮塔：{0}</AT_AM_AllKind>
+  <AT_AM_SetMsg>已为{0}座炮塔设置弹药：{1}。</AT_AM_SetMsg>
+  <AT_AM_Skipped>{0}座炮塔无法使用，保持不变。</AT_AM_Skipped>
+  <AT_AM_OffInSettings>已在设置中关闭</AT_AM_OffInSettings>
+  <AT_AM_NotForShells>不适用于炮弹</AT_AM_NotForShells>
+  <AT_AM_NotForRockets>火箭无法切换</AT_AM_NotForRockets>
+  <AT_AM_NoShellDef>炮弹不可用</AT_AM_NoShellDef>
+  <AT_AM_OnlyShells>仅限迫击炮</AT_AM_OnlyShells>
+  <AT_SpareGround>炮塔不破坏地上的物品和尸体</AT_SpareGround>
+  <AT_SpareGround_Desc>开启：你的炮塔的子弹和炮弹爆炸不会伤及地上的物品和尸体 – 战利品不会被打碎，尸体也不会被打成肉泥直到消失。人物和建筑照常会被击中。关闭 = 与游戏相同。</AT_SpareGround_Desc>
 </LanguageData>

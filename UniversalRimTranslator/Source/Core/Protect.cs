@@ -170,6 +170,10 @@ namespace Urt2
         {
             if (string.IsNullOrWhiteSpace(s)) return true;
             string t = s.Trim();
+            // 1.2.2: a grammar rule is judged by its text only – "adjectiveLab->Dilapidated" or
+            // "r_name->Bandit" looked like a CamelCase / under_score def name and was never translated
+            string kw = RuleKeyword(t);
+            if (kw != null) t = t.Substring(kw.Length).Trim();
             if (!HasWords(t)) return true;
             if (t.IndexOf(' ') < 0)
             {

@@ -38,8 +38,28 @@ public sealed class SettingsPage
 	public Action write;
 }
 
+// 1.1.5: an add-on's own button in the Work tab (next to the steward's buttons)
+public sealed class WorkTabButton
+{
+	public string id;
+	public float width = 100f;
+	public Func<ForemanMapComponent, string> label;
+	public Func<ForemanMapComponent, Color> color;
+	public Func<ForemanMapComponent, string> tip;
+	public Action<ForemanMapComponent> click;
+}
+
 public static class StewardApi
 {
+	private static readonly List<WorkTabButton> buttons = new List<WorkTabButton>();
+	public static IReadOnlyList<WorkTabButton> Buttons => buttons;
+
+	public static void AddButton(WorkTabButton b)
+	{
+		if (b != null && !buttons.Any(x => x.id == b.id))
+			buttons.Add(b);
+	}
+
 	private static readonly List<IPlanStep> steps = new List<IPlanStep>();
 	private static readonly List<SettingsPage> pages = new List<SettingsPage>();
 	private static float slowTold = -999f;

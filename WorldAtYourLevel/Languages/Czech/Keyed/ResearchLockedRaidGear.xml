@@ -376,4 +376,49 @@
   <RLRG_RemKeepAll>Nechat vše</RLRG_RemKeepAll>
   <RLRG_RemKeepAll_Desc>Nechat vše, co je tu vidět – už se to nebude odstraňovat.</RLRG_RemKeepAll_Desc>
   <RLRG_RemTip>Zaškrtnuté = zůstane. Nezaškrtnuté = rozhodují pravidla modu (nevyzkoumaní mechanoidi a drony, stroje na počasí/podmínky nad úrovní světa, věže lepší než tvoje). Zaškrtni, pokud to chceš mít i tak.</RLRG_RemTip>
+  <RLRG_NW_Mode>Zprávy ze světa: {0}</RLRG_NW_Mode>
+  <RLRG_NW_Mode_Desc>Když frakce stoupne nebo klesne o technologickou úroveň, dozvíš se to krátkou zprávou – jako zpráva, jako dopis, nebo vůbec. Záložka Svět si historii pamatuje vždy.</RLRG_NW_Mode_Desc>
+  <RLRG_NW_Off>vypnuto</RLRG_NW_Off>
+  <RLRG_NW_Message>zpráva</RLRG_NW_Message>
+  <RLRG_NW_Letter>dopis</RLRG_NW_Letter>
+  <RLRG_NW_Title>Zprávy ze světa</RLRG_NW_Title>
+  <RLRG_NW_Up_2>{0} opustili staré zvyky a teď zpracovávají kámen a dřevo jako opravdoví řemeslníci.</RLRG_NW_Up_2>
+  <RLRG_NW_Up_3>{0} se naučili kovat ocel – jejich bojovníci teď chodí v brnění, s meči a luky.</RLRG_NW_Up_3>
+  <RLRG_NW_Up_4>{0} objevili střelný prach – jejich lidé teď nosí palné zbraně.</RLRG_NW_Up_4>
+  <RLRG_NW_Up_5>{0} postavili své první fabrikátory – vesmírná technologie se dostává do jejich osad.</RLRG_NW_Up_5>
+  <RLRG_NW_Up_6>{0} ovládli ultra technologii – jejich osady září technikou, jakou málokdo viděl.</RLRG_NW_Up_6>
+  <RLRG_NW_Up_7>{0} se dotkli archotechového vědění – svět už nikdy nebude stejný.</RLRG_NW_Up_7>
+  <RLRG_NW_Down>{0} ztratili velkou část svého vědění{1} a klesli na úroveň {2}.</RLRG_NW_Down>
+  <RLRG_NW_CauseRaid> poté, co jsi zničil jednu z jejich osad</RLRG_NW_CauseRaid>
+  <RLRG_NW_CauseTrade> Pomohl jim obchod s tebou.</RLRG_NW_CauseTrade>
+  <RLRG_NW_CauseData> Pomohla jim výzkumná data, která od tebe koupili.</RLRG_NW_CauseData>
+  <RLRG_NW_History>Zprávy ze světa</RLRG_NW_History>
+  <RLRG_NW_HistoryEmpty>Zatím žádné zprávy.</RLRG_NW_HistoryEmpty>
+  <RLRG_EV_Relations>Vztahy podle technologické úrovně</RLRG_EV_Relations>
+  <RLRG_EV_Relations_Desc>Frakce, které jsou od sebe technologicky daleko (2 úrovně a víc), se pomalu stávají nepřáteli – zaostalí závidí vyspělým. Frakce na stejné úrovni spolu obchodují a pomalu se sbližují. Mění se jen vztahy mezi ostatními frakcemi, nikdy tvoje.</RLRG_EV_Relations_Desc>
+  <RLRG_EV_RelStrength>Změna: {0} přízně každé 3 dny</RLRG_EV_RelStrength>
+  <RLRG_EV_RelStrength_Desc>Jak rychle se vztahy mezi frakcemi posouvají k přátelství nebo nepřátelství.</RLRG_EV_RelStrength_Desc>
+  <RLRG_EV_RelTitle>Vztahy mezi frakcemi</RLRG_EV_RelTitle>
+  <RLRG_EV_RelEnvy>{0} závidí frakci {1} (o {2} úrovně napřed, přízeň {3})</RLRG_EV_RelEnvy>
+  <RLRG_EV_RelFriends>{0} a {1} obchodují jako rovní (přízeň {2})</RLRG_EV_RelFriends>
+  <RLRG_EV_RelNone>Zatím žádné vztahy ovlivněné technologií.</RLRG_EV_RelNone>
+  <RLRG_EV_SellData>Prodej výzkumných dat</RLRG_EV_SellData>
+  <RLRG_EV_SellData_Desc>Na komunikační konzoli si frakce, které za tebou zaostávají, mohou koupit data z tvého dokončeného výzkumu: pro tebe stříbro a přízeň, pro ně postup k další úrovni – zesílí. U každé frakce jednou za 7 dní.</RLRG_EV_SellData_Desc>
+  <RLRG_EV_NoteData>koupili výzkum</RLRG_EV_NoteData>
+  <RLRG_SD_Option>Prodat výzkumná data</RLRG_SD_Option>
+  <RLRG_SD_Cooldown>Ještě studují, co jsi jim prodal minule ({0} dní).</RLRG_SD_Cooldown>
+  <RLRG_SD_Nothing>Nemáš žádný dokončený výzkum, který by jim chyběl.</RLRG_SD_Nothing>
+  <RLRG_SD_Intro>{0} (úroveň {1}) by zaplatili za výzkum, který ještě nemají.\n\nPozor: co prodáš, je posílí – jejich nájezdníci a návštěvníci budou mít lepší vybavení dřív.</RLRG_SD_Intro>
+  <RLRG_SD_Item>{0} – {1} stříbra, +{2} přízně</RLRG_SD_Item>
+  <RLRG_SD_Done>{0} zaplatili {1} stříbra za data o výzkumu {2}. Stříbro přiletí v kapsli.</RLRG_SD_Done>
+  <RLRG_SD_Back>Zpět</RLRG_SD_Back>
+  <RLRG_RerollButton>Tlačítko pro srovnání výbavy nepřátel</RLRG_RerollButton>
+  <RLRG_RerollButton_Desc>Postavy jiných frakcí dostanou tlačítko, které jim hned zkrátí výbavu na úroveň světa – pro všechno, co proklouzlo (starověká místa, úkoly jiných modů, postavy vytvořené před přidáním modu).</RLRG_RerollButton_Desc>
+  <RLRG_Reroll>Srovnat výbavu</RLRG_Reroll>
+  <RLRG_Reroll_Desc>Zkrátí zbraně a oblečení této postavy hned na úroveň světa (i u starověkých hrozeb a dalších výjimek).</RLRG_Reroll_Desc>
+  <RLRG_RerollDone>{0}: výbava srovnána na úroveň světa.</RLRG_RerollDone>
+  <RLRG_AutoExempt>Automaticky (doporučeno)</RLRG_AutoExempt>
+  <RLRG_AutoExempt_Desc>Zapnuto: každá nepřátelská frakce odpovídá úrovni tvé kolonie; přátelské frakce (spojenci, obchodníci, návštěvy) si nechají svou výbavu. Vypnuto: výjimky vybíráš ručně.</RLRG_AutoExempt_Desc>
+  <RLRG_AutoExemptOn>Automaticky: kdo na tebe zaútočí, přijde s výbavou tvé úrovně. Přátelské frakce si nechají svou výbavu. Vypni, pokud chceš výjimky vybírat ručně.</RLRG_AutoExemptOn>
+  <RLRG_ExemptClear>Zrušit všechny výjimky</RLRG_ExemptClear>
 </LanguageData>

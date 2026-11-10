@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>[B98] Auto Pharmacy – Doctors Give the Right Drug</name>
+  <author>Bolek98</author>
+  <packageId>misak.autopharmacy</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <incompatibleWith>
+    <li>misak.doktorleky</li>
+  </incompatibleWith>
+  <description>Doctors give the right drug to whoever needs it – automatically, by how serious the problem is.
+
+- Every drug in the game is read once (vanilla and any mod): pain, immunity, bleeding, blood loss, consciousness, breathing, a named illness, rest, mood and more.
+- Every colonist is checked: pain, an illness winning the race against immunity, bleeding, failing organs, low mood, addictions.
+- The best drug by how serious it is: mild problem → mild drug; addictive drugs only when life is in danger (setting). A drug whose effect still lasts is never given twice; overdose risk, teetotalers, ideology and your blocked drugs are respected.
+- Injectors, serums and kits too (healer serum and the like only when life is in danger). Sanguophages get hemogen packs.
+- Medical care level for tending set by how serious it is, with the highest medicine per group: colonists, slaves, prisoners, guests, animals.
+- Combat drugs: a drafted fighter with enemies close takes one combat drug – never with a chance of addiction, once per fight, can be switched off per colonist.
+- Prevention for everyone (penoxycyline and the like), a family plan per adult (contraception or fertility drugs from mods), help with a bad back, cataract or frailty.
+- Addictions kept fed before withdrawal; mild drugs (tea, beer) already near a mood break.
+- Doctors carry two doses of common safe drugs; a message when a needed drug is missing; history of who got what and why.
+- Six new medicines: herbal pain salve, fever tea, calming tea, coagulant powder, antitoxin injector and burn gel.
+- Rescue and urgent tending always come before drugs. Pharmacist handles the care level when installed.
+
+Steward – Kit has this pharmacy built in – use one or the other (with Auto Pharmacy on, Kit's pharmacy stays off).
+Requires Harmony. RimWorld 1.6 and 1.7. Safe to add to an existing save. 12 languages.
+Found a bug? Use "Report a bug" (bottom left in the settings) and post it in the comments or on GitHub.
+
+---
+
+Lékaři podají správný lék tomu, kdo ho potřebuje – sami, podle toho, jak vážný je problém.
+
+- Každý lék ve hře se jednou přečte (hra i jakýkoli mod): bolest, imunita, krvácení, ztráta krve, vědomí, dýchání, konkrétní nemoc, únava, nálada a další.
+- Každý kolonista se kontroluje: bolest, nemoc, která vyhrává nad imunitou, krvácení, selhávající orgány, špatná nálada, závislosti.
+- Nejlepší lék podle vážnosti: malý problém → slabý lék; návykové léky jen při ohrožení života (nastavení). Lék, který ještě působí, se nikdy nedá dvakrát; respektuje riziko předávkování, abstinenty, ideologii a tvoje zakázané léky.
+- I injektory, séra a sady (léčivé sérum apod. jen při ohrožení života). Sanguofágové dostanou hemogen.
+- Úroveň péče při ošetřování podle vážnosti, s nejvyšším lékem pro každou skupinu: kolonisté, otroci, vězni, hosté, zvířata.
+- Bojové drogy: povolaný bojovník s nepřáteli poblíž si vezme jednu bojovou drogu – nikdy s rizikem závislosti, jednou za boj, jde vypnout pro každého kolonistu.
+- Prevence pro všechny (penoxycyklin apod.), rodinný plán pro každého dospělého (antikoncepce nebo léky na plodnost z modů), pomoc s bolavými zády, šedým zákalem nebo křehkostí.
+- Závislosti dostanou dávku před abstinencí; slabé léky (čaj, pivo) už blízko zhroucení nálady.
+- Lékaři nosí dvě dávky běžných bezpečných léků; zpráva, když potřebný lék chybí; historie, kdo co dostal a proč.
+- Šest nových léků: bylinná mast proti bolesti, horečkový čaj, zklidňující čaj, srážecí prášek, antitoxinová injekce a gel na popáleniny.
+- Záchrana a naléhavé ošetření mají vždy přednost před léky. Úroveň péče přenechá modu Pharmacist, když je nainstalovaný.
+
+Steward – Kit má tuhle lékárnu vestavěnou – použij jedno, nebo druhé (se zapnutou Auto Pharmacy zůstane lékárna v Kitu vypnutá).
+Vyžaduje Harmony. RimWorld 1.6 a 1.7. Lze bezpečně přidat do rozehrané hry. 12 jazyků.
+Našel jsi chybu? Použij „Nahlásit chybu“ (vlevo dole v nastavení) a napiš ji do komentářů nebo na GitHub.
+
+═══════════════════════
+IDEAS AND SUGGESTIONS
+Want something changed or added? Write it in the comments – I read every idea and take it into account.
+
+NÁPADY A NÁVRHY
+Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.</description>
+</ModMetaData>

@@ -101,4 +101,74 @@
   <AT_ShellNotHostile>{0}（{1}）は敵対していません – 砲撃できるのは敵対拠点とキャンプ（または開いているマップ）だけです。</AT_ShellNotHostile>
   <AT_ShellNoTarget>ここには砲撃対象がありません。敵対拠点やキャンプ（未探索でも可）か開いているマップを選んでください。</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0}（{1}）は砲撃で破壊されました。</AT_ShellSiteDestroyed>
+  <AT_QC_This>タレット オン/オフ</AT_QC_This>
+  <AT_QC_This_Desc>このタレットをオフ（強制目標にも撃たない）またはオンに戻す。</AT_QC_This_Desc>
+  <AT_QC_All>すべてのタレット…</AT_QC_All>
+  <AT_QC_All_Desc>このマップのすべてのタレットをオフ/オンにする、またはすべてを致死か気絶のみに設定する。</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>射撃：致死</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>射撃：気絶のみ</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>致死：通常の射撃。気絶のみ：命中は気絶だけ（負傷なし）で、すでに気絶・ダウンした目標は飛ばす。爆発武器（迫撃砲、ロケット）には使えない。</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>このタレット：致死</AT_QC_SetLethal>
+  <AT_QC_SetStun>このタレット：気絶のみ</AT_QC_SetStun>
+  <AT_QC_AllLethal>すべてのタレット：致死</AT_QC_AllLethal>
+  <AT_QC_AllStun>すべてのタレット：気絶のみ</AT_QC_AllStun>
+  <AT_QC_Explosive>爆発武器（迫撃砲、ロケット、砲弾）は気絶のみにできません。</AT_QC_Explosive>
+  <AT_QC_AllOff>すべてのタレットをオフ</AT_QC_AllOff>
+  <AT_QC_AllOn>すべてのタレットをオン</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>{0} 基のタレットをオフにしました。</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>{0} 基のタレットをオンにしました。</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>{0} 基のタレットを気絶のみにしました。</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>{0} 基のタレットを致死にしました。</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>爆発タレット {0} 基は致死のままです。</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>あなたのタレット：すべてオフ/オン、致死または気絶のみ。</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>タレットのクイックボタン</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>あなたのすべてのタレットにオン/オフと致死/気絶のボタンを表示。</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>右下のタレットボタン</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>ゲーム設定の横（右下）の小さなボタンで、すべてのタレットをオフ/オンまたは致死/気絶に切り替え。</AT_QC_SetGlobal_Desc>
+  <!-- 1.4.0 ammo types -->
+  <AT_AM_Tab>弾薬の種類</AT_AM_Tab>
+  <AT_AM_Enable>タレットの弾薬の種類</AT_AM_Enable>
+  <AT_AM_Enable_Desc>あなたのすべてのタレット（Modのものや迫撃砲も）に弾薬種類ボタンが付きます：徹甲、ホローポイント、焼夷、EMP、スタン、毒；迫撃砲は煙幕と消火泡も。本来その弾薬がないタレットでも使えます。</AT_AM_Enable_Desc>
+  <AT_AM_FromStorage>特殊弾薬を倉庫から</AT_AM_FromStorage>
+  <AT_AM_FromStorage_Desc>オフ（既定）：特殊弾薬は製作も運搬も不要――タレットが自動で補充します。オン：迫撃砲は以前のように倉庫の実弾が必要です。</AT_AM_FromStorage_Desc>
+  <AT_AM_ApPen>装甲貫通 ×{0}</AT_AM_ApPen>
+  <AT_AM_HpDmg>ダメージ ×{0}</AT_AM_HpDmg>
+  <AT_AM_IncIgnite>着火確率：{0}</AT_AM_IncIgnite>
+  <AT_AM_EmpPow>EMP威力 ×{0}</AT_AM_EmpPow>
+  <AT_AM_ToxSev>命中ごとの毒素蓄積：{0}</AT_AM_ToxSev>
+  <AT_AM_KShells>煙幕・消火泡砲弾（迫撃砲）</AT_AM_KShells>
+  <AT_AM_KShells_Desc>迫撃砲と砲台も煙幕や消火泡に設定できます。</AT_AM_KShells_Desc>
+  <AT_AM_Gizmo>弾薬：{0}</AT_AM_Gizmo>
+  <AT_AM_Gizmo_Desc>このタレットの弾薬を選びます。銃弾タレットは命中効果が変わり、迫撃砲と砲台は対応する砲弾を装填します。「特殊弾薬を倉庫から」がオンでなければ特殊弾薬は無料です。</AT_AM_Gizmo_Desc>
+  <AT_AM_K_Normal>通常</AT_AM_K_Normal>
+  <AT_AM_K_Normal_Desc>武器の既定弾薬。変化なし。</AT_AM_K_Normal_Desc>
+  <AT_AM_K_ArmorPiercing>徹甲</AT_AM_K_ArmorPiercing>
+  <AT_AM_K_ArmorPiercing_Desc>装甲貫通が大きく上がり、ダメージ×0.8。装甲兵やメカノイドに有効。</AT_AM_K_ArmorPiercing_Desc>
+  <AT_AM_K_HollowPoint>ホローポイント</AT_AM_K_HollowPoint>
+  <AT_AM_K_HollowPoint_Desc>ダメージ増加、装甲貫通半減。非装甲の敵や動物に有効。</AT_AM_K_HollowPoint_Desc>
+  <AT_AM_K_Incendiary>焼夷</AT_AM_K_Incendiary>
+  <AT_AM_K_Incendiary_Desc>火傷ダメージと着火の確率を追加。迫撃砲：焼夷弾。</AT_AM_K_Incendiary_Desc>
+  <AT_AM_K_EMP>EMP</AT_AM_K_EMP>
+  <AT_AM_K_EMP_Desc>少しの通常ダメージとEMP：メカノイドやタレットをスタンさせ、シールドを破壊。迫撃砲：EMP弾。</AT_AM_K_EMP_Desc>
+  <AT_AM_K_Stun>スタン</AT_AM_K_Stun>
+  <AT_AM_K_Stun_Desc>負傷なし――命中はスタンのみ。倒れた者やスタン中の者は狙わない。銃弾タレットのみ。</AT_AM_K_Stun_Desc>
+  <AT_AM_K_Toxic>毒</AT_AM_K_Toxic>
+  <AT_AM_K_Toxic_Desc>ダメージ減少、生身の標的に毒素蓄積を追加。迫撃砲：毒ガス弾（Biotech）。</AT_AM_K_Toxic_Desc>
+  <AT_AM_K_Smoke>煙幕</AT_AM_K_Smoke>
+  <AT_AM_K_Smoke_Desc>迫撃砲のみ：敵の射撃を妨げる煙幕弾。</AT_AM_K_Smoke_Desc>
+  <AT_AM_K_Firefoam>消火泡</AT_AM_K_Firefoam>
+  <AT_AM_K_Firefoam_Desc>迫撃砲のみ：火を消す消火泡弾。</AT_AM_K_Firefoam_Desc>
+  <AT_AM_ApplySame>すべて同じに：{0}</AT_AM_ApplySame>
+  <AT_AM_ApplyAll>すべてのタレットを同じに</AT_AM_ApplyAll>
+  <AT_AM_AllMenu>すべてのタレットの弾薬種類…</AT_AM_AllMenu>
+  <AT_AM_AllKind>すべてのタレット：{0}</AT_AM_AllKind>
+  <AT_AM_SetMsg>{0}基のタレットの弾薬を設定：{1}。</AT_AM_SetMsg>
+  <AT_AM_Skipped>{0}基は使用できないため変更なし。</AT_AM_Skipped>
+  <AT_AM_OffInSettings>設定でオフ</AT_AM_OffInSettings>
+  <AT_AM_NotForShells>砲弾には不可</AT_AM_NotForShells>
+  <AT_AM_NotForRockets>ロケットは変更不可</AT_AM_NotForRockets>
+  <AT_AM_NoShellDef>砲弾がありません</AT_AM_NoShellDef>
+  <AT_AM_OnlyShells>迫撃砲のみ</AT_AM_OnlyShells>
+  <AT_SpareGround>タレットは地面の品物と死体を壊さない</AT_SpareGround>
+  <AT_SpareGround_Desc>オン：タレットの弾丸と砲弾の爆発は、地面の品物と死体を傷つけません – 戦利品が粉々になったり、死体が消えるまで潰されたりしません。人物と建物には通常どおり当たります。オフ = ゲームと同じ。</AT_SpareGround_Desc>
 </LanguageData>

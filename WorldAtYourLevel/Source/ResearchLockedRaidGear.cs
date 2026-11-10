@@ -33,7 +33,7 @@ namespace ResearchLockedRaidGear
 			Evolution
 		}
 
-		public const string Version = "2.15.0";
+		public const string Version = "2.16.0";
 
 		public static ResearchLockedRaidGearSettings Settings;
 
@@ -69,6 +69,7 @@ namespace ResearchLockedRaidGear
 			TryPatchLast(h, AccessTools.Method(typeof(PawnGenerator), "GeneratePawn", new Type[1] { typeof(PawnGenerationRequest) }), "Postfix", typeof(GeneratePawnPatch));
 			TryPatchLast(h, AccessTools.Method(typeof(Pawn), "SpawnSetup"), "Postfix", typeof(PawnSpawnSetupPatch));
 			TryPatch(h, AccessTools.Method(typeof(Pawn_EquipmentTracker), "AddEquipment"), "Prefix", null, typeof(AddEquipmentPatch));
+			try { h.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.GetGizmos)), postfix: new HarmonyMethod(typeof(RerollButton), nameof(RerollButton.Postfix))); } catch (Exception e) { MLog.Warn("[World at Your Level] reroll button: " + e.Message); }
 			TryPatch(h, AccessTools.Method(typeof(Pawn_ApparelTracker), "Wear"), "Prefix", null, typeof(WearApparelPatch));
 			TryPatch(h, AccessTools.Method(typeof(JobDriver_Equip), "TryMakePreToilReservations"), "Prefix", null, typeof(JobDriverEquipPatch));
 			TryPatch(h, AccessTools.Method(typeof(JobGiver_PickUpOpportunisticWeapon), "ShouldEquipWeapon"), null, "Postfix", typeof(ShouldEquipWeaponPatch));
@@ -379,6 +380,7 @@ namespace ResearchLockedRaidGear
 			Check(listing_Standard, "RLRG_FilterAll", ref Settings.filterAllArrivals, "filterAllArrivals");
 			Check(listing_Standard, "RLRG_SkipTraders", ref Settings.skipTraders, "skipTraders");
 			Check(listing_Standard, "RLRG_ExemptAncients", ref Settings.exemptAncients, "exemptAncients");
+			Check(listing_Standard, "RLRG_RerollButton", ref Settings.rerollButton, "rerollButton");
 			Check(listing_Standard, "RLRG_KeepTitleApparel", ref Settings.keepTitleApparel, "keepTitleApparel");
 			Check(listing_Standard, "RLRG_FilterApparel", ref Settings.filterApparel, "filterApparel");
 			Check(listing_Standard, "RLRG_FilterInventory", ref Settings.filterInventory, "filterInventory");
@@ -517,13 +519,37 @@ namespace ResearchLockedRaidGear
 			Check(l, "RLRG_EV_RaidDefense", ref Settings.raidByDefense, "raidByDefense");
 			if (Settings.raidByDefense)
 				Settings.defenseWeight = (int)Sl(l, "defenseWeight", "RLRG_EV_DefenseWeight".Translate(Settings.defenseWeight), Settings.defenseWeight, 10f, 100f, 0.55f, "RLRG_EV_DefenseWeight_Desc".Translate());
+			// 2.16.0
+			l.GapLine();
+			string mode = (Settings.newsMode <= 0 ? "RLRG_NW_Off" : Settings.newsMode == 1 ? "RLRG_NW_Message" : "RLRG_NW_Letter").Translate().ToString();
+			Settings.newsMode = Mathf.Clamp(Mathf.RoundToInt(Sl(l, "newsMode", "RLRG_NW_Mode".Translate(mode), Settings.newsMode, 0f, 2f, 0.55f, "RLRG_NW_Mode_Desc".Translate())), 0, 2);
+			if (Settings.factionTech)
+			{
+				Check(l, "RLRG_EV_Relations", ref Settings.factionRelations, "factionRelations");
+				if (Settings.factionRelations)
+					Settings.relationStrength = Mathf.Clamp(Mathf.RoundToInt(Sl(l, "relationStrength", "RLRG_EV_RelStrength".Translate(Settings.relationStrength), Settings.relationStrength, 1f, 10f, 0.55f, "RLRG_EV_RelStrength_Desc".Translate())), 1, 10);
+				Check(l, "RLRG_EV_SellData", ref Settings.sellData, "sellData");
+			}
 			l.End();
 		}
 
 		private void DrawFactionsTab(Rect r)
 		{
-			Widgets.Label(new Rect(r.x, r.y, r.width, 26f), "RLRG_ExemptFactions".Translate());
-			float num = r.y + 30f;
+			Widgets.CheckboxLabeled(new Rect(r.x, r.y, r.width, 26f), "RLRG_AutoExempt".Translate(), ref Settings.autoExempt);
+			TooltipHandler.TipRegion(new Rect(r.x, r.y, r.width, 26f), "RLRG_AutoExempt_Desc".Translate());
+			if (Settings.autoExempt)
+			{
+				GUI.color = new Color(0.7f, 0.7f, 0.7f);
+				Widgets.Label(new Rect(r.x, r.y + 30f, r.width, 60f), "RLRG_AutoExemptOn".Translate());
+				GUI.color = Color.white;
+				return;
+			}
+			Widgets.Label(new Rect(r.x, r.y + 30f, r.width, 26f), "RLRG_ExemptFactions".Translate());
+			if (Settings.exemptFactions.Count > 0 && Widgets.ButtonText(new Rect(r.xMax - 200f, r.y + 28f, 200f, 26f), "RLRG_ExemptClear".Translate()))
+			{
+				Settings.exemptFactions.Clear();
+			}
+			float num = r.y + 60f;
 			List<FactionDef> list = SelectableFactions();
 			Rect outRect = new Rect(r.x, num, r.width, r.yMax - num);
 			float num2 = 26f;
@@ -877,9 +903,38 @@ namespace ResearchLockedRaidGear
 		public bool studyTech = true;
 		public bool eraEvents = true;
 
+		// 2.16.0: world news (0 off, 1 message, 2 letter), relations by level, selling research data
+		public int newsMode = 1;
+		public bool factionRelations = true;
+		public int relationStrength = 2;
+		public bool sellData = true;
+
 		public bool exemptAncients = true;
+		public bool rerollButton = true;   // 2.17.0
 
 		public List<string> exemptFactions = new List<string>();
+		public bool autoExempt = true;   // 2.18.0: automatic – hostile factions always match your level, friendly ones keep their gear (the list is used only when this is off)
+
+		public static bool Exempt(Faction f)
+		{
+			ResearchLockedRaidGearSettings s = ResearchLockedRaidGearMod.Settings;
+			if (s == null || f == null || f.def == null || f.IsPlayer)
+			{
+				return false;
+			}
+			if (s.autoExempt)
+			{
+				try
+				{
+					return Faction.OfPlayer != null && !f.HostileTo(Faction.OfPlayer);
+				}
+				catch
+				{
+					return false;
+				}
+			}
+			return s.exemptFactions != null && s.exemptFactions.Contains(f.def.defName);
+		}
 
 		public List<string> bannedDefs = new List<string>();
 
@@ -1011,8 +1066,14 @@ namespace ResearchLockedRaidGear
 			Scribe_Values.Look(ref defenseWeight, "defenseWeight", 50);
 			Scribe_Values.Look(ref studyTech, "studyTech", true);
 			Scribe_Values.Look(ref eraEvents, "eraEvents", true);
+			Scribe_Values.Look(ref newsMode, "newsMode", 1);
+			Scribe_Values.Look(ref factionRelations, "factionRelations", true);
+			Scribe_Values.Look(ref relationStrength, "relationStrength", 2);
+			Scribe_Values.Look(ref sellData, "sellData", true);
 			Scribe_Values.Look(ref exemptAncients, "exemptAncients", true);
+			Scribe_Values.Look(ref rerollButton, "rerollButton", true);
 			Scribe_Collections.Look(ref exemptFactions, "exemptFactions", LookMode.Value);
+			Scribe_Values.Look(ref autoExempt, "autoExempt", true);
 			if (exemptFactions == null)
 			{
 				exemptFactions = new List<string>();
@@ -1863,7 +1924,7 @@ namespace ResearchLockedRaidGear
 			}
 			if (pawn.Faction != null)
 			{
-				if (settings.exemptFactions != null && settings.exemptFactions.Contains(pawn.Faction.def.defName))
+				if (ResearchLockedRaidGearSettings.Exempt(pawn.Faction))
 				{
 					return false;
 				}
@@ -1951,12 +2012,24 @@ namespace ResearchLockedRaidGear
 				&& (int)EffectiveTech(def) <= LeadCap && (!IsExplosive(def) || ExplosiveTierOpen(def));
 		}
 
+		// 2.17.0: the reroll button – the same as on arrival, without the exemptions (ancients, traders, factions …)
+		public static void ForceFilter(Pawn pawn)
+		{
+			if (pawn == null || pawn.Dead || Applying > 0) return;
+			FilterCore(pawn);
+		}
+
 		public static void FilterPawn(Pawn pawn)
 		{
 			if (Applying > 0 || !ShouldFilter(pawn))
 			{
 				return;
 			}
+			FilterCore(pawn);
+		}
+
+		private static void FilterCore(Pawn pawn)
+		{
 			Applying++;
 			LagCap = EraTransition.CapFor(pawn);
 			// 2.17.0: a lagging faction carries gear of its own level, a leading one a level more
@@ -4936,7 +5009,7 @@ namespace ResearchLockedRaidGear
 			{
 				return true;
 			}
-			if (settings.exemptFactions != null && settings.exemptFactions.Contains(f.def.defName))
+			if (ResearchLockedRaidGearSettings.Exempt(f))
 			{
 				return true;
 			}
@@ -4963,7 +5036,7 @@ namespace ResearchLockedRaidGear
 			{
 				return true;
 			}
-			if (settings.exemptFactions != null && settings.exemptFactions.Contains(f.def.defName))
+			if (ResearchLockedRaidGearSettings.Exempt(f))
 			{
 				return true;
 			}
@@ -6376,7 +6449,7 @@ namespace ResearchLockedRaidGear
 			{
 				return false;
 			}
-			if (settings.exemptFactions != null && settings.exemptFactions.Contains(parms.faction.def.defName))
+			if (ResearchLockedRaidGearSettings.Exempt(parms.faction))
 			{
 				return false;
 			}
@@ -6608,7 +6681,7 @@ namespace ResearchLockedRaidGear
 			{
 				return original;
 			}
-			if (settings.exemptFactions != null && settings.exemptFactions.Contains(parms.faction.def.defName))
+			if (ResearchLockedRaidGearSettings.Exempt(parms.faction))
 			{
 				return original;
 			}

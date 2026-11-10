@@ -1,3 +1,36 @@
+=== Workshop release 1.1.0 (10 Nov 2026) ===
+1.1.0
+New
+- 'Items' tab: choose for everyone or for one role which items from any mod colonists always or never carry in their pockets.
+- In the first day of a new colony kits are packed from the starting supplies too.
+
+Fixes
+- Pemmican and kibble in a kit are no longer dropped at home and fetched again in a loop.
+- Dubs Bad Hygiene water bottles stay in pockets.
+- 'Recommended' no longer shows the 'newer defaults' note after every start; the built-in pharmacy stays off when the Auto Pharmacy mod is active.
+
+Nové
+- Záložka „Věci“: pro všechny nebo pro jednu roli vybereš, které věci z jakéhokoli modu kolonisté nosí vždy nebo nikdy.
+- První den nové kolonie se výbava balí i ze startovních zásob.
+
+Opravy
+- Pemikan a granule ve výbavě se už neodkládají doma a znovu nevyzvedávají pořád dokola.
+- Láhve s vodou z Dubs Bad Hygiene zůstávají v kapsách.
+- „Doporučené“ už po každém spuštění neukazuje poznámku o novějších výchozích hodnotách; vestavěná lékárna zůstane vypnutá, když je zapnutý mod Auto Pharmacy.
+
+=== Development history since the last Workshop release (test versions) ===
+1.2.0
+- New: in the first day of a new colony kits are packed from the starting supplies too (there is no stockpile yet).
+- Nové: první den nové kolonie se výbava balí i ze startovních zásob (ještě není sklad).
+
+1.1.0
+- New 'Items' tab: choose for everyone or for one role which items from any mod colonists always or never carry in their pockets. Dubs Bad Hygiene water bottles stay in pockets (Steward used to unload them while DBH sent colonists to refill, again and again).
+- Nová záložka „Věci“: pro všechny nebo pro jednu roli vybereš, které věci z jakéhokoli modu kolonisté nosí v kapsách vždy, nebo nikdy. Lahve s vodou z Dubs Bad Hygiene zůstávají v kapsách (Steward je vykládal a DBH posílal kolonisty pro nové, pořád dokola).
+
+1.0.1
+- Pemmican and kibble in a kit are no longer dropped at home and fetched again in a loop. 'Recommended' no longer brings back the 'newer defaults' note after every start. The built-in pharmacy stays off when the old Auto Pharmacy mod is active.
+- Pemikan a granule v kitu se už doma neodhazují a znovu nesbírají pořád dokola. „Doporučené“ už po každém spuštění nevrací upozornění na novější výchozí hodnoty. Vestavěná lékárna zůstane vypnutá, když je zapnutý starý mod Auto Pharmacy.
+
 === Workshop release 1.0.0 (6 Nov 2026) ===
 1.0.0
 - First Workshop release: kits by role for every colonist (doctors, hunters, builders, soldiers, cooks, haulers, miners, farmers, crafters, researchers, handlers, wardens, emergency pack), refilled from storage nearby within a weight limit, packed by caravans.

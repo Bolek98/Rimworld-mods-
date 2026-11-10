@@ -24,6 +24,7 @@ namespace AutoTurrets
 		public bool wallTurrets = false;     // 1.2.0: picked turrets get a version built over walls
 		public Dictionary<string, bool> wallPick = new Dictionary<string, bool>();   // only choices that differ from the recommendation
 		public bool smartShells = true;      // 1.3.1: auto mortars pick targets that suit the loaded shell, haulers pick shells that suit the enemy
+		public bool spareGround = true;      // 1.4.1: your turrets' bullets and blasts spare items and corpses lying on the ground
 		public bool noHitBuildings = false;  // 1.3.1: true = your turrets' bullets and shell blasts spare your own buildings
 		public bool wallTurretsOutward = true; // 1.4.0: turrets in walls only shoot at targets on the outer side of the wall
 		public Dictionary<string, bool> autoPick = new Dictionary<string, bool>();   // 1.5.0: turrets that should NOT fire alone (false); missing = yes
@@ -37,6 +38,13 @@ namespace AutoTurrets
 		public bool stunGiveUp = true;          // 1.3.0: … and those stunned give up (wardens take them back)
 		public bool shellSettlements = true;    // 1.4.0: VFE Security artillery shells hostile bases without a map
 		public int shellHitsToDestroy = 40;     // 1.4.0: hits that destroy an industrial base
+		public bool quickGizmos = true;          // 1.3.0: quick on/off and stun buttons on turrets
+		public bool quickGlobalButton = true;    // 1.3.0: the same as a small button bottom right
+		// 1.4.0 (AutoTurrets) ammo types
+		public bool ammoTypes = true;
+		public bool specialAmmoFromStorage = false;   // false = special ammo is free (no crafting, no hauling)
+		public bool kAP = true, kHP = true, kInc = true, kEmp = true, kTox = true, kShells = true;
+		public float apPen = 1.6f, hpDmg = 1.25f, incIgnite = 0.25f, empPow = 1f, toxSev = 0.04f;
 
 		public override void ExposeData()
 		{
@@ -53,6 +61,7 @@ namespace AutoTurrets
 			Scribe_Values.Look(ref wallTurrets, "wallTurrets", false);
 			Scribe_Values.Look(ref smartShells, "smartShells", true);
 			Scribe_Values.Look(ref noHitBuildings, "noHitBuildings", false);
+			Scribe_Values.Look(ref spareGround, "spareGround", true);
 			Scribe_Values.Look(ref wallTurretsOutward, "wallTurretsOutward", true);
 			Scribe_Collections.Look(ref wallPick, "wallPick", LookMode.Value, LookMode.Value);
 			Scribe_Collections.Look(ref autoPick, "autoPick", LookMode.Value, LookMode.Value);
@@ -66,6 +75,21 @@ namespace AutoTurrets
 			Scribe_Values.Look(ref stunGiveUp, "stunGiveUp", true);
 			Scribe_Values.Look(ref shellSettlements, "shellSettlements", true);
 			Scribe_Values.Look(ref shellHitsToDestroy, "shellHitsToDestroy", 40);
+			Scribe_Values.Look(ref quickGizmos, "quickGizmos", true);
+			Scribe_Values.Look(ref quickGlobalButton, "quickGlobalButton", true);
+			Scribe_Values.Look(ref ammoTypes, "ammoTypes", true);
+			Scribe_Values.Look(ref specialAmmoFromStorage, "specialAmmoFromStorage", false);
+			Scribe_Values.Look(ref kAP, "amKAP", true);
+			Scribe_Values.Look(ref kHP, "amKHP", true);
+			Scribe_Values.Look(ref kInc, "amKInc", true);
+			Scribe_Values.Look(ref kEmp, "amKEmp", true);
+			Scribe_Values.Look(ref kTox, "amKTox", true);
+			Scribe_Values.Look(ref kShells, "amKShells", true);
+			Scribe_Values.Look(ref apPen, "amApPen", 1.6f);
+			Scribe_Values.Look(ref hpDmg, "amHpDmg", 1.25f);
+			Scribe_Values.Look(ref incIgnite, "amIncIgnite", 0.25f);
+			Scribe_Values.Look(ref empPow, "amEmpPow", 1f);
+			Scribe_Values.Look(ref toxSev, "amToxSev", 0.04f);
 			if (autoPick == null) autoPick = new Dictionary<string, bool>();
 			if (fuelExtra == null) fuelExtra = new List<string>();
 			if (Scribe.mode == LoadSaveMode.PostLoadInit && wallPick == null)
@@ -99,6 +123,7 @@ namespace AutoTurrets
 			{
 				new TabRecord("AT_SecShooting".Translate(), () => tab = 0, tab == 0),
 				new TabRecord("AT_SecMaterials".Translate(), () => tab = 1, tab == 1),
+				new TabRecord("AT_AM_Tab".Translate(), () => tab = 4, tab == 4),
 				new TabRecord("AT_TabTurrets".Translate(), () => tab = 3, tab == 3),
 				new TabRecord("AT_WallTurrets".Translate(), () => tab = 2, tab == 2),
 			};
@@ -116,7 +141,27 @@ namespace AutoTurrets
 			{
 				var l = new Listing_Standard { maxOneColumn = true };
 				l.Begin(inner);
-				if (tab == 0)
+				if (tab == 4)
+				{
+					l.CheckboxLabeled("AT_AM_Enable".Translate(), ref S.ammoTypes, "AT_AM_Enable_Desc".Translate());
+					if (S.ammoTypes)
+					{
+						l.CheckboxLabeled("AT_AM_FromStorage".Translate(), ref S.specialAmmoFromStorage, "AT_AM_FromStorage_Desc".Translate());
+						l.GapLine();
+						l.CheckboxLabeled(Ammo.Label(AmmoKind.ArmorPiercing), ref S.kAP, Ammo.Desc(AmmoKind.ArmorPiercing));
+						if (S.kAP) { l.Label("    " + "AT_AM_ApPen".Translate(S.apPen.ToString("0.00"))); S.apPen = Mathf.Round(l.Slider(S.apPen, 1f, 3f) * 20f) / 20f; }
+						l.CheckboxLabeled(Ammo.Label(AmmoKind.HollowPoint), ref S.kHP, Ammo.Desc(AmmoKind.HollowPoint));
+						if (S.kHP) { l.Label("    " + "AT_AM_HpDmg".Translate(S.hpDmg.ToString("0.00"))); S.hpDmg = Mathf.Round(l.Slider(S.hpDmg, 1f, 2f) * 20f) / 20f; }
+						l.CheckboxLabeled(Ammo.Label(AmmoKind.Incendiary), ref S.kInc, Ammo.Desc(AmmoKind.Incendiary));
+						if (S.kInc) { l.Label("    " + "AT_AM_IncIgnite".Translate(S.incIgnite.ToStringPercent())); S.incIgnite = Mathf.Round(l.Slider(S.incIgnite, 0f, 1f) * 20f) / 20f; }
+						l.CheckboxLabeled(Ammo.Label(AmmoKind.EMP), ref S.kEmp, Ammo.Desc(AmmoKind.EMP));
+						if (S.kEmp) { l.Label("    " + "AT_AM_EmpPow".Translate(S.empPow.ToString("0.00"))); S.empPow = Mathf.Round(l.Slider(S.empPow, 0.25f, 3f) * 20f) / 20f; }
+						l.CheckboxLabeled(Ammo.Label(AmmoKind.Toxic), ref S.kTox, Ammo.Desc(AmmoKind.Toxic));
+						if (S.kTox) { l.Label("    " + "AT_AM_ToxSev".Translate(S.toxSev.ToStringPercent())); S.toxSev = Mathf.Round(l.Slider(S.toxSev, 0.01f, 0.2f) * 100f) / 100f; }
+						l.CheckboxLabeled("AT_AM_KShells".Translate(), ref S.kShells, "AT_AM_KShells_Desc".Translate());
+					}
+				}
+				else if (tab == 0)
 				{
 					l.CheckboxLabeled("AT_AutoManned".Translate(), ref S.autoManned, "AT_AutoManned_Desc".Translate());
 					l.CheckboxLabeled("AT_AutoMortars".Translate(), ref S.autoMortars, "AT_AutoMortars_Desc".Translate());
@@ -131,6 +176,9 @@ namespace AutoTurrets
 					l.CheckboxLabeled("AT_SpecialOnlyPicked".Translate(), ref S.specialOnlyPicked, "AT_SpecialOnlyPicked_Desc".Translate());
 					l.CheckboxLabeled("AT_FriendlyFire".Translate(), ref S.friendlyFire, "AT_FriendlyFire_Desc".Translate());
 					l.CheckboxLabeled("AT_NoHitBuildings".Translate(), ref S.noHitBuildings, "AT_NoHitBuildings_Desc".Translate());
+					l.CheckboxLabeled("AT_SpareGround".Translate(), ref S.spareGround, "AT_SpareGround_Desc".Translate());
+					l.CheckboxLabeled("AT_QC_SetGizmos".Translate(), ref S.quickGizmos, "AT_QC_SetGizmos_Desc".Translate());
+					l.CheckboxLabeled("AT_QC_SetGlobal".Translate(), ref S.quickGlobalButton, "AT_QC_SetGlobal_Desc".Translate());
 					l.CheckboxLabeled("AT_StunRunaways".Translate(), ref S.stunRunaways, "AT_StunRunaways_Desc".Translate());
 					if (S.stunRunaways)
 						l.CheckboxLabeled("    " + "AT_StunGiveUp".Translate(), ref S.stunGiveUp, "AT_StunGiveUp_Desc".Translate());
@@ -333,7 +381,7 @@ namespace AutoTurrets
 		public static bool Needs(Building_TurretGun t)
 		{
 			// 1.5.3: every shell turret of yours, also the manned ones (the crew can fire right away)
-			if (t.Faction != Faction.OfPlayer || !TurretControlsComp.AutoLoad(t))
+			if (t.Faction != Faction.OfPlayer || !TurretControlsComp.AutoLoad(t) || Ammo.FreeSpecial(t))
 				return false;
 			CompChangeableProjectile c = t.gun?.TryGetComp<CompChangeableProjectile>();
 			return c != null && !c.Loaded;
@@ -512,6 +560,11 @@ namespace AutoTurrets
 
 		public static bool OurBuilding(Thing t) => t is Building b && b.Faction == Faction.OfPlayer;
 
+		// 1.4.1: "turrets don't destroy items and corpses on the ground"
+		public static bool SpareGround => ATMod.S != null && ATMod.S.spareGround;
+
+		public static bool OnGround(Thing t) => t != null && t.def != null && t.def.category == ThingCategory.Item;
+
 		public static bool Friendly(Thing t)
 		{
 			if (!(t is Pawn p) || p.Dead)
@@ -537,6 +590,31 @@ namespace AutoTurrets
 			// 1.3.1: bullets fly past our own buildings unless the building itself was aimed at
 			else if (FriendlyFire.SpareBuildings && FriendlyFire.OurBuilding(thing) && thing != __instance.intendedTarget.Thing)
 				__result = false;
+			// 1.4.1: … and past items and corpses on the ground
+			else if (FriendlyFire.SpareGround && FriendlyFire.OnGround(thing) && thing != __instance.intendedTarget.Thing)
+				__result = false;
+		}
+	}
+
+	// 1.4.1: whatever still reaches an item or corpse from our turret (a stray bullet, splash, a follow-up burn)
+	// does nothing – loot is not shot to pieces and bodies are not mashed until they vanish.
+	[HarmonyPatch(typeof(Thing), nameof(Thing.TakeDamage))]
+	public static class Patch_SpareGround
+	{
+		[HarmonyPriority(Priority.First)]
+		public static bool Prefix(Thing __instance, DamageInfo dinfo, ref DamageWorker.DamageResult __result)
+		{
+			try
+			{
+				if (!FriendlyFire.SpareGround || !FriendlyFire.OnGround(__instance) || !FriendlyFire.OurTurret(dinfo.Instigator))
+					return true;
+				__result = new DamageWorker.DamageResult();
+				return false;
+			}
+			catch
+			{
+				return true;
+			}
 		}
 	}
 
@@ -548,13 +626,13 @@ namespace AutoTurrets
 			try
 			{
 					// 1.3.1: also our buildings, when that option is on
-				bool people = FriendlyFire.Off, buildings = FriendlyFire.SpareBuildings;
-				if ((!people && !buildings) || explosion?.Map == null || !FriendlyFire.OurTurret(explosion.instigator))
+				bool people = FriendlyFire.Off, buildings = FriendlyFire.SpareBuildings, ground = FriendlyFire.SpareGround;
+				if ((!people && !buildings && !ground) || explosion?.Map == null || !FriendlyFire.OurTurret(explosion.instigator))
 					return;
 				List<Thing> here = c.GetThingList(explosion.Map);
 				for (int i = 0; i < here.Count; i++)
 				{
-					if (!(people && FriendlyFire.Friendly(here[i])) && !(buildings && FriendlyFire.OurBuilding(here[i])))
+					if (!(people && FriendlyFire.Friendly(here[i])) && !(buildings && FriendlyFire.OurBuilding(here[i])) && !(ground && FriendlyFire.OnGround(here[i])))
 						continue;
 					if (ignoredThings == null)
 						ignoredThings = new List<Thing>();

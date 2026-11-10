@@ -1,3 +1,84 @@
+=== Workshop release 2.17.0 (10 Nov 2026) ===
+2.17.0
+New
+- Tools in the pockets: a colonist keeps the tool for his work (pickaxe, sickle, axe …) in his inventory and swaps it into his hands when the work starts; drafted or in a fight the weapon is back. Works with Simple Sidearms too.
+- Work clothes only while working (on): an apron, lab coat or mining helmet goes on for that work and comes off about two hours later.
+- Dress and take tools before work, not halfway through. Never in emergencies, drafted or during a raid.
+- New colony: for the first 3 days (slider, 0 = off) colonists take whatever gear is at hand; the starting gear counts as the colony's own.
+- Orders you give by hand (equip, pick up) are never blocked; a message says why something was locked.
+- Support for the Wardrobe add-on.
+
+Fixes
+- No more swapping hats, masks and helmets instead of working, and nobody stands around undressed.
+- Colonists with a weapon you picked yourself take sidearms again.
+- Clothes made for another age group are no longer put on and taken off.
+- Doctors giving a drug or tending a downed colonist don't change clothes first.
+- In heat, underwear and skin layers stay on.
+
+Nové
+- Nástroje v kapse: kolonista nosí nástroj ke své práci (krumpáč, srp, sekeru …) v inventáři a při práci ho vezme do rukou; když je povolán nebo bojuje, má zase zbraň. Funguje i se Simple Sidearms.
+- Pracovní oblečení jen při práci (zapnuto): zástěra, laboratorní plášť nebo hornická helma se obléknou na tu práci a asi za dvě hodiny se zase sundají.
+- Oblékne se a vezme nástroj před prací, ne v půlce. Nikdy při nouzi, povolání ani přepadení.
+- Nová kolonie: první 3 dny (posuvník, 0 = vypnuto) si kolonisté berou výbavu, co je po ruce; startovní výbava se počítá jako vlastní.
+- Tvoje ruční příkazy (vybavit, sebrat) se nikdy neblokují; zpráva řekne, proč byla věc zamčená.
+- Podpora doplňku Wardrobe.
+
+Opravy
+- Už žádné přehazování čepic, masek a helem místo práce a nikdo nestojí svlečený.
+- Kolonisté se zbraní, kterou jsi vybral ty, si zase berou záložní zbraně.
+- Oblečení pro jinou věkovou skupinu se už neobléká a nesvléká.
+- Lékaři, kteří podávají lék nebo ošetřují ležícího, se nejdřív nepřevlékají.
+- V horku zůstává spodní prádlo a vrstvy na kůži.
+
+=== Development history since the last Workshop release (test versions) ===
+2.20.0
+- New: start of a new colony – for the first 3 days (slider, 0 = off) colonists take whatever gear is at hand, the rules start afterwards. When your order overrides a lock, a message says why it was locked.
+- Nové: začátek nové kolonie – první 3 dny (posuvník, 0 = vypnuto) si kolonisté vezmou výbavu, co je po ruce, pravidla platí až potom. Když tvůj rozkaz obejde zámek, zpráva řekne, proč bylo zamčeno.
+
+2.19.4
+- Orders you give by hand (equip, pick up) are never blocked any more – with 'Only crafted' on, a new colonist ignored your order to take up the starting bow. In a new game the starting gear counts as the colony's own.
+- Ruční rozkazy (vybavit, sebrat) už se nikdy neblokují – se zapnutým „Jen vyrobené“ kolonista v nové kolonii ignoroval rozkaz vzít si startovní luk. V nové hře se startovní výbava počítá jako vlastní.
+
+2.19.3
+- With Simple Sidearms colonists who hold a weapon now also fetch tools for their work (as Simple Sidearms sidearms – it switches to them itself); before, they never got any tool. Carried tools no longer count as extra weapons. The gear report (Report button) shows per colonist why no sidearm is taken, including Simple Sidearms' own reason. Simple Sidearms' messages why a weapon can't be picked up ("all slots full", "too heavy" …) are no longer lost. In heat, clothes worn on the skin and underwear (UnderWhere and similar mods) are no longer taken off.
+- Se Simple Sidearms si teď kolonisté se zbraní v ruce berou i nástroje pro svou práci (jako sidearmy Simple Sidearms – ten na ně přepíná sám); dřív nedostali žádný nástroj. Nošené nástroje se už nepočítají jako zbraně navíc. Report výbavy (tlačítko Report) ukazuje u každého kolonisty, proč si nebere vedlejší zbraň, včetně důvodu od Simple Sidearms. Hlášky Simple Sidearms, proč zbraň nejde vzít („všechny sloty plné“, „moc těžká“ …), se už neztrácejí. V horku se už nesundává oblečení na kůži a spodní prádlo (UnderWhere a podobné mody).
+
+2.19.2
+- Fix: colonists whose weapon you picked yourself (or with a remembered player choice) never took a sidearm – the 'player chose this weapon' calm blocked sidearms too. Now it only keeps the weapon in hand; sidearms are added as usual (still not right after a weapon change).
+- Oprava: kolonisté se zbraní, kterou jsi jim vybral sám, si nikdy nevzali vedlejší zbraň – klid „hráč vybral tuto zbraň“ blokoval i vedlejší zbraně. Teď drží jen zbraň v ruce; vedlejší zbraně se přidávají normálně (pořád ne hned po výměně zbraně).
+
+2.19.1
+- Fix: colonists no longer keep swapping hats, masks and helmets instead of working – the 'left off for two days' block for pieces swapped too often applies to headgear again (only clothes on the torso and legs may skip it, so nobody stands around undressed).
+- Oprava: kolonisté už místo práce dokola nestřídají čepice, masky a helmy – blokace „nechat dva dny sundané“ u kusů střídaných moc často zase platí pro pokrývky hlavy (přeskočit ji smí jen oblečení na trup a nohy, aby nikdo nestál svlečený).
+
+2.19.0
+- New: tools in the pockets – a colonist keeps the tool for his work (pickaxe, sickle, axe …) in his inventory, fetched once before the first work that wants it; when the work starts he swaps it into his hands at once, the weapon goes into the pockets; drafted, in a fight or at other work (or an hour without tool work) the weapon is back in his hands. At most 2 tools, mass limit in the settings (6 kg). Carried tools do not count as sidearms.
+- Nové: nástroje v kapsách – kolonista nosí nástroj pro svoji práci (krumpáč, srp, sekeru …) v inventáři, dojde si pro něj jednou před první prací, která ho chce; když práce začne, vezme ho hned do ruky a zbraň dá do kapsy; při povolání, v boji, u jiné práce (nebo po hodině bez práce s nástrojem) má zbraň zase v ruce. Nejvýš 2 nástroje, limit váhy v nastavení (6 kg). Nástroje v kapse se nepočítají jako vedlejší zbraně.
+
+2.18.1
+- Fix: a colonist who took a piece off too often no longer stands around without clothes – the 'left off for two days' block now only stops swapping, a piece that fills an empty spot (nothing worn there) can always be put on.
+- Oprava: kolonista, který si nějaký kus sundal moc často, už nestojí bez oblečení – blokace „nechat dva dny sundané“ teď brání jen střídání, kus, který zaplní prázdné místo (nic tam nemá na sobě), si obléct může vždycky.
+
+2.18.0
+- Dressing provider hook: the new add-on Smart Colonist Gear – Wardrobe can take over all dressing decisions (weapons, armor, battle gear, work clothes, apparel choice). Without the add-on nothing changes. The settings show when Wardrobe manages the dressing.
+- Háček pro oblékání: nový doplněk Smart Colonist Gear – Šatník může převzít všechna rozhodnutí o oblékání (zbraně, brnění, bojová výbava, pracovní oblečení, výběr oblečení). Bez doplňku se nic nemění. Nastavení ukáže, když oblékání řídí Šatník.
+
+2.17.2
+- Fix: colonists no longer keep putting on and taking off clothes made for another age group (kid pants on adults and the like) – battle gear, work clothes and gear swaps skip them, and the 'swapped too often' block now covers battle gear and work clothes too.
+- Oprava: kolonisti už si pořád dokola neoblékají a nesvlékají oblečení pro jinou věkovou skupinu (dětské kalhoty na dospělých a podobně) – bojová výstroj, pracovní oblečení i výměny výbavy je přeskočí a blokace „moc častého střídání“ teď platí i pro bojovou výstroj a pracovní oblečení.
+
+2.17.1
+- Fix: doctors giving a drug (Auto Pharmacy, Steward – Kit) or tending a downed colonist no longer go for their work clothes first, and taking things into the inventory never triggers a change of clothes.
+- Oprava: doktor, který podává lék (Auto Pharmacy, Steward – Výbava) nebo ošetřuje zraněného na zemi, už si předtím nejde pro pracovní oblečení a braní věcí do inventáře nikdy nespustí převlékání.
+
+2.17.0
+- Dress and take tools before work: when a colonist starts a work job, he first puts on the work clothes and takes the work tool (pickaxe, sickle …) for it, then does the work – not halfway through. Never for emergencies, while drafted or in a raid; a weapon in his hands is never swapped for a tool. Distance limit in the settings.
+- Obléct se a vzít nářadí před prací: když kolonista začíná práci, nejdřív si oblékne pracovní oblečení a vezme pracovní nářadí (krumpáč, srp …) a teprve pak pracuje – ne v půlce práce. Nikdy při nouzi, při povolání ani nájezdu; zbraň v rukou nikdy nevymění za nářadí. Omezení vzdálenosti v nastavení.
+
+2.16.1
+- Work clothes only while working (new, on by default): a specialist puts his work clothing (apron, lab coat, mining helmet …) on when he starts that work and takes it off about two hours after he last did it – his normal clothes go back on. Never while drafted or in a raid, never bare in the cold; forced, locked and ideology apparel stays. Shown in "Why".
+- Pracovní oblečení jen při práci (nové, zapnuté): specialista si pracovní oblečení (zástěru, laboratorní plášť, hornickou helmu …) obleče, když začne tu práci, a asi dvě hodiny poté, co ji naposledy dělal, ho sundá – vrátí se mu normální oblečení. Nikdy ve zbrani ani při nájezdu, nikdy nahý v zimě; vynucené, zamčené a ideologické oblečení zůstává. Vidět v „Proč“.
+
 === Workshop release 2.16.0 (31 Oct 2026) ===
 2.16.0
 New

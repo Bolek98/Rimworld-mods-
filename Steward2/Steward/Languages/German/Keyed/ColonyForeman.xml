@@ -175,6 +175,12 @@
   <CF2_OneTopTip>Jeder Kolonist hat nur seine wichtigste Arbeit auf 1, seine übrige Hauptarbeit auf 2.</CF2_OneTopTip>
   <CF2_Backup>Ersatzarbeit auf niedrigster Priorität</CF2_Backup>
   <CF2_BackupTip>Wer eine Arbeit nicht als Hauptarbeit hat, behält sie auf der niedrigsten Stufe, damit niemand untätig herumsteht.</CF2_BackupTip>
+  <CF2_BackupMinSkill>Fachliche Arbeit als Reserve erst ab Fertigkeit {0} (0 = alle)</CF2_BackupMinSkill>
+  <CF2_BackupMinSkillTip>Herstellung, Kunst, Bau und Forschung bleiben als Reserve nur bei Kolonisten mit mindestens dieser Fertigkeit. Medizin, Wärter, Kinderbetreuung, Kochen, Pflanzen, Bergbau, Tiere und einfache Arbeit wie Tragen bleiben bei allen. Erreicht es niemand, bekommt der beste Kolonist die Arbeit trotzdem.</CF2_BackupMinSkillTip>
+  <CF2_SurgeryMin>Operationen nur von Ärzten ab Medizin {0} (0 = aus)</CF2_SurgeryMin>
+  <CF2_SurgeryMinTip>Ist ein Arzt mit mindestens dieser Medizin auf der Karte und für Arztarbeit eingeteilt, versorgen schwächere Ärzte nur und überlassen ihm die Operationen. Ist keiner da, darf jeder operieren. Deine direkten Befehle gelten immer.</CF2_SurgeryMinTip>
+  <CF2_TipBackupLowSkill>Keine Reserve: Fertigkeit {0} liegt unter {1}.</CF2_TipBackupLowSkill>
+  <CF2_SurgeryLeft>Operation einem besseren Arzt überlassen</CF2_SurgeryLeft>
   <CF2_Opposed>Auch Arbeit vergeben, die die Ideologie ablehnt</CF2_Opposed>
   <CF2_OpposedTip>Aus: Arbeit, die die Ideologie des Kolonisten für gefährlich hält, wird ihm nie gegeben.</CF2_OpposedTip>
   <CF2_Injured>Verletzte und kranke Kolonisten bekommen leichtere Arbeit</CF2_Injured>
@@ -311,4 +317,7 @@
   <CF_Keep_NowStarted>{0} Kolonisten bringen Dinge zur Verwahrzone.</CF_Keep_NowStarted>
   <CF_Keep_NowNobody>Niemand kann jetzt etwas bringen (kein freier Kolonist oder nichts Erreichbares mehr außerhalb der Zone).</CF_Keep_NowNobody>
   <CF_Keep_NowFull>Die Zone hat bereits alles, was sie haben soll.</CF_Keep_NowFull>
+  <CF_Crisis_NewColony>neue Kolonie (Startplan)</CF_Crisis_NewColony>
+  <CF2_TipSmallColony>kleine Kolonie: zuerst die Arbeit, die jetzt am meisten zählt</CF2_TipSmallColony>
+  <CF2_TipArea>Prioritätsbereich: wird dort gebraucht</CF2_TipArea>
 </LanguageData>

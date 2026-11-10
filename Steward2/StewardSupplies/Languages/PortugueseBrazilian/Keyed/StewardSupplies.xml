@@ -215,4 +215,55 @@
   <CF_M_NotRaid>A mina para durante ataques</CF_M_NotRaid>
   <CF_M_NotRaidTip>As ordens de mina do administrador esperam enquanto houver inimigos no mapa – os mineiros não ficam presos durante a luta.</CF_M_NotRaidTip>
   <CF_M_State_Paused>Pausado (noite ou ataque)</CF_M_State_Paused>
+  <CF_A_MealsTip>Abaixo da meta de refeições prontas (ou 2 dias de refeições se ela estiver desligada) e nenhuma ordem de refeição em andamento: a melhor refeição que seus cozinheiros sabem fazer, até a meta.</CF_A_MealsTip>
+  <CF_A_MedicineTip>Menos remédios que colonos (pelo menos 3): o melhor remédio que você consegue fabricar, só a quantidade que falta.</CF_A_MedicineTip>
+  <CF_A_ClothesTip>Roupas e acessórios gastos são substituídos pela mesma peça. Um colono sem nada no corpo ou nas pernas recebe a peça mais simples que pode usar.</CF_A_ClothesTip>
+  <CF_A_ArmorTip>Armadura gasta é substituída pela mesma peça.</CF_A_ArmorTip>
+  <CF_A_WeaponsTip>Um colono desarmado que pode lutar recebe uma arma – a mais usada na colônia, à distância ou corpo a corpo conforme suas habilidades – se não houver nenhuma no estoque.</CF_A_WeaponsTip>
+  <CF_A_MaterialsTip>Componentes até o número de colonos (pelo menos 5); aço da escória quando o aço cai abaixo de 100.</CF_A_MaterialsTip>
+  <CF_St_Page>Estoque</CF_St_Page>
+  <CF_St_Desc>Os suprimentos-chave da colônia num relance: quanto há, quantos dias dura no consumo recente, a tendência do último dia, o produzido (verde) e consumido (vermelho) por dia e o que está sendo feito agora.</CF_St_Desc>
+  <CF_St_Short>comida para {0} d</CF_St_Short>
+  <CF_St_Food>Comida</CF_St_Food>
+  <CF_St_Meals>Refeições prontas</CF_St_Meals>
+  <CF_St_Medicine>Remédio</CF_St_Medicine>
+  <CF_St_Wood>Madeira</CF_St_Wood>
+  <CF_St_Steel>Aço</CF_St_Steel>
+  <CF_St_Components>Componentes</CF_St_Components>
+  <CF_St_Cloth>Tecido e couro</CF_St_Cloth>
+  <CF_St_Fuel>Quimiocombustível</CF_St_Fuel>
+  <CF_St_ColItem>Item</CF_St_ColItem>
+  <CF_St_ColStock>Estoque</CF_St_ColStock>
+  <CF_St_ColDays>Dura</CF_St_ColDays>
+  <CF_St_ColTrend>24 h</CF_St_ColTrend>
+  <CF_St_ColDays15>Feito / usado (15 dias)</CF_St_ColDays15>
+  <CF_St_ColMaking>Sendo feito agora</CF_St_ColMaking>
+  <CF_St_DaysN>{0} d</CF_St_DaysN>
+  <CF_St_NothingMade>nada</CF_St_NothingMade>
+  <CF_St_RowTip>{0}: verde acima da linha = feito ou trazido, vermelho = consumido. Dias = estoque ÷ consumo médio dos últimos 3 dias.</CF_St_RowTip>
+  <CF_St_GraphTip>Hoje feito {0}, usado {1}. Média: {2} por dia.</CF_St_GraphTip>
+  <CF_St_Forecast>Previsão:</CF_St_Forecast>
+  <CF_St_Winter>o inverno está chegando – mais refeições em estoque</CF_St_Winter>
+  <CF_St_Danger>perigo – mais remédio</CF_St_Danger>
+  <CF_St_Stuck>O que trava a produção:</CF_St_Stuck>
+  <CF_St_Bottleneck>{0}: sem {1} ({2})</CF_St_Bottleneck>
+  <CF_St_HintMining>meta de mineração aumentada</CF_St_HintMining>
+  <CF_St_HintMiningOff>ninguém minera – adicione uma meta de mineração</CF_St_HintMiningOff>
+  <CF_St_HintForestry>meta de corte aumentada</CF_St_HintForestry>
+  <CF_St_HintForestryOff>o corte está desligado</CF_St_HintForestryOff>
+  <CF_St_HintMake>faça primeiro</CF_St_HintMake>
+  <CF_St_HintBuy>compre</CF_St_HintBuy>
+  <CF_St_TradeNow>Comércio agora:</CF_St_TradeNow>
+  <CF_St_TradeNothing>nada para comprar ou vender</CF_St_TradeNothing>
+  <CF_St_TraderTitle>{0} chegou.</CF_St_TraderTitle>
+  <CF_St_Buy>Compre: {0}.</CF_St_Buy>
+  <CF_St_Sell>Venda: {0}.</CF_St_Sell>
+  <CF_St_OptRooms>Ordens por cômodo</CF_St_OptRooms>
+  <CF_St_OptRooms_Desc>Refeições vão aos fogões da cozinha, drogas e chá ao laboratório, e cada ordem à bancada menos ocupada do seu tipo.</CF_St_OptRooms_Desc>
+  <CF_St_OptForecast>Previsão</CF_St_OptForecast>
+  <CF_St_OptForecast_Desc>Antes do inverno mais refeições em estoque; num ataque ou com vários feridos, mais remédio.</CF_St_OptForecast_Desc>
+  <CF_St_OptRecipes>Receitas pelo estoque</CF_St_OptRecipes>
+  <CF_St_OptRecipes_Desc>Pouca comida: refeições simples; alguma: finas; muita: luxuosas. Com muita comida, um pequeno estoque de pemmican para caravanas. Roupas do material que mais há.</CF_St_OptRecipes_Desc>
+  <CF_St_OptTrader>Dicas de comércio</CF_St_OptTrader>
+  <CF_St_OptTrader_Desc>Quando um comerciante chega, uma mensagem diz o que falta e do que você tem muito.</CF_St_OptTrader_Desc>
 </LanguageData>

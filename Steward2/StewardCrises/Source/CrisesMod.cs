@@ -31,6 +31,12 @@ public sealed class CrisesSettings : ModSettings
 	public bool butcherFirst = true;
 	public bool raidSafeArea = false;
 	public bool raidSafeAnimals = true;   // 1.1.0: tame animals go into the safe area too
+	// 1.2.0: groups, your orders first, growing step by step
+	public float strShortage = 1f;
+	public float strWork = 1f;
+	public float strComfort = 1f;
+	public bool respectOrders = true;
+	public bool escalate = true;
 
 	public override void ExposeData()
 	{
@@ -45,6 +51,11 @@ public sealed class CrisesSettings : ModSettings
 		Scribe_Values.Look(ref butcherFirst, "butcherFirst", true);
 		Scribe_Values.Look(ref raidSafeArea, "raidSafeArea", false);
 		Scribe_Values.Look(ref raidSafeAnimals, "raidSafeAnimals", true);
+		Scribe_Values.Look(ref strShortage, "strShortage", 1f);
+		Scribe_Values.Look(ref strWork, "strWork", 1f);
+		Scribe_Values.Look(ref strComfort, "strComfort", 1f);
+		Scribe_Values.Look(ref respectOrders, "respectOrders", true);
+		Scribe_Values.Look(ref escalate, "escalate", true);
 		situationOff ??= new List<string>();
 	}
 }
@@ -69,10 +80,15 @@ public sealed class CrisesMod : Mod
 		StewardApi.Register(new SituationStep());
 		StewardApi.MapExpose += CS.Expose;
 		StewardApi.MapTick += CS.Tick;
+		StewardApi.MapExpose += CrisisTracks.Expose;
+		StewardApi.MapTick += CrisisTracks.Tick;
+		AddButton();
 		StewardApi.MapRemoved += CrisisRules.Forget;
+		StewardApi.MapRemoved += SafeArea.Forget;
 		StewardApi.GameStarted += () =>
 		{
 			CrisisRules.Reset();
+			SafeArea.Reset();
 			MedicalResponse.ResetGame();
 			ButcherFirstPatch.Reset();
 			Kitchen.ResetFood();
@@ -89,6 +105,16 @@ public sealed class CrisesMod : Mod
 		};
 		MLog.Info("[Steward] Crises & Situations loaded.");
 	}
+
+	// 1.2.0: a core without the button hook (older Steward) must not stop this mod from loading
+	private static void AddButton()
+	{
+		try { AddButtonNow(); }
+		catch (Exception ex) { MLog.Warn("[Steward] crises: no Work tab button (update the Steward core): " + ex.Message); }
+	}
+
+	[MethodImpl(MethodImplOptions.NoInlining)]
+	private static void AddButtonNow() => Dialog_Crises.Register();
 
 	public override string SettingsCategory() => "Steward – " + "CF2C_Name".Translate();
 
@@ -117,6 +143,14 @@ public sealed class CrisesMod : Mod
 		l.CheckboxLabeled("CF2C_UseSituations".Translate(), ref S.useSituations, "CF2C_UseSituationsTip".Translate());
 		l.CheckboxLabeled("CF2C_AutoFocus".Translate(), ref S.balancedAutoFocus, "CF2C_AutoFocusTip".Translate());
 		l.CheckboxLabeled("CF2C_Messages".Translate(), ref S.crisisMessages);
+		l.GapLine();
+		l.Label("CF3C_Title".Translate());
+		Dialog_Crises.Slider(l.GetRect(40f), CrisisGroup.Shortage, ref S.strShortage);
+		Dialog_Crises.Slider(l.GetRect(40f), CrisisGroup.Work, ref S.strWork);
+		Dialog_Crises.Slider(l.GetRect(40f), CrisisGroup.Comfort, ref S.strComfort);
+		l.CheckboxLabeled("CF3C_Orders".Translate(), ref S.respectOrders, "CF3C_OrdersTip".Translate());
+		l.CheckboxLabeled("CF3C_Escalation".Translate(), ref S.escalate, "CF3C_EscalationTip".Translate());
+		l.GapLine();
 		l.CheckboxLabeled("CF2C_Medical".Translate(), ref S.medicalResponse, "CF2C_MedicalTip".Translate());
 		l.CheckboxLabeled("CF2C_Fire".Translate(), ref S.fireResponse, "CF2C_FireTip".Translate());
 		l.CheckboxLabeled("CF2C_Butcher".Translate(), ref S.butcherFirst, "CF2C_ButcherTip".Translate());
@@ -315,7 +349,11 @@ public sealed class CS
 					st.crisisSeen = found;
 					st.crisisSeenTick = now;
 				}
-				if ((diff & Instant & found) != 0 || now - st.crisisSeenTick >= 2500)
+				// 1.1.2: a crisis starts after an hour, but ends only after it has been gone for 6 hours
+				// (food, hygiene, medicine went on and off every few minutes and every time the plan changed)
+				bool starts = (found & ~comp.crisis) != 0;
+				int wait = starts ? 2500 : ((comp.crisis & ~found & Instant) != 0 ? 2500 : 15000);
+				if ((diff & Instant & found) != 0 || now - st.crisisSeenTick >= wait)
 				{
 					Crisis before = comp.crisis;
 					comp.crisis = found;
@@ -336,7 +374,7 @@ public sealed class CS
 		// Balanced picks a focus by itself
 		try
 		{
-			if (now - st.autoFocusEval >= AutoFocus.EvalInterval && AutoFocus.Update(map, comp, null, force: false))
+			if (now - st.autoFocusEval >= AutoFocus.EvalInterval && AutoFocus.Update(map, comp, MapDemand.ForFocus(map), force: false))
 				comp.RequestPlan(urgent: false);
 		}
 		catch (Exception ex)
@@ -447,13 +485,26 @@ public sealed class CrisisStep : IPlanStep
 
 	public void Apply(PlanContext ctx)
 	{
+		CrisisBook book = CrisisTracks.Of(ctx.comp);
+		foreach (CrisisTrack t in book.tracks)
+			t.who.Clear();
 		Crisis cur = ctx.comp.crisis;
 		if (cur == Crisis.None)
 			return;
-		var up = new List<(WorkTypeDef w, CrisisRules.Effect e, Crisis c)>();
+		int now = Find.TickManager.TicksGame;
+		var raiser = new GroupRaiser(ctx);
+		var up = new List<(WorkTypeDef w, CrisisRules.Effect e, Crisis c, CrisisTrack t)>();
 		foreach (Crisis c in CrisisRules.All)
 		{
 			if ((cur & c) == 0 || !CrisisRules.Table.TryGetValue(c, out var effects))
+				continue;
+			// 1.2.0: the card of this crisis (ignored / snoozed = nothing; a new one starts gently)
+			CrisisTrack t = book.Find("c:" + c) ?? new CrisisTrack { key = "c:" + c, since = now };
+			if (t.Waiting(now))
+				continue;
+			t.stage = CrisisTracks.StageOf(t, now);
+			CrisisGroup g = t.Group;
+			if (CrisisGroups.Strength(g) <= 0.01f)
 				continue;
 			foreach (var kv in effects)
 				foreach (WorkTypeDef w in WorkMatch.Resolve(kv.Key))
@@ -463,26 +514,37 @@ public sealed class CrisisStep : IPlanStep
 					WorkKind kind = WorkCatalog.Kind(w);
 					if (kind == WorkKind.Emergency || kind == WorkKind.Hidden)
 						continue;
+					// 1.1.1: rearming turrets and refuelling (Work Split parts of hauling) never wait in a crisis
+					if (kv.Value.urgency < 0f && (w.defName == "SW_Rearm" || w.defName == "SW_Refuel"))
+						continue;
 					if (kv.Value.urgency < 0f)
 					{
-						// what can wait: main people go to the lowest level for now
+						// 1.2.0: only lives and real shortages (after the first hour) make other work wait,
+						// and never for the people you gave your own orders
+						if (g == CrisisGroup.Work || g == CrisisGroup.Comfort || (g == CrisisGroup.Shortage && t.stage < 2))
+							continue;
 						foreach (Pawn p in ctx.pawns)
 						{
+							if (g != CrisisGroup.Life && raiser.IsReserved(p))
+								continue;
 							int v = ctx.Get(p, w);
 							if (v > 0 && v <= 2)
 								ctx.Set(p, w, ctx.Levels, "CF2C_TipCrisisDown", CrisisRules.Label(c), null, pin: true);
 						}
 					}
 					else if (kv.Value.urgency > 0f)
-						up.Add((w, kv.Value, c));
+						up.Add((w, kv.Value, c, t));
 				}
 		}
-		foreach (var u in up)
+		// lives first, then shortages, work, comfort – each group takes only its share of the colony
+		foreach (var u in up.OrderBy(x => (int)x.t.Group).ThenByDescending(x => x.e.urgency))
 		{
 			int baseCount = Math.Max(1, ctx.CountOn(u.w, 2));
 			int count = u.e.min >= 99 ? ctx.pawns.Count : Math.Max(u.e.min, Mathf.CeilToInt(baseCount * Math.Max(1f, u.e.workers)));
-			int level = u.e.urgency >= 0.3f ? 1 : 2;
-			ctx.Raise(u.w, level, count, "CF2C_TipCrisis", CrisisRules.Label(u.c));
+			if (u.t.Group != CrisisGroup.Life)
+				count = GroupRaiser.CountFor(u.t, count, ctx.pawns.Count);
+			int level = GroupRaiser.LevelFor(u.t, u.e.urgency >= 0.3f ? 1 : 2);
+			raiser.Raise(u.t, u.w, level, count, "CF2C_TipCrisis", CrisisRules.Label(u.c));
 		}
 	}
 }
@@ -498,13 +560,26 @@ public sealed class FocusStep : IPlanStep
 		ForemanStyle f = AutoFocus.Current(ctx.comp);
 		if (f == AutoFocus.None)
 			return;
-		foreach (WorkTypeDef w in ctx.types)
+		// 1.2.0: your priority areas come first – the focus does not take those colonists
+		var added = new List<Pawn>();
+		foreach (Pawn p in CrisisTracks.Reserved(ctx.map))
+			if (ctx.noRaise.Add(p))
+				added.Add(p);
+		try
 		{
-			float d = AutoFocus.Delta(ctx.comp, w);
-			if (d <= 0f)
-				continue;
-			int count = Math.Max(1, Mathf.CeilToInt(Math.Max(1, ctx.CountOn(w, 2)) * (1f + d)));
-			ctx.Raise(w, 2, count, "CF2C_TipFocus", Styles.Label(f));
+			foreach (WorkTypeDef w in ctx.types)
+			{
+				float d = AutoFocus.Delta(ctx.comp, w);
+				if (d <= 0f)
+					continue;
+				int count = Math.Max(1, Mathf.CeilToInt(Math.Max(1, ctx.CountOn(w, 2)) * (1f + d)));
+				ctx.Raise(w, 2, count, "CF2C_TipFocus", Styles.Label(f));
+			}
+		}
+		finally
+		{
+			foreach (Pawn p in added)
+				ctx.noRaise.Remove(p);
 		}
 	}
 }
@@ -518,7 +593,10 @@ public sealed class SituationStep : IPlanStep
 	public void Apply(PlanContext ctx)
 	{
 		CS st = CS.Of(ctx.comp);
-		foreach (ActiveSituation s in st.situations)
+		CrisisBook book = CrisisTracks.Of(ctx.comp);
+		int now = Find.TickManager.TicksGame;
+		var raiser = new GroupRaiser(ctx);
+		foreach (ActiveSituation s in st.situations.OrderBy(x => (int)CrisisGroups.Of(x.id)))
 		{
 			if (s.id == Situation.Exhausted && s.pawns != null)
 			{
@@ -532,8 +610,15 @@ public sealed class SituationStep : IPlanStep
 					}
 				continue;
 			}
+			CrisisTrack t = book.Find("s:" + s.id) ?? new CrisisTrack { key = "s:" + s.id, since = now };
+			if (t.Waiting(now))
+				continue;
+			t.stage = CrisisTracks.StageOf(t, now);
 			foreach (SitNeed n in s.needs)
-				ctx.Raise(n.work, n.level, n.workers, "CF2C_TipSituation", s.Label + " (" + s.reason + ")");
+			{
+				int count = t.Group == CrisisGroup.Life ? n.workers : GroupRaiser.CountFor(t, n.workers, ctx.pawns.Count);
+				raiser.Raise(t, n.work, GroupRaiser.LevelFor(t, n.level), count, "CF2C_TipSituation", s.Label + " (" + s.reason + ")");
+			}
 		}
 	}
 }
@@ -547,13 +632,30 @@ public static class SafeArea
 	{
 		CS st = CS.Of(comp);
 		CrisesSettings s = CrisesMod.S;
-		bool threat = !stewardOff && s != null && s.raidSafeArea && map.IsPlayerHome
+		// 1.2.2: only enemies that are really close (near a colonist or in the home area) count – enemies
+		// wandering at the map edge or camping far away no longer send everybody in and out again
+		bool danger = !stewardOff && s != null && s.raidSafeArea && map.IsPlayerHome
 			&& ((comp.crisis & ThreatMask) != 0 || AnimalDanger(map));
-		// 1.1.1: a short grace after the danger, so the area does not flicker on and off
+		bool threat = danger && EnemyNear(map);
+		// 1.2.2: danger on the map but still far away – say so once; the area comes when they get close
+		if (danger && !threat && !st.safeActive && !warned.Contains(map))
+		{
+			warned.Add(map);
+			Messages.Message("CF_SafeReady".Translate(), MessageTypeDefOf.CautionInput, historical: false);
+		}
+		else if (!danger)
+			warned.Remove(map);
+		// 1.1.1 / 1.2.2: a grace of two hours after the danger, and once inside at least an hour,
+		// so the area does not flicker on and off (colonists walking in and out)
 		int now = Find.TickManager.TicksGame;
 		if (threat)
 			lastThreat[map] = now;
-		else if (!stewardOff && st.safeActive && lastThreat.TryGetValue(map, out int last) && now - last < 1250)
+		else if (!stewardOff && st.safeActive && lastThreat.TryGetValue(map, out int last) && now - last < 5000)
+			threat = true;
+		if (threat && !st.safeActive)
+			safeSince[map] = now;
+		else if (!threat && st.safeActive && !stewardOff && s != null && s.raidSafeArea
+		         && safeSince.TryGetValue(map, out int since) && now - since < 2500)
 			threat = true;
 		if (threat && st.safeActive)
 		{
@@ -622,6 +724,41 @@ public static class SafeArea
 	}
 
 	private static readonly Dictionary<Map, int> lastThreat = new Dictionary<Map, int>();
+	private static readonly Dictionary<Map, int> safeSince = new Dictionary<Map, int>();
+	private static readonly HashSet<Map> warned = new HashSet<Map>();
+
+	// 1.2.2: a hostile, not fleeing, not downed, visible pawn within 40 cells of a colonist or inside the home area
+	public static bool EnemyNear(Map map)
+	{
+		try
+		{
+			var colonists = map.mapPawns.FreeColonistsSpawned;
+			Area home = map.areaManager.Home;
+			foreach (Verse.AI.IAttackTarget at in map.attackTargetsCache.TargetsHostileToColony)
+			{
+				if (!(at.Thing is Pawn e) || !e.Spawned || e.Dead || e.Downed || e.Fogged())
+					continue;
+				if (e.InMentalState && e.MentalStateDef == MentalStateDefOf.PanicFlee)
+					continue;
+				if (!GenHostility.IsActiveThreatToPlayer(e))
+					continue;
+				if (home != null && home[e.Position])
+					return true;
+				for (int i = 0; i < colonists.Count; i++)
+					if (colonists[i].Position.DistanceToSquared(e.Position) <= 40 * 40)
+						return true;
+			}
+			return false;
+		}
+		catch
+		{
+			return true;
+		}
+	}
+
+	public static void Forget(Map m) { if (m != null) lastThreat.Remove(m); }
+
+	public static void Reset() => lastThreat.Clear();
 
 	// 1.1.1: manhunters and other mad animals count even alone and even while they sleep
 	// (vanilla stops seeing a sleeping manhunter as a threat – the raid ended, the area was

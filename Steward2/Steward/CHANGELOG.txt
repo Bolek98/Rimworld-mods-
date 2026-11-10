@@ -1,3 +1,60 @@
+=== Workshop release 1.1.0 (10 Nov 2026) ===
+1.1.0
+New
+- Small colonies (up to 6 colonists): the work that matters most now stays on 2, the next on 3, the rest last – no more "everything on 2".
+- Calmer: outside real danger a new plan comes at most every 6 in-game hours – no constant reshuffling at high speed.
+- Priority areas win: colonists in a priority area keep that area's work switched on.
+- Skilled backup only from skill 6 (setting) for skilled work; surgery left to doctors from Medicine 8 when one is available. Simple work stays with everybody.
+- Works with Steward – Work Split.
+
+Fixes
+- Known colonists are kept across loading (no more newcomer window after every load).
+- The game's priority hints in the Work tab are no longer cut off.
+
+Nové
+- Malé kolonie (do 6 kolonistů): nejdůležitější práce zůstanou na 2, další na 3, zbytek na konci – už ne „všechno na 2“.
+- Klidnější: mimo skutečné nebezpečí přijde nový plán nejvýš jednou za 6 herních hodin – žádné neustálé přehazování při vysoké rychlosti.
+- Prioritní oblasti vyhrávají: kolonisté v prioritní oblasti mají práci té oblasti vždy zapnutou.
+- Záloha na odborné práce jen od dovednosti 6 (nastavení); operace nechá lékařům od Medicíny 8, když nějaký je. Jednoduchá práce zůstává všem.
+- Funguje se Steward – Work Split.
+
+Opravy
+- Známí kolonisté zůstanou i po načtení (už žádné okno nováčků po každém načtení).
+- Herní nápovědy priorit na kartě Práce už nejsou useknuté.
+
+=== Development history since the last Workshop release (test versions) ===
+1.1.5
+- Colonists working in a priority area keep that area's work switched on, so crises and styles can no longer pull them away from it. Add-ons can put their own button in the Work tab (used by Crises).
+- Kolonisté v prioritní oblasti mají práci té oblasti vždy zapnutou, takže je krize ani styl kolonie už od ní neodvedou. Doplňky mohou mít vlastní tlačítko na kartě Práce (používají Krize).
+
+1.1.4
+- Small colony (up to 6 colonists): the work that matters most now stays on 2, the next on 3, the rest last – before, almost everything was on 2 and the game's column order decided (wood came last).
+- Malá kolonie (do 6 kolonistů): práce, na které teď nejvíc záleží, zůstane na 2, další na 3, zbytek nakonec – dřív bylo skoro všechno na 2 a rozhodovalo pořadí sloupců ve hře (dřevo přišlo na řadu poslední).
+- Calmer: a new plan for anything but real danger comes at most every 6 in-game hours (was 2) – no more constant reshuffling at high speed.
+- Klidnější: nový plán kvůli čemukoli kromě skutečného nebezpečí nejvýš jednou za 6 herních hodin (dřív 2) – při vysoké rychlosti už se priority pořád nepřehazují.
+- New situation: new colony (start plan) – used by Crises & Situations.
+- Nová situace: nová kolonie (startovní plán) – používá ji Krize a situace.
+
+1.1.3
+- Known colonists are kept across loading (after every load the whole colony counted as newcomers and the newcomer window came up). Surgery guard and work matching follow Work Split's own surgery work and keep split parts with their own parent.
+- Známí kolonisté se po načtení hry pamatují (po každém načtení se celá kolonie brala jako nováčci a vyskočilo okno nováčků). Hlídání operací a párování prací počítá s vlastní prací operace z Work Split a menší práce drží jen u jejich původní práce.
+
+1.1.2
+- Works with Steward – Work Split: its smaller work types count as the work they came from (always someone on surgery and butchering, work styles, priority areas)
+- Spolupráce se Steward – Work Split: jeho menší práce se počítají jako práce, ze které vznikly (vždy někdo na operacích a řeznictví, styly práce, oblasti priorit)
+
+1.1.1
+- Minimum skill for backups now only applies to crafting, art, construction and research – doctoring, wardens, childcare, cooking, plants, mining and animals stay with every backup again (colonists stood around with nothing to do). A colonist with nothing to do gets waiting work even below the minimum skill.
+- Minimální dovednost pro zálohy platí už jen pro výrobu, umění, stavění a výzkum – doktořina, dozor, péče o děti, vaření, rostliny, těžba a zvířata zůstávají zase všem zálohám (kolonisté postávali bez práce). Kolonista bez práce dostane čekající práci i pod minimální dovedností.
+
+1.1.0
+- Skilled backup only for skilled colonists: doctoring, research, crafting, art, cooking and other skilled work stays as backup only with colonists from skill 6 (setting, 0 = everybody); simple work like hauling and cleaning stays with everybody. Surgery is left to doctors from Medicine 8 when one is on the map and assigned (setting, 0 = off); weaker doctors still tend. Forced orders and emergencies are never blocked.
+- Odborná záloha jen pro zkušené: doktořinu, výzkum, výrobu, umění, vaření a další odborné práce mají jako zálohu jen kolonisté od dovednosti 6 (nastavení, 0 = všichni); jednoduché práce jako nošení a úklid zůstávají všem. Operace dělají lékaři od Medicíny 8, když je takový na mapě a má doktořinu (nastavení, 0 = vypnuto); slabší lékaři dál ošetřují. Přímé rozkazy a nouze se nikdy neblokují.
+
+1.0.2
+- Work tab: the game's priority hints no longer show cut off next to Steward's buttons (e.g. 'low' with Chinese texts); they are drawn again only where they fit.
+- Záložka Práce: herní nápovědy priority už nejsou useknuté vedle tlačítek Stewarda (např. „low“ v čínštině); znovu se vykreslí jen tam, kam se vejdou.
+
 === Workshop release 1.0.1 (2 Nov 2026) ===
 1.0.1
 Fixes

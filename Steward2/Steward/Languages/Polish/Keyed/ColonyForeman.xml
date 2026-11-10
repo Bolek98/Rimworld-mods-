@@ -175,6 +175,12 @@
   <CF2_OneTopTip>Każdy kolonista ma na 1 tylko swoją najważniejszą pracę, pozostałe główne prace na 2.</CF2_OneTopTip>
   <CF2_Backup>Praca zapasowa na najniższym priorytecie</CF2_Backup>
   <CF2_BackupTip>Kto nie ma danej pracy jako głównej, zachowuje ją na najniższym poziomie, żeby nikt nie stał bezczynnie.</CF2_BackupTip>
+  <CF2_BackupMinSkill>Praca fachowa jako zapas dopiero od umiejętności {0} (0 = wszyscy)</CF2_BackupMinSkill>
+  <CF2_BackupMinSkillTip>Wytwarzanie, sztuka, budowa i badania zostają jako zastępstwo tylko u kolonistów z co najmniej tą umiejętnością. Medycyna, strażnicy, opieka nad dziećmi, gotowanie, rośliny, górnictwo, zwierzęta i proste prace jak noszenie zostają u wszystkich. Jeśli nikt jej nie ma, najlepszy kolonista i tak dostaje pracę.</CF2_BackupMinSkillTip>
+  <CF2_SurgeryMin>Operacje tylko przez lekarzy od Medycyny {0} (0 = wył.)</CF2_SurgeryMin>
+  <CF2_SurgeryMinTip>Gdy na mapie jest lekarz z co najmniej tą Medycyną i przydzielony do leczenia, słabsi lekarze tylko opatrują i zostawiają mu operacje. Jeśli takiego nie ma, operować może każdy. Twoje bezpośrednie rozkazy działają zawsze.</CF2_SurgeryMinTip>
+  <CF2_TipBackupLowSkill>Nie zapas: umiejętność {0} poniżej {1}.</CF2_TipBackupLowSkill>
+  <CF2_SurgeryLeft>Operacja pozostawiona lepszemu lekarzowi</CF2_SurgeryLeft>
   <CF2_Opposed>Przydzielaj też pracę, którą ideologia odrzuca</CF2_Opposed>
   <CF2_OpposedTip>Wyłączone: praca, którą ideologia kolonisty uważa za niebezpieczną, nigdy nie jest mu przydzielana.</CF2_OpposedTip>
   <CF2_Injured>Ranni i chorzy koloniści dostają lżejszą pracę</CF2_Injured>
@@ -311,4 +317,7 @@
   <CF_Keep_NowStarted>{0} kolonistów przynosi rzeczy do strefy zapasów.</CF_Keep_NowStarted>
   <CF_Keep_NowNobody>Nikt nie może teraz nic przynieść (brak wolnego kolonisty lub nic osiągalnego poza strefą).</CF_Keep_NowNobody>
   <CF_Keep_NowFull>Strefa ma już wszystko, co powinna.</CF_Keep_NowFull>
+  <CF_Crisis_NewColony>nowa kolonia (plan startowy)</CF_Crisis_NewColony>
+  <CF2_TipSmallColony>mała kolonia: najpierw praca, która teraz najbardziej się liczy</CF2_TipSmallColony>
+  <CF2_TipArea>obszar priorytetowy: potrzebne do pracy tam</CF2_TipArea>
 </LanguageData>

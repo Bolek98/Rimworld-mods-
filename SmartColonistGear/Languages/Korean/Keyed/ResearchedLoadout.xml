@@ -621,4 +621,28 @@
   <RL_WN_ApparelOff>옷 교체가 설정에서 꺼져 있음</RL_WN_ApparelOff>
   <RL_WhyNotMenu>우클릭 메뉴에 '왜 안 됨' 줄</RL_WhyNotMenu>
   <RL_WhyNotMenu_Desc>정착민을 선택한 상태에서 무기나 옷을 우클릭하면 Smart Colonist Gear가 그것을 주지 않는 이유를 보여줍니다.</RL_WhyNotMenu_Desc>
+  <RL_WorkOnlyWorking>작업복은 작업할 때만</RL_WorkOnlyWorking>
+  <RL_WorkOnlyWorking_Desc>전문가는 그 작업을 시작할 때 작업복(앞치마, 실험복, 광부 헬멧…)을 입고, 마지막으로 작업한 지 약 2시간 뒤 벗어 평소 옷으로 돌아갑니다. 징집 중이나 습격 중에는 바꾸지 않고, 추위 속에 벗겨 두지 않으며, 강제·이념 의복은 그대로입니다.</RL_WorkOnlyWorking_Desc>
+  <RL_GearBeforeWork>작업 전에 옷을 갈아입고 도구 챙기기</RL_GearBeforeWork>
+  <RL_GearBeforeWork_Desc>정착민이 작업을 시작할 때 먼저 작업복을 입고 도구(곡괭이, 낫…)를 챙긴 뒤 작업합니다 — 도중이 아니라. 긴급 상황, 징집 중, 습격 중에는 하지 않으며 손에 든 무기를 도구로 바꾸지 않습니다.</RL_GearBeforeWork_Desc>
+  <RL_GearBeforeWorkDist>작업 장비는 최대 {0}칸 거리</RL_GearBeforeWorkDist>
+  <RL_GearBeforeWorkDist_Desc>이보다 먼 작업복이나 도구는 작업 전에 가지러 가지 않습니다.</RL_GearBeforeWorkDist_Desc>
+  <RL_WhyToolOn>작업용 도구</RL_WhyToolOn>
+  <RL_WhyWorkOn>작업을 위한 작업복</RL_WhyWorkOn>
+  <RL_WhyWorkOff>작업 끝 – 작업복 벗음</RL_WhyWorkOff>
+  <RL_WhyWorkBack>작업 후 평소 옷으로</RL_WhyWorkBack>
+  <RL_DressingManaged>옷 입기는 {0}이(가) 관리합니다. 정착민이 무엇을 입을지는 그 설정이 정합니다.</RL_DressingManaged>
+  <RL_ToolBelt>주머니 속 도구</RL_ToolBelt>
+  <RL_ToolBelt_Desc>정착민은 자기 작업용 도구(곡괭이, 낫, 도끼 …)를 소지품에 넣고 다닙니다. 작업을 시작하면 바로 손에 들고 무기는 주머니에 넣으며, 징집·전투·다른 작업 때는 무기를 다시 손에 듭니다. 도구는 한 번만 가지러 가고 계속 가지고 있습니다(최대 2개).</RL_ToolBelt_Desc>
+  <RL_ToolBeltMass>주머니 도구 {0} kg까지</RL_ToolBeltMass>
+  <RL_ToolBeltMass_Desc>정착민이 소지품에 넣고 다닐 수 있는 도구의 총 무게.</RL_ToolBeltMass_Desc>
+  <RL_WhyToolPocket>{0}용 도구를 주머니에 넣는 중</RL_WhyToolPocket>
+  <RL_StartGrace>새 정착지 시작: {0}일 동안 무엇이든 사용</RL_StartGrace>
+  <RL_StartGraceOff>새 정착지 시작: 끔</RL_StartGraceOff>
+  <RL_StartGrace_Desc>새 정착지의 처음 며칠 동안 정착민은 손에 닿는 무기와 옷을 무엇이든 사용합니다. '제작한 것만'과 기술 규칙은 그 이후에 적용됩니다. 0 = 처음부터 규칙 적용.</RL_StartGrace_Desc>
+  <RL_OrderOverride>{0}이(가) 명령에 따라 {1}을(를) 가져갑니다 (평소에는 잠김: {2}).</RL_OrderOverride>
+  <RL_Why_NotCrafted>아직 제작 안 함</RL_Why_NotCrafted>
+  <RL_Why_Research>연구 부족</RL_Why_Research>
+  <RL_Why_Banned>직접 금지함</RL_Why_Banned>
+  <RL_Why_HigherTech>정착지보다 발전됨 ({0})</RL_Why_HigherTech>
 </LanguageData>

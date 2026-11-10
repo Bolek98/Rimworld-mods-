@@ -215,4 +215,55 @@
   <CF_M_NotRaid>La mina se detiene en ataques</CF_M_NotRaid>
   <CF_M_NotRaidTip>Las órdenes de mina del administrador esperan mientras haya enemigos en el mapa – los mineros no quedan atrapados durante el combate.</CF_M_NotRaidTip>
   <CF_M_State_Paused>En pausa (noche o ataque)</CF_M_State_Paused>
+  <CF_A_MealsTip>Por debajo del objetivo de comidas listas (o de 2 días de comida si está desactivado) y sin ninguna orden de comida en curso: la mejor comida que saben hacer tus cocineros, hasta el objetivo.</CF_A_MealsTip>
+  <CF_A_MedicineTip>Menos medicinas que colonos (al menos 3): la mejor medicina que puedes fabricar, solo la cantidad que falta.</CF_A_MedicineTip>
+  <CF_A_ClothesTip>La ropa y los accesorios gastados se reemplazan por la misma pieza. Un colono sin nada en el cuerpo o las piernas recibe la pieza más sencilla que puede llevar.</CF_A_ClothesTip>
+  <CF_A_ArmorTip>La armadura gastada se reemplaza por la misma pieza.</CF_A_ArmorTip>
+  <CF_A_WeaponsTip>Un colono desarmado que puede luchar recibe un arma – la más usada en la colonia, a distancia o cuerpo a cuerpo según sus habilidades – si no hay ninguna en el almacén.</CF_A_WeaponsTip>
+  <CF_A_MaterialsTip>Componentes hasta el número de colonos (al menos 5); acero de la escoria cuando el acero baja de 100.</CF_A_MaterialsTip>
+  <CF_St_Page>Reservas</CF_St_Page>
+  <CF_St_Desc>Las reservas clave de la colonia de un vistazo: cuánto hay, cuántos días dura al consumo reciente, la tendencia del último día, lo fabricado (verde) y consumido (rojo) por día y lo que se fabrica ahora.</CF_St_Desc>
+  <CF_St_Short>comida para {0} d</CF_St_Short>
+  <CF_St_Food>Comida</CF_St_Food>
+  <CF_St_Meals>Comidas preparadas</CF_St_Meals>
+  <CF_St_Medicine>Medicina</CF_St_Medicine>
+  <CF_St_Wood>Madera</CF_St_Wood>
+  <CF_St_Steel>Acero</CF_St_Steel>
+  <CF_St_Components>Componentes</CF_St_Components>
+  <CF_St_Cloth>Tela y cuero</CF_St_Cloth>
+  <CF_St_Fuel>Quimiocombustible</CF_St_Fuel>
+  <CF_St_ColItem>Objeto</CF_St_ColItem>
+  <CF_St_ColStock>Reserva</CF_St_ColStock>
+  <CF_St_ColDays>Dura</CF_St_ColDays>
+  <CF_St_ColTrend>24 h</CF_St_ColTrend>
+  <CF_St_ColDays15>Fabricado / consumido (15 días)</CF_St_ColDays15>
+  <CF_St_ColMaking>Fabricándose ahora</CF_St_ColMaking>
+  <CF_St_DaysN>{0} d</CF_St_DaysN>
+  <CF_St_NothingMade>nada</CF_St_NothingMade>
+  <CF_St_RowTip>{0}: verde sobre la línea = fabricado o traído, rojo = consumido. Días = reserva ÷ consumo medio de los últimos 3 días.</CF_St_RowTip>
+  <CF_St_GraphTip>Hoy fabricado {0}, consumido {1}. Media: {2} al día.</CF_St_GraphTip>
+  <CF_St_Forecast>Previsión:</CF_St_Forecast>
+  <CF_St_Winter>llega el invierno – más comidas en reserva</CF_St_Winter>
+  <CF_St_Danger>peligro – más medicina</CF_St_Danger>
+  <CF_St_Stuck>Qué frena la producción:</CF_St_Stuck>
+  <CF_St_Bottleneck>{0}: falta {1} ({2})</CF_St_Bottleneck>
+  <CF_St_HintMining>objetivo de minería subido</CF_St_HintMining>
+  <CF_St_HintMiningOff>nadie lo extrae – añade un objetivo de minería</CF_St_HintMiningOff>
+  <CF_St_HintForestry>objetivo de tala subido</CF_St_HintForestry>
+  <CF_St_HintForestryOff>la tala está apagada</CF_St_HintForestryOff>
+  <CF_St_HintMake>fabrícalo primero</CF_St_HintMake>
+  <CF_St_HintBuy>cómpralo</CF_St_HintBuy>
+  <CF_St_TradeNow>Comercio ahora:</CF_St_TradeNow>
+  <CF_St_TradeNothing>nada que comprar ni vender</CF_St_TradeNothing>
+  <CF_St_TraderTitle>{0} está aquí.</CF_St_TraderTitle>
+  <CF_St_Buy>Compra: {0}.</CF_St_Buy>
+  <CF_St_Sell>Vende: {0}.</CF_St_Sell>
+  <CF_St_OptRooms>Órdenes por sala</CF_St_OptRooms>
+  <CF_St_OptRooms_Desc>Las comidas a los fogones de la cocina, drogas y té al laboratorio, y cada orden al banco menos ocupado de su tipo.</CF_St_OptRooms_Desc>
+  <CF_St_OptForecast>Previsión</CF_St_OptForecast>
+  <CF_St_OptForecast_Desc>Antes del invierno más comidas en reserva; en un asalto o con varios heridos, más medicina.</CF_St_OptForecast_Desc>
+  <CF_St_OptRecipes>Recetas según reservas</CF_St_OptRecipes>
+  <CF_St_OptRecipes_Desc>Poca comida: comidas sencillas; algo: finas; mucha: lujosas. Con mucha comida, una pequeña reserva de pemmican para caravanas. Ropa del material del que hay más.</CF_St_OptRecipes_Desc>
+  <CF_St_OptTrader>Consejos de comercio</CF_St_OptTrader>
+  <CF_St_OptTrader_Desc>Cuando llega un comerciante, un mensaje dice qué te falta y de qué tienes mucho.</CF_St_OptTrader_Desc>
 </LanguageData>

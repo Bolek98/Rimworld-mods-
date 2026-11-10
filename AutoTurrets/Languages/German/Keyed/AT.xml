@@ -101,4 +101,74 @@
   <AT_ShellNotHostile>{0} ({1}) ist nicht feindlich – die Artillerie beschießt nur feindliche Basen und Lager (oder eine offene Karte).</AT_ShellNotHostile>
   <AT_ShellNoTarget>Hier gibt es nichts zu beschießen. Wähle eine feindliche Basis oder ein Lager (muss nicht erkundet sein) oder eine offene Karte.</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0} ({1}) wurde durch Artilleriefeuer zerstört.</AT_ShellSiteDestroyed>
+  <AT_QC_This>Geschütz an/aus</AT_QC_This>
+  <AT_QC_This_Desc>Schaltet dieses Geschütz aus (feuert nicht, auch nicht auf erzwungene Ziele) oder wieder ein.</AT_QC_This_Desc>
+  <AT_QC_All>Alle Geschütze…</AT_QC_All>
+  <AT_QC_All_Desc>Alle deine Geschütze auf dieser Karte aus- oder einschalten oder alle auf tödlich bzw. nur betäuben stellen.</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>Feuer: tödlich</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>Feuer: nur betäuben</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>Tödlich: normale Schüsse. Nur betäuben: jeder Treffer betäubt nur (keine Wunden) und das Geschütz überspringt Ziele, die schon betäubt sind oder am Boden liegen. Nicht für Sprengwaffen (Mörser, Raketen).</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>Dieses Geschütz: tödlich</AT_QC_SetLethal>
+  <AT_QC_SetStun>Dieses Geschütz: nur betäuben</AT_QC_SetStun>
+  <AT_QC_AllLethal>Alle Geschütze: tödlich</AT_QC_AllLethal>
+  <AT_QC_AllStun>Alle Geschütze: nur betäuben</AT_QC_AllStun>
+  <AT_QC_Explosive>Sprengwaffen (Mörser, Raketen, Granaten) können nicht nur betäuben.</AT_QC_Explosive>
+  <AT_QC_AllOff>Alle Geschütze aus</AT_QC_AllOff>
+  <AT_QC_AllOn>Alle Geschütze an</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>{0} Geschütze ausgeschaltet.</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>{0} Geschütze eingeschaltet.</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>{0} Geschütze auf nur betäuben gestellt.</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>{0} Geschütze auf tödlich gestellt.</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>{0} Sprenggeschütze bleiben tödlich.</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>Deine Geschütze: alle aus/an, tödlich oder nur betäuben.</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>Schnelltasten für Geschütze</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>An/Aus- und Tödlich/Betäuben-Tasten an jedem deiner Geschütze.</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>Geschütz-Taste unten rechts</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>Eine kleine Taste neben den Spieleinstellungen (unten rechts), um alle Geschütze aus/an oder tödlich/betäuben zu stellen.</AT_QC_SetGlobal_Desc>
+  <!-- 1.4.0 ammo types -->
+  <AT_AM_Tab>Munitionsarten</AT_AM_Tab>
+  <AT_AM_Enable>Munitionsarten für Geschütze</AT_AM_Enable>
+  <AT_AM_Enable_Desc>Jedes deiner Geschütze (auch aus Mods und Mörser) bekommt eine Munitionsart-Schaltfläche: panzerbrechend, Hohlspitz, Brand, EMP, Betäubung, giftig; Mörser auch Rauch und Löschschaum. Ein Geschütz darf eine Art nutzen, für die es sonst keine Munition hat.</AT_AM_Enable_Desc>
+  <AT_AM_FromStorage>Spezialmunition aus dem Lager</AT_AM_FromStorage>
+  <AT_AM_FromStorage_Desc>Aus (Standard): Spezialmunition muss weder hergestellt noch getragen werden – das Geschütz lädt sich selbst. An: Mörser brauchen wie bisher echte Granaten aus dem Lager.</AT_AM_FromStorage_Desc>
+  <AT_AM_ApPen>Panzerdurchdringung ×{0}</AT_AM_ApPen>
+  <AT_AM_HpDmg>Schaden ×{0}</AT_AM_HpDmg>
+  <AT_AM_IncIgnite>Zündchance: {0}</AT_AM_IncIgnite>
+  <AT_AM_EmpPow>EMP-Stärke ×{0}</AT_AM_EmpPow>
+  <AT_AM_ToxSev>Vergiftung pro Treffer: {0}</AT_AM_ToxSev>
+  <AT_AM_KShells>Rauch- und Löschschaumgranaten (Mörser)</AT_AM_KShells>
+  <AT_AM_KShells_Desc>Mörser und Artillerie können auch auf Rauch oder Löschschaum gestellt werden.</AT_AM_KShells_Desc>
+  <AT_AM_Gizmo>Munition: {0}</AT_AM_Gizmo>
+  <AT_AM_Gizmo_Desc>Wähle die Munition dieses Geschützes. Bei Kugelgeschützen ändert sich die Trefferwirkung; Mörser und Artillerie laden die passende Granate. Spezialmunition ist gratis, außer 'Spezialmunition aus dem Lager' ist an.</AT_AM_Gizmo_Desc>
+  <AT_AM_K_Normal>Normal</AT_AM_K_Normal>
+  <AT_AM_K_Normal_Desc>Standardmunition der Waffe, nichts ändert sich.</AT_AM_K_Normal_Desc>
+  <AT_AM_K_ArmorPiercing>Panzerbrechend</AT_AM_K_ArmorPiercing>
+  <AT_AM_K_ArmorPiercing_Desc>Viel höhere Panzerdurchdringung, Schaden ×0,8. Gut gegen Gepanzerte und Mechanoiden.</AT_AM_K_ArmorPiercing_Desc>
+  <AT_AM_K_HollowPoint>Hohlspitz</AT_AM_K_HollowPoint>
+  <AT_AM_K_HollowPoint_Desc>Mehr Schaden, halbe Panzerdurchdringung. Gut gegen Ungepanzerte und Tiere.</AT_AM_K_HollowPoint_Desc>
+  <AT_AM_K_Incendiary>Brand</AT_AM_K_Incendiary>
+  <AT_AM_K_Incendiary_Desc>Fügt Brandschaden und eine Zündchance hinzu. Mörser: Brandgranate.</AT_AM_K_Incendiary_Desc>
+  <AT_AM_K_EMP>EMP</AT_AM_K_EMP>
+  <AT_AM_K_EMP_Desc>Wenig normaler Schaden plus EMP: betäubt Mechanoiden und Geschütze, bricht Schilde. Mörser: EMP-Granate.</AT_AM_K_EMP_Desc>
+  <AT_AM_K_Stun>Betäubung</AT_AM_K_Stun>
+  <AT_AM_K_Stun_Desc>Keine Wunden – Treffer betäuben nur. Überspringt Liegende und Betäubte. Nur Kugelgeschütze.</AT_AM_K_Stun_Desc>
+  <AT_AM_K_Toxic>Giftig</AT_AM_K_Toxic>
+  <AT_AM_K_Toxic_Desc>Weniger Schaden, fügt lebenden Zielen Vergiftung zu. Mörser: Giftgranate (Biotech).</AT_AM_K_Toxic_Desc>
+  <AT_AM_K_Smoke>Rauch</AT_AM_K_Smoke>
+  <AT_AM_K_Smoke_Desc>Nur Mörser: Rauchgranate gegen feindliches Feuer.</AT_AM_K_Smoke_Desc>
+  <AT_AM_K_Firefoam>Löschschaum</AT_AM_K_Firefoam>
+  <AT_AM_K_Firefoam_Desc>Nur Mörser: Löschschaumgranate, löscht Feuer.</AT_AM_K_Firefoam_Desc>
+  <AT_AM_ApplySame>Gleich für alle: {0}</AT_AM_ApplySame>
+  <AT_AM_ApplyAll>Gleich für alle Geschütze</AT_AM_ApplyAll>
+  <AT_AM_AllMenu>Munitionsart für alle Geschütze…</AT_AM_AllMenu>
+  <AT_AM_AllKind>Alle Geschütze: {0}</AT_AM_AllKind>
+  <AT_AM_SetMsg>Munition für {0} Geschütze gesetzt: {1}.</AT_AM_SetMsg>
+  <AT_AM_Skipped>{0} Geschütze können sie nicht nutzen und blieben unverändert.</AT_AM_Skipped>
+  <AT_AM_OffInSettings>in den Einstellungen aus</AT_AM_OffInSettings>
+  <AT_AM_NotForShells>nicht für Granaten</AT_AM_NotForShells>
+  <AT_AM_NotForRockets>Raketen nicht umstellbar</AT_AM_NotForRockets>
+  <AT_AM_NoShellDef>Granate nicht verfügbar</AT_AM_NoShellDef>
+  <AT_AM_OnlyShells>nur Mörser</AT_AM_OnlyShells>
+  <AT_SpareGround>Geschütze zerstören keine Gegenstände und Leichen</AT_SpareGround>
+  <AT_SpareGround_Desc>An: Kugeln und Granatexplosionen deiner Geschütze lassen Gegenstände und Leichen am Boden in Ruhe – Beute wird nicht zerschossen und Leichen werden nicht zu Brei, bis sie verschwinden. Figuren und Gebäude werden wie gewohnt getroffen. Aus = wie im Spiel.</AT_SpareGround_Desc>
 </LanguageData>

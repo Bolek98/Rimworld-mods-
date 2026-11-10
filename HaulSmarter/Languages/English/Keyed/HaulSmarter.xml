@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HS_SecHaul>Hauling</HS_SecHaul>
+  <HS_OtherHauler>{0} is active – multi-item hauling in Haul Master is off. Turn {0} off to use it.</HS_OtherHauler>
+  <HS_HaulMany>Haul several things at once</HS_HaulMany>
+  <HS_MaxItems>Most items per trip: {0}</HS_MaxItems>
+  <HS_Radius>Look for items within: {0} cells</HS_Radius>
+  <HS_BonusKg>Extra carrying capacity: +{0} kg</HS_BonusKg>
+  <HS_PocketHarvest>Harvest and wood straight into pockets</HS_PocketHarvest>
+  <HS_PocketMine>Mined resources straight into pockets</HS_PocketMine>
+<HS_UnloadRightAway>Unload right away</HS_UnloadRightAway>
+  <HS_UnloadRightAway_Desc>Things a colonist carries in his pockets go to storage right after his current job. Off: he keeps them until the pockets are full or the time below runs out. Harvesting and mining still fill the pockets first.</HS_UnloadRightAway_Desc>
+    <HS_UnloadAt>Unload when pockets are full to: {0}</HS_UnloadAt>
+  <HS_ReportUnload>unloading {0}.</HS_ReportUnload>
+  <HS_Profile>HAULING PROFILE</HS_Profile>
+  <HS_ProfileHint>Click a profile – it sets everything at once. Change anything and it switches to Custom.</HS_ProfileHint>
+  <HS_ProfGame>Like the game</HS_ProfGame>
+  <HS_ProfGame_Card>Just several things at once, nothing else.</HS_ProfGame_Card>
+  <HS_ProfSmart>Smart</HS_ProfSmart>
+  <HS_ProfSmart_Card>Perishables first. Short route, things on the way, building from pockets.</HS_ProfSmart_Card>
+  <HS_ProfMax>Maximum</HS_ProfMax>
+  <HS_ProfMax_Card>Full pockets, long routes, valuables first.</HS_ProfMax_Card>
+  <HS_ProfCustom>Custom</HS_ProfCustom>
+  <HS_ProfCustom_Card>Set every option yourself.</HS_ProfCustom_Card>
+  <HS_HaulMany_Desc>The colonist walks to every item nearby, puts it in his pockets and carries everything to storage. Storage is chosen for every item – shelves and deep storage work. What fits nowhere is put down next to him.</HS_HaulMany_Desc>
+  <HS_MaxItems_Desc>How many different stacks at most in one trip.</HS_MaxItems_Desc>
+  <HS_Radius_Desc>How far from the first item he looks for more.</HS_Radius_Desc>
+  <HS_SmartRoute>Smart route (collect on the way, no zig-zag)</HS_SmartRoute>
+  <HS_SmartRoute_Desc>The order of items is chosen so the way from the colonist through all items to storage is as short as possible.</HS_SmartRoute_Desc>
+  <HS_Opportunistic>Take things on the way (gently)</HS_Opportunistic>
+  <HS_Opportunistic_Desc>When a colonist walks somewhere or finishes a job, he puts a thing lying right next to him that belongs in storage into his pockets. Gently: adjacent cells only, one stack and then a pause, never while hurrying (firefighting, tending, fleeing, orders) and never above half of his capacity. He hauls it when idle or when the pockets are full.</HS_Opportunistic_Desc>
+  <HS_UnloadAt_Desc>For harvest, mining and things taken after other work: how full the pockets get before he goes to unload.</HS_UnloadAt_Desc>
+  <HS_SecPrio>What to haul first</HS_SecPrio>
+  <HS_PrioPerish>Food that rots</HS_PrioPerish>
+  <HS_PrioPerish_Desc>Things that rot and lie somewhere warm (meat, crops, meals).</HS_PrioPerish_Desc>
+  <HS_PrioWeather>Things outside in the rain / near fire</HS_PrioWeather>
+  <HS_PrioWeather_Desc>Things that deteriorate outdoors without a roof (medicine, textiles, weapons…), and things within 5 cells of fire.</HS_PrioWeather_Desc>
+  <HS_PrioValuable>Valuables (gold, uranium, artifacts)</HS_PrioValuable>
+  <HS_PrioValuable_Desc>Stacks worth at least 300 silver.</HS_PrioValuable_Desc>
+  <HS_Prio0>Normal</HS_Prio0>
+  <HS_Prio1>Sooner</HS_Prio1>
+  <HS_Prio2>First</HS_Prio2>
+  <HS_SecPockets>Harvest and mining</HS_SecPockets>
+  <HS_PocketHarvest_Desc>The colonist takes the crop or wood lying right next to him, keeps working and hauls it when the pockets are full or the work is done.</HS_PocketHarvest_Desc>
+  <HS_PocketMine_Desc>The colonist takes mined stone and ore lying right next to him, keeps mining and hauls it when the pockets are full.</HS_PocketMine_Desc>
+  <HS_SecWeight>Weight</HS_SecWeight>
+  <HS_BonusKg_Desc>How many kilos more than the game allows (0 = like the game).</HS_BonusKg_Desc>
+  <HS_Slowdown>Heavy load slows walking (realistic)</HS_Slowdown>
+  <HS_Slowdown_Desc>Above half of the capacity the colonist walks slower – up to 15 % with full pockets. Off by default.</HS_Slowdown_Desc>
+  <HS_ShowWeight>Show weight on the colonist (bar above the head)</HS_ShowWeight>
+  <HS_ShowWeight_Desc>A small bar above a colonist carrying things to storage: green, orange, red by load. At the closest zoom also the kilos.</HS_ShowWeight_Desc>
+  <HS_SecInfo>Time and overview</HS_SecInfo>
+  <HS_ShowEta>Show weight and "how long until stored"</HS_ShowEta>
+  <HS_ShowEta_Desc>Select a colonist and the bottom panel shows how much he carries, how many items he will still pick up and when it will be in storage.</HS_ShowEta_Desc>
+  <HS_Overview>"Hauling" button on the bottom bar</HS_Overview>
+  <HS_Overview_Desc>An overview window: what waits to be hauled, its weight, what rots, how many haulers, how long until done and who hauled how much.</HS_Overview_Desc>
+  <HS_Highlight>Highlight unhauled things on the map</HS_Highlight>
+  <HS_Highlight_Desc>While the Hauling window is open, things waiting to be hauled are outlined on the map – yellow, and orange for those that rot or lie in the rain.</HS_Highlight_Desc>
+  <HS_InfoNote>Statistics (who hauled how much) are saved with the game. Hauling done by Haul Master is counted.</HS_InfoNote>
+  <HS_StatLoad>Heavy load (Haul Master)</HS_StatLoad>
+  <HS_Carries>Carries: {0} / {1} kg ({2} pcs)</HS_Carries>
+  <HS_Eta>stored in {0}</HS_Eta>
+  <HS_StillTake>{0} more to pick up</HS_StillTake>
+  <HS_EtaNow>a moment</HS_EtaNow>
+  <HS_EtaHours>~{0} h</HS_EtaHours>
+  <HS_OverviewTitle>Hauling overview</HS_OverviewTitle>
+  <HS_OvWaiting>Waiting to be hauled: {0} stacks · {1} kg</HS_OvWaiting>
+  <HS_OvHot>Of that rotting: {0} · outside in rain / near fire: {1} · valuable: {2}</HS_OvHot>
+  <HS_OvHaulers>Haulers: {0} (hauling now: {1})</HS_OvHaulers>
+  <HS_OvEta>Done in about {0} (if they only hauled)</HS_OvEta>
+  <HS_OvEtaNone>Nothing to haul or nobody has hauling enabled.</HS_OvEtaNone>
+  <HS_OvToday>Hauled today: {0} kg / {1} trips</HS_OvToday>
+  <HS_ColName>Colonist</HS_ColName>
+  <HS_ColCarry>Carries now</HS_ColCarry>
+  <HS_ColToday>Today</HS_ColToday>
+  <HS_ColTotal>Total</HS_ColTotal>
+  <HS_KgTrips>{0} kg / {1}x</HS_KgTrips>
+  <HS_BuildPockets>Build with material from the pockets</HS_BuildPockets>
+  <HS_BuildPockets_Desc>When a colonist carries material a construction needs (wood, steel, stone…), he takes it out of his pockets and brings it straight to the site – no walk to the stockpile.</HS_BuildPockets_Desc>
+  <HS_SecCleanup>Clean-up after a battle</HS_SecCleanup>
+  <HS_CleanupNotice>The battle is over – {0} weapons, apparel and bodies lie around the base. Hauling overview → "Clean up after battle".</HS_CleanupNotice>
+  <HS_CleanupNotice_Desc>A message says how many weapons, apparel and bodies lie around the base. Start the clean-up in the Hauling overview.</HS_CleanupNotice_Desc>
+  <HS_CleanupAuto>Clean up by itself</HS_CleanupAuto>
+  <HS_CleanupAuto_Desc>After every battle at home, what the enemies left around the base is allowed and hauled first – no click needed.</HS_CleanupAuto_Desc>
+  <HS_CleanupButton>Clean up after battle ({0})</HS_CleanupButton>
+  <HS_CleanupButton_Desc>Allows weapons, apparel and bodies lying around the base (the game forbids enemy gear) and has them hauled before everything else.</HS_CleanupButton_Desc>
+  <HS_CleanupStarted>Clean-up started: {0} things will be hauled first.</HS_CleanupStarted>
+  <HS_FuelRound>Fuel round</HS_FuelRound>
+  <HS_FuelRound_Desc>A colonist who goes to refuel takes enough fuel for the other torches, stoves and generators nearby that need it too, and fills them one after another – one trip to the stockpile instead of one for each. What is left goes back to storage.</HS_FuelRound_Desc>
+  <HS_MergeStacks>Join half stacks</HS_MergeStacks>
+  <HS_MergeStacks_Desc>When nothing else waits, haulers put half stacks of the same thing in the same stockpile together – more free cells. Shelves and storage that holds many things in one cell are left alone.</HS_MergeStacks_Desc>
+  <HS_DropOnDraft>Put things down when drafted</HS_DropOnDraft>
+  <HS_DropOnDraft_Desc>A drafted colonist puts the things he carries to storage down at once – he is not slowed and nothing is lost if he goes down. They are hauled again later.</HS_DropOnDraft_Desc>
+  <HS_SecBench>Workbench supply</HS_SecBench>
+  <HS_BenchCells>Supply stockpile size: {0} cells</HS_BenchCells>
+  <HS_BenchCells_Desc>How many cells the "Supply" button on a workbench uses for the small stockpile next to the bench.</HS_BenchCells_Desc>
+  <HS_Bench>Supply</HS_Bench>
+  <HS_Bench_Desc>Makes a small stockpile right next to this bench that takes exactly the ingredients of its active bills (updated by itself, preferred priority). The crafter takes them from beside the bench instead of walking across the map. Click again to remove it. It is an ordinary stockpile – it stays even without Haul Master.</HS_Bench_Desc>
+  <HS_BenchZone>Supply: {0}</HS_BenchZone>
+  <HS_BenchStarted>{0}: supply stockpile with {1} cells made – the ingredients of its bills will be brought there.</HS_BenchStarted>
+  <HS_BenchNoRoom>No free cells next to this bench for a supply stockpile.</HS_BenchNoRoom>
+  <HS_SafeOff>Haul Master: "{0}" kept failing (probably together with another mod) and is switched off until the next start. Details are in the log.</HS_SafeOff>
+  <HS_SafeList>Switched off after errors: {0}</HS_SafeList>
+  <HS_SafeReset>Switch them on again</HS_SafeReset>
+  <HS_Feat_haul>hauling several things</HS_Feat_haul>
+  <HS_Feat_pockets>harvest and mining pockets</HS_Feat_pockets>
+  <HS_Feat_unload>unloading the pockets</HS_Feat_unload>
+  <HS_Feat_onTheWay>things on the way</HS_Feat_onTheWay>
+  <HS_Feat_buildPockets>building from the pockets</HS_Feat_buildPockets>
+  <HS_Feat_draft>putting things down when drafted</HS_Feat_draft>
+  <HS_Feat_bench>workbench supply</HS_Feat_bench>
+  <HS_Feat_fuel>fuel round</HS_Feat_fuel>
+  <HS_Feat_merge>joining half stacks</HS_Feat_merge>
+  <HS_Detour>Haul on the way to work</HS_Detour>
+  <HS_Detour_Desc>On the way to a job, a colonist who takes one thing to storage on the way (as in the game) also takes other things lying close to it whose storage is near where he is going too.</HS_Detour_Desc>
+  <HS_StepAside>Extra hauling steps aside in emergencies</HS_StepAside>
+  <HS_StepAside_Desc>No things taken on the way and no hauling rounds on the way to work while the colonist is bleeding or while a downed colonist needs tending and he is a doctor. During rituals, parties, caravan forming and shuttle or pod loading this extra hauling always pauses.</HS_StepAside_Desc>
+  <HS_TraderCarry>Traders put bought things away</HS_TraderCarry>
+  <HS_TraderCarry_Desc>What you buy from a trade caravan is carried into your storage by the traders themselves. If they cannot, your colonists take it first after a while.</HS_TraderCarry_Desc>
+  <HS_MechHaul>Mechanoids carry several things</HS_MechHaul>
+  <HS_MechHaul_Desc>Hauling mechanoids (like the lifter) take several things in one trip, like colonists.</HS_MechHaul_Desc>
+  <HS_AnimalHaul>Animals carry several things</HS_AnimalHaul>
+  <HS_AnimalHaul_Desc>Animals trained to haul take several things in one trip. Never food – they might eat it.</HS_AnimalHaul_Desc>
+  <HS_SecRefill>Refilling storage</HS_SecRefill>
+  <HS_RefillOff>Top up stacks: at once (like the game)</HS_RefillOff>
+  <HS_RefillSlider>Top up stacks below: {0}</HS_RefillSlider>
+  <HS_RefillSlider_Desc>A stack in storage is topped up from another storage only after it falls below this – no more bringing one meal at a time to the dining room shelf. Loose things are stored as always. Every stockpile and shelf can have its own value (button).</HS_RefillSlider_Desc>
+  <HS_RefillGizmo>Refill</HS_RefillGizmo>
+  <HS_RefillGizmo_Desc>When stacks here are topped up from other storage. Loose things are always stored.</HS_RefillGizmo_Desc>
+  <HS_RefillDefault>default ({0})</HS_RefillDefault>
+  <HS_RefillNow>at once</HS_RefillNow>
+  <HS_RefillBelow>below {0}</HS_RefillBelow>
+  <HS_Feat_detour>hauling on the way to work</HS_Feat_detour>
+  <HS_Feat_refill>refill threshold</HS_Feat_refill>
+  <HS_Feat_trader>traders putting things away</HS_Feat_trader>
+  <HS_Feat_animals>animal hauling</HS_Feat_animals>
+  <HS_PocketTime>Unload carried things at the latest after: {0}</HS_PocketTime>
+  <HS_PocketTime_Desc>Things a colonist carries in his pockets for storage (harvest, mining, things taken on the way) go to storage after this time at the latest – after his current job.</HS_PocketTime_Desc>
+  <HS_PocketFood>Food, medicine and drugs at the latest after: {0}</HS_PocketFood>
+  <HS_PocketFood_Desc>Cooks, doctors and wardens need these, so they come out of the pockets sooner.</HS_PocketFood_Desc>
+  <HS_SmartPickup>Take all materials at once</HS_SmartPickup>
+  <HS_SmartPickup_Desc>A builder going to a construction site first takes everything it (and the sites right next to it) still needs – several materials and more than one armful – into his pockets in one round, then builds from the pockets instead of running back for each part.</HS_SmartPickup_Desc>
+  <HS_Feat_pickup>taking all materials at once</HS_Feat_pickup>
+  <HS_HaulUrgent>Haul urgently</HS_HaulUrgent>
+  <HS_HaulUrgent_Desc>Mark things to be taken to storage before anything else. Forbidden things are allowed. The mark goes away when the thing is in storage.</HS_HaulUrgent_Desc>
+  <HS_Feat_urgent>haul urgently</HS_Feat_urgent>
+</LanguageData>

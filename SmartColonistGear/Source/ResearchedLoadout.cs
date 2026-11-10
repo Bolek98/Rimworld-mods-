@@ -1,4 +1,4 @@
-// ResearchedLoadout – zdrojový kód obnovený dekompilací z ResearchedLoadout.dll (10. 10. 2026), původní zdroják se ztratil.
+﻿// ResearchedLoadout – zdrojový kód obnovený dekompilací z ResearchedLoadout.dll (10. 10. 2026), původní zdroják se ztratil.
 // Přeložitelné: Source\build.bat  nebo  dotnet build -c Release
 
 using System;
@@ -107,6 +107,8 @@ namespace ResearchedLoadout
 				}
 			}
 			BattleGear.Patch(harmony);
+			GearBeforeWork.Patch(harmony);   // 2.17.0
+			ToolBelt.Patch(harmony);         // 2.19.0
 			SidearmsCompat.PatchFilter(harmony);
 			SidearmsSettings.PatchHidePage(harmony);
 			MLog.Game("[Smart Colonist Gear] v" + MUIVersion.Version + " loaded (messages: Logs\\SmartColonistGear.log).");
@@ -133,6 +135,14 @@ namespace ResearchedLoadout
 				}
 			}
 			float top = inRect.y;
+			// 2.18.0: an add-on (Wardrobe) makes the dressing decisions
+			if (Dressing.External != null)
+			{
+				GUI.color = MUI.Accent;
+				Widgets.Label(new Rect(inRect.x, top, inRect.width, 24f), "RL_DressingManaged".Translate(Dressing.External.Name));
+				GUI.color = Color.white;
+				top += 26f;
+			}
 			top += MUI.RecommendedCard(new Rect(inRect.x, top, inRect.width, 0f), Settings, Settings.recommended, delegate(bool v)
 			{
 				Settings.recommended = v;
@@ -258,6 +268,12 @@ namespace ResearchedLoadout
 			Check(listing_Standard, "RL_BlockLockedApparel", ref Settings.blockLockedApparel, "blockLockedApparel");
 			Check(listing_Standard, "RL_StripLocked", ref Settings.stripLockedGear, "stripLockedGear");
 			Check(listing_Standard, "RL_OnlyCrafted", ref Settings.onlyCrafted, "onlyCrafted");
+			{
+				Rect gr = listing_Standard.GetRect(24f);
+				Settings.startGraceDays = (int)Widgets.HorizontalSlider(gr, Settings.startGraceDays, 0f, 10f, false, Settings.startGraceDays > 0 ? "RL_StartGrace".Translate(Settings.startGraceDays).ToString() : "RL_StartGraceOff".Translate().ToString(), null, null, 1f);
+				TooltipHandler.TipRegion(gr, "RL_StartGrace_Desc".Translate());
+				listing_Standard.Gap(4f);
+			}
 			if (Settings.onlyCrafted && Current.Game != null)
 			{
 				ResearchedLoadoutGameComponent researchedLoadoutGameComponent = ResearchedLoadoutGameComponent.Get();
@@ -361,6 +377,16 @@ namespace ResearchedLoadout
 			if (Settings.workClothing)
 			{
 				Settings.workClothingMinSkill = (int)Sl(listing_Standard, "workClothingMinSkill", "RL_WorkClothingSkill".Translate(Settings.workClothingMinSkill), Settings.workClothingMinSkill, 0f, 15f, 0.5f, "RL_WorkClothingSkill_Desc".Translate());
+				Check(listing_Standard, "RL_WorkOnlyWorking", ref Settings.workClothesOnlyWorking, "workClothesOnlyWorking");
+				Check(listing_Standard, "RL_GearBeforeWork", ref Settings.gearBeforeWork, "gearBeforeWork");
+				if (Settings.gearBeforeWork)
+					Settings.gearBeforeWorkDistance = (int)Sl(listing_Standard, "gearBeforeWorkDistance", "RL_GearBeforeWorkDist".Translate(Settings.gearBeforeWorkDistance), Settings.gearBeforeWorkDistance, 15f, 150f, 0.5f, "RL_GearBeforeWorkDist_Desc".Translate());
+				if (Settings.gearBeforeWork)
+				{
+					Check(listing_Standard, "RL_ToolBelt", ref Settings.toolBelt, "toolBelt");
+					if (Settings.toolBelt)
+						Settings.toolBeltMass = Mathf.Round(Sl(listing_Standard, "toolBeltMass", "RL_ToolBeltMass".Translate(Settings.toolBeltMass.ToString("0.#")), Settings.toolBeltMass, 1f, 20f, 0.5f, "RL_ToolBeltMass_Desc".Translate()) * 2f) / 2f;
+				}
 			}
 			Check(listing_Standard, "RL_CoverageFirst", ref Settings.coverageFirst, "coverageFirst");
 			Check(listing_Standard, "RL_FullBody", ref Settings.dressFullBody, "dressFullBody");
@@ -3599,6 +3625,15 @@ namespace ResearchedLoadout
 			}
 		}
 
+		// 2.17.0: how much an item's equipped offsets help this skill's work (tools before work)
+		public static float SkillGain(ThingDef def, SkillDef sk)
+		{
+			if (def == null || sk == null || def.equippedStatOffsets == null) return 0f;
+			Build();
+			Dictionary<StatDef, float> w;
+			return bySkill.TryGetValue(sk.defName, out w) ? Sum(def.equippedStatOffsets, w) : 0f;
+		}
+
 		private static float Sum(List<StatModifier> offsets, Dictionary<StatDef, float> weights)
 		{
 			float num = 0f;
@@ -3654,7 +3689,16 @@ namespace ResearchedLoadout
 			return num;
 		}
 
+		// 2.18.0: asks the dressing provider (Wardrobe work outfit editor); SCG's own detection is AutoWorkSkillOf
 		public static SkillDef WorkSkillOf(ThingDef def)
+		{
+			if (def == null || !def.IsApparel) return null;
+			return Dressing.WorkSkill(def, () => AutoWorkSkillOf(def));
+		}
+
+		public static void ClearWorkSkillCache() => workSkillCache.Clear();
+
+		public static SkillDef AutoWorkSkillOf(ThingDef def)
 		{
 			if (def == null || !def.IsApparel || def.equippedStatOffsets == null)
 			{
@@ -3725,7 +3769,10 @@ namespace ResearchedLoadout
 				return false;
 			}
 			SkillDef skillDef = WorkSkillOf(def);
-			return skillDef != null && !IsSpecialist(p, skillDef);
+			if (skillDef == null) return false;
+			if (!IsSpecialist(p, skillDef)) return true;
+			// 2.16.1: work clothes only while he does that work
+			return settings.workClothesOnlyWorking && !WorkClothes.Active(p, skillDef);
 		}
 
 		public static float WorkClothingBonus(Pawn p, ThingDef def)
@@ -3737,6 +3784,10 @@ namespace ResearchedLoadout
 			}
 			SkillDef skillDef = WorkSkillOf(def);
 			if (skillDef == null || !IsSpecialist(p, skillDef))
+			{
+				return 0f;
+			}
+			if (settings.workClothesOnlyWorking && !WorkClothes.Active(p, skillDef))
 			{
 				return 0f;
 			}
@@ -4754,6 +4805,11 @@ namespace ResearchedLoadout
 		public bool statOffsets = true;
 
 		public bool workClothing = true;
+		public bool workClothesOnlyWorking = true;   // 2.16.1
+		public bool gearBeforeWork = true;   // 2.17.0
+		public bool toolBelt = true;         // 2.19.0: tools in the pockets
+		public float toolBeltMass = 6f;
+		public int gearBeforeWorkDistance = 60;   // 2.17.0
 
 		// 2.7.0: apparel choice by the wearer's traits and skills
 		public bool dressByTraits = true;
@@ -4875,6 +4931,7 @@ namespace ResearchedLoadout
 		public bool stripLockedGear = true;
 
 		public bool onlyCrafted;
+		public int startGraceDays = 3;   // 2.20.0: a new colony takes whatever is at hand for this many days (0 = off)
 
 		public bool replaceBrokenGear = true;
 
@@ -4964,6 +5021,11 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref roleGear, "roleGear", true);
 			Scribe_Values.Look(ref statOffsets, "statOffsets", true);
 			Scribe_Values.Look(ref workClothing, "workClothing", true);
+			Scribe_Values.Look(ref workClothesOnlyWorking, "workClothesOnlyWorking", true);
+			Scribe_Values.Look(ref gearBeforeWork, "gearBeforeWork", true);
+			Scribe_Values.Look(ref toolBelt, "toolBelt", true);
+			Scribe_Values.Look(ref toolBeltMass, "toolBeltMass", 6f);
+			Scribe_Values.Look(ref gearBeforeWorkDistance, "gearBeforeWorkDistance", 60);
 			Scribe_Values.Look(ref dressByTraits, "dressByTraits", true);
 			Scribe_Values.Look(ref hideSidearmsPage, "hideSidearmsPage", true);
 			Scribe_Values.Look(ref emergencyGear, "emergencyGear", true);
@@ -5018,6 +5080,7 @@ namespace ResearchedLoadout
 			Scribe_Values.Look(ref blockLockedApparel, "blockLockedApparel", true);
 			Scribe_Values.Look(ref stripLockedGear, "stripLockedGear", true);
 			Scribe_Values.Look(ref onlyCrafted, "onlyCrafted", false);
+			Scribe_Values.Look(ref startGraceDays, "startGraceDays", 3);
 			Scribe_Values.Look(ref replaceBrokenGear, "replaceBrokenGear", true);
 			Scribe_Values.Look(ref stripWornLowHp, "stripWornLowHp", false);
 			Scribe_Values.Look(ref storeDroppedGear, "storeDroppedGear", true);
@@ -5099,6 +5162,14 @@ namespace ResearchedLoadout
 	}
 	public static class LoadoutFilter
 	{
+		// 2.17.2: apparel made for another age group (kid pants on an adult, adult armor on a child) is never chosen,
+		// even when another mod (body fixes) lets the game put it on – it made colonists swap it on and off
+		public static bool StageOk(Pawn p, ThingDef d)
+		{
+			if (p == null || d?.apparel == null) return true;
+			try { return d.apparel.developmentalStageFilter.Has(p.DevelopmentalStage); } catch { return true; }
+		}
+
 		private sealed class ResearchReq
 		{
 			public readonly List<ResearchProjectDef> always = new List<ResearchProjectDef>();
@@ -5279,11 +5350,26 @@ namespace ResearchedLoadout
 			{
 				return true;
 			}
+			// 2.20.0: the first days of a new colony – take whatever is at hand, the rules start later
+			if (InStartGrace())
+			{
+				return true;
+			}
 			if (!IsResearchAllowed(def))
 			{
 				return false;
 			}
 			return CraftedOk(def);
+		}
+
+		public static bool InStartGrace()
+		{
+			ResearchedLoadoutSettings s = ResearchedLoadoutMod.Settings;
+			if (s == null || !s.enabled || s.startGraceDays <= 0 || Current.ProgramState != ProgramState.Playing || Find.TickManager == null)
+			{
+				return false;
+			}
+			return Find.TickManager.TicksGame < s.startGraceDays * 60000;
 		}
 
 		public static bool CraftedOk(ThingDef def)
@@ -6512,6 +6598,9 @@ namespace ResearchedLoadout
 						sb.AppendLine("  best weapon: " + (bw?.def?.defName ?? "none") + (bw != null ? " upgrade=" + IsUpgrade(p, prim, bw, true) : ""));
 					}
 					catch (Exception ex) { sb.AppendLine("  best weapon: error " + ex.Message); }
+					// 2.19.3: why no sidearm (and no tool)
+					try { sb.AppendLine("  sidearms: " + SidearmReport(p, prim, now, settings)); }
+					catch (Exception ex) { sb.AppendLine("  sidearms: error " + ex.Message); }
 					sb.AppendLine("  wearing: " + string.Join(", ", p.apparel?.WornApparel?.ConvertAll(a => a.def.defName).ToArray() ?? new string[0]));
 					try
 					{
@@ -6564,6 +6653,7 @@ namespace ResearchedLoadout
 			if (_reservedThings.Contains(apparel.thingIDNumber)) return "reserved by queue";
 			if (!LoadoutFilter.AllowedFor(pawn, apparel)) return "locked: " + (LoadoutFilter.LockReason(apparel.def) ?? "filter");
 			if (apparel.def.apparel == null || !apparel.def.apparel.PawnCanWear(pawn)) return "race/body can't wear";
+			if (!LoadoutFilter.StageOk(pawn, apparel.def)) return "made for another age (child/adult)";
 			if (!ApparelUtility.HasPartsToWear(pawn, apparel.def)) return "no body parts";
 			if (!EquipmentUtility.CanEquip(apparel, pawn)) return "CanEquip false";
 			bool gap = Coverage.FillsBasicGap(pawn, apparel.def);
@@ -6771,6 +6861,9 @@ namespace ResearchedLoadout
 			}
 			bool flag = !pawn.WorkTagIsDisabled(WorkTags.Violent) && (!pawn.IsSlave || settings.armSlaves);
 			Thing thing = ((pawn.equipment == null) ? null : pawn.equipment.Primary);
+			// 2.19.2: a weapon you picked yourself keeps the hand calm, but it no longer stops sidearms – before,
+			// every colonist whose gun you had chosen never took a sidearm at all
+			bool sidearmsOk = flag && !WeaponCalmTimer(pawn, thing, now);
 			if (WeaponCalm(pawn, thing, now))
 			{
 				flag = false;
@@ -6789,8 +6882,13 @@ namespace ResearchedLoadout
 					GearWhy.Done(pawn);
 					return true;
 				}
+				if (!flag && sidearmsOk && TrySidearmsOnly(pawn, thing, now, settings))
+				{
+					GearWhy.Done(pawn);
+					return true;
+				}
 			}
-			else if (settings.autoEquipPrimary && flag && pawn.equipment != null && !LoadoutFilter.IsPersonaWeapon(thing))
+			else if (settings.autoEquipPrimary && flag && pawn.equipment != null && !LoadoutFilter.IsPersonaWeapon(thing) && !ToolBelt.Working(pawn))
 			{
 				// 2.16.1: with "Ranged weapons for everyone" only guns are looked for (anything else only if there is no gun)
 				bool gunsOnly = RangedForAll(pawn);
@@ -6813,7 +6911,7 @@ namespace ResearchedLoadout
 				}
 			}
 			CarryRule rule = CarryRuleFor(pawn);
-			if (!SidearmsCompat.Present && settings.autoEquipSidearm && flag && thing != null && pawn.inventory != null && CountWeapons(pawn) < rule.maxWeapons)
+			if (!SidearmsCompat.Present && settings.autoEquipSidearm && (flag || sidearmsOk) && thing != null && pawn.inventory != null && !ToolBelt.Working(pawn) && CountWeapons(pawn) < rule.maxWeapons)
 			{
 				bool? wantRanged = OppositeIsRanged(thing.def);
 				if ((wantRanged.HasValue ? CountKind(pawn, wantRanged.Value) < MaxKind(wantRanged.Value) : !HasInventoryWeapon(pawn, wantRanged)) && (!wantRanged.HasValue || SidearmSkillOk(pawn, wantRanged.Value)) && (wantRanged != true || !IsBrawler(pawn) || !settings.sidearmBrawlerNoRanged))
@@ -6840,7 +6938,7 @@ namespace ResearchedLoadout
 			}
 			// 2.15.2: "Gear up now" always uses our dresser and may replace what is worn (not only add)
 			bool rush = EquipRush.Active(pawn);
-			if ((settings.useOwnDresser || rush) && settings.autoEquipApparel)
+			if ((settings.useOwnDresser || rush) && settings.autoEquipApparel && !Dressing.Held(pawn))
 			{
 				bool onlyAdditions = !rush && ApparelMemory.Calm(pawn, now) && !LoadoutFilter.FreezingOrOverheating(pawn) && !TempRush.Active(pawn) && !Coverage.NeedsBasicsAny(pawn) && !EmergencyGear.AnyActive(map);
 				Thing thing4 = FindBestApparel(pawn, onlyAdditions);
@@ -6901,7 +6999,7 @@ namespace ResearchedLoadout
 				for (int i = 0; i < innerListForReading.Count; i++)
 				{
 					Thing thing2 = innerListForReading[i];
-					if (thing2 != null && thing2.def != null && LoadoutFilter.IsManagedWeapon(thing2.def) && thing2.def.IsRangedWeapon == ranged)
+					if (thing2 != null && thing2.def != null && (LoadoutFilter.IsManagedWeapon(thing2.def) && !ToolBelt.IgnoreInInventory(thing2.def)) && thing2.def.IsRangedWeapon == ranged)
 					{
 						float num2 = ScoreWeaponPower(thing2) + (LoadoutFilter.NewEraFirst ? LoadoutFilter.EraRank(thing2.def) * 1000000f : 0f);
 						if (num2 > num)
@@ -7031,7 +7129,7 @@ namespace ResearchedLoadout
 		{
 			int n = 0;
 			Thing p = pawn.equipment?.Primary;
-			if (p != null && p.def.IsRangedWeapon == ranged && LoadoutFilter.IsRealWeapon(p.def))
+			if (p != null && p.def.IsRangedWeapon == ranged && LoadoutFilter.IsRealWeapon(p.def) && !ToolBelt.IgnoreInInventory(p.def))
 			{
 				n++;
 			}
@@ -7039,7 +7137,7 @@ namespace ResearchedLoadout
 			{
 				foreach (Thing t in pawn.inventory.innerContainer.InnerListForReading)
 				{
-					if (t != null && t.def != null && LoadoutFilter.IsRealWeapon(t.def) && t.def.IsRangedWeapon == ranged)
+					if (t != null && t.def != null && LoadoutFilter.IsRealWeapon(t.def) && !ToolBelt.IgnoreInInventory(t.def) && t.def.IsRangedWeapon == ranged)
 					{
 						n += t.stackCount;
 					}
@@ -7061,6 +7159,17 @@ namespace ResearchedLoadout
 		{
 			ResearchedLoadoutSettings s = ResearchedLoadoutMod.Settings;
 			return s == null ? 1 : (ranged ? s.sidearmMaxRanged : s.sidearmMaxMelee);
+		}
+
+		// 2.19.2: only the sidearm part, for a colonist whose weapon in hand is player-chosen
+		private bool TrySidearmsOnly(Pawn pawn, Thing primary, int now, ResearchedLoadoutSettings settings)
+		{
+			if (!settings.autoEquipSidearm || primary == null || SidearmsCompat.IsUsingAutotool(pawn) || LoadoutFilter.IsPersonaWeapon(primary))
+			{
+				return false;
+			}
+			bool flag = PrefersRanged(pawn, primary);
+			return TrySidearmsUpgradeType(pawn, !flag, false, now) || TryExtraOfKind(pawn, flag, now);
 		}
 
 		private bool TrySidearmsUpgradeType(Pawn pawn, bool ranged, bool mainType, int now)
@@ -7207,6 +7316,30 @@ namespace ResearchedLoadout
 			return true;
 		}
 
+		private string SidearmReport(Pawn p, Thing prim, int now, ResearchedLoadoutSettings s)
+		{
+			var b = new System.Text.StringBuilder();
+			var carried = System.Linq.Enumerable.ToList(System.Linq.Enumerable.Select(System.Linq.Enumerable.Where(p.inventory?.innerContainer?.InnerListForReading ?? new List<Thing>(), t => t?.def != null && t.def.IsWeapon), t => t.def.defName + (ToolBelt.IgnoreInInventory(t.def) ? "(tool)" : "")));
+			b.Append("carried=[" + string.Join(",", carried) + "]");
+			b.Append(" autoSidearm=" + s.autoEquipSidearm + " SS=" + SidearmsCompat.Present + (SidearmsCompat.Present ? " SSactive=" + SidearmsCompat.Active : ""));
+			bool violent = !p.WorkTagIsDisabled(WorkTags.Violent) && (!p.IsSlave || s.armSlaves);
+			b.Append(" violent=" + violent + " calmTimer=" + WeaponCalmTimer(p, prim, now) + " chosen=" + (prim != null && IsPlayerChosen(prim)));
+			if (prim == null)
+				return b.Append(" | no weapon in hand -> no sidearm").ToString();
+			bool pref = PrefersRanged(p, prim);
+			bool other = !pref;
+			b.Append(" | other kind=" + (other ? "ranged" : "melee") + " skillOk=" + SidearmSkillOk(p, other) + " brawler=" + IsBrawler(p));
+			b.Append(" count ranged " + CountKind(p, true) + "/" + MaxKind(true) + " melee " + CountKind(p, false) + "/" + MaxKind(false) + " total " + CountWeapons(p) + "/" + CarryRuleFor(p).maxWeapons);
+			Thing best = FindBestWeapon(p, other, false);
+			b.Append(" | best " + (other ? "ranged" : "melee") + ": " + (best?.def?.defName ?? "none"));
+			if (best != null && SidearmsCompat.Present)
+				b.Append(" SS says: " + (SidearmsCompat.CanPickupWhy(p, best) ?? "ok"));
+			if (best != null && !SidearmsCompat.Present)
+				b.Append(" fitsMass=" + FitsCarryMass(p, best, CarryRuleFor(p)));
+			b.Append(" | tools in pockets " + ToolBelt.PocketToolCount(p) + " carryTools=" + ToolBelt.CarryTools);
+			return b.ToString();
+		}
+
 		private static bool SidearmSkillOk(Pawn pawn, bool ranged)
 		{
 			ResearchedLoadoutSettings s = ResearchedLoadoutMod.Settings;
@@ -7230,7 +7363,7 @@ namespace ResearchedLoadout
 			for (int i = 0; i < innerListForReading.Count; i++)
 			{
 				Thing thing = innerListForReading[i];
-				if (thing != null && thing.def != null && LoadoutFilter.IsManagedWeapon(thing.def))
+				if (thing != null && thing.def != null && (LoadoutFilter.IsManagedWeapon(thing.def) && !ToolBelt.IgnoreInInventory(thing.def)))
 				{
 					num += thing.stackCount;
 				}
@@ -7249,7 +7382,7 @@ namespace ResearchedLoadout
 			for (int i = 0; i < innerListForReading.Count; i++)
 			{
 				Thing thing = innerListForReading[i];
-				if (thing != null && thing.def != null && LoadoutFilter.IsManagedWeapon(thing.def))
+				if (thing != null && thing.def != null && (LoadoutFilter.IsManagedWeapon(thing.def) && !ToolBelt.IgnoreInInventory(thing.def)))
 				{
 					num += thing.GetStatValue(StatDefOf.Mass) * (float)thing.stackCount;
 				}
@@ -7322,7 +7455,7 @@ namespace ResearchedLoadout
 				if (prim != null) seen[prim.def] = prim;
 				foreach (Thing t in pawn.inventory.innerContainer.InnerListForReading)
 				{
-					if (t?.def == null || !LoadoutFilter.IsManagedWeapon(t.def)) continue;
+					if (t?.def == null || !LoadoutFilter.IsManagedWeapon(t.def) || ToolBelt.IgnoreInInventory(t.def)) continue;
 					if (seen.TryGetValue(t.def, out Thing other))
 					{
 						// keep the one in hand / the better one; never drop something the player chose
@@ -7362,7 +7495,7 @@ namespace ResearchedLoadout
 					float best = float.MaxValue;
 					foreach (Thing t in pawn.inventory.innerContainer.InnerListForReading)
 					{
-						if (t != null && t.def != null && LoadoutFilter.IsManagedWeapon(t.def) && !IsPlayerChosen(t) && t.def.IsRangedWeapon == rangedOver)
+						if (t != null && t.def != null && LoadoutFilter.IsManagedWeapon(t.def) && !ToolBelt.IgnoreInInventory(t.def) && !IsPlayerChosen(t) && t.def.IsRangedWeapon == rangedOver)
 						{
 							float sc = ScoreWeapon(pawn, t);
 							if (sc < best)
@@ -7388,7 +7521,7 @@ namespace ResearchedLoadout
 			for (int i = 0; i < innerListForReading.Count; i++)
 			{
 				Thing thing = innerListForReading[i];
-				if (thing != null && thing.def != null && LoadoutFilter.IsManagedWeapon(thing.def) && !IsPlayerChosen(thing))
+				if (thing != null && thing.def != null && (LoadoutFilter.IsManagedWeapon(thing.def) && !ToolBelt.IgnoreInInventory(thing.def)) && !IsPlayerChosen(thing))
 				{
 					float num2 = ScoreWeapon(pawn, thing);
 					if (num2 < num)
@@ -7450,6 +7583,11 @@ namespace ResearchedLoadout
 			for (int i = 0; i < wornApparel.Count; i++)
 			{
 				Apparel apparel2 = wornApparel[i];
+				// 2.19.3: clothes on the skin and underwear (UnderWhere and other underwear mods) stay on in heat
+				if (OnSkinOnly(apparel2))
+				{
+					continue;
+				}
 				if (!LoadoutFilter.IsArmor(apparel2) && !LoadoutFilter.IsProtectedApparel(pawn, apparel2) && !pawn.apparel.IsLocked(apparel2) && (EmergencyGear.CounterMask(apparel2.def) & EmergencyGear.Toxic & EmergencyGear.ActiveMask(pawn.MapHeld)) == 0)
 				{
 					float statValue = apparel2.GetStatValue(StatDefOf.Insulation_Heat);
@@ -7463,8 +7601,27 @@ namespace ResearchedLoadout
 			return apparel != null && RemoveApparelAndStore(pawn, apparel);
 		}
 
+		// worn right on the skin or under it (underwear layers of mods sit below OnSkin)
+		private static bool OnSkinOnly(Apparel a)
+		{
+			List<ApparelLayerDef> layers = a?.def?.apparel?.layers;
+			if (layers == null || layers.Count == 0)
+			{
+				return false;
+			}
+			for (int i = 0; i < layers.Count; i++)
+			{
+				if (layers[i] != ApparelLayerDefOf.OnSkin && layers[i].drawOrder > ApparelLayerDefOf.OnSkin.drawOrder)
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+
 		private static bool RemoveApparelAndStore(Pawn pawn, Apparel apparel)
 		{
+			if (!Dressing.MayRemove(pawn, apparel)) return false;
 			// 2.15.0: a guest's own clothes go into the backpack, not into the colony's storage
 			if (GuestWardrobe.IsGuest(pawn) && !GuestWardrobe.IsBorrowed(apparel))
 			{
@@ -7618,7 +7775,7 @@ namespace ResearchedLoadout
 				for (int num3 = innerListForReading.Count - 1; num3 >= 0; num3--)
 				{
 					Thing thing = innerListForReading[num3];
-					if (thing != null && thing.def != null && LoadoutFilter.IsRealWeapon(thing.def) && WeaponLocked(thing) && !LoadoutFilter.IsPersonaWeapon(thing) && !EmergencyGear.KeepWorn(pawn, thing.def))
+					if (thing != null && thing.def != null && LoadoutFilter.IsRealWeapon(thing.def) && !ToolBelt.IgnoreInInventory(thing.def) && WeaponLocked(thing) && !LoadoutFilter.IsPersonaWeapon(thing) && !EmergencyGear.KeepWorn(pawn, thing.def))
 					{
 						SidearmsCompat.Forget(pawn, thing);
 						Thing lastResultingThing;
@@ -7636,6 +7793,16 @@ namespace ResearchedLoadout
 		private void RememberOrder(Pawn pawn, Thing thing, int now)
 		{
 			RememberOrder(pawn, thing, now, 2500);
+		}
+
+		// 2.19.2: only the "changed a weapon a moment ago" part of the calm (not the player's own choice)
+		private bool WeaponCalmTimer(Pawn pawn, Thing primary, int now)
+		{
+			if (!_weaponCalmUntil.TryGetValue(pawn.thingIDNumber, out int value))
+			{
+				return primary != null;      // just loaded: WeaponCalm below starts the hour of calm
+			}
+			return now < value && primary != null && !IsBroken(primary);
 		}
 
 		private bool WeaponCalm(Pawn pawn, Thing primary, int now)
@@ -7755,7 +7922,7 @@ namespace ResearchedLoadout
 			for (int i = 0; i < innerListForReading.Count; i++)
 			{
 				Thing thing = innerListForReading[i];
-				if (thing != null && thing.def != null && LoadoutFilter.IsRealWeapon(thing.def))
+				if (thing != null && thing.def != null && LoadoutFilter.IsRealWeapon(thing.def) && !ToolBelt.IgnoreInInventory(thing.def))
 				{
 					if (!wantRanged.HasValue)
 					{
@@ -8411,7 +8578,7 @@ namespace ResearchedLoadout
 			}
 			num *= LoadoutFilter.TechMul(thing.def);
 			num *= WeaponPlus.RoleFactor(pawn, thing);
-			return num * Specialization.WeaponFactor(pawn, thing);
+			return Dressing.Weapon(pawn, thing, num * Specialization.WeaponFactor(pawn, thing));
 		}
 
 		internal static bool IsBroken(Thing thing)
@@ -8441,7 +8608,7 @@ namespace ResearchedLoadout
 					continue;
 				}
 				bool flag = Coverage.FillsBasicGap(pawn, apparel.def);
-				if ((!flag && ApparelGender.Mismatch(pawn, apparel.def)) || (!flag && Specialization.WorkClothingBlocked(pawn, apparel.def)) || (!flag && ApparelMemory.RecentlyRemoved(pawn, apparel.def) && !LoadoutFilter.FreezingOrOverheating(pawn) && !TempRush.Active(pawn) && !GearSense.MayWearAgain(pawn, apparel)) || !InAllowedStorage(apparel) || apparel.IsForbidden(pawn) || IsBroken(apparel) || PolicyForbidsThing(pawn, apparel) || apparel.def.apparel == null || !apparel.def.apparel.PawnCanWear(pawn) || (IsRangedBlockingShield(apparel) && PrefersRanged(pawn, (pawn.equipment == null) ? null : pawn.equipment.Primary)) || !ApparelUtility.HasPartsToWear(pawn, apparel.def) || !EquipmentUtility.CanEquip(apparel, pawn) || WouldReplaceProtected(pawn, apparel) || SameKindNotBetter(pawn, apparel) || LoadoutFilter.WouldDowngradeArmor(pawn, apparel))
+				if ((!flag && ApparelGender.Mismatch(pawn, apparel.def)) || (!flag && Specialization.WorkClothingBlocked(pawn, apparel.def)) || (!flag && ApparelMemory.RecentlyRemoved(pawn, apparel.def) && !LoadoutFilter.FreezingOrOverheating(pawn) && !TempRush.Active(pawn) && !GearSense.MayWearAgain(pawn, apparel)) || !InAllowedStorage(apparel) || apparel.IsForbidden(pawn) || IsBroken(apparel) || PolicyForbidsThing(pawn, apparel) || apparel.def.apparel == null || !apparel.def.apparel.PawnCanWear(pawn) || !LoadoutFilter.StageOk(pawn, apparel.def) || (IsRangedBlockingShield(apparel) && PrefersRanged(pawn, (pawn.equipment == null) ? null : pawn.equipment.Primary)) || !ApparelUtility.HasPartsToWear(pawn, apparel.def) || !EquipmentUtility.CanEquip(apparel, pawn) || WouldReplaceProtected(pawn, apparel) || SameKindNotBetter(pawn, apparel) || LoadoutFilter.WouldDowngradeArmor(pawn, apparel) || !Dressing.Allow(pawn, apparel))
 				{
 					continue;
 				}
@@ -8480,6 +8647,8 @@ namespace ResearchedLoadout
 						continue;
 					}
 				}
+				num2 = Dressing.Score(pawn, apparel, num2, false, list != null ? 1f : 15f);
+				if (float.IsNegativeInfinity(num2)) continue;
 				if (num2 > num && pawn.CanReserveAndReach(apparel, PathEndMode.ClosestTouch, Danger.Some))
 				{
 					num = num2;
@@ -9440,8 +9609,15 @@ namespace ResearchedLoadout
 							}
 						}
 					}
+					// 2.19.4: a new game – the scenario's starting gear lies on the ground, not in storage
+					bool fresh = Find.TickManager != null && Find.TickManager.TicksGame < 2500 * 6;
 					foreach (Thing item5 in map.listerThings.ThingsInGroup(ThingRequestGroup.Weapon))
 					{
+						if (item5 != null && fresh && !item5.IsForbidden(Faction.OfPlayer) && !item5.Position.Fogged(map))
+						{
+							crafted.Add(item5.def.defName);
+							continue;
+						}
 						if (item5 != null && item5.IsInAnyStorage() && hashSet.Contains(item5.def))
 						{
 							crafted.Add(item5.def.defName);
@@ -9449,6 +9625,11 @@ namespace ResearchedLoadout
 					}
 					foreach (Thing item6 in map.listerThings.ThingsInGroup(ThingRequestGroup.Apparel))
 					{
+						if (item6 != null && fresh && !item6.IsForbidden(Faction.OfPlayer) && !item6.Position.Fogged(map))
+						{
+							crafted.Add(item6.def.defName);
+							continue;
+						}
 						if (item6 != null && item6.IsInAnyStorage() && hashSet.Contains(item6.def))
 						{
 							crafted.Add(item6.def.defName);
@@ -10863,7 +11044,7 @@ namespace ResearchedLoadout
 			List<Thing> inv = p.inventory.innerContainer.InnerListForReading;
 			for (int i = 0; i < inv.Count; i++)
 			{
-				if (inv[i] != null && inv[i].def != null && LoadoutFilter.IsManagedWeapon(inv[i].def))
+				if (inv[i] != null && inv[i].def != null && (LoadoutFilter.IsManagedWeapon(inv[i].def) && !ToolBelt.IgnoreInInventory(inv[i].def)))
 				{
 					return true;
 				}
@@ -11199,7 +11380,14 @@ namespace ResearchedLoadout
 			return false;
 		}
 
+		// 2.18.0: through the dressing provider; SCG's own choice is FindArmorDefault
 		public static Apparel FindArmor(Pawn p, float maxDist, bool threat)
+		{
+			if (Dressing.Held(p) && !threat) return null;
+			return Dressing.Armor(p, maxDist, threat, () => FindArmorDefault(p, maxDist, threat));
+		}
+
+		public static Apparel FindArmorDefault(Pawn p, float maxDist, bool threat)
 		{
 			List<Thing> list = p.Map.listerThings.ThingsInGroup(ThingRequestGroup.Apparel);
 			float d2 = maxDist * maxDist;
@@ -11229,7 +11417,7 @@ namespace ResearchedLoadout
 				{
 					continue;
 				}
-				if (!ApparelUtility.HasPartsToWear(p, a.def) || !a.def.apparel.PawnCanWear(p, false))
+				if (!ApparelUtility.HasPartsToWear(p, a.def) || !a.def.apparel.PawnCanWear(p, false) || !LoadoutFilter.StageOk(p, a.def) || ApparelFlip.Blocked(p, a.def))
 				{
 					continue;
 				}
@@ -11434,9 +11622,11 @@ namespace ResearchedLoadout
 			}
 		}
 
-		public static void CanPickupPostfix(object[] __args, ref bool __result)
+		// 2.19.3: named parameters instead of __args – Harmony wrote the stale __args value back into the out
+		// string, so every reason Simple Sidearms gave ("all slots full", "too heavy" …) was lost (null)
+		public static void CanPickupPostfix(ThingWithComps sidearmThing, Pawn pawn, ref string errString, ref bool __result)
 		{
-			if (!__result || __args == null)
+			if (!__result)
 			{
 				return;
 			}
@@ -11447,36 +11637,18 @@ namespace ResearchedLoadout
 				{
 					return;
 				}
-				ThingWithComps thingWithComps = null;
-				Pawn pawn = null;
-				for (int i = 0; i < __args.Length; i++)
-				{
-					if (thingWithComps == null)
-					{
-						thingWithComps = __args[i] as ThingWithComps;
-					}
-					if (pawn == null)
-					{
-						pawn = __args[i] as Pawn;
-					}
-				}
+				ThingWithComps thingWithComps = sidearmThing;
 				// 2.9.1: own limit of weapons per colonist
 				if (thingWithComps != null && pawn != null && settings.sidearmMaxTotal > 0 && LoadoutFilter.IsPlayerColonist(pawn) && !ExemptPawns.IsExempt(pawn) && !HeldBy(thingWithComps, pawn) && ResearchedLoadoutMapComponent.CountWeapons(pawn) >= settings.sidearmMaxTotal)
 				{
 					__result = false;
-					if (__args.Length > 2 && __args[2] == null)
-					{
-						__args[2] = "RL_SidearmTooMany".Translate(settings.sidearmMaxTotal).ToString();
-					}
+					errString = "RL_SidearmTooMany".Translate(settings.sidearmMaxTotal).ToString();
 					return;
 				}
-				if (thingWithComps != null && pawn != null && thingWithComps != pawn && thingWithComps.def != null && LoadoutFilter.IsPlayerColonist(pawn) && !ExemptPawns.IsExempt(pawn) && !LoadoutFilter.IsPersonaWeapon(thingWithComps) && !LoadoutFilter.IsAllowed(thingWithComps.def) && !EmergencyGear.AllowsThing(pawn, thingWithComps))
+				if (thingWithComps != null && pawn != null && thingWithComps.def != null && LoadoutFilter.IsPlayerColonist(pawn) && !ExemptPawns.IsExempt(pawn) && !LoadoutFilter.IsPersonaWeapon(thingWithComps) && !LoadoutFilter.IsAllowed(thingWithComps.def) && !EmergencyGear.AllowsThing(pawn, thingWithComps))
 				{
 					__result = false;
-					if (__args.Length > 2 && __args[2] == null)
-					{
-						__args[2] = "RL_SidearmLocked".Translate().ToString();
-					}
+					errString = "RL_SidearmLocked".Translate().ToString();
 				}
 			}
 			catch
@@ -11508,6 +11680,23 @@ namespace ResearchedLoadout
 			catch
 			{
 				return null;
+			}
+		}
+
+		// 2.19.3: Simple Sidearms' own reason why a weapon can't be taken (for the report)
+		public static string CanPickupWhy(Pawn pawn, Thing weapon)
+		{
+			Init();
+			if (_canPickup == null || !(weapon is ThingWithComps twc) || pawn == null)
+				return "n/a";
+			try
+			{
+				object[] parameters = new object[3] { twc, pawn, null };
+				return (bool)_canPickup.Invoke(null, parameters) ? null : (parameters[2] as string ?? "no");
+			}
+			catch (Exception e)
+			{
+				return "error " + e.Message;
 			}
 		}
 
@@ -11837,6 +12026,11 @@ namespace ResearchedLoadout
 			{
 				return true;
 			}
+			// 2.19.4: what the player orders by hand is never blocked (the order silently did nothing)
+			if (job.playerForced)
+			{
+				return true;
+			}
 			Pawn pawn = __instance.pawn;
 			if (!LoadoutFilter.IsPlayerColonist(pawn))
 			{
@@ -11885,6 +12079,22 @@ namespace ResearchedLoadout
 	[HarmonyPatch(typeof(JobDriver_Equip), "TryMakePreToilReservations")]
 	public static class JobDriverEquipPatch
 	{
+		private static int lastNote = -1;
+
+		private static string WhyLabel(string code)
+		{
+			if (code == null) return null;
+			if (code.StartsWith("jeste nevyrobeno")) return "RL_Why_NotCrafted".Translate();
+			if (code.StartsWith("chybi vyzkum")) return "RL_Why_Research".Translate();
+			if (code.StartsWith("rucne zakazano")) return "RL_Why_Banned".Translate();
+			if (code.StartsWith("vyspelejsi nez kolonie"))
+			{
+				int i = code.IndexOf('('), j = code.LastIndexOf(')');
+				return "RL_Why_HigherTech".Translate(i > 0 && j > i ? code.Substring(i + 1, j - i - 1) : "?");
+			}
+			return code;
+		}
+
 		[HarmonyPrefix]
 		public static bool Prefix(JobDriver_Equip __instance, ref bool __result)
 		{
@@ -11896,6 +12106,25 @@ namespace ResearchedLoadout
 			Job job = __instance.job;
 			if (job == null || job.targetA.Thing == null)
 			{
+				return true;
+			}
+			// 2.19.4: what the player orders by hand is never blocked (the order silently did nothing)
+			if (job.playerForced)
+			{
+				// 2.20.0: say once that the lock was overridden by the order and why it was locked
+				try
+				{
+					Thing t = job.targetA.Thing;
+					string why = WhyLabel(LoadoutFilter.LockReason(t.def));
+					if (why != null && t.thingIDNumber != lastNote)
+					{
+						lastNote = t.thingIDNumber;
+						Messages.Message("RL_OrderOverride".Translate(__instance.pawn.LabelShort, t.LabelShort, why), t, MessageTypeDefOf.NeutralEvent, false);
+					}
+				}
+				catch
+				{
+				}
 				return true;
 			}
 			Pawn pawn = __instance.pawn;
@@ -11917,6 +12146,12 @@ namespace ResearchedLoadout
 		[HarmonyPrefix]
 		public static bool Prefix(Pawn pawn, ref Job __result)
 		{
+			// 2.18.0: the dressing provider dresses this pawn right now (occasion, sleepwear …)
+			if (Dressing.Held(pawn) && LoadoutFilter.IsPlayerColonist(pawn))
+			{
+				__result = null;
+				return false;
+			}
 			ResearchedLoadoutSettings settings = ResearchedLoadoutMod.Settings;
 			if (settings == null || !settings.enabled || !settings.useOwnDresser || !settings.autoEquipApparel)
 			{
@@ -12071,6 +12306,12 @@ namespace ResearchedLoadout
 			{
 				__result *= LoadoutFilter.EraMul(apparel.def);
 			}
+			// 2.18.0: the dressing provider has the last word
+			bool wornNow = pawn.apparel != null && pawn.apparel.WornApparel.Contains(apparel);
+			if (!wornNow && !Dressing.Allow(pawn, apparel)) { __result = -1000f; return; }
+			if (wornNow && __result > 0f && !Dressing.KeepWorn(pawn, apparel)) __result *= 0.05f;
+			__result = Dressing.Score(pawn, apparel, __result, wornNow, 1f);
+			if (float.IsNegativeInfinity(__result)) __result = -1000f;
 		}
 	}
 }
@@ -12215,7 +12456,26 @@ namespace ResearchedLoadout
 			if (p == null || d == null || blockUntil.Count == 0)
 				return false;
 			int now = Now;
-			return blockUntil.TryGetValue(Key(p, d), out int t) && now < t && now >= t - 120000;
+			if (!(blockUntil.TryGetValue(Key(p, d), out int t) && now < t && now >= t - 120000))
+				return false;
+			// 2.18.1: the block only stops swapping one piece for another – when nothing he wears is in
+			// the way of this piece (he stands there without clothes on that part), he may put it on
+			try
+			{
+				// 2.19.1: only for clothes that keep him dressed (torso / legs) – hats, masks and helmets keep the block,
+				// with Wardrobe they were swapped round and round (winter hat → gas mask → helmet …)
+				bool body = d.apparel != null && d.apparel.bodyPartGroups != null && (d.apparel.bodyPartGroups.Contains(BodyPartGroupDefOf.Torso) || d.apparel.bodyPartGroups.Contains(BodyPartGroupDefOf.Legs));
+				if (body && p.apparel != null && d.apparel != null)
+				{
+					var worn = p.apparel.WornApparel;
+					bool inTheWay = false;
+					for (int i = 0; i < worn.Count; i++)
+						if (worn[i] != null && !RimWorld.ApparelUtility.CanWearTogether(d, worn[i].def, p.RaceProps.body)) { inTheWay = true; break; }
+					if (!inTheWay) return false;
+				}
+			}
+			catch { }
+			return true;
 		}
 	}
 

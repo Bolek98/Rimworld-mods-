@@ -10,6 +10,7 @@
   <URT_Status_Phase>현재: {0}</URT_Status_Phase>
   <URT_Status_Counts>번역 없는 텍스트 발견: {0} · 기억된 번역: {1} · 게임에 적용: {2} · 번역 대기: {3}</URT_Status_Counts>
   <URT_Status_Session>이번 세션: 번역 {0}, 검사에서 거부 {1}, 실패 {2} · 문법 대체 사용 {3}</URT_Status_Session>
+  <URT_Status_SessionParts>   그중: 모드 텍스트 {0}, 플레이 중 나타난 텍스트 {1}, 이전 세션에서 남은 텍스트 {2}</URT_Status_SessionParts>
   <URT_Status_Migrated>0.9에서 가져옴: {0}</URT_Status_Migrated>
   <URT_Pause>번역 일시 정지</URT_Pause>
   <URT_Resume>번역 계속</URT_Resume>
@@ -203,4 +204,38 @@
   <URT_Pack_NoFiles>{0}에 팩이 없습니다 – .tsv 팩을 넣어 주세요.</URT_Pack_NoFiles>
   <URT_Pack_WrongLang>이 팩은 {0}용이고 게임은 {1}입니다 – 아무것도 가져오지 않았습니다.</URT_Pack_WrongLang>
   <URT_Pack_OpenFolder>팩 폴더 열기</URT_Pack_OpenFolder>
+  <URT_ModGenerated>로딩 중 생성됨</URT_ModGenerated>
+  <URT_ModGeneratedTip>게임이나 모드가 로딩 중 코드로 만든, 어느 모드에도 속하지 않는 것들의 텍스트.</URT_ModGeneratedTip>
+  <URT_Tab_Sources>소스</URT_Tab_Sources>
+  <URT_Src_Intro>설치했지만 활성화하지 않은 번역 모드, URT 라이브러리의 팩, URL에서 받은 팩이 당신의 언어에 사용됩니다 – 활성화할 필요가 없습니다. 모드 자체 번역과 활성화된 번역 모드가 항상 우선이며, URT는 아직 빠진 부분만 번역합니다.</URT_Src_Intro>
+  <URT_Src_Use>다른 모드의 번역 사용 (활성화 없이)</URT_Src_Use>
+  <URT_Src_Rescan>다시 검색</URT_Src_Rescan>
+  <URT_Src_OpenLibrary>라이브러리 폴더 열기</URT_Src_OpenLibrary>
+  <URT_Src_LibraryTip>압축을 푼 번역 모드나 Languages 폴더를 여기에 넣으세요:\n{0}</URT_Src_LibraryTip>
+  <URT_Src_Sum>소스 {0}개 (켜짐 {1}개) · 모드 {3}개에 텍스트 {2}개 사용</URT_Src_Sum>
+  <URT_Src_Restart>– 변경 사항은 재시작 후 적용</URT_Src_Restart>
+  <URT_Src_None>당신의 언어에 맞는 번역 모드를 찾지 못했습니다. 번역 모드를 구독하거나(활성화 불필요) 팩을 라이브러리에 넣으세요.</URT_Src_None>
+  <URT_Src_OrderTip>두 소스가 같은 텍스트를 번역하면 목록에서 위에 있는 것이 우선입니다.</URT_Src_OrderTip>
+  <URT_Src_CoversNone>아직 사용 안 함</URT_Src_CoversNone>
+  <URT_Src_Counts>{1}개 중 {0}개 사용</URT_Src_Counts>
+  <URT_Src_Kind_Workshop>창작마당</URT_Src_Kind_Workshop>
+  <URT_Src_Kind_Local>Mods 폴더</URT_Src_Kind_Local>
+  <URT_Src_Kind_Library>라이브러리</URT_Src_Kind_Library>
+  <URT_Src_Kind_URL>URL</URT_Src_Kind_URL>
+  <URT_Src_TipCounts>사용됨: Keyed 텍스트 {0}개, Def 텍스트 {1}개, 이름 목록 {2}개 · 읽은 파일 {3}개</URT_Src_TipCounts>
+  <URT_Src_Urls>URL의 번역 팩 (zip 또는 GitHub 저장소)</URT_Src_Urls>
+  <URT_Src_UrlAuto>하루에 한 번 확인</URT_Src_UrlAuto>
+  <URT_Src_UrlAutoTip>시작할 때 팩 업데이트를 하루에 최대 한 번 확인합니다. 새 버전은 다음 재시작 후 사용됩니다.</URT_Src_UrlAutoTip>
+  <URT_Src_UrlHint>https://github.com/… 또는 .zip 링크</URT_Src_UrlHint>
+  <URT_Src_UrlAdd>추가</URT_Src_UrlAdd>
+  <URT_Src_UrlBusy>다운로드 중…</URT_Src_UrlBusy>
+  <URT_Src_UrlUpdate>지금 업데이트</URT_Src_UrlUpdate>
+  <URT_Src_UrlChecked>오늘 확인함 ({0})</URT_Src_UrlChecked>
+  <URT_Src_UrlSame>최신</URT_Src_UrlSame>
+  <URT_Src_TooBig>너무 큼 ({0} MB)</URT_Src_TooBig>
+  <URT_Src_NoLanguages>zip에 Languages 폴더가 없음</URT_Src_NoLanguages>
+  <URT_Src_UrlDone>파일 {0}개 다운로드 – 재시작 후 사용</URT_Src_UrlDone>
+  <URT_Src_UrlHave>{0} · 파일 {1}개</URT_Src_UrlHave>
+  <URT_Src_UrlNotYet>아직 다운로드 안 함</URT_Src_UrlNotYet>
+  <URT_Mods_Imported>이 모드의 텍스트 {0}개는 번역 모드에서 왔습니다 (소스 탭)</URT_Mods_Imported>
 </LanguageData>

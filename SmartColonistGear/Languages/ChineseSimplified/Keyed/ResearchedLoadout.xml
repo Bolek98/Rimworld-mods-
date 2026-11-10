@@ -621,4 +621,28 @@
   <RL_WN_ApparelOff>设置中关闭了换衣服</RL_WN_ApparelOff>
   <RL_WhyNotMenu>右键菜单显示“为什么不”</RL_WhyNotMenu>
   <RL_WhyNotMenu_Desc>选中殖民者时，右键武器或衣物会显示 Smart Colonist Gear 为什么不给他。</RL_WhyNotMenu_Desc>
+  <RL_WorkOnlyWorking>仅在工作时穿工作服</RL_WorkOnlyWorking>
+  <RL_WorkOnlyWorking_Desc>专家开始该工作时穿上工作服（围裙、实验服、矿工头盔…），最后一次做完约两小时后脱下，换回平时的衣服。征召或袭击时不会更换，寒冷中不会让人赤身；强制和意识形态服装保留。</RL_WorkOnlyWorking_Desc>
+  <RL_GearBeforeWork>工作前换装并拿工具</RL_GearBeforeWork>
+  <RL_GearBeforeWork_Desc>殖民者开始工作时，先穿上工作服、拿上工具（镐、镰刀…），然后再工作——而不是做到一半。紧急情况、征召或袭击时不会这样；手中的武器绝不会换成工具。</RL_GearBeforeWork_Desc>
+  <RL_GearBeforeWorkDist>工作装备最远 {0} 格</RL_GearBeforeWorkDist>
+  <RL_GearBeforeWorkDist_Desc>比这更远的工作服或工具不会在工作前去拿。</RL_GearBeforeWorkDist_Desc>
+  <RL_WhyToolOn>为工作拿工具</RL_WhyToolOn>
+  <RL_WhyWorkOn>为工作穿工作服</RL_WhyWorkOn>
+  <RL_WhyWorkOff>工作结束——脱下工作服</RL_WhyWorkOff>
+  <RL_WhyWorkBack>工作后换回平时衣服</RL_WhyWorkBack>
+  <RL_DressingManaged>穿着由 {0} 管理——殖民者穿什么由它的设置决定。</RL_DressingManaged>
+  <RL_ToolBelt>工具放口袋</RL_ToolBelt>
+  <RL_ToolBelt_Desc>殖民者把自己工作用的工具（镐、镰刀、斧头……）放在物品栏里。开始工作时立刻拿到手上，武器收进口袋；被征召、战斗或做其他工作时武器回到手上。工具只取一次并一直带着（最多2件）。</RL_ToolBelt_Desc>
+  <RL_ToolBeltMass>口袋工具上限 {0} 千克</RL_ToolBeltMass>
+  <RL_ToolBeltMass_Desc>殖民者在物品栏中可携带的工具总重量。</RL_ToolBeltMass_Desc>
+  <RL_WhyToolPocket>把{0}用的工具放进口袋</RL_WhyToolPocket>
+  <RL_StartGrace>新殖民地开局：{0} 天内拿取任何装备</RL_StartGrace>
+  <RL_StartGraceOff>新殖民地开局：关闭</RL_StartGraceOff>
+  <RL_StartGrace_Desc>新殖民地的最初几天，殖民者会拿取手边的任何武器和衣物——“仅限已制作”和科技规则之后才生效。0 = 从第一分钟起生效。</RL_StartGrace_Desc>
+  <RL_OrderOverride>{0} 按你的命令拿取 {1}（通常已锁定：{2}）。</RL_OrderOverride>
+  <RL_Why_NotCrafted>尚未制作</RL_Why_NotCrafted>
+  <RL_Why_Research>缺少研究</RL_Why_Research>
+  <RL_Why_Banned>被你禁止</RL_Why_Banned>
+  <RL_Why_HigherTech>比殖民地更先进（{0}）</RL_Why_HigherTech>
 </LanguageData>

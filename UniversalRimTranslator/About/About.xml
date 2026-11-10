@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Universal RimTranslator – Auto-Translate All Your Mods</name>
+  <name>[B98] Universal RimTranslator – Auto-Translate All Your Mods</name>
   <author>Bolek98</author>
   <packageId>misak.universalrimtranslator</packageId>
-  <modVersion>1.1.0</modVersion>
+  <modVersion>1.2.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -43,7 +43,7 @@ WHAT IT TRANSLATES
 
 TRANSLATION SERVICES
 - Free, without a key: Microsoft Edge, Yandex, Google, MyMemory – with automatic fallback when one fails.
-- With your own key (optional): DeepL, Azure, Google Cloud, Gemini, OpenAI-compatible AI (also local Ollama / LM Studio), LibreTranslate. Every service has a Test button that shows the real error.
+- With your own key (optional): DeepL, Azure, Google Cloud, Gemini, OpenAI-compatible AI (also local Ollama / LM Studio), LibreTranslate. Each has a Test button.
 - Every translation is checked (lost placeholders, broken tokens, wrong language, cut text) – a broken one is never used.
 
 YOUR CONTROL
@@ -51,14 +51,15 @@ YOUR CONTROL
 - My words: "colonist" → your word, used in every translation.
 - Mods tab: how much of each mod is translated; untick a mod to keep it in English; export a translation as a normal Languages folder for the mod's author.
 - Check tab: machine translations that look wrong, with one-click fixes.
-- "Translate everything now", import from Auto Translation, translation packs (.tsv) to share, offline mode (memory only).
+- Translation mods without enabling them: installed translation mods, a library folder and packs from a URL (zip, GitHub) fill in your language (Sources tab).
+- "Translate everything now", import from Auto Translation, .tsv packs, offline mode.
 
 FAST
 - Everything is remembered – each text is translated only once.
-- The text scan runs in the background; no long wait at start.
+- The scan runs in the background, no wait at start.
 
 Note: the chosen online services receive your mods' texts. Your keys are never shown in the log.
-Found a bug? Write in the comments or use the "Report a bug" button (bottom left in the mod settings).
+Found a bug? Comments or the "Report a bug" button in the settings.
 
 —————————————————————
 ČESKY
@@ -74,7 +75,7 @@ CO PŘEKLÁDÁ
 
 PŘEKLADOVÉ SLUŽBY
 - Zdarma bez klíče: Microsoft Edge, Yandex, Google, MyMemory – když jedna selže, nastoupí další.
-- S vlastním klíčem (volitelně): DeepL, Azure, Google Cloud, Gemini, AI kompatibilní s OpenAI (i místní Ollama / LM Studio), LibreTranslate. Každá služba má tlačítko Test se skutečnou chybou.
+- S vlastním klíčem (volitelně): DeepL, Azure, Google Cloud, Gemini, AI kompatibilní s OpenAI (i místní Ollama / LM Studio), LibreTranslate. Každá má tlačítko Test.
 - Každý překlad se kontroluje (ztracené zástupné znaky, rozbité tokeny, špatný jazyk, useknutý text) – rozbitý se nikdy nepoužije.
 
 MÁŠ TO POD KONTROLOU
@@ -82,31 +83,30 @@ MÁŠ TO POD KONTROLOU
 - Moje slova: „colonist“ → tvoje slovo, v každém překladu.
 - Záložka Mody: kolik je z každého modu přeloženo; odškrtni mod a zůstane anglicky; export překladu jako běžné složky Languages pro autora modu.
 - Záložka Kontrola: strojové překlady, které vypadají špatně, s opravou jedním klikem.
-- „Přeložit vše teď“, import z Auto Translation, balíčky překladů (.tsv) ke sdílení, offline režim (jen paměť).
+- Překladové mody bez zapínání: nainstalované překladové mody, složka knihovny a balíčky z odkazu (zip, GitHub) doplní tvůj jazyk (záložka Zdroje).
+- „Přeložit vše teď“, import z Auto Translation, balíčky .tsv, offline režim.
 
 RYCHLÝ
 - Vše se pamatuje – každý text se překládá jen jednou.
-- Prohledání textů běží na pozadí; žádné čekání při startu.
+- Prohledání běží na pozadí, žádné čekání při startu.
 
 Pozor: zvolené online služby dostávají texty tvých modů. Tvoje klíče se v logu nikdy neukazují.
-Našli jste chybu? Napište do komentářů nebo použijte tlačítko „Nahlásit chybu“ (vlevo dole v nastavení modu).
+Našli jste chybu? Komentáře nebo tlačítko „Nahlásit chybu“ v nastavení.
 
 ═══════════════════════
 IDEAS AND SUGGESTIONS
 Want something changed or added? Write it in the comments – I read every idea and take it into account.
 
-WHAT'S NEW IN 1.1.0
-- Translates more: if a service answers in English, the next one tries
-- Chinese, Japanese and Korean translations are no longer rejected as "too short"
-- Mod item bills, blueprints and meat fully translated; no more "ERR" settlements
-- Up to three services translate at once
+WHAT'S NEW IN 1.2.0
+- Uses translation mods without enabling them
+- Facial Animation faces fixed
+- Fewer false rejections
 
 NÁPADY A NÁVRHY
 Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
 
-CO JE NOVÉHO VE VERZI 1.1.0
-- Překládá víc: když služba odpoví anglicky, zkusí to další
-- Čínské, japonské a korejské překlady už nejsou odmítány jako „moc krátké“
-- Zakázky, plány a maso z modových věcí plně přeložené; žádné osady „ERR“
-- Až tři služby překládají najednou</description>
+CO JE NOVÉHO VE VERZI 1.2.0
+- Použije překladové mody i bez zapnutí
+- Opravené obličeje Facial Animation
+- Méně falešně odmítnutých překladů</description>
 </ModMetaData>

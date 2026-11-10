@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>HaulSmarterMany</defName>
+    <driverClass>HaulSmarter.JobDriver_HaulMany</driverClass>
+    <reportString>hauling several things.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
+  <JobDef>
+    <defName>HaulSmarterUnload</defName>
+    <driverClass>HaulSmarter.JobDriver_HaulMany</driverClass>
+    <reportString>unloading hauled things.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
+  <JobDef>
+    <defName>HaulSmarterFetch</defName>
+    <driverClass>HaulSmarter.JobDriver_HaulMany</driverClass>
+    <reportString>taking materials for construction.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
+  <JobDef>
+    <defName>HaulSmarterRefuelRound</defName>
+    <driverClass>HaulSmarter.JobDriver_RefuelRound</driverClass>
+    <reportString>refueling several things.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
+
+  <!-- 3.5.0: "Haul urgently" order (the designator is added to the Orders tab from code) -->
+  <DesignationDef>
+    <defName>HaulSmarterUrgent</defName>
+    <texturePath>UI/Designators/Haul</texturePath>
+    <targetType>Thing</targetType>
+  </DesignationDef>
+  <WorkGiverDef>
+    <defName>HaulSmarterHaulUrgent</defName>
+    <label>haul things marked urgent</label>
+    <giverClass>HaulSmarter.WorkGiver_HaulUrgent</giverClass>
+    <workType>Hauling</workType>
+    <priorityInType>190</priorityInType>
+    <verb>haul</verb>
+    <gerund>hauling</gerund>
+    <requiredCapacities><li>Manipulation</li></requiredCapacities>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>HaulSmarterMergeStacks</defName>
+    <label>join half stacks in storage</label>
+    <giverClass>HaulSmarter.WorkGiver_MergeStacks</giverClass>
+    <workType>Hauling</workType>
+    <priorityInType>1</priorityInType>
+    <verb>join</verb>
+    <gerund>joining stacks of</gerund>
+    <requiredCapacities><li>Manipulation</li></requiredCapacities>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>HaulSmarterUnloadPockets</defName>
+    <label>unload hauled things</label>
+    <giverClass>HaulSmarter.WorkGiver_UnloadPockets</giverClass>
+    <workType>Hauling</workType>
+    <priorityInType>200</priorityInType>
+    <verb>unload</verb>
+    <gerund>unloading</gerund>
+    <requiredCapacities><li>Manipulation</li></requiredCapacities>
+  </WorkGiverDef>
+  <WorkGiverDef>
+    <defName>HaulSmarterHaulMany</defName>
+    <label>haul several things at once</label>
+    <giverClass>HaulSmarter.WorkGiver_HaulMany</giverClass>
+    <workType>Hauling</workType>
+    <priorityInType>16</priorityInType>
+    <verb>haul</verb>
+    <gerund>hauling</gerund>
+    <requiredCapacities><li>Manipulation</li></requiredCapacities>
+  </WorkGiverDef>
+
+  <MainButtonDef>
+    <defName>HaulSmarterOverview</defName>
+    <label>hauling</label>
+    <description>Haul Master: what waits to be hauled, how long it will take and who hauled how much.</description>
+    <tabWindowClass>HaulSmarter.MainTabWindow_Haul</tabWindowClass>
+    <order>85</order>
+    <canBeTutorDenied>false</canBeTutorDenied>
+  </MainButtonDef>
+
+</Defs>

@@ -10,6 +10,7 @@
   <URT_Status_Phase>Agora: {0}</URT_Status_Phase>
   <URT_Status_Counts>Textos sem tradução encontrados: {0} · traduções memorizadas: {1} · aplicadas no jogo: {2} · ainda a traduzir: {3}</URT_Status_Counts>
   <URT_Status_Session>Esta sessão: traduzidos {0}, rejeitados pela verificação {1}, falharam {2} · substitutos gramaticais usados {3}</URT_Status_Session>
+  <URT_Status_SessionParts>   sendo: textos de mods {0}, vistos durante o jogo {1}, restantes de sessões anteriores {2}</URT_Status_SessionParts>
   <URT_Status_Migrated>Herdado da 0.9: {0}</URT_Status_Migrated>
   <URT_Pause>Pausar tradução</URT_Pause>
   <URT_Resume>Continuar tradução</URT_Resume>
@@ -203,4 +204,38 @@ Escolha seu idioma em Opções → Idioma e reinicie o jogo – o URT então tra
   <URT_Pack_NoFiles>Nenhum pacote em {0} – coloque pacotes .tsv lá.</URT_Pack_NoFiles>
   <URT_Pack_WrongLang>Este pacote é para {0}, o jogo está em {1} – nada foi importado.</URT_Pack_WrongLang>
   <URT_Pack_OpenFolder>Abrir a pasta de pacotes</URT_Pack_OpenFolder>
+  <URT_ModGenerated>Criado ao carregar</URT_ModGenerated>
+  <URT_ModGeneratedTip>Textos de coisas que o jogo ou um mod cria em código ao carregar, sem mod próprio.</URT_ModGeneratedTip>
+  <URT_Tab_Sources>Fontes</URT_Tab_Sources>
+  <URT_Src_Intro>Mods de tradução que você instalou mas não ativou, pacotes na biblioteca do URT e pacotes de uma URL são usados para o seu idioma – não precisa ativá-los. A tradução própria de um mod e os mods de tradução ativados sempre têm prioridade; o URT só traduz o que ainda falta.</URT_Src_Intro>
+  <URT_Src_Use>Usar traduções de outros mods (sem ativá-los)</URT_Src_Use>
+  <URT_Src_Rescan>Procurar de novo</URT_Src_Rescan>
+  <URT_Src_OpenLibrary>Abrir pasta da biblioteca</URT_Src_OpenLibrary>
+  <URT_Src_LibraryTip>Coloque aqui mods de tradução descompactados ou pastas Languages:\n{0}</URT_Src_LibraryTip>
+  <URT_Src_Sum>{0} fontes ({1} ativas) · {2} textos usados para {3} mods</URT_Src_Sum>
+  <URT_Src_Restart>– as mudanças valem após reiniciar</URT_Src_Restart>
+  <URT_Src_None>Nenhum mod de tradução encontrado para o seu idioma. Inscreva-se em mods de tradução (não precisa ativá-los) ou coloque pacotes na biblioteca.</URT_Src_None>
+  <URT_Src_OrderTip>Quem está mais acima na lista vence quando duas fontes traduzem o mesmo texto.</URT_Src_OrderTip>
+  <URT_Src_CoversNone>nada usado ainda</URT_Src_CoversNone>
+  <URT_Src_Counts>{0} usados de {1}</URT_Src_Counts>
+  <URT_Src_Kind_Workshop>Workshop</URT_Src_Kind_Workshop>
+  <URT_Src_Kind_Local>Pasta Mods</URT_Src_Kind_Local>
+  <URT_Src_Kind_Library>Biblioteca</URT_Src_Kind_Library>
+  <URT_Src_Kind_URL>URL</URT_Src_Kind_URL>
+  <URT_Src_TipCounts>Usados: {0} textos Keyed, {1} textos de defs, {2} listas de nomes · {3} arquivos lidos</URT_Src_TipCounts>
+  <URT_Src_Urls>Pacotes de tradução de uma URL (zip ou repositório do GitHub)</URT_Src_Urls>
+  <URT_Src_UrlAuto>Verificar uma vez por dia</URT_Src_UrlAuto>
+  <URT_Src_UrlAutoTip>Ao iniciar, os pacotes são verificados no máximo uma vez por dia. Versões novas valem após o próximo reinício.</URT_Src_UrlAutoTip>
+  <URT_Src_UrlHint>https://github.com/… ou link para um .zip</URT_Src_UrlHint>
+  <URT_Src_UrlAdd>Adicionar</URT_Src_UrlAdd>
+  <URT_Src_UrlBusy>Baixando…</URT_Src_UrlBusy>
+  <URT_Src_UrlUpdate>Atualizar agora</URT_Src_UrlUpdate>
+  <URT_Src_UrlChecked>verificado hoje ({0})</URT_Src_UrlChecked>
+  <URT_Src_UrlSame>atualizado</URT_Src_UrlSame>
+  <URT_Src_TooBig>grande demais ({0} MB)</URT_Src_TooBig>
+  <URT_Src_NoLanguages>sem pasta Languages no zip</URT_Src_NoLanguages>
+  <URT_Src_UrlDone>{0} arquivos baixados – usados após reiniciar</URT_Src_UrlDone>
+  <URT_Src_UrlHave>{0} · {1} arquivos</URT_Src_UrlHave>
+  <URT_Src_UrlNotYet>ainda não baixado</URT_Src_UrlNotYet>
+  <URT_Mods_Imported>{0} textos deste mod vêm de mods de tradução (aba Fontes)</URT_Mods_Imported>
 </LanguageData>

@@ -101,4 +101,74 @@
   <AT_ShellNotHostile>{0} ({1}) не враждебно – артиллерия обстреливает только враждебные базы и лагеря (или открытую карту).</AT_ShellNotHostile>
   <AT_ShellNoTarget>Здесь нечего обстреливать. Выберите враждебную базу или лагерь (разведка не нужна) или открытую карту.</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0} ({1}) уничтожено артиллерийским огнём.</AT_ShellSiteDestroyed>
+  <AT_QC_This>Турель вкл/выкл</AT_QC_This>
+  <AT_QC_This_Desc>Выключает эту турель (не стреляет, даже по принудительной цели) или снова включает.</AT_QC_This_Desc>
+  <AT_QC_All>Все турели…</AT_QC_All>
+  <AT_QC_All_Desc>Выключить или включить все твои турели на этой карте или поставить всем смертельный огонь или только оглушение.</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>Огонь: смертельный</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>Огонь: только оглушение</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>Смертельный: обычные выстрелы. Только оглушение: каждое попадание только оглушает (без ран), и турель пропускает уже оглушённые или упавшие цели. Не для взрывного оружия (миномёты, ракеты).</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>Эта турель: смертельный</AT_QC_SetLethal>
+  <AT_QC_SetStun>Эта турель: только оглушение</AT_QC_SetStun>
+  <AT_QC_AllLethal>Все турели: смертельный</AT_QC_AllLethal>
+  <AT_QC_AllStun>Все турели: только оглушение</AT_QC_AllStun>
+  <AT_QC_Explosive>Взрывное оружие (миномёты, ракеты, снаряды) не может только оглушать.</AT_QC_Explosive>
+  <AT_QC_AllOff>Выключить все турели</AT_QC_AllOff>
+  <AT_QC_AllOn>Включить все турели</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>Выключено турелей: {0}.</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>Включено турелей: {0}.</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>Переведено на оглушение турелей: {0}.</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>Переведено на смертельный огонь турелей: {0}.</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>Взрывных турелей оставлено смертельными: {0}.</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>Твои турели: выключить или включить все, смертельный огонь или только оглушение.</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>Быстрые кнопки турелей</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>Кнопки вкл/выкл и смертельный/оглушение на каждой твоей турели.</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>Кнопка турелей справа внизу</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>Маленькая кнопка рядом с игровыми настройками (справа внизу), чтобы выключить/включить все турели или переключить смертельный/оглушение.</AT_QC_SetGlobal_Desc>
+  <!-- 1.4.0 ammo types -->
+  <AT_AM_Tab>Типы боеприпасов</AT_AM_Tab>
+  <AT_AM_Enable>Типы боеприпасов для турелей</AT_AM_Enable>
+  <AT_AM_Enable_Desc>Каждая ваша турель (включая модовые и миномёты) получает кнопку типа боеприпасов: бронебойные, экспансивные, зажигательные, ЭМИ, оглушающие, токсичные; миномёты также дымовые и пожаротушащие. Турель может использовать тип, для которого у неё обычно нет боеприпасов.</AT_AM_Enable_Desc>
+  <AT_AM_FromStorage>Особые боеприпасы со склада</AT_AM_FromStorage>
+  <AT_AM_FromStorage_Desc>Выкл. (по умолчанию): особые боеприпасы не нужно делать и носить – турель перезаряжается сама. Вкл.: миномётам нужны настоящие снаряды со склада, как раньше.</AT_AM_FromStorage_Desc>
+  <AT_AM_ApPen>Бронепробитие ×{0}</AT_AM_ApPen>
+  <AT_AM_HpDmg>Урон ×{0}</AT_AM_HpDmg>
+  <AT_AM_IncIgnite>Шанс поджечь: {0}</AT_AM_IncIgnite>
+  <AT_AM_EmpPow>Сила ЭМИ ×{0}</AT_AM_EmpPow>
+  <AT_AM_ToxSev>Отравление за попадание: {0}</AT_AM_ToxSev>
+  <AT_AM_KShells>Дымовые и пожаротушащие снаряды (миномёты)</AT_AM_KShells>
+  <AT_AM_KShells_Desc>Миномёты и артиллерию можно переключить на дым или пожаротушащую пену.</AT_AM_KShells_Desc>
+  <AT_AM_Gizmo>Боеприпасы: {0}</AT_AM_Gizmo>
+  <AT_AM_Gizmo_Desc>Выберите боеприпасы турели. У пулевых турелей меняется эффект попадания; миномёты и артиллерия заряжают соответствующий снаряд. Особые боеприпасы бесплатны, если не включено «Особые боеприпасы со склада».</AT_AM_Gizmo_Desc>
+  <AT_AM_K_Normal>Обычные</AT_AM_K_Normal>
+  <AT_AM_K_Normal_Desc>Стандартные боеприпасы оружия, ничего не меняется.</AT_AM_K_Normal_Desc>
+  <AT_AM_K_ArmorPiercing>Бронебойные</AT_AM_K_ArmorPiercing>
+  <AT_AM_K_ArmorPiercing_Desc>Намного выше бронепробитие, урон ×0,8. Хороши против бронированных и механоидов.</AT_AM_K_ArmorPiercing_Desc>
+  <AT_AM_K_HollowPoint>Экспансивные</AT_AM_K_HollowPoint>
+  <AT_AM_K_HollowPoint_Desc>Больше урона, половина бронепробития. Хороши против небронированных и животных.</AT_AM_K_HollowPoint_Desc>
+  <AT_AM_K_Incendiary>Зажигательные</AT_AM_K_Incendiary>
+  <AT_AM_K_Incendiary_Desc>Добавляют ожог и шанс поджечь цель. Миномёты: зажигательный снаряд.</AT_AM_K_Incendiary_Desc>
+  <AT_AM_K_EMP>ЭМИ</AT_AM_K_EMP>
+  <AT_AM_K_EMP_Desc>Небольшой обычный урон плюс ЭМИ: оглушает механоидов и турели, ломает щиты. Миномёты: ЭМИ-снаряд.</AT_AM_K_EMP_Desc>
+  <AT_AM_K_Stun>Оглушающие</AT_AM_K_Stun>
+  <AT_AM_K_Stun_Desc>Без ран – попадания только оглушают. Пропускает лежащих и оглушённых. Только пулевые турели.</AT_AM_K_Stun_Desc>
+  <AT_AM_K_Toxic>Токсичные</AT_AM_K_Toxic>
+  <AT_AM_K_Toxic_Desc>Меньше урона, добавляют отравление живым целям. Миномёты: токсичный снаряд (Biotech).</AT_AM_K_Toxic_Desc>
+  <AT_AM_K_Smoke>Дымовые</AT_AM_K_Smoke>
+  <AT_AM_K_Smoke_Desc>Только миномёты: дымовой снаряд, мешающий стрельбе врага.</AT_AM_K_Smoke_Desc>
+  <AT_AM_K_Firefoam>Пожаротушащие</AT_AM_K_Firefoam>
+  <AT_AM_K_Firefoam_Desc>Только миномёты: снаряд с пеной, тушит пожары.</AT_AM_K_Firefoam_Desc>
+  <AT_AM_ApplySame>Так же для всех: {0}</AT_AM_ApplySame>
+  <AT_AM_ApplyAll>Так же для всех турелей</AT_AM_ApplyAll>
+  <AT_AM_AllMenu>Тип боеприпасов для всех турелей…</AT_AM_AllMenu>
+  <AT_AM_AllKind>Все турели: {0}</AT_AM_AllKind>
+  <AT_AM_SetMsg>Боеприпасы установлены у {0} турелей: {1}.</AT_AM_SetMsg>
+  <AT_AM_Skipped>{0} турелей не могут их использовать и оставлены как были.</AT_AM_Skipped>
+  <AT_AM_OffInSettings>выключено в настройках</AT_AM_OffInSettings>
+  <AT_AM_NotForShells>не для снарядов</AT_AM_NotForShells>
+  <AT_AM_NotForRockets>ракеты нельзя переключить</AT_AM_NotForRockets>
+  <AT_AM_NoShellDef>снаряд недоступен</AT_AM_NoShellDef>
+  <AT_AM_OnlyShells>только миномёты</AT_AM_OnlyShells>
+  <AT_SpareGround>Турели не уничтожают предметы и тела</AT_SpareGround>
+  <AT_SpareGround_Desc>Вкл.: пули и взрывы снарядов твоих турелей не трогают предметы и трупы на земле – добыча не разносится в клочья, а тела не превращаются в кашу, пока не исчезнут. Персонажи и постройки поражаются как обычно. Выкл. = как в игре.</AT_SpareGround_Desc>
 </LanguageData>

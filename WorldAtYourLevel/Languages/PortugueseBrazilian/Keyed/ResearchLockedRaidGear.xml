@@ -376,4 +376,49 @@
   <RLRG_RemKeepAll>Manter tudo</RLRG_RemKeepAll>
   <RLRG_RemKeepAll_Desc>Manter tudo o que aparece aqui – não será mais removido.</RLRG_RemKeepAll_Desc>
   <RLRG_RemTip>Marcado = fica. Desmarcado = as regras do mod decidem (mecanoides e drones não pesquisados, máquinas de clima/condição acima do nível do mundo, torretas melhores que as suas). Marque para manter mesmo assim.</RLRG_RemTip>
+  <RLRG_NW_Mode>Notícias do mundo: {0}</RLRG_NW_Mode>
+  <RLRG_NW_Mode_Desc>Quando uma facção sobe ou desce um nível tecnológico, uma notícia curta te avisa – como mensagem, como carta ou nada. A aba Mundo sempre guarda o histórico.</RLRG_NW_Mode_Desc>
+  <RLRG_NW_Off>desligado</RLRG_NW_Off>
+  <RLRG_NW_Message>mensagem</RLRG_NW_Message>
+  <RLRG_NW_Letter>carta</RLRG_NW_Letter>
+  <RLRG_NW_Title>Notícias do mundo</RLRG_NW_Title>
+  <RLRG_NW_Up_2>{0} deixaram os velhos costumes para trás e agora trabalham pedra e madeira como verdadeiros artesãos.</RLRG_NW_Up_2>
+  <RLRG_NW_Up_3>{0} aprenderam a forjar aço – seus guerreiros agora vêm de armadura, com espadas e arcos.</RLRG_NW_Up_3>
+  <RLRG_NW_Up_4>{0} descobriram a pólvora – seu povo agora carrega armas de fogo.</RLRG_NW_Up_4>
+  <RLRG_NW_Up_5>{0} construíram seus primeiros fabricadores – a tecnologia espacial chega aos seus assentamentos.</RLRG_NW_Up_5>
+  <RLRG_NW_Up_6>{0} dominaram a ultratecnologia – seus assentamentos brilham com uma técnica que poucos já viram.</RLRG_NW_Up_6>
+  <RLRG_NW_Up_7>{0} tocaram o conhecimento arcotecnológico – o mundo nunca mais será o mesmo.</RLRG_NW_Up_7>
+  <RLRG_NW_Down>{0} perderam grande parte do seu conhecimento{1} e voltaram ao nível {2}.</RLRG_NW_Down>
+  <RLRG_NW_CauseRaid> depois que você destruiu um dos seus assentamentos</RLRG_NW_CauseRaid>
+  <RLRG_NW_CauseTrade> O comércio com você os ajudou.</RLRG_NW_CauseTrade>
+  <RLRG_NW_CauseData> Os dados de pesquisa que compraram de você os ajudaram.</RLRG_NW_CauseData>
+  <RLRG_NW_History>Notícias do mundo</RLRG_NW_History>
+  <RLRG_NW_HistoryEmpty>Ainda sem notícias.</RLRG_NW_HistoryEmpty>
+  <RLRG_EV_Relations>Relações seguem o nível tecnológico</RLRG_EV_Relations>
+  <RLRG_EV_Relations_Desc>Facções muito distantes em tecnologia (2 níveis ou mais) ficam hostis aos poucos – os atrasados invejam os avançados. Facções do mesmo nível negociam e ficam amigáveis aos poucos. Só mudam as relações entre outras facções, nunca as suas.</RLRG_EV_Relations_Desc>
+  <RLRG_EV_RelStrength>Mudança: {0} de boa vontade a cada 3 dias</RLRG_EV_RelStrength>
+  <RLRG_EV_RelStrength_Desc>Quão rápido as relações entre facções vão para amizade ou hostilidade.</RLRG_EV_RelStrength_Desc>
+  <RLRG_EV_RelTitle>Relações entre facções</RLRG_EV_RelTitle>
+  <RLRG_EV_RelEnvy>{0} invejam {1} ({2} níveis à frente, boa vontade {3})</RLRG_EV_RelEnvy>
+  <RLRG_EV_RelFriends>{0} e {1} negociam como iguais (boa vontade {2})</RLRG_EV_RelFriends>
+  <RLRG_EV_RelNone>Ainda não há relações moldadas pela tecnologia.</RLRG_EV_RelNone>
+  <RLRG_EV_SellData>Venda de dados de pesquisa</RLRG_EV_SellData>
+  <RLRG_EV_SellData_Desc>No console de comunicação, facções atrás de você podem comprar dados das suas pesquisas concluídas: prata e boa vontade para você, progresso para o próximo nível para elas – elas ficam mais fortes. Uma vez a cada 7 dias por facção.</RLRG_EV_SellData_Desc>
+  <RLRG_EV_NoteData>comprou pesquisa</RLRG_EV_NoteData>
+  <RLRG_SD_Option>Vender dados de pesquisa</RLRG_SD_Option>
+  <RLRG_SD_Cooldown>Ainda estão estudando o que você vendeu da última vez ({0} dias).</RLRG_SD_Cooldown>
+  <RLRG_SD_Nothing>Você não tem nenhuma pesquisa concluída que lhes falte.</RLRG_SD_Nothing>
+  <RLRG_SD_Intro>{0} (nível {1}) pagariam por uma pesquisa que ainda não têm.\n\nAtenção: o que você vende os deixa mais fortes – seus saqueadores e visitantes terão equipamento melhor mais cedo.</RLRG_SD_Intro>
+  <RLRG_SD_Item>{0} – {1} de prata, +{2} de boa vontade</RLRG_SD_Item>
+  <RLRG_SD_Done>{0} pagaram {1} de prata pelos dados de {2}. A prata chega em uma cápsula.</RLRG_SD_Done>
+  <RLRG_SD_Back>Voltar</RLRG_SD_Back>
+  <RLRG_RerollButton>Botão para nivelar o equipamento inimigo</RLRG_RerollButton>
+  <RLRG_RerollButton_Desc>Peões de outras facções ganham um botão que reduz o equipamento ao nível do mundo na hora – para o que escapou (locais antigos, missões de outros mods, peões criados antes do mod).</RLRG_RerollButton_Desc>
+  <RLRG_Reroll>Nivelar equipamento</RLRG_Reroll>
+  <RLRG_Reroll_Desc>Reduz agora as armas e roupas deste peão ao nível do mundo (também perigos antigos e outras exceções).</RLRG_Reroll_Desc>
+  <RLRG_RerollDone>{0}: equipamento nivelado ao mundo.</RLRG_RerollDone>
+  <RLRG_AutoExempt>Automático (recomendado)</RLRG_AutoExempt>
+  <RLRG_AutoExempt_Desc>Ligado: toda facção hostil corresponde ao nível da sua colônia; facções amigas (aliados, comerciantes, visitantes) mantêm seu equipamento. Desligado: você escolhe as exceções à mão.</RLRG_AutoExempt_Desc>
+  <RLRG_AutoExemptOn>Automático: quem te ataca chega com equipamento do seu nível. Facções amigas mantêm seu equipamento. Desligue para escolher as exceções à mão.</RLRG_AutoExemptOn>
+  <RLRG_ExemptClear>Limpar todas as exceções</RLRG_ExemptClear>
 </LanguageData>

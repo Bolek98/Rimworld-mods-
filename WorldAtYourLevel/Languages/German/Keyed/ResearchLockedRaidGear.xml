@@ -376,4 +376,49 @@
   <RLRG_RemKeepAll>Alle behalten</RLRG_RemKeepAll>
   <RLRG_RemKeepAll_Desc>Alles hier Sichtbare behalten – es wird nicht mehr entfernt.</RLRG_RemKeepAll_Desc>
   <RLRG_RemTip>Markiert = bleibt. Nicht markiert = die Regeln der Mod entscheiden (nicht erforschte Mechanoiden und Drohnen, Wetter-/Zustandsmaschinen über dem Weltniveau, Geschütze besser als deine). Markieren, um es trotzdem zu behalten.</RLRG_RemTip>
+  <RLRG_NW_Mode>Weltnachrichten: {0}</RLRG_NW_Mode>
+  <RLRG_NW_Mode_Desc>Wenn eine Fraktion eine Techstufe auf- oder absteigt, erfährst du es in einer kurzen Nachricht – als Meldung, als Brief oder gar nicht. Der Welt-Tab speichert den Verlauf immer.</RLRG_NW_Mode_Desc>
+  <RLRG_NW_Off>aus</RLRG_NW_Off>
+  <RLRG_NW_Message>Meldung</RLRG_NW_Message>
+  <RLRG_NW_Letter>Brief</RLRG_NW_Letter>
+  <RLRG_NW_Title>Weltnachrichten</RLRG_NW_Title>
+  <RLRG_NW_Up_2>{0} haben die alten Wege hinter sich gelassen und bearbeiten Stein und Holz nun wie echte Handwerker.</RLRG_NW_Up_2>
+  <RLRG_NW_Up_3>{0} haben gelernt, Stahl zu schmieden – ihre Krieger kommen nun in Rüstung, mit Schwertern und Bögen.</RLRG_NW_Up_3>
+  <RLRG_NW_Up_4>{0} haben das Schießpulver entdeckt – ihre Leute tragen nun Feuerwaffen.</RLRG_NW_Up_4>
+  <RLRG_NW_Up_5>{0} haben ihre ersten Fabrikatoren gebaut – Raumfahrttechnik erreicht ihre Siedlungen.</RLRG_NW_Up_5>
+  <RLRG_NW_Up_6>{0} beherrschen Ultra-Technik – ihre Siedlungen glänzen mit Technik, die kaum jemand je gesehen hat.</RLRG_NW_Up_6>
+  <RLRG_NW_Up_7>{0} haben archotechisches Wissen berührt – die Welt wird nie mehr dieselbe sein.</RLRG_NW_Up_7>
+  <RLRG_NW_Down>{0} haben viel von ihrem Wissen verloren{1} und sind auf die Stufe {2} zurückgefallen.</RLRG_NW_Down>
+  <RLRG_NW_CauseRaid> nachdem du eine ihrer Siedlungen zerstört hast</RLRG_NW_CauseRaid>
+  <RLRG_NW_CauseTrade> Der Handel mit dir hat ihnen geholfen.</RLRG_NW_CauseTrade>
+  <RLRG_NW_CauseData> Die Forschungsdaten, die sie von dir gekauft haben, haben ihnen geholfen.</RLRG_NW_CauseData>
+  <RLRG_NW_History>Weltnachrichten</RLRG_NW_History>
+  <RLRG_NW_HistoryEmpty>Noch keine Nachrichten.</RLRG_NW_HistoryEmpty>
+  <RLRG_EV_Relations>Beziehungen folgen der Techstufe</RLRG_EV_Relations>
+  <RLRG_EV_Relations_Desc>Fraktionen, die technisch weit auseinander liegen (2 Stufen oder mehr), werden langsam feindselig – die Rückständigen beneiden die Fortschrittlichen. Fraktionen auf derselben Stufe handeln miteinander und werden langsam freundlich. Nur die Beziehungen zwischen anderen Fraktionen ändern sich, nie deine.</RLRG_EV_Relations_Desc>
+  <RLRG_EV_RelStrength>Änderung: {0} Wohlwollen alle 3 Tage</RLRG_EV_RelStrength>
+  <RLRG_EV_RelStrength_Desc>Wie schnell sich die Beziehungen zwischen Fraktionen in Richtung Freundschaft oder Feindschaft bewegen.</RLRG_EV_RelStrength_Desc>
+  <RLRG_EV_RelTitle>Beziehungen zwischen Fraktionen</RLRG_EV_RelTitle>
+  <RLRG_EV_RelEnvy>{0} beneiden {1} ({2} Stufen voraus, Wohlwollen {3})</RLRG_EV_RelEnvy>
+  <RLRG_EV_RelFriends>{0} und {1} handeln als Gleiche (Wohlwollen {2})</RLRG_EV_RelFriends>
+  <RLRG_EV_RelNone>Noch keine von der Technik geprägten Beziehungen.</RLRG_EV_RelNone>
+  <RLRG_EV_SellData>Forschungsdaten verkaufen</RLRG_EV_SellData>
+  <RLRG_EV_SellData_Desc>An der Kommunikationskonsole können Fraktionen, die hinter dir liegen, Daten deiner abgeschlossenen Forschung kaufen: Silber und Wohlwollen für dich, Fortschritt zur nächsten Stufe für sie – sie werden stärker. Einmal alle 7 Tage pro Fraktion.</RLRG_EV_SellData_Desc>
+  <RLRG_EV_NoteData>Forschung gekauft</RLRG_EV_NoteData>
+  <RLRG_SD_Option>Forschungsdaten verkaufen</RLRG_SD_Option>
+  <RLRG_SD_Cooldown>Sie studieren noch, was du ihnen zuletzt verkauft hast ({0} Tage).</RLRG_SD_Cooldown>
+  <RLRG_SD_Nothing>Du hast keine abgeschlossene Forschung, die ihnen fehlt.</RLRG_SD_Nothing>
+  <RLRG_SD_Intro>{0} (Stufe {1}) würden für Forschung bezahlen, die sie noch nicht haben.\n\nAchtung: Was du verkaufst, macht sie stärker – ihre Angreifer und Besucher tragen früher bessere Ausrüstung.</RLRG_SD_Intro>
+  <RLRG_SD_Item>{0} – {1} Silber, +{2} Wohlwollen</RLRG_SD_Item>
+  <RLRG_SD_Done>{0} haben {1} Silber für die Daten zu {2} bezahlt. Das Silber kommt per Landekapsel.</RLRG_SD_Done>
+  <RLRG_SD_Back>Zurück</RLRG_SD_Back>
+  <RLRG_RerollButton>Knopf zum Angleichen gegnerischer Ausrüstung</RLRG_RerollButton>
+  <RLRG_RerollButton_Desc>Figuren anderer Fraktionen bekommen einen Knopf, der ihre Ausrüstung sofort auf die Weltstufe kürzt – für alles, was durchgerutscht ist (antike Orte, Quests anderer Mods, Figuren von vor der Mod).</RLRG_RerollButton_Desc>
+  <RLRG_Reroll>Ausrüstung angleichen</RLRG_Reroll>
+  <RLRG_Reroll_Desc>Kürzt Waffen und Kleidung dieser Figur sofort auf die Weltstufe (auch antike Gefahren und andere Ausnahmen).</RLRG_Reroll_Desc>
+  <RLRG_RerollDone>{0}: Ausrüstung an die Welt angeglichen.</RLRG_RerollDone>
+  <RLRG_AutoExempt>Automatisch (empfohlen)</RLRG_AutoExempt>
+  <RLRG_AutoExempt_Desc>An: jede feindliche Fraktion passt sich deinem Kolonie-Level an; freundliche Fraktionen (Verbündete, Händler, Besucher) behalten ihre Ausrüstung. Aus: Ausnahmen wählst du von Hand.</RLRG_AutoExempt_Desc>
+  <RLRG_AutoExemptOn>Automatisch: Wer dich angreift, kommt mit Ausrüstung deines Levels. Freundliche Fraktionen behalten ihre Ausrüstung. Ausschalten, um Ausnahmen von Hand zu wählen.</RLRG_AutoExemptOn>
+  <RLRG_ExemptClear>Alle Ausnahmen entfernen</RLRG_ExemptClear>
 </LanguageData>

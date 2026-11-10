@@ -149,7 +149,9 @@ namespace UniversalRimTranslator
                 float exW = 120f, barW = Mathf.Min(260f, row.width * 0.3f);
                 Rect name = new Rect(row.x + 36f, row.y + 6f, row.width - 36f - barW - exW - 24f, 24f);
                 GUI.color = on ? Color.white : MUI.Muted;
-                Widgets.Label(name, s.Mod.Truncate(name.width));
+                string shown = s.Mod == "?" ? (string)"URT_ModGenerated".Translate() : s.Mod;
+                Widgets.Label(name, shown.Truncate(name.width));
+                if (s.Mod == "?") TooltipHandler.TipRegion(name, "URT_ModGeneratedTip".Translate());
                 GUI.color = Color.white;
 
                 Rect bar = new Rect(name.xMax + 8f, row.y + 7f, barW, 18f);
@@ -157,7 +159,10 @@ namespace UniversalRimTranslator
                 MUI.Fill(new Rect(bar.x, bar.y, bar.width * s.Pct, bar.height), on ? MUI.Accent : MUI.Border);
                 Text.Font = GameFont.Tiny;
                 Text.Anchor = TextAnchor.MiddleCenter;
-                Widgets.Label(bar, s.Done + " / " + s.Total + " · " + Percent(s.Pct));
+                // 1.2.0: texts this mod got from translation mods (Sources tab)
+                int imp = Sources.ImportedFor(s.Mod);
+                Widgets.Label(bar, s.Done + " / " + s.Total + " · " + Percent(s.Pct) + (imp > 0 ? " · +" + imp : ""));
+                if (imp > 0) TooltipHandler.TipRegion(bar, "URT_Mods_Imported".Translate(imp));
                 Text.Anchor = TextAnchor.UpperLeft;
                 Text.Font = GameFont.Small;
 

@@ -31,6 +31,7 @@ namespace ModSortManager
         public static List<Dep> Deps(List<ModMetaData> active)
         {
             var list = new List<Dep>();
+            var seen = new HashSet<string>();
             var ids = new HashSet<string>(active.Select(Id));
             foreach (ModMetaData m in active)
                 foreach (ModDependency d in m.Dependencies)
@@ -40,9 +41,47 @@ namespace ModSortManager
                     if (d.alternativePackageIds != null) alts.AddRange(d.alternativePackageIds);
                     if (alts.Any(a => ids.Contains(a.ToLowerInvariant().Replace("_steam", "")))) continue;
                     ModMetaData inst = alts.Select(a => ModLister.GetModWithIdentifier(a, true)).FirstOrDefault(x => x != null);
+                    // 0.6.1: one line per mod and requirement (a mod listing the same requirement twice, or two copies of it)
+                    string key = Id(m) + "|" + d.packageId.ToLowerInvariant().Replace("_steam", "");
+                    if (!seen.Add(key)) continue;
                     list.Add(new Dep { mod = m, name = d.displayName ?? d.packageId, installed = inst });
                 }
             return list;
+        }
+
+        // 0.6.1: active mods whose requirement is not active – and those that would lose theirs once these are off
+        public static List<ModMetaData> WithoutRequirement(List<ModMetaData> active)
+        {
+            var on = new List<ModMetaData>(active);
+            var off = new List<ModMetaData>();
+            bool changed = true;
+            while (changed)
+            {
+                changed = false;
+                var ids = new HashSet<string>(on.Select(Id));
+                foreach (ModMetaData m in on.ToList())
+                {
+                    if (m.Official) continue;
+                    foreach (ModDependency d in m.Dependencies)
+                    {
+                        if (d == null || d.packageId.NullOrEmpty()) continue;
+                        var alts = new List<string> { d.packageId };
+                        if (d.alternativePackageIds != null) alts.AddRange(d.alternativePackageIds);
+                        if (alts.Any(a => ids.Contains(a.ToLowerInvariant().Replace("_steam", "")))) continue;
+                        on.Remove(m);
+                        if (!off.Any(o => Id(o) == Id(m))) off.Add(m);
+                        changed = true;
+                        break;
+                    }
+                }
+            }
+            return off;
+        }
+
+        public static int Copies(ModMetaData m)
+        {
+            string id = Id(m);
+            return ModLister.AllInstalledMods.Count(x => Id(x) == id);
         }
 
         public static List<ModMetaData> Old(List<ModMetaData> newMods) => newMods.Where(m => !Rules.VersionOk(m)).ToList();   // 0.3.0
@@ -346,7 +385,7 @@ namespace ModSortManager
             {
                 sb.Add(new KeyValuePair<Color, string>(err, "MSM_PS_Deps".Translate()));
                 foreach (PreSave.Dep d in deps)
-                    sb.Add(new KeyValuePair<Color, string>(txt, "• " + "MSM_PS_DepLine".Translate(d.mod.Name, d.name, d.installed != null ? "MSM_PS_DepOff".Translate() : "MSM_PS_DepNone".Translate())));
+                    sb.Add(new KeyValuePair<Color, string>(txt, "• " + "MSM_PS_DepLine".Translate(d.mod.Name, d.name, d.installed != null ? "MSM_PS_DepOff".Translate() : "MSM_PS_DepNone".Translate()) + (PreSave.Copies(d.mod) > 1 ? " " + "MSM_PS_Copies".Translate(PreSave.Copies(d.mod)).ToString() : "")));
             }
             if (scan.done && scan.refs.Count > 0)
             {
@@ -386,31 +425,42 @@ namespace ModSortManager
             }
             Widgets.EndScrollView();
 
-            // buttons
-            float by = r.yMax - 80f, bw = (r.width - 16f) / 3f;
-            List<ModMetaData> fixable = deps.Where(d => d.installed != null).Select(d => d.installed).Distinct().ToList();
+            // buttons – 0.6.1: only the ones that can do something, honest counts
+            float by = r.yMax - 80f;
+            List<ModMetaData> fixable = new List<ModMetaData>();
+            foreach (ModMetaData m in deps.Where(d => d.installed != null).Select(d => d.installed))
+                if (!fixable.Any(f => PreSave.Id(f) == PreSave.Id(m))) fixable.Add(m);
+            List<ModMetaData> orphans = PreSave.WithoutRequirement(owner.ActiveList);
             var bad = new HashSet<ModMetaData>(deps.Where(d => d.installed == null && newMods.Contains(d.mod)).Select(d => d.mod));
             if (scan.done) foreach (PreSave.Ref f in scan.refs) if (newMods.Contains(f.mod)) bad.Add(f.mod);
             foreach (ModMetaData m in old) bad.Add(m);
-            if (Dialog_ModSortManager.Button(new Rect(r.x, by, bw, 34f), "MSM_PS_FixDeps".Translate(fixable.Count), false, fixable.Count > 0))
+            var actions = new List<KeyValuePair<string, Action>>();
+            if (fixable.Count > 0)
+                actions.Add(new KeyValuePair<string, Action>("MSM_PS_FixDeps".Translate(fixable.Count), () => { foreach (ModMetaData m in fixable) owner.ActivateMod(m); Close(); }));
+            if (orphans.Count > 0)
+                actions.Add(new KeyValuePair<string, Action>("MSM_PS_OffOrphans".Translate(orphans.Count), () => { foreach (ModMetaData m in orphans) owner.DeactivateMod(m); Close(); }));
+            if (bad.Count > 0)
+                actions.Add(new KeyValuePair<string, Action>("MSM_PS_OffBad".Translate(bad.Count), () => { foreach (ModMetaData m in bad) owner.DeactivateMod(m); Close(); }));
+            bool groupMode = groups.Count > 1;
+            if (groupMode)
+                actions.Add(new KeyValuePair<string, Action>("MSM_PS_FirstGroup".Translate(groups[0].Count), () =>
+                {
+                    List<string> order = owner.ActiveList.Select(PreSave.Id).ToList();
+                    for (int i = 1; i < groups.Count; i++)
+                        foreach (ModMetaData m in groups[i]) owner.DeactivateMod(m);
+                    owner.SetQueueAfterSave(order, groups.Skip(1).Select(g => g.Select(PreSave.Id).ToList()).ToList());
+                    Close();
+                    owner.ContinueSave();
+                }));
+            if (actions.Count > 0)
             {
-                foreach (ModMetaData m in fixable) owner.ActivateMod(m);
-                Close();
-            }
-            if (Dialog_ModSortManager.Button(new Rect(r.x + bw + 8f, by, bw, 34f), "MSM_PS_OffBad".Translate(bad.Count), false, bad.Count > 0))
-            {
-                foreach (ModMetaData m in bad) owner.DeactivateMod(m);
-                Close();
-            }
-            if (Dialog_ModSortManager.Button(new Rect(r.x + 2 * (bw + 8f), by, bw, 34f), "MSM_PS_FirstGroup".Translate(groups.Count > 1 ? groups[0].Count : 0), true, groups.Count > 1))
-            {
-                List<string> order = owner.ActiveList.Select(PreSave.Id).ToList();
-                for (int i = 1; i < groups.Count; i++)
-                    foreach (ModMetaData m in groups[i]) owner.DeactivateMod(m);
-                owner.SetQueueAfterSave(order, groups.Skip(1).Select(g => g.Select(PreSave.Id).ToList()).ToList());
-                Close();
-                owner.ContinueSave();
-                return;
+                float bw = (r.width - 8f * (actions.Count - 1)) / actions.Count;
+                for (int i = 0; i < actions.Count; i++)
+                    if (Dialog_ModSortManager.Button(new Rect(r.x + i * (bw + 8f), by, bw, 34f), actions[i].Key, groupMode && i == actions.Count - 1))
+                    {
+                        actions[i].Value();
+                        return;
+                    }
             }
             float by2 = r.yMax - 36f;
             if (Dialog_ModSortManager.Button(new Rect(r.x, by2, (r.width - 8f) / 2f, 34f), "MSM_PS_Back".Translate())) Close();

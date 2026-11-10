@@ -175,6 +175,12 @@
   <CF2_OneTopTip>Each colonist has only his most important work on 1, his other main work on 2.</CF2_OneTopTip>
   <CF2_Backup>Backup work on the lowest priority</CF2_Backup>
   <CF2_BackupTip>Who does not have a work as main work keeps it on the lowest level, so nobody stands idle.</CF2_BackupTip>
+  <CF2_BackupMinSkill>Skilled work as backup only from skill {0} (0 = everybody)</CF2_BackupMinSkill>
+  <CF2_BackupMinSkillTip>Crafting, art, construction and research stay as backup only with colonists who have at least this skill. Doctoring, wardens, childcare, cooking, plants, mining, animals and simple work like hauling stay with everybody. If nobody reaches it, the best colonist still gets the work.</CF2_BackupMinSkillTip>
+  <CF2_SurgeryMin>Surgery only by doctors from Medicine {0} (0 = off)</CF2_SurgeryMin>
+  <CF2_SurgeryMinTip>When a doctor with at least this Medicine is on the map and assigned to doctoring, weaker doctors only tend and leave surgery to him. If no such doctor is there, anyone may operate. Your forced orders always work.</CF2_SurgeryMinTip>
+  <CF2_TipBackupLowSkill>Not a backup: skill {0} is below {1}.</CF2_TipBackupLowSkill>
+  <CF2_SurgeryLeft>Surgery left to a better doctor</CF2_SurgeryLeft>
   <CF2_Opposed>Also give work the ideology rejects</CF2_Opposed>
   <CF2_OpposedTip>Off: work the colonist's ideology finds dangerous is never given to him.</CF2_OpposedTip>
   <CF2_Injured>Hurt and sick colonists get lighter work</CF2_Injured>
@@ -311,4 +317,7 @@
   <CF_Keep_NowStarted>{0} colonists are bringing things to the keep zone.</CF_Keep_NowStarted>
   <CF_Keep_NowNobody>Nobody can bring anything now (no free colonist, or nothing reachable left outside the zone).</CF_Keep_NowNobody>
   <CF_Keep_NowFull>The zone already has everything it should.</CF_Keep_NowFull>
+  <CF_Crisis_NewColony>new colony (start plan)</CF_Crisis_NewColony>
+  <CF2_TipSmallColony>small colony: first the work that matters most now</CF2_TipSmallColony>
+  <CF2_TipArea>priority area: needed for the work there</CF2_TipArea>
 </LanguageData>

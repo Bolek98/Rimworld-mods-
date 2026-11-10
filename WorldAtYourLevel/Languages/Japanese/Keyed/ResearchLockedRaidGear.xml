@@ -375,4 +375,49 @@
   <RLRG_RemKeepAll>すべて残す</RLRG_RemKeepAll>
   <RLRG_RemKeepAll_Desc>ここに表示中のものをすべて残す – もう削除されません。</RLRG_RemKeepAll_Desc>
   <RLRG_RemTip>チェック = 残る。チェックなし = Modのルールで決まる（未研究のメカノイドやドローン、世界レベルより上の天候/状態装置、あなたより強いタレット）。それでも残したい場合はチェック。</RLRG_RemTip>
+  <RLRG_NW_Mode>世界のニュース：{0}</RLRG_NW_Mode>
+  <RLRG_NW_Mode_Desc>派閥の技術レベルが上がったり下がったりすると、短いニュースで知らせます——メッセージ、手紙、または通知なし。ワールドタブには常に履歴が残ります。</RLRG_NW_Mode_Desc>
+  <RLRG_NW_Off>オフ</RLRG_NW_Off>
+  <RLRG_NW_Message>メッセージ</RLRG_NW_Message>
+  <RLRG_NW_Letter>手紙</RLRG_NW_Letter>
+  <RLRG_NW_Title>世界のニュース</RLRG_NW_Title>
+  <RLRG_NW_Up_2>{0}は古いやり方を捨て、今では本物の職人のように石と木を加工している。</RLRG_NW_Up_2>
+  <RLRG_NW_Up_3>{0}は鋼の鍛造を覚えた——彼らの戦士は今や鎧をまとい、剣と弓を携えている。</RLRG_NW_Up_3>
+  <RLRG_NW_Up_4>{0}は火薬を発見した——彼らの民は今や銃火器を持っている。</RLRG_NW_Up_4>
+  <RLRG_NW_Up_5>{0}は最初のファブリケーターを建造した——宇宙技術が彼らの集落に届きつつある。</RLRG_NW_Up_5>
+  <RLRG_NW_Up_6>{0}はウルトラ技術を習得した——彼らの集落は誰も見たことのない技術で輝いている。</RLRG_NW_Up_6>
+  <RLRG_NW_Up_7>{0}はアーコテックの知識に触れた——世界はもう元には戻らない。</RLRG_NW_Up_7>
+  <RLRG_NW_Down>{0}は多くの知識を失い{1}、{2}レベルに後退した。</RLRG_NW_Down>
+  <RLRG_NW_CauseRaid>（あなたが彼らの集落の一つを破壊した後）</RLRG_NW_CauseRaid>
+  <RLRG_NW_CauseTrade>あなたとの交易が彼らを助けた。</RLRG_NW_CauseTrade>
+  <RLRG_NW_CauseData>あなたから買った研究データが彼らを助けた。</RLRG_NW_CauseData>
+  <RLRG_NW_History>世界のニュース</RLRG_NW_History>
+  <RLRG_NW_HistoryEmpty>まだニュースはありません。</RLRG_NW_HistoryEmpty>
+  <RLRG_EV_Relations>関係が技術レベルに従う</RLRG_EV_Relations>
+  <RLRG_EV_Relations_Desc>技術が大きく離れた派閥（2レベル以上）は徐々に敵対的になる——遅れた者は進んだ者を妬む。同じレベルの派閥は交易し、徐々に友好的になる。変わるのは他の派閥同士の関係だけで、あなたとの関係は変わらない。</RLRG_EV_Relations_Desc>
+  <RLRG_EV_RelStrength>変化：3日ごとに好感度{0}</RLRG_EV_RelStrength>
+  <RLRG_EV_RelStrength_Desc>派閥間の関係が友好または敵対へ向かう速さ。</RLRG_EV_RelStrength_Desc>
+  <RLRG_EV_RelTitle>派閥間の関係</RLRG_EV_RelTitle>
+  <RLRG_EV_RelEnvy>{0}は{1}を妬んでいる（{2}レベル先行、好感度{3}）</RLRG_EV_RelEnvy>
+  <RLRG_EV_RelFriends>{0}と{1}は対等に交易している（好感度{2}）</RLRG_EV_RelFriends>
+  <RLRG_EV_RelNone>技術による関係はまだありません。</RLRG_EV_RelNone>
+  <RLRG_EV_SellData>研究データの販売</RLRG_EV_SellData>
+  <RLRG_EV_SellData_Desc>通信コンソールで、あなたより遅れている派閥があなたの完了済み研究のデータを買える：あなたには銀と好感度、彼らには次のレベルへの進歩——彼らは強くなる。派閥ごとに7日に1回。</RLRG_EV_SellData_Desc>
+  <RLRG_EV_NoteData>研究を購入</RLRG_EV_NoteData>
+  <RLRG_SD_Option>研究データを売る</RLRG_SD_Option>
+  <RLRG_SD_Cooldown>前回売ったものをまだ研究している（{0}日）。</RLRG_SD_Cooldown>
+  <RLRG_SD_Nothing>彼らに欠けている完了済みの研究がありません。</RLRG_SD_Nothing>
+  <RLRG_SD_Intro>{0}（{1}レベル）はまだ持っていない研究に代金を払うだろう。\n\n注意：売ったものは彼らを強くする——彼らの襲撃者や訪問者はより早く良い装備を持つようになる。</RLRG_SD_Intro>
+  <RLRG_SD_Item>{0} – 銀{1}、好感度+{2}</RLRG_SD_Item>
+  <RLRG_SD_Done>{0}は{2}のデータに銀{1}を支払った。銀はドロップポッドで届く。</RLRG_SD_Done>
+  <RLRG_SD_Back>戻る</RLRG_SD_Back>
+  <RLRG_RerollButton>敵の装備をそろえるボタン</RLRG_RerollButton>
+  <RLRG_RerollButton_Desc>他勢力のポーンに、装備をすぐ世界レベルまで下げるボタンが付きます――すり抜けたもの用（古代の場所、他MODのクエスト、MOD導入前に作られたポーン）。</RLRG_RerollButton_Desc>
+  <RLRG_Reroll>装備をそろえる</RLRG_Reroll>
+  <RLRG_Reroll_Desc>このポーンの武器と衣服を今すぐ世界レベルに下げます（古代の危険などの例外も含む）。</RLRG_Reroll_Desc>
+  <RLRG_RerollDone>{0}：装備を世界レベルにそろえました。</RLRG_RerollDone>
+  <RLRG_AutoExempt>自動（推奨）</RLRG_AutoExempt>
+  <RLRG_AutoExempt_Desc>オン：敵対する勢力はすべてコロニーのレベルに合わせます。友好勢力（同盟・商人・訪問者）は自分の装備のままです。オフ：例外を手動で選びます。</RLRG_AutoExempt_Desc>
+  <RLRG_AutoExemptOn>自動：攻めてくる者はあなたのレベルの装備で来ます。友好勢力は自分の装備のままです。手動で例外を選ぶにはオフにしてください。</RLRG_AutoExemptOn>
+  <RLRG_ExemptClear>例外をすべて解除</RLRG_ExemptClear>
 </LanguageData>

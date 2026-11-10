@@ -175,6 +175,12 @@
   <CF2_OneTopTip>每个殖民者只有最重要的工作在 1，其他主要工作在 2。</CF2_OneTopTip>
   <CF2_Backup>后备工作放在最低优先级</CF2_Backup>
   <CF2_BackupTip>不把某项工作作为主要工作的人，会把它留在最低级别，这样没人会闲着。</CF2_BackupTip>
+  <CF2_BackupMinSkill>技能工作仅由技能 {0} 以上者作为后备（0 = 所有人）</CF2_BackupMinSkill>
+  <CF2_BackupMinSkillTip>制作、艺术、建造和研究只作为技能至少达到此值的殖民者的后备工作。医疗、看守、育儿、烹饪、种植、采矿、驯兽以及搬运等简单工作对所有人保留。如果没人达到，最好的殖民者仍会得到这项工作。</CF2_BackupMinSkillTip>
+  <CF2_SurgeryMin>手术仅由医疗 {0} 以上的医生进行（0 = 关闭）</CF2_SurgeryMin>
+  <CF2_SurgeryMinTip>当地图上有至少达到此医疗等级且被分配医生工作的医生时，较弱的医生只进行治疗，把手术留给他。如果没有这样的医生，任何人都可以手术。你的强制命令始终有效。</CF2_SurgeryMinTip>
+  <CF2_TipBackupLowSkill>不作为后备：技能 {0} 低于 {1}。</CF2_TipBackupLowSkill>
+  <CF2_SurgeryLeft>手术留给更好的医生</CF2_SurgeryLeft>
   <CF2_Opposed>也分配意识形态反对的工作</CF2_Opposed>
   <CF2_OpposedTip>关闭：殖民者的意识形态认为危险的工作永远不会分配给他。</CF2_OpposedTip>
   <CF2_Injured>受伤和生病的殖民者做更轻的工作</CF2_Injured>
@@ -311,4 +317,7 @@
   <CF_Keep_NowStarted>{0} 名殖民者正在往保留区搬东西。</CF_Keep_NowStarted>
   <CF_Keep_NowNobody>现在没人能搬东西（没有空闲的殖民者，或区域外已没有可到达的物品）。</CF_Keep_NowNobody>
   <CF_Keep_NowFull>区域里已经有了该有的一切。</CF_Keep_NowFull>
+  <CF_Crisis_NewColony>新殖民地（开局计划）</CF_Crisis_NewColony>
+  <CF2_TipSmallColony>小型殖民地：先做当前最重要的工作</CF2_TipSmallColony>
+  <CF2_TipArea>优先区域：那里的工作需要它</CF2_TipArea>
 </LanguageData>

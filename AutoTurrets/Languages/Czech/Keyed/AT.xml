@@ -101,4 +101,74 @@
   <AT_ShellNotHostile>{0} ({1}) není nepřátelské – dělostřelectvo ostřeluje jen nepřátelské základny a tábory (nebo mapu, kterou máš otevřenou).</AT_ShellNotHostile>
   <AT_ShellNoTarget>Tady není co ostřelovat. Vyber nepřátelskou základnu nebo tábor (nemusí být prozkoumané) nebo mapu, kterou máš otevřenou.</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0} ({1}) bylo zničeno dělostřelbou.</AT_ShellSiteDestroyed>
+  <AT_QC_This>Věž zap/vyp</AT_QC_This>
+  <AT_QC_This_Desc>Vypne tuto věž (nestřílí, ani na vynucený cíl), nebo ji znovu zapne.</AT_QC_This_Desc>
+  <AT_QC_All>Všechny věže…</AT_QC_All>
+  <AT_QC_All_Desc>Vypne nebo zapne všechny tvoje věže na této mapě, nebo je všechny nastaví na smrtící či jen omračující.</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>Střelba: smrtící</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>Střelba: jen omračovat</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>Smrtící: normální střelba. Jen omračovat: každý zásah jen omráčí (žádná zranění) a věž přeskakuje cíle, které už jsou omráčené nebo leží. Ne pro výbušné zbraně (minomety, rakety).</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>Tato věž: smrtící</AT_QC_SetLethal>
+  <AT_QC_SetStun>Tato věž: jen omračovat</AT_QC_SetStun>
+  <AT_QC_AllLethal>Všechny věže: smrtící</AT_QC_AllLethal>
+  <AT_QC_AllStun>Všechny věže: jen omračovat</AT_QC_AllStun>
+  <AT_QC_Explosive>Výbušné zbraně (minomety, rakety, granáty) nejdou přepnout na omračování.</AT_QC_Explosive>
+  <AT_QC_AllOff>Vypnout všechny věže</AT_QC_AllOff>
+  <AT_QC_AllOn>Zapnout všechny věže</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>Vypnuto věží: {0}.</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>Zapnuto věží: {0}.</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>Na omračování přepnuto věží: {0}.</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>Na smrtící přepnuto věží: {0}.</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>Výbušných věží ponecháno smrtících: {0}.</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>Tvoje věže: vypnout nebo zapnout všechny, smrtící nebo jen omračovat.</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>Rychlá tlačítka věží</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>Tlačítka zap/vyp a smrtící/omračovat na každé tvé věži.</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>Tlačítko věží vpravo dole</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>Malé tlačítko vedle nastavení hry (vpravo dole) pro vypnutí/zapnutí všech věží nebo přepnutí smrtící/omračovat.</AT_QC_SetGlobal_Desc>
+  <!-- 1.4.0 ammo types -->
+  <AT_AM_Tab>Druhy munice</AT_AM_Tab>
+  <AT_AM_Enable>Druhy munice pro věže</AT_AM_Enable>
+  <AT_AM_Enable_Desc>Každá tvoje věž (i z modů a minomety) dostane tlačítko druhu munice: průbojná, expanzní, zápalná, EMP, omračovací, toxická; minomety i dýmová a hasicí pěna. Věž může použít druh, pro který normálně munici nemá.</AT_AM_Enable_Desc>
+  <AT_AM_FromStorage>Speciální munice ze skladu</AT_AM_FromStorage>
+  <AT_AM_FromStorage_Desc>Vypnuto (výchozí): speciální munici není třeba vyrábět ani nosit – věž se nabíjí sama. Zapnuto: minomety potřebují skutečné granáty ze skladu jako dřív.</AT_AM_FromStorage_Desc>
+  <AT_AM_ApPen>Průbojnost ×{0}</AT_AM_ApPen>
+  <AT_AM_HpDmg>Poškození ×{0}</AT_AM_HpDmg>
+  <AT_AM_IncIgnite>Šance zapálit: {0}</AT_AM_IncIgnite>
+  <AT_AM_EmpPow>Síla EMP ×{0}</AT_AM_EmpPow>
+  <AT_AM_ToxSev>Otrava za zásah: {0}</AT_AM_ToxSev>
+  <AT_AM_KShells>Dýmové a hasicí granáty (minomety)</AT_AM_KShells>
+  <AT_AM_KShells_Desc>Minomety a dělostřelectvo lze nastavit i na dým nebo hasicí pěnu.</AT_AM_KShells_Desc>
+  <AT_AM_Gizmo>Munice: {0}</AT_AM_Gizmo>
+  <AT_AM_Gizmo_Desc>Vyber munici, kterou věž střílí. U kulometných věží se mění účinek zásahu; minomety a dělostřelectvo nabijí odpovídající granát. Speciální munice je zdarma, pokud není zapnuto 'Speciální munice ze skladu'.</AT_AM_Gizmo_Desc>
+  <AT_AM_K_Normal>Normální</AT_AM_K_Normal>
+  <AT_AM_K_Normal_Desc>Výchozí munice zbraně, nic se nemění.</AT_AM_K_Normal_Desc>
+  <AT_AM_K_ArmorPiercing>Průbojná</AT_AM_K_ArmorPiercing>
+  <AT_AM_K_ArmorPiercing_Desc>Mnohem vyšší průbojnost, poškození ×0,8. Dobrá na obrněné a mechanoidy.</AT_AM_K_ArmorPiercing_Desc>
+  <AT_AM_K_HollowPoint>Expanzní</AT_AM_K_HollowPoint>
+  <AT_AM_K_HollowPoint_Desc>Vyšší poškození, poloviční průbojnost. Dobrá na neobrněné a zvířata.</AT_AM_K_HollowPoint_Desc>
+  <AT_AM_K_Incendiary>Zápalná</AT_AM_K_Incendiary>
+  <AT_AM_K_Incendiary_Desc>Přidá popálení a šanci cíl zapálit. Minomety: zápalný granát.</AT_AM_K_Incendiary_Desc>
+  <AT_AM_K_EMP>EMP</AT_AM_K_EMP>
+  <AT_AM_K_EMP_Desc>Malé běžné poškození a EMP: omráčí mechanoidy a věže, rozbije štíty. Minomety: EMP granát.</AT_AM_K_EMP_Desc>
+  <AT_AM_K_Stun>Omračovací</AT_AM_K_Stun>
+  <AT_AM_K_Stun_Desc>Bez zranění – zásahy jen omráčí. Přeskakuje ležící a omráčené. Jen kulometné věže.</AT_AM_K_Stun_Desc>
+  <AT_AM_K_Toxic>Toxická</AT_AM_K_Toxic>
+  <AT_AM_K_Toxic_Desc>Menší poškození, přidá otravu živým cílům. Minomety: toxický granát (Biotech).</AT_AM_K_Toxic_Desc>
+  <AT_AM_K_Smoke>Dýmová</AT_AM_K_Smoke>
+  <AT_AM_K_Smoke_Desc>Jen minomety: dýmový granát, který brání nepřátelské střelbě.</AT_AM_K_Smoke_Desc>
+  <AT_AM_K_Firefoam>Hasicí pěna</AT_AM_K_Firefoam>
+  <AT_AM_K_Firefoam_Desc>Jen minomety: granát s hasicí pěnou, hasí požáry.</AT_AM_K_Firefoam_Desc>
+  <AT_AM_ApplySame>Stejně pro všechny: {0}</AT_AM_ApplySame>
+  <AT_AM_ApplyAll>Stejně pro všechny věže</AT_AM_ApplyAll>
+  <AT_AM_AllMenu>Druh munice pro všechny věže…</AT_AM_AllMenu>
+  <AT_AM_AllKind>Všechny věže: {0}</AT_AM_AllKind>
+  <AT_AM_SetMsg>Munice nastavena u {0} věží: {1}.</AT_AM_SetMsg>
+  <AT_AM_Skipped>Věží, které ji nemohou použít (ponechány): {0}.</AT_AM_Skipped>
+  <AT_AM_OffInSettings>vypnuto v nastavení</AT_AM_OffInSettings>
+  <AT_AM_NotForShells>ne pro granáty</AT_AM_NotForShells>
+  <AT_AM_NotForRockets>rakety nelze přepnout</AT_AM_NotForRockets>
+  <AT_AM_NoShellDef>granát není k dispozici</AT_AM_NoShellDef>
+  <AT_AM_OnlyShells>jen minomety</AT_AM_OnlyShells>
+  <AT_SpareGround>Věže neničí věci a těla na zemi</AT_SpareGround>
+  <AT_SpareGround_Desc>Zapnuto: střely a výbuchy granátů z tvých věží nechají věci a mrtvoly na zemi být – kořist se nerozstřílí a těla se nerozmašírují, až zmizí. Postavy a budovy zasahují jako obvykle. Vypnuto = jako ve hře.</AT_SpareGround_Desc>
 </LanguageData>

@@ -53,4 +53,47 @@
   <CF2S_Messages>Messages about schedules and mood</CF2S_Messages>
   <CF2S_Quiet>Fewer messages top left</CF2S_Quiet>
   <CF2S_QuietTip>Routine notices (of other mods too) are not shown, only kept in the message history. Threats and important messages stay.</CF2S_QuietTip>
+  <CF2S_Kind_W>Work day</CF2S_Kind_W>
+  <CF2S_Kind_N>Night shift</CF2S_Kind_N>
+  <CF2S_Kind_O>Day off</CF2S_Kind_O>
+  <CF2S_Kind_H>Holiday</CF2S_Kind_H>
+  <CF2S_Kind_R>Recovery</CF2S_Kind_R>
+  <CF2S_KindShort_W>W</CF2S_KindShort_W>
+  <CF2S_KindShort_N>N</CF2S_KindShort_N>
+  <CF2S_KindShort_O>O</CF2S_KindShort_O>
+  <CF2S_KindShort_H>H</CF2S_KindShort_H>
+  <CF2S_KindShort_R>R</CF2S_KindShort_R>
+  <CF2S_CycleDefault>Colony default</CF2S_CycleDefault>
+  <CF2S_Cycle_Classic>Classic – work every day</CF2S_Cycle_Classic>
+  <CF2S_Cycle_5_2>5 work + 2 off</CF2S_Cycle_5_2>
+  <CF2S_Cycle_6_1>6 work + 1 off</CF2S_Cycle_6_1>
+  <CF2S_Cycle_2_2>2 work + 2 off</CF2S_Cycle_2_2>
+  <CF2S_Cycle_Shifts>Shifts: 2 days, 2 nights, 4 off</CF2S_Cycle_Shifts>
+  <CF2S_Cycle_Custom>Custom cycle</CF2S_Cycle_Custom>
+  <CF2S_SrcManual>Set by you in the calendar.</CF2S_SrcManual>
+  <CF2S_SrcHoliday>Colony holiday.</CF2S_SrcHoliday>
+  <CF2S_SrcRecovery>Recovery after an attack.</CF2S_SrcRecovery>
+  <CF2S_SrcClassic>Classic plan (work every day, night shift by the setting).</CF2S_SrcClassic>
+  <CF2S_SrcCycle>From the cycle: {0}.</CF2S_SrcCycle>
+  <CF2S_RecoveryMsg>After the attack, these colonists get tomorrow off to recover: {0}.</CF2S_RecoveryMsg>
+  <CF2S_CalNoMap>Open a map first.</CF2S_CalNoMap>
+  <CF2S_CalTitle>Calendar</CF2S_CalTitle>
+  <CF2S_CalButton>Calendar</CF2S_CalButton>
+  <CF2S_CalColony>Colony cycle:</CF2S_CalColony>
+  <CF2S_CalAutoHoliday>Holiday on the 1st day of each quadrum</CF2S_CalAutoHoliday>
+  <CF2S_CalAutoHolidayTip>The whole colony has a day off on the first day of every quadrum (emergencies still get done).</CF2S_CalAutoHolidayTip>
+  <CF2S_CalRecovery>A day to recover after an attack</CF2S_CalRecovery>
+  <CF2S_CalRecoveryTip>After an attack that lasted at least an hour, colonists who fought or got hurt have the next day to rest.</CF2S_CalRecoveryTip>
+  <CF2S_CalCustom>Custom cycle:</CF2S_CalCustom>
+  <CF2S_CalCustomHint>Letters W (work), N (night) and O (off), up to 28 days – e.g. WWWWNNOO.</CF2S_CalCustomHint>
+  <CF2S_CalOff>Automatic schedules or the steward are off on this map – the calendar is shown but not used.</CF2S_CalOff>
+  <CF2S_CalHolidayOn>Click: holiday for the whole colony on this day.</CF2S_CalHolidayOn>
+  <CF2S_CalHolidayOff>Click: cancel the holiday on this day.</CF2S_CalHolidayOff>
+  <CF2S_CalManualSched>You painted this colonist's schedule yourself – Steward leaves it alone, the calendar does not change it.</CF2S_CalManualSched>
+  <CF2S_CalShift>Move the cycle by one day</CF2S_CalShift>
+  <CF2S_CalByPlan>Back to the plan</CF2S_CalByPlan>
+  <CF2S_CalFoot>Click a day to change it, a date to make it a holiday for everyone, the button next to a name to give that colonist another cycle. Emergencies (fire, tending, rescue) are done on any day.</CF2S_CalFoot>
+  <CF2S_MealHours>Meal hours in the automatic schedule</CF2S_MealHours>
+  <CF2S_MealHoursTip>Orange "meal" hours: breakfast after waking, lunch at midday and dinner before recreation. In them colonists eat when they are not full, otherwise they carry on as in "anything". You can also paint meal hours yourself in the Schedule tab.</CF2S_MealHoursTip>
+  <CF2S_WorkHourTip>Work hours for one kind of work (click to choose). In such an hour the colonist does that work first; when there is none, he goes on with his other work. Priorities stay as they are.</CF2S_WorkHourTip>
 </LanguageData>

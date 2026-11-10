@@ -284,9 +284,12 @@ public sealed class StewardWatch : MapComponent
 		Scribe_Values.Look(ref startPlans, "cfWeekStartPlans", 0);
 		Scribe_Values.Look(ref startChanges, "cfWeekStartChanges", 0);
 		Scribe_Values.Look(ref weekNew, "cfWeekNew", 0);
+		// 1.1.3: taken over right when it is read – in PostLoadInit k was an empty copy again, so after
+		// every load the whole colony counted as newcomers
+		if (Scribe.mode == LoadSaveMode.LoadingVars)
+			known = new HashSet<int>(k ?? new List<int>());
 		if (Scribe.mode == LoadSaveMode.PostLoadInit)
 		{
-			known = new HashSet<int>(k ?? new List<int>());
 			uncoveredHours ??= new Dictionary<string, int>();
 			crisisHours ??= new Dictionary<string, int>();
 		}

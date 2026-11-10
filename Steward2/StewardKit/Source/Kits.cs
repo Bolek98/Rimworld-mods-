@@ -42,6 +42,16 @@ public sealed class KitLine : IExposable
 
 public static class Kits
 {
+	// 1.2.0: kits fill from storage – and in the first day of a new colony also from the starting supplies
+	// lying in the home area (there is no stockpile yet, so the medicine and food would wait for days)
+	public static bool Takeable(Thing t)
+	{
+		if (t.IsInAnyStorage())
+			return true;
+		Map m = t.MapHeld;
+		return m != null && Find.TickManager.TicksGame < 60000 && t.Spawned && m.IsPlayerHome && m.areaManager.Home[t.Position] && !t.Position.Fogged(m);
+	}
+
 	// roles of the kit table (Steward – Roles names where they exist)
 	public static readonly string[] Roles = { "Doctor", "Hunter", "Builder", "Soldier", "Cook", "Hauler", "Miner", "Farmer", "Crafter", "Researcher", "Handler", "Warden", "Everyone" };
 
@@ -361,6 +371,11 @@ public static class Kits
 	public static bool InKit(Pawn p, Thing t)
 	{
 		if (p == null || t == null) return false;
+		// 1.1.0: items the player marked "always carry", and things other mods keep in pockets on purpose
+		// (Dubs Bad Hygiene water bottles – they were unloaded and refilled again and again)
+		int rule = ItemRules.ModeFor(p, t.def);
+		if (rule == ItemRules.Never) return false;
+		if (rule == ItemRules.Always || ItemRules.OtherModCarries(t.def)) return true;
 		foreach (KitLine w in Wanted(p))
 			if (Matches(p, w.item, t.def)) return true;
 		// 0.2.3: the doctor's pharmacy stock counts too – Steward – Supplies asks here and used to
@@ -472,7 +487,7 @@ public class WorkGiver_KitRefill : WorkGiver_Scanner
 			foreach (Thing t in Kits.Candidates(pawn.Map, w.item))
 			{
 				if (t == null || !t.Spawned || (t.Position - pawn.Position).LengthHorizontalSquared > maxD2) continue;
-				if (seen.Contains(t) || !t.IsInAnyStorage() || t.IsForbidden(pawn) || !Kits.Matches(pawn, w.item, t.def)) continue;
+				if (seen.Contains(t) || !Kits.Takeable(t) || t.IsForbidden(pawn) || !Kits.Matches(pawn, w.item, t.def)) continue;
 				found.Add(t);
 			}
 			found.Sort((a, b) => (a.Position - pawn.Position).LengthHorizontalSquared.CompareTo((b.Position - pawn.Position).LengthHorizontalSquared));
@@ -483,7 +498,7 @@ public class WorkGiver_KitRefill : WorkGiver_Scanner
 
 	public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
 	{
-		if (t.IsForbidden(pawn) || !t.IsInAnyStorage() || !pawn.CanReserveAndReach(t, PathEndMode.ClosestTouch, Danger.None))
+		if (t.IsForbidden(pawn) || !Kits.Takeable(t) || !pawn.CanReserveAndReach(t, PathEndMode.ClosestTouch, Danger.None))
 			return false;
 		return Count(pawn, t) > 0;
 	}
@@ -535,6 +550,7 @@ public static class KitTidy
 	{
 		if (!Kits.Eligible(p) || !m.areaManager.Home[p.Position] || p.CurJob?.def == JobDefOf.TakeInventory) return;
 		if (p.GetLord() != null) return;   // caravan forming, rituals …
+		ItemRules.DropBanned(p, m);   // 1.1.0
 		List<KitLine> want = Kits.Wanted(p);
 		ThingOwner<Thing> inv = p.inventory.innerContainer;
 		foreach (string cat in Kits.Categories)
@@ -565,6 +581,14 @@ public static class KitPatches
 	{
 		Try(h, AccessTools.Method(typeof(JobGiver_DropUnusedInventory), nameof(JobGiver_DropUnusedInventory.ShouldKeepDrugInInventory)), postfix: nameof(KeepDrug));
 		Try(h, AccessTools.Method(typeof(CaravanFormingUtility), nameof(CaravanFormingUtility.StartFormingCaravan)), prefix: nameof(CaravanPrefix));
+		// 1.0.1: the game drops raw food (pemmican, kibble) from pockets at home – kit food stays
+		Try(h, AccessTools.Method(typeof(JobGiver_DropUnusedInventory), "Drop", new[] { typeof(Pawn), typeof(Thing) }), prefix: nameof(KeepKitThing));
+	}
+
+	private static bool KeepKitThing(Pawn pawn, Thing thing)
+	{
+		try { return !(pawn != null && thing != null && Kits.InKit(pawn, thing)); }
+		catch { return true; }
 	}
 
 	private static void Try(Harmony h, MethodBase m, string prefix = null, string postfix = null)

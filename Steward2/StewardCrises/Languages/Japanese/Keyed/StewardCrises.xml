@@ -255,4 +255,55 @@
   <CF2C_TipSituation>状況：{0}</CF2C_TipSituation>
   <CF2C_SafeAnimals>飼いならした動物も中に入る</CF2C_SafeAnimals>
   <CF2C_SafeAnimalsTip>エリア制限できる飼育動物も安全エリアに入ります（徴兵された主人に従う動物は除く）。</CF2C_SafeAnimalsTip>
+  <CF3C_Group_Life>生命</CF3C_Group_Life>
+  <CF3C_Group_Shortage>不足</CF3C_Group_Shortage>
+  <CF3C_Group_Work>作業</CF3C_Group_Work>
+  <CF3C_Group_Comfort>快適</CF3C_Group_Comfort>
+  <CF3C_Escalate>{0}が改善しない――執事が人手を増やします。</CF3C_Escalate>
+  <CF3C_Button>危機（{0}）</CF3C_Button>
+  <CF3C_ButtonNone>危機</CF3C_ButtonNone>
+  <CF3C_ButtonTip>すべての危機と状況をカードで表示：進み具合、担当者、無視・1日延期・今すぐ対処のボタン。何があったかの日誌もあります。</CF3C_ButtonTip>
+  <CF3C_Title>危機と状況</CF3C_Title>
+  <CF3C_TabActive>現在</CF3C_TabActive>
+  <CF3C_TabJournal>日誌</CF3C_TabJournal>
+  <CF3C_Nothing>今は危機も状況もありません。平穏です。</CF3C_Nothing>
+  <CF3C_For>{0}継続中</CF3C_For>
+  <CF3C_Stage>強さ {0}/3</CF3C_Stage>
+  <CF3C_StageTip>1 = 控えめ（入植者1人）、2 = 通常、3 = 全力。改善しないと危機は自動で強まります。命に関わる時は常に全力。</CF3C_StageTip>
+  <CF3C_Ignored>終わるまで無視</CF3C_Ignored>
+  <CF3C_Snoozed>延期中――{0}後に再開</CF3C_Snoozed>
+  <CF3C_Left>残り{0}、{1}で完了</CF3C_Left>
+  <CF3C_Eta>あと約{0}で完了</CF3C_Eta>
+  <CF3C_Who>担当：{0}</CF3C_Who>
+  <CF3C_WhoNone>追加の人員はまだなし</CF3C_WhoNone>
+  <CF3C_LifeLocked>命に関わるため延期できません。</CF3C_LifeLocked>
+  <CF3C_Resume>再開</CF3C_Resume>
+  <CF3C_Ignore>無視</CF3C_Ignore>
+  <CF3C_IgnoreTip>終わるまで執事は何もしません（ここには表示され続けます）。</CF3C_IgnoreTip>
+  <CF3C_Snooze>1日延期</CF3C_Snooze>
+  <CF3C_SnoozeTip>執事は1日そのままにし、その後また控えめに始めます。</CF3C_SnoozeTip>
+  <CF3C_Push>今すぐ対処</CF3C_Push>
+  <CF3C_PushTip>すぐに全力：入植者を増やし、最優先にします。</CF3C_PushTip>
+  <CF3C_Unpush>通常に戻す</CF3C_Unpush>
+  <CF3C_JournalEmpty>まだ何も起きていません。</CF3C_JournalEmpty>
+  <CF3C_J_Start>{0}：開始</CF3C_J_Start>
+  <CF3C_J_End>{0}：{1}後に終了</CF3C_J_End>
+  <CF3C_J_Ignore>{0}：無視</CF3C_J_Ignore>
+  <CF3C_J_Snooze>{0}：1日延期</CF3C_J_Snooze>
+  <CF3C_J_Push>{0}：今すぐ対処</CF3C_J_Push>
+  <CF3C_J_Escalate>{0}：強化（改善なし）</CF3C_J_Escalate>
+  <CF3C_J_Resume>{0}：再開</CF3C_J_Resume>
+  <CF3C_StrLife>生命：常に全力</CF3C_StrLife>
+  <CF3C_Orders>あなたの指示を優先</CF3C_Orders>
+  <CF3C_OrdersTip>優先エリアの入植者は危機に回されません――命に関わる場合を除く。</CF3C_OrdersTip>
+  <CF3C_Escalation>段階的に強化</CF3C_Escalation>
+  <CF3C_EscalationTip>危機は入植者1人で控えめに始まり、改善しない時だけ人を増やします。オフ：常に通常の強さ。</CF3C_EscalationTip>
+  <CF3C_Str>{0}：{1}</CF3C_Str>
+  <CF3C_Off>オフ</CF3C_Off>
+  <CF3C_StrTip>このグループが使える入植者の数。100% = 不足はコロニーの半分、作業は3分の1、快適は4分の1。0% = グループはオフ。</CF3C_StrTip>
+  <CF3C_ButtonSit>状況（{0}）</CF3C_ButtonSit>
+  <CF3C_HeadCrises>危機（{0}）</CF3C_HeadCrises>
+  <CF3C_HeadSits>状況（{0}）</CF3C_HeadSits>
+  <CF3C_PushedMsg>{0}：今すぐ対処――執事が入植者を増やし最優先にします。</CF3C_PushedMsg>
+  <CF_SafeReady>マップに敵がいます――近づいたら安全エリアが有効になります。</CF_SafeReady>
 </LanguageData>

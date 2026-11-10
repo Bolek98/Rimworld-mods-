@@ -80,7 +80,7 @@ public static class Styles
 	{
 		Dictionary<string, float> t;
 		float d;
-		return w != null && Table.TryGetValue(style, out t) && t.TryGetValue(w.defName, out d) ? d : 0f;
+		return w != null && Table.TryGetValue(style, out t) && t.TryGetValue(WorkMatch.Base(w), out d) ? d : 0f;
 	}
 
 	public static string Label(ForemanStyle style)

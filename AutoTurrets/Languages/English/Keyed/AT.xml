@@ -101,4 +101,74 @@
   <AT_ShellNotHostile>{0} ({1}) is not hostile – artillery shells only hostile bases and camps (or a map you have open).</AT_ShellNotHostile>
   <AT_ShellNoTarget>Here is nothing to shell. Pick a hostile base or camp (it does not need to be explored) or a map you have open.</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0} ({1}) was destroyed by artillery fire.</AT_ShellSiteDestroyed>
+  <AT_QC_This>Turret on/off</AT_QC_This>
+  <AT_QC_This_Desc>Switch this turret off (it holds fire, also at forced targets) or back on.</AT_QC_This_Desc>
+  <AT_QC_All>All turrets…</AT_QC_All>
+  <AT_QC_All_Desc>Switch all your turrets on this map off or on, or set them all to lethal or stun only.</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>Fire: lethal</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>Fire: stun only</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>Lethal: normal shots. Stun only: every hit only stuns (no wounds) and the turret skips targets that are already stunned or down. Not for explosive guns (mortars, rockets).</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>This turret: lethal</AT_QC_SetLethal>
+  <AT_QC_SetStun>This turret: stun only</AT_QC_SetStun>
+  <AT_QC_AllLethal>All turrets: lethal</AT_QC_AllLethal>
+  <AT_QC_AllStun>All turrets: stun only</AT_QC_AllStun>
+  <AT_QC_Explosive>Explosive guns (mortars, rockets, shells) cannot only stun.</AT_QC_Explosive>
+  <AT_QC_AllOff>All turrets off</AT_QC_AllOff>
+  <AT_QC_AllOn>All turrets on</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>{0} turrets switched off.</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>{0} turrets switched on.</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>{0} turrets set to stun only.</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>{0} turrets set to lethal.</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>{0} explosive turrets left lethal.</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>Your turrets: switch all off or on, lethal or stun only.</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>Quick turret buttons</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>On/off and lethal/stun buttons on every turret of yours.</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>Turret button bottom right</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>A small button next to the play settings (bottom right) to switch all turrets off/on or lethal/stun.</AT_QC_SetGlobal_Desc>
+  <!-- 1.4.0 ammo types -->
+  <AT_AM_Tab>Ammo types</AT_AM_Tab>
+  <AT_AM_Enable>Ammo types for turrets</AT_AM_Enable>
+  <AT_AM_Enable_Desc>Every turret of yours (also modded ones and mortars) gets an ammo type button: armor-piercing, hollow-point, incendiary, EMP, stun, toxic; mortars also smoke and firefoam. A turret may use a kind it normally has no ammo for.</AT_AM_Enable_Desc>
+  <AT_AM_FromStorage>Special ammo from storage</AT_AM_FromStorage>
+  <AT_AM_FromStorage_Desc>Off (default): special ammo needs no crafting or hauling – the turret refills itself. On: mortars need the real shells from storage like before.</AT_AM_FromStorage_Desc>
+  <AT_AM_ApPen>Armor penetration ×{0}</AT_AM_ApPen>
+  <AT_AM_HpDmg>Damage ×{0}</AT_AM_HpDmg>
+  <AT_AM_IncIgnite>Chance to set on fire: {0}</AT_AM_IncIgnite>
+  <AT_AM_EmpPow>EMP strength ×{0}</AT_AM_EmpPow>
+  <AT_AM_ToxSev>Toxic buildup per hit: {0}</AT_AM_ToxSev>
+  <AT_AM_KShells>Smoke and firefoam shells (mortars)</AT_AM_KShells>
+  <AT_AM_KShells_Desc>Mortars and artillery may also be set to smoke or firefoam.</AT_AM_KShells_Desc>
+  <AT_AM_Gizmo>Ammo: {0}</AT_AM_Gizmo>
+  <AT_AM_Gizmo_Desc>Pick the ammo this turret fires. Bullet turrets change what a hit does; mortars and artillery load the matching shell. Special ammo is free unless 'Special ammo from storage' is on.</AT_AM_Gizmo_Desc>
+  <AT_AM_K_Normal>Normal</AT_AM_K_Normal>
+  <AT_AM_K_Normal_Desc>Default ammo of the gun, nothing changes.</AT_AM_K_Normal_Desc>
+  <AT_AM_K_ArmorPiercing>Armor-piercing</AT_AM_K_ArmorPiercing>
+  <AT_AM_K_ArmorPiercing_Desc>Armor penetration much higher, damage ×0.8. Good against armored pawns and mechanoids.</AT_AM_K_ArmorPiercing_Desc>
+  <AT_AM_K_HollowPoint>Hollow-point</AT_AM_K_HollowPoint>
+  <AT_AM_K_HollowPoint_Desc>Higher damage, half armor penetration. Good against unarmored pawns and animals.</AT_AM_K_HollowPoint_Desc>
+  <AT_AM_K_Incendiary>Incendiary</AT_AM_K_Incendiary>
+  <AT_AM_K_Incendiary_Desc>Adds burn damage and a chance to set the target on fire. Mortars: incendiary shell.</AT_AM_K_Incendiary_Desc>
+  <AT_AM_K_EMP>EMP</AT_AM_K_EMP>
+  <AT_AM_K_EMP_Desc>Small normal damage plus EMP: stuns mechanoids and turrets, breaks shields. Mortars: EMP shell.</AT_AM_K_EMP_Desc>
+  <AT_AM_K_Stun>Stun</AT_AM_K_Stun>
+  <AT_AM_K_Stun_Desc>No wounds – hits only stun. Skips pawns that are already down or stunned. Bullet turrets only.</AT_AM_K_Stun_Desc>
+  <AT_AM_K_Toxic>Toxic</AT_AM_K_Toxic>
+  <AT_AM_K_Toxic_Desc>Less damage, adds toxic buildup to flesh targets. Mortars: toxic shell (Biotech).</AT_AM_K_Toxic_Desc>
+  <AT_AM_K_Smoke>Smoke</AT_AM_K_Smoke>
+  <AT_AM_K_Smoke_Desc>Mortars only: smoke shell that blocks enemy fire.</AT_AM_K_Smoke_Desc>
+  <AT_AM_K_Firefoam>Firefoam</AT_AM_K_Firefoam>
+  <AT_AM_K_Firefoam_Desc>Mortars only: firefoam shell that puts out fires.</AT_AM_K_Firefoam_Desc>
+  <AT_AM_ApplySame>Same for all: {0}</AT_AM_ApplySame>
+  <AT_AM_ApplyAll>Same for all turrets</AT_AM_ApplyAll>
+  <AT_AM_AllMenu>Ammo type for all turrets…</AT_AM_AllMenu>
+  <AT_AM_AllKind>All turrets: {0}</AT_AM_AllKind>
+  <AT_AM_SetMsg>Ammo set for {0} turrets: {1}.</AT_AM_SetMsg>
+  <AT_AM_Skipped>{0} turrets cannot use it and were left as they were.</AT_AM_Skipped>
+  <AT_AM_OffInSettings>off in the settings</AT_AM_OffInSettings>
+  <AT_AM_NotForShells>not for shells</AT_AM_NotForShells>
+  <AT_AM_NotForRockets>rockets cannot change ammo</AT_AM_NotForRockets>
+  <AT_AM_NoShellDef>shell not available</AT_AM_NoShellDef>
+  <AT_AM_OnlyShells>mortars only</AT_AM_OnlyShells>
+  <AT_SpareGround>Turrets don't destroy items and bodies</AT_SpareGround>
+  <AT_SpareGround_Desc>When on, bullets and shell blasts from your turrets leave items and corpses on the ground alone – loot is not shot to pieces and bodies are not mashed until they vanish. Pawns and buildings are hit as usual. Off = like the game.</AT_SpareGround_Desc>
 </LanguageData>

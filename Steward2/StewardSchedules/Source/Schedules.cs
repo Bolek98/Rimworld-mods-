@@ -30,15 +30,26 @@ public static class AutoSchedules
 		// 3.0: the night shift is kept per colonist (it no longer reshuffles when someone leaves);
 		// at most a quarter of the colony, only with the night shift switched on
 		SchedState ss = SchedState.Of(comp);
-		int nightWanted = S.nightShift && pawns.Count >= 6 ? pawns.Count / 4 : 0;
-		int nightNow = pawns.Count(p => ss.scheduled.TryGetValue(p.thingIDNumber, out string h) && h != null && h.StartsWith("N") && !(owl != null && p.story?.traits != null && p.story.traits.HasTrait(owl)));
+		// 1.1.0: calendar – colonists on a shift cycle get their kind of day from it; the old night shift
+		// only shares out the colonists on the classic plan
+		int today = DayPlan.Today(map);
+		DayPlan.EnsurePhases(ss, pawns);
+		if (ss.lastForget != today)
+		{
+			DayPlan.Forget(ss, today);
+			ss.lastForget = today;
+		}
+		var classic = pawns.Where(p => DayPlan.PawnCycle(ss, p).Length == 0).ToList();
+		int nightWanted = S.nightShift && classic.Count >= 6 ? classic.Count / 4 : 0;
+		int nightNow = classic.Count(p => ss.scheduled.TryGetValue(p.thingIDNumber, out string h) && h != null && h.StartsWith("N") && !(owl != null && p.story?.traits != null && p.story.traits.HasTrait(owl)));
 		foreach (Pawn p in pawns)
 		{
 			// 1.1.0: children learn only in hours that allow recreation ("Anything" / "Recreation") –
 			// the adult work day left them a few hours a day; they get "Anything" all day except sleep
 			bool child = ModsConfig.BiotechActive && p.DevelopmentalStage.Child();
 			bool night = !child && (owl != null && p.story?.traits != null && p.story.traits.HasTrait(owl));
-			if (!child && !night && nightWanted > 0)
+			bool isClassic = DayPlan.PawnCycle(ss, p).Length == 0;
+			if (!child && !night && nightWanted > 0 && isClassic)
 			{
 				bool was = ss.scheduled.TryGetValue(p.thingIDNumber, out string h0) && h0 != null && h0.StartsWith("N");
 				if (was && nightNow <= nightWanted)
@@ -88,7 +99,15 @@ public static class AutoSchedules
 				if (joy >= JoyMax && Bored(p) >= 2)
 					BoredHint(p);
 			}
-			string want = child ? ChildPattern() : Pattern(night, joy);
+			char kind = child ? DayPlan.Work : DayPlan.KindOf(ss, map, p, today, out _);
+			if (!child && isClassic && (kind == DayPlan.Work || kind == DayPlan.Night))
+				kind = night ? DayPlan.Night : DayPlan.Work;   // classic plan: the night shift above decides
+			night = kind == DayPlan.Night;
+			string want = Fit(p, child ? ChildPattern()
+				: kind == DayPlan.Off ? DayPlan.OffPattern()
+				: kind == DayPlan.Holiday ? DayPlan.HolidayPattern()
+				: kind == DayPlan.Recovery ? DayPlan.RecoveryPattern()
+				: Pattern(night, joy));
 			if (want != lastPattern || st.Length < 4)
 			{
 				if (!SchedState.Of(comp).schedHold.ContainsKey(id))
@@ -169,6 +188,14 @@ public static class AutoSchedules
 		for (int i = 1; i <= joy; i++)
 			c[(sleep - i + 24) % 24] = 'J';
 		c[(sleep - joy - 1 + 24) % 24] = 'A';
+		// 1.1.0: meal hours – breakfast after waking, lunch in the middle, dinner before recreation
+		if (SchedulesMod.S != null && SchedulesMod.S.mealHours)
+		{
+			c[wake % 24] = 'M';
+			if (c[(wake + 6) % 24] == 'W')
+				c[(wake + 6) % 24] = 'M';
+			c[(sleep - joy - 1 + 24) % 24] = 'M';
+		}
 		return new string(c);
 	}
 
@@ -179,6 +206,7 @@ public static class AutoSchedules
 			case 'S': return TimeAssignmentDefOf.Sleep;
 			case 'J': return TimeAssignmentDefOf.Joy;
 			case 'A': return TimeAssignmentDefOf.Anything;
+			case 'M': return MealHour.Def ?? TimeAssignmentDefOf.Anything;
 			default: return TimeAssignmentDefOf.Work;
 		}
 	}
@@ -188,6 +216,7 @@ public static class AutoSchedules
 		if (d == TimeAssignmentDefOf.Sleep) return 'S';
 		if (d == TimeAssignmentDefOf.Joy) return 'J';
 		if (d == TimeAssignmentDefOf.Anything) return 'A';
+		if (d != null && d == MealHour.Def) return 'M';
 		if (d == TimeAssignmentDefOf.Work) return 'W';
 		return '?';
 	}
@@ -197,6 +226,18 @@ public static class AutoSchedules
 		var c = new char[24];
 		for (int h = 0; h < 24; h++)
 			c[h] = Ch(p.timetable.GetAssignment(h));
+		return new string(c);
+	}
+
+	// 1.0.1: pawns without sleep or recreation (androids, mechanoid-like races …) get work in those hours –
+	// they do not need them and only stood around
+	public static string Fit(Pawn p, string pattern)
+	{
+		bool noRest = p.needs?.rest == null, noJoy = p.needs?.joy == null, noFood = p.needs?.food == null;
+		if (!noRest && !noJoy && !noFood) return pattern;
+		var c = pattern.ToCharArray();
+		for (int i = 0; i < c.Length; i++)
+			if ((c[i] == 'S' && noRest) || (c[i] == 'J' && noJoy) || (c[i] == 'M' && noFood)) c[i] = 'W';
 		return new string(c);
 	}
 
@@ -219,7 +260,12 @@ public static class ScheduleTabWatch
 
 	public static void Prefix() => Inside = true;
 
-	public static void Postfix() => Inside = false;
+	// 1.0.2: a finalizer – also when the window throws, later changes are not counted as yours
+	public static System.Exception Finalizer(System.Exception __exception)
+	{
+		Inside = false;
+		return __exception;
+	}
 }
 
 [HarmonyLib.HarmonyPatch(typeof(Pawn_TimetableTracker), nameof(Pawn_TimetableTracker.SetAssignment))]

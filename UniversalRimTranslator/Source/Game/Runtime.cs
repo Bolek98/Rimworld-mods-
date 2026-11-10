@@ -27,6 +27,12 @@ namespace UniversalRimTranslator
         public static string ScanReport = "", MigrationReport = "";
         public static volatile string Phase = "starting";
         public static int Applied, Translated, Failed, Rejected;
+        // 1.2.1: "rejected" and "failed" count each text once (before, every new attempt counted again: 13305 for 4589 texts)
+        private static readonly object countGate = new object();
+        private static readonly HashSet<string> rejectedKeys = new HashSet<string>(StringComparer.Ordinal);
+        private static readonly HashSet<string> failedKeys = new HashSet<string>(StringComparer.Ordinal);
+        // 1.1.1: the session count split – mod texts, texts seen while playing, texts left from earlier sessions
+        public static int TranslatedMods, TranslatedLive, TranslatedEarlier;
         public static volatile bool Paused;
         public static bool Active;
 
@@ -429,6 +435,7 @@ namespace UniversalRimTranslator
                     // texts get their turn within seconds
                     // 1.1.0: once – translations the first service gave back in English go back into the queue
                     if (!recheckDone && Live.VocabCount > 1000) RecheckEnglish();
+                    if (!rejectRecheckDone && Live.VocabCount > 1000) RecheckRejected();
                     List<string> todo = LivePending(40);
                     bool liveBatch = todo.Count > 0;
                     // 1.1.0: several services at once – every worker starts with a different one
@@ -479,6 +486,11 @@ namespace UniversalRimTranslator
                     }
                     else
                         Chain.Run(jobs, Target, cts.Token);
+                    // 1.2.1: target-language texts with an English word left ("Replicate Zdravotní péče") that the services
+                    // gave back unchanged: only the English pieces are translated and put in their place
+                    try { PieceFill(jobs.Where(j => j.Result != null && j.Verdict == Verdict.Untranslated).ToList(), cts.Token); }
+                    catch (OperationCanceledException) { }
+                    catch (Exception e) { MLog.Warn("[URT] pieces: " + e.Message); }
                     int got = 0;
                     jobs.AddRange(local);
                     foreach (Job j in jobs)
@@ -487,14 +499,18 @@ namespace UniversalRimTranslator
                         bool live = Live.Pending.ContainsKey(key);
                         if (j.Result == null)
                         {
-                            Failed++;
+                            lock (countGate) { failedKeys.Add(key); Failed = failedKeys.Count; }
                             int g2 = giveUp[key] = giveUp.TryGetValue(key, out int g) ? g + 1 : 1;
                             if (live && g2 >= 3) Live.Done(key, false);
                             continue;
                         }
                         Store.PutAuto(j.Source, j.Result, j.Provider, j.Verdict);
-                        if (j.Verdict != Verdict.Ok) { Rejected++; giveUp[key] = 99; if (live) Live.Done(key, false); continue; }
+                        if (j.Verdict != Verdict.Ok) { lock (countGate) { rejectedKeys.Add(key); failedKeys.Remove(key); Rejected = rejectedKeys.Count; Failed = failedKeys.Count; } giveUp[key] = 99; if (live) Live.Done(key, false); continue; }
+                        lock (countGate) { if (rejectedKeys.Remove(key) | failedKeys.Remove(key)) { Rejected = rejectedKeys.Count; Failed = failedKeys.Count; } }
                         Translated++;
+                        if (!live) TranslatedMods++;
+                        else if (Live.FromEarlier.TryRemove(key, out _)) TranslatedEarlier++;
+                        else TranslatedLive++;
                         got++;
                         if (live) Live.Done(key, true);
                         if (bySource.TryGetValue(key, out var targets))
@@ -523,6 +539,106 @@ namespace UniversalRimTranslator
         public static int LocalFilled;
 
         private static readonly System.Text.RegularExpressions.Regex AsciiWord = new System.Text.RegularExpressions.Regex(@"[A-Za-z][A-Za-z'\-]*", System.Text.RegularExpressions.RegexOptions.Compiled);
+
+        private static readonly System.Text.RegularExpressions.Regex TokenSpan = new System.Text.RegularExpressions.Regex(@"\{[^{}\r\n]*\}|\[[^\[\]\r\n]*\]|<[^<>\r\n]*>", System.Text.RegularExpressions.RegexOptions.Compiled);
+
+        // runs of plain words (spaces, - and ' between) outside tokens that hold at least one English word
+        private static List<KeyValuePair<int, int>> EnglishRuns(string t)
+        {
+            var spans = new List<KeyValuePair<int, int>>();
+            foreach (System.Text.RegularExpressions.Match m in TokenSpan.Matches(t)) spans.Add(new KeyValuePair<int, int>(m.Index, m.Index + m.Length));
+            bool InToken(int i) { foreach (var sp in spans) if (i >= sp.Key && i < sp.Value) return true; return false; }
+            var ws = AsciiWord.Matches(t).Cast<System.Text.RegularExpressions.Match>().Where(m => !InToken(m.Index)).ToList();
+            var runs = new List<KeyValuePair<int, int>>();
+            int i0 = 0;
+            while (i0 < ws.Count)
+            {
+                int i1 = i0;
+                while (i1 + 1 < ws.Count)
+                {
+                    var a = ws[i1]; var b = ws[i1 + 1];
+                    string gap = t.Substring(a.Index + a.Length, b.Index - a.Index - a.Length);
+                    if (gap.Length == 0 || gap.Any(c => c != ' ')) break;
+                    i1++;
+                }
+                bool english = false;
+                for (int k = i0; k <= i1; k++) if (ws[k].Value.Length > 2 && Live.IsEnglishWord(ws[k].Value)) { english = true; break; }
+                if (english)
+                {
+                    // the run must not continue straight into a word with accents ("Zdravotní" after a space is fine)
+                    int start = ws[i0].Index, end = ws[i1].Index + ws[i1].Length;
+                    bool glued = (start > 0 && char.IsLetter(t[start - 1])) || (end < t.Length && char.IsLetter(t[end]));
+                    if (!glued) runs.Add(new KeyValuePair<int, int>(start, end - start));
+                }
+                i0 = i1 + 1;
+            }
+            return runs;
+        }
+
+        private static void PieceFill(List<Job> mixed, CancellationToken ct)
+        {
+            if (mixed.Count == 0) return;
+            var plans = new List<KeyValuePair<Job, List<KeyValuePair<int, int>>>>();
+            var pieces = new Dictionary<string, Job>(StringComparer.Ordinal);
+            foreach (Job j in mixed)
+            {
+                string t = j.Source;
+                if (string.IsNullOrEmpty(t) || t.Length > 300 || Protect.IsRule(t) || t.IndexOf('\n') >= 0) continue;
+                bool target = false;
+                foreach (char c in t) if (c > 127 && char.IsLetter(c)) { target = true; break; }
+                if (!target) continue;
+                var runs = EnglishRuns(t);
+                if (runs.Count == 0) continue;
+                plans.Add(new KeyValuePair<Job, List<KeyValuePair<int, int>>>(j, runs));
+                foreach (var r in runs)
+                {
+                    string p = t.Substring(r.Key, r.Value);
+                    if (!pieces.ContainsKey(p)) pieces[p] = new Job { Source = p, SourceLang = "en" };
+                }
+            }
+            if (pieces.Count == 0) return;
+            var ask = new List<Job>();
+            foreach (var kv in pieces)
+            {
+                string known = KnownPiece(kv.Key);
+                if (known != null) { kv.Value.Result = known; kv.Value.Verdict = Verdict.Ok; kv.Value.Provider = "memory"; }
+                else ask.Add(kv.Value);
+            }
+            if (ask.Count > 0)
+            {
+                Chain.Run(ask, Target, ct);
+                foreach (Job pj in ask)
+                    if (pj.Result != null && pj.Verdict == Verdict.Ok && pj.Result != pj.Source) Store.PutAuto(pj.Source, pj.Result, pj.Provider, pj.Verdict);
+            }
+            int done = 0;
+            foreach (var plan in plans)
+            {
+                Job j = plan.Key;
+                var sb = new System.Text.StringBuilder();
+                int pos = 0;
+                bool ok = true;
+                foreach (var r in plan.Value)
+                {
+                    string p = j.Source.Substring(r.Key, r.Value);
+                    Job pj = pieces[p];
+                    if (pj.Result == null || pj.Verdict != Verdict.Ok || string.IsNullOrWhiteSpace(pj.Result) || pj.Result == p) { ok = false; break; }
+                    string tr = pj.Result.Trim();
+                    if (char.IsLower(p[0]) && char.IsUpper(tr[0]) && !(tr.Length > 1 && char.IsUpper(tr[1]))) tr = char.ToLowerInvariant(tr[0]) + tr.Substring(1);
+                    else if (char.IsUpper(p[0]) && char.IsLower(tr[0])) tr = char.ToUpperInvariant(tr[0]) + tr.Substring(1);
+                    sb.Append(j.Source, pos, r.Key - pos).Append(tr);
+                    pos = r.Key + r.Value;
+                }
+                if (!ok) continue;
+                sb.Append(j.Source, pos, j.Source.Length - pos);
+                string res = sb.ToString();
+                if (Validate.Check(j.Source, res, Target) != Verdict.Ok) continue;
+                j.Result = res;
+                j.Verdict = Verdict.Ok;
+                j.Provider = (j.Provider ?? "") + "+pieces";
+                done++;
+            }
+            if (done > 0) MLog.Info("[URT] " + done + " mixed texts finished by translating only their English words");
+        }
 
         private static string KnownPiece(string piece)
         {
@@ -584,6 +700,28 @@ namespace UniversalRimTranslator
                 return sb.ToString();
             }
             catch { return null; }
+        }
+
+        private static bool rejectRecheckDone;
+
+        // 1.2.1: rejected machine translations checked again with the current check (texts that were already in
+        // the target language, mixed texts, Chinese brackets) – every start, it is quick
+        private static void RecheckRejected()
+        {
+            rejectRecheckDone = true;
+            // from now on the check knows the English words of the game (before, every plain word counted as English)
+            Urt2.Validate.EnglishWord = Live.IsEnglishWord;
+            try
+            {
+                int n = Store.RecheckRejected((k, t) => Validate.Check(k, t, Target));
+                if (n > 0)
+                {
+                    MLog.Info("[URT] " + n + " translations the check had rejected are accepted now");
+                    lock (countGate) { foreach (string k in rejectedKeys.ToList()) if (!Store.NeedsTranslation(k)) rejectedKeys.Remove(k); Rejected = rejectedKeys.Count; }
+                    Kick();
+                }
+            }
+            catch (Exception e) { MLog.Warn("[URT] recheck of rejected: " + e.Message); }
         }
 
         private static void RecheckEnglish()

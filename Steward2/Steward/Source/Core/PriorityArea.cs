@@ -408,6 +408,15 @@ public static class PriorityAreaWork
 
 	private static readonly Dictionary<PriorityAreaMode, List<WorkGiverDef>> giverCache = new Dictionary<PriorityAreaMode, List<WorkGiverDef>>();
 
+	public static IEnumerable<WorkTypeDef> WorkTypes(PriorityAreaMode m)
+	{
+		if (!Types.TryGetValue(m, out string[] names))
+			yield break;
+		foreach (WorkTypeDef w in DefDatabase<WorkTypeDef>.AllDefsListForReading)
+			if (names.Contains(WorkMatch.Base(w)) && WorkCatalog.Kind(w) != WorkKind.Emergency)
+				yield return w;
+	}
+
 	public static string ModeLabel(PriorityAreaMode m) => ("CF_PA_Mode_" + m).Translate();
 
 	private static readonly Dictionary<PriorityAreaMode, List<WorkGiverDef>> emergencyCache = new Dictionary<PriorityAreaMode, List<WorkGiverDef>>();
@@ -423,7 +432,7 @@ public static class PriorityAreaWork
 			return list;
 		var names = new HashSet<string>(Types[m]);
 		list = DefDatabase<WorkGiverDef>.AllDefsListForReading
-			.Where(g => g.workType != null && names.Contains(g.workType.defName) && g.Worker is WorkGiver_Scanner && (!emergencyOnly || g.emergency))
+			.Where(g => g.workType != null && names.Contains(WorkMatch.Base(g.workType)) && g.Worker is WorkGiver_Scanner && (!emergencyOnly || g.emergency))
 			.OrderByDescending(g => g.emergency)
 			.ThenByDescending(g => g.workType.naturalPriority)
 			.ThenByDescending(g => g.priorityInType)

@@ -27,13 +27,58 @@ public static class Planner
 		StewardApi.Register(new MyRulesStep());
 		StewardApi.Register(new ApprenticeStep());
 		StewardApi.Register(new TopJobStep());
+		StewardApi.Register(new SmallColonyStep());
+		StewardApi.Register(new AreaStep());
 		StewardApi.Register(new NobodyIdleStep());
+	}
+
+	// 1.1.0: average level of the work's own skills (what Fitness uses too)
+	public static int SkillLevel(Pawn p, WorkTypeDef w)
+	{
+		if (p?.skills == null || w?.relevantSkills == null || w.relevantSkills.Count == 0)
+			return 20;
+		float sum = 0f;
+		int n = 0;
+		foreach (SkillDef sd in w.relevantSkills)
+		{
+			SkillRecord r = p.skills.GetSkill(sd);
+			if (r == null || r.TotallyDisabled)
+				continue;
+			sum += r.Level;
+			n++;
+		}
+		return n == 0 ? 0 : Mathf.FloorToInt(sum / n);
+	}
+
+	// 1.1.0: may this pawn keep a skilled work as backup? (general work: always)
+	public static bool BackupSkillOk(Pawn p, WorkTypeDef w, ForemanSettings s)
+	{
+		if (s == null || s.backupMinSkill <= 0 || !QualityWork(w))
+			return true;
+		return SkillLevel(p, w) >= s.backupMinSkill;
+	}
+
+	// 1.1.1: the minimum skill only matters where a weak worker spoils the result (quality
+	// items, buildings, research). Doctoring, wardens, childcare, cooking, plants, mining and
+	// animals stay with every backup – 1.1.0 left those empty and colonists stood around.
+	private static Dictionary<WorkTypeDef, bool> qualityWork;
+	public static bool QualityWork(WorkTypeDef w)
+	{
+		if (w == null || WorkCatalog.Kind(w) != WorkKind.Skilled || AlwaysSomeone(w))
+			return false;
+		qualityWork ??= new Dictionary<WorkTypeDef, bool>();
+		if (!qualityWork.TryGetValue(w, out bool q))
+		{
+			q = w.relevantSkills.Any(sd => sd == SkillDefOf.Crafting || sd == SkillDefOf.Artistic || sd == SkillDefOf.Construction || sd == SkillDefOf.Intellectual);
+			qualityWork[w] = q;
+		}
+		return q;
 	}
 
 	public static bool IsStyleWork(ForemanStyle style, WorkTypeDef w) => Styles.Delta(style, w) > 0f;
 
 	// work a colony always needs somebody for, whatever the style (patients, prisoners, babies …)
-	public static bool AlwaysSomeone(WorkTypeDef w) => w.defName == "Doctor" || w.defName == "Warden" || w.defName == "Childcare" || w.defName == "Cooking";
+	public static bool AlwaysSomeone(WorkTypeDef w) { string n = WorkMatch.Base(w); return n == "Doctor" || n == "Warden" || n == "Childcare" || n == "Cooking"; }
 
 	public static bool StrictStyle(ForemanStyle style, ForemanSettings s)
 		=> s != null && s.styleStrict && style != ForemanStyle.Balanced && style != ForemanStyle.Custom;
@@ -315,6 +360,8 @@ public static class Planner
 						ctx.Set(p, w, Math.Min(3, L), "CF2_TipOnCall");
 					else if (othersOff && d <= 0f && kind == WorkKind.Skilled && !Planner.AlwaysSomeone(w))
 						ctx.Set(p, w, 0, "CF2_TipStyleOff", Styles.Label(ctx.style));
+					else if (kind == WorkKind.Skilled && s.backupWorkers && !Planner.BackupSkillOk(p, w, s))
+						ctx.Set(p, w, 0, "CF2_TipBackupLowSkill", Planner.SkillLevel(p, w), s.backupMinSkill);
 					else if (kind == WorkKind.General || s.backupWorkers)
 						ctx.Set(p, w, L, "CF2_TipBackup");
 					else
@@ -375,7 +422,7 @@ public static class Planner
 						Pawn p = on[i];
 						if (ctx.Pinned(p, w) || ctx.Locked(p, w))
 							continue;
-						if (ctx.Set(p, w, s.backupWorkers ? ctx.Levels : 0, "CF2_TipYourMax", max))
+						if (ctx.Set(p, w, s.backupWorkers && Planner.BackupSkillOk(p, w, s) ? ctx.Levels : 0, "CF2_TipYourMax", max))
 							on.RemoveAt(i);
 					}
 				}
@@ -438,6 +485,85 @@ public static class Planner
 		}
 	}
 
+	// 920: 1.1.4 a small colony (up to 6 colonists) – everybody had almost every work on 2, so the
+	// game's own column order decided (cutting wood came after everything else). Now the 2s get an
+	// order: the few that matter most now stay on 2, the next ones go to 3, the rest to the last level.
+	// 1.1.5: a colonist working for a priority area keeps that area's work switched on –
+	// before, a crisis or the colony style could turn e.g. Construction off and the area
+	// then had nothing to give him (it only uses work that is on in the Work tab)
+	private sealed class AreaStep : IPlanStep
+	{
+		public int Order => 990;
+		public string Id => "core.area";
+
+		public void Apply(PlanContext ctx)
+		{
+			if (!PriorityAreaComp.Enabled)
+				return;
+			PriorityAreaComp comp = PriorityAreaComp.For(ctx.map);
+			if (comp == null || comp.areas.Count == 0)
+				return;
+			foreach (PriorityArea a in comp.areas)
+			{
+				if (a.lastCount == 0)
+					continue;
+				foreach (Pawn p in a.assigned)
+				{
+					if (!ctx.plan.ContainsKey(p))
+						continue;
+					foreach (WorkTypeDef w in PriorityAreaWork.WorkTypes(a.mode))
+					{
+						if (ctx.Get(p, w) != 0 || ctx.Pinned(p, w) || ctx.Locked(p, w) || p.WorkTypeIsDisabled(w))
+							continue;
+						ctx.Set(p, w, Math.Min(3, ctx.Levels), "CF2_TipArea");
+					}
+				}
+			}
+		}
+	}
+
+	private sealed class SmallColonyStep : IPlanStep
+	{
+		public int Order => 920;
+		public string Id => "core.small";
+
+		private static bool CoreReason(string k) => k != null && k.StartsWith("CF2_Tip", StringComparison.Ordinal);
+
+		public void Apply(PlanContext ctx)
+		{
+			int n = ctx.pawns.Count;
+			if (n == 0 || n > 6 || ctx.Levels < 3)
+				return;
+			foreach (Pawn p in ctx.pawns)
+			{
+				var jobs = ctx.plan[p];
+				var twos = new List<(WorkTypeDef w, float score)>();
+				foreach (var j in jobs)
+				{
+					WorkTypeDef w = j.Key;
+					if (j.Value != 2 || WorkCatalog.Kind(w) == WorkKind.Emergency || ctx.Pinned(p, w) || ctx.Locked(p, w))
+						continue;
+					float pressure = ctx.demand == null ? 0f : Mathf.Min(1f, ctx.demand.Need(ctx.map, w, n) / (float)n);
+					float score = ctx.settings.Importance(w) + 0.6f * pressure + 0.4f * ctx.Fit(p, w);
+					// raised by a crisis, situation, role or your rule: that is why it matters now
+					if (ctx.reasons.TryGetValue(PlanContext.Key(p, w), out var rs) && rs.Any(r => !CoreReason(r.key)))
+						score += 1f;
+					if (Planner.AlwaysSomeone(w))
+						score += 0.3f;
+					if (WorkCatalog.Kind(w) == WorkKind.General)
+						score -= 0.2f;
+					twos.Add((w, score));
+				}
+				int keep = n <= 3 ? 3 : 4;   // 1.1.4: up to 6 colonists (5–6 had the same mess)
+				if (twos.Count <= keep)
+					continue;
+				twos.Sort((x, y) => y.score.CompareTo(x.score));
+				for (int i = keep; i < twos.Count; i++)
+					ctx.Set(p, twos[i].w, i < keep + 3 ? 3 : ctx.Levels, "CF2_TipSmallColony");
+			}
+		}
+	}
+
 	// 950: nobody without real work – the pawn gets his best-suited work that waits
 	private sealed class NobodyIdleStep : IPlanStep
 	{
@@ -453,9 +579,11 @@ public static class Planner
 					continue;
 				if (ctx.noRaise.Contains(p))
 					continue;
+				// 1.1.1: works he is skilled enough for first, then anything waiting (nobody idles)
 				foreach (WorkTypeDef pick in jobs.Keys
 					.Where(w => WorkCatalog.Kind(w) != WorkKind.Emergency && ctx.CanDo(p, w) && !ctx.Locked(p, w) && (ctx.demand?.Jobs(w) ?? 0) > 0)
-					.OrderByDescending(w => ctx.Fit(p, w)).ToList())
+					.OrderByDescending(w => Planner.BackupSkillOk(p, w, ctx.settings) ? 1 : 0)
+					.ThenByDescending(w => ctx.Fit(p, w)).ToList())
 					if (ctx.Set(p, pick, 2, "CF2_TipNobodyIdle"))
 						break;
 			}

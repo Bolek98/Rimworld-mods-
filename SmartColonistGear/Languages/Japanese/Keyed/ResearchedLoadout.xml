@@ -621,4 +621,28 @@
   <RL_WN_ApparelOff>服の変更は設定でオフ</RL_WN_ApparelOff>
   <RL_WhyNotMenu>右クリックに「なぜ取らない」の行</RL_WhyNotMenu>
   <RL_WhyNotMenu_Desc>入植者を選択中に武器や服を右クリックすると、Smart Colonist Gear が渡さない理由を表示します。</RL_WhyNotMenu_Desc>
+  <RL_WorkOnlyWorking>作業着は作業中だけ</RL_WorkOnlyWorking>
+  <RL_WorkOnlyWorking_Desc>専門家はその作業を始めるときに作業着（エプロン、白衣、鉱山用ヘルメット…）を着て、最後に作業してから約2時間後に脱ぎ、普段の服に戻ります。徴兵中や襲撃中は替えず、寒さの中で裸にしません。強制・イデオロギーの服はそのままです。</RL_WorkOnlyWorking_Desc>
+  <RL_GearBeforeWork>作業前に着替えて道具を持つ</RL_GearBeforeWork>
+  <RL_GearBeforeWork_Desc>入植者が作業を始めるとき、まず作業着を着て道具（つるはし、鎌…）を持ってから作業します——途中ではなく。緊急時、徴兵中、襲撃中は行いません。手にした武器を道具に替えることはありません。</RL_GearBeforeWork_Desc>
+  <RL_GearBeforeWorkDist>作業装備は最大 {0} マス先まで</RL_GearBeforeWorkDist>
+  <RL_GearBeforeWorkDist_Desc>これより遠い作業着や道具は作業前に取りに行きません。</RL_GearBeforeWorkDist_Desc>
+  <RL_WhyToolOn>作業用の道具</RL_WhyToolOn>
+  <RL_WhyWorkOn>作業のための作業着</RL_WhyWorkOn>
+  <RL_WhyWorkOff>作業終了 – 作業着を脱ぐ</RL_WhyWorkOff>
+  <RL_WhyWorkBack>作業後に普段の服へ</RL_WhyWorkBack>
+  <RL_DressingManaged>着替えは {0} が管理しています。入植者が何を着るかはその設定で決まります。</RL_DressingManaged>
+  <RL_ToolBelt>ポケットに道具</RL_ToolBelt>
+  <RL_ToolBelt_Desc>入植者は自分の作業用の道具（つるはし・鎌・斧など）を所持品に入れておきます。作業が始まるとすぐ手に持ち、武器はポケットへ。徴兵・戦闘・他の作業では武器を手に戻します。道具は一度取りに行けばそのまま持ち続けます（最大2つ）。</RL_ToolBelt_Desc>
+  <RL_ToolBeltMass>ポケットの道具 {0} kgまで</RL_ToolBeltMass>
+  <RL_ToolBeltMass_Desc>入植者が所持品に入れて運べる道具の合計重量。</RL_ToolBeltMass_Desc>
+  <RL_WhyToolPocket>{0}用の道具をポケットに入れる</RL_WhyToolPocket>
+  <RL_StartGrace>新しいコロニーの開始：{0} 日間は何でも使う</RL_StartGrace>
+  <RL_StartGraceOff>新しいコロニーの開始：オフ</RL_StartGraceOff>
+  <RL_StartGrace_Desc>新しいコロニーの最初の数日間、入植者は手元の武器や衣服を何でも使います。「製作済みのみ」と技術ルールはその後に適用されます。0 = 最初からルール適用。</RL_StartGrace_Desc>
+  <RL_OrderOverride>{0} はあなたの命令で {1} を取ります（通常はロック：{2}）。</RL_OrderOverride>
+  <RL_Why_NotCrafted>まだ製作していない</RL_Why_NotCrafted>
+  <RL_Why_Research>研究が足りない</RL_Why_Research>
+  <RL_Why_Banned>あなたが禁止</RL_Why_Banned>
+  <RL_Why_HigherTech>コロニーより高度（{0}）</RL_Why_HigherTech>
 </LanguageData>

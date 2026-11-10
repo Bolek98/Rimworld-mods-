@@ -1,0 +1,59 @@
+=== Workshop release 1.0.0 (10 Nov 2026) ===
+1.0.0
+First Workshop release.
+- Colonists haul several things in one trip: pockets, smart routes, building from the pockets, things without storage kept in the pockets, workbench supply, fuel rounds and a hauling overview. A fixed replacement for Pick Up And Haul and Harvest And Haul.
+
+První vydání na Workshopu.
+- Kolonisté odnesou víc věcí najednou: kapsy, chytré trasy, stavba z kapes, věci bez skladu zůstanou v kapsách, zásobování stolů, kolečka s palivem a přehled odnášení. Opravená náhrada za Pick Up And Haul a Harvest And Haul.
+
+=== Development history before the first Workshop release (test versions) ===
+3.5.1
+- New: Unload right away (on by default) – what a colonist carries goes to storage right after his current job; turn it off to keep things in the pockets until they are full.
+- Nové: Vykládat hned (zapnuto) – co kolonista nese, odnese do skladu hned po současné práci; vypnutím nosí věci, dokud nemá plné kapsy.
+
+3.5.0
+- "Haul urgently" order in the Orders tab (next to "Haul things"): drag over things and haulers take them to storage before any other hauling job, several at once where they can. Forbidden things you mark are allowed. The mark goes away by itself when the thing is in storage, picked up or gone.
+
+3.4.1
+- Rituals and parties are left alone: no things taken on the way and no hauling rounds on the way to work while a colonist takes part in a ritual, party, speech, wedding or other gathering.
+- Caravans, shuttles and transport pods: no pocket filling while colonists form a caravan or load a shuttle or pods. Things in the pockets of a colonist who leaves simply go with him as his own – nothing vanishes and nothing is unloaded on the other map.
+- Emergencies first: a bleeding colonist, or a doctor while a downed colonist needs tending, does not pick things up on the way (new setting, on by default).
+
+3.4.0
+- Take all materials at once: a builder going to a construction site first takes everything it (and the sites right next to it) still needs – several materials and more than one armful – into his pockets in one round, then builds from the pockets instead of running back for each part. Leftovers go back to storage after a while.
+
+3.3.0
+- New name: Haul Master – Pockets, Routes & Storage (was Haul Smarter). Settings and saves stay as they are.
+- Haul on the way to work (like While You're Up): when the game lets a colonist take one thing to storage on his way to a job, he now also takes other things lying close to it whose storage is near where he is going too.
+- Refill threshold (like Hauling Hysteresis): a stack in storage is topped up from another storage only after it falls below a threshold (default 50 %) – no more bringing one meal at a time to the dining room shelf. Every stockpile and shelf has a "Refill" button for its own value. Loose things are stored as always.
+- Traders put bought things away: what you buy from a trade caravan at home is carried into your storage by the traders themselves; if they cannot, colonists take it first after a while.
+- Two new sliders: how long colonists may carry hauled things at the latest (default 1 hour) and food, medicine and drugs (default 15 minutes) before they take them to storage.
+- Mechanoids and animals: hauling mechanoids and animals trained to haul take several things in one trip too (animals never take food).
+
+3.2.0
+- Workbench supply: a "Supply" button on every workbench makes a small stockpile right next to it that takes exactly the ingredients of its active bills (updated by itself, preferred priority) – the crafter no longer walks across the map. It is an ordinary stockpile and stays one without this mod.
+- Fuel round: a colonist who goes to refuel takes fuel for the other torches, stoves and generators nearby that need it too and fills them one after another. What is left goes back to storage.
+- Join half stacks: when nothing else waits, haulers put half stacks of the same thing in the same stockpile together (not on shelves or deep storage).
+- Put things down when drafted: a drafted colonist drops the things he carries to storage at once – not slowed, nothing lost if he goes down.
+- Self-safety: a part of the mod that keeps failing (usually together with another mod) switches itself off after 5 errors and tells you once, instead of filling the log. The settings show what is off and can switch it on again.
+
+3.1.0
+- Clean-up after a battle: one button in the Hauling overview allows the weapons, apparel and bodies enemies left around the base (the game forbids them) and has them hauled before everything else. A message tells you when a battle is over; optionally it cleans up by itself.
+
+3.0.4
+- Settings: a new "Bolek98's mods" button (next to "Report a bug") – all of Bolek98's mods you run in one list with their versions and settings, and saving or loading all their settings at once (for another PC or a reinstall).
+
+3.0.3
+- Settings: new "Report a bug" button (bottom left) – a short report for a Workshop comment and a full one for GitHub Issues, with this mod's errors, the mod list and other mods that change the same game code. Nothing is sent anywhere by itself.
+
+3.0.2
+- Settings: the CHANGED marks and frames show properly on RimWorld 1.7 (they were solid boxes).
+
+Haul Smarter 3.0.1
+==================
+- RimWorld 1.7 supported (tested on 1.7; still works on 1.6).
+- Fix: things stayed in the pockets for too long, so cooks had no ingredients and nobody brought meals to patients or prisoners.
+  Food, medicine and drugs now go to storage within about 15 in-game minutes, everything else within an hour (after the current job;
+  harvesting and mining still fill the pockets first).
+- "Things on the way" never takes food, medicine or drugs any more.
+

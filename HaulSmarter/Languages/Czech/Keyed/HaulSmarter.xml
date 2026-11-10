@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <HS_SecHaul>Nošení</HS_SecHaul>
+  <HS_OtherHauler>Je zapnutý {0} – nošení více věcí najednou je v Haul Master vypnuté. Vypni {0}, ať to funguje.</HS_OtherHauler>
+  <HS_HaulMany>Nosit víc věcí najednou</HS_HaulMany>
+  <HS_MaxItems>Nejvíc věcí na jednu cestu: {0}</HS_MaxItems>
+  <HS_Radius>Hledat věci do vzdálenosti: {0} polí</HS_Radius>
+  <HS_BonusKg>Bonus nosnosti: +{0} kg</HS_BonusKg>
+  <HS_PocketHarvest>Sklizeň a dřevo rovnou do kapes</HS_PocketHarvest>
+  <HS_PocketMine>Vytěženou surovinu rovnou do kapes</HS_PocketMine>
+<HS_UnloadRightAway>Vykládat hned</HS_UnloadRightAway>
+  <HS_UnloadRightAway_Desc>Věci, které kolonista nese v kapsách, odnese do skladu hned po současné práci. Vypnuto: nosí je, dokud nemá plné kapsy nebo nevyprší čas níže. Sklizeň a těžba kapsy dál nejdřív naplní.</HS_UnloadRightAway_Desc>
+    <HS_UnloadAt>Vyložit, když jsou kapsy plné na: {0}</HS_UnloadAt>
+  <HS_ReportUnload>vykládá {0}.</HS_ReportUnload>
+  <HS_Profile>PROFIL NOŠENÍ</HS_Profile>
+  <HS_ProfileHint>Klikni na profil – nastaví všechno najednou. Když cokoli změníš, přepne se na Vlastní.</HS_ProfileHint>
+  <HS_ProfGame>Jako ve hře</HS_ProfGame>
+  <HS_ProfGame_Card>Jen víc věcí najednou, nic dalšího.</HS_ProfGame_Card>
+  <HS_ProfSmart>Chytrý</HS_ProfSmart>
+  <HS_ProfSmart_Card>Nejdřív to, co se kazí. Krátká trasa, věci cestou, stavění z kapes.</HS_ProfSmart_Card>
+  <HS_ProfMax>Maximum</HS_ProfMax>
+  <HS_ProfMax_Card>Plné kapsy, dlouhé trasy, cenné věci nejdřív.</HS_ProfMax_Card>
+  <HS_ProfCustom>Vlastní</HS_ProfCustom>
+  <HS_ProfCustom_Card>Nastav si každou položku.</HS_ProfCustom_Card>
+  <HS_HaulMany_Desc>Kolonista dojde ke každé věci v okolí, dá ji do kapes a pak všechno odnese do skladu. Sklad se vybírá pro každou věc zvlášť – funguje s regály i hlubokými sklady. Co se nikam nevejde, položí vedle sebe.</HS_HaulMany_Desc>
+  <HS_MaxItems_Desc>Kolik různých hromádek nejvíc sebere na jednu cestu.</HS_MaxItems_Desc>
+  <HS_Radius_Desc>Jak daleko od první věci se dívá po dalších.</HS_Radius_Desc>
+  <HS_SmartRoute>Chytrá trasa (sebrat po cestě, ne cik-cak)</HS_SmartRoute>
+  <HS_SmartRoute_Desc>Pořadí věcí se spočítá tak, aby cesta od kolonisty přes všechny věci až do skladu byla co nejkratší.</HS_SmartRoute_Desc>
+  <HS_Opportunistic>Brát věci cestou (opatrně)</HS_Opportunistic>
+  <HS_Opportunistic_Desc>Když kolonista někam jde nebo dodělá práci, vezme do kapes věc, která leží hned vedle něj a patří do skladu. Opatrně: jen sousední políčka, jedna hromádka a pak pauza, nikdy když spěchá (hašení, ošetřování, útěk, rozkaz) a nikdy přes polovinu nosnosti. Odnese to, až nemá co dělat nebo má plné kapsy.</HS_Opportunistic_Desc>
+  <HS_UnloadAt_Desc>U sklizně, těžby a věcí po jiné práci: při jakém zaplnění kapes jde kolonista vykládat.</HS_UnloadAt_Desc>
+  <HS_SecPrio>Co nosit dřív</HS_SecPrio>
+  <HS_PrioPerish>Jídlo, které se kazí</HS_PrioPerish>
+  <HS_PrioPerish_Desc>Věci, které hnijí a leží v teple (maso, úroda, hotová jídla).</HS_PrioPerish_Desc>
+  <HS_PrioWeather>Věci venku v dešti / u ohně</HS_PrioWeather>
+  <HS_PrioWeather_Desc>Věci, které venku pod širým nebem chátrají (léky, textil, zbraně…), a věci do 5 polí od ohně.</HS_PrioWeather_Desc>
+  <HS_PrioValuable>Cenné věci (zlato, uranium, artefakty)</HS_PrioValuable>
+  <HS_PrioValuable_Desc>Hromádky v ceně aspoň 300 stříbra.</HS_PrioValuable_Desc>
+  <HS_Prio0>Normálně</HS_Prio0>
+  <HS_Prio1>Dřív</HS_Prio1>
+  <HS_Prio2>Nejdřív</HS_Prio2>
+  <HS_SecPockets>Sklizeň a těžba</HS_SecPockets>
+  <HS_PocketHarvest_Desc>Kolonista sebere úrodu nebo dřevo, co leží hned u něj, pracuje dál a odnese to, až má plné kapsy nebo dodělá práci.</HS_PocketHarvest_Desc>
+  <HS_PocketMine_Desc>Kolonista sebere vytěžené kamení a rudu, co leží hned u něj, těží dál a odnese to, až má plné kapsy.</HS_PocketMine_Desc>
+  <HS_SecWeight>Váha</HS_SecWeight>
+  <HS_BonusKg_Desc>Kolik kilo unese navíc oproti hře (0 = jako ve hře).</HS_BonusKg_Desc>
+  <HS_Slowdown>Těžký náklad zpomaluje chůzi (realistické)</HS_Slowdown>
+  <HS_Slowdown_Desc>Nad polovinu nosnosti jde kolonista pomaleji – při plných kapsách o 15 %. Výchozí vypnuto.</HS_Slowdown_Desc>
+  <HS_ShowWeight>Ukazovat váhu u kolonisty (pruh nad hlavou)</HS_ShowWeight>
+  <HS_ShowWeight_Desc>Nad kolonistou, který nese věci do skladu, je malý pruh: zelený, oranžový, červený podle zaplnění. Při největším přiblížení i kila.</HS_ShowWeight_Desc>
+  <HS_SecInfo>Čas a přehled</HS_SecInfo>
+  <HS_ShowEta>Ukazovat váhu a odhad „za jak dlouho to odnese“</HS_ShowEta>
+  <HS_ShowEta_Desc>Po kliknutí na kolonistu je dole vidět, kolik nese, kolik věcí ještě sebere a za jak dlouho bude ve skladu.</HS_ShowEta_Desc>
+  <HS_Overview>Tlačítko „Nošení“ dole na liště</HS_Overview>
+  <HS_Overview_Desc>Okno s přehledem: co čeká na odnesení, kolik váží, co se kazí, kolik nosičů, za jak dlouho je hotovo a kdo kolik odnesl.</HS_Overview_Desc>
+  <HS_Highlight>Zvýraznit nevyklizené věci na mapě</HS_Highlight>
+  <HS_Highlight_Desc>Když je otevřené okno Nošení, věci čekající na odnesení jsou na mapě orámované – žlutě, a oranžově ty, co se kazí nebo leží v dešti.</HS_Highlight_Desc>
+  <HS_InfoNote>Statistiky (kdo kolik odnesl) se ukládají do hry. Počítá se nošení přes Haul Master.</HS_InfoNote>
+  <HS_StatLoad>Těžký náklad (Haul Master)</HS_StatLoad>
+  <HS_Carries>Nese: {0} / {1} kg ({2} ks)</HS_Carries>
+  <HS_Eta>do skladu za {0}</HS_Eta>
+  <HS_StillTake>ještě sebere {0}</HS_StillTake>
+  <HS_EtaNow>chvilku</HS_EtaNow>
+  <HS_EtaHours>~{0} h</HS_EtaHours>
+  <HS_OverviewTitle>Přehled nošení</HS_OverviewTitle>
+  <HS_OvWaiting>Čeká na odnesení: {0} hromádek · {1} kg</HS_OvWaiting>
+  <HS_OvHot>Z toho kazí se: {0} · venku v dešti / u ohně: {1} · cenné: {2}</HS_OvHot>
+  <HS_OvHaulers>Nosiči: {0} (právě nosí: {1})</HS_OvHaulers>
+  <HS_OvEta>Hotovo zhruba za {0} (kdyby jen nosili)</HS_OvEta>
+  <HS_OvEtaNone>Není co nosit nebo nikdo nemá zapnuté nošení.</HS_OvEtaNone>
+  <HS_OvToday>Dnes odneseno: {0} kg / {1} cest</HS_OvToday>
+  <HS_ColName>Kolonista</HS_ColName>
+  <HS_ColCarry>Nese teď</HS_ColCarry>
+  <HS_ColToday>Dnes</HS_ColToday>
+  <HS_ColTotal>Celkem</HS_ColTotal>
+  <HS_KgTrips>{0} kg / {1}×</HS_KgTrips>
+  <HS_BuildPockets>Stavět z věcí v kapsách</HS_BuildPockets>
+  <HS_BuildPockets_Desc>Když má kolonista v kapsách materiál, který stavba potřebuje (dřevo, ocel, kámen…), vytáhne ho a donese rovnou na stavbu – nemusí chodit do skladu.</HS_BuildPockets_Desc>
+  <HS_SecCleanup>Úklid po bitvě</HS_SecCleanup>
+  <HS_CleanupNotice>Bitva skončila – kolem základny leží {0} zbraní, oblečení a těl. Přehled nošení → „Úklid po bitvě“.</HS_CleanupNotice>
+  <HS_CleanupNotice_Desc>Zpráva řekne, kolik zbraní, oblečení a těl leží kolem základny. Úklid spustíš v přehledu Nošení.</HS_CleanupNotice_Desc>
+  <HS_CleanupAuto>Uklidit samo</HS_CleanupAuto>
+  <HS_CleanupAuto_Desc>Po každé bitvě doma se to, co nepřátelé nechali kolem základny, povolí a odnese jako první – bez klikání.</HS_CleanupAuto_Desc>
+  <HS_CleanupButton>Úklid po bitvě ({0})</HS_CleanupButton>
+  <HS_CleanupButton_Desc>Povolí zbraně, oblečení a těla ležící kolem základny (hra výbavu nepřátel zakazuje) a nechá je odnést přede vším ostatním.</HS_CleanupButton_Desc>
+  <HS_CleanupStarted>Úklid začal: {0} věcí se odnese jako první.</HS_CleanupStarted>
+  <HS_FuelRound>Palivo na jednu cestu</HS_FuelRound>
+  <HS_FuelRound_Desc>Kolonista, který jde doplnit palivo, vezme rovnou i pro další pochodně, kamna a generátory poblíž, které ho potřebují, a doplní je jedno po druhém – jedna cesta do skladu místo cesty pro každé. Co zbyde, vrátí do skladu.</HS_FuelRound_Desc>
+  <HS_MergeStacks>Spojovat půlstohy</HS_MergeStacks>
+  <HS_MergeStacks_Desc>Když nic jiného nečeká, nosiči spojí neúplné stohy stejné věci ve stejném skladu – víc volných políček. Police a sklady s více věcmi na políčku nechá být.</HS_MergeStacks_Desc>
+  <HS_DropOnDraft>Při draftu věci odložit</HS_DropOnDraft>
+  <HS_DropOnDraft_Desc>Draftnutý kolonista hned odloží věci, které nese do skladu – není zpomalený a nic se neztratí, když padne. Později se odnesou znovu.</HS_DropOnDraft_Desc>
+  <HS_SecBench>Zásobování ponků</HS_SecBench>
+  <HS_BenchCells>Velikost skladu u ponku: {0} políček</HS_BenchCells>
+  <HS_BenchCells_Desc>Kolik políček použije tlačítko „Zásobovat“ u ponku pro malý sklad vedle něj.</HS_BenchCells_Desc>
+  <HS_Bench>Zásobovat</HS_Bench>
+  <HS_Bench_Desc>Udělá hned vedle ponku malý sklad, který bere přesně suroviny jeho aktivních zakázek (sám se aktualizuje, priorita Přednostní). Výrobce je vezme vedle ponku a neběhá přes celou mapu. Dalším kliknutím sklad zrušíš. Je to obyčejný sklad – zůstane i bez Haul Master.</HS_Bench_Desc>
+  <HS_BenchZone>Zásoby: {0}</HS_BenchZone>
+  <HS_BenchStarted>{0}: sklad zásob s {1} políčky je hotový – budou se tam nosit suroviny jeho zakázek.</HS_BenchStarted>
+  <HS_BenchNoRoom>Vedle tohoto ponku nejsou volná políčka pro sklad zásob.</HS_BenchNoRoom>
+  <HS_SafeOff>Haul Master: „{0}“ opakovaně selhávalo (nejspíš spolu s jiným modem) a do dalšího spuštění je vypnuté. Podrobnosti jsou v logu.</HS_SafeOff>
+  <HS_SafeList>Vypnuto po chybách: {0}</HS_SafeList>
+  <HS_SafeReset>Znovu zapnout</HS_SafeReset>
+  <HS_Feat_haul>odnášení více věcí</HS_Feat_haul>
+  <HS_Feat_pockets>kapsy při sklizni a těžbě</HS_Feat_pockets>
+  <HS_Feat_unload>vykládání kapes</HS_Feat_unload>
+  <HS_Feat_onTheWay>věci po cestě</HS_Feat_onTheWay>
+  <HS_Feat_buildPockets>stavění z kapes</HS_Feat_buildPockets>
+  <HS_Feat_draft>odložení věcí při draftu</HS_Feat_draft>
+  <HS_Feat_bench>zásobování ponků</HS_Feat_bench>
+  <HS_Feat_fuel>palivo na jednu cestu</HS_Feat_fuel>
+  <HS_Feat_merge>spojování půlstohů</HS_Feat_merge>
+  <HS_Detour>Cestou do práce vezme víc věcí</HS_Detour>
+  <HS_Detour_Desc>Když kolonista cestou do práce bere jednu věc do skladu (jako ve hře), vezme i další věci, které leží blízko ní a jejichž sklad je také u místa, kam jde.</HS_Detour_Desc>
+  <HS_StepAside>Nošení navíc ustoupí v nouzi</HS_StepAside>
+  <HS_StepAside_Desc>Kolonista nebere věci cestou ani nenosí nic navíc cestou do práce, když krvácí nebo když je doktor a ležící kolonista potřebuje ošetřit. Během rituálů, oslav, sestavování karavany a nakládání raketoplánu nebo kapslí se nošení navíc zastaví vždy.</HS_StepAside_Desc>
+  <HS_TraderCarry>Obchodníci uklidí nakoupené</HS_TraderCarry>
+  <HS_TraderCarry_Desc>Co koupíš od obchodní karavany, odnesou obchodníci sami do tvého skladu. Když nemůžou, tvoji kolonisté to po chvíli uklidí přednostně.</HS_TraderCarry_Desc>
+  <HS_MechHaul>Mechanoidi nosí víc věcí</HS_MechHaul>
+  <HS_MechHaul_Desc>Mechanoidi na nošení (třeba nosič) berou víc věcí najednou, stejně jako kolonisté.</HS_MechHaul_Desc>
+  <HS_AnimalHaul>Zvířata nosí víc věcí</HS_AnimalHaul>
+  <HS_AnimalHaul_Desc>Zvířata vycvičená na nošení berou víc věcí najednou. Nikdy jídlo – mohla by ho sníst.</HS_AnimalHaul_Desc>
+  <HS_SecRefill>Doplňování skladu</HS_SecRefill>
+  <HS_RefillOff>Doplňovat stacky: hned (jako ve hře)</HS_RefillOff>
+  <HS_RefillSlider>Doplňovat stacky až pod: {0}</HS_RefillSlider>
+  <HS_RefillSlider_Desc>Stack ve skladu se doplní z jiného skladu až když klesne pod tuto hranici – žádné nošení jednoho jídla na polici v jídelně. Volně ležící věci se uklízí jako vždy. Každý sklad a police může mít vlastní hodnotu (tlačítko).</HS_RefillSlider_Desc>
+  <HS_RefillGizmo>Doplňovat</HS_RefillGizmo>
+  <HS_RefillGizmo_Desc>Kdy se stacky tady doplňují z jiného skladu. Volně ležící věci se uklízí vždy.</HS_RefillGizmo_Desc>
+  <HS_RefillDefault>výchozí ({0})</HS_RefillDefault>
+  <HS_RefillNow>hned</HS_RefillNow>
+  <HS_RefillBelow>pod {0}</HS_RefillBelow>
+  <HS_Feat_detour>nošení cestou do práce</HS_Feat_detour>
+  <HS_Feat_refill>hranice doplňování</HS_Feat_refill>
+  <HS_Feat_trader>obchodníci uklízí nakoupené</HS_Feat_trader>
+  <HS_Feat_animals>nošení zvířaty</HS_Feat_animals>
+  <HS_PocketTime>Vyložit nesené věci nejpozději po: {0}</HS_PocketTime>
+  <HS_PocketTime_Desc>Věci, které kolonista nese v kapsách do skladu (sklizeň, těžba, věci vzaté cestou), odnese do skladu nejpozději po této době – po dokončení aktuální práce.</HS_PocketTime_Desc>
+  <HS_PocketFood>Jídlo, léky a drogy nejpozději po: {0}</HS_PocketFood>
+  <HS_PocketFood_Desc>Potřebují je kuchaři, doktoři a dozorci, proto jdou z kapes dřív.</HS_PocketFood_Desc>
+  <HS_SmartPickup>Vzít všechen materiál najednou</HS_SmartPickup>
+  <HS_SmartPickup_Desc>Stavitel, který jde na staveniště, si nejdřív vezme do kapes všechno, co stavba (a stavby hned vedle) ještě potřebuje – víc druhů materiálu i víc než jednu náruč – v jednom kole, a pak staví z kapes místo běhání pro každý kus zvlášť.</HS_SmartPickup_Desc>
+  <HS_Feat_pickup>braní všeho materiálu najednou</HS_Feat_pickup>
+  <HS_HaulUrgent>Odnést naléhavě</HS_HaulUrgent>
+  <HS_HaulUrgent_Desc>Označ věci, které se mají odnést do skladu dřív než cokoli jiného. Zakázané věci se povolí. Označení zmizí, jakmile je věc ve skladu.</HS_HaulUrgent_Desc>
+  <HS_Feat_urgent>naléhavé odnášení</HS_Feat_urgent>
+</LanguageData>

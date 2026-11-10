@@ -101,4 +101,74 @@
   <AT_ShellNotHostile>{0} ({1}) não é hostil – a artilharia só bombardeia bases e acampamentos hostis (ou um mapa aberto).</AT_ShellNotHostile>
   <AT_ShellNoTarget>Não há nada para bombardear aqui. Escolha uma base ou acampamento hostil (não precisa ser explorado) ou um mapa aberto.</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0} ({1}) foi destruído pela artilharia.</AT_ShellSiteDestroyed>
+  <AT_QC_This>Torreta lig./desl.</AT_QC_This>
+  <AT_QC_This_Desc>Desliga esta torreta (não atira, nem em alvo forçado) ou liga de novo.</AT_QC_This_Desc>
+  <AT_QC_All>Todas as torretas…</AT_QC_All>
+  <AT_QC_All_Desc>Desliga ou liga todas as suas torretas neste mapa, ou coloca todas em letal ou só atordoar.</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>Disparo: letal</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>Disparo: só atordoar</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>Letal: tiros normais. Só atordoar: cada acerto só atordoa (sem ferimentos) e a torreta pula alvos já atordoados ou caídos. Não para armas explosivas (morteiros, foguetes).</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>Esta torreta: letal</AT_QC_SetLethal>
+  <AT_QC_SetStun>Esta torreta: só atordoar</AT_QC_SetStun>
+  <AT_QC_AllLethal>Todas as torretas: letal</AT_QC_AllLethal>
+  <AT_QC_AllStun>Todas as torretas: só atordoar</AT_QC_AllStun>
+  <AT_QC_Explosive>Armas explosivas (morteiros, foguetes, projéteis) não podem só atordoar.</AT_QC_Explosive>
+  <AT_QC_AllOff>Desligar todas as torretas</AT_QC_AllOff>
+  <AT_QC_AllOn>Ligar todas as torretas</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>{0} torretas desligadas.</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>{0} torretas ligadas.</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>{0} torretas em só atordoar.</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>{0} torretas em letal.</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>{0} torretas explosivas continuam letais.</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>Suas torretas: desligar ou ligar todas, letal ou só atordoar.</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>Botões rápidos de torretas</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>Botões liga/desliga e letal/atordoar em cada torreta sua.</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>Botão de torretas no canto inferior direito</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>Um botão pequeno ao lado das configurações de jogo (canto inferior direito) para desligar/ligar todas as torretas ou trocar letal/atordoar.</AT_QC_SetGlobal_Desc>
+  <!-- 1.4.0 ammo types -->
+  <AT_AM_Tab>Tipos de munição</AT_AM_Tab>
+  <AT_AM_Enable>Tipos de munição para torretas</AT_AM_Enable>
+  <AT_AM_Enable_Desc>Cada torreta sua (também de mods e morteiros) ganha um botão de tipo de munição: perfurante, ponta oca, incendiária, EMP, atordoante, tóxica; morteiros também fumaça e espuma antichamas. Uma torreta pode usar um tipo para o qual normalmente não tem munição.</AT_AM_Enable_Desc>
+  <AT_AM_FromStorage>Munição especial do estoque</AT_AM_FromStorage>
+  <AT_AM_FromStorage_Desc>Desligado (padrão): munição especial não precisa ser fabricada nem carregada – a torreta se recarrega sozinha. Ligado: morteiros precisam de projéteis reais do estoque como antes.</AT_AM_FromStorage_Desc>
+  <AT_AM_ApPen>Penetração ×{0}</AT_AM_ApPen>
+  <AT_AM_HpDmg>Dano ×{0}</AT_AM_HpDmg>
+  <AT_AM_IncIgnite>Chance de incendiar: {0}</AT_AM_IncIgnite>
+  <AT_AM_EmpPow>Força EMP ×{0}</AT_AM_EmpPow>
+  <AT_AM_ToxSev>Toxicidade por acerto: {0}</AT_AM_ToxSev>
+  <AT_AM_KShells>Projéteis de fumaça e espuma (morteiros)</AT_AM_KShells>
+  <AT_AM_KShells_Desc>Morteiros e artilharia também podem usar fumaça ou espuma antichamas.</AT_AM_KShells_Desc>
+  <AT_AM_Gizmo>Munição: {0}</AT_AM_Gizmo>
+  <AT_AM_Gizmo_Desc>Escolha a munição desta torreta. Torretas de balas mudam o efeito do acerto; morteiros e artilharia carregam o projétil correspondente. Munição especial é grátis, a menos que 'Munição especial do estoque' esteja ligado.</AT_AM_Gizmo_Desc>
+  <AT_AM_K_Normal>Normal</AT_AM_K_Normal>
+  <AT_AM_K_Normal_Desc>Munição padrão da arma, nada muda.</AT_AM_K_Normal_Desc>
+  <AT_AM_K_ArmorPiercing>Perfurante</AT_AM_K_ArmorPiercing>
+  <AT_AM_K_ArmorPiercing_Desc>Penetração muito maior, dano ×0,8. Boa contra blindados e mecanoides.</AT_AM_K_ArmorPiercing_Desc>
+  <AT_AM_K_HollowPoint>Ponta oca</AT_AM_K_HollowPoint>
+  <AT_AM_K_HollowPoint_Desc>Mais dano, metade da penetração. Boa contra alvos sem armadura e animais.</AT_AM_K_HollowPoint_Desc>
+  <AT_AM_K_Incendiary>Incendiária</AT_AM_K_Incendiary>
+  <AT_AM_K_Incendiary_Desc>Adiciona queimadura e chance de incendiar. Morteiros: projétil incendiário.</AT_AM_K_Incendiary_Desc>
+  <AT_AM_K_EMP>EMP</AT_AM_K_EMP>
+  <AT_AM_K_EMP_Desc>Pouco dano normal mais EMP: atordoa mecanoides e torretas, quebra escudos. Morteiros: projétil EMP.</AT_AM_K_EMP_Desc>
+  <AT_AM_K_Stun>Atordoante</AT_AM_K_Stun>
+  <AT_AM_K_Stun_Desc>Sem ferimentos – acertos só atordoam. Ignora caídos ou atordoados. Só torretas de balas.</AT_AM_K_Stun_Desc>
+  <AT_AM_K_Toxic>Tóxica</AT_AM_K_Toxic>
+  <AT_AM_K_Toxic_Desc>Menos dano, adiciona toxicidade a alvos vivos. Morteiros: projétil tóxico (Biotech).</AT_AM_K_Toxic_Desc>
+  <AT_AM_K_Smoke>Fumaça</AT_AM_K_Smoke>
+  <AT_AM_K_Smoke_Desc>Só morteiros: projétil de fumaça que bloqueia tiros inimigos.</AT_AM_K_Smoke_Desc>
+  <AT_AM_K_Firefoam>Espuma antichamas</AT_AM_K_Firefoam>
+  <AT_AM_K_Firefoam_Desc>Só morteiros: projétil de espuma que apaga incêndios.</AT_AM_K_Firefoam_Desc>
+  <AT_AM_ApplySame>Igual para todas: {0}</AT_AM_ApplySame>
+  <AT_AM_ApplyAll>Igual para todas as torretas</AT_AM_ApplyAll>
+  <AT_AM_AllMenu>Tipo de munição para todas as torretas…</AT_AM_AllMenu>
+  <AT_AM_AllKind>Todas as torretas: {0}</AT_AM_AllKind>
+  <AT_AM_SetMsg>Munição definida em {0} torretas: {1}.</AT_AM_SetMsg>
+  <AT_AM_Skipped>{0} torretas não podem usá-la e ficaram como estavam.</AT_AM_Skipped>
+  <AT_AM_OffInSettings>desligado nas opções</AT_AM_OffInSettings>
+  <AT_AM_NotForShells>não para projéteis</AT_AM_NotForShells>
+  <AT_AM_NotForRockets>foguetes não mudam</AT_AM_NotForRockets>
+  <AT_AM_NoShellDef>projétil indisponível</AT_AM_NoShellDef>
+  <AT_AM_OnlyShells>só morteiros</AT_AM_OnlyShells>
+  <AT_SpareGround>As torretas não destroem itens nem corpos</AT_SpareGround>
+  <AT_SpareGround_Desc>Ligado: balas e explosões de projéteis das suas torretas não atingem itens e cadáveres no chão – o saque não é destruído e os corpos não viram pasta até sumir. Personagens e construções são atingidos normalmente. Desligado = como no jogo.</AT_SpareGround_Desc>
 </LanguageData>

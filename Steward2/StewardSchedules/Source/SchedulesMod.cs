@@ -25,6 +25,12 @@ public sealed class SchedulesSettings : ModSettings
 	public bool sitToEat = true;
 	public bool quietMessages = false;
 	public bool crisisMessages = true;
+	// 1.1.0: calendar
+	public string defaultCycle = "Classic";
+	public string customCycle = "WWWWWOO";
+	public bool autoHolidays = false;
+	public bool recoveryDays = true;
+	public bool mealHours = true;
 
 	public override void ExposeData()
 	{
@@ -34,6 +40,11 @@ public sealed class SchedulesSettings : ModSettings
 		Scribe_Values.Look(ref sitToEat, "sitToEat", true);
 		Scribe_Values.Look(ref quietMessages, "quietMessages2", false);
 		Scribe_Values.Look(ref crisisMessages, "crisisMessages", true);
+		Scribe_Values.Look(ref defaultCycle, "defaultCycle", "Classic");
+		Scribe_Values.Look(ref customCycle, "customCycle", "WWWWWOO");
+		Scribe_Values.Look(ref autoHolidays, "autoHolidays", false);
+		Scribe_Values.Look(ref recoveryDays, "recoveryDays", true);
+		Scribe_Values.Look(ref mealHours, "mealHours", true);
 	}
 }
 
@@ -55,6 +66,8 @@ public sealed class SchedulesMod : Mod
 			MoodCare.ResetGame();
 			Comfort.ResetGame();
 			ScheduleTabWatch.EditedByYou.Clear();
+			DayPlan.ResetGame();
+			WorkHourFirst.Reset();
 		};
 		MLog.Info("[Steward] Schedules loaded.");
 	}
@@ -68,6 +81,16 @@ public sealed class SchedulesMod : Mod
 		l.CheckboxLabeled("CF2S_Auto".Translate(), ref S.autoSchedule, "CF2S_AutoTip".Translate());
 		if (S.autoSchedule)
 			l.CheckboxLabeled("   " + "CF2S_Night".Translate(), ref S.nightShift, "CF2S_NightTip".Translate());
+		if (l.ButtonTextLabeled("CF2S_CalTitle".Translate(), "CF2S_CalButton".Translate()))
+		{
+			if (Find.CurrentMap != null)
+				Find.WindowStack.Add(new Window_StewardCalendar(Find.CurrentMap));
+			else
+				Messages.Message("CF2S_CalNoMap".Translate(), MessageTypeDefOf.RejectInput, historical: false);
+		}
+		l.CheckboxLabeled("CF2S_CalRecovery".Translate(), ref S.recoveryDays, "CF2S_CalRecoveryTip".Translate());
+		l.CheckboxLabeled("CF2S_MealHours".Translate(), ref S.mealHours, "CF2S_MealHoursTip".Translate());
+		l.CheckboxLabeled("CF2S_CalAutoHoliday".Translate(), ref S.autoHolidays, "CF2S_CalAutoHolidayTip".Translate());
 		l.CheckboxLabeled("CF2S_Care".Translate(), ref S.scheduleCare, "CF2S_CareTip".Translate());
 		l.CheckboxLabeled("CF2S_SitToEat".Translate(), ref S.sitToEat, "CF2S_SitToEatTip".Translate());
 		l.CheckboxLabeled("CF2S_Messages".Translate(), ref S.crisisMessages);
@@ -113,6 +136,13 @@ public sealed class SchedState
 	public Dictionary<int, string> scheduled = new Dictionary<int, string>();
 	public Dictionary<int, string> schedHold = new Dictionary<int, string>();
 	public bool manualReset2492;
+	// 1.1.0: calendar
+	public Dictionary<int, string> cycle = new Dictionary<int, string>();      // colonist -> cycle key (none = colony default)
+	public Dictionary<int, int> phase = new Dictionary<int, int>();           // colonist -> where in the cycle
+	public Dictionary<string, string> dayManual = new Dictionary<string, string>();   // "id:day" -> kind set by hand
+	public HashSet<string> recovery = new HashSet<string>();                 // "id:day"
+	public HashSet<int> holidays = new HashSet<int>();
+	public int lastForget = -1;
 
 	public static SchedState Of(ForemanMapComponent c) => table.GetValue(c, _ => new SchedState());
 
@@ -122,8 +152,18 @@ public sealed class SchedState
 		Scribe_Collections.Look(ref s.scheduled, "cfScheduled", LookMode.Value, LookMode.Value);
 		Scribe_Collections.Look(ref s.schedHold, "cfSchedHold", LookMode.Value, LookMode.Value);
 		Scribe_Values.Look(ref s.manualReset2492, "cfManualReset2492", false);
+		Scribe_Collections.Look(ref s.cycle, "cfCalCycle", LookMode.Value, LookMode.Value);
+		Scribe_Collections.Look(ref s.phase, "cfCalPhase", LookMode.Value, LookMode.Value);
+		Scribe_Collections.Look(ref s.dayManual, "cfCalManual", LookMode.Value, LookMode.Value);
+		Scribe_Collections.Look(ref s.recovery, "cfCalRecovery", LookMode.Value);
+		Scribe_Collections.Look(ref s.holidays, "cfCalHolidays", LookMode.Value);
 		if (Scribe.mode == LoadSaveMode.PostLoadInit)
 		{
+			s.cycle ??= new Dictionary<int, string>();
+			s.phase ??= new Dictionary<int, int>();
+			s.dayManual ??= new Dictionary<string, string>();
+			s.recovery ??= new HashSet<string>();
+			s.holidays ??= new HashSet<int>();
 			s.scheduled ??= new Dictionary<int, string>();
 			s.schedHold ??= new Dictionary<int, string>();
 		}
@@ -148,6 +188,7 @@ public sealed class SchedState
 		}
 		try
 		{
+			DayPlan.WatchThreat(comp, map);
 			AutoSchedules.Schedules(comp, map);
 			ScheduleCare.Tick(comp, map);
 			MoodCare.Tick(comp, map);

@@ -101,4 +101,74 @@
   <AT_ShellNotHostile>{0}({1})은(는) 적대적이지 않습니다 – 포격은 적대 기지와 야영지(또는 열린 지도)에만 가능합니다.</AT_ShellNotHostile>
   <AT_ShellNoTarget>여기에는 포격할 대상이 없습니다. 적대 기지나 야영지(탐사 불필요) 또는 열린 지도를 선택하세요.</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0}({1})이(가) 포격으로 파괴되었습니다.</AT_ShellSiteDestroyed>
+  <AT_QC_This>포탑 켜기/끄기</AT_QC_This>
+  <AT_QC_This_Desc>이 포탑을 끕니다(강제 목표에도 사격하지 않음) 또는 다시 켭니다.</AT_QC_This_Desc>
+  <AT_QC_All>모든 포탑…</AT_QC_All>
+  <AT_QC_All_Desc>이 지도의 모든 포탑을 끄거나 켜고, 모두 치명 또는 기절만으로 설정합니다.</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>사격: 치명</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>사격: 기절만</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>치명: 일반 사격. 기절만: 모든 명중은 기절만 시키며(부상 없음) 이미 기절하거나 쓰러진 대상은 건너뜁니다. 폭발 무기(박격포, 로켓)에는 사용할 수 없습니다.</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>이 포탑: 치명</AT_QC_SetLethal>
+  <AT_QC_SetStun>이 포탑: 기절만</AT_QC_SetStun>
+  <AT_QC_AllLethal>모든 포탑: 치명</AT_QC_AllLethal>
+  <AT_QC_AllStun>모든 포탑: 기절만</AT_QC_AllStun>
+  <AT_QC_Explosive>폭발 무기(박격포, 로켓, 포탄)는 기절만으로 설정할 수 없습니다.</AT_QC_Explosive>
+  <AT_QC_AllOff>모든 포탑 끄기</AT_QC_AllOff>
+  <AT_QC_AllOn>모든 포탑 켜기</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>포탑 {0}개를 껐습니다.</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>포탑 {0}개를 켰습니다.</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>포탑 {0}개를 기절만으로 설정했습니다.</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>포탑 {0}개를 치명으로 설정했습니다.</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>폭발 포탑 {0}개는 치명으로 남았습니다.</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>내 포탑: 모두 끄기/켜기, 치명 또는 기절만.</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>포탑 빠른 버튼</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>모든 내 포탑에 켜기/끄기 및 치명/기절 버튼을 표시합니다.</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>오른쪽 아래 포탑 버튼</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>게임 설정 옆(오른쪽 아래)의 작은 버튼으로 모든 포탑을 끄거나 켜고 치명/기절을 전환합니다.</AT_QC_SetGlobal_Desc>
+  <!-- 1.4.0 ammo types -->
+  <AT_AM_Tab>탄약 종류</AT_AM_Tab>
+  <AT_AM_Enable>포탑 탄약 종류</AT_AM_Enable>
+  <AT_AM_Enable_Desc>당신의 모든 포탑(모드 포탑과 박격포 포함)에 탄약 종류 버튼이 생깁니다: 철갑, 할로우포인트, 소이, EMP, 기절, 독성; 박격포는 연막과 소화 거품도. 원래 탄약이 없는 종류도 사용할 수 있습니다.</AT_AM_Enable_Desc>
+  <AT_AM_FromStorage>특수 탄약을 창고에서</AT_AM_FromStorage>
+  <AT_AM_FromStorage_Desc>끔(기본): 특수 탄약은 제작이나 운반이 필요 없습니다 – 포탑이 스스로 재장전합니다. 켬: 박격포는 예전처럼 창고의 실제 포탄이 필요합니다.</AT_AM_FromStorage_Desc>
+  <AT_AM_ApPen>방어구 관통 ×{0}</AT_AM_ApPen>
+  <AT_AM_HpDmg>피해 ×{0}</AT_AM_HpDmg>
+  <AT_AM_IncIgnite>점화 확률: {0}</AT_AM_IncIgnite>
+  <AT_AM_EmpPow>EMP 위력 ×{0}</AT_AM_EmpPow>
+  <AT_AM_ToxSev>명중당 독소 축적: {0}</AT_AM_ToxSev>
+  <AT_AM_KShells>연막·소화 포탄 (박격포)</AT_AM_KShells>
+  <AT_AM_KShells_Desc>박격포와 포대도 연막이나 소화 거품으로 설정할 수 있습니다.</AT_AM_KShells_Desc>
+  <AT_AM_Gizmo>탄약: {0}</AT_AM_Gizmo>
+  <AT_AM_Gizmo_Desc>이 포탑이 쏠 탄약을 고릅니다. 총탄 포탑은 명중 효과가 바뀌고, 박격포와 포대는 해당 포탄을 장전합니다. '특수 탄약을 창고에서'가 꺼져 있으면 특수 탄약은 무료입니다.</AT_AM_Gizmo_Desc>
+  <AT_AM_K_Normal>일반</AT_AM_K_Normal>
+  <AT_AM_K_Normal_Desc>무기의 기본 탄약, 변화 없음.</AT_AM_K_Normal_Desc>
+  <AT_AM_K_ArmorPiercing>철갑</AT_AM_K_ArmorPiercing>
+  <AT_AM_K_ArmorPiercing_Desc>방어구 관통이 크게 증가, 피해 ×0.8. 장갑 적과 메카노이드에 좋음.</AT_AM_K_ArmorPiercing_Desc>
+  <AT_AM_K_HollowPoint>할로우포인트</AT_AM_K_HollowPoint>
+  <AT_AM_K_HollowPoint_Desc>피해 증가, 관통 절반. 비장갑 적과 동물에 좋음.</AT_AM_K_HollowPoint_Desc>
+  <AT_AM_K_Incendiary>소이</AT_AM_K_Incendiary>
+  <AT_AM_K_Incendiary_Desc>화상 피해와 점화 확률 추가. 박격포: 소이탄.</AT_AM_K_Incendiary_Desc>
+  <AT_AM_K_EMP>EMP</AT_AM_K_EMP>
+  <AT_AM_K_EMP_Desc>약간의 일반 피해와 EMP: 메카노이드와 포탑을 기절시키고 보호막을 깹니다. 박격포: EMP탄.</AT_AM_K_EMP_Desc>
+  <AT_AM_K_Stun>기절</AT_AM_K_Stun>
+  <AT_AM_K_Stun_Desc>부상 없음 – 명중은 기절만 시킵니다. 쓰러졌거나 기절한 대상은 건너뜁니다. 총탄 포탑만.</AT_AM_K_Stun_Desc>
+  <AT_AM_K_Toxic>독성</AT_AM_K_Toxic>
+  <AT_AM_K_Toxic_Desc>피해 감소, 생체 대상에 독소 축적 추가. 박격포: 독성탄 (Biotech).</AT_AM_K_Toxic_Desc>
+  <AT_AM_K_Smoke>연막</AT_AM_K_Smoke>
+  <AT_AM_K_Smoke_Desc>박격포만: 적의 사격을 막는 연막탄.</AT_AM_K_Smoke_Desc>
+  <AT_AM_K_Firefoam>소화 거품</AT_AM_K_Firefoam>
+  <AT_AM_K_Firefoam_Desc>박격포만: 불을 끄는 소화 거품탄.</AT_AM_K_Firefoam_Desc>
+  <AT_AM_ApplySame>모두 동일: {0}</AT_AM_ApplySame>
+  <AT_AM_ApplyAll>모든 포탑 동일</AT_AM_ApplyAll>
+  <AT_AM_AllMenu>모든 포탑의 탄약 종류…</AT_AM_AllMenu>
+  <AT_AM_AllKind>모든 포탑: {0}</AT_AM_AllKind>
+  <AT_AM_SetMsg>{0}개 포탑의 탄약 설정: {1}.</AT_AM_SetMsg>
+  <AT_AM_Skipped>{0}개 포탑은 사용할 수 없어 그대로입니다.</AT_AM_Skipped>
+  <AT_AM_OffInSettings>설정에서 꺼짐</AT_AM_OffInSettings>
+  <AT_AM_NotForShells>포탄에는 불가</AT_AM_NotForShells>
+  <AT_AM_NotForRockets>로켓은 변경 불가</AT_AM_NotForRockets>
+  <AT_AM_NoShellDef>포탄 없음</AT_AM_NoShellDef>
+  <AT_AM_OnlyShells>박격포만</AT_AM_OnlyShells>
+  <AT_SpareGround>포탑이 바닥의 물건과 시체를 부수지 않음</AT_SpareGround>
+  <AT_SpareGround_Desc>켜기: 포탑의 총알과 포탄 폭발이 바닥에 있는 물건과 시체를 건드리지 않습니다 – 전리품이 산산조각 나지 않고, 시체가 사라질 때까지 짓이겨지지 않습니다. 인물과 건물은 평소처럼 맞습니다. 끄기 = 게임과 같음.</AT_SpareGround_Desc>
 </LanguageData>

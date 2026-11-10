@@ -170,11 +170,14 @@ public sealed partial class SupplyManager : MapComponent
 		IntVec3 center = ColonyStats.BaseCenter(map);
 		int n = 0;
 		var items = map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver)
-			.Where(t => t.Spawned && t.def.category == ThingCategory.Item && home[t.Position] && !ColonyStats.IsChunk(t))
+			.Where(t => t.Spawned && t.def.category == ThingCategory.Item && home[t.Position] && !ColonyStats.IsChunk(t) && !t.IsInAnyStorage())   // 1.1.3: shelves first out (cheaper)
 			.OrderBy(t => t.Position.DistanceToSquared(center)).ToList();
 		Pawn carrier = map.mapPawns.FreeColonistsSpawned.FirstOrDefault();
+		int searches = 0;
 		foreach (Thing t in items)
 		{
+			if (++searches > 300)
+				break;   // 1.1.3: big colonies – at most 300 looked at per round
 			if (t.IsInAnyStorage() || map.fogGrid.IsFogged(t.Position) || t.IsBurning())
 				continue;
 			if (dm.DesignationOn(t, DesignationDefOf.Haul) != null || ModCompat.NoHaul(t))
@@ -203,9 +206,46 @@ public sealed partial class SupplyManager : MapComponent
 	// Pick Up And Haul has time to unload it itself.
 	private readonly Dictionary<int, int> strayFirstSeen = new Dictionary<int, int>();
 
+	private static readonly Dictionary<ThingDef, bool> ammoCache = new Dictionary<ThingDef, bool>();
+	private static bool IsAmmo(ThingDef d)
+	{
+		if (d == null) return false;
+		if (ammoCache.TryGetValue(d, out bool v)) return v;
+		v = false;
+		for (Type ty = d.GetType(); ty != null && ty != typeof(ThingDef); ty = ty.BaseType)
+			if (ty.Name.IndexOf("Ammo", StringComparison.OrdinalIgnoreCase) >= 0) { v = true; break; }
+		if (!v && d.thingClass != null && d.thingClass.Name.IndexOf("Ammo", StringComparison.OrdinalIgnoreCase) >= 0) v = true;
+		if (!v && d.thingCategories != null)
+			foreach (ThingCategoryDef c in d.thingCategories)
+				if (c != null && c.defName.IndexOf("Ammo", StringComparison.OrdinalIgnoreCase) >= 0) { v = true; break; }
+		ammoCache[d] = v;
+		return v;
+	}
+
+	private static System.Reflection.MethodInfo kitInKit;
+	private static bool kitLooked;
+	private static bool OtherModKeeps(Pawn p, Thing t)
+	{
+		try
+		{
+			if (!kitLooked)
+			{
+				kitLooked = true;
+				Type k = GenTypes.GetTypeInAnyAssembly("StewardKit.Kits");
+				kitInKit = k?.GetMethod("InKit", new[] { typeof(Pawn), typeof(Thing) });
+			}
+			if (kitInKit != null && (bool)kitInKit.Invoke(null, new object[] { p, t })) return true;
+		}
+		catch { kitInKit = null; }
+		return false;
+	}
+
 	private static bool KeepInInventory(Pawn p, Thing t)
 	{
 		if (t.def.IsWeapon || t is Apparel)
+			return true;
+		// 1.1.2: ammo (Combat Extended and other ammo mods) and Steward – Kit items stay in the pockets
+		if (IsAmmo(t.def) || OtherModKeeps(p, t))
 			return true;
 		if (p.drugs?.CurrentPolicy != null)
 		{
@@ -442,6 +482,7 @@ public sealed partial class SupplyManager : MapComponent
 		ExposeAuto();
 		ExposeChains();
 		ExposeMines();
+		ExposeStock();   // 1.2.0
 		if (Scribe.mode == LoadSaveMode.PostLoadInit)
 		{
 			if (livestock == null) livestock = new List<LivestockRule>();
@@ -498,6 +539,7 @@ public sealed partial class SupplyManager : MapComponent
 		// "carry out" job takes them out of the home area.
 		TickBlight();
 		TickStockHistory(now);
+		TickStock(now);   // 1.2.0
 		if (enabled && tidyChunks && now >= nextChunkMark)
 		{
 			nextChunkMark = now + 1000;
@@ -648,6 +690,8 @@ public sealed partial class SupplyManager : MapComponent
 		Step("ingredients", "CF_J_Production", CheckChains, ref total, parts);   // 1.0.4
 		Step("production", "CF_J_Production", CheckProduction, ref total, parts);
 		Step("self-supply", "CF_A_Page", CheckAuto, ref total, parts);
+		try { CheckBottlenecks(); }   // 1.2.0
+		catch (Exception ex) { MLog.WarnOnce("[Steward] bottlenecks: " + ex.Message, 0x5e1202); }
 		Step("livestock", "CF_J_Livestock", CheckLivestock, ref total, parts);
 
 		foreach (SupplyJob job in AllJobs())
@@ -687,6 +731,7 @@ public sealed partial class SupplyManager : MapComponent
 		if (job != null && !job.enabled && job.kind == JobKind.Mining)
 		{
 			job.noSources = false;
+			WithdrawOwnMarks(job);   // 1.1.3: a mining target switched off takes back its marks too
 			return 0;
 		}
 		HashSet<ThingDef> products = Products(job);
@@ -695,6 +740,9 @@ public sealed partial class SupplyManager : MapComponent
 		job.lastMarked = 0;
 		job.noSources = false;
 		bool foodJob = job.kind == JobKind.Hunting || job.kind == JobKind.Foraging;
+		// 1.1.3: "nobody can hunt" is only true while hunting is wanted (it was left on after the target was met)
+		if (job.kind == JobKind.Hunting)
+			huntNoRanged = false;
 		if (!mark)
 		{
 			// 2.52.3: a job switched off takes back its own marks (before the trees were still cut)
@@ -1222,6 +1270,32 @@ public sealed partial class SupplyManager : MapComponent
 		return MarkNearest(options, missing, out covered, job);
 	}
 
+	// 1.2.1: rock that a planned building needs is never mined for supplies – a wall light or vent planned
+	// into the rock wall (or next to it, attached to it) lost its plan when the wall was dug out
+	private bool HoldsPlannedBuilding(IntVec3 c)
+	{
+		try
+		{
+			for (int i = -1; i < 4; i++)
+			{
+				IntVec3 n = i < 0 ? c : c + GenAdj.CardinalDirections[i];
+				if (!n.InBounds(map)) continue;
+				List<Thing> things = n.GetThingList(map);
+				for (int k = 0; k < things.Count; k++)
+				{
+					Thing t = things[k];
+					if (!(t is Blueprint) && !(t is Frame)) continue;
+					if (n == c) return true;                       // a plan on this very rock
+					ThingDef d = t.def.entityDefToBuild as ThingDef;
+					if (d?.placeWorkers != null && d.placeWorkers.Any(w => w.Name.IndexOf("Wall", StringComparison.OrdinalIgnoreCase) >= 0))
+						return true;                               // a plan next to it that hangs on a wall
+				}
+			}
+		}
+		catch { }
+		return false;
+	}
+
 	private int MarkMining(SupplyJob job, int missing)
 	{
 		var options = new List<(Thing t, IntVec3 c, int y, DesignationDef d)>();
@@ -1234,7 +1308,7 @@ public sealed partial class SupplyManager : MapComponent
 			if (y <= 0)
 				continue;
 			foreach (Thing b in map.listerThings.ThingsOfDef(md))
-				if (Allowed(job, b.Position) && dm.DesignationAt(b.Position, DesignationDefOf.Mine) == null)
+				if (Allowed(job, b.Position) && dm.DesignationAt(b.Position, DesignationDefOf.Mine) == null && !HoldsPlannedBuilding(b.Position))
 					options.Add((b, b.Position, y, DesignationDefOf.Mine));
 		}
 		return MarkNearest(options, missing, out _, job);

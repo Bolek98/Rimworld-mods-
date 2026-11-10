@@ -121,6 +121,33 @@ public sealed class ActiveSituation
 
 public static partial class SituationRules
 {
+	// 1.1.2: wood still missing on blueprints and frames (cached for a game hour)
+	private static readonly System.Collections.Generic.Dictionary<Map, (int tick, int wood)> woodNeed = new System.Collections.Generic.Dictionary<Map, (int, int)>();
+
+	public static int WoodForBuilding(Map map)
+	{
+		int now = Find.TickManager.TicksGame;
+		if (woodNeed.TryGetValue(map, out var c) && now - c.tick < 2500)
+			return c.wood;
+		int need = 0;
+		try
+		{
+			foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.Blueprint))
+				if (t.Faction == Faction.OfPlayer && t is IConstructible ic)
+					foreach (ThingDefCountClass tc in ic.TotalMaterialCost())
+						if (tc.thingDef == ThingDefOf.WoodLog) need += tc.count;
+			foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.BuildingFrame))
+				if (t.Faction == Faction.OfPlayer && t is Frame f)
+					need += f.ThingCountNeeded(ThingDefOf.WoodLog);
+		}
+		catch
+		{
+		}
+		need = Math.Min(need, 2000);
+		woodNeed[map] = (now, need);
+		return need;
+	}
+
 	public const int EvalInterval = 2500;
 
 	// Context for one evaluation – the counts several situations share are
@@ -269,7 +296,7 @@ public static partial class SituationRules
 			id = Situation.AnimalTraining, on = 1, off = 1, noRaid = true, preview = new[] { "Handling:1" },
 			measure = TrainingDue,
 			reason = (c, a) => "CF_SitR_AnimalTraining".Translate(a),
-			staff = (c, a, s) => c.Need(s, "Handling", 1, Math.Max(1, Ceil(a / 5f)))
+			staff = (c, a, s) => c.Need(s, GiverWork("Train", "Handling"), 1, Math.Max(1, Ceil(a / 5f)))
 		},
 		new Def
 		{
@@ -283,14 +310,14 @@ public static partial class SituationRules
 			id = Situation.Deconstruct, on = 15, off = 5, noRaid = true, preview = new[] { "Construction:2" },
 			measure = c => MapDemand.ConstructionMarks(c.map),
 			reason = (c, a) => "CF_SitR_Deconstruct".Translate(a),
-			staff = (c, a, s) => c.Need(s, "Construction", 2, Math.Max(1, Ceil(a / 20f)))
+			staff = (c, a, s) => c.Need(s, GiverWork("Deconstruct", "Construction"), 2, Math.Max(1, Ceil(a / 20f)))
 		},
 		new Def
 		{
 			id = Situation.Repairs, on = 6, off = 2, noRaid = true, preview = new[] { "Construction:2" },
 			measure = c => c.map.listerBuildingsRepairable.RepairableBuildings(Faction.OfPlayer).Count,
 			reason = (c, a) => "CF_SitR_Repairs".Translate(a),
-			staff = (c, a, s) => c.Need(s, "Construction", 2, Math.Max(1, Ceil(a / 10f)))
+			staff = (c, a, s) => c.Need(s, GiverWork("Repair", "Construction"), 2, Math.Max(1, Ceil(a / 10f)))
 		},
 		new Def
 		{
@@ -331,14 +358,14 @@ public static partial class SituationRules
 			id = Situation.BigHarvest, on = 40, off = 15, noRaid = true, preview = new[] { "Growing:2" },
 			measure = c => c.Harvestable,
 			reason = (c, a) => "CF_SitR_BigHarvest".Translate(a),
-			staff = (c, a, s) => c.Need(s, "Growing", 2, Math.Max(2, Ceil(a / 40f)))
+			staff = (c, a, s) => c.Need(s, GiverWork("GrowerHarvest", "Growing"), 2, Math.Max(2, Ceil(a / 40f)))
 		},
 		new Def
 		{
 			id = Situation.FrostHarvest, on = 5, off = 1, noRaid = true, preview = new[] { "Growing:1" },
 			measure = c => c.map.mapTemperature.OutdoorTemp < 2f ? c.Harvestable : 0,
 			reason = (c, a) => "CF_SitR_FrostHarvest".Translate(a, c.map.mapTemperature.OutdoorTemp.ToStringTemperature("F0")),
-			staff = (c, a, s) => c.Need(s, "Growing", 1, Math.Max(2, Ceil(a / 25f)))
+			staff = (c, a, s) => c.Need(s, GiverWork("GrowerHarvest", "Growing"), 1, Math.Max(2, Ceil(a / 25f)))
 		},
 		new Def
 		{
@@ -359,7 +386,8 @@ public static partial class SituationRules
 			id = Situation.LowWood, outdoor = true, preview = new[] { "PlantCutting:2" },
 			measure = c =>
 			{
-				int want = 75 + 25 * c.n;
+				// 1.1.2: plus the wood the blueprints and frames still need
+				int want = 75 + 25 * c.n + WoodForBuilding(c.map);
 				int wood = c.map.resourceCounter.GetCount(ThingDefOf.WoodLog);
 				return wood < want && c.Designations("CutPlant") > 0 ? want - wood : 0;
 			},
@@ -474,7 +502,7 @@ public static partial class SituationRules
 			id = Situation.Recruit, preview = new[] { "Warden:2" },
 			measure = Recruitable,
 			reason = (c, a) => "CF_SitR_Recruit".Translate(a),
-			staff = (c, a, s) => c.Need(s, "Warden", 2, Math.Max(1, Ceil(a / 3f)))
+			staff = (c, a, s) => c.Need(s, GiverWork("ChatWithPrisoner", "Warden"), 2, Math.Max(1, Ceil(a / 3f)))
 		},
 		new Def
 		{
@@ -488,7 +516,7 @@ public static partial class SituationRules
 				return hungry;
 			},
 			reason = (c, a) => "CF_SitR_HungryPrisoners".Translate(a),
-			staff = (c, a, s) => c.Need(s, "Warden", 1, Math.Max(1, Ceil(a / 3f)))
+			staff = (c, a, s) => c.Need(s, GiverWork("FeedPrisoner", "Warden"), 1, Math.Max(1, Ceil(a / 3f)))
 		},
 		new Def
 		{
@@ -513,7 +541,7 @@ public static partial class SituationRules
 				return c.Designations("Tame");
 			},
 			reason = (c, a) => "CF_SitR_TameTrain".Translate(a),
-			staff = (c, a, s) => c.Need(s, "Handling", 2, Math.Max(1, Ceil(a / 6f)))
+			staff = (c, a, s) => c.Need(s, GiverWork("Tame", "Handling"), 2, Math.Max(1, Ceil(a / 6f)))
 		},
 		new Def
 		{
@@ -535,7 +563,7 @@ public static partial class SituationRules
 				return n;
 			},
 			reason = (c, a) => "CF_SitR_AnimalProducts".Translate(a),
-			staff = (c, a, s) => c.Need(s, "Handling", 2, Math.Max(1, Ceil(a / 8f)))
+			staff = (c, a, s) => c.Need(s, GiverWork("Milk", "Handling"), 2, Math.Max(1, Ceil(a / 8f)))
 		},
 		new Def
 		{
@@ -750,6 +778,10 @@ public static partial class SituationRules
 			{
 				c.Need(s, "Hauling", 1, 2);
 				c.Need(s, "Cooking", 2, 1);
+				// 1.1.1: with Work Split the packing itself can be its own work type
+				WorkTypeDef pack = GiverWork("HelpGatheringItemsForCaravan", "Hauling");
+				if (pack != null && pack.defName != "Hauling")
+					c.Need(s, pack, 1, 2);
 			}
 		},
 		new Def
@@ -813,14 +845,14 @@ public static partial class SituationRules
 			measure = c => LowSuppression(c, 0.35f),
 			reason = (c, a) => "CF_SitR_SlaveSuppression".Translate(a),
 			// a slave close to rebelling gets a warden on priority 1
-			staff = (c, a, s) => c.Need(s, "Warden", LowSuppression(c, 0.15f) > 0 ? 1 : 2, Math.Max(1, Ceil(a / 3f)))
+			staff = (c, a, s) => c.Need(s, GiverWork("SuppressSlave", "Warden"), LowSuppression(c, 0.15f) > 0 ? 1 : 2, Math.Max(1, Ceil(a / 3f)))
 		},
 		new Def
 		{
 			id = Situation.SlaveRebellionRisk, on = 1, off = 1, skipIf = Crisis.PrisonBreak, preview = new[] { "Warden:1" },
 			measure = RebellionRisk,
 			reason = (c, a) => "CF_SitR_SlaveRebellionRisk".Translate(a),
-			staff = (c, a, s) => c.Need(s, "Warden", 1, Math.Max(2, Ceil(a / 3f)))
+			staff = (c, a, s) => c.Need(s, GiverWork("SuppressSlave", "Warden"), 1, Math.Max(2, Ceil(a / 3f)))
 		},
 		new Def
 		{
@@ -835,7 +867,7 @@ public static partial class SituationRules
 			id = Situation.Wounded, on = 1, off = 1, preview = new[] { "Doctor:1" },
 			measure = Wounded,
 			reason = (c, a) => "CF_SitR_Wounded".Translate(a),
-			staff = (c, a, s) => c.Need(s, "Doctor", 1, a >= 2 ? 2 : 1)
+			staff = (c, a, s) => { c.Need(s, "Doctor", 1, a >= 2 ? 2 : 1); WorkTypeDef r = GiverWork("DoctorRescue", "Doctor"); if (r != null && r.defName != "Doctor") c.Need(s, r, 1, 1); }
 		},
 		new Def
 		{
@@ -849,8 +881,8 @@ public static partial class SituationRules
 			staff = (c, a, s) =>
 			{
 				BedHungry(c, out int col, out int pri);
-				if (col > 0) c.Need(s, "Doctor", 1, Math.Max(1, Ceil(col / 3f)));
-				if (pri > 0) c.Need(s, "Warden", 1, Math.Max(1, Ceil(pri / 3f)));
+				if (col > 0) c.Need(s, GiverWork("DoctorFeedHumanlikes", "Doctor"), 1, Math.Max(1, Ceil(col / 3f)));
+				if (pri > 0) c.Need(s, GiverWork("FeedPrisoner", "Warden"), 1, Math.Max(1, Ceil(pri / 3f)));
 			}
 		},
 		new Def

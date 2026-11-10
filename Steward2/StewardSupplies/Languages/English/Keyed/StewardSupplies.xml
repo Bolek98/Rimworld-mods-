@@ -215,4 +215,55 @@
   <CF_M_NotRaid>Mine stops during attacks</CF_M_NotRaid>
   <CF_M_NotRaidTip>The steward's mine bills wait while enemies are on the map – miners are not stuck in the mine when there is fighting.</CF_M_NotRaidTip>
   <CF_M_State_Paused>Paused (night or attack)</CF_M_State_Paused>
+  <CF_A_MealsTip>Below the ready-meal target (or 2 days of meals when it is off) and no meal bill running: the best meal your cooks can make, up to the target.</CF_A_MealsTip>
+  <CF_A_MedicineTip>Fewer medicines than colonists (at least 3): the best medicine you can make, only the missing amount.</CF_A_MedicineTip>
+  <CF_A_ClothesTip>Worn-out clothes and accessories are replaced with the same piece. A colonist with nothing on the body or legs gets the simplest piece he may wear.</CF_A_ClothesTip>
+  <CF_A_ArmorTip>Worn-out armor is replaced with the same piece.</CF_A_ArmorTip>
+  <CF_A_WeaponsTip>An unarmed colonist who can fight gets a weapon – the one most used in the colony, ranged or melee by his skills – if none is lying in storage.</CF_A_WeaponsTip>
+  <CF_A_MaterialsTip>Components up to the number of colonists (at least 5); steel from slag when steel drops below 100.</CF_A_MaterialsTip>
+  <CF_St_Page>Stock</CF_St_Page>
+  <CF_St_Desc>The colony's key supplies at a glance: how much there is, how many days it lasts at the recent use, the trend over the last day, what was made (green) and used (red) per day, and what is being made right now.</CF_St_Desc>
+  <CF_St_Short>food for {0} d</CF_St_Short>
+  <CF_St_Food>Food</CF_St_Food>
+  <CF_St_Meals>Ready meals</CF_St_Meals>
+  <CF_St_Medicine>Medicine</CF_St_Medicine>
+  <CF_St_Wood>Wood</CF_St_Wood>
+  <CF_St_Steel>Steel</CF_St_Steel>
+  <CF_St_Components>Components</CF_St_Components>
+  <CF_St_Cloth>Cloth and leather</CF_St_Cloth>
+  <CF_St_Fuel>Chemfuel</CF_St_Fuel>
+  <CF_St_ColItem>Item</CF_St_ColItem>
+  <CF_St_ColStock>Stock</CF_St_ColStock>
+  <CF_St_ColDays>Lasts</CF_St_ColDays>
+  <CF_St_ColTrend>24 h</CF_St_ColTrend>
+  <CF_St_ColDays15>Made / used (15 days)</CF_St_ColDays15>
+  <CF_St_ColMaking>Being made now</CF_St_ColMaking>
+  <CF_St_DaysN>{0} d</CF_St_DaysN>
+  <CF_St_NothingMade>nothing</CF_St_NothingMade>
+  <CF_St_RowTip>{0}: green under the line = made or brought in, red = used up. Days left = stock ÷ average use of the last 3 days.</CF_St_RowTip>
+  <CF_St_GraphTip>Today made {0}, used {1}. Average use: {2} a day.</CF_St_GraphTip>
+  <CF_St_Forecast>Forecast:</CF_St_Forecast>
+  <CF_St_Winter>winter is coming – more meals in stock</CF_St_Winter>
+  <CF_St_Danger>danger – more medicine</CF_St_Danger>
+  <CF_St_Stuck>What stops production:</CF_St_Stuck>
+  <CF_St_Bottleneck>{0}: no {1} ({2})</CF_St_Bottleneck>
+  <CF_St_HintMining>mining target raised</CF_St_HintMining>
+  <CF_St_HintMiningOff>nobody mines it – add a mining target</CF_St_HintMiningOff>
+  <CF_St_HintForestry>forestry target raised</CF_St_HintForestry>
+  <CF_St_HintForestryOff>wood cutting is off</CF_St_HintForestryOff>
+  <CF_St_HintMake>make it first</CF_St_HintMake>
+  <CF_St_HintBuy>buy it</CF_St_HintBuy>
+  <CF_St_TradeNow>Trade now:</CF_St_TradeNow>
+  <CF_St_TradeNothing>nothing to buy or sell</CF_St_TradeNothing>
+  <CF_St_TraderTitle>{0} is here.</CF_St_TraderTitle>
+  <CF_St_Buy>Buy: {0}.</CF_St_Buy>
+  <CF_St_Sell>Sell: {0}.</CF_St_Sell>
+  <CF_St_OptRooms>Bills by room</CF_St_OptRooms>
+  <CF_St_OptRooms_Desc>Meals go to the stoves in the kitchen, drugs and tea to the lab, and every bill to the least busy bench of its kind.</CF_St_OptRooms_Desc>
+  <CF_St_OptForecast>Forecast</CF_St_OptForecast>
+  <CF_St_OptForecast_Desc>Before winter more meals are kept in stock; during a raid or with several wounded, more medicine.</CF_St_OptForecast_Desc>
+  <CF_St_OptRecipes>Recipes by stock</CF_St_OptRecipes>
+  <CF_St_OptRecipes_Desc>Short of food: simple meals; some: fine; plenty: lavish. With plenty of food a small stock of pemmican for caravans. Clothes from the material there is most of.</CF_St_OptRecipes_Desc>
+  <CF_St_OptTrader>Trader advice</CF_St_OptTrader>
+  <CF_St_OptTrader_Desc>When a trader comes, a message says what you are short of and what you have plenty of.</CF_St_OptTrader_Desc>
 </LanguageData>

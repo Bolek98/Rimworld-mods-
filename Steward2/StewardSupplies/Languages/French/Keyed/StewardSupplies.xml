@@ -215,4 +215,55 @@
   <CF_M_NotRaid>La mine s'arrête pendant les attaques</CF_M_NotRaid>
   <CF_M_NotRaidTip>Les commandes de mine de l'intendant attendent tant que des ennemis sont sur la carte – les mineurs ne restent pas coincés pendant le combat.</CF_M_NotRaidTip>
   <CF_M_State_Paused>En pause (nuit ou attaque)</CF_M_State_Paused>
+  <CF_A_MealsTip>Sous l'objectif de repas prêts (ou 2 jours de repas s'il est désactivé) et aucune commande de repas en cours : le meilleur repas que vos cuisiniers savent faire, jusqu'à l'objectif.</CF_A_MealsTip>
+  <CF_A_MedicineTip>Moins de médicaments que de colons (au moins 3) : le meilleur médicament que vous savez fabriquer, seulement la quantité manquante.</CF_A_MedicineTip>
+  <CF_A_ClothesTip>Les vêtements et accessoires usés sont remplacés par la même pièce. Un colon sans rien sur le corps ou les jambes reçoit la pièce la plus simple qu'il peut porter.</CF_A_ClothesTip>
+  <CF_A_ArmorTip>Une armure usée est remplacée par la même pièce.</CF_A_ArmorTip>
+  <CF_A_WeaponsTip>Un colon désarmé qui peut combattre reçoit une arme – la plus utilisée dans la colonie, à distance ou de mêlée selon ses compétences – si aucune n'est en stock.</CF_A_WeaponsTip>
+  <CF_A_MaterialsTip>Composants jusqu'au nombre de colons (au moins 5) ; acier à partir de scories quand l'acier passe sous 100.</CF_A_MaterialsTip>
+  <CF_St_Page>Stocks</CF_St_Page>
+  <CF_St_Desc>Les réserves clés de la colonie d'un coup d'œil : quantité, nombre de jours au rythme récent, tendance du dernier jour, produit (vert) et consommé (rouge) par jour, et ce qui est en fabrication.</CF_St_Desc>
+  <CF_St_Short>nourriture pour {0} j</CF_St_Short>
+  <CF_St_Food>Nourriture</CF_St_Food>
+  <CF_St_Meals>Repas prêts</CF_St_Meals>
+  <CF_St_Medicine>Médicaments</CF_St_Medicine>
+  <CF_St_Wood>Bois</CF_St_Wood>
+  <CF_St_Steel>Acier</CF_St_Steel>
+  <CF_St_Components>Composants</CF_St_Components>
+  <CF_St_Cloth>Tissu et cuir</CF_St_Cloth>
+  <CF_St_Fuel>Carburant chimique</CF_St_Fuel>
+  <CF_St_ColItem>Objet</CF_St_ColItem>
+  <CF_St_ColStock>Stock</CF_St_ColStock>
+  <CF_St_ColDays>Dure</CF_St_ColDays>
+  <CF_St_ColTrend>24 h</CF_St_ColTrend>
+  <CF_St_ColDays15>Produit / consommé (15 jours)</CF_St_ColDays15>
+  <CF_St_ColMaking>En fabrication</CF_St_ColMaking>
+  <CF_St_DaysN>{0} j</CF_St_DaysN>
+  <CF_St_NothingMade>rien</CF_St_NothingMade>
+  <CF_St_RowTip>{0} : vert au-dessus de la ligne = produit ou apporté, rouge = consommé. Jours restants = stock ÷ consommation moyenne des 3 derniers jours.</CF_St_RowTip>
+  <CF_St_GraphTip>Aujourd'hui produit {0}, consommé {1}. Moyenne : {2} par jour.</CF_St_GraphTip>
+  <CF_St_Forecast>Prévision :</CF_St_Forecast>
+  <CF_St_Winter>l'hiver arrive – plus de repas en stock</CF_St_Winter>
+  <CF_St_Danger>danger – plus de médicaments</CF_St_Danger>
+  <CF_St_Stuck>Ce qui bloque la production :</CF_St_Stuck>
+  <CF_St_Bottleneck>{0} : pas de {1} ({2})</CF_St_Bottleneck>
+  <CF_St_HintMining>objectif de minage augmenté</CF_St_HintMining>
+  <CF_St_HintMiningOff>personne ne l'extrait – ajoute un objectif de minage</CF_St_HintMiningOff>
+  <CF_St_HintForestry>objectif de bois augmenté</CF_St_HintForestry>
+  <CF_St_HintForestryOff>la coupe est désactivée</CF_St_HintForestryOff>
+  <CF_St_HintMake>le fabriquer d'abord</CF_St_HintMake>
+  <CF_St_HintBuy>l'acheter</CF_St_HintBuy>
+  <CF_St_TradeNow>Commerce maintenant :</CF_St_TradeNow>
+  <CF_St_TradeNothing>rien à acheter ni à vendre</CF_St_TradeNothing>
+  <CF_St_TraderTitle>{0} est là.</CF_St_TraderTitle>
+  <CF_St_Buy>Acheter : {0}.</CF_St_Buy>
+  <CF_St_Sell>Vendre : {0}.</CF_St_Sell>
+  <CF_St_OptRooms>Commandes par pièce</CF_St_OptRooms>
+  <CF_St_OptRooms_Desc>Les repas vont aux cuisinières de la cuisine, drogues et thé au labo, et chaque commande à l'établi le moins occupé de son type.</CF_St_OptRooms_Desc>
+  <CF_St_OptForecast>Prévision</CF_St_OptForecast>
+  <CF_St_OptForecast_Desc>Avant l'hiver plus de repas en stock ; pendant un raid ou avec plusieurs blessés, plus de médicaments.</CF_St_OptForecast_Desc>
+  <CF_St_OptRecipes>Recettes selon les stocks</CF_St_OptRecipes>
+  <CF_St_OptRecipes_Desc>Peu de nourriture : repas simples ; un peu : raffinés ; beaucoup : somptueux. Avec beaucoup de nourriture, un petit stock de pemmican pour les caravanes. Vêtements dans la matière la plus abondante.</CF_St_OptRecipes_Desc>
+  <CF_St_OptTrader>Conseils marchand</CF_St_OptTrader>
+  <CF_St_OptTrader_Desc>Quand un marchand arrive, un message indique ce qui manque et ce que tu as en abondance.</CF_St_OptTrader_Desc>
 </LanguageData>

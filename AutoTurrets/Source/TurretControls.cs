@@ -73,6 +73,7 @@ namespace AutoTurrets
 		public static IEnumerable<Gizmo> Extra(Building_TurretGun t)
 		{
 			if (t.Faction != Faction.OfPlayer) yield break;
+			foreach (Gizmo q in QuickControl.Gizmo(t)) yield return q;   // 1.3.0 quick control
 			bool shells = IsShellTurret(t);
 			CompRefuelable fuel = t.GetComp<CompRefuelable>();
 			if (shells && Auto.IsAuto(t))
@@ -175,7 +176,7 @@ namespace AutoTurrets
 	public static class FreeAmmo
 	{
 		public static bool On(CompRefuelable c) =>
-			ATMod.S != null && ATMod.S.freeAmmo && c?.parent is Building_Turret && c.parent.Faction == Faction.OfPlayer;
+			ATMod.S != null && c?.parent is Building_Turret && c.parent.Faction == Faction.OfPlayer && (ATMod.S.freeAmmo || Ammo.FreeSpecial(c.parent));
 	}
 
 	[HarmonyPatch(typeof(CompRefuelable), nameof(CompRefuelable.HasFuel), MethodType.Getter)]
@@ -211,7 +212,10 @@ namespace AutoTurrets
 
 		public override void GameComponentTick()
 		{
-			if (ATMod.S == null || !ATMod.S.freeAmmo || Find.TickManager.TicksGame % 120 != 0)
+			if (ATMod.S == null || Find.TickManager.TicksGame % 120 != 0)
+				return;
+			bool all = ATMod.S.freeAmmo;
+			if (!all && (ATMod.S.specialAmmoFromStorage || !Ammo.On || (QuickControlComp.Get?.kind.Count ?? 0) == 0))
 				return;
 			try
 			{
@@ -228,7 +232,7 @@ namespace AutoTurrets
 					List<Building> list = m.listerBuildings.allBuildingsColonist;
 					for (int i = 0; i < list.Count; i++)
 					{
-						if (!(list[i] is Building_TurretGun t))
+						if (!(list[i] is Building_TurretGun t) || (!all && !Ammo.FreeSpecial(t)))
 							continue;
 						CompChangeableProjectile c = t.gun?.TryGetComp<CompChangeableProjectile>();
 						if (c != null && !c.Loaded)
@@ -252,9 +256,10 @@ namespace AutoTurrets
 	{
 		public static bool Prefix(CompChangeableProjectile __instance)
 		{
-			if (ATMod.S == null || !ATMod.S.freeAmmo) return true;
+			if (ATMod.S == null) return true;
 			Thing caster = __instance.parent?.TryGetComp<CompEquippable>()?.PrimaryVerb?.caster;
-			return !(caster is Building_TurretGun && caster.Faction == Faction.OfPlayer);   // only your own guns keep their shell
+			if (!(caster is Building_TurretGun && caster.Faction == Faction.OfPlayer)) return true;
+			return !(ATMod.S.freeAmmo || Ammo.FreeSpecial(caster));   // only your own guns keep their shell   // only your own guns keep their shell
 		}
 	}
 }

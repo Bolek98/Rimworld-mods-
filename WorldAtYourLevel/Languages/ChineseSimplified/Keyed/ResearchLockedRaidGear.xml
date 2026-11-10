@@ -375,4 +375,49 @@
   <RLRG_RemKeepAll>全部保留</RLRG_RemKeepAll>
   <RLRG_RemKeepAll_Desc>保留此处显示的所有项——不再移除。</RLRG_RemKeepAll_Desc>
   <RLRG_RemTip>勾选 = 保留。未勾选 = 由模组规则决定（未研究的机械体和无人机、高于世界等级的天气/状态机器、比你更好的炮塔）。勾选即可无论如何保留。</RLRG_RemTip>
+  <RLRG_NW_Mode>世界新闻：{0}</RLRG_NW_Mode>
+  <RLRG_NW_Mode_Desc>当某个派系的科技等级上升或下降时，会有一条简短的新闻告诉你——以消息、信件形式或完全不提示。世界标签页总会保留历史记录。</RLRG_NW_Mode_Desc>
+  <RLRG_NW_Off>关闭</RLRG_NW_Off>
+  <RLRG_NW_Message>消息</RLRG_NW_Message>
+  <RLRG_NW_Letter>信件</RLRG_NW_Letter>
+  <RLRG_NW_Title>世界新闻</RLRG_NW_Title>
+  <RLRG_NW_Up_2>{0}摒弃了旧习俗，如今像真正的工匠一样加工石头和木材。</RLRG_NW_Up_2>
+  <RLRG_NW_Up_3>{0}学会了锻造钢铁——他们的战士如今身披盔甲，手持刀剑和弓箭。</RLRG_NW_Up_3>
+  <RLRG_NW_Up_4>{0}发现了火药——他们的人如今配备了火器。</RLRG_NW_Up_4>
+  <RLRG_NW_Up_5>{0}建造了第一批制造机——太空科技正进入他们的聚落。</RLRG_NW_Up_5>
+  <RLRG_NW_Up_6>{0}掌握了超凡科技——他们的聚落闪耀着少有人见过的技术。</RLRG_NW_Up_6>
+  <RLRG_NW_Up_7>{0}触及了超凡智能的知识——世界将再也不同。</RLRG_NW_Up_7>
+  <RLRG_NW_Down>{0}失去了大量知识{1}，退回到{2}等级。</RLRG_NW_Down>
+  <RLRG_NW_CauseRaid>，因为你摧毁了他们的一个聚落</RLRG_NW_CauseRaid>
+  <RLRG_NW_CauseTrade>与你的贸易帮助了他们。</RLRG_NW_CauseTrade>
+  <RLRG_NW_CauseData>从你这里购买的研究数据帮助了他们。</RLRG_NW_CauseData>
+  <RLRG_NW_History>世界新闻</RLRG_NW_History>
+  <RLRG_NW_HistoryEmpty>暂无新闻。</RLRG_NW_HistoryEmpty>
+  <RLRG_EV_Relations>关系随科技等级变化</RLRG_EV_Relations>
+  <RLRG_EV_Relations_Desc>科技差距较大（2级或以上）的派系会逐渐敌对——落后者嫉妒先进者。同等级的派系相互贸易并逐渐友好。只会改变其他派系之间的关系，绝不改变你的关系。</RLRG_EV_Relations_Desc>
+  <RLRG_EV_RelStrength>变化：每3天{0}点好感</RLRG_EV_RelStrength>
+  <RLRG_EV_RelStrength_Desc>派系之间的关系向友好或敌对发展的速度。</RLRG_EV_RelStrength_Desc>
+  <RLRG_EV_RelTitle>派系之间的关系</RLRG_EV_RelTitle>
+  <RLRG_EV_RelEnvy>{0}嫉妒{1}（领先{2}级，好感{3}）</RLRG_EV_RelEnvy>
+  <RLRG_EV_RelFriends>{0}和{1}平等贸易（好感{2}）</RLRG_EV_RelFriends>
+  <RLRG_EV_RelNone>暂无受科技影响的关系。</RLRG_EV_RelNone>
+  <RLRG_EV_SellData>出售研究数据</RLRG_EV_SellData>
+  <RLRG_EV_SellData_Desc>在通讯台上，落后于你的派系可以购买你已完成研究的数据：你获得白银和好感，他们获得向下一等级的进度——他们会变强。每个派系每7天一次。</RLRG_EV_SellData_Desc>
+  <RLRG_EV_NoteData>购买了研究</RLRG_EV_NoteData>
+  <RLRG_SD_Option>出售研究数据</RLRG_SD_Option>
+  <RLRG_SD_Cooldown>他们仍在研究你上次出售的内容（{0}天）。</RLRG_SD_Cooldown>
+  <RLRG_SD_Nothing>你没有他们缺少的已完成研究。</RLRG_SD_Nothing>
+  <RLRG_SD_Intro>{0}（{1}等级）愿意为他们尚未拥有的研究付费。\n\n警告：你出售的东西会让他们变强——他们的袭击者和访客会更早拥有更好的装备。</RLRG_SD_Intro>
+  <RLRG_SD_Item>{0} – {1}白银，+{2}好感</RLRG_SD_Item>
+  <RLRG_SD_Done>{0}为{2}的数据支付了{1}白银。白银将通过空投舱送达。</RLRG_SD_Done>
+  <RLRG_SD_Back>返回</RLRG_SD_Back>
+  <RLRG_RerollButton>敌人装备拉平按钮</RLRG_RerollButton>
+  <RLRG_RerollButton_Desc>其他派系的小人会多一个按钮，立即把他们的装备削到世界等级——用于漏网的情况（远古地点、其他模组的任务、加模组前生成的小人）。</RLRG_RerollButton_Desc>
+  <RLRG_Reroll>拉平装备</RLRG_Reroll>
+  <RLRG_Reroll_Desc>立即把这个小人的武器和衣物削到世界等级（远古危险和其他例外也适用）。</RLRG_Reroll_Desc>
+  <RLRG_RerollDone>{0}：装备已拉平到世界等级。</RLRG_RerollDone>
+  <RLRG_AutoExempt>自动（推荐）</RLRG_AutoExempt>
+  <RLRG_AutoExempt_Desc>开启：所有敌对派系都与你殖民地的等级相符；友好派系（盟友、商人、访客）保留自己的装备。关闭：手动选择例外派系。</RLRG_AutoExempt_Desc>
+  <RLRG_AutoExemptOn>自动：攻击你的人会带着与你等级相符的装备。友好派系保留自己的装备。关闭后可手动选择例外。</RLRG_AutoExemptOn>
+  <RLRG_ExemptClear>清除所有例外</RLRG_ExemptClear>
 </LanguageData>

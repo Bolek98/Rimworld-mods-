@@ -18,6 +18,10 @@ public sealed class ForemanSettings : ModSettings
 
 	public bool assignOpposed = true;
 	public bool backupWorkers = true;
+	// 1.1.0: skilled work only goes to backups with at least this skill (0 = everybody)
+	public int backupMinSkill = 6;
+	// 1.1.0: surgery is left to doctors with at least this Medicine when one is there (0 = off)
+	public int surgeryMinMedicine = 8;
 	public bool oneTopPriority = true;
 	public bool includeLodgers = true;
 	public bool countMechs = true;
@@ -74,6 +78,8 @@ public sealed class ForemanSettings : ModSettings
 		Scribe_Values.Look(ref holdHours, "holdHours", 12);
 		Scribe_Values.Look(ref assignOpposed, "assignOpposed", true);
 		Scribe_Values.Look(ref backupWorkers, "backupWorkers", true);
+		Scribe_Values.Look(ref backupMinSkill, "backupMinSkill", 6);
+		Scribe_Values.Look(ref surgeryMinMedicine, "surgeryMinMedicine", 8);
 		Scribe_Values.Look(ref oneTopPriority, "oneTopPriority", true);
 		Scribe_Values.Look(ref includeLodgers, "includeLodgers", true);
 		Scribe_Values.Look(ref countMechs, "countMechs", true);

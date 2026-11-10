@@ -10,6 +10,7 @@
   <URT_Status_Phase>現在：{0}</URT_Status_Phase>
   <URT_Status_Counts>未翻訳のテキスト：{0} · 記憶済みの翻訳：{1} · ゲームに反映：{2} · 翻訳待ち：{3}</URT_Status_Counts>
   <URT_Status_Session>このセッション：翻訳 {0}、チェックで却下 {1}、失敗 {2} · 文法の代替使用 {3}</URT_Status_Session>
+  <URT_Status_SessionParts>   内訳：Modのテキスト {0}、プレイ中に表示 {1}、以前のセッションの残り {2}</URT_Status_SessionParts>
   <URT_Status_Migrated>0.9から引き継ぎ：{0}</URT_Status_Migrated>
   <URT_Pause>翻訳を一時停止</URT_Pause>
   <URT_Resume>翻訳を再開</URT_Resume>
@@ -203,4 +204,38 @@
   <URT_Pack_NoFiles>{0} にパックがありません。.tsv パックを入れてください。</URT_Pack_NoFiles>
   <URT_Pack_WrongLang>このパックは {0} 用で、ゲームは {1} です。何もインポートしませんでした。</URT_Pack_WrongLang>
   <URT_Pack_OpenFolder>パックフォルダを開く</URT_Pack_OpenFolder>
+  <URT_ModGenerated>読み込み時に生成</URT_ModGenerated>
+  <URT_ModGeneratedTip>ゲームやMODが読み込み時にコードで作成した、どのMODにも属さないもののテキスト。</URT_ModGeneratedTip>
+  <URT_Tab_Sources>ソース</URT_Tab_Sources>
+  <URT_Src_Intro>インストール済みで有効化していない翻訳Mod、URTライブラリのパック、URLからのパックがあなたの言語に使われます――有効化は不要です。Mod自身の翻訳と有効な翻訳Modが常に優先され、URTはまだ足りない部分だけを翻訳します。</URT_Src_Intro>
+  <URT_Src_Use>他のModの翻訳を使う（有効化せずに）</URT_Src_Use>
+  <URT_Src_Rescan>再検索</URT_Src_Rescan>
+  <URT_Src_OpenLibrary>ライブラリフォルダを開く</URT_Src_OpenLibrary>
+  <URT_Src_LibraryTip>解凍した翻訳ModやLanguagesフォルダをここに置いてください：\n{0}</URT_Src_LibraryTip>
+  <URT_Src_Sum>ソース {0} 件（オン {1} 件）· {3} 個のModに {2} 件のテキストを使用</URT_Src_Sum>
+  <URT_Src_Restart>――変更は再起動後に反映</URT_Src_Restart>
+  <URT_Src_None>あなたの言語の翻訳Modが見つかりません。翻訳Modをサブスクライブする（有効化は不要）か、パックをライブラリに置いてください。</URT_Src_None>
+  <URT_Src_OrderTip>2つのソースが同じテキストを翻訳する場合、リストの上にある方が優先されます。</URT_Src_OrderTip>
+  <URT_Src_CoversNone>まだ使用なし</URT_Src_CoversNone>
+  <URT_Src_Counts>{1} 件中 {0} 件使用</URT_Src_Counts>
+  <URT_Src_Kind_Workshop>ワークショップ</URT_Src_Kind_Workshop>
+  <URT_Src_Kind_Local>Modsフォルダ</URT_Src_Kind_Local>
+  <URT_Src_Kind_Library>ライブラリ</URT_Src_Kind_Library>
+  <URT_Src_Kind_URL>URL</URT_Src_Kind_URL>
+  <URT_Src_TipCounts>使用：Keyedテキスト {0} 件、Defテキスト {1} 件、名前リスト {2} 件 · 読み込んだファイル {3} 件</URT_Src_TipCounts>
+  <URT_Src_Urls>URLからの翻訳パック（zip または GitHub リポジトリ）</URT_Src_Urls>
+  <URT_Src_UrlAuto>1日1回確認</URT_Src_UrlAuto>
+  <URT_Src_UrlAutoTip>起動時、パックの更新は最大1日1回確認されます。新しいバージョンは次回の再起動後に使われます。</URT_Src_UrlAutoTip>
+  <URT_Src_UrlHint>https://github.com/… または .zip へのリンク</URT_Src_UrlHint>
+  <URT_Src_UrlAdd>追加</URT_Src_UrlAdd>
+  <URT_Src_UrlBusy>ダウンロード中…</URT_Src_UrlBusy>
+  <URT_Src_UrlUpdate>今すぐ更新</URT_Src_UrlUpdate>
+  <URT_Src_UrlChecked>本日確認済み（{0}）</URT_Src_UrlChecked>
+  <URT_Src_UrlSame>最新</URT_Src_UrlSame>
+  <URT_Src_TooBig>大きすぎます（{0} MB）</URT_Src_TooBig>
+  <URT_Src_NoLanguages>zip に Languages フォルダがありません</URT_Src_NoLanguages>
+  <URT_Src_UrlDone>{0} 個のファイルをダウンロード――再起動後に使用</URT_Src_UrlDone>
+  <URT_Src_UrlHave>{0} · {1} 個のファイル</URT_Src_UrlHave>
+  <URT_Src_UrlNotYet>未ダウンロード</URT_Src_UrlNotYet>
+  <URT_Mods_Imported>このModのテキスト {0} 件は翻訳Modから来ています（ソースタブ）</URT_Mods_Imported>
 </LanguageData>

@@ -27,6 +27,8 @@ namespace UniversalRimTranslator
         public static int Shown, Queued, Arrived;
 
         public static readonly ConcurrentDictionary<string, byte> Pending = new ConcurrentDictionary<string, byte>();
+        // 1.1.1: texts waiting from earlier sessions (for the split session counter)
+        public static readonly ConcurrentDictionary<string, byte> FromEarlier = new ConcurrentDictionary<string, byte>();
 
         private struct Entry { public string Out; public int Ver; public bool Collected; }
         private static readonly Dictionary<string, Entry> cache = new Dictionary<string, Entry>();
@@ -125,7 +127,7 @@ namespace UniversalRimTranslator
                         if (Pending.Count >= MaxPending) break;
                         string t = line.Replace("\\n", "\n");
                         // 2.2.0: texts the newer checks do not accept (cut, versions, the target language) are dropped
-                        if (t.Length > 0 && Candidate(t) && Runtime.Store.NeedsTranslation(t) && tried.Add(Store.Key(t)) && Pending.TryAdd(Store.Key(t), 0)) back++;
+                        if (t.Length > 0 && Candidate(t) && Runtime.Store.NeedsTranslation(t) && tried.Add(Store.Key(t)) && Pending.TryAdd(Store.Key(t), 0)) { back++; FromEarlier.TryAdd(Store.Key(t), 0); }
                     }
                 // the file keeps only what still waits
                 File.WriteAllLines(collectorPath, Pending.Keys.Select(k => k.Replace("\r", "").Replace("\n", "\\n")).ToArray());
@@ -237,6 +239,11 @@ namespace UniversalRimTranslator
             {
                 // 2.4.0: half-translated texts – "Mine kus břidlice": the translated names of things
                 // become placeholders, the English rest is translated ("Těžit {0}") and the names go back
+                if (numCount == 0 && HasForeign(core))
+                {
+                    string ft2 = FromTemplate(core);
+                    if (ft2 != null) { e.Out = ft2; Shown++; return e; }
+                }
                 if (numCount >= 0 && HasForeign(core) && Mixed(key, numCount, out string tpl, out List<string> parts))
                 {
                     string mt = Runtime.Store?.Use(tpl);
@@ -255,6 +262,7 @@ namespace UniversalRimTranslator
                 if (numCount >= 0 && HasForeign(core) && MostlyEnglish(core))
                 {
                     string mt2 = Runtime.Store?.Use(key);
+                    if (mt2 == null && numCount == 0) mt2 = FromTemplate(core);
                     if (mt2 != null) { e.Out = mt2; Shown++; return e; }
                     if (collect) Collect(key);
                     return e;
@@ -263,6 +271,7 @@ namespace UniversalRimTranslator
                 return e;      // never worth collecting
             }
             string t = Runtime.Store?.Use(key);
+            if (t == null && numCount == 0) t = FromTemplate(core);
             if (t != null)
             {
                 e.Out = t;
@@ -271,6 +280,45 @@ namespace UniversalRimTranslator
             }
             if (collect) Collect(key);
             return e;
+        }
+
+        // 1.2.2: finished texts made from a def text with [tokens] before its translation existed (quest letters
+        // and descriptions kept in the save …) – filled from the translated def text, no service needed
+        private static volatile Templates templates;
+        private static int templatesVer = -1, templatesCount = -1;
+        private static float templatesAt = -1000f;
+        private static volatile bool templatesBusy;
+
+        private static string FromTemplate(string core)
+        {
+            Store st = Runtime.Store;
+            if (st == null || core.Length > 800) return null;
+            float now = Time.realtimeSinceStartup;
+            if (!templatesBusy && (templates == null || ((st.Version != templatesVer || st.Count != templatesCount) && now - templatesAt > 30f)))
+            {
+                templatesBusy = true;
+                templatesAt = now;
+                int ver = st.Version, cnt = st.Count;
+                System.Threading.ThreadPool.QueueUserWorkItem(_ =>
+                {
+                    try
+                    {
+                        var t = new Templates();
+                        foreach (var kv in st.Snapshot())
+                            if (kv.Value != null && kv.Value.Usable && kv.Key.IndexOf('[') >= 0)
+                                t.Add(kv.Key, kv.Value.Text);
+                        templates = t;
+                        templatesVer = ver;
+                        templatesCount = cnt;
+                    }
+                    catch (Exception ex) { MLog.WarnOnce("[URT] text templates: " + ex.Message, 7714); }
+                    finally { templatesBusy = false; }
+                });
+            }
+            Templates tp = templates;
+            if (tp == null || tp.Count == 0) return null;
+            string res = tp.Fill(core, part => st.Use(part) ?? Runtime.LocalFill(part));
+            return res == null || st.Glossary == null ? res : st.Glossary.Apply(res);
         }
 
         // most of the letters are in a script the game language does not use

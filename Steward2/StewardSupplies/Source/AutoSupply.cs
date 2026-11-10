@@ -234,6 +234,8 @@ public sealed partial class SupplyManager
 		bill.repeatMode = BillRepeatModeDefOf.RepeatCount;
 		bill.repeatCount = Mathf.Max(1, Mathf.CeilToInt((float)missing / Mathf.Max(1, per)));
 		bill.SetStoreMode(BillStoreModeDefOf.BestStockpile);
+		if (kind == "clothes" || kind == "armor")
+			PickStuff(bill, d);   // 1.2.0: from the material there is most of
 		((IBillGiver)bench).BillStack.AddBill(bill);
 		if (mine == null)
 			autoBills.Add(mine = new AutoBill { product = d, kind = kind });
@@ -305,7 +307,7 @@ public sealed partial class SupplyManager
 		if (autoClothes) keepKinds.Add("clothes");
 		if (autoArmor) keepKinds.Add("armor");
 		if (autoWeapons) keepKinds.Add("weapon");
-		if (autoMeals) keepKinds.Add("meals");
+		if (autoMeals) { keepKinds.Add("meals"); keepKinds.Add("travel"); }
 		if (autoMedicine) keepKinds.Add("medicine");
 		if (autoMaterials) keepKinds.Add("material");
 		foreach (AutoBill a in autoBills.ToList())
@@ -325,7 +327,10 @@ public sealed partial class SupplyManager
 			n += EnsureCount(kv.Key, kv.Value.count, kv.Value.kind, made);
 
 		if (autoMeals)
+		{
 			n += MealNeed(made);
+			n += TravelFoodNeed(made);   // 1.2.0
+		}
 		if (autoMedicine)
 			n += MedicineNeed(made);
 		if (autoMaterials)
@@ -497,7 +502,7 @@ public sealed partial class SupplyManager
 
 	private int MealNeed(List<string> made)
 	{
-		float days = mealTargetOn ? Mathf.Max(0.5f, mealTargetDays) : 2f;
+		float days = (mealTargetOn ? Mathf.Max(0.5f, mealTargetDays) : 2f) * MealForecastFactor();   // 1.2.0: winter coming → more
 		if (MealDays() >= days)
 		{
 			// enough meals: the steward's own meal bill is done
@@ -510,43 +515,161 @@ public sealed partial class SupplyManager
 		}
 		// 2.17: a bill paused by the meal target counts as running – otherwise a
 		// new meal bill was made in the target's gap and deleted again later
-		if (MealBills().Any(b => !b.suspended || IsMealPaused(b)))
+		// 1.1.4: only YOUR meal bills stop the steward; its own bills are kept up to date below
+		// (before, its first bill – one meal at a time on one stove – was never touched again,
+		// and a colony of 40 starved next to three idle stoves)
+		var ours = new List<(AutoBill a, Bill_Production bill)>();
+		foreach (AutoBill a in autoBills.Where(x => x.kind == "meals").ToList())
+		{
+			Bill_Production b = FindBillById(a.billId);
+			if (b == null)
+				autoBills.Remove(a);
+			else
+				ours.Add((a, b));
+		}
+		if (ours.Count == 0 && MealBills().Any(b => !b.suspended || IsMealPaused(b)))
 			return 0;
 		// the best meal a colonist can cook (skill), the least work on a tie
 		WorkTypeDef cooking = DefDatabase<WorkTypeDef>.GetNamedSilentFail("Cooking");
 		int skill = People().Where(p => (cooking == null || !p.WorkTypeIsDisabled(cooking)) && p.skills != null)
 			.Select(p => p.skills.GetSkill(SkillDefOf.Cooking).Level).DefaultIfEmpty(0).Max();
+		int eaters = ColonyStats.Eaters(map);
+		// several meals at once ("×4" recipes) pay off from 6 eaters, when there is enough raw food for a batch
+		// (a batch recipe already in use stays until food is really short – no flipping between the two)
+		bool haveBulk = ours.Any(o => (o.bill.recipe?.products?.FirstOrDefault(x => IsMeal(x.thingDef))?.count ?? 1) > 1);
+		bool bulk = eaters >= 6 && ColonyStats.FoodNutrition(map) >= (haveBulk ? 2f : 4f);
 		ThingDef best = null;
 		RecipeDef bestRecipe = null;
-		Building bestBench = null;
 		BuildDefLists();
+		// 1.2.0: the meal by the food in stock – short: simple, some: fine, plenty: lavish
+		FoodPreferability cap = MaxMealByStock();
+		for (int pass = 0; pass < 2 && best == null; pass++)
 		foreach (ThingDef d in mealDefs)
 		{
 			if (!IsMeal(d) || d.defName.IndexOf("Survival", StringComparison.OrdinalIgnoreCase) >= 0)
 				continue;
-			if (!CanMake(d, out RecipeDef r, out Building b))
+			if (pass == 0 && d.ingestible.preferability > cap)
 				continue;
-			if (r.skillRequirements != null && r.skillRequirements.Any(sr => sr.skill == SkillDefOf.Cooking && sr.minLevel > skill))
+			RecipeDef r = MealRecipe(d, skill, bulk);
+			if (r == null)
 				continue;
 			if (best == null || d.ingestible.preferability > best.ingestible.preferability
-			    || (d.ingestible.preferability == best.ingestible.preferability && r.workAmount < bestRecipe.workAmount))
+			    || (d.ingestible.preferability == best.ingestible.preferability && WorkPerMeal(r, d) < WorkPerMeal(bestRecipe, best)))
 			{
 				best = d;
 				bestRecipe = r;
-				bestBench = b;
 			}
 		}
 		if (best == null)
 			return 0;
 		float per = Mathf.Max(0.3f, best.GetStatValueAbstract(StatDefOf.Nutrition));
-		int target = Mathf.Max(2, Mathf.CeilToInt(days * ColonyStats.Eaters(map) * NeedPerPersonPerDay / per));
-		return EnsureStock(best, bestRecipe, bestBench, target, "meals", made);
+		int target = Mathf.Max(2, Mathf.CeilToInt(days * eaters * NeedPerPersonPerDay / per));
+		// one stove per 12 eaters, the stoves of the kitchen (the room with most of them) first
+		List<Building> stoves = MealBenches(bestRecipe);
+		if (stoves.Count == 0)
+			return 0;
+		int want = Mathf.Clamp(Mathf.CeilToInt(eaters / 12f), 1, stoves.Count);
+		int changed = 0;
+		// bills with an old recipe (single meals in a big colony) or on a stove no longer chosen go
+		// stoves that already have the steward's bill stay chosen (no moving bills around)
+		var chosen = new List<Building>();
+		foreach (var o in ours)
+			if (o.bill.recipe == bestRecipe && o.bill.billStack?.billGiver is Building ob && stoves.Contains(ob) && !chosen.Contains(ob) && chosen.Count < want)
+				chosen.Add(ob);
+		foreach (Building b in stoves)
+			if (chosen.Count < want && !chosen.Contains(b))
+				chosen.Add(b);
+		var keep = new HashSet<Building>(chosen);
+		foreach (var o in ours.ToList())
+		{
+			Building at = o.bill.billStack?.billGiver as Building;
+			if (o.bill.recipe != bestRecipe || at == null || !keep.Contains(at) || ours.Count(x => x.bill.billStack == o.bill.billStack) > 1)
+			{
+				DeleteBill(o.bill);
+				autoBills.Remove(o.a);
+				ours.Remove(o);
+				continue;
+			}
+			if (o.bill.targetCount != target)
+				o.bill.targetCount = target;
+		}
+		foreach (Building stove in chosen)
+		{
+			if (ours.Any(o => o.bill.billStack?.billGiver == stove))
+				continue;
+			Bill_Production bill = bestRecipe.MakeNewBill() as Bill_Production;
+			if (bill == null)
+				continue;
+			bill.repeatMode = BillRepeatModeDefOf.TargetCount;
+			bill.targetCount = target;
+			bill.SetStoreMode(BillStoreModeDefOf.BestStockpile);
+			((IBillGiver)stove).BillStack.AddBill(bill);
+			var a = new AutoBill { product = best, kind = "meals", billId = bill.GetUniqueLoadID() };
+			autoBills.Add(a);
+			ours.Add((a, bill));
+			changed++;
+		}
+		if (changed > 0)
+			made.Add(best.LabelCap + " → " + target + (want > 1 ? " (" + want + "×)" : ""));
+		return changed;
+	}
+
+	private static float WorkPerMeal(RecipeDef r, ThingDef d) => r.workAmount / Mathf.Max(1, r.products.FirstOrDefault(x => x.thingDef == d)?.count ?? 1);
+
+	// the recipe for this meal: the biggest batch when bulk, else the single one
+	private RecipeDef MealRecipe(ThingDef d, int skill, bool bulk)
+	{
+		RecipeDef pick = null;
+		int pickCount = 0;
+		foreach (RecipeDef r in RecipesFor(d))
+		{
+			if (!r.AvailableNow || MealBenches(r).Count == 0)
+				continue;
+			if (r.skillRequirements != null && r.skillRequirements.Any(sr => sr.skill == SkillDefOf.Cooking && sr.minLevel > skill))
+				continue;
+			int c = r.products.FirstOrDefault(x => x.thingDef == d)?.count ?? 1;
+			if (pick == null || (bulk ? c > pickCount : c < pickCount))
+			{
+				pick = r;
+				pickCount = c;
+			}
+		}
+		return pick;
+	}
+
+	// usable benches for the recipe: real stoves before campfires, the room with most of them (the kitchen) first
+	private List<Building> MealBenches(RecipeDef recipe)
+	{
+		IntVec3 center = ColonyCenter();
+		List<Building> all = Benches()
+			.Where(b => b.def.AllRecipes.Contains(recipe) && !b.IsForbidden(Faction.OfPlayer) && !b.IsBrokenDown())
+			.ToList();
+		var perRoom = new Dictionary<Room, int>();
+		foreach (Building b in all)
+		{
+			Room room = b.GetRoom();
+			if (room != null && !room.PsychologicallyOutdoors)
+				perRoom[room] = (perRoom.TryGetValue(room, out int c) ? c : 0) + 1;
+		}
+		int RoomScore(Building b)
+		{
+			Room room = b.GetRoom();
+			return room != null && perRoom.TryGetValue(room, out int c) ? c : 0;
+		}
+		return all
+			.OrderBy(b => IsMakeshift(b) ? 1 : 0)
+			.ThenByDescending(b => b.GetComp<CompPowerTrader>() == null || b.GetComp<CompPowerTrader>().PowerOn)
+			.ThenByDescending(b => RoomFit(recipe, b))   // 1.2.0: the kitchen, never the lab
+			.ThenByDescending(RoomScore)
+			.ThenByDescending(b => b.GetStatValue(StatDefOf.WorkTableWorkSpeedFactor))
+			.ThenBy(b => b.Position.DistanceToSquared(center))
+			.ToList();
 	}
 
 	private int MedicineNeed(List<string> made)
 	{
 		int people = People().Count();
-		int target = Mathf.Max(3, people);
+		int target = Mathf.CeilToInt(Mathf.Max(3, people) * MedicineForecastFactor());   // 1.2.0: danger → more
 		int have = 0;
 		Area_Home home = map.areaManager.Home;
 		foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.Medicine))

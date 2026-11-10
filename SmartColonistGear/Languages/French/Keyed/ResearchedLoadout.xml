@@ -621,4 +621,28 @@
   <RL_WN_ApparelOff>le changement de vêtements est désactivé</RL_WN_ApparelOff>
   <RL_WhyNotMenu>Ligne « pourquoi pas » au clic droit</RL_WhyNotMenu>
   <RL_WhyNotMenu_Desc>Avec un colon sélectionné, un clic droit sur une arme ou un vêtement indique pourquoi Smart Colonist Gear ne le lui donne pas.</RL_WhyNotMenu_Desc>
+  <RL_WorkOnlyWorking>Tenue de travail seulement au travail</RL_WorkOnlyWorking>
+  <RL_WorkOnlyWorking_Desc>Un spécialiste met sa tenue de travail (tablier, blouse, casque de mineur…) quand il commence ce travail et l'enlève environ deux heures après l'avoir fait pour la dernière fois – ses vêtements normaux reviennent. Jamais mobilisé ni pendant un raid, jamais nu dans le froid ; les vêtements forcés et idéologiques restent.</RL_WorkOnlyWorking_Desc>
+  <RL_GearBeforeWork>S'équiper avant le travail</RL_GearBeforeWork>
+  <RL_GearBeforeWork_Desc>Quand un colon commence un travail, il enfile d'abord ses vêtements de travail et prend l'outil (pioche, faucille …), puis travaille – pas au milieu. Jamais en urgence, jamais mobilisé ni pendant un raid ; une arme en main n'est jamais échangée contre un outil.</RL_GearBeforeWork_Desc>
+  <RL_GearBeforeWorkDist>Équipement à {0} cases au plus</RL_GearBeforeWorkDist>
+  <RL_GearBeforeWorkDist_Desc>Les vêtements ou outils de travail plus éloignés ne sont pas récupérés avant le travail.</RL_GearBeforeWorkDist_Desc>
+  <RL_WhyToolOn>outil pour le travail</RL_WhyToolOn>
+  <RL_WhyWorkOn>tenue de travail pour le travail</RL_WhyWorkOn>
+  <RL_WhyWorkOff>travail fini – tenue de travail retirée</RL_WhyWorkOff>
+  <RL_WhyWorkBack>vêtements normaux remis après le travail</RL_WhyWorkBack>
+  <RL_DressingManaged>L’habillement est géré par {0} – ses réglages décident de ce que portent les colons.</RL_DressingManaged>
+  <RL_ToolBelt>Outils dans les poches</RL_ToolBelt>
+  <RL_ToolBelt_Desc>Un colon garde l'outil de son travail (pioche, faucille, hache …) dans son inventaire. Quand le travail commence, il le prend aussitôt en main et range l'arme ; mobilisé, en combat ou pour un autre travail, il reprend son arme. L'outil n'est cherché qu'une fois et reste avec lui (2 au plus).</RL_ToolBelt_Desc>
+  <RL_ToolBeltMass>Outils dans les poches jusqu'à {0} kg</RL_ToolBeltMass>
+  <RL_ToolBeltMass_Desc>Masse totale des outils qu'un colon peut porter dans son inventaire.</RL_ToolBeltMass_Desc>
+  <RL_WhyToolPocket>met un outil pour {0} dans ses poches</RL_WhyToolPocket>
+  <RL_StartGrace>Début d'une nouvelle colonie : tout prendre pendant {0} jours</RL_StartGrace>
+  <RL_StartGraceOff>Début d'une nouvelle colonie : désactivé</RL_StartGraceOff>
+  <RL_StartGrace_Desc>Les premiers jours d'une nouvelle colonie, les colons prennent toutes les armes et vêtements à portée de main – « Seulement fabriqué » et les règles de technologie s'appliquent ensuite. 0 = règles dès la première minute.</RL_StartGrace_Desc>
+  <RL_OrderOverride>{0} prend {1} sur ton ordre (normalement verrouillé : {2}).</RL_OrderOverride>
+  <RL_Why_NotCrafted>pas encore fabriqué</RL_Why_NotCrafted>
+  <RL_Why_Research>recherche manquante</RL_Why_Research>
+  <RL_Why_Banned>interdit par toi</RL_Why_Banned>
+  <RL_Why_HigherTech>plus avancé que la colonie ({0})</RL_Why_HigherTech>
 </LanguageData>

@@ -11,7 +11,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "1.0.1";
+	public const string Version = "1.1.0";
 	public static ForemanSettings Settings;
 
 	private int tab;
@@ -79,6 +79,8 @@ public sealed class ForemanMod : Mod
 		s.holdHours = Mathf.RoundToInt(MUI.Slider(l, "CF2_Hold".Translate(s.holdHours), s.holdHours, 0f, 48f, "CF2_HoldTip".Translate(), s, "holdHours"));
 		MUI.Check(l, "CF2_OneTop".Translate(), "CF2_OneTopTip".Translate(), ref s.oneTopPriority, s, "oneTopPriority");
 		MUI.Check(l, "CF2_Backup".Translate(), "CF2_BackupTip".Translate(), ref s.backupWorkers, s, "backupWorkers");
+		s.backupMinSkill = Mathf.RoundToInt(MUI.Slider(l, "CF2_BackupMinSkill".Translate(s.backupMinSkill), s.backupMinSkill, 0f, 20f, "CF2_BackupMinSkillTip".Translate(), s, "backupMinSkill"));
+		s.surgeryMinMedicine = Mathf.RoundToInt(MUI.Slider(l, "CF2_SurgeryMin".Translate(s.surgeryMinMedicine), s.surgeryMinMedicine, 0f, 20f, "CF2_SurgeryMinTip".Translate(), s, "surgeryMinMedicine"));
 		MUI.Check(l, "CF2_Opposed".Translate(), "CF2_OpposedTip".Translate(), ref s.assignOpposed, s, "assignOpposed");
 		MUI.Check(l, "CF2_Injured".Translate(), "CF2_InjuredTip".Translate(), ref s.lightWorkInjured, s, "lightWorkInjured");
 		MUI.Check(l, "CF2_Passion".Translate(), "CF2_PassionTip".Translate(), ref s.moodPassion, s, "moodPassion");

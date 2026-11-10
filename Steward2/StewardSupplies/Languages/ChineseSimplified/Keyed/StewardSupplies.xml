@@ -215,4 +215,55 @@
   <CF_M_NotRaid>遇袭时矿井停工</CF_M_NotRaid>
   <CF_M_NotRaidTip>地图上有敌人时管家的矿井订单暂停 – 战斗时矿工不会困在矿井里。</CF_M_NotRaidTip>
   <CF_M_State_Paused>已暂停（夜间或遇袭）</CF_M_State_Paused>
+  <CF_A_MealsTip>低于成品餐目标（目标关闭时为2天的餐食）且没有进行中的餐食订单：你的厨师能做的最好的餐，直到目标。</CF_A_MealsTip>
+  <CF_A_MedicineTip>药品少于殖民者人数（至少3）：你能制造的最好的药，只做缺少的数量。</CF_A_MedicineTip>
+  <CF_A_ClothesTip>磨损的衣服和配饰会换成同样的一件。身上或腿上什么都没穿的殖民者会得到他能穿的最简单的一件。</CF_A_ClothesTip>
+  <CF_A_ArmorTip>磨损的护甲会换成同样的一件。</CF_A_ArmorTip>
+  <CF_A_WeaponsTip>能战斗但没有武器的殖民者会得到一把武器——殖民地最常用的那种，按他的技能选远程或近战——前提是仓库里没有。</CF_A_WeaponsTip>
+  <CF_A_MaterialsTip>零部件补到殖民者人数（至少5）；钢铁低于100时用钢渣炼钢。</CF_A_MaterialsTip>
+  <CF_St_Page>库存</CF_St_Page>
+  <CF_St_Desc>一眼看清殖民地的关键物资：现有多少、按近期消耗能撑几天、最近一天的变化、每天生产（绿）和消耗（红）的数量，以及正在制作的东西。</CF_St_Desc>
+  <CF_St_Short>食物可撑 {0} 天</CF_St_Short>
+  <CF_St_Food>食物</CF_St_Food>
+  <CF_St_Meals>成品餐</CF_St_Meals>
+  <CF_St_Medicine>药品</CF_St_Medicine>
+  <CF_St_Wood>木材</CF_St_Wood>
+  <CF_St_Steel>钢铁</CF_St_Steel>
+  <CF_St_Components>零部件</CF_St_Components>
+  <CF_St_Cloth>布料和皮革</CF_St_Cloth>
+  <CF_St_Fuel>化学燃料</CF_St_Fuel>
+  <CF_St_ColItem>物品</CF_St_ColItem>
+  <CF_St_ColStock>库存</CF_St_ColStock>
+  <CF_St_ColDays>可撑</CF_St_ColDays>
+  <CF_St_ColTrend>24 小时</CF_St_ColTrend>
+  <CF_St_ColDays15>生产 / 消耗（15 天）</CF_St_ColDays15>
+  <CF_St_ColMaking>正在制作</CF_St_ColMaking>
+  <CF_St_DaysN>{0} 天</CF_St_DaysN>
+  <CF_St_NothingMade>无</CF_St_NothingMade>
+  <CF_St_RowTip>{0}：线上方绿色 = 生产或运入，红色 = 消耗。剩余天数 = 库存 ÷ 最近 3 天平均消耗。</CF_St_RowTip>
+  <CF_St_GraphTip>今天生产 {0}，消耗 {1}。平均每天消耗 {2}。</CF_St_GraphTip>
+  <CF_St_Forecast>预测：</CF_St_Forecast>
+  <CF_St_Winter>冬天快到了——多储备成品餐</CF_St_Winter>
+  <CF_St_Danger>危险——多准备药品</CF_St_Danger>
+  <CF_St_Stuck>阻碍生产的原因：</CF_St_Stuck>
+  <CF_St_Bottleneck>{0}：缺少{1}（{2}）</CF_St_Bottleneck>
+  <CF_St_HintMining>已提高采矿目标</CF_St_HintMining>
+  <CF_St_HintMiningOff>没人开采——请添加采矿目标</CF_St_HintMiningOff>
+  <CF_St_HintForestry>已提高伐木目标</CF_St_HintForestry>
+  <CF_St_HintForestryOff>伐木已关闭</CF_St_HintForestryOff>
+  <CF_St_HintMake>先制作它</CF_St_HintMake>
+  <CF_St_HintBuy>购买它</CF_St_HintBuy>
+  <CF_St_TradeNow>当前交易：</CF_St_TradeNow>
+  <CF_St_TradeNothing>没有要买或卖的</CF_St_TradeNothing>
+  <CF_St_TraderTitle>{0} 到了。</CF_St_TraderTitle>
+  <CF_St_Buy>买入：{0}。</CF_St_Buy>
+  <CF_St_Sell>卖出：{0}。</CF_St_Sell>
+  <CF_St_OptRooms>按房间分配订单</CF_St_OptRooms>
+  <CF_St_OptRooms_Desc>餐食交给厨房里的炉灶，药物和茶交给实验室，每个订单交给同类中最不忙的工作台。</CF_St_OptRooms_Desc>
+  <CF_St_OptForecast>预测</CF_St_OptForecast>
+  <CF_St_OptForecast_Desc>冬天前多储备餐食；遇袭或多人受伤时多准备药品。</CF_St_OptForecast_Desc>
+  <CF_St_OptRecipes>按库存选配方</CF_St_OptRecipes>
+  <CF_St_OptRecipes_Desc>食物少：简单餐；一般：精致餐；充足：奢华餐。食物充足时为商队少量储备干肉饼。衣服用库存最多的材料制作。</CF_St_OptRecipes_Desc>
+  <CF_St_OptTrader>交易建议</CF_St_OptTrader>
+  <CF_St_OptTrader_Desc>商人到来时，消息会告诉你缺什么、什么富余。</CF_St_OptTrader_Desc>
 </LanguageData>

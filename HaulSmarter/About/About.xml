@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>[B98] Haul Master – Pockets, Routes &amp; Storage</name>
+  <author>Bolek98</author>
+  <packageId>misak.haulsmarter</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <incompatibleWith>
+    <li>mehni.pickupandhaul</li>
+    <li>laredson.harvestandhaul</li>
+  </incompatibleWith>
+  <description>Colonists haul several things in one trip – smart routes, pockets and storage. A fixed replacement for Pick Up And Haul and Harvest And Haul.
+
+HAULING
+- Colonists collect several things nearby into their pockets and carry them to storage in one trip, by the shortest route. They walk to every item – nothing jumps into the pockets.
+- Storage is chosen for every item when it is unloaded, by the game's own search: shelves, deep storage and storage mods work. Carrying capacity (also from mods) and forbidden things are respected.
+- What first: rotting food, things in the rain or near fire, valuables. "Haul urgently" order for anything you mark.
+- Harvest, wood and mined resources go straight into the pockets; things are unloaded right after the current job (or when the pockets are full – your choice).
+- Things on the way: a colonist takes what lies right next to him or on the way to his next job – gently, never while hurrying.
+- Nothing is ever destroyed: a thing with no storage yet stays in the pockets until a storage takes it (put down only when the pockets are full).
+
+BUILDING AND WORK
+- Builders take all materials a construction site needs in one round and build from their pockets.
+- Workbench supply: one button makes a small stockpile next to a bench with exactly the ingredients of its bills.
+- Fuel round: one trip fills several torches, stoves and generators. Storage is topped up only when it gets low.
+- Traders, hauling mechanoids and trained animals carry several things too; half stacks are joined; clean-up after a battle.
+
+OVERVIEW
+- Profiles: Like the game, Smart (recommended), Maximum, Custom.
+- Weight bar above the colonist, "carries 42 / 75 kg" in the inspect pane, optional slowdown for heavy loads.
+- Hauling overview: what waits, what rots, how many haulers, time until done, who hauled how much.
+- Waits during rituals, parties, caravans and emergencies; a part that keeps failing with another mod switches itself off and tells you.
+
+Turn off Pick Up And Haul and Harvest And Haul – while they are active, the same part of Haul Master switches itself off.
+Requires Harmony. RimWorld 1.6 and 1.7. Safe to add to an existing save. 12 languages.
+Found a bug? Use "Report a bug" (bottom left in the settings) and post it in the comments or on GitHub.
+
+---
+
+Kolonisté odnesou víc věcí najednou – chytré trasy, kapsy a sklady. Opravená náhrada za Pick Up And Haul a Harvest And Haul.
+
+ODNÁŠENÍ
+- Kolonisté posbírají víc věcí poblíž do kapes a odnesou je do skladu jednou cestou, nejkratší trasou. Ke každé věci dojdou – nic jim samo neskočí do kapes.
+- Sklad se pro každou věc vybírá až při vykládání, vlastním hledáním hry: police, hluboké sklady i skladovací mody fungují. Nosnost (i z modů) a zakázané věci se respektují.
+- Co napřed: hnijící jídlo, věci v dešti nebo u ohně, cennosti. Příkaz „Odnést naléhavě“ pro cokoli, co označíš.
+- Sklizeň, dřevo a vytěžené suroviny jdou rovnou do kapes; věci se vyloží hned po současné práci (nebo až při plných kapsách – podle tebe).
+- Věci po cestě: kolonista vezme, co leží hned vedle něj nebo na cestě k další práci – opatrně, nikdy ve spěchu.
+- Nic se nikdy nezničí: věc, pro kterou ještě není sklad, zůstane v kapsách, dokud ji nějaký sklad nevezme (položí se jen při plných kapsách).
+
+STAVBA A PRÁCE
+- Stavitelé vezmou všechen materiál, který stavba potřebuje, najednou a staví z kapes.
+- Zásobování stolů: jedno tlačítko udělá u stolu malý sklad přesně se surovinami jeho zakázek.
+- Kolečko s palivem: jedna cesta doplní víc pochodní, kamen a generátorů. Sklad se doplňuje, až když dochází.
+- Obchodníci, nosící mechanoidi a vycvičená zvířata nosí víc věcí taky; poloviční hromádky se spojí; úklid po boji.
+
+PŘEHLED
+- Profily: Jako hra, Chytrý (doporučený), Maximum, Vlastní.
+- Ukazatel váhy nad kolonistou, „nese 42 / 75 kg“ v informacích, volitelné zpomalení s těžkým nákladem.
+- Přehled odnášení: co čeká, co hnije, kolik nosičů, za jak dlouho bude hotovo, kdo kolik odnesl.
+- Čeká během rituálů, oslav, karavan a nouze; část, která s jiným modem opakovaně selhává, se sama vypne a řekne ti to.
+
+Vypni Pick Up And Haul a Harvest And Haul – dokud jsou zapnuté, stejná část Haul Master se sama vypne.
+Vyžaduje Harmony. RimWorld 1.6 a 1.7. Lze bezpečně přidat do rozehrané hry. 12 jazyků.
+Našel jsi chybu? Použij „Nahlásit chybu“ (vlevo dole v nastavení) a napiš ji do komentářů nebo na GitHub.
+
+═══════════════════════
+IDEAS AND SUGGESTIONS
+Want something changed or added? Write it in the comments – I read every idea and take it into account.
+
+NÁPADY A NÁVRHY
+Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.</description>
+</ModMetaData>

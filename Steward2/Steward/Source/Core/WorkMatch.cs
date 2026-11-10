@@ -17,7 +17,20 @@ public static class WorkMatch
 
 	private const WorkTags Generic = WorkTags.ManualDumb | WorkTags.ManualSkilled | WorkTags.Commoner | WorkTags.AllWork;
 
-	public static void Reset() => cache.Clear();
+	public static void Reset() { cache.Clear(); splitOf = null; }
+
+	// 1.1.2: Steward – Work Split (or any mod using the same registry) makes smaller work types out of
+	// a big one; they count as their parent (always someone on surgery, styles, priority areas …)
+	private static Dictionary<string, string> splitOf;
+
+	public static string Base(WorkTypeDef w)
+	{
+		if (w == null)
+			return null;
+		if (splitOf == null)
+			splitOf = AppDomain.CurrentDomain.GetData("Bolek98.WorkSplit.Parents") as Dictionary<string, string> ?? new Dictionary<string, string>();
+		return splitOf.TryGetValue(w.defName, out string p) ? p : w.defName;
+	}
 
 	public static List<WorkTypeDef> Resolve(string name)
 	{
@@ -32,7 +45,16 @@ public static class WorkMatch
 			list.Add(main);
 			foreach (WorkTypeDef w in WorkCatalog.Visible)
 			{
-				if (w == main || w.modContentPack == null || w.modContentPack.IsOfficialMod)
+				if (w == main)
+					continue;
+				if (Base(w) == name)
+				{
+					list.Add(w);
+					continue;
+				}
+				if (Base(w) != w.defName)
+					continue;   // 1.1.3: a split part belongs only to its own parent
+				if (w.modContentPack == null || w.modContentPack.IsOfficialMod)
 					continue;
 				// 3.0.5: the shared kind of work must be a real one – "manual dumb" alone made every
 				// no-skill work type (cleaning, power, recycling …) count as hauling

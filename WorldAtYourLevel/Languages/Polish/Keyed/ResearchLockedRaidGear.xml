@@ -376,4 +376,49 @@
   <RLRG_RemKeepAll>Zostaw wszystko</RLRG_RemKeepAll>
   <RLRG_RemKeepAll_Desc>Zostaw wszystko widoczne tutaj – nie będzie już usuwane.</RLRG_RemKeepAll_Desc>
   <RLRG_RemTip>Zaznaczone = zostaje. Odznaczone = decydują zasady moda (niezbadane mechanoidy i drony, maszyny pogody/warunków powyżej poziomu świata, wieżyczki lepsze od twoich). Zaznacz, by i tak to zostawić.</RLRG_RemTip>
+  <RLRG_NW_Mode>Wieści ze świata: {0}</RLRG_NW_Mode>
+  <RLRG_NW_Mode_Desc>Gdy frakcja awansuje lub spada o poziom technologiczny, krótka wiadomość ci o tym powie – jako komunikat, jako list albo wcale. Zakładka Świat zawsze przechowuje historię.</RLRG_NW_Mode_Desc>
+  <RLRG_NW_Off>wyłączone</RLRG_NW_Off>
+  <RLRG_NW_Message>komunikat</RLRG_NW_Message>
+  <RLRG_NW_Letter>list</RLRG_NW_Letter>
+  <RLRG_NW_Title>Wieści ze świata</RLRG_NW_Title>
+  <RLRG_NW_Up_2>{0} porzucili dawne zwyczaje i teraz obrabiają kamień i drewno jak prawdziwi rzemieślnicy.</RLRG_NW_Up_2>
+  <RLRG_NW_Up_3>{0} nauczyli się kuć stal – ich wojownicy przychodzą teraz w zbrojach, z mieczami i łukami.</RLRG_NW_Up_3>
+  <RLRG_NW_Up_4>{0} odkryli proch strzelniczy – ich ludzie noszą teraz broń palną.</RLRG_NW_Up_4>
+  <RLRG_NW_Up_5>{0} zbudowali swoje pierwsze fabrykatory – technologia kosmiczna dociera do ich osad.</RLRG_NW_Up_5>
+  <RLRG_NW_Up_6>{0} opanowali ultratechnologię – ich osady lśnią techniką, jaką mało kto widział.</RLRG_NW_Up_6>
+  <RLRG_NW_Up_7>{0} dotknęli wiedzy archotechów – świat nigdy nie będzie już taki sam.</RLRG_NW_Up_7>
+  <RLRG_NW_Down>{0} stracili wiele ze swojej wiedzy{1} i cofnęli się do poziomu {2}.</RLRG_NW_Down>
+  <RLRG_NW_CauseRaid> po tym, jak zniszczyłeś jedną z ich osad</RLRG_NW_CauseRaid>
+  <RLRG_NW_CauseTrade> Pomógł im handel z tobą.</RLRG_NW_CauseTrade>
+  <RLRG_NW_CauseData> Pomogły im dane badawcze, które od ciebie kupili.</RLRG_NW_CauseData>
+  <RLRG_NW_History>Wieści ze świata</RLRG_NW_History>
+  <RLRG_NW_HistoryEmpty>Na razie brak wieści.</RLRG_NW_HistoryEmpty>
+  <RLRG_EV_Relations>Relacje według poziomu technologii</RLRG_EV_Relations>
+  <RLRG_EV_Relations_Desc>Frakcje odległe technologicznie (o 2 poziomy lub więcej) powoli stają się wrogie – zacofani zazdroszczą zaawansowanym. Frakcje na tym samym poziomie handlują i powoli się zaprzyjaźniają. Zmieniają się tylko relacje między innymi frakcjami, nigdy twoje.</RLRG_EV_Relations_Desc>
+  <RLRG_EV_RelStrength>Zmiana: {0} przychylności co 3 dni</RLRG_EV_RelStrength>
+  <RLRG_EV_RelStrength_Desc>Jak szybko relacje między frakcjami zmierzają ku przyjaźni lub wrogości.</RLRG_EV_RelStrength_Desc>
+  <RLRG_EV_RelTitle>Relacje między frakcjami</RLRG_EV_RelTitle>
+  <RLRG_EV_RelEnvy>{0} zazdroszczą frakcji {1} ({2} poziomy do przodu, przychylność {3})</RLRG_EV_RelEnvy>
+  <RLRG_EV_RelFriends>{0} i {1} handlują jak równi (przychylność {2})</RLRG_EV_RelFriends>
+  <RLRG_EV_RelNone>Na razie brak relacji kształtowanych przez technologię.</RLRG_EV_RelNone>
+  <RLRG_EV_SellData>Sprzedaż danych badawczych</RLRG_EV_SellData>
+  <RLRG_EV_SellData_Desc>Przy konsoli komunikacyjnej frakcje, które są za tobą, mogą kupić dane z twoich ukończonych badań: srebro i przychylność dla ciebie, postęp do następnego poziomu dla nich – stają się silniejsze. Raz na 7 dni dla każdej frakcji.</RLRG_EV_SellData_Desc>
+  <RLRG_EV_NoteData>kupili badania</RLRG_EV_NoteData>
+  <RLRG_SD_Option>Sprzedaj dane badawcze</RLRG_SD_Option>
+  <RLRG_SD_Cooldown>Wciąż badają to, co sprzedałeś im ostatnio ({0} dni).</RLRG_SD_Cooldown>
+  <RLRG_SD_Nothing>Nie masz ukończonych badań, których by im brakowało.</RLRG_SD_Nothing>
+  <RLRG_SD_Intro>{0} (poziom {1}) zapłaciliby za badania, których jeszcze nie mają.\n\nUwaga: to, co sprzedasz, wzmocni ich – ich najeźdźcy i goście szybciej dostaną lepszy sprzęt.</RLRG_SD_Intro>
+  <RLRG_SD_Item>{0} – {1} srebra, +{2} przychylności</RLRG_SD_Item>
+  <RLRG_SD_Done>{0} zapłacili {1} srebra za dane o {2}. Srebro przyleci kapsułą.</RLRG_SD_Done>
+  <RLRG_SD_Back>Wstecz</RLRG_SD_Back>
+  <RLRG_RerollButton>Przycisk wyrównania wyposażenia wrogów</RLRG_RerollButton>
+  <RLRG_RerollButton_Desc>Postacie innych frakcji dostają przycisk, który od razu przycina ich wyposażenie do poziomu świata – dla wszystkiego, co się prześlizgnęło (starożytne miejsca, zadania innych modów, postacie sprzed dodania moda).</RLRG_RerollButton_Desc>
+  <RLRG_Reroll>Wyrównaj wyposażenie</RLRG_Reroll>
+  <RLRG_Reroll_Desc>Przycina teraz broń i ubrania tej postaci do poziomu świata (także starożytne zagrożenia i inne wyjątki).</RLRG_Reroll_Desc>
+  <RLRG_RerollDone>{0}: wyposażenie wyrównane do świata.</RLRG_RerollDone>
+  <RLRG_AutoExempt>Automatycznie (zalecane)</RLRG_AutoExempt>
+  <RLRG_AutoExempt_Desc>Włączone: każda wroga frakcja odpowiada poziomowi twojej kolonii; przyjazne frakcje (sojusznicy, kupcy, goście) zachowują swój sprzęt. Wyłączone: wyjątki wybierasz ręcznie.</RLRG_AutoExempt_Desc>
+  <RLRG_AutoExemptOn>Automatycznie: kto cię zaatakuje, przyjdzie ze sprzętem twojego poziomu. Przyjazne frakcje zachowują swój sprzęt. Wyłącz, aby wybierać wyjątki ręcznie.</RLRG_AutoExemptOn>
+  <RLRG_ExemptClear>Usuń wszystkie wyjątki</RLRG_ExemptClear>
 </LanguageData>

@@ -255,4 +255,55 @@
   <CF2C_TipSituation>Situación: {0}</CF2C_TipSituation>
   <CF2C_SafeAnimals>Los animales domesticados también entran</CF2C_SafeAnimals>
   <CF2C_SafeAnimalsTip>Los animales domesticados que se pueden limitar a un área también van al área segura (no los que siguen a un amo reclutado).</CF2C_SafeAnimalsTip>
+  <CF3C_Group_Life>Vida</CF3C_Group_Life>
+  <CF3C_Group_Shortage>Escasez</CF3C_Group_Shortage>
+  <CF3C_Group_Work>Trabajo</CF3C_Group_Work>
+  <CF3C_Group_Comfort>Comodidad</CF3C_Group_Comfort>
+  <CF3C_Escalate>{0} no mejora – el mayordomo pone a más gente en ello.</CF3C_Escalate>
+  <CF3C_Button>Crisis ({0})</CF3C_Button>
+  <CF3C_ButtonNone>Crisis</CF3C_ButtonNone>
+  <CF3C_ButtonTip>Cada crisis y situación como una tarjeta: cómo va, quién trabaja en ella y botones para ignorarla, posponerla un día o resolverla ya. Además, un diario de lo que pasó.</CF3C_ButtonTip>
+  <CF3C_Title>Crisis y situaciones</CF3C_Title>
+  <CF3C_TabActive>Ahora</CF3C_TabActive>
+  <CF3C_TabJournal>Diario</CF3C_TabJournal>
+  <CF3C_Nothing>Ahora no hay ninguna crisis ni situación. Todo tranquilo.</CF3C_Nothing>
+  <CF3C_For>desde hace {0}</CF3C_For>
+  <CF3C_Stage>Fuerza {0}/3</CF3C_Stage>
+  <CF3C_StageTip>1 = suave (un colono), 2 = normal, 3 = a tope. Una crisis se refuerza sola si no mejora; cuando hay vidas en juego, siempre a tope.</CF3C_StageTip>
+  <CF3C_Ignored>ignorada hasta que termine</CF3C_Ignored>
+  <CF3C_Snoozed>pospuesta – vuelve en {0}</CF3C_Snoozed>
+  <CF3C_Left>quedan {0}, lista en {1}</CF3C_Left>
+  <CF3C_Eta>lista en unos {0}</CF3C_Eta>
+  <CF3C_Who>En ello: {0}</CF3C_Who>
+  <CF3C_WhoNone>Nadie extra por ahora</CF3C_WhoNone>
+  <CF3C_LifeLocked>Hay vidas en juego – esto no se puede posponer.</CF3C_LifeLocked>
+  <CF3C_Resume>Reanudar</CF3C_Resume>
+  <CF3C_Ignore>Ignorar</CF3C_Ignore>
+  <CF3C_IgnoreTip>El mayordomo no hace nada hasta que termine (sigue viéndose aquí).</CF3C_IgnoreTip>
+  <CF3C_Snooze>Posponer un día</CF3C_Snooze>
+  <CF3C_SnoozeTip>El mayordomo la deja un día y luego empieza otra vez suave.</CF3C_SnoozeTip>
+  <CF3C_Push>Resolver ya</CF3C_Push>
+  <CF3C_PushTip>A tope de inmediato: más colonos, prioridad máxima.</CF3C_PushTip>
+  <CF3C_Unpush>Volver a normal</CF3C_Unpush>
+  <CF3C_JournalEmpty>Todavía no ha pasado nada.</CF3C_JournalEmpty>
+  <CF3C_J_Start>{0} empezó</CF3C_J_Start>
+  <CF3C_J_End>{0} terminó tras {1}</CF3C_J_End>
+  <CF3C_J_Ignore>{0} ignorada</CF3C_J_Ignore>
+  <CF3C_J_Snooze>{0} pospuesta un día</CF3C_J_Snooze>
+  <CF3C_J_Push>{0}: resolver ya</CF3C_J_Push>
+  <CF3C_J_Escalate>{0} se reforzó (no mejora)</CF3C_J_Escalate>
+  <CF3C_J_Resume>{0} reanudada</CF3C_J_Resume>
+  <CF3C_StrLife>Vida: siempre a tope</CF3C_StrLife>
+  <CF3C_Orders>Tus órdenes primero</CF3C_Orders>
+  <CF3C_OrdersTip>Los colonos en una zona prioritaria no se usan para crisis – salvo cuando hay vidas en juego.</CF3C_OrdersTip>
+  <CF3C_Escalation>Reforzar poco a poco</CF3C_Escalation>
+  <CF3C_EscalationTip>Una crisis empieza suave con un colono y suma gente solo si no mejora. Desactivado: siempre fuerza normal.</CF3C_EscalationTip>
+  <CF3C_Str>{0}: {1}</CF3C_Str>
+  <CF3C_Off>desactivado</CF3C_Off>
+  <CF3C_StrTip>Cuántos colonos puede tomar este grupo. 100 % = escasez la mitad de la colonia, trabajo un tercio, comodidad un cuarto. 0 % = grupo desactivado.</CF3C_StrTip>
+  <CF3C_ButtonSit>Situaciones ({0})</CF3C_ButtonSit>
+  <CF3C_HeadCrises>Crisis ({0})</CF3C_HeadCrises>
+  <CF3C_HeadSits>Situaciones ({0})</CF3C_HeadSits>
+  <CF3C_PushedMsg>{0}: resolver ya – el mayordomo pone más colonos con la máxima prioridad.</CF3C_PushedMsg>
+  <CF_SafeReady>Hay enemigos en el mapa – la zona segura se activará cuando se acerquen.</CF_SafeReady>
 </LanguageData>

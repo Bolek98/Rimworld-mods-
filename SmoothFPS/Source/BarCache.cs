@@ -26,9 +26,12 @@ namespace GraphicsTuner
         private static FieldInfo fTex, fTip, fCol;
         private static float areaWidth = 74f, maxSize = 20f;
         private static bool iconsOk;
+        private static MethodInfo drawIconsM;
+        private static string ownId;
+        private static bool othersChecked;
 
         private struct Icon { public Texture2D tex; public string tip; public Color? col; }
-        private sealed class Entry { public float at = -99f; public List<Icon> icons = new List<Icon>(); }
+        private sealed class Entry { public float at = -99f; public List<Icon> icons = new List<Icon>(); public List<object> raw = new List<object>(); }
         private static readonly Dictionary<int, Entry> icons = new Dictionary<int, Entry>();
         private static readonly Dictionary<int, (float at, MoodThreshold v)> mood = new Dictionary<int, (float, MoodThreshold)>();
         private static readonly Dictionary<int, (float at, bool v)> canBreak = new Dictionary<int, (float, bool)>();
@@ -66,6 +69,8 @@ namespace GraphicsTuner
                         foreach (var o in info.Owners) if (o != h.Id) others = true;
                 }
                 iconsOk = drawIcons != null && tmpField != null && fTex != null && fTip != null && fCol != null && !others;
+                drawIconsM = drawIcons;
+                ownId = h.Id;
                 if (iconsOk)
                     h.Patch(drawIcons, prefix: new HarmonyMethod(typeof(BarCache), nameof(IconsPre)), postfix: new HarmonyMethod(typeof(BarCache), nameof(IconsPost)));
                 else if (others)
@@ -122,11 +127,19 @@ namespace GraphicsTuner
         {
             __state = false;
             if (!inBar || colonist == null || colonist.Dead) return true;
+            if (!othersChecked) CheckOthers();
+            if (!iconsOk) return true;
             if (!icons.TryGetValue(colonist.thingIDNumber, out Entry e) || Time.realtimeSinceStartup - e.at >= Keep || Time.realtimeSinceStartup < e.at)
             {
                 __state = true;   // the game makes the list, the postfix keeps it
                 return true;
             }
+            // the game's own list gets this colonist's icons, so whatever else reads it sees the right ones
+            try
+            {
+                if (tmpField.GetValue(null) is IList tmp) { tmp.Clear(); foreach (object o in e.raw) tmp.Add(o); }
+            }
+            catch { }
             if (e.icons.Count == 0) return false;
             float size = Mathf.Min(areaWidth / e.icons.Count, maxSize) * Find.ColonistBar.Scale;
             Vector2 pos = new Vector2(rect.x + 1f, rect.yMax - size - 1f);
@@ -152,11 +165,37 @@ namespace GraphicsTuner
             {
                 if (!icons.TryGetValue(colonist.thingIDNumber, out Entry e)) { e = new Entry(); icons[colonist.thingIDNumber] = e; }
                 e.icons.Clear();
+                e.raw.Clear();
                 if (tmpField.GetValue(null) is IList list)
                     foreach (object o in list)
+                    {
+                        e.raw.Add(o);
                         e.icons.Add(new Icon { tex = fTex.GetValue(o) as Texture2D, tip = fTip.GetValue(o) as string, col = (Color?)fCol.GetValue(o) });
+                    }
                 e.at = Time.realtimeSinceStartup;
                 if (icons.Count > 400) icons.Clear();
+            }
+            catch { iconsOk = false; }
+        }
+
+        // 1.7.2: a mod that patches the icon drawing after us (later in the load order) reads the game's
+        // icon list in its own patch – with our cache that list still held the last colonist's icons, and
+        // they showed on everyone. So once the game runs, look again who patches it; anyone else → cache off.
+        private static void CheckOthers()
+        {
+            othersChecked = true;
+            try
+            {
+                var info = drawIconsM != null ? Harmony.GetPatchInfo(drawIconsM) : null;
+                if (info == null) return;
+                foreach (var o in info.Owners)
+                    if (o != ownId)
+                    {
+                        iconsOk = false;
+                        icons.Clear();
+                        MLog.Info("[Smooth FPS] colonist bar: another mod (" + o + ") draws the activity icons – their cache stays off.");
+                        return;
+                    }
             }
             catch { iconsOk = false; }
         }

@@ -1,3 +1,48 @@
+=== Workshop release 1.2.0 (10 Nov 2026) ===
+1.2.0
+New
+- Crises reworked: four groups with a clear order – Life, Shortage, Work, Comfort. Your priority areas come before everything except lives.
+- Each group takes only part of the colony (Shortage half, Work a third, Comfort a quarter – a slider for each). Work and comfort never take priority 1.
+- A crisis starts gently with one colonist and grows only when things do not get better. Lives are always at full force.
+- New Crises window (button in the Work tab): a card for every crisis and situation with progress, how long it lasts and who works on it, and buttons Ignore, Put off a day and Do it now (top priority, at least a third of the colony). Plus a journal of what happened.
+- Start plan: the first two days of a new colony put building, wood, hunting and fields first. A small colony is in a food crisis only when food runs out within a day.
+- Calmer: a crisis ends only after it has been gone for 6 hours. Low wood also counts the wood your blueprints still need.
+- Works with Steward – Work Split.
+
+Fixes
+- Safe area during raids: only enemies that are really close count, and colonists stay inside at least an hour – no more walking in and out when enemies wander at the map edge. A message says when enemies are on the map but still far away.
+
+Nové
+- Krize předělané: čtyři skupiny s jasným pořadím – Život, Nedostatek, Výroba a práce, Pohodlí. Tvoje prioritní oblasti mají přednost před vším kromě života.
+- Každá skupina smí vzít jen část kolonie (nedostatek polovinu, výroba třetinu, pohodlí čtvrtinu – posuvník pro každou). Výroba a pohodlí nikdy nedávají prioritu 1.
+- Krize začne mírně s jedním kolonistou a sílí, jen když se situace nelepší. O život jde vždy naplno.
+- Nové okno Krize (tlačítko na kartě Práce): karta pro každou krizi a situaci s postupem, délkou a kdo na ní dělá, a tlačítka Ignorovat, Odložit o den a Vyřešit hned (nejvyšší priorita, aspoň třetina kolonie). K tomu deník, co se dělo.
+- Startovní plán: první dva dny nové kolonie mají přednost stavba, dřevo, lov a pole. Malá kolonie má krizi jídla, jen když jídlo dojde do dne.
+- Klidnější: krize skončí, až je 6 hodin pryč. Málo dřeva počítá i dřevo, které ještě potřebují plány.
+- Funguje se Steward – Work Split.
+
+Opravy
+- Bezpečná zóna při přepadení: počítají se jen nepřátelé, kteří jsou opravdu blízko, a kolonisté zůstanou uvnitř aspoň hodinu – už žádné chození dovnitř a ven, když se nepřátelé potulují na kraji mapy. Zpráva řekne, když jsou nepřátelé na mapě, ale ještě daleko.
+
+=== Development history since the last Workshop release (test versions) ===
+1.2.1
+- "Do it now" works at once (new plan right away, not after the calm gap) and is really strong: top priority and at least a third of the colony. Ignore / Put off / Resume also re-plan at once.
+- „Vyřešit hned“ funguje okamžitě (nový plán hned, ne až po klidové pauze) a je opravdu silné: nejvyšší priorita a aspoň třetina kolonie. Ignorovat / Odložit / Obnovit taky přeplánují hned.
+
+1.2.0
+- Crises reworked: four groups (Life, Shortage, Work, Comfort) with a clear order, and your priority areas come before everything except lives. Each group takes only part of the colony (slider per group). A crisis starts gently with one colonist and grows only when things do not get better. New Crises window in the Work tab: a card per crisis with progress, who is on it, Ignore / Put off a day / Do it now, and a journal. The button counts only real crises; situations have their own list.
+- Krize předělané: čtyři skupiny (Život, Nedostatek, Výroba a práce, Pohodlí) s jasným pořadím a tvoje prioritní oblasti mají přednost před vším kromě života. Každá skupina smí vzít jen část kolonie (posuvník pro každou). Krize začne mírně s jedním kolonistou a sílí, jen když se situace nelepší. Nové okno Krize na kartě Práce: karta pro každou krizi s postupem, kdo na ní dělá, Ignorovat / Odložit o den / Vyřešit hned, a deník. Tlačítko počítá jen skutečné krize, situace mají vlastní seznam.
+
+1.1.2
+- Calmer: a crisis ends only after it has been gone for 6 hours (food, hygiene and medicine no longer switch on and off every few minutes). Low wood also counts the wood your blueprints and frames still need.
+- Klidnější: krize skončí, až je 6 hodin pryč (jídlo, hygiena a léky už se nezapínají a nevypínají každých pár minut). Málo dřeva počítá i dřevo, které ještě potřebují plány a rozestavěné stavby.
+- New: start plan – the first two days of a new colony put building, wood, hunting and fields first. A small colony (1–3 colonists) is in a food crisis only when food runs out within a day.
+- Nové: startovní plán – první dva dny nové kolonie má přednost stavba, dřevo, lov a pole. Malá kolonie (1–3 kolonisté) má krizi jídla, jen když jídlo dojde do jednoho dne.
+
+1.1.1
+- Works with Steward – Work Split: rescue and surgery stay with medical response (surgeons are not pulled away), situations raise the work that really does the job (harvest, repairs, recruiting, feeding prisoners, slaves, taming, training, caravans …), cooks butcher first also with butchering split off, rearming and refuelling never wait in a crisis. Auto focus can pick Farming and Production again. Removed maps are forgotten by the safe area.
+- Spolupráce se Steward – Work Split: záchrana a operace zůstávají rychlé lékařské pomoci (chirurgové se neodvolávají), situace zvyšují práci, která úkol opravdu dělá (sklizeň, opravy, nábor, krmení vězňů, otroci, krocení, výcvik, karavany …), kuchaři napřed porcují i s odděleným řeznictvím, nabíjení věží a palivo v krizi nikdy nečekají. Automatické zaměření umí zase vybrat Pěstování a Výrobu. Bezpečná zóna zapomíná zrušené mapy.
+
 === Workshop release 1.1.0 (2 Nov 2026) ===
 1.1.0
 New

@@ -101,4 +101,74 @@
   <AT_ShellNotHostile>{0} ({1}) n'est pas hostile – l'artillerie ne bombarde que les bases et camps hostiles (ou une carte ouverte).</AT_ShellNotHostile>
   <AT_ShellNoTarget>Rien à bombarder ici. Choisissez une base ou un camp hostile (pas besoin de l'explorer) ou une carte ouverte.</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0} ({1}) a été détruit par l'artillerie.</AT_ShellSiteDestroyed>
+  <AT_QC_This>Tourelle on/off</AT_QC_This>
+  <AT_QC_This_Desc>Éteint cette tourelle (elle ne tire plus, même sur une cible forcée) ou la rallume.</AT_QC_This_Desc>
+  <AT_QC_All>Toutes les tourelles…</AT_QC_All>
+  <AT_QC_All_Desc>Éteindre ou allumer toutes tes tourelles de cette carte, ou toutes les régler sur létal ou étourdir seulement.</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>Tir : létal</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>Tir : étourdir seulement</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>Létal : tirs normaux. Étourdir seulement : chaque impact ne fait qu'étourdir (aucune blessure) et la tourelle ignore les cibles déjà étourdies ou à terre. Pas pour les armes explosives (mortiers, roquettes).</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>Cette tourelle : létal</AT_QC_SetLethal>
+  <AT_QC_SetStun>Cette tourelle : étourdir seulement</AT_QC_SetStun>
+  <AT_QC_AllLethal>Toutes les tourelles : létal</AT_QC_AllLethal>
+  <AT_QC_AllStun>Toutes les tourelles : étourdir seulement</AT_QC_AllStun>
+  <AT_QC_Explosive>Les armes explosives (mortiers, roquettes, obus) ne peuvent pas seulement étourdir.</AT_QC_Explosive>
+  <AT_QC_AllOff>Éteindre toutes les tourelles</AT_QC_AllOff>
+  <AT_QC_AllOn>Allumer toutes les tourelles</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>{0} tourelles éteintes.</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>{0} tourelles allumées.</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>{0} tourelles réglées sur étourdir seulement.</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>{0} tourelles réglées sur létal.</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>{0} tourelles explosives restent létales.</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>Tes tourelles : tout éteindre ou allumer, létal ou étourdir seulement.</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>Boutons rapides des tourelles</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>Boutons on/off et létal/étourdir sur chacune de tes tourelles.</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>Bouton des tourelles en bas à droite</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>Un petit bouton à côté des réglages de jeu (en bas à droite) pour éteindre/allumer toutes les tourelles ou passer létal/étourdir.</AT_QC_SetGlobal_Desc>
+  <!-- 1.4.0 ammo types -->
+  <AT_AM_Tab>Types de munitions</AT_AM_Tab>
+  <AT_AM_Enable>Types de munitions des tourelles</AT_AM_Enable>
+  <AT_AM_Enable_Desc>Chacune de vos tourelles (aussi celles des mods et les mortiers) reçoit un bouton de type de munition : perforante, à pointe creuse, incendiaire, IEM, étourdissante, toxique ; les mortiers aussi fumigène et mousse anti-feu. Une tourelle peut utiliser un type pour lequel elle n'a normalement pas de munitions.</AT_AM_Enable_Desc>
+  <AT_AM_FromStorage>Munitions spéciales depuis le stock</AT_AM_FromStorage>
+  <AT_AM_FromStorage_Desc>Désactivé (défaut) : les munitions spéciales ne se fabriquent ni ne se transportent – la tourelle se recharge seule. Activé : les mortiers ont besoin de vrais obus du stock comme avant.</AT_AM_FromStorage_Desc>
+  <AT_AM_ApPen>Pénétration ×{0}</AT_AM_ApPen>
+  <AT_AM_HpDmg>Dégâts ×{0}</AT_AM_HpDmg>
+  <AT_AM_IncIgnite>Chance d'enflammer : {0}</AT_AM_IncIgnite>
+  <AT_AM_EmpPow>Puissance IEM ×{0}</AT_AM_EmpPow>
+  <AT_AM_ToxSev>Toxicité par tir : {0}</AT_AM_ToxSev>
+  <AT_AM_KShells>Obus fumigènes et anti-feu (mortiers)</AT_AM_KShells>
+  <AT_AM_KShells_Desc>Les mortiers et l'artillerie peuvent aussi tirer fumigène ou mousse anti-feu.</AT_AM_KShells_Desc>
+  <AT_AM_Gizmo>Munition : {0}</AT_AM_Gizmo>
+  <AT_AM_Gizmo_Desc>Choisissez la munition de cette tourelle. Les tourelles à balles changent l'effet de l'impact ; mortiers et artillerie chargent l'obus correspondant. Les munitions spéciales sont gratuites sauf si 'Munitions spéciales depuis le stock' est activé.</AT_AM_Gizmo_Desc>
+  <AT_AM_K_Normal>Normale</AT_AM_K_Normal>
+  <AT_AM_K_Normal_Desc>Munition par défaut de l'arme, rien ne change.</AT_AM_K_Normal_Desc>
+  <AT_AM_K_ArmorPiercing>Perforante</AT_AM_K_ArmorPiercing>
+  <AT_AM_K_ArmorPiercing_Desc>Pénétration bien plus élevée, dégâts ×0,8. Bonne contre les blindés et mécanoïdes.</AT_AM_K_ArmorPiercing_Desc>
+  <AT_AM_K_HollowPoint>Pointe creuse</AT_AM_K_HollowPoint>
+  <AT_AM_K_HollowPoint_Desc>Plus de dégâts, moitié de pénétration. Bonne contre les cibles sans armure et les animaux.</AT_AM_K_HollowPoint_Desc>
+  <AT_AM_K_Incendiary>Incendiaire</AT_AM_K_Incendiary>
+  <AT_AM_K_Incendiary_Desc>Ajoute des brûlures et une chance d'enflammer. Mortiers : obus incendiaire.</AT_AM_K_Incendiary_Desc>
+  <AT_AM_K_EMP>IEM</AT_AM_K_EMP>
+  <AT_AM_K_EMP_Desc>Faibles dégâts plus IEM : étourdit mécanoïdes et tourelles, brise les boucliers. Mortiers : obus IEM.</AT_AM_K_EMP_Desc>
+  <AT_AM_K_Stun>Étourdissante</AT_AM_K_Stun>
+  <AT_AM_K_Stun_Desc>Aucune blessure – les tirs étourdissent seulement. Ignore les cibles à terre ou étourdies. Tourelles à balles uniquement.</AT_AM_K_Stun_Desc>
+  <AT_AM_K_Toxic>Toxique</AT_AM_K_Toxic>
+  <AT_AM_K_Toxic_Desc>Moins de dégâts, ajoute de la toxicité aux cibles vivantes. Mortiers : obus toxique (Biotech).</AT_AM_K_Toxic_Desc>
+  <AT_AM_K_Smoke>Fumigène</AT_AM_K_Smoke>
+  <AT_AM_K_Smoke_Desc>Mortiers uniquement : obus fumigène qui bloque les tirs ennemis.</AT_AM_K_Smoke_Desc>
+  <AT_AM_K_Firefoam>Mousse anti-feu</AT_AM_K_Firefoam>
+  <AT_AM_K_Firefoam_Desc>Mortiers uniquement : obus de mousse qui éteint les incendies.</AT_AM_K_Firefoam_Desc>
+  <AT_AM_ApplySame>Pareil pour tous : {0}</AT_AM_ApplySame>
+  <AT_AM_ApplyAll>Pareil pour toutes les tourelles</AT_AM_ApplyAll>
+  <AT_AM_AllMenu>Type de munition pour toutes les tourelles…</AT_AM_AllMenu>
+  <AT_AM_AllKind>Toutes les tourelles : {0}</AT_AM_AllKind>
+  <AT_AM_SetMsg>Munition réglée pour {0} tourelles : {1}.</AT_AM_SetMsg>
+  <AT_AM_Skipped>{0} tourelles ne peuvent pas l'utiliser et restent inchangées.</AT_AM_Skipped>
+  <AT_AM_OffInSettings>désactivé dans les options</AT_AM_OffInSettings>
+  <AT_AM_NotForShells>pas pour les obus</AT_AM_NotForShells>
+  <AT_AM_NotForRockets>les roquettes ne changent pas</AT_AM_NotForRockets>
+  <AT_AM_NoShellDef>obus indisponible</AT_AM_NoShellDef>
+  <AT_AM_OnlyShells>mortiers uniquement</AT_AM_OnlyShells>
+  <AT_SpareGround>Les tourelles ne détruisent pas les objets ni les corps</AT_SpareGround>
+  <AT_SpareGround_Desc>Activé : les balles et les explosions d'obus de tes tourelles épargnent les objets et les cadavres au sol – le butin n'est pas réduit en miettes et les corps ne sont pas réduits en bouillie jusqu'à disparaître. Les personnages et les bâtiments sont touchés comme d'habitude. Désactivé = comme dans le jeu.</AT_SpareGround_Desc>
 </LanguageData>

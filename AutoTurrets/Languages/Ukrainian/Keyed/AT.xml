@@ -101,4 +101,74 @@
   <AT_ShellNotHostile>{0} ({1}) не вороже – артилерія обстрілює лише ворожі бази й табори (або відкриту мапу).</AT_ShellNotHostile>
   <AT_ShellNoTarget>Тут нічого обстрілювати. Виберіть ворожу базу чи табір (розвідка не потрібна) або відкриту мапу.</AT_ShellNoTarget>
   <AT_ShellSiteDestroyed>{0} ({1}) знищено артилерійським вогнем.</AT_ShellSiteDestroyed>
+  <AT_QC_This>Турель увімк/вимк</AT_QC_This>
+  <AT_QC_This_Desc>Вимикає цю турель (не стріляє, навіть по примусовій цілі) або знову вмикає.</AT_QC_This_Desc>
+  <AT_QC_All>Усі турелі…</AT_QC_All>
+  <AT_QC_All_Desc>Вимкнути або увімкнути всі твої турелі на цій мапі або поставити всім смертельний вогонь чи лише оглушення.</AT_QC_All_Desc>
+  <AT_QC_ModeLethal>Вогонь: смертельний</AT_QC_ModeLethal>
+  <AT_QC_ModeStun>Вогонь: лише оглушення</AT_QC_ModeStun>
+  <AT_QC_Mode_Desc>Смертельний: звичайні постріли. Лише оглушення: кожне влучання лише оглушує (без ран), і турель пропускає вже оглушені або повалені цілі. Не для вибухової зброї (міномети, ракети).</AT_QC_Mode_Desc>
+  <AT_QC_SetLethal>Ця турель: смертельний</AT_QC_SetLethal>
+  <AT_QC_SetStun>Ця турель: лише оглушення</AT_QC_SetStun>
+  <AT_QC_AllLethal>Усі турелі: смертельний</AT_QC_AllLethal>
+  <AT_QC_AllStun>Усі турелі: лише оглушення</AT_QC_AllStun>
+  <AT_QC_Explosive>Вибухова зброя (міномети, ракети, снаряди) не може лише оглушувати.</AT_QC_Explosive>
+  <AT_QC_AllOff>Вимкнути всі турелі</AT_QC_AllOff>
+  <AT_QC_AllOn>Увімкнути всі турелі</AT_QC_AllOn>
+  <AT_QC_AllOffMsg>Вимкнено турелей: {0}.</AT_QC_AllOffMsg>
+  <AT_QC_AllOnMsg>Увімкнено турелей: {0}.</AT_QC_AllOnMsg>
+  <AT_QC_AllStunMsg>Переведено на оглушення турелей: {0}.</AT_QC_AllStunMsg>
+  <AT_QC_AllLethalMsg>Переведено на смертельний вогонь турелей: {0}.</AT_QC_AllLethalMsg>
+  <AT_QC_SkippedExplosive>Вибухових турелей залишено смертельними: {0}.</AT_QC_SkippedExplosive>
+  <AT_QC_Global_Tip>Твої турелі: вимкнути або увімкнути всі, смертельний вогонь або лише оглушення.</AT_QC_Global_Tip>
+  <AT_QC_SetGizmos>Швидкі кнопки турелей</AT_QC_SetGizmos>
+  <AT_QC_SetGizmos_Desc>Кнопки увімк/вимк і смертельний/оглушення на кожній твоїй турелі.</AT_QC_SetGizmos_Desc>
+  <AT_QC_SetGlobal>Кнопка турелей справа внизу</AT_QC_SetGlobal>
+  <AT_QC_SetGlobal_Desc>Маленька кнопка поруч з ігровими налаштуваннями (справа внизу), щоб вимкнути/увімкнути всі турелі або перемкнути смертельний/оглушення.</AT_QC_SetGlobal_Desc>
+  <!-- 1.4.0 ammo types -->
+  <AT_AM_Tab>Типи набоїв</AT_AM_Tab>
+  <AT_AM_Enable>Типи набоїв для турелей</AT_AM_Enable>
+  <AT_AM_Enable_Desc>Кожна ваша турель (зокрема модові та міномети) отримує кнопку типу набоїв: бронебійні, експансивні, запальні, ЕМІ, приголомшливі, токсичні; міномети також димові та протипожежні. Турель може використовувати тип, для якого зазвичай не має набоїв.</AT_AM_Enable_Desc>
+  <AT_AM_FromStorage>Особливі набої зі складу</AT_AM_FromStorage>
+  <AT_AM_FromStorage_Desc>Вимк. (типово): особливі набої не треба виготовляти й носити – турель перезаряджається сама. Увімк.: мінометам потрібні справжні снаряди зі складу, як раніше.</AT_AM_FromStorage_Desc>
+  <AT_AM_ApPen>Бронепробиття ×{0}</AT_AM_ApPen>
+  <AT_AM_HpDmg>Шкода ×{0}</AT_AM_HpDmg>
+  <AT_AM_IncIgnite>Шанс підпалити: {0}</AT_AM_IncIgnite>
+  <AT_AM_EmpPow>Сила ЕМІ ×{0}</AT_AM_EmpPow>
+  <AT_AM_ToxSev>Отруєння за влучання: {0}</AT_AM_ToxSev>
+  <AT_AM_KShells>Димові та протипожежні снаряди (міномети)</AT_AM_KShells>
+  <AT_AM_KShells_Desc>Міномети й артилерію можна перемкнути на дим або протипожежну піну.</AT_AM_KShells_Desc>
+  <AT_AM_Gizmo>Набої: {0}</AT_AM_Gizmo>
+  <AT_AM_Gizmo_Desc>Виберіть набої турелі. У кульових турелей змінюється ефект влучання; міномети й артилерія заряджають відповідний снаряд. Особливі набої безкоштовні, якщо не ввімкнено «Особливі набої зі складу».</AT_AM_Gizmo_Desc>
+  <AT_AM_K_Normal>Звичайні</AT_AM_K_Normal>
+  <AT_AM_K_Normal_Desc>Стандартні набої зброї, нічого не змінюється.</AT_AM_K_Normal_Desc>
+  <AT_AM_K_ArmorPiercing>Бронебійні</AT_AM_K_ArmorPiercing>
+  <AT_AM_K_ArmorPiercing_Desc>Значно вище бронепробиття, шкода ×0,8. Добрі проти броньованих і механоїдів.</AT_AM_K_ArmorPiercing_Desc>
+  <AT_AM_K_HollowPoint>Експансивні</AT_AM_K_HollowPoint>
+  <AT_AM_K_HollowPoint_Desc>Більше шкоди, половина бронепробиття. Добрі проти неброньованих і тварин.</AT_AM_K_HollowPoint_Desc>
+  <AT_AM_K_Incendiary>Запальні</AT_AM_K_Incendiary>
+  <AT_AM_K_Incendiary_Desc>Додають опік і шанс підпалити ціль. Міномети: запальний снаряд.</AT_AM_K_Incendiary_Desc>
+  <AT_AM_K_EMP>ЕМІ</AT_AM_K_EMP>
+  <AT_AM_K_EMP_Desc>Невелика звичайна шкода плюс ЕМІ: приголомшує механоїдів і турелі, ламає щити. Міномети: ЕМІ-снаряд.</AT_AM_K_EMP_Desc>
+  <AT_AM_K_Stun>Приголомшливі</AT_AM_K_Stun>
+  <AT_AM_K_Stun_Desc>Без ран – влучання лише приголомшують. Пропускає тих, хто лежить або приголомшений. Лише кульові турелі.</AT_AM_K_Stun_Desc>
+  <AT_AM_K_Toxic>Токсичні</AT_AM_K_Toxic>
+  <AT_AM_K_Toxic_Desc>Менше шкоди, додають отруєння живим цілям. Міномети: токсичний снаряд (Biotech).</AT_AM_K_Toxic_Desc>
+  <AT_AM_K_Smoke>Димові</AT_AM_K_Smoke>
+  <AT_AM_K_Smoke_Desc>Лише міномети: димовий снаряд, що заважає стрільбі ворога.</AT_AM_K_Smoke_Desc>
+  <AT_AM_K_Firefoam>Протипожежні</AT_AM_K_Firefoam>
+  <AT_AM_K_Firefoam_Desc>Лише міномети: снаряд з піною, гасить пожежі.</AT_AM_K_Firefoam_Desc>
+  <AT_AM_ApplySame>Так само для всіх: {0}</AT_AM_ApplySame>
+  <AT_AM_ApplyAll>Так само для всіх турелей</AT_AM_ApplyAll>
+  <AT_AM_AllMenu>Тип набоїв для всіх турелей…</AT_AM_AllMenu>
+  <AT_AM_AllKind>Усі турелі: {0}</AT_AM_AllKind>
+  <AT_AM_SetMsg>Набої встановлено у {0} турелей: {1}.</AT_AM_SetMsg>
+  <AT_AM_Skipped>{0} турелей не можуть їх використати й лишилися як були.</AT_AM_Skipped>
+  <AT_AM_OffInSettings>вимкнено в налаштуваннях</AT_AM_OffInSettings>
+  <AT_AM_NotForShells>не для снарядів</AT_AM_NotForShells>
+  <AT_AM_NotForRockets>ракети не перемикаються</AT_AM_NotForRockets>
+  <AT_AM_NoShellDef>снаряд недоступний</AT_AM_NoShellDef>
+  <AT_AM_OnlyShells>лише міномети</AT_AM_OnlyShells>
+  <AT_SpareGround>Турелі не знищують предмети й тіла</AT_SpareGround>
+  <AT_SpareGround_Desc>Увімк.: кулі та вибухи снарядів твоїх турелей не чіпають предмети й трупи на землі – здобич не розноситься на шматки, а тіла не перетворюються на кашу, доки не зникнуть. Персонажі й будівлі вражаються як зазвичай. Вимк. = як у грі.</AT_SpareGround_Desc>
 </LanguageData>

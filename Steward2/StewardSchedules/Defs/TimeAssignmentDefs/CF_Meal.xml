@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Steward – Schedules 1.1.0: meal hour – eat now if not full, otherwise like "anything" -->
+  <TimeAssignmentDef>
+    <defName>CF_Meal</defName>
+    <label>meal</label>
+    <description>Eat now if not full; otherwise the hour works like "anything".</description>
+    <color>(0.93, 0.58, 0.20)</color>
+    <allowRest>true</allowRest>
+    <allowJoy>true</allowJoy>
+  </TimeAssignmentDef>
+</Defs>

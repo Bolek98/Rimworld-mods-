@@ -84,7 +84,7 @@ public static class ScheduleCare
 			}
 			// 2. help now
 			// 2.49: someone breaking who is also quite tired sleeps first (rest lifts the mood faster than games)
-			TimeAssignmentDef want = tired || (breaking && rest < 0.35f) ? TimeAssignmentDefOf.Sleep : breaking ? TimeAssignmentDefOf.Joy : null;
+			TimeAssignmentDef want = tired || (breaking && rest < 0.35f && p.needs.rest != null) ? TimeAssignmentDefOf.Sleep : breaking && p.needs.joy != null ? TimeAssignmentDefOf.Joy : null;   // 1.0.1: no sleep/recreation hours for pawns without those needs
 			if (want != null)
 			{
 				bool started = false;

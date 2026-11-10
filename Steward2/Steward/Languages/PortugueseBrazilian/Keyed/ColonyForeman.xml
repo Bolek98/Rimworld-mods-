@@ -175,6 +175,12 @@
   <CF2_OneTopTip>Cada colono tem só o seu trabalho mais importante em 1, os outros trabalhos principais em 2.</CF2_OneTopTip>
   <CF2_Backup>Trabalho reserva na prioridade mais baixa</CF2_Backup>
   <CF2_BackupTip>Quem não tem um trabalho como principal o mantém no nível mais baixo, para ninguém ficar parado.</CF2_BackupTip>
+  <CF2_BackupMinSkill>Trabalho especializado como reserva só a partir da habilidade {0} (0 = todos)</CF2_BackupMinSkill>
+  <CF2_BackupMinSkillTip>Fabricação, arte, construção e pesquisa ficam como reserva só com colonos que têm pelo menos esta habilidade. Medicina, carcereiros, cuidado infantil, culinária, plantas, mineração, animais e trabalhos simples como carregar ficam com todos. Se ninguém alcança, o melhor colono recebe o trabalho mesmo assim.</CF2_BackupMinSkillTip>
+  <CF2_SurgeryMin>Cirurgia só por médicos a partir de Medicina {0} (0 = desligado)</CF2_SurgeryMin>
+  <CF2_SurgeryMinTip>Quando há no mapa um médico com pelo menos esta Medicina e designado para medicina, médicos mais fracos só tratam e deixam as cirurgias para ele. Se não houver, qualquer um pode operar. Suas ordens diretas sempre funcionam.</CF2_SurgeryMinTip>
+  <CF2_TipBackupLowSkill>Não é reserva: habilidade {0} abaixo de {1}.</CF2_TipBackupLowSkill>
+  <CF2_SurgeryLeft>Cirurgia deixada para um médico melhor</CF2_SurgeryLeft>
   <CF2_Opposed>Dar também trabalhos que a ideologia rejeita</CF2_Opposed>
   <CF2_OpposedTip>Desligado: trabalho que a ideologia do colono considera perigoso nunca é dado a ele.</CF2_OpposedTip>
   <CF2_Injured>Colonos feridos e doentes recebem trabalho mais leve</CF2_Injured>
@@ -311,4 +317,7 @@
   <CF_Keep_NowStarted>{0} colonos estão trazendo coisas para a zona de reserva.</CF_Keep_NowStarted>
   <CF_Keep_NowNobody>Ninguém pode trazer nada agora (nenhum colono livre, ou nada alcançável fora da zona).</CF_Keep_NowNobody>
   <CF_Keep_NowFull>A zona já tem tudo o que deve ter.</CF_Keep_NowFull>
+  <CF_Crisis_NewColony>nova colônia (plano inicial)</CF_Crisis_NewColony>
+  <CF2_TipSmallColony>colônia pequena: primeiro o trabalho que mais importa agora</CF2_TipSmallColony>
+  <CF2_TipArea>área prioritária: necessário para o trabalho lá</CF2_TipArea>
 </LanguageData>

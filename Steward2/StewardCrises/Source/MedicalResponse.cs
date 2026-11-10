@@ -27,7 +27,7 @@ public static class MedicalResponse
 	{
 		if (givers == null)
 			givers = DefDatabase<WorkGiverDef>.AllDefsListForReading
-				.Where(g => g.workType == WorkTypeDefOf.Doctor && g.Worker is WorkGiver_Scanner)
+				.Where(g => g.workType != null && WorkMatch.Base(g.workType) == "Doctor" && g.Worker is WorkGiver_Scanner)   // 1.1.1: also Work Split parts (rescue, feeding)
 				.OrderByDescending(g => g.emergency).ThenByDescending(g => g.priorityInType).ToList();
 		return givers;
 	}
@@ -72,7 +72,7 @@ public static class MedicalResponse
 			return true;
 		if (j.playerForced || keepJobs.Contains(j.def.defName))
 			return false;
-		if (j.workGiverDef != null && j.workGiverDef.workType == WorkTypeDefOf.Doctor)
+		if (j.workGiverDef?.workType != null && WorkMatch.Base(j.workGiverDef.workType) == "Doctor")   // 1.1.1: a surgeon (Work Split) keeps operating
 			return false;
 		return true;
 	}

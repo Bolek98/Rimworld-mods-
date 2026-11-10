@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AP_Enabled>医生自行给药</AP_Enabled>
+  <AP_Enabled_Desc>医生（医生工作）会根据问题的严重程度，给殖民者能帮到他们的药物。</AP_Enabled_Desc>
+  <AP_Notify>给药时显示消息</AP_Notify>
+  <AP_Notify_Desc>一条简短消息：谁给谁用了什么药以及原因。</AP_Notify_Desc>
+  <AP_Prisoners>囚犯也给药</AP_Prisoners>
+  <AP_Prisoners_Desc>也给囚犯用药。</AP_Prisoners_Desc>
+  <AP_UseMood>崩溃前给情绪药物</AP_UseMood>
+  <AP_UseMood_Desc>接近严重精神崩溃的殖民者会得到情绪药物。同一时间只有一名殖民者携带，其他人继续工作。</AP_UseMood_Desc>
+  <AP_UseRest>疲惫时给兴奋剂</AP_UseRest>
+  <AP_UseRest_Desc>濒临筋疲力尽且未在睡觉的殖民者会得到兴奋剂。</AP_UseRest_Desc>
+  <AP_PainFrom>疼痛达到 {0} % 时给止痛药</AP_PainFrom>
+  <AP_PainFrom_Desc>疼痛达到多少时给止痛药。越痛 = 药越强。</AP_PainFrom_Desc>
+  <AP_MinHours>同种药物再次给药间隔：{0} 小时</AP_MinHours>
+  <AP_MinHours_Desc>针对没有持续效果的药物：再次给同一种药前要等多久。有持续效果的药物在效果持续期间不会再给。</AP_MinHours_Desc>
+  <AP_Addictive_Label>成瘾性药物</AP_Addictive_Label>
+  <AP_AddictiveMode0>从不</AP_AddictiveMode0>
+  <AP_AddictiveMode1>仅在生命危险时</AP_AddictiveMode1>
+  <AP_AddictiveMode2>按严重程度</AP_AddictiveMode2>
+  <AP_AddictiveHelp>按严重程度选药：小问题用温和便宜的药，严重问题用最强的药。效果仍在持续的药不会再给。</AP_AddictiveHelp>
+  <AP_ListHead>游戏中的药物及其作用（{0}）。取消勾选医生不应使用的药物：</AP_ListHead>
+  <AP_Cures>治愈：{0}</AP_Cures>
+  <AP_Addictive>成瘾 {0} %</AP_Addictive>
+  <AP_Given>{0} 给 {2} 用了 {1}（{3}）</AP_Given>
+  <AP_Need_Pain>疼痛</AP_Need_Pain>
+  <AP_Need_Immunity>免疫</AP_Need_Immunity>
+  <AP_Need_Cure>治愈</AP_Need_Cure>
+  <AP_Need_Bleeding>出血</AP_Need_Bleeding>
+  <AP_Need_BloodLoss>失血</AP_Need_BloodLoss>
+  <AP_Need_Consciousness>意识</AP_Need_Consciousness>
+  <AP_Need_Breathing>呼吸</AP_Need_Breathing>
+  <AP_Need_BloodPumping>血液循环</AP_Need_BloodPumping>
+  <AP_Need_BloodFiltration>血液过滤</AP_Need_BloodFiltration>
+  <AP_Need_Moving>移动</AP_Need_Moving>
+  <AP_Need_Rest>疲劳</AP_Need_Rest>
+  <AP_Need_Mood>心情</AP_Need_Mood>
+  <AP_Need_Critical>生命危险</AP_Need_Critical>
+  <AP_AutoCare>按严重程度设置医疗等级</AP_AutoCare>
+  <AP_AutoCare_Desc>治疗用的绷带和药物：小伤用草药，疾病和较重的伤用工业药，生命危险时用最好的。设为“不治疗”的殖民者保持不变。</AP_AutoCare_Desc>
+  <AP_CarePharmacist>医疗等级（绷带、药物）由 Pharmacist 管理。</AP_CarePharmacist>
+  <AP_CombatDrugs>战士使用战斗药物</AP_CombatDrugs>
+  <AP_CombatDrugs_Desc>被征召且附近有敌人的殖民者会服用一种战斗药物（Go-juice、Wake-up……）——从物品栏，或在附近没有敌人时从几步外的堆里取。绝不使用有成瘾风险的药，设定时间内不会服用两次，戒酒者、儿童或违背其信仰时不服用。可用按钮为每个殖民者单独关闭。</AP_CombatDrugs_Desc>
+  <AP_CombatHours>每 {0} 小时最多一剂</AP_CombatHours>
+  <AP_CombatHours_Desc>殖民者再次服用战斗药物前要等多久。</AP_CombatHours_Desc>
+  <AP_CombatTaken>{0} 在战斗前服用了 {1}。</AP_CombatTaken>
+  <AP_CombatGizmo>战斗药物</AP_CombatGizmo>
+  <AP_CombatGizmo_Desc>开：该殖民者在安全时（无成瘾风险）于战斗中服用战斗药物。\n关：从不。</AP_CombatGizmo_Desc>
+  <AP_Rec1>医生按严重程度给出合适的药</AP_Rec1>
+  <AP_Rec2>成瘾性药物仅在生命危险时使用</AP_Rec2>
+  <AP_Rec3>战士合理使用战斗药物</AP_Rec3>
+  <AP_Rec4>按伤情设置医疗等级</AP_Rec4>
+  <AP_Need_Manipulation>操作</AP_Need_Manipulation>
+  <AP_Need_Sight>视力</AP_Need_Sight>
+  <AP_Need_Prevention>预防</AP_Need_Prevention>
+  <AP_Need_Contraception>避孕</AP_Need_Contraception>
+  <AP_Need_Fertility>生育</AP_Need_Fertility>
+  <AP_UsePrevention>全员预防</AP_UsePrevention>
+  <AP_UsePrevention_Desc>预防疾病的药物（青霉素类等）会定期给予，在上一剂失效前稍早给药。</AP_UsePrevention_Desc>
+  <AP_UseChronic>缓解长期病痛</AP_UseChronic>
+  <AP_UseChronic_Desc>针对背痛、白内障、虚弱或旧伤：给予有助于移动、操作或视力的药物。</AP_UseChronic_Desc>
+  <AP_Plan0>子女：无计划</AP_Plan0>
+  <AP_Plan1>子女：不要（避孕）</AP_Plan1>
+  <AP_Plan2>子女：想要（生育）</AP_Plan2>
+  <AP_Plan_Desc>点击切换。不要：医生定期给予避孕药。想要：有生育药时给予。仅限成年人（18+），怀孕期间绝不给药。</AP_Plan_Desc>
+  <AP_Need_Addiction>成瘾剂量</AP_Need_Addiction>
+  <AP_Need_Hemogen>血原质</AP_Need_Hemogen>
+  <AP_Addictions>维持成瘾</AP_Addictions>
+  <AP_Addictions_Desc>成瘾的殖民者会在戒断开始前得到药物——清醒剂尽早且始终给予（漏服会致死或致疯）。即使是戒酒者或违背信仰也会给，就像游戏本身对依赖所允许的那样。</AP_Addictions_Desc>
+  <AP_MoodEarly>心情：崩溃前帮助</AP_MoodEarly>
+  <AP_MoodEarly_Desc>心情接近轻度崩溃线时就给予温和、无成瘾性的东西（茶、啤酒……）——而不是等到更糟之后。</AP_MoodEarly_Desc>
+  <AP_DoctorCarry>医生随身携带常用药</AP_DoctorCarry>
+  <AP_DoctorCarry_Desc>医生从仓库拿两剂最常用的药（仅安全的：无成瘾、无过量风险），不用每次都去仓库。</AP_DoctorCarry_Desc>
+  <AP_WarnMissing>缺药时显示消息</AP_WarnMissing>
+  <AP_WarnMissing_Desc>当殖民者需要的药殖民地没有（或没人能拿到）时，显示简短消息——每种药每天最多一次。不会自动订购任何东西。</AP_WarnMissing_Desc>
+  <AP_Missing>Auto Pharmacy：需要 {0}（{1}），但没有可拿到的。</AP_Missing>
+  <AP_Search>搜索药物……</AP_Search>
+  <AP_HistoryButton>历史（{0}）</AP_HistoryButton>
+  <AP_HistoryTitle>已给药物——最近 60 次</AP_HistoryTitle>
+  <AP_HistoryEmpty>本局游戏中还没有给过药。</AP_HistoryEmpty>
+  <AP_Need_Healing>加快愈合</AP_Need_Healing>
+  <AP_CareGroups>各组最高药物等级：</AP_CareGroups>
+  <AP_CareGroups_Desc>上面的医疗等级对该组永远不会高于此等级。“不管理”会保持你为该组设置的等级。</AP_CareGroups_Desc>
+  <AP_CareColonists>殖民者</AP_CareColonists>
+  <AP_CareSlaves>奴隶</AP_CareSlaves>
+  <AP_CarePrisoners>囚犯</AP_CarePrisoners>
+  <AP_CareGuests>访客</AP_CareGuests>
+  <AP_CareAnimals>动物</AP_CareAnimals>
+  <AP_CareOff>不管理</AP_CareOff>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <MUI_RecTag>推荐</MUI_RecTag>
+</LanguageData>

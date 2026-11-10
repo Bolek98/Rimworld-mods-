@@ -53,7 +53,7 @@ namespace RandysTable
 
     public class RTMod : Mod
     {
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
         public static RTSettings S;
         private static List<string> recBullets;
 
@@ -315,7 +315,11 @@ namespace RandysTable
                 IncidentParms parms = StorytellerUtility.DefaultParmsNow(cat, map);
                 if (parms.points >= 0f)
                     parms.points *= Rand.Range(Mood.pointsMin, Mood.pointsMax);
-                Find.Storyteller.incidentQueue.Add(pick, Find.TickManager.TicksGame + Rand.Range(2500, 50000), parms, 5000);
+                int at = Find.TickManager.TicksGame + Rand.Range(2500, 50000);
+                // 1.0.1: a longer retry window – a threat that can't start at that very moment (another raid on,
+                // the map busy) tries again for up to half a day instead of being dropped after 2 hours
+                Find.Storyteller.incidentQueue.Add(pick, at, parms, 30000);
+                ThreatLog.Note("roll " + roll + ": queued " + pick.defName + " (" + cat.defName + ", " + Mathf.RoundToInt(parms.points) + " points) in " + ((at - Find.TickManager.TicksGame) / 2500f).ToString("0.0") + " h");
                 queued++;
             }
         }
@@ -475,6 +479,8 @@ namespace RandysTable
                 IncidentParms parms = GenerateParms(cat, target);
                 if (SelectToday(UsableIncidentsInCategory(cat, parms), out IncidentDef found, target))
                 {
+                    if (cat == IncidentCategoryDefOf.ThreatBig || cat == IncidentCategoryDefOf.ThreatSmall)
+                        ThreatLog.Note("storyteller picked " + found.defName + " (" + cat.defName + ", " + Mathf.RoundToInt(parms.points) + " points)");
                     if (!(Props.skipThreatBigIfRaidBeacon && beacon) || found.category != IncidentCategoryDefOf.ThreatBig)
                         yield return new FiringIncident(found, this, parms);
                     break;
@@ -620,13 +626,42 @@ namespace RandysTable
         }
     }
 
+    // 1.0.1: threats that were chosen but did not start leave a line in the log, so a "no raids for days" can be traced
+    public static class ThreatLog
+    {
+        private static readonly Dictionary<string, int> last = new Dictionary<string, int>();
+
+        public static void Note(string text)
+        {
+            try { Log.Message("[Mad Dice Max] " + text); } catch { }
+        }
+
+        public static void Failed(IncidentWorker w, IncidentParms parms)
+        {
+            try
+            {
+                IncidentDef d = w?.def;
+                if (d == null || (d.category != IncidentCategoryDefOf.ThreatBig && d.category != IncidentCategoryDefOf.ThreatSmall)) return;
+                int now = Find.TickManager.TicksGame;
+                if (last.TryGetValue(d.defName, out int t) && now - t < 15000) return;
+                last[d.defName] = now;
+                Note(d.defName + " was chosen but did not start (points " + Mathf.RoundToInt(parms?.points ?? -1f) + ", faction " + (parms?.faction?.Name ?? "none")
+                    + ", forced " + (parms?.forced ?? false) + ")");
+            }
+            catch { }
+        }
+    }
+
     [HarmonyPatch(typeof(IncidentWorker), nameof(IncidentWorker.TryExecute))]
     public static class Patch_Diary
     {
         public static void Postfix(IncidentWorker __instance, IncidentParms parms, bool __result)
         {
             if (!__result)
+            {
+                ThreatLog.Failed(__instance, parms);
                 return;
+            }
             try
             {
                 Diary.After(__instance, parms);

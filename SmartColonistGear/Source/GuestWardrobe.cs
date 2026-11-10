@@ -270,7 +270,7 @@ namespace ResearchedLoadout
 				for (int k = 0; k < list.Count; k++)
 				{
 					Apparel a = list[k] as Apparel;
-					if (a == null || !a.Spawned || a.IsForbidden(Faction.OfPlayer) || !a.IsInValidStorage() || a.def.apparel == null || !a.def.apparel.PawnCanWear(p)
+					if (a == null || !a.Spawned || a.IsForbidden(Faction.OfPlayer) || !a.IsInValidStorage() || a.def.apparel == null || !a.def.apparel.PawnCanWear(p) || !LoadoutFilter.StageOk(p, a.def)
 						|| !ApparelUtility.HasPartsToWear(p, a.def) || !EquipmentUtility.CanEquip(a, p) || !LoadoutFilter.AllowedFor(p, a))
 						continue;
 					float gain = a.GetStatValue(StatDefOf.Insulation_Cold);

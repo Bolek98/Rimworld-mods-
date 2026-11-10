@@ -54,6 +54,8 @@ namespace AutoTurrets
 			ThingDef def = t?.def;
 			if (def == null)
 				return false;
+			if (QuickControl.IsStun(t))   // 1.3.0: a turret set to "Stun only"
+				return true;
 			if (stunCache.TryGetValue(def, out bool v))
 				return v;
 			v = false;
