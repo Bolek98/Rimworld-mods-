@@ -634,8 +634,17 @@ public static class SafeArea
 		CrisesSettings s = CrisesMod.S;
 		// 1.2.2: only enemies that are really close (near a colonist or in the home area) count – enemies
 		// wandering at the map edge or camping far away no longer send everybody in and out again
-		bool threat = !stewardOff && s != null && s.raidSafeArea && map.IsPlayerHome
-			&& ((comp.crisis & ThreatMask) != 0 || AnimalDanger(map)) && EnemyNear(map);
+		bool danger = !stewardOff && s != null && s.raidSafeArea && map.IsPlayerHome
+			&& ((comp.crisis & ThreatMask) != 0 || AnimalDanger(map));
+		bool threat = danger && EnemyNear(map);
+		// 1.2.2: danger on the map but still far away – say so once; the area comes when they get close
+		if (danger && !threat && !st.safeActive && !warned.Contains(map))
+		{
+			warned.Add(map);
+			Messages.Message("CF_SafeReady".Translate(), MessageTypeDefOf.CautionInput, historical: false);
+		}
+		else if (!danger)
+			warned.Remove(map);
 		// 1.1.1 / 1.2.2: a grace of two hours after the danger, and once inside at least an hour,
 		// so the area does not flicker on and off (colonists walking in and out)
 		int now = Find.TickManager.TicksGame;
@@ -716,6 +725,7 @@ public static class SafeArea
 
 	private static readonly Dictionary<Map, int> lastThreat = new Dictionary<Map, int>();
 	private static readonly Dictionary<Map, int> safeSince = new Dictionary<Map, int>();
+	private static readonly HashSet<Map> warned = new HashSet<Map>();
 
 	// 1.2.2: a hostile, not fleeing, not downed, visible pawn within 40 cells of a colonist or inside the home area
 	public static bool EnemyNear(Map map)
