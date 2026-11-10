@@ -46,7 +46,7 @@ public sealed class WorkSplitMod : Mod
 {
 	public static WorkSplitSettings Settings;
 	public static WorkSplitMod Instance;
-	public const string Version = "0.2.0";
+	public const string Version = "0.2.1";
 
 	private enum Tab { Parts, Look, Advanced }
 	private static Tab tab = Tab.Parts;
@@ -175,10 +175,8 @@ public sealed class WorkSplitMod : Mod
 		}
 		l.Label("SWS_LookStyle".Translate());
 		int old = Settings.headerStyle;
-		if (l.RadioButton("SWS_StyleSlanted".Translate(), Settings.headerStyle == WorkTabLook.StyleSlanted))
+		if (l.RadioButton("SWS_StyleSlanted".Translate(), Settings.headerStyle != WorkTabLook.StyleOriginal))
 			Settings.headerStyle = WorkTabLook.StyleSlanted;
-		if (l.RadioButton("SWS_StyleUpright".Translate(), Settings.headerStyle == WorkTabLook.StyleUpright))
-			Settings.headerStyle = WorkTabLook.StyleUpright;
 		if (l.RadioButton("SWS_StyleOriginal".Translate(), Settings.headerStyle == WorkTabLook.StyleOriginal))
 			Settings.headerStyle = WorkTabLook.StyleOriginal;
 		l.Gap();

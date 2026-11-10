@@ -75,6 +75,8 @@ public static class WorkTabLook
 				postfix: new HarmonyMethod(typeof(WorkTabLook), nameof(WidthPostfix)));
 			h.Patch(AccessTools.Method(t, nameof(PawnColumnWorker_WorkPriority.GetOptimalWidth)),
 				postfix: new HarmonyMethod(typeof(WorkTabLook), nameof(WidthPostfix)));
+			h.Patch(AccessTools.Method(typeof(PawnTable), nameof(PawnTable.PawnTableOnGUI)),
+				postfix: new HarmonyMethod(typeof(WorkTabLook), nameof(TablePostfix)));
 			h.Patch(AccessTools.Method(t, nameof(PawnColumnWorker_WorkPriority.DoCell)),
 				prefix: new HarmonyMethod(typeof(WorkTabLook), nameof(CellPrefix)),
 				postfix: new HarmonyMethod(typeof(WorkTabLook), nameof(CellPostfix)));
@@ -171,6 +173,12 @@ public static class WorkTabLook
 			__result = Math.Min(__result, 28);
 	}
 
+	// 0.2.1: labels in a staircase – no rotation (turned text landed in the wrong place on some
+	// renderers). Column 1 on the top row, column 2 one row lower …, each label runs to the right over
+	// the next columns (whose labels sit lower), with a thin line down to its own column.
+	private static int rows = 3;
+	private static float lineH = 16f;
+
 	public static void HeaderHeightPostfix(ref int __result)
 	{
 		if (!OwnHeader)
@@ -178,15 +186,47 @@ public static class WorkTabLook
 		if (headerH < 0f)
 		{
 			Text.Font = GameFont.Tiny;
-			float w = 40f, lineH = Text.LineHeight;
+			lineH = Text.LineHeight;
+			float w = 40f;
 			foreach (WorkTypeDef d in DefDatabase<WorkTypeDef>.AllDefsListForReading)
 				if (d.visible)
-					w = Math.Max(w, Math.Min(MaxLabel, Text.CalcSize(Label(d)).x + 14f));
+					w = Math.Max(w, Math.Min(MaxLabel, Text.CalcSize(Label(d)).x + 6f));
 			Text.Font = GameFont.Small;
-			float lab = S.headerStyle == StyleSlanted ? w * 0.7071f + lineH * 0.7071f : w;
-			headerH = Mathf.Ceil(Band + 6f + lab + 6f);
+			float col = S.narrow ? 28f : 34f;
+			rows = Mathf.Clamp(Mathf.CeilToInt(w / col), 2, 5);
+			headerH = Mathf.Ceil(Band + 4f + rows * lineH + 8f);
 		}
 		__result = Math.Max(__result, (int)headerH);
+	}
+
+	private struct PendingLabel
+	{
+		public Rect rect;
+		public string text;
+		public Color color;
+	}
+
+	private static readonly List<PendingLabel> pending = new List<PendingLabel>();
+	private static int colIndex;
+	private static float lastX = float.MaxValue;
+
+	// after the whole header row: the labels on top of every line
+	public static void TablePostfix()
+	{
+		if (pending.Count == 0)
+			return;
+		Text.Font = GameFont.Tiny;
+		Text.Anchor = TextAnchor.MiddleLeft;
+		foreach (PendingLabel l in pending)
+		{
+			Widgets.DrawBoxSolid(l.rect, new Color(0.11f, 0.12f, 0.13f, 0.92f));
+			GUI.color = l.color;
+			Widgets.Label(new Rect(l.rect.x + 2f, l.rect.y, l.rect.width - 2f, l.rect.height), l.text);
+		}
+		GUI.color = Color.white;
+		Text.Anchor = TextAnchor.UpperLeft;
+		Text.Font = GameFont.Small;
+		pending.Clear();
 	}
 
 	private static string Label(WorkTypeDef w)
@@ -254,42 +294,29 @@ public static class WorkTabLook
 				Widgets.DrawLineVertical(rect.xMax - 1f, rect.y, rect.height);
 			GUI.color = Color.white;
 		}
-		// label
+		// label (staircase)
+		if (rect.x <= lastX)
+		{
+			colIndex = 0;
+			pending.Clear();
+		}
+		lastX = rect.x;
+		int row = colIndex++ % rows;
 		Text.Font = GameFont.Tiny;
 		string label = Label(w);
-		Vector2 size = Text.CalcSize(label);
-		float lw = Math.Min(size.x + 2f, MaxLabel);
+		float maxW = Math.Max(rect.width, rows * rect.width - 3f);
+		float lw = Math.Min(Text.CalcSize(label).x + 6f, maxW);
 		Rect area = new Rect(rect.x, rect.y + Band, rect.width, rect.height - Band);
 		bool over = Mouse.IsOver(area);
 		if (over)
 			Widgets.DrawHighlight(area);
-		GUI.color = over ? Color.white : new Color(0.9f, 0.9f, 0.9f);
-		if (Folded(w))
-			GUI.color = new Color(1f, 0.85f, 0.55f);
-		Vector2 pivot = new Vector2(rect.center.x, rect.yMax - 6f);
-		Matrix4x4 keep = GUI.matrix;
-		try
-		{
-			if (S.headerStyle == StyleSlanted)
-			{
-				GUIUtility.RotateAroundPivot(45f, pivot);
-				Text.Anchor = TextAnchor.MiddleRight;
-				Widgets.Label(new Rect(pivot.x - lw, pivot.y - size.y / 2f, lw, size.y), label.Truncate(lw));
-			}
-			else
-			{
-				GUIUtility.RotateAroundPivot(-90f, pivot);
-				Text.Anchor = TextAnchor.MiddleLeft;
-				Widgets.Label(new Rect(pivot.x, pivot.y - size.y / 2f, lw, size.y), label.Truncate(lw));
-			}
-		}
-		finally
-		{
-			GUI.matrix = keep;
-		}
-		Text.Anchor = TextAnchor.UpperLeft;
-		Text.Font = GameFont.Small;
+		float ly = rect.y + Band + 4f + row * lineH;
+		Color lc = Folded(w) ? new Color(1f, 0.85f, 0.55f) : over ? Color.white : new Color(0.88f, 0.88f, 0.88f);
+		GUI.color = new Color(1f, 1f, 1f, over ? 0.6f : 0.25f);
+		Widgets.DrawLineVertical(rect.center.x, ly + lineH - 2f, rect.yMax - (ly + lineH - 2f));
 		GUI.color = Color.white;
+		pending.Add(new PendingLabel { rect = new Rect(rect.x + 1f, ly, lw, lineH), text = label.Truncate(lw - 4f), color = lc });
+		Text.Font = GameFont.Small;
 		// sorted by this column
 		if (table.SortingBy == col.def)
 		{
