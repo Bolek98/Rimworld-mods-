@@ -408,6 +408,15 @@ public static class PriorityAreaWork
 
 	private static readonly Dictionary<PriorityAreaMode, List<WorkGiverDef>> giverCache = new Dictionary<PriorityAreaMode, List<WorkGiverDef>>();
 
+	public static IEnumerable<WorkTypeDef> WorkTypes(PriorityAreaMode m)
+	{
+		if (!Types.TryGetValue(m, out string[] names))
+			yield break;
+		foreach (WorkTypeDef w in DefDatabase<WorkTypeDef>.AllDefsListForReading)
+			if (names.Contains(WorkMatch.Base(w)) && WorkCatalog.Kind(w) != WorkKind.Emergency)
+				yield return w;
+	}
+
 	public static string ModeLabel(PriorityAreaMode m) => ("CF_PA_Mode_" + m).Translate();
 
 	private static readonly Dictionary<PriorityAreaMode, List<WorkGiverDef>> emergencyCache = new Dictionary<PriorityAreaMode, List<WorkGiverDef>>();

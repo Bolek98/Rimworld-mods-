@@ -28,6 +28,7 @@ public static class Planner
 		StewardApi.Register(new ApprenticeStep());
 		StewardApi.Register(new TopJobStep());
 		StewardApi.Register(new SmallColonyStep());
+		StewardApi.Register(new AreaStep());
 		StewardApi.Register(new NobodyIdleStep());
 	}
 
@@ -487,6 +488,40 @@ public static class Planner
 	// 920: 1.1.4 a small colony (up to 6 colonists) – everybody had almost every work on 2, so the
 	// game's own column order decided (cutting wood came after everything else). Now the 2s get an
 	// order: the few that matter most now stay on 2, the next ones go to 3, the rest to the last level.
+	// 1.1.5: a colonist working for a priority area keeps that area's work switched on –
+	// before, a crisis or the colony style could turn e.g. Construction off and the area
+	// then had nothing to give him (it only uses work that is on in the Work tab)
+	private sealed class AreaStep : IPlanStep
+	{
+		public int Order => 990;
+		public string Id => "core.area";
+
+		public void Apply(PlanContext ctx)
+		{
+			if (!PriorityAreaComp.Enabled)
+				return;
+			PriorityAreaComp comp = PriorityAreaComp.For(ctx.map);
+			if (comp == null || comp.areas.Count == 0)
+				return;
+			foreach (PriorityArea a in comp.areas)
+			{
+				if (a.lastCount == 0)
+					continue;
+				foreach (Pawn p in a.assigned)
+				{
+					if (!ctx.plan.ContainsKey(p))
+						continue;
+					foreach (WorkTypeDef w in PriorityAreaWork.WorkTypes(a.mode))
+					{
+						if (ctx.Get(p, w) != 0 || ctx.Pinned(p, w) || ctx.Locked(p, w) || p.WorkTypeIsDisabled(w))
+							continue;
+						ctx.Set(p, w, Math.Min(3, ctx.Levels), "CF2_TipArea");
+					}
+				}
+			}
+		}
+	}
+
 	private sealed class SmallColonyStep : IPlanStep
 	{
 		public int Order => 920;
