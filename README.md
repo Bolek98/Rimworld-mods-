@@ -44,8 +44,8 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Smart Colonist Gear – Auto Equip Weapons & Armor | 2.20.0 | [SmartColonistGear](SmartColonistGear) |
 | [B98] Smooth FPS – Performance & Graphics | 1.7.2 | [SmoothFPS](SmoothFPS) |
 | [B98] Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
-| [B98] Steward – Work Priorities | 1.1.4 | [Steward2/Steward](Steward2/Steward) |
-| [B98] Steward – Crises & Situations | 1.1.2 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| [B98] Steward – Work Priorities | 1.1.5 | [Steward2/Steward](Steward2/Steward) |
+| [B98] Steward – Crises & Situations | 1.2.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | [B98] Steward – Droids | 0.1.2 | [Steward2/StewardDroids](Steward2/StewardDroids) |
 | [B98] Steward – Kit | 1.2.0 | [Steward2/StewardKit](Steward2/StewardKit) |
 | [B98] Steward – Orders | 0.3.3 | [Steward2/StewardOrders](Steward2/StewardOrders) |
