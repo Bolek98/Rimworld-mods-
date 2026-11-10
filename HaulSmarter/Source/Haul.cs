@@ -468,9 +468,11 @@ namespace HaulSmarter
                         int d = c.DistanceToSquared(pawn.Position);
                         if (d < bestDist) { bestDist = d; best = item; bestCell = c; }
                     }
-                    else if (pawn.Map.IsPlayerHome)
+                    else if (pawn.Map.IsPlayerHome && HaulUtil.ShouldUnloadNow(pawn))
                     {
-                        // nowhere to put it at home: leave it here, it is not lost
+                        // 3.5.2: nowhere to put it at home and the pockets are full: put it down – it is not lost.
+                        // Before, it was dropped on the spot right away (food in the field when there is no stockpile yet);
+                        // now it stays in the pockets until a storage takes it or the pockets are full.
                         if (pawn.inventory.innerContainer.TryDrop(item, pawn.Position, pawn.Map, ThingPlaceMode.Near, out _))
                             HSData.Untrack(item);
                     }
