@@ -255,4 +255,50 @@
   <CF2C_TipSituation>Situation : {0}</CF2C_TipSituation>
   <CF2C_SafeAnimals>Les animaux apprivoisés entrent aussi</CF2C_SafeAnimals>
   <CF2C_SafeAnimalsTip>Les animaux apprivoisés qu'on peut limiter à une zone vont aussi dans la zone sûre (pas ceux qui suivent un maître mobilisé).</CF2C_SafeAnimalsTip>
+  <CF3C_Group_Life>Vie</CF3C_Group_Life>
+  <CF3C_Group_Shortage>Pénurie</CF3C_Group_Shortage>
+  <CF3C_Group_Work>Travail</CF3C_Group_Work>
+  <CF3C_Group_Comfort>Confort</CF3C_Group_Comfort>
+  <CF3C_Escalate>{0} ne s'améliore pas – l'intendant y met plus de monde.</CF3C_Escalate>
+  <CF3C_Button>Crises ({0})</CF3C_Button>
+  <CF3C_ButtonNone>Crises</CF3C_ButtonNone>
+  <CF3C_ButtonTip>Chaque crise et situation sous forme de carte : où elle en est, qui s'en occupe, et des boutons pour l'ignorer, la reporter d'un jour ou la régler tout de suite. Plus un journal de ce qui s'est passé.</CF3C_ButtonTip>
+  <CF3C_Title>Crises et situations</CF3C_Title>
+  <CF3C_TabActive>Maintenant</CF3C_TabActive>
+  <CF3C_TabJournal>Journal</CF3C_TabJournal>
+  <CF3C_Nothing>Aucune crise ni situation pour le moment. Tout est calme.</CF3C_Nothing>
+  <CF3C_For>depuis {0}</CF3C_For>
+  <CF3C_Stage>Force {0}/3</CF3C_Stage>
+  <CF3C_StageTip>1 = en douceur (un colon), 2 = normal, 3 = à fond. Une crise se renforce d'elle-même si rien ne s'améliore ; quand des vies sont en jeu, toujours à fond.</CF3C_StageTip>
+  <CF3C_Ignored>ignorée jusqu'à la fin</CF3C_Ignored>
+  <CF3C_Snoozed>reportée – revient dans {0}</CF3C_Snoozed>
+  <CF3C_Left>reste {0}, fini à {1}</CF3C_Left>
+  <CF3C_Eta>fini dans environ {0}</CF3C_Eta>
+  <CF3C_Who>Dessus : {0}</CF3C_Who>
+  <CF3C_WhoNone>Personne en plus pour l'instant</CF3C_WhoNone>
+  <CF3C_LifeLocked>Des vies sont en jeu – impossible de reporter.</CF3C_LifeLocked>
+  <CF3C_Resume>Reprendre</CF3C_Resume>
+  <CF3C_Ignore>Ignorer</CF3C_Ignore>
+  <CF3C_IgnoreTip>L'intendant ne fait rien jusqu'à la fin (elle reste visible ici).</CF3C_IgnoreTip>
+  <CF3C_Snooze>Reporter d'un jour</CF3C_Snooze>
+  <CF3C_SnoozeTip>L'intendant la laisse un jour, puis recommence en douceur.</CF3C_SnoozeTip>
+  <CF3C_Push>Régler maintenant</CF3C_Push>
+  <CF3C_PushTip>À fond tout de suite : plus de colons, priorité maximale.</CF3C_PushTip>
+  <CF3C_Unpush>Revenir à la normale</CF3C_Unpush>
+  <CF3C_JournalEmpty>Rien ne s'est encore passé.</CF3C_JournalEmpty>
+  <CF3C_J_Start>{0} a commencé</CF3C_J_Start>
+  <CF3C_J_End>{0} a pris fin après {1}</CF3C_J_End>
+  <CF3C_J_Ignore>{0} ignorée</CF3C_J_Ignore>
+  <CF3C_J_Snooze>{0} reportée d'un jour</CF3C_J_Snooze>
+  <CF3C_J_Push>{0} : régler maintenant</CF3C_J_Push>
+  <CF3C_J_Escalate>{0} s'est renforcée (ne s'améliore pas)</CF3C_J_Escalate>
+  <CF3C_J_Resume>{0} reprise</CF3C_J_Resume>
+  <CF3C_StrLife>Vie : toujours à fond</CF3C_StrLife>
+  <CF3C_Orders>Vos ordres d'abord</CF3C_Orders>
+  <CF3C_OrdersTip>Les colons d'une zone prioritaire ne sont pas pris pour les crises – sauf quand des vies sont en jeu.</CF3C_OrdersTip>
+  <CF3C_Escalation>Renforcer pas à pas</CF3C_Escalation>
+  <CF3C_EscalationTip>Une crise commence en douceur avec un colon et ajoute du monde seulement si rien ne s'améliore. Désactivé : toujours force normale.</CF3C_EscalationTip>
+  <CF3C_Str>{0} : {1}</CF3C_Str>
+  <CF3C_Off>désactivé</CF3C_Off>
+  <CF3C_StrTip>Combien de colons ce groupe peut prendre. 100 % = pénurie la moitié de la colonie, travail un tiers, confort un quart. 0 % = groupe désactivé.</CF3C_StrTip>
 </LanguageData>

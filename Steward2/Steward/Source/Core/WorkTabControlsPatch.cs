@@ -24,7 +24,10 @@ public static class WorkTabControlsPatch
 		// 3.1.0: the locks are shown as soon as there are any (easy to forget a middle click)
 		int locks = StewardStatus.LockCount(ForemanGameComponent.Get());
 		float wLocks = locks > 0 ? 110f : 0f;
-		float x = rect.xMax - (wAuto + wPlan + wStyle + wHist + wSets + 4 * gap + (locks > 0 ? wLocks + gap : 0f)) - 4f;
+		float wExtra = 0f;
+		foreach (WorkTabButton b in StewardApi.Buttons)
+			wExtra += b.width + gap;
+		float x = rect.xMax - (wAuto + wPlan + wStyle + wHist + wSets + 4 * gap + (locks > 0 ? wLocks + gap : 0f) + wExtra) - 4f;
 		float y = rect.y + 5f;
 		// a narrow window: under the vanilla text instead of over it
 		if (x < 420f)
@@ -70,6 +73,26 @@ public static class WorkTabControlsPatch
 			GUI.color = Color.white;
 			TooltipHandler.TipRegion(rLocks, "CF31_LocksTip".Translate());
 			x += wLocks + gap;
+		}
+
+		foreach (WorkTabButton b in StewardApi.Buttons)
+		{
+			Rect rb = new Rect(x, y, b.width, h);
+			try
+			{
+				GUI.color = b.color?.Invoke(comp) ?? Color.white;
+				if (Widgets.ButtonText(rb, (b.label?.Invoke(comp) ?? b.id).Truncate(b.width - 6f)))
+					b.click?.Invoke(comp);
+				string bt = b.tip?.Invoke(comp);
+				if (!bt.NullOrEmpty())
+					TooltipHandler.TipRegion(rb, bt);
+			}
+			catch (Exception ex)
+			{
+				MLog.WarnOnce("[Steward] add-on button " + b.id + " failed: " + ex.Message, b.id.GetHashCode());
+			}
+			GUI.color = Color.white;
+			x += b.width + gap;
 		}
 
 		Rect rAuto = new Rect(x, y, wAuto, h);

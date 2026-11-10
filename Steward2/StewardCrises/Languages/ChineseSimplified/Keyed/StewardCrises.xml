@@ -255,4 +255,50 @@
   <CF2C_TipSituation>状况：{0}</CF2C_TipSituation>
   <CF2C_SafeAnimals>驯服的动物也进入</CF2C_SafeAnimals>
   <CF2C_SafeAnimalsTip>可限制区域的驯服动物也会进入安全区（跟随已征召主人的除外）。</CF2C_SafeAnimalsTip>
+  <CF3C_Group_Life>生命</CF3C_Group_Life>
+  <CF3C_Group_Shortage>短缺</CF3C_Group_Shortage>
+  <CF3C_Group_Work>工作</CF3C_Group_Work>
+  <CF3C_Group_Comfort>舒适</CF3C_Group_Comfort>
+  <CF3C_Escalate>{0}没有好转——管家增派人手。</CF3C_Escalate>
+  <CF3C_Button>危机（{0}）</CF3C_Button>
+  <CF3C_ButtonNone>危机</CF3C_ButtonNone>
+  <CF3C_ButtonTip>每个危机和情况都是一张卡片：进展如何、谁在处理，以及忽略、推迟一天或立即解决的按钮。还有一份记录发生了什么的日志。</CF3C_ButtonTip>
+  <CF3C_Title>危机与情况</CF3C_Title>
+  <CF3C_TabActive>当前</CF3C_TabActive>
+  <CF3C_TabJournal>日志</CF3C_TabJournal>
+  <CF3C_Nothing>现在没有危机或情况。一切平静。</CF3C_Nothing>
+  <CF3C_For>已持续{0}</CF3C_For>
+  <CF3C_Stage>强度 {0}/3</CF3C_Stage>
+  <CF3C_StageTip>1 = 温和（一名殖民者），2 = 正常，3 = 全力。情况不好转时危机会自行加强；涉及生命时总是全力。</CF3C_StageTip>
+  <CF3C_Ignored>已忽略，直到结束</CF3C_Ignored>
+  <CF3C_Snoozed>已推迟——{0}后恢复</CF3C_Snoozed>
+  <CF3C_Left>剩余{0}，到{1}即完成</CF3C_Left>
+  <CF3C_Eta>约{0}后完成</CF3C_Eta>
+  <CF3C_Who>处理中：{0}</CF3C_Who>
+  <CF3C_WhoNone>暂时没有额外人手</CF3C_WhoNone>
+  <CF3C_LifeLocked>事关生命——无法推迟。</CF3C_LifeLocked>
+  <CF3C_Resume>恢复</CF3C_Resume>
+  <CF3C_Ignore>忽略</CF3C_Ignore>
+  <CF3C_IgnoreTip>管家在其结束前不做处理（仍会在此显示）。</CF3C_IgnoreTip>
+  <CF3C_Snooze>推迟一天</CF3C_Snooze>
+  <CF3C_SnoozeTip>管家搁置一天，然后再温和地开始。</CF3C_SnoozeTip>
+  <CF3C_Push>立即解决</CF3C_Push>
+  <CF3C_PushTip>立即全力：更多殖民者，最高优先级。</CF3C_PushTip>
+  <CF3C_Unpush>恢复正常</CF3C_Unpush>
+  <CF3C_JournalEmpty>还没有发生任何事。</CF3C_JournalEmpty>
+  <CF3C_J_Start>{0}：开始</CF3C_J_Start>
+  <CF3C_J_End>{0}：持续{1}后结束</CF3C_J_End>
+  <CF3C_J_Ignore>{0}：已忽略</CF3C_J_Ignore>
+  <CF3C_J_Snooze>{0}：推迟一天</CF3C_J_Snooze>
+  <CF3C_J_Push>{0}：立即解决</CF3C_J_Push>
+  <CF3C_J_Escalate>{0}：已加强（没有好转）</CF3C_J_Escalate>
+  <CF3C_J_Resume>{0}：已恢复</CF3C_J_Resume>
+  <CF3C_StrLife>生命：总是全力</CF3C_StrLife>
+  <CF3C_Orders>你的命令优先</CF3C_Orders>
+  <CF3C_OrdersTip>优先区域中的殖民者不会被调去处理危机——涉及生命时除外。</CF3C_OrdersTip>
+  <CF3C_Escalation>逐步加强</CF3C_Escalation>
+  <CF3C_EscalationTip>危机先温和地派一名殖民者，只有情况不好转时才加人。关闭：总是正常强度。</CF3C_EscalationTip>
+  <CF3C_Str>{0}：{1}</CF3C_Str>
+  <CF3C_Off>关闭</CF3C_Off>
+  <CF3C_StrTip>此组可调用多少殖民者。100% = 短缺占殖民地一半，工作三分之一，舒适四分之一。0% = 该组关闭。</CF3C_StrTip>
 </LanguageData>

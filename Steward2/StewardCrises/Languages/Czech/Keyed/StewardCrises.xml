@@ -255,4 +255,50 @@
   <CF2C_TipSituation>Situace: {0}</CF2C_TipSituation>
   <CF2C_SafeAnimals>Ochočená zvířata jdou dovnitř taky</CF2C_SafeAnimals>
   <CF2C_SafeAnimalsTip>Ochočená zvířata, která jde omezit oblastí, jdou do bezpečné oblasti taky (ne ta, která následují povolaného pána).</CF2C_SafeAnimalsTip>
+  <CF3C_Group_Life>Život</CF3C_Group_Life>
+  <CF3C_Group_Shortage>Nedostatek</CF3C_Group_Shortage>
+  <CF3C_Group_Work>Výroba a práce</CF3C_Group_Work>
+  <CF3C_Group_Comfort>Pohodlí</CF3C_Group_Comfort>
+  <CF3C_Escalate>{0} se nelepší – Steward na to přidává lidi.</CF3C_Escalate>
+  <CF3C_Button>Krize ({0})</CF3C_Button>
+  <CF3C_ButtonNone>Krize</CF3C_ButtonNone>
+  <CF3C_ButtonTip>Každá krize a situace jako karta: jak je daleko, kdo na ní dělá, a tlačítka ignorovat, odložit o den nebo vyřešit hned. A k tomu deník, co se dělo.</CF3C_ButtonTip>
+  <CF3C_Title>Krize a situace</CF3C_Title>
+  <CF3C_TabActive>Teď</CF3C_TabActive>
+  <CF3C_TabJournal>Deník</CF3C_TabJournal>
+  <CF3C_Nothing>Teď žádná krize ani situace. Klid.</CF3C_Nothing>
+  <CF3C_For>trvá {0}</CF3C_For>
+  <CF3C_Stage>Síla {0}/3</CF3C_Stage>
+  <CF3C_StageTip>1 = mírně (jeden kolonista), 2 = normálně, 3 = naplno. Krize sama zesílí, když se situace nelepší; o život jde vždy naplno.</CF3C_StageTip>
+  <CF3C_Ignored>ignorováno, dokud neskončí</CF3C_Ignored>
+  <CF3C_Snoozed>odloženo – vrátí se za {0}</CF3C_Snoozed>
+  <CF3C_Left>zbývá {0}, hotovo při {1}</CF3C_Left>
+  <CF3C_Eta>hotovo asi za {0}</CF3C_Eta>
+  <CF3C_Who>Dělají: {0}</CF3C_Who>
+  <CF3C_WhoNone>Zatím nikdo navíc</CF3C_WhoNone>
+  <CF3C_LifeLocked>Jde o život – tohle nejde odložit.</CF3C_LifeLocked>
+  <CF3C_Resume>Obnovit</CF3C_Resume>
+  <CF3C_Ignore>Ignorovat</CF3C_Ignore>
+  <CF3C_IgnoreTip>Steward s tím nic nedělá, dokud to neskončí (pořád to tu uvidíš).</CF3C_IgnoreTip>
+  <CF3C_Snooze>Odložit o den</CF3C_Snooze>
+  <CF3C_SnoozeTip>Steward to den nechá být, pak začne zase mírně.</CF3C_SnoozeTip>
+  <CF3C_Push>Vyřešit hned</CF3C_Push>
+  <CF3C_PushTip>Hned naplno: víc kolonistů a nejvyšší priorita.</CF3C_PushTip>
+  <CF3C_Unpush>Normálně</CF3C_Unpush>
+  <CF3C_JournalEmpty>Zatím se nic nestalo.</CF3C_JournalEmpty>
+  <CF3C_J_Start>{0}: začalo</CF3C_J_Start>
+  <CF3C_J_End>{0}: skončilo po {1}</CF3C_J_End>
+  <CF3C_J_Ignore>{0}: ignorováno</CF3C_J_Ignore>
+  <CF3C_J_Snooze>{0}: odloženo o den</CF3C_J_Snooze>
+  <CF3C_J_Push>{0}: vyřešit hned</CF3C_J_Push>
+  <CF3C_J_Escalate>{0}: zesílilo (nelepší se)</CF3C_J_Escalate>
+  <CF3C_J_Resume>{0}: obnoveno</CF3C_J_Resume>
+  <CF3C_StrLife>Život: vždy naplno</CF3C_StrLife>
+  <CF3C_Orders>Tvoje příkazy mají přednost</CF3C_Orders>
+  <CF3C_OrdersTip>Kolonisté v prioritní oblasti nejdou na krize – kromě těch, kde jde o život.</CF3C_OrdersTip>
+  <CF3C_Escalation>Postupné zesilování</CF3C_Escalation>
+  <CF3C_EscalationTip>Krize začne mírně s jedním kolonistou a lidi přidá, jen když se situace nelepší. Vypnuto: vždy normální síla.</CF3C_EscalationTip>
+  <CF3C_Str>{0}: {1}</CF3C_Str>
+  <CF3C_Off>vypnuto</CF3C_Off>
+  <CF3C_StrTip>Kolik kolonistů smí tahle skupina vzít. 100 % = nedostatek polovinu kolonie, výroba a práce třetinu, pohodlí čtvrtinu. 0 % = skupina je vypnutá.</CF3C_StrTip>
 </LanguageData>

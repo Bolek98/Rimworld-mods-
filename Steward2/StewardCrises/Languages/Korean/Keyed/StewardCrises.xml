@@ -255,4 +255,50 @@
   <CF2C_TipSituation>상황: {0}</CF2C_TipSituation>
   <CF2C_SafeAnimals>길들인 동물도 들어감</CF2C_SafeAnimals>
   <CF2C_SafeAnimalsTip>구역 제한이 가능한 길들인 동물도 안전 구역에 들어갑니다(징집된 주인을 따르는 동물 제외).</CF2C_SafeAnimalsTip>
+  <CF3C_Group_Life>생명</CF3C_Group_Life>
+  <CF3C_Group_Shortage>부족</CF3C_Group_Shortage>
+  <CF3C_Group_Work>작업</CF3C_Group_Work>
+  <CF3C_Group_Comfort>편안함</CF3C_Group_Comfort>
+  <CF3C_Escalate>{0} 상황이 나아지지 않아 관리인이 인원을 더 투입합니다.</CF3C_Escalate>
+  <CF3C_Button>위기 ({0})</CF3C_Button>
+  <CF3C_ButtonNone>위기</CF3C_ButtonNone>
+  <CF3C_ButtonTip>모든 위기와 상황을 카드로 표시합니다: 진행 정도, 담당자, 무시·하루 연기·지금 해결 버튼. 무슨 일이 있었는지 기록한 일지도 있습니다.</CF3C_ButtonTip>
+  <CF3C_Title>위기와 상황</CF3C_Title>
+  <CF3C_TabActive>현재</CF3C_TabActive>
+  <CF3C_TabJournal>일지</CF3C_TabJournal>
+  <CF3C_Nothing>지금은 위기도 상황도 없습니다. 평온합니다.</CF3C_Nothing>
+  <CF3C_For>{0} 지속</CF3C_For>
+  <CF3C_Stage>강도 {0}/3</CF3C_Stage>
+  <CF3C_StageTip>1 = 약하게(정착민 1명), 2 = 보통, 3 = 전력. 나아지지 않으면 위기는 스스로 강해집니다. 생명이 걸리면 항상 전력.</CF3C_StageTip>
+  <CF3C_Ignored>끝날 때까지 무시</CF3C_Ignored>
+  <CF3C_Snoozed>연기됨 – {0} 후 다시</CF3C_Snoozed>
+  <CF3C_Left>{0} 남음, {1}에서 완료</CF3C_Left>
+  <CF3C_Eta>약 {0} 후 완료</CF3C_Eta>
+  <CF3C_Who>담당: {0}</CF3C_Who>
+  <CF3C_WhoNone>아직 추가 인원 없음</CF3C_WhoNone>
+  <CF3C_LifeLocked>생명이 걸린 일이라 미룰 수 없습니다.</CF3C_LifeLocked>
+  <CF3C_Resume>재개</CF3C_Resume>
+  <CF3C_Ignore>무시</CF3C_Ignore>
+  <CF3C_IgnoreTip>끝날 때까지 관리인이 아무것도 하지 않습니다(여기에는 계속 보입니다).</CF3C_IgnoreTip>
+  <CF3C_Snooze>하루 연기</CF3C_Snooze>
+  <CF3C_SnoozeTip>관리인이 하루 동안 두었다가 다시 약하게 시작합니다.</CF3C_SnoozeTip>
+  <CF3C_Push>지금 해결</CF3C_Push>
+  <CF3C_PushTip>즉시 전력: 정착민을 더 투입하고 최고 우선순위로.</CF3C_PushTip>
+  <CF3C_Unpush>보통으로</CF3C_Unpush>
+  <CF3C_JournalEmpty>아직 아무 일도 없었습니다.</CF3C_JournalEmpty>
+  <CF3C_J_Start>{0}: 시작</CF3C_J_Start>
+  <CF3C_J_End>{0}: {1} 후 종료</CF3C_J_End>
+  <CF3C_J_Ignore>{0}: 무시</CF3C_J_Ignore>
+  <CF3C_J_Snooze>{0}: 하루 연기</CF3C_J_Snooze>
+  <CF3C_J_Push>{0}: 지금 해결</CF3C_J_Push>
+  <CF3C_J_Escalate>{0}: 강해짐(나아지지 않음)</CF3C_J_Escalate>
+  <CF3C_J_Resume>{0}: 재개</CF3C_J_Resume>
+  <CF3C_StrLife>생명: 항상 전력</CF3C_StrLife>
+  <CF3C_Orders>내 명령이 우선</CF3C_Orders>
+  <CF3C_OrdersTip>우선 구역의 정착민은 위기에 차출되지 않습니다 – 생명이 걸린 경우는 예외.</CF3C_OrdersTip>
+  <CF3C_Escalation>단계적 강화</CF3C_Escalation>
+  <CF3C_EscalationTip>위기는 정착민 1명으로 약하게 시작하고 나아지지 않을 때만 인원을 늘립니다. 끄기: 항상 보통 강도.</CF3C_EscalationTip>
+  <CF3C_Str>{0}: {1}</CF3C_Str>
+  <CF3C_Off>꺼짐</CF3C_Off>
+  <CF3C_StrTip>이 그룹이 쓸 수 있는 정착민 수. 100% = 부족은 정착지의 절반, 작업은 3분의 1, 편안함은 4분의 1. 0% = 그룹 꺼짐.</CF3C_StrTip>
 </LanguageData>

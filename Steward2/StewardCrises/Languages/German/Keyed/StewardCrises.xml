@@ -255,4 +255,50 @@
   <CF2C_TipSituation>Situation: {0}</CF2C_TipSituation>
   <CF2C_SafeAnimals>Zahme Tiere gehen auch hinein</CF2C_SafeAnimals>
   <CF2C_SafeAnimalsTip>Zahme Tiere, die man auf einen Bereich beschränken kann, gehen ebenfalls in den sicheren Bereich (nicht die, die einem eingezogenen Herrn folgen).</CF2C_SafeAnimalsTip>
+  <CF3C_Group_Life>Leben</CF3C_Group_Life>
+  <CF3C_Group_Shortage>Mangel</CF3C_Group_Shortage>
+  <CF3C_Group_Work>Arbeit</CF3C_Group_Work>
+  <CF3C_Group_Comfort>Komfort</CF3C_Group_Comfort>
+  <CF3C_Escalate>{0} wird nicht besser – der Verwalter setzt mehr Leute darauf an.</CF3C_Escalate>
+  <CF3C_Button>Krisen ({0})</CF3C_Button>
+  <CF3C_ButtonNone>Krisen</CF3C_ButtonNone>
+  <CF3C_ButtonTip>Jede Krise und Situation als Karte: wie weit sie ist, wer daran arbeitet, und Knöpfe zum Ignorieren, um einen Tag Verschieben oder sofort Erledigen. Dazu ein Tagebuch, was passiert ist.</CF3C_ButtonTip>
+  <CF3C_Title>Krisen und Situationen</CF3C_Title>
+  <CF3C_TabActive>Jetzt</CF3C_TabActive>
+  <CF3C_TabJournal>Tagebuch</CF3C_TabJournal>
+  <CF3C_Nothing>Gerade keine Krise und keine Situation. Alles ruhig.</CF3C_Nothing>
+  <CF3C_For>seit {0}</CF3C_For>
+  <CF3C_Stage>Stärke {0}/3</CF3C_Stage>
+  <CF3C_StageTip>1 = sanft (ein Kolonist), 2 = normal, 3 = volle Kraft. Eine Krise wird von selbst stärker, wenn es nicht besser wird; bei Leben immer volle Kraft.</CF3C_StageTip>
+  <CF3C_Ignored>ignoriert, bis sie endet</CF3C_Ignored>
+  <CF3C_Snoozed>verschoben – zurück in {0}</CF3C_Snoozed>
+  <CF3C_Left>noch {0}, fertig bei {1}</CF3C_Left>
+  <CF3C_Eta>fertig in etwa {0}</CF3C_Eta>
+  <CF3C_Who>Dabei: {0}</CF3C_Who>
+  <CF3C_WhoNone>Bisher niemand zusätzlich</CF3C_WhoNone>
+  <CF3C_LifeLocked>Es geht um Leben – das kann nicht warten.</CF3C_LifeLocked>
+  <CF3C_Resume>Fortsetzen</CF3C_Resume>
+  <CF3C_Ignore>Ignorieren</CF3C_Ignore>
+  <CF3C_IgnoreTip>Der Verwalter tut nichts dagegen, bis sie endet (sie bleibt hier sichtbar).</CF3C_IgnoreTip>
+  <CF3C_Snooze>Einen Tag später</CF3C_Snooze>
+  <CF3C_SnoozeTip>Der Verwalter lässt sie einen Tag in Ruhe und fängt dann wieder sanft an.</CF3C_SnoozeTip>
+  <CF3C_Push>Sofort erledigen</CF3C_Push>
+  <CF3C_PushTip>Sofort volle Kraft: mehr Kolonisten, höchste Priorität.</CF3C_PushTip>
+  <CF3C_Unpush>Wieder normal</CF3C_Unpush>
+  <CF3C_JournalEmpty>Noch nichts passiert.</CF3C_JournalEmpty>
+  <CF3C_J_Start>{0} begann</CF3C_J_Start>
+  <CF3C_J_End>{0} endete nach {1}</CF3C_J_End>
+  <CF3C_J_Ignore>{0} ignoriert</CF3C_J_Ignore>
+  <CF3C_J_Snooze>{0} um einen Tag verschoben</CF3C_J_Snooze>
+  <CF3C_J_Push>{0}: sofort erledigen</CF3C_J_Push>
+  <CF3C_J_Escalate>{0} wurde stärker (nicht besser)</CF3C_J_Escalate>
+  <CF3C_J_Resume>{0} fortgesetzt</CF3C_J_Resume>
+  <CF3C_StrLife>Leben: immer volle Kraft</CF3C_StrLife>
+  <CF3C_Orders>Deine Befehle zuerst</CF3C_Orders>
+  <CF3C_OrdersTip>Kolonisten in einem Prioritätsbereich werden nicht für Krisen genommen – außer wenn es um Leben geht.</CF3C_OrdersTip>
+  <CF3C_Escalation>Schritt für Schritt stärker</CF3C_Escalation>
+  <CF3C_EscalationTip>Eine Krise beginnt sanft mit einem Kolonisten und holt mehr Leute nur, wenn es nicht besser wird. Aus: immer normale Stärke.</CF3C_EscalationTip>
+  <CF3C_Str>{0}: {1}</CF3C_Str>
+  <CF3C_Off>aus</CF3C_Off>
+  <CF3C_StrTip>Wie viele Kolonisten diese Gruppe nehmen darf. 100 % = Mangel die Hälfte der Kolonie, Arbeit ein Drittel, Komfort ein Viertel. 0 % = Gruppe aus.</CF3C_StrTip>
 </LanguageData>

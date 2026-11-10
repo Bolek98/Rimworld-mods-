@@ -255,4 +255,50 @@
   <CF2C_TipSituation>Situation: {0}</CF2C_TipSituation>
   <CF2C_SafeAnimals>Tame animals go in too</CF2C_SafeAnimals>
   <CF2C_SafeAnimalsTip>Tame animals that may be kept in an area go into the safe area as well (not those following a drafted master).</CF2C_SafeAnimalsTip>
+  <CF3C_Group_Life>Life</CF3C_Group_Life>
+  <CF3C_Group_Shortage>Shortage</CF3C_Group_Shortage>
+  <CF3C_Group_Work>Work</CF3C_Group_Work>
+  <CF3C_Group_Comfort>Comfort</CF3C_Group_Comfort>
+  <CF3C_Escalate>{0} is not getting better – the steward puts more people on it.</CF3C_Escalate>
+  <CF3C_Button>Crises ({0})</CF3C_Button>
+  <CF3C_ButtonNone>Crises</CF3C_ButtonNone>
+  <CF3C_ButtonTip>Every crisis and situation as a card: how far along it is, who works on it, and buttons to ignore it, put it off for a day or deal with it now. Also a journal of what happened.</CF3C_ButtonTip>
+  <CF3C_Title>Crises and situations</CF3C_Title>
+  <CF3C_TabActive>Now</CF3C_TabActive>
+  <CF3C_TabJournal>Journal</CF3C_TabJournal>
+  <CF3C_Nothing>No crisis and no situation right now. All quiet.</CF3C_Nothing>
+  <CF3C_For>for {0}</CF3C_For>
+  <CF3C_Stage>Strength {0}/3</CF3C_Stage>
+  <CF3C_StageTip>1 = gently (one colonist), 2 = normal, 3 = full force. A crisis grows by itself when things do not get better; lives are always at full force.</CF3C_StageTip>
+  <CF3C_Ignored>ignored until it ends</CF3C_Ignored>
+  <CF3C_Snoozed>put off – back in {0}</CF3C_Snoozed>
+  <CF3C_Left>{0} left, done at {1}</CF3C_Left>
+  <CF3C_Eta>done in about {0}</CF3C_Eta>
+  <CF3C_Who>On it: {0}</CF3C_Who>
+  <CF3C_WhoNone>Nobody extra so far</CF3C_WhoNone>
+  <CF3C_LifeLocked>Lives are at stake – this cannot be put off.</CF3C_LifeLocked>
+  <CF3C_Resume>Resume</CF3C_Resume>
+  <CF3C_Ignore>Ignore</CF3C_Ignore>
+  <CF3C_IgnoreTip>The steward does nothing about it until it ends (it still shows here).</CF3C_IgnoreTip>
+  <CF3C_Snooze>Put off a day</CF3C_Snooze>
+  <CF3C_SnoozeTip>The steward leaves it alone for a day, then starts again gently.</CF3C_SnoozeTip>
+  <CF3C_Push>Do it now</CF3C_Push>
+  <CF3C_PushTip>Full force at once: more colonists, the highest priority.</CF3C_PushTip>
+  <CF3C_Unpush>Back to normal</CF3C_Unpush>
+  <CF3C_JournalEmpty>Nothing has happened yet.</CF3C_JournalEmpty>
+  <CF3C_J_Start>{0} started</CF3C_J_Start>
+  <CF3C_J_End>{0} ended after {1}</CF3C_J_End>
+  <CF3C_J_Ignore>{0} ignored</CF3C_J_Ignore>
+  <CF3C_J_Snooze>{0} put off for a day</CF3C_J_Snooze>
+  <CF3C_J_Push>{0}: do it now</CF3C_J_Push>
+  <CF3C_J_Escalate>{0} got stronger (not getting better)</CF3C_J_Escalate>
+  <CF3C_J_Resume>{0} resumed</CF3C_J_Resume>
+  <CF3C_StrLife>Life: always full force</CF3C_StrLife>
+  <CF3C_Orders>Your orders come first</CF3C_Orders>
+  <CF3C_OrdersTip>Colonists in a priority area are not taken for crises – except when lives are at stake.</CF3C_OrdersTip>
+  <CF3C_Escalation>Grow step by step</CF3C_Escalation>
+  <CF3C_EscalationTip>A crisis starts gently with one colonist and gets more people only when things do not get better. Off: always normal strength.</CF3C_EscalationTip>
+  <CF3C_Str>{0}: {1}</CF3C_Str>
+  <CF3C_Off>off</CF3C_Off>
+  <CF3C_StrTip>How many colonists this group may take. 100% = shortage half of the colony, work a third, comfort a quarter. 0% = the group is off.</CF3C_StrTip>
 </LanguageData>
