@@ -53,7 +53,7 @@ public sealed class RolesSettings : ModSettings
 
 public sealed class RolesMod : Mod
 {
-	public const string Version = "0.2.2";
+	public const string Version = "0.2.3";
 	public static RolesSettings S;
 	public static ModContentPack Pack;
 
@@ -310,6 +310,29 @@ public sealed class RolesStep : IPlanStep
 	public int Order => 850;
 	public string Id => "roles";
 
+	// the highest priority a crisis / situation gave this colonist for work outside his role (0 = none)
+	private static int CrisisLevel(PlanContext ctx, Pawn p, List<WorkTypeDef> main)
+	{
+		int best = 0;
+		foreach (WorkTypeDef w in ctx.types)
+		{
+			if (main.Contains(w))
+				continue;
+			int v = ctx.Get(p, w);
+			if (v <= 0 || (best > 0 && v >= best))
+				continue;
+			if (!ctx.reasons.TryGetValue(PlanContext.Key(p, w), out var list))
+				continue;
+			foreach (Reason re in list)
+				if (re.key == "CF2C_TipCrisis" || re.key == "CF2C_TipSituation")
+				{
+					best = v;
+					break;
+				}
+		}
+		return best;
+	}
+
 	public void Apply(PlanContext ctx)
 	{
 		if (RolesMod.S == null || !RolesMod.S.enabled || RolesGame.Instance == null)
@@ -336,9 +359,14 @@ public sealed class RolesStep : IPlanStep
 				}
 				continue;
 			}
-			foreach (WorkTypeDef w in RoleWork.Main(r))
+			// 0.2.3: a crisis or situation pulled this colonist to other work (wood, food …):
+			// his role waits one step below it – before, the role on 1 always won and the crisis work never got done
+			var main = RoleWork.Main(r).ToList();
+			int crisis = CrisisLevel(ctx, p, main);
+			int level = crisis > 0 ? Math.Min(ctx.Levels, crisis + 1) : 1;
+			foreach (WorkTypeDef w in main)
 				if (ctx.types.Contains(w) && ctx.CanDo(p, w))
-					ctx.Set(p, w, 1, "SR_Reason", label, null, pin: true);
+					ctx.Set(p, w, level, "SR_Reason", label, null, pin: true);
 		}
 	}
 }
