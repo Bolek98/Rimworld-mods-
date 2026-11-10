@@ -353,6 +353,14 @@ public sealed class GroupRaiser
 
 	public bool IsReserved(Pawn p) => reserved.Contains(p);
 
+	// 1.2.0: "Do it now" – top priority and clearly more people (at least a third of the colony)
+	public static int CountFor(CrisisTrack t, int count, int colonists)
+	{
+		if (t.pushed && t.Group != CrisisGroup.Life)
+			return Math.Max(Math.Max(count * 2, 2), Mathf.CeilToInt(colonists / 3f));
+		return CountFor(t.stage, count);
+	}
+
 	public static int CountFor(int stage, int count)
 	{
 		if (stage <= 1)
@@ -365,7 +373,9 @@ public sealed class GroupRaiser
 	public static int LevelFor(CrisisTrack t, int level)
 	{
 		CrisisGroup g = t.Group;
-		if (g == CrisisGroup.Life || t.pushed)
+		if (t.pushed)
+			return 1;
+		if (g == CrisisGroup.Life)
 			return level;
 		if (g == CrisisGroup.Shortage && t.stage >= 3)
 			return level;
@@ -376,6 +386,9 @@ public sealed class GroupRaiser
 	{
 		CrisisGroup g = t.Group;
 		int cap = CrisisGroups.Cap(g, ctx.pawns.Count);
+		// your "Do it now" may take more than the group's usual share
+		if (t.pushed && cap < int.MaxValue)
+			cap = Math.Max(cap, Mathf.CeilToInt(ctx.pawns.Count * 0.6f));
 		if (cap <= 0 || count <= 0)
 			return 0;
 		if (!used.TryGetValue(g, out var mine))
@@ -487,6 +500,15 @@ public sealed class Dialog_Crises : Window
 			CrisesMod.Instance?.WriteSettings();
 			comp.RequestPlan(urgent: false);
 		}
+	}
+
+	// a button on a card: the new plan comes at once, not after the calm gap
+	private void Now(string msgKey, CrisisTrack t)
+	{
+		changed = true;
+		comp.RequestPlan(urgent: true);
+		if (msgKey != null)
+			Messages.Message(msgKey.Translate(t.Label), MessageTypeDefOf.SilentInput, historical: false);
 	}
 
 	public override void DoWindowContents(Rect inRect)
@@ -643,7 +665,7 @@ public sealed class Dialog_Crises : Window
 				t.since = now;
 				t.stage = 1;
 				CrisisTracks.Of(comp).Log(6, t.key);
-				changed = true;
+				Now(null, t);
 			}
 		}
 		else
@@ -654,7 +676,7 @@ public sealed class Dialog_Crises : Window
 				t.ignored = true;
 				t.pushed = false;
 				CrisisTracks.Of(comp).Log(2, t.key);
-				changed = true;
+				Now(null, t);
 			}
 			TooltipHandler.TipRegion(b1, "CF3C_IgnoreTip".Translate());
 			if (Widgets.ButtonText(b2, "CF3C_Snooze".Translate()))
@@ -662,7 +684,7 @@ public sealed class Dialog_Crises : Window
 				t.snoozeUntil = now + 60000;
 				t.pushed = false;
 				CrisisTracks.Of(comp).Log(3, t.key);
-				changed = true;
+				Now(null, t);
 			}
 			TooltipHandler.TipRegion(b2, "CF3C_SnoozeTip".Translate());
 			if (t.pushed)
@@ -673,7 +695,7 @@ public sealed class Dialog_Crises : Window
 				t.stage = CrisisTracks.StageOf(t, now);
 				if (t.pushed)
 					CrisisTracks.Of(comp).Log(4, t.key);
-				changed = true;
+				Now(t.pushed ? "CF3C_PushedMsg" : null, t);
 			}
 			GUI.color = Color.white;
 			TooltipHandler.TipRegion(b3, "CF3C_PushTip".Translate());

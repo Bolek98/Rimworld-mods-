@@ -542,7 +542,7 @@ public sealed class CrisisStep : IPlanStep
 			int baseCount = Math.Max(1, ctx.CountOn(u.w, 2));
 			int count = u.e.min >= 99 ? ctx.pawns.Count : Math.Max(u.e.min, Mathf.CeilToInt(baseCount * Math.Max(1f, u.e.workers)));
 			if (u.t.Group != CrisisGroup.Life)
-				count = GroupRaiser.CountFor(u.t.stage, count);
+				count = GroupRaiser.CountFor(u.t, count, ctx.pawns.Count);
 			int level = GroupRaiser.LevelFor(u.t, u.e.urgency >= 0.3f ? 1 : 2);
 			raiser.Raise(u.t, u.w, level, count, "CF2C_TipCrisis", CrisisRules.Label(u.c));
 		}
@@ -616,7 +616,7 @@ public sealed class SituationStep : IPlanStep
 			t.stage = CrisisTracks.StageOf(t, now);
 			foreach (SitNeed n in s.needs)
 			{
-				int count = t.Group == CrisisGroup.Life ? n.workers : GroupRaiser.CountFor(t.stage, n.workers);
+				int count = t.Group == CrisisGroup.Life ? n.workers : GroupRaiser.CountFor(t, n.workers, ctx.pawns.Count);
 				raiser.Raise(t, n.work, GroupRaiser.LevelFor(t, n.level), count, "CF2C_TipSituation", s.Label + " (" + s.reason + ")");
 			}
 		}
