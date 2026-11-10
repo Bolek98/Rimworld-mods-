@@ -12,6 +12,11 @@ public sealed class WorkSplitSettings : ModSettings
 {
 	public Dictionary<string, bool> on = new Dictionary<string, bool>();        // only parts the player switched
 	public Dictionary<string, string> moves = new Dictionary<string, string>(); // advanced: work giver -> work type
+	// 0.2.0: Work tab look
+	public int headerStyle = WorkTabLook.StyleSlanted;
+	public bool groups = true;
+	public bool narrow;
+	public List<string> expanded = new List<string>();   // groups shown unfolded (folded by default)
 
 	public bool IsOn(Part p) => on.TryGetValue(p.def, out bool v) ? v : p.onByDefault;
 
@@ -27,17 +32,23 @@ public sealed class WorkSplitSettings : ModSettings
 	{
 		Scribe_Collections.Look(ref on, "on", LookMode.Value, LookMode.Value);
 		Scribe_Collections.Look(ref moves, "moves", LookMode.Value, LookMode.Value);
+		Scribe_Values.Look(ref headerStyle, "headerStyle", WorkTabLook.StyleSlanted);
+		Scribe_Values.Look(ref groups, "groups", true);
+		Scribe_Values.Look(ref narrow, "narrow", false);
+		Scribe_Collections.Look(ref expanded, "expanded", LookMode.Value);
 		on ??= new Dictionary<string, bool>();
 		moves ??= new Dictionary<string, string>();
+		expanded ??= new List<string>();
 	}
 }
 
 public sealed class WorkSplitMod : Mod
 {
 	public static WorkSplitSettings Settings;
-	public const string Version = "0.1.1";
+	public static WorkSplitMod Instance;
+	public const string Version = "0.2.0";
 
-	private enum Tab { Parts, Advanced }
+	private enum Tab { Parts, Look, Advanced }
 	private static Tab tab = Tab.Parts;
 	private static Vector2 scroll;
 	private static float viewH = 600f;
@@ -45,8 +56,10 @@ public sealed class WorkSplitMod : Mod
 
 	public WorkSplitMod(ModContentPack content) : base(content)
 	{
+		Instance = this;
 		Settings = GetSettings<WorkSplitSettings>();
 		var h = new Harmony("misak.steward.worksplit");
+		WorkTabLook.Patch(h);
 		try
 		{
 			h.Patch(AccessTools.Method(typeof(DefGenerator), nameof(DefGenerator.GenerateImpliedDefs_PreResolve)),
@@ -122,6 +135,7 @@ public sealed class WorkSplitMod : Mod
 		var recs = new List<TabRecord>
 		{
 			new TabRecord("SWS_Tab_Parts".Translate(), () => { tab = Tab.Parts; scroll = Vector2.zero; }, tab == Tab.Parts),
+			new TabRecord("SWS_Tab_Look".Translate(), () => { tab = Tab.Look; scroll = Vector2.zero; }, tab == Tab.Look),
 			new TabRecord("SWS_Tab_Advanced".Translate(), () => { tab = Tab.Advanced; scroll = Vector2.zero; }, tab == Tab.Advanced),
 		};
 		TabDrawer.DrawTabs(new Rect(r.x, r.y + 32f, r.width, 1f), recs, 200f);
@@ -141,8 +155,70 @@ public sealed class WorkSplitMod : Mod
 		}
 		if (tab == Tab.Parts)
 			Parts(body);
+		else if (tab == Tab.Look)
+			Look(body);
 		else
 			Advanced(body);
+	}
+
+	// 0.2.0: how the Work tab looks
+	private static void Look(Rect r)
+	{
+		var l = new Listing_Standard();
+		l.Begin(r);
+		if (WorkTabLook.OtherWorkTab)
+		{
+			GUI.color = MUI.Warn;
+			l.Label("SWS_LookOther".Translate());
+			GUI.color = Color.white;
+			l.Gap();
+		}
+		l.Label("SWS_LookStyle".Translate());
+		int old = Settings.headerStyle;
+		if (l.RadioButton("SWS_StyleSlanted".Translate(), Settings.headerStyle == WorkTabLook.StyleSlanted))
+			Settings.headerStyle = WorkTabLook.StyleSlanted;
+		if (l.RadioButton("SWS_StyleUpright".Translate(), Settings.headerStyle == WorkTabLook.StyleUpright))
+			Settings.headerStyle = WorkTabLook.StyleUpright;
+		if (l.RadioButton("SWS_StyleOriginal".Translate(), Settings.headerStyle == WorkTabLook.StyleOriginal))
+			Settings.headerStyle = WorkTabLook.StyleOriginal;
+		l.Gap();
+		bool g = Settings.groups, n = Settings.narrow;
+		l.CheckboxLabeled("SWS_Groups".Translate(), ref Settings.groups, "SWS_GroupsTip".Translate());
+		l.CheckboxLabeled("SWS_Narrow".Translate(), ref Settings.narrow, "SWS_NarrowTip".Translate());
+		if (old != Settings.headerStyle || g != Settings.groups || n != Settings.narrow)
+			WorkTabLook.Changed();
+		if (Settings.groups)
+		{
+			l.Gap();
+			Rect b = l.GetRect(28f);
+			if (Widgets.ButtonText(new Rect(b.x, b.y, 160f, 28f), "SWS_FoldAll".Translate()))
+			{
+				Settings.expanded.Clear();
+				WorkTabLook.Changed();
+			}
+			if (Widgets.ButtonText(new Rect(b.x + 170f, b.y, 160f, 28f), "SWS_UnfoldAll".Translate()))
+			{
+				foreach (WorkTypeDef p in WorkTabLook.GroupParents())
+					if (!Settings.expanded.Contains(p.defName))
+						Settings.expanded.Add(p.defName);
+				WorkTabLook.Changed();
+			}
+			l.Gap(6f);
+			foreach (WorkTypeDef p in WorkTabLook.GroupParents())
+			{
+				bool open = Settings.expanded.Contains(p.defName);
+				bool was = open;
+				string parts = string.Join(", ", WorkTabLook.PartsOf(p).Select(x => WorkLabel(x)));
+				l.CheckboxLabeled(WorkLabel(p) + "  (" + parts + ")", ref open, "SWS_GroupOpenTip".Translate());
+				if (open != was)
+					WorkTabLook.SetFolded(p, !open);
+			}
+		}
+		l.Gap();
+		GUI.color = MUI.Muted;
+		l.Label("SWS_LookHint".Translate());
+		GUI.color = Color.white;
+		l.End();
 	}
 
 	private static void Parts(Rect r)

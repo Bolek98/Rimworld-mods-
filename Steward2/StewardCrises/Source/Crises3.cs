@@ -449,17 +449,24 @@ public sealed class Dialog_Crises : Window
 		{
 			id = "crises",
 			width = 100f,
+			// 1.2.0: the button counts real crises; situations only when there is no crisis
 			label = c =>
 			{
-				int n = Active(c).Count;
-				return n > 0 ? (string)"CF3C_Button".Translate(n) : (string)"CF3C_ButtonNone".Translate();
+				var list = Active(c);
+				int crises = list.Count(t => t.IsCrisis);
+				if (crises > 0)
+					return "CF3C_Button".Translate(crises);
+				int sits = list.Count;
+				return sits > 0 ? (string)"CF3C_ButtonSit".Translate(sits) : (string)"CF3C_ButtonNone".Translate();
 			},
 			color = c =>
 			{
 				var list = Active(c);
 				if (list.Any(t => t.Group == CrisisGroup.Life))
 					return CrisisGroups.Color(CrisisGroup.Life);
-				return list.Count > 0 ? new Color(1f, 0.85f, 0.5f) : Color.white;
+				if (list.Any(t => t.IsCrisis))
+					return CrisisGroups.Color(CrisisGroup.Shortage);
+				return Color.white;
 			},
 			tip = c => "CF3C_ButtonTip".Translate(),
 			click = c => Find.WindowStack.Add(new Dialog_Crises(c))
@@ -508,7 +515,7 @@ public sealed class Dialog_Crises : Window
 	{
 		CrisisBook b = CrisisTracks.Of(comp);
 		int now = Find.TickManager.TicksGame;
-		var list = b.tracks.OrderBy(t => t.Waiting(now) ? 1 : 0).ThenBy(t => (int)t.Group).ThenBy(t => t.since).ToList();
+		var list = b.tracks.OrderBy(t => t.IsCrisis ? 0 : 1).ThenBy(t => t.Waiting(now) ? 1 : 0).ThenBy(t => (int)t.Group).ThenBy(t => t.since).ToList();
 		if (list.Count == 0)
 		{
 			GUI.color = new Color(0.7f, 0.9f, 0.7f);
@@ -521,8 +528,22 @@ public sealed class Dialog_Crises : Window
 		Rect view = new Rect(0f, 0f, r.width - 16f, Math.Max(viewH, r.height));
 		Widgets.BeginScrollView(r, ref scroll, view);
 		float cy = 0f;
+		int head = -1;
 		foreach (CrisisTrack t in list)
 		{
+			// 1.2.0: crises first, then situations under their own heading
+			int kind = t.IsCrisis ? 0 : 1;
+			if (kind != head)
+			{
+				head = kind;
+				Text.Font = GameFont.Small;
+				GUI.color = new Color(0.75f, 0.75f, 0.75f);
+				int count = list.Count(x => (x.IsCrisis ? 0 : 1) == kind);
+				Widgets.Label(new Rect(4f, cy + 2f, view.width, 24f), (kind == 0 ? "CF3C_HeadCrises" : "CF3C_HeadSits").Translate(count));
+				GUI.color = Color.white;
+				Widgets.DrawLineHorizontal(0f, cy + 26f, view.width);
+				cy += 32f;
+			}
 			cy += Card(new Rect(0f, cy, view.width, 0f), t, now) + 6f;
 		}
 		viewH = cy;
