@@ -221,4 +221,49 @@
   <CF_A_ArmorTip>Opotřebované brnění se nahradí stejným kusem.</CF_A_ArmorTip>
   <CF_A_WeaponsTip>Neozbrojený kolonista, který umí bojovat, dostane zbraň – tu, kterou kolonie používá nejčastěji, na dálku nebo na blízko podle jeho dovedností – pokud žádná neleží ve skladu.</CF_A_WeaponsTip>
   <CF_A_MaterialsTip>Komponenty do počtu kolonistů (aspoň 5); ocel ze strusky, když ocel klesne pod 100.</CF_A_MaterialsTip>
+  <CF_St_Page>Zásoby</CF_St_Page>
+  <CF_St_Desc>Nejdůležitější zásoby kolonie na jednom místě: kolik jich je, na kolik dní vystačí při nedávné spotřebě, jak se změnily za poslední den, kolik se za den vyrobilo (zeleně) a spotřebovalo (červeně) a co se právě vyrábí.</CF_St_Desc>
+  <CF_St_Short>jídlo na {0} d</CF_St_Short>
+  <CF_St_Food>Jídlo</CF_St_Food>
+  <CF_St_Meals>Hotová jídla</CF_St_Meals>
+  <CF_St_Medicine>Léky</CF_St_Medicine>
+  <CF_St_Wood>Dřevo</CF_St_Wood>
+  <CF_St_Steel>Ocel</CF_St_Steel>
+  <CF_St_Components>Komponenty</CF_St_Components>
+  <CF_St_Cloth>Látky a kůže</CF_St_Cloth>
+  <CF_St_Fuel>Chemické palivo</CF_St_Fuel>
+  <CF_St_ColItem>Položka</CF_St_ColItem>
+  <CF_St_ColStock>Zásoba</CF_St_ColStock>
+  <CF_St_ColDays>Vydrží</CF_St_ColDays>
+  <CF_St_ColTrend>24 h</CF_St_ColTrend>
+  <CF_St_ColDays15>Vyrobeno / spotřebováno (15 dní)</CF_St_ColDays15>
+  <CF_St_ColMaking>Právě se vyrábí</CF_St_ColMaking>
+  <CF_St_DaysN>{0} d</CF_St_DaysN>
+  <CF_St_NothingMade>nic</CF_St_NothingMade>
+  <CF_St_RowTip>{0}: zeleně nad čarou = vyrobeno nebo přineseno, červeně = spotřebováno. Zbývá dní = zásoba ÷ průměrná spotřeba za poslední 3 dny.</CF_St_RowTip>
+  <CF_St_GraphTip>Dnes vyrobeno {0}, spotřebováno {1}. Průměrná spotřeba: {2} za den.</CF_St_GraphTip>
+  <CF_St_Forecast>Předpověď:</CF_St_Forecast>
+  <CF_St_Winter>blíží se zima – víc jídel do zásoby</CF_St_Winter>
+  <CF_St_Danger>nebezpečí – víc léků</CF_St_Danger>
+  <CF_St_Stuck>Co brzdí výrobu:</CF_St_Stuck>
+  <CF_St_Bottleneck>{0}: chybí {1} ({2})</CF_St_Bottleneck>
+  <CF_St_HintMining>cíl těžby zvýšen</CF_St_HintMining>
+  <CF_St_HintMiningOff>nikdo to netěží – přidej cíl těžby</CF_St_HintMiningOff>
+  <CF_St_HintForestry>cíl kácení zvýšen</CF_St_HintForestry>
+  <CF_St_HintForestryOff>kácení je vypnuté</CF_St_HintForestryOff>
+  <CF_St_HintMake>nejdřív to vyrob</CF_St_HintMake>
+  <CF_St_HintBuy>kup to</CF_St_HintBuy>
+  <CF_St_TradeNow>Obchod teď:</CF_St_TradeNow>
+  <CF_St_TradeNothing>nic k nákupu ani prodeji</CF_St_TradeNothing>
+  <CF_St_TraderTitle>Přijel(a) {0}.</CF_St_TraderTitle>
+  <CF_St_Buy>Kup: {0}.</CF_St_Buy>
+  <CF_St_Sell>Prodej: {0}.</CF_St_Sell>
+  <CF_St_OptRooms>Zakázky podle místností</CF_St_OptRooms>
+  <CF_St_OptRooms_Desc>Jídla jdou na sporáky v kuchyni, drogy a čaj do laboratoře a každá zakázka na nejméně vytížený stůl svého druhu.</CF_St_OptRooms_Desc>
+  <CF_St_OptForecast>Předpověď</CF_St_OptForecast>
+  <CF_St_OptForecast_Desc>Před zimou se drží víc jídel v zásobě; při nájezdu nebo s několika zraněnými víc léků.</CF_St_OptForecast_Desc>
+  <CF_St_OptRecipes>Recepty podle zásob</CF_St_OptRecipes>
+  <CF_St_OptRecipes_Desc>Málo jídla: jednoduchá jídla; trochu: kvalitní; hodně: luxusní. S dostatkem jídla malá zásoba pemikanu na karavany. Oblečení z materiálu, kterého je nejvíc.</CF_St_OptRecipes_Desc>
+  <CF_St_OptTrader>Rady pro obchod</CF_St_OptTrader>
+  <CF_St_OptTrader_Desc>Když přijede obchodník, zpráva řekne, co ti chybí a čeho máš hodně.</CF_St_OptTrader_Desc>
 </LanguageData>

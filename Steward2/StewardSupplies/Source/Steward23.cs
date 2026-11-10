@@ -181,7 +181,9 @@ public sealed partial class SupplyManager
 			.Where(b => b.def.AllRecipes.Contains(recipe) && !b.IsForbidden(Faction.OfPlayer) && !b.IsBrokenDown())
 			.OrderByDescending(b => b.GetComp<CompPowerTrader>() == null || b.GetComp<CompPowerTrader>().PowerOn)
 			.ThenBy(b => IsMakeshift(b) ? 1 : 0)
+			.ThenByDescending(b => RoomFit(recipe, b))   // 1.2.0: meals to the kitchen, drugs to the lab
 			.ThenByDescending(b => b.GetStatValue(StatDefOf.WorkTableWorkSpeedFactor))
+			.ThenBy(b => roomBills ? BusyBills(b) : 0)    // 1.2.0: the least busy bench of the same kind
 			.ThenBy(b => b.Position.DistanceToSquared(center))
 			.FirstOrDefault();
 	}

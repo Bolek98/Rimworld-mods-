@@ -7,9 +7,9 @@ using Verse;
 namespace ColonyForeman;
 
 // The "Supplies" tab: a list of jobs on the left, the selected job on the right.
-public sealed class MainTabWindow_Supplies : MainTabWindow
+public sealed partial class MainTabWindow_Supplies : MainTabWindow
 {
-	private enum Page { Overview, Hunting, Livestock, Forestry, Foraging, Mining, Production, Auto, Meals, Power, Household, Emergency }
+	private enum Page { Overview, Stock, Hunting, Livestock, Forestry, Foraging, Mining, Production, Auto, Meals, Power, Household, Emergency }
 
 	private Page page = Page.Overview;
 	private Vector2 listScroll;
@@ -69,6 +69,7 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 		switch (page)
 		{
 			case Page.Overview: DrawOverview(body, sm); break;
+			case Page.Stock: DrawStock(body, sm); break;
 			case Page.Hunting: DrawHunting(body, sm); break;
 			case Page.Livestock: DrawLivestock(body, sm); break;
 			case Page.Forestry: DrawForestry(body, sm); break;
@@ -91,6 +92,7 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 	{
 		float y = r.y;
 		NavButton(ref y, r, Page.Overview, "CF_J_Overview".Translate(), ThingDefOf.MealSimple, null);
+		NavButton(ref y, r, Page.Stock, "CF_St_Page".Translate(), ThingDefOf.MedicineIndustrial, null, -1, sm.StockAlarm(), sm.StockSummary());   // 1.2.0
 		NavButton(ref y, r, Page.Hunting, "CF_J_Hunting".Translate(), MeatIcon(), sm.hunting);
 		NavButton(ref y, r, Page.Livestock, "CF_J_Livestock".Translate(), DefDatabase<ThingDef>.GetNamedSilentFail("Cow") ?? MeatIcon(), null, sm.livestock.Count(l => l.enabled));
 		NavButton(ref y, r, Page.Forestry, "CF_J_Forestry".Translate(), ThingDefOf.WoodLog, sm.forestry);
@@ -127,13 +129,13 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 
 	private void NavButton(ref float y, Rect r, Page p, string label, ThingDef icon, SupplyJob job, int count = -1, bool alert = false, string subText = null)
 	{
-		Rect row = new Rect(r.x, y, r.width, 36f);
+		Rect row = new Rect(r.x, y, r.width, 33f);
 		if (page == p)
 			Widgets.DrawHighlightSelected(row);
 		else
 			Widgets.DrawHighlightIfMouseover(row);
 		if (icon != null)
-			Widgets.DefIcon(new Rect(row.x + 6f, row.y + 4f, 28f, 28f), icon);
+			Widgets.DefIcon(new Rect(row.x + 6f, row.y + 3f, 27f, 27f), icon);
 		Text.Font = GameFont.Small;
 		Widgets.Label(new Rect(row.x + 46f, row.y + 1f, row.width - 50f, 22f), label);
 		GUI.color = Dim;
@@ -149,7 +151,7 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 		if (alert)
 			GUI.color = new Color(1f, 0.5f, 0.4f);
 		Text.Font = GameFont.Tiny;
-		Widgets.Label(new Rect(row.x + 46f, row.y + 19f, row.width - 50f, 18f), sub);
+		Widgets.Label(new Rect(row.x + 46f, row.y + 17f, row.width - 50f, 18f), sub);
 		Text.Font = GameFont.Small;
 		GUI.color = Color.white;
 		if (Widgets.ButtonInvisible(row))
@@ -158,7 +160,7 @@ public sealed class MainTabWindow_Supplies : MainTabWindow
 				listScroll = Vector2.zero;
 			page = p;
 		}
-		y += 38f;
+		y += 34f;
 	}
 
 	private static ThingDef MeatIcon() => DefDatabase<ThingDef>.GetNamedSilentFail("Meat_Cow") ?? ThingDefOf.Meat_Human;

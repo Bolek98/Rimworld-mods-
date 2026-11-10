@@ -221,4 +221,49 @@
   <CF_A_ArmorTip>해진 갑옷은 같은 것으로 교체합니다.</CF_A_ArmorTip>
   <CF_A_WeaponsTip>싸울 수 있는 비무장 정착민은 무기를 받습니다 – 정착지에서 가장 많이 쓰는 것, 기술에 따라 원거리 또는 근접 – 창고에 하나도 없을 때.</CF_A_WeaponsTip>
   <CF_A_MaterialsTip>부품은 정착민 수까지(최소 5); 강철이 100 아래로 내려가면 슬래그에서 강철.</CF_A_MaterialsTip>
+  <CF_St_Page>재고</CF_St_Page>
+  <CF_St_Desc>정착지의 핵심 물자를 한눈에: 얼마나 있는지, 최근 소비로 며칠 버티는지, 하루 동안의 변화, 하루에 생산(초록)·소비(빨강)한 양, 지금 만드는 것.</CF_St_Desc>
+  <CF_St_Short>식량 {0}일분</CF_St_Short>
+  <CF_St_Food>식량</CF_St_Food>
+  <CF_St_Meals>완성된 식사</CF_St_Meals>
+  <CF_St_Medicine>약품</CF_St_Medicine>
+  <CF_St_Wood>목재</CF_St_Wood>
+  <CF_St_Steel>강철</CF_St_Steel>
+  <CF_St_Components>부품</CF_St_Components>
+  <CF_St_Cloth>옷감과 가죽</CF_St_Cloth>
+  <CF_St_Fuel>화학연료</CF_St_Fuel>
+  <CF_St_ColItem>품목</CF_St_ColItem>
+  <CF_St_ColStock>재고</CF_St_ColStock>
+  <CF_St_ColDays>버팀</CF_St_ColDays>
+  <CF_St_ColTrend>24시간</CF_St_ColTrend>
+  <CF_St_ColDays15>생산 / 소비 (15일)</CF_St_ColDays15>
+  <CF_St_ColMaking>지금 만드는 것</CF_St_ColMaking>
+  <CF_St_DaysN>{0}일</CF_St_DaysN>
+  <CF_St_NothingMade>없음</CF_St_NothingMade>
+  <CF_St_RowTip>{0}: 선 위 초록 = 생산 또는 반입, 빨강 = 소비. 남은 일수 = 재고 ÷ 최근 3일 평균 소비.</CF_St_RowTip>
+  <CF_St_GraphTip>오늘 생산 {0}, 소비 {1}. 평균 소비: 하루 {2}.</CF_St_GraphTip>
+  <CF_St_Forecast>예보:</CF_St_Forecast>
+  <CF_St_Winter>겨울이 다가옴 – 식사를 더 비축</CF_St_Winter>
+  <CF_St_Danger>위험 – 약품을 더 비축</CF_St_Danger>
+  <CF_St_Stuck>생산을 막는 것:</CF_St_Stuck>
+  <CF_St_Bottleneck>{0}: {1} 없음 ({2})</CF_St_Bottleneck>
+  <CF_St_HintMining>채굴 목표를 올림</CF_St_HintMining>
+  <CF_St_HintMiningOff>아무도 채굴하지 않음 – 채굴 목표 추가</CF_St_HintMiningOff>
+  <CF_St_HintForestry>벌목 목표를 올림</CF_St_HintForestry>
+  <CF_St_HintForestryOff>벌목이 꺼져 있음</CF_St_HintForestryOff>
+  <CF_St_HintMake>먼저 만들기</CF_St_HintMake>
+  <CF_St_HintBuy>구매하기</CF_St_HintBuy>
+  <CF_St_TradeNow>지금 거래:</CF_St_TradeNow>
+  <CF_St_TradeNothing>사고팔 것 없음</CF_St_TradeNothing>
+  <CF_St_TraderTitle>{0} 도착.</CF_St_TraderTitle>
+  <CF_St_Buy>구매: {0}.</CF_St_Buy>
+  <CF_St_Sell>판매: {0}.</CF_St_Sell>
+  <CF_St_OptRooms>방별 작업 지시</CF_St_OptRooms>
+  <CF_St_OptRooms_Desc>식사는 부엌의 화덕으로, 약물과 차는 연구실로, 각 지시는 같은 종류 중 가장 한가한 작업대로.</CF_St_OptRooms_Desc>
+  <CF_St_OptForecast>예보</CF_St_OptForecast>
+  <CF_St_OptForecast_Desc>겨울 전에는 식사를 더 비축하고, 습격이나 부상자가 여럿일 때는 약품을 더 비축합니다.</CF_St_OptForecast_Desc>
+  <CF_St_OptRecipes>재고에 맞춘 레시피</CF_St_OptRecipes>
+  <CF_St_OptRecipes_Desc>식량이 적으면 간단한 식사, 보통이면 고급, 넉넉하면 호화로운 식사. 식량이 넉넉하면 캐러밴용 페미컨을 조금 비축. 옷은 가장 많은 재료로.</CF_St_OptRecipes_Desc>
+  <CF_St_OptTrader>거래 조언</CF_St_OptTrader>
+  <CF_St_OptTrader_Desc>상인이 오면 부족한 것과 넉넉한 것을 메시지로 알려줍니다.</CF_St_OptTrader_Desc>
 </LanguageData>

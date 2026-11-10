@@ -234,6 +234,8 @@ public sealed partial class SupplyManager
 		bill.repeatMode = BillRepeatModeDefOf.RepeatCount;
 		bill.repeatCount = Mathf.Max(1, Mathf.CeilToInt((float)missing / Mathf.Max(1, per)));
 		bill.SetStoreMode(BillStoreModeDefOf.BestStockpile);
+		if (kind == "clothes" || kind == "armor")
+			PickStuff(bill, d);   // 1.2.0: from the material there is most of
 		((IBillGiver)bench).BillStack.AddBill(bill);
 		if (mine == null)
 			autoBills.Add(mine = new AutoBill { product = d, kind = kind });
@@ -305,7 +307,7 @@ public sealed partial class SupplyManager
 		if (autoClothes) keepKinds.Add("clothes");
 		if (autoArmor) keepKinds.Add("armor");
 		if (autoWeapons) keepKinds.Add("weapon");
-		if (autoMeals) keepKinds.Add("meals");
+		if (autoMeals) { keepKinds.Add("meals"); keepKinds.Add("travel"); }
 		if (autoMedicine) keepKinds.Add("medicine");
 		if (autoMaterials) keepKinds.Add("material");
 		foreach (AutoBill a in autoBills.ToList())
@@ -325,7 +327,10 @@ public sealed partial class SupplyManager
 			n += EnsureCount(kv.Key, kv.Value.count, kv.Value.kind, made);
 
 		if (autoMeals)
+		{
 			n += MealNeed(made);
+			n += TravelFoodNeed(made);   // 1.2.0
+		}
 		if (autoMedicine)
 			n += MedicineNeed(made);
 		if (autoMaterials)
@@ -497,7 +502,7 @@ public sealed partial class SupplyManager
 
 	private int MealNeed(List<string> made)
 	{
-		float days = mealTargetOn ? Mathf.Max(0.5f, mealTargetDays) : 2f;
+		float days = (mealTargetOn ? Mathf.Max(0.5f, mealTargetDays) : 2f) * MealForecastFactor();   // 1.2.0: winter coming → more
 		if (MealDays() >= days)
 		{
 			// enough meals: the steward's own meal bill is done
@@ -536,9 +541,14 @@ public sealed partial class SupplyManager
 		ThingDef best = null;
 		RecipeDef bestRecipe = null;
 		BuildDefLists();
+		// 1.2.0: the meal by the food in stock – short: simple, some: fine, plenty: lavish
+		FoodPreferability cap = MaxMealByStock();
+		for (int pass = 0; pass < 2 && best == null; pass++)
 		foreach (ThingDef d in mealDefs)
 		{
 			if (!IsMeal(d) || d.defName.IndexOf("Survival", StringComparison.OrdinalIgnoreCase) >= 0)
+				continue;
+			if (pass == 0 && d.ingestible.preferability > cap)
 				continue;
 			RecipeDef r = MealRecipe(d, skill, bulk);
 			if (r == null)
@@ -649,6 +659,7 @@ public sealed partial class SupplyManager
 		return all
 			.OrderBy(b => IsMakeshift(b) ? 1 : 0)
 			.ThenByDescending(b => b.GetComp<CompPowerTrader>() == null || b.GetComp<CompPowerTrader>().PowerOn)
+			.ThenByDescending(b => RoomFit(recipe, b))   // 1.2.0: the kitchen, never the lab
 			.ThenByDescending(RoomScore)
 			.ThenByDescending(b => b.GetStatValue(StatDefOf.WorkTableWorkSpeedFactor))
 			.ThenBy(b => b.Position.DistanceToSquared(center))
@@ -658,7 +669,7 @@ public sealed partial class SupplyManager
 	private int MedicineNeed(List<string> made)
 	{
 		int people = People().Count();
-		int target = Mathf.Max(3, people);
+		int target = Mathf.CeilToInt(Mathf.Max(3, people) * MedicineForecastFactor());   // 1.2.0: danger → more
 		int have = 0;
 		Area_Home home = map.areaManager.Home;
 		foreach (Thing t in map.listerThings.ThingsInGroup(ThingRequestGroup.Medicine))

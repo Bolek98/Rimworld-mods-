@@ -221,4 +221,49 @@
   <CF_A_ArmorTip>すり切れた鎧は同じ物に交換。</CF_A_ArmorTip>
   <CF_A_WeaponsTip>戦える丸腰の入植者には武器を – コロニーで最も使われている物を、技能に合わせて遠距離か近接で – 倉庫に1つもない場合。</CF_A_WeaponsTip>
   <CF_A_MaterialsTip>部品は入植者の人数まで（最低5）；鋼鉄が100を下回ったらスラグから鋼鉄。</CF_A_MaterialsTip>
+  <CF_St_Page>在庫</CF_St_Page>
+  <CF_St_Desc>コロニーの主要物資をひと目で：量、最近の消費で何日もつか、直近1日の変化、1日ごとの生産（緑）と消費（赤）、いま作っているもの。</CF_St_Desc>
+  <CF_St_Short>食料 {0} 日分</CF_St_Short>
+  <CF_St_Food>食料</CF_St_Food>
+  <CF_St_Meals>調理済み食事</CF_St_Meals>
+  <CF_St_Medicine>医薬品</CF_St_Medicine>
+  <CF_St_Wood>木材</CF_St_Wood>
+  <CF_St_Steel>鋼鉄</CF_St_Steel>
+  <CF_St_Components>部品</CF_St_Components>
+  <CF_St_Cloth>布と革</CF_St_Cloth>
+  <CF_St_Fuel>化学燃料</CF_St_Fuel>
+  <CF_St_ColItem>品目</CF_St_ColItem>
+  <CF_St_ColStock>在庫</CF_St_ColStock>
+  <CF_St_ColDays>持つ日数</CF_St_ColDays>
+  <CF_St_ColTrend>24時間</CF_St_ColTrend>
+  <CF_St_ColDays15>生産 / 消費（15日）</CF_St_ColDays15>
+  <CF_St_ColMaking>いま作っているもの</CF_St_ColMaking>
+  <CF_St_DaysN>{0} 日</CF_St_DaysN>
+  <CF_St_NothingMade>なし</CF_St_NothingMade>
+  <CF_St_RowTip>{0}：線より上の緑 = 生産・搬入、赤 = 消費。残り日数 = 在庫 ÷ 直近3日の平均消費。</CF_St_RowTip>
+  <CF_St_GraphTip>今日の生産 {0}、消費 {1}。平均消費：1日 {2}。</CF_St_GraphTip>
+  <CF_St_Forecast>予報：</CF_St_Forecast>
+  <CF_St_Winter>冬が近い — 食事を多めに備蓄</CF_St_Winter>
+  <CF_St_Danger>危険 — 医薬品を多めに</CF_St_Danger>
+  <CF_St_Stuck>生産を止めているもの：</CF_St_Stuck>
+  <CF_St_Bottleneck>{0}：{1}がない（{2}）</CF_St_Bottleneck>
+  <CF_St_HintMining>採掘目標を上げました</CF_St_HintMining>
+  <CF_St_HintMiningOff>誰も採掘していない — 採掘目標を追加</CF_St_HintMiningOff>
+  <CF_St_HintForestry>伐採目標を上げました</CF_St_HintForestry>
+  <CF_St_HintForestryOff>伐採はオフ</CF_St_HintForestryOff>
+  <CF_St_HintMake>まずそれを作る</CF_St_HintMake>
+  <CF_St_HintBuy>購入する</CF_St_HintBuy>
+  <CF_St_TradeNow>いまの取引：</CF_St_TradeNow>
+  <CF_St_TradeNothing>売り買いするものなし</CF_St_TradeNothing>
+  <CF_St_TraderTitle>{0} が来ています。</CF_St_TraderTitle>
+  <CF_St_Buy>買う：{0}。</CF_St_Buy>
+  <CF_St_Sell>売る：{0}。</CF_St_Sell>
+  <CF_St_OptRooms>部屋ごとの作業指示</CF_St_OptRooms>
+  <CF_St_OptRooms_Desc>食事は台所のコンロへ、薬物とお茶は研究室へ、各指示は同じ種類で最も空いている作業台へ。</CF_St_OptRooms_Desc>
+  <CF_St_OptForecast>予報</CF_St_OptForecast>
+  <CF_St_OptForecast_Desc>冬の前は食事を多めに備蓄。襲撃中や負傷者が複数いるときは医薬品を多めに。</CF_St_OptForecast_Desc>
+  <CF_St_OptRecipes>在庫に合わせたレシピ</CF_St_OptRecipes>
+  <CF_St_OptRecipes_Desc>食料が少ない：簡素な食事、ほどほど：上質、豊富：豪華。食料が豊富なら隊商用にペミカンを少し備蓄。衣服は最も多い素材で。</CF_St_OptRecipes_Desc>
+  <CF_St_OptTrader>取引アドバイス</CF_St_OptTrader>
+  <CF_St_OptTrader_Desc>商人が来たら、足りないものと余っているものをメッセージで知らせます。</CF_St_OptTrader_Desc>
 </LanguageData>

@@ -221,4 +221,49 @@
   <CF_A_ArmorTip>Zużyta zbroja jest zastępowana tą samą rzeczą.</CF_A_ArmorTip>
   <CF_A_WeaponsTip>Nieuzbrojony kolonista, który umie walczyć, dostaje broń – najczęściej używaną w kolonii, dystansową lub białą według jego umiejętności – jeśli żadna nie leży w magazynie.</CF_A_WeaponsTip>
   <CF_A_MaterialsTip>Komponenty do liczby kolonistów (co najmniej 5); stal z żużlu, gdy stali jest mniej niż 100.</CF_A_MaterialsTip>
+  <CF_St_Page>Zapasy</CF_St_Page>
+  <CF_St_Desc>Najważniejsze zapasy kolonii w jednym miejscu: ile ich jest, na ile dni starczą przy ostatnim zużyciu, zmiana z ostatniej doby, ile dziennie wyprodukowano (zielone) i zużyto (czerwone) oraz co się teraz robi.</CF_St_Desc>
+  <CF_St_Short>jedzenie na {0} d</CF_St_Short>
+  <CF_St_Food>Jedzenie</CF_St_Food>
+  <CF_St_Meals>Gotowe posiłki</CF_St_Meals>
+  <CF_St_Medicine>Leki</CF_St_Medicine>
+  <CF_St_Wood>Drewno</CF_St_Wood>
+  <CF_St_Steel>Stal</CF_St_Steel>
+  <CF_St_Components>Komponenty</CF_St_Components>
+  <CF_St_Cloth>Tkaniny i skóry</CF_St_Cloth>
+  <CF_St_Fuel>Chemopaliwo</CF_St_Fuel>
+  <CF_St_ColItem>Pozycja</CF_St_ColItem>
+  <CF_St_ColStock>Zapas</CF_St_ColStock>
+  <CF_St_ColDays>Starczy</CF_St_ColDays>
+  <CF_St_ColTrend>24 h</CF_St_ColTrend>
+  <CF_St_ColDays15>Wyprodukowano / zużyto (15 dni)</CF_St_ColDays15>
+  <CF_St_ColMaking>Teraz w produkcji</CF_St_ColMaking>
+  <CF_St_DaysN>{0} d</CF_St_DaysN>
+  <CF_St_NothingMade>nic</CF_St_NothingMade>
+  <CF_St_RowTip>{0}: zielone nad linią = wyprodukowano lub przyniesiono, czerwone = zużyto. Dni = zapas ÷ średnie zużycie z 3 ostatnich dni.</CF_St_RowTip>
+  <CF_St_GraphTip>Dziś wyprodukowano {0}, zużyto {1}. Średnio: {2} dziennie.</CF_St_GraphTip>
+  <CF_St_Forecast>Prognoza:</CF_St_Forecast>
+  <CF_St_Winter>nadchodzi zima – więcej posiłków w zapasie</CF_St_Winter>
+  <CF_St_Danger>zagrożenie – więcej leków</CF_St_Danger>
+  <CF_St_Stuck>Co hamuje produkcję:</CF_St_Stuck>
+  <CF_St_Bottleneck>{0}: brak {1} ({2})</CF_St_Bottleneck>
+  <CF_St_HintMining>cel wydobycia podniesiony</CF_St_HintMining>
+  <CF_St_HintMiningOff>nikt tego nie wydobywa – dodaj cel wydobycia</CF_St_HintMiningOff>
+  <CF_St_HintForestry>cel wyrębu podniesiony</CF_St_HintForestry>
+  <CF_St_HintForestryOff>wyrąb jest wyłączony</CF_St_HintForestryOff>
+  <CF_St_HintMake>najpierw to zrób</CF_St_HintMake>
+  <CF_St_HintBuy>kup to</CF_St_HintBuy>
+  <CF_St_TradeNow>Handel teraz:</CF_St_TradeNow>
+  <CF_St_TradeNothing>nic do kupienia ani sprzedania</CF_St_TradeNothing>
+  <CF_St_TraderTitle>Przybył(a) {0}.</CF_St_TraderTitle>
+  <CF_St_Buy>Kup: {0}.</CF_St_Buy>
+  <CF_St_Sell>Sprzedaj: {0}.</CF_St_Sell>
+  <CF_St_OptRooms>Zlecenia wg pomieszczeń</CF_St_OptRooms>
+  <CF_St_OptRooms_Desc>Posiłki trafiają na kuchenki w kuchni, narkotyki i herbata do laboratorium, a każde zlecenie na najmniej zajęty stół swojego rodzaju.</CF_St_OptRooms_Desc>
+  <CF_St_OptForecast>Prognoza</CF_St_OptForecast>
+  <CF_St_OptForecast_Desc>Przed zimą więcej posiłków w zapasie; podczas najazdu lub przy kilku rannych więcej leków.</CF_St_OptForecast_Desc>
+  <CF_St_OptRecipes>Przepisy wg zapasów</CF_St_OptRecipes>
+  <CF_St_OptRecipes_Desc>Mało jedzenia: proste posiłki; trochę: wykwintne; dużo: wystawne. Przy dużej ilości jedzenia mały zapas pemikanu na karawany. Ubrania z materiału, którego jest najwięcej.</CF_St_OptRecipes_Desc>
+  <CF_St_OptTrader>Rady handlowe</CF_St_OptTrader>
+  <CF_St_OptTrader_Desc>Gdy przybędzie kupiec, wiadomość powie, czego ci brakuje, a czego masz dużo.</CF_St_OptTrader_Desc>
 </LanguageData>

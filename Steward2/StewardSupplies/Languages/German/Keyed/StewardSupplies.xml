@@ -221,4 +221,49 @@
   <CF_A_ArmorTip>Abgenutzte Rüstung wird durch das gleiche Stück ersetzt.</CF_A_ArmorTip>
   <CF_A_WeaponsTip>Ein unbewaffneter Kolonist, der kämpfen kann, bekommt eine Waffe – die in der Kolonie meistgenutzte, Fern- oder Nahkampf nach seinen Fertigkeiten –, falls keine im Lager liegt.</CF_A_WeaponsTip>
   <CF_A_MaterialsTip>Komponenten bis zur Zahl der Kolonisten (mindestens 5); Stahl aus Schlacke, wenn Stahl unter 100 fällt.</CF_A_MaterialsTip>
+  <CF_St_Page>Vorräte</CF_St_Page>
+  <CF_St_Desc>Die wichtigsten Vorräte der Kolonie auf einen Blick: wie viel da ist, wie viele Tage es beim jüngsten Verbrauch reicht, die Tendenz des letzten Tages, was pro Tag hergestellt (grün) und verbraucht (rot) wurde und was gerade hergestellt wird.</CF_St_Desc>
+  <CF_St_Short>Essen für {0} T</CF_St_Short>
+  <CF_St_Food>Nahrung</CF_St_Food>
+  <CF_St_Meals>Fertige Mahlzeiten</CF_St_Meals>
+  <CF_St_Medicine>Medizin</CF_St_Medicine>
+  <CF_St_Wood>Holz</CF_St_Wood>
+  <CF_St_Steel>Stahl</CF_St_Steel>
+  <CF_St_Components>Komponenten</CF_St_Components>
+  <CF_St_Cloth>Stoff und Leder</CF_St_Cloth>
+  <CF_St_Fuel>Chemiekraftstoff</CF_St_Fuel>
+  <CF_St_ColItem>Gegenstand</CF_St_ColItem>
+  <CF_St_ColStock>Vorrat</CF_St_ColStock>
+  <CF_St_ColDays>Reicht</CF_St_ColDays>
+  <CF_St_ColTrend>24 h</CF_St_ColTrend>
+  <CF_St_ColDays15>Hergestellt / verbraucht (15 Tage)</CF_St_ColDays15>
+  <CF_St_ColMaking>Wird gerade hergestellt</CF_St_ColMaking>
+  <CF_St_DaysN>{0} T</CF_St_DaysN>
+  <CF_St_NothingMade>nichts</CF_St_NothingMade>
+  <CF_St_RowTip>{0}: grün über der Linie = hergestellt oder gebracht, rot = verbraucht. Tage = Vorrat ÷ durchschnittlicher Verbrauch der letzten 3 Tage.</CF_St_RowTip>
+  <CF_St_GraphTip>Heute hergestellt {0}, verbraucht {1}. Durchschnitt: {2} pro Tag.</CF_St_GraphTip>
+  <CF_St_Forecast>Prognose:</CF_St_Forecast>
+  <CF_St_Winter>der Winter kommt – mehr Mahlzeiten auf Vorrat</CF_St_Winter>
+  <CF_St_Danger>Gefahr – mehr Medizin</CF_St_Danger>
+  <CF_St_Stuck>Was die Produktion bremst:</CF_St_Stuck>
+  <CF_St_Bottleneck>{0}: kein(e) {1} ({2})</CF_St_Bottleneck>
+  <CF_St_HintMining>Abbauziel erhöht</CF_St_HintMining>
+  <CF_St_HintMiningOff>niemand baut es ab – Abbauziel hinzufügen</CF_St_HintMiningOff>
+  <CF_St_HintForestry>Holzziel erhöht</CF_St_HintForestry>
+  <CF_St_HintForestryOff>Holzfällen ist aus</CF_St_HintForestryOff>
+  <CF_St_HintMake>zuerst herstellen</CF_St_HintMake>
+  <CF_St_HintBuy>kaufen</CF_St_HintBuy>
+  <CF_St_TradeNow>Handel jetzt:</CF_St_TradeNow>
+  <CF_St_TradeNothing>nichts zu kaufen oder verkaufen</CF_St_TradeNothing>
+  <CF_St_TraderTitle>{0} ist da.</CF_St_TraderTitle>
+  <CF_St_Buy>Kaufen: {0}.</CF_St_Buy>
+  <CF_St_Sell>Verkaufen: {0}.</CF_St_Sell>
+  <CF_St_OptRooms>Aufträge nach Raum</CF_St_OptRooms>
+  <CF_St_OptRooms_Desc>Mahlzeiten an die Herde in der Küche, Drogen und Tee ins Labor, und jeder Auftrag an den am wenigsten beschäftigten Tisch seiner Art.</CF_St_OptRooms_Desc>
+  <CF_St_OptForecast>Prognose</CF_St_OptForecast>
+  <CF_St_OptForecast_Desc>Vor dem Winter mehr Mahlzeiten auf Vorrat; bei einem Überfall oder mehreren Verwundeten mehr Medizin.</CF_St_OptForecast_Desc>
+  <CF_St_OptRecipes>Rezepte nach Vorrat</CF_St_OptRecipes>
+  <CF_St_OptRecipes_Desc>Wenig Essen: einfache Mahlzeiten; etwas: feine; viel: üppige. Bei viel Essen ein kleiner Vorrat Pemmikan für Karawanen. Kleidung aus dem Material, von dem am meisten da ist.</CF_St_OptRecipes_Desc>
+  <CF_St_OptTrader>Händler-Tipps</CF_St_OptTrader>
+  <CF_St_OptTrader_Desc>Kommt ein Händler, sagt eine Nachricht, was dir fehlt und wovon du viel hast.</CF_St_OptTrader_Desc>
 </LanguageData>

@@ -221,4 +221,49 @@
   <CF_A_ArmorTip>Зношена броня замінюється такою самою.</CF_A_ArmorTip>
   <CF_A_WeaponsTip>Беззбройний колоніст, який може битися, отримує зброю – найуживанішу в колонії, дальнього чи ближнього бою за його навичками, – якщо на складі немає жодної.</CF_A_WeaponsTip>
   <CF_A_MaterialsTip>Компоненти до кількості колоністів (щонайменше 5); сталь зі шлаку, коли сталі менше 100.</CF_A_MaterialsTip>
+  <CF_St_Page>Запаси</CF_St_Page>
+  <CF_St_Desc>Головні запаси колонії одним поглядом: скільки є, на скільки днів вистачить за недавньої витрати, зміна за добу, скільки на день зроблено (зелене) і витрачено (червоне) та що зараз виготовляється.</CF_St_Desc>
+  <CF_St_Short>їжі на {0} д</CF_St_Short>
+  <CF_St_Food>Їжа</CF_St_Food>
+  <CF_St_Meals>Готова їжа</CF_St_Meals>
+  <CF_St_Medicine>Ліки</CF_St_Medicine>
+  <CF_St_Wood>Деревина</CF_St_Wood>
+  <CF_St_Steel>Сталь</CF_St_Steel>
+  <CF_St_Components>Компоненти</CF_St_Components>
+  <CF_St_Cloth>Тканини та шкіра</CF_St_Cloth>
+  <CF_St_Fuel>Хімпаливо</CF_St_Fuel>
+  <CF_St_ColItem>Позиція</CF_St_ColItem>
+  <CF_St_ColStock>Запас</CF_St_ColStock>
+  <CF_St_ColDays>Вистачить</CF_St_ColDays>
+  <CF_St_ColTrend>24 год</CF_St_ColTrend>
+  <CF_St_ColDays15>Зроблено / витрачено (15 днів)</CF_St_ColDays15>
+  <CF_St_ColMaking>Зараз виготовляється</CF_St_ColMaking>
+  <CF_St_DaysN>{0} д</CF_St_DaysN>
+  <CF_St_NothingMade>нічого</CF_St_NothingMade>
+  <CF_St_RowTip>{0}: зелене над лінією = зроблено чи принесено, червоне = витрачено. Дні = запас ÷ середня витрата за 3 останні дні.</CF_St_RowTip>
+  <CF_St_GraphTip>Сьогодні зроблено {0}, витрачено {1}. В середньому: {2} на день.</CF_St_GraphTip>
+  <CF_St_Forecast>Прогноз:</CF_St_Forecast>
+  <CF_St_Winter>наближається зима – більше їжі в запасі</CF_St_Winter>
+  <CF_St_Danger>небезпека – більше ліків</CF_St_Danger>
+  <CF_St_Stuck>Що гальмує виробництво:</CF_St_Stuck>
+  <CF_St_Bottleneck>{0}: немає {1} ({2})</CF_St_Bottleneck>
+  <CF_St_HintMining>ціль видобутку підвищено</CF_St_HintMining>
+  <CF_St_HintMiningOff>ніхто не видобуває – додайте ціль видобутку</CF_St_HintMiningOff>
+  <CF_St_HintForestry>ціль рубки підвищено</CF_St_HintForestry>
+  <CF_St_HintForestryOff>рубку вимкнено</CF_St_HintForestryOff>
+  <CF_St_HintMake>спершу виготовте</CF_St_HintMake>
+  <CF_St_HintBuy>купіть</CF_St_HintBuy>
+  <CF_St_TradeNow>Торгівля зараз:</CF_St_TradeNow>
+  <CF_St_TradeNothing>нічого купити чи продати</CF_St_TradeNothing>
+  <CF_St_TraderTitle>Прибув(ла) {0}.</CF_St_TraderTitle>
+  <CF_St_Buy>Купити: {0}.</CF_St_Buy>
+  <CF_St_Sell>Продати: {0}.</CF_St_Sell>
+  <CF_St_OptRooms>Замовлення за кімнатами</CF_St_OptRooms>
+  <CF_St_OptRooms_Desc>Їжа – на плити в кухні, наркотики й чай – у лабораторію, і кожне замовлення – на найменш зайнятий стіл свого виду.</CF_St_OptRooms_Desc>
+  <CF_St_OptForecast>Прогноз</CF_St_OptForecast>
+  <CF_St_OptForecast_Desc>Перед зимою більше їжі в запасі; під час набігу чи з кількома пораненими – більше ліків.</CF_St_OptForecast_Desc>
+  <CF_St_OptRecipes>Рецепти за запасами</CF_St_OptRecipes>
+  <CF_St_OptRecipes_Desc>Мало їжі: проста їжа; трохи: вишукана; багато: розкішна. За надлишку їжі невеликий запас пемікану для караванів. Одяг з матеріалу, якого найбільше.</CF_St_OptRecipes_Desc>
+  <CF_St_OptTrader>Поради для торгівлі</CF_St_OptTrader>
+  <CF_St_OptTrader_Desc>Коли прибуде торговець, повідомлення скаже, чого бракує і чого багато.</CF_St_OptTrader_Desc>
 </LanguageData>

@@ -482,6 +482,7 @@ public sealed partial class SupplyManager : MapComponent
 		ExposeAuto();
 		ExposeChains();
 		ExposeMines();
+		ExposeStock();   // 1.2.0
 		if (Scribe.mode == LoadSaveMode.PostLoadInit)
 		{
 			if (livestock == null) livestock = new List<LivestockRule>();
@@ -538,6 +539,7 @@ public sealed partial class SupplyManager : MapComponent
 		// "carry out" job takes them out of the home area.
 		TickBlight();
 		TickStockHistory(now);
+		TickStock(now);   // 1.2.0
 		if (enabled && tidyChunks && now >= nextChunkMark)
 		{
 			nextChunkMark = now + 1000;
@@ -688,6 +690,8 @@ public sealed partial class SupplyManager : MapComponent
 		Step("ingredients", "CF_J_Production", CheckChains, ref total, parts);   // 1.0.4
 		Step("production", "CF_J_Production", CheckProduction, ref total, parts);
 		Step("self-supply", "CF_A_Page", CheckAuto, ref total, parts);
+		try { CheckBottlenecks(); }   // 1.2.0
+		catch (Exception ex) { MLog.WarnOnce("[Steward] bottlenecks: " + ex.Message, 0x5e1202); }
 		Step("livestock", "CF_J_Livestock", CheckLivestock, ref total, parts);
 
 		foreach (SupplyJob job in AllJobs())
