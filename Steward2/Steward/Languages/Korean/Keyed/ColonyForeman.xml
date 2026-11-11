@@ -320,4 +320,11 @@
   <CF_Crisis_NewColony>새 정착지 (시작 계획)</CF_Crisis_NewColony>
   <CF2_TipSmallColony>작은 정착지: 지금 가장 중요한 일부터</CF2_TipSmallColony>
   <CF2_TipArea>우선 구역: 그곳 작업에 필요</CF2_TipArea>
+  <CF2_BackupHardMin>기술 작업은 기술 {0} 이상일 때만 예비로 (0 = 모두)</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>해당 기술이 이보다 낮은 정착민은 기술 작업을 예비로 맡지 않습니다 – 시간만 낭비하기 때문입니다. 의료, 간수, 육아는 모두에게 남습니다. 아무도 기준에 못 미치면 가장 뛰어난 정착민이 맡습니다.</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>식물, 채굴, 동물은 수확량 {0} 이상일 때만 예비로</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>재배, 벌목, 채굴, 동물 작업은 실제로 이만큼 이상 얻는 정착민에게만 예비로 남습니다 (수확·채굴·채집 수확량). 수확의 절반을 망치는 재배자는 예비가 아닙니다. 0 % = 끔.</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>예비 아님: {0}만 얻음 (필요 {1}).</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>주 작업 – 기술 우선: {0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>주 작업을 고를 때 정착민 자신의 기술을 정착지의 현재 필요에 비해 얼마나 중시할지. 0 % = 이전과 같음 (필요를 더 중시), 100 % = 각자 가장 잘하는 일을 주로 합니다.</CF2_SkillFirstTip>
 </LanguageData>

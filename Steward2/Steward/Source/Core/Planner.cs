@@ -51,11 +51,51 @@ public static class Planner
 	}
 
 	// 1.1.0: may this pawn keep a skilled work as backup? (general work: always)
-	public static bool BackupSkillOk(Pawn p, WorkTypeDef w, ForemanSettings s)
+	public static bool BackupSkillOk(Pawn p, WorkTypeDef w, ForemanSettings s) => SkillLevel(p, w) >= BackupMinFor(w, s);
+
+	// 1.2.0: the lowest skill a backup may have for this work (0 = anybody)
+	public static int BackupMinFor(WorkTypeDef w, ForemanSettings s)
 	{
-		if (s == null || s.backupMinSkill <= 0 || !QualityWork(w))
+		if (s == null || w == null || WorkCatalog.Kind(w) != WorkKind.Skilled || AlwaysSomeone(w))
+			return 0;
+		int min = s.backupHardMin;
+		if (s.backupMinSkill > 0 && QualityWork(w))
+			min = Math.Max(min, s.backupMinSkill);
+		return min;
+	}
+
+	// 1.2.0: for plants, mining and animals what counts is how much the colonist really gets –
+	// a weak grower who ruins half the harvest is no good as a backup
+	private static Dictionary<WorkTypeDef, StatDef> yieldStat;
+	public static StatDef YieldStat(WorkTypeDef w)
+	{
+		if (w?.relevantSkills == null)
+			return null;
+		yieldStat ??= new Dictionary<WorkTypeDef, StatDef>();
+		if (!yieldStat.TryGetValue(w, out StatDef st))
+		{
+			if (w.relevantSkills.Contains(SkillDefOf.Plants)) st = StatDefOf.PlantHarvestYield;
+			else if (w.relevantSkills.Contains(SkillDefOf.Mining)) st = StatDefOf.MiningYield;
+			else if (w.relevantSkills.Contains(SkillDefOf.Animals)) st = StatDefOf.AnimalGatherYield;
+			yieldStat[w] = st;
+		}
+		return st;
+	}
+
+	public static float Yield(Pawn p, WorkTypeDef w)
+	{
+		StatDef st = YieldStat(w);
+		if (st == null || p == null)
+			return 1f;
+		try { return p.GetStatValue(st, true, 2500); }
+		catch { return 1f; }
+	}
+
+	public static bool BackupYieldOk(Pawn p, WorkTypeDef w, ForemanSettings s)
+	{
+		if (s == null || s.backupMinYield <= 0f || WorkCatalog.Kind(w) != WorkKind.Skilled || AlwaysSomeone(w) || YieldStat(w) == null)
 			return true;
-		return SkillLevel(p, w) >= s.backupMinSkill;
+		return Yield(p, w) >= s.backupMinYield - 0.001f;
 	}
 
 	// 1.1.1: the minimum skill only matters where a weak worker spoils the result (quality
@@ -361,7 +401,9 @@ public static class Planner
 					else if (othersOff && d <= 0f && kind == WorkKind.Skilled && !Planner.AlwaysSomeone(w))
 						ctx.Set(p, w, 0, "CF2_TipStyleOff", Styles.Label(ctx.style));
 					else if (kind == WorkKind.Skilled && s.backupWorkers && !Planner.BackupSkillOk(p, w, s))
-						ctx.Set(p, w, 0, "CF2_TipBackupLowSkill", Planner.SkillLevel(p, w), s.backupMinSkill);
+						ctx.Set(p, w, 0, "CF2_TipBackupLowSkill", Planner.SkillLevel(p, w), Planner.BackupMinFor(w, s));
+					else if (kind == WorkKind.Skilled && s.backupWorkers && !Planner.BackupYieldOk(p, w, s))
+						ctx.Set(p, w, 0, "CF2_TipBackupLowYield", Planner.Yield(p, w).ToStringPercent(), s.backupMinYield.ToStringPercent());
 					else if (kind == WorkKind.General || s.backupWorkers)
 						ctx.Set(p, w, L, "CF2_TipBackup");
 					else
@@ -422,7 +464,7 @@ public static class Planner
 						Pawn p = on[i];
 						if (ctx.Pinned(p, w) || ctx.Locked(p, w))
 							continue;
-						if (ctx.Set(p, w, s.backupWorkers && Planner.BackupSkillOk(p, w, s) ? ctx.Levels : 0, "CF2_TipYourMax", max))
+						if (ctx.Set(p, w, s.backupWorkers && Planner.BackupSkillOk(p, w, s) && Planner.BackupYieldOk(p, w, s) ? ctx.Levels : 0, "CF2_TipYourMax", max))
 							on.RemoveAt(i);
 					}
 				}
@@ -455,7 +497,13 @@ public static class Planner
 					if (ctx.Pinned(p, w) || ctx.Locked(p, w))
 						continue;
 					float pressure = ctx.demand == null ? 0f : Mathf.Min(1f, ctx.demand.Need(ctx.map, w, n) / (float)n);
-					float score = ctx.Fit(p, w) + 0.4f * Styles.Delta(ctx.style, w) + 0.3f * ctx.settings.Importance(w) + 0.3f * pressure;
+					// 1.2.0: "skill first" – how much the colonist's own skill counts against what the colony needs now
+					float sf = Mathf.Clamp01(ctx.settings.skillFirst);
+					float score = ctx.Fit(p, w) * (1f + sf) + 0.4f * Styles.Delta(ctx.style, w) + 0.3f * ctx.settings.Importance(w) + 0.3f * pressure * (1f - 0.7f * sf);
+					// the best colonist in the colony for this work gets a small extra push
+					List<Pawn> bestFor = ctx.Best(w);
+					if (sf > 0f && bestFor.Count > 1 && bestFor[0] == p)
+						score += 0.1f * sf;
 					// the current top job stays unless another one is clearly better (no flip-flop)
 					if (p.workSettings.GetPriority(w) == 1)
 						score += 0.15f;

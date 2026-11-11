@@ -20,6 +20,12 @@ public sealed class ForemanSettings : ModSettings
 	public bool backupWorkers = true;
 	// 1.1.0: skilled work only goes to backups with at least this skill (0 = everybody)
 	public int backupMinSkill = 6;
+	// 1.2.0: no work with a skill as backup below this level (unless nobody else can do it)
+	public int backupHardMin = 3;
+	// 1.2.0: plants, mining and animals as backup only with at least this yield (0 = off)
+	public float backupMinYield = 0.75f;
+	// 1.2.0: top job – the colonist's own skill against the colony's current needs (0 = like before)
+	public float skillFirst = 0.6f;
 	// 1.1.0: surgery is left to doctors with at least this Medicine when one is there (0 = off)
 	public int surgeryMinMedicine = 8;
 	public bool oneTopPriority = true;
@@ -79,6 +85,9 @@ public sealed class ForemanSettings : ModSettings
 		Scribe_Values.Look(ref assignOpposed, "assignOpposed", true);
 		Scribe_Values.Look(ref backupWorkers, "backupWorkers", true);
 		Scribe_Values.Look(ref backupMinSkill, "backupMinSkill", 6);
+		Scribe_Values.Look(ref backupHardMin, "backupHardMin", 3);
+		Scribe_Values.Look(ref backupMinYield, "backupMinYield", 0.75f);
+		Scribe_Values.Look(ref skillFirst, "skillFirst", 0.6f);
 		Scribe_Values.Look(ref surgeryMinMedicine, "surgeryMinMedicine", 8);
 		Scribe_Values.Look(ref oneTopPriority, "oneTopPriority", true);
 		Scribe_Values.Look(ref includeLodgers, "includeLodgers", true);

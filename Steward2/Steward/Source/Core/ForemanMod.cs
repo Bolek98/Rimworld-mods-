@@ -11,7 +11,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "1.1.0";
+	public const string Version = "1.2.0";
 	public static ForemanSettings Settings;
 
 	private int tab;
@@ -80,6 +80,9 @@ public sealed class ForemanMod : Mod
 		MUI.Check(l, "CF2_OneTop".Translate(), "CF2_OneTopTip".Translate(), ref s.oneTopPriority, s, "oneTopPriority");
 		MUI.Check(l, "CF2_Backup".Translate(), "CF2_BackupTip".Translate(), ref s.backupWorkers, s, "backupWorkers");
 		s.backupMinSkill = Mathf.RoundToInt(MUI.Slider(l, "CF2_BackupMinSkill".Translate(s.backupMinSkill), s.backupMinSkill, 0f, 20f, "CF2_BackupMinSkillTip".Translate(), s, "backupMinSkill"));
+		s.backupHardMin = Mathf.RoundToInt(MUI.Slider(l, "CF2_BackupHardMin".Translate(s.backupHardMin), s.backupHardMin, 0f, 8f, "CF2_BackupHardMinTip".Translate(), s, "backupHardMin"));
+		s.backupMinYield = Mathf.Round(MUI.Slider(l, "CF2_BackupMinYield".Translate(s.backupMinYield.ToStringPercent()), s.backupMinYield, 0f, 1f, "CF2_BackupMinYieldTip".Translate(), s, "backupMinYield") * 20f) / 20f;
+		s.skillFirst = Mathf.Round(MUI.Slider(l, "CF2_SkillFirst".Translate(s.skillFirst.ToStringPercent()), s.skillFirst, 0f, 1f, "CF2_SkillFirstTip".Translate(), s, "skillFirst") * 10f) / 10f;
 		s.surgeryMinMedicine = Mathf.RoundToInt(MUI.Slider(l, "CF2_SurgeryMin".Translate(s.surgeryMinMedicine), s.surgeryMinMedicine, 0f, 20f, "CF2_SurgeryMinTip".Translate(), s, "surgeryMinMedicine"));
 		MUI.Check(l, "CF2_Opposed".Translate(), "CF2_OpposedTip".Translate(), ref s.assignOpposed, s, "assignOpposed");
 		MUI.Check(l, "CF2_Injured".Translate(), "CF2_InjuredTip".Translate(), ref s.lightWorkInjured, s, "lightWorkInjured");

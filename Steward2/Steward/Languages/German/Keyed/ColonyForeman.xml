@@ -320,4 +320,11 @@
   <CF_Crisis_NewColony>neue Kolonie (Startplan)</CF_Crisis_NewColony>
   <CF2_TipSmallColony>kleine Kolonie: zuerst die Arbeit, die jetzt am meisten zählt</CF2_TipSmallColony>
   <CF2_TipArea>Prioritätsbereich: wird dort gebraucht</CF2_TipArea>
+  <CF2_BackupHardMin>Fachliche Arbeit als Reserve erst ab Fertigkeit {0} (0 = alle)</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>Kein Siedler behält eine Arbeit mit Fertigkeit als Reserve, wenn seine Fertigkeit darunter liegt – er würde nur Zeit verschwenden. Medizin, Wärter und Kinderbetreuung bleiben bei allen. Erreicht es niemand, bekommt der Beste die Arbeit trotzdem.</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>Pflanzen, Bergbau, Tiere als Reserve erst ab Ertrag {0}</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>Anbau, Pflanzen schneiden, Bergbau und Tierarbeit bleiben als Reserve nur bei Siedlern, die wirklich mindestens so viel holen (Ernte-, Abbau- und Tierertrag). Wer die halbe Ernte verdirbt, ist keine Reserve. 0 % = aus.</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>Keine Reserve: holt nur {0} (nötig {1}).</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>Hauptarbeit – Fertigkeit zuerst: {0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>Wie stark bei der Wahl der Hauptarbeit die eigene Fertigkeit gegenüber dem aktuellen Bedarf der Kolonie zählt. 0 % = wie bisher (Bedarf zählt mehr), 100 % = jeder macht vor allem, was er am besten kann.</CF2_SkillFirstTip>
 </LanguageData>

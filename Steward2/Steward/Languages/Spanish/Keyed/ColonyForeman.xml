@@ -320,4 +320,11 @@
   <CF_Crisis_NewColony>colonia nueva (plan inicial)</CF_Crisis_NewColony>
   <CF2_TipSmallColony>colonia pequeña: primero el trabajo que más importa ahora</CF2_TipSmallColony>
   <CF2_TipArea>zona prioritaria: hace falta para el trabajo allí</CF2_TipArea>
+  <CF2_BackupHardMin>Trabajo con habilidad como respaldo solo desde nivel {0} (0 = todos)</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>Ningún colono mantiene como respaldo un trabajo con habilidad si su nivel es menor – solo perdería el tiempo. Medicina, carceleros y cuidado de niños siguen para todos. Si nadie llega, el mejor colono recibe el trabajo igualmente.</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>Plantas, minería y animales como respaldo solo desde rendimiento {0}</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>Cultivo, tala, minería y trabajo con animales quedan como respaldo solo para colonos que de verdad obtienen al menos esto (rendimiento de cosecha, minería y recolección). Un mal cultivador que arruina media cosecha no es respaldo. 0 % = desactivado.</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>No es respaldo: obtiene solo {0} (necesita {1}).</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>Trabajo principal – habilidad primero: {0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>Cuánto cuenta la habilidad del colono frente a lo que la colonia necesita ahora al elegir su trabajo principal. 0 % = como antes (cuentan más las necesidades), 100 % = cada uno hace sobre todo lo que mejor sabe.</CF2_SkillFirstTip>
 </LanguageData>

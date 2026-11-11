@@ -320,4 +320,11 @@
   <CF_Crisis_NewColony>新殖民地（开局计划）</CF_Crisis_NewColony>
   <CF2_TipSmallColony>小型殖民地：先做当前最重要的工作</CF2_TipSmallColony>
   <CF2_TipArea>优先区域：那里的工作需要它</CF2_TipArea>
+  <CF2_BackupHardMin>技能工作仅在技能 {0} 及以上时作为后备（0 = 所有人）</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>技能低于此值的殖民者不会把需要该技能的工作作为后备——只会浪费时间。医疗、看守和育儿仍对所有人开放。如果没人达到要求，最优秀的殖民者仍会得到这项工作。</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>种植、采矿、动物仅在产量 {0} 及以上时作为后备</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>种植、砍伐、采矿和动物工作只会作为后备留给真正能获得至少这么多的殖民者（收获、采矿和采集产量）。会毁掉一半收成的种植者不算后备。0 % = 关闭。</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>不是后备：只能获得 {0}（需要 {1}）。</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>主要工作 – 技能优先：{0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>选择主要工作时，殖民者自身技能相对于殖民地当前需求的权重。0 % = 与之前相同（更看重需求），100 % = 每个人主要做自己最擅长的事。</CF2_SkillFirstTip>
 </LanguageData>

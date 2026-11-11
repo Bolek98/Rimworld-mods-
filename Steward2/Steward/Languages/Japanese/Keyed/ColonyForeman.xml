@@ -320,4 +320,11 @@
   <CF_Crisis_NewColony>新しいコロニー（開始プラン）</CF_Crisis_NewColony>
   <CF2_TipSmallColony>小さなコロニー：今いちばん大事な仕事から</CF2_TipSmallColony>
   <CF2_TipArea>優先エリア：そこの作業に必要</CF2_TipArea>
+  <CF2_BackupHardMin>スキル作業の予備はスキル{0}以上のみ（0 = 全員）</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>スキルがこれ未満の入植者には、スキルを使う作業を予備として割り当てません – 時間の無駄になるだけです。医療、看守、育児は全員に残ります。誰も達しない場合は、最も優れた入植者が担当します。</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>植物・採掘・動物の予備は収量{0}以上のみ</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>栽培、伐採、採掘、動物の作業は、実際に少なくともこれだけ得られる入植者だけに予備として残ります（収穫・採掘・採取の収量）。収穫の半分をだめにする栽培者は予備になりません。0 % = オフ。</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>予備ではない: 収量は{0}のみ（必要 {1}）。</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>主な仕事 – スキル優先: {0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>主な仕事を選ぶとき、入植者自身のスキルをコロニーの今の需要に対してどれだけ重視するか。0 % = 従来どおり（需要を重視）、100 % = 各自が最も得意なことを主に行います。</CF2_SkillFirstTip>
 </LanguageData>

@@ -320,4 +320,11 @@
   <CF_Crisis_NewColony>nova colônia (plano inicial)</CF_Crisis_NewColony>
   <CF2_TipSmallColony>colônia pequena: primeiro o trabalho que mais importa agora</CF2_TipSmallColony>
   <CF2_TipArea>área prioritária: necessário para o trabalho lá</CF2_TipArea>
+  <CF2_BackupHardMin>Trabalho com habilidade como reserva só a partir do nível {0} (0 = todos)</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>Nenhum colono mantém como reserva um trabalho com habilidade se o nível dele for menor – só perderia tempo. Medicina, carcereiros e cuidado de crianças ficam com todos. Se ninguém alcançar, o melhor colono recebe o trabalho mesmo assim.</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>Plantas, mineração e animais como reserva só a partir de rendimento {0}</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>Cultivo, corte, mineração e trabalho com animais ficam como reserva só com colonos que realmente obtêm pelo menos isso (rendimento de colheita, mineração e coleta). Um cultivador fraco que estraga metade da colheita não é reserva. 0 % = desligado.</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>Não é reserva: obtém só {0} (precisa {1}).</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>Trabalho principal – habilidade primeiro: {0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>Quanto a habilidade do colono conta contra o que a colônia precisa agora ao escolher o trabalho principal. 0 % = como antes (necessidades contam mais), 100 % = cada um faz principalmente o que faz melhor.</CF2_SkillFirstTip>
 </LanguageData>

@@ -320,4 +320,11 @@
   <CF_Crisis_NewColony>nowa kolonia (plan startowy)</CF_Crisis_NewColony>
   <CF2_TipSmallColony>mała kolonia: najpierw praca, która teraz najbardziej się liczy</CF2_TipSmallColony>
   <CF2_TipArea>obszar priorytetowy: potrzebne do pracy tam</CF2_TipArea>
+  <CF2_BackupHardMin>Praca z umiejętnością jako zapas dopiero od poziomu {0} (0 = wszyscy)</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>Żaden kolonista nie zatrzyma jako zapasu pracy z umiejętnością, jeśli ma w niej niższy poziom – tylko traciłby czas. Leczenie, strażnicy i opieka nad dziećmi zostają dla wszystkich. Jeśli nikt nie osiąga progu, pracę i tak dostaje najlepszy.</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>Rośliny, górnictwo, zwierzęta jako zapas dopiero od wydajności {0}</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>Uprawa, ścinanie, górnictwo i praca ze zwierzętami zostają jako zapas tylko u kolonistów, którzy naprawdę uzyskują co najmniej tyle (plon, wydobycie, zbiory ze zwierząt). Słaby rolnik, który psuje pół zbioru, nie jest zapasem. 0 % = wyłączone.</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>Nie jest zapasem: uzyskuje tylko {0} (potrzeba {1}).</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>Główna praca – najpierw umiejętność: {0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>Jak bardzo przy wyborze głównej pracy liczy się umiejętność kolonisty wobec obecnych potrzeb kolonii. 0 % = jak dawniej (potrzeby liczą się bardziej), 100 % = każdy robi głównie to, w czym jest najlepszy.</CF2_SkillFirstTip>
 </LanguageData>
