@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BI_Auto>Bojový instinkt</BI_Auto>
+  <BI_Auto_Desc>Když je zapnutý, povolaný kolonista bojuje sám: vybere nejnebezpečnějšího nepřítele, najde kryt, použije své schopnosti a při těžkém zranění ustoupí. Tvoje rozkazy mají vždy přednost – jedná jen tehdy, když kolonista stojí a nic nedělá.</BI_Auto_Desc>
+  <BI_Stance0>Postoj: útok</BI_Stance0>
+  <BI_Stance1>Postoj: obrana</BI_Stance1>
+  <BI_Stance2>Postoj: drž pozici</BI_Stance2>
+  <BI_Stance_Desc>Kliknutím změníš.\n\nÚtok – jde po nepřátelích, volně se přesouvá na dobré místo ke střelbě.\nObrana – drží se u místa, kam jsi ho postavil (přesune se jen do blízkého krytu).\nDrž pozici – nikdy se nehne, jen střílí a používá schopnosti z místa.</BI_Stance_Desc>
+  <BI_Abilities>Schopnosti…</BI_Abilities>
+  <BI_Abilities_Desc>Vyber, které schopnosti smí tenhle kolonista používat sám.</BI_Abilities_Desc>
+  <BI_AbilitiesTitle>Schopnosti – {0}</BI_AbilitiesTitle>
+  <BI_AbilitiesHelp>Zaškrtnuté = v boji ji použije sám. Schopnosti, které nejsou bojové (společenské, rituály, cestování…), nikdy sám nepoužije.</BI_AbilitiesHelp>
+  <BI_BlockedAll>vypnuto pro všechny (nastavení)</BI_BlockedAll>
+  <BI_Kind_Ignore>není bojová</BI_Kind_Ignore>
+  <BI_Kind_Ignore_Desc>Společenská, rituální, cestovní nebo velmi riskantní schopnost – sám ji nikdy nepoužije.</BI_Kind_Ignore_Desc>
+  <BI_Kind_Attack>útok</BI_Kind_Attack>
+  <BI_Kind_Attack_Desc>Použije ji na nejnebezpečnějšího nepřítele v dosahu – ne na cíl, který už efekt má, a ne když je někdo z vašich v palebné čáře.</BI_Kind_Attack_Desc>
+  <BI_Kind_Area>plošný útok</BI_Kind_Area>
+  <BI_Kind_Area_Desc>Použije ji jen na skupinu nepřátel (viz „plošný útok od“) a nikdy, když je v oblasti někdo z vašich.</BI_Kind_Area_Desc>
+  <BI_Kind_SelfBuff>posílení sebe</BI_Kind_SelfBuff>
+  <BI_Kind_SelfBuff_Desc>Použije ji na sebe, když jsou nepřátelé blízko a efekt ještě nepůsobí.</BI_Kind_SelfBuff_Desc>
+  <BI_Kind_AllyBuff>posílení spojenců</BI_Kind_AllyBuff>
+  <BI_Kind_AllyBuff_Desc>Použije ji na sebe nebo povolaného spojence v dosahu, který efekt ještě nemá, když jsou nepřátelé blízko.</BI_Kind_AllyBuff_Desc>
+  <BI_Kind_Heal>léčení</BI_Kind_Heal>
+  <BI_Kind_Heal_Desc>Použije ji na nejvíc zraněného spojence v dosahu (krvácí nebo je těžce zraněný).</BI_Kind_Heal_Desc>
+  <BI_Kind_GameAI>útok (podle hry)</BI_Kind_GameAI>
+  <BI_Kind_GameAI_Desc>Hra sama ví, kdy ji použít – použije ji na nepřátele, když to hra považuje za rozumné.</BI_Kind_GameAI_Desc>
+  <BI_Kind_Unknown>neznámá – vypnutá</BI_Kind_Unknown>
+  <BI_Kind_Unknown_Desc>Mod nepozná, co dělá, takže je vypnutá. Zapni ji u kolonisty (tlačítko Schopnosti…) a bude ji používat jako útok.</BI_Kind_Unknown_Desc>
+  <BI_TxtCharge>Do útoku!</BI_TxtCharge>
+  <BI_TxtFocus>Soustředěná palba</BI_TxtFocus>
+  <BI_TxtCover>Do krytu</BI_TxtCover>
+  <BI_TxtRetreat>Ústup</BI_TxtRetreat>
+  <BI_Rec1>Povolaní kolonisté bojují sami v postoji „obrana“.</BI_Rec1>
+  <BI_Rec2>Kryty, soustředěná palba, žádná střelba přes vlastní lidi, ústup při těžkém zranění.</BI_Rec2>
+  <BI_Rec3>Bojové schopnosti (psykineze, geny, rasy, implantáty) ve správnou chvíli.</BI_Rec3>
+  <BI_OtherMod>Je zapnutý jiný mod na automatický boj – používej jen jeden, jinak budou rozkazy dávat oba.</BI_OtherMod>
+  <BI_Enabled>Bojový instinkt zapnutý</BI_Enabled>
+  <BI_Enabled_Desc>Hlavní vypínač celého modu.</BI_Enabled_Desc>
+  <BI_DefaultOn>Zapnuto pro každého povolaného</BI_DefaultOn>
+  <BI_DefaultOn_Desc>Noví kolonisté mají bojový instinkt zapnutý. Pořád ho jde přepnout u každého tlačítkem.</BI_DefaultOn_Desc>
+  <BI_DefaultStance>Výchozí postoj</BI_DefaultStance>
+  <BI_Mechs>I mechanoidi</BI_Mechs>
+  <BI_Mechs_Desc>Tvoji povolaní mechanoidi bojují taky sami.</BI_Mechs_Desc>
+  <BI_FocusFire>Soustředěná palba</BI_FocusFire>
+  <BI_FocusFire_Desc>Kolonisté dávají přednost nepříteli, na kterého už střílí ostatní, aby padl rychleji.</BI_FocusFire_Desc>
+  <BI_UseCover>Hledat kryt</BI_UseCover>
+  <BI_UseCover_Desc>Střelci bez krytu se přesunou na nejbližší místo s krytem, odkud ještě dostřelí.</BI_UseCover_Desc>
+  <BI_AvoidFF>Nestřílet přes vlastní</BI_AvoidFF>
+  <BI_AvoidFF_Desc>Nestřílí, když někdo z vašich stojí v palebné čáře nebo hned u cíle – vybere jiný cíl nebo se přesune.</BI_AvoidFF_Desc>
+  <BI_Retreat>Ústup při těžkém zranění</BI_Retreat>
+  <BI_Retreat_Desc>Těžce zraněný nebo silně krvácející kolonista uteče na místo, kam nepřátelé nevidí (ne v postoji „drž pozici“).</BI_Retreat_Desc>
+  <BI_ShowText>Ukazovat, co se rozhodli</BI_ShowText>
+  <BI_ShowText_Desc>Krátký text nad kolonistou: do krytu, soustředěná palba, ústup, název schopnosti.</BI_ShowText_Desc>
+  <BI_RetreatHp>Ústup pod zdravím: {0} %</BI_RetreatHp>
+  <BI_RetreatHp_Desc>Celkové zdraví, pod kterým kolonista ustoupí.</BI_RetreatHp_Desc>
+  <BI_BleedHours>Ústup při vykrvácení za: {0} h</BI_BleedHours>
+  <BI_BleedHours_Desc>Ustoupí, když by vykrvácel dřív než za tuto dobu.</BI_BleedHours_Desc>
+  <BI_DefRadius>Obrana – přesun nejvýš: {0} polí</BI_DefRadius>
+  <BI_DefRadius_Desc>Jak daleko od místa, kam jsi ho postavil, se smí kolonista přesunout za krytem.</BI_DefRadius_Desc>
+  <BI_AggRadius>Útok – přesun nejvýš: {0} polí</BI_AggRadius>
+  <BI_AggRadius_Desc>Jak daleko smí kolonista jedním přesunem dojít pro dobrou ránu.</BI_AggRadius_Desc>
+  <BI_UseAbilities>Používat schopnosti</BI_UseAbilities>
+  <BI_UseAbilities_Desc>Psykineze, genové schopnosti, schopnosti ras a implantáty – každá schopnost hry i modů, které používají herní systém schopností.</BI_UseAbilities_Desc>
+  <BI_NoOverheat>Psykineze: bez přehřátí</BI_NoOverheat>
+  <BI_NoOverheat_Desc>Psykineze se nepoužije, když by neurální teplo přešlo přes limit.</BI_NoOverheat_Desc>
+  <BI_AoeMin>Plošný útok od: {0} nepřátel</BI_AoeMin>
+  <BI_AoeMin_Desc>Kolik nepřátel musí být v oblasti, než se plošná schopnost použije.</BI_AoeMin_Desc>
+  <BI_Interval>Přemýšlet každých: {0} s</BI_Interval>
+  <BI_Interval_Desc>Jak často se každý kolonista znovu rozhoduje. Kratší = rychlejší reakce, trochu víc práce pro hru.</BI_Interval_Desc>
+  <BI_ListHead>Všechny schopnosti ve hře ({0})</BI_ListHead>
+  <BI_Search>Hledat: název, druh, mod…</BI_Search>
+</LanguageData>

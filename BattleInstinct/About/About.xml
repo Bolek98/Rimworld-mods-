@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>[B98] Battle Instinct – Smart Auto Combat</name>
+  <author>Bolek98</author>
+  <packageId>misak.battleinstinct</packageId>
+  <modVersion>0.1.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>Drafted pawns fight on their own – and fight smart.
+
+- Picks the most dangerous enemy first: grenades and rockets, snipers, melee fighters closing in, the badly wounded.
+- Focus fire: prefers the enemy others already shoot.
+- Real cover: ranged fighters without cover move to a covered spot from which they can still hit.
+- No shooting through your own people.
+- Retreat out of sight when badly hurt or bleeding out.
+- Uses abilities on its own: psycasts, gene, race and implant abilities – every ability is read and sorted (attack, area attack, self boost, boost for allies, healing). Area attacks only on groups and never on your own; no psycast overheating.
+- Three stances per pawn: attack, defend, hold. Your orders always come first.
+
+Requires Harmony. RimWorld 1.6 and 1.7. Safe to add to an existing save.
+
+---
+
+Povolaní kolonisté bojují sami – a chytře.
+
+- Nejdřív nejnebezpečnější nepřítel: granáty a rakety, odstřelovači, blížící se bojovníci na blízko, těžce zranění.
+- Soustředěná palba: dává přednost nepříteli, na kterého už střílí ostatní.
+- Opravdové kryty: střelec bez krytu se přesune na kryté místo, odkud ještě dostřelí.
+- Žádná střelba přes vlastní lidi.
+- Ústup mimo dohled při těžkém zranění nebo vykrvácení.
+- Sám používá schopnosti: psykineze, genové schopnosti, schopnosti ras a implantátů – každá schopnost se přečte a zařadí (útok, plošný útok, posílení sebe, posílení spojenců, léčení). Plošné útoky jen na skupiny a nikdy na vlastní; psykineze bez přehřátí.
+- Tři postoje pro každého: útok, obrana, drž pozici. Tvoje rozkazy mají vždy přednost.
+
+Vyžaduje Harmony. RimWorld 1.6 a 1.7. Lze bezpečně přidat do rozehrané hry.</description>
+</ModMetaData>

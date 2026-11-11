@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BI_Auto>Battle instinct</BI_Auto>
+  <BI_Auto_Desc>When on, this drafted pawn fights on its own: picks the most dangerous enemy, finds cover, uses its abilities and pulls back when badly hurt. Your orders always come first – it only acts when the pawn is standing idle.</BI_Auto_Desc>
+  <BI_Stance0>Stance: attack</BI_Stance0>
+  <BI_Stance1>Stance: defend</BI_Stance1>
+  <BI_Stance2>Stance: hold</BI_Stance2>
+  <BI_Stance_Desc>Click to change.\n\nAttack – goes after enemies, moves freely to a good firing spot.\nDefend – stays close to the place where you put it (moves only to nearby cover).\nHold – never moves, only shoots and uses abilities from where it stands.</BI_Stance_Desc>
+  <BI_Abilities>Abilities…</BI_Abilities>
+  <BI_Abilities_Desc>Choose which abilities this pawn may use on its own.</BI_Abilities_Desc>
+  <BI_AbilitiesTitle>Abilities of {0}</BI_AbilitiesTitle>
+  <BI_AbilitiesHelp>Ticked = used on its own in combat. Abilities that are not combat abilities (social, rituals, travel…) are never used alone.</BI_AbilitiesHelp>
+  <BI_BlockedAll>off for everyone (settings)</BI_BlockedAll>
+  <BI_Kind_Ignore>not for combat</BI_Kind_Ignore>
+  <BI_Kind_Ignore_Desc>Social, ritual, travel or very risky ability – never used on its own.</BI_Kind_Ignore_Desc>
+  <BI_Kind_Attack>attack</BI_Kind_Attack>
+  <BI_Kind_Attack_Desc>Used on the most dangerous enemy in range – not on a target that already has the effect, and not when one of yours is in the line of fire.</BI_Kind_Attack_Desc>
+  <BI_Kind_Area>area attack</BI_Kind_Area>
+  <BI_Kind_Area_Desc>Used only on a group of enemies (see 'area attack from') and never when one of yours is inside the area.</BI_Kind_Area_Desc>
+  <BI_Kind_SelfBuff>self boost</BI_Kind_SelfBuff>
+  <BI_Kind_SelfBuff_Desc>Used on itself when enemies are close and the effect is not active yet.</BI_Kind_SelfBuff_Desc>
+  <BI_Kind_AllyBuff>boost for allies</BI_Kind_AllyBuff>
+  <BI_Kind_AllyBuff_Desc>Used on itself or a drafted ally in range who does not have the effect yet, when enemies are close.</BI_Kind_AllyBuff_Desc>
+  <BI_Kind_Heal>healing</BI_Kind_Heal>
+  <BI_Kind_Heal_Desc>Used on the most hurt ally in range (bleeding or badly wounded).</BI_Kind_Heal_Desc>
+  <BI_Kind_GameAI>attack (game AI)</BI_Kind_GameAI>
+  <BI_Kind_GameAI_Desc>The game itself knows when to use it – used on enemies when the game says it makes sense.</BI_Kind_GameAI_Desc>
+  <BI_Kind_Unknown>unknown – off</BI_Kind_Unknown>
+  <BI_Kind_Unknown_Desc>The mod cannot tell what it does, so it is off. Switch it on for a pawn (Abilities… button) and it is used like an attack.</BI_Kind_Unknown_Desc>
+  <BI_TxtCharge>Charge!</BI_TxtCharge>
+  <BI_TxtFocus>Focus fire</BI_TxtFocus>
+  <BI_TxtCover>Cover</BI_TxtCover>
+  <BI_TxtRetreat>Falling back</BI_TxtRetreat>
+  <BI_Rec1>Drafted pawns fight on their own in the 'defend' stance.</BI_Rec1>
+  <BI_Rec2>Cover, focus fire, no shooting through your own people, retreat when badly hurt.</BI_Rec2>
+  <BI_Rec3>Combat abilities (psycasts, genes, races, implants) used at the right moment.</BI_Rec3>
+  <BI_OtherMod>Another auto-combat mod is active – use only one of them, or both will give orders.</BI_OtherMod>
+  <BI_Enabled>Battle instinct on</BI_Enabled>
+  <BI_Enabled_Desc>Master switch for the whole mod.</BI_Enabled_Desc>
+  <BI_DefaultOn>On for every drafted pawn</BI_DefaultOn>
+  <BI_DefaultOn_Desc>New pawns start with battle instinct on. You can still switch it per pawn with the button.</BI_DefaultOn_Desc>
+  <BI_DefaultStance>Starting stance</BI_DefaultStance>
+  <BI_Mechs>Mechs too</BI_Mechs>
+  <BI_Mechs_Desc>Your drafted mechs fight on their own too.</BI_Mechs_Desc>
+  <BI_FocusFire>Focus fire</BI_FocusFire>
+  <BI_FocusFire_Desc>Pawns prefer the enemy that others are already shooting, so it goes down faster.</BI_FocusFire_Desc>
+  <BI_UseCover>Look for cover</BI_UseCover>
+  <BI_UseCover_Desc>Ranged fighters without cover move to the nearest spot with cover from which they can still hit.</BI_UseCover_Desc>
+  <BI_AvoidFF>No shooting through your own</BI_AvoidFF>
+  <BI_AvoidFF_Desc>Does not shoot when one of yours stands in the line of fire or right next to the target – picks another target or moves.</BI_AvoidFF_Desc>
+  <BI_Retreat>Retreat when badly hurt</BI_Retreat>
+  <BI_Retreat_Desc>A badly hurt or heavily bleeding pawn runs to a place the enemies cannot see (not in the 'hold' stance).</BI_Retreat_Desc>
+  <BI_ShowText>Show what they decide</BI_ShowText>
+  <BI_ShowText_Desc>A short text above the pawn: cover, focus fire, falling back, ability name.</BI_ShowText_Desc>
+  <BI_RetreatHp>Retreat below health: {0} %</BI_RetreatHp>
+  <BI_RetreatHp_Desc>Overall health under which the pawn pulls back.</BI_RetreatHp_Desc>
+  <BI_BleedHours>Retreat when bleeding out in: {0} h</BI_BleedHours>
+  <BI_BleedHours_Desc>Pulls back when it would bleed out in less than this.</BI_BleedHours_Desc>
+  <BI_DefRadius>Defend stance – move up to: {0} cells</BI_DefRadius>
+  <BI_DefRadius_Desc>How far from the place you put it the pawn may move to find cover.</BI_DefRadius_Desc>
+  <BI_AggRadius>Attack stance – move up to: {0} cells</BI_AggRadius>
+  <BI_AggRadius_Desc>How far the pawn may go in one move to get a good shot.</BI_AggRadius_Desc>
+  <BI_UseAbilities>Use abilities</BI_UseAbilities>
+  <BI_UseAbilities_Desc>Psycasts, gene abilities, race abilities and implants – every ability of the game and mods that use the game's ability system.</BI_UseAbilities_Desc>
+  <BI_NoOverheat>Psycasts: no overheating</BI_NoOverheat>
+  <BI_NoOverheat_Desc>A psycast is not used when it would push neural heat over the limit.</BI_NoOverheat_Desc>
+  <BI_AoeMin>Area attack from: {0} enemies</BI_AoeMin>
+  <BI_AoeMin_Desc>How many enemies must be in the area before an area ability is used.</BI_AoeMin_Desc>
+  <BI_Interval>Think every: {0} s</BI_Interval>
+  <BI_Interval_Desc>How often each pawn decides again. Shorter = faster reactions, a bit more work for the game.</BI_Interval_Desc>
+  <BI_ListHead>All abilities in the game ({0})</BI_ListHead>
+  <BI_Search>Search: name, type, mod…</BI_Search>
+</LanguageData>
