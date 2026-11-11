@@ -266,4 +266,12 @@
   <CF_St_OptRecipes_Desc>Peu de nourriture : repas simples ; un peu : raffinés ; beaucoup : somptueux. Avec beaucoup de nourriture, un petit stock de pemmican pour les caravanes. Vêtements dans la matière la plus abondante.</CF_St_OptRecipes_Desc>
   <CF_St_OptTrader>Conseils marchand</CF_St_OptTrader>
   <CF_St_OptTrader_Desc>Quand un marchand arrive, un message indique ce qui manque et ce que tu as en abondance.</CF_St_OptTrader_Desc>
+  <CF_Bu_Opt>Boucherie selon le stock</CF_Bu_Opt>
+  <CF_Bu_Opt_Desc>Les commandes de boucherie ne prennent un cadavre que tant que le stock de sa viande est sous l'objectif – séparément pour la viande humaine, d'insecte et animale. Vos commandes restent inchangées.</CF_Bu_Opt_Desc>
+  <CF_Bu_Always>toujours</CF_Bu_Always>
+  <CF_Bu_Never>jamais</CF_Bu_Never>
+  <CF_Bu_Human>Viande humaine</CF_Bu_Human>
+  <CF_Bu_Insect>Viande d'insecte</CF_Bu_Insect>
+  <CF_Bu_Animal>Viande animale</CF_Bu_Animal>
+  <CF_Bu_RowTip>{0} : en stock / objectif. Clic : valeur suivante, clic droit : retour. Toujours = comme d'habitude, jamais = ne pas découper ces cadavres, un nombre = seulement tant qu'il y en a moins en stock.</CF_Bu_RowTip>
 </LanguageData>

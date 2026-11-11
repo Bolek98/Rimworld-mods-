@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -42,7 +43,7 @@ public sealed partial class MainTabWindow_Supplies
 		GUI.color = Color.white;
 		y += 20f;
 
-		float bottomH = 150f;
+		float bottomH = 214f;
 		Rect outR = new Rect(r.x, y, r.width, r.yMax - y - bottomH);
 		var all = SupplyManager.Lines();
 		Rect view = new Rect(0f, 0f, outR.width - 16f, all.Count * 34f);
@@ -112,6 +113,42 @@ public sealed partial class MainTabWindow_Supplies
 		by += 28f;
 		Check(new Rect(r.x, by, w, 26f), "CF_St_OptRecipes".Translate(), ref sm.recipeByStock, "CF_St_OptRecipes_Desc".Translate());
 		Check(new Rect(r.x + w + 30f, by, w, 26f), "CF_St_OptTrader".Translate(), ref sm.traderTips, "CF_St_OptTrader_Desc".Translate());
+		by += 32f;
+		// 1.3.0: butcher by stock
+		Check(new Rect(r.x, by, w, 26f), "CF_Bu_Opt".Translate(), ref sm.butcherByStock, "CF_Bu_Opt_Desc".Translate());
+		if (sm.butcherByStock)
+		{
+			by += 30f;
+			float cw = (r.width - 20f) / 3f;
+			MeatRow(new Rect(r.x, by, cw, 26f), sm, MeatKind.Human);
+			MeatRow(new Rect(r.x + cw + 10f, by, cw, 26f), sm, MeatKind.Insect);
+			MeatRow(new Rect(r.x + 2f * (cw + 10f), by, cw, 26f), sm, MeatKind.Animal);
+		}
+	}
+
+	// "Human meat: 42 / [<] 100 [>]" – click the value to cycle always / never / amounts
+	private static readonly int[] MeatSteps = { -1, 0, 25, 50, 100, 200, 400, 800 };
+
+	private static void MeatRow(Rect r, SupplyManager sm, MeatKind k)
+	{
+		int t = sm.Target(k);
+		string val = t < 0 ? (string)"CF_Bu_Always".Translate() : t == 0 ? (string)"CF_Bu_Never".Translate() : t.ToString();
+		Text.Font = GameFont.Tiny;
+		Text.Anchor = TextAnchor.MiddleLeft;
+		string head = ("CF_Bu_" + k).Translate() + ": " + sm.MeatStock(k);
+		float lw = r.width - 92f;
+		Widgets.Label(new Rect(r.x, r.y, lw, r.height), head.Truncate(lw));
+		Text.Anchor = TextAnchor.UpperLeft;
+		Rect b = new Rect(r.xMax - 88f, r.y + 1f, 88f, r.height - 2f);
+		if (Widgets.ButtonText(b, val))
+		{
+			int i = Array.IndexOf(MeatSteps, t);
+			bool back = Event.current.button == 1;
+			i = i < 0 ? 0 : (i + (back ? MeatSteps.Length - 1 : 1)) % MeatSteps.Length;
+			sm.SetTarget(k, MeatSteps[i]);
+		}
+		TooltipHandler.TipRegion(r, "CF_Bu_RowTip".Translate(("CF_Bu_" + k).Translate()));
+		Text.Font = GameFont.Small;
 	}
 
 	// made (green) and used (red) per day, last 15 days

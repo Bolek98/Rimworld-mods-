@@ -266,4 +266,12 @@
   <CF_St_OptRecipes_Desc>Short of food: simple meals; some: fine; plenty: lavish. With plenty of food a small stock of pemmican for caravans. Clothes from the material there is most of.</CF_St_OptRecipes_Desc>
   <CF_St_OptTrader>Trader advice</CF_St_OptTrader>
   <CF_St_OptTrader_Desc>When a trader comes, a message says what you are short of and what you have plenty of.</CF_St_OptTrader_Desc>
+  <CF_Bu_Opt>Butcher by stock</CF_Bu_Opt>
+  <CF_Bu_Opt_Desc>Butcher bills take a corpse only while you have less of its meat in storage than the target – separately for human, insect and animal meat. Your bills stay as they are.</CF_Bu_Opt_Desc>
+  <CF_Bu_Always>always</CF_Bu_Always>
+  <CF_Bu_Never>never</CF_Bu_Never>
+  <CF_Bu_Human>Human meat</CF_Bu_Human>
+  <CF_Bu_Insect>Insect meat</CF_Bu_Insect>
+  <CF_Bu_Animal>Animal meat</CF_Bu_Animal>
+  <CF_Bu_RowTip>{0}: stored now / target. Click: next value, right click: back. Always = butcher as usual, never = don't butcher these corpses, a number = only while less is stored.</CF_Bu_RowTip>
 </LanguageData>
