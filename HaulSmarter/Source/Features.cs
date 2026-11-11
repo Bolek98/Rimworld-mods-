@@ -317,7 +317,7 @@ namespace HaulSmarter
             try
             {
                 HSSettings s = HSMod.S;
-                if (s == null || !s.buildFromPockets || !Safe.On("buildPockets") || pawn == null || c == null || c is Blueprint_Install || !(c is Thing ct) || !ct.Spawned)
+                if (s == null || !s.buildFromPockets || Compat.OtherBuildInv || !Safe.On("buildPockets") || pawn == null || c == null || c is Blueprint_Install || !(c is Thing ct) || !ct.Spawned)
                     return true;
                 if (FloatMenuMakerMap.makingFor == pawn || pawn.carryTracker == null || pawn.carryTracker.CarriedThing != null)
                     return true;

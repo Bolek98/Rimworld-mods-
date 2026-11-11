@@ -248,6 +248,13 @@ namespace HaulSmarter
                 GUI.color = Color.white;
                 top += 26f;
             }
+            if (Compat.OtherBuildInv)
+            {
+                GUI.color = MUI.Warn;
+                Widgets.Label(new Rect(inRect.x, inRect.y + top, inRect.width, 24f), "HS_OtherBuildInv".Translate());
+                GUI.color = Color.white;
+                top += 26f;
+            }
             Muted(new Rect(inRect.x, inRect.y + top, inRect.width, 20f), "HS_ProfileHint".Translate());
             top += 24f;
 
@@ -342,7 +349,7 @@ namespace HaulSmarter
     // ------------------------------------------------------------------
     public static class Compat
     {
-        public static bool OtherHauler, OtherHarvestHaul;
+        public static bool OtherHauler, OtherHarvestHaul, OtherBuildInv;
         public static string OtherHaulerName = "";
 
         private static bool Active(string id) => ModLister.GetActiveModWithIdentifier(id, true) != null;
@@ -351,6 +358,21 @@ namespace HaulSmarter
         {
             if (Active("mehni.pickupandhaul")) { OtherHauler = true; OtherHaulerName = "Pick Up And Haul"; }
             if (Active("laredson.harvestandhaul")) OtherHarvestHaul = true;
+            // 3.6: Build From Inventory (and its Continued versions) – it also uses other pawns' and pack
+            // animals' inventories, so our "build from pockets" steps aside and lets it deliver the materials
+            try
+            {
+                foreach (ModMetaData m in ModsConfig.ActiveModsInLoadOrder)
+                {
+                    string id = (m.PackageIdPlayerFacing ?? "").ToLowerInvariant().Replace(".", "").Replace("_", "");
+                    string name = m.Name ?? "";
+                    if (id.Contains("buildfrominventory") || name.IndexOf("Build From Inventory", StringComparison.OrdinalIgnoreCase) >= 0)
+                        OtherBuildInv = true;
+                }
+            }
+            catch
+            {
+            }
         }
 
         public static string Summary()
@@ -358,6 +380,7 @@ namespace HaulSmarter
             var off = new List<string>();
             if (OtherHauler) off.Add("hauling (" + OtherHaulerName + " is active)");
             if (OtherHarvestHaul) off.Add("harvest pockets (Harvest And Haul is active)");
+            if (OtherBuildInv) off.Add("build from pockets (Build From Inventory is active)");
             return off.Count == 0 ? "" : " Switched off: " + string.Join("; ", off.ToArray()) + ".";
         }
 

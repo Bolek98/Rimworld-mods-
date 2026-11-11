@@ -32,7 +32,7 @@ namespace HaulSmarter
         public static Job Make(Pawn pawn, IConstructible c, bool forced)
         {
             HSSettings s = HSMod.S;
-            if (s == null || !s.smartPickup || !s.buildFromPockets || !Compat.Hauling || !Safe.On("pickup") || !HaulUtil.CanUsePockets(pawn))
+            if (s == null || !s.smartPickup || !s.buildFromPockets || Compat.OtherBuildInv || !Compat.Hauling || !Safe.On("pickup") || !HaulUtil.CanUsePockets(pawn))
                 return null;
             if (!(c is Thing site) || !site.Spawned || c is Blueprint_Install || pawn.Map == null)
                 return null;
