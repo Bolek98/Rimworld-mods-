@@ -20,7 +20,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Evergrowth – Wild Plant Spawns per Biome (Choose What Grows) | 1.2.0 | [EvergrowthWildPlants](EvergrowthWildPlants) |
 | [B98] Fewer Freezes – Smart Memory Cleanup | 1.1.1 | [FewerFreezes](FewerFreezes) |
 | [B98] Gender Balance | 1.3.4 | [GenderBalance](GenderBalance) |
-| [B98] Haul Master – Pockets, Routes & Storage | 1.1.0 | [HaulSmarter](HaulSmarter) |
+| [B98] Haul Master – Pockets, Routes & Storage | 1.2.0 | [HaulSmarter](HaulSmarter) |
 | [B98] Legacy – Your Old Colonies Live On | 0.1.1 | [Legacy](Legacy) |
 | [B98] Lively Pawns – Animations & Effects | 0.1.2 | [LivelyPawns](LivelyPawns) |
 | [B98] Mad Dice Max – Dice Storyteller | 1.0.1 | [MadDiceMax](MadDiceMax) |
