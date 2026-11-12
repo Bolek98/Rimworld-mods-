@@ -197,7 +197,8 @@ public sealed class PlanContext
 		{
 			case "core.base": return "base";
 			case "core.children": return "children";
-			case "core.myrules": return "rules";
+			case "core.myrules":
+			case "core.gates": return "rules";
 			case "core.topjob": return "top";
 			case "core.area": return "area";
 			case "core.small":

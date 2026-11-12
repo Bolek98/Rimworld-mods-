@@ -25,6 +25,7 @@ public static class Planner
 		StewardApi.Register(new BaseStep());
 		StewardApi.Register(new ChildrenStep());
 		StewardApi.Register(new MyRulesStep());
+		StewardApi.Register(new SkillGateStep());
 		StewardApi.Register(new ApprenticeStep());
 		StewardApi.Register(new TopJobStep());
 		StewardApi.Register(new SmallColonyStep());
@@ -55,6 +56,17 @@ public static class Planner
 
 	// 1.2.0: the lowest skill a backup may have for this work (0 = anybody)
 	public static int BackupMinFor(WorkTypeDef w, ForemanSettings s)
+	{
+		if (s == null || w == null)
+			return 0;
+		// 1.4.0: your own number in the Skills tab wins
+		if (s.gateBackup != null && s.gateBackup.TryGetValue(w.defName, out int own) && own >= 0)
+			return own;
+		return BackupMinDefault(w, s);
+	}
+
+	// the limit from the general rules (without your own number in the Skills tab)
+	public static int BackupMinDefault(WorkTypeDef w, ForemanSettings s)
 	{
 		if (s == null || w == null || WorkCatalog.Kind(w) != WorkKind.Skilled || AlwaysSomeone(w))
 			return 0;

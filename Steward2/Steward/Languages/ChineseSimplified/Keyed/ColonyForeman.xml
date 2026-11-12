@@ -360,4 +360,13 @@
   <CF2_CheckWorkLabel>等待中的工作（含模组）</CF2_CheckWorkLabel>
   <CF2_CheckWorkButton>立即检查</CF2_CheckWorkButton>
   <CF2_CheckWorkHead>管家此刻在此地图上看到的待做工作，按工作类型（任务数；模组在括号中，⚠ = 无法测量）。为0的工作分配的殖民者更少。</CF2_CheckWorkHead>
+  <CF2_TabSkills>技能</CF2_TabSkills>
+  <CF2_SkillsHelp>每项工作：殖民者从多少技能起可以做，从多少技能起作为后备。– = 不限制，(n) = 通用规则。殖民地中最擅长的殖民者即使低于门槛也总会保留该工作。</CF2_SkillsHelp>
+  <CF2_SkillsColWork>工作</CF2_SkillsColWork>
+  <CF2_SkillsColSkill>技能</CF2_SkillsColSkill>
+  <CF2_SkillsColBest>当前最佳</CF2_SkillsColBest>
+  <CF2_SkillsColAny>可做起点</CF2_SkillsColAny>
+  <CF2_SkillsColBackup>后备起点</CF2_SkillsColBackup>
+  <CF2_SkillsReset>全部重置</CF2_SkillsReset>
+  <CF2_TipGate>技能 {0} – 此工作需技能 {1} 起（技能页）。</CF2_TipGate>
 </LanguageData>

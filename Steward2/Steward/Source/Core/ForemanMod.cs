@@ -11,7 +11,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "1.3.3";
+	public const string Version = "1.4.0";
 	public static ForemanSettings Settings;
 
 	private int tab;
@@ -22,7 +22,7 @@ public sealed class ForemanMod : Mod
 	{
 		Instance = this;
 		Settings = GetSettings<ForemanSettings>();
-		MUI.Init(new ForemanSettings(), null, "maxPriorityOverride", "stepOrder", "settingsRev");
+		MUI.Init(new ForemanSettings(), null, "maxPriorityOverride", "stepOrder", "settingsRev", "gateAny", "gateBackup");
 		var h = new Harmony("misak.colonyforeman");
 		h.PatchAll(typeof(ForemanMod).Assembly);
 		MUI.PatchWindow(h, typeof(ForemanMod));

@@ -61,6 +61,9 @@ public sealed class ForemanSettings : ModSettings
 	// your rules per work type: at least / at most this many colonists, importance
 	public bool useMyRules = false;
 	public Dictionary<string, int> workerMin = new Dictionary<string, int>();
+	// 1.4.0: "Skills" tab – per work: from which skill a colonist may do it at all / as a backup (missing = default)
+	public Dictionary<string, int> gateAny = new Dictionary<string, int>();
+	public Dictionary<string, int> gateBackup = new Dictionary<string, int>();
 	public Dictionary<string, int> workerMax = new Dictionary<string, int>();
 	public Dictionary<string, float> urgencyOverrides = new Dictionary<string, float>();
 
@@ -125,6 +128,8 @@ public sealed class ForemanSettings : ModSettings
 		Scribe_Values.Look(ref priorityAreaWorkers, "priorityAreaWorkers", 3);
 		Scribe_Values.Look(ref useMyRules, "useMyRules2", false);
 		Scribe_Collections.Look(ref workerMin, "workerMin", LookMode.Value, LookMode.Value);
+		Scribe_Collections.Look(ref gateAny, "gateAny", LookMode.Value, LookMode.Value);
+		Scribe_Collections.Look(ref gateBackup, "gateBackup", LookMode.Value, LookMode.Value);
 		Scribe_Collections.Look(ref workerMax, "workerMax", LookMode.Value, LookMode.Value);
 		Scribe_Collections.Look(ref urgencyOverrides, "urgencyOverrides", LookMode.Value, LookMode.Value);
 		Scribe_Values.Look(ref planMessages, "planMessages", false);
@@ -133,6 +138,8 @@ public sealed class ForemanSettings : ModSettings
 		Scribe_Values.Look(ref weeklySummary, "weeklySummary", true);
 		Scribe_Values.Look(ref apprentices, "apprentices", false);
 		workerMin ??= new Dictionary<string, int>();
+		gateAny ??= new Dictionary<string, int>();
+		gateBackup ??= new Dictionary<string, int>();
 		workerMax ??= new Dictionary<string, int>();
 		urgencyOverrides ??= new Dictionary<string, float>();
 	}

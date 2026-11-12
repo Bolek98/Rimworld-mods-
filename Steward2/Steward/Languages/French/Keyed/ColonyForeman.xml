@@ -360,4 +360,13 @@
   <CF2_CheckWorkLabel>Travail en attente (mods aussi)</CF2_CheckWorkLabel>
   <CF2_CheckWorkButton>Vérifier</CF2_CheckWorkButton>
   <CF2_CheckWorkHead>Ce que l'intendant voit en attente sur cette carte, par type de travail (nombre de tâches ; mods entre crochets, ⚠ = non mesurable). Un travail à 0 reçoit moins de colons.</CF2_CheckWorkHead>
+  <CF2_TabSkills>Compétences</CF2_TabSkills>
+  <CF2_SkillsHelp>Pour chaque travail : à partir de quelle compétence un colon peut le faire et à partir de laquelle il l'a en renfort. – = sans limite, (n) = règle générale. Le meilleur colon garde toujours le travail, même sous la limite.</CF2_SkillsHelp>
+  <CF2_SkillsColWork>Travail</CF2_SkillsColWork>
+  <CF2_SkillsColSkill>Compétence</CF2_SkillsColSkill>
+  <CF2_SkillsColBest>Meilleur</CF2_SkillsColBest>
+  <CF2_SkillsColAny>Peut dès</CF2_SkillsColAny>
+  <CF2_SkillsColBackup>Renfort dès</CF2_SkillsColBackup>
+  <CF2_SkillsReset>Tout réinitialiser</CF2_SkillsReset>
+  <CF2_TipGate>Compétence {0} – ce travail seulement dès {1} (onglet Compétences).</CF2_TipGate>
 </LanguageData>
