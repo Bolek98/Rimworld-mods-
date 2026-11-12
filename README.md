@@ -28,7 +28,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Matchmaker | 0.1.1 | [Matchmaker](Matchmaker) |
 | [B98] Mech Commander | 0.1.3 | [MechCommander](MechCommander) |
 | [B98] Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
-| [B98] Mišák Tabs – Clear Bills, Health & Info | 0.13.2 | [MisakTabs](MisakTabs) |
+| [B98] Mišák Tabs – Clear Bills, Health & Info | 0.13.3 | [MisakTabs](MisakTabs) |
 | [B98] Mod Sort Manager – Load Order, Conflicts & Profiles | 0.7.0 | [ModSortManager](ModSortManager) |
 | [B98] Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | [B98] Place for Everything – Smart Storage for Homeless Items | 0.2.0 | [PlaceForEverything](PlaceForEverything) |
@@ -40,7 +40,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Ride & Drive – Mounts and Vehicles Together | 0.1.1 | [RideAndDrive](RideAndDrive) |
 | [B98] Smart Colonist Gear – Wardrobe | 0.1.3 | [SCGWardrobe](SCGWardrobe) |
 | [B98] Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.5.0 | [SeasonsHolidays](SeasonsHolidays) |
-| [B98] Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.0 | [SecularColony](SecularColony) |
+| [B98] Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.1 | [SecularColony](SecularColony) |
 | [B98] Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.0 | [SmartColonistGear](SmartColonistGear) |
 | [B98] Smooth FPS – Performance & Graphics | 1.7.3 | [SmoothFPS](SmoothFPS) |
 | [B98] Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
@@ -60,7 +60,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Unofficial 1.7 Patch – Vanilla Fixes Until the Official Update | 0.1.2 | [UnofficialPatch](UnofficialPatch) |
 | [B98] Wild Animals – Biome Spawn Control | 0.2.2 | [WildAnimals](WildAnimals) |
 | [B98] Wild Spawn Zone | 1.1.3 | [WildSpawnZone](WildSpawnZone) |
-| [B98] World at Your Level – Raiders, Factions & Threats Match Your Tech | 2.16.0 | [WorldAtYourLevel](WorldAtYourLevel) |
+| [B98] World at Your Level – Raiders, Factions & Threats Match Your Tech | 2.16.1 | [WorldAtYourLevel](WorldAtYourLevel) |
 
 Each folder is a complete mod (About, Assemblies, Defs, Languages, Source), most with a `CHANGELOG.txt`.
 All mods need [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077).

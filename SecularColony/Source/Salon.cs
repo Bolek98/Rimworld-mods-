@@ -64,7 +64,7 @@ namespace SecularColony
 		public static bool GenderOn(Pawn pawn)
 		{
 			SecularSettings s = SecularMod.Settings;
-			return s != null && s.genderStyles && Secular.Active && pawn != null && pawn.Faction == Faction.OfPlayer
+			return s != null && s.genderStyles && Secular.Active && pawn != null && pawn.Faction != null && pawn.Faction.IsPlayer
 			       && pawn.RaceProps != null && pawn.RaceProps.Humanlike && (pawn.gender == Gender.Male || pawn.gender == Gender.Female);
 		}
 
@@ -304,7 +304,7 @@ namespace SecularColony
 				{
 					Pawn p = toil.actor;
 					SecularSettings s = SecularMod.Settings;
-					if (p == null || p.story == null || !Secular.Active || s == null || !s.hairColours || p.Faction != Faction.OfPlayer)
+					if (p == null || p.story == null || !Secular.Active || s == null || !s.hairColours || p.Faction == null || !p.Faction.IsPlayer)
 						return;
 					if (Rand.Value >= s.hairColourChance)
 						return;

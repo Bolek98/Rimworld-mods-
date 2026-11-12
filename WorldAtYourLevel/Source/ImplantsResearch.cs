@@ -11,7 +11,7 @@ namespace ResearchLockedRaidGear
 	{
 		private static bool Hostile(Pawn pawn)
 		{
-			return pawn != null && pawn.Faction != null && Faction.OfPlayer != null && pawn.Faction.HostileTo(Faction.OfPlayer) && ResearchLockedGearFilter.ShouldFilter(pawn);
+			return pawn != null && pawn.Faction != null && Faction.OfPlayerSilentFail != null && pawn.Faction.HostileTo(Faction.OfPlayerSilentFail) && ResearchLockedGearFilter.ShouldFilter(pawn);
 		}
 
 		private static bool AboveWorld(ThingDef def)

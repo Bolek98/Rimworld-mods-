@@ -801,6 +801,8 @@ namespace MisakTabs
         {
             try
             {
+                // world generation: no player faction yet – nothing to log (and no error spam)
+                if (Current.ProgramState != ProgramState.Playing || Faction.OfPlayerSilentFail == null) return;
                 if (p == null || !p.RaceProps.Humanlike || (p.Faction != Faction.OfPlayer && !p.IsPrisonerOfColony && !p.IsSlaveOfColony)) return;
                 LifeLog l = I;
                 if (l == null || Current.ProgramState != ProgramState.Playing) return;

@@ -33,7 +33,7 @@ namespace ResearchLockedRaidGear
 			Evolution
 		}
 
-		public const string Version = "2.16.0";
+		public const string Version = "2.16.1";
 
 		public static ResearchLockedRaidGearSettings Settings;
 
@@ -926,7 +926,7 @@ namespace ResearchLockedRaidGear
 			{
 				try
 				{
-					return Faction.OfPlayer != null && !f.HostileTo(Faction.OfPlayer);
+					return Faction.OfPlayerSilentFail != null && !f.HostileTo(Faction.OfPlayerSilentFail);
 				}
 				catch
 				{
@@ -1937,7 +1937,7 @@ namespace ResearchLockedRaidGear
 			{
 				return true;
 			}
-			if (pawn.Faction != null && Faction.OfPlayer != null && pawn.Faction.HostileTo(Faction.OfPlayer))
+			if (pawn.Faction != null && Faction.OfPlayerSilentFail != null && pawn.Faction.HostileTo(Faction.OfPlayerSilentFail))
 			{
 				return true;
 			}
@@ -2409,9 +2409,9 @@ namespace ResearchLockedRaidGear
 			// is filtered when he arrives – dropping there piled up clothes at the edge of
 			// the map with every group. Raiders now carry the locked item in their
 			// inventory (loot when they are beaten); visitors and traders keep nothing.
-			if (settings.dropLockedGear && pawn != null && pawn.Faction != Faction.OfPlayer)
+			if (settings.dropLockedGear && pawn != null && pawn.Faction != Faction.OfPlayerSilentFail)
 			{
-				if (pawn.HostileTo(Faction.OfPlayer) && pawn.inventory != null && !thing.Spawned && thing.holdingOwner == null)
+				if (pawn.HostileTo(Faction.OfPlayerSilentFail) && pawn.inventory != null && !thing.Spawned && thing.holdingOwner == null)
 				{
 					if (settings.damageDroppedGear)
 					{
@@ -3194,12 +3194,12 @@ namespace ResearchLockedRaidGear
 		// inventory (loot), visitors and traders lose it – no piles at the map edge.
 		public static void PutAside(Pawn pawn, Thing thing)
 		{
-			if (pawn.Faction == Faction.OfPlayer)
+			if (pawn.Faction == Faction.OfPlayerSilentFail)
 			{
 				GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near);
 				return;
 			}
-			if (pawn.HostileTo(Faction.OfPlayer) && pawn.inventory != null && pawn.inventory.innerContainer.TryAdd(thing, true))
+			if (pawn.HostileTo(Faction.OfPlayerSilentFail) && pawn.inventory != null && pawn.inventory.innerContainer.TryAdd(thing, true))
 			{
 				return;
 			}
@@ -4009,7 +4009,7 @@ namespace ResearchLockedRaidGear
 			ResearchLockedRaidGearSettings st = ResearchLockedRaidGearMod.Settings;
 			return st != null && st.worldMechanoids && pawn != null && !pawn.Dead && pawn.RaceProps != null && pawn.RaceProps.IsMechanoid
 			       && pawn.Faction != null && !pawn.Faction.IsPlayer && pawn.Map != null && !pawn.IsColonyMech
-			       && pawn.HostileTo(Faction.OfPlayer)
+			       && pawn.HostileTo(Faction.OfPlayerSilentFail)
 			       && (!WorldTech.FactionWithinWorld(pawn.Faction) || !MechEscorts.Researched(pawn.def))
 			       && !(st.keepCalledBosses && CalledBoss(pawn))
 			       && !Kept(pawn.def);
@@ -4445,7 +4445,7 @@ namespace ResearchLockedRaidGear
 
 		public static string BlockingLord(Map map, Faction f)
 		{
-			Faction faction = map.ParentFaction ?? Faction.OfPlayer;
+			Faction faction = map.ParentFaction ?? Faction.OfPlayerSilentFail;
 			List<Lord> lords = map.lordManager.lords;
 			for (int i = 0; i < lords.Count; i++)
 			{
@@ -4554,7 +4554,7 @@ namespace ResearchLockedRaidGear
 			{
 				list.Add("RLRG_Diag_F_Defeated".Translate().ToString());
 			}
-			if (f.HostileTo(Faction.OfPlayer))
+			if (f.HostileTo(Faction.OfPlayerSilentFail))
 			{
 				list.Add("RLRG_Diag_F_Hostile".Translate(f.PlayerGoodwill).ToString());
 			}
@@ -4640,7 +4640,7 @@ namespace ResearchLockedRaidGear
 					{
 						num2++;
 					}
-					if (!item.HostileTo(Faction.OfPlayer))
+					if (!item.HostileTo(Faction.OfPlayerSilentFail))
 					{
 						num++;
 					}
@@ -4770,7 +4770,7 @@ namespace ResearchLockedRaidGear
 			int num4 = 0;
 			foreach (Faction item in Find.FactionManager.AllFactionsListForReading)
 			{
-				if (item != null && !item.IsPlayer && item.def != null && !item.defeated && item.HostileTo(Faction.OfPlayer) && item.def.pawnGroupMakers != null && item.def.pawnGroupMakers.Any((PawnGroupMaker g) => g.kindDef == PawnGroupKindDefOf.Combat))
+				if (item != null && !item.IsPlayer && item.def != null && !item.defeated && item.HostileTo(Faction.OfPlayerSilentFail) && item.def.pawnGroupMakers != null && item.def.pawnGroupMakers.Any((PawnGroupMaker g) => g.kindDef == PawnGroupKindDefOf.Combat))
 				{
 					bool flag2 = false;
 					bool flag3 = false;
@@ -5742,7 +5742,7 @@ namespace ResearchLockedRaidGear
 				var fac = new List<string>();
 				foreach (Faction f in Find.FactionManager.AllFactionsVisible)
 				{
-					if (f == null || f.IsPlayer || f.def == null || !f.HostileTo(Faction.OfPlayer))
+					if (f == null || f.IsPlayer || f.def == null || !f.HostileTo(Faction.OfPlayerSilentFail))
 					{
 						continue;
 					}
@@ -6375,7 +6375,7 @@ namespace ResearchLockedRaidGear
 			try
 			{
 				List<string> l = GearLog.For(__instance);
-				if (l == null || l.Count == 0 || __instance.Faction == Faction.OfPlayer) return;
+				if (l == null || l.Count == 0 || __instance.Faction == Faction.OfPlayerSilentFail) return;
 				string line = "RLRG_GearLogLine".Translate(string.Join(", ", l.Take(4).ToArray()) + (l.Count > 4 ? ", …" : "")).ToString();
 				__result = __result.NullOrEmpty() ? line : __result + "\n" + line;
 			}
@@ -6445,7 +6445,7 @@ namespace ResearchLockedRaidGear
 			{
 				return false;
 			}
-			if (parms.faction.IsPlayer || Faction.OfPlayer == null || !parms.faction.HostileTo(Faction.OfPlayer))
+			if (parms.faction.IsPlayer || Faction.OfPlayerSilentFail == null || !parms.faction.HostileTo(Faction.OfPlayerSilentFail))
 			{
 				return false;
 			}
@@ -6677,7 +6677,7 @@ namespace ResearchLockedRaidGear
 			{
 				return original;
 			}
-			if (parms.groupKind != PawnGroupKindDefOf.Combat || parms.faction.IsPlayer || Faction.OfPlayer == null || !parms.faction.HostileTo(Faction.OfPlayer))
+			if (parms.groupKind != PawnGroupKindDefOf.Combat || parms.faction.IsPlayer || Faction.OfPlayerSilentFail == null || !parms.faction.HostileTo(Faction.OfPlayerSilentFail))
 			{
 				return original;
 			}
