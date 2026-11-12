@@ -24,6 +24,9 @@ public class SGSettings : ModSettings
 	public bool strangerInBlack = false; // the stranger in black comes when things go badly – not gated by default
 	public bool recruitsCount = true;  // a recruited prisoner also restarts the waiting time
 	public bool recommended = true;
+	public bool modJoiners = true;      // events from other mods in which someone joins
+	public HashSet<string> learned = new HashSet<string>();   // events seen bringing a new colonist
+	public HashSet<string> allowed = new HashSet<string>();   // events the player lets through
 
 	public override void ExposeData()
 	{
@@ -38,19 +41,24 @@ public class SGSettings : ModSettings
 		Scribe_Values.Look(ref strangerInBlack, "strangerInBlack", false);
 		Scribe_Values.Look(ref recruitsCount, "recruitsCount", true);
 		Scribe_Values.Look(ref recommended, "recommended", true);
+		Scribe_Values.Look(ref modJoiners, "modJoiners", true);
+		Scribe_Collections.Look(ref learned, "learned", LookMode.Value);
+		Scribe_Collections.Look(ref allowed, "allowed", LookMode.Value);
+		learned ??= new HashSet<string>();
+		allowed ??= new HashSet<string>();
 	}
 }
 
 public class SlowGrowthMod : Mod
 {
 	public static SGSettings S;
-	public const string Version = "0.1.0";
+	public const string Version = "0.1.1";
 	private static List<string> rec;
 
 	public SlowGrowthMod(ModContentPack content) : base(content)
 	{
 		S = GetSettings<SGSettings>();
-		MUI.Init(new SGSettings(), null, "recommended");
+		MUI.Init(new SGSettings(), null, "recommended", "learned", "allowed");
 		if (S.recommended) MUI.ApplyAll(S);
 		var h = new Harmony("bolek98.slowgrowth");
 		h.PatchAll();
@@ -101,10 +109,41 @@ public class SlowGrowthMod : Mod
 			Check(l, "SG_Quests", ref s.questJoiners, "questJoiners");
 			if (ModsConfig.AnomalyActive) Check(l, "SG_Creep", ref s.creepJoiners, "creepJoiners");
 			Check(l, "SG_Stranger", ref s.strangerInBlack, "strangerInBlack");
+			Check(l, "SG_ModJoiners", ref s.modJoiners, "modJoiners");
 			Check(l, "SG_Recruits", ref s.recruitsCount, "recruitsCount");
 			l.End();
 		}
 		finally { MUI.EndLock(area); }
+		DrawList(new Rect(r.x, area.y + 300f, r.width, r.yMax - area.y - 300f));
+	}
+
+	private Vector2 scroll;
+	private void DrawList(Rect r)
+	{
+		if (r.height < 60f) return;
+		List<IncidentDef> list = DefDatabase<IncidentDef>.AllDefsListForReading.Where(d => { var k = Gate.KindOf(d); return k != JoinKind.None && k != JoinKind.Always; })
+			.OrderBy(d => d.modContentPack?.IsOfficialMod == true ? 0 : 1).ThenBy(d => d.label ?? d.defName).ToList();
+		Widgets.Label(new Rect(r.x, r.y, r.width, 24f), "SG_ListHead".Translate(list.Count));
+		Rect outR = new Rect(r.x, r.y + 26f, r.width, r.height - 26f);
+		Rect view = new Rect(0f, 0f, outR.width - 18f, list.Count * 28f);
+		Widgets.BeginScrollView(outR, ref scroll, view);
+		for (int i = 0; i < list.Count; i++)
+		{
+			IncidentDef d = list[i];
+			Rect row = new Rect(0f, i * 28f, view.width, 26f);
+			if (i % 2 == 0) Widgets.DrawLightHighlight(row);
+			bool wait = !S.allowed.Contains(d.defName);
+			bool was = wait;
+			Widgets.Checkbox(new Vector2(row.x + 2f, row.y + 1f), ref wait);
+			if (wait != was) { if (wait) S.allowed.Remove(d.defName); else S.allowed.Add(d.defName); }
+			Widgets.Label(new Rect(row.x + 32f, row.y + 2f, 300f, 24f), ((string)(d.LabelCap.NullOrEmpty() ? d.defName : d.LabelCap.ToString())).Truncate(300f));
+			GUI.color = MUI.Accent;
+			Widgets.Label(new Rect(row.x + 340f, row.y + 2f, 190f, 24f), ("SG_Kind_" + Gate.KindOf(d)).Translate());
+			GUI.color = MUI.Muted;
+			Widgets.Label(new Rect(row.x + 536f, row.y + 2f, row.width - 536f, 24f), (d.modContentPack?.Name ?? "").Truncate(row.width - 536f));
+			GUI.color = Color.white;
+		}
+		Widgets.EndScrollView();
 	}
 }
 
@@ -117,7 +156,7 @@ public class SGComp : GameComponent
 	public override void ExposeData() => Scribe_Values.Look(ref lastJoinTick, "lastJoinTick", -1);
 }
 
-public enum JoinKind { None, Wanderer, Quest, Creep, Stranger, Always }
+public enum JoinKind { None, Wanderer, Quest, Creep, Stranger, Always, Mod }
 
 public static class Gate
 {
@@ -152,6 +191,12 @@ public static class Gate
 		return Open(out string why) ? "SG_StatusOpen".Translate(n) : "SG_StatusClosed".Translate(n, why);
 	}
 
+	public static bool Gated(IncidentDef def)
+	{
+		if (def != null && SlowGrowthMod.S.allowed.Contains(def.defName)) return false;
+		return Gated(KindOf(def));
+	}
+
 	public static bool Gated(JoinKind k)
 	{
 		var s = SlowGrowthMod.S;
@@ -161,14 +206,44 @@ public static class Gate
 			case JoinKind.Quest: return s.questJoiners;
 			case JoinKind.Creep: return s.creepJoiners;
 			case JoinKind.Stranger: return s.strangerInBlack;
+			case JoinKind.Mod: return s.modJoiners;
 			default: return false;
 		}
 	}
+
+	private static readonly string[] JoinWords = { "Join", "Wanderer", "Refugee", "Recruit", "Survivor", "Castaway", "Newcomer", "Volunteer", "Defector", "Deserter", "Orphan", "Foundling", "Stray", "Lost" };
+
+	public static void Forget(IncidentDef def) => incidents.Remove(def);
 
 	public static JoinKind KindOf(IncidentDef def)
 	{
 		if (def == null) return JoinKind.None;
 		if (incidents.TryGetValue(def, out JoinKind k)) return k;
+		k = Classify(def);
+		incidents[def] = k;
+		return k;
+	}
+
+	private static JoinKind Classify(IncidentDef def)
+	{
+		JoinKind k = ClassifyVanilla(def);
+		if (k != JoinKind.None) return k;
+		if (SlowGrowthMod.S.learned.Contains(def.defName)) return JoinKind.Mod;
+		// events from other mods: the name says somebody joins, and it is no raid, visit or trader
+		Type w = def.workerClass;
+		if (w == null || typeof(IncidentWorker_RaidEnemy).IsAssignableFrom(w) || typeof(IncidentWorker_NeutralGroup).IsAssignableFrom(w)
+		    || w.Name.IndexOf("Raid", StringComparison.OrdinalIgnoreCase) >= 0 || w.Name.IndexOf("Trader", StringComparison.OrdinalIgnoreCase) >= 0
+		    || w.Name.IndexOf("Visitor", StringComparison.OrdinalIgnoreCase) >= 0 || w.Name.IndexOf("Caravan", StringComparison.OrdinalIgnoreCase) >= 0)
+			return JoinKind.None;
+		if (def.modContentPack != null && def.modContentPack.IsOfficialMod) return JoinKind.None;
+		string text = def.defName + " " + w.Name;
+		if (JoinWords.Any(x => text.IndexOf(x, StringComparison.OrdinalIgnoreCase) >= 0)) return JoinKind.Mod;
+		return JoinKind.None;
+	}
+
+	private static JoinKind ClassifyVanilla(IncidentDef def)
+	{
+		JoinKind k;
 		k = JoinKind.None;
 		Type w = def.workerClass;
 		string dn = def.defName ?? "";
@@ -181,7 +256,6 @@ public static class Gate
 			else if (w.Name.IndexOf("WandererJoin", StringComparison.OrdinalIgnoreCase) >= 0 || w.Name.IndexOf("Joiner", StringComparison.OrdinalIgnoreCase) >= 0) k = JoinKind.Wanderer;
 			else if (typeof(IncidentWorker_GiveQuest).IsAssignableFrom(w) && def.questScriptDef != null && QuestJoins(def.questScriptDef)) k = JoinKind.Quest;
 		}
-		incidents[def] = k;
 		return k;
 	}
 
@@ -245,9 +319,31 @@ public static class Patch_CanFire
 	public static void Postfix(IncidentWorker __instance, ref bool __result)
 	{
 		if (!__result) return;
-		JoinKind k = Gate.KindOf(__instance.def);
-		if (Gate.Gated(k) && !Gate.Open(out _)) __result = false;
+		if (Gate.Gated(__instance.def) && !Gate.Open(out _)) __result = false;
 	}
+}
+
+// remembers which event is running – if somebody joins during it, it is a "joiner" event from now on
+[HarmonyPatch(typeof(IncidentWorker), nameof(IncidentWorker.TryExecute))]
+public static class Patch_TryExecute
+{
+	[ThreadStatic] public static IncidentDef running;
+
+	public static bool Prefix(IncidentWorker __instance, IncidentParms parms, ref bool __result, out IncidentDef __state)
+	{
+		__state = running;
+		running = __instance.def;
+		// forced through without CanFireNow (another mod, a quest) – still wait
+		if (parms != null && !parms.forced && Gate.Gated(__instance.def) && !Gate.Open(out _))
+		{
+			running = __state;
+			__result = false;
+			return false;
+		}
+		return true;
+	}
+
+	public static void Postfix(IncidentDef __state) => running = __state;
 }
 
 // random quests: a quest where somebody joins cannot be picked while the gate is closed
@@ -282,5 +378,17 @@ public static class Patch_SetFaction
 		if (!SlowGrowthMod.S.recruitsCount && p.guest?.Recruitable == true && p.records != null && p.records.GetValue(RecordDefOf.TimeAsPrisoner) > 0f) return;
 		SGComp c = SGComp.Get();
 		if (c != null) c.lastJoinTick = Find.TickManager.TicksGame;
+		// learn: an event from a mod that brought somebody in
+		IncidentDef ev = Patch_TryExecute.running;
+		if (ev != null && Gate.KindOf(ev) == JoinKind.None && !(typeof(IncidentWorker_GameEndedWanderersJoin).IsAssignableFrom(ev.workerClass)))
+		{
+			var s = SlowGrowthMod.S;
+			if (s.learned.Add(ev.defName))
+			{
+				Gate.Forget(ev);
+				LoadedModManager.GetMod<SlowGrowthMod>()?.WriteSettings();
+				Log.Message("[Slow Growth] learned: '" + ev.defName + "' brings new colonists – it waits from now on.");
+			}
+		}
 	}
 }
