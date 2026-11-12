@@ -533,7 +533,8 @@ namespace GraphicsTuner
             try { HighRefresh.Update(s); } catch { }   // 1.6.3
             Benchmark.Update();
             Profiler.Update();
-            Freezer.Update();
+            try { Freezer.Update(); }
+            catch (Exception ex) { MLog.WarnOnce("[Smooth FPS] memory: " + ex.Message, 0x6f7a52); }
             if (now < nextApply) return;
             nextApply = now + 1f;
             SmartTarget.Update(Fps);
@@ -771,7 +772,7 @@ namespace GraphicsTuner
     // ---------------- mod and settings window ----------------
     public class GraphicsTunerMod : Mod
     {
-        public const string Version = "1.7.2";
+        public const string Version = "1.7.3";
         public static GfxSettings Settings;
         private Vector2 scroll;
         private float viewHeight = 900f;
