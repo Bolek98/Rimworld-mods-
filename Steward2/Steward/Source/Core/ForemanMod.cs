@@ -11,7 +11,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "1.3.0";
+	public const string Version = "1.3.1";
 	public static ForemanSettings Settings;
 
 	private int tab;
@@ -86,6 +86,14 @@ public sealed class ForemanMod : Mod
 		// 1.3.0: who has priority
 		if (l.ButtonTextLabeled("CF2_OrderLabel".Translate(), "CF2_OrderButton".Translate()))
 			Find.WindowStack.Add(new Dialog_StepOrder(s));
+		// 1.3.1: what the steward sees waiting – every work type, mods included
+		if (Current.ProgramState == ProgramState.Playing && Find.CurrentMap != null
+		    && l.ButtonTextLabeled("CF2_CheckWorkLabel".Translate(), "CF2_CheckWorkButton".Translate()))
+		{
+			string rep = Demand.Report(Find.CurrentMap, s);
+			MLog.Info("[Steward] waiting work on " + Find.CurrentMap + ":\n" + rep);
+			Find.WindowStack.Add(new Dialog_MessageBox("CF2_CheckWorkHead".Translate() + "\n\n" + rep));
+		}
 		s.surgeryMinMedicine = Mathf.RoundToInt(MUI.Slider(l, "CF2_SurgeryMin".Translate(s.surgeryMinMedicine), s.surgeryMinMedicine, 0f, 20f, "CF2_SurgeryMinTip".Translate(), s, "surgeryMinMedicine"));
 		MUI.Check(l, "CF2_Opposed".Translate(), "CF2_OpposedTip".Translate(), ref s.assignOpposed, s, "assignOpposed");
 		MUI.Check(l, "CF2_Injured".Translate(), "CF2_InjuredTip".Translate(), ref s.lightWorkInjured, s, "lightWorkInjured");
