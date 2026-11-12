@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SG_Rec1>No newcomers in the first 10 days, then at most one every 8 days.</SG_Rec1>
+  <SG_Rec2>The storyteller is only half as eager to send you people.</SG_Rec2>
+  <SG_Rec3>Wanderers and quests where someone joins wait; the stranger in black still comes when things go badly.</SG_Rec3>
+  <SG_Enabled>Slow growth on</SG_Enabled>
+  <SG_Enabled_Desc>Master switch for the whole mod.</SG_Enabled_Desc>
+  <SG_FirstDay>No newcomers before day: {0}</SG_FirstDay>
+  <SG_FirstDay_Desc>Until this day of the game nobody joins through events – you get to survive on your own first.</SG_FirstDay_Desc>
+  <SG_Between>At least this many days between newcomers: {0}</SG_Between>
+  <SG_Between_Desc>After somebody joins, the next newcomer from events can come only after this many days.</SG_Between_Desc>
+  <SG_Cap>No newcomers from events from: {0} colonists</SG_Cap>
+  <SG_Cap_Desc>When the colony has this many colonists, events no longer bring new people. You can still recruit prisoners or rescue people yourself. 0 = no limit.</SG_Cap_Desc>
+  <SG_NoCap>no limit</SG_NoCap>
+  <SG_Pop>Storyteller's wish for more people: {0}</SG_Pop>
+  <SG_Pop_Desc>Every storyteller wants a small colony to grow and sends people more often then. 100 % = like the game, 50 % = half as eager, 0 % = it never pushes growth on its own.</SG_Pop_Desc>
+  <SG_SecWho>Who has to wait</SG_SecWho>
+  <SG_Wanderers>Wanderers who join</SG_Wanderers>
+  <SG_Wanderers_Desc>The classic 'a wanderer wants to join' event and its versions from mods.</SG_Wanderers_Desc>
+  <SG_Quests>Quests where someone joins</SG_Quests>
+  <SG_Quests_Desc>Refugee pods, chased refugees, prisoners willing to join and every quest (also from mods) in which someone joins the colony.</SG_Quests_Desc>
+  <SG_Creep>Creepjoiners (Anomaly)</SG_Creep>
+  <SG_Creep_Desc>The strange people from Anomaly who ask to join.</SG_Creep_Desc>
+  <SG_Stranger>The stranger in black</SG_Stranger>
+  <SG_Stranger_Desc>He comes when the colony is in deep trouble. Off = he can still come any time (recommended for one-colonist starts).</SG_Stranger_Desc>
+  <SG_Recruits>Recruited prisoners count too</SG_Recruits>
+  <SG_Recruits_Desc>When you recruit a prisoner, the waiting time for the next newcomer starts again. Recruiting itself is never blocked.</SG_Recruits_Desc>
+  <SG_StatusOpen>This game: {0} colonists – a newcomer can come now.</SG_StatusOpen>
+  <SG_StatusClosed>This game: {0} colonists – {1}</SG_StatusClosed>
+  <SG_WhyFirst>the first newcomer in {0} days.</SG_WhyFirst>
+  <SG_WhyBetween>the next newcomer in {0} days.</SG_WhyBetween>
+  <SG_WhyCap>the limit of {0} colonists is reached.</SG_WhyCap>
+</LanguageData>

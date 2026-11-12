@@ -1,0 +1,286 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using HarmonyLib;
+using RimWorld;
+using RimWorld.QuestGen;
+using UnityEngine;
+using Verse;
+
+namespace SlowGrowth;
+
+public class SGSettings : ModSettings
+{
+	public bool enabled = true;
+	public int firstDay = 10;          // no newcomer before this day
+	public int daysBetween = 8;        // at least this many days between two newcomers
+	public int cap = 0;                // no newcomers from events at this many colonists (0 = no limit)
+	public float popIntent = 0.5f;     // how eager the storyteller is to send people (1 = normal)
+	public bool wanderers = true;      // gate wanderers who join
+	public bool questJoiners = true;   // gate quests where someone joins (refugee pods, chased refugees …)
+	public bool creepJoiners = true;   // gate Anomaly creepjoiners
+	public bool strangerInBlack = false; // the stranger in black comes when things go badly – not gated by default
+	public bool recruitsCount = true;  // a recruited prisoner also restarts the waiting time
+	public bool recommended = true;
+
+	public override void ExposeData()
+	{
+		Scribe_Values.Look(ref enabled, "enabled", true);
+		Scribe_Values.Look(ref firstDay, "firstDay", 10);
+		Scribe_Values.Look(ref daysBetween, "daysBetween", 8);
+		Scribe_Values.Look(ref cap, "cap", 0);
+		Scribe_Values.Look(ref popIntent, "popIntent", 0.5f);
+		Scribe_Values.Look(ref wanderers, "wanderers", true);
+		Scribe_Values.Look(ref questJoiners, "questJoiners", true);
+		Scribe_Values.Look(ref creepJoiners, "creepJoiners", true);
+		Scribe_Values.Look(ref strangerInBlack, "strangerInBlack", false);
+		Scribe_Values.Look(ref recruitsCount, "recruitsCount", true);
+		Scribe_Values.Look(ref recommended, "recommended", true);
+	}
+}
+
+public class SlowGrowthMod : Mod
+{
+	public static SGSettings S;
+	public const string Version = "0.1.0";
+	private static List<string> rec;
+
+	public SlowGrowthMod(ModContentPack content) : base(content)
+	{
+		S = GetSettings<SGSettings>();
+		MUI.Init(new SGSettings(), null, "recommended");
+		if (S.recommended) MUI.ApplyAll(S);
+		var h = new Harmony("bolek98.slowgrowth");
+		h.PatchAll();
+		MethodInfo pop = AccessTools.Method(typeof(StorytellerUtilityPopulation), "CalculatePopulationIntent");
+		if (pop != null) h.Patch(pop, postfix: new HarmonyMethod(typeof(Patches), nameof(Patches.PopIntent)));
+		MUI.PatchWindow(h, typeof(SlowGrowthMod));
+		MNews.Register(content, Version);
+		Log.Message("[Slow Growth] v" + Version + " loaded.");
+	}
+
+	public override string SettingsCategory() => "Slow Growth";
+
+	private static void Check(Listing_Standard l, string key, ref bool v, string field)
+		=> MUI.Check(l, key.Translate(), (key + "_Desc").Translate(), ref v, S, field);
+
+	public override void DoSettingsWindowContents(Rect r)
+	{
+		var s = S;
+		MUI.Version(r, "v" + Version + " · Bolek98");
+		rec ??= new List<string> { "SG_Rec1".Translate(), "SG_Rec2".Translate(), "SG_Rec3".Translate() };
+		float y = r.y;
+		y += MUI.RecommendedCard(new Rect(r.x, y, r.width, 0f), s, s.recommended, v => { s.recommended = v; if (v) MUI.ApplyAll(s); }, rec) + 6f;
+		if (s.recommended) y += MUI.LockNote(new Rect(r.x, y, r.width, 0f)) + 4f;
+		// where the current game stands
+		if (Current.ProgramState == ProgramState.Playing)
+		{
+			GUI.color = MUI.Accent;
+			Widgets.Label(new Rect(r.x, y, r.width, 26f), Gate.StatusLine());
+			GUI.color = Color.white;
+			y += 28f;
+		}
+		Rect area = new Rect(r.x, y, r.width, r.yMax - y);
+		var l = new Listing_Standard();
+		MUI.BeginLock(s.recommended);
+		try
+		{
+			l.Begin(area);
+			l.ColumnWidth = (area.width - 24f) / 2f;
+			Check(l, "SG_Enabled", ref s.enabled, "enabled");
+			s.firstDay = Mathf.RoundToInt(MUI.Slider(l, "SG_FirstDay".Translate(s.firstDay), s.firstDay, 0f, 60f, "SG_FirstDay_Desc".Translate(), s, "firstDay"));
+			s.daysBetween = Mathf.RoundToInt(MUI.Slider(l, "SG_Between".Translate(s.daysBetween), s.daysBetween, 0f, 30f, "SG_Between_Desc".Translate(), s, "daysBetween"));
+			string capTxt = s.cap <= 0 ? (string)"SG_NoCap".Translate() : s.cap.ToString();
+			s.cap = Mathf.RoundToInt(MUI.Slider(l, "SG_Cap".Translate(capTxt), s.cap, 0f, 30f, "SG_Cap_Desc".Translate(), s, "cap"));
+			s.popIntent = Mathf.Round(MUI.Slider(l, "SG_Pop".Translate(s.popIntent.ToStringPercent()), s.popIntent, 0f, 1f, "SG_Pop_Desc".Translate(), s, "popIntent") * 20f) / 20f;
+			l.NewColumn();
+			MUI.Section(l, "SG_SecWho".Translate());
+			Check(l, "SG_Wanderers", ref s.wanderers, "wanderers");
+			Check(l, "SG_Quests", ref s.questJoiners, "questJoiners");
+			if (ModsConfig.AnomalyActive) Check(l, "SG_Creep", ref s.creepJoiners, "creepJoiners");
+			Check(l, "SG_Stranger", ref s.strangerInBlack, "strangerInBlack");
+			Check(l, "SG_Recruits", ref s.recruitsCount, "recruitsCount");
+			l.End();
+		}
+		finally { MUI.EndLock(area); }
+	}
+}
+
+// when did the last newcomer join (saved with the game)
+public class SGComp : GameComponent
+{
+	public int lastJoinTick = -1;
+	public SGComp(Game g) { }
+	public static SGComp Get() => Current.Game?.GetComponent<SGComp>();
+	public override void ExposeData() => Scribe_Values.Look(ref lastJoinTick, "lastJoinTick", -1);
+}
+
+public enum JoinKind { None, Wanderer, Quest, Creep, Stranger, Always }
+
+public static class Gate
+{
+	private static readonly Dictionary<IncidentDef, JoinKind> incidents = new Dictionary<IncidentDef, JoinKind>();
+	private static readonly Dictionary<QuestScriptDef, bool> quests = new Dictionary<QuestScriptDef, bool>();
+
+	public static int Colonists => PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_FreeColonists_NoCryptosleep.Count(p => p.RaceProps.Humanlike);
+
+	public static float Today => Find.TickManager.TicksGame / (float)GenDate.TicksPerDay;
+
+	// is a newcomer allowed right now? (why not → reason)
+	public static bool Open(out string why)
+	{
+		why = null;
+		var s = SlowGrowthMod.S;
+		if (s == null || !s.enabled || Current.Game == null) return true;
+		float day = Today;
+		if (day < s.firstDay) { why = "SG_WhyFirst".Translate((s.firstDay - day).ToString("0.0")); return false; }
+		int last = SGComp.Get()?.lastJoinTick ?? -1;
+		if (last >= 0 && s.daysBetween > 0)
+		{
+			float since = (Find.TickManager.TicksGame - last) / (float)GenDate.TicksPerDay;
+			if (since < s.daysBetween) { why = "SG_WhyBetween".Translate((s.daysBetween - since).ToString("0.0")); return false; }
+		}
+		if (s.cap > 0 && Colonists >= s.cap) { why = "SG_WhyCap".Translate(s.cap); return false; }
+		return true;
+	}
+
+	public static string StatusLine()
+	{
+		int n = Colonists;
+		return Open(out string why) ? "SG_StatusOpen".Translate(n) : "SG_StatusClosed".Translate(n, why);
+	}
+
+	public static bool Gated(JoinKind k)
+	{
+		var s = SlowGrowthMod.S;
+		switch (k)
+		{
+			case JoinKind.Wanderer: return s.wanderers;
+			case JoinKind.Quest: return s.questJoiners;
+			case JoinKind.Creep: return s.creepJoiners;
+			case JoinKind.Stranger: return s.strangerInBlack;
+			default: return false;
+		}
+	}
+
+	public static JoinKind KindOf(IncidentDef def)
+	{
+		if (def == null) return JoinKind.None;
+		if (incidents.TryGetValue(def, out JoinKind k)) return k;
+		k = JoinKind.None;
+		Type w = def.workerClass;
+		string dn = def.defName ?? "";
+		if (w != null)
+		{
+			if (typeof(IncidentWorker_GameEndedWanderersJoin).IsAssignableFrom(w)) k = JoinKind.Always;   // everybody is gone – always let them come
+			else if (dn.IndexOf("StrangerInBlack", StringComparison.OrdinalIgnoreCase) >= 0) k = JoinKind.Stranger;
+			else if (typeof(IncidentWorker_WandererJoin).IsAssignableFrom(w)) k = JoinKind.Wanderer;
+			else if (w.Name.IndexOf("CreepJoiner", StringComparison.OrdinalIgnoreCase) >= 0) k = JoinKind.Creep;
+			else if (w.Name.IndexOf("WandererJoin", StringComparison.OrdinalIgnoreCase) >= 0 || w.Name.IndexOf("Joiner", StringComparison.OrdinalIgnoreCase) >= 0) k = JoinKind.Wanderer;
+			else if (typeof(IncidentWorker_GiveQuest).IsAssignableFrom(w) && def.questScriptDef != null && QuestJoins(def.questScriptDef)) k = JoinKind.Quest;
+		}
+		incidents[def] = k;
+		return k;
+	}
+
+	// does somebody join the colony in this quest? (any QuestNode_JoinPlayer in its tree)
+	public static bool QuestJoins(QuestScriptDef q)
+	{
+		if (q == null) return false;
+		if (quests.TryGetValue(q, out bool b)) return b;
+		quests[q] = false;   // guards against loops
+		try { b = Walk(q.root, new HashSet<object>(), 0); }
+		catch { b = false; }
+		quests[q] = b;
+		return b;
+	}
+
+	private static bool Walk(object node, HashSet<object> seen, int depth)
+	{
+		if (node == null || depth > 40 || !seen.Add(node)) return false;
+		if (node is QuestNode_JoinPlayer) return true;
+		if (node is QuestScriptDef sub) return QuestJoins(sub);
+		if (!(node is QuestNode)) return false;
+		foreach (FieldInfo f in AccessTools.GetDeclaredFields(node.GetType()).Concat(BaseFields(node.GetType())))
+		{
+			if (f.IsStatic) continue;
+			object v = f.GetValue(node);
+			if (v is QuestNode || v is QuestScriptDef)
+			{
+				if (Walk(v, seen, depth + 1)) return true;
+			}
+			else if (v is IEnumerable list && !(v is string))
+			{
+				foreach (object o in list)
+					if ((o is QuestNode || o is QuestScriptDef) && Walk(o, seen, depth + 1)) return true;
+			}
+		}
+		return false;
+	}
+
+	private static IEnumerable<FieldInfo> BaseFields(Type t)
+	{
+		for (Type b = t.BaseType; b != null && b != typeof(object) && b != typeof(QuestNode); b = b.BaseType)
+			foreach (FieldInfo f in AccessTools.GetDeclaredFields(b))
+				yield return f;
+	}
+}
+
+public static class Patches
+{
+	// the storyteller wants fewer people – it then fires fewer "someone joins" events
+	public static void PopIntent(ref float __result)
+	{
+		var s = SlowGrowthMod.S;
+		if (s == null || !s.enabled || __result <= 0f) return;
+		__result *= Mathf.Clamp01(s.popIntent);
+	}
+}
+
+[HarmonyPatch(typeof(IncidentWorker), nameof(IncidentWorker.CanFireNow))]
+public static class Patch_CanFire
+{
+	public static void Postfix(IncidentWorker __instance, ref bool __result)
+	{
+		if (!__result) return;
+		JoinKind k = Gate.KindOf(__instance.def);
+		if (Gate.Gated(k) && !Gate.Open(out _)) __result = false;
+	}
+}
+
+// random quests: a quest where somebody joins cannot be picked while the gate is closed
+[HarmonyPatch(typeof(QuestScriptDef), nameof(QuestScriptDef.CanRun), new[] { typeof(float), typeof(IIncidentTarget) })]
+public static class Patch_QuestCanRun
+{
+	public static void Postfix(QuestScriptDef __instance, ref bool __result)
+	{
+		var s = SlowGrowthMod.S;
+		if (!__result || s == null || !s.enabled || !s.questJoiners) return;
+		if (Current.ProgramState != ProgramState.Playing) return;
+		if (Gate.QuestJoins(__instance) && !Gate.Open(out _)) __result = false;
+	}
+}
+
+// somebody joined – the waiting starts again
+[HarmonyPatch(typeof(Pawn), nameof(Pawn.SetFaction))]
+public static class Patch_SetFaction
+{
+	public static void Prefix(Pawn __instance, Faction newFaction, out bool __state)
+	{
+		__state = newFaction != null && newFaction.IsPlayer && __instance.Faction != newFaction;
+	}
+
+	public static void Postfix(Pawn __instance, bool __state)
+	{
+		if (!__state || Current.ProgramState != ProgramState.Playing || Find.TickManager.TicksGame < 600) return;
+		Pawn p = __instance;
+		if (p.RaceProps == null || !p.RaceProps.Humanlike) return;
+		if (p.IsSlave || p.IsQuestLodger()) return;
+		if (p.guest != null && p.guest.IsPrisoner) return;
+		if (!SlowGrowthMod.S.recruitsCount && p.guest?.Recruitable == true && p.records != null && p.records.GetValue(RecordDefOf.TimeAsPrisoner) > 0f) return;
+		SGComp c = SGComp.Get();
+		if (c != null) c.lastJoinTick = Find.TickManager.TicksGame;
+	}
+}
