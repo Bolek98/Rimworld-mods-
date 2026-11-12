@@ -529,7 +529,13 @@ public sealed class CrisisStep : IPlanStep
 								continue;
 							int v = ctx.Get(p, w);
 							if (v > 0 && v <= 2)
+							{
+								// 1.3.0: a crisis about lives has the highest priority of all
+								string prevCat = ctx.Category;
+								if (g == CrisisGroup.Life) ctx.Category = "life";
 								ctx.Set(p, w, ctx.Levels, "CF2C_TipCrisisDown", CrisisRules.Label(c), null, pin: true);
+								ctx.Category = prevCat;
+							}
 						}
 					}
 					else if (kv.Value.urgency > 0f)
@@ -544,7 +550,10 @@ public sealed class CrisisStep : IPlanStep
 			if (u.t.Group != CrisisGroup.Life)
 				count = GroupRaiser.CountFor(u.t, count, ctx.pawns.Count);
 			int level = GroupRaiser.LevelFor(u.t, u.e.urgency >= 0.3f ? 1 : 2);
+			string prevCat = ctx.Category;
+			if (u.t.Group == CrisisGroup.Life) ctx.Category = "life";
 			raiser.Raise(u.t, u.w, level, count, "CF2C_TipCrisis", CrisisRules.Label(u.c));
+			ctx.Category = prevCat;
 		}
 	}
 }

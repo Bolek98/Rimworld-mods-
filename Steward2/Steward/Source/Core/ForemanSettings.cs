@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -26,6 +27,9 @@ public sealed class ForemanSettings : ModSettings
 	public float backupMinYield = 0.75f;
 	// 1.2.0: top job – the colonist's own skill against the colony's current needs (0 = like before)
 	public float skillFirst = 0.6f;
+	// 1.3.0: who has priority when steps want different things for the same cell (strongest first)
+	public static readonly List<string> DefaultStepOrder = new List<string> { "life", "rules", "roles", "area", "crisis", "addons", "apprentice", "droids", "top", "children", "idle", "base" };
+	public List<string> stepOrder = new List<string>(DefaultStepOrder);
 	// 1.1.0: surgery is left to doctors with at least this Medicine when one is there (0 = off)
 	public int surgeryMinMedicine = 8;
 	public bool oneTopPriority = true;
@@ -88,6 +92,11 @@ public sealed class ForemanSettings : ModSettings
 		Scribe_Values.Look(ref backupHardMin, "backupHardMin", 3);
 		Scribe_Values.Look(ref backupMinYield, "backupMinYield", 0.75f);
 		Scribe_Values.Look(ref skillFirst, "skillFirst", 0.6f);
+		Scribe_Collections.Look(ref stepOrder, "stepOrder", LookMode.Value);
+		if (stepOrder == null || stepOrder.Count == 0) stepOrder = new List<string>(DefaultStepOrder);
+		// a category added in a later version goes in at its default place
+		foreach (string c in DefaultStepOrder)
+			if (!stepOrder.Contains(c)) stepOrder.Insert(Math.Min(stepOrder.Count, DefaultStepOrder.IndexOf(c)), c);
 		Scribe_Values.Look(ref surgeryMinMedicine, "surgeryMinMedicine", 8);
 		Scribe_Values.Look(ref oneTopPriority, "oneTopPriority", true);
 		Scribe_Values.Look(ref includeLodgers, "includeLodgers", true);

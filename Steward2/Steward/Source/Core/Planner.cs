@@ -174,6 +174,7 @@ public static class Planner
 		{
 			try
 			{
+				ctx.Category = PlanContext.CategoryOfStep(step.Id);
 				step.Apply(ctx);
 			}
 			catch (Exception ex)
@@ -183,6 +184,14 @@ public static class Planner
 				if (step.Id == "core.base")
 					return null;
 			}
+		}
+		ctx.Category = null;
+		// 1.3.0: every dispute shows in the cell's tooltip – who wanted what and who has priority
+		var shown = new HashSet<string>();
+		foreach (var d in ctx.disputes)
+		{
+			if (!shown.Add(d.p.thingIDNumber + "|" + d.w.defName + "|" + d.loser)) continue;
+			ctx.AddReason(d.p, d.w, "CF2_TipDispute", ("CF2_Cat_" + d.loser).Translate() + " (" + (d.wanted <= 0 ? "–" : d.wanted.ToString()) + ")", ("CF2_Cat_" + d.winner).Translate());
 		}
 		return new PlanResult { ctx = ctx, final = Final(ctx) };
 	}

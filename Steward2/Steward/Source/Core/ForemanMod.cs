@@ -11,7 +11,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "1.2.0";
+	public const string Version = "1.3.0";
 	public static ForemanSettings Settings;
 
 	private int tab;
@@ -22,7 +22,7 @@ public sealed class ForemanMod : Mod
 	{
 		Instance = this;
 		Settings = GetSettings<ForemanSettings>();
-		MUI.Init(new ForemanSettings(), null, "maxPriorityOverride");
+		MUI.Init(new ForemanSettings(), null, "maxPriorityOverride", "stepOrder");
 		var h = new Harmony("misak.colonyforeman");
 		h.PatchAll(typeof(ForemanMod).Assembly);
 		MUI.PatchWindow(h, typeof(ForemanMod));
@@ -83,6 +83,9 @@ public sealed class ForemanMod : Mod
 		s.backupHardMin = Mathf.RoundToInt(MUI.Slider(l, "CF2_BackupHardMin".Translate(s.backupHardMin), s.backupHardMin, 0f, 8f, "CF2_BackupHardMinTip".Translate(), s, "backupHardMin"));
 		s.backupMinYield = Mathf.Round(MUI.Slider(l, "CF2_BackupMinYield".Translate(s.backupMinYield.ToStringPercent()), s.backupMinYield, 0f, 1f, "CF2_BackupMinYieldTip".Translate(), s, "backupMinYield") * 20f) / 20f;
 		s.skillFirst = Mathf.Round(MUI.Slider(l, "CF2_SkillFirst".Translate(s.skillFirst.ToStringPercent()), s.skillFirst, 0f, 1f, "CF2_SkillFirstTip".Translate(), s, "skillFirst") * 10f) / 10f;
+		// 1.3.0: who has priority
+		if (l.ButtonTextLabeled("CF2_OrderLabel".Translate(), "CF2_OrderButton".Translate()))
+			Find.WindowStack.Add(new Dialog_StepOrder(s));
 		s.surgeryMinMedicine = Mathf.RoundToInt(MUI.Slider(l, "CF2_SurgeryMin".Translate(s.surgeryMinMedicine), s.surgeryMinMedicine, 0f, 20f, "CF2_SurgeryMinTip".Translate(), s, "surgeryMinMedicine"));
 		MUI.Check(l, "CF2_Opposed".Translate(), "CF2_OpposedTip".Translate(), ref s.assignOpposed, s, "assignOpposed");
 		MUI.Check(l, "CF2_Injured".Translate(), "CF2_InjuredTip".Translate(), ref s.lightWorkInjured, s, "lightWorkInjured");

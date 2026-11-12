@@ -182,6 +182,48 @@ public sealed class PlanContext
 
 	public static long Key(Pawn p, WorkTypeDef w) => ((long)p.thingIDNumber << 16) | (uint)w.index;
 
+	// 1.3.0: who has priority. Each step writes as a category (life, rules, roles, area, crisis …);
+	// a stronger category's cell is not overwritten by a weaker one, whatever the order of the steps.
+	// A step may write as another category for a moment (Crises: lives → "life").
+	public string Category;
+	private readonly Dictionary<long, int> ownerStrength = new Dictionary<long, int>();
+	private readonly Dictionary<long, string> ownerCat = new Dictionary<long, string>();
+	// the disputes of this plan: (cell, who lost, wanted level, who won)
+	public readonly List<(Pawn p, WorkTypeDef w, string loser, int wanted, string winner)> disputes = new List<(Pawn, WorkTypeDef, string, int, string)>();
+
+	public static string CategoryOfStep(string stepId)
+	{
+		switch (stepId)
+		{
+			case "core.base": return "base";
+			case "core.children": return "children";
+			case "core.myrules": return "rules";
+			case "core.topjob": return "top";
+			case "core.area": return "area";
+			case "core.small":
+			case "core.idle": return "idle";
+			case "core.apprentice": return "apprentice";
+			case "crises.crisis":
+			case "crises.focus":
+			case "crises.situations": return "crisis";
+			case "droids": return "droids";
+			case "roles": return "roles";
+			default: return "addons";
+		}
+	}
+
+	private int Strength(string cat)
+	{
+		List<string> order = settings?.stepOrder;
+		if (order == null || order.Count == 0) order = ForemanSettings.DefaultStepOrder;
+		int i = order.IndexOf(cat ?? "addons");
+		if (i < 0) i = order.IndexOf("addons");
+		if (i < 0) i = order.Count;
+		return 1000 - i;   // first in the list = strongest
+	}
+
+	public string OwnerOf(Pawn p, WorkTypeDef w) => ownerCat.TryGetValue(Key(p, w), out string c) ? c : null;
+
 	public int Get(Pawn p, WorkTypeDef w) => plan.TryGetValue(p, out var j) && j.TryGetValue(w, out int v) ? v : 0;
 
 	public float Fit(Pawn p, WorkTypeDef w) => fit.TryGetValue(p, out var f) && f.TryGetValue(w, out float v) ? v : 0f;
@@ -200,9 +242,24 @@ public sealed class PlanContext
 		if (Locked(p, w) || (level > 0 && !CanDo(p, w)))
 			return false;
 		long k = Key(p, w);
-		if (!pin && pinned.Contains(k))
+		int mine = Strength(Category);
+		bool has = ownerStrength.TryGetValue(k, out int theirs);
+		// 1.3.0: a stronger category keeps its cell; a pin only protects against equal or weaker ones
+		if (has && theirs > mine)
+		{
+			int cur = jobs.TryGetValue(w, out int cv) ? cv : 0;
+			if (cur != Mathf.Clamp(level, 0, Levels) && Category != null && ownerCat.TryGetValue(k, out string win) && win != Category)
+				disputes.Add((p, w, Category, level, win));
+			return false;
+		}
+		if (!pin && pinned.Contains(k) && (!has || theirs >= mine))
 			return false;
 		jobs[w] = Mathf.Clamp(level, 0, Levels);
+		if (Category != null)
+		{
+			ownerStrength[k] = mine;
+			ownerCat[k] = Category;
+		}
 		if (pin)
 			pinned.Add(k);
 		if (reasonKey != null)
