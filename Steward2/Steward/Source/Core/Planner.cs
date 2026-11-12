@@ -74,7 +74,12 @@ public static class Planner
 		yieldStat ??= new Dictionary<WorkTypeDef, StatDef>();
 		if (!yieldStat.TryGetValue(w, out StatDef st))
 		{
-			if (w.relevantSkills.Contains(SkillDefOf.Plants)) st = StatDefOf.PlantHarvestYield;
+			// 1.3.2: hunting uses the Animals skill too, but its yield is the butchered meat –
+			// "animal gather yield" (milk, wool) made weak handlers stop hunting
+			if (w.relevantSkills.Contains(SkillDefOf.Shooting) || w.relevantSkills.Contains(SkillDefOf.Melee)
+			    || (w.workGiversByPriority != null && w.workGiversByPriority.Any(g => g.giverClass != null && typeof(WorkGiver_HunterHunt).IsAssignableFrom(g.giverClass))))
+				st = null;
+			else if (w.relevantSkills.Contains(SkillDefOf.Plants)) st = StatDefOf.PlantHarvestYield;
 			else if (w.relevantSkills.Contains(SkillDefOf.Mining)) st = StatDefOf.MiningYield;
 			else if (w.relevantSkills.Contains(SkillDefOf.Animals)) st = StatDefOf.AnimalGatherYield;
 			yieldStat[w] = st;
