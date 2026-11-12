@@ -22,9 +22,10 @@ public sealed class ForemanSettings : ModSettings
 	// 1.1.0: skilled work only goes to backups with at least this skill (0 = everybody)
 	public int backupMinSkill = 6;
 	// 1.2.0: no work with a skill as backup below this level (unless nobody else can do it)
-	public int backupHardMin = 3;
+	public int backupHardMin = 0;   // 1.3.3: off by default – for most work a weak backup is better than nobody
 	// 1.2.0: plants, mining and animals as backup only with at least this yield (0 = off)
-	public float backupMinYield = 0.75f;
+	public float backupMinYield = 0f;   // 1.3.3: off by default
+	public int settingsRev = 0;
 	// 1.2.0: top job – the colonist's own skill against the colony's current needs (0 = like before)
 	public float skillFirst = 0.6f;
 	// 1.3.0: who has priority when steps want different things for the same cell (strongest first)
@@ -89,8 +90,16 @@ public sealed class ForemanSettings : ModSettings
 		Scribe_Values.Look(ref assignOpposed, "assignOpposed", true);
 		Scribe_Values.Look(ref backupWorkers, "backupWorkers", true);
 		Scribe_Values.Look(ref backupMinSkill, "backupMinSkill", 6);
-		Scribe_Values.Look(ref backupHardMin, "backupHardMin", 3);
-		Scribe_Values.Look(ref backupMinYield, "backupMinYield", 0.75f);
+		Scribe_Values.Look(ref backupHardMin, "backupHardMin", 0);
+		Scribe_Values.Look(ref backupMinYield, "backupMinYield", 0f);
+		Scribe_Values.Look(ref settingsRev, "settingsRev", 0);
+		// 1.3.3: the strict backup rules of 1.2.0 (skill 3, 75 % yield) were too strict – switched off once
+		if (Scribe.mode == LoadSaveMode.LoadingVars && settingsRev < 1)
+		{
+			backupHardMin = 0;
+			backupMinYield = 0f;
+			settingsRev = 1;
+		}
 		Scribe_Values.Look(ref skillFirst, "skillFirst", 0.6f);
 		Scribe_Collections.Look(ref stepOrder, "stepOrder", LookMode.Value);
 		if (stepOrder == null || stepOrder.Count == 0) stepOrder = new List<string>(DefaultStepOrder);
