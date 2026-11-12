@@ -483,6 +483,55 @@ public sealed class CrisisStep : IPlanStep
 	public int Order => 300;
 	public string Id => "crises.crisis";
 
+	// 1.2.2: a food crisis used to raise cooking and hunting only to 2 – under everybody's main work on 1,
+	// so with raw meat in the freezer and no meals nobody cooked (and hunting waited the same way).
+	// Now the bottleneck gets one person on 1: no meals but raw food → the best cook; no raw food and
+	// animals marked for hunting → the best hunter who can hunt (a ranged weapon, no shield).
+	private static void FoodBottleneck(PlanContext ctx, CrisisBook book, int now)
+	{
+		CrisisTrack t = book.Find("c:" + Crisis.Food);
+		if (t != null && t.Waiting(now))
+			return;
+		Map map = ctx.map;
+		if (map == null)
+			return;
+		int eaters = Math.Max(1, map.mapPawns.FreeColonistsSpawnedCount);
+		float raw = 0f;
+		foreach (Thing th in map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree))
+		{
+			if (th.def.ingestible == null || th.IsForbidden(Faction.OfPlayer) || th.def.IsCorpse)
+				continue;
+			FoodPreferability pr = th.def.ingestible.preferability;
+			if ((pr == FoodPreferability.RawBad || pr == FoodPreferability.RawTasty) && !th.def.IsDrug)
+				raw += th.GetStatValue(StatDefOf.Nutrition) * th.stackCount;
+		}
+		float rawDays = raw / (eaters * 1.6f);
+		float mealDays = MapDemand.MealDays(map);
+		WorkTypeDef w = null;
+		Func<Pawn, bool> ok = null;
+		if (mealDays < 0.5f && rawDays >= 0.25f)
+			w = DefDatabase<WorkTypeDef>.GetNamedSilentFail("Cooking");
+		else if (rawDays < 0.25f && map.designationManager.AnySpawnedDesignationOfDef(DesignationDefOf.Hunt))
+		{
+			w = DefDatabase<WorkTypeDef>.GetNamedSilentFail("Hunting");
+			ok = p => WorkGiver_HunterHunt.HasHuntingWeapon(p) && !WorkGiver_HunterHunt.HasShieldAndRangedWeapon(p);
+		}
+		if (w == null || !ctx.types.Contains(w))
+			return;
+		foreach (Pawn p in ctx.Best(w))
+		{
+			if (ctx.Locked(p, w) || !ctx.CanDo(p, w) || (ok != null && !ok(p)))
+				continue;
+			if (ctx.Get(p, w) == 1)
+				return;   // somebody is on it already
+			if (ctx.Set(p, w, 1, "CF2C_TipBottleneck", w.labelShort, null, pin: true))
+			{
+				if (t != null) { string n = p.LabelShortCap; if (!t.who.Contains(n)) t.who.Add(n); }
+				return;
+			}
+		}
+	}
+
 	public void Apply(PlanContext ctx)
 	{
 		CrisisBook book = CrisisTracks.Of(ctx.comp);
@@ -492,6 +541,9 @@ public sealed class CrisisStep : IPlanStep
 		if (cur == Crisis.None)
 			return;
 		int now = Find.TickManager.TicksGame;
+		// 1.2.2: in a food crisis the one thing that is missing goes to priority 1 for the best person
+		if ((cur & Crisis.Food) != 0)
+			FoodBottleneck(ctx, book, now);
 		var raiser = new GroupRaiser(ctx);
 		var up = new List<(WorkTypeDef w, CrisisRules.Effect e, Crisis c, CrisisTrack t)>();
 		foreach (Crisis c in CrisisRules.All)
