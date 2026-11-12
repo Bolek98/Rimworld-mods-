@@ -38,4 +38,16 @@
   <SG_Kind_Creep>creepjoiner</SG_Kind_Creep>
   <SG_Kind_Stranger>stranger in black</SG_Kind_Stranger>
   <SG_Kind_Mod>from a mod</SG_Kind_Mod>
+  <SG_SecPop>Maximum population</SG_SecPop>
+  <SG_CustomPop>Own colony size</SG_CustomPop>
+  <SG_CustomPop_Desc>Replace the storyteller's idea of how big a colony should be (like the Dynamic Population mod). Off = every storyteller keeps its own (normally about 13, with 18 as the critical size).</SG_CustomPop_Desc>
+  <SG_PopTarget>Target size: {0} colonists</SG_PopTarget>
+  <SG_PopTarget_Desc>Up to this size the storyteller sends people (slower the closer you are). At this size it stops wanting more.</SG_PopTarget_Desc>
+  <SG_PopMax>Maximum: {0} colonists</SG_PopMax>
+  <SG_PopMax_Desc>Between the target and the maximum the storyteller works against growth; above the maximum it does so strongly (fewer joiners, harsher choices). For a hard stop on newcomers use the limit above.</SG_PopMax_Desc>
+  <SG_Preset_Hermit>Hermit</SG_Preset_Hermit>
+  <SG_Preset_Small>Small</SG_Preset_Small>
+  <SG_Preset_Normal>Normal</SG_Preset_Normal>
+  <SG_Preset_Large>Large</SG_Preset_Large>
+  <SG_Preset_Huge>Huge</SG_Preset_Huge>
 </LanguageData>

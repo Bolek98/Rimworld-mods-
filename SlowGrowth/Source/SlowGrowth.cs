@@ -24,7 +24,11 @@ public class SGSettings : ModSettings
 	public bool strangerInBlack = false; // the stranger in black comes when things go badly – not gated by default
 	public bool recruitsCount = true;  // a recruited prisoner also restarts the waiting time
 	public bool recommended = true;
-	public bool modJoiners = true;      // events from other mods in which someone joins
+	public bool modJoiners = true;
+	// "maximum population" (like Dynamic Population): the colony size the storyteller aims for
+	public bool customPop = false;
+	public int popTarget = 13;          // soft cap – the storyteller stops wanting more people here
+	public int popMax = 18;             // critical – above this it actively works against growth      // events from other mods in which someone joins
 	public HashSet<string> learned = new HashSet<string>();   // events seen bringing a new colonist
 	public HashSet<string> allowed = new HashSet<string>();   // events the player lets through
 
@@ -42,6 +46,9 @@ public class SGSettings : ModSettings
 		Scribe_Values.Look(ref recruitsCount, "recruitsCount", true);
 		Scribe_Values.Look(ref recommended, "recommended", true);
 		Scribe_Values.Look(ref modJoiners, "modJoiners", true);
+		Scribe_Values.Look(ref customPop, "customPop", false);
+		Scribe_Values.Look(ref popTarget, "popTarget", 13);
+		Scribe_Values.Look(ref popMax, "popMax", 18);
 		Scribe_Collections.Look(ref learned, "learned", LookMode.Value);
 		Scribe_Collections.Look(ref allowed, "allowed", LookMode.Value);
 		learned ??= new HashSet<string>();
@@ -52,7 +59,7 @@ public class SGSettings : ModSettings
 public class SlowGrowthMod : Mod
 {
 	public static SGSettings S;
-	public const string Version = "0.1.1";
+	public const string Version = "0.1.2";
 	private static List<string> rec;
 
 	public SlowGrowthMod(ModContentPack content) : base(content)
@@ -70,6 +77,11 @@ public class SlowGrowthMod : Mod
 	}
 
 	public override string SettingsCategory() => "Slow Growth";
+
+	private static readonly (string key, int t, int m)[] Presets =
+	{
+		("Hermit", 2, 4), ("Small", 6, 10), ("Normal", 13, 18), ("Large", 22, 32), ("Huge", 40, 60)
+	};
 
 	private static void Check(Listing_Standard l, string key, ref bool v, string field)
 		=> MUI.Check(l, key.Translate(), (key + "_Desc").Translate(), ref v, S, field);
@@ -103,6 +115,24 @@ public class SlowGrowthMod : Mod
 			string capTxt = s.cap <= 0 ? (string)"SG_NoCap".Translate() : s.cap.ToString();
 			s.cap = Mathf.RoundToInt(MUI.Slider(l, "SG_Cap".Translate(capTxt), s.cap, 0f, 30f, "SG_Cap_Desc".Translate(), s, "cap"));
 			s.popIntent = Mathf.Round(MUI.Slider(l, "SG_Pop".Translate(s.popIntent.ToStringPercent()), s.popIntent, 0f, 1f, "SG_Pop_Desc".Translate(), s, "popIntent") * 20f) / 20f;
+			MUI.Section(l, "SG_SecPop".Translate());
+			Check(l, "SG_CustomPop", ref s.customPop, "customPop");
+			if (s.customPop)
+			{
+				Rect pr = l.GetRect(28f);
+				float bw = pr.width / Presets.Length;
+				for (int i = 0; i < Presets.Length; i++)
+				{
+					var pz = Presets[i];
+					bool cur = s.popTarget == pz.t && s.popMax == pz.m;
+					if (cur) Widgets.DrawHighlightSelected(new Rect(pr.x + i * bw, pr.y, bw - 4f, pr.height));
+					if (Widgets.ButtonText(new Rect(pr.x + i * bw, pr.y, bw - 4f, pr.height), ("SG_Preset_" + pz.key).Translate()))
+					{ s.popTarget = pz.t; s.popMax = pz.m; }
+				}
+				l.Gap(4f);
+				s.popTarget = Mathf.RoundToInt(MUI.Slider(l, "SG_PopTarget".Translate(s.popTarget), s.popTarget, 1f, 60f, "SG_PopTarget_Desc".Translate(), s, "popTarget"));
+				s.popMax = Mathf.Max(s.popTarget + 1, Mathf.RoundToInt(MUI.Slider(l, "SG_PopMax".Translate(s.popMax), s.popMax, 2f, 80f, "SG_PopMax_Desc".Translate(), s, "popMax")));
+			}
 			l.NewColumn();
 			MUI.Section(l, "SG_SecWho".Translate());
 			Check(l, "SG_Wanderers", ref s.wanderers, "wanderers");
@@ -114,7 +144,8 @@ public class SlowGrowthMod : Mod
 			l.End();
 		}
 		finally { MUI.EndLock(area); }
-		DrawList(new Rect(r.x, area.y + 300f, r.width, r.yMax - area.y - 300f));
+		float top = s.customPop ? 470f : 360f;
+		DrawList(new Rect(r.x, area.y + top, r.width, r.yMax - area.y - top));
 	}
 
 	private Vector2 scroll;
@@ -305,11 +336,23 @@ public static class Gate
 public static class Patches
 {
 	// the storyteller wants fewer people – it then fires fewer "someone joins" events
-	public static void PopIntent(ref float __result)
+	public static void PopIntent(StorytellerDef def, float curPop, float popAdaptation, ref float __result)
 	{
 		var s = SlowGrowthMod.S;
-		if (s == null || !s.enabled || __result <= 0f) return;
-		__result *= Mathf.Clamp01(s.popIntent);
+		if (s == null || !s.enabled) return;
+		if (s.customPop)
+		{
+			// own curve: wants people up to the target, nobody at the target, pushes back up to the maximum
+			float t = Mathf.Max(1, s.popTarget), m = Mathf.Max(t + 1f, s.popMax);
+			float v;
+			if (curPop <= t) v = Mathf.Lerp(1.3f, 0f, curPop / t);
+			else if (curPop <= m) v = Mathf.Lerp(0f, -1f, (curPop - t) / (m - t));
+			else v = -1f - Mathf.Min(1f, (curPop - m) / Mathf.Max(2f, m * 0.25f));
+			if (v > 0f && def?.populationIntentFactorFromPopAdaptDaysCurve != null)
+				v *= def.populationIntentFactorFromPopAdaptDaysCurve.Evaluate(popAdaptation);
+			__result = v;
+		}
+		if (__result > 0f) __result *= Mathf.Clamp01(s.popIntent);
 	}
 }
 
