@@ -15,12 +15,14 @@ public class AMSettings : ModSettings
 	public bool enabled = true;
 	public int rule = 0;   // PickRule.MostInStock
 	public bool recommended = true;
+	public bool autoAny = false;         // 0.2.1: every new blueprint of a building made from materials = "any material"
 	public bool fixedAuto = true;        // 0.2.0: buildings with a fixed cost may use another material of the same kind
 	public bool preferOriginal = true;   // ...but the original while there is enough of it
 
 	public override void ExposeData()
 	{
 		Scribe_Values.Look(ref fixedAuto, "fixedAuto", true);
+		Scribe_Values.Look(ref autoAny, "autoAny", false);
 		Scribe_Values.Look(ref preferOriginal, "preferOriginal", true);
 		Scribe_Values.Look(ref enabled, "enabled", true);
 		Scribe_Values.Look(ref rule, "rule", 0);
@@ -31,7 +33,7 @@ public class AMSettings : ModSettings
 public class AnyMaterialMod : Mod
 {
 	public static AMSettings S;
-	public const string Version = "0.2.0";
+	public const string Version = "0.2.1";
 	private static List<string> rec;
 
 	public AnyMaterialMod(ModContentPack content) : base(content)
@@ -63,6 +65,7 @@ public class AnyMaterialMod : Mod
 		{
 			l.Begin(area);
 			MUI.Check(l, "AM_Enabled".Translate(), "AM_Enabled_Desc".Translate(), ref s.enabled, s, "enabled");
+			MUI.Check(l, "AM_AutoAny".Translate(), "AM_AutoAny_Desc".Translate(), ref s.autoAny, s, "autoAny");
 			if (l.ButtonTextLabeled("AM_Rule".Translate(), ("AM_Rule_" + (PickRule)s.rule).Translate()))
 			{
 				var menu = new List<FloatMenuOption>();
@@ -299,19 +302,34 @@ public static class Patch_StuffMenu
 	}
 }
 
-[HarmonyPatch(typeof(Designator_Build), nameof(Designator_Build.DesignateSingleCell))]
-public static class Patch_Designate
+// 0.2.1: every way a blueprint is placed (vanilla, Better Architect, copy & paste, blueprint mods …)
+[HarmonyPatch(typeof(GenConstruct), nameof(GenConstruct.PlaceBlueprintForBuild))]
+public static class Patch_PlaceBlueprint
 {
-	public static void Postfix(Designator_Build __instance, IntVec3 c)
+	public static void Postfix(Blueprint_Build __result, Faction faction)
 	{
-		AnyStuff p = Patch_StuffMenu.pending;
-		if (p == null || Patch_StuffMenu.pendingFor != __instance || __instance.Map == null)
+		var s = AnyMaterialMod.S;
+		if (__result == null || s == null || !s.enabled || faction == null || !faction.IsPlayer || __result.Map == null)
 			return;
-		AMMap comp = AMMap.Of(__instance.Map);
-		foreach (Thing t in c.GetThingList(__instance.Map))
-			if (t is Blueprint_Build bp && bp.def.entityDefToBuild == __instance.PlacingDef && comp.Get(bp) == null)
-				comp.Set(bp, p.allowed);
+		if (!(__result.def.entityDefToBuild is ThingDef td) || !td.MadeFromStuff)
+			return;
+		AMMap comp = AMMap.Of(__result.Map);
+		if (comp == null || comp.Get(__result) != null)
+			return;
+		AnyStuff p = Patch_StuffMenu.pending;
+		Designator sel = Find.DesignatorManager?.SelectedDesignator;
+		if (p != null && Patch_StuffMenu.pendingFor != null && sel == Patch_StuffMenu.pendingFor)
+			comp.Set(__result, p.allowed);
+		else if (s.autoAny && sel is Designator_Build)
+			comp.Set(__result, null);
 	}
+}
+
+// 0.2.1: every builder bringing materials goes through here – also work givers of other mods (Replace Stuff …)
+[HarmonyPatch(typeof(WorkGiver_ConstructDeliverResources), "ResourceDeliverJobFor")]
+public static class Patch_ResourceDeliver
+{
+	public static void Prefix(IConstructible c) => Hook.Before(c as Thing);
 }
 
 // a button on blueprints: switch selected blueprints to "any material" (or back to their current one)
