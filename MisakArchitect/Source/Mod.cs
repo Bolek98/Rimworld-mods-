@@ -15,6 +15,7 @@ public class MASettings : ModSettings
 	public float width = 0f;     // 0.2.0: 0 = automatic
 	public bool byMod, showLocked;
 	public bool showInfo = true;
+	public int sideCols = 2;     // 0.3.0: categories in 1–3 columns
 	public List<string> favorites = new List<string>();
 	public List<string> recent = new List<string>();
 	public string lastCategory;
@@ -27,6 +28,7 @@ public class MASettings : ModSettings
 		Scribe_Values.Look(ref byMod, "byMod", false);
 		Scribe_Values.Look(ref showLocked, "showLocked", false);
 		Scribe_Values.Look(ref showInfo, "showInfo", true);
+		Scribe_Values.Look(ref sideCols, "sideCols", 2);
 		Scribe_Values.Look(ref lastCategory, "lastCategory");
 		Scribe_Collections.Look(ref favorites, "favorites", LookMode.Value);
 		Scribe_Collections.Look(ref recent, "recent", LookMode.Value);
@@ -39,7 +41,7 @@ public class MisakArchitectMod : Mod
 {
 	public static MASettings S;
 	public static MisakArchitectMod Instance;
-	public const string Version = "0.2.1";
+	public const string Version = "0.3.0";
 
 	public MisakArchitectMod(ModContentPack content) : base(content)
 	{

@@ -17,7 +17,10 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 	private const string Fav = "@fav";
 	private const string Recent = "@recent";
 	private const float Head = 34f;
-	private const float SideW = 178f;
+	private const float ColW = 168f;
+	// 0.3.0: categories in 1–3 columns
+	private static int SideCols => Mathf.Clamp(S?.sideCols ?? 2, 1, 3);
+	private static float SideW => SideCols * ColW + 16f;
 	private const float InfoW = 250f;
 	private const float Cell = 75f;
 	private const float Gap = 6f;
@@ -49,6 +52,7 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 		base.PreOpen();
 		Catalog.Rebuild();
 		Subs.Clear();
+		ClearIcons();
 		cat ??= S.lastCategory;
 		if (cat == null || (cat != Fav && cat != Recent && !Catalog.cats.Any(c => c.defName == cat)))
 			cat = Catalog.cats.FirstOrDefault(c => c.Visible)?.defName;
@@ -145,6 +149,7 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 		float tx = head.xMax - 40f;
 		tx = Toggle(ref tx, head, "MA_ShowLocked", ref S.showLocked);
 		tx = Toggle(ref tx, head, "MA_ByMod", ref S.byMod, () => Subs.Clear());
+		ColsButton(ref tx, head);
 
 		Rect body = new Rect(inRect.x, head.yMax, inRect.width, inRect.height - Head);
 		float infoW = S.showInfo ? InfoW : 0f;
@@ -244,63 +249,161 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 		return c != null && Catalog.grid.TryGetValue(c, out var l) ? l : new List<Designator>();
 	}
 
+	// 0.3.0: how many columns the categories use (1 → 2 → 3)
+	private void ColsButton(ref float right, Rect head)
+	{
+		string label = "MA_Cols".Translate(SideCols);
+		Text.Font = GameFont.Tiny;
+		float w = Text.CalcSize(label).x + 22f;
+		Rect r = new Rect(right - w, head.y + 7f, w, 20f);
+		MUI.Fill(r, Mouse.IsOver(r) ? MUI.CardBg2 : MUI.CardBg);
+		MUI.Frame(r, MUI.Border);
+		GUI.color = MUI.Text1;
+		Text.Anchor = TextAnchor.MiddleCenter;
+		Widgets.Label(r, label);
+		Text.Anchor = TextAnchor.UpperLeft;
+		GUI.color = Color.white;
+		Text.Font = GameFont.Small;
+		TooltipHandler.TipRegion(r, "MA_Cols_Desc".Translate());
+		if (Widgets.ButtonInvisible(r))
+		{
+			S.sideCols = S.sideCols % 3 + 1;
+			dirty = true;
+			SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+		}
+		right = r.x - 6f;
+	}
+
+	// one picture per category: the first thing in it you can build now (or the first at all)
+	private static readonly Dictionary<string, Designator> iconOf = new Dictionary<string, Designator>();
+
+	public static void ClearIcons() => iconOf.Clear();
+
+	private static Designator IconFor(DesignationCategoryDef c)
+	{
+		if (iconOf.TryGetValue(c.defName, out Designator d))
+			return d;
+		d = null;
+		if (Catalog.grid.TryGetValue(c, out var list))
+		{
+			IEnumerable<Designator> flat = list.SelectMany(x => x is Designator_Dropdown dd ? dd.Elements.AsEnumerable() : new[] { x });
+			d = flat.FirstOrDefault(x => x is Designator_Build && Catalog.Shown(x))
+				?? flat.FirstOrDefault(x => x is Designator_Build)
+				?? flat.FirstOrDefault(x => x.icon != null);
+		}
+		iconOf[c.defName] = d;
+		return d;
+	}
+
+	private static void DrawIcon(Rect r, Designator d, float alpha)
+	{
+		if (d == null) return;
+		try
+		{
+			if (d is Designator_Build b && b.PlacingDef != null)
+			{
+				ThingDef stuff = b.PlacingDef is ThingDef td && td.MadeFromStuff ? GenStuff.DefaultStuffFor(td) : null;
+				GUI.color = new Color(1f, 1f, 1f, alpha);
+				Widgets.DefIcon(r, b.PlacingDef, stuff);
+			}
+			else if (d.icon is Texture2D t)
+			{
+				Color c = d.defaultIconColor;
+				GUI.color = new Color(c.r, c.g, c.b, c.a * alpha);
+				Widgets.DrawTextureFitted(r, t, 1f);
+			}
+		}
+		catch { }
+		GUI.color = Color.white;
+	}
+
 	private void Sidebar(Rect r)
 	{
 		MUI.Fill(r, MUI.CardBg2);
-		var rows = new List<(string id, string label, int count, bool on)>
-		{
-			(Fav, "MA_Favorites".Translate(), S.favorites.Count(k => Catalog.byKey.ContainsKey(k)), true),
-			(Recent, "MA_Recent".Translate(), S.recent.Count(k => Catalog.byKey.ContainsKey(k)), true),
-		};
+		var cats = new List<(string id, string label, int count, bool on, DesignationCategoryDef def)>();
 		foreach (DesignationCategoryDef c in Catalog.cats)
 		{
 			int n = Catalog.grid.TryGetValue(c, out var l) ? l.Count(Catalog.Shown) : 0;
-			rows.Add((c.defName, c.LabelCap, n, c.Visible && n > 0));
+			cats.Add((c.defName, c.LabelCap, n, c.Visible && n > 0, c));
 		}
-		const float h = 26f;
-		Rect view = new Rect(0f, 0f, r.width - 16f, rows.Count * h + 10f);
+		int cols = SideCols;
+		float cw = (r.width - 16f) / cols;
+		float h = cols == 1 ? 28f : 30f;
+		int topRows = cols == 1 ? 2 : 1;          // favorites + recent: two rows in one column, side by side otherwise
+		int catRows = Mathf.CeilToInt(cats.Count / (float)cols);
+		Rect view = new Rect(0f, 0f, r.width - 16f, (topRows + catRows) * h + 16f);
 		Widgets.BeginScrollView(r, ref scrollSide, view);
-		float y = 4f;
-		for (int i = 0; i < rows.Count; i++)
+		// favorites, recent
+		var top = new[]
 		{
-			var row = rows[i];
-			Rect rr = new Rect(0f, y, view.width, h);
-			bool sel = !search.filter.Active && row.id == cat;
-			if (i == 2)
-			{
-				MUI.Fill(new Rect(8f, y - 2f, view.width - 16f, 1f), MUI.Border);
-				y += 4f;
-				rr.y = y;
-			}
-			if (sel) MUI.Fill(rr, MUI.OnBg);
-			else if (Mouse.IsOver(rr)) MUI.Fill(rr, MUI.CardBg);
-			if (sel) MUI.Fill(new Rect(rr.x, rr.y, 3f, rr.height), MUI.Accent);
-			GUI.color = sel ? MUI.Accent : row.on ? MUI.Text1 : MUI.Muted;
-			Text.Anchor = TextAnchor.MiddleLeft;
-			string icon = row.id == Fav ? "★ " : row.id == Recent ? "↺ " : "";
-			Widgets.Label(new Rect(rr.x + 10f, rr.y, rr.width - 46f, rr.height), (icon + row.label).Truncate(rr.width - 46f));
-			Text.Anchor = TextAnchor.MiddleRight;
-			GUI.color = MUI.Muted;
-			Text.Font = GameFont.Tiny;
-			if (row.count > 0) Widgets.Label(new Rect(rr.xMax - 40f, rr.y, 34f, rr.height), row.count.ToString());
-			Text.Font = GameFont.Small;
-			Text.Anchor = TextAnchor.UpperLeft;
-			GUI.color = Color.white;
-			if (Widgets.ButtonInvisible(rr))
-			{
-				if (!row.on && row.id != Fav && row.id != Recent)
-					Messages.Message("NothingAvailableInCategory".Translate() + ": " + row.label, MessageTypeDefOf.RejectInput, false);
-				else
-				{
-					cat = row.id;
-					scrollGrid = Vector2.zero;
-					if (search.filter.Active) search.Reset();
-					SoundDefOf.ArchitectCategorySelect.PlayOneShotOnCamera();
-				}
-			}
-			y += h;
+			(id: Fav, label: (string)("★ " + "MA_Favorites".Translate()), count: S.favorites.Count(k => Catalog.byKey.ContainsKey(k))),
+			(id: Recent, label: (string)("↺ " + "MA_Recent".Translate()), count: S.recent.Count(k => Catalog.byKey.ContainsKey(k)))
+		};
+		float y = 4f;
+		for (int i = 0; i < 2; i++)
+		{
+			Rect rr = cols == 1 ? new Rect(0f, y + i * h, view.width, h) : new Rect(i * view.width / 2f, y, view.width / 2f, h);
+			Tile(rr, top[i].id, top[i].label, top[i].count, true, null);
+		}
+		y += topRows * h + 4f;
+		MUI.Fill(new Rect(8f, y - 3f, view.width - 16f, 1f), MUI.Border);
+		for (int i = 0; i < cats.Count; i++)
+		{
+			var c = cats[i];
+			Rect rr = new Rect((i % cols) * cw, y + (i / cols) * h, cw, h);
+			if (rr.yMax < scrollSide.y || rr.y > scrollSide.y + r.height)
+				continue;
+			Tile(rr, c.id, c.label, c.count, c.on, c.def);
 		}
 		Widgets.EndScrollView();
+	}
+
+	private void Tile(Rect rr, string id, string label, int count, bool on, DesignationCategoryDef def)
+	{
+		bool sel = !search.filter.Active && id == cat;
+		if (sel) MUI.Fill(rr, MUI.OnBg);
+		else if (Mouse.IsOver(rr)) MUI.Fill(rr, MUI.CardBg);
+		if (sel) MUI.Fill(new Rect(rr.x, rr.y, 3f, rr.height), MUI.Accent);
+		float x = rr.x + 7f;
+		if (def != null)
+		{
+			Rect ic = new Rect(x, rr.y + (rr.height - 22f) / 2f, 22f, 22f);
+			DrawIcon(ic, IconFor(def), on ? 1f : 0.4f);
+			x = ic.xMax + 5f;
+		}
+		bool narrow = SideCols > 1;
+		Text.Font = GameFont.Tiny;
+		string cnt = count > 0 ? count.ToString() : "";
+		float cntW = count > 0 ? Text.CalcSize(cnt).x + 6f : 0f;
+		Text.Font = narrow ? GameFont.Tiny : GameFont.Small;
+		GUI.color = sel ? MUI.Accent : on ? MUI.Text1 : MUI.Muted;
+		Text.Anchor = TextAnchor.MiddleLeft;
+		float lw = rr.xMax - x - cntW - 2f;
+		Widgets.Label(new Rect(x, rr.y, lw, rr.height), label.Truncate(lw));
+		if (count > 0)
+		{
+			Text.Font = GameFont.Tiny;
+			Text.Anchor = TextAnchor.MiddleRight;
+			GUI.color = MUI.Muted;
+			Widgets.Label(new Rect(rr.xMax - cntW - 4f, rr.y, cntW, rr.height), cnt);
+		}
+		Text.Font = GameFont.Small;
+		Text.Anchor = TextAnchor.UpperLeft;
+		GUI.color = Color.white;
+		if (narrow && Mouse.IsOver(rr) && label.Truncate(lw) != label)
+			TooltipHandler.TipRegion(rr, label);
+		if (Widgets.ButtonInvisible(rr))
+		{
+			if (!on && id != Fav && id != Recent)
+				Messages.Message("NothingAvailableInCategory".Translate() + ": " + label, MessageTypeDefOf.RejectInput, false);
+			else
+			{
+				cat = id;
+				scrollGrid = Vector2.zero;
+				if (search.filter.Active) search.Reset();
+				SoundDefOf.ArchitectCategorySelect.PlayOneShotOnCamera();
+			}
+		}
 	}
 
 	// ---------------------------------------------------------------- the buildings
