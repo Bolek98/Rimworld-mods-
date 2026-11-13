@@ -424,6 +424,34 @@ namespace MisakTrade
                 }
             }
             finally { Widgets.EndScrollView(); }
+            // 0.14.1: the colonist in the gear, in the free space below
+            float free = inner.yMax - (inner.y + h + 10f);
+            if (free >= 140f)
+                Figure(new Rect(inner.x, inner.y + h + 10f, inner.width, free), p);
+        }
+
+        private static Rot4 figRot = Rot4.South;
+        private static bool figHat = true, figClothes = true;
+
+        private static void Figure(Rect r, Pawn p)
+        {
+            Look.Text(new Rect(r.x, r.y, r.width, 18f), "MT_G_Looks".Translate().ToString().ToUpper(), Muted, GameFont.Tiny);
+            Rect area = new Rect(r.x, r.y + 20f, r.width, r.height - 20f - 26f);
+            Look.Box(area, Look.Bg, Look.Line);
+            float side = Mathf.Min(area.width, area.height) - 8f;
+            Rect pic = new Rect(area.center.x - side / 2f, area.center.y - side / 2f, side, side);
+            try
+            {
+                GUI.DrawTexture(pic, PortraitsCache.Get(p, new Vector2(side, side), figRot, default, 1f, true, true, figHat, figClothes));
+            }
+            catch { }
+            // turn and show/hide
+            Rect bar = new Rect(r.x, area.yMax + 4f, r.width, 22f);
+            if (Look.Button(new Rect(bar.x, bar.y, 30f, 22f), "<")) figRot.Rotate(RotationDirection.Clockwise);
+            if (Look.Button(new Rect(bar.x + 34f, bar.y, 30f, 22f), ">")) figRot.Rotate(RotationDirection.Counterclockwise);
+            float cw = Mathf.Min(130f, (bar.width - 76f) / 2f);
+            if (Look.Chip(new Rect(bar.xMax - cw * 2f - 4f, bar.y, cw, 22f), "MT_G_FigHat".Translate(), figHat)) figHat = !figHat;
+            if (Look.Chip(new Rect(bar.xMax - cw, bar.y, cw, 22f), "MT_G_FigClothes".Translate(), figClothes)) figClothes = !figClothes;
         }
 
         private static void WeaponRow(Rect r, Pawn p, ThingWithComps w, bool primary)

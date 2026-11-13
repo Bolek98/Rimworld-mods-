@@ -75,7 +75,7 @@ namespace MisakTrade
 
     public class MTMod : Mod
     {
-        public const string Version = "0.14.0";
+        public const string Version = "0.14.1";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0
