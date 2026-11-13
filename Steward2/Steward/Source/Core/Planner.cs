@@ -29,6 +29,7 @@ public static class Planner
 		StewardApi.Register(new ApprenticeStep());
 		StewardApi.Register(new TopJobStep());
 		StewardApi.Register(new SmallColonyStep());
+		StewardApi.Register(new ResearchStep());
 		StewardApi.Register(new AreaStep());
 		StewardApi.Register(new NobodyIdleStep());
 	}
@@ -634,6 +635,46 @@ public static class Planner
 				twos.Sort((x, y) => y.score.CompareTo(x.score));
 				for (int i = keep; i < twos.Count; i++)
 					ctx.Set(p, twos[i].w, i < keep + 3 ? 3 : ctx.Levels, "CF2_TipSmallColony");
+			}
+		}
+	}
+
+	// 930 (1.4.1): research is the last column, so on the same level it never comes first – while a
+	// project is chosen and a bench waits, the best researcher really researches: research on 2 (on 1 from
+	// 5 colonists) and his hauling / cleaning one level lower. No project = nothing changes.
+	private sealed class ResearchStep : IPlanStep
+	{
+		public int Order => 930;
+		public string Id => "core.research";
+
+		private static bool CoreReason(string k) => k != null && k.StartsWith("CF2_Tip", StringComparison.Ordinal);
+
+		public void Apply(PlanContext ctx)
+		{
+			if (ctx.settings != null && !ctx.settings.researchFocus)
+				return;
+			WorkTypeDef res = WorkTypeDefOf.Research;
+			if (res == null || !ctx.types.Contains(res) || Find.ResearchManager?.GetProject() == null)
+				return;
+			if ((ctx.demand?.Jobs(res) ?? 0) <= 0)
+				return;
+			int n = ctx.pawns.Count;
+			Pawn p = ctx.Best(res).FirstOrDefault(x => !ctx.Locked(x, res) && !ctx.Pinned(x, res) && ctx.Fit(x, res) > 0f);
+			if (p == null)
+				return;
+			int lvl = n >= 5 && ctx.Levels >= 3 ? 1 : 2;
+			if (!ctx.Set(p, res, lvl, "CF2_TipResearchFocus", Find.ResearchManager.GetProject().LabelCap))
+				return;
+			if (ctx.Levels < 3)
+				return;
+			foreach (var j in ctx.plan[p].ToList())
+			{
+				WorkTypeDef w = j.Key;
+				if (w == res || j.Value != lvl || WorkCatalog.Kind(w) != WorkKind.General || ctx.Pinned(p, w) || ctx.Locked(p, w))
+					continue;
+				if (ctx.reasons.TryGetValue(PlanContext.Key(p, w), out var rs) && rs.Any(x => !CoreReason(x.key)))
+					continue;   // a crisis or your rule raised it
+				ctx.Set(p, w, lvl + 1, "CF2_TipResearchFocusOther");
 			}
 		}
 	}

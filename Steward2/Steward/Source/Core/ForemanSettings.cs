@@ -28,6 +28,7 @@ public sealed class ForemanSettings : ModSettings
 	public int settingsRev = 0;
 	// 1.2.0: top job – the colonist's own skill against the colony's current needs (0 = like before)
 	public float skillFirst = 0.6f;
+	public bool researchFocus = true;   // 1.4.1: the best researcher really researches while a project is chosen
 	// 1.3.0: who has priority when steps want different things for the same cell (strongest first)
 	public static readonly List<string> DefaultStepOrder = new List<string> { "life", "rules", "roles", "area", "crisis", "addons", "apprentice", "droids", "top", "children", "idle", "base" };
 	public List<string> stepOrder = new List<string>(DefaultStepOrder);
@@ -104,6 +105,7 @@ public sealed class ForemanSettings : ModSettings
 			settingsRev = 1;
 		}
 		Scribe_Values.Look(ref skillFirst, "skillFirst", 0.6f);
+		Scribe_Values.Look(ref researchFocus, "researchFocus", true);
 		Scribe_Collections.Look(ref stepOrder, "stepOrder", LookMode.Value);
 		if (stepOrder == null || stepOrder.Count == 0) stepOrder = new List<string>(DefaultStepOrder);
 		// a category added in a later version goes in at its default place
