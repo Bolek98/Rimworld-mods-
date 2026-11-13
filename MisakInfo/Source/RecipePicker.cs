@@ -36,7 +36,7 @@ namespace MisakInfo
                 h.Patch(AccessTools.Method(typeof(WindowStack), nameof(WindowStack.Add)),
                     prefix: new HarmonyMethod(typeof(PickerHook), nameof(AddPrefix)) { priority = Priority.Last });
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] recipe / operation picker: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] recipe / operation picker: " + e.Message); }
         }
 
         public static ThingDef ShownItem(FloatMenuOption o) { try { return shownRef(o); } catch { return null; } }
@@ -85,7 +85,7 @@ namespace MisakInfo
             }
             catch (Exception e)
             {
-                Log.ErrorOnce("[Mišák Tabs] picker: " + e, 0x4d5410);
+                Log.ErrorOnce("[Clear Tabs] picker: " + e, 0x4d5410);
                 return true;
             }
         }

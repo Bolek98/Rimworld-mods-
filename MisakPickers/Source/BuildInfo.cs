@@ -3,7 +3,7 @@ namespace MisakPickers
 {
     public static class BuildInfo
     {
-        public const string Name = "Mišák Pickers";
+        public const string Name = "Clear Pickers";
         public const bool Split = true;
         private static readonly string[] Parts = { "plantPicker", "ownerPicker", "policyPicker", "researchPicker", "mechPicker", "animalPicker" };
         public static bool Has(string field) => Parts == null || System.Array.IndexOf(Parts, field) >= 0;

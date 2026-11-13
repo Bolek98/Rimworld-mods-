@@ -3,7 +3,7 @@ namespace MisakBills
 {
     public static class BuildInfo
     {
-        public const string Name = "Mišák Bills";
+        public const string Name = "Clear Bills";
         public const bool Split = true;
         private static readonly string[] Parts = { "bills", "replaceOtherBillTabs", "billDialog", "recipePicker" };
         public static bool Has(string field) => Parts == null || System.Array.IndexOf(Parts, field) >= 0;

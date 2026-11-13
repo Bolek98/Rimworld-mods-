@@ -24,7 +24,7 @@ namespace MisakInfo
         public static void Patch(Harmony h)
         {
             try { h.Patch(AccessTools.Method(typeof(WindowStack), nameof(WindowStack.Add)), prefix: new HarmonyMethod(typeof(InfoCardSwap), nameof(Prefix))); }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] info card not available: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] info card not available: " + e.Message); }
         }
 
         public static void Prefix(ref Window window)
@@ -36,7 +36,7 @@ namespace MisakInfo
                 if (thingRef((Dialog_InfoCard)window) is Pawn p && p.RaceProps.Humanlike && !p.Dead)
                     window = new Dialog_MTInfo(p);
             }
-            catch (Exception e) { Log.WarningOnce("[Mišák Tabs] info card swap: " + e.Message, 0x51A7B44); }
+            catch (Exception e) { Log.WarningOnce("[Clear Tabs] info card swap: " + e.Message, 0x51A7B44); }
         }
 
         public static void OpenOriginal(Thing t)
@@ -202,7 +202,7 @@ namespace MisakInfo
                     default: Embedded(body); break;
                 }
             }
-            catch (Exception e) { Log.WarningOnce("[Mišák Tabs] info card: " + e, 0x51A7B45); }
+            catch (Exception e) { Log.WarningOnce("[Clear Tabs] info card: " + e, 0x51A7B45); }
             Look.ResetGui();
         }
 

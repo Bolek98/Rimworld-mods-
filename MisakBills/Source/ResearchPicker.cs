@@ -46,7 +46,7 @@ namespace MisakBills
                 }
                 TooltipHandler.TipRegion(b, "MT_PB_ResFindTip".Translate());
             }
-            catch (Exception e) { Log.ErrorOnce("[Mišák Tabs] research picker: " + e, 0x4d5430); }
+            catch (Exception e) { Log.ErrorOnce("[Clear Tabs] research picker: " + e, 0x4d5430); }
         }
 
         public static void Pick(MainTabWindow_Research tab, ResearchProjectDef p)
@@ -69,7 +69,7 @@ namespace MisakBills
                 }
                 else SoundDefOf.Click.PlayOneShotOnCamera();
             }
-            catch (Exception e) { Log.ErrorOnce("[Mišák Tabs] research pick: " + e, 0x4d5431); }
+            catch (Exception e) { Log.ErrorOnce("[Clear Tabs] research pick: " + e, 0x4d5431); }
         }
     }
 

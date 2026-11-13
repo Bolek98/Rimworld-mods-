@@ -192,7 +192,7 @@ namespace MisakTabs
                         list.Add(Make(pawn, rec, missing, report, index++, null));
                 }
             }
-            catch (Exception e) { Log.WarningOnce("[Mišák Tabs] operations: " + e.Message, 0x51A7B13); }
+            catch (Exception e) { Log.WarningOnce("[Clear Tabs] operations: " + e.Message, 0x51A7B13); }
             ops = list.Where(o => o != null).ToList();
         }
 
@@ -332,7 +332,7 @@ namespace MisakTabs
                     res.Add(opt);
                 }
             }
-            catch (Exception e) { Log.WarningOnce("[Mišák Tabs] operations menu: " + e.Message, 0x51A7B14); }
+            catch (Exception e) { Log.WarningOnce("[Clear Tabs] operations menu: " + e.Message, 0x51A7B14); }
             return res;
         }
 
@@ -412,7 +412,7 @@ namespace MisakTabs
             finally { Widgets.EndScrollView(); }   // 0.4.2
             if (clicked != null)
             {
-                try { clicked.option.action(); } catch (Exception e) { Log.Warning("[Mišák Tabs] add operation: " + e.Message); }
+                try { clicked.option.action(); } catch (Exception e) { Log.Warning("[Clear Tabs] add operation: " + e.Message); }
                 SoundDefOf.Click.PlayOneShotOnCamera();
                 opsAt = -10f;
             }

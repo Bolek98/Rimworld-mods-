@@ -42,7 +42,7 @@ namespace MisakHealth
                     prefix: new HarmonyMethod(typeof(GearTab), nameof(Prefix)) { priority = Priority.First },
                     postfix: new HarmonyMethod(typeof(GearTab), nameof(Postfix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] gear tab not available: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] gear tab not available: " + e.Message); }
         }
 
         private static Pawn SelPawn
@@ -68,7 +68,7 @@ namespace MisakHealth
             {
                 Look.ResetGui();
                 try { Widgets.EndScrollView(); } catch { }
-                Log.ErrorOnce("[Mišák Tabs] gear tab: " + e, 0x51A7B24);
+                Log.ErrorOnce("[Clear Tabs] gear tab: " + e, 0x51A7B24);
                 original = true;
                 sizeRef(__instance) = new Vector2(460f, 450f);
             }
@@ -512,7 +512,7 @@ namespace MisakHealth
                     SoundDefOf.Tick_High.PlayOneShotOnCamera();
                 }
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] weapon to hand: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] weapon to hand: " + e.Message); }
         }
 
         private static string WeaponLine(ThingWithComps w, Pawn p)
@@ -792,7 +792,7 @@ namespace MisakHealth
                     equipNow.Invoke(c, new object[] { p });
                     SoundDefOf.Click.PlayOneShotOnCamera();
                 }
-                catch (Exception e) { Log.Warning("[Mišák Tabs] gear up: " + e.Message); }
+                catch (Exception e) { Log.Warning("[Clear Tabs] gear up: " + e.Message); }
             }
         }
     }

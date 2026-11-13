@@ -15,6 +15,15 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.6.1 | [BodyFit](BodyFit) |
 | [B98] Call for Backup – Summon Your Allies | 0.1.1 | [CallForBackup](CallForBackup) |
 | [B98] Caravan Helper | 1.1.0 | [CaravanHelper](CaravanHelper) |
+| [B98] Clear Architect – Build Menu with Sub-Categories | 0.2.1 | [MisakArchitect](MisakArchitect) |
+| [B98] Clear Bills – Bills Tab Overhaul | 0.14.2 | [MisakBills](MisakBills) |
+| [B98] Clear Character – Character, Social & Needs | 0.14.2 | [MisakCharacter](MisakCharacter) |
+| [B98] Clear Gear – Gear Tab Overhaul | 0.14.2 | [MisakGear](MisakGear) |
+| [B98] Clear Health – Anatomy Health Tab | 0.14.2 | [MisakHealth](MisakHealth) |
+| [B98] Clear Info Card – Colonist Infocentrum | 0.14.2 | [MisakInfo](MisakInfo) |
+| [B98] Clear Pickers – Choice Windows Overhaul | 0.14.2 | [MisakPickers](MisakPickers) |
+| [B98] Clear Tabs – All-in-One UI Overhaul | 0.14.2 | [MisakTabs](MisakTabs) |
+| [B98] Clear Trade – Trade Window Overhaul | 0.14.2 | [MisakTrade](MisakTrade) |
 | [B98] Colony Advisor – What To Do Next | 0.4.0 | [ColonyAdvisor](ColonyAdvisor) |
 | [B98] Evergrowth – Plant Growth Control | 1.10.0 | [Evergrowth](Evergrowth) |
 | [B98] Evergrowth – Wild Plant Spawns per Biome (Choose What Grows) | 1.2.0 | [EvergrowthWildPlants](EvergrowthWildPlants) |
@@ -28,16 +37,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Masks & Headgear Together | 1.0.1 | [MasksAndHeadgear](MasksAndHeadgear) |
 | [B98] Matchmaker | 0.1.1 | [Matchmaker](Matchmaker) |
 | [B98] Mech Commander | 0.1.3 | [MechCommander](MechCommander) |
-| [B98] Mišák Architect – Clear Build Menu | 0.2.0 | [MisakArchitect](MisakArchitect) |
-| [B98] Mišák Bills – Clear Bills Tab | 0.14.1 | [MisakBills](MisakBills) |
 | [B98] Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
-| [B98] Mišák Character – Character, Social & Needs | 0.14.1 | [MisakCharacter](MisakCharacter) |
-| [B98] Mišák Gear – Clear Gear Tab | 0.14.1 | [MisakGear](MisakGear) |
-| [B98] Mišák Health – Anatomy Health Tab | 0.14.1 | [MisakHealth](MisakHealth) |
-| [B98] Mišák Infocentrum – Colonist Info Card | 0.14.1 | [MisakInfo](MisakInfo) |
-| [B98] Mišák Pickers – Clear Choice Windows | 0.14.1 | [MisakPickers](MisakPickers) |
-| [B98] Mišák Tabs – Clear Bills, Health & Info | 0.14.1 | [MisakTabs](MisakTabs) |
-| [B98] Mišák Trade – Clear Trade Window | 0.14.1 | [MisakTrade](MisakTrade) |
 | [B98] Mod Sort Manager – Load Order, Conflicts & Profiles | 0.7.0 | [ModSortManager](ModSortManager) |
 | [B98] Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | [B98] Place for Everything – Smart Storage for Homeless Items | 0.2.0 | [PlaceForEverything](PlaceForEverything) |

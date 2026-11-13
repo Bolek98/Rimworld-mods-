@@ -3,7 +3,7 @@ namespace MisakHealth
 {
     public static class BuildInfo
     {
-        public const string Name = "Mišák Health";
+        public const string Name = "Clear Health";
         public const bool Split = true;
         private static readonly string[] Parts = { "health", "replaceOtherHealthTabs", "surgeryPicker" };
         public static bool Has(string field) => Parts == null || System.Array.IndexOf(Parts, field) >= 0;

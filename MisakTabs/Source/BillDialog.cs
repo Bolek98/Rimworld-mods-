@@ -48,7 +48,7 @@ namespace MisakTabs
             catch (Exception e)
             {
                 Look.ResetGui();
-                Log.ErrorOnce("[Mišák Tabs] bill window: " + e, 0x51A7B41);
+                Log.ErrorOnce("[Clear Tabs] bill window: " + e, 0x51A7B41);
                 Close();
                 BillDialogSwap.OpenOriginal(bill, pos);
             }
@@ -372,7 +372,7 @@ namespace MisakTabs
                 object[] a = { opts, prefix, selected };
                 fillOutput.Invoke(this, a);
             }
-            catch (Exception e) { Log.WarningOnce("[Mišák Tabs] stockpile list: " + e.Message, 0x51A7B42); }
+            catch (Exception e) { Log.WarningOnce("[Clear Tabs] stockpile list: " + e.Message, 0x51A7B42); }
         }
 
         private float StoreCard(Rect r)
@@ -438,7 +438,7 @@ namespace MisakTabs
             {
                 h.Patch(AccessTools.Method(typeof(WindowStack), nameof(WindowStack.Add)), prefix: new HarmonyMethod(typeof(BillDialogSwap), nameof(Prefix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] bill window not available: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] bill window not available: " + e.Message); }
         }
 
         public static void Prefix(ref Window window)
@@ -452,7 +452,7 @@ namespace MisakTabs
                 if (b == null) return;
                 window = new Dialog_MTBillConfig(b, posRef(d));
             }
-            catch (Exception e) { Log.WarningOnce("[Mišák Tabs] bill window swap: " + e.Message, 0x51A7B43); }
+            catch (Exception e) { Log.WarningOnce("[Clear Tabs] bill window swap: " + e.Message, 0x51A7B43); }
         }
 
         public static void OpenOriginal(Bill_Production b, IntVec3 pos)

@@ -44,7 +44,7 @@ namespace MisakCharacter
                 h.Patch(AccessTools.Method(typeof(ITab_Pawn_Needs), "UpdateSize"),
                     postfix: new HarmonyMethod(typeof(NeedsTab), nameof(SizePostfix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] needs tab not available: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] needs tab not available: " + e.Message); }
         }
 
         private static Pawn SelPawn => Find.Selector.SingleSelectedThing as Pawn ?? (Find.Selector.SingleSelectedThing as Corpse)?.InnerPawn;
@@ -65,7 +65,7 @@ namespace MisakCharacter
             catch (Exception e)
             {
                 Look.ResetGui();
-                Log.ErrorOnce("[Mišák Tabs] needs tab: " + e, 0x51A7B23);
+                Log.ErrorOnce("[Clear Tabs] needs tab: " + e, 0x51A7B23);
                 original = true;
             }
             return false;

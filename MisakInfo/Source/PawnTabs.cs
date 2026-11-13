@@ -39,14 +39,14 @@ namespace MisakInfo
                 h.Patch(AccessTools.Method(typeof(ITab_Pawn_Character), "UpdateSize"),
                     postfix: new HarmonyMethod(typeof(PawnTabs), nameof(CharSizePostfix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] character tab not available: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] character tab not available: " + e.Message); }
             try
             {
                 h.Patch(AccessTools.Method(typeof(ITab_Pawn_Social), "FillTab"),
                     prefix: new HarmonyMethod(typeof(PawnTabs), nameof(SocialPrefix)) { priority = Priority.First },
                     postfix: new HarmonyMethod(typeof(PawnTabs), nameof(SocialPostfix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] social tab not available: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] social tab not available: " + e.Message); }
             LifeHooks.Patch(h);
         }
 
@@ -79,7 +79,7 @@ namespace MisakInfo
             catch (Exception e)
             {
                 Look.ResetGui();
-                Log.ErrorOnce("[Mišák Tabs] character tab: " + e, 0x51A7B21);
+                Log.ErrorOnce("[Clear Tabs] character tab: " + e, 0x51A7B21);
                 charOriginal = true;
             }
             return false;
@@ -102,7 +102,7 @@ namespace MisakInfo
             catch (Exception e)
             {
                 Look.ResetGui();
-                Log.ErrorOnce("[Mišák Tabs] social tab: " + e, 0x51A7B22);
+                Log.ErrorOnce("[Clear Tabs] social tab: " + e, 0x51A7B22);
                 socialOriginal = true;
             }
             return false;
@@ -330,7 +330,7 @@ namespace MisakInfo
                 foreach (LifeLog.Entry e in LifeLog.For(pawn))
                     l.Add(new LifeEntry { tick = e.tick, text = e.text, c = KindColor(e.kind) });
             }
-            catch (Exception ex) { Log.WarningOnce("[Mišák Tabs] life: " + ex.Message, 0x51A7B23); }
+            catch (Exception ex) { Log.WarningOnce("[Clear Tabs] life: " + ex.Message, 0x51A7B23); }
             cache = l.OrderByDescending(x => x.tick).ToList();
             cachePawn = pawn.thingIDNumber;
             cacheFrame = Time.frameCount;
@@ -646,7 +646,7 @@ namespace MisakInfo
                 if (dim) Widgets.DrawBoxSolid(r, new Color(0f, 0f, 0f, 0.35f));
                 TooltipHandler.TipRegion(r, "MT_S_RomanceTip".Translate(pawn.LabelShort));
             }
-            catch (Exception e) { Log.ErrorOnce("[Mišák Tabs] romance button: " + e.Message, 0x51A7B31); }
+            catch (Exception e) { Log.ErrorOnce("[Clear Tabs] romance button: " + e.Message, 0x51A7B31); }
         }
 
         // a direct button for the selected pair; returns the height used
@@ -825,7 +825,7 @@ namespace MisakInfo
         {
             void Try(string what, Action a)
             {
-                try { a(); } catch (Exception e) { Log.Warning("[Mišák Tabs] life log (" + what + "): " + e.Message); }
+                try { a(); } catch (Exception e) { Log.Warning("[Clear Tabs] life log (" + what + "): " + e.Message); }
             }
             Try("breaks", () => h.Patch(AccessTools.Method(typeof(MentalStateHandler), nameof(MentalStateHandler.TryStartMentalState)),
                 postfix: new HarmonyMethod(typeof(LifeHooks), nameof(Break))));

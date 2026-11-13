@@ -32,7 +32,7 @@ namespace MisakTrade
                 h.Patch(AccessTools.Method(typeof(Command_SetPlantToGrow), nameof(Command_SetPlantToGrow.ProcessInput)),
                     prefix: new HarmonyMethod(typeof(PlantPickerPatch), nameof(Prefix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] plant picker: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] plant picker: " + e.Message); }
         }
 
         public static bool Prefix(Command_SetPlantToGrow __instance, Event ev)
@@ -49,7 +49,7 @@ namespace MisakTrade
             }
             catch (Exception e)
             {
-                Log.ErrorOnce("[Mišák Tabs] plant picker: " + e, 0x4d5403);
+                Log.ErrorOnce("[Clear Tabs] plant picker: " + e, 0x4d5403);
                 return true;
             }
         }

@@ -30,7 +30,7 @@ namespace MisakHealth
                 MTMod.H.Patch(AccessTools.DeclaredMethod(typeof(Building_MechGestator), nameof(Building_MechGestator.GetGizmos)),
                     postfix: new HarmonyMethod(typeof(MechPickerPatch), nameof(GizmoPostfix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] mech picker: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] mech picker: " + e.Message); }
         }
 
         public static bool On => MTMod.S != null && MTMod.S.mechPicker && ModsConfig.BiotechActive;
@@ -148,7 +148,7 @@ namespace MisakHealth
                     }
                     all.Add(e);
                 }
-                catch (Exception ex) { Log.WarningOnce("[Mišák Tabs] mech picker: " + r?.defName + ": " + ex.Message, (r?.defName ?? "").GetHashCode() ^ 0x3a17); }
+                catch (Exception ex) { Log.WarningOnce("[Clear Tabs] mech picker: " + r?.defName + ": " + ex.Message, (r?.defName ?? "").GetHashCode() ^ 0x3a17); }
             }
         }
 

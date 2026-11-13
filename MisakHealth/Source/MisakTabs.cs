@@ -11,7 +11,7 @@ using Verse.Sound;
 namespace MisakHealth
 {
     // ---------------------------------------------------------------------------
-    // Mišák Tabs – clear, modern inspect tabs in one dark style: bills first (health, info and
+    // Clear Tabs – clear, modern inspect tabs in one dark style: bills first (health, info and
     // gear follow). The original tab is always one click away for features other mods add to it.
     // ---------------------------------------------------------------------------
     public class MTSettings : ModSettings
@@ -75,7 +75,7 @@ namespace MisakHealth
 
     public class MTMod : Mod
     {
-        public const string Version = "0.14.1";
+        public const string Version = "0.14.2";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0
@@ -105,7 +105,7 @@ namespace MisakHealth
             OurLookScope.Patch(H);     // 0.12.0
             LongEventHandler.ExecuteWhenFinished(BillsTab.TakeOver);
             LongEventHandler.ExecuteWhenFinished(HealthTab.TakeOver);
-            Log.Message("[Mišák Tabs] v" + Version + " loaded.");
+            Log.Message("[Clear Tabs] v" + Version + " loaded.");
         }
 
         public override string SettingsCategory() => BuildInfo.Name;
@@ -117,7 +117,7 @@ namespace MisakHealth
         }
 
         // 0.14.0: the single-part mods (Mišák Bills, Health …) are this code with only some parts on;
-        // with Mišák Tabs itself active they stay off completely
+        // with Clear Tabs itself active they stay off completely
         public static readonly string[] AllParts =
         {
             "bills", "replaceOtherBillTabs", "billDialog", "recipePicker", "health", "replaceOtherHealthTabs", "surgeryPicker",
@@ -136,7 +136,7 @@ namespace MisakHealth
                 var fi = AccessTools.Field(typeof(MTSettings), f);
                 if (fi != null && fi.FieldType == typeof(bool)) fi.SetValue(S, false);
             }
-            if (Off) Log.Message("[" + BuildInfo.Name + "] Mišák Tabs is active – it already has all of this, so this mod stays off.");
+            if (Off) Log.Message("[" + BuildInfo.Name + "] Clear Tabs is active – it already has all of this, so this mod stays off.");
         }
 
         public override void DoSettingsWindowContents(Rect r)
@@ -476,14 +476,14 @@ namespace MisakHealth
                     prefix: new HarmonyMethod(typeof(BillsTab), nameof(Prefix)) { priority = Priority.First },
                     postfix: new HarmonyMethod(typeof(BillsTab), nameof(Postfix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] bills tab not available: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] bills tab not available: " + e.Message); }
             // 0.1.1: the size lives in the base class (ITab_Bills has no UpdateSize of its own)
             try
             {
                 h.Patch(AccessTools.DeclaredMethod(typeof(InspectTabBase), "UpdateSize"),
                     postfix: new HarmonyMethod(typeof(BillsTab), nameof(SizePostfix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] bills tab size: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] bills tab size: " + e.Message); }
         }
 
         // other bill tab mods (Nice Bill Tab …) draw their own tab in a prefix – theirs is removed
@@ -499,10 +499,10 @@ namespace MisakHealth
                 foreach (Patch p in info.Prefixes.Where(x => x.owner != MTMod.H.Id).ToList())
                 {
                     MTMod.H.Unpatch(m, p.PatchMethod);
-                    Log.Message("[Mišák Tabs] the bills tab of " + p.owner + " is replaced by Mišák Tabs (switch it back in the settings).");
+                    Log.Message("[Clear Tabs] the bills tab of " + p.owner + " is replaced by Clear Tabs (switch it back in the settings).");
                 }
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] take over: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] take over: " + e.Message); }
         }
 
         public static void SizePostfix(InspectTabBase __instance)
@@ -526,7 +526,7 @@ namespace MisakHealth
             catch (Exception e)
             {
                 Look.ResetGui();
-                Log.ErrorOnce("[Mišák Tabs] bills tab: " + e, 0x51A7B11);
+                Log.ErrorOnce("[Clear Tabs] bills tab: " + e, 0x51A7B11);
                 showOriginal = true;
             }
             return false;
@@ -1143,7 +1143,7 @@ namespace MisakHealth
                 h.Patch(AccessTools.PropertyGetter(typeof(WorkGiver_Scanner), nameof(WorkGiver_Scanner.Prioritized)), postfix: new HarmonyMethod(typeof(BillPrio), nameof(PrioritizedPostfix)));
                 h.Patch(AccessTools.Method(typeof(WorkGiver_Scanner), nameof(WorkGiver_Scanner.GetPriority), new[] { typeof(Pawn), typeof(TargetInfo) }), postfix: new HarmonyMethod(typeof(BillPrio), nameof(GetPriorityPostfix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] bill priorities: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] bill priorities: " + e.Message); }
         }
 
         public static void PrioritizedPostfix(WorkGiver_Scanner __instance, ref bool __result)

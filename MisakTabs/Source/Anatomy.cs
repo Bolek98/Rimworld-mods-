@@ -171,7 +171,7 @@ namespace MisakTabs
             }
             catch (Exception e)
             {
-                Log.Warning("[Mišák Tabs] anatomy pictures " + kind + ": " + e.Message);
+                Log.Warning("[Clear Tabs] anatomy pictures " + kind + ": " + e.Message);
                 k = null;
             }
             kits[kind] = k;

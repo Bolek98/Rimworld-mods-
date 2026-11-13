@@ -8,7 +8,7 @@ using Verse;
 
 namespace MisakInfo
 {
-    // 0.13.0: every window of Mišák Tabs can be resized by dragging its corner, remembers its size
+    // 0.13.0: every window of Clear Tabs can be resized by dragging its corner, remembers its size
     // (also after a restart) and always fits on the screen.
     [StaticConstructorOnStartup]
     public static class WindowSizes
@@ -29,7 +29,7 @@ namespace MisakInfo
                 h.Patch(AccessTools.Method(typeof(Window), nameof(Window.PostOpen)),
                     postfix: new HarmonyMethod(typeof(WindowSizes), nameof(OpenPostfix)));
             }
-            catch (Exception ex) { Log.Warning("[Mišák Tabs] window sizes: " + ex.Message); }
+            catch (Exception ex) { Log.Warning("[Clear Tabs] window sizes: " + ex.Message); }
         }
 
         // our own windows (Dialog_… in this mod) and the trade window while ours draws it

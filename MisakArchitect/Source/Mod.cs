@@ -39,7 +39,7 @@ public class MisakArchitectMod : Mod
 {
 	public static MASettings S;
 	public static MisakArchitectMod Instance;
-	public const string Version = "0.2.0";
+	public const string Version = "0.2.1";
 
 	public MisakArchitectMod(ModContentPack content) : base(content)
 	{
@@ -48,10 +48,10 @@ public class MisakArchitectMod : Mod
 		var h = new Harmony("bolek98.misakarchitect");
 		h.PatchAll();
 		MNews.Register(content, Version);
-		Log.Message("[Mišák Architect] v" + Version + " loaded.");
+		Log.Message("[Clear Architect] v" + Version + " loaded.");
 	}
 
-	public override string SettingsCategory() => "Mišák Architect";
+	public override string SettingsCategory() => "Clear Architect";
 
 	public override void DoSettingsWindowContents(Rect r)
 	{
@@ -102,7 +102,7 @@ public static class ArchitectSwap
 			def.tabWindowClass = want;
 			AccessTools.Field(typeof(MainButtonDef), "tabWindowInt").SetValue(def, null);
 		}
-		catch (Exception e) { Log.Error("[Mišák Architect] " + e); }
+		catch (Exception e) { Log.Error("[Clear Architect] " + e); }
 	}
 }
 

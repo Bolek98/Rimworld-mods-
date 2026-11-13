@@ -41,7 +41,7 @@ namespace MisakTabs
                 if (tabs != null && toggleTab != null)
                     h.Patch(tabs, prefix: new HarmonyMethod(typeof(InspectPaneLook), nameof(TabsPrefix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] info pane look: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] info pane look: " + e.Message); }
         }
 
         // ---------------- the card behind the pane ----------------
@@ -142,7 +142,7 @@ namespace MisakTabs
             }
             catch (Exception e)
             {
-                Log.ErrorOnce("[Mišák Tabs] tab buttons: " + e, 0x4d5401);
+                Log.ErrorOnce("[Clear Tabs] tab buttons: " + e, 0x4d5401);
                 return !On;
             }
             return false;
@@ -205,7 +205,7 @@ namespace MisakTabs
             }
             catch (Exception e)
             {
-                Log.ErrorOnce("[Mišák Tabs] info pane: " + e, 0x4d5402);
+                Log.ErrorOnce("[Clear Tabs] info pane: " + e, 0x4d5402);
             }
             return false;
         }
@@ -348,7 +348,7 @@ namespace MisakTabs
                     h.Patch(fill, prefix: new HarmonyMethod(typeof(OurLookScope), nameof(StoragePrefix)),
                         finalizer: new HarmonyMethod(typeof(OurLookScope), nameof(StorageFinalizer)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] our look in windows: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] our look in windows: " + e.Message); }
         }
 
         public static void StoragePrefix(ITab_Storage __instance, out bool __state)

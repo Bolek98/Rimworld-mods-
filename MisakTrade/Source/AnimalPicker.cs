@@ -31,7 +31,7 @@ namespace MisakTrade
                 MTMod.H.Patch(AccessTools.DeclaredMethod(typeof(MainTabWindow_Animals), nameof(MainTabWindow_Animals.DoWindowContents)),
                     postfix: new HarmonyMethod(typeof(AnimalPickerPatch), nameof(TabPostfix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] animal picker: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] animal picker: " + e.Message); }
         }
 
         public static bool On => MTMod.S != null && MTMod.S.animalPicker;
@@ -52,7 +52,7 @@ namespace MisakTrade
             }
             catch (Exception e)
             {
-                Log.ErrorOnce("[Mišák Tabs] master picker: " + e, 0x4d5c11);
+                Log.ErrorOnce("[Clear Tabs] master picker: " + e, 0x4d5c11);
                 return true;
             }
         }

@@ -3,7 +3,7 @@ namespace MisakTrade
 {
     public static class BuildInfo
     {
-        public const string Name = "Mišák Trade";
+        public const string Name = "Clear Trade";
         public const bool Split = true;
         private static readonly string[] Parts = { "tradeWindow" };
         public static bool Has(string field) => Parts == null || System.Array.IndexOf(Parts, field) >= 0;

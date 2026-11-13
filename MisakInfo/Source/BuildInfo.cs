@@ -3,7 +3,7 @@ namespace MisakInfo
 {
     public static class BuildInfo
     {
-        public const string Name = "Mišák Infocentrum";
+        public const string Name = "Clear Info Card";
         public const bool Split = true;
         private static readonly string[] Parts = { "infoCard" };
         public static bool Has(string field) => Parts == null || System.Array.IndexOf(Parts, field) >= 0;

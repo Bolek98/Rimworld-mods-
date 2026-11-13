@@ -34,7 +34,7 @@ namespace MisakBills
                     prefix: new HarmonyMethod(typeof(HealthTab), nameof(Prefix)) { priority = Priority.First },
                     postfix: new HarmonyMethod(typeof(HealthTab), nameof(Postfix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] health tab not available: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] health tab not available: " + e.Message); }
             try { opTab = AccessTools.StaticFieldRefAccess<bool>(AccessTools.Field(typeof(HealthCardUtility), "onOperationTab")); }
             catch { opTab = null; }
         }
@@ -50,10 +50,10 @@ namespace MisakBills
                 foreach (Patch p in info.Prefixes.Where(x => x.owner != MTMod.H.Id).ToList())
                 {
                     MTMod.H.Unpatch(m, p.PatchMethod);
-                    Log.Message("[Mišák Tabs] the health tab of " + p.owner + " is replaced by Mišák Tabs (switch it back in the settings).");
+                    Log.Message("[Clear Tabs] the health tab of " + p.owner + " is replaced by Clear Tabs (switch it back in the settings).");
                 }
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] health take over: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] health take over: " + e.Message); }
         }
 
         public static bool Ours(InspectTabBase t) => t is ITab_Pawn_Health && MTMod.S.health && !showOriginal;
@@ -79,7 +79,7 @@ namespace MisakBills
             catch (Exception e)
             {
                 Look.ResetGui();   // 0.4.2
-                Log.ErrorOnce("[Mišák Tabs] health tab: " + e, 0x51A7B12);
+                Log.ErrorOnce("[Clear Tabs] health tab: " + e, 0x51A7B12);
                 showOriginal = true;
             }
             return false;
@@ -564,7 +564,7 @@ namespace MisakBills
                 {
                     figMode = 1;
                     Look.ResetGui();
-                    Log.Warning("[Mišák Tabs] anatomy: " + e);
+                    Log.Warning("[Clear Tabs] anatomy: " + e);
                 }
             }
             bool silhouette = figMode != 2;
@@ -584,7 +584,7 @@ namespace MisakBills
                 catch (Exception e)
                 {
                     figMode = 2;
-                    Log.Warning("[Mišák Tabs] silhouette: " + e.Message);
+                    Log.Warning("[Clear Tabs] silhouette: " + e.Message);
                 }
             }
             if (!sil)
@@ -1000,7 +1000,7 @@ namespace MisakBills
                 }
                 Find.WindowStack.Add(new FloatMenu(opts));
             }
-            catch (Exception e) { Log.WarningOnce("[Mišák Tabs] part menu: " + e.Message, 0x51A7B15); }
+            catch (Exception e) { Log.WarningOnce("[Clear Tabs] part menu: " + e.Message, 0x51A7B15); }
         }
 
         private static string Key(Pawn pawn, BodyPartRecord part)

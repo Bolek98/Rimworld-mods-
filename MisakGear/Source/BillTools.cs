@@ -201,7 +201,7 @@ namespace MisakGear
             try { Sync(); }
             catch (Exception e)
             {
-                if (!warned) { warned = true; Log.Warning("[Mišák Tabs] linked bills: " + e.Message); }
+                if (!warned) { warned = true; Log.Warning("[Clear Tabs] linked bills: " + e.Message); }
             }
         }
 

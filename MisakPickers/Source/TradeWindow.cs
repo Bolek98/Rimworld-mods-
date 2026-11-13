@@ -53,7 +53,7 @@ namespace MisakPickers
                 h.Patch(AccessTools.Method(typeof(Window), "SetInitialSizeAndPosition"),
                     postfix: new HarmonyMethod(typeof(TradeWindowPatch), nameof(SizePostfix)));
             }
-            catch (Exception e) { Log.Warning("[Mišák Tabs] trade window: " + e.Message); }
+            catch (Exception e) { Log.Warning("[Clear Tabs] trade window: " + e.Message); }
         }
 
         // ours only for a plain trade: not from a caravan (mass/food bar), not for royal favor
@@ -98,7 +98,7 @@ namespace MisakPickers
             catch (Exception e)
             {
                 st.failed = true;
-                Log.ErrorOnce("[Mišák Tabs] trade window failed, the game's trade window is used for this trade: " + e, 0x4d5491);
+                Log.ErrorOnce("[Clear Tabs] trade window failed, the game's trade window is used for this trade: " + e, 0x4d5491);
                 Look.ResetGui();
                 try { Widgets.EndScrollView(); } catch { }
                 return true;

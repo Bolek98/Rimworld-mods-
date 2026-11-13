@@ -48,7 +48,7 @@ namespace MisakTabs
                 }
                 return false;
             }
-            catch (Exception e) { Log.ErrorOnce("[Mišák Tabs] outfit picker: " + e, 0x4d5421); return true; }
+            catch (Exception e) { Log.ErrorOnce("[Clear Tabs] outfit picker: " + e, 0x4d5421); return true; }
         }
 
         public static bool FoodCell(Rect rect, Pawn pawn)
@@ -61,7 +61,7 @@ namespace MisakTabs
                     (p, v) => { if (p.foodRestriction != null) p.foodRestriction.CurrentFoodPolicy = (FoodPolicy)v; });
                 return false;
             }
-            catch (Exception e) { Log.ErrorOnce("[Mišák Tabs] food picker: " + e, 0x4d5422); return true; }
+            catch (Exception e) { Log.ErrorOnce("[Clear Tabs] food picker: " + e, 0x4d5422); return true; }
         }
 
         public static bool DrugCell(Rect rect, Pawn pawn)
@@ -81,7 +81,7 @@ namespace MisakTabs
                     (p, v) => { if (p.drugs != null) p.drugs.CurrentPolicy = (DrugPolicy)v; });
                 return false;
             }
-            catch (Exception e) { Log.ErrorOnce("[Mišák Tabs] drug picker: " + e, 0x4d5423); return true; }
+            catch (Exception e) { Log.ErrorOnce("[Clear Tabs] drug picker: " + e, 0x4d5423); return true; }
         }
 
         public static bool AreaCell(Rect rect, Pawn p)
@@ -98,7 +98,7 @@ namespace MisakTabs
                 if (Mouse.IsOver(rect)) cur?.MarkForDraw();
                 return false;
             }
-            catch (Exception e) { Log.ErrorOnce("[Mišák Tabs] area picker: " + e, 0x4d5424); return true; }
+            catch (Exception e) { Log.ErrorOnce("[Clear Tabs] area picker: " + e, 0x4d5424); return true; }
         }
     }
 

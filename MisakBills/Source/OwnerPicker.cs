@@ -22,9 +22,9 @@ namespace MisakBills
         static PickersB()
         {
             var h = new Harmony("misak.bills.pickersB");
-            try { OwnerPickerPatch.Patch(h); } catch (Exception e) { Log.Warning("[Mišák Tabs] owner picker: " + e.Message); }
-            try { PolicyPickerPatch.Patch(h); } catch (Exception e) { Log.Warning("[Mišák Tabs] policy picker: " + e.Message); }
-            try { ResearchPickerPatch.Patch(h); } catch (Exception e) { Log.Warning("[Mišák Tabs] research picker: " + e.Message); }
+            try { OwnerPickerPatch.Patch(h); } catch (Exception e) { Log.Warning("[Clear Tabs] owner picker: " + e.Message); }
+            try { PolicyPickerPatch.Patch(h); } catch (Exception e) { Log.Warning("[Clear Tabs] policy picker: " + e.Message); }
+            try { ResearchPickerPatch.Patch(h); } catch (Exception e) { Log.Warning("[Clear Tabs] research picker: " + e.Message); }
         }
     }
 
@@ -142,7 +142,7 @@ namespace MisakBills
                 if (assignableF.GetValue(window) is CompAssignableToPawn comp && comp.parent != null)
                     window = new Dialog_OwnerPicker(comp);
             }
-            catch (Exception e) { Log.ErrorOnce("[Mišák Tabs] owner picker: " + e, 0x4d5410); }
+            catch (Exception e) { Log.ErrorOnce("[Clear Tabs] owner picker: " + e, 0x4d5410); }
         }
     }
 
