@@ -33,7 +33,7 @@ public class AMSettings : ModSettings
 public class AnyMaterialMod : Mod
 {
 	public static AMSettings S;
-	public const string Version = "0.2.2";
+	public const string Version = "0.2.3";
 	private static List<string> rec;
 
 	public AnyMaterialMod(ModContentPack content) : base(content)
@@ -130,7 +130,7 @@ public class AMMap : MapComponent
 	{
 		if (Scribe.mode == LoadSaveMode.Saving)
 		{
-			var alive = new HashSet<int>(map.listerThings.ThingsInGroup(ThingRequestGroup.Blueprint).Select(t => t.thingIDNumber));
+			var alive = new HashSet<int>(map.listerThings.ThingsInGroup(ThingRequestGroup.Blueprint).Concat(map.listerThings.ThingsInGroup(ThingRequestGroup.BuildingFrame)).Select(t => t.thingIDNumber));
 			foreach (int id in blueprints.Keys.ToList())
 				if (!alive.Contains(id))
 					blueprints.Remove(id);
@@ -179,6 +179,36 @@ public static class Picker
 		=> stuff.stuffProps?.statOffsets?.FirstOrDefault(m => m.stat == stat)?.value ?? 0f;
 
 	// keep the current material while there is enough of it; otherwise take the best one there is enough of
+	// 0.2.3: a frame whose material ran out halfway: what was brought goes back on the ground and the
+	// frame takes another allowed material there is enough of
+	public static void RepickFrame(Frame f, AnyStuff a, ThingDef want = null)
+	{
+		if (f?.Map == null || a == null || !(f.def.entityDefToBuild is ThingDef td) || !td.MadeFromStuff)
+			return;
+		Map map = f.Map;
+		ThingDef cur = f.Stuff;
+		if (want == null)
+		{
+			int delivered = cur == null ? 0 : f.resourceContainer.TotalStackCountOfDef(cur);
+			if (cur != null && map.resourceCounter.GetCount(cur) + delivered >= Need(td, cur))
+				return;
+			var rule = (PickRule)AnyMaterialMod.S.rule;
+			float bestScore = float.MinValue;
+			foreach (ThingDef d in (a.allowed ?? Stuffs(td).ToList()).Where(d => d != cur && d.IsStuff && d.stuffProps.CanMake(td)))
+			{
+				if (map.resourceCounter.GetCount(d) < Need(td, d)) continue;
+				float sc = Score(d, td, map, rule);
+				if (sc > bestScore) { bestScore = sc; want = d; }
+			}
+			if (want == null) return;
+		}
+		if (want == cur) return;
+		Fixed.Eject(f, cur);
+		f.SetStuffDirect(want);
+		f.DirtyMapMesh(map);
+		Fixed.EjectExtras(f);
+	}
+
 	public static void Repick(Blueprint_Build bp, AnyStuff a, bool force = false)
 	{
 		if (bp?.Map == null || a == null || !(bp.def.entityDefToBuild is ThingDef td) || !td.MadeFromStuff)
@@ -248,6 +278,8 @@ public static class Hook
 		{
 			if (t is Blueprint_Build bp && AMMap.Of(bp.Map)?.Get(bp) is AnyStuff a)
 				Picker.Repick(bp, a);
+			else if (t is Frame fr && AMMap.Of(fr.Map)?.Get(fr) is AnyStuff fa)
+				Picker.RepickFrame(fr, fa);
 			Fixed.Repick(t);
 		}
 		catch (Exception e) { Log.WarningOnce("[Any Material] " + e.Message, 0x41af11); }
@@ -347,12 +379,12 @@ public static class Tex
 [HarmonyPatch(typeof(Blueprint_Build), nameof(Blueprint_Build.GetGizmos))]
 public static class Patch_BlueprintGizmo
 {
-	private static IEnumerable<Gizmo> FixedGizmos(Blueprint_Build bp, AMMap comp)
+	public static IEnumerable<Gizmo> FixedGizmos(Thing bp, AMMap comp)
 	{
-		List<ThingDefCountClass> rep = Fixed.Replaceable(bp.def.entityDefToBuild, bp.stuffToUse);
+		List<ThingDefCountClass> rep = Fixed.Replaceable(Fixed.BuildDef(bp), Fixed.StuffOf(bp));
 		if (rep.Count == 0)
 			yield break;
-		bool On(Blueprint_Build b) => comp.GetFixed(b) is FixedSub f ? !f.off : AnyMaterialMod.S.fixedAuto;
+		bool On(Thing b) => comp.GetFixed(b) is FixedSub f ? !f.off : AnyMaterialMod.S.fixedAuto;
 		yield return new Command_Toggle
 		{
 			defaultLabel = "AM_GizmoFixed".Translate(),
@@ -366,6 +398,7 @@ public static class Patch_BlueprintGizmo
 				f.off = was;
 				if (f.off) f.chosen.Clear();
 				else Fixed.Repick(bp);
+				Fixed.EjectExtras(bp);
 			}
 		};
 		if (Find.Selector.NumSelected == 1 || comp.GetFixed(bp)?.allowed != null)
@@ -376,20 +409,23 @@ public static class Patch_BlueprintGizmo
 				icon = Tex.Any,
 				action = () =>
 				{
-					var sel = Find.Selector.SelectedObjects.OfType<Blueprint_Build>().Where(x => x.def == bp.def).ToList();
+					var sel = Find.Selector.SelectedObjects.OfType<Thing>().Where(x => x.def == bp.def).ToList();
 					var all = rep.SelectMany(c => Fixed.Subs(c.thingDef).Prepend(c.thingDef)).Distinct().ToList();
 					var need = rep.SelectMany(c => Fixed.Subs(c.thingDef).Prepend(c.thingDef).Select(d => (d, c.count)))
 						.GroupBy(x => x.d).ToDictionary(g => g.Key, g => g.Max(x => x.count));
 					List<ThingDef> cur = comp.GetFixed(bp)?.allowed;
-					Find.WindowStack.Add(new Dialog_ChooseStuff(bp.def.entityDefToBuild.LabelCap, all, d => need[d], cur ?? all, list =>
+					Find.WindowStack.Add(new Dialog_ChooseStuff(Fixed.BuildDef(bp).LabelCap, all, d => need[d], cur ?? all, list =>
 					{
-						foreach (Blueprint_Build b in sel)
+						foreach (Thing b in sel)
 						{
 							FixedSub f = comp.MakeFixed(b);
 							f.off = false;
 							f.allowed = list.Count == all.Count ? null : list;
-							f.chosen.Clear();
-							Fixed.Repick(b);
+							if (!(b is Frame)) f.chosen.Clear();
+							else foreach (ThingDef k in f.chosen.Keys.ToList())
+								if (!list.Contains(f.chosen[k])) f.chosen.Remove(k);
+							Fixed.Repick(b, true);
+							Fixed.EjectExtras(b);
 						}
 					}));
 				}

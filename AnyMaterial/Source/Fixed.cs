@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace AnyMaterial;
@@ -102,7 +103,28 @@ public static class Fixed
 
 	// when a builder is about to bring materials: keep the original while there is enough of it,
 	// otherwise take another material of the same kind. Once something is delivered it stays.
-	public static void Repick(Thing t)
+	public static void Repick(Thing t) => Repick(t, false);
+
+	// drops what was brought of one material next to the frame
+	public static void Eject(Frame f, ThingDef d)
+	{
+		if (f?.Map == null || d == null) return;
+		foreach (Thing t in f.resourceContainer.ToList())
+			if (t.def == d)
+				f.resourceContainer.TryDrop(t, f.Position, f.Map, ThingPlaceMode.Near, out _);
+	}
+
+	// drops everything in a frame that is no longer part of its cost
+	public static void EjectExtras(Thing t)
+	{
+		if (!(t is Frame f) || f.Map == null) return;
+		var cost = f.TotalMaterialCost();
+		foreach (Thing x in f.resourceContainer.ToList())
+			if (!cost.Any(c => c.thingDef == x.def))
+				f.resourceContainer.TryDrop(x, f.Position, f.Map, ThingPlaceMode.Near, out _);
+	}
+
+	public static void Repick(Thing t, bool force)
 	{
 		var s = AnyMaterialMod.S;
 		Map map = t.Map;
@@ -119,14 +141,14 @@ public static class Fixed
 			ThingDef orig = c.thingDef;
 			ThingDef cur = fs != null && fs.chosen.TryGetValue(orig, out ThingDef ch) ? ch : orig;
 			int delivered = frame != null ? frame.resourceContainer.TotalStackCountOfDef(cur) : 0;
-			if (delivered > 0)
-				continue;   // already being built from it
+			if (delivered > 0 && Have(map, cur) + delivered >= c.count)
+				continue;   // already being built from it and there is enough for the rest
 			var cands = new List<ThingDef> { orig };
 			cands.AddRange(Subs(orig));
 			if (fs?.allowed != null)
 				cands = cands.Where(d => d == orig || fs.allowed.Contains(d)).ToList();
 			int need = c.count;
-			if (Have(map, cur) >= need && (cur == orig || !s.preferOriginal || Have(map, orig) < need))
+			if (delivered == 0 && Have(map, cur) >= need && (fs?.allowed == null || cur == orig || fs.allowed.Contains(cur)) && (cur == orig || !s.preferOriginal || Have(map, orig) < need))
 				continue;
 			ThingDef best = null;
 			if (s.preferOriginal && Have(map, orig) >= need)
@@ -142,10 +164,15 @@ public static class Fixed
 				}
 			}
 			// nothing there in full: take what there is most of, so at least something gets brought
+			// (a frame that already has some keeps its material then – nothing better is there)
+			if (best == null && delivered > 0)
+				continue;
 			best ??= cands.OrderByDescending(d => Have(map, d)).First();
 			if (best == cur)
 				continue;
 			fs ??= comp.MakeFixed(t);
+			if (frame != null && delivered > 0)
+				Eject(frame, cur);
 			if (best == orig) fs.chosen.Remove(orig);
 			else fs.chosen[orig] = best;
 		}
@@ -255,20 +282,27 @@ public static class Patch_Leavings
 [HarmonyPatch(typeof(Blueprint), nameof(Blueprint.TryReplaceWithSolidThing))]
 public static class Patch_BlueprintToFrame
 {
-	public static void Prefix(Blueprint __instance, out (Map, FixedSub) __state)
+	public static void Prefix(Blueprint __instance, out (Map, FixedSub, AnyStuff) __state)
 	{
 		Map m = __instance.Map;
-		__state = (m, AMMap.Of(m)?.GetFixed(__instance));
+		AMMap comp = AMMap.Of(m);
+		__state = (m, comp?.GetFixed(__instance), comp?.Get(__instance));
 	}
 
-	public static void Postfix(Blueprint __instance, Thing createdThing, (Map, FixedSub) __state)
+	public static void Postfix(Blueprint __instance, Thing createdThing, (Map, FixedSub, AnyStuff) __state)
 	{
-		if (__state.Item2 == null || createdThing == null)
-			return;
 		AMMap comp = AMMap.Of(__state.Item1);
-		if (comp == null) return;
-		comp.fixedSubs[createdThing.thingIDNumber] = __state.Item2.Copy();
-		comp.fixedSubs.Remove(__instance.thingIDNumber);
+		if (comp == null || createdThing == null) return;
+		if (__state.Item2 != null)
+		{
+			comp.fixedSubs[createdThing.thingIDNumber] = __state.Item2.Copy();
+			comp.fixedSubs.Remove(__instance.thingIDNumber);
+		}
+		if (__state.Item3 != null && createdThing is Frame)   // 0.2.3: "any material" goes on with the frame
+		{
+			comp.blueprints[createdThing.thingIDNumber] = new AnyStuff { allowed = __state.Item3.allowed?.ToList() };
+			comp.blueprints.Remove(__instance.thingIDNumber);
+		}
 	}
 }
 
@@ -308,4 +342,55 @@ public static class Patch_FrameHasJob
 public static class Patch_FrameJobOn
 {
 	public static void Prefix(Thing t) => Hook.Before(t);
+}
+
+// 0.2.3: the same buttons on frames (building already started) – change the material when it ran out
+[HarmonyPatch(typeof(Frame), nameof(Frame.GetGizmos))]
+public static class Patch_FrameGizmo
+{
+	public static IEnumerable<Gizmo> Postfix(IEnumerable<Gizmo> gizmos, Frame __instance)
+	{
+		foreach (Gizmo g in gizmos)
+			yield return g;
+		var s = AnyMaterialMod.S;
+		if (s == null || !s.enabled || __instance.Faction != Faction.OfPlayer)
+			yield break;
+		AMMap comp = AMMap.Of(__instance.Map);
+		if (comp == null)
+			yield break;
+		Frame f = __instance;
+		foreach (Gizmo g in Patch_BlueprintGizmo.FixedGizmos(f, comp))
+			yield return g;
+		if (!(f.def.entityDefToBuild is ThingDef td) || !td.MadeFromStuff)
+			yield break;
+		yield return new Command_Action
+		{
+			defaultLabel = "AM_GizmoFrameStuff".Translate(),
+			defaultDesc = "AM_GizmoFrameStuff_Desc".Translate(),
+			icon = Tex.Any,
+			action = () =>
+			{
+				var opts = new List<FloatMenuOption>
+				{
+					new FloatMenuOption("AM_MenuAny".Translate(), () =>
+					{
+						comp.blueprints[f.thingIDNumber] = new AnyStuff();
+						Picker.RepickFrame(f, comp.blueprints[f.thingIDNumber]);
+					}, Tex.Any, Color.white)
+				};
+				foreach (ThingDef d in Picker.Stuffs(td).OrderByDescending(d => f.Map.resourceCounter.GetCount(d)))
+				{
+					ThingDef dd = d;
+					int have = f.Map.resourceCounter.GetCount(d);
+					if (have <= 0 && d != f.Stuff) continue;
+					opts.Add(new FloatMenuOption(d.LabelCap + " (" + have + "/" + Picker.Need(td, d) + ")", () =>
+					{
+						comp.Clear(f);
+						Picker.RepickFrame(f, new AnyStuff(), dd);
+					}, d));
+				}
+				Find.WindowStack.Add(new FloatMenu(opts));
+			}
+		};
+	}
 }
