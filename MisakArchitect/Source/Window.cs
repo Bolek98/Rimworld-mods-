@@ -27,10 +27,14 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 	private Vector2 scrollGrid, scrollSide, scrollInfo;
 	private Designator hover;
 	private bool focusDone;
+	private readonly Dictionary<string, string> subSel = new Dictionary<string, string>();
+	private int drag;
+	private Vector2 dragStart;
+	private Rect dragRect;
 
 	private static MASettings S => MisakArchitectMod.S;
 
-	public override Vector2 RequestedTabSize => new Vector2(Mathf.Min(UI.screenWidth - 10f, 1240f), Mathf.Clamp(S?.height ?? 380f, 240f, UI.screenHeight - 120f));
+	public override Vector2 RequestedTabSize => new Vector2(Mathf.Clamp(S != null && S.width > 0f ? S.width : 1240f, 640f, UI.screenWidth - 10f), Mathf.Clamp(S?.height ?? 380f, 240f, UI.screenHeight - 120f));
 
 	protected override float Margin => 0f;
 
@@ -44,6 +48,7 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 	{
 		base.PreOpen();
 		Catalog.Rebuild();
+		Subs.Clear();
 		cat ??= S.lastCategory;
 		if (cat == null || (cat != Fav && cat != Recent && !Catalog.cats.Any(c => c.defName == cat)))
 			cat = Catalog.cats.FirstOrDefault(c => c.Visible)?.defName;
@@ -136,6 +141,11 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 			GUI.color = Color.white;
 		}
 
+		// header switches: group by mod, show what is not researched yet
+		float tx = head.xMax - 40f;
+		tx = Toggle(ref tx, head, "MA_ShowLocked", ref S.showLocked);
+		tx = Toggle(ref tx, head, "MA_ByMod", ref S.byMod, () => Subs.Clear());
+
 		Rect body = new Rect(inRect.x, head.yMax, inRect.width, inRect.height - Head);
 		float infoW = S.showInfo ? InfoW : 0f;
 		Sidebar(new Rect(body.x, body.y, SideW, body.height));
@@ -143,6 +153,69 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 		Grid(gridR, items, emptyText);
 		if (S.showInfo)
 			Info(new Rect(body.xMax - infoW, body.y, infoW, body.height));
+		Resizer(inRect);
+	}
+
+	private float Toggle(ref float right, Rect head, string key, ref bool v, Action changed = null)
+	{
+		string label = key.Translate();
+		Text.Font = GameFont.Tiny;
+		float w = Text.CalcSize(label).x + 22f;
+		Rect r = new Rect(right - w, head.y + 7f, w, 20f);
+		MUI.Fill(r, v ? MUI.OnBg : MUI.CardBg);
+		MUI.Frame(r, v ? MUI.Accent : MUI.Border);
+		GUI.color = v ? MUI.Accent : MUI.Muted;
+		Text.Anchor = TextAnchor.MiddleCenter;
+		Widgets.Label(r, label);
+		Text.Anchor = TextAnchor.UpperLeft;
+		GUI.color = Color.white;
+		Text.Font = GameFont.Small;
+		TooltipHandler.TipRegion(r, (key + "_Desc").Translate());
+		if (Widgets.ButtonInvisible(r)) { v = !v; changed?.Invoke(); dirty = true; scrollGrid = Vector2.zero; SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(); }
+		right = r.x - 6f;
+		return right;
+	}
+
+	// 0.2.0: drag the top edge (height), the right edge (width) or the top right corner (both)
+	private void Resizer(Rect inRect)
+	{
+		Rect top = new Rect(inRect.x, inRect.y, inRect.width - 18f, 5f);
+		Rect right = new Rect(inRect.xMax - 5f, inRect.y + 18f, 5f, inRect.height - 18f);
+		Rect corner = new Rect(inRect.xMax - 16f, inRect.y, 16f, 16f);
+		Vector2 m = UI.MousePositionOnUIInverted;
+		bool overC = Mouse.IsOver(corner), overT = Mouse.IsOver(top), overR = Mouse.IsOver(right);
+		GUI.color = new Color(1f, 1f, 1f, drag == 3 || overC ? 0.9f : 0.35f);
+		Widgets.DrawLineHorizontal(corner.x + 4f, corner.y + 3f, 10f);
+		Widgets.DrawLineVertical(corner.xMax - 3f, corner.y + 3f, 10f);
+		GUI.color = Color.white;
+		if (overT || drag == 1) Widgets.DrawBoxSolid(top, MUI.Accent.ToTransparent(0.6f));
+		if (overR || drag == 2) Widgets.DrawBoxSolid(right, MUI.Accent.ToTransparent(0.6f));
+		TooltipHandler.TipRegion(corner, "MA_ResizeTip".Translate());
+		if (drag == 0 && Event.current.type == EventType.MouseDown && Event.current.button == 0 && (overC || overT || overR))
+		{
+			drag = overC ? 3 : overT ? 1 : 2;
+			dragStart = m;
+			dragRect = windowRect;
+			Event.current.Use();
+		}
+		if (drag == 0) return;
+		if (!Input.GetMouseButton(0))
+		{
+			drag = 0;
+			S.height = windowRect.height;
+			S.width = windowRect.width;
+			dirty = true;
+			return;
+		}
+		if ((drag & 1) != 0)
+		{
+			float h = Mathf.Clamp(dragRect.height - (m.y - dragStart.y), 240f, UI.screenHeight - 120f);
+			windowRect.y = dragRect.yMax - h;
+			windowRect.height = h;
+		}
+		if ((drag & 2) != 0)
+			windowRect.width = Mathf.Clamp(dragRect.width + (m.x - dragStart.x), 640f, UI.screenWidth - 10f);
+		if (Event.current.type == EventType.MouseDrag) Event.current.Use();
 	}
 
 	// ---------------------------------------------------------------- lists
@@ -232,9 +305,47 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 
 	// ---------------------------------------------------------------- the buildings
 
+	private static bool Locked(Designator d)
+	{
+		if (d is Designator_Dropdown dd) d = dd.Elements.FirstOrDefault();
+		return d is Designator_Build b && b.PlacingDef != null && !Catalog.Shown(d) && !b.PlacingDef.IsResearchFinished;
+	}
+
 	private void Grid(Rect r, List<Designator> items, string emptyText)
 	{
-		List<Designator> shown = items.Where(Catalog.Shown).ToList();
+		List<Designator> shown = items.Where(d => Catalog.Shown(d) || (S.showLocked && Locked(d))).ToList();
+		// sub-categories as chips above the buildings
+		var groups = shown.GroupBy(d => Subs.Of(d)).OrderBy(g => Subs.Rank(g.Key)).ThenBy(g => g.Key).ToList();
+		string selKey = (search.filter.Active ? "@search" : cat ?? "") + (S.byMod ? "#mod" : "");
+		string sub = subSel.TryGetValue(selKey, out string ss) ? ss : null;
+		if (sub != null && !groups.Any(g => g.Key == sub)) sub = null;
+		if (groups.Count > 1)
+		{
+			float x = r.x, y = r.y;
+			Text.Font = GameFont.Tiny;
+			var chips = new List<(string key, string label)> { (null, "MA_SubAll".Translate() + " " + shown.Count) };
+			chips.AddRange(groups.Select(g => (g.Key, Subs.Label(g.Key) + " " + g.Count())));
+			foreach (var (key, label) in chips)
+			{
+				float w = Text.CalcSize(label).x + 16f;
+				if (x + w > r.xMax) { x = r.x; y += 24f; }
+				Rect cr = new Rect(x, y, w, 21f);
+				bool on = sub == key;
+				MUI.Fill(cr, on ? MUI.OnBg : Mouse.IsOver(cr) ? MUI.CardBg2 : MUI.CardBg);
+				MUI.Frame(cr, on ? MUI.Accent : MUI.Border);
+				GUI.color = on ? MUI.Accent : MUI.Text1;
+				Text.Anchor = TextAnchor.MiddleCenter;
+				Widgets.Label(cr, label);
+				Text.Anchor = TextAnchor.UpperLeft;
+				GUI.color = Color.white;
+				if (Widgets.ButtonInvisible(cr)) { subSel[selKey] = key; scrollGrid = Vector2.zero; SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(); }
+				x += w + 4f;
+			}
+			Text.Font = GameFont.Small;
+			float used = y + 26f - r.y;
+			r = new Rect(r.x, r.y + used, r.width, r.height - used);
+			if (sub != null) shown = shown.Where(d => Subs.Of(d) == sub).ToList();
+		}
 		if (shown.Count == 0)
 		{
 			GUI.color = MUI.Muted;
@@ -261,6 +372,11 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 			// skip what is scrolled out of sight
 			if (y + Cell < scrollGrid.y - 4f || y > scrollGrid.y + r.height + 4f)
 				continue;
+			if (!Catalog.Shown(d))
+			{
+				LockedTile(cell, d);
+				continue;
+			}
 			string key = Catalog.Key(d);
 			bool fav = key != null && S.favorites.Contains(key);
 			Rect star = new Rect(cell.xMax - 19f, cell.y + 1f, 18f, 18f);
@@ -317,6 +433,30 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 			Event.current.Use();
 			if (opts.Any()) Find.WindowStack.Add(new FloatMenu(opts));
 		}
+	}
+
+	private void LockedTile(Rect cell, Designator d)
+	{
+		if (d is Designator_Dropdown dd) d = dd.Elements.FirstOrDefault();
+		if (!(d is Designator_Build b)) return;
+		MUI.Fill(cell, MUI.CardBg);
+		MUI.Frame(cell, MUI.Border);
+		GUI.color = new Color(1f, 1f, 1f, 0.3f);
+		try { Widgets.DefIcon(cell.ContractedBy(12f), b.PlacingDef, b.PlacingDef.MadeFromStuff ? GenStuff.DefaultStuffFor(b.PlacingDef) : null); } catch { }
+		GUI.color = MUI.Warn;
+		Text.Font = GameFont.Tiny;
+		Text.Anchor = TextAnchor.LowerCenter;
+		Widgets.Label(new Rect(cell.x, cell.y, cell.width, cell.height - 2f), "MA_Locked".Translate());
+		Text.Anchor = TextAnchor.UpperLeft;
+		GUI.color = Color.white;
+		if (Mouse.IsOver(cell))
+		{
+			hover = d;
+			var res = (b.PlacingDef.researchPrerequisites ?? new List<ResearchProjectDef>()).Where(p => !p.IsFinished).Select(p => p.LabelCap.ToString());
+			TooltipHandler.TipRegion(cell, b.PlacingDef.LabelCap + "\n" + "MA_LockedTip".Translate(string.Join(", ", res)));
+		}
+		if (Widgets.ButtonInvisible(cell))
+			Find.MainTabsRoot.SetCurrentTab(MainButtonDefOf.Research);
 	}
 
 	// ---------------------------------------------------------------- what it is

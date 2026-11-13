@@ -12,6 +12,8 @@ public class MASettings : ModSettings
 {
 	public bool enabled = true;
 	public float height = 380f;
+	public float width = 0f;     // 0.2.0: 0 = automatic
+	public bool byMod, showLocked;
 	public bool showInfo = true;
 	public List<string> favorites = new List<string>();
 	public List<string> recent = new List<string>();
@@ -21,6 +23,9 @@ public class MASettings : ModSettings
 	{
 		Scribe_Values.Look(ref enabled, "enabled", true);
 		Scribe_Values.Look(ref height, "height", 380f);
+		Scribe_Values.Look(ref width, "width", 0f);
+		Scribe_Values.Look(ref byMod, "byMod", false);
+		Scribe_Values.Look(ref showLocked, "showLocked", false);
 		Scribe_Values.Look(ref showInfo, "showInfo", true);
 		Scribe_Values.Look(ref lastCategory, "lastCategory");
 		Scribe_Collections.Look(ref favorites, "favorites", LookMode.Value);
@@ -34,7 +39,7 @@ public class MisakArchitectMod : Mod
 {
 	public static MASettings S;
 	public static MisakArchitectMod Instance;
-	public const string Version = "0.1.0";
+	public const string Version = "0.2.0";
 
 	public MisakArchitectMod(ModContentPack content) : base(content)
 	{
@@ -59,6 +64,7 @@ public class MisakArchitectMod : Mod
 		l.CheckboxLabeled("MA_ShowInfo".Translate(), ref S.showInfo, "MA_ShowInfo_Desc".Translate());
 		l.Label("MA_Height".Translate(Mathf.RoundToInt(S.height)));
 		S.height = Mathf.Round(l.Slider(S.height, 260f, 640f) / 10f) * 10f;
+		if (l.ButtonText("MA_ResetSize".Translate())) { S.width = 0f; S.height = 380f; }
 		l.Gap();
 		if (l.ButtonText("MA_ClearRecent".Translate()))
 			S.recent.Clear();
