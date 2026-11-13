@@ -13,4 +13,6 @@
   <RB_ShowGizmo>Mode button on benches</RB_ShowGizmo>
   <RB_ShowGizmo_Desc>Every bench gets a button to switch its own mode.</RB_ShowGizmo_Desc>
   <RB_Gizmo_Desc>How a colonist picks the next bill on this bench. Click to change.\n\nWeighted – at random, the top bills a bit more often.\nRandom – every bill the same chance.\nIn order – like the game: the first one that can be done.\n\nA bill must still be possible (ingredients, skill, 'do X times' not finished). Work already started is finished first.</RB_Gizmo_Desc>
+  <RB_AvoidRepeat>Take turns</RB_AvoidRepeat>
+  <RB_AvoidRepeat_Desc>The bill a colonist just did gets a smaller chance next time – also 'do X times' bills, so the others get their turn between the pieces.</RB_AvoidRepeat_Desc>
 </LanguageData>

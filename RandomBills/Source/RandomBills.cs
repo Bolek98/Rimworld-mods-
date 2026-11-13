@@ -16,6 +16,7 @@ public class RBSettings : ModSettings
 	public int defaultMode = 0;          // BillMode.Weighted
 	public float topWeight = 0.6f;       // weighted: how much the top bills are preferred (0 = like random, 1 = strongly)
 	public bool showGizmo = true;
+	public bool avoidRepeat = true;      // 0.1.1: the bill a colonist just did gets a smaller chance next time
 	public bool recommended = true;
 
 	public override void ExposeData()
@@ -24,6 +25,7 @@ public class RBSettings : ModSettings
 		Scribe_Values.Look(ref defaultMode, "defaultMode", 0);
 		Scribe_Values.Look(ref topWeight, "topWeight", 0.6f);
 		Scribe_Values.Look(ref showGizmo, "showGizmo", true);
+		Scribe_Values.Look(ref avoidRepeat, "avoidRepeat", true);
 		Scribe_Values.Look(ref recommended, "recommended", true);
 	}
 }
@@ -31,7 +33,7 @@ public class RBSettings : ModSettings
 public class RandomBillsMod : Mod
 {
 	public static RBSettings S;
-	public const string Version = "0.1.0";
+	public const string Version = "0.1.1";
 	private static List<string> rec;
 
 	public RandomBillsMod(ModContentPack content) : base(content)
@@ -74,6 +76,7 @@ public class RandomBillsMod : Mod
 				Find.WindowStack.Add(new FloatMenu(menu));
 			}
 			s.topWeight = Mathf.Round(MUI.Slider(l, "RB_TopWeight".Translate(s.topWeight.ToStringPercent()), s.topWeight, 0f, 1f, "RB_TopWeight_Desc".Translate(), s, "topWeight") * 20f) / 20f;
+			MUI.Check(l, "RB_AvoidRepeat".Translate(), "RB_AvoidRepeat_Desc".Translate(), ref s.avoidRepeat, s, "avoidRepeat");
 			MUI.Check(l, "RB_ShowGizmo".Translate(), "RB_ShowGizmo_Desc".Translate(), ref s.showGizmo, s, "showGizmo");
 			l.End();
 		}
@@ -119,6 +122,9 @@ public class RBMap : MapComponent
 [HarmonyPatch(typeof(WorkGiver_DoBill), "StartOrResumeBillJob")]
 public static class Patch_StartOrResume
 {
+	// 0.1.1: the last bill each colonist did (not saved – only for the next pick)
+	private static readonly Dictionary<int, Bill> last = new Dictionary<int, Bill>();
+
 	public static void Prefix(Pawn pawn, IBillGiver giver, out List<Bill> __state)
 	{
 		__state = null;
@@ -146,6 +152,9 @@ public static class Patch_StartOrResume
 			{
 				// weighted random order: key = U^(1/w); higher key first. Top bills get a bigger weight.
 				float w = mode == BillMode.Weighted ? Mathf.Pow(1f / (i + 1), strength * 1.5f) : 1f;
+				// "do X times" and the rest: the one he just did waits a bit, so the others get their turn
+				if (s.avoidRepeat && last.TryGetValue(pawn.thingIDNumber, out Bill lb) && lb == b)
+					w *= 0.25f;
 				float r = Mathf.Max(Rand.Value, 1e-6f);
 				key = -Mathf.Pow(r, 1f / Mathf.Max(w, 1e-4f));
 			}
@@ -155,6 +164,12 @@ public static class Patch_StartOrResume
 		bills.Clear();
 		foreach (var kb in keyed)
 			bills.Add(kb.b);
+	}
+
+	public static void Postfix(Pawn pawn, Verse.AI.Job __result)
+	{
+		if (pawn != null && __result?.bill != null)
+			last[pawn.thingIDNumber] = __result.bill;
 	}
 
 	public static Exception Finalizer(Exception __exception, IBillGiver giver, List<Bill> __state)
