@@ -12,7 +12,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Any Material – Build From What You Have | 0.2.3 | [AnyMaterial](AnyMaterial) |
 | [B98] Auto Pharmacy – Doctors Give the Right Drug | 1.0.0 | [AutoPharmacy](AutoPharmacy) |
 | [B98] Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.3.0 | [AutoTurrets](AutoTurrets) |
-| [B98] Battle Instinct – Smart Auto Combat | 0.1.1 | [BattleInstinct](BattleInstinct) |
+| [B98] Battle Instinct – Smart Auto Combat | 0.2.0 | [BattleInstinct](BattleInstinct) |
 | [B98] Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.6.1 | [BodyFit](BodyFit) |
 | [B98] Call for Backup – Summon Your Allies | 0.1.1 | [CallForBackup](CallForBackup) |
 | [B98] Caravan Helper | 1.1.0 | [CaravanHelper](CaravanHelper) |

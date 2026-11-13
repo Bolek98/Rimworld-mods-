@@ -26,7 +26,9 @@ public class PawnData : IExposable
 	public int lastCast = -9999;
 	public int lastText = -9999;
 	public int retreatUntil;
-	public bool autoDrafted;   // 0.1.1: drafted by Steward – Roles (soldier), not by the player
+	public bool autoDrafted;   // 0.1.1: drafted by Steward – Roles (soldier) or the alarm, not by the player
+	public int lastKite = -9999;
+	public int v;              // 0.2.0: data version
 
 	public Stance Stance => (Stance)Mathf.Clamp(stance, 0, 2);
 
@@ -35,6 +37,14 @@ public class PawnData : IExposable
 		Scribe_Values.Look(ref auto, "auto", true);
 		Scribe_Values.Look(ref stance, "stance", 1);
 		Scribe_Values.Look(ref anchor, "anchor", IntVec3.Invalid);
+		Scribe_Values.Look(ref autoDrafted, "autoDrafted", false);
+		Scribe_Values.Look(ref v, "v", 0);
+		// 0.2.0: attack is the new default – pawns that still had the old default (defend) switch to it
+		if (Scribe.mode == LoadSaveMode.PostLoadInit && v < 1)
+		{
+			if (stance == 1) stance = 0;
+			v = 1;
+		}
 		Scribe_Collections.Look(ref abilityOff, "abilityOff", LookMode.Value);
 		Scribe_Collections.Look(ref abilityOn, "abilityOn", LookMode.Value);
 		if (abilityOff == null) abilityOff = new HashSet<string>();
@@ -52,7 +62,7 @@ public class BIComp : GameComponent
 	private static BIComp cached;
 	private static Game cachedGame;
 
-	public BIComp(Game game) { }
+	public BIComp(Game game) { Alarm.Reset(); }
 
 	public static BIComp Get()
 	{
@@ -73,7 +83,7 @@ public class BIComp : GameComponent
 		if (!c.data.TryGetValue(p.thingIDNumber, out PawnData d))
 		{
 			var s = BattleInstinctMod.Settings;
-			d = new PawnData { auto = s.defaultOn, stance = s.defaultStance };
+			d = new PawnData { auto = s.defaultOn, stance = s.defaultStance, v = 1 };
 			c.data[p.thingIDNumber] = d;
 		}
 		return d;
@@ -111,6 +121,14 @@ public class BIComp : GameComponent
 		for (int mi = 0; mi < maps.Count; mi++)
 		{
 			Map map = maps[mi];
+			if (now % 60 == 17)
+			{
+				try { Alarm.Tick(map, s, now); }
+				catch (Exception e)
+				{
+					if (!errorLogged) { errorLogged = true; Log.Error("[Battle Instinct] alarm: " + e); }
+				}
+			}
 			Battlefield field = null;
 			IReadOnlyList<Pawn> pawns = map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer);
 			for (int i = 0; i < pawns.Count; i++)
@@ -189,7 +207,10 @@ public static class Patch_Drafted
 		d.ourJob = null;
 		d.target = null;
 		if (value && p.Spawned) d.anchor = p.Position;
-		d.autoDrafted = value && StewardDrafting();
+		bool byMod = StewardDrafting() || Alarm.drafting;
+		d.autoDrafted = value && byMod;
+		if (!value && !byMod)
+			Alarm.PlayerUndrafted(p);
 	}
 
 	// Steward – Roles drafts soldiers when enemies come; it sets SoldierDuty.busy while doing so

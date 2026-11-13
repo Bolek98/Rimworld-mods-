@@ -12,7 +12,8 @@ public class BISettings : ModSettings
 {
 	public bool enabled = true;
 	public bool defaultOn = true;
-	public int defaultStance = 1;
+	public int defaultStance = 0;   // 0.2.0: attack by default
+	public bool autoAlarm = true, kite = true, screen = true, rescue = true, cohesion = true;
 	public bool mechs = true;
 	public int interval = 30;
 	public bool focusFire = true;
@@ -35,7 +36,12 @@ public class BISettings : ModSettings
 	{
 		Scribe_Values.Look(ref enabled, "enabled", true);
 		Scribe_Values.Look(ref defaultOn, "defaultOn", true);
-		Scribe_Values.Look(ref defaultStance, "defaultStance", 1);
+		Scribe_Values.Look(ref defaultStance, "defaultStance", 0);
+		Scribe_Values.Look(ref autoAlarm, "autoAlarm", true);
+		Scribe_Values.Look(ref kite, "kite", true);
+		Scribe_Values.Look(ref screen, "screen", true);
+		Scribe_Values.Look(ref rescue, "rescue", true);
+		Scribe_Values.Look(ref cohesion, "cohesion", true);
 		Scribe_Values.Look(ref mechs, "mechs", true);
 		Scribe_Values.Look(ref interval, "interval", 30);
 		Scribe_Values.Look(ref focusFire, "focusFire", true);
@@ -60,7 +66,7 @@ public class BISettings : ModSettings
 public class BattleInstinctMod : Mod
 {
 	public static BISettings Settings;
-	public const string Version = "0.1.1";
+	public const string Version = "0.2.0";
 	private static List<string> recBullets;
 	private Vector2 scroll;
 	private static string search = "";
@@ -114,7 +120,7 @@ public class BattleInstinctMod : Mod
 			GUI.color = Color.white;
 			y0 += 26f;
 		}
-		Rect top = new Rect(r.x, y0, r.width, 370f);
+		Rect top = new Rect(r.x, y0, r.width, 470f);
 		var l = new Listing_Standard();
 		MUI.BeginLock(s.recommended);
 		try
@@ -139,6 +145,11 @@ public class BattleInstinctMod : Mod
 			Check(l, "BI_AvoidFF", ref s.avoidFriendlyFire, "avoidFriendlyFire");
 			Check(l, "BI_Retreat", ref s.retreat, "retreat");
 			Check(l, "BI_ShowText", ref s.showText, "showText");
+			Check(l, "BI_AutoAlarm", ref s.autoAlarm, "autoAlarm");
+			Check(l, "BI_Kite", ref s.kite, "kite");
+			Check(l, "BI_Screen", ref s.screen, "screen");
+			Check(l, "BI_Rescue", ref s.rescue, "rescue");
+			Check(l, "BI_Cohesion", ref s.cohesion, "cohesion");
 			l.NewColumn();
 			if (s.retreat)
 			{

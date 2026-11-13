@@ -3,7 +3,7 @@
   <name>[B98] Battle Instinct – Smart Auto Combat</name>
   <author>Bolek98</author>
   <packageId>misak.battleinstinct</packageId>
-  <modVersion>0.1.1</modVersion>
+  <modVersion>0.2.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -27,7 +27,10 @@
 - No shooting through your own people.
 - Retreat out of sight when badly hurt or bleeding out.
 - Uses abilities on its own: psycasts, gene, race and implant abilities – every ability is read and sorted (attack, area attack, self boost, boost for allies, healing). Area attacks only on groups and never on your own; no psycast overheating.
-- Three stances per pawn: attack, defend, hold. Your orders always come first.
+- Alarm: when enemies attack, the colonists who can fight draft themselves, go after the enemy and go back to work when it is over.
+- Hit and run: shooters step back from melee enemies and keep shooting. Melee fighters guard the shooters.
+- They stay together, take cover when defending and carry downed colonists to bed when no enemy is close.
+- Three stances per pawn: attack (default), defend, hold. Your orders always come first.
 
 Requires Harmony. RimWorld 1.6 and 1.7. Safe to add to an existing save.
 
@@ -41,7 +44,10 @@ Povolaní kolonisté bojují sami – a chytře.
 - Žádná střelba přes vlastní lidi.
 - Ústup mimo dohled při těžkém zranění nebo vykrvácení.
 - Sám používá schopnosti: psykineze, genové schopnosti, schopnosti ras a implantátů – každá schopnost se přečte a zařadí (útok, plošný útok, posílení sebe, posílení spojenců, léčení). Plošné útoky jen na skupiny a nikdy na vlastní; psykineze bez přehřátí.
-- Tři postoje pro každého: útok, obrana, drž pozici. Tvoje rozkazy mají vždy přednost.
+- Poplach: když nepřátelé zaútočí, kolonisté schopní boje se sami povolají, jdou po nepříteli a po boji se vrátí k práci.
+- Ustup a střílej: střelci ustoupí před nepřítelem na blízko a střílí dál. Bojovníci na blízko kryjí střelce.
+- Drží se pohromadě, v obraně se schovají za kryt a sražené kolonisty odnesou do postele, když není nepřítel blízko.
+- Tři postoje pro každého: útok (výchozí), obrana, drž pozici. Tvoje rozkazy mají vždy přednost.
 
 Vyžaduje Harmony. RimWorld 1.6 a 1.7. Lze bezpečně přidat do rozehrané hry.</description>
 </ModMetaData>

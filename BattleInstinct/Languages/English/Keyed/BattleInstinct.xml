@@ -31,7 +31,7 @@
   <BI_TxtFocus>Focus fire</BI_TxtFocus>
   <BI_TxtCover>Cover</BI_TxtCover>
   <BI_TxtRetreat>Falling back</BI_TxtRetreat>
-  <BI_Rec1>Drafted pawns fight on their own in the 'defend' stance.</BI_Rec1>
+  <BI_Rec1>Drafted pawns fight on their own in the 'attack' stance; an attack drafts the fighters by itself.</BI_Rec1>
   <BI_Rec2>Cover, focus fire, no shooting through your own people, retreat when badly hurt.</BI_Rec2>
   <BI_Rec3>Combat abilities (psycasts, genes, races, implants) used at the right moment.</BI_Rec3>
   <BI_OtherMod>Another auto-combat mod is active – use only one of them, or both will give orders.</BI_OtherMod>
@@ -71,4 +71,17 @@
   <BI_ListHead>All abilities in the game ({0})</BI_ListHead>
   <BI_Search>Search: name, type, mod…</BI_Search>
   <BI_TxtAdvance>Advance</BI_TxtAdvance>
+  <BI_TxtKite>Step back</BI_TxtKite>
+  <BI_TxtScreen>Guard</BI_TxtScreen>
+  <BI_TxtRescue>Rescue</BI_TxtRescue>
+  <BI_AutoAlarm>Alarm: draft fighters on their own</BI_AutoAlarm>
+  <BI_AutoAlarm_Desc>When enemies attack the home map, colonists who can fight (healthy adults, best armed first) are drafted on their own and go after the enemy. One wild animal: only two of them. About 20 seconds after the last enemy is gone they go back to work. Anyone you undraft yourself is left alone until the attack is over.</BI_AutoAlarm_Desc>
+  <BI_Kite>Hit and run</BI_Kite>
+  <BI_Kite_Desc>A shooter steps back a few cells when a melee enemy gets close, then keeps shooting (not when the enemy is much faster).</BI_Kite_Desc>
+  <BI_Screen>Melee fighters guard the shooters</BI_Screen>
+  <BI_Screen_Desc>Melee fighters first hit enemies that reached one of your shooters and otherwise stand two steps in front of the nearest shooter.</BI_Screen_Desc>
+  <BI_Rescue>Rescue the downed</BI_Rescue>
+  <BI_Rescue_Desc>When no enemy is close, a drafted colonist carries a downed colonist to a bed.</BI_Rescue_Desc>
+  <BI_Cohesion>Stay together</BI_Cohesion>
+  <BI_Cohesion_Desc>A pawn far ahead of the others waits for them instead of running into the enemy alone.</BI_Cohesion_Desc>
 </LanguageData>

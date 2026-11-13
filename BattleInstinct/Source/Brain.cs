@@ -58,7 +58,14 @@ public static class Brain
 			}
 		}
 
+		// 0.2.0: a melee enemy is on a shooter – step back and keep shooting
+		bool hold0 = d.Stance == Stance.Hold && !d.autoDrafted;
+		Verb cv = p.CurrentEffectiveVerb;
+		if (!hold0 && cv != null && !cv.verbProps.IsMeleeAttack && Tactics.TryKite(p, d, near, now)) return;
+
 		if (ours) return;
+		// 0.2.0: carry a downed colonist to bed when no enemy is close
+		if (Tactics.TryRescue(p, d, near)) return;
 		if (p.drafter != null && !p.drafter.FireAtWill) return;   // the player said hold fire
 		if (p.WorkTagIsDisabled(WorkTags.Violent)) return;
 
@@ -76,8 +83,16 @@ public static class Brain
 		if (verb.verbProps.IsMeleeAttack)
 		{
 			if (d.Stance == Stance.Hold && !d.autoDrafted) return;   // the game hits what comes close
-			Thing mt = ranked.FirstOrDefault(t => t.Position.InHorDistOf(locus, leash + 2f) && p.CanReach(t, PathEndMode.Touch, Danger.Deadly));
-			if (mt == null) return;
+			// 0.2.0: enemies that reached one of our shooters first
+			Thing mt = ranked.OrderByDescending(t => Score(p, t, f) + Tactics.ScreenBonus(t, f))
+				.FirstOrDefault(t => t.Position.InHorDistOf(locus, leash + 2f) && p.CanReach(t, PathEndMode.Touch, Danger.Deadly));
+			if (mt == null)
+			{
+				Tactics.TryScreenPosition(p, d, best, f);
+				return;
+			}
+			if (seek && mt == best && Tactics.TooFarAhead(p, mt, f) && (mt.Position - p.Position).LengthHorizontalSquared > 36)
+				return;   // wait for the others
 			Job j = JobMaker.MakeJob(JobDefOf.AttackMelee, mt);
 			j.expiryInterval = 400;
 			j.checkOverrideOnExpire = true;
@@ -106,6 +121,13 @@ public static class Brain
 			return;
 		}
 
+		// 0.2.0: far ahead of the others – shoot what can be hit from here, otherwise wait for them
+		if (seek && Tactics.TooFarAhead(p, best, f))
+		{
+			if (shootNow != null) Shoot(p, d, shootNow, null);
+			return;
+		}
+
 		// find a better place: in range, with cover, inside the leash
 		var req = new CastPositionRequest
 		{
@@ -130,6 +152,12 @@ public static class Brain
 			return;
 		}
 		if (shootNow != null) { Shoot(p, d, shootNow, null); return; }
+		// 0.2.0: defend – nothing in range from here: at least take the best cover near the place to hold
+		if (!seek)
+		{
+			Tactics.TryHoldCover(p, d, best, leash);
+			return;
+		}
 		// 0.1.1: no covered spot found – an attacking pawn still closes in on the enemy
 		if (seek && p.CanReach(best, PathEndMode.Touch, Danger.Deadly))
 		{
