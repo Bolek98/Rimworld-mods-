@@ -16,7 +16,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Call for Backup – Summon Your Allies | 0.1.1 | [CallForBackup](CallForBackup) |
 | [B98] Caravan Helper | 1.1.0 | [CaravanHelper](CaravanHelper) |
 | [B98] Colony Advisor – What To Do Next | 0.4.0 | [ColonyAdvisor](ColonyAdvisor) |
-| [B98] Evergrowth – Plant Growth Control | 1.9.0 | [Evergrowth](Evergrowth) |
+| [B98] Evergrowth – Plant Growth Control | 1.10.0 | [Evergrowth](Evergrowth) |
 | [B98] Evergrowth – Wild Plant Spawns per Biome (Choose What Grows) | 1.2.0 | [EvergrowthWildPlants](EvergrowthWildPlants) |
 | [B98] Fewer Freezes – Smart Memory Cleanup | 1.1.1 | [FewerFreezes](FewerFreezes) |
 | [B98] Gender Balance | 1.3.4 | [GenderBalance](GenderBalance) |
