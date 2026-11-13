@@ -31,6 +31,7 @@ public class SGSettings : ModSettings
 	public int popMax = 18;             // critical – above this it actively works against growth      // events from other mods in which someone joins
 	public HashSet<string> learned = new HashSet<string>();   // events seen bringing a new colonist
 	public HashSet<string> allowed = new HashSet<string>();   // events the player lets through
+	public HashSet<string> learnedQuests = new HashSet<string>();   // 0.1.3: quests seen bringing a new colonist
 
 	public override void ExposeData()
 	{
@@ -51,6 +52,8 @@ public class SGSettings : ModSettings
 		Scribe_Values.Look(ref popMax, "popMax", 18);
 		Scribe_Collections.Look(ref learned, "learned", LookMode.Value);
 		Scribe_Collections.Look(ref allowed, "allowed", LookMode.Value);
+		Scribe_Collections.Look(ref learnedQuests, "learnedQuests", LookMode.Value);
+		learnedQuests ??= new HashSet<string>();
 		learned ??= new HashSet<string>();
 		allowed ??= new HashSet<string>();
 	}
@@ -59,13 +62,13 @@ public class SGSettings : ModSettings
 public class SlowGrowthMod : Mod
 {
 	public static SGSettings S;
-	public const string Version = "0.1.2";
+	public const string Version = "0.1.3";
 	private static List<string> rec;
 
 	public SlowGrowthMod(ModContentPack content) : base(content)
 	{
 		S = GetSettings<SGSettings>();
-		MUI.Init(new SGSettings(), null, "recommended", "learned", "allowed");
+		MUI.Init(new SGSettings(), null, "recommended", "learned", "allowed", "learnedQuests");
 		if (S.recommended) MUI.ApplyAll(S);
 		var h = new Harmony("bolek98.slowgrowth");
 		h.PatchAll();
@@ -154,9 +157,10 @@ public class SlowGrowthMod : Mod
 		if (r.height < 60f) return;
 		List<IncidentDef> list = DefDatabase<IncidentDef>.AllDefsListForReading.Where(d => { var k = Gate.KindOf(d); return k != JoinKind.None && k != JoinKind.Always; })
 			.OrderBy(d => d.modContentPack?.IsOfficialMod == true ? 0 : 1).ThenBy(d => d.label ?? d.defName).ToList();
-		Widgets.Label(new Rect(r.x, r.y, r.width, 24f), "SG_ListHead".Translate(list.Count));
+		List<QuestScriptDef> qs = DefDatabase<QuestScriptDef>.AllDefsListForReading.Where(q => S.learnedQuests.Contains(q.defName)).ToList();
+		Widgets.Label(new Rect(r.x, r.y, r.width, 24f), "SG_ListHead".Translate(list.Count + qs.Count));
 		Rect outR = new Rect(r.x, r.y + 26f, r.width, r.height - 26f);
-		Rect view = new Rect(0f, 0f, outR.width - 18f, list.Count * 28f);
+		Rect view = new Rect(0f, 0f, outR.width - 18f, (list.Count + qs.Count) * 28f);
 		Widgets.BeginScrollView(outR, ref scroll, view);
 		for (int i = 0; i < list.Count; i++)
 		{
@@ -174,6 +178,23 @@ public class SlowGrowthMod : Mod
 			Widgets.Label(new Rect(row.x + 536f, row.y + 2f, row.width - 536f, 24f), (d.modContentPack?.Name ?? "").Truncate(row.width - 536f));
 			GUI.color = Color.white;
 		}
+		for (int j = 0; j < qs.Count; j++)
+		{
+			QuestScriptDef q = qs[j];
+			int i = list.Count + j;
+			Rect row = new Rect(0f, i * 28f, view.width, 26f);
+			if (i % 2 == 0) Widgets.DrawLightHighlight(row);
+			bool wait = !S.allowed.Contains(q.defName);
+			bool was = wait;
+			Widgets.Checkbox(new Vector2(row.x + 2f, row.y + 1f), ref wait);
+			if (wait != was) { if (wait) S.allowed.Remove(q.defName); else S.allowed.Add(q.defName); }
+			Widgets.Label(new Rect(row.x + 32f, row.y + 2f, 300f, 24f), q.defName.Truncate(300f));
+			GUI.color = MUI.Accent;
+			Widgets.Label(new Rect(row.x + 340f, row.y + 2f, 190f, 24f), "SG_Kind_Quest".Translate());
+			GUI.color = MUI.Muted;
+			Widgets.Label(new Rect(row.x + 536f, row.y + 2f, row.width - 536f, 24f), (q.modContentPack?.Name ?? "").Truncate(row.width - 536f));
+			GUI.color = Color.white;
+		}
 		Widgets.EndScrollView();
 	}
 }
@@ -182,9 +203,92 @@ public class SlowGrowthMod : Mod
 public class SGComp : GameComponent
 {
 	public int lastJoinTick = -1;
+	public HashSet<int> known;   // 0.1.3: colonists already seen – a new one is a newcomer, however he got here
 	public SGComp(Game g) { }
 	public static SGComp Get() => Current.Game?.GetComponent<SGComp>();
-	public override void ExposeData() => Scribe_Values.Look(ref lastJoinTick, "lastJoinTick", -1);
+
+	public override void ExposeData()
+	{
+		Scribe_Values.Look(ref lastJoinTick, "lastJoinTick", -1);
+		Scribe_Collections.Look(ref known, "known", LookMode.Value);
+	}
+
+	private static IEnumerable<Pawn> Colonists()
+		=> PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_FreeColonists_NoCryptosleep.Where(p => p.RaceProps.Humanlike);
+
+	// some mods make a new colonist already in the player's faction (no faction change) – look every few seconds
+	public override void GameComponentTick()
+	{
+		if (Find.TickManager.TicksGame % 250 != 17) return;
+		var s = SlowGrowthMod.S;
+		if (s == null || !s.enabled) return;
+		try
+		{
+			if (known == null)
+			{
+				known = new HashSet<int>(Colonists().Select(p => p.thingIDNumber));
+				return;
+			}
+			foreach (Pawn p in Colonists())
+				if (!known.Contains(p.thingIDNumber))
+					Notice(p, null);
+		}
+		catch (Exception e) { Log.WarningOnce("[Slow Growth] " + e.Message, 0x5160a1); }
+	}
+
+	// a humanlike just became ours
+	public void Notice(Pawn p, IncidentDef ev)
+	{
+		known ??= new HashSet<int>(Colonists().Where(x => x != p).Select(x => x.thingIDNumber));
+		if (!known.Add(p.thingIDNumber)) return;
+		if (Current.ProgramState != ProgramState.Playing || Find.TickManager.TicksGame < 600) return;
+		if (!Joins.Counts(p)) return;
+		lastJoinTick = Find.TickManager.TicksGame;
+		Joins.Learn(p, ev);
+	}
+}
+
+public static class Joins
+{
+	// pawn -> the event that spawned it (only this session; enough for learning)
+	public static readonly Dictionary<int, IncidentDef> spawnedBy = new Dictionary<int, IncidentDef>();
+
+	public static bool Counts(Pawn p)
+	{
+		if (p.RaceProps == null || !p.RaceProps.Humanlike) return false;
+		if (p.IsSlave || p.IsQuestLodger()) return false;
+		if (p.guest != null && p.guest.IsPrisoner) return false;
+		if (p.DevelopmentalStage.Baby() || p.ageTracker.AgeBiologicalYears < 1) return false;   // born here
+		if (!SlowGrowthMod.S.recruitsCount && p.records != null && p.records.GetValue(RecordDefOf.TimeAsPrisoner) > 0f) return false;
+		return true;
+	}
+
+	public static void Learn(Pawn p, IncidentDef ev)
+	{
+		var s = SlowGrowthMod.S;
+		if (p.records != null && p.records.GetValue(RecordDefOf.TimeAsPrisoner) > 0f) return;   // recruited, not brought by an event
+		ev ??= Patch_TryExecute.running;
+		if (ev == null) spawnedBy.TryGetValue(p.thingIDNumber, out ev);
+		if (ev != null)
+		{
+			if (Gate.KindOf(ev) == JoinKind.None && !(typeof(IncidentWorker_GameEndedWanderersJoin).IsAssignableFrom(ev.workerClass)) && s.learned.Add(ev.defName))
+			{
+				Gate.Forget(ev);
+				Save();
+				Log.Message("[Slow Growth] learned: event '" + ev.defName + "' brings new colonists – it waits from now on.");
+			}
+			return;
+		}
+		// a quest that brought him (its own way, not the vanilla "join" step)
+		Quest q = Find.QuestManager?.QuestsListForReading?.LastOrDefault(x => x.root != null && x.QuestLookTargets.Any(t => t.Thing == p));
+		if (q != null && !Gate.QuestJoins(q.root) && s.learnedQuests.Add(q.root.defName))
+		{
+			Save();
+			Log.Message("[Slow Growth] learned: quest '" + q.root.defName + "' brings new colonists – it waits from now on.");
+		}
+	}
+
+	private static void Save() => LoadedModManager.GetMod<SlowGrowthMod>()?.WriteSettings();
 }
 
 public enum JoinKind { None, Wanderer, Quest, Creep, Stranger, Always, Mod }
@@ -267,6 +371,9 @@ public static class Gate
 		    || w.Name.IndexOf("Visitor", StringComparison.OrdinalIgnoreCase) >= 0 || w.Name.IndexOf("Caravan", StringComparison.OrdinalIgnoreCase) >= 0)
 			return JoinKind.None;
 		if (def.modContentPack != null && def.modContentPack.IsOfficialMod) return JoinKind.None;
+		// the event says it adds people to the colony (the storyteller uses this)
+		if (def.populationEffect != IncidentPopulationEffect.None) return JoinKind.Mod;
+		if (def.pawnKind != null && def.pawnKind.RaceProps?.Humanlike == true && def.pawnKind.defaultFactionDef?.isPlayer == true) return JoinKind.Mod;
 		string text = def.defName + " " + w.Name;
 		if (JoinWords.Any(x => text.IndexOf(x, StringComparison.OrdinalIgnoreCase) >= 0)) return JoinKind.Mod;
 		return JoinKind.None;
@@ -294,6 +401,7 @@ public static class Gate
 	public static bool QuestJoins(QuestScriptDef q)
 	{
 		if (q == null) return false;
+		if (q.rootIncreasesPopulation) return true;   // the game itself marks quests that add people
 		if (quests.TryGetValue(q, out bool b)) return b;
 		quests[q] = false;   // guards against loops
 		try { b = Walk(q.root, new HashSet<object>(), 0); }
@@ -390,7 +498,7 @@ public static class Patch_TryExecute
 }
 
 // random quests: a quest where somebody joins cannot be picked while the gate is closed
-[HarmonyPatch(typeof(QuestScriptDef), nameof(QuestScriptDef.CanRun), new[] { typeof(float), typeof(IIncidentTarget) })]
+[HarmonyPatch(typeof(QuestScriptDef), nameof(QuestScriptDef.CanRun), new[] { typeof(Slate), typeof(IIncidentTarget) })]
 public static class Patch_QuestCanRun
 {
 	public static void Postfix(QuestScriptDef __instance, ref bool __result)
@@ -398,7 +506,8 @@ public static class Patch_QuestCanRun
 		var s = SlowGrowthMod.S;
 		if (!__result || s == null || !s.enabled || !s.questJoiners) return;
 		if (Current.ProgramState != ProgramState.Playing) return;
-		if (Gate.QuestJoins(__instance) && !Gate.Open(out _)) __result = false;
+		if (s.allowed.Contains(__instance.defName)) return;
+		if ((Gate.QuestJoins(__instance) || s.learnedQuests.Contains(__instance.defName)) && !Gate.Open(out _)) __result = false;
 	}
 }
 
@@ -413,25 +522,22 @@ public static class Patch_SetFaction
 
 	public static void Postfix(Pawn __instance, bool __state)
 	{
-		if (!__state || Current.ProgramState != ProgramState.Playing || Find.TickManager.TicksGame < 600) return;
-		Pawn p = __instance;
-		if (p.RaceProps == null || !p.RaceProps.Humanlike) return;
-		if (p.IsSlave || p.IsQuestLodger()) return;
-		if (p.guest != null && p.guest.IsPrisoner) return;
-		if (!SlowGrowthMod.S.recruitsCount && p.guest?.Recruitable == true && p.records != null && p.records.GetValue(RecordDefOf.TimeAsPrisoner) > 0f) return;
-		SGComp c = SGComp.Get();
-		if (c != null) c.lastJoinTick = Find.TickManager.TicksGame;
-		// learn: an event from a mod that brought somebody in
-		IncidentDef ev = Patch_TryExecute.running;
-		if (ev != null && Gate.KindOf(ev) == JoinKind.None && !(typeof(IncidentWorker_GameEndedWanderersJoin).IsAssignableFrom(ev.workerClass)))
-		{
-			var s = SlowGrowthMod.S;
-			if (s.learned.Add(ev.defName))
-			{
-				Gate.Forget(ev);
-				LoadedModManager.GetMod<SlowGrowthMod>()?.WriteSettings();
-				Log.Message("[Slow Growth] learned: '" + ev.defName + "' brings new colonists – it waits from now on.");
-			}
-		}
+		if (!__state || Current.ProgramState != ProgramState.Playing) return;
+		if (__instance.RaceProps == null || !__instance.RaceProps.Humanlike) return;
+		if (__instance.IsSlave || (__instance.guest != null && __instance.guest.IsPrisoner)) return;
+		SGComp.Get()?.Notice(__instance, Patch_TryExecute.running);
+	}
+}
+
+// a pawn spawned during an event – remember which one (for pawns made straight into the player's faction)
+[HarmonyPatch(typeof(Pawn), nameof(Pawn.SpawnSetup))]
+public static class Patch_PawnSpawn
+{
+	public static void Postfix(Pawn __instance, bool respawningAfterLoad)
+	{
+		if (respawningAfterLoad || Patch_TryExecute.running == null || __instance.RaceProps?.Humanlike != true) return;
+		Joins.spawnedBy[__instance.thingIDNumber] = Patch_TryExecute.running;
+		if (__instance.Faction != null && __instance.Faction.IsPlayer && !__instance.IsSlave && !(__instance.guest?.IsPrisoner ?? false))
+			SGComp.Get()?.Notice(__instance, Patch_TryExecute.running);
 	}
 }
