@@ -42,12 +42,12 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Smart Colonist Gear – Wardrobe | 0.1.3 | [SCGWardrobe](SCGWardrobe) |
 | [B98] Seasons & Holidays – 12 Months, Real Holidays & Weather | 0.5.0 | [SeasonsHolidays](SeasonsHolidays) |
 | [B98] Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.1 | [SecularColony](SecularColony) |
-| [B98] Slow Growth – Colonist Pace | 0.1.2 | [SlowGrowth](SlowGrowth) |
+| [B98] Slow Growth – Colonist Pace | 0.1.3 | [SlowGrowth](SlowGrowth) |
 | [B98] Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.0 | [SmartColonistGear](SmartColonistGear) |
 | [B98] Smooth FPS – Performance & Graphics | 1.7.3 | [SmoothFPS](SmoothFPS) |
 | [B98] Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | [B98] Steward – Work Priorities | 1.4.0 | [Steward2/Steward](Steward2/Steward) |
-| [B98] Steward – Crises & Situations | 1.2.2 | [Steward2/StewardCrises](Steward2/StewardCrises) |
+| [B98] Steward – Crises & Situations | 1.3.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | [B98] Steward – Droids | 0.1.2 | [Steward2/StewardDroids](Steward2/StewardDroids) |
 | [B98] Steward – Kit | 1.1.0 | [Steward2/StewardKit](Steward2/StewardKit) |
 | [B98] Steward – Orders | 0.3.3 | [Steward2/StewardOrders](Steward2/StewardOrders) |
