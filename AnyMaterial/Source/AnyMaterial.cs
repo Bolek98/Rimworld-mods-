@@ -33,7 +33,7 @@ public class AMSettings : ModSettings
 public class AnyMaterialMod : Mod
 {
 	public static AMSettings S;
-	public const string Version = "0.2.1";
+	public const string Version = "0.2.2";
 	private static List<string> rec;
 
 	public AnyMaterialMod(ModContentPack content) : base(content)
@@ -283,13 +283,16 @@ public static class Patch_StuffMenu
 			o.action = () => { pending = null; pendingFor = null; old?.Invoke(); };
 		}
 		Action first = opts[0].action;
-		opts.Insert(0, new FloatMenuOption("AM_MenuAny".Translate(), () =>
+		// 0.2.2: a new menu – the open one has its size already counted, so added rows pushed the
+		// game's own materials out of sight
+		var all = new List<FloatMenuOption>(opts);
+		all.Add(new FloatMenuOption("AM_MenuAny".Translate(), () =>
 		{
 			first?.Invoke();
 			pending = new AnyStuff { allowed = null };
 			pendingFor = des;
-		}));
-		opts.Insert(1, new FloatMenuOption("AM_MenuChoose".Translate(), () =>
+		}, Tex.Any, Color.white));
+		all.Add(new FloatMenuOption("AM_MenuChoose".Translate(), () =>
 		{
 			first?.Invoke();
 			Find.WindowStack.Add(new Dialog_ChooseStuff(td, null, list =>
@@ -298,7 +301,9 @@ public static class Patch_StuffMenu
 				pendingFor = des;
 				if (list.Count > 0) StuffRef(des) = list[0];
 			}));
-		}));
+		}, Tex.Any, Color.white));
+		Find.WindowStack.TryRemove(menu, false);
+		Find.WindowStack.Add(new FloatMenu(all));
 	}
 }
 
