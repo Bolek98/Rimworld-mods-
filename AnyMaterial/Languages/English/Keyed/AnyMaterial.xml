@@ -19,4 +19,13 @@
   <AM_ChooseTitle>Materials for {0}</AM_ChooseTitle>
   <AM_All>All</AM_All>
   <AM_None>None</AM_None>
+  <AM_Rec3>Buildings without a material choice (torch, campfire…) take another material of the same kind when the original is missing.</AM_Rec3>
+  <AM_FixedAuto>Fixed-cost buildings: use a replacement</AM_FixedAuto>
+  <AM_FixedAuto_Desc>Buildings without a material choice (torch: 20 wood) may be built from another material of the same kind – any wood, any metal, any stone blocks, any cloth or leather. Components and other non-materials are never replaced. Can be turned off per blueprint.</AM_FixedAuto_Desc>
+  <AM_PreferOriginal>Original first</AM_PreferOriginal>
+  <AM_PreferOriginal_Desc>Use the original material while there is enough of it; a replacement only when it runs out. Off = the rule above decides.</AM_PreferOriginal_Desc>
+  <AM_GizmoFixed>Replacement material</AM_GizmoFixed>
+  <AM_GizmoFixed_Desc>If there is not enough {0}, the builder brings another material of the same kind. Taking it down gives back what it was really built from.</AM_GizmoFixed_Desc>
+  <AM_GizmoFixedChoose>Choose replacements…</AM_GizmoFixedChoose>
+  <AM_GizmoFixedChoose_Desc>Choose which materials the selected blueprints may use instead of the original.</AM_GizmoFixedChoose_Desc>
 </LanguageData>

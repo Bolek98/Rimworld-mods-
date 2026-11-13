@@ -3,7 +3,7 @@
   <name>[B98] Any Material – Build From What You Have</name>
   <author>Bolek98</author>
   <packageId>misak.anymaterial</packageId>
-  <modVersion>0.1.0</modVersion>
+  <modVersion>0.2.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -25,6 +25,7 @@
 - The blueprint picks the material when the builder brings it: most in storage, cheapest, strongest or prettiest (setting) – only one there is enough of for the whole building.
 - It keeps its material while there is enough; once delivered it never changes.
 - A button on blueprints switches already placed ones (select many at once).
+- Buildings without a material choice (torch, campfire…) take another wood, metal, blocks or cloth when the original is missing. Taking them down gives back what they were really built from.
 - Works with buildings from any mod.
 
 Requires Harmony. RimWorld 1.6 and 1.7. Safe to add to an existing save.

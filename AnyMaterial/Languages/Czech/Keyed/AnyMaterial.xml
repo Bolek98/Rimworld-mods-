@@ -19,4 +19,13 @@
   <AM_ChooseTitle>Materiály pro {0}</AM_ChooseTitle>
   <AM_All>Vše</AM_All>
   <AM_None>Nic</AM_None>
+  <AM_Rec3>Budovy bez výběru materiálu (pochodeň, ohniště…) vezmou jiný materiál stejného druhu, když původní chybí.</AM_Rec3>
+  <AM_FixedAuto>Budovy s pevnou cenou: náhradní materiál</AM_FixedAuto>
+  <AM_FixedAuto_Desc>Budovy bez výběru materiálu (pochodeň: 20 dřeva) jde postavit i z jiného materiálu stejného druhu – jakékoli dřevo, kov, kamenné bloky, látka nebo kůže. Součástky a jiné nemateriály se nikdy nenahrazují. Jde vypnout u každého plánu zvlášť.</AM_FixedAuto_Desc>
+  <AM_PreferOriginal>Nejdřív původní</AM_PreferOriginal>
+  <AM_PreferOriginal_Desc>Dokud je původního materiálu dost, bere se ten; náhrada až když dojde. Vypnuto = rozhoduje pravidlo výše.</AM_PreferOriginal_Desc>
+  <AM_GizmoFixed>Náhradní materiál</AM_GizmoFixed>
+  <AM_GizmoFixed_Desc>Když není dost materiálu ({0}), stavitel přinese jiný materiál stejného druhu. Při rozebrání vrátí to, z čeho se opravdu stavělo.</AM_GizmoFixed_Desc>
+  <AM_GizmoFixedChoose>Vybrat náhrady…</AM_GizmoFixedChoose>
+  <AM_GizmoFixedChoose_Desc>Vyber, které materiály smí vybrané plány použít místo původního.</AM_GizmoFixedChoose_Desc>
 </LanguageData>

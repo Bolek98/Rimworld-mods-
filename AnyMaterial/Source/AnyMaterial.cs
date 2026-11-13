@@ -15,9 +15,13 @@ public class AMSettings : ModSettings
 	public bool enabled = true;
 	public int rule = 0;   // PickRule.MostInStock
 	public bool recommended = true;
+	public bool fixedAuto = true;        // 0.2.0: buildings with a fixed cost may use another material of the same kind
+	public bool preferOriginal = true;   // ...but the original while there is enough of it
 
 	public override void ExposeData()
 	{
+		Scribe_Values.Look(ref fixedAuto, "fixedAuto", true);
+		Scribe_Values.Look(ref preferOriginal, "preferOriginal", true);
 		Scribe_Values.Look(ref enabled, "enabled", true);
 		Scribe_Values.Look(ref rule, "rule", 0);
 		Scribe_Values.Look(ref recommended, "recommended", true);
@@ -27,7 +31,7 @@ public class AMSettings : ModSettings
 public class AnyMaterialMod : Mod
 {
 	public static AMSettings S;
-	public const string Version = "0.1.0";
+	public const string Version = "0.2.0";
 	private static List<string> rec;
 
 	public AnyMaterialMod(ModContentPack content) : base(content)
@@ -48,7 +52,7 @@ public class AnyMaterialMod : Mod
 	{
 		var s = S;
 		MUI.Version(r, "v" + Version + " · Bolek98");
-		rec ??= new List<string> { "AM_Rec1".Translate(), "AM_Rec2".Translate() };
+		rec ??= new List<string> { "AM_Rec1".Translate(), "AM_Rec2".Translate(), "AM_Rec3".Translate() };
 		float y = r.y;
 		y += MUI.RecommendedCard(new Rect(r.x, y, r.width, 0f), s, s.recommended, v => { s.recommended = v; if (v) MUI.ApplyAll(s); }, rec) + 6f;
 		if (s.recommended) y += MUI.LockNote(new Rect(r.x, y, r.width, 0f)) + 4f;
@@ -72,6 +76,9 @@ public class AnyMaterialMod : Mod
 			GUI.color = MUI.Muted;
 			l.Label("AM_Rule_Desc".Translate());
 			GUI.color = Color.white;
+			l.GapLine();
+			MUI.Check(l, "AM_FixedAuto".Translate(), "AM_FixedAuto_Desc".Translate(), ref s.fixedAuto, s, "fixedAuto");
+			MUI.Check(l, "AM_PreferOriginal".Translate(), "AM_PreferOriginal_Desc".Translate(), ref s.preferOriginal, s, "preferOriginal");
 			l.End();
 		}
 		finally { MUI.EndLock(area); }
@@ -88,8 +95,10 @@ public class AnyStuff : IExposable
 public class AMMap : MapComponent
 {
 	public Dictionary<int, AnyStuff> blueprints = new Dictionary<int, AnyStuff>();
-	private List<int> k;
+	public Dictionary<int, FixedSub> fixedSubs = new Dictionary<int, FixedSub>();   // blueprints, frames and finished buildings
+	private List<int> k, fk;
 	private List<AnyStuff> v;
+	private List<FixedSub> fv;
 
 	public AMMap(Map map) : base(map) { }
 
@@ -105,6 +114,15 @@ public class AMMap : MapComponent
 
 	public void Clear(Thing bp) => blueprints.Remove(bp.thingIDNumber);
 
+	public FixedSub GetFixed(Thing t) => t != null && fixedSubs.TryGetValue(t.thingIDNumber, out FixedSub f) ? f : null;
+
+	public FixedSub MakeFixed(Thing t)
+	{
+		if (!fixedSubs.TryGetValue(t.thingIDNumber, out FixedSub f))
+			fixedSubs[t.thingIDNumber] = f = new FixedSub();
+		return f;
+	}
+
 	public override void ExposeData()
 	{
 		if (Scribe.mode == LoadSaveMode.Saving)
@@ -113,9 +131,18 @@ public class AMMap : MapComponent
 			foreach (int id in blueprints.Keys.ToList())
 				if (!alive.Contains(id))
 					blueprints.Remove(id);
+			if (fixedSubs.Count > 0)
+			{
+				var all = new HashSet<int>(map.listerThings.AllThings.Select(t => t.thingIDNumber));
+				foreach (int id in fixedSubs.Keys.ToList())
+					if (!all.Contains(id))
+						fixedSubs.Remove(id);
+			}
 		}
 		Scribe_Collections.Look(ref blueprints, "amBlueprints", LookMode.Value, LookMode.Deep, ref k, ref v);
+		Scribe_Collections.Look(ref fixedSubs, "amFixed", LookMode.Value, LookMode.Deep, ref fk, ref fv);
 		blueprints ??= new Dictionary<int, AnyStuff>();
+		fixedSubs ??= new Dictionary<int, FixedSub>();
 	}
 }
 
@@ -207,17 +234,19 @@ public static class Hook
 
 	public static void Before(Thing t)
 	{
-		if (!(t is Blueprint_Build bp) || AnyMaterialMod.S == null || !AnyMaterialMod.S.enabled)
-			return;
-		AnyStuff a = AMMap.Of(bp.Map)?.Get(bp);
-		if (a == null)
+		if (!(t is Blueprint_Build || t is Frame) || AnyMaterialMod.S == null || !AnyMaterialMod.S.enabled || t.Map == null)
 			return;
 		// at most once per blueprint and tick (the work giver asks many times)
 		int now = Find.TickManager.TicksGame;
 		if (now != lastTick) { lastTick = now; done.Clear(); }
-		if (!done.Add(bp.thingIDNumber))
+		if (!done.Add(t.thingIDNumber))
 			return;
-		try { Picker.Repick(bp, a); }
+		try
+		{
+			if (t is Blueprint_Build bp && AMMap.Of(bp.Map)?.Get(bp) is AnyStuff a)
+				Picker.Repick(bp, a);
+			Fixed.Repick(t);
+		}
 		catch (Exception e) { Log.WarningOnce("[Any Material] " + e.Message, 0x41af11); }
 	}
 }
@@ -295,18 +324,69 @@ public static class Tex
 [HarmonyPatch(typeof(Blueprint_Build), nameof(Blueprint_Build.GetGizmos))]
 public static class Patch_BlueprintGizmo
 {
+	private static IEnumerable<Gizmo> FixedGizmos(Blueprint_Build bp, AMMap comp)
+	{
+		List<ThingDefCountClass> rep = Fixed.Replaceable(bp.def.entityDefToBuild, bp.stuffToUse);
+		if (rep.Count == 0)
+			yield break;
+		bool On(Blueprint_Build b) => comp.GetFixed(b) is FixedSub f ? !f.off : AnyMaterialMod.S.fixedAuto;
+		yield return new Command_Toggle
+		{
+			defaultLabel = "AM_GizmoFixed".Translate(),
+			defaultDesc = "AM_GizmoFixed_Desc".Translate(string.Join(", ", rep.Select(c => c.thingDef.label))),
+			icon = Tex.Any,
+			isActive = () => On(bp),
+			toggleAction = () =>
+			{
+				bool was = On(bp);
+				FixedSub f = comp.MakeFixed(bp);
+				f.off = was;
+				if (f.off) f.chosen.Clear();
+				else Fixed.Repick(bp);
+			}
+		};
+		if (Find.Selector.NumSelected == 1 || comp.GetFixed(bp)?.allowed != null)
+			yield return new Command_Action
+			{
+				defaultLabel = "AM_GizmoFixedChoose".Translate(),
+				defaultDesc = "AM_GizmoFixedChoose_Desc".Translate(),
+				icon = Tex.Any,
+				action = () =>
+				{
+					var sel = Find.Selector.SelectedObjects.OfType<Blueprint_Build>().Where(x => x.def == bp.def).ToList();
+					var all = rep.SelectMany(c => Fixed.Subs(c.thingDef).Prepend(c.thingDef)).Distinct().ToList();
+					var need = rep.SelectMany(c => Fixed.Subs(c.thingDef).Prepend(c.thingDef).Select(d => (d, c.count)))
+						.GroupBy(x => x.d).ToDictionary(g => g.Key, g => g.Max(x => x.count));
+					List<ThingDef> cur = comp.GetFixed(bp)?.allowed;
+					Find.WindowStack.Add(new Dialog_ChooseStuff(bp.def.entityDefToBuild.LabelCap, all, d => need[d], cur ?? all, list =>
+					{
+						foreach (Blueprint_Build b in sel)
+						{
+							FixedSub f = comp.MakeFixed(b);
+							f.off = false;
+							f.allowed = list.Count == all.Count ? null : list;
+							f.chosen.Clear();
+							Fixed.Repick(b);
+						}
+					}));
+				}
+			};
+	}
+
 	public static IEnumerable<Gizmo> Postfix(IEnumerable<Gizmo> gizmos, Blueprint_Build __instance)
 	{
 		foreach (Gizmo g in gizmos)
 			yield return g;
 		if (AnyMaterialMod.S == null || !AnyMaterialMod.S.enabled || __instance.Faction != Faction.OfPlayer)
 			yield break;
-		if (!(__instance.def.entityDefToBuild is ThingDef td) || !td.MadeFromStuff)
-			yield break;
 		AMMap comp = AMMap.Of(__instance.Map);
 		if (comp == null)
 			yield break;
 		Blueprint_Build bp = __instance;
+		foreach (Gizmo g in FixedGizmos(bp, comp))
+			yield return g;
+		if (!(__instance.def.entityDefToBuild is ThingDef td) || !td.MadeFromStuff)
+			yield break;
 		AnyStuff a = comp.Get(bp);
 		yield return new Command_Toggle
 		{
@@ -341,18 +421,26 @@ public static class Patch_BlueprintGizmo
 
 public class Dialog_ChooseStuff : Window
 {
-	private readonly ThingDef building;
+	private readonly string title;
+	private readonly Func<ThingDef, int> need;
 	private readonly Action<List<ThingDef>> done;
 	private readonly HashSet<ThingDef> on;
 	private readonly List<ThingDef> all;
 	private Vector2 scroll;
 
 	public Dialog_ChooseStuff(ThingDef building, List<ThingDef> current, Action<List<ThingDef>> done)
+		: this(building.LabelCap, Picker.Stuffs(building).ToList(), d => Picker.Need(building, d),
+			current ?? Picker.Stuffs(building).Where(d => Find.CurrentMap != null && Find.CurrentMap.resourceCounter.GetCount(d) > 0).ToList(), done)
 	{
-		this.building = building;
+	}
+
+	public Dialog_ChooseStuff(string title, List<ThingDef> candidates, Func<ThingDef, int> need, List<ThingDef> current, Action<List<ThingDef>> done)
+	{
+		this.title = title;
+		this.need = need;
 		this.done = done;
-		all = Picker.Stuffs(building).OrderBy(d => d.stuffProps.categories?.FirstOrDefault()?.defName ?? "").ThenBy(d => d.label).ToList();
-		on = new HashSet<ThingDef>(current ?? all.Where(d => Find.CurrentMap != null && Find.CurrentMap.resourceCounter.GetCount(d) > 0));
+		all = candidates.OrderBy(d => d.stuffProps?.categories?.FirstOrDefault()?.defName ?? "").ThenBy(d => d.label).ToList();
+		on = new HashSet<ThingDef>(current ?? all);
 		doCloseX = true;
 		forcePause = true;
 		absorbInputAroundWindow = true;
@@ -363,7 +451,7 @@ public class Dialog_ChooseStuff : Window
 	public override void DoWindowContents(Rect r)
 	{
 		Text.Font = GameFont.Medium;
-		Widgets.Label(new Rect(r.x, r.y, r.width, 32f), "AM_ChooseTitle".Translate(building.LabelCap));
+		Widgets.Label(new Rect(r.x, r.y, r.width, 32f), "AM_ChooseTitle".Translate(title));
 		Text.Font = GameFont.Small;
 		float y = r.y + 36f;
 		if (Widgets.ButtonText(new Rect(r.x, y, 140f, 26f), "AM_All".Translate())) { on.Clear(); on.UnionWith(all); }
@@ -380,7 +468,7 @@ public class Dialog_ChooseStuff : Window
 			if (i % 2 == 0) Widgets.DrawLightHighlight(row);
 			Widgets.DefIcon(new Rect(row.x + 2f, row.y + 1f, 24f, 24f), d);
 			bool v = on.Contains(d);
-			string have = map != null ? " (" + map.resourceCounter.GetCount(d) + "/" + Picker.Need(building, d) + ")" : "";
+			string have = map != null ? " (" + map.resourceCounter.GetCount(d) + "/" + need(d) + ")" : "";
 			Widgets.CheckboxLabeled(new Rect(row.x + 30f, row.y + 1f, row.width - 34f, 24f), d.LabelCap + have, ref v);
 			if (v) on.Add(d); else on.Remove(d);
 		}
