@@ -23,6 +23,23 @@ namespace HaulSmarter
     // ------------------------------------------------------------------
     public static class HaulUtil
     {
+        // 3.6: storage that holds more than one stack in a cell (deep storage, shelves from mods)
+        public static bool SharedCell(Map map, IntVec3 c)
+        {
+            if (HSMod.S == null || !HSMod.S.sharedCells || map == null || !c.IsValid)
+                return false;
+            try
+            {
+                foreach (Thing b in c.GetThingList(map))
+                    if (b is Building && b.def.building != null && b.def.building.maxItemsInCell > 1)
+                        return true;
+            }
+            catch
+            {
+            }
+            return false;
+        }
+
         // How many kilos the pawn can still take before he is over-encumbered.
         public static float FreeKg(Pawn pawn)
         {
@@ -487,7 +504,9 @@ namespace HaulSmarter
                     return;
                 }
                 unloading = best;
-                if (pawn.CanReserve(bestCell))
+                // 3.6: a cell that holds several stacks (deep storage) is not locked – more haulers can use it at
+                // once; if it fills up first, the rest goes back into the pockets and another cell is chosen
+                if (!HaulUtil.SharedCell(pawn.Map, bestCell) && pawn.CanReserve(bestCell))
                     pawn.Reserve(bestCell, job, 1, -1, null, false);
                 job.SetTarget(TargetIndex.B, bestCell);
             };

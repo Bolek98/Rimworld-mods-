@@ -37,6 +37,26 @@ public sealed class CrisesSettings : ModSettings
 	public float strComfort = 1f;
 	public bool respectOrders = true;
 	public bool escalate = true;
+	// 1.3.0: a strength for each part (missing = the strength of its old group)
+	public Dictionary<string, float> strParts = new Dictionary<string, float>();
+
+	public float PartStrength(CrisisPart p)
+	{
+		if (strParts != null && strParts.TryGetValue(p.ToString(), out float v)) return v;
+		switch (CrisisGroups.GroupOf(p))
+		{
+		case CrisisGroup.Shortage: return strShortage;
+		case CrisisGroup.Work: return strWork;
+		case CrisisGroup.Comfort: return strComfort;
+		default: return 1f;
+		}
+	}
+
+	public void SetPartStrength(CrisisPart p, float v)
+	{
+		strParts ??= new Dictionary<string, float>();
+		strParts[p.ToString()] = v;
+	}
 
 	public override void ExposeData()
 	{
@@ -56,6 +76,8 @@ public sealed class CrisesSettings : ModSettings
 		Scribe_Values.Look(ref strComfort, "strComfort", 1f);
 		Scribe_Values.Look(ref respectOrders, "respectOrders", true);
 		Scribe_Values.Look(ref escalate, "escalate", true);
+		Scribe_Collections.Look(ref strParts, "strParts", LookMode.Value, LookMode.Value);
+		strParts ??= new Dictionary<string, float>();
 		situationOff ??= new List<string>();
 	}
 }
@@ -145,9 +167,8 @@ public sealed class CrisesMod : Mod
 		l.CheckboxLabeled("CF2C_Messages".Translate(), ref S.crisisMessages);
 		l.GapLine();
 		l.Label("CF3C_Title".Translate());
-		Dialog_Crises.Slider(l.GetRect(40f), CrisisGroup.Shortage, ref S.strShortage);
-		Dialog_Crises.Slider(l.GetRect(40f), CrisisGroup.Work, ref S.strWork);
-		Dialog_Crises.Slider(l.GetRect(40f), CrisisGroup.Comfort, ref S.strComfort);
+		foreach (CrisisPart p in CrisisGroups.Parts)
+			Dialog_Crises.Slider(l.GetRect(40f), p, S);
 		l.CheckboxLabeled("CF3C_Orders".Translate(), ref S.respectOrders, "CF3C_OrdersTip".Translate());
 		l.CheckboxLabeled("CF3C_Escalation".Translate(), ref S.escalate, "CF3C_EscalationTip".Translate());
 		l.GapLine();
@@ -483,6 +504,55 @@ public sealed class CrisisStep : IPlanStep
 	public int Order => 300;
 	public string Id => "crises.crisis";
 
+	// 1.2.2: a food crisis used to raise cooking and hunting only to 2 – under everybody's main work on 1,
+	// so with raw meat in the freezer and no meals nobody cooked (and hunting waited the same way).
+	// Now the bottleneck gets one person on 1: no meals but raw food → the best cook; no raw food and
+	// animals marked for hunting → the best hunter who can hunt (a ranged weapon, no shield).
+	private static void FoodBottleneck(PlanContext ctx, CrisisBook book, int now)
+	{
+		CrisisTrack t = book.Find("c:" + Crisis.Food);
+		if (t != null && t.Waiting(now))
+			return;
+		Map map = ctx.map;
+		if (map == null)
+			return;
+		int eaters = Math.Max(1, map.mapPawns.FreeColonistsSpawnedCount);
+		float raw = 0f;
+		foreach (Thing th in map.listerThings.ThingsInGroup(ThingRequestGroup.FoodSourceNotPlantOrTree))
+		{
+			if (th.def.ingestible == null || th.IsForbidden(Faction.OfPlayer) || th.def.IsCorpse)
+				continue;
+			FoodPreferability pr = th.def.ingestible.preferability;
+			if ((pr == FoodPreferability.RawBad || pr == FoodPreferability.RawTasty) && !th.def.IsDrug)
+				raw += th.GetStatValue(StatDefOf.Nutrition) * th.stackCount;
+		}
+		float rawDays = raw / (eaters * 1.6f);
+		float mealDays = MapDemand.MealDays(map);
+		WorkTypeDef w = null;
+		Func<Pawn, bool> ok = null;
+		if (mealDays < 0.5f && rawDays >= 0.25f)
+			w = DefDatabase<WorkTypeDef>.GetNamedSilentFail("Cooking");
+		else if (rawDays < 0.25f && map.designationManager.AnySpawnedDesignationOfDef(DesignationDefOf.Hunt))
+		{
+			w = DefDatabase<WorkTypeDef>.GetNamedSilentFail("Hunting");
+			ok = p => WorkGiver_HunterHunt.HasHuntingWeapon(p) && !WorkGiver_HunterHunt.HasShieldAndRangedWeapon(p);
+		}
+		if (w == null || !ctx.types.Contains(w))
+			return;
+		foreach (Pawn p in ctx.Best(w))
+		{
+			if (ctx.Locked(p, w) || !ctx.CanDo(p, w) || (ok != null && !ok(p)))
+				continue;
+			if (ctx.Get(p, w) == 1)
+				return;   // somebody is on it already
+			if (ctx.Set(p, w, 1, "CF2C_TipBottleneck", w.labelShort, null, pin: true))
+			{
+				if (t != null) { string n = p.LabelShortCap; if (!t.who.Contains(n)) t.who.Add(n); }
+				return;
+			}
+		}
+	}
+
 	public void Apply(PlanContext ctx)
 	{
 		CrisisBook book = CrisisTracks.Of(ctx.comp);
@@ -492,6 +562,9 @@ public sealed class CrisisStep : IPlanStep
 		if (cur == Crisis.None)
 			return;
 		int now = Find.TickManager.TicksGame;
+		// 1.2.2: in a food crisis the one thing that is missing goes to priority 1 for the best person
+		if ((cur & Crisis.Food) != 0)
+			FoodBottleneck(ctx, book, now);
 		var raiser = new GroupRaiser(ctx);
 		var up = new List<(WorkTypeDef w, CrisisRules.Effect e, Crisis c, CrisisTrack t)>();
 		foreach (Crisis c in CrisisRules.All)
@@ -504,7 +577,7 @@ public sealed class CrisisStep : IPlanStep
 				continue;
 			t.stage = CrisisTracks.StageOf(t, now);
 			CrisisGroup g = t.Group;
-			if (CrisisGroups.Strength(g) <= 0.01f)
+			if (CrisisGroups.Strength(t.Part) <= 0.01f)
 				continue;
 			foreach (var kv in effects)
 				foreach (WorkTypeDef w in WorkMatch.Resolve(kv.Key))
@@ -529,7 +602,13 @@ public sealed class CrisisStep : IPlanStep
 								continue;
 							int v = ctx.Get(p, w);
 							if (v > 0 && v <= 2)
+							{
+								// 1.3.0: a crisis about lives has the highest priority of all
+								string prevCat = ctx.Category;
+								if (g == CrisisGroup.Life) ctx.Category = "life";
 								ctx.Set(p, w, ctx.Levels, "CF2C_TipCrisisDown", CrisisRules.Label(c), null, pin: true);
+								ctx.Category = prevCat;
+							}
 						}
 					}
 					else if (kv.Value.urgency > 0f)
@@ -544,7 +623,10 @@ public sealed class CrisisStep : IPlanStep
 			if (u.t.Group != CrisisGroup.Life)
 				count = GroupRaiser.CountFor(u.t, count, ctx.pawns.Count);
 			int level = GroupRaiser.LevelFor(u.t, u.e.urgency >= 0.3f ? 1 : 2);
+			string prevCat = ctx.Category;
+			if (u.t.Group == CrisisGroup.Life) ctx.Category = "life";
 			raiser.Raise(u.t, u.w, level, count, "CF2C_TipCrisis", CrisisRules.Label(u.c));
+			ctx.Category = prevCat;
 		}
 	}
 }

@@ -320,4 +320,57 @@
   <CF_Crisis_NewColony>new colony (start plan)</CF_Crisis_NewColony>
   <CF2_TipSmallColony>small colony: first the work that matters most now</CF2_TipSmallColony>
   <CF2_TipArea>priority area: needed for the work there</CF2_TipArea>
+  <CF2_BackupHardMin>Any skilled work as backup only from skill {0} (0 = off)</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>No colonist keeps a work that uses a skill as backup when his skill there is below this – he would only waste time. Doctoring, wardens and childcare stay with everybody. If nobody reaches it, the best colonist still gets the work.</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>Plants, mining, animals as backup only from yield {0}</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>Growing, plant cutting, mining and animal work stay as backup only with colonists who really get at least this much (harvest, mining and gathering yield). A weak grower who ruins half the harvest is not a backup. 0 % = off.</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>Not a backup: gets only {0} (needs {1}).</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>Top job – skill first: {0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>How much the colonist's own skill counts against what the colony needs right now when his top job is chosen. 0 % = like before (the colony's needs count more), 100 % = everybody mainly does what he is best at.</CF2_SkillFirstTip>
+  <CF2_OrderLabel>Who has priority</CF2_OrderLabel>
+  <CF2_OrderButton>Change order…</CF2_OrderButton>
+  <CF2_OrderTitle>Who has priority</CF2_OrderTitle>
+  <CF2_OrderHelp>When two parts of Steward want different things for the same colonist and work, the one higher in this list wins – whatever order they run in. Your locked cells always stay as you set them.</CF2_OrderHelp>
+  <CF2_OrderReset>Back to default</CF2_OrderReset>
+  <CF2_TipDispute>{0} wanted it too – {1} has priority.</CF2_TipDispute>
+  <CF2_Cat_life>Crisis about lives</CF2_Cat_life>
+  <CF2_Cat_rules>Your rules</CF2_Cat_rules>
+  <CF2_Cat_roles>Roles</CF2_Cat_roles>
+  <CF2_Cat_area>Priority area</CF2_Cat_area>
+  <CF2_Cat_crisis>Crises &amp; situations</CF2_Cat_crisis>
+  <CF2_Cat_addons>Other add-ons</CF2_Cat_addons>
+  <CF2_Cat_apprentice>Apprentices</CF2_Cat_apprentice>
+  <CF2_Cat_droids>Droids</CF2_Cat_droids>
+  <CF2_Cat_top>Main work</CF2_Cat_top>
+  <CF2_Cat_children>Children</CF2_Cat_children>
+  <CF2_Cat_idle>Nobody idle</CF2_Cat_idle>
+  <CF2_Cat_base>Base plan</CF2_Cat_base>
+  <CF2_CatDesc_life>Medical emergencies, fire, starvation – work that saves lives.</CF2_CatDesc_life>
+  <CF2_CatDesc_rules>Your minimum and maximum colonists per work.</CF2_CatDesc_rules>
+  <CF2_CatDesc_roles>Steward – Roles: the role's main work.</CF2_CatDesc_roles>
+  <CF2_CatDesc_area>A colonist working for a priority area keeps its work.</CF2_CatDesc_area>
+  <CF2_CatDesc_crisis>Shortages, work and comfort crises, situations and focus.</CF2_CatDesc_crisis>
+  <CF2_CatDesc_addons>Plan steps from other mods.</CF2_CatDesc_addons>
+  <CF2_CatDesc_apprentice>Apprentices learning from a master.</CF2_CatDesc_apprentice>
+  <CF2_CatDesc_droids>Steward – Droids.</CF2_CatDesc_droids>
+  <CF2_CatDesc_top>One main work on priority 1 per colonist.</CF2_CatDesc_top>
+  <CF2_CatDesc_children>Children learning, care for babies.</CF2_CatDesc_children>
+  <CF2_CatDesc_idle>Small colony, nobody without work.</CF2_CatDesc_idle>
+  <CF2_CatDesc_base>The plan from skills and the colony style.</CF2_CatDesc_base>
+  <CF2_CheckWorkLabel>Waiting work (mods too)</CF2_CheckWorkLabel>
+  <CF2_CheckWorkButton>Check now</CF2_CheckWorkButton>
+  <CF2_CheckWorkHead>What the steward sees waiting on this map right now, per work type (number of jobs; mods in brackets, ⚠ = a work giver that cannot be measured). Work with 0 here gets fewer colonists.</CF2_CheckWorkHead>
+  <CF2_TabSkills>Skills</CF2_TabSkills>
+  <CF2_SkillsHelp>For each work: from which skill a colonist may do it at all, and from which skill he gets it as a backup. – = no limit, (n) = the general rule. The best colonist in the colony always keeps the work, even below the limit.</CF2_SkillsHelp>
+  <CF2_SkillsColWork>Work</CF2_SkillsColWork>
+  <CF2_SkillsColSkill>Skill</CF2_SkillsColSkill>
+  <CF2_SkillsColBest>Best now</CF2_SkillsColBest>
+  <CF2_SkillsColAny>May do from</CF2_SkillsColAny>
+  <CF2_SkillsColBackup>Backup from</CF2_SkillsColBackup>
+  <CF2_SkillsReset>Reset all</CF2_SkillsReset>
+  <CF2_TipGate>Skill {0} – this work only from skill {1} (Skills tab).</CF2_TipGate>
+  <CF2_TipResearchFocus>research project: {0}</CF2_TipResearchFocus>
+  <CF2_TipResearchFocusOther>the researcher researches first</CF2_TipResearchFocusOther>
+  <CF2_ResearchFocus>Researcher really researches</CF2_ResearchFocus>
+  <CF2_ResearchFocusTip>While a research project is chosen, the best researcher gets research on 2 (on 1 from 5 colonists) and his hauling and cleaning one level lower. Research is the last column, so at the same level it would never come first.</CF2_ResearchFocusTip>
 </LanguageData>

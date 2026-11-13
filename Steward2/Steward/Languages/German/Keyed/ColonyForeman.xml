@@ -320,4 +320,57 @@
   <CF_Crisis_NewColony>neue Kolonie (Startplan)</CF_Crisis_NewColony>
   <CF2_TipSmallColony>kleine Kolonie: zuerst die Arbeit, die jetzt am meisten zählt</CF2_TipSmallColony>
   <CF2_TipArea>Prioritätsbereich: wird dort gebraucht</CF2_TipArea>
+  <CF2_BackupHardMin>Fachliche Arbeit als Reserve erst ab Fertigkeit {0} (0 = alle)</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>Kein Siedler behält eine Arbeit mit Fertigkeit als Reserve, wenn seine Fertigkeit darunter liegt – er würde nur Zeit verschwenden. Medizin, Wärter und Kinderbetreuung bleiben bei allen. Erreicht es niemand, bekommt der Beste die Arbeit trotzdem.</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>Pflanzen, Bergbau, Tiere als Reserve erst ab Ertrag {0}</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>Anbau, Pflanzen schneiden, Bergbau und Tierarbeit bleiben als Reserve nur bei Siedlern, die wirklich mindestens so viel holen (Ernte-, Abbau- und Tierertrag). Wer die halbe Ernte verdirbt, ist keine Reserve. 0 % = aus.</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>Keine Reserve: holt nur {0} (nötig {1}).</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>Hauptarbeit – Fertigkeit zuerst: {0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>Wie stark bei der Wahl der Hauptarbeit die eigene Fertigkeit gegenüber dem aktuellen Bedarf der Kolonie zählt. 0 % = wie bisher (Bedarf zählt mehr), 100 % = jeder macht vor allem, was er am besten kann.</CF2_SkillFirstTip>
+  <CF2_OrderLabel>Wer hat Vorrang</CF2_OrderLabel>
+  <CF2_OrderButton>Reihenfolge ändern…</CF2_OrderButton>
+  <CF2_OrderTitle>Wer hat Vorrang</CF2_OrderTitle>
+  <CF2_OrderHelp>Wenn zwei Teile von Steward für denselben Siedler und dieselbe Arbeit Unterschiedliches wollen, gewinnt der, der in dieser Liste höher steht – egal in welcher Reihenfolge sie laufen. Deine gesperrten Zellen bleiben immer, wie du sie gesetzt hast.</CF2_OrderHelp>
+  <CF2_OrderReset>Zurück zum Standard</CF2_OrderReset>
+  <CF2_TipDispute>{0} wollte es auch – {1} hat Vorrang.</CF2_TipDispute>
+  <CF2_Cat_life>Krise um Leben</CF2_Cat_life>
+  <CF2_Cat_rules>Deine Regeln</CF2_Cat_rules>
+  <CF2_Cat_roles>Rollen</CF2_Cat_roles>
+  <CF2_Cat_area>Prioritätsbereich</CF2_Cat_area>
+  <CF2_Cat_crisis>Krisen &amp; Situationen</CF2_Cat_crisis>
+  <CF2_Cat_addons>Andere Add-ons</CF2_Cat_addons>
+  <CF2_Cat_apprentice>Lehrlinge</CF2_Cat_apprentice>
+  <CF2_Cat_droids>Droiden</CF2_Cat_droids>
+  <CF2_Cat_top>Hauptarbeit</CF2_Cat_top>
+  <CF2_Cat_children>Kinder</CF2_Cat_children>
+  <CF2_Cat_idle>Niemand untätig</CF2_Cat_idle>
+  <CF2_Cat_base>Grundplan</CF2_Cat_base>
+  <CF2_CatDesc_life>Medizinische Notfälle, Feuer, Hunger – Arbeit, die Leben rettet.</CF2_CatDesc_life>
+  <CF2_CatDesc_rules>Dein Minimum und Maximum an Siedlern pro Arbeit.</CF2_CatDesc_rules>
+  <CF2_CatDesc_roles>Steward – Roles: die Hauptarbeit der Rolle.</CF2_CatDesc_roles>
+  <CF2_CatDesc_area>Wer für einen Prioritätsbereich arbeitet, behält dessen Arbeit.</CF2_CatDesc_area>
+  <CF2_CatDesc_crisis>Mängel, Arbeits- und Komfortkrisen, Situationen und Fokus.</CF2_CatDesc_crisis>
+  <CF2_CatDesc_addons>Planschritte aus anderen Mods.</CF2_CatDesc_addons>
+  <CF2_CatDesc_apprentice>Lehrlinge, die von einem Meister lernen.</CF2_CatDesc_apprentice>
+  <CF2_CatDesc_droids>Steward – Droids.</CF2_CatDesc_droids>
+  <CF2_CatDesc_top>Eine Hauptarbeit auf Priorität 1 pro Siedler.</CF2_CatDesc_top>
+  <CF2_CatDesc_children>Kinder lernen, Pflege von Babys.</CF2_CatDesc_children>
+  <CF2_CatDesc_idle>Kleine Kolonie, niemand ohne Arbeit.</CF2_CatDesc_idle>
+  <CF2_CatDesc_base>Der Plan aus Fertigkeiten und Koloniestil.</CF2_CatDesc_base>
+  <CF2_CheckWorkLabel>Wartende Arbeit (auch Mods)</CF2_CheckWorkLabel>
+  <CF2_CheckWorkButton>Jetzt prüfen</CF2_CheckWorkButton>
+  <CF2_CheckWorkHead>Was der Verwalter auf dieser Karte gerade als wartende Arbeit sieht, je Arbeitstyp (Anzahl Aufgaben; Mods in Klammern, ⚠ = nicht messbar). Arbeit mit 0 bekommt weniger Siedler.</CF2_CheckWorkHead>
+  <CF2_TabSkills>Fertigkeiten</CF2_TabSkills>
+  <CF2_SkillsHelp>Für jede Arbeit: ab welcher Fertigkeit ein Siedler sie überhaupt machen darf und ab welcher er sie als Reserve bekommt. – = keine Grenze, (n) = allgemeine Regel. Der beste Siedler behält die Arbeit immer, auch unter der Grenze.</CF2_SkillsHelp>
+  <CF2_SkillsColWork>Arbeit</CF2_SkillsColWork>
+  <CF2_SkillsColSkill>Fertigkeit</CF2_SkillsColSkill>
+  <CF2_SkillsColBest>Bester jetzt</CF2_SkillsColBest>
+  <CF2_SkillsColAny>Darf ab</CF2_SkillsColAny>
+  <CF2_SkillsColBackup>Reserve ab</CF2_SkillsColBackup>
+  <CF2_SkillsReset>Alles zurücksetzen</CF2_SkillsReset>
+  <CF2_TipGate>Fertigkeit {0} – diese Arbeit erst ab {1} (Reiter Fertigkeiten).</CF2_TipGate>
+  <CF2_TipResearchFocus>Forschungsprojekt: {0}</CF2_TipResearchFocus>
+  <CF2_TipResearchFocusOther>der Forscher forscht zuerst</CF2_TipResearchFocusOther>
+  <CF2_ResearchFocus>Forscher forscht wirklich</CF2_ResearchFocus>
+  <CF2_ResearchFocusTip>Solange ein Forschungsprojekt gewählt ist, bekommt der beste Forscher Forschung auf 2 (ab 5 Kolonisten auf 1) und Tragen und Putzen eine Stufe tiefer. Forschung ist die letzte Spalte und käme auf gleicher Stufe nie zuerst dran.</CF2_ResearchFocusTip>
 </LanguageData>

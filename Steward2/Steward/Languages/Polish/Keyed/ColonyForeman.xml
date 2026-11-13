@@ -320,4 +320,57 @@
   <CF_Crisis_NewColony>nowa kolonia (plan startowy)</CF_Crisis_NewColony>
   <CF2_TipSmallColony>mała kolonia: najpierw praca, która teraz najbardziej się liczy</CF2_TipSmallColony>
   <CF2_TipArea>obszar priorytetowy: potrzebne do pracy tam</CF2_TipArea>
+  <CF2_BackupHardMin>Praca z umiejętnością jako zapas dopiero od poziomu {0} (0 = wszyscy)</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>Żaden kolonista nie zatrzyma jako zapasu pracy z umiejętnością, jeśli ma w niej niższy poziom – tylko traciłby czas. Leczenie, strażnicy i opieka nad dziećmi zostają dla wszystkich. Jeśli nikt nie osiąga progu, pracę i tak dostaje najlepszy.</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>Rośliny, górnictwo, zwierzęta jako zapas dopiero od wydajności {0}</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>Uprawa, ścinanie, górnictwo i praca ze zwierzętami zostają jako zapas tylko u kolonistów, którzy naprawdę uzyskują co najmniej tyle (plon, wydobycie, zbiory ze zwierząt). Słaby rolnik, który psuje pół zbioru, nie jest zapasem. 0 % = wyłączone.</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>Nie jest zapasem: uzyskuje tylko {0} (potrzeba {1}).</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>Główna praca – najpierw umiejętność: {0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>Jak bardzo przy wyborze głównej pracy liczy się umiejętność kolonisty wobec obecnych potrzeb kolonii. 0 % = jak dawniej (potrzeby liczą się bardziej), 100 % = każdy robi głównie to, w czym jest najlepszy.</CF2_SkillFirstTip>
+  <CF2_OrderLabel>Kto ma pierwszeństwo</CF2_OrderLabel>
+  <CF2_OrderButton>Zmień kolejność…</CF2_OrderButton>
+  <CF2_OrderTitle>Kto ma pierwszeństwo</CF2_OrderTitle>
+  <CF2_OrderHelp>Gdy dwie części Stewarda chcą czegoś innego dla tego samego kolonisty i pracy, wygrywa ta wyżej na tej liście – niezależnie od kolejności działania. Twoje zablokowane komórki zawsze zostają tak, jak je ustawiłeś.</CF2_OrderHelp>
+  <CF2_OrderReset>Przywróć domyślne</CF2_OrderReset>
+  <CF2_TipDispute>{0} też tego chciało – pierwszeństwo ma {1}.</CF2_TipDispute>
+  <CF2_Cat_life>Kryzys o życie</CF2_Cat_life>
+  <CF2_Cat_rules>Twoje zasady</CF2_Cat_rules>
+  <CF2_Cat_roles>Role</CF2_Cat_roles>
+  <CF2_Cat_area>Obszar priorytetowy</CF2_Cat_area>
+  <CF2_Cat_crisis>Kryzysy i sytuacje</CF2_Cat_crisis>
+  <CF2_Cat_addons>Inne dodatki</CF2_Cat_addons>
+  <CF2_Cat_apprentice>Uczniowie</CF2_Cat_apprentice>
+  <CF2_Cat_droids>Droidy</CF2_Cat_droids>
+  <CF2_Cat_top>Główna praca</CF2_Cat_top>
+  <CF2_Cat_children>Dzieci</CF2_Cat_children>
+  <CF2_Cat_idle>Nikt bezczynny</CF2_Cat_idle>
+  <CF2_Cat_base>Plan bazowy</CF2_Cat_base>
+  <CF2_CatDesc_life>Nagłe wypadki medyczne, pożar, głód – praca ratująca życie.</CF2_CatDesc_life>
+  <CF2_CatDesc_rules>Twoje minimum i maksimum kolonistów na pracę.</CF2_CatDesc_rules>
+  <CF2_CatDesc_roles>Steward – Roles: główna praca roli.</CF2_CatDesc_roles>
+  <CF2_CatDesc_area>Kolonista pracujący dla obszaru priorytetowego zachowuje jego pracę.</CF2_CatDesc_area>
+  <CF2_CatDesc_crisis>Braki, kryzysy pracy i komfortu, sytuacje i cel.</CF2_CatDesc_crisis>
+  <CF2_CatDesc_addons>Kroki planu z innych modów.</CF2_CatDesc_addons>
+  <CF2_CatDesc_apprentice>Uczniowie uczący się od mistrza.</CF2_CatDesc_apprentice>
+  <CF2_CatDesc_droids>Steward – Droids.</CF2_CatDesc_droids>
+  <CF2_CatDesc_top>Jedna główna praca na priorytecie 1 na kolonistę.</CF2_CatDesc_top>
+  <CF2_CatDesc_children>Nauka dzieci, opieka nad niemowlętami.</CF2_CatDesc_children>
+  <CF2_CatDesc_idle>Mała kolonia, nikt bez pracy.</CF2_CatDesc_idle>
+  <CF2_CatDesc_base>Plan według umiejętności i stylu kolonii.</CF2_CatDesc_base>
+  <CF2_CheckWorkLabel>Czekająca praca (także z modów)</CF2_CheckWorkLabel>
+  <CF2_CheckWorkButton>Sprawdź</CF2_CheckWorkButton>
+  <CF2_CheckWorkHead>Co zarządca widzi teraz na tej mapie jako czekającą pracę, według typu pracy (liczba zadań; mody w nawiasie, ⚠ = nie da się zmierzyć). Praca z 0 dostaje mniej kolonistów.</CF2_CheckWorkHead>
+  <CF2_TabSkills>Umiejętności</CF2_TabSkills>
+  <CF2_SkillsHelp>Dla każdej pracy: od jakiej umiejętności kolonista może ją w ogóle robić i od jakiej dostaje ją jako zapas. – = bez limitu, (n) = zasada ogólna. Najlepszy kolonista zawsze zachowuje pracę, nawet poniżej progu.</CF2_SkillsHelp>
+  <CF2_SkillsColWork>Praca</CF2_SkillsColWork>
+  <CF2_SkillsColSkill>Umiejętność</CF2_SkillsColSkill>
+  <CF2_SkillsColBest>Najlepszy teraz</CF2_SkillsColBest>
+  <CF2_SkillsColAny>Może od</CF2_SkillsColAny>
+  <CF2_SkillsColBackup>Zapas od</CF2_SkillsColBackup>
+  <CF2_SkillsReset>Wyzeruj wszystko</CF2_SkillsReset>
+  <CF2_TipGate>Umiejętność {0} – ta praca dopiero od {1} (zakładka Umiejętności).</CF2_TipGate>
+  <CF2_TipResearchFocus>projekt badawczy: {0}</CF2_TipResearchFocus>
+  <CF2_TipResearchFocusOther>badacz najpierw bada</CF2_TipResearchFocusOther>
+  <CF2_ResearchFocus>Badacz naprawdę bada</CF2_ResearchFocus>
+  <CF2_ResearchFocusTip>Dopóki wybrany jest projekt badawczy, najlepszy badacz ma badania na 2 (od 5 kolonistów na 1), a noszenie i sprzątanie poziom niżej. Badania to ostatnia kolumna, więc na tym samym poziomie nigdy nie byłyby pierwsze.</CF2_ResearchFocusTip>
 </LanguageData>

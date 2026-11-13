@@ -234,7 +234,7 @@ namespace HardyPlants
     // ------------------------------------------------------------------
     public class HardyPlantsMod : Mod
     {
-        public const string Version = "1.9.0";
+        public const string Version = "1.10.0";
         public static HardyPlantsSettings Settings;
         private Vector2 scroll;
         private Vector2 leftScroll;

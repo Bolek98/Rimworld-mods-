@@ -101,6 +101,7 @@ public sealed partial class SupplyManager
 		Scribe_Values.Look(ref forecastOn, "forecastOn", true);
 		Scribe_Values.Look(ref recipeByStock, "recipeByStock", true);
 		Scribe_Values.Look(ref traderTips, "traderTips", true);
+		ExposeButcher();   // 1.3.0
 		Scribe_Values.Look(ref nextStockLog, "nextStockLog", 0);
 		Scribe_Values.Look(ref nextDayRoll, "nextDayRoll", 0);
 		Scribe_Collections.Look(ref toldTraders, "toldTraders", LookMode.Value);

@@ -144,4 +144,14 @@
   <HS_HaulUrgent>Перенести срочно</HS_HaulUrgent>
   <HS_HaulUrgent_Desc>Отметьте вещи, которые нужно отнести на склад раньше всего остального. Запрещённые вещи будут разрешены. Отметка исчезает, когда вещь на складе.</HS_HaulUrgent_Desc>
   <HS_Feat_urgent>срочная переноска</HS_Feat_urgent>
+  <HS_StackFirst>Сначала в существующую стопку</HS_StackFirst>
+  <HS_StackFirst_Desc>Носильщик сначала дополняет стопку того же предмета на не худшем складе и только потом начинает новую – меньше неполных стопок. Для всей переноски в колонии.</HS_StackFirst_Desc>
+  <HS_SharedCells>Общие клетки глубокого хранения</HS_SharedCells>
+  <HS_SharedCells_Desc>Клетку, вмещающую несколько стопок (глубокое хранилище, стеллажи из модов), не занимает один носильщик – туда могут носить несколько сразу.</HS_SharedCells_Desc>
+  <HS_Feat_stackFirst>Переноска в существующую стопку</HS_Feat_stackFirst>
+  <HS_OtherBuildInv>Включён Build From Inventory – он доставляет материалы (и из инвентаря других колонистов и вьючных животных), поэтому «строить из карманов» в Haul Master выключено.</HS_OtherBuildInv>
+  <HS_UnloadNow>Разгрузить сейчас</HS_UnloadNow>
+  <HS_UnloadNow_Desc>Сразу относит на склад всё, что подобрал при переноске ({0} предметов, {1} кг).\n\nПравый клик: положить всё здесь.</HS_UnloadNow_Desc>
+  <HS_UnloadNow_Drop>Положить всё здесь</HS_UnloadNow_Drop>
+  <HS_UnloadNow_Nowhere>{0}: ни на одном складе нет места для того, что он несёт.</HS_UnloadNow_Nowhere>
 </LanguageData>

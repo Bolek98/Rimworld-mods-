@@ -320,4 +320,57 @@
   <CF_Crisis_NewColony>новая колония (стартовый план)</CF_Crisis_NewColony>
   <CF2_TipSmallColony>маленькая колония: сначала самая важная сейчас работа</CF2_TipSmallColony>
   <CF2_TipArea>приоритетная зона: нужно для работы там</CF2_TipArea>
+  <CF2_BackupHardMin>Работа с навыком как запасная только с навыка {0} (0 = все)</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>Колонист не оставляет за собой запасную работу с навыком, если его навык ниже – он бы только тратил время. Медицина, надзор и уход за детьми остаются у всех. Если никто не достигает порога, работу всё равно получает лучший.</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>Растения, добыча, животные как запасная только с выхода {0}</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>Выращивание, рубка, добыча и работа с животными остаются запасными только у колонистов, которые действительно получают не меньше (урожайность, выход добычи, сбор с животных). Слабый фермер, губящий половину урожая, – не запасной. 0 % = выкл.</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>Не запасной: получает лишь {0} (нужно {1}).</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>Основная работа – сначала навык: {0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>Насколько при выборе основной работы важен навык колониста по сравнению с текущими нуждами колонии. 0 % = как раньше (нужды важнее), 100 % = каждый занимается в основном тем, что умеет лучше всего.</CF2_SkillFirstTip>
+  <CF2_OrderLabel>У кого приоритет</CF2_OrderLabel>
+  <CF2_OrderButton>Изменить порядок…</CF2_OrderButton>
+  <CF2_OrderTitle>У кого приоритет</CF2_OrderTitle>
+  <CF2_OrderHelp>Когда две части Steward хотят разного для одного колониста и работы, побеждает та, что выше в этом списке, – независимо от порядка их работы. Твои закреплённые ячейки всегда остаются как есть.</CF2_OrderHelp>
+  <CF2_OrderReset>Вернуть по умолчанию</CF2_OrderReset>
+  <CF2_TipDispute>{0} тоже этого хотели – приоритет у: {1}.</CF2_TipDispute>
+  <CF2_Cat_life>Кризис жизни</CF2_Cat_life>
+  <CF2_Cat_rules>Твои правила</CF2_Cat_rules>
+  <CF2_Cat_roles>Роли</CF2_Cat_roles>
+  <CF2_Cat_area>Приоритетная зона</CF2_Cat_area>
+  <CF2_Cat_crisis>Кризисы и ситуации</CF2_Cat_crisis>
+  <CF2_Cat_addons>Другие дополнения</CF2_Cat_addons>
+  <CF2_Cat_apprentice>Ученики</CF2_Cat_apprentice>
+  <CF2_Cat_droids>Дроиды</CF2_Cat_droids>
+  <CF2_Cat_top>Основная работа</CF2_Cat_top>
+  <CF2_Cat_children>Дети</CF2_Cat_children>
+  <CF2_Cat_idle>Никто без дела</CF2_Cat_idle>
+  <CF2_Cat_base>Базовый план</CF2_Cat_base>
+  <CF2_CatDesc_life>Медицинские ЧП, пожар, голод – работа, спасающая жизни.</CF2_CatDesc_life>
+  <CF2_CatDesc_rules>Твой минимум и максимум колонистов на работу.</CF2_CatDesc_rules>
+  <CF2_CatDesc_roles>Steward – Roles: основная работа роли.</CF2_CatDesc_roles>
+  <CF2_CatDesc_area>Работающий на приоритетную зону сохраняет её работу.</CF2_CatDesc_area>
+  <CF2_CatDesc_crisis>Нехватки, кризисы работы и комфорта, ситуации и фокус.</CF2_CatDesc_crisis>
+  <CF2_CatDesc_addons>Шаги плана из других модов.</CF2_CatDesc_addons>
+  <CF2_CatDesc_apprentice>Ученики, обучающиеся у мастера.</CF2_CatDesc_apprentice>
+  <CF2_CatDesc_droids>Steward – Droids.</CF2_CatDesc_droids>
+  <CF2_CatDesc_top>Одна основная работа на приоритете 1 у колониста.</CF2_CatDesc_top>
+  <CF2_CatDesc_children>Обучение детей, уход за младенцами.</CF2_CatDesc_children>
+  <CF2_CatDesc_idle>Маленькая колония, никто без работы.</CF2_CatDesc_idle>
+  <CF2_CatDesc_base>План по навыкам и стилю колонии.</CF2_CatDesc_base>
+  <CF2_CheckWorkLabel>Ожидающая работа (и из модов)</CF2_CheckWorkLabel>
+  <CF2_CheckWorkButton>Проверить</CF2_CheckWorkButton>
+  <CF2_CheckWorkHead>Что управляющий сейчас видит на этой карте как ожидающую работу, по типам (число задач; моды в скобках, ⚠ = не измеряется). Работа с 0 получает меньше колонистов.</CF2_CheckWorkHead>
+  <CF2_TabSkills>Навыки</CF2_TabSkills>
+  <CF2_SkillsHelp>Для каждой работы: с какого навыка колонист вообще может её делать и с какого получает её как запасную. – = без ограничения, (n) = общее правило. Лучший колонист всегда сохраняет работу, даже ниже порога.</CF2_SkillsHelp>
+  <CF2_SkillsColWork>Работа</CF2_SkillsColWork>
+  <CF2_SkillsColSkill>Навык</CF2_SkillsColSkill>
+  <CF2_SkillsColBest>Лучший сейчас</CF2_SkillsColBest>
+  <CF2_SkillsColAny>Можно с</CF2_SkillsColAny>
+  <CF2_SkillsColBackup>Запасная с</CF2_SkillsColBackup>
+  <CF2_SkillsReset>Сбросить всё</CF2_SkillsReset>
+  <CF2_TipGate>Навык {0} – эта работа только с навыка {1} (вкладка Навыки).</CF2_TipGate>
+  <CF2_TipResearchFocus>исследование: {0}</CF2_TipResearchFocus>
+  <CF2_TipResearchFocusOther>исследователь сначала исследует</CF2_TipResearchFocusOther>
+  <CF2_ResearchFocus>Исследователь действительно исследует</CF2_ResearchFocus>
+  <CF2_ResearchFocusTip>Пока выбран проект, лучший исследователь получает исследования на 2 (с 5 колонистов — на 1), а переноску и уборку на уровень ниже. Исследования — последний столбец, и на одном уровне до них никогда не дошла бы очередь.</CF2_ResearchFocusTip>
 </LanguageData>

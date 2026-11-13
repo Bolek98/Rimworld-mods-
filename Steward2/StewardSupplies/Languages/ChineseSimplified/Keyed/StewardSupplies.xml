@@ -266,4 +266,12 @@
   <CF_St_OptRecipes_Desc>食物少：简单餐；一般：精致餐；充足：奢华餐。食物充足时为商队少量储备干肉饼。衣服用库存最多的材料制作。</CF_St_OptRecipes_Desc>
   <CF_St_OptTrader>交易建议</CF_St_OptTrader>
   <CF_St_OptTrader_Desc>商人到来时，消息会告诉你缺什么、什么富余。</CF_St_OptTrader_Desc>
+  <CF_Bu_Opt>按库存屠宰</CF_Bu_Opt>
+  <CF_Bu_Opt_Desc>屠宰订单只在仓库里该种肉少于目标时才使用尸体——人肉、虫肉和动物肉分别计算。你的订单本身保持不变。</CF_Bu_Opt_Desc>
+  <CF_Bu_Always>总是</CF_Bu_Always>
+  <CF_Bu_Never>从不</CF_Bu_Never>
+  <CF_Bu_Human>人肉</CF_Bu_Human>
+  <CF_Bu_Insect>虫肉</CF_Bu_Insect>
+  <CF_Bu_Animal>动物肉</CF_Bu_Animal>
+  <CF_Bu_RowTip>{0}：当前库存 / 目标。左键：下一个值，右键：上一个。总是 = 照常屠宰，从不 = 不屠宰这类尸体，数字 = 仅在库存少于该值时屠宰。</CF_Bu_RowTip>
 </LanguageData>

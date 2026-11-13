@@ -320,4 +320,57 @@
   <CF_Crisis_NewColony>새 정착지 (시작 계획)</CF_Crisis_NewColony>
   <CF2_TipSmallColony>작은 정착지: 지금 가장 중요한 일부터</CF2_TipSmallColony>
   <CF2_TipArea>우선 구역: 그곳 작업에 필요</CF2_TipArea>
+  <CF2_BackupHardMin>기술 작업은 기술 {0} 이상일 때만 예비로 (0 = 모두)</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>해당 기술이 이보다 낮은 정착민은 기술 작업을 예비로 맡지 않습니다 – 시간만 낭비하기 때문입니다. 의료, 간수, 육아는 모두에게 남습니다. 아무도 기준에 못 미치면 가장 뛰어난 정착민이 맡습니다.</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>식물, 채굴, 동물은 수확량 {0} 이상일 때만 예비로</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>재배, 벌목, 채굴, 동물 작업은 실제로 이만큼 이상 얻는 정착민에게만 예비로 남습니다 (수확·채굴·채집 수확량). 수확의 절반을 망치는 재배자는 예비가 아닙니다. 0 % = 끔.</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>예비 아님: {0}만 얻음 (필요 {1}).</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>주 작업 – 기술 우선: {0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>주 작업을 고를 때 정착민 자신의 기술을 정착지의 현재 필요에 비해 얼마나 중시할지. 0 % = 이전과 같음 (필요를 더 중시), 100 % = 각자 가장 잘하는 일을 주로 합니다.</CF2_SkillFirstTip>
+  <CF2_OrderLabel>누가 우선인가</CF2_OrderLabel>
+  <CF2_OrderButton>순서 변경…</CF2_OrderButton>
+  <CF2_OrderTitle>누가 우선인가</CF2_OrderTitle>
+  <CF2_OrderHelp>Steward의 두 부분이 같은 정착민과 작업에 대해 다른 것을 원하면 이 목록에서 위에 있는 쪽이 이깁니다 – 실행 순서와 관계없이. 잠근 칸은 항상 설정한 대로 유지됩니다.</CF2_OrderHelp>
+  <CF2_OrderReset>기본값으로</CF2_OrderReset>
+  <CF2_TipDispute>{0}도 원했습니다 – {1}이(가) 우선입니다.</CF2_TipDispute>
+  <CF2_Cat_life>생명 위기</CF2_Cat_life>
+  <CF2_Cat_rules>내 규칙</CF2_Cat_rules>
+  <CF2_Cat_roles>역할</CF2_Cat_roles>
+  <CF2_Cat_area>우선 구역</CF2_Cat_area>
+  <CF2_Cat_crisis>위기와 상황</CF2_Cat_crisis>
+  <CF2_Cat_addons>다른 애드온</CF2_Cat_addons>
+  <CF2_Cat_apprentice>견습생</CF2_Cat_apprentice>
+  <CF2_Cat_droids>드로이드</CF2_Cat_droids>
+  <CF2_Cat_top>주 작업</CF2_Cat_top>
+  <CF2_Cat_children>아이들</CF2_Cat_children>
+  <CF2_Cat_idle>놀고 있는 사람 없음</CF2_Cat_idle>
+  <CF2_Cat_base>기본 계획</CF2_Cat_base>
+  <CF2_CatDesc_life>의료 응급, 화재, 기아 – 생명을 구하는 작업.</CF2_CatDesc_life>
+  <CF2_CatDesc_rules>작업별 정착민 최소·최대 인원.</CF2_CatDesc_rules>
+  <CF2_CatDesc_roles>Steward – Roles: 역할의 주 작업.</CF2_CatDesc_roles>
+  <CF2_CatDesc_area>우선 구역을 위해 일하는 정착민은 그 작업을 유지합니다.</CF2_CatDesc_area>
+  <CF2_CatDesc_crisis>부족, 작업·편의 위기, 상황과 초점.</CF2_CatDesc_crisis>
+  <CF2_CatDesc_addons>다른 모드의 계획 단계.</CF2_CatDesc_addons>
+  <CF2_CatDesc_apprentice>스승에게 배우는 견습생.</CF2_CatDesc_apprentice>
+  <CF2_CatDesc_droids>Steward – Droids.</CF2_CatDesc_droids>
+  <CF2_CatDesc_top>정착민마다 우선순위 1의 주 작업 하나.</CF2_CatDesc_top>
+  <CF2_CatDesc_children>아이들의 학습, 아기 돌보기.</CF2_CatDesc_children>
+  <CF2_CatDesc_idle>작은 정착지, 일 없는 사람 없음.</CF2_CatDesc_idle>
+  <CF2_CatDesc_base>기술과 정착지 스타일에 따른 계획.</CF2_CatDesc_base>
+  <CF2_CheckWorkLabel>대기 중인 작업 (모드 포함)</CF2_CheckWorkLabel>
+  <CF2_CheckWorkButton>확인</CF2_CheckWorkButton>
+  <CF2_CheckWorkHead>관리인이 지금 이 지도에서 보는 대기 작업, 작업 유형별 (작업 수; 모드는 괄호, ⚠ = 측정 불가). 0인 작업은 정착민을 적게 받습니다.</CF2_CheckWorkHead>
+  <CF2_TabSkills>기술</CF2_TabSkills>
+  <CF2_SkillsHelp>작업별로: 몇 기술부터 작업할 수 있는지, 몇 기술부터 예비로 받는지. – = 제한 없음, (n) = 일반 규칙. 정착지에서 가장 뛰어난 정착민은 기준 미만이어도 항상 작업을 유지합니다.</CF2_SkillsHelp>
+  <CF2_SkillsColWork>작업</CF2_SkillsColWork>
+  <CF2_SkillsColSkill>기술</CF2_SkillsColSkill>
+  <CF2_SkillsColBest>현재 최고</CF2_SkillsColBest>
+  <CF2_SkillsColAny>가능 기준</CF2_SkillsColAny>
+  <CF2_SkillsColBackup>예비 기준</CF2_SkillsColBackup>
+  <CF2_SkillsReset>모두 초기화</CF2_SkillsReset>
+  <CF2_TipGate>기술 {0} – 이 작업은 기술 {1}부터 (기술 탭).</CF2_TipGate>
+  <CF2_TipResearchFocus>연구 프로젝트: {0}</CF2_TipResearchFocus>
+  <CF2_TipResearchFocusOther>연구원이 먼저 연구함</CF2_TipResearchFocusOther>
+  <CF2_ResearchFocus>연구원이 실제로 연구</CF2_ResearchFocus>
+  <CF2_ResearchFocusTip>연구 프로젝트가 선택된 동안 최고의 연구원은 연구를 2(정착민 5명부터 1)로, 운반과 청소는 한 단계 낮춥니다. 연구는 마지막 열이라 같은 단계에서는 절대 먼저 오지 않습니다.</CF2_ResearchFocusTip>
 </LanguageData>

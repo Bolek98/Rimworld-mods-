@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -20,6 +21,17 @@ public sealed class ForemanSettings : ModSettings
 	public bool backupWorkers = true;
 	// 1.1.0: skilled work only goes to backups with at least this skill (0 = everybody)
 	public int backupMinSkill = 6;
+	// 1.2.0: no work with a skill as backup below this level (unless nobody else can do it)
+	public int backupHardMin = 0;   // 1.3.3: off by default – for most work a weak backup is better than nobody
+	// 1.2.0: plants, mining and animals as backup only with at least this yield (0 = off)
+	public float backupMinYield = 0f;   // 1.3.3: off by default
+	public int settingsRev = 0;
+	// 1.2.0: top job – the colonist's own skill against the colony's current needs (0 = like before)
+	public float skillFirst = 0.6f;
+	public bool researchFocus = true;   // 1.4.1: the best researcher really researches while a project is chosen
+	// 1.3.0: who has priority when steps want different things for the same cell (strongest first)
+	public static readonly List<string> DefaultStepOrder = new List<string> { "life", "rules", "roles", "area", "crisis", "addons", "apprentice", "droids", "top", "children", "idle", "base" };
+	public List<string> stepOrder = new List<string>(DefaultStepOrder);
 	// 1.1.0: surgery is left to doctors with at least this Medicine when one is there (0 = off)
 	public int surgeryMinMedicine = 8;
 	public bool oneTopPriority = true;
@@ -50,6 +62,9 @@ public sealed class ForemanSettings : ModSettings
 	// your rules per work type: at least / at most this many colonists, importance
 	public bool useMyRules = false;
 	public Dictionary<string, int> workerMin = new Dictionary<string, int>();
+	// 1.4.0: "Skills" tab – per work: from which skill a colonist may do it at all / as a backup (missing = default)
+	public Dictionary<string, int> gateAny = new Dictionary<string, int>();
+	public Dictionary<string, int> gateBackup = new Dictionary<string, int>();
 	public Dictionary<string, int> workerMax = new Dictionary<string, int>();
 	public Dictionary<string, float> urgencyOverrides = new Dictionary<string, float>();
 
@@ -79,6 +94,23 @@ public sealed class ForemanSettings : ModSettings
 		Scribe_Values.Look(ref assignOpposed, "assignOpposed", true);
 		Scribe_Values.Look(ref backupWorkers, "backupWorkers", true);
 		Scribe_Values.Look(ref backupMinSkill, "backupMinSkill", 6);
+		Scribe_Values.Look(ref backupHardMin, "backupHardMin", 0);
+		Scribe_Values.Look(ref backupMinYield, "backupMinYield", 0f);
+		Scribe_Values.Look(ref settingsRev, "settingsRev", 0);
+		// 1.3.3: the strict backup rules of 1.2.0 (skill 3, 75 % yield) were too strict – switched off once
+		if (Scribe.mode == LoadSaveMode.LoadingVars && settingsRev < 1)
+		{
+			backupHardMin = 0;
+			backupMinYield = 0f;
+			settingsRev = 1;
+		}
+		Scribe_Values.Look(ref skillFirst, "skillFirst", 0.6f);
+		Scribe_Values.Look(ref researchFocus, "researchFocus", true);
+		Scribe_Collections.Look(ref stepOrder, "stepOrder", LookMode.Value);
+		if (stepOrder == null || stepOrder.Count == 0) stepOrder = new List<string>(DefaultStepOrder);
+		// a category added in a later version goes in at its default place
+		foreach (string c in DefaultStepOrder)
+			if (!stepOrder.Contains(c)) stepOrder.Insert(Math.Min(stepOrder.Count, DefaultStepOrder.IndexOf(c)), c);
 		Scribe_Values.Look(ref surgeryMinMedicine, "surgeryMinMedicine", 8);
 		Scribe_Values.Look(ref oneTopPriority, "oneTopPriority", true);
 		Scribe_Values.Look(ref includeLodgers, "includeLodgers", true);
@@ -98,6 +130,8 @@ public sealed class ForemanSettings : ModSettings
 		Scribe_Values.Look(ref priorityAreaWorkers, "priorityAreaWorkers", 3);
 		Scribe_Values.Look(ref useMyRules, "useMyRules2", false);
 		Scribe_Collections.Look(ref workerMin, "workerMin", LookMode.Value, LookMode.Value);
+		Scribe_Collections.Look(ref gateAny, "gateAny", LookMode.Value, LookMode.Value);
+		Scribe_Collections.Look(ref gateBackup, "gateBackup", LookMode.Value, LookMode.Value);
 		Scribe_Collections.Look(ref workerMax, "workerMax", LookMode.Value, LookMode.Value);
 		Scribe_Collections.Look(ref urgencyOverrides, "urgencyOverrides", LookMode.Value, LookMode.Value);
 		Scribe_Values.Look(ref planMessages, "planMessages", false);
@@ -106,6 +140,8 @@ public sealed class ForemanSettings : ModSettings
 		Scribe_Values.Look(ref weeklySummary, "weeklySummary", true);
 		Scribe_Values.Look(ref apprentices, "apprentices", false);
 		workerMin ??= new Dictionary<string, int>();
+		gateAny ??= new Dictionary<string, int>();
+		gateBackup ??= new Dictionary<string, int>();
 		workerMax ??= new Dictionary<string, int>();
 		urgencyOverrides ??= new Dictionary<string, float>();
 	}

@@ -26,8 +26,92 @@ public enum CrisisGroup
 	Comfort
 }
 
+// 1.3.0: finer parts of the groups – each has its own strength
+public enum CrisisPart
+{
+	Food, Supplies, Housing, Build, Production, People, Clean, Mood, Life
+}
+
 public static class CrisisGroups
 {
+	public static readonly CrisisPart[] Parts =
+	{
+		CrisisPart.Food, CrisisPart.Supplies, CrisisPart.Housing, CrisisPart.Build,
+		CrisisPart.Production, CrisisPart.People, CrisisPart.Clean, CrisisPart.Mood
+	};
+
+	public static CrisisGroup GroupOf(CrisisPart p)
+	{
+		switch (p)
+		{
+		case CrisisPart.Food: case CrisisPart.Supplies: case CrisisPart.Housing: return CrisisGroup.Shortage;
+		case CrisisPart.Build: case CrisisPart.Production: case CrisisPart.People: return CrisisGroup.Work;
+		case CrisisPart.Clean: case CrisisPart.Mood: return CrisisGroup.Comfort;
+		default: return CrisisGroup.Life;
+		}
+	}
+
+	public static CrisisPart PartOf(Crisis c)
+	{
+		switch (CrisisGroups.Of(c))
+		{
+		case CrisisGroup.Life: return CrisisPart.Life;
+		case CrisisGroup.Work: return CrisisPart.People;
+		case CrisisGroup.Comfort: return (c & Crisis.Hygiene) != 0 ? CrisisPart.Clean : CrisisPart.Mood;
+		}
+		if ((c & (Crisis.Food | Crisis.Blight | Crisis.FreezerThaw | Crisis.AnimalSick)) != 0) return CrisisPart.Food;
+		if ((c & (Crisis.Winter | Crisis.Weather | Crisis.Toxic | Crisis.IndoorTemp | Crisis.NoBeds | Crisis.Darkness | Crisis.NewColony)) != 0) return CrisisPart.Housing;
+		return CrisisPart.Supplies;
+	}
+
+	private static readonly Dictionary<Situation, CrisisPart> SitParts = new Dictionary<Situation, CrisisPart>
+	{
+		{ Situation.FoodSpoiling, CrisisPart.Food }, { Situation.RottingOutside, CrisisPart.Food }, { Situation.BigHarvest, CrisisPart.Food },
+		{ Situation.FrostHarvest, CrisisPart.Food }, { Situation.AnimalsHungry, CrisisPart.Food }, { Situation.HungryPrisoners, CrisisPart.Food },
+		{ Situation.ButcherBacklog, CrisisPart.Food }, { Situation.SowingBacklog, CrisisPart.Food },
+		{ Situation.LowWood, CrisisPart.Supplies }, { Situation.LowSteel, CrisisPart.Supplies }, { Situation.LowMedicine, CrisisPart.Supplies },
+		{ Situation.LowFuel, CrisisPart.Supplies }, { Situation.ColdClothing, CrisisPart.Supplies },
+		{ Situation.NoBedroom, CrisisPart.Housing }, { Situation.PrisonBeds, CrisisPart.Housing }, { Situation.StorageFull, CrisisPart.Housing },
+		{ Situation.Childcare, CrisisPart.Housing }, { Situation.Pollution, CrisisPart.Housing },
+		{ Situation.BuildBacklog, CrisisPart.Build }, { Situation.Deconstruct, CrisisPart.Build }, { Situation.Repairs, CrisisPart.Build },
+		{ Situation.HaulBacklog, CrisisPart.Build }, { Situation.CutBacklog, CrisisPart.Build }, { Situation.MineBacklog, CrisisPart.Build },
+		{ Situation.ChunksOnFields, CrisisPart.Build },
+		{ Situation.Recruit, CrisisPart.People }, { Situation.ResearchIdle, CrisisPart.People }, { Situation.TradeVisit, CrisisPart.People },
+		{ Situation.OrbitalTrade, CrisisPart.People }, { Situation.CaravanPrep, CrisisPart.People }, { Situation.SlaveSuppression, CrisisPart.People },
+		{ Situation.PrisonRelease, CrisisPart.People },
+		{ Situation.DirtyRooms, CrisisPart.Clean }, { Situation.UglyRooms, CrisisPart.Clean }, { Situation.Corpses, CrisisPart.Clean },
+		{ Situation.DirtyPrison, CrisisPart.Clean }, { Situation.Snow, CrisisPart.Clean },
+		{ Situation.LowJoy, CrisisPart.Mood }, { Situation.MoodSlipping, CrisisPart.Mood }, { Situation.Gathering, CrisisPart.Mood },
+		{ Situation.Guests, CrisisPart.Mood },
+	};
+
+	public static CrisisPart PartOf(Situation s)
+	{
+		CrisisGroup g = Of(s);
+		if (g == CrisisGroup.Life) return CrisisPart.Life;
+		if (SitParts.TryGetValue(s, out CrisisPart p) && GroupOf(p) == g) return p;
+		return g == CrisisGroup.Shortage ? CrisisPart.Supplies : g == CrisisGroup.Comfort ? CrisisPart.Mood : CrisisPart.Production;
+	}
+
+	public static string Label(CrisisPart p) => ("CF3C_Part_" + p).Translate();
+
+	public static Color Color(CrisisPart p) => Color(GroupOf(p));
+
+	// 0 = this part is off; 1 = normal
+	public static float Strength(CrisisPart p) => p == CrisisPart.Life ? 1f : CrisesMod.S?.PartStrength(p) ?? 1f;
+
+	public static int Cap(CrisisTrack t, int colonists)
+	{
+		CrisisGroup g = t.Group;
+		if (g == CrisisGroup.Life)
+			return int.MaxValue;
+		float share = g == CrisisGroup.Shortage ? 0.5f : g == CrisisGroup.Work ? 0.34f : 0.25f;
+		float str = Strength(t.Part);
+		if (str <= 0.01f)
+			return 0;
+		return Mathf.Clamp(Mathf.CeilToInt(colonists * share * str), 1, Math.Max(1, colonists));
+	}
+
 	private const Crisis LifeMask = Crisis.Fire | Crisis.Raid | Crisis.Medical | Crisis.Manhunters | Crisis.PrisonBreak
 		| Crisis.DangerousBreak | Crisis.EntityEscape | Crisis.VacuumBreach | Crisis.ToxGas | Crisis.NoFirefighters
 		| Crisis.Labor | Crisis.Siege | Crisis.Infestation | Crisis.Epidemic | Crisis.RoofCollapse;
@@ -85,31 +169,6 @@ public static class CrisisGroups
 		}
 	}
 
-	// 0 = the group is off; 1 = normal
-	public static float Strength(CrisisGroup g)
-	{
-		CrisesSettings s = CrisesMod.S;
-		if (s == null) return 1f;
-		switch (g)
-		{
-		case CrisisGroup.Life: return 1f;
-		case CrisisGroup.Shortage: return s.strShortage;
-		case CrisisGroup.Work: return s.strWork;
-		default: return s.strComfort;
-		}
-	}
-
-	// how many colonists the group may pull over to its work
-	public static int Cap(CrisisGroup g, int colonists)
-	{
-		if (g == CrisisGroup.Life)
-			return int.MaxValue;
-		float share = g == CrisisGroup.Shortage ? 0.5f : g == CrisisGroup.Work ? 0.34f : 0.25f;
-		float str = Strength(g);
-		if (str <= 0.01f)
-			return 0;
-		return Mathf.Clamp(Mathf.CeilToInt(colonists * share * str), 1, Math.Max(1, colonists));
-	}
 }
 
 // one crisis or situation while it lasts
@@ -134,6 +193,8 @@ public sealed class CrisisTrack
 	public Situation? Sit => !IsCrisis && Enum.TryParse(key.Substring(2), out Situation s) ? s : (Situation?)null;
 
 	public CrisisGroup Group => IsCrisis ? CrisisGroups.Of(CrisisFlag) : Sit.HasValue ? CrisisGroups.Of(Sit.Value) : CrisisGroup.Work;
+
+	public CrisisPart Part => IsCrisis ? CrisisGroups.PartOf(CrisisFlag) : Sit.HasValue ? CrisisGroups.PartOf(Sit.Value) : CrisisPart.Production;
 
 	public string Label => CrisisTracks.LabelOf(key);
 
@@ -385,7 +446,7 @@ public sealed class GroupRaiser
 	public int Raise(CrisisTrack t, WorkTypeDef w, int level, int count, string reasonKey, object arg)
 	{
 		CrisisGroup g = t.Group;
-		int cap = CrisisGroups.Cap(g, ctx.pawns.Count);
+		int cap = CrisisGroups.Cap(t, ctx.pawns.Count);
 		// your "Do it now" may take more than the group's usual share
 		if (t.pushed && cap < int.MaxValue)
 			cap = Math.Max(cap, Mathf.CeilToInt(ctx.pawns.Count * 0.6f));
@@ -443,7 +504,7 @@ public sealed class Dialog_Crises : Window
 	private float viewH;
 	private bool changed;
 
-	public override Vector2 InitialSize => new Vector2(780f, 680f);
+	public override Vector2 InitialSize => new Vector2(800f, 730f);
 
 	public Dialog_Crises(ForemanMapComponent comp)
 	{
@@ -522,7 +583,7 @@ public sealed class Dialog_Crises : Window
 			new TabRecord("CF3C_TabActive".Translate(), () => tab = 0, tab == 0),
 			new TabRecord("CF3C_TabJournal".Translate(), () => tab = 1, tab == 1)
 		};
-		Rect body = new Rect(inRect.x, y + 32f, inRect.width, inRect.height - y - 32f - 150f);
+		Rect body = new Rect(inRect.x, y + 32f, inRect.width, inRect.height - y - 32f - 196f);
 		TabDrawer.DrawTabs(new Rect(body.x, body.y, body.width, 0f), tabs);
 		Widgets.DrawMenuSection(body);
 		Rect inner = body.ContractedBy(8f);
@@ -530,7 +591,7 @@ public sealed class Dialog_Crises : Window
 			DrawActive(inner);
 		else
 			DrawJournal(inner);
-		DrawSettings(new Rect(inRect.x, body.yMax + 8f, inRect.width, 140f));
+		DrawSettings(new Rect(inRect.x, body.yMax + 8f, inRect.width, 188f));
 	}
 
 	private void DrawActive(Rect r)
@@ -752,16 +813,38 @@ public sealed class Dialog_Crises : Window
 	private void DrawSettings(Rect r)
 	{
 		CrisesSettings s = CrisesMod.S;
-		float w = (r.width - 20f) / 2f;
+		float w = (r.width - 40f) / 3f;
 		float y = r.y;
-		changed |= Slider(new Rect(r.x, y, w, 40f), CrisisGroup.Shortage, ref s.strShortage);
-		changed |= Slider(new Rect(r.x + w + 20f, y, w, 40f), CrisisGroup.Work, ref s.strWork);
-		y += 44f;
-		changed |= Slider(new Rect(r.x, y, w, 40f), CrisisGroup.Comfort, ref s.strComfort);
-		GUI.color = CrisisGroups.Color(CrisisGroup.Life);
-		Widgets.Label(new Rect(r.x + w + 20f, y + 10f, w, 24f), "CF3C_StrLife".Translate());
-		GUI.color = Color.white;
-		y += 46f;
+		// three columns: shortage | work | comfort (+ life)
+		CrisisPart[][] cols =
+		{
+			new[] { CrisisPart.Food, CrisisPart.Supplies, CrisisPart.Housing },
+			new[] { CrisisPart.Build, CrisisPart.Production, CrisisPart.People },
+			new[] { CrisisPart.Clean, CrisisPart.Mood },
+		};
+		CrisisGroup[] heads = { CrisisGroup.Shortage, CrisisGroup.Work, CrisisGroup.Comfort };
+		for (int c = 0; c < 3; c++)
+		{
+			float x = r.x + c * (w + 20f);
+			GUI.color = CrisisGroups.Color(heads[c]);
+			Text.Font = GameFont.Tiny;
+			Widgets.Label(new Rect(x, y, w, 18f), CrisisGroups.Label(heads[c]).ToUpper());
+			Text.Font = GameFont.Small;
+			GUI.color = Color.white;
+			float yy = y + 18f;
+			foreach (CrisisPart p in cols[c])
+			{
+				changed |= Slider(new Rect(x, yy, w, 40f), p, s);
+				yy += 42f;
+			}
+			if (c == 2)
+			{
+				GUI.color = CrisisGroups.Color(CrisisGroup.Life);
+				Widgets.Label(new Rect(x, yy + 10f, w, 24f), "CF3C_StrLife".Translate());
+				GUI.color = Color.white;
+			}
+		}
+		y += 18f + 3 * 42f + 6f;
 		bool a = s.respectOrders, e = s.escalate;
 		Widgets.CheckboxLabeled(new Rect(r.x, y, w, 26f), "CF3C_Orders".Translate(), ref s.respectOrders);
 		TooltipHandler.TipRegion(new Rect(r.x, y, w, 26f), "CF3C_OrdersTip".Translate());
@@ -770,14 +853,18 @@ public sealed class Dialog_Crises : Window
 		changed |= a != s.respectOrders || e != s.escalate;
 	}
 
-	public static bool Slider(Rect r, CrisisGroup g, ref float v)
+	public static bool Slider(Rect r, CrisisPart p, CrisesSettings s)
 	{
+		float v = s.PartStrength(p);
 		float old = v;
-		GUI.color = CrisisGroups.Color(g);
-		Widgets.Label(new Rect(r.x, r.y, r.width, 20f), "CF3C_Str".Translate(CrisisGroups.Label(g), v <= 0.01f ? (string)"CF3C_Off".Translate() : v.ToStringPercent()));
+		GUI.color = CrisisGroups.Color(p);
+		Widgets.Label(new Rect(r.x, r.y, r.width, 20f), "CF3C_Str".Translate(CrisisGroups.Label(p), v <= 0.01f ? (string)"CF3C_Off".Translate() : v.ToStringPercent()));
 		GUI.color = Color.white;
 		v = Widgets.HorizontalSlider(new Rect(r.x, r.y + 22f, r.width, 16f), v, 0f, 2f, roundTo: 0.25f);
-		TooltipHandler.TipRegion(r, "CF3C_StrTip".Translate());
-		return Math.Abs(old - v) > 0.001f;
+		TooltipHandler.TipRegion(r, ("CF3C_PartTip_" + p).Translate() + "\n\n" + "CF3C_StrTip".Translate());
+		if (Math.Abs(old - v) <= 0.001f)
+			return false;
+		s.SetPartStrength(p, v);
+		return true;
 	}
 }

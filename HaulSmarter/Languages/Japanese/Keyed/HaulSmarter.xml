@@ -144,4 +144,14 @@
   <HS_HaulUrgent>緊急運搬</HS_HaulUrgent>
   <HS_HaulUrgent_Desc>何よりも先に倉庫へ運ぶ物に印を付けます。禁止された物は許可されます。物が倉庫に入ると印は消えます。</HS_HaulUrgent_Desc>
   <HS_Feat_urgent>緊急運搬</HS_Feat_urgent>
+  <HS_StackFirst>まず既存のスタックへ</HS_StackFirst>
+  <HS_StackFirst_Desc>運搬者は新しい山を作る前に、同等以上の保管場所にある同じ物のスタックを先に満たします――半端なスタックが減ります。コロニーのすべての運搬に適用。</HS_StackFirst_Desc>
+  <HS_SharedCells>深層保管マスを共有</HS_SharedCells>
+  <HS_SharedCells_Desc>複数のスタックを置けるマス（深層保管、MODの棚）を1人の運搬者が占有しません――複数人が同時に運べます。</HS_SharedCells_Desc>
+  <HS_Feat_stackFirst>既存スタックへ運搬</HS_Feat_stackFirst>
+  <HS_OtherBuildInv>Build From Inventory が有効です――建材の運搬はそちらが行います（他の入植者や荷役動物の持ち物も使用）。そのため Haul Master の「ポケットから建設」はオフです。</HS_OtherBuildInv>
+  <HS_UnloadNow>今すぐ降ろす</HS_UnloadNow>
+  <HS_UnloadNow_Desc>運搬中に拾ったものをすぐに保管場所へ運びます（{0}個、{1} kg）。\n\n右クリック：全部ここに置く。</HS_UnloadNow_Desc>
+  <HS_UnloadNow_Drop>全部ここに置く</HS_UnloadNow_Drop>
+  <HS_UnloadNow_Nowhere>{0}：運んでいる物を置ける保管場所がありません。</HS_UnloadNow_Nowhere>
 </LanguageData>

@@ -320,4 +320,57 @@
   <CF_Crisis_NewColony>nova colônia (plano inicial)</CF_Crisis_NewColony>
   <CF2_TipSmallColony>colônia pequena: primeiro o trabalho que mais importa agora</CF2_TipSmallColony>
   <CF2_TipArea>área prioritária: necessário para o trabalho lá</CF2_TipArea>
+  <CF2_BackupHardMin>Trabalho com habilidade como reserva só a partir do nível {0} (0 = todos)</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>Nenhum colono mantém como reserva um trabalho com habilidade se o nível dele for menor – só perderia tempo. Medicina, carcereiros e cuidado de crianças ficam com todos. Se ninguém alcançar, o melhor colono recebe o trabalho mesmo assim.</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>Plantas, mineração e animais como reserva só a partir de rendimento {0}</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>Cultivo, corte, mineração e trabalho com animais ficam como reserva só com colonos que realmente obtêm pelo menos isso (rendimento de colheita, mineração e coleta). Um cultivador fraco que estraga metade da colheita não é reserva. 0 % = desligado.</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>Não é reserva: obtém só {0} (precisa {1}).</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>Trabalho principal – habilidade primeiro: {0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>Quanto a habilidade do colono conta contra o que a colônia precisa agora ao escolher o trabalho principal. 0 % = como antes (necessidades contam mais), 100 % = cada um faz principalmente o que faz melhor.</CF2_SkillFirstTip>
+  <CF2_OrderLabel>Quem tem prioridade</CF2_OrderLabel>
+  <CF2_OrderButton>Mudar ordem…</CF2_OrderButton>
+  <CF2_OrderTitle>Quem tem prioridade</CF2_OrderTitle>
+  <CF2_OrderHelp>Quando duas partes do Steward querem coisas diferentes para o mesmo colono e trabalho, vence a que está mais acima nesta lista – não importa a ordem em que rodam. Suas células travadas ficam sempre como você definiu.</CF2_OrderHelp>
+  <CF2_OrderReset>Voltar ao padrão</CF2_OrderReset>
+  <CF2_TipDispute>{0} também queria – {1} tem prioridade.</CF2_TipDispute>
+  <CF2_Cat_life>Crise de vida</CF2_Cat_life>
+  <CF2_Cat_rules>Suas regras</CF2_Cat_rules>
+  <CF2_Cat_roles>Papéis</CF2_Cat_roles>
+  <CF2_Cat_area>Área prioritária</CF2_Cat_area>
+  <CF2_Cat_crisis>Crises e situações</CF2_Cat_crisis>
+  <CF2_Cat_addons>Outros complementos</CF2_Cat_addons>
+  <CF2_Cat_apprentice>Aprendizes</CF2_Cat_apprentice>
+  <CF2_Cat_droids>Droides</CF2_Cat_droids>
+  <CF2_Cat_top>Trabalho principal</CF2_Cat_top>
+  <CF2_Cat_children>Crianças</CF2_Cat_children>
+  <CF2_Cat_idle>Ninguém parado</CF2_Cat_idle>
+  <CF2_Cat_base>Plano base</CF2_Cat_base>
+  <CF2_CatDesc_life>Emergências médicas, fogo, fome – trabalho que salva vidas.</CF2_CatDesc_life>
+  <CF2_CatDesc_rules>Seu mínimo e máximo de colonos por trabalho.</CF2_CatDesc_rules>
+  <CF2_CatDesc_roles>Steward – Roles: o trabalho principal do papel.</CF2_CatDesc_roles>
+  <CF2_CatDesc_area>Quem trabalha para uma área prioritária mantém o trabalho dela.</CF2_CatDesc_area>
+  <CF2_CatDesc_crisis>Faltas, crises de trabalho e conforto, situações e foco.</CF2_CatDesc_crisis>
+  <CF2_CatDesc_addons>Etapas de plano de outros mods.</CF2_CatDesc_addons>
+  <CF2_CatDesc_apprentice>Aprendizes aprendendo com um mestre.</CF2_CatDesc_apprentice>
+  <CF2_CatDesc_droids>Steward – Droids.</CF2_CatDesc_droids>
+  <CF2_CatDesc_top>Um trabalho principal na prioridade 1 por colono.</CF2_CatDesc_top>
+  <CF2_CatDesc_children>Aprendizado das crianças, cuidado com bebês.</CF2_CatDesc_children>
+  <CF2_CatDesc_idle>Colônia pequena, ninguém sem trabalho.</CF2_CatDesc_idle>
+  <CF2_CatDesc_base>O plano por habilidades e estilo da colônia.</CF2_CatDesc_base>
+  <CF2_CheckWorkLabel>Trabalho pendente (mods também)</CF2_CheckWorkLabel>
+  <CF2_CheckWorkButton>Verificar</CF2_CheckWorkButton>
+  <CF2_CheckWorkHead>O que o mordomo vê pendente neste mapa agora, por tipo de trabalho (número de tarefas; mods entre colchetes, ⚠ = não mensurável). Trabalho com 0 recebe menos colonos.</CF2_CheckWorkHead>
+  <CF2_TabSkills>Habilidades</CF2_TabSkills>
+  <CF2_SkillsHelp>Para cada trabalho: a partir de qual habilidade o colono pode fazê-lo e a partir de qual o recebe como reserva. – = sem limite, (n) = regra geral. O melhor colono sempre mantém o trabalho, mesmo abaixo do limite.</CF2_SkillsHelp>
+  <CF2_SkillsColWork>Trabalho</CF2_SkillsColWork>
+  <CF2_SkillsColSkill>Habilidade</CF2_SkillsColSkill>
+  <CF2_SkillsColBest>Melhor agora</CF2_SkillsColBest>
+  <CF2_SkillsColAny>Pode a partir de</CF2_SkillsColAny>
+  <CF2_SkillsColBackup>Reserva a partir de</CF2_SkillsColBackup>
+  <CF2_SkillsReset>Redefinir tudo</CF2_SkillsReset>
+  <CF2_TipGate>Habilidade {0} – este trabalho só a partir de {1} (aba Habilidades).</CF2_TipGate>
+  <CF2_TipResearchFocus>projeto de pesquisa: {0}</CF2_TipResearchFocus>
+  <CF2_TipResearchFocusOther>o pesquisador pesquisa primeiro</CF2_TipResearchFocusOther>
+  <CF2_ResearchFocus>O pesquisador pesquisa de verdade</CF2_ResearchFocus>
+  <CF2_ResearchFocusTip>Enquanto houver um projeto escolhido, o melhor pesquisador fica com pesquisa em 2 (em 1 a partir de 5 colonos) e carregar e limpar um nível abaixo. Pesquisa é a última coluna: no mesmo nível nunca viria primeiro.</CF2_ResearchFocusTip>
 </LanguageData>

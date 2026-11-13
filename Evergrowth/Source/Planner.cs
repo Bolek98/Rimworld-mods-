@@ -208,12 +208,35 @@ namespace HardyPlants
             return f;
         }
 
-        public static void Forget() => cache.Clear();
-
-        private static ZoneForecast Make(Zone_Growing z)
+        public static void Forget()
         {
-            var f = new ZoneForecast { plant = z.GetPlantDefToGrow() };
-            Map map = z.Map;
+            cache.Clear();
+            cacheKeyed.Clear();
+        }
+
+        // 1.10.0: planter boxes, hydroponics and other growers (also from mods) – one or a group of them
+        private static readonly Dictionary<string, KeyValuePair<int, ZoneForecast>> cacheKeyed = new Dictionary<string, KeyValuePair<int, ZoneForecast>>();
+
+        public static ZoneForecast ForCells(string key, ThingDef plant, List<IntVec3> cells, Map map)
+        {
+            int now = Find.TickManager.TicksGame;
+            if (cacheKeyed.TryGetValue(key, out var kv) && now - kv.Key < 600 && kv.Value.plant == plant)
+                return kv.Value;
+            ZoneForecast f = Make(plant, cells, map);
+            if (cacheKeyed.Count > 400)
+                cacheKeyed.Clear();
+            cacheKeyed[key] = new KeyValuePair<int, ZoneForecast>(now, f);
+            return f;
+        }
+
+        public static ZoneForecast For(Building_PlantGrower g)
+            => ForCells("g" + g.thingIDNumber, g.GetPlantDefToGrow(), g.OccupiedRect().Cells.ToList(), g.Map);
+
+        private static ZoneForecast Make(Zone_Growing z) => Make(z.GetPlantDefToGrow(), z.Cells, z.Map);
+
+        private static ZoneForecast Make(ThingDef plantDef, List<IntVec3> cells, Map map)
+        {
+            var f = new ZoneForecast { plant = plantDef };
             if (f.plant?.plant == null || map == null)
                 return f;
             PlantProperties pp = f.plant.plant;
@@ -226,7 +249,6 @@ namespace HardyPlants
                 yf *= Find.Storyteller.difficulty.cropYieldFactor;
             var left = new List<float>();
             float share = Forecast.ActiveShare();
-            List<IntVec3> cells = z.Cells;
             for (int i = 0; i < cells.Count; i++)
             {
                 Plant p = cells[i].GetPlant(map);
@@ -282,6 +304,27 @@ namespace HardyPlants
         {
             try
             {
+                string line = ZoneForecast.For(__instance).Line();
+                if (string.IsNullOrEmpty(line))
+                    return;
+                __result = string.IsNullOrEmpty(__result) ? line : __result.TrimEnd() + "\n" + line;
+            }
+            catch
+            {
+            }
+        }
+    }
+
+    // 1.10.0: the same harvest line on planter boxes, hydroponics and other growers
+    [HarmonyPatch(typeof(Building_PlantGrower), nameof(Building_PlantGrower.GetInspectString))]
+    public static class Patch_GrowerForecastInspect
+    {
+        public static void Postfix(Building_PlantGrower __instance, ref string __result)
+        {
+            try
+            {
+                if (!__instance.Spawned)
+                    return;
                 string line = ZoneForecast.For(__instance).Line();
                 if (string.IsNullOrEmpty(line))
                     return;
@@ -678,7 +721,14 @@ namespace HardyPlants
         private float nextRefresh;
         private int frost, warm;
         private readonly List<KeyValuePair<ThingDef, Forecast.Result>> crops = new List<KeyValuePair<ThingDef, Forecast.Result>>();
-        private readonly List<KeyValuePair<Zone_Growing, ZoneForecast>> zones = new List<KeyValuePair<Zone_Growing, ZoneForecast>>();
+        // 1.10.0: grow zones and growers (planter boxes, hydroponics …) – growers of one kind, plant and room together
+        private sealed class Row
+        {
+            public string label;
+            public IntVec3 pos;
+            public ZoneForecast f;
+        }
+        private readonly List<Row> zones = new List<Row>();
         private readonly Dictionary<ThingDef, float> totals = new Dictionary<ThingDef, float>();
         private string search = "";
 
@@ -719,9 +769,32 @@ namespace HardyPlants
                 if (!(z is Zone_Growing g))
                     continue;
                 ZoneForecast f = ZoneForecast.For(g);
-                zones.Add(new KeyValuePair<Zone_Growing, ZoneForecast>(g, f));
+                zones.Add(new Row { label = g.label, pos = g.Position, f = f });
                 if (f.product != null && f.yield > 0f)
                     totals[f.product] = (totals.TryGetValue(f.product, out float v) ? v : 0f) + f.yield;
+            }
+            var groups = new Dictionary<string, (Building_PlantGrower first, ThingDef plant, List<IntVec3> cells, int n)>();
+            foreach (Building b in map.listerBuildings.allBuildingsColonist)
+            {
+                if (!(b is Building_PlantGrower pg) || !pg.Spawned)
+                    continue;
+                ThingDef plant = pg.GetPlantDefToGrow();
+                Room room = pg.GetRoom();
+                string key = pg.def.defName + "|" + (plant?.defName ?? "-") + "|" + (room?.ID ?? -1);
+                if (!groups.TryGetValue(key, out var gr))
+                    gr = (pg, plant, new List<IntVec3>(), 0);
+                gr.cells.AddRange(pg.OccupiedRect().Cells);
+                gr.n++;
+                groups[key] = gr;
+            }
+            foreach (var kv in groups)
+            {
+                var gr = kv.Value;
+                ZoneForecast f = ZoneForecast.ForCells(kv.Key, gr.plant, gr.cells, map);
+                string label = gr.first.LabelShortCap + (gr.n > 1 ? " ×" + gr.n : "");
+                zones.Add(new Row { label = label, pos = gr.first.Position, f = f });
+                if (f.product != null && f.yield > 0f)
+                    totals[f.product] = (totals.TryGetValue(f.product, out float v2) ? v2 : 0f) + f.yield;
             }
         }
 
@@ -783,12 +856,12 @@ namespace HardyPlants
             {
                 Rect row = new Rect(0f, cy, view.width, 26f);
                 Widgets.DrawHighlightIfMouseover(row);
-                ThingDef d = kv.Value.plant;
+                ThingDef d = kv.f.plant;
                 if (d != null)
                     Widgets.DefIcon(new Rect(row.x + 2f, row.y + 1f, 24f, 24f), d);
                 Text.Anchor = TextAnchor.MiddleLeft;
-                Widgets.Label(new Rect(row.x + 32f, row.y, 200f, row.height), kv.Key.label.Truncate(196f));
-                string line = kv.Value.Line() ?? "HardyPlants_CalEmptyZone".Translate().ToString();
+                Widgets.Label(new Rect(row.x + 32f, row.y, 200f, row.height), kv.label.Truncate(196f));
+                string line = kv.f.Line() ?? "HardyPlants_CalEmptyZone".Translate().ToString();
                 GUI.color = MUI.Muted;
                 Widgets.Label(new Rect(row.x + 236f, row.y, row.width - 236f, row.height), line.Truncate(row.width - 240f));
                 GUI.color = Color.white;
@@ -796,7 +869,7 @@ namespace HardyPlants
                 TooltipHandler.TipRegion(row, line);
                 if (Widgets.ButtonInvisible(row))
                 {
-                    CameraJumper.TryJumpAndSelect(new GlobalTargetInfo(kv.Key.Position, map));
+                    CameraJumper.TryJumpAndSelect(new GlobalTargetInfo(kv.pos, map));
                 }
                 cy += 28f;
             }

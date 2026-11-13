@@ -371,7 +371,7 @@ namespace ResearchLockedRaidGear
 				IncidentDef inc = IncidentDefOf.TraderCaravanArrival;
 				if (map == null || inc == null) return;
 				Faction f = Find.FactionManager.AllFactionsListForReading
-					.Where(x => x != null && !x.IsPlayer && !x.HostileTo(Faction.OfPlayer) && !x.Hidden && !x.temporary && x.def.caravanTraderKinds != null && x.def.caravanTraderKinds.Count > 0 && (int)LevelOf(x) >= (int)level)
+					.Where(x => x != null && !x.IsPlayer && !x.HostileTo(Faction.OfPlayerSilentFail) && !x.Hidden && !x.temporary && x.def.caravanTraderKinds != null && x.def.caravanTraderKinds.Count > 0 && (int)LevelOf(x) >= (int)level)
 					.RandomElementWithFallback(null);
 				if (f == null) return;
 				IncidentParms parms = StorytellerUtility.DefaultParmsNow(inc.category, map);
@@ -535,7 +535,7 @@ namespace ResearchLockedRaidGear
 				ResearchLockedRaidGearSettings s = St;
 				if (s == null || !s.enabled || !s.factionTech || !s.sellData || __result == null || negotiator == null || faction == null) return;
 				Map map = negotiator.Map;
-				if (map == null || !map.IsPlayerHome || !Tracked(faction) || faction.HostileTo(Faction.OfPlayer)) return;
+				if (map == null || !map.IsPlayerHome || !Tracked(faction) || faction.HostileTo(Faction.OfPlayerSilentFail)) return;
 				if ((int)LevelOf(faction) >= (int)PlayerLevel()) return;
 				DiaOption opt = new DiaOption("RLRG_SD_Option".Translate());
 				WorldEvolutionComponent c = WorldEvolutionComponent.Get();
@@ -594,7 +594,7 @@ namespace ResearchLockedRaidGear
 					pay.Add(t);
 				}
 				DropPodUtility.DropThingsNear(DropCellFinder.TradeDropSpot(map), map, pay, 110, false, false, true, false);
-				faction.TryAffectGoodwillWith(Faction.OfPlayer, gw, true, false, null, null);
+				faction.TryAffectGoodwillWith(Faction.OfPlayerSilentFail, gw, true, false, null, null);
 				string have;
 				c.sold.TryGetValue(faction.loadID, out have);
 				c.sold[faction.loadID] = have.NullOrEmpty() ? proj.defName : have + "," + proj.defName;

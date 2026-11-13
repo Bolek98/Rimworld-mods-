@@ -91,7 +91,7 @@ namespace SecularColony
 
 	public class SecularMod : Mod
 	{
-		public const string Version = "1.6.0";
+		public const string Version = "1.6.1";
 		public static SecularSettings Settings;
 		private Vector2 scroll;
 		private float viewH = 1200f;
@@ -1309,7 +1309,7 @@ namespace SecularColony
 
 		public static void Convert()
 		{
-			Faction pf = Faction.OfPlayer;
+			Faction pf = Faction.OfPlayerSilentFail;
 			if (pf == null || pf.ideos == null || Find.IdeoManager == null)
 			{
 				return;
@@ -1379,7 +1379,7 @@ namespace SecularColony
 			{
 				return;
 			}
-			Ideo primary = Faction.OfPlayer.ideos.PrimaryIdeo;
+			Ideo primary = Faction.OfPlayerSilentFail?.ideos?.PrimaryIdeo;
 			if (primary == null || p.Ideo == primary)
 			{
 				return;
@@ -1410,7 +1410,7 @@ namespace SecularColony
 			{
 				foreach (Pawn p in Find.WorldPawns.AllPawnsAlive)
 				{
-					if (p != null && p.Faction == Faction.OfPlayer && p.RaceProps != null && p.RaceProps.Humanlike && seen.Add(p))
+					if (p != null && p.Faction != null && p.Faction.IsPlayer && p.RaceProps != null && p.RaceProps.Humanlike && seen.Add(p))
 					{
 						yield return p;
 					}

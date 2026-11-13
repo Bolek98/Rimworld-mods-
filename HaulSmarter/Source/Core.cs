@@ -51,6 +51,8 @@ namespace HaulSmarter
         public bool mechHaul = true;            // 3.3: hauling mechanoids carry several things in one trip
         public bool animalHaul = true;          // 3.3: trained animals carry several things in one trip
         public float pocketHours = 1f;          // 3.3: carried things go to storage at the latest after this (in-game hours)
+        public bool stackFirst = true;          // 3.6: haul to an existing stack of the same thing first (like Haul to Stack)
+        public bool sharedCells = true;         // 3.6: a cell that holds several stacks is not locked by one hauler
         public bool smartPickup = true;         // 3.4: a builder takes all materials for the site (and sites next to it) in one trip
         public int foodMinutes = 15;            // 3.3: food, medicine and drugs at the latest after this (in-game minutes)
         public bool stepAside = true;
@@ -59,7 +61,7 @@ namespace HaulSmarter
         public static readonly string[] ProfileFields =
         {
             "haulMany", "maxItems", "scanRadius", "pocketHarvest", "pocketMine", "unloadAt", "smartRoute", "opportunistic", "prioPerish", "prioWeather", "prioValuable", "buildFromPockets",
-            "dropOnDraft", "fuelRound", "mergeStacks", "detourHaul", "refillBelow", "traderCarry", "mechHaul", "animalHaul", "pocketHours", "foodMinutes", "smartPickup"
+            "dropOnDraft", "fuelRound", "mergeStacks", "detourHaul", "refillBelow", "traderCarry", "mechHaul", "animalHaul", "pocketHours", "foodMinutes", "smartPickup", "stackFirst", "sharedCells"
         };
 
         public static HSSettings PresetValues(int which)
@@ -72,6 +74,7 @@ namespace HaulSmarter
                     p.pocketHarvest = false; p.pocketMine = false;
                     p.dropOnDraft = false; p.fuelRound = false; p.mergeStacks = false;
                     p.detourHaul = false; p.refillBelow = 0f; p.traderCarry = false; p.mechHaul = false; p.animalHaul = false; p.smartPickup = false;
+                    p.stackFirst = false; p.sharedCells = false;
                     break;
                 case 2:
                     p.maxItems = 60; p.scanRadius = 24; p.unloadAt = 0.95f; p.prioValuable = 2;
@@ -142,6 +145,8 @@ namespace HaulSmarter
             Scribe_Values.Look(ref unloadRightAway, "unloadRightAway", true);
             Scribe_Values.Look(ref foodMinutes, "foodMinutes", 15);
             Scribe_Values.Look(ref smartPickup, "smartPickup", true);
+            Scribe_Values.Look(ref stackFirst, "stackFirst", true);
+            Scribe_Values.Look(ref sharedCells, "sharedCells", true);
             Scribe_Values.Look(ref stepAside, "stepAside", true);
             if (Scribe.mode == LoadSaveMode.LoadingVars && profile >= 0 && profile <= 2)
                 Preset(profile);
@@ -150,7 +155,7 @@ namespace HaulSmarter
 
     public sealed class HSMod : Mod
     {
-        public const string Version = "1.0.0";
+        public const string Version = "1.1.0";
         public static HSSettings S;
         private Vector2 scroll;
         private float height = 900f;
@@ -178,6 +183,7 @@ namespace HaulSmarter
             {
                 Log.Error("[Haul Master] patching failed: " + e);
             }
+            StackFirst.Patch(h);   // 3.6
             Log.Message("[Haul Master] v" + Version + " loaded." + Compat.Summary());
         }
 
@@ -242,6 +248,13 @@ namespace HaulSmarter
                 GUI.color = Color.white;
                 top += 26f;
             }
+            if (Compat.OtherBuildInv)
+            {
+                GUI.color = MUI.Warn;
+                Widgets.Label(new Rect(inRect.x, inRect.y + top, inRect.width, 24f), "HS_OtherBuildInv".Translate());
+                GUI.color = Color.white;
+                top += 26f;
+            }
             Muted(new Rect(inRect.x, inRect.y + top, inRect.width, 20f), "HS_ProfileHint".Translate());
             top += 24f;
 
@@ -262,6 +275,8 @@ namespace HaulSmarter
             Check(l, "HS_SmartPickup", ref s.smartPickup, "smartPickup");
             Check(l, "HS_FuelRound", ref s.fuelRound, "fuelRound");
             Check(l, "HS_MergeStacks", ref s.mergeStacks, "mergeStacks");
+            Check(l, "HS_StackFirst", ref s.stackFirst, "stackFirst");
+            Check(l, "HS_SharedCells", ref s.sharedCells, "sharedCells");
             Check(l, "HS_DropOnDraft", ref s.dropOnDraft, "dropOnDraft");
             Check(l, "HS_Detour", ref s.detourHaul, "detourHaul");
             Check(l, "HS_StepAside", ref s.stepAside, null);
@@ -334,7 +349,7 @@ namespace HaulSmarter
     // ------------------------------------------------------------------
     public static class Compat
     {
-        public static bool OtherHauler, OtherHarvestHaul;
+        public static bool OtherHauler, OtherHarvestHaul, OtherBuildInv;
         public static string OtherHaulerName = "";
 
         private static bool Active(string id) => ModLister.GetActiveModWithIdentifier(id, true) != null;
@@ -343,6 +358,21 @@ namespace HaulSmarter
         {
             if (Active("mehni.pickupandhaul")) { OtherHauler = true; OtherHaulerName = "Pick Up And Haul"; }
             if (Active("laredson.harvestandhaul")) OtherHarvestHaul = true;
+            // 3.6: Build From Inventory (and its Continued versions) – it also uses other pawns' and pack
+            // animals' inventories, so our "build from pockets" steps aside and lets it deliver the materials
+            try
+            {
+                foreach (ModMetaData m in ModsConfig.ActiveModsInLoadOrder)
+                {
+                    string id = (m.PackageIdPlayerFacing ?? "").ToLowerInvariant().Replace(".", "").Replace("_", "");
+                    string name = m.Name ?? "";
+                    if (id.Contains("buildfrominventory") || name.IndexOf("Build From Inventory", StringComparison.OrdinalIgnoreCase) >= 0)
+                        OtherBuildInv = true;
+                }
+            }
+            catch
+            {
+            }
         }
 
         public static string Summary()
@@ -350,6 +380,7 @@ namespace HaulSmarter
             var off = new List<string>();
             if (OtherHauler) off.Add("hauling (" + OtherHaulerName + " is active)");
             if (OtherHarvestHaul) off.Add("harvest pockets (Harvest And Haul is active)");
+            if (OtherBuildInv) off.Add("build from pockets (Build From Inventory is active)");
             return off.Count == 0 ? "" : " Switched off: " + string.Join("; ", off.ToArray()) + ".";
         }
 

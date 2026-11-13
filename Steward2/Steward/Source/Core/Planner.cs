@@ -25,9 +25,11 @@ public static class Planner
 		StewardApi.Register(new BaseStep());
 		StewardApi.Register(new ChildrenStep());
 		StewardApi.Register(new MyRulesStep());
+		StewardApi.Register(new SkillGateStep());
 		StewardApi.Register(new ApprenticeStep());
 		StewardApi.Register(new TopJobStep());
 		StewardApi.Register(new SmallColonyStep());
+		StewardApi.Register(new ResearchStep());
 		StewardApi.Register(new AreaStep());
 		StewardApi.Register(new NobodyIdleStep());
 	}
@@ -51,11 +53,67 @@ public static class Planner
 	}
 
 	// 1.1.0: may this pawn keep a skilled work as backup? (general work: always)
-	public static bool BackupSkillOk(Pawn p, WorkTypeDef w, ForemanSettings s)
+	public static bool BackupSkillOk(Pawn p, WorkTypeDef w, ForemanSettings s) => SkillLevel(p, w) >= BackupMinFor(w, s);
+
+	// 1.2.0: the lowest skill a backup may have for this work (0 = anybody)
+	public static int BackupMinFor(WorkTypeDef w, ForemanSettings s)
 	{
-		if (s == null || s.backupMinSkill <= 0 || !QualityWork(w))
+		if (s == null || w == null)
+			return 0;
+		// 1.4.0: your own number in the Skills tab wins
+		if (s.gateBackup != null && s.gateBackup.TryGetValue(w.defName, out int own) && own >= 0)
+			return own;
+		return BackupMinDefault(w, s);
+	}
+
+	// the limit from the general rules (without your own number in the Skills tab)
+	public static int BackupMinDefault(WorkTypeDef w, ForemanSettings s)
+	{
+		if (s == null || w == null || WorkCatalog.Kind(w) != WorkKind.Skilled || AlwaysSomeone(w))
+			return 0;
+		int min = s.backupHardMin;
+		if (s.backupMinSkill > 0 && QualityWork(w))
+			min = Math.Max(min, s.backupMinSkill);
+		return min;
+	}
+
+	// 1.2.0: for plants, mining and animals what counts is how much the colonist really gets –
+	// a weak grower who ruins half the harvest is no good as a backup
+	private static Dictionary<WorkTypeDef, StatDef> yieldStat;
+	public static StatDef YieldStat(WorkTypeDef w)
+	{
+		if (w?.relevantSkills == null)
+			return null;
+		yieldStat ??= new Dictionary<WorkTypeDef, StatDef>();
+		if (!yieldStat.TryGetValue(w, out StatDef st))
+		{
+			// 1.3.2: hunting uses the Animals skill too, but its yield is the butchered meat –
+			// "animal gather yield" (milk, wool) made weak handlers stop hunting
+			if (w.relevantSkills.Contains(SkillDefOf.Shooting) || w.relevantSkills.Contains(SkillDefOf.Melee)
+			    || (w.workGiversByPriority != null && w.workGiversByPriority.Any(g => g.giverClass != null && typeof(WorkGiver_HunterHunt).IsAssignableFrom(g.giverClass))))
+				st = null;
+			else if (w.relevantSkills.Contains(SkillDefOf.Plants)) st = StatDefOf.PlantHarvestYield;
+			else if (w.relevantSkills.Contains(SkillDefOf.Mining)) st = StatDefOf.MiningYield;
+			else if (w.relevantSkills.Contains(SkillDefOf.Animals)) st = StatDefOf.AnimalGatherYield;
+			yieldStat[w] = st;
+		}
+		return st;
+	}
+
+	public static float Yield(Pawn p, WorkTypeDef w)
+	{
+		StatDef st = YieldStat(w);
+		if (st == null || p == null)
+			return 1f;
+		try { return p.GetStatValue(st, true, 2500); }
+		catch { return 1f; }
+	}
+
+	public static bool BackupYieldOk(Pawn p, WorkTypeDef w, ForemanSettings s)
+	{
+		if (s == null || s.backupMinYield <= 0f || WorkCatalog.Kind(w) != WorkKind.Skilled || AlwaysSomeone(w) || YieldStat(w) == null)
 			return true;
-		return SkillLevel(p, w) >= s.backupMinSkill;
+		return Yield(p, w) >= s.backupMinYield - 0.001f;
 	}
 
 	// 1.1.1: the minimum skill only matters where a weak worker spoils the result (quality
@@ -134,6 +192,7 @@ public static class Planner
 		{
 			try
 			{
+				ctx.Category = PlanContext.CategoryOfStep(step.Id);
 				step.Apply(ctx);
 			}
 			catch (Exception ex)
@@ -143,6 +202,14 @@ public static class Planner
 				if (step.Id == "core.base")
 					return null;
 			}
+		}
+		ctx.Category = null;
+		// 1.3.0: every dispute shows in the cell's tooltip – who wanted what and who has priority
+		var shown = new HashSet<string>();
+		foreach (var d in ctx.disputes)
+		{
+			if (!shown.Add(d.p.thingIDNumber + "|" + d.w.defName + "|" + d.loser)) continue;
+			ctx.AddReason(d.p, d.w, "CF2_TipDispute", ("CF2_Cat_" + d.loser).Translate() + " (" + (d.wanted <= 0 ? "–" : d.wanted.ToString()) + ")", ("CF2_Cat_" + d.winner).Translate());
 		}
 		return new PlanResult { ctx = ctx, final = Final(ctx) };
 	}
@@ -361,7 +428,9 @@ public static class Planner
 					else if (othersOff && d <= 0f && kind == WorkKind.Skilled && !Planner.AlwaysSomeone(w))
 						ctx.Set(p, w, 0, "CF2_TipStyleOff", Styles.Label(ctx.style));
 					else if (kind == WorkKind.Skilled && s.backupWorkers && !Planner.BackupSkillOk(p, w, s))
-						ctx.Set(p, w, 0, "CF2_TipBackupLowSkill", Planner.SkillLevel(p, w), s.backupMinSkill);
+						ctx.Set(p, w, 0, "CF2_TipBackupLowSkill", Planner.SkillLevel(p, w), Planner.BackupMinFor(w, s));
+					else if (kind == WorkKind.Skilled && s.backupWorkers && !Planner.BackupYieldOk(p, w, s))
+						ctx.Set(p, w, 0, "CF2_TipBackupLowYield", Planner.Yield(p, w).ToStringPercent(), s.backupMinYield.ToStringPercent());
 					else if (kind == WorkKind.General || s.backupWorkers)
 						ctx.Set(p, w, L, "CF2_TipBackup");
 					else
@@ -422,7 +491,7 @@ public static class Planner
 						Pawn p = on[i];
 						if (ctx.Pinned(p, w) || ctx.Locked(p, w))
 							continue;
-						if (ctx.Set(p, w, s.backupWorkers && Planner.BackupSkillOk(p, w, s) ? ctx.Levels : 0, "CF2_TipYourMax", max))
+						if (ctx.Set(p, w, s.backupWorkers && Planner.BackupSkillOk(p, w, s) && Planner.BackupYieldOk(p, w, s) ? ctx.Levels : 0, "CF2_TipYourMax", max))
 							on.RemoveAt(i);
 					}
 				}
@@ -455,7 +524,13 @@ public static class Planner
 					if (ctx.Pinned(p, w) || ctx.Locked(p, w))
 						continue;
 					float pressure = ctx.demand == null ? 0f : Mathf.Min(1f, ctx.demand.Need(ctx.map, w, n) / (float)n);
-					float score = ctx.Fit(p, w) + 0.4f * Styles.Delta(ctx.style, w) + 0.3f * ctx.settings.Importance(w) + 0.3f * pressure;
+					// 1.2.0: "skill first" – how much the colonist's own skill counts against what the colony needs now
+					float sf = Mathf.Clamp01(ctx.settings.skillFirst);
+					float score = ctx.Fit(p, w) * (1f + sf) + 0.4f * Styles.Delta(ctx.style, w) + 0.3f * ctx.settings.Importance(w) + 0.3f * pressure * (1f - 0.7f * sf);
+					// the best colonist in the colony for this work gets a small extra push
+					List<Pawn> bestFor = ctx.Best(w);
+					if (sf > 0f && bestFor.Count > 1 && bestFor[0] == p)
+						score += 0.1f * sf;
 					// the current top job stays unless another one is clearly better (no flip-flop)
 					if (p.workSettings.GetPriority(w) == 1)
 						score += 0.15f;
@@ -560,6 +635,46 @@ public static class Planner
 				twos.Sort((x, y) => y.score.CompareTo(x.score));
 				for (int i = keep; i < twos.Count; i++)
 					ctx.Set(p, twos[i].w, i < keep + 3 ? 3 : ctx.Levels, "CF2_TipSmallColony");
+			}
+		}
+	}
+
+	// 930 (1.4.1): research is the last column, so on the same level it never comes first – while a
+	// project is chosen and a bench waits, the best researcher really researches: research on 2 (on 1 from
+	// 5 colonists) and his hauling / cleaning one level lower. No project = nothing changes.
+	private sealed class ResearchStep : IPlanStep
+	{
+		public int Order => 930;
+		public string Id => "core.research";
+
+		private static bool CoreReason(string k) => k != null && k.StartsWith("CF2_Tip", StringComparison.Ordinal);
+
+		public void Apply(PlanContext ctx)
+		{
+			if (ctx.settings != null && !ctx.settings.researchFocus)
+				return;
+			WorkTypeDef res = WorkTypeDefOf.Research;
+			if (res == null || !ctx.types.Contains(res) || Find.ResearchManager?.GetProject() == null)
+				return;
+			if ((ctx.demand?.Jobs(res) ?? 0) <= 0)
+				return;
+			int n = ctx.pawns.Count;
+			Pawn p = ctx.Best(res).FirstOrDefault(x => !ctx.Locked(x, res) && !ctx.Pinned(x, res) && ctx.Fit(x, res) > 0f);
+			if (p == null)
+				return;
+			int lvl = n >= 5 && ctx.Levels >= 3 ? 1 : 2;
+			if (!ctx.Set(p, res, lvl, "CF2_TipResearchFocus", Find.ResearchManager.GetProject().LabelCap))
+				return;
+			if (ctx.Levels < 3)
+				return;
+			foreach (var j in ctx.plan[p].ToList())
+			{
+				WorkTypeDef w = j.Key;
+				if (w == res || j.Value != lvl || WorkCatalog.Kind(w) != WorkKind.General || ctx.Pinned(p, w) || ctx.Locked(p, w))
+					continue;
+				if (ctx.reasons.TryGetValue(PlanContext.Key(p, w), out var rs) && rs.Any(x => !CoreReason(x.key)))
+					continue;   // a crisis or your rule raised it
+				ctx.Set(p, w, lvl + 1, "CF2_TipResearchFocusOther");
 			}
 		}
 	}

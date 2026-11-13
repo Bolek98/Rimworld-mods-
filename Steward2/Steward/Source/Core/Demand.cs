@@ -113,7 +113,10 @@ public sealed class Demand
 					continue;
 				if (worker is WorkGiver_DoBill bills)
 				{
-					total += Bills(map, bills);
+					int nb = Bills(map, bills);
+					if (nb == 0 && bills.PotentialWorkThingRequest.IsUndefined && askers.Count > 0)
+						nb = BillsFromGlobal(askers[0], bills);
+					total += nb;
 					continue;
 				}
 				int best = 0;
@@ -233,6 +236,7 @@ public sealed class Demand
 		if (list.Count == 0)
 			return 0;
 		int k = 0, ok = 0;
+		bool grower = sc is WorkGiver_Grower;
 		foreach (int i in Picks(list.Count))
 		{
 			if (Over(start) && k > 0)
@@ -241,10 +245,59 @@ public sealed class Demand
 			IntVec3 c = list[i];
 			if (c.IsForbidden(pawn))
 				continue;
+			// 1.3.1: sowing remembers "the plant wanted here" in one shared field – checked cell by cell
+			// the plant of one grower (a field) was used for the next one (hydroponics, a planter from a
+			// mod …), so sowing there was not counted. Every cell now works out its own plant.
+			if (grower)
+				ResetWantedPlant();
 			if (sc.HasJobOnCell(pawn, c, false))
 				ok++;
 		}
+		if (grower)
+			ResetWantedPlant();
 		return Scale(list.Count, k, ok);
+	}
+
+	private static readonly System.Reflection.FieldInfo wantedPlant = HarmonyLib.AccessTools.Field(typeof(WorkGiver_Grower), "wantedPlantDef");
+
+	private static void ResetWantedPlant()
+	{
+		try { wantedPlant?.SetValue(null, null); }
+		catch { }
+	}
+
+	// 1.3.1: bills on benches a mod's bill giver finds its own way (no thing request)
+	private static int BillsFromGlobal(Pawn pawn, WorkGiver_DoBill g)
+	{
+		IEnumerable<Thing> src = g.PotentialWorkThingsGlobal(pawn);
+		if (src == null)
+			return 0;
+		int n = 0;
+		foreach (Thing t in src)
+		{
+			if (!(t is IBillGiver bg) || bg.BillStack == null || t.IsForbidden(Faction.OfPlayer))
+				continue;
+			foreach (Bill b in bg.BillStack.Bills)
+				if (b.ShouldDoNow())
+					n++;
+		}
+		return n;
+	}
+
+	// 1.3.1: what the steward sees waiting, work type by work type – for the "check" button
+	public static string Report(Map map, ForemanSettings s)
+	{
+		var sb = new System.Text.StringBuilder();
+		foreach (WorkTypeDef w in WorkCatalog.Visible)
+		{
+			if (WorkCatalog.Kind(w) == WorkKind.Emergency)
+				continue;
+			int n = Measure(map, w, s);
+			string mod = w.modContentPack == null || w.modContentPack.IsOfficialMod ? "" : "  [" + w.modContentPack.Name + "]";
+			string gs = string.Join(", ", (w.workGiversByPriority ?? new List<WorkGiverDef>()).Where(g => broken.Contains(g)).Select(g => g.defName));
+			sb.AppendLine(w.labelShort.CapitalizeFirst() + ": " + (n < 0 ? "?" : n.ToString()) + mod + (gs.Length > 0 ? "  ⚠ " + gs : ""));
+		}
+		return sb.ToString();
 	}
 
 	private static int Scale(int count, int sampled, int ok)

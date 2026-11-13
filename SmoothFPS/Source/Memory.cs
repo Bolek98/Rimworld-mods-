@@ -107,9 +107,13 @@ namespace GraphicsTuner
             if (s == null || !Active)
                 return;
             float now = Time.realtimeSinceStartup;
-            MeasureFrame(now);
-            bool playing = Current.ProgramState == ProgramState.Playing && Find.TickManager != null;
-            bool paused = playing && Find.TickManager.Paused;
+            // 1.7.3: a frame while a game is being loaded or closed – the game or its clock can be
+            // missing for a moment (NullReferenceException on 1.7 / Waylith)
+            try { MeasureFrame(now); }
+            catch { }
+            TickManager tm = Current.ProgramState == ProgramState.Playing ? Current.Game?.tickManager : null;
+            bool playing = tm != null;
+            bool paused = playing && tm.Paused;
             if (!paused)
                 pausedSince = -1f;
             else if (pausedSince < 0f)

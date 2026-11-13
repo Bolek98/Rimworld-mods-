@@ -320,4 +320,57 @@
   <CF_Crisis_NewColony>新しいコロニー（開始プラン）</CF_Crisis_NewColony>
   <CF2_TipSmallColony>小さなコロニー：今いちばん大事な仕事から</CF2_TipSmallColony>
   <CF2_TipArea>優先エリア：そこの作業に必要</CF2_TipArea>
+  <CF2_BackupHardMin>スキル作業の予備はスキル{0}以上のみ（0 = 全員）</CF2_BackupHardMin>
+  <CF2_BackupHardMinTip>スキルがこれ未満の入植者には、スキルを使う作業を予備として割り当てません – 時間の無駄になるだけです。医療、看守、育児は全員に残ります。誰も達しない場合は、最も優れた入植者が担当します。</CF2_BackupHardMinTip>
+  <CF2_BackupMinYield>植物・採掘・動物の予備は収量{0}以上のみ</CF2_BackupMinYield>
+  <CF2_BackupMinYieldTip>栽培、伐採、採掘、動物の作業は、実際に少なくともこれだけ得られる入植者だけに予備として残ります（収穫・採掘・採取の収量）。収穫の半分をだめにする栽培者は予備になりません。0 % = オフ。</CF2_BackupMinYieldTip>
+  <CF2_TipBackupLowYield>予備ではない: 収量は{0}のみ（必要 {1}）。</CF2_TipBackupLowYield>
+  <CF2_SkillFirst>主な仕事 – スキル優先: {0}</CF2_SkillFirst>
+  <CF2_SkillFirstTip>主な仕事を選ぶとき、入植者自身のスキルをコロニーの今の需要に対してどれだけ重視するか。0 % = 従来どおり（需要を重視）、100 % = 各自が最も得意なことを主に行います。</CF2_SkillFirstTip>
+  <CF2_OrderLabel>優先されるもの</CF2_OrderLabel>
+  <CF2_OrderButton>順番を変更…</CF2_OrderButton>
+  <CF2_OrderTitle>優先されるもの</CF2_OrderTitle>
+  <CF2_OrderHelp>Stewardの2つの部分が同じ入植者と作業に異なることを求めた場合、このリストで上にある方が勝ちます – 実行順に関係なく。ロックしたセルは常に設定したままです。</CF2_OrderHelp>
+  <CF2_OrderReset>初期設定に戻す</CF2_OrderReset>
+  <CF2_TipDispute>{0}も求めました – {1}が優先です。</CF2_TipDispute>
+  <CF2_Cat_life>命に関わる危機</CF2_Cat_life>
+  <CF2_Cat_rules>あなたのルール</CF2_Cat_rules>
+  <CF2_Cat_roles>役割</CF2_Cat_roles>
+  <CF2_Cat_area>優先エリア</CF2_Cat_area>
+  <CF2_Cat_crisis>危機と状況</CF2_Cat_crisis>
+  <CF2_Cat_addons>他のアドオン</CF2_Cat_addons>
+  <CF2_Cat_apprentice>弟子</CF2_Cat_apprentice>
+  <CF2_Cat_droids>ドロイド</CF2_Cat_droids>
+  <CF2_Cat_top>主な仕事</CF2_Cat_top>
+  <CF2_Cat_children>子供</CF2_Cat_children>
+  <CF2_Cat_idle>手持ち無沙汰なし</CF2_Cat_idle>
+  <CF2_Cat_base>基本計画</CF2_Cat_base>
+  <CF2_CatDesc_life>医療の緊急事態、火災、飢餓 – 命を救う作業。</CF2_CatDesc_life>
+  <CF2_CatDesc_rules>作業ごとの入植者の最小・最大数。</CF2_CatDesc_rules>
+  <CF2_CatDesc_roles>Steward – Roles: 役割の主な作業。</CF2_CatDesc_roles>
+  <CF2_CatDesc_area>優先エリアのために働く入植者はその作業を保持します。</CF2_CatDesc_area>
+  <CF2_CatDesc_crisis>不足、作業・快適さの危機、状況、重点。</CF2_CatDesc_crisis>
+  <CF2_CatDesc_addons>他のModの計画ステップ。</CF2_CatDesc_addons>
+  <CF2_CatDesc_apprentice>師匠から学ぶ弟子。</CF2_CatDesc_apprentice>
+  <CF2_CatDesc_droids>Steward – Droids。</CF2_CatDesc_droids>
+  <CF2_CatDesc_top>入植者ごとに優先度1の主な仕事を1つ。</CF2_CatDesc_top>
+  <CF2_CatDesc_children>子供の学習、赤ちゃんの世話。</CF2_CatDesc_children>
+  <CF2_CatDesc_idle>小さなコロニー、誰も仕事なしにしない。</CF2_CatDesc_idle>
+  <CF2_CatDesc_base>スキルとコロニーのスタイルによる計画。</CF2_CatDesc_base>
+  <CF2_CheckWorkLabel>待機中の作業（Modも）</CF2_CheckWorkLabel>
+  <CF2_CheckWorkButton>確認する</CF2_CheckWorkButton>
+  <CF2_CheckWorkHead>このマップで管理人が今見ている待機中の作業（作業タイプごとの件数。Modは括弧内、⚠ = 測定不可）。0の作業には入植者が少なく割り当てられます。</CF2_CheckWorkHead>
+  <CF2_TabSkills>スキル</CF2_TabSkills>
+  <CF2_SkillsHelp>作業ごとに：何スキルから作業できるか、何スキルから予備として割り当てるか。– = 制限なし、(n) = 一般ルール。コロニーで最も優れた入植者は、基準未満でも常に作業を保持します。</CF2_SkillsHelp>
+  <CF2_SkillsColWork>作業</CF2_SkillsColWork>
+  <CF2_SkillsColSkill>スキル</CF2_SkillsColSkill>
+  <CF2_SkillsColBest>現在の最高</CF2_SkillsColBest>
+  <CF2_SkillsColAny>可能</CF2_SkillsColAny>
+  <CF2_SkillsColBackup>予備</CF2_SkillsColBackup>
+  <CF2_SkillsReset>すべてリセット</CF2_SkillsReset>
+  <CF2_TipGate>スキル{0} – この作業はスキル{1}から（スキルタブ）。</CF2_TipGate>
+  <CF2_TipResearchFocus>研究プロジェクト：{0}</CF2_TipResearchFocus>
+  <CF2_TipResearchFocusOther>研究者はまず研究</CF2_TipResearchFocusOther>
+  <CF2_ResearchFocus>研究者が本当に研究する</CF2_ResearchFocus>
+  <CF2_ResearchFocusTip>研究プロジェクトが選ばれている間、最良の研究者の研究を 2（入植者 5 人以上なら 1）にし、運搬と清掃を一段下げます。研究は最後の列なので、同じ優先度では決して先に来ません。</CF2_ResearchFocusTip>
 </LanguageData>
