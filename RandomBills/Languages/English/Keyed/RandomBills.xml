@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RB_Rec1>Colonists pick bills on a bench at random, the top ones a bit more often.</RB_Rec1>
+  <RB_Rec2>A mode button on every bench: weighted, random or in order.</RB_Rec2>
+  <RB_Enabled>Random bills on</RB_Enabled>
+  <RB_Enabled_Desc>Master switch for the whole mod.</RB_Enabled_Desc>
+  <RB_DefaultMode>Mode for benches</RB_DefaultMode>
+  <RB_Mode_Weighted>Bills: weighted</RB_Mode_Weighted>
+  <RB_Mode_Random>Bills: random</RB_Mode_Random>
+  <RB_Mode_Order>Bills: in order</RB_Mode_Order>
+  <RB_TopWeight>Weighted – preference for the top: {0}</RB_TopWeight>
+  <RB_TopWeight_Desc>How much more often the bills at the top are picked in the weighted mode. 0 % = like random, 100 % = the top ones clearly more often (but the lower ones still get done).</RB_TopWeight_Desc>
+  <RB_ShowGizmo>Mode button on benches</RB_ShowGizmo>
+  <RB_ShowGizmo_Desc>Every bench gets a button to switch its own mode.</RB_ShowGizmo_Desc>
+  <RB_Gizmo_Desc>How a colonist picks the next bill on this bench. Click to change.\n\nWeighted – at random, the top bills a bit more often.\nRandom – every bill the same chance.\nIn order – like the game: the first one that can be done.\n\nA bill must still be possible (ingredients, skill, 'do X times' not finished). Work already started is finished first.</RB_Gizmo_Desc>
+</LanguageData>
