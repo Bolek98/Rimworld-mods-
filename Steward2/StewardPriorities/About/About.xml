@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>[B98] Steward – 9 Priorities</name>
+  <author>Bolek98</author>
+  <packageId>misak.steward.priorities</packageId>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>misak.colonyforeman</li>
+    <li>misak.steward.worksplit</li>
+  </loadAfter>
+  <description>Work priorities 1–9 instead of 1–4 in the normal Work tab.
+
+- Choose 4 to 9 levels in the settings. Colonists do priority 1 first, then 2 and so on.
+- Left click = more important, right click = less important, like in the base game. Shift + click on a column header changes the whole column.
+- Shift + mouse wheel over a cell changes it one step.
+- The game's colours spread over all levels (1 bright green … last grey).
+- One button spreads your current 1–4 priorities over all levels, another one puts them back to 1–4 before you remove the mod.
+- Steward – Work Priorities and Steward – Work Split use all levels on their own.
+- Stays off when Work Tab or Priority Master is active.
+- Safe to add to a running save.
+
+Requires Harmony. RimWorld 1.6 and 1.7.
+
+---
+
+Priority práce 1–9 místo 1–4 v normální záložce Práce.
+
+- V nastavení si vybereš 4 až 9 úrovní. Kolonisté dělají nejdřív prioritu 1, pak 2 a tak dál.
+- Levý klik = důležitější, pravý klik = méně důležité, jako v základní hře. Shift + klik na hlavičku sloupce změní celý sloupec.
+- Shift + kolečko myši nad buňkou ji změní o jeden krok.
+- Barvy hry se rozloží na všechny úrovně (1 jasně zelená … poslední šedá).
+- Jedním tlačítkem rozložíš současné priority 1–4 na všechny úrovně, druhým je před odebráním modu vrátíš na 1–4.
+- Steward – Work Priorities a Steward – Work Split využijí všechny úrovně samy.
+- Když je zapnutý Work Tab nebo Priority Master, zůstane vypnutý.
+- Jde přidat do rozehrané hry.
+
+Vyžaduje Harmony. RimWorld 1.6 a 1.7.</description>
+</ModMetaData>

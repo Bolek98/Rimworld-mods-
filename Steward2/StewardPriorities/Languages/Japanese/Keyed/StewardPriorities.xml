@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SPR_Name>Steward – 9段階の優先度</SPR_Name>
+  <SPR_Off>他の優先度MOD（Work Tab または Priority Master）が有効なため、このMODはオフのままです。</SPR_Off>
+  <SPR_Help>作業タブで 1–4 の代わりに 1 から下の数字までの優先度を使います。入植者はまず 1、次に 2 … の順に作業します。左クリック：より重要、右クリック：より低い（バニラと同じ）。変更はすぐに反映されます。</SPR_Help>
+  <SPR_Levels>優先度の段階：{0}</SPR_Levels>
+  <SPR_Scroll>Shift + マウスホイールでセルを変更</SPR_Scroll>
+  <SPR_ScrollTip>Shift を押しながら作業タブのセル上でホイールを回します：上 = より重要、下 = より低い、最後の段階の次 = オフ。</SPR_ScrollTip>
+  <SPR_Convert>既存の優先度</SPR_Convert>
+  <SPR_ConvertHelp>「振り分け」は旧 1–4 の順序を保ったまま全段階に振り分けます（1 は 1 のまま、4 は最低に）。このMODを外す前に「1–4 に戻す」を使い、ゲームが知らない優先度が残らないようにしてください。</SPR_ConvertHelp>
+  <SPR_NeedGame>優先度を変換するにはゲームをロードしてください。</SPR_NeedGame>
+  <SPR_Spread>1–4 を 1–{0} に振り分け</SPR_Spread>
+  <SPR_Back>1–4 に戻す</SPR_Back>
+  <SPR_Over>{0} 件の優先度が {1} より大きいです。</SPR_Over>
+  <SPR_Clamp>{0} に設定</SPR_Clamp>
+  <SPR_Done>変更：{0}</SPR_Done>
+  <Priority5>優先度 5</Priority5>
+  <Priority6>優先度 6</Priority6>
+  <Priority7>優先度 7</Priority7>
+  <Priority8>優先度 8</Priority8>
+  <Priority9>優先度 9</Priority9>
+</LanguageData>

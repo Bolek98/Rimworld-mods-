@@ -19,6 +19,10 @@ public static class PriorityRange
 			// otherwise every higher value would be rejected with an error.
 			if (!PriorityModActive)
 				return 4;
+			// 1.2.1: our own addon (Steward – 9 Priorities) – its setting can change while the game runs
+			int ours = Read("StewardPriorities.Levels", "Max", null);
+			if (ours > 4)
+				return ours;
 			int manual = ForemanMod.Settings?.maxPriorityOverride ?? 0;
 			if (manual >= 4)
 				return manual;
@@ -48,7 +52,7 @@ public static class PriorityRange
 				foreach (Verse.ModContentPack m in Verse.LoadedModManager.RunningModsListForReading)
 				{
 					string id = (m.PackageId ?? "").ToLowerInvariant();
-					if (id.Contains("prioritymaster") || id.Contains("prioritymod") || id.Contains("worktab"))
+					if (id.Contains("prioritymaster") || id.Contains("prioritymod") || id.Contains("worktab") || id == "misak.steward.priorities")
 						found = true;
 				}
 				modActive = found ? 1 : 0;
