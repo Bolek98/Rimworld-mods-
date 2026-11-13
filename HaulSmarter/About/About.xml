@@ -3,7 +3,7 @@
   <name>[B98] Haul Master – Pockets, Routes &amp; Storage</name>
   <author>Bolek98</author>
   <packageId>misak.haulsmarter</packageId>
-  <modVersion>1.2.0</modVersion>
+  <modVersion>1.1.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -30,6 +30,8 @@ HAULING
 - What first: rotting food, things in the rain or near fire, valuables. "Haul urgently" order for anything you mark.
 - Harvest, wood and mined resources go straight into the pockets; things are unloaded right after the current job (or when the pockets are full – your choice).
 - Things on the way: a colonist takes what lies right next to him or on the way to his next job – gently, never while hurrying.
+- Stacks first: a hauler tops up a stack of the same thing before starting a new one; deep-storage cells are shared by several haulers.
+- "Unload now" button on a colonist: everything he carries goes to storage at once.
 - Nothing is ever destroyed: a thing with no storage yet stays in the pockets until a storage takes it (put down only when the pockets are full).
 
 BUILDING AND WORK
@@ -58,6 +60,8 @@ ODNÁŠENÍ
 - Co napřed: hnijící jídlo, věci v dešti nebo u ohně, cennosti. Příkaz „Odnést naléhavě“ pro cokoli, co označíš.
 - Sklizeň, dřevo a vytěžené suroviny jdou rovnou do kapes; věci se vyloží hned po současné práci (nebo až při plných kapsách – podle tebe).
 - Věci po cestě: kolonista vezme, co leží hned vedle něj nebo na cestě k další práci – opatrně, nikdy ve spěchu.
+- Nejdřív stohy: nosič nejdřív doplní stoh stejné věci, než začne nový; políčka hlubokých skladů sdílí víc nosičů.
+- Tlačítko „Vyložit teď“ u kolonisty: všechno, co nese, hned odnese do skladu.
 - Nic se nikdy nezničí: věc, pro kterou ještě není sklad, zůstane v kapsách, dokud ji nějaký sklad nevezme (položí se jen při plných kapsách).
 
 STAVBA A PRÁCE
@@ -80,6 +84,16 @@ Našel jsi chybu? Použij „Nahlásit chybu“ (vlevo dole v nastavení) a napi
 IDEAS AND SUGGESTIONS
 Want something changed or added? Write it in the comments – I read every idea and take it into account.
 
+WHAT'S NEW IN 1.1.0
+- "Unload now" button on colonists
+- Tops up existing stacks first
+- Deep-storage cells shared by several haulers
+
 NÁPADY A NÁVRHY
-Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.</description>
+Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
+
+CO JE NOVÉHO VE VERZI 1.1.0
+- Tlačítko „Vyložit teď“ u kolonistů
+- Nejdřív doplní existující stohy
+- Políčka hlubokých skladů pro víc nosičů naráz</description>
 </ModMetaData>

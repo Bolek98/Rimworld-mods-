@@ -1,4 +1,14 @@
 === Not on the Workshop yet (test versions) ===
+1.7.2
+Fixes
+- No more red "Thing … is associated with invalid map index" error when a quest map closes while its pawns are still in the pawn texture atlas (e.g. flying home after a relic quest).
+- No more "Update threw: NullReferenceException" from the memory part while a game is being loaded or closed (RimWorld 1.7).
+
+Opravy
+- Už žádná červená chyba „Thing … is associated with invalid map index“, když se zavře mapa úkolu a její postavy jsou ještě v atlasu textur (třeba při letu domů po úkolu s relikvií).
+- Už žádná chyba „Update threw: NullReferenceException“ z části pro paměť při načítání nebo zavírání hry (RimWorld 1.7).
+
+=== Development history since the last Workshop release (test versions) ===
 1.7.3
 - Fix: an error 'Update threw: NullReferenceException' from the memory part while a game was being loaded or closed (RimWorld 1.7).
 

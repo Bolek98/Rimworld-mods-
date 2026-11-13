@@ -1,4 +1,28 @@
 === Not on the Workshop yet (test versions) ===
+1.2.0
+New
+- Research gets done: while a project is chosen, the best researcher has research on 2 (on 1 from 5 colonists) and his hauling and cleaning one step lower. Research is the last column, so before it never came first. Can be switched off.
+- New "Skills" tab in the settings: for each work, from which skill a colonist may do it at all and from which skill he gets it as a backup. The best colonist always keeps the work.
+- Who has priority: when two parts of Steward want different things for one cell, the stronger one wins (lives, your rules, roles, priority areas, crises … base plan). The order can be changed in the settings, and the cell's tooltip shows who wanted what.
+- Works with modded plant growers (hydroponics, planters …) and modded work benches; new "Waiting work – Check now" button shows what Steward sees waiting, per work type.
+- "Top job – skill first" (60 %): a colonist's own best skill counts more than the colony's current needs.
+
+Fixes
+- Hunting is no longer taken away from colonists with a low animal gather yield.
+- Weak backups are allowed again for most work (a weak backup is better than nobody); the strict limits can still be switched on.
+
+Nové
+- Výzkum se dělá: dokud je vybraný projekt, nejlepší výzkumník má výzkum na 2 (od 5 kolonistů na 1) a nošení a úklid o stupeň níž. Výzkum je poslední sloupec, takže dřív nikdy nepřišel na řadu. Jde vypnout.
+- Nová záložka „Dovednosti“ v nastavení: u každé práce od jaké dovednosti ji kolonista smí dělat vůbec a od jaké jako zálohu. Nejlepší kolonista práci vždy dostane.
+- Kdo má přednost: když dvě části Stewarda chtějí v jedné buňce něco jiného, vyhraje ta silnější (životy, tvoje pravidla, role, prioritní oblasti, krize … základní plán). Pořadí jde změnit v nastavení a tooltip buňky ukáže, kdo co chtěl.
+- Funguje s pěstírnami z modů (hydroponie, truhlíky …) i pracovními stoly z modů; nové tlačítko „Čekající práce – zkontrolovat“ ukáže, co Steward vidí čekat, po druzích práce.
+- „Hlavní práce – nejdřív dovednost“ (60 %): kolonistova nejlepší dovednost váží víc než aktuální potřeby kolonie.
+
+Opravy
+- Lov se už nebere kolonistům s nízkým výnosem ze zvířat.
+- Slabá záloha je u většiny práce zase povolená (slabá záloha je lepší než nikdo); přísné limity jde zapnout.
+
+=== Development history since the last Workshop release (test versions) ===
 1.4.1
 - Research gets done: while a project is chosen, the best researcher has research on 2 (on 1 from 5 colonists) and his hauling and cleaning one level lower – research is the last column, so it never came first. Can be turned off.
 - Výzkum se dělá: dokud je vybraný projekt, nejlepší výzkumník má výzkum na 2 (od 5 kolonistů na 1) a nošení a úklid o úroveň níž – výzkum je poslední sloupec, takže nikdy nepřišel na řadu. Jde vypnout.

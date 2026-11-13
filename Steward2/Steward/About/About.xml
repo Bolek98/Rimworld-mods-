@@ -3,7 +3,7 @@
   <name>[B98] Steward – Work Priorities</name>
   <author>Bolek98</author>
   <packageId>misak.colonyforeman</packageId>
-  <modVersion>1.4.1</modVersion>
+  <modVersion>1.2.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
@@ -29,6 +29,8 @@
 - Priorities from skills, passions (mods' passions too), work speed, health and the work that really waits on the map. How much work waits is measured by the game's own work givers, so every work type of every mod is planned the same way – nothing is fixed by name.
 - Calm: a regular plan every few hours, a new one only when something really changes. A changed priority stays at least half a day – nobody is moved back and forth.
 - Small colonies (up to 6 colonists): only the work that matters most now stays on top.
+- Research really gets done: while a project is chosen, the best researcher researches first.
+- Skills tab: for each work, from which skill a colonist may do it and from which skill as a backup.
 - One main work on priority 1 per colonist, helpers on 2–3, everyone else as a backup on the lowest level, so nobody stands idle.
 - 22 colony styles (Balanced, Survival, Farming, Building, Research, Care …) and My style.
 - Priority guard: the game saves priorities only as a list of numbers. When you add, remove or move a mod with its own work type, everyone's priorities land on other work. Steward saves them by work name too and puts them back after loading.
@@ -53,6 +55,8 @@ Steward plánuje priority práce tvých kolonistů – klidně a s jakýmikoli m
 - Priority podle dovedností, vášní (i z modů), rychlosti práce, zdraví a práce, která na mapě opravdu čeká. Kolik práce čeká, měří hra sama přes své úkoly, takže každá práce z každého modu se plánuje stejně – nic není napevno podle jména.
 - Klid: pravidelný plán po pár hodinách, nový jen když se něco opravdu změní. Změněná priorita drží aspoň půl dne – nikdo se nepřehazuje sem a tam.
 - Malé kolonie (do 6 kolonistů): nahoře zůstane jen práce, na které teď nejvíc záleží.
+- Výzkum se opravdu dělá: dokud je vybraný projekt, nejlepší výzkumník nejdřív zkoumá.
+- Záložka Dovednosti: u každé práce od jaké dovednosti ji kolonista smí dělat a od jaké jako zálohu.
 - Jedna hlavní práce na prioritě 1 na kolonistu, pomocníci na 2–3, ostatní jako záloha na nejnižší, aby nikdo nestál.
 - 22 stylů kolonie (Vyvážený, Přežití, Farmaření, Stavění, Výzkum, Péče …) a Můj styl.
 - Pojistka priorit: hra si priority ukládá jen jako řadu čísel. Když přidáš, odebereš nebo přesuneš mod s vlastní prací, všem se priority posunou na jinou práci. Steward si je ukládá i podle názvu práce a po načtení je vrátí.
@@ -74,18 +78,18 @@ Našel jsi chybu? Použij „Nahlásit chybu“ (vlevo dole v nastavení) a napi
 IDEAS AND SUGGESTIONS
 Want something changed or added? Write it in the comments – I read every idea and take it into account.
 
-WHAT'S NEW IN 1.1.0
-- Small colonies: only the most important work stays on top
-- Calmer – no constant reshuffling
-- Priority areas always keep their work
-- Skilled backup and surgeons by skill
+WHAT'S NEW IN 1.2.0
+- The best researcher really researches
+- New Skills tab: who may do which work
+- Clear priority between Steward's parts
+- Modded growers and benches counted
 
 NÁPADY A NÁVRHY
 Chceš něco změnit nebo přidat? Napiš to do komentářů – čtu všechny nápady a beru je v úvahu.
 
-CO JE NOVÉHO VE VERZI 1.1.0
-- Malé kolonie: nahoře jen nejdůležitější práce
-- Klidnější – žádné neustálé přehazování
-- Prioritní oblasti si vždy drží svou práci
-- Záloha na odborné práce a chirurgové podle dovednosti</description>
+CO JE NOVÉHO VE VERZI 1.2.0
+- Nejlepší výzkumník opravdu zkoumá
+- Nová záložka Dovednosti: kdo smí dělat jakou práci
+- Jasné pořadí mezi částmi Stewarda
+- Počítá i pěstírny a stoly z modů</description>
 </ModMetaData>

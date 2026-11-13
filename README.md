@@ -29,7 +29,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Evergrowth – Wild Plant Spawns per Biome (Choose What Grows) | 1.2.0 | [EvergrowthWildPlants](EvergrowthWildPlants) |
 | [B98] Fewer Freezes – Smart Memory Cleanup | 1.1.1 | [FewerFreezes](FewerFreezes) |
 | [B98] Gender Balance | 1.3.4 | [GenderBalance](GenderBalance) |
-| [B98] Haul Master – Pockets, Routes & Storage | 1.2.0 | [HaulSmarter](HaulSmarter) |
+| [B98] Haul Master – Pockets, Routes & Storage | 1.1.0 | [HaulSmarter](HaulSmarter) |
 | [B98] Legacy – Your Old Colonies Live On | 0.1.1 | [Legacy](Legacy) |
 | [B98] Lively Pawns – Animations & Effects | 0.1.2 | [LivelyPawns](LivelyPawns) |
 | [B98] Mad Dice Max – Dice Storyteller | 1.0.1 | [MadDiceMax](MadDiceMax) |
@@ -52,9 +52,9 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.1 | [SecularColony](SecularColony) |
 | [B98] Slow Growth – Colonist Pace | 0.1.3 | [SlowGrowth](SlowGrowth) |
 | [B98] Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.0 | [SmartColonistGear](SmartColonistGear) |
-| [B98] Smooth FPS – Performance & Graphics | 1.7.3 | [SmoothFPS](SmoothFPS) |
+| [B98] Smooth FPS – Performance & Graphics | 1.7.2 | [SmoothFPS](SmoothFPS) |
 | [B98] Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
-| [B98] Steward – Work Priorities | 1.4.1 | [Steward2/Steward](Steward2/Steward) |
+| [B98] Steward – Work Priorities | 1.2.0 | [Steward2/Steward](Steward2/Steward) |
 | [B98] Steward – Crises & Situations | 1.3.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
 | [B98] Steward – Droids | 0.1.2 | [Steward2/StewardDroids](Steward2/StewardDroids) |
 | [B98] Steward – Kit | 1.1.0 | [Steward2/StewardKit](Steward2/StewardKit) |
