@@ -16,14 +16,14 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Call for Backup – Summon Your Allies | 0.1.1 | [CallForBackup](CallForBackup) |
 | [B98] Caravan Helper | 1.1.0 | [CaravanHelper](CaravanHelper) |
 | [B98] Clear Architect – Build Menu with Sub-Categories | 0.2.1 | [MisakArchitect](MisakArchitect) |
-| [B98] Clear Bills – Bills Tab Overhaul | 0.14.2 | [MisakBills](MisakBills) |
-| [B98] Clear Character – Character, Social & Needs | 0.14.2 | [MisakCharacter](MisakCharacter) |
-| [B98] Clear Gear – Gear Tab Overhaul | 0.14.2 | [MisakGear](MisakGear) |
-| [B98] Clear Health – Anatomy Health Tab | 0.14.2 | [MisakHealth](MisakHealth) |
-| [B98] Clear Info Card – Colonist Infocentrum | 0.14.2 | [MisakInfo](MisakInfo) |
-| [B98] Clear Pickers – Choice Windows Overhaul | 0.14.2 | [MisakPickers](MisakPickers) |
-| [B98] Clear Tabs – All-in-One UI Overhaul | 0.14.2 | [MisakTabs](MisakTabs) |
-| [B98] Clear Trade – Trade Window Overhaul | 0.14.2 | [MisakTrade](MisakTrade) |
+| [B98] Clear Bills – Bills Tab Overhaul | 0.15.0 | [MisakBills](MisakBills) |
+| [B98] Clear Character – Character, Social & Needs | 0.15.0 | [MisakCharacter](MisakCharacter) |
+| [B98] Clear Gear – Gear Tab Overhaul | 0.15.0 | [MisakGear](MisakGear) |
+| [B98] Clear Health – Anatomy Health Tab | 0.15.0 | [MisakHealth](MisakHealth) |
+| [B98] Clear Info Card – Colonist Infocentrum | 0.15.0 | [MisakInfo](MisakInfo) |
+| [B98] Clear Pickers – Choice Windows Overhaul | 0.15.0 | [MisakPickers](MisakPickers) |
+| [B98] Clear Tabs – All-in-One UI Overhaul | 0.15.0 | [MisakTabs](MisakTabs) |
+| [B98] Clear Trade – Trade Window Overhaul | 0.15.0 | [MisakTrade](MisakTrade) |
 | [B98] Colony Advisor – What To Do Next | 0.4.0 | [ColonyAdvisor](ColonyAdvisor) |
 | [B98] Evergrowth – Plant Growth Control | 1.10.0 | [Evergrowth](Evergrowth) |
 | [B98] Evergrowth – Wild Plant Spawns per Biome (Choose What Grows) | 1.2.0 | [EvergrowthWildPlants](EvergrowthWildPlants) |

@@ -29,6 +29,10 @@ namespace MisakCharacter
         public float needsW = 640f, needsH = 520f;                                    // 0.11.0
         public bool gear = true;                                                      // 0.13.1
         public bool infoCard = true;                                                  // 0.14.0
+        public bool tradeTiles;                                                       // 0.15.0 Clear Trade
+        public List<string> tradeWishes = new List<string>();
+        public Dictionary<string, int> tradeKeep = new Dictionary<string, int>();
+        public List<string> tradeCarts = new List<string>();                          // "name\tdef:n;def:-n"
         public float gearW = 880f, gearH = 580f;                                      // 0.13.1
         public bool paneLook = true, plantPicker = true;                                                  // 0.12.0
         public bool recipePicker = true, surgeryPicker = true, ownerPicker = true, policyPicker = true, researchPicker = true, mechPicker = true, animalPicker = true, tradeWindow = true;   // 0.13.0: pickers everywhere
@@ -67,6 +71,13 @@ namespace MisakCharacter
             Scribe_Values.Look(ref needsH, "needsH", 520f);
             Scribe_Values.Look(ref gear, "gear", true);
             Scribe_Values.Look(ref infoCard, "infoCard", true);
+            Scribe_Values.Look(ref tradeTiles, "tradeTiles", false);
+            Scribe_Collections.Look(ref tradeWishes, "tradeWishes", LookMode.Value);
+            Scribe_Collections.Look(ref tradeKeep, "tradeKeep", LookMode.Value, LookMode.Value);
+            Scribe_Collections.Look(ref tradeCarts, "tradeCarts", LookMode.Value);
+            tradeWishes ??= new List<string>();
+            tradeKeep ??= new Dictionary<string, int>();
+            tradeCarts ??= new List<string>();
             Scribe_Values.Look(ref gearW, "gearW", 880f);
             Scribe_Values.Look(ref gearH, "gearH", 580f);
             WindowSizes.Expose();   // 0.13.0
@@ -75,7 +86,7 @@ namespace MisakCharacter
 
     public class MTMod : Mod
     {
-        public const string Version = "0.14.2";
+        public const string Version = "0.15.0";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0
@@ -85,7 +96,7 @@ namespace MisakCharacter
         {
             S = GetSettings<MTSettings>();
             Pack = content;
-            MUI.Init(new MTSettings(), null, new[] { "recommended", "billsW", "billsH", "billsLeft", "healthW", "healthH", "charW", "charH", "socialW", "socialH", "needsW", "needsH", "gearW", "gearH" }
+            MUI.Init(new MTSettings(), null, new[] { "recommended", "tradeTiles", "tradeWishes", "tradeKeep", "tradeCarts", "billsW", "billsH", "billsLeft", "healthW", "healthH", "charW", "charH", "socialW", "socialH", "needsW", "needsH", "gearW", "gearH" }
                 .Concat(AllParts.Where(f => !BuildInfo.Has(f))).ToArray());
             if (S.recommended) MUI.ApplyAll(S);
             Restrict();
