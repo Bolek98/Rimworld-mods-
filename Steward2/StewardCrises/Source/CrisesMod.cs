@@ -37,6 +37,26 @@ public sealed class CrisesSettings : ModSettings
 	public float strComfort = 1f;
 	public bool respectOrders = true;
 	public bool escalate = true;
+	// 1.3.0: a strength for each part (missing = the strength of its old group)
+	public Dictionary<string, float> strParts = new Dictionary<string, float>();
+
+	public float PartStrength(CrisisPart p)
+	{
+		if (strParts != null && strParts.TryGetValue(p.ToString(), out float v)) return v;
+		switch (CrisisGroups.GroupOf(p))
+		{
+		case CrisisGroup.Shortage: return strShortage;
+		case CrisisGroup.Work: return strWork;
+		case CrisisGroup.Comfort: return strComfort;
+		default: return 1f;
+		}
+	}
+
+	public void SetPartStrength(CrisisPart p, float v)
+	{
+		strParts ??= new Dictionary<string, float>();
+		strParts[p.ToString()] = v;
+	}
 
 	public override void ExposeData()
 	{
@@ -56,6 +76,8 @@ public sealed class CrisesSettings : ModSettings
 		Scribe_Values.Look(ref strComfort, "strComfort", 1f);
 		Scribe_Values.Look(ref respectOrders, "respectOrders", true);
 		Scribe_Values.Look(ref escalate, "escalate", true);
+		Scribe_Collections.Look(ref strParts, "strParts", LookMode.Value, LookMode.Value);
+		strParts ??= new Dictionary<string, float>();
 		situationOff ??= new List<string>();
 	}
 }
@@ -145,9 +167,8 @@ public sealed class CrisesMod : Mod
 		l.CheckboxLabeled("CF2C_Messages".Translate(), ref S.crisisMessages);
 		l.GapLine();
 		l.Label("CF3C_Title".Translate());
-		Dialog_Crises.Slider(l.GetRect(40f), CrisisGroup.Shortage, ref S.strShortage);
-		Dialog_Crises.Slider(l.GetRect(40f), CrisisGroup.Work, ref S.strWork);
-		Dialog_Crises.Slider(l.GetRect(40f), CrisisGroup.Comfort, ref S.strComfort);
+		foreach (CrisisPart p in CrisisGroups.Parts)
+			Dialog_Crises.Slider(l.GetRect(40f), p, S);
 		l.CheckboxLabeled("CF3C_Orders".Translate(), ref S.respectOrders, "CF3C_OrdersTip".Translate());
 		l.CheckboxLabeled("CF3C_Escalation".Translate(), ref S.escalate, "CF3C_EscalationTip".Translate());
 		l.GapLine();
@@ -556,7 +577,7 @@ public sealed class CrisisStep : IPlanStep
 				continue;
 			t.stage = CrisisTracks.StageOf(t, now);
 			CrisisGroup g = t.Group;
-			if (CrisisGroups.Strength(g) <= 0.01f)
+			if (CrisisGroups.Strength(t.Part) <= 0.01f)
 				continue;
 			foreach (var kv in effects)
 				foreach (WorkTypeDef w in WorkMatch.Resolve(kv.Key))
