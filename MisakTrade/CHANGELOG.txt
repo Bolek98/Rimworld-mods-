@@ -1,0 +1,128 @@
+=== Not on the Workshop yet (test versions) ===
+0.14.0
+- Infocentrum: the info card (i) of a colonist in our look – all stats in groups with the colony average (green better, orange worse), compare with another colonist, key tiles (value, speed, carrying, temperature), what the chosen stat is made of, about the race; pages life story, health, social, gear and history.
+- Infocentrum: karta info (i) kolonisty v našem vzhledu – všechny údaje ve skupinách s průměrem kolonie (zeleně lepší, oranžově horší), porovnání s jiným kolonistou, hlavní dlaždice (hodnota, rychlost, nosnost, teplota), z čeho se vybraný údaj skládá, o rase; stránky životopis, zdraví, vztahy, výbava a historie.
+
+0.13.3
+- Fix: 'Could not find player faction' errors from the life log while a new world was created.
+
+0.13.2
+- The bills tab of work benches now has categories too (food, drugs, medicine, weapons, armor, clothes, materials, furniture, other) with counts – shown when a bench makes more than one kind of thing. The panels (bills, health, gear, needs, character, social) can really be resized now: drag the top edge, the right edge or the top right corner; the size is remembered. In the health tab, tails, ears and wings of a figure are coloured like the body instead of grey.
+- Záložka zakázek u pracovních stolů má teď taky kategorie (jídlo, drogy, léky, zbraně, zbroj, oblečení, materiály, nábytek, ostatní) s počty – ukážou se, když stůl vyrábí víc druhů věcí. Panely (zakázky, zdraví, výbava, potřeby, postava, vztahy) jdou teď opravdu zvětšit a zmenšit: táhni za horní okraj, pravý okraj nebo pravý horní roh; velikost se zapamatuje. V záložce zdraví mají ocasy, uši a křídla postavy barvu podle těla místo šedé.
+
+0.13.1
+- Gear tab in our look: worn apparel as a list by body location (head, face, neck, shoulders, torso layers, arms, hands, belt, legs, feet … also modded places; empty core places shown dashed), weapons with quality, range and DPS (carried weapons go to the hand with one click), overall armor, what Smart Colonist Gear takes next, inventory by group with eat/use/drop, free mass, and quick outfit, battle outfit and drug policy choices.
+- Záložka Výbava v našem vzhledu: oblečení jako seznam podle místa na těle (hlava, obličej, krk, ramena, vrstvy trupu, paže, ruce, opasek, nohy, chodidla … i místa z modů; prázdná hlavní místa čárkovaně), zbraně s kvalitou, dosahem a DPS (nesenou zbraň vezme do ruky jedním klikem), celková ochrana, co si Smart Colonist Gear vezme příště, věci v kapsách ve skupinách se sníst/užít/odhodit, volná nosnost a rychlá volba oblékání, bojového oblečení a drog.
+
+0.13.0
+- Pickers everywhere in the plant picker's look: 'Add bill' and 'Add operation' (groups, search, sorting, cards with skill, work, items and risk), owner of beds and thrones, outfit/food/drug policy and allowed area, research, mech gestation (Biotech) and animal master; plus an animal overview window.
+- Výběrová okna ve stylu výběru rostlin všude: „Přidat zakázku“ a „Přidat operaci“ (skupiny, hledání, řazení, karty s dovedností, prací, věcmi a rizikem), vlastník postele a trůnu, oblékání/jídlo/drogy a povolená oblast, výzkum, líhnutí mechů (Biotech) a pán zvířete; navíc okno s přehledem zvířat.
+- Trade window in our look: categories, search and sorting, item names with quality, both sides' counts and prices and a cart (caravan and royal-favor trades keep the game's window).
+- Obchodní okno v našem vzhledu: kategorie, hledání a řazení, názvy věcí s kvalitou, počty a ceny obou stran a košík (obchod z karavany a za královskou přízeň zůstává v okně hry).
+- All Mišák Tabs windows can be resized by dragging the corner, remember their size and always fit on the screen (reset button in the settings).
+- Všechna okna Mišák Tabs jdou zvětšit tažením za roh, pamatují si velikost a vždy se vejdou na obrazovku (tlačítko pro návrat v nastavení).
+
+0.12.1
+- Too many tabs on a colonist (race mods add their own): the ones that don't fit go behind a 'More ▾' button that lists them – the open tab always stays visible. Works with and without our info pane look.
+- Moc záložek u kolonisty (mody ras přidávají vlastní): ty, které se nevejdou, jsou pod tlačítkem „Další ▾“, které je vypíše – otevřená záložka zůstane vždy vidět. Funguje s naším vzhledem panelu i bez něj.
+
+0.12.0
+- The info pane of the selected thing (bottom left) and its tab buttons in our dark look: coloured bars for health, mood, schedule and area; long tab names no longer cut off.
+- Panel s informacemi vybrané věci (vlevo dole) i jeho tlačítka záložek v našem tmavém stylu: barevné pruhy zdraví, nálady, rozvrhu a zóny; dlouhé názvy záložek už nejsou useknuté.
+- "Set plant to grow" opens our window: groups (food, medicine, drugs, materials, trees, decoration), search, sorting and a card per plant with growing time, yield, value per day and needed skill.
+- „Vybrat rostlinu k pěstování“ otevře naše okno: skupiny (jídlo, léčivé, drogy, materiály, stromy, okrasné), hledání, řazení a karta pro každou rostlinu s dobou růstu, výnosem, cenou za den a potřebnou dovedností.
+- Bill window: the ingredient filter, its buttons and the worker drop-down in our look too.
+- Okno zakázky: filtr surovin, jeho tlačítka i výběr pracovníka taky v našem stylu.
+- Storage tab (stockpiles, shelves, fridges): dark background, our buttons and box.
+- Záložka skladu (sklady, police, lednice): tmavé pozadí, naše tlačítka a box.
+
+0.11.0
+- New needs tab (needs as cards, mood with break limits and all thoughts), new bill settings window in the Mišák look (original one a click away, can be switched off), and romance from the social tab ("Romance…" and a direct button for the selected person).
+- Nová záložka potřeb (potřeby jako karty, nálada s hranicemi zhroucení a všemi myšlenkami), nové okno nastavení zakázky ve vzhledu Mišáka (původní na jedno kliknutí, lze vypnout) a svádění ze sociální záložky („Svádět…“ a přímé tlačítko pro vybraného člověka).
+
+0.10.3
+- Bills: three small buttons next to each bill switch the repeat mode at a click – × N times, ≥ until you have X, ∞ forever.
+- Bills: a mine recipe added later in the game (Mines 2.0 custom resources) that still reads 'Mine for …' in English is shown as 'Mine for <product>' in your language.
+- Zakázky: tři malá tlačítka u každé zakázky přepnou režim jedním klikem – × N krát, ≥ dokud nemáš X, ∞ donekonečna.
+- Zakázky: recept dolu přidaný později ve hře (vlastní suroviny Mines 2.0), který zůstal anglicky „Mine for …“, se ukáže jako „Důl pro <surovina>“.
+
+0.10.2
+- Character tab: skills in the game's order (Shooting first … Intellectual last); the header also says woman or man after the age.
+- Karta postavy: dovednosti ve stejném pořadí jako ve hře (Střelba první … Intelekt poslední); v hlavičce je za věkem i žena nebo muž.
+
+0.10.1
+- Health: Outerm (all three figures) – the arms now follow the real arms in front of the wings, so an injured or missing arm is shown in the right place.
+
+0.10.0
+- Health: own figures for humans (woman, man, child, fat, muscular, thin) and for 13 races – Wolfein, Miho, Maru, Yuran, Vivi, Saclean, Outerm, Nearmare, Idhale, Nivarian, Mugirl, Tailin, Mariponica – by sex and age, with their ears, tails, horns and wings drawn in. Body parts, organs and bones are fitted onto each figure. Other races keep the body-type figure with features drawn over it.
+
+0.9.2
+- Health: small R / L letters at the figure's feet – the figure faces you, so its right side is on your left.
+- Operations: body parts you don't have in stock are listed greyed (new chip 'Part not in stock', and in All for a missing body part) with where to get them – the workbench, research still needed, or trade only. Click one to queue it at a workbench.
+
+0.9.1
+- The life log also notes heavy wounds, operations (who did them, and failed ones), recovering from diseases, deaths (and for their family and friends), royal titles, ideoligion roles, birthdays and finished research.
+
+0.9.0
+- New Character tab: a dossier (portrait, childhood and adulthood, traits, what they will not do, ideoligion, birthday) and three pages – Skills (bars with passion and progress), Life (a timeline by year: birth, joining the colony, the game's tales and our own life log: mental breaks, lost and new body parts, skill levels, partners, children) and Records.
+- New Social tab: everyone they know with what each thinks of the other; click one to see why – every reason both ways, compatibility and romance chance. Without a choice: partner, best friend, worst rival and the last talks.
+- Both tabs can be resized and switched back to the original with one click; both can be switched off in the settings.
+
+0.8.0
+- Health tab in a new layout: the figure big on the left (with a card that shows what is wrong with the part under the mouse), on the right the state with bars, the care settings, filters (All / Injuries / Replacements / Missing / Diseases) and one row per condition with a coloured stripe and its value.
+- Own body pictures (no art from other mods) and the race features packed in one picture per body.
+
+0.7.0
+- Health tab: a new anatomy figure with three views – Body (each part coloured by its state: healthy, hurt, missing, prosthesis, bionic, archotech), Organs and Bones (broken bones red).
+- Race features from the race itself (ears, tails, horns, wings, halo …) – also for races from mods.
+- Point at a part to see what is wrong there, click to list only that part, right click for its operations.
+- The ◐ button switches between the anatomy figure, the colonist's own silhouette and the portrait.
+
+0.6.0
+- Bills and health tabs can be made bigger: drag the top right corner, or pick Normal / Bigger / Biggest with the new size button on the bills tab; the size is remembered
+- Bills tab: drag the line between the recipe list and the queue to make the list wider (long recipe names fit)
+- New recipe filter Not added: recipes you can make that are not in the queue yet; the filter chips wrap when the list is narrow
+
+0.5.1
+- Bills: the - and + buttons were hidden under the "…" button – now they sit next to the count, a bit bigger.
+
+0.5.0
+- Bills: - and + next to the count change "Do X times" or "Do until you have X" right in the list (Shift ±10, Ctrl ±100).
+- Linked bills: "…" on a bill → "Link with a bill on another workbench" – bills with the same recipe share their settings (count, target, pause, materials, stockpiles); a change to one is copied to the others. Marked "linked ×N" with the other workbenches in the tooltip.
+- Rename a bill from the "…" menu (the game's own bill name).
+- "…" in the header: copy all bills of a workbench and paste them here or into several workbenches of the same kind at once (priorities come along).
+- "Do until you have X" bills show when they also count worn/carried items or only one stockpile (set in Edit).
+
+0.4.2
+- Right click on a mark on the silhouette or on a condition: the operations for that body part in a menu, and "Show operations for this part" opens the operations view for its body region.
+- Health details: the exact hit points of every body part next to its name (e.g. "Left leg 20/30"), and the time left for conditions whose label does not show it.
+- "Operations planned: 2" in the health header when operations are planned – a click opens them.
+- Safer drawing: a recipe without an icon shows a "?", a drawing error no longer leaves the tab with broken text or colours, and Esc in a search field just leaves the field.
+
+0.4.1
+- The silhouette (and the portrait) in the health tab always stands upright, also when the colonist lies wounded or downed.
+
+0.4.0
+- Operations in our own look (the "Operations" button in the health tab): planned operations on the left in their order – move up/down, pause, remove, and whether everything is at hand or what is missing; the best free doctor and the medical care below them; the silhouette in the middle; every possible operation on the right with search, kinds (implants & prostheses, remove, drugs, other) and body regions (head, torso, arms, legs, whole body). One click adds it – the game's own checks and confirmations stay.
+
+0.3.0
+- Health tab: the figure is now the colonist's own silhouette – of any race (HAR, xenotypes, mods) – coloured by the health of the body parts: green healthy, orange hurt, red badly hurt, dark for a missing limb. The marks sit on the silhouette. The button in the corner switches back to the normal portrait.
+
+0.2.1
+- Bills: long recipe names no longer run under the info button.
+
+0.2.0
+- Health tab: an overview on the left (state in one line – bleeding with time until death, a disease you are losing, needs tending –, medical care, self-tend, food policy, pain and capacities with bars), the colonist's whole figure in the middle with coloured marks where something is wrong (click a mark to see only that part), and the conditions grouped by body part on the right with chips (bleeds, tended, needs tending, permanent) and immunity against the disease as two bars.
+- Operations and the game's own health tab are one click away; other health tab mods are switched off while ours is on (both can be changed in the settings).
+
+0.1.3
+- Bill priorities 1–10: 1 is done first, 10 last, 5 is normal. The bills of a workbench are kept in that order, and colonists go first to the workbench with the most urgent bill. Saved with the game.
+
+0.1.2
+- Info about the products: hover a recipe (or a bill's picture) for what it makes, its value, weight, armor or damage, work, materials and skill; the "i" button or a click on the bill's picture opens the game's info card.
+
+0.1.1
+- Fix: the bills tab got its bigger size (a start-up warning said "bills tab not available").
+
+0.1.0
+- First version: the bills tab – recipes with pictures, search and filters, locked recipes with the missing research, bill queue cards (who works on it, target progress, missing materials), move/pause/edit/copy/paste, the original tab one click away. Takes over the bills tab from Nice Bill Tab while it is on.

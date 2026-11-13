@@ -84,8 +84,10 @@ namespace MisakTabs
         {
             S = GetSettings<MTSettings>();
             Pack = content;
-            MUI.Init(new MTSettings(), null, "recommended", "billsW", "billsH", "billsLeft", "healthW", "healthH", "charW", "charH", "socialW", "socialH", "needsW", "needsH", "gearW", "gearH");
+            MUI.Init(new MTSettings(), null, new[] { "recommended", "billsW", "billsH", "billsLeft", "healthW", "healthH", "charW", "charH", "socialW", "socialH", "needsW", "needsH", "gearW", "gearH" }
+                .Concat(AllParts.Where(f => !BuildInfo.Has(f))).ToArray());
             if (S.recommended) MUI.ApplyAll(S);
+            Restrict();
             MNews.Register(content, Version);
             H = new Harmony("bolek98.misaktabs");
             try { MUI.PatchWindow(H, typeof(MTMod)); } catch { }
@@ -105,10 +107,36 @@ namespace MisakTabs
             Log.Message("[Mišák Tabs] v" + Version + " loaded.");
         }
 
-        public override string SettingsCategory() => "Mišák Tabs";
+        public override string SettingsCategory() => BuildInfo.Name;
 
-        private static void Check(Listing_Standard l, string key, ref bool v, string field) =>
+        private static void Check(Listing_Standard l, string key, ref bool v, string field)
+        {
+            if (!BuildInfo.Has(field)) return;   // 0.14.0: a single-part mod shows only its own switches
             MUI.Check(l, key.Translate(), (key + "_Desc").Translate(), ref v, S, field);
+        }
+
+        // 0.14.0: the single-part mods (Mišák Bills, Health …) are this code with only some parts on;
+        // with Mišák Tabs itself active they stay off completely
+        public static readonly string[] AllParts =
+        {
+            "bills", "replaceOtherBillTabs", "billDialog", "recipePicker", "health", "replaceOtherHealthTabs", "surgeryPicker",
+            "character", "social", "needs", "paneLook", "gear", "infoCard", "plantPicker", "ownerPicker", "policyPicker",
+            "researchPicker", "mechPicker", "animalPicker", "tradeWindow"
+        };
+        public static bool Off;
+
+        public static void Restrict()
+        {
+            if (!BuildInfo.Split) return;
+            Off = ModsConfig.IsActive("bolek98.misaktabs");
+            foreach (string f in AllParts)
+            {
+                if (!Off && BuildInfo.Has(f)) continue;
+                var fi = AccessTools.Field(typeof(MTSettings), f);
+                if (fi != null && fi.FieldType == typeof(bool)) fi.SetValue(S, false);
+            }
+            if (Off) Log.Message("[" + BuildInfo.Name + "] Mišák Tabs is active – it already has all of this, so this mod stays off.");
+        }
 
         public override void DoSettingsWindowContents(Rect r)
         {
@@ -116,7 +144,12 @@ namespace MisakTabs
             if (recBullets == null)
                 recBullets = new List<string> { "MT_Rec1".Translate(), "MT_Rec2".Translate(), "MT_Rec3".Translate() };
             float y = r.y;
-            y += MUI.RecommendedCard(new Rect(r.x, y, r.width, 0f), S, S.recommended, v => { S.recommended = v; if (v) MUI.ApplyAll(S); }, recBullets) + 6f;
+            if (Off)
+            {
+                Widgets.Label(new Rect(r.x, y, r.width, 60f), "MT_SplitOff".Translate(BuildInfo.Name));
+                return;
+            }
+            y += MUI.RecommendedCard(new Rect(r.x, y, r.width, 0f), S, S.recommended, v => { S.recommended = v; if (v) { MUI.ApplyAll(S); Restrict(); } }, recBullets) + 6f;
             if (S.recommended) y += MUI.LockNote(new Rect(r.x, y, r.width, 0f)) + 4f;
             Rect rest = new Rect(r.x, y, r.width, r.yMax - y);
             var l = new Listing_Standard { maxOneColumn = true };
