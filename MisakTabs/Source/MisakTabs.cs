@@ -27,6 +27,7 @@ namespace MisakTabs
         public bool needs = true, billDialog = true;                                  // 0.11.0
         public float needsW = 640f, needsH = 520f;                                    // 0.11.0
         public bool gear = true;                                                      // 0.13.1
+        public bool infoCard = true;                                                  // 0.14.0
         public float gearW = 880f, gearH = 580f;                                      // 0.13.1
         public bool paneLook = true, plantPicker = true;                                                  // 0.12.0
         public bool recipePicker = true, surgeryPicker = true, ownerPicker = true, policyPicker = true, researchPicker = true, mechPicker = true, animalPicker = true, tradeWindow = true;   // 0.13.0: pickers everywhere
@@ -64,6 +65,7 @@ namespace MisakTabs
             Scribe_Values.Look(ref needsW, "needsW", 640f);
             Scribe_Values.Look(ref needsH, "needsH", 520f);
             Scribe_Values.Look(ref gear, "gear", true);
+            Scribe_Values.Look(ref infoCard, "infoCard", true);
             Scribe_Values.Look(ref gearW, "gearW", 880f);
             Scribe_Values.Look(ref gearH, "gearH", 580f);
             WindowSizes.Expose();   // 0.13.0
@@ -72,7 +74,7 @@ namespace MisakTabs
 
     public class MTMod : Mod
     {
-        public const string Version = "0.13.3";
+        public const string Version = "0.14.0";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0
@@ -94,6 +96,7 @@ namespace MisakTabs
             NeedsTab.Patch(H);   // 0.11.0
             GearTab.Patch(H);    // 0.13.1
             BillDialogSwap.Patch(H); // 0.11.0
+            InfoCardSwap.Patch(H);   // 0.14.0
             InspectPaneLook.Patch(H); // 0.12.0
             PlantPickerPatch.Patch(H); // 0.12.0
             OurLookScope.Patch(H);     // 0.12.0
@@ -129,6 +132,7 @@ namespace MisakTabs
                 Check(l, "MT_Social", ref S.social, "social");
                 Check(l, "MT_Needs", ref S.needs, "needs");
                 Check(l, "MT_Gear", ref S.gear, "gear");
+                Check(l, "MT_InfoCard", ref S.infoCard, "infoCard");
                 Check(l, "MT_BillDialog", ref S.billDialog, "billDialog");
                 Check(l, "MT_PaneLook", ref S.paneLook, "paneLook");
                 Check(l, "MT_PlantPicker", ref S.plantPicker, "plantPicker");
@@ -264,8 +268,11 @@ namespace MisakTabs
         private static int dragMode;   // 1 height, 2 width, 3 both
         private static bool moved;
 
+        public static bool suppress;   // 0.14.0: tabs drawn inside the info card have no size handles
+
         public static bool Grip(Rect r, string id, ref float w, ref float h, float minW, float minH)
         {
+            if (suppress) return false;
             const float edge = 12f, cs = 30f;
             Rect cornerR = new Rect(r.xMax - cs - 2f, r.y + 2f, cs, cs);
             Rect topPill = new Rect(r.center.x - 40f, r.y, 80f, 14f);

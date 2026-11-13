@@ -30,7 +30,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Mech Commander | 0.1.3 | [MechCommander](MechCommander) |
 | [B98] Mišák Architect – Clear Build Menu | 0.1.0 | [MisakArchitect](MisakArchitect) |
 | [B98] Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
-| [B98] Mišák Tabs – Clear Bills, Health & Info | 0.13.3 | [MisakTabs](MisakTabs) |
+| [B98] Mišák Tabs – Clear Bills, Health & Info | 0.14.0 | [MisakTabs](MisakTabs) |
 | [B98] Mod Sort Manager – Load Order, Conflicts & Profiles | 0.7.0 | [ModSortManager](ModSortManager) |
 | [B98] Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | [B98] Place for Everything – Smart Storage for Homeless Items | 0.2.0 | [PlaceForEverything](PlaceForEverything) |

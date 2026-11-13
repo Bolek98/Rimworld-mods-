@@ -96,6 +96,8 @@ namespace MisakTabs
         }
 
         // ---------- drawing ----------
+        public static void DrawFor(Rect r, Pawn pawn) => Draw(r, pawn);   // 0.14.0: inside the info card
+
         private static void Draw(Rect r, Pawn pawn)
         {
             Look.Box(r, Look.Bg);
