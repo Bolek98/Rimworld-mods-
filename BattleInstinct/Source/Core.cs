@@ -26,6 +26,7 @@ public class PawnData : IExposable
 	public int lastCast = -9999;
 	public int lastText = -9999;
 	public int retreatUntil;
+	public bool autoDrafted;   // 0.1.1: drafted by Steward – Roles (soldier), not by the player
 
 	public Stance Stance => (Stance)Mathf.Clamp(stance, 0, 2);
 
@@ -188,6 +189,22 @@ public static class Patch_Drafted
 		d.ourJob = null;
 		d.target = null;
 		if (value && p.Spawned) d.anchor = p.Position;
+		d.autoDrafted = value && StewardDrafting();
+	}
+
+	// Steward – Roles drafts soldiers when enemies come; it sets SoldierDuty.busy while doing so
+	private static System.Reflection.FieldInfo busy;
+	private static bool looked;
+
+	private static bool StewardDrafting()
+	{
+		if (!looked)
+		{
+			looked = true;
+			busy = AccessTools.TypeByName("StewardRoles.SoldierDuty") is Type t ? AccessTools.Field(t, "busy") : null;
+		}
+		try { return busy != null && (bool)busy.GetValue(null); }
+		catch { return false; }
 	}
 }
 
@@ -205,6 +222,7 @@ public static class Patch_OrderedJob
 		PawnData d = BIComp.For(p);
 		if (d == null) return;
 		d.ourJob = null;
+		d.autoDrafted = false;   // the player took over
 		if (job.def == JobDefOf.Goto && job.targetA.IsValid)
 			d.anchor = job.targetA.Cell;
 	}

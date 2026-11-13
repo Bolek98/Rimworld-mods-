@@ -27,10 +27,12 @@ public static class Brain
 		int now = Find.TickManager.TicksGame;
 		if (!d.anchor.IsValid) d.anchor = p.Position;
 
-		// enemies this pawn can know about, nearest first
+		// 0.1.1: attack stance (and soldiers Steward drafted on their own) go after enemies anywhere on the map;
+		// the others react to what is within sight range
+		bool seek = d.Stance == Stance.Aggressive || d.autoDrafted;
 		List<Thing> near = new List<Thing>();
 		foreach (Thing t in f.enemies)
-			if (t.Position.InHorDistOf(p.Position, SeeRange))
+			if (seek || t.Position.InHorDistOf(p.Position, SeeRange))
 				near.Add(t);
 		if (near.Count == 0) return;
 		near.SortBy(t => (t.Position - p.Position).LengthHorizontalSquared);
@@ -65,12 +67,15 @@ public static class Brain
 		Thing best = ranked[0];
 		Verb verb = p.TryGetAttackVerb(best, false);
 		if (verb == null) return;
-		IntVec3 locus = d.Stance == Stance.Aggressive ? p.Position : d.anchor;
-		float leash = d.Stance == Stance.Aggressive ? s.aggressiveRadius : s.defensiveRadius;
+		IntVec3 locus = seek ? p.Position : d.anchor;
+		float leash = seek ? s.aggressiveRadius : s.defensiveRadius;
+		// 0.1.1: nobody in reach – an attacking pawn walks towards the enemy instead of standing still
+		if (seek)
+			leash = Mathf.Max(leash, (best.Position - p.Position).LengthHorizontal + 2f);
 
 		if (verb.verbProps.IsMeleeAttack)
 		{
-			if (d.Stance == Stance.Hold) return;   // the game hits what comes close
+			if (d.Stance == Stance.Hold && !d.autoDrafted) return;   // the game hits what comes close
 			Thing mt = ranked.FirstOrDefault(t => t.Position.InHorDistOf(locus, leash + 2f) && p.CanReach(t, PathEndMode.Touch, Danger.Deadly));
 			if (mt == null) return;
 			Job j = JobMaker.MakeJob(JobDefOf.AttackMelee, mt);
@@ -93,8 +98,9 @@ public static class Brain
 			shootNow = t;
 			break;
 		}
-		bool goodSpot = shootNow != null && (coverHere || !s.useCover || d.Stance == Stance.Hold || (shootNow.Position - p.Position).LengthHorizontalSquared < 36);
-		if (goodSpot || d.Stance == Stance.Hold)
+		bool hold = d.Stance == Stance.Hold && !d.autoDrafted;
+		bool goodSpot = shootNow != null && (coverHere || !s.useCover || hold || (shootNow.Position - p.Position).LengthHorizontalSquared < 36);
+		if (goodSpot || hold)
 		{
 			if (shootNow != null) Shoot(p, d, shootNow, shootNow == best && f.focus.ContainsKey(shootNow) ? "BI_TxtFocus" : null);
 			return;
@@ -110,7 +116,7 @@ public static class Brain
 			wantCoverFromTarget = s.useCover,
 			locus = locus,
 			maxRangeFromLocus = leash,
-			maxRegions = 60,
+			maxRegions = seek ? 250 : 60,
 		};
 		if (s.avoidFriendlyFire)
 			req.validator = c => !FriendlyRisk(p, c, best, f);
@@ -123,7 +129,32 @@ public static class Brain
 			Issue(p, d, g, best, "BI_TxtCover");
 			return;
 		}
-		if (shootNow != null) Shoot(p, d, shootNow, null);
+		if (shootNow != null) { Shoot(p, d, shootNow, null); return; }
+		// 0.1.1: no covered spot found – an attacking pawn still closes in on the enemy
+		if (seek && p.CanReach(best, PathEndMode.Touch, Danger.Deadly))
+		{
+			IntVec3 step = StepTowards(p, best.Position, Mathf.Max(6f, verb.verbProps.range * 0.8f));
+			if (step.IsValid && step != p.Position)
+			{
+				Job g = JobMaker.MakeJob(JobDefOf.Goto, step);
+				g.expiryInterval = 300;
+				g.checkOverrideOnExpire = true;
+				g.locomotionUrgency = LocomotionUrgency.Sprint;
+				Issue(p, d, g, best, "BI_TxtAdvance");
+			}
+		}
+	}
+
+	// a standable cell on the way to 'to', about 'stopAt' cells before it
+	private static IntVec3 StepTowards(Pawn p, IntVec3 to, float stopAt)
+	{
+		Map map = p.Map;
+		Vector3 a = p.Position.ToVector3Shifted(), b = to.ToVector3Shifted();
+		float dist = (b - a).magnitude;
+		if (dist <= stopAt) return IntVec3.Invalid;
+		IntVec3 c = (a + (b - a) * ((dist - stopAt) / dist)).ToIntVec3();
+		if (!c.InBounds(map)) return IntVec3.Invalid;
+		return CellFinder.TryFindRandomReachableNearbyCell(c, map, 4f, TraverseParms.For(p, Danger.Deadly), x => x.Standable(map), null, out IntVec3 r) ? r : IntVec3.Invalid;
 	}
 
 	private static void Shoot(Pawn p, PawnData d, Thing t, string text)

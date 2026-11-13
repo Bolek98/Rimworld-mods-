@@ -60,7 +60,7 @@ public class BISettings : ModSettings
 public class BattleInstinctMod : Mod
 {
 	public static BISettings Settings;
-	public const string Version = "0.1.0";
+	public const string Version = "0.1.1";
 	private static List<string> recBullets;
 	private Vector2 scroll;
 	private static string search = "";
