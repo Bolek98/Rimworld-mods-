@@ -78,6 +78,8 @@ public static class Subs
 		if (td.IsTable) return "tables";
 		if (bp != null && bp.isSittable) return "seats";
 		if (bp != null && bp.joyKind != null) return "joy";
+		// 1.1.1: animal things before storage (troughs and feeders are often storage buildings)
+		if (CompClass(td, "AnimalPenMarker") || CompClass(td, "EggBox") || Animalish(td.defName)) return "animals";
 		if (typeof(Building_Storage).IsAssignableFrom(td.thingClass) || bp?.fixedStorageSettings != null || bp?.defaultStorageSettings != null && !td.IsWorkTable) return "storage";
 		if (typeof(Building_PlantGrower).IsAssignableFrom(td.thingClass) || bp != null && !bp.sowTag.NullOrEmpty()) return "plants";
 		if (Has<CompProperties_Glower>(td)) return "lights";
@@ -87,6 +89,9 @@ public static class Subs
 		if (Has<CompProperties_Spawner>(td) || Has<CompProperties_Refuelable>(td) && Has<CompProperties_Power>(td)) return "production";
 		return "other";
 	}
+
+	private static readonly string[] AnimalWords = { "Animal", "PenMarker", "Trough", "Feeder", "Kennel", "Hutch", "Coop", "Nest", "EggBox", "Hive", "Hay", "Milking", "Shearing", "PetBed", "Doghouse", "Stable" };
+	private static bool Animalish(string n) => n != null && AnimalWords.Any(w => n.IndexOf(w, StringComparison.Ordinal) >= 0);
 
 	public static string Label(string key)
 	{

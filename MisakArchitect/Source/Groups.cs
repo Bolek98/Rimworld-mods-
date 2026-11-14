@@ -12,7 +12,7 @@ public static class Groups
 {
 	public static readonly string[] Order =
 	{
-		"orders", "build", "floors", "furniture", "production", "power", "security", "health", "decor", "vehicles", "map", "mods"
+		"orders", "build", "floors", "furniture", "storage", "production", "animals", "power", "security", "health", "decor", "vehicles", "map", "mods"
 	};
 
 	// preferred picture of each folder (first one that exists)
@@ -21,7 +21,9 @@ public static class Groups
 		{ "build", new[] { "Wall" } },
 		{ "floors", new[] { "WoodPlankFloor", "Concrete" } },
 		{ "furniture", new[] { "Bed", "DiningChair" } },
+		{ "storage", new[] { "Shelf", "ShelfSmall" } },
 		{ "production", new[] { "ElectricStove", "FueledStove", "TableButcher" } },
+		{ "animals", new[] { "AnimalSleepingBox", "AnimalBed", "PenMarker", "FenceGate" } },
 		{ "power", new[] { "SolarGenerator", "WoodFiredGenerator", "Heater" } },
 		{ "security", new[] { "Turret_MiniTurret", "Sandbags" } },
 		{ "health", new[] { "VitalsMonitor", "HospitalBed", "ToolCabinet" } },
@@ -62,8 +64,10 @@ public static class Groups
 		{
 			case "walls": case "doors": case "fences": return "build";
 			case "floors": return "floors";
-			case "beds": case "tables": case "seats": case "joy": case "lights": case "storage": return "furniture";
-			case "benches": case "research": case "production": case "facilities": case "comms": case "plants": case "animals": return "production";
+			case "beds": case "tables": case "seats": case "joy": case "lights": return "furniture";
+			case "storage": return "storage";
+			case "animals": return "animals";
+			case "benches": case "research": case "production": case "facilities": case "comms": case "plants": return "production";
 			case "medical": return "health";
 			case "temperature": case "power": case "conduits": case "batteries": return "power";
 			case "security": case "traps": return "security";
@@ -88,6 +92,17 @@ public static class Groups
 		if (n.Contains("misc") || n.Contains("decor") || n.Contains("ideolog") || n.Contains("art")) return "decor";
 		bool official = c.modContentPack == null || c.modContentPack.IsOfficialMod;
 		return official ? "decor" : "mods";
+	}
+
+	// 1.1.1: fences and fence gates also show in Animals (pens are built from them)
+	public static string Extra(Designator d)
+	{
+		if (d is Designator_Dropdown dd) d = dd.Elements.FirstOrDefault();
+		if (!(d is Designator_Build b) || !(b.PlacingDef is ThingDef td)) return null;
+		string n = td.defName;
+		if (Subs.Kind(d) == "fences" || td.IsDoor && (n.Contains("Fence") || n.Contains("Gate") || n.Contains("Flap") || n.Contains("Pen")))
+			return "animals";
+		return null;
 	}
 
 	public static Def IconDef(string g)

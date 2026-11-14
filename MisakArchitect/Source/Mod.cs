@@ -48,7 +48,7 @@ public class MisakArchitectMod : Mod
 {
 	public static MASettings S;
 	public static MisakArchitectMod Instance;
-	public const string Version = "1.1.0";
+	public const string Version = "1.1.1";
 
 	public MisakArchitectMod(ModContentPack content) : base(content)
 	{
@@ -183,7 +183,10 @@ public static class Catalog
 			foreach (Designator d in list)
 			{
 				catOf[d] = c;
-				groupItems[Groups.Of(d, c)].Add(d);
+				string gr = Groups.Of(d, c);
+				groupItems[gr].Add(d);
+				string ex = Groups.Extra(d);
+				if (ex != null && ex != gr && groupItems.TryGetValue(ex, out var exl)) exl.Add(d);
 				if (d is Designator_Dropdown dd)
 					foreach (Designator e in dd.Elements) Add(e, c);
 				else
