@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WA_Title>Wild Animals – controle de surgimento por bioma</WA_Title>
+  <WA_Bullet1>As listas de animais do jogo em cada bioma</WA_Bullet1>
+  <WA_Bullet2>Um novo animal ou grupo no máximo a cada 8 horas</WA_Bullet2>
+  <WA_Bullet3>Predadores no máximo 30 %, nenhum a menos de 30 células de casa</WA_Bullet3>
+  <WA_Bullet4>Cartas para animais raros, aviso de pressão de caça</WA_Bullet4>
+  <WA_TabBiomes>Biomas</WA_TabBiomes>
+  <WA_TabRules>Regras</WA_TabRules>
+  <WA_TabMap>Este mapa</WA_TabMap>
+  <WA_Presets>Predefinições</WA_Presets>
+  <WA_PresetsTip>Configurações prontas para todos os biomas.</WA_PresetsTip>
+  <WA_Preset0>Listas do jogo, sem limites</WA_Preset0>
+  <WA_Preset1>Mais animais (×2, mais rápido)</WA_Preset1>
+  <WA_Preset2>Menos animais (×0.5, mais devagar)</WA_Preset2>
+  <WA_Preset3>Pacífico (poucos predadores, nenhum perto de casa)</WA_Preset3>
+  <WA_PresetConfirm>Usar a predefinição "{0}"? Suas próprias listas de biomas e números serão substituídos.</WA_PresetConfirm>
+  <WA_PresetDone>Predefinição usada: {0}</WA_PresetDone>
+  <WA_Share>Código de compartilhamento</WA_Share>
+  <WA_ShareTip>Copie suas configurações como código de texto ou cole o código de um amigo.</WA_ShareTip>
+  <WA_ShareCopy>Copiar minhas configurações</WA_ShareCopy>
+  <WA_SharePaste>Colar um código da área de transferência</WA_SharePaste>
+  <WA_SharePasteConfirm>Substituir suas configurações pelo código da área de transferência?</WA_SharePasteConfirm>
+  <WA_ShareCopied>Código das configurações copiado para a área de transferência.</WA_ShareCopied>
+  <WA_ShareBad>A área de transferência não tem um código do Wild Animals.</WA_ShareBad>
+  <WA_ShareRead>Código lido: {0} entradas.</WA_ShareRead>
+  <WA_SearchBiome>Buscar um bioma…</WA_SearchBiome>
+  <WA_NAnimals>{0} animais · ~{1} num mapa</WA_NAnimals>
+  <WA_PickBiome>Escolha um bioma à esquerda.</WA_PickBiome>
+  <WA_CopyFrom>Copiar lista de…</WA_CopyFrom>
+  <WA_ResetBiome>Redefinir este bioma</WA_ResetBiome>
+  <WA_Target>Quantos animais selvagens: cerca de {0} num mapa 250×250 (jogo: {1})</WA_Target>
+  <WA_Sizes>cerca de {0} em 200×200 · cerca de {1} em 300×300</WA_Sizes>
+  <WA_ThisMap>seu mapa agora: {0}</WA_ThisMap>
+  <WA_SearchAnimal>Buscar um animal ou mod…</WA_SearchAnimal>
+  <WA_ShowAll>Mostrar todos os animais</WA_ShowAll>
+  <WA_ShowAllTip>Todos os animais selvagens do jogo, das DLCs e de todos os mods – também os que nunca vivem neste bioma. Dê a um deles um valor acima de 0 para adicioná-lo.</WA_ShowAllTip>
+  <WA_HCommon>Frequência (parcela das chegadas)</WA_HCommon>
+  <WA_HCap>Limite</WA_HCap>
+  <WA_HSeasons>Estações</WA_HSeasons>
+  <WA_RareTip>Raro: uma carta quando um chegar.</WA_RareTip>
+  <WA_NoAnimals>Nenhum animal corresponde.</WA_NoAnimals>
+  <WA_Predator>predador</WA_Predator>
+  <WA_Coastal>só no litoral</WA_Coastal>
+  <WA_NotNative>não é nativo daqui</WA_NotNative>
+  <WA_MayFreeze>pode congelar</WA_MayFreeze>
+  <WA_MayOverheat>pode superaquecer</WA_MayOverheat>
+  <WA_NoCap>Sem limite</WA_NoCap>
+  <WA_CapTip>No máximo esta quantidade de {0} no mapa ao mesmo tempo (selvagens). Vale em todos os biomas.</WA_CapTip>
+  <WA_S0>Pri</WA_S0>
+  <WA_S1>Ver</WA_S1>
+  <WA_S2>Out</WA_S2>
+  <WA_S3>Inv</WA_S3>
+  <WA_Season0>primavera</WA_Season0>
+  <WA_Season1>verão</WA_Season1>
+  <WA_Season2>outono</WA_Season2>
+  <WA_Season3>inverno</WA_Season3>
+  <WA_SeasonTip>Chega em: {0}. Clique para alternar. Animais que já estão no mapa ficam.</WA_SeasonTip>
+  <WA_TempTip>Só chega quando a temperatura externa está na faixa confortável dele ({0} a {1}). Ligado por padrão para animais que não são nativos do bioma.</WA_TempTip>
+  <WA_SecSpawn>Chegadas</WA_SecSpawn>
+  <WA_Enabled>Controlar a chegada de animais selvagens</WA_Enabled>
+  <WA_EnabledTip>Desligado = surgimento próprio do jogo (suas listas de biomas são mantidas para depois).</WA_EnabledTip>
+  <WA_Respawn>Um novo animal ou grupo no máximo a cada {0} (enquanto o mapa estiver abaixo do número dele)</WA_Respawn>
+  <WA_RespawnTip>O jogo usa uma chance oculta; aqui você define o tempo entre as chegadas.</WA_RespawnTip>
+  <WA_Group>Tamanho do grupo ×{0}</WA_Group>
+  <WA_GroupTip>Manadas e matilhas ficam maiores ou menores.</WA_GroupTip>
+  <WA_SecPredators>Predadores</WA_SecPredators>
+  <WA_PredMax>Predadores no máximo {0} % dos animais selvagens</WA_PredMax>
+  <WA_PredMaxOff>Predadores: sem limite</WA_PredMaxOff>
+  <WA_PredMaxTip>Quando houver mais, só chegam não predadores.</WA_PredMaxTip>
+  <WA_PredHome>Nenhum predador chega a menos de {0} células da área de casa</WA_PredHome>
+  <WA_PredHomeOff>Predadores podem chegar em qualquer lugar</WA_PredHomeOff>
+  <WA_PredHomeTip>Verificado onde o animal entra no mapa.</WA_PredHomeTip>
+  <WA_SecInfo>Informações</WA_SecInfo>
+  <WA_RareLetters>Carta quando chegar um animal raro</WA_RareLetters>
+  <WA_RareLettersTip>Animais raros são marcados com ★ na lista do bioma (thrumbos e outros muito raros por padrão).</WA_RareLettersTip>
+  <WA_Pressure>Aviso de pressão de caça</WA_Pressure>
+  <WA_PressureTip>Avisa quando a colônia mata animais selvagens mais rápido do que chegam novos e o mapa está ficando vazio.</WA_PressureTip>
+  <WA_EventsNote>Os eventos não mudam: bandos enfurecidos, migrações de manadas, visitas de thrumbos e outros funcionam como no jogo.</WA_EventsNote>
+  <WA_Hours>{0} h</WA_Hours>
+  <WA_Days>{0} dias</WA_Days>
+  <WA_NoMap>Carregue um jogo para ver os animais do seu mapa.</WA_NoMap>
+  <WA_MapHead>{0}: {1} animais selvagens / meta {2}</WA_MapHead>
+  <WA_MapOff>Chegadas: as do próprio jogo</WA_MapOff>
+  <WA_MapFull>O mapa está cheio – nenhuma chegada agora</WA_MapFull>
+  <WA_MapNext>Próxima chegada em no máximo {0}</WA_MapNext>
+  <WA_MapSeason>Estação: {0}</WA_MapSeason>
+  <WA_MapStats>Últimos 5 dias: mortos pela colônia {0} · chegaram {1} · predadores {2} ({3} %)</WA_MapStats>
+  <WA_HAnimal>Animal</WA_HAnimal>
+  <WA_HNow>Agora</WA_HNow>
+  <WA_HExpected>Esperado</WA_HExpected>
+  <WA_HState>Chega?</WA_HState>
+  <WA_StNotInList>não está na lista deste bioma</WA_StNotInList>
+  <WA_StSeason>fora de estação / frio ou calor demais</WA_StSeason>
+  <WA_StCap>limite atingido</WA_StCap>
+  <WA_StOk>sim</WA_StOk>
+  <WA_AlertLabel>Pressão de caça</WA_AlertLabel>
+  <WA_AlertText>A colônia matou {0} animais selvagens nos últimos 5 dias, só {1} chegaram. O mapa está ficando vazio – cace menos ou defina chegadas mais rápidas no Wild Animals.</WA_AlertText>
+  <WA_RareTitle>Animal raro: {0}</WA_RareTitle>
+  <WA_RareText>Um animal raro chegou: {0}. Dê uma olhada antes que ele vá embora – ou antes que alguém o cace.</WA_RareText>
+  <MUI_Title>Configurações recomendadas</MUI_Title>
+  <MUI_TitleOff>Configurações recomendadas · desligadas</MUI_TitleOff>
+  <MUI_DescOn>O mod se configura sozinho e funciona na hora. Ideal para novos jogadores e para quem não quer ajustar nada.</MUI_DescOn>
+  <MUI_DescOff>Configurações próprias. Alterado em relação ao recomendado: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Configurações próprias. Ainda iguais às recomendadas.</MUI_DescOffSame>
+  <MUI_On>LIGADO</MUI_On>
+  <MUI_Off>DESLIGADO</MUI_Off>
+  <MUI_ResetAll>Restaurar tudo para o recomendado</MUI_ResetAll>
+  <MUI_ConfirmOn>Ligar as configurações recomendadas? Suas alterações ({0}) serão substituídas pelos valores recomendados.</MUI_ConfirmOn>
+  <MUI_Locked>As configurações detalhadas estão bloqueadas. Quer alterá-las? Desligue a chave acima – seus valores partem dos recomendados.</MUI_Locked>
+  <MUI_Changed>ALTERADO</MUI_Changed>
+  <MUI_ChangedTip>Difere da configuração recomendada ({0}). Clique para restaurar o valor recomendado.</MUI_ChangedTip>
+  <MUI_Yes>ligado</MUI_Yes>
+  <MUI_No>desligado</MUI_No>
+  <MUI_RecTag>RECOMENDADO</MUI_RecTag>
+  <WA_EditNote>As configurações recomendadas estão ligadas. Altere qualquer coisa abaixo e elas se desligam – seus valores partem dos recomendados.</WA_EditNote>
+  <WA_TempHeadTip>Só chega quando a temperatura externa é adequada ao animal.</WA_TempHeadTip>
+  <!-- 0.1.3 -->
+  <WA_ModAll>Mod: todos</WA_ModAll>
+  <WA_ModFilter>Mod: {0}</WA_ModFilter>
+  <WA_ModFilterTip>Mostra só os animais de um mod (busca todos os animais desse mod, não só a lista deste bioma).</WA_ModFilterTip>
+  <WA_BelongsHere>pertence aqui</WA_BelongsHere>
+  <WA_BelongsTip>Este animal pertence a este bioma no próprio jogo. Ele sempre fica na lista, mesmo em 0, para que você possa trazê-lo de volta.</WA_BelongsTip>
+  <WA_ResetMenu>Redefinir… ▾</WA_ResetMenu>
+  <WA_ResetMenuTip>Traga de volta os animais que pertencem aqui ou redefina o bioma inteiro para a lista do jogo.</WA_ResetMenuTip>
+  <WA_RestoreNatives>Trazer de volta os animais que pertencem aqui (outras mudanças ficam)</WA_RestoreNatives>
+  <WA_RestoreNativesAll>Trazer de volta os animais que pertencem a cada bioma – em todos os biomas</WA_RestoreNativesAll>
+  <WA_RestoreDone>{0} animais estão de volta em {1}.</WA_RestoreDone>
+  <WA_RestoreDoneAll>{0} animais estão de volta em {1} biomas.</WA_RestoreDoneAll>
+  <WA_NativesZero>{0} animais que pertencem a este bioma estão em 0.</WA_NativesZero>
+  <WA_RestoreNow>Trazê-los de volta</WA_RestoreNow>
+  <WA_Pets>Animais domésticos também (cães, gatos, outros pets)</WA_Pets>
+  <WA_PetsTip>O jogo nunca deixa animais domésticos viverem na natureza. Ligado: cães, gatos e outros pets de qualquer mod aparecem nas listas de biomas ("Mostrar todos os animais" ou busca) e podem receber uma parcela ali como qualquer outro animal – então chegam como animais selvagens errantes. Desligado: ficam de fora, mesmo que ainda estejam numa lista.</WA_PetsTip>
+</LanguageData>

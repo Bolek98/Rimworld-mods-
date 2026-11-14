@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_SetMeltdown>反应堆熔毁</PWW_SetMeltdown>
+  <PWW_SetMeltdownTip>关:裂变反应堆热度达到 100 % 时自动停堆。开:它会爆炸,有毒尘降覆盖地图 3 天。</PWW_SetMeltdownTip>
+  <PWW_SetHydroWinter>河流结冰时水力发电机功率降低</PWW_SetHydroWinter>
+  <PWW_SetHydroWinterTip>室外低于 −2 °C 时,水力发电站只提供 40 % 的电力。</PWW_SetHydroWinterTip>
+  <PWW_SetAutoLow>柴油自动启动:储能低于 {0} % 时开启</PWW_SetAutoLow>
+  <PWW_SetAutoHigh>……高于 {0} % 时关闭</PWW_SetAutoHigh>
+  <PWW_BreakerTrippedLabel>断路器跳闸</PWW_BreakerTrippedLabel>
+  <PWW_BreakerTripped>电网发生短路,但断路器及时跳闸——没有爆炸,没有起火。断路器后方的电网现在断电,直到你重新合上断路器。</PWW_BreakerTripped>
+  <PWW_HydroFrozen>河流结冰:40 % 功率</PWW_HydroFrozen>
+  <PWW_HydroGround>不在流动水面上的格子需要坚实地面。</PWW_HydroGround>
+  <PWW_NeedSea>必须建在距离海洋 3 格以内。</PWW_NeedSea>
+  <PWW_MeltdownLabel>反应堆熔毁!</PWW_MeltdownLabel>
+  <PWW_Meltdown>裂变反应堆过热并爆炸。有毒尘降正落向整个区域。</PWW_Meltdown>
+  <PWW_Scrammed>反应堆已紧急停堆(SCRAM)。</PWW_Scrammed>
+  <PWW_Scram>SCRAM</PWW_Scram>
+  <PWW_ScramDesc>立即关闭反应堆。它会冷却下来,之后可以重新开启。</PWW_ScramDesc>
+  <PWW_ReactorHeat>热度:{0} % · 冷却 {1} / 发热 {2} 每小时</PWW_ReactorHeat>
+  <PWW_HeatLabel>反应堆热度</PWW_HeatLabel>
+  <PWW_AutoStart>自动启动</PWW_AutoStart>
+  <PWW_AutoStartDesc>电网蓄电池低于 {0} % 时开启发电机,高于 {1} % 时关闭。没有蓄电池时,只要电网需要更多电力就会运行。阈值在模组设置中调整。</PWW_AutoStartDesc>
+  <PWW_StonecutterIdle>等待旁边出现石料。</PWW_StonecutterIdle>
+  <PWW_StonecutterWork>切割中:{0}</PWW_StonecutterWork>
+  <PWW_GridOverview>电网概览</PWW_GridOverview>
+  <PWW_GridOverviewDesc>该电网的发电、耗电和储能,以及最近 24 小时的记录。</PWW_GridOverviewDesc>
+  <PWW_GridNone>未连接到电网。</PWW_GridNone>
+  <PWW_GridGen>发电:{0} W</PWW_GridGen>
+  <PWW_GridUse>耗电:{0} W</PWW_GridUse>
+  <PWW_GridBalance>平衡:{0} W</PWW_GridBalance>
+  <PWW_GridStored>储能:{0} / {1} Wd</PWW_GridStored>
+  <PWW_GridWait>图表每游戏小时更新一次。</PWW_GridWait>
+  <PWW_Grid24h>最近 24 小时 · 绿色 发电 · 橙色 耗电 · 蓝色 储能</PWW_Grid24h>
+</LanguageData>

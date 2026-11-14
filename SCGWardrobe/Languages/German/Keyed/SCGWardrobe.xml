@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WR_Name>Smart Colonist Gear – Wardrobe</WR_Name>
+  <WR_Tab_Overview>Übersicht</WR_Tab_Overview>
+  <WR_Tab_Weapons>Waffen</WR_Tab_Weapons>
+  <WR_Tab_Armor>Rüstung</WR_Tab_Armor>
+  <WR_Tab_Work>Arbeitskleidung</WR_Tab_Work>
+  <WR_Tab_Care>Pflege</WR_Tab_Care>
+  <WR_Tab_Occasions>Anlässe</WR_Tab_Occasions>
+  <WR_Tab_Uniforms>Uniformen &amp; Farben</WR_Tab_Uniforms>
+  <WR_Tab_Wardrobe>Garderobe</WR_Tab_Wardrobe>
+  <WR_Tab_Tailor>Schneider</WR_Tab_Tailor>
+  <WR_Tab_Colonists>Kolonisten</WR_Tab_Colonists>
+  <WR_Tab_Advanced>Erweitert</WR_Tab_Advanced>
+  <WR_Rec1>Waffen und Rüstung nach Rolle und Situation</WR_Rec1>
+  <WR_Rec2>Arbeitskleidung aus dem Editor (automatisch befüllt)</WR_Rec2>
+  <WR_Rec3>Abgetragene Teile werden ersetzt, nie Kleidung von Toten</WR_Rec3>
+  <WR_Rec4>Nachts Schlafkleidung, an Feiertagen und Partys Festkleidung</WR_Rec4>
+  <WR_Rec5>Lieblingsoutfit wird im Schlafzimmer des Kolonisten aufbewahrt</WR_Rec5>
+  <WR_Rec6>Schneiderplaner – Aufträge nur nach deiner Bestätigung</WR_Rec6>
+  <WR_Enabled>Wardrobe entscheidet, was Kolonisten tragen</WR_Enabled>
+  <WR_Enabled_Desc>An: Smart Colonist Gear fragt Wardrobe bei jeder Ankleide-Entscheidung. Aus: Smart Colonist Gear entscheidet allein, genau wie ohne dieses Add-on.</WR_Enabled_Desc>
+  <WR_TakesOver>Das Ankleiden steuert Wardrobe. Smart Colonist Gear findet weiterhin die Ausrüstung, Wardrobe hat das letzte Wort.</WR_TakesOver>
+  <WR_ScgDecides>Wardrobe ist aus – Smart Colonist Gear entscheidet allein.</WR_ScgDecides>
+  <WR_OverviewText>Jede Regel geht von der Wahl von Smart Colonist Gear aus – mit unveränderten Tabellen kleiden sich Kolonisten wie bisher, die Reiter fügen nur deine Wünsche hinzu.</WR_OverviewText>
+  <WR_RolesSource>Rollen stammen aus: {0}</WR_RolesSource>
+  <WR_RolesSteward>Steward – Rollen</WR_RolesSteward>
+  <WR_RolesSkills>Fertigkeiten (die stärkste Fertigkeit, deren Arbeit der Kolonist erledigt)</WR_RolesSkills>
+  <WR_SidearmsNote>Simple Sidearms ist aktiv: Die Rollentabelle wählt die Hauptwaffe, Simple Sidearms behält die Nebenwaffen.</WR_SidearmsNote>
+  <WR_RoleWeapons>Waffen nach Rolle</WR_RoleWeapons>
+  <WR_RoleWeapons_Desc>Eine Waffe der gewünschten Art wird bevorzugt (×1,35), andere Arten sind weniger erwünscht (×0,75).</WR_RoleWeapons_Desc>
+  <WR_DamagedWeapon>Waffen tauschen, wenn beschädigt unter</WR_DamagedWeapon>
+  <WR_DamagedWeapon_Desc>Eine Waffe unter diesem Zustand zählt viel weniger, also wird eine bessere genommen, falls vorhanden.</WR_DamagedWeapon_Desc>
+  <WR_WeaponsText>Die Tabelle gewichtet nur die Waffenwertung von Smart Colonist Gear – Forschung, Zeitalter und Fertigkeit entscheiden zuerst.</WR_WeaponsText>
+  <WR_ResetTable>Tabelle zurücksetzen</WR_ResetTable>
+  <WR_WP_Any>Beliebig (wie Smart Colonist Gear)</WR_WP_Any>
+  <WR_WP_Ranged>Fernkampf</WR_WP_Ranged>
+  <WR_WP_Melee>Nahkampf</WR_WP_Melee>
+  <WR_WP_LongRange>Große Reichweite</WR_WP_LongRange>
+  <WR_WP_ShortRange>Kurze Reichweite</WR_WP_ShortRange>
+  <WR_WP_Light>Leicht</WR_WP_Light>
+  <WR_ArmorSets>Rüstung nach Situation und Rolle</WR_ArmorSets>
+  <WR_ArmorSets_Desc>Teile des gewünschten Gewichts werden bevorzugt; schwerere werden außerhalb eines Kampfes gemieden.</WR_ArmorSets_Desc>
+  <WR_ArmorText>Situationen: Verteidigung = Überfall oder eingezogen, Jagd = geht jagen, Karawane = auf Reisen. Sonst entscheidet die Rolle.</WR_ArmorText>
+  <WR_Sit_Defense>Verteidigung</WR_Sit_Defense>
+  <WR_Sit_Hunt>Jagd</WR_Sit_Hunt>
+  <WR_Sit_Caravan>Karawane / Expedition</WR_Sit_Caravan>
+  <WR_ArmorRoles>Bei der Arbeit, nach Rolle:</WR_ArmorRoles>
+  <WR_AW_Any>Beliebig (wie Smart Colonist Gear)</WR_AW_Any>
+  <WR_AW_None>Keine</WR_AW_None>
+  <WR_AW_Light>Leicht</WR_AW_Light>
+  <WR_AW_Medium>Mittel</WR_AW_Medium>
+  <WR_AW_Heavy>Schwer</WR_AW_Heavy>
+  <WR_WorkEditor>Editor für Arbeitskleidung</WR_WorkEditor>
+  <WR_WorkEditor_Desc>Welche Kleidung für welche Arbeit Arbeitskleidung ist. Aus: eigene Erkennung von Smart Colonist Gear.</WR_WorkEditor_Desc>
+  <WR_WorkText>Automatisch mit dem befüllt, was Smart Colonist Gear erkennt. Füge Teile hinzu oder entferne sie – Kolonisten ziehen sie für diese Arbeit an und danach wieder aus.</WR_WorkText>
+  <WR_WorkReset>Neu aus Smart Colonist Gear befüllen</WR_WorkReset>
+  <WR_AddPiece>+ Teil hinzufügen</WR_AddPiece>
+  <WR_NoPieces>(nichts)</WR_NoPieces>
+  <WR_Care>Kleiderpflege</WR_Care>
+  <WR_Care_Desc>Abgetragene Teile werden ersetzt, beschädigte Waffen getauscht.</WR_Care_Desc>
+  <WR_ReplaceBelow>Kleidung ersetzen unter</WR_ReplaceBelow>
+  <WR_ReplaceBelow_Desc>Vanilla gibt unter 50 % den Stimmungsmalus „zerlumpte Kleidung“. Über diesem Wert wird das Teil vor dem Malus ersetzt.</WR_ReplaceBelow_Desc>
+  <WR_NoCorpse>Nie Kleidung von Toten tragen</WR_NoCorpse>
+  <WR_RetireBills>Zerlumpte Teile aussortieren (Einschmelz- / Verbrennungsauftrag)</WR_RetireBills>
+  <WR_RetireBills_Desc>Einmal pro Karte ein „unbegrenzt“-Auftrag an einem Schmelzofen oder Krematorium für Kleidung unter dem Grenzwert. Löschst du ihn, wird er nicht neu erstellt.</WR_RetireBills_Desc>
+  <WR_RetireBelow>Aussortieren unter</WR_RetireBelow>
+  <WR_RetireBill>Wardrobe: Auftrag für zerlumpte Kleidung bei {0} hinzugefügt.</WR_RetireBill>
+  <WR_CareText>Reparaturen: Mit einer Mod, die Kleidung repariert (z. B. Mending), werden die Teile stattdessen repariert – Wardrobe trägt sie nur unter dem Grenzwert nicht mehr.</WR_CareText>
+  <WR_Sleepwear>Nachts Schlafkleidung</WR_Sleepwear>
+  <WR_Sleepwear_Desc>Bevor sie nachts schlafen gehen, ziehen Kolonisten Schlafkleidung an, morgens kleiden sie sich wieder für die Arbeit.</WR_Sleepwear_Desc>
+  <WR_SleepFrom>Nacht ab</WR_SleepFrom>
+  <WR_SleepTo>Nacht bis</WR_SleepTo>
+  <WR_SleepList>Schlafkleidung (nach Namen gefunden, frei bearbeitbar):</WR_SleepList>
+  <WR_Festive>Festkleidung zu Anlässen</WR_Festive>
+  <WR_Festive_Desc>Bei Partys, Ritualen und Feiertagen ziehen untätige Kolonisten Festkleidung an.</WR_Festive_Desc>
+  <WR_FestiveOnly>Festkleidung nur zu Anlässen</WR_FestiveOnly>
+  <WR_FestiveOnly_Desc>Außerhalb von Anlässen trägt sie niemand, so bleibt sie sauber.</WR_FestiveOnly_Desc>
+  <WR_HolidaysOn>Seasons &amp; Holidays ist aktiv: seine Feiertage zählen als Anlässe.</WR_HolidaysOn>
+  <WR_HolidaysOff>Anlässe: Partys und Rituale (mit Seasons &amp; Holidays auch dessen Feiertage).</WR_HolidaysOff>
+  <WR_FestiveList>Festkleidung (nach Namen gefunden, frei bearbeitbar):</WR_FestiveList>
+  <WR_OccasionsReset>Schlaf- und Festkleidung neu suchen</WR_OccasionsReset>
+  <WR_Hold_sleep>in Schlafkleidung</WR_Hold_sleep>
+  <WR_Hold_festive>in Festkleidung</WR_Hold_festive>
+  <WR_Uniforms>Uniformfarben nach Rolle</WR_Uniforms>
+  <WR_Uniforms_Desc>Untätige Kolonisten färben ihre Kleidung an einer Stylingstation in der Farbe ihrer Rolle.</WR_Uniforms_Desc>
+  <WR_UniformsText>Hake eine Rolle an und wähle ihre Farbe. Benötigt eine Stylingstation und Farbstoff.</WR_UniformsText>
+  <WR_NeedIdeology>Kleidung färben benötigt das Ideology-DLC.</WR_NeedIdeology>
+  <WR_Favorites>Persönliche Garderobe (Lieblingsstücke)</WR_Favorites>
+  <WR_Favorites_Desc>Lieblingsstücke trägt nur ihr Besitzer, und er bevorzugt sie.</WR_Favorites_Desc>
+  <WR_ToBedroom>Lieblingsstücke im Schlafzimmer des Kolonisten aufbewahren</WR_ToBedroom>
+  <WR_ToBedroom_Desc>Untätige Kolonisten bringen ihre nicht getragenen Lieblingsstücke zu einem Regal oder einer Kommode im eigenen Schlafzimmer.</WR_ToBedroom_Desc>
+  <WR_FavoritesText>Wähle einen Kolonisten und drücke „Outfit als Lieblingsstücke speichern“. Ein Lager (Regal, Kommode) in seinem Schlafzimmer bewahrt sie auf.</WR_FavoritesText>
+  <WR_SetFavorites>Outfit als Lieblingsstücke speichern</WR_SetFavorites>
+  <WR_SetFavorites_Desc>Alles, was er jetzt trägt (und seine Waffe), gehört ihm: nur er trägt es, und er bevorzugt es.</WR_SetFavorites_Desc>
+  <WR_FavoritesNow>{0} Lieblingsstücke</WR_FavoritesNow>
+  <WR_FavoritesSaved>{0}: {1} Teile als Lieblingsstücke gespeichert.</WR_FavoritesSaved>
+  <WR_ClearFavorites>Lieblingsstücke löschen</WR_ClearFavorites>
+  <WR_ClearFavorites_Desc>Seine Teile sind wieder für alle frei.</WR_ClearFavorites_Desc>
+  <WR_NoFavorites>keine Lieblingsstücke</WR_NoFavorites>
+  <WR_Tailor>Schneiderplaner</WR_Tailor>
+  <WR_Tailor_Desc>Schlägt vor, was hergestellt werden soll. Nichts wird beauftragt, bevor du bestätigst.</WR_Tailor_Desc>
+  <WR_TailorText>Nackter Oberkörper oder nackte Beine, abgetragene Teile ohne Ersatz, schlechte Qualität, fehlende Schlaf- oder Festkleidung.</WR_TailorText>
+  <WR_Refresh>Aktualisieren</WR_Refresh>
+  <WR_NothingToMake>Nichts herzustellen – alle sind gut gekleidet.</WR_NothingToMake>
+  <WR_AddBill>Auftrag hinzufügen</WR_AddBill>
+  <WR_ConfirmBill>Auftrag „{0}“ ×{1} hinzufügen?</WR_ConfirmBill>
+  <WR_BillAdded>Auftrag „{0}“ ×{2} bei {1} hinzugefügt.</WR_BillAdded>
+  <WR_SugBareTorso>nackter Oberkörper</WR_SugBareTorso>
+  <WR_SugBareLegs>nackte Beine</WR_SugBareLegs>
+  <WR_SugTattered>abgetragen, kein Ersatz</WR_SugTattered>
+  <WR_SugPoor>schlechte Qualität</WR_SugPoor>
+  <WR_SugSleep>keine Schlafkleidung</WR_SugSleep>
+  <WR_SugFestive>keine Festkleidung</WR_SugFestive>
+  <WR_NoMap>Öffne ein Spiel, um dies zu sehen.</WR_NoMap>
+  <WR_ColonistsText>Haken = Wardrobe kleidet den Kolonisten. Der Knopf legt seine Rolle fest (* = von dir gesetzt).</WR_ColonistsText>
+  <WR_RoleAuto>Automatisch</WR_RoleAuto>
+  <WR_MaxDistance>Max. Entfernung zum Holen von Kleidung</WR_MaxDistance>
+  <WR_MaxDistance_Desc>Wie weit Kolonisten für Schlaf- oder Festkleidung laufen.</WR_MaxDistance_Desc>
+  <WR_Verbose>Entscheidungen protokollieren (für Fehlerberichte)</WR_Verbose>
+  <WR_ResetAll>Alles zurücksetzen</WR_ResetAll>
+  <WR_ResetAll_Confirm>Alle Einstellungen und Tabellen von Wardrobe auf die Standardwerte zurücksetzen?</WR_ResetAll_Confirm>
+  <WR_AdvancedText>Wardrobe prüft alle 1,5 Sekunden einen Kolonisten – kein Ruckeln, auch nicht in großen Kolonien.</WR_AdvancedText>
+  <WR_Role_Everyone>Alle</WR_Role_Everyone>
+  <WR_Role_Soldier>Soldat</WR_Role_Soldier>
+  <WR_Role_Hunter>Jäger</WR_Role_Hunter>
+  <WR_Role_Doctor>Arzt</WR_Role_Doctor>
+  <WR_Role_Builder>Bauarbeiter</WR_Role_Builder>
+  <WR_Role_Miner>Bergarbeiter</WR_Role_Miner>
+  <WR_Role_Crafter>Handwerker</WR_Role_Crafter>
+  <WR_Role_Cook>Koch</WR_Role_Cook>
+  <WR_Role_Farmer>Bauer</WR_Role_Farmer>
+  <WR_Role_Researcher>Forscher</WR_Role_Researcher>
+  <WR_Role_Handler>Tierpfleger</WR_Role_Handler>
+  <WR_Role_Warden>Wärter</WR_Role_Warden>
+  <WR_Role_Hauler>Träger</WR_Role_Hauler>
+  <MUI_Title>Empfohlene Einstellungen</MUI_Title>
+  <MUI_TitleOff>Empfohlene Einstellungen · aus</MUI_TitleOff>
+  <MUI_DescOn>Die Mod richtet sich selbst ein und funktioniert sofort. Ideal für neue Spieler und alle, die nichts anpassen wollen.</MUI_DescOn>
+  <MUI_DescOff>Eigene Einstellungen. Geändert gegenüber Empfehlung: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Eigene Einstellungen. Noch identisch mit der Empfehlung.</MUI_DescOffSame>
+  <MUI_On>AN</MUI_On>
+  <MUI_Off>AUS</MUI_Off>
+  <MUI_ResetAll>Alles auf Empfehlung zurücksetzen</MUI_ResetAll>
+  <MUI_ConfirmOn>Empfohlene Einstellungen einschalten? Deine Änderungen ({0}) werden durch die empfohlenen Werte ersetzt.</MUI_ConfirmOn>
+  <MUI_Locked>Detaillierte Einstellungen sind gesperrt. Willst du sie ändern? Schalte den Schalter oben aus – deine Werte starten bei den empfohlenen.</MUI_Locked>
+  <MUI_Changed>GEÄNDERT</MUI_Changed>
+  <MUI_ChangedTip>Weicht von der Empfehlung ab ({0}). Klicken, um den empfohlenen Wert wiederherzustellen.</MUI_ChangedTip>
+  <MUI_Yes>an</MUI_Yes>
+  <MUI_No>aus</MUI_No>
+  <MUI_RecTag>EMPFOHLEN</MUI_RecTag>
+</LanguageData>

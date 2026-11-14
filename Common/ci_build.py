@@ -26,6 +26,7 @@ DEPENDS = {
     "Steward2/StewardRoles": ["Steward2/Steward"],
     "Steward2/StewardOrders": ["Steward2/Steward"],
     "Steward2/StewardDroids": ["Steward2/Steward"],
+    "SCGWardrobe": ["SmartColonistGear"],
 }
 # old sources kept for history, not built any more
 SKIP = {"Steward",

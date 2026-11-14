@@ -34,7 +34,7 @@ public class WildSpawnSettings : ModSettings
 
 public class WildSpawnZoneMod : Mod
 {
-	public const string Version = "1.1.3";
+	public const string Version = "1.0.0";
 	public static WildSpawnSettings Settings;
 	private static List<string> recBullets;
 

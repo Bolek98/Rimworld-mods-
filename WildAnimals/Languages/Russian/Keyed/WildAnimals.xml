@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WA_Title>Wild Animals – управление появлением животных в биомах</WA_Title>
+  <WA_Bullet1>Игровые списки животных в каждом биоме</WA_Bullet1>
+  <WA_Bullet2>Новое животное или группа не чаще раза в 8 часов</WA_Bullet2>
+  <WA_Bullet3>Хищников не более 30 %, ни одного ближе 30 клеток от дома</WA_Bullet3>
+  <WA_Bullet4>Письма о редких животных, предупреждение об охотничьем давлении</WA_Bullet4>
+  <WA_TabBiomes>Биомы</WA_TabBiomes>
+  <WA_TabRules>Правила</WA_TabRules>
+  <WA_TabMap>Эта карта</WA_TabMap>
+  <WA_Presets>Пресеты</WA_Presets>
+  <WA_PresetsTip>Готовые настройки для всех биомов.</WA_PresetsTip>
+  <WA_Preset0>Игровые списки, без ограничений</WA_Preset0>
+  <WA_Preset1>Больше животных (×2, быстрее)</WA_Preset1>
+  <WA_Preset2>Меньше животных (×0.5, медленнее)</WA_Preset2>
+  <WA_Preset3>Мирно (мало хищников, ни одного у дома)</WA_Preset3>
+  <WA_PresetConfirm>Применить пресет «{0}»? Ваши собственные списки биомов и числа будут заменены.</WA_PresetConfirm>
+  <WA_PresetDone>Применён пресет: {0}</WA_PresetDone>
+  <WA_Share>Код для обмена</WA_Share>
+  <WA_ShareTip>Скопируйте свои настройки в виде текстового кода или вставьте код от друга.</WA_ShareTip>
+  <WA_ShareCopy>Скопировать мои настройки</WA_ShareCopy>
+  <WA_SharePaste>Вставить код из буфера обмена</WA_SharePaste>
+  <WA_SharePasteConfirm>Заменить ваши настройки кодом из буфера обмена?</WA_SharePasteConfirm>
+  <WA_ShareCopied>Код настроек скопирован в буфер обмена.</WA_ShareCopied>
+  <WA_ShareBad>В буфере обмена нет кода Wild Animals.</WA_ShareBad>
+  <WA_ShareRead>Код прочитан: записей – {0}.</WA_ShareRead>
+  <WA_SearchBiome>Поиск биома…</WA_SearchBiome>
+  <WA_NAnimals>Животных: {0} · ~{1} на карте</WA_NAnimals>
+  <WA_PickBiome>Выберите биом слева.</WA_PickBiome>
+  <WA_CopyFrom>Копировать список из…</WA_CopyFrom>
+  <WA_ResetBiome>Сбросить этот биом</WA_ResetBiome>
+  <WA_Target>Сколько диких животных: около {0} на карте 250×250 (в игре: {1})</WA_Target>
+  <WA_Sizes>около {0} на 200×200 · около {1} на 300×300</WA_Sizes>
+  <WA_ThisMap>на вашей карте сейчас: {0}</WA_ThisMap>
+  <WA_SearchAnimal>Поиск животного или мода…</WA_SearchAnimal>
+  <WA_ShowAll>Показать всех животных</WA_ShowAll>
+  <WA_ShowAllTip>Все дикие животные из игры, DLC и всех модов – также те, что никогда не живут в этом биоме. Задайте животному значение больше 0, чтобы добавить его.</WA_ShowAllTip>
+  <WA_HCommon>Частота (доля появлений)</WA_HCommon>
+  <WA_HCap>Лимит</WA_HCap>
+  <WA_HSeasons>Сезоны</WA_HSeasons>
+  <WA_RareTip>Редкое: письмо при появлении.</WA_RareTip>
+  <WA_NoAnimals>Подходящих животных нет.</WA_NoAnimals>
+  <WA_Predator>хищник</WA_Predator>
+  <WA_Coastal>только побережье</WA_Coastal>
+  <WA_NotNative>не местное</WA_NotNative>
+  <WA_MayFreeze>может замёрзнуть</WA_MayFreeze>
+  <WA_MayOverheat>может перегреться</WA_MayOverheat>
+  <WA_NoCap>Без лимита</WA_NoCap>
+  <WA_CapTip>Не более стольких {0} на карте одновременно (диких). Действует во всех биомах.</WA_CapTip>
+  <WA_S0>Вс</WA_S0>
+  <WA_S1>Лт</WA_S1>
+  <WA_S2>Ос</WA_S2>
+  <WA_S3>Зм</WA_S3>
+  <WA_Season0>весна</WA_Season0>
+  <WA_Season1>лето</WA_Season1>
+  <WA_Season2>осень</WA_Season2>
+  <WA_Season3>зима</WA_Season3>
+  <WA_SeasonTip>Появляется в сезон «{0}»: нажмите, чтобы переключить. Животные, уже находящиеся на карте, остаются.</WA_SeasonTip>
+  <WA_TempTip>Появляется только когда температура снаружи в пределах комфортного диапазона ({0} до {1}). По умолчанию включено для животных, не местных для биома.</WA_TempTip>
+  <WA_SecSpawn>Появление</WA_SecSpawn>
+  <WA_Enabled>Управлять появлением диких животных</WA_Enabled>
+  <WA_EnabledTip>Выкл. = собственное появление животных в игре (ваши списки биомов сохраняются на потом).</WA_EnabledTip>
+  <WA_Respawn>Новое животное или группа не чаще раза в {0} (пока на карте меньше заданного числа)</WA_Respawn>
+  <WA_RespawnTip>Игра использует скрытый шанс; здесь вы задаёте время между появлениями.</WA_RespawnTip>
+  <WA_Group>Размер группы ×{0}</WA_Group>
+  <WA_GroupTip>Стада и стаи больше или меньше.</WA_GroupTip>
+  <WA_SecPredators>Хищники</WA_SecPredators>
+  <WA_PredMax>Хищников не более {0} % от диких животных</WA_PredMax>
+  <WA_PredMaxOff>Хищники: без ограничений</WA_PredMaxOff>
+  <WA_PredMaxTip>Если их больше, появляются только нехищные животные.</WA_PredMaxTip>
+  <WA_PredHome>Хищники не появляются ближе {0} клеток от домашней зоны</WA_PredHome>
+  <WA_PredHomeOff>Хищники могут появляться где угодно</WA_PredHomeOff>
+  <WA_PredHomeTip>Проверяется там, где животное входит на карту.</WA_PredHomeTip>
+  <WA_SecInfo>Информация</WA_SecInfo>
+  <WA_RareLetters>Письмо при появлении редкого животного</WA_RareLetters>
+  <WA_RareLettersTip>Редкие животные отмечены ★ в списке биома (по умолчанию трумбо и другие очень редкие).</WA_RareLettersTip>
+  <WA_Pressure>Предупреждение об охотничьем давлении</WA_Pressure>
+  <WA_PressureTip>Предупреждает, когда колония убивает диких животных быстрее, чем появляются новые, и карта пустеет.</WA_PressureTip>
+  <WA_EventsNote>События не меняются: стаи бешеных животных, миграции стад, визиты трумбо и другие работают как в игре.</WA_EventsNote>
+  <WA_Hours>{0} ч</WA_Hours>
+  <WA_Days>{0} дн.</WA_Days>
+  <WA_NoMap>Загрузите игру, чтобы увидеть животных на вашей карте.</WA_NoMap>
+  <WA_MapHead>{0}: диких животных {1} / цель {2}</WA_MapHead>
+  <WA_MapOff>Появление: собственное игровое</WA_MapOff>
+  <WA_MapFull>Карта заполнена – сейчас никто не появляется</WA_MapFull>
+  <WA_MapNext>Следующее появление не позднее чем через {0}</WA_MapNext>
+  <WA_MapSeason>Сезон: {0}</WA_MapSeason>
+  <WA_MapStats>Последние 5 дней: убито колонией {0} · появилось {1} · хищников {2} ({3} %)</WA_MapStats>
+  <WA_HAnimal>Животное</WA_HAnimal>
+  <WA_HNow>Сейчас</WA_HNow>
+  <WA_HExpected>Ожидается</WA_HExpected>
+  <WA_HState>Появляется?</WA_HState>
+  <WA_StNotInList>нет в списке этого биома</WA_StNotInList>
+  <WA_StSeason>не этот сезон / слишком холодно или жарко</WA_StSeason>
+  <WA_StCap>лимит достигнут</WA_StCap>
+  <WA_StOk>да</WA_StOk>
+  <WA_AlertLabel>Охотничье давление</WA_AlertLabel>
+  <WA_AlertText>Колония убила {0} диких животных за последние 5 дней, а появилось только {1}. Карта пустеет – охотьтесь меньше или задайте более быстрое появление в Wild Animals.</WA_AlertText>
+  <WA_RareTitle>Редкое животное: {0}</WA_RareTitle>
+  <WA_RareText>Появилось редкое животное: {0}. Посмотрите на него, пока оно не ушло – или пока на него кто-нибудь не начал охоту.</WA_RareText>
+  <MUI_Title>Рекомендуемые настройки</MUI_Title>
+  <MUI_TitleOff>Рекомендуемые настройки · выкл.</MUI_TitleOff>
+  <MUI_DescOn>Мод настраивается сам и сразу работает. Идеально для новичков и всех, кто не хочет ничего настраивать.</MUI_DescOn>
+  <MUI_DescOff>Свои настройки. Изменено по сравнению с рекомендуемыми: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Свои настройки. Пока совпадают с рекомендуемыми.</MUI_DescOffSame>
+  <MUI_On>ВКЛ.</MUI_On>
+  <MUI_Off>ВЫКЛ.</MUI_Off>
+  <MUI_ResetAll>Сбросить всё на рекомендуемые</MUI_ResetAll>
+  <MUI_ConfirmOn>Включить рекомендуемые настройки? Ваши изменения ({0}) будут заменены рекомендуемыми значениями.</MUI_ConfirmOn>
+  <MUI_Locked>Подробные настройки заблокированы. Хотите их изменить? Выключите переключатель выше – ваши значения начнутся с рекомендуемых.</MUI_Locked>
+  <MUI_Changed>ИЗМЕНЕНО</MUI_Changed>
+  <MUI_ChangedTip>Отличается от рекомендуемого значения ({0}). Нажмите, чтобы восстановить рекомендуемое значение.</MUI_ChangedTip>
+  <MUI_Yes>вкл.</MUI_Yes>
+  <MUI_No>выкл.</MUI_No>
+  <MUI_RecTag>РЕКОМЕНДУЕТСЯ</MUI_RecTag>
+  <WA_EditNote>Рекомендуемые настройки включены. Измените что-либо ниже – и они выключатся, ваши значения начнутся с рекомендуемых.</WA_EditNote>
+  <WA_TempHeadTip>Появляется только когда температура снаружи подходит животному.</WA_TempHeadTip>
+  <!-- 0.1.3 -->
+  <WA_ModAll>Мод: все</WA_ModAll>
+  <WA_ModFilter>Мод: {0}</WA_ModFilter>
+  <WA_ModFilterTip>Показать только животных одного мода (ищет всех животных этого мода, а не только в списке этого биома).</WA_ModFilterTip>
+  <WA_BelongsHere>местное</WA_BelongsHere>
+  <WA_BelongsTip>Это животное относится к этому биому в самой игре. Оно всегда остаётся в списке, даже при 0, чтобы его можно было вернуть.</WA_BelongsTip>
+  <WA_ResetMenu>Сброс… ▾</WA_ResetMenu>
+  <WA_ResetMenuTip>Вернуть местных животных или сбросить весь биом на игровой список.</WA_ResetMenuTip>
+  <WA_RestoreNatives>Вернуть местных животных (остальные изменения сохранятся)</WA_RestoreNatives>
+  <WA_RestoreNativesAll>Вернуть местных животных – во всех биомах</WA_RestoreNativesAll>
+  <WA_RestoreDone>Животных возвращено: {0} в {1}.</WA_RestoreDone>
+  <WA_RestoreDoneAll>Животных возвращено: {0} в биомах: {1}.</WA_RestoreDoneAll>
+  <WA_NativesZero>Местных животных этого биома на 0: {0}.</WA_NativesZero>
+  <WA_RestoreNow>Вернуть их</WA_RestoreNow>
+  <WA_Pets>Также домашние животные (собаки, кошки, другие питомцы)</WA_Pets>
+  <WA_PetsTip>Игра никогда не позволяет домашним животным жить в дикой природе. Вкл.: собаки, кошки и другие питомцы из любого мода появляются в списках биомов («Показать всех животных» или поиск) и им можно задать долю, как любому другому животному – тогда они приходят как бездомные дикие животные. Выкл.: они исключены, даже если всё ещё есть в списке.</WA_PetsTip>
+</LanguageData>

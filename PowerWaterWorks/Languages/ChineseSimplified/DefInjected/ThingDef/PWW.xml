@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_FuelRod.label>燃料棒</PWW_FuelRod.label>
+  <PWW_FuelRod.description>一根密封的浓缩铀棒。裂变反应堆的燃料;一根大约能用一天。</PWW_FuelRod.description>
+  <PWW_FusionCell.label>聚变电池</PWW_FusionCell.label>
+  <PWW_FusionCell.description>用于聚变反应堆的磁约束燃料电池。一个大约能用五天。</PWW_FusionCell.description>
+  <PWW_CannedFood.label>罐头食品</PWW_CannedFood.label>
+  <PWW_CannedFood.description>煮熟后密封在铁罐里的生食。永不腐烂,即使放在室外也能长期保存。</PWW_CannedFood.description>
+  <PWW_DeepBorehole.label>深层钻井</PWW_DeepBorehole.label>
+  <PWW_DeepBorehole.description>钻到地下水位以下深处的钻井。可覆盖一大片清洁地下水(半径 22),供水泵抽取;不受污染影响。</PWW_DeepBorehole.description>
+  <PWW_DeepWellPump.label>大容量水泵</PWW_DeepWellPump.label>
+  <PWW_DeepWellPump.description>从水井向水塔抽水:每天 30,000 升。</PWW_DeepWellPump.description>
+  <PWW_WaterTreatment.label>紧凑型水处理站</PWW_WaterTreatment.label>
+  <PWW_WaterTreatment.description>净化水塔中的水和卫浴设施使用的水,效果与标准水处理站相同,但只需一半电力。</PWW_WaterTreatment.description>
+  <PWW_Desalination.label>海水淡化站</PWW_Desalination.label>
+  <PWW_Desalination.description>将海水制成淡水并注入自己的水箱(通电时每天约 15,000 升)。必须建在距离海洋 3 格以内。</PWW_Desalination.description>
+  <PWW_WaterTower.label>巨型水塔</PWW_WaterTower.label>
+  <PWW_WaterTower.description>可储存 150,000 升水。停电时仍能长时间保持水龙头供水。</PWW_WaterTower.description>
+  <PWW_HydroPlant.label>水力发电站</PWW_HydroPlant.label>
+  <PWW_HydroPlant.description>一座装有多台涡轮机的小型径流式发电站。至少三个格子必须位于流动的水面上,其余位于坚实地面。昼夜稳定供电;严冬河流结冰时只提供 40 %。</PWW_HydroPlant.description>
+  <PWW_BiogasPlant.label>沼气站</PWW_BiogasPlant.label>
+  <PWW_BiogasPlant.description>将生食、肉类、植物原料以及(配合 Dubs Bad Hygiene)粪便污泥发酵成沼气,驱动发电机。</PWW_BiogasPlant.description>
+  <PWW_DeepGeothermal.label>深层地热发电站</PWW_DeepGeothermal.label>
+  <PWW_DeepGeothermal.description>向下钻探数公里直达炽热岩层——不需要蒸汽喷口。造价非常高,但能永久提供强大电力。</PWW_DeepGeothermal.description>
+  <PWW_Incinerator.label>焚烧发电机</PWW_Incinerator.label>
+  <PWW_Incinerator.description>以极高温度焚烧石料和钢渣,将热量转化为电力。同时还能清理基地。</PWW_Incinerator.description>
+  <PWW_Diesel.label>柴油发电机</PWW_Diesel.label>
+  <PWW_Diesel.description>燃烧化合燃料。开启“自动启动”后,电网蓄电池电量不足时会自动开启,充满后再次关闭——只在需要时运行的备用电源。</PWW_Diesel.description>
+  <PWW_FissionReactor.label>裂变反应堆</PWW_FissionReactor.label>
+  <PWW_FissionReactor.description>一座使用燃料棒的紧凑型裂变反应堆。输出巨大且稳定,但会发热:需要 10 格内有正常运转的冷却塔。热度达到 100 % 时自动停堆(如果在设置中开启,则会熔毁)。SCRAM 按钮可立即停止它。</PWW_FissionReactor.description>
+  <PWW_CoolingTower.label>冷却塔</PWW_CoolingTower.label>
+  <PWW_CoolingTower.description>冷却 10 格内的裂变反应堆。一座正常运转的冷却塔足以供一座反应堆使用。</PWW_CoolingTower.description>
+  <PWW_FusionReactor.label>聚变反应堆</PWW_FusionReactor.label>
+  <PWW_FusionReactor.description>一座太空时代的聚变反应堆。一个聚变电池即可提供持续多天的巨大电力。安全——不会熔毁。</PWW_FusionReactor.description>
+  <PWW_BigBattery.label>大型蓄电池</PWW_BigBattery.label>
+  <PWW_BigBattery.description>一组工业电池:可储存 6000 Wd,能量损耗比小型蓄电池更少。</PWW_BigBattery.description>
+  <PWW_Flywheel.label>飞轮</PWW_Flywheel.label>
+  <PWW_Flywheel.description>廉价的机械储能装置,可储存 300 Wd。适合应对短暂断电,但每天损失 10 % 的能量。</PWW_Flywheel.description>
+  <PWW_CircuitBreaker.label>断路器</PWW_CircuitBreaker.label>
+  <PWW_CircuitBreaker.description>作用类似电源开关。当其所在电网任何地方发生短路时,断路器会跳闸——没有爆炸,没有起火。需要手动重新合上。</PWW_CircuitBreaker.description>
+  <PWW_AutoStonecutter.label>自动切石机</PWW_AutoStonecutter.label>
+  <PWW_AutoStonecutter.description>取用旁边的石料并自行切割成石砖——不需要殖民者。每游戏小时处理一块石料。</PWW_AutoStonecutter.description>
+  <PWW_InductionFurnace.label>感应炉</PWW_InductionFurnace.label>
+  <PWW_InductionFurnace.description>电炉:能从钢渣中提取更多钢铁,并制作燃料棒和聚变电池。</PWW_InductionFurnace.description>
+  <PWW_ComponentLine.label>零部件生产线</PWW_ComponentLine.label>
+  <PWW_ComponentLine.description>一条自动化生产线,每次制作五个零部件,比手工制作稍便宜。</PWW_ComponentLine.description>
+  <PWW_TextileMill.label>纺织厂</PWW_TextileMill.label>
+  <PWW_TextileMill.description>将穿旧的衣物粉碎回收为布料。</PWW_TextileMill.description>
+  <PWW_Cannery.label>罐头厂</PWW_Cannery.label>
+  <PWW_Cannery.description>将生食制成罐头。罐头食品永不腐烂。</PWW_Cannery.description>
+  <PWW_Sprinkler.label>灌溉喷头</PWW_Sprinkler.label>
+  <PWW_Sprinkler.description>浇灌周围的植物:生长速度提高 15 %。需要电力。</PWW_Sprinkler.description>
+</LanguageData>

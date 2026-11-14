@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WSZ_Area>野生動物の出現ゾーン</WSZ_Area>
+  <WSZ_Expand>野生動物の出現ゾーンを拡張</WSZ_Expand>
+  <WSZ_ExpandDesc>野生動物が現れる場所を指定します。ゾーンが空でない間、新しい野生動物（飛来する鳥も含む）はゾーン内にだけ現れます。群れの移動やマンハンターなどのイベントは変更されません。</WSZ_ExpandDesc>
+  <WSZ_Clear>野生動物の出現ゾーンを縮小</WSZ_Clear>
+  <WSZ_ClearDesc>野生動物の出現ゾーンからマスを取り除きます。ゾーンが空なら、動物はゲーム通りに現れます。</WSZ_ClearDesc>
+  <MUI_Title>推奨設定</MUI_Title>
+  <MUI_TitleOff>推奨設定 · オフ</MUI_TitleOff>
+  <MUI_DescOn>Mod が自動で設定され、すぐに動作します。初心者や細かく調整したくない方に最適です。</MUI_DescOn>
+  <MUI_DescOff>カスタム設定。推奨から変更：{0}。</MUI_DescOff>
+  <MUI_DescOffSame>カスタム設定。まだ推奨と同じです。</MUI_DescOffSame>
+  <MUI_On>オン</MUI_On>
+  <MUI_Off>オフ</MUI_Off>
+  <MUI_ResetAll>すべて推奨に戻す</MUI_ResetAll>
+  <MUI_ConfirmOn>推奨設定をオンにしますか？あなたの変更（{0}）は推奨値に置き換えられます。</MUI_ConfirmOn>
+  <MUI_Locked>詳細設定はロックされています。変更したい場合は上のスイッチをオフにしてください – 推奨値から始まります。</MUI_Locked>
+  <MUI_Changed>変更済み</MUI_Changed>
+  <MUI_ChangedTip>推奨設定（{0}）と異なります。クリックで推奨値に戻します。</MUI_ChangedTip>
+  <MUI_Yes>オン</MUI_Yes>
+  <MUI_No>オフ</MUI_No>
+  <MUI_RecTag>推奨</MUI_RecTag>
+  <WSZ_Rec1>野生動物は塗った出現ゾーン（ゾーンメニュー）にだけ現れる。</WSZ_Rec1>
+  <WSZ_Rec2>ホームエリア内には決して現れない – 中庭にシカは来ません。</WSZ_Rec2>
+  <WSZ_Rec3>動物の数はゲーム通り。ゾーンがなければ何も変わらない。</WSZ_Rec3>
+  <WSZ_SecZone>出現ゾーン</WSZ_SecZone>
+  <WSZ_SecAnimals>野生動物</WSZ_SecAnimals>
+  <WSZ_Enabled>動物はゾーン内にだけ現れる</WSZ_Enabled>
+  <WSZ_Enabled_Desc>ゾーンに 1 マス以上ある間、新しい野生動物はゾーン内にだけ現れます。オフ = ゲーム通り、ゾーンは塗られたまま残ります。</WSZ_Enabled_Desc>
+  <WSZ_AvoidHome>ホームエリアには現れない</WSZ_AvoidHome>
+  <WSZ_AvoidHome_Desc>ホームエリアにも含まれるゾーンのマスはスキップされます – 基地の真ん中に動物が現れることはありません。</WSZ_AvoidHome_Desc>
+  <WSZ_Birds>鳥はどこにでも飛来できる</WSZ_Birds>
+  <WSZ_Birds_Desc>飛ぶ動物はゲーム通り好きな場所に降ります。オフ = 鳥もゾーン内に現れます。</WSZ_Birds_Desc>
+  <WSZ_Density>野生動物の量：{0} %</WSZ_Density>
+  <WSZ_Density_Desc>マップに住む野生動物の数と到来の速さ。100 % = ゲーム通り、0 % = 新しい動物なし。イベント（移動、マンハンター）は変更されません。</WSZ_Density_Desc>
+  <WSZ_HowTo>ゾーンはゾーンメニュー → 「野生動物の出現ゾーンを拡張」にあります。マップの端や壁の外の森に塗ってください。</WSZ_HowTo>
+</LanguageData>

@@ -1,4 +1,9 @@
 === Not on the Workshop yet (test versions) ===
+1.0.0
+- First Workshop release.
+- CZ: První vydání na Workshopu.
+
+=== Development history before the first Workshop release (test versions) ===
 0.2.2
 - Fix: duplicate animal entries in biomes are cleaned once at startup. A stale arrival time can no longer block new arrivals. When no animal comes, the reason is written to the log (Player.log, '[Wild Animals]': map full, no animal fits now, no free map edge).
 - Oprava: dvojitá zvířata v biomech se při startu jednou vyčistí. Starý čas posledního příchodu už nemůže zablokovat další příchody. Když žádné zvíře nepřijde, důvod se zapíše do logu (Player.log, '[Wild Animals]': mapa plná, teď se nehodí žádné zvíře, není volný okraj mapy).
@@ -26,3 +31,4 @@
 0.1.0
 - First version: animals per biome (any animal from any mod), how many on a map, arrivals every N hours, group size, max per species, seasons per animal, out-of-climate warning and temperature rule, predator limit and predator-free belt around home, live view of the map with a hunting-pressure warning, letters for rare animals, presets and share code.
 - První verze: zvířata podle biomu (jakékoli zvíře z jakéhokoli modu), kolik jich je na mapě, příchody každých N hodin, velikost skupin, limit na druh, roční období pro zvíře, varování pro jiné podnebí a pravidlo teploty, limit predátorů a pás bez predátorů kolem domova, živý přehled mapy s varováním před přelovením, dopisy o vzácných zvířatech, předvolby a kód nastavení.
+

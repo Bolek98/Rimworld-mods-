@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_SetMeltdown>Fusion du cœur du réacteur</PWW_SetMeltdown>
+  <PWW_SetMeltdownTip>Désactivé : à 100 % de chaleur, le réacteur à fission s'arrête de lui-même. Activé : il explose et des retombées toxiques couvrent la carte pendant 3 jours.</PWW_SetMeltdownTip>
+  <PWW_SetHydroWinter>Centrales hydrauliques plus faibles quand la rivière gèle</PWW_SetHydroWinter>
+  <PWW_SetHydroWinterTip>Sous −2 °C à l'extérieur, une centrale hydraulique ne fournit que 40 % de sa puissance.</PWW_SetHydroWinterTip>
+  <PWW_SetAutoLow>Démarrage auto du diesel : allumer sous {0} % d'énergie stockée</PWW_SetAutoLow>
+  <PWW_SetAutoHigh>… et éteindre au-dessus de {0} %</PWW_SetAutoHigh>
+  <PWW_BreakerTrippedLabel>Disjoncteur déclenché</PWW_BreakerTrippedLabel>
+  <PWW_BreakerTripped>Un court-circuit a frappé le réseau, mais le disjoncteur s'est déclenché à temps – pas d'explosion, pas d'incendie. La partie du réseau derrière le disjoncteur est maintenant sans courant jusqu'à ce que vous le réenclenchiez.</PWW_BreakerTripped>
+  <PWW_HydroFrozen>Rivière gelée : 40 % de puissance</PWW_HydroFrozen>
+  <PWW_HydroGround>Les cases qui ne sont pas sur de l'eau courante nécessitent un sol ferme.</PWW_HydroGround>
+  <PWW_NeedSea>Doit se trouver à 3 cases maximum de la mer.</PWW_NeedSea>
+  <PWW_MeltdownLabel>Fusion du réacteur !</PWW_MeltdownLabel>
+  <PWW_Meltdown>Le réacteur à fission a surchauffé et explosé. Des retombées toxiques tombent sur toute la zone.</PWW_Meltdown>
+  <PWW_Scrammed>Réacteur arrêté (SCRAM).</PWW_Scrammed>
+  <PWW_Scram>SCRAM</PWW_Scram>
+  <PWW_ScramDesc>Arrêter le réacteur immédiatement. Il refroidit et peut être rallumé plus tard.</PWW_ScramDesc>
+  <PWW_ReactorHeat>Chaleur : {0} % · refroidissement {1} / chaleur {2} par heure</PWW_ReactorHeat>
+  <PWW_HeatLabel>Chaleur du réacteur</PWW_HeatLabel>
+  <PWW_AutoStart>Démarrage auto</PWW_AutoStart>
+  <PWW_AutoStartDesc>Allume le générateur quand les batteries du réseau descendent sous {0} % et l'éteint au-dessus de {1} %. Sans batteries, il tourne tant que le réseau a besoin de plus de courant. Seuils dans les réglages du mod.</PWW_AutoStartDesc>
+  <PWW_StonecutterIdle>En attente de morceaux de roche à côté.</PWW_StonecutterIdle>
+  <PWW_StonecutterWork>Taille : {0}</PWW_StonecutterWork>
+  <PWW_GridOverview>Aperçu du réseau</PWW_GridOverview>
+  <PWW_GridOverviewDesc>Production, consommation et énergie stockée de ce réseau électrique, avec les dernières 24 heures.</PWW_GridOverviewDesc>
+  <PWW_GridNone>Non connecté à un réseau.</PWW_GridNone>
+  <PWW_GridGen>Production : {0} W</PWW_GridGen>
+  <PWW_GridUse>Consommation : {0} W</PWW_GridUse>
+  <PWW_GridBalance>Bilan : {0} W</PWW_GridBalance>
+  <PWW_GridStored>Stocké : {0} / {1} Wj</PWW_GridStored>
+  <PWW_GridWait>Le graphique se remplit une fois par heure de jeu.</PWW_GridWait>
+  <PWW_Grid24h>dernières 24 heures · vert production · orange consommation · bleu stocké</PWW_Grid24h>
+</LanguageData>

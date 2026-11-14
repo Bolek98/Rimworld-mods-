@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WSZ_Area>Spawnzone für Wildtiere</WSZ_Area>
+  <WSZ_Expand>Wildtier-Spawnzone erweitern</WSZ_Expand>
+  <WSZ_ExpandDesc>Markiere, wo Wildtiere erscheinen. Solange die Zone nicht leer ist, erscheinen neue Wildtiere (auch einfliegende Vögel) nur darin. Ereignisse wie Herdenwanderungen oder Menschenjäger werden nicht verändert.</WSZ_ExpandDesc>
+  <WSZ_Clear>Wildtier-Spawnzone verkleinern</WSZ_Clear>
+  <WSZ_ClearDesc>Felder aus der Wildtier-Spawnzone entfernen. Bei leerer Zone erscheinen Tiere wie gewohnt im Spiel.</WSZ_ClearDesc>
+  <MUI_Title>Empfohlene Einstellungen</MUI_Title>
+  <MUI_TitleOff>Empfohlene Einstellungen · aus</MUI_TitleOff>
+  <MUI_DescOn>Die Mod richtet sich selbst ein und funktioniert sofort. Ideal für neue Spieler und alle, die nichts anpassen wollen.</MUI_DescOn>
+  <MUI_DescOff>Eigene Einstellungen. Geändert gegenüber Empfehlung: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Eigene Einstellungen. Noch identisch mit der Empfehlung.</MUI_DescOffSame>
+  <MUI_On>AN</MUI_On>
+  <MUI_Off>AUS</MUI_Off>
+  <MUI_ResetAll>Alles auf Empfehlung zurücksetzen</MUI_ResetAll>
+  <MUI_ConfirmOn>Empfohlene Einstellungen einschalten? Deine Änderungen ({0}) werden durch die empfohlenen Werte ersetzt.</MUI_ConfirmOn>
+  <MUI_Locked>Detaillierte Einstellungen sind gesperrt. Willst du sie ändern? Schalte den Schalter oben aus – deine Werte starten bei den empfohlenen.</MUI_Locked>
+  <MUI_Changed>GEÄNDERT</MUI_Changed>
+  <MUI_ChangedTip>Weicht von der Empfehlung ab ({0}). Klicken, um den empfohlenen Wert wiederherzustellen.</MUI_ChangedTip>
+  <MUI_Yes>an</MUI_Yes>
+  <MUI_No>aus</MUI_No>
+  <MUI_RecTag>EMPFOHLEN</MUI_RecTag>
+  <WSZ_Rec1>Wildtiere erscheinen nur in der Spawnzone, die du malst (Zonen-Menü).</WSZ_Rec1>
+  <WSZ_Rec2>Nie im Heimbereich – keine Hirsche in deinem Innenhof.</WSZ_Rec2>
+  <WSZ_Rec3>Tierzahlen wie im Spiel. Ohne Zone ändert sich nichts.</WSZ_Rec3>
+  <WSZ_SecZone>Spawnzone</WSZ_SecZone>
+  <WSZ_SecAnimals>Wildtiere</WSZ_SecAnimals>
+  <WSZ_Enabled>Tiere erscheinen nur in der Zone</WSZ_Enabled>
+  <WSZ_Enabled_Desc>Solange die Zone mindestens ein Feld hat, erscheinen neue Wildtiere nur darin. Aus = wie im Spiel, die Zone bleibt gemalt.</WSZ_Enabled_Desc>
+  <WSZ_AvoidHome>Nie im Heimbereich</WSZ_AvoidHome>
+  <WSZ_AvoidHome_Desc>Zonenfelder, die auch im Heimbereich liegen, werden übersprungen – Tiere erscheinen nie mitten in deiner Basis.</WSZ_AvoidHome_Desc>
+  <WSZ_Birds>Vögel dürfen überall einfliegen</WSZ_Birds>
+  <WSZ_Birds_Desc>Fliegende Tiere landen, wo sie wollen, wie im Spiel. Aus = auch Vögel erscheinen in der Zone.</WSZ_Birds_Desc>
+  <WSZ_Density>Menge an Wildtieren: {0} %</WSZ_Density>
+  <WSZ_Density_Desc>Wie viele Wildtiere auf der Karte leben und wie schnell sie kommen. 100 % = wie im Spiel, 0 % = keine neuen Tiere. Ereignisse (Wanderungen, Menschenjäger) werden nicht verändert.</WSZ_Density_Desc>
+  <WSZ_HowTo>Die Zone findest du im Zonen-Menü → „Wildtier-Spawnzone erweitern“. Male sie am Kartenrand oder in einem Wald hinter deinen Mauern.</WSZ_HowTo>
+</LanguageData>

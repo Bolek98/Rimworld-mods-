@@ -70,7 +70,7 @@ namespace WildAnimals
     // ------------------------------------------------------------------
     public static class WA
     {
-        public const string Version = "0.2.2";
+        public const string Version = "1.0.0";
         public const float BaseCells = 62500f;   // 250 × 250
         public static WASettings S => WildAnimalsMod.Settings;
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_SetMeltdown>原子炉のメルトダウン</PWW_SetMeltdown>
+  <PWW_SetMeltdownTip>オフ：熱が 100 % に達すると核分裂炉は自動停止します。オン：爆発し、有毒な放射性降下物が 3 日間マップを覆います。</PWW_SetMeltdownTip>
+  <PWW_SetHydroWinter>川が凍ると水力発電所の出力が低下</PWW_SetHydroWinter>
+  <PWW_SetHydroWinterTip>屋外が −2 °C を下回ると、水力発電所の出力は 40 % になります。</PWW_SetHydroWinterTip>
+  <PWW_SetAutoLow>ディーゼル自動始動：蓄電量が {0} % を下回るとオン</PWW_SetAutoLow>
+  <PWW_SetAutoHigh>… {0} % を上回るとオフ</PWW_SetAutoHigh>
+  <PWW_BreakerTrippedLabel>ブレーカー作動</PWW_BreakerTrippedLabel>
+  <PWW_BreakerTripped>送電網で短絡が発生しましたが、ブレーカーが間に合いました – 爆発も火災もありません。ブレーカーの先の送電網は、ブレーカーを再びオンにするまで停電したままです。</PWW_BreakerTripped>
+  <PWW_HydroFrozen>川が凍結：出力 40 %</PWW_HydroFrozen>
+  <PWW_HydroGround>流水上にないマスは固い地面が必要です。</PWW_HydroGround>
+  <PWW_NeedSea>海から 3 マス以内に設置する必要があります。</PWW_NeedSea>
+  <PWW_MeltdownLabel>原子炉メルトダウン！</PWW_MeltdownLabel>
+  <PWW_Meltdown>核分裂炉が過熱して爆発しました。有毒な放射性降下物が一帯に降り注いでいます。</PWW_Meltdown>
+  <PWW_Scrammed>原子炉を緊急停止しました（SCRAM）。</PWW_Scrammed>
+  <PWW_Scram>SCRAM</PWW_Scram>
+  <PWW_ScramDesc>原子炉を直ちに停止します。冷却後、再びオンにできます。</PWW_ScramDesc>
+  <PWW_ReactorHeat>熱：{0} % · 冷却 {1} / 発熱 {2}（1 時間あたり）</PWW_ReactorHeat>
+  <PWW_HeatLabel>原子炉の熱</PWW_HeatLabel>
+  <PWW_AutoStart>自動始動</PWW_AutoStart>
+  <PWW_AutoStartDesc>送電網のバッテリーが {0} % を下回ると発電機をオンにし、{1} % を上回るとオフにします。バッテリーがない場合は、送電網の電力が不足している間だけ稼働します。閾値は Mod 設定で変更できます。</PWW_AutoStartDesc>
+  <PWW_StonecutterIdle>隣に岩の塊が置かれるのを待っています。</PWW_StonecutterIdle>
+  <PWW_StonecutterWork>切断中：{0}</PWW_StonecutterWork>
+  <PWW_GridOverview>送電網の概要</PWW_GridOverview>
+  <PWW_GridOverviewDesc>この送電網の発電量、消費量、蓄電量と直近 24 時間の推移。</PWW_GridOverviewDesc>
+  <PWW_GridNone>送電網に接続されていません。</PWW_GridNone>
+  <PWW_GridGen>発電：{0} W</PWW_GridGen>
+  <PWW_GridUse>消費：{0} W</PWW_GridUse>
+  <PWW_GridBalance>収支：{0} W</PWW_GridBalance>
+  <PWW_GridStored>蓄電：{0} / {1} Wd</PWW_GridStored>
+  <PWW_GridWait>グラフはゲーム内で 1 時間ごとに更新されます。</PWW_GridWait>
+  <PWW_Grid24h>直近 24 時間 · 緑 発電 · 橙 消費 · 青 蓄電</PWW_Grid24h>
+</LanguageData>

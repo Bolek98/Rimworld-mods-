@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_FuelRod.label>pręt paliwowy</PWW_FuelRod.label>
+  <PWW_FuelRod.description>Zaplombowany pręt ze wzbogaconego uranu. Paliwo do reaktora jądrowego; jeden wystarcza na około dzień.</PWW_FuelRod.description>
+  <PWW_FusionCell.label>ogniwo fuzyjne</PWW_FusionCell.label>
+  <PWW_FusionCell.description>Magnetyczne ogniwo paliwowe do reaktora fuzyjnego. Jedno wystarcza na około pięć dni.</PWW_FusionCell.description>
+  <PWW_CannedFood.label>konserwa</PWW_CannedFood.label>
+  <PWW_CannedFood.description>Surowe jedzenie ugotowane i zamknięte w puszce. Nigdy się nie psuje i dobrze się przechowuje nawet na zewnątrz.</PWW_CannedFood.description>
+  <PWW_DeepBorehole.label>głęboki odwiert</PWW_DeepBorehole.label>
+  <PWW_DeepBorehole.description>Odwiert sięgający głęboko poniżej zwierciadła wód gruntowych. Obejmuje bardzo duży obszar czystej wody gruntowej (promień 22), z którego mogą korzystać pompy; zanieczyszczenie na niego nie wpływa.</PWW_DeepBorehole.description>
+  <PWW_DeepWellPump.label>pompa o dużej wydajności</PWW_DeepWellPump.label>
+  <PWW_DeepWellPump.description>Pompuje wodę ze studni do wież ciśnień: 30 000 l na dzień.</PWW_DeepWellPump.description>
+  <PWW_WaterTreatment.label>kompaktowa stacja uzdatniania wody</PWW_WaterTreatment.label>
+  <PWW_WaterTreatment.description>Oczyszcza wodę w wieżach i wodę używaną przez urządzenia sanitarne, jak zwykła stacja uzdatniania, ale potrzebuje tylko połowy prądu.</PWW_WaterTreatment.description>
+  <PWW_Desalination.label>stacja odsalania</PWW_Desalination.label>
+  <PWW_Desalination.description>Wytwarza słodką wodę z morskiej i napełnia własny zbiornik (około 15 000 l na dzień, gdy ma prąd). Musi stać w odległości do 3 pól od morza.</PWW_Desalination.description>
+  <PWW_WaterTower.label>olbrzymia wieża ciśnień</PWW_WaterTower.label>
+  <PWW_WaterTower.description>Mieści 150 000 l wody. Gdy zabraknie prądu, jeszcze długo utrzymuje wodę w kranach.</PWW_WaterTower.description>
+  <PWW_HydroPlant.label>elektrownia wodna</PWW_HydroPlant.label>
+  <PWW_HydroPlant.description>Mała elektrownia przepływowa z kilkoma turbinami. Co najmniej trzy jej pola muszą stać na płynącej wodzie, reszta na twardym gruncie. Daje stały prąd w dzień i w nocy; gdy rzeka zamarznie w srogą zimę, daje tylko 40 %.</PWW_HydroPlant.description>
+  <PWW_BiogasPlant.label>biogazownia</PWW_BiogasPlant.label>
+  <PWW_BiogasPlant.description>Fermentuje surowe jedzenie, mięso, materię roślinną i (z Dubs Bad Hygiene) osad fekalny w gaz, który napędza generator.</PWW_BiogasPlant.description>
+  <PWW_DeepGeothermal.label>głęboka elektrownia geotermalna</PWW_DeepGeothermal.label>
+  <PWW_DeepGeothermal.description>Wierci kilometry w głąb do gorącej skały – nie potrzebuje gejzeru parowego. Bardzo droga, ale daje silny prąd na zawsze.</PWW_DeepGeothermal.description>
+  <PWW_Incinerator.label>generator spalarniowy</PWW_Incinerator.label>
+  <PWW_Incinerator.description>Spala kawałki skał i żużel stalowy w bardzo wysokiej temperaturze i zamienia ciepło w prąd. Przy okazji sprząta bazę.</PWW_Incinerator.description>
+  <PWW_Diesel.label>generator diesla</PWW_Diesel.label>
+  <PWW_Diesel.description>Spala paliwo chemiczne. Z włączonym „Autostartem” sam się włącza, gdy baterie w jego sieci się wyczerpują, i wyłącza, gdy są pełne – zapas, który działa tylko w razie potrzeby.</PWW_Diesel.description>
+  <PWW_FissionReactor.label>reaktor jądrowy</PWW_FissionReactor.label>
+  <PWW_FissionReactor.description>Kompaktowy reaktor rozszczepieniowy na pręty paliwowe. Ogromna stała moc, ale się nagrzewa: potrzebuje działających wież chłodniczych w promieniu 10 pól. Przy 100 % ciepła sam się wyłącza (lub ulega stopieniu, jeśli włączono to w ustawieniach). Przycisk SCRAM natychmiast go zatrzymuje.</PWW_FissionReactor.description>
+  <PWW_CoolingTower.label>wieża chłodnicza</PWW_CoolingTower.label>
+  <PWW_CoolingTower.description>Chłodzi reaktor jądrowy w promieniu 10 pól. Na jeden reaktor wystarczy jedna działająca wieża.</PWW_CoolingTower.description>
+  <PWW_FusionReactor.label>reaktor fuzyjny</PWW_FusionReactor.label>
+  <PWW_FusionReactor.description>Reaktor fuzyjny z ery kosmicznej. Ogromna moc z ogniwa fuzyjnego, które wystarcza na wiele dni. Bezpieczny – nie może ulec stopieniu.</PWW_FusionReactor.description>
+  <PWW_BigBattery.label>duża bateria</PWW_BigBattery.label>
+  <PWW_BigBattery.description>Zestaw przemysłowych ogniw: magazynuje 6000 Wd i traci mniej energii niż małe baterie.</PWW_BigBattery.description>
+  <PWW_Flywheel.label>koło zamachowe</PWW_Flywheel.label>
+  <PWW_Flywheel.description>Tani mechaniczny magazyn na 300 Wd. Dobry na krótkie przerwy w zasilaniu, ale każdego dnia traci 10 % energii.</PWW_Flywheel.description>
+  <PWW_CircuitBreaker.label>bezpiecznik</PWW_CircuitBreaker.label>
+  <PWW_CircuitBreaker.description>Działa jak przełącznik zasilania. Gdy gdziekolwiek w jego sieci dojdzie do zwarcia, zamiast tego zadziała bezpiecznik – bez wybuchu, bez pożaru. Włącz go z powrotem ręcznie.</PWW_CircuitBreaker.description>
+  <PWW_AutoStonecutter.label>automatyczny kamieniarz</PWW_AutoStonecutter.label>
+  <PWW_AutoStonecutter.description>Bierze kawałki skał leżące obok i sam tnie je na bloki – nie potrzebuje kolonisty. Jeden kawałek na godzinę gry.</PWW_AutoStonecutter.description>
+  <PWW_InductionFurnace.label>piec indukcyjny</PWW_InductionFurnace.label>
+  <PWW_InductionFurnace.description>Elektryczny piec: odzyskuje więcej stali z żużla i wytwarza pręty paliwowe oraz ogniwa fuzyjne.</PWW_InductionFurnace.description>
+  <PWW_ComponentLine.label>linia komponentów</PWW_ComponentLine.label>
+  <PWW_ComponentLine.description>Zautomatyzowana linia, która wytwarza komponenty po pięć naraz, nieco taniej niż ręcznie.</PWW_ComponentLine.description>
+  <PWW_TextileMill.label>przędzalnia</PWW_TextileMill.label>
+  <PWW_TextileMill.description>Rozdrabnia znoszone ubrania z powrotem na tkaninę.</PWW_TextileMill.description>
+  <PWW_Cannery.label>konserwownia</PWW_Cannery.label>
+  <PWW_Cannery.description>Konserwuje surowe jedzenie. Konserwy nigdy się nie psują.</PWW_Cannery.description>
+  <PWW_Sprinkler.label>zraszacz</PWW_Sprinkler.label>
+  <PWW_Sprinkler.description>Podlewa rośliny wokół siebie: rosną o 15 % szybciej. Potrzebuje prądu.</PWW_Sprinkler.description>
+</LanguageData>

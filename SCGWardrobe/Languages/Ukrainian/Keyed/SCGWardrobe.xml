@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WR_Name>Smart Colonist Gear – Wardrobe</WR_Name>
+  <WR_Tab_Overview>Огляд</WR_Tab_Overview>
+  <WR_Tab_Weapons>Зброя</WR_Tab_Weapons>
+  <WR_Tab_Armor>Броня</WR_Tab_Armor>
+  <WR_Tab_Work>Робочий одяг</WR_Tab_Work>
+  <WR_Tab_Care>Догляд</WR_Tab_Care>
+  <WR_Tab_Occasions>Нагоди</WR_Tab_Occasions>
+  <WR_Tab_Uniforms>Уніформа й кольори</WR_Tab_Uniforms>
+  <WR_Tab_Wardrobe>Гардероб</WR_Tab_Wardrobe>
+  <WR_Tab_Tailor>Кравець</WR_Tab_Tailor>
+  <WR_Tab_Colonists>Колоністи</WR_Tab_Colonists>
+  <WR_Tab_Advanced>Додатково</WR_Tab_Advanced>
+  <WR_Rec1>Зброя та броня за роллю й ситуацією</WR_Rec1>
+  <WR_Rec2>Робочий одяг із редактора (заповнюється автоматично)</WR_Rec2>
+  <WR_Rec3>Зношені речі замінюються, одяг мерців – ніколи</WR_Rec3>
+  <WR_Rec4>Нічний одяг уночі, святковий – на свята й вечірки</WR_Rec4>
+  <WR_Rec5>Улюблене вбрання зберігається в спальні колоніста</WR_Rec5>
+  <WR_Rec6>Планувальник кравця – замовлення лише після вашого підтвердження</WR_Rec6>
+  <WR_Enabled>Wardrobe вирішує, що носять колоністи</WR_Enabled>
+  <WR_Enabled_Desc>Увімк.: Smart Colonist Gear питає Wardrobe під час кожного рішення про одяг. Вимк.: Smart Colonist Gear вирішує сам, точно як без цього доповнення.</WR_Enabled_Desc>
+  <WR_TakesOver>Одяганням керує Wardrobe. Smart Colonist Gear і далі шукає спорядження, але останнє слово за Wardrobe.</WR_TakesOver>
+  <WR_ScgDecides>Wardrobe вимкнено – Smart Colonist Gear вирішує сам.</WR_ScgDecides>
+  <WR_OverviewText>Кожне правило виходить із власного вибору Smart Colonist Gear, тож із незміненими таблицями колоністи вдягаються як раніше – вкладки лише додають ваші побажання.</WR_OverviewText>
+  <WR_RolesSource>Ролі беруться з: {0}</WR_RolesSource>
+  <WR_RolesSteward>Steward – Ролі</WR_RolesSteward>
+  <WR_RolesSkills>навичок (найсильніша навичка, роботу якої колоніст виконує)</WR_RolesSkills>
+  <WR_SidearmsNote>Simple Sidearms активний: таблиця ролей обирає основну зброю, Simple Sidearms зберігає додаткову.</WR_SidearmsNote>
+  <WR_RoleWeapons>Зброя за роллю</WR_RoleWeapons>
+  <WR_RoleWeapons_Desc>Зброя бажаного типу має перевагу (×1.35), інші типи менш бажані (×0.75).</WR_RoleWeapons_Desc>
+  <WR_DamagedWeapon>Міняти зброю, пошкоджену нижче</WR_DamagedWeapon>
+  <WR_DamagedWeapon_Desc>Зброя зі станом нижче цього значення важить значно менше, тож береться краща, якщо така є.</WR_DamagedWeapon_Desc>
+  <WR_WeaponsText>Таблиця лише зважує оцінку зброї від Smart Colonist Gear – дослідження, епоха й навички вирішують першими.</WR_WeaponsText>
+  <WR_ResetTable>Скинути таблицю</WR_ResetTable>
+  <WR_WP_Any>Будь-яка (як Smart Colonist Gear)</WR_WP_Any>
+  <WR_WP_Ranged>Дальнього бою</WR_WP_Ranged>
+  <WR_WP_Melee>Ближнього бою</WR_WP_Melee>
+  <WR_WP_LongRange>Далекобійна</WR_WP_LongRange>
+  <WR_WP_ShortRange>Ближньої дії</WR_WP_ShortRange>
+  <WR_WP_Light>Легка</WR_WP_Light>
+  <WR_ArmorSets>Броня за ситуацією та роллю</WR_ArmorSets>
+  <WR_ArmorSets_Desc>Речі бажаної ваги мають перевагу; важчих уникають поза боєм.</WR_ArmorSets_Desc>
+  <WR_ArmorText>Ситуації: оборона = рейд або призов, полювання = вихід на полювання, караван = подорож. Інакше вирішує роль.</WR_ArmorText>
+  <WR_Sit_Defense>Оборона</WR_Sit_Defense>
+  <WR_Sit_Hunt>Полювання</WR_Sit_Hunt>
+  <WR_Sit_Caravan>Караван / експедиція</WR_Sit_Caravan>
+  <WR_ArmorRoles>На роботі, за роллю:</WR_ArmorRoles>
+  <WR_AW_Any>Будь-яка (як Smart Colonist Gear)</WR_AW_Any>
+  <WR_AW_None>Жодна</WR_AW_None>
+  <WR_AW_Light>Легка</WR_AW_Light>
+  <WR_AW_Medium>Середня</WR_AW_Medium>
+  <WR_AW_Heavy>Важка</WR_AW_Heavy>
+  <WR_WorkEditor>Редактор робочого одягу</WR_WorkEditor>
+  <WR_WorkEditor_Desc>Який одяг є робочим для якої роботи. Вимк.: власне розпізнавання Smart Colonist Gear.</WR_WorkEditor_Desc>
+  <WR_WorkText>Заповнюється автоматично тим, що розпізнає Smart Colonist Gear. Додавайте або прибирайте речі – колоністи вдягають їх для цієї роботи й знімають після неї.</WR_WorkText>
+  <WR_WorkReset>Заповнити знову з Smart Colonist Gear</WR_WorkReset>
+  <WR_AddPiece>+ Додати річ</WR_AddPiece>
+  <WR_NoPieces>(нічого)</WR_NoPieces>
+  <WR_Care>Догляд за одягом</WR_Care>
+  <WR_Care_Desc>Зношені речі замінюються, пошкоджена зброя – теж.</WR_Care_Desc>
+  <WR_ReplaceBelow>Замінювати одяг нижче</WR_ReplaceBelow>
+  <WR_ReplaceBelow_Desc>У базовій грі штраф до настрою «зношений одяг» діє нижче 50 %. Якщо значення вище, річ замінюється ще до штрафу.</WR_ReplaceBelow_Desc>
+  <WR_NoCorpse>Ніколи не носити одяг мерців</WR_NoCorpse>
+  <WR_RetireBills>Утилізувати зношені речі (замовлення на переплавку / спалення)</WR_RetireBills>
+  <WR_RetireBills_Desc>Один раз на карту – одне безстрокове замовлення в плавильні або крематорії для одягу нижче порогу. Якщо ви його видалите, воно не створюється знову.</WR_RetireBills_Desc>
+  <WR_RetireBelow>Утилізувати нижче</WR_RetireBelow>
+  <WR_RetireBill>Wardrobe: додано замовлення в {0} для зношеного одягу.</WR_RetireBill>
+  <WR_CareText>Ремонт: із модом, що лагодить одяг (напр. Mending), речі ремонтуються – Wardrobe лише перестає їх носити нижче порогу.</WR_CareText>
+  <WR_Sleepwear>Нічний одяг уночі</WR_Sleepwear>
+  <WR_Sleepwear_Desc>Перед сном колоністи вдягають нічний одяг, а вранці знову вдягаються для роботи.</WR_Sleepwear_Desc>
+  <WR_SleepFrom>Ніч від</WR_SleepFrom>
+  <WR_SleepTo>Ніч до</WR_SleepTo>
+  <WR_SleepList>Нічний одяг (знайдено за назвою, можна змінювати):</WR_SleepList>
+  <WR_Festive>Святковий одяг на нагоди</WR_Festive>
+  <WR_Festive_Desc>Під час вечірок, ритуалів і свят вільні колоністи вдягають святковий одяг.</WR_Festive_Desc>
+  <WR_FestiveOnly>Святковий одяг лише на нагоди</WR_FestiveOnly>
+  <WR_FestiveOnly_Desc>Поза нагодами ніхто його не носить, тож він лишається чистим.</WR_FestiveOnly_Desc>
+  <WR_HolidaysOn>Seasons &amp; Holidays активний: його свята вважаються нагодами.</WR_HolidaysOn>
+  <WR_HolidaysOff>Нагоди: вечірки й ритуали (із Seasons &amp; Holidays також його свята).</WR_HolidaysOff>
+  <WR_FestiveList>Святковий одяг (знайдено за назвою, можна змінювати):</WR_FestiveList>
+  <WR_OccasionsReset>Знову знайти нічний і святковий одяг</WR_OccasionsReset>
+  <WR_Hold_sleep>у нічному одязі</WR_Hold_sleep>
+  <WR_Hold_festive>у святковому одязі</WR_Hold_festive>
+  <WR_Uniforms>Кольори уніформи за роллю</WR_Uniforms>
+  <WR_Uniforms_Desc>Вільні колоністи фарбують одяг у колір своєї ролі на станції стилю.</WR_Uniforms_Desc>
+  <WR_UniformsText>Позначте роль і виберіть її колір. Потрібні станція стилю й барвник.</WR_UniformsText>
+  <WR_NeedIdeology>Фарбування одягу потребує DLC Ideology.</WR_NeedIdeology>
+  <WR_Favorites>Особистий гардероб (улюблене)</WR_Favorites>
+  <WR_Favorites_Desc>Улюблені речі носить лише їхній власник, і він надає їм перевагу.</WR_Favorites_Desc>
+  <WR_ToBedroom>Зберігати улюблене в спальні колоніста</WR_ToBedroom>
+  <WR_ToBedroom_Desc>Вільні колоністи відносять свої невдягнені улюблені речі на полицю чи в комод у власній спальні.</WR_ToBedroom_Desc>
+  <WR_FavoritesText>Виберіть колоніста й натисніть «Зберегти вбрання як улюблене». Сховище (полиця, комод) у його спальні їх зберігає.</WR_FavoritesText>
+  <WR_SetFavorites>Зберегти вбрання як улюблене</WR_SetFavorites>
+  <WR_SetFavorites_Desc>Усе, що він зараз носить (і його зброя), стає його: лише він це носить і надає цьому перевагу.</WR_SetFavorites_Desc>
+  <WR_FavoritesNow>Улюблених речей: {0}</WR_FavoritesNow>
+  <WR_FavoritesSaved>{0}: збережено як улюблене речей: {1}.</WR_FavoritesSaved>
+  <WR_ClearFavorites>Очистити улюблене</WR_ClearFavorites>
+  <WR_ClearFavorites_Desc>Його речі знову доступні всім.</WR_ClearFavorites_Desc>
+  <WR_NoFavorites>немає улюбленого</WR_NoFavorites>
+  <WR_Tailor>Планувальник кравця</WR_Tailor>
+  <WR_Tailor_Desc>Пропонує, що виготовити. Нічого не замовляється, доки ви не підтвердите.</WR_Tailor_Desc>
+  <WR_TailorText>Голий торс чи ноги, зношені речі без заміни, низька якість, брак нічного чи святкового одягу.</WR_TailorText>
+  <WR_Refresh>Оновити</WR_Refresh>
+  <WR_NothingToMake>Нічого виготовляти – усі добре вдягнені.</WR_NothingToMake>
+  <WR_AddBill>Додати замовлення</WR_AddBill>
+  <WR_ConfirmBill>Додати замовлення «{0}» ×{1}?</WR_ConfirmBill>
+  <WR_BillAdded>Замовлення «{0}» ×{2} додано в {1}.</WR_BillAdded>
+  <WR_SugBareTorso>голий торс</WR_SugBareTorso>
+  <WR_SugBareLegs>голі ноги</WR_SugBareLegs>
+  <WR_SugTattered>зношене, немає заміни</WR_SugTattered>
+  <WR_SugPoor>низька якість</WR_SugPoor>
+  <WR_SugSleep>немає нічного одягу</WR_SugSleep>
+  <WR_SugFestive>немає святкового одягу</WR_SugFestive>
+  <WR_NoMap>Відкрийте гру, щоб побачити це.</WR_NoMap>
+  <WR_ColonistsText>Позначка = Wardrobe одягає колоніста. Кнопка задає його роль (* = задано вами).</WR_ColonistsText>
+  <WR_RoleAuto>Автоматично</WR_RoleAuto>
+  <WR_MaxDistance>Макс. відстань для одягу</WR_MaxDistance>
+  <WR_MaxDistance_Desc>Як далеко колоністи ходять по нічний чи святковий одяг.</WR_MaxDistance_Desc>
+  <WR_Verbose>Записувати рішення в журнал (для звітів про помилки)</WR_Verbose>
+  <WR_ResetAll>Скинути все</WR_ResetAll>
+  <WR_ResetAll_Confirm>Скинути всі налаштування й таблиці Wardrobe до типових?</WR_ResetAll_Confirm>
+  <WR_AdvancedText>Wardrobe перевіряє одного колоніста кожні 1,5 секунди – без підвисань навіть у великих колоніях.</WR_AdvancedText>
+  <WR_Role_Everyone>Усі</WR_Role_Everyone>
+  <WR_Role_Soldier>Солдат</WR_Role_Soldier>
+  <WR_Role_Hunter>Мисливець</WR_Role_Hunter>
+  <WR_Role_Doctor>Лікар</WR_Role_Doctor>
+  <WR_Role_Builder>Будівельник</WR_Role_Builder>
+  <WR_Role_Miner>Шахтар</WR_Role_Miner>
+  <WR_Role_Crafter>Ремісник</WR_Role_Crafter>
+  <WR_Role_Cook>Кухар</WR_Role_Cook>
+  <WR_Role_Farmer>Фермер</WR_Role_Farmer>
+  <WR_Role_Researcher>Дослідник</WR_Role_Researcher>
+  <WR_Role_Handler>Дресирувальник</WR_Role_Handler>
+  <WR_Role_Warden>Наглядач</WR_Role_Warden>
+  <WR_Role_Hauler>Носій</WR_Role_Hauler>
+  <MUI_Title>Рекомендовані налаштування</MUI_Title>
+  <MUI_TitleOff>Рекомендовані налаштування · вимк.</MUI_TitleOff>
+  <MUI_DescOn>Мод налаштовується сам і працює одразу. Ідеально для нових гравців і всіх, хто не хоче нічого підлаштовувати.</MUI_DescOn>
+  <MUI_DescOff>Власні налаштування. Змінено щодо рекомендованих: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Власні налаштування. Досі такі самі, як рекомендовані.</MUI_DescOffSame>
+  <MUI_On>УВІМК.</MUI_On>
+  <MUI_Off>ВИМК.</MUI_Off>
+  <MUI_ResetAll>Скинути все до рекомендованих</MUI_ResetAll>
+  <MUI_ConfirmOn>Увімкнути рекомендовані налаштування? Ваші зміни ({0}) буде замінено рекомендованими значеннями.</MUI_ConfirmOn>
+  <MUI_Locked>Детальні налаштування заблоковано. Хочете їх змінити? Вимкніть перемикач вище – ваші значення почнуться з рекомендованих.</MUI_Locked>
+  <MUI_Changed>ЗМІНЕНО</MUI_Changed>
+  <MUI_ChangedTip>Відрізняється від рекомендованого налаштування ({0}). Клацніть, щоб відновити рекомендоване значення.</MUI_ChangedTip>
+  <MUI_Yes>увімк.</MUI_Yes>
+  <MUI_No>вимк.</MUI_No>
+  <MUI_RecTag>РЕКОМЕНДОВАНО</MUI_RecTag>
+</LanguageData>

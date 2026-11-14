@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WA_Title>Wild Animals – Biome Spawn Control</WA_Title>
+  <WA_Bullet1>Ігрові списки тварин у кожному біомі</WA_Bullet1>
+  <WA_Bullet2>Нова тварина чи група щонайбільше раз на 8 годин</WA_Bullet2>
+  <WA_Bullet3>Хижаків щонайбільше 30 %, жодного ближче 30 клітинок від дому</WA_Bullet3>
+  <WA_Bullet4>Листи про рідкісних тварин, попередження про надмірне полювання</WA_Bullet4>
+  <WA_TabBiomes>Біоми</WA_TabBiomes>
+  <WA_TabRules>Правила</WA_TabRules>
+  <WA_TabMap>Ця карта</WA_TabMap>
+  <WA_Presets>Шаблони</WA_Presets>
+  <WA_PresetsTip>Готові налаштування для всіх біомів.</WA_PresetsTip>
+  <WA_Preset0>Ігрові списки, без обмежень</WA_Preset0>
+  <WA_Preset1>Більше тварин (×2, швидше)</WA_Preset1>
+  <WA_Preset2>Менше тварин (×0.5, повільніше)</WA_Preset2>
+  <WA_Preset3>Мирно (мало хижаків, жодного біля дому)</WA_Preset3>
+  <WA_PresetConfirm>Застосувати шаблон «{0}»? Ваші власні списки біомів і числа буде замінено.</WA_PresetConfirm>
+  <WA_PresetDone>Застосовано шаблон: {0}</WA_PresetDone>
+  <WA_Share>Код для обміну</WA_Share>
+  <WA_ShareTip>Скопіюйте свої налаштування як текстовий код або вставте код від друга.</WA_ShareTip>
+  <WA_ShareCopy>Скопіювати мої налаштування</WA_ShareCopy>
+  <WA_SharePaste>Вставити код із буфера обміну</WA_SharePaste>
+  <WA_SharePasteConfirm>Замінити ваші налаштування кодом із буфера обміну?</WA_SharePasteConfirm>
+  <WA_ShareCopied>Код налаштувань скопійовано до буфера обміну.</WA_ShareCopied>
+  <WA_ShareBad>У буфері обміну немає коду Wild Animals.</WA_ShareBad>
+  <WA_ShareRead>Код прочитано: записів – {0}.</WA_ShareRead>
+  <WA_SearchBiome>Шукати біом…</WA_SearchBiome>
+  <WA_NAnimals>Тварин: {0} · ~{1} на карті</WA_NAnimals>
+  <WA_PickBiome>Виберіть біом ліворуч.</WA_PickBiome>
+  <WA_CopyFrom>Скопіювати список з…</WA_CopyFrom>
+  <WA_ResetBiome>Скинути цей біом</WA_ResetBiome>
+  <WA_Target>Скільки диких тварин: близько {0} на карті 250×250 (гра: {1})</WA_Target>
+  <WA_Sizes>близько {0} на 200×200 · близько {1} на 300×300</WA_Sizes>
+  <WA_ThisMap>ваша карта зараз: {0}</WA_ThisMap>
+  <WA_SearchAnimal>Шукати тварину чи мод…</WA_SearchAnimal>
+  <WA_ShowAll>Показати всіх тварин</WA_ShowAll>
+  <WA_ShowAllTip>Усі дикі тварини з гри, DLC і всіх модів – також ті, що ніколи не живуть у цьому біомі. Задайте значення понад 0, щоб додати тварину.</WA_ShowAllTip>
+  <WA_HCommon>Поширеність (частка прибуттів)</WA_HCommon>
+  <WA_HCap>Ліміт</WA_HCap>
+  <WA_HSeasons>Пори року</WA_HSeasons>
+  <WA_RareTip>Рідкісна: лист, коли така прибуває.</WA_RareTip>
+  <WA_NoAnimals>Немає відповідних тварин.</WA_NoAnimals>
+  <WA_Predator>хижак</WA_Predator>
+  <WA_Coastal>лише узбережжя</WA_Coastal>
+  <WA_NotNative>не місцева</WA_NotNative>
+  <WA_MayFreeze>може замерзнути</WA_MayFreeze>
+  <WA_MayOverheat>може перегрітися</WA_MayOverheat>
+  <WA_NoCap>Без ліміту</WA_NoCap>
+  <WA_CapTip>Щонайбільше стільки тварин виду «{0}» на карті одночасно (диких). Діє в кожному біомі.</WA_CapTip>
+  <WA_S0>Вс</WA_S0>
+  <WA_S1>Лт</WA_S1>
+  <WA_S2>Ос</WA_S2>
+  <WA_S3>Зм</WA_S3>
+  <WA_Season0>весна</WA_Season0>
+  <WA_Season1>літо</WA_Season1>
+  <WA_Season2>осінь</WA_Season2>
+  <WA_Season3>зима</WA_Season3>
+  <WA_SeasonTip>Прибуває в сезон «{0}»: клацніть, щоб перемкнути. Тварини, що вже на карті, лишаються.</WA_SeasonTip>
+  <WA_TempTip>Прибуває, лише коли температура надворі в межах її комфортного діапазону (від {0} до {1}). Типово ввімкнено для тварин, не місцевих для біому.</WA_TempTip>
+  <WA_SecSpawn>Прибуття</WA_SecSpawn>
+  <WA_Enabled>Керувати прибуттям диких тварин</WA_Enabled>
+  <WA_EnabledTip>Вимк. = власна поява тварин у грі (ваші списки біомів зберігаються на потім).</WA_EnabledTip>
+  <WA_Respawn>Нова тварина чи група щонайбільше раз на {0} (поки на карті менше за ціль)</WA_Respawn>
+  <WA_RespawnTip>Гра використовує прихований шанс; тут ви задаєте час між прибуттями.</WA_RespawnTip>
+  <WA_Group>Розмір групи ×{0}</WA_Group>
+  <WA_GroupTip>Стада й зграї більші або менші.</WA_GroupTip>
+  <WA_SecPredators>Хижаки</WA_SecPredators>
+  <WA_PredMax>Хижаків щонайбільше {0} % диких тварин</WA_PredMax>
+  <WA_PredMaxOff>Хижаки: без ліміту</WA_PredMaxOff>
+  <WA_PredMaxTip>Коли їх більше, прибувають лише не хижаки.</WA_PredMaxTip>
+  <WA_PredHome>Жоден хижак не прибуває ближче {0} клітинок від домашньої зони</WA_PredHome>
+  <WA_PredHomeOff>Хижаки можуть прибувати будь-де</WA_PredHomeOff>
+  <WA_PredHomeTip>Перевіряється там, де тварина входить на карту.</WA_PredHomeTip>
+  <WA_SecInfo>Інформація</WA_SecInfo>
+  <WA_RareLetters>Лист, коли прибуває рідкісна тварина</WA_RareLetters>
+  <WA_RareLettersTip>Рідкісних тварин позначено ★ у списку біому (типово трумбо та інші дуже рідкісні).</WA_RareLettersTip>
+  <WA_Pressure>Попередження про надмірне полювання</WA_Pressure>
+  <WA_PressureTip>Попереджає, коли колонія вбиває диких тварин швидше, ніж прибувають нові, і карта порожніє.</WA_PressureTip>
+  <WA_EventsNote>Події не змінюються: шалені зграї, міграції стад, візити трумбо та інші працюють як у грі.</WA_EventsNote>
+  <WA_Hours>{0} год</WA_Hours>
+  <WA_Days>{0} дн.</WA_Days>
+  <WA_NoMap>Завантажте гру, щоб побачити тварин на своїй карті.</WA_NoMap>
+  <WA_MapHead>{0}: диких тварин {1} / ціль {2}</WA_MapHead>
+  <WA_MapOff>Прибуття: власні ігрові</WA_MapOff>
+  <WA_MapFull>Карта заповнена – зараз прибуттів немає</WA_MapFull>
+  <WA_MapNext>Наступне прибуття щонайпізніше через {0}</WA_MapNext>
+  <WA_MapSeason>Пора року: {0}</WA_MapSeason>
+  <WA_MapStats>Останні 5 днів: убито колонією {0} · прибуло {1} · хижаків {2} ({3} %)</WA_MapStats>
+  <WA_HAnimal>Тварина</WA_HAnimal>
+  <WA_HNow>Зараз</WA_HNow>
+  <WA_HExpected>Очікується</WA_HExpected>
+  <WA_HState>Прибуває?</WA_HState>
+  <WA_StNotInList>немає в списку цього біому</WA_StNotInList>
+  <WA_StSeason>не цієї пори року / надто холодно чи спекотно</WA_StSeason>
+  <WA_StCap>ліміт досягнуто</WA_StCap>
+  <WA_StOk>так</WA_StOk>
+  <WA_AlertLabel>Надмірне полювання</WA_AlertLabel>
+  <WA_AlertText>За останні 5 днів колонія вбила диких тварин: {0}, а прибуло лише {1}. Карта порожніє – полюйте менше або задайте швидші прибуття в Wild Animals.</WA_AlertText>
+  <WA_RareTitle>Рідкісна тварина: {0}</WA_RareTitle>
+  <WA_RareText>Прибула рідкісна тварина: {0}. Погляньте на неї, поки вона не пішла – або поки хтось її не вполював.</WA_RareText>
+  <MUI_Title>Рекомендовані налаштування</MUI_Title>
+  <MUI_TitleOff>Рекомендовані налаштування · вимк.</MUI_TitleOff>
+  <MUI_DescOn>Мод налаштовується сам і працює одразу. Ідеально для нових гравців і всіх, хто не хоче нічого підлаштовувати.</MUI_DescOn>
+  <MUI_DescOff>Власні налаштування. Змінено щодо рекомендованих: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Власні налаштування. Досі такі самі, як рекомендовані.</MUI_DescOffSame>
+  <MUI_On>УВІМК.</MUI_On>
+  <MUI_Off>ВИМК.</MUI_Off>
+  <MUI_ResetAll>Скинути все до рекомендованих</MUI_ResetAll>
+  <MUI_ConfirmOn>Увімкнути рекомендовані налаштування? Ваші зміни ({0}) буде замінено рекомендованими значеннями.</MUI_ConfirmOn>
+  <MUI_Locked>Детальні налаштування заблоковано. Хочете їх змінити? Вимкніть перемикач вище – ваші значення почнуться з рекомендованих.</MUI_Locked>
+  <MUI_Changed>ЗМІНЕНО</MUI_Changed>
+  <MUI_ChangedTip>Відрізняється від рекомендованого налаштування ({0}). Клацніть, щоб відновити рекомендоване значення.</MUI_ChangedTip>
+  <MUI_Yes>увімк.</MUI_Yes>
+  <MUI_No>вимк.</MUI_No>
+  <MUI_RecTag>РЕКОМЕНДОВАНО</MUI_RecTag>
+  <WA_EditNote>Рекомендовані налаштування ввімкнено. Змініть будь-що нижче, і вони вимкнуться – ваші значення почнуться з рекомендованих.</WA_EditNote>
+  <WA_TempHeadTip>Прибуває, лише коли температура надворі підходить тварині.</WA_TempHeadTip>
+  <!-- 0.1.3 -->
+  <WA_ModAll>Мод: усі</WA_ModAll>
+  <WA_ModFilter>Мод: {0}</WA_ModFilter>
+  <WA_ModFilterTip>Показувати лише тварин одного моду (шукає серед усіх тварин цього моду, не лише в списку цього біому).</WA_ModFilterTip>
+  <WA_BelongsHere>місцева</WA_BelongsHere>
+  <WA_BelongsTip>Ця тварина належить до цього біому в самій грі. Вона завжди лишається в списку, навіть на 0, щоб ви могли її повернути.</WA_BelongsTip>
+  <WA_ResetMenu>Скинути… ▾</WA_ResetMenu>
+  <WA_ResetMenuTip>Повернути тварин, які тут живуть, або скинути весь біом до ігрового списку.</WA_ResetMenuTip>
+  <WA_RestoreNatives>Повернути тварин, які тут живуть (інші зміни лишаються)</WA_RestoreNatives>
+  <WA_RestoreNativesAll>Повернути тварин, які там живуть – у кожному біомі</WA_RestoreNativesAll>
+  <WA_RestoreDone>Повернуто тварин: {0} у {1}.</WA_RestoreDone>
+  <WA_RestoreDoneAll>Повернуто тварин: {0} у біомах: {1}.</WA_RestoreDoneAll>
+  <WA_NativesZero>Тварин, що належать до цього біому, на 0: {0}.</WA_NativesZero>
+  <WA_RestoreNow>Повернути їх</WA_RestoreNow>
+  <WA_Pets>Також свійські тварини (собаки, коти, інші улюбленці)</WA_Pets>
+  <WA_PetsTip>Гра ніколи не дозволяє свійським тваринам жити в дикій природі. Увімк.: собаки, коти й інші улюбленці з будь-якого моду з'являються в списках біомів («Показати всіх тварин» або пошук) і їм можна задати частку, як будь-якій іншій тварині – тоді вони приходять як бездомні, дикі тварини. Вимк.: їх пропущено, навіть якщо вони досі є в списку.</WA_PetsTip>
+</LanguageData>

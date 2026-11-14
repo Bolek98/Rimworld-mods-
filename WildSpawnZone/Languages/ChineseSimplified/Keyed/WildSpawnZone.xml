@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WSZ_Area>野生动物生成区</WSZ_Area>
+  <WSZ_Expand>扩展野生动物生成区</WSZ_Expand>
+  <WSZ_ExpandDesc>标记野生动物出现的位置。只要该区域不为空,新的野生动物(包括飞来的鸟类)只会在区域内出现。动物迁徙或猎杀人类等事件不受影响。</WSZ_ExpandDesc>
+  <WSZ_Clear>缩小野生动物生成区</WSZ_Clear>
+  <WSZ_ClearDesc>从野生动物生成区中移除格子。区域为空时,动物按游戏原样出现。</WSZ_ClearDesc>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <MUI_RecTag>推荐</MUI_RecTag>
+  <WSZ_Rec1>野生动物只在你绘制的生成区内出现(区域菜单)。</WSZ_Rec1>
+  <WSZ_Rec2>绝不在居住区内——院子里不会再冒出鹿来。</WSZ_Rec2>
+  <WSZ_Rec3>动物数量与游戏一致。没有生成区时一切不变。</WSZ_Rec3>
+  <WSZ_SecZone>生成区</WSZ_SecZone>
+  <WSZ_SecAnimals>野生动物</WSZ_SecAnimals>
+  <WSZ_Enabled>动物只在区域内出现</WSZ_Enabled>
+  <WSZ_Enabled_Desc>只要区域至少有一个格子,新的野生动物只会在区域内出现。关 = 与游戏一致,区域保留不删除。</WSZ_Enabled_Desc>
+  <WSZ_AvoidHome>绝不在居住区内</WSZ_AvoidHome>
+  <WSZ_AvoidHome_Desc>同时属于居住区的区域格子会被跳过——动物绝不会出现在你的基地中央。</WSZ_AvoidHome_Desc>
+  <WSZ_Birds>鸟类可以飞到任何地方</WSZ_Birds>
+  <WSZ_Birds_Desc>飞行动物随意降落,与游戏一致。关 = 鸟类也只在区域内出现。</WSZ_Birds_Desc>
+  <WSZ_Density>野生动物数量:{0} %</WSZ_Density>
+  <WSZ_Density_Desc>地图上有多少野生动物以及它们来得多快。100 % = 与游戏一致,0 % = 不再有新动物。事件(迁徙、猎杀人类)不受影响。</WSZ_Density_Desc>
+  <WSZ_HowTo>在区域菜单 → “扩展野生动物生成区”中找到该区域。把它画在地图边缘或围墙外的森林里。</WSZ_HowTo>
+</LanguageData>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WA_Title>Wild Animals – バイオーム別出現管理</WA_Title>
+  <WA_Bullet1>すべてのバイオームでゲーム本来の動物リスト</WA_Bullet1>
+  <WA_Bullet2>新しい動物や群れの出現は最短 8 時間ごと</WA_Bullet2>
+  <WA_Bullet3>捕食動物は最大 30 %、ホームから 30 マス以内には出現しない</WA_Bullet3>
+  <WA_Bullet4>希少動物の通知と狩猟圧の警告</WA_Bullet4>
+  <WA_TabBiomes>バイオーム</WA_TabBiomes>
+  <WA_TabRules>ルール</WA_TabRules>
+  <WA_TabMap>このマップ</WA_TabMap>
+  <WA_Presets>プリセット</WA_Presets>
+  <WA_PresetsTip>全バイオーム用の既成の設定。</WA_PresetsTip>
+  <WA_Preset0>ゲームのリスト、制限なし</WA_Preset0>
+  <WA_Preset1>動物を増やす（×2、出現が速い）</WA_Preset1>
+  <WA_Preset2>動物を減らす（×0.5、出現が遅い）</WA_Preset2>
+  <WA_Preset3>平和（捕食動物は少なく、ホーム付近にはいない）</WA_Preset3>
+  <WA_PresetConfirm>プリセット「{0}」を使用しますか？独自のバイオームリストと数値は置き換えられます。</WA_PresetConfirm>
+  <WA_PresetDone>使用したプリセット：{0}</WA_PresetDone>
+  <WA_Share>共有コード</WA_Share>
+  <WA_ShareTip>設定をテキストコードとしてコピーするか、友人のコードを貼り付けます。</WA_ShareTip>
+  <WA_ShareCopy>自分の設定をコピー</WA_ShareCopy>
+  <WA_SharePaste>クリップボードからコードを貼り付け</WA_SharePaste>
+  <WA_SharePasteConfirm>設定をクリップボードのコードで置き換えますか？</WA_SharePasteConfirm>
+  <WA_ShareCopied>設定コードをクリップボードにコピーしました。</WA_ShareCopied>
+  <WA_ShareBad>クリップボードに Wild Animals のコードがありません。</WA_ShareBad>
+  <WA_ShareRead>コードを読み込みました：{0} 件。</WA_ShareRead>
+  <WA_SearchBiome>バイオームを検索…</WA_SearchBiome>
+  <WA_NAnimals>動物 {0} 種 · マップ上に約 {1} 匹</WA_NAnimals>
+  <WA_PickBiome>左からバイオームを選んでください。</WA_PickBiome>
+  <WA_CopyFrom>リストをコピー元から…</WA_CopyFrom>
+  <WA_ResetBiome>このバイオームをリセット</WA_ResetBiome>
+  <WA_Target>野生動物の数：250×250 のマップで約 {0} 匹（ゲーム：{1}）</WA_Target>
+  <WA_Sizes>200×200 で約 {0} 匹 · 300×300 で約 {1} 匹</WA_Sizes>
+  <WA_ThisMap>現在のマップ：{0}</WA_ThisMap>
+  <WA_SearchAnimal>動物や Mod を検索…</WA_SearchAnimal>
+  <WA_ShowAll>すべての動物を表示</WA_ShowAll>
+  <WA_ShowAllTip>ゲーム本体、DLC、すべての Mod の野生動物 – このバイオームに生息しないものも含みます。0 より大きい値を設定すると追加されます。</WA_ShowAllTip>
+  <WA_HCommon>出現頻度（到来の割合）</WA_HCommon>
+  <WA_HCap>上限</WA_HCap>
+  <WA_HSeasons>季節</WA_HSeasons>
+  <WA_RareTip>希少：到来すると通知が届きます。</WA_RareTip>
+  <WA_NoAnimals>該当する動物はいません。</WA_NoAnimals>
+  <WA_Predator>捕食動物</WA_Predator>
+  <WA_Coastal>沿岸のみ</WA_Coastal>
+  <WA_NotNative>本来は生息しない</WA_NotNative>
+  <WA_MayFreeze>凍える恐れあり</WA_MayFreeze>
+  <WA_MayOverheat>熱中症の恐れあり</WA_MayOverheat>
+  <WA_NoCap>上限なし</WA_NoCap>
+  <WA_CapTip>マップ上に同時にいられる {0} の最大数（野生のもの）。すべてのバイオームに適用されます。</WA_CapTip>
+  <WA_S0>春</WA_S0>
+  <WA_S1>夏</WA_S1>
+  <WA_S2>秋</WA_S2>
+  <WA_S3>冬</WA_S3>
+  <WA_Season0>春</WA_Season0>
+  <WA_Season1>夏</WA_Season1>
+  <WA_Season2>秋</WA_Season2>
+  <WA_Season3>冬</WA_Season3>
+  <WA_SeasonTip>{0}に到来：クリックで切り替え。すでにマップにいる動物は残ります。</WA_SeasonTip>
+  <WA_TempTip>屋外の気温が快適な範囲（{0}〜{1}）にあるときだけ到来します。そのバイオーム本来の動物でない場合は既定でオンです。</WA_TempTip>
+  <WA_SecSpawn>到来</WA_SecSpawn>
+  <WA_Enabled>野生動物の到来を管理する</WA_Enabled>
+  <WA_EnabledTip>オフ = ゲーム本来の出現（バイオームリストは後のために保持されます）。</WA_EnabledTip>
+  <WA_Respawn>新しい動物や群れの到来は最短 {0} ごと（マップの数が目標を下回っている間）</WA_Respawn>
+  <WA_RespawnTip>ゲームは隠れた確率を使いますが、ここでは到来の間隔を設定します。</WA_RespawnTip>
+  <WA_Group>群れの大きさ ×{0}</WA_Group>
+  <WA_GroupTip>群れが大きく、または小さくなります。</WA_GroupTip>
+  <WA_SecPredators>捕食動物</WA_SecPredators>
+  <WA_PredMax>捕食動物は野生動物の最大 {0} %</WA_PredMax>
+  <WA_PredMaxOff>捕食動物：制限なし</WA_PredMaxOff>
+  <WA_PredMaxTip>超えている間は捕食動物以外だけが到来します。</WA_PredMaxTip>
+  <WA_PredHome>ホームエリアから {0} マス以内には捕食動物が到来しない</WA_PredHome>
+  <WA_PredHomeOff>捕食動物はどこにでも到来できる</WA_PredHomeOff>
+  <WA_PredHomeTip>動物がマップに入る地点で判定します。</WA_PredHomeTip>
+  <WA_SecInfo>情報</WA_SecInfo>
+  <WA_RareLetters>希少動物が到来したら通知</WA_RareLetters>
+  <WA_RareLettersTip>希少動物はバイオームリストで ★ が付きます（既定ではスランボなど非常に珍しい動物）。</WA_RareLettersTip>
+  <WA_Pressure>狩猟圧の警告</WA_Pressure>
+  <WA_PressureTip>コロニーが新たな到来よりも速く野生動物を殺し、マップから動物が減っているときに警告します。</WA_PressureTip>
+  <WA_EventsNote>イベントは変更されません：マンハンターの群れ、群れの移動、スランボの来訪などはゲーム通りに発生します。</WA_EventsNote>
+  <WA_Hours>{0} 時間</WA_Hours>
+  <WA_Days>{0} 日</WA_Days>
+  <WA_NoMap>ゲームを読み込むとマップ上の動物が表示されます。</WA_NoMap>
+  <WA_MapHead>{0}：野生動物 {1} 匹 / 目標 {2}</WA_MapHead>
+  <WA_MapOff>到来：ゲーム本来の方式</WA_MapOff>
+  <WA_MapFull>マップは満員です – 現在は到来なし</WA_MapFull>
+  <WA_MapNext>次の到来は遅くとも {0} 後</WA_MapNext>
+  <WA_MapSeason>季節：{0}</WA_MapSeason>
+  <WA_MapStats>直近 5 日：コロニーが殺した数 {0} · 到来 {1} · 捕食動物 {2}（{3} %）</WA_MapStats>
+  <WA_HAnimal>動物</WA_HAnimal>
+  <WA_HNow>現在</WA_HNow>
+  <WA_HExpected>予想</WA_HExpected>
+  <WA_HState>到来？</WA_HState>
+  <WA_StNotInList>このバイオームのリストにない</WA_StNotInList>
+  <WA_StSeason>季節外 / 寒すぎるか暑すぎる</WA_StSeason>
+  <WA_StCap>上限に達した</WA_StCap>
+  <WA_StOk>はい</WA_StOk>
+  <WA_AlertLabel>狩猟圧</WA_AlertLabel>
+  <WA_AlertText>コロニーは直近 5 日で野生動物を {0} 匹殺しましたが、到来したのは {1} 匹だけです。マップから動物が減っています – 狩りを控えるか、Wild Animals で到来を速くしてください。</WA_AlertText>
+  <WA_RareTitle>希少動物：{0}</WA_RareTitle>
+  <WA_RareText>希少動物が到来しました：{0}。去ってしまう前に – あるいは誰かに狩られる前に見ておきましょう。</WA_RareText>
+  <MUI_Title>推奨設定</MUI_Title>
+  <MUI_TitleOff>推奨設定 · オフ</MUI_TitleOff>
+  <MUI_DescOn>Mod が自動で設定され、すぐに動作します。初心者や細かく調整したくない方に最適です。</MUI_DescOn>
+  <MUI_DescOff>カスタム設定。推奨から変更：{0}。</MUI_DescOff>
+  <MUI_DescOffSame>カスタム設定。まだ推奨と同じです。</MUI_DescOffSame>
+  <MUI_On>オン</MUI_On>
+  <MUI_Off>オフ</MUI_Off>
+  <MUI_ResetAll>すべて推奨に戻す</MUI_ResetAll>
+  <MUI_ConfirmOn>推奨設定をオンにしますか？あなたの変更（{0}）は推奨値に置き換えられます。</MUI_ConfirmOn>
+  <MUI_Locked>詳細設定はロックされています。変更したい場合は上のスイッチをオフにしてください – 推奨値から始まります。</MUI_Locked>
+  <MUI_Changed>変更済み</MUI_Changed>
+  <MUI_ChangedTip>推奨設定（{0}）と異なります。クリックで推奨値に戻します。</MUI_ChangedTip>
+  <MUI_Yes>オン</MUI_Yes>
+  <MUI_No>オフ</MUI_No>
+  <MUI_RecTag>推奨</MUI_RecTag>
+  <WA_EditNote>推奨設定がオンです。下の項目を変更すると自動でオフになり、推奨値から始まります。</WA_EditNote>
+  <WA_TempHeadTip>屋外の気温がその動物に適しているときだけ到来します。</WA_TempHeadTip>
+  <!-- 0.1.3 -->
+  <WA_ModAll>Mod：すべて</WA_ModAll>
+  <WA_ModFilter>Mod：{0}</WA_ModFilter>
+  <WA_ModFilterTip>1 つの Mod の動物だけを表示します（このバイオームのリストだけでなく、その Mod のすべての動物を検索します）。</WA_ModFilterTip>
+  <WA_BelongsHere>本来の生息地</WA_BelongsHere>
+  <WA_BelongsTip>この動物はゲーム本体でこのバイオームに属しています。0 でも常にリストに残るので、いつでも戻せます。</WA_BelongsTip>
+  <WA_ResetMenu>リセット… ▾</WA_ResetMenu>
+  <WA_ResetMenuTip>本来の動物を戻すか、バイオーム全体をゲームのリストにリセットします。</WA_ResetMenuTip>
+  <WA_RestoreNatives>本来の動物を戻す（他の変更は保持）</WA_RestoreNatives>
+  <WA_RestoreNativesAll>本来の動物を戻す – すべてのバイオームで</WA_RestoreNativesAll>
+  <WA_RestoreDone>{1} に {0} 種の動物が戻りました。</WA_RestoreDone>
+  <WA_RestoreDoneAll>{1} 個のバイオームに {0} 種の動物が戻りました。</WA_RestoreDoneAll>
+  <WA_NativesZero>このバイオーム本来の動物 {0} 種が 0 になっています。</WA_NativesZero>
+  <WA_RestoreNow>元に戻す</WA_RestoreNow>
+  <WA_Pets>家畜・ペットも含める（犬、猫、その他のペット）</WA_Pets>
+  <WA_PetsTip>ゲームでは家畜化された動物が野生で暮らすことはありません。オン：あらゆる Mod の犬、猫、その他のペットがバイオームリスト（「すべての動物を表示」または検索）に表示され、他の動物と同じく割合を設定できます – その場合は野良の野生動物として到来します。オフ：リストに残っていても除外されます。</WA_PetsTip>
+</LanguageData>

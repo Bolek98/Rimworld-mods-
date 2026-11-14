@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WR_Name>Smart Colonist Gear – Wardrobe</WR_Name>
+  <WR_Tab_Overview>Обзор</WR_Tab_Overview>
+  <WR_Tab_Weapons>Оружие</WR_Tab_Weapons>
+  <WR_Tab_Armor>Броня</WR_Tab_Armor>
+  <WR_Tab_Work>Рабочая одежда</WR_Tab_Work>
+  <WR_Tab_Care>Уход</WR_Tab_Care>
+  <WR_Tab_Occasions>Особые случаи</WR_Tab_Occasions>
+  <WR_Tab_Uniforms>Форма и цвета</WR_Tab_Uniforms>
+  <WR_Tab_Wardrobe>Гардероб</WR_Tab_Wardrobe>
+  <WR_Tab_Tailor>Портной</WR_Tab_Tailor>
+  <WR_Tab_Colonists>Колонисты</WR_Tab_Colonists>
+  <WR_Tab_Advanced>Дополнительно</WR_Tab_Advanced>
+  <WR_Rec1>Оружие и броня по роли и ситуации</WR_Rec1>
+  <WR_Rec2>Рабочая одежда из редактора (заполняется автоматически)</WR_Rec2>
+  <WR_Rec3>Изношенные вещи заменяются, одежда мертвецов – никогда</WR_Rec3>
+  <WR_Rec4>Ночью – пижама, на праздниках и вечеринках – праздничная одежда</WR_Rec4>
+  <WR_Rec5>Любимый наряд хранится в спальне колониста</WR_Rec5>
+  <WR_Rec6>Планировщик портного – задания только после вашего подтверждения</WR_Rec6>
+  <WR_Enabled>Wardrobe решает, что носят колонисты</WR_Enabled>
+  <WR_Enabled_Desc>Вкл.: Smart Colonist Gear спрашивает Wardrobe при каждом выборе одежды. Выкл.: Smart Colonist Gear решает сам, точно как без этого дополнения.</WR_Enabled_Desc>
+  <WR_TakesOver>Одеванием управляет Wardrobe. Smart Colonist Gear по-прежнему находит снаряжение, последнее слово за Wardrobe.</WR_TakesOver>
+  <WR_ScgDecides>Wardrobe выключен – Smart Colonist Gear решает сам.</WR_ScgDecides>
+  <WR_OverviewText>Каждое правило начинается с собственного выбора Smart Colonist Gear, поэтому с нетронутыми таблицами колонисты одеваются как раньше – вкладки лишь добавляют ваши пожелания сверху.</WR_OverviewText>
+  <WR_RolesSource>Роли берутся из: {0}</WR_RolesSource>
+  <WR_RolesSteward>Steward – роли</WR_RolesSteward>
+  <WR_RolesSkills>навыков (сильнейший навык, работу по которому выполняет колонист)</WR_RolesSkills>
+  <WR_SidearmsNote>Активен Simple Sidearms: таблица ролей выбирает основное оружие, Simple Sidearms оставляет запасное.</WR_SidearmsNote>
+  <WR_RoleWeapons>Оружие по ролям</WR_RoleWeapons>
+  <WR_RoleWeapons_Desc>Оружие нужного вида предпочитается (×1.35), другие виды менее желанны (×0.75).</WR_RoleWeapons_Desc>
+  <WR_DamagedWeapon>Менять оружие с прочностью ниже</WR_DamagedWeapon>
+  <WR_DamagedWeapon_Desc>Оружие с прочностью ниже этого значения ценится гораздо меньше, поэтому берётся лучшее, если оно есть.</WR_DamagedWeapon_Desc>
+  <WR_WeaponsText>Таблица лишь взвешивает оценку оружия Smart Colonist Gear – исследования, эпоха и навык решают в первую очередь.</WR_WeaponsText>
+  <WR_ResetTable>Сбросить таблицу</WR_ResetTable>
+  <WR_WP_Any>Любое (как Smart Colonist Gear)</WR_WP_Any>
+  <WR_WP_Ranged>Дальнобойное</WR_WP_Ranged>
+  <WR_WP_Melee>Ближний бой</WR_WP_Melee>
+  <WR_WP_LongRange>Дальняя дистанция</WR_WP_LongRange>
+  <WR_WP_ShortRange>Ближняя дистанция</WR_WP_ShortRange>
+  <WR_WP_Light>Лёгкое</WR_WP_Light>
+  <WR_ArmorSets>Броня по ситуации и роли</WR_ArmorSets>
+  <WR_ArmorSets_Desc>Вещи нужного веса предпочитаются; более тяжёлых избегают вне боя.</WR_ArmorSets_Desc>
+  <WR_ArmorText>Ситуации: оборона = рейд или призыв, охота = идёт на охоту, караван = в пути. В остальное время решает роль.</WR_ArmorText>
+  <WR_Sit_Defense>Оборона</WR_Sit_Defense>
+  <WR_Sit_Hunt>Охота</WR_Sit_Hunt>
+  <WR_Sit_Caravan>Караван / экспедиция</WR_Sit_Caravan>
+  <WR_ArmorRoles>На работе, по роли:</WR_ArmorRoles>
+  <WR_AW_Any>Любая (как Smart Colonist Gear)</WR_AW_Any>
+  <WR_AW_None>Нет</WR_AW_None>
+  <WR_AW_Light>Лёгкая</WR_AW_Light>
+  <WR_AW_Medium>Средняя</WR_AW_Medium>
+  <WR_AW_Heavy>Тяжёлая</WR_AW_Heavy>
+  <WR_WorkEditor>Редактор рабочей одежды</WR_WorkEditor>
+  <WR_WorkEditor_Desc>Какая одежда является рабочей для какой работы. Выкл.: собственное распознавание Smart Colonist Gear.</WR_WorkEditor_Desc>
+  <WR_WorkText>Заполняется автоматически тем, что распознаёт Smart Colonist Gear. Добавляйте или убирайте вещи – колонисты надевают их для этой работы и снимают после.</WR_WorkText>
+  <WR_WorkReset>Заполнить заново из Smart Colonist Gear</WR_WorkReset>
+  <WR_AddPiece>+ Добавить вещь</WR_AddPiece>
+  <WR_NoPieces>(ничего)</WR_NoPieces>
+  <WR_Care>Уход за одеждой</WR_Care>
+  <WR_Care_Desc>Изношенные вещи заменяются, повреждённое оружие меняется.</WR_Care_Desc>
+  <WR_ReplaceBelow>Заменять одежду с прочностью ниже</WR_ReplaceBelow>
+  <WR_ReplaceBelow_Desc>В игре штраф к настроению «рваная одежда» даётся ниже 50 %. При значении выше вещь заменяется ещё до штрафа.</WR_ReplaceBelow_Desc>
+  <WR_NoCorpse>Никогда не носить одежду мертвецов</WR_NoCorpse>
+  <WR_RetireBills>Утилизировать рваные вещи (задание переплавить / сжечь)</WR_RetireBills>
+  <WR_RetireBills_Desc>Один раз на карту одно задание «бесконечно» в плавильне или крематории для одежды ниже порога. Если вы его удалите, оно больше не создаётся.</WR_RetireBills_Desc>
+  <WR_RetireBelow>Утилизировать ниже</WR_RetireBelow>
+  <WR_RetireBill>Wardrobe: добавлено задание в {0} для рваной одежды.</WR_RetireBill>
+  <WR_CareText>Починка: с модом, который чинит одежду (например, Mending), вещи вместо этого чинятся – Wardrobe лишь перестаёт их носить ниже порога.</WR_CareText>
+  <WR_Sleepwear>Пижама ночью</WR_Sleepwear>
+  <WR_Sleepwear_Desc>Перед сном ночью колонисты надевают пижаму, утром снова одеваются для работы.</WR_Sleepwear_Desc>
+  <WR_SleepFrom>Ночь с</WR_SleepFrom>
+  <WR_SleepTo>Ночь до</WR_SleepTo>
+  <WR_SleepList>Пижамы (найдены по названию, меняйте свободно):</WR_SleepList>
+  <WR_Festive>Праздничная одежда в особых случаях</WR_Festive>
+  <WR_Festive_Desc>Во время вечеринок, ритуалов и праздников свободные колонисты надевают праздничную одежду.</WR_Festive_Desc>
+  <WR_FestiveOnly>Праздничная одежда только для особых случаев</WR_FestiveOnly>
+  <WR_FestiveOnly_Desc>Вне особых случаев её никто не носит, поэтому она остаётся чистой.</WR_FestiveOnly_Desc>
+  <WR_HolidaysOn>Активен Seasons &amp; Holidays: его праздники считаются особыми случаями.</WR_HolidaysOn>
+  <WR_HolidaysOff>Особые случаи: вечеринки и ритуалы (с Seasons &amp; Holidays также его праздники).</WR_HolidaysOff>
+  <WR_FestiveList>Праздничная одежда (найдена по названию, меняйте свободно):</WR_FestiveList>
+  <WR_OccasionsReset>Найти пижамы и праздничную одежду заново</WR_OccasionsReset>
+  <WR_Hold_sleep>в пижаме</WR_Hold_sleep>
+  <WR_Hold_festive>в праздничной одежде</WR_Hold_festive>
+  <WR_Uniforms>Цвета формы по ролям</WR_Uniforms>
+  <WR_Uniforms_Desc>Свободные колонисты красят одежду в цвет своей роли у стилистической станции.</WR_Uniforms_Desc>
+  <WR_UniformsText>Отметьте роль и выберите её цвет. Нужны стилистическая станция и краситель.</WR_UniformsText>
+  <WR_NeedIdeology>Для окрашивания одежды нужно DLC Ideology.</WR_NeedIdeology>
+  <WR_Favorites>Личный гардероб (любимые вещи)</WR_Favorites>
+  <WR_Favorites_Desc>Любимые вещи носит только их владелец, и он их предпочитает.</WR_Favorites_Desc>
+  <WR_ToBedroom>Хранить любимые вещи в спальне колониста</WR_ToBedroom>
+  <WR_ToBedroom_Desc>Свободные колонисты относят свои неносимые любимые вещи на полку или в комод в собственной спальне.</WR_ToBedroom_Desc>
+  <WR_FavoritesText>Выберите колониста и нажмите «Сохранить наряд как любимый». Хранилище (полка, комод) в его спальне держит вещи.</WR_FavoritesText>
+  <WR_SetFavorites>Сохранить наряд как любимый</WR_SetFavorites>
+  <WR_SetFavorites_Desc>Всё, что он сейчас носит (и его оружие), становится его: носит только он, и он это предпочитает.</WR_SetFavorites_Desc>
+  <WR_FavoritesNow>Любимых вещей: {0}</WR_FavoritesNow>
+  <WR_FavoritesSaved>{0}: сохранено любимых вещей – {1}.</WR_FavoritesSaved>
+  <WR_ClearFavorites>Очистить любимые вещи</WR_ClearFavorites>
+  <WR_ClearFavorites_Desc>Его вещи снова доступны всем.</WR_ClearFavorites_Desc>
+  <WR_NoFavorites>нет любимых вещей</WR_NoFavorites>
+  <WR_Tailor>Планировщик портного</WR_Tailor>
+  <WR_Tailor_Desc>Предлагает, что сшить. Ничего не заказывается без вашего подтверждения.</WR_Tailor_Desc>
+  <WR_TailorText>Голый торс или ноги, изношенные вещи без замены, плохое качество, нет пижамы или праздничной одежды.</WR_TailorText>
+  <WR_Refresh>Обновить</WR_Refresh>
+  <WR_NothingToMake>Шить нечего – все хорошо одеты.</WR_NothingToMake>
+  <WR_AddBill>Добавить задание</WR_AddBill>
+  <WR_ConfirmBill>Добавить задание «{0}» ×{1}?</WR_ConfirmBill>
+  <WR_BillAdded>Задание «{0}» ×{2} добавлено в {1}.</WR_BillAdded>
+  <WR_SugBareTorso>голый торс</WR_SugBareTorso>
+  <WR_SugBareLegs>голые ноги</WR_SugBareLegs>
+  <WR_SugTattered>изношено, замены нет</WR_SugTattered>
+  <WR_SugPoor>плохое качество</WR_SugPoor>
+  <WR_SugSleep>нет пижамы</WR_SugSleep>
+  <WR_SugFestive>нет праздничной одежды</WR_SugFestive>
+  <WR_NoMap>Откройте игру, чтобы увидеть это.</WR_NoMap>
+  <WR_ColonistsText>Отметка = Wardrobe одевает колониста. Кнопка задаёт его роль (* = задано вами).</WR_ColonistsText>
+  <WR_RoleAuto>Автоматически</WR_RoleAuto>
+  <WR_MaxDistance>Макс. расстояние за одеждой</WR_MaxDistance>
+  <WR_MaxDistance_Desc>Как далеко колонисты ходят за пижамой или праздничной одеждой.</WR_MaxDistance_Desc>
+  <WR_Verbose>Записывать решения в журнал (для отчётов об ошибках)</WR_Verbose>
+  <WR_ResetAll>Сбросить всё</WR_ResetAll>
+  <WR_ResetAll_Confirm>Сбросить все настройки и таблицы Wardrobe на значения по умолчанию?</WR_ResetAll_Confirm>
+  <WR_AdvancedText>Wardrobe проверяет одного колониста каждые 1,5 секунды – никаких подтормаживаний даже в больших колониях.</WR_AdvancedText>
+  <WR_Role_Everyone>Все</WR_Role_Everyone>
+  <WR_Role_Soldier>Солдат</WR_Role_Soldier>
+  <WR_Role_Hunter>Охотник</WR_Role_Hunter>
+  <WR_Role_Doctor>Врач</WR_Role_Doctor>
+  <WR_Role_Builder>Строитель</WR_Role_Builder>
+  <WR_Role_Miner>Шахтёр</WR_Role_Miner>
+  <WR_Role_Crafter>Ремесленник</WR_Role_Crafter>
+  <WR_Role_Cook>Повар</WR_Role_Cook>
+  <WR_Role_Farmer>Фермер</WR_Role_Farmer>
+  <WR_Role_Researcher>Исследователь</WR_Role_Researcher>
+  <WR_Role_Handler>Дрессировщик</WR_Role_Handler>
+  <WR_Role_Warden>Надзиратель</WR_Role_Warden>
+  <WR_Role_Hauler>Носильщик</WR_Role_Hauler>
+  <MUI_Title>Рекомендуемые настройки</MUI_Title>
+  <MUI_TitleOff>Рекомендуемые настройки · выкл.</MUI_TitleOff>
+  <MUI_DescOn>Мод настраивается сам и сразу работает. Идеально для новичков и всех, кто не хочет ничего настраивать.</MUI_DescOn>
+  <MUI_DescOff>Свои настройки. Изменено по сравнению с рекомендуемыми: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Свои настройки. Пока совпадают с рекомендуемыми.</MUI_DescOffSame>
+  <MUI_On>ВКЛ.</MUI_On>
+  <MUI_Off>ВЫКЛ.</MUI_Off>
+  <MUI_ResetAll>Сбросить всё на рекомендуемые</MUI_ResetAll>
+  <MUI_ConfirmOn>Включить рекомендуемые настройки? Ваши изменения ({0}) будут заменены рекомендуемыми значениями.</MUI_ConfirmOn>
+  <MUI_Locked>Подробные настройки заблокированы. Хотите их изменить? Выключите переключатель выше – ваши значения начнутся с рекомендуемых.</MUI_Locked>
+  <MUI_Changed>ИЗМЕНЕНО</MUI_Changed>
+  <MUI_ChangedTip>Отличается от рекомендуемого значения ({0}). Нажмите, чтобы восстановить рекомендуемое значение.</MUI_ChangedTip>
+  <MUI_Yes>вкл.</MUI_Yes>
+  <MUI_No>выкл.</MUI_No>
+  <MUI_RecTag>РЕКОМЕНДУЕТСЯ</MUI_RecTag>
+</LanguageData>

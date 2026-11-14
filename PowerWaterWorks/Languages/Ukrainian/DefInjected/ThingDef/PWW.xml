@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_FuelRod.label>паливний стрижень</PWW_FuelRod.label>
+  <PWW_FuelRod.description>Герметичний стрижень зі збагаченого урану. Паливо для реактора поділу; одного вистачає приблизно на день.</PWW_FuelRod.description>
+  <PWW_FusionCell.label>термоядерний елемент</PWW_FusionCell.label>
+  <PWW_FusionCell.description>Магнітний паливний елемент для термоядерного реактора. Одного вистачає приблизно на п'ять днів.</PWW_FusionCell.description>
+  <PWW_CannedFood.label>консерви</PWW_CannedFood.label>
+  <PWW_CannedFood.description>Сира їжа, зварена й запечатана в бляшанці. Ніколи не псується й добре зберігається навіть надворі.</PWW_CannedFood.description>
+  <PWW_DeepBorehole.label>глибока свердловина</PWW_DeepBorehole.label>
+  <PWW_DeepBorehole.description>Свердловина, пробурена глибоко під рівень ґрунтових вод. Сягає дуже великої ділянки чистих ґрунтових вод (радіус 22), яку можуть використовувати насоси; забруднення на неї не впливає.</PWW_DeepBorehole.description>
+  <PWW_DeepWellPump.label>насос великої потужності</PWW_DeepWellPump.label>
+  <PWW_DeepWellPump.description>Качає воду зі свердловин у водонапірні башти: 30 000 л на день.</PWW_DeepWellPump.description>
+  <PWW_WaterTreatment.label>компактна водоочисна установка</PWW_WaterTreatment.label>
+  <PWW_WaterTreatment.description>Очищує воду в баштах і воду, яку використовує сантехніка, як і стандартна очисна станція, але потребує лише половину енергії.</PWW_WaterTreatment.description>
+  <PWW_Desalination.label>опріснювальна установка</PWW_Desalination.label>
+  <PWW_Desalination.description>Робить прісну воду з морської й наповнює власний бак (близько 15 000 л на день, коли є живлення). Має стояти не далі 3 клітинок від моря.</PWW_Desalination.description>
+  <PWW_WaterTower.label>величезна водонапірна башта</PWW_WaterTower.label>
+  <PWW_WaterTower.description>Вміщує 150 000 л води. Коли зникає живлення, ще довго підтримує воду в кранах.</PWW_WaterTower.description>
+  <PWW_HydroPlant.label>мала ГЕС</PWW_HydroPlant.label>
+  <PWW_HydroPlant.description>Невелика руслова ГЕС із кількома турбінами. Щонайменше три її клітинки мають стояти на проточній воді, решта – на твердому ґрунті. Дає стабільну енергію вдень і вночі; коли річка замерзає в люту зиму, дає лише 40 %.</PWW_HydroPlant.description>
+  <PWW_BiogasPlant.label>біогазова установка</PWW_BiogasPlant.label>
+  <PWW_BiogasPlant.description>Зброджує сиру їжу, м'ясо, рослинну масу й (із Dubs Bad Hygiene) фекальний мул на газ, що живить генератор.</PWW_BiogasPlant.description>
+  <PWW_DeepGeothermal.label>глибинна геотермальна електростанція</PWW_DeepGeothermal.label>
+  <PWW_DeepGeothermal.description>Бурить на кілометри вглиб до гарячих порід – паровий гейзер не потрібен. Дуже дорога, але дає потужну енергію вічно.</PWW_DeepGeothermal.description>
+  <PWW_Incinerator.label>сміттєспалювальний генератор</PWW_Incinerator.label>
+  <PWW_Incinerator.description>Спалює кам'яні уламки й сталевий шлак за дуже високої температури та перетворює тепло на енергію. Заодно прибирає базу.</PWW_Incinerator.description>
+  <PWW_Diesel.label>дизельний генератор</PWW_Diesel.label>
+  <PWW_Diesel.description>Спалює хімпаливо. З увімкненим «Автозапуском» сам вмикається, коли акумулятори його мережі розряджаються, і знову вимикається, коли вони повні, – резерв, що працює лише за потреби.</PWW_Diesel.description>
+  <PWW_FissionReactor.label>реактор поділу</PWW_FissionReactor.label>
+  <PWW_FissionReactor.description>Компактний ядерний реактор на паливних стрижнях. Величезна стабільна потужність, але він нагрівається: потрібні робочі градирні не далі 10 клітинок. При 100 % тепла сам вимикається (або розплавляється, якщо це ввімкнено в налаштуваннях). Кнопка SCRAM негайно його зупиняє.</PWW_FissionReactor.description>
+  <PWW_CoolingTower.label>градирня</PWW_CoolingTower.label>
+  <PWW_CoolingTower.description>Охолоджує реактор поділу не далі 10 клітинок. На один реактор вистачає однієї робочої градирні.</PWW_CoolingTower.description>
+  <PWW_FusionReactor.label>термоядерний реактор</PWW_FusionReactor.label>
+  <PWW_FusionReactor.description>Термоядерний реактор космічної епохи. Величезна потужність від термоядерного елемента, якого вистачає на багато днів. Безпечний – не може розплавитися.</PWW_FusionReactor.description>
+  <PWW_BigBattery.label>великий акумулятор</PWW_BigBattery.label>
+  <PWW_BigBattery.description>Блок промислових елементів: зберігає 6000 Вт·д і втрачає менше енергії, ніж малі акумулятори.</PWW_BigBattery.description>
+  <PWW_Flywheel.label>маховик</PWW_Flywheel.label>
+  <PWW_Flywheel.description>Дешевий механічний накопичувач на 300 Вт·д. Добрий для коротких перебоїв, але щодня втрачає 10 % енергії.</PWW_Flywheel.description>
+  <PWW_CircuitBreaker.label>автоматичний вимикач</PWW_CircuitBreaker.label>
+  <PWW_CircuitBreaker.description>Працює як вимикач живлення. Коли будь-де в його мережі стається коротке замикання, натомість спрацьовує вимикач – ні вибуху, ні пожежі. Знову вмикається вручну.</PWW_CircuitBreaker.description>
+  <PWW_AutoStonecutter.label>автоматичний каменетес</PWW_AutoStonecutter.label>
+  <PWW_AutoStonecutter.description>Бере кам'яні уламки, що лежать поруч, і сам розпилює їх на блоки – колоніст не потрібен. Один уламок за ігрову годину.</PWW_AutoStonecutter.description>
+  <PWW_InductionFurnace.label>індукційна піч</PWW_InductionFurnace.label>
+  <PWW_InductionFurnace.description>Електрична піч: добуває більше сталі зі шлаку й виготовляє паливні стрижні та термоядерні елементи.</PWW_InductionFurnace.description>
+  <PWW_ComponentLine.label>лінія компонентів</PWW_ComponentLine.label>
+  <PWW_ComponentLine.description>Автоматизована лінія, що виготовляє компоненти по п'ять, трохи дешевше, ніж уручну.</PWW_ComponentLine.description>
+  <PWW_TextileMill.label>текстильна фабрика</PWW_TextileMill.label>
+  <PWW_TextileMill.description>Переробляє зношений одяг назад на тканину.</PWW_TextileMill.description>
+  <PWW_Cannery.label>консервний завод</PWW_Cannery.label>
+  <PWW_Cannery.description>Консервує сиру їжу. Консерви ніколи не псуються.</PWW_Cannery.description>
+  <PWW_Sprinkler.label>дощувач</PWW_Sprinkler.label>
+  <PWW_Sprinkler.description>Поливає рослини навколо себе: вони ростуть на 15 % швидше. Потребує живлення.</PWW_Sprinkler.description>
+</LanguageData>

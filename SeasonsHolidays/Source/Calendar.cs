@@ -113,7 +113,7 @@ namespace SeasonsHolidays
 
     public class SHMod : Mod
     {
-        public const string Version = "0.5.0";
+        public const string Version = "1.0.0";
 
         public static float Mood(string id) => S?.moodMul != null && S.moodMul.TryGetValue(id, out float f) ? f : 1f;
         private static readonly float[] MoodSteps = { 0f, 0.5f, 1f, 1.5f, 2f };

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_SetMeltdown>Stopienie reaktora</PWW_SetMeltdown>
+  <PWW_SetMeltdownTip>Wył.: przy 100 % ciepła reaktor jądrowy sam się wyłącza. Wł.: wybucha, a toksyczny opad pokrywa mapę na 3 dni.</PWW_SetMeltdownTip>
+  <PWW_SetHydroWinter>Elektrownie wodne słabsze, gdy rzeka zamarza</PWW_SetHydroWinter>
+  <PWW_SetHydroWinterTip>Poniżej −2 °C na zewnątrz elektrownia wodna daje tylko 40 % mocy.</PWW_SetHydroWinterTip>
+  <PWW_SetAutoLow>Autostart diesla: włącz poniżej {0} % zmagazynowanej energii</PWW_SetAutoLow>
+  <PWW_SetAutoHigh>… i wyłącz powyżej {0} %</PWW_SetAutoHigh>
+  <PWW_BreakerTrippedLabel>Bezpiecznik zadziałał</PWW_BreakerTrippedLabel>
+  <PWW_BreakerTripped>W sieci doszło do zwarcia, ale bezpiecznik zadziałał na czas – bez wybuchu, bez pożaru. Część sieci za bezpiecznikiem jest teraz bez prądu, dopóki znów go nie włączysz.</PWW_BreakerTripped>
+  <PWW_HydroFrozen>Rzeka zamarznięta: 40 % mocy</PWW_HydroFrozen>
+  <PWW_HydroGround>Pola, które nie stoją na płynącej wodzie, wymagają twardego gruntu.</PWW_HydroGround>
+  <PWW_NeedSea>Musi stać w odległości do 3 pól od morza.</PWW_NeedSea>
+  <PWW_MeltdownLabel>Stopienie reaktora!</PWW_MeltdownLabel>
+  <PWW_Meltdown>Reaktor jądrowy przegrzał się i wybuchł. Na całą okolicę spada toksyczny opad.</PWW_Meltdown>
+  <PWW_Scrammed>Reaktor wyłączony (SCRAM).</PWW_Scrammed>
+  <PWW_Scram>SCRAM</PWW_Scram>
+  <PWW_ScramDesc>Natychmiast wyłącz reaktor. Ostygnie i można go później znów włączyć.</PWW_ScramDesc>
+  <PWW_ReactorHeat>Ciepło: {0} % · chłodzenie {1} / ciepło {2} na godzinę</PWW_ReactorHeat>
+  <PWW_HeatLabel>Ciepło reaktora</PWW_HeatLabel>
+  <PWW_AutoStart>Autostart</PWW_AutoStart>
+  <PWW_AutoStartDesc>Włącza generator, gdy baterie sieci spadną poniżej {0} %, i wyłącza powyżej {1} %. Bez baterii działa, dopóki sieć potrzebuje więcej prądu. Progi w ustawieniach moda.</PWW_AutoStartDesc>
+  <PWW_StonecutterIdle>Czeka na kawałki skał obok siebie.</PWW_StonecutterIdle>
+  <PWW_StonecutterWork>Cięcie: {0}</PWW_StonecutterWork>
+  <PWW_GridOverview>Przegląd sieci</PWW_GridOverview>
+  <PWW_GridOverviewDesc>Produkcja, zużycie i zmagazynowana energia tej sieci energetycznej, z ostatnimi 24 godzinami.</PWW_GridOverviewDesc>
+  <PWW_GridNone>Niepodłączone do sieci.</PWW_GridNone>
+  <PWW_GridGen>Produkcja: {0} W</PWW_GridGen>
+  <PWW_GridUse>Zużycie: {0} W</PWW_GridUse>
+  <PWW_GridBalance>Bilans: {0} W</PWW_GridBalance>
+  <PWW_GridStored>Zmagazynowane: {0} / {1} Wd</PWW_GridStored>
+  <PWW_GridWait>Wykres uzupełnia się raz na godzinę gry.</PWW_GridWait>
+  <PWW_Grid24h>ostatnie 24 godziny · zielony produkcja · pomarańczowy zużycie · niebieski zmagazynowane</PWW_Grid24h>
+</LanguageData>

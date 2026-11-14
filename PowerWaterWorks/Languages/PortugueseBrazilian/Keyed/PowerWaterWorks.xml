@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_SetMeltdown>Fusão do reator</PWW_SetMeltdown>
+  <PWW_SetMeltdownTip>Desligado: a 100 % de calor o reator de fissão se desliga sozinho. Ligado: ele explode e precipitação tóxica cobre o mapa por 3 dias.</PWW_SetMeltdownTip>
+  <PWW_SetHydroWinter>Hidrelétricas mais fracas quando o rio congela</PWW_SetHydroWinter>
+  <PWW_SetHydroWinterTip>Abaixo de −2 °C do lado de fora, uma hidrelétrica gera só 40 % da sua energia.</PWW_SetHydroWinterTip>
+  <PWW_SetAutoLow>Partida automática do diesel: ligar abaixo de {0} % de energia armazenada</PWW_SetAutoLow>
+  <PWW_SetAutoHigh>… e desligar acima de {0} %</PWW_SetAutoHigh>
+  <PWW_BreakerTrippedLabel>Disjuntor desarmou</PWW_BreakerTrippedLabel>
+  <PWW_BreakerTripped>Um curto-circuito atingiu a rede, mas o disjuntor desarmou a tempo – sem explosão, sem incêndio. A parte da rede atrás do disjuntor está sem energia até você religar o disjuntor.</PWW_BreakerTripped>
+  <PWW_HydroFrozen>Rio congelado: 40 % de energia</PWW_HydroFrozen>
+  <PWW_HydroGround>As células que não estão em água corrente precisam de chão firme.</PWW_HydroGround>
+  <PWW_NeedSea>Precisa ficar a até 3 células do mar.</PWW_NeedSea>
+  <PWW_MeltdownLabel>Fusão do reator!</PWW_MeltdownLabel>
+  <PWW_Meltdown>O reator de fissão superaqueceu e explodiu. Precipitação tóxica está caindo sobre toda a região.</PWW_Meltdown>
+  <PWW_Scrammed>Reator desligado (SCRAM).</PWW_Scrammed>
+  <PWW_Scram>SCRAM</PWW_Scram>
+  <PWW_ScramDesc>Desliga o reator imediatamente. Ele esfria e pode ser religado mais tarde.</PWW_ScramDesc>
+  <PWW_ReactorHeat>Calor: {0} % · resfriamento {1} / calor {2} por hora</PWW_ReactorHeat>
+  <PWW_HeatLabel>Calor do reator</PWW_HeatLabel>
+  <PWW_AutoStart>Partida automática</PWW_AutoStart>
+  <PWW_AutoStartDesc>Liga o gerador quando as baterias da rede caem abaixo de {0} % e desliga acima de {1} %. Sem baterias, funciona enquanto a rede precisar de mais energia. Limites nas configurações do mod.</PWW_AutoStartDesc>
+  <PWW_StonecutterIdle>Esperando pedaços de rocha ao lado.</PWW_StonecutterIdle>
+  <PWW_StonecutterWork>Cortando: {0}</PWW_StonecutterWork>
+  <PWW_GridOverview>Visão geral da rede</PWW_GridOverview>
+  <PWW_GridOverviewDesc>Produção, consumo e energia armazenada desta rede elétrica, com as últimas 24 horas.</PWW_GridOverviewDesc>
+  <PWW_GridNone>Não conectado a uma rede.</PWW_GridNone>
+  <PWW_GridGen>Produção: {0} W</PWW_GridGen>
+  <PWW_GridUse>Consumo: {0} W</PWW_GridUse>
+  <PWW_GridBalance>Saldo: {0} W</PWW_GridBalance>
+  <PWW_GridStored>Armazenado: {0} / {1} Wd</PWW_GridStored>
+  <PWW_GridWait>O gráfico é preenchido uma vez por hora de jogo.</PWW_GridWait>
+  <PWW_Grid24h>últimas 24 horas · verde produção · laranja consumo · azul armazenado</PWW_Grid24h>
+</LanguageData>

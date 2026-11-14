@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WR_Name>Smart Colonist Gear – Wardrobe</WR_Name>
+  <WR_Tab_Overview>개요</WR_Tab_Overview>
+  <WR_Tab_Weapons>무기</WR_Tab_Weapons>
+  <WR_Tab_Armor>방어구</WR_Tab_Armor>
+  <WR_Tab_Work>작업복</WR_Tab_Work>
+  <WR_Tab_Care>관리</WR_Tab_Care>
+  <WR_Tab_Occasions>행사</WR_Tab_Occasions>
+  <WR_Tab_Uniforms>제복 &amp; 색상</WR_Tab_Uniforms>
+  <WR_Tab_Wardrobe>옷장</WR_Tab_Wardrobe>
+  <WR_Tab_Tailor>재단사</WR_Tab_Tailor>
+  <WR_Tab_Colonists>정착민</WR_Tab_Colonists>
+  <WR_Tab_Advanced>고급</WR_Tab_Advanced>
+  <WR_Rec1>역할과 상황에 따른 무기와 방어구</WR_Rec1>
+  <WR_Rec2>편집기의 작업복 (자동으로 채워짐)</WR_Rec2>
+  <WR_Rec3>낡은 옷은 교체, 시체의 옷은 절대 입지 않음</WR_Rec3>
+  <WR_Rec4>밤에는 잠옷, 휴일과 파티에는 축제 의상</WR_Rec4>
+  <WR_Rec5>좋아하는 의상은 정착민의 침실에 보관</WR_Rec5>
+  <WR_Rec6>재단 계획 – 작업 명령은 확인할 때만 추가</WR_Rec6>
+  <WR_Enabled>Wardrobe가 정착민의 옷차림을 결정</WR_Enabled>
+  <WR_Enabled_Desc>켜짐: Smart Colonist Gear가 옷을 입을 때마다 Wardrobe에 묻습니다. 꺼짐: 이 애드온이 없을 때와 똑같이 Smart Colonist Gear가 스스로 결정합니다.</WR_Enabled_Desc>
+  <WR_TakesOver>옷 입기는 Wardrobe가 관리합니다. Smart Colonist Gear가 장비를 찾고, 최종 결정은 Wardrobe가 내립니다.</WR_TakesOver>
+  <WR_ScgDecides>Wardrobe가 꺼져 있습니다 – Smart Colonist Gear가 스스로 결정합니다.</WR_ScgDecides>
+  <WR_OverviewText>모든 규칙은 Smart Colonist Gear 자체의 선택에서 시작하므로, 표를 건드리지 않으면 정착민은 이전과 똑같이 옷을 입습니다 – 탭은 그 위에 당신의 바람을 더할 뿐입니다.</WR_OverviewText>
+  <WR_RolesSource>역할 출처: {0}</WR_RolesSource>
+  <WR_RolesSteward>Steward – 역할</WR_RolesSteward>
+  <WR_RolesSkills>기술 (정착민이 하는 작업 중 가장 높은 기술)</WR_RolesSkills>
+  <WR_SidearmsNote>Simple Sidearms가 활성화됨: 역할 표가 주무기를 고르고, 보조 무기는 Simple Sidearms가 관리합니다.</WR_SidearmsNote>
+  <WR_RoleWeapons>역할별 무기</WR_RoleWeapons>
+  <WR_RoleWeapons_Desc>원하는 종류의 무기를 선호하고 (×1.35), 다른 종류는 덜 선호합니다 (×0.75).</WR_RoleWeapons_Desc>
+  <WR_DamagedWeapon>다음 상태 미만인 무기 교체</WR_DamagedWeapon>
+  <WR_DamagedWeapon_Desc>이 상태 미만인 무기는 훨씬 낮게 평가되므로, 더 나은 무기가 있으면 그것을 듭니다.</WR_DamagedWeapon_Desc>
+  <WR_WeaponsText>표는 Smart Colonist Gear의 무기 점수에만 가중치를 줍니다 – 연구, 시대, 기술이 여전히 먼저 결정합니다.</WR_WeaponsText>
+  <WR_ResetTable>표 초기화</WR_ResetTable>
+  <WR_WP_Any>아무거나 (Smart Colonist Gear대로)</WR_WP_Any>
+  <WR_WP_Ranged>원거리</WR_WP_Ranged>
+  <WR_WP_Melee>근접</WR_WP_Melee>
+  <WR_WP_LongRange>장거리</WR_WP_LongRange>
+  <WR_WP_ShortRange>단거리</WR_WP_ShortRange>
+  <WR_WP_Light>경량</WR_WP_Light>
+  <WR_ArmorSets>상황과 역할에 따른 방어구</WR_ArmorSets>
+  <WR_ArmorSets_Desc>원하는 무게의 장비를 선호하고, 전투가 아닐 때는 더 무거운 장비를 피합니다.</WR_ArmorSets_Desc>
+  <WR_ArmorText>상황: 방어 = 습격 또는 징집, 사냥 = 사냥하러 감, 캐러밴 = 여행 중. 그 외에는 역할이 결정합니다.</WR_ArmorText>
+  <WR_Sit_Defense>방어</WR_Sit_Defense>
+  <WR_Sit_Hunt>사냥</WR_Sit_Hunt>
+  <WR_Sit_Caravan>캐러밴 / 원정</WR_Sit_Caravan>
+  <WR_ArmorRoles>작업 중, 역할별:</WR_ArmorRoles>
+  <WR_AW_Any>아무거나 (Smart Colonist Gear대로)</WR_AW_Any>
+  <WR_AW_None>없음</WR_AW_None>
+  <WR_AW_Light>경량</WR_AW_Light>
+  <WR_AW_Medium>중간</WR_AW_Medium>
+  <WR_AW_Heavy>중량</WR_AW_Heavy>
+  <WR_WorkEditor>작업복 편집기</WR_WorkEditor>
+  <WR_WorkEditor_Desc>어떤 의류가 어떤 작업의 작업복인지 정합니다. 꺼짐: Smart Colonist Gear 자체 감지.</WR_WorkEditor_Desc>
+  <WR_WorkText>Smart Colonist Gear가 감지한 것으로 자동으로 채워집니다. 장비를 추가하거나 제거하세요 – 정착민은 그 작업을 할 때 입고 끝나면 벗습니다.</WR_WorkText>
+  <WR_WorkReset>Smart Colonist Gear에서 다시 채우기</WR_WorkReset>
+  <WR_AddPiece>+ 장비 추가</WR_AddPiece>
+  <WR_NoPieces>(없음)</WR_NoPieces>
+  <WR_Care>의류 관리</WR_Care>
+  <WR_Care_Desc>낡은 옷은 교체하고, 손상된 무기는 바꿉니다.</WR_Care_Desc>
+  <WR_ReplaceBelow>다음 상태 미만인 의류 교체</WR_ReplaceBelow>
+  <WR_ReplaceBelow_Desc>바닐라에서는 50 % 미만일 때 '해진 옷' 기분 페널티가 생깁니다. 이 값보다 높게 두면 페널티 전에 교체됩니다.</WR_ReplaceBelow_Desc>
+  <WR_NoCorpse>시체의 옷은 절대 입지 않음</WR_NoCorpse>
+  <WR_RetireBills>해진 옷 폐기 (제련 / 소각 작업 명령)</WR_RetireBills>
+  <WR_RetireBills_Desc>맵마다 한 번, 기준 미만의 의류를 위한 '계속 반복' 작업 명령을 제련기나 화장터에 추가합니다. 삭제하면 다시 만들지 않습니다.</WR_RetireBills_Desc>
+  <WR_RetireBelow>다음 상태 미만 폐기</WR_RetireBelow>
+  <WR_RetireBill>Wardrobe: {0}에 해진 옷을 위한 작업 명령을 추가했습니다.</WR_RetireBill>
+  <WR_CareText>수리: 의류를 수리하는 모드(예: Mending)가 있으면 장비가 대신 수리됩니다 – Wardrobe는 기준 미만일 때만 입지 않습니다.</WR_CareText>
+  <WR_Sleepwear>밤에는 잠옷</WR_Sleepwear>
+  <WR_Sleepwear_Desc>정착민은 밤에 잠자리에 들기 전 잠옷을 입고, 아침에 다시 작업복으로 갈아입습니다.</WR_Sleepwear_Desc>
+  <WR_SleepFrom>밤 시작</WR_SleepFrom>
+  <WR_SleepTo>밤 끝</WR_SleepTo>
+  <WR_SleepList>잠옷 (이름으로 찾음, 자유롭게 편집):</WR_SleepList>
+  <WR_Festive>행사 때 축제 의상</WR_Festive>
+  <WR_Festive_Desc>파티, 의식, 휴일 동안 한가한 정착민은 축제 의상을 입습니다.</WR_Festive_Desc>
+  <WR_FestiveOnly>축제 의상은 행사 때만</WR_FestiveOnly>
+  <WR_FestiveOnly_Desc>행사가 아닐 때는 아무도 입지 않으므로 깨끗하게 유지됩니다.</WR_FestiveOnly_Desc>
+  <WR_HolidaysOn>Seasons &amp; Holidays가 활성화됨: 그 휴일도 행사로 칩니다.</WR_HolidaysOn>
+  <WR_HolidaysOff>행사: 파티와 의식 (Seasons &amp; Holidays가 있으면 그 휴일도).</WR_HolidaysOff>
+  <WR_FestiveList>축제 의상 (이름으로 찾음, 자유롭게 편집):</WR_FestiveList>
+  <WR_OccasionsReset>잠옷과 축제 의상 다시 찾기</WR_OccasionsReset>
+  <WR_Hold_sleep>잠옷 차림</WR_Hold_sleep>
+  <WR_Hold_festive>축제 의상 차림</WR_Hold_festive>
+  <WR_Uniforms>역할별 제복 색상</WR_Uniforms>
+  <WR_Uniforms_Desc>한가한 정착민은 스타일링 스테이션에서 옷을 역할 색상으로 염색합니다.</WR_Uniforms_Desc>
+  <WR_UniformsText>역할을 체크하고 색상을 고르세요. 스타일링 스테이션과 염료가 필요합니다.</WR_UniformsText>
+  <WR_NeedIdeology>옷 염색에는 Ideology DLC가 필요합니다.</WR_NeedIdeology>
+  <WR_Favorites>개인 옷장 (즐겨찾기)</WR_Favorites>
+  <WR_Favorites_Desc>즐겨찾기 장비는 주인만 입으며, 주인이 선호합니다.</WR_Favorites_Desc>
+  <WR_ToBedroom>즐겨찾기를 정착민의 침실에 보관</WR_ToBedroom>
+  <WR_ToBedroom_Desc>한가한 정착민은 입지 않은 즐겨찾기 장비를 자기 침실의 선반이나 옷장으로 옮깁니다.</WR_ToBedroom_Desc>
+  <WR_FavoritesText>정착민을 선택하고 '의상을 즐겨찾기로 저장'을 누르세요. 침실의 보관함(선반, 옷장)에 보관됩니다.</WR_FavoritesText>
+  <WR_SetFavorites>의상을 즐겨찾기로 저장</WR_SetFavorites>
+  <WR_SetFavorites_Desc>지금 입고 있는 모든 것(그리고 무기)이 그의 것이 됩니다: 그만 입으며, 그가 선호합니다.</WR_SetFavorites_Desc>
+  <WR_FavoritesNow>즐겨찾기 장비 {0}개</WR_FavoritesNow>
+  <WR_FavoritesSaved>{0}: 장비 {1}개를 즐겨찾기로 저장했습니다.</WR_FavoritesSaved>
+  <WR_ClearFavorites>즐겨찾기 지우기</WR_ClearFavorites>
+  <WR_ClearFavorites_Desc>그의 장비를 다시 모두가 쓸 수 있습니다.</WR_ClearFavorites_Desc>
+  <WR_NoFavorites>즐겨찾기 없음</WR_NoFavorites>
+  <WR_Tailor>재단 계획</WR_Tailor>
+  <WR_Tailor_Desc>만들 것을 제안합니다. 확인하기 전에는 아무것도 주문하지 않습니다.</WR_Tailor_Desc>
+  <WR_TailorText>맨 상체나 맨다리, 여벌 없는 낡은 옷, 낮은 품질, 잠옷이나 축제 의상 부족.</WR_TailorText>
+  <WR_Refresh>새로 고침</WR_Refresh>
+  <WR_NothingToMake>만들 것이 없습니다 – 모두 잘 차려입었습니다.</WR_NothingToMake>
+  <WR_AddBill>작업 명령 추가</WR_AddBill>
+  <WR_ConfirmBill>작업 명령 '{0}' ×{1}을(를) 추가하시겠습니까?</WR_ConfirmBill>
+  <WR_BillAdded>{1}에 작업 명령 '{0}' ×{2}을(를) 추가했습니다.</WR_BillAdded>
+  <WR_SugBareTorso>맨 상체</WR_SugBareTorso>
+  <WR_SugBareLegs>맨다리</WR_SugBareLegs>
+  <WR_SugTattered>낡음, 여벌 없음</WR_SugTattered>
+  <WR_SugPoor>낮은 품질</WR_SugPoor>
+  <WR_SugSleep>잠옷 없음</WR_SugSleep>
+  <WR_SugFestive>축제 의상 없음</WR_SugFestive>
+  <WR_NoMap>보려면 게임을 여세요.</WR_NoMap>
+  <WR_ColonistsText>체크 = Wardrobe가 정착민의 옷을 입힙니다. 버튼으로 역할을 정합니다 (* = 직접 지정).</WR_ColonistsText>
+  <WR_RoleAuto>자동</WR_RoleAuto>
+  <WR_MaxDistance>옷을 가지러 가는 최대 거리</WR_MaxDistance>
+  <WR_MaxDistance_Desc>정착민이 잠옷이나 축제 의상을 가지러 걸어가는 거리.</WR_MaxDistance_Desc>
+  <WR_Verbose>결정 기록 (버그 보고용)</WR_Verbose>
+  <WR_ResetAll>모두 초기화</WR_ResetAll>
+  <WR_ResetAll_Confirm>Wardrobe의 모든 설정과 표를 기본값으로 초기화하시겠습니까?</WR_ResetAll_Confirm>
+  <WR_AdvancedText>Wardrobe는 1.5초마다 정착민 한 명을 확인합니다 – 큰 정착지에서도 끊김이 없습니다.</WR_AdvancedText>
+  <WR_Role_Everyone>모두</WR_Role_Everyone>
+  <WR_Role_Soldier>병사</WR_Role_Soldier>
+  <WR_Role_Hunter>사냥꾼</WR_Role_Hunter>
+  <WR_Role_Doctor>의사</WR_Role_Doctor>
+  <WR_Role_Builder>건설가</WR_Role_Builder>
+  <WR_Role_Miner>광부</WR_Role_Miner>
+  <WR_Role_Crafter>제작자</WR_Role_Crafter>
+  <WR_Role_Cook>요리사</WR_Role_Cook>
+  <WR_Role_Farmer>농부</WR_Role_Farmer>
+  <WR_Role_Researcher>연구자</WR_Role_Researcher>
+  <WR_Role_Handler>조련사</WR_Role_Handler>
+  <WR_Role_Warden>교도관</WR_Role_Warden>
+  <WR_Role_Hauler>운반자</WR_Role_Hauler>
+  <MUI_Title>권장 설정</MUI_Title>
+  <MUI_TitleOff>권장 설정 · 꺼짐</MUI_TitleOff>
+  <MUI_DescOn>모드가 스스로 설정되어 바로 작동합니다. 처음 하는 플레이어나 아무것도 조정하고 싶지 않은 분께 적합합니다.</MUI_DescOn>
+  <MUI_DescOff>사용자 설정. 권장 설정에서 변경됨: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>사용자 설정. 아직 권장 설정과 같습니다.</MUI_DescOffSame>
+  <MUI_On>켜짐</MUI_On>
+  <MUI_Off>꺼짐</MUI_Off>
+  <MUI_ResetAll>모두 권장값으로 초기화</MUI_ResetAll>
+  <MUI_ConfirmOn>권장 설정을 켜시겠습니까? 변경한 항목({0})이 권장값으로 바뀝니다.</MUI_ConfirmOn>
+  <MUI_Locked>세부 설정이 잠겨 있습니다. 변경하려면 위의 스위치를 끄세요 – 값은 권장값에서 시작합니다.</MUI_Locked>
+  <MUI_Changed>변경됨</MUI_Changed>
+  <MUI_ChangedTip>권장 설정({0})과 다릅니다. 클릭하면 권장값으로 되돌립니다.</MUI_ChangedTip>
+  <MUI_Yes>켜짐</MUI_Yes>
+  <MUI_No>꺼짐</MUI_No>
+  <MUI_RecTag>권장</MUI_RecTag>
+</LanguageData>

@@ -39,7 +39,7 @@ namespace CallForBackup
 
     public class CFBMod : Mod
     {
-        public const string Version = "0.1.1";
+        public const string Version = "1.0.0";
         public static CFBSettings S;
         private static List<string> recBullets;
 

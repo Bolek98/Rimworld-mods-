@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_FuelRod.label>barra de combustible</PWW_FuelRod.label>
+  <PWW_FuelRod.description>Una barra sellada de uranio enriquecido. Combustible para el reactor de fisión; una dura aproximadamente un día.</PWW_FuelRod.description>
+  <PWW_FusionCell.label>célula de fusión</PWW_FusionCell.label>
+  <PWW_FusionCell.description>Una célula de combustible magnética para el reactor de fusión. Una dura unos cinco días.</PWW_FusionCell.description>
+  <PWW_CannedFood.label>comida enlatada</PWW_CannedFood.label>
+  <PWW_CannedFood.description>Comida cruda cocinada y sellada en una lata. Nunca se pudre y se conserva bien incluso a la intemperie.</PWW_CannedFood.description>
+  <PWW_DeepBorehole.label>pozo profundo</PWW_DeepBorehole.label>
+  <PWW_DeepBorehole.description>Un pozo perforado muy por debajo del nivel freático. Alcanza una zona muy grande de agua subterránea limpia (radio 22) que pueden usar las bombas; no le afecta la contaminación.</PWW_DeepBorehole.description>
+  <PWW_DeepWellPump.label>bomba de alta capacidad</PWW_DeepWellPump.label>
+  <PWW_DeepWellPump.description>Bombea agua de los pozos a las torres de agua: 30 000 L al día.</PWW_DeepWellPump.description>
+  <PWW_WaterTreatment.label>tratamiento de agua compacto</PWW_WaterTreatment.label>
+  <PWW_WaterTreatment.description>Limpia el agua de las torres y el agua usada por los sanitarios, como la planta de tratamiento estándar, pero necesita solo la mitad de energía.</PWW_WaterTreatment.description>
+  <PWW_Desalination.label>planta desalinizadora</PWW_Desalination.label>
+  <PWW_Desalination.description>Produce agua dulce a partir de agua de mar y llena su propio depósito (unos 15 000 L al día mientras tenga energía). Debe estar a 3 casillas o menos del mar.</PWW_Desalination.description>
+  <PWW_WaterTower.label>torre de agua gigante</PWW_WaterTower.label>
+  <PWW_WaterTower.description>Almacena 150 000 L de agua. Cuando falla la energía, mantiene los grifos funcionando durante mucho tiempo.</PWW_WaterTower.description>
+  <PWW_HydroPlant.label>central hidroeléctrica</PWW_HydroPlant.label>
+  <PWW_HydroPlant.description>Una pequeña central fluvial con varias turbinas. Al menos tres de sus casillas deben estar sobre agua en movimiento, el resto sobre suelo firme. Da energía estable de día y de noche; cuando el río se congela en pleno invierno da solo el 40 %.</PWW_HydroPlant.description>
+  <PWW_BiogasPlant.label>planta de biogás</PWW_BiogasPlant.label>
+  <PWW_BiogasPlant.description>Fermenta comida cruda, carne, materia vegetal y (con Dubs Bad Hygiene) lodo fecal para producir gas que mueve un generador.</PWW_BiogasPlant.description>
+  <PWW_DeepGeothermal.label>central geotérmica profunda</PWW_DeepGeothermal.label>
+  <PWW_DeepGeothermal.description>Perfora kilómetros hasta la roca caliente: no necesita un géiser de vapor. Muy cara, pero da mucha energía para siempre.</PWW_DeepGeothermal.description>
+  <PWW_Incinerator.label>generador incinerador</PWW_Incinerator.label>
+  <PWW_Incinerator.description>Quema trozos de roca y escoria de acero a muy alta temperatura y convierte el calor en energía. Además limpia la base.</PWW_Incinerator.description>
+  <PWW_Diesel.label>generador diésel</PWW_Diesel.label>
+  <PWW_Diesel.description>Quema combustible químico. Con el "Arranque automático" activado se enciende solo cuando las baterías de su red se agotan y se apaga cuando están llenas: un respaldo que solo funciona cuando hace falta.</PWW_Diesel.description>
+  <PWW_FissionReactor.label>reactor de fisión</PWW_FissionReactor.label>
+  <PWW_FissionReactor.description>Un reactor de fisión compacto que quema barras de combustible. Enorme energía estable, pero se calienta: necesita torres de refrigeración en funcionamiento a 10 casillas o menos. Al 100 % de calor se apaga solo (o se funde, si está activado en los ajustes). El botón SCRAM lo detiene al instante.</PWW_FissionReactor.description>
+  <PWW_CoolingTower.label>torre de refrigeración</PWW_CoolingTower.label>
+  <PWW_CoolingTower.description>Refrigera un reactor de fisión a 10 casillas o menos. Una torre en funcionamiento basta para un reactor.</PWW_CoolingTower.description>
+  <PWW_FusionReactor.label>reactor de fusión</PWW_FusionReactor.label>
+  <PWW_FusionReactor.description>Un reactor de fusión de la era espacial. Energía enorme a partir de una célula de fusión que dura muchos días. Seguro: no puede fundirse.</PWW_FusionReactor.description>
+  <PWW_BigBattery.label>batería grande</PWW_BigBattery.label>
+  <PWW_BigBattery.description>Un banco de células industriales: almacena 6000 Wd y pierde menos energía que las baterías pequeñas.</PWW_BigBattery.description>
+  <PWW_Flywheel.label>volante de inercia</PWW_Flywheel.label>
+  <PWW_Flywheel.description>Un almacén mecánico barato de 300 Wd. Útil para cortes breves, pero pierde el 10 % de su energía cada día.</PWW_Flywheel.description>
+  <PWW_CircuitBreaker.label>disyuntor</PWW_CircuitBreaker.label>
+  <PWW_CircuitBreaker.description>Funciona como un interruptor. Cuando se produce un cortocircuito en cualquier punto de su red, el disyuntor salta en su lugar: sin explosión ni incendio. Vuelve a conectarlo a mano.</PWW_CircuitBreaker.description>
+  <PWW_AutoStonecutter.label>cantero automático</PWW_AutoStonecutter.label>
+  <PWW_AutoStonecutter.description>Toma los trozos de roca que hay a su lado y los corta en bloques por sí solo: no necesita ningún colono. Un trozo por hora de juego.</PWW_AutoStonecutter.description>
+  <PWW_InductionFurnace.label>horno de inducción</PWW_InductionFurnace.label>
+  <PWW_InductionFurnace.description>Un horno eléctrico: obtiene más acero de la escoria y fabrica barras de combustible y células de fusión.</PWW_InductionFurnace.description>
+  <PWW_ComponentLine.label>línea de componentes</PWW_ComponentLine.label>
+  <PWW_ComponentLine.description>Una línea automatizada que fabrica componentes de cinco en cinco, algo más barato que a mano.</PWW_ComponentLine.description>
+  <PWW_TextileMill.label>fábrica textil</PWW_TextileMill.label>
+  <PWW_TextileMill.description>Tritura ropa gastada para convertirla de nuevo en tela.</PWW_TextileMill.description>
+  <PWW_Cannery.label>conservera</PWW_Cannery.label>
+  <PWW_Cannery.description>Enlata comida cruda. La comida enlatada nunca se pudre.</PWW_Cannery.description>
+  <PWW_Sprinkler.label>aspersor de riego</PWW_Sprinkler.label>
+  <PWW_Sprinkler.description>Riega las plantas a su alrededor: crecen un 15 % más rápido. Necesita energía.</PWW_Sprinkler.description>
+</LanguageData>
