@@ -27,6 +27,8 @@ public sealed class ForemanMapComponent : MapComponent
 
 	// runtime only
 	public readonly Demand demand = new Demand();
+	// 1.2.2: waiting work averaged over the last hours (Spread)
+	public readonly Dictionary<WorkTypeDef, (float val, int tick)> urgency = new Dictionary<WorkTypeDef, (float val, int tick)>();
 	public readonly Dictionary<long, List<Reason>> tips = new Dictionary<long, List<Reason>>();
 	public int lastPlanTick = -1;
 	public int lastPlanChanged;
@@ -256,7 +258,7 @@ public sealed class ForemanMapComponent : MapComponent
 		foreach (Pawn p in WorkCatalog.Workers(map, ForemanMod.Settings))
 		{
 			int v = p.workSettings.GetPriority(w);
-			if (v > 0 && v <= 2)
+			if (Spread.IsMain(v))
 				return true;
 		}
 		return false;

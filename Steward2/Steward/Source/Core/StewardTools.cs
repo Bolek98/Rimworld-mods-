@@ -369,7 +369,7 @@ public sealed class StewardWatch : MapComponent
 				WorkKind k = WorkCatalog.Kind(w);
 				if (k == WorkKind.Hidden || k == WorkKind.Emergency || comp.demand.Jobs(w) <= 0)
 					continue;
-				bool any = ws.Any(p => { int v = p.workSettings.GetPriority(w); return v > 0 && v <= 2; });
+				bool any = ws.Any(p => Spread.IsMain(p.workSettings.GetPriority(w)));
 				if (!any)
 					Add(uncoveredHours, w.defName);
 			}

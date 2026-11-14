@@ -16,6 +16,7 @@ public sealed class ForemanSettings : ModSettings
 
 	// how long a cell the steward changed stays as it is (in-game hours)
 	public int holdHours = 12;
+	public bool spreadLevels = true;
 
 	public bool assignOpposed = true;
 	public bool backupWorkers = true;
@@ -91,6 +92,7 @@ public sealed class ForemanSettings : ModSettings
 		Scribe_Values.Look(ref autoByDefault, "autoByDefault2", false);
 		Scribe_Values.Look(ref intervalHours, "intervalHours2", 6);
 		Scribe_Values.Look(ref holdHours, "holdHours", 12);
+		Scribe_Values.Look(ref spreadLevels, "spreadLevels", true);
 		Scribe_Values.Look(ref assignOpposed, "assignOpposed", true);
 		Scribe_Values.Look(ref backupWorkers, "backupWorkers", true);
 		Scribe_Values.Look(ref backupMinSkill, "backupMinSkill", 6);

@@ -291,7 +291,7 @@ public sealed class PlanContext
 	public static bool Holds(Pawn p, WorkTypeDef w)
 	{
 		int c = p.workSettings?.GetPriority(w) ?? 0;
-		return c > 0 && c <= 2;
+		return Spread.IsMain(c);
 	}
 
 	// how many pawns have the work on level <= maxLevel

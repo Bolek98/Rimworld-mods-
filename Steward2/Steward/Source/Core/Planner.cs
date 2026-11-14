@@ -204,6 +204,9 @@ public static class Planner
 			}
 		}
 		ctx.Category = null;
+		// 1.2.2: main work spread over more levels by how much it is needed
+		try { Spread.Apply(ctx); }
+		catch (Exception ex) { MLog.WarnOnce("[Steward] spreading the levels failed: " + ex, 0x5be4d); }
 		// 1.3.0: every dispute shows in the cell's tooltip – who wanted what and who has priority
 		var shown = new HashSet<string>();
 		foreach (var d in ctx.disputes)
@@ -266,11 +269,11 @@ public static class Planner
 		{
 			if (WorkCatalog.Kind(w) == WorkKind.Hidden || ctx.demand == null || ctx.demand.Jobs(w) <= 0)
 				continue;
-			bool covered = final.Any(kv => kv.Value.TryGetValue(w, out int v) && v > 0 && v <= 2);
+			bool covered = final.Any(kv => kv.Value.TryGetValue(w, out int v) && Spread.IsMain(v));
 			if (covered)
 				continue;
 			foreach (var kv in ctx.plan)
-				if (kv.Value.TryGetValue(w, out int v) && v > 0 && v <= 2 && !ctx.Locked(kv.Key, w))
+				if (kv.Value.TryGetValue(w, out int v) && Spread.IsMain(v) && !ctx.Locked(kv.Key, w))
 					final[kv.Key][w] = v;
 		}
 		return final;
