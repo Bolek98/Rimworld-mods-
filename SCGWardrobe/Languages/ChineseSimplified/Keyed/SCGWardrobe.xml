@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WR_Name>Smart Colonist Gear – Wardrobe</WR_Name>
+  <WR_Tab_Overview>概览</WR_Tab_Overview>
+  <WR_Tab_Weapons>武器</WR_Tab_Weapons>
+  <WR_Tab_Armor>护甲</WR_Tab_Armor>
+  <WR_Tab_Work>工作服</WR_Tab_Work>
+  <WR_Tab_Care>保养</WR_Tab_Care>
+  <WR_Tab_Occasions>场合</WR_Tab_Occasions>
+  <WR_Tab_Uniforms>制服与颜色</WR_Tab_Uniforms>
+  <WR_Tab_Wardrobe>衣柜</WR_Tab_Wardrobe>
+  <WR_Tab_Tailor>裁缝</WR_Tab_Tailor>
+  <WR_Tab_Colonists>殖民者</WR_Tab_Colonists>
+  <WR_Tab_Advanced>高级</WR_Tab_Advanced>
+  <WR_Rec1>按职责和情况选择武器与护甲</WR_Rec1>
+  <WR_Rec2>工作服来自编辑器(自动填充)</WR_Rec2>
+  <WR_Rec3>更换破旧衣物,从不穿死人的衣服</WR_Rec3>
+  <WR_Rec4>夜里穿睡衣,节日和派对穿节日服装</WR_Rec4>
+  <WR_Rec5>心爱的服装存放在殖民者的卧室里</WR_Rec5>
+  <WR_Rec6>裁缝规划——只有你确认后才添加清单</WR_Rec6>
+  <WR_Enabled>由 Wardrobe 决定殖民者穿什么</WR_Enabled>
+  <WR_Enabled_Desc>开:Smart Colonist Gear 每次决定穿着时都会询问 Wardrobe。关:Smart Colonist Gear 自行决定,与没有此扩展时完全一样。</WR_Enabled_Desc>
+  <WR_TakesOver>穿着由 Wardrobe 管理。Smart Colonist Gear 仍负责找装备,Wardrobe 拥有最终决定权。</WR_TakesOver>
+  <WR_ScgDecides>Wardrobe 已关闭——由 Smart Colonist Gear 自行决定。</WR_ScgDecides>
+  <WR_OverviewText>每条规则都以 Smart Colonist Gear 自己的选择为起点,所以表格不改动时殖民者的穿着和以前一样——各标签页只是在此基础上加上你的意愿。</WR_OverviewText>
+  <WR_RolesSource>职责来源:{0}</WR_RolesSource>
+  <WR_RolesSteward>Steward – 职责</WR_RolesSteward>
+  <WR_RolesSkills>技能(殖民者所做工作中最强的技能)</WR_RolesSkills>
+  <WR_SidearmsNote>Simple Sidearms 已启用:职责表选择主武器,副武器由 Simple Sidearms 保留。</WR_SidearmsNote>
+  <WR_RoleWeapons>按职责选择武器</WR_RoleWeapons>
+  <WR_RoleWeapons_Desc>优先选择想要类型的武器(×1.35),其他类型不太受欢迎(×0.75)。</WR_RoleWeapons_Desc>
+  <WR_DamagedWeapon>更换耐久低于此值的武器</WR_DamagedWeapon>
+  <WR_DamagedWeapon_Desc>耐久低于此值的武器评分大幅降低,有更好的就会换掉。</WR_DamagedWeapon_Desc>
+  <WR_WeaponsText>此表只调整 Smart Colonist Gear 的武器评分——研究、时代和技能仍然优先决定。</WR_WeaponsText>
+  <WR_ResetTable>重置表格</WR_ResetTable>
+  <WR_WP_Any>任意(同 Smart Colonist Gear)</WR_WP_Any>
+  <WR_WP_Ranged>远程</WR_WP_Ranged>
+  <WR_WP_Melee>近战</WR_WP_Melee>
+  <WR_WP_LongRange>远射程</WR_WP_LongRange>
+  <WR_WP_ShortRange>近射程</WR_WP_ShortRange>
+  <WR_WP_Light>轻型</WR_WP_Light>
+  <WR_ArmorSets>按情况和职责选择护甲</WR_ArmorSets>
+  <WR_ArmorSets_Desc>优先选择想要重量的护甲;非战斗时避免更重的护甲。</WR_ArmorSets_Desc>
+  <WR_ArmorText>情况:防御 = 袭击或征召,狩猎 = 外出打猎,远行队 = 旅行中。其他时候由职责决定。</WR_ArmorText>
+  <WR_Sit_Defense>防御</WR_Sit_Defense>
+  <WR_Sit_Hunt>狩猎</WR_Sit_Hunt>
+  <WR_Sit_Caravan>远行队 / 远征</WR_Sit_Caravan>
+  <WR_ArmorRoles>工作时,按职责:</WR_ArmorRoles>
+  <WR_AW_Any>任意(同 Smart Colonist Gear)</WR_AW_Any>
+  <WR_AW_None>无</WR_AW_None>
+  <WR_AW_Light>轻</WR_AW_Light>
+  <WR_AW_Medium>中</WR_AW_Medium>
+  <WR_AW_Heavy>重</WR_AW_Heavy>
+  <WR_WorkEditor>工作服编辑器</WR_WorkEditor>
+  <WR_WorkEditor_Desc>哪些衣物是哪种工作的工作服。关:使用 Smart Colonist Gear 自己的识别。</WR_WorkEditor_Desc>
+  <WR_WorkText>自动填入 Smart Colonist Gear 识别出的衣物。可添加或移除——殖民者做该工作时穿上,做完后脱下。</WR_WorkText>
+  <WR_WorkReset>重新从 Smart Colonist Gear 填充</WR_WorkReset>
+  <WR_AddPiece>+ 添加衣物</WR_AddPiece>
+  <WR_NoPieces>(无)</WR_NoPieces>
+  <WR_Care>衣物保养</WR_Care>
+  <WR_Care_Desc>更换破旧衣物,替换损坏的武器。</WR_Care_Desc>
+  <WR_ReplaceBelow>耐久低于此值时更换衣物</WR_ReplaceBelow>
+  <WR_ReplaceBelow_Desc>原版在耐久低于 50 % 时给予“衣衫褴褛”心情惩罚。设置高于该值,衣物会在惩罚出现前被更换。</WR_ReplaceBelow_Desc>
+  <WR_NoCorpse>从不穿死人的衣服</WR_NoCorpse>
+  <WR_RetireBills>淘汰破旧衣物(熔炼 / 焚烧清单)</WR_RetireBills>
+  <WR_RetireBills_Desc>每张地图在熔炼机或焚尸炉添加一次“永远重复”清单,处理低于阈值的衣物。如果你删除它,不会再次添加。</WR_RetireBills_Desc>
+  <WR_RetireBelow>低于此值时淘汰</WR_RetireBelow>
+  <WR_RetireBill>Wardrobe:已在{0}添加处理破旧衣物的清单。</WR_RetireBill>
+  <WR_CareText>修补:如果有修补衣物的模组(如 Mending),衣物会被修补——Wardrobe 只在低于阈值时停止穿着。</WR_CareText>
+  <WR_Sleepwear>夜里穿睡衣</WR_Sleepwear>
+  <WR_Sleepwear_Desc>夜里上床前殖民者换上睡衣,早上再换回工作装束。</WR_Sleepwear_Desc>
+  <WR_SleepFrom>夜晚开始</WR_SleepFrom>
+  <WR_SleepTo>夜晚结束</WR_SleepTo>
+  <WR_SleepList>睡衣(按名称识别,可自由编辑):</WR_SleepList>
+  <WR_Festive>特殊场合穿节日服装</WR_Festive>
+  <WR_Festive_Desc>派对、仪式和节日期间,空闲的殖民者换上节日服装。</WR_Festive_Desc>
+  <WR_FestiveOnly>节日服装只在特殊场合穿</WR_FestiveOnly>
+  <WR_FestiveOnly_Desc>场合之外无人穿着,保持整洁。</WR_FestiveOnly_Desc>
+  <WR_HolidaysOn>Seasons &amp; Holidays 已启用:它的节日也算作场合。</WR_HolidaysOn>
+  <WR_HolidaysOff>场合:派对和仪式(有 Seasons &amp; Holidays 时还包括其节日)。</WR_HolidaysOff>
+  <WR_FestiveList>节日服装(按名称识别,可自由编辑):</WR_FestiveList>
+  <WR_OccasionsReset>重新查找睡衣和节日服装</WR_OccasionsReset>
+  <WR_Hold_sleep>穿着睡衣</WR_Hold_sleep>
+  <WR_Hold_festive>穿着节日服装</WR_Hold_festive>
+  <WR_Uniforms>按职责的制服颜色</WR_Uniforms>
+  <WR_Uniforms_Desc>空闲的殖民者在造型台把衣服染成其职责的颜色。</WR_Uniforms_Desc>
+  <WR_UniformsText>勾选职责并选择颜色。需要造型台和染料。</WR_UniformsText>
+  <WR_NeedIdeology>染色衣物需要 Ideology DLC。</WR_NeedIdeology>
+  <WR_Favorites>个人衣柜(心爱之物)</WR_Favorites>
+  <WR_Favorites_Desc>心爱的衣物只有主人穿,并且主人会优先选择。</WR_Favorites_Desc>
+  <WR_ToBedroom>心爱之物存放在殖民者的卧室</WR_ToBedroom>
+  <WR_ToBedroom_Desc>空闲的殖民者把没穿的心爱之物搬到自己卧室的架子或衣柜里。</WR_ToBedroom_Desc>
+  <WR_FavoritesText>选中一名殖民者并按“将装束存为心爱之物”。他卧室里的储存设施(架子、衣柜)会存放它们。</WR_FavoritesText>
+  <WR_SetFavorites>将装束存为心爱之物</WR_SetFavorites>
+  <WR_SetFavorites_Desc>他现在穿的一切(以及他的武器)都归他所有:只有他穿,而且他优先选择。</WR_SetFavorites_Desc>
+  <WR_FavoritesNow>{0} 件心爱之物</WR_FavoritesNow>
+  <WR_FavoritesSaved>{0}:{1} 件已存为心爱之物。</WR_FavoritesSaved>
+  <WR_ClearFavorites>清除心爱之物</WR_ClearFavorites>
+  <WR_ClearFavorites_Desc>他的衣物重新对所有人开放。</WR_ClearFavorites_Desc>
+  <WR_NoFavorites>无心爱之物</WR_NoFavorites>
+  <WR_Tailor>裁缝规划</WR_Tailor>
+  <WR_Tailor_Desc>建议制作什么。你确认之前不会下任何清单。</WR_Tailor_Desc>
+  <WR_TailorText>光着上身或腿、破旧且无备用、品质低劣、缺少睡衣或节日服装。</WR_TailorText>
+  <WR_Refresh>刷新</WR_Refresh>
+  <WR_NothingToMake>无需制作——大家都穿得很好。</WR_NothingToMake>
+  <WR_AddBill>添加清单</WR_AddBill>
+  <WR_ConfirmBill>添加清单“{0}”×{1}?</WR_ConfirmBill>
+  <WR_BillAdded>已在{1}添加清单“{0}”×{2}。</WR_BillAdded>
+  <WR_SugBareTorso>光着上身</WR_SugBareTorso>
+  <WR_SugBareLegs>光着腿</WR_SugBareLegs>
+  <WR_SugTattered>破旧,无备用</WR_SugTattered>
+  <WR_SugPoor>品质低劣</WR_SugPoor>
+  <WR_SugSleep>没有睡衣</WR_SugSleep>
+  <WR_SugFestive>没有节日服装</WR_SugFestive>
+  <WR_NoMap>打开存档后才能查看。</WR_NoMap>
+  <WR_ColonistsText>勾选 = 由 Wardrobe 为该殖民者穿衣。按钮设置他的职责(* = 由你设置)。</WR_ColonistsText>
+  <WR_RoleAuto>自动</WR_RoleAuto>
+  <WR_MaxDistance>取衣服的最大距离</WR_MaxDistance>
+  <WR_MaxDistance_Desc>殖民者为取睡衣或节日服装愿意走多远。</WR_MaxDistance_Desc>
+  <WR_Verbose>记录决策日志(用于报告错误)</WR_Verbose>
+  <WR_ResetAll>全部重置</WR_ResetAll>
+  <WR_ResetAll_Confirm>将 Wardrobe 的所有设置和表格重置为默认值?</WR_ResetAll_Confirm>
+  <WR_AdvancedText>Wardrobe 每 1.5 秒检查一名殖民者——即使殖民地很大也不会卡顿。</WR_AdvancedText>
+  <WR_Role_Everyone>所有人</WR_Role_Everyone>
+  <WR_Role_Soldier>士兵</WR_Role_Soldier>
+  <WR_Role_Hunter>猎人</WR_Role_Hunter>
+  <WR_Role_Doctor>医生</WR_Role_Doctor>
+  <WR_Role_Builder>建筑工</WR_Role_Builder>
+  <WR_Role_Miner>矿工</WR_Role_Miner>
+  <WR_Role_Crafter>工匠</WR_Role_Crafter>
+  <WR_Role_Cook>厨师</WR_Role_Cook>
+  <WR_Role_Farmer>农民</WR_Role_Farmer>
+  <WR_Role_Researcher>研究员</WR_Role_Researcher>
+  <WR_Role_Handler>驯兽师</WR_Role_Handler>
+  <WR_Role_Warden>看守</WR_Role_Warden>
+  <WR_Role_Hauler>搬运工</WR_Role_Hauler>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <MUI_RecTag>推荐</MUI_RecTag>
+</LanguageData>

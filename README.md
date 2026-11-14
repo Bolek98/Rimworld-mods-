@@ -28,6 +28,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | QoL – Faster Work, Prisoners & Pipette | 1.1.0 | [QoLFasterWork](QoLFasterWork) |
 | [B98] Random Bills | 1.0.0 | [RandomBills](RandomBills) |
 | [B98] Research Atlas – Research Tree for Big Modpacks | 1.0.0 | [ResearchAtlas](ResearchAtlas) |
+| [B98] Smart Colonist Gear – Wardrobe | 1.0.0 | [SCGWardrobe](SCGWardrobe) |
 | [B98] Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.1 | [SecularColony](SecularColony) |
 | [B98] Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.0 | [SmartColonistGear](SmartColonistGear) |
 | [B98] Smooth FPS – Performance & Graphics | 1.7.2 | [SmoothFPS](SmoothFPS) |

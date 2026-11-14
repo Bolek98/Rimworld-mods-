@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>WR_ChangeOutfit</defName>
+    <driverClass>SCGWardrobe.JobDriver_WRChangeOutfit</driverClass>
+    <reportString>changing clothes.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+    <suspendable>false</suspendable>
+  </JobDef>
+  <JobDef>
+    <defName>WR_RestoreOutfit</defName>
+    <driverClass>SCGWardrobe.JobDriver_WRRestoreOutfit</driverClass>
+    <reportString>putting on day clothes.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+    <suspendable>false</suspendable>
+  </JobDef>
+</Defs>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WR_Name>Smart Colonist Gear – Wardrobe</WR_Name>
+  <WR_Tab_Overview>Overview</WR_Tab_Overview>
+  <WR_Tab_Weapons>Weapons</WR_Tab_Weapons>
+  <WR_Tab_Armor>Armor</WR_Tab_Armor>
+  <WR_Tab_Work>Work outfits</WR_Tab_Work>
+  <WR_Tab_Care>Care</WR_Tab_Care>
+  <WR_Tab_Occasions>Occasions</WR_Tab_Occasions>
+  <WR_Tab_Uniforms>Uniforms &amp; colors</WR_Tab_Uniforms>
+  <WR_Tab_Wardrobe>Wardrobe</WR_Tab_Wardrobe>
+  <WR_Tab_Tailor>Tailor</WR_Tab_Tailor>
+  <WR_Tab_Colonists>Colonists</WR_Tab_Colonists>
+  <WR_Tab_Advanced>Advanced</WR_Tab_Advanced>
+  <WR_Rec1>Weapons and armor by role and situation</WR_Rec1>
+  <WR_Rec2>Work clothes from the editor (filled automatically)</WR_Rec2>
+  <WR_Rec3>Worn-out pieces replaced, never dead man's clothes</WR_Rec3>
+  <WR_Rec4>Sleepwear at night, festive clothes on holidays and parties</WR_Rec4>
+  <WR_Rec5>Favourite outfit kept in the colonist's bedroom</WR_Rec5>
+  <WR_Rec6>Tailor planner – bills only when you confirm</WR_Rec6>
+  <WR_Enabled>Wardrobe decides what colonists wear</WR_Enabled>
+  <WR_Enabled_Desc>On: Smart Colonist Gear asks Wardrobe at every dressing decision. Off: Smart Colonist Gear decides on its own, exactly as without this add-on.</WR_Enabled_Desc>
+  <WR_TakesOver>Dressing is managed by Wardrobe. Smart Colonist Gear still finds the gear, Wardrobe has the last word.</WR_TakesOver>
+  <WR_ScgDecides>Wardrobe is off – Smart Colonist Gear decides on its own.</WR_ScgDecides>
+  <WR_OverviewText>Every rule starts from Smart Colonist Gear's own choice, so with untouched tables colonists dress as before – the tabs only add your wishes on top.</WR_OverviewText>
+  <WR_RolesSource>Roles come from: {0}</WR_RolesSource>
+  <WR_RolesSteward>Steward – Roles</WR_RolesSteward>
+  <WR_RolesSkills>skills (the strongest skill whose work the colonist does)</WR_RolesSkills>
+  <WR_SidearmsNote>Simple Sidearms is active: the role table picks the primary weapon, Simple Sidearms keeps the sidearms.</WR_SidearmsNote>
+  <WR_RoleWeapons>Weapons by role</WR_RoleWeapons>
+  <WR_RoleWeapons_Desc>A weapon of the wanted kind is preferred (×1.35), other kinds are less wanted (×0.75).</WR_RoleWeapons_Desc>
+  <WR_DamagedWeapon>Swap weapons damaged below</WR_DamagedWeapon>
+  <WR_DamagedWeapon_Desc>A weapon below this condition counts much less, so a better one is taken when there is one.</WR_DamagedWeapon_Desc>
+  <WR_WeaponsText>The table only weighs Smart Colonist Gear's weapon score – research, era and skill still decide first.</WR_WeaponsText>
+  <WR_ResetTable>Reset table</WR_ResetTable>
+  <WR_WP_Any>Any (as Smart Colonist Gear)</WR_WP_Any>
+  <WR_WP_Ranged>Ranged</WR_WP_Ranged>
+  <WR_WP_Melee>Melee</WR_WP_Melee>
+  <WR_WP_LongRange>Long range</WR_WP_LongRange>
+  <WR_WP_ShortRange>Short range</WR_WP_ShortRange>
+  <WR_WP_Light>Light</WR_WP_Light>
+  <WR_ArmorSets>Armor by situation and role</WR_ArmorSets>
+  <WR_ArmorSets_Desc>Pieces of the wanted weight are preferred; heavier ones are avoided outside a fight.</WR_ArmorSets_Desc>
+  <WR_ArmorText>Situations: defense = raid or drafted, hunt = going hunting, caravan = travelling. Otherwise the role decides.</WR_ArmorText>
+  <WR_Sit_Defense>Defense</WR_Sit_Defense>
+  <WR_Sit_Hunt>Hunt</WR_Sit_Hunt>
+  <WR_Sit_Caravan>Caravan / expedition</WR_Sit_Caravan>
+  <WR_ArmorRoles>At work, by role:</WR_ArmorRoles>
+  <WR_AW_Any>Any (as Smart Colonist Gear)</WR_AW_Any>
+  <WR_AW_None>None</WR_AW_None>
+  <WR_AW_Light>Light</WR_AW_Light>
+  <WR_AW_Medium>Medium</WR_AW_Medium>
+  <WR_AW_Heavy>Heavy</WR_AW_Heavy>
+  <WR_WorkEditor>Work outfit editor</WR_WorkEditor>
+  <WR_WorkEditor_Desc>Which apparel is work clothing for which work. Off: Smart Colonist Gear's own detection.</WR_WorkEditor_Desc>
+  <WR_WorkText>Filled automatically with what Smart Colonist Gear detects. Add or remove pieces – colonists put them on for that work and take them off afterwards.</WR_WorkText>
+  <WR_WorkReset>Fill again from Smart Colonist Gear</WR_WorkReset>
+  <WR_AddPiece>+ Add piece</WR_AddPiece>
+  <WR_NoPieces>(nothing)</WR_NoPieces>
+  <WR_Care>Clothing care</WR_Care>
+  <WR_Care_Desc>Worn-out pieces are replaced, damaged weapons swapped.</WR_Care_Desc>
+  <WR_ReplaceBelow>Replace apparel below</WR_ReplaceBelow>
+  <WR_ReplaceBelow_Desc>Vanilla gives the 'tattered apparel' mood penalty below 50 %. Above that value the piece is replaced before the penalty.</WR_ReplaceBelow_Desc>
+  <WR_NoCorpse>Never wear dead man's apparel</WR_NoCorpse>
+  <WR_RetireBills>Retire tattered pieces (smelt / burn bill)</WR_RetireBills>
+  <WR_RetireBills_Desc>Once per map one 'forever' bill at a smelter or crematorium for apparel below the threshold. If you delete it, it is not made again.</WR_RetireBills_Desc>
+  <WR_RetireBelow>Retire below</WR_RetireBelow>
+  <WR_RetireBill>Wardrobe: added a bill at {0} for tattered apparel.</WR_RetireBill>
+  <WR_CareText>Repairs: with a mod that repairs apparel (e.g. Mending) the pieces get repaired instead – Wardrobe only stops wearing them below the threshold.</WR_CareText>
+  <WR_Sleepwear>Sleepwear at night</WR_Sleepwear>
+  <WR_Sleepwear_Desc>Before going to bed at night colonists put on sleepwear, in the morning they dress for work again.</WR_Sleepwear_Desc>
+  <WR_SleepFrom>Night from</WR_SleepFrom>
+  <WR_SleepTo>Night until</WR_SleepTo>
+  <WR_SleepList>Sleepwear (found by name, edit freely):</WR_SleepList>
+  <WR_Festive>Festive clothes on occasions</WR_Festive>
+  <WR_Festive_Desc>During parties, rituals and holidays idle colonists put on festive clothes.</WR_Festive_Desc>
+  <WR_FestiveOnly>Festive clothes only for occasions</WR_FestiveOnly>
+  <WR_FestiveOnly_Desc>Outside occasions nobody wears them, so they stay clean.</WR_FestiveOnly_Desc>
+  <WR_HolidaysOn>Seasons &amp; Holidays is active: its holidays count as occasions.</WR_HolidaysOn>
+  <WR_HolidaysOff>Occasions: parties and rituals (with Seasons &amp; Holidays also its holidays).</WR_HolidaysOff>
+  <WR_FestiveList>Festive clothes (found by name, edit freely):</WR_FestiveList>
+  <WR_OccasionsReset>Find sleepwear and festive clothes again</WR_OccasionsReset>
+  <WR_Hold_sleep>in sleepwear</WR_Hold_sleep>
+  <WR_Hold_festive>in festive clothes</WR_Hold_festive>
+  <WR_Uniforms>Uniform colors by role</WR_Uniforms>
+  <WR_Uniforms_Desc>Idle colonists dye their clothes in their role's color at a styling station.</WR_Uniforms_Desc>
+  <WR_UniformsText>Tick a role and pick its color. Needs a styling station and dye.</WR_UniformsText>
+  <WR_NeedIdeology>Dyeing clothes needs the Ideology DLC.</WR_NeedIdeology>
+  <WR_Favorites>Personal wardrobe (favourites)</WR_Favorites>
+  <WR_Favorites_Desc>Favourite pieces are worn only by their owner and preferred by him.</WR_Favorites_Desc>
+  <WR_ToBedroom>Keep favourites in the colonist's bedroom</WR_ToBedroom>
+  <WR_ToBedroom_Desc>Idle colonists carry their unworn favourites to a shelf or dresser in their own bedroom.</WR_ToBedroom_Desc>
+  <WR_FavoritesText>Select a colonist and press 'Save outfit as favourites'. A storage (shelf, dresser) in his bedroom keeps them.</WR_FavoritesText>
+  <WR_SetFavorites>Save outfit as favourites</WR_SetFavorites>
+  <WR_SetFavorites_Desc>Everything he wears now (and his weapon) becomes his: only he wears it, and he prefers it.</WR_SetFavorites_Desc>
+  <WR_FavoritesNow>{0} favourite pieces</WR_FavoritesNow>
+  <WR_FavoritesSaved>{0}: {1} pieces saved as favourites.</WR_FavoritesSaved>
+  <WR_ClearFavorites>Clear favourites</WR_ClearFavorites>
+  <WR_ClearFavorites_Desc>His pieces are free for everyone again.</WR_ClearFavorites_Desc>
+  <WR_NoFavorites>no favourites</WR_NoFavorites>
+  <WR_Tailor>Tailor planner</WR_Tailor>
+  <WR_Tailor_Desc>Suggests what to make. Nothing is ordered until you confirm.</WR_Tailor_Desc>
+  <WR_TailorText>Bare torso or legs, worn-out pieces without a spare, poor quality, missing sleepwear or festive clothes.</WR_TailorText>
+  <WR_Refresh>Refresh</WR_Refresh>
+  <WR_NothingToMake>Nothing to make – everyone is dressed well.</WR_NothingToMake>
+  <WR_AddBill>Add bill</WR_AddBill>
+  <WR_ConfirmBill>Add the bill '{0}' ×{1}?</WR_ConfirmBill>
+  <WR_BillAdded>Bill '{0}' ×{2} added at {1}.</WR_BillAdded>
+  <WR_SugBareTorso>bare torso</WR_SugBareTorso>
+  <WR_SugBareLegs>bare legs</WR_SugBareLegs>
+  <WR_SugTattered>worn out, no spare</WR_SugTattered>
+  <WR_SugPoor>poor quality</WR_SugPoor>
+  <WR_SugSleep>no sleepwear</WR_SugSleep>
+  <WR_SugFestive>no festive clothes</WR_SugFestive>
+  <WR_NoMap>Open a game to see this.</WR_NoMap>
+  <WR_ColonistsText>Tick = Wardrobe dresses the colonist. The button sets his role (* = set by you).</WR_ColonistsText>
+  <WR_RoleAuto>Automatic</WR_RoleAuto>
+  <WR_MaxDistance>Max. distance to fetch clothes</WR_MaxDistance>
+  <WR_MaxDistance_Desc>How far colonists walk for sleepwear or festive clothes.</WR_MaxDistance_Desc>
+  <WR_Verbose>Log decisions (for bug reports)</WR_Verbose>
+  <WR_ResetAll>Reset everything</WR_ResetAll>
+  <WR_ResetAll_Confirm>Reset all Wardrobe settings and tables to the defaults?</WR_ResetAll_Confirm>
+  <WR_AdvancedText>Wardrobe checks one colonist every 1.5 seconds – no stutter even in big colonies.</WR_AdvancedText>
+  <WR_Role_Everyone>Everyone</WR_Role_Everyone>
+  <WR_Role_Soldier>Soldier</WR_Role_Soldier>
+  <WR_Role_Hunter>Hunter</WR_Role_Hunter>
+  <WR_Role_Doctor>Doctor</WR_Role_Doctor>
+  <WR_Role_Builder>Builder</WR_Role_Builder>
+  <WR_Role_Miner>Miner</WR_Role_Miner>
+  <WR_Role_Crafter>Crafter</WR_Role_Crafter>
+  <WR_Role_Cook>Cook</WR_Role_Cook>
+  <WR_Role_Farmer>Farmer</WR_Role_Farmer>
+  <WR_Role_Researcher>Researcher</WR_Role_Researcher>
+  <WR_Role_Handler>Handler</WR_Role_Handler>
+  <WR_Role_Warden>Warden</WR_Role_Warden>
+  <WR_Role_Hauler>Hauler</WR_Role_Hauler>
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+</LanguageData>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WR_Name>Smart Colonist Gear – Wardrobe</WR_Name>
+  <WR_Tab_Overview>Przegląd</WR_Tab_Overview>
+  <WR_Tab_Weapons>Broń</WR_Tab_Weapons>
+  <WR_Tab_Armor>Pancerz</WR_Tab_Armor>
+  <WR_Tab_Work>Stroje robocze</WR_Tab_Work>
+  <WR_Tab_Care>Dbanie</WR_Tab_Care>
+  <WR_Tab_Occasions>Okazje</WR_Tab_Occasions>
+  <WR_Tab_Uniforms>Mundury i kolory</WR_Tab_Uniforms>
+  <WR_Tab_Wardrobe>Szafa</WR_Tab_Wardrobe>
+  <WR_Tab_Tailor>Krawiec</WR_Tab_Tailor>
+  <WR_Tab_Colonists>Koloniści</WR_Tab_Colonists>
+  <WR_Tab_Advanced>Zaawansowane</WR_Tab_Advanced>
+  <WR_Rec1>Broń i pancerz według roli i sytuacji</WR_Rec1>
+  <WR_Rec2>Ubrania robocze z edytora (wypełniane automatycznie)</WR_Rec2>
+  <WR_Rec3>Zużyte rzeczy są wymieniane, nigdy ubrania po zmarłych</WR_Rec3>
+  <WR_Rec4>Piżama w nocy, odświętny strój w święta i na imprezy</WR_Rec4>
+  <WR_Rec5>Ulubiony strój trzymany w sypialni kolonisty</WR_Rec5>
+  <WR_Rec6>Planer krawiecki – zlecenia tylko po twoim potwierdzeniu</WR_Rec6>
+  <WR_Enabled>Wardrobe decyduje, co noszą koloniści</WR_Enabled>
+  <WR_Enabled_Desc>Wł.: Smart Colonist Gear pyta Wardrobe przy każdej decyzji o ubraniu. Wył.: Smart Colonist Gear decyduje sam, dokładnie jak bez tego dodatku.</WR_Enabled_Desc>
+  <WR_TakesOver>Ubieraniem zarządza Wardrobe. Smart Colonist Gear nadal znajduje wyposażenie, ale ostatnie słowo ma Wardrobe.</WR_TakesOver>
+  <WR_ScgDecides>Wardrobe jest wyłączony – Smart Colonist Gear decyduje sam.</WR_ScgDecides>
+  <WR_OverviewText>Każda reguła wychodzi od wyboru Smart Colonist Gear, więc przy nieruszonych tabelach koloniści ubierają się jak dotąd – zakładki tylko dodają twoje życzenia.</WR_OverviewText>
+  <WR_RolesSource>Role pochodzą z: {0}</WR_RolesSource>
+  <WR_RolesSteward>Steward – Role</WR_RolesSteward>
+  <WR_RolesSkills>umiejętności (najsilniejsza umiejętność, której pracę kolonista wykonuje)</WR_RolesSkills>
+  <WR_SidearmsNote>Simple Sidearms jest aktywny: tabela ról wybiera broń główną, Simple Sidearms zachowuje broń zapasową.</WR_SidearmsNote>
+  <WR_RoleWeapons>Broń według roli</WR_RoleWeapons>
+  <WR_RoleWeapons_Desc>Broń żądanego rodzaju jest preferowana (×1.35), inne rodzaje mniej (×0.75).</WR_RoleWeapons_Desc>
+  <WR_DamagedWeapon>Wymień broń uszkodzoną poniżej</WR_DamagedWeapon>
+  <WR_DamagedWeapon_Desc>Broń w gorszym stanie liczy się znacznie mniej, więc kolonista weźmie lepszą, jeśli jest.</WR_DamagedWeapon_Desc>
+  <WR_WeaponsText>Tabela tylko waży ocenę broni Smart Colonist Gear – badania, epoka i umiejętności nadal decydują pierwsze.</WR_WeaponsText>
+  <WR_ResetTable>Resetuj tabelę</WR_ResetTable>
+  <WR_WP_Any>Dowolna (jak Smart Colonist Gear)</WR_WP_Any>
+  <WR_WP_Ranged>Dystansowa</WR_WP_Ranged>
+  <WR_WP_Melee>Biała</WR_WP_Melee>
+  <WR_WP_LongRange>Dalekiego zasięgu</WR_WP_LongRange>
+  <WR_WP_ShortRange>Krótkiego zasięgu</WR_WP_ShortRange>
+  <WR_WP_Light>Lekka</WR_WP_Light>
+  <WR_ArmorSets>Pancerz według sytuacji i roli</WR_ArmorSets>
+  <WR_ArmorSets_Desc>Preferowane są rzeczy żądanej wagi; cięższych unika się poza walką.</WR_ArmorSets_Desc>
+  <WR_ArmorText>Sytuacje: obrona = najazd lub powołanie, polowanie = wyjście na polowanie, karawana = podróż. W pozostałych przypadkach decyduje rola.</WR_ArmorText>
+  <WR_Sit_Defense>Obrona</WR_Sit_Defense>
+  <WR_Sit_Hunt>Polowanie</WR_Sit_Hunt>
+  <WR_Sit_Caravan>Karawana / wyprawa</WR_Sit_Caravan>
+  <WR_ArmorRoles>W pracy, według roli:</WR_ArmorRoles>
+  <WR_AW_Any>Dowolny (jak Smart Colonist Gear)</WR_AW_Any>
+  <WR_AW_None>Brak</WR_AW_None>
+  <WR_AW_Light>Lekki</WR_AW_Light>
+  <WR_AW_Medium>Średni</WR_AW_Medium>
+  <WR_AW_Heavy>Ciężki</WR_AW_Heavy>
+  <WR_WorkEditor>Edytor strojów roboczych</WR_WorkEditor>
+  <WR_WorkEditor_Desc>Które ubranie jest strojem roboczym do której pracy. Wył.: własne rozpoznawanie Smart Colonist Gear.</WR_WorkEditor_Desc>
+  <WR_WorkText>Wypełniane automatycznie tym, co rozpozna Smart Colonist Gear. Dodawaj lub usuwaj rzeczy – koloniści zakładają je do tej pracy i potem zdejmują.</WR_WorkText>
+  <WR_WorkReset>Wypełnij ponownie z Smart Colonist Gear</WR_WorkReset>
+  <WR_AddPiece>+ Dodaj rzecz</WR_AddPiece>
+  <WR_NoPieces>(nic)</WR_NoPieces>
+  <WR_Care>Dbanie o ubrania</WR_Care>
+  <WR_Care_Desc>Zużyte rzeczy są wymieniane, uszkodzona broń zamieniana.</WR_Care_Desc>
+  <WR_ReplaceBelow>Wymień ubranie poniżej</WR_ReplaceBelow>
+  <WR_ReplaceBelow_Desc>W grze kara do nastroju za „zniszczone ubranie” jest poniżej 50 %. Powyżej tej wartości rzecz zostanie wymieniona przed karą.</WR_ReplaceBelow_Desc>
+  <WR_NoCorpse>Nigdy nie noś ubrań po zmarłych</WR_NoCorpse>
+  <WR_RetireBills>Wycofuj zniszczone rzeczy (zlecenie przetopienia / spalenia)</WR_RetireBills>
+  <WR_RetireBills_Desc>Raz na mapę jedno zlecenie „bez końca” w hucie lub krematorium dla ubrań poniżej progu. Jeśli je usuniesz, nie zostanie utworzone ponownie.</WR_RetireBills_Desc>
+  <WR_RetireBelow>Wycofuj poniżej</WR_RetireBelow>
+  <WR_RetireBill>Wardrobe: dodano zlecenie w {0} dla zniszczonych ubrań.</WR_RetireBill>
+  <WR_CareText>Naprawy: z modem naprawiającym ubrania (np. Mending) rzeczy są naprawiane – Wardrobe tylko przestaje je nosić poniżej progu.</WR_CareText>
+  <WR_Sleepwear>Piżama w nocy</WR_Sleepwear>
+  <WR_Sleepwear_Desc>Przed pójściem spać koloniści zakładają piżamę, a rano znów ubierają się do pracy.</WR_Sleepwear_Desc>
+  <WR_SleepFrom>Noc od</WR_SleepFrom>
+  <WR_SleepTo>Noc do</WR_SleepTo>
+  <WR_SleepList>Piżamy (znalezione po nazwie, edytuj dowolnie):</WR_SleepList>
+  <WR_Festive>Odświętny strój na okazje</WR_Festive>
+  <WR_Festive_Desc>Podczas imprez, rytuałów i świąt bezczynni koloniści zakładają odświętne stroje.</WR_Festive_Desc>
+  <WR_FestiveOnly>Odświętne stroje tylko na okazje</WR_FestiveOnly>
+  <WR_FestiveOnly_Desc>Poza okazjami nikt ich nie nosi, więc pozostają czyste.</WR_FestiveOnly_Desc>
+  <WR_HolidaysOn>Seasons &amp; Holidays jest aktywny: jego święta liczą się jako okazje.</WR_HolidaysOn>
+  <WR_HolidaysOff>Okazje: imprezy i rytuały (z Seasons &amp; Holidays także jego święta).</WR_HolidaysOff>
+  <WR_FestiveList>Odświętne stroje (znalezione po nazwie, edytuj dowolnie):</WR_FestiveList>
+  <WR_OccasionsReset>Znajdź ponownie piżamy i odświętne stroje</WR_OccasionsReset>
+  <WR_Hold_sleep>w piżamie</WR_Hold_sleep>
+  <WR_Hold_festive>w odświętnym stroju</WR_Hold_festive>
+  <WR_Uniforms>Kolory mundurów według roli</WR_Uniforms>
+  <WR_Uniforms_Desc>Bezczynni koloniści farbują ubrania na kolor swojej roli przy stanowisku stylizacji.</WR_Uniforms_Desc>
+  <WR_UniformsText>Zaznacz rolę i wybierz jej kolor. Potrzebne jest stanowisko stylizacji i barwnik.</WR_UniformsText>
+  <WR_NeedIdeology>Farbowanie ubrań wymaga DLC Ideology.</WR_NeedIdeology>
+  <WR_Favorites>Osobista szafa (ulubione)</WR_Favorites>
+  <WR_Favorites_Desc>Ulubione rzeczy nosi tylko ich właściciel i je preferuje.</WR_Favorites_Desc>
+  <WR_ToBedroom>Trzymaj ulubione w sypialni kolonisty</WR_ToBedroom>
+  <WR_ToBedroom_Desc>Bezczynni koloniści zanoszą nienoszone ulubione rzeczy na półkę lub do komody we własnej sypialni.</WR_ToBedroom_Desc>
+  <WR_FavoritesText>Wybierz kolonistę i naciśnij „Zapisz strój jako ulubiony”. Przechowuje je magazyn (półka, komoda) w jego sypialni.</WR_FavoritesText>
+  <WR_SetFavorites>Zapisz strój jako ulubiony</WR_SetFavorites>
+  <WR_SetFavorites_Desc>Wszystko, co teraz nosi (i jego broń), staje się jego: tylko on to nosi i to preferuje.</WR_SetFavorites_Desc>
+  <WR_FavoritesNow>Ulubione rzeczy: {0}</WR_FavoritesNow>
+  <WR_FavoritesSaved>{0}: zapisano {1} rzeczy jako ulubione.</WR_FavoritesSaved>
+  <WR_ClearFavorites>Wyczyść ulubione</WR_ClearFavorites>
+  <WR_ClearFavorites_Desc>Jego rzeczy znów są dostępne dla wszystkich.</WR_ClearFavorites_Desc>
+  <WR_NoFavorites>brak ulubionych</WR_NoFavorites>
+  <WR_Tailor>Planer krawiecki</WR_Tailor>
+  <WR_Tailor_Desc>Podpowiada, co uszyć. Nic nie jest zlecane, dopóki nie potwierdzisz.</WR_Tailor_Desc>
+  <WR_TailorText>Goły tors lub nogi, zużyte rzeczy bez zapasu, niska jakość, brak piżamy lub odświętnego stroju.</WR_TailorText>
+  <WR_Refresh>Odśwież</WR_Refresh>
+  <WR_NothingToMake>Nie ma czego szyć – wszyscy są dobrze ubrani.</WR_NothingToMake>
+  <WR_AddBill>Dodaj zlecenie</WR_AddBill>
+  <WR_ConfirmBill>Dodać zlecenie „{0}” ×{1}?</WR_ConfirmBill>
+  <WR_BillAdded>Zlecenie „{0}” ×{2} dodane w {1}.</WR_BillAdded>
+  <WR_SugBareTorso>goły tors</WR_SugBareTorso>
+  <WR_SugBareLegs>gołe nogi</WR_SugBareLegs>
+  <WR_SugTattered>zużyte, brak zapasu</WR_SugTattered>
+  <WR_SugPoor>niska jakość</WR_SugPoor>
+  <WR_SugSleep>brak piżamy</WR_SugSleep>
+  <WR_SugFestive>brak odświętnego stroju</WR_SugFestive>
+  <WR_NoMap>Otwórz grę, aby to zobaczyć.</WR_NoMap>
+  <WR_ColonistsText>Zaznaczenie = Wardrobe ubiera kolonistę. Przycisk ustawia jego rolę (* = ustawione przez ciebie).</WR_ColonistsText>
+  <WR_RoleAuto>Automatycznie</WR_RoleAuto>
+  <WR_MaxDistance>Maks. odległość po ubrania</WR_MaxDistance>
+  <WR_MaxDistance_Desc>Jak daleko koloniści idą po piżamę lub odświętny strój.</WR_MaxDistance_Desc>
+  <WR_Verbose>Zapisuj decyzje w logu (do zgłaszania błędów)</WR_Verbose>
+  <WR_ResetAll>Resetuj wszystko</WR_ResetAll>
+  <WR_ResetAll_Confirm>Przywrócić wszystkie ustawienia i tabele Wardrobe do domyślnych?</WR_ResetAll_Confirm>
+  <WR_AdvancedText>Wardrobe sprawdza jednego kolonistę co 1,5 sekundy – bez przycięć nawet w dużych koloniach.</WR_AdvancedText>
+  <WR_Role_Everyone>Wszyscy</WR_Role_Everyone>
+  <WR_Role_Soldier>Żołnierz</WR_Role_Soldier>
+  <WR_Role_Hunter>Myśliwy</WR_Role_Hunter>
+  <WR_Role_Doctor>Lekarz</WR_Role_Doctor>
+  <WR_Role_Builder>Budowniczy</WR_Role_Builder>
+  <WR_Role_Miner>Górnik</WR_Role_Miner>
+  <WR_Role_Crafter>Rzemieślnik</WR_Role_Crafter>
+  <WR_Role_Cook>Kucharz</WR_Role_Cook>
+  <WR_Role_Farmer>Rolnik</WR_Role_Farmer>
+  <WR_Role_Researcher>Badacz</WR_Role_Researcher>
+  <WR_Role_Handler>Treser</WR_Role_Handler>
+  <WR_Role_Warden>Strażnik</WR_Role_Warden>
+  <WR_Role_Hauler>Tragarz</WR_Role_Hauler>
+  <MUI_Title>Zalecane ustawienia</MUI_Title>
+  <MUI_TitleOff>Zalecane ustawienia · wył.</MUI_TitleOff>
+  <MUI_DescOn>Mod sam się konfiguruje i działa od razu. Idealne dla nowych graczy i każdego, kto nie chce niczego ustawiać.</MUI_DescOn>
+  <MUI_DescOff>Własne ustawienia. Zmienione względem zalecanych: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Własne ustawienia. Nadal takie same jak zalecane.</MUI_DescOffSame>
+  <MUI_On>WŁ.</MUI_On>
+  <MUI_Off>WYŁ.</MUI_Off>
+  <MUI_ResetAll>Przywróć wszystko do zalecanych</MUI_ResetAll>
+  <MUI_ConfirmOn>Włączyć zalecane ustawienia? Twoje zmiany ({0}) zostaną zastąpione zalecanymi wartościami.</MUI_ConfirmOn>
+  <MUI_Locked>Szczegółowe ustawienia są zablokowane. Chcesz je zmienić? Wyłącz przełącznik powyżej – twoje wartości zaczną się od zalecanych.</MUI_Locked>
+  <MUI_Changed>ZMIENIONE</MUI_Changed>
+  <MUI_ChangedTip>Różni się od zalecanego ustawienia ({0}). Kliknij, aby przywrócić zalecaną wartość.</MUI_ChangedTip>
+  <MUI_Yes>wł.</MUI_Yes>
+  <MUI_No>wył.</MUI_No>
+  <MUI_RecTag>ZALECANE</MUI_RecTag>
+</LanguageData>

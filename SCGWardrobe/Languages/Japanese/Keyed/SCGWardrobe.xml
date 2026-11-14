@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WR_Name>Smart Colonist Gear – Wardrobe</WR_Name>
+  <WR_Tab_Overview>概要</WR_Tab_Overview>
+  <WR_Tab_Weapons>武器</WR_Tab_Weapons>
+  <WR_Tab_Armor>防具</WR_Tab_Armor>
+  <WR_Tab_Work>作業着</WR_Tab_Work>
+  <WR_Tab_Care>手入れ</WR_Tab_Care>
+  <WR_Tab_Occasions>行事</WR_Tab_Occasions>
+  <WR_Tab_Uniforms>制服と色</WR_Tab_Uniforms>
+  <WR_Tab_Wardrobe>ワードローブ</WR_Tab_Wardrobe>
+  <WR_Tab_Tailor>仕立て</WR_Tab_Tailor>
+  <WR_Tab_Colonists>入植者</WR_Tab_Colonists>
+  <WR_Tab_Advanced>詳細</WR_Tab_Advanced>
+  <WR_Rec1>役割と状況に応じた武器と防具</WR_Rec1>
+  <WR_Rec2>エディタで設定する作業着（自動入力）</WR_Rec2>
+  <WR_Rec3>傷んだ衣服は交換、死者の服は着ない</WR_Rec3>
+  <WR_Rec4>夜は寝間着、祝日やパーティーでは晴れ着</WR_Rec4>
+  <WR_Rec5>お気に入りの服は入植者の寝室に保管</WR_Rec5>
+  <WR_Rec6>仕立て計画 – 作業指示は確認後のみ</WR_Rec6>
+  <WR_Enabled>入植者の服装を Wardrobe が決める</WR_Enabled>
+  <WR_Enabled_Desc>オン：Smart Colonist Gear は着替えの判断ごとに Wardrobe に問い合わせます。オフ：Smart Colonist Gear が単独で決めます（このアドオンがない場合と同じ）。</WR_Enabled_Desc>
+  <WR_TakesOver>服装は Wardrobe が管理しています。装備は Smart Colonist Gear が探し、最終判断は Wardrobe が行います。</WR_TakesOver>
+  <WR_ScgDecides>Wardrobe はオフです – Smart Colonist Gear が単独で決めます。</WR_ScgDecides>
+  <WR_OverviewText>すべてのルールは Smart Colonist Gear 自身の選択を基準にします。表を変更しなければ入植者の服装は今まで通りで、各タブはあなたの希望を上乗せするだけです。</WR_OverviewText>
+  <WR_RolesSource>役割の取得元：{0}</WR_RolesSource>
+  <WR_RolesSteward>Steward – 役割</WR_RolesSteward>
+  <WR_RolesSkills>技能（入植者が担当する作業のうち最も高い技能）</WR_RolesSkills>
+  <WR_SidearmsNote>Simple Sidearms が有効です：主武器は役割表が選び、サイドアームは Simple Sidearms が管理します。</WR_SidearmsNote>
+  <WR_RoleWeapons>役割別の武器</WR_RoleWeapons>
+  <WR_RoleWeapons_Desc>希望する種類の武器が優先され（×1.35）、他の種類は優先度が下がります（×0.75）。</WR_RoleWeapons_Desc>
+  <WR_DamagedWeapon>損傷した武器を交換する閾値</WR_DamagedWeapon>
+  <WR_DamagedWeapon_Desc>耐久度がこの値を下回る武器は評価が大きく下がり、より良い武器があればそちらを使います。</WR_DamagedWeapon_Desc>
+  <WR_WeaponsText>この表は Smart Colonist Gear の武器評価に重みを付けるだけです – 研究、時代、技能が先に判断されます。</WR_WeaponsText>
+  <WR_ResetTable>表をリセット</WR_ResetTable>
+  <WR_WP_Any>指定なし（Smart Colonist Gear に従う）</WR_WP_Any>
+  <WR_WP_Ranged>遠距離</WR_WP_Ranged>
+  <WR_WP_Melee>近接</WR_WP_Melee>
+  <WR_WP_LongRange>長射程</WR_WP_LongRange>
+  <WR_WP_ShortRange>短射程</WR_WP_ShortRange>
+  <WR_WP_Light>軽量</WR_WP_Light>
+  <WR_ArmorSets>状況と役割別の防具</WR_ArmorSets>
+  <WR_ArmorSets_Desc>希望する重さの防具が優先されます。戦闘以外では重い防具は避けられます。</WR_ArmorSets_Desc>
+  <WR_ArmorText>状況：防衛 = 襲撃中または招集中、狩猟 = 狩りに出るとき、キャラバン = 移動中。それ以外は役割で決まります。</WR_ArmorText>
+  <WR_Sit_Defense>防衛</WR_Sit_Defense>
+  <WR_Sit_Hunt>狩猟</WR_Sit_Hunt>
+  <WR_Sit_Caravan>キャラバン / 遠征</WR_Sit_Caravan>
+  <WR_ArmorRoles>作業中、役割別：</WR_ArmorRoles>
+  <WR_AW_Any>指定なし（Smart Colonist Gear に従う）</WR_AW_Any>
+  <WR_AW_None>なし</WR_AW_None>
+  <WR_AW_Light>軽装</WR_AW_Light>
+  <WR_AW_Medium>中装</WR_AW_Medium>
+  <WR_AW_Heavy>重装</WR_AW_Heavy>
+  <WR_WorkEditor>作業着エディタ</WR_WorkEditor>
+  <WR_WorkEditor_Desc>どの衣服がどの作業の作業着かを設定します。オフ：Smart Colonist Gear 独自の判定。</WR_WorkEditor_Desc>
+  <WR_WorkText>Smart Colonist Gear が検出した内容で自動入力されます。衣服を追加・削除できます – 入植者はその作業の前に着用し、終わると脱ぎます。</WR_WorkText>
+  <WR_WorkReset>Smart Colonist Gear から再入力</WR_WorkReset>
+  <WR_AddPiece>+ 衣服を追加</WR_AddPiece>
+  <WR_NoPieces>（なし）</WR_NoPieces>
+  <WR_Care>衣服の手入れ</WR_Care>
+  <WR_Care_Desc>傷んだ衣服は交換し、損傷した武器は取り替えます。</WR_Care_Desc>
+  <WR_ReplaceBelow>衣服を交換する閾値</WR_ReplaceBelow>
+  <WR_ReplaceBelow_Desc>バニラでは耐久度が 50 % を下回ると「ボロボロの服」の気分ペナルティが付きます。それより高い値にすると、ペナルティの前に交換されます。</WR_ReplaceBelow_Desc>
+  <WR_NoCorpse>死者の服を着ない</WR_NoCorpse>
+  <WR_RetireBills>ボロボロの衣服を処分する（溶解 / 焼却の作業指示）</WR_RetireBills>
+  <WR_RetireBills_Desc>マップごとに一度だけ、閾値を下回る衣服を対象とした「無期限」の作業指示を溶鉱炉か火葬場に追加します。削除しても再作成はされません。</WR_RetireBills_Desc>
+  <WR_RetireBelow>処分する閾値</WR_RetireBelow>
+  <WR_RetireBill>Wardrobe：{0} にボロボロの衣服の作業指示を追加しました。</WR_RetireBill>
+  <WR_CareText>修理：衣服を修理する Mod（例：Mending）があれば、衣服は修理されます – Wardrobe は閾値を下回ったときに着用をやめるだけです。</WR_CareText>
+  <WR_Sleepwear>夜は寝間着</WR_Sleepwear>
+  <WR_Sleepwear_Desc>夜に寝る前、入植者は寝間着に着替え、朝になると作業用の服に戻ります。</WR_Sleepwear_Desc>
+  <WR_SleepFrom>夜の開始</WR_SleepFrom>
+  <WR_SleepTo>夜の終了</WR_SleepTo>
+  <WR_SleepList>寝間着（名前で検出、自由に編集可）：</WR_SleepList>
+  <WR_Festive>行事では晴れ着</WR_Festive>
+  <WR_Festive_Desc>パーティー、儀式、祝日の間、手の空いた入植者は晴れ着に着替えます。</WR_Festive_Desc>
+  <WR_FestiveOnly>晴れ着は行事のときだけ</WR_FestiveOnly>
+  <WR_FestiveOnly_Desc>行事以外では誰も着ないので、きれいなまま保たれます。</WR_FestiveOnly_Desc>
+  <WR_HolidaysOn>Seasons &amp; Holidays が有効です：その祝日も行事として扱います。</WR_HolidaysOn>
+  <WR_HolidaysOff>行事：パーティーと儀式（Seasons &amp; Holidays があればその祝日も）。</WR_HolidaysOff>
+  <WR_FestiveList>晴れ着（名前で検出、自由に編集可）：</WR_FestiveList>
+  <WR_OccasionsReset>寝間着と晴れ着を再検出</WR_OccasionsReset>
+  <WR_Hold_sleep>寝間着</WR_Hold_sleep>
+  <WR_Hold_festive>晴れ着</WR_Hold_festive>
+  <WR_Uniforms>役割別の制服の色</WR_Uniforms>
+  <WR_Uniforms_Desc>手の空いた入植者がスタイリングステーションで服を役割の色に染めます。</WR_Uniforms_Desc>
+  <WR_UniformsText>役割にチェックを入れ、色を選んでください。スタイリングステーションと染料が必要です。</WR_UniformsText>
+  <WR_NeedIdeology>服の染色には Ideology DLC が必要です。</WR_NeedIdeology>
+  <WR_Favorites>個人のワードローブ（お気に入り）</WR_Favorites>
+  <WR_Favorites_Desc>お気に入りの衣服は持ち主だけが着用し、優先して選びます。</WR_Favorites_Desc>
+  <WR_ToBedroom>お気に入りを入植者の寝室に保管</WR_ToBedroom>
+  <WR_ToBedroom_Desc>手の空いた入植者は、着ていないお気に入りを自分の寝室の棚やタンスに運びます。</WR_ToBedroom_Desc>
+  <WR_FavoritesText>入植者を選択して「服装をお気に入りに保存」を押してください。寝室の収納（棚、タンス）に保管されます。</WR_FavoritesText>
+  <WR_SetFavorites>服装をお気に入りに保存</WR_SetFavorites>
+  <WR_SetFavorites_Desc>現在着ているもの（と武器）がすべてその入植者のものになります：本人だけが着用し、優先して選びます。</WR_SetFavorites_Desc>
+  <WR_FavoritesNow>お気に入り {0} 点</WR_FavoritesNow>
+  <WR_FavoritesSaved>{0}：{1} 点をお気に入りに保存しました。</WR_FavoritesSaved>
+  <WR_ClearFavorites>お気に入りを解除</WR_ClearFavorites>
+  <WR_ClearFavorites_Desc>その入植者の衣服は再び誰でも使えるようになります。</WR_ClearFavorites_Desc>
+  <WR_NoFavorites>お気に入りなし</WR_NoFavorites>
+  <WR_Tailor>仕立て計画</WR_Tailor>
+  <WR_Tailor_Desc>作るべきものを提案します。確認するまで何も発注されません。</WR_Tailor_Desc>
+  <WR_TailorText>胴や脚に何も着ていない、予備のない傷んだ衣服、低品質、寝間着や晴れ着の不足。</WR_TailorText>
+  <WR_Refresh>更新</WR_Refresh>
+  <WR_NothingToMake>作るものはありません – 全員きちんと着ています。</WR_NothingToMake>
+  <WR_AddBill>作業指示を追加</WR_AddBill>
+  <WR_ConfirmBill>作業指示「{0}」×{1} を追加しますか？</WR_ConfirmBill>
+  <WR_BillAdded>作業指示「{0}」×{2} を {1} に追加しました。</WR_BillAdded>
+  <WR_SugBareTorso>胴が裸</WR_SugBareTorso>
+  <WR_SugBareLegs>脚が裸</WR_SugBareLegs>
+  <WR_SugTattered>傷んでいて予備なし</WR_SugTattered>
+  <WR_SugPoor>低品質</WR_SugPoor>
+  <WR_SugSleep>寝間着なし</WR_SugSleep>
+  <WR_SugFestive>晴れ着なし</WR_SugFestive>
+  <WR_NoMap>表示するにはゲームを開いてください。</WR_NoMap>
+  <WR_ColonistsText>チェック = Wardrobe がその入植者の服装を管理します。ボタンで役割を設定します（* = 手動で設定）。</WR_ColonistsText>
+  <WR_RoleAuto>自動</WR_RoleAuto>
+  <WR_MaxDistance>服を取りに行く最大距離</WR_MaxDistance>
+  <WR_MaxDistance_Desc>入植者が寝間着や晴れ着を取りに歩く距離。</WR_MaxDistance_Desc>
+  <WR_Verbose>判断をログに記録（バグ報告用）</WR_Verbose>
+  <WR_ResetAll>すべてリセット</WR_ResetAll>
+  <WR_ResetAll_Confirm>Wardrobe のすべての設定と表を初期値に戻しますか？</WR_ResetAll_Confirm>
+  <WR_AdvancedText>Wardrobe は 1.5 秒ごとに入植者を 1 人ずつ確認します – 大きなコロニーでもカクつきません。</WR_AdvancedText>
+  <WR_Role_Everyone>全員</WR_Role_Everyone>
+  <WR_Role_Soldier>兵士</WR_Role_Soldier>
+  <WR_Role_Hunter>狩人</WR_Role_Hunter>
+  <WR_Role_Doctor>医師</WR_Role_Doctor>
+  <WR_Role_Builder>建築家</WR_Role_Builder>
+  <WR_Role_Miner>採掘者</WR_Role_Miner>
+  <WR_Role_Crafter>職人</WR_Role_Crafter>
+  <WR_Role_Cook>料理人</WR_Role_Cook>
+  <WR_Role_Farmer>農夫</WR_Role_Farmer>
+  <WR_Role_Researcher>研究者</WR_Role_Researcher>
+  <WR_Role_Handler>調教師</WR_Role_Handler>
+  <WR_Role_Warden>看守</WR_Role_Warden>
+  <WR_Role_Hauler>運搬係</WR_Role_Hauler>
+  <MUI_Title>推奨設定</MUI_Title>
+  <MUI_TitleOff>推奨設定 · オフ</MUI_TitleOff>
+  <MUI_DescOn>Mod が自動で設定され、すぐに動作します。初心者や細かく調整したくない方に最適です。</MUI_DescOn>
+  <MUI_DescOff>カスタム設定。推奨から変更：{0}。</MUI_DescOff>
+  <MUI_DescOffSame>カスタム設定。まだ推奨と同じです。</MUI_DescOffSame>
+  <MUI_On>オン</MUI_On>
+  <MUI_Off>オフ</MUI_Off>
+  <MUI_ResetAll>すべて推奨に戻す</MUI_ResetAll>
+  <MUI_ConfirmOn>推奨設定をオンにしますか？あなたの変更（{0}）は推奨値に置き換えられます。</MUI_ConfirmOn>
+  <MUI_Locked>詳細設定はロックされています。変更したい場合は上のスイッチをオフにしてください – 推奨値から始まります。</MUI_Locked>
+  <MUI_Changed>変更済み</MUI_Changed>
+  <MUI_ChangedTip>推奨設定（{0}）と異なります。クリックで推奨値に戻します。</MUI_ChangedTip>
+  <MUI_Yes>オン</MUI_Yes>
+  <MUI_No>オフ</MUI_No>
+  <MUI_RecTag>推奨</MUI_RecTag>
+</LanguageData>
