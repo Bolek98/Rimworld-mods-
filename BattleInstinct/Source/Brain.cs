@@ -27,12 +27,12 @@ public static class Brain
 		int now = Find.TickManager.TicksGame;
 		if (!d.anchor.IsValid) d.anchor = p.Position;
 
-		// 0.1.1: attack stance (and soldiers Steward drafted on their own) go after enemies anywhere on the map;
-		// the others react to what is within sight range
+		// attack stance (and pawns drafted by the alarm or Steward) go after enemies that are close to them
+		// or close to the base (0.2.1: not across the whole map); the others react to what is within sight range
 		bool seek = d.Stance == Stance.Aggressive || d.autoDrafted;
 		List<Thing> near = new List<Thing>();
 		foreach (Thing t in f.enemies)
-			if (seek || t.Position.InHorDistOf(p.Position, SeeRange))
+			if (seek ? Engage.Worth(t, p.Position) : t.Position.InHorDistOf(p.Position, SeeRange))
 				near.Add(t);
 		if (near.Count == 0) return;
 		near.SortBy(t => (t.Position - p.Position).LengthHorizontalSquared);

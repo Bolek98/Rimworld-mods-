@@ -13,6 +13,7 @@ public class BISettings : ModSettings
 	public bool enabled = true;
 	public bool defaultOn = true;
 	public int defaultStance = 0;   // 0.2.0: attack by default
+	public float engageRange = 35f;   // 0.2.1
 	public bool autoAlarm = true, kite = true, screen = true, rescue = true, cohesion = true;
 	public bool mechs = true;
 	public int interval = 30;
@@ -38,6 +39,7 @@ public class BISettings : ModSettings
 		Scribe_Values.Look(ref defaultOn, "defaultOn", true);
 		Scribe_Values.Look(ref defaultStance, "defaultStance", 0);
 		Scribe_Values.Look(ref autoAlarm, "autoAlarm", true);
+		Scribe_Values.Look(ref engageRange, "engageRange", 35f);
 		Scribe_Values.Look(ref kite, "kite", true);
 		Scribe_Values.Look(ref screen, "screen", true);
 		Scribe_Values.Look(ref rescue, "rescue", true);
@@ -66,7 +68,7 @@ public class BISettings : ModSettings
 public class BattleInstinctMod : Mod
 {
 	public static BISettings Settings;
-	public const string Version = "0.2.0";
+	public const string Version = "0.2.1";
 	private static List<string> recBullets;
 	private Vector2 scroll;
 	private static string search = "";
@@ -157,6 +159,7 @@ public class BattleInstinctMod : Mod
 				s.bleedHours = Mathf.Round(MUI.Slider(l, "BI_BleedHours".Translate(s.bleedHours.ToString("0")), s.bleedHours, 1f, 12f, "BI_BleedHours_Desc".Translate(), s, "bleedHours"));
 			}
 			s.defensiveRadius = Mathf.Round(MUI.Slider(l, "BI_DefRadius".Translate(s.defensiveRadius.ToString("0")), s.defensiveRadius, 3f, 20f, "BI_DefRadius_Desc".Translate(), s, "defensiveRadius"));
+			s.engageRange = Mathf.Round(MUI.Slider(l, "BI_Engage".Translate(s.engageRange.ToString("0")), s.engageRange, 15f, 80f, "BI_Engage_Desc".Translate(), s, "engageRange"));
 			s.aggressiveRadius = Mathf.Round(MUI.Slider(l, "BI_AggRadius".Translate(s.aggressiveRadius.ToString("0")), s.aggressiveRadius, 10f, 60f, "BI_AggRadius_Desc".Translate(), s, "aggressiveRadius"));
 			Check(l, "BI_UseAbilities", ref s.useAbilities, "useAbilities");
 			if (s.useAbilities)

@@ -48,6 +48,17 @@ public static class Alarm
 			lastThreat[map] = now;
 			var field = new Battlefield(map);
 			if (field.enemies.Count == 0) return;
+			// 0.2.1: raiders still gathering at the map edge don't pull everyone from work yet
+			bool close = false;
+			foreach (Thing e in field.enemies)
+			{
+				if (Engage.NearHome(e) || map.mapPawns.FreeColonistsSpawned.Any(c => e.Position.InHorDistOf(c.Position, s.engageRange)))
+				{
+					close = true;
+					break;
+				}
+			}
+			if (!close) return;
 			// one wild animal: two fighters are enough; anything bigger: everybody who can fight
 			int want = field.enemies.Count == 1 && field.enemies[0] is Pawn ep && ep.RaceProps.Animal ? 2 : 999;
 			int have = map.mapPawns.FreeColonistsSpawned.Count(p => p.Drafted);
@@ -98,6 +109,34 @@ public static class Alarm
 			if (kv.Value.Remove(p))
 				released.Add(p);
 	}
+}
+
+// 0.2.1: which enemies are worth going after – close to this pawn or close to the base
+public static class Engage
+{
+	private static readonly IntVec3[] Ring =
+	{
+		new IntVec3(10, 0, 0), new IntVec3(-10, 0, 0), new IntVec3(0, 0, 10), new IntVec3(0, 0, -10),
+		new IntVec3(7, 0, 7), new IntVec3(-7, 0, 7), new IntVec3(7, 0, -7), new IntVec3(-7, 0, -7)
+	};
+
+	public static bool NearHome(Thing t)
+	{
+		Map map = t.Map;
+		Area_Home home = map?.areaManager?.Home;
+		if (home == null) return false;
+		IntVec3 c = t.Position;
+		if (home[c]) return true;
+		foreach (IntVec3 o in Ring)
+		{
+			IntVec3 x = c + o;
+			if (x.InBounds(map) && home[x]) return true;
+		}
+		return false;
+	}
+
+	public static bool Worth(Thing t, IntVec3 from) =>
+		t.Position.InHorDistOf(from, BattleInstinctMod.Settings.engageRange) || NearHome(t);
 }
 
 public static class Tactics
