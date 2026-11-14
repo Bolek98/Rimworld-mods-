@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RB_Rec1>Los colonos eligen los encargos de una mesa al azar, los de arriba algo más a menudo.</RB_Rec1>
+  <RB_Rec2>Un botón de modo en cada mesa: ponderado, aleatorio o en orden.</RB_Rec2>
+  <RB_Enabled>Encargos aleatorios activados</RB_Enabled>
+  <RB_Enabled_Desc>Interruptor general de todo el mod.</RB_Enabled_Desc>
+  <RB_DefaultMode>Modo de las mesas</RB_DefaultMode>
+  <RB_Mode_Weighted>Encargos: ponderado</RB_Mode_Weighted>
+  <RB_Mode_Random>Encargos: aleatorio</RB_Mode_Random>
+  <RB_Mode_Order>Encargos: en orden</RB_Mode_Order>
+  <RB_TopWeight>Ponderado – preferencia por los de arriba: {0}</RB_TopWeight>
+  <RB_TopWeight_Desc>Cuánto más a menudo se eligen los encargos de arriba en el modo ponderado. 0 % = como aleatorio, 100 % = los de arriba claramente más a menudo (pero los de abajo también se hacen).</RB_TopWeight_Desc>
+  <RB_ShowGizmo>Botón de modo en las mesas</RB_ShowGizmo>
+  <RB_ShowGizmo_Desc>Cada mesa recibe un botón para cambiar su propio modo.</RB_ShowGizmo_Desc>
+  <RB_Gizmo_Desc>Cómo elige un colono el siguiente encargo en esta mesa. Haz clic para cambiarlo.\n\nPonderado: al azar, los encargos de arriba algo más a menudo.\nAleatorio: todos los encargos con la misma probabilidad.\nEn orden: como en el juego, el primero que se pueda hacer.\n\nUn encargo tiene que seguir siendo posible (ingredientes, habilidad, 'hacer X veces' sin terminar). El trabajo ya empezado se termina primero.</RB_Gizmo_Desc>
+  <RB_AvoidRepeat>Turnarse</RB_AvoidRepeat>
+  <RB_AvoidRepeat_Desc>El encargo que un colono acaba de hacer tiene menos probabilidad la próxima vez, también los de 'hacer X veces', para que los demás tengan su turno entre las piezas.</RB_AvoidRepeat_Desc>
+</LanguageData>

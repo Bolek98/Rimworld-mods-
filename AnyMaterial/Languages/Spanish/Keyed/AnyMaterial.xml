@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AM_Rec1>'Cualquier material' y 'Elegir materiales…' en el menú de materiales de cada botón de construcción.</AM_Rec1>
+  <AM_Rec2>Un plano toma el material del que más hay en el almacén; lo mantiene mientras haya suficiente.</AM_Rec2>
+  <AM_Enabled>Cualquier material activado</AM_Enabled>
+  <AM_Enabled_Desc>Interruptor general de todo el mod.</AM_Enabled_Desc>
+  <AM_Rule>Qué material</AM_Rule>
+  <AM_Rule_MostInStock>el que más hay en el almacén</AM_Rule_MostInStock>
+  <AM_Rule_Cheapest>el más barato</AM_Rule_Cheapest>
+  <AM_Rule_Strongest>el más resistente</AM_Rule_Strongest>
+  <AM_Rule_Prettiest>el más bonito</AM_Rule_Prettiest>
+  <AM_Rule_Desc>Solo materiales de los que hay suficiente para todo el edificio. El material se elige cuando el constructor lo trae; una vez entregado, ya no cambia.</AM_Rule_Desc>
+  <AM_MenuAny>Cualquier material</AM_MenuAny>
+  <AM_MenuChoose>Elegir materiales…</AM_MenuChoose>
+  <AM_GizmoAny>Cualquier material</AM_GizmoAny>
+  <AM_GizmoAny_Desc>Este plano se construye con el material del que haya suficiente (en los ajustes se elige cuál). Desactivado = solo el material mostrado.</AM_GizmoAny_Desc>
+  <AM_GizmoChoose>Elegir materiales…</AM_GizmoChoose>
+  <AM_GizmoChoose_Desc>Elige qué materiales pueden usar los planos seleccionados.</AM_GizmoChoose_Desc>
+  <AM_ChooseTitle>Materiales para {0}</AM_ChooseTitle>
+  <AM_All>Todos</AM_All>
+  <AM_None>Ninguno</AM_None>
+  <AM_Rec3>Los edificios sin elección de material (antorcha, hoguera…) toman otro material del mismo tipo cuando falta el original.</AM_Rec3>
+  <AM_FixedAuto>Edificios de coste fijo: usar un sustituto</AM_FixedAuto>
+  <AM_FixedAuto_Desc>Los edificios sin elección de material (antorcha: 20 de madera) pueden construirse con otro material del mismo tipo: cualquier madera, cualquier metal, cualquier bloque de piedra, cualquier tela o cuero. Los componentes y otros no materiales nunca se sustituyen. Se puede desactivar en cada plano.</AM_FixedAuto_Desc>
+  <AM_PreferOriginal>Primero el original</AM_PreferOriginal>
+  <AM_PreferOriginal_Desc>Usa el material original mientras haya suficiente; un sustituto solo cuando se acabe. Desactivado = decide la regla de arriba.</AM_PreferOriginal_Desc>
+  <AM_GizmoFixed>Material sustituto</AM_GizmoFixed>
+  <AM_GizmoFixed_Desc>Si no hay suficiente {0}, el constructor trae otro material del mismo tipo. Al desmontarlo devuelve aquello con lo que realmente se construyó.</AM_GizmoFixed_Desc>
+  <AM_GizmoFixedChoose>Elegir sustitutos…</AM_GizmoFixedChoose>
+  <AM_GizmoFixedChoose_Desc>Elige qué materiales pueden usar los planos seleccionados en lugar del original.</AM_GizmoFixedChoose_Desc>
+  <AM_AutoAny>Planos nuevos: siempre cualquier material</AM_AutoAny>
+  <AM_AutoAny_Desc>Cada plano nuevo de un edificio hecho de materiales recibe "cualquier material" de inmediato; útil cuando otro mod (Better Architect…) muestra su propio menú de materiales. Aún puedes volver a cambiar planos sueltos con su botón.</AM_AutoAny_Desc>
+  <AM_GizmoFrameStuff>Cambiar material</AM_GizmoFrameStuff>
+  <AM_GizmoFrameStuff_Desc>Construir el resto con otro material (lo que ya se trajo vuelve al suelo). "Cualquier material": cambia solo cuando se acaba el actual.</AM_GizmoFrameStuff_Desc>
+</LanguageData>

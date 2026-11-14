@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AM_Rec1>すべての建設ボタンの素材メニューに「任意の素材」と「素材を選択…」を追加。</AM_Rec1>
+  <AM_Rec2>設計図は備蓄が最も多い素材を使い、十分にある間はそれを使い続けます。</AM_Rec2>
+  <AM_Enabled>任意の素材を有効化</AM_Enabled>
+  <AM_Enabled_Desc>MOD全体のメインスイッチ。</AM_Enabled_Desc>
+  <AM_Rule>どの素材か</AM_Rule>
+  <AM_Rule_MostInStock>備蓄が最も多い</AM_Rule_MostInStock>
+  <AM_Rule_Cheapest>最も安い</AM_Rule_Cheapest>
+  <AM_Rule_Strongest>最も頑丈</AM_Rule_Strongest>
+  <AM_Rule_Prettiest>最も美しい</AM_Rule_Prettiest>
+  <AM_Rule_Desc>建物全体に十分な量がある素材のみ。素材は建設者が運ぶ時に決まり、搬入後は変わりません。</AM_Rule_Desc>
+  <AM_MenuAny>任意の素材</AM_MenuAny>
+  <AM_MenuChoose>素材を選択…</AM_MenuChoose>
+  <AM_GizmoAny>任意の素材</AM_GizmoAny>
+  <AM_GizmoAny_Desc>この設計図は十分な量がある素材で建設されます（どれかは設定を参照）。オフ = 表示された素材のみ。</AM_GizmoAny_Desc>
+  <AM_GizmoChoose>素材を選択…</AM_GizmoChoose>
+  <AM_GizmoChoose_Desc>選択した設計図が使える素材を選びます。</AM_GizmoChoose_Desc>
+  <AM_ChooseTitle>{0} の素材</AM_ChooseTitle>
+  <AM_All>すべて</AM_All>
+  <AM_None>なし</AM_None>
+  <AM_Rec3>素材を選べない建物（松明、焚き火…）は、元の素材がないと同じ種類の別の素材を使います。</AM_Rec3>
+  <AM_FixedAuto>固定コストの建物：代替素材を使う</AM_FixedAuto>
+  <AM_FixedAuto_Desc>素材を選べない建物（松明：木材20）を同じ種類の別の素材で建設できます – 任意の木材、金属、石材ブロック、布や革。部品など素材以外のものは置き換えません。設計図ごとにオフにできます。</AM_FixedAuto_Desc>
+  <AM_PreferOriginal>元の素材を優先</AM_PreferOriginal>
+  <AM_PreferOriginal_Desc>十分ある間は元の素材を使い、なくなった時だけ代替素材を使います。オフ = 上のルールで決定。</AM_PreferOriginal_Desc>
+  <AM_GizmoFixed>代替素材</AM_GizmoFixed>
+  <AM_GizmoFixed_Desc>{0} が足りない場合、建設者は同じ種類の別の素材を運びます。解体すると実際に使われた素材が戻ります。</AM_GizmoFixed_Desc>
+  <AM_GizmoFixedChoose>代替素材を選択…</AM_GizmoFixedChoose>
+  <AM_GizmoFixedChoose_Desc>選択した設計図が元の素材の代わりに使える素材を選びます。</AM_GizmoFixedChoose_Desc>
+  <AM_AutoAny>新しい設計図：常に任意の素材</AM_AutoAny>
+  <AM_AutoAny_Desc>素材で作る建物の新しい設計図はすべて、すぐに「任意の素材」になります – 他のMOD（Better Architect…）が独自の素材メニューを表示する場合に便利です。個別の設計図はボタンで元に戻せます。</AM_AutoAny_Desc>
+  <AM_GizmoFrameStuff>素材を変更</AM_GizmoFrameStuff>
+  <AM_GizmoFrameStuff_Desc>残りを別の素材で建設します（搬入済みの分は地面に戻ります）。「任意の素材」：今の素材がなくなると自動で切り替わります。</AM_GizmoFrameStuff_Desc>
+</LanguageData>

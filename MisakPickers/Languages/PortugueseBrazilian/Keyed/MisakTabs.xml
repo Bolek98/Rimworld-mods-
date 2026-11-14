@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MT_Rec1>Nossa aba de ordens é usada.</MT_Rec1>
+  <MT_Rec2>Ela substitui a aba de ordens de outros mods (Nice Bill Tab …) – a aba original está sempre a um clique.</MT_Rec2>
+  <MT_Bills>Aba de ordens</MT_Bills>
+  <MT_Bills_Desc>Receitas com imagens e busca, fila de ordens em cartões mostrando quem trabalha nela e o que falta.</MT_Bills_Desc>
+  <MT_ReplaceOther>Substituir outros mods de aba de ordens</MT_ReplaceOther>
+  <MT_ReplaceOther_Desc>Nice Bill Tab e mods parecidos desenham a mesma aba; com isto ativado, a deles é desligada. Requer reiniciar.</MT_ReplaceOther_Desc>
+  <MT_OurLook>Visual Clear</MT_OurLook>
+  <MT_HeadSub>{0} ordens · {1} ativas · {2} colonos fazem {3}</MT_HeadSub>
+  <MT_Paste>Colar</MT_Paste>
+  <MT_PasteTip>Colar a ordem copiada: {0}</MT_PasteTip>
+  <MT_Original>Aba original</MT_Original>
+  <MT_OriginalTip>Mostra a aba do jogo (com os botões que outros mods adicionam). Volte com "Visual Clear".</MT_OriginalTip>
+  <MT_NeedResearch>requer pesquisa: {0}</MT_NeedResearch>
+  <MT_NotAvailable>indisponível agora</MT_NotAvailable>
+  <MT_Search>Buscar receita…</MT_Search>
+  <MT_All>Todas</MT_All>
+  <MT_Available>Disponíveis</MT_Available>
+  <MT_Locked>Bloqueadas</MT_Locked>
+  <MT_LockedShort>bloqueada</MT_LockedShort>
+  <MT_Add>+ Adicionar</MT_Add>
+  <MT_Full>Uma bancada pode ter no máximo {0} ordens.</MT_Full>
+  <MT_Queue>Fila de ordens – {0} / {1}</MT_Queue>
+  <MT_Suspended>pausada</MT_Suspended>
+  <MT_DoingNow>em andamento: {0}</MT_DoingNow>
+  <MT_NoIngredients>aguardando: nenhum material encontrado</MT_NoIngredients>
+  <MT_Done>nada a fazer agora</MT_Done>
+  <MT_Waiting>aguardando um colono livre</MT_Waiting>
+  <MT_Forever>repetir para sempre</MT_Forever>
+  <MT_RepeatLeft>faltam {0}</MT_RepeatLeft>
+  <MT_Target>você tem {0} de {1}</MT_Target>
+  <MT_PausedSatisfied>meta atingida</MT_PausedSatisfied>
+  <MT_Resume>Retomar</MT_Resume>
+  <MT_Pause>Pausar</MT_Pause>
+  <MT_Edit>Editar</MT_Edit>
+  <MT_Copy>Copiar</MT_Copy>
+  <MT_Copied>Copiado: {0}</MT_Copied>
+  <MT_NoBills>Nenhuma ordem ainda – escolha uma receita à esquerda.</MT_NoBills>
+  <MT_InfoTip>O que é – abre o cartão de informações</MT_InfoTip>
+  <MT_ClickInfo>Clique para o cartão de informações completo.</MT_ClickInfo>
+  <MT_Info_Makes>Produz: {0} ×{1} · valor {2} · peso {3} kg</MT_Info_Makes>
+  <MT_Info_Armor>Armadura: afiado {0}, contundente {1} · isolamento frio {2} °C, calor {3} °C</MT_Info_Armor>
+  <MT_Info_Gun>Dano {0} · alcance {1} · tiros por rajada {2}</MT_Info_Gun>
+  <MT_Info_Melee>Dano corpo a corpo por segundo: {0}</MT_Info_Melee>
+  <MT_Info_Work>Trabalho: {0}</MT_Info_Work>
+  <MT_Info_Needs>Requer: {0}</MT_Info_Needs>
+  <MT_Info_Skill>Habilidade necessária: {0}</MT_Info_Skill>
+  <MT_Info_UsesSkill>Habilidade usada: {0}</MT_Info_UsesSkill>
+  <MT_PrioTip>Prioridade {0} – 1 é feita primeiro, 10 por último, 5 é normal. Os colonos vão primeiro à bancada com a ordem mais urgente. Clique para mudar.</MT_PrioTip>
+  <MT_PrioOption>Prioridade {0}</MT_PrioOption>
+  <MT_PrioFirst>fazer primeiro</MT_PrioFirst>
+  <MT_PrioNormal>normal</MT_PrioNormal>
+  <MT_PrioLast>fazer por último</MT_PrioLast>
+  <MT_Rec3>Nossa aba de saúde é usada e substitui outros mods de aba de saúde.</MT_Rec3>
+  <MT_Health>Aba de saúde</MT_Health>
+  <MT_Health_Desc>Resumo com capacidades e cuidados, a figura do colono com marcas onde há algo errado e as condições por parte do corpo. Operações e a aba original estão a um clique.</MT_Health_Desc>
+  <MT_ReplaceOtherHealth>Substituir outros mods de aba de saúde</MT_ReplaceOtherHealth>
+  <MT_ReplaceOtherHealth_Desc>Mods que desenham sua própria aba de saúde são desligados enquanto isto estiver ativado. Requer reiniciar.</MT_ReplaceOtherHealth_Desc>
+  <MT_Operations>Operações</MT_Operations>
+  <MT_OperationsTip>A lista de operações do jogo (ordens de cirurgia). Volte com "Visual Clear".</MT_OperationsTip>
+  <MT_OperationsNo>Nenhuma operação é possível aqui.</MT_OperationsNo>
+  <MT_OriginalTipHealth>Mostra a aba de saúde do jogo (com o que outros mods adicionam). Volte com "Visual Clear" no canto inferior direito.</MT_OriginalTipHealth>
+  <MT_H_Dead>Morto</MT_H_Dead>
+  <MT_H_Bleeding>Sangrando {0} por dia</MT_H_Bleeding>
+  <MT_H_BleedDeath>Sangrando {0} por dia – morre em {1} sem tratamento!</MT_H_BleedDeath>
+  <MT_H_Losing>{0}: perdendo – a doença está à frente da imunidade</MT_H_Losing>
+  <MT_H_Winning>{0}: a imunidade está vencendo</MT_H_Winning>
+  <MT_H_NeedsTend>Precisa de tratamento</MT_H_NeedsTend>
+  <MT_H_Downed>Caído</MT_H_Downed>
+  <MT_H_Healing>Curando-se</MT_H_Healing>
+  <MT_H_Healthy>Saudável</MT_H_Healthy>
+  <MT_H_Care>CUIDADOS MÉDICOS</MT_H_Care>
+  <MT_H_Capacities>CAPACIDADES</MT_H_Capacities>
+  <MT_H_MarkTip>Clique: mostrar só esta parte na lista. Botão direito: operações para esta parte.</MT_H_MarkTip>
+  <MT_H_NothingWrong>Nada de errado 👍</MT_H_NothingWrong>
+  <MT_H_LegendBad>sangrando, ausente ou muito ferido</MT_H_LegendBad>
+  <MT_H_LegendHurt>ferido, precisa de tratamento</MT_H_LegendHurt>
+  <MT_H_LegendOther>cicatrizes, implantes e o resto</MT_H_LegendOther>
+  <MT_H_Whole>Corpo inteiro: {0} (na lista)</MT_H_Whole>
+  <MT_H_ShowAllParts>Mostrar todas as partes</MT_H_ShowAllParts>
+  <MT_H_Conditions>CONDIÇÕES POR PARTE DO CORPO</MT_H_Conditions>
+  <MT_H_ConditionsHere>CONDIÇÕES – PARTE SELECIONADA</MT_H_ConditionsHere>
+  <MT_H_ShowAll>Mostrar ocultas também</MT_H_ShowAll>
+  <MT_H_NoConditions>Sem ferimentos nem condições.</MT_H_NoConditions>
+  <MT_H_ChipBleed>sangra {0}</MT_H_ChipBleed>
+  <MT_H_ChipTended>tratado</MT_H_ChipTended>
+  <MT_H_ChipTend>precisa de tratamento</MT_H_ChipTend>
+  <MT_H_ChipScar>permanente</MT_H_ChipScar>
+  <MT_H_ImmunityTip>Imunidade {0} (verde) contra a doença {1} (vermelho). A imunidade precisa chegar a 100 % primeiro.</MT_H_ImmunityTip>
+  <MT_H_ToPortrait>Mostrar o retrato</MT_H_ToPortrait>
+  <MT_H_ToSilhouette>Mostrar a silhueta de saúde</MT_H_ToSilhouette>
+  <MT_O_Planned>OPERAÇÕES PLANEJADAS (nesta ordem)</MT_O_Planned>
+  <MT_O_NonePlanned>Nada planejado. Escolha uma operação à direita.</MT_O_NonePlanned>
+  <MT_O_WholeBody>Corpo inteiro</MT_O_WholeBody>
+  <MT_O_Paused>Pausada</MT_O_Paused>
+  <MT_O_Missing>Falta: {0}</MT_O_Missing>
+  <MT_O_Ready>Pronta – tudo à mão</MT_O_Ready>
+  <MT_O_Resume>Retomar</MT_O_Resume>
+  <MT_O_Pause>Pausar</MT_O_Pause>
+  <MT_O_Doctor>QUEM VAI OPERAR</MT_O_Doctor>
+  <MT_O_NoDoctor>Nenhum médico livre neste mapa!</MT_O_NoDoctor>
+  <MT_O_DoctorIs>Melhor médico: {0} (Medicina {1})</MT_O_DoctorIs>
+  <MT_O_Care>Cuidados médicos: {0}</MT_O_Care>
+  <MT_O_DoctorTip>Um médico melhor = menor risco de a operação falhar.</MT_O_DoctorTip>
+  <MT_O_Possible>OPERAÇÕES POSSÍVEIS ({0})</MT_O_Possible>
+  <MT_O_Search>Buscar operação ou parte do corpo…</MT_O_Search>
+  <MT_O_K_All>Todas</MT_O_K_All>
+  <MT_O_K_Implant>Implantes e próteses</MT_O_K_Implant>
+  <MT_O_K_Remove>Remover</MT_O_K_Remove>
+  <MT_O_K_Drug>Drogas</MT_O_K_Drug>
+  <MT_O_K_Other>Outras</MT_O_K_Other>
+  <MT_O_A_All>Em todo lugar</MT_O_A_All>
+  <MT_O_A_Head>Cabeça</MT_O_A_Head>
+  <MT_O_A_Torso>Tronco</MT_O_A_Torso>
+  <MT_O_A_Arms>Braços</MT_O_A_Arms>
+  <MT_O_A_Legs>Pernas</MT_O_A_Legs>
+  <MT_O_A_Whole>Corpo inteiro</MT_O_A_Whole>
+  <MT_O_NoneFound>Nenhuma operação corresponde.</MT_O_NoneFound>
+  <MT_O_BackHealth>Saúde</MT_O_BackHealth>
+  <!-- 0.4.2 -->
+  <MT_H_Planned>Operações planejadas: {0}</MT_H_Planned>
+  <MT_H_PlannedTip>Clique para abrir as operações planejadas.</MT_H_PlannedTip>
+  <MT_H_NoOpsHere>Nenhuma operação para esta parte do corpo</MT_H_NoOpsHere>
+  <MT_H_ShowOpsHere>Mostrar operações para esta parte</MT_H_ShowOpsHere>
+  <!-- 0.5.0 -->
+  <MT_BenchMenuTip>Bancada: copie todas as ordens dela, cole-as aqui ou em várias bancadas do mesmo tipo.</MT_BenchMenuTip>
+  <MT_CopyAll>Copiar todas as ordens desta bancada ({0})</MT_CopyAll>
+  <MT_PasteAll>Colar aqui as ordens copiadas ({0} de {1})</MT_PasteAll>
+  <MT_PasteSeveral>Colar ordens em várias bancadas</MT_PasteSeveral>
+  <MT_PasteSeveralSub>{0} ordens copiadas de {1}. Ordens que uma bancada não pode fazer são ignoradas.</MT_PasteSeveralSub>
+  <MT_BenchCopied>{0} ordens de {1} copiadas.</MT_BenchCopied>
+  <MT_PastedInto>{0} ordens coladas em {1} bancadas.</MT_PastedInto>
+  <MT_PasteN>Colar em {0}</MT_PasteN>
+  <MT_None>Nenhuma</MT_None>
+  <MT_BillsN>{0} ordens</MT_BillsN>
+  <MT_ThisBench>esta</MT_ThisBench>
+  <MT_BillMenuTip>Mais: renomear a ordem, vinculá-la a uma ordem de outra bancada.</MT_BillMenuTip>
+  <MT_Rename>Renomear</MT_Rename>
+  <MT_LinkWith>Vincular a uma ordem de outra bancada</MT_LinkWith>
+  <MT_Unlink>Desvincular</MT_Unlink>
+  <MT_NoLinkTargets>Nenhuma outra bancada neste mapa tem uma ordem com esta receita.</MT_NoLinkTargets>
+  <MT_Linked>Vinculado: {0} com {1}</MT_Linked>
+  <MT_LinkedN>vinculada ×{0}</MT_LinkedN>
+  <MT_LinkedTip>Ordens vinculadas compartilham as configurações (quantidade, meta, pausa, materiais, estoques). Uma mudança em uma é copiada para as outras:</MT_LinkedTip>
+  <MT_CountTip>Clique: ±1 · Shift+clique: ±10 · Ctrl+clique: ±100</MT_CountTip>
+  <MT_InclEquipped>conta itens vestidos e carregados</MT_InclEquipped>
+  <MT_OnlyIn>só em {0}</MT_OnlyIn>
+  <MT_NotAdded>Não adicionadas</MT_NotAdded>
+  <MT_NotAddedTip>Receitas que você pode fazer e que ainda não estão na fila.</MT_NotAddedTip>
+  <MT_SplitTip>Arraste para alargar ou estreitar a lista de receitas.</MT_SplitTip>
+  <MT_GripTip>Arraste para redimensionar a janela (o tamanho é lembrado).</MT_GripTip>
+  <MT_SizeTip>Tamanho da janela: normal, maior ou o maior que a tela permitir. Você também pode arrastar o canto superior direito.</MT_SizeTip>
+  <MT_SizeNormal>Tamanho normal</MT_SizeNormal>
+  <MT_SizeBig>Maior</MT_SizeBig>
+  <MT_SizeMax>Máximo (cabe na tela)</MT_SizeMax>
+  <!-- 0.7.0 anatomy -->
+  <MT_A_Parts>Corpo</MT_A_Parts>
+  <MT_A_Organs>Órgãos</MT_A_Organs>
+  <MT_A_Bones>Ossos</MT_A_Bones>
+  <MT_A_Healthy>saudável</MT_A_Healthy>
+  <MT_A_Hurt>ferido</MT_A_Hurt>
+  <MT_A_Missing>ausente</MT_A_Missing>
+  <MT_A_Broken>quebrado</MT_A_Broken>
+  <MT_A_Prosthetic>prótese</MT_A_Prosthetic>
+  <MT_A_Bionic>biônico</MT_A_Bionic>
+  <MT_A_Implant>implante</MT_A_Implant>
+  <MT_A_Archo>arcotech</MT_A_Archo>
+  <MT_A_Fine>Nada de errado aqui.</MT_A_Fine>
+  <MT_A_ToAnatomy>Mostrar a figura anatômica</MT_A_ToAnatomy>
+  <MT_A_ToSilhouette>Mostrar a silhueta do próprio colono</MT_A_ToSilhouette>
+  <!-- 0.8.0 -->
+  <MT_H_State>Estado</MT_H_State>
+  <MT_H_FAll>Tudo</MT_H_FAll>
+  <MT_H_FInjuries>Ferimentos</MT_H_FInjuries>
+  <MT_H_FParts>Substituições</MT_H_FParts>
+  <MT_H_FMissing>Ausentes</MT_H_FMissing>
+  <MT_H_FDiseases>Doenças</MT_H_FDiseases>
+  <MT_H_Immunity>imunidade {0}</MT_H_Immunity>
+  <MT_A_PartHp>Saúde da parte: {0}</MT_A_PartHp>
+  <MT_A_CardHint>clique: só esta parte · botão direito: operações</MT_A_CardHint>
+  <MT_H_Age>{0} anos</MT_H_Age>
+  <!-- 0.9.0 -->
+  <MT_Character>Nossa aba de personagem</MT_Character>
+  <MT_Character_Desc>Um dossiê com retrato, história e traços, e páginas de habilidades, linha do tempo da vida e registros. A aba original está a um clique.</MT_Character_Desc>
+  <MT_Social>Nossa aba social</MT_Social>
+  <MT_Social_Desc>Todos que eles conhecem com as duas opiniões, e o porquê – cada motivo nos dois sentidos. A aba original está a um clique.</MT_Social_Desc>
+  <MT_C_Skills>Habilidades</MT_C_Skills>
+  <MT_C_Life>Vida</MT_C_Life>
+  <MT_C_Records>Registros</MT_C_Records>
+  <MT_C_Childhood>Infância</MT_C_Childhood>
+  <MT_C_Adulthood>Vida adulta</MT_C_Adulthood>
+  <MT_C_Traits>Traços</MT_C_Traits>
+  <MT_C_Incapable>Não fará</MT_C_Incapable>
+  <MT_C_Ideo>Ideologia: {0}</MT_C_Ideo>
+  <MT_C_Birthday>Nasceu em {0} (há {1} anos)</MT_C_Birthday>
+  <MT_C_NoSkills>Sem habilidades.</MT_C_NoSkills>
+  <MT_L_Born>Nasceu</MT_L_Born>
+  <MT_L_Joined>Entrou em {0}</MT_L_Joined>
+  <MT_L_Break>Colapso mental: {0}</MT_L_Break>
+  <MT_L_Lost>Perdeu: {0}</MT_L_Lost>
+  <MT_L_Installed>Recebeu {0} ({1})</MT_L_Installed>
+  <MT_L_Skill>{0} chegou ao nível {1}</MT_L_Skill>
+  <MT_L_Rel>Novo(a) {0}: {1}</MT_L_Rel>
+  <MT_L_Child>Filho nascido: {0}</MT_L_Child>
+  <MT_L_Note>Colapsos, ferimentos, operações, curas, partes do corpo, habilidades, parceiros, mortes, títulos, cargos, aniversários e pesquisas são anotados a partir do momento em que o Clear Tabs 0.9 roda; o resto vem das próprias histórias do jogo.</MT_L_Note>
+  <MT_S_Search>Buscar…</MT_S_Search>
+  <MT_S_Colonist>colono</MT_S_Colonist>
+  <MT_S_Dead>morto</MT_S_Dead>
+  <MT_S_RowTip>esquerda: o que {0} pensa de {1} · direita (pequeno): o que {1} pensa de {0} · clique: por quê</MT_S_RowTip>
+  <MT_S_Nobody>Ninguém aqui.</MT_S_Nobody>
+  <MT_S_Compat>Compatibilidade</MT_S_Compat>
+  <MT_S_Romance>Chance de romance</MT_S_Romance>
+  <MT_S_Thinks>{0} sobre {1}</MT_S_Thinks>
+  <MT_S_NoReasons>Sem motivos – mal se conhecem.</MT_S_NoReasons>
+  <MT_S_Back>Resumo</MT_S_Back>
+  <MT_S_Overview>Resumo</MT_S_Overview>
+  <MT_S_Partner>Parceiro(a)</MT_S_Partner>
+  <MT_S_BestFriend>Melhor amigo(a)</MT_S_BestFriend>
+  <MT_S_Rival>Pior rival</MT_S_Rival>
+  <MT_S_Counts>{0} amigos · {1} rivais</MT_S_Counts>
+  <MT_S_Talks>Últimas conversas</MT_S_Talks>
+  <MT_S_NoTalks>Nenhuma conversa ainda.</MT_S_NoTalks>
+  <MT_L_Surgery>Operação: {0} – feita por {1}</MT_L_Surgery>
+  <MT_L_SurgeryBad>Operação falhou: {0} – feita por {1}</MT_L_SurgeryBad>
+  <MT_L_Operated>Operou {0}: {1}</MT_L_Operated>
+  <MT_L_OperatedBad>Operação em {0} falhou: {1}</MT_L_OperatedBad>
+  <MT_L_Healed>Recuperou-se de {0}</MT_L_Healed>
+  <MT_L_Died>Morreu</MT_L_Died>
+  <MT_L_DiedOf>Morreu ({0})</MT_L_DiedOf>
+  <MT_L_LostRel>Perdeu {0}: {1}</MT_L_LostRel>
+  <MT_L_LostFriend>Perdeu um amigo: {0}</MT_L_LostFriend>
+  <MT_L_Title>Título: {0} ({1})</MT_L_Title>
+  <MT_L_Role>Tornou-se {0}</MT_L_Role>
+  <MT_L_Birthday>Aniversário – {0} anos</MT_L_Birthday>
+  <MT_L_Research>Pesquisa concluída: {0}</MT_L_Research>
+  <MT_L_Wound>Gravemente ferido: {0} ({1})</MT_L_Wound>
+  <MT_O_K_NoPart>Parte fora do estoque</MT_O_K_NoPart>
+  <MT_O_MakeAt>fabricar em: {0}</MT_O_MakeAt>
+  <MT_O_ResearchFirst>pesquise antes: {0}</MT_O_ResearchFirst>
+  <MT_O_OnlyTrade>só por comércio ou saque</MT_O_OnlyTrade>
+  <MT_O_QueueAt>Fabricar {0} – {1}</MT_O_QueueAt>
+  <MT_O_Queued>Ordem adicionada: {0} ({1})</MT_O_Queued>
+  <MT_O_NoBench>Nenhuma bancada construída: {0}</MT_O_NoBench>
+  <MT_O_InfoPart>Info: {0}</MT_O_InfoPart>
+  <MT_O_Make>Fabricar</MT_O_Make>
+  <MT_A_SideRight>D</MT_A_SideRight>
+  <MT_A_SideLeft>E</MT_A_SideLeft>
+  <MT_A_SideTip>A figura está de frente para você: o lado direito dela (D) fica à sua esquerda, o esquerdo (E) à sua direita.</MT_A_SideTip>
+  <MT_MineFor>Minerar por {0}</MT_MineFor>
+  <MT_ModeRepeatTip>Repetir um número definido de vezes</MT_ModeRepeatTip>
+  <MT_ModeTargetTip>Fazer até ter X</MT_ModeTargetTip>
+  <MT_ModeForeverTip>Fazer para sempre</MT_ModeForeverTip>
+  <!-- 0.11.0 -->
+  <MT_Needs>Nossa aba de necessidades</MT_Needs>
+  <MT_Needs_Desc>Todas as necessidades em cartões com tendência e limites, ao lado do humor com limites de colapso, humor esperado e cada pensamento. A aba original está a um clique.</MT_Needs_Desc>
+  <MT_BillDialog>Nossa janela de ordem</MT_BillDialog>
+  <MT_BillDialog_Desc>A janela de configuração da ordem no mesmo visual: o que a receita requer e produz, modo de repetição com passos rápidos, armazenamento e trabalhador, e o filtro de ingredientes do jogo. "Janela original" abre a do jogo.</MT_BillDialog_Desc>
+  <MT_N_Mood>Humor</MT_N_Mood>
+  <MT_N_BreakExtreme>Risco de colapso extremo abaixo de {0}</MT_N_BreakExtreme>
+  <MT_N_BreakMajor>Risco de colapso grave abaixo de {0}</MT_N_BreakMajor>
+  <MT_N_BreakMinor>Risco de colapso leve abaixo de {0}</MT_N_BreakMinor>
+  <MT_N_Target>O humor está indo para {0}</MT_N_Target>
+  <MT_N_Expect>Expectativas: {0}</MT_N_Expect>
+  <MT_N_Thoughts>Pensamentos ({0})</MT_N_Thoughts>
+  <MT_N_NoThoughts>Nenhum pensamento afeta o humor agora.</MT_N_NoThoughts>
+  <MT_BD_Original>Janela original</MT_BD_Original>
+  <MT_BD_Ingredients>Ingredientes</MT_BD_Ingredients>
+  <MT_BD_Makes>Produz</MT_BD_Makes>
+  <MT_BD_Skill>Habilidade</MT_BD_Skill>
+  <MT_BD_Repeat>Quantos</MT_BD_Repeat>
+  <MT_BD_ModeRepeat>× vezes</MT_BD_ModeRepeat>
+  <MT_BD_ModeTarget>≥ até</MT_BD_ModeTarget>
+  <MT_BD_ModeForever>∞ sempre</MT_BD_ModeForever>
+  <MT_BD_Have>Tem {0} / {1}</MT_BD_Have>
+  <MT_BD_Store>Onde guardar</MT_BD_Store>
+  <MT_BD_Worker>Quem faz</MT_BD_Worker>
+  <MT_S_RomanceTip>Deixe {0} tentar um romance com alguém – a lista do jogo com as chances.</MT_S_RomanceTip>
+  <MT_S_RomanceThem>Romance com {0} ({1})</MT_S_RomanceThem>
+  <MT_S_RomanceThemNo>Romance com {0}</MT_S_RomanceThemNo>
+  <MT_PaneLook>Painel de informações no nosso visual</MT_PaneLook>
+  <MT_PaneLook_Desc>O painel de informações do colono, animal ou construção selecionado (canto inferior esquerdo) e seus botões de aba no visual escuro Clear, com barras coloridas de saúde, humor, agenda e área. Nomes de abas longos não são mais cortados.</MT_PaneLook_Desc>
+  <MT_PlantPicker>Seletor de plantas no nosso visual</MT_PlantPicker>
+  <MT_PlantPicker_Desc>"Definir planta a cultivar" (zonas de cultivo, hidroponia, vasos) abre nossa janela com grupos, busca, ordenação e um cartão para cada planta (tempo de crescimento, colheita, valor por dia, habilidade necessária) em vez da lista longa ocupando a tela inteira.</MT_PlantPicker_Desc>
+  <MT_PG_Title>O que cultivar</MT_PG_Title>
+  <MT_PG_Now>Agora: {0}</MT_PG_Now>
+  <MT_PG_All>Todas</MT_PG_All>
+  <MT_PG_Food>Comida</MT_PG_Food>
+  <MT_PG_Medicine>Remédios</MT_PG_Medicine>
+  <MT_PG_Drugs>Drogas</MT_PG_Drugs>
+  <MT_PG_Materials>Materiais</MT_PG_Materials>
+  <MT_PG_Trees>Árvores</MT_PG_Trees>
+  <MT_PG_Decor>Decoração</MT_PG_Decor>
+  <MT_PG_Search>buscar…</MT_PG_Search>
+  <MT_PG_SortBy>Ordenar:</MT_PG_SortBy>
+  <MT_PG_SName>Nome</MT_PG_SName>
+  <MT_PG_SDays>Mais rápidas</MT_PG_SDays>
+  <MT_PG_SValue>Mais valiosas</MT_PG_SValue>
+  <MT_PG_SSkill>Mais fáceis</MT_PG_SSkill>
+  <MT_PG_Usable>Só o que meus cultivadores podem semear</MT_PG_Usable>
+  <MT_PG_UsableTip>Oculta plantas que exigem habilidade de Plantas maior que a do seu melhor cultivador ativo ({0}).</MT_PG_UsableTip>
+  <MT_PG_None>Nada corresponde.</MT_PG_None>
+  <MT_PG_Days>{0} dias</MT_PG_Days>
+  <MT_PG_Yield>{0}× {1}</MT_PG_Yield>
+  <MT_PG_Skill>habilidade {0}</MT_PG_Skill>
+  <MT_PG_ValueDay>{0} prata/dia</MT_PG_ValueDay>
+  <MT_PG_Cave>caverna</MT_PG_Cave>
+  <MT_PG_NoRoof>sem teto</MT_PG_NoRoof>
+  <MT_PG_NutDay>{0} nutrição/dia</MT_PG_NutDay>
+  <MT_PG_SkillTip>Requer habilidade de Plantas {0} (seu melhor cultivador: {1})</MT_PG_SkillTip>
+  <MT_PG_Mod>Mod: {0}</MT_PG_Mod>
+  <MT_TabsMore>Mais ▾</MT_TabsMore>
+  <MT_TabsMoreTip>Mais {0} abas – clique para abrir uma.</MT_TabsMoreTip>
+  <MT_RecipePicker>Seletor de receitas para "Adicionar ordem"</MT_RecipePicker>
+  <MT_RecipePicker_Desc>Adicionar ordem abre uma janela com grupos, busca e ordenação em vez do menu longo.</MT_RecipePicker_Desc>
+  <MT_SurgeryPicker>Seletor de operações (aba de saúde)</MT_SurgeryPicker>
+  <MT_SurgeryPicker_Desc>"Adicionar operação" abre uma janela com grupos (implantes, biônicos, amputações, drogas …), chance de sucesso e requisitos.</MT_SurgeryPicker_Desc>
+  <MT_OwnerPicker>Seletor de dono (camas, tronos …)</MT_OwnerPicker>
+  <MT_OwnerPicker_Desc>"Definir dono" abre cartões de colonos com foto e estado em vez da lista.</MT_OwnerPicker_Desc>
+  <MT_PolicyPicker>Seletor de área e políticas</MT_PolicyPicker>
+  <MT_PolicyPicker_Desc>Área permitida, vestuário, política de comida e de drogas abrem uma janela com busca e pré-visualização.</MT_PolicyPicker_Desc>
+  <MT_ResearchPicker>Seletor de pesquisa</MT_ResearchPicker>
+  <MT_ResearchPicker_Desc>Uma lista pesquisável de projetos de pesquisa por área e era (botão na aba de pesquisa).</MT_ResearchPicker_Desc>
+  <MT_MechPicker>Seletor de gestação de mecanoides (Biotech)</MT_MechPicker>
+  <MT_MechPicker_Desc>Mecanoides para gestar agrupados por tamanho e função, com busca.</MT_MechPicker_Desc>
+  <MT_AnimalPicker>Seletor de animais</MT_AnimalPicker>
+  <MT_AnimalPicker_Desc>Escolher animais (mestre, treinamento, cercados) abre cartões agrupados: trabalho, combate, estimação.</MT_AnimalPicker_Desc>
+  <MT_TradeWindow>Janela de comércio com categorias</MT_TradeWindow>
+  <MT_TradeWindow_Desc>Comerciar abre nossa janela: categorias (comida, remédios, armas …), busca, ordenação e um carrinho.</MT_TradeWindow_Desc>
+  <MT_ResetSizes>Redefinir o tamanho de todas as janelas</MT_ResetSizes>
+  <MT_GripCornerTip>Arraste para redimensionar o painel – clique para tamanhos predefinidos (normal, grande, máximo). O tamanho é lembrado.</MT_GripCornerTip>
+  <MT_InfoCard>Cartão de informações no nosso visual (Infocentrum)</MT_InfoCard>
+  <MT_InfoCard_Desc>O botão "i" de um colono abre nosso cartão: todos os atributos em grupos com a média da colônia, comparação com outro colono, do que um atributo é composto, além das páginas de história de vida, saúde, social, equipamento e histórico.</MT_InfoCard_Desc>
+  <MT_I_Overview>Resumo</MT_I_Overview>
+  <MT_I_Life>História de vida</MT_I_Life>
+  <MT_I_Health>Saúde</MT_I_Health>
+  <MT_I_Social>Social</MT_I_Social>
+  <MT_I_Gear>Equipamento</MT_I_Gear>
+  <MT_I_History>Histórico</MT_I_History>
+  <MT_I_Original>Cartão original</MT_I_Original>
+  <MT_I_RiskHigh>alto risco de colapso</MT_I_RiskHigh>
+  <MT_I_RiskMid>risco de colapso</MT_I_RiskMid>
+  <MT_I_RiskLow>pequeno risco de colapso</MT_I_RiskLow>
+  <MT_I_G_all>Tudo</MT_I_G_all>
+  <MT_I_G_basic>Básico</MT_I_G_basic>
+  <MT_I_G_combat>Combate</MT_I_G_combat>
+  <MT_I_G_work>Trabalho</MT_I_G_work>
+  <MT_I_G_health>Saúde</MT_I_G_health>
+  <MT_I_G_resist>Resistências</MT_I_G_resist>
+  <MT_I_G_food>Comida e corpo</MT_I_G_food>
+  <MT_I_G_social>Social</MT_I_G_social>
+  <MT_I_G_psy>Psicofoco</MT_I_G_psy>
+  <MT_I_G_mods>De mods</MT_I_G_mods>
+  <MT_I_Compare>Comparar com</MT_I_Compare>
+  <MT_I_Pick>+ escolher um colono</MT_I_Pick>
+  <MT_I_Average>Média da colônia</MT_I_Average>
+  <MT_I_Legend>média da colônia · verde melhor, laranja pior</MT_I_Legend>
+  <MT_I_LegendCmp>comparado com {0} · verde melhor, laranja pior</MT_I_LegendCmp>
+  <MT_I_MoreThan>mais que {0} % dos colonos</MT_I_MoreThan>
+  <MT_I_ColonyAvg>média da colônia {0}</MT_I_ColonyAvg>
+  <MT_I_Most>o maior da colônia</MT_I_Most>
+  <MT_I_Least>o menor da colônia</MT_I_Least>
+  <MT_I_Temp>Temperatura</MT_I_Temp>
+  <MT_I_ColdProof>aguenta bem o frio</MT_I_ColdProof>
+  <MT_I_HeatProof>aguenta bem o calor</MT_I_HeatProof>
+  <MT_I_ColdWeak>sente frio</MT_I_ColdWeak>
+  <MT_I_Chosen>Atributo escolhido</MT_I_Chosen>
+  <MT_I_MadeOf>Do que é composto</MT_I_MadeOf>
+  <MT_I_Race>Sobre a raça</MT_I_Race>
+  <MT_I_FullDesc>Descrição completa</MT_I_FullDesc>
+  <MT_I_NoHistory>Nada registrado ainda – momentos importantes deste colono aparecerão aqui.</MT_I_NoHistory>
+  <MT_SplitOff>{0} fica desligado: o Clear Tabs está ativo e já tem tudo isso.</MT_SplitOff>
+  <MT_G_Looks>Aparência</MT_G_Looks>
+  <MT_G_FigHat>Chapéus</MT_G_FigHat>
+  <MT_G_FigClothes>Roupas</MT_G_FigClothes>
+</LanguageData>

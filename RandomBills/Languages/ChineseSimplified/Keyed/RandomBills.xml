@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RB_Rec1>殖民者随机选择工作台上的订单，靠前的订单略微更常被选中。</RB_Rec1>
+  <RB_Rec2>每个工作台都有模式按钮：加权、随机或按顺序。</RB_Rec2>
+  <RB_Enabled>启用随机订单</RB_Enabled>
+  <RB_Enabled_Desc>整个模组的总开关。</RB_Enabled_Desc>
+  <RB_DefaultMode>工作台的模式</RB_DefaultMode>
+  <RB_Mode_Weighted>订单：加权</RB_Mode_Weighted>
+  <RB_Mode_Random>订单：随机</RB_Mode_Random>
+  <RB_Mode_Order>订单：按顺序</RB_Mode_Order>
+  <RB_TopWeight>加权——偏向靠前订单：{0}</RB_TopWeight>
+  <RB_TopWeight_Desc>加权模式下，靠前的订单被选中的频率高多少。0 % = 与随机相同，100 % = 靠前的明显更常被选中（但靠后的仍会被完成）。</RB_TopWeight_Desc>
+  <RB_ShowGizmo>工作台上的模式按钮</RB_ShowGizmo>
+  <RB_ShowGizmo_Desc>每个工作台都有一个按钮来切换自己的模式。</RB_ShowGizmo_Desc>
+  <RB_Gizmo_Desc>殖民者如何选择此工作台上的下一个订单。点击更改。\n\n加权——随机，靠前的订单略微更常被选中。\n随机——每个订单几率相同。\n按顺序——与原版相同：第一个可以完成的订单。\n\n订单仍须可以进行（原料、技能、"做 X 次"未完成）。已开始的工作会先完成。</RB_Gizmo_Desc>
+  <RB_AvoidRepeat>轮流进行</RB_AvoidRepeat>
+  <RB_AvoidRepeat_Desc>殖民者刚做过的订单下次被选中的几率会降低——"做 X 次"的订单也是如此，这样其他订单能在各件之间轮到。</RB_AvoidRepeat_Desc>
+</LanguageData>

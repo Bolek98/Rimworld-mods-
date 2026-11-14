@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MT_Rec1>Používá se naše záložka zakázek.</MT_Rec1>
+  <MT_Rec2>Převezme záložku zakázek od jiných modů (Nice Bill Tab …) – původní záložka je vždy na jedno kliknutí.</MT_Rec2>
+  <MT_Bills>Záložka zakázek</MT_Bills>
+  <MT_Bills_Desc>Recepty s obrázky a hledáním, fronta zakázek jako karty s tím, kdo na nich pracuje a co chybí.</MT_Bills_Desc>
+  <MT_ReplaceOther>Nahradit jiné mody záložky zakázek</MT_ReplaceOther>
+  <MT_ReplaceOther_Desc>Nice Bill Tab a podobné mody kreslí stejnou záložku; dokud je tohle zapnuté, jejich se vypne. Potřebuje restart.</MT_ReplaceOther_Desc>
+  <MT_OurLook>Vzhled Clear</MT_OurLook>
+  <MT_HeadSub>{0} zakázek · {1} aktivních · {2} kolonistů dělá {3}</MT_HeadSub>
+  <MT_Paste>Vložit</MT_Paste>
+  <MT_PasteTip>Vložit zkopírovanou zakázku: {0}</MT_PasteTip>
+  <MT_Original>Původní záložka</MT_Original>
+  <MT_OriginalTip>Ukáže záložku hry (s tlačítky, která přidávají jiné mody). Zpět tlačítkem „Vzhled Clear“.</MT_OriginalTip>
+  <MT_NeedResearch>chybí výzkum: {0}</MT_NeedResearch>
+  <MT_NotAvailable>teď nedostupné</MT_NotAvailable>
+  <MT_Search>Hledat recept…</MT_Search>
+  <MT_All>Vše</MT_All>
+  <MT_Available>Dostupné</MT_Available>
+  <MT_Locked>Zamčené</MT_Locked>
+  <MT_LockedShort>zamčeno</MT_LockedShort>
+  <MT_Add>+ Přidat</MT_Add>
+  <MT_Full>Ponk může mít nejvýš {0} zakázek.</MT_Full>
+  <MT_Queue>Fronta zakázek – {0} / {1}</MT_Queue>
+  <MT_Suspended>pozastaveno</MT_Suspended>
+  <MT_DoingNow>právě dělá: {0}</MT_DoingNow>
+  <MT_NoIngredients>čeká: nenašly se suroviny</MT_NoIngredients>
+  <MT_Done>teď není co dělat</MT_Done>
+  <MT_Waiting>čeká na volného kolonistu</MT_Waiting>
+  <MT_Forever>opakovat stále</MT_Forever>
+  <MT_RepeatLeft>zbývá {0}</MT_RepeatLeft>
+  <MT_Target>máš {0} z {1}</MT_Target>
+  <MT_PausedSatisfied>cíl splněn</MT_PausedSatisfied>
+  <MT_Resume>Spustit</MT_Resume>
+  <MT_Pause>Pauza</MT_Pause>
+  <MT_Edit>Upravit</MT_Edit>
+  <MT_Copy>Kopírovat</MT_Copy>
+  <MT_Copied>Zkopírováno: {0}</MT_Copied>
+  <MT_NoBills>Zatím žádné zakázky – vyber recept vlevo.</MT_NoBills>
+  <MT_InfoTip>Co to je – otevře informace o věci</MT_InfoTip>
+  <MT_ClickInfo>Kliknutím otevřeš všechny informace.</MT_ClickInfo>
+  <MT_Info_Makes>Vyrobí: {0} ×{1} · hodnota {2} · váha {3} kg</MT_Info_Makes>
+  <MT_Info_Armor>Zbroj: ostrá {0}, tupá {1} · izolace zima {2} °C, horko {3} °C</MT_Info_Armor>
+  <MT_Info_Gun>Poškození {0} · dostřel {1} · ran v dávce {2}</MT_Info_Gun>
+  <MT_Info_Melee>Poškození zblízka za sekundu: {0}</MT_Info_Melee>
+  <MT_Info_Work>Práce: {0}</MT_Info_Work>
+  <MT_Info_Needs>Potřebuje: {0}</MT_Info_Needs>
+  <MT_Info_Skill>Potřebná dovednost: {0}</MT_Info_Skill>
+  <MT_Info_UsesSkill>Používá dovednost: {0}</MT_Info_UsesSkill>
+  <MT_PrioTip>Priorita {0} – 1 se dělá první, 10 poslední, 5 je běžná. Kolonisté jdou nejdřív k ponku s nejnaléhavější zakázkou. Kliknutím změníš.</MT_PrioTip>
+  <MT_PrioOption>Priorita {0}</MT_PrioOption>
+  <MT_PrioFirst>udělat první</MT_PrioFirst>
+  <MT_PrioNormal>běžná</MT_PrioNormal>
+  <MT_PrioLast>udělat nakonec</MT_PrioLast>
+  <MT_Rec3>Používá se naše záložka zdraví a převezme ji od jiných modů.</MT_Rec3>
+  <MT_Health>Záložka zdraví</MT_Health>
+  <MT_Health_Desc>Přehled schopností a péče, postava kolonisty se značkami, kde je co špatně, a stavy podle částí těla. Operace a původní záložka jsou na jedno kliknutí.</MT_Health_Desc>
+  <MT_ReplaceOtherHealth>Nahradit jiné mody záložky zdraví</MT_ReplaceOtherHealth>
+  <MT_ReplaceOtherHealth_Desc>Mody, které kreslí vlastní záložku zdraví, se vypnou, dokud je tohle zapnuté. Potřebuje restart.</MT_ReplaceOtherHealth_Desc>
+  <MT_Operations>Operace</MT_Operations>
+  <MT_OperationsTip>Seznam operací ze hry. Zpět tlačítkem „Vzhled Clear“.</MT_OperationsTip>
+  <MT_OperationsNo>Tady se žádná operace dělat nedá.</MT_OperationsNo>
+  <MT_OriginalTipHealth>Ukáže záložku zdraví ze hry (i s tím, co přidávají jiné mody). Zpět tlačítkem „Vzhled Clear“ vpravo dole.</MT_OriginalTipHealth>
+  <MT_H_Dead>Mrtvý</MT_H_Dead>
+  <MT_H_Bleeding>Krvácí {0} za den</MT_H_Bleeding>
+  <MT_H_BleedDeath>Krvácí {0} za den – bez ošetření zemře za {1}!</MT_H_BleedDeath>
+  <MT_H_Losing>{0}: prohrává – nemoc je napřed před imunitou</MT_H_Losing>
+  <MT_H_Winning>{0}: imunita vyhrává</MT_H_Winning>
+  <MT_H_NeedsTend>Potřebuje ošetřit</MT_H_NeedsTend>
+  <MT_H_Downed>Leží neschopný pohybu</MT_H_Downed>
+  <MT_H_Healing>Hojí se</MT_H_Healing>
+  <MT_H_Healthy>Zdravý</MT_H_Healthy>
+  <MT_H_Care>LÉKAŘSKÁ PÉČE</MT_H_Care>
+  <MT_H_Capacities>SCHOPNOSTI</MT_H_Capacities>
+  <MT_H_MarkTip>Kliknutím ukážeš v seznamu jen tuhle část. Pravým tlačítkem operace pro tuhle část.</MT_H_MarkTip>
+  <MT_H_NothingWrong>Nic mu není 👍</MT_H_NothingWrong>
+  <MT_H_LegendBad>krvácí, chybí nebo těžce zraněné</MT_H_LegendBad>
+  <MT_H_LegendHurt>zraněné, potřebuje ošetřit</MT_H_LegendHurt>
+  <MT_H_LegendOther>jizvy, implantáty a ostatní</MT_H_LegendOther>
+  <MT_H_Whole>Celé tělo: {0} (v seznamu)</MT_H_Whole>
+  <MT_H_ShowAllParts>Ukázat všechny části</MT_H_ShowAllParts>
+  <MT_H_Conditions>STAVY PODLE ČÁSTÍ TĚLA</MT_H_Conditions>
+  <MT_H_ConditionsHere>STAVY – VYBRANÁ ČÁST</MT_H_ConditionsHere>
+  <MT_H_ShowAll>I skryté</MT_H_ShowAll>
+  <MT_H_NoConditions>Žádná zranění ani nemoci.</MT_H_NoConditions>
+  <MT_H_ChipBleed>krvácí {0}</MT_H_ChipBleed>
+  <MT_H_ChipTended>ošetřeno</MT_H_ChipTended>
+  <MT_H_ChipTend>ošetřit</MT_H_ChipTend>
+  <MT_H_ChipScar>trvalé</MT_H_ChipScar>
+  <MT_H_ImmunityTip>Imunita {0} (zelená) proti nemoci {1} (červená). Imunita musí dojít na 100 % dřív.</MT_H_ImmunityTip>
+  <MT_H_ToPortrait>Ukázat portrét</MT_H_ToPortrait>
+  <MT_H_ToSilhouette>Ukázat siluetu se zdravím</MT_H_ToSilhouette>
+  <MT_O_Planned>NAPLÁNOVANÉ OPERACE (v tomto pořadí)</MT_O_Planned>
+  <MT_O_NonePlanned>Nic naplánováno. Vyber operaci vpravo.</MT_O_NonePlanned>
+  <MT_O_WholeBody>Celé tělo</MT_O_WholeBody>
+  <MT_O_Paused>Pozastaveno</MT_O_Paused>
+  <MT_O_Missing>Chybí: {0}</MT_O_Missing>
+  <MT_O_Ready>Připraveno – vše je k dispozici</MT_O_Ready>
+  <MT_O_Resume>Pokračovat</MT_O_Resume>
+  <MT_O_Pause>Pozastavit</MT_O_Pause>
+  <MT_O_Doctor>KDO BUDE OPEROVAT</MT_O_Doctor>
+  <MT_O_NoDoctor>Na mapě není volný doktor!</MT_O_NoDoctor>
+  <MT_O_DoctorIs>Nejlepší doktor: {0} (Medicína {1})</MT_O_DoctorIs>
+  <MT_O_Care>Lékařská péče: {0}</MT_O_Care>
+  <MT_O_DoctorTip>Lepší doktor = menší riziko nepovedené operace.</MT_O_DoctorTip>
+  <MT_O_Possible>MOŽNÉ OPERACE ({0})</MT_O_Possible>
+  <MT_O_Search>Hledat operaci nebo část těla…</MT_O_Search>
+  <MT_O_K_All>Vše</MT_O_K_All>
+  <MT_O_K_Implant>Implantáty a protézy</MT_O_K_Implant>
+  <MT_O_K_Remove>Odebrat</MT_O_K_Remove>
+  <MT_O_K_Drug>Léky</MT_O_K_Drug>
+  <MT_O_K_Other>Ostatní</MT_O_K_Other>
+  <MT_O_A_All>Všude</MT_O_A_All>
+  <MT_O_A_Head>Hlava</MT_O_A_Head>
+  <MT_O_A_Torso>Trup</MT_O_A_Torso>
+  <MT_O_A_Arms>Ruce</MT_O_A_Arms>
+  <MT_O_A_Legs>Nohy</MT_O_A_Legs>
+  <MT_O_A_Whole>Celé tělo</MT_O_A_Whole>
+  <MT_O_NoneFound>Žádná operace neodpovídá.</MT_O_NoneFound>
+  <MT_O_BackHealth>Zdraví</MT_O_BackHealth>
+  <!-- 0.4.2 -->
+  <MT_H_Planned>Naplánované operace: {0}</MT_H_Planned>
+  <MT_H_PlannedTip>Kliknutím otevřeš naplánované operace.</MT_H_PlannedTip>
+  <MT_H_NoOpsHere>Na tuhle část těla žádná operace není</MT_H_NoOpsHere>
+  <MT_H_ShowOpsHere>Ukázat operace pro tuhle část</MT_H_ShowOpsHere>
+  <!-- 0.5.0 -->
+  <MT_BenchMenuTip>Pracovní stůl: zkopírovat všechny jeho zakázky, vložit je sem nebo do více stolů stejného druhu.</MT_BenchMenuTip>
+  <MT_CopyAll>Kopírovat všechny zakázky tohoto stolu ({0})</MT_CopyAll>
+  <MT_PasteAll>Vložit sem zkopírované zakázky ({0} z: {1})</MT_PasteAll>
+  <MT_PasteSeveral>Vložit zakázky do více stolů</MT_PasteSeveral>
+  <MT_PasteSeveralSub>Zkopírováno {0} zakázek z: {1}. Zakázky, které stůl neumí, se přeskočí.</MT_PasteSeveralSub>
+  <MT_BenchCopied>Zkopírováno {0} zakázek z: {1}.</MT_BenchCopied>
+  <MT_PastedInto>Vloženo {0} zakázek do {1} stolů.</MT_PastedInto>
+  <MT_PasteN>Vložit do {0}</MT_PasteN>
+  <MT_None>Nic</MT_None>
+  <MT_BillsN>zakázek: {0}</MT_BillsN>
+  <MT_ThisBench>tento</MT_ThisBench>
+  <MT_BillMenuTip>Další: přejmenovat zakázku, propojit ji se zakázkou na jiném stole.</MT_BillMenuTip>
+  <MT_Rename>Přejmenovat</MT_Rename>
+  <MT_LinkWith>Propojit se zakázkou na jiném stole</MT_LinkWith>
+  <MT_Unlink>Zrušit propojení</MT_Unlink>
+  <MT_NoLinkTargets>Žádný jiný stůl na této mapě nemá zakázku se stejným receptem.</MT_NoLinkTargets>
+  <MT_Linked>Propojeno: {0} s {1}</MT_Linked>
+  <MT_LinkedN>propojeno ×{0}</MT_LinkedN>
+  <MT_LinkedTip>Propojené zakázky mají společné nastavení (počet, cíl, pozastavení, suroviny, sklady). Změna jedné se zkopíruje do ostatních:</MT_LinkedTip>
+  <MT_CountTip>Kliknutí: ±1 · Shift+kliknutí: ±10 · Ctrl+kliknutí: ±100</MT_CountTip>
+  <MT_InclEquipped>počítá i nošené a nesené</MT_InclEquipped>
+  <MT_OnlyIn>jen v: {0}</MT_OnlyIn>
+  <MT_NotAdded>Nepřidané</MT_NotAdded>
+  <MT_NotAddedTip>Recepty, které jdou vyrobit a ještě nejsou ve frontě.</MT_NotAddedTip>
+  <MT_SplitTip>Táhni a seznam receptů bude širší nebo užší.</MT_SplitTip>
+  <MT_GripTip>Táhni a změníš velikost okna (zapamatuje se).</MT_GripTip>
+  <MT_SizeTip>Velikost okna: normální, větší nebo co největší na obrazovku. Můžeš i táhnout za pravý horní roh.</MT_SizeTip>
+  <MT_SizeNormal>Normální velikost</MT_SizeNormal>
+  <MT_SizeBig>Větší</MT_SizeBig>
+  <MT_SizeMax>Největší (na celou obrazovku)</MT_SizeMax>
+  <!-- 0.7.0 anatomy -->
+  <MT_A_Parts>Tělo</MT_A_Parts>
+  <MT_A_Organs>Orgány</MT_A_Organs>
+  <MT_A_Bones>Kosti</MT_A_Bones>
+  <MT_A_Healthy>zdravé</MT_A_Healthy>
+  <MT_A_Hurt>zraněné</MT_A_Hurt>
+  <MT_A_Missing>chybí</MT_A_Missing>
+  <MT_A_Broken>zlomené</MT_A_Broken>
+  <MT_A_Prosthetic>protéza</MT_A_Prosthetic>
+  <MT_A_Bionic>bionika</MT_A_Bionic>
+  <MT_A_Implant>implantát</MT_A_Implant>
+  <MT_A_Archo>archotech</MT_A_Archo>
+  <MT_A_Fine>Tady je všechno v pořádku.</MT_A_Fine>
+  <MT_A_ToAnatomy>Ukázat anatomickou postavu</MT_A_ToAnatomy>
+  <MT_A_ToSilhouette>Ukázat vlastní siluetu kolonisty</MT_A_ToSilhouette>
+  <!-- 0.8.0 -->
+  <MT_H_State>Stav</MT_H_State>
+  <MT_H_FAll>Vše</MT_H_FAll>
+  <MT_H_FInjuries>Zranění</MT_H_FInjuries>
+  <MT_H_FParts>Náhrady</MT_H_FParts>
+  <MT_H_FMissing>Chybí</MT_H_FMissing>
+  <MT_H_FDiseases>Nemoci</MT_H_FDiseases>
+  <MT_H_Immunity>imunita {0}</MT_H_Immunity>
+  <MT_A_PartHp>Zdraví části: {0}</MT_A_PartHp>
+  <MT_A_CardHint>klik: jen tahle část · pravý klik: operace</MT_A_CardHint>
+  <MT_H_Age>{0} let</MT_H_Age>
+  <!-- 0.9.0 -->
+  <MT_Character>Naše záložka Postava</MT_Character>
+  <MT_Character_Desc>Složka s portrétem, minulostí a rysy a stránky pro dovednosti, časovou osu života a záznamy. Původní záložka je na jedno kliknutí.</MT_Character_Desc>
+  <MT_Social>Naše sociální záložka</MT_Social>
+  <MT_Social_Desc>Všichni, koho zná, s názory obou stran a proč – každý důvod oběma směry. Původní záložka je na jedno kliknutí.</MT_Social_Desc>
+  <MT_C_Skills>Dovednosti</MT_C_Skills>
+  <MT_C_Life>Život</MT_C_Life>
+  <MT_C_Records>Záznamy</MT_C_Records>
+  <MT_C_Childhood>Dětství</MT_C_Childhood>
+  <MT_C_Adulthood>Dospělost</MT_C_Adulthood>
+  <MT_C_Traits>Rysy</MT_C_Traits>
+  <MT_C_Incapable>Nebude dělat</MT_C_Incapable>
+  <MT_C_Ideo>Ideologie: {0}</MT_C_Ideo>
+  <MT_C_Birthday>Narozen(a) {0} (před {1} lety)</MT_C_Birthday>
+  <MT_C_NoSkills>Žádné dovednosti.</MT_C_NoSkills>
+  <MT_L_Born>Narození</MT_L_Born>
+  <MT_L_Joined>Přidal(a) se ke kolonii {0}</MT_L_Joined>
+  <MT_L_Break>Zhroucení: {0}</MT_L_Break>
+  <MT_L_Lost>Přišel/přišla o: {0}</MT_L_Lost>
+  <MT_L_Installed>Dostal(a) {0} ({1})</MT_L_Installed>
+  <MT_L_Skill>{0} na úrovni {1}</MT_L_Skill>
+  <MT_L_Rel>Nový vztah – {0}: {1}</MT_L_Rel>
+  <MT_L_Child>Narodilo se dítě: {0}</MT_L_Child>
+  <MT_L_Note>Zhroucení, těžká zranění, operace, uzdravení, části těla, dovednosti, partneři, úmrtí, tituly, role, narozeniny a výzkum se zapisují od chvíle, kdy běží Clear Tabs 0.9; zbytek jsou příběhy, které si pamatuje hra.</MT_L_Note>
+  <MT_S_Search>Hledat…</MT_S_Search>
+  <MT_S_Colonist>kolonista</MT_S_Colonist>
+  <MT_S_Dead>mrtvý</MT_S_Dead>
+  <MT_S_RowTip>vlevo: co si {0} myslí o {1} · vpravo (malé): co si {1} myslí o {0} · klik: proč</MT_S_RowTip>
+  <MT_S_Nobody>Nikdo tu není.</MT_S_Nobody>
+  <MT_S_Compat>Povahová shoda</MT_S_Compat>
+  <MT_S_Romance>Šance na romantiku</MT_S_Romance>
+  <MT_S_Thinks>{0} o {1}</MT_S_Thinks>
+  <MT_S_NoReasons>Žádné důvody – skoro se neznají.</MT_S_NoReasons>
+  <MT_S_Back>Přehled</MT_S_Back>
+  <MT_S_Overview>Přehled</MT_S_Overview>
+  <MT_S_Partner>Partner</MT_S_Partner>
+  <MT_S_BestFriend>Nejlepší přítel</MT_S_BestFriend>
+  <MT_S_Rival>Největší rival</MT_S_Rival>
+  <MT_S_Counts>{0} přátel · {1} rivalů</MT_S_Counts>
+  <MT_S_Talks>Poslední rozhovory</MT_S_Talks>
+  <MT_S_NoTalks>Zatím žádné rozhovory.</MT_S_NoTalks>
+  <MT_L_Surgery>Operace: {0} – operoval(a) {1}</MT_L_Surgery>
+  <MT_L_SurgeryBad>Operace se nepovedla: {0} – operoval(a) {1}</MT_L_SurgeryBad>
+  <MT_L_Operated>Operoval(a) {0}: {1}</MT_L_Operated>
+  <MT_L_OperatedBad>Operace {0} se nepovedla: {1}</MT_L_OperatedBad>
+  <MT_L_Healed>Uzdravil(a) se: {0}</MT_L_Healed>
+  <MT_L_Died>Zemřel(a)</MT_L_Died>
+  <MT_L_DiedOf>Zemřel(a) ({0})</MT_L_DiedOf>
+  <MT_L_LostRel>Zemřel(a) {0}: {1}</MT_L_LostRel>
+  <MT_L_LostFriend>Zemřel(a) přítel: {0}</MT_L_LostFriend>
+  <MT_L_Title>Titul: {0} ({1})</MT_L_Title>
+  <MT_L_Role>Nová role: {0}</MT_L_Role>
+  <MT_L_Birthday>Narozeniny – {0} let</MT_L_Birthday>
+  <MT_L_Research>Dokončil(a) výzkum: {0}</MT_L_Research>
+  <MT_L_Wound>Těžce zraněn(a): {0} ({1})</MT_L_Wound>
+  <MT_O_K_NoPart>Chybí díl</MT_O_K_NoPart>
+  <MT_O_MakeAt>vyrobíš: {0}</MT_O_MakeAt>
+  <MT_O_ResearchFirst>nejdřív vyzkoumej: {0}</MT_O_ResearchFirst>
+  <MT_O_OnlyTrade>jen koupit nebo najít</MT_O_OnlyTrade>
+  <MT_O_QueueAt>Vyrobit {0} – {1}</MT_O_QueueAt>
+  <MT_O_Queued>Zakázka přidána: {0} ({1})</MT_O_Queued>
+  <MT_O_NoBench>Nemáš postavený stůl: {0}</MT_O_NoBench>
+  <MT_O_InfoPart>Informace: {0}</MT_O_InfoPart>
+  <MT_O_Make>Vyrobit</MT_O_Make>
+  <MT_A_SideRight>P</MT_A_SideRight>
+  <MT_A_SideLeft>L</MT_A_SideLeft>
+  <MT_A_SideTip>Postava je otočená čelem k tobě: její pravá strana (P) je vlevo, levá (L) vpravo.</MT_A_SideTip>
+  <MT_MineFor>Důl pro {0}</MT_MineFor>
+  <MT_ModeRepeatTip>Opakovat zadaný počet krát</MT_ModeRepeatTip>
+  <MT_ModeTargetTip>Dělat, dokud nemáš X</MT_ModeTargetTip>
+  <MT_ModeForeverTip>Dělat donekonečna</MT_ModeForeverTip>
+  <!-- 0.11.0 -->
+  <MT_Needs>Naše záložka potřeb</MT_Needs>
+  <MT_Needs_Desc>Všechny potřeby jako karty s trendem a prahy, vedle nálada s hranicemi zhroucení, očekávanou náladou a všemi myšlenkami. Původní záložka je na jedno kliknutí.</MT_Needs_Desc>
+  <MT_BillDialog>Naše okno zakázky</MT_BillDialog>
+  <MT_BillDialog_Desc>Okno nastavení zakázky ve stejném vzhledu: co recept potřebuje a vyrábí, režim opakování s rychlými kroky, uskladnění a pracovník a herní filtr surovin. „Původní okno“ otevře to herní.</MT_BillDialog_Desc>
+  <MT_N_Mood>Nálada</MT_N_Mood>
+  <MT_N_BreakExtreme>Riziko extrémního zhroucení pod {0}</MT_N_BreakExtreme>
+  <MT_N_BreakMajor>Riziko vážného zhroucení pod {0}</MT_N_BreakMajor>
+  <MT_N_BreakMinor>Riziko menšího zhroucení pod {0}</MT_N_BreakMinor>
+  <MT_N_Target>Nálada směřuje k {0}</MT_N_Target>
+  <MT_N_Expect>Očekávání: {0}</MT_N_Expect>
+  <MT_N_Thoughts>Myšlenky ({0})</MT_N_Thoughts>
+  <MT_N_NoThoughts>Náladu teď neovlivňují žádné myšlenky.</MT_N_NoThoughts>
+  <MT_BD_Original>Původní okno</MT_BD_Original>
+  <MT_BD_Ingredients>Suroviny</MT_BD_Ingredients>
+  <MT_BD_Makes>Vyrábí</MT_BD_Makes>
+  <MT_BD_Skill>Dovednost</MT_BD_Skill>
+  <MT_BD_Repeat>Kolikrát</MT_BD_Repeat>
+  <MT_BD_ModeRepeat>× krát</MT_BD_ModeRepeat>
+  <MT_BD_ModeTarget>≥ dokud</MT_BD_ModeTarget>
+  <MT_BD_ModeForever>∞ stále</MT_BD_ModeForever>
+  <MT_BD_Have>Máme {0} / {1}</MT_BD_Have>
+  <MT_BD_Store>Kam uložit</MT_BD_Store>
+  <MT_BD_Worker>Kdo to dělá</MT_BD_Worker>
+  <MT_S_RomanceTip>{0} se pokusí někoho svést – herní seznam se šancemi.</MT_S_RomanceTip>
+  <MT_S_RomanceThem>Svádět {0} ({1})</MT_S_RomanceThem>
+  <MT_S_RomanceThemNo>Svádět {0}</MT_S_RomanceThemNo>
+  <MT_PaneLook>Panel s informacemi v našem stylu</MT_PaneLook>
+  <MT_PaneLook_Desc>Panel vybraného kolonisty, zvířete nebo budovy (vlevo dole) i jeho tlačítka záložek v tmavém stylu Clear, s barevnými pruhy zdraví, nálady, rozvrhu a zóny. Dlouhé názvy záložek už nejsou useknuté.</MT_PaneLook_Desc>
+  <MT_PlantPicker>Výběr rostlin v našem stylu</MT_PlantPicker>
+  <MT_PlantPicker_Desc>„Vybrat rostlinu k pěstování“ (pole, hydroponie, květináče) otevře naše okno se skupinami, hledáním, řazením a kartou pro každou rostlinu (doba růstu, výnos, cena za den, potřebná dovednost) místo dlouhého seznamu přes celou obrazovku.</MT_PlantPicker_Desc>
+  <MT_PG_Title>Co pěstovat</MT_PG_Title>
+  <MT_PG_Now>Teď: {0}</MT_PG_Now>
+  <MT_PG_All>Vše</MT_PG_All>
+  <MT_PG_Food>Jídlo</MT_PG_Food>
+  <MT_PG_Medicine>Léčivé</MT_PG_Medicine>
+  <MT_PG_Drugs>Drogy</MT_PG_Drugs>
+  <MT_PG_Materials>Materiály</MT_PG_Materials>
+  <MT_PG_Trees>Stromy</MT_PG_Trees>
+  <MT_PG_Decor>Okrasné</MT_PG_Decor>
+  <MT_PG_Search>hledat…</MT_PG_Search>
+  <MT_PG_SortBy>Řadit:</MT_PG_SortBy>
+  <MT_PG_SName>Název</MT_PG_SName>
+  <MT_PG_SDays>Nejrychlejší</MT_PG_SDays>
+  <MT_PG_SValue>Nejcennější</MT_PG_SValue>
+  <MT_PG_SSkill>Nejsnazší</MT_PG_SSkill>
+  <MT_PG_Usable>Jen co moji pěstitelé zasejí</MT_PG_Usable>
+  <MT_PG_UsableTip>Skryje rostliny, které potřebují vyšší dovednost pěstování, než má tvůj nejlepší aktivní pěstitel ({0}).</MT_PG_UsableTip>
+  <MT_PG_None>Nic neodpovídá.</MT_PG_None>
+  <MT_PG_Days>{0} dní</MT_PG_Days>
+  <MT_PG_Yield>{0}× {1}</MT_PG_Yield>
+  <MT_PG_Skill>dovednost {0}</MT_PG_Skill>
+  <MT_PG_ValueDay>{0} stříbra/den</MT_PG_ValueDay>
+  <MT_PG_Cave>jeskyně</MT_PG_Cave>
+  <MT_PG_NoRoof>bez střechy</MT_PG_NoRoof>
+  <MT_PG_NutDay>{0} výživy/den</MT_PG_NutDay>
+  <MT_PG_SkillTip>Potřebuje dovednost pěstování {0} (tvůj nejlepší pěstitel: {1})</MT_PG_SkillTip>
+  <MT_PG_Mod>Mod: {0}</MT_PG_Mod>
+  <MT_TabsMore>Další ▾</MT_TabsMore>
+  <MT_TabsMoreTip>Dalších záložek: {0} – kliknutím jednu otevřeš.</MT_TabsMoreTip>
+  <MT_RecipePicker>Okno pro výběr zakázky („Přidat zakázku“)</MT_RecipePicker>
+  <MT_RecipePicker_Desc>„Přidat zakázku“ otevře okno se skupinami, hledáním a řazením místo dlouhé nabídky.</MT_RecipePicker_Desc>
+  <MT_SurgeryPicker>Okno pro výběr operace (zdraví)</MT_SurgeryPicker>
+  <MT_SurgeryPicker_Desc>„Přidat operaci“ otevře okno se skupinami (implantáty, bioniky, amputace, léky …), šancí na úspěch a potřebnými věcmi.</MT_SurgeryPicker_Desc>
+  <MT_OwnerPicker>Okno pro výběr vlastníka (postele, trůny …)</MT_OwnerPicker>
+  <MT_OwnerPicker_Desc>„Nastavit vlastníka“ otevře karty kolonistů s fotkou a stavem místo seznamu.</MT_OwnerPicker_Desc>
+  <MT_PolicyPicker>Okno pro výběr oblasti a politik</MT_PolicyPicker>
+  <MT_PolicyPicker_Desc>Povolená oblast, oblékání, jídlo a drogy otevřou okno s hledáním a náhledem.</MT_PolicyPicker_Desc>
+  <MT_ResearchPicker>Okno pro výběr výzkumu</MT_ResearchPicker>
+  <MT_ResearchPicker_Desc>Seznam výzkumů podle oboru a éry s hledáním (tlačítko v záložce výzkumu).</MT_ResearchPicker_Desc>
+  <MT_MechPicker>Okno pro líhnutí mechů (Biotech)</MT_MechPicker>
+  <MT_MechPicker_Desc>Mechové k vylíhnutí ve skupinách podle velikosti a role, s hledáním.</MT_MechPicker_Desc>
+  <MT_AnimalPicker>Okno pro výběr zvířat</MT_AnimalPicker>
+  <MT_AnimalPicker_Desc>Výběr zvířat (pán, výcvik, ohrady) otevře karty ve skupinách: pracovní, bojová, mazlíčci.</MT_AnimalPicker_Desc>
+  <MT_TradeWindow>Obchodní okno s kategoriemi</MT_TradeWindow>
+  <MT_TradeWindow_Desc>Obchod otevře naše okno: kategorie (jídlo, léky, zbraně …), hledání, řazení a košík.</MT_TradeWindow_Desc>
+  <MT_ResetSizes>Vrátit velikost všech oken</MT_ResetSizes>
+  <MT_GripCornerTip>Táhni a změníš velikost panelu – kliknutím vybereš hotovou velikost (normální, velká, maximum). Velikost se zapamatuje.</MT_GripCornerTip>
+  <MT_InfoCard>Karta info v našem vzhledu (Infocentrum)</MT_InfoCard>
+  <MT_InfoCard_Desc>Tlačítko „i“ u kolonisty otevře naši kartu: všechny údaje ve skupinách s průměrem kolonie, porovnání s jiným kolonistou, z čeho se údaj skládá a k tomu stránky životopis, zdraví, vztahy, výbava a historie.</MT_InfoCard_Desc>
+  <MT_I_Overview>Přehled</MT_I_Overview>
+  <MT_I_Life>Životopis</MT_I_Life>
+  <MT_I_Health>Zdraví</MT_I_Health>
+  <MT_I_Social>Vztahy</MT_I_Social>
+  <MT_I_Gear>Výbava</MT_I_Gear>
+  <MT_I_History>Historie</MT_I_History>
+  <MT_I_Original>Původní karta</MT_I_Original>
+  <MT_I_RiskHigh>vysoké riziko zhroucení</MT_I_RiskHigh>
+  <MT_I_RiskMid>riziko zhroucení</MT_I_RiskMid>
+  <MT_I_RiskLow>mírné riziko zhroucení</MT_I_RiskLow>
+  <MT_I_G_all>Všechno</MT_I_G_all>
+  <MT_I_G_basic>Základ</MT_I_G_basic>
+  <MT_I_G_combat>Boj</MT_I_G_combat>
+  <MT_I_G_work>Práce</MT_I_G_work>
+  <MT_I_G_health>Zdraví</MT_I_G_health>
+  <MT_I_G_resist>Odolnosti</MT_I_G_resist>
+  <MT_I_G_food>Strava a tělo</MT_I_G_food>
+  <MT_I_G_social>Společnost</MT_I_G_social>
+  <MT_I_G_psy>Psychofokus</MT_I_G_psy>
+  <MT_I_G_mods>Z modů</MT_I_G_mods>
+  <MT_I_Compare>Porovnat s</MT_I_Compare>
+  <MT_I_Pick>+ vybrat kolonistu</MT_I_Pick>
+  <MT_I_Average>Průměr kolonie</MT_I_Average>
+  <MT_I_Legend>průměr kolonie · zeleně lepší, oranžově horší</MT_I_Legend>
+  <MT_I_LegendCmp>porovnání s: {0} · zeleně lepší, oranžově horší</MT_I_LegendCmp>
+  <MT_I_MoreThan>víc než {0} % kolonistů</MT_I_MoreThan>
+  <MT_I_ColonyAvg>průměr kolonie {0}</MT_I_ColonyAvg>
+  <MT_I_Most>nejvíc v kolonii</MT_I_Most>
+  <MT_I_Least>nejmíň v kolonii</MT_I_Least>
+  <MT_I_Temp>Teplota</MT_I_Temp>
+  <MT_I_ColdProof>odolná proti zimě</MT_I_ColdProof>
+  <MT_I_HeatProof>odolná proti horku</MT_I_HeatProof>
+  <MT_I_ColdWeak>citlivá na zimu</MT_I_ColdWeak>
+  <MT_I_Chosen>Vybraný údaj</MT_I_Chosen>
+  <MT_I_MadeOf>Z čeho se skládá</MT_I_MadeOf>
+  <MT_I_Race>O rase</MT_I_Race>
+  <MT_I_FullDesc>Celý popis</MT_I_FullDesc>
+  <MT_I_NoHistory>Zatím nic zapsáno – důležité chvíle tohoto kolonisty se ukážou tady.</MT_I_NoHistory>
+  <MT_SplitOff>{0} je vypnutý: máš zapnutý Clear Tabs a ten už tohle všechno umí.</MT_SplitOff>
+  <MT_G_Looks>Jak vypadá</MT_G_Looks>
+  <MT_G_FigHat>Pokrývka hlavy</MT_G_FigHat>
+  <MT_G_FigClothes>Oblečení</MT_G_FigClothes>
+</LanguageData>

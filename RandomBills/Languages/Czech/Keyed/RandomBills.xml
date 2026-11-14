@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RB_Rec1>Kolonisté berou zakázky na stole náhodně, horní o něco častěji.</RB_Rec1>
+  <RB_Rec2>Na každém stole tlačítko režimu: váženě, náhodně nebo podle pořadí.</RB_Rec2>
+  <RB_Enabled>Náhodné zakázky zapnuté</RB_Enabled>
+  <RB_Enabled_Desc>Hlavní vypínač celého modu.</RB_Enabled_Desc>
+  <RB_DefaultMode>Režim stolů</RB_DefaultMode>
+  <RB_Mode_Weighted>Zakázky: váženě</RB_Mode_Weighted>
+  <RB_Mode_Random>Zakázky: náhodně</RB_Mode_Random>
+  <RB_Mode_Order>Zakázky: podle pořadí</RB_Mode_Order>
+  <RB_TopWeight>Váženě – přednost horním: {0}</RB_TopWeight>
+  <RB_TopWeight_Desc>Jak moc častěji se ve váženém režimu berou horní zakázky. 0 % = jako náhodně, 100 % = horní výrazně častěji (ale i spodní se udělají).</RB_TopWeight_Desc>
+  <RB_ShowGizmo>Tlačítko režimu na stolech</RB_ShowGizmo>
+  <RB_ShowGizmo_Desc>Každý stůl dostane tlačítko pro vlastní režim.</RB_ShowGizmo_Desc>
+  <RB_Gizmo_Desc>Jak si kolonista vybírá další zakázku na tomhle stole. Kliknutím změníš.\n\nVáženě – náhodně, horní zakázky o něco častěji.\nNáhodně – každá zakázka stejnou šanci.\nPodle pořadí – jako ve hře: první, kterou jde udělat.\n\nZakázka musí jít udělat (suroviny, skill, nedokončené „udělat X kusů“). Rozdělaná práce se nejdřív dokončí.</RB_Gizmo_Desc>
+  <RB_AvoidRepeat>Střídat zakázky</RB_AvoidRepeat>
+  <RB_AvoidRepeat_Desc>Zakázka, kterou kolonista právě dělal, má příště menší šanci – i „udělat X kusů“, takže se mezi kusy dostane i na ostatní.</RB_AvoidRepeat_Desc>
+</LanguageData>

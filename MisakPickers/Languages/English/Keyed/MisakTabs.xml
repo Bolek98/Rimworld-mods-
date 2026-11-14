@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MT_Rec1>Our bills tab is used.</MT_Rec1>
+  <MT_Rec2>It takes over the bills tab from other mods (Nice Bill Tab …) – the original tab is always one click away.</MT_Rec2>
+  <MT_Bills>Bills tab</MT_Bills>
+  <MT_Bills_Desc>Recipes with pictures and search, bill queue as cards with who works on it and what is missing.</MT_Bills_Desc>
+  <MT_ReplaceOther>Replace other bill tab mods</MT_ReplaceOther>
+  <MT_ReplaceOther_Desc>Nice Bill Tab and similar mods draw the same tab; while this is on, theirs is switched off. Needs a restart.</MT_ReplaceOther_Desc>
+  <MT_OurLook>Clear look</MT_OurLook>
+  <MT_HeadSub>{0} bills · {1} active · {2} colonists do {3}</MT_HeadSub>
+  <MT_Paste>Paste</MT_Paste>
+  <MT_PasteTip>Paste the copied bill: {0}</MT_PasteTip>
+  <MT_Original>Original tab</MT_Original>
+  <MT_OriginalTip>Shows the game's tab (with buttons other mods add). Switch back with "Clear look".</MT_OriginalTip>
+  <MT_NeedResearch>needs research: {0}</MT_NeedResearch>
+  <MT_NotAvailable>not available now</MT_NotAvailable>
+  <MT_Search>Search recipe…</MT_Search>
+  <MT_All>All</MT_All>
+  <MT_Available>Available</MT_Available>
+  <MT_Locked>Locked</MT_Locked>
+  <MT_LockedShort>locked</MT_LockedShort>
+  <MT_Add>+ Add</MT_Add>
+  <MT_Full>A workbench can have at most {0} bills.</MT_Full>
+  <MT_Queue>Bill queue – {0} / {1}</MT_Queue>
+  <MT_Suspended>paused</MT_Suspended>
+  <MT_DoingNow>working on it: {0}</MT_DoingNow>
+  <MT_NoIngredients>waiting: no materials found</MT_NoIngredients>
+  <MT_Done>nothing to do now</MT_Done>
+  <MT_Waiting>waiting for a free colonist</MT_Waiting>
+  <MT_Forever>repeat forever</MT_Forever>
+  <MT_RepeatLeft>{0} left</MT_RepeatLeft>
+  <MT_Target>you have {0} of {1}</MT_Target>
+  <MT_PausedSatisfied>target reached</MT_PausedSatisfied>
+  <MT_Resume>Resume</MT_Resume>
+  <MT_Pause>Pause</MT_Pause>
+  <MT_Edit>Edit</MT_Edit>
+  <MT_Copy>Copy</MT_Copy>
+  <MT_Copied>Copied: {0}</MT_Copied>
+  <MT_NoBills>No bills yet – pick a recipe on the left.</MT_NoBills>
+  <MT_InfoTip>What it is – opens the info card</MT_InfoTip>
+  <MT_ClickInfo>Click for the full info card.</MT_ClickInfo>
+  <MT_Info_Makes>Makes: {0} ×{1} · value {2} · weight {3} kg</MT_Info_Makes>
+  <MT_Info_Armor>Armor: sharp {0}, blunt {1} · insulation cold {2} °C, heat {3} °C</MT_Info_Armor>
+  <MT_Info_Gun>Damage {0} · range {1} · shots per burst {2}</MT_Info_Gun>
+  <MT_Info_Melee>Melee damage per second: {0}</MT_Info_Melee>
+  <MT_Info_Work>Work: {0}</MT_Info_Work>
+  <MT_Info_Needs>Needs: {0}</MT_Info_Needs>
+  <MT_Info_Skill>Skill needed: {0}</MT_Info_Skill>
+  <MT_Info_UsesSkill>Skill used: {0}</MT_Info_UsesSkill>
+  <MT_PrioTip>Priority {0} – 1 is done first, 10 last, 5 is normal. Colonists go first to the workbench with the most urgent bill. Click to change.</MT_PrioTip>
+  <MT_PrioOption>Priority {0}</MT_PrioOption>
+  <MT_PrioFirst>do first</MT_PrioFirst>
+  <MT_PrioNormal>normal</MT_PrioNormal>
+  <MT_PrioLast>do last</MT_PrioLast>
+  <MT_Rec3>Our health tab is used and takes over from other health tab mods.</MT_Rec3>
+  <MT_Health>Health tab</MT_Health>
+  <MT_Health_Desc>Overview with capacities and care, the colonist's figure with marks where something is wrong, and the conditions by body part. Operations and the original tab are one click away.</MT_Health_Desc>
+  <MT_ReplaceOtherHealth>Replace other health tab mods</MT_ReplaceOtherHealth>
+  <MT_ReplaceOtherHealth_Desc>Mods that draw their own health tab are switched off while this is on. Needs a restart.</MT_ReplaceOtherHealth_Desc>
+  <MT_Operations>Operations</MT_Operations>
+  <MT_OperationsTip>The game's operations list (surgery bills). Back with "Clear look".</MT_OperationsTip>
+  <MT_OperationsNo>No operations are possible here.</MT_OperationsNo>
+  <MT_OriginalTipHealth>Shows the game's health tab (with what other mods add). Back with "Clear look" at the bottom right.</MT_OriginalTipHealth>
+  <MT_H_Dead>Dead</MT_H_Dead>
+  <MT_H_Bleeding>Bleeding {0} a day</MT_H_Bleeding>
+  <MT_H_BleedDeath>Bleeding {0} a day – dies in {1} without tending!</MT_H_BleedDeath>
+  <MT_H_Losing>{0}: losing – the disease is ahead of immunity</MT_H_Losing>
+  <MT_H_Winning>{0}: immunity is winning</MT_H_Winning>
+  <MT_H_NeedsTend>Needs tending</MT_H_NeedsTend>
+  <MT_H_Downed>Downed</MT_H_Downed>
+  <MT_H_Healing>Healing</MT_H_Healing>
+  <MT_H_Healthy>Healthy</MT_H_Healthy>
+  <MT_H_Care>MEDICAL CARE</MT_H_Care>
+  <MT_H_Capacities>CAPACITIES</MT_H_Capacities>
+  <MT_H_MarkTip>Click: show only this part in the list. Right click: operations for this part.</MT_H_MarkTip>
+  <MT_H_NothingWrong>Nothing wrong 👍</MT_H_NothingWrong>
+  <MT_H_LegendBad>bleeding, missing or badly hurt</MT_H_LegendBad>
+  <MT_H_LegendHurt>hurt, needs tending</MT_H_LegendHurt>
+  <MT_H_LegendOther>scars, implants and the rest</MT_H_LegendOther>
+  <MT_H_Whole>Whole body: {0} (in the list)</MT_H_Whole>
+  <MT_H_ShowAllParts>Show all parts</MT_H_ShowAllParts>
+  <MT_H_Conditions>CONDITIONS BY BODY PART</MT_H_Conditions>
+  <MT_H_ConditionsHere>CONDITIONS – SELECTED PART</MT_H_ConditionsHere>
+  <MT_H_ShowAll>Show hidden too</MT_H_ShowAll>
+  <MT_H_NoConditions>No injuries or conditions.</MT_H_NoConditions>
+  <MT_H_ChipBleed>bleeds {0}</MT_H_ChipBleed>
+  <MT_H_ChipTended>tended</MT_H_ChipTended>
+  <MT_H_ChipTend>needs tending</MT_H_ChipTend>
+  <MT_H_ChipScar>permanent</MT_H_ChipScar>
+  <MT_H_ImmunityTip>Immunity {0} (green) against the disease {1} (red). Immunity must reach 100 % first.</MT_H_ImmunityTip>
+  <MT_H_ToPortrait>Show the portrait</MT_H_ToPortrait>
+  <MT_H_ToSilhouette>Show the health silhouette</MT_H_ToSilhouette>
+  <MT_O_Planned>PLANNED OPERATIONS (in this order)</MT_O_Planned>
+  <MT_O_NonePlanned>Nothing planned. Pick an operation on the right.</MT_O_NonePlanned>
+  <MT_O_WholeBody>Whole body</MT_O_WholeBody>
+  <MT_O_Paused>Paused</MT_O_Paused>
+  <MT_O_Missing>Missing: {0}</MT_O_Missing>
+  <MT_O_Ready>Ready – everything is at hand</MT_O_Ready>
+  <MT_O_Resume>Resume</MT_O_Resume>
+  <MT_O_Pause>Pause</MT_O_Pause>
+  <MT_O_Doctor>WHO WILL OPERATE</MT_O_Doctor>
+  <MT_O_NoDoctor>No free doctor on this map!</MT_O_NoDoctor>
+  <MT_O_DoctorIs>Best doctor: {0} (Medicine {1})</MT_O_DoctorIs>
+  <MT_O_Care>Medical care: {0}</MT_O_Care>
+  <MT_O_DoctorTip>A better doctor = a lower risk of a failed operation.</MT_O_DoctorTip>
+  <MT_O_Possible>OPERATIONS THAT CAN BE DONE ({0})</MT_O_Possible>
+  <MT_O_Search>Search operation or body part…</MT_O_Search>
+  <MT_O_K_All>All</MT_O_K_All>
+  <MT_O_K_Implant>Implants &amp; prostheses</MT_O_K_Implant>
+  <MT_O_K_Remove>Remove</MT_O_K_Remove>
+  <MT_O_K_Drug>Drugs</MT_O_K_Drug>
+  <MT_O_K_Other>Other</MT_O_K_Other>
+  <MT_O_A_All>Everywhere</MT_O_A_All>
+  <MT_O_A_Head>Head</MT_O_A_Head>
+  <MT_O_A_Torso>Torso</MT_O_A_Torso>
+  <MT_O_A_Arms>Arms</MT_O_A_Arms>
+  <MT_O_A_Legs>Legs</MT_O_A_Legs>
+  <MT_O_A_Whole>Whole body</MT_O_A_Whole>
+  <MT_O_NoneFound>No operation matches.</MT_O_NoneFound>
+  <MT_O_BackHealth>Health</MT_O_BackHealth>
+  <!-- 0.4.2 -->
+  <MT_H_Planned>Operations planned: {0}</MT_H_Planned>
+  <MT_H_PlannedTip>Click to open the planned operations.</MT_H_PlannedTip>
+  <MT_H_NoOpsHere>No operation for this body part</MT_H_NoOpsHere>
+  <MT_H_ShowOpsHere>Show operations for this part</MT_H_ShowOpsHere>
+  <!-- 0.5.0 -->
+  <MT_BenchMenuTip>Workbench: copy all its bills, paste them here or into several workbenches of the same kind.</MT_BenchMenuTip>
+  <MT_CopyAll>Copy all bills of this workbench ({0})</MT_CopyAll>
+  <MT_PasteAll>Paste the copied bills here ({0} from {1})</MT_PasteAll>
+  <MT_PasteSeveral>Paste bills into several workbenches</MT_PasteSeveral>
+  <MT_PasteSeveralSub>{0} copied bills from {1}. Bills a workbench cannot make are skipped.</MT_PasteSeveralSub>
+  <MT_BenchCopied>Copied {0} bills of {1}.</MT_BenchCopied>
+  <MT_PastedInto>Pasted {0} bills into {1} workbenches.</MT_PastedInto>
+  <MT_PasteN>Paste into {0}</MT_PasteN>
+  <MT_None>None</MT_None>
+  <MT_BillsN>{0} bills</MT_BillsN>
+  <MT_ThisBench>this one</MT_ThisBench>
+  <MT_BillMenuTip>More: rename the bill, link it with a bill on another workbench.</MT_BillMenuTip>
+  <MT_Rename>Rename</MT_Rename>
+  <MT_LinkWith>Link with a bill on another workbench</MT_LinkWith>
+  <MT_Unlink>Unlink</MT_Unlink>
+  <MT_NoLinkTargets>No other workbench on this map has a bill with this recipe.</MT_NoLinkTargets>
+  <MT_Linked>Linked: {0} with {1}</MT_Linked>
+  <MT_LinkedN>linked ×{0}</MT_LinkedN>
+  <MT_LinkedTip>Linked bills share their settings (count, target, pause, materials, stockpiles). A change to one is copied to the others:</MT_LinkedTip>
+  <MT_CountTip>Click: ±1 · Shift+click: ±10 · Ctrl+click: ±100</MT_CountTip>
+  <MT_InclEquipped>counts worn and carried</MT_InclEquipped>
+  <MT_OnlyIn>only in {0}</MT_OnlyIn>
+  <MT_NotAdded>Not added</MT_NotAdded>
+  <MT_NotAddedTip>Recipes you can make that are not in the queue yet.</MT_NotAddedTip>
+  <MT_SplitTip>Drag to make the recipe list wider or narrower.</MT_SplitTip>
+  <MT_GripTip>Drag to resize the window (it is remembered).</MT_GripTip>
+  <MT_SizeTip>Window size: normal, bigger or as big as the screen allows. You can also drag the top right corner.</MT_SizeTip>
+  <MT_SizeNormal>Normal size</MT_SizeNormal>
+  <MT_SizeBig>Bigger</MT_SizeBig>
+  <MT_SizeMax>Biggest (fits the screen)</MT_SizeMax>
+  <!-- 0.7.0 anatomy -->
+  <MT_A_Parts>Body</MT_A_Parts>
+  <MT_A_Organs>Organs</MT_A_Organs>
+  <MT_A_Bones>Bones</MT_A_Bones>
+  <MT_A_Healthy>healthy</MT_A_Healthy>
+  <MT_A_Hurt>hurt</MT_A_Hurt>
+  <MT_A_Missing>missing</MT_A_Missing>
+  <MT_A_Broken>broken</MT_A_Broken>
+  <MT_A_Prosthetic>prosthesis</MT_A_Prosthetic>
+  <MT_A_Bionic>bionic</MT_A_Bionic>
+  <MT_A_Implant>implant</MT_A_Implant>
+  <MT_A_Archo>archotech</MT_A_Archo>
+  <MT_A_Fine>Nothing wrong here.</MT_A_Fine>
+  <MT_A_ToAnatomy>Show the anatomy figure</MT_A_ToAnatomy>
+  <MT_A_ToSilhouette>Show the colonist's own silhouette</MT_A_ToSilhouette>
+  <!-- 0.8.0 -->
+  <MT_H_State>State</MT_H_State>
+  <MT_H_FAll>All</MT_H_FAll>
+  <MT_H_FInjuries>Injuries</MT_H_FInjuries>
+  <MT_H_FParts>Replacements</MT_H_FParts>
+  <MT_H_FMissing>Missing</MT_H_FMissing>
+  <MT_H_FDiseases>Diseases</MT_H_FDiseases>
+  <MT_H_Immunity>immunity {0}</MT_H_Immunity>
+  <MT_A_PartHp>Health of the part: {0}</MT_A_PartHp>
+  <MT_A_CardHint>click: only this part · right click: operations</MT_A_CardHint>
+  <MT_H_Age>{0} years</MT_H_Age>
+  <!-- 0.9.0 -->
+  <MT_Character>Our character tab</MT_Character>
+  <MT_Character_Desc>A dossier with portrait, backstory and traits, and pages for skills, the life timeline and records. The original tab is one click away.</MT_Character_Desc>
+  <MT_Social>Our social tab</MT_Social>
+  <MT_Social_Desc>Everyone they know with both opinions, and why – every reason both ways. The original tab is one click away.</MT_Social_Desc>
+  <MT_C_Skills>Skills</MT_C_Skills>
+  <MT_C_Life>Life</MT_C_Life>
+  <MT_C_Records>Records</MT_C_Records>
+  <MT_C_Childhood>Childhood</MT_C_Childhood>
+  <MT_C_Adulthood>Adulthood</MT_C_Adulthood>
+  <MT_C_Traits>Traits</MT_C_Traits>
+  <MT_C_Incapable>Will not do</MT_C_Incapable>
+  <MT_C_Ideo>Ideoligion: {0}</MT_C_Ideo>
+  <MT_C_Birthday>Born {0} ({1} years ago)</MT_C_Birthday>
+  <MT_C_NoSkills>No skills.</MT_C_NoSkills>
+  <MT_L_Born>Born</MT_L_Born>
+  <MT_L_Joined>Joined {0}</MT_L_Joined>
+  <MT_L_Break>Mental break: {0}</MT_L_Break>
+  <MT_L_Lost>Lost: {0}</MT_L_Lost>
+  <MT_L_Installed>Got {0} ({1})</MT_L_Installed>
+  <MT_L_Skill>{0} reached level {1}</MT_L_Skill>
+  <MT_L_Rel>New {0}: {1}</MT_L_Rel>
+  <MT_L_Child>Child born: {0}</MT_L_Child>
+  <MT_L_Note>Breaks, wounds, operations, healing, body parts, skills, partners, deaths, titles, roles, birthdays and research are noted from the moment Clear Tabs 0.9 runs; the rest comes from the game's own stories.</MT_L_Note>
+  <MT_S_Search>Search…</MT_S_Search>
+  <MT_S_Colonist>colonist</MT_S_Colonist>
+  <MT_S_Dead>dead</MT_S_Dead>
+  <MT_S_RowTip>left: what {0} thinks of {1} · right (small): what {1} thinks of {0} · click: why</MT_S_RowTip>
+  <MT_S_Nobody>Nobody here.</MT_S_Nobody>
+  <MT_S_Compat>Compatibility</MT_S_Compat>
+  <MT_S_Romance>Romance chance</MT_S_Romance>
+  <MT_S_Thinks>{0} about {1}</MT_S_Thinks>
+  <MT_S_NoReasons>No reasons – they hardly know each other.</MT_S_NoReasons>
+  <MT_S_Back>Overview</MT_S_Back>
+  <MT_S_Overview>Overview</MT_S_Overview>
+  <MT_S_Partner>Partner</MT_S_Partner>
+  <MT_S_BestFriend>Best friend</MT_S_BestFriend>
+  <MT_S_Rival>Worst rival</MT_S_Rival>
+  <MT_S_Counts>{0} friends · {1} rivals</MT_S_Counts>
+  <MT_S_Talks>Last talks</MT_S_Talks>
+  <MT_S_NoTalks>No talks yet.</MT_S_NoTalks>
+  <MT_L_Surgery>Operation: {0} – done by {1}</MT_L_Surgery>
+  <MT_L_SurgeryBad>Operation failed: {0} – done by {1}</MT_L_SurgeryBad>
+  <MT_L_Operated>Operated on {0}: {1}</MT_L_Operated>
+  <MT_L_OperatedBad>Operation on {0} failed: {1}</MT_L_OperatedBad>
+  <MT_L_Healed>Recovered from {0}</MT_L_Healed>
+  <MT_L_Died>Died</MT_L_Died>
+  <MT_L_DiedOf>Died ({0})</MT_L_DiedOf>
+  <MT_L_LostRel>Lost {0}: {1}</MT_L_LostRel>
+  <MT_L_LostFriend>Lost a friend: {0}</MT_L_LostFriend>
+  <MT_L_Title>Title: {0} ({1})</MT_L_Title>
+  <MT_L_Role>Became {0}</MT_L_Role>
+  <MT_L_Birthday>Birthday – {0} years</MT_L_Birthday>
+  <MT_L_Research>Finished research: {0}</MT_L_Research>
+  <MT_L_Wound>Badly wounded: {0} ({1})</MT_L_Wound>
+  <MT_O_K_NoPart>Part not in stock</MT_O_K_NoPart>
+  <MT_O_MakeAt>make at: {0}</MT_O_MakeAt>
+  <MT_O_ResearchFirst>research first: {0}</MT_O_ResearchFirst>
+  <MT_O_OnlyTrade>only by trade or loot</MT_O_OnlyTrade>
+  <MT_O_QueueAt>Make {0} – {1}</MT_O_QueueAt>
+  <MT_O_Queued>Bill added: {0} ({1})</MT_O_Queued>
+  <MT_O_NoBench>No workbench built: {0}</MT_O_NoBench>
+  <MT_O_InfoPart>Info: {0}</MT_O_InfoPart>
+  <MT_O_Make>Make</MT_O_Make>
+  <MT_A_SideRight>R</MT_A_SideRight>
+  <MT_A_SideLeft>L</MT_A_SideLeft>
+  <MT_A_SideTip>The figure faces you: its right side (R) is on your left, its left (L) on your right.</MT_A_SideTip>
+  <MT_MineFor>Mine for {0}</MT_MineFor>
+  <MT_ModeRepeatTip>Repeat a set number of times</MT_ModeRepeatTip>
+  <MT_ModeTargetTip>Do until you have X</MT_ModeTargetTip>
+  <MT_ModeForeverTip>Do forever</MT_ModeForeverTip>
+  <!-- 0.11.0 -->
+  <MT_Needs>Our needs tab</MT_Needs>
+  <MT_Needs_Desc>All needs as cards with trend and thresholds, next to the mood with break limits, expected mood and every thought. The original tab is one click away.</MT_Needs_Desc>
+  <MT_BillDialog>Our bill window</MT_BillDialog>
+  <MT_BillDialog_Desc>The bill settings window in the same look: what the recipe needs and makes, repeat mode with quick steps, storage and worker, and the game's ingredient filter. "Original window" opens the game's one.</MT_BillDialog_Desc>
+  <MT_N_Mood>Mood</MT_N_Mood>
+  <MT_N_BreakExtreme>Extreme break risk below {0}</MT_N_BreakExtreme>
+  <MT_N_BreakMajor>Major break risk below {0}</MT_N_BreakMajor>
+  <MT_N_BreakMinor>Minor break risk below {0}</MT_N_BreakMinor>
+  <MT_N_Target>Mood is heading to {0}</MT_N_Target>
+  <MT_N_Expect>Expectations: {0}</MT_N_Expect>
+  <MT_N_Thoughts>Thoughts ({0})</MT_N_Thoughts>
+  <MT_N_NoThoughts>No thoughts affect the mood right now.</MT_N_NoThoughts>
+  <MT_BD_Original>Original window</MT_BD_Original>
+  <MT_BD_Ingredients>Ingredients</MT_BD_Ingredients>
+  <MT_BD_Makes>Makes</MT_BD_Makes>
+  <MT_BD_Skill>Skill</MT_BD_Skill>
+  <MT_BD_Repeat>How many</MT_BD_Repeat>
+  <MT_BD_ModeRepeat>× times</MT_BD_ModeRepeat>
+  <MT_BD_ModeTarget>≥ until</MT_BD_ModeTarget>
+  <MT_BD_ModeForever>∞ forever</MT_BD_ModeForever>
+  <MT_BD_Have>Have {0} / {1}</MT_BD_Have>
+  <MT_BD_Store>Where to put it</MT_BD_Store>
+  <MT_BD_Worker>Who does it</MT_BD_Worker>
+  <MT_S_RomanceTip>Let {0} try to romance someone – the game's list with chances.</MT_S_RomanceTip>
+  <MT_S_RomanceThem>Romance {0} ({1})</MT_S_RomanceThem>
+  <MT_S_RomanceThemNo>Romance {0}</MT_S_RomanceThemNo>
+  <MT_PaneLook>Info pane in our look</MT_PaneLook>
+  <MT_PaneLook_Desc>The info pane of the selected colonist, animal or building (bottom left) and its tab buttons in the dark Clear look, with coloured bars for health, mood, schedule and area. Long tab names are no longer cut off.</MT_PaneLook_Desc>
+  <MT_PlantPicker>Plant picker in our look</MT_PlantPicker>
+  <MT_PlantPicker_Desc>"Set plant to grow" (growing zones, hydroponics, plant pots) opens our window with groups, search, sorting and a card for each plant (growing time, yield, value per day, needed skill) instead of the long list over the whole screen.</MT_PlantPicker_Desc>
+  <MT_PG_Title>What to grow</MT_PG_Title>
+  <MT_PG_Now>Now: {0}</MT_PG_Now>
+  <MT_PG_All>All</MT_PG_All>
+  <MT_PG_Food>Food</MT_PG_Food>
+  <MT_PG_Medicine>Medicine</MT_PG_Medicine>
+  <MT_PG_Drugs>Drugs</MT_PG_Drugs>
+  <MT_PG_Materials>Materials</MT_PG_Materials>
+  <MT_PG_Trees>Trees</MT_PG_Trees>
+  <MT_PG_Decor>Decoration</MT_PG_Decor>
+  <MT_PG_Search>search…</MT_PG_Search>
+  <MT_PG_SortBy>Sort:</MT_PG_SortBy>
+  <MT_PG_SName>Name</MT_PG_SName>
+  <MT_PG_SDays>Fastest</MT_PG_SDays>
+  <MT_PG_SValue>Most valuable</MT_PG_SValue>
+  <MT_PG_SSkill>Easiest</MT_PG_SSkill>
+  <MT_PG_Usable>Only what my growers can sow</MT_PG_Usable>
+  <MT_PG_UsableTip>Hides plants that need a higher Plants skill than your best active grower has ({0}).</MT_PG_UsableTip>
+  <MT_PG_None>Nothing matches.</MT_PG_None>
+  <MT_PG_Days>{0} days</MT_PG_Days>
+  <MT_PG_Yield>{0}× {1}</MT_PG_Yield>
+  <MT_PG_Skill>skill {0}</MT_PG_Skill>
+  <MT_PG_ValueDay>{0} silver/day</MT_PG_ValueDay>
+  <MT_PG_Cave>cave</MT_PG_Cave>
+  <MT_PG_NoRoof>no roof</MT_PG_NoRoof>
+  <MT_PG_NutDay>{0} nutrition/day</MT_PG_NutDay>
+  <MT_PG_SkillTip>Needs Plants skill {0} (your best grower: {1})</MT_PG_SkillTip>
+  <MT_PG_Mod>Mod: {0}</MT_PG_Mod>
+  <MT_TabsMore>More ▾</MT_TabsMore>
+  <MT_TabsMoreTip>{0} more tabs – click to open one.</MT_TabsMoreTip>
+  <MT_RecipePicker>Recipe picker for "Add bill"</MT_RecipePicker>
+  <MT_RecipePicker_Desc>Add bill opens a window with groups, search and sorting instead of the long menu.</MT_RecipePicker_Desc>
+  <MT_SurgeryPicker>Operation picker (health tab)</MT_SurgeryPicker>
+  <MT_SurgeryPicker_Desc>"Add operation" opens a window with groups (implants, bionics, amputations, drugs …), success chance and requirements.</MT_SurgeryPicker_Desc>
+  <MT_OwnerPicker>Owner picker (beds, thrones …)</MT_OwnerPicker>
+  <MT_OwnerPicker_Desc>"Set owner" opens colonist cards with photo and state instead of the list.</MT_OwnerPicker_Desc>
+  <MT_PolicyPicker>Area and policy picker</MT_PolicyPicker>
+  <MT_PolicyPicker_Desc>Allowed area, outfit, food and drug policy open a window with search and a preview.</MT_PolicyPicker_Desc>
+  <MT_ResearchPicker>Research picker</MT_ResearchPicker>
+  <MT_ResearchPicker_Desc>A searchable list of research projects by field and era (button in the research tab).</MT_ResearchPicker_Desc>
+  <MT_MechPicker>Mech gestation picker (Biotech)</MT_MechPicker>
+  <MT_MechPicker_Desc>Mechs to gestate grouped by size and role, with search.</MT_MechPicker_Desc>
+  <MT_AnimalPicker>Animal picker</MT_AnimalPicker>
+  <MT_AnimalPicker_Desc>Choosing animals (master, training, pens) opens grouped cards: work, combat, pets.</MT_AnimalPicker_Desc>
+  <MT_TradeWindow>Trade window with categories</MT_TradeWindow>
+  <MT_TradeWindow_Desc>Trading opens our window: categories (food, medicine, weapons …), search, sorting and a cart.</MT_TradeWindow_Desc>
+  <MT_ResetSizes>Reset the sizes of all windows</MT_ResetSizes>
+  <MT_GripCornerTip>Drag to resize the panel – click for preset sizes (normal, big, max). The size is remembered.</MT_GripCornerTip>
+  <MT_InfoCard>Info card in our look (Infocentrum)</MT_InfoCard>
+  <MT_InfoCard_Desc>The "i" button of a colonist opens our card: all stats in groups with the colony average, comparing with another colonist, what a stat is made of, plus the life story, health, social, gear and history pages.</MT_InfoCard_Desc>
+  <MT_I_Overview>Overview</MT_I_Overview>
+  <MT_I_Life>Life story</MT_I_Life>
+  <MT_I_Health>Health</MT_I_Health>
+  <MT_I_Social>Social</MT_I_Social>
+  <MT_I_Gear>Gear</MT_I_Gear>
+  <MT_I_History>History</MT_I_History>
+  <MT_I_Original>Original card</MT_I_Original>
+  <MT_I_RiskHigh>high break risk</MT_I_RiskHigh>
+  <MT_I_RiskMid>break risk</MT_I_RiskMid>
+  <MT_I_RiskLow>small break risk</MT_I_RiskLow>
+  <MT_I_G_all>Everything</MT_I_G_all>
+  <MT_I_G_basic>Basics</MT_I_G_basic>
+  <MT_I_G_combat>Combat</MT_I_G_combat>
+  <MT_I_G_work>Work</MT_I_G_work>
+  <MT_I_G_health>Health</MT_I_G_health>
+  <MT_I_G_resist>Resistances</MT_I_G_resist>
+  <MT_I_G_food>Food and body</MT_I_G_food>
+  <MT_I_G_social>Social</MT_I_G_social>
+  <MT_I_G_psy>Psyfocus</MT_I_G_psy>
+  <MT_I_G_mods>From mods</MT_I_G_mods>
+  <MT_I_Compare>Compare with</MT_I_Compare>
+  <MT_I_Pick>+ pick a colonist</MT_I_Pick>
+  <MT_I_Average>Colony average</MT_I_Average>
+  <MT_I_Legend>colony average · green better, orange worse</MT_I_Legend>
+  <MT_I_LegendCmp>compared with {0} · green better, orange worse</MT_I_LegendCmp>
+  <MT_I_MoreThan>more than {0} % of colonists</MT_I_MoreThan>
+  <MT_I_ColonyAvg>colony average {0}</MT_I_ColonyAvg>
+  <MT_I_Most>the most in the colony</MT_I_Most>
+  <MT_I_Least>the least in the colony</MT_I_Least>
+  <MT_I_Temp>Temperature</MT_I_Temp>
+  <MT_I_ColdProof>handles cold well</MT_I_ColdProof>
+  <MT_I_HeatProof>handles heat well</MT_I_HeatProof>
+  <MT_I_ColdWeak>feels the cold</MT_I_ColdWeak>
+  <MT_I_Chosen>Chosen stat</MT_I_Chosen>
+  <MT_I_MadeOf>What it is made of</MT_I_MadeOf>
+  <MT_I_Race>About the race</MT_I_Race>
+  <MT_I_FullDesc>Full description</MT_I_FullDesc>
+  <MT_I_NoHistory>Nothing written down yet – important moments of this colonist will show up here.</MT_I_NoHistory>
+  <MT_SplitOff>{0} stays off: Clear Tabs is active and already has all of this.</MT_SplitOff>
+  <MT_G_Looks>How they look</MT_G_Looks>
+  <MT_G_FigHat>Headgear</MT_G_FigHat>
+  <MT_G_FigClothes>Clothes</MT_G_FigClothes>
+</LanguageData>

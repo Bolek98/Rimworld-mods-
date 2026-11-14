@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RB_Rec1>Les colons choisissent les commandes d'un établi au hasard, celles du haut un peu plus souvent.</RB_Rec1>
+  <RB_Rec2>Un bouton de mode sur chaque établi : pondéré, aléatoire ou dans l'ordre.</RB_Rec2>
+  <RB_Enabled>Commandes aléatoires activées</RB_Enabled>
+  <RB_Enabled_Desc>Interrupteur général de tout le mod.</RB_Enabled_Desc>
+  <RB_DefaultMode>Mode des établis</RB_DefaultMode>
+  <RB_Mode_Weighted>Commandes : pondéré</RB_Mode_Weighted>
+  <RB_Mode_Random>Commandes : aléatoire</RB_Mode_Random>
+  <RB_Mode_Order>Commandes : dans l'ordre</RB_Mode_Order>
+  <RB_TopWeight>Pondéré – préférence pour le haut : {0}</RB_TopWeight>
+  <RB_TopWeight_Desc>À quel point les commandes du haut sont choisies plus souvent en mode pondéré. 0 % = comme aléatoire, 100 % = celles du haut nettement plus souvent (mais celles du bas sont quand même faites).</RB_TopWeight_Desc>
+  <RB_ShowGizmo>Bouton de mode sur les établis</RB_ShowGizmo>
+  <RB_ShowGizmo_Desc>Chaque établi reçoit un bouton pour changer son propre mode.</RB_ShowGizmo_Desc>
+  <RB_Gizmo_Desc>Comment un colon choisit la prochaine commande sur cet établi. Cliquez pour changer.\n\nPondéré – au hasard, les commandes du haut un peu plus souvent.\nAléatoire – chaque commande a la même chance.\nDans l'ordre – comme le jeu : la première réalisable.\n\nUne commande doit rester possible (ingrédients, compétence, « faire X fois » non terminé). Le travail déjà commencé est terminé d'abord.</RB_Gizmo_Desc>
+  <RB_AvoidRepeat>Chacun son tour</RB_AvoidRepeat>
+  <RB_AvoidRepeat_Desc>La commande qu'un colon vient de faire a moins de chances la fois suivante – y compris les commandes « faire X fois », pour que les autres passent entre les pièces.</RB_AvoidRepeat_Desc>
+</LanguageData>
