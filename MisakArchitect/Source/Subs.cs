@@ -12,7 +12,7 @@ public static class Subs
 {
 	public static readonly string[] Order =
 	{
-		"walls", "doors", "fences", "floors", "beds", "tables", "seats", "storage", "lights", "decor", "plants",
+		"walls", "doors", "fences", "floors", "fl_wood", "fl_stone", "fl_carpet", "fl_metal", "fl_fine", "fl_other", "beds", "tables", "seats", "storage", "lights", "decor", "plants",
 		"joy", "benches", "research", "medical", "temperature", "power", "conduits", "batteries", "security",
 		"traps", "facilities", "comms", "production", "animals", "zones", "orders", "other"
 	};
@@ -26,7 +26,25 @@ public static class Subs
 		if (d == null) return "other";
 		if (MisakArchitectMod.S.byMod)
 			return "mod:" + (Catalog.ModOf(d) ?? "RimWorld");
-		return Kind(d);
+		string k = Kind(d);
+		return k == "floors" ? FloorKind(d) : k;
+	}
+
+	// 1.1.2: floors split by what they are made of
+	private static string FloorKind(Designator d)
+	{
+		if (d is Designator_Dropdown dd) d = dd.Elements.FirstOrDefault();
+		if (!(d is Designator_Build b) || !(b.PlacingDef is TerrainDef t)) return "fl_other";
+		string n = t.defName ?? "";
+		var cost = t.CostList ?? new List<ThingDefCountClass>();
+		bool Costs(Func<ThingDef, bool> f) => cost.Any(c => c?.thingDef != null && f(c.thingDef));
+		if (n.Contains("Sterile") || n.Contains("Silver") || n.Contains("Gold") || n.Contains("Fine") || n.Contains("Royal")) return "fl_fine";
+		if (n.Contains("Carpet") || Costs(x => x.IsStuff && x.stuffProps?.categories?.Contains(StuffCategoryDefOf.Fabric) == true)) return "fl_carpet";
+		if (n.Contains("Wood") || Costs(x => x == ThingDefOf.WoodLog)) return "fl_wood";
+		if (n.Contains("Metal") || n.Contains("Steel") || n.Contains("Plasteel") || Costs(x => x == ThingDefOf.Steel || x == ThingDefOf.Plasteel)) return "fl_metal";
+		if (n.Contains("Tile") || n.Contains("Flagstone") || n.Contains("Stone") || n.Contains("Concrete") || n.Contains("Paved") || n.Contains("Brick")
+			|| Costs(x => x.IsStuff && x.stuffProps?.categories?.Contains(StuffCategoryDefOf.Stony) == true)) return "fl_stone";
+		return "fl_other";
 	}
 
 	// what the building is, whatever the setting (0.4.0: also used for the main folders)

@@ -12,7 +12,7 @@ public static class Groups
 {
 	public static readonly string[] Order =
 	{
-		"orders", "build", "floors", "furniture", "storage", "production", "animals", "power", "security", "health", "decor", "vehicles", "map", "mods"
+		"orders", "zones", "build", "floors", "furniture", "joy", "storage", "production", "animals", "power", "security", "health", "decor", "vehicles", "map", "mods"
 	};
 
 	// preferred picture of each folder (first one that exists)
@@ -21,13 +21,14 @@ public static class Groups
 		{ "build", new[] { "Wall" } },
 		{ "floors", new[] { "WoodPlankFloor", "Concrete" } },
 		{ "furniture", new[] { "Bed", "DiningChair" } },
+		{ "joy", new[] { "BilliardsTable", "ChessTable", "HorseshoesPin" } },
 		{ "storage", new[] { "Shelf", "ShelfSmall" } },
 		{ "production", new[] { "ElectricStove", "FueledStove", "TableButcher" } },
 		{ "animals", new[] { "AnimalSleepingBox", "AnimalBed", "PenMarker", "FenceGate" } },
 		{ "power", new[] { "SolarGenerator", "WoodFiredGenerator", "Heater" } },
 		{ "security", new[] { "Turret_MiniTurret", "Sandbags" } },
 		{ "health", new[] { "VitalsMonitor", "HospitalBed", "ToolCabinet" } },
-		{ "decor", new[] { "SculptureSmall", "PlantPot" } },
+		{ "decor", new[] { "SculptureSmall", "StandingLamp", "PlantPot" } },
 	};
 
 	private static readonly Dictionary<Designator, string> cache = new Dictionary<Designator, string>();
@@ -54,9 +55,10 @@ public static class Groups
 		if (pkg.Contains("maparchitect") || cn.Contains("maparchitect") || cn.Contains("terraform")) return "map";
 		if (!(d is Designator_Build b))
 		{
-			if (cn == "orders" || cn == "zone" || cn.Contains("zone") || cn.Contains("order")) return "orders";
 			string n = d.GetType().Name;
-			if (n.Contains("Zone") || n.Contains("Area")) return "orders";
+			// 1.1.2: zones and areas get their own folder
+			if (cn == "zone" || cn.Contains("zone") || n.Contains("Zone") || n.Contains("Area")) return "zones";
+			if (cn == "orders" || cn.Contains("order")) return "orders";
 			return ByCategory(c);
 		}
 		if (b.PlacingDef is TerrainDef) return "floors";
@@ -64,14 +66,15 @@ public static class Groups
 		{
 			case "walls": case "doors": case "fences": return "build";
 			case "floors": return "floors";
-			case "beds": case "tables": case "seats": case "joy": case "lights": return "furniture";
+			case "beds": case "tables": case "seats": return "furniture";
+			case "joy": return "joy";
 			case "storage": return "storage";
 			case "animals": return "animals";
 			case "benches": case "research": case "production": case "facilities": case "comms": case "plants": return "production";
 			case "medical": return "health";
 			case "temperature": case "power": case "conduits": case "batteries": return "power";
 			case "security": case "traps": return "security";
-			case "decor": return "decor";
+			case "decor": case "lights": return "decor";
 		}
 		return ByCategory(c);
 	}
@@ -84,7 +87,8 @@ public static class Groups
 		if (n.Contains("vehic") || n.Contains("ship") || n.Contains("aircraft") || n.Contains("gravship") || n.Contains("shuttle")) return "vehicles";
 		if (n.Contains("structure") || n.Contains("prefab") || n.Contains("wall") || n.Contains("roof") || n.Contains("floor") && !n.Contains("floors")) return "build";
 		if (n.Contains("floor")) return "floors";
-		if (n.Contains("furniture") || n.Contains("joy") || n.Contains("recreation")) return "furniture";
+		if (n.Contains("joy") || n.Contains("recreation")) return "joy";
+		if (n.Contains("furniture")) return "furniture";
 		if (n.Contains("production") || n.Contains("factory") || n.Contains("industr") || n.Contains("craft") || n.Contains("kitchen")) return "production";
 		if (n.Contains("power") || n.Contains("temperature") || n.Contains("pipe") || n.Contains("electric")) return "power";
 		if (n.Contains("security") || n.Contains("defen") || n.Contains("military") || n.Contains("combat")) return "security";

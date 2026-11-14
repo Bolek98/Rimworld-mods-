@@ -48,7 +48,7 @@ public class MisakArchitectMod : Mod
 {
 	public static MASettings S;
 	public static MisakArchitectMod Instance;
-	public const string Version = "1.1.1";
+	public const string Version = "1.1.2";
 
 	public MisakArchitectMod(ModContentPack content) : base(content)
 	{
