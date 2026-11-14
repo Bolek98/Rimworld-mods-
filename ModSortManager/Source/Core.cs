@@ -87,7 +87,7 @@ namespace ModSortManager
 
     public class MSMMod : Mod
     {
-        public const string Version = "0.7.0";
+        public const string Version = "0.7.1";
         public static MSMSettings Settings;
 
         public MSMMod(ModContentPack content) : base(content)
@@ -1132,7 +1132,9 @@ namespace ModSortManager
         }
 
         // load order rules broken right now (mod -> text)
-        public static List<string> OrderProblems(List<ModMetaData> list, Dictionary<ModMetaData, Sev> marks)
+        // 0.7.1: also tells each mod involved which mod it must load before / after (for the note on its row)
+        public static List<string> OrderProblems(List<ModMetaData> list, Dictionary<ModMetaData, Sev> marks,
+            Dictionary<ModMetaData, List<string>> perMod = null)
         {
             var res = new List<string>();
             int j;
@@ -1142,17 +1144,34 @@ namespace ModSortManager
                 foreach (string id in m.LoadBefore.Concat(m.ForceLoadBefore))
                     if (Present(list, id, out j) && j < i)
                     {
-                        res.Add("MSM_OrderBefore".Translate(m.Name, list[j].Name));
+                        string line = "MSM_OrderBefore".Translate(m.Name, list[j].Name);
+                        if (res.Contains(line)) continue;
+                        res.Add(line);
                         Mark(marks, m, Sev.Warn);
+                        Mark(marks, list[j], Sev.Warn);
+                        AddNote(perMod, m, "MSM_NoteBefore".Translate(list[j].Name));
+                        AddNote(perMod, list[j], "MSM_NoteAfter".Translate(m.Name));
                     }
                 foreach (string id in m.LoadAfter.Concat(m.ForceLoadAfter))
                     if (Present(list, id, out j) && j > i)
                     {
-                        res.Add("MSM_OrderAfter".Translate(m.Name, list[j].Name));
+                        string line = "MSM_OrderAfter".Translate(m.Name, list[j].Name);
+                        if (res.Contains(line)) continue;
+                        res.Add(line);
                         Mark(marks, m, Sev.Warn);
+                        Mark(marks, list[j], Sev.Warn);
+                        AddNote(perMod, m, "MSM_NoteAfter".Translate(list[j].Name));
+                        AddNote(perMod, list[j], "MSM_NoteBefore".Translate(m.Name));
                     }
             }
             return res;
+        }
+
+        private static void AddNote(Dictionary<ModMetaData, List<string>> d, ModMetaData m, string text)
+        {
+            if (d == null || m == null) return;
+            if (!d.TryGetValue(m, out var l)) d[m] = l = new List<string>();
+            if (!l.Contains(text)) l.Add(text);
         }
 
         public static void Mark(Dictionary<ModMetaData, Sev> marks, ModMetaData m, Sev s)

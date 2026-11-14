@@ -288,15 +288,20 @@ namespace ModSortManager
             }
 
             // load order rules
-            List<string> order = Sorter.OrderProblems(active, marks);
+            var orderNotes = new Dictionary<ModMetaData, List<string>>();
+            List<string> order = Sorter.OrderProblems(active, marks, orderNotes);
             if (order.Count > 0)
             {
+                // 0.7.1: every broken rule by name (which mod before which), how to fix it
                 var iss = new Issue { group = 1, sev = Sev.Warn, title = "MSM_OrderTitle".Translate(order.Count) };
-                iss.text = string.Join("\n", order.Take(8).Select(x => "• " + x).ToArray()) + (order.Count > 8 ? "\n…" : "");
+                iss.text = string.Join("\n", order.Take(30).Select(x => "• " + x).ToArray())
+                    + (order.Count > 30 ? "\n… +" + (order.Count - 30) : "")
+                    + "\n\n" + "MSM_OrderHow".Translate();
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_SmartSort".Translate(), SmartSort));
                 issues.Add(iss);
-                foreach (ModMetaData m in active)
-                    if (marks.ContainsKey(m) && marks[m] == Sev.Warn) Note(m, Sev.Warn, "MSM_NoteOrder".Translate());
+                foreach (var kv in orderNotes)
+                    foreach (string t in kv.Value)
+                        Note(kv.Key, Sev.Warn, t);
             }
 
             // made for an older game version
