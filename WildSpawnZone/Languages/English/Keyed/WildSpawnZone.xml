@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WSZ_Area>Wild animal spawn zone</WSZ_Area>
+  <WSZ_Expand>Expand wild spawn zone</WSZ_Expand>
+  <WSZ_ExpandDesc>Mark where wild animals appear. While the zone is not empty, new wild animals (also birds flying in) appear only inside it. Events like herd migrations or manhunters are not changed.</WSZ_ExpandDesc>
+  <WSZ_Clear>Shrink wild spawn zone</WSZ_Clear>
+  <WSZ_ClearDesc>Remove cells from the wild spawn zone. With an empty zone animals appear as usual in the game.</WSZ_ClearDesc>
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+  <WSZ_Rec1>Wild animals appear only in the spawn zone you paint (Zone menu).</WSZ_Rec1>
+  <WSZ_Rec2>Never inside the home area – no deer in your courtyard.</WSZ_Rec2>
+  <WSZ_Rec3>Animal numbers as in the game. Without a zone nothing changes.</WSZ_Rec3>
+  <WSZ_SecZone>Spawn zone</WSZ_SecZone>
+  <WSZ_SecAnimals>Wild animals</WSZ_SecAnimals>
+  <WSZ_Enabled>Animals appear only in the zone</WSZ_Enabled>
+  <WSZ_Enabled_Desc>While the zone has at least one cell, new wild animals appear only inside it. Off = like the game, the zone stays painted.</WSZ_Enabled_Desc>
+  <WSZ_AvoidHome>Never in the home area</WSZ_AvoidHome>
+  <WSZ_AvoidHome_Desc>Zone cells that are also in the home area are skipped – animals never appear in the middle of your base.</WSZ_AvoidHome_Desc>
+  <WSZ_Birds>Birds may fly in anywhere</WSZ_Birds>
+  <WSZ_Birds_Desc>Flying animals land wherever they like, as in the game. Off = birds also appear in the zone.</WSZ_Birds_Desc>
+  <WSZ_Density>Amount of wild animals: {0} %</WSZ_Density>
+  <WSZ_Density_Desc>How many wild animals live on the map and how fast they come. 100 % = like the game, 0 % = no new animals. Events (migrations, manhunters) are not changed.</WSZ_Density_Desc>
+  <WSZ_HowTo>Find the zone in the Zone menu → "Expand wild spawn zone". Paint it at the map edge or in a forest behind your walls.</WSZ_HowTo>
+</LanguageData>

@@ -1,0 +1,30 @@
+Power & Water Works – textures to make (Grok). Top-down, slightly angled RimWorld style, transparent background, PNG.
+128 px per cell. Rotatable buildings need _north, _east, _south (west = mirrored east).
+Put the files under Textures/ at the FINAL path, then change <texPath> (and <graphicClass>, remove <color>) in the Defs.
+
+FINAL texPath | size (cells) | rotatable | placeholder now | pixels
+Things/Item/PowerWaterWorks/FuelRod | item | no | Things/Item/Resource/Wastepack | 64x64 (_a/_b/_c stack variants or one 64x64 with Graphic_Single)
+Things/Item/PowerWaterWorks/FusionCell | item | no | Things/Item/Resource/SignalChip | 64x64
+Things/Item/PowerWaterWorks/CannedFood | item | no | Things/Item/Meal/SurvivalPack | 64x64
+Things/Building/PowerWaterWorks/DeepBorehole | 1x1 | no | DBH/Things/Building/Water/DeepWaterWell | 128x128
+Things/Building/PowerWaterWorks/DeepWellPump | 3x3 | no | DBH/Things/Building/Water/waterPumpingStation | 384x384
+Things/Building/PowerWaterWorks/WaterTreatment | 2x2 | no | DBH/Things/Building/Water/waterFiltration | 256x256
+Things/Building/PowerWaterWorks/Desalination | 3x3 | no | DBH/Things/Building/Spacer/WRS | 384x384
+Things/Building/PowerWaterWorks/WaterTower | 4x4 | no | DBH/Things/Building/Water/WaterTower | 512x512
+Things/Building/PowerWaterWorks/HydroPlant | 3x3 | yes | Things/Building/Misc/MoisturePump | 384x384
+Things/Building/PowerWaterWorks/BiogasPlant | 3x3 | no | Things/Building/Misc/GeneProcessor | 384x384
+Things/Building/PowerWaterWorks/DeepGeothermal | 4x4 | no | Things/Building/Misc/LongRangeMineralScanner | 512x512 (_north/_east/_south)
+Things/Building/PowerWaterWorks/Incinerator | 2x2 | no | Things/Building/Power/ToxifierGenerator | 256x256
+Things/Building/PowerWaterWorks/Diesel | 2x2 | no | Things/Building/Power/MechBooster | 256x256
+Things/Building/PowerWaterWorks/FissionReactor | 4x4 | no | Things/Building/Misc/MultiAnalyzer | 512x512
+Things/Building/PowerWaterWorks/CoolingTower | 3x3 | no | Things/Building/Misc/GroundPenetratingScanner | 384x384
+Things/Building/PowerWaterWorks/FusionReactor | 5x5 | no | Things/Building/Misc/BandNode | 640x640
+Things/Building/PowerWaterWorks/BigBattery | 3x2 | yes | Things/Building/Misc/WastepackAtomizer | 384x256 (_north/_east/_south)
+Things/Building/PowerWaterWorks/Flywheel | 1x1 | no | Things/Building/Production/PollutionPump | 128x128
+Things/Building/PowerWaterWorks/CircuitBreaker | 1x1 | no | Things/Building/Misc/FirefoamPopper | 128x128
+Things/Building/PowerWaterWorks/AutoStonecutter | 2x2 | no | Things/Building/Misc/GeneProcessor | 256x256
+Things/Building/PowerWaterWorks/InductionFurnace | 3x2 | yes | Things/Building/Misc/GeneAssembler/GeneAssembler | 384x256 (_north/_east/_south)
+Things/Building/PowerWaterWorks/ComponentLine | 3x2 | yes | Things/Building/Misc/WastepackAtomizer | 384x256 (_north/_east/_south)
+Things/Building/PowerWaterWorks/TextileMill | 3x2 | yes | Things/Building/Misc/GeneAssembler/GeneAssembler | 384x256 (_north/_east/_south)
+Things/Building/PowerWaterWorks/Cannery | 2x2 | no | Things/Building/Misc/GeneProcessor | 256x256
+Things/Building/PowerWaterWorks/Sprinkler | 1x1 | no | Things/Building/Production/PollutionPump | 128x128

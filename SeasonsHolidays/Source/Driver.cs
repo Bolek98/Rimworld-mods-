@@ -1,0 +1,180 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using RimWorld;
+using RimWorld.Planet;
+using UnityEngine;
+using Verse;
+
+namespace SeasonsHolidays
+{
+    // runs the calendar on every player home map: holidays, birthdays, seasonal moods, tips
+    public class SHMapComponent : MapComponent
+    {
+        public Fireworks fireworks = new Fireworks();
+        private static int lastDay = -1;
+
+        public SHMapComponent(Map map) : base(map) { }
+
+        public override void MapComponentTick()
+        {
+            try { fireworks.Tick(map); }
+            catch (Exception e) { Log.WarningOnce("[Seasons & Holidays] fireworks: " + e.Message, 0x5E4507); }   // 0.4.1: no longer silent
+            PlantColors.Tick(map);   // 0.3.0
+            if (Find.TickManager.TicksGame % 250 != 17 || !map.IsPlayerHome || SHMod.S == null) return;
+            try { Run(); }
+            catch (Exception e) { Log.WarningOnce("[Seasons & Holidays] " + e, 0x5E4501); }
+        }
+
+        private SHWorldComponent W => Find.World.GetComponent<SHWorldComponent>();
+
+        private bool Once(string key) => W != null && W.Mark(key + "|" + map.uniqueID);
+
+        private void Run()
+        {
+            long abs = Find.TickManager.TicksAbs;
+            int absDay = (int)(abs / 60000L);
+            // 0.2.1: the date readout refreshes its text only when the game's day of the twelfth
+            // changes – with a longer year that is every few days, so it is refreshed every day here
+            if (absDay != lastDay) { lastDay = absDay; if (YearClock.Days != 60) DatePatches.Reset(); }
+            if (Holidays.Colonists(map).Count == 0) return;
+            Activities.Tick(map);   // 0.4.0
+            int hour = GenLocalDate.HourOfDay(map);
+            Months.Now(map, out int month, out int day);
+            float lat = Find.WorldGrid.LongLatOf(map.Tile).y;
+            int climate = Months.ClimateMonth(month, lat);
+
+            // ---- holidays ----
+            if (SHMod.S.holidays)
+            {
+                DateTime now = DateTime.Now;
+                foreach (Holiday h in Holidays.All)
+                {
+                    if (!Holidays.On(h)) continue;
+                    bool today; string when;
+                    if (SHMod.S.realDate) { today = Holidays.IsRealToday(h, now); when = "R" + now.ToString("yyyyMMdd"); }
+                    else
+                    {
+                        Holidays.DateOf(h, GenDate.Year(abs, Find.WorldGrid.LongLatOf(map.Tile).x), out int hm, out int hd);
+                        today = hm == month && hd == day; when = absDay.ToString();
+                    }
+                    if (!today) continue;
+                    if (hour >= 8 && Once("M|" + h.id + "|" + when)) Morning(h, when);
+                    if (h.partyHour >= 0 && hour >= h.partyHour && hour < h.partyHour + 3 && SHMod.S.parties && Once("P|" + h.id + "|" + when)) Party(null);
+                    if (h.evening != null && hour >= h.eveningHour && Once("E|" + h.id + "|" + when)) h.evening(map);
+                }
+            }
+
+            // ---- birthdays ----
+            if (SHMod.S.birthdays && hour >= 9)
+            {
+                float lon0 = Find.WorldGrid.LongLatOf(map.Tile).x;
+                int doy = YearClock.DayOfYear(abs, lon0);
+                foreach (Pawn p in Holidays.Colonists(map))
+                {
+                    if (p.ageTracker == null || YearClock.DayOfYear(p.ageTracker.BirthAbsTicks, lon0) != doy) continue;
+                    if (!Once("B|" + p.thingIDNumber + "|" + absDay)) continue;
+                    Holidays.GiveThought(p, "SH_Birthday", 0);
+                    Messages.Message("SH_BirthdayMsg".Translate(p.LabelShort, p.ageTracker.AgeBiologicalYears), p, MessageTypeDefOf.PositiveEvent);
+                    if (SHMod.S.parties && hour < 20 && p.Awake() && !p.Downed && Rand.Chance(0.7f)) Party(p);
+                }
+            }
+
+            // ---- seasonal moods (the first day of the month, by the climate: south is turned around) ----
+            if (SHMod.S.seasonalMoods && day == 1 && hour >= 9)
+            {
+                string thought = climate == 3 ? "SH_SpringMood" : climate == 6 ? "SH_SummerEvenings" : (climate == 0 && SHMod.S.winterBlues ? "SH_WinterBlues" : null);
+                if (thought != null && Once("S|" + thought + "|" + absDay))
+                    foreach (Pawn p in Holidays.Colonists(map)) Holidays.GiveThought(p, thought, 0);
+            }
+
+            // ---- the first snow of the year ----
+            if (SHMod.S.seasonalMoods && map.weatherManager.curWeather != null && map.weatherManager.curWeather.snowRate > 0.1f)
+            {
+                int y = GenDate.Year(abs, Find.WorldGrid.LongLatOf(map.Tile).x);
+                if (Once("Snow|" + y))
+                {
+                    foreach (Pawn p in Holidays.Colonists(map)) Holidays.GiveThought(p, "SH_FirstSnow", 0);
+                    Messages.Message("SH_FirstSnowMsg".Translate(), MessageTypeDefOf.PositiveEvent);
+                }
+            }
+
+            // ---- 0.5.0: reminders, looking forward, seasonal events, decorations ----
+            try { SeasonEvents.Tick(map, month, day, hour, climate, absDay, Once); }
+            catch (Exception e) { Log.WarningOnce("[Seasons & Holidays] season events: " + e, 0x5E4508); }
+
+            // ---- tips: winter is coming / the growing season starts ----
+            if (SHMod.S.seasonTips && day == 3 && hour >= 10)
+            {
+                if (climate == 10 && Avg(month + 1) < 5f && Avg(month + 2) < 5f && Once("TW|" + absDay))
+                    Notify.Send("SH_TipWinterTitle".Translate(), "SH_TipWinter".Translate(Months.Name((month + 1) % 12), Avg(month + 2).ToStringTemperature("F0")), LetterDefOf.NeutralEvent);
+                if (climate == 2 && Avg(month + 1) > 6f && Once("TS|" + absDay))
+                    Notify.Send("SH_TipSpringTitle".Translate(), "SH_TipSpring".Translate(Months.Name((month + 1) % 12)), LetterDefOf.NeutralEvent);
+            }
+        }
+
+        private float Avg(int month) => GenTemperature.AverageTemperatureAtTileForTwelfth(map.Tile, Months.TwelfthOf(((month % 12) + 12) % 12));
+
+        private void Morning(Holiday h, string when)
+        {
+            // 0.3.0: a small day is only a short message
+            if (h.small)
+            {
+                Messages.Message(h.Label + ": " + ("SH_HL_" + h.id).Translate(), MessageTypeDefOf.NeutralEvent, false);
+                return;
+            }
+            var w = W;
+            if (w != null && w.Mark("C|" + h.id + "|" + when))
+                w.celebrated[h.id] = w.Count(h.id) + 1;
+            int stage = Tradition.Stage(h.id);
+            if (h.thought != null)
+            {
+                var ps = Holidays.Colonists(map);
+                float factor = SHMod.Mood(h.id);
+                foreach (Pawn p in ps)
+                {
+                    if (h.who != null && !h.who(p)) continue;
+                    Holidays.GiveThought(p, h.thought, stage, factor);
+                    if (w != null && factor > 0f) w.Enjoy(p, h.id);   // 0.5.0: remembered for next year
+                    // 0.5.0: family tradition – celebrated together with a partner, a parent or a child
+                    if (SHMod.S.traditions && SHMod.S.familyTradition && Family(p, ps))
+                        Holidays.GiveThought(p, "SH_FamilyTogether", Mathf.Clamp(Tradition.Count(h.id) - 1, 0, 2), factor);
+                }
+            }
+            try { h.morning?.Invoke(map); } catch (Exception e) { Log.Warning("[Seasons & Holidays] " + h.id + ": " + e.Message); }
+            try { Activities.Morning(map, h); } catch (Exception e) { Log.Warning("[Seasons & Holidays] activity " + h.id + ": " + e.Message); }   // 0.4.0
+            try { SeasonEvents.Visitors(map, h); } catch (Exception e) { Log.Warning("[Seasons & Holidays] visitors " + h.id + ": " + e.Message); }   // 0.5.0
+            string text = ("SH_HL_" + h.id).Translate();
+            int n = Tradition.Count(h.id);
+            if (SHMod.S.traditions && n >= 2) text += "\n\n" + "SH_TraditionNote".Translate(n);
+            if (SHMod.S.letters) Notify.Send(h.Label, text, LetterDefOf.PositiveEvent);
+            else Messages.Message(h.Label + ": " + text, MessageTypeDefOf.PositiveEvent);
+        }
+
+        private static bool Family(Pawn p, List<Pawn> ps)
+        {
+            if (p.relations == null) return false;
+            Pawn lover = LovePartnerRelationUtility.ExistingMostLikedLovePartner(p, false);
+            if (lover != null && ps.Contains(lover)) return true;
+            foreach (Pawn o in ps)
+            {
+                if (o == p) continue;
+                if (p.relations.DirectRelationExists(PawnRelationDefOf.Parent, o) || o.relations != null && o.relations.DirectRelationExists(PawnRelationDefOf.Parent, p)) return true;
+            }
+            return false;
+        }
+
+        private void Party(Pawn organizer)
+        {
+            if (Activities.GatheringRunning(map)) return;   // 0.4.0: an activity's gathering is already on
+            try
+            {
+                GatheringDef party = GatheringDefOf.Party;
+                if (party?.Worker == null) return;
+                if (organizer != null && party.Worker.CanExecute(map, organizer)) party.Worker.TryExecute(map, organizer);
+                else if (party.Worker.CanExecute(map)) party.Worker.TryExecute(map);
+            }
+            catch (Exception e) { Log.Warning("[Seasons & Holidays] party: " + e.Message); }
+        }
+    }
+}

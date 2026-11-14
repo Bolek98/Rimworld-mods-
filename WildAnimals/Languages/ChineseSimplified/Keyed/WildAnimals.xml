@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WA_Title>Wild Animals – 生物群系生成控制</WA_Title>
+  <WA_Bullet1>每个生物群系使用游戏自带的动物列表</WA_Bullet1>
+  <WA_Bullet2>最多每 8 小时出现一只新动物或一群</WA_Bullet2>
+  <WA_Bullet3>掠食者最多占 30 %,家园 30 格内不出现</WA_Bullet3>
+  <WA_Bullet4>稀有动物出现时发信件,狩猎压力警告</WA_Bullet4>
+  <WA_TabBiomes>生物群系</WA_TabBiomes>
+  <WA_TabRules>规则</WA_TabRules>
+  <WA_TabMap>本地图</WA_TabMap>
+  <WA_Presets>预设</WA_Presets>
+  <WA_PresetsTip>适用于所有生物群系的现成设置。</WA_PresetsTip>
+  <WA_Preset0>游戏列表,无限制</WA_Preset0>
+  <WA_Preset1>更多动物(×2,更快)</WA_Preset1>
+  <WA_Preset2>更少动物(×0.5,更慢)</WA_Preset2>
+  <WA_Preset3>和平(掠食者少,家园附近没有)</WA_Preset3>
+  <WA_PresetConfirm>使用预设“{0}”?你自己的生物群系列表和数值将被替换。</WA_PresetConfirm>
+  <WA_PresetDone>已使用预设:{0}</WA_PresetDone>
+  <WA_Share>分享代码</WA_Share>
+  <WA_ShareTip>将你的设置复制为文本代码,或粘贴朋友的代码。</WA_ShareTip>
+  <WA_ShareCopy>复制我的设置</WA_ShareCopy>
+  <WA_SharePaste>从剪贴板粘贴代码</WA_SharePaste>
+  <WA_SharePasteConfirm>用剪贴板中的代码替换你的设置?</WA_SharePasteConfirm>
+  <WA_ShareCopied>设置代码已复制到剪贴板。</WA_ShareCopied>
+  <WA_ShareBad>剪贴板中没有 Wild Animals 代码。</WA_ShareBad>
+  <WA_ShareRead>已读取代码:{0} 个条目。</WA_ShareRead>
+  <WA_SearchBiome>搜索生物群系…</WA_SearchBiome>
+  <WA_NAnimals>{0} 种动物 · 每张地图约 {1} 只</WA_NAnimals>
+  <WA_PickBiome>在左侧选择一个生物群系。</WA_PickBiome>
+  <WA_CopyFrom>从…复制列表</WA_CopyFrom>
+  <WA_ResetBiome>重置此生物群系</WA_ResetBiome>
+  <WA_Target>野生动物数量:250×250 地图上约 {0} 只(游戏:{1})</WA_Target>
+  <WA_Sizes>200×200 上约 {0} 只 · 300×300 上约 {1} 只</WA_Sizes>
+  <WA_ThisMap>你的地图当前:{0}</WA_ThisMap>
+  <WA_SearchAnimal>搜索动物或模组…</WA_SearchAnimal>
+  <WA_ShowAll>显示所有动物</WA_ShowAll>
+  <WA_ShowAllTip>来自游戏、DLC 和所有模组的每种野生动物——包括从不生活在此生物群系的。将数值设为大于 0 即可添加。</WA_ShowAllTip>
+  <WA_HCommon>常见度(到来比例)</WA_HCommon>
+  <WA_HCap>上限</WA_HCap>
+  <WA_HSeasons>季节</WA_HSeasons>
+  <WA_RareTip>稀有:到来时发送信件。</WA_RareTip>
+  <WA_NoAnimals>没有匹配的动物。</WA_NoAnimals>
+  <WA_Predator>掠食者</WA_Predator>
+  <WA_Coastal>仅限海岸</WA_Coastal>
+  <WA_NotNative>非本地物种</WA_NotNative>
+  <WA_MayFreeze>可能冻伤</WA_MayFreeze>
+  <WA_MayOverheat>可能中暑</WA_MayOverheat>
+  <WA_NoCap>无上限</WA_NoCap>
+  <WA_CapTip>地图上同时最多有这么多{0}(野生的)。适用于所有生物群系。</WA_CapTip>
+  <WA_S0>春</WA_S0>
+  <WA_S1>夏</WA_S1>
+  <WA_S2>秋</WA_S2>
+  <WA_S3>冬</WA_S3>
+  <WA_Season0>春季</WA_Season0>
+  <WA_Season1>夏季</WA_Season1>
+  <WA_Season2>秋季</WA_Season2>
+  <WA_Season3>冬季</WA_Season3>
+  <WA_SeasonTip>在{0}到来:点击切换。已在地图上的动物会留下。</WA_SeasonTip>
+  <WA_TempTip>仅当室外温度处于其舒适范围({0} 至 {1})内时才会到来。对非本地动物默认开启。</WA_TempTip>
+  <WA_SecSpawn>到来</WA_SecSpawn>
+  <WA_Enabled>控制野生动物到来</WA_Enabled>
+  <WA_EnabledTip>关 = 使用游戏自己的生成方式(你的生物群系列表会保留以备后用)。</WA_EnabledTip>
+  <WA_Respawn>最多每 {0} 出现一只新动物或一群(当地图低于目标数量时)</WA_Respawn>
+  <WA_RespawnTip>游戏使用隐藏的概率;在这里你设置每次到来之间的时间。</WA_RespawnTip>
+  <WA_Group>群体规模 ×{0}</WA_Group>
+  <WA_GroupTip>兽群和狼群变大或变小。</WA_GroupTip>
+  <WA_SecPredators>掠食者</WA_SecPredators>
+  <WA_PredMax>掠食者最多占野生动物的 {0} %</WA_PredMax>
+  <WA_PredMaxOff>掠食者:无限制</WA_PredMaxOff>
+  <WA_PredMaxTip>超过时只会到来非掠食者。</WA_PredMaxTip>
+  <WA_PredHome>居住区 {0} 格内不会出现掠食者</WA_PredHome>
+  <WA_PredHomeOff>掠食者可以在任何地方出现</WA_PredHomeOff>
+  <WA_PredHomeTip>以动物进入地图的位置判断。</WA_PredHomeTip>
+  <WA_SecInfo>信息</WA_SecInfo>
+  <WA_RareLetters>稀有动物到来时发送信件</WA_RareLetters>
+  <WA_RareLettersTip>稀有动物在生物群系列表中标有 ★(默认为敲击兽和其他非常稀有的动物)。</WA_RareLettersTip>
+  <WA_Pressure>狩猎压力警告</WA_Pressure>
+  <WA_PressureTip>当殖民地猎杀野生动物的速度快于新动物到来、地图逐渐变空时发出警告。</WA_PressureTip>
+  <WA_EventsNote>事件不受影响:猎杀人类的兽群、兽群迁徙、敲击兽来访等都与游戏一致。</WA_EventsNote>
+  <WA_Hours>{0} 小时</WA_Hours>
+  <WA_Days>{0} 天</WA_Days>
+  <WA_NoMap>载入存档后才能查看你地图上的动物。</WA_NoMap>
+  <WA_MapHead>{0}:{1} 只野生动物 / 目标 {2}</WA_MapHead>
+  <WA_MapOff>到来:游戏自己的方式</WA_MapOff>
+  <WA_MapFull>地图已满——目前没有动物到来</WA_MapFull>
+  <WA_MapNext>下一次到来最迟在 {0} 后</WA_MapNext>
+  <WA_MapSeason>季节:{0}</WA_MapSeason>
+  <WA_MapStats>最近 5 天:殖民地猎杀 {0} · 到来 {1} · 掠食者 {2}({3} %)</WA_MapStats>
+  <WA_HAnimal>动物</WA_HAnimal>
+  <WA_HNow>当前</WA_HNow>
+  <WA_HExpected>预期</WA_HExpected>
+  <WA_HState>会到来?</WA_HState>
+  <WA_StNotInList>不在此生物群系列表中</WA_StNotInList>
+  <WA_StSeason>不是此季节 / 太冷或太热</WA_StSeason>
+  <WA_StCap>已达上限</WA_StCap>
+  <WA_StOk>是</WA_StOk>
+  <WA_AlertLabel>狩猎压力</WA_AlertLabel>
+  <WA_AlertText>殖民地在最近 5 天猎杀了 {0} 只野生动物,只到来了 {1} 只。地图正在变空——少打猎,或在 Wild Animals 中设置更快的到来速度。</WA_AlertText>
+  <WA_RareTitle>稀有动物:{0}</WA_RareTitle>
+  <WA_RareText>一只稀有动物到来了:{0}。趁它离开之前——或在有人猎杀它之前——去看看吧。</WA_RareText>
+  <MUI_Title>推荐设置</MUI_Title>
+  <MUI_TitleOff>推荐设置 · 已关闭</MUI_TitleOff>
+  <MUI_DescOn>模组会自行配置并立即生效。适合新玩家和不想折腾设置的人。</MUI_DescOn>
+  <MUI_DescOff>自定义设置。与推荐值不同的项:{0}。</MUI_DescOff>
+  <MUI_DescOffSame>自定义设置。目前仍与推荐值一致。</MUI_DescOffSame>
+  <MUI_On>开</MUI_On>
+  <MUI_Off>关</MUI_Off>
+  <MUI_ResetAll>全部恢复为推荐值</MUI_ResetAll>
+  <MUI_ConfirmOn>启用推荐设置?你的改动({0})将被推荐值替换。</MUI_ConfirmOn>
+  <MUI_Locked>详细设置已锁定。想修改?请关闭上方开关——你的设置将从推荐值开始。</MUI_Locked>
+  <MUI_Changed>已改动</MUI_Changed>
+  <MUI_ChangedTip>与推荐值({0})不同。点击恢复推荐值。</MUI_ChangedTip>
+  <MUI_Yes>开</MUI_Yes>
+  <MUI_No>关</MUI_No>
+  <MUI_RecTag>推荐</MUI_RecTag>
+  <WA_EditNote>推荐设置已开启。修改下方任何内容都会将其关闭——你的数值将从推荐值开始。</WA_EditNote>
+  <WA_TempHeadTip>仅当室外温度适合该动物时才会到来。</WA_TempHeadTip>
+  <!-- 0.1.3 -->
+  <WA_ModAll>模组:全部</WA_ModAll>
+  <WA_ModFilter>模组:{0}</WA_ModFilter>
+  <WA_ModFilterTip>只显示某个模组的动物(搜索该模组的所有动物,而不仅是此生物群系的列表)。</WA_ModFilterTip>
+  <WA_BelongsHere>原生于此</WA_BelongsHere>
+  <WA_BelongsTip>在游戏本身中,这种动物属于此生物群系。它会一直留在列表中,即使为 0,方便你把它找回来。</WA_BelongsTip>
+  <WA_ResetMenu>重置… ▾</WA_ResetMenu>
+  <WA_ResetMenuTip>找回原生于此的动物,或将整个生物群系重置为游戏列表。</WA_ResetMenuTip>
+  <WA_RestoreNatives>找回原生于此的动物(其他改动保留)</WA_RestoreNatives>
+  <WA_RestoreNativesAll>找回原生动物——在所有生物群系中</WA_RestoreNativesAll>
+  <WA_RestoreDone>{0} 种动物已回到{1}。</WA_RestoreDone>
+  <WA_RestoreDoneAll>{0} 种动物已回到 {1} 个生物群系。</WA_RestoreDoneAll>
+  <WA_NativesZero>{0} 种原生于此生物群系的动物数值为 0。</WA_NativesZero>
+  <WA_RestoreNow>把它们找回来</WA_RestoreNow>
+  <WA_Pets>也包括家养动物(狗、猫和其他宠物)</WA_Pets>
+  <WA_PetsTip>游戏从不让家养动物生活在野外。开:来自任何模组的狗、猫和其他宠物会出现在生物群系列表中(“显示所有动物”或搜索),并可像其他动物一样设置比例——它们会以流浪的野生动物身份到来。关:它们被排除在外,即使仍在列表中。</WA_PetsTip>
+</LanguageData>

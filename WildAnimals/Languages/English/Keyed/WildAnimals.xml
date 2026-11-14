@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WA_Title>Wild Animals – Biome Spawn Control</WA_Title>
+  <WA_Bullet1>The game's animal lists in every biome</WA_Bullet1>
+  <WA_Bullet2>A new animal or group at most every 8 hours</WA_Bullet2>
+  <WA_Bullet3>Predators at most 30 %, none within 30 cells of home</WA_Bullet3>
+  <WA_Bullet4>Letters for rare animals, hunting-pressure warning</WA_Bullet4>
+  <WA_TabBiomes>Biomes</WA_TabBiomes>
+  <WA_TabRules>Rules</WA_TabRules>
+  <WA_TabMap>This map</WA_TabMap>
+  <WA_Presets>Presets</WA_Presets>
+  <WA_PresetsTip>Ready-made settings for all biomes.</WA_PresetsTip>
+  <WA_Preset0>Game's lists, no limits</WA_Preset0>
+  <WA_Preset1>More animals (×2, faster)</WA_Preset1>
+  <WA_Preset2>Fewer animals (×0.5, slower)</WA_Preset2>
+  <WA_Preset3>Peaceful (few predators, none near home)</WA_Preset3>
+  <WA_PresetConfirm>Use the preset "{0}"? Your own biome lists and numbers are replaced.</WA_PresetConfirm>
+  <WA_PresetDone>Preset used: {0}</WA_PresetDone>
+  <WA_Share>Share code</WA_Share>
+  <WA_ShareTip>Copy your settings as a text code or paste a code from a friend.</WA_ShareTip>
+  <WA_ShareCopy>Copy my settings</WA_ShareCopy>
+  <WA_SharePaste>Paste a code from the clipboard</WA_SharePaste>
+  <WA_SharePasteConfirm>Replace your settings with the code from the clipboard?</WA_SharePasteConfirm>
+  <WA_ShareCopied>Settings code copied to the clipboard.</WA_ShareCopied>
+  <WA_ShareBad>The clipboard has no Wild Animals code.</WA_ShareBad>
+  <WA_ShareRead>Code read: {0} entries.</WA_ShareRead>
+  <WA_SearchBiome>Search a biome…</WA_SearchBiome>
+  <WA_NAnimals>{0} animals · ~{1} on a map</WA_NAnimals>
+  <WA_PickBiome>Pick a biome on the left.</WA_PickBiome>
+  <WA_CopyFrom>Copy list from…</WA_CopyFrom>
+  <WA_ResetBiome>Reset this biome</WA_ResetBiome>
+  <WA_Target>How many wild animals: about {0} on a 250×250 map (game: {1})</WA_Target>
+  <WA_Sizes>about {0} on 200×200 · about {1} on 300×300</WA_Sizes>
+  <WA_ThisMap>your map now: {0}</WA_ThisMap>
+  <WA_SearchAnimal>Search an animal or mod…</WA_SearchAnimal>
+  <WA_ShowAll>Show every animal</WA_ShowAll>
+  <WA_ShowAllTip>Every wild animal from the game, DLCs and all mods – also ones that never live in this biome. Give one a value above 0 to add it.</WA_ShowAllTip>
+  <WA_HCommon>How common (share of arrivals)</WA_HCommon>
+  <WA_HCap>Limit</WA_HCap>
+  <WA_HSeasons>Seasons</WA_HSeasons>
+  <WA_RareTip>Rare: a letter when one arrives.</WA_RareTip>
+  <WA_NoAnimals>No animals match.</WA_NoAnimals>
+  <WA_Predator>predator</WA_Predator>
+  <WA_Coastal>coast only</WA_Coastal>
+  <WA_NotNative>not native here</WA_NotNative>
+  <WA_MayFreeze>may freeze</WA_MayFreeze>
+  <WA_MayOverheat>may overheat</WA_MayOverheat>
+  <WA_NoCap>No limit</WA_NoCap>
+  <WA_CapTip>At most this many {0} on the map at once (wild ones). Applies in every biome.</WA_CapTip>
+  <WA_S0>Sp</WA_S0>
+  <WA_S1>Su</WA_S1>
+  <WA_S2>Fa</WA_S2>
+  <WA_S3>Wi</WA_S3>
+  <WA_Season0>spring</WA_Season0>
+  <WA_Season1>summer</WA_Season1>
+  <WA_Season2>fall</WA_Season2>
+  <WA_Season3>winter</WA_Season3>
+  <WA_SeasonTip>Arrives in {0}: click to switch. Animals already on the map stay.</WA_SeasonTip>
+  <WA_TempTip>Only arrives when the outdoor temperature is within its comfortable range ({0} to {1}). On by default for animals that are not native to the biome.</WA_TempTip>
+  <WA_SecSpawn>Arrivals</WA_SecSpawn>
+  <WA_Enabled>Control wild animal arrivals</WA_Enabled>
+  <WA_EnabledTip>Off = the game's own spawning (your biome lists are kept for later).</WA_EnabledTip>
+  <WA_Respawn>A new animal or group at most every {0} (while the map is below its number)</WA_Respawn>
+  <WA_RespawnTip>The game uses a hidden chance; here you set the time between arrivals.</WA_RespawnTip>
+  <WA_Group>Group size ×{0}</WA_Group>
+  <WA_GroupTip>Herds and packs are bigger or smaller.</WA_GroupTip>
+  <WA_SecPredators>Predators</WA_SecPredators>
+  <WA_PredMax>Predators at most {0} % of the wild animals</WA_PredMax>
+  <WA_PredMaxOff>Predators: no limit</WA_PredMaxOff>
+  <WA_PredMaxTip>When there are more, only non-predators arrive.</WA_PredMaxTip>
+  <WA_PredHome>No predator arrives within {0} cells of the home area</WA_PredHome>
+  <WA_PredHomeOff>Predators may arrive anywhere</WA_PredHomeOff>
+  <WA_PredHomeTip>Checked where the animal enters the map.</WA_PredHomeTip>
+  <WA_SecInfo>Information</WA_SecInfo>
+  <WA_RareLetters>Letter when a rare animal arrives</WA_RareLetters>
+  <WA_RareLettersTip>Rare animals are marked with ★ in the biome list (thrumbos and other very rare ones by default).</WA_RareLettersTip>
+  <WA_Pressure>Hunting-pressure warning</WA_Pressure>
+  <WA_PressureTip>Warns when the colony kills wild animals faster than new ones arrive and the map is getting empty.</WA_PressureTip>
+  <WA_EventsNote>Events are not changed: manhunter packs, herd migrations, thrumbo visits and others work as in the game.</WA_EventsNote>
+  <WA_Hours>{0} h</WA_Hours>
+  <WA_Days>{0} days</WA_Days>
+  <WA_NoMap>Load a game to see the animals on your map.</WA_NoMap>
+  <WA_MapHead>{0}: {1} wild animals / target {2}</WA_MapHead>
+  <WA_MapOff>Arrivals: the game's own</WA_MapOff>
+  <WA_MapFull>The map is full – no arrivals now</WA_MapFull>
+  <WA_MapNext>Next arrival in {0} at the latest</WA_MapNext>
+  <WA_MapSeason>Season: {0}</WA_MapSeason>
+  <WA_MapStats>Last 5 days: killed by the colony {0} · arrived {1} · predators {2} ({3} %)</WA_MapStats>
+  <WA_HAnimal>Animal</WA_HAnimal>
+  <WA_HNow>Now</WA_HNow>
+  <WA_HExpected>Expected</WA_HExpected>
+  <WA_HState>Arrives?</WA_HState>
+  <WA_StNotInList>not in this biome's list</WA_StNotInList>
+  <WA_StSeason>not this season / too cold or hot</WA_StSeason>
+  <WA_StCap>cap reached</WA_StCap>
+  <WA_StOk>yes</WA_StOk>
+  <WA_AlertLabel>Hunting pressure</WA_AlertLabel>
+  <WA_AlertText>The colony killed {0} wild animals in the last 5 days, only {1} arrived. The map is getting empty – hunt less, or set faster arrivals in Wild Animals.</WA_AlertText>
+  <WA_RareTitle>Rare animal: {0}</WA_RareTitle>
+  <WA_RareText>A rare animal has arrived: {0}. Take a look before it leaves – or before someone hunts it.</WA_RareText>
+  <MUI_Title>Recommended settings</MUI_Title>
+  <MUI_TitleOff>Recommended settings · off</MUI_TitleOff>
+  <MUI_DescOn>The mod sets itself up and works right away. Ideal for new players and anyone who does not want to tweak anything.</MUI_DescOn>
+  <MUI_DescOff>Custom settings. Changed from recommended: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Custom settings. Still the same as recommended.</MUI_DescOffSame>
+  <MUI_On>ON</MUI_On>
+  <MUI_Off>OFF</MUI_Off>
+  <MUI_ResetAll>Reset all to recommended</MUI_ResetAll>
+  <MUI_ConfirmOn>Turn recommended settings on? Your changes ({0}) will be replaced with the recommended values.</MUI_ConfirmOn>
+  <MUI_Locked>Detailed settings are locked. Want to change them? Turn off the switch above – your values start from the recommended ones.</MUI_Locked>
+  <MUI_Changed>CHANGED</MUI_Changed>
+  <MUI_ChangedTip>Differs from the recommended setting ({0}). Click to restore the recommended value.</MUI_ChangedTip>
+  <MUI_Yes>on</MUI_Yes>
+  <MUI_No>off</MUI_No>
+  <MUI_RecTag>RECOMMENDED</MUI_RecTag>
+  <WA_EditNote>Recommended settings are on. Change anything below and they switch off – your values start from the recommended ones.</WA_EditNote>
+  <WA_TempHeadTip>Only arrives when the outdoor temperature suits the animal.</WA_TempHeadTip>
+  <!-- 0.1.3 -->
+  <WA_ModAll>Mod: all</WA_ModAll>
+  <WA_ModFilter>Mod: {0}</WA_ModFilter>
+  <WA_ModFilterTip>Show only the animals of one mod (searches every animal of that mod, not only this biome's list).</WA_ModFilterTip>
+  <WA_BelongsHere>belongs here</WA_BelongsHere>
+  <WA_BelongsTip>This animal belongs to this biome in the game itself. It always stays in the list, even at 0, so you can bring it back.</WA_BelongsTip>
+  <WA_ResetMenu>Reset… ▾</WA_ResetMenu>
+  <WA_ResetMenuTip>Bring back the animals that belong here, or reset the whole biome to the game's list.</WA_ResetMenuTip>
+  <WA_RestoreNatives>Bring back the animals that belong here (other changes stay)</WA_RestoreNatives>
+  <WA_RestoreNativesAll>Bring back the animals that belong there – in every biome</WA_RestoreNativesAll>
+  <WA_RestoreDone>{0} animals are back in {1}.</WA_RestoreDone>
+  <WA_RestoreDoneAll>{0} animals are back in {1} biomes.</WA_RestoreDoneAll>
+  <WA_NativesZero>{0} animals that belong to this biome are at 0.</WA_NativesZero>
+  <WA_RestoreNow>Bring them back</WA_RestoreNow>
+  <WA_Pets>Domestic animals too (dogs, cats, other pets)</WA_Pets>
+  <WA_PetsTip>The game never lets domestic animals live in the wild. On: dogs, cats and other pets from any mod show up in the biome lists ("Show every animal" or search) and can be given a share there like any other animal – they then come as stray, wild animals. Off: they are left out, even if they are still in a list.</WA_PetsTip>
+</LanguageData>

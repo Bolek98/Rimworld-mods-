@@ -1,0 +1,43 @@
+=== Workshop release 1.0.0 (14 Nov 2026) ===
+1.0.0
+- First Workshop release.
+- CZ: První vydání na Workshopu.
+
+=== Development history before the first Workshop release (test versions) ===
+0.5.0
+- Big update: activities for the 9 world holidays (red lanterns and envelopes, Holi colour fight, Diwali lamps, mooncakes, altar of the dead, Founders' Day speech, green party, Oktoberfest beer contest, St. Martin's lantern walk and goose); holiday food and drinks at the stove with a seasonal mood bonus; buildable decorations (wreath, light garland, carved pumpkin, maypole, minifiable Christmas tree) with a pack-away reminder; calendar day details with Celebrate and birthday party buttons, upcoming list and reminders; holidays by culture (tribal: spring equinox, Yule) and holiday visitors with gifts; spring thaw, harvest market, cozy winter evenings, summer insects; looking forward to holidays and family tradition bonus; per-holiday mood strength and quiet mode.
+- Velká aktualizace: zábava pro 9 svátků světa (červené lucerny a obálky, bitva barev o Holi, lampičky o Diválí, měsíční koláčky, oltář mrtvých, proslov ke Dni založení, zelená oslava, pivní soutěž na Oktoberfestu, svatomartinský průvod a husa); sváteční jídlo a pití u sporáku s bonusem v sezóně; dekorace ke stavění (věnec, světelný řetěz, vyřezaná dýně, májka, složitelný stromek) s připomenutím úklidu; podrobnosti dne v kalendáři s tlačítky Oslavit a Narozeninová oslava, přehled nadcházejících a připomenutí; svátky podle kultury (kmenové: rovnodennost, slunovrat) a sváteční návštěvy s dárky; jarní tání, dožínkový trh, útulné zimní večery, letní komáři; těšení na svátky a rodinná tradice; síla nálady pro každý svátek a tichý režim.
+
+0.4.1
+- Fixes: the longer year no longer changes dates outside a running game; plant colours are safe with the game's drawing threads; New Year's resolutions cost less performance; one failing part no longer switches the other holiday effects off; the Recommended settings card shows proper texts.
+- Opravy: delší rok už nemění data mimo rozehranou hru; barvy rostlin jsou bezpečné s vlákny, která hra používá ke kreslení; novoroční předsevzetí méně zatěžují hru; jedna nefunkční část už nevypne ostatní účinky svátků; karta Doporučeného nastavení ukazuje správné texty.
+
+0.4.0
+- Holiday activities: on a holiday morning a letter offers something to do – an egg hunt, burning the witch, a maypole the neighbours may steal, Midsummer herbs, a harvest wreath, Halloween lanterns and trick-or-treaters, carols at the Christmas tree and more – and the colonists do it themselves.
+- Sváteční činnosti: ráno o svátku nabídne dopis, co dělat – hledání vajíček, pálení čarodějnic, máj, kterou můžou sousedé ukrást, svatojánské byliny, dožínkový věnec, halloweenské lucerny a koledníky, koledy u vánočního stromečku a další – a kolonisté to udělají sami.
+- New Year's resolutions (one skill learned faster for a season), St. Nicholas with the angel and the devil (gifts or coal), candles at the graves, a New Year hangover.
+- Novoroční předsevzetí (jedna dovednost se celou sezónu učí rychleji), Mikuláš s andělem a čertem (dárky, nebo uhlí), svíčky na hrobech, novoroční kocovina.
+- A buildable Christmas tree – the presents lie under it – a holiday trader at Christmas and Easter, and a 'Celebrate' button in the calendar.
+- Vánoční stromeček ke stavění (dárky leží pod ním), sváteční obchodník o Vánocích a Velikonocích a tlačítko „Oslavit“ v kalendáři.
+
+0.3.0
+- Plants change colour with the seasons (looks only): leafy trees turn yellow, orange and red in autumn and bare in winter, each tree a bit earlier or later; conifers stay green; wild grass turns straw-coloured; nothing changes in the tropics. Growth, temperatures, raids and traders are not affected.
+- Seven new weathers where the climate fits: aurora, blizzard, freezing rain, hailstorm, heat haze, sandstorm and monsoon rain (switch: New weathers).
+- World holiday packs, each can be switched off: Asia (Lunar New Year, Holi, Diwali, Mid-Autumn), the Americas (Day of the Dead, Founders' Day), more of Europe (St. Patrick, Oktoberfest, St. Martin) and small days as short messages (Pi Day, Towel Day, Cat Day …).
+- Rostliny se barví podle ročního období (jen vzhled): listnaté stromy na podzim žloutnou, oranžoví a rudnou a v zimě jsou holé, každý strom trochu dřív nebo později; jehličnany zůstávají zelené; divoká tráva zesláme; v tropech se nic nemění. Růst, teploty, nájezdy ani obchodníci se nemění.
+- Sedm nových počasí tam, kde to podnebí sedí: polární záře, vánice, mrznoucí déšť, krupobití, parno, písečná bouře a monzunový liják (přepínač Nová počasí).
+- Balíčky svátků ze světa, každý jde vypnout: Asie (Lunární Nový rok, Holi, Diválí, svátek středu podzimu), Amerika (Den mrtvých, Den založení), další Evropa (sv. Patrik, Oktoberfest, sv. Martin) a malé dny jako krátké zprávy (Den pí, Den ručníků, Den koček …).
+
+0.2.2
+- Fix: "from year 0 / year 1" showed a negative year (-5484) together with mods that change the year numbering themselves (Start Date). The starting year is now counted the same way as today's year.
+
+0.2.1
+- Fix: with a longer year the date at the bottom right is refreshed every day (it changed only every few days).
+
+0.2.0
+- Length of the year (settings): 60 days (the game's year), 120, 180 or 365. With a longer year the seasons, the date and the seasonal temperature run slower – 365 days give real months (31 January …) and long seasons. Holidays move to their real dates (Easter computed), the calendar tab shows the right number of days. Changing it in a running game keeps today's season.
+- Optional: colonists age with the calendar year (on by default when the year is longer).
+
+0.1.0
+- First version: 12 months, 15 real holidays with moods, parties, gifts and events, traditions, birthdays, seasonal moods, weather by month, three new weathers, calendar tab, year numbering from 0 or 1, holidays by the real date (option).
+

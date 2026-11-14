@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_SetMeltdown>Расплавление реактора</PWW_SetMeltdown>
+  <PWW_SetMeltdownTip>Выкл.: при 100 % нагрева ядерный реактор отключается сам. Вкл.: он взрывается, и токсичные осадки покрывают карту на 3 дня.</PWW_SetMeltdownTip>
+  <PWW_SetHydroWinter>ГЭС слабее, когда река замерзает</PWW_SetHydroWinter>
+  <PWW_SetHydroWinterTip>Ниже −2 °C снаружи ГЭС даёт только 40 % своей мощности.</PWW_SetHydroWinterTip>
+  <PWW_SetAutoLow>Автозапуск дизеля: включать ниже {0} % запасённой энергии</PWW_SetAutoLow>
+  <PWW_SetAutoHigh>… и выключать выше {0} %</PWW_SetAutoHigh>
+  <PWW_BreakerTrippedLabel>Сработал автомат</PWW_BreakerTrippedLabel>
+  <PWW_BreakerTripped>В сети произошло короткое замыкание, но автомат сработал вовремя – ни взрыва, ни пожара. Часть сети за автоматом теперь без тока, пока вы снова не включите автомат.</PWW_BreakerTripped>
+  <PWW_HydroFrozen>Река замёрзла: 40 % мощности</PWW_HydroFrozen>
+  <PWW_HydroGround>Клетки, которые не стоят на текущей воде, должны быть на твёрдой земле.</PWW_HydroGround>
+  <PWW_NeedSea>Должна стоять не далее 3 клеток от моря.</PWW_NeedSea>
+  <PWW_MeltdownLabel>Расплавление реактора!</PWW_MeltdownLabel>
+  <PWW_Meltdown>Ядерный реактор перегрелся и взорвался. Над всей областью выпадают токсичные осадки.</PWW_Meltdown>
+  <PWW_Scrammed>Реактор аварийно остановлен (SCRAM).</PWW_Scrammed>
+  <PWW_Scram>SCRAM</PWW_Scram>
+  <PWW_ScramDesc>Немедленно остановить реактор. Он остынет, и позже его можно снова включить.</PWW_ScramDesc>
+  <PWW_ReactorHeat>Нагрев: {0} % · охлаждение {1} / нагрев {2} в час</PWW_ReactorHeat>
+  <PWW_HeatLabel>Нагрев реактора</PWW_HeatLabel>
+  <PWW_AutoStart>Автозапуск</PWW_AutoStart>
+  <PWW_AutoStartDesc>Включает генератор, когда заряд батарей сети падает ниже {0} %, и выключает выше {1} %. Без батарей работает, пока сети нужно больше энергии. Пороги – в настройках мода.</PWW_AutoStartDesc>
+  <PWW_StonecutterIdle>Ждёт каменные обломки рядом с собой.</PWW_StonecutterIdle>
+  <PWW_StonecutterWork>Распил: {0}</PWW_StonecutterWork>
+  <PWW_GridOverview>Обзор сети</PWW_GridOverview>
+  <PWW_GridOverviewDesc>Выработка, потребление и запасённая энергия этой электросети за последние 24 часа.</PWW_GridOverviewDesc>
+  <PWW_GridNone>Не подключено к сети.</PWW_GridNone>
+  <PWW_GridGen>Выработка: {0} Вт</PWW_GridGen>
+  <PWW_GridUse>Потребление: {0} Вт</PWW_GridUse>
+  <PWW_GridBalance>Баланс: {0} Вт</PWW_GridBalance>
+  <PWW_GridStored>Запасено: {0} / {1} Вт·д</PWW_GridStored>
+  <PWW_GridWait>График заполняется раз в игровой час.</PWW_GridWait>
+  <PWW_Grid24h>последние 24 часа · зелёный – выработка · оранжевый – потребление · синий – запас</PWW_Grid24h>
+</LanguageData>

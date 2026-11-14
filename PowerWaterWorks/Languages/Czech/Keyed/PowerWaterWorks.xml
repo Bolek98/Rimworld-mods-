@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_SetMeltdown>Roztavení reaktoru</PWW_SetMeltdown>
+  <PWW_SetMeltdownTip>Vypnuto: při 100 % tepla se jaderný reaktor sám odstaví. Zapnuto: vybuchne a mapu na 3 dny pokryje toxický spad.</PWW_SetMeltdownTip>
+  <PWW_SetHydroWinter>Vodní elektrárny slabší, když řeka zamrzne</PWW_SetHydroWinter>
+  <PWW_SetHydroWinterTip>Při venkovní teplotě pod −2 °C dává vodní elektrárna jen 40 % výkonu.</PWW_SetHydroWinterTip>
+  <PWW_SetAutoLow>Automatický start dieselu: zapnout pod {0} % uložené energie</PWW_SetAutoLow>
+  <PWW_SetAutoHigh>… a vypnout nad {0} %</PWW_SetAutoHigh>
+  <PWW_BreakerTrippedLabel>Vypadl jistič</PWW_BreakerTrippedLabel>
+  <PWW_BreakerTripped>Do sítě udeřil zkrat, ale jistič včas vypadl – žádný výbuch, žádný požár. Část sítě za jističem je teď bez proudu, dokud jistič znovu nezapneš.</PWW_BreakerTripped>
+  <PWW_HydroFrozen>Řeka zamrzlá: 40 % výkonu</PWW_HydroFrozen>
+  <PWW_HydroGround>Políčka, která nejsou na tekoucí vodě, potřebují pevnou zem.</PWW_HydroGround>
+  <PWW_NeedSea>Musí stát do 3 políček od moře.</PWW_NeedSea>
+  <PWW_MeltdownLabel>Roztavení reaktoru!</PWW_MeltdownLabel>
+  <PWW_Meltdown>Jaderný reaktor se přehřál a vybuchl. Na celou oblast padá toxický spad.</PWW_Meltdown>
+  <PWW_Scrammed>Reaktor odstaven (SCRAM).</PWW_Scrammed>
+  <PWW_Scram>SCRAM</PWW_Scram>
+  <PWW_ScramDesc>Okamžitě odstaví reaktor. Vychladne a později ho jde znovu zapnout.</PWW_ScramDesc>
+  <PWW_ReactorHeat>Teplo: {0} % · chlazení {1} / ohřev {2} za hodinu</PWW_ReactorHeat>
+  <PWW_HeatLabel>Teplo reaktoru</PWW_HeatLabel>
+  <PWW_AutoStart>Automatický start</PWW_AutoStart>
+  <PWW_AutoStartDesc>Zapne generátor, když baterie v síti klesnou pod {0} %, a vypne ho nad {1} %. Bez baterií běží, dokud síť potřebuje víc proudu. Meze jsou v nastavení modu.</PWW_AutoStartDesc>
+  <PWW_StonecutterIdle>Čeká na kamenné úlomky vedle sebe.</PWW_StonecutterIdle>
+  <PWW_StonecutterWork>Řeže: {0}</PWW_StonecutterWork>
+  <PWW_GridOverview>Přehled sítě</PWW_GridOverview>
+  <PWW_GridOverviewDesc>Výroba, spotřeba a uložená energie této elektrické sítě, i za posledních 24 hodin.</PWW_GridOverviewDesc>
+  <PWW_GridNone>Není připojeno k síti.</PWW_GridNone>
+  <PWW_GridGen>Výroba: {0} W</PWW_GridGen>
+  <PWW_GridUse>Spotřeba: {0} W</PWW_GridUse>
+  <PWW_GridBalance>Bilance: {0} W</PWW_GridBalance>
+  <PWW_GridStored>Uloženo: {0} / {1} Wd</PWW_GridStored>
+  <PWW_GridWait>Graf se plní jednou za herní hodinu.</PWW_GridWait>
+  <PWW_Grid24h>posledních 24 hodin · zelená výroba · oranžová spotřeba · modrá uloženo</PWW_Grid24h>
+</LanguageData>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_FuelRod.label>топливный стержень</PWW_FuelRod.label>
+  <PWW_FuelRod.description>Запечатанный стержень из обогащённого урана. Топливо для ядерного реактора; одного хватает примерно на день.</PWW_FuelRod.description>
+  <PWW_FusionCell.label>термоядерный элемент</PWW_FusionCell.label>
+  <PWW_FusionCell.description>Магнитный топливный элемент для термоядерного реактора. Одного хватает примерно на пять дней.</PWW_FusionCell.description>
+  <PWW_CannedFood.label>консервы</PWW_CannedFood.label>
+  <PWW_CannedFood.description>Сырая еда, приготовленная и запаянная в жестяную банку. Никогда не портится и хорошо хранится даже под открытым небом.</PWW_CannedFood.description>
+  <PWW_DeepBorehole.label>глубокая скважина</PWW_DeepBorehole.label>
+  <PWW_DeepBorehole.description>Скважина, пробуренная глубоко ниже уровня грунтовых вод. Достигает очень большой области чистых подземных вод (радиус 22), которую могут использовать насосы; загрязнение на неё не влияет.</PWW_DeepBorehole.description>
+  <PWW_DeepWellPump.label>насос высокой мощности</PWW_DeepWellPump.label>
+  <PWW_DeepWellPump.description>Качает воду из скважин в водонапорные башни: 30 000 л в день.</PWW_DeepWellPump.description>
+  <PWW_WaterTreatment.label>компактная станция водоочистки</PWW_WaterTreatment.label>
+  <PWW_WaterTreatment.description>Очищает воду в башнях и воду, используемую сантехникой, как обычная станция водоочистки, но потребляет вдвое меньше энергии.</PWW_WaterTreatment.description>
+  <PWW_Desalination.label>опреснительная установка</PWW_Desalination.label>
+  <PWW_Desalination.description>Делает пресную воду из морской и наполняет собственный бак (около 15 000 л в день при наличии энергии). Должна стоять не далее 3 клеток от моря.</PWW_Desalination.description>
+  <PWW_WaterTower.label>гигантская водонапорная башня</PWW_WaterTower.label>
+  <PWW_WaterTower.description>Вмещает 150 000 л воды. При отключении энергии ещё долго поддерживает воду в кранах.</PWW_WaterTower.description>
+  <PWW_HydroPlant.label>гидроэлектростанция</PWW_HydroPlant.label>
+  <PWW_HydroPlant.description>Небольшая русловая электростанция с несколькими турбинами. Минимум три её клетки должны стоять на текущей воде, остальные на твёрдой земле. Даёт стабильную энергию днём и ночью; когда река замерзает в суровую зиму, даёт только 40 %.</PWW_HydroPlant.description>
+  <PWW_BiogasPlant.label>биогазовая установка</PWW_BiogasPlant.label>
+  <PWW_BiogasPlant.description>Сбраживает сырую еду, мясо, растительную массу и (с Dubs Bad Hygiene) фекальный ил в газ, который приводит в действие генератор.</PWW_BiogasPlant.description>
+  <PWW_DeepGeothermal.label>глубинная геотермальная электростанция</PWW_DeepGeothermal.label>
+  <PWW_DeepGeothermal.description>Бурит на километры вглубь до горячей породы – паровой гейзер не нужен. Очень дорогая, но даёт много энергии вечно.</PWW_DeepGeothermal.description>
+  <PWW_Incinerator.label>мусоросжигательный генератор</PWW_Incinerator.label>
+  <PWW_Incinerator.description>Сжигает каменные обломки и стальной шлак при очень высокой температуре и превращает тепло в энергию. Заодно прибирает базу.</PWW_Incinerator.description>
+  <PWW_Diesel.label>дизельный генератор</PWW_Diesel.label>
+  <PWW_Diesel.description>Сжигает химтопливо. С включённым «Автозапуском» сам включается, когда батареи его сети разряжаются, и снова выключается, когда они полны – резерв, работающий только при необходимости.</PWW_Diesel.description>
+  <PWW_FissionReactor.label>ядерный реактор</PWW_FissionReactor.label>
+  <PWW_FissionReactor.description>Компактный ядерный реактор на топливных стержнях. Огромная стабильная мощность, но он нагревается: нужны работающие градирни в пределах 10 клеток. При 100 % нагрева отключается сам (или расплавляется, если это включено в настройках). Кнопка SCRAM немедленно его останавливает.</PWW_FissionReactor.description>
+  <PWW_CoolingTower.label>градирня</PWW_CoolingTower.label>
+  <PWW_CoolingTower.description>Охлаждает ядерный реактор в пределах 10 клеток. На один реактор достаточно одной работающей градирни.</PWW_CoolingTower.description>
+  <PWW_FusionReactor.label>термоядерный реактор</PWW_FusionReactor.label>
+  <PWW_FusionReactor.description>Термоядерный реактор космической эпохи. Огромная мощность от термоядерного элемента, которого хватает на много дней. Безопасен – не может расплавиться.</PWW_FusionReactor.description>
+  <PWW_BigBattery.label>большая батарея</PWW_BigBattery.label>
+  <PWW_BigBattery.description>Набор промышленных элементов: хранит 6000 Вт·д и теряет меньше энергии, чем малые батареи.</PWW_BigBattery.description>
+  <PWW_Flywheel.label>маховик</PWW_Flywheel.label>
+  <PWW_Flywheel.description>Дешёвый механический накопитель на 300 Вт·д. Хорош для коротких перебоев, но каждый день теряет 10 % энергии.</PWW_Flywheel.description>
+  <PWW_CircuitBreaker.label>автомат</PWW_CircuitBreaker.label>
+  <PWW_CircuitBreaker.description>Работает как выключатель. При коротком замыкании в любом месте его сети вместо этого срабатывает автомат – ни взрыва, ни пожара. Обратно включается вручную.</PWW_CircuitBreaker.description>
+  <PWW_AutoStonecutter.label>автоматический камнерез</PWW_AutoStonecutter.label>
+  <PWW_AutoStonecutter.description>Берёт каменные обломки, лежащие рядом, и сам режет их на блоки – колонист не нужен. Один обломок за игровой час.</PWW_AutoStonecutter.description>
+  <PWW_InductionFurnace.label>индукционная печь</PWW_InductionFurnace.label>
+  <PWW_InductionFurnace.description>Электрическая печь: извлекает больше стали из шлака и делает топливные стержни и термоядерные элементы.</PWW_InductionFurnace.description>
+  <PWW_ComponentLine.label>линия компонентов</PWW_ComponentLine.label>
+  <PWW_ComponentLine.description>Автоматизированная линия, которая делает компоненты по пять штук, немного дешевле, чем вручную.</PWW_ComponentLine.description>
+  <PWW_TextileMill.label>текстильная фабрика</PWW_TextileMill.label>
+  <PWW_TextileMill.description>Перерабатывает изношенную одежду обратно в ткань.</PWW_TextileMill.description>
+  <PWW_Cannery.label>консервный завод</PWW_Cannery.label>
+  <PWW_Cannery.description>Консервирует сырую еду. Консервы никогда не портятся.</PWW_Cannery.description>
+  <PWW_Sprinkler.label>дождеватель</PWW_Sprinkler.label>
+  <PWW_Sprinkler.description>Поливает растения вокруг себя: они растут на 15 % быстрее. Нужна энергия.</PWW_Sprinkler.description>
+</LanguageData>

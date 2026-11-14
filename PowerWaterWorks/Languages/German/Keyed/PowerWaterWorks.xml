@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_SetMeltdown>Kernschmelze</PWW_SetMeltdown>
+  <PWW_SetMeltdownTip>Aus: Bei 100 % Hitze schaltet sich der Kernreaktor selbst ab. An: Er explodiert, und giftiger Fallout bedeckt die Karte für 3 Tage.</PWW_SetMeltdownTip>
+  <PWW_SetHydroWinter>Wasserkraftwerke schwächer, wenn der Fluss gefriert</PWW_SetHydroWinter>
+  <PWW_SetHydroWinterTip>Unter −2 °C draußen liefert ein Wasserkraftwerk nur 40 % seiner Leistung.</PWW_SetHydroWinterTip>
+  <PWW_SetAutoLow>Diesel-Autostart: einschalten unter {0} % gespeicherter Energie</PWW_SetAutoLow>
+  <PWW_SetAutoHigh>… und ausschalten über {0} %</PWW_SetAutoHigh>
+  <PWW_BreakerTrippedLabel>Sicherung ausgelöst</PWW_BreakerTrippedLabel>
+  <PWW_BreakerTripped>Ein Kurzschluss hat das Netz getroffen, aber die Sicherung hat rechtzeitig ausgelöst – keine Explosion, kein Feuer. Der Teil des Netzes hinter der Sicherung ist jetzt ohne Strom, bis du die Sicherung wieder einschaltest.</PWW_BreakerTripped>
+  <PWW_HydroFrozen>Fluss gefroren: 40 % Leistung</PWW_HydroFrozen>
+  <PWW_HydroGround>Die Felder, die nicht auf fließendem Wasser liegen, brauchen festen Boden.</PWW_HydroGround>
+  <PWW_NeedSea>Muss höchstens 3 Felder vom Meer entfernt stehen.</PWW_NeedSea>
+  <PWW_MeltdownLabel>Kernschmelze!</PWW_MeltdownLabel>
+  <PWW_Meltdown>Der Kernreaktor ist überhitzt und explodiert. Giftiger Fallout geht über dem ganzen Gebiet nieder.</PWW_Meltdown>
+  <PWW_Scrammed>Reaktor abgeschaltet (SCRAM).</PWW_Scrammed>
+  <PWW_Scram>SCRAM</PWW_Scram>
+  <PWW_ScramDesc>Den Reaktor sofort abschalten. Er kühlt ab und kann später wieder eingeschaltet werden.</PWW_ScramDesc>
+  <PWW_ReactorHeat>Hitze: {0} % · Kühlung {1} / Hitze {2} pro Stunde</PWW_ReactorHeat>
+  <PWW_HeatLabel>Reaktorhitze</PWW_HeatLabel>
+  <PWW_AutoStart>Autostart</PWW_AutoStart>
+  <PWW_AutoStartDesc>Schaltet den Generator ein, wenn die Batterien des Netzes unter {0} % fallen, und über {1} % wieder aus. Ohne Batterien läuft er, solange das Netz mehr Strom braucht. Grenzwerte in den Mod-Einstellungen.</PWW_AutoStartDesc>
+  <PWW_StonecutterIdle>Wartet auf Steinbrocken daneben.</PWW_StonecutterIdle>
+  <PWW_StonecutterWork>Schneidet: {0}</PWW_StonecutterWork>
+  <PWW_GridOverview>Netzübersicht</PWW_GridOverview>
+  <PWW_GridOverviewDesc>Erzeugung, Verbrauch und gespeicherte Energie dieses Stromnetzes, mit den letzten 24 Stunden.</PWW_GridOverviewDesc>
+  <PWW_GridNone>Nicht mit einem Netz verbunden.</PWW_GridNone>
+  <PWW_GridGen>Erzeugung: {0} W</PWW_GridGen>
+  <PWW_GridUse>Verbrauch: {0} W</PWW_GridUse>
+  <PWW_GridBalance>Bilanz: {0} W</PWW_GridBalance>
+  <PWW_GridStored>Gespeichert: {0} / {1} Wd</PWW_GridStored>
+  <PWW_GridWait>Das Diagramm füllt sich einmal pro Spielstunde.</PWW_GridWait>
+  <PWW_Grid24h>letzte 24 Stunden · grün Erzeugung · orange Verbrauch · blau gespeichert</PWW_Grid24h>
+</LanguageData>

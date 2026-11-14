@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WA_Title>Wild Animals – Biome Spawn Control</WA_Title>
+  <WA_Bullet1>Die Tierlisten des Spiels in jedem Biom</WA_Bullet1>
+  <WA_Bullet2>Ein neues Tier oder eine Gruppe höchstens alle 8 Stunden</WA_Bullet2>
+  <WA_Bullet3>Raubtiere höchstens 30 %, keine im Umkreis von 30 Feldern um die Heimat</WA_Bullet3>
+  <WA_Bullet4>Briefe bei seltenen Tieren, Warnung vor Jagddruck</WA_Bullet4>
+  <WA_TabBiomes>Biome</WA_TabBiomes>
+  <WA_TabRules>Regeln</WA_TabRules>
+  <WA_TabMap>Diese Karte</WA_TabMap>
+  <WA_Presets>Vorlagen</WA_Presets>
+  <WA_PresetsTip>Fertige Einstellungen für alle Biome.</WA_PresetsTip>
+  <WA_Preset0>Listen des Spiels, keine Grenzen</WA_Preset0>
+  <WA_Preset1>Mehr Tiere (×2, schneller)</WA_Preset1>
+  <WA_Preset2>Weniger Tiere (×0,5, langsamer)</WA_Preset2>
+  <WA_Preset3>Friedlich (wenige Raubtiere, keine nahe der Heimat)</WA_Preset3>
+  <WA_PresetConfirm>Vorlage „{0}“ verwenden? Deine eigenen Biomlisten und Zahlen werden ersetzt.</WA_PresetConfirm>
+  <WA_PresetDone>Vorlage verwendet: {0}</WA_PresetDone>
+  <WA_Share>Code teilen</WA_Share>
+  <WA_ShareTip>Kopiere deine Einstellungen als Textcode oder füge den Code eines Freundes ein.</WA_ShareTip>
+  <WA_ShareCopy>Meine Einstellungen kopieren</WA_ShareCopy>
+  <WA_SharePaste>Code aus der Zwischenablage einfügen</WA_SharePaste>
+  <WA_SharePasteConfirm>Deine Einstellungen durch den Code aus der Zwischenablage ersetzen?</WA_SharePasteConfirm>
+  <WA_ShareCopied>Einstellungscode in die Zwischenablage kopiert.</WA_ShareCopied>
+  <WA_ShareBad>Die Zwischenablage enthält keinen Wild-Animals-Code.</WA_ShareBad>
+  <WA_ShareRead>Code gelesen: {0} Einträge.</WA_ShareRead>
+  <WA_SearchBiome>Biom suchen…</WA_SearchBiome>
+  <WA_NAnimals>{0} Tiere · ~{1} auf einer Karte</WA_NAnimals>
+  <WA_PickBiome>Wähle links ein Biom.</WA_PickBiome>
+  <WA_CopyFrom>Liste kopieren von…</WA_CopyFrom>
+  <WA_ResetBiome>Dieses Biom zurücksetzen</WA_ResetBiome>
+  <WA_Target>Wie viele Wildtiere: etwa {0} auf einer 250×250-Karte (Spiel: {1})</WA_Target>
+  <WA_Sizes>etwa {0} auf 200×200 · etwa {1} auf 300×300</WA_Sizes>
+  <WA_ThisMap>deine Karte jetzt: {0}</WA_ThisMap>
+  <WA_SearchAnimal>Tier oder Mod suchen…</WA_SearchAnimal>
+  <WA_ShowAll>Alle Tiere zeigen</WA_ShowAll>
+  <WA_ShowAllTip>Jedes Wildtier aus dem Spiel, den DLCs und allen Mods – auch solche, die nie in diesem Biom leben. Gib einem einen Wert über 0, um es hinzuzufügen.</WA_ShowAllTip>
+  <WA_HCommon>Wie häufig (Anteil der Ankünfte)</WA_HCommon>
+  <WA_HCap>Limit</WA_HCap>
+  <WA_HSeasons>Jahreszeiten</WA_HSeasons>
+  <WA_RareTip>Selten: ein Brief, wenn eines ankommt.</WA_RareTip>
+  <WA_NoAnimals>Keine passenden Tiere.</WA_NoAnimals>
+  <WA_Predator>Raubtier</WA_Predator>
+  <WA_Coastal>nur Küste</WA_Coastal>
+  <WA_NotNative>hier nicht heimisch</WA_NotNative>
+  <WA_MayFreeze>kann erfrieren</WA_MayFreeze>
+  <WA_MayOverheat>kann überhitzen</WA_MayOverheat>
+  <WA_NoCap>Kein Limit</WA_NoCap>
+  <WA_CapTip>Höchstens so viele {0} gleichzeitig auf der Karte (wilde). Gilt in jedem Biom.</WA_CapTip>
+  <WA_S0>Fr</WA_S0>
+  <WA_S1>So</WA_S1>
+  <WA_S2>He</WA_S2>
+  <WA_S3>Wi</WA_S3>
+  <WA_Season0>Frühling</WA_Season0>
+  <WA_Season1>Sommer</WA_Season1>
+  <WA_Season2>Herbst</WA_Season2>
+  <WA_Season3>Winter</WA_Season3>
+  <WA_SeasonTip>Kommt im {0}: klicken zum Umschalten. Tiere, die schon auf der Karte sind, bleiben.</WA_SeasonTip>
+  <WA_TempTip>Kommt nur, wenn die Außentemperatur in seinem Komfortbereich liegt ({0} bis {1}). Standardmäßig an für Tiere, die im Biom nicht heimisch sind.</WA_TempTip>
+  <WA_SecSpawn>Ankünfte</WA_SecSpawn>
+  <WA_Enabled>Ankunft von Wildtieren steuern</WA_Enabled>
+  <WA_EnabledTip>Aus = eigenes Spawnen des Spiels (deine Biomlisten bleiben für später erhalten).</WA_EnabledTip>
+  <WA_Respawn>Ein neues Tier oder eine Gruppe höchstens alle {0} (solange die Karte unter ihrer Zahl ist)</WA_Respawn>
+  <WA_RespawnTip>Das Spiel nutzt eine versteckte Chance; hier stellst du die Zeit zwischen Ankünften ein.</WA_RespawnTip>
+  <WA_Group>Gruppengröße ×{0}</WA_Group>
+  <WA_GroupTip>Herden und Rudel werden größer oder kleiner.</WA_GroupTip>
+  <WA_SecPredators>Raubtiere</WA_SecPredators>
+  <WA_PredMax>Raubtiere höchstens {0} % der Wildtiere</WA_PredMax>
+  <WA_PredMaxOff>Raubtiere: kein Limit</WA_PredMaxOff>
+  <WA_PredMaxTip>Gibt es mehr, kommen nur Nicht-Raubtiere.</WA_PredMaxTip>
+  <WA_PredHome>Kein Raubtier kommt im Umkreis von {0} Feldern um den Heimbereich</WA_PredHome>
+  <WA_PredHomeOff>Raubtiere dürfen überall ankommen</WA_PredHomeOff>
+  <WA_PredHomeTip>Geprüft wird, wo das Tier die Karte betritt.</WA_PredHomeTip>
+  <WA_SecInfo>Information</WA_SecInfo>
+  <WA_RareLetters>Brief, wenn ein seltenes Tier ankommt</WA_RareLetters>
+  <WA_RareLettersTip>Seltene Tiere sind in der Biomliste mit ★ markiert (standardmäßig Thrumbos und andere sehr seltene).</WA_RareLettersTip>
+  <WA_Pressure>Warnung vor Jagddruck</WA_Pressure>
+  <WA_PressureTip>Warnt, wenn die Kolonie Wildtiere schneller tötet, als neue ankommen, und die Karte leer wird.</WA_PressureTip>
+  <WA_EventsNote>Ereignisse werden nicht verändert: Rudel von Menschenjägern, Herdenwanderungen, Thrumbo-Besuche und andere funktionieren wie im Spiel.</WA_EventsNote>
+  <WA_Hours>{0} Std.</WA_Hours>
+  <WA_Days>{0} Tage</WA_Days>
+  <WA_NoMap>Lade ein Spiel, um die Tiere auf deiner Karte zu sehen.</WA_NoMap>
+  <WA_MapHead>{0}: {1} Wildtiere / Ziel {2}</WA_MapHead>
+  <WA_MapOff>Ankünfte: die des Spiels</WA_MapOff>
+  <WA_MapFull>Die Karte ist voll – derzeit keine Ankünfte</WA_MapFull>
+  <WA_MapNext>Nächste Ankunft spätestens in {0}</WA_MapNext>
+  <WA_MapSeason>Jahreszeit: {0}</WA_MapSeason>
+  <WA_MapStats>Letzte 5 Tage: von der Kolonie getötet {0} · angekommen {1} · Raubtiere {2} ({3} %)</WA_MapStats>
+  <WA_HAnimal>Tier</WA_HAnimal>
+  <WA_HNow>Jetzt</WA_HNow>
+  <WA_HExpected>Erwartet</WA_HExpected>
+  <WA_HState>Kommt?</WA_HState>
+  <WA_StNotInList>nicht in der Liste dieses Bioms</WA_StNotInList>
+  <WA_StSeason>nicht diese Jahreszeit / zu kalt oder heiß</WA_StSeason>
+  <WA_StCap>Limit erreicht</WA_StCap>
+  <WA_StOk>ja</WA_StOk>
+  <WA_AlertLabel>Jagddruck</WA_AlertLabel>
+  <WA_AlertText>Die Kolonie hat in den letzten 5 Tagen {0} Wildtiere getötet, nur {1} sind angekommen. Die Karte wird leer – jage weniger oder stelle in Wild Animals schnellere Ankünfte ein.</WA_AlertText>
+  <WA_RareTitle>Seltenes Tier: {0}</WA_RareTitle>
+  <WA_RareText>Ein seltenes Tier ist angekommen: {0}. Sieh es dir an, bevor es weiterzieht – oder bevor jemand es jagt.</WA_RareText>
+  <MUI_Title>Empfohlene Einstellungen</MUI_Title>
+  <MUI_TitleOff>Empfohlene Einstellungen · aus</MUI_TitleOff>
+  <MUI_DescOn>Die Mod richtet sich selbst ein und funktioniert sofort. Ideal für neue Spieler und alle, die nichts anpassen wollen.</MUI_DescOn>
+  <MUI_DescOff>Eigene Einstellungen. Geändert gegenüber Empfehlung: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Eigene Einstellungen. Noch identisch mit der Empfehlung.</MUI_DescOffSame>
+  <MUI_On>AN</MUI_On>
+  <MUI_Off>AUS</MUI_Off>
+  <MUI_ResetAll>Alles auf Empfehlung zurücksetzen</MUI_ResetAll>
+  <MUI_ConfirmOn>Empfohlene Einstellungen einschalten? Deine Änderungen ({0}) werden durch die empfohlenen Werte ersetzt.</MUI_ConfirmOn>
+  <MUI_Locked>Detaillierte Einstellungen sind gesperrt. Willst du sie ändern? Schalte den Schalter oben aus – deine Werte starten bei den empfohlenen.</MUI_Locked>
+  <MUI_Changed>GEÄNDERT</MUI_Changed>
+  <MUI_ChangedTip>Weicht von der Empfehlung ab ({0}). Klicken, um den empfohlenen Wert wiederherzustellen.</MUI_ChangedTip>
+  <MUI_Yes>an</MUI_Yes>
+  <MUI_No>aus</MUI_No>
+  <MUI_RecTag>EMPFOHLEN</MUI_RecTag>
+  <WA_EditNote>Empfohlene Einstellungen sind an. Änderst du unten etwas, schalten sie sich aus – deine Werte starten bei den empfohlenen.</WA_EditNote>
+  <WA_TempHeadTip>Kommt nur, wenn die Außentemperatur zum Tier passt.</WA_TempHeadTip>
+  <!-- 0.1.3 -->
+  <WA_ModAll>Mod: alle</WA_ModAll>
+  <WA_ModFilter>Mod: {0}</WA_ModFilter>
+  <WA_ModFilterTip>Nur die Tiere einer Mod zeigen (durchsucht alle Tiere dieser Mod, nicht nur die Liste dieses Bioms).</WA_ModFilterTip>
+  <WA_BelongsHere>gehört hierher</WA_BelongsHere>
+  <WA_BelongsTip>Dieses Tier gehört im Spiel selbst zu diesem Biom. Es bleibt immer in der Liste, auch bei 0, damit du es zurückholen kannst.</WA_BelongsTip>
+  <WA_ResetMenu>Zurücksetzen… ▾</WA_ResetMenu>
+  <WA_ResetMenuTip>Die hierher gehörenden Tiere zurückholen oder das ganze Biom auf die Liste des Spiels zurücksetzen.</WA_ResetMenuTip>
+  <WA_RestoreNatives>Die hierher gehörenden Tiere zurückholen (andere Änderungen bleiben)</WA_RestoreNatives>
+  <WA_RestoreNativesAll>Die dorthin gehörenden Tiere zurückholen – in jedem Biom</WA_RestoreNativesAll>
+  <WA_RestoreDone>{0} Tiere sind zurück in {1}.</WA_RestoreDone>
+  <WA_RestoreDoneAll>{0} Tiere sind zurück in {1} Biomen.</WA_RestoreDoneAll>
+  <WA_NativesZero>{0} Tiere, die zu diesem Biom gehören, stehen auf 0.</WA_NativesZero>
+  <WA_RestoreNow>Zurückholen</WA_RestoreNow>
+  <WA_Pets>Auch Haustiere (Hunde, Katzen, andere Haustiere)</WA_Pets>
+  <WA_PetsTip>Das Spiel lässt Haustiere nie in freier Wildbahn leben. An: Hunde, Katzen und andere Haustiere aus jeder Mod erscheinen in den Biomlisten („Alle Tiere zeigen“ oder Suche) und können dort wie jedes andere Tier einen Anteil bekommen – sie kommen dann als streunende Wildtiere. Aus: Sie werden ausgelassen, auch wenn sie noch in einer Liste stehen.</WA_PetsTip>
+</LanguageData>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <RecipeDef>
+    <defName>PWW_SteelFromSlag</defName>
+    <label>extract steel from slag</label>
+    <description>extract steel from slag.</description>
+    <jobString>Extracting steel from slag.</jobString>
+    <workAmount>700</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_Smelt</soundWorking>
+    <recipeUsers><li>PWW_InductionFurnace</li></recipeUsers>
+    <ingredients><li><filter><thingDefs><li>ChunkSlagSteel</li></thingDefs></filter><count>1</count></li></ingredients>
+    <fixedIngredientFilter><thingDefs><li>ChunkSlagSteel</li></thingDefs></fixedIngredientFilter>
+    <products><Steel>20</Steel></products>
+    <researchPrerequisite>PWW_Industry</researchPrerequisite>
+    
+  </RecipeDef>
+  <RecipeDef>
+    <defName>PWW_MakeFuelRod</defName>
+    <label>make fuel rod</label>
+    <description>make fuel rod.</description>
+    <jobString>Making a fuel rod.</jobString>
+    <workAmount>3500</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Smith</soundWorking>
+    <recipeUsers><li>PWW_InductionFurnace</li></recipeUsers>
+    <ingredients><li><filter><thingDefs><li>Uranium</li></thingDefs></filter><count>25</count></li><li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>20</count></li></ingredients>
+    <fixedIngredientFilter><thingDefs><li>Uranium</li><li>Steel</li></thingDefs></fixedIngredientFilter>
+    <products><PWW_FuelRod>1</PWW_FuelRod></products>
+    <researchPrerequisite>PWW_Nuclear</researchPrerequisite>
+    <skillRequirements><Crafting>8</Crafting></skillRequirements>
+  </RecipeDef>
+  <RecipeDef>
+    <defName>PWW_MakeFusionCell</defName>
+    <label>make fusion cell</label>
+    <description>make fusion cell.</description>
+    <jobString>Making a fusion cell.</jobString>
+    <workAmount>8000</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Smith</soundWorking>
+    <recipeUsers><li>PWW_InductionFurnace</li></recipeUsers>
+    <ingredients><li><filter><thingDefs><li>Uranium</li></thingDefs></filter><count>20</count></li><li><filter><thingDefs><li>Plasteel</li></thingDefs></filter><count>20</count></li><li><filter><thingDefs><li>ComponentSpacer</li></thingDefs></filter><count>2</count></li><li><filter><thingDefs><li>Chemfuel</li></thingDefs></filter><count>50</count></li></ingredients>
+    <fixedIngredientFilter><thingDefs><li>Uranium</li><li>Plasteel</li><li>ComponentSpacer</li><li>Chemfuel</li></thingDefs></fixedIngredientFilter>
+    <products><PWW_FusionCell>1</PWW_FusionCell></products>
+    <researchPrerequisite>PWW_Fusion</researchPrerequisite>
+    <skillRequirements><Crafting>12</Crafting></skillRequirements>
+  </RecipeDef>
+  <RecipeDef>
+    <defName>PWW_MakeComponents5</defName>
+    <label>make 5 components</label>
+    <description>make 5 components.</description>
+    <jobString>Making components.</jobString>
+    <workAmount>18000</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <recipeUsers><li>PWW_ComponentLine</li></recipeUsers>
+    <ingredients><li><filter><thingDefs><li>Steel</li></thingDefs></filter><count>55</count></li></ingredients>
+    <fixedIngredientFilter><thingDefs><li>Steel</li></thingDefs></fixedIngredientFilter>
+    <products><ComponentIndustrial>5</ComponentIndustrial></products>
+    <researchPrerequisite>PWW_Industry</researchPrerequisite>
+    <skillRequirements><Crafting>8</Crafting></skillRequirements>
+  </RecipeDef>
+  <RecipeDef>
+    <defName>PWW_RecycleApparel</defName>
+    <label>recycle apparel into cloth</label>
+    <description>recycle apparel into cloth.</description>
+    <jobString>Recycling apparel.</jobString>
+    <workAmount>800</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Tailor</effectWorking>
+    <soundWorking>Recipe_Tailor</soundWorking>
+    <recipeUsers><li>PWW_TextileMill</li></recipeUsers>
+    <ingredients><li><filter><categories><li>Apparel</li></categories></filter><count>1</count></li></ingredients>
+    <fixedIngredientFilter><categories><li>Apparel</li></categories></fixedIngredientFilter>
+    <products></products>
+    <researchPrerequisite>PWW_Industry</researchPrerequisite>
+    
+  </RecipeDef>
+  <RecipeDef>
+    <defName>PWW_CanFood</defName>
+    <label>can food</label>
+    <description>can food.</description>
+    <jobString>Canning food.</jobString>
+    <workAmount>500</workAmount>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <workSkill>Cooking</workSkill>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <recipeUsers><li>PWW_Cannery</li></recipeUsers>
+    <ingredients><li><filter><categories><li>FoodRaw</li></categories></filter><count>0.6</count></li></ingredients>
+    <fixedIngredientFilter><categories><li>FoodRaw</li></categories></fixedIngredientFilter>
+    <products><PWW_CannedFood>1</PWW_CannedFood></products>
+    <researchPrerequisite>PWW_Industry</researchPrerequisite>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+  </RecipeDef>
+</Defs>

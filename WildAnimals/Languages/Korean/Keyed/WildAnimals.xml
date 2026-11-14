@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WA_Title>Wild Animals – 생물군계 출현 제어</WA_Title>
+  <WA_Bullet1>모든 생물군계에 게임의 동물 목록</WA_Bullet1>
+  <WA_Bullet2>새 동물이나 무리는 최대 8시간마다</WA_Bullet2>
+  <WA_Bullet3>포식자는 최대 30 %, 거주지 30칸 이내에는 없음</WA_Bullet3>
+  <WA_Bullet4>희귀 동물 알림, 사냥 압박 경고</WA_Bullet4>
+  <WA_TabBiomes>생물군계</WA_TabBiomes>
+  <WA_TabRules>규칙</WA_TabRules>
+  <WA_TabMap>이 맵</WA_TabMap>
+  <WA_Presets>프리셋</WA_Presets>
+  <WA_PresetsTip>모든 생물군계를 위한 미리 만들어진 설정.</WA_PresetsTip>
+  <WA_Preset0>게임 목록, 제한 없음</WA_Preset0>
+  <WA_Preset1>동물 더 많이 (×2, 더 빠르게)</WA_Preset1>
+  <WA_Preset2>동물 더 적게 (×0.5, 더 느리게)</WA_Preset2>
+  <WA_Preset3>평화로움 (포식자 적음, 거주지 근처에는 없음)</WA_Preset3>
+  <WA_PresetConfirm>프리셋 "{0}"을(를) 사용하시겠습니까? 직접 만든 생물군계 목록과 수치가 교체됩니다.</WA_PresetConfirm>
+  <WA_PresetDone>사용한 프리셋: {0}</WA_PresetDone>
+  <WA_Share>공유 코드</WA_Share>
+  <WA_ShareTip>설정을 텍스트 코드로 복사하거나 친구의 코드를 붙여 넣으세요.</WA_ShareTip>
+  <WA_ShareCopy>내 설정 복사</WA_ShareCopy>
+  <WA_SharePaste>클립보드에서 코드 붙여 넣기</WA_SharePaste>
+  <WA_SharePasteConfirm>설정을 클립보드의 코드로 교체하시겠습니까?</WA_SharePasteConfirm>
+  <WA_ShareCopied>설정 코드를 클립보드에 복사했습니다.</WA_ShareCopied>
+  <WA_ShareBad>클립보드에 Wild Animals 코드가 없습니다.</WA_ShareBad>
+  <WA_ShareRead>코드를 읽었습니다: 항목 {0}개.</WA_ShareRead>
+  <WA_SearchBiome>생물군계 검색…</WA_SearchBiome>
+  <WA_NAnimals>동물 {0}종 · 맵에 ~{1}마리</WA_NAnimals>
+  <WA_PickBiome>왼쪽에서 생물군계를 고르세요.</WA_PickBiome>
+  <WA_CopyFrom>목록 복사 원본…</WA_CopyFrom>
+  <WA_ResetBiome>이 생물군계 초기화</WA_ResetBiome>
+  <WA_Target>야생 동물 수: 250×250 맵에 약 {0}마리 (게임: {1})</WA_Target>
+  <WA_Sizes>200×200에 약 {0} · 300×300에 약 {1}</WA_Sizes>
+  <WA_ThisMap>현재 맵: {0}</WA_ThisMap>
+  <WA_SearchAnimal>동물이나 모드 검색…</WA_SearchAnimal>
+  <WA_ShowAll>모든 동물 표시</WA_ShowAll>
+  <WA_ShowAllTip>게임, DLC, 모든 모드의 야생 동물 전부 – 이 생물군계에 살지 않는 동물도 포함. 0보다 큰 값을 주면 추가됩니다.</WA_ShowAllTip>
+  <WA_HCommon>흔한 정도 (출현 비율)</WA_HCommon>
+  <WA_HCap>제한</WA_HCap>
+  <WA_HSeasons>계절</WA_HSeasons>
+  <WA_RareTip>희귀: 나타나면 알림.</WA_RareTip>
+  <WA_NoAnimals>일치하는 동물이 없습니다.</WA_NoAnimals>
+  <WA_Predator>포식자</WA_Predator>
+  <WA_Coastal>해안 전용</WA_Coastal>
+  <WA_NotNative>토착종 아님</WA_NotNative>
+  <WA_MayFreeze>얼어붙을 수 있음</WA_MayFreeze>
+  <WA_MayOverheat>과열될 수 있음</WA_MayOverheat>
+  <WA_NoCap>제한 없음</WA_NoCap>
+  <WA_CapTip>맵에 동시에 있을 수 있는 {0}의 최대 수 (야생). 모든 생물군계에 적용됩니다.</WA_CapTip>
+  <WA_S0>봄</WA_S0>
+  <WA_S1>여름</WA_S1>
+  <WA_S2>가을</WA_S2>
+  <WA_S3>겨울</WA_S3>
+  <WA_Season0>봄</WA_Season0>
+  <WA_Season1>여름</WA_Season1>
+  <WA_Season2>가을</WA_Season2>
+  <WA_Season3>겨울</WA_Season3>
+  <WA_SeasonTip>{0}에 나타남: 클릭하여 전환. 이미 맵에 있는 동물은 남습니다.</WA_SeasonTip>
+  <WA_TempTip>바깥 온도가 쾌적 범위({0} ~ {1}) 안일 때만 나타납니다. 생물군계 토착종이 아닌 동물은 기본으로 켜져 있습니다.</WA_TempTip>
+  <WA_SecSpawn>출현</WA_SecSpawn>
+  <WA_Enabled>야생 동물 출현 제어</WA_Enabled>
+  <WA_EnabledTip>꺼짐 = 게임 자체의 출현 (생물군계 목록은 나중을 위해 보존됨).</WA_EnabledTip>
+  <WA_Respawn>새 동물이나 무리는 최대 {0}마다 (맵이 목표 수 미만인 동안)</WA_Respawn>
+  <WA_RespawnTip>게임은 숨겨진 확률을 씁니다. 여기서는 출현 간격을 정합니다.</WA_RespawnTip>
+  <WA_Group>무리 크기 ×{0}</WA_Group>
+  <WA_GroupTip>떼와 무리가 더 커지거나 작아집니다.</WA_GroupTip>
+  <WA_SecPredators>포식자</WA_SecPredators>
+  <WA_PredMax>포식자는 야생 동물의 최대 {0} %</WA_PredMax>
+  <WA_PredMaxOff>포식자: 제한 없음</WA_PredMaxOff>
+  <WA_PredMaxTip>그보다 많으면 비포식자만 나타납니다.</WA_PredMaxTip>
+  <WA_PredHome>거주 구역 {0}칸 이내에는 포식자가 나타나지 않음</WA_PredHome>
+  <WA_PredHomeOff>포식자는 어디든 나타날 수 있음</WA_PredHomeOff>
+  <WA_PredHomeTip>동물이 맵에 들어오는 지점에서 확인합니다.</WA_PredHomeTip>
+  <WA_SecInfo>정보</WA_SecInfo>
+  <WA_RareLetters>희귀 동물이 나타나면 알림</WA_RareLetters>
+  <WA_RareLettersTip>희귀 동물은 생물군계 목록에서 ★로 표시됩니다 (기본으로 트럼보와 기타 매우 희귀한 동물).</WA_RareLettersTip>
+  <WA_Pressure>사냥 압박 경고</WA_Pressure>
+  <WA_PressureTip>정착지가 새 동물이 오는 속도보다 빨리 야생 동물을 죽여 맵이 비어 가면 경고합니다.</WA_PressureTip>
+  <WA_EventsNote>사건은 바뀌지 않습니다: 맹수화 무리, 무리 이동, 트럼보 방문 등은 게임대로 작동합니다.</WA_EventsNote>
+  <WA_Hours>{0}시간</WA_Hours>
+  <WA_Days>{0}일</WA_Days>
+  <WA_NoMap>맵의 동물을 보려면 게임을 불러오세요.</WA_NoMap>
+  <WA_MapHead>{0}: 야생 동물 {1}마리 / 목표 {2}</WA_MapHead>
+  <WA_MapOff>출현: 게임 자체</WA_MapOff>
+  <WA_MapFull>맵이 가득 참 – 지금은 출현 없음</WA_MapFull>
+  <WA_MapNext>다음 출현까지 최대 {0}</WA_MapNext>
+  <WA_MapSeason>계절: {0}</WA_MapSeason>
+  <WA_MapStats>최근 5일: 정착지가 죽임 {0} · 나타남 {1} · 포식자 {2} ({3} %)</WA_MapStats>
+  <WA_HAnimal>동물</WA_HAnimal>
+  <WA_HNow>현재</WA_HNow>
+  <WA_HExpected>예상</WA_HExpected>
+  <WA_HState>나타남?</WA_HState>
+  <WA_StNotInList>이 생물군계 목록에 없음</WA_StNotInList>
+  <WA_StSeason>이번 계절 아님 / 너무 춥거나 더움</WA_StSeason>
+  <WA_StCap>제한 도달</WA_StCap>
+  <WA_StOk>예</WA_StOk>
+  <WA_AlertLabel>사냥 압박</WA_AlertLabel>
+  <WA_AlertText>정착지가 최근 5일 동안 야생 동물 {0}마리를 죽였지만 {1}마리만 나타났습니다. 맵이 비어 가고 있습니다 – 사냥을 줄이거나 Wild Animals에서 출현을 더 빠르게 설정하세요.</WA_AlertText>
+  <WA_RareTitle>희귀 동물: {0}</WA_RareTitle>
+  <WA_RareText>희귀 동물이 나타났습니다: {0}. 떠나기 전에 – 또는 누가 사냥하기 전에 – 한번 보세요.</WA_RareText>
+  <MUI_Title>권장 설정</MUI_Title>
+  <MUI_TitleOff>권장 설정 · 꺼짐</MUI_TitleOff>
+  <MUI_DescOn>모드가 스스로 설정되어 바로 작동합니다. 처음 하는 플레이어나 아무것도 조정하고 싶지 않은 분께 적합합니다.</MUI_DescOn>
+  <MUI_DescOff>사용자 설정. 권장 설정에서 변경됨: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>사용자 설정. 아직 권장 설정과 같습니다.</MUI_DescOffSame>
+  <MUI_On>켜짐</MUI_On>
+  <MUI_Off>꺼짐</MUI_Off>
+  <MUI_ResetAll>모두 권장값으로 초기화</MUI_ResetAll>
+  <MUI_ConfirmOn>권장 설정을 켜시겠습니까? 변경한 항목({0})이 권장값으로 바뀝니다.</MUI_ConfirmOn>
+  <MUI_Locked>세부 설정이 잠겨 있습니다. 변경하려면 위의 스위치를 끄세요 – 값은 권장값에서 시작합니다.</MUI_Locked>
+  <MUI_Changed>변경됨</MUI_Changed>
+  <MUI_ChangedTip>권장 설정({0})과 다릅니다. 클릭하면 권장값으로 되돌립니다.</MUI_ChangedTip>
+  <MUI_Yes>켜짐</MUI_Yes>
+  <MUI_No>꺼짐</MUI_No>
+  <MUI_RecTag>권장</MUI_RecTag>
+  <WA_EditNote>권장 설정이 켜져 있습니다. 아래 항목을 바꾸면 꺼집니다 – 값은 권장값에서 시작합니다.</WA_EditNote>
+  <WA_TempHeadTip>바깥 온도가 동물에게 맞을 때만 나타납니다.</WA_TempHeadTip>
+  <!-- 0.1.3 -->
+  <WA_ModAll>모드: 전체</WA_ModAll>
+  <WA_ModFilter>모드: {0}</WA_ModFilter>
+  <WA_ModFilterTip>한 모드의 동물만 표시합니다 (이 생물군계 목록뿐 아니라 그 모드의 모든 동물을 검색).</WA_ModFilterTip>
+  <WA_BelongsHere>이곳 토착종</WA_BelongsHere>
+  <WA_BelongsTip>이 동물은 게임 자체에서 이 생물군계에 속합니다. 0이어도 항상 목록에 남아 있어 다시 되돌릴 수 있습니다.</WA_BelongsTip>
+  <WA_ResetMenu>초기화… ▾</WA_ResetMenu>
+  <WA_ResetMenuTip>이곳 토착 동물을 되돌리거나, 생물군계 전체를 게임 목록으로 초기화합니다.</WA_ResetMenuTip>
+  <WA_RestoreNatives>이곳 토착 동물 되돌리기 (다른 변경은 유지)</WA_RestoreNatives>
+  <WA_RestoreNativesAll>토착 동물 되돌리기 – 모든 생물군계에서</WA_RestoreNativesAll>
+  <WA_RestoreDone>동물 {0}종이 {1}에 돌아왔습니다.</WA_RestoreDone>
+  <WA_RestoreDoneAll>동물 {0}종이 생물군계 {1}곳에 돌아왔습니다.</WA_RestoreDoneAll>
+  <WA_NativesZero>이 생물군계 토착 동물 {0}종이 0입니다.</WA_NativesZero>
+  <WA_RestoreNow>되돌리기</WA_RestoreNow>
+  <WA_Pets>가축 동물도 (개, 고양이, 기타 애완동물)</WA_Pets>
+  <WA_PetsTip>게임은 가축 동물이 야생에서 살지 못하게 합니다. 켜짐: 모든 모드의 개, 고양이, 기타 애완동물이 생물군계 목록("모든 동물 표시" 또는 검색)에 나타나고 다른 동물처럼 비율을 줄 수 있습니다 – 그러면 떠돌이 야생 동물로 나타납니다. 꺼짐: 목록에 남아 있어도 제외됩니다.</WA_PetsTip>
+</LanguageData>

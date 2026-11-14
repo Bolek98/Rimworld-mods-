@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WSZ_Area>Zona de aparición de animales salvajes</WSZ_Area>
+  <WSZ_Expand>Ampliar zona de aparición salvaje</WSZ_Expand>
+  <WSZ_ExpandDesc>Marca dónde aparecen los animales salvajes. Mientras la zona no esté vacía, los nuevos animales salvajes (también las aves que llegan volando) aparecen solo dentro de ella. Los eventos como migraciones de manadas o animales enloquecidos no cambian.</WSZ_ExpandDesc>
+  <WSZ_Clear>Reducir zona de aparición salvaje</WSZ_Clear>
+  <WSZ_ClearDesc>Quita casillas de la zona de aparición salvaje. Con la zona vacía, los animales aparecen como siempre en el juego.</WSZ_ClearDesc>
+  <MUI_Title>Ajustes recomendados</MUI_Title>
+  <MUI_TitleOff>Ajustes recomendados · desactivado</MUI_TitleOff>
+  <MUI_DescOn>El mod se configura solo y funciona de inmediato. Ideal para jugadores nuevos y para quien no quiera ajustar nada.</MUI_DescOn>
+  <MUI_DescOff>Ajustes personalizados. Cambiado respecto a lo recomendado: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Ajustes personalizados. Siguen igual que los recomendados.</MUI_DescOffSame>
+  <MUI_On>SÍ</MUI_On>
+  <MUI_Off>NO</MUI_Off>
+  <MUI_ResetAll>Restablecer todo a lo recomendado</MUI_ResetAll>
+  <MUI_ConfirmOn>¿Activar los ajustes recomendados? Tus cambios ({0}) se sustituirán por los valores recomendados.</MUI_ConfirmOn>
+  <MUI_Locked>Los ajustes detallados están bloqueados. ¿Quieres cambiarlos? Desactiva el interruptor de arriba: tus valores parten de los recomendados.</MUI_Locked>
+  <MUI_Changed>CAMBIADO</MUI_Changed>
+  <MUI_ChangedTip>Difiere del ajuste recomendado ({0}). Haz clic para restaurar el valor recomendado.</MUI_ChangedTip>
+  <MUI_Yes>activado</MUI_Yes>
+  <MUI_No>desactivado</MUI_No>
+  <MUI_RecTag>RECOMENDADO</MUI_RecTag>
+  <WSZ_Rec1>Los animales salvajes aparecen solo en la zona de aparición que pintes (menú Zonas).</WSZ_Rec1>
+  <WSZ_Rec2>Nunca dentro de la zona de casa: nada de ciervos en tu patio.</WSZ_Rec2>
+  <WSZ_Rec3>Cantidad de animales como en el juego. Sin zona no cambia nada.</WSZ_Rec3>
+  <WSZ_SecZone>Zona de aparición</WSZ_SecZone>
+  <WSZ_SecAnimals>Animales salvajes</WSZ_SecAnimals>
+  <WSZ_Enabled>Los animales aparecen solo en la zona</WSZ_Enabled>
+  <WSZ_Enabled_Desc>Mientras la zona tenga al menos una casilla, los nuevos animales salvajes aparecen solo dentro de ella. Desactivado = como en el juego, la zona sigue pintada.</WSZ_Enabled_Desc>
+  <WSZ_AvoidHome>Nunca en la zona de casa</WSZ_AvoidHome>
+  <WSZ_AvoidHome_Desc>Las casillas de la zona que también están en la zona de casa se omiten: los animales nunca aparecen en medio de tu base.</WSZ_AvoidHome_Desc>
+  <WSZ_Birds>Las aves pueden llegar a cualquier sitio</WSZ_Birds>
+  <WSZ_Birds_Desc>Los animales voladores aterrizan donde quieren, como en el juego. Desactivado = las aves también aparecen en la zona.</WSZ_Birds_Desc>
+  <WSZ_Density>Cantidad de animales salvajes: {0} %</WSZ_Density>
+  <WSZ_Density_Desc>Cuántos animales salvajes viven en el mapa y lo rápido que llegan. 100 % = como en el juego, 0 % = sin animales nuevos. Los eventos (migraciones, animales enloquecidos) no cambian.</WSZ_Density_Desc>
+  <WSZ_HowTo>Encuentra la zona en el menú Zonas → "Ampliar zona de aparición salvaje". Píntala en el borde del mapa o en un bosque tras tus muros.</WSZ_HowTo>
+</LanguageData>

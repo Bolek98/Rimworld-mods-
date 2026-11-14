@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SH_ModName>Roční období a svátky</SH_ModName>
+  <SH_Rec1>12 měsíců, skutečné svátky s náladou, oslavami a dárky</SH_Rec1>
+  <SH_Rec2>Počasí podle měsíců a tři nová počasí</SH_Rec2>
+  <SH_Rec3>Narozeniny, sezónní nálady, tradice a záložka Kalendář</SH_Rec3>
+  <SH_YearMode>Číslování let</SH_YearMode>
+  <SH_YearMode_Desc>Od kterého roku kolonie začíná. Hra počítá od roku 5500; můžeš hrát i od roku 0 nebo 1. Mění se jen zobrazené číslo.</SH_YearMode_Desc>
+  <SH_Year0>Herní roky (5500)</SH_Year0>
+  <SH_Year1>Od roku 0</SH_Year1>
+  <SH_Year2>Od roku 1</SH_Year2>
+  <SH_SecCalendar>Kalendář</SH_SecCalendar>
+  <SH_CalendarDate>Datum s měsíci</SH_CalendarDate>
+  <SH_CalendarDate_Desc>Datum v rohu (i všude jinde) ukazuje den a měsíc, např. „4. prosince“ místo „4. Decembary“.</SH_CalendarDate_Desc>
+  <SH_SeasonTips>Rady k ročnímu období</SH_SeasonTips>
+  <SH_SeasonTips_Desc>Dopis, když se blíží zima (sklizeň, teplé oblečení, topení), a když začíná vegetační období.</SH_SeasonTips_Desc>
+  <SH_SecHolidays>Svátky</SH_SecHolidays>
+  <SH_Holidays>Svátky</SH_Holidays>
+  <SH_Holidays_Desc>Skutečné svátky (české i mezinárodní) dávají kolonistům dobrou náladu.</SH_Holidays_Desc>
+  <SH_Parties>Oslavy o svátcích</SH_Parties>
+  <SH_Parties_Desc>Večer některých svátků a na narozeniny se pořádá oslava.</SH_Parties_Desc>
+  <SH_Gifts>Dárky</SH_Gifts>
+  <SH_Gifts_Desc>Mikuláš, Vánoce a Den dětí přinesou dárky v kapsli (sladkosti, cukroví, stříbro, léky, pivo).</SH_Gifts_Desc>
+  <SH_Events>Sváteční události</SH_Events>
+  <SH_Events_Desc>Ohňostroj na Silvestra, mlha o Halloweenu, šance na bílé Vánoce.</SH_Events_Desc>
+  <SH_Letters>Sváteční dopisy</SH_Letters>
+  <SH_Letters_Desc>Ráno ve svátek přijde dopis. Vypnuto: jen krátká zpráva.</SH_Letters_Desc>
+  <SH_Birthdays>Narozeniny</SH_Birthdays>
+  <SH_Birthdays_Desc>Narozeniny kolonisty dávají dobrou náladu a často i oslavu.</SH_Birthdays_Desc>
+  <SH_Traditions>Tradice</SH_Traditions>
+  <SH_Traditions_Desc>Svátek oslavený i další rok se stane tradicí a dává trochu víc nálady (až 3 roky).</SH_Traditions_Desc>
+  <SH_RealDate>Svátky podle skutečného data</SH_RealDate>
+  <SH_RealDate_Desc>Svátky přijdou podle skutečného data v počítači (Vánoce opravdu 24. prosince, Velikonoce podle skutečných Velikonoc) místo herního kalendáře. Jen pro zábavu.</SH_RealDate_Desc>
+  <SH_SecWeather>Počasí</SH_SecWeather>
+  <SH_MonthWeather>Počasí podle měsíců</SH_MonthWeather>
+  <SH_MonthWeather_Desc>Víc sněhu v lednu, přeháňky v dubnu, bouřky v červenci, mlhy v listopadu… Počasí biomu zůstává, mění se jen šance.</SH_MonthWeather_Desc>
+  <SH_WeatherStrength>Síla počasí podle měsíců: {0} %</SH_WeatherStrength>
+  <SH_WeatherStrength_Desc>0 % = jako ve hře, 100 % = normální, 200 % = silné.</SH_WeatherStrength_Desc>
+  <SH_NewWeathers>Nová počasí</SH_NewWeathers>
+  <SH_NewWeathers_Desc>Jinovatka, babí léto, jarní přeháňky a tam, kde to podnebí sedí, polární záře, vánice, mrznoucí déšť, krupobití, parno, písečná bouře a monzunový liják.</SH_NewWeathers_Desc>
+  <SH_SecMoods>Sezónní nálady</SH_SecMoods>
+  <SH_SeasonalMoods>Sezónní nálady</SH_SeasonalMoods>
+  <SH_SeasonalMoods_Desc>První sníh, jarní nálada, teplé letní večery.</SH_SeasonalMoods_Desc>
+  <SH_WinterBlues>Zimní splín</SH_WinterBlues>
+  <SH_WinterBlues_Desc>Mírně horší nálada v nejtemnějším zimním měsíci.</SH_WinterBlues_Desc>
+  <SH_SecList>Svátky (zaškrtni ty, které chceš)</SH_SecList>
+  <SH_M0>Leden</SH_M0>
+  <SH_MG0>ledna</SH_MG0>
+  <SH_M1>Únor</SH_M1>
+  <SH_MG1>února</SH_MG1>
+  <SH_M2>Březen</SH_M2>
+  <SH_MG2>března</SH_MG2>
+  <SH_M3>Duben</SH_M3>
+  <SH_MG3>dubna</SH_MG3>
+  <SH_M4>Květen</SH_M4>
+  <SH_MG4>května</SH_MG4>
+  <SH_M5>Červen</SH_M5>
+  <SH_MG5>června</SH_MG5>
+  <SH_M6>Červenec</SH_M6>
+  <SH_MG6>července</SH_MG6>
+  <SH_M7>Srpen</SH_M7>
+  <SH_MG7>srpna</SH_MG7>
+  <SH_M8>Září</SH_M8>
+  <SH_MG8>září</SH_MG8>
+  <SH_M9>Říjen</SH_M9>
+  <SH_MG9>října</SH_MG9>
+  <SH_M10>Listopad</SH_M10>
+  <SH_MG10>listopadu</SH_MG10>
+  <SH_M11>Prosinec</SH_M11>
+  <SH_MG11>prosince</SH_MG11>
+  <SH_DayMonth>{0}. {1}</SH_DayMonth>
+  <SH_Date>{0}. {1} {2}</SH_Date>
+  <SH_YearN>roku {0}</SH_YearN>
+  <SH_H_NewYear>Nový rok</SH_H_NewYear>
+  <SH_HD_NewYear>Začíná nový rok: oslava a každý kolonista si dá předsevzetí (5 dní se učí rychleji).</SH_HD_NewYear>
+  <SH_HL_NewYear>Šťastný nový rok! Kolonie slaví začátek nového roku. Každý si dal předsevzetí, že se bude víc učit – pár dní se učí rychleji. Večer bude oslava.</SH_HL_NewYear>
+  <SH_H_Valentine>Valentýn</SH_H_Valentine>
+  <SH_HD_Valentine>Páry mají dobrou náladu.</SH_HD_Valentine>
+  <SH_HL_Valentine>Valentýn! Páry tráví den spolu o něco blíž než obvykle.</SH_HL_Valentine>
+  <SH_H_Carnival>Masopust</SH_H_Carnival>
+  <SH_HD_Carnival>Masky, hudba a hostina před půstem; oslava.</SH_HD_Carnival>
+  <SH_HL_Carnival>Masopust! Masky, hudba a velká hostina. Odpoledne bude oslava.</SH_HL_Carnival>
+  <SH_H_Easter>Velikonoce</SH_H_Easter>
+  <SH_HD_Easter>Malovaná vajíčka a jaro – všichni mají dobrou náladu.</SH_HD_Easter>
+  <SH_HL_Easter>Veselé Velikonoce! Malovaná vajíčka, jarní květiny a všude dobrá nálada.</SH_HL_Easter>
+  <SH_H_Witches>Pálení čarodějnic</SH_H_Witches>
+  <SH_HD_Witches>Velký večerní oheň, který zažene zimu; oslava.</SH_HD_Witches>
+  <SH_HL_Witches>Pálení čarodějnic! Dnes večer upálíme čarodějnici a zaženeme zimu. Večer bude oslava.</SH_HL_Witches>
+  <SH_H_MayDay>První máj</SH_H_MayDay>
+  <SH_HD_MayDay>Páry se líbají pod rozkvetlým stromem.</SH_HD_MayDay>
+  <SH_HL_MayDay>První máj – lásky čas. Páry se líbají pod rozkvetlým stromem.</SH_HL_MayDay>
+  <SH_H_ChildrenDay>Den dětí</SH_H_ChildrenDay>
+  <SH_HD_ChildrenDay>Děti mají skvělou náladu a sladkosti; dospělé těší jejich radost.</SH_HD_ChildrenDay>
+  <SH_HL_ChildrenDay>Den dětí! Dnes je to celé o dětech – hry a sladkosti.</SH_HL_ChildrenDay>
+  <SH_H_Solstice>Slunovrat</SH_H_Solstice>
+  <SH_HD_Solstice>Nejdelší den v roce oslavený venku; oslava.</SH_HD_Solstice>
+  <SH_HL_Solstice>Slunovrat – nejdelší den v roce. Večer bude oslava pod širým nebem.</SH_HL_Solstice>
+  <SH_H_Harvest>Dožínky</SH_H_Harvest>
+  <SH_HD_Harvest>Hostina za úrodu – čím plnější sklady, tím lepší nálada; oslava.</SH_HD_Harvest>
+  <SH_HL_Harvest>Dožínky! Kolonie slaví úrodu. Čím víc jídla ve skladech, tím lepší nálada. Odpoledne bude oslava.</SH_HL_Harvest>
+  <SH_H_Halloween>Halloween</SH_H_Halloween>
+  <SH_HD_Halloween>Dýně a strašidelné příběhy; večer mlha.</SH_HD_Halloween>
+  <SH_HL_Halloween>Veselý Halloween! Dýně, strašidelné příběhy… a večer přijde mlha. Bú!</SH_HL_Halloween>
+  <SH_H_AllSouls>Dušičky</SH_H_AllSouls>
+  <SH_HD_AllSouls>Vzpomínka na zemřelé – smutek po těch, kdo zemřeli, je snesitelnější.</SH_HD_AllSouls>
+  <SH_HL_AllSouls>Dušičky. Kolonie vzpomíná na ty, kdo už tu nejsou. Společné vzpomínání smutek zmírní.</SH_HL_AllSouls>
+  <SH_H_Thanksgiving>Díkůvzdání</SH_H_Thanksgiving>
+  <SH_HD_Thanksgiving>Hostina díků; oslava.</SH_HD_Thanksgiving>
+  <SH_HL_Thanksgiving>Díkůvzdání! Čas být vděčný za to, co máme – a jeden za druhého. Odpoledne bude hostina.</SH_HL_Thanksgiving>
+  <SH_H_StNicholas>Mikuláš</SH_H_StNicholas>
+  <SH_HD_StNicholas>Mikuláš nosí sladkosti – děti jsou nadšené.</SH_HD_StNicholas>
+  <SH_HL_StNicholas>Přišel Mikuláš s andělem a čertem! Hodné děti dostanou sladkosti, zlobivé uhlí. (Jen žertujeme, čokoládu dostanou všichni.)</SH_HL_StNicholas>
+  <SH_H_Christmas>Vánoce</SH_H_Christmas>
+  <SH_HD_Christmas>Štědrý den: dárky, cukroví, hostina a nejlepší nálada v roce; možná bílé Vánoce.</SH_HD_Christmas>
+  <SH_HL_Christmas>Veselé Vánoce! Přišly dárky – vánoční cukroví a další. Večer se celá kolonie sejde u štědrovečerní večeře.</SH_HL_Christmas>
+  <SH_H_NewYearsEve>Silvestr</SH_H_NewYearsEve>
+  <SH_HD_NewYearsEve>Večer oslava a před půlnocí ohňostroj.</SH_HD_NewYearsEve>
+  <SH_HL_NewYearsEve>Silvestr! Večer začíná oslava a před půlnocí rozzáří oblohu ohňostroj.</SH_HL_NewYearsEve>
+  <SH_GiftChildren>Přišly dárky pro děti!</SH_GiftChildren>
+  <SH_GiftNicholas>Mikuláš přinesl nadílku!</SH_GiftNicholas>
+  <SH_GiftChristmas>Přišly vánoční dárky!</SH_GiftChristmas>
+  <SH_BirthdayMsg>{0} má dnes narozeniny ({1})! Všechno nejlepší!</SH_BirthdayMsg>
+  <SH_FirstSnowMsg>Padá první sníh v roce!</SH_FirstSnowMsg>
+  <SH_TipWinterTitle>Blíží se zima</SH_TipWinterTitle>
+  <SH_TipWinter>Blíží se {0} a bude zima (kolem {1}).\n\n- Skliď pole před mrazem.\n- Ušij teplé oblečení (parky, čepice).\n- Připrav topení a palivo.\n- Uskladni dost jídla na zimu.</SH_TipWinter>
+  <SH_TipSpringTitle>Začíná vegetační období</SH_TipSpringTitle>
+  <SH_TipSpring>V měsíci {0} bude pro rostliny dost teplo. Je čas osít pole!</SH_TipSpring>
+  <SH_TraditionNote>Kolonie tento svátek slavila už {0}× – je to naše tradice.</SH_TraditionNote>
+  <SH_TabToday>Dnes: {0}. {1} {2} – {3}</SH_TabToday>
+  <SH_TabHolidayToday>Dnes je {0}!</SH_TabHolidayToday>
+  <SH_TabNext>Další svátek: {0} za {1} dní</SH_TabNext>
+  <SH_TabRealDate>(svátky podle skutečného data)</SH_TabRealDate>
+  <SH_TabGrow>rostliny rostou</SH_TabGrow>
+  <SH_TabGrowSlow>rostliny rostou pomalu</SH_TabGrowSlow>
+  <SH_TabNoGrow>mráz – nic neroste</SH_TabNoGrow>
+  <SH_TabOff>vypnuto</SH_TabOff>
+  <SH_TabBirthday>narozeniny: {0}</SH_TabBirthday>
+  <SH_YearDays>Délka roku:</SH_YearDays>
+  <SH_YearDays_Desc>Kolik dní má jeden rok. 60 je herní rok (12 měsíců po 5 dnech). S delším rokem plynou roční období, datum i teploty ročních období pomaleji – rok o 365 dnech má skutečné měsíce a zimu zhruba na tři měsíce, tak si připrav jídlo. Den a noc zůstávají stejné. Změna v rozehrané hře zachová dnešní roční období.</SH_YearDays_Desc>
+  <SH_YearDaysN>{0} dní</SH_YearDaysN>
+  <SH_AgeWithYear>Kolonisté stárnou podle kalendářního roku</SH_AgeWithYear>
+  <SH_AgeWithYear_Desc>Zapnuto: kolonista zestárne o rok za jeden kalendářní rok, takže s rokem o 365 dnech lidé (i děti) stárnou asi šestkrát pomaleji než ve hře. Vypnuto: všichni stárnou jako ve hře (rok za 60 dní) – víc narozenin za kalendářní rok.</SH_AgeWithYear_Desc>
+  <!-- 0.3.0 -->
+  <SH_PackAsia>Svátky: Asie</SH_PackAsia>
+  <SH_PackAsia_Desc>Lunární Nový rok, Holi, Diválí a svátek středu podzimu – nálada, oslava a ohňostroj.</SH_PackAsia_Desc>
+  <SH_PackAmericas>Svátky: Amerika</SH_PackAmericas>
+  <SH_PackAmericas_Desc>Den mrtvých a Den založení (s ohňostrojem).</SH_PackAmericas_Desc>
+  <SH_PackEurope>Svátky: další Evropa</SH_PackEurope>
+  <SH_PackEurope_Desc>Den sv. Patrika, Oktoberfest (oba s trochou piva) a svatý Martin.</SH_PackEurope_Desc>
+  <SH_PackDays>Malé dny</SH_PackDays>
+  <SH_PackDays_Desc>Den pí, Den Země, Den knihy, Den ručníků, Den čokolády, Den koček, Mluv jako pirát, Den úsměvu – jen krátká zpráva, bez nálady.</SH_PackDays_Desc>
+  <SH_PlantColors>Rostliny se barví podle ročního období</SH_PlantColors>
+  <SH_PlantColors_Desc>Jen vzhled: listnaté stromy na podzim žloutnou, oranžoví a rudnou a v zimě jsou holé, jehličnany zůstávají zelené, divoká tráva zesláme. Růst, teploty, nájezdy ani obchodníci se nemění. V tropech se nic nemění.</SH_PlantColors_Desc>
+  <SH_GiftBeer>Na večer dorazilo pár lahví piva.</SH_GiftBeer>
+  <SH_H_LunarNewYear>Lunární Nový rok</SH_H_LunarNewYear>
+  <SH_HD_LunarNewYear>Červené lucerny, hostina a ohňostroj pro šťastný rok.</SH_HD_LunarNewYear>
+  <SH_HL_LunarNewYear>Šťastný lunární Nový rok! Všude visí červené lucerny a večer bude ohňostroj.</SH_HL_LunarNewYear>
+  <SH_H_Holi>Holi</SH_H_Holi>
+  <SH_HD_Holi>Svátek barev: všichni po sobě házejí barevný prášek.</SH_HD_Holi>
+  <SH_HL_Holi>Holi! Svátek barev – odpoledne kolonie slaví a nikdo nezůstane čistý.</SH_HL_Holi>
+  <SH_H_Diwali>Diválí</SH_H_Diwali>
+  <SH_HD_Diwali>Svátek světel: lampičky v oknech a ohňostroj.</SH_HD_Diwali>
+  <SH_HL_Diwali>Šťastné Diválí! V každém okně svítí lampička a večer oblohu rozzáří ohňostroj.</SH_HL_Diwali>
+  <SH_H_MidAutumn>Svátek středu podzimu</SH_H_MidAutumn>
+  <SH_HD_MidAutumn>Měsíční koláčky pod úplňkem.</SH_HD_MidAutumn>
+  <SH_HL_MidAutumn>Svátek středu podzimu – večer se všichni sejdou a dívají se na měsíc.</SH_HL_MidAutumn>
+  <SH_H_DayOfDead>Den mrtvých</SH_H_DayOfDead>
+  <SH_HD_DayOfDead>Svíčky, aksamitníky a příběhy o mrtvých; smutek za ně se zmírní.</SH_HD_DayOfDead>
+  <SH_HL_DayOfDead>Día de Muertos – kolonie vzpomíná na své mrtvé se svíčkami a květinami. Je to den vzpomínek, ne smutku.</SH_HL_DayOfDead>
+  <SH_H_FoundersDay>Den založení</SH_H_FoundersDay>
+  <SH_HD_FoundersDay>Oslava toho, jak to všechno začalo, večer s ohňostrojem.</SH_HD_FoundersDay>
+  <SH_HL_FoundersDay>Den založení! Odpoledne oslava a v noci ohňostroj.</SH_HL_FoundersDay>
+  <SH_H_StPatrick>Den sv. Patrika</SH_H_StPatrick>
+  <SH_HD_StPatrick>Všechno zelené, písničky a pivo nebo dvě.</SH_HD_StPatrick>
+  <SH_HL_StPatrick>Veselého svatého Patrika! Obleč si něco zeleného – na večer je pivo.</SH_HL_StPatrick>
+  <SH_H_Oktoberfest>Oktoberfest</SH_H_Oktoberfest>
+  <SH_HD_Oktoberfest>Pivo, preclíky a dechovka.</SH_HD_Oktoberfest>
+  <SH_HL_Oktoberfest>O'zapft is! Začíná Oktoberfest – dorazilo pivo a odpoledne začíná zábava.</SH_HL_Oktoberfest>
+  <SH_H_StMartin>Svatý Martin</SH_H_StMartin>
+  <SH_HD_StMartin>Pečená husa a svatomartinské víno.</SH_HD_StMartin>
+  <SH_HL_StMartin>Martin přijel na bílém koni! K večeři pečená husa.</SH_HL_StMartin>
+  <SH_H_PiDay>Den pí</SH_H_PiDay>
+  <SH_HD_PiDay>3,14 – jen zpráva.</SH_HD_PiDay>
+  <SH_HL_PiDay>3,14159… někdo na počest upekl koláč.</SH_HL_PiDay>
+  <SH_H_EarthDay>Den Země</SH_H_EarthDay>
+  <SH_HD_EarthDay>Jen zpráva.</SH_HD_EarthDay>
+  <SH_HL_EarthDay>Den Země – dobrý den zasadit strom.</SH_HL_EarthDay>
+  <SH_H_BookDay>Den knihy</SH_H_BookDay>
+  <SH_HD_BookDay>Jen zpráva.</SH_HD_BookDay>
+  <SH_HL_BookDay>Den knihy – dnes večer někdo oprášil starou knihu.</SH_HL_BookDay>
+  <SH_H_TowelDay>Den ručníků</SH_H_TowelDay>
+  <SH_HD_TowelDay>Nepanikařte. Jen zpráva.</SH_HD_TowelDay>
+  <SH_HL_TowelDay>Den ručníků – nepanikařte a vězte, kde máte ručník.</SH_HL_TowelDay>
+  <SH_H_ChocolateDay>Den čokolády</SH_H_ChocolateDay>
+  <SH_HD_ChocolateDay>Jen zpráva.</SH_HD_ChocolateDay>
+  <SH_HL_ChocolateDay>Den čokolády – jestli ještě nějaká zbyla, dnes je ten den.</SH_HL_ChocolateDay>
+  <SH_H_CatDay>Den koček</SH_H_CatDay>
+  <SH_HD_CatDay>Jen zpráva.</SH_HD_CatDay>
+  <SH_HL_CatDay>Mezinárodní den koček – kočky se stejně tváří, že každý den je jejich.</SH_HL_CatDay>
+  <SH_H_PirateDay>Den mluv jako pirát</SH_H_PirateDay>
+  <SH_HD_PirateDay>Arr! Jen zpráva.</SH_HD_PirateDay>
+  <SH_HL_PirateDay>Arr, kamaráde! Dnes všichni mluví jako piráti.</SH_HL_PirateDay>
+  <SH_H_SmileDay>Den úsměvu</SH_H_SmileDay>
+  <SH_HD_SmileDay>Jen zpráva.</SH_HD_SmileDay>
+  <SH_HL_SmileDay>Den úsměvu – úsměv nic nestojí.</SH_HL_SmileDay>
+  <!-- 0.4.0: holiday activities -->
+  <SH_SecActivities>Sváteční činnosti</SH_SecActivities>
+  <SH_Activities>Sváteční činnosti</SH_Activities>
+  <SH_Activities_Desc>Ráno o svátku nabídne dopis, co dělat – hledání vajíček, pálení čarodějnic, máj, koledy … – a kolonisté to udělají sami. Některé se dějí samy (novoroční předsevzetí, svíčky na hrobech, Mikuláš).</SH_Activities_Desc>
+  <SH_HolidayTrader>Sváteční obchodník</SH_HolidayTrader>
+  <SH_HolidayTrader_Desc>O Vánocích a Velikonocích přiveze přátelská karavana sezónní zboží: cukroví, čokoládu, malovaná vajíčka, hračky, pivo a lepší jídla.</SH_HolidayTrader_Desc>
+  <SH_Act_NewYear>předsevzetí</SH_Act_NewYear>
+  <SH_Act_Valentine>romantická večeře</SH_Act_Valentine>
+  <SH_Act_Carnival>masopustní průvod</SH_Act_Carnival>
+  <SH_Act_Easter>hledání vajíček</SH_Act_Easter>
+  <SH_Act_Witches>pálení čarodějnic</SH_Act_Witches>
+  <SH_Act_MayDay>stavění máje</SH_Act_MayDay>
+  <SH_Act_ChildrenDay>hračky nebo volno</SH_Act_ChildrenDay>
+  <SH_Act_Solstice>byliny a svatojánský oheň</SH_Act_Solstice>
+  <SH_Act_Harvest>dožínkový věnec a hostina</SH_Act_Harvest>
+  <SH_Act_Halloween>lucerny a koleda</SH_Act_Halloween>
+  <SH_Act_AllSouls>svíčky na hrobech</SH_Act_AllSouls>
+  <SH_Act_Thanksgiving>hostina a dary</SH_Act_Thanksgiving>
+  <SH_Act_StNicholas>Mikuláš, anděl a čert</SH_Act_StNicholas>
+  <SH_Act_Christmas>koledy u stromečku</SH_Act_Christmas>
+  <SH_Act_NewYearsEve>odpočítávání a kocovina</SH_Act_NewYearsEve>
+  <SH_ActDesc_NewYear>Každý kolonista si vybere jednu dovednost (vášeň, nebo svou nejslabší) a celou sezónu se ji učí o 50 % rychleji.</SH_ActDesc_NewYear>
+  <SH_ActDesc_Valentine>Páry dostanou romantickou večeři (velká nálada) a celý den je větší šance na lásku.</SH_ActDesc_Valentine>
+  <SH_ActDesc_Carnival>Masopustní průvod s oslavou; druhý den krátký půst.</SH_ActDesc_Carnival>
+  <SH_ActDesc_Easter>Po kolonii se schovají malovaná vajíčka. Nosiči je najdou a kolonisté je pro radost snědí.</SH_ActDesc_Easter>
+  <SH_ActDesc_Witches>Hranice se slaměnou čarodějnicí; kolonie se kolem ní sejde.</SH_ActDesc_Witches>
+  <SH_ActDesc_MayDay>Postaví se máj. Následující noc u ní nech někoho hlídat, jinak ji sousedé můžou ukrást. Páry se políbí pod rozkvetlým stromem.</SH_ActDesc_MayDay>
+  <SH_ActDesc_ChildrenDay>Děti dostanou hračky. Když děti nejsou, mají všichni zbytek dne volno.</SH_ActDesc_ChildrenDay>
+  <SH_ActDesc_Solstice>Léčivé byliny dnes dají o 50 % víc a u vody se zapálí oheň.</SH_ActDesc_Solstice>
+  <SH_ActDesc_Harvest>Dožínkový věnec a hostina; plodiny dnes dají o 25 % víc.</SH_ActDesc_Harvest>
+  <SH_ActDesc_Halloween>Kolonii rozsvítí dýňové lucerny a sousedovic děti přijdou na koledu – sladkosti ze skladu zlepší vztahy. V noci se občas zjeví (neškodný) duch.</SH_ActDesc_Halloween>
+  <SH_ActDesc_AllSouls>U každého hrobu se zapálí svíčka.</SH_ActDesc_AllSouls>
+  <SH_ActDesc_Thanksgiving>Velká hostina a přátelská frakce pošle jídlo.</SH_ActDesc_Thanksgiving>
+  <SH_ActDesc_StNicholas>Hodní kolonisté dostanou dárek, zlobiví (nedávné zhroucení, vězni) uhlí.</SH_ActDesc_StNicholas>
+  <SH_ActDesc_Christmas>Koledy u vánočního stromečku (postavíš ho v Různém). Na Štědrý den ráno leží dárky pod stromečkem.</SH_ActDesc_Christmas>
+  <SH_ActDesc_NewYearsEve>Silvestrovská oslava a ohňostroj; ráno má někdo kocovinu.</SH_ActDesc_NewYearsEve>
+  <SH_ActTitle>{0}: pojďme slavit!</SH_ActTitle>
+  <SH_ActOffer_Valentine>Je Valentýn! Připravíme párům romantickou večeři? Celý den bude láska ve vzduchu.</SH_ActOffer_Valentine>
+  <SH_ActOffer_Carnival>Je masopust! Masky na sebe – uspořádáme průvod s hostinou? (Zítra přijde půst.)</SH_ActOffer_Carnival>
+  <SH_ActOffer_Easter>Veselé Velikonoce! Schováme po kolonii malovaná vajíčka? Nosiči je najdou a všichni si na nich pochutnají.</SH_ActOffer_Easter>
+  <SH_ActOffer_Witches>Je pálení čarodějnic! Postavíme hranici se slaměnou čarodějnicí a zaženeme zimu?</SH_ActOffer_Witches>
+  <SH_ActOffer_MayDay>Je prvního máje! Postavíme máj? Ale pozor – sousedé ji v noci rádi kradou. Příští noc u ní nech někoho vzhůru.</SH_ActOffer_MayDay>
+  <SH_ActOffer_ChildrenDay>Je Den dětí! Oslavíme ho? Děti dostanou hračky – a když děti nejsou, dostanou všichni zbytek dne volno.</SH_ActOffer_ChildrenDay>
+  <SH_ActOffer_Solstice>Je svatojánská noc! Byliny natrhané dnes prý mají dvojnásobnou sílu. Zapálíme oheň u vody?</SH_ActOffer_Solstice>
+  <SH_ActOffer_Harvest>Jsou dožínky! Pověsíme dožínkový věnec a uspořádáme hostinu? Plodiny sklizené dnes dají víc.</SH_ActOffer_Harvest>
+  <SH_ActOffer_Halloween>Je Halloween! Rozsvítíme dýňové lucerny a přivítáme sousedovic děti na koledě? Měj ve skladu nějaké sladkosti!</SH_ActOffer_Halloween>
+  <SH_ActOffer_Thanksgiving>Je Den díkůvzdání! Sedneme si k velké hostině? Možná nám sousedé taky něco pošlou.</SH_ActOffer_Thanksgiving>
+  <SH_ActOffer_Christmas>Veselé Vánoce! Zazpíváme si koledy u vánočního stromečku?</SH_ActOffer_Christmas>
+  <SH_ActGo>Slavíme!</SH_ActGo>
+  <SH_ActSkip>Letos ne</SH_ActSkip>
+  <SH_ActNoMap>Kolonie už neexistuje.</SH_ActNoMap>
+  <SH_ActDoneTitle_NewYear>Novoroční předsevzetí</SH_ActDoneTitle_NewYear>
+  <SH_ActDone_NewYear>Letos se chce každý v něčem zlepšit:\n\n{LIST}\n\nTu dovednost se celou sezónu učí o 50 % rychleji.</SH_ActDone_NewYear>
+  <SH_ActDoneTitle_Valentine>Romantická večeře</SH_ActDoneTitle_Valentine>
+  <SH_ActDone_Valentine>Svíčky, květiny a pěkná večeře pro páry ({N}). Celý den je láska ve vzduchu.</SH_ActDone_Valentine>
+  <SH_ActDoneTitle_Carnival>Masopustní průvod</SH_ActDoneTitle_Carnival>
+  <SH_ActDone_Carnival>Masky, muzika a koblihy – kolonie jde v maskách průvodem. Zítra začíná půst.</SH_ActDone_Carnival>
+  <SH_ActDoneTitle_Easter>Hledání vajíček</SH_ActDoneTitle_Easter>
+  <SH_ActDone_Easter>Po kolonii je schovaných {N} malovaných vajíček. Nosiči je najdou – a každý si je může pro radost sníst.</SH_ActDone_Easter>
+  <SH_ActDoneTitle_Witches>Pálení čarodějnic</SH_ActDoneTitle_Witches>
+  <SH_ActDone_Witches>Hranice se slaměnou čarodějnicí hoří! Kolonie se kolem ní schází a zahání zimu.</SH_ActDone_Witches>
+  <SH_ActDoneTitle_MayDay>Máj</SH_ActDoneTitle_MayDay>
+  <SH_ActDone_MayDay>Máj stojí! Příští noc u ní nech někoho vzhůru nebo povolaného – sousedé ji rádi kradou.</SH_ActDone_MayDay>
+  <SH_ActDoneTitle_MaypoleStolen>Máj ukradena!</SH_ActDoneTitle_MaypoleStolen>
+  <SH_ActDone_MaypoleStolen>V noci se připlížili lidé z frakce {FACTION} a ukradli nám máj! Je to starý zvyk – nic se nestalo, ale příští rok ji ohlídáme líp.</SH_ActDone_MaypoleStolen>
+  <SH_MaypoleKept>Naše máj přežila noc!</SH_MaypoleKept>
+  <SH_ActDoneTitle_ChildrenDay>Den dětí</SH_ActDoneTitle_ChildrenDay>
+  <SH_ActDone_ChildrenDay>Hračky pro děti ({N})! Dnešek patří jim.</SH_ActDone_ChildrenDay>
+  <SH_ActDoneTitle_ChildrenDayOff>Volný den</SH_ActDoneTitle_ChildrenDayOff>
+  <SH_ActDone_ChildrenDayOff>Děti tu nejsou – tak mají všichni zbytek dne volno. Rozvrhy se vrátí o půlnoci.</SH_ActDone_ChildrenDayOff>
+  <SH_ActDoneTitle_Solstice>Svatojánská noc</SH_ActDoneTitle_Solstice>
+  <SH_ActDone_Solstice>Svatojánský oheň hoří. Léčivé byliny sklizené dnes dají o 50 % víc.</SH_ActDone_Solstice>
+  <SH_ActDoneTitle_Harvest>Dožínky</SH_ActDoneTitle_Harvest>
+  <SH_ActDone_Harvest>Dožínkový věnec visí a hostina začíná. Plodiny sklizené dnes dají o 25 % víc.</SH_ActDone_Harvest>
+  <SH_ActDoneTitle_Halloween>Halloweenská noc</SH_ActDoneTitle_Halloween>
+  <SH_ActDone_Halloween>Do noci se šklebí dýňové lucerny ({0}).</SH_ActDone_Halloween>
+  <SH_TreatsGiven>Děti z frakce {1} přišly na koledu a dostaly ze skladu sladkosti ({0}). Jejich rodiče mají radost.</SH_TreatsGiven>
+  <SH_NoTreats>Děti z frakce {0} přišly na koledu, ale ve skladu jsme neměli sladkosti. Snad příští rok.</SH_NoTreats>
+  <SH_GhostTitle>Duch?!</SH_GhostTitle>
+  <SH_Ghost>{0} přísahá, že dnes v noci kolem okna proletělo něco bílého… Strašidelné, ale skvělý příběh.</SH_Ghost>
+  <SH_CandlesLit>U hrobů se zapálily svíčky ({0}).</SH_CandlesLit>
+  <SH_ActDoneTitle_Thanksgiving>Den díkůvzdání</SH_ActDoneTitle_Thanksgiving>
+  <SH_ActDone_Thanksgiving>Dlouhý stůl plný jídla. {FACTION} poslali k hostině dar.</SH_ActDone_Thanksgiving>
+  <SH_Neighbours>sousedé</SH_Neighbours>
+  <SH_ActDoneTitle_StNicholas>Mikuláš, anděl a čert</SH_ActDoneTitle_StNicholas>
+  <SH_ActDone_StNicholas>Přišel Mikuláš s andělem a čertem!\n\nLetos hodní: {GOOD} – každý dostal dárek.\nZlobiví: {BAD} – čert nechal uhlí.</SH_ActDone_StNicholas>
+  <SH_NobodyNaughty>nikdo – čert odešel s prázdnou</SH_NobodyNaughty>
+  <SH_ActDoneTitle_Christmas>Vánoční koledy</SH_ActDoneTitle_Christmas>
+  <SH_ActDone_Christmas>Kolonie se schází u vánočního stromečku a zpívá koledy.</SH_ActDone_Christmas>
+  <SH_ActDoneTitle_ChristmasNoTree>Vánoční koledy</SH_ActDoneTitle_ChristmasNoTree>
+  <SH_ActDone_ChristmasNoTree>Kolonie se schází a zpívá koledy. Příští rok postav vánoční stromeček (Různé) – dárky budou ležet pod ním.</SH_ActDone_ChristmasNoTree>
+  <SH_ResolutionSkill>Předsevzetí: zlepšit se v dovednosti {0} (učí se o 50 % rychleji).</SH_ResolutionSkill>
+  <SH_GiftUnderTree>Vánoční dárky leží pod stromečkem!</SH_GiftUnderTree>
+  <SH_ActTabTip>▶ Oslavit hned: {0}</SH_ActTabTip>
+  <SH_ActConfirm>Oslavit {0} hned ({1})?</SH_ActConfirm>
+  <SH_ActTonight>{0}: začínáme dnes večer v 19 hodin.</SH_ActTonight>
+  <!-- 0.5.0 -->
+  <SH_Rec4>Sváteční jídlo a dekorace, sezónní události, svátky podle kultury kolonie</SH_Rec4>
+  <SH_H_SpringEquinox>Jarní rovnodennost</SH_H_SpringEquinox>
+  <SH_HD_SpringEquinox>Den a noc jsou stejně dlouhé: starý svátek setí. Slaví ho kmenové kolonie.</SH_HD_SpringEquinox>
+  <SH_HL_SpringEquinox>Dnes jsou den a noc stejně dlouhé. Kmen žehná polím pro dobrý rok.</SH_HL_SpringEquinox>
+  <SH_H_WinterSolstice>Zimní slunovrat</SH_H_WinterSolstice>
+  <SH_HD_WinterSolstice>Nejdelší noc v roce: velký oheň, který přivolá slunce zpět. Slaví ho kmenové kolonie.</SH_HD_WinterSolstice>
+  <SH_HL_WinterSolstice>Nejdelší noc v roce. Dnes večer kmen udržuje velký oheň – od zítřka se slunce vrací.</SH_HL_WinterSolstice>
+  <SH_Act_LunarNewYear>červené lucerny a obálky</SH_Act_LunarNewYear>
+  <SH_Act_Holi>bitva barev</SH_Act_Holi>
+  <SH_Act_Diwali>lampičky a sladkosti</SH_Act_Diwali>
+  <SH_Act_MidAutumn>měsíční koláčky pod měsícem</SH_Act_MidAutumn>
+  <SH_Act_DayOfDead>oltář mrtvých</SH_Act_DayOfDead>
+  <SH_Act_FoundersDay>proslov a hostina</SH_Act_FoundersDay>
+  <SH_Act_StPatrick>zelená oslava</SH_Act_StPatrick>
+  <SH_Act_Oktoberfest>pivní soutěž</SH_Act_Oktoberfest>
+  <SH_Act_StMartin>lampionový průvod a husa</SH_Act_StMartin>
+  <SH_Act_SpringEquinox>požehnání polím</SH_Act_SpringEquinox>
+  <SH_Act_WinterSolstice>slunovratový oheň</SH_Act_WinterSolstice>
+  <SH_ActOffer_LunarNewYear>Šťastný Lunární Nový rok! Pověsíme červené lucerny a dáme si navzájem červené obálky s trochou stříbra?</SH_ActOffer_LunarNewYear>
+  <SH_ActOffer_Holi>Šťastné Holi! Bitva barev? Všichni budou půl dne barevní – a oblečení trochu umazané.</SH_ActOffer_Holi>
+  <SH_ActOffer_Diwali>Šťastné Diválí! Rozsvítíme večer po kolonii lampičky a rozdělíme se o sladkosti?</SH_ActOffer_Diwali>
+  <SH_ActOffer_MidAutumn>Svátek středu podzimu! Večer měsíční koláčky a společné pozorování úplňku?</SH_ActOffer_MidAutumn>
+  <SH_ActOffer_DayOfDead>Den mrtvých. Postavíme oltář a vzpomeneme na ty, které jsme ztratili?</SH_ActOffer_DayOfDead>
+  <SH_ActOffer_FoundersDay>Den založení! Náš nejlepší řečník pronese proslov a pak hostina?</SH_ActOffer_FoundersDay>
+  <SH_ActOffer_StPatrick>Den sv. Patrika! Zelená oslava s písničkami a tancem?</SH_ActOffer_StPatrick>
+  <SH_ActOffer_Oktoberfest>Oktoberfest! Pivní soutěž? Každý soutěžící potřebuje jedno pivo ze skladu.</SH_ActOffer_Oktoberfest>
+  <SH_ActOffer_StMartin>Svatý Martin! Večer lampionový průvod a husí hostina? Na husu se vezme trochu syrového masa ze skladu.</SH_ActOffer_StMartin>
+  <SH_ActOffer_SpringEquinox>Jarní rovnodennost. Požehná kmen polím věncem a tancem?</SH_ActOffer_SpringEquinox>
+  <SH_ActOffer_WinterSolstice>Zimní slunovrat, nejdelší noc. Zapálíme večer velký oheň a budeme ho udržovat?</SH_ActOffer_WinterSolstice>
+  <SH_ActDesc_LunarNewYear>Červené lucerny po kolonii; každý kolonista dá jinému červenou obálku s trochou stříbra.</SH_ActDesc_LunarNewYear>
+  <SH_ActDesc_Holi>Bitva barev: všichni jsou půl dne barevní, oblečení se trochu umaže.</SH_ActDesc_Holi>
+  <SH_ActDesc_Diwali>Olejové lampičky po kolonii a sladkosti pro všechny (večer).</SH_ActDesc_Diwali>
+  <SH_ActDesc_MidAutumn>Měsíční koláčky a společné pozorování měsíce venku (večer).</SH_ActDesc_MidAutumn>
+  <SH_ActDesc_DayOfDead>Oltář mrtvých; každý kolonista vzpomene jménem na jednoho z mrtvých kolonie.</SH_ActDesc_DayOfDead>
+  <SH_ActDesc_FoundersDay>Kolonista s nejlepší výřečností pronese proslov – čím lepší řečník, tím lepší nálada. Pak hostina.</SH_ActDesc_FoundersDay>
+  <SH_ActDesc_StPatrick>Zelená oslava s písničkami a tancem.</SH_ActDesc_StPatrick>
+  <SH_ActDesc_Oktoberfest>Pivní soutěž – jedno pivo ze skladu na soutěžícího; vítěz je hrdý ještě dny.</SH_ActDesc_Oktoberfest>
+  <SH_ActDesc_StMartin>Večerní lampionový průvod; se syrovým masem ve skladu i husí hostina.</SH_ActDesc_StMartin>
+  <SH_ActDesc_SpringEquinox>Věnec a tanec pro požehnání polím (kmenové kolonie).</SH_ActDesc_SpringEquinox>
+  <SH_ActDesc_WinterSolstice>Velký oheň přes nejdelší noc (kmenové kolonie, večer).</SH_ActDesc_WinterSolstice>
+  <SH_ActDoneTitle_LunarNewYear>Lunární Nový rok</SH_ActDoneTitle_LunarNewYear>
+  <SH_ActDone_LunarNewYear>Po kolonii svítí červené lucerny a červené obálky jdou z ruky do ruky:\n\n{LIST}</SH_ActDone_LunarNewYear>
+  <SH_EnvelopePair>{0} → {1}</SH_EnvelopePair>
+  <SH_ActDoneTitle_Holi>Bitva barev o Holi</SH_ActDoneTitle_Holi>
+  <SH_ActDone_Holi>Růžová, zelená, žlutá, modrá – nikdo nezůstane čistý! Všichni jsou barevní až do zítřka a oblečení se trochu umazalo.</SH_ActDone_Holi>
+  <SH_ActDoneTitle_Diwali>Světla Diválí</SH_ActDoneTitle_Diwali>
+  <SH_ActDone_Diwali>Po kolonii hoří {N} lampiček a pro každého jsou sladkosti.</SH_ActDone_Diwali>
+  <SH_ActDoneTitle_MidAutumn>Pod úplňkem</SH_ActDoneTitle_MidAutumn>
+  <SH_ActDone_MidAutumn>Měsíční koláčky pro všechny a kolonie se schází venku pozorovat měsíc.</SH_ActDone_MidAutumn>
+  <SH_ActDoneTitle_DayOfDead>Den mrtvých</SH_ActDoneTitle_DayOfDead>
+  <SH_ActDone_DayOfDead>Aksamitníky, svíčky a fotky na oltáři. Dnes vzpomínáme na: {LIST}.</SH_ActDone_DayOfDead>
+  <SH_ActDoneTitle_DayOfDeadNone>Den mrtvých</SH_ActDoneTitle_DayOfDeadNone>
+  <SH_ActDone_DayOfDeadNone>Oltář stojí s aksamitníky a svíčkami. Naštěstí naše kolonie zatím nikoho neztratila.</SH_ActDone_DayOfDeadNone>
+  <SH_ActDoneTitle_FoundersDay>Den založení</SH_ActDoneTitle_FoundersDay>
+  <SH_ActDone_FoundersDay>{PAWN} pronesl proslov o našich {DAYS} dnech tady. {HOW} Pak začala hostina.</SH_ActDone_FoundersDay>
+  <SH_SpeechQ0>Upřímně, byl trochu dlouhý.</SH_SpeechQ0>
+  <SH_SpeechQ1>Dobrý proslov – všichni tleskali.</SH_SpeechQ1>
+  <SH_SpeechQ2>Dojemný proslov – tekly slzy.</SH_SpeechQ2>
+  <SH_ActDoneTitle_StPatrick>Den sv. Patrika</SH_ActDoneTitle_StPatrick>
+  <SH_ActDone_StPatrick>Dnes je všechno zelené – písničky, tanec a pivo v ruce.</SH_ActDone_StPatrick>
+  <SH_ActDoneTitle_Oktoberfest>Pivní soutěž na Oktoberfestu</SH_ActDoneTitle_Oktoberfest>
+  <SH_ActDone_Oktoberfest>{N} soutěžících, {N} piv, dechovka – a vítězem je {PAWN}! Na zdraví!</SH_ActDone_Oktoberfest>
+  <SH_ActDoneTitle_OktoberfestNoBeer>Oktoberfest</SH_ActDoneTitle_OktoberfestNoBeer>
+  <SH_ActDone_OktoberfestNoBeer>Letos bez pivní soutěže – potřebujeme aspoň dva soutěžící a pro každého jedno pivo ve skladu ({N} soutěžících).</SH_ActDone_OktoberfestNoBeer>
+  <SH_ActDoneTitle_StMartin>Svatý Martin</SH_ActDoneTitle_StMartin>
+  <SH_ActDone_StMartin>Lampionový průvod za tmy a pak pečená husa pro všechny. Martin přijel na bílém koni!</SH_ActDone_StMartin>
+  <SH_ActDoneTitle_StMartinNoGoose>Svatý Martin</SH_ActDoneTitle_StMartinNoGoose>
+  <SH_ActDone_StMartinNoGoose>Lampionový průvod za tmy. Na husu nebylo ve skladu dost syrového masa – snad příští rok.</SH_ActDone_StMartinNoGoose>
+  <SH_ActDoneTitle_SpringEquinox>Jarní rovnodennost</SH_ActDoneTitle_SpringEquinox>
+  <SH_ActDone_SpringEquinox>Kmen pověsí věnec a tančí kolem polí za dobrou úrodu.</SH_ActDone_SpringEquinox>
+  <SH_ActDoneTitle_WinterSolstice>Slunovratový oheň</SH_ActDoneTitle_WinterSolstice>
+  <SH_ActDone_WinterSolstice>Velký oheň je zapálený. Dnes v noci ho udržíme – slunce se vrátí.</SH_ActDone_WinterSolstice>
+  <SH_ActQuiet>{0}: {1} – jestli chceš, spusť to v kalendáři (▶).</SH_ActQuiet>
+  <SH_SeasonFoodInspect>Navíc nálada, když se sní v: {0}</SH_SeasonFoodInspect>
+  <SH_Remind>{0} bude za {1} dní.</SH_Remind>
+  <SH_LookingForwardMsg>{0} kolonistů se těší na {1} – loni si to užili.</SH_LookingForwardMsg>
+  <SH_VisitorsTitle>Sváteční návštěva</SH_VisitorsTitle>
+  <SH_Visitors>Přátelé z {0} přišli s námi oslavit {1} a přinesli dárky.</SH_Visitors>
+  <SH_PackAwayHint>Sezóna skončila: {0} svátečních dekorací by šlo uklidit (odinstalovat).</SH_PackAwayHint>
+  <SH_PackAwayMarked>Sezóna skončila: {0} svátečních dekorací je označeno k uklizení.</SH_PackAwayMarked>
+  <SH_ThawTitle>Jarní tání</SH_ThawTitle>
+  <SH_Thaw>Sníh taje. Další dva dny je půda u vody měkké bláto – kolonisté u vody chodí pomaleji.</SH_Thaw>
+  <SH_MarketMsg>Přijíždí dožínkový trh z {0} se spoustou jídla.</SH_MarketMsg>
+  <SH_Off>vyp.</SH_Off>
+  <SH_RemindDays>Připomenutí před svátkem (dny)</SH_RemindDays>
+  <SH_RemindDays_Desc>Krátká zpráva tolik dní před svátkem.</SH_RemindDays_Desc>
+  <SH_QuietMode>Tichý režim</SH_QuietMode>
+  <SH_QuietMode_Desc>Svátky a činnosti jen jako krátké zprávy, žádné dopisy. Činnosti jde pořád spustit v kalendáři (▶).</SH_QuietMode_Desc>
+  <SH_HolidayVisitors>Sváteční návštěvy</SH_HolidayVisitors>
+  <SH_HolidayVisitors_Desc>Občas přijdou přátelští sousedé oslavit svátek s vámi a přinesou dárky (nejvýš jednou za 15 dní).</SH_HolidayVisitors_Desc>
+  <SH_CultureMode>Svátky podle kultury</SH_CultureMode>
+  <SH_CultureMode_Desc>Auto: kmenová kolonie slaví staré svátky (rovnodennost, slunovrat) a vynechá moderní (Den založení, Oktoberfest …), ostatní kolonie naopak. Vše: všechny svátky, seznam dole se nepoužije. Můj seznam: jen seznam dole.</SH_CultureMode_Desc>
+  <SH_Culture0>Auto</SH_Culture0>
+  <SH_Culture1>Vše</SH_Culture1>
+  <SH_Culture2>Můj seznam</SH_Culture2>
+  <SH_CultureTribal>kmenový</SH_CultureTribal>
+  <SH_LookForward>Těšení</SH_LookForward>
+  <SH_LookForward_Desc>Kolonisté, kteří si svátek loni užili, se na něj pár dní předem těší.</SH_LookForward_Desc>
+  <SH_FamilyTradition>Rodinná tradice</SH_FamilyTradition>
+  <SH_FamilyTradition_Desc>Víc nálady, když se svátek slaví spolu s partnerem, rodičem nebo dítětem – každý rok víc.</SH_FamilyTradition_Desc>
+  <SH_SecFood>Sváteční jídlo a dekorace</SH_SecFood>
+  <SH_SeasonalFood>Bonus za sezónní jídlo</SH_SeasonalFood>
+  <SH_SeasonalFood_Desc>Sváteční jídlo (vajíčka, cukroví, svařák, dýňový koláč, punč, měsíční koláčky, diválí sladkosti) dá navíc náladu, když se sní v jeho sezóně. Recepty jsou u sporáku vždy.</SH_SeasonalFood_Desc>
+  <SH_PackAway>Dekorace po sezóně</SH_PackAway>
+  <SH_PackAway_Desc>Vánoční stromek, věnec, světelný řetěz, vyřezaná dýně a májka (záložka Různé) patří k sezóně. Po ní: nic, připomenutí, nebo je označit k uklizení (odinstalaci).</SH_PackAway_Desc>
+  <SH_PackAway0>Nic</SH_PackAway0>
+  <SH_PackAway1>Připomenout</SH_PackAway1>
+  <SH_PackAway2>Uklidit</SH_PackAway2>
+  <SH_SecEvents>Sezónní události</SH_SecEvents>
+  <SH_SeasonalEvents>Sezónní události</SH_SeasonalEvents>
+  <SH_SeasonalEvents_Desc>Malé události roku: jarní tání, podzimní dožínkový trh, útulné zimní večery, letní komáři.</SH_SeasonalEvents_Desc>
+  <SH_SpringThaw>Jarní tání</SH_SpringThaw>
+  <SH_SpringThaw_Desc>Po mrazivé zimě můžou být první jarní dny mokré: dva dny bláta u vody (kolonisté tam chodí trochu pomaleji).</SH_SpringThaw_Desc>
+  <SH_HarvestMarket>Dožínkový trh</SH_HarvestMarket>
+  <SH_HarvestMarket_Desc>Na podzim často přijede přátelská karavana se spoustou jídla na prodej.</SH_HarvestMarket_Desc>
+  <SH_CozyEvenings>Útulné večery</SH_CozyEvenings>
+  <SH_CozyEvenings_Desc>Za zimních večerů dostanou kolonisté u hořícího krbu nebo táboráku ve stejné místnosti malý bonus k náladě.</SH_CozyEvenings_Desc>
+  <SH_SummerInsects>Letní komáři</SH_SummerInsects>
+  <SH_SummerInsects_Desc>V horkých vlhkých krajích kolonisty venku v létě otravují komáři (malá špatná nálada).</SH_SummerInsects_Desc>
+  <SH_MoodN>Nálada {0} %</SH_MoodN>
+  <SH_MoodN_Desc>Jak silná je sváteční nálada. Kliknutím změníš: 0 %, 50 %, 100 %, 150 %, 200 %.</SH_MoodN_Desc>
+  <SH_TabUpcoming>Potom: {0}</SH_TabUpcoming>
+  <SH_TabInDays>{0} ({1} d)</SH_TabInDays>
+  <SH_DayToday>dnes</SH_DayToday>
+  <SH_DayTemp>Průměrná teplota: {0}</SH_DayTemp>
+  <SH_DayNothing>Tento den nic zvláštního.</SH_DayNothing>
+  <SH_DayCelebrate>▶ Oslavit</SH_DayCelebrate>
+  <SH_DayActivity>Činnost: {0}</SH_DayActivity>
+  <SH_DayParty>Uspořádat oslavu</SH_DayParty>
+  <SH_DayPartyNo>Teď to nejde (kolonista je pryč, zaneprázdněný, nebo už oslava běží).</SH_DayPartyNo>
+  <!-- recommended settings card -->
+  <MUI_Title>Doporučené nastavení</MUI_Title>
+  <MUI_TitleOff>Doporučené nastavení · vypnuto</MUI_TitleOff>
+  <MUI_DescOn>Mod se nastaví sám a funguje hned. Ideální pro nováčky a pro každého, kdo si nechce nic hledat.</MUI_DescOn>
+  <MUI_DescOff>Vlastní nastavení. Oproti doporučeným máš změněné věci: {0}.</MUI_DescOff>
+  <MUI_DescOffSame>Vlastní nastavení. Zatím se shoduje s doporučeným.</MUI_DescOffSame>
+  <MUI_On>ZAPNUTO</MUI_On>
+  <MUI_Off>VYPNUTO</MUI_Off>
+  <MUI_ResetAll>Vrátit vše na doporučené</MUI_ResetAll>
+  <MUI_ConfirmOn>Zapnout doporučené nastavení? Tvoje změny ({0}) se přepíšou doporučenými hodnotami.</MUI_ConfirmOn>
+  <MUI_Locked>Podrobná nastavení jsou zamčená. Chceš si je upravit? Vypni přepínač nahoře – tvoje hodnoty začnou z doporučených.</MUI_Locked>
+  <MUI_Changed>ZMĚNĚNO</MUI_Changed>
+  <MUI_ChangedTip>Liší se od doporučeného nastavení ({0}). Kliknutím vrátíš doporučenou hodnotu.</MUI_ChangedTip>
+  <MUI_Yes>zapnuto</MUI_Yes>
+  <MUI_No>vypnuto</MUI_No>
+  <MUI_RecTag>DOPORUČENO</MUI_RecTag>
+</LanguageData>

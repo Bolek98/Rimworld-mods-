@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_FuelRod.label>연료봉</PWW_FuelRod.label>
+  <PWW_FuelRod.description>농축 우라늄으로 만든 밀봉된 봉. 핵분열 원자로의 연료이며, 하나로 약 하루를 버팁니다.</PWW_FuelRod.description>
+  <PWW_FusionCell.label>핵융합 전지</PWW_FusionCell.label>
+  <PWW_FusionCell.description>핵융합로용 자기 연료 전지. 하나로 약 5일을 버팁니다.</PWW_FusionCell.description>
+  <PWW_CannedFood.label>통조림</PWW_CannedFood.label>
+  <PWW_CannedFood.description>날음식을 조리해 캔에 밀봉한 것. 절대 상하지 않으며 바깥에서도 잘 보관됩니다.</PWW_CannedFood.description>
+  <PWW_DeepBorehole.label>심층 시추공</PWW_DeepBorehole.label>
+  <PWW_DeepBorehole.description>지하수면 아래 깊이 뚫은 시추공. 펌프가 쓸 수 있는 매우 넓은 깨끗한 지하수 영역(반경 22)에 닿으며, 오염의 영향을 받지 않습니다.</PWW_DeepBorehole.description>
+  <PWW_DeepWellPump.label>대용량 펌프</PWW_DeepWellPump.label>
+  <PWW_DeepWellPump.description>우물의 물을 급수탑으로 퍼 올립니다: 하루 30,000 L.</PWW_DeepWellPump.description>
+  <PWW_WaterTreatment.label>소형 정수 시설</PWW_WaterTreatment.label>
+  <PWW_WaterTreatment.description>일반 정수 시설처럼 급수탑의 물과 설비에서 쓰는 물을 정화하지만, 전력은 절반만 필요합니다.</PWW_WaterTreatment.description>
+  <PWW_Desalination.label>해수 담수화 시설</PWW_Desalination.label>
+  <PWW_Desalination.description>바닷물로 민물을 만들어 자체 탱크를 채웁니다 (전력이 있을 때 하루 약 15,000 L). 바다에서 3칸 이내에 있어야 합니다.</PWW_Desalination.description>
+  <PWW_WaterTower.label>거대 급수탑</PWW_WaterTower.label>
+  <PWW_WaterTower.description>물 150,000 L를 저장합니다. 정전이 되어도 오랫동안 수도꼭지에 물이 나오게 합니다.</PWW_WaterTower.description>
+  <PWW_HydroPlant.label>수력 발전소</PWW_HydroPlant.label>
+  <PWW_HydroPlant.description>터빈 여러 개가 있는 소형 유수식 발전소. 최소 세 칸은 흐르는 물 위에, 나머지는 단단한 땅 위에 있어야 합니다. 밤낮으로 꾸준한 전력을 내며, 혹독한 겨울에 강이 얼면 40 %만 냅니다.</PWW_HydroPlant.description>
+  <PWW_BiogasPlant.label>바이오가스 발전소</PWW_BiogasPlant.label>
+  <PWW_BiogasPlant.description>날음식, 고기, 식물 물질과 (Dubs Bad Hygiene가 있으면) 분뇨 슬러지를 발효시켜 발전기를 돌리는 가스로 만듭니다.</PWW_BiogasPlant.description>
+  <PWW_DeepGeothermal.label>심층 지열 발전소</PWW_DeepGeothermal.label>
+  <PWW_DeepGeothermal.description>뜨거운 암반까지 수 킬로미터를 뚫습니다 – 증기 간헐천이 필요 없습니다. 매우 비싸지만 영원히 강한 전력을 냅니다.</PWW_DeepGeothermal.description>
+  <PWW_Incinerator.label>소각 발전기</PWW_Incinerator.label>
+  <PWW_Incinerator.description>돌덩이와 강철 슬래그를 매우 높은 온도로 태워 열을 전력으로 바꿉니다. 기지도 깔끔해집니다.</PWW_Incinerator.description>
+  <PWW_Diesel.label>디젤 발전기</PWW_Diesel.label>
+  <PWW_Diesel.description>화학연료를 태웁니다. "자동 시작"을 켜면 전력망의 배터리가 부족할 때 스스로 켜지고 가득 차면 다시 꺼집니다 – 필요할 때만 작동하는 예비 전원입니다.</PWW_Diesel.description>
+  <PWW_FissionReactor.label>핵분열 원자로</PWW_FissionReactor.label>
+  <PWW_FissionReactor.description>연료봉을 태우는 소형 핵분열 원자로. 엄청나고 꾸준한 전력을 내지만 뜨거워집니다: 10칸 이내에 작동하는 냉각탑이 필요합니다. 열이 100 %가 되면 스스로 정지합니다 (설정에서 켜 두면 노심이 용융됩니다). SCRAM 버튼으로 즉시 멈춥니다.</PWW_FissionReactor.description>
+  <PWW_CoolingTower.label>냉각탑</PWW_CoolingTower.label>
+  <PWW_CoolingTower.description>10칸 이내의 핵분열 원자로를 냉각합니다. 원자로 하나에 작동하는 냉각탑 하나면 충분합니다.</PWW_CoolingTower.description>
+  <PWW_FusionReactor.label>핵융합로</PWW_FusionReactor.label>
+  <PWW_FusionReactor.description>우주 시대의 핵융합로. 여러 날 버티는 핵융합 전지로 막대한 전력을 냅니다. 안전합니다 – 노심 용융이 일어날 수 없습니다.</PWW_FusionReactor.description>
+  <PWW_BigBattery.label>대형 배터리</PWW_BigBattery.label>
+  <PWW_BigBattery.description>산업용 전지 묶음: 6000 Wd를 저장하며 소형 배터리보다 에너지 손실이 적습니다.</PWW_BigBattery.description>
+  <PWW_Flywheel.label>플라이휠</PWW_Flywheel.label>
+  <PWW_Flywheel.description>300 Wd를 저장하는 저렴한 기계식 저장 장치. 짧은 공백에 좋지만 매일 에너지의 10 %를 잃습니다.</PWW_Flywheel.description>
+  <PWW_CircuitBreaker.label>차단기</PWW_CircuitBreaker.label>
+  <PWW_CircuitBreaker.description>전원 스위치처럼 작동합니다. 전력망 어디서든 합선이 일어나면 대신 차단기가 작동합니다 – 폭발도 화재도 없습니다. 손으로 다시 켜세요.</PWW_CircuitBreaker.description>
+  <PWW_AutoStonecutter.label>자동 석공 작업대</PWW_AutoStonecutter.label>
+  <PWW_AutoStonecutter.description>옆에 놓인 돌덩이를 가져와 스스로 벽돌로 자릅니다 – 정착민이 필요 없습니다. 게임 내 1시간에 돌덩이 하나.</PWW_AutoStonecutter.description>
+  <PWW_InductionFurnace.label>유도로</PWW_InductionFurnace.label>
+  <PWW_InductionFurnace.description>전기로: 슬래그에서 더 많은 강철을 얻고 연료봉과 핵융합 전지를 만듭니다.</PWW_InductionFurnace.description>
+  <PWW_ComponentLine.label>부품 생산 라인</PWW_ComponentLine.label>
+  <PWW_ComponentLine.description>부품을 한 번에 5개씩, 손으로 만드는 것보다 조금 싸게 만드는 자동화 라인.</PWW_ComponentLine.description>
+  <PWW_TextileMill.label>방직 공장</PWW_TextileMill.label>
+  <PWW_TextileMill.description>낡은 옷을 다시 천으로 분쇄합니다.</PWW_TextileMill.description>
+  <PWW_Cannery.label>통조림 공장</PWW_Cannery.label>
+  <PWW_Cannery.description>날음식으로 통조림을 만듭니다. 통조림은 절대 상하지 않습니다.</PWW_Cannery.description>
+  <PWW_Sprinkler.label>스프링클러</PWW_Sprinkler.label>
+  <PWW_Sprinkler.description>주변 식물에 물을 줍니다: 15 % 더 빨리 자랍니다. 전력이 필요합니다.</PWW_Sprinkler.description>
+</LanguageData>

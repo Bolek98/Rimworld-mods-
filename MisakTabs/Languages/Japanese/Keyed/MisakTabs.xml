@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MT_Rec1>このMODの作業指示タブを使います。</MT_Rec1>
+  <MT_Rec2>他のMOD（Nice Bill Tab …）の作業指示タブを置き換えます – 元のタブはいつでもワンクリックで開けます。</MT_Rec2>
+  <MT_Bills>作業指示タブ</MT_Bills>
+  <MT_Bills_Desc>画像と検索付きのレシピ、担当者と不足物が分かるカード形式の作業指示キュー。</MT_Bills_Desc>
+  <MT_ReplaceOther>他の作業指示タブMODを置き換える</MT_ReplaceOther>
+  <MT_ReplaceOther_Desc>Nice Bill Tab などのMODは同じタブを描画します。これがオンの間、それらはオフになります。再起動が必要です。</MT_ReplaceOther_Desc>
+  <MT_OurLook>Clear表示</MT_OurLook>
+  <MT_HeadSub>作業指示 {0} 件 · 有効 {1} 件 · {2} 人の入植者が{3}を担当</MT_HeadSub>
+  <MT_Paste>貼り付け</MT_Paste>
+  <MT_PasteTip>コピーした作業指示を貼り付け：{0}</MT_PasteTip>
+  <MT_Original>元のタブ</MT_Original>
+  <MT_OriginalTip>ゲームのタブを表示します（他のMODが追加したボタン付き）。「Clear表示」で戻ります。</MT_OriginalTip>
+  <MT_NeedResearch>研究が必要：{0}</MT_NeedResearch>
+  <MT_NotAvailable>現在は利用不可</MT_NotAvailable>
+  <MT_Search>レシピを検索…</MT_Search>
+  <MT_All>すべて</MT_All>
+  <MT_Available>利用可能</MT_Available>
+  <MT_Locked>ロック中</MT_Locked>
+  <MT_LockedShort>ロック</MT_LockedShort>
+  <MT_Add>+ 追加</MT_Add>
+  <MT_Full>作業台の作業指示は最大 {0} 件までです。</MT_Full>
+  <MT_Queue>作業指示キュー – {0} / {1}</MT_Queue>
+  <MT_Suspended>一時停止中</MT_Suspended>
+  <MT_DoingNow>作業中：{0}</MT_DoingNow>
+  <MT_NoIngredients>待機中：材料が見つかりません</MT_NoIngredients>
+  <MT_Done>今はやることがありません</MT_Done>
+  <MT_Waiting>手の空いた入植者を待っています</MT_Waiting>
+  <MT_Forever>無制限に繰り返す</MT_Forever>
+  <MT_RepeatLeft>残り {0}</MT_RepeatLeft>
+  <MT_Target>{1} 中 {0} 所持</MT_Target>
+  <MT_PausedSatisfied>目標達成</MT_PausedSatisfied>
+  <MT_Resume>再開</MT_Resume>
+  <MT_Pause>一時停止</MT_Pause>
+  <MT_Edit>編集</MT_Edit>
+  <MT_Copy>コピー</MT_Copy>
+  <MT_Copied>コピーしました：{0}</MT_Copied>
+  <MT_NoBills>作業指示はまだありません – 左からレシピを選んでください。</MT_NoBills>
+  <MT_InfoTip>これは何か – 情報カードを開く</MT_InfoTip>
+  <MT_ClickInfo>クリックで情報カード全体を表示。</MT_ClickInfo>
+  <MT_Info_Makes>作成：{0} ×{1} · 価値 {2} · 重量 {3} kg</MT_Info_Makes>
+  <MT_Info_Armor>防具：鋭利 {0}、鈍器 {1} · 断熱 寒さ {2} °C、暑さ {3} °C</MT_Info_Armor>
+  <MT_Info_Gun>ダメージ {0} · 射程 {1} · 連射数 {2}</MT_Info_Gun>
+  <MT_Info_Melee>近接秒間ダメージ：{0}</MT_Info_Melee>
+  <MT_Info_Work>作業量：{0}</MT_Info_Work>
+  <MT_Info_Needs>必要：{0}</MT_Info_Needs>
+  <MT_Info_Skill>必要技能：{0}</MT_Info_Skill>
+  <MT_Info_UsesSkill>使用技能：{0}</MT_Info_UsesSkill>
+  <MT_PrioTip>優先度 {0} – 1が最優先、10が最後、5が通常。入植者は最も急ぎの作業指示がある作業台へ先に向かいます。クリックで変更。</MT_PrioTip>
+  <MT_PrioOption>優先度 {0}</MT_PrioOption>
+  <MT_PrioFirst>最優先</MT_PrioFirst>
+  <MT_PrioNormal>通常</MT_PrioNormal>
+  <MT_PrioLast>最後</MT_PrioLast>
+  <MT_Rec3>このMODの健康タブを使い、他の健康タブMODを置き換えます。</MT_Rec3>
+  <MT_Health>健康タブ</MT_Health>
+  <MT_Health_Desc>能力と医療の概要、異常箇所に印が付いた入植者の姿、部位ごとの症状。手術と元のタブはワンクリックで開けます。</MT_Health_Desc>
+  <MT_ReplaceOtherHealth>他の健康タブMODを置き換える</MT_ReplaceOtherHealth>
+  <MT_ReplaceOtherHealth_Desc>独自の健康タブを描画するMODは、これがオンの間オフになります。再起動が必要です。</MT_ReplaceOtherHealth_Desc>
+  <MT_Operations>手術</MT_Operations>
+  <MT_OperationsTip>ゲームの手術リスト（手術の作業指示）。「Clear表示」で戻ります。</MT_OperationsTip>
+  <MT_OperationsNo>ここで可能な手術はありません。</MT_OperationsNo>
+  <MT_OriginalTipHealth>ゲームの健康タブを表示します（他のMODの追加分付き）。右下の「Clear表示」で戻ります。</MT_OriginalTipHealth>
+  <MT_H_Dead>死亡</MT_H_Dead>
+  <MT_H_Bleeding>出血 1日 {0}</MT_H_Bleeding>
+  <MT_H_BleedDeath>出血 1日 {0} – 治療しないと {1} で死亡！</MT_H_BleedDeath>
+  <MT_H_Losing>{0}：劣勢 – 病気が免疫を上回っています</MT_H_Losing>
+  <MT_H_Winning>{0}：免疫が優勢です</MT_H_Winning>
+  <MT_H_NeedsTend>治療が必要</MT_H_NeedsTend>
+  <MT_H_Downed>行動不能</MT_H_Downed>
+  <MT_H_Healing>回復中</MT_H_Healing>
+  <MT_H_Healthy>健康</MT_H_Healthy>
+  <MT_H_Care>医療</MT_H_Care>
+  <MT_H_Capacities>能力</MT_H_Capacities>
+  <MT_H_MarkTip>クリック：この部位だけをリストに表示。右クリック：この部位の手術。</MT_H_MarkTip>
+  <MT_H_NothingWrong>異常なし 👍</MT_H_NothingWrong>
+  <MT_H_LegendBad>出血、欠損、または重傷</MT_H_LegendBad>
+  <MT_H_LegendHurt>負傷、治療が必要</MT_H_LegendHurt>
+  <MT_H_LegendOther>傷跡、インプラントなど</MT_H_LegendOther>
+  <MT_H_Whole>全身：{0}（リスト内）</MT_H_Whole>
+  <MT_H_ShowAllParts>全部位を表示</MT_H_ShowAllParts>
+  <MT_H_Conditions>部位ごとの症状</MT_H_Conditions>
+  <MT_H_ConditionsHere>症状 – 選択した部位</MT_H_ConditionsHere>
+  <MT_H_ShowAll>非表示のものも表示</MT_H_ShowAll>
+  <MT_H_NoConditions>負傷や症状はありません。</MT_H_NoConditions>
+  <MT_H_ChipBleed>出血 {0}</MT_H_ChipBleed>
+  <MT_H_ChipTended>治療済み</MT_H_ChipTended>
+  <MT_H_ChipTend>治療が必要</MT_H_ChipTend>
+  <MT_H_ChipScar>永続</MT_H_ChipScar>
+  <MT_H_ImmunityTip>免疫 {0}（緑）対 病気 {1}（赤）。免疫が先に 100 % に達する必要があります。</MT_H_ImmunityTip>
+  <MT_H_ToPortrait>肖像を表示</MT_H_ToPortrait>
+  <MT_H_ToSilhouette>健康シルエットを表示</MT_H_ToSilhouette>
+  <MT_O_Planned>予定された手術（この順番）</MT_O_Planned>
+  <MT_O_NonePlanned>予定はありません。右から手術を選んでください。</MT_O_NonePlanned>
+  <MT_O_WholeBody>全身</MT_O_WholeBody>
+  <MT_O_Paused>一時停止中</MT_O_Paused>
+  <MT_O_Missing>不足：{0}</MT_O_Missing>
+  <MT_O_Ready>準備完了 – すべて揃っています</MT_O_Ready>
+  <MT_O_Resume>再開</MT_O_Resume>
+  <MT_O_Pause>一時停止</MT_O_Pause>
+  <MT_O_Doctor>執刀者</MT_O_Doctor>
+  <MT_O_NoDoctor>このマップに手の空いた医師がいません！</MT_O_NoDoctor>
+  <MT_O_DoctorIs>最良の医師：{0}（医術 {1}）</MT_O_DoctorIs>
+  <MT_O_Care>医療：{0}</MT_O_Care>
+  <MT_O_DoctorTip>医師が優秀なほど手術失敗のリスクが下がります。</MT_O_DoctorTip>
+  <MT_O_Possible>実施可能な手術（{0}）</MT_O_Possible>
+  <MT_O_Search>手術や部位を検索…</MT_O_Search>
+  <MT_O_K_All>すべて</MT_O_K_All>
+  <MT_O_K_Implant>インプラントと義肢</MT_O_K_Implant>
+  <MT_O_K_Remove>摘出</MT_O_K_Remove>
+  <MT_O_K_Drug>薬物</MT_O_K_Drug>
+  <MT_O_K_Other>その他</MT_O_K_Other>
+  <MT_O_A_All>全体</MT_O_A_All>
+  <MT_O_A_Head>頭</MT_O_A_Head>
+  <MT_O_A_Torso>胴体</MT_O_A_Torso>
+  <MT_O_A_Arms>腕</MT_O_A_Arms>
+  <MT_O_A_Legs>脚</MT_O_A_Legs>
+  <MT_O_A_Whole>全身</MT_O_A_Whole>
+  <MT_O_NoneFound>該当する手術はありません。</MT_O_NoneFound>
+  <MT_O_BackHealth>健康</MT_O_BackHealth>
+  <!-- 0.4.2 -->
+  <MT_H_Planned>予定された手術：{0}</MT_H_Planned>
+  <MT_H_PlannedTip>クリックで予定された手術を開きます。</MT_H_PlannedTip>
+  <MT_H_NoOpsHere>この部位の手術はありません</MT_H_NoOpsHere>
+  <MT_H_ShowOpsHere>この部位の手術を表示</MT_H_ShowOpsHere>
+  <!-- 0.5.0 -->
+  <MT_BenchMenuTip>作業台：すべての作業指示をコピーし、ここか同じ種類の複数の作業台に貼り付けます。</MT_BenchMenuTip>
+  <MT_CopyAll>この作業台の作業指示をすべてコピー（{0}）</MT_CopyAll>
+  <MT_PasteAll>コピーした作業指示をここに貼り付け（{1} から {0} 件）</MT_PasteAll>
+  <MT_PasteSeveral>複数の作業台に作業指示を貼り付け</MT_PasteSeveral>
+  <MT_PasteSeveralSub>{1} からコピーした作業指示 {0} 件。作業台で作れない作業指示は飛ばされます。</MT_PasteSeveralSub>
+  <MT_BenchCopied>{1} の作業指示 {0} 件をコピーしました。</MT_BenchCopied>
+  <MT_PastedInto>作業指示 {0} 件を {1} 台の作業台に貼り付けました。</MT_PastedInto>
+  <MT_PasteN>{0} 台に貼り付け</MT_PasteN>
+  <MT_None>なし</MT_None>
+  <MT_BillsN>作業指示 {0} 件</MT_BillsN>
+  <MT_ThisBench>この作業台</MT_ThisBench>
+  <MT_BillMenuTip>その他：作業指示の名前変更、別の作業台の作業指示とリンク。</MT_BillMenuTip>
+  <MT_Rename>名前を変更</MT_Rename>
+  <MT_LinkWith>別の作業台の作業指示とリンク</MT_LinkWith>
+  <MT_Unlink>リンク解除</MT_Unlink>
+  <MT_NoLinkTargets>このマップにこのレシピの作業指示を持つ作業台は他にありません。</MT_NoLinkTargets>
+  <MT_Linked>リンクしました：{0} と {1}</MT_Linked>
+  <MT_LinkedN>リンク ×{0}</MT_LinkedN>
+  <MT_LinkedTip>リンクされた作業指示は設定（数、目標、一時停止、材料、備蓄区域）を共有します。1つの変更は他にもコピーされます：</MT_LinkedTip>
+  <MT_CountTip>クリック：±1 · Shift+クリック：±10 · Ctrl+クリック：±100</MT_CountTip>
+  <MT_InclEquipped>着用・所持品も数える</MT_InclEquipped>
+  <MT_OnlyIn>{0} のみ</MT_OnlyIn>
+  <MT_NotAdded>未追加</MT_NotAdded>
+  <MT_NotAddedTip>作れるがまだキューにないレシピ。</MT_NotAddedTip>
+  <MT_SplitTip>ドラッグでレシピリストの幅を変更。</MT_SplitTip>
+  <MT_GripTip>ドラッグでウィンドウサイズを変更（記憶されます）。</MT_GripTip>
+  <MT_SizeTip>ウィンドウサイズ：通常、大きめ、画面いっぱい。右上の角をドラッグしても変更できます。</MT_SizeTip>
+  <MT_SizeNormal>通常サイズ</MT_SizeNormal>
+  <MT_SizeBig>大きめ</MT_SizeBig>
+  <MT_SizeMax>最大（画面に合わせる）</MT_SizeMax>
+  <!-- 0.7.0 anatomy -->
+  <MT_A_Parts>体</MT_A_Parts>
+  <MT_A_Organs>臓器</MT_A_Organs>
+  <MT_A_Bones>骨</MT_A_Bones>
+  <MT_A_Healthy>健康</MT_A_Healthy>
+  <MT_A_Hurt>負傷</MT_A_Hurt>
+  <MT_A_Missing>欠損</MT_A_Missing>
+  <MT_A_Broken>骨折</MT_A_Broken>
+  <MT_A_Prosthetic>義肢</MT_A_Prosthetic>
+  <MT_A_Bionic>バイオニック</MT_A_Bionic>
+  <MT_A_Implant>インプラント</MT_A_Implant>
+  <MT_A_Archo>アーコテック</MT_A_Archo>
+  <MT_A_Fine>ここに異常はありません。</MT_A_Fine>
+  <MT_A_ToAnatomy>解剖図を表示</MT_A_ToAnatomy>
+  <MT_A_ToSilhouette>入植者自身のシルエットを表示</MT_A_ToSilhouette>
+  <!-- 0.8.0 -->
+  <MT_H_State>状態</MT_H_State>
+  <MT_H_FAll>すべて</MT_H_FAll>
+  <MT_H_FInjuries>負傷</MT_H_FInjuries>
+  <MT_H_FParts>置換部位</MT_H_FParts>
+  <MT_H_FMissing>欠損</MT_H_FMissing>
+  <MT_H_FDiseases>病気</MT_H_FDiseases>
+  <MT_H_Immunity>免疫 {0}</MT_H_Immunity>
+  <MT_A_PartHp>部位の健康度：{0}</MT_A_PartHp>
+  <MT_A_CardHint>クリック：この部位のみ · 右クリック：手術</MT_A_CardHint>
+  <MT_H_Age>{0} 歳</MT_H_Age>
+  <!-- 0.9.0 -->
+  <MT_Character>キャラクタータブ</MT_Character>
+  <MT_Character_Desc>肖像、経歴、特性の載った人物ファイルと、技能・人生の年表・記録のページ。元のタブはワンクリックで開けます。</MT_Character_Desc>
+  <MT_Social>社交タブ</MT_Social>
+  <MT_Social_Desc>知り合い全員と互いの評価、その理由 – 双方の理由をすべて表示。元のタブはワンクリックで開けます。</MT_Social_Desc>
+  <MT_C_Skills>技能</MT_C_Skills>
+  <MT_C_Life>人生</MT_C_Life>
+  <MT_C_Records>記録</MT_C_Records>
+  <MT_C_Childhood>幼少期</MT_C_Childhood>
+  <MT_C_Adulthood>成人期</MT_C_Adulthood>
+  <MT_C_Traits>特性</MT_C_Traits>
+  <MT_C_Incapable>やらないこと</MT_C_Incapable>
+  <MT_C_Ideo>イデオロギー：{0}</MT_C_Ideo>
+  <MT_C_Birthday>{0} 生まれ（{1} 年前）</MT_C_Birthday>
+  <MT_C_NoSkills>技能はありません。</MT_C_NoSkills>
+  <MT_L_Born>誕生</MT_L_Born>
+  <MT_L_Joined>{0} に加入</MT_L_Joined>
+  <MT_L_Break>精神崩壊：{0}</MT_L_Break>
+  <MT_L_Lost>喪失：{0}</MT_L_Lost>
+  <MT_L_Installed>{0} を取得（{1}）</MT_L_Installed>
+  <MT_L_Skill>{0} がレベル {1} に到達</MT_L_Skill>
+  <MT_L_Rel>新しい{0}：{1}</MT_L_Rel>
+  <MT_L_Child>子供が誕生：{0}</MT_L_Child>
+  <MT_L_Note>精神崩壊、負傷、手術、回復、身体部位、技能、パートナー、死亡、称号、役職、誕生日、研究は Clear Tabs 0.9 が動作した時点から記録されます。それ以前はゲーム自体の物語から取得します。</MT_L_Note>
+  <MT_S_Search>検索…</MT_S_Search>
+  <MT_S_Colonist>入植者</MT_S_Colonist>
+  <MT_S_Dead>死亡</MT_S_Dead>
+  <MT_S_RowTip>左：{0} の {1} への評価 · 右（小）：{1} の {0} への評価 · クリック：理由</MT_S_RowTip>
+  <MT_S_Nobody>誰もいません。</MT_S_Nobody>
+  <MT_S_Compat>相性</MT_S_Compat>
+  <MT_S_Romance>恋愛の成功率</MT_S_Romance>
+  <MT_S_Thinks>{0} → {1}</MT_S_Thinks>
+  <MT_S_NoReasons>理由なし – ほとんど面識がありません。</MT_S_NoReasons>
+  <MT_S_Back>概要</MT_S_Back>
+  <MT_S_Overview>概要</MT_S_Overview>
+  <MT_S_Partner>パートナー</MT_S_Partner>
+  <MT_S_BestFriend>親友</MT_S_BestFriend>
+  <MT_S_Rival>最大のライバル</MT_S_Rival>
+  <MT_S_Counts>友人 {0} · ライバル {1}</MT_S_Counts>
+  <MT_S_Talks>最近の会話</MT_S_Talks>
+  <MT_S_NoTalks>まだ会話はありません。</MT_S_NoTalks>
+  <MT_L_Surgery>手術：{0} – 執刀 {1}</MT_L_Surgery>
+  <MT_L_SurgeryBad>手術失敗：{0} – 執刀 {1}</MT_L_SurgeryBad>
+  <MT_L_Operated>{0} を手術：{1}</MT_L_Operated>
+  <MT_L_OperatedBad>{0} の手術に失敗：{1}</MT_L_OperatedBad>
+  <MT_L_Healed>{0} から回復</MT_L_Healed>
+  <MT_L_Died>死亡</MT_L_Died>
+  <MT_L_DiedOf>死亡（{0}）</MT_L_DiedOf>
+  <MT_L_LostRel>{0} を失った：{1}</MT_L_LostRel>
+  <MT_L_LostFriend>友人を失った：{0}</MT_L_LostFriend>
+  <MT_L_Title>称号：{0}（{1}）</MT_L_Title>
+  <MT_L_Role>{0} になった</MT_L_Role>
+  <MT_L_Birthday>誕生日 – {0} 歳</MT_L_Birthday>
+  <MT_L_Research>研究完了：{0}</MT_L_Research>
+  <MT_L_Wound>重傷：{0}（{1}）</MT_L_Wound>
+  <MT_O_K_NoPart>部品の在庫なし</MT_O_K_NoPart>
+  <MT_O_MakeAt>製作場所：{0}</MT_O_MakeAt>
+  <MT_O_ResearchFirst>先に研究：{0}</MT_O_ResearchFirst>
+  <MT_O_OnlyTrade>交易か戦利品のみ</MT_O_OnlyTrade>
+  <MT_O_QueueAt>{0} を作る – {1}</MT_O_QueueAt>
+  <MT_O_Queued>作業指示を追加しました：{0}（{1}）</MT_O_Queued>
+  <MT_O_NoBench>作業台が未建設：{0}</MT_O_NoBench>
+  <MT_O_InfoPart>情報：{0}</MT_O_InfoPart>
+  <MT_O_Make>作る</MT_O_Make>
+  <MT_A_SideRight>右</MT_A_SideRight>
+  <MT_A_SideLeft>左</MT_A_SideLeft>
+  <MT_A_SideTip>図はこちらを向いています：図の右側（右）はあなたの左、左側（左）はあなたの右にあります。</MT_A_SideTip>
+  <MT_MineFor>{0} を採掘</MT_MineFor>
+  <MT_ModeRepeatTip>指定回数繰り返す</MT_ModeRepeatTip>
+  <MT_ModeTargetTip>X 個になるまで作る</MT_ModeTargetTip>
+  <MT_ModeForeverTip>無制限に作る</MT_ModeForeverTip>
+  <!-- 0.11.0 -->
+  <MT_Needs>欲求タブ</MT_Needs>
+  <MT_Needs_Desc>すべての欲求を推移としきい値付きのカードで表示し、その横に精神崩壊の限界、予想気分、すべての思考付きの気分を表示。元のタブはワンクリックで開けます。</MT_Needs_Desc>
+  <MT_BillDialog>作業指示ウィンドウ</MT_BillDialog>
+  <MT_BillDialog_Desc>同じ見た目の作業指示設定ウィンドウ：レシピの必要物と生産物、クイック設定付きの繰り返しモード、保管先と作業者、ゲームの材料フィルター。「元のウィンドウ」でゲームのものを開きます。</MT_BillDialog_Desc>
+  <MT_N_Mood>気分</MT_N_Mood>
+  <MT_N_BreakExtreme>{0} 未満で極度の精神崩壊の危険</MT_N_BreakExtreme>
+  <MT_N_BreakMajor>{0} 未満で重度の精神崩壊の危険</MT_N_BreakMajor>
+  <MT_N_BreakMinor>{0} 未満で軽度の精神崩壊の危険</MT_N_BreakMinor>
+  <MT_N_Target>気分は {0} に向かっています</MT_N_Target>
+  <MT_N_Expect>期待：{0}</MT_N_Expect>
+  <MT_N_Thoughts>思考（{0}）</MT_N_Thoughts>
+  <MT_N_NoThoughts>現在気分に影響する思考はありません。</MT_N_NoThoughts>
+  <MT_BD_Original>元のウィンドウ</MT_BD_Original>
+  <MT_BD_Ingredients>材料</MT_BD_Ingredients>
+  <MT_BD_Makes>生産物</MT_BD_Makes>
+  <MT_BD_Skill>技能</MT_BD_Skill>
+  <MT_BD_Repeat>数量</MT_BD_Repeat>
+  <MT_BD_ModeRepeat>× 回数</MT_BD_ModeRepeat>
+  <MT_BD_ModeTarget>≥ 目標数まで</MT_BD_ModeTarget>
+  <MT_BD_ModeForever>∞ 無制限</MT_BD_ModeForever>
+  <MT_BD_Have>所持 {0} / {1}</MT_BD_Have>
+  <MT_BD_Store>保管先</MT_BD_Store>
+  <MT_BD_Worker>作業者</MT_BD_Worker>
+  <MT_S_RomanceTip>{0} に誰かを口説かせる – 成功率付きのゲームのリスト。</MT_S_RomanceTip>
+  <MT_S_RomanceThem>{0} を口説く（{1}）</MT_S_RomanceThem>
+  <MT_S_RomanceThemNo>{0} を口説く</MT_S_RomanceThemNo>
+  <MT_PaneLook>情報パネルをこのMODの見た目に</MT_PaneLook>
+  <MT_PaneLook_Desc>選択した入植者、動物、建物の情報パネル（左下）とそのタブボタンを暗いClear表示にし、健康、気分、スケジュール、エリアを色付きバーで表示。長いタブ名も切れなくなります。</MT_PaneLook_Desc>
+  <MT_PlantPicker>植物選択をこのMODの見た目に</MT_PlantPicker>
+  <MT_PlantPicker_Desc>「栽培する植物を設定」（栽培区域、水耕栽培、植木鉢）で、画面全体を覆う長いリストの代わりに、グループ、検索、並べ替え、植物ごとのカード（生育期間、収穫量、1日あたりの価値、必要技能）付きのウィンドウを開きます。</MT_PlantPicker_Desc>
+  <MT_PG_Title>何を育てるか</MT_PG_Title>
+  <MT_PG_Now>現在：{0}</MT_PG_Now>
+  <MT_PG_All>すべて</MT_PG_All>
+  <MT_PG_Food>食料</MT_PG_Food>
+  <MT_PG_Medicine>医薬品</MT_PG_Medicine>
+  <MT_PG_Drugs>薬物</MT_PG_Drugs>
+  <MT_PG_Materials>素材</MT_PG_Materials>
+  <MT_PG_Trees>樹木</MT_PG_Trees>
+  <MT_PG_Decor>装飾</MT_PG_Decor>
+  <MT_PG_Search>検索…</MT_PG_Search>
+  <MT_PG_SortBy>並べ替え：</MT_PG_SortBy>
+  <MT_PG_SName>名前</MT_PG_SName>
+  <MT_PG_SDays>早い順</MT_PG_SDays>
+  <MT_PG_SValue>価値が高い順</MT_PG_SValue>
+  <MT_PG_SSkill>簡単な順</MT_PG_SSkill>
+  <MT_PG_Usable>栽培担当が植えられるものだけ</MT_PG_Usable>
+  <MT_PG_UsableTip>最も優秀な栽培担当（{0}）より高い栽培技能が必要な植物を隠します。</MT_PG_UsableTip>
+  <MT_PG_None>該当なし。</MT_PG_None>
+  <MT_PG_Days>{0} 日</MT_PG_Days>
+  <MT_PG_Yield>{0}× {1}</MT_PG_Yield>
+  <MT_PG_Skill>技能 {0}</MT_PG_Skill>
+  <MT_PG_ValueDay>{0} 銀/日</MT_PG_ValueDay>
+  <MT_PG_Cave>洞窟</MT_PG_Cave>
+  <MT_PG_NoRoof>屋根なし</MT_PG_NoRoof>
+  <MT_PG_NutDay>{0} 栄養/日</MT_PG_NutDay>
+  <MT_PG_SkillTip>栽培技能 {0} が必要（最も優秀な栽培担当：{1}）</MT_PG_SkillTip>
+  <MT_PG_Mod>MOD：{0}</MT_PG_Mod>
+  <MT_TabsMore>その他 ▾</MT_TabsMore>
+  <MT_TabsMoreTip>他に {0} 個のタブ – クリックで開きます。</MT_TabsMoreTip>
+  <MT_RecipePicker>「作業指示を追加」のレシピ選択</MT_RecipePicker>
+  <MT_RecipePicker_Desc>作業指示の追加で、長いメニューの代わりにグループ、検索、並べ替え付きのウィンドウを開きます。</MT_RecipePicker_Desc>
+  <MT_SurgeryPicker>手術選択（健康タブ）</MT_SurgeryPicker>
+  <MT_SurgeryPicker_Desc>「手術を追加」で、グループ（インプラント、バイオニック、切断、薬物 …）、成功率、必要条件付きのウィンドウを開きます。</MT_SurgeryPicker_Desc>
+  <MT_OwnerPicker>所有者選択（ベッド、玉座 …）</MT_OwnerPicker>
+  <MT_OwnerPicker_Desc>「所有者を設定」で、リストの代わりに写真と状態付きの入植者カードを開きます。</MT_OwnerPicker_Desc>
+  <MT_PolicyPicker>エリアとポリシーの選択</MT_PolicyPicker>
+  <MT_PolicyPicker_Desc>許可エリア、服装、食事・薬物ポリシーで、検索とプレビュー付きのウィンドウを開きます。</MT_PolicyPicker_Desc>
+  <MT_ResearchPicker>研究選択</MT_ResearchPicker>
+  <MT_ResearchPicker_Desc>分野と時代別の検索可能な研究プロジェクトリスト（研究タブのボタン）。</MT_ResearchPicker_Desc>
+  <MT_MechPicker>メカノイド培養の選択（Biotech）</MT_MechPicker>
+  <MT_MechPicker_Desc>培養するメカノイドをサイズと役割でグループ化、検索付き。</MT_MechPicker_Desc>
+  <MT_AnimalPicker>動物選択</MT_AnimalPicker>
+  <MT_AnimalPicker_Desc>動物の選択（主人、訓練、囲い）で、作業・戦闘・ペットに分けたカードを開きます。</MT_AnimalPicker_Desc>
+  <MT_TradeWindow>カテゴリー付き交易ウィンドウ</MT_TradeWindow>
+  <MT_TradeWindow_Desc>交易でこのMODのウィンドウを開きます：カテゴリー（食料、医薬品、武器 …）、検索、並べ替え、カート。</MT_TradeWindow_Desc>
+  <MT_ResetSizes>すべてのウィンドウサイズをリセット</MT_ResetSizes>
+  <MT_GripCornerTip>ドラッグでパネルサイズを変更 – クリックでプリセットサイズ（通常、大、最大）。サイズは記憶されます。</MT_GripCornerTip>
+  <MT_InfoCard>情報カードをこのMODの見た目に（Infocentrum）</MT_InfoCard>
+  <MT_InfoCard_Desc>入植者の「i」ボタンでこのMODのカードを開きます：入植地平均付きでグループ分けされた全能力値、他の入植者との比較、能力値の内訳、さらに経歴、健康、社交、装備、履歴のページ。</MT_InfoCard_Desc>
+  <MT_I_Overview>概要</MT_I_Overview>
+  <MT_I_Life>経歴</MT_I_Life>
+  <MT_I_Health>健康</MT_I_Health>
+  <MT_I_Social>社交</MT_I_Social>
+  <MT_I_Gear>装備</MT_I_Gear>
+  <MT_I_History>履歴</MT_I_History>
+  <MT_I_Original>元のカード</MT_I_Original>
+  <MT_I_RiskHigh>精神崩壊の危険大</MT_I_RiskHigh>
+  <MT_I_RiskMid>精神崩壊の危険</MT_I_RiskMid>
+  <MT_I_RiskLow>精神崩壊の危険小</MT_I_RiskLow>
+  <MT_I_G_all>すべて</MT_I_G_all>
+  <MT_I_G_basic>基本</MT_I_G_basic>
+  <MT_I_G_combat>戦闘</MT_I_G_combat>
+  <MT_I_G_work>作業</MT_I_G_work>
+  <MT_I_G_health>健康</MT_I_G_health>
+  <MT_I_G_resist>耐性</MT_I_G_resist>
+  <MT_I_G_food>食事と身体</MT_I_G_food>
+  <MT_I_G_social>社交</MT_I_G_social>
+  <MT_I_G_psy>サイフォーカス</MT_I_G_psy>
+  <MT_I_G_mods>MOD由来</MT_I_G_mods>
+  <MT_I_Compare>比較対象</MT_I_Compare>
+  <MT_I_Pick>+ 入植者を選択</MT_I_Pick>
+  <MT_I_Average>入植地平均</MT_I_Average>
+  <MT_I_Legend>入植地平均 · 緑は良い、オレンジは悪い</MT_I_Legend>
+  <MT_I_LegendCmp>{0} と比較 · 緑は良い、オレンジは悪い</MT_I_LegendCmp>
+  <MT_I_MoreThan>入植者の {0} % より上</MT_I_MoreThan>
+  <MT_I_ColonyAvg>入植地平均 {0}</MT_I_ColonyAvg>
+  <MT_I_Most>入植地で最高</MT_I_Most>
+  <MT_I_Least>入植地で最低</MT_I_Least>
+  <MT_I_Temp>温度</MT_I_Temp>
+  <MT_I_ColdProof>寒さに強い</MT_I_ColdProof>
+  <MT_I_HeatProof>暑さに強い</MT_I_HeatProof>
+  <MT_I_ColdWeak>寒さに弱い</MT_I_ColdWeak>
+  <MT_I_Chosen>選択した能力値</MT_I_Chosen>
+  <MT_I_MadeOf>内訳</MT_I_MadeOf>
+  <MT_I_Race>種族について</MT_I_Race>
+  <MT_I_FullDesc>詳細説明</MT_I_FullDesc>
+  <MT_I_NoHistory>まだ何も記録されていません – この入植者の重要な出来事がここに表示されます。</MT_I_NoHistory>
+  <MT_SplitOff>{0} はオフのままです：Clear Tabs が有効で、すでにこの機能をすべて備えています。</MT_SplitOff>
+  <MT_G_Looks>外見</MT_G_Looks>
+  <MT_G_FigHat>頭装備</MT_G_FigHat>
+  <MT_G_FigClothes>衣服</MT_G_FigClothes>
+</LanguageData>

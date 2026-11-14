@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_SetMeltdown>Розплавлення реактора</PWW_SetMeltdown>
+  <PWW_SetMeltdownTip>Вимк.: при 100 % тепла реактор поділу сам вимикається. Увімк.: він вибухає, і токсичні опади накривають карту на 3 дні.</PWW_SetMeltdownTip>
+  <PWW_SetHydroWinter>ГЕС слабші, коли річка замерзає</PWW_SetHydroWinter>
+  <PWW_SetHydroWinterTip>Нижче −2 °C надворі ГЕС дає лише 40 % своєї потужності.</PWW_SetHydroWinterTip>
+  <PWW_SetAutoLow>Автозапуск дизеля: вмикати нижче {0} % збереженої енергії</PWW_SetAutoLow>
+  <PWW_SetAutoHigh>… і вимикати вище {0} %</PWW_SetAutoHigh>
+  <PWW_BreakerTrippedLabel>Автомат спрацював</PWW_BreakerTrippedLabel>
+  <PWW_BreakerTripped>У мережі сталося коротке замикання, але автоматичний вимикач вчасно спрацював – ні вибуху, ні пожежі. Частина мережі за вимикачем тепер без живлення, доки ви знову не ввімкнете вимикач.</PWW_BreakerTripped>
+  <PWW_HydroFrozen>Річка замерзла: 40 % потужності</PWW_HydroFrozen>
+  <PWW_HydroGround>Клітинкам, що не стоять на проточній воді, потрібен твердий ґрунт.</PWW_HydroGround>
+  <PWW_NeedSea>Має стояти не далі 3 клітинок від моря.</PWW_NeedSea>
+  <PWW_MeltdownLabel>Розплавлення реактора!</PWW_MeltdownLabel>
+  <PWW_Meltdown>Реактор поділу перегрівся й вибухнув. Токсичні опади випадають на всю територію.</PWW_Meltdown>
+  <PWW_Scrammed>Реактор аварійно зупинено (SCRAM).</PWW_Scrammed>
+  <PWW_Scram>SCRAM</PWW_Scram>
+  <PWW_ScramDesc>Негайно зупинити реактор. Він охолоне, і пізніше його можна буде ввімкнути знову.</PWW_ScramDesc>
+  <PWW_ReactorHeat>Тепло: {0} % · охолодження {1} / нагрів {2} за годину</PWW_ReactorHeat>
+  <PWW_HeatLabel>Тепло реактора</PWW_HeatLabel>
+  <PWW_AutoStart>Автозапуск</PWW_AutoStart>
+  <PWW_AutoStartDesc>Вмикає генератор, коли акумулятори мережі падають нижче {0} %, і вимикає вище {1} %. Без акумуляторів працює, поки мережі потрібно більше енергії. Пороги – в налаштуваннях моду.</PWW_AutoStartDesc>
+  <PWW_StonecutterIdle>Чекає на кам'яні уламки поруч.</PWW_StonecutterIdle>
+  <PWW_StonecutterWork>Розпилює: {0}</PWW_StonecutterWork>
+  <PWW_GridOverview>Огляд мережі</PWW_GridOverview>
+  <PWW_GridOverviewDesc>Виробництво, споживання й збережена енергія цієї електромережі за останні 24 години.</PWW_GridOverviewDesc>
+  <PWW_GridNone>Не під'єднано до мережі.</PWW_GridNone>
+  <PWW_GridGen>Виробництво: {0} Вт</PWW_GridGen>
+  <PWW_GridUse>Споживання: {0} Вт</PWW_GridUse>
+  <PWW_GridBalance>Баланс: {0} Вт</PWW_GridBalance>
+  <PWW_GridStored>Збережено: {0} / {1} Вт·д</PWW_GridStored>
+  <PWW_GridWait>Графік заповнюється раз на ігрову годину.</PWW_GridWait>
+  <PWW_Grid24h>останні 24 години · зелений – виробництво · помаранчевий – споживання · синій – збережено</PWW_Grid24h>
+</LanguageData>

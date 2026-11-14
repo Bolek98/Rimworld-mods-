@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_SetMeltdown>Fusión del núcleo del reactor</PWW_SetMeltdown>
+  <PWW_SetMeltdownTip>Desactivado: al 100 % de calor el reactor de fisión se apaga solo. Activado: explota y una lluvia tóxica cubre el mapa durante 3 días.</PWW_SetMeltdownTip>
+  <PWW_SetHydroWinter>Centrales hidroeléctricas más débiles cuando el río se congela</PWW_SetHydroWinter>
+  <PWW_SetHydroWinterTip>Por debajo de −2 °C en el exterior, una central hidroeléctrica da solo el 40 % de su energía.</PWW_SetHydroWinterTip>
+  <PWW_SetAutoLow>Arranque automático del diésel: encender por debajo del {0} % de energía almacenada</PWW_SetAutoLow>
+  <PWW_SetAutoHigh>… y apagar por encima del {0} %</PWW_SetAutoHigh>
+  <PWW_BreakerTrippedLabel>Disyuntor saltado</PWW_BreakerTrippedLabel>
+  <PWW_BreakerTripped>Un cortocircuito afectó a la red, pero el disyuntor saltó a tiempo: sin explosión ni incendio. La parte de la red detrás del disyuntor se ha quedado sin energía hasta que vuelvas a conectarlo.</PWW_BreakerTripped>
+  <PWW_HydroFrozen>Río congelado: 40 % de energía</PWW_HydroFrozen>
+  <PWW_HydroGround>Las casillas que no están sobre agua en movimiento necesitan suelo firme.</PWW_HydroGround>
+  <PWW_NeedSea>Debe estar a 3 casillas o menos del mar.</PWW_NeedSea>
+  <PWW_MeltdownLabel>¡Fusión del reactor!</PWW_MeltdownLabel>
+  <PWW_Meltdown>El reactor de fisión se ha sobrecalentado y ha explotado. Una lluvia tóxica está cayendo sobre toda la zona.</PWW_Meltdown>
+  <PWW_Scrammed>Reactor apagado (SCRAM).</PWW_Scrammed>
+  <PWW_Scram>SCRAM</PWW_Scram>
+  <PWW_ScramDesc>Apaga el reactor de inmediato. Se enfría y puede volver a encenderse más tarde.</PWW_ScramDesc>
+  <PWW_ReactorHeat>Calor: {0} % · refrigeración {1} / calor {2} por hora</PWW_ReactorHeat>
+  <PWW_HeatLabel>Calor del reactor</PWW_HeatLabel>
+  <PWW_AutoStart>Arranque automático</PWW_AutoStart>
+  <PWW_AutoStartDesc>Enciende el generador cuando las baterías de la red bajan del {0} % y lo apaga por encima del {1} %. Sin baterías funciona mientras la red necesite más energía. Umbrales en los ajustes del mod.</PWW_AutoStartDesc>
+  <PWW_StonecutterIdle>Esperando trozos de roca a su lado.</PWW_StonecutterIdle>
+  <PWW_StonecutterWork>Cortando: {0}</PWW_StonecutterWork>
+  <PWW_GridOverview>Resumen de la red</PWW_GridOverview>
+  <PWW_GridOverviewDesc>Producción, consumo y energía almacenada de esta red eléctrica, con las últimas 24 horas.</PWW_GridOverviewDesc>
+  <PWW_GridNone>No está conectado a ninguna red.</PWW_GridNone>
+  <PWW_GridGen>Producción: {0} W</PWW_GridGen>
+  <PWW_GridUse>Consumo: {0} W</PWW_GridUse>
+  <PWW_GridBalance>Balance: {0} W</PWW_GridBalance>
+  <PWW_GridStored>Almacenado: {0} / {1} Wd</PWW_GridStored>
+  <PWW_GridWait>El gráfico se rellena una vez por hora de juego.</PWW_GridWait>
+  <PWW_Grid24h>últimas 24 horas · verde producción · naranja consumo · azul almacenado</PWW_Grid24h>
+</LanguageData>

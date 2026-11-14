@@ -12,6 +12,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Any Material – Build From What You Have | 1.0.0 | [AnyMaterial](AnyMaterial) |
 | [B98] Auto Pharmacy – Doctors Give the Right Drug | 1.0.0 | [AutoPharmacy](AutoPharmacy) |
 | [B98] Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.3.0 | [AutoTurrets](AutoTurrets) |
+| [B98] Call for Backup – Summon Your Allies | 1.0.0 | [CallForBackup](CallForBackup) |
 | [B98] Evergrowth – Plant Growth Control | 1.10.0 | [Evergrowth](Evergrowth) |
 | Evergrowth – Wild Plant Spawns per Biome (Choose What Grows) | 1.2.0 | [EvergrowthWildPlants](EvergrowthWildPlants) |
 | [B98] Haul Master – Pockets, Routes & Storage | 1.1.0 | [HaulSmarter](HaulSmarter) |
@@ -23,12 +24,16 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Clear Health – Anatomy Health Tab | 1.0.0 | [MisakHealth](MisakHealth) |
 | [B98] Clear Info Card – Colonist Infocentrum | 1.0.0 | [MisakInfo](MisakInfo) |
 | [B98] Clear Pickers – Choice Windows Overhaul | 1.0.0 | [MisakPickers](MisakPickers) |
+| [B98] Clear Tabs – All-in-One UI Overhaul | 1.0.0 | [MisakTabs](MisakTabs) |
 | [B98] Clear Trade – Trade Window Overhaul | 1.0.0 | [MisakTrade](MisakTrade) |
 | [B98] Mod Sort Manager – Load Order, Conflicts & Profiles | 0.7.0 | [ModSortManager](ModSortManager) |
+| [B98] Pens For All Animals | 1.0.0 | [PensForAll](PensForAll) |
+| [B98] Power & Water Works | 1.0.0 | [PowerWaterWorks](PowerWaterWorks) |
 | QoL – Faster Work, Prisoners & Pipette | 1.1.0 | [QoLFasterWork](QoLFasterWork) |
 | [B98] Random Bills | 1.0.0 | [RandomBills](RandomBills) |
 | [B98] Research Atlas – Research Tree for Big Modpacks | 1.0.0 | [ResearchAtlas](ResearchAtlas) |
 | [B98] Smart Colonist Gear – Wardrobe | 1.0.0 | [SCGWardrobe](SCGWardrobe) |
+| [B98] Seasons & Holidays – 12 Months, Real Holidays & Weather | 1.0.0 | [SeasonsHolidays](SeasonsHolidays) |
 | [B98] Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.1 | [SecularColony](SecularColony) |
 | [B98] Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.0 | [SmartColonistGear](SmartColonistGear) |
 | [B98] Smooth FPS – Performance & Graphics | 1.7.2 | [SmoothFPS](SmoothFPS) |
@@ -38,6 +43,8 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Steward – Schedules | 1.1.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
 | [B98] Steward – Supplies | 1.3.0 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | [B98] Universal RimTranslator – Auto-Translate All Your Mods | 1.2.0 | [UniversalRimTranslator](UniversalRimTranslator) |
+| [B98] Wild Animals – Biome Spawn Control | 1.0.0 | [WildAnimals](WildAnimals) |
+| [B98] Wild Spawn Zone | 1.0.0 | [WildSpawnZone](WildSpawnZone) |
 | [B98] World at Your Level – Raiders, Factions & Threats Match Your Tech | 2.16.1 | [WorldAtYourLevel](WorldAtYourLevel) |
 
 Each folder is a complete mod (About, Assemblies, Defs, Languages, Source), most with a `CHANGELOG.txt`.

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_FuelRod.label>Brennstab</PWW_FuelRod.label>
+  <PWW_FuelRod.description>Ein versiegelter Stab aus angereichertem Uran. Brennstoff für den Kernreaktor; einer hält etwa einen Tag.</PWW_FuelRod.description>
+  <PWW_FusionCell.label>Fusionszelle</PWW_FusionCell.label>
+  <PWW_FusionCell.description>Eine magnetische Brennstoffzelle für den Fusionsreaktor. Eine hält etwa fünf Tage.</PWW_FusionCell.description>
+  <PWW_CannedFood.label>Konserve</PWW_CannedFood.label>
+  <PWW_CannedFood.description>Rohe Nahrung, gekocht und in einer Dose verschlossen. Verdirbt nie und hält sich auch draußen gut.</PWW_CannedFood.description>
+  <PWW_DeepBorehole.label>Tiefbohrung</PWW_DeepBorehole.label>
+  <PWW_DeepBorehole.description>Ein Bohrloch tief unter den Grundwasserspiegel. Erreicht ein sehr großes Gebiet sauberen Grundwassers (Radius 22), das Pumpen nutzen können; von Verschmutzung unbeeinflusst.</PWW_DeepBorehole.description>
+  <PWW_DeepWellPump.label>Hochleistungspumpe</PWW_DeepWellPump.label>
+  <PWW_DeepWellPump.description>Pumpt Wasser aus Brunnen in Wassertürme: 30.000 L pro Tag.</PWW_DeepWellPump.description>
+  <PWW_WaterTreatment.label>kompakte Wasseraufbereitung</PWW_WaterTreatment.label>
+  <PWW_WaterTreatment.description>Reinigt das Wasser in Türmen und das von Sanitäranlagen genutzte Wasser wie die normale Aufbereitungsanlage, braucht aber nur halb so viel Strom.</PWW_WaterTreatment.description>
+  <PWW_Desalination.label>Entsalzungsanlage</PWW_Desalination.label>
+  <PWW_Desalination.description>Gewinnt Süßwasser aus Meerwasser und füllt ihren eigenen Tank (etwa 15.000 L pro Tag mit Strom). Muss höchstens 3 Felder vom Meer entfernt stehen.</PWW_Desalination.description>
+  <PWW_WaterTower.label>Riesenwasserturm</PWW_WaterTower.label>
+  <PWW_WaterTower.description>Fasst 150.000 L Wasser. Fällt der Strom aus, hält er die Wasserhähne noch lange am Laufen.</PWW_WaterTower.description>
+  <PWW_HydroPlant.label>Wasserkraftwerk</PWW_HydroPlant.label>
+  <PWW_HydroPlant.description>Ein kleines Laufwasserkraftwerk mit mehreren Turbinen. Mindestens drei seiner Felder müssen auf fließendem Wasser stehen, der Rest auf festem Boden. Liefert Tag und Nacht gleichmäßig Strom; wenn der Fluss im strengen Winter gefriert, nur 40 %.</PWW_HydroPlant.description>
+  <PWW_BiogasPlant.label>Biogasanlage</PWW_BiogasPlant.label>
+  <PWW_BiogasPlant.description>Vergärt rohe Nahrung, Fleisch, Pflanzenmasse und (mit Dubs Bad Hygiene) Fäkalschlamm zu Gas, das einen Generator antreibt.</PWW_BiogasPlant.description>
+  <PWW_DeepGeothermal.label>Tiefengeothermiekraftwerk</PWW_DeepGeothermal.label>
+  <PWW_DeepGeothermal.description>Bohrt kilometertief bis zum heißen Gestein – kein Dampfgeysir nötig. Sehr teuer, liefert aber für immer viel Strom.</PWW_DeepGeothermal.description>
+  <PWW_Incinerator.label>Verbrennungsgenerator</PWW_Incinerator.label>
+  <PWW_Incinerator.description>Verbrennt Steinbrocken und Stahlschlacke bei sehr hoher Temperatur und wandelt die Hitze in Strom um. Räumt dabei auch die Basis auf.</PWW_Incinerator.description>
+  <PWW_Diesel.label>Dieselgenerator</PWW_Diesel.label>
+  <PWW_Diesel.description>Verbrennt Chemotreibstoff. Mit eingeschaltetem „Autostart“ schaltet er sich selbst ein, wenn die Batterien seines Netzes zur Neige gehen, und wieder aus, wenn sie voll sind – eine Reserve, die nur bei Bedarf läuft.</PWW_Diesel.description>
+  <PWW_FissionReactor.label>Kernreaktor</PWW_FissionReactor.label>
+  <PWW_FissionReactor.description>Ein kompakter Spaltreaktor, der Brennstäbe verbrennt. Riesige, gleichmäßige Leistung, aber er heizt sich auf: Er braucht funktionierende Kühltürme im Umkreis von 10 Feldern. Bei 100 % Hitze schaltet er sich selbst ab (oder schmilzt, wenn das in den Einstellungen eingeschaltet ist). Der SCRAM-Knopf stoppt ihn sofort.</PWW_FissionReactor.description>
+  <PWW_CoolingTower.label>Kühlturm</PWW_CoolingTower.label>
+  <PWW_CoolingTower.description>Kühlt einen Kernreaktor im Umkreis von 10 Feldern. Ein funktionierender Turm reicht für einen Reaktor.</PWW_CoolingTower.description>
+  <PWW_FusionReactor.label>Fusionsreaktor</PWW_FusionReactor.label>
+  <PWW_FusionReactor.description>Ein Fusionsreaktor aus dem Raumfahrtzeitalter. Enorme Leistung aus einer Fusionszelle, die viele Tage hält. Sicher – er kann nicht schmelzen.</PWW_FusionReactor.description>
+  <PWW_BigBattery.label>große Batterie</PWW_BigBattery.label>
+  <PWW_BigBattery.description>Eine Bank aus Industriezellen: speichert 6000 Wd und verliert weniger Energie als kleine Batterien.</PWW_BigBattery.description>
+  <PWW_Flywheel.label>Schwungrad</PWW_Flywheel.label>
+  <PWW_Flywheel.description>Ein günstiger mechanischer Speicher für 300 Wd. Gut für kurze Ausfälle, verliert aber jeden Tag 10 % seiner Energie.</PWW_Flywheel.description>
+  <PWW_CircuitBreaker.label>Sicherung</PWW_CircuitBreaker.label>
+  <PWW_CircuitBreaker.description>Funktioniert wie ein Stromschalter. Tritt irgendwo in seinem Netz ein Kurzschluss auf, löst stattdessen die Sicherung aus – keine Explosion, kein Feuer. Von Hand wieder einschalten.</PWW_CircuitBreaker.description>
+  <PWW_AutoStonecutter.label>automatischer Steinmetz</PWW_AutoStonecutter.label>
+  <PWW_AutoStonecutter.description>Nimmt Steinbrocken, die neben ihm liegen, und schneidet sie selbstständig zu Blöcken – kein Kolonist nötig. Ein Brocken pro Spielstunde.</PWW_AutoStonecutter.description>
+  <PWW_InductionFurnace.label>Induktionsofen</PWW_InductionFurnace.label>
+  <PWW_InductionFurnace.description>Ein elektrischer Ofen: gewinnt mehr Stahl aus Schlacke und stellt Brennstäbe und Fusionszellen her.</PWW_InductionFurnace.description>
+  <PWW_ComponentLine.label>Komponentenstraße</PWW_ComponentLine.label>
+  <PWW_ComponentLine.description>Eine automatisierte Fertigungsstraße, die Komponenten zu fünft herstellt, etwas günstiger als von Hand.</PWW_ComponentLine.description>
+  <PWW_TextileMill.label>Textilfabrik</PWW_TextileMill.label>
+  <PWW_TextileMill.description>Zerkleinert abgetragene Kleidung wieder zu Stoff.</PWW_TextileMill.description>
+  <PWW_Cannery.label>Konservenfabrik</PWW_Cannery.label>
+  <PWW_Cannery.description>Konserviert rohe Nahrung. Konserven verderben nie.</PWW_Cannery.description>
+  <PWW_Sprinkler.label>Bewässerungssprinkler</PWW_Sprinkler.label>
+  <PWW_Sprinkler.description>Bewässert die Pflanzen um sich herum: Sie wachsen 15 % schneller. Braucht Strom.</PWW_Sprinkler.description>
+</LanguageData>

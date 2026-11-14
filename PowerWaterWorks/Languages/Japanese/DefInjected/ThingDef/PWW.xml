@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PWW_FuelRod.label>燃料棒</PWW_FuelRod.label>
+  <PWW_FuelRod.description>濃縮ウランを密封した棒。核分裂炉の燃料で、1 本で約 1 日もちます。</PWW_FuelRod.description>
+  <PWW_FusionCell.label>核融合セル</PWW_FusionCell.label>
+  <PWW_FusionCell.description>核融合炉用の磁気燃料セル。1 個で約 5 日もちます。</PWW_FusionCell.description>
+  <PWW_CannedFood.label>缶詰</PWW_CannedFood.label>
+  <PWW_CannedFood.description>生の食料を調理して缶に密封したもの。決して腐らず、屋外でもよく保存できます。</PWW_CannedFood.description>
+  <PWW_DeepBorehole.label>深井戸</PWW_DeepBorehole.label>
+  <PWW_DeepBorehole.description>地下水面よりも深く掘られた井戸。ポンプで汲み上げられる清浄な地下水の非常に広い範囲（半径 22）に届き、汚染の影響を受けません。</PWW_DeepBorehole.description>
+  <PWW_DeepWellPump.label>大容量ポンプ</PWW_DeepWellPump.label>
+  <PWW_DeepWellPump.description>井戸から給水塔へ水を汲み上げます：1 日 30,000 L。</PWW_DeepWellPump.description>
+  <PWW_WaterTreatment.label>小型浄水装置</PWW_WaterTreatment.label>
+  <PWW_WaterTreatment.description>標準の浄水施設と同じく給水塔の水と設備で使う水を浄化しますが、必要な電力は半分です。</PWW_WaterTreatment.description>
+  <PWW_Desalination.label>海水淡水化施設</PWW_Desalination.label>
+  <PWW_Desalination.description>海水から真水を作り、自身のタンクに溜めます（電力供給時に 1 日約 15,000 L）。海から 3 マス以内に設置する必要があります。</PWW_Desalination.description>
+  <PWW_WaterTower.label>巨大給水塔</PWW_WaterTower.label>
+  <PWW_WaterTower.description>150,000 L の水を貯えます。停電しても長時間蛇口から水が出続けます。</PWW_WaterTower.description>
+  <PWW_HydroPlant.label>水力発電所</PWW_HydroPlant.label>
+  <PWW_HydroPlant.description>複数のタービンを備えた小型の流れ込み式発電所。少なくとも 3 マスが流水上、残りが固い地面上になければなりません。昼夜を問わず安定した電力を供給しますが、厳冬で川が凍ると 40 % しか出力しません。</PWW_HydroPlant.description>
+  <PWW_BiogasPlant.label>バイオガスプラント</PWW_BiogasPlant.label>
+  <PWW_BiogasPlant.description>生の食料、肉、植物性物質、（Dubs Bad Hygiene があれば）汚泥を発酵させてガスを作り、発電機を動かします。</PWW_BiogasPlant.description>
+  <PWW_DeepGeothermal.label>深層地熱発電所</PWW_DeepGeothermal.label>
+  <PWW_DeepGeothermal.description>数キロメートル下の高温の岩盤まで掘削します – 蒸気噴出口は不要です。非常に高価ですが、強力な電力を永久に供給します。</PWW_DeepGeothermal.description>
+  <PWW_Incinerator.label>焼却発電機</PWW_Incinerator.label>
+  <PWW_Incinerator.description>岩の塊や鋼鉄スラグを超高温で燃やし、その熱を電力に変えます。基地の片付けにもなります。</PWW_Incinerator.description>
+  <PWW_Diesel.label>ディーゼル発電機</PWW_Diesel.label>
+  <PWW_Diesel.description>化学燃料を燃やします。「自動始動」がオンなら、送電網のバッテリーが減ると自動でオンになり、満タンになると再びオフになります – 必要なときだけ動く予備電源です。</PWW_Diesel.description>
+  <PWW_FissionReactor.label>核分裂炉</PWW_FissionReactor.label>
+  <PWW_FissionReactor.description>燃料棒を燃やす小型の核分裂炉。莫大で安定した電力を生みますが、発熱します：10 マス以内に稼働中の冷却塔が必要です。熱が 100 % に達すると自動停止します（設定でオンにしていればメルトダウンします）。SCRAM ボタンで即座に停止できます。</PWW_FissionReactor.description>
+  <PWW_CoolingTower.label>冷却塔</PWW_CoolingTower.label>
+  <PWW_CoolingTower.description>10 マス以内の核分裂炉を冷却します。原子炉 1 基につき稼働中の冷却塔 1 基で十分です。</PWW_CoolingTower.description>
+  <PWW_FusionReactor.label>核融合炉</PWW_FusionReactor.label>
+  <PWW_FusionReactor.description>宇宙時代の核融合炉。何日ももつ核融合セルから莫大な電力を生みます。安全 – メルトダウンは起こりません。</PWW_FusionReactor.description>
+  <PWW_BigBattery.label>大型バッテリー</PWW_BigBattery.label>
+  <PWW_BigBattery.description>産業用セルの集合体：6000 Wd を蓄え、小型バッテリーよりエネルギーの損失が少なくなります。</PWW_BigBattery.description>
+  <PWW_Flywheel.label>フライホイール</PWW_Flywheel.label>
+  <PWW_Flywheel.description>300 Wd を蓄える安価な機械式蓄電装置。短時間の停電には有効ですが、毎日エネルギーの 10 % を失います。</PWW_Flywheel.description>
+  <PWW_CircuitBreaker.label>ブレーカー</PWW_CircuitBreaker.label>
+  <PWW_CircuitBreaker.description>電源スイッチとして機能します。送電網のどこかで短絡が起きると、代わりにブレーカーが落ちます – 爆発も火災もありません。手動で再びオンにしてください。</PWW_CircuitBreaker.description>
+  <PWW_AutoStonecutter.label>自動石材加工機</PWW_AutoStonecutter.label>
+  <PWW_AutoStonecutter.description>隣に置かれた岩の塊を取り、自動で石材ブロックに切り出します – 入植者は不要です。ゲーム内 1 時間につき塊 1 個。</PWW_AutoStonecutter.description>
+  <PWW_InductionFurnace.label>誘導炉</PWW_InductionFurnace.label>
+  <PWW_InductionFurnace.description>電気炉：スラグからより多くの鋼鉄を取り出し、燃料棒と核融合セルを作ります。</PWW_InductionFurnace.description>
+  <PWW_ComponentLine.label>部品製造ライン</PWW_ComponentLine.label>
+  <PWW_ComponentLine.description>部品を 5 個ずつ作る自動化ライン。手作業より少し安く済みます。</PWW_ComponentLine.description>
+  <PWW_TextileMill.label>紡績工場</PWW_TextileMill.label>
+  <PWW_TextileMill.description>着古した衣服を細かくして布に戻します。</PWW_TextileMill.description>
+  <PWW_Cannery.label>缶詰工場</PWW_Cannery.label>
+  <PWW_Cannery.description>生の食料を缶詰にします。缶詰は決して腐りません。</PWW_Cannery.description>
+  <PWW_Sprinkler.label>スプリンクラー</PWW_Sprinkler.label>
+  <PWW_Sprinkler.description>周囲の植物に水をやります：成長が 15 % 速くなります。電力が必要です。</PWW_Sprinkler.description>
+</LanguageData>
