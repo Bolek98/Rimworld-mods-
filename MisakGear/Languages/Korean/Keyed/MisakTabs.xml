@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MT_Rec1>이 모드의 작업 지시 탭을 사용합니다.</MT_Rec1>
+  <MT_Rec2>다른 모드(Nice Bill Tab …)의 작업 지시 탭을 대체합니다 – 원래 탭은 언제든 클릭 한 번으로 열 수 있습니다.</MT_Rec2>
+  <MT_Bills>작업 지시 탭</MT_Bills>
+  <MT_Bills_Desc>그림과 검색이 있는 제작법 목록, 누가 작업 중이고 무엇이 부족한지 보여주는 카드형 작업 지시 대기열.</MT_Bills_Desc>
+  <MT_ReplaceOther>다른 작업 지시 탭 모드 대체</MT_ReplaceOther>
+  <MT_ReplaceOther_Desc>Nice Bill Tab 등의 모드도 같은 탭을 그립니다. 이 옵션이 켜져 있으면 그 모드의 탭은 꺼집니다. 재시작 필요.</MT_ReplaceOther_Desc>
+  <MT_OurLook>Clear 스타일</MT_OurLook>
+  <MT_HeadSub>작업 지시 {0}개 · 활성 {1}개 · {3} 가능 정착민 {2}명</MT_HeadSub>
+  <MT_Paste>붙여넣기</MT_Paste>
+  <MT_PasteTip>복사한 작업 지시 붙여넣기: {0}</MT_PasteTip>
+  <MT_Original>원래 탭</MT_Original>
+  <MT_OriginalTip>게임 기본 탭을 표시합니다 (다른 모드가 추가한 버튼 포함). "Clear 스타일"로 되돌아옵니다.</MT_OriginalTip>
+  <MT_NeedResearch>필요한 연구: {0}</MT_NeedResearch>
+  <MT_NotAvailable>지금은 사용 불가</MT_NotAvailable>
+  <MT_Search>제작법 검색…</MT_Search>
+  <MT_All>전체</MT_All>
+  <MT_Available>사용 가능</MT_Available>
+  <MT_Locked>잠김</MT_Locked>
+  <MT_LockedShort>잠김</MT_LockedShort>
+  <MT_Add>+ 추가</MT_Add>
+  <MT_Full>작업대 하나에는 작업 지시를 최대 {0}개까지 둘 수 있습니다.</MT_Full>
+  <MT_Queue>작업 지시 대기열 – {0} / {1}</MT_Queue>
+  <MT_Suspended>일시 정지됨</MT_Suspended>
+  <MT_DoingNow>작업 중: {0}</MT_DoingNow>
+  <MT_NoIngredients>대기 중: 재료를 찾을 수 없음</MT_NoIngredients>
+  <MT_Done>지금은 할 일 없음</MT_Done>
+  <MT_Waiting>한가한 정착민 대기 중</MT_Waiting>
+  <MT_Forever>무한 반복</MT_Forever>
+  <MT_RepeatLeft>{0}회 남음</MT_RepeatLeft>
+  <MT_Target>{1}개 중 {0}개 보유</MT_Target>
+  <MT_PausedSatisfied>목표 달성</MT_PausedSatisfied>
+  <MT_Resume>재개</MT_Resume>
+  <MT_Pause>일시 정지</MT_Pause>
+  <MT_Edit>편집</MT_Edit>
+  <MT_Copy>복사</MT_Copy>
+  <MT_Copied>복사됨: {0}</MT_Copied>
+  <MT_NoBills>아직 작업 지시가 없습니다 – 왼쪽에서 제작법을 고르세요.</MT_NoBills>
+  <MT_InfoTip>무엇인지 – 정보 카드 열기</MT_InfoTip>
+  <MT_ClickInfo>클릭하면 전체 정보 카드를 엽니다.</MT_ClickInfo>
+  <MT_Info_Makes>생산: {0} ×{1} · 가치 {2} · 무게 {3} kg</MT_Info_Makes>
+  <MT_Info_Armor>방어력: 날카로움 {0}, 둔기 {1} · 단열 냉기 {2} °C, 열기 {3} °C</MT_Info_Armor>
+  <MT_Info_Gun>피해 {0} · 사거리 {1} · 연사당 발사 수 {2}</MT_Info_Gun>
+  <MT_Info_Melee>초당 근접 피해: {0}</MT_Info_Melee>
+  <MT_Info_Work>작업량: {0}</MT_Info_Work>
+  <MT_Info_Needs>필요: {0}</MT_Info_Needs>
+  <MT_Info_Skill>필요 기술: {0}</MT_Info_Skill>
+  <MT_Info_UsesSkill>사용 기술: {0}</MT_Info_UsesSkill>
+  <MT_PrioTip>우선순위 {0} – 1이 가장 먼저, 10이 가장 나중, 5가 보통입니다. 정착민은 가장 급한 작업 지시가 있는 작업대로 먼저 갑니다. 클릭하여 변경.</MT_PrioTip>
+  <MT_PrioOption>우선순위 {0}</MT_PrioOption>
+  <MT_PrioFirst>가장 먼저</MT_PrioFirst>
+  <MT_PrioNormal>보통</MT_PrioNormal>
+  <MT_PrioLast>가장 나중</MT_PrioLast>
+  <MT_Rec3>이 모드의 건강 탭을 사용하며 다른 건강 탭 모드를 대체합니다.</MT_Rec3>
+  <MT_Health>건강 탭</MT_Health>
+  <MT_Health_Desc>능력치와 치료 개요, 이상 부위가 표시된 정착민 모습, 신체 부위별 상태. 수술과 원래 탭은 클릭 한 번이면 됩니다.</MT_Health_Desc>
+  <MT_ReplaceOtherHealth>다른 건강 탭 모드 대체</MT_ReplaceOtherHealth>
+  <MT_ReplaceOtherHealth_Desc>자체 건강 탭을 그리는 모드는 이 옵션이 켜져 있는 동안 꺼집니다. 재시작 필요.</MT_ReplaceOtherHealth_Desc>
+  <MT_Operations>수술</MT_Operations>
+  <MT_OperationsTip>게임 기본 수술 목록(수술 작업 지시). "Clear 스타일"로 되돌아옵니다.</MT_OperationsTip>
+  <MT_OperationsNo>여기서는 가능한 수술이 없습니다.</MT_OperationsNo>
+  <MT_OriginalTipHealth>게임 기본 건강 탭을 표시합니다 (다른 모드가 추가한 것 포함). 오른쪽 아래 "Clear 스타일"로 되돌아옵니다.</MT_OriginalTipHealth>
+  <MT_H_Dead>사망</MT_H_Dead>
+  <MT_H_Bleeding>출혈 하루 {0}</MT_H_Bleeding>
+  <MT_H_BleedDeath>출혈 하루 {0} – 치료하지 않으면 {1} 후 사망!</MT_H_BleedDeath>
+  <MT_H_Losing>{0}: 위험 – 병이 면역보다 빠름</MT_H_Losing>
+  <MT_H_Winning>{0}: 면역이 이기는 중</MT_H_Winning>
+  <MT_H_NeedsTend>치료 필요</MT_H_NeedsTend>
+  <MT_H_Downed>쓰러짐</MT_H_Downed>
+  <MT_H_Healing>회복 중</MT_H_Healing>
+  <MT_H_Healthy>건강함</MT_H_Healthy>
+  <MT_H_Care>의료 수준</MT_H_Care>
+  <MT_H_Capacities>능력치</MT_H_Capacities>
+  <MT_H_MarkTip>클릭: 목록에 이 부위만 표시. 우클릭: 이 부위의 수술.</MT_H_MarkTip>
+  <MT_H_NothingWrong>이상 없음 👍</MT_H_NothingWrong>
+  <MT_H_LegendBad>출혈, 상실 또는 심한 부상</MT_H_LegendBad>
+  <MT_H_LegendHurt>부상, 치료 필요</MT_H_LegendHurt>
+  <MT_H_LegendOther>흉터, 임플란트 및 기타</MT_H_LegendOther>
+  <MT_H_Whole>전신: {0} (목록에 있음)</MT_H_Whole>
+  <MT_H_ShowAllParts>모든 부위 표시</MT_H_ShowAllParts>
+  <MT_H_Conditions>신체 부위별 상태</MT_H_Conditions>
+  <MT_H_ConditionsHere>상태 – 선택한 부위</MT_H_ConditionsHere>
+  <MT_H_ShowAll>숨겨진 것도 표시</MT_H_ShowAll>
+  <MT_H_NoConditions>부상이나 질환이 없습니다.</MT_H_NoConditions>
+  <MT_H_ChipBleed>출혈 {0}</MT_H_ChipBleed>
+  <MT_H_ChipTended>치료됨</MT_H_ChipTended>
+  <MT_H_ChipTend>치료 필요</MT_H_ChipTend>
+  <MT_H_ChipScar>영구적</MT_H_ChipScar>
+  <MT_H_ImmunityTip>면역 {0} (초록) 대 질병 {1} (빨강). 면역이 먼저 100 %에 도달해야 합니다.</MT_H_ImmunityTip>
+  <MT_H_ToPortrait>초상화 표시</MT_H_ToPortrait>
+  <MT_H_ToSilhouette>건강 실루엣 표시</MT_H_ToSilhouette>
+  <MT_O_Planned>예정된 수술 (이 순서대로)</MT_O_Planned>
+  <MT_O_NonePlanned>예정된 것이 없습니다. 오른쪽에서 수술을 고르세요.</MT_O_NonePlanned>
+  <MT_O_WholeBody>전신</MT_O_WholeBody>
+  <MT_O_Paused>일시 정지됨</MT_O_Paused>
+  <MT_O_Missing>부족: {0}</MT_O_Missing>
+  <MT_O_Ready>준비됨 – 모든 것이 갖춰짐</MT_O_Ready>
+  <MT_O_Resume>재개</MT_O_Resume>
+  <MT_O_Pause>일시 정지</MT_O_Pause>
+  <MT_O_Doctor>집도의</MT_O_Doctor>
+  <MT_O_NoDoctor>이 지도에 한가한 의사가 없습니다!</MT_O_NoDoctor>
+  <MT_O_DoctorIs>최고의 의사: {0} (의학 {1})</MT_O_DoctorIs>
+  <MT_O_Care>의료 수준: {0}</MT_O_Care>
+  <MT_O_DoctorTip>더 좋은 의사 = 수술 실패 위험 감소.</MT_O_DoctorTip>
+  <MT_O_Possible>가능한 수술 ({0})</MT_O_Possible>
+  <MT_O_Search>수술 또는 신체 부위 검색…</MT_O_Search>
+  <MT_O_K_All>전체</MT_O_K_All>
+  <MT_O_K_Implant>임플란트 &amp; 의수족</MT_O_K_Implant>
+  <MT_O_K_Remove>제거</MT_O_K_Remove>
+  <MT_O_K_Drug>약물</MT_O_K_Drug>
+  <MT_O_K_Other>기타</MT_O_K_Other>
+  <MT_O_A_All>모든 곳</MT_O_A_All>
+  <MT_O_A_Head>머리</MT_O_A_Head>
+  <MT_O_A_Torso>몸통</MT_O_A_Torso>
+  <MT_O_A_Arms>팔</MT_O_A_Arms>
+  <MT_O_A_Legs>다리</MT_O_A_Legs>
+  <MT_O_A_Whole>전신</MT_O_A_Whole>
+  <MT_O_NoneFound>일치하는 수술이 없습니다.</MT_O_NoneFound>
+  <MT_O_BackHealth>건강</MT_O_BackHealth>
+  <!-- 0.4.2 -->
+  <MT_H_Planned>예정된 수술: {0}</MT_H_Planned>
+  <MT_H_PlannedTip>클릭하여 예정된 수술을 엽니다.</MT_H_PlannedTip>
+  <MT_H_NoOpsHere>이 신체 부위에는 수술이 없음</MT_H_NoOpsHere>
+  <MT_H_ShowOpsHere>이 부위의 수술 표시</MT_H_ShowOpsHere>
+  <!-- 0.5.0 -->
+  <MT_BenchMenuTip>작업대: 모든 작업 지시를 복사해 여기 또는 같은 종류의 여러 작업대에 붙여넣습니다.</MT_BenchMenuTip>
+  <MT_CopyAll>이 작업대의 작업 지시 모두 복사 ({0})</MT_CopyAll>
+  <MT_PasteAll>복사한 작업 지시를 여기에 붙여넣기 ({1}에서 {0}개)</MT_PasteAll>
+  <MT_PasteSeveral>여러 작업대에 작업 지시 붙여넣기</MT_PasteSeveral>
+  <MT_PasteSeveralSub>{1}에서 복사한 작업 지시 {0}개. 작업대가 만들 수 없는 작업 지시는 건너뜁니다.</MT_PasteSeveralSub>
+  <MT_BenchCopied>{1}의 작업 지시 {0}개를 복사했습니다.</MT_BenchCopied>
+  <MT_PastedInto>작업 지시 {0}개를 작업대 {1}곳에 붙여넣었습니다.</MT_PastedInto>
+  <MT_PasteN>{0}곳에 붙여넣기</MT_PasteN>
+  <MT_None>없음</MT_None>
+  <MT_BillsN>작업 지시 {0}개</MT_BillsN>
+  <MT_ThisBench>이 작업대</MT_ThisBench>
+  <MT_BillMenuTip>더 보기: 작업 지시 이름 변경, 다른 작업대의 작업 지시와 연결.</MT_BillMenuTip>
+  <MT_Rename>이름 변경</MT_Rename>
+  <MT_LinkWith>다른 작업대의 작업 지시와 연결</MT_LinkWith>
+  <MT_Unlink>연결 해제</MT_Unlink>
+  <MT_NoLinkTargets>이 지도의 다른 작업대에 이 제작법의 작업 지시가 없습니다.</MT_NoLinkTargets>
+  <MT_Linked>연결됨: {0} – {1}</MT_Linked>
+  <MT_LinkedN>연결 ×{0}</MT_LinkedN>
+  <MT_LinkedTip>연결된 작업 지시는 설정(수량, 목표, 일시 정지, 재료, 비축소)을 공유합니다. 하나를 바꾸면 나머지에도 복사됩니다:</MT_LinkedTip>
+  <MT_CountTip>클릭: ±1 · Shift+클릭: ±10 · Ctrl+클릭: ±100</MT_CountTip>
+  <MT_InclEquipped>착용·소지품 포함</MT_InclEquipped>
+  <MT_OnlyIn>{0}에서만</MT_OnlyIn>
+  <MT_NotAdded>추가 안 됨</MT_NotAdded>
+  <MT_NotAddedTip>만들 수 있지만 아직 대기열에 없는 제작법입니다.</MT_NotAddedTip>
+  <MT_SplitTip>드래그하여 제작법 목록 너비를 조절합니다.</MT_SplitTip>
+  <MT_GripTip>드래그하여 창 크기를 조절합니다 (기억됨).</MT_GripTip>
+  <MT_SizeTip>창 크기: 보통, 크게 또는 화면에 맞게 최대. 오른쪽 위 모서리를 드래그해도 됩니다.</MT_SizeTip>
+  <MT_SizeNormal>보통 크기</MT_SizeNormal>
+  <MT_SizeBig>크게</MT_SizeBig>
+  <MT_SizeMax>최대 (화면에 맞춤)</MT_SizeMax>
+  <!-- 0.7.0 anatomy -->
+  <MT_A_Parts>신체</MT_A_Parts>
+  <MT_A_Organs>장기</MT_A_Organs>
+  <MT_A_Bones>뼈</MT_A_Bones>
+  <MT_A_Healthy>건강함</MT_A_Healthy>
+  <MT_A_Hurt>부상</MT_A_Hurt>
+  <MT_A_Missing>상실</MT_A_Missing>
+  <MT_A_Broken>골절</MT_A_Broken>
+  <MT_A_Prosthetic>의수족</MT_A_Prosthetic>
+  <MT_A_Bionic>생체공학</MT_A_Bionic>
+  <MT_A_Implant>임플란트</MT_A_Implant>
+  <MT_A_Archo>아르코테크</MT_A_Archo>
+  <MT_A_Fine>이곳은 이상 없습니다.</MT_A_Fine>
+  <MT_A_ToAnatomy>해부도 표시</MT_A_ToAnatomy>
+  <MT_A_ToSilhouette>정착민 자신의 실루엣 표시</MT_A_ToSilhouette>
+  <!-- 0.8.0 -->
+  <MT_H_State>상태</MT_H_State>
+  <MT_H_FAll>전체</MT_H_FAll>
+  <MT_H_FInjuries>부상</MT_H_FInjuries>
+  <MT_H_FParts>대체 부위</MT_H_FParts>
+  <MT_H_FMissing>상실</MT_H_FMissing>
+  <MT_H_FDiseases>질병</MT_H_FDiseases>
+  <MT_H_Immunity>면역 {0}</MT_H_Immunity>
+  <MT_A_PartHp>부위 체력: {0}</MT_A_PartHp>
+  <MT_A_CardHint>클릭: 이 부위만 · 우클릭: 수술</MT_A_CardHint>
+  <MT_H_Age>{0}세</MT_H_Age>
+  <!-- 0.9.0 -->
+  <MT_Character>Clear 스타일 캐릭터 탭</MT_Character>
+  <MT_Character_Desc>초상화, 배경, 특성이 담긴 신상 기록과 기술, 생애 연대기, 기록 페이지. 원래 탭은 클릭 한 번이면 됩니다.</MT_Character_Desc>
+  <MT_Social>Clear 스타일 사회 탭</MT_Social>
+  <MT_Social_Desc>아는 모든 사람과 서로의 평가, 그리고 그 이유 – 양쪽의 모든 이유. 원래 탭은 클릭 한 번이면 됩니다.</MT_Social_Desc>
+  <MT_C_Skills>기술</MT_C_Skills>
+  <MT_C_Life>생애</MT_C_Life>
+  <MT_C_Records>기록</MT_C_Records>
+  <MT_C_Childhood>어린 시절</MT_C_Childhood>
+  <MT_C_Adulthood>성인기</MT_C_Adulthood>
+  <MT_C_Traits>특성</MT_C_Traits>
+  <MT_C_Incapable>하지 않는 일</MT_C_Incapable>
+  <MT_C_Ideo>이념: {0}</MT_C_Ideo>
+  <MT_C_Birthday>출생 {0} ({1}년 전)</MT_C_Birthday>
+  <MT_C_NoSkills>기술 없음.</MT_C_NoSkills>
+  <MT_L_Born>출생</MT_L_Born>
+  <MT_L_Joined>{0} 합류</MT_L_Joined>
+  <MT_L_Break>정신 붕괴: {0}</MT_L_Break>
+  <MT_L_Lost>상실: {0}</MT_L_Lost>
+  <MT_L_Installed>{0} 획득 ({1})</MT_L_Installed>
+  <MT_L_Skill>{0} 레벨 {1} 도달</MT_L_Skill>
+  <MT_L_Rel>새 {0}: {1}</MT_L_Rel>
+  <MT_L_Child>자녀 출생: {0}</MT_L_Child>
+  <MT_L_Note>정신 붕괴, 부상, 수술, 회복, 신체 부위, 기술, 연인, 사망, 작위, 역할, 생일, 연구는 Clear Tabs 0.9가 실행된 시점부터 기록됩니다. 나머지는 게임 자체의 이야기에서 가져옵니다.</MT_L_Note>
+  <MT_S_Search>검색…</MT_S_Search>
+  <MT_S_Colonist>정착민</MT_S_Colonist>
+  <MT_S_Dead>사망</MT_S_Dead>
+  <MT_S_RowTip>왼쪽: {0}이(가) {1}을(를) 어떻게 생각하는지 · 오른쪽(작게): {1}이(가) {0}을(를) 어떻게 생각하는지 · 클릭: 이유</MT_S_RowTip>
+  <MT_S_Nobody>아무도 없습니다.</MT_S_Nobody>
+  <MT_S_Compat>궁합</MT_S_Compat>
+  <MT_S_Romance>연애 성공 확률</MT_S_Romance>
+  <MT_S_Thinks>{0} → {1}</MT_S_Thinks>
+  <MT_S_NoReasons>이유 없음 – 서로 거의 모릅니다.</MT_S_NoReasons>
+  <MT_S_Back>개요</MT_S_Back>
+  <MT_S_Overview>개요</MT_S_Overview>
+  <MT_S_Partner>연인</MT_S_Partner>
+  <MT_S_BestFriend>가장 친한 친구</MT_S_BestFriend>
+  <MT_S_Rival>최악의 라이벌</MT_S_Rival>
+  <MT_S_Counts>친구 {0} · 라이벌 {1}</MT_S_Counts>
+  <MT_S_Talks>최근 대화</MT_S_Talks>
+  <MT_S_NoTalks>아직 대화가 없습니다.</MT_S_NoTalks>
+  <MT_L_Surgery>수술: {0} – 집도 {1}</MT_L_Surgery>
+  <MT_L_SurgeryBad>수술 실패: {0} – 집도 {1}</MT_L_SurgeryBad>
+  <MT_L_Operated>{0} 수술 집도: {1}</MT_L_Operated>
+  <MT_L_OperatedBad>{0} 수술 실패: {1}</MT_L_OperatedBad>
+  <MT_L_Healed>{0}에서 회복</MT_L_Healed>
+  <MT_L_Died>사망</MT_L_Died>
+  <MT_L_DiedOf>사망 ({0})</MT_L_DiedOf>
+  <MT_L_LostRel>{0} 잃음: {1}</MT_L_LostRel>
+  <MT_L_LostFriend>친구를 잃음: {0}</MT_L_LostFriend>
+  <MT_L_Title>작위: {0} ({1})</MT_L_Title>
+  <MT_L_Role>{0}이(가) 됨</MT_L_Role>
+  <MT_L_Birthday>생일 – {0}세</MT_L_Birthday>
+  <MT_L_Research>연구 완료: {0}</MT_L_Research>
+  <MT_L_Wound>심한 부상: {0} ({1})</MT_L_Wound>
+  <MT_O_K_NoPart>재고 없는 부위</MT_O_K_NoPart>
+  <MT_O_MakeAt>제작 장소: {0}</MT_O_MakeAt>
+  <MT_O_ResearchFirst>먼저 연구: {0}</MT_O_ResearchFirst>
+  <MT_O_OnlyTrade>거래나 전리품으로만</MT_O_OnlyTrade>
+  <MT_O_QueueAt>{0} 제작 – {1}</MT_O_QueueAt>
+  <MT_O_Queued>작업 지시 추가됨: {0} ({1})</MT_O_Queued>
+  <MT_O_NoBench>작업대가 지어지지 않음: {0}</MT_O_NoBench>
+  <MT_O_InfoPart>정보: {0}</MT_O_InfoPart>
+  <MT_O_Make>제작</MT_O_Make>
+  <MT_A_SideRight>R</MT_A_SideRight>
+  <MT_A_SideLeft>L</MT_A_SideLeft>
+  <MT_A_SideTip>그림은 당신을 마주 봅니다: 그림의 오른쪽(R)이 당신의 왼쪽에, 왼쪽(L)이 당신의 오른쪽에 있습니다.</MT_A_SideTip>
+  <MT_MineFor>{0} 채굴</MT_MineFor>
+  <MT_ModeRepeatTip>정해진 횟수만큼 반복</MT_ModeRepeatTip>
+  <MT_ModeTargetTip>X개가 될 때까지</MT_ModeTargetTip>
+  <MT_ModeForeverTip>무한 반복</MT_ModeForeverTip>
+  <!-- 0.11.0 -->
+  <MT_Needs>Clear 스타일 욕구 탭</MT_Needs>
+  <MT_Needs_Desc>모든 욕구를 추세와 기준선이 있는 카드로, 정신 붕괴 한계가 표시된 기분, 기대 기분, 모든 생각과 함께. 원래 탭은 클릭 한 번이면 됩니다.</MT_Needs_Desc>
+  <MT_BillDialog>Clear 스타일 작업 지시 창</MT_BillDialog>
+  <MT_BillDialog_Desc>같은 스타일의 작업 지시 설정 창: 제작법에 필요한 것과 만드는 것, 빠른 단계가 있는 반복 모드, 보관 장소와 작업자, 게임의 재료 필터. "원래 창"은 게임 기본 창을 엽니다.</MT_BillDialog_Desc>
+  <MT_N_Mood>기분</MT_N_Mood>
+  <MT_N_BreakExtreme>{0} 미만 시 극심한 정신 붕괴 위험</MT_N_BreakExtreme>
+  <MT_N_BreakMajor>{0} 미만 시 큰 정신 붕괴 위험</MT_N_BreakMajor>
+  <MT_N_BreakMinor>{0} 미만 시 작은 정신 붕괴 위험</MT_N_BreakMinor>
+  <MT_N_Target>기분이 {0}(으)로 향하는 중</MT_N_Target>
+  <MT_N_Expect>기대치: {0}</MT_N_Expect>
+  <MT_N_Thoughts>생각 ({0})</MT_N_Thoughts>
+  <MT_N_NoThoughts>지금 기분에 영향을 주는 생각이 없습니다.</MT_N_NoThoughts>
+  <MT_BD_Original>원래 창</MT_BD_Original>
+  <MT_BD_Ingredients>재료</MT_BD_Ingredients>
+  <MT_BD_Makes>생산물</MT_BD_Makes>
+  <MT_BD_Skill>기술</MT_BD_Skill>
+  <MT_BD_Repeat>수량</MT_BD_Repeat>
+  <MT_BD_ModeRepeat>× 횟수</MT_BD_ModeRepeat>
+  <MT_BD_ModeTarget>≥ 목표까지</MT_BD_ModeTarget>
+  <MT_BD_ModeForever>∞ 무한</MT_BD_ModeForever>
+  <MT_BD_Have>보유 {0} / {1}</MT_BD_Have>
+  <MT_BD_Store>보관 장소</MT_BD_Store>
+  <MT_BD_Worker>작업자</MT_BD_Worker>
+  <MT_S_RomanceTip>{0}이(가) 누군가에게 구애하게 합니다 – 확률이 표시된 게임 목록.</MT_S_RomanceTip>
+  <MT_S_RomanceThem>{0}에게 구애 ({1})</MT_S_RomanceThem>
+  <MT_S_RomanceThemNo>{0}에게 구애</MT_S_RomanceThemNo>
+  <MT_PaneLook>Clear 스타일 정보 패널</MT_PaneLook>
+  <MT_PaneLook_Desc>선택한 정착민, 동물, 건물의 정보 패널(왼쪽 아래)과 탭 버튼을 어두운 Clear 스타일로, 건강·기분·일정·구역에 색 막대 표시. 긴 탭 이름이 더 이상 잘리지 않습니다.</MT_PaneLook_Desc>
+  <MT_PlantPicker>Clear 스타일 식물 선택기</MT_PlantPicker>
+  <MT_PlantPicker_Desc>"재배할 식물 설정"(재배 구역, 수경 재배기, 화분)이 화면 전체를 덮는 긴 목록 대신 분류, 검색, 정렬과 식물별 카드(재배 기간, 수확량, 일일 가치, 필요 기술)가 있는 창을 엽니다.</MT_PlantPicker_Desc>
+  <MT_PG_Title>무엇을 재배할까</MT_PG_Title>
+  <MT_PG_Now>현재: {0}</MT_PG_Now>
+  <MT_PG_All>전체</MT_PG_All>
+  <MT_PG_Food>식량</MT_PG_Food>
+  <MT_PG_Medicine>의약품</MT_PG_Medicine>
+  <MT_PG_Drugs>약물</MT_PG_Drugs>
+  <MT_PG_Materials>재료</MT_PG_Materials>
+  <MT_PG_Trees>나무</MT_PG_Trees>
+  <MT_PG_Decor>장식</MT_PG_Decor>
+  <MT_PG_Search>검색…</MT_PG_Search>
+  <MT_PG_SortBy>정렬:</MT_PG_SortBy>
+  <MT_PG_SName>이름</MT_PG_SName>
+  <MT_PG_SDays>빠른 순</MT_PG_SDays>
+  <MT_PG_SValue>가치 높은 순</MT_PG_SValue>
+  <MT_PG_SSkill>쉬운 순</MT_PG_SSkill>
+  <MT_PG_Usable>우리 재배자가 심을 수 있는 것만</MT_PG_Usable>
+  <MT_PG_UsableTip>가장 뛰어난 활동 중인 재배자({0})보다 높은 재배 기술이 필요한 식물을 숨깁니다.</MT_PG_UsableTip>
+  <MT_PG_None>일치하는 항목이 없습니다.</MT_PG_None>
+  <MT_PG_Days>{0}일</MT_PG_Days>
+  <MT_PG_Yield>{0}× {1}</MT_PG_Yield>
+  <MT_PG_Skill>기술 {0}</MT_PG_Skill>
+  <MT_PG_ValueDay>{0} 은/일</MT_PG_ValueDay>
+  <MT_PG_Cave>동굴</MT_PG_Cave>
+  <MT_PG_NoRoof>지붕 없음</MT_PG_NoRoof>
+  <MT_PG_NutDay>{0} 영양/일</MT_PG_NutDay>
+  <MT_PG_SkillTip>재배 기술 {0} 필요 (가장 뛰어난 재배자: {1})</MT_PG_SkillTip>
+  <MT_PG_Mod>모드: {0}</MT_PG_Mod>
+  <MT_TabsMore>더 보기 ▾</MT_TabsMore>
+  <MT_TabsMoreTip>탭 {0}개 더 – 클릭하여 엽니다.</MT_TabsMoreTip>
+  <MT_RecipePicker>"작업 지시 추가"용 제작법 선택기</MT_RecipePicker>
+  <MT_RecipePicker_Desc>작업 지시 추가 시 긴 메뉴 대신 분류, 검색, 정렬이 있는 창을 엽니다.</MT_RecipePicker_Desc>
+  <MT_SurgeryPicker>수술 선택기 (건강 탭)</MT_SurgeryPicker>
+  <MT_SurgeryPicker_Desc>"수술 추가"가 분류(임플란트, 생체공학, 절단, 약물 …), 성공 확률, 요구 사항이 있는 창을 엽니다.</MT_SurgeryPicker_Desc>
+  <MT_OwnerPicker>소유자 선택기 (침대, 왕좌 …)</MT_OwnerPicker>
+  <MT_OwnerPicker_Desc>"소유자 지정"이 목록 대신 사진과 상태가 있는 정착민 카드를 엽니다.</MT_OwnerPicker_Desc>
+  <MT_PolicyPicker>구역 및 정책 선택기</MT_PolicyPicker>
+  <MT_PolicyPicker_Desc>허용 구역, 의복, 식단, 약물 정책이 검색과 미리보기가 있는 창을 엽니다.</MT_PolicyPicker_Desc>
+  <MT_ResearchPicker>연구 선택기</MT_ResearchPicker>
+  <MT_ResearchPicker_Desc>분야와 시대별로 검색 가능한 연구 프로젝트 목록 (연구 탭의 버튼).</MT_ResearchPicker_Desc>
+  <MT_MechPicker>기계체 배양 선택기 (Biotech)</MT_MechPicker>
+  <MT_MechPicker_Desc>배양할 기계체를 크기와 역할별로 분류, 검색 포함.</MT_MechPicker_Desc>
+  <MT_AnimalPicker>동물 선택기</MT_AnimalPicker>
+  <MT_AnimalPicker_Desc>동물 선택(주인, 훈련, 우리)이 분류된 카드를 엽니다: 작업, 전투, 애완동물.</MT_AnimalPicker_Desc>
+  <MT_TradeWindow>분류가 있는 거래 창</MT_TradeWindow>
+  <MT_TradeWindow_Desc>거래 시 이 모드의 창이 열립니다: 분류(음식, 의약품, 무기 …), 검색, 정렬, 장바구니.</MT_TradeWindow_Desc>
+  <MT_ResetSizes>모든 창 크기 초기화</MT_ResetSizes>
+  <MT_GripCornerTip>드래그하여 패널 크기 조절 – 클릭하면 미리 정한 크기(보통, 크게, 최대). 크기는 기억됩니다.</MT_GripCornerTip>
+  <MT_InfoCard>Clear 스타일 정보 카드 (Infocentrum)</MT_InfoCard>
+  <MT_InfoCard_Desc>정착민의 "i" 버튼이 이 모드의 카드를 엽니다: 정착지 평균과 함께 분류된 모든 능력치, 다른 정착민과 비교, 능력치의 구성 요소, 그리고 생애, 건강, 사회, 장비, 기록 페이지.</MT_InfoCard_Desc>
+  <MT_I_Overview>개요</MT_I_Overview>
+  <MT_I_Life>생애</MT_I_Life>
+  <MT_I_Health>건강</MT_I_Health>
+  <MT_I_Social>사회</MT_I_Social>
+  <MT_I_Gear>장비</MT_I_Gear>
+  <MT_I_History>기록</MT_I_History>
+  <MT_I_Original>원래 카드</MT_I_Original>
+  <MT_I_RiskHigh>높은 정신 붕괴 위험</MT_I_RiskHigh>
+  <MT_I_RiskMid>정신 붕괴 위험</MT_I_RiskMid>
+  <MT_I_RiskLow>낮은 정신 붕괴 위험</MT_I_RiskLow>
+  <MT_I_G_all>전부</MT_I_G_all>
+  <MT_I_G_basic>기본</MT_I_G_basic>
+  <MT_I_G_combat>전투</MT_I_G_combat>
+  <MT_I_G_work>작업</MT_I_G_work>
+  <MT_I_G_health>건강</MT_I_G_health>
+  <MT_I_G_resist>저항</MT_I_G_resist>
+  <MT_I_G_food>음식과 신체</MT_I_G_food>
+  <MT_I_G_social>사회</MT_I_G_social>
+  <MT_I_G_psy>정신 집중</MT_I_G_psy>
+  <MT_I_G_mods>모드에서</MT_I_G_mods>
+  <MT_I_Compare>비교 대상</MT_I_Compare>
+  <MT_I_Pick>+ 정착민 선택</MT_I_Pick>
+  <MT_I_Average>정착지 평균</MT_I_Average>
+  <MT_I_Legend>정착지 평균 · 초록은 더 좋음, 주황은 더 나쁨</MT_I_Legend>
+  <MT_I_LegendCmp>{0}와(과) 비교 · 초록은 더 좋음, 주황은 더 나쁨</MT_I_LegendCmp>
+  <MT_I_MoreThan>정착민의 {0} %보다 높음</MT_I_MoreThan>
+  <MT_I_ColonyAvg>정착지 평균 {0}</MT_I_ColonyAvg>
+  <MT_I_Most>정착지 최고</MT_I_Most>
+  <MT_I_Least>정착지 최저</MT_I_Least>
+  <MT_I_Temp>온도</MT_I_Temp>
+  <MT_I_ColdProof>추위에 강함</MT_I_ColdProof>
+  <MT_I_HeatProof>더위에 강함</MT_I_HeatProof>
+  <MT_I_ColdWeak>추위를 탐</MT_I_ColdWeak>
+  <MT_I_Chosen>선택한 능력치</MT_I_Chosen>
+  <MT_I_MadeOf>구성 요소</MT_I_MadeOf>
+  <MT_I_Race>종족 정보</MT_I_Race>
+  <MT_I_FullDesc>전체 설명</MT_I_FullDesc>
+  <MT_I_NoHistory>아직 기록된 것이 없습니다 – 이 정착민의 중요한 순간이 여기에 표시됩니다.</MT_I_NoHistory>
+  <MT_SplitOff>{0}은(는) 꺼진 상태로 유지됩니다: Clear Tabs가 활성화되어 있고 이미 이 기능을 모두 갖추고 있습니다.</MT_SplitOff>
+  <MT_G_Looks>외모</MT_G_Looks>
+  <MT_G_FigHat>모자</MT_G_FigHat>
+  <MT_G_FigClothes>의류</MT_G_FigClothes>
+</LanguageData>

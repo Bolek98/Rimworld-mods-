@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AM_Rec1>모든 건설 버튼의 재료 메뉴에 '아무 재료'와 '재료 선택…'이 추가됩니다.</AM_Rec1>
+  <AM_Rec2>청사진은 창고에 가장 많은 재료를 사용하며, 충분한 동안에는 그 재료를 유지합니다.</AM_Rec2>
+  <AM_Enabled>Any Material 켜기</AM_Enabled>
+  <AM_Enabled_Desc>모드 전체를 켜고 끄는 주 스위치입니다.</AM_Enabled_Desc>
+  <AM_Rule>어떤 재료</AM_Rule>
+  <AM_Rule_MostInStock>창고에 가장 많은 것</AM_Rule_MostInStock>
+  <AM_Rule_Cheapest>가장 저렴한 것</AM_Rule_Cheapest>
+  <AM_Rule_Strongest>가장 튼튼한 것</AM_Rule_Strongest>
+  <AM_Rule_Prettiest>가장 아름다운 것</AM_Rule_Prettiest>
+  <AM_Rule_Desc>건물 전체에 충분한 양이 있는 재료만 사용합니다. 재료는 건설자가 가져올 때 정해지며, 한 번 운반되면 바뀌지 않습니다.</AM_Rule_Desc>
+  <AM_MenuAny>아무 재료</AM_MenuAny>
+  <AM_MenuChoose>재료 선택…</AM_MenuChoose>
+  <AM_GizmoAny>아무 재료</AM_GizmoAny>
+  <AM_GizmoAny_Desc>이 청사진은 충분히 있는 아무 재료로 건설됩니다 (어떤 재료인지는 설정 참고). 끄기 = 표시된 재료만 사용.</AM_GizmoAny_Desc>
+  <AM_GizmoChoose>재료 선택…</AM_GizmoChoose>
+  <AM_GizmoChoose_Desc>선택한 청사진이 사용할 수 있는 재료를 고릅니다.</AM_GizmoChoose_Desc>
+  <AM_ChooseTitle>{0}의 재료</AM_ChooseTitle>
+  <AM_All>전체</AM_All>
+  <AM_None>없음</AM_None>
+  <AM_Rec3>재료를 고를 수 없는 건물(횃불, 모닥불…)은 원래 재료가 없으면 같은 종류의 다른 재료를 사용합니다.</AM_Rec3>
+  <AM_FixedAuto>고정 비용 건물: 대체 재료 사용</AM_FixedAuto>
+  <AM_FixedAuto_Desc>재료를 고를 수 없는 건물(횃불: 나무 20)을 같은 종류의 다른 재료로 지을 수 있습니다 – 아무 목재, 아무 금속, 아무 석재 벽돌, 아무 직물이나 가죽. 부품 등 재료가 아닌 것은 대체되지 않습니다. 청사진마다 끌 수 있습니다.</AM_FixedAuto_Desc>
+  <AM_PreferOriginal>원래 재료 우선</AM_PreferOriginal>
+  <AM_PreferOriginal_Desc>원래 재료가 충분한 동안에는 그것을 사용하고, 다 떨어졌을 때만 대체 재료를 씁니다. 끄기 = 위의 규칙이 결정.</AM_PreferOriginal_Desc>
+  <AM_GizmoFixed>대체 재료</AM_GizmoFixed>
+  <AM_GizmoFixed_Desc>{0}이(가) 부족하면 건설자가 같은 종류의 다른 재료를 가져옵니다. 철거하면 실제로 사용한 재료를 돌려받습니다.</AM_GizmoFixed_Desc>
+  <AM_GizmoFixedChoose>대체 재료 선택…</AM_GizmoFixedChoose>
+  <AM_GizmoFixedChoose_Desc>선택한 청사진이 원래 재료 대신 사용할 수 있는 재료를 고릅니다.</AM_GizmoFixedChoose_Desc>
+  <AM_AutoAny>새 청사진: 항상 아무 재료</AM_AutoAny>
+  <AM_AutoAny_Desc>재료로 짓는 건물의 새 청사진은 모두 곧바로 "아무 재료"가 됩니다 – 다른 모드(Better Architect…)가 자체 재료 메뉴를 보여줄 때 편리합니다. 개별 청사진은 버튼으로 되돌릴 수 있습니다.</AM_AutoAny_Desc>
+  <AM_GizmoFrameStuff>재료 변경</AM_GizmoFrameStuff>
+  <AM_GizmoFrameStuff_Desc>나머지를 다른 재료로 짓습니다 (이미 가져온 재료는 바닥에 내려놓음). "아무 재료": 현재 재료가 떨어지면 스스로 바꿉니다.</AM_GizmoFrameStuff_Desc>
+</LanguageData>

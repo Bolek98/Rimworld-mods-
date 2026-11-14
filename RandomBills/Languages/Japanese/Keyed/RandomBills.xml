@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RB_Rec1>入植者は作業台の作業指示をランダムに選び、上位のものをやや多めに選びます。</RB_Rec1>
+  <RB_Rec2>すべての作業台にモードボタン：重み付き、ランダム、順番通り。</RB_Rec2>
+  <RB_Enabled>ランダム作業指示を有効化</RB_Enabled>
+  <RB_Enabled_Desc>MOD全体のメインスイッチ。</RB_Enabled_Desc>
+  <RB_DefaultMode>作業台のモード</RB_DefaultMode>
+  <RB_Mode_Weighted>作業指示：重み付き</RB_Mode_Weighted>
+  <RB_Mode_Random>作業指示：ランダム</RB_Mode_Random>
+  <RB_Mode_Order>作業指示：順番通り</RB_Mode_Order>
+  <RB_TopWeight>重み付き – 上位の優先度：{0}</RB_TopWeight>
+  <RB_TopWeight_Desc>重み付きモードで上位の作業指示がどれだけ多く選ばれるか。0 % = ランダムと同じ、100 % = 上位がはっきり多め（下位も実行されます）。</RB_TopWeight_Desc>
+  <RB_ShowGizmo>作業台のモードボタン</RB_ShowGizmo>
+  <RB_ShowGizmo_Desc>各作業台に、そのモードを切り替えるボタンが付きます。</RB_ShowGizmo_Desc>
+  <RB_Gizmo_Desc>入植者がこの作業台で次の作業指示を選ぶ方法。クリックで変更。\n\n重み付き – ランダムだが、上位の作業指示をやや多めに。\nランダム – すべての作業指示が同じ確率。\n順番通り – ゲームと同じ：実行可能な最初のもの。\n\n作業指示は実行可能である必要があります（材料、技能、「X回作る」が未完了）。開始済みの作業が先に完了されます。</RB_Gizmo_Desc>
+  <RB_AvoidRepeat>交代で</RB_AvoidRepeat>
+  <RB_AvoidRepeat_Desc>入植者が直前に行った作業指示は次回選ばれにくくなります – 「X回作る」作業指示も同様なので、合間に他の作業指示の番が回ってきます。</RB_AvoidRepeat_Desc>
+</LanguageData>

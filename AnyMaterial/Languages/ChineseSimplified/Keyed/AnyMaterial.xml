@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AM_Rec1>每个建造按钮的材料菜单中都有"任意材料"和"选择材料…"。</AM_Rec1>
+  <AM_Rec2>蓝图会使用储存中最多的材料；只要数量足够就一直使用它。</AM_Rec2>
+  <AM_Enabled>启用任意材料</AM_Enabled>
+  <AM_Enabled_Desc>整个模组的总开关。</AM_Enabled_Desc>
+  <AM_Rule>使用哪种材料</AM_Rule>
+  <AM_Rule_MostInStock>储存最多</AM_Rule_MostInStock>
+  <AM_Rule_Cheapest>最便宜</AM_Rule_Cheapest>
+  <AM_Rule_Strongest>最坚固</AM_Rule_Strongest>
+  <AM_Rule_Prettiest>最美观</AM_Rule_Prettiest>
+  <AM_Rule_Desc>只考虑数量足够建造整个建筑的材料。材料在建造者搬运时确定——一旦送达就不再改变。</AM_Rule_Desc>
+  <AM_MenuAny>任意材料</AM_MenuAny>
+  <AM_MenuChoose>选择材料…</AM_MenuChoose>
+  <AM_GizmoAny>任意材料</AM_GizmoAny>
+  <AM_GizmoAny_Desc>此蓝图使用任何数量足够的材料建造（具体见设置）。关闭 = 只使用显示的材料。</AM_GizmoAny_Desc>
+  <AM_GizmoChoose>选择材料…</AM_GizmoChoose>
+  <AM_GizmoChoose_Desc>选择所选蓝图可以使用哪些材料。</AM_GizmoChoose_Desc>
+  <AM_ChooseTitle>{0} 的材料</AM_ChooseTitle>
+  <AM_All>全部</AM_All>
+  <AM_None>无</AM_None>
+  <AM_Rec3>无法选择材料的建筑（火把、篝火…）在缺少原材料时会使用同类的其他材料。</AM_Rec3>
+  <AM_FixedAuto>固定材料的建筑：使用替代品</AM_FixedAuto>
+  <AM_FixedAuto_Desc>无法选择材料的建筑（火把：20 木材）可以用同类的其他材料建造——任意木材、任意金属、任意石砖、任意布料或皮革。零部件和其他非材料物品永远不会被替换。可按蓝图单独关闭。</AM_FixedAuto_Desc>
+  <AM_PreferOriginal>优先原材料</AM_PreferOriginal>
+  <AM_PreferOriginal_Desc>原材料足够时使用原材料；用完后才使用替代品。关闭 = 由上面的规则决定。</AM_PreferOriginal_Desc>
+  <AM_GizmoFixed>替代材料</AM_GizmoFixed>
+  <AM_GizmoFixed_Desc>如果 {0} 不够，建造者会搬来同类的其他材料。拆除时返还的是实际使用的材料。</AM_GizmoFixed_Desc>
+  <AM_GizmoFixedChoose>选择替代品…</AM_GizmoFixedChoose>
+  <AM_GizmoFixedChoose_Desc>选择所选蓝图可以用哪些材料代替原材料。</AM_GizmoFixedChoose_Desc>
+  <AM_AutoAny>新蓝图：始终任意材料</AM_AutoAny>
+  <AM_AutoAny_Desc>每个由材料建造的新蓝图都会立即设为"任意材料"——当其他模组（Better Architect…）显示自己的材料菜单时很方便。你仍可以用按钮将单个蓝图切换回来。</AM_AutoAny_Desc>
+  <AM_GizmoFrameStuff>更换材料</AM_GizmoFrameStuff>
+  <AM_GizmoFrameStuff_Desc>用另一种材料建完剩下的部分（已搬来的材料会放回地面）。"任意材料"：当前材料用完时自动切换。</AM_GizmoFrameStuff_Desc>
+</LanguageData>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AM_Rec1>„Dowolny materiał” i „Wybierz materiały…” w menu materiałów każdego przycisku budowy.</AM_Rec1>
+  <AM_Rec2>Plan bierze materiał, którego jest najwięcej w magazynie; trzyma się go, dopóki go wystarcza.</AM_Rec2>
+  <AM_Enabled>Dowolny materiał włączony</AM_Enabled>
+  <AM_Enabled_Desc>Główny przełącznik całego moda.</AM_Enabled_Desc>
+  <AM_Rule>Który materiał</AM_Rule>
+  <AM_Rule_MostInStock>najwięcej w magazynie</AM_Rule_MostInStock>
+  <AM_Rule_Cheapest>najtańszy</AM_Rule_Cheapest>
+  <AM_Rule_Strongest>najwytrzymalszy</AM_Rule_Strongest>
+  <AM_Rule_Prettiest>najładniejszy</AM_Rule_Prettiest>
+  <AM_Rule_Desc>Tylko materiały, których wystarczy na całą budowlę. Materiał jest wybierany, gdy budowniczy go przynosi – po dostarczeniu już się nie zmienia.</AM_Rule_Desc>
+  <AM_MenuAny>Dowolny materiał</AM_MenuAny>
+  <AM_MenuChoose>Wybierz materiały…</AM_MenuChoose>
+  <AM_GizmoAny>Dowolny materiał</AM_GizmoAny>
+  <AM_GizmoAny_Desc>Ten plan zostanie zbudowany z materiału, którego jest dość (który – zob. ustawienia). Wył. = tylko pokazany materiał.</AM_GizmoAny_Desc>
+  <AM_GizmoChoose>Wybierz materiały…</AM_GizmoChoose>
+  <AM_GizmoChoose_Desc>Wybierz, których materiałów mogą używać zaznaczone plany.</AM_GizmoChoose_Desc>
+  <AM_ChooseTitle>Materiały dla: {0}</AM_ChooseTitle>
+  <AM_All>Wszystkie</AM_All>
+  <AM_None>Żadne</AM_None>
+  <AM_Rec3>Budowle bez wyboru materiału (pochodnia, ognisko…) biorą inny materiał tego samego rodzaju, gdy brakuje oryginalnego.</AM_Rec3>
+  <AM_FixedAuto>Budowle o stałym koszcie: użyj zamiennika</AM_FixedAuto>
+  <AM_FixedAuto_Desc>Budowle bez wyboru materiału (pochodnia: 20 drewna) mogą być zbudowane z innego materiału tego samego rodzaju – dowolnego drewna, metalu, bloków kamiennych, tkaniny lub skóry. Komponenty i inne nie-materiały nigdy nie są zastępowane. Można wyłączyć dla pojedynczego planu.</AM_FixedAuto_Desc>
+  <AM_PreferOriginal>Najpierw oryginał</AM_PreferOriginal>
+  <AM_PreferOriginal_Desc>Używaj oryginalnego materiału, dopóki go wystarcza; zamiennik dopiero gdy się skończy. Wył. = decyduje reguła powyżej.</AM_PreferOriginal_Desc>
+  <AM_GizmoFixed>Materiał zastępczy</AM_GizmoFixed>
+  <AM_GizmoFixed_Desc>Jeśli brakuje {0}, budowniczy przyniesie inny materiał tego samego rodzaju. Rozbiórka zwraca to, z czego naprawdę zbudowano.</AM_GizmoFixed_Desc>
+  <AM_GizmoFixedChoose>Wybierz zamienniki…</AM_GizmoFixedChoose>
+  <AM_GizmoFixedChoose_Desc>Wybierz, których materiałów zaznaczone plany mogą używać zamiast oryginału.</AM_GizmoFixedChoose_Desc>
+  <AM_AutoAny>Nowe plany: zawsze dowolny materiał</AM_AutoAny>
+  <AM_AutoAny_Desc>Każdy nowy plan budowli z materiałów od razu dostaje „dowolny materiał” – przydatne, gdy inny mod (Better Architect…) pokazuje własne menu materiałów. Pojedyncze plany nadal można przełączyć z powrotem ich przyciskiem.</AM_AutoAny_Desc>
+  <AM_GizmoFrameStuff>Zmień materiał</AM_GizmoFrameStuff>
+  <AM_GizmoFrameStuff_Desc>Dokończ budowę z innego materiału (to, co już przyniesiono, wraca na ziemię). „Dowolny materiał”: przełącza się sam, gdy obecny się skończy.</AM_GizmoFrameStuff_Desc>
+</LanguageData>

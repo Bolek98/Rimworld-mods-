@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MT_Rec1>使用本模组的订单标签页。</MT_Rec1>
+  <MT_Rec2>它会接管其他模组（Nice Bill Tab …）的订单标签页——原版标签页随时一键可达。</MT_Rec2>
+  <MT_Bills>订单标签页</MT_Bills>
+  <MT_Bills_Desc>带图片和搜索的配方列表，订单队列以卡片显示，可见谁在做以及缺什么。</MT_Bills_Desc>
+  <MT_ReplaceOther>替换其他订单标签页模组</MT_ReplaceOther>
+  <MT_ReplaceOther_Desc>Nice Bill Tab 等模组会绘制同一个标签页；开启此项时将关闭它们的标签页。需要重启。</MT_ReplaceOther_Desc>
+  <MT_OurLook>Clear 外观</MT_OurLook>
+  <MT_HeadSub>{0} 个订单 · {1} 个进行中 · {2} 名殖民者可做{3}</MT_HeadSub>
+  <MT_Paste>粘贴</MT_Paste>
+  <MT_PasteTip>粘贴已复制的订单：{0}</MT_PasteTip>
+  <MT_Original>原版标签页</MT_Original>
+  <MT_OriginalTip>显示游戏原版标签页（含其他模组添加的按钮）。用"Clear 外观"切换回来。</MT_OriginalTip>
+  <MT_NeedResearch>需要研究：{0}</MT_NeedResearch>
+  <MT_NotAvailable>当前不可用</MT_NotAvailable>
+  <MT_Search>搜索配方…</MT_Search>
+  <MT_All>全部</MT_All>
+  <MT_Available>可用</MT_Available>
+  <MT_Locked>未解锁</MT_Locked>
+  <MT_LockedShort>未解锁</MT_LockedShort>
+  <MT_Add>+ 添加</MT_Add>
+  <MT_Full>一个工作台最多只能有 {0} 个订单。</MT_Full>
+  <MT_Queue>订单队列 – {0} / {1}</MT_Queue>
+  <MT_Suspended>已暂停</MT_Suspended>
+  <MT_DoingNow>正在制作：{0}</MT_DoingNow>
+  <MT_NoIngredients>等待中：找不到材料</MT_NoIngredients>
+  <MT_Done>当前无事可做</MT_Done>
+  <MT_Waiting>等待空闲的殖民者</MT_Waiting>
+  <MT_Forever>永远重复</MT_Forever>
+  <MT_RepeatLeft>剩余 {0}</MT_RepeatLeft>
+  <MT_Target>已有 {0} / {1}</MT_Target>
+  <MT_PausedSatisfied>已达目标</MT_PausedSatisfied>
+  <MT_Resume>继续</MT_Resume>
+  <MT_Pause>暂停</MT_Pause>
+  <MT_Edit>编辑</MT_Edit>
+  <MT_Copy>复制</MT_Copy>
+  <MT_Copied>已复制：{0}</MT_Copied>
+  <MT_NoBills>还没有订单——在左侧选择一个配方。</MT_NoBills>
+  <MT_InfoTip>这是什么——打开信息卡</MT_InfoTip>
+  <MT_ClickInfo>点击查看完整信息卡。</MT_ClickInfo>
+  <MT_Info_Makes>产出：{0} ×{1} · 价值 {2} · 重量 {3} kg</MT_Info_Makes>
+  <MT_Info_Armor>护甲：利器 {0}，钝器 {1} · 保暖 {2} °C，隔热 {3} °C</MT_Info_Armor>
+  <MT_Info_Gun>伤害 {0} · 射程 {1} · 每轮射击数 {2}</MT_Info_Gun>
+  <MT_Info_Melee>近战每秒伤害：{0}</MT_Info_Melee>
+  <MT_Info_Work>工作量：{0}</MT_Info_Work>
+  <MT_Info_Needs>需要：{0}</MT_Info_Needs>
+  <MT_Info_Skill>所需技能：{0}</MT_Info_Skill>
+  <MT_Info_UsesSkill>使用技能：{0}</MT_Info_UsesSkill>
+  <MT_PrioTip>优先级 {0}——1 最先做，10 最后做，5 为普通。殖民者会先去订单最紧急的工作台。点击更改。</MT_PrioTip>
+  <MT_PrioOption>优先级 {0}</MT_PrioOption>
+  <MT_PrioFirst>最先做</MT_PrioFirst>
+  <MT_PrioNormal>普通</MT_PrioNormal>
+  <MT_PrioLast>最后做</MT_PrioLast>
+  <MT_Rec3>使用本模组的健康标签页，并接管其他健康标签页模组。</MT_Rec3>
+  <MT_Health>健康标签页</MT_Health>
+  <MT_Health_Desc>能力与医疗概览、标出问题部位的殖民者身体图，以及按身体部位列出的状况。手术和原版标签页一键可达。</MT_Health_Desc>
+  <MT_ReplaceOtherHealth>替换其他健康标签页模组</MT_ReplaceOtherHealth>
+  <MT_ReplaceOtherHealth_Desc>开启此项时，会关闭绘制自己健康标签页的模组。需要重启。</MT_ReplaceOtherHealth_Desc>
+  <MT_Operations>手术</MT_Operations>
+  <MT_OperationsTip>游戏原版手术列表（手术订单）。用"Clear 外观"返回。</MT_OperationsTip>
+  <MT_OperationsNo>这里无法进行任何手术。</MT_OperationsNo>
+  <MT_OriginalTipHealth>显示游戏原版健康标签页（含其他模组添加的内容）。用右下角的"Clear 外观"返回。</MT_OriginalTipHealth>
+  <MT_H_Dead>死亡</MT_H_Dead>
+  <MT_H_Bleeding>每天失血 {0}</MT_H_Bleeding>
+  <MT_H_BleedDeath>每天失血 {0}——不包扎将在 {1} 后死亡！</MT_H_BleedDeath>
+  <MT_H_Losing>{0}：落后——疾病领先于免疫</MT_H_Losing>
+  <MT_H_Winning>{0}：免疫占上风</MT_H_Winning>
+  <MT_H_NeedsTend>需要治疗</MT_H_NeedsTend>
+  <MT_H_Downed>倒地</MT_H_Downed>
+  <MT_H_Healing>恢复中</MT_H_Healing>
+  <MT_H_Healthy>健康</MT_H_Healthy>
+  <MT_H_Care>医疗护理</MT_H_Care>
+  <MT_H_Capacities>能力</MT_H_Capacities>
+  <MT_H_MarkTip>左键：列表中只显示此部位。右键：此部位的手术。</MT_H_MarkTip>
+  <MT_H_NothingWrong>一切正常 👍</MT_H_NothingWrong>
+  <MT_H_LegendBad>流血、缺失或重伤</MT_H_LegendBad>
+  <MT_H_LegendHurt>受伤，需要治疗</MT_H_LegendHurt>
+  <MT_H_LegendOther>伤疤、植入体及其他</MT_H_LegendOther>
+  <MT_H_Whole>全身：{0}（见列表）</MT_H_Whole>
+  <MT_H_ShowAllParts>显示所有部位</MT_H_ShowAllParts>
+  <MT_H_Conditions>按身体部位的状况</MT_H_Conditions>
+  <MT_H_ConditionsHere>状况——所选部位</MT_H_ConditionsHere>
+  <MT_H_ShowAll>也显示隐藏项</MT_H_ShowAll>
+  <MT_H_NoConditions>没有伤病。</MT_H_NoConditions>
+  <MT_H_ChipBleed>流血 {0}</MT_H_ChipBleed>
+  <MT_H_ChipTended>已治疗</MT_H_ChipTended>
+  <MT_H_ChipTend>需要治疗</MT_H_ChipTend>
+  <MT_H_ChipScar>永久</MT_H_ChipScar>
+  <MT_H_ImmunityTip>免疫力 {0}（绿）对抗疾病 {1}（红）。免疫力必须先达到 100 %。</MT_H_ImmunityTip>
+  <MT_H_ToPortrait>显示肖像</MT_H_ToPortrait>
+  <MT_H_ToSilhouette>显示健康剪影</MT_H_ToSilhouette>
+  <MT_O_Planned>已计划的手术（按此顺序）</MT_O_Planned>
+  <MT_O_NonePlanned>尚无计划。在右侧选择一项手术。</MT_O_NonePlanned>
+  <MT_O_WholeBody>全身</MT_O_WholeBody>
+  <MT_O_Paused>已暂停</MT_O_Paused>
+  <MT_O_Missing>缺少：{0}</MT_O_Missing>
+  <MT_O_Ready>就绪——一切齐备</MT_O_Ready>
+  <MT_O_Resume>继续</MT_O_Resume>
+  <MT_O_Pause>暂停</MT_O_Pause>
+  <MT_O_Doctor>主刀医生</MT_O_Doctor>
+  <MT_O_NoDoctor>此地图上没有空闲的医生！</MT_O_NoDoctor>
+  <MT_O_DoctorIs>最佳医生：{0}（医疗 {1}）</MT_O_DoctorIs>
+  <MT_O_Care>医疗护理：{0}</MT_O_Care>
+  <MT_O_DoctorTip>医生越好，手术失败的风险越低。</MT_O_DoctorTip>
+  <MT_O_Possible>可进行的手术（{0}）</MT_O_Possible>
+  <MT_O_Search>搜索手术或身体部位…</MT_O_Search>
+  <MT_O_K_All>全部</MT_O_K_All>
+  <MT_O_K_Implant>植入体与假肢</MT_O_K_Implant>
+  <MT_O_K_Remove>移除</MT_O_K_Remove>
+  <MT_O_K_Drug>药物</MT_O_K_Drug>
+  <MT_O_K_Other>其他</MT_O_K_Other>
+  <MT_O_A_All>所有部位</MT_O_A_All>
+  <MT_O_A_Head>头部</MT_O_A_Head>
+  <MT_O_A_Torso>躯干</MT_O_A_Torso>
+  <MT_O_A_Arms>手臂</MT_O_A_Arms>
+  <MT_O_A_Legs>腿部</MT_O_A_Legs>
+  <MT_O_A_Whole>全身</MT_O_A_Whole>
+  <MT_O_NoneFound>没有匹配的手术。</MT_O_NoneFound>
+  <MT_O_BackHealth>健康</MT_O_BackHealth>
+  <!-- 0.4.2 -->
+  <MT_H_Planned>已计划手术：{0}</MT_H_Planned>
+  <MT_H_PlannedTip>点击打开已计划的手术。</MT_H_PlannedTip>
+  <MT_H_NoOpsHere>此身体部位没有可用手术</MT_H_NoOpsHere>
+  <MT_H_ShowOpsHere>显示此部位的手术</MT_H_ShowOpsHere>
+  <!-- 0.5.0 -->
+  <MT_BenchMenuTip>工作台：复制其全部订单，粘贴到这里或多个同类工作台。</MT_BenchMenuTip>
+  <MT_CopyAll>复制此工作台的全部订单（{0}）</MT_CopyAll>
+  <MT_PasteAll>在此粘贴已复制的订单（{0} 个，来自 {1}）</MT_PasteAll>
+  <MT_PasteSeveral>将订单粘贴到多个工作台</MT_PasteSeveral>
+  <MT_PasteSeveralSub>已复制 {0} 个订单，来自 {1}。工作台无法制作的订单会被跳过。</MT_PasteSeveralSub>
+  <MT_BenchCopied>已复制 {1} 的 {0} 个订单。</MT_BenchCopied>
+  <MT_PastedInto>已将 {0} 个订单粘贴到 {1} 个工作台。</MT_PastedInto>
+  <MT_PasteN>粘贴到 {0} 个</MT_PasteN>
+  <MT_None>无</MT_None>
+  <MT_BillsN>{0} 个订单</MT_BillsN>
+  <MT_ThisBench>当前这个</MT_ThisBench>
+  <MT_BillMenuTip>更多：重命名订单，与其他工作台上的订单关联。</MT_BillMenuTip>
+  <MT_Rename>重命名</MT_Rename>
+  <MT_LinkWith>与其他工作台上的订单关联</MT_LinkWith>
+  <MT_Unlink>取消关联</MT_Unlink>
+  <MT_NoLinkTargets>此地图上没有其他工作台拥有该配方的订单。</MT_NoLinkTargets>
+  <MT_Linked>已关联：{0} 与 {1}</MT_Linked>
+  <MT_LinkedN>已关联 ×{0}</MT_LinkedN>
+  <MT_LinkedTip>关联的订单共享设置（数量、目标、暂停、材料、储存区）。修改其中一个会同步到其他订单：</MT_LinkedTip>
+  <MT_CountTip>点击：±1 · Shift+点击：±10 · Ctrl+点击：±100</MT_CountTip>
+  <MT_InclEquipped>计入穿戴和携带的</MT_InclEquipped>
+  <MT_OnlyIn>仅在 {0}</MT_OnlyIn>
+  <MT_NotAdded>未添加</MT_NotAdded>
+  <MT_NotAddedTip>可以制作但尚未加入队列的配方。</MT_NotAddedTip>
+  <MT_SplitTip>拖动以调整配方列表的宽度。</MT_SplitTip>
+  <MT_GripTip>拖动以调整窗口大小（会被记住）。</MT_GripTip>
+  <MT_SizeTip>窗口大小：普通、较大或屏幕允许的最大尺寸。也可以拖动右上角。</MT_SizeTip>
+  <MT_SizeNormal>普通大小</MT_SizeNormal>
+  <MT_SizeBig>较大</MT_SizeBig>
+  <MT_SizeMax>最大（适应屏幕）</MT_SizeMax>
+  <!-- 0.7.0 anatomy -->
+  <MT_A_Parts>身体</MT_A_Parts>
+  <MT_A_Organs>器官</MT_A_Organs>
+  <MT_A_Bones>骨骼</MT_A_Bones>
+  <MT_A_Healthy>健康</MT_A_Healthy>
+  <MT_A_Hurt>受伤</MT_A_Hurt>
+  <MT_A_Missing>缺失</MT_A_Missing>
+  <MT_A_Broken>骨折</MT_A_Broken>
+  <MT_A_Prosthetic>假肢</MT_A_Prosthetic>
+  <MT_A_Bionic>仿生</MT_A_Bionic>
+  <MT_A_Implant>植入体</MT_A_Implant>
+  <MT_A_Archo>超凡</MT_A_Archo>
+  <MT_A_Fine>这里一切正常。</MT_A_Fine>
+  <MT_A_ToAnatomy>显示解剖图</MT_A_ToAnatomy>
+  <MT_A_ToSilhouette>显示殖民者本人的剪影</MT_A_ToSilhouette>
+  <!-- 0.8.0 -->
+  <MT_H_State>状态</MT_H_State>
+  <MT_H_FAll>全部</MT_H_FAll>
+  <MT_H_FInjuries>伤势</MT_H_FInjuries>
+  <MT_H_FParts>替换部件</MT_H_FParts>
+  <MT_H_FMissing>缺失</MT_H_FMissing>
+  <MT_H_FDiseases>疾病</MT_H_FDiseases>
+  <MT_H_Immunity>免疫力 {0}</MT_H_Immunity>
+  <MT_A_PartHp>部位健康：{0}</MT_A_PartHp>
+  <MT_A_CardHint>左键：只看此部位 · 右键：手术</MT_A_CardHint>
+  <MT_H_Age>{0} 岁</MT_H_Age>
+  <!-- 0.9.0 -->
+  <MT_Character>本模组的角色标签页</MT_Character>
+  <MT_Character_Desc>包含肖像、背景故事和特性的档案，以及技能、人生时间线和记录页面。原版标签页一键可达。</MT_Character_Desc>
+  <MT_Social>本模组的社交标签页</MT_Social>
+  <MT_Social_Desc>列出认识的所有人及双方的好感度和原因——双向的每一条理由。原版标签页一键可达。</MT_Social_Desc>
+  <MT_C_Skills>技能</MT_C_Skills>
+  <MT_C_Life>人生</MT_C_Life>
+  <MT_C_Records>记录</MT_C_Records>
+  <MT_C_Childhood>童年</MT_C_Childhood>
+  <MT_C_Adulthood>成年</MT_C_Adulthood>
+  <MT_C_Traits>特性</MT_C_Traits>
+  <MT_C_Incapable>无法从事</MT_C_Incapable>
+  <MT_C_Ideo>文化：{0}</MT_C_Ideo>
+  <MT_C_Birthday>生于 {0}（{1} 年前）</MT_C_Birthday>
+  <MT_C_NoSkills>没有技能。</MT_C_NoSkills>
+  <MT_L_Born>出生</MT_L_Born>
+  <MT_L_Joined>加入 {0}</MT_L_Joined>
+  <MT_L_Break>精神崩溃：{0}</MT_L_Break>
+  <MT_L_Lost>失去：{0}</MT_L_Lost>
+  <MT_L_Installed>获得 {0}（{1}）</MT_L_Installed>
+  <MT_L_Skill>{0} 达到 {1} 级</MT_L_Skill>
+  <MT_L_Rel>新的{0}：{1}</MT_L_Rel>
+  <MT_L_Child>孩子出生：{0}</MT_L_Child>
+  <MT_L_Note>崩溃、伤势、手术、康复、身体部位、技能、伴侣、死亡、头衔、职位、生日和研究从 Clear Tabs 0.9 运行起开始记录；其余内容来自游戏自带的故事。</MT_L_Note>
+  <MT_S_Search>搜索…</MT_S_Search>
+  <MT_S_Colonist>殖民者</MT_S_Colonist>
+  <MT_S_Dead>已死亡</MT_S_Dead>
+  <MT_S_RowTip>左：{0} 对 {1} 的看法 · 右（小）：{1} 对 {0} 的看法 · 点击：原因</MT_S_RowTip>
+  <MT_S_Nobody>这里没有人。</MT_S_Nobody>
+  <MT_S_Compat>相容性</MT_S_Compat>
+  <MT_S_Romance>恋爱几率</MT_S_Romance>
+  <MT_S_Thinks>{0} 对 {1}</MT_S_Thinks>
+  <MT_S_NoReasons>没有原因——他们几乎不认识。</MT_S_NoReasons>
+  <MT_S_Back>概览</MT_S_Back>
+  <MT_S_Overview>概览</MT_S_Overview>
+  <MT_S_Partner>伴侣</MT_S_Partner>
+  <MT_S_BestFriend>最好的朋友</MT_S_BestFriend>
+  <MT_S_Rival>最大的对头</MT_S_Rival>
+  <MT_S_Counts>{0} 个朋友 · {1} 个对头</MT_S_Counts>
+  <MT_S_Talks>最近的交谈</MT_S_Talks>
+  <MT_S_NoTalks>还没有交谈。</MT_S_NoTalks>
+  <MT_L_Surgery>手术：{0}——由 {1} 执行</MT_L_Surgery>
+  <MT_L_SurgeryBad>手术失败：{0}——由 {1} 执行</MT_L_SurgeryBad>
+  <MT_L_Operated>为 {0} 做了手术：{1}</MT_L_Operated>
+  <MT_L_OperatedBad>为 {0} 做的手术失败：{1}</MT_L_OperatedBad>
+  <MT_L_Healed>从 {0} 中康复</MT_L_Healed>
+  <MT_L_Died>死亡</MT_L_Died>
+  <MT_L_DiedOf>死亡（{0}）</MT_L_DiedOf>
+  <MT_L_LostRel>失去{0}：{1}</MT_L_LostRel>
+  <MT_L_LostFriend>失去朋友：{0}</MT_L_LostFriend>
+  <MT_L_Title>头衔：{0}（{1}）</MT_L_Title>
+  <MT_L_Role>成为{0}</MT_L_Role>
+  <MT_L_Birthday>生日——{0} 岁</MT_L_Birthday>
+  <MT_L_Research>完成研究：{0}</MT_L_Research>
+  <MT_L_Wound>重伤：{0}（{1}）</MT_L_Wound>
+  <MT_O_K_NoPart>部件无库存</MT_O_K_NoPart>
+  <MT_O_MakeAt>制作于：{0}</MT_O_MakeAt>
+  <MT_O_ResearchFirst>需先研究：{0}</MT_O_ResearchFirst>
+  <MT_O_OnlyTrade>只能通过交易或战利品获得</MT_O_OnlyTrade>
+  <MT_O_QueueAt>制作 {0} – {1}</MT_O_QueueAt>
+  <MT_O_Queued>已添加订单：{0}（{1}）</MT_O_Queued>
+  <MT_O_NoBench>尚未建造工作台：{0}</MT_O_NoBench>
+  <MT_O_InfoPart>信息：{0}</MT_O_InfoPart>
+  <MT_O_Make>制作</MT_O_Make>
+  <MT_A_SideRight>右</MT_A_SideRight>
+  <MT_A_SideLeft>左</MT_A_SideLeft>
+  <MT_A_SideTip>人像面向你：其右侧（右）在你的左边，其左侧（左）在你的右边。</MT_A_SideTip>
+  <MT_MineFor>为 {0} 采矿</MT_MineFor>
+  <MT_ModeRepeatTip>重复指定次数</MT_ModeRepeatTip>
+  <MT_ModeTargetTip>做到拥有 X 个为止</MT_ModeTargetTip>
+  <MT_ModeForeverTip>永远做下去</MT_ModeForeverTip>
+  <!-- 0.11.0 -->
+  <MT_Needs>本模组的需求标签页</MT_Needs>
+  <MT_Needs_Desc>所有需求以卡片显示趋势和阈值，旁边是心情、崩溃界限、期望心情和所有想法。原版标签页一键可达。</MT_Needs_Desc>
+  <MT_BillDialog>本模组的订单窗口</MT_BillDialog>
+  <MT_BillDialog_Desc>同样外观的订单设置窗口：配方所需和产出、带快捷步进的重复模式、储存与工人，以及游戏的原料过滤器。"原版窗口"打开游戏自带的窗口。</MT_BillDialog_Desc>
+  <MT_N_Mood>心情</MT_N_Mood>
+  <MT_N_BreakExtreme>低于 {0} 有极端崩溃风险</MT_N_BreakExtreme>
+  <MT_N_BreakMajor>低于 {0} 有严重崩溃风险</MT_N_BreakMajor>
+  <MT_N_BreakMinor>低于 {0} 有轻微崩溃风险</MT_N_BreakMinor>
+  <MT_N_Target>心情正趋向 {0}</MT_N_Target>
+  <MT_N_Expect>期望：{0}</MT_N_Expect>
+  <MT_N_Thoughts>想法（{0}）</MT_N_Thoughts>
+  <MT_N_NoThoughts>目前没有影响心情的想法。</MT_N_NoThoughts>
+  <MT_BD_Original>原版窗口</MT_BD_Original>
+  <MT_BD_Ingredients>原料</MT_BD_Ingredients>
+  <MT_BD_Makes>产出</MT_BD_Makes>
+  <MT_BD_Skill>技能</MT_BD_Skill>
+  <MT_BD_Repeat>数量</MT_BD_Repeat>
+  <MT_BD_ModeRepeat>× 次数</MT_BD_ModeRepeat>
+  <MT_BD_ModeTarget>≥ 直到</MT_BD_ModeTarget>
+  <MT_BD_ModeForever>∞ 永远</MT_BD_ModeForever>
+  <MT_BD_Have>已有 {0} / {1}</MT_BD_Have>
+  <MT_BD_Store>放到哪里</MT_BD_Store>
+  <MT_BD_Worker>由谁来做</MT_BD_Worker>
+  <MT_S_RomanceTip>让 {0} 尝试追求某人——游戏自带的带几率列表。</MT_S_RomanceTip>
+  <MT_S_RomanceThem>追求 {0}（{1}）</MT_S_RomanceThem>
+  <MT_S_RomanceThemNo>追求 {0}</MT_S_RomanceThemNo>
+  <MT_PaneLook>本模组外观的信息面板</MT_PaneLook>
+  <MT_PaneLook_Desc>所选殖民者、动物或建筑的信息面板（左下角）及其标签按钮采用深色 Clear 外观，健康、心情、日程和区域显示彩色条。长标签名不再被截断。</MT_PaneLook_Desc>
+  <MT_PlantPicker>本模组外观的植物选择器</MT_PlantPicker>
+  <MT_PlantPicker_Desc>"设置种植作物"（种植区、水培、花盆）会打开本模组的窗口，带分组、搜索、排序和每种植物的卡片（生长时间、产量、每日价值、所需技能），取代铺满全屏的长列表。</MT_PlantPicker_Desc>
+  <MT_PG_Title>种植什么</MT_PG_Title>
+  <MT_PG_Now>当前：{0}</MT_PG_Now>
+  <MT_PG_All>全部</MT_PG_All>
+  <MT_PG_Food>食物</MT_PG_Food>
+  <MT_PG_Medicine>药品</MT_PG_Medicine>
+  <MT_PG_Drugs>毒品</MT_PG_Drugs>
+  <MT_PG_Materials>材料</MT_PG_Materials>
+  <MT_PG_Trees>树木</MT_PG_Trees>
+  <MT_PG_Decor>装饰</MT_PG_Decor>
+  <MT_PG_Search>搜索…</MT_PG_Search>
+  <MT_PG_SortBy>排序：</MT_PG_SortBy>
+  <MT_PG_SName>名称</MT_PG_SName>
+  <MT_PG_SDays>最快</MT_PG_SDays>
+  <MT_PG_SValue>最值钱</MT_PG_SValue>
+  <MT_PG_SSkill>最容易</MT_PG_SSkill>
+  <MT_PG_Usable>只显示我的种植者能播种的</MT_PG_Usable>
+  <MT_PG_UsableTip>隐藏所需种植技能高于你最好的在岗种植者（{0}）的植物。</MT_PG_UsableTip>
+  <MT_PG_None>没有匹配项。</MT_PG_None>
+  <MT_PG_Days>{0} 天</MT_PG_Days>
+  <MT_PG_Yield>{0}× {1}</MT_PG_Yield>
+  <MT_PG_Skill>技能 {0}</MT_PG_Skill>
+  <MT_PG_ValueDay>{0} 白银/天</MT_PG_ValueDay>
+  <MT_PG_Cave>洞穴</MT_PG_Cave>
+  <MT_PG_NoRoof>无屋顶</MT_PG_NoRoof>
+  <MT_PG_NutDay>{0} 营养/天</MT_PG_NutDay>
+  <MT_PG_SkillTip>需要种植技能 {0}（你最好的种植者：{1}）</MT_PG_SkillTip>
+  <MT_PG_Mod>模组：{0}</MT_PG_Mod>
+  <MT_TabsMore>更多 ▾</MT_TabsMore>
+  <MT_TabsMoreTip>还有 {0} 个标签页——点击打开。</MT_TabsMoreTip>
+  <MT_RecipePicker>"添加订单"的配方选择器</MT_RecipePicker>
+  <MT_RecipePicker_Desc>添加订单时打开带分组、搜索和排序的窗口，取代长菜单。</MT_RecipePicker_Desc>
+  <MT_SurgeryPicker>手术选择器（健康标签页）</MT_SurgeryPicker>
+  <MT_SurgeryPicker_Desc>"添加手术"打开带分组（植入体、仿生、截肢、药物 …）、成功率和要求的窗口。</MT_SurgeryPicker_Desc>
+  <MT_OwnerPicker>主人选择器（床、王座 …）</MT_OwnerPicker>
+  <MT_OwnerPicker_Desc>"设置主人"打开带照片和状态的殖民者卡片，取代列表。</MT_OwnerPicker_Desc>
+  <MT_PolicyPicker>区域与方案选择器</MT_PolicyPicker>
+  <MT_PolicyPicker_Desc>允许区域、服装、食物和药物方案会打开带搜索和预览的窗口。</MT_PolicyPicker_Desc>
+  <MT_ResearchPicker>研究选择器</MT_ResearchPicker>
+  <MT_ResearchPicker_Desc>按领域和时代排列、可搜索的研究项目列表（研究标签页中的按钮）。</MT_ResearchPicker_Desc>
+  <MT_MechPicker>机械体孕育选择器（Biotech）</MT_MechPicker>
+  <MT_MechPicker_Desc>可孕育的机械体按体型和职能分组，可搜索。</MT_MechPicker_Desc>
+  <MT_AnimalPicker>动物选择器</MT_AnimalPicker>
+  <MT_AnimalPicker_Desc>选择动物（主人、训练、围栏）时打开分组卡片：工作、战斗、宠物。</MT_AnimalPicker_Desc>
+  <MT_TradeWindow>带分类的交易窗口</MT_TradeWindow>
+  <MT_TradeWindow_Desc>交易时打开本模组的窗口：分类（食物、药品、武器 …）、搜索、排序和购物车。</MT_TradeWindow_Desc>
+  <MT_ResetSizes>重置所有窗口的大小</MT_ResetSizes>
+  <MT_GripCornerTip>拖动以调整面板大小——点击选择预设大小（普通、大、最大）。大小会被记住。</MT_GripCornerTip>
+  <MT_InfoCard>本模组外观的信息卡（Infocentrum）</MT_InfoCard>
+  <MT_InfoCard_Desc>殖民者的"i"按钮会打开本模组的卡片：按组列出所有属性及殖民地平均值、与其他殖民者对比、属性的构成，以及人生故事、健康、社交、装备和历史页面。</MT_InfoCard_Desc>
+  <MT_I_Overview>概览</MT_I_Overview>
+  <MT_I_Life>人生故事</MT_I_Life>
+  <MT_I_Health>健康</MT_I_Health>
+  <MT_I_Social>社交</MT_I_Social>
+  <MT_I_Gear>装备</MT_I_Gear>
+  <MT_I_History>历史</MT_I_History>
+  <MT_I_Original>原版卡片</MT_I_Original>
+  <MT_I_RiskHigh>崩溃风险高</MT_I_RiskHigh>
+  <MT_I_RiskMid>有崩溃风险</MT_I_RiskMid>
+  <MT_I_RiskLow>崩溃风险低</MT_I_RiskLow>
+  <MT_I_G_all>全部</MT_I_G_all>
+  <MT_I_G_basic>基础</MT_I_G_basic>
+  <MT_I_G_combat>战斗</MT_I_G_combat>
+  <MT_I_G_work>工作</MT_I_G_work>
+  <MT_I_G_health>健康</MT_I_G_health>
+  <MT_I_G_resist>抗性</MT_I_G_resist>
+  <MT_I_G_food>食物与身体</MT_I_G_food>
+  <MT_I_G_social>社交</MT_I_G_social>
+  <MT_I_G_psy>心灵专注</MT_I_G_psy>
+  <MT_I_G_mods>来自模组</MT_I_G_mods>
+  <MT_I_Compare>对比</MT_I_Compare>
+  <MT_I_Pick>+ 选择殖民者</MT_I_Pick>
+  <MT_I_Average>殖民地平均</MT_I_Average>
+  <MT_I_Legend>殖民地平均 · 绿色更好，橙色更差</MT_I_Legend>
+  <MT_I_LegendCmp>与 {0} 对比 · 绿色更好，橙色更差</MT_I_LegendCmp>
+  <MT_I_MoreThan>高于 {0} % 的殖民者</MT_I_MoreThan>
+  <MT_I_ColonyAvg>殖民地平均 {0}</MT_I_ColonyAvg>
+  <MT_I_Most>殖民地中最高</MT_I_Most>
+  <MT_I_Least>殖民地中最低</MT_I_Least>
+  <MT_I_Temp>温度</MT_I_Temp>
+  <MT_I_ColdProof>耐寒</MT_I_ColdProof>
+  <MT_I_HeatProof>耐热</MT_I_HeatProof>
+  <MT_I_ColdWeak>怕冷</MT_I_ColdWeak>
+  <MT_I_Chosen>所选属性</MT_I_Chosen>
+  <MT_I_MadeOf>构成</MT_I_MadeOf>
+  <MT_I_Race>关于种族</MT_I_Race>
+  <MT_I_FullDesc>完整描述</MT_I_FullDesc>
+  <MT_I_NoHistory>尚无记录——此殖民者的重要时刻会显示在这里。</MT_I_NoHistory>
+  <MT_SplitOff>{0} 保持关闭：Clear Tabs 已启用并已包含所有这些功能。</MT_SplitOff>
+  <MT_G_Looks>外貌</MT_G_Looks>
+  <MT_G_FigHat>头饰</MT_G_FigHat>
+  <MT_G_FigClothes>衣物</MT_G_FigClothes>
+</LanguageData>

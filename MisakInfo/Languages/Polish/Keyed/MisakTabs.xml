@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MT_Rec1>Używana jest nasza zakładka zleceń.</MT_Rec1>
+  <MT_Rec2>Przejmuje zakładkę zleceń od innych modów (Nice Bill Tab …) – oryginalna zakładka jest zawsze o jedno kliknięcie.</MT_Rec2>
+  <MT_Bills>Zakładka zleceń</MT_Bills>
+  <MT_Bills_Desc>Receptury z obrazkami i wyszukiwaniem, kolejka zleceń jako karty z tym, kto nad nimi pracuje i czego brakuje.</MT_Bills_Desc>
+  <MT_ReplaceOther>Zastąp inne mody zakładki zleceń</MT_ReplaceOther>
+  <MT_ReplaceOther_Desc>Nice Bill Tab i podobne mody rysują tę samą zakładkę; gdy to jest włączone, ich zakładka jest wyłączona. Wymaga restartu.</MT_ReplaceOther_Desc>
+  <MT_OurLook>Wygląd Clear</MT_OurLook>
+  <MT_HeadSub>Zleceń: {0} · aktywnych: {1} · kolonistów: {2} robi {3}</MT_HeadSub>
+  <MT_Paste>Wklej</MT_Paste>
+  <MT_PasteTip>Wklej skopiowane zlecenie: {0}</MT_PasteTip>
+  <MT_Original>Oryginalna zakładka</MT_Original>
+  <MT_OriginalTip>Pokazuje zakładkę z gry (z przyciskami dodanymi przez inne mody). Powrót przez „Wygląd Clear”.</MT_OriginalTip>
+  <MT_NeedResearch>wymaga badań: {0}</MT_NeedResearch>
+  <MT_NotAvailable>teraz niedostępne</MT_NotAvailable>
+  <MT_Search>Szukaj receptury…</MT_Search>
+  <MT_All>Wszystko</MT_All>
+  <MT_Available>Dostępne</MT_Available>
+  <MT_Locked>Zablokowane</MT_Locked>
+  <MT_LockedShort>zablokowane</MT_LockedShort>
+  <MT_Add>+ Dodaj</MT_Add>
+  <MT_Full>Stół warsztatowy może mieć najwyżej {0} zleceń.</MT_Full>
+  <MT_Queue>Kolejka zleceń – {0} / {1}</MT_Queue>
+  <MT_Suspended>wstrzymane</MT_Suspended>
+  <MT_DoingNow>pracuje nad tym: {0}</MT_DoingNow>
+  <MT_NoIngredients>czeka: nie znaleziono materiałów</MT_NoIngredients>
+  <MT_Done>teraz nic do zrobienia</MT_Done>
+  <MT_Waiting>czeka na wolnego kolonistę</MT_Waiting>
+  <MT_Forever>powtarzaj w nieskończoność</MT_Forever>
+  <MT_RepeatLeft>pozostało {0}</MT_RepeatLeft>
+  <MT_Target>masz {0} z {1}</MT_Target>
+  <MT_PausedSatisfied>cel osiągnięty</MT_PausedSatisfied>
+  <MT_Resume>Wznów</MT_Resume>
+  <MT_Pause>Wstrzymaj</MT_Pause>
+  <MT_Edit>Edytuj</MT_Edit>
+  <MT_Copy>Kopiuj</MT_Copy>
+  <MT_Copied>Skopiowano: {0}</MT_Copied>
+  <MT_NoBills>Brak zleceń – wybierz recepturę po lewej.</MT_NoBills>
+  <MT_InfoTip>Co to jest – otwiera kartę informacji</MT_InfoTip>
+  <MT_ClickInfo>Kliknij, aby otworzyć pełną kartę informacji.</MT_ClickInfo>
+  <MT_Info_Makes>Wytwarza: {0} ×{1} · wartość {2} · waga {3} kg</MT_Info_Makes>
+  <MT_Info_Armor>Pancerz: ostre {0}, obuchowe {1} · izolacja zimno {2} °C, ciepło {3} °C</MT_Info_Armor>
+  <MT_Info_Gun>Obrażenia {0} · zasięg {1} · strzałów w serii {2}</MT_Info_Gun>
+  <MT_Info_Melee>Obrażenia wręcz na sekundę: {0}</MT_Info_Melee>
+  <MT_Info_Work>Praca: {0}</MT_Info_Work>
+  <MT_Info_Needs>Wymaga: {0}</MT_Info_Needs>
+  <MT_Info_Skill>Wymagana umiejętność: {0}</MT_Info_Skill>
+  <MT_Info_UsesSkill>Używana umiejętność: {0}</MT_Info_UsesSkill>
+  <MT_PrioTip>Priorytet {0} – 1 robione najpierw, 10 na końcu, 5 to normalny. Koloniści idą najpierw do stołu z najpilniejszym zleceniem. Kliknij, aby zmienić.</MT_PrioTip>
+  <MT_PrioOption>Priorytet {0}</MT_PrioOption>
+  <MT_PrioFirst>najpierw</MT_PrioFirst>
+  <MT_PrioNormal>normalny</MT_PrioNormal>
+  <MT_PrioLast>na końcu</MT_PrioLast>
+  <MT_Rec3>Używana jest nasza zakładka zdrowia, która przejmuje rolę innych modów zakładki zdrowia.</MT_Rec3>
+  <MT_Health>Zakładka zdrowia</MT_Health>
+  <MT_Health_Desc>Przegląd zdolności i opieki, sylwetka kolonisty ze znacznikami tam, gdzie coś jest nie tak, oraz stany według części ciała. Operacje i oryginalna zakładka są o jedno kliknięcie.</MT_Health_Desc>
+  <MT_ReplaceOtherHealth>Zastąp inne mody zakładki zdrowia</MT_ReplaceOtherHealth>
+  <MT_ReplaceOtherHealth_Desc>Mody rysujące własną zakładkę zdrowia są wyłączone, gdy to jest włączone. Wymaga restartu.</MT_ReplaceOtherHealth_Desc>
+  <MT_Operations>Operacje</MT_Operations>
+  <MT_OperationsTip>Lista operacji z gry (zlecenia chirurgiczne). Powrót przez „Wygląd Clear”.</MT_OperationsTip>
+  <MT_OperationsNo>Nie są tu możliwe żadne operacje.</MT_OperationsNo>
+  <MT_OriginalTipHealth>Pokazuje zakładkę zdrowia z gry (z tym, co dodają inne mody). Powrót przez „Wygląd Clear” w prawym dolnym rogu.</MT_OriginalTipHealth>
+  <MT_H_Dead>Martwy</MT_H_Dead>
+  <MT_H_Bleeding>Krwawienie {0} dziennie</MT_H_Bleeding>
+  <MT_H_BleedDeath>Krwawienie {0} dziennie – umrze za {1} bez opatrzenia!</MT_H_BleedDeath>
+  <MT_H_Losing>{0}: przegrywa – choroba wyprzedza odporność</MT_H_Losing>
+  <MT_H_Winning>{0}: odporność wygrywa</MT_H_Winning>
+  <MT_H_NeedsTend>Wymaga opatrzenia</MT_H_NeedsTend>
+  <MT_H_Downed>Powalony</MT_H_Downed>
+  <MT_H_Healing>Leczy się</MT_H_Healing>
+  <MT_H_Healthy>Zdrowy</MT_H_Healthy>
+  <MT_H_Care>OPIEKA MEDYCZNA</MT_H_Care>
+  <MT_H_Capacities>ZDOLNOŚCI</MT_H_Capacities>
+  <MT_H_MarkTip>Kliknij: pokaż na liście tylko tę część. Prawy klik: operacje na tej części.</MT_H_MarkTip>
+  <MT_H_NothingWrong>Wszystko w porządku 👍</MT_H_NothingWrong>
+  <MT_H_LegendBad>krwawi, brakuje lub ciężko ranne</MT_H_LegendBad>
+  <MT_H_LegendHurt>ranne, wymaga opatrzenia</MT_H_LegendHurt>
+  <MT_H_LegendOther>blizny, implanty i reszta</MT_H_LegendOther>
+  <MT_H_Whole>Całe ciało: {0} (na liście)</MT_H_Whole>
+  <MT_H_ShowAllParts>Pokaż wszystkie części</MT_H_ShowAllParts>
+  <MT_H_Conditions>STANY WEDŁUG CZĘŚCI CIAŁA</MT_H_Conditions>
+  <MT_H_ConditionsHere>STANY – WYBRANA CZĘŚĆ</MT_H_ConditionsHere>
+  <MT_H_ShowAll>Pokaż też ukryte</MT_H_ShowAll>
+  <MT_H_NoConditions>Brak obrażeń i stanów.</MT_H_NoConditions>
+  <MT_H_ChipBleed>krwawi {0}</MT_H_ChipBleed>
+  <MT_H_ChipTended>opatrzone</MT_H_ChipTended>
+  <MT_H_ChipTend>wymaga opatrzenia</MT_H_ChipTend>
+  <MT_H_ChipScar>trwałe</MT_H_ChipScar>
+  <MT_H_ImmunityTip>Odporność {0} (zielony) przeciw chorobie {1} (czerwony). Odporność musi pierwsza osiągnąć 100 %.</MT_H_ImmunityTip>
+  <MT_H_ToPortrait>Pokaż portret</MT_H_ToPortrait>
+  <MT_H_ToSilhouette>Pokaż sylwetkę zdrowia</MT_H_ToSilhouette>
+  <MT_O_Planned>ZAPLANOWANE OPERACJE (w tej kolejności)</MT_O_Planned>
+  <MT_O_NonePlanned>Nic nie zaplanowano. Wybierz operację po prawej.</MT_O_NonePlanned>
+  <MT_O_WholeBody>Całe ciało</MT_O_WholeBody>
+  <MT_O_Paused>Wstrzymane</MT_O_Paused>
+  <MT_O_Missing>Brakuje: {0}</MT_O_Missing>
+  <MT_O_Ready>Gotowe – wszystko pod ręką</MT_O_Ready>
+  <MT_O_Resume>Wznów</MT_O_Resume>
+  <MT_O_Pause>Wstrzymaj</MT_O_Pause>
+  <MT_O_Doctor>KTO BĘDZIE OPEROWAĆ</MT_O_Doctor>
+  <MT_O_NoDoctor>Brak wolnego lekarza na tej mapie!</MT_O_NoDoctor>
+  <MT_O_DoctorIs>Najlepszy lekarz: {0} (Medycyna {1})</MT_O_DoctorIs>
+  <MT_O_Care>Opieka medyczna: {0}</MT_O_Care>
+  <MT_O_DoctorTip>Lepszy lekarz = mniejsze ryzyko nieudanej operacji.</MT_O_DoctorTip>
+  <MT_O_Possible>OPERACJE MOŻLIWE DO WYKONANIA ({0})</MT_O_Possible>
+  <MT_O_Search>Szukaj operacji lub części ciała…</MT_O_Search>
+  <MT_O_K_All>Wszystko</MT_O_K_All>
+  <MT_O_K_Implant>Implanty i protezy</MT_O_K_Implant>
+  <MT_O_K_Remove>Usuwanie</MT_O_K_Remove>
+  <MT_O_K_Drug>Narkotyki</MT_O_K_Drug>
+  <MT_O_K_Other>Inne</MT_O_K_Other>
+  <MT_O_A_All>Wszędzie</MT_O_A_All>
+  <MT_O_A_Head>Głowa</MT_O_A_Head>
+  <MT_O_A_Torso>Tułów</MT_O_A_Torso>
+  <MT_O_A_Arms>Ręce</MT_O_A_Arms>
+  <MT_O_A_Legs>Nogi</MT_O_A_Legs>
+  <MT_O_A_Whole>Całe ciało</MT_O_A_Whole>
+  <MT_O_NoneFound>Żadna operacja nie pasuje.</MT_O_NoneFound>
+  <MT_O_BackHealth>Zdrowie</MT_O_BackHealth>
+  <!-- 0.4.2 -->
+  <MT_H_Planned>Zaplanowane operacje: {0}</MT_H_Planned>
+  <MT_H_PlannedTip>Kliknij, aby otworzyć zaplanowane operacje.</MT_H_PlannedTip>
+  <MT_H_NoOpsHere>Brak operacji dla tej części ciała</MT_H_NoOpsHere>
+  <MT_H_ShowOpsHere>Pokaż operacje dla tej części</MT_H_ShowOpsHere>
+  <!-- 0.5.0 -->
+  <MT_BenchMenuTip>Stół warsztatowy: skopiuj wszystkie jego zlecenia, wklej je tutaj lub do kilku stołów tego samego rodzaju.</MT_BenchMenuTip>
+  <MT_CopyAll>Skopiuj wszystkie zlecenia tego stołu ({0})</MT_CopyAll>
+  <MT_PasteAll>Wklej tu skopiowane zlecenia ({0} z {1})</MT_PasteAll>
+  <MT_PasteSeveral>Wklej zlecenia do kilku stołów</MT_PasteSeveral>
+  <MT_PasteSeveralSub>Skopiowane zlecenia: {0} z {1}. Zlecenia, których stół nie może wykonać, są pomijane.</MT_PasteSeveralSub>
+  <MT_BenchCopied>Skopiowano zleceń: {0} z {1}.</MT_BenchCopied>
+  <MT_PastedInto>Wklejono zleceń: {0} do stołów: {1}.</MT_PastedInto>
+  <MT_PasteN>Wklej do {0}</MT_PasteN>
+  <MT_None>Brak</MT_None>
+  <MT_BillsN>Zleceń: {0}</MT_BillsN>
+  <MT_ThisBench>ten</MT_ThisBench>
+  <MT_BillMenuTip>Więcej: zmień nazwę zlecenia, połącz je ze zleceniem na innym stole.</MT_BillMenuTip>
+  <MT_Rename>Zmień nazwę</MT_Rename>
+  <MT_LinkWith>Połącz ze zleceniem na innym stole</MT_LinkWith>
+  <MT_Unlink>Rozłącz</MT_Unlink>
+  <MT_NoLinkTargets>Żaden inny stół na tej mapie nie ma zlecenia z tą recepturą.</MT_NoLinkTargets>
+  <MT_Linked>Połączono: {0} z {1}</MT_Linked>
+  <MT_LinkedN>połączone ×{0}</MT_LinkedN>
+  <MT_LinkedTip>Połączone zlecenia dzielą ustawienia (liczba, cel, wstrzymanie, materiały, magazyny). Zmiana w jednym jest kopiowana do pozostałych:</MT_LinkedTip>
+  <MT_CountTip>Klik: ±1 · Shift+klik: ±10 · Ctrl+klik: ±100</MT_CountTip>
+  <MT_InclEquipped>liczy noszone i niesione</MT_InclEquipped>
+  <MT_OnlyIn>tylko w {0}</MT_OnlyIn>
+  <MT_NotAdded>Niedodane</MT_NotAdded>
+  <MT_NotAddedTip>Receptury, które możesz wykonać, a których jeszcze nie ma w kolejce.</MT_NotAddedTip>
+  <MT_SplitTip>Przeciągnij, aby poszerzyć lub zwęzić listę receptur.</MT_SplitTip>
+  <MT_GripTip>Przeciągnij, aby zmienić rozmiar okna (zostanie zapamiętany).</MT_GripTip>
+  <MT_SizeTip>Rozmiar okna: normalny, większy lub tak duży, jak pozwala ekran. Możesz też przeciągnąć prawy górny róg.</MT_SizeTip>
+  <MT_SizeNormal>Normalny rozmiar</MT_SizeNormal>
+  <MT_SizeBig>Większy</MT_SizeBig>
+  <MT_SizeMax>Największy (na cały ekran)</MT_SizeMax>
+  <!-- 0.7.0 anatomy -->
+  <MT_A_Parts>Ciało</MT_A_Parts>
+  <MT_A_Organs>Narządy</MT_A_Organs>
+  <MT_A_Bones>Kości</MT_A_Bones>
+  <MT_A_Healthy>zdrowe</MT_A_Healthy>
+  <MT_A_Hurt>ranne</MT_A_Hurt>
+  <MT_A_Missing>brak</MT_A_Missing>
+  <MT_A_Broken>złamane</MT_A_Broken>
+  <MT_A_Prosthetic>proteza</MT_A_Prosthetic>
+  <MT_A_Bionic>bioniczne</MT_A_Bionic>
+  <MT_A_Implant>implant</MT_A_Implant>
+  <MT_A_Archo>archotech</MT_A_Archo>
+  <MT_A_Fine>Tu wszystko w porządku.</MT_A_Fine>
+  <MT_A_ToAnatomy>Pokaż figurę anatomiczną</MT_A_ToAnatomy>
+  <MT_A_ToSilhouette>Pokaż własną sylwetkę kolonisty</MT_A_ToSilhouette>
+  <!-- 0.8.0 -->
+  <MT_H_State>Stan</MT_H_State>
+  <MT_H_FAll>Wszystko</MT_H_FAll>
+  <MT_H_FInjuries>Obrażenia</MT_H_FInjuries>
+  <MT_H_FParts>Zamienniki</MT_H_FParts>
+  <MT_H_FMissing>Brakujące</MT_H_FMissing>
+  <MT_H_FDiseases>Choroby</MT_H_FDiseases>
+  <MT_H_Immunity>odporność {0}</MT_H_Immunity>
+  <MT_A_PartHp>Zdrowie części: {0}</MT_A_PartHp>
+  <MT_A_CardHint>klik: tylko ta część · prawy klik: operacje</MT_A_CardHint>
+  <MT_H_Age>Lat: {0}</MT_H_Age>
+  <!-- 0.9.0 -->
+  <MT_Character>Nasza zakładka postaci</MT_Character>
+  <MT_Character_Desc>Teczka z portretem, historią i cechami oraz strony umiejętności, osi życia i rekordów. Oryginalna zakładka jest o jedno kliknięcie.</MT_Character_Desc>
+  <MT_Social>Nasza zakładka społeczna</MT_Social>
+  <MT_Social_Desc>Wszyscy znajomi z opiniami w obie strony i powodami – każdy powód w obie strony. Oryginalna zakładka jest o jedno kliknięcie.</MT_Social_Desc>
+  <MT_C_Skills>Umiejętności</MT_C_Skills>
+  <MT_C_Life>Życie</MT_C_Life>
+  <MT_C_Records>Rekordy</MT_C_Records>
+  <MT_C_Childhood>Dzieciństwo</MT_C_Childhood>
+  <MT_C_Adulthood>Dorosłość</MT_C_Adulthood>
+  <MT_C_Traits>Cechy</MT_C_Traits>
+  <MT_C_Incapable>Nie będzie robić</MT_C_Incapable>
+  <MT_C_Ideo>Ideoreligia: {0}</MT_C_Ideo>
+  <MT_C_Birthday>Urodzony {0} ({1} lat temu)</MT_C_Birthday>
+  <MT_C_NoSkills>Brak umiejętności.</MT_C_NoSkills>
+  <MT_L_Born>Narodziny</MT_L_Born>
+  <MT_L_Joined>Dołączył(a): {0}</MT_L_Joined>
+  <MT_L_Break>Załamanie psychiczne: {0}</MT_L_Break>
+  <MT_L_Lost>Utracono: {0}</MT_L_Lost>
+  <MT_L_Installed>Otrzymał(a) {0} ({1})</MT_L_Installed>
+  <MT_L_Skill>{0} osiągnął poziom {1}</MT_L_Skill>
+  <MT_L_Rel>Nowy {0}: {1}</MT_L_Rel>
+  <MT_L_Child>Urodziło się dziecko: {0}</MT_L_Child>
+  <MT_L_Note>Załamania, rany, operacje, wyleczenia, części ciała, umiejętności, partnerzy, zgony, tytuły, role, urodziny i badania są zapisywane od chwili uruchomienia Clear Tabs 0.9; reszta pochodzi z historii samej gry.</MT_L_Note>
+  <MT_S_Search>Szukaj…</MT_S_Search>
+  <MT_S_Colonist>kolonista</MT_S_Colonist>
+  <MT_S_Dead>martwy</MT_S_Dead>
+  <MT_S_RowTip>lewo: co {0} myśli o {1} · prawo (małe): co {1} myśli o {0} · klik: dlaczego</MT_S_RowTip>
+  <MT_S_Nobody>Nikogo tu nie ma.</MT_S_Nobody>
+  <MT_S_Compat>Zgodność</MT_S_Compat>
+  <MT_S_Romance>Szansa na romans</MT_S_Romance>
+  <MT_S_Thinks>{0} o {1}</MT_S_Thinks>
+  <MT_S_NoReasons>Brak powodów – ledwo się znają.</MT_S_NoReasons>
+  <MT_S_Back>Przegląd</MT_S_Back>
+  <MT_S_Overview>Przegląd</MT_S_Overview>
+  <MT_S_Partner>Partner</MT_S_Partner>
+  <MT_S_BestFriend>Najlepszy przyjaciel</MT_S_BestFriend>
+  <MT_S_Rival>Najgorszy rywal</MT_S_Rival>
+  <MT_S_Counts>Przyjaciele: {0} · rywale: {1}</MT_S_Counts>
+  <MT_S_Talks>Ostatnie rozmowy</MT_S_Talks>
+  <MT_S_NoTalks>Jeszcze żadnych rozmów.</MT_S_NoTalks>
+  <MT_L_Surgery>Operacja: {0} – wykonał(a) {1}</MT_L_Surgery>
+  <MT_L_SurgeryBad>Nieudana operacja: {0} – wykonał(a) {1}</MT_L_SurgeryBad>
+  <MT_L_Operated>Operował(a) {0}: {1}</MT_L_Operated>
+  <MT_L_OperatedBad>Nieudana operacja na {0}: {1}</MT_L_OperatedBad>
+  <MT_L_Healed>Wyleczono: {0}</MT_L_Healed>
+  <MT_L_Died>Zmarł(a)</MT_L_Died>
+  <MT_L_DiedOf>Zmarł(a) ({0})</MT_L_DiedOf>
+  <MT_L_LostRel>Utracono {0}: {1}</MT_L_LostRel>
+  <MT_L_LostFriend>Utracono przyjaciela: {0}</MT_L_LostFriend>
+  <MT_L_Title>Tytuł: {0} ({1})</MT_L_Title>
+  <MT_L_Role>Został(a): {0}</MT_L_Role>
+  <MT_L_Birthday>Urodziny – lat: {0}</MT_L_Birthday>
+  <MT_L_Research>Ukończono badanie: {0}</MT_L_Research>
+  <MT_L_Wound>Ciężko ranny: {0} ({1})</MT_L_Wound>
+  <MT_O_K_NoPart>Brak części w magazynie</MT_O_K_NoPart>
+  <MT_O_MakeAt>wytwórz na: {0}</MT_O_MakeAt>
+  <MT_O_ResearchFirst>najpierw zbadaj: {0}</MT_O_ResearchFirst>
+  <MT_O_OnlyTrade>tylko z handlu lub łupów</MT_O_OnlyTrade>
+  <MT_O_QueueAt>Wytwórz {0} – {1}</MT_O_QueueAt>
+  <MT_O_Queued>Dodano zlecenie: {0} ({1})</MT_O_Queued>
+  <MT_O_NoBench>Nie zbudowano stołu: {0}</MT_O_NoBench>
+  <MT_O_InfoPart>Info: {0}</MT_O_InfoPart>
+  <MT_O_Make>Wytwórz</MT_O_Make>
+  <MT_A_SideRight>P</MT_A_SideRight>
+  <MT_A_SideLeft>L</MT_A_SideLeft>
+  <MT_A_SideTip>Figura jest zwrócona do ciebie: jej prawa strona (P) jest po twojej lewej, lewa (L) po twojej prawej.</MT_A_SideTip>
+  <MT_MineFor>Wydobądź dla: {0}</MT_MineFor>
+  <MT_ModeRepeatTip>Powtórz określoną liczbę razy</MT_ModeRepeatTip>
+  <MT_ModeTargetTip>Rób, aż będziesz mieć X</MT_ModeTargetTip>
+  <MT_ModeForeverTip>Rób w nieskończoność</MT_ModeForeverTip>
+  <!-- 0.11.0 -->
+  <MT_Needs>Nasza zakładka potrzeb</MT_Needs>
+  <MT_Needs_Desc>Wszystkie potrzeby jako karty z trendem i progami, obok nastrój z granicami załamań, oczekiwany nastrój i każda myśl. Oryginalna zakładka jest o jedno kliknięcie.</MT_Needs_Desc>
+  <MT_BillDialog>Nasze okno zlecenia</MT_BillDialog>
+  <MT_BillDialog_Desc>Okno ustawień zlecenia w tym samym stylu: czego receptura wymaga i co wytwarza, tryb powtarzania z szybkimi krokami, magazyn i wykonawca oraz filtr składników z gry. „Oryginalne okno” otwiera okno z gry.</MT_BillDialog_Desc>
+  <MT_N_Mood>Nastrój</MT_N_Mood>
+  <MT_N_BreakExtreme>Ryzyko skrajnego załamania poniżej {0}</MT_N_BreakExtreme>
+  <MT_N_BreakMajor>Ryzyko poważnego załamania poniżej {0}</MT_N_BreakMajor>
+  <MT_N_BreakMinor>Ryzyko drobnego załamania poniżej {0}</MT_N_BreakMinor>
+  <MT_N_Target>Nastrój zmierza do {0}</MT_N_Target>
+  <MT_N_Expect>Oczekiwania: {0}</MT_N_Expect>
+  <MT_N_Thoughts>Myśli ({0})</MT_N_Thoughts>
+  <MT_N_NoThoughts>Żadne myśli nie wpływają teraz na nastrój.</MT_N_NoThoughts>
+  <MT_BD_Original>Oryginalne okno</MT_BD_Original>
+  <MT_BD_Ingredients>Składniki</MT_BD_Ingredients>
+  <MT_BD_Makes>Wytwarza</MT_BD_Makes>
+  <MT_BD_Skill>Umiejętność</MT_BD_Skill>
+  <MT_BD_Repeat>Ile</MT_BD_Repeat>
+  <MT_BD_ModeRepeat>× razy</MT_BD_ModeRepeat>
+  <MT_BD_ModeTarget>≥ aż do</MT_BD_ModeTarget>
+  <MT_BD_ModeForever>∞ zawsze</MT_BD_ModeForever>
+  <MT_BD_Have>Masz {0} / {1}</MT_BD_Have>
+  <MT_BD_Store>Gdzie odłożyć</MT_BD_Store>
+  <MT_BD_Worker>Kto wykonuje</MT_BD_Worker>
+  <MT_S_RomanceTip>Niech {0} spróbuje kogoś uwieść – lista z gry z szansami.</MT_S_RomanceTip>
+  <MT_S_RomanceThem>Uwiedź: {0} ({1})</MT_S_RomanceThem>
+  <MT_S_RomanceThemNo>Uwiedź: {0}</MT_S_RomanceThemNo>
+  <MT_PaneLook>Panel informacji w naszym stylu</MT_PaneLook>
+  <MT_PaneLook_Desc>Panel informacji wybranego kolonisty, zwierzęcia lub budowli (lewy dół) i jego przyciski zakładek w ciemnym stylu Clear, z kolorowymi paskami zdrowia, nastroju, harmonogramu i obszaru. Długie nazwy zakładek nie są już ucinane.</MT_PaneLook_Desc>
+  <MT_PlantPicker>Wybór roślin w naszym stylu</MT_PlantPicker>
+  <MT_PlantPicker_Desc>„Ustaw roślinę do uprawy” (strefy uprawy, hydroponika, doniczki) otwiera nasze okno z grupami, wyszukiwaniem, sortowaniem i kartą każdej rośliny (czas wzrostu, plon, wartość na dzień, wymagana umiejętność) zamiast długiej listy na cały ekran.</MT_PlantPicker_Desc>
+  <MT_PG_Title>Co uprawiać</MT_PG_Title>
+  <MT_PG_Now>Teraz: {0}</MT_PG_Now>
+  <MT_PG_All>Wszystko</MT_PG_All>
+  <MT_PG_Food>Jedzenie</MT_PG_Food>
+  <MT_PG_Medicine>Lekarstwa</MT_PG_Medicine>
+  <MT_PG_Drugs>Narkotyki</MT_PG_Drugs>
+  <MT_PG_Materials>Materiały</MT_PG_Materials>
+  <MT_PG_Trees>Drzewa</MT_PG_Trees>
+  <MT_PG_Decor>Dekoracje</MT_PG_Decor>
+  <MT_PG_Search>szukaj…</MT_PG_Search>
+  <MT_PG_SortBy>Sortuj:</MT_PG_SortBy>
+  <MT_PG_SName>Nazwa</MT_PG_SName>
+  <MT_PG_SDays>Najszybsze</MT_PG_SDays>
+  <MT_PG_SValue>Najcenniejsze</MT_PG_SValue>
+  <MT_PG_SSkill>Najłatwiejsze</MT_PG_SSkill>
+  <MT_PG_Usable>Tylko to, co moi uprawiający mogą zasiać</MT_PG_Usable>
+  <MT_PG_UsableTip>Ukrywa rośliny wymagające wyższej umiejętności Rośliny, niż ma twój najlepszy aktywny uprawiający ({0}).</MT_PG_UsableTip>
+  <MT_PG_None>Brak wyników.</MT_PG_None>
+  <MT_PG_Days>Dni: {0}</MT_PG_Days>
+  <MT_PG_Yield>{0}× {1}</MT_PG_Yield>
+  <MT_PG_Skill>umiejętność {0}</MT_PG_Skill>
+  <MT_PG_ValueDay>{0} srebra/dzień</MT_PG_ValueDay>
+  <MT_PG_Cave>jaskinia</MT_PG_Cave>
+  <MT_PG_NoRoof>bez dachu</MT_PG_NoRoof>
+  <MT_PG_NutDay>{0} odżywiania/dzień</MT_PG_NutDay>
+  <MT_PG_SkillTip>Wymaga umiejętności Rośliny {0} (twój najlepszy uprawiający: {1})</MT_PG_SkillTip>
+  <MT_PG_Mod>Mod: {0}</MT_PG_Mod>
+  <MT_TabsMore>Więcej ▾</MT_TabsMore>
+  <MT_TabsMoreTip>Więcej zakładek: {0} – kliknij, aby otworzyć jedną.</MT_TabsMoreTip>
+  <MT_RecipePicker>Wybór receptur dla „Dodaj zlecenie”</MT_RecipePicker>
+  <MT_RecipePicker_Desc>„Dodaj zlecenie” otwiera okno z grupami, wyszukiwaniem i sortowaniem zamiast długiego menu.</MT_RecipePicker_Desc>
+  <MT_SurgeryPicker>Wybór operacji (zakładka zdrowia)</MT_SurgeryPicker>
+  <MT_SurgeryPicker_Desc>„Dodaj operację” otwiera okno z grupami (implanty, bionika, amputacje, narkotyki …), szansą powodzenia i wymaganiami.</MT_SurgeryPicker_Desc>
+  <MT_OwnerPicker>Wybór właściciela (łóżka, trony …)</MT_OwnerPicker>
+  <MT_OwnerPicker_Desc>„Ustaw właściciela” otwiera karty kolonistów ze zdjęciem i stanem zamiast listy.</MT_OwnerPicker_Desc>
+  <MT_PolicyPicker>Wybór obszaru i polityki</MT_PolicyPicker>
+  <MT_PolicyPicker_Desc>Dozwolony obszar, strój, polityka żywieniowa i narkotykowa otwierają okno z wyszukiwaniem i podglądem.</MT_PolicyPicker_Desc>
+  <MT_ResearchPicker>Wybór badań</MT_ResearchPicker>
+  <MT_ResearchPicker_Desc>Przeszukiwalna lista projektów badawczych według dziedziny i epoki (przycisk w zakładce badań).</MT_ResearchPicker_Desc>
+  <MT_MechPicker>Wybór hodowli mechów (Biotech)</MT_MechPicker>
+  <MT_MechPicker_Desc>Mechy do wyhodowania pogrupowane według rozmiaru i roli, z wyszukiwaniem.</MT_MechPicker_Desc>
+  <MT_AnimalPicker>Wybór zwierząt</MT_AnimalPicker>
+  <MT_AnimalPicker_Desc>Wybór zwierząt (opiekun, tresura, zagrody) otwiera pogrupowane karty: robocze, bojowe, pupile.</MT_AnimalPicker_Desc>
+  <MT_TradeWindow>Okno handlu z kategoriami</MT_TradeWindow>
+  <MT_TradeWindow_Desc>Handel otwiera nasze okno: kategorie (jedzenie, lekarstwa, broń …), wyszukiwanie, sortowanie i koszyk.</MT_TradeWindow_Desc>
+  <MT_ResetSizes>Przywróć rozmiary wszystkich okien</MT_ResetSizes>
+  <MT_GripCornerTip>Przeciągnij, aby zmienić rozmiar panelu – kliknij, aby wybrać gotowy rozmiar (normalny, duży, maks.). Rozmiar zostanie zapamiętany.</MT_GripCornerTip>
+  <MT_InfoCard>Karta informacji w naszym stylu (Infocentrum)</MT_InfoCard>
+  <MT_InfoCard_Desc>Przycisk „i” kolonisty otwiera naszą kartę: wszystkie statystyki w grupach ze średnią kolonii, porównanie z innym kolonistą, z czego składa się statystyka, a także strony historii życia, zdrowia, relacji, wyposażenia i dziejów.</MT_InfoCard_Desc>
+  <MT_I_Overview>Przegląd</MT_I_Overview>
+  <MT_I_Life>Historia życia</MT_I_Life>
+  <MT_I_Health>Zdrowie</MT_I_Health>
+  <MT_I_Social>Relacje</MT_I_Social>
+  <MT_I_Gear>Wyposażenie</MT_I_Gear>
+  <MT_I_History>Dzieje</MT_I_History>
+  <MT_I_Original>Oryginalna karta</MT_I_Original>
+  <MT_I_RiskHigh>wysokie ryzyko załamania</MT_I_RiskHigh>
+  <MT_I_RiskMid>ryzyko załamania</MT_I_RiskMid>
+  <MT_I_RiskLow>małe ryzyko załamania</MT_I_RiskLow>
+  <MT_I_G_all>Wszystko</MT_I_G_all>
+  <MT_I_G_basic>Podstawy</MT_I_G_basic>
+  <MT_I_G_combat>Walka</MT_I_G_combat>
+  <MT_I_G_work>Praca</MT_I_G_work>
+  <MT_I_G_health>Zdrowie</MT_I_G_health>
+  <MT_I_G_resist>Odporności</MT_I_G_resist>
+  <MT_I_G_food>Jedzenie i ciało</MT_I_G_food>
+  <MT_I_G_social>Relacje</MT_I_G_social>
+  <MT_I_G_psy>Psyskupienie</MT_I_G_psy>
+  <MT_I_G_mods>Z modów</MT_I_G_mods>
+  <MT_I_Compare>Porównaj z</MT_I_Compare>
+  <MT_I_Pick>+ wybierz kolonistę</MT_I_Pick>
+  <MT_I_Average>Średnia kolonii</MT_I_Average>
+  <MT_I_Legend>średnia kolonii · zielony lepiej, pomarańczowy gorzej</MT_I_Legend>
+  <MT_I_LegendCmp>w porównaniu z {0} · zielony lepiej, pomarańczowy gorzej</MT_I_LegendCmp>
+  <MT_I_MoreThan>więcej niż {0} % kolonistów</MT_I_MoreThan>
+  <MT_I_ColonyAvg>średnia kolonii {0}</MT_I_ColonyAvg>
+  <MT_I_Most>najwięcej w kolonii</MT_I_Most>
+  <MT_I_Least>najmniej w kolonii</MT_I_Least>
+  <MT_I_Temp>Temperatura</MT_I_Temp>
+  <MT_I_ColdProof>dobrze znosi zimno</MT_I_ColdProof>
+  <MT_I_HeatProof>dobrze znosi upał</MT_I_HeatProof>
+  <MT_I_ColdWeak>źle znosi zimno</MT_I_ColdWeak>
+  <MT_I_Chosen>Wybrana statystyka</MT_I_Chosen>
+  <MT_I_MadeOf>Z czego się składa</MT_I_MadeOf>
+  <MT_I_Race>O rasie</MT_I_Race>
+  <MT_I_FullDesc>Pełny opis</MT_I_FullDesc>
+  <MT_I_NoHistory>Jeszcze nic nie zapisano – ważne chwile tego kolonisty pojawią się tutaj.</MT_I_NoHistory>
+  <MT_SplitOff>{0} pozostaje wyłączony: Clear Tabs jest aktywny i ma już to wszystko.</MT_SplitOff>
+  <MT_G_Looks>Jak wygląda</MT_G_Looks>
+  <MT_G_FigHat>Nakrycie głowy</MT_G_FigHat>
+  <MT_G_FigClothes>Ubrania</MT_G_FigClothes>
+</LanguageData>

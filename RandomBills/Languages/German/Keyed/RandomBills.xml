@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RB_Rec1>Kolonisten wählen Aufträge an einer Werkbank zufällig, die oberen etwas öfter.</RB_Rec1>
+  <RB_Rec2>Ein Modus-Knopf an jeder Werkbank: gewichtet, zufällig oder der Reihe nach.</RB_Rec2>
+  <RB_Enabled>Zufällige Aufträge an</RB_Enabled>
+  <RB_Enabled_Desc>Hauptschalter für die ganze Mod.</RB_Enabled_Desc>
+  <RB_DefaultMode>Modus für Werkbänke</RB_DefaultMode>
+  <RB_Mode_Weighted>Aufträge: gewichtet</RB_Mode_Weighted>
+  <RB_Mode_Random>Aufträge: zufällig</RB_Mode_Random>
+  <RB_Mode_Order>Aufträge: der Reihe nach</RB_Mode_Order>
+  <RB_TopWeight>Gewichtet – Vorzug für die oberen: {0}</RB_TopWeight>
+  <RB_TopWeight_Desc>Wie viel öfter die oberen Aufträge im gewichteten Modus gewählt werden. 0 % = wie zufällig, 100 % = die oberen deutlich öfter (die unteren werden trotzdem erledigt).</RB_TopWeight_Desc>
+  <RB_ShowGizmo>Modus-Knopf an Werkbänken</RB_ShowGizmo>
+  <RB_ShowGizmo_Desc>Jede Werkbank bekommt einen Knopf, um ihren eigenen Modus umzuschalten.</RB_ShowGizmo_Desc>
+  <RB_Gizmo_Desc>Wie ein Kolonist den nächsten Auftrag an dieser Werkbank wählt. Klicken zum Ändern.\n\nGewichtet – zufällig, die oberen Aufträge etwas öfter.\nZufällig – jeder Auftrag hat die gleiche Chance.\nDer Reihe nach – wie im Spiel: der erste, der machbar ist.\n\nEin Auftrag muss trotzdem machbar sein (Zutaten, Fertigkeit, „X-mal ausführen“ nicht erledigt). Bereits begonnene Arbeit wird zuerst beendet.</RB_Gizmo_Desc>
+  <RB_AvoidRepeat>Abwechseln</RB_AvoidRepeat>
+  <RB_AvoidRepeat_Desc>Der Auftrag, den ein Kolonist gerade erledigt hat, bekommt beim nächsten Mal eine geringere Chance – auch „X-mal ausführen“-Aufträge, damit die anderen zwischen den Stücken drankommen.</RB_AvoidRepeat_Desc>
+</LanguageData>

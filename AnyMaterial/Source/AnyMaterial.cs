@@ -33,7 +33,7 @@ public class AMSettings : ModSettings
 public class AnyMaterialMod : Mod
 {
 	public static AMSettings S;
-	public const string Version = "0.2.3";
+	public const string Version = "1.0.0";
 	private static List<string> rec;
 
 	public AnyMaterialMod(ModContentPack content) : base(content)

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RB_Rec1>정착민이 작업대의 작업 지시를 무작위로 고르며, 위쪽 지시를 조금 더 자주 고릅니다.</RB_Rec1>
+  <RB_Rec2>모든 작업대에 모드 버튼 추가: 가중치, 무작위, 순서대로.</RB_Rec2>
+  <RB_Enabled>Random Bills 켜기</RB_Enabled>
+  <RB_Enabled_Desc>모드 전체를 켜고 끄는 주 스위치입니다.</RB_Enabled_Desc>
+  <RB_DefaultMode>작업대 모드</RB_DefaultMode>
+  <RB_Mode_Weighted>작업 지시: 가중치</RB_Mode_Weighted>
+  <RB_Mode_Random>작업 지시: 무작위</RB_Mode_Random>
+  <RB_Mode_Order>작업 지시: 순서대로</RB_Mode_Order>
+  <RB_TopWeight>가중치 – 위쪽 우선 정도: {0}</RB_TopWeight>
+  <RB_TopWeight_Desc>가중치 모드에서 위쪽 작업 지시를 얼마나 더 자주 고를지 정합니다. 0% = 무작위와 같음, 100% = 위쪽 지시를 확실히 더 자주 고름 (아래쪽 지시도 여전히 수행됨).</RB_TopWeight_Desc>
+  <RB_ShowGizmo>작업대의 모드 버튼</RB_ShowGizmo>
+  <RB_ShowGizmo_Desc>모든 작업대에 자체 모드를 바꾸는 버튼이 생깁니다.</RB_ShowGizmo_Desc>
+  <RB_Gizmo_Desc>정착민이 이 작업대에서 다음 작업 지시를 고르는 방식입니다. 클릭하여 변경.\n\n가중치 – 무작위로, 위쪽 지시를 조금 더 자주.\n무작위 – 모든 지시가 같은 확률.\n순서대로 – 게임 기본: 수행 가능한 첫 번째 지시.\n\n작업 지시는 여전히 수행 가능해야 합니다 (재료, 기술, 'X회 반복' 미완료). 이미 시작한 작업은 먼저 마칩니다.</RB_Gizmo_Desc>
+  <RB_AvoidRepeat>번갈아 하기</RB_AvoidRepeat>
+  <RB_AvoidRepeat_Desc>정착민이 방금 수행한 작업 지시는 다음번에 확률이 낮아집니다. 'X회 반복' 지시도 마찬가지라서 한 개씩 만드는 사이에 다른 지시도 차례가 옵니다.</RB_AvoidRepeat_Desc>
+</LanguageData>

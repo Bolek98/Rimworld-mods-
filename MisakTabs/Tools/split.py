@@ -38,8 +38,8 @@ SPLITS = [
      'Přehledná výběrová okna se skupinami, hledáním a řazením: rostliny k pěstování, vlastník postele a trůnu, oblékání / jídlo / drogy a povolená oblast, výzkum, líhnutí mechů a pán zvířete, k tomu přehled zvířat.'),
     ('MisakTrade', 'trade', 'Clear Trade – Trade Window Overhaul',
      ['tradeWindow'], False,
-     'The trade window with categories, search and sorting, item names with quality, both sides\' counts and prices and a cart.',
-     'Obchodní okno s kategoriemi, hledáním a řazením, názvy věcí s kvalitou, počty a cenami obou stran a košíkem.'),
+     'The trade window with categories and sub-categories, list or tiles, both sides\' counts and prices and a cart; THE COLONY NEEDS panel, upgrade marks for your colonists, a memory of prices, sell surplus, pay with goods, a wish list and saved carts.',
+     'Obchodní okno s kategoriemi a podkategoriemi, seznamem nebo dlaždicemi, počty a cenami obou stran a košíkem; panel KOLONIE POTŘEBUJE, značky upgradu pro kolonisty, paměť cen, prodej přebytků, doplacení zbožím, seznam přání a uložené košíky.'),
 ]
 
 ABOUT = '''<?xml version="1.0" encoding="utf-8"?>
@@ -64,13 +64,21 @@ ABOUT = '''<?xml version="1.0" encoding="utf-8"?>
   </loadAfter>
   <description>{en}
 
-One part of Clear Tabs on its own – take only what you want. With Clear Tabs (all parts in one) active, this mod stays off by itself. Requires Harmony. RimWorld 1.6 and 1.7.
+One part of Clear Tabs on its own – take only what you want. With Clear Tabs (all parts in one) active, this mod stays off by itself. Every window can be resized and switched back to the game's own one with one click.
+
+Found a bug? Use "Report a bug" (bottom left in the settings) and post it in the comments.
+
+Requires Harmony. RimWorld 1.6 and 1.7. 12 languages. Safe to add to an existing save.
 
 ---
 
 {cz}
 
-Jedna část Clear Tabs samostatně – vezmi si jen to, co chceš. Když máš zapnutý Clear Tabs (všechno v jednom), tenhle mod se sám vypne. Vyžaduje Harmony. RimWorld 1.6 a 1.7.</description>
+Jedna část Clear Tabs samostatně – vezmi si jen to, co chceš. Když máš zapnutý Clear Tabs (všechno v jednom), tenhle mod se sám vypne. Každé okno zvětšíš a jedním kliknutím přepneš na původní.
+
+Našel jsi chybu? Použij „Nahlásit chybu“ (vlevo dole v nastavení) a napiš ji do komentářů.
+
+Vyžaduje Harmony. RimWorld 1.6 a 1.7. 12 jazyků. Lze bezpečně přidat do rozehrané hry.</description>
 </ModMetaData>
 '''
 

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MT_Rec1>Используется наша вкладка заказов.</MT_Rec1>
+  <MT_Rec2>Она заменяет вкладку заказов из других модов (Nice Bill Tab …) – исходная вкладка всегда в один клик.</MT_Rec2>
+  <MT_Bills>Вкладка заказов</MT_Bills>
+  <MT_Bills_Desc>Рецепты с картинками и поиском, очередь заказов в виде карточек: кто работает и чего не хватает.</MT_Bills_Desc>
+  <MT_ReplaceOther>Заменять другие моды вкладки заказов</MT_ReplaceOther>
+  <MT_ReplaceOther_Desc>Nice Bill Tab и похожие моды рисуют ту же вкладку; пока эта опция включена, их вкладка отключена. Нужен перезапуск.</MT_ReplaceOther_Desc>
+  <MT_OurLook>Вид Clear</MT_OurLook>
+  <MT_HeadSub>Заказов: {0} · активных: {1} · {3}: колонистов {2}</MT_HeadSub>
+  <MT_Paste>Вставить</MT_Paste>
+  <MT_PasteTip>Вставить скопированный заказ: {0}</MT_PasteTip>
+  <MT_Original>Исходная вкладка</MT_Original>
+  <MT_OriginalTip>Показывает вкладку игры (с кнопками других модов). Вернуться – «Вид Clear».</MT_OriginalTip>
+  <MT_NeedResearch>нужно исследование: {0}</MT_NeedResearch>
+  <MT_NotAvailable>сейчас недоступно</MT_NotAvailable>
+  <MT_Search>Поиск рецепта…</MT_Search>
+  <MT_All>Все</MT_All>
+  <MT_Available>Доступные</MT_Available>
+  <MT_Locked>Закрытые</MT_Locked>
+  <MT_LockedShort>закрыто</MT_LockedShort>
+  <MT_Add>+ Добавить</MT_Add>
+  <MT_Full>У верстака может быть не больше {0} заказов.</MT_Full>
+  <MT_Queue>Очередь заказов – {0} / {1}</MT_Queue>
+  <MT_Suspended>на паузе</MT_Suspended>
+  <MT_DoingNow>выполняет: {0}</MT_DoingNow>
+  <MT_NoIngredients>ожидание: материалы не найдены</MT_NoIngredients>
+  <MT_Done>сейчас делать нечего</MT_Done>
+  <MT_Waiting>ожидание свободного колониста</MT_Waiting>
+  <MT_Forever>повторять всегда</MT_Forever>
+  <MT_RepeatLeft>осталось {0}</MT_RepeatLeft>
+  <MT_Target>есть {0} из {1}</MT_Target>
+  <MT_PausedSatisfied>цель достигнута</MT_PausedSatisfied>
+  <MT_Resume>Продолжить</MT_Resume>
+  <MT_Pause>Пауза</MT_Pause>
+  <MT_Edit>Изменить</MT_Edit>
+  <MT_Copy>Копировать</MT_Copy>
+  <MT_Copied>Скопировано: {0}</MT_Copied>
+  <MT_NoBills>Заказов пока нет – выберите рецепт слева.</MT_NoBills>
+  <MT_InfoTip>Что это – открывает карточку информации</MT_InfoTip>
+  <MT_ClickInfo>Нажмите, чтобы открыть полную карточку.</MT_ClickInfo>
+  <MT_Info_Makes>Даёт: {0} ×{1} · стоимость {2} · масса {3} кг</MT_Info_Makes>
+  <MT_Info_Armor>Броня: острое {0}, тупое {1} · утепление от холода {2} °C, от жары {3} °C</MT_Info_Armor>
+  <MT_Info_Gun>Урон {0} · дальность {1} · выстрелов в очереди {2}</MT_Info_Gun>
+  <MT_Info_Melee>Урон в ближнем бою в секунду: {0}</MT_Info_Melee>
+  <MT_Info_Work>Работа: {0}</MT_Info_Work>
+  <MT_Info_Needs>Нужно: {0}</MT_Info_Needs>
+  <MT_Info_Skill>Нужный навык: {0}</MT_Info_Skill>
+  <MT_Info_UsesSkill>Используемый навык: {0}</MT_Info_UsesSkill>
+  <MT_PrioTip>Приоритет {0} – 1 выполняется первым, 10 последним, 5 – обычный. Колонисты идут сначала к верстаку с самым срочным заказом. Нажмите, чтобы изменить.</MT_PrioTip>
+  <MT_PrioOption>Приоритет {0}</MT_PrioOption>
+  <MT_PrioFirst>в первую очередь</MT_PrioFirst>
+  <MT_PrioNormal>обычный</MT_PrioNormal>
+  <MT_PrioLast>в последнюю очередь</MT_PrioLast>
+  <MT_Rec3>Используется наша вкладка здоровья, она заменяет вкладки здоровья из других модов.</MT_Rec3>
+  <MT_Health>Вкладка здоровья</MT_Health>
+  <MT_Health_Desc>Обзор способностей и ухода, фигура колониста с отметками проблемных мест и состояния по частям тела. Операции и исходная вкладка – в один клик.</MT_Health_Desc>
+  <MT_ReplaceOtherHealth>Заменять другие моды вкладки здоровья</MT_ReplaceOtherHealth>
+  <MT_ReplaceOtherHealth_Desc>Моды со своей вкладкой здоровья отключаются, пока эта опция включена. Нужен перезапуск.</MT_ReplaceOtherHealth_Desc>
+  <MT_Operations>Операции</MT_Operations>
+  <MT_OperationsTip>Список операций игры (хирургические заказы). Назад – «Вид Clear».</MT_OperationsTip>
+  <MT_OperationsNo>Здесь операции невозможны.</MT_OperationsNo>
+  <MT_OriginalTipHealth>Показывает вкладку здоровья игры (с дополнениями других модов). Назад – «Вид Clear» справа внизу.</MT_OriginalTipHealth>
+  <MT_H_Dead>Мёртв</MT_H_Dead>
+  <MT_H_Bleeding>Кровотечение {0} в день</MT_H_Bleeding>
+  <MT_H_BleedDeath>Кровотечение {0} в день – умрёт через {1} без лечения!</MT_H_BleedDeath>
+  <MT_H_Losing>{0}: проигрывает – болезнь опережает иммунитет</MT_H_Losing>
+  <MT_H_Winning>{0}: иммунитет побеждает</MT_H_Winning>
+  <MT_H_NeedsTend>Нужно лечение</MT_H_NeedsTend>
+  <MT_H_Downed>Недееспособен</MT_H_Downed>
+  <MT_H_Healing>Выздоравливает</MT_H_Healing>
+  <MT_H_Healthy>Здоров</MT_H_Healthy>
+  <MT_H_Care>МЕДИЦИНСКИЙ УХОД</MT_H_Care>
+  <MT_H_Capacities>СПОСОБНОСТИ</MT_H_Capacities>
+  <MT_H_MarkTip>Клик: показать в списке только эту часть. Правый клик: операции для этой части.</MT_H_MarkTip>
+  <MT_H_NothingWrong>Всё в порядке 👍</MT_H_NothingWrong>
+  <MT_H_LegendBad>кровотечение, отсутствует или тяжело ранено</MT_H_LegendBad>
+  <MT_H_LegendHurt>ранено, нужно лечение</MT_H_LegendHurt>
+  <MT_H_LegendOther>шрамы, импланты и прочее</MT_H_LegendOther>
+  <MT_H_Whole>Всё тело: {0} (в списке)</MT_H_Whole>
+  <MT_H_ShowAllParts>Показать все части</MT_H_ShowAllParts>
+  <MT_H_Conditions>СОСТОЯНИЯ ПО ЧАСТЯМ ТЕЛА</MT_H_Conditions>
+  <MT_H_ConditionsHere>СОСТОЯНИЯ – ВЫБРАННАЯ ЧАСТЬ</MT_H_ConditionsHere>
+  <MT_H_ShowAll>Показать и скрытые</MT_H_ShowAll>
+  <MT_H_NoConditions>Нет ранений и состояний.</MT_H_NoConditions>
+  <MT_H_ChipBleed>кровоточит {0}</MT_H_ChipBleed>
+  <MT_H_ChipTended>обработано</MT_H_ChipTended>
+  <MT_H_ChipTend>нужно лечение</MT_H_ChipTend>
+  <MT_H_ChipScar>постоянное</MT_H_ChipScar>
+  <MT_H_ImmunityTip>Иммунитет {0} (зелёный) против болезни {1} (красный). Иммунитет должен первым дойти до 100 %.</MT_H_ImmunityTip>
+  <MT_H_ToPortrait>Показать портрет</MT_H_ToPortrait>
+  <MT_H_ToSilhouette>Показать силуэт здоровья</MT_H_ToSilhouette>
+  <MT_O_Planned>ЗАПЛАНИРОВАННЫЕ ОПЕРАЦИИ (в этом порядке)</MT_O_Planned>
+  <MT_O_NonePlanned>Ничего не запланировано. Выберите операцию справа.</MT_O_NonePlanned>
+  <MT_O_WholeBody>Всё тело</MT_O_WholeBody>
+  <MT_O_Paused>На паузе</MT_O_Paused>
+  <MT_O_Missing>Не хватает: {0}</MT_O_Missing>
+  <MT_O_Ready>Готово – всё под рукой</MT_O_Ready>
+  <MT_O_Resume>Продолжить</MT_O_Resume>
+  <MT_O_Pause>Пауза</MT_O_Pause>
+  <MT_O_Doctor>КТО БУДЕТ ОПЕРИРОВАТЬ</MT_O_Doctor>
+  <MT_O_NoDoctor>На этой карте нет свободного врача!</MT_O_NoDoctor>
+  <MT_O_DoctorIs>Лучший врач: {0} (Медицина {1})</MT_O_DoctorIs>
+  <MT_O_Care>Медицинский уход: {0}</MT_O_Care>
+  <MT_O_DoctorTip>Лучше врач = меньше риск неудачной операции.</MT_O_DoctorTip>
+  <MT_O_Possible>ДОСТУПНЫЕ ОПЕРАЦИИ ({0})</MT_O_Possible>
+  <MT_O_Search>Поиск операции или части тела…</MT_O_Search>
+  <MT_O_K_All>Все</MT_O_K_All>
+  <MT_O_K_Implant>Импланты и протезы</MT_O_K_Implant>
+  <MT_O_K_Remove>Удаление</MT_O_K_Remove>
+  <MT_O_K_Drug>Препараты</MT_O_K_Drug>
+  <MT_O_K_Other>Другое</MT_O_K_Other>
+  <MT_O_A_All>Везде</MT_O_A_All>
+  <MT_O_A_Head>Голова</MT_O_A_Head>
+  <MT_O_A_Torso>Торс</MT_O_A_Torso>
+  <MT_O_A_Arms>Руки</MT_O_A_Arms>
+  <MT_O_A_Legs>Ноги</MT_O_A_Legs>
+  <MT_O_A_Whole>Всё тело</MT_O_A_Whole>
+  <MT_O_NoneFound>Нет подходящих операций.</MT_O_NoneFound>
+  <MT_O_BackHealth>Здоровье</MT_O_BackHealth>
+  <!-- 0.4.2 -->
+  <MT_H_Planned>Запланировано операций: {0}</MT_H_Planned>
+  <MT_H_PlannedTip>Нажмите, чтобы открыть запланированные операции.</MT_H_PlannedTip>
+  <MT_H_NoOpsHere>Нет операций для этой части тела</MT_H_NoOpsHere>
+  <MT_H_ShowOpsHere>Показать операции для этой части</MT_H_ShowOpsHere>
+  <!-- 0.5.0 -->
+  <MT_BenchMenuTip>Верстак: скопировать все его заказы, вставить их сюда или в несколько верстаков того же типа.</MT_BenchMenuTip>
+  <MT_CopyAll>Копировать все заказы этого верстака ({0})</MT_CopyAll>
+  <MT_PasteAll>Вставить сюда скопированные заказы ({0} из {1})</MT_PasteAll>
+  <MT_PasteSeveral>Вставить заказы в несколько верстаков</MT_PasteSeveral>
+  <MT_PasteSeveralSub>Скопировано заказов: {0} из {1}. Заказы, которые верстак не может выполнить, пропускаются.</MT_PasteSeveralSub>
+  <MT_BenchCopied>Скопировано заказов: {0} из {1}.</MT_BenchCopied>
+  <MT_PastedInto>Вставлено заказов: {0} в верстаков: {1}.</MT_PastedInto>
+  <MT_PasteN>Вставить в {0}</MT_PasteN>
+  <MT_None>Нет</MT_None>
+  <MT_BillsN>Заказов: {0}</MT_BillsN>
+  <MT_ThisBench>этот</MT_ThisBench>
+  <MT_BillMenuTip>Ещё: переименовать заказ, связать его с заказом на другом верстаке.</MT_BillMenuTip>
+  <MT_Rename>Переименовать</MT_Rename>
+  <MT_LinkWith>Связать с заказом на другом верстаке</MT_LinkWith>
+  <MT_Unlink>Отвязать</MT_Unlink>
+  <MT_NoLinkTargets>Ни у одного другого верстака на этой карте нет заказа с этим рецептом.</MT_NoLinkTargets>
+  <MT_Linked>Связано: {0} с {1}</MT_Linked>
+  <MT_LinkedN>связано ×{0}</MT_LinkedN>
+  <MT_LinkedTip>Связанные заказы имеют общие настройки (количество, цель, пауза, материалы, склады). Изменение одного копируется в остальные:</MT_LinkedTip>
+  <MT_CountTip>Клик: ±1 · Shift+клик: ±10 · Ctrl+клик: ±100</MT_CountTip>
+  <MT_InclEquipped>считая надетое и переносимое</MT_InclEquipped>
+  <MT_OnlyIn>только в {0}</MT_OnlyIn>
+  <MT_NotAdded>Не добавлены</MT_NotAdded>
+  <MT_NotAddedTip>Рецепты, которые можно сделать, но которых ещё нет в очереди.</MT_NotAddedTip>
+  <MT_SplitTip>Перетащите, чтобы сделать список рецептов шире или уже.</MT_SplitTip>
+  <MT_GripTip>Перетащите, чтобы изменить размер окна (он запоминается).</MT_GripTip>
+  <MT_SizeTip>Размер окна: обычный, больше или максимальный для экрана. Можно также тянуть за правый верхний угол.</MT_SizeTip>
+  <MT_SizeNormal>Обычный размер</MT_SizeNormal>
+  <MT_SizeBig>Больше</MT_SizeBig>
+  <MT_SizeMax>Максимальный (по экрану)</MT_SizeMax>
+  <!-- 0.7.0 anatomy -->
+  <MT_A_Parts>Тело</MT_A_Parts>
+  <MT_A_Organs>Органы</MT_A_Organs>
+  <MT_A_Bones>Кости</MT_A_Bones>
+  <MT_A_Healthy>здорово</MT_A_Healthy>
+  <MT_A_Hurt>ранено</MT_A_Hurt>
+  <MT_A_Missing>отсутствует</MT_A_Missing>
+  <MT_A_Broken>сломано</MT_A_Broken>
+  <MT_A_Prosthetic>протез</MT_A_Prosthetic>
+  <MT_A_Bionic>бионика</MT_A_Bionic>
+  <MT_A_Implant>имплант</MT_A_Implant>
+  <MT_A_Archo>архотех</MT_A_Archo>
+  <MT_A_Fine>Здесь всё в порядке.</MT_A_Fine>
+  <MT_A_ToAnatomy>Показать анатомическую фигуру</MT_A_ToAnatomy>
+  <MT_A_ToSilhouette>Показать силуэт самого колониста</MT_A_ToSilhouette>
+  <!-- 0.8.0 -->
+  <MT_H_State>Состояние</MT_H_State>
+  <MT_H_FAll>Все</MT_H_FAll>
+  <MT_H_FInjuries>Ранения</MT_H_FInjuries>
+  <MT_H_FParts>Замены</MT_H_FParts>
+  <MT_H_FMissing>Отсутствуют</MT_H_FMissing>
+  <MT_H_FDiseases>Болезни</MT_H_FDiseases>
+  <MT_H_Immunity>иммунитет {0}</MT_H_Immunity>
+  <MT_A_PartHp>Здоровье части: {0}</MT_A_PartHp>
+  <MT_A_CardHint>клик: только эта часть · правый клик: операции</MT_A_CardHint>
+  <MT_H_Age>Возраст: {0}</MT_H_Age>
+  <!-- 0.9.0 -->
+  <MT_Character>Наша вкладка персонажа</MT_Character>
+  <MT_Character_Desc>Досье с портретом, предысторией и чертами, а также страницы навыков, хронологии жизни и рекордов. Исходная вкладка – в один клик.</MT_Character_Desc>
+  <MT_Social>Наша вкладка отношений</MT_Social>
+  <MT_Social_Desc>Все знакомые с мнениями с обеих сторон и почему – каждая причина в обе стороны. Исходная вкладка – в один клик.</MT_Social_Desc>
+  <MT_C_Skills>Навыки</MT_C_Skills>
+  <MT_C_Life>Жизнь</MT_C_Life>
+  <MT_C_Records>Рекорды</MT_C_Records>
+  <MT_C_Childhood>Детство</MT_C_Childhood>
+  <MT_C_Adulthood>Взрослая жизнь</MT_C_Adulthood>
+  <MT_C_Traits>Черты</MT_C_Traits>
+  <MT_C_Incapable>Не будет делать</MT_C_Incapable>
+  <MT_C_Ideo>Идеология: {0}</MT_C_Ideo>
+  <MT_C_Birthday>Родился {0} ({1} лет назад)</MT_C_Birthday>
+  <MT_C_NoSkills>Нет навыков.</MT_C_NoSkills>
+  <MT_L_Born>Рождение</MT_L_Born>
+  <MT_L_Joined>Присоединился: {0}</MT_L_Joined>
+  <MT_L_Break>Нервный срыв: {0}</MT_L_Break>
+  <MT_L_Lost>Потеряно: {0}</MT_L_Lost>
+  <MT_L_Installed>Получено: {0} ({1})</MT_L_Installed>
+  <MT_L_Skill>{0} достиг уровня {1}</MT_L_Skill>
+  <MT_L_Rel>Новое: {0} – {1}</MT_L_Rel>
+  <MT_L_Child>Родился ребёнок: {0}</MT_L_Child>
+  <MT_L_Note>Срывы, ранения, операции, выздоровления, части тела, навыки, партнёры, смерти, титулы, роли, дни рождения и исследования записываются с момента запуска Clear Tabs 0.9; остальное берётся из историй самой игры.</MT_L_Note>
+  <MT_S_Search>Поиск…</MT_S_Search>
+  <MT_S_Colonist>колонист</MT_S_Colonist>
+  <MT_S_Dead>мёртв</MT_S_Dead>
+  <MT_S_RowTip>слева: что {0} думает о {1} · справа (мелко): что {1} думает о {0} · клик: почему</MT_S_RowTip>
+  <MT_S_Nobody>Здесь никого нет.</MT_S_Nobody>
+  <MT_S_Compat>Совместимость</MT_S_Compat>
+  <MT_S_Romance>Шанс романа</MT_S_Romance>
+  <MT_S_Thinks>{0} о {1}</MT_S_Thinks>
+  <MT_S_NoReasons>Причин нет – они почти не знакомы.</MT_S_NoReasons>
+  <MT_S_Back>Обзор</MT_S_Back>
+  <MT_S_Overview>Обзор</MT_S_Overview>
+  <MT_S_Partner>Партнёр</MT_S_Partner>
+  <MT_S_BestFriend>Лучший друг</MT_S_BestFriend>
+  <MT_S_Rival>Злейший соперник</MT_S_Rival>
+  <MT_S_Counts>Друзей: {0} · соперников: {1}</MT_S_Counts>
+  <MT_S_Talks>Последние разговоры</MT_S_Talks>
+  <MT_S_NoTalks>Разговоров пока нет.</MT_S_NoTalks>
+  <MT_L_Surgery>Операция: {0} – провёл(а) {1}</MT_L_Surgery>
+  <MT_L_SurgeryBad>Неудачная операция: {0} – провёл(а) {1}</MT_L_SurgeryBad>
+  <MT_L_Operated>Оперировал(а) {0}: {1}</MT_L_Operated>
+  <MT_L_OperatedBad>Операция на {0} не удалась: {1}</MT_L_OperatedBad>
+  <MT_L_Healed>Выздоровление: {0}</MT_L_Healed>
+  <MT_L_Died>Смерть</MT_L_Died>
+  <MT_L_DiedOf>Смерть ({0})</MT_L_DiedOf>
+  <MT_L_LostRel>Потеря ({0}): {1}</MT_L_LostRel>
+  <MT_L_LostFriend>Потерян друг: {0}</MT_L_LostFriend>
+  <MT_L_Title>Титул: {0} ({1})</MT_L_Title>
+  <MT_L_Role>Новая роль: {0}</MT_L_Role>
+  <MT_L_Birthday>День рождения – {0} лет</MT_L_Birthday>
+  <MT_L_Research>Завершено исследование: {0}</MT_L_Research>
+  <MT_L_Wound>Тяжёлое ранение: {0} ({1})</MT_L_Wound>
+  <MT_O_K_NoPart>Части нет на складе</MT_O_K_NoPart>
+  <MT_O_MakeAt>изготовить на: {0}</MT_O_MakeAt>
+  <MT_O_ResearchFirst>сначала исследовать: {0}</MT_O_ResearchFirst>
+  <MT_O_OnlyTrade>только торговлей или добычей</MT_O_OnlyTrade>
+  <MT_O_QueueAt>Изготовить {0} – {1}</MT_O_QueueAt>
+  <MT_O_Queued>Заказ добавлен: {0} ({1})</MT_O_Queued>
+  <MT_O_NoBench>Верстак не построен: {0}</MT_O_NoBench>
+  <MT_O_InfoPart>Информация: {0}</MT_O_InfoPart>
+  <MT_O_Make>Изготовить</MT_O_Make>
+  <MT_A_SideRight>П</MT_A_SideRight>
+  <MT_A_SideLeft>Л</MT_A_SideLeft>
+  <MT_A_SideTip>Фигура стоит лицом к вам: её правая сторона (П) слева от вас, левая (Л) – справа.</MT_A_SideTip>
+  <MT_MineFor>Добывать ради {0}</MT_MineFor>
+  <MT_ModeRepeatTip>Повторить заданное число раз</MT_ModeRepeatTip>
+  <MT_ModeTargetTip>Делать, пока не будет X</MT_ModeTargetTip>
+  <MT_ModeForeverTip>Делать всегда</MT_ModeForeverTip>
+  <!-- 0.11.0 -->
+  <MT_Needs>Наша вкладка потребностей</MT_Needs>
+  <MT_Needs_Desc>Все потребности в виде карточек с тенденцией и порогами, рядом настроение с порогами срыва, ожидаемым настроением и всеми мыслями. Исходная вкладка – в один клик.</MT_Needs_Desc>
+  <MT_BillDialog>Наше окно заказа</MT_BillDialog>
+  <MT_BillDialog_Desc>Окно настроек заказа в том же стиле: что рецепт требует и даёт, режим повтора с быстрыми шагами, склад и исполнитель, а также фильтр ингредиентов игры. «Исходное окно» открывает окно игры.</MT_BillDialog_Desc>
+  <MT_N_Mood>Настроение</MT_N_Mood>
+  <MT_N_BreakExtreme>Риск экстремального срыва ниже {0}</MT_N_BreakExtreme>
+  <MT_N_BreakMajor>Риск серьёзного срыва ниже {0}</MT_N_BreakMajor>
+  <MT_N_BreakMinor>Риск лёгкого срыва ниже {0}</MT_N_BreakMinor>
+  <MT_N_Target>Настроение стремится к {0}</MT_N_Target>
+  <MT_N_Expect>Ожидания: {0}</MT_N_Expect>
+  <MT_N_Thoughts>Мысли ({0})</MT_N_Thoughts>
+  <MT_N_NoThoughts>Сейчас никакие мысли не влияют на настроение.</MT_N_NoThoughts>
+  <MT_BD_Original>Исходное окно</MT_BD_Original>
+  <MT_BD_Ingredients>Ингредиенты</MT_BD_Ingredients>
+  <MT_BD_Makes>Даёт</MT_BD_Makes>
+  <MT_BD_Skill>Навык</MT_BD_Skill>
+  <MT_BD_Repeat>Сколько</MT_BD_Repeat>
+  <MT_BD_ModeRepeat>× раз</MT_BD_ModeRepeat>
+  <MT_BD_ModeTarget>≥ до</MT_BD_ModeTarget>
+  <MT_BD_ModeForever>∞ всегда</MT_BD_ModeForever>
+  <MT_BD_Have>Есть {0} / {1}</MT_BD_Have>
+  <MT_BD_Store>Куда положить</MT_BD_Store>
+  <MT_BD_Worker>Кто делает</MT_BD_Worker>
+  <MT_S_RomanceTip>Пусть {0} попробует завести роман – список игры с шансами.</MT_S_RomanceTip>
+  <MT_S_RomanceThem>Роман с {0} ({1})</MT_S_RomanceThem>
+  <MT_S_RomanceThemNo>Роман с {0}</MT_S_RomanceThemNo>
+  <MT_PaneLook>Панель информации в нашем стиле</MT_PaneLook>
+  <MT_PaneLook_Desc>Панель информации выбранного колониста, животного или постройки (слева внизу) и её кнопки вкладок в тёмном стиле Clear, с цветными полосами здоровья, настроения, расписания и зоны. Длинные названия вкладок больше не обрезаются.</MT_PaneLook_Desc>
+  <MT_PlantPicker>Выбор растения в нашем стиле</MT_PlantPicker>
+  <MT_PlantPicker_Desc>«Выбрать растение» (зоны выращивания, гидропоника, цветочные горшки) открывает наше окно с группами, поиском, сортировкой и карточкой для каждого растения (время роста, урожай, стоимость в день, нужный навык) вместо длинного списка на весь экран.</MT_PlantPicker_Desc>
+  <MT_PG_Title>Что выращивать</MT_PG_Title>
+  <MT_PG_Now>Сейчас: {0}</MT_PG_Now>
+  <MT_PG_All>Все</MT_PG_All>
+  <MT_PG_Food>Еда</MT_PG_Food>
+  <MT_PG_Medicine>Медицина</MT_PG_Medicine>
+  <MT_PG_Drugs>Препараты</MT_PG_Drugs>
+  <MT_PG_Materials>Материалы</MT_PG_Materials>
+  <MT_PG_Trees>Деревья</MT_PG_Trees>
+  <MT_PG_Decor>Украшения</MT_PG_Decor>
+  <MT_PG_Search>поиск…</MT_PG_Search>
+  <MT_PG_SortBy>Сортировка:</MT_PG_SortBy>
+  <MT_PG_SName>Название</MT_PG_SName>
+  <MT_PG_SDays>Быстрые</MT_PG_SDays>
+  <MT_PG_SValue>Ценные</MT_PG_SValue>
+  <MT_PG_SSkill>Простые</MT_PG_SSkill>
+  <MT_PG_Usable>Только то, что могут посадить мои растениеводы</MT_PG_Usable>
+  <MT_PG_UsableTip>Скрывает растения, которым нужен навык растениеводства выше, чем у вашего лучшего активного растениевода ({0}).</MT_PG_UsableTip>
+  <MT_PG_None>Ничего не найдено.</MT_PG_None>
+  <MT_PG_Days>{0} дн.</MT_PG_Days>
+  <MT_PG_Yield>{0}× {1}</MT_PG_Yield>
+  <MT_PG_Skill>навык {0}</MT_PG_Skill>
+  <MT_PG_ValueDay>{0} серебра/день</MT_PG_ValueDay>
+  <MT_PG_Cave>пещера</MT_PG_Cave>
+  <MT_PG_NoRoof>без крыши</MT_PG_NoRoof>
+  <MT_PG_NutDay>{0} питательности/день</MT_PG_NutDay>
+  <MT_PG_SkillTip>Нужен навык растениеводства {0} (ваш лучший растениевод: {1})</MT_PG_SkillTip>
+  <MT_PG_Mod>Мод: {0}</MT_PG_Mod>
+  <MT_TabsMore>Ещё ▾</MT_TabsMore>
+  <MT_TabsMoreTip>Ещё вкладок: {0} – нажмите, чтобы открыть.</MT_TabsMoreTip>
+  <MT_RecipePicker>Выбор рецепта для «Добавить заказ»</MT_RecipePicker>
+  <MT_RecipePicker_Desc>«Добавить заказ» открывает окно с группами, поиском и сортировкой вместо длинного меню.</MT_RecipePicker_Desc>
+  <MT_SurgeryPicker>Выбор операции (вкладка здоровья)</MT_SurgeryPicker>
+  <MT_SurgeryPicker_Desc>«Добавить операцию» открывает окно с группами (импланты, бионика, ампутации, препараты …), шансом успеха и требованиями.</MT_SurgeryPicker_Desc>
+  <MT_OwnerPicker>Выбор владельца (кровати, троны …)</MT_OwnerPicker>
+  <MT_OwnerPicker_Desc>«Назначить владельца» открывает карточки колонистов с фото и состоянием вместо списка.</MT_OwnerPicker_Desc>
+  <MT_PolicyPicker>Выбор зоны и политики</MT_PolicyPicker>
+  <MT_PolicyPicker_Desc>Разрешённая зона, одежда, политика еды и препаратов открывают окно с поиском и предпросмотром.</MT_PolicyPicker_Desc>
+  <MT_ResearchPicker>Выбор исследования</MT_ResearchPicker>
+  <MT_ResearchPicker_Desc>Список исследовательских проектов с поиском по области и эпохе (кнопка на вкладке исследований).</MT_ResearchPicker_Desc>
+  <MT_MechPicker>Выбор вынашивания механоидов (Biotech)</MT_MechPicker>
+  <MT_MechPicker_Desc>Механоиды для вынашивания по размеру и роли, с поиском.</MT_MechPicker_Desc>
+  <MT_AnimalPicker>Выбор животных</MT_AnimalPicker>
+  <MT_AnimalPicker_Desc>Выбор животных (хозяин, дрессировка, загоны) открывает карточки по группам: работа, бой, питомцы.</MT_AnimalPicker_Desc>
+  <MT_TradeWindow>Окно торговли с категориями</MT_TradeWindow>
+  <MT_TradeWindow_Desc>Торговля открывает наше окно: категории (еда, медицина, оружие …), поиск, сортировка и корзина.</MT_TradeWindow_Desc>
+  <MT_ResetSizes>Сбросить размеры всех окон</MT_ResetSizes>
+  <MT_GripCornerTip>Перетащите, чтобы изменить размер панели – клик для готовых размеров (обычный, большой, максимум). Размер запоминается.</MT_GripCornerTip>
+  <MT_InfoCard>Карточка информации в нашем стиле (Infocentrum)</MT_InfoCard>
+  <MT_InfoCard_Desc>Кнопка «i» у колониста открывает нашу карточку: все характеристики по группам со средним по колонии, сравнение с другим колонистом, из чего складывается характеристика, а также страницы истории жизни, здоровья, отношений, снаряжения и хроники.</MT_InfoCard_Desc>
+  <MT_I_Overview>Обзор</MT_I_Overview>
+  <MT_I_Life>История жизни</MT_I_Life>
+  <MT_I_Health>Здоровье</MT_I_Health>
+  <MT_I_Social>Отношения</MT_I_Social>
+  <MT_I_Gear>Снаряжение</MT_I_Gear>
+  <MT_I_History>Хроника</MT_I_History>
+  <MT_I_Original>Исходная карточка</MT_I_Original>
+  <MT_I_RiskHigh>высокий риск срыва</MT_I_RiskHigh>
+  <MT_I_RiskMid>риск срыва</MT_I_RiskMid>
+  <MT_I_RiskLow>небольшой риск срыва</MT_I_RiskLow>
+  <MT_I_G_all>Всё</MT_I_G_all>
+  <MT_I_G_basic>Основное</MT_I_G_basic>
+  <MT_I_G_combat>Бой</MT_I_G_combat>
+  <MT_I_G_work>Работа</MT_I_G_work>
+  <MT_I_G_health>Здоровье</MT_I_G_health>
+  <MT_I_G_resist>Сопротивляемость</MT_I_G_resist>
+  <MT_I_G_food>Еда и тело</MT_I_G_food>
+  <MT_I_G_social>Общение</MT_I_G_social>
+  <MT_I_G_psy>Психофокус</MT_I_G_psy>
+  <MT_I_G_mods>Из модов</MT_I_G_mods>
+  <MT_I_Compare>Сравнить с</MT_I_Compare>
+  <MT_I_Pick>+ выбрать колониста</MT_I_Pick>
+  <MT_I_Average>Среднее по колонии</MT_I_Average>
+  <MT_I_Legend>среднее по колонии · зелёный лучше, оранжевый хуже</MT_I_Legend>
+  <MT_I_LegendCmp>в сравнении с {0} · зелёный лучше, оранжевый хуже</MT_I_LegendCmp>
+  <MT_I_MoreThan>больше, чем у {0} % колонистов</MT_I_MoreThan>
+  <MT_I_ColonyAvg>среднее по колонии {0}</MT_I_ColonyAvg>
+  <MT_I_Most>больше всех в колонии</MT_I_Most>
+  <MT_I_Least>меньше всех в колонии</MT_I_Least>
+  <MT_I_Temp>Температура</MT_I_Temp>
+  <MT_I_ColdProof>хорошо переносит холод</MT_I_ColdProof>
+  <MT_I_HeatProof>хорошо переносит жару</MT_I_HeatProof>
+  <MT_I_ColdWeak>мёрзнет</MT_I_ColdWeak>
+  <MT_I_Chosen>Выбранная характеристика</MT_I_Chosen>
+  <MT_I_MadeOf>Из чего складывается</MT_I_MadeOf>
+  <MT_I_Race>О расе</MT_I_Race>
+  <MT_I_FullDesc>Полное описание</MT_I_FullDesc>
+  <MT_I_NoHistory>Пока ничего не записано – здесь появятся важные моменты жизни этого колониста.</MT_I_NoHistory>
+  <MT_SplitOff>{0} остаётся выключенным: Clear Tabs активен и уже содержит всё это.</MT_SplitOff>
+  <MT_G_Looks>Внешний вид</MT_G_Looks>
+  <MT_G_FigHat>Головной убор</MT_G_FigHat>
+  <MT_G_FigClothes>Одежда</MT_G_FigClothes>
+</LanguageData>

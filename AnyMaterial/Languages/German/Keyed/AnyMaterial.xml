@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AM_Rec1>„Beliebiges Material“ und „Materialien wählen…“ im Materialmenü jedes Bau-Knopfs.</AM_Rec1>
+  <AM_Rec2>Eine Blaupause nimmt das Material, von dem am meisten im Lager ist; sie behält es, solange genug da ist.</AM_Rec2>
+  <AM_Enabled>Beliebiges Material an</AM_Enabled>
+  <AM_Enabled_Desc>Hauptschalter für die ganze Mod.</AM_Enabled_Desc>
+  <AM_Rule>Welches Material</AM_Rule>
+  <AM_Rule_MostInStock>am meisten im Lager</AM_Rule_MostInStock>
+  <AM_Rule_Cheapest>am billigsten</AM_Rule_Cheapest>
+  <AM_Rule_Strongest>am stabilsten</AM_Rule_Strongest>
+  <AM_Rule_Prettiest>am schönsten</AM_Rule_Prettiest>
+  <AM_Rule_Desc>Nur Materialien, von denen genug für das ganze Gebäude da ist. Das Material wird gewählt, wenn der Bauarbeiter es bringt – einmal geliefert, ändert es sich nicht mehr.</AM_Rule_Desc>
+  <AM_MenuAny>Beliebiges Material</AM_MenuAny>
+  <AM_MenuChoose>Materialien wählen…</AM_MenuChoose>
+  <AM_GizmoAny>Beliebiges Material</AM_GizmoAny>
+  <AM_GizmoAny_Desc>Diese Blaupause wird aus dem Material gebaut, von dem genug da ist (welches, steht in den Einstellungen). Aus = nur das angezeigte Material.</AM_GizmoAny_Desc>
+  <AM_GizmoChoose>Materialien wählen…</AM_GizmoChoose>
+  <AM_GizmoChoose_Desc>Wähle, welche Materialien die ausgewählten Blaupausen verwenden dürfen.</AM_GizmoChoose_Desc>
+  <AM_ChooseTitle>Materialien für {0}</AM_ChooseTitle>
+  <AM_All>Alle</AM_All>
+  <AM_None>Keine</AM_None>
+  <AM_Rec3>Gebäude ohne Materialwahl (Fackel, Lagerfeuer…) nehmen ein anderes Material derselben Art, wenn das ursprüngliche fehlt.</AM_Rec3>
+  <AM_FixedAuto>Gebäude mit festen Kosten: Ersatz verwenden</AM_FixedAuto>
+  <AM_FixedAuto_Desc>Gebäude ohne Materialwahl (Fackel: 20 Holz) dürfen aus einem anderen Material derselben Art gebaut werden – beliebiges Holz, Metall, Steinblöcke, Stoff oder Leder. Komponenten und andere Nicht-Materialien werden nie ersetzt. Pro Blaupause abschaltbar.</AM_FixedAuto_Desc>
+  <AM_PreferOriginal>Original zuerst</AM_PreferOriginal>
+  <AM_PreferOriginal_Desc>Das ursprüngliche Material verwenden, solange genug davon da ist; Ersatz erst, wenn es ausgeht. Aus = die Regel oben entscheidet.</AM_PreferOriginal_Desc>
+  <AM_GizmoFixed>Ersatzmaterial</AM_GizmoFixed>
+  <AM_GizmoFixed_Desc>Wenn nicht genug {0} da ist, bringt der Bauarbeiter ein anderes Material derselben Art. Beim Abreißen bekommt man zurück, woraus es wirklich gebaut wurde.</AM_GizmoFixed_Desc>
+  <AM_GizmoFixedChoose>Ersatz wählen…</AM_GizmoFixedChoose>
+  <AM_GizmoFixedChoose_Desc>Wähle, welche Materialien die ausgewählten Blaupausen statt des Originals verwenden dürfen.</AM_GizmoFixedChoose_Desc>
+  <AM_AutoAny>Neue Blaupausen: immer beliebiges Material</AM_AutoAny>
+  <AM_AutoAny_Desc>Jede neue Blaupause eines Gebäudes aus Materialien bekommt sofort „beliebiges Material“ – praktisch, wenn eine andere Mod (Better Architect…) ihr eigenes Materialmenü zeigt. Einzelne Blaupausen kannst du mit ihrem Knopf zurückschalten.</AM_AutoAny_Desc>
+  <AM_GizmoFrameStuff>Material ändern</AM_GizmoFrameStuff>
+  <AM_GizmoFrameStuff_Desc>Den Rest aus einem anderen Material bauen (bereits Gebrachtes kommt zurück auf den Boden). „Beliebiges Material“: wechselt von selbst, wenn das aktuelle ausgeht.</AM_GizmoFrameStuff_Desc>
+</LanguageData>

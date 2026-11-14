@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RB_Rec1>Os colonos escolhem as ordens de uma bancada ao acaso, as de cima um pouco mais vezes.</RB_Rec1>
+  <RB_Rec2>Um botão de modo em cada bancada: ponderado, aleatório ou em ordem.</RB_Rec2>
+  <RB_Enabled>Ordens aleatórias ativadas</RB_Enabled>
+  <RB_Enabled_Desc>Interruptor geral do mod inteiro.</RB_Enabled_Desc>
+  <RB_DefaultMode>Modo das bancadas</RB_DefaultMode>
+  <RB_Mode_Weighted>Ordens: ponderado</RB_Mode_Weighted>
+  <RB_Mode_Random>Ordens: aleatório</RB_Mode_Random>
+  <RB_Mode_Order>Ordens: em ordem</RB_Mode_Order>
+  <RB_TopWeight>Ponderado – preferência pelas de cima: {0}</RB_TopWeight>
+  <RB_TopWeight_Desc>Quanto mais vezes as ordens de cima são escolhidas no modo ponderado. 0 % = como aleatório, 100 % = as de cima claramente mais vezes (mas as de baixo ainda são feitas).</RB_TopWeight_Desc>
+  <RB_ShowGizmo>Botão de modo nas bancadas</RB_ShowGizmo>
+  <RB_ShowGizmo_Desc>Cada bancada ganha um botão para trocar o próprio modo.</RB_ShowGizmo_Desc>
+  <RB_Gizmo_Desc>Como um colono escolhe a próxima ordem nesta bancada. Clique para mudar.\n\nPonderado – ao acaso, as ordens de cima um pouco mais vezes.\nAleatório – toda ordem tem a mesma chance.\nEm ordem – como no jogo: a primeira que puder ser feita.\n\nUma ordem ainda precisa ser possível (ingredientes, habilidade, 'fazer X vezes' não concluído). Trabalho já iniciado é terminado primeiro.</RB_Gizmo_Desc>
+  <RB_AvoidRepeat>Revezar</RB_AvoidRepeat>
+  <RB_AvoidRepeat_Desc>A ordem que um colono acabou de fazer recebe uma chance menor na próxima vez – inclusive ordens 'fazer X vezes', para que as outras tenham sua vez entre as peças.</RB_AvoidRepeat_Desc>
+</LanguageData>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AM_Rec1>'Qualquer material' e 'Escolher materiais…' no menu de material de cada botão de construção.</AM_Rec1>
+  <AM_Rec2>Uma planta de construção usa o material que há em maior quantidade no estoque; mantém-no enquanto houver o suficiente.</AM_Rec2>
+  <AM_Enabled>Qualquer material ativado</AM_Enabled>
+  <AM_Enabled_Desc>Interruptor geral do mod inteiro.</AM_Enabled_Desc>
+  <AM_Rule>Qual material</AM_Rule>
+  <AM_Rule_MostInStock>mais em estoque</AM_Rule_MostInStock>
+  <AM_Rule_Cheapest>mais barato</AM_Rule_Cheapest>
+  <AM_Rule_Strongest>mais resistente</AM_Rule_Strongest>
+  <AM_Rule_Prettiest>mais bonito</AM_Rule_Prettiest>
+  <AM_Rule_Desc>Só materiais de que há o suficiente para a construção inteira. O material é escolhido quando o construtor o traz – depois de entregue, não muda mais.</AM_Rule_Desc>
+  <AM_MenuAny>Qualquer material</AM_MenuAny>
+  <AM_MenuChoose>Escolher materiais…</AM_MenuChoose>
+  <AM_GizmoAny>Qualquer material</AM_GizmoAny>
+  <AM_GizmoAny_Desc>Esta planta é construída com qualquer material de que haja o suficiente (veja nas configurações qual). Desligado = só o material mostrado.</AM_GizmoAny_Desc>
+  <AM_GizmoChoose>Escolher materiais…</AM_GizmoChoose>
+  <AM_GizmoChoose_Desc>Escolha quais materiais as plantas selecionadas podem usar.</AM_GizmoChoose_Desc>
+  <AM_ChooseTitle>Materiais para {0}</AM_ChooseTitle>
+  <AM_All>Todos</AM_All>
+  <AM_None>Nenhum</AM_None>
+  <AM_Rec3>Construções sem escolha de material (tocha, fogueira…) usam outro material do mesmo tipo quando falta o original.</AM_Rec3>
+  <AM_FixedAuto>Construções de custo fixo: usar substituto</AM_FixedAuto>
+  <AM_FixedAuto_Desc>Construções sem escolha de material (tocha: 20 de madeira) podem ser feitas com outro material do mesmo tipo – qualquer madeira, qualquer metal, quaisquer blocos de pedra, qualquer tecido ou couro. Componentes e outros não-materiais nunca são substituídos. Pode ser desligado por planta.</AM_FixedAuto_Desc>
+  <AM_PreferOriginal>Original primeiro</AM_PreferOriginal>
+  <AM_PreferOriginal_Desc>Usar o material original enquanto houver o suficiente; um substituto só quando ele acabar. Desligado = a regra acima decide.</AM_PreferOriginal_Desc>
+  <AM_GizmoFixed>Material substituto</AM_GizmoFixed>
+  <AM_GizmoFixed_Desc>Se não houver {0} suficiente, o construtor traz outro material do mesmo tipo. Ao desmontar, devolve o material com que foi realmente construído.</AM_GizmoFixed_Desc>
+  <AM_GizmoFixedChoose>Escolher substitutos…</AM_GizmoFixedChoose>
+  <AM_GizmoFixedChoose_Desc>Escolha quais materiais as plantas selecionadas podem usar no lugar do original.</AM_GizmoFixedChoose_Desc>
+  <AM_AutoAny>Novas plantas: sempre qualquer material</AM_AutoAny>
+  <AM_AutoAny_Desc>Toda nova planta de uma construção feita de materiais recebe "qualquer material" na hora – útil quando outro mod (Better Architect…) mostra seu próprio menu de material. Você ainda pode voltar plantas individuais com o botão delas.</AM_AutoAny_Desc>
+  <AM_GizmoFrameStuff>Trocar material</AM_GizmoFrameStuff>
+  <AM_GizmoFrameStuff_Desc>Construir o resto com outro material (o que já foi trazido volta para o chão). "Qualquer material": troca sozinho quando o atual acaba.</AM_GizmoFrameStuff_Desc>
+</LanguageData>

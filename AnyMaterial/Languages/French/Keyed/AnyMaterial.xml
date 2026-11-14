@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AM_Rec1>« N'importe quel matériau » et « Choisir les matériaux… » dans le menu des matériaux de chaque bouton de construction.</AM_Rec1>
+  <AM_Rec2>Un plan prend le matériau le plus abondant en stock ; il le garde tant qu'il y en a assez.</AM_Rec2>
+  <AM_Enabled>N'importe quel matériau activé</AM_Enabled>
+  <AM_Enabled_Desc>Interrupteur général de tout le mod.</AM_Enabled_Desc>
+  <AM_Rule>Quel matériau</AM_Rule>
+  <AM_Rule_MostInStock>le plus en stock</AM_Rule_MostInStock>
+  <AM_Rule_Cheapest>le moins cher</AM_Rule_Cheapest>
+  <AM_Rule_Strongest>le plus résistant</AM_Rule_Strongest>
+  <AM_Rule_Prettiest>le plus beau</AM_Rule_Prettiest>
+  <AM_Rule_Desc>Seulement les matériaux disponibles en quantité suffisante pour tout le bâtiment. Le matériau est choisi quand le constructeur l'apporte – une fois livré, il ne change plus.</AM_Rule_Desc>
+  <AM_MenuAny>N'importe quel matériau</AM_MenuAny>
+  <AM_MenuChoose>Choisir les matériaux…</AM_MenuChoose>
+  <AM_GizmoAny>N'importe quel matériau</AM_GizmoAny>
+  <AM_GizmoAny_Desc>Ce plan est construit avec n'importe quel matériau disponible en quantité suffisante (voir les réglages pour lequel). Désactivé = seulement le matériau affiché.</AM_GizmoAny_Desc>
+  <AM_GizmoChoose>Choisir les matériaux…</AM_GizmoChoose>
+  <AM_GizmoChoose_Desc>Choisir les matériaux que les plans sélectionnés peuvent utiliser.</AM_GizmoChoose_Desc>
+  <AM_ChooseTitle>Matériaux pour {0}</AM_ChooseTitle>
+  <AM_All>Tout</AM_All>
+  <AM_None>Aucun</AM_None>
+  <AM_Rec3>Les bâtiments sans choix de matériau (torche, feu de camp…) prennent un autre matériau du même type quand l'original manque.</AM_Rec3>
+  <AM_FixedAuto>Bâtiments à coût fixe : utiliser un substitut</AM_FixedAuto>
+  <AM_FixedAuto_Desc>Les bâtiments sans choix de matériau (torche : 20 bois) peuvent être construits avec un autre matériau du même type – n'importe quel bois, métal, blocs de pierre, tissu ou cuir. Les composants et autres non-matériaux ne sont jamais remplacés. Désactivable par plan.</AM_FixedAuto_Desc>
+  <AM_PreferOriginal>L'original d'abord</AM_PreferOriginal>
+  <AM_PreferOriginal_Desc>Utiliser le matériau d'origine tant qu'il y en a assez ; un substitut seulement quand il est épuisé. Désactivé = la règle ci-dessus décide.</AM_PreferOriginal_Desc>
+  <AM_GizmoFixed>Matériau de substitution</AM_GizmoFixed>
+  <AM_GizmoFixed_Desc>S'il n'y a pas assez de {0}, le constructeur apporte un autre matériau du même type. La déconstruction rend ce qui a réellement servi.</AM_GizmoFixed_Desc>
+  <AM_GizmoFixedChoose>Choisir les substituts…</AM_GizmoFixedChoose>
+  <AM_GizmoFixedChoose_Desc>Choisir les matériaux que les plans sélectionnés peuvent utiliser à la place de l'original.</AM_GizmoFixedChoose_Desc>
+  <AM_AutoAny>Nouveaux plans : toujours n'importe quel matériau</AM_AutoAny>
+  <AM_AutoAny_Desc>Chaque nouveau plan d'un bâtiment fait de matériaux reçoit aussitôt « n'importe quel matériau » – pratique quand un autre mod (Better Architect…) affiche son propre menu de matériaux. Vous pouvez toujours repasser un plan avec son bouton.</AM_AutoAny_Desc>
+  <AM_GizmoFrameStuff>Changer de matériau</AM_GizmoFrameStuff>
+  <AM_GizmoFrameStuff_Desc>Construire le reste avec un autre matériau (ce qui a déjà été apporté retourne au sol). « N'importe quel matériau » : change tout seul quand l'actuel est épuisé.</AM_GizmoFrameStuff_Desc>
+</LanguageData>

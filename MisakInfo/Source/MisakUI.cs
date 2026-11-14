@@ -1,3 +1,4 @@
+// GENERATED from MisakTabs by MisakTabs/Tools/split.py – edit MisakTabs, not this file.
 using System;
 using System.Collections.Generic;
 using System.Reflection;

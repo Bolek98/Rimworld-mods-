@@ -86,7 +86,7 @@ namespace MisakCharacter
 
     public class MTMod : Mod
     {
-        public const string Version = "0.15.0";
+        public const string Version = "1.0.0";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0
