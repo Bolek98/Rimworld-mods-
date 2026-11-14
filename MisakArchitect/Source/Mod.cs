@@ -16,6 +16,9 @@ public class MASettings : ModSettings
 	public bool byMod, showLocked;
 	public bool showInfo = true;
 	public int sideCols = 2;     // 0.3.0: categories in 1–3 columns
+	public bool grouped = true;  // 0.4.0: main folders instead of every category
+	public bool onlyAfford;      // 0.4.0: only what there is material for
+	public List<string> seenGroups = new List<string>();   // 0.4.0: folders that already had something (for the "new" mark)
 	public List<string> favorites = new List<string>();
 	public List<string> recent = new List<string>();
 	public string lastCategory;
@@ -29,6 +32,10 @@ public class MASettings : ModSettings
 		Scribe_Values.Look(ref showLocked, "showLocked", false);
 		Scribe_Values.Look(ref showInfo, "showInfo", true);
 		Scribe_Values.Look(ref sideCols, "sideCols", 2);
+		Scribe_Values.Look(ref grouped, "grouped", true);
+		Scribe_Values.Look(ref onlyAfford, "onlyAfford", false);
+		Scribe_Collections.Look(ref seenGroups, "seenGroups", LookMode.Value);
+		seenGroups ??= new List<string>();
 		Scribe_Values.Look(ref lastCategory, "lastCategory");
 		Scribe_Collections.Look(ref favorites, "favorites", LookMode.Value);
 		Scribe_Collections.Look(ref recent, "recent", LookMode.Value);
@@ -41,7 +48,7 @@ public class MisakArchitectMod : Mod
 {
 	public static MASettings S;
 	public static MisakArchitectMod Instance;
-	public const string Version = "1.0.0";
+	public const string Version = "1.1.0";
 
 	public MisakArchitectMod(ModContentPack content) : base(content)
 	{
@@ -64,6 +71,7 @@ public class MisakArchitectMod : Mod
 		l.CheckboxLabeled("MA_Enabled".Translate(), ref S.enabled, "MA_Enabled_Desc".Translate());
 		if (was != S.enabled) ArchitectSwap.Apply();
 		l.CheckboxLabeled("MA_ShowInfo".Translate(), ref S.showInfo, "MA_ShowInfo_Desc".Translate());
+		l.CheckboxLabeled("MA_Grouped".Translate(), ref S.grouped, "MA_Grouped_Desc".Translate());
 		l.Label("MA_Height".Translate(Mathf.RoundToInt(S.height)));
 		S.height = Mathf.Round(l.Slider(S.height, 260f, 640f) / 10f) * 10f;
 		if (l.ButtonText("MA_ResetSize".Translate())) { S.width = 0f; S.height = 380f; }
@@ -141,6 +149,9 @@ public static class Catalog
 	public static Dictionary<DesignationCategoryDef, List<Designator>> grid = new Dictionary<DesignationCategoryDef, List<Designator>>();
 	public static List<Entry> flat = new List<Entry>();
 	public static Dictionary<string, Entry> byKey = new Dictionary<string, Entry>();
+	// 0.4.0: the buildings of every main folder, and which category each came from
+	public static Dictionary<string, List<Designator>> groupItems = new Dictionary<string, List<Designator>>();
+	public static Dictionary<Designator, DesignationCategoryDef> catOf = new Dictionary<Designator, DesignationCategoryDef>();
 
 	public static string Key(Designator d)
 	{
@@ -159,7 +170,9 @@ public static class Catalog
 
 	public static void Rebuild()
 	{
-		cats.Clear(); grid.Clear(); flat.Clear(); byKey.Clear();
+		cats.Clear(); grid.Clear(); flat.Clear(); byKey.Clear(); groupItems.Clear(); catOf.Clear();
+		Groups.Clear();
+		foreach (string g in Groups.Order) groupItems[g] = new List<Designator>();
 		foreach (DesignationCategoryDef c in DefDatabase<DesignationCategoryDef>.AllDefs.OrderByDescending(c => c.order))
 		{
 			List<Designator> list;
@@ -169,6 +182,8 @@ public static class Catalog
 			grid[c] = list;
 			foreach (Designator d in list)
 			{
+				catOf[d] = c;
+				groupItems[Groups.Of(d, c)].Add(d);
 				if (d is Designator_Dropdown dd)
 					foreach (Designator e in dd.Elements) Add(e, c);
 				else
@@ -189,6 +204,15 @@ public static class Catalog
 		};
 		flat.Add(e);
 		byKey[k] = e;
+	}
+
+	// 0.4.0: a readable name also when a mod forgot to translate its category ("PrefabCategory.Label")
+	public static string CatLabel(DesignationCategoryDef c)
+	{
+		string l = c.LabelCap;
+		if (l.NullOrEmpty() || (l.Contains(".") && !l.Contains(" ")))
+			l = GenText.SplitCamelCase(c.defName).CapitalizeFirst();
+		return l;
 	}
 
 	public static bool Shown(Designator d)

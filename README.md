@@ -29,7 +29,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Masks & Headgear Together | 1.0.1 | [MasksAndHeadgear](MasksAndHeadgear) |
 | [B98] Matchmaker | 0.1.1 | [Matchmaker](Matchmaker) |
 | [B98] Mech Commander | 0.1.3 | [MechCommander](MechCommander) |
-| [B98] Clear Architect – Build Menu with Sub-Categories | 1.0.0 | [MisakArchitect](MisakArchitect) |
+| [B98] Clear Architect – Build Menu with Sub-Categories | 1.1.0 | [MisakArchitect](MisakArchitect) |
 | [B98] Clear Bills – Bills Tab Overhaul | 1.0.0 | [MisakBills](MisakBills) |
 | [B98] Mišák Bodies | 0.2.0 | [MisakBodies](MisakBodies) |
 | [B98] Clear Character – Character, Social & Needs | 1.0.0 | [MisakCharacter](MisakCharacter) |

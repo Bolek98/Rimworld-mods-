@@ -26,6 +26,13 @@ public static class Subs
 		if (d == null) return "other";
 		if (MisakArchitectMod.S.byMod)
 			return "mod:" + (Catalog.ModOf(d) ?? "RimWorld");
+		return Kind(d);
+	}
+
+	// what the building is, whatever the setting (0.4.0: also used for the main folders)
+	public static string Kind(Designator d)
+	{
+		if (d == null) return "other";
 		if (cache.TryGetValue(d, out string s)) return s;
 		try { s = Find(d); } catch { s = "other"; }
 		cache[d] = s;
@@ -38,7 +45,7 @@ public static class Subs
 	private static string Find(Designator d)
 	{
 		if (d is Designator_Dropdown dd)
-			return dd.Elements.Count > 0 ? Of(dd.Elements[0]) : "other";
+			return dd.Elements.Count > 0 ? Kind(dd.Elements[0]) : "other";
 		if (!(d is Designator_Build b))
 		{
 			string n = d.GetType().Name;
