@@ -32,7 +32,8 @@ namespace ModSortManager
         private string fActive = "", fInactive = "";
         private bool onlyProblems;
         private bool cProb;
-        private bool ActiveFiltered => !fActive.NullOrEmpty() || onlyProblems;
+        private bool ActiveFiltered => (!fActive.NullOrEmpty() && !Highlight) || onlyProblems;
+        private static bool Highlight => MSMMod.Settings.searchHighlight;   // 0.7.2
         private Vector2 sInactive, sActive, sDetail, sProblems, sProfiles, sBackups;
         // 0.4.1: drag between the lists – inactive → active at a position, active → inactive to switch off
         private ModMetaData xMod;
@@ -169,6 +170,8 @@ namespace ModSortManager
             issues = new List<Issue>();
             marks.Clear();
             notes.Clear();
+            noteKind.Clear();
+            kindsOf.Clear();
             var set = new HashSet<ModMetaData>(active);
             inactiveCache = ModLister.AllInstalledMods.Where(m => !set.Contains(m) && !Removal.IsGone(m)).OrderByDescending(m => NewMods.IsNew(m) ? NewMods.AddedAt(m).Value.Ticks : 0L).ThenByDescending(m => m.Official).ThenBy(m => Nicknames.Show(m)).ToList();
 
@@ -178,7 +181,7 @@ namespace ModSortManager
                 if (g.Count(c => File.Exists(Path.Combine(c.path, "About", "About.xml")) || Directory.Exists(c.path)) < 2)
                     continue;
                 int local = g.Count(c => !c.steam);
-                var iss = new Issue { group = 0, sev = local >= 2 ? Sev.Error : Sev.Warn };
+                var iss = new Issue { group = 0, sev = local >= 2 ? Sev.Error : Sev.Warn, kind = PK.Dup };
                 iss.title = "MSM_DupTitle".Translate(g[0].name, g.Count);
                 var lines = new List<string>();
                 DupCopy newest = Duplicates.Newest(g);
@@ -191,7 +194,7 @@ namespace ModSortManager
                     if (c.meta != null)
                     {
                         Sorter.Mark(marks, c.meta, iss.sev);
-                        Note(c.meta, iss.sev, "MSM_NoteDup".Translate());
+                        Note(c.meta, iss.sev, "MSM_NoteDup".Translate(), PK.Dup);
                     }
                 }
                 iss.text = (local >= 2 ? "MSM_DupLocalText".Translate().ToString() : "MSM_DupSteamText".Translate().ToString()) + "\n" + string.Join("\n", lines.ToArray());
@@ -222,7 +225,7 @@ namespace ModSortManager
                     if (d.alternativePackageIds != null) ids.AddRange(d.alternativePackageIds);
                     if (ids.Any(id => Sorter.Present(active, id, out j))) continue;
                     ModMetaData inst = ids.Select(id => ModLister.GetModWithIdentifier(id, true)).FirstOrDefault(x => x != null);
-                    var iss = new Issue { group = 1, sev = Sev.Error, title = "MSM_DepTitle".Translate(Nicknames.Show(m), d.displayName ?? d.packageId) };
+                    var iss = new Issue { group = 1, sev = Sev.Error, kind = PK.Dep, title = "MSM_DepTitle".Translate(Nicknames.Show(m), d.displayName ?? d.packageId) };
                     iss.text = inst != null ? "MSM_DepInstalled".Translate().ToString() : "MSM_DepMissing".Translate().ToString();
                     ModMetaData mm = m;
                     if (inst != null)
@@ -246,7 +249,7 @@ namespace ModSortManager
                     iss.actions.Add(new KeyValuePair<string, Action>("MSM_Deactivate".Translate(), () => Deactivate(mm)));
                     issues.Add(iss);
                     Sorter.Mark(marks, m, Sev.Error);
-                    Note(m, Sev.Error, "MSM_NoteDep".Translate(d.displayName ?? d.packageId));
+                    Note(m, Sev.Error, "MSM_NoteDep".Translate(d.displayName ?? d.packageId), PK.Dep);
                 }
             }
 
@@ -261,21 +264,21 @@ namespace ModSortManager
                     ModMetaData b = active[j];
                     string key = i < j ? i + "|" + j : j + "|" + i;
                     if (!seen.Add(key)) continue;
-                    var iss = new Issue { group = 1, sev = Sev.Error, title = "MSM_IncTitle".Translate(Nicknames.Show(a), Nicknames.Show(b)), text = "MSM_IncText".Translate(Nicknames.Show(a)) };
+                    var iss = new Issue { group = 1, sev = Sev.Error, kind = PK.Inc, title = "MSM_IncTitle".Translate(Nicknames.Show(a), Nicknames.Show(b)), text = "MSM_IncText".Translate(Nicknames.Show(a)) };
                     iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateX".Translate(Nicknames.Show(a).Truncate(120f)), () => Deactivate(a)));
                     iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateX".Translate(Nicknames.Show(b).Truncate(120f)), () => Deactivate(b)));
                     issues.Add(iss);
                     Sorter.Mark(marks, a, Sev.Error);
                     Sorter.Mark(marks, b, Sev.Error);
-                    Note(a, Sev.Error, "MSM_NoteInc".Translate(Nicknames.Show(b)));
-                    Note(b, Sev.Error, "MSM_NoteInc".Translate(Nicknames.Show(a)));
+                    Note(a, Sev.Error, "MSM_NoteInc".Translate(Nicknames.Show(b)), PK.Inc);
+                    Note(b, Sev.Error, "MSM_NoteInc".Translate(Nicknames.Show(a)), PK.Inc);
                 }
             }
 
             // 0.2.1: known mods that do the same job (one switches itself off, or they fight)
             foreach (Rivals.Hit h in Rivals.Find(active))
             {
-                var iss = new Issue { group = 1, sev = h.rule.sev, title = "MSM_RivalTitle".Translate(Nicknames.Show(h.a), Nicknames.Show(h.b)) };
+                var iss = new Issue { group = 1, sev = h.rule.sev, kind = PK.Rival, title = "MSM_RivalTitle".Translate(Nicknames.Show(h.a), Nicknames.Show(h.b)) };
                 iss.text = ("MSM_Rival_" + h.rule.key).Translate(Nicknames.Show(h.a), Nicknames.Show(h.b)).ToString() + "\n" + "MSM_RivalHint".Translate();
                 ModMetaData ra = h.a, rb = h.b;
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_DeactivateX".Translate(Nicknames.Show(ra).Truncate(120f)), () => Deactivate(ra)));
@@ -283,8 +286,8 @@ namespace ModSortManager
                 issues.Add(iss);
                 Sorter.Mark(marks, ra, h.rule.sev);
                 Sorter.Mark(marks, rb, h.rule.sev);
-                Note(ra, h.rule.sev, "MSM_NoteRival".Translate(Nicknames.Show(rb)));
-                Note(rb, h.rule.sev, "MSM_NoteRival".Translate(Nicknames.Show(ra)));
+                Note(ra, h.rule.sev, "MSM_NoteRival".Translate(Nicknames.Show(rb)), PK.Rival);
+                Note(rb, h.rule.sev, "MSM_NoteRival".Translate(Nicknames.Show(ra)), PK.Rival);
             }
 
             // load order rules
@@ -293,7 +296,7 @@ namespace ModSortManager
             if (order.Count > 0)
             {
                 // 0.7.1: every broken rule by name (which mod before which), how to fix it
-                var iss = new Issue { group = 1, sev = Sev.Warn, title = "MSM_OrderTitle".Translate(order.Count) };
+                var iss = new Issue { group = 1, sev = Sev.Warn, kind = PK.Order, title = "MSM_OrderTitle".Translate(order.Count) };
                 iss.text = string.Join("\n", order.Take(30).Select(x => "• " + x).ToArray())
                     + (order.Count > 30 ? "\n… +" + (order.Count - 30) : "")
                     + "\n\n" + "MSM_OrderHow".Translate();
@@ -301,7 +304,7 @@ namespace ModSortManager
                 issues.Add(iss);
                 foreach (var kv in orderNotes)
                     foreach (string t in kv.Value)
-                        Note(kv.Key, Sev.Warn, t);
+                        Note(kv.Key, Sev.Warn, t, PK.Order);
             }
 
             // made for an older game version
@@ -309,13 +312,13 @@ namespace ModSortManager
             if (old.Count > 0)
             {
                 string cur = VersionControl.CurrentMajor + "." + VersionControl.CurrentMinor;
-                var iss = new Issue { group = 1, sev = Sev.Warn, title = "MSM_OldTitle".Translate(old.Count, cur) };
+                var iss = new Issue { group = 1, sev = Sev.Warn, kind = PK.Old, title = "MSM_OldTitle".Translate(old.Count, cur) };
                 iss.text = "MSM_OldText".Translate() + "\n" + string.Join(", ", old.Select(m => Nicknames.Show(m) + " (" + MSM.Versions(m) + ")").ToArray());
                 issues.Add(iss);
                 foreach (ModMetaData m in old)
                 {
                     Sorter.Mark(marks, m, Sev.Warn);
-                    Note(m, Sev.Warn, "MSM_NoteOld".Translate(MSM.Versions(m)));
+                    Note(m, Sev.Warn, "MSM_NoteOld".Translate(MSM.Versions(m)), PK.Old);
                 }
             }
 
@@ -329,7 +332,7 @@ namespace ModSortManager
                 bool hidden = MSMMod.Settings.hiddenSame.Contains(hk);
                 if (hidden) hiddenSameCount++;
                 if (hidden && !showHiddenSame) continue;
-                var iss = new Issue { group = 2, sev = Sev.Info, title = Nicknames.Show(sp.a) + " × " + Nicknames.Show(sp.b) + (hidden ? "  · " + "MSM_SameHiddenTag".Translate() : "") };
+                var iss = new Issue { group = 2, sev = Sev.Info, kind = PK.Same, title = Nicknames.Show(sp.a) + " × " + Nicknames.Show(sp.b) + (hidden ? "  · " + "MSM_SameHiddenTag".Translate() : "") };
                 iss.text = (sp.hot ? "MSM_SameHot".Translate() : "MSM_SameText".Translate()).ToString() + " (" + sp.methods.Count + "): " + string.Join(", ", sp.methods.Take(4).ToArray()) + (sp.methods.Count > 4 ? "…" : "");
                 // 0.1.7: how they change it – first two methods, the rest in the details window
                 foreach (SameMethod d in sp.detail.Take(2))
@@ -352,24 +355,25 @@ namespace ModSortManager
                 if (hidden) continue;
                 Sorter.Mark(marks, sp.a, Sev.Info);
                 Sorter.Mark(marks, sp.b, Sev.Info);
-                Note(sp.a, Sev.Info, "MSM_NoteSame".Translate(Nicknames.Show(sp.b)));
-                Note(sp.b, Sev.Info, "MSM_NoteSame".Translate(Nicknames.Show(sp.a)));
+                Note(sp.a, Sev.Info, "MSM_NoteSame".Translate(Nicknames.Show(sp.b)), PK.Same);
+                Note(sp.b, Sev.Info, "MSM_NoteSame".Translate(Nicknames.Show(sp.a)), PK.Same);
             }
 
             // 0.1.8: errors in this session's log, by the mod that caused them
             foreach (LogBlame b in blames)
             {
                 if (!active.Contains(b.mod)) continue;
-                var iss = new Issue { group = 3, sev = Sev.Warn, title = "MSM_LogTitle".Translate(Nicknames.Show(b.mod), b.count) };
+                var iss = new Issue { group = 3, sev = Sev.Warn, kind = PK.Log, title = "MSM_LogTitle".Translate(Nicknames.Show(b.mod), b.count) };
                 iss.text = "MSM_LogText".Translate() + "\n“" + b.sample + "”";
                 LogBlame bb = b;
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_Show".Translate(Nicknames.Show(b.mod).Truncate(120f)), () => { selected = bb.mod; tab = 0; }));
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_Deactivate".Translate(), () => Deactivate(bb.mod)));
                 issues.Add(iss);
                 Sorter.Mark(marks, b.mod, Sev.Warn);
-                Note(b.mod, Sev.Warn, "MSM_NoteLog".Translate(b.count));
+                Note(b.mod, Sev.Warn, "MSM_NoteLog".Translate(b.count), PK.Log);
             }
 
+            ApplyHiddenKinds();
             nProbCache = active.Count(x => marks.ContainsKey(x));
             indexOf.Clear();
             for (int k = 0; k < active.Count; k++) indexOf[active[k]] = k;
@@ -385,11 +389,38 @@ namespace ModSortManager
             return string.CompareOrdinal(a, b) <= 0 ? a + "|" + b : b + "|" + a;
         }
 
-        private void Note(ModMetaData m, Sev s, string text)
+        private void Note(ModMetaData m, Sev s, string text, PK k)
         {
             List<KeyValuePair<Sev, string>> l;
             if (!notes.TryGetValue(m, out l)) notes[m] = l = new List<KeyValuePair<Sev, string>>();
             if (!l.Any(x => x.Value == text)) l.Add(new KeyValuePair<Sev, string>(s, text));
+            noteKind[text] = k;
+            if (!kindsOf.TryGetValue(m, out var ks)) kindsOf[m] = ks = new HashSet<PK>();
+            ks.Add(k);
+        }
+
+        // 0.7.2: which kinds of problems each mod has; the hidden kinds leave notes, marks and the problem list
+        private readonly Dictionary<string, PK> noteKind = new Dictionary<string, PK>();
+        private readonly Dictionary<ModMetaData, HashSet<PK>> kindsOf = new Dictionary<ModMetaData, HashSet<PK>>();
+        private readonly int[] kindCount = new int[8];
+        private readonly int[] kindCycle = new int[8];
+
+        private static bool KindHidden(PK k) => MSMMod.Settings.hiddenKinds.Contains(k.ToString());
+
+        private void ApplyHiddenKinds()
+        {
+            for (int i = 0; i < kindCount.Length; i++)
+                kindCount[i] = active.Count(m => kindsOf.TryGetValue(m, out var ks) && ks.Contains((PK)i));
+            if (MSMMod.Settings.hiddenKinds.Count == 0) return;
+            issues.RemoveAll(i => KindHidden(i.kind));
+            marks.Clear();
+            foreach (ModMetaData m in notes.Keys.ToList())
+            {
+                List<KeyValuePair<Sev, string>> l = notes[m];
+                l.RemoveAll(x => noteKind.TryGetValue(x.Value, out PK k) && KindHidden(k));
+                if (l.Count == 0) { notes.Remove(m); continue; }
+                marks[m] = l.Max(x => x.Key);
+            }
         }
 
         // ================= edits =================
@@ -828,10 +859,11 @@ namespace ModSortManager
             MUI.Fill(new Rect(r.x, r.center.y - 4f, 8f, 8f), c, 4f);
         }
 
-        private static string SearchField(Rect r, string value, string hint)
+        private static string SearchField(Rect r, string value, string hint, string name = null)
         {
             MUI.Fill(r, Field, 4f);
             MUI.Frame(r, MUI.Border, 1f, 4f);
+            if (name != null) GUI.SetNextControlName(name);
             string v = Widgets.TextField(r.ContractedBy(2f), value ?? "", 100);
             if (v.NullOrEmpty())
                 Label(new Rect(r.x + 8f, r.y, r.width - 16f, r.height), hint, new Color32(110, 118, 125, 255), GameFont.Small);
@@ -1212,16 +1244,24 @@ namespace ModSortManager
             }
             // 0.6.0: category filter next to the search
             float cfw = Mathf.Min(170f, l.width * 0.42f);
-            string nf = SearchField(new Rect(l.x, l.y + 24f, l.width - cfw - 6f, 30f), fInactive, "MSM_SearchHint".Translate());
-            if (nf != fInactive) fInactive = nf;
+            Rect sfI = new Rect(l.x, l.y + 24f, l.width - cfw - 6f, 30f);
+            string nf = SearchField(sfI, fInactive, "MSM_SearchHint".Translate(), "msm_si");
+            if (nf != fInactive)
+            {
+                if (nf.NullOrEmpty() && !fInactive.NullOrEmpty()) keepInView = selected;   // 0.7.2
+                fInactive = nf;
+            }
             CatFilterButton(new Rect(l.xMax - cfw, l.y + 24f, cfw, 30f));
             int catStamp = catMain == null ? 0 : ModCats.Version;
             if (cVer != ver || cInactF != fInactive || cActF != fActive || cProb != onlyProblems || cCatStamp != catStamp || cFolderStamp != ModFolders.Version)
             {
                 cCatStamp = catStamp;
-                cInact = Filter(CatFilterInactive(inactiveCache), fInactive);
+                cInact = Highlight ? CatFilterInactive(inactiveCache) : Filter(CatFilterInactive(inactiveCache), fInactive);
                 BuildFolderView(cInact, !fInactive.NullOrEmpty() || catMain != null);   // 0.8.0
-                cAct = Filter(active, fActive);
+                cAct = Highlight ? active.ToList() : Filter(active, fActive);
+                // 0.7.2: highlight mode – everything stays, the matching mods light up
+                hlInact = Highlight && !fInactive.NullOrEmpty() ? new HashSet<ModMetaData>(Filter(cInact, fInactive)) : null;
+                hlAct = Highlight && !fActive.NullOrEmpty() ? new HashSet<ModMetaData>(Filter(active, fActive)) : null;
                 if (onlyProblems) cAct = cAct.Where(x => marks.ContainsKey(x)).ToList();
                 cProb = onlyProblems;
                 cInactF = fInactive;
@@ -1229,6 +1269,9 @@ namespace ModSortManager
                 cVer = ver;
             }
             List<ModMetaData> inact = vInact ?? cInact;
+            SearchKeys();   // 0.7.2
+            if (keepInView != null) { ScrollTo(keepInView); keepInView = null; }
+            if (hlInact != null) MatchCounter(sfI, inact, hlInact);
             KeyNav();   // 0.2.2
             hInactive = l.height - 62f;
             hActive = mid.ContractedBy(Pad, 10f).height - 62f;
@@ -1237,12 +1280,31 @@ namespace ModSortManager
             // active
             Rect m = mid.ContractedBy(Pad, 10f);
             Label(new Rect(m.x, m.y, m.width, 22f), "MSM_Active".Translate(active.Count), MUI.Muted, GameFont.Tiny);
+            KindChips(new Rect(m.x, m.y, m.width, 22f));   // 0.7.2
             // 0.1.2: only mods with a problem
             int nProb = nProbCache;
             string pl = "MSM_OnlyProblems".Translate(nProb);
             float pw = Mathf.Min(m.width * 0.45f, Text.CalcSize(pl).x + 24f);
-            string af = SearchField(new Rect(m.x, m.y + 24f, m.width - pw - 6f, 30f), fActive, "MSM_SearchActiveHint".Translate());
-            if (af != fActive) { fActive = af; dragFrom = -1; dragging = false; }
+            float mw = 62f;   // 0.7.2: filter / highlight switch
+            Rect sfA = new Rect(m.x, m.y + 24f, m.width - pw - mw - 12f, 30f);
+            string af = SearchField(sfA, fActive, "MSM_SearchActiveHint".Translate(), "msm_sa");
+            if (af != fActive)
+            {
+                if (af.NullOrEmpty() && !fActive.NullOrEmpty()) keepInView = selected;   // 0.7.2: stay on the chosen mod
+                fActive = af;
+                dragFrom = -1;
+                dragging = false;
+            }
+            Rect modeR = new Rect(sfA.xMax + 6f, m.y + 24f, mw, 30f);
+            if (Button(modeR, (Highlight ? "MSM_SearchModeH" : "MSM_SearchModeF").Translate(), Highlight, true))
+            {
+                MSMMod.Settings.searchHighlight = !MSMMod.Settings.searchHighlight;
+                MSMMod.Settings.Write();
+                cVer = -1;
+                keepInView = selected;
+            }
+            TooltipHandler.TipRegion(modeR, "MSM_SearchModeTip".Translate());
+            if (hlAct != null) MatchCounter(sfA, active, hlAct);
             if (Button(new Rect(m.xMax - pw, m.y + 24f, pw, 30f), pl.Truncate(pw - 8f), onlyProblems, nProb > 0 || onlyProblems))
             {
                 onlyProblems = !onlyProblems;
@@ -1286,7 +1348,9 @@ namespace ModSortManager
                     continue;
                 }
                 bool sel = mod == selected || multi.Contains(mod);   // 0.3.1
-                if (sel) { MUI.Fill(row, MUI.OnBg); MUI.Frame(row, mod == selected ? MUI.Accent : MUI.Border); }
+                bool hit = (isActive ? hlAct : hlInact)?.Contains(mod) == true;   // 0.7.2
+                if (sel) { MUI.Fill(row, hit ? HitSel : MUI.OnBg); MUI.Frame(row, mod == selected ? MUI.Accent : MUI.Border); }
+                else if (hit) MUI.Fill(row, HitBg);
                 else if (Mouse.IsOver(row)) MUI.Fill(row, Hover);
                 else if (i % 2 == 0) MUI.Fill(row, Row1);
                 float x = 6f;
@@ -1504,6 +1568,128 @@ namespace ModSortManager
                 collapseOnUp = false;
                 xMod = null;
                 xDragging = false;
+            }
+        }
+
+        // ================= 0.7.2: highlight search, jump to a mod, problem kinds =================
+        private static readonly Color HitBg = new Color32(70, 62, 24, 255);
+        private static readonly Color HitSel = new Color32(92, 82, 30, 255);
+        private HashSet<ModMetaData> hlAct, hlInact;
+        private ModMetaData keepInView;
+
+        // scroll the list that holds this mod so the mod is in the middle
+        private void ScrollTo(ModMetaData m)
+        {
+            List<ModMetaData> list = ListOf(m);
+            if (list == null) return;
+            int i = list.IndexOf(m);
+            if (i < 0) return;
+            bool inActive = active.Contains(m);
+            float h = inActive ? hActive : hInactive;
+            float y = Mathf.Max(0f, i * RowH - h / 2f + RowH / 2f);
+            if (inActive) sActive.y = y; else sInactive.y = y;
+        }
+
+        // "3/7" at the right end of a search field
+        private void MatchCounter(Rect field, List<ModMetaData> list, HashSet<ModMetaData> hits)
+        {
+            int n = hits.Count, at = 0;
+            if (selected != null && hits.Contains(selected))
+            {
+                int k = 0;
+                foreach (ModMetaData x in list)
+                {
+                    if (x == null || !hits.Contains(x)) continue;
+                    k++;
+                    if (x == selected) { at = k; break; }
+                }
+            }
+            string t = n == 0 ? "0" : (at > 0 ? at + "/" + n : "–/" + n);
+            Label(new Rect(field.xMax - 64f, field.y, 58f, field.height), t, n == 0 ? MUI.Warn : MUI.Accent, GameFont.Tiny, TextAnchor.MiddleRight, false);
+        }
+
+        // Enter / ↓ = next match, Shift+Enter / ↑ = previous, while typing in a search field
+        private void SearchKeys()
+        {
+            Event ev = Event.current;
+            if (ev == null || ev.type != EventType.KeyDown) return;
+            string focus = GUI.GetNameOfFocusedControl();
+            bool inA = focus == "msm_sa", inI = focus == "msm_si";
+            if (!inA && !inI) return;
+            KeyCode k = ev.keyCode;
+            bool next = k == KeyCode.Return || k == KeyCode.KeypadEnter || k == KeyCode.DownArrow;
+            bool prev = k == KeyCode.UpArrow || (ev.shift && (k == KeyCode.Return || k == KeyCode.KeypadEnter));
+            if (!next && !prev) return;
+            List<ModMetaData> list = inA ? (ActiveFiltered ? cAct : active) : (vInact ?? cInact);
+            HashSet<ModMetaData> hits = inA ? hlAct : hlInact;
+            List<ModMetaData> pool = list.Where(x => x != null && (hits == null || hits.Contains(x))).ToList();
+            if (pool.Count == 0) { ev.Use(); return; }
+            int cur = selected != null ? pool.IndexOf(selected) : -1;
+            int to = prev ? (cur <= 0 ? pool.Count - 1 : cur - 1) : (cur + 1) % pool.Count;
+            selected = pool[to];
+            multi.Clear();
+            ScrollTo(selected);
+            SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+            ev.Use();
+        }
+
+        // chips with the kinds of problems: click = next mod with it, right click = hide / show that kind
+        private void KindChips(Rect r)
+        {
+            float x = r.xMax;
+            Event ev = Event.current;
+            for (int i = kindCount.Length - 1; i >= 0; i--)
+            {
+                PK k = (PK)i;
+                bool hidden = KindHidden(k);
+                if (kindCount[i] == 0 && !hidden) continue;
+                string label = ("MSM_K_" + k).Translate() + " " + kindCount[i];
+                Text.Font = GameFont.Tiny;
+                float w = Text.CalcSize(label).x + 12f;
+                Text.Font = GameFont.Small;
+                Rect c = new Rect(x - w, r.y + 1f, w, r.height - 2f);
+                if (c.x < r.x + 110f) break;
+                x = c.x - 4f;
+                Color col = hidden ? MUI.Muted : KindColor(k);
+                MUI.Fill(c, Mouse.IsOver(c) ? Hover : Field, 4f);
+                MUI.Frame(c, hidden ? MUI.Border : col, 1f, 4f);
+                Label(c, label, col, GameFont.Tiny, TextAnchor.MiddleCenter, false);
+                if (hidden) MUI.Fill(new Rect(c.x + 4f, c.center.y, c.width - 8f, 1f), MUI.Muted);
+                TooltipHandler.TipRegion(c, (hidden ? "MSM_KindHiddenTip" : "MSM_KindTip").Translate(("MSM_KL_" + k).Translate(), kindCount[i]));
+                if (ev.type == EventType.MouseDown && Mouse.IsOver(c))
+                {
+                    if (ev.button == 1)
+                    {
+                        if (hidden) MSMMod.Settings.hiddenKinds.Remove(k.ToString()); else MSMMod.Settings.hiddenKinds.Add(k.ToString());
+                        MSMMod.Settings.Write();
+                        dirty = true;
+                    }
+                    else if (ev.button == 0 && !hidden)
+                    {
+                        List<ModMetaData> with = active.Where(m => kindsOf.TryGetValue(m, out var ks) && ks.Contains(k)).ToList();
+                        if (with.Count > 0)
+                        {
+                            int at = selected != null ? with.IndexOf(selected) : -1;
+                            selected = with[(at + 1) % with.Count];
+                            multi.Clear();
+                            tab = 0;
+                            if (ActiveFiltered && !cAct.Contains(selected)) { fActive = ""; onlyProblems = false; cVer = -1; keepInView = selected; }
+                            else ScrollTo(selected);
+                        }
+                    }
+                    SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+                    ev.Use();
+                }
+            }
+        }
+
+        private static Color KindColor(PK k)
+        {
+            switch (k)
+            {
+                case PK.Dep: case PK.Inc: case PK.Dup: return new Color32(224, 102, 102, 255);
+                case PK.Same: return new Color32(140, 170, 200, 255);
+                default: return MUI.Warn;
             }
         }
 

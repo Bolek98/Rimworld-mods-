@@ -39,7 +39,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Clear Pickers – Choice Windows Overhaul | 1.0.0 | [MisakPickers](MisakPickers) |
 | [B98] Clear Tabs – All-in-One UI Overhaul | 1.0.0 | [MisakTabs](MisakTabs) |
 | [B98] Clear Trade – Trade Window Overhaul | 1.0.0 | [MisakTrade](MisakTrade) |
-| [B98] Mod Sort Manager – Load Order, Conflicts & Profiles | 0.7.1 | [ModSortManager](ModSortManager) |
+| [B98] Mod Sort Manager – Load Order, Conflicts & Profiles | 0.7.2 | [ModSortManager](ModSortManager) |
 | [B98] Pens For All Animals | 0.1.0 | [PensForAll](PensForAll) |
 | [B98] Place for Everything – Smart Storage for Homeless Items | 0.2.0 | [PlaceForEverything](PlaceForEverything) |
 | [B98] Power & Water Works | 0.1.1 | [PowerWaterWorks](PowerWaterWorks) |

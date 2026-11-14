@@ -459,4 +459,25 @@ Mod Sort Manager가 의심 모드 {0}개 중 절반을 비활성화하고 게임
   <MSM_NoteAfter>{0} 다음에 로드해야 함</MSM_NoteAfter>
   <MSM_NoteBefore>{0} 앞에 로드해야 함</MSM_NoteBefore>
   <MSM_OrderHow>이 규칙은 모드 자체의 About.xml(loadAfter / loadBefore)에서 옵니다. 모드를 올바른 위치로 끌어 놓거나 스마트 정렬을 누르면 한 번에 모두 고쳐집니다.</MSM_OrderHow>
+  <MSM_K_Dup>중복</MSM_K_Dup>
+  <MSM_KL_Dup>중복</MSM_KL_Dup>
+  <MSM_K_Dep>의존성</MSM_K_Dep>
+  <MSM_KL_Dep>누락된 의존성</MSM_KL_Dep>
+  <MSM_K_Inc>비호환</MSM_K_Inc>
+  <MSM_KL_Inc>비호환 모드</MSM_KL_Inc>
+  <MSM_K_Rival>경쟁</MSM_K_Rival>
+  <MSM_KL_Rival>같은 역할의 모드</MSM_KL_Rival>
+  <MSM_K_Order>순서</MSM_K_Order>
+  <MSM_KL_Order>잘못된 로드 순서</MSM_KL_Order>
+  <MSM_K_Old>버전</MSM_K_Old>
+  <MSM_KL_Old>이전 버전용</MSM_KL_Old>
+  <MSM_K_Same>동일</MSM_K_Same>
+  <MSM_KL_Same>같은 코드를 바꾸는 모드</MSM_KL_Same>
+  <MSM_K_Log>로그</MSM_K_Log>
+  <MSM_KL_Log>로그의 오류</MSM_KL_Log>
+  <MSM_SearchModeF>필터</MSM_SearchModeF>
+  <MSM_SearchModeH>강조</MSM_SearchModeH>
+  <MSM_SearchModeTip>필터: 검색과 일치하는 모드만 보여줍니다. 강조: 모든 모드가 남고 일치하는 모드가 강조됩니다. Enter 또는 ↓는 다음, Shift+Enter 또는 ↑는 이전으로 이동합니다.</MSM_SearchModeTip>
+  <MSM_KindTip>{0}: 모드 {1}개. 클릭: 다음으로 이동. 오른쪽 클릭: 이 종류의 문제 숨기기.</MSM_KindTip>
+  <MSM_KindHiddenTip>{0} 숨김 상태입니다(메모, 표시, 문제 목록). 오른쪽 클릭: 다시 표시.</MSM_KindHiddenTip>
 </LanguageData>

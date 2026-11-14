@@ -459,4 +459,25 @@ Mod Sort Manager は {0} 個の疑わしいModの半分を無効化し、ゲー�
   <MSM_NoteAfter>{0} の後に読み込む必要あり</MSM_NoteAfter>
   <MSM_NoteBefore>{0} の前に読み込む必要あり</MSM_NoteBefore>
   <MSM_OrderHow>これらのルールは各MODの About.xml（loadAfter / loadBefore）に書かれています。MODを正しい位置へドラッグするか、スマートソートを押せばまとめて直ります。</MSM_OrderHow>
+  <MSM_K_Dup>重複</MSM_K_Dup>
+  <MSM_KL_Dup>重複</MSM_KL_Dup>
+  <MSM_K_Dep>前提</MSM_K_Dep>
+  <MSM_KL_Dep>不足している前提MOD</MSM_KL_Dep>
+  <MSM_K_Inc>非互換</MSM_K_Inc>
+  <MSM_KL_Inc>非互換のMOD</MSM_KL_Inc>
+  <MSM_K_Rival>競合</MSM_K_Rival>
+  <MSM_KL_Rival>同じ役割のMOD</MSM_KL_Rival>
+  <MSM_K_Order>順序</MSM_K_Order>
+  <MSM_KL_Order>読み込み順の誤り</MSM_KL_Order>
+  <MSM_K_Old>バージョン</MSM_K_Old>
+  <MSM_KL_Old>古いバージョン向け</MSM_KL_Old>
+  <MSM_K_Same>同一</MSM_K_Same>
+  <MSM_KL_Same>同じコードを変更するMOD</MSM_KL_Same>
+  <MSM_K_Log>ログ</MSM_K_Log>
+  <MSM_KL_Log>ログのエラー</MSM_KL_Log>
+  <MSM_SearchModeF>絞り込み</MSM_SearchModeF>
+  <MSM_SearchModeH>ハイライト</MSM_SearchModeH>
+  <MSM_SearchModeTip>絞り込み：検索に一致するMODだけを表示。ハイライト：すべてのMODを残し、一致するものを強調。Enter か ↓ で次へ、Shift+Enter か ↑ で前へ。</MSM_SearchModeTip>
+  <MSM_KindTip>{0}：{1} 件。クリック：次へジャンプ。右クリック：この種類の問題を隠す。</MSM_KindTip>
+  <MSM_KindHiddenTip>{0} は非表示です（メモ、マーク、問題リスト）。右クリック：再表示。</MSM_KindHiddenTip>
 </LanguageData>

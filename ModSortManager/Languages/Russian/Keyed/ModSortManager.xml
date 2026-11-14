@@ -459,4 +459,25 @@ Mod Sort Manager выключит половину подозреваемых м
   <MSM_NoteAfter>должен загружаться после {0}</MSM_NoteAfter>
   <MSM_NoteBefore>должен загружаться до {0}</MSM_NoteBefore>
   <MSM_OrderHow>Эти правила задают сами моды в своём About.xml (loadAfter / loadBefore). Перетащите мод на нужное место или нажмите «Умная сортировка» – она исправит всё сразу.</MSM_OrderHow>
+  <MSM_K_Dup>Дубли</MSM_K_Dup>
+  <MSM_KL_Dup>дубликаты</MSM_KL_Dup>
+  <MSM_K_Dep>Зависим.</MSM_K_Dep>
+  <MSM_KL_Dep>отсутствующие зависимости</MSM_KL_Dep>
+  <MSM_K_Inc>Несовм.</MSM_K_Inc>
+  <MSM_KL_Inc>несовместимые моды</MSM_KL_Inc>
+  <MSM_K_Rival>Соперник</MSM_K_Rival>
+  <MSM_KL_Rival>моды с одной задачей</MSM_KL_Rival>
+  <MSM_K_Order>Порядок</MSM_K_Order>
+  <MSM_KL_Order>неверный порядок загрузки</MSM_KL_Order>
+  <MSM_K_Old>Версия</MSM_K_Old>
+  <MSM_KL_Old>сделаны для старой версии</MSM_KL_Old>
+  <MSM_K_Same>То же</MSM_K_Same>
+  <MSM_KL_Same>моды, меняющие один код</MSM_KL_Same>
+  <MSM_K_Log>Лог</MSM_K_Log>
+  <MSM_KL_Log>ошибки в логе</MSM_KL_Log>
+  <MSM_SearchModeF>Фильтр</MSM_SearchModeF>
+  <MSM_SearchModeH>Подсветка</MSM_SearchModeH>
+  <MSM_SearchModeTip>Фильтр: поиск показывает только подходящие моды. Подсветка: все моды остаются, подходящие подсвечиваются. Enter или ↓ — к следующему, Shift+Enter или ↑ — к предыдущему.</MSM_SearchModeTip>
+  <MSM_KindTip>{0}: модов — {1}. Клик: к следующему. Правый клик: скрыть этот вид проблем.</MSM_KindTip>
+  <MSM_KindHiddenTip>{0} скрыты (пометки, метки и список проблем). Правый клик: показать снова.</MSM_KindHiddenTip>
 </LanguageData>

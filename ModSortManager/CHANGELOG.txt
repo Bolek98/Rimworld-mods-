@@ -1,4 +1,10 @@
 === Not on the Workshop yet (test versions) ===
+0.7.2
+- Search can highlight instead of hide (Filter / Highlight button): Enter or arrows jump between matches, the counter shows 3/7; clearing the search keeps the chosen mod in view.
+- Problem chips above the active list (duplicates, dependencies, order, version …): click jumps to the next mod with that problem, right click hides that kind everywhere.
+- CZ: Hledání umí zvýrazňovat místo schovávání (tlačítko Filtr / Zvýraznit): Enter nebo šipky skáčou mezi shodami, počítadlo ukazuje 3/7; po smazání hledání zůstane vybraný mod na očích.
+- CZ: Štítky problémů nad aktivními mody (duplicity, závislosti, pořadí, verze …): klik skočí na další mod s tím problémem, pravý klik ten druh všude skryje.
+
 0.7.1
 - Wrong load order: every mod involved now says on its row which mod it must load before or after, and the warning lists all broken rules with a short how-to-fix.
 - CZ: Špatné pořadí: každý dotčený mod teď ve svém řádku řekne, před který nebo za který mod patří, a varování vypíše všechna porušená pravidla s krátkou radou, jak to opravit.

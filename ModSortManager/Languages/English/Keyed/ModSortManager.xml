@@ -459,4 +459,25 @@ Start?</MSM_BisectConfirm>
   <MSM_NoteAfter>must load after {0}</MSM_NoteAfter>
   <MSM_NoteBefore>must load before {0}</MSM_NoteBefore>
   <MSM_OrderHow>These rules come from the mods' own About.xml (loadAfter / loadBefore). Drag the mod to the right place or press Smart sort – it fixes all of them at once.</MSM_OrderHow>
+  <MSM_K_Dup>Dup</MSM_K_Dup>
+  <MSM_KL_Dup>duplicates</MSM_KL_Dup>
+  <MSM_K_Dep>Deps</MSM_K_Dep>
+  <MSM_KL_Dep>missing dependencies</MSM_KL_Dep>
+  <MSM_K_Inc>Incomp.</MSM_K_Inc>
+  <MSM_KL_Inc>incompatible mods</MSM_KL_Inc>
+  <MSM_K_Rival>Rival</MSM_K_Rival>
+  <MSM_KL_Rival>mods doing the same job</MSM_KL_Rival>
+  <MSM_K_Order>Order</MSM_K_Order>
+  <MSM_KL_Order>wrong load order</MSM_KL_Order>
+  <MSM_K_Old>Version</MSM_K_Old>
+  <MSM_KL_Old>made for an older version</MSM_KL_Old>
+  <MSM_K_Same>Same</MSM_K_Same>
+  <MSM_KL_Same>mods changing the same code</MSM_KL_Same>
+  <MSM_K_Log>Log</MSM_K_Log>
+  <MSM_KL_Log>errors in the log</MSM_KL_Log>
+  <MSM_SearchModeF>Filter</MSM_SearchModeF>
+  <MSM_SearchModeH>Highlight</MSM_SearchModeH>
+  <MSM_SearchModeTip>Filter: the search shows only matching mods. Highlight: all mods stay, the matching ones light up. Enter or ↓ jumps to the next match, Shift+Enter or ↑ to the previous one.</MSM_SearchModeTip>
+  <MSM_KindTip>{0}: {1} mods. Click: jump to the next one. Right click: hide this kind of problem.</MSM_KindTip>
+  <MSM_KindHiddenTip>{0} are hidden (notes, marks and the problem list). Right click: show them again.</MSM_KindHiddenTip>
 </LanguageData>

@@ -459,4 +459,25 @@ Mod Sort Manager 会停用 {0} 个可疑模组中的一半并重启游戏。每�
   <MSM_NoteAfter>必须在 {0} 之后加载</MSM_NoteAfter>
   <MSM_NoteBefore>必须在 {0} 之前加载</MSM_NoteBefore>
   <MSM_OrderHow>这些规则来自模组自己的 About.xml（loadAfter / loadBefore）。把模组拖到正确位置，或点击“智能排序”一次修好全部。</MSM_OrderHow>
+  <MSM_K_Dup>重复</MSM_K_Dup>
+  <MSM_KL_Dup>重复模组</MSM_KL_Dup>
+  <MSM_K_Dep>依赖</MSM_K_Dep>
+  <MSM_KL_Dep>缺少依赖</MSM_KL_Dep>
+  <MSM_K_Inc>不兼容</MSM_K_Inc>
+  <MSM_KL_Inc>不兼容的模组</MSM_KL_Inc>
+  <MSM_K_Rival>冲突</MSM_K_Rival>
+  <MSM_KL_Rival>功能相同的模组</MSM_KL_Rival>
+  <MSM_K_Order>顺序</MSM_K_Order>
+  <MSM_KL_Order>加载顺序错误</MSM_KL_Order>
+  <MSM_K_Old>版本</MSM_K_Old>
+  <MSM_KL_Old>适用于旧版本</MSM_KL_Old>
+  <MSM_K_Same>相同</MSM_K_Same>
+  <MSM_KL_Same>修改同一代码的模组</MSM_KL_Same>
+  <MSM_K_Log>日志</MSM_K_Log>
+  <MSM_KL_Log>日志中的错误</MSM_KL_Log>
+  <MSM_SearchModeF>筛选</MSM_SearchModeF>
+  <MSM_SearchModeH>高亮</MSM_SearchModeH>
+  <MSM_SearchModeTip>筛选：搜索只显示匹配的模组。高亮：所有模组保留，匹配的会高亮。回车或 ↓ 跳到下一个，Shift+回车或 ↑ 跳到上一个。</MSM_SearchModeTip>
+  <MSM_KindTip>{0}：{1} 个模组。点击：跳到下一个。右键：隐藏此类问题。</MSM_KindTip>
+  <MSM_KindHiddenTip>{0} 已隐藏（备注、标记和问题列表）。右键：重新显示。</MSM_KindHiddenTip>
 </LanguageData>
