@@ -26,6 +26,8 @@ public static class Brain
 		if (!ours) d.ourJob = null;
 		int now = Find.TickManager.TicksGame;
 		if (!d.anchor.IsValid) d.anchor = p.Position;
+		// 0.3.0: fire, toxic gas, a grenade landing next to us – out of the way first
+		if (Hazards.TryDodge(p, d, f, f.incoming)) return;
 
 		// attack stance (and pawns drafted by the alarm or Steward) go after enemies that are close to them
 		// or close to the base (0.2.1: not across the whole map); the others react to what is within sight range
@@ -102,7 +104,8 @@ public static class Brain
 		}
 
 		// ranged: shoot from here if it is a good place
-		bool coverHere = CoverUtility.CalculateOverallBlockChance(p, best.Position, p.Map) > 0.2f;
+		// 0.3.0: cover against everybody who can shoot here, and not where we just got hit
+		bool coverHere = Spots.CoverAgainst(p.Map, p.Position, near, out _) > 0.2f && !Heat.Hot(p.Map, p.Position);
 		Thing shootNow = null;
 		float bestScore = Score(p, best, f);
 		foreach (Thing t in ranked)
@@ -141,7 +144,9 @@ public static class Brain
 			maxRegions = seek ? 250 : 60,
 		};
 		if (s.avoidFriendlyFire)
-			req.validator = c => !FriendlyRisk(p, c, best, f);
+			req.validator = c => !FriendlyRisk(p, c, best, f) && !Spots.BadSpot(p, c, f);
+		else
+			req.validator = c => !Spots.BadSpot(p, c, f);
 		if (CastPositionFinder.TryFindCastPosition(req, out IntVec3 dest) && dest != p.Position)
 		{
 			Job g = JobMaker.MakeJob(JobDefOf.Goto, dest);
@@ -155,7 +160,7 @@ public static class Brain
 		// 0.2.0: defend – nothing in range from here: at least take the best cover near the place to hold
 		if (!seek)
 		{
-			Tactics.TryHoldCover(p, d, best, leash);
+			Tactics.TryHoldCover(p, d, best, leash, near, f);
 			return;
 		}
 		// 0.1.1: no covered spot found – an attacking pawn still closes in on the enemy
@@ -264,6 +269,15 @@ public static class Brain
 	{
 		IntVec3 to = t.Position;
 		float lenSq = (to - from).LengthHorizontalSquared;
+		// 0.3.0: grenades, rockets: nobody of ours near the blast
+		float blast = shooter.CurrentEffectiveVerb?.verbProps?.defaultProjectile?.projectile?.explosionRadius ?? 0f;
+		if (blast > 0.5f)
+			for (int i = 0; i < f.friends.Count; i++)
+			{
+				Pawn o = f.friends[i];
+				if (o == shooter || !o.Spawned || o.Map != f.map) continue;
+				if ((o.Position - to).LengthHorizontal <= blast + 1.5f) return true;
+			}
 		if (lenSq < 4f) return false;
 		for (int i = 0; i < f.friends.Count; i++)
 		{
@@ -328,6 +342,7 @@ public static class Brain
 			float r = Mathf.Min(minD, 40f);
 			if (!SeenByAny(c, map, enemies)) r += 30f;
 			r -= (c - from).LengthHorizontal * 0.4f;
+			r -= Heat.Get(map, c) * 15f;
 			return r;
 		}
 		float here = Rate(from);
@@ -339,6 +354,7 @@ public static class Brain
 			IntVec3 c = from + GenRadial.RadialPattern[i];
 			if (!c.InBounds(map) || !c.Standable(map) || c.Fogged(map)) continue;
 			if (c.GetDangerFor(p, map) == Danger.Deadly) continue;
+			if (Hazards.Burning(map, c) || Hazards.Gas(map, c)) continue;
 			if (!map.pawnDestinationReservationManager.CanReserve(c, p, true)) continue;
 			float r = Rate(c);
 			if (r <= bestR) continue;

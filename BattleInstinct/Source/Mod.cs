@@ -15,6 +15,7 @@ public class BISettings : ModSettings
 	public int defaultStance = 0;   // 0.2.0: attack by default
 	public float engageRange = 35f;   // 0.2.1
 	public bool autoAlarm = true, kite = true, screen = true, rescue = true, cohesion = true;
+	public bool dodge = true, spread = true;   // 0.3.0
 	public bool mechs = true;
 	public int interval = 30;
 	public bool focusFire = true;
@@ -41,6 +42,8 @@ public class BISettings : ModSettings
 		Scribe_Values.Look(ref autoAlarm, "autoAlarm", true);
 		Scribe_Values.Look(ref engageRange, "engageRange", 35f);
 		Scribe_Values.Look(ref kite, "kite", true);
+		Scribe_Values.Look(ref dodge, "dodge", true);
+		Scribe_Values.Look(ref spread, "spread", true);
 		Scribe_Values.Look(ref screen, "screen", true);
 		Scribe_Values.Look(ref rescue, "rescue", true);
 		Scribe_Values.Look(ref cohesion, "cohesion", true);
@@ -68,7 +71,7 @@ public class BISettings : ModSettings
 public class BattleInstinctMod : Mod
 {
 	public static BISettings Settings;
-	public const string Version = "0.2.1";
+	public const string Version = "0.3.0";
 	private static List<string> recBullets;
 	private Vector2 scroll;
 	private static string search = "";
@@ -149,6 +152,8 @@ public class BattleInstinctMod : Mod
 			Check(l, "BI_ShowText", ref s.showText, "showText");
 			Check(l, "BI_AutoAlarm", ref s.autoAlarm, "autoAlarm");
 			Check(l, "BI_Kite", ref s.kite, "kite");
+			Check(l, "BI_Dodge", ref s.dodge, "dodge");
+			Check(l, "BI_Spread", ref s.spread, "spread");
 			Check(l, "BI_Screen", ref s.screen, "screen");
 			Check(l, "BI_Rescue", ref s.rescue, "rescue");
 			Check(l, "BI_Cohesion", ref s.cohesion, "cohesion");

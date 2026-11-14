@@ -239,11 +239,12 @@ public static class Tactics
 	}
 
 	// defend: nothing in range – take the best covered spot near the place to hold, facing the enemy
-	public static bool TryHoldCover(Pawn p, PawnData d, Thing enemy, float leash)
+	public static bool TryHoldCover(Pawn p, PawnData d, Thing enemy, float leash, List<Thing> near, Battlefield f)
 	{
 		if (!BattleInstinctMod.Settings.useCover) return false;
 		Map map = p.Map;
-		float Rate(IntVec3 c) => CoverUtility.CalculateOverallBlockChance(c, enemy.Position, map) * 40f - (c - enemy.Position).LengthHorizontal * 0.3f;
+		// 0.3.0: cover against everybody who can shoot there, not just one enemy; away from hot cells
+		float Rate(IntVec3 c) => Spots.CoverAgainst(map, c, near, out int ex) * 40f - ex * 6f - Heat.Get(map, c) * 15f - (c - enemy.Position).LengthHorizontal * 0.3f;
 		float here = Rate(p.Position);
 		IntVec3 bestC = IntVec3.Invalid;
 		float bestR = here + 5f;
@@ -252,6 +253,7 @@ public static class Tactics
 		{
 			IntVec3 c = d.anchor + GenRadial.RadialPattern[i];
 			if (!c.InBounds(map) || !c.Standable(map) || c.Fogged(map)) continue;
+			if (Spots.BadSpot(p, c, f)) continue;
 			float r = Rate(c);
 			if (r <= bestR) continue;
 			if (!map.pawnDestinationReservationManager.CanReserve(c, p, true)) continue;

@@ -1,4 +1,8 @@
 === Not on the Workshop yet (test versions) ===
+0.3.0
+- Smarter positions (ideas from Gota's Drafted AI): cover is judged against every enemy that can shoot at the spot, not just one; spots where our people just got hit stay 'hot' for a while and are avoided; colonists keep a step apart so one grenade can't hit them all; they dodge grenades, rockets and shells about to land nearby and get out of fire and toxic gas; no grenades or rockets thrown when one of ours is near the blast. New settings: Dodge grenades, fire and gas; Keep spacing (both on).
+- CZ: Chytřejší pozice (nápady z Gotova Drafted AI): kryt se posuzuje proti každému nepříteli, který na místo dostřelí, ne jen proti jednomu; místa, kde naši právě dostali zásah, jsou chvíli „horká“ a kolonisté se jim vyhnou; drží rozestupy, aby jeden granát nezasáhl všechny; uhýbají granátům, raketám a střelám, které dopadnou poblíž, a utíkají z ohně a jedovatého plynu; granát ani raketu nepoužijí, když je někdo z našich blízko výbuchu. Nová nastavení: Uhýbat granátům, ohni a plynu; Držet rozestupy (obě zapnutá).
+
 0.2.1
 - Less reckless: attackers and the alarm only go after enemies near them or near the base (new slider, 35 cells), not across the whole map.
 - CZ: Méně zbrkle: útočníci i poplach jdou jen po nepřátelích blízko nich nebo blízko základny (nový posuvník, 35 polí), ne přes celou mapu.

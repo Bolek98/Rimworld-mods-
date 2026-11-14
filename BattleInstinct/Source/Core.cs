@@ -62,7 +62,7 @@ public class BIComp : GameComponent
 	private static BIComp cached;
 	private static Game cachedGame;
 
-	public BIComp(Game game) { Alarm.Reset(); }
+	public BIComp(Game game) { Alarm.Reset(); Heat.Clear(); }
 
 	public static BIComp Get()
 	{
@@ -129,6 +129,27 @@ public class BIComp : GameComponent
 					if (!errorLogged) { errorLogged = true; Log.Error("[Battle Instinct] alarm: " + e); }
 				}
 			}
+			// 0.3.0: grenades and shells fly fast – a quick look every 10 ticks, between the normal thinking
+			if (s.dodge && now % 10 == 3)
+			{
+				try
+				{
+					var inc = Hazards.Incoming(map);
+					if (inc.Count > 0)
+						foreach (Pawn p in map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
+						{
+							if (p.drafter == null || !p.Drafted || p.Downed || p.Dead || p.InMentalState) continue;
+							PawnData d = For(p);
+							if (d == null || !d.auto) continue;
+							if (!(p.CurJob != null && p.CurJob == d.ourJob) && !Brain.Idle(p)) continue;
+							Hazards.TryDodge(p, d, null, inc);
+						}
+				}
+				catch (Exception e)
+				{
+					if (!errorLogged) { errorLogged = true; Log.Error("[Battle Instinct] dodge: " + e); }
+				}
+			}
 			Battlefield field = null;
 			IReadOnlyList<Pawn> pawns = map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer);
 			for (int i = 0; i < pawns.Count; i++)
@@ -167,6 +188,7 @@ public class Battlefield
 	public readonly List<Thing> enemies = new List<Thing>();
 	public readonly List<Pawn> friends = new List<Pawn>();
 	public readonly Dictionary<Thing, int> focus = new Dictionary<Thing, int>();
+	public List<(IntVec3 at, float radius, Thing launcher)> incoming;
 
 	public Battlefield(Map map)
 	{
@@ -181,6 +203,8 @@ public class Battlefield
 			enemies.Add(th);
 		}
 		if (enemies.Count == 0) return;
+		if (BattleInstinctMod.Settings.dodge)
+			incoming = Hazards.Incoming(map);
 		foreach (Pawn p in map.mapPawns.AllPawnsSpawned)
 			if (!p.Dead && !p.HostileTo(Faction.OfPlayer) && (p.Faction == Faction.OfPlayer || p.IsPrisonerOfColony || p.Faction != null || p.RaceProps.Humanlike))
 				friends.Add(p);
