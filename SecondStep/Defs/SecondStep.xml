@@ -18,7 +18,64 @@
   <HediffDef>
     <defName>SS_OnCrutches</defName>
     <label>on crutches</label>
-    <description>Walks on crutches: faster than hopping on one leg, but one hand is always busy.</description>
+    <description>Walks on crutches: faster than limping, but one hand is busy while walking. At a bench the crutch leans aside and both hands are free.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7, 0.85, 1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>0.1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.25</offset>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.5</minSeverity>
+        <label>crutch leaned aside</label>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.25</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>SS_Limping</defName>
+    <label>limping</label>
+    <description>A leg is missing and nothing helps: hops and limps, much slower than usual. Crutches, a wheelchair or a prosthetic help.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.9, 0.75, 0.5)</defaultLabelColor>
+    <isBad>true</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>0.7</postFactor>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>SS_Pushed</defName>
+    <label>pushed in the wheelchair</label>
+    <description>Somebody pushes the wheelchair: faster than rolling alone.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <defaultLabelColor>(0.7, 0.85, 1)</defaultLabelColor>
     <isBad>false</isBad>
@@ -28,11 +85,7 @@
         <capMods>
           <li>
             <capacity>Moving</capacity>
-            <offset>0.25</offset>
-          </li>
-          <li>
-            <capacity>Manipulation</capacity>
-            <offset>-0.1</offset>
+            <offset>0.3</offset>
           </li>
         </capMods>
       </li>
@@ -112,8 +165,8 @@
   <ThingDef ParentName="ApparelBase">
     <defName>SS_Wheelchair</defName>
     <label>wheelchair</label>
-    <description>A sturdy wheelchair. Even a colonist without legs moves again, at a calm pace. A doctor can seat a colonist who can't walk.</description>
-    <thingClass>SecondStep.Apparel_MobilityAid</thingClass>
+    <description>A sturdy wheelchair. Even a colonist without legs moves again, at a calm pace – faster when somebody pushes. A doctor can seat a colonist who can't walk.</description>
+    <thingClass>SecondStep.Apparel_Wheelchair</thingClass>
     <graphicData>
       <texPath>SecondStep/Wheelchair</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -169,9 +222,19 @@
           <layer>-5</layer>
         </defaultData>
         <dataNorth>
-          <layer>60</layer>
+          <layer>45</layer>
         </dataNorth>
       </drawData>
+      <renderNodeProperties>
+        <li>
+          <debugLabel>Second Step wheelchair front</debugLabel>
+          <nodeClass>SecondStep.PawnRenderNode_ChairFront</nodeClass>
+          <workerClass>PawnRenderNodeWorker</workerClass>
+          <texPath>SecondStep/Worn/WheelchairFront</texPath>
+          <parentTagDef>Body</parentTagDef>
+          <baseLayer>45</baseLayer>
+        </li>
+      </renderNodeProperties>
     </apparel>
     <modExtensions>
       <li Class="SecondStep.AidExtension">

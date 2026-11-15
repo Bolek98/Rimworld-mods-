@@ -17,12 +17,76 @@ namespace SecondStep
 		public HediffDef hediff;
 	}
 
-	[StaticConstructorOnStartup]
-	public static class SecondStepMod
+	public class SecondStepSettings : ModSettings
 	{
-		public const string Version = "0.1.0";
+		// work types a colonist can't do with the aid (defNames)
+		public List<string> crutchBlocked = new List<string> { "Mining", "Construction", "Hunting", "Firefighter" };
+		public List<string> chairBlocked = new List<string> { "Mining", "Construction", "Hunting", "Firefighter", "Growing", "PlantCutting" };
 
-		static SecondStepMod()
+		public override void ExposeData()
+		{
+			Scribe_Collections.Look(ref crutchBlocked, "crutchBlocked", LookMode.Value);
+			Scribe_Collections.Look(ref chairBlocked, "chairBlocked", LookMode.Value);
+			if (crutchBlocked == null) crutchBlocked = new SecondStepSettings().crutchBlocked;
+			if (chairBlocked == null) chairBlocked = new SecondStepSettings().chairBlocked;
+		}
+	}
+
+	public class SecondStepMod : Mod
+	{
+		public const string Version = "0.2.0";
+		public static SecondStepSettings S;
+		private Vector2 scroll;
+
+		public SecondStepMod(ModContentPack content) : base(content)
+		{
+			S = GetSettings<SecondStepSettings>();
+		}
+
+		public override string SettingsCategory() => "Second Step";
+
+		public override void DoSettingsWindowContents(Rect rect)
+		{
+			Text.Font = GameFont.Small;
+			Widgets.Label(new Rect(rect.x, rect.y, rect.width, 48f), "SS_SetBlockedHelp".Translate());
+			var works = DefDatabase<WorkTypeDef>.AllDefsListForReading.Where(w => w.visible).OrderBy(w => w.naturalPriority * -1).ToList();
+			Rect head = new Rect(rect.x, rect.y + 52f, rect.width, 26f);
+			Widgets.Label(new Rect(head.x, head.y, 260f, 26f), "SS_SetWork".Translate());
+			Widgets.Label(new Rect(head.x + 270f, head.y, 120f, 26f), "SS_OptCrutches".Translate());
+			Widgets.Label(new Rect(head.x + 400f, head.y, 160f, 26f), "SS_OptWheelchair".Translate());
+			Rect outR = new Rect(rect.x, head.yMax + 4f, rect.width, rect.height - 90f);
+			Rect view = new Rect(0f, 0f, outR.width - 20f, works.Count * 28f);
+			bool changed = false;
+			Widgets.BeginScrollView(outR, ref scroll, view);
+			for (int i = 0; i < works.Count; i++)
+			{
+				WorkTypeDef w = works[i];
+				float y = i * 28f;
+				if (i % 2 == 0) Widgets.DrawLightHighlight(new Rect(0f, y, view.width, 28f));
+				Widgets.Label(new Rect(4f, y + 3f, 260f, 24f), w.labelShort.CapitalizeFirst());
+				changed |= Box(new Vector2(300f, y + 2f), S.crutchBlocked, w.defName);
+				changed |= Box(new Vector2(440f, y + 2f), S.chairBlocked, w.defName);
+			}
+			Widgets.EndScrollView();
+			if (changed && Current.Game != null)
+				foreach (Pawn p in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists)
+					p.Notify_DisabledWorkTypesChanged();
+		}
+
+		private static bool Box(Vector2 at, List<string> list, string name)
+		{
+			bool on = list.Contains(name), was = on;
+			Widgets.Checkbox(at, ref on, 24f, false, true);
+			if (on == was) return false;
+			if (on) list.Add(name); else list.Remove(name);
+			return true;
+		}
+	}
+
+	[StaticConstructorOnStartup]
+	public static class SecondStepInit
+	{
+		static SecondStepInit()
 		{
 			new Harmony("misak.secondstep").PatchAll();
 			// the "seat in a wheelchair" surgery for every humanlike race, not only Human
@@ -38,7 +102,7 @@ namespace SecondStep
 						cache?.SetValue(d, null);
 					}
 			}
-			Log.Message("[Second Step] v" + Version + " loaded.");
+			Log.Message("[Second Step] v" + SecondStepMod.Version + " loaded.");
 		}
 	}
 
@@ -77,6 +141,23 @@ namespace SecondStep
 				if (a.def.GetModExtension<AidExtension>() != null)
 					return a;
 			return null;
+		}
+
+		public static AidKind KindOf(Apparel a) => a?.def.GetModExtension<AidExtension>()?.kind ?? AidKind.None;
+
+		public static bool InChair(Pawn p) => KindOf(WornAid(p)) == AidKind.Wheelchair;
+
+		private static HediffDef limp;
+		public static HediffDef Limp => limp ?? (limp = DefDatabase<HediffDef>.GetNamedSilentFail("SS_Limping"));
+
+		// limping: a leg is missing, at least one is left and no aid helps
+		public static void RefreshLimp(Pawn p)
+		{
+			if (p?.health?.hediffSet == null || Limp == null || p.Dead) return;
+			bool want = MissingLeg(p) && HasAnyLeg(p) && WornAid(p) == null;
+			Hediff h = p.health.hediffSet.GetFirstHediffOfDef(Limp);
+			if (want && h == null) p.health.AddHediff(Limp);
+			else if (!want && h != null) p.health.RemoveHediff(h);
 		}
 
 		public static ThingDef AidDef(AidKind k) =>
@@ -132,6 +213,8 @@ namespace SecondStep
 					pawn.health.AddHediff(ext.hediff);
 				// the outfit policy must not take it away
 				pawn.outfits?.forcedHandler?.SetForced(this, true);
+				Legs.RefreshLimp(pawn);
+				pawn.Notify_DisabledWorkTypesChanged();
 			}
 			catch (Exception e) { Log.Warning("[Second Step] equip: " + e.Message); }
 		}
@@ -144,8 +227,60 @@ namespace SecondStep
 				AidExtension ext = def.GetModExtension<AidExtension>();
 				Hediff h = ext?.hediff == null ? null : pawn.health.hediffSet.GetFirstHediffOfDef(ext.hediff);
 				if (h != null) pawn.health.RemoveHediff(h);
+				Legs.RefreshLimp(pawn);
+				pawn.Notify_DisabledWorkTypesChanged();
+				AidGame.Get()?.StopPush(pawn);
 			}
 			catch (Exception e) { Log.Warning("[Second Step] unequip: " + e.Message); }
+		}
+	}
+
+	public class Apparel_Wheelchair : Apparel_MobilityAid
+	{
+		public override IEnumerable<Gizmo> GetWornGizmos()
+		{
+			foreach (Gizmo g in base.GetWornGizmos()) yield return g;
+			Pawn p = Wearer;
+			if (p == null || !p.IsColonistPlayerControlled) yield break;
+			AidGame game = AidGame.Get();
+			Pawn pusher = game?.PusherOf(p);
+			if (pusher == null)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "SS_Push".Translate(),
+					defaultDesc = "SS_PushDesc".Translate(),
+					icon = def.uiIcon,
+					action = () => Find.Targeter.BeginTargeting(new TargetingParameters
+					{
+						canTargetPawns = true,
+						canTargetBuildings = false,
+						validator = t => t.Thing is Pawn o && o != p && o.IsColonistPlayerControlled && !o.Downed && !Legs.InChair(o) && o.Map == p.Map
+					}, t => game?.StartPush(p, (Pawn)t.Thing))
+				};
+			}
+			else
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "SS_PushStop".Translate(pusher.LabelShort),
+					defaultDesc = "SS_PushStopDesc".Translate(),
+					icon = def.uiIcon,
+					action = () => game?.StopPush(p)
+				};
+			}
+		}
+	}
+
+	// the front of the wheelchair (armrests, foot plates, the near wheel) drawn over the sitting colonist, in the chair's colour
+	public class PawnRenderNode_ChairFront : PawnRenderNode
+	{
+		public PawnRenderNode_ChairFront(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree) : base(pawn, props, tree) { }
+
+		public override Graphic GraphicFor(Pawn pawn)
+		{
+			if (props.texPath.NullOrEmpty()) return null;
+			return GraphicDatabase.Get<Graphic_Multi>(props.texPath, ShaderDatabase.Cutout, Vector2.one, apparel?.DrawColor ?? Color.white);
 		}
 	}
 
@@ -179,6 +314,95 @@ namespace SecondStep
 		private Dictionary<int, int> choice = new Dictionary<int, int>();
 		private Dictionary<int, int> pendingSince = new Dictionary<int, int>();
 		private Dictionary<int, int> lastLetter = new Dictionary<int, int>();
+		private Dictionary<int, int> pushers = new Dictionary<int, int>();   // chair user -> pusher
+
+		private static HediffDef pushedDef, crutchDef;
+		private static readonly HashSet<string> BenchJobs = new HashSet<string>
+		{
+			"DoBill", "Research", "TendPatient", "OperateScanner", "OperateDeepDrill", "Repair", "UnloadYourInventory", "PlayStatic", "Meditate", "Reign", "Pray"
+		};
+
+		private static Pawn Find_(int id) => PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_Colonists.FirstOrDefault(x => x.thingIDNumber == id);
+
+		public Pawn PusherOf(Pawn user) => user != null && pushers.TryGetValue(user.thingIDNumber, out int id) ? Find_(id) : null;
+
+		public void StartPush(Pawn user, Pawn pusher)
+		{
+			if (user == null || pusher == null) return;
+			foreach (var kv in pushers.Where(kv => kv.Value == pusher.thingIDNumber).ToList()) pushers.Remove(kv.Key);
+			pushers[user.thingIDNumber] = pusher.thingIDNumber;
+			GiveFollow(user, pusher);
+			Messages.Message("SS_PushStarted".Translate(pusher.LabelShort, user.LabelShort), user, MessageTypeDefOf.SilentInput, false);
+		}
+
+		public void StopPush(Pawn user)
+		{
+			if (user == null || !pushers.TryGetValue(user.thingIDNumber, out int id)) return;
+			pushers.Remove(user.thingIDNumber);
+			Pawn pusher = Find_(id);
+			if (pusher?.CurJob != null && pusher.CurJob.def == JobDefOf.FollowClose && pusher.CurJob.targetA.Thing == user)
+				pusher.jobs.EndCurrentJob(JobCondition.InterruptForced);
+			SetPushed(user, false);
+		}
+
+		private static void GiveFollow(Pawn user, Pawn pusher)
+		{
+			Job j = JobMaker.MakeJob(JobDefOf.FollowClose, user);
+			j.followRadius = 1.5f;
+			j.expiryInterval = 2500;
+			j.checkOverrideOnExpire = true;
+			pusher.jobs.StartJob(j, JobCondition.InterruptForced, null, false, true);
+		}
+
+		private static void SetPushed(Pawn user, bool on)
+		{
+			if (pushedDef == null) pushedDef = DefDatabase<HediffDef>.GetNamedSilentFail("SS_Pushed");
+			if (pushedDef == null || user?.health == null) return;
+			Hediff h = user.health.hediffSet.GetFirstHediffOfDef(pushedDef);
+			if (on && h == null) user.health.AddHediff(pushedDef);
+			else if (!on && h != null) user.health.RemoveHediff(h);
+		}
+
+		private void PushTick()
+		{
+			foreach (var kv in pushers.ToList())
+			{
+				Pawn user = Find_(kv.Key), pusher = Find_(kv.Value);
+				bool ok = user != null && pusher != null && Legs.InChair(user) && user.Spawned && pusher.Spawned && user.Map == pusher.Map
+					&& !pusher.Downed && !pusher.Drafted && !pusher.InMentalState && !Legs.InChair(pusher);
+				if (!ok)
+				{
+					pushers.Remove(kv.Key);
+					if (user != null) SetPushed(user, false);
+					continue;
+				}
+				Job cur = pusher.CurJob;
+				bool following = cur != null && cur.def == JobDefOf.FollowClose && cur.targetA.Thing == user;
+				// needs (food, sleep, joy …) come first; idle or ordinary work goes back to pushing
+				if (!following && (cur == null || cur.workGiverDef != null || cur.def == JobDefOf.Wait_Wander || cur.def == JobDefOf.GotoWander || cur.def == JobDefOf.Wait))
+					GiveFollow(user, pusher);
+				SetPushed(user, following && pusher.Position.InHorDistOf(user.Position, 2.5f));
+			}
+		}
+
+		// crutch wearers working at a bench lean one crutch aside: both hands free, one crutch drawn
+		private void LeanTick()
+		{
+			if (crutchDef == null) crutchDef = DefDatabase<HediffDef>.GetNamedSilentFail("SS_OnCrutches");
+			if (crutchDef == null) return;
+			foreach (Map map in Find.Maps)
+				foreach (Pawn p in map.mapPawns.FreeColonistsSpawned)
+				{
+					Hediff h = p.health.hediffSet.GetFirstHediffOfDef(crutchDef);
+					if (h == null) continue;
+					Job j = p.CurJob;
+					bool lean = j != null && !p.pather.Moving && BenchJobs.Contains(j.def.defName);
+					float want = lean ? 1f : 0.1f;
+					if (Math.Abs(h.Severity - want) < 0.01f) continue;
+					h.Severity = want;
+					p.Drawer?.renderer?.SetAllGraphicsDirty();
+				}
+		}
 
 		public AidGame(Game game) { }
 
@@ -206,6 +430,11 @@ namespace SecondStep
 				SendLetters(now);
 			if (now % 600 == 0)
 				Upkeep();
+			if (now % 30 == 0)
+			{
+				LeanTick();
+				if (pushers.Count > 0) PushTick();
+			}
 		}
 
 		private void SendLetters(int now)
@@ -245,6 +474,7 @@ namespace SecondStep
 
 		private void UpkeepPawn(Pawn p, Map map)
 		{
+			Legs.RefreshLimp(p);
 			Apparel worn = Legs.WornAid(p);
 			bool needs = Legs.MissingLeg(p);
 			if (worn != null)
@@ -276,10 +506,12 @@ namespace SecondStep
 		{
 			Scribe_Collections.Look(ref choice, "ssChoice", LookMode.Value, LookMode.Value);
 			Scribe_Collections.Look(ref lastLetter, "ssLastLetter", LookMode.Value, LookMode.Value);
+			Scribe_Collections.Look(ref pushers, "ssPushers", LookMode.Value, LookMode.Value);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				if (choice == null) choice = new Dictionary<int, int>();
 				if (lastLetter == null) lastLetter = new Dictionary<int, int>();
+				if (pushers == null) pushers = new Dictionary<int, int>();
 			}
 		}
 	}
@@ -392,6 +624,7 @@ namespace SecondStep
 				Pawn p = ___pawn;
 				if (p == null || p.Dead || !p.IsColonist || Current.ProgramState != ProgramState.Playing) return;
 				AidGame.Get()?.Queue(p);
+				Legs.RefreshLimp(p);
 			}
 			catch { }
 		}
@@ -406,8 +639,8 @@ namespace SecondStep
 		public static void Postfix(HediffSet diffSet, ref float __result)
 		{
 			if (chair == null) chair = DefDatabase<HediffDef>.GetNamedSilentFail("SS_InWheelchair");
-			if (chair != null && __result < 0.6f && diffSet?.HasHediff(chair) == true)
-				__result = 0.6f;
+			if (chair != null && __result < 0.45f && diffSet?.HasHediff(chair) == true)
+				__result = 0.45f;
 		}
 	}
 
@@ -422,6 +655,23 @@ namespace SecondStep
 		}
 	}
 
+	[HarmonyPatch(typeof(Pawn), nameof(Pawn.GetDisabledWorkTypes))]
+	public static class Patch_DisabledWork
+	{
+		public static void Postfix(Pawn __instance, bool permanentOnly, List<WorkTypeDef> __result)
+		{
+			if (permanentOnly || __result == null || SecondStepMod.S == null || __instance?.apparel == null) return;
+			AidKind k = Legs.KindOf(Legs.WornAid(__instance));
+			List<string> names = k == AidKind.Crutches ? SecondStepMod.S.crutchBlocked : k == AidKind.Wheelchair ? SecondStepMod.S.chairBlocked : null;
+			if (names == null) return;
+			foreach (string n in names)
+			{
+				WorkTypeDef w = DefDatabase<WorkTypeDef>.GetNamedSilentFail(n);
+				if (w != null && !__result.Contains(w)) __result.Add(w);
+			}
+		}
+	}
+
 	// one worn texture for every body type
 	[HarmonyPatch(typeof(ApparelGraphicRecordGetter), nameof(ApparelGraphicRecordGetter.TryGetGraphicApparel))]
 	public static class Patch_Graphic
@@ -429,7 +679,14 @@ namespace SecondStep
 		public static bool Prefix(Apparel apparel, ref ApparelGraphicRecord rec, ref bool __result)
 		{
 			if (apparel?.def.GetModExtension<AidExtension>() == null || apparel.WornGraphicPath.NullOrEmpty()) return true;
-			Graphic g = GraphicDatabase.Get<Graphic_Multi>(apparel.WornGraphicPath, ShaderDatabase.Cutout, apparel.def.graphicData.drawSize, apparel.DrawColor);
+			string path = apparel.WornGraphicPath;
+			Pawn w = apparel.Wearer;
+			if (Legs.KindOf(apparel) == AidKind.Crutches && w != null)
+			{
+				Hediff h = w.health?.hediffSet?.GetFirstHediffOfDef(DefDatabase<HediffDef>.GetNamedSilentFail("SS_OnCrutches"));
+				if (h != null && h.Severity >= 0.5f) path += "Lean";
+			}
+			Graphic g = GraphicDatabase.Get<Graphic_Multi>(path, ShaderDatabase.Cutout, apparel.def.graphicData.drawSize, apparel.DrawColor);
 			rec = new ApparelGraphicRecord(g, apparel);
 			__result = true;
 			return false;

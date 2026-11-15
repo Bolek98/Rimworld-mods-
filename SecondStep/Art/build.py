@@ -12,7 +12,9 @@ def mat(name, c):
     m.diffuse_color = (c[0], c[1], c[2], 1)
     return m
 
+TAG = set()
 def put(o, m, col):
+    o['tags'] = ','.join(sorted(TAG))
     o.data.materials.append(m)
     for c in o.users_collection: c.objects.unlink(o)
     col.objects.link(o)
@@ -46,10 +48,13 @@ def coll(name):
 FRAME = (0.86, 0.86, 0.86); TIRE = (0.13, 0.13, 0.14); SEAT = (0.55, 0.55, 0.57); PAD = (0.25, 0.25, 0.26)
 
 def wheelchair(col):
+    global TAG
     fr, ti, se = mat('frame', FRAME), mat('tire', TIRE), mat('seat', SEAT)
     R = 0.28
     for s in (-1, 1):
         x = s*0.40
+        near = {'nearE'} if s < 0 else set()
+        TAG = set(near)
         torus(col, ti, (x, -0.02, R+0.02), R, 0.03)
         torus(col, fr, (x+s*0.045, -0.02, R+0.02), R-0.04, 0.012)          # push rim
         cyl(col, fr, (x-0.03, -0.02, R+0.02), (x+0.03, -0.02, R+0.02), 0.04)  # hub
@@ -57,21 +62,27 @@ def wheelchair(col):
             a = k*math.pi/6
             cyl(col, fr, (x, -0.02+math.cos(a)*(R-0.02), R+0.02+math.sin(a)*(R-0.02)),
                 (x, -0.02-math.cos(a)*(R-0.02), R+0.02-math.sin(a)*(R-0.02)), 0.006, 6)
-        # frame: back post with handle, seat rail, front post, footrest
+        TAG = set()
         cyl(col, fr, (s*0.32, -0.20, 0.28), (s*0.32, -0.22, 0.80), 0.022)
         cyl(col, fr, (s*0.32, -0.22, 0.80), (s*0.32, -0.32, 0.82), 0.024)
         cyl(col, fr, (s*0.32, -0.20, 0.42), (s*0.32, 0.22, 0.42), 0.02)
+        TAG = {'frontS'} | near
         cyl(col, fr, (s*0.32, 0.22, 0.42), (s*0.26, 0.36, 0.10), 0.02)
+        TAG = set()
         cyl(col, fr, (s*0.32, -0.20, 0.28), (s*0.30, 0.24, 0.14), 0.016)
+        TAG = {'frontS'} | near
         box(col, mat('pad', PAD), (s*0.33, 0.0, 0.58), (0.06, 0.34, 0.035))   # armrest
         cyl(col, fr, (s*0.33, 0.12, 0.42), (s*0.33, 0.12, 0.57), 0.016)
+        TAG = set(near)
         cyl(col, fr, (s*0.33, -0.15, 0.42), (s*0.33, -0.15, 0.57), 0.016)
-        # front caster
+        TAG = {'frontS'} | near
         cyl(col, fr, (s*0.30, 0.26, 0.14), (s*0.30, 0.28, 0.09), 0.014)
         torus(col, ti, (s*0.30, 0.30, 0.065), 0.05, 0.018)
         box(col, se, (s*0.14, 0.40, 0.09), (0.20, 0.12, 0.02))                 # foot plate
+        TAG = set()
     box(col, se, (0, 0.01, 0.44), (0.62, 0.42, 0.05))                          # seat
     box(col, se, (0, -0.215, 0.62), (0.62, 0.035, 0.36))                       # backrest
+    TAG = set()
 
 def crutch(col, loc=(0,0,0), tilt=0.0, yaw=0.0, name='c', size=1.0):
     fr, pd = mat('frame', FRAME), mat('pad', PAD)
@@ -142,6 +153,9 @@ for o in W.objects:
 CS = coll('crutches_front')
 crutch(CS, (-0.25, 0.04, 0), tilt=-0.07, size=0.6); crutch(CS, (0.25, 0.04, 0), tilt=0.07, size=0.6)
 CE = coll('crutch_side'); crutch(CE, (0, 0.10, 0), tilt=0.0, yaw=math.pi/2, size=0.6).rotation_euler = (-0.12, 0, math.pi/2)
+CL = coll('crutch_lean')
+crutch(CL, (0.34, 0.10, 0), tilt=0.22, size=0.6)
+CLE = coll('crutch_lean_side'); crutch(CLE, (0, -0.22, 0), size=0.6).rotation_euler = (0.25, 0, math.pi/2)
 CI = coll('crutches_item')
 a = crutch(CI, (-0.1, 0, 0.05), name='i1'); a.rotation_euler = (math.pi/2, 0, 0.75); a.location = (-0.12, 0.0, 0.05)
 b = crutch(CI, (0.12, 0, 0.05), name='i2'); b.rotation_euler = (math.pi/2, 0, 0.45); b.location = (0.14, -0.05, 0.05)
@@ -153,9 +167,20 @@ views = {
     'north': ((0, -10, zc + 10*el), (0, 0, zc)),
     'east':  ((10, 0, zc + 10*el), (0, 0, zc)),
 }
+def only_tag(col, tag):
+    only(col)
+    for o in col.objects:
+        o.hide_render = tag not in o.get('tags', '').split(',')
+def all_tags(col):
+    for o in col.objects: o.hide_render = False
 for name, (p, t) in views.items():
-    only(W); shoot(cam, S, p, t, f'{OUT}/Wheelchair_{name}.png')
+    all_tags(W); only(W); shoot(cam, S, p, t, f'{OUT}/Wheelchair_{name}.png')
+    if name != 'north':
+        only_tag(W, 'frontS' if name == 'south' else 'nearE'); shoot(cam, S, p, t, f'{OUT}/WheelchairFront_{name}.png')
+    all_tags(W)
+    only(CLE if name == 'east' else CL); shoot(cam, S, p, t, f'{OUT}/CrutchesLean_{name}.png')
     only(CE if name == 'east' else CS); shoot(cam, S, p, t, f'{OUT}/Crutches_{name}.png')
+only(W)
 # item icons: from above, a bit from the front
 only(W); shoot(cam, 1.5, (6, 7, 8), (0, 0, 0.4), f'{OUT}/Wheelchair.png')
 bpy.context.view_layer.update()
