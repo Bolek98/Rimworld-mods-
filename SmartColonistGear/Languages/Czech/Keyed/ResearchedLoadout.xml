@@ -126,8 +126,8 @@
   <RL_CoverageFirst_Desc>Kus, který zakryje holé místo, má přednost (trup nejvíc, pak nohy, hlava, ostatní). Kus, který by něco odkryl, má postih. Dokud má kolonista holý trup nebo nohy, převléká se hned, bez klidové doby.</RL_CoverageFirst_Desc>
   <RL_ThreatApparel>Ochrana proti hrozbám</RL_ThreatApparel>
   <RL_ThreatApparel_Desc>Při kritickém mrazu nebo horku (podle hranic výše), jedu, spadu, znečištění, vakuu nebo boji na mapě dostane oblečení s potřebnou ochranou velký bonus, takže si ho kolonisti vezmou sami. Brnění se kvůli tomu nikdy nevymění za slabší.</RL_ThreatApparel_Desc>
-  <RL_ThreatBills>Zakládat účty na výrobu ochrany</RL_ThreatBills>
-  <RL_ThreatBills_Desc>Když ochranného oblečení není dost a recept je vyzkoumaný, přidá se na stůl účet „dokud jich není dost“ a hotové jde do skladu. Tvoje účty se nemažou. Když výzkum chybí, přijde jedna zpráva.</RL_ThreatBills_Desc>
+  <RL_ThreatBills>Zakládat zakázky na výrobu ochrany (chlad, horko, jed, útok)</RL_ThreatBills>
+  <RL_ThreatBills_Desc>Když ochranného oblečení není dost a recept je vyzkoumaný, přidá se na stůl zakázka „dokud jich není dost“ a hotové jde do skladu. Tvoje zakázky se nemažou. Když výzkum chybí, přijde jedna zpráva.</RL_ThreatBills_Desc>
   <RL_ThreatBill>Kolonisté začali vyrábět ochranu: {0}.</RL_ThreatBill>
   <RL_ThreatNoRecipe>Na tuhle hrozbu ještě nejde vyrobit ochranu. Chybí výzkum.</RL_ThreatNoRecipe>
   <RL_OnlyCrafted>Brát si jen to, co už kolonie vyrobila</RL_OnlyCrafted>
@@ -201,7 +201,7 @@
   <RL_Ex_Emergency>Teď povoleno jako náhradní výbava ({0})</RL_Ex_Emergency>
   <RL_Ex_EmergencyFor>Náhradní výbava pro: {0}</RL_Ex_EmergencyFor>
   <RL_EmergencyProvide>Hledat a vyrábět náhradní výbavu</RL_EmergencyProvide>
-  <RL_EmergencyProvide_Desc>Když kolonistům v nebezpečí chybí ochrana: zakázané ochranné věci kdekoli na mapě se povolí (jen kolik je potřeba, ne v ohni a ne u nepřátel), a když to pořád nestačí, přidá se účet na nejlepší ochranu, kterou kolonie umí vyrobit. Když správnou ochranu vyrobit ještě nejde (chybí výzkum), najde nebo vyrobí se nejbližší náhrada – slabší ochrana proti jedu nebo něco přes obličej, nejteplejší/nejchladivější oblečení, nejlepší brnění. Takto přidané účty se po skončení nebezpečí smažou, pokud se na nich ještě nezačalo pracovat.</RL_EmergencyProvide_Desc>
+  <RL_EmergencyProvide_Desc>Když kolonistům v nebezpečí chybí ochrana: zakázané ochranné věci kdekoli na mapě se povolí (jen kolik je potřeba, ne v ohni a ne u nepřátel), a když to pořád nestačí, přidá se zakázka na nejlepší ochranu, kterou kolonie umí vyrobit. Když správnou ochranu vyrobit ještě nejde (chybí výzkum), najde nebo vyrobí se nejbližší náhrada – slabší ochrana proti jedu nebo něco přes obličej, nejteplejší/nejchladivější oblečení, nejlepší brnění. Takto přidané zakázky se po skončení nebezpečí smažou, pokud se na nich ještě nezačalo pracovat.</RL_EmergencyProvide_Desc>
   <RL_EmProv_Msg>{0}: nedostatek – {1} – {2}.</RL_EmProv_Msg>
   <RL_EmProv_Unforbade>povoleno {0} ({1})</RL_EmProv_Unforbade>
   <RL_EmProv_Bill>přidán účet na {0}× {1} ({2})</RL_EmProv_Bill>
