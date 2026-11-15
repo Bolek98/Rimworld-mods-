@@ -1784,6 +1784,7 @@ namespace ResearchedLoadout
 						bill_Production.repeatMode = BillRepeatModeDefOf.TargetCount;
 						bill_Production.targetCount = num;
 						bill_Production.SetStoreMode(BillStoreModeDefOf.BestStockpile);
+						BillTag.Set(bill_Production, thingDef, BillTag.WhyStat(stat), num);
 						building_WorkTable.billStack.AddBill(bill_Production);
 						Messages.Message("RL_ThreatBill".Translate(thingDef.LabelCap), MessageTypeDefOf.PositiveEvent, false);
 					}
@@ -2719,6 +2720,7 @@ namespace ResearchedLoadout
 			bill_Production.repeatMode = BillRepeatModeDefOf.RepeatCount;
 			bill_Production.repeatCount = count;
 			bill_Production.SetStoreMode(BillStoreModeDefOf.BestStockpile);
+			BillTag.Set(bill_Production, def, BillTag.WhyKind(kind), count);
 			bench.billStack.AddBill(bill_Production);
 			ResearchedLoadoutGameComponent researchedLoadoutGameComponent = ResearchedLoadoutGameComponent.Get();
 			if (researchedLoadoutGameComponent != null)

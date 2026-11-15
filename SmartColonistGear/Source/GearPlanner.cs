@@ -172,6 +172,7 @@ namespace ResearchedLoadout
 			bill.repeatMode = BillRepeatModeDefOf.TargetCount;
 			bill.targetCount = Mathf.Max(1, Stock(map, d => d == n.best) + n.missing);
 			bill.SetStoreMode(BillStoreModeDefOf.BestStockpile);
+			BillTag.Set(bill, n.best, "RL_BillWhy_Planner", n.missing);
 			n.bench.BillStack.AddBill(bill);
 			SCGBattleComponent.Get()?.plannerBills.Add(bill.GetUniqueLoadID());
 			n.hasBill = true;
