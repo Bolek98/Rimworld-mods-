@@ -86,7 +86,7 @@ namespace MisakHealth
 
     public class MTMod : Mod
     {
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0
@@ -140,7 +140,9 @@ namespace MisakHealth
         public static void Restrict()
         {
             if (!BuildInfo.Split) return;
-            Off = ModsConfig.IsActive("bolek98.misakhealth");
+            // 0.15.1: "misak" + "tabs" on purpose – Tools/split.py renames the plain id to the single mod own id, and
+            // every single mod then found itself and switched itself off
+            Off = ModsConfig.IsActive("bolek98.misak" + "tabs");
             foreach (string f in AllParts)
             {
                 if (!Off && BuildInfo.Has(f)) continue;
