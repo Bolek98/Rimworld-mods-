@@ -64,7 +64,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Steward – 9 Priorities | 1.0.0 | [Steward2/StewardPriorities](Steward2/StewardPriorities) |
 | [B98] Steward – Roles | 0.2.3 | [Steward2/StewardRoles](Steward2/StewardRoles) |
 | [B98] Steward – Schedules | 1.1.0 | [Steward2/StewardSchedules](Steward2/StewardSchedules) |
-| [B98] Steward – Supplies | 1.3.0 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
+| [B98] Steward – Supplies | 1.4.0 | [Steward2/StewardSupplies](Steward2/StewardSupplies) |
 | [B98] Steward – Work Split | 0.2.1 | [Steward2/StewardWorkSplit](Steward2/StewardWorkSplit) |
 | [B98] Storyteller Tuner | 1.0.0 | [StorytellerTuner](StorytellerTuner) |
 | [B98] Tidy Toolbar – No More Cut-Off Tabs | 1.2.1 | [TidyToolbar](TidyToolbar) |

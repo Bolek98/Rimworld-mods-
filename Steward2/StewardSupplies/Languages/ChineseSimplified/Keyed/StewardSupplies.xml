@@ -274,4 +274,8 @@
   <CF_Bu_Insect>虫肉</CF_Bu_Insect>
   <CF_Bu_Animal>动物肉</CF_Bu_Animal>
   <CF_Bu_RowTip>{0}：当前库存 / 目标。左键：下一个值，右键：上一个。总是 = 照常屠宰，从不 = 不屠宰这类尸体，数字 = 仅在库存少于该值时屠宰。</CF_Bu_RowTip>
+  <CF2U_SupplyWork>缺少的储备会分配工人</CF2U_SupplyWork>
+  <CF2U_SupplyWorkTip>当储备未达到目标且有树木、矿石或动物被标记时，最合适的殖民者会在主要等级获得这项工作（缺口很大时较大的殖民地分配两人），并排在游戏原本先做的其他工作之上。危机和你的规则会保留它们的人。</CF2U_SupplyWorkTip>
+  <CF2U_TipSupply>储备：{0} {1} – 已标记的工作在等待</CF2U_TipSupply>
+  <CF2U_TipSupplyYield>为储备降低：缺少{0}</CF2U_TipSupplyYield>
 </LanguageData>

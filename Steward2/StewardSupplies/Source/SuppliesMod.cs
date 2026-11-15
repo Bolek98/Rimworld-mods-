@@ -23,10 +23,12 @@ public sealed class SuppliesSettings : ModSettings
 	public bool supplyMessages = true;
 	public bool usePickUpAndHaul = true;
 	public bool noStorageAlert = true;
+	public bool supplyWork = true;     // 1.4.0: missing supplies get somebody on the work
 
 	public override void ExposeData()
 	{
 		Scribe_Values.Look(ref masterBills, "masterBills", false);
+		Scribe_Values.Look(ref supplyWork, "supplyWork", true);
 		Scribe_Values.Look(ref supplyMessages, "supplyMessages", true);
 		Scribe_Values.Look(ref usePickUpAndHaul, "usePickUpAndHaul", true);
 		Scribe_Values.Look(ref noStorageAlert, "noStorageAlert", true);
@@ -47,6 +49,7 @@ public sealed class SuppliesMod : Mod
 			FromOld(S);
 		new Harmony("misak.steward.supplies").PatchAll(typeof(SuppliesMod).Assembly);
 		StewardApi.MapExpose += SupState.Expose;
+		StewardApi.Register(new SupplyWorkStep());
 		StewardApi.MapTick += c =>
 		{
 			if (Find.TickManager.TicksGame % 2500 >= 250)
@@ -80,6 +83,7 @@ public sealed class SuppliesMod : Mod
 		l.Label("CF2U_Hint".Translate());
 		l.GapLine();
 		l.CheckboxLabeled("CF2U_Messages".Translate(), ref S.supplyMessages);
+		l.CheckboxLabeled("CF2U_SupplyWork".Translate(), ref S.supplyWork, "CF2U_SupplyWorkTip".Translate());
 		l.CheckboxLabeled("CF2U_MasterBills".Translate(), ref S.masterBills, "CF2U_MasterBillsTip".Translate());
 		l.CheckboxLabeled("CF2U_NoStorage".Translate(), ref S.noStorageAlert, "CF2U_NoStorageTip".Translate());
 		if (PickUpAndHaulCompat.Present)
