@@ -43,6 +43,8 @@ namespace ModSortManager
         // 0.7.0: own names for mods ("packageid|nickname") – shown in Mod Sort Manager and the game's mod list
         public List<string> nicknames = new List<string>();
         public bool showNicknames = true;
+        public bool searchHighlight;                                   // 0.7.2: search highlights instead of hiding
+        public List<string> hiddenKinds = new List<string>();          // 0.7.2: problem kinds the player hid
         public bool showOriginalName = true;
         // 0.8.0: folders of the inactive list – names in order, "packageid|folder", collapsed folders
         public List<string> folders = new List<string>();
@@ -75,6 +77,9 @@ namespace ModSortManager
             Scribe_Collections.Look(ref nicknames, "nicknames", LookMode.Value);
             if (nicknames == null) nicknames = new List<string>();
             Scribe_Values.Look(ref showNicknames, "showNicknames", true);
+            Scribe_Values.Look(ref searchHighlight, "searchHighlight", false);
+            Scribe_Collections.Look(ref hiddenKinds, "hiddenKinds", LookMode.Value);
+            if (hiddenKinds == null) hiddenKinds = new List<string>();
             Scribe_Values.Look(ref showOriginalName, "showOriginalName", true);
             Scribe_Collections.Look(ref folders, "folders", LookMode.Value);
             if (folders == null) folders = new List<string>();
@@ -87,7 +92,7 @@ namespace ModSortManager
 
     public class MSMMod : Mod
     {
-        public const string Version = "0.7.0";
+        public const string Version = "0.8.0";
         public static MSMSettings Settings;
 
         public MSMMod(ModContentPack content) : base(content)
@@ -968,10 +973,14 @@ namespace ModSortManager
     // ---------------- checks on the edited list ----------------
     public enum Sev { Info = 0, Warn = 1, Error = 2 }
 
+    // 0.7.2: kinds of problems – shown as chips, each can be hidden
+    public enum PK { Dup, Dep, Inc, Rival, Order, Old, Same, Log }
+
     public class Issue
     {
         public int group;       // 0 duplicates, 1 may break, 2 same thing
         public Sev sev;
+        public PK kind;
         public string title, text;
         public List<KeyValuePair<string, Action>> actions = new List<KeyValuePair<string, Action>>();
     }
@@ -1132,7 +1141,9 @@ namespace ModSortManager
         }
 
         // load order rules broken right now (mod -> text)
-        public static List<string> OrderProblems(List<ModMetaData> list, Dictionary<ModMetaData, Sev> marks)
+        // 0.7.1: also tells each mod involved which mod it must load before / after (for the note on its row)
+        public static List<string> OrderProblems(List<ModMetaData> list, Dictionary<ModMetaData, Sev> marks,
+            Dictionary<ModMetaData, List<string>> perMod = null)
         {
             var res = new List<string>();
             int j;
@@ -1142,17 +1153,34 @@ namespace ModSortManager
                 foreach (string id in m.LoadBefore.Concat(m.ForceLoadBefore))
                     if (Present(list, id, out j) && j < i)
                     {
-                        res.Add("MSM_OrderBefore".Translate(m.Name, list[j].Name));
+                        string line = "MSM_OrderBefore".Translate(m.Name, list[j].Name);
+                        if (res.Contains(line)) continue;
+                        res.Add(line);
                         Mark(marks, m, Sev.Warn);
+                        Mark(marks, list[j], Sev.Warn);
+                        AddNote(perMod, m, "MSM_NoteBefore".Translate(list[j].Name));
+                        AddNote(perMod, list[j], "MSM_NoteAfter".Translate(m.Name));
                     }
                 foreach (string id in m.LoadAfter.Concat(m.ForceLoadAfter))
                     if (Present(list, id, out j) && j > i)
                     {
-                        res.Add("MSM_OrderAfter".Translate(m.Name, list[j].Name));
+                        string line = "MSM_OrderAfter".Translate(m.Name, list[j].Name);
+                        if (res.Contains(line)) continue;
+                        res.Add(line);
                         Mark(marks, m, Sev.Warn);
+                        Mark(marks, list[j], Sev.Warn);
+                        AddNote(perMod, m, "MSM_NoteAfter".Translate(list[j].Name));
+                        AddNote(perMod, list[j], "MSM_NoteBefore".Translate(m.Name));
                     }
             }
             return res;
+        }
+
+        private static void AddNote(Dictionary<ModMetaData, List<string>> d, ModMetaData m, string text)
+        {
+            if (d == null || m == null) return;
+            if (!d.TryGetValue(m, out var l)) d[m] = l = new List<string>();
+            if (!l.Contains(text)) l.Add(text);
         }
 
         public static void Mark(Dictionary<ModMetaData, Sev> marks, ModMetaData m, Sev s)

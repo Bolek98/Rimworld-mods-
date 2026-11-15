@@ -1,3 +1,26 @@
+=== Workshop release 0.8.0 (15 Nov 2026) ===
+0.8.0
+New
+- Search can highlight instead of hide: Enter or arrows jump between matches, counter 3/7.
+- Problem chips above the list (duplicates, dependencies, order, version …): click jumps to the next mod with that problem, right click hides that kind.
+- Wrong load order: each mod involved says which mod it must load before or after, with a short how-to-fix.
+
+Novinky
+- Hledání umí zvýrazňovat místo skrývání: Enter nebo šipky skáčou mezi výsledky, počítadlo 3/7.
+- Štítky problémů nad seznamem (duplicity, závislosti, pořadí, verze …): klik skočí na další mod s tím problémem, pravý klik ten druh schová.
+- Špatné pořadí: každý dotčený mod napíše, před nebo za kterým modem musí být, s krátkou radou, jak to opravit.
+
+=== Development history since the last Workshop release (test versions) ===
+0.7.2
+- Search can highlight instead of hide (Filter / Highlight button): Enter or arrows jump between matches, the counter shows 3/7; clearing the search keeps the chosen mod in view.
+- Problem chips above the active list (duplicates, dependencies, order, version …): click jumps to the next mod with that problem, right click hides that kind everywhere.
+- CZ: Hledání umí zvýrazňovat místo schovávání (tlačítko Filtr / Zvýraznit): Enter nebo šipky skáčou mezi shodami, počítadlo ukazuje 3/7; po smazání hledání zůstane vybraný mod na očích.
+- CZ: Štítky problémů nad aktivními mody (duplicity, závislosti, pořadí, verze …): klik skočí na další mod s tím problémem, pravý klik ten druh všude skryje.
+
+0.7.1
+- Wrong load order: every mod involved now says on its row which mod it must load before or after, and the warning lists all broken rules with a short how-to-fix.
+- CZ: Špatné pořadí: každý dotčený mod teď ve svém řádku řekne, před který nebo za který mod patří, a varování vypíše všechna porušená pravidla s krátkou radou, jak to opravit.
+
 === Workshop release 0.7.0 (10 Nov 2026) ===
 0.7.0
 New
