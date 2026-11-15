@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ApparelLayerDef>
+    <defName>SS_MobilityAid</defName>
+    <label>mobility aid</label>
+    <drawOrder>350</drawOrder>
+  </ApparelLayerDef>
+
+  <LetterDef>
+    <defName>SS_LegChoice</defName>
+    <letterClass>SecondStep.Letter_LegChoice</letterClass>
+    <color>(95, 151, 191)</color>
+    <flashInterval>-1</flashInterval>
+    <arriveSound>LetterArrive</arriveSound>
+  </LetterDef>
+
+  <HediffDef>
+    <defName>SS_OnCrutches</defName>
+    <label>on crutches</label>
+    <description>Walks on crutches: faster than hopping on one leg, but one hand is always busy.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7, 0.85, 1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.25</offset>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>SS_InWheelchair</defName>
+    <label>in a wheelchair</label>
+    <description>Moves in a wheelchair: even without legs, at least at a calm pace.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7, 0.85, 1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+  </HediffDef>
+
+  <ThingDef ParentName="ApparelBase">
+    <defName>SS_Crutches</defName>
+    <label>crutches</label>
+    <description>A pair of simple crutches. A colonist who lost a leg walks faster with them, but one hand is always holding a crutch.</description>
+    <thingClass>SecondStep.Apparel_MobilityAid</thingClass>
+    <graphicData>
+      <texPath>SecondStep/Crutches</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.3, 1.3)</drawSize>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <stuffCategories>
+      <li>Woody</li>
+    </stuffCategories>
+    <costStuffCount>30</costStuffCount>
+    <statBases>
+      <WorkToMake>1600</WorkToMake>
+      <Mass>2</Mass>
+      <MaxHitPoints>100</MaxHitPoints>
+      <EquipDelay>2</EquipDelay>
+      <Flammability>1</Flammability>
+    </statBases>
+    <thingCategories>
+      <li>ApparelMisc</li>
+    </thingCategories>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>CraftingSpot</li>
+        <li>FueledSmithy</li>
+        <li>ElectricSmithy</li>
+      </recipeUsers>
+      <displayPriority>900</displayPriority>
+    </recipeMaker>
+    <apparel>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>SS_MobilityAid</li>
+      </layers>
+      <wornGraphicPath>SecondStep/Worn/Crutches</wornGraphicPath>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0.2</wearPerDay>
+      <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+      <canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
+    </apparel>
+    <modExtensions>
+      <li Class="SecondStep.AidExtension">
+        <kind>Crutches</kind>
+        <hediff>SS_OnCrutches</hediff>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelBase">
+    <defName>SS_Wheelchair</defName>
+    <label>wheelchair</label>
+    <description>A sturdy wheelchair. Even a colonist without legs moves again, at a calm pace. A doctor can seat a colonist who can't walk.</description>
+    <thingClass>SecondStep.Apparel_MobilityAid</thingClass>
+    <graphicData>
+      <texPath>SecondStep/Wheelchair</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5, 1.5)</drawSize>
+    </graphicData>
+    <techLevel>Medieval</techLevel>
+    <stuffCategories>
+      <li>Woody</li>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>70</costStuffCount>
+    <statBases>
+      <WorkToMake>6000</WorkToMake>
+      <Mass>12</Mass>
+      <MaxHitPoints>180</MaxHitPoints>
+      <EquipDelay>4</EquipDelay>
+      <Flammability>0.6</Flammability>
+    </statBases>
+    <thingCategories>
+      <li>ApparelMisc</li>
+    </thingCategories>
+    <recipeMaker>
+      <researchPrerequisite>Smithing</researchPrerequisite>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>FueledSmithy</li>
+        <li>ElectricSmithy</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <displayPriority>901</displayPriority>
+    </recipeMaker>
+    <apparel>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>SS_MobilityAid</li>
+      </layers>
+      <wornGraphicPath>SecondStep/Worn/Wheelchair</wornGraphicPath>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0.1</wearPerDay>
+      <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+      <canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
+      <drawData>
+        <defaultData>
+          <layer>-5</layer>
+        </defaultData>
+        <dataNorth>
+          <layer>60</layer>
+        </dataNorth>
+      </drawData>
+    </apparel>
+    <modExtensions>
+      <li Class="SecondStep.AidExtension">
+        <kind>Wheelchair</kind>
+        <hediff>SS_InWheelchair</hediff>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>SS_SeatInWheelchair</defName>
+    <label>seat in a wheelchair</label>
+    <description>Help a colonist who can't walk into a wheelchair.</description>
+    <workerClass>SecondStep.Recipe_SeatInWheelchair</workerClass>
+    <jobString>Seating in a wheelchair.</jobString>
+    <workAmount>300</workAmount>
+    <anesthetize>false</anesthetize>
+    <hideBodyPartNames>true</hideBodyPartNames>
+    <targetsBodyPart>false</targetsBodyPart>
+    <surgerySuccessChanceFactor>99</surgerySuccessChanceFactor>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SS_Wheelchair</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>SS_Wheelchair</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <recipeUsers>
+      <li>Human</li>
+    </recipeUsers>
+  </RecipeDef>
+
+</Defs>

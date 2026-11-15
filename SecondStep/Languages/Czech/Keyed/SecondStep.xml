@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SS_LetterLabel>{0} {PAWN_gender ? přišel : přišla} o nohu</SS_LetterLabel>
+  <SS_LetterText>{0} {PAWN_gender ? přišel : přišla} o nohu. Co {PAWN_gender ? mu : jí} pomůže znovu se hýbat?\n\nProtéza: naplánuje se operace s nejlepší nohou, kterou máš nebo umíš vyrobit.\nBerle: levné a hned, chodí rychleji, ale jednu ruku má pořád zabranou.\nVozík: potřebuje kovárnu, funguje i bez nohou, v klidném tempu.</SS_LetterText>
+  <SS_OptProsthetic>Protéza: {0} (na skladě)</SS_OptProsthetic>
+  <SS_OptProstheticMake>Protéza: {0} (je potřeba vyrobit)</SS_OptProstheticMake>
+  <SS_OptProstheticNone>Protéza</SS_OptProstheticNone>
+  <SS_NoProsthetic>žádná protéza nohy na skladě ani vyzkoumaná</SS_NoProsthetic>
+  <SS_OptCrutches>Berle</SS_OptCrutches>
+  <SS_OptWheelchair>Invalidní vozík</SS_OptWheelchair>
+  <SS_NoLegForCrutches>berle potřebují aspoň jednu nohu</SS_NoLegForCrutches>
+  <SS_NeedResearch>{0}: nejdřív je potřeba vyzkoumat {1}.</SS_NeedResearch>
+  <SS_NoBench>{0} zatím nemá kde vyrobit – postav výrobní místo nebo kovárnu.</SS_NoBench>
+  <SS_BillName>{0} – Second Step: {1}</SS_BillName>
+  <SS_BillAdded>Přidána zakázka na {0} ({1}).</SS_BillAdded>
+  <SS_AidLeft>{0} už {1} nepotřebuje a {PAWN_gender ? odložil : odložila} je.</SS_AidLeft>
+</LanguageData>
