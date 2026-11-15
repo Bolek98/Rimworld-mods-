@@ -374,6 +374,10 @@
   <CF2_ResearchFocus>Researcher really researches</CF2_ResearchFocus>
   <CF2_ResearchFocusTip>While a research project is chosen, the best researcher gets research on 2 (on 1 from 5 colonists) and his hauling and cleaning one level lower. Research is the last column, so at the same level it would never come first.</CF2_ResearchFocusTip>
   <CF2_Spread>Spread the work over all {0} levels by need</CF2_Spread>
-  <CF2_SpreadTip>The most needed work gets 2, less needed 3, 4 … up to {0}; helpers one level lower, backups on {1}. How much is needed is averaged over the last hours, so the levels do not jump around.</CF2_SpreadTip>
-  <CF2_TipSpread>Level by need: {0}. most needed work now (about {1} jobs wait).</CF2_TipSpread>
+  <CF2_SpreadTip>Each colonist gets his own order of work: 1 emergencies, 2–3 his main work (the most needed work he is one of the best at), 3–4 helping, 5–8 the rest from what he is good at and what is needed, {0} only what he is bad at and nobody needs. The need is averaged over the last hours, so the numbers do not jump around.</CF2_SpreadTip>
+  <CF2_TipSpread>Level by need and skill: rank {0} among the colonists at this work, the work is needed {1}.</CF2_TipSpread>
+  <CF2_NeedHigh>a lot</CF2_NeedHigh>
+  <CF2_NeedMid>medium</CF2_NeedMid>
+  <CF2_NeedLow>a little</CF2_NeedLow>
+  <CF2_NeedNone>not now</CF2_NeedNone>
 </LanguageData>

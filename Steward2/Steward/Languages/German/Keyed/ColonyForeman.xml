@@ -374,6 +374,10 @@
   <CF2_ResearchFocus>Forscher forscht wirklich</CF2_ResearchFocus>
   <CF2_ResearchFocusTip>Solange ein Forschungsprojekt gewählt ist, bekommt der beste Forscher Forschung auf 2 (ab 5 Kolonisten auf 1) und Tragen und Putzen eine Stufe tiefer. Forschung ist die letzte Spalte und käme auf gleicher Stufe nie zuerst dran.</CF2_ResearchFocusTip>
   <CF2_Spread>Arbeit nach Bedarf auf alle {0} Stufen verteilen</CF2_Spread>
-  <CF2_SpreadTip>Die dringendste Arbeit bekommt 2, weniger dringende 3, 4 … bis {0}; Helfer eine Stufe tiefer, Reserve auf {1}. Der Bedarf ist ein Mittel der letzten Stunden, damit die Stufen nicht springen.</CF2_SpreadTip>
-  <CF2_TipSpread>Stufe nach Bedarf: {0}. dringendste Arbeit gerade (etwa {1} Aufgaben warten).</CF2_TipSpread>
+  <CF2_SpreadTip>Jeder Kolonist bekommt seine eigene Reihenfolge: 1 Notfälle, 2–3 seine Hauptarbeit (die gefragteste Arbeit, in der er zu den Besten gehört), 3–4 Mithilfe, 5–8 der Rest nach Können und Bedarf, {0} nur, was er schlecht kann und niemand braucht. Der Bedarf wird über die letzten Stunden gemittelt, die Zahlen springen also nicht.</CF2_SpreadTip>
+  <CF2_TipSpread>Stufe nach Bedarf und Können: Rang {0} bei dieser Arbeit, Bedarf: {1}.</CF2_TipSpread>
+  <CF2_NeedHigh>hoch</CF2_NeedHigh>
+  <CF2_NeedMid>mittel</CF2_NeedMid>
+  <CF2_NeedLow>gering</CF2_NeedLow>
+  <CF2_NeedNone>gerade keiner</CF2_NeedNone>
 </LanguageData>

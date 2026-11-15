@@ -374,6 +374,10 @@
   <CF2_ResearchFocus>Le chercheur cherche vraiment</CF2_ResearchFocus>
   <CF2_ResearchFocusTip>Tant qu'un projet de recherche est choisi, le meilleur chercheur a la recherche sur 2 (sur 1 dès 5 colons) et le transport et le ménage un niveau plus bas. La recherche est la dernière colonne : au même niveau, elle ne passerait jamais en premier.</CF2_ResearchFocusTip>
   <CF2_Spread>Répartir le travail sur les {0} niveaux selon le besoin</CF2_Spread>
-  <CF2_SpreadTip>Le travail le plus nécessaire reçoit 2, le moins nécessaire 3, 4 … jusqu'à {0} ; les aides un niveau plus bas, les remplaçants sur {1}. Le besoin est une moyenne des dernières heures, les niveaux ne sautent donc pas.</CF2_SpreadTip>
-  <CF2_TipSpread>Niveau selon le besoin : {0}e travail le plus nécessaire en ce moment (environ {1} tâches en attente).</CF2_TipSpread>
+  <CF2_SpreadTip>Chaque colon reçoit son propre ordre de travail : 1 urgences, 2–3 son travail principal (le plus demandé, où il est parmi les meilleurs), 3–4 aide, 5–8 le reste selon ses talents et les besoins, {0} seulement ce qu'il fait mal et dont personne n'a besoin. Le besoin est moyenné sur les dernières heures, les chiffres ne sautent donc pas.</CF2_SpreadTip>
+  <CF2_TipSpread>Niveau selon le besoin et le talent : rang {0} pour ce travail, besoin : {1}.</CF2_TipSpread>
+  <CF2_NeedHigh>élevé</CF2_NeedHigh>
+  <CF2_NeedMid>moyen</CF2_NeedMid>
+  <CF2_NeedLow>faible</CF2_NeedLow>
+  <CF2_NeedNone>aucun pour l'instant</CF2_NeedNone>
 </LanguageData>

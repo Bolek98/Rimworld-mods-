@@ -374,6 +374,10 @@
   <CF2_ResearchFocus>Badacz naprawdę bada</CF2_ResearchFocus>
   <CF2_ResearchFocusTip>Dopóki wybrany jest projekt badawczy, najlepszy badacz ma badania na 2 (od 5 kolonistów na 1), a noszenie i sprzątanie poziom niżej. Badania to ostatnia kolumna, więc na tym samym poziomie nigdy nie byłyby pierwsze.</CF2_ResearchFocusTip>
   <CF2_Spread>Rozłóż pracę na wszystkie {0} poziomy według potrzeby</CF2_Spread>
-  <CF2_SpreadTip>Najpotrzebniejsza praca dostaje 2, mniej potrzebna 3, 4 … aż do {0}; pomocnicy poziom niżej, rezerwa na {1}. Potrzeba to średnia z ostatnich godzin, więc poziomy nie skaczą.</CF2_SpreadTip>
-  <CF2_TipSpread>Poziom według potrzeby: {0}. najpotrzebniejsza praca teraz (czeka ok. {1} zadań).</CF2_TipSpread>
+  <CF2_SpreadTip>Każdy kolonista dostaje własną kolejność pracy: 1 nagłe wypadki, 2–3 jego główna praca (najbardziej potrzebna, w której jest jednym z najlepszych), 3–4 pomoc, 5–8 reszta według umiejętności i potrzeb, {0} tylko to, w czym jest słaby i czego nikt nie potrzebuje. Potrzeba jest uśredniana z ostatnich godzin, więc liczby nie skaczą.</CF2_SpreadTip>
+  <CF2_TipSpread>Poziom wg potrzeby i umiejętności: miejsce {0} w tej pracy, potrzeba: {1}.</CF2_TipSpread>
+  <CF2_NeedHigh>duża</CF2_NeedHigh>
+  <CF2_NeedMid>średnia</CF2_NeedMid>
+  <CF2_NeedLow>mała</CF2_NeedLow>
+  <CF2_NeedNone>teraz żadna</CF2_NeedNone>
 </LanguageData>

@@ -11,7 +11,7 @@ namespace ColonyForeman;
 public sealed class ForemanMod : Mod
 {
 	public static ForemanMod Instance;
-	public const string Version = "1.2.2";
+	public const string Version = "1.2.3";
 	public static ForemanSettings Settings;
 
 	private int tab;
@@ -78,7 +78,7 @@ public sealed class ForemanMod : Mod
 		s.intervalHours = Mathf.RoundToInt(MUI.Slider(l, "CF2_Interval".Translate(s.intervalHours), s.intervalHours, 1f, 24f, "CF2_IntervalTip".Translate(), s, "intervalHours"));
 		s.holdHours = Mathf.RoundToInt(MUI.Slider(l, "CF2_Hold".Translate(s.holdHours), s.holdHours, 0f, 48f, "CF2_HoldTip".Translate(), s, "holdHours"));
 		if (PriorityRange.Max >= 5)
-			MUI.Check(l, "CF2_Spread".Translate(PriorityRange.Max), "CF2_SpreadTip".Translate(PriorityRange.Max - 3, PriorityRange.Max), ref s.spreadLevels, s, "spreadLevels");
+			MUI.Check(l, "CF2_Spread".Translate(PriorityRange.Max), "CF2_SpreadTip".Translate(PriorityRange.Max), ref s.spreadLevels, s, "spreadLevels");
 		MUI.Check(l, "CF2_OneTop".Translate(), "CF2_OneTopTip".Translate(), ref s.oneTopPriority, s, "oneTopPriority");
 		MUI.Check(l, "CF2_Backup".Translate(), "CF2_BackupTip".Translate(), ref s.backupWorkers, s, "backupWorkers");
 		s.backupMinSkill = Mathf.RoundToInt(MUI.Slider(l, "CF2_BackupMinSkill".Translate(s.backupMinSkill), s.backupMinSkill, 0f, 20f, "CF2_BackupMinSkillTip".Translate(), s, "backupMinSkill"));

@@ -374,6 +374,10 @@
   <CF2_ResearchFocus>研究员真正去研究</CF2_ResearchFocus>
   <CF2_ResearchFocusTip>选择了研究项目时，最好的研究员研究设为 2（5 名殖民者起设为 1），其搬运和清洁降低一级。研究是最后一列，同一级别下永远轮不到它。</CF2_ResearchFocusTip>
   <CF2_Spread>按需求把工作分配到全部 {0} 个等级</CF2_Spread>
-  <CF2_SpreadTip>最需要的工作为 2，较不需要的为 3、4 … 直到 {0}；帮手低一级，后备为 {1}。需求取最近几小时的平均值，因此等级不会频繁跳动。</CF2_SpreadTip>
-  <CF2_TipSpread>按需求的等级：当前第 {0} 需要的工作（约 {1} 项任务等待中）。</CF2_TipSpread>
+  <CF2_SpreadTip>每个殖民者都有自己的工作顺序：1 紧急，2–3 主要工作（最需要且他属于最擅长者之一），3–4 协助，5–8 其余按能力和需求排序，{0} 仅限他不擅长且无人需要的工作。需求取最近几小时的平均值，数字不会乱跳。</CF2_SpreadTip>
+  <CF2_TipSpread>按需求和技能定级：此工作排名 {0}，需求：{1}。</CF2_TipSpread>
+  <CF2_NeedHigh>高</CF2_NeedHigh>
+  <CF2_NeedMid>中</CF2_NeedMid>
+  <CF2_NeedLow>低</CF2_NeedLow>
+  <CF2_NeedNone>暂无</CF2_NeedNone>
 </LanguageData>

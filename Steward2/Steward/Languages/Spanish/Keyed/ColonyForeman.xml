@@ -374,6 +374,10 @@
   <CF2_ResearchFocus>El investigador investiga de verdad</CF2_ResearchFocus>
   <CF2_ResearchFocusTip>Mientras haya un proyecto elegido, el mejor investigador tiene la investigación en 2 (en 1 desde 5 colonos) y el transporte y la limpieza un nivel más abajo. La investigación es la última columna: al mismo nivel nunca iría primero.</CF2_ResearchFocusTip>
   <CF2_Spread>Repartir el trabajo en los {0} niveles según la necesidad</CF2_Spread>
-  <CF2_SpreadTip>El trabajo más necesario recibe 2, el menos necesario 3, 4 … hasta {0}; los ayudantes un nivel más abajo, los suplentes en {1}. La necesidad es una media de las últimas horas, así los niveles no saltan.</CF2_SpreadTip>
-  <CF2_TipSpread>Nivel según la necesidad: {0}.º trabajo más necesario ahora (esperan unas {1} tareas).</CF2_TipSpread>
+  <CF2_SpreadTip>Cada colono recibe su propio orden de trabajo: 1 emergencias, 2–3 su trabajo principal (el más necesario, en el que está entre los mejores), 3–4 ayuda, 5–8 el resto según lo que sabe hacer y lo que hace falta, {0} solo lo que hace mal y nadie necesita. La necesidad se promedia en las últimas horas, así que los números no saltan.</CF2_SpreadTip>
+  <CF2_TipSpread>Nivel según necesidad y habilidad: puesto {0} en este trabajo, necesidad: {1}.</CF2_TipSpread>
+  <CF2_NeedHigh>alta</CF2_NeedHigh>
+  <CF2_NeedMid>media</CF2_NeedMid>
+  <CF2_NeedLow>baja</CF2_NeedLow>
+  <CF2_NeedNone>ninguna ahora</CF2_NeedNone>
 </LanguageData>

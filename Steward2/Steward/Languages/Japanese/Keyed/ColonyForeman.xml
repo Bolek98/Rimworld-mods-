@@ -374,6 +374,10 @@
   <CF2_ResearchFocus>研究者が本当に研究する</CF2_ResearchFocus>
   <CF2_ResearchFocusTip>研究プロジェクトが選ばれている間、最良の研究者の研究を 2（入植者 5 人以上なら 1）にし、運搬と清掃を一段下げます。研究は最後の列なので、同じ優先度では決して先に来ません。</CF2_ResearchFocusTip>
   <CF2_Spread>必要度に応じて仕事を全 {0} 段階に振り分ける</CF2_Spread>
-  <CF2_SpreadTip>最も必要な仕事は 2、それほどでもない仕事は 3、4 … {0} まで。手伝いは 1 段階下、予備は {1}。必要度は直近数時間の平均なので、段階が頻繁に変わりません。</CF2_SpreadTip>
-  <CF2_TipSpread>必要度による段階：現在 {0} 番目に必要な仕事（約 {1} 件待ち）。</CF2_TipSpread>
+  <CF2_SpreadTip>入植者ごとに独自の作業順を付けます：1 緊急、2–3 主な仕事（最も必要で、彼が得意な上位の仕事）、3–4 手伝い、5–8 残りを能力と必要度の順に、{0} 苦手で誰も必要としない仕事のみ。必要度は直近数時間の平均なので、数字は急に変わりません。</CF2_SpreadTip>
+  <CF2_TipSpread>必要度と技能による段階：この仕事で {0} 位、必要度：{1}。</CF2_TipSpread>
+  <CF2_NeedHigh>高</CF2_NeedHigh>
+  <CF2_NeedMid>中</CF2_NeedMid>
+  <CF2_NeedLow>低</CF2_NeedLow>
+  <CF2_NeedNone>今はなし</CF2_NeedNone>
 </LanguageData>
