@@ -54,8 +54,8 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 		Subs.Clear();
 		ClearIcons();
 		cat ??= S.lastCategory;
-		if (cat == null || (cat != Fav && cat != Recent && !Catalog.cats.Any(c => c.defName == cat)))
-			cat = Catalog.cats.FirstOrDefault(c => c.Visible)?.defName;
+		if (!ValidCat(cat))
+			cat = S.grouped ? "g:" + (Groups.Order.FirstOrDefault(g => GroupCount(g) > 0 && g != "orders") ?? "build") : Catalog.cats.FirstOrDefault(c => c.Visible)?.defName;
 		focusDone = false;
 	}
 
@@ -70,7 +70,7 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 	{
 		base.WindowUpdate();
 		DesignationCategoryDef c = Catalog.cats.FirstOrDefault(x => x.defName == cat);
-		if (c != null && c.showPowerGrid && !search.filter.Active)
+		if ((c != null && c.showPowerGrid || cat == "g:power") && !search.filter.Active)
 			OverlayDrawHandler.DrawPowerGridOverlayThisFrame();
 	}
 
@@ -108,6 +108,19 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 		hover = null;
 		MUI.Fill(inRect, MUI.CardBg);
 
+		// 0.4.0: Tab / Shift+Tab goes through the folders
+		if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.Tab && !search.CurrentlyFocused())
+		{
+			var ids = SideIds();
+			if (ids.Count > 0)
+			{
+				int at = ids.IndexOf(cat);
+				cat = ids[(at + (Event.current.shift ? -1 : 1) + ids.Count) % ids.Count];
+				scrollGrid = Vector2.zero;
+				SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+			}
+			Event.current.Use();
+		}
 		List<Designator> items = Items(out string emptyText);
 		if (KeyBindingDefOf.Accept.KeyDownEvent)
 		{
@@ -148,6 +161,8 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 		// header switches: group by mod, show what is not researched yet
 		float tx = head.xMax - 40f;
 		tx = Toggle(ref tx, head, "MA_ShowLocked", ref S.showLocked);
+		tx = Toggle(ref tx, head, "MA_Afford", ref S.onlyAfford);
+		tx = Toggle(ref tx, head, "MA_GroupedShort", ref S.grouped, () => { if (!ValidCat(cat)) cat = S.grouped ? "g:build" : Catalog.cats.FirstOrDefault(x => x.Visible)?.defName; });
 		tx = Toggle(ref tx, head, "MA_ByMod", ref S.byMod, () => Subs.Clear());
 		ColsButton(ref tx, head);
 
@@ -244,8 +259,10 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 			emptyText = "MA_RecentEmpty".Translate();
 			return S.recent.Select(k => Catalog.byKey.TryGetValue(k, out var e) ? e.des : null).Where(d => d != null).ToList();
 		}
-		DesignationCategoryDef c = Catalog.cats.FirstOrDefault(x => x.defName == cat);
 		emptyText = "NothingAvailableInCategory".Translate();
+		if (cat != null && cat.StartsWith("g:"))
+			return Catalog.groupItems.TryGetValue(cat.Substring(2), out var gl) ? gl : new List<Designator>();
+		DesignationCategoryDef c = Catalog.cats.FirstOrDefault(x => x.defName == cat);
 		return c != null && Catalog.grid.TryGetValue(c, out var l) ? l : new List<Designator>();
 	}
 
@@ -285,12 +302,7 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 			return d;
 		d = null;
 		if (Catalog.grid.TryGetValue(c, out var list))
-		{
-			IEnumerable<Designator> flat = list.SelectMany(x => x is Designator_Dropdown dd ? dd.Elements.AsEnumerable() : new[] { x });
-			d = flat.FirstOrDefault(x => x is Designator_Build && Catalog.Shown(x))
-				?? flat.FirstOrDefault(x => x is Designator_Build)
-				?? flat.FirstOrDefault(x => x.icon != null);
-		}
+			d = PickIcon(list);
 		iconOf[c.defName] = d;
 		return d;
 	}
@@ -317,14 +329,71 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 		GUI.color = Color.white;
 	}
 
+	private static List<string> SideIds() => S.grouped
+		? Groups.Order.Where(g => GroupCount(g) > 0).Select(g => "g:" + g).ToList()
+		: Catalog.cats.Where(c => c.Visible && Catalog.grid.TryGetValue(c, out var l) && l.Any(Catalog.Shown)).Select(c => c.defName).ToList();
+
+	private static bool ValidCat(string c)
+	{
+		if (c == null) return false;
+		if (c == Fav || c == Recent) return true;
+		if (c.StartsWith("g:")) return S.grouped && Groups.Order.Contains(c.Substring(2));
+		return !S.grouped && Catalog.cats.Any(x => x.defName == c);
+	}
+
+	private static int GroupCount(string g) => Catalog.groupItems.TryGetValue(g, out var l) ? l.Count(Catalog.Shown) : 0;
+
+	// picture of a main folder: a fixed building of the base game, else the first thing in it
+	private static void GroupIcon(Rect r, string g, float alpha)
+	{
+		Def d = Groups.IconDef(g);
+		if (d is BuildableDef bd)
+		{
+			GUI.color = new Color(1f, 1f, 1f, alpha);
+			try { Widgets.DefIcon(r, bd, bd is ThingDef td && td.MadeFromStuff ? GenStuff.DefaultStuffFor(td) : null); } catch { }
+			GUI.color = Color.white;
+			return;
+		}
+		if (Catalog.groupItems.TryGetValue(g, out var l))
+			DrawIcon(r, PickIcon(l), alpha);
+	}
+
+	// 0.4.0: never the "delete" or "cancel" order as the picture
+	private static Designator PickIcon(IEnumerable<Designator> list)
+	{
+		var flat = list.SelectMany(x => x is Designator_Dropdown dd ? dd.Elements.AsEnumerable() : new[] { x }).ToList();
+		bool Bad(Designator x)
+		{
+			string n = x.GetType().Name;
+			return n.Contains("Delete") || n.Contains("Cancel") || n.Contains("Remove") || n.Contains("Shrink") || n.Contains("Clear") || n.Contains("Deconstruct");
+		}
+		return flat.FirstOrDefault(x => x is Designator_Build && Catalog.Shown(x))
+			?? flat.FirstOrDefault(x => x is Designator_Build)
+			?? flat.FirstOrDefault(x => x.icon != null && !Bad(x))
+			?? flat.FirstOrDefault(x => x.icon != null);
+	}
+
 	private void Sidebar(Rect r)
 	{
 		MUI.Fill(r, MUI.CardBg2);
 		var cats = new List<(string id, string label, int count, bool on, DesignationCategoryDef def)>();
+		if (S.grouped)
+		{
+			// 0.4.0: main folders; empty ones stay hidden until something in them can be built
+			bool first = S.seenGroups.Count == 0;
+			foreach (string g in Groups.Order)
+			{
+				int n = GroupCount(g);
+				if (n == 0) continue;
+				if (first) S.seenGroups.Add("g:" + g);
+				cats.Add(("g:" + g, Groups.Label(g), n, true, null));
+			}
+		}
+		else
 		foreach (DesignationCategoryDef c in Catalog.cats)
 		{
 			int n = Catalog.grid.TryGetValue(c, out var l) ? l.Count(Catalog.Shown) : 0;
-			cats.Add((c.defName, c.LabelCap, n, c.Visible && n > 0, c));
+			cats.Add((c.defName, Catalog.CatLabel(c), n, c.Visible && n > 0, c));
 		}
 		int cols = SideCols;
 		float cw = (r.width - 16f) / cols;
@@ -365,12 +434,17 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 		else if (Mouse.IsOver(rr)) MUI.Fill(rr, MUI.CardBg);
 		if (sel) MUI.Fill(new Rect(rr.x, rr.y, 3f, rr.height), MUI.Accent);
 		float x = rr.x + 7f;
-		if (def != null)
+		bool isGroup = id.StartsWith("g:");
+		if (def != null || isGroup)
 		{
 			Rect ic = new Rect(x, rr.y + (rr.height - 22f) / 2f, 22f, 22f);
-			DrawIcon(ic, IconFor(def), on ? 1f : 0.4f);
+			if (isGroup) GroupIcon(ic, id.Substring(2), 1f);
+			else DrawIcon(ic, IconFor(def), on ? 1f : 0.4f);
 			x = ic.xMax + 5f;
 		}
+		// 0.4.0: a folder that just got its first building is marked new until opened
+		bool isNew = isGroup && !S.seenGroups.Contains(id);
+		if (isGroup && sel && !S.seenGroups.Contains(id)) { S.seenGroups.Add(id); dirty = true; }
 		bool narrow = SideCols > 1;
 		Text.Font = GameFont.Tiny;
 		string cnt = count > 0 ? count.ToString() : "";
@@ -379,6 +453,21 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 		GUI.color = sel ? MUI.Accent : on ? MUI.Text1 : MUI.Muted;
 		Text.Anchor = TextAnchor.MiddleLeft;
 		float lw = rr.xMax - x - cntW - 2f;
+		if (isNew)
+		{
+			Text.Font = GameFont.Tiny;
+			string nl = "MA_New".Translate();
+			float nw = Text.CalcSize(nl).x + 8f;
+			Rect pill = new Rect(rr.xMax - cntW - nw - 6f, rr.y + (rr.height - 16f) / 2f, nw, 16f);
+			MUI.Fill(pill, MUI.Accent, 4f);
+			GUI.color = MUI.CardBg;
+			Text.Anchor = TextAnchor.MiddleCenter;
+			Widgets.Label(pill, nl);
+			Text.Anchor = TextAnchor.MiddleLeft;
+			GUI.color = sel ? MUI.Accent : on ? MUI.Text1 : MUI.Muted;
+			Text.Font = SideCols > 1 ? GameFont.Tiny : GameFont.Small;
+			lw -= nw + 4f;
+		}
 		Widgets.Label(new Rect(x, rr.y, lw, rr.height), label.Truncate(lw));
 		if (count > 0)
 		{
@@ -417,6 +506,7 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 	private void Grid(Rect r, List<Designator> items, string emptyText)
 	{
 		List<Designator> shown = items.Where(d => Catalog.Shown(d) || (S.showLocked && Locked(d))).ToList();
+		if (S.onlyAfford) shown = shown.Where(d => !Catalog.Shown(d) || Missing(d) == null).ToList();   // 0.4.0
 		// sub-categories as chips above the buildings
 		var groups = shown.GroupBy(d => Subs.Of(d)).OrderBy(g => Subs.Rank(g.Key)).ThenBy(g => g.Key).ToList();
 		string selKey = (search.filter.Active ? "@search" : cat ?? "") + (S.byMod ? "#mod" : "");
@@ -459,18 +549,46 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 			return;
 		}
 		int cols = Mathf.Max(1, Mathf.FloorToInt((r.width - 16f + Gap) / (Cell + Gap)));
-		int rowsN = Mathf.CeilToInt(shown.Count / (float)cols);
-		Rect view = new Rect(0f, 0f, r.width - 16f, rowsN * (Cell + Gap + 2f));
+		// 0.4.0: the base game and DLCs first, things from mods below a line
+		var vanilla = shown.Where(d => !Groups.FromMod(d, CatOf(d))).ToList();
+		var modded = shown.Where(d => Groups.FromMod(d, CatOf(d))).ToList();
+		bool split = vanilla.Count > 0 && modded.Count > 0 && !S.byMod;
+		shown = vanilla.Concat(modded).ToList();
+		int vRows = Mathf.CeilToInt(vanilla.Count / (float)cols);
+		const float SepH = 22f;
+		Vector2 Pos(int i)
+		{
+			if (!split || i < vanilla.Count) return new Vector2((i % cols) * (Cell + Gap), (i / cols) * (Cell + Gap + 2f));
+			int j = i - vanilla.Count;
+			return new Vector2((j % cols) * (Cell + Gap), vRows * (Cell + Gap + 2f) + SepH + (j / cols) * (Cell + Gap + 2f));
+		}
+		float totalH = shown.Count == 0 ? 0f : Pos(shown.Count - 1).y + Cell + Gap + 2f;
+		Rect view = new Rect(0f, 0f, r.width - 16f, totalH);
 		Widgets.BeginScrollView(r, ref scrollGrid, view);
 		Text.Font = GameFont.Tiny;
 		Gizmo interacted = null, floatMenu = null;
 		Event ev = null;
 		Designator selected = Find.DesignatorManager.SelectedDesignator;
+		if (split)
+		{
+			float sy = vRows * (Cell + Gap + 2f);
+			MUI.Fill(new Rect(0f, sy + SepH / 2f, view.width, 1f), MUI.Border);
+			string fm = "MA_FromMods".Translate();
+			float fw = Text.CalcSize(fm).x + 12f;
+			Rect fr = new Rect(8f, sy + 2f, fw, SepH - 4f);
+			MUI.Fill(fr, MUI.CardBg);
+			GUI.color = MUI.Muted;
+			Text.Anchor = TextAnchor.MiddleCenter;
+			Widgets.Label(fr, fm);
+			Text.Anchor = TextAnchor.UpperLeft;
+			GUI.color = Color.white;
+		}
 		for (int i = 0; i < shown.Count; i++)
 		{
 			Designator d = shown[i];
-			float x = (i % cols) * (Cell + Gap);
-			float y = (i / cols) * (Cell + Gap + 2f);
+			Vector2 pos = Pos(i);
+			float x = pos.x;
+			float y = pos.y;
 			Rect cell = new Rect(x, y, Cell, Cell);
 			// skip what is scrolled out of sight
 			if (y + Cell < scrollGrid.y - 4f || y > scrollGrid.y + r.height + 4f)
@@ -510,6 +628,7 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 				floatMenu = d;
 			if ((int)res.State >= 1)
 				hover = d;
+			Badges(cell, d);   // 0.4.0
 			if (showStar)
 			{
 				GUI.color = fav ? new Color(1f, 0.82f, 0.3f) : new Color(1f, 1f, 1f, Mouse.IsOver(star) ? 0.9f : 0.45f);
@@ -535,6 +654,59 @@ public class MainTabWindow_MisakArchitect : MainTabWindow_Architect
 			var opts = floatMenu.RightClickFloatMenuOptions.ToList();
 			Event.current.Use();
 			if (opts.Any()) Find.WindowStack.Add(new FloatMenu(opts));
+		}
+	}
+
+	private static DesignationCategoryDef CatOf(Designator d) => Catalog.catOf.TryGetValue(d, out var c) ? c : null;
+
+	// 0.4.0: what is missing to build it once (null = there is enough)
+	private static string Missing(Designator d)
+	{
+		if (d is Designator_Dropdown dd) d = dd.Elements.FirstOrDefault();
+		if (!(d is Designator_Build b) || Find.CurrentMap == null || b.PlacingDef == null) return null;
+		try
+		{
+			var cost = b.PlacingDef.CostListAdjusted(b.StuffDef);
+			var miss = new List<string>();
+			foreach (ThingDefCountClass tc in cost)
+			{
+				int have = Find.CurrentMap.resourceCounter.GetCount(tc.thingDef);
+				if (have < tc.count) miss.Add(tc.thingDef.LabelCap + " " + have + "/" + tc.count);
+			}
+			return miss.Count == 0 ? null : string.Join(", ", miss);
+		}
+		catch { return null; }
+	}
+
+	// 0.4.0: how many are built already (top left), a red mark when material is missing (top right under the star)
+	private static void Badges(Rect cell, Designator d)
+	{
+		Designator one = d is Designator_Dropdown dd ? dd.Elements.FirstOrDefault() : d;
+		if (!(one is Designator_Build b) || Find.CurrentMap == null) return;
+		Text.Font = GameFont.Tiny;
+		if (b.PlacingDef is ThingDef td)
+		{
+			int n = 0;
+			try { n = Find.CurrentMap.listerBuildings.AllBuildingsColonistOfDef(td).Count(); } catch { }
+			if (n > 0)
+			{
+				string t = "×" + n;
+				Rect br = new Rect(cell.x + 2f, cell.y + 2f, Text.CalcSize(t).x + 6f, 15f);
+				MUI.Fill(br, new Color(0f, 0f, 0f, 0.55f), 3f);
+				GUI.color = MUI.Text1;
+				Text.Anchor = TextAnchor.MiddleCenter;
+				Widgets.Label(br, t);
+				Text.Anchor = TextAnchor.UpperLeft;
+				GUI.color = Color.white;
+				TooltipHandler.TipRegion(br, "MA_BuiltTip".Translate(n));
+			}
+		}
+		string miss = Missing(b);
+		if (miss != null)
+		{
+			Rect mr = new Rect(cell.xMax - 14f, cell.y + 20f, 11f, 11f);
+			MUI.Fill(mr, new Color32(214, 84, 84, 255), 5f);
+			if (Mouse.IsOver(cell)) TooltipHandler.TipRegion(cell, "MA_MissingTip".Translate(miss));
 		}
 	}
 

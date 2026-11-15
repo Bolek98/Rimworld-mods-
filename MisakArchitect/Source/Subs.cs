@@ -12,7 +12,7 @@ public static class Subs
 {
 	public static readonly string[] Order =
 	{
-		"walls", "doors", "fences", "floors", "beds", "tables", "seats", "storage", "lights", "decor", "plants",
+		"walls", "doors", "fences", "floors", "fl_wood", "fl_stone", "fl_carpet", "fl_metal", "fl_fine", "fl_other", "beds", "tables", "seats", "storage", "lights", "decor", "plants",
 		"joy", "benches", "research", "medical", "temperature", "power", "conduits", "batteries", "security",
 		"traps", "facilities", "comms", "production", "animals", "zones", "orders", "other"
 	};
@@ -26,6 +26,31 @@ public static class Subs
 		if (d == null) return "other";
 		if (MisakArchitectMod.S.byMod)
 			return "mod:" + (Catalog.ModOf(d) ?? "RimWorld");
+		string k = Kind(d);
+		return k == "floors" ? FloorKind(d) : k;
+	}
+
+	// 1.1.2: floors split by what they are made of
+	private static string FloorKind(Designator d)
+	{
+		if (d is Designator_Dropdown dd) d = dd.Elements.FirstOrDefault();
+		if (!(d is Designator_Build b) || !(b.PlacingDef is TerrainDef t)) return "fl_other";
+		string n = t.defName ?? "";
+		var cost = t.CostList ?? new List<ThingDefCountClass>();
+		bool Costs(Func<ThingDef, bool> f) => cost.Any(c => c?.thingDef != null && f(c.thingDef));
+		if (n.Contains("Sterile") || n.Contains("Silver") || n.Contains("Gold") || n.Contains("Fine") || n.Contains("Royal")) return "fl_fine";
+		if (n.Contains("Carpet") || Costs(x => x.IsStuff && x.stuffProps?.categories?.Contains(StuffCategoryDefOf.Fabric) == true)) return "fl_carpet";
+		if (n.Contains("Wood") || Costs(x => x == ThingDefOf.WoodLog)) return "fl_wood";
+		if (n.Contains("Metal") || n.Contains("Steel") || n.Contains("Plasteel") || Costs(x => x == ThingDefOf.Steel || x == ThingDefOf.Plasteel)) return "fl_metal";
+		if (n.Contains("Tile") || n.Contains("Flagstone") || n.Contains("Stone") || n.Contains("Concrete") || n.Contains("Paved") || n.Contains("Brick")
+			|| Costs(x => x.IsStuff && x.stuffProps?.categories?.Contains(StuffCategoryDefOf.Stony) == true)) return "fl_stone";
+		return "fl_other";
+	}
+
+	// what the building is, whatever the setting (0.4.0: also used for the main folders)
+	public static string Kind(Designator d)
+	{
+		if (d == null) return "other";
 		if (cache.TryGetValue(d, out string s)) return s;
 		try { s = Find(d); } catch { s = "other"; }
 		cache[d] = s;
@@ -38,7 +63,7 @@ public static class Subs
 	private static string Find(Designator d)
 	{
 		if (d is Designator_Dropdown dd)
-			return dd.Elements.Count > 0 ? Of(dd.Elements[0]) : "other";
+			return dd.Elements.Count > 0 ? Kind(dd.Elements[0]) : "other";
 		if (!(d is Designator_Build b))
 		{
 			string n = d.GetType().Name;
@@ -71,6 +96,8 @@ public static class Subs
 		if (td.IsTable) return "tables";
 		if (bp != null && bp.isSittable) return "seats";
 		if (bp != null && bp.joyKind != null) return "joy";
+		// 1.1.1: animal things before storage (troughs and feeders are often storage buildings)
+		if (CompClass(td, "AnimalPenMarker") || CompClass(td, "EggBox") || Animalish(td.defName)) return "animals";
 		if (typeof(Building_Storage).IsAssignableFrom(td.thingClass) || bp?.fixedStorageSettings != null || bp?.defaultStorageSettings != null && !td.IsWorkTable) return "storage";
 		if (typeof(Building_PlantGrower).IsAssignableFrom(td.thingClass) || bp != null && !bp.sowTag.NullOrEmpty()) return "plants";
 		if (Has<CompProperties_Glower>(td)) return "lights";
@@ -80,6 +107,9 @@ public static class Subs
 		if (Has<CompProperties_Spawner>(td) || Has<CompProperties_Refuelable>(td) && Has<CompProperties_Power>(td)) return "production";
 		return "other";
 	}
+
+	private static readonly string[] AnimalWords = { "Animal", "PenMarker", "Trough", "Feeder", "Kennel", "Hutch", "Coop", "Nest", "EggBox", "Hive", "Hay", "Milking", "Shearing", "PetBed", "Doghouse", "Stable" };
+	private static bool Animalish(string n) => n != null && AnimalWords.Any(w => n.IndexOf(w, StringComparison.Ordinal) >= 0);
 
 	public static string Label(string key)
 	{

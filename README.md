@@ -17,7 +17,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | Evergrowth – Wild Plant Spawns per Biome (Choose What Grows) | 1.2.0 | [EvergrowthWildPlants](EvergrowthWildPlants) |
 | [B98] Haul Master – Pockets, Routes & Storage | 1.1.0 | [HaulSmarter](HaulSmarter) |
 | [B98] Mad Dice Max – Dice Storyteller | 1.0.1 | [MadDiceMax](MadDiceMax) |
-| [B98] Clear Architect – Build Menu with Sub-Categories | 1.0.0 | [MisakArchitect](MisakArchitect) |
+| [B98] Clear Architect – Build Menu with Sub-Categories | 1.1.0 | [MisakArchitect](MisakArchitect) |
 | [B98] Clear Bills – Bills Tab Overhaul | 1.0.0 | [MisakBills](MisakBills) |
 | [B98] Clear Character – Character, Social & Needs | 1.0.0 | [MisakCharacter](MisakCharacter) |
 | [B98] Clear Gear – Gear Tab Overhaul | 1.0.0 | [MisakGear](MisakGear) |
