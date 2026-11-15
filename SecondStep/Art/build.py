@@ -47,6 +47,7 @@ def coll(name):
 
 FRAME = (0.86, 0.86, 0.86); TIRE = (0.13, 0.13, 0.14); SEAT = (0.55, 0.55, 0.57); PAD = (0.25, 0.25, 0.26)
 
+AXLES = []
 def wheelchair(col):
     global TAG
     fr, ti, se = mat('frame', FRAME), mat('tire', TIRE), mat('seat', SEAT)
@@ -55,6 +56,9 @@ def wheelchair(col):
         x = s*0.40
         near = {'nearE'} if s < 0 else set()
         TAG = set(near)
+        axle = bpy.data.objects.new('axle%d' % s, None); col.objects.link(axle)
+        axle.location = (x, -0.02, R+0.02); AXLES.append(axle)
+        first = len(col.objects)
         torus(col, ti, (x, -0.02, R+0.02), R, 0.03)
         torus(col, fr, (x+s*0.045, -0.02, R+0.02), R-0.04, 0.012)          # push rim
         cyl(col, fr, (x-0.03, -0.02, R+0.02), (x+0.03, -0.02, R+0.02), 0.04)  # hub
@@ -62,6 +66,9 @@ def wheelchair(col):
             a = k*math.pi/6
             cyl(col, fr, (x, -0.02+math.cos(a)*(R-0.02), R+0.02+math.sin(a)*(R-0.02)),
                 (x, -0.02-math.cos(a)*(R-0.02), R+0.02-math.sin(a)*(R-0.02)), 0.006, 6)
+        for o in list(col.objects)[first:]:
+            if o.type == 'MESH':
+                mw = o.matrix_world.copy(); o.parent = axle; o.matrix_world = mw
         TAG = set()
         cyl(col, fr, (s*0.32, -0.20, 0.28), (s*0.32, -0.22, 0.80), 0.022)
         cyl(col, fr, (s*0.32, -0.22, 0.80), (s*0.32, -0.32, 0.82), 0.024)
@@ -180,6 +187,14 @@ for name, (p, t) in views.items():
     all_tags(W)
     only(CLE if name == 'east' else CL); shoot(cam, S, p, t, f'{OUT}/CrutchesLean_{name}.png')
     only(CE if name == 'east' else CS); shoot(cam, S, p, t, f'{OUT}/Crutches_{name}.png')
+p, t = views['east']
+for k in range(1, 4):
+    for a in AXLES: a.rotation_euler = (-k * math.radians(7.5), 0, 0)
+    bpy.context.view_layer.update()
+    all_tags(W); only(W); shoot(cam, S, p, t, f'{OUT}/WheelchairSpin{k}_east.png')
+    only_tag(W, 'nearE'); shoot(cam, S, p, t, f'{OUT}/WheelchairFrontSpin{k}_east.png')
+for a in AXLES: a.rotation_euler = (0, 0, 0)
+all_tags(W)
 only(W)
 # item icons: from above, a bit from the front
 only(W); shoot(cam, 1.5, (6, 7, 8), (0, 0, 0.4), f'{OUT}/Wheelchair.png')

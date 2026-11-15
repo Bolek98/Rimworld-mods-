@@ -210,26 +210,25 @@
       <layers>
         <li>SS_MobilityAid</li>
       </layers>
-      <wornGraphicPath>SecondStep/Worn/Wheelchair</wornGraphicPath>
       <countsAsClothingForNudity>false</countsAsClothingForNudity>
       <careIfWornByCorpse>false</careIfWornByCorpse>
       <careIfDamaged>false</careIfDamaged>
       <wearPerDay>0.1</wearPerDay>
       <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
       <canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
-      <drawData>
-        <defaultData>
-          <layer>-5</layer>
-        </defaultData>
-        <dataNorth>
-          <layer>45</layer>
-        </dataNorth>
-      </drawData>
       <renderNodeProperties>
         <li>
+          <debugLabel>Second Step wheelchair back</debugLabel>
+          <nodeClass>SecondStep.PawnRenderNode_Chair</nodeClass>
+          <workerClass>SecondStep.PawnRenderNodeWorker_Chair</workerClass>
+          <texPath>SecondStep/Worn/Wheelchair</texPath>
+          <parentTagDef>Body</parentTagDef>
+          <baseLayer>-5</baseLayer>
+        </li>
+        <li>
           <debugLabel>Second Step wheelchair front</debugLabel>
-          <nodeClass>SecondStep.PawnRenderNode_ChairFront</nodeClass>
-          <workerClass>PawnRenderNodeWorker</workerClass>
+          <nodeClass>SecondStep.PawnRenderNode_Chair</nodeClass>
+          <workerClass>SecondStep.PawnRenderNodeWorker_Chair</workerClass>
           <texPath>SecondStep/Worn/WheelchairFront</texPath>
           <parentTagDef>Body</parentTagDef>
           <baseLayer>45</baseLayer>

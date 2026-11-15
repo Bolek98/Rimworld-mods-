@@ -34,7 +34,7 @@ namespace SecondStep
 
 	public class SecondStepMod : Mod
 	{
-		public const string Version = "0.2.0";
+		public const string Version = "0.2.1";
 		public static SecondStepSettings S;
 		private Vector2 scroll;
 
@@ -147,7 +147,8 @@ namespace SecondStep
 
 		public static bool InChair(Pawn p) => KindOf(WornAid(p)) == AidKind.Wheelchair;
 
-		private static HediffDef limp;
+		private static HediffDef limp, pushed;
+		public static HediffDef Pushed => pushed ?? (pushed = DefDatabase<HediffDef>.GetNamedSilentFail("SS_Pushed"));
 		public static HediffDef Limp => limp ?? (limp = DefDatabase<HediffDef>.GetNamedSilentFail("SS_Limping"));
 
 		// limping: a leg is missing, at least one is left and no aid helps
@@ -272,15 +273,61 @@ namespace SecondStep
 		}
 	}
 
-	// the front of the wheelchair (armrests, foot plates, the near wheel) drawn over the sitting colonist, in the chair's colour
-	public class PawnRenderNode_ChairFront : PawnRenderNode
+	// the wheelchair is drawn by two nodes: the back part under the colonist (over him from the north) and the
+	// front part over him (armrests, foot plates, the near wheel). Seen from the side the wheels turn while rolling.
+	public class PawnRenderNode_Chair : PawnRenderNode
 	{
-		public PawnRenderNode_ChairFront(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree) : base(pawn, props, tree) { }
+		private Graphic[] spin;
+
+		public PawnRenderNode_Chair(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree) : base(pawn, props, tree) { }
+
+		private Color Col => apparel?.DrawColor ?? Color.white;
 
 		public override Graphic GraphicFor(Pawn pawn)
 		{
+			spin = null;
 			if (props.texPath.NullOrEmpty()) return null;
-			return GraphicDatabase.Get<Graphic_Multi>(props.texPath, ShaderDatabase.Cutout, Vector2.one, apparel?.DrawColor ?? Color.white);
+			return GraphicDatabase.Get<Graphic_Multi>(props.texPath, ShaderDatabase.Cutout, Vector2.one, Col);
+		}
+
+		public Graphic Spin(int k)
+		{
+			if (k <= 0) return PrimaryGraphic;
+			if (spin == null)
+			{
+				spin = new Graphic[4];
+				for (int i = 1; i < 4; i++)
+					spin[i] = GraphicDatabase.Get<Graphic_Multi>(props.texPath + "Spin" + i, ShaderDatabase.Cutout, Vector2.one, Col);
+			}
+			return spin[k];
+		}
+	}
+
+	public class PawnRenderNodeWorker_Chair : PawnRenderNodeWorker
+	{
+		public override bool CanDrawNow(PawnRenderNode node, PawnDrawParms parms)
+		{
+			if (!parms.flags.FlagSet(PawnRenderFlags.Clothes) || parms.pawn.InBed() || parms.pawn.Downed && !parms.pawn.Spawned) return false;
+			return base.CanDrawNow(node, parms);
+		}
+
+		protected override Graphic GetGraphic(PawnRenderNode node, PawnDrawParms parms)
+		{
+			Pawn p = parms.pawn;
+			if (node is PawnRenderNode_Chair c && parms.facing.IsHorizontal && p?.pather != null && p.pather.Moving && p.Spawned)
+			{
+				// about 20 frames a second when rolling alone, faster when pushed; it stops with the game paused
+				int speed = p.health.hediffSet.HasHediff(Legs.Pushed) ? 2 : 3;
+				return c.Spin((Find.TickManager.TicksGame / speed) % 4);
+			}
+			return base.GetGraphic(node, parms);
+		}
+
+		public override float LayerFor(PawnRenderNode node, PawnDrawParms parms)
+		{
+			// the back part: under the colonist, from the north over him (the backrest)
+			if (node.Props.baseLayer < 0f && parms.facing == Rot4.North) return 45f;
+			return base.LayerFor(node, parms);
 		}
 	}
 
