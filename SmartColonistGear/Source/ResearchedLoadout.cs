@@ -7741,6 +7741,12 @@ namespace ResearchedLoadout
 		private static bool StripLockedGear(Pawn pawn)
 		{
 			bool result = false;
+			// 2.17.1: in the first days of a new colony anything at hand may be taken (IsAllowed) – stripping it
+			// as "locked" at the same time made colonists pick up and drop the same weapon again and again
+			if (LoadoutFilter.InStartGrace())
+			{
+				return false;
+			}
 			if (pawn.equipment != null)
 			{
 				List<ThingWithComps> allEquipmentListForReading = pawn.equipment.AllEquipmentListForReading;
@@ -11893,12 +11899,32 @@ namespace ResearchedLoadout
 			return false;
 		}
 
+		private static bool storing;
+
 		public static bool TryQueueStore(Pawn pawn, Thing thing)
 		{
 			if (thing == null || thing.Destroyed || !thing.Spawned)
 			{
 				return false;
 			}
+			// 2.17.1: never again from inside itself – starting the haul job can drop or swap gear, which came back here
+			if (storing)
+			{
+				return false;
+			}
+			storing = true;
+			try
+			{
+				return TryQueueStoreInner(pawn, thing);
+			}
+			finally
+			{
+				storing = false;
+			}
+		}
+
+		private static bool TryQueueStoreInner(Pawn pawn, Thing thing)
+		{
 			thing.SetForbidden(false, false);
 			if (!Enabled || !CanHaulFor(pawn) || thing.Map != pawn.Map)
 			{

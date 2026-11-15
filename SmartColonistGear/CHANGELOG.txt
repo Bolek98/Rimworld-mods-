@@ -1,5 +1,8 @@
 === Not on the Workshop yet (test versions) ===
 2.17.1
+- Fix: in the first days of a new colony colonists picked up a weapon and dropped it again and again (the "take anything at the start" rule and the "not researched" rule fought). This could also end in a crash while hunting.
+- Hauling dropped gear can no longer start itself again from inside (possible endless loop).
+- CZ: Oprava: v prvních dnech nové kolonie kolonisté pořád dokola brali a pouštěli zbraň (pravidlo „na začátku cokoli“ se hádalo s „nevyzkoumané“); mohlo to skončit pádem při lovu. Odnášení odložené výbavy se už nemůže spustit samo ze sebe.
 - Bills the mod adds by itself are named who added them and why – e.g. "Simple Coat – SCG: cold, 2 missing" (protective gear, emergency gear, gear planner); it is the game's bill name, so you can rename it.
 - Czech: bills are called zakázky everywhere (the protective gear option said účty); the option name says what it covers (cold, heat, toxic, attack).
 - CZ: Zakázky, které mod přidá sám, mají v názvu kdo a proč – třeba „Simple Coat – SCG: chlad, chybí 2“ (ochrana, nouzová výbava, plánovač výbavy); je to herní název zakázky, takže ho jde přejmenovat.
