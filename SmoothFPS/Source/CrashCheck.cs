@@ -264,7 +264,16 @@ namespace GraphicsTuner
             var rx = new Regex(@"at ([A-Za-z0-9_\.]+)\.[A-Za-z0-9_<>]+[\.:]");
             var tag = new Regex(@"\] \[([^\]]{2,40})\]");
             bool skip = false;
-            foreach (string l in lines.Skip(Math.Max(0, lines.Length - 300)))
+            // 1.7.3: only what happened in the game itself counts – load-time traces and the "[mod] … loaded"
+            // lines before the colony started blamed mods that had nothing to do with the crash
+            int from = Math.Max(0, lines.Length - 300);
+            for (int i = lines.Length - 1; i >= from; i--)
+                if (lines[i].Contains("Initializing new game") || lines[i].Contains("Loading game from file"))
+                {
+                    from = i + 1;
+                    break;
+                }
+            foreach (string l in lines.Skip(from))
             {
                 if (IsEntryStart(l))
                     skip = spam.Contains(Sig(l));

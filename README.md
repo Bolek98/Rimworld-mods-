@@ -54,7 +54,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.1 | [SecularColony](SecularColony) |
 | [B98] Slow Growth – Colonist Pace | 0.1.3 | [SlowGrowth](SlowGrowth) |
 | [B98] Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.0 | [SmartColonistGear](SmartColonistGear) |
-| [B98] Smooth FPS – Performance & Graphics | 1.7.2 | [SmoothFPS](SmoothFPS) |
+| [B98] Smooth FPS – Performance & Graphics | 1.7.3 | [SmoothFPS](SmoothFPS) |
 | [B98] Steward – Colony Work & Supply Manager | 2.53.0 | [Steward](Steward) |
 | [B98] Steward – Work Priorities | 1.2.3 | [Steward2/Steward](Steward2/Steward) |
 | [B98] Steward – Crises & Situations | 1.3.0 | [Steward2/StewardCrises](Steward2/StewardCrises) |
