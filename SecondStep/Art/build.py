@@ -73,7 +73,7 @@ def wheelchair(col):
     box(col, se, (0, 0.01, 0.44), (0.62, 0.42, 0.05))                          # seat
     box(col, se, (0, -0.215, 0.62), (0.62, 0.035, 0.36))                       # backrest
 
-def crutch(col, loc=(0,0,0), tilt=0.0, yaw=0.0, name='c'):
+def crutch(col, loc=(0,0,0), tilt=0.0, yaw=0.0, name='c', size=1.0):
     fr, pd = mat('frame', FRAME), mat('pad', PAD)
     parts = []
     # two rods from grip region up to the pad, one rod down to the tip
@@ -93,6 +93,7 @@ def crutch(col, loc=(0,0,0), tilt=0.0, yaw=0.0, name='c'):
     o = bpy.context.object
     bpy.ops.object.origin_set(type='ORIGIN_CURSOR')
     o.rotation_mode = 'XYZ'
+    o.scale = (size, size, size)
     o.rotation_euler = (0, tilt, yaw)
     o.location = loc
     o.name = name
@@ -135,15 +136,18 @@ def only(col):
 reset()
 cam = scene_setup()
 W = coll('wheelchair'); wheelchair(W)
+for o in W.objects:
+    o.location = o.location * 0.88
+    o.scale = o.scale * 0.88
 CS = coll('crutches_front')
-crutch(CS, (-0.40, 0.02, 0), tilt=-0.06); crutch(CS, (0.40, 0.02, 0), tilt=0.06)
-CE = coll('crutch_side'); crutch(CE, (0, 0.18, 0), tilt=0.0, yaw=math.pi/2).rotation_euler = (-0.10, 0, math.pi/2)
+crutch(CS, (-0.25, 0.04, 0), tilt=-0.07, size=0.6); crutch(CS, (0.25, 0.04, 0), tilt=0.07, size=0.6)
+CE = coll('crutch_side'); crutch(CE, (0, 0.10, 0), tilt=0.0, yaw=math.pi/2, size=0.6).rotation_euler = (-0.12, 0, math.pi/2)
 CI = coll('crutches_item')
 a = crutch(CI, (-0.1, 0, 0.05), name='i1'); a.rotation_euler = (math.pi/2, 0, 0.75); a.location = (-0.12, 0.0, 0.05)
 b = crutch(CI, (0.12, 0, 0.05), name='i2'); b.rotation_euler = (math.pi/2, 0, 0.45); b.location = (0.14, -0.05, 0.05)
 
 # worn views: 1.5 units across = the pawn body texture; floor near the bottom edge
-S = 1.5; zc = 0.72; el = 0.18
+S = 1.5; zc = 0.52; el = 0.18
 views = {
     'south': ((0, 10, zc + 10*el), (0, 0, zc)),
     'north': ((0, -10, zc + 10*el), (0, 0, zc)),
