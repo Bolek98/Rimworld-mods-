@@ -5,6 +5,7 @@ using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using RimWorld.Planet;
 
 namespace SeasonsHolidays
 {
@@ -19,6 +20,7 @@ namespace SeasonsHolidays
     {
         public bool recommended = true;
         public bool calendarDate = true;      // date readout with months
+        public bool rimDateLine = false;      // 0.x: the RimWorld date (quadrum) as a second line under the date
         public int yearMode = 0;              // 0 game years (5500), 1 from year 0, 2 from year 1
         public bool holidays = true;
         public bool parties = true;
@@ -65,6 +67,7 @@ namespace SeasonsHolidays
         {
             Scribe_Values.Look(ref recommended, "recommended", true);
             Scribe_Values.Look(ref calendarDate, "calendarDate", true);
+            Scribe_Values.Look(ref rimDateLine, "rimDateLine", false);
             Scribe_Values.Look(ref yearMode, "yearMode", 0);
             Scribe_Values.Look(ref holidays, "holidays", true);
             Scribe_Values.Look(ref parties, "parties", true);
@@ -113,7 +116,7 @@ namespace SeasonsHolidays
 
     public class SHMod : Mod
     {
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
 
         public static float Mood(string id) => S?.moodMul != null && S.moodMul.TryGetValue(id, out float f) ? f : 1f;
         private static readonly float[] MoodSteps = { 0f, 0.5f, 1f, 1.5f, 2f };
@@ -196,6 +199,7 @@ namespace SeasonsHolidays
                 l.Begin(view);
                 MUI.Section(l, "SH_SecCalendar".Translate());
                 Check(l, "SH_CalendarDate", ref S.calendarDate, "calendarDate");
+                if (S.calendarDate) Check(l, "SH_RimDateLine", ref S.rimDateLine, "rimDateLine");
                 Check(l, "SH_SeasonTips", ref S.seasonTips, "seasonTips");
                 S.remindDays = IntRow(l, "SH_RemindDays", S.remindDays, new[] { 0, 1, 2, 3, 5 }, v => v == 0 ? "SH_Off".Translate().ToString() : v.ToString());
                 MUI.Section(l, "SH_SecHolidays".Translate());
@@ -372,6 +376,75 @@ namespace SeasonsHolidays
             Try(h, "DateFullStringAt", nameof(Full));
             Try(h, "DateShortStringAt", nameof(Readout));
             Try(h, "DateMonthYearStringAt", nameof(MonthYear));
+            try
+            {
+                h.Patch(AccessTools.Method(typeof(DateReadout), nameof(DateReadout.DateOnGUI)),
+                    prefix: new HarmonyMethod(typeof(DatePatches), nameof(ReadoutPrefix)),
+                    postfix: new HarmonyMethod(typeof(DatePatches), nameof(ReadoutTip)));
+            }
+            catch (Exception e) { Log.Warning("[Seasons & Holidays] date tooltip: " + e.Message); }
+        }
+
+        // the RimWorld date (day of the quadrum) – what the game uses for growing seasons
+        public static string RimDate(long abs, float lon)
+        {
+            int day = GenDate.DayOfSeason(abs, lon) + 1;
+            return "FullDate".Translate(Find.ActiveLanguageWorker.OrdinalNumber(day), GenDate.Quadrum(abs, lon).Label(), GenDate.Year(abs, lon), day);
+        }
+
+        private static Vector2 LongLat()
+        {
+            if (WorldRendererUtility.WorldSelected && Find.WorldSelector.SelectedTile.Valid)
+                return Find.WorldGrid.LongLatOf(Find.WorldSelector.SelectedTile);
+            if (Find.CurrentMap != null) return Find.WorldGrid.LongLatOf(Find.CurrentMap.Tile);
+            return Vector2.zero;
+        }
+
+        private static List<string> seasons;
+        private static bool seasonsChanged;
+
+        // option: the third line of the readout (the season) shows the RimWorld date with the season
+        public static void ReadoutPrefix()
+        {
+            try
+            {
+                if (seasons == null) seasons = Traverse.Create(typeof(DateReadout)).Field("seasonsCached").GetValue<List<string>>();
+                if (seasons == null) return;
+                if (!On || !SHMod.S.rimDateLine || Find.CurrentMap == null)
+                {
+                    if (seasonsChanged) { seasonsChanged = false; DateReadout.Reset(); }
+                    return;
+                }
+                Vector2 v = LongLat();
+                long abs = Find.TickManager.TicksAbs;
+                Season se = GenDate.Season(abs, v);
+                int i = (int)se;
+                if (i < 0 || i >= seasons.Count) return;
+                seasons[i] = RimDate(abs, v.x) + " · " + se.LabelCap();
+                seasonsChanged = true;
+            }
+            catch { }
+        }
+
+        // the tooltip of the date: the RimWorld date first, then the game's own text
+        public static void ReadoutTip(Rect dateRect)
+        {
+            try
+            {
+                if (!On || !Mouse.IsOver(dateRect) || (Find.CurrentMap == null && !WorldRendererUtility.WorldSelected)) return;
+                Vector2 v = LongLat();
+                long abs = Find.TickManager.TicksAbs;
+                var sb = new System.Text.StringBuilder();
+                for (int i = 0; i < 4; i++)
+                {
+                    Quadrum q = (Quadrum)i;
+                    sb.AppendLine(q.Label() + " - " + q.GetSeason(v.y).LabelCap());
+                }
+                string vanilla = "DateReadoutTip".Translate(GenDate.DaysPassed, 15, GenDate.Season(abs, v).LabelCap(), 15, GenDate.Quadrum(abs, v.x).Label(), sb.ToString());
+                string text = "SH_RimDateTip".Translate(RimDate(abs, v.x)).ToString() + "\n\n" + vanilla;
+                TooltipHandler.TipRegion(dateRect, new TipSignal(text, 86423));
+            }
+            catch { }
         }
 
         private static void Try(Harmony h, string method, string prefix)

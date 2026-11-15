@@ -50,7 +50,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Research Fixer – Tech Progression | 0.3.4 | [ResearchFixer](ResearchFixer) |
 | [B98] Ride & Drive – Mounts and Vehicles Together | 0.1.1 | [RideAndDrive](RideAndDrive) |
 | [B98] Smart Colonist Gear – Wardrobe | 1.0.0 | [SCGWardrobe](SCGWardrobe) |
-| [B98] Seasons & Holidays – 12 Months, Real Holidays & Weather | 1.0.0 | [SeasonsHolidays](SeasonsHolidays) |
+| [B98] Seasons & Holidays – 12 Months, Real Holidays & Weather | 1.0.1 | [SeasonsHolidays](SeasonsHolidays) |
 | [B98] Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.1 | [SecularColony](SecularColony) |
 | [B98] Slow Growth – Colonist Pace | 0.1.3 | [SlowGrowth](SlowGrowth) |
 | [B98] Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.1 | [SmartColonistGear](SmartColonistGear) |
