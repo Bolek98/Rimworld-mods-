@@ -53,12 +53,24 @@ namespace HaulSmarter
             return m > 0f ? m : 0f;
         }
 
-        public static int CountThatFits(Thing t, float freeKg)
+        public static int CountThatFits(Thing t, float freeKg, float freeBulk = float.MaxValue)
         {
             float m = UnitMass(t);
-            if (m <= 0.0001f)
-                return t.stackCount;
-            return Mathf.Min(t.stackCount, Mathf.FloorToInt(freeKg / m));
+            int n = m <= 0.0001f ? t.stackCount : Mathf.Min(t.stackCount, Mathf.FloorToInt(freeKg / m));
+            // 1.1.1: Combat Extended bulk – the lower of the two counts
+            if (freeBulk < float.MaxValue)
+            {
+                float b = CE.UnitBulk(t);
+                if (b > 0.0001f)
+                    n = Mathf.Min(n, Mathf.FloorToInt(freeBulk / b));
+            }
+            return Mathf.Max(0, n);
+        }
+
+        // how much a pawn can still take: weight, and with Combat Extended also bulk
+        public static int CountThatFits(Pawn pawn, Thing t)
+        {
+            return CountThatFits(t, FreeKg(pawn), CE.FreeBulk(pawn));
         }
 
         public static bool CanUsePockets(Pawn pawn)
@@ -223,13 +235,15 @@ namespace HaulSmarter
                 return HaulAIUtility.HaulToStorageJob(pawn, first, forced);
 
             float free = FreeKg(pawn);
-            int firstCount = CountThatFits(first, free);
+            float freeBulk = CE.FreeBulk(pawn);
+            int firstCount = CountThatFits(first, free, freeBulk);
             if (firstCount <= 0)
                 return HaulAIUtility.HaulToStorageJob(pawn, first, forced);
 
             var things = new List<LocalTargetInfo> { first };
             var counts = new List<int> { firstCount };
             free -= firstCount * UnitMass(first);
+            if (freeBulk < float.MaxValue) freeBulk -= firstCount * CE.UnitBulk(first);
 
             int maxItems = maxOverride > 0 ? maxOverride : HSMod.S?.maxItems ?? 30;
             float radius = radiusOverride > 0f ? radiusOverride : HSMod.S?.scanRadius ?? 14;
@@ -246,7 +260,7 @@ namespace HaulSmarter
                 // nearest first, walking on from the last item taken
                 IntVec3 at = from;
                 int checks = 0;
-                while (near.Count > 0 && things.Count < maxItems && free > 0.5f && checks < 120)
+                while (near.Count > 0 && things.Count < maxItems && free > 0.5f && freeBulk > 0.01f && checks < 120)
                 {
                     int bi = 0;
                     int bd = int.MaxValue;
@@ -260,12 +274,13 @@ namespace HaulSmarter
                     checks++;
                     if (!GoodExtra(pawn, t, first) || (extraOk != null && !extraOk(t)))
                         continue;
-                    int n = CountThatFits(t, free);
+                    int n = CountThatFits(t, free, freeBulk);
                     if (n <= 0)
                         continue;
                     things.Add(t);
                     counts.Add(n);
                     free -= n * UnitMass(t);
+                    if (freeBulk < float.MaxValue) freeBulk -= n * CE.UnitBulk(t);
                     at = t.Position;
                 }
             }
@@ -443,7 +458,7 @@ namespace HaulSmarter
                 Thing t = job.GetTarget(TargetIndex.A).Thing;
                 if (t != null && t.Spawned && pawn.Position.AdjacentTo8WayOrInside(t.Position))
                 {
-                    int n = Mathf.Min(job.count, HaulUtil.CountThatFits(t, HaulUtil.FreeKg(pawn)));
+                    int n = Mathf.Min(job.count, HaulUtil.CountThatFits(pawn, t));
                     if (n > 0)
                         HaulUtil.PickUp(pawn, t, n);
                 }
@@ -622,7 +637,7 @@ namespace HaulSmarter
                         continue;
                     if (!pawn.CanReserve(t) || !StoreUtility.TryFindBestBetterStoreCellFor(t, pawn, map, StoragePriority.Unstored, pawn.Faction, out _, false))
                         continue;
-                    int n = HaulUtil.CountThatFits(t, HaulUtil.FreeKg(pawn));
+                    int n = HaulUtil.CountThatFits(pawn, t);
                     if (n > 0 && HaulUtil.PickUp(pawn, t, n) > 0)
                         took = true;
                 }

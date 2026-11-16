@@ -204,7 +204,7 @@ namespace HaulSmarter
                         continue;
                     if (!StoreUtility.TryFindBestBetterStoreCellFor(t, pawn, map, StoreUtility.CurrentStoragePriorityOf(t), pawn.Faction, out _, false))
                         continue;
-                    int n = HaulUtil.CountThatFits(t, Mathf.Min(HaulUtil.FreeKg(pawn), Load.Capacity(pawn) * 0.5f - HaulUtil.TrackedMass(pawn)));
+                    int n = HaulUtil.CountThatFits(t, Mathf.Min(HaulUtil.FreeKg(pawn), Load.Capacity(pawn) * 0.5f - HaulUtil.TrackedMass(pawn)), CE.FreeBulk(pawn));
                     if (n > 0 && HaulUtil.PickUp(pawn, t, n) > 0)
                     {
                         lastTake[pawn.thingIDNumber] = Find.TickManager.TicksGame;

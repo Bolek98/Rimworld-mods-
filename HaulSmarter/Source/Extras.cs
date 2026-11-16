@@ -426,7 +426,7 @@ namespace HaulSmarter
                     return;
                 if (pawn.carryTracker.TryDropCarriedThing(pawn.Position, ThingPlaceMode.Near, out Thing dropped) && dropped != null
                     && HaulUtil.CanUsePockets(pawn) && dropped.Spawned)
-                    HaulUtil.PickUp(pawn, dropped, HaulUtil.CountThatFits(dropped, HaulUtil.FreeKg(pawn)));
+                    HaulUtil.PickUp(pawn, dropped, HaulUtil.CountThatFits(pawn, dropped));
             };
             yield return done;
         }
