@@ -12,7 +12,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Any Material – Build From What You Have | 1.0.0 | [AnyMaterial](AnyMaterial) |
 | [B98] Auto Pharmacy – Doctors Give the Right Drug | 1.0.0 | [AutoPharmacy](AutoPharmacy) |
 | [B98] Auto Turrets – No Crew, No Shells, No Friendly Fire | 1.3.0 | [AutoTurrets](AutoTurrets) |
-| [B98] Battle Instinct – Smart Auto Combat | 0.3.0 | [BattleInstinct](BattleInstinct) |
+| [B98] Battle Instinct – Smart Auto Combat | 0.3.1 | [BattleInstinct](BattleInstinct) |
 | [B98] Body Fit – Bodies, Clothes, Armor, Hair and Weapons Fix | 2.6.1 | [BodyFit](BodyFit) |
 | [B98] Call for Backup – Summon Your Allies | 1.0.0 | [CallForBackup](CallForBackup) |
 | [B98] Caravan Helper | 1.1.0 | [CaravanHelper](CaravanHelper) |
@@ -51,6 +51,7 @@ Source code of my RimWorld mods (RimWorld 1.7).
 | [B98] Ride & Drive – Mounts and Vehicles Together | 0.1.1 | [RideAndDrive](RideAndDrive) |
 | [B98] Smart Colonist Gear – Wardrobe | 1.0.0 | [SCGWardrobe](SCGWardrobe) |
 | [B98] Seasons & Holidays – 12 Months, Real Holidays & Weather | 1.0.1 | [SeasonsHolidays](SeasonsHolidays) |
+| [B98] Second Step – Crutches, Wheelchairs & Prosthetics | 0.2.1 | [SecondStep](SecondStep) |
 | [B98] Secular Colony – No Ideology for Your Colony (Works Mid-Save) | 1.6.1 | [SecularColony](SecularColony) |
 | [B98] Slow Growth – Colonist Pace | 0.1.3 | [SlowGrowth](SlowGrowth) |
 | [B98] Smart Colonist Gear – Auto Equip Weapons & Armor | 2.17.1 | [SmartColonistGear](SmartColonistGear) |
