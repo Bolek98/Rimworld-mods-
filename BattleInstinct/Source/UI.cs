@@ -53,11 +53,26 @@ public static class Patch_Gizmos
 			defaultLabel = ("BI_Stance" + st).Translate(),
 			defaultDesc = "BI_Stance_Desc".Translate(),
 			icon = Tex.Stance[st],
+			// 0.3.1: a menu with all three stances instead of cycling through them; applies to every selected pawn
 			action = () =>
 			{
-				d.stance = (st + 1) % 3;
-				d.anchor = p.Position;
-				d.ourJob = null;
+				var opts = new List<FloatMenuOption>();
+				for (int k = 0; k < 3; k++)
+				{
+					int v = k;
+					opts.Add(new FloatMenuOption(("BI_Stance" + v).Translate() + (v == st ? " ✓" : ""), () =>
+					{
+						foreach (Pawn sp in Find.Selector.SelectedPawns)
+						{
+							PawnData sd = sp.Drafted ? BIComp.For(sp) : null;
+							if (sd == null || !sd.auto) continue;
+							sd.stance = v;
+							sd.anchor = sp.Position;
+							sd.ourJob = null;
+						}
+					}, Tex.Stance[v], Color.white));
+				}
+				Find.WindowStack.Add(new FloatMenu(opts));
 			}
 		};
 		if (Find.Selector.NumSelected == 1 && p.abilities != null && p.abilities.AllAbilitiesForReading.Any(a => AbilityBrain.KindOf(a.def) != AKind.Ignore))

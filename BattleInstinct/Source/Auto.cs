@@ -238,6 +238,69 @@ public static class Tactics
 		return true;
 	}
 
+	// 0.3.1: attack – look for cover on the way to the enemy (walls, sandbags, rocks, trees) and move from
+	// one cover to the next towards it, instead of only checking the cells right around the pawn
+	public static bool TryAdvanceCover(Pawn p, PawnData d, Thing enemy, Verb verb, List<Thing> near, Battlefield f)
+	{
+		var s = BattleInstinctMod.Settings;
+		if (!s.useCover || enemy == null) return false;
+		Map map = p.Map;
+		float range = verb?.verbProps?.range ?? 20f;
+		float dNow = (p.Position - enemy.Position).LengthHorizontal;
+		float Rate(IntVec3 c, float cover, int ex)
+		{
+			float dC = (c - enemy.Position).LengthHorizontal;
+			float r = cover * 40f - ex * 6f - Heat.Get(map, c) * 15f - (c - p.Position).LengthHorizontal * 0.4f;
+			r += (dNow - dC) * (dNow > range ? 1.2f : 0.3f);          // out of range: getting closer matters most
+			if (dC <= range && GenSight.LineOfSight(c, enemy.Position, map, true)) r += 15f;   // can shoot from there
+			return r;
+		}
+		float here = Rate(p.Position, Spots.CoverAgainst(map, p.Position, near, out int exH), exH);
+		IntVec3 bestC = IntVec3.Invalid;
+		float bestR = here + 6f;
+		float radius = Mathf.Min(25f, Mathf.Max(12f, s.aggressiveRadius));
+		int num = GenRadial.NumCellsInRadius(radius);
+		for (int i = 2; i < num; i++)
+		{
+			IntVec3 c = p.Position + GenRadial.RadialPattern[i];
+			if (!c.InBounds(map) || !c.Standable(map) || c.Fogged(map)) continue;
+			float dC = (c - enemy.Position).LengthHorizontal;
+			if (dC > dNow + 2f || dC < 3f) continue;                 // no running away, no hugging the enemy
+			if (!NextToCover(map, c)) continue;                       // cheap check first
+			if (Spots.BadSpot(p, c, f)) continue;
+			float cover = Spots.CoverAgainst(map, c, near, out int ex);
+			if (cover < 0.25f) continue;
+			float r = Rate(c, cover, ex);
+			if (r <= bestR) continue;
+			if (c.GetDangerFor(p, map) == Danger.Deadly) continue;
+			if (!map.pawnDestinationReservationManager.CanReserve(c, p, true)) continue;
+			if (!p.CanReach(c, PathEndMode.OnCell, Danger.Deadly)) continue;
+			bestR = r;
+			bestC = c;
+		}
+		if (!bestC.IsValid || bestC == p.Position) return false;
+		Job j = JobMaker.MakeJob(JobDefOf.Goto, bestC);
+		j.locomotionUrgency = LocomotionUrgency.Sprint;
+		j.expiryInterval = 400;
+		j.checkOverrideOnExpire = true;
+		Brain.Issue(p, d, j, enemy, "BI_TxtCover");
+		return true;
+	}
+
+	// something that gives cover stands next to the cell (a wall, sandbags, a rock, a tree…)
+	private static bool NextToCover(Map map, IntVec3 c)
+	{
+		for (int i = 0; i < 8; i++)
+		{
+			IntVec3 n = c + GenAdj.AdjacentCells[i];
+			if (!n.InBounds(map)) continue;
+			foreach (Thing t in n.GetThingList(map))
+				if (t.def.fillPercent >= 0.2f && (t.def.category == ThingCategory.Building || t.def.category == ThingCategory.Plant))
+					return true;
+		}
+		return false;
+	}
+
 	// defend: nothing in range – take the best covered spot near the place to hold, facing the enemy
 	public static bool TryHoldCover(Pawn p, PawnData d, Thing enemy, float leash, List<Thing> near, Battlefield f)
 	{

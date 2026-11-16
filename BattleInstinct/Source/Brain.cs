@@ -131,6 +131,9 @@ public static class Brain
 			return;
 		}
 
+		// 0.3.1: attack – cover on the way to the enemy first
+		if (seek && Tactics.TryAdvanceCover(p, d, best, verb, near, f)) return;
+
 		// find a better place: in range, with cover, inside the leash
 		var req = new CastPositionRequest
 		{
