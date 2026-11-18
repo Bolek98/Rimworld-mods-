@@ -953,7 +953,7 @@ namespace MisakTabs
                     LifeLog.Add(p, "part", "MT_L_Installed".Translate(hediff.LabelBase, hediff.Part.Label));
                 else if (hediff is Hediff_Injury && !hediff.IsPermanent())
                 {
-                    float max = hediff.Part.def.GetMaxHealth(p);
+                    float max = Ebf.MaxHp(hediff.Part, p);
                     if (hediff.Severity >= Mathf.Max(8f, max * 0.5f))
                         LifeLog.Add(p, "wound", "MT_L_Wound".Translate(hediff.LabelBase, hediff.Part.Label));
                 }

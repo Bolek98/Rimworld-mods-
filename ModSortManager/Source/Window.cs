@@ -181,7 +181,11 @@ namespace ModSortManager
                 if (g.Count(c => File.Exists(Path.Combine(c.path, "About", "About.xml")) || Directory.Exists(c.path)) < 2)
                     continue;
                 int local = g.Count(c => !c.steam);
-                var iss = new Issue { group = 0, sev = local >= 2 ? Sev.Error : Sev.Warn, kind = PK.Dup };
+                // 0.8.1: only one copy (or none) enabled is a normal setup (e.g. a fixed local copy next to the
+                // subscribed one) – just information, and only the enabled copy gets a mark
+                int enabled = g.Count(c => c.meta != null && active.Contains(c.meta));
+                bool oneOn = enabled <= 1;
+                var iss = new Issue { group = 0, sev = oneOn ? Sev.Info : (local >= 2 ? Sev.Error : Sev.Warn), kind = PK.Dup };
                 iss.title = "MSM_DupTitle".Translate(g[0].name, g.Count);
                 var lines = new List<string>();
                 DupCopy newest = Duplicates.Newest(g);
@@ -191,13 +195,14 @@ namespace ModSortManager
                         : (active.Contains(c.meta) ? "MSM_DupActive".Translate().ToString() : "MSM_DupInstalled".Translate().ToString());
                     lines.Add("• " + Path.GetFileName(c.path) + " · v" + (c.version.NullOrEmpty() ? "?" : c.version) + (c.versions.Count > 0 ? " · " + "MSM_DupFor".Translate(string.Join(", ", c.versions.ToArray())) : "") + " · "
                         + (c.steam ? "MSM_SrcSteam".Translate().ToString() : "MSM_SrcLocal".Translate().ToString()) + " · " + state + (c == newest ? " · " + "MSM_DupNewest".Translate() : ""));
-                    if (c.meta != null)
+                    if (c.meta != null && (!oneOn || active.Contains(c.meta)))
                     {
                         Sorter.Mark(marks, c.meta, iss.sev);
                         Note(c.meta, iss.sev, "MSM_NoteDup".Translate(), PK.Dup);
                     }
                 }
-                iss.text = (local >= 2 ? "MSM_DupLocalText".Translate().ToString() : "MSM_DupSteamText".Translate().ToString()) + "\n" + string.Join("\n", lines.ToArray());
+                iss.text = (oneOn ? "MSM_DupOneOn".Translate().ToString() + "\n" : "")
+                    + (local >= 2 ? "MSM_DupLocalText".Translate().ToString() : "MSM_DupSteamText".Translate().ToString()) + "\n" + string.Join("\n", lines.ToArray());
                 List<DupCopy> gg = g;
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_KeepNewest".Translate(), () => KeepOnly(gg, Duplicates.Newest(gg))));
                 iss.actions.Add(new KeyValuePair<string, Action>("MSM_OpenFolders".Translate(), () => { foreach (DupCopy c in gg) MSM.OpenFolder(c.path); }));

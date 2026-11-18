@@ -55,7 +55,7 @@ namespace MisakTabs
                     d[r] = Mathf.Min(d[r], big ? -1f : 0.45f);
                     continue;
                 }
-                float max = p.def.GetMaxHealth(pawn);
+                float max = Ebf.MaxHp(p, pawn);
                 if (max <= 0f) continue;
                 float f = hs.GetPartHealth(p) / max;
                 if (d[r] >= 0f) d[r] = Mathf.Min(d[r], f);

@@ -259,7 +259,7 @@ namespace MisakTabs
                 }
                 else if (inj && h.Part != null)
                 {
-                    float max = h.Part.def.GetMaxHealth(pawn);
+                    float max = Ebf.MaxHp(h.Part, pawn);
                     float f = max > 0f ? hs.GetPartHealth(h.Part) / max : 1f;
                     row.stripe = row.desc = h.IsPermanent() ? Look.Blue : Anatomy.HpColor(f);
                     row.value = f.ToStringPercent();
@@ -822,7 +822,7 @@ namespace MisakTabs
             if (h.Bleeding || h is Hediff_MissingPart) return Look.Red;
             if (h.Part != null)
             {
-                float max = h.Part.def.GetMaxHealth(pawn);
+                float max = Ebf.MaxHp(h.Part, pawn);
                 float hp = pawn.health.hediffSet.GetPartHealth(h.Part);
                 if (max > 0f && hp / max < 0.5f) return Look.Red;
                 if (h is Hediff_Injury && !h.IsPermanent()) return Look.Orange;
@@ -936,7 +936,7 @@ namespace MisakTabs
                     {
                         Pair<string, Color> cond = HealthUtility.GetPartConditionLabel(pawn, g.Key);
                         Look.Text(new Rect(card.xMax - 116f, card.y + 4f, 108f, 22f), cond.First, cond.Second, GameFont.Tiny, TextAnchor.MiddleRight);
-                        float max = g.Key.def.GetMaxHealth(pawn);
+                        float max = Ebf.MaxHp(g.Key, pawn);
                         if (max > 0f) Look.Bar(new Rect(card.x + 8f, card.y + 26f, card.width - 16f, 2f), pawn.health.hediffSet.GetPartHealth(g.Key) / max, cond.Second);
                     }
                     float ry = card.y + 30f;
@@ -960,7 +960,7 @@ namespace MisakTabs
             try
             {
                 if (pawn.health.hediffSet.PartIsMissing(part)) return null;
-                float max = part.def.GetMaxHealth(pawn);
+                float max = Ebf.MaxHp(part, pawn);
                 if (max <= 0f) return null;
                 float hp = pawn.health.hediffSet.GetPartHealth(part);
                 return Mathf.CeilToInt(hp) + "/" + Mathf.RoundToInt(max);

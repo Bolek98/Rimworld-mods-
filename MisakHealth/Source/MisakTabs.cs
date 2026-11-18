@@ -86,7 +86,7 @@ namespace MisakHealth
 
     public class MTMod : Mod
     {
-        public const string Version = "1.0.1";
+        public const string Version = "1.0.2";
         public static MTSettings S;
         public static Harmony H;
         public static ModContentPack Pack;   // 0.7.0

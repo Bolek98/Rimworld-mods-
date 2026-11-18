@@ -391,7 +391,7 @@ namespace MisakInfo
                 for (BodyPartRecord q = p; q != null; q = q.parent)
                     if (added.TryGetValue(q, out St a)) { rep = a; break; }
                 bool missing = rep == St.Ok && hs.PartIsMissing(p);
-                float max = p.def.GetMaxHealth(pawn);
+                float max = Ebf.MaxHp(p, pawn);
                 float hp = missing || max <= 0f ? 0f : hs.GetPartHealth(p) / max;
                 bool big = p.coverageAbs >= 0.04f || p.parent == pawn.RaceProps.body.corePart || p.def.defName == "Hand" || p.def.defName == "Foot";
                 St st = rep != St.Ok ? rep : missing ? (big ? St.Missing : St.Ok) : St.Ok;
