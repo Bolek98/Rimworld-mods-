@@ -34,7 +34,7 @@ namespace SecondStep
 
 	public class SecondStepMod : Mod
 	{
-		public const string Version = "0.2.1";
+		public const string Version = "0.2.2";
 		public static SecondStepSettings S;
 		private Vector2 scroll;
 
@@ -279,7 +279,17 @@ namespace SecondStep
 	{
 		private Graphic[] spin;
 
-		public PawnRenderNode_Chair(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree) : base(pawn, props, tree) { }
+		// 0.2.2: the game caches the pawn's draw requests (and, zoomed out, a picture of the whole pawn), so the
+		// wheel frame changed by GetGraphic never reached the screen. AidGame.GameComponentUpdate moves the
+		// wheel phase every frame and asks for a recache only when the shown frame changes.
+		public static readonly List<PawnRenderNode_Chair> All = new List<PawnRenderNode_Chair>();
+		public float phase;
+		public int frame;
+
+		public PawnRenderNode_Chair(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree) : base(pawn, props, tree)
+		{
+			All.Add(this);
+		}
 
 		private Color Col => apparel?.DrawColor ?? Color.white;
 
@@ -315,11 +325,7 @@ namespace SecondStep
 		{
 			Pawn p = parms.pawn;
 			if (node is PawnRenderNode_Chair c && parms.facing.IsHorizontal && p?.pather != null && p.pather.Moving && p.Spawned)
-			{
-				// about 20 frames a second when rolling alone, faster when pushed; it stops with the game paused
-				int speed = p.health.hediffSet.HasHediff(Legs.Pushed) ? 2 : 3;
-				return c.Spin((Find.TickManager.TicksGame / speed) % 4);
-			}
+				return c.Spin(c.frame);
 			return base.GetGraphic(node, parms);
 		}
 
@@ -468,6 +474,45 @@ namespace SecondStep
 			if (p == null) return;
 			if (!pendingSince.ContainsKey(p.thingIDNumber))
 				pendingSince[p.thingIDNumber] = Find.TickManager.TicksGame;
+		}
+
+		// 0.2.2: wheel animation – frames by real time (not ticks, so it doesn't flicker at 3× / 4×), stopped when paused
+		private static readonly HashSet<Pawn> redraw = new HashSet<Pawn>();
+		public override void GameComponentUpdate()
+		{
+			var all = PawnRenderNode_Chair.All;
+			if (all.Count == 0) return;
+			bool paused = Find.TickManager.Paused;
+			float mult = Find.TickManager.TickRateMultiplier;
+			float speedUp = mult <= 1f ? 1f : (mult <= 3f ? 1.4f : 1.7f);
+			redraw.Clear();
+			for (int i = all.Count - 1; i >= 0; i--)
+			{
+				PawnRenderNode_Chair n = all[i];
+				Pawn p = n.tree?.pawn;
+				if (p == null || p.Destroyed || n.apparel == null || p.apparel == null || !p.apparel.WornApparel.Contains(n.apparel))
+				{
+					all.RemoveAt(i);
+					continue;
+				}
+				if (!p.Spawned) continue;
+				int f = 0;
+				if (p.pather != null && p.pather.Moving && p.Rotation.IsHorizontal)
+				{
+					if (!paused)
+						n.phase += Time.deltaTime * (p.health.hediffSet.HasHediff(Legs.Pushed) ? 14f : 10f) * speedUp;
+					f = (int)n.phase % 4;
+				}
+				if (f != n.frame)
+				{
+					n.frame = f;
+					n.requestRecache = true;
+					redraw.Add(p);
+				}
+			}
+			if (redraw.Count > 0 && Find.CameraDriver != null && Find.CameraDriver.ZoomRootSize > 18f)
+				foreach (Pawn p in redraw)
+					GlobalTextureAtlasManager.TryMarkPawnFrameSetDirty(p);
 		}
 
 		public override void GameComponentTick()
